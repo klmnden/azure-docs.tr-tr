@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 26992cfe1c6cb8555a7084075fed4d9c8daed031
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3744e51ffb4e0836eba4b1641413d8c0ee240f87
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444388"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729387"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
 
@@ -21,7 +21,7 @@ Bu makale, Azure geçişi hakkında sık sorulan sorular içerir. Bu makaleyi ok
 
 ### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>Azure geçişi yalnızca VMware iş yüklerini değerlendirmesini destekliyor mu?
 
-Evet, Azure geçişi şu anda yalnızca VMware iş yüklerini değerlendirmesini destekler. Hyper-V ve fiziksel sunucular için destek gelecek etkinleştirilecektir.
+Evet, Azure geçişi şu anda yalnızca VMware iş yüklerini değerlendirmesini destekler. Destek Önizleme'de, Hyper-V için lütfen kaydolun [burada](http://aka.ms/migratefuture) Önizleme erişim elde etmek için. Fiziksel sunucular için destek gelecek etkinleştirilecektir.
 
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Azure geçişi, vCenter sunucusunu bir VMware ortamını keşfetmeye gerekiyor mu?
 
@@ -42,7 +42,7 @@ Azure geçişi planlama aracı geçiş ve Azure Site Recovery dağıtım planlay
 
 **Vmware'den azure'a geçiş**: Şirket içi iş yüklerinizi Azure'a geçirmek istiyorsanız, Azure geçişi geçiş planlaması için kullanın. Azure geçişi, şirket içi iş yüklerini değerlendirir ve rehberlik, Öngörüler ve Azure'a geçirmenizde yardımcı mekanizmaları sağlar. Geçiş planınızla hazır olduktan sonra makineleri Azure'a geçirmek için Azure Site Recovery ve Azure veritabanı geçiş hizmeti gibi hizmetleri kullanabilirsiniz.
 
-**Hyper-v'den azure'a geçiş**: Azure geçişi şu anda yalnızca değerlendirme VMware sanal makinelerini Azure'a geçiş için destekler. Hyper-V desteği, Azure geçişi için yol haritası açıktır. Bu arada, Site Recovery dağıtım Planlayıcısı'nı kullanabilirsiniz. Hyper-V desteği, Azure Geçişi'nde etkinleştirildikten sonra Azure geçişi Hyper-V iş yüklerinin geçişini planlama için kullanabilirsiniz.
+**Hyper-v'den azure'a geçiş**: Azure geçişi genel kullanıma sunulan sürümü değerlendirme VMware sanal makinelerini Azure'a geçiş için şu anda destekler. Desteklemek için Hyper-V şu anda üretim desteği Önizleme aşamasındadır. Önizlemenin çalışırken düşünüyorsanız, lütfen kaydolun [burada](http://aka.ms/migratefuture).
 
 **Vmware'den/Hyper-v'den azure'a olağanüstü durum kurtarma**: Azure Site Recovery (Site Recovery) kullanarak azure'da olağanüstü durum kurtarma (DR) yapmak istiyorsanız, Site Recovery dağıtım Planlayıcısı planlama DR için kullanın. Site Recovery dağıtım Planlayıcısı, bir şirket içi ortamınızı kapsamlı ve ASR özgü değerlendirmesinin yapar. Bu, çoğaltma, yük devretme sanal makinelerinizin gibi başarılı DR işlemler için Site Recovery tarafından gerekli önerileri sağlar.  
 
@@ -120,7 +120,7 @@ Aracıları Vm'lerde yüklerseniz bağımlılık görselleştirmesi için bağı
 
 ### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>Azure geçişi tarafından sürekli olarak profil oluşturma söz konusu olduğunda karşıya veri birimi nedir?
 
-Azure geçişi için gönderilen veri hacmini birkaç parametre göre farklılık gösterebilir. Bir göstergesi numarası vermek için on makineler (her bir disk ve bir NIC) sahip bir projeyi gönderin yaklaşık 50 MB / gün. Bu, yaklaşık bir değerdir ve NIC ve (gönderilen verilerin makineler, NIC'ler veya disk sayısını artırmak istiyorsanız doğrusal olmayan olacaktır) diskleri için veri noktalarının sayısına göre değiştirmeniz gerekir. 
+Azure geçişi için gönderilen veri hacmini birkaç parametre göre farklılık gösterebilir. Bir göstergesi numarası vermek için on makineler (her bir disk ve bir NIC) sahip bir projeyi gönderin yaklaşık 50 MB / gün. Bu, yaklaşık bir değerdir ve NIC ve (gönderilen verilerin makineler, NIC'ler veya disk sayısını artırmak istiyorsanız doğrusal olmayan olacaktır) diskleri için veri noktalarının sayısına göre değiştirmeniz gerekir.
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Veriler beklerken ve aktarım sırasında şifrelenir?
 

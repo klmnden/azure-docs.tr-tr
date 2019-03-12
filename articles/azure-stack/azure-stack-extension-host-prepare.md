@@ -1,26 +1,26 @@
 ---
 title: Azure Stack için uzantısı konağı için hazırlama | Microsoft Docs
-description: Gelecekteki bir Azure Stack güncelleştirme paketi otomatik olarak etkinleştirilir uzantısı ana bilgisayarı hazırlamak öğrenin.
+description: Gelecekteki bir Azure Stack güncelleştirme paketi otomatik olarak etkinleştirilir, uzantısı konağı hazırlamak öğrenin.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 02/07/2019
+ms.date: 03/07/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: b0d3b3e4901fbcece13c201938be8bccb1bb9c82
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 03/07/2019
+ms.openlocfilehash: 47cc7d9f09b7fb22cf99ad010f1dc75e6388c314
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962375"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731929"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack için uzantısı konağı için hazırlama
 
-Azure Stack gerekli TCP/IP bağlantı noktası sayısını azaltarak uzantısı konağı güvenliğini sağlar. Bu makalede, Azure Stack 1808 güncelleştirmesinden sonra bir Azure Stack güncelleştirme paketi otomatik olarak etkinleştirilir uzantısı konağı hazırlama konumunda ele alınmaktadır. Bu makale, Azure Stack güncelleştirmeleri 1808 1809 ve 1811 geçerlidir.
+Azure Stack gerekli TCP/IP bağlantı noktası sayısını azaltarak uzantısı konağı güvenliğini sağlar. Bu makalede, Azure Stack Azure Stack güncelleştirme paketi 1808 güncelleştirmesinden sonra otomatik olarak etkinleştirilir uzantısı konağı hazırlama sırasında ele alınmaktadır. Bu makale, Azure Stack güncelleştirmeleri 1808 1809 ve 1811 geçerlidir.
 
 ## <a name="certificate-requirements"></a>Sertifika gereksinimleri
 
@@ -66,15 +66,14 @@ Azure Stack hazırlık Denetleyicisi Aracı'nı sertifika imzalama isteği için
     > [!Note]  
     > Azure Active Directory Federasyon Hizmetleri ile (AD FS) dağıtırsanız, aşağıdaki dizinlerin eklenmelidir **$directories** betikteki: `ADFS`, `Graph`.
 
-4. Sertifika denetimi başlatmak için aşağıdaki cmdlet'leri çalıştırın:
+4. Azure Stack'te kullanmakta olduğunuz, mevcut sertifikaları uygun dizinleri yerleştirin. Örneğin, **yönetici ARM** içindeki sertifika `Arm Admin` klasör. Ve ardından yeni oluşturulan barındırma sertifikaları koymak `Admin extension host` ve `Public extension host` dizinleri.
+5. Sertifika denetimi başlatmak için aşağıdaki cmdlet'i çalıştırın:
 
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
     ```
-
-5. Uygun dizinler sertifikalarınız yerleştirin.
 
 6. Çıktı ve tüm sertifikaları geçirmek tüm testleri denetleyin.
 
@@ -141,7 +140,7 @@ Makale [Azure Stack'i veri merkezi tümleştirmesi - uç noktalarını yayımlam
 
 ### <a name="publish-new-endpoints"></a>Yeni uç noktalarını yayımlama
 
-Duvarınızda yayımlanması için gereken iki yeni uç nokta vardır. Azure Stack ile çalışan aşağıdaki kodu kullanarak genel VIP havuzundan ayrılan IP'ler alınabilir [ayrıcalıklı uç nokta ortamdaki](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
+Duvarınızda yayımlanması için gereken iki yeni uç nokta vardır. Ayrılmış IP'ler genel VIP havuzundan Azure yığınınızı çalıştırmalısınız aşağıdaki kodu kullanarak alınabilir [ayrıcalıklı uç nokta ortamdaki](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
 ```PowerShell
 # Create a PEP Session

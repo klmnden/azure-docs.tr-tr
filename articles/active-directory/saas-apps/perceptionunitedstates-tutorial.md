@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e208f899ff26135d3ce26bfa18096210513381
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bcc93254b50da9bff6f687034d39d0058aa514e1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192056"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765967"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Perception Amerika Birleşik Devletleri (UltiPro olmayan)
 
@@ -166,7 +166,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     c. İçinde **kimlik sağlayıcı adı** metin değerini yapıştırın **SAML varlık kimliği**, hangi Azure Portalı'ndan kopyaladığınız. 
 
-    d. İçinde **SAML etki alanı metin kutusu**, gibi etki alanını girin **@contoso.com**.
+    d. İçinde **SAML etki alanı metin kutusu**, gibi etki alanını girin  **\@contoso.com**.
 
     e. Tıklayarak **yeniden karşıya** yüklenecek **meta veri XML** dosya.
 

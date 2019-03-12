@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 426a8f3df67ee00ded0591024447770e4cfedc32
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 11e92b4c6b8799cde489369a202f8f7c8c05ca6c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020719"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536003"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak ilk data factory'nizi derleme
 > [!div class="op_single_selector"]
@@ -162,7 +162,7 @@ Bu adımda, isteğe bağlı HDInsight kümesini data factory’nize bağlarsın�
 
      c. HDInsight kümesi JSON özelliğinde (**linkedServiceName**) belirttiğiniz blob depolamada bir varsayılan kapsayıcı oluşturur. HDInsight, küme silindiğinde bu kapsayıcıyı silmez. Bu davranış tasarım gereğidir. İsteğe bağlı HDInsight bağlı hizmeti kullanıldığında, mevcut canlı bir küme olmadığı sürece bir dilim her işlendiğinde bir HDInsight kümesi oluşturulur (**timeToLive**). İşlem tamamlandığında küme otomatik olarak silinir.
 
-     Daha fazla dilim işlendikçe, blob depolamanızda çok sayıda kapsayıcı görürsünüz. İşlerin sorunları giderilmesi için bunlara gerek yoksa, depolama maliyetini azaltmak için bunları silmek isteyebilirsiniz. Bu kapsayıcıların adları şu deseni izler: "adf**verifabrikanızınadı**-**bağlıhizmeadı**-tarihsaatdamgası." Blob depolamanızdaki kapsayıcıları silmek için [Azure Depolama Gezgini](http://storageexplorer.com/) gibi araçları kullanın.
+     Daha fazla dilim işlendikçe, blob depolamanızda çok sayıda kapsayıcı görürsünüz. İşlerin sorunları giderilmesi için bunlara gerek yoksa, depolama maliyetini azaltmak için bunları silmek isteyebilirsiniz. Bu kapsayıcıların adları şu deseni izler: "adf**verifabrikanızınadı**-**bağlıhizmeadı**-tarihsaatdamgası." Blob depolamanızdaki kapsayıcıları silmek için [Azure Depolama Gezgini](https://storageexplorer.com/) gibi araçları kullanın.
 
      Daha fazla bilgi için bkz. [İsteğe bağlı HDInsight bağlı hizmeti](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
@@ -326,7 +326,7 @@ Bu adımda, bir HDInsightHive etkinliğiyle ilk işlem hattınızı oluşturursu
 
     İşlem hattının **start** ve **end** özellikleri işlem hattının etkin dönemini belirtir.
 
-    JSON etkinliği Hive betiği tarafından belirtilen işlemde çalışacağını belirtirsiniz **linkedServiceName**: **Hdınsightondemandlinkedservice**.
+    JSON etkinliği Hive betiği tarafından belirtilen işlemde çalışacağını belirtirsiniz **linkedServiceName**: **HDInsightOnDemandLinkedService**.
 
    > [!NOTE]
    > Örnekte kullanılan JSON özellikleri hakkında daha fazla bilgi için [Data Factory’deki işlem hatları ve etkinlikler](data-factory-create-pipelines.md) sayfasındaki “İşlem Hattı JSON’u” bölümüne bakın.

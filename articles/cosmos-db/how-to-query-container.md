@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 445ddb3c580218e21410c961c614a8a9e29d21a0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 2ea228a1db204170f947b5fe71f1865a4620b0f4
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328342"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549043"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Sorgu bir Azure Cosmos kapsayıcısı
 
@@ -32,7 +32,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
 
 Aşağıdaki sorgunun bölüm anahtarına göre bir filtre yok (`DeviceId`) ve onu çalıştırdığı bölümün dizinine göre tüm bölümleri için yayılır. Bölümler arasında sorgu çalıştırmak için ayarlanmış `EnableCrossPartitionQuery` true (veya `x-ms-documentdb-query-enablecrosspartition`  REST API'de).
 
-EnablecrossPartitionQuery özelliği bir Boole değeri kabul eder. Ayarlandığında true ve sorgunuzu bir bölüm anahtarı yoksa, Azure Cosmos DB bölümler arasında sorguyu yayar. Tüm bölümler için ayrı ayrı sorgular göndererek yayma gerçekleştirilir. Quey sonuçları okumak için istemci uygulamaları FeedResponse sonuçlardan kullanma ve ContinuationToken özelliğini denetleyin. Tüm sonuçları okumak için ContinuationToken null olana kadar veriler üzerinde yineleme tutun. 
+EnableCrossPartitionQuery özelliği bir Boole değeri kabul eder. Ayarlandığında true ve sorgunuzu bir bölüm anahtarı yoksa, Azure Cosmos DB bölümler arasında sorguyu yayar. Tüm bölümler için ayrı ayrı sorgular göndererek yayma gerçekleştirilir. Sorgu sonuçları okumak için istemci uygulamaları FeedResponse sonuçlardan kullanma ve ContinuationToken özelliğini denetleyin. Tüm sonuçları okumak için ContinuationToken null olana kadar veriler üzerinde yineleme tutun. 
 
 ```csharp
 // Query across partition keys into a class called, DeviceReading

@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: bccf12c4e0614ec02414001ab7cf3c4b7f189e65
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c682d35872587aa238ca9d76ade3d58654963628
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456009"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551747"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Öğretici: Azure Batch ile paralel R simülasyonu çalıştırma 
 
-Ölçekli paralel R iş yüklerinizi, Azure Batch’i doğrudan R oturumunuzdan kullanmanıza olanak tanıyan hafif bir R paketi olan [doAzureParallel](http://www.github.com/Azure/doAzureParallel) kullanarak çalıştırın. doAzureParallel paketi, popüler [foreach](http://cran.r-project.org/web/packages/foreach/index.html) R paketi temel alınarak oluşturulmuştur. doAzureParallel, foreach döngüsünün her bir yinelemesini alır ve bir Azure Batch görevi olarak gönderir.
+Ölçekli paralel R iş yüklerinizi, Azure Batch’i doğrudan R oturumunuzdan kullanmanıza olanak tanıyan hafif bir R paketi olan [doAzureParallel](https://www.github.com/Azure/doAzureParallel) kullanarak çalıştırın. doAzureParallel paketi, popüler [foreach](https://cran.r-project.org/web/packages/foreach/index.html) R paketi temel alınarak oluşturulmuştur. doAzureParallel, foreach döngüsünün her bir yinelemesini alır ve bir Azure Batch görevi olarak gönderir.
 
 Bu öğreticide bir Batch havuzu dağıtma ve doğrudan RStudio içinde Azure Batch’te paralel bir R işi çalıştırma işlemi gösterilmektedir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
  
@@ -45,7 +45,7 @@ Bu öğreticide bir Batch havuzu dağıtma ve doğrudan RStudio içinde Azure Ba
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>doAzureParallel yükleme
 
-RStudio konsolunda yükleme [doAzureParallel GitHub paketini](http://www.github.com/Azure/doAzureParallel). Aşağıdaki komutlar, paketi ve bağımlılıklarını geçerli R oturumunuzda indirip yükler: 
+RStudio konsolunda yükleme [doAzureParallel GitHub paketini](https://www.github.com/Azure/doAzureParallel). Aşağıdaki komutlar, paketi ve bağımlılıklarını geçerli R oturumunuzda indirip yükler: 
 
 ```R
 # Install the devtools package  

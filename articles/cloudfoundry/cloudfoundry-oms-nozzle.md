@@ -12,20 +12,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 468de59408ae3403fb16e6272bb2f7517e0c2190
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2038ce62e252260dda73813df97a68ee4b3fff61
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445509"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548907"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry sistemin izlenmesi için Azure Log Analytics Nozzle dağıtma
 
-[Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) bir Azure hizmetidir. Bulutunuzdan oluşturulur ve şirket içi Ortamlarınızdaki verileri toplayıp analiz yardımcı olur.
+[Azure İzleyici](https://azure.microsoft.com/services/log-analytics/) bir Azure hizmetidir. Bulutunuzdan oluşturulur ve şirket içi Ortamlarınızdaki verileri toplayıp analiz yardımcı olur.
 
-Log Analytics Nozzle (başlık) ölçümleri ileten bir Cloud Foundry (CF) bileşeni olduğu [Cloud Foundry loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) Log analytics'e firehose. Nozzle ile toplamak, görüntüleyebilir ve birden çok dağıtımlarınızda CF sistem durumu ve performans ölçümlerinizi, analiz edin.
+Log Analytics Nozzle (başlık) ölçümleri ileten bir Cloud Foundry (CF) bileşeni olduğu [Cloud Foundry loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) Azure İzleyici günlüklerine firehose. Nozzle ile toplamak, görüntüleyebilir ve birden çok dağıtımlarınızda CF sistem durumu ve performans ölçümlerinizi, analiz edin.
 
-Bu belgede, CF ortamınıza Nozzle dağıtma ve ardından verileri Log Analytics konsolundan erişmeyi öğrenin.
+Bu belgede, CF ortamınıza Nozzle dağıtma ve Azure İzleyici günlüklerine konsoldan ardından verilere öğrenin.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -53,11 +55,11 @@ UAA komut satırı istemci ayarlamadan önce RubyGems yüklü olduğundan emin o
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Azure'da Log Analytics çalışma alanı oluşturma
 
-El ile veya bir şablon kullanarak Log Analytics çalışma alanı oluşturabilirsiniz. Şablon önceden yapılandırılmış KPI görünümler ve uyarılar Log Analytics konsolun bir kurulumunu dağıtır. 
+El ile veya bir şablon kullanarak Log Analytics çalışma alanı oluşturabilirsiniz. Şablon, bir önceden yapılandırılmış KPI görünümler ve uyarılar Azure İzleyici günlüklerine Konsolu Kurulumu dağıtır. 
 
 #### <a name="to-create-the-workspace-manually"></a>Çalışma alanını el ile oluşturmak için:
 
-1. Azure portalında Azure Marketi'nde Hizmetler listesinde arama yapın ve Log Analytics'ı seçin.
+1. Azure portalında Azure Marketi'nde Hizmetler listesinde arama yapın ve sonra Log Analytics çalışma alanı seçin.
 2. Seçin **Oluştur**ve ardından şu öğeler için seçim:
 
    * **Log Analytics çalışma alanı**: Çalışma alanınız için bir ad yazın.
@@ -66,7 +68,7 @@ El ile veya bir şablon kullanarak Log Analytics çalışma alanı oluşturabili
    * **Konum**: Konumu girin.
    * **Fiyatlandırma katmanı**: Seçin **Tamam** tamamlanması.
 
-Daha fazla bilgi için [Log Analytics ile çalışmaya başlama](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+Daha fazla bilgi için [Azure İzleyici günlüklerine ile çalışmaya başlama](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Azure market yerden izleme şablonu ile Log Analytics çalışma alanı oluşturmak için:
 
@@ -91,7 +93,7 @@ Birkaç Nozzle dağıtmanın farklı yöntemleri vardır: CF uygulama olarak ya 
 
 ### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>PCF Ops Manager kutucuk olarak Nozzle dağıtma
 
-Adımlarını izleyin [yükleme ve Azure Log Analytics Nozzle PCF için yapılandırma](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Bu basitleştirilmiş bir yaklaşım, PCF Ops manager kutucuk otomatik olarak yapılandıracak ve nozzle anında iletme. 
+Adımlarını izleyin [yükleme ve Azure Log Analytics Nozzle PCF için yapılandırma](https://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Bu basitleştirilmiş bir yaklaşım, PCF Ops manager kutucuk otomatik olarak yapılandıracak ve nozzle anında iletme. 
 
 ### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>Nozzle CF uygulaması olarak el ile dağıtma
 
@@ -136,9 +138,9 @@ cd oms-log-analytics-firehose-nozzle
 ```
 OMS_WORKSPACE             : Log Analytics workspace ID: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
 OMS_KEY                   : OMS key: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
-OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
-OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
-OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
+OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Azure Monitor logs. The default is 10 seconds.
+OMS_BATCH_TIME            : Interval for posting a batch to Azure Monitor logs. The default is 10 seconds.
+OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Azure Monitor logs. The default is 1000.
 API_ADDR                  : The API URL of the CF environment. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 DOPPLER_ADDR              : Loggregator's traffic controller URL. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 FIREHOSE_USER             : CF user you created in the preceding section, "Create a CF user and grant required privileges." This user has firehose and Cloud Controller admin access.
@@ -148,8 +150,8 @@ SKIP_SSL_VALIDATION       : If true, allows insecure connections to the UAA and 
 CF_ENVIRONMENT            : Enter any string value for identifying logs and metrics from different CF environments.
 IDLE_TIMEOUT              : The Keep Alive duration for the firehose consumer. The default is 60 seconds.
 LOG_LEVEL                 : The logging level of the Nozzle. Valid levels are DEBUG, INFO, and ERROR.
-LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to Log Analytics as CounterEvents.
-LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Log Analytics. The default is 60 seconds.
+LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to Azure Monitor logs as CounterEvents.
+LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Azure Monitor logs. The default is 60 seconds.
 ```
 
 ### <a name="push-the-application-from-your-development-computer"></a>Uygulamanızı geliştirme bilgisayarınızın uygulamadan anında iletme
@@ -176,7 +178,7 @@ OMS Nozzle uygulamayı çalışır durumda olduğundan emin olun.
 
 ## <a name="view-the-data-in-the-azure-portal"></a>Azure portalında veri görüntüleme
 
-İzleme çözümü Marketi şablon aracılığıyla dağıttıysanız, Azure portalına gidin ve çözüm bulun. Çözüm, şablonda belirtilen kaynak grubunda bulabilirsiniz. Çözüm'e tıklayın, göz atın "Log Analytics konsola" önceden yapılandırılmış görünümler, üst Cloud Foundry sistem KPI'ları, uygulama verileri, uyarıları ve VM sistem durumu ölçümleri listelenir. 
+İzleme çözümü Marketi şablon aracılığıyla dağıttıysanız, Azure portalına gidin ve çözüm bulun. Çözüm, şablonda belirtilen kaynak grubunda bulabilirsiniz. Çözüm'e tıklayın, göz atın "log analytics konsola" önceden yapılandırılmış görünümler, üst Cloud Foundry sistem KPI'ları, uygulama verileri, uyarıları ve VM sistem durumu ölçümleri listelenir. 
 
 Log Analytics çalışma alanını el ile oluşturduysanız, görünümler ve Uyarılar oluşturmak için aşağıdaki adımları izleyin:
 
@@ -200,7 +202,7 @@ Yapabilecekleriniz [uyarıları oluşturma](https://docs.microsoft.com/azure/log
 | Tür CF_ValueMetric_CL Origin_s = route_emitter Name_s = ConsulDownMode Value_d = > 0 | Sonuçları > 0 sayısı   | Consul düzenli aralıklarla sistem durumunu gösterir. 0, sistemin iyi durumda ve rota verici Consul kapalı olduğunu algılar 1 anlamına gelir anlamına gelir. |
 | Tür CF_CounterEvent_CL Origin_s = ("Name_s="TruncatingBuffer.DroppedMessages veya Name_s="doppler.shedEnvelopes") DopplerServer Delta_d = > 0 | Sonuçları > 0 sayısı | Kasıtlı olarak Doppler tarafından ters baskı denen nedeniyle bırakılan ileti değişim sayısı. |
 | Tür CF_LogMessage_CL SourceType_s = LGR MessageType_s = hata =                      | Sonuçları > 0 sayısı   | Loggregator yayan **LGR** günlüğe kaydetme işlemi ile ilgili sorunlar belirtmek için. Günlük ileti çıktısını çok fazla olduğunda, ilgili bir sorun örneğidir. |
-| Tür CF_ValueMetric_CL Name_s = slowConsumerAlert =                               | Sonuçları > 0 sayısı   | Nozzle loggregator yavaş tüketici uyarı aldığında, gönderdiği **slowConsumerAlert** Log analytics'e ValueMetric. |
+| Tür CF_ValueMetric_CL Name_s = slowConsumerAlert =                               | Sonuçları > 0 sayısı   | Nozzle loggregator yavaş tüketici uyarı aldığında, gönderdiği **slowConsumerAlert** ValueMetric Azure İzleyici için günlüğe kaydeder. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Sonuçları > 0 sayısı   | Kayıp olayları delta sayısı bir eşiği ulaşırsa Nozzle çalıştırılırken bir sorun olabilir anlamına gelir. |
 
 ## <a name="scale"></a>Ölçek
@@ -235,7 +237,7 @@ CF CLI penceresinde şunu yazın:
 cf delete <App Name> -r
 ```
 
-OMS portalında veri Nozzle kaldırırsanız, otomatik olarak kaldırılmaz. Log Analytics bekletme ayarınıza göre süresi dolar.
+OMS portalında veri Nozzle kaldırırsanız, otomatik olarak kaldırılmaz. Bağlı olarak ayarlama, Azure İzleyici günlüklerine bekletme süresi dolar.
 
 ## <a name="support-and-feedback"></a>Destek ve geri bildirim
 
@@ -243,6 +245,6 @@ Azure Log Analytics Nozzle olarak açık kaynaklı. Sorular ve geri bildirim gö
 
 ## <a name="next-step"></a>Sonraki adım
 
-PCF2.0 VM performans ölçümlerini Azure log analytics nozzle için sistem ölçümlerini ileticisini aktarılan ve Log Analytics çalışma alanınıza tümleşik. Artık VM performans ölçümleri için Log Analytics aracısını gerekir. Ancak Log Analytics aracısını Syslog bilgilerini toplamak için kullanmaya devam edebilirsiniz. Log Analytics aracısını CF vm'lere bir Bosh eklentisi olarak yüklenir. 
+PCF2.0 VM performans ölçümlerini Azure Log Analytics nozzle için sistem ölçümlerini ileticisini aktarılan ve Log Analytics çalışma alanınıza tümleşik. Artık VM performans ölçümleri için Log Analytics aracısını gerekir. Ancak Log Analytics aracısını Syslog bilgilerini toplamak için kullanmaya devam edebilirsiniz. Log Analytics aracısını CF vm'lere bir Bosh eklentisi olarak yüklenir. 
 
 Ayrıntılar için bkz [dağıtma Log Analytics aracısını Cloud Foundry dağıtımınıza](https://github.com/Azure/oms-agent-for-linux-boshrelease).

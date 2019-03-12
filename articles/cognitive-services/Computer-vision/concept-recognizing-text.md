@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ea5084128848db7d799b1791aef528305b4f6df4
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 9bb574fcb9782aad41ea0fd276b8addee19caf01
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192376"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588984"
 ---
-# <a name="recognize-printed-and-handwritten-text"></a>Yazdırılan ve el yazısı metinleri tanıma
+# <a name="recognize-printed-and-handwritten-text"></a>Yazdırılmış ve el yazısı ile yazılan metinleri tanıma
 
 Görüntü işleme, birkaç resimlerde görüntülenen yazdırılan veya el yazısı metinleri algılamanıza ve ayıklamanıza hizmetleri sağlar. Bu senaryolar notetaking, tıbbi kayıtları, güvenlik ve bankacılık gibi birçok yararlı olur. Aşağıdaki üç bölüm ayrıntısı üç farklı metin tanıma API'leri, her farklı kullanım örnekleri için İyileştirildi.
 
@@ -26,7 +26,7 @@ Görüntü işleme, birkaç resimlerde görüntülenen yazdırılan veya el yaz�
 
 Okuma API'si, sunduğumuz en son tanıma modelleri ile bir resimdeki metin içeriğini algılar ve bir makine tarafından okunabilir bir karakter akışı halinde tanımlanan metin dönüştürür. Çok fazla görsel gürültü ile görüntü ve metin ağırlıklı görüntüleri (örneğin, dijital olarak taranan belgeleri için) için optimize edilmiştir. Daha büyük belgelere bir sonuç döndürmek için birkaç dakika sürebilir çünkü zaman uyumsuz olarak yürütür.
 
-Okuma işleminin çıktısını tanınan sözcükleri özgün satır gruplandırmalarına tutar. Her satırın sınırlama kutusu koordinatları ile gelir ve her sözcük satır içinde kendi koordinatları de içerir. Bir sözcük düşük güvenle tanınırsa bu bilgileri de aktarılır. Bkz: [okuma API başvuru belgeleri](https://westus.api.cognitive.microosft.com/vision/v2.0/read/core/asyncBatchAnalyze) daha fazla bilgi için.
+Okuma işleminin çıktısını tanınan sözcükleri özgün satır gruplandırmalarına tutar. Her satırın sınırlama kutusu koordinatları ile gelir ve her sözcük satır içinde kendi koordinatları de içerir. Bir sözcük düşük güvenle tanınırsa bu bilgileri de aktarılır. Bkz: [okuma API başvuru belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) daha fazla bilgi için.
 
 > [!NOTE]
 > Bu özellik şu anda Önizleme aşamasındadır ve yalnızca İngilizce metinlerde kullanılabilir.

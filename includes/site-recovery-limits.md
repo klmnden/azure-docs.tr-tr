@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-ms.openlocfilehash: 639faef9d95a6ff3ba307290add3bee73904fee0
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 3da48fb07a144b360861244026e5b8d5fcea53b1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52272669"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553958"
 ---
-Azure Site Recovery için aşağıdaki sınırlar geçerlidir:
+Azure Site Recovery için aşağıdaki sınırlar geçerlidir.
 
-| SINIR TANIMLAYICI | VARSAYILAN SINIR |
+| Sınır tanımlayıcı | Varsayılan limit |
 | --- | --- | --- | --- |
 | Kasaları başına abonelik sayısı |500 |     
 | Azure kasası başına sunucularının sayısı |250 |

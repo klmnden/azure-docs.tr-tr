@@ -1,5 +1,5 @@
 ---
-title: 'Python: Azure Data Lake depolama Gen1 üzerinde dosya sistemi işlemleri | Microsoft Docs'
+title: 'Python: Azure Data Lake depolama Gen1 gerçekleştirilen dosya sistemi işlemleri | Microsoft Docs'
 description: Data Lake depolama Gen1 dosya sistemiyle çalışmak için Python SDK'sını kullanmayı öğrenin.
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 33abaf7488579a501dc7e2d0b63645726b86c28b
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: ed28c502bb407c65b388704c177fca13cecc38d6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390731"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548635"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Dosya sistemi işlemlerini Python kullanarak Azure Data Lake depolama Gen1
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Data Lake depolama Gen1 ile çalışmak için Python'ı kullanarak, üç modül 
 
 * `azure-mgmt-resource` modülü, Active Directory gibi şeyler için Azure modüllerini içerir.
 * `azure-mgmt-datalake-store` Modülü Azure Data Lake depolama Gen1 hesap yönetim işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [azure-mgmt-datalake-store modülü başvurusu](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* `azure-datalake-store` Modülü Azure Data Lake depolama Gen1 dosya sistemi işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [azure-datalake-store dosya sistemi modül başvurusu](http://azure-datalake-store.readthedocs.io/en/latest/).
+* `azure-datalake-store` Modülü Azure Data Lake depolama Gen1 dosya sistemi işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [azure-datalake-store dosya sistemi modül başvurusu](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Modülleri yüklemek için aşağıdaki komutları kullanın.
 
@@ -86,7 +86,7 @@ pip install azure-datalake-store
 
 3. Değişiklikleri örneğim.py uygulamasına kaydedin.
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 
 Bu bölümde Azure AD ile gerçekleştirilen farklı kimlik doğrulama yöntemlerinden bahsedeceğiz. Şu seçenekleri kullanabilirsiniz:
 
@@ -131,5 +131,5 @@ Aşağıdaki kod parçacığı ilk Data Lake depolama Gen1 hesabı istemcisini o
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Azure Data Lake depolama Gen1 Python (dosya sistemi) başvurusu](http://azure-datalake-store.readthedocs.io/en/latest)
+* [Azure Data Lake depolama Gen1 Python (dosya sistemi) başvurusu](https://azure-datalake-store.readthedocs.io/en/latest)
 * [Azure Data Lake depolama Gen1 ile uyumlu açık kaynak büyük veri uygulamaları](data-lake-store-compatible-oss-other-applications.md)

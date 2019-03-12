@@ -3,23 +3,23 @@ title: Hadoop MapReduce etkinliği Azure Data Factory kullanarak verileri dönü
 description: Hadoop MapReduce programları bir Azure HDInsight kümesinde bir Azure data factory'deki çalıştırılarak verileri işlemek nasıl öğrenin.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: 4543982f731feb44a8f02581c11714dec2b206f9
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: ccc194dd4120762a30da3ad28cdabed6faf53ba2
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214513"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576405"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Hadoop MapReduce etkinliği Azure Data Factory kullanarak verileri dönüştürme
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-map-reduce.md)
 > * [Geçerli sürüm](transform-data-using-hadoop-map-reduce.md)
 
@@ -60,7 +60,7 @@ Bkz: [Pig](transform-data-using-hadoop-pig.md) ve [Hive](transform-data-using-ha
 
 ## <a name="syntax-details"></a>Söz dizimi ayrıntıları
 
-| Özellik          | Açıklama                              | Gereklidir |
+| Özellik          | Açıklama                              | Gerekli |
 | ----------------- | ---------------------------------------- | -------- |
 | ad              | Etkinliğin adı                     | Evet      |
 | açıklama       | Etkinliğin ne için kullanıldığını açıklayan metin | Hayır       |
@@ -70,7 +70,7 @@ Bkz: [Pig](transform-data-using-hadoop-pig.md) ve [Hive](transform-data-using-ha
 | jarLinkedService  | Bir Azure depolama bağlı hizmeti başvuru Jar dosyalarını depolamak için kullanılır. Bu bağlı hizmeti belirtmezseniz, Azure depolama bağlı HDInsight bağlı hizmette tanımlanan hizmeti kullanılır. | Hayır       |
 | jarFilePath       | JarLinkedService tarafından başvurulan Azure storage'da depolanan Jar dosyalarının yolunu belirtin. Dosya adı büyük/küçük harfe duyarlıdır. | Evet      |
 | jarlibs           | Dizi jarLinkedService içinde tanımlanan Azure Depolama'da depolanan bir iş tarafından başvurulan Jar kitaplık dosyalarının yolunu dize. Dosya adı büyük/küçük harfe duyarlıdır. | Hayır       |
-| Getdebugınfo      | Günlük dosyaları Azure depolama için ne zaman kopyalanır belirtir HDInsight küme tarafından kullanılan (veya) jarLinkedService belirtilir. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: Yok. | Hayır       |
+| getDebugInfo      | Günlük dosyaları Azure depolama için ne zaman kopyalanır belirtir HDInsight küme tarafından kullanılan (veya) jarLinkedService belirtilir. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: Yok. | Hayır       |
 | bağımsız değişkenler         | Hadoop işi için bağımsız değişkenleri dizisini belirtir. Bağımsız değişkenleri, her görev için komut satırı bağımsız değişkenleri geçirilir. | Hayır       |
 | tanımlar           | Parametreler içinde Hive betiğine başvurmak için anahtar/değer çiftleri belirtin. | Hayır       |
 

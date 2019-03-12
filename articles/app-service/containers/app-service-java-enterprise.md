@@ -13,14 +13,17 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 6618e5317db1a7a4332a35b7ee9cd74934c8a787
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ee39d2d2cf85b8de52804ac764b17db348a053e0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737901"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538230"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Enterprise Kılavuzu
+
+> [!NOTE] 
+> App Service Linux üzerinde Java Enterprise Edition, şu anda Önizleme aşamasındadır. Bu yığın **değil** üretim yönelik iş için önerilir. Lütfen [Java Geliştirici Kılavuzu](app-service-linux-java.md) bizim Java SE ve Tomcat yığınları hakkında bilgi için.
 
 Linux üzerinde Azure App Service'te Java geliştiricilerinin oluşturmanızı, dağıtmanızı ve Linux tabanlı tam olarak yönetilen bir hizmet üzerinde Java Enterprise (Java EE) uygulama ölçeklendirme sağlar.  Temel Kurumsal Java Çalışma zamanı ortamı olan açık kaynaklı [Wildfly](https://wildfly.org/) uygulama sunucusu.
 

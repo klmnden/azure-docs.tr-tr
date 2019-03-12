@@ -10,16 +10,16 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 72dec3effe5e350818c01cf65c9140e778effd17
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860296"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544333"
 ---
 # <a name="grammar-format"></a>Dil bilgisi biçimi
 
-Dil bilgisi şu doğal dil sorguları anlam sorgusu ifadelere nasıl dönüştürüleceğini yanı sıra hizmet yorumlayabilir doğal dil sorguları ağırlıklı kümesini belirten bir XML dosyasıdır.  Dilbilgisi söz dizimi dayanır [SRGS](http://www.w3.org/TR/speech-grammar/), veri dizin tümleştirmesi ve anlam işlevleri desteklemek için uzantılara sahip konuşma tanıma dilbilgisi için W3C standart.
+Dil bilgisi şu doğal dil sorguları anlam sorgusu ifadelere nasıl dönüştürüleceğini yanı sıra hizmet yorumlayabilir doğal dil sorguları ağırlıklı kümesini belirten bir XML dosyasıdır.  Dilbilgisi söz dizimi dayanır [SRGS](https://www.w3.org/TR/speech-grammar/), veri dizin tümleştirmesi ve anlam işlevleri desteklemek için uzantılara sahip konuşma tanıma dilbilgisi için W3C standart.
 
 Dilbilgisi içinde kullanılabilen söz dizimsel öğelerin her biri aşağıda açıklanmıştır.  Bkz: [Bu örnek](#example) bağlamında bu öğeleri kullanımını gösteren tam bir dil bilgisi için.
 

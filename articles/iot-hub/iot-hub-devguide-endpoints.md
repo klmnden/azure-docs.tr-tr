@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: 72604f84297ddc77b9732c19789d249ac4fa7774
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 28019163cfec1a9d2e3c12346a6aba2bd00b30b1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010846"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539556"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Başvuru - IOT Hub uç noktaları
 
@@ -53,7 +53,7 @@ Aşağıdaki listede, uç noktalar açıklanmaktadır:
 
   * *Doğrudan yöntem isteklerini alacak*. Bir cihaz dinlemek için bu endpoint kullanır. [doğrudan yöntemini](iot-hub-devguide-direct-methods.md)ait istekleri.
 
-    Bu uç noktaları kullanarak sunulan [MQTT v3.1.1](http://mqtt.org/), HTTPS 1.1 ve [AMQP 1.0](https://www.amqp.org/) protokoller. AMQP üzerinden kullanılabilir ayrıca [WebSockets](https://tools.ietf.org/html/rfc6455) bağlantı noktası 443 üzerinden.
+    Bu uç noktaları kullanarak sunulan [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 ve [AMQP 1.0](https://www.amqp.org/) protokoller. AMQP üzerinden kullanılabilir ayrıca [WebSockets](https://tools.ietf.org/html/rfc6455) bağlantı noktası 443 üzerinden.
 
 * **Hizmet uç noktalarını**. Her IOT hub uç noktaları cihazlarınızla iletişim kurmak çözüm arka ucunuz için bir dizi kullanıma sunar. Bir özel durum dışında Bu uç noktalar yalnızca kullanılarak açılır [AMQP](https://www.amqp.org/) protokolü. Yöntem çağırma uç noktası HTTPS protokolü üzerinden sunulur.
   
@@ -83,6 +83,15 @@ IOT hub'ı, şu anda ek uç noktalar olarak aşağıdaki Azure Hizmetleri destek
 * Service Bus Konuları
 
 Uç noktalar ekleyebilirsiniz sayısı limitleri için bkz [kotalar ve azaltma](iot-hub-devguide-quotas-throttling.md).
+
+REST API kullanabilirsiniz [uç nokta sistem durumu alma](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) uç sistem durumunu almak için. Kullanmanızı öneririz [IOT hub'ı ölçümleri](iot-hub-metrics.md) tanımlamak ve uç nokta sistem durumu ölü ya da sistem durumu kötü olduğunda, hatalarını ayıklamanıza yönlendirme ileti gecikmesi için ilgili.
+
+|Sağlık Durumu|Açıklama|
+|---|---|
+|iyi durumda|Uç nokta, beklendiği gibi iletileri kabul ediyor.|
+|İyi durumda olmayan|Uç nokta ileti beklendiği gibi kabul etmiyor ve IOT hub'ı Bu uç noktaya veri göndermek için yeniden deneniyor. IOT Hub durumu sonunda tutarlı bir duruma olduğunda sağlıksız bir uç nokta durumunu iyi durumda olacak şekilde güncelleştirilir.|
+|bilinmiyor|IOT Hub uç noktası ile bağlantı değil. İleti teslim veya bu uç noktadan reddetti.|
+|eski|IOT hub'ı iletileri gönderme retrial dönemin denenen sonra uç noktayı iletileri kabul etmiyor.|
 
 ## <a name="field-gateways"></a>Alan ağ geçitleri
 

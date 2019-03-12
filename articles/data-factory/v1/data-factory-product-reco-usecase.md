@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8ff100cd3fc1c9def10b4e585119414281b90d92
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4a3d1c513bcfb6449ca73d873c0dd9831c6fe01d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017387"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540139"
 ---
 # <a name="use-case---product-recommendations"></a>Kullanım Örneği - Ürün Önerileri
 Azure Data Factory Çözüm Hızlandırıcıları, Cortana Intelligence Suite uygulamak için kullanılan birçok hizmetlerden biridir.  Bkz: [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) bu paketi hakkında daha fazla ayrıntı için. Bu belgede, Azure kullanıcılarının zaten çözülen ve Azure Data Factory ve diğer Cortana Intelligence Bileşen Hizmetleri kullanılarak uygulanan genel bir kullanım örneği açıklanmaktadır.
@@ -50,7 +50,7 @@ Tüm verileri birleştirilir ve müşteri vade farkı ve Eylemler, Ürün Katalo
 
 Ham web günlüğü dosyaları gigabayt, yarı yapılandırılmış dosyalar olarak çevrimiçi satış şirketi'nın Web sitesinden günlük oluşturulur. Ham web günlüğü dosyaları ve müşteri ve ürün kataloğu bilgilerini alınan düzenli olarak bir hizmet olarak Data Factory'nin küresel çapta dağıtılan veri hareketini kullanarak bir Azure Blob Depolama içine. Gün için ham günlük dosyaları, uzun vadeli depolama için blob depolama alanında (yıl ve aya göre) bölümlenir.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) ham günlük dosyaları blob depolama bölümlemek ve uygun ölçekte hem Hive ve Pig betiklerini kullanarak alınan günlükler işlemek için kullanılır. Bölümlenmiş web verilerini günlüğe kaydeder. bir machine learning öneri sistemin kişiselleştirilmiş ürün önerileri oluşturma için gerekli girişleri ayıklamak için işlenir.
 
-Makine öğrenimi Bu örnekte kullanılan öneri açık kaynaklı bir makine öğrenme öneri platformdan sistemidir [Apache Mahout](http://mahout.apache.org/).  Tüm [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) veya senaryoya özel model uygulanabilir.  Mahout model, genel kullanım modellerini Web sitesindeki öğeleri arasında benzerlik tahmin etmek ve tek tek kullanıcıya bağlı kişiselleştirilmiş öneriler oluşturmak için kullanılır.
+Makine öğrenimi Bu örnekte kullanılan öneri açık kaynaklı bir makine öğrenme öneri platformdan sistemidir [Apache Mahout](https://mahout.apache.org/).  Tüm [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) veya senaryoya özel model uygulanabilir.  Mahout model, genel kullanım modellerini Web sitesindeki öğeleri arasında benzerlik tahmin etmek ve tek tek kullanıcıya bağlı kişiselleştirilmiş öneriler oluşturmak için kullanılır.
 
 Son olarak, kişiselleştirilmiş ürün önerileri sonuç kümesi bir ilişkisel veri reyonuna tüketimleri perakendecisi Web sitesi tarafından taşınır.  Sonuç kümesi de doğrudan blob depolama alanından başka bir uygulama tarafından erişilen veya diğer tüketiciler ve kullanım örnekleri için ek mağazalarının taşındı.
 

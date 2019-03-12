@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/06/2019
 ms.author: orspod
-ms.openlocfilehash: 94cf153d7d88e0589edfb3c126c18e04e25e2ef2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4e2448b3043c194bda884963975d85536c329baf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431929"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531649"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Ya da Azure veri Gezgini'nde Azure Data Factory kullanarak veri kopyalama
 
@@ -68,9 +68,9 @@ Azure Veri Gezgini bağlı hizmeti için aşağıdaki özellikleri destekler:
 | type | **Türü** özelliği ayarlanmalıdır **AzureDataExplorer** | Evet |
 | endpoint | Uç nokta URL'si biçiminde Azure Veri Gezgini kümenin `https://<clusterName>.<regionName>.kusto.windows.net `. | Evet |
 | veritabanı | Veritabanının adı. | Evet |
-| kiracı | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Bu, Azure portalının sağ üst köşedeki fareyle gelerek alın. | Evet |
-| servicePrincipalId | Uygulamanın istemci kimliği belirtin. | Evet |
-| serviceprincipalkey değerleri | Uygulama anahtarını belirtin. Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
+| kiracı | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Bu, normal olarak tanıdığınız, "**yetkilisi kimliği**" içinde [Kusto bağlantı dizesi](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Bu, Azure portalının sağ üst köşedeki fareyle gelerek alın. | Evet |
+| servicePrincipalId | Uygulamanın istemci kimliği belirtin. Bu, normal olarak tanıdığınız, "**AAD uygulama istemci Kimliğini**" içinde [Kusto bağlantı dizesi](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Evet |
+| serviceprincipalkey değerleri | Uygulama anahtarını belirtin. Bu, normal olarak tanıdığınız, "**AAD uygulama anahtarı**" içinde [Kusto bağlantı dizesi](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 
 **Bağlı hizmeti özellikleri örneği:**
 
@@ -139,7 +139,7 @@ Azure veri Gezgini'nde verileri kopyalamak için ayarlanmış **türü** için k
 | queryTimeout | Sorgu isteği önceki bekleme süresi zaman aşımına uğradı. Varsayılan değer: 10 dakikalık (00: 10:00); izin verilen en yüksek değer olan 1 saat (01: 00:00). | Hayır |
 
 >[!NOTE]
->Varsayılan olarak Azure Veri Gezgini kaynak 500.000 kayıtları ya da 64 MB boyut sınırı vardır. Kesmeden tüm kayıtları almak için belirtebileceğiniz `set notruncation;` sorgunuzun başında. Başvurmak [sorgu sınırları](https://docs.microsoft.com/en-us/azure/kusto/concepts/querylimits) hakkında daha fazla bilgi.
+>Varsayılan olarak Azure Veri Gezgini kaynak 500.000 kayıtları ya da 64 MB boyut sınırı vardır. Kesmeden tüm kayıtları almak için belirtebileceğiniz `set notruncation;` sorgunuzun başında. Başvurmak [sorgu sınırları](https://docs.microsoft.com/azure/kusto/concepts/querylimits) hakkında daha fazla bilgi.
 
 **Örnek:**
 

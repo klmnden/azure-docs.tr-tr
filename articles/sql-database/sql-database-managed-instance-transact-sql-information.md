@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: 98ca3478c3a8963c3bf57143354340d6ed14900e
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.date: 03/06/2019
+ms.openlocfilehash: 2f615214fb7b77614054841af7972eb814525dee
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594347"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549927"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
@@ -26,6 +26,7 @@ Yönetilen örnek dağıtım seçeneği, şirket içi SQL Server veritabanı alt
 ![Geçiş](./media/sql-database-managed-instance/migration.png)
 
 Yine de bazı farklılıkları söz dizimi ve davranışı olduğundan, bu makalede özetler ve bu farklar açıklanmaktadır. <a name="Differences"></a>
+
 - [Kullanılabilirlik](#availability) farklılıkları dahil olmak üzere [her zaman açık](#always-on-availability) ve [yedeklemeleri](#backup),
 - [Güvenlik](#security) farklılıkları dahil olmak üzere [denetim](#auditing), [sertifikaları](#certificates), [kimlik bilgilerini](#credential), [şifreleme sağlayıcıları](#cryptographic-providers), [Oturumları / kullanıcılar](#logins--users), [hizmet anahtarı ve hizmet ana anahtarını](#service-key-and-service-master-key),
 - [Yapılandırma](#configuration) farklılıkları dahil olmak üzere [arabellek havuzu uzantısı](#buffer-pool-extension), [harmanlama](#collation), [Uyumluluk Düzeyleri](#compatibility-levels),[veritabanı Yansıtma](#database-mirroring), [veritabanı seçenekleri](#database-options), [SQL Server Agent](#sql-server-agent), [Tablo Seçenekleri](#tables),
@@ -61,10 +62,16 @@ Yönetilen örnek otomatik yedeklemelerini ve tam bir veritabanı oluşturmak i�
 Sınırlamalar:  
 
 - Yönetilen örnek sayesinde, veritabanları için yeterli olan bir yedekleme 32 adede kadar diziler için bir örnek veritabanını yedekleyebilirsiniz yedekleme sıkıştırma kullanılırsa, en fazla 4 TB.
-- En yüksek yedek stripe boyutu 195 GB (en yüksek blob boyutu) ' dir. Tek tek stripe boyutunu küçültmek ve bu sınırın içinde kalmanızı için yedekleme komutta şeritler sayısını artırın.
+- En fazla yedekleme stripe boyutunda `BACKUP` komuttur yönetilen örneğinde 195 GB (en yüksek blob boyutu). Tek tek stripe boyutunu küçültmek ve bu sınırın içinde kalmanızı için yedekleme komutta şeritler sayısını artırın.
 
-> [!TIP]
-> Geçici çözüm bu sınırlama şirket içi yedekleme `DISK` yedekleme yerine `URL`, blob ve geri yüklemek için yedekleme dosyasını karşıya yükleyin. Farklı bir blob türü kullanıldığından daha büyük dosyaları geri yükleme destekler.  
+    > [!TIP]
+    > Bir veritabanını bir şirket içi ortamda veya bir sanal makine ya da SQL Server'dan yedeklerken bu sınırlara yakın çalışmak için bunu yapabilirsiniz:
+    >
+    > - Yedekleme `DISK` yerine yedekleme `URL`
+    > - Yedekleme dosyaları Blob depolama alanına yükleme
+    > - Yönetilen örneğine geri yükleme
+    >
+    > `Restore` Komutu yönetilen örneğe farklı blob türü karşıya yüklenen yedekleme dosyalarının depolanması için kullanıldığından bu büyük blob boyutları yedekleme dosyaları destekler.
 
 T-SQL kullanarak yedeklemeler hakkında daha fazla bilgi için bkz: [yedekleme](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
@@ -125,44 +132,51 @@ Bkz: [oluşturma kimlik bilgisi](https://docs.microsoft.com/sql/t-sql/statements
 
 - Oluşturulan SQL oturum açmaları `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, ve `FROM SID` desteklenir. Bkz: [Oluştur oturum açma](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - İle oluşturulan azure Active Directory (Azure AD) sunucusu sorumluları (oturum açma bilgileri) [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) sözdizimi veya [oluşturma kullanıcı gelen oturum açma [Azure AD oturum açma]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) söz dizimi desteklenir (**genel önizlemeye sunuldu** ). Bu sunucu düzeyinde oluşturulan oturumlardır.
-    - Yönetilen örnek söz dizimi ile Azure AD veritabanı sorumlusu destekler `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Olarak da bilinen yer alan Azure AD veritabanı kullanıcıları budur.
+
+    Yönetilen örnek söz dizimi ile Azure AD veritabanı sorumlusu destekler `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Olarak da bilinen yer alan Azure AD veritabanı kullanıcıları budur.
+
 - Windows oturum açma bilgileri ile oluşturulan `CREATE LOGIN ... FROM WINDOWS` sözdizimi desteklenmez. Azure Active Directory oturum açma bilgileri ve kullanıcılar bu seçeneği kullanın.
 - Örneği oluşturan azure AD kullanıcı [Kısıtlanmamış yönetici ayrıcalıkları](sql-database-manage-logins.md#unrestricted-administrative-accounts).
 - Yönetici olmayan Azure Active Directory (Azure AD) veritabanı düzeyinde kullanıcılar kullanarak oluşturulabilir `CREATE USER ... FROM EXTERNAL PROVIDER` söz dizimi. Bkz: [kullanıcı oluştur... DIŞ SAĞLAYICISINDAN](sql-database-manage-logins.md#non-administrator-users).
 - Azure AD sunucusu ilkeleri (oturum açma bilgileri), yalnızca bir mı örneğinde SQL özellikleri destekler. İçinde aynı Azure AD Kiracı veya farklı bir kiracı için Azure AD kullanıcılarının desteklenmiyorsa bakılmaksızın örneği arası etkileşimi gerektiren özellikleri. Bu özellikler örnekleri şunlardır:
-    - SQL işlem çoğaltması ve
-    - Sunucuya Bağla
+
+  - SQL işlem çoğaltması ve
+  - Sunucuya Bağla
+
 - Veritabanı sahibi desteklenmiyor gibi bir Azure AD grubuna eşlenmiş bir Azure AD oturum açma ayarlama.
 - Diğer Azure AD sorumlusu kullanarak Azure AD sunucu düzeyi asıl hesaplar, kimliğe bürünme desteği gibi [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql) yan tümcesi. Sınırlama olarak YÜRÜTÜN:
-    - Ad oturum açma adından farklı olduğu durumlarda, EXECUTE AS USER Azure AD kullanıcıları için desteklenmez. Örneğin, bir kullanıcı oluşturulduğunda kullanıcı oluşturma [myAadUser] gelen oturum açma söz dizimi aracılığıyla [john@contoso.com], ve kimliğe bürünme EXEC AS USER denenir = _myAadUser_. Oluştururken bir **kullanıcı** bir Azure AD sunucusu sorumlusundan (oturum açma), user_name aynı login_name olarak belirtin. **oturum açma**.
-    - Yalnızca parçası olan SQL sunucu düzeyi ilkeleri (oturum açma bilgileri) `sysadmin` rol, Azure AD sorumlusu hedefleme şu işlemler yürütebilirsiniz: 
-        - EXECUTE AS USER
-        - EXECUTE AS LOGIN
+
+  - Ad oturum açma adından farklı olduğu durumlarda, EXECUTE AS USER Azure AD kullanıcıları için desteklenmez. Örneğin, bir kullanıcı oluşturulduğunda kullanıcı oluşturma [myAadUser] gelen oturum açma söz dizimi aracılığıyla [john@contoso.com], ve kimliğe bürünme EXEC AS USER denenir = _myAadUser_. Oluştururken bir **kullanıcı** bir Azure AD sunucusu sorumlusundan (oturum açma), user_name aynı login_name olarak belirtin. **oturum açma**.
+  - Yalnızca parçası olan SQL sunucu düzeyi ilkeleri (oturum açma bilgileri) `sysadmin` rol, Azure AD sorumlusu hedefleme şu işlemler yürütebilirsiniz:
+
+    - EXECUTE AS USER
+    - EXECUTE AS LOGIN
+
 - **Genel Önizleme** Azure AD sunucu sorumlusu (oturum açma bilgileri) sınırlamaları:
-    - Yönetilen örnek Active Directory Yöneticisi sınırlamaları:
-        - Yönetilen örnek ' için kullanılan Azure AD Yöneticisi, bir Azure AD sorumlusu (oturum açma) içinde sunucusu yönetilen örneği oluşturmak için kullanılamaz. İlk Azure AD sunucu sorumlusu (oturum açma) kullanarak bir SQL Server hesabı oluşturmalısınız bir `sysadmin`. Azure AD sunucu sorumlusu (oturum açma bilgileri) büyüyecek haline sonra kaldırılacak geçici bir sınırlama budur. Oturumu oluşturmak için bir Azure AD yönetici hesabı kullanmaya çalışırsanız aşağıdaki hatayı görürsünüz: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-        - İlk Azure AD oturum açma master DB'de oluşturulan standart SQL Server hesabı tarafından (olmayan Azure AD) şu anda oluşturulmalıdır bir `sysadmin` kullanarak [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) gelen dış sağlayıcı. POST GA bu sınırlama kaldırılır ve başlangıç olacak Azure AD oturum açma oluşturulan yönetilen örnek için Active Directory Yöneticisi tarafından.
+
+  - Yönetilen örnek Active Directory Yöneticisi sınırlamaları:
+
+    - Yönetilen örnek ' için kullanılan Azure AD Yöneticisi, bir Azure AD sorumlusu (oturum açma) içinde sunucusu yönetilen örneği oluşturmak için kullanılamaz. İlk Azure AD sunucu sorumlusu (oturum açma) kullanarak bir SQL Server hesabı oluşturmalısınız bir `sysadmin`. Azure AD sunucu sorumlusu (oturum açma bilgileri) büyüyecek haline sonra kaldırılacak geçici bir sınırlama budur. Oturumu oluşturmak için bir Azure AD yönetici hesabı kullanmaya çalışırsanız aşağıdaki hatayı görürsünüz: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+      - İlk Azure AD oturum açma master DB'de oluşturulan standart SQL Server hesabı tarafından (olmayan Azure AD) şu anda oluşturulmalıdır bir `sysadmin` kullanarak [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) gelen dış sağlayıcı. POST GA bu sınırlama kaldırılır ve başlangıç olacak Azure AD oturum açma oluşturulan yönetilen örnek için Active Directory Yöneticisi tarafından.
     - SQL Server Management Studio (SSMS) veya SqlPackage kullanılan DacFx (içeri/dışarı aktarma), Azure AD oturum açma için desteklenmiyor. Azure AD sunucu sorumlusu (oturum açma bilgileri) büyüyecek haline sonra bu sınırlama kaldırılır
     - SSMS ile Azure AD sunucu sorumlusu (oturum açma bilgileri) kullanma
-        - (Tüm kimliği doğrulanmış oturum açma kullanarak) Azure AD oturum açma komut dosyası desteklenmiyor.
-        - IntelliSense tanımıyor **oluşturma oturum açma gelen dış sağlayıcı** ifadesi ve bir kırmızı alt çizgiyle gösterilir.
+
+      - (Tüm kimliği doğrulanmış oturum açma kullanarak) Azure AD oturum açma komut dosyası desteklenmiyor.
+      - IntelliSense tanımıyor **oluşturma oturum açma gelen dış sağlayıcı** ifadesi ve bir kırmızı alt çizgiyle gösterilir.
+
 - Yalnızca sunucu düzeyinde sorumlu oturumu (yönetilen sağlama işlemi örneği tarafından oluşturulan), sunucu rollerinin üyeleri (`securityadmin` veya `sysadmin`), veya sunucu düzeyinde ALTER ANY LOGIN iznine sahip başka oturum açma bilgisi, Azure AD sunucusu oluşturabilirsiniz Yönetilen örnek için ana veritabanında ilkeleri (oturum açma bilgileri).
 - Oturum açma SQL sorumlunun parçası olan oturumları olup olmadığını `sysadmin` rol için bir Azure AD hesabı oluştur oturum açma için create komutu kullanabilirsiniz.
 - Azure AD oturum açma, Azure AD'yi Azure SQL yönetilen örneği için kullanılan aynı dizin içinde bir üyesi olmanız gerekir.
 - Azure AD sunucusu ilkeleri (oturum açma bilgileri), SSMS 18.0 preview 5 başlamanızı nesne Gezgini'nde görünür.
 - Bir Azure AD yönetici hesabıyla Azure AD sunucu sorumlusu (oturum açma bilgileri) çakışan izin verilir. Azure AD sunucusu ilkeleri (oturum açma bilgileri) Azure AD Yöneticisi sorumlusu ve uygulama izinlerini yönetilen örneği'ne çözülürken önceliklidir.
 - Kimlik doğrulaması sırasında kimlik doğrulama sorumlusu çözümlenecek dizisi aşağıdaki uygulanır:
+
     1. Azure AD hesabı olarak doğrudan eşlenen varsa Azure AD sunucu sorumlusuna (oturum açma) ('E' türü olarak sys.server_principals mevcut) erişim ve izinleri Azure AD sunucu sorumlusunun (oturum açma) uygulayın.
     2. Azure AD hesabını Azure AD asıl sunucu (oturum açma) ('X' yazarken sys.server_principals içinde mevcut) eşlenmiş bir Azure AD grubunun bir üyesi ise, erişim ve izinleri Azure AD grubu oturum açma uygulayın.
     3. Azure AD hesabı portalı yapılandırılan özel ise yönetilen (yönetilen örnek sistem görünümlerinde yok) örneği için Azure AD Yöneticisi özel sabit Azure AD Yöneticisi izinleri yönetilen örneği (eski modu) için geçerlidir.
     4. Azure AD hesabı olarak bir Azure AD kullanıcı veritabanındaki (sys.database_principals türü 'E' olarak) doğrudan eşlenen varsa, erişim ve izinleri Azure AD veritabanı kullanıcısının uygulayın.
     5. Azure AD hesabı bir Azure AD kullanıcı veritabanındaki (sys.database_principals türü 'X') eşlenmiş bir Azure AD grubu üyesi ise, erişim ve izinleri Azure AD grubu oturum açma uygulayın.
     6. Bir Azure AD kullanıcı hesabı veya bir Azure AD grubu hesabıyla eşlenmiş bir Azure AD oturum açma işlemi varsa, tüm bu Azure AD oturum açma izinlerinden kullanıcı kimlik doğrulaması için çözümleme uygulanır.
-
-
-
-
-
 
 ### <a name="service-key-and-service-master-key"></a>Hizmet anahtarı ve hizmet ana anahtarı
 
@@ -320,7 +334,6 @@ Aşağıdaki kısıtlamalar uygulamak için bir yönetilen örnek, dosya paylaş
 - Yalnızca `CREATE ASSEMBLY FROM BINARY` desteklenir. Bkz: [ikili oluşturma DERLEMESİNDEN](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - `CREATE ASSEMBLY FROM FILE` desteklenen is't. Bkz: [Oluştur derleme DOSYASINDAN](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` dosyaları başvuruda bulunamaz. Bkz: [ALTER derleme](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
-
 
 ### <a name="dbcc"></a>DBCC
 

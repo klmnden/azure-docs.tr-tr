@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c95fcd2e6369fae920481db2623124342c34a730
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447639"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544248"
 ---
 # <a name="azure-storage-account-overview"></a>Azure depolama hesabına genel bakış
 
@@ -38,7 +38,7 @@ Genel amaçlı v2 depolama hesabı için en son Azure depolama özelliklerini de
 > [!NOTE]
 > Microsoft, çoğu senaryo için bir genel amaçlı v2 depolama hesabı kullanmanızı önerir. Genel amaçlı v2 hesabına kapalı kalma süresi olmadan ve verileri kopyalamak zorunda kalmadan kolayca bir genel amaçlı v1 veya Blob Depolama hesabına yükseltebilirsiniz.
 >
-> Genel amaçlı v2 hesabına yükseltme hakkında daha fazla bilgi için bkz. [yükseltmek için bir genel amaçlı v2 depolama hesabı](storage-account-upgrade.md). 
+> Genel amaçlı v2 hesabına yükseltme hakkında daha fazla bilgi için bkz. [yükseltmek için bir genel amaçlı v2 depolama hesabı](storage-account-upgrade.md).
 
 Genel amaçlı v2 depolama hesaplarının, kullanım düzenlerini esas alarak verileri depolamak için birden çok erişim katmanı sunar. Daha fazla bilgi için [erişim katmanları için blok blob verilerine](#access-tiers-for-block-blob-data).
 
@@ -85,7 +85,7 @@ Azure depolama, kullanım düzenlerini esas alarak blok blob verilerine erişmek
 Kullanılabilir erişim katmanları şunlardır:
 
 > [!NOTE]
-> [Premium erişim katmanı](../blobs/storage-blob-storage-tiers.md#premium-access-tier) Kuzey Avrupa, Doğu ABD 2, ABD Orta ve ABD Batı bölgelerinde yerel olarak yedekli depolama (LRS) hesabı olarak sınırlı önizlemede kullanılabilir. Önizlemeye kaydolmak öğrenmek için bkz: [Azure Premium Blob Depolama ile tanışın](https://aka.ms/premiumblob).
+> [Premium erişim katmanı (Önizleme)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), yüksek aktarım hızı ve işlem hızına gecikme süresi düşük ve tutarlı performans duyarlı uygulamalar için optimize edilmiştir sağlar. Premium erişim katmanı, yalnızca blok Blob Depolama hesapları ile (Önizleme) kullanılabilir. Daha fazla bilgi için [Azure Premium Blob Depolama genel Önizleme](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
 
 * **Etkin** erişim katmanı, sık sık depolama hesabındaki nesnelere erişimi için optimize edilmiştir. Sık erişimli katmanı veri erişimi maliyetlerini biraz daha yüksek olsa en uygun maliyetli. Yeni depolama hesaplarında sık erişimli oluşturulan varsayılan olarak katman.
 * **Seyrek erişimli** erişim katmanı, büyük miktarlarda az sıklıkta erişilen ve en az 30 gün saklanan verileri depolamak için optimize edilmiştir. Veri depolama seyrek erişim katmanında daha uygun maliyetlidir, ancak bu verilere erişme biraz daha sık erişimli katmanı veri erişimi daha pahalı olabilir.

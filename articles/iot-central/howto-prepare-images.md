@@ -3,17 +3,17 @@ title: Görüntüleri karşıya yüklemek için Azure IOT Central uygulamasına 
 description: Bir oluşturucu hazırlama ve Azure IOT Central uygulamanıza görüntüleri karşıya yükleme hakkında bilgi edinin.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/31/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4378ff4155cf0b2f9c4af8176f41fe35fc433792
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c8444fd57fe939dfb212d88c22a071c13dac691e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310718"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767337"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Hazırlama ve Azure IOT Central uygulamanıza görüntüleri karşıya yükleme
 
@@ -30,7 +30,7 @@ Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
 Bir Azure IOT Central uygulamasına aşağıdaki konumlarda özel görüntüleri ekleyebilirsiniz:
 
-* **Uygulama Yöneticisi** sayfası
+* **Uygulamalarım** sayfası
 
     ![Uygulama Yöneticisi sayfasında görüntüsü](media/howto-prepare-images/applicationmanager.png)
 
@@ -70,7 +70,7 @@ Aşağıdaki bölümlerde farklı konumlarda görüntüleri karşıya yükleme a
 
 ### <a name="application-manager"></a>Uygulama Yöneticisi
 
-Bir görüntüyü karşıya yükleme için **Uygulama Yöneticisi**, gitmek **uygulama ayarları** sayfasını **Yönetim** bölümü. Bu görevi tamamlamak için yönetici olmanız gerekir:
+Üzerinde kullanılacak bir görüntü karşıya yüklemek için **uygulamalarım** sayfasında, gitmek **uygulama ayarları** sayfasını **Yönetim** bölümü. Bu görevi tamamlamak için yönetici olmanız gerekir:
 
 ![Uygulama görüntüsünü karşıya yükleme](media/howto-prepare-images/uploadapplicationmanager.png)
 
@@ -78,9 +78,9 @@ Hazırlanan görüntünüzü karşıya yüklemek için uygulama görüntüsü ku
 
 ### <a name="application-dashboard"></a>Uygulama panosu
 
-Uygulama Panosu üzerinde bir görüntüyü karşıya yükleme için gidin **Pano** uygulamanızın ve select **Düzenle**. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
+Uygulama Panosu üzerinde bir görüntüyü karşıya yükleme için gidin **Pano** seçin ve uygulamanın sayfasını **Düzenle**. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
 
-![Uygulama Panosu resmi karşıya yükle](media/howto-prepare-images/uploadhomepage.png)
+![Pano görüntüsünü karşıya yükleme](media/howto-prepare-images/uploadhomepage.png)
 
 Görüntü altında yapılandırmak, hazırlanmış görüntünüzü yerel makinenizden karşıya yüklenecek görüntü kutucuğu seçin. En küçük boyutlu 200 x 200 kutucuğudur piksel, daha büyük kutucukları küçük kutucuk kare veya dikdörtgen katları olabilir. Örneğin 200 x 400 px, 400 x 200 piksel veya 400 x 400 px.
 
@@ -88,15 +88,15 @@ Görüntü altında yapılandırmak, hazırlanmış görüntünüzü yerel makin
 
 ### <a name="device-template"></a>Cihaz şablonu
 
-Bir cihaz şablonu bir görüntüyü karşıya yükleme için gidin **Device Explorer**, cihaz şablonu ve bir cihaz seçin. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
+Bir cihaz şablonu bir görüntüyü karşıya yükleme için gidin **cihaz şablonları** ve cihaz şablonu seçin. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
 
 ![Cihaz şablon görüntüsünü karşıya yükleme](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Hazırlanan görüntünüzü karşıya resim kutucuğunda seçin (64 x 64 piksel) yerel makinenizden. 
+Hazırlanan görüntünüzü karşıya resim kutucuğunda seçin (64 x 64 piksel) yerel makinenizden.
 
 ### <a name="device-dashboard"></a>Cihaz panosu
 
-Cihaz panosunda bir görüntüyü karşıya yükleme için gidin **Device Explorer**, cihaz şablonu ve bir cihaz seçin. Ardından **Pano** sayfasından seçim yapıp **şablonu Düzen**. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
+Cihaz panosunda bir görüntüyü karşıya yükleme için gidin **cihaz şablonları** ve cihaz şablonu seçin. Ardından **Pano** sekmesi. Bu görevi tamamlamak için bir oluşturucu olmalıdır:
 
 ![Cihaz Pano görüntüsünü karşıya yükleme](media/howto-prepare-images/uploaddevicedashboard.png)
 

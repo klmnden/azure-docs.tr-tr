@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 08e2ef1b219ed66a39d38c08be80df89814afbaf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 20416a4b761496ec65c6911f3e4de18111b663a1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180496"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551289"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Hızlı Başlangıç: Bing Web arama REST API'sini kullanarak Web'de arama veC#
 
@@ -27,7 +27,7 @@ Bu hızlı başlangıçta, Bing Web araması API'si, ilk çağrı yapmak ve JSON
 Bu hızlı başlangıcı çalıştırmak için aşağıdakilere ihtiyacınız olacaktır:
 
 * Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-* Linux/macOS: [Mono](http://www.mono-project.com/)  
+* Linux/macOS: [Mono](https://www.mono-project.com/)  
 * Abonelik anahtarı
 
 Bu örnek programda yalnızca .NET Core sınıfları kullanılır.

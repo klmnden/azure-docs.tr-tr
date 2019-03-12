@@ -4,16 +4,16 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
-ms.openlocfilehash: 78e15089d86fcd9b524d3fcd0b9d6eac139f7c2b
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 16add1531db769d0e06f0a7034a36b568b69e602
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279996"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554023"
 ---
-| Kaynak | Varsayılan Sınır | Üst Sınır |
+| Kaynak | Varsayılan limit | Üst sınır |
 | --- | --- | --- |
 | Bir ölçek kümesindeki en fazla sanal makine sayısı |1000 |1000 |
 | Bir ölçek özel bir VM görüntüsü göre VM sayısı üst sınırı ayarlayın|600 |600 |
-| Bir bölgedeki en fazla ölçek kümesi sayısı |2000 |2000 |
+| Bir bölgedeki en fazla ölçek kümesi sayısı |2,000 |2,000 |
 

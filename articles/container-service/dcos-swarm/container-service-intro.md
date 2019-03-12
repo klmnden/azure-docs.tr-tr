@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 348bde94bc01e00777603af8ac078d5e319d732c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 25b6f2b1e79cb6efdcb9d7ee0e956648673e48c0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001999"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528874"
 ---
 # <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(KULLANIM DIŞI) Docker kapsayıcı barındırma çözümlerine Azure Container Service ile giriş 
 
@@ -38,7 +38,7 @@ Azure Container Service’i kullanmaya başlamak için bir Azure Resource Manage
 Azure Container Service’te düzenleme için Docker Swarm, DC/OS veya Kubernetes seçenekleri sunulmaktadır. Uygulamanızı nasıl dağıtacağınız, düzenleme seçiminize göre değişiklik gösterir.
 
 ### <a name="using-dcos"></a>DC/OS kullanma
-DC/OS, Apache Mesos dağıtılmış sistemler çekirdeği tabanlı bir dağıtılmış işletim sistemidir. Apache Software Foundation bünyesinde yer alan Apache Mesos’ta [BT dünyasının önde gelen isimleri](http://mesos.apache.org/documentation/latest/powered-by-mesos/) kullanıcı ve katılımcı olarak görev yapmaktadır.
+DC/OS, Apache Mesos dağıtılmış sistemler çekirdeği tabanlı bir dağıtılmış işletim sistemidir. Apache Software Foundation bünyesinde yer alan Apache Mesos’ta [BT dünyasının önde gelen isimleri](https://mesos.apache.org/documentation/latest/powered-by-mesos/) kullanıcı ve katılımcı olarak görev yapmaktadır.
 
 ![Aracıları ve ana bileşenleri gösteren, DC/OS için yapılandırılmış Azure Container Service.](media/acs-intro/dcos.png)
 

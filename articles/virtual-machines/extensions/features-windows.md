@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 542fe0064de84e6266d2d0274809d7b2046b855c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c07f01acb95523171f0297f7e2fd531713f1facf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874418"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550165"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Sanal makine uzantıları ve özellikleri Windows için
 
@@ -34,7 +34,7 @@ Bu makalede VM uzantıları, Azure VM uzantıları kullanma önkoşulları genel
 Birkaç farklı Azure VM uzantıları kullanılabilir, her biri belirli bir kullanım örneği. Bazı örnekler:
 
 - PowerShell istenen durum yapılandırmaları DSC uzantısı ile sanal makineye Windows için geçerlidir. Daha fazla bilgi için [Azure Desired State configuration uzantısı](dsc-overview.md).
-- Microsoft İzleme Aracısı VM uzantısı ile sanal makine izlemeyi yapılandırın. Daha fazla bilgi için [Azure Vm'lerine Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Microsoft İzleme Aracısı VM uzantısı ile sanal makine izlemeyi yapılandırın. Daha fazla bilgi için [Azure Vm'lerine Azure İzleyici günlüklerine](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Bir Azure sanal makinesi, Chef kullanarak yapılandırın. Daha fazla bilgi için [Chef ile otomatikleştirme Azure VM dağıtımını](../windows/chef-automation.md).
 - Azure altyapınızı Datadog uzantısı ile izlemeyi yapılandırma. Daha fazla bilgi için [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 

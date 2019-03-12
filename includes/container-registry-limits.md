@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/30/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: fe1227d91c0d039a94e5b9a3046b879f4f17355a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4ca9ed2f2cb6f111e15093f0f3a90e2f37ab3521
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247204"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554119"
 ---
 | Kaynak | Temel | Standart | Premium |
 |---|---|---|---|---|
@@ -27,13 +27,13 @@ ms.locfileid: "56247204"
 | Coğrafi çoğaltma | Yok | Yok | [Desteklenen][geo-replication] |
 | İçerik güveni (önizleme) | Yok | Yok | [Desteklenen][content-trust] |
 
-<sup>1</sup> miktarı belirtilen depolama sınırları olan *dahil* her katman için depolama. Bir ek bir günlük fiyat GiB başına bu sınırların üzerinde resim depolama için ücret ödersiniz. Hızı için bilgi [kapsayıcı kayıt defteri fiyatlandırması][pricing].
+<sup>1</sup>miktarı belirtilen depolama sınırları olan *dahil* her katman için depolama. Bir ek bir günlük fiyat GiB başına bu sınırların üzerinde resim depolama için ücret ödersiniz. Hızı için bilgi [Azure Container Registry fiyatlandırma][pricing].
 
-<sup>2</sup> *okuma işlemleri:*, *yazma işlemleri:*, ve *bant genişliği* minimum biriminizdeki tahmini fiyatlardır. ACR kullanımı gerektirdiğinden performansı üstlenmeye çalışır.
+<sup>2</sup>*okuma işlemleri:*, *yazma işlemleri:*, ve *bant genişliği* minimum biriminizdeki tahmini fiyatlardır. Azure Container kayıt defteri kullanımı gerektirdiğinden performansı üstlenmeye çalışır.
 
-<sup>3</sup> [docker isteği](https://docs.docker.com/registry/spec/api/#pulling-an-image) görüntünün yanı sıra, bildirim alma katmanlarında sayısına bağlı olarak birden çok okuma işlemleri için çevirir.
+<sup>3</sup>A [docker isteği](https://docs.docker.com/registry/spec/api/#pulling-an-image) görüntünün yanı sıra, bildirim alma katmanlarında sayısına bağlı olarak birden çok okuma işlemleri için çevirir.
 
-<sup>4</sup> [docker itme](https://docs.docker.com/registry/spec/api/#pushing-an-image) itilecek gerekir katmanları sayısına göre birden fazla yazma işlemleri için çevirir. A `docker push` içerir *okuma işlemleri:* varolan bir görüntü için bir bildirim almak için.
+<sup>4</sup>A [docker itme](https://docs.docker.com/registry/spec/api/#pushing-an-image) itilecek gerekir katmanları sayısına göre birden fazla yazma işlemleri için çevirir. A `docker push` içerir *okuma işlemleri:* varolan bir görüntü için bir bildirim almak için.
 
 <!-- LINKS - External -->
 [pricing]: https://azure.microsoft.com/pricing/details/container-registry/

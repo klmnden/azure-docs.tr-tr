@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 8959c1d773a7e4ea79c7a7531c2bba578f2801e2
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 60520f5a72fd7e27d4ea64ac76511a00a727426e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158491"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552019"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Bir MQTT sunucusuna ileti gönderme
 
 Nesnelerin interneti (IOT) sistemleri genellikle aralıklı ve düşük kaliteli ile baş veya internet bağlantısı yavaş. Bu zorluklar aklınızda ile geliştirilmiş bir makineden makineye (M2M) bağlantısı protokol MQTT olarak belirlenmiştir. 
 
-Burada kullanılan MQTT istemci kitaplığının parçasıdır [Eclipse Paho](http://www.eclipse.org/paho/) taşıma birden çok yol MQTT kullanmak için API'leri sağlayan bir proje.
+Burada kullanılan MQTT istemci kitaplığının parçasıdır [Eclipse Paho](https://www.eclipse.org/paho/) taşıma birden çok yol MQTT kullanmak için API'leri sağlayan bir proje.
 
 ## <a name="what-you-learn"></a>Öğrenecekleriniz
 
@@ -77,7 +77,7 @@ Seri İzleyici örnek taslak tarafından gönderilen tüm iletileri görüntüle
 
 Sorunlarla karşılaşırsanız, başvurmak [IOT DevKit SSS](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) veya aşağıdaki kanalları kullanarak bağlanın:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="see-also"></a>Ayrıca bkz.

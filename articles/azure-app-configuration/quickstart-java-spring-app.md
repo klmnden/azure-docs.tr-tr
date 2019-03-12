@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: c5e172410c7cb60888107e37064c2429caf6df9e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 83dc6436c69038a43f32588d485790a701c2e18d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195498"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549264"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Hızlı Başlangıç: Uygulama yapılandırması ile bir Java Spring uygulaması oluşturma
 
@@ -29,7 +29,7 @@ Bu hızlı başlangıçtaki adımları tamamlamak için herhangi bir kod düzenl
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için desteklenen bir yükleme [Java Development Kit (JDK)](https://aka.ms/azure-jdks) sürüm 8 ile ve [Apache Maven](http://maven.apache.org/) sürüm 3.0 veya üzeri.
+Bu hızlı başlangıcı tamamlamak için desteklenen bir yükleme [Java Development Kit (JDK)](https://aka.ms/azure-jdks) sürüm 8 ile ve [Apache Maven](https://maven.apache.org/) sürüm 3.0 veya üzeri.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

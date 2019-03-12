@@ -2,19 +2,19 @@
 title: Azure Market görüntüsü kullanarak yönetilen kimlik özelliğine sahip bir Terraform Linux sanal makinesi oluşturma
 description: Bir Market görüntüsü kullanarak yönetilen kimlik ve Uzak Durum Yönetimi özelliklerine sahip bir Terraform Linux sanal makinesi oluşturabilir ve Azure'a kolayca kaynak dağıtımı gerçekleştirebilirsiniz.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, MSI, sanal makine, uzak durum, azure
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 3f10e5dfd0a4aac859c1a946b5f0a680899e0888
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: ae424638967de808f3ffb7d9a56a02398ed79f9e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852550"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768162"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Azure Market görüntüsü kullanarak Azure kaynakları için yönetilen kimliğe sahip bir Terraform Linux sanal makinesi oluşturma
 

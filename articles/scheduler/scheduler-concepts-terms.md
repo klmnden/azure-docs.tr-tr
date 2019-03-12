@@ -8,14 +8,14 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 5ed15a58e5b709b003e9f45d04c3654f814aefc7
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: a58b247732125574a067deff1d5b03859cd036fc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334236"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782301"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure Scheduler kavramları, terminolojisi ve varlıkları
 
@@ -69,9 +69,9 @@ Azure Scheduler, birden fazla iş türünü destekler:
 Bir Scheduler işi genel olarak şu temel bölümlerden oluşur:
 
 * İş zamanlayıcı başlatıldığında çalıştırılan eylem
-* İsteğe bağlı: İşin çalıştırma süresi
-* İsteğe bağlı: İşin ne zaman ve ne sıklıkta tekrarlanacağı
-* İsteğe bağlı: Birincil eylem başarısız olursa çalıştırılacak hata eylemi
+* İsteğe bağlı: İş çalıştırma süresi
+* İsteğe bağlı: Ne zaman ve iş ne sıklıkta tekrarlanacağı
+* İsteğe bağlı: Birincil eylem başarısız olursa, çalışan bir hata eylemi
 
 İş aynı zamanda işin bir sonraki zamanlanmış çalışma zamanı gibi sistem tarafından sağlanan verileri de içerir. İşin kod tanımı, şu öğelere sahip olan bir JavaScript Nesne Gösterimi (JSON) biçimli nesnedir:
 
@@ -239,7 +239,7 @@ Birincil **eylemde** olduğu gibi, hata eylemi diğer eylemler temelinde basit y
 },
 ```
 
-| Özellik | Gerekli | Değer | Açıklama | 
+| Özellik | Gereklidir | Value | Açıklama | 
 |----------|----------|-------|-------------| 
 | **frequency** | **recurrence** kullanıldığında evet | "Minute", "Hour", "Day", "Week", "Month", "Year" | Yinelemeler arası zaman birimi | 
 | **interval** | Hayır | 1-1000 arası, ikisi de dahil | **frequency** nesnesine göre yinelemeler arasındaki zaman birimi sayısını belirleyen pozitif tamsayı | 
@@ -269,7 +269,7 @@ Bir Scheduler işinin başarısız olması durumunda Scheduler uygulamasının e
 },
 ```
 
-| Özellik | Gerekli | Değer | Açıklama | 
+| Özellik | Gereklidir | Value | Açıklama | 
 |----------|----------|-------|-------------| 
 | **retryType** | Evet | **Fixed**, **None** | Bir yenileme ilkesi belirtip (**fixed**) belirtmediğinizi (**none**) belirler. | 
 | **retryInterval** | Hayır | PT30S | Yeniden deneme girişimleri arasındaki aralığı ve sıklığı [ISO 8601 biçiminde](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) belirtir. Minimum değer 15 saniye, maksimum değer ise 18 aydır. | 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: c9f0707f6d24ba899c89bf19066994ae860a69d5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2aa32d75edbacdfff6428a6526d9898cb6732d6b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620996"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534744"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Bulut hizmeti genel başlangıç görevleri
 Bu makalede, bulut hizmetinizin gerçekleştirmek isteyebileceğiniz genel başlangıç görevleri bazı örnekler sağlar. Başlangıç görevleri rol başlamadan önce işlemleri gerçekleştirmek için kullanabilirsiniz. Gerçekleştirmek isteyebileceğiniz işlemler, bir bileşeni yükleniyor, COM bileşenleri kaydediliyor, kayıt defteri anahtarlarını ayarlamak veya uzun süre çalışan bir işlem başlatılıyor içerir. 
@@ -186,7 +186,7 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 
 Bu görev neden **startup.cmd** web rolü başlatılır, gerekli sağlanarak her zaman çalıştırılacak toplu iş dosyası **IPSecurity** bölüm kilidi.
 
-Son olarak, değişiklik [system.webServer bölümü](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) web rolün **web.config** dosyaya erişim izni verilen IP adreslerinin bir listesi aşağıdaki örnekte gösterildiği gibi ekleyin:
+Son olarak, değişiklik [system.webServer bölümü](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) web rolün **web.config** dosyaya erişim izni verilen IP adreslerinin bir listesi aşağıdaki örnekte gösterildiği gibi ekleyin:
 
 Bu örnek yapılandırma **sağlayan** tanımlı iki dışında sunucuya erişmek için tüm IP'ler
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c2bee4d35fe857d5ad3bf26dc1145b8721c85df4
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 44252274cc3c0050ba138c3115deeceb2f06f8d8
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594245"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782777"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service için bir özel etki alanı adı satın alma
 
@@ -102,7 +102,7 @@ Azure App Service etki alanları hakkında bilgi fiyatlandırması için lütfen
 ### <a name="configure-the-domain-purchase"></a>Etki alanı satın alma yapılandırın
 
 İçinde **App Service etki alanı** sayfasında **etki alanı Ara** satın alın ve yazmak için istediğiniz etki alanı adı yazın `Enter`. Önerilen kullanılabilir etki alanları yalnızca metin kutusunun altında gösterilir. Satın almak istediğiniz bir veya daha fazla etki alanı seçin.
-   
+
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
@@ -111,15 +111,15 @@ Azure App Service etki alanları hakkında bilgi fiyatlandırması için lütfen
 >
 
 Tıklayın **irtibat bilgileri** ve etki alanı bilgilerini formu doldurun. İşiniz bittiğinde tıklayın **Tamam** App Service etki alanı sayfaya geri dönün.
-   
-Mümkün olduğunca fazla doğruluk ile tüm gerekli alanları doldurun önemlidir. İletişim bilgileri için yanlış veriler hata etki alanları satın almak için neden olabilir. 
+
+Mümkün olduğunca fazla doğruluk ile tüm gerekli alanları doldurun önemlidir. İletişim bilgileri için yanlış veriler hata etki alanları satın almak için neden olabilir.
 
 Ardından, etki alanınız için istenen seçenekleri belirleyin. Açıklamalar için aşağıdaki tabloya bakın:
 
 | Ayar | Önerilen Değer | Açıklama |
 |-|-|-|
 |Gizlilik koruması | Etkinleştirme | "Satın alma fiyatına dahil edilen gizlilik korumasını" kabul etmek _ücretsiz_. Bazı üst düzey etki alanlarında gizlilik korumasını desteklemeyen kaydedicilerin tarafından yönetilir ve üzerinde listelenen **Gizlilik Koruması** sayfası. |
-| Varsayılan konak adları atayın | **www** ve **@** | İstenen konak adı bağlamaları isterseniz seçin. Etki alanı satın alma işlemi tamamlandığında, seçili ana bilgisayar adları, uygulamanızı erişilebilir. Uygulama arkasında ise [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), kök etki alanının atama seçeneğini görmüyorum. (@), Traffic Manager desteği A kayıtlarını yaptığından. Etki alanı satın alma işlemini tamamladıktan sonra ana bilgisayar adı atamaları değişiklik yapabilirsiniz. |
+| Varsayılan konak adları atayın | **www** ve **\@** | İstenen konak adı bağlamaları isterseniz seçin. Etki alanı satın alma işlemi tamamlandığında, seçili ana bilgisayar adları, uygulamanızı erişilebilir. Uygulama arkasında ise [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), kök etki alanının atama seçeneğini görmüyorum. (@), Traffic Manager desteği A kayıtlarını yaptığından. Etki alanı satın alma işlemini tamamladıktan sonra ana bilgisayar adı atamaları değişiklik yapabilirsiniz. |
 
 ### <a name="accept-terms-and-purchase"></a>Koşulları kabul edin ve satın alın
 

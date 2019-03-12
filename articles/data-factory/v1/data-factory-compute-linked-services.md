@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fea90d273d156eec3bf29f376e4cf6668c68170f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697531"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545172"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory tarafından desteklenen ortam işlem
 > [!NOTE]
@@ -116,7 +116,7 @@ Aşağıdaki JSON, Linux tabanlı bir isteğe bağlı HDInsight bağlı hizmeti 
 > [!IMPORTANT]
 > HDInsight kümesi oluşturur bir *varsayılan kapsayıcı* JSON'da belirttiğiniz Azure Blob Depolama alanında **linkedServiceName** özelliği. Tasarım gereği, HDInsight, küme silindiğinde bu kapsayıcıyı silmez. Mevcut canlı bir küme olmadığı sürece bir dilim işlenmesi gereken her bir isteğe bağlı HDInsight bağlı hizmeti bir HDInsight kümesi oluşturulur (**timeToLive**). İşleme tamamlandığında, küme silinir. 
 >
-> Daha fazla dilim işlendikçe, Blob depolamanızda çok sayıda kapsayıcı görürsünüz. İşleri sorun giderme için kapsayıcıları gerekmiyorsa, depolama maliyetini azaltmak için kapsayıcıları silmek isteyebilirsiniz. Bu kapsayıcı adları bir düzene sahiptir: `adf<your Data Factory name>-<linked service name>-<date and time>`. Gibi bir araç kullanabilirsiniz [Microsoft Storage Gezgini](http://storageexplorer.com/) Blob Depolama kapsayıcıları silinemedi.
+> Daha fazla dilim işlendikçe, Blob depolamanızda çok sayıda kapsayıcı görürsünüz. İşleri sorun giderme için kapsayıcıları gerekmiyorsa, depolama maliyetini azaltmak için kapsayıcıları silmek isteyebilirsiniz. Bu kapsayıcı adları bir düzene sahiptir: `adf<your Data Factory name>-<linked service name>-<date and time>`. Gibi bir araç kullanabilirsiniz [Microsoft Storage Gezgini](https://storageexplorer.com/) Blob Depolama kapsayıcıları silinemedi.
 >
 > 
 
@@ -271,7 +271,7 @@ Bir Batch havuzu sanal makineler (VM'ler) bir data factory'ye kaydetmek için bi
 Batch hizmeti kullanmaya yeni başladıysanız:
 
 * Hakkında bilgi edinin [Azure Batch temel bilgileri](../../batch/batch-technical-overview.md).
-* Hakkında bilgi edinin [yeni AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet'i. Bir Batch hesabı oluşturmak için bu cmdlet'i kullanın. Ya da kullanarak Batch hesabı oluşturabilirsiniz [Azure portalında](../../batch/batch-account-create-portal.md). Cmdlet kullanma hakkında ayrıntılı bilgi için bkz. [kullanarak bir Batch hesabını yönetmek için PowerShell](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+* Hakkında bilgi edinin [yeni AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet'i. Bir Batch hesabı oluşturmak için bu cmdlet'i kullanın. Ya da kullanarak Batch hesabı oluşturabilirsiniz [Azure portalında](../../batch/batch-account-create-portal.md). Cmdlet kullanma hakkında ayrıntılı bilgi için bkz. [kullanarak bir Batch hesabını yönetmek için PowerShell](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
 * Hakkında bilgi edinin [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet'i. Bir Batch havuzu oluşturmak için bu cmdlet'i kullanın.
 
 ### <a name="example"></a>Örnek

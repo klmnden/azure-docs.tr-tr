@@ -11,37 +11,37 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 64d96d54b323d634703301e48cdaa28fa875fbbc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 14cc87e8691c859274495a13cc0b73fa29ad22df
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958807"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726898"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Azure ön kapısı hizmetinde arka uçlar ve arka uç havuzları
-Bu makalede, uygulama dağıtımınızı ön kapısı ile nasıl eşleştiği ilgili farklı kavramlar açıklanır. Biz de, geçici bir uygulama arka kapı yapılandırma önde farklı koşullar anlamı açıklanmaktadır.
+Bu makalede, uygulama dağıtımınızı ön kapısı ile nasıl eşleştiği ilgili farklı kavramlar açıklanır. Biz de etrafında bir uygulama arka kapı yapılandırma önde farklı koşullar anlamı açıklanmaktadır.
 
 ## <a name="backend-pool"></a>Arka uç havuzu
-Arka uç havuzu önde kapı, uygulama trafiği aynı türde alabilir eşdeğer arka uçları kümesini ifade eder. Diğer bir deyişle, uygulama örneklerinizin aynı trafik alabilir ve beklenen bir davranış ile yanıt verebilir ve dünyanın mantıksal bir gruplandırması olan. Bu arka uçları, genellikle aynı bölge içinde veya farklı bölgeler arasında dağıtılır. Ayrıca, bu arka uçları, tüm etkin-etkin dağıtım modunda olabilir veya aksi halde bir Aktif/Pasif yapılandırmayı olarak tanımlanabilir.
+Front Door hizmetinde arka uç havuzu, uygulamaları için aynı trafik türünü alabilecek eşdeğer arka uçlardan oluşan bir kümeyi temsil eder. Başka bir deyişle aynı trafiği alabilecek ve beklenen davranışla yanıt verebilecek olan dünya genelindeki uygulama örneklerinin mantıksal olarak gruplandırılmasıdır. Bu arka uçları, genellikle aynı bölge içinde veya farklı bölgeler arasında dağıtılır. Ayrıca, bu arka uçları, tüm etkin-etkin dağıtım modunda olabilir veya aksi halde bir Aktif/Pasif yapılandırmayı olarak tanımlanabilir.
 
 Arka uç havuzu da nasıl farklı arka uçları tüm sistem durumu araştırmaları aracılığıyla kendi sistem durumu için değerlendirilmesi ve gelenlere arka uçlar arasında yük dengelemeyi ne olacağını tanımlar.
 
 ### <a name="health-probes"></a>Sistem durumu araştırmaları
 Ön kapısı düzenli HTTP/HTTPS araştırma isteklerine her yapılandırılmış uçlarınıza yakınlık ve yüklenecek her bir arka uç sistem durumu, son kullanıcı isteklerini Bakiye belirlemek için gönderir. Arka uç havuzu için sistem durumu araştırması ayarları nasıl biz, uygulama arka uçları için sistem durumu için yoklama tanımlayın. Yük Dengeleme için yapılandırma için aşağıdaki ayarlar kullanılabilir:
 
-1. **Yol**: nereye araştırma isteklerine gönderilir arka uç havuzundaki tüm arka uçlar için URL yolu. Örneğin, arka uçlar ise `contoso-westus.azurewebsites.net` ve yolunu ayarlamak `/probe/test.aspx`, Protokolü HTTP için ayarlanmış olduğu varsayılırsa, ön kapısı ortamları sistem durumu araştırma isteklerine gönderecektir http://contoso-westus.azurewebsites.net/probe/test.aspx. 
+1. **Yol**: Burada araştırma ister URL yolu arka uç havuzundaki tüm arka uçlar için gönderilir. Örneğin, arka uçlar ise `contoso-westus.azurewebsites.net` ve yolunu ayarlamak `/probe/test.aspx`, Protokolü HTTP için ayarlanmış olduğu varsayılırsa, ön kapısı ortamları sistem durumu araştırma isteklerine gönderecektir http://contoso-westus.azurewebsites.net/probe/test.aspx. 
 2. **Protokol**: HTTP veya HTTPS protokolü üzerinden, arka uçları ön kapısı gelen sistem durumu araştırması istekleri gönderilip gönderilmeyeceğini tanımlar.
-3. **Aralık (saniye)**: Bu alan, her ön kapısı ortamların aralıklarında bir araştırma gönderir, arka uçları, diğer bir deyişle, sistem durumu araştırmaları sıklığını tanımlar. Daha hızlı yük devretmeyi arıyorsanız Not - Bu alan düşük bir değere ayarlayın. Ancak, düşük değer daha fazla araştırma uçlarınıza alacak birim. Uçlarda ön kapısı oluşturacak araştırma hacmini fikir almak için bir örneği ele alalım. Şimdi varsayalım, aralığı 30 saniye olarak ayarlanır ve yaklaşık 90 ön kapısı ortamları veya yoksa POP genel. Her uçlarınıza yaklaşık hakkında alacak şekilde 3-5 saniye başına yoklama istek.
+3. **Aralık (saniye)**: Bu alan, arka uçları ön kapısı ortamların her birinde bir araştırma gönderir aralıkları başka bir deyişle, sistem durumu araştırmaları sıklığını tanımlar. Daha hızlı yük devretmeyi arıyorsanız Not - Bu alan düşük bir değere ayarlayın. Ancak, düşük değer daha fazla araştırma uçlarınıza alacak birim. Uçlarda ön kapısı oluşturacak araştırma hacmini fikir almak için bir örneği ele alalım. Şimdi varsayalım, aralığı 30 saniye olarak ayarlanır ve yaklaşık 90 ön kapısı ortamları veya yoksa POP genel. Her uçlarınıza yaklaşık hakkında alacak şekilde 3-5 saniye başına yoklama istek.
 
 Okuma [sistem durumu araştırmaları](front-door-health-probes.md) Ayrıntılar için.
 
 ### <a name="load-balancing-settings"></a>Yük Dengeleme ayarları
 Arka uç havuzu için yük dengeleme ayarlarını nasıl biz sağlam olması için arka uç karar için sistem durumu araştırmaları değerlendirmek ve ayrıca nasıl trafiği arka uç havuzundaki farklı arka uçlar arasında Yük Dengelemesi ihtiyacımız tanımlayın. Yük Dengeleme için yapılandırma için aşağıdaki ayarlar kullanılabilir:
 
-1. **Örnek boyutu**: arka uç sistem durumu değerlendirme için göz önünde bulundurmanız gereken sistem durumu araştırmaları kaç örnekleri Biz bu özelliği tanımlar.
-2. **Başarılı örnek boyutu**: 'örnek boyutu', yukarıda açıklandığı gibi kaç tane örnek arka uç sağlıklı olarak çağırmak başarılı olup olmadığını denetlemek ihtiyacımız, bu özelliği tanımlar. 
+1. **Örnek boyutu**: Bu özellik, arka uç sistem durumu değerlendirme için göz önünde bulundurmanız gereken sistem durumu araştırmaları kaç örnekleri biz tanımlar.
+2. **Başarılı örnek boyutu**: Bu özellik, 'örnek boyutu', yukarıda açıklandığı gibi kaç tane örnek arka uç sağlıklı olarak çağırmak başarılı olup olmadığını denetlemek ihtiyacımız olduğunu tanımlar. 
 </br>Örneğin, uygulamanızın ön kapısı durum yoklaması ayarladığınız varsayalım *aralığı* 30 saniye, *örnek boyutu* '5'e ayarlanır ve *başarılı örnek boyutu* '3'e ayarlanır. Sonra ne bu yapılandırma her seferinde sizi arka uç için sistem durumu araştırmaları değerlendirmek, biz son 150 saniye kapsayan son beş örnekler görüneceğini anlamına gelir (5 * 30 = s) ve olmadığı sürece bu araştırmaların 3 veya başarılı geri bildirimini sağlıksız bitiş olayı. Diyelim ki yalnızca iki başarılı araştırmaları vardı ve bu nedenle biz arka uç sistem durumu kötü olarak işaretler. Biz 3 son beş araştırmaları, başarılı bulursanız, biz değerlendirme bir sonraki çalıştırmanızda ardından biz sağlıklı olarak arka uç yeniden işaretleyin.
-3. **Gecikme süresi duyarlılık (ek gecikme)**: ön kapısı, gecikme süresi ölçümü, yani iletilmeden Duyarlılık aralık içinde olan arka uçları isteği göndermek isteyip istemediğinizi gecikme duyarlılık alanı tanımlar. en yakın arka uç. Okuma [en az gecikme göre yönlendirme yöntemini](front-door-routing-methods.md#latency) ön kapısı, daha fazla bilgi edinmek için.
+3. **Gecikme süresi duyarlılık (ek gecikme)**: İstek gecikme süresi ölçüm ve isteği arka uca en yakın açısından Duyarlılık aralık içinde olan arka uçları göndermek için ön kapı isteyip istemediğinizi gecikme duyarlılık alanı tanımlar. Okuma [en az gecikme göre yönlendirme yöntemini](front-door-routing-methods.md#latency) ön kapısı, daha fazla bilgi edinmek için.
 
 ## <a name="backend"></a>Arka uç
 Bir arka uç bir bölgede bir uygulamanın dağıtım örnek eşdeğerdir. Hem Azure hem de Azure olmayan arka uçları ön kapısı destekler ve bu nedenle burada bölge yalnızca Azure bölgeler ile kısıtlı değildir ancak şirket içi veri merkezinizde veya diğer bir bulutta bir uygulama örneği de olabilir.
@@ -50,11 +50,11 @@ Arka uçları, konak adı veya istemci isteklerine hizmet verebilir, uygulamanı
 
 Bir arka uç, ön kapısı, bir arka uç havuzuna eklediğinizde, aşağıdaki ayrıntıları doldurun gerekir:
 
-1. **Arka uç ana bilgisayar türü**: eklemek istediğiniz kaynak türünü. Ön kapısı, app service, bulut hizmeti ya da depolama, otomatik olarak bulunması, uygulama arka uçları, destekler. Azure'da veya Azure dışı arka farklı bir kaynak istiyorsanız 'Özel konak' seçin. -Yapılandırma sırasında API'leri doğrulamaz, bunun yerine, arka uç tarafından ön kapısı erişilebildiğini emin olmak gereken arka uç ön ortamlardan erişilebilir olup olmadığını unutmayın. 
-2. **Abonelik ve arka uç ana bilgisayar adı**: arka uç ana bilgisayar türü için 'Özel konak' seçmediniz sonra kullanıcıdan uygun aboneliği ve karşılık gelen arka uç ana bilgisayar adını seçerek arka ucunuzu seçin ve aşağı kapsam için ihtiyaç duyduğunuz arabirim.
-3. **Arka uç ana bilgisayar üstbilgisi**: gönderilen her istek için arka uç için ana bilgisayar üstbilgisi değeri. Okuma [arka uç ana bilgisayar üstbilgisi](#hostheader) Ayrıntılar için.
-4. **Öncelik**: yedekleme arka uçları kullanılamıyor veya tüm trafiği için bir birincil hizmet arka ucu kullanın ve birincil durumda yedekleme sağlamak istediğinizde farklı uçlarınıza öncelikleri atayabilirsiniz. Daha fazla bilgi edinin [öncelik](front-door-routing-methods.md#priority).
-5. **Ağırlık**: eşit ya da ağırlığı katsayıları göre bir dizi arka uçları trafiği dağıtmak istediğinizde ağırlıkları farklı uçlarınıza atayabilirsiniz. Daha fazla bilgi edinin [ağırlıkları](front-door-routing-methods.md#weighted).
+1. **Arka uç ana bilgisayar türü**: Eklemek istediğiniz kaynak türü. Ön kapısı, app service, bulut hizmeti ya da depolama, otomatik olarak bulunması, uygulama arka uçları, destekler. Azure'da veya Azure dışı arka farklı bir kaynak istiyorsanız 'Özel konak' seçin. -Yapılandırma sırasında API'leri doğrulamaz, bunun yerine, arka uç tarafından ön kapısı erişilebildiğini emin olmak gereken arka uç ön ortamlardan erişilebilir olup olmadığını unutmayın. 
+2. **Abonelik ve arka uç ana bilgisayar adı**: Değil seçtiyseniz 'Özel konak' arka uç ana yazın ve ardından uygun aboneliği ve karşılık gelen arka uç ana bilgisayar adı kullanıcı arabiriminden seçerek arka ucunuzu seçin ve aşağı kapsam gerekir.
+3. **Arka uç ana bilgisayar üstbilgisi**: Her istek için bir arka uca gönderilen ana bilgisayar üstbilgisi değeri. Okuma [arka uç ana bilgisayar üstbilgisi](#hostheader) Ayrıntılar için.
+4. **Öncelik**: Tüm trafiği için bir birincil hizmet arka ucu kullanın ve birincil veya yedek arka uçları kullanılamaz olması durumunda yedekleme sağlamak istediğinizde, farklı uçlarınıza öncelikleri atayabilirsiniz. Daha fazla bilgi edinin [öncelik](front-door-routing-methods.md#priority).
+5. **Ağırlık**: Eşit ya da ağırlığı katsayıları göre bir dizi arka uçları trafiği dağıtmak istediğinizde farklı uçlarınıza ağırlıkları atayabilirsiniz. Daha fazla bilgi edinin [ağırlıkları](front-door-routing-methods.md#weighted).
 
 
 ### <a name = "hostheader"></a>Arka uç ana bilgisayar üstbilgisi
@@ -75,5 +75,5 @@ Arka uca ön kapısı tarafından iletilen istekler hedef kaynak almak için ark
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bilgi edinmek için nasıl [ön kapı oluşturmak](quickstart-create-front-door.md).
-- Bilgi [ön kapısı işleyişi](front-door-routing-architecture.md).
+- [Front Door oluşturmayı](quickstart-create-front-door.md) öğrenin.
+- [Front Door’un nasıl çalıştığını](front-door-routing-architecture.md) öğrenin.

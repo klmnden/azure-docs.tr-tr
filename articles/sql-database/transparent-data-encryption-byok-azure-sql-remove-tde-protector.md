@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/12/2018
-ms.openlocfilehash: 4a3677dc5402948fc0105190d1891d709291d0f7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: a5b544db713f671230e4a226b1e0bdcfa77fbb2b
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317739"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575248"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell kullanarak bir saydam veri şifrelemesi (TDE) koruyucusu Kaldır
 
@@ -46,7 +46,7 @@ Bu nasıl yapılır kılavuzunda sonra olay yanıtı istenen sonuca bağlı olar
 
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>Şifrelenmiş kaynakları erişilebilir tutmak için
 
-1. Oluşturma bir [anahtar Kasası'nda yeni anahtar](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Erişim denetimi bir kasa düzeyinde sağlandığı bu yeni anahtar riskli olabilecek TDE koruyucusuna'ndan ayrı bir anahtar kasasındaki oluşturulduğundan emin olun. 
+1. Oluşturma bir [anahtar Kasası'nda yeni anahtar](/powershell/module/az.keyvault/add-azkeyvaultkey). Erişim denetimi bir kasa düzeyinde sağlandığı bu yeni anahtar riskli olabilecek TDE koruyucusuna'ndan ayrı bir anahtar kasasındaki oluşturulduğundan emin olun.
 2. Yeni anahtarı kullanarak sunucuya ekleme [Ekle AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) ve [kümesi AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet'leri ve sunucunun yeni TDE koruyucusu güncelleştirin.
 
    ```powershell
@@ -74,12 +74,12 @@ Bu nasıl yapılır kılavuzunda sonra olay yanıtı istenen sonuca bağlı olar
    -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-4. Ele bir [yeni anahtar yedekleme](/powershell/module/az.keyvault/backup-azurekeyvaultkey) anahtar Kasası'nda.
+4. Ele bir [yeni anahtar yedekleme](/powershell/module/az.keyvault/backup-azkeyvaultkey) anahtar Kasası'nda.
 
    ```powershell
    <# -OutputFile parameter is optional; 
    if removed, a file name is automatically generated. #>
-   Backup-AzureKeyVaultKey `
+   Backup-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -Name <KeyVaultKeyName> `
    -OutputFile <DesiredBackupFilePath>
@@ -93,7 +93,7 @@ Bu nasıl yapılır kılavuzunda sonra olay yanıtı istenen sonuca bağlı olar
    -Name <KeyVaultKeyName>
    ```
  
-6. Gelecekte kullanarak Key Vault için bir anahtarı geri [geri yükleme-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azurekeyvaultkey) cmdlet:
+6. Gelecekte kullanarak Key Vault için bir anahtarı geri [geri yükleme-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet:
    ```powershell
    Restore-AzKeyVaultKey `
    -VaultName <KeyVaultName> `

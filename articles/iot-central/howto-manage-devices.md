@@ -3,19 +3,19 @@ title: Azure IOT Central uygulamanızdaki cihazları yönetme | Microsoft Docs
 description: Bir operatör olarak, Azure IOT Central uygulamanızdaki cihazların nasıl yönetileceğini öğrenin.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 11/02/2018
+ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 22158d6a5a8c2768ee343f86160f79fc0dbd241b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 59f4dffb64b0e72e8847f0b1baf947ad1d732063
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456270"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766590"
 ---
-# <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IOT Central uygulamanızdaki cihazları yönetme
+# <a name="manage-devices-in-your-azure-iot-central-application-new-ui-design"></a>Azure IOT Central uygulamanızda (yeni kullanıcı Arabirimi tasarımı) cihazları yönetme
 
 Bu makalede, Azure IOT Central uygulamanızdaki cihazları yönetmek için bir işleç olarak nasıl. Bir operatör olarak, şunları yapabilirsiniz:
 
@@ -24,7 +24,6 @@ Bu makalede, Azure IOT Central uygulamanızdaki cihazları yönetmek için bir i
 - Cihaz meta verilerinizi güncel cihaz özelliklerinde depolanan değerleri değiştirerek tutun.
 - Belirli bir CİHAZDAN bir ayar güncelleştirerek cihazlarınızı davranışını denetleyen **ayarları** sayfası.
 
-[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="view-your-devices"></a>Cihazlarınızı görüntüleme
 
@@ -32,11 +31,11 @@ Tek bir cihaza görüntülemek için:
 
 1. Seçin **Device Explorer** sol gezinti menüsünde. Burada, bir listesini görürsünüz, [cihaz şablonları](howto-set-up-template.md).
 
-1. Bir cihaz şablon Şablonları altındaki sol bölmede seçin.
+1. Bir cihaz şablonunda seçin **şablonları** listesi.
 
-1. Device Explorer sayfanın sağ bölmede, aşağıda gösterildiği gibi bu cihaz şablondan oluşturulan cihazların bir listesini görürsünüz. Bu cihaz için cihaz ayrıntıları sayfasına görmek için tek bir cihaz seçin:
+1. Sağ bölmede **Device Explorer** sayfasında, cihaz şablondan oluşturulan cihazların bir listesini görürsünüz. Bu cihaz için cihaz ayrıntıları sayfasına görmek için tek bir cihaz seçin:
 
-    [![Cihaz ayrıntıları sayfasına](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightbox)
+    ![Cihaz ayrıntıları sayfasına](./media/howto-manage-devices/devicelist.png)
 
 ## <a name="add-a-device"></a>Cihaz ekleme
 
@@ -48,15 +47,14 @@ Azure IOT Central uygulamanız için bir cihaz eklemek için:
 
 1. Seçin + **yeni**.
 
-1. Seçin **gerçek** veya **benzetimli**. Azure IOT Central uygulamanızı bağlamak için fiziksel bir cihaz gerçek bir cihaz içindir. Örnek veriler sizin için Azure IOT Central tarafından oluşturulan bir simülasyon cihazı vardır. Bu örnekte gerçek bir cihaz. Seçin **gerçek** gitmek için **cihaz ayrıntıları** yeni cihazınız için sayfa.
-
+1. Seçin **gerçek** veya **benzetimli**. Azure IOT Central uygulamanızı bağlamak için fiziksel bir cihaz gerçek bir cihaz içindir. Örnek veriler sizin için Azure IOT Central tarafından oluşturulan bir simülasyon cihazı vardır.
 
 ## <a name="import-devices"></a>Cihazları İçeri Aktar
 
-Uygulamanızı, Azure IOT Central sayıda cihaza bağlanmak için bir CSV dosyası içeri aktarılırken aygıtına teklifler toplu. CSV dosyası aşağıdaki sütunları (ve üst bilgiler) sahip olmalıdır
-1.  IOTC_DeviceID  **<span style="color:Red">(küçük harf olması gerekir)</span>**
-1.  IOTC_DeviceName (isteğe bağlı)
+Çok sayıda cihaz uygulamanızı bağlamak için bir CSV dosyasından içeri aktarma cihazları topluca ekleyebilirsiniz. CSV dosyası aşağıdaki sütunları ve üst bilgileri sahip olmalıdır:
 
+* **IOTC_DeviceID** -cihaz kimliği tamamı küçük harf olması gerekir.
+* **IOTC_DeviceName** -Bu isteğe bağlı bir sütundur.
 
 Toplu kaydı uygulamanızdaki cihazlar için:
 
@@ -64,12 +62,12 @@ Toplu kaydı uygulamanızdaki cihazlar için:
 
 1. Sol panelde, toplu olarak istediğiniz cihaz şablonu oluşturma cihazları seçin.
 
- >   [!NOTE] 
-    Bir cihaz şablonuna sahip olmayan henüz altında cihazları içeri aktarabilirsiniz **ilişkili değil, cihazları** ve bunları herhangi bir şablonu kaydedin. Cihazları içe aktardıktan sonra sonra bunları bir şablonu ile bir sonraki adım olarak ilişkilendirebilirsiniz.
+    > [!NOTE]
+    > Bir cihaz şablonuna sahip olmayan henüz altında cihazları içeri aktarabilirsiniz **ilişkili değil, cihazları** ve bunları bir şablonu kaydedin. Cihazlar içeri aktardıktan sonra bunları daha sonra şablon ile ilişkilendirebilirsiniz.
 
 1. Seçin **alma**.
 
-    [![Alma eylemi](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
+    ![Alma eylemi](./media/howto-manage-devices/BulkImport1.png)
 
 1. İçeri aktarılacak cihaz kimlikleri listesi olan CSV dosyasını seçin.
 
@@ -77,54 +75,63 @@ Toplu kaydı uygulamanızdaki cihazlar için:
 
 1. İçeri aktarma işlemi tamamlandıktan sonra cihaz Kılavuzu'nun bir başarı iletisi gösterilir.
 
-    [![İçeri aktarma başarılı](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
+    ![İçeri aktarma başarılı](./media/howto-manage-devices/BulkImport3.png)
 
-Aygıt alma işlemi başarısız olursa cihaz Kılavuzu'nun bir hata iletisi görürsünüz. Tüm hataları yakalamaya bir günlük dosyası oluşturulur ve hata iletisini seçerek indirilebilir.
-
+Aygıt alma işlemi başarısız olursa cihaz Kılavuzu'nun bir hata iletisi görürsünüz. İndirebilirsiniz, tüm hataları yakalamaya bir günlük dosyası oluşturulur.
 
 **Cihazlar bir şablon ile ilişkilendirme**
 
-Cihazları içeri aktarma altında başlatarak kaydederseniz **ilişkili değil, cihazları**, cihazları cihaz şablonu ilişkilere oluşturulmuştur. Cihaz verileri ve cihaz hakkında diğer ayrıntıları keşfetmek için bir şablonu ile ilişkili olmalıdır. Cihazlar bir şablon ile ilişkilendirmek için aşağıdaki adımları izleyin:
-1. Seçin **Device Explorer** sol gezinti menüsünde.
-1. Sol panelde seçin **ilişkili değil, cihazları**.
-    [![İlişkilendirilmemiş cihazlar](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
-1. Şablon ile ilişkilendirmek istediğiniz cihazları seçin.
-1. Seçin **ilişkilendirmek** seçeneği.
-    [![Cihaz ilişkilendirme](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
-1. Şablonu kullanılabilir şablonlar listesinden seçip **ilişkilendirmek**.
-1. Seçili cihazların ilgili cihaz taslağı altından taşınır.
+Cihazları içeri aktarma altında başlatarak kaydederseniz **ilişkili değil, cihazları**, cihazları cihaz şablonu ilişkilere oluşturulmuştur. Cihazlar, veriler ve cihaz hakkında diğer ayrıntıları keşfetmek için bir şablonu ile ilişkili olmalıdır. Cihazlar bir şablon ile ilişkilendirmek için aşağıdaki adımları izleyin:
 
- >   [!NOTE] 
-    Bir cihaz onun ilişkili değil veya farklı bir şablonla ilişkili bir şablon ile ilişkilendirildikten sonra.
+1. Seçin **Device Explorer** sol gezinti menüsünde.
+
+1. Sol panelde seçin **ilişkili değil, cihazları**:
+
+    ![İlişkilendirilmemiş cihazlar](./media/howto-manage-devices/UnassociatedDevices1.png)
+
+1. Şablon ile ilişkilendirmek istediğiniz cihazları seçin:
+
+1. Seçin **ilişkilendirmek**:
+
+    ![Cihazları İlişkilendir](./media/howto-manage-devices/UnassociatedDevices2.png)
+
+1. Şablonu kullanılabilir şablonlar listesinden seçip **ilişkilendirmek**.
+
+1. Seçili cihazların, seçtiğiniz cihaz şablonuyla ilişkilendirilir.
+
+> [!NOTE]
+> Bir cihaz bir şablon ile ilişkilendirildikten sonra ilişkili değil veya farklı bir şablonla ilişkili.
 
 ## <a name="export-devices"></a>Cihazlar dışarı aktarma
 
-IOT Central bağlanmak için cihazları sağlamak için IOT Central tarafından üretilen cihaz bağlantı dizesi gerekir. Bağlantı dizelerini ve diğer özellikleri cihazların toplu olarak uygulamanızdan almak için dışarı aktarma özelliğini kullanabilirsiniz. Dışarı aktarma, tüm seçili cihazlar için bir CSV dosyası cihaz kimliği, cihaz adı ve birincil bağlantı dizesi oluşturur.
+Gerçek bir cihaz IOT Central bağlanmak için bağlantı dizesi gerekir. Bağlantı dizelerini ve diğer özellikleri almak için toplu cihaz ayrıntıları dışarı aktarabilirsiniz. Dışarı aktarma işlemi, cihaz kimliği, cihaz adı ve tüm seçili cihazlar için birincil bağlantı dizesi ile bir CSV dosyası oluşturur.
 
 Uygulamanızdan dışarı aktarma cihazları toplu olarak:
+
 1. Seçin **Device Explorer** sol gezinti menüsünde.
 
 1. Sol panelde, cihazları vermek istediğiniz cihaz şablonu seçin.
 
 1. Dışarı aktarma ve ardından istediğiniz cihazları seçin **dışarı** eylem.
 
-    [![Dışarı aktarma](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
+    ![Dışarı Aktarma](./media/howto-manage-devices/Export1.png)
 
-1. Dışarı aktarma işlemini başlatacak ve üst kılavuza durumunu izleyebilirsiniz. 
+1. Dışarı aktarma işlemini başlatır. Izgaranın üst durumunu izleyebilirsiniz.
 
-1. Dışarı aktarma işlemi tamamlandıktan sonra bir başarı iletisi oluşturulan dosyasını indirmek için bir bağlantı ile birlikte gösterilir.
+1. Dışarı aktarma tamamlandığında, bir başarı iletisi oluşturulan dosyasını indirmek için bir bağlantı ile birlikte gösterilir.
 
 1. Seçin **başarılı iletisi** disk üzerindeki yerel bir klasöre dosya indirilemedi.
 
-    [![Dışarı aktarma başarılı](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
+    ![Dışarı aktarma başarılı](./media/howto-manage-devices/Export2.png)
 
-1. Dışarı aktarılan CSV dosyasını aşağıdaki sütunları bilgileri olacaktır: **Cihaz kimliği, cihaz adı, cihaz Priamry/ikincil anahtarları ve birincil/ikincil sertifika parmak izleri**
-    *   IOTC_DEVICEID
-    *   IOTC_DEVICENAME
-    *   IOTC_SASKEY_PRIMARY
-    *   IOTC_SASKEY_SECONDARY
-    *   IOTC_X509THUMBPRINT_PRIMARY 
-    *   IOTC_X509THUMBPRINT_SECONDARY
+1. Dışarı aktarılan CSV dosyasını aşağıdaki sütunları içerir: cihaz kimliği, cihaz adı, cihaz anahtarları ve X509 sertifika parmak izleri:
+
+    * IOTC_DEVICEID
+    * IOTC_DEVICENAME
+    * IOTC_SASKEY_PRIMARY
+    * IOTC_SASKEY_SECONDARY
+    * IOTC_X509THUMBPRINT_PRIMARY   
+    * IOTC_X509THUMBPRINT_SECONDARY
 
 ## <a name="delete-a-device"></a>Bir cihazı silme
 
@@ -148,9 +155,9 @@ Ayarları bir cihaz davranışını denetler. Diğer bir deyişle, cihazınıza 
 
 1. Seçin **ayarları** sekmesi. Burada, Cihazınızı sahip tüm ayarlar ve geçerli değerlerini görürsünüz. Her ayar için cihaz hala eşitleme görebilirsiniz.
 
-1. İstenen kendi değerlerinize ayarlarını değiştirin. Aynı anda birden çok ayarları değiştirme ve tümünü aynı anda güncelleştirebilirsiniz.
+1. İhtiyacınız olan değerlere için ayarları değiştirin. Aynı anda birden çok ayarları değiştirme ve tümünü aynı anda güncelleştirebilirsiniz.
 
-1. Seçin **güncelleştirme**. Değerler, cihaza gönderilir. Cihaz ayar değişikliği bildirir, bir ayar durumu geri gider **eşitlenen**.
+1. Seçin **güncelleştirme**. Değerler, cihaza gönderilir. Cihaz ayar değişikliğinin onaylarsa, bir ayar durumu geri gider **eşitlenen**.
 
 ## <a name="change-a-property"></a>Bir özelliği değiştirmek
 
@@ -162,7 +169,7 @@ Ayarları bir cihaz davranışını denetler. Diğer bir deyişle, cihazınıza 
 
 1. Seçin **özellikleri** sekmesi, gördüğünüz tüm özellikleri.
 
-1. Uygulama özelliklerini, istenen değerleri değiştirin. Aynı anda birden çok özellik değiştirme ve tümünü aynı anda güncelleştirebilirsiniz. Seçin **güncelleştirme**.
+1. İhtiyacınız olan değerlere için uygulama özelliklerini değiştirin. Aynı anda birden çok özellik değiştirme ve tümünü aynı anda güncelleştirebilirsiniz. Seçin **güncelleştirme**.
 
 > [!NOTE]
 > Değerini değiştiremezsiniz _cihaz özelliklerini_. Cihaz özellikleri cihaz tarafından belirlenir ve Azure IOT Central uygulamada salt okunurdur.

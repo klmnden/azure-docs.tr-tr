@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: b513e898e25397f54b8f7f7590a4466523a705ff
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: e8163ad34046261d9671c57db2cd2d2052fe35e0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401427"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550796"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Bir Azure hizmeti için özel etki alanı ayarları sağlamak için Azure DNS kullanma
 
@@ -41,7 +41,7 @@ DNS bölgenizi gelin ve tıklayın **+ kayıt kümesi**. Aşağıdaki bilgileri 
 |Özellik  |Değer  |Açıklama  |
 |---------|---------|---------|
 |Ad     | myfunctionapp        | Bu etki alanı ad etiketi ile birlikte özel etki alanı adı FQDN değerdir.        |
-|Tür     | CNAME        | Bir diğer ad kullanımı bir CNAME kaydı kullanıyor.        |
+|Type     | CNAME        | Bir diğer ad kullanımı bir CNAME kaydı kullanıyor.        |
 |TTL     | 1        | 1 saat boyunca 1 kullanılır        |
 |TTL birimi     | Saat        | Saatleri zaman ölçümü kullanılır         |
 |Diğer ad     | adatumfunction.azurewebsites.net        | DNS adı varsayılan olarak işlev uygulaması için sağlanan adatumfunction.azurewebsites.net DNS adı olduğu Bu örnekte, diğer oluşturuyorsunuz.        |
@@ -54,7 +54,7 @@ DNS bölgenizi gelin ve tıklayın **+ kayıt kümesi**. Aşağıdaki bilgileri 
 
 ## <a name="public-ip-address"></a>Genel IP adresi
 
-Bir genel IP kullanan Hizmetleri, Application Gateway, yük dengeleyici, bulut hizmeti, Resource Manager Vm'lerinde gibi kaynak adres ve klasik VM'ler, bir CNAME kaydı için özel bir etki alanı yapılandırmak için kullanılır.
+Özel bir etki alanı için bir genel IP kullanan hizmetler Application Gateway, yük dengeleyici, bulut hizmeti, Resource Manager Vm'lerinde gibi kaynak adres ve klasik VM'ler, bir A kaydı kullanılan yapılandırmak için.
 
 Gidin **ağ** > **genel IP adresi**, genel IP kaynağı seçin ve tıklayın **yapılandırma**. Gösterilen IP adresiyle bildirmek.
 
@@ -66,7 +66,7 @@ DNS bölgenizi gelin ve tıklayın **+ kayıt kümesi**. Aşağıdaki bilgileri 
 |Özellik  |Değer  |Açıklama  |
 |---------|---------|---------|
 |Ad     | mywebserver        | Bu etki alanı ad etiketi ile birlikte özel etki alanı adı FQDN değerdir.        |
-|Tür     | A        | Kaynak IP adresi olduğu gibi bir A kaydı kullanın.        |
+|Type     | A        | Kaynak IP adresi olduğu gibi bir A kaydı kullanın.        |
 |TTL     | 1        | 1 saat boyunca 1 kullanılır        |
 |TTL birimi     | Saat        | Saatleri zaman ölçümü kullanılır         |
 |IP Adresi     | <your ip address>       | Genel IP adresi.|
@@ -93,7 +93,7 @@ DNS bölgenizi gelin ve tıklayın **+ kayıt kümesi**. Aşağıdaki bilgileri 
 |Özellik  |Değer  |Açıklama  |
 |---------|---------|---------|
 |Ad     | mywebserver        | Bu etki alanı ad etiketi ile birlikte özel etki alanı adı FQDN değerdir.        |
-|Tür     | CNAME        | Bir diğer ad kullanımı bir CNAME kaydı kullanıyor. Kaynak IP adresi kullandıysanız, bir A kaydı kullanılabilir.        |
+|Type     | CNAME        | Bir diğer ad kullanımı bir CNAME kaydı kullanıyor. Kaynak IP adresi kullandıysanız, bir A kaydı kullanılabilir.        |
 |TTL     | 1        | 1 saat boyunca 1 kullanılır        |
 |TTL birimi     | Saat        | Saatleri zaman ölçümü kullanılır         |
 |Diğer ad     | webserver.azurewebsites.net        | DNS adı varsayılan olarak web uygulaması için sağlanan webserver.azurewebsites.net DNS adı olduğu Bu örnekte, diğer oluşturuyorsunuz.        |
@@ -127,7 +127,7 @@ DNS bölgenizi gelin ve tıklayın **+ kayıt kümesi**. Aşağıdaki bilgileri 
 |Özellik  |Değer  |Açıklama  |
 |---------|---------|---------|
 |Ad     | asverify.mystorageaccount        | Bu etki alanı ad etiketi ile birlikte özel etki alanı adı FQDN değerdir.        |
-|Tür     | CNAME        | Bir diğer ad kullanımı bir CNAME kaydı kullanıyor.        |
+|Type     | CNAME        | Bir diğer ad kullanımı bir CNAME kaydı kullanıyor.        |
 |TTL     | 1        | 1 saat boyunca 1 kullanılır        |
 |TTL birimi     | Saat        | Saatleri zaman ölçümü kullanılır         |
 |Diğer ad     | asverify.adatumfunctiona9ed.blob.core.windows.net        | DNS adı Bu örnekte, varsayılan depolama hesabı tarafından sağlanan asverify.adatumfunctiona9ed.blob.core.windows.net DNS adı olduğu için diğer ad oluşturuyorsunuz.        |
@@ -155,7 +155,7 @@ DNS bölgenizi gelin ve tıklayın **+ kayıt kümesi**. Aşağıdaki bilgileri 
 |Özellik  |Değer  |Açıklama  |
 |---------|---------|---------|
 |Ad     | cdnverify.mycdnendpoint        | Bu etki alanı ad etiketi ile birlikte özel etki alanı adı FQDN değerdir.        |
-|Tür     | CNAME        | Bir diğer ad kullanımı bir CNAME kaydı kullanıyor.        |
+|Type     | CNAME        | Bir diğer ad kullanımı bir CNAME kaydı kullanıyor.        |
 |TTL     | 1        | 1 saat boyunca 1 kullanılır        |
 |TTL birimi     | Saat        | Saatleri zaman ölçümü kullanılır         |
 |Diğer ad     | cdnverify.adatumcdnendpoint.azureedge.net        | DNS adı Bu örnekte, varsayılan depolama hesabı tarafından sağlanan cdnverify.adatumcdnendpoint.azureedge.net DNS adı olduğu için diğer ad oluşturuyorsunuz.        |

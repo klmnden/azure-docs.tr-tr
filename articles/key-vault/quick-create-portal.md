@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 4e31e5d6f1f08012c2ab0dbccb7a0f6c2df89a9a
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117111"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57728882"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Hızlı Başlangıç: Ayarlayın ve Azure portalını kullanarak Azure Key Vault gizli dizi alma
 
@@ -28,7 +28,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-http://portal.azure.com adresinden Azure portalında oturum açın.
+https://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-vault"></a>Kasa oluşturma
 
@@ -70,7 +70,11 @@ Kasaya bir gizli dizi eklemek için birkaç ek adım uygulamanız gerekir. Bu ö
 
 Gizli dizinin başarıyla oluşturulduğunu belirten iletiyi aldıktan sonra listede gizli diziye tıklayabilirsiniz. Ondan sonra bazı özellikleri görebilirsiniz. Geçerli sürüme tıklarsanız önceki adımda belirtilen değeri görebilirsiniz.
 
-![Gizli dizi özellikleri](./media/quick-create-portal/version.png)
+![Gizli dizi özellikleri](./media/quick-create-portal/current-version-hidden.png)
+
+Sağ bölmede "Gizli dizi değerini göster" düğmesine tıklayarak, gizli değeri görebilirsiniz. 
+
+![Gizli değer göründü](./media/quick-create-portal/current-version-shown.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

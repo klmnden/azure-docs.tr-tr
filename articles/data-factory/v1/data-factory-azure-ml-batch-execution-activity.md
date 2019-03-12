@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fe671dec730cd1a593c6413c38625677c3f9d164
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 6c71956bf43a0147d5abff4b708be93f62fe34fa
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894114"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545071"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning ve Azure Data Factory kullanarak öngörülebilir komut zincirleri oluşturma
 
@@ -303,7 +303,7 @@ Gitmenizi öneririz [Data Factory ile ilk işlem hattınızı oluşturma] [ adf-
     }
     ```
 
-      Her ikisi de **Başlat** ve **son** tarih/saat olmalıdır [ISO biçimi](http://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41Z. **Son** zaman isteğe bağlıdır. İçin değer belirtmezseniz **son** özelliği olarak hesaplanır "**start + 48 hours.**" İşlem hattını süresiz olarak çalıştırmak için **end** özelliği değerini **9999-09-09** olarak ayarlayın. JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](https://msdn.microsoft.com/library/dn835050.aspx).
+      Her ikisi de **Başlat** ve **son** tarih/saat olmalıdır [ISO biçimi](https://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41Z. **Son** zaman isteğe bağlıdır. İçin değer belirtmezseniz **son** özelliği olarak hesaplanır "**start + 48 hours.**" İşlem hattını süresiz olarak çalıştırmak için **end** özelliği değerini **9999-09-09** olarak ayarlayın. JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](https://msdn.microsoft.com/library/dn835050.aspx).
 
       > [!NOTE]
       > AzureMLBatchExecution giriş belirterek etkinliği isteğe bağlıdır.
@@ -407,7 +407,7 @@ Okuyucu modülü kullanarak bir Azure Machine Learning deneme, Azure Blob girdi 
 Yukarıdaki JSON örneği:
 
 * Dağıtılan Azure Machine Learning Web hizmetini Azure SQL veritabanı ' / için veri okuma/yazma için bir okuyucu ve yazıcı modülü kullanır. Bu Web hizmetini aşağıdaki dört parametre sunar:  Veritabanı sunucusu adı, veritabanı adı, sunucu kullanıcı hesabı adını ve Server kullanıcı hesabı parolası.
-* Her ikisi de **Başlat** ve **son** tarih/saat olmalıdır [ISO biçimi](http://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41Z. **Son** zaman isteğe bağlıdır. İçin değer belirtmezseniz **son** özelliği olarak hesaplanır "**start + 48 hours.**" İşlem hattını süresiz olarak çalıştırmak için **end** özelliği değerini **9999-09-09** olarak ayarlayın. JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](https://msdn.microsoft.com/library/dn835050.aspx).
+* Her ikisi de **Başlat** ve **son** tarih/saat olmalıdır [ISO biçimi](https://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41Z. **Son** zaman isteğe bağlıdır. İçin değer belirtmezseniz **son** özelliği olarak hesaplanır "**start + 48 hours.**" İşlem hattını süresiz olarak çalıştırmak için **end** özelliği değerini **9999-09-09** olarak ayarlayın. JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](https://msdn.microsoft.com/library/dn835050.aspx).
 
 ### <a name="other-scenarios"></a>Diğer senaryolar
 #### <a name="web-service-requires-multiple-inputs"></a>Web hizmeti birden çok giriş gerektiriyor
@@ -557,7 +557,7 @@ Azure Blob/Azure SQL Okuyucu/Yazıcı hakkında daha fazla ayrıntı için bkz: 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 **S:** My büyük veri ardışık düzen tarafından üretilen birden fazla dosya var. Tüm dosyalar üzerinde çalışmaya AzureMLBatchExecution etkinliği kullanabilir miyim?
 
-**Y:** Evet. Bkz: **Azure Blob içinde birden çok dosyadan veri okumak için bir okuyucu modülü kullanarak** ayrıntıları bölümü.
+**C:** Evet. Bkz: **Azure Blob içinde birden çok dosyadan veri okumak için bir okuyucu modülü kullanarak** ayrıntıları bölümü.
 
 ## <a name="azure-machine-learning-studio-batch-scoring-activity"></a>Azure Machine Learning studio toplu iş Puanlama etkinliği
 Kullanıyorsanız **AzureMLBatchScoring** etkinliği, Azure Machine Learning ile tümleştirmek için en son kullanmanızı öneririz **AzureMLBatchExecution** etkinlik.
@@ -634,4 +634,4 @@ Ayrıca [Data Factory işlevleri](data-factory-functions-variables.md) Web değe
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
-[azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
+[azure-machine-learning]: https://azure.microsoft.com/services/machine-learning/

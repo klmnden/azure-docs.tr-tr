@@ -9,18 +9,18 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a05874e28c08087b6f82c3aa5a02e83d2629ffe5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7a90a0af8c6c7fd19b784d97e2ce30bea7910089
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728191"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550720"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory karma kimlik çözümünüz için doğru kimlik doğrulama yöntemini seçin 
 
 Bu makalede, kuruluşların tam bir Azure Active Directory (Azure AD) karma kimlik çözümü makaleleri bir dizi başlar. Bu çözüm olarak ana hatları [karma kimlik dijital dönüşüm çerçevesi](https://aka.ms/aadframework). İş sonuçlarını kapsar ve hedefleri kuruluşların güçlü ve Güvenli Karma kimlik çözümü uygulamak için üzerinde odaklanabilirsiniz. 
 
-Framework'ün ilk iş sonucu harfe dönüştüren kullanıcıların bulut uygulamalarına erişirken kimlik doğrulama işlemi güvenli hale getirmek kuruluşların gereksinimleri uğradı. İlk iş kimlik doğrulaması güvenli iş sonucu olarak, şirket içi kullanıcı adları ve parolalar'ı kullanarak bulut uygulamalarında oturum açmak için kullanıcıların yeteneğini hedeftir. Bu oturum açma işlemi ve kullanıcıların kimliklerini her şey bulutta mümkün kılar.
+Framework'ün ilk iş sonucu harfe dönüştüren kullanıcıların bulut uygulamalarına erişirken kimlik doğrulama işlemi güvenli hale getirmek kuruluşların gereksinimleri uğradı. İlk iş kimlik doğrulaması güvenli iş sonucu olarak, şirket içi kullanıcı adları ve parolalar'ı kullanarak bulut uygulamalarında oturum açmak için kullanıcıların yeteneğini hedeftir. Bu oturum açma ve kimlik doğrulama işlemi her şey bulutta mümkün kılar.
 
 Doğru kimlik doğrulama yöntemi seçme uygulamalarını buluta taşımak isteyen kuruluşlar için ilk konusudur. Bu karar, aşağıdaki nedenlerden dolayı hafife almayız:
 
@@ -161,7 +161,7 @@ Aşağıdaki diyagramlarda, Azure AD karma kimlik çözümü ile kullandığın�
 
     ![Parola Karması eşitleme ile Azure AD karma kimlik](media/azure-ad/azure-ad-authn-image2.png)
 
-* Doğrudan kimlik doğrulama Aracısı gereksinimleri:
+* Artıklık için iki aracı kullanarak, doğrudan kimlik doğrulama Aracısı gereksinimleri:
 
     ![Geçişli kimlik doğrulaması ile Azure AD karma kimlik](media/azure-ad/azure-ad-authn-image3.png)
 
@@ -204,7 +204,7 @@ Kullanabilir veya aşağıdaki nedenlerle seçin hangi kimlik doğrulama yöntem
 
    * Parola Karması eşitleme hakkında daha önce açık olan kuruluşlar, parola karması eşitleme kullanmak için kendi kimlik doğrulama yöntemini değiştirildi. Bunlar, yalnızca birkaç saat içinde yeniden çevrimiçi. Office 365 e-posta erişimi kullanarak sorunları çözün ve diğer bulut tabanlı iş yükleri erişmek için işe yaradığını.
 
-   * Daha önce parola karma eşitlemesini etkinleştirme fırsatınız kuruluşlar, güvenilmeyen dış tüketici e-posta sistemlerinin iletişim ve sorunları çözmek için başvurmadan gerekiyordu. Bu gibi durumlarda, bunları birkaç hafta veya yeniden çalışır olması için daha fazla işlem.
+   * Daha önce parola karma eşitlemesini etkinleştirme fırsatınız kuruluşlar, güvenilmeyen dış tüketici e-posta sistemleriyle iletişim sorunlarını çözmek için başvurmadan gerekiyordu. Bu gibi durumlarda, kullanıcıların bulut tabanlı uygulamalar için tekrar oturum için önce şirket içi kimlik altyapılarını geri yüklemek için bunları hafta sürdüğünü.
 
 3. **Kimlik koruması**. Kullanıcıların bulutta korumak için en iyi yollarından biri, Azure AD kimlik koruması ile Azure AD Premium P2 olduğu. Microsoft Internet kullanıcı için sürekli tarar ve parola kötü aktörleri satmak ve koyu web üzerinde kullanılabilmesini listeler. Azure AD, herhangi bir kullanıcı adları ve parolalar, kuruluşunuzdaki tehlikede olursa doğrulamak için bu bilgileri kullanabilirsiniz. Bu nedenle hangi kimlik doğrulama yöntemi, Federasyon olup olmadığını, kullanın veya doğrudan kimlik doğrulama ne olursa olsun parola karması eşitlemeyi etkinleştirmek için önemlidir. Sızdırılan kimlik bilgilerine bir rapor olarak sunulur. Engelleme veya kullanıcıları, sızan parola ile oturum açmayı denediğinizde parolalarını değiştirmek için bu bilgileri kullanın.
 

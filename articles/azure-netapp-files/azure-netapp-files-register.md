@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: b-juche
-ms.openlocfilehash: 0a5483cd5a6316cb5d6cba3a110ca757eb2171c8
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: dc24165d3a5ee4d72c259753edd4028752828dce
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104004"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772300"
 ---
 # <a name="register-for-azure-netapp-files"></a>Azure NetApp Files için kaydolma
 Azure NetApp dosyaları kullanmadan önce Azure NetApp dosyaları hizmetine kaydetmek için birer istek göndermeniz gerekmektedir.  Kayıttan sonra daha sonra hizmeti kullandığınız kaydedin.

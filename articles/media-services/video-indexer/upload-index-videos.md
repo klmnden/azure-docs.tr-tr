@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: ddf090664b1e5197603dadc26da92a0a1da1a63d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c11a206316cfb7b2d9e96b631fce01701da93565
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404952"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550491"
 ---
 # <a name="upload-and-index-your-videos"></a>Videolarınızı karşıya yükleme ve dizinleme  
 
@@ -36,6 +36,7 @@ Videonuz karşıya yüklendikten sonra Video Indexer, isteğe bağlı olarak kod
 - Bayt dizisi seçeneği ile karşıya yükleme boyutu 2 GB ile sınırlıdır
 - Bayt dizisi seçeneği 30 dakika sonra zaman aşımına uğruyor
 - `videoURL` parametresinde sağlanan URL kodlanmış olmalıdır
+- URL'den dizin olarak da aynı sınırlama sahip varlıklar Media Services dizin oluşturma
 
 > [!Tip]
 > .NET Framework 4.6.2 veya üzeri bir sürümünü kullanmanız önerilir. Eski .NET Framework sürümlerinde varsayılan olarak TLS 1.2 ayarı kullanılmaz.

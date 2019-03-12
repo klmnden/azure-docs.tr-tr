@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: jhubbard
-ms.date: 03/04/2019
-ms.openlocfilehash: 05398f98bb92da8bf8436f2421beacdde3fd91c9
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/07/2019
+ms.openlocfilehash: 4e7f344dfa0b5cf38d36cec786169c5c7a51af3b
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336573"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576523"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell kullanarak saydam veri şifrelemesi (TDE) koruyucu Döndür
 
@@ -43,7 +43,7 @@ Bu kılavuz, sunucuda TDE koruyucusuna döndürmek için iki seçenek açıklan�
 
 ## <a name="manual-key-rotation"></a>El ile anahtar döndürme
 
-El ile anahtar döndürme kullanan [Ekle AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [Ekle AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), ve [kümesi AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet'leri eklemek için bir tamamen yeni anahtarı altında yeni bir anahtar adı veya hatta başka bir anahtar kasası olabilir. Bu yaklaşımı kullanarak, aynı anahtarı yüksek oranda kullanılabilir ve coğrafi-dr senaryoları desteklemek için farklı anahtar kasalarına eklenmesini destekler.
+El ile anahtar döndürme kullanan [Ekle AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [Ekle AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), ve [kümesi AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet'leri eklemek için bir tamamen yeni anahtarı altında yeni bir anahtar adı veya hatta başka bir anahtar kasası olabilir. Bu yaklaşımı kullanarak, aynı anahtarı yüksek oranda kullanılabilir ve coğrafi-dr senaryoları desteklemek için farklı anahtar kasalarına eklenmesini destekler.
 
 >[!NOTE]
 >Birleşik anahtar adını ve anahtar kasası adı için 94 karakter uzunluğunda olabilir.
@@ -71,7 +71,7 @@ El ile anahtar döndürme kullanan [Ekle AzKeyVaultKey](/powershell/module/az.ke
 
 ## <a name="option-2-manual-rotation"></a>2. seçenek: El ile döndürme
 
-Seçeneği kullandığı [Ekle AzKeyVaultKey](/powershell/module/az.keyvault/add-azurekeyvaultkey), [Ekle AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), ve [kümesi AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) eklemek için cmdlet'leri bir tamamen Yeni anahtarı altında yeni bir anahtar adı veya hatta başka bir anahtar kasası olabilir. 
+Seçeneği kullandığı [Ekle AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey), [Ekle AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), ve [kümesi AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) eklemek için cmdlet'leri bir tamamen Yeni anahtarı altında yeni bir anahtar adı veya hatta başka bir anahtar kasası olabilir. 
 
 >[!NOTE]
 >Birleşik anahtar adını ve anahtar kasası adı için 94 karakter uzunluğunda olabilir.

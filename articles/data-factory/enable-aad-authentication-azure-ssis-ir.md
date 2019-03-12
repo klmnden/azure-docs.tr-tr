@@ -3,30 +3,31 @@ title: Azure-SSIS tümleştirme çalışma zamanı için Azure Active Directory 
 description: Bu makalede, Azure-SSIS tümleştirme çalışma zamanı oluşturmak Azure Data Factory için yönetilen kimliğe sahip Azure Active Directory kimlik doğrulamasının nasıl etkinleştirileceği açıklanır.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 2/19/2019
-ms.author: douglasl
-ms.openlocfilehash: 159aaf017265c09c2afc4b603ed5172fead9b29d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 3/11/2019
+author: swinarko
+ms.author: sawinark
+manager: craigg
+ms.openlocfilehash: 787c436261635376ff82e8762cbc1469f4375e6b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438661"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729950"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı için Azure Active Directory kimlik doğrulamasını etkinleştirme
 
-Bu makalede, Azure Data Factory (ADF) için yönetilen kimlik ile Azure Active Directory (Azure AD) kimlik doğrulamasını etkinleştirme ve SSIS sırayla oluşturacak bir Azure-SSIS Integration Runtime (IR) oluşturmak için SQL kimlik doğrulaması yerine kullanma gösterilmektedir Azure SQL veritabanı sunucusu/yönetilen örnek sizin adınıza içinde Kataloğu veritabanını (SSISDB).
+Bu makalede, Azure Data Factory (ADF) için yönetilen kimlik ile Azure Active Directory (Azure AD) kimlik doğrulamasını etkinleştirme ve sırayla sağlayacak bir Azure-SSIS Integration Runtime (IR) oluşturmak için SQL kimlik doğrulaması yerine kullanma gösterilmektedir Azure SQL veritabanı sunucusu/yönetilen örnek sizin adınıza, SSIS Kataloğu veritabanını (SSISDB).
 
 Yönetilen kimlik bilgilerinizi ADF için hakkında daha fazla bilgi için bkz. [Data Factory için yönetilen identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
-> SQL kimlik doğrulaması kullanarak bir Azure-SSIS IR zaten oluşturduysanız, IR şu anda PowerShell ile Azure AD kimlik doğrulamasını kullanma yapılandırılmadan değil ancak Azure portal/ADF uygulamasında bunu yapabilirsiniz. 
+>-  Bu senaryoda, ADF yönetilen kimlik ile Azure AD kimlik doğrulamasını yalnızca oluşturulmasında kullanılan ve sonraki başlangıç işlemleri de barındıracak SSIS IR sağlamak açıp SSISDB için bağlanın. SSIS paketi yürütme için SSIS IR hala SSISDB SSISDB sağlama sırasında oluşturulan tam olarak yönetilen hesaplar SQL kimlik doğrulaması kullanarak bağlanır.
+>-  SQL kimlik doğrulaması kullanarak SSIS IR, zaten oluşturduysanız, şu anda PowerShell aracılığıyla Azure AD kimlik doğrulamasını kullanacak şekilde yeniden yapılandırabilirsiniz değil ancak Azure portal/ADF uygulama bunu yapabilirsiniz. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

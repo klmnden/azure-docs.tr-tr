@@ -10,23 +10,23 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b313772fb2737c015a02cfc36cec87797c95f619
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 32d00a1c0daf383d41d6bbc7c9fe105b3a2a6ab1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251971"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774924"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Azure Stack için iDNS ile tanışın
 
 *Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-IDN'ler olan dış DNS adlarını çözümlemek sağlayan bir Azure Stack ağ özelliği (örneğin, http://www.bing.com.) iç sanal ağ adlarını kaydetmek de sağlar. Bunun yapılması, Vm'leri aynı sanal ağda IP adresi yerine adına göre çözebilirsiniz. Bu yaklaşım, özel DNS sunucusu girdileri sağlama gereksinimini kaldırır. DNS hakkında daha fazla bilgi için bkz. [Azure DNS'ye genel bakış](https://docs.microsoft.com/azure/dns/dns-overview).
+IDN'ler olan dış DNS adlarını çözümlemek sağlayan bir Azure Stack ağ özelliği (örneğin, https://www.bing.com.) iç sanal ağ adlarını kaydetmek de sağlar. Bunun yapılması, Vm'leri aynı sanal ağda IP adresi yerine adına göre çözebilirsiniz. Bu yaklaşım, özel DNS sunucusu girdileri sağlama gereksinimini kaldırır. DNS hakkında daha fazla bilgi için bkz. [Azure DNS'ye genel bakış](https://docs.microsoft.com/azure/dns/dns-overview).
 
 ## <a name="what-does-idns-do"></a>IDN'ler ne yapar?
 

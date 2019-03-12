@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: anroth
-ms.openlocfilehash: 8e96447f2a1b5b68ebf99ab4006fe43937f4c75f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 58109e17ed33e6af8dedf3ed8c1cc9ddf546a05e
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884435"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588678"
 ---
 # <a name="pricing-and-limits"></a>Fiyatlandırma ve limitler
 
 Özel görüntü işleme hizmeti için anahtarların üç katmanı vardır. Sınırlı deneme proje kaynakları, özel görüntü işleme oturum açma (diğer bir deyişle, bir Azure Active Directory hesabı veya MSA hesabı) eklenir. Kısa deneme hizmeti için kullanılmak üzere tasarlanmıştır. F0 (ücretsiz) veya Azure portalı üzerinden S0 (standart) abonelik için kaydolabilirsiniz. Buna karşılık gelen bkz [Bilişsel hizmetler fiyatlandırması sayfası](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) fiyatlandırma ve işlemler hakkında ayrıntı için.
 
-Azure Önizleme (1 Mart 2018), giriş önce erken ücretsiz önizleme sırasında oluşturulan hesaplar için sınırlı deneme önceki kotalarını korur. 
+Azure Önizleme (1 Mart 2018), giriş önce erken ücretsiz önizleme sırasında oluşturulan hesaplar için sınırlı deneme önceki kotalarını korur.
 
 Eğitim resmi her proje ve proje başına etiket sayısı zamanla S0 projeleri için artması beklenmektedir.
 

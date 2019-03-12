@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 9f818715895c2ff2c5d0e1758aaf17a2393287d2
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 70ac4319e2ea0081f7805c2fb936af1310d57d8f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050658"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534949"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic Manager trafik görünümü
 
@@ -35,6 +35,8 @@ Trafik görünümü kullanarak, şunları yapabilirsiniz:
 
 Trafik görünümü, Traffic Manager'ın bu özelliği etkinleştirilmiş bir profili karşı son yedi gün içinde alınan gelen sorguların bakmak sağlayarak çalışır. Gelen sorgu bilgileri, kullanıcıların konumunu temsili olarak kullanılan DNS Çözümleyicisi kaynak IP'si trafik görünümü ayıklar. Bunlar ardından birlikte, Traffic Manager tarafından tutulan IP adreslerinin coğrafi bilgileri kullanarak kullanıcı temel bölgeler oluşturmak için bir DNS Çözümleyicisi düzeyine ayrıntılı gruplandırılır. Traffic Manager, Azure bölgeleri sorgu yönlendirildi ve kullanıcılar bu bölgelerden trafik akışını haritasıdır oluşturur sonra bakar.  
 Sonraki adımda, Traffic Manager, bu bölgelerden kullanıcılar tarafından karşılaşılan ortalama gecikme sürelerini anlamak farklı son kullanıcı ağlar için tutar ağ zeka gecikme tablolar ile Azure bölgesi eşleme kullanıcı temel bölgeye karşılık gelen zaman Azure bölgeleri için bağlanılıyor. Tüm bu hesaplamalar, birleştirilen bir size görüntülenmeden önce yerel DNS Çözümleyicisi IP düzeyi başına. Çeşitli yollarla bilgileri kullanabilir.
+
+Trafik görünümü verileri güncelleştirme sıklığını birden çok iç hizmet değişkene bağlıdır. Ancak, veriler genellikle 24 saatte bir kez güncelleştirilir.
 
 >[!NOTE]
 >Trafik Görünümü'nde açıklanan gecikme süresi, son kullanıcı ve bunların için bağlı Azure bölgeleri arasında temsili bir gecikme süresi ve DNS Arama gecikme değil. Trafik görünümü yaptığı yerel DNS Çözümleyicisi kullanılabilir yeterli veri yoksa, sorgu için yönlendirildi Azure bölgesi arasındaki gecikme süresini daha sonra gecikme süresini en iyi çaba tahmin döndürülen null olacaktır. 

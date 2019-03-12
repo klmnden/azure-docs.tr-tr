@@ -12,16 +12,16 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1853ff4141a7af3260ef9575bb2457819ab2d4a9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8bf61e6506e0d109b83fa323439348c3803bd5ce
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735025"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731021"
 ---
-# <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning veri hazırlığı SDK'sını kullanarak veri yazma
+# <a name="write-and-configure-data-using-azure-machine-learning"></a>Yazma ve Azure Machine Learning kullanarak verileri yapılandırma
 
-Bu makalede, farklı yöntemler kullanarak veri yazmak için bilgi [Azure Machine Learning veri hazırlığı Python SDK'sı](https://aka.ms/data-prep-sdk). Çıktı verilerini bir veri akışı herhangi bir noktada yazılabilir ve yazma işlemleri elde edilen veri akışı adımları olarak eklenir ve veri akışı her zaman yeniden çalıştırılır. Veriler, paralel yazma izin vermek için birden çok bölüm dosyaya yazılır.
+Bu makalede, farklı yöntemler kullanarak veri yazmak için bilgi [Azure Machine Learning veri hazırlığı Python SDK'sı](https://aka.ms/data-prep-sdk) ve deneme için bu verilerin nasıl yapılandırılacağına ilişkin [PythoniçinAzureMachineLearningSDK'sı](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Çıktı verilerini, bir veri akışı herhangi bir noktada yazılabilir. Yazma işlemleri, veri akış çalıştırmaları her zaman ortaya çıkan veri akışı için adımlar ve aşağıdaki adımları çalıştırın olarak eklenir. Veriler, paralel yazma izin vermek için birden çok bölüm dosyaya yazılır.
 
 Kaç tane adımlar bir işlem hattında vardır yazma hiçbir sınırlama olduğundan, sorun giderme için veya diğer işlem hatları için Ara sonuçlar elde etmek için ek yazma adımları kolayca ekleyebilirsiniz.
 
@@ -90,7 +90,6 @@ written_files.head(5)
 |3| 10013.0 | 99999.0 | HATA | NO | NO |     | NaN | NaN | NaN |
 |4| 10014.0 | 99999.0 | HATA | NO | NO | ENSO |    59783.0 | 5350.0 |  500.0|
 
-
 Yukarıdaki çıktıda çeşitli hatalar nedeniyle doğru şekilde ayrıştırıldı olmayan sayılar sayısal sütunlarda görünür. CSV'ye yazılırken, null değerler varsayılan olarak "ERROR" dizesi ile değiştirilir.
 
 Parametreleri, yazma bir parçası olarak çağırın ve null değerleri temsil etmek için kullanılacak bir dize belirtin ekleyin.
@@ -139,6 +138,51 @@ Yukarıdaki kod, bu çıktıyı üretir:
 |2| 10010.0 | 99999.0 | MiscreantData | NO| JN| ENJA|   70933.0|    -8667.0 |90.0|
 |3| 10013.0 | 99999.0 | MiscreantData | NO| NO| |   MiscreantData|    MiscreantData|    MiscreantData|
 |4| 10014.0 | 99999.0 | MiscreantData | NO| NO| ENSO|   59783.0|    5350.0| 500.0|
+
+## <a name="configure-data-for-automated-machine-learning-training"></a>Otomatik machine learning eğitim verilerini Yapılandır
+
+Yeni yazılmış veri dosyanıza geçirmek bir [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#automlconfig) hazırlık otomatik makine öğrenimi eğitim için nesne. 
+
+Aşağıdaki kod örneği, veri akışı için bir Pandas dataframe dönüştürün ve daha sonra eğitim ve test veri kümeleri için otomatik makine öğrenimi eğitim bölün gösterilmektedir.
+
+```Python
+from azureml.train.automl import AutoMLConfig
+from sklearn.model_selection import train_test_split
+
+dflow = dprep.auto_read_file(path="")
+X_dflow = dflow.keep_columns([feature_1,feature_2, feature_3])
+y_dflow = dflow.keep_columns("target")
+
+X_df = X_dflow.to_pandas_dataframe()
+y_df = y_dflow.to_pandas_dataframe()
+
+X_train, X_test, y_train, y_test = train_test_split(X_df, y_df, test_size=0.2, random_state=223)
+
+# flatten y_train to 1d array
+y_train.values.flatten()
+
+#configure 
+automated_ml_config = AutoMLConfig(task = 'regression',
+                               X = X_train.values,  
+                   y = y_train.values.flatten(),
+                   iterations = 30,
+                       Primary_metric = "AUC_weighted",
+                       n_cross_validation = 5
+                       )
+
+```
+
+Önceki örnekte hiçbir ara veri hazırlama adımları ister gerekmiyorsa, veri akışı doğrudan geçirebilirsiniz `AutoMLConfig`.
+
+```Python
+automated_ml_config = AutoMLConfig(task = 'regression', 
+                   X = X_dflow,   
+                   y = y_dflow, 
+                   iterations = 30, 
+                   Primary_metric = "AUC_weighted",
+                   n_cross_validation = 5
+                   )
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bkz: SDK [genel bakış](https://aka.ms/data-prep-sdk) tasarım desenleri ve kullanım örnekleri 

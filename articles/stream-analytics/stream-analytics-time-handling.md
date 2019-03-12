@@ -6,17 +6,17 @@ ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.openlocfilehash: 91193cc328c02f5ba4f5eb18e0bf853f9d91313a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.date: 03/05/2018
+ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732271"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543296"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Azure Stream analytics'te zaman işleme anlama
 
-Bu makalede, pratik zaman Azure Stream Analytics hizmetinde sorunlarını çözmek için tasarım tercihlerinin nasıl kullanabileceğinizi ele alır. İşleme tasarım kararları Etkenler sıralama olaya yakından ilgili zaman. Daha fazla bilgi için bu ilgili makaleye bakın: [Azure Stream Analytics olay sırası konuları](stream-analytics-out-of-order-and-late-events.md).
+Bu makalede, pratik zaman Azure Stream Analytics hizmetinde sorunlarını çözmek için tasarım tercihlerinin nasıl kullanabileceğinizi ele alır. İşleme tasarım kararları Etkenler sıralama olaya yakından ilgili zaman.
 
 ## <a name="background-time-concepts"></a>Arka plan zamanı kavramları
 

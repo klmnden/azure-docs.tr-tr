@@ -8,61 +8,61 @@ ms.topic: include
 ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 2e9e4fe06f4d3802f6c0b3ff13e6cf6cdc218050
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 42c1856f30484532e1ace2e84187bcaaacdf4c72
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54211922"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553831"
 ---
-Veri Fabrikası yerde müşteri aboneliklerini birbirlerinin iş yüklerini korunan emin olmak için aşağıdaki varsayılan sınırlara sahip çok kiracılı bir hizmettir. Çoğu sınırlarını kolayca sınırına kadar aboneliğinizin destekle iletişim kurarak yükseltilebilir.
+Azure Data Factory yerde müşteri aboneliklerini birbirlerinin iş yüklerini korunan emin olmak için aşağıdaki varsayılan sınırlara sahip çok kiracılı bir hizmettir. Aboneliğiniz için en sınırları artırmak için desteğe başvurun.
 
 ### <a name="version-2"></a>Sürüm 2
 
-| Kaynak | Varsayılan Sınır | Üst Sınır |
+| Kaynak | Varsayılan limit | Üst sınır |
 | -------- | ------------- | ------------- |
-| Bir Azure aboneliğinde veri fabrikaları | 50 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Data factory içindeki varlıklar (işlem hattı, veri kümeleri, Tetikleyiciler, bağlı hizmetler, tümleştirme çalışma zamanları) toplam sayısı | 5000 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Bir abonelik altında Azure-SSIS tümleştirme Runtime(s) için toplam CPU Çekirdeği | 256 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| (Tüm işlem hatları fabrikasında arasında paylaşılan) veri fabrikası başına eşzamanlı işlem hattını çalışır | 10,000  | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| (Kapsayıcılar için iç etkinlikler dahil) işlem hattı başına en fazla etkinlikleri | 40 | 40 |
-| Bağlantılı Integration Runtime karşı tek bir şirket içinde barındırılan tümleştirme çalışma zamanı oluşturulabilecek en fazla sayısı | 20 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Bir Azure aboneliğinde veri fabrikaları | 50 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| İşlem hatları, veri kümeleri, Tetikleyiciler, bağlı hizmetler ve data factory içinde tümleştirme çalışma zamanları gibi varlıkları toplam sayısı | 5.000 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Bir abonelik altında toplam CPU çekirdeği için Azure-SSIS tümleştirme çalışma zamanları | 256 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Tüm işlem hatları fabrikasında arasında paylaşılan bir veri fabrikası başına eşzamanlı işlem hattını çalışır | 10,000  | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Kapsayıcılar için iç etkinliklerini içeren işlem hattı başına en fazla etkinlikleri | 40 | 40 |
+| Bir tek şirket içinde barındırılan tümleştirme çalışma zamanı karşı oluşturulabilir bağlı tümleştirme çalışma zamanları sayısı | 20 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | İşlem hattı başına en fazla parametreleri | 50 | 50 |
 | ForEach öğeleri | 100.000 | 100.000 |
 | ForEach paralelliği | 20 | 50 |
 | Karakter başına ifadesi | 8,192 | 8,192 |
-| En düşük atlayan pencere tetikleyicisi aralığı | 15 dakika | 15 dakika |
-| İşlem hattı etkinliği çalıştırmaları için en büyük zaman aşımı | 7 gün | 7 gün |
-| İşlem hattı nesneleri için nesne başına bayt <sup>1</sup> | 200 KB | 200 KB |
-| Ve bağlı hizmet nesneleri veri kümesi için nesne başına bayt <sup>1</sup> | 100 KB | 2000 KB |
-| Kopyalama etkinliği çalıştırma başına veri tümleştirme birimi <sup>3</sup> | 256 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| API çağrıları yazma | 2500/SA<br/><br/> Azure Resource Manager, Azure Data Factory tarafından bu sınırı uygulanmaktadır. | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Okuma API çağrıları | 12.500/SA<br/><br/> Azure Resource Manager, Azure Data Factory tarafından bu sınırı uygulanmaktadır. | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Dakika başına sorguları izleme | 1000 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Dakika başına varlık CRUD işlemleri | 50 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| En az bir atlayan pencere tetikleyicisi aralığı | 15 dakika | 15 dakika |
+| İşlem hattı etkinliği için en uzun zaman aşımı çalıştırır | 7 gün | 7 gün |
+| İşlem hattı nesneleri için nesne başına bayt<sup>1</sup> | 200 KB | 200 KB |
+| Ve bağlı hizmet nesneleri veri kümesi için nesne başına bayt<sup>1</sup> | 100 KB | 2. 000'KB |
+| Kopyalama etkinliği çalıştırma başına veri tümleştirme birimi<sup>3</sup> | 256 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| API çağrıları yazma | 2.500/h<br/><br/> Azure Resource Manager, Azure Data Factory tarafından bu sınırı uygulanmaktadır. | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Okuma API çağrıları | 12.500/h<br/><br/> Azure Resource Manager, Azure Data Factory tarafından bu sınırı uygulanmaktadır. | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Dakika başına sorguları izleme | 1000 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Dakika başına varlık CRUD işlemleri | 50 | [Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 
 
 ### <a name="version-1"></a>Sürüm 1
 
-| **Kaynak** | **Varsayılan Sınır** | **Üst Sınır** |
+| **Kaynak** | **Varsayılan sınır** | **Üst sınırı** |
 | --- | --- | --- |
-| Bir Azure aboneliğinde veri fabrikaları |50 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Data factory içindeki işlem hatları |2500 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Data factory içinde veri kümeleri |5000 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Bir Azure aboneliğinde veri fabrikaları |50 |[Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Data factory içindeki işlem hatları |2,500 |[Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Data factory içinde veri kümeleri |5.000 |[Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Veri kümesi başına eşzamanlı dilimleri |10 |10 |
-| İşlem hattı nesneleri için nesne başına bayt <sup>1</sup> |200 KB |200 KB |
-| Ve bağlı hizmet nesneleri veri kümesi için nesne başına bayt <sup>1</sup> |100 KB |2000 KB |
-| Bir Abonelikteki HDInsight talep üzerine küme çekirdek <sup>2</sup> |60 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Bulut kopyalama etkinliği çalıştırma başına veri taşıma birimleri <sup>3</sup> |32 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| İşlem hattı nesneleri için nesne başına bayt<sup>1</sup> |200 KB |200 KB |
+| Veriler için nesne başına bayt kümesi ve bağlı hizmet nesneleri<sup>1</sup> |100 KB |2. 000'KB |
+| Bir Abonelikteki Azure HDInsight talep üzerine küme çekirdek<sup>2</sup> |60 |[Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Bulut kopyalama etkinliği çalıştırma başına veri taşıma birimleri<sup>3</sup> |32 |[Destek ekibiyle iletişime geçin](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Yeniden deneme sayısı için işlem hattı etkinliği çalıştırmaları |1000 |MAXINT (32 bit) |
 
-<sup>1</sup> işlem hattı, veri kümesi ve bağlı hizmet nesneleri temsil eden iş yükünüz mantıksal bir gruplandırmasıdır. Bu nesneler için sınırları, taşıma ve işleme Azure Data Factory hizmetiyle veri miktarı için ilişkili değil. Veri fabrikası, petabaytlarca veriyi işlemek için ölçeklendirilebilecek şekilde tasarlanmıştır.
+<sup>1</sup>işlem hattı, veri kümesi ve bağlı hizmet nesneleri temsil eden iş yükünüz mantıksal bir gruplandırmasıdır. Bu nesneler için sınırları, Azure Data Factory ile veri taşıma ve işleme miktarını ile ilişkili olmayan. Veri fabrikası, petabaytlarca veriyi işlemek için ölçeklendirilebilecek şekilde tasarlanmıştır.
 
-<sup>2</sup> isteğe bağlı HDInsight çekirdekleri data factory içeren aboneliği dışında ayrılır. Sonuç olarak, yukarıdaki Data Factory, isteğe bağlı HDInsight çekirdekleri için çekirdek sınırı zorunlu ve Azure aboneliğinizle ilişkili çekirdek sınırı farklıdır sınırlıdır.
+<sup>2</sup>isteğe bağlı HDInsight çekirdekleri data factory içeren aboneliği dışında ayrılır. Sonuç olarak, önceki isteğe bağlı HDInsight çekirdekleri için Data Factory tarafından zorlanan çekirdek sınırı sınırlıdır. Azure aboneliğinizle ilişkili çekirdek sınırı farklıdır.
 
-<sup>3</sup> v2 veri tümleştirme birim (DIU) veya Bulut veri taşıma birimi (DMU) V1, bir Bulut Bulut kopyalama işleminde kullanıldığı. Data Factory içinde tek bir birim (CPU, bellek ve ağ kaynağı ayırma birleşimi) gücünü temsil eden bir ölçüdür. Bazı senaryolar için daha fazla DMUs kullanarak daha yüksek kopya aktarım hızı elde edebilirsiniz. Başvurmak [veri tümleştirme birimleri (V2)](../articles/data-factory/copy-activity-performance.md#data-integration-units) ve [bulut veri taşıma birimleri (V1)](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) Ayrıntılar bölümünde ve [Azure Data Factory fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/data-factory/) olduğu çıkarımında fatura için.
+<sup>3</sup>veri tümleştirme birimi için sürüm 2 (DIU) veya Bulut verisi taşıma birimi (DMU) sürüm 1 için bir Bulut Bulut kopyalama işleminde kullanılır. Data Factory içinde tek bir birim gücünü temsil eden bir ölçüdür. Bu, CPU, bellek ve ağ kaynağı ayırma birleştirir. Bazı senaryolar için daha fazla DMUs kullanarak daha yüksek kopya aktarım hızı elde edebilirsiniz. Daha fazla bilgi için [veri tümleştirme birimleri (sürüm 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units) ve [bulut veri taşıma birimleri (sürüm 1)](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units). Faturalama hakkında daha fazla bilgi için bkz: [Azure Data Factory fiyatlandırma](https://azure.microsoft.com/pricing/details/data-factory/).
 
-<sup>4</sup> Integration Runtime (IR), farklı ağ ortamlarında aşağıdaki veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan işlem altyapısıdır: veri taşıma etkinlikleri işlem Hizmetleri, için gönderme, SSIS paketlerini yürütme. Daha fazla bilgi için [tümleştirme çalışma zamanına genel bakış](../articles/data-factory/concepts-integration-runtime.md).
+<sup>4</sup>Integration runtime (IR) gibi veri taşıma etkinlikleri işlem Hizmetleri, için gönderme, farklı ağ ortamları genelinde veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan işlem altyapısıdır ve SSIS paketlerini yürütme. Daha fazla bilgi için [tümleştirme çalışma zamanına genel bakış](../articles/data-factory/concepts-integration-runtime.md).
 
 | **Kaynak** | **Varsayılan alt sınır** | **Alt sınır** |
 | --- | --- | --- |

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 53f216e19b8e087c0052751e96f203e0db85dc13
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 023f5ed43453d7fb20dec5d91651230aa8fb4370
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990297"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571312"
 ---
 # <a name="what-is-azure-maps"></a>Azure Haritalar nedir?
 
@@ -26,11 +26,17 @@ Aşağıdaki videoda Azure Haritalar ayrıntılı olarak açıklanır:
 
 ## <a name="map-controls"></a>Harita Denetimleri
 
-### <a name="web-control"></a>Web Denetimi
+### <a name="web-sdk"></a>Web SDK
 
-Azure Haritalar Web Denetimi, web veya mobil uygulamalarınızda görüntülediğiniz etkileşimli haritaları kendi içeriğiniz ve görüntülerinizle özelleştirmenizi sağlar. Bu denetimde büyük veri kümelerini yüksek performansla oluşturmanızı sağlayan WebGL bileşeni kullanılmaktadır. JavaScript veya TypeScript ile denetimi kullanarak dağıtın.
+Azure haritalar Web SDK'sı kendi içerik ve tanımayı görüntülenmek üzere web veya mobil uygulamalarınızla etkileşimli Eşlemleriyle özelleştirmenizi sağlar. Bu denetimde büyük veri kümelerini yüksek performansla oluşturmanızı sağlayan WebGL bileşeni kullanılmaktadır. JavaScript veya TypeScript SDK'sı ile geliştirin.
 
-![Azure Haritalar Web Denetimi](media/about-azure-maps/Introduction_WebMapControl.png)
+![Azure haritalar Web SDK'sı](media/about-azure-maps/Introduction_WebMapControl.png)
+
+### <a name="android-sdk"></a>Android SDK
+
+Azure haritalar Android SDK'sı, güçlü mobil eşleme uygulamaları oluşturmanızı sağlar. 
+
+![Azure haritalar Android SDK'sı](media/about-azure-maps/AndroidSDK.png)
 
 ## <a name="services-in-azure-maps"></a>Azure Haritalar'ın içindeki hizmetler
 

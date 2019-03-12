@@ -5,19 +5,20 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/17/2018
+ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b21c982a7f390855ccb7b9212ea92db8c26d303c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9c3ed6dd79d6225b38751c910253cfa1f0720d1c
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460293"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731971"
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında bir Azure SQL veri ambarı için işlem duraklatma ve sürdürme
+
 Duraklatma işlem Azure portalında Azure SQL veri ambarı'nda maliyetlerden tasarruf etmek için kullanın. [İşlem devam](sql-data-warehouse-manage-compute-overview.md) veri ambarı kullanılmaya hazır olduğunuzda.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
@@ -31,6 +32,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 Kullanım [oluşturma ve bağlanma - portal](create-data-warehouse-portal.md) adlı bir veri ambarı oluşturmak için **mySampleDataWarehouse**. 
 
 ## <a name="pause-compute"></a>Duraklatma işlem
+
 Maliyetlerden tasarruf etmek için duraklatma ve sürdürme işlem kaynaklarını isteğe bağlı. Örneğin, veritabanı sırasında gece ve hafta sonları kullanmanız gerekmez, bu saatlerde duraklatabilir ve gün boyunca devam. Veritabanı durdurulduğunda bilgi işlem kaynakları için ücret ödemezsiniz. Ancak, depolama için ücret ödemeye devam eder. 
 
 SQL veri ambarını duraklatmak için bu adımları izleyin.
@@ -54,6 +56,7 @@ SQL veri ambarını duraklatmak için bu adımları izleyin.
 
 
 ## <a name="resume-compute"></a>İşlem devam et
+
 SQL veri ambarı sürdürmek için aşağıdaki adımları izleyin.
 
 1. Azure portalının sol taraftaki sayfasında **SQL veritabanları**’na tıklayın.
@@ -96,7 +99,8 @@ Kaynakları istediğiniz gibi temizlemek için bu adımları izleyin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Artık duraklatıldı ve veri ambarınıza yönelik işlem sürdürülüyor. Azure SQL Veri Ambarı hakkında daha fazla bilgi edinmek için, veri yükleme öğreticisiyle devam edin.
 
 > [!div class="nextstepaction"]
->[SQL veri ambarına veri yükleme](load-data-from-azure-blob-storage-using-polybase.md)
+> [SQL veri ambarına veri yükleme](load-data-from-azure-blob-storage-using-polybase.md)

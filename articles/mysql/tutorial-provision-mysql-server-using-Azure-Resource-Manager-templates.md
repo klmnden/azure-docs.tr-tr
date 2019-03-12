@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: bb7a48b08fde07380276d33393225c3f5220b93f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8b443d0002b600860597710792054e9531b6cc41
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880708"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532925"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Öğretici: Azure Resource Manager şablonu kullanarak MySQL için Azure veritabanı sağlama
 
@@ -87,8 +87,8 @@ Bu istekte özelleştirilmek üzere gereken değerleri şunlardır:
 +   `storageProfile/geoRedundantBackup` -Etkin/devre dışı Geo-DR gereksinimlerine bağlı olarak belirtin.
 +   `sku/tier` -Dağıtım için temel, depolaması veya MemoryOptimized katmanını belirtin.
 +   `sku/capacity` -Sanal çekirdek kapasitesini belirtin. Olası değerler, 2, 4, 8, 16, 32 veya 64 içerir.
-+   `sku/family` -4. nesil veya 5. nesil sunucu dağıtımı için donanım oluşturma seçmek için belirtin.
-+   `sku/name` -TierPrefix_family_capacity belirtin. Örneğin B_Gen4_1, GP_Gen5_16, MO_Gen5_32. Bkz: [fiyatlandırma katmanları](./concepts-pricing-tiers.md) bölge ve katmanı geçerli değerleri anlamak için belgeler.
++   `sku/family` -5. nesil sunucu dağıtımı için donanım oluşturma seçmek için belirtin.
++   `sku/name` -TierPrefix_family_capacity belirtin. Örneğin B_Gen5_1, GP_Gen5_16, MO_Gen5_32. Bkz: [fiyatlandırma katmanları](./concepts-pricing-tiers.md) bölge ve katmanı geçerli değerleri anlamak için belgeler.
 +   `resources/properties/virtualNetworkSubnetId` -Azure MySQL sunucusu nereye yerleştirileceğini Vnet'te alt ağın Azure tanımlayıcısını belirtin. 
 +   `tags(optional)` -Belirtin isteğe bağlı etiketlerdir kaynaklar faturalandırma için kategorilere ayırmak için kullanacağınız bir anahtar-değer çiftlerinin vs.
 
@@ -127,8 +127,8 @@ Sonuç JSON biçimindedir. **fullyQualifiedDomainName** ve **administratorLogin*
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },

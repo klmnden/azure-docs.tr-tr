@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: a331f8a8a69ffe41a368c1b36f1680890aaac8bf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7fdd2a96044acdae223243d751bfcffb7a99da78
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666883"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534268"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Azure Machine Learning'de, IOT hub'ından sensör verilerini kullanarak hava durumu tahmini
 
@@ -79,13 +79,13 @@ Azure Machine Learning, tahmin (Yağmur olasılığı) hava durumu için kullanm
 1. [Azure portalında](https://portal.azure.com/), **Kaynak oluştur** > **Nesnelerin İnterneti** > **Stream Analytics işi**'ne tıklayın.
 1. İş için aşağıdaki bilgileri girin.
 
-   **İş adı**: İşin adı. Adın genel olarak benzersiz olması gerekir.
+   **İş adı**: İş adı. Adın genel olarak benzersiz olması gerekir.
 
    **Kaynak grubu**: IOT hub'ınıza kullandığı aynı kaynak grubunu kullanın.
 
-   **Konum**: kaynak grubunuzun aynı konumu kullanın.
+   **Konum**: Kaynak grubunuzun aynı konumu kullanın.
 
-   **Panoya sabitle**: Panodan IoT hub'ınıza kolay erişim için bu seçeneği işaretleyin.
+   **Panoya Sabitle**: Kolay erişim için bu seçeneği panodan IOT hub'ınıza denetleyin.
 
    ![Azure'da bir Stream Analytics işi oluşturma](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
@@ -97,11 +97,11 @@ Azure Machine Learning, tahmin (Yağmur olasılığı) hava durumu için kullanm
 1. **İş Topolojisi**'nin altında **Girişler**'e tıklayın.
 1. İçinde **girişleri** bölmesinde tıklayın **Ekle**ve ardından aşağıdaki bilgileri girin:
 
-   **Giriş diğer adı**: Giriş benzersiz diğer adı.
+   **Giriş diğer adı**: Giriş için benzersiz diğer adı.
 
-   **Kaynak**: seçin **IOT hub'ı**.
+   **Kaynak**: Seçin **IOT hub'ı**.
 
-   **Tüketici grubu**: oluşturduğunuz tüketici grubunu seçin.
+   **Tüketici grubu**: Oluşturduğunuz tüketici grubu seçin.
 
    ![Azure'da bir Stream Analytics işinin girdisi Ekle](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
@@ -112,15 +112,15 @@ Azure Machine Learning, tahmin (Yağmur olasılığı) hava durumu için kullanm
 1. **İş Topolojisi**'nin altında **Çıkışlar**'a tıklayın.
 1. İçinde **çıkışları** bölmesinde tıklayın **Ekle**ve ardından aşağıdaki bilgileri girin:
 
-   **Çıkış diğer adı**: Çıkışın benzersiz diğer adı.
+   **Çıkış diğer adı**: Çıkış için benzersiz diğer adı.
 
-   **Havuz**: seçin **Blob Depolama**.
+   **Havuz**: Seçin **Blob Depolama**.
 
-   **Depolama hesabı**: blob depolama için depolama hesabı. Bir depolama hesabı oluşturun veya var olanı kullanın.
+   **Depolama hesabı**: Blob depolama için depolama hesabı. Bir depolama hesabı oluşturun veya var olanı kullanın.
 
-   **Kapsayıcı**: blob kaydedildiği kapsayıcı. Bir kapsayıcı oluşturun veya var olanı kullanın.
+   **kapsayıcı**: Blob kaydedildiği kapsayıcı. Bir kapsayıcı oluşturun veya var olanı kullanın.
 
-   **Olay serileştirme biçimi**: seçin **CSV**.
+   **Olay serileştirme biçimi**: Seçin **CSV**.
 
    ![Azure Stream Analytics işinde bir çıktı ekleyin](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
 
@@ -131,15 +131,15 @@ Azure Machine Learning, tahmin (Yağmur olasılığı) hava durumu için kullanm
 1. Altında **iş topolojisi**, tıklayın **işlevleri** > **Ekle**.
 1. Aşağıdaki bilgileri girin:
 
-   **İşlev diğer adı**: girin `machinelearning`.
+   **İşlev diğer adı**: `machinelearning` yazın.
 
-   **İşlev türü**: seçin **Azure ML**.
+   **İşlev türü**: Seçin **Azure ML**.
 
-   **İçeri aktarma seçeneği**: seçin **farklı bir abonelikten içeri aktarma**.
+   **İçeri aktarma seçeneği**: Seçin **farklı bir abonelikten içeri aktarma**.
 
-   **URL**: Excel çalışma kitabından aşağı ettiğiniz WEB hizmeti URL'sini girin.
+   **URL**: Excel çalışma kitabından aşağı not ettiğiniz WEB hizmeti URL'si girin.
 
-   **Anahtar**: Excel çalışma kitabından aşağı ettiğiniz erişim ANAHTARINI girin.
+   **Anahtar**: Excel çalışma kitabından aşağı not ettiğiniz erişim ANAHTARINI girin.
 
    ![Azure Stream Analytics işinde bir işlev ekleme](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
@@ -175,7 +175,7 @@ Stream Analytics işinde **Başlat** > **Şimdi** > **Başlat**'a tıklayın. İ
 
 Toplama ve IOT hub'ınıza sıcaklık ve nem verileri göndermeye başlamak için istemci uygulamasını çalıştırın. IOT hub'ınızın aldığı her ileti için Stream Analytics işi Yağmur olasılığı üretmek için hava durumu tahminini web hizmeti çağırır. Sonuç, ardından, Azure blob depolama alanına kaydedilir. Azure Depolama Gezgini sonucu görüntülemek için kullanabileceğiniz bir araçtır.
 
-1. [Microsoft Azure Depolama Gezgini'ni indirip](http://storageexplorer.com/).
+1. [Microsoft Azure Depolama Gezgini'ni indirip](https://storageexplorer.com/).
 1. Azure Depolama Gezgini'ni açın.
 1. Azure hesabınızda oturum açın.
 1. Aboneliğinizi seçin.

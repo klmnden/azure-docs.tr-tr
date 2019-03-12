@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 8de155eb0c53a07c88d996e2545be9da3159653f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 6cc5e3f8f188c60a129f6ad6575b348616bdad9b
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565590"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569765"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Dapper ile esnek veritabanı istemci kitaplığı kullanma
 Bu belge uygulamalar üzerinde Dapper kullanır ancak ayrıca Kucak isteyen geliştiricilere yöneliktir [esnek veritabanı araçları](sql-database-elastic-scale-introduction.md) kendi veri katmanı genişletmek için bu uygulama parçalama uygulamalar oluşturmak için.  Bu belge Dapper tabanlı uygulamalar, elastik veritabanı araçları ile tümleştirme gereken değişiklikler gösterilmektedir. Elastik veritabanı parça yönetimi ve Dapper ile verilere bağımlı yönlendirme buradaki kazanmasının olur. 
@@ -64,8 +64,8 @@ Bu gözlemler kullanımı için Dapper ile esnek veritabanı istemci kitaplığ�
 Bu kod örneği (eşlik eden örnekten) burada parçalama anahtarı doğru parçaya Bağlantı Aracısı için uygulama kitaplığı tarafından sağlanan yaklaşımı da gösterir.   
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                     key: tenantId1, 
-                     connectionString: connStrBldr.ConnectionString, 
+                     key: tenantId1,
+                     connectionString: connStrBldr.ConnectionString,
                      options: ConnectionOptions.Validate))
     {
         var blog = new Blog { Name = name };
@@ -87,13 +87,13 @@ Parça eşleme nesnesi belirtilen parçalama anahtarı için parçacık tutan pa
 Sorguları hemen hemen aynı şekilde çalışır - ilk bağlantıyı kullanarak açmak [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) istemci API'si. Ardından .NET nesnelerini SQL Sorgunuzun sonuçlarını eşleştirmek için normal Dapper genişletme yöntemleri kullanın:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId1, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId1,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate ))
-    {    
+    {
            // Display all Blogs for tenant 1
            IEnumerable<Blog> result = sqlconn.Query<Blog>(@"
-                                SELECT * 
+                                SELECT *
                                 FROM Blog
                                 ORDER BY Name");
 
@@ -112,8 +112,8 @@ Dapper bir veritabanı uygulamaları geliştirirken daha kullanışlı ve verita
 Uygulamanızda DapperExtensions kullanarak veritabanı bağlantıları nasıl oluşturulduğunu ve yönetilen değiştirmez. Bunu hala bağlantıları uygulamanın sorumluluğundadır ve normal SQL istemci bağlantı nesneleri genişletme yöntemleri tarafından beklenir. Bağımlı olduğumuz [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) yukarıda ana hatlarıyla. Aşağıdaki kod örnekleri gösterdiği gibi tek değişiklik, artık T-SQL deyimleri yazmanıza olmasıdır:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId2, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId2,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate))
     {
            var blog = new Blog { Name = name2 };
@@ -123,8 +123,8 @@ Uygulamanızda DapperExtensions kullanarak veritabanı bağlantıları nasıl ol
 Ve sorgu için kod örneği aşağıdadır: 
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId2, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId2,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate))
     {
            // Display all Blogs for tenant 2
@@ -143,7 +143,7 @@ Geçici hata kitaplığı, geçici hataların karşı korumak için kod örneği
 
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
     {
-       using (SqlConnection sqlconn = 
+       using (SqlConnection sqlconn =
           shardingLayer.ShardMap.OpenConnectionForKey(tenantId2, connStrBldr.ConnectionString, ConnectionOptions.Validate))
           {
               var blog = new Blog { Name = name2 };

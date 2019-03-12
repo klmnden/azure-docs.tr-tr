@@ -4,14 +4,14 @@ ms.author: robin.shahan
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 2542400da7fbab5da5d98452a76e62d6995bd301
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: ea4931bee17b57260660cc5ba80807a8ae25ca3d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57016374"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554007"
 ---
-Aşağıdaki tabloda farklı hizmet katmanları (S1, S2, S3, F1) ile ilişkili sınırlar listelenmektedir. Bir katmandaki her bir *birimin* maliyeti hakkında bilgi için bkz. [IoT Hub Fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub/).
+Aşağıdaki tabloda farklı hizmet katmanlarında S1, S2, S3 ve F1 ile ilişkili sınırlar listelenmektedir. Her birinin maliyeti hakkında bilgi için *birim* her katmanında bkz [Azure IOT Hub fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Kaynak | S1 Standart | S2 Standart | S3 Standart | F1 Ücretsiz |
 | --- | --- | --- | --- | --- |
@@ -19,11 +19,11 @@ Aşağıdaki tabloda farklı hizmet katmanları (S1, S2, S3, F1) ile ilişkili s
 | En fazla birim |200 |200 |10 |1 |
 
 > [!NOTE]
-> S1 veya S2 hub’ı ile 200’den fazla veya S3 hub’ı ile 10’dan fazla birim kullanacağınızı düşünüyorsanız lütfen Microsoft desteğine başvurun.
+> Bir S1 ve S2 katmanı hub veya bir S3 katmanı hub'ı ile 10 birim ile 200'den fazla birimini kullanmayı düşünüyorsanız, Microsoft Support başvurun.
 > 
 > 
 
-Aşağıdaki tabloda IOT Hub kaynakları için geçerli olan sınırlar listelenmektedir:
+Aşağıdaki tabloda, IOT Hub kaynakları için geçerli olan sınırlar listelenmektedir.
 
 | Kaynak | Sınır |
 | --- | --- |
@@ -46,32 +46,32 @@ Aşağıdaki tabloda IOT Hub kaynakları için geçerli olan sınırlar listelen
 | Doğrudan yöntem yükünün en büyük boyutu | 128 KB |
 | En büyük iş geçmişi bekletme süresi | 30 gün |
 | En fazla eşzamanlı iş sayısı | 10 (S3 için), 5 (S2 için), 1 (S1 için) |
-| En fazla ek uç nokta sayısı | 10 (S1, S2, S3 için) |
-| En fazla ileti yönlendirme kuralı sayısı | 100 (S1, S2, S3 için) |
+| En fazla ek uç nokta sayısı | 10 (S1, S2 ve S3) |
+| En fazla ileti yönlendirme kuralı sayısı | 100 (S1, S2 ve S3) |
 | En fazla eşzamanlı olarak bağlı cihaza akış sayısı | 50 (S1, S2, S3 ve yalnızca F1) |
 | En fazla cihaz akış veri aktarımı | 300 MB / gün (için S1, S2, S3 ve yalnızca F1) |
 
 
 > [!NOTE]
-> 50'den fazla Ücretli IOT hub'ı bir Azure aboneliğine ihtiyacınız varsa, Microsoft desteğine başvurun.
+> 50'den fazla Ücretli IOT hub'ı bir Azure aboneliğine ihtiyacınız varsa, Microsoft Support başvurun.
 
 
 > [!NOTE]
 > Şu anda, cihazları tek bir IOT hub'ına bağlanabilir sayısı 1.000.000 ' dir. Bu sınırı artırmak istiyorsanız, ilgili kişi [Microsoft Support](https://azure.microsoft.com/support/options/).
 
-Aşağıdaki kotalar aşıldığında IoT Hub hizmeti istekleri kısıtlar:
+Aşağıdaki kotalar aşıldığında IOT hub'ı istekleri kısıtlar.
 
 | Kısıtlama | Hub başına değer |
 | --- | --- |
-| Kimlik kayıt defteri işlemleri <br/> (oluşturma, alma, listeleme, güncelleştirme, silme) <br/> tek tek veya toplu içeri/dışarı aktarma |(S3 için) 83.33/sec/Unit (5000/dk/birim) <br/> (100/dk/birim) 1.67/sec/Unit (için S1 ve S2 için). |
-| Cihaz bağlantıları |6000/sn/birim (S3 için), 120/sn/birim (S2 için), 12/sn/birim (S1 için). <br/>En az 100/sn. |
-| Cihazdan buluta gönderim |6000/sn/birim (S3 için), 120/sn/birim (S2 için), 12/sn/birim (S1 için). <br/>En az 100/sn. |
+| Kimlik kayıt defteri işlemleri <br/> (oluşturma, Al, Listele, güncelleştirme ve silme), <br/> tek tek veya toplu içeri/dışarı aktarma |(S3 için) 83.33/sec/Unit (5000/dk/birim). <br/> (100/dk/birim) 1.67/sec/Unit (için S1 ve S2 için). |
+| Cihaz bağlantıları |6.000/sn/birim (S3 için), 120/sn/birim (S2 için), 12/sn/birim (S1 için). <br/>En az 100/sn. |
+| Cihazdan buluta gönderim |6.000/sn/birim (S3 için), 120/sn/birim (S2 için), 12/sn/birim (S1 için). <br/>En az 100/sn. |
 | Buluttan cihaza gönderim | (S1 ve S2 için için) 83.33/sec/Unit (5000/dk/birim) (S3 için), 1.67/sec/unit (100/dk/birim). |
-| Buluttan cihaza alım |833.33/sec/Unit (50000/dk/birim) (S3 için), 16.67/sec/unit (1000/dk/birim) (S1 ve S2 için). |
-| Dosya karşıya yükleme işlemleri |83.33 dosya karşıya yükleme bildirimi/sn/birim (5000/dk/birim) (S3 için), 1,67 dosya karşıya yükleme bildirimler/sn/birim (100/dk/birim) (S1 ve S2 için). <br/> Bir Azure Depolama hesabı için tek seferde 10000 SAS URI’si çıkarılabilir.<br/> Tek seferde 10 SAS URI’si/cihaz çıkarılabilir. |
-| Doğrudan yöntemler | 24MB/sn/birim (S3 için), 480KB/sn/birim (S2 için), 160KB/sn/birim (S1 için)<br/> 8 ölçüt boyutu azaltma KB temel. |
-| Cihaz ikizi okumaları | 50/sn/birim (S3 için), En fazla 10/sn veya 1/sn/birim (S2 için), 10/sn (S1 için) |
-| Cihaz ikizi güncelleştirmeleri | 50/sn/birim (S3 için), En fazla 10/sn veya 1/sn/birim (S2 için), 10/sn (S1 için) |
-| İş işlemleri <br/> (oluşturma, güncelleştirme, listeleme, silme) | 83.33/sec/Unit (5000/dk/birim) (S3 için), 1.67/sec/unit (100/dk/birim) (S2 için), (S1 için) 1.67/sec/unit (100/dk/birim) |
-| İşler işlemleri için cihaz başına aktarım hızı | 50/sn/birim (S3 için), En fazla 10/sn veya 1/sn/birim (S2 için), 10/sn (S1 için) |
-| Cihaz akış başlatma hızı | 5 yeni akışlar/sn (S1, S2, S3 ve yalnızca F1) |
+| Buluttan cihaza alım |(S1 ve S2 için için) 833.33/sec/Unit (50.000/dk/birim) (S3 için), 16.67/sec/unit (1000/dk/birim). |
+| Dosya karşıya yükleme işlemleri |83.33 dosya karşıya yükleme bildirimi/sn/birim (5000/dk/birim) (S3 için), 1,67 dosya karşıya yükleme bildirimler/sn/birim (100/dk/birim) (S1 ve S2 için). <br/> 10.000 SAS URI'leri bir Azure depolama hesabı için tek seferde çıkarılabilir.<br/> Tek seferde 10 SAS URI’si/cihaz çıkarılabilir. |
+| Doğrudan yöntemler | 24 MB/sn/birim (S3 için), 480 KB/sn/birim (S2 için), 160 KB/sn/birim (S1 için).<br/> 8 KB'lık azaltma ölçüm boyutuna göre. |
+| Cihaz ikizi okumaları | 50/sn/birim (S3 için), en fazla 10/sn veya 1/sn/birim (S2 için), 10/sn (S1 için). |
+| Cihaz ikizi güncelleştirmeleri | 50/sn/birim (S3 için), en fazla 10/sn veya 1/sn/birim (S2 için), 10/sn (S1 için). |
+| İş işlemleri <br/> (oluşturma, liste, güncelleştirme ve silme) | 83.33/sec/Unit (5000/dk/birim) (S3 için), 1.67/sec/unit (100/dk/birim) (S2 için), (S1 için) 1.67/sec/unit (100/dk/birim). |
+| İşler işlemleri için cihaz başına aktarım hızı | 50/sn/birim (S3 için), en fazla 10/sn veya 1/sn/birim (S2 için), 10/sn (S1 için). |
+| Cihaz akış başlatma hızı | 5 yeni akışlar/sn (S1, S2, S3 ve yalnızca F1). |

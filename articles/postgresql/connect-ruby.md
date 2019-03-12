@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 6748f168624a20e17491a2f84b63b966ce5ad4c6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 03/12/2019
+ms.openlocfilehash: cdb53685e744401f9d2d229a5deaffa72502e26b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539305"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730198"
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>PostgreSQL için Azure veritabanı: Bağlanmak ve veri sorgulamak için Ruby kullanma
 Bu hızlı başlangıçta, [Ruby](https://www.ruby-lang.org) uygulaması kullanılarak PostgreSQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu makaledeki adımlarda, Ruby kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
@@ -23,36 +23,9 @@ Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birin
 - [DB Oluşturma - Portal](quickstart-create-server-database-portal.md)
 - [DB Oluşturma - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
-## <a name="install-ruby"></a>Ruby’yi yükleme
-Ruby’yi kendi makinenize yükleyin. 
-
-### <a name="windows"></a>Windows
-- [Ruby'nin](https://rubyinstaller.org/downloads/) en son sürümünü indirip yükleyin.
-- MSI yükleyicisinin son ekranında, “MSYS2’yi ve geliştirme araç zincirini yüklemek için ‘ridk install’u çalıştır” yazan kutuyu işaretleyin. Ardından sonraki yükleyiciyi başlatmak için **Son**’a tıklayın.
-- Windows installer için RubyInstaller2 başlatılır. MSYS2 depo güncelleştirmesini yüklemek için 2 yazın. Tamamlandıktan ve yükleme istemine döndükten sonra, komut penceresini kapatın.
-- Başlat menüsünden yeni bir komut istemi (cmd) başlatın.
-- Yüklenen sürümü görmek için `ruby -v` Ruby yüklemesini test edin.
-- Yüklenen sürümü görmek için `gem -v` Gem yüklemesini test edin.
-- `gem install pg` komutunu çalıştırarak Gem kullanan Ruby için PostgreSQL modülünü oluşturun.
-
-### <a name="macos"></a>macOS
-- `brew install ruby` komutunu çalıştırarak Homebrew kullanan Ruby’yi yükleyin. Daha fazla yükleme seçeneği için Ruby [yükleme belgelerine](https://www.ruby-lang.org/en/documentation/installation/#homebrew) bakın
-- Yüklenen sürümü görmek için `ruby -v` Ruby yüklemesini test edin.
-- Yüklenen sürümü görmek için `gem -v` Gem yüklemesini test edin.
-- `gem install pg` komutunu çalıştırarak Gem kullanan Ruby için PostgreSQL modülünü oluşturun.
-
-### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-- `sudo apt-get install ruby-full` komutunu çalıştırarak Ruby’yi yükleyin. Daha fazla yükleme seçeneği için Ruby [yükleme belgelerine](https://www.ruby-lang.org/en/documentation/installation/) bakın.
-- Yüklenen sürümü görmek için `ruby -v` Ruby yüklemesini test edin.
-- `sudo gem update --system` komutunu çalıştırarak Gem için en son güncelleştirmeleri yükleyin.
-- Yüklenen sürümü görmek için `gem -v` Gem yüklemesini test edin.
-- `sudo apt-get install build-essential` komutunu çalıştırarak gcc, make ve diğer derleme araçlarını yükleyin.
-- `sudo apt-get install libpq-dev` komutunu çalıştırarak PostgreSQL kitaplıklarını yükleyin.
-- `sudo gem install pg` komutunu çalıştırarak Gem kullanan Ruby pg modülünü oluşturun.
-
-## <a name="run-ruby-code"></a>Ruby kodunu çalıştırma 
-- Kodu bir metin dosyasına kaydedin ve dosyayı `C:\rubypostgres\read.rb` veya `/home/username/rubypostgres/read.rb` gibi .rb dosya uzantısıyla bir proje klasörüne yükleyin
-- Kodu çalıştırmak için komut istemi veya bash kabuğu başlatın. Dizini `cd rubypostgres` proje klasörünüzle değiştirin, ardından uygulamayı çalıştırmak için `ruby read.rb` komutunu yazın.
+Ayrıca yüklü gerekir:
+- [Ruby](https://www.ruby-lang.org/en/downloads/)
+- Ruby pg, Ruby için PostgreSQL modülünü
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 PostgreSQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
@@ -63,12 +36,17 @@ PostgreSQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgi
 4. Sunucunun **Genel Bakış** panelinden **Sunucu adı** ile **Sunucu yöneticisi oturum açma adı**’nı not alın. Parolanızı unutursanız, bu panelden parolayı da sıfırlayabilirsiniz.
  ![PostgreSQL için Azure Veritabanı sunucu adı](./media/connect-ruby/1-connection-string.png)
 
+> [!NOTE]
+> `@` Url olarak kodlanmış sembol Azure Postgres kullanıcı rolünüzün `%40` bağlantı dizelerindeki. 
+
 ## <a name="connect-and-create-a-table"></a>Bağlanma ve tablo oluşturma
 **CREATE TABLE** SQL deyimini kullanarak bir tabloyu bağlamak ve oluşturmak ve ardından **INSERT INTO** SQL deyimlerini kullanarak tabloya satırlar eklemek için aşağıdaki kodu kullanın.
 
 Kod, PostgreSQL için Azure Veritabanı’na bağlanmak amacıyla [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) oluşturucusuna sahip [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) nesnesini kullanır. Ardından DROP, CREATE TABLE ve INSERT INTO komutlarını çalıştırmak için [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) yöntemini çağırır. Kod, [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error) sınıfını kullanarak hataları kontrol eder. Ardından bağlantıyı sonlandırılmadan önce kapatmak için [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) yöntemini çağırır.
 
 `host`, `database`, `user` ve `password` dizelerini kendi değerlerinizle değiştirin. 
+
+
 ```ruby
 require 'pg'
 
@@ -76,7 +54,7 @@ begin
     # Initialize connection variables.
     host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mydemoserver')
+    user = String('mylogin%40mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -119,7 +97,7 @@ begin
     # Initialize connection variables.
     host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mydemoserver')
+    user = String('mylogin%40mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -153,7 +131,7 @@ begin
     # Initialize connection variables.
     host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mydemoserver')
+    user = String('mylogin%40mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -187,7 +165,7 @@ begin
     # Initialize connection variables.
     host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mydemoserver')
+    user = String('mylogin%40mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.

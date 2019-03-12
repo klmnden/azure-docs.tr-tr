@@ -1,19 +1,19 @@
 ---
-title: IOT Central Bağlayıcısı Microsoft Flow ile iş akışları oluşturun | Microsoft Docs
+title: Azure IOT Central Bağlayıcısı Microsoft Flow ile iş akışları oluşturun | Microsoft Docs
 description: IOT Central Bağlayıcısı'nı Microsoft Flow için iş akışlarının kullanın ve oluşturma, güncelleştirme ve cihazları iş akışlarında silin.
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/18/2018
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: e0c4b90511da78ac5a8e454f653ab2a3819697c0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 555fe54174c9e13319af676cab3a5d3dcfaf2fe5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317603"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770258"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>IOT Central Bağlayıcısı Microsoft Flow ile iş akışları oluşturun
 
@@ -26,13 +26,13 @@ Birçok uygulama ve işletme kullanıcılarının kullandığı hizmetler arası
 - Bir Kullandıkça Öde uygulama
 - Microsoft, kişisel veya iş veya Okul hesabı Flow'da oturum açmayı ([Microsoft Flow planları hakkında daha fazla bilgi](https://aka.ms/microsoftflowplans))
 
-## <a name="trigger-a-workflow-when-a-rule-is-triggered"></a>Bir kuralı tetiklendiğinde bir iş akışı tetikleyicisi
+## <a name="trigger-a-workflow"></a>Bir iş akışı tetikleyicisi
 
-Bu bölümde, IOT Central içinde bir kuralı tetiklendiğinde Flow mobil uygulamasında mobil bildirim tetikleyip işlemini göstermektedir.
+Bu bölümde, IOT Central bir kural tetiklendiğinde, Flow mobil uygulamasında mobil bildirim tetikleyip gösterilir.
 
 1. Başlayın [IOT Central içinde bir kural oluşturma](howto-create-telemetry-rules.md). Kural koşulları kaydettikten sonra seçin **Microsoft Flow eylem** yeni bir eylem olarak. Microsoft Flow alma, tarayıcınızda yeni bir sekme veya penceresi açmanız gerekir.
 
-    ![Yeni bir Microsoft Flow eylem oluşturun](media/howto-add-microsoft-flow/createflowaction.PNG)
+    ![Yeni bir Microsoft Flow eylem oluşturun](media/howto-add-microsoft-flow/createflowaction.png)
 
 1. Microsoft Flow ' nda oturum açın. Bu IOT Central kullandığınız bir hesapla aynı olması gerekmez. Bir IOT Central Bağlayıcısı özel bir eylem bağlama gösteren bir genel bakış sayfasında açmayacaksınız.
 
@@ -45,7 +45,7 @@ Bu bölümde, IOT Central içinde bir kuralı tetiklendiğinde Flow mobil uygula
     > [!NOTE]
     > Seçin **daha fazla bilgi bkz** kuralını tetikleyen ölçüm ve özellik değerlerini almak için dinamik içerik penceresindeki metin.
 
-    ![Akış eylemi dinamik bölmesi açık düzenleme](./media/howto-add-microsoft-flow/flowdynamicpane.PNG)
+    ![Akış eylemi dinamik bölmesi açık düzenleme](./media/howto-add-microsoft-flow/flowdynamicpane.png)
 
 1. İşiniz bittiğinde, eyleminiz düzenleme seçin **Kaydet**. İş akışının genel bakış sayfasına yönlendirilirsiniz. Çalıştırma geçmişini burada görebilirsiniz ve diğer iş arkadaşlarınızla paylaşabilirsiniz.
 
@@ -70,9 +70,10 @@ Bu bölümde, IOT Central içinde bir düğme anında iletme Microsoft Flow mobi
 
 1. Uygulamanızı seçin ve bir CİHAZDAN açılan menülerde oluşturmak üzere cihaz şablonu seçin. Tüm cihaz ayarlarını ve özelliklerini göstermek için genişletin eylem görürsünüz.
 
-1. Cihaz ad alanını seçin. Dinamik içerik bölmesinden seçin **cihaz adı**. Bu değer, kullanıcı girişini mobil uygulama üzerinden geçirilir ve IOT Central'nde yeni Cihazınızı adı olacaktır. Bu örnekte, tek gerekli alan kırmızı yıldız işaretiyle belirtilen cihaz adıdır. Başka bir cihaz şablonu yeni bir cihaz oluşturmak için doldurulması gereken birden çok gerekli alanları olabilir.
+1. Cihaz ad alanını seçin. Dinamik içerik bölmesinden seçin **cihaz adı**. Bu değer, kullanıcı mobil uygulama üzerinden girer ve IOT Central'nde yeni Cihazınızı adıdır girdisinden geçirilir. Bu örnekte, tek gerekli alan kırmızı yıldız işaretiyle belirtilen cihaz adıdır. Başka bir cihaz şablonu yeni bir cihaz oluşturmak için doldurulması gereken birden çok gerekli alanları olabilir.
 
-    ![Dinamik eylem bölmesinde, cihaz akış oluşturma](./media/howto-add-microsoft-flow/flowcreatedevice.PNG)
+    ![Dinamik eylem bölmesinde, cihaz akış oluşturma](./media/howto-add-microsoft-flow/flowcreatedevice.png)
+
 1. (İsteğe bağlı) Oluşturma yeni cihazlarınız için dilediğiniz şekilde diğer alanları doldurun.
 
 1. Son olarak, iş akışınızı kaydedin.
@@ -93,13 +94,13 @@ Bu bölümde, cihaz ayarlarını ve özelliklerini IOT Central içinde bir düğ
 
 1. Yeni bir eylem ekleyin. Arama **Azure IOT Central - bir cihaz güncelleştirmesi** eylem.
 
-1. Açılır listeden uygulamanızı seçin. Şimdi, güncelleştirmek istediğiniz var olan cihazın kimliği gerekir. IOT Central cihaz Kimliğini tarayıcı URL'sini alabilirsiniz.
+1. Açılır listeden uygulamanızı seçin. Şimdi, güncelleştirmek istediğiniz var olan cihazın kimliği gerekir. IOT Central CİHAZDAN Kimliğini alabilirsiniz **Device Explorer**.
 
-    ![IOT Central cihaz Gezgini cihaz kimliği](./media/howto-add-microsoft-flow/iotcdeviceid.PNG)
+    ![IOT Central cihaz Gezgini cihaz kimliği](./media/howto-add-microsoft-flow/iotcdeviceid.png)
 
 1. Cihaz adını güncelleştirebilirsiniz. Cihazın özellikleri ve ayarları güncelleştirmek için cihaz şablonu güncelleştirmek istediğiniz cihazı seçin **cihaz şablonu** açılır. Tüm özellikleri ve ayarları güncelleştirebilirsiniz göstermek için eylem kutucuk genişletir.
 
-    ![Akış güncelleştirme cihaz iş akışı](./media/howto-add-microsoft-flow/flowupdatedevice.PNG)
+    ![Akış güncelleştirme cihaz iş akışı](./media/howto-add-microsoft-flow/flowupdatedevice.png)
 
 1. Her özellik ve güncelleştirmek istediğiniz ayarları seçin. Dinamik içerik bölmesinden tetikleyiciden karşılık gelen bir giriş seçin. Bu örnekte konum değeri aşağı cihazın konum özelliği güncelleştirilecek yayılır.
 
@@ -111,23 +112,25 @@ Bu bölümde, cihaz ayarlarını ve özelliklerini IOT Central içinde bir düğ
 
 Bir cihaz, cihaz kimliği kullanarak silebilirsiniz **Azure IOT Central - bir cihazı silme** eylem. Microsoft Flow mobil uygulamasındaki bir düğmeye bir cihazda silen bir örnek iş akışı şu şekildedir.
 
-   ![Akışı Sil cihaz iş akışı](./media/howto-add-microsoft-flow/flowdeletedevice.PNG)
-    
+   ![Akışı Sil cihaz iş akışı](./media/howto-add-microsoft-flow/flowdeletedevice.png)
+
 ## <a name="troubleshooting"></a>Sorun giderme
 
 Azure IOT Central Bağlayıcısı bağlantı oluşturma ile ilgili sorunlar yaşıyorsanız, size yardımcı olabilecek bazı ipuçları şunlardır.
 
-1. Kişisel Microsoft hesapları (gibi @hotmail.com, @live.com, @outlook.com etki alanları) şu anda desteklenmiyor. Bir AAD iş veya Okul hesabı gerekir.
+1. Kişisel Microsoft hesapları (gibi @hotmail.com, @live.com, @outlook.com etki alanları) şu anda desteklenmiyor. Bir Azure Active Directory (AD) iş veya Okul hesabı gerekir.
 
 2. Microsoft Flow IOT Central Bağlayıcısı'nı kullanmak için en az bir kez IOT Central uygulamasına oturum gerekir. Aksi takdirde uygulama uygulama açılan menülerde gösterilmez.
 
-3. Bir AAD hesabı kullanırken bir hata alıyorsanız, Windows PowerShell açmayı deneyin ve bir yönetici olarak aşağıdaki komutları çalıştırın.
+3. Bir Azure AD hesabı kullanırken bir hata alıyorsanız, Windows PowerShell açmayı deneyin ve bir yönetici olarak aşağıdaki komutları çalıştırın.
+
     ``` PowerShell
     Install-Module AzureAD
     Connect-AzureAD
     New-AzureADServicePrincipal -AppId 9edfcdd9-0bc5-4bd4-b287-c3afc716aac7 -DisplayName "Azure IoT Central"
     ```
-    
+
 ## <a name="next-steps"></a>Sonraki adımlar
+
 İş akışlarını oluşturmak için Microsoft Flow kullanmayı öğrendiniz, önerilen sonraki adım olarak [cihazları yönetme](howto-manage-devices.md).
 

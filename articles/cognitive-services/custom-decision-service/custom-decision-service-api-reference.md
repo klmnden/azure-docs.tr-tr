@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.openlocfilehash: 2feaa6fa87b6e788683ad543bfb7780b0e517506
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: be9966f5d8e8d94aa3f49aac91b35b105195b108
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867350"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552072"
 ---
 # <a name="api"></a>API
 
@@ -44,7 +44,7 @@ Bu kod parçacığı, ön sayfanızın (burada kişiselleştirilmiş makalelerin
 > Geri çağırma işlevi sıralaması API'yi çağırmadan önce tanımlanmalıdır.
 
 > [!TIP]
-> Gecikme süresini iyileştirmek için sıralama API HTTPS yerine HTTP olarak sunulan `http://ds.microsoft.com/api/v2/<appId>/rank/*`.
+> Gecikme süresini iyileştirmek için sıralama API HTTPS yerine HTTP olarak sunulan `https://ds.microsoft.com/api/v2/<appId>/rank/*`.
 > Ancak, ön sayfa HTTPS sunulan, HTTPS uç noktasının kullanılmalıdır.
 
 Parametreleri kullanılmadığında JSONP biçimli bir dize sıralama API gelen HTTP yanıtında olduğu:

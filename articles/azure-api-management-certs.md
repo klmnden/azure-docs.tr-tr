@@ -7,19 +7,19 @@ author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
-ms.service: na
+ms.service: api-management
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 62bc6507e4b56c9df31a561f7677907486b0d562
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3b6f1a004e4fb69bc08d5163734021bcb2aed9a2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421598"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765807"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Bir Azure Hizmet Yönetim sertifikasını karşıya yükleyin
 Yönetim sertifikaları, Azure tarafından sağlanan Klasik dağıtım modeli ile kimlik doğrulaması sağlar. Birçok programları ve Araçları (örneğin, Visual Studio ya da Azure SDK'sı) bu sertifikaları yapılandırma ve çeşitli Azure Hizmetleri dağıtımını otomatikleştirmek için kullanın. 
@@ -33,7 +33,7 @@ Azure sertifikaları (dahil olmak üzere otomatik olarak imzalanan sertifika olu
 
 Ayrıca [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) istemci kodu, Otomasyon amacıyla kimlik doğrulaması için.
 
-**Not:** yönetim sertifikaları altında'herhangi bir işlemi gerçekleştirmek için aboneliğin ortak yönetici olmanız gerekir. [Daha fazla bilgi edinin](https://go.microsoft.com/fwlink/?linkid=849300) yeni Azure Portalı'ndan nasıl Ekle veya Kaldır ortak Yöneticiler 
+**Not:** Yönetim sertifikaları altında'herhangi bir işlemi gerçekleştirmek için aboneliğin ortak yönetici olmanız gerekir. [Daha fazla bilgi edinin](https://go.microsoft.com/fwlink/?linkid=849300) yeni Azure Portalı'ndan nasıl Ekle veya Kaldır ortak Yöneticiler 
 
 ## <a name="upload-a-management-certificate"></a>Bir yönetim sertifikasını karşıya yükleyin
 Sonra bir yönetim sertifikası oluşturulan, (yalnızca ortak anahtarı içeren .cer dosyası) portalına karşıya yükleyebilirsiniz. Sertifika Portalı'nda kullanılabilir olduğunda, eşleşen bir sertifika (özel anahtarı) olan herkes yönetim API'si bağlanabilir ve ilgili abonelik için kaynaklara erişim.

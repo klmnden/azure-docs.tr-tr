@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: ed43a376dd5bb3279fd7e6aa6522980234db3c5f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 92b7714e9f6635cf0b44a98a16ddb4616643ba81
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441806"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544571"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure güvenlik ve uyumluluk planı - HIPAA/HITRUST sağlık verileri ve yapay ZEKA
 
@@ -272,7 +272,7 @@ Tanıtım betiğini kullanırken. . \\İle HealthcareDemo.ps1 **BulkPatientadmis
 
 **2. Key Vault** istenen belirteci ilişkili gizli dizi için istenen.
 
-**3. Azure rol isteği doğrulamak ve Key vault'a erişim isteği yetkilendirmek.
+**3. Azure rolleri** isteği doğrulama ve yetkilendirme Key vault'a erişim isteği.
 
 **4. Key Vault** gizli dizi, bu durumda SQL DB bağlantı dizesini döndürür.
 

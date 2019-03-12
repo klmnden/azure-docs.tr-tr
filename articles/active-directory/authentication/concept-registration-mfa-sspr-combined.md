@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47d28eb63ffb700dc0f20020ac4007c5485b0edb
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: fa9872ef76264956430bb69856a197042c196dfd
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589108"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550199"
 ---
 # <a name="combined-security-information-registration-preview"></a>Birleştirilmiş güvenlik bilgileri kayıt (Önizleme)
 
@@ -33,6 +33,8 @@ Yeni deneyimi etkinleştirmeden önce bu yönetici odaklı belgeleri ve işlevle
 
 > [!IMPORTANT]
 > Bir kullanıcı hem özgün Önizleme hem de Gelişmiş birleşik kayıt deneyimi için etkinse, yeni deneyimi görürler. Her iki deneyimleri etkin kullanıcılar yalnızca Profilim deneyim elde edeceksiniz. Yeni Profilim, birleşik kayıt görünümü ve deneyimini ile hizalanan ve kullanıcılar için sorunsuz bir deneyim sağlar. Kullanıcılar, giderek Profilim görebilirsiniz [ https://myprofile.microsoft.com ](https://myprofile.microsoft.com).
+
+Profilim'i sayfaları geçerli dil ayarları sayfasına erişme makineye göre yerelleştirilir. Microsoft, tarayıcı önbelleğine sonraki denemeler erişmek için kullanılan son dil işleme devam edecek şekilde kullanılan en son dil depolar. Önbelleği temizleme, yeniden oluşturulacak sayfaların neden olur. Ekleme belirli dil zorlamak istiyorsanız bir `?lng=de-DE` URL'nin sonuna burada `de-DE` ayarlanır uygun dili için kod sayfaları o dilde işlemek için zorlar.
 
 ![Güvenlik bilgileri ve kullanıcının SSPR veya diğer ek güvenlik doğrulama yöntemlerini Kurulumu özelliği gösteren my profili arabirimi.](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 

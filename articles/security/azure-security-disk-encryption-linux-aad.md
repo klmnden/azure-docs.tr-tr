@@ -3,17 +3,16 @@ title: Azure AD uygulama Linux Iaas sanal makineleri (önceki sürüm) ile Azure
 description: Bu makalede, Linux Iaas sanal makineleri için Microsoft Azure Disk şifrelemesi etkinleştirme hakkında yönergeler sağlar.
 author: mestew
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 03/04/2019
+ms.date: 03/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 292dafb88362d7f7d0ec07a2a7961b98e6518204
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 659530d1dcea5593e86edf85cb6c2b15da57618e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339394"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775645"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms-previous-release"></a>Linux Iaas VM'ler (önceki sürüm) için Azure Disk şifrelemesini etkinleştirme
 
@@ -32,38 +31,8 @@ Ele bir [anlık görüntü](../virtual-machines/windows/snapshot-copy-managed-di
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="bkmk_NewLinux"></a> Disk şifrelemesi etkinleştirilmiş olan yeni bir Linux Iaas sanal makine dağıtma 
-
-1. Kullanım [Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel) yeni bir Linux Iaas VM şifreli. Şablon, 200 GB RAID-0 dizisi ve tam disk şifrelemesi kullanılarak yönetilen diskler ile yeni RedHat Linux 7.2 VM oluşturur. Üzerinde [SSS](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) makalenin seçeneğinde bazı Linux dağıtımlarında veri diskleri için yalnızca şifreleme destekler. Ancak, bu şablonu şablonları dağıtma ve şifreleme durumu ile birden çok yöntemlerini doğrulama hakkında bilgi sahibi olmak için bir fırsat sağlar. 
- 
-1. Tıklayın **azure'a Dağıt** Azure Resource Manager şablonu.
-
-2. Abonelik, kaynak grubu, kaynak grubu konumu, parametreleri, yasal koşulları ve Sözleşmesi'ni seçin. Tıklayın **Oluştur** var olan veya çalışan Iaas VM üzerinde şifrelemeyi etkinleştirmek için.
-
-3. Şablonu dağıttıktan sonra tercih ettiğiniz yöntemi kullanarak VM şifreleme durumunu doğrulayın:
-     - Azure CLI'yı kullanarak doğrulama [az vm şifreleme show](/cli/azure/vm/encryption#az-vm-encryption-show) komutu. 
-
-         ```azurecli-interactive 
-         az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
-         ```
-
-     - Azure PowerShell ile kimlik doğrulamasını [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) cmdlet'i. 
-
-         ```azurepowershell-interactive
-         Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
-         ```
-
-     - Sanal Makineyi seçin ve ardından tıklayarak **diskleri** altında **ayarları** şifreleme durumu Portalı'nda doğrulamak için başlık. Grafiğin altında **şifreleme**, etkin olup olmadığını göreceksiniz. 
-
-| Parametre | Açıklama |
-| --- | --- |
-| AAD istemci kimliği | Bir anahtar kasasına gizli anahtarları yazmak için izne sahip olan Azure AD uygulamasının istemci kimliği. |
-| AAD istemci gizli anahtarı | Gizli anahtar kasanız için yazma iznine sahip Azure AD uygulamasının istemci gizli anahtarı. |
-| Key Vault Adı | Anahtar yerleştirilmesi gereken anahtar kasasının adı. |
-| Key Vault Kaynak Grubu | Anahtar kasasının kaynak grubu. |
-
-
 ## <a name="bkmk_RunningLinux"> </a> Var olan veya çalışan bir Iaas Linux VM üzerinde şifrelemeyi etkinleştir
+
 Bu senaryoda, Resource Manager şablonu, PowerShell cmdlet'leri veya CLI komutları kullanarak şifreleyebilirsiniz. 
 
 >[!IMPORTANT]

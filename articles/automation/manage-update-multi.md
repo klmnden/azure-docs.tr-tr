@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 864e93dcd94fd36b0e34495e0ea27f22d8b0dd0c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 65ea01047743c5894ac2ae8b38a197b57cb6971c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817686"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531328"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Birden çok makine için güncelleştirmeleri yönetme
 
@@ -70,7 +70,7 @@ Güncelleştirme yönetimi, onboarding tamamlandığında, sanal makineniz için
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Azure olmayan sanal makineler ve bilgisayarlar için güncelleştirme yönetimini etkinleştirme
 
-Azure Windows sanal makineleri ve bilgisayarlar için güncelleştirme yönetimini etkinleştirme hakkında bilgi için bkz: [Azure Log Analytics hizmetine bağlama Windows bilgisayarlara](../log-analytics/log-analytics-windows-agent.md).
+Azure Windows sanal makineleri ve bilgisayarlar için güncelleştirme yönetimini etkinleştirme hakkında bilgi için bkz: [azure'da Azure İzleyici'hizmetine bağlanmak için Windows bilgisayarları](../log-analytics/log-analytics-windows-agent.md).
 
 Azure olmayan Linux sanal makineleri ve bilgisayarlar için güncelleştirme yönetimini etkinleştirme hakkında bilgi için bkz: [azure'da Linux bilgisayarlarını Azure İzleyici günlüklerine bağlama](../log-analytics/log-analytics-agent-linux.md).
 

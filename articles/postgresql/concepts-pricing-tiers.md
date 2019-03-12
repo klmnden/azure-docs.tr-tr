@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 0df36f4c939ed9bd7bb6a134a356b37d699abc1d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a8dbb2c06d3622dcde19f298ee12fa49afb4cd4b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586352"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532057"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Fiyatlandırma katmanları PostgreSQL için Azure veritabanı
 
@@ -51,30 +51,30 @@ Bir sunucu oluşturduktan sonra sanal çekirdek, donanım oluşturma ve fiyatlan
 |:---|:----------:|:--------------------:|
 | Orta ABD |  | X |
 | Doğu ABD |  | X |
-| Doğu ABD 2 | X | X |
-| Orta Kuzey ABD | X | X |
+| Doğu ABD 2 |  | X |
+| Orta Kuzey ABD |  | X |
 | Orta Güney ABD | X | X |
-| Batı ABD | X | X |
+| Batı ABD |  | X |
 | Batı ABD 2 |  | X |
-| Güney Brezilya | X | X |
-| Orta Kanada | X | X |
-| Doğu Kanada | X | X |
+| Güney Brezilya |  | X |
+| Orta Kanada |  | X |
+| Doğu Kanada |  | X |
 | Kuzey Avrupa | X | X |
 | Batı Avrupa |  | X |
 | Fransa Orta |  | X |
 | Birleşik Krallık Güney |  | X |
 | Birleşik Krallık Batı |  | X |
-| Doğu Asya | X | X |
+| Doğu Asya |  | X |
 | Güneydoğu Asya | X | X |
 | Avustralya Doğu |  | X |
 | Avustralya Orta |  | X |
 | Avustralya Orta 2 |  | X |
 | Avustralya Güneydoğu |  | X |
-| Orta Hindistan | X | X |
+| Orta Hindistan |  | X |
 | Güney Hindistan |  | X |
-| Batı Hindistan | X | X |
+| Batı Hindistan |  | X |
 | Japonya Doğu | X | X |
-| Japonya Batı | X | X |
+| Japonya Batı |  | X |
 | Kore Orta |  | X |
 | Kore Güney |  | X |
 | Çin Doğu 1 | X |  |

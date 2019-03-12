@@ -8,14 +8,14 @@ ms.service: data-factory
 ms.workload: data-services
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
+ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 2592c81947f48c10891fe920647612d5c30af64f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 271da0a6ff443fcee28bc870821f4222b3018c91
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989102"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576880"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Yüksek performans için Azure-SSIS tümleştirme çalışma zamanı yapılandırma
 
@@ -62,7 +62,7 @@ $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
 Data Factory, Azure-SSIS IR dahil olmak üzere aşağıdaki seçeneklerden destekler:
 -   Standart\_A4\_v2
--   Standart\_A8\_v2
+-   Standard\_A8\_v2
 -   Standart\_D1\_v2
 -   Standart\_D2\_v2
 -   Standart\_D3\_v2
@@ -95,14 +95,14 @@ Paketleri çalıştırmak için kullanabileceğiniz birçok seçenek mevcuttur v
 Paketleri çalıştırmak için zaten bir güçlü çalışan düğümü kullanırken, artan **AzureSSISMaxParallelExecutionsPerNode** Integration runtime'nın genel üretilen işi artırabilir. Standard_D1_v2 düğümlerde, düğüm başına 1-4 Paralel yürütme desteklenir. Tüm diğer türleri düğüm için düğüm başına 1-8 Paralel yürütme desteklenir.
 Paketinizi ve çalışan düğümleri için aşağıdaki yapılandırmaları maliyeti temel alarak uygun değeri tahmin edebilirsiniz. Daha fazla bilgi için [genel amaçlı sanal makine boyutları](../virtual-machines/windows/sizes-general.md).
 
-| Boyut             | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maks NIC / Beklenen ağ performansı (Mbps) |
+| Boyut             | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / okuma MB/sn / yazma MB/sn | Maksimum veri diski / aktarım hızı: IOPS | Maks NIC / Beklenen ağ performansı (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
 | Standart\_D1\_v2 | 1    | 3,5         | 50                     | 3000/46/23                                             | 2/2x500                         | 2 / 750                                        |
 | Standart\_D2\_v2 | 2    | 7           | 100                    | 6000/93/46                                             | 4/4x500                         | 2 / 1500                                       |
 | Standart\_D3\_v2 | 4    | 14          | 200                    | 12000/187/93                                           | 8/8x500                         | 4 / 3000                                       |
 | Standart\_D4\_v2 | 8    | 28          | 400                    | 24000/375/187                                          | 16/16x500                       | 8 / 6000                                       |
 | Standart\_A4\_v2 | 4    | 8           | 40                     | 4000/80/40                                             | 8/8x500                         | 4 / 1000                                       |
-| Standart\_A8\_v2 | 8    | 16          | 80                     | 8000/160/80                                            | 16/16x500                       | 8 / 2000                                       |
+| Standard\_A8\_v2 | 8    | 16          | 80                     | 8000/160/80                                            | 16/16x500                       | 8 / 2000                                       |
 
 Doğru değeri ayarlamak için yönergeler şunlardır **AzureSSISMaxParallelExecutionsPerNode** özelliği: 
 

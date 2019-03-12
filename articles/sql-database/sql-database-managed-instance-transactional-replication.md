@@ -12,24 +12,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 3ad33968107aec551ea99e503797382c7fcea0c5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 08ec654ecdfe9764aefdde287c5a4c78022c108c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877100"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551705"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>İşlem çoğaltma, tek bir havuzda ve Azure SQL veritabanı'nda veritabanları örnek
 
 İşlem çoğaltması, Azure SQL veritabanı ve SQL Server, Azure SQL veritabanındaki bir tablodan veri çoğaltmanıza olanak sağlar veya uzak veritabanlarında yerleştirilmiş tablolar için SQL Server özelliğidir. Bu özellik, birden fazla tablo farklı veritabanlarındaki eşitlemenize olanak tanır.
-
-## <a name="when-to-use-transactional-replication"></a>Ne zaman işlem çoğaltma kullanma
-
-İşlem çoğaltma, aşağıdaki senaryolarda kullanışlıdır:
-
-- Bir veya daha fazla veritabanı tablolarında yapılan değişiklikleri Yayımla ve abone değişikliklerini bir veya daha çok SQL Server veya Azure SQL veritabanlarına dağıtın.
-- Birden fazla dağıtılmış veritabanı eşitlenmiş durumda tutun.
-- Veritabanlarını bir SQL Server veya yönetilen örneği için başka bir veritabanına değişiklikleri sürekli olarak yayımlayarak geçirme.
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -59,6 +51,9 @@ ms.locfileid: "56877100"
 | **Anında iletme abone**| Evet | Evet|
 | &nbsp; | &nbsp; | &nbsp; |
 
+  >[!NOTE]
+  > Dağıtıcı bir örnek veritabanı ve abone değil bir istek temelli aboneliğe desteklenmez. 
+
 Vardır farklı [çoğaltma türleri](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
 
 
@@ -76,13 +71,44 @@ Vardır farklı [çoğaltma türleri](https://docs.microsoft.com/sql/relational-
   >[!NOTE]
   > - Eski bir sürümü kullanılarak çoğaltma yapılandırmaya çalışmadan sonuçlanabilir hata numarası (işlem abone. bağlanamadı) MSSQL_REPL20084 ve MSSQ_REPL40532 (sunucu açamıyor \<adı > oturum açma tarafından istenen. Oturum açma başarısız.)
   > - Azure SQL veritabanı'nın tüm özelliklerini kullanabilmek için en son sürümlerini kullanarak [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) ve [SQL Server veri Araçları (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).
+  
+  ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>Örnek veritabanları ve şirket içi sistemler için Supportabilty Matrisi
+  Çoğaltma desteklenebilirliği matris örneği için veritabanları aynı olup şirket içi SQL Server için. 
+  
+  | **Yayımcı**   | **Dağıtıcı** | **Abone** |
+| :------------   | :-------------- | :------------- |
+| SQL Server 2017 | SQL Server 2017 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
+| SQL Server 2016 | SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
+| SQL Server 2014 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
+| SQL Server 2012 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | 
+| SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
+| &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="requirements"></a>Gereksinimler
 
 - Bağlantı çoğaltma katılımcılar SQL kimlik doğrulaması kullanır. 
 - Çoğaltma tarafından kullanılan çalışma dizini için bir Azure depolama hesabı paylaşımı. 
 - Bağlantı noktası 445 (TCP Giden) Azure dosya paylaşımına erişmek için yönetilen örnek alt güvenlik kurallarında açık olması gerekir. 
-- Bağlantı noktası 1433 (TCP Giden) yayımcı/dağıtıcı bağlantılarının yönetilen örneği'nde ve şirket içi abone ise açılması gerekir. 
+- Bağlantı noktası 1433 (TCP Giden) yayımcı/dağıtıcı bağlantılarının yönetilen örneği'nde ve şirket içi abone ise açılması gerekir.
+
+  >[!NOTE]
+  > Bir Azure depolama dosyasına giden ağ güvenlik grubu (NSG) bağlantı noktası 445 dağıtıcı bir örnek veritabanı ve şirket içi abone olduğunda engellenirse bağlanırken hata 53 karşılaşabilirsiniz. [VNet NSG update](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) bu sorunu çözmek için. 
+
+## <a name="when-to-use-transactional-replication"></a>Ne zaman işlem çoğaltma kullanma
+
+İşlem çoğaltma, aşağıdaki senaryolarda kullanışlıdır:
+
+- Bir veya daha fazla veritabanı tablolarında yapılan değişiklikleri Yayımla ve abone değişikliklerini bir veya daha çok SQL Server veya Azure SQL veritabanlarına dağıtın.
+- Birden fazla dağıtılmış veritabanı eşitlenmiş durumda tutun.
+- Veritabanlarını bir SQL Server veya yönetilen örneği için başka bir veritabanına değişiklikleri sürekli olarak yayımlayarak geçirme.
+
+### <a name="compare-data-sync-with-transactional-replication"></a>İşlem çoğaltma ile veri eşitleme karşılaştırın
+
+| | Data Sync | İşlem Çoğaltması |
+|---|---|---|
+| Yararları | -Etkin-etkin desteği<br/>İki yönlü şirket içi ve Azure SQL veritabanı arasında | -Daha düşük gecikme süresi<br/>-İşlem tutarlılığı<br/>-Mevcut topolojisi geçişten sonra yeniden kullanma |
+| Dezavantajları | -5 dakika veya daha fazla gecikme süresi<br/>-İşlem tutarlılığı<br/>-Daha yüksek performans etkisi | -Azure SQL veritabanı tek veritabanı veya havuza veritabanı yayımlanamıyor<br/>-Yüksek bakım maliyeti |
+| | | |
 
 ## <a name="common-configurations"></a>Ortak yapılandırmaları
 
@@ -112,11 +138,13 @@ Bu yapılandırmada, bir yönetilen örnek başka bir yönetilen hizmet birçok 
  
 Bu yapılandırmada, Azure SQL veritabanı (tek bir havuzda ve veritabanı örneği) abone durumda. Bu yapılandırma şirket içinden azure'a geçişi destekler. Bir tek veya havuza alınmış veritabanının abone ise gönderim modunda olması gerekir.  
 
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 1. [İşlem çoğaltma için bir yönetilen örnek yapılandırma](replication-with-sql-database-managed-instance.md#configure-publishing-and-distribution-example). 
 1. [Yayın oluşturma](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Gönderme temelli bir abonelik oluşturmak](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) abonesi olarak Azure SQL veritabanı sunucu adını kullanarak (örneğin `N'azuresqldbdns.database.windows.net` ve hedef veritabanı olarak Azure SQL veritabanı adı (örneğin **Adventureworks**. )
+
 
 
 ## <a name="see-also"></a>Ayrıca Bkz.  

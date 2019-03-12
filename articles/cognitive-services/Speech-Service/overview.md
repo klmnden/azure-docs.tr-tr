@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: d60e5f881e44f397090a3ba5e467c08f20137d72
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9beab6f30d42a7fd2c424971d602a581732eb946
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858842"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543058"
 ---
 # <a name="what-is-speech-services"></a>Konuşma Hizmetleri nedir?
 
 Diğer Azure konuşma Hizmetleri gibi konuşma Hizmetleri, Cortana ve Microsoft Office gibi ürünlerinde kullanılan konuşma teknolojileri tarafından desteklenir.
 
-Konuşma Hizmetleri Azure konuşma tanıma özelliği ile önceden kullanılabilen birleştiren [Bing konuşma API'si](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator konuşma çevirisi](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [özel konuşma](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home), ve [özel Ses](http://customvoice.ai/) Hizmetleri. Artık bu özelliklerin tümüne tek bir abonelikle erişim sağlanabilir.
+Konuşma Hizmetleri Azure konuşma tanıma özelliği ile önceden kullanılabilen birleştiren [Bing konuşma API'si](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator konuşma çevirisi](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [özel konuşma](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home), ve [özel Ses](https://customvoice.ai/) Hizmetleri. Artık bu özelliklerin tümüne tek bir abonelikle erişim sağlanabilir.
 
 ## <a name="main-speech-services-functions"></a>Ana konuşma hizmetleri işlevleri
 

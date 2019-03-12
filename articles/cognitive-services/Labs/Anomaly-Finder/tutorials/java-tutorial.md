@@ -10,12 +10,12 @@ ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 8f087e07bbf5033698b18b4349c4d13e862a1555
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ba66c96f9129b253fc5897c3a2eaaefb53056cea
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223349"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548737"
 ---
 # <a name="tutorial-anomaly-detection-with-java-application"></a>Öğretici: Java uygulaması ile anomali algılama
 
@@ -28,7 +28,7 @@ Bu makalede Anomali Algılama API'sini çağırmak için örnek Java uygulaması
 
 ### <a name="platform-requirements"></a>Platform gereksinimleri
 
-Bu öğretici, [IntelliJ IDEA](https://www.jetbrains.com/idea) kullanılarak geliştirilmiştir. Ayrıca [Java Development Kit (JDK)](https://aka.ms/azure-jdks) sürüm 1.8+ ve güncel [Apache's Maven](http://maven.apache.org/) derleme aracını da yüklemeniz gerekir.
+Bu öğretici, [IntelliJ IDEA](https://www.jetbrains.com/idea) kullanılarak geliştirilmiştir. Ayrıca [Java Development Kit (JDK)](https://aka.ms/azure-jdks) sürüm 1.8+ ve güncel [Apache's Maven](https://maven.apache.org/) derleme aracını da yüklemeniz gerekir.
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Anomali Algılama için abone olun ve abonelik anahtarını alın 
 

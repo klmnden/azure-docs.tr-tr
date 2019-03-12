@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: 34647c218bd5fd2eec775599a4d2f10373dbd2fd
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: b50f7c9b76e9309a1ee08257dd8b13ec289397a5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268285"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775926"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Bir Linux sanal makinesinde DPDK ayarlayın
 
@@ -33,7 +33,7 @@ DPDK birden çok işletim sistemi dağıtımlarını destekleyen Azure sanal mak
 
 ## <a name="benefit"></a>Avantaj
 
-**Daha yüksek Saniyedeki (PPS)**: Kullanıcı alanında paketlerinin alma denetimi ve çekirdek atlama azaltır döngü sayısı bağlam anahtarları ortadan kaldırarak. Ayrıca, Azure Linux sanal makineler'de saniye başına işlenen paket oranını artırır.
+**Daha yüksek Saniyedeki (PPS)**: Kullanıcı alanı paketlerin alma denetimi ve çekirdek atlama, bağlam anahtarları ortadan kaldırarak döngü sayısı azaltır. Ayrıca, Azure Linux sanal makineler'de saniye başına işlenen paket oranını artırır.
 
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
@@ -42,9 +42,9 @@ Azure Galerisi aşağıdaki dağıtımlar desteklenir:
 
 | Linux İşletim Sistemi     | Çekirdek sürümü        |
 |--------------|----------------       |
-| Ubuntu 16.04 | 4.15.0-1015-Azure     |
-| Ubuntu 18.04 | 4.15.0-1015-Azure     |
-| SLES 15      | 4.12.14-5.5-Azure     |
+| Ubuntu 16.04 | 4.15.0-1015-azure     |
+| Ubuntu 18.04 | 4.15.0-1015-azure     |
+| SLES 15      | 4.12.14-5.5-azure     |
 | RHEL 7.5     | 3.10.0-862.9.1.el7    |
 | CentOS 7.5   | 3.10.0-862.3.3.el7    |
 
@@ -87,7 +87,7 @@ yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel 
 
 ### <a name="sles-15"></a>SLES 15
 
-**Azure çekirdek**
+**Azure kernel**
 
 ```bash
 zypper  \
@@ -133,7 +133,7 @@ Yeniden başlattıktan sonra aşağıdaki komutları bir kez çalıştırın:
      > [!NOTE]
      > Bir yolu takip ederek önyükleme ayrılmış hugepages grub dosya değiştirin [yönergeleri](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) DPDK için. Sayfanın altındaki yönergeleri verilmiştir. Bir Azure Linux sanal makinesi kullanırken, dosyaları altındaki değiştirme **/etc/config/grub.d** bunun yerine, yeniden başlatmalar arasında hugepages ayırmak için.
 
-2. MAC ve IP adresleri: kullanım `ifconfig –a` MAC ve IP adresi ağ arabirimlerinin görüntüleyebilirsiniz. *VF* ağ arabirimi ve *NETVSC* ağ arabirimine sahip olmalı, ancak aynı MAC adresini *NETVSC* ağ arabirimi bir IP adresi vardır. VF arabirimleri NETVSC arabirimleri bağımlı arabirimleri olarak çalışıyor.
+2. MAC ve IP adresleri: Kullanım `ifconfig –a` MAC ve IP adresi ağ arabirimlerinin görüntüleyebilirsiniz. *VF* ağ arabirimi ve *NETVSC* ağ arabirimine sahip olmalı, ancak aynı MAC adresini *NETVSC* ağ arabirimi bir IP adresi vardır. VF arabirimleri NETVSC arabirimleri bağımlı arabirimleri olarak çalışıyor.
 
 3. PCI adresleri
 
@@ -244,7 +244,7 @@ Aşağıdaki komutları düzenli aralıklarla paket başına ikinci istatistikle
      -w <pci address NIC2> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      --vdev="net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>" (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
-     -- --nb-cores <number of cores to use for test pmd> \
+     -- --nb-cores <number of cores to use for test pmd> \
      --forward-mode=io \
      --eth-peer=<recv port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>

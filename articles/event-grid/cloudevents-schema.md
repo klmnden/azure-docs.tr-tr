@@ -8,16 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 81f9db7e90e2cef85d41561cc677db3d6422ef45
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: c9c0fd8bf7dc893ce07a6e3ce9cb392fc652a560
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079877"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535861"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Event Grid ile CloudEvents şeması kullanma
 
-Ek olarak kendi [varsayılan olay şeması](event-schema.md), Azure Event Grid, olayları yerel olarak destekleyen [CloudEvents JSON şeması](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](http://cloudevents.io/) olduğu bir [açın belirtimi](https://github.com/cloudevents/spec/blob/master/spec.md) açıklayan olay verileri.
+Ek olarak kendi [varsayılan olay şeması](event-schema.md), Azure Event Grid, olayları yerel olarak destekleyen [CloudEvents JSON şeması](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](https://cloudevents.io/) olduğu bir [açın belirtimi](https://github.com/cloudevents/spec/blob/master/spec.md) açıklayan olay verileri.
 
 Yayımlama için ortak bir olay şema sağlayarak birlikte çalışabilirlik CloudEvents basitleştirir ve bulut kullanan olaylara bağlı. Bu şema Tekdüzen araçları, standart yolu yönlendirme & olayları işleme ve dış olay şeması seri durumdan çıkarılırken Evrensel yollarını sağlar. Ortak bir şema ile platformlar arasında iş daha kolayca tümleştirebilirsiniz.
 
@@ -60,16 +60,16 @@ Bir Azure Blob Depolama olayı CloudEvents biçiminde bir örnek aşağıda veri
 
 CloudEvents v0.1, aşağıdaki özelliklere sahiptir:
 
-| CloudEvents        | Tür     | Örnek JSON değeri             | Açıklama                                                        | Event Grid eşleme
+| CloudEvents        | Type     | Örnek JSON değeri             | Açıklama                                                        | Event Grid eşleme
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| olay türü          | Dize   | "com.example.someevent"          | Gerçekleşen, oluşumunu türü                                   | olay türü
-| eventTypeVersion   | Dize   | "1.0"                            | (İsteğe bağlı) eventType sürümü                            | dataVersion
-| cloudEventsVersion | Dize   | "0.1"                            | Olay kullanır CloudEvents belirtim sürümü        | *doğrudan geçiş*
+| olay türü          | String   | "com.example.someevent"          | Gerçekleşen, oluşumunu türü                                   | olay türü
+| eventTypeVersion   | String   | "1.0"                            | (İsteğe bağlı) eventType sürümü                            | dataVersion
+| cloudEventsVersion | String   | "0.1"                            | Olay kullanır CloudEvents belirtim sürümü        | *doğrudan geçiş*
 | source             | URI      | "/ mycontext"                     | Olay üretici açıklar                                       | Konu #subject
-| EventID            | Dize   | "1234-1234-1234"                 | Etkinliğin kimliği                                                    | id
+| EventID            | String   | "1234-1234-1234"                 | Etkinliğin kimliği                                                    | id
 | eventTime          | Zaman damgası| "2018-04-05T17:31:00Z"           | Olay (isteğe bağlı) ne zaman oluştuğunu, zaman damgası                    | eventTime
 | schemaURL          | URI      | "https://myschema.com"           | Veri özniteliği uyar (isteğe bağlı) şemayı Bağla | *kullanılmıyor*
-| contentType        | Dize   | "application/json"               | Veri kodlama biçimi (isteğe bağlı) açıklayın                       | *kullanılmıyor*
+| contentType        | String   | "application/json"               | Veri kodlama biçimi (isteğe bağlı) açıklayın                       | *kullanılmıyor*
 | Uzantıları         | Eşleme      | {"yapıştırmadan": "vA", "extB", "vB"}  | Ek meta verileri (isteğe bağlı)                                 | *kullanılmıyor*
 | veriler               | Nesne   | {"objA": "vA", "objB", "vB"}  | Olay Yükü (isteğe bağlı)                                       | veriler
 

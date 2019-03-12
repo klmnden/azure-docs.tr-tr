@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 274ba6d6a1ce2e9c8f2cae0ca29de8442525391e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 06fd66c3fb9e90e0198d40253f3c554fe8596c3d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106498"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543385"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure anahtar kasası Geliştirici Kılavuzu
 
@@ -156,5 +156,5 @@ Bu makaleler diğer senaryolar ve kullanabilir veya Key Vault ile tümleştirme 
 
 ## <a name="supporting-libraries"></a>Destek kitaplıkları
 
-- [Microsoft Azure anahtar kasası çekirdek Kitaplığı](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) sağlar **IKey** ve **IKeyResolver** tanımlayıcıları anahtarlarını bulma ve anahtarlarla işlemleri gerçekleştirmek için arabirim.
-- [Microsoft Azure anahtar kasası uzantıları](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) Azure anahtar kasası için genişletilmiş özellikler sunar.
+- [Microsoft Azure anahtar kasası çekirdek Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) sağlar **IKey** ve **IKeyResolver** tanımlayıcıları anahtarlarını bulma ve anahtarlarla işlemleri gerçekleştirmek için arabirim.
+- [Microsoft Azure anahtar kasası uzantıları](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) Azure anahtar kasası için genişletilmiş özellikler sunar.

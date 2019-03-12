@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5895ad1f1452b5a0c13765821c5b623472a0bb1e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 65bc0c0ee1ccc1e1f3da5e364582534dfbc0d425
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447124"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530714"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki denetim etkinliği raporları 
 
@@ -41,7 +41,7 @@ Bu makalede, Denetim raporuna genel bir bakış sağlar.
  
 ## <a name="who-can-access-the-data"></a>Verilere kimler erişebilir?
 
-* Kullanıcıların **Güvenlik Yöneticisi**, **güvenlik okuyucusu** veya **genel yönetici** rolleri
+* Kullanıcıların **güvenlik yönetici**, **güvenlik okuyucusu**, **rapor okuyucu** veya **genel yönetici** rolleri
 * Ayrıca, tüm kullanıcılar (Yönetici olmayanlar) kendi denetim etkinliklerini görebilir
 
 ## <a name="audit-logs"></a>Denetim günlükleri
@@ -53,38 +53,93 @@ Azure AD denetim günlükleri uyumluluk amacıyla sistem etkinliklerinin kayıtl
 Denetim günlüklerinin aşağıdakileri gösteren bir varsayılan liste görünümü vardır:
 
 - Olayın tarihi ve saati
-- Bir etkinliğin başlatıcısı/aktörü (*kim*) 
-- Etkinlik (*ne*) 
+- oluşum oturum hizmeti
+- Kategori ve etkinlik adını (*ne*) 
+- Etkinlik (başarı veya başarısızlık) durumu
 - Hedef
+- Başlatıcısı / aktörü (kim) bir etkinlik
 
-![Denetim günlükleri](./media/concept-audit-logs/18.png "Denetim günlükleri")
+![Denetim günlükleri](./media/concept-audit-logs/listview.png "Denetim günlükleri")
 
 Araç çubuğunda **Sütunlar**’a tıklayarak liste görünümünü özelleştirebilirsiniz.
 
-![Denetim günlükleri](./media/concept-audit-logs/19.png "Denetim günlükleri")
+![Denetim günlükleri](./media/concept-audit-logs/columns.png "Denetim günlükleri")
 
 Bu sayede ek alanları görüntüleyebilir ya da zaten görüntülenen alanları kaldırabilirsiniz.
 
-![Denetim günlükleri](./media/concept-audit-logs/21.png "Denetim günlükleri")
+![Denetim günlükleri](./media/concept-audit-logs/columnselect.png "Denetim günlükleri")
 
 Daha ayrıntılı bilgi almak için liste görünümünde bir öğe seçin.
 
-![Denetim günlükleri](./media/concept-audit-logs/22.png "Denetim günlükleri")
+![Denetim günlükleri](./media/concept-audit-logs/details.png "Denetim günlükleri")
 
 
 ## <a name="filtering-audit-logs"></a>Denetim günlüklerini filtreleme
 
 Aşağıdaki alanlarda denetim verilerini filtreleyebilirsiniz:
 
-- Tarih aralığı
-- Başlatan (Aktör)
+- Hizmet
 - Kategori
-- Etkinlik kaynak türü
 - Etkinlik
+- Durum
+- Hedef
+- Başlatan (Aktör)
+- Tarih aralığı
 
-![Denetim günlükleri](./media/concept-audit-logs/23.png "Denetim günlükleri")
+![Denetim günlükleri](./media/concept-audit-logs/filter.png "Denetim günlükleri")
 
-**Tarih aralığı** filtresi, döndürülen veriler için bir zaman çerçevesi tanımlamanıza olanak sağlar.  
+**Hizmet** filtresi aşağıdaki hizmetlerin açılan listeden seçim olanak tanır:
+
+- Tümü
+- Erişim Gözden Geçirmeleri
+- Hesap Sağlama 
+- Uygulama SSO
+- Kimlik Doğrulaması Yöntemleri
+- B2C
+- Koşullu Erişim
+- Çekirdek Dizin
+- Hak Yönetimi
+- Kimlik Koruması
+- Davetli Kullanıcılar
+- PIM
+- Self Servis Grup Yönetimi
+- Self Servis Passord Yönetimi
+- Kullanım Koşulları
+
+**Kategori** filtresi, aşağıdaki filtrelerden birini seçmenize olanak tanır:
+
+- Tümü
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Yetkilendirme
+- İletişim
+- Cihaz
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Diğer
+- İlke
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+**Etkinlik** filtresi, yaptığınız kategori ve etkinlik kaynağı türü seçimine dayanır. Görmek istediğiniz belirli bir etkinliği ya da tüm etkinlikleri seçebilirsiniz. 
+
+Graph API'si (https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta; burada $tenantdomain = etki alanınızın adıdır) kullanarak tüm Denetim Etkinliklerinin listesini alabilir veya [denetim raporu olayları](reference-audit-activities.md) makalesine bakabilirsiniz.
+
+**Durumu** filtre filtrelemenize olanak sağlayan bir denetim işlemin durumu temelinde. Durumu aşağıdakilerden biri olabilir:
+
+- Tümü
+- Başarılı
+- Hata
+
+**Hedef** filtre adı veya kullanıcı asıl adı (UPN) göre belirli bir hedef için arama olanak tanır. UPN ve hedef adı büyük/küçük harf duyarlıdır. 
+
+**Başlatan** filtre, bir aktörün adını ya da evrensel asıl adını (UPN) tanımlamanıza imkan tanır. UPN ve adı büyük/küçük harf duyarlıdır.
+
+**Tarih aralığı** filtresi, döndürülen veriler için bir zaman çerçevesi tanımlamanıza olanak.  
 Olası değerler şunlardır:
 
 - 1 ay
@@ -94,41 +149,9 @@ Olası değerler şunlardır:
 
 Özel bir zaman çerçevesi seçerken başlangıç ve bitiş zamanını yapılandırabilirsiniz.
 
-**Başlatan** filtre, bir aktörün adını ya da evrensel asıl adını (UPN) tanımlamanıza imkan tanır.
+Ayrıca en fazla 250.000 kayıtları, filtrelenmiş verileri seçerek indirmeyi seçebilir **indirme** düğmesi. CSV veya JSON biçiminde günlükleri indirmek tercih edebilirsiniz. İndirebilirsiniz kayıt sayısı tarafından sınırlı [Azure Active Directory rapor saklama ilkeleri](reference-reports-data-retention.md).
 
-**Kategori** filtresi, aşağıdaki filtrelerden birini seçmenize imkan tanır:
-
-- Tümü
-- Çekirdek kategori
-- Çekirdek dizin
-- Self servis parola yönetimi
-- Self servis grup yönetimi
-- Hesap sağlama - Otomatik parola geçişi
-- Davetli kullanıcılar
-- MIM hizmeti
-- Kimlik Koruması
-- B2C
-
-**Etkinlik kaynağı türü** filtresi, aşağıdaki filtrelerden birini seçmenize imkan tanır:
-
-- Tümü 
-- Grup
-- Dizin
-- Kullanıcı
-- Uygulama
-- İlke
-- Cihaz
-- Diğer
-
-**Etkinlik kaynağı türü** olarak **Grup**’u seçtiğinizde, bir **Kaynak** sağlamanıza da imkan tanıyan ek bir filtre kategorisine sahip olursunuz:
-
-- Azure AD
-- O365
-
-
-**Etkinlik** filtresi, yaptığınız kategori ve etkinlik kaynağı türü seçimine dayanır. Görmek istediğiniz belirli bir etkinliği ya da tüm etkinlikleri seçebilirsiniz. 
-
-Graph API'si (https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta; burada $tenantdomain = etki alanınızın adıdır) kullanarak tüm Denetim Etkinliklerinin listesini alabilir veya [denetim raporu olayları](reference-audit-activities.md) makalesine bakabilirsiniz.
+![Denetim günlükleri](./media/concept-audit-logs/download.png "Denetim günlükleri")
 
 ## <a name="audit-logs-shortcuts"></a>Denetim günlükleri kısayolları
 
@@ -157,9 +180,13 @@ Kullanıcı ve grup tabanlı denetim raporları ile aşağıdakiler gibi sorular
 
 - Bir grup veya kullanıcıya hangi lisanslar atanmış?
 
-Yalnızca kullanıcı ve gruplarla ilgili denetim verilerini gözden geçirmek istiyorsanız, **Kullanıcılar ve Gruplar**’ın **Etkinlik** bölümündeki **Denetim günlükleri** altında filtrelenmiş bir görünüm bulabilirsiniz. Bu giriş noktasında, **Etkinlik Kaynağı Türü** olarak **Kullanıcılar ve gruplar** önceden seçilidir.
+Kullanıcılarla ilgili denetim verilerini gözden geçirmek istiyorsanız altında filtrelenmiş bir görünüm bulabilirsiniz **denetim günlükleri** içinde **etkinlik** bölümünü **kullanıcılar** sekmesi. Bu giriş noktasında, **UserManagement** olarak seçilmiş kategorisi.
 
-![Denetim günlükleri](./media/concept-audit-logs/93.png "Denetim günlükleri")
+![Denetim günlükleri](./media/concept-audit-logs/users.png "Denetim günlükleri")
+
+Grupları ile ilgili denetim verilerini gözden geçirmek istiyorsanız altında filtrelenmiş bir görünüm bulabilirsiniz **denetim günlükleri** içinde **etkinlik** bölümünü **grupları** sekmesi. Bu giriş noktasında, **GroupManagement** olarak seçilmiş kategorisi.
+
+![Denetim günlükleri](./media/concept-audit-logs/groups.png "Denetim günlükleri")
 
 ### <a name="enterprise-applications-audit-logs"></a>Kurumsal uygulamaların denetim günlükleri
 
@@ -171,13 +198,9 @@ Uygulama tabanlı denetim raporları ile aşağıdakiler gibi soruların yanıtl
 * Uygulamaların adları değiştirildi mi?
 * Belirli bir uygulama için kim onay verdi?
 
-Uygulamalarınızla ilgili denetim verilerini gözden geçirmek istiyorsanız, altında filtrelenmiş bir görünüm bulabilirsiniz **denetim günlükleri** içinde **etkinlik** bölümünü **kurumsal uygulamalar** Dikey pencere. Bu giriş noktasında, **kurumsal uygulamalar** olarak seçilmiş **etkinlik kaynağı türü**.
+Uygulamalarınızla ilgili denetim verilerini gözden geçirmek istiyorsanız, altında filtrelenmiş bir görünüm bulabilirsiniz **denetim günlükleri** içinde **etkinlik** bölümünü **kurumsal uygulamalar** Dikey pencere. Bu giriş noktasında, **kurumsal uygulamalar** olarak seçilmiş **uygulama türü**.
 
-![Denetim günlükleri](./media/concept-audit-logs/134.png "Denetim günlükleri")
-
-Bu görünüm aşağı filtreleyebilirsiniz **grupları** veya **kullanıcılar**.
-
-![Denetim günlükleri](./media/concept-audit-logs/25.png "Denetim günlükleri")
+![Denetim günlükleri](./media/concept-audit-logs/enterpriseapplications.png "Denetim günlükleri")
 
 ## <a name="office-365-activity-logs"></a>Office 365 etkinlik günlükleri
 

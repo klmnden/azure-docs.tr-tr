@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: bb89c76fb19bff74d39d919c8d2e65d430cb0566
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: de61443da41f1015b2890e9052f38e25d3bed86a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817760"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551985"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>HTTP + Swagger REST uç noktalarına çağrı Azure Logic Apps Bağlayıcısı
 
@@ -60,7 +60,7 @@ Oluşturma, yapılandırma ve Azure Depolama'da Swagger belgeleri depolamak içi
 
 3. Swagger dosyası için blob karşıya yükleyin. 
 
-   Bu adımda gerçekleştirdiğiniz [Azure portalında](https://portal.azure.com) veya gibi bir araçla [Azure Depolama Gezgini](http://storageexplorer.com/).
+   Bu adımda gerçekleştirdiğiniz [Azure portalında](https://portal.azure.com) veya gibi bir araçla [Azure Depolama Gezgini](https://storageexplorer.com/).
 
 4. Azure Blob depolama alanındaki bir belge için bir HTTPS bağlantısı başvuru. 
 

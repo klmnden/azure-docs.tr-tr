@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 0ecd0603a5750b6d03da7cf2c577c668482048aa
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 98e1f982eb627db2a7d2126109e5897c45649ce9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077326"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545133"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins eklentisini kullanarak Azure App Service'e dağıtım yapma 
 
@@ -77,7 +77,7 @@ Projenizi Web Apps’e dağıtmak için, derleme yapıtlarınızı dosya yüklem
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```
     
-3. Uygulamanız için gerekli Java çalışma zamanı yapılandırmasını ayarlayın. Aşağıdaki Azure CLI komutu, web uygulamasını güncel JDK 8 ve [Apache Tomcat](http://tomcat.apache.org/) 8.0 sürümlerinde çalışacak şekilde yapılandırır:
+3. Uygulamanız için gerekli Java çalışma zamanı yapılandırmasını ayarlayın. Aşağıdaki Azure CLI komutu, web uygulamasını güncel JDK 8 ve [Apache Tomcat](https://tomcat.apache.org/) 8.0 sürümlerinde çalışacak şekilde yapılandırır:
     ```azurecli-interactive
     az webapp config set \
     --name <myAppName> \

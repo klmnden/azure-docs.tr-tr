@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 12/17/2018
 ms.author: alinast
-ms.openlocfilehash: d2588090ced3e82e63397a416245ca69204f3d87
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 9426fb1df38797ffbb9cc457ba4fe9eb62cfba40
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583094"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544282"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Hızlı Başlangıç: Azure dijital İkizlerini kullanarak kullanılabilir odaları Bul
 
@@ -149,7 +149,7 @@ Veya kolaylık sağlamak için göz atın [dijital İkizlerini Swagger](https://
 Öğreticilerine devam etmek için kaynakları oluşturulan temizlemeyin Bu hızlı başlangıçta. Devam etmeyi planlamıyorsanız, bu hızlı başlangıç ile oluşturulan tüm kaynakları silin.
 
 1. Örnek depoyu indirildiğinde oluşturduğunuz klasörü silin.
-1. İçinde soldaki menüden [Azure portalında](http://portal.azure.com)seçin **tüm kaynakları**. Ardından dijital İkizlerini kaynağınızı seçin. Üst kısmındaki **tüm kaynakları** bölmesinde **Sil**.
+1. İçinde soldaki menüden [Azure portalında](https://portal.azure.com)seçin **tüm kaynakları**. Ardından dijital İkizlerini kaynağınızı seçin. Üst kısmındaki **tüm kaynakları** bölmesinde **Sil**.
 
     > [!TIP]
     > Dijital İkizlerini örneğinizin silme sorun olduysa, bir hizmet güncelleştirmesi düzeltme alındı. Örneğiniz silme yeniden deneyin.

@@ -1,22 +1,22 @@
 ---
-title: Sorgu için bölümleri ve çoğaltmalarını ayırmak ve dizin oluşturma - Azure Search
+title: Ölçek bölümleri ve çoğaltmalarını sorgu ve dizin oluşturma - Azure arama
 description: Azure Search, her kaynak Faturalanabilir arama birimleri cinsinden burada fiyatlandırılır bölüm ve çoğaltma bilgisayar kaynaklarını ayarlayın.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e2eff6c854dae48961700341a6db19dc7113901c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 69fce34c55007daff48b2463da590ffb9cd59926
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316123"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775331"
 ---
-# <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Sorgu ve iş yüklerini Azure Search'te dizin oluşturma için bölümleri ve çoğaltmalarını Ayır
+# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Bölümleri ve çoğaltmalarını sorgu ve iş yüklerini Azure Search'te dizin oluşturma için ölçeklendirme
 Çalıştırdıktan sonra [bir fiyatlandırma katmanı seçin](search-sku-tier.md) ve [bir arama hizmeti sağlama](search-create-service-portal.md), isteğe bağlı olarak çoğaltmalar veya bölümler hizmetiniz tarafından kullanılan sayısını artırmak için sonraki adımdır. Her katman, sabit bir faturalandırma birimi sayısı sunar. Bu makalede dengeleyen sorgu yürütme, dizin oluşturma ve depolama gereksinimlerinize en uygun yapılandırmayı elde etmek için bu birimleri ayırma açıklanmaktadır.
 
 Kaynak yapılandırması, bir hizmetin ayarlarken kullanılabilir [temel katman](https://aka.ms/azuresearchbasic) veya biri [standart katmanları](search-limits-quotas-capacity.md). Bu katmanda Hizmetleri için kapasite artışlarla satın alınır *arama birimleri* (su) burada her bölüm ve çoğaltma sayılır bir SU. 
@@ -26,8 +26,8 @@ Daha az SUs sonuç orantılı olarak daha düşük bir fatura kullanma. Hizmet a
 > [!Note]
 > Hizmet silme her şeyin üzerinde siler. Yedekleme için Azure Search içinde hiçbir olanak yoktur ve geri arama verilerini kalıcı. Yeni bir hizmet üzerinde mevcut bir dizini yeniden dağıtmak için oluşturma ve özgün yükleme için kullanılan program çalıştırmanız gerekir. 
 
-## <a name="terminology-partitions-and-replicas"></a>Terimler: bölümler ve çoğaltmalar
-Bölümleri ve çoğaltmalarını bir arama hizmeti yedekleyen birincil kaynaklardır.
+## <a name="terminology-replicas-and-partitions"></a>Terimler: çoğaltmalar ve bölümler
+Çoğaltmalar ve bölümler bir arama hizmeti yedekleyen birincil kaynaklardır.
 
 | Kaynak | Tanım |
 |----------|------------|
@@ -38,22 +38,67 @@ Bölümleri ve çoğaltmalarını bir arama hizmeti yedekleyen birincil kaynakla
 > Doğrudan yönetmek veya yineleme üzerinde hangi dizinleri çalışma yönetmek için hiçbir yolu yoktur. Her çoğaltma üzerindeki her dizinin bir kopyasını servis mimarisinin bir parçasıdır.
 >
 
-## <a name="how-to-allocate-partitions-and-replicas"></a>Bölümleri ve çoğaltmalarını ayırma
+
+## <a name="how-to-allocate-replicas-and-partitions"></a>Çoğaltmalar ve bölümler ayırma
 Azure Search'te hizmet başlangıçta en düşük düzeyde bir bölüm ve bir çoğaltma oluşan kaynak tahsis edilir. Bu destek katmanları için daha fazla depolama ve g/ç gerekir ya da daha yüksek sorgu hacimleri ya da daha iyi performans için daha fazla çoğaltmalar ekleyerek bölüm sayısını artırarak artımlı olarak hesaplama kaynaklarını ayarlayabilirsiniz. Tek bir hizmet (dizin oluşturma ve sorguları) tüm iş yüklerini işlemek için yeterli kaynak olması gerekir. Birden çok hizmet arasında iş yükleri alt bölümlere olamaz.
 
-Artırmak veya çoğaltmalar ve bölümler ayrılması değiştirmek için Azure portalını kullanmanızı öneririz. Portal sınırlarını kalın birleşimlerini izin verilen üst sınırı uygular:
-
-1. Oturum [Azure portalında](https://portal.azure.com/) ve arama hizmeti seçin.
-2. İçinde **ayarları**açın **ölçek** dikey penceresinde ve bölümleri ve çoğaltmalarını sayısını azaltmak veya artırmak için kaydırıcıları kullanın.
-
-Bir betik veya kod tabanlı sağlama yaklaşımı gerekiyorsa [Yönetimi REST API'si](https://docs.microsoft.com/rest/api/searchmanagement/services) portalına alternatiftir.
+Artırmak veya çoğaltmalar ve bölümler ayrılması değiştirmek için Azure portalını kullanmanızı öneririz. Portal sınırlarını kalın izin verilen birleşimleri barındırabileceğiniz zorlar. Bir betik veya kod tabanlı sağlama yaklaşımı gerekiyorsa [Azure PowerShell](search-manage-powershell.md) veya [Yönetimi REST API'si](https://docs.microsoft.com/rest/api/searchmanagement/services) alternatif çözümler.
 
 Genellikle, özellikle hizmet işlemleri sorgu iş yükleri doğru güçlü eğilimi nedeniyle arama uygulamaları bölümler, daha çok kopya gerekir. Bölüm [yüksek kullanılabilirlik](#HA) nedenini açıklar.
+
+1. Oturum [Azure portalında](https://portal.azure.com/) ve arama hizmeti seçin.
+2. İçinde **ayarları**açın **ölçek** sayfanıza çoğaltmalar ve bölümler. 
+
+   Aşağıdaki ekran görüntüsünde, sağlanan bir bölüm ve çoğaltma ile standart bir hizmet gösterilmektedir. Formül altındaki kaç arama birimi kullanılan (1) gönderildiğini belirtir. Birim fiyatı 100 ABD doları (gerçek fiyat değil) varsa, bu hizmetin çalışıyor aylık maliyeti ortalama 100 ABD Doları olacaktır.
+
+   ![Ölçek sayfası geçerli değerlerini gösteren](media/search-capacity-planning/1-initial-values.png "geçerli değerlerini gösteren ölçek sayfası")
+
+3. Artırmak veya bölüm sayısını azaltmak için kaydırıcıyı kullanın. Formül altındaki kaç arama birimi kullanıldığını gösterir.
+
+   Bu örnek, kapasite, yinelemeler ile iki katına çıkar ve her bölümler. Arama birimi sayısı dikkat edin. (2 x 2) bölümleri ile çarpılmış çoğaltmaları fatura formüldür artık dört olmasıdır. Kapasite Katlama hizmeti çalıştırmanın maliyeti birden iki katına çıkar. 100 ABD Doları arama birimi maliyeti ise yeni aylık fatura şimdi 400 olacaktır.
+
+   Her bir katman birimi maliyetleri başına geçerli için ziyaret [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/search/).
+
+   ![Çoğaltmalar ve bölümler ekleyin](media/search-capacity-planning/2-add-2-each.png "çoğaltmalar ve bölümler ekleyin")
+
+3. Tıklayın **Kaydet** değişiklikleri onaylamak için.
+
+   ![Ölçek ve faturalandırma değişiklikleri onaylayın](media/search-capacity-planning/3-save-confirm.png "ölçek ve faturalandırma değişiklikleri onaylayın")
+
+   Kapasite değişiklikleri tamamlanması birkaç saat sürebilir. İşlemi başladıktan sonra hiçbir gerçek zamanlı izleme için çoğaltma ve bölüm ayarlamalar yoktur iptal edemezsiniz. Ancak, değişiklikler yapılıyor çalışırken aşağıdaki ileti görünür kalır.
+
+   ![Durum iletisi portalında](media/search-capacity-planning/4-updating.png "portalında durumu iletisi")
+
 
 > [!NOTE]
 > Hizmet sağlandıktan sonra daha yüksek bir SKU yükseltilemez. Yeni katmanında bir arama hizmeti oluşturma ve dizinlerinizi yeniden yüklemeniz gerekir. Bkz: [portalda Azure Search hizmeti oluşturma](search-create-service-portal.md) sağlama hizmeti ile ilgili Yardım için.
 >
 >
+
+<a id="chart"></a>
+
+## <a name="partition-and-replica-combinations"></a>Bölüm ve çoğaltma birleşimleri
+
+Temel bir hizmet, tam olarak bir bölüm ve üç kopyaya kadar için en fazla üç SUs sınırlayın. Çoğaltmalar yalnızca ayarlanabilir kaynaktır. Sorgular üzerinde yüksek kullanılabilirlik için en az iki çoğaltmaları gerekir.
+
+Tüm standart Hizmetleri, çoğaltmalar ve bölümler, 36 SU sınırına tabi aşağıdaki birleşimlerini kabul edilebilir. 
+
+|   | **Bölüm 1** | **2 bölüm** | **3 bölümleri** | **4 bölüm** | **6 bölümleri** | **12 bölümleri** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **1 kopya** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
+| **2 kopya** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
+| **3 çoğaltma** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
+| **4 kopya** |4 SU |8 SU |12 SU |16 SU |24 SU |Yok |
+| **5 çoğaltma** |5 SU |10 SU |15 SU |20 SU |30 SU |Yok |
+| **6 çoğaltma** |6 SU |12 SU |18 SU |24 SU |36 SU |Yok |
+| **12 çoğaltmalar** |12 SU |24 SU |36 SU |Yok |Yok |Yok |
+
+SUs, fiyatlandırma ve kapasite Azure Web sitesinde ayrıntılı olarak açıklanmıştır. Daha fazla bilgi için [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/search/).
+
+> [!NOTE]
+> Çoğaltmalar ve bölümler sayısı tam olarak 12 böler (özellikle, 1, 2, 3, 4, 6, 12). Böylece tüm bölümler eşit bölümlerinde yayılabilen Azure Search her dizin 12 parçalara önceden böler olmasıdır. Örneğin, üç bölüm hizmetiniz varsa ve dizin oluşturma, her bölüm dizini dört parçalar içerir. Dizin bir Azure Search parçalar ne bir uygulama ayrıntısı gelecekte değişebilir serbest bırakır. Bugün kaç 12 olsa da her zaman 12 gelecekte olacak şekilde bu sayıyı beklediğiniz olmamalıdır.
+>
+
 
 <a id="HA"></a>
 
@@ -93,32 +138,7 @@ Gerçek zamanlı veri yenileme gerektiren uygulamalarda Ara orantılı olarak da
 
 Daha büyük dizinler için sorgu daha uzun sürer. Bu nedenle, bölümler artımlı her artış çoğaltmaları daha küçük ancak orantılı bir artış gerektiğini fark edebilirsiniz. Sorguları ve sorgu karmaşıklığı, sorgu yürütme nasıl hızlı bir şekilde açık içine faktörü.
 
-## <a name="basic-tier-partition-and-replica-combinations"></a>Temel katmanı: Bölüm ve çoğaltma birleşimleri
-Temel bir hizmet, tam olarak bir bölüm ve üç kopyaya kadar için en fazla üç SUs sınırlayın. Çoğaltmalar yalnızca ayarlanabilir kaynaktır. Sorgular üzerinde yüksek kullanılabilirlik için en az iki çoğaltmaları gerekir.
 
-<a id="chart"></a>
+## <a name="next-steps"></a>Sonraki adımlar
 
-## <a name="standard-tiers-partition-and-replica-combinations"></a>Standart katmanları: Bölüm ve çoğaltma birleşimleri
-Bu tablo, tüm standart katmanları için çoğaltmalar ve bölümler, 36 SU sınırına tabi birleşimlerini desteklemek için gereken SUs gösterir.
-
-|   | **Bölüm 1** | **2 bölüm** | **3 bölümleri** | **4 bölüm** | **6 bölümleri** | **12 bölümleri** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **1 kopya** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
-| **2 kopya** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
-| **3 çoğaltma** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **4 kopya** |4 SU |8 SU |12 SU |16 SU |24 SU |Yok |
-| **5 çoğaltma** |5 SU |10 SU |15 SU |20 SU |30 SU |Yok |
-| **6 çoğaltma** |6 SU |12 SU |18 SU |24 SU |36 SU |Yok |
-| **12 çoğaltmalar** |12 SU |24 SU |36 SU |Yok |Yok |Yok |
-
-SUs, fiyatlandırma ve kapasite Azure Web sitesinde ayrıntılı olarak açıklanmıştır. Daha fazla bilgi için [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/search/).
-
-> [!NOTE]
-> Çoğaltmalar ve bölümler sayısı tam olarak 12 böler (özellikle, 1, 2, 3, 4, 6, 12). Böylece tüm bölümler eşit bölümlerinde yayılabilen Azure Search her dizin 12 parçalara önceden böler olmasıdır. Örneğin, üç bölüm hizmetiniz varsa ve dizin oluşturma, her bölüm dizini dört parçalar içerir. Dizin bir Azure Search parçalar ne bir uygulama ayrıntısı gelecekte değişebilir serbest bırakır. Bugün kaç 12 olsa da her zaman 12 gelecekte olacak şekilde bu sayıyı beklediğiniz olmamalıdır.
->
->
-
-## <a name="billing-formula-for-replica-and-partition-resources"></a>Çoğaltma ve bölüm kaynakları için faturalandırma formülü
-Kaç su şahit için kullanılan hesaplama formülü çoğaltmalar ve bölümler, ürünüdür veya (R X P SU =). Örneğin, üç kopyaya göre üç bölüm çarpılmış dokuz SUs faturalandırılır.
-
-SU başına maliyeti ile daha düşük bir birim başına fatura oranı temel için standart katmana göre belirlenir. Her katmanın bulunabilir için derecelendirir [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/search/).
+[Azure arama için bir fiyatlandırma katmanı seçin](search-sku-tier.md)

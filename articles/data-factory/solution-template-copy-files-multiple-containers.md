@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory ile birden çok kapsayıcı dosyaları kopyalama | Microsoft Docs
-description: Azure Data Factory ile birden çok kapsayıcı dosyaları kopyalamak için bir çözüm şablonu kullanmayı öğrenin.
+title: Azure Data Factory kullanarak birden çok kapsayıcılardan dosyaları kopyalama | Microsoft Docs
+description: Azure Data Factory kullanarak birden çok kapsayıcılardan dosyaları kopyalamak için bir çözüm şablonu kullanmayı öğrenin.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -12,51 +12,52 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/1/2018
-ms.openlocfilehash: aa5f32594c295ab6a8e60af8359370f64f75a72d
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: a52729adf8d6df3f4e44e561b45b854db433628c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55967650"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543432"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Azure Data Factory ile birden çok kapsayıcı dosyaları Kopyala
 
-Bu makalede açıklanan çözüm şablonu, birden çok dosya, kapsayıcıları veya demet dosya depolama alanları arasında dosya kopyalamak için yardımcı olur. Örneğin, belki de veri gölü, AWS S3'ten Azure Data Lake Store için geçirmek istediğiniz. Veya belki de her şeyi bir Azure Blob Depolama hesabından başka bir Azure Blob Depolama hesabına çoğaltmak istediğiniz. Bu şablon, bu kullanım için tasarlanmıştır.
+Bu makalede dosya depolama alanları arasında birden çok kapsayıcı dosyaları kopyalamak için kullanabileceğiniz bir çözüm şablonu açıklanır. Örneğin, veri gölü, Azure Data Lake Store için AWS S3'ten geçirmek için kullanabilirsiniz. Veya bir Azure Blob Depolama hesabından diğerine her şeyi çoğaltmak için şablonu kullanabilirsiniz.
 
-Tek kapsayıcı ya da demet dosyaları kopyalamak isterseniz kullanmak daha verimli olur **kopyalama veri aracı** tek bir kopyalama etkinlikli bir işlem hattı oluşturursunuz. Bu şablon çalışması için bu basit kullanmanız daha büyük.
+> [!NOTE]
+> Tek bir kapsayıcıdan dosyaları kopyalamak isterseniz, kullanılacak daha verimli olur [kopyalama veri aracı](copy-data-tool.md) tek bir kopyalama etkinlikli bir işlem hattı oluşturursunuz. Bu makalede, basit bir senaryo için ihtiyacınız olandan daha fazla şablonudur.
 
 ## <a name="about-this-solution-template"></a>Bu çözüm şablonu hakkında
 
-Bu şablon, kaynak depolama deposu kapsayıcılardan numaralandırır ve hedef deponun kopyasını her kaynak depolama kapsayıcılardan depolayın. 
+Bu şablon, kapsayıcılar, kaynak depolama deposundan numaralandırır. Ardından bu kapsayıcıların hedef deposuna kopyalar.
 
 Şablon üç etkinlikleri içerir:
--   A **GetMetadata** , kaynak depolama deposu tarama ve kapsayıcı listesini almak için etkinlik.
--   A **ForEach** kapsayıcı listeden almak için etkinlik **GetMetadata** etkinlik ve liste üzerinde yineleme yapmak ve her kapsayıcı kopyalama etkinliğine geçirin.
--   A **kopyalama** her kapsayıcı kaynak depolama deposundan hedef deposuna kopyalamak için etkinlik.
+- **GetMetadata** kaynak depolama deponuza tarar ve kapsayıcı listesini alır.
+- **ForEach** kapsayıcı listeden alır **GetMetadata** etkinliği ve bir listesi yinelenir ve her kapsayıcı kopyalama etkinliğine geçirir.
+- **Kopyalama** her kapsayıcı kaynak depolama deposundan hedef deposuna kopyalar.
 
 Şablon iki parametre tanımlar:
--   Parametre *SourceFilePath* nerede alabilirsiniz kapsayıcıları veya demet listesini veri kaynağı deposu yolu. Çoğu durumda, birden çok kapsayıcı klasörleri içeren kök dizin yoludur. Bu parametrenin varsayılan değeri `/`.
--   Parametre *DestinationFilePath* dosyaların kopyalanacağı hedef deponuzda yoludur. Bu parametrenin varsayılan değeri `/`.
+- *SourceFilePath* nereden edinebileceğiniz kapsayıcıları listesini veri kaynağı deposu yolu. Çoğu durumda, birden çok kapsayıcı klasörleri içeren kök dizin yoludur. Bu parametrenin varsayılan değeri `/`.
+- *DestinationFilePath* dosyaların kopyalanacağı için hedef deponuzda yoludur. Bu parametrenin varsayılan değeri `/`.
 
 ## <a name="how-to-use-this-solution-template"></a>Bu çözüm şablonu kullanma
 
-1. Şablon Git **birden çok dosya kapsayıcı dosya depoları arasında kopyalama**, oluşturup bir **yeni bağlantı** kaynak depolama deponuza. Kaynak depolama deposunda birden fazla kapsayıcılar veya demet dosyalarını kopyalamak istediğiniz yerdir.
+1. Git **birden çok dosya kapsayıcı dosya depoları arasında kopyalama** şablonu. Oluşturma bir **yeni** kaynak depolama deponuza bağlantı. Kaynak depolama birden çok kapsayıcılardan dosyalarını kopyalamak istediğiniz deposudur.
 
     ![Kaynak için yeni bir bağlantı oluşturun](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image1.png)
 
-2. Oluşturma bir **yeni bağlantı** hedef depolama deponuza.
+2. Oluşturma bir **yeni** hedef depolama deponuza bağlantı.
 
     ![Hedef için yeni bir bağlantı oluşturun](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image2.png)
 
-3. Tıklayın **bu şablonu kullan**.
+3. Seçin **bu şablonu kullan**.
 
     ![Bu şablonu kullan](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image3.png)
     
-4. Aşağıdaki örnekte gösterildiği gibi panelinde kullanılabilir işlem hattı görürsünüz:
+4. Aşağıdaki örnekte olduğu gibi işlem hattını görürsünüz:
 
     ![İşlem hattı Göster](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Tıklayın **hata ayıklama**, giriş **parametreleri** tıklatıp **son**.
+5. Seçin **hata ayıklama**, girin **parametreleri**ve ardından **son**.
 
     ![İşlem hattını çalıştırma](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 
@@ -66,4 +67,6 @@ Bu şablon, kaynak depolama deposu kapsayıcılardan numaralandırır ve hedef d
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Data Factory'ye giriş](introduction.md)
+- [Azure Data Factory ile denetim tablosunu kullanarak bir veritabanından toplu kopyalama](solution-template-bulk-copy-with-control-table.md)
+
+- [Azure Data Factory ile birden çok kapsayıcı dosyaları Kopyala](solution-template-copy-files-multiple-containers.md)

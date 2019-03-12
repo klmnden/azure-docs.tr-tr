@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 9d009847856936d14a182b234910fb717c084d11
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248070"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550114"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Bir VHD dosyasından özel bir görüntü oluşturma
 
@@ -60,9 +60,9 @@ Aşağıdaki adımlar, Azure portalını kullanarak bir VHD dosyasından bir öz
 
 1. Özel görüntü oluşturma için kullanılan görüntü (Microsoft tarafından yayımlanan) lisanslı bir görüntü değilse bir plan adı, teklif ve plan yayımcı girebilirsiniz.
 
-   - **Plan adı:** bu özel görüntüyü oluşturan gelen Market görüntüsü (SKU) adını girin 
-   - **Teklif planı:** bu özel görüntüyü oluşturulduğu Market görüntüsü ürününü (teklif) girin 
-   - **Yayımcı planlama:** yayımcısının bu özel görüntüyü oluşturulduğu Market görüntüsü adını girin
+   - **Plan adı:** Bu özel görüntüyü oluşturan gelen Market görüntüsü (SKU) adını girin 
+   - **Teklif:** Bu özel görüntüyü oluşturulduğu Market görüntüsü ürününü (teklif) girin 
+   - **Yayımcı planlayın:** Bu özel görüntüyü oluşturulduğu Market görüntü yayımcısı girin
 
    > [!NOTE]
    > Özel bir görüntü oluşturmak için kullandığınız görüntü olup olmadığını **değil** lisanslı görüntü daha sonra bu alanları boş olan ve seçerseniz doldurulabilir. Varsa görüntüyü **olduğu** lisanslı görüntü ve alanların otomatik plan bilgileriyle doldurulmuş olan. Bu durumda değiştirmeye çalışırsanız, bir uyarı iletisi görüntülenir.
@@ -81,7 +81,7 @@ Birkaç dakika sonra özel bir görüntü oluşturulur ve Laboratuvar depolama h
 ## <a name="related-blog-posts"></a>İlgili blog gönderileri
 
 - [Özel görüntü veya formül?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Azure DevTest Labs arasında özel görüntüleri kopyalama](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Azure DevTest Labs arasında özel görüntüleri kopyalama](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

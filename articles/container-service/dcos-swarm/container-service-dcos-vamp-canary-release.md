@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 7ab63b869d9cd8a5b1f2b60429c5b54d0da5761f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: cd2eb3ba1d3207f4f210aa259e938bb42b44d37a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002065"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535459"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(KULLANIM DIŞI) Azure Container Service DC/OS kümesinde vamp mikro hizmetler ile canary sürümü
 
@@ -31,7 +31,7 @@ Bu kılavuzda, biz canary sürümü Azure Container Service'te DC/OS kümesi ile
 
 [Kanarya serbest](https://martinfowler.com/bliki/CanaryRelease.html) olduğu Spotify Netflix ve Facebook gibi yenilikçi kuruluşlar tarafından benimsenen bir akıllı Dağıtım stratejisi. Sorunları azaltır, ağ güvenliği tanıtır ve yenilik artar çünkü bu mantıklı bir yaklaşımdır. Bu nedenle neden tüm şirketlerin kullanmadığınız? Kanarya stratejileri dahil etmek için bir CI/CD işlem hattı genişletme karmaşıklık ekler ve kapsamlı bir devops bilgi ve deneyimlerine gerektirir. Bile çalışmaya başlamadan önce daha küçük şirketler ve kuruluşlar benzer engellemek için yeterli olur. 
 
-[Vamp](http://vamp.io/) kanarya getirin ve bu geçişi kolaylaştırmak için tasarlanmış bir açık kaynak sistemi serbest bırakılması, tercih edilen kapsayıcı Zamanlayıcı Özellikleri. Kanarya işlevselliği canary sürümü'nın yüzde tabanlı piyasaya çıkarma gider. Trafik, filtre ve çeşitli koşullar, örneğin hedef belirli kullanıcılara, IP aralıkları veya cihazları için bölme. Canary sürümü izler ve performans ölçümlerini gerçek verilere dayalı Otomasyon için izin verme, analiz eder. Otomatik geri alma hataları üzerinde ayarlayın veya bireysel hizmet çeşitleri yükü veya gecikme süresi göre ölçeklendirin.
+[Vamp](https://vamp.io/) kanarya getirin ve bu geçişi kolaylaştırmak için tasarlanmış bir açık kaynak sistemi serbest bırakılması, tercih edilen kapsayıcı Zamanlayıcı Özellikleri. Kanarya işlevselliği canary sürümü'nın yüzde tabanlı piyasaya çıkarma gider. Trafik, filtre ve çeşitli koşullar, örneğin hedef belirli kullanıcılara, IP aralıkları veya cihazları için bölme. Canary sürümü izler ve performans ölçümlerini gerçek verilere dayalı Otomasyon için izin verme, analiz eder. Otomatik geri alma hataları üzerinde ayarlayın veya bireysel hizmet çeşitleri yükü veya gecikme süresi göre ölçeklendirin.
 
 ## <a name="set-up-azure-container-service-with-dcos"></a>Azure Container Service DC/OS ile ayarlama
 
@@ -97,7 +97,7 @@ Canary sürümü ölçümleri toplama ve toplama için elasticsearch'ü gerektir
 
   DC/OS Elasticsearch kapsayıcı dağıtır. İlerleme durumunu izleyebilirsiniz **Hizmetleri** sayfası.  
 
-  ![e dağıtılsın mı? Elasticsearch](./media/container-service-dcos-vamp-canary-release/03_deply_elasticsearch.png)
+  ![deploy e?Elasticsearch](./media/container-service-dcos-vamp-canary-release/03_deply_elasticsearch.png)
 
 ### <a name="deploy-vamp"></a>Canary sürümü dağıtma
 
@@ -129,7 +129,7 @@ Elasticsearch olarak raporlar sonra **çalıştıran**, DC/OS Evreni Vamp paket 
 
 Bu canary sürümü çalışmaya şimdi, bir şema hizmetinden dağıtın. 
 
-En basit haliyle, bir [canary sürümü şema](http://vamp.io/documentation/using-vamp/blueprints/) uç noktaları (ağ geçidi), kümeleri ve Hizmetleri dağıtmayı açıklar. Aynı hizmetin farklı çeşitleri kanarya serbest bırakılması veya bir mantıksal gruplar halinde gruplandırmak için canary sürümü kullanan kümeleri / B testi.  
+En basit haliyle, bir [canary sürümü şema](https://vamp.io/documentation/using-vamp/blueprints/) uç noktaları (ağ geçidi), kümeleri ve Hizmetleri dağıtmayı açıklar. Aynı hizmetin farklı çeşitleri kanarya serbest bırakılması veya bir mantıksal gruplar halinde gruplandırmak için canary sürümü kullanan kümeleri / B testi.  
 
 Bu senaryo olarak adlandırılan bir örnek tek parça bir uygulamayı kullanan [ **sava**](https://github.com/magneticio/sava), 1.0 sürümünde olduğu. Docker Hub'ında magneticio/sava:1.0.0 altında olan bir Docker kapsayıcısında tek paketlenmiştir. Uygulama bağlantı noktası 8080 normal olarak çalışır, ancak bu durumda bağlantı altında 9050 kullanıma sunmak istediğiniz. Basit bir şema kullanarak canary sürümü aracılığıyla uygulamayı dağıtın.
 
@@ -291,9 +291,9 @@ Biz de güçlü özelliklerinden bazıları canary sürümü üzerinde dokunulan
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* İle canary sürümü eylemleri yönetme hakkında daha fazla bilgi [Vamp REST API](http://vamp.io/documentation/api/api-reference/).
+* İle canary sürümü eylemleri yönetme hakkında daha fazla bilgi [Vamp REST API](https://vamp.io/documentation/api/api-reference/).
 
 * Node.js'de canary sürümü Otomasyon betikleri oluşturmak ve bunları olarak çalıştırın [Vamp iş akışları](https://vamp.io/documentation/using-vamp/v1.0.0/workflows/#create-a-workflow).
 
-* Bkz: ek [canary sürümü öğreticiler](http://vamp.io/documentation/tutorials/).
+* Bkz: ek [canary sürümü öğreticiler](https://vamp.io/documentation/tutorials/).
 

@@ -10,15 +10,15 @@ ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 2937d1f665dae03795892f9ff0e8a93a894e1992
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818048"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776317"
 ---
 # <a name="what-is-azure-relay"></a>Azure Geçiş nedir?
 Azure Relay hizmeti, kurumsal ağınızda çalışan hizmetleri güvenli bir şekilde genel buluta açmanızı sağlar. Güvenlik duvarınızda bir bağlantı noktası açma veya, kurumsal ağ altyapısına müdahale eden değişiklikler olmadan bunu yapabilirsiniz. 
@@ -82,7 +82,7 @@ Aşağıdaki diyagramda gelen geçiş isteklerinin Azure Relay tarafından nası
 5. Ağ geçidi bağlantı isteğini ağ geçidi deposundaki doğru ağ geçidine yönlendirir. 
 6. Ağ geçidi, dinleyen istemciye bir istek göndererek gönderen istemciye en yakın ağ geçidi düğümünde geçici bir kanal oluşturmasını sağlar. 
 7. Dinleyen istemci, gönderen istemciye en yakın olan ağ geçidine geçici bir kanal oluşturur. Ağ geçidi ile istemciler arasında bağlantı kurulduğuna göre istemciler ileti alışverişi gerçekleştirebilir. 
-8. Ağ geçidi dinleyen istemcideki iletileri gönderen istemciye yönlendirir. 
+8. Ağ geçidi iletileri gönderen istemciye dinleme istemciden iletir. 
 9. Ağ geçidi gönderen istemcideki iletileri gönderen dinleyen istemciye yönlendirir.  
 
 ## <a name="next-steps"></a>Sonraki adımlar

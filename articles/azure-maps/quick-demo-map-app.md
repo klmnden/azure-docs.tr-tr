@@ -3,18 +3,18 @@ title: Azure Haritalar ile etkileşimli harita araması | Microsoft Docs
 description: Azure hızlı başlangıç - Azure haritalar'ı kullanarak bir demo etkileşimli harita araması oluşturma
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/02/2018
+ms.date: 03/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 681a76de02d91b39ee74d1e4fa764c06d79ff3ab
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: cc16c47f3b1764ba6887fd832656dfe2567ba0e4
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065146"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588950"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Azure haritalar'ı kullanarak bir etkileşimli arama eşlemesi oluşturma
 
@@ -47,7 +47,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="download-the-application"></a>Uygulamayı indirme
 
-1. [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html) dosyasının içeriklerini indirin veya kopyalayın.
+1. [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) dosyasının içeriklerini indirin veya kopyalayın.
 2. Bu dosyanın içeriği yerel kaydetmek **AzureMapDemo.html**. Bir metin düzenleyicisinde açın.
 3. Arama dizesi için `<insert-key>`. Yerine konacak **birincil anahtar** değerini ise önceki bölümden.
 

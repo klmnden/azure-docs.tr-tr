@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0d601df7914b7280de4b3c16c8b00c96cb5427e4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435993"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539624"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - veri taşıma için güvenlik konuları
 
@@ -74,10 +74,10 @@ Azure Data Lake store ayrıca hesapta depolanan veriler için şifreleme sağlar
 Azure Blob Depolama ve Azure tablo depolama, depolama hizmeti şifrelemesi (otomatik olarak kalıcı depolama için önce verilerinizi şifreler ve şifresini çözer alma önce SSE), destekler. Daha fazla bilgi için [bekleyen veriler için Azure depolama hizmeti şifrelemesi](../../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3, bekleyen verilerin istemci ve sunucu şifreleme destekler. Daha fazla bilgi için [veri şifreleme kullanarak koruma](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Şu anda, Data Factory, bir sanal özel bulut (VPC) içinde Amazon S3 desteklemez.
+Amazon S3, bekleyen verilerin istemci ve sunucu şifreleme destekler. Daha fazla bilgi için [veri şifreleme kullanarak koruma](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Şu anda, Data Factory, bir sanal özel bulut (VPC) içinde Amazon S3 desteklemez.
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift, bekleyen veriler için küme şifrelemesini destekler. Daha fazla bilgi için [Amazon Redshift veritabanına şifreleme](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). Şu anda, Data Factory içinde bir VPC Amazon Redshift desteklemez. 
+Amazon Redshift, bekleyen veriler için küme şifrelemesini destekler. Daha fazla bilgi için [Amazon Redshift veritabanına şifreleme](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). Şu anda, Data Factory içinde bir VPC Amazon Redshift desteklemez. 
 
 #### <a name="salesforce"></a>Salesforce
 Salesforce Shield Platform şifreleme tüm dosyaları, ekleri, özel alanlar veren şifrelemesini destekler. Daha fazla bilgi için [Web sunucusu OAuth kimlik doğrulaması akışı anlama](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
@@ -178,7 +178,7 @@ Beyaz listeye ekleme IP adresinin ağ geçidi makinesinde aşağıdaki bulut ver
 - [Azure SQL Veri Ambarı](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
-- [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
+- [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 

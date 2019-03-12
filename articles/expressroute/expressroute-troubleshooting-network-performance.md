@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: dfd55ac12587cf99cc3fc3ff8eac4f4572229396
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 17f239dc3ba9714c01f55a88419df2d3416908fa
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753512"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539709"
 ---
 # <a name="troubleshooting-network-performance"></a>Ağ performansı sorunlarını giderme
 ## <a name="overview"></a>Genel Bakış
@@ -198,7 +198,7 @@ Test Kurulumu:
 \* Brezilya gecikme süresini burada doğrusal uzaklık uzaklık çalıştırma fiber önemli ölçüde farklı iyi bir örnektir. Gecikme süresini 160 MS Komşuları'olacaktır, ancak gerçekte 189 ms olduğunu beklediğiniz gibi. Bu fark karşı Bilgisayarım beklentisi yere bir ağ sorunu olduğunu gösteriyor olabilir, ancak büyük olasılıkla otomatik olarak fiber çalıştığını ve Brezilya için düz bir çizgi geçmez ek bir 1.000 km veya seyahat için Brezilya Seattle'dan almak için bunu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-1. Azure bağlantısı Araç Seti adresindeki github'dan indirin [http://aka.ms/AzCT][ACT]
+1. Azure bağlantısı Araç Seti adresindeki github'dan indirin [https://aka.ms/AzCT][ACT]
 2. Yönergelerini izleyin [performans testi bağlantı][Performance Doc]
 
 <!--Image References-->
@@ -212,7 +212,7 @@ Test Kurulumu:
 [Availability Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/AvailabilityTesting.md
 [Network Docs]: https://docs.microsoft.com/azure/index
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
-[ACT]: http://aka.ms/AzCT
+[ACT]: https://aka.ms/AzCT
 
 
 

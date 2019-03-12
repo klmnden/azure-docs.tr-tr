@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: d37114fda7f442a5fa077c8dde9fd8aec3ac4378
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 41f69d2017d9fc04acda47d09c718d3585f6335c
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317110"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726286"
 ---
 # <a name="how-application-gateway-works"></a>Uygulama ağ geçidi nasıl çalışır?
 
@@ -20,13 +20,13 @@ Bu makalede, gelen istekleri ve bunları arka ucuna yönlendiren uygulama ağ ge
 
 ![nasıl uygulama ağ geçidi çalışır](.\media\how-application-gateway-works\how-application-gateway-works.png)
 
-## <a name="how-request-is-accepted"></a>İstek nasıl kabul edilir
+## <a name="how-a-request-is-accepted"></a>Nasıl bir istek kabul edilir
 
 Bir istemci uygulama ağ geçidine bir istek göndermeden önce bir etki alanı adı sistemi (DNS) sunucusu kullanarak uygulama ağ geçidinin etki alanı adı çözümler. Uygulama ağ geçitlerinizi azure.com etki alanında olduğundan DNS girişi, Azure tarafından denetlenir. Azure DNS IP adresi olan istemciye döndürür *ön uç IP adresi* uygulama ağ geçidinin. Uygulama ağ geçidi, bir veya daha fazla gelen trafiği kabul eder *dinleyicileri*. Dinleyici bağlantı isteklerini denetleyen bir mantıksal bir varlıktır. Fronted IP adresi, protokol ve istemcilerinden gelen bağlantıları uygulama ağ geçidi için bağlantı noktası numarası ile yapılandırılır. Web uygulaması Güvenlik Duvarı (WAF) etkinleştirilirse, Application Gateway istek üstbilgilerini gövdesi (varsa) karşı denetler ve *WAF kurallarını* isteğin geçerli bir isteği - bu durumda olup olmadığını belirlemek için bu için yönlendirilir arka uç - veya güvenlik tehdidi, istek çalışması engellenir.  
 
 Uygulama ağ geçidi, bir iç uygulama yük dengeleyici veya bir Internet'e yönelik uygulama yük dengeleyici olarak kullanılabilir. Internet'e yönelik bir uygulama ağ geçidi genel IP adresleri bulunur. DNS Internet'e yönelik bir uygulama ağ geçidi genel IP adresini genel olarak çözümlenebilen adıdır. Bu nedenle, Internet'e yönelik uygulama ağ geçitleri, Internet üzerinden istemcilerden gelen istekleri yönlendirebilirsiniz. İç uygulama ağ geçitleri, yalnızca özel IP adresine sahip. Özel IP adresini genel olarak çözümlenebilen iç uygulama ağ geçidi DNS adı. Bu nedenle, iç yük Dengeleyiciler yalnızca uygulama ağ geçidi için sanal ağdan sanal ağa erişimi olan istemcilerden gelen istekleri yönlendirebilirsiniz. Uygulama ağ geçitleri, hem Internet'e yönelik hem de iç isteklerini, özel IP adresleri kullanarak, arka uç sunucularına yönlendirir. Bu nedenle, arka uç sunucularınızın bir iç veya Internet'e yönelik bir uygulama ağ geçidi istekleri almak için genel IP adresleri olması gerekmez.
 
-## <a name="how-request-is-routed"></a>İstek nasıl yönlendirileceğini
+## <a name="how-a-request-is-routed"></a>Bir isteği nasıl yönlendirileceğini
 
 İstek geçerli olması için bulunursa (veya WAF etkin değilse), *yönlendirme kuralı iste* ilişkili *dinleyici* belirlemek için değerlendirilir *arka uç havuzu* için hangi yönlendirilmesini isteğidir. Kurallar, portalda listelendikleri sırayla işlenir. Temel *yönlendirme kuralı iste* yapılandırma, uygulama ağ geçidi, tüm istekleri dinleyici belirli bir arka uç havuzuna yönlendirmek veya bunları URL yolu veya çok bağlı olarak farklı arka uç havuzlarına yönlendirebilirsiniz karar verir *yeniden yönlendirme istekleri* başka bir bağlantı noktasına veya dış site
 
@@ -37,6 +37,12 @@ Bir arka uç sunucusuna belirlendikten sonra uygulama ağ geçidi yapılandırma
 İç uygulama ağ geçidi, yalnızca özel IP adresine sahiptir. İç uygulama ağ geçidi DNS adını, özel IP adresini dahili olarak çözülebilir. Bu nedenle, iç yük Dengeleyiciler uygulama ağ geçidi için yalnızca sanal ağdan sanal ağa erişimi olan istemcilerden gelen istekleri yönlendirebilirsiniz.
 
 Hem Internet'e yönelik hem de iç uygulama ağ geçitleri, arka uç sunucularına özel IP adresleri kullanarak istekleri yönlendirmeyi unutmayın. Arka uç havuzu kaynağınızı özel bir IP adresi, VM'nin NIC yapılandırması veya dahili olarak çözümlenebilir bir adres içeriyorsa ve arka uç havuzu genel bir uç nokta ise, uygulama ağ geçidi ön uç genel IP tarafından sunucuya ulaşmak için kullanır. Ön uç genel IP adresi hazırlamadıysanız biri için giden dış bağlantı atanır.
+
+### <a name="modifications-to-the-request"></a>İstek yapılan değişiklikler
+
+Uygulama ağ geçidi istekleri arka uca iletir önce tüm istekler için 4 ek üst bilgilere ekler. Bu üst X-iletilen-için X iletilen proto, X iletilen bağlantı ve X özgün ana bilgilerdir. X-iletilen-için üst bilgi biçimi IP: BağlantıNoktası, virgülle ayrılmış bir listesidir. Geçerli değerler x iletilen proto için HTTP veya HTTPS ' dir. X iletilen bağlantı, uygulama ağ geçidinde istek sınırına bağlantı noktasını belirtir. X-özgün ana bilgisayar üst bilgisi ile istek gelen özgün ana bilgisayar üst bilgisini içerir. Bu başlığı trafiğin arka uca yönlendirilmesini önce gelen barındırma üst bilgisi nerede değişiklik Azure Web sitesi tümleştirmesi, bu gibi senaryolarda yararlı olur. Oturum benzeşimi etkinleştirilirse, isteğe bağlı olarak, ardından bir ağ geçidi yönetilen benzeşim tanımlama bilgisi eklenir. 
+
+Ayrıca üst bilgileri kullanarak değiştirmek için uygulama ağ geçidini yapılandırabilirsiniz [yeniden HTTP üstbilgileri](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) veya URI yolu yol geçersiz kılma ayarı kullanarak değiştirebilirsiniz. Ancak yapılandırılması sürece tüm gelen istekler için arka uç olarak taşınır.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

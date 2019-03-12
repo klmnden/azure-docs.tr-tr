@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 14e587276deab9656c3be04c96182942767ae0f2
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 0e14e7eb20e87f5555fa6b494c0d09ccde08d2dd
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986031"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731641"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 güncelleştirme
 
@@ -87,7 +87,7 @@ Azure Stack düzeltmeleri düzenli olarak serbest bırakır. Yüklediğinizden e
 
     Bu güncelleştirmenin yüklenmesi sırasında Azure Stack Kullanıcı Portalı uzantısı konağı yapılandırılırken kullanılamaz. Uzantı konağın yapılandırmasını 5 saate kadar sürebilir. Bu süre boyunca bir güncelleştirmenin durumunu denetleyebilir veya [Azure Stack Yöneticisi PowerShell veya ayrıcalıklı uç noktayı](azure-stack-monitor-update.md) kullanarak başarısız bir güncelleştirme yüklemesini sürdürebilirsiniz.
 
-- Azure Stack System Center Operations Manager (SCOM) tarafından yönetildiğinde 1811 uygulamadan önce Yönetim Paketi için Microsoft Azure Stack 10.0.3.11 sürümüne güncelleştirdiğinizden emin olun.
+- Azure Stack System Center Operations Manager (SCOM) tarafından yönetildiğinde 1811 uygulamadan önce Yönetim Paketi için Microsoft Azure Stack 1.0.3.11 sürümüne güncelleştirdiğinizden emin olun.
 
 ## <a name="new-features"></a>Yeni Özellikler
 

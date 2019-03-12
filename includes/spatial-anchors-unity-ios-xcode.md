@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: b802c9dbd0cef65325cb03538b68b49c57b85bb3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8047ed27c732cabf92f53b4b70c22471ecb848aa
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56890958"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57588184"
 ---
 Seçin **derleme** bir iletişim kutusunu açın. Ardından, Xcode projesi dışarı aktarmak için bir klasör seçin.
 
@@ -17,7 +17,7 @@ Dışarı aktarma tamamlandığında, dışarı aktarılan bir Xcode projesini i
 
 ### <a name="open-the-xcode-project"></a>Xcode projesi açın
 
-Dışarı aktarılan Xcode proje klasörü içinde proje için gerekli Cocoapods'u yüklemek için aşağıdaki komutu çalıştırın:
+Dışarı aktarılan Xcode proje klasörü içinde proje için gerekli Cocoapods'u yüklemek için terminalde aşağıdaki komutu çalıştırın:
 
 ```bash
 pod install --repo-update

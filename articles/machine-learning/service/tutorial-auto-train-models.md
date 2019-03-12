@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: dfae2d3ec1f6e0e27a108abb085d75663008779d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 4f82e73518beeeb38be6cc10d7c340b28560a203
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342189"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570751"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Öğretici: Otomatik makine öğrenimi, regresyon modeli derler
 
@@ -82,18 +82,19 @@ Bilgisayarınızda yerel bir Jupyter not defteri sunucusu oluşturmak için aşa
 
     ```shell
     jupyter notebook
+    ```
 
-## <a name="start"></a>Set up your development environment
+## <a name="start"></a>Geliştirme ortamınızı ayarlama
 
-All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+Geliştirme çalışmanızdaki tüm kurulum bir Python not defterinde gerçekleştirilebilir. Kurulumu, aşağıdaki eylemleri içerir:
 
-* Install the SDK
-* Import Python packages
-* Configure your workspace
+* SDK yükle
+* Python paketlerini içeri aktarma
+* Çalışma alanınızı yapılandırın
 
-### Install and import packages
+### <a name="install-and-import-packages"></a>Yükleme ve paketleri içeri aktarma
 
-If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+Kendi Python ortamınızda öğreticiyi takip ediyorsanız, gerekli paketleri yüklemek için aşağıdakileri kullanın.
 
 ```shell
 pip install azureml-sdk[automl,notebooks] matplotlib

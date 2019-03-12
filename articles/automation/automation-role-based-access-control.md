@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 963bc8f6602a33ed703344f5277bb427f11390bb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b307a497e69bd6c2dcc7b415b2d94335459f7fd3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823527"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544997"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation’da Rol Tabanlı Erişim Denetimi
 
@@ -180,11 +180,11 @@ Log Analytics okuyucusu görüntüleyebilir ve tüm izleme verilerini ve ayarlar
 |Microsoft.Insights/Metrics/*|Bir kaynak için ölçüm okuyun.|
 |Microsoft.Insights/Register/Action|Microsoft.Insights sağlayıcısını kaydedin.|
 |Microsoft.Insights/webtests/*|Application Insights web testleri yönetin.|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Log Analytics çözüm paketleri yönetin.|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|Log Analytics kayıtlı aramaları yönetin.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Azure İzleyici günlüklerine çözüm paketleri yönetin.|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|Azure İzleyici Günlükleri kaydedilen aramaları yönetin.|
 |Microsoft.OperationalInsights/workspaces/search/action|Log Analytics çalışma alanları arayın.|
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|Log Analytics çalışma alanı için anahtarları listesi.|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Log Analytics depolama Insight yapılandırmaları yönetin.|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Azure İzleyici günlüklerine depolama Insight yapılandırmaları yönetin.|
 |Microsoft.Support/*|Oluşturun ve Destek biletlerini yönetebilir.|
 |Microsoft.WorkloadMonitor/workloads/*|İş yüklerini yönetin.|
 

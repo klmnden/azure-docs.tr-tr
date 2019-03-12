@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 393a5c0af5ff7ccaef8aa462391c5c9457aa9c08
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 85763a895b61d184db033c09a413cc897ef6eaa3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011131"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551611"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>DevTest Labs Laboratuvarınızı yapıt deposu ekleme
 DevTest Labs, VM oluşturma veya VM oluşturulduktan sonra sırada bir sanal makineye eklenecek bir yapıt belirtmenizi sağlar. Bu yapıt, bir aracı veya VM üzerinde yüklemek istediğiniz bir uygulama olabilir. Yapıtlar, GitHub veya VSTS Git deposundan yüklenen bir JSON dosyasında tanımlanır. 
@@ -377,7 +377,7 @@ if ($ArtifactRepositoryName -eq $null){
 
 Betik yeni bir kaynak mevcut aboneliğe ekler. Kullanım [Get-AzContext](/powershell/module/az.accounts/get-azcontext) bu bilgileri görmek için. Kullanım [kümesi AzContext](/powershell/module/az.accounts/set-azcontext) geçerli Kiracı ve abonelik ayarlamak için.
 
-Kaynak adı ve kaynak türü bilgilerini bulmak için en iyi yolu kullanmaktır [Test sürücü Azure REST API'leri](https://azure.github.io/projects/apis/) Web sitesi. Kullanıma [DevTest Labs: 2016-05-15](http://aka.ms/dtlrestapis) REST API'leri için DevTest Labs sağlayıcısı görmek için sağlayıcı. Betik kullanıcılar aşağıdaki kaynak kimliği. 
+Kaynak adı ve kaynak türü bilgilerini bulmak için en iyi yolu kullanmaktır [Test sürücü Azure REST API'leri](https://azure.github.io/projects/apis/) Web sitesi. Kullanıma [DevTest Labs: 2016-05-15](https://aka.ms/dtlrestapis) REST API'leri için DevTest Labs sağlayıcısı görmek için sağlayıcı. Betik kullanıcılar aşağıdaki kaynak kimliği. 
 
 ```powershell
 "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"

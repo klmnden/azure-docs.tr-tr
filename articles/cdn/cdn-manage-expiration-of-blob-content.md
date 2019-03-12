@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 39271bdda7adf7e8e65d3b5d5ea1844be1ecf233
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1b2009b54c7f436667c316b7ca002314bc966a1b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237952"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531938"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Azure Blob Depolama alanında Azure CDN kullanım süresini yönetme
 > [!div class="op_single_selector"]
@@ -177,7 +177,7 @@ Kullanabileceğiniz [Azure depolama hizmetleri REST API'si](https://msdn.microso
    - [Blob özelliklerini ayarlama](https://msdn.microsoft.com/library/azure/ee691966.aspx)
 
 ## <a name="testing-the-cache-control-header"></a>Cache-Control üst bilgisi test etme
-Bloblarınızın TTL ayarlarını kolayca doğrulayabilirsiniz. Tarayıcınızın ile [Geliştirici Araçları](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), blobunuza içeren test `Cache-Control` yanıtı üstbilgisi. Gibi bir araç kullanabilirsiniz [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), veya [Fiddler](http://www.telerik.com/fiddler) yanıt üstbilgileri incelemek üzere.
+Bloblarınızın TTL ayarlarını kolayca doğrulayabilirsiniz. Tarayıcınızın ile [Geliştirici Araçları](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), blobunuza içeren test `Cache-Control` yanıtı üstbilgisi. Gibi bir araç kullanabilirsiniz [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), veya [Fiddler](https://www.telerik.com/fiddler) yanıt üstbilgileri incelemek üzere.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * [Azure CDN bulut hizmeti içeriğinin kullanım süresini yönetme hakkında bilgi edinin](cdn-manage-expiration-of-cloud-service-content.md)

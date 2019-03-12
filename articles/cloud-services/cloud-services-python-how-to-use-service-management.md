@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: df949b65ac4a193c9e7bdb6ee3c32d7026f7c93d
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 573c6d3ded8fea58e0c9ba1afa7da2d8dd0fce91
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782973"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531853"
 ---
 # <a name="use-service-management-from-python"></a>Hizmet Yönetimi'nden Python kullanma
 Bu kılavuz, yaygın hizmet yönetimi görevlerini Python'dan programlama yoluyla gerçekleştirmek nasıl gösterir. **ServiceManagementService** sınıfını [Python için Azure SDK'sı](https://github.com/Azure/azure-sdk-for-python) kullanılabilir Hizmet Yönetimi ile ilgili işlevselliğinin programlı erişim destekler [Azure Portal][management-portal]. Bu işlev, oluşturmak, güncelleştirmek ve bulut Hizmetleri, dağıtımlar, Veri Yönetimi Hizmetleri ve sanal makineleri silmek için kullanabilirsiniz. Bu işlev Hizmet Yönetimi programlı erişim gerekir. uygulamaları oluşturmada faydalı olabilir.
@@ -44,7 +44,7 @@ Hizmet Yönetim uç noktasına bağlanmak için Azure abonelik Kimliğinizi ve g
 >
 
 ### <a name="management-certificates-on-windowsmaclinux-openssl"></a>Windows/Mac/Linux (OpenSSL) üzerinde yönetim sertifikaları
-Kullanabileceğiniz [OpenSSL](http://www.openssl.org/) , yönetim sertifikası oluşturma. Sunucu için iki sertifika oluşturmanız gerekir (bir `.cer` dosyası) ve bir istemci için (bir `.pem` dosyası). Oluşturulacak `.pem` dosyası, yürütme:
+Kullanabileceğiniz [OpenSSL](https://www.openssl.org/) , yönetim sertifikası oluşturma. Sunucu için iki sertifika oluşturmanız gerekir (bir `.cer` dosyası) ve bir istemci için (bir `.pem` dosyası). Oluşturulacak `.pem` dosyası, yürütme:
 
     openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
@@ -52,7 +52,7 @@ Oluşturulacak `.cer` sertifika, yürütün:
 
     openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-Azure sertifikaları hakkında daha fazla bilgi için bkz. [Azure Cloud Services sertifikalarına genel bakış](cloud-services-certs-create.md). OpenSSL parametrelerinin eksiksiz bir açıklaması için belgelerine bakın [ http://www.openssl.org/docs/apps/openssl.html ](http://www.openssl.org/docs/apps/openssl.html).
+Azure sertifikaları hakkında daha fazla bilgi için bkz. [Azure Cloud Services sertifikalarına genel bakış](cloud-services-certs-create.md). OpenSSL parametrelerinin eksiksiz bir açıklaması için belgelerine bakın [ https://www.openssl.org/docs/apps/openssl.html ](https://www.openssl.org/docs/apps/openssl.html).
 
 Bu dosyaları oluşturduktan sonra karşıya yükleme `.cer` azure'a dosya. İçinde [Azure portalında][management-portal], **ayarları** sekmesinde **karşıya**. Kaydettiğiniz Not `.pem` dosya.
 
@@ -400,7 +400,7 @@ Klasik dağıtım modelinde bir Linux sanal makinesini yakalama hakkında daha f
 Klasik dağıtım modelinde bir Windows sanal makinesini yakalama hakkında daha fazla bilgi için bkz: [bir Windows sanal makinesini yakalama](../virtual-machines/windows/classic/capture-image-classic.md).
 
 ## <a name="What's Next"> </a>Sonraki adımlar
-Hizmet Yönetimi hakkındaki temel bilgileri öğrendiniz, erişebileceğiniz [tam API başvuru belgeleri için Azure Python SDK'sı](http://azure-sdk-for-python.readthedocs.org/) ve Python uygulamanızı kolayca yönetmek için karmaşık görevleri gerçekleştirin.
+Hizmet Yönetimi hakkındaki temel bilgileri öğrendiniz, erişebileceğiniz [tam API başvuru belgeleri için Azure Python SDK'sı](https://azure-sdk-for-python.readthedocs.org/) ve Python uygulamanızı kolayca yönetmek için karmaşık görevleri gerçekleştirin.
 
 Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](https://azure.microsoft.com/develop/python/).
 
@@ -423,7 +423,7 @@ Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](https://azure.microsof
 [Delete a virtual machine]: #DeleteVM
 [Next steps]: #NextSteps
 [management-portal]: https://portal.azure.com/
-[svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[svc-mgmt-rest-api]: https://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
 [cloud service]:/azure/cloud-services/

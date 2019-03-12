@@ -6,16 +6,15 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: fd57c344c640974e9c73156902848fb1685861f2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fb3b375a66ac9b05ad26287b7c39ce8e748ad699
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163152"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780329"
 ---
 # <a name="what-is-bing-local-business-search"></a>Bing arama yerel iş nedir?
 Bing yerel iş arama API'si arama sorgularına dayalı yerel işletmeler hakkında bilgi, uygulamaların bir RESTful hizmeti olduğu. Örneğin, `q=<business-name> in Redmond, Washington`, veya `q=Italian restaurants near me`. 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a0d5f42fa6725ba23a89904779040f379f31e59e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6ffed81390419898847ce1b1b9e6b2b48a749cdf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454162"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548481"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory ve Batch kullanarak işlem büyük ölçekli veri kümeleri
 > [!NOTE]
@@ -96,7 +96,7 @@ Azure aboneliğiniz yoksa, ücretsiz bir deneme hesabı hızlıca oluşturabilir
 Bu öğreticide verileri depolamak için bir depolama hesabı kullanın. Bir depolama hesabına sahip değilseniz, bkz. [depolama hesabı oluşturma](../../storage/common/storage-quickstart-create-account.md). Örnek çözüm, blob depolama kullanır.
 
 #### <a name="azure-batch-account"></a>Azure Batch hesabı
-Kullanarak bir Batch hesabı oluşturma [Azure portalında](http://portal.azure.com/). Daha fazla bilgi için [oluşturun ve bir Batch hesabı yönetme](../../batch/batch-account-create-portal.md). Batch hesabı adı ve hesap anahtarını not edin. Ayrıca [yeni AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) bir Batch hesabı oluşturmak için cmdlet'i. Bu cmdlet'in nasıl kullanılacağı hakkında yönergeler için bkz [Batch PowerShell cmdlet'leri ile başlama](../../batch/batch-powershell-cmdlets-get-started.md).
+Kullanarak bir Batch hesabı oluşturma [Azure portalında](https://portal.azure.com/). Daha fazla bilgi için [oluşturun ve bir Batch hesabı yönetme](../../batch/batch-account-create-portal.md). Batch hesabı adı ve hesap anahtarını not edin. Ayrıca [yeni AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) bir Batch hesabı oluşturmak için cmdlet'i. Bu cmdlet'in nasıl kullanılacağı hakkında yönergeler için bkz [Batch PowerShell cmdlet'leri ile başlama](../../batch/batch-powershell-cmdlets-get-started.md).
 
 Örnek çözüm (üzerinden dolaylı olarak bir veri fabrikası işlem hattı) Batch havuzunda işlem düğümleri (sanal makineleri yönetilen koleksiyonu) paralel bir şekilde verileri işlemek için kullanır.
 
@@ -980,4 +980,4 @@ Veri işleme sonra Power BI gibi çevrimiçi araçları kullanabilir. Power BI v
   * [.NET için Batch istemci kitaplığını kullanmaya başlama](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch-explorer-walkthrough]: https://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx

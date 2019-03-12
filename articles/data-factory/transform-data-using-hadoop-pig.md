@@ -3,23 +3,23 @@ title: Azure Data Factory'de Hadoop Pig etkinliği kullanarak verileri dönüşt
 description: Pig etkinliği Azure data factory'de bir üzerinde-istek/bilgisayarınızı kendi HDInsight kümesinde Pig betikleri çalıştırmak için nasıl kullanacağınızı öğrenin.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: a29bd64c6b18d41028c8952f531698bbfa9e01e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 914bc37552a80886df16ed69fba4e31b3f22ac22
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014718"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57574925"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Azure Data Factory'de Hadoop Pig etkinliği kullanarak verileri dönüştürme
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-pig-activity.md)
 > * [Geçerli sürüm](transform-data-using-hadoop-pig.md)
 
@@ -56,7 +56,7 @@ Azure Data Factory kullanmaya yeni başladıysanız, okumak [Azure Data Factory'
 ```
 ## <a name="syntax-details"></a>Söz dizimi ayrıntıları
 
-| Özellik            | Açıklama                              | Gereklidir |
+| Özellik            | Açıklama                              | Gerekli |
 | ------------------- | ---------------------------------------- | -------- |
 | ad                | Etkinliğin adı                     | Evet      |
 | açıklama         | Etkinliğin ne için kullanıldığını açıklayan metin | Hayır       |
@@ -64,7 +64,7 @@ Azure Data Factory kullanmaya yeni başladıysanız, okumak [Azure Data Factory'
 | linkedServiceName   | Data Factory öğesinde bağlantılı hizmet olarak HDInsight kümesine başvuru kayıtlı. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi. | Evet      |
 | scriptLinkedService | Bir Azure depolama bağlı hizmeti başvuru yürütülecek Pig betiği depolamak için kullanılır. Bu bağlı hizmeti belirtmezseniz, Azure depolama bağlı HDInsight bağlı hizmette tanımlanan hizmeti kullanılır. | Hayır       |
 | ScriptPath          | ScriptLinkedService tarafından başvurulan Azure storage'da depolanan betik dosyasının yolunu belirtin. Dosya adı büyük/küçük harfe duyarlıdır. | Hayır       |
-| Getdebugınfo        | Günlük dosyaları Azure depolama için ne zaman kopyalanır belirtir HDInsight küme tarafından kullanılan (veya) scriptLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: Yok. | Hayır       |
+| getDebugInfo        | Günlük dosyaları Azure depolama için ne zaman kopyalanır belirtir HDInsight küme tarafından kullanılan (veya) scriptLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: Yok. | Hayır       |
 | bağımsız değişkenler           | Hadoop işi için bağımsız değişkenleri dizisini belirtir. Bağımsız değişkenleri, her görev için komut satırı bağımsız değişkenleri geçirilir. | Hayır       |
 | tanımlar             | Parametreler, Pig betiği içinde başvurmak için anahtar/değer çiftleri belirtin. | Hayır       |
 

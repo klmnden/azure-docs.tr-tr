@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
-ms.openlocfilehash: 6c2ade276e43f5e40d334a62c62a1abaa42b1b78
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 9ab271943d33ad63be0fae705ac703d1d98524ef
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308950"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542514"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure sanal makine yedeklemesinden dosya kurtarma
 
@@ -29,7 +29,7 @@ Azure yedekleme, geri yükleme yeteneği sağlar [Azure sanal makineleri (VM'ler
 
 Kurtarma noktasından dosyaları veya klasörleri geri yüklemek için sanal makineye gidin ve istenen kurtarma noktası seçin.
 
-1. Oturum [Azure portalında](http://portal.Azure.com) ve sol bölmedeki **sanal makineler**. Sanal makineler listesinden, sanal makinenin panosunu açmak için sanal makineyi seçin.
+1. Oturum [Azure portalında](https://portal.Azure.com) ve sol bölmedeki **sanal makineler**. Sanal makineler listesinden, sanal makinenin panosunu açmak için sanal makineyi seçin.
 
 2. Sanal makinenin menüde **yedekleme** yedekleme panosunu açın.
 

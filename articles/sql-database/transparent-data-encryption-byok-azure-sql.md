@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: a0f909dcb78a782945517b6691805ea66f2d0cfd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 03/07/2019
+ms.openlocfilehash: 13642827a6a0f6524a1f9222b72e75f51a5442a3
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456389"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576914"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL saydam veri şifrelemesi ile Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar: Destek kendi anahtarını Getir
 
@@ -88,11 +88,11 @@ TDE varsayılan TDE koruyucusu Key vault'tan kullanmak için yapılandırıldı�
 
 - Bir anahtar olmadan bir sona erme tarihi – kullanın ve kullanılmakta olan bir anahtar üzerinde bir sona erme tarihi ayarlamanız gerekmez: **anahtarın süresi dolduktan sonra şifreli veritabanlarına kendi TDE koruyucusuna erişimini kaybeder ve 24 saat içinde erişilemeyen**.
 - Anahtar etkinleştirilir ve gerçekleştirmek için izinlere sahip olun *alma*, *anahtarı sarmalama*, ve *anahtarı kaydırma* operations.
-- Anahtar Azure anahtar Kasası'nda ilk kez kullanmadan önce bir Azure Key Vault anahtarı yedekleme oluşturun. Daha fazla bilgi edinin [yedekleme AzKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) komutu.
+- Anahtar Azure anahtar Kasası'nda ilk kez kullanmadan önce bir Azure Key Vault anahtarı yedekleme oluşturun. Daha fazla bilgi edinin [yedekleme AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) komutu.
 - Anahtar herhangi bir değişiklik yapıldığında, yeni bir yedekleme oluşturun (örneğin, ACL'ler, Ekle etiketler ekleyin, anahtar öznitelik ekleyin).
 - **Önceki sürümlerini** anahtarı anahtar kasasındaki anahtarları döndürürken, bu nedenle daha eski bir veritabanı yedeklerini geri yükleyebilirsiniz. Ne zaman TDE koruyucusuna değiştirildiğinde bir veritabanı için veritabanı eski yedeklemeler **güncelleştirilmez** son TDE koruyucusuna kullanılacak.  Her yedekleme, geri yükleme sırasında birlikte oluşturulduğu TDE koruyucusuna gerekir. Anahtar devirlerini yönergeleri izleyerek gerçekleştirilebilir [saydam veri şifrelemesi koruyucu PowerShell kullanarak döndürme](transparent-data-encryption-byok-azure-sql-key-rotation.md).
 - Tüm daha önce kullanılan anahtarlar geri hizmet tarafından yönetilen anahtarlar için değiştirdikten sonra Azure anahtar Kasası'nda tutun.  Bu, Azure Key Vault'ta depolanan TDE koruyucusu ile veritabanı yedeklerini geri sağlar.  TDE koruyucusu Azure anahtar kasası ile oluşturulan tüm depolanan yedeklemeler, hizmet tarafından yönetilen anahtarlarla oluşturulmuş kadar tutulması gerekir.  
-- Kurtarılabilir yedek kopyalarını kullanarak bu anahtarların [yedekleme AzKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
+- Kurtarılabilir yedek kopyalarını kullanarak bu anahtarların [yedekleme AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey).
 - Veri kaybı olmadan bir güvenlik olayı sırasında riskli olabilecek bir anahtar kaldırmak için adımları izleyin. [riskli olabilecek bir anahtarı Kaldır](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md).
 
 ## <a name="high-availability-geo-replication-and-backup--restore"></a>Yüksek kullanılabilirlik, coğrafi çoğaltma ve yedekleme / geri yükle
@@ -126,7 +126,7 @@ Aşağıdaki bölümde, ayrıntılı Kurulum ve yapılandırma adımları üzeri
   - RSA/RSA-HSA 2048 anahtarı
   - Hiçbir sona erme tarihleri
   - Anahtar etkin ve anahtar işlemleri sarmalamadan çıkarma get gerçekleştirmek ve anahtarı sarmalama için izinlere sahip
-- Birincil anahtarı yedeklemek ve anahtar ikinci anahtar Kasası'na geri yükleyin.  Bkz: [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) ve [geri yükleme-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0).
+- Birincil anahtarı yedeklemek ve anahtar ikinci anahtar Kasası'na geri yükleyin.  Bkz: [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) ve [geri yükleme-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey).
 
 ### <a name="azure-sql-database-configuration-steps"></a>Azure SQL veritabanı yapılandırma adımları
 

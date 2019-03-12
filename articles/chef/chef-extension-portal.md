@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: d7728dd5c025a88f8912dca708abc45ab519ce2c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 02a2e9a6d513db5ac82b7bde5c8d3f0ca187ad15
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327560"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533961"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Azure portalından Chef İstemcisi'ni yükleme
 Azure portalından Chef istemci uzantısını doğrudan üzerine bir Linux veya Windows makinesi ekleyebilirsiniz. Bu makalede yeni bir Linux sanal makine kullanarak işlemi boyunca size yol gösterir.
@@ -30,7 +30,7 @@ Azure portalından Chef istemci uzantısını doğrudan üzerine bir Linux veya 
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>Yeni bir Linux sanal makinesinde Chef uzantısını yükle
 Bu bölümde, bir Linux makine oluşturmak için öncelikle Azure portalını kullanacaksınız. İşlem sırasında yeni bir sanal makine üzerinde Chef uzantıyı yüklemek nasıl görürsünüz.
 
-1. [Azure portala](http://portal.azure.com) gidin.
+1. [Azure portala](https://portal.azure.com) gidin.
 
 1. Sol taraftaki menüden **sanal makineler** seçeneği. Varsa **sanal makineler** seçeneği mevcut seçeneğini değil **tüm hizmetleri** seçip **sanal makineler**.
 

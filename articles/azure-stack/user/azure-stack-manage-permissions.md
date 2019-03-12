@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 03/11/2019
 ms.author: patricka
-ms.reviewer: unknown
-ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: 03c1879c34a00bb09b5a4dee6af7da7b984045fc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.reviewer: fiseraci
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3565bf4c4a19bcf1b136b4cbb781006658865a1c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241194"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767218"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Azure Stack Role-Based erişim denetimi ile kaynaklara erişimi yönetme
 
@@ -93,8 +93,8 @@ Aşağıdaki adımları izinlerin bir kullanıcı için nasıl yapılandırılac
 2. Sol gezinti bölmesinden **Kaynak Grupları**'nı seçin.
 3. İzinlerini ayarlamak istediğiniz kaynak grubu adını seçin.
 4. Kaynak grubu Gezinti bölmesinde **erişim denetimi (IAM)**. **Rol atamaları** görünümü kaynak grubuna erişimi olan öğeleri listeler. Filtre uygulayabilir ve Grup sonuçları.
-5. Üzerinde **erişim denetimi** menü çubuğundan **rol ataması Ekle**.
-6. Üzerinde **rol ataması Ekle** bölmesi:
+5. Üzerinde **erişim denetimi** menü çubuğundan **Ekle**.
+6. Üzerinde **izinleri eklemek** bölmesi:
 
    * Atamak istediğiniz rolü seçin **rol** aşağı açılan listesi.
    * Atamak istediğiniz kaynağı seçin **erişim Ata** aşağı açılan listesi.

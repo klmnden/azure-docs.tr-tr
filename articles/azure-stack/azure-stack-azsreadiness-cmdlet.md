@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 861784a2d22d15253c61884bfab62667c0560bcd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 63de39fa97850c1df72bdcd964ed670e4e8b0608
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250657"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767201"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Başlangıç AzsReadinessChecker cmdlet başvurusu
 
@@ -301,7 +301,7 @@ Bu örnekte, dağıtım veya destek ekibi müşteriden Contoso Hazırlık raporu
 Azure Stack dağıtımın bölge adı belirtir.
 |  |  |
 |----------------------------|--------------|
-|Şunu yazın:                       |Dize        |
+|Şunu yazın:                       |String        |
 |Konum:                   |adlı         |
 |Varsayılan değer:              |None          |
 |Ardışık giriş yapılabilir:      |False         |
@@ -312,7 +312,7 @@ Azure Stack dağıtımın bölge adı belirtir.
 Azure Stack dağıtımın dış FQDN, ayrıca diğer adlı ExternalFQDN ve ExternalDomainName olarak belirtir.
 |  |  |
 |----------------------------|--------------|
-|Şunu yazın:                       |Dize        |
+|Şunu yazın:                       |String        |
 |Konum:                   |adlı         |
 |Varsayılan değer:              |ExternalFQDN, ExternalDomainName |
 |Ardışık giriş yapılabilir:      |False         |
@@ -323,7 +323,7 @@ Azure Stack dağıtımın dış FQDN, ayrıca diğer adlı ExternalFQDN ve Exter
 Azure Stack dağıtımın kimlik sistemi geçerli değerler, AAD veya ADFS, Azure Active Directory ve Active Directory Federasyon Hizmetleri için sırasıyla belirtir.
 |  |  |
 |----------------------------|--------------|
-|Şunu yazın:                       |Dize        |
+|Şunu yazın:                       |String        |
 |Konum:                   |adlı         |
 |Varsayılan değer:              |None          |
 |Geçerli değerler:               |'AAD', 'ADFS'  |
@@ -357,7 +357,7 @@ Yollar ve parolaları PaaS sertifikaları içeren karma tablo belirtir.
 Azure Stack dağıtım verileri JSON yapılandırma dosyasını belirtir. Bu dosya, dağıtım için oluşturulur.
 |  |  |
 |----------------------------|---------|
-|Şunu yazın:                       |Dize   |
+|Şunu yazın:                       |String   |
 |Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
 |Ardışık giriş yapılabilir:      |False    |
@@ -368,7 +368,7 @@ Azure Stack dağıtım verileri JSON yapılandırma dosyasını belirtir. Bu dos
 Bu araç, sertifika doğrulama tarafından belirtildiği şekilde düzeltmek için içeri/dışarı aktarma yordamı gerektiren sorunlu bir sertifika yolunu belirtir.
 |  |  |
 |----------------------------|---------|
-|Şunu yazın:                       |Dize   |
+|Şunu yazın:                       |String   |
 |Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
 |Ardışık giriş yapılabilir:      |False    |
@@ -379,7 +379,7 @@ Bu araç, sertifika doğrulama tarafından belirtildiği şekilde düzeltmek iç
 Sonuç PFX dosyasından içeri/dışarı aktarma yordamı için hedef yolu belirtir.  
 |  |  |
 |----------------------------|---------|
-|Şunu yazın:                       |Dize   |
+|Şunu yazın:                       |String   |
 |Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
 |Ardışık giriş yapılabilir:      |False    |
@@ -405,7 +405,7 @@ Sertifika isteği SAN türünü belirtir. Geçerli değerler, MultipleCSR Single
 
 |  |  |
 |----------------------------|---------|
-|Şunu yazın:                       |Dize   |
+|Şunu yazın:                       |String   |
 |Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
 |Geçerli değerler:               |'MultipleCSR', 'SingleCSR' |
@@ -417,7 +417,7 @@ Sertifika isteği SAN türünü belirtir. Geçerli değerler, MultipleCSR Single
 Hedef yolu belirtir sertifika isteği dosyaları için dizin zaten mevcut olmalıdır.
 |  |  |
 |----------------------------|---------|
-|Şunu yazın:                       |Dize   |
+|Şunu yazın:                       |String   |
 |Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
 |Ardışık giriş yapılabilir:      |False    |
@@ -439,7 +439,7 @@ Azure Stack dağıtımı için kullanılacak Azure Active Directory Hizmet Yöne
 Azure Stack dağıtımı için kullanılacak Azure Active Directory adını belirtir.
 |  |  |
 |----------------------------|---------|
-|Şunu yazın:                       |Dize   |
+|Şunu yazın:                       |String   |
 |Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
 |Ardışık giriş yapılabilir:      |False    |
@@ -450,7 +450,7 @@ Azure Stack dağıtımı için kullanılacak Azure Active Directory adını beli
 Azure Stack dağıtım ve kayıt için kullanılacak Azure hesapları, dizinler ve abonelikler içeren Services örneğini belirtir.
 |  |  |
 |----------------------------|---------|
-|Şunu yazın:                       |Dize   |
+|Şunu yazın:                       |String   |
 |Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
 |Geçerli değerler:               |'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment' |
@@ -462,7 +462,7 @@ Azure Stack dağıtım ve kayıt için kullanılacak Azure hesapları, dizinler 
 Azure Stack kayıt için kullanılacak kayıt hesabı belirtir.
 |  |  |
 |----------------------------|---------|
-|Şunu yazın:                       |Dize   |
+|Şunu yazın:                       |String   |
 |Konum:                   |adlı    |
 |Varsayılan değer:              |None     |
 |Ardışık giriş yapılabilir:      |False    |
@@ -484,7 +484,7 @@ Azure Stack kayıt için kullanılacak kayıt abonelik Kimliğini belirtir.
 Hazırlık raporunu yolunu belirtir, varsayılan olarak geçerli dizin ve varsayılan rapor adı.
 |  |  |
 |----------------------------|---------|
-|Şunu yazın:                       |Dize   |
+|Şunu yazın:                       |String   |
 |Konum:                   |adlı    |
 |Varsayılan değer:              |Tümü      |
 |Ardışık giriş yapılabilir:      |False    |
@@ -506,7 +506,7 @@ ACSBlob, ACSQueue, ACSTable, ADFS, Yönetim Portalı, ARM yönetici, ARM genel, 
 
 |  |  |
 |----------------------------|---------|
-|Şunu yazın:                       |Dize   |
+|Şunu yazın:                       |String   |
 |Konum:                   |adlı    |
 |Varsayılan değer:              |.\Certificates |
 |Ardışık giriş yapılabilir:      |False    |
@@ -529,7 +529,7 @@ PaaS Hizmetleri/ana bilgisayar adları için sertifika istekleri eklenip eklenme
 Ayrıntılı rapor yalnızca Özet, gösterecek şekilde olmadığını atlar belirtir.
 |  |  |
 |----------------------------|---------|
-|Şunu yazın:                       |Dize   |
+|Şunu yazın:                       |String   |
 |Konum:                   |adlı    |
 |Varsayılan değer:              |Tümü      |
 |Geçerli değerler:               |'Sertifika', 'AzureRegistration', 'AzureIdentity', 'İşler', 'All' |
@@ -565,7 +565,7 @@ Ayrıntılı rapor yalnızca Özet, gösterecek şekilde olmadığını atlar be
 
 |  |  |
 |----------------------------|------------------|
-|Şunu yazın:                       |Dize            |
+|Şunu yazın:                       |String            |
 |Konum:                   |adlı             |
 |Varsayılan değer:              |$ENV: TEMP\AzsReadinessChecker  |
 |Ardışık giriş yapılabilir:      |False             |

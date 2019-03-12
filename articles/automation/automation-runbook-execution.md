@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/10/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a7d290b9270d5d548a2e2b36cd73588639691b6c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 84cf7d485295ae1a102957ee1f94ab3e9b2ea954
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819114"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548260"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure automation'da Runbook yürütme
 
@@ -49,6 +49,7 @@ Azure automation'daki Runbook'lar çalışma zamanı üzerinde bir korumalı ala
 |Belirli gereksinimlerine modüllerini kullanma| Karma Runbook Çalışanı|Bazı örnekler şunlardır:</br> **WinSCP** -winscp.exe bağımlılığı </br> **Iısadministration** -IIS etkinleştirilmesi gerekiyor|
 |Yükleyici gerektiren bir modülünü yükleme|Karma Runbook Çalışanı|Modüller için korumalı alan xcopyable olmalıdır|
 |Runbook'ları veya 4.7.2 farklı .NET Framework gerektiren modülleri kullanma|Karma Runbook Çalışanı|Otomasyon korumalı alanları, .NET Framework 4.7.2 sahip ve yükseltme yolu yoktur|
+|Yetki yükseltmesi gerektiren betikleri|Karma Runbook Çalışanı|Sanal yükseltme izin vermez. Karma Runbook çalışanı ve kullanım UAC açıp kapatabilir bu kullanım çözmeye `Invoke-Command` komutu çalıştıran gerektirdiğinde yükseltme|
 
 ## <a name="runbook-behavior"></a>Runbook davranışı
 
@@ -224,7 +225,7 @@ Buluttaki tüm runbook'lar arasında kaynaklarını paylaşmak için Azure Otoma
 
 Uzun çalıştırmak için görevler önerilir kullanmak için bir [karma Runbook çalışanı](automation-hrw-run-runbooks.md#job-behavior). Karma Runbook çalışanları tarafından adil paylaşımı sınırlı değildir ve bir sınırlama yoktur üzerinde ne kadar bir runbook çalıştırabilirsiniz. Başka bir iş [sınırları](../azure-subscription-service-limits.md#automation-limits) hem Azure sanal hem de karma Runbook çalışanları için geçerlidir. Karma Runbook çalışanları 3 saat adil paylaşım sınırı sınırlı değildir, ancak runbook'ları üzerinde çalışan yine beklenmeyen yerel altyapı sorunlardan yeniden davranışları desteklemek için geliştirilmiş olmalı.
 
-Runbook alt runbook'ları kullanarak en iyi duruma başka bir seçenektir. Runbook'unuzdaki bir veritabanı işlemi birkaç veritabanlarında gibi çeşitli kaynaklar aynı işlev aracılığıyla döngü varsa, bu işleve taşıyabilirsiniz bir [alt runbook](automation-child-runbooks.md) ve beraber [ Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet'i. Bu alt runbook'ların her biri ayrı işlemler halinde yürütülerek üst runbook'un tamamlanması için gereken toplam süreyi kısaltır. Kullanabileceğiniz [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet'i runbook'unuzda alt runbook'un tamamlandıktan sonra yapılması gereken işlemler varsa her alt için iş durumunu denetleyin.
+Runbook alt runbook'ları kullanarak en iyi duruma başka bir seçenektir. Runbook'unuzdaki bir veritabanı işlemi birkaç veritabanlarında gibi çeşitli kaynaklar aynı işlev aracılığıyla döngü varsa, bu işleve taşıyabilirsiniz bir [alt runbook](automation-child-runbooks.md) ve beraber [ Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet'i. Bu alt runbook'ların her biri ayrı işlemler halinde yürütülerek üst runbook'un tamamlanması için gereken toplam süreyi kısaltır. Kullanabileceğiniz [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) alt runbook'un tamamlandıktan sonra gerçekleştiren işlemleri varsa her alt için iş durumunu denetlemek için runbook'unuzda cmdlet'i.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

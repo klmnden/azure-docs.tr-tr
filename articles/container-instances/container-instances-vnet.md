@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 5382c565e5afc42d65a3198d797b51d1b1a9dde6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313492"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550779"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure sanal ağına Container Instances'ı dağıtma
 
@@ -40,19 +40,13 @@ Kapsayıcı grupları bir sanal ağa dağıttığınız zaman, bazı sınırlama
 
 ## <a name="preview-limitations"></a>Önizleme sınırlamaları
 
-Bu özellik Önizleme aşamasında olduğu sürece, bir sanal ağa container Instances dağıtımı yüklenirken aşağıdaki sınırlamalar uygulanır. 
+Bu özellik Önizleme aşamasında olduğu sürece, bir sanal ağa kapsayıcı grupları dağıtma yüklenirken aşağıdaki sınırlamalar uygulanır. 
 
-**Desteklenen bölgeler ve kaynak sınırları**
-
-| Konum | İşletim Sistemi | CPU | Bellek (GB) |
-| -------- | :---: | :---: | :-----------: |
-| Batı Avrupa | Linux | 4 | 14 |
-| Doğu ABD, Batı ABD | Linux | 2 | 3,5 |
-| Avustralya Doğu, Kuzey Avrupa | Linux | 1 | 1,5 |
+[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 Kapsayıcı kaynak sınırları ağa container Instances aşağıdaki bölgelerde sınırlarını farklılık gösterebilir. Şu anda yalnızca Linux kapsayıcıları için bu özelliği desteklenmektedir. Windows desteği planlanmaktadır.
 
-**Desteklenmeyen ağ kaynaklarının ve özellikleri**
+### <a name="unsupported-network-resources-and-features"></a>Desteklenmeyen ağ kaynaklarının ve özellikleri
 
 * Azure Load Balancer
 * Sanal ağ eşleme

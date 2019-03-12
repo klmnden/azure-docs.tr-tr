@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c2f11b08f5d8e9bb3be7acfa8ba62100bdc55d99
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: fa6d90866be93645625fa82410f8dd0e3bd33d00
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889809"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774294"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning veri hazırlığı SDK'sı ile verileri dönüştürün
 
@@ -39,8 +39,8 @@ Azure Machine Learning veri hazırlığı SDK içerir `substring` mevcut sütunl
 import azureml.dataprep as dprep
 
 # loading data
-dataflow = dprep.read_csv(path=r'data\crime0-10.csv')
-dataflow.head(3)
+dflow = dprep.read_csv(path=r'data\crime0-10.csv')
+dflow.head(3)
 ```
 
 ||Kimlik|Büyük/küçük harf numarası|Tarih|Engelle|IUCR|Birincil tür|Açıklama|Konum açıklaması|Arrest|Yurt içi|...|İleri Git|Topluluk alan|FBI kod|X koordinatı|Y koordinatı|Yıl|Güncelleştirme tarihi|Enlem|Boylam|Konum|
@@ -54,7 +54,7 @@ Kullanım `substring(start, length)` önek çalışması sayı sütunu çıkarma
 
 ```python
 substring_expression = dprep.col('Case Number').substring(0, 2)
-case_category = dataflow.add_column(new_column_name='Case Category',
+case_category = dflow.add_column(new_column_name='Case Category',
                                     prior_column='Case Number',
                                     expression=substring_expression)
 case_category.head(3)
@@ -72,7 +72,7 @@ Kullanım `substring(start)` ifade yalnızca sayı çalışması sayı sütunu a
 
 ```python
 substring_expression2 = dprep.col('Case Number').substring(2)
-case_id = dataflow.add_column(new_column_name='Case Id',
+case_id = dflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',
                               expression=substring_expression2)
 case_id = case_id.to_number('Case Id')
@@ -86,10 +86,10 @@ SDK'sı eksik değerleri belirtilen sütunlardaki impute. Bu örnekte, enlem ve 
 import azureml.dataprep as dprep
 
 # loading input data
-df = dprep.read_csv(r'data\crime0-10.csv')
-df = df.keep_columns(['ID', 'Arrest', 'Latitude', 'Longitude'])
-df = df.to_number(['Latitude', 'Longitude'])
-df.head(3)
+dflow = dprep.read_csv(r'data\crime0-10.csv')
+dflow = dflow.keep_columns(['ID', 'Arrest', 'Latitude', 'Longitude'])
+dflow = dflow.to_number(['Latitude', 'Longitude'])
+dflow.head(3)
 ```
 
 ||Kimlik|Arrest|Enlem|Boylam|
@@ -103,12 +103,12 @@ df.head(3)
 Denetleme `MEAN` enlem kullanarak sütun değeri [ `summarize()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) işlevi. Bu işlev dizi sütunların kabul `group_by_columns` toplama düzeyini belirtmek için parametre. `summary_columns` Parametreyi kabul eden bir `SummaryColumnsValue` çağırın. Bu işlev çağrısı geçerli sütun adı olan yeni hesaplanan alan adı belirtir ve `SummaryFunction` gerçekleştirilecek.
 
 ```python
-df_mean = df.summarize(group_by_columns=['Arrest'],
+dflow_mean = dflow.summarize(group_by_columns=['Arrest'],
                        summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
                                                                  summary_column_name='Latitude_MEAN',
                                                                  summary_function=dprep.SummaryFunction.MEAN)])
-df_mean = df_mean.filter(dprep.col('Arrest') == 'false')
-df_mean.head(1)
+dflow_mean = dflow_mean.filter(dprep.col('Arrest') == 'false')
+dflow_mean.head(1)
 ```
 
 ||Arrest|Latitude_MEAN|
@@ -127,12 +127,12 @@ impute_mean = dprep.ImputeColumnArguments(column_id='Latitude',
 impute_custom = dprep.ImputeColumnArguments(column_id='Longitude',
                                             custom_impute_value=42)
 # get instance of ImputeMissingValuesBuilder
-impute_builder = df.builders.impute_missing_values(impute_columns=[impute_mean, impute_custom],
+impute_builder = dflow.builders.impute_missing_values(impute_columns=[impute_mean, impute_custom],
                                                    group_by_columns=['Arrest'])
 
 impute_builder.learn()
-df_imputed = impute_builder.to_dataflow()
-df_imputed.head(3)
+dflow_imputed = impute_builder.to_dataflow()
+dflow_imputed.head(3)
 ```
 
 ||Kimlik|Arrest|Enlem|Boylam|
@@ -144,7 +144,7 @@ df_imputed.head(3)
 Sonuçta yukarıda gösterildiği gibi eksik enlem ile imputed `MEAN` değerini `Arrest=='false'` grubu. Eksik boylam ile 42 imputed.
 
 ```python
-imputed_longitude = df_imputed.to_pandas_dataframe()['Longitude'][2]
+imputed_longitude = dflow_imputed.to_pandas_dataframe()['Longitude'][2]
 assert imputed_longitude == 42
 ```
 
@@ -154,8 +154,8 @@ Azure Machine Learning veri hazırlığı SDK'sı daha gelişmiş araçlar isten
 
 ```python
 import azureml.dataprep as dprep
-dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
-dataflow.head(4)
+dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
+dflow.head(4)
 ```
 
 ||DATE|REPORTTPYE|HOURLYDRYBULBTEMPF|HOURLYRelativeHumidity|HOURLYWindSpeed|
@@ -168,8 +168,8 @@ dataflow.head(4)
 Tarih ve saat olduğu bir biçimde bu dosyayı bir veri kümesiyle katılmak gerektiğini varsayar ' 10 Mart 2018'den | 02: 00 - 04: 00 '.
 
 ```python
-builder = dataflow.builders.derive_column_by_example(source_columns=['DATE'], new_column_name='date_timerange')
-builder.add_example(source_data=df.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
+builder = dflow.builders.derive_column_by_example(source_columns=['DATE'], new_column_name='date_timerange')
+builder.add_example(source_data=dflow.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
 builder.preview(count=5) 
 ```
 
@@ -205,7 +205,7 @@ builder.preview(skip=30, count=5)
 Burada oluşturulan program ile ilgili bir sorun görürsünüz. Yalnızca yukarıda sağlanan bir örneğe bağlı olarak, bu durumda istediklerinizi değil olduğu "Gün/ay/yıl" olarak bir tarihi ayrıştırmak türet program seçtiniz. Bu sorunu düzeltmek için belirli bir kayıt dizinini hedef ve kullanarak başka bir örnek sağlar `add_example()` işlevini `builder` değişkeni.
 
 ```python
-builder.add_example(source_data=df.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
+builder.add_example(source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
 builder.preview(skip=30, count=5)
 ```
 
@@ -233,7 +233,7 @@ builder.preview(skip=75, count=5)
 |4|1/29/2015 7:54|None|
 
 ```python
-builder.add_example(source_data=df.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
+builder.add_example(source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
 builder.preview(skip=75, count=5)
 ```
 ||DATE|date_timerange|
@@ -263,21 +263,21 @@ Yanlış örnek silmek istiyorsanız bazı durumlarda ya da geçirebilirsiniz `e
 Çağrı `to_dataflow()` eklenen istenen türetilmiş sütunlar bir veri akışı döndürür Oluşturucusu '.
 
 ```python
-dataflow = builder.to_dataflow()
-df = dataflow.to_pandas_dataframe()
+dflow = builder.to_dataflow()
+df = dflow.to_pandas_dataframe()
 ```
 
 ## <a name="filtering"></a>Filtreleme
 
-SDK'sı yöntemleri içerir [ `Dataflow.drop_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) ve [ `Dataflow.filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) izin verecek şekilde satırları veya sütunları filtreleyin.
+SDK'sı yöntemleri içerir [ `drop_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) ve [ `filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) izin verecek şekilde satırları veya sütunları filtreleyin.
 
 ### <a name="initial-setup"></a>Başlangıç kurulumu
 
 ```python
 import azureml.dataprep as dprep
 from datetime import datetime
-dataflow = dprep.read_csv(path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
-dataflow.head(5)
+dflow = dprep.read_csv(path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
+dflow.head(5)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Store_and_fwd_flag|RateCodeID|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
@@ -290,15 +290,15 @@ dataflow.head(5)
 
 ### <a name="filtering-columns"></a>Sütunları filtreleme
 
-Sütunları filtrelemek, kullanın `Dataflow.drop_columns()`. Bu yöntem bırakmak sütun listesini alır veya daha karmaşık bir bağımsız değişken olarak adlandırılan [ `ColumnSelector` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py).
+Sütunları filtrelemek, kullanın `drop_columns()`. Bu yöntem bırakmak sütun listesini alır veya daha karmaşık bir bağımsız değişken olarak adlandırılan [ `ColumnSelector` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py).
 
 #### <a name="filtering-columns-with-list-of-strings"></a>Sütunları içeren bir dize listesi filtreleme
 
-Bu örnekte, `drop_columns` dizeleri listesini alır. Her bir dizenin bırakmak istediğiniz sütunu tam olarak eşleşmelidir.
+Bu örnekte, `drop_columns()` dizeleri listesini alır. Her bir dizenin bırakmak istediğiniz sütunu tam olarak eşleşmelidir.
 
 ```python
-dataflow = dataflow.drop_columns(['Store_and_fwd_flag', 'RateCodeID'])
-dataflow.head(2)
+dflow = dflow.drop_columns(['Store_and_fwd_flag', 'RateCodeID'])
+dflow.head(2)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
@@ -311,8 +311,8 @@ dataflow.head(2)
 Alternatif olarak, `ColumnSelector` ifade normal bir ifadeyle eşleşen sütunları kaldırın. Bu örnekte, bir ifadeyle eşleşen tüm sütunlar bırak `Column*|.*longitude|.*latitude`.
 
 ```python
-dataflow = dataflow.drop_columns(dprep.ColumnSelector('Column*|.*longitud|.*latitude', True, True))
-dataflow.head(2)
+dflow = dflow.drop_columns(dprep.ColumnSelector('Column*|.*longitud|.*latitude', True, True))
+dflow.head(2)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
@@ -322,21 +322,21 @@ dataflow.head(2)
 
 ## <a name="filtering-rows"></a>Filtre satırları
 
-Satırları filtrele, kullanın `DataFlow.filter()`. Bu yöntem, Azure Machine Learning veri hazırlığı SDK'sı ifade bir bağımsız değişken olarak alır ve yeni bir veri akışı ile ifade True olarak değerlendirilen satırları döndürür. İfadeleri, ifade oluşturucular kullanılarak oluşturulur (`col`, `f_not`, `f_and`, `f_or`) ve normal işleçleri (>, <>, =, < =, ==,! =).
+Satırları filtrele, kullanın `filter()`. Bu yöntem, Azure Machine Learning veri hazırlığı SDK'sı ifade bir bağımsız değişken olarak alır ve yeni bir veri akışı ile ifade True olarak değerlendirilen satırları döndürür. İfadeleri, ifade oluşturucular kullanılarak oluşturulur (`col`, `f_not`, `f_and`, `f_or`) ve normal işleçleri (>, <>, =, < =, ==,! =).
 
 ### <a name="filtering-rows-with-simple-expressions"></a>Basit ifadelerle satırları filtreleme
 
-İfade Oluşturucu kullanın `col`, bir dize bağımsız değişkeni bir sütun adı belirtin `col('column_name')`. Bu ifade aşağıdaki standart işleçlerden ile birlikte kullanma >, <>, =, < =, ==,! gibi bir ifade oluşturmak için = `col('Tip_amount') > 0`. Son olarak, yerleşik ifadesine geçirmek `Dataflow.filter` işlevi.
+İfade Oluşturucu kullanın `col`, bir dize bağımsız değişkeni bir sütun adı belirtin `col('column_name')`. Bu ifade aşağıdaki standart işleçlerden ile birlikte kullanma >, <>, =, < =, ==,! gibi bir ifade oluşturmak için = `col('Tip_amount') > 0`. Son olarak, yerleşik ifadesine geçirmek `filter()` işlevi.
 
-Bu örnekte, `dataflow.filter(col('Tip_amount') > 0)` sütunları içeren yeni bir veri akışı döndüren değerini `Tip_amount` 0'dan büyük.
+Bu örnekte, `dflow.filter(col('Tip_amount') > 0)` sütunları içeren yeni bir veri akışı döndüren değerini `Tip_amount` 0'dan büyük.
 
 > [!NOTE] 
 > `Tip_amount` ilk karşı diğer sayısal değerleri karşılaştırma bir ifade oluşturmak sağlıyor sayısal, dönüştürülür.
 
 ```python
-dataflow = dataflow.to_number(['Tip_amount'])
-dataflow = dataflow.filter(dprep.col('Tip_amount') > 0)
-dataflow.head(2)
+dflow = dflow.to_number(['Tip_amount'])
+dflow = dflow.filter(dprep.col('Tip_amount') > 0)
+dflow.head(2)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
@@ -348,12 +348,12 @@ dataflow.head(2)
 
 Karmaşık ifadeleri kullanarak filtre uygulamak için ifade oluşturuculara sahip bir veya daha fazla basit ifadeler birleştirmek `f_not`, `f_and`, veya `f_or`.
 
-Bu örnekte, `Dataflow.filter()` sütunları içeren yeni bir veri akışı döndürür burada `'Passenger_count'` 5'ten az olan ve `'Tolls_amount'` 0'dan büyük.
+Bu örnekte, `dflow.filter()` sütunları içeren yeni bir veri akışı döndürür burada `'Passenger_count'` 5'ten az olan ve `'Tolls_amount'` 0'dan büyük.
 
 ```python
-dataflow = dataflow.to_number(['Passenger_count', 'Tolls_amount'])
-dataflow = dataflow.filter(dprep.f_and(dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
-dataflow.head(2)
+dflow = dflow.to_number(['Passenger_count', 'Tolls_amount'])
+dflow = dflow.filter(dprep.f_and(dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
+dflow.head(2)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
@@ -367,10 +367,10 @@ dataflow.head(2)
 > `lpep_pickup_datetime` ve `Lpep_dropoff_datetime` kurmamızı diğer datetime değerleri karşı karşılaştırma bir ifade oluşturmak tarih saat önce dönüştürülür.
 
 ```python
-dataflow = dataflow.to_datetime(['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
-dataflow = dataflow.to_number(['Total_amount', 'Trip_distance'])
+dflow = dflow.to_datetime(['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
+dflow = dflow.to_number(['Total_amount', 'Trip_distance'])
 mid_2013 = datetime(2013,7,1)
-dataflow = dataflow.filter(
+dflow = dflow.filter(
     dprep.f_and(
         dprep.f_or(
             dprep.col('lpep_pickup_datetime') > mid_2013,
@@ -378,7 +378,7 @@ dataflow = dataflow.filter(
         dprep.f_and(
             dprep.col('Total_amount') > 40,
             dprep.col('Trip_distance') < 10)))
-dataflow.head(2)
+dflow.head(2)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
@@ -404,8 +404,8 @@ Bazı verileri Azure Blobundan yükleyerek başlayın.
 import azureml.dataprep as dprep
 col = dprep.col
 
-df = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
-df.head(2)
+dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
+dflow.head(2)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
@@ -416,10 +416,10 @@ df.head(2)
 Veri kümesinin trim ve sütunları kaldırma, değerleri değiştirerek ve türlerini dönüştürme gibi bazı temel dönüşümler yapın.
 
 ```python
-df = df.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
-df = df.replace_na(columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
-df = df.to_number(['ncessch', 'MAM_MTH00numvalid_1011'])
-df.head(2)
+dflow = dflow.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
+dflow = dflow.replace_na(columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
+dflow = dflow.to_number(['ncessch', 'MAM_MTH00numvalid_1011'])
+dflow.head(2)
 ```
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
@@ -430,7 +430,7 @@ df.head(2)
 Null değerler aşağıdaki filtre kullanarak arayın.
 
 ```python
-df.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
+dflow.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
 ```
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
@@ -465,11 +465,11 @@ df.head(2)
 Python betiğini çağrılan bir işlev tanımlamalıdır `newvalue()` tek bir bağımsız değişken almayan `row`. `row` Bağımsız değişkeni olan bir, dict (`key`: sütun adı `val`: geçerli değer) ve veri kümesindeki her satır için bu işleve geçirilir. Bu işlev, yeni bir sütun kullanılacak bir değer döndürmesi gerekir. Python betiğini içe aktaran tüm kitaplıkları, veri akışı çalıştırıldığı ortama mevcut olması gerekir.
 
 ```python
-df = df.new_script_column(new_column_name='county_state', insert_after='leanm10', script="""
+dflow = dflow.new_script_column(new_column_name='county_state', insert_after='leanm10', script="""
 def newvalue(row):
     return row['leanm10'] + ', ' + row['stnam'].title()
 """)
-df.head(2)
+dflow.head(2)
 ```
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
@@ -482,12 +482,12 @@ df.head(2)
 Python kullanarak ifade derleme [ `new_script_filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-filter-script--str-----azureml-dataprep-api-dataflow-dataflow) 'Hale' olduğu yeni satırlar için veri kümesini filtrelemek için `county_state` sütun. Bir ifade döndürür `True` satır tutmak istiyorsanız ve `False` satır bırakmak.
 
 ```python
-df = df.new_script_filter("""
+dflow = dflow.new_script_filter("""
 def includerow(row):
     val = row['county_state']
     return 'Hale' not in val
 """)
-df.head(2)
+dflow.head(2)
 ```
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|

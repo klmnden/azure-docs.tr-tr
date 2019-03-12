@@ -3,38 +3,45 @@ title: Web kancaları kurallarında Azure IOT Central oluşturun | Microsoft Doc
 description: Web kancaları, Azure IOT kuralları tetiklendiğinde diğer uygulamaları otomatik olarak bildirim sağlaması için Orta oluşturun.
 author: viv-liu
 ms.author: viviali
-ms.date: 09/17/2018
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 896d4e9c775fa0b0c8eb062d11d141901daa7242
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e5b0f3ce685aa7af441a670fd3124d5ebee2f0c8
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295997"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776998"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Web kancası eylemleri kurallarında Azure IOT Central oluşturun
 
 *Bu konu, Oluşturucular ve Yöneticiler için geçerlidir.*
 
-Web kancaları, diğer uygulama ve hizmetlere uzaktan izleme ve bildirimler için IOT Central uygulamanızın bağlamanızı sağlar. Web kancaları, diğer uygulama ve hizmetlerin bir kuralı tetiklendiğinde IOT Central uygulamanızda bağlantı otomatik olarak bildirin. Kural tetiklendiğinde IOT Central uygulamanızı diğer uygulamanın HTTP uç noktasına bir POST isteği gönderir. Yükü cihaz ayrıntıları ve kural tetikleyici ayrıntılarını içerir. 
+Web kancaları, diğer uygulama ve hizmetlere uzaktan izleme ve bildirimler için IOT Central uygulamanızın bağlamanızı sağlar. Web kancaları, diğer uygulama ve hizmetlerin bir kuralı tetiklendiğinde IOT Central uygulamanızda bağlantı otomatik olarak bildirin. Kural tetiklendiğinde IOT Central uygulamanız diğer uygulamanın HTTP uç noktasına bir POST isteği gönderir. Yük, cihaz ayrıntıları ve kural tetikleyici ayrıntılarını içerir.
 
-## <a name="how-to-set-up-the-webhook"></a>Web kancası ' ayarlama
-Bu örnekte, Web kancalarını kullanma kuralları tetiklendiğinde bildirim almak için RequestBin için bağlanır. 
+## <a name="set-up-the-webhook"></a>Web kancası ' ayarlayın
 
-1. Açık [RequestBin](http://requestbin.net/). 
-1. Yeni bir RequestBin ve kopyasını oluşturma **URL'sini**. 
+Bu örnekte, Web kancalarını kullanma kuralları tetiklendiğinde bildirim almak için RequestBin için bağlanın.
+
+1. Açık [RequestBin](http://requestbin.net/).
+
+1. Yeni bir RequestBin ve kopyasını oluşturma **URL'sini**.
+
 1. Oluşturma bir [telemetri kural](howto-create-telemetry-rules.md) veya [olayı kuralı](howto-create-event-rules.md). Kuralı kaydetmek ve yeni bir eylem ekleyin.
-![Web kancası oluşturma ekranı](media/howto-create-webhooks/webhookcreate.PNG)
-1. Web kancası eylemi seçin ve bir görünen ad girin ve URL'sini geri çağırma URL'si olarak yapıştırın. 
+
+    ![Web kancası oluşturma ekranı](media/howto-create-webhooks/webhookcreate.png)
+
+1. Web kancası eylemi seçin ve bir görünen ad girin ve URL'sini geri çağırma URL'si olarak yapıştırın.
+
 1. Kural kaydedin.
 
-Artık kuralı tetiklendiğinde RequestBin içinde görünen yeni bir istek görmeniz gerekir.
+Artık kuralı tetiklendiğinde RequestBin içinde görünen yeni bir istek bakın.
 
 ## <a name="payload"></a>Yük
-Kural tetiklendiğinde, bir HTTP POST isteği bir json yükü ölçümleri, cihaz, kural ve uygulama ayrıntılarını içeren geri çağırma URL'si için yapılır. Telemetri kuralı için yük aşağıdakine benzer:
+
+Kural tetiklendiğinde, bir HTTP POST isteği bir json yükü ölçümleri, cihaz, kural ve uygulama ayrıntılarını içeren geri çağırma URL'si için yapılır. Telemetri kuralı için yük aşağıdaki gibi görünür:
 
 ```json
 {
@@ -83,9 +90,11 @@ Kural tetiklendiğinde, bir HTTP POST isteği bir json yükü ölçümleri, ciha
 ```
 
 ## <a name="known-limitations"></a>Bilinen sınırlamalar
+
 Şu anda abone olma ve aboneliği, bir API aracılığıyla bu Web kancaları'ndan programlı hiçbir yolu yoktur.
 
 Bu özelliği geliştirmeye ilişkin fikirler varsa, önerilerinizi gönderin bizim [Uservoice forumumuzu](https://feedback.azure.com/forums/911455-azure-iot-central).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Ayarlama ve Web kancalarını kullanma öğrendiniz, önerilen sonraki keşfetmek için adımdır [Microsoft Flow, iş akışları oluşturarak](howto-add-microsoft-flow.md).

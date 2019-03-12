@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 70a611f6a9b52ba6a4c904cc4cfa9bc8f0b4df8e
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 65a3aa41c72341aa57c8cb2ddca5d1ed10f0ec06
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409593"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530850"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk limitleri
 
@@ -46,7 +46,7 @@ Azure depolama hizmet sınırları ve adlandırma paylaşımları, kapsayıcıla
 
 - Veri diskleri doğrudan kopyalamayın. Önceden oluşturulmuş veri kopyalama *BlockBlob*,*PageBlob*, ve *AzureFile* klasörleri.
 - Bir klasörü altında *BlockBlob* ve *PageBlob* bir kapsayıcıdır. Örneğin, kapsayıcıları olarak oluşturulur *BlockBlob/kapsayıcı* ve *PageBlob/kapsayıcı*.
-- Data Box Disk, kopyalanan nesne olarak aynı ada sahip bir bulutta mevcut bir Azure nesne (örneğin, bir blobu) varsa, bulutta dosyanın üzerine yazar.
+- Data Box Disk kopyalanan nesne olarak aynı ada sahip bir bulutta mevcut bir Azure nesne (örneğin, bir blobu) varsa, dosyanın file(1) bulutta olarak adlandırır.
 - Her dosyanın içine yazılmış *BlockBlob* ve *PageBlob* paylaşımları yüklendiği bir blok blobu ve sayfa blobu olarak sırasıyla.
 - Herhangi bir boş (olmadan tüm dosyaları) dizin hiyerarşisi altında oluşturulan *BlockBlob* ve *PageBlob* klasörleri karşıya.
 - Herhangi bir hata varsa verileri Azure'a karşıya yüklenirken bir hata günlüğü hedef depolama hesabında oluşturulur. Bu hata günlük yolunu, karşıya yükleme tamamlandıktan ve düzeltme eylemi için günlüğü gözden geçirebilirsiniz portalda kullanılabilir. Veri kaynağından karşıya yüklenen veriler doğrulamadan silmeyin.

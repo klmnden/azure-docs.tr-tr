@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/30/2018
-ms.openlocfilehash: 0d9192e5ca4dba202ca5287481072bb0f8ae5621
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 27a873fac8bf2b53ee06780b8a348eaaa5c94e97
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598528"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768034"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>U-SQL derlemeleri CI/CD işlem hattında yönetmek için en iyi uygulamalar
 
@@ -56,9 +56,9 @@ Projeler oluşturmak ve başvuruları eklemek için aşağıdaki adımları izle
 
     ![--Visual Studio için Data Lake araçları başvurudan derleme oluştur](./media/data-lake-analytics-cicd-manage-assemblies/data-lake-tools-create-assembly-from-reference.png)
 
-7. Ekleme **yönetilen bağımlılıklar** ve **ek dosyalar**, varsa. Ek dosyalar eklediğinizde, araç göreli yol derlemeleri yerel makinenizde ve yapı makinesinde daha sonra bulabilmeniz emin olmak için kullanır. 
+7. Ekleme **yönetilen bağımlılıklar** ve **ek dosyalar**, varsa. Ek dosyalar eklediğinizde, araç göreli yol derlemeleri yerel makinenizde ve yapı makinesinde daha sonra bulabilmeniz emin olmak için kullanır.
 
-**@_DeployTempDirectory** düzenleyicide penceresinin altındaki araç için derleme çıktısı klasörü işaret eden önceden tanımlanmış bir değişkendir. Derleme çıktısı klasörü her derleme ile derleme adı adlı bir alt sahiptir. Tüm DLL'ler ve ek dosyalar bu alt klasörde var. 
+**\@_DeployTempDirectory** düzenleyicide penceresinin altındaki araç için derleme çıktısı klasörü işaret eden bir önceden tanımlanmış değişkendir. Derleme çıktısı klasörü her derleme ile derleme adı adlı bir alt sahiptir. Tüm DLL'ler ve ek dosyalar bu alt klasörde var.
 
 ## <a name="build-a-u-sql-database-project"></a>U-SQL veritabanı projesi derleme
 

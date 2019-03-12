@@ -4,15 +4,15 @@ description: Azure Geçişi hizmetine genel bir bakış sağlar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 03/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e2cafe0c8c5d8194519428839ec3c73f5dc726c0
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: bbb3e4f319584740f165b64948e1fd4dca2722b0
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992046"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729524"
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -30,7 +30,8 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
 
 - Azure sanal makinelerine geçiş için yalnızca şirket içi VMware sanal makinelerini (VM) değerlendirebilirsiniz. VMware sanal makineleri, vCenter Server (sürüm 5.5, 6.0, 6.5 veya 6.7) tarafından yönetilmelidir.
-- Hyper-V sanal makinelerini ve fiziksel sunucuları değerlendirmek istiyorsanız Hyper-V için [Azure Site Recovery Dağıtım Planlayıcısı](https://aka.ms/asr-dp-hyperv-doc)'nı, fiziksel makineler için de [iş ortaklarımız tarafından sunulan araçları](https://azure.microsoft.com/migration/partners/) kullanabilirsiniz.
+- Destek sunuluyor çalışırken ilgileniyorsanız Hyper-V şu anda önizlemede üretim desteği için lütfen kaydolun [burada.](http://aka.ms/migratefuture)
+- Fiziksel sunucuları değerlendirme için yararlanabileceğiniz bizim [iş ortağı Araçları](https://azure.microsoft.com/migration/partners/).
 - Tek keşifte en fazla 1500 sanal makine ve tek projede en fazla 1500 sanal makine bulabilirsiniz. Ayrıca tek değerlendirmede en fazla 1500 sanal makineyi değerlendirebilirsiniz.
 - Daha büyük bir ortam keşfetmek istiyorsanız keşfi bölüp birden fazla proje oluşturabilirsiniz. [Daha fazla bilgi edinin](how-to-scale-assessment.md). Azure Geçişi, abonelik başına 20’ye kadar projeyi destekler.
 - Azure Geçişi yalnızca yönetilen disklerin geçiş değerlendirmesini destekler.
@@ -38,7 +39,7 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
     **Coğrafya** | **Depolama konumu**
     --- | ---
     Azure Kamu | ABD Devleti Virginia
-    Asya | Güneydoğu Asya
+    Asya | Güneydoğu Asya veya Doğu Asya
     Avrupa | Kuzey Avrupa veya Batı Avrupa
     Amerika Birleşik Devletleri | Doğu ABD ve Batı Orta ABD
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: b28316242f608fcfc2b368170190a771c4abbc8e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 698e6fb861ab891a84aa43ca94769099a5c76943
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456117"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766827"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Geliştirici Kılavuzu
 
@@ -158,9 +158,6 @@ Bölümündeki yönergeleri [var olan özel bir SSL sertifikası bağlama](/azur
 ## <a name="data-sources"></a>Veri kaynakları
 
 ### <a name="tomcat"></a>Tomcat
-
->[!NOTE]
-> Uygulamanız Spring Framework veya Spring Boot kullanıyorsa, veritabanı bağlantısı bilgilerini Spring veri JPA [uygulama özellikleri dosyanızda] ortam değişkenleri olarak ayarlayabilirsiniz. Ardından [uygulama ayarları](/azure/app-service/web-sites-configure#app-settings) bu değerler uygulamanız için Azure portal veya CLI tanımlamak için.
 
 Bu yönergeler, tüm veritabanı bağlantıları için geçerlidir. Yer tutucuları seçilen veritabanınızın sürücü sınıf adını doldurun ve JAR dosyası gerekir. Sağlanan bir sınıf adları ve genel veritabanları için sürücü indirmeleri tablodur.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: eaabb29a492ec6a0ef4c85afe839a9df5f588958
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7c8553aed809290ea52fcb2e98fea48a30c109f6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087176"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539607"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 erişim denetimi
 
@@ -27,9 +27,9 @@ Azure Data Lake depolama Gen1 sırayla POSIX erişim denetimi modelinden türeti
 
 İki tür erişim denetim listesi (ACL) vardır: **Erişim ACL’leri** ve **Varsayılan ACL’ler**.
 
-* **Erişim ACL’leri**: Bunlar bir nesneye erişimi denetler. Hem dosyalar hem de klasörler Erişim ACL’lerine sahiptir.
+* **Erişim ACL'leri**: Bu denetim erişimi bir nesne. Hem dosyalar hem de klasörler Erişim ACL’lerine sahiptir.
 
-* **Varsayılan ACL’ler**: Bir klasör ile ilişkili olan ACL’lerin o klasör altında oluşturulan tüm alt öğelere ilişkin Erişim ACL’lerini belirleyen bir "şablonudur". Dosyalar Varsayılan ACL’ye sahip değildir.
+* **Varsayılan ACL'ler**: "Bir klasörle ilişkili bir şablonu" olan ACL'lerin o klasör altında oluşturulan tüm alt öğelere ilişkin erişim ACL'lerini belirleyen. Dosyalar Varsayılan ACL’ye sahip değildir.
 
 
 Hem Erişim ACL'leri hem de Varsayılan ACL'ler aynı yapıdadır.
@@ -132,8 +132,8 @@ POSIX ACL’lerinde her kullanıcı bir "birincil grup" ile ilişkilendirilir. �
 
 **Yeni dosya veya klasör için sahip olan grup atama**
 
-* **Olay 1**: Kök klasör "/". Bir Data Lake depolama Gen1 hesabı oluşturulduğunda bu klasör oluşturulur. Bu durumda sahip olan grup için bir tüm sıfır GUID ayarlanır.  Bu değer, erişime izin vermez.  Bir grup atanır bu zamana kadar yer tutucu olduğu.
-* **Olay 2** (Diğer her olay): Yeni bir olay oluşturulduğunda sahip olan grup üst klasörden kopyalanır.
+* **Case 1**: Kök klasör "/". Bir Data Lake depolama Gen1 hesabı oluşturulduğunda bu klasör oluşturulur. Bu durumda sahip olan grup için bir tüm sıfır GUID ayarlanır.  Bu değer, erişime izin vermez.  Bir grup atanır bu zamana kadar yer tutucu olduğu.
+* **2. durum** (diğer her olay): Yeni bir öğe oluşturulduğunda sahip olan Grup üst klasörden kopyalanır.
 
 **Sahip olan Grup değiştirme**
 
@@ -289,13 +289,13 @@ Hayır, ancak üst klasör altında yeni oluşturulan alt dosyalara ve klasöre 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>POSIX erişim denetimi modeli hakkında daha fazla bilgiyi nereden bulabilirim?
 
 * [Linux üzerinde POSIX Erişim Denetim Listeleri](https://www.linux.com/news/posix-acls-linux)
-* [HDFS izin kılavuzu](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
-* [POSIX SSS](http://www.opengroup.org/austin/papers/posix_faq.html)
-* [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
-* [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-* [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
+* [HDFS izin kılavuzu](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+* [POSIX SSS](https://www.opengroup.org/austin/papers/posix_faq.html)
+* [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
+* [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
+* [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [Ubuntu üzerinde POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [Linux üzerinde erişim denetim listelerini kullanan ACL](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
+* [Linux üzerinde erişim denetim listelerini kullanan ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

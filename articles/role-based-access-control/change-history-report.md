@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a06b7f66742ad7e97e4ae2ab57aabf15f21faf3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: cab5b9317102a86dd75d2cb7e5a820cf64d2e831
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957749"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535559"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>RBAC değişiklikler Azure kaynakları için etkinlik günlüklerini görüntüleme
 
@@ -123,9 +123,9 @@ Başlamak için temel adımlar şunlardır:
 
 1. [Etkinlik günlüğü analizi çözümü yapılandırma](../azure-monitor/platform/collect-activity-logs.md#configuration) çalışma alanınız için.
 
-1. [Etkinlik günlüklerini görüntüleme](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Etkinlik Log Analytics'e Genel Bakış sayfasına gitmek için hızlı bir yolu **Log Analytics** seçeneği.
+1. [Etkinlik günlüklerini görüntüleme](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Etkinlik günlüğü analizi çözümü genel bakış sayfasına gitmek için hızlı bir yolu **Log Analytics** seçeneği.
 
-   ![Log Analytics portalı seçeneğinde](./media/change-history-report/azure-log-analytics-option.png)
+   ![Azure İzleyici seçeneği portalda günlükleri](./media/change-history-report/azure-log-analytics-option.png)
 
 1. İsteğe bağlı olarak [günlük araması](../log-analytics/log-analytics-log-search.md) sayfası veya [Gelişmiş analiz portalını](../azure-monitor/log-query/get-started-portal.md) sorgulamak ve günlükleri görüntülemek için. Bu iki seçenek hakkında daha fazla bilgi için bkz: [günlük araması sayfasını veya Gelişmiş analiz portalını](../azure-monitor/log-query/portals.md).
 

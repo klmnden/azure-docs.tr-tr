@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d4854bd623bb11d50a712be3a5aea07db24c2951
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9b64631b274423edda35189a942e2f142ae591f1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432252"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761183"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>İzleme ve testleri VaaS portalında yönetme
 
@@ -40,7 +40,7 @@ Azure Stack çözümünüzü karşı testleri zamanlama sonra test yürütme dur
 
 ## <a name="change-workflow-parameters"></a>İş akışı parametreleri değiştirin
 
-Her iş akışı türü düzenlemenize olanak sağlayan [Test parametreleri](azure-stack-vaas-parameters.md#test-parameters) iş akışı oluşturma sırasında belirtilebilen.
+Düzen [Test parametreleri](azure-stack-vaas-parameters.md#test-parameters) herhangi bir iş akışı türü için iş akışı oluşturulurken belirtilen.
 
 1. Testleri Özet sayfasında, seçin **Düzenle** düğmesi.
 
@@ -60,9 +60,9 @@ Her iş akışı türü düzenlemenize olanak sağlayan [Test parametreleri](azu
 
 ## <a name="managing-test-instances"></a>Test örneklerini yönetme
 
-Terim ve kısaltmalarla çalıştırmalar için (yani, **Test geçiş** iş akışı), Azure Stack çözüm karşı zamanlanmış testleri testleri Özet sayfasında listelenir.
+Terim ve kısaltmalarla çalıştırmalar için (diğer bir deyişle, **Test geçiş** iş akışı), Azure Stack çözüm karşı zamanlanmış testleri testleri Özet sayfasında listelenir.
 
-Resmi çalıştırmalar için (yani, **doğrulama** iş akışları), Azure Stack çözüm doğrulamasını tamamlamak için gereken testleri testleri Özet sayfasında listelenir. Doğrulama testleri bu sayfadan zamanlanmış.
+Resmi çalıştırmalar için (diğer bir deyişle, **doğrulama** iş akışları), Azure Stack çözüm doğrulamasını tamamlamak için gereken testleri testleri Özet sayfasında listelenir. Doğrulama testleri bu sayfadan zamanlanmış.
 
 Her bir zamanlanmış test örneği aşağıdaki bilgileri gösterir:
 
@@ -77,11 +77,11 @@ Her bir zamanlanmış test örneği aşağıdaki bilgileri gösterir:
 | Aracı adı | Çalışan test aracısı'nın adı. |
 | Toplam işlem | Test sırasında çalıştı işlemlerinin toplam sayısı. |
 | Başarılı işlemler | Test sırasında başarılı işlem sayısı. |
-|  Başarısız olan işlemler | Test sırasında başarısız olan işlemlerin sayısı. |
+|  Başarısız İşlemler | Test sırasında başarısız olan işlemlerin sayısı. |
 
 ### <a name="actions"></a>Eylemler
 
-Her bir test örneği kendi bağlam menüsünde tıkladığınızda gerçekleştirebileceğiniz eylemleri listeler **[...]**  test örnekleri tabloda.
+Her bir test örneği bağlam menüsünü seçtiğinizde gerçekleştirebileceğiniz eylemleri listeler **[...]**  test örnekleri tabloda.
 
 #### <a name="view-information-about-the-test-definition"></a>Test tanımı hakkında bilgileri görüntüleyin
 
@@ -118,7 +118,7 @@ Seçin **görüntüleme işlemleri** bağlamdan işlemleri ayrıntılı durumunu
 
 #### <a name="download-logs-for-a-completed-test-instance"></a>Tamamlanan test örneği için günlükleri indirin
 
-Seçin **indirme günlükleri** indirmek için bağlam menüsünden bir `.zip` test yürütme sırasında günlükleri çıkış dosyası. Bu eylem, tamamlanan, yalnızca testler için bir test durumu ya da başka bir deyişle, kullanılabilir `Cancelled`, `Failed`, `Aborted`, veya `Succeeded`.
+Seçin **indirme günlükleri** indirmek için bağlam menüsünden bir `.zip` test yürütme sırasında günlükleri çıkış dosyası. Bu eylem, diğer bir deyişle, bir test ya da durumuyla tamamlanan testler için kullanılabilir `Cancelled`, `Failed`, `Aborted`, veya `Succeeded`.
 
 #### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>Bir test örneği randevularını yeniden zamanlayabilir veya bir test zamanlama
 

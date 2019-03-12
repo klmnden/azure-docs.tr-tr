@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0a46a5707d1901c18d850ff9cfd8d4b09b72c646
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7accb8f2d97f5e4b4dc19ba93ab9edc1a4e6ce8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021280"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541342"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Öğretici: Data Factory kullanarak SQL veritabanına veri kopyalama Blob depolamadan
 > [!div class="op_single_selector"]
@@ -93,7 +93,7 @@ Emin **Azure hizmetlerine erişime izin ver** ayarı **ON** Azure SQL sunucunuzu
     John, Doe
     Jane, Doe
     ```
-2. [Azure Storage Gezgini](http://storageexplorer.com/) gibi araçları **adftutorial** kapsayıcısı oluşturmak ve **emp.txt** dosyasını kapsayıcıya yüklemek için kullanın.
+2. [Azure Storage Gezgini](https://storageexplorer.com/) gibi araçları **adftutorial** kapsayıcısı oluşturmak ve **emp.txt** dosyasını kapsayıcıya yüklemek için kullanın.
 
     ![Azure Depolama Gezgini. Verileri Blob depolama alanından SQL veritabanına kopyalama](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Azure SQL Database’inizde **emp** tablosu oluşturmak için aşağıdaki SQL betiğini kullanın.  

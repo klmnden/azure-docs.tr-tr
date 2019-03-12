@@ -9,22 +9,15 @@ ms.topic: article
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.subservice: disks
-ms.openlocfilehash: 56e262a90f8ef5cda2fa076eab6c030a9cb4af1a
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: f537e6d31950ce66b7b218ec449276108b80220e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749367"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768732"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 
 Anlık görüntüleri hakkında daha fazla bilgi için anlık görüntü üzerinde bölümüne bakın. [yönetilen disk genel bakış](managed-disks-overview.md).
 
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-billing-and-fees.md)]
-
-## <a name="next-steps"></a>Sonraki adımlar
-
-Ultra yüksek SSD denemek istiyorsanız bkz konu üzerinde gösterecek.
-
-> [!div class="nextstepaction"]
-> [Etkinleştirme ve Ultra SSD kullanma](disks-enable-ultra-ssd.md)

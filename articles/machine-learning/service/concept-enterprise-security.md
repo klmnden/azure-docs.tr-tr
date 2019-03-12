@@ -1,6 +1,7 @@
 ---
-title: Azure Machine Learning hizmetine güvenli bir şekilde kullanın
-description: Azure Machine Learning hizmeti ile sunulan güvenlik özellikleri hakkında bilgi edinin. Bu makalede, kimlik doğrulaması, yetkilendirme, ağ güvenliği, veri şifreleme ve izleme hakkında bilgi edineceksiniz.
+title: Kurumsal güvenlik
+titleSuffix: Azure Machine Learning service
+description: 'Azure Machine Learning hizmetine güvenli bir şekilde kullanın: kimlik doğrulaması, yetkilendirme, ağ güvenliği, veri şifreleme ve izleme.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -8,15 +9,15 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 02/26/2018
-ms.openlocfilehash: a4111766da35d7ff558f00c3498a8fb4d9c40e55
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.date: 03/10/2019
+ms.openlocfilehash: b950e7d38235d089c6236c76136d8ec2fc7a1f74
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196344"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731320"
 ---
-# <a name="enterprise-security-for-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için Kurumsal güvenlik
+# <a name="enterprise-security-for-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için Kurumsal güvenlik
 
 Bu makalede, Azure Machine learning hizmeti kullanılabilir güvenlik özellikleri hakkında bilgi alacaksınız.
 

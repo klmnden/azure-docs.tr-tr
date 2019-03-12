@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fed31d07f4bbe9fc47ce0d2c31f45fed288c4c4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5639984c6eef7d1c081fd52061988d3535c00fa
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218032"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576999"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
 
@@ -50,6 +50,8 @@ Bu makalede, Azure Active Directory (Azure AD) kiracınız içindeki kullanıcı
   * Uygulama Ara sunucusu Hizmet Yöneticisi
   * CRM Hizmet Yöneticisi
   * Power BI Hizmet Yöneticisi
+  * Kimlik doğrulama Yöneticisi
+  * Ayrıcalıklı kimlik yöneticisi
 
 * 30 günlük bir deneme aboneliği geçtiyse; veya
 * Gösterim etki alanı contoso.com gibi mevcut değil; veya
@@ -75,13 +77,13 @@ Azure AD'de oturum açmak için gereken her bir kullanıcı hesabını hesaplar�
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Yalnızca bulut kullanıcı hesapları için geçerli bir parola ilkeleri
 
-Aşağıdaki tabloda, oluşturulan ve Azure AD'de yönetilen kullanıcı hesaplarına uygulanabilir kullanılabilir parola ilkesi ayarları açıklanır:
+Aşağıdaki tabloda, oluşturulan ve Azure AD'de yönetilen kullanıcı hesaplarına uygulanan parola ilkesi ayarları açıklanır:
 
 | Özellik | Gereksinimler |
 | --- | --- |
 | İzin verilen karakter |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| Karakterlere izin verilmez |<ul><li>Unicode karakter.</li><li>Alanları.</li><li> Yalnızca güçlü parolalar: Nokta karakteri içeremez "." Hemen önceki "\@ \" sembol".</li></ul> |
-| Parola kısıtlamaları |<ul><li>En az 8 karakter ve en fazla 16 karakter.</li><li>Yalnızca güçlü parolalar: Üç tanesi dört birini gerektirir:<ul><li>Küçük harf karakterler.</li><li>Büyük harf karakterler.</li><li>Sayılar (0-9).</li><li>Semboller (önceki parola kısıtlamalarını bakın).</li></ul></li></ul> |
+| Karakterlere izin verilmez |<ul><li>Unicode karakter.</li><li>Alanları.</li><li> Nokta karakteri içeremez "." hemen "\@ \" sembol".</li></ul> |
+| Parola kısıtlamaları |<ul><li>En az 8 karakter ve en fazla 16 karakter.</li><li>Üç tanesi dört birini gerektirir:<ul><li>Küçük harf karakterler.</li><li>Büyük harf karakterler.</li><li>Sayılar (0-9).</li><li>Semboller (önceki parola kısıtlamalarını bakın).</li></ul></li></ul> |
 | Parola sona erme süresi |<ul><li>Varsayılan değer: **90** gün.</li><li>Değeri kullanılarak yapılandırılabilir `Set-MsolPasswordPolicy` Azure Active Directory modülü için Windows PowerShell cmdlet'i.</li></ul> |
 | Parola süre sonu bildirimi |<ul><li>Varsayılan değer: **14** (parola süresi dolmadan).</li><li>Değeri kullanılarak yapılandırılabilir `Set-MsolPasswordPolicy` cmdlet'i.</li></ul> |
 | Parola kullanım süresi sonu |<ul><li>Varsayılan değer: **false** gün (Bu parola süre sonu etkin olduğunu gösterir).</li><li>Değeri kullanarak bireysel kullanıcı hesapları için yapılandırılabilir `Set-MsolUser` cmdlet'i.</li></ul> |

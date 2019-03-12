@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bea9a987078799436c9dcad650ee56d5d6d81512
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: b303a1cd3da7010573ce34dd4762616f4b6581d0
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341350"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729108"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Bağlı cihazlarınızın (Önizleme) Profilim portaldan yönetme
 Bağlı olduğunuz iş veya Okul hesabınızı kullanarak artık sahip olduğunuz, tüm devre dışı bırakma cihazları yönetmek gelen **cihazları** sayfasının **Profilim** portalı.
@@ -36,7 +36,7 @@ Bağlı olduğunuz iş veya Okul hesabınızı kullanarak artık sahip olduğunu
     ![Cihazları gösteren cihaz sayfasının bağlı](media/myprofile-portal/myprofile-portal-devices-page.png)
 
 ## <a name="disable-a-device"></a>Bir cihazı devre dışı
-Herhangi bir bağlı cihazlarınızın dilediğiniz zaman devre dışı bırakabilirsiniz. Bu, bir cihaz alışık olduğunuz değilse veya bir cihaz kaybolur veya çalınırsa özellikle önem taşır.
+Herhangi bir bağlı cihazlarınızın dilediğiniz zaman devre dışı bırakabilirsiniz. Bu, bir cihaz alışık olduğunuz değilse veya bir cihaz kaybolur veya çalınırsa özellikle önem taşır. Bir cihazı devre dışı bıraktıktan sonra kuruluşunuz tarafından artık doğrulanabilir ve kuruluşunuzun kaynaklarına erişmek mümkün olmayacaktır.
 
 >[!Important]
 >Yanlışlıkla bir cihazı devre dışı bırakırsanız, geri almak için hiçbir yolu yoktur. Cihaz yeniden eklemek için kuruluşun yöneticisine başvurmak zorunda kalırsınız.

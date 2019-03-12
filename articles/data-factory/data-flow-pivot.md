@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: fd7308e7ecb6e086dffb4bae0cc99c57dd699861
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5548a62218aaac2e4da3853e8e5d43a584922bc0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729831"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569901"
 ---
 # <a name="azure-data-factory-mapping-data-flow-pivot-transformation"></a>Azure veri fabrikası veri akışı Pivot dönüştürme eşlemesi
 
@@ -42,7 +42,7 @@ Son olarak, ve yeni çıkış projeksiyon dönüşümü gelen görüntülenecek 
 
 (İsteğe bağlı) Bir adlandırma deseni bir önek, Orta ve satır değerleri her yeni sütun adına eklenecek son eki ile ayarlayabilirsiniz.
 
-Örneği için "Sales" özetleme "Bölgeye göre" yeni sütun değerlerini her bir değerden satış, yani neden olur "25", "50", "1000" vs. Ancak, "Sales" ön eki değeri ayarlarsanız 
+Örneği için "Sales" özetleme "Bölgeye göre" yeni sütun değerlerini her bir değerden satış, yani neden olur "25", "50", "1000" vs. "Satış-" ön eki değeri ayarlarsanız, ancak her bir sütunun değeri "Sales-" değerinin başına eklersiniz.
 
 ![Özet Seçenekleri](media/data-flow/pivot5.png "Özet 5")
 
@@ -56,4 +56,8 @@ Sütun düzenini "Normal" ayarını Grup birlikte tüm toplanan değerleriyle ö
 
 ### <a name="how-to-rejoin-original-fields"></a>Özgün alanları yeniden katılmasına nasıl
 > [!NOTE]
-> Pivot dönüşümü yalnızca toplama, gruplandırma ve Özet eylem kullanılan sütunları proje. Akışınızı önceki adımdan gelen diğer sütunları eklemek isterseniz, önceki adımdan gelen yeni bir dal kullanın ve akış özgün metaverileri gereğince ile bağlanmak için kendi kendine birleşme düzeni'ni kullanın
+> Pivot dönüşümü yalnızca toplama, gruplandırma ve Özet eylem kullanılan sütunları proje. Akışınızı önceki adımdan gelen diğer sütunları eklemek isterseniz, önceki adımdan gelen yeni bir dal kullanın ve akış özgün metaverileri gereğince ile bağlanmak için kendi kendine birleşme düzeni'ni kullanın.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Deneyin [dönüştürme Çöz](data-flow-unpivot.md) sütun değerleri satır değerlerinin açmak için. 
