@@ -124,8 +124,6 @@ items:
     href: monitor.md
   - name: Yedekleme ve kurtarma
     href: backup-recovery.md
-  - name: Yüksek performanslı bilgi işlem
-    href: high-performance-computing.md
   - name: Altyapı örneği
     href: infrastructure-example.md
 - name: Nasıl yapılır kılavuzları
@@ -313,43 +311,46 @@ items:
         href: excel-cluster-hpcpack.md
   - name: Depolamayı yönetme
     items:
-    - name: Disklerle ilgili SSS
-      href: faq-for-disks.md
     - name: Disk ekleme
       items:
       - name: Azure PowerShell
         href: attach-disk-ps.md
       - name: Azure portal
         href: attach-managed-disk-portal.md
-    - name: Disk kıyaslama
-      href: disks-benchmarks.md
     - name: Disk ayırma
       href: detach-disk.md
+    - name: Şablon ile diskleri dağıtma
+      href: using-managed-disks-template-deployments.md
     - name: Bir diski yeniden boyutlandırma
       href: expand-os-disk.md
     - name: Bir diskin anlık görüntüsünü alma
       href: snapshot-copy-managed-disk.md
     - name: Yönetilmeyen diskleri yedekleme
       href: incremental-snapshots.md
-    - name: Standart ve Premium arasında disk dönüştürme
-      href: convert-disk-storage.md
-    - name: Azure Site Recovery ile Premium depolamaya geçiş
-      href: migrate-to-premium-storage-using-azure-site-recovery.md
+    - name: Geçiş ve dönüştürme
+      items:
+      - name: Standart ve Premium arasında disk dönüştürme
+        href: convert-disk-storage.md
+      - name: Azure Site Recovery ile Premium depolamaya geçiş
+        href: migrate-to-premium-storage-using-azure-site-recovery.md
+      - name: Yönetilen Disklere geçme
+        href: migrate-to-managed-disks.md
+      - name: Yönetilmeyen VM’den Yönetilen Diskler’e
+        href: convert-unmanaged-to-managed-disks.md
+    - name: Performans
+      items:
+      - name: Yazma hızlandırıcıyı etkinleştirme
+        href: how-to-enable-write-accelerator.md
+      - name: Ultra SSD'leri etkinleştirme
+        href: disks-enable-ultra-ssd.md
+      - name: Disk kıyaslama
+        href: disks-benchmarks.md
     - name: Kullanıma açılmamış diskleri bulma
       href: find-unattached-disks.md
     - name: Dosya depolamayı kullanma
-      href: mount-azure-file-storage.md
-    - name: Şablon ile diskleri dağıtma
-      href: using-managed-disks-template-deployments.md
-    - name: Yazma hızlandırıcıyı etkinleştirme
-      href: how-to-enable-write-accelerator.md
-    - name: Ultra SSD'leri etkinleştirme
-      href: disks-enable-ultra-ssd.md
-    - name: Yönetilen Disklere geçme
-      href: migrate-to-managed-disks.md
-      items:
-      - name: Yönetilmeyen VM’den Yönetilen Diskler’e
-        href: convert-unmanaged-to-managed-disks.md
+      href: ../../storage/files/storage-files-quick-create-use-windows.md
+    - name: Disklerle ilgili SSS
+      href: faq-for-disks.md
   - name: Ağı yönetme
     href: ps-common-network-ref.md
     items:
@@ -461,9 +462,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: SSS
     href: faq.md
-ms.openlocfilehash: 3ddf84852fee0dc30aa9bc7e9d49f06493f6b0cc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 78a321bbf5bbf3c970d7b6caef3409d55d33c808
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448451"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732517"

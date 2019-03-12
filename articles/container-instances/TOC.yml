@@ -7,11 +7,11 @@ items:
     href: container-instances-overview.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: Kapsayıcı oluşturma - CLI
+  - name: Kapsayıcı örneği dağıtma - CLI
     href: container-instances-quickstart.md
-  - name: Kapsayıcı oluşturma - Portal
+  - name: Kapsayıcı örneği dağıtma - Portal
     href: container-instances-quickstart-portal.md
-  - name: Kapsayıcı oluşturma - PowerShell
+  - name: Kapsayıcı örneği dağıtma - PowerShell
     href: container-instances-quickstart-powershell.md
   expanded: true
 - name: Öğreticiler
@@ -30,12 +30,14 @@ items:
     href: container-instances-samples-rm.md
 - name: Kavramlar
   items:
-  - name: Kotalar ve bölgesel sınırlar
-    href: container-instances-quotas.md
-  - name: Düzenleyicilerle ilişki
-    href: container-instances-orchestrator-relationship.md
   - name: Kapsayıcı grupları
     href: container-instances-container-groups.md
+  - name: Kotalar ve sınırlar
+    href: container-instances-quotas.md
+  - name: Bölge kullanılabilirliği
+    href: container-instances-region-availability.md
+  - name: Düzenleyicilerle ilişki
+    href: container-instances-orchestrator-relationship.md
 - name: Nasıl yapılır kılavuzları
   items:
   - name: Dağıtma
@@ -44,48 +46,50 @@ items:
       href: container-instances-multi-container-yaml.md
     - name: Birden çok kapsayıcılı gruplar - Resource Manager
       href: container-instances-multi-container-group.md
-    - name: Sanal ağ dağıtımı (önizleme)
+    - name: Sanal ağda dağıtma (önizleme)
       href: container-instances-vnet.md
-    - name: GPU kaynakları ile dağıtma (önizleme)
-      href: container-instances-gpu.md
     - name: Azure Container Registry üzerinden dağıtma
       href: container-instances-using-azure-container-registry.md
+  - name: Kapsayıcı senaryoları
+    items:
+    - name: Bir kez çalıştırılan görevler için yeniden başlatma ilkesini ayarlama
+      href: container-instances-restart-policy.md
     - name: Ortam değişkenlerini belirleme (env)
       href: container-instances-environment-variables.md
-    - name: Canlılık yoklaması yapılandırma
-      href: container-instances-liveness-probe.md
-  - name: Yönetme
-    items:
-    - name: Çalışan kapsayıcıları güncelleştirme
-      href: container-instances-update.md
     - name: Komut yürütme (exec)
       href: container-instances-exec.md
-    - name: CPU ve bellek kullanımını izleme
-      href: container-instances-monitor.md
-    - name: Azure İzleyici günlükleriyle günlüğe kaydetme
-      href: container-instances-log-analytics.md
-  - name: İş yükleri çalıştırma
-    items:
-    - name: Yeniden başlatma ilkeleriyle görev çalıştırma
-      href: container-instances-restart-policy.md
-    - name: ACI üzerindeki Jenkins derleme aracıları
+    - name: Jenkins derleme işini çalıştırma
       href: container-instances-jenkins.md
     - name: Yönetilen kimlik kullanma (önizleme)
       href: container-instances-managed-identity.md
-  - name: Veri hacimlerini yapılandırma
+    - name: GPU kaynaklarını kullanma (önizleme)
+      href: container-instances-gpu.md
+  - name: Veri birimlerini bağlama
     items:
-    - name: Azure Dosyaları
+    - name: Azure dosya paylaşımı
       href: container-instances-volume-azure-files.md
-    - name: emptyDir
-      href: container-instances-volume-emptydir.md
-    - name: gitRepo
-      href: container-instances-volume-gitrepo.md
-    - name: gizli dizi
+    - name: Gizli dizi
       href: container-instances-volume-secret.md
-  - name: Sorun giderme
+    - name: Boş dizin
+      href: container-instances-volume-emptydir.md
+    - name: Kopyalanmış Git deposu
+      href: container-instances-volume-gitrepo.md
+  - name: Çalışan kapsayıcıları yönetme
     items:
+    - name: Canlılık yoklaması yapılandırma
+      href: container-instances-liveness-probe.md
+    - name: Çalışan kapsayıcıları güncelleştirme
+      href: container-instances-update.md
+  - name: İzleyici ve günlük
+    items:
+    - name: CPU ve bellek kullanımını izleme
+      href: container-instances-monitor.md
     - name: Kapsayıcı günlüklerini ve olaylarını alma
       href: container-instances-get-logs.md
+    - name: Azure Log Analytics ile günlüğe kaydetme
+      href: container-instances-log-analytics.md
+  - name: Sorun giderme
+    items:
     - name: Yaygın sorunları giderme
       href: container-instances-troubleshooting.md
 - name: Başvuru
@@ -119,12 +123,12 @@ items:
   - name: Ürün geri bildirimi sağlama
     href: https://feedback.azure.com/forums/602224-azure-container-instances
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-instances
+    href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: Videolar
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
-ms.openlocfilehash: 062c4f2b196ab587577ef4703f79af2f7259c776
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fcee083f7d98aba1856cf204f5c2d559d1b5925b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871715"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731203"

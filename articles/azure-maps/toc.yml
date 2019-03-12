@@ -63,33 +63,41 @@ items:
       href: how-to-search-for-address.md
     - name: Statik haritada özel veri işleme
       href: how-to-render-custom-data.md
-  - name: JavaScript haritaları oluşturma
+  - name: Web SDK ile geliştirme
     items:
-    - name: Harita denetimini kullanma
-      href: how-to-use-map-control.md
-    - name: Harita oluşturma
-      href: map-create.md
-    - name: Harita stili seçme
-      href: choose-map-style.md
-    - name: Harita denetimleri ekleme
-      href: map-add-controls.md
-    - name: Sembol katmanı ekleme
-      href: map-add-pin.md
-    - name: Açılır pencere ekleme
-      href: map-add-popup.md
-    - name: Baloncuk katmanı ekleme
-      href: map-add-bubble-layer.md
-    - name: Şekil ekleme
-      href: map-add-shape.md
-    - name: Isı haritası katmanı ekleme
-      href: map-add-heat-map-layer.md
-    - name: Görüntü katmanı ekleme
-      href: map-add-image-layer.md
-    - name: Kutucuk katmanı ekleme
-      href: map-add-tile-layer.md
-    - name: HTML işaretçileri ekleme
-      href: map-add-custom-html.md
-    - name: Hizmetler
+    - name: Harita denetimi
+      items:
+      - name: Harita denetimini kullanma
+        href: how-to-use-map-control.md
+      - name: Harita oluşturma
+        href: map-create.md
+      - name: Harita stili seçme
+        href: choose-map-style.md
+      - name: Haritaya denetim ekleme
+        href: map-add-controls.md
+      - name: Sembol katmanı ekleme
+        href: map-add-pin.md
+      - name: Açılır pencere ekleme
+        href: map-add-popup.md
+      - name: Baloncuk katmanı ekleme
+        href: map-add-bubble-layer.md
+      - name: Şekil ekleme
+        href: map-add-shape.md
+      - name: Isı haritası katmanı ekleme
+        href: map-add-heat-map-layer.md
+      - name: Resme katman ekleme
+        href: map-add-image-layer.md
+      - name: Kutucuk katmanları ekleme
+        href: map-add-tile-layer.md
+      - name: HTML işaretçileri
+        href: map-add-custom-html.md
+      - name: Trafiği gösterme
+        href: map-show-traffic.md
+      - name: Fare olayları ile etkileşim kurma
+        href: map-events.md
+      - name: Uygulamanızın erişilebilir olmasını sağlama
+        href: map-accessibility.md
+    - name: Hizmetler modülü
       items:
       - name: Arama sonuçlarını gösterme
         href: map-search-location.md
@@ -97,13 +105,7 @@ items:
         href: map-get-information-from-coordinate.md
       - name: A'dan B'ye yönleri gösterme
         href: map-route.md
-    - name: Trafiği gösterme
-      href: map-show-traffic.md
-    - name: Fare olayları ile etkileşim kurma
-      href: map-events.md
-    - name: Erişilebilir harita uygulamaları
-      href: map-accessibility.md
-  - name: Android haritaları oluşturma
+  - name: Android SDK ile geliştirme
     items:
     - name: Android harita denetimini kullanma
       href: how-to-use-android-map-control-library.md
@@ -150,7 +152,7 @@ items:
 - name: Kaynaklar
   items:
   - name: Azure Haritalar kullanım koşulları
-    href: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
+    href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
   - name: Fiyatlandırma
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Fiyatlandırma hesaplayıcı
@@ -197,9 +199,9 @@ items:
       href: /azure/iot-edge
     - name: IoT Cihaz SDK'ları
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: b0584c77ed7d8b3ed6c6962d02b75e061a97bf14
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 2d974c96dd953c7a2727bcd5b1bcc3b60ad807a0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336742"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569238"

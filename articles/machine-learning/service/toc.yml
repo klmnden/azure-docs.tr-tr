@@ -53,8 +53,16 @@ items:
     href: concept-accelerate-with-fpgas.md
   - name: Makine öğrenmesi işlem hatları
     href: concept-ml-pipelines.md
-  - name: Kurumsal güvenlik
-    href: concept-enterprise-security.md
+  - name: Güvenlik
+    items:
+    - name: Kurumsal güvenliğe genel bakış
+      displayName: authorization authentication encryption
+      href: concept-enterprise-security.md
+    - name: Sanal ağları kullanma
+      displayName: vnet
+      href: how-to-enable-virtual-network.md
+    - name: SSL ile web hizmetlerinin güvenliğini sağlama
+      href: how-to-secure-web-service.md
 - name: Nasıl yapılır kılavuzları
   items:
   - name: Çalışma alanlarını yönetme
@@ -113,6 +121,8 @@ items:
     - name: Uzak işlem hedeflerini kullanma
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
+    - name: Tahmin modellerini otomatik olarak eğitme
+      href: how-to-auto-train-forecast.md
   - name: ONNX modelleri
     href: how-to-build-deploy-onnx.md
   - name: Modelleri dağıtma
@@ -139,13 +149,6 @@ items:
       href: how-to-enable-data-collection.md
     - name: Application Insights ile izleme
       href: how-to-enable-app-insights.md
-  - name: Güvenlik
-    items:
-    - name: Sanal ağları kullanma
-      displayName: vnet
-      href: how-to-enable-virtual-network.md
-    - name: SSL ile web hizmetlerinin güvenliğini sağlama
-      href: how-to-secure-web-service.md
   - name: İlk işlem hattınızı oluşturma
     href: how-to-create-your-first-pipeline.md
   - name: Günlü kaydını etkinleştir
@@ -189,9 +192,9 @@ items:
     href: support-for-aml-services.md
   - name: ML ürünlerimizi karşılaştırın
     href: overview-more-machine-learning.md
-ms.openlocfilehash: 5d7cdcec4e0b855f509539a1fc79015793efc404
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 19a26ea88ba8c8e820e838a7c96a802180129dd7
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192140"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766276"

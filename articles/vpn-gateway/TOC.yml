@@ -45,90 +45,106 @@ items:
       href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Siteden Siteye bağlantıları yapılandırma
+  - name: VPN ağ geçidi oluşturma ve yönetme
     items:
-    - name: Azure portal
-      href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
-    - name: Azure PowerShell
-      href: vpn-gateway-create-site-to-site-rm-powershell.md
-    - name: Azure CLI
-      href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
-  - name: VPN cihazı yapılandırma betiklerini indirme
-    href: vpn-gateway-download-vpndevicescript.md
-  - name: Noktada Siteye bağlantıları yapılandırma - Yerel Azure sertifika kimlik doğrulaması
-    items:
-    - name: P2S VPN yapılandırma
+    - name: Rota temelli VPN ağ geçidi oluşturma
       items:
       - name: Azure portal
-        href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+        href: create-routebased-vpn-gateway-portal.md
       - name: Azure PowerShell
-        href: vpn-gateway-howto-point-to-site-rm-ps.md
-    - name: P2S sertifikaları ve istemciler
+        href: create-routebased-vpn-gateway-powershell.md
+      - name: Azure CLI
+        href: create-routebased-vpn-gateway-cli.md
+    - name: Bir VPN ağ geçidi bağlantısını doğrulama
+      href: vpn-gateway-verify-connection-resource-manager.md
+    - name: Bir VPN ağ geçidini sıfırlama
+      href: vpn-gateway-resetgw-classic.md
+    - name: VPN ağ geçidi silme
       items:
-      - name: Otomatik olarak imzalanan sertifikalar oluşturma
-        items:
-        - name: Azure PowerShell
-          href: vpn-gateway-certificates-point-to-site.md
-        - name: Makecert
-          href: vpn-gateway-certificates-point-to-site-makecert.md
-        - name: Linux
-          href: vpn-gateway-certificates-point-to-site-linux.md
-    - name: İstemci sertifikalarını yükleme
-      href: point-to-site-how-to-vpn-client-install-azure-cert.md
-    - name: VPN istemcisi yapılandırma dosyalarını oluşturma ve yükleme
-      href: point-to-site-vpn-client-configuration-azure-cert.md
-  - name: Noktadan Siteye bağlantıları yapılandırma - RADIUS kimlik doğrulaması
-    items:
-    - name: P2S VPN yapılandırma
-      items:
+      - name: Azure portal
+        href: vpn-gateway-delete-vnet-gateway-portal.md
       - name: Azure PowerShell
-        href: point-to-site-how-to-radius-ps.md
-    - name: VPN istemcisi yapılandırma dosyalarını oluşturma ve yükleme
-      href: point-to-site-vpn-client-configuration-radius.md
-    - name: P2S VPN RADIUS kimlik doğrulamasını NPS sunucusu ile tümleştirme
-      href: vpn-gateway-radiuis-mfa-nsp.md
-  - name: OpenVPN yapılandırması
+        href: vpn-gateway-delete-vnet-gateway-powershell.md
+    - name: Eski Ağ Geçidi SKU'larını yönetme
+      href: vpn-gateway-about-skus-legacy.md
+  - name: Siteden siteye bağlantılar
     items:
-    - name: Noktadan siteye bağlantılar için OpenVPN yapılandırması
-      href: vpn-gateway-howto-openvpn.md
-    - name: OpenVPN istemcisi yapılandırması
-      href: vpn-gateway-howto-openvpn-clients.md
-  - name: VNet-VNet bağlantıları yapılandırma
-    items:
-    - name: Azure portal
-      href: vpn-gateway-howto-vnet-vnet-resource-manager-portal.md
-    - name: Azure PowerShell
-      href: vpn-gateway-vnet-vnet-rm-ps.md
-    - name: Azure CLI
-      href: vpn-gateway-howto-vnet-vnet-cli.md
-  - name: Dağıtım modelleri arasında sanal ağdan sanal ağa bağlantı yapılandırma
-    items:
-    - name: Azure portal
-      href: vpn-gateway-connect-different-deployment-models-portal.md
-    - name: Azure PowerShell
-      href: vpn-gateway-connect-different-deployment-models-powershell.md
-  - name: Birlikte bulunan Siteden Siteye bağlantılar ile ExpressRoute bağlantılarını yapılandırma
-    items:
-    - name: Azure PowerShell
-      href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
-  - name: Birden çok Siteden Siteye bağlantı yapılandırma
-    items:
-    - name: Azure portal
+    - name: S2S bağlantısını yapılandırma
+      items:
+      - name: Azure portal
+        href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
+      - name: Azure PowerShell
+        href: vpn-gateway-create-site-to-site-rm-powershell.md
+      - name: Azure CLI
+        href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
+    - name: Birden çok Siteden Siteye bağlantı yapılandırma
       href: vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md
-  - name: Birden çok ilke tabanlı VPN cihazı bağlama
-    items:
-    - name: Azure PowerShell
+    - name: Birden çok ilke tabanlı VPN cihazına bağlanma
       href: vpn-gateway-connect-multiple-policybased-rm-ps.md
-  - name: Bağlantılarda IPsec/IKE ilkelerini yapılandırma
+    - name: Siteden Siteye ve ExpressRoute eşzamanlı bağlantıları
+      href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+  - name: Sanal Ağdan Sanal Ağa bağlantılar
     items:
-    - name: Azure PowerShell
-      href: vpn-gateway-ipsecikepolicy-rm-powershell.md
-  - name: Yüksek oranda kullanılabilir etkin-etkin bağlantıları yapılandırma
+    - name: VNet-VNet bağlantıları yapılandırma
+      items:
+      - name: Azure portal
+        href: vpn-gateway-howto-vnet-vnet-resource-manager-portal.md
+      - name: Azure PowerShell
+        href: vpn-gateway-vnet-vnet-rm-ps.md
+      - name: Azure CLI
+        href: vpn-gateway-howto-vnet-vnet-cli.md
+    - name: Dağıtım modelleri arasında sanal ağdan sanal ağa bağlantı yapılandırma
+      items:
+      - name: Azure portal
+        href: vpn-gateway-connect-different-deployment-models-portal.md
+      - name: Azure PowerShell
+        href: vpn-gateway-connect-different-deployment-models-powershell.md
+  - name: Noktadan Siteye bağlantılar
     items:
-    - name: Azure PowerShell
-      href: vpn-gateway-activeactive-rm-powershell.md
+    - name: Azure sertifikası kimlik doğrulaması
+      items:
+      - name: P2S VPN yapılandırma
+        items:
+        - name: Azure portal
+          href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+        - name: Azure PowerShell
+          href: vpn-gateway-howto-point-to-site-rm-ps.md
+      - name: P2S sertifikaları ve istemcilerini yapılandırma
+        items:
+        - name: Otomatik olarak imzalanan sertifikalar oluşturma
+          items:
+          - name: Azure PowerShell
+            href: vpn-gateway-certificates-point-to-site.md
+          - name: Makecert
+            href: vpn-gateway-certificates-point-to-site-makecert.md
+          - name: Linux
+            href: vpn-gateway-certificates-point-to-site-linux.md
+      - name: İstemci sertifikalarını yükleme
+        href: point-to-site-how-to-vpn-client-install-azure-cert.md
+      - name: VPN istemcisi yapılandırma dosyalarını oluşturma ve yükleme
+        href: point-to-site-vpn-client-configuration-azure-cert.md
+    - name: Radius kimlik doğrulaması
+      items:
+      - name: P2S VPN yapılandırma
+        href: point-to-site-how-to-radius-ps.md
+      - name: VPN istemcisi yapılandırma dosyalarını oluşturma ve yükleme
+        href: point-to-site-vpn-client-configuration-radius.md
+      - name: P2S VPN RADIUS kimlik doğrulamasını NPS sunucusu ile tümleştirme
+        href: vpn-gateway-radiuis-mfa-nsp.md
+    - name: OpenVPN
+      items:
+      - name: Noktadan siteye bağlantılar için OpenVPN yapılandırması
+        href: vpn-gateway-howto-openvpn.md
+      - name: OpenVPN istemcisi yapılandırması
+        href: vpn-gateway-howto-openvpn-clients.md
+    - name: P2S için genel CA ağ geçidi sertifikasına geçiş
+      href: vpn-gateway-point-to-site-gateway-public-ca.md
   - name: Azure Kullanılabilirlik Alanları arasında yedekli VNet ağ geçidi oluşturma
     href: create-zone-redundant-vnet-gateway.md
+  - name: Bağlantılarda IPsec/IKE ilkelerini yapılandırma
+    href: vpn-gateway-ipsecikepolicy-rm-powershell.md
+  - name: Aktif/aktif bağlantıları yapılandırma
+    href: vpn-gateway-activeactive-rm-powershell.md
   - name: Yönlendirme, BGP ve VNet Eşlemesi
     items:
     - name: Bir VPN ağ geçidi için BGP yapılandırma
@@ -145,7 +161,7 @@ items:
         href: vpn-gateway-about-forced-tunneling.md
     - name: VNet eşlemesi için ağ geçidi geçişi yapılandırma
       href: vpn-gateway-peering-gateway-transit.md
-  - name: Yerel ağ geçidi ayarlarını değiştirme
+  - name: Yerel ağ geçidini değiştirme
     items:
     - name: Azure portal
       href: vpn-gateway-modify-local-network-gateway-portal.md
@@ -153,34 +169,14 @@ items:
       href: vpn-gateway-modify-local-network-gateway.md
     - name: Azure CLI
       href: vpn-gateway-modify-local-network-gateway-cli.md
-  - name: Rota temelli VPN ağ geçidi oluşturma
-    items:
-    - name: Azure portal
-      href: create-routebased-vpn-gateway-portal.md
-    - name: Azure PowerShell
-      href: create-routebased-vpn-gateway-powershell.md
-    - name: Azure CLI
-      href: create-routebased-vpn-gateway-cli.md
-  - name: Bir VPN ağ geçidi bağlantısını doğrulama
-    href: vpn-gateway-verify-connection-resource-manager.md
-  - name: Bir VPN ağ geçidini sıfırlama
-    href: vpn-gateway-resetgw-classic.md
-  - name: VPN ağ geçidi silme
-    items:
-    - name: Azure portal
-      href: vpn-gateway-delete-vnet-gateway-portal.md
-    - name: Azure PowerShell
-      href: vpn-gateway-delete-vnet-gateway-powershell.md
-  - name: Ağ geçidi SKU’ları (eski)
-    href: vpn-gateway-about-skus-legacy.md
   - name: VPN cihazlarını yapılandırma
     items:
     - name: Genel bakış ve Azure yapılandırması
       href: vpn-gateway-3rdparty-device-config-overview.md
+    - name: VPN cihazı yapılandırma betiklerini indirme
+      href: vpn-gateway-download-vpndevicescript.md
     - name: 'Örnek: Cisco ASA cihazı (IKEv2/BGP yok)'
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
-  - name: P2S için genel CA ağ geçidi sertifikasına geçiş
-    href: vpn-gateway-point-to-site-gateway-public-ca.md
   - name: Sorun giderme
     href: vpn-gateway-troubleshoot.md
     items:
@@ -252,9 +248,9 @@ items:
     href: https://azure.microsoft.com/support/legal/sla
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway
-ms.openlocfilehash: af9469c41660e8f5d98e93a8bfea9af977396d04
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 84c6a8972109e8512e66a5fa6283125534b2e2e1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817567"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781298"

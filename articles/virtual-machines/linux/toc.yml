@@ -124,8 +124,6 @@ items:
     href: monitor.md
   - name: Yedekleme ve kurtarma
     href: backup-recovery.md
-  - name: Yüksek performanslı bilgi işlem
-    href: high-performance-computing.md
   - name: Dağıtma konuları
     items:
     - name: Altyapı yönergeleri
@@ -398,7 +396,7 @@ items:
       - name: Linux üzerinde MS SQL
         href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: Yüksek Performanslı Bilgi İşlem (HPC)
-      href: https://docs.microsoft.com/powershell/high-performance-computing/overview
+      href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
     - name: IBM Db2 pureScale
       items:
       - name: Mimari
@@ -407,49 +405,52 @@ items:
         href: deploy-ibm-db2-purescale-azure.md
   - name: Depolamayı yönetme
     items:
-    - name: Disklerle ilgili SSS
-      href: faq-for-disks.md
     - name: Disk ekleme
       items:
       - name: Azure CLI
         href: add-disk.md
       - name: Azure portal
         href: attach-disk-portal.md
-    - name: Disk kıyaslama
-      href: disks-benchmarks.md
     - name: Disk ayırma
       href: detach-disk.md
+    - name: Şablon ile diskleri dağıtma
+      href: using-managed-disks-template-deployments.md
     - name: Bir diski yeniden boyutlandırma
       href: expand-disks.md
     - name: Bir diskin anlık görüntüsünü alma
       href: snapshot-copy-managed-disk.md
     - name: Yönetilmeyen diskleri yedekleme
       href: incremental-snapshots.md
-    - name: Yönetilen Disklere dönüştürme
-      href: convert-unmanaged-to-managed-disks.md
-    - name: Standart ve Premium arasında disk dönüştürme
-      href: convert-disk-storage.md
+    - name: Geçiş ve dönüştürme
+      items:
+      - name: Azure Site Recovery ile Premium depolamaya geçiş
+        href: migrate-to-premium-storage-using-azure-site-recovery.md
+      - name: Yönetilen Disklere dönüştürme
+        href: convert-unmanaged-to-managed-disks.md
+      - name: Standart ve Premium arasında disk dönüştürme
+        href: convert-disk-storage.md
     - name: Dosyaları bir VM’ye kopyalama
       href: copy-files-to-linux-vm-using-scp.md
-    - name: Azure Site Recovery ile Premium depolamaya geçiş
-      href: migrate-to-premium-storage-using-azure-site-recovery.md
-    - name: Kullanıma açılmamış diskleri bulma
-      href: find-unattached-disks.md
-    - name: Dosya depolamayı kullanma
-      href: mount-azure-file-storage-on-linux-using-smb.md
-    - name: Şablon ile diskleri dağıtma
-      href: using-managed-disks-template-deployments.md
-    - name: Yazma hızlandırıcıyı kullanma
-      href: how-to-enable-write-accelerator.md
-    - name: Ultra SSD'leri etkinleştirme
-      href: disks-enable-ultra-ssd.md
-    - name: Performansı iyileştirme
-      href: optimization.md
+    - name: Performans
       items:
+      - name: Yazma hızlandırıcıyı kullanma
+        href: how-to-enable-write-accelerator.md
+      - name: Ultra SSD'leri etkinleştirme
+        href: disks-enable-ultra-ssd.md
+      - name: Disk kıyaslama
+        href: disks-benchmarks.md
+      - name: Performansı iyileştirme
+        href: optimization.md
       - name: Yazılım RAID yapılandırma
         href: configure-raid.md
       - name: LVM'yi yapılandırma
         href: configure-lvm.md
+    - name: Kullanıma açılmamış diskleri bulma
+      href: find-unattached-disks.md
+    - name: Dosya depolamayı kullanma
+      href: mount-azure-file-storage-on-linux-using-smb.md
+    - name: Disklerle ilgili SSS
+      href: faq-for-disks.md
   - name: Ağı yönetme
     items:
     - name: Sanal ağ oluşturma
@@ -559,9 +560,9 @@ items:
     href: faq.md
 - name: Sorun giderme
   href: ../troubleshooting/index.md
-ms.openlocfilehash: 776adc5310db7c4a7762409a53c57e896cc95360
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ade43488288949aa22942c8df2d6900e4522615a
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438298"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732018"
