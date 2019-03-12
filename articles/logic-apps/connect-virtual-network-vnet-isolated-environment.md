@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/26/2019
-ms.openlocfilehash: c0f4d483c214847227059046c2dda305f63398d6
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.date: 03/11/2019
+ms.openlocfilehash: c31d260c99707f4231a6833479517b9b69575d55
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991744"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778918"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Azure sanal ağlarına Azure Logic Apps'ten tümleştirme hizmeti ortamı (ISE) kullanarak bağlanma
 
@@ -28,8 +28,6 @@ Logic apps ve tümleştirme hesapları gereken yere erişimi senaryoları için 
 Bu makalede, bu görevleri tamamlamak gösterilmektedir:
 
 * Tümleştirme hizmeti ortamı (ISE) üzerinden trafiği ilerleyebilir için sanal ağ içindeki alt ağlar arasındaki bağlantı noktaları Azure sanal ağınızda ayarlayın.
-
-* Sanal ağınızın özel Logic Apps örneği erişebilmesi için Azure sanal ağınız üzerindeki izinleri ayarlayın.
 
 * Tümleştirme hizmeti ortamı (ISE) oluşturun.
 
@@ -46,9 +44,11 @@ Tümleştirme service ortamları hakkında daha fazla bilgi için bkz: [Azure Lo
   > [!IMPORTANT]
   > Logic apps, yerleşik Eylemler ve bağlayıcılar, ISE'de çalıştıran farklı bir fiyatlandırma planı, değil tüketim tabanlı fiyatlandırma planı kullanın. Daha fazla bilgi için [Logic Apps fiyatlandırma](../logic-apps/logic-apps-pricing.md).
 
-* Bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md). Bir sanal ağınız yoksa, bilgi nasıl [bir Azure sanal ağı oluşturma](../virtual-network/quick-create-portal.md). Ayrıca, işe dağıtmak için ağınızda sanal alt ağlar gerekir. Bu alt ağlara önceden oluşturun veya alt ağlar aynı anda oluşturabileceğiniz, işe oluşturana kadar bekleyin. Ayrıca, [sanal ağınızda kullanılabilir hale getirir Bu bağlantı noktaları olduğundan emin olun](#ports) , işe düzgün şekilde çalışır ve erişilebilir kalır.
+* Bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md). Bir sanal ağınız yoksa, bilgi nasıl [bir Azure sanal ağı oluşturma](../virtual-network/quick-create-portal.md). 
 
-* Logic apps, Azure sanal ağa doğrudan erişim vermek için [ağınızın rol tabanlı erişim denetimi (RBAC) izinleri ayarlama](#vnet-access) Logic Apps hizmetinin, sanal ağınızın erişmek için izinlere sahiptir.
+  * Sanal ağınızı dört olmalıdır *boş* , ISE'de kaynakları oluşturma ve dağıtma için alt ağlar. Bu alt önceden oluşturabilirsiniz veya alt ağlar aynı anda oluşturabileceğiniz, işe oluşturana kadar bekleyebilirsiniz. Daha fazla bilgi edinin [alt ağ gereksinimleri](#create-subnet).
+
+  * Emin olun, sanal ağınızın [Bu bağlantı noktaları kullanılabilmesini](#ports) , işe düzgün şekilde çalışır ve erişilebilir kalır.
 
 * Bir veya daha fazla özel DNS sunucuları, Azure sanal ağı dağıtmak için kullanılacak [bu yönergeleri izleyerek bu sunucusu ayarlayabilir](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) sanal ağınıza, işe dağıtmadan önce. Aksi takdirde, DNS sunucunuzun değiştirdiğiniz her durumda, ayrıca, işe işe genel Önizleme sürümü ile kullanıma hazır bir özellik olan yeniden başlatmanız gerekir.
 
@@ -60,13 +60,17 @@ Tümleştirme service ortamları hakkında daha fazla bilgi için bkz: [Azure Lo
 
 Erişilebilir kalmasını ve düzgün çalışması için tümleştirme hizmeti ortamı (ISE) belirli bağlantı noktalarını sanal ağınızda kullanılabilir olması gerekir. Aksi takdirde, bu bağlantı noktalarından birini kullanılamıyorsa, çalışmayı durdurabilir, işe için erişimi kaybedebilir. Bir sanal ağda bir işe kullandığınızda, engellenen bir veya daha fazla bağlantı noktaları ortak bir kurulum sorunu yaşıyor. İŞE hedef sistem arasındaki bağlantılar için kullandığınız bağlayıcı da kendi bağlantı noktası gereksinimleri olabilir. FTP Bağlayıcısı'nı kullanarak bir FTP sistemiyle iletişim kurmak, örneğin, üzerinde kullandığınız bağlantı noktası komutları göndermek için bağlantı noktası 21 gibi FTP sistemin kullanılabilir emin olun.
 
-İŞE nerede dağıttığınız sanal ağın alt ağlar arasında gelen ve giden trafiği denetlemek için ayarlayabileceğiniz [ağ güvenlik grupları](../virtual-network/security-overview.md) bilgi edinerek bu alt ağlar için [arasında ağ trafiğini filtreleme alt ağlar](../virtual-network/tutorial-filter-network-traffic.md). Bu tablo, işe kullanır ve bu bağlantı noktalarının kullanıldığı, sanal ağ bağlantı noktaları açıklar. Yıldız işareti (\*) tüm olası trafik kaynakları temsil eder. [Hizmet etiketi](../virtual-network/security-overview.md#service-tags) güvenlik kuralı oluştururken karmaşıklığını en aza indirmenize yardımcı IP adresi ön eki grubunu temsil eder.
+İŞE nerede dağıttığınız sanal ağın alt ağlar arasında gelen ve giden trafiği denetlemek için ayarlayabileceğiniz [ağ güvenlik grupları](../virtual-network/security-overview.md) bilgi edinerek bu alt ağlar için [arasında ağ trafiğini filtreleme alt ağlar](../virtual-network/tutorial-filter-network-traffic.md). Bu tablo, işe kullanır ve bu bağlantı noktalarının kullanıldığı, sanal ağ bağlantı noktaları açıklar. [Hizmet etiketi](../virtual-network/security-overview.md#service-tags) güvenlik kuralı oluştururken karmaşıklığını en aza indirmenize yardımcı IP adresi ön eki grubunu temsil eder. 
+
+> [!IMPORTANT]
+> Alt ağlarınızı içinde iç iletişimi için bu alt ağlardan içindeki tüm bağlantı noktaları açma ISE gerektirir. 
 
 | Amaç | Yön | Bağlantı Noktaları | Kaynak hizmeti etiketi | Hedef hizmet etiketi | Notlar |
 |---------|-----------|-------|--------------------|-------------------------|-------|
 | Azure Logic Apps gelen iletişimi | Giden | 80 & 443 | VIRTUAL_NETWORK | INTERNET | Bağlantı noktası ile iletişim kuran Logic Apps hizmetinin dış hizmete bağlıdır |
 | Azure Active Directory | Giden | 80 & 443 | VIRTUAL_NETWORK | AzureActiveDirectory | |
 | Azure depolama bağımlılık | Giden | 80 & 443 | VIRTUAL_NETWORK | Depolama | |
+| İntersubnet iletişimi | Gelen ve giden | 80 & 443 | VIRTUAL_NETWORK | VIRTUAL_NETWORK | Alt ağlar arasındaki iletişim için |
 | Azure Logic Apps ile iletişim | Gelen | 443 | INTERNET  | VIRTUAL_NETWORK | Herhangi bir istek tetikleyicisi veya mantıksal uygulamanızın mevcut Web kancası çağırır hizmet ve bilgisayar için IP adresi. Kapatma veya bu bağlantı noktası engelleyen istek Tetikleyicileri içeren mantıksal uygulamalar için HTTP çağrılarını engeller.  |
 | Mantıksal uygulama çalıştırma geçmişi | Gelen | 443 | INTERNET  | VIRTUAL_NETWORK | Bilgisayar, mantıksal uygulamayı görüntülemek için IP adresi çalıştırma geçmişi. Kapatma ya da bu bağlantı noktası engellemelerini çalıştırma geçmişini görüntülemesini engellemez, ancak girişleri görüntüleyemezsiniz ve çıkışlar, her adımda için çalıştırma geçmişi. |
 | Bağlantı Yönetimi | Giden | 443 | VIRTUAL_NETWORK  | INTERNET | |
@@ -74,46 +78,13 @@ Erişilebilir kalmasını ve düzgün çalışması için tümleştirme hizmeti 
 | Logic Apps Tasarımcısı - dinamik özellikleri | Gelen | 454 | INTERNET  | VIRTUAL_NETWORK | İstekleri mantıksal uygulamalardan gelen [uç noktasına erişmek gelen IP adreslerini bu bölgede](../logic-apps/logic-apps-limits-and-config.md#inbound). |
 | App Service Management bağımlılık | Gelen | 454 & 455 | AppServiceManagement | VIRTUAL_NETWORK | |
 | Bağlayıcı dağıtımı | Gelen | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Dağıtma ve bağlayıcıları güncelleştirme gerekli. Kapatma ya da bu bağlantı noktası engellemelerini ISE dağıtımları başarısız olmasına neden olur ve bağlayıcı güncelleştirmeler veya düzeltmeler önler. |
+| Azure SQL bağımlılığı | Giden | 1433 | VIRTUAL_NETWORK | SQL |
+| Azure Kaynak Durumu | Giden | 1886 | VIRTUAL_NETWORK | INTERNET | Kaynak Durumu'nda sistem durumu yayımlamak için |
 | API Yönetimi - yönetim uç noktası | Gelen | 3443 | APIManagement  | VIRTUAL_NETWORK | |
 | Olay hub'ı İlkesi ve İzleme Aracısı günlüğünden bağımlılığı | Giden | 5672 | VIRTUAL_NETWORK  | EventHub | |
-| Erişim Azure önbelleği için Redis örneği arasında rol örnekleri | Gelen <br>Giden | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | |
-| Azure Load Balancer | Gelen | 8500 | AzureLoadBalancer  | VIRTUAL_NETWORK | |
+| Erişim Azure önbelleği için Redis örneği arasında rol örnekleri | Gelen <br>Giden | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | Ayrıca, Redis için Azure önbellek ile çalışacak şekilde ISE için bunlar açmalısınız [Azure Cache Redis SSS açıklanan giden ve gelen bağlantı noktalarını](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Azure Load Balancer | Gelen | * | AZURE_LOAD_BALANCER | VIRTUAL_NETWORK |  |
 ||||||
-
-<a name="vnet-access"></a>
-
-## <a name="set-virtual-network-permissions"></a>Sanal ağ izinleri ayarlama
-
-Bir tümleştirme hizmeti ortamı (ISE) oluşturduğunuzda, yeri bir Azure sanal ağı seçin, *ekleme* ortamınızı. Ancak, ortamınıza ekleme için bir sanal ağ seçebilmeniz için sanal ağınızdaki rol tabanlı erişim denetimi (RBAC) izinlerini ayarlamanız gerekir. İzinleri ayarlama Azure Logic Apps hizmetine bu belirli rollere atayın:
-
-1. İçinde [Azure portalında](https://portal.azure.com)bulup, sanal ağ seçin.
-
-1. Sanal ağınızın menüsünde **erişim denetimi (IAM)**.
-
-1. Altında **erişim denetimi (IAM)**, seçin **rol ataması Ekle**.
-
-   ![Rolleri ekleme](./media/connect-virtual-network-vnet-isolated-environment/set-up-role-based-access-control-vnet.png)
-
-1. Üzerinde **rol ataması Ekle** bölmesinde gerekli rol açıklandığı gibi Azure Logic Apps hizmetine ekleyin.
-
-   1. Altında **rol**seçin **ağ Katılımcısı**.
-
-   1. Altında **erişim Ata**seçin **Azure AD kullanıcı, Grup veya hizmet sorumlusu**.
-
-   1. Altında **seçin**, girin **Azure Logic Apps**.
-
-   1. Üye listesi göründükten sonra seçin **Azure Logic Apps**.
-
-      > [!TIP]
-      > Bu hizmet bulamazsanız, Logic Apps hizmetin uygulama kimliği girin: `7cd684f4-8a78-49b0-91ec-6a35d38739ba`
-
-   1. İşiniz bittiğinde **Kaydet**’i seçin.
-
-   Örneğin:
-
-   ![Rol ataması ekle](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
-
-Daha fazla bilgi için [sanal ağ erişim izinleri](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 <a name="create-environment"></a>
 
@@ -144,12 +115,29 @@ Sonuçlar listesinden **tümleştirme hizmeti ortamı (Önizleme)** ve ardından
    | **Konum** | Evet | <*Azure veri merkezi bölgesi*> | Azure veri merkezi bölgesini ortamınızı dağıtılacağı yeri |
    | **Ek kapasite** | Evet | 0, 1, 2, 3 | Bu işe kaynak için kullanılacak işleme birimi sayısı. Oluşturulduktan sonra Kapasite eklemek için bkz [Kapasite eklemek](#add-capacity). |
    | **Sanal ağ** | Evet | <*Azure sanal-ağ-adı*> | Mantıksal uygulamalar bu ortamda, sanal ağınızın erişebilmesi için ortamınızı eklemesine istediğiniz Azure sanal ağı. Bir ağ yoksa, bir oluşturabilirsiniz burada. <p>**Önemli**: Yapabilecekleriniz *yalnızca* , işe oluşturduğunuzda bu ekleme gerçekleştirin. Bu ilişki oluşturabilmeniz için önce ancak, zaten emin [sanal ağınızdaki rol tabanlı erişim denetimi için Azure Logic Apps ayarlama](#vnet-access). |
-   | **Alt ağlar** | Evet | <*alt ağ kaynak listesi*> | Bir işe dört gerektirir *boş* ortamınızda kaynakları oluşturmak için alt ağlar. Bu nedenle, bu alt ağlara emin *temsilci olmayan* herhangi bir hizmete. *Değiştiremezsiniz* ortamınızı oluşturduktan sonra bu alt ağ adresi. <p><p>Her alt ağ oluşturmak için [bu tablonun altındaki adımları](#create-subnet). Her alt ağ, şu ölçütleri karşılamalıdır: <p>Boş olması gerekir. <br>-Bir sayı veya kısa çizgi ile başlamıyor bir ad kullanır. <br>-Kullanır [sınıfsız etki alanları arası yönlendirme (CIDR) biçimi](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) ve sınıf B adres alanı. <br>-İçeren en az bir `/27` adres alanındaki için en az 32 adres alt ağı alır. Adreslerin sayısını hesaplama hakkında bilgi edinmek için [IPv4 CIDR blokları](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks). Örneğin: <p>- `10.0.0.0/24` 256 adreslerine sahip 2<sup>(32-24)</sup> 2<sup>8</sup> veya 256. <br>- `10.0.0.0/27` 32 adres sahip 2<sup>(32-27)</sup> 2<sup>5</sup> veya 32. <br>- `10.0.0.0/28` yalnızca 16 adreslerine sahip 2<sup>(32-28)</sup> 2<sup>4</sup> veya 16. |
+   | **Alt ağlar** | Evet | <*alt ağ kaynak listesi*> | Bir işe dört gerektirir *boş* ortamınızda kaynakları oluşturmak için alt ağlar. Her alt ağ oluşturmak için [bu tablonun altındaki adımları](#create-subnet).  |
    |||||
 
    <a name="create-subnet"></a>
 
    **Alt ağ oluşturma**
+
+   Dört, işe gerektirir *boş* alt ağlar, *temsilci olmayan* ortamınızda kaynakları oluşturmak için herhangi bir hizmete. 
+   *Değiştiremezsiniz* ortamınızı oluşturduktan sonra bu alt ağ adresi. Her alt ağ, şu ölçütleri karşılamalıdır:
+
+   * Bir sayı veya kısa çizgi ile başlamıyor bir ad kullanır.
+
+   * Kullanan [sınıfsız etki alanları arası yönlendirme (CIDR) biçimi](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) ve sınıf B adres alanı.
+
+   * En az bir kullanan `/27` adresini her alt ağa 32 adres olarak olması gerektiğinden boşluk *minimum*. Örneğin:
+
+     * `10.0.0.0/27` 32 adres sahip 2<sup>(32-27)</sup> 2<sup>5</sup> veya 32.
+
+     * `10.0.0.0/24` 256 adreslerine sahip 2<sup>(32-24)</sup> 2<sup>8</sup> veya 256.
+
+     * `10.0.0.0/28` yalnızca 16 adresi vardır ve çok küçük olduğundan 2<sup>(32-28)</sup> 2<sup>4</sup> veya 16.
+
+     Adresleri hesaplama hakkında daha fazla bilgi için bkz. [IPv4 CIDR blokları](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    1. Altında **alt ağlar** listesinde **Yönet alt ağ yapılandırması**.
 
@@ -207,7 +195,7 @@ ISE temel birim kapasitesi, sabit daha fazla performans gerekiyorsa daha fazla �
    1. İçinde **varsayılan** bölümünde, seçin **alınabilecek**.
 
    1. Üzerinde **ölçek kuralı** bölmesinde, kural tetiklendiğinde gerçekleştirilecek, ölçütleri ve eylem ayarlayın.
-   
+
    1. İşiniz bittiğinde seçin **Ekle**.
 
 1. İşiniz bittiğinde, değişikliklerinizi kaydetmeyi unutmayın.
@@ -222,7 +210,7 @@ Tümleştirme hizmeti ortamı (ISE) kullanan mantıksal uygulamalar oluşturmak 
 
   ![Tümleştirme hizmeti ortamı seçin](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* Aynı yerleşik tetikleyiciler ve mantıksal olarak aynı işe çalıştırılması gibi eylemler HTTP, kullanabilirsiniz. Bağlayıcılarla **ISE** ayrıca mantıksal olarak aynı işe çalışma etiketleyin. Bağlayıcılar olmadan **ISE** etiket genel Logic Apps hizmetinde çalıştırın.
+* Aynı yerleşik tetikleyiciler ve Eylemler HTTP gibi mantıksal olarak aynı işe çalıştırılması kullanabilirsiniz. Bağlayıcılarla **ISE** ayrıca mantıksal olarak aynı işe çalışma etiketleyin. Bağlayıcılar olmadan **ISE** etiket genel Logic Apps hizmetinde çalıştırın.
 
   ![ISE bağlayıcıları seçme](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
 

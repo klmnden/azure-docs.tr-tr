@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: richrund
-ms.openlocfilehash: 25438a1d7449e5e77a68948fd79ea09acc58cdf2
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: e54c7e3260b2d296710a8563d3716f9c07fe8951
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307191"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57758820"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>PowerShell kullanarak Log Analytics’i yönetme
 
@@ -27,7 +27,7 @@ Kullanabileceğiniz [Log Analytics PowerShell cmdlet'leri](https://docs.microsof
 * Bir bilgisayar grubu oluşturun
 * Windows aracısının yüklü olduğu IIS günlükler bilgisayarlardan koleksiyonunu etkinleştir
 * Linux ve Windows bilgisayarlardan performans sayaçlarını Topla
-* Linux Bilgisayarları'nda syslog olaylarını Topla 
+* Linux Bilgisayarları'nda syslog olaylarını Topla
 * Windows olay günlüklerinden olaylarını Topla
 * Özel olay günlüklerini toplar
 * Bir Azure sanal makinesi için log analytics aracısını ekleme
@@ -56,7 +56,7 @@ Aşağıdaki betik örneğinde gösterilmiştir nasıl yapılır:
 9. Linux bilgisayarlardan Syslog olaylarını Topla
 10. Windows bilgisayarlardan uygulama olay günlüğü'ndeki hata ve uyarı olaylarını Topla
 11. Windows bilgisayarlardan bellek kullanılabilir MBayt performans sayacı Topla
-12. Özel günlük toplama 
+12. Özel günlük toplama
 
 ```PowerShell
 
@@ -76,7 +76,7 @@ $ExportedSearches = @"
         "Query":  "Type=Event SourceSystem:AzureStorage ",
         "Version":  1
     },
-    {        
+    {
         "Category":  "My Saved Searches",
         "DisplayName":  "Current Disk Queue Length",
         "Query":  "Type=Perf ObjectName=LogicalDisk InstanceName=\"C:\" CounterName=\"Current Disk Queue Length\"",
@@ -88,38 +88,38 @@ $ExportedSearches = @"
 # Custom Log to collect
 $CustomLog = @"
 {
-    "customLogName": "sampleCustomLog1", 
-    "description": "Example custom log datasource", 
+    "customLogName": "sampleCustomLog1",
+    "description": "Example custom log datasource",
     "inputs": [
-        { 
-            "location": { 
-            "fileSystemLocations": { 
-                "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ], 
-                "linuxFileTypeLogPaths": [ "/var/logs" ] 
-                } 
-            }, 
-        "recordDelimiter": { 
-            "regexDelimiter": { 
-                "pattern": "\\n", 
-                "matchIndex": 0, 
-                "matchIndexSpecified": true, 
-                "numberedGroup": null 
-                } 
-            } 
-        }
-    ], 
-    "extractions": [
-        { 
-            "extractionName": "TimeGenerated", 
-            "extractionType": "DateTime", 
-            "extractionProperties": { 
-                "dateTimeExtraction": { 
-                    "regex": null, 
-                    "joinStringRegex": null 
-                    } 
-                } 
+        {
+            "location": {
+            "fileSystemLocations": {
+                "windowsFileTypeLogPaths": [ "e:\\iis5\\*.log" ],
+                "linuxFileTypeLogPaths": [ "/var/logs" ]
+                }
+            },
+        "recordDelimiter": {
+            "regexDelimiter": {
+                "pattern": "\\n",
+                "matchIndex": 0,
+                "matchIndexSpecified": true,
+                "numberedGroup": null
+                }
             }
-        ] 
+        }
+    ],
+    "extractions": [
+        {
+            "extractionName": "TimeGenerated",
+            "extractionType": "DateTime",
+            "extractionProperties": {
+                "dateTimeExtraction": {
+                    "regex": null,
+                    "joinStringRegex": null
+                    }
+                }
+            }
+        ]
     }
 "@
 
@@ -151,7 +151,7 @@ foreach ($search in $ExportedSearches) {
 }
 
 # Export Saved Searches
-(Get-AzOperationalInsightsSavedSearch -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Value.Properties | ConvertTo-Json 
+(Get-AzOperationalInsightsSavedSearch -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Value.Properties | ConvertTo-Json
 
 # Create Computer Group based on a query
 New-AzOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Web Servers" -DisplayName "Web Servers" -Category "My Saved Searches" -Query "Computer=""web*"" | distinct Computer" -Version 1
@@ -202,7 +202,7 @@ Azure kaynaklarını aracısız izleme için kaynakları etkin ve Log Analytics 
 | Uygulama Ağ Geçitleri    | Evet | Evet |
 | Automation hesapları     | Evet | |
 | Batch hesapları          | Evet | Evet |
-| Data Lake analytics     | Evet | | 
+| Data Lake analytics     | Evet | |
 | Data Lake store         | Evet | |
 | SQL esnek havuzu        |     | Evet |
 | Olay hub'ı ad alanı     |     | Evet |
@@ -225,7 +225,7 @@ Kullanılabilir günlükleri ayrıntılarını başvurmak [desteklenen Hizmetler
 ```PowerShell
 $workspaceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
-$resourceId = "/SUBSCRIPTIONS/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO" 
+$resourceId = "/SUBSCRIPTIONS/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO"
 
 Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
@@ -247,7 +247,7 @@ Aşağıdaki örnekte gösterildiği nasıl yapılır:
 4. Yeni oluşturulan yapılandırmasını Sil
 
 ```PowerShell
-# validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable" 
+# validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable"
 $workspace = (Get-AzOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 
 # Update these two lines with the storage account resource ID and the storage account key for the storage account you want to Log Analytics to index
@@ -264,7 +264,7 @@ New-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGr
 Set-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -Tables @("WADWindowsEventLogsTable", "WADETWEventTable") -Containers @("wad-iis-logfiles")
 
 # Remove the insight
-Remove-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" 
+Remove-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight"
 
 ```
 

@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: e4e2a01bbac7aebb70852b93c51c32933cc75eec
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: f6e604940c9e2e84f119fdd1859ad4b2cda23aef
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652187"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588712"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs'de Laboratuvar sanal makineler için bir kaynak grubu belirtin
 
@@ -30,20 +30,19 @@ Laboratuvar sahibi olarak, belirli bir kaynak grubunda oluşturulması için lab
 
 Bu özellik sayesinde, yeni veya mevcut bir kaynak grubu tüm laboratuvarınız için Vm'leri Azure aboneliğinizde belirtmek için bir komut dosyası kullanabilirsiniz. Şu anda bu özellik bir API aracılığıyla Azure DevTest Labs destekler.
 
-## <a name="api-to-configure-a-resource-group-for-lab-vms"></a>API Laboratuvar VM'ler için bir kaynak grubu yapılandırmak için
-Bu API kullanırken aşağıdaki seçenekleriniz Laboratuvar sahibi olarak vardır:
+## <a name="use-azure-portal"></a>Azure portalı kullanma
+Laboratuvar'da oluşturulan tüm sanal makineler için bir kaynak grubu belirtmek için aşağıdaki adımları izleyin. 
 
-- Seçin **Laboratuvar kaynak grubu** tüm sanal makineler için.
-- Seçin bir **mevcut kaynak grubunu** dışındaki tüm sanal makineler için laboratuvar kaynak grubu.
-- Girin bir **yeni kaynak grubu** tüm sanal makineler için ad.
-- Laboratuvardaki her VM için bir kaynak grubunun oluşturulduğu mevcut davranışı kullanmaya devam edin.
- 
-Bu ayar, laboratuvar'da oluşturulan yeni sanal makineler için geçerlidir. Kendi kaynak grubunda oluşturulan eski Vm'leri laboratuvarınızda yapmanızdan. Laboratuvarınızda oluşturulmuş ortamları, kendi kaynak grubunda kalması devam edin.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Seçin **tüm hizmetleri** sol gezinti menüsünde. 
+3. Listeden **DevTest Labs**'i seçin.
+4. Labs listesinden seçin, **Laboratuvar**.  
+5. Seçin **yapılandırması ve ilkelerini** içinde **ayarları** sol menüde bölümü. 
+6. Seçin **Laboratuvar ayarları** sol menüsünde. 
+7. Seçin **bir kaynak grubundaki tüm sanal makineler**. 
+8. Aşağı açılan listesi (veya) select mevcut bir kaynak grubunu seçin **Yeni Oluştur**, girin bir **adı** seçin ve kaynak grubu için **Tamam**. 
 
-Bu API'yi nasıl:
-- Kullanım API sürümü **2018_10_15_preview**.
-- Yeni bir kaynak grubu belirtirseniz, sahip olduğunuzdan emin olun **kaynak grupları üzerinde yazma izinleri** aboneliğinizdeki. Yazma izniniz yoksa, belirtilen kaynak grubunda yeni sanal makineler oluşturma başarısız olur.
-- API kullanırken, geçirin **tam kaynak grubu kimliği**. Örneğin: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Kaynak grubu lab ile aynı abonelikte olduğundan emin olun. 
+    ![Tüm Laboratuvar VM'ler için kaynak grubunu seçin](./media/resource-group-control/select-resource-group.png)
 
 ## <a name="use-powershell"></a>PowerShell kullanma 
 Aşağıdaki örnek yeni bir kaynak grubu tüm Laboratuvar sanal makineler oluşturmak için bir PowerShell Betiği kullanmayı gösterir.
@@ -97,6 +96,22 @@ Laboratuvar oluşturmak için bir Azure Resource Manager şablonu kullanıyorsan
             "dependsOn": []
         },
 ```
+
+
+## <a name="api-to-configure-a-resource-group-for-lab-vms"></a>API Laboratuvar VM'ler için bir kaynak grubu yapılandırmak için
+Bu API kullanırken aşağıdaki seçenekleriniz Laboratuvar sahibi olarak vardır:
+
+- Seçin **Laboratuvar kaynak grubu** tüm sanal makineler için.
+- Seçin bir **mevcut kaynak grubunu** dışındaki tüm sanal makineler için laboratuvar kaynak grubu.
+- Girin bir **yeni kaynak grubu** tüm sanal makineler için ad.
+- Laboratuvardaki her VM için bir kaynak grubunun oluşturulduğu mevcut davranışı kullanmaya devam edin.
+ 
+Bu ayar, laboratuvar'da oluşturulan yeni sanal makineler için geçerlidir. Kendi kaynak grubunda oluşturulan eski Vm'leri laboratuvarınızda yapmanızdan. Laboratuvarınızda oluşturulmuş ortamları, kendi kaynak grubunda kalması devam edin.
+
+Bu API'yi nasıl:
+- Kullanım API sürümü **2018_10_15_preview**.
+- Yeni bir kaynak grubu belirtirseniz, sahip olduğunuzdan emin olun **kaynak grupları üzerinde yazma izinleri** aboneliğinizdeki. Yazma izniniz yoksa, belirtilen kaynak grubunda yeni sanal makineler oluşturma başarısız olur.
+- API kullanırken, geçirin **tam kaynak grubu kimliği**. Örneğin: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Kaynak grubu lab ile aynı abonelikte olduğundan emin olun. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

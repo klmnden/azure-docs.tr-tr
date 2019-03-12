@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 3/8/2019
 ms.author: mayg
-ms.openlocfilehash: 8906c477a5d40eb4240669a615dcc9974246ecc8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f8179f5e647039737a59afdd04d345bf465acfdf
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868842"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726354"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure Site Recovery ile Azure ExpressRoute
 
@@ -38,7 +38,7 @@ Daha fazla bilgi edinin ve ExpressRoute Yönlendirme etki alanları karşılaşt
 
 Azure Site kurtarma sağlayan olağanüstü durum kurtarma ve azure'a geçiş için şirket içi [Hyper-V sanal makinelerini](hyper-v-azure-architecture.md), [VMware sanal makinelerini](vmware-azure-architecture.md), ve [fiziksel sunucuları](physical-azure-architecture.md). Tüm şirket içi Azure senaryoları için çoğaltma verileri gönderilen ve bir Azure depolama hesabında depolanır. Çoğaltma sırasında herhangi bir sanal makine ücreti ödeme yapmayın. Azure'a yük devretme çalıştırdığınızda, Site Recovery, Azure Iaas sanal makineleri otomatik olarak oluşturur.
 
-Site Recovery, genel bir uç nokta bir Azure depolama hesabına veri çoğaltır. Site Recovery çoğaltması için ExpressRoute kullanmak için kullanabileceği [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering) veya [Microsoft eşlemesi](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Microsoft eşlemesi, çoğaltma için önerilen Yönlendirme etki alanıdır. Emin [ağ gereksinimleri](vmware-azure-configuration-server-requirements.md#network-requirements) çoğaltma için de karşılandığından. Sanal makine ya da sunucuları için bir Azure sanal ağı yük devretme sonra erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering). Çoğaltma özel eşdüzey hizmet sağlama üzerinden desteklenmiyor.
+Site Recovery, genel bir uç nokta bir Azure depolama hesabına veri çoğaltır. Site Recovery çoğaltması için ExpressRoute kullanmak için kullanabileceği [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering) (yeni oluşturma işlemleri için kullanım dışı) veya [Microsoft eşlemesi](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Microsoft eşlemesi, çoğaltma için önerilen Yönlendirme etki alanıdır. Emin [ağ gereksinimleri](vmware-azure-configuration-server-requirements.md#network-requirements) çoğaltma için de karşılandığından. Sanal makine ya da sunucuları için bir Azure sanal ağı yük devretme sonra erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering). Çoğaltma özel eşdüzey hizmet sağlama üzerinden desteklenmiyor.
 
 Birleşik senaryo, aşağıdaki diyagramda gösterilmiştir: ![Şirket içi-Azure'a ExpressRoute ile](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 

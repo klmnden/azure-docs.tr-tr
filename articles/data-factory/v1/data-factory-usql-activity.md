@@ -3,25 +3,25 @@ title: U-SQL betiği - Azure'ı kullanarak verileri dönüştürme | Microsoft D
 description: Azure Data Lake Analytics işlem hizmetini U-SQL betikleri çalıştırarak işleme veya dönüştürme veri öğrenin.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/01/2017
-ms.author: douglasl
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 robots: noindex
-ms.openlocfilehash: 7631b103d6d14cceb2c320d56e9f68d9ea57e4d8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 5835c37363c7e9d2dd3253c08ab97f17852725f5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020855"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777303"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Üzerinde Azure Data Lake Analytics U-SQL betikleri çalıştırarak verileri dönüştürme 
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](data-factory-usql-activity.md)
 > * [Sürüm 2 (geçerli sürüm)](../transform-data-using-data-lake-analytics.md)
 
@@ -46,11 +46,11 @@ Oluşturduğunuz bir **Azure Data Lake Analytics** bir Azure Data Lake Analytics
 
 Aşağıdaki tabloda JSON tanımında kullanılan genel özellikleri için açıklamalar sağlar. Daha fazla hizmet sorumlusu ve kullanıcı kimlik bilgileri doğrulaması arasında seçim yapabilirsiniz.
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | **type** |Type özelliği ayarlanmalıdır: **AzureDataLakeAnalytics**. |Evet |
 | **accountName** |Azure Data Lake Analytics hesap adı. |Evet |
-| **dataLakeAnalyticsUri** |Azure Data Lake Analytics URI'si. |Hayır |
+| **dataLakeAnalyticsUri** |Azure Data Lake Analytics URI. |Hayır |
 | **Subscriptionıd** |Azure abonelik kimliği |Hayır (belirtilmezse, data Factory abonelik kullanılır). |
 | **resourceGroupName** |Azure kaynak grubu adı |Hayır (belirtilmezse, data Factory kaynak grubu kullanılır). |
 
@@ -62,7 +62,7 @@ Hizmet sorumlusu kimlik doğrulaması kullanmak için Azure Active Directory (Az
 
 Hizmet sorumlusu kimlik doğrulaması, aşağıdaki özellikleri belirterek kullanın:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | **servicePrincipalId** | Uygulamanın istemci kimliği belirtin. | Evet |
 | **serviceprincipalkey değerleri** | Uygulama anahtarını belirtin. | Evet |
@@ -90,7 +90,7 @@ Hizmet sorumlusu kimlik doğrulaması, aşağıdaki özellikleri belirterek kull
 ### <a name="user-credential-authentication"></a>Kullanıcı kimlik bilgileri doğrulaması
 Alternatif olarak, aşağıdaki özellikleri belirterek Data Lake Analytics için kullanıcı kimlik bilgilerinin kullanabilirsiniz:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | **Yetkilendirme** | Tıklayın **Authorize** düğmesini Data Factory Düzenleyicisi'nde ve bu özelliği otomatik olarak oluşturulan yetkilendirme URL'si atar kimlik bilgilerinizi girin. | Evet |
 | **sessionId** | OAuth yetkilendirme oturumundan OAuth oturum kimliği. Her oturum kimliği benzersiz olup yalnızca bir kez kullanılabilir. Bu ayar, Data Factory Düzenleyicisi'ni kullandığınızda otomatik olarak oluşturulur. | Evet |
@@ -212,7 +212,7 @@ Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü olan özel
 | linkedServiceName   | Data Factory, bağlı hizmet olarak Azure Data Lake Analytics başvuru kaydedildi | Evet                                      |
 | ScriptPath          | U-SQL komut dosyasını içeren klasörün yolu. Dosyanın adı büyük/küçük harfe duyarlıdır. | Hayır (komut dosyası kullanırsanız)                   |
 | scriptLinkedService | Bağlantılar için veri komut dosyasını içeren depolama bağlı hizmeti | Hayır (komut dosyası kullanırsanız)                   |
-| komut dosyası              | ScriptPath ve scriptLinkedService belirtmek yerine satır içi betiği belirtin. Örneğin: `"script": "CREATE DATABASE test"`. | Hayır (scriptPath ve scriptLinkedService kullanıyorsanız) |
+| script              | ScriptPath ve scriptLinkedService belirtmek yerine satır içi betiği belirtin. Örneğin: `"script": "CREATE DATABASE test"`. | Hayır (scriptPath ve scriptLinkedService kullanıyorsanız) |
 | degreeOfParallelism | Aynı anda işi çalıştırmak için kullanılan düğümlerin sayısı. | Hayır                                       |
 | öncelik            | Sıraya alınan tüm önce çalıştırılması gerektiğini belirler. Alt sayısı, öncelik o kadar yüksektir. | Hayır                                       |
 | parametreler          | U-SQL betiği için parametreler          | Hayır                                       |
@@ -317,7 +317,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Değerleri **@in** ve **@out** U-SQL betiği parametrelerinde geçirilir dinamik olarak ADF tarafından 'parameters' bölümünü kullanarak. İşlem hattı tanımındaki 'parameters' bölümüne bakın.
+Değerleri  **\@içinde** ve  **\@kullanıma** U-SQL betiği parametrelerinde geçirilir dinamik olarak ADF tarafından 'parameters' bölümünü kullanarak. İşlem hattı tanımındaki 'parameters' bölümüne bakın.
 
 Azure Data Lake Analytics hizmeti üzerinde çalıştırılan işler için işlem hattı Tanımınızda degreeOfParallelism ve öncelik gibi diğer özellikleri de belirtebilirsiniz.
 

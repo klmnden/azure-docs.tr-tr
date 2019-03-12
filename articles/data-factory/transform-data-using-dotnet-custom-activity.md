@@ -3,20 +3,20 @@ title: Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 description: Özel etkinlikler oluşturur ve bunları bir Azure Data Factory işlem hattında kullanma hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: douglasl
-ms.openlocfilehash: 6947ac5819a8e096f3be4edf6f2891974829e422
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: d68910c32c53128704004d356062aca2c328e7d5
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440464"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576710"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Taşımak için veri gönderip buralardan veri Data Factory desteklemiyor veya d
 Azure Batch hizmetine yeni başladıysanız makalelerini takip bakın:
 
 * [Azure Batch temel bilgileri](../batch/batch-technical-overview.md) için Azure Batch hizmetine genel bakış.
-* [Yeni AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) Azure Batch hesabı oluşturmak için cmdlet'i (veya) [Azure portalında](../batch/batch-account-create-portal.md) Azure portalını kullanarak Azure Batch hesabı oluşturmak için. Bkz: [Azure Batch hesabını yönetmek için PowerShell kullanma](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) makale cmdlet kullanma hakkında ayrıntılı yönergeler için.
+* [Yeni AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) Azure Batch hesabı oluşturmak için cmdlet'i (veya) [Azure portalında](../batch/batch-account-create-portal.md) Azure portalını kullanarak Azure Batch hesabı oluşturmak için. Bkz: [Azure Batch hesabını yönetmek için PowerShell kullanma](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) makale cmdlet kullanma hakkında ayrıntılı yönergeler için.
 * [Yeni AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) bir Azure Batch havuzu oluşturmak için cmdlet'i.
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch bağlı hizmeti

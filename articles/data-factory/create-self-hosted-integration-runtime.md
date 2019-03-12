@@ -3,20 +3,20 @@ title: Azure Data Factory'de şirket içinde barındırılan tümleştirme çal�
 description: Veri fabrikaları özel ağdaki veri depoları erişmeye izin veren Azure Data factory'de şirket içinde barındırılan tümleştirme çalışma zamanı oluşturmayı öğrenin.
 services: data-factory
 documentationcenter: ''
-author: nabhishek
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
+author: nabhishek
 ms.author: abnarain
-ms.openlocfilehash: dc9f24f948e32d1b87745016852a875d440323de
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+manager: craigg
+ms.openlocfilehash: d1e43924634e3c4543c244043cb06d965a4d14e0
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443707"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576846"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).

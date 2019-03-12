@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 35fc7b2c713f8d4b88f4a44d9ddef5d92ba4c402
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bc9d6f8f078860000d7a2a38bf4aa1ce00ff450e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294322"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533468"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Azure veri Kataloğu'nda Azure Data Lake depolama Gen1 verileri kaydetme
 Bu makalede, Azure Data Lake depolama Gen1 veri Kataloğu ile tümleştirerek verilerinizi bir kuruluş içinde bulunabilir hale getirmek için Azure veri Kataloğu ile tümleştirmeyi öğreneceksiniz. Veri kataloglama daha fazla bilgi için bkz: [Azure veri Kataloğu](../data-catalog/data-catalog-what-is-data-catalog.md). Veri Kataloğu, kullanabileceğiniz senaryoları anlamak için bkz: [Azure veri Kataloğu genel senaryoları](../data-catalog/data-catalog-common-scenarios.md).
@@ -29,7 +29,7 @@ Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 * **Azure aboneliğinizi etkinleştirme** Data Lake depolama Gen1 için. Bkz. [yönergeler](data-lake-store-get-started-portal.md).
 * **Bir Data Lake depolama Gen1 hesabı**. Konumundaki yönergeleri [Azure Data Lake depolama Gen1 ile çalışmaya başlama Azure portalını kullanarak](data-lake-store-get-started-portal.md). Bu öğreticide, adlı bir Data Lake depolama Gen1 hesabı oluşturabilir **datacatalogstore**.
 
-    Hesap oluşturulduktan sonra, bir örnek veri kümesini karşıya. Bu öğreticide, bize altındaki tüm .csv dosyaları karşıya yükleme **AmbulanceData** klasöründe [Azure Data Lake Git deposu](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Çeşitli istemciler gibi kullanabileceğiniz [Azure Depolama Gezgini](http://storageexplorer.com/), veriler bir blob kapsayıcısına yükleyin.
+    Hesap oluşturulduktan sonra, bir örnek veri kümesini karşıya. Bu öğreticide, bize altındaki tüm .csv dosyaları karşıya yükleme **AmbulanceData** klasöründe [Azure Data Lake Git deposu](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Çeşitli istemciler gibi kullanabileceğiniz [Azure Depolama Gezgini](https://storageexplorer.com/), veriler bir blob kapsayıcısına yükleyin.
 * **Azure veri Kataloğu**. Kuruluşunuz zaten bir Azure veri Kataloğu, kuruluşunuz için oluşturulmuş olması gerekir. Her kuruluş için yalnızca bir katalog izin verilir.
 
 ## <a name="register-data-lake-storage-gen1-as-a-source-for-data-catalog"></a>Data Lake depolama Gen1 veri kataloğu için bir kaynak olarak kaydedin.

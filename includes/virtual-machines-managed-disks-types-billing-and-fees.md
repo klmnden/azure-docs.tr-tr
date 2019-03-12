@@ -8,22 +8,18 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0d771f03f9f71151ef25140148d4dd4daf3d46ec
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 3e303ce2b6f28500406bacf5b66d26f9c78ba46d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56443327"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57783449"
 ---
 **Giden veri aktarımları**: [Giden veri aktarımları](https://azure.microsoft.com/pricing/details/bandwidth/) (Azure veri merkezlerinden çıkan veriler) bant genişliği kullanımı için fatura doğurur.
 
-**İşlem**: Standart yönetilen disk üzerinde gerçekleştirdiğiniz işlem sayısı için faturalandırılırsınız. Azure, 100.000 işlem için standart HDD'ler 0.0036 uygular. İşlemlere Depolama'da yapılan hem okuma hem de yazma işlemleri dahildir.
+**İşlem**: Standart yönetilen disk üzerinde gerçekleştirdiğiniz işlem sayısı için faturalandırılırsınız.
 
-Standart SSD GÇ birim boyutu 256 KB'ı kullanın. Aktarılan veriler 256 KB'den küçük ise, bir g/ç birim olarak kabul edilir. Büyük g/ç boyutları sayılır olarak birden çok g/ç boyutu 256 KB. Örneğin, bir 1.100 KB g/ç beş g/ç birimleri sayılır.
-
-Premium yönetilen disk işlemleri herhangi bir maliyet yoktur.
-
-Yönetilen diskler için fiyatlandırma hakkında ayrıntılı bilgi için bkz: [yönetilen diskler fiyatlandırma](https://azure.microsoft.com/pricing/details/managed-disks).
+Yönetilen işlem maliyetleri dahil diskler için fiyatlandırma hakkında ayrıntılı bilgi için bkz. [yönetilen diskler fiyatlandırma](https://azure.microsoft.com/pricing/details/managed-disks).
 
 ### <a name="ultra-ssd-vm-reservation-fee"></a>Ultra yüksek SSD VM ayırma ücreti
 

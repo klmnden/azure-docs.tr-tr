@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 59362b28390556f12cce8813635894c9f06b9a20
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5bb5993ea47bfcaca96662fbb3d34341e137b929
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008478"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544843"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure Search'te Lucene sorgu sözdizimi
 Azure arama sorguları dayalı zengin üzerinde yazma [Lucene sorgu ayrıştırıcısına](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) özel sorgu formları için söz dizimi: joker karakter, belirsiz arama, yakınlık araması, normal ifadeler birkaç örnek verilmiştir. Lucene sorgu ayrıştırıcısına sözdizimi çok [bozulmadan Azure Search'te uygulanan](search-lucene-query-architecture.md), dışında *aralığı aramaları* Azure Search ile oluşturulmuş `$filter` ifadeler. 
@@ -41,20 +41,20 @@ Aşağıdaki örnek, yetkisiz değiştirmeye karşı korumalı Lucene sorgu söz
 
 `searchMode=all` Parametresi, bu örnekte ilgili. Sorgu işleçleri söz konusu olduğunda, genellikle ayarlamalısınız `searchMode=all` emin olmak için *tüm* ölçütleriyle eşleşen.
 
-```  
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full  
-```  
+```
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full
+```
 
  Alternatif olarak, POST kullanın:  
 
-```  
-POST /indexes/hotels/docs/search?api-version=2015-02-28  
-{  
-  "search": "category:budget AND \"recently renovated\"^3",  
-  "queryType": "full",  
-  "searchMode": "all"  
-}  
-```  
+```
+POST /indexes/hotels/docs/search?api-version=2015-02-28
+{
+  "search": "category:budget AND \"recently renovated\"^3",
+  "queryType": "full",
+  "searchMode": "all"
+}
+```
 
 Diğer örnekler için [Lucene sorgu söz dizimi örnekleri, Azure Search'te sorgular oluşturmaya yönelik](search-query-lucene-examples.md). Sorgu parametreleri, tam contingent belirtme hakkında daha fazla ayrıntı için bkz. [arama belgeleri &#40;Azure arama hizmeti REST API'si&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 

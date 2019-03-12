@@ -3,17 +3,17 @@ title: Azure haritalar Döndürürüz GeoJSON veri biçiminde | Microsoft Docs
 description: Azure haritalar Döndürürüz GeoJSON veri biçimi hakkında bilgi edinin
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/15/2018
+ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5a654b7fdae341da62d94499830a5e1202dff921
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 6f76eea365311cd6c10dd39054187bf3a07bd595
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339643"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569000"
 ---
 # <a name="geofencing-geojson-data"></a>Bölge sınırlaması GeoJSON veri
 
@@ -34,7 +34,7 @@ Bölge sınırının veya bölge sınırlarını dizi verilerini tarafından tem
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Tarih saat  | true | Başlangıç tarihi geçerlilik süresini süre. |
 | endTime   | Tarih saat  | true |  Bitiş tarihi geçerlilik süresini süre. |
-| durumu seçilen recurrenceType | dize | false |   Yinelenme Türü süresi. Değer olabilir `Daily`, `Weekly`, `Monthly`, veya `Yearly`. Varsayılan değer `Daily`.|
+| durumu seçilen recurrenceType | string | false |   Yinelenme Türü süresi. Değer olabilir `Daily`, `Weekly`, `Monthly`, veya `Yearly`. Varsayılan değer `Daily`.|
 | businessDayOnly | Boole | false |  Verileri yalnızca iş gün boyunca geçerli olup olmadığını gösterir. Varsayılan değer `false`.|
 
 

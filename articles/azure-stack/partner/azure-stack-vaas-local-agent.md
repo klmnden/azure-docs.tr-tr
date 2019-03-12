@@ -10,36 +10,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c7bf766dc0f73b37fc7de537537c7a885a50c30a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 09b8556a83dec286ce8d67fa5fd6d27e027325bf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339581"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769225"
 ---
 # <a name="deploy-the-local-agent"></a>Yerel aracı dağıtma
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Doğrulama donanımınız denetlemek için hizmet (VaaS) yerel aracı kullanmayı öğrenin. Yerel aracı doğrulama testlerini çalıştırmadan önce doğrulanması gereken Azure Stack çözüm dağıtılması gerekir.
+Doğrulama Hizmeti (VaaS) yerel aracı, doğrulama testlerini çalıştırmak için kullanmayı öğrenin. Yerel aracı doğrulama testlerini çalıştırmadan önce dağıtılmalıdır.
 
 > [!Note]  
-> Yerel aracı üzerinde çalıştığı makinenin internet'e dışarı ilişkili erişimlerini kaybeder değil emin olmanız gerekir. Bu makine VaaS adına kiracınızı kullanmak için yetkili kullanıcılar tarafından erişilebilir olmalıdır.
+> Yerel aracı üzerinde çalıştığı makinenin internet'e giden erişimini kaybeder değil emin olun. Bu makine VaaS adına kiracınızı kullanmak için yetkili kullanıcılar tarafından erişilebilir olmalıdır.
 
 Yerel aracı dağıtmak için:
 
-1. Yerel aracı yükleme
-2. Sağlamlık denetimleri gerçekleştirir
-3. Yerel aracı çalıştırın
+1. Yerel aracıyı yükleyin.
+2. Sağlamlık denetimleri gerçekleştirin.
+3. Yerel aracı çalıştırın.
 
 ## <a name="download-and-start-the-local-agent"></a>İndirin ve yerel Aracısı'nı başlatın
 
-Azure Stack sistemi, ancak tüm Azure Stack Uç noktalara erişimi olan bir parçası değil, veri merkezinizdeki önkoşullarını karşılayan bir makine için aracıyı indirin.
+Veri merkezinizde önkoşulları karşıladığını ve tüm Azure Stack uç noktalarına erişimi olan bir makine için aracıyı indirin. Bu makine Azure Stack sisteminin parçası olmamalıdır veya Azure Stack bulut üzerinde barındırılan.
 
 ### <a name="machine-prerequisites"></a>Makine önkoşulları
 
@@ -51,8 +51,6 @@ Makinenizde aşağıdaki ölçütleri karşıladığından emin olun:
 - En az 8 çekirdek işlemcileri
 - En az 200 GB disk alanı
 - İnternet'e kararlı ağ bağlantısı
-
-Azure Stack, test altındaki sistemidir. Makine, Azure Stack parçası olmamalıdır veya Azure Stack bulut üzerinde barındırılan.
 
 ### <a name="download-and-install-the-agent"></a>Aracısını indirme ve yükleme
 
@@ -95,7 +93,7 @@ Komut bir ortak görüntü deposu (PIR) görüntü (işletim sistemi VHD'si) ve 
 
 ## <a name="checks-before-starting-the-tests"></a>Testlere başlamadan önce denetimleri
 
-Uzak eylemleri testleri çalıştırın. Testleri çalıştıran makine Azure Stack uç noktalarına erişime sahip olmalıdır, aksi takdirde testleri çalışmaz. VaaS yerel aracı kullanıyorsanız, aracı çalıştıracağınız makinenin kullanın. Aşağıdaki denetimleri çalıştırarak makinenizi Azure Stack Uç noktalara erişimi olduğunu denetleyebilirsiniz:
+Uzak operations testleri çalıştırın. Testleri çalıştıran makine Azure Stack uç noktalarına erişime sahip olmalıdır, aksi takdirde testleri çalışmaz. VaaS yerel aracı kullanıyorsanız, aracı çalıştıracağınız makinenin kullanın. Aşağıdaki denetimleri çalıştırarak makinenizi Azure Stack Uç noktalara erişimi olduğunu denetleyebilirsiniz:
 
 1. Taban URI erişilebildiğini kontrol edin. Bir komut istemi veya bash kabuğu ve aşağıdaki komutu çalıştırın komutuyla değiştirerek `<EXTERNALFQDN>` ortamınızın dış FQDN ile:
 

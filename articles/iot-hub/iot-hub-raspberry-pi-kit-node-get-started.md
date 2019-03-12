@@ -10,18 +10,18 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: a4e64259b941a4f2c2727afc8730c6cb0102a061
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: ebdc90dc35f891ea1811ce81c5bdc1b937c58a5c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054888"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529264"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi (Node.js) Azure IOT hub'a bağlanma
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-Bu öğreticide, Raspbian çalıştıran Raspberry Pi çalışmanın temel bilgileri öğrenerek başlayın. Daha sonra kullanarak cihazlarınızı buluta sorunsuz bir şekilde bağlanmak nasıl öğrenin [Azure IOT hub'ı](about-iot-hub.md). Windows 10 IoT Core örnekleri için Git [Windows Dev Center](http://www.windowsondevices.com/).
+Bu öğreticide, Raspbian çalıştıran Raspberry Pi çalışmanın temel bilgileri öğrenerek başlayın. Daha sonra kullanarak cihazlarınızı buluta sorunsuz bir şekilde bağlanmak nasıl öğrenin [Azure IOT hub'ı](about-iot-hub.md). Windows 10 IoT Core örnekleri için Git [Windows Dev Center](https://www.windowsondevices.com/).
 
 Bir paket henüz yok mu? Deneyin [Raspberry Pi çevrimiçi simülatör](iot-hub-raspberry-pi-web-simulator-get-started.md). Veya yeni bir paket satın [burada](https://azure.microsoft.com/develop/iot/starter-kits).
 
@@ -83,7 +83,7 @@ MicroSD kartı Raspbian görüntüyü yüklemesi için hazırlayın.
 
 1. Raspbian indirin.
 
-   a. [Raspbian Esnetme indirme](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (.zip dosyasında).
+   a. [Raspbian Esnetme indirme](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (.zip dosyasında).
 
    > [!WARNING]
    > Lütfen indirmek için yukarıdaki bağlantıya kullanın `raspbian-2017-07-5` zip görüntü. En son sürümünü Raspbian görüntüleri, sonraki adımlarda hatasına neden olabilecek kablo-Pi düğüm ile ilgili bazı bilinen sorunlar vardır.
@@ -134,10 +134,10 @@ Algılayıcı sabitlemek için aşağıdaki bağlantı kullanın:
 | Başlangıç (sensör ve LED)     | Bitiş (Pano)            | Kablo rengi   |
 | -----------------------  | ---------------------- | ------------: |
 | VDD (PIN 5G)             | 3, 3v PWR (PIN 1)       | Beyaz kablosu   |
-| GND (PIN 7G)             | GND (PIN 6)            | Kahverengi kablosu   |
-| SDI (PIN 10G)            | I2C1 SDA (PIN 3)       | Kırmızı kablosu     |
+| GND (Pin 7G)             | GND (PIN 6)            | Kahverengi kablosu   |
+| SDI (Pin 10G)            | I2C1 SDA (PIN 3)       | Kırmızı kablosu     |
 | SCK (PIN 8G)             | I2C1 SCL (PIN 5)       | Turuncu kablosu  |
-| LED VDD (PIN 18F)        | Bir GPIO'yu 24 (PIN 18)       | Beyaz kablosu   |
+| LED VDD (PIN 18F)        | GPIO 24 (Pin 18)       | Beyaz kablosu   |
 | LED GND (PIN 17F)        | GND (PIN 20)           | Siyah kablo   |
 
 Görüntülemek için tıklayın [Raspberry Pi 2 ve 3 PIN eşlemeleri](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) referans.
@@ -163,7 +163,7 @@ Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak etkinleştirin. Pi,
    
    **Windows kullanıcıları**
   
-   a. İndirme ve yükleme [PuTTY](http://www.putty.org/) Windows için. 
+   a. İndirme ve yükleme [PuTTY](https://www.putty.org/) Windows için. 
 
    b. IP adresini, ana bilgisayar adı (veya IP adresi) PI bölümüne kopyalayın ve SSH bağlantı türü olarak seçin.
    
@@ -187,7 +187,7 @@ Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak etkinleştirin. Pi,
    Sürüm 4.x'ten düşük ise veya Pi'yi üzerinde hiçbir Node.js ise, en son sürümünü yükleyin.
 
    ```bash
-   curl -sL http://deb.nodesource.com/setup_4.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 

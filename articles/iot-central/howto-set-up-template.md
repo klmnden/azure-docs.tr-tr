@@ -3,23 +3,23 @@ title: Bir Azure IOT Central uygulamasına cihaz şablonunda ayarlama | Microsof
 description: Ölçümler, ayarları, özellikleri, kuralları ve bir pano ile bir cihaz şablonu ayarlama konusunda bilgi edinin.
 author: viv-liu
 ms.author: viviali
-ms.date: 10/26/2018
+ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 99fce821c903a9638575eba9fe4a17d294bcbd60
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: f8c99bd6bc9edb78a7af241f1eee2669c955a040
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310514"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767320"
 ---
-# <a name="set-up-a-device-template"></a>Cihaz şablonu ayarlama
+# <a name="set-up-a-device-template-new-ui-design"></a>Bir cihaz şablonu (yeni kullanıcı Arabirimi tasarımı) ayarlama
 
 Cihaz özellikleri ve davranışları için bir Azure IOT Central uygulamasına bağlanan cihaz türü tanımlayan bir şema şablonudur.
 
-Örneğin, bir oluşturucusu olan bir IOT bağlı fanı için bir cihaz şablon oluşturabilirsiniz:
+Örneğin, bir oluşturucu a: olan bir IOT bağlı fanı için bir cihaz şablon oluşturabilirsiniz
 
 - Sıcaklık telemetri ölçüm
 
@@ -40,21 +40,17 @@ Bu cihaz şablondan operatörün oluşturabilir ve gerçek fanı adlarla gibi ba
 > [!NOTE]
 > Oluşturucular ve yöneticiler oluşturabilir, düzenleme ve cihaz şablonları silin. Herhangi bir kullanıcı aygıtları üzerinde oluşturabilirsiniz **Device Explorer** mevcut cihaz şablonları sayfasından.
 
-[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
-
 ## <a name="create-a-device-template"></a>Bir cihaz şablonu oluşturma
 
-1. Git **uygulama Oluşturucusu** sayfası.
+1. Gidin **cihaz şablonları** sayfası.
 
-2. Boş bir şablon oluşturmak için Seç **cihaz şablonu oluşturma**ve ardından **özel**.
-
-3. Yeni cihaz şablonunuz için bir ad (örneğin buzdolabı-1) girin ve seçin **Oluştur**.
+2. Boş bir şablon oluşturmak için Seç **+** ve ardından gibi bir ad girin **buzdolabı** cihaz şablonunuza. Ardından **Oluştur**:
 
    ![Şablon adı olarak "buzdolabı" cihaz Ayrıntıları sayfası](./media/howto-set-up-template/devicedetailspage.png)
 
-4. Bulunduğunuz artık **cihaz ayrıntıları** sayfasında yeni bir simülasyon cihazı. Bir cihaz şablonu oluşturduğunuzda bir simülasyon cihazı sizin için otomatik olarak oluşturulur. Bu veri raporlarını ve yalnızca gerçek bir cihaz gibi denetlenebilir.
+4. Bulunduğunuz artık **cihaz ayrıntıları** yeni bir cihaz şablon sayfası. Bir cihaz şablonu oluşturduğunuzda, IOT Central bir simülasyon cihazı otomatik olarak oluşturur. Bir sanal cihaz uygulamanızın davranışını, gerçek bir cihaz bağlanmadan önce sınamanızı sağlar.
 
-Artık her sekme bakalım **cihaz ayrıntıları** sayfası.
+Aşağıdaki bölümlerde sekmelerin her birinde üzerinde açıklanmıştır **cihaz şablonu** sayfası.
 
 ## <a name="measurements"></a>Ölçümler
 
@@ -65,55 +61,55 @@ Artık her sekme bakalım **cihaz ayrıntıları** sayfası.
 - **Durum** ölçümleri bir süre cihaz veya bileşenlerinin durumunu temsil eder. Örneğin, bir fanı modu sahip olacak şekilde tanımlanabilir **işletim** ve **durduruldu** iki olası durum olarak.
 
 ### <a name="create-a-telemetry-measurement"></a>Telemetri ölçü oluşturma
-Yeni bir telemetri ölçüm eklemek için seçin **şablonu Düzen**ve ardından **+ yeni ölçüm** düğmesi. Seçin **Telemetri** ölçüm yazın ve ayrıntılarını girin **oluşturma Telemetri** formu.
+
+Yeni bir telemetri ölçüm eklemek için seçin **+ yeni ölçüm**, seçin **Telemetri** ölçüm yazın ve formda ayrıntılarını girin.
 
 > [!NOTE]
 > Cihaz şablonu alan adlarını, karşılık gelen cihaz kodu sırada gerçek bir cihaz bağlandığında uygulamada görüntülenecek telemetri ölçüm için özellik adları eşleşmelidir. Aşağıdaki bölümlerde cihaz şablonlarını tanımlamak devam ederken ayarları, cihaz özellikleri ve komutları yapılandırırken de aynısını yapın.
 
 Örneğin, yeni bir sıcaklık telemetri ölçüm ekleyebilirsiniz:
+
 | Görünen Ad        | Alan Adı    |  Birimler    | Min   |Maks|
 | --------------------| ------------- |-----------|-------|---|
 | Sıcaklık         | Temp          |  degC     |  0    |100|
 
 !["Telemetri oluşturma" form sıcaklık ölçüm için Ayrıntılar](./media/howto-set-up-template/measurementsform.png)
 
-Seçtikten sonra **Bitti**, **sıcaklık** ölçüm ölçümleri listesinde görünür. Kısa bir süre içinde bir sanal cihaz oluşturulan sıcaklık verilerini görselleştirme görebilirsiniz. Bir cihaz şablonu oluşturduğunuzda, bir sanal cihaz uygulamanızın davranışını fiziksel/gerçek cihaz bağlı önce test olanak tanıyan şablonu oluşturulur.
-
+Seçtikten sonra **Kaydet**, **sıcaklık** ölçüm ölçümleri listesinde görünür. Kısa bir süre içinde bir sanal CİHAZDAN sıcaklık verilerini görselleştirme bakın.
 
 > [!NOTE]
-  Veri telemetri ölçü bir kayan türüdür nokta sayısı.
+> Veri telemetri ölçü bir kayan türüdür nokta sayısı.
 
 ### <a name="create-an-event-measurement"></a>Bir olay ölçü oluşturma
-Yeni bir olay ölçüm eklemek için seçin **şablonu Düzen**ve ardından **+ yeni ölçüm** düğmesi. Seçin **olay** ölçüm yazın ve ayrıntılarını girin **olay oluşturma** formu.
 
-Sağlamak **görünen ad**, **alan adı**, ve **önem derecesi** olayla ilgili ayrıntıları. Önem derecesi kullanılabilir üç düzeyi arasından seçim yapabilirsiniz: **Hata**, **uyarı**, ve **bilgi**.  
+Yeni bir olay ölçüm eklemek için seçin **+ yeni ölçüm** seçip **olay** ölçüm türü. Ayrıntıları girin **olay oluşturma** formu.
+
+Sağlamak **görünen ad**, **alan adı**, ve **önem derecesi** olayla ilgili ayrıntıları. Önem derecesi kullanılabilir üç düzeyi arasından seçim yapabilirsiniz: **Hata**, **uyarı**, ve **bilgi**.
 
 Örneğin, yeni bir ekleyebilirsiniz **Fan Motor hata** olay.
 
-| Görünen Ad        | Alan Adı    |  Varsayılan Önem Derecesi | 
+| Görünen Ad        | Alan Adı    |  Varsayılan Önem Derecesi |
 | --------------------| ------------- |-----------|
-| Fan Motoru Hatası     | fanmotorerror |  Hata    | 
+| Fan Motoru Hatası     | fanmotorerror |  Hata    |
 
 !["Olay oluşturma" form fan motor olayla ilgili ayrıntıları](./media/howto-set-up-template/eventmeasurementsform.png)
 
-Seçtikten sonra **Bitti**, **Fan Motor hata** ölçüm ölçümleri listesinde görünür. Operatörün cihaz gönderen olay verileri görselleştirmesini görebilirsiniz.
+Seçtikten sonra **Kaydet**, **Fan Motor hata** ölçüm ölçümleri listesinde görünür. Kısa bir süre içinde bir sanal CİHAZDAN olay verilerini görselleştirme bakın.
 
-![Olay ölçüm grafiği](./media/howto-set-up-template/eventmeasurementschart.png)
-
-Olay hakkında daha fazla ayrıntı görüntülemek için grafikteki olay simgesini seçin.
+Bir olay hakkında daha fazla ayrıntı görüntülemek için grafik olay simgesini seçin:
 
 !["Fan Motor Error" olayla ilgili ayrıntıları](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
 > [!NOTE]
-  Veri türü olay ölçümü dizedir.
+> Veri türü olay ölçümü dizedir.
 
 ### <a name="create-a-state-measurement"></a>Bir durum ölçü oluşturma
-Yeni bir durum ölçüm eklemek için seçin **şablonu Düzen**ve ardından **+ yeni ölçüm** düğmesi. Seçin **durumu** ölçüm yazın ve ayrıntılarını girin **oluşturma durumu** formu.
+
+Yeni bir durum ölçüm eklemek için seçin **+ yeni ölçüm** düğmesini tıklatın ve seçin **durumu** ölçüm türü. Ayrıntıları girin **oluşturma durumu** formu.
 
 İçin ayrıntıları sağlayın **görünen ad**, **alan adı**, ve **değerleri** durumu. Her değer, değer grafikleri ve tabloları göründüğünde kullanılacak bir görünen ad da sahip olabilirsiniz.
 
 Örneğin, yeni bir ekleyebilirsiniz **fanı modu** cihaza gönderebilir, iki olası değerleri içeren durum **işletim** ve **durduruldu**.
-
 
 | Görünen Ad | Alan Adı    |  Değer 1   | Görünen Ad | Değer 2    |Görünen Ad  | 
 | -------------| ------------- |----------- | -------------| -----------| -------------|
@@ -121,18 +117,16 @@ Yeni bir durum ölçüm eklemek için seçin **şablonu Düzen**ve ardından **+
 
 ![Fan modu için Ayrıntıları "Düzenleme durumu" formu](./media/howto-set-up-template/statemeasurementsform.png)
 
-Seçtikten sonra **Bitti**, **fanı modu** durumu ölçüm ölçümleri listesinde görünür. İşleci, cihazın gönderdiği durumu verilerini görselleştirme görebilirsiniz.
+Seçtikten sonra **Kaydet**, **fanı modu** durumu ölçüm ölçümleri listesinde görünür. Kısa bir süre içerisinde, sanal cihaz durumu verileri görselleştirme görürsünüz.
 
-![Durum ölçüm grafiği](./media/howto-set-up-template/statemeasurementschart.png)
-
-Cihaz küçük bir süre içinde çok fazla veri noktasının gönderirse, durumu ölçümü ile farklı bir görsel, aşağıdaki ekran görüntüsünde gösterildiği gibi görünür. Grafik seçerseniz, bu süre içinde tüm veri noktalarına kronolojik sırada görüntülenir. Grafiği çizilen ölçüm görmek için zaman aralığını da daraltabilirsiniz.
+Cihaz, küçük bir süre içinde çok fazla veri noktasının gönderirse, durumu ölçümü ile farklı bir görsel görünür. Grafiği kronolojik sırada bu süre içinde tüm veri noktalarına görüntülemeyi seçin. Grafiği çizilen ölçüm görmek için zaman aralığını da daraltabilirsiniz.
 
 > [!NOTE]
-  Veri türü durumu ölçümü dizedir.
+> Veri türü durumu ölçümü dizedir.
 
 ## <a name="settings"></a>Ayarlar
 
-Ayarları bir cihaz denetler. Uygulamanızın cihaza girişleri operatörleri tanırlar. Birden çok ayarları kutucukları olarak görünür, cihaz şablonunuza ekleyebilirsiniz **ayarları** işleçleri kullanmak için sekmesinde. Birçok türde ayarlar ekleyebilirsiniz: sayı, metin, tarih, Değiştir, seçim listesini ve bölüm etiketi. 
+Ayarları bir cihaz denetler. Bunlar cihaza girişleri olanak tanır. Birden çok ayarları kutucukları olarak görünür, cihaz şablonunuza ekleyebilirsiniz **ayarları** işleçleri kullanmak için sekmesinde. Birçok türde ayarlar ekleyebilirsiniz: sayı, metin, tarih, Değiştir, seçim listesini ve bölüm etiketi.
 
 Ayarları üç durumdan birinde olabilir. Cihaz bu durumu bildirir.
 
@@ -142,7 +136,7 @@ Ayarları üç durumdan birinde olabilir. Cihaz bu durumu bildirir.
 
 - **Hata**: Cihazı bir hata döndürdü.
 
-Seçerek yeni bir fanı hızı ayarı gibi ekleyebilirsiniz **şablonu Düzen** ve yeni girerek **numarası** ayarı:
+Seçerek yeni bir fanı hızı ayarı gibi ekleyebilirsiniz **ayarları** ve yeni girerek **numarası** ayarı:
 
 | Görünen Ad  | Alan Adı    |  Birimler  | Ondalık sayı |İlk|
 | --------------| ------------- |---------| ---------|---- |
@@ -150,107 +144,100 @@ Seçerek yeni bir fanı hızı ayarı gibi ekleyebilirsiniz **şablonu Düzen** 
 
 ![Hızlı ayarları için Ayrıntılar "Sayı Yapılandır" formu](./media/howto-set-up-template/settingsform.png)
 
-Seçtikten sonra **Kaydet**, **fanı hızı** ayarı bir kutucuk görünür ve cihazın fanı hızını değiştirmek için kullanılmak üzere hazırdır.
-
-Bir kutucuğu oluşturduktan sonra seçin **Bitti** ekranın sağ üst kısmındaki. Gerçek cihaz bir uygulamaya bağlandıktan sonra ayar değeri eşitlenen değişir.
-
-!["Ayarlar" sekmesini döşeme için "Tasarım modu" anahtarı ile](./media/howto-set-up-template/settingstile.png)
+Seçtikten sonra **Kaydet**, **fanı hızı** ayarı bir kutucuk olarak görünür. Ayarını kullanabilirsiniz operatörün **Device Explorer** cihazın fanı hızını değiştirmek için sayfa.
 
 ## <a name="properties"></a>Özellikler
 
-Cihaz konumu ve seri numarası gibi cihaz ile ilişkili cihaz meta verilerini özelliklerdir. Birden çok özellik kutucukları olarak görünür, cihaz şablonunuza ekleyebilirsiniz **özellikleri** sekmesi. Çeşitli özellikler ekleyebilirsiniz: sayı, metin, tarih, Değiştir, cihaz özelliği, etiket ve konum. Bunlar bir cihaz oluşturur ve herhangi bir zamanda bu değerleri düzenleyebilirsiniz operatörün özellikleri için değer belirtebilirsiniz. Ancak, cihaz özellikleri salt okunurdur ve CİHAZDAN uygulamaya gönderilir ve işleç tarafından değiştirilemez. Gerçek cihaz bağlandığında, cihaz özelliği kutucuğuna uygulamada güncelleştirilecektir. 
+Özellikler, cihaz konumu ve seri numarası gibi cihaz ile ilişkili meta verilerdir. Kutucukları olarak görünür, cihaz şablonunuzu birden çok özellik eklemek **özellikleri** sekmesi. Bir özellik, sayı, metin, tarih, Değiştir, cihaz özelliği, etiket veya konumu gibi bir tür olabilir. Bunlar bir cihaz oluşturur ve herhangi bir zamanda bu değerleri düzenleyebilirsiniz operatörün özellikleri için değer belirtebilirsiniz. Cihaz özellikleri salt okunurdur ve CİHAZDAN uygulamaya gönderilir. Operatörün cihaz özelliklerini değiştiremezsiniz. Gerçek bir cihaz bağlandığında, özellik güncelleştirmeleri uygulamada cihazdır.
 
 İki özellik kategorisi vardır:
 
-- **Cihaz** cihaz IOT Central uygulamasına raporlarına özellikleri. Bunlar cihaz tarafından bildirilen salt okunur değer ve gerçek cihaz bağlıyken uygulama içinde güncelleştirilir. 
-- **Uygulama** yalnızca uygulama içinde depolanır ve operatör tarafından düzenlenebilir özellikleri. Cihaz, uygulama özellikleri tanımaz.
+- _Cihaz özellikleri_ , cihaz IOT Central uygulamaya bildirir. Cihaz özellikleri, cihaz tarafından bildirilen salt okunur değerler ve gerçek bir cihaz bağlandığında uygulama içinde güncelleştirilir.
+- _Uygulama özellikleri_ uygulamada depolanır ve operatör tarafından düzenlenebilir. Cihaz, uygulama özellikleri tanımaz.
 
-Örneğin, cihaz konumu yeni bir ekleyebilirsiniz **metin** seçerek özelliği (bir uygulama) **şablonu Düzen** girerek yeni özelliği:
+Örneğin, cihazın son hizmet verilen tarih yeni bir ekleyebilirsiniz **tarih** özelliği (uygulama özelliği) **özellikleri** sekmesinde:
 
-| Görünen Ad  | Alan Adı | Öndeki Boşlukları Kırp  | Sondaki Boşlukları Kırp  | Büyük/küçük harfe duyarlılık| Min. Uzunluk | En Büyük Uzunluk |
-| --------------| -----------|---------| ---------|---- |----|----|
-| Konum      | LOC        | Kapalı     |  Kapalı     | Karma  | 0 | 100|
+| Görünen Ad  | Alan Adı | İlk Değer   |
+| --------------| -----------|-----------------|
+| Son hizmet tarihi      | lastServiced        | 01/29/2019     |
 
-!["Metin Yapılandır" form "Özellikler" sekmesinde](./media/howto-set-up-template/propertiesform.png)
+!["Son Serviced Yapılandır" form "Özellikler" sekmesinde](./media/howto-set-up-template/propertiesform.png)
 
-Seçtikten sonra **Kaydet**, cihaz konumu bir kutucuk olarak görünür:
+Seçtikten sonra **Kaydet**, son tarih hizmet cihaz bir kutucuk olarak görünür.
 
-![Konum kutucuğu](./media/howto-set-up-template/propertiestile.png)
-
-Kutucuk oluşturduktan sonra uygulama özellik değeri değiştirebilirsiniz. İlk olarak, seçin **Bitti** ekranın sağ üst kısmındadır.
+Kutucuk oluşturduktan sonra uygulama özellik değeri değiştirebilirsiniz **Device Explorer**.
 
 ### <a name="create-a-location-property-through-azure-maps"></a>Bir konum özelliği üzerinden Azure haritalar'ı oluşturma
-Konum verilerinizi Azure IOT Central, coğrafi bağlam vermek ve herhangi bir enlem ve boylam koordinatlarını sokak adresi eşleyin. Veya yalnızca harita enlem ve boylam koordinatları olabilir. Azure haritalar IOT Central bu özelliği sağlar.
+
+Konum verilerinizi Azure IOT Central, coğrafi bağlam vermek ve herhangi bir enlem ve boylam koordinatlarını sokak adresi eşleyin. Veya enlem ve boylam harita koordinatları. Azure haritalar IOT Central bu özelliği sağlar.
 
 İki tür yerleşim özellikleri ekleyebilirsiniz:
-- **Konumu olarak bir uygulama özelliği**, yalnızca uygulama içinde depolanır. Cihaz, uygulama özellikleri tanımaz.
+
+- **Konumu olarak bir uygulama özelliği**, uygulama içinde depolanır. Cihaz, uygulama özellikleri tanımaz.
 - **Konumu olarak bir cihaz özelliği**, hangi cihaz uygulamaya bildirir.
 
-#### <a name="add-location-as-an-application-property"></a>Konumu bir uygulama özelliği Ekle 
-IOT Central uygulamanızda Azure haritalar'ı kullanarak bir uygulama özelliği olarak location özelliği oluşturabilirsiniz. Örneğin, cihaz yükleme adresi ekleyebilirsiniz. 
+#### <a name="add-location-as-an-application-property"></a>Konumu bir uygulama özelliği Ekle
 
-1. Üzerinde **özellikleri** sekmesinde **şablonu Düzen**.
+IOT Central uygulamanızda Azure haritalar'ı kullanarak bir uygulama özelliği olarak location özelliği oluşturabilirsiniz. Örneğin, cihaz yükleme adresi ekleyebilirsiniz:
 
-   !["Özellikler" sekmesinde tasarım modu açık](./media/howto-set-up-template/locationcloudproperty1.png)
+1. Gidin **özellikleri** sekmesi.
 
 2. Kitaplıkta, seçin **konumu**.
-3. Yapılandırma **görünen ad**, **alan adı**ve (isteğe bağlı olarak) **başlangıç değeri** konumu için. 
+
+3. Yapılandırma **görünen ad**, **alan adı**ve (isteğe bağlı olarak) **başlangıç değeri** konumu için.
 
     | Görünen Ad  | Alan Adı | İlk Değer |
     | --------------| -----------|---------| 
-    | Yükleme adresi | insta_address | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
+    | Yükleme adresi | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
    ![Konum ayrıntılarını "Konumu Yapılandır" formu](./media/howto-set-up-template/locationcloudproperty2.png)
 
    Bir konum eklemek için desteklenen iki biçim vardır:
    - **Adresi olarak konumu**
-   - **Koordinatları olarak konumu** 
+   - **Koordinatları olarak konumu**
 
-4. Seçin **Kaydet** ve **Bitti**. Artık bir işleç konum alanı formda konum değeri güncelleştirebilirsiniz. 
+4. **Kaydet**’i seçin. Bir işleç konum değeri güncelleştirebilirsiniz **Device Explorer**.
 
-#### <a name="add-location-as-a-device-property"></a>Konumu bir cihaz özelliği Ekle 
+#### <a name="add-location-as-a-device-property"></a>Konumu bir cihaz özelliği Ekle
 
 Location özelliğini cihaz raporlarına bir cihaz özelliği oluşturabilirsiniz. Örneğin, cihaz konumu izlemek istiyorsanız:
 
-1. Üzerinde **özellikleri** sekmesinde **şablonu Düzen**.
-
-   !["Özellikler" sekmesinde tasarım modu açık](./media/howto-set-up-template/locationdeviceproperty1.png)
+1. Gidin **özellikleri** sekmesi.
 
 2. Seçin **cihaz özelliği** kitaplığından.
-3. Alan adı ve görünen adı'nı yapılandırın ve seçin **konumu** veri türü olarak. 
+
+3. Alan adı ve görünen adı'nı yapılandırın ve seçin **konumu** veri türü olarak:
 
     | Görünen Ad  | Alan Adı | Veri Türü |
-    | --------------| -----------|-----------| 
-    | Cihaz konumu | deviceLoc| location  |
+    | --------------| -----------|-----------|
+    | Cihaz konumu | deviceLocation | location  |
 
    > [!NOTE]
    > İlgili cihaz kod özellik adları alan adları eşleşmelidir
 
    !["Cihaz özelliklerini yapılandırma" form ile konum için ayrıntıları](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-Gerçek cihaz bağlandıktan sonra bir cihaz özelliği eklediğiniz konumu, cihaz tarafından gönderilen değer ile güncelleştirilecektir. Yükleme, bir uygulama özelliği eklediğiniz konumu düzenlenebilir bir kutucuk adresidir. Location özelliği yapılandırdığınıza göre şunları yapabilirsiniz [cihaz pano konumu görselleştirmek için bir harita Ekle](#add-an-azure-maps-location-in-the-dashboard).
+Gerçek cihaz bağlandıktan sonra bir cihaz özelliği eklediğiniz konum cihaz tarafından gönderilen değer ile güncelleştirilir. Location özelliği yapılandırdığınıza göre şunları yapabilirsiniz [cihaz pano konumu görselleştirmek için bir harita Ekle](#add-an-azure-maps-location-in-the-dashboard).
 
 ## <a name="commands"></a>Komutlar
 
-Komutlar, bir cihazı uzaktan yönetmek için kullanılır. Bunlar, işleçler, uygulamanızın anında cihazda komutlarını çalıştırmak için etkinleştirin. Birden çok komut kutucukları olarak görünür, cihaz şablonunuza ekleyebilirsiniz **komutları** işleçleri kullanmak için sekmesinde. Cihaz Oluşturucu olarak ihtiyaçlarınıza göre komutlar tanımlar esnekliğine sahip olursunuz.
+Komutlar, bir cihazı uzaktan yönetmek için kullanılır. Bunlar, cihazda komutlarını çalıştırmak işleçleri etkinleştirin. Birden çok komut kutucukları olarak görünür, cihaz şablonunuza ekleyebilirsiniz **komutları** işleçleri kullanmak için sekmesinde. Cihaz Oluşturucu olarak ihtiyaçlarınıza göre komutlar tanımlar esnekliğine sahip olursunuz.
 
-Bir komutu bir ayardan farklı mı? 
+Bir komutu bir ayardan farklı mı?
 
-* **Ayar**: Bir cihaz için uygulamak istediğiniz bir yapılandırma bir ayardır ve onu değiştirene kadar bu yapılandırma kalıcı hale getirmek için cihaz istiyorsunuz. Örneğin, Dondurucu Sıcaklığın ayarlamak istediğiniz ve Dondurucu bile yeniden başlatıldığında, ayarlamak istediğiniz. 
+* **Ayar**: Bir ayarı bir cihaz için uygulamak istediğiniz bir yapılandırmadır. Siz değiştirene kadar bu yapılandırma kalıcı hale getirmek için bir cihaz kullanmanız gerekir. Örneğin, Dondurucu Sıcaklığın ayarlamak istediğiniz ve Dondurucu bile yeniden başlatıldığında, ayarlamak istediğiniz.
 
-* **Komut**: Anında bir komutu cihazda uzaktan IOT Central ' çalıştırma için komutları kullanın. Bir cihazı bağlı değilse, komut zaman aşımına uğrar ve başarısız olur. Örneğin, bir cihazı yeniden başlatmak istiyor.  
+* **Komut**: Anında bir komutu cihazda uzaktan IOT Central ' çalıştırma için komutları kullanın. Bir cihazı bağlı değilse, komut zaman aşımına uğrar ve başarısız olur. Örneğin, bir cihazı yeniden başlatmak istiyor.
 
-
-Örneğin, yeni bir ekleyebilirsiniz **Yankı** komutunu seçerek **şablon düzenleme**, ardından seçerek **+ yeni komut**ve yeni komutu girerek:
+Örneğin, yeni bir ekleyebilirsiniz **Yankı** komutunu seçerek **komutları** sekmesini seçip, **+ yeni komut**ve yeni komut ayrıntıları girerek:
 
 | Görünen Ad  | Alan Adı | Varsayılan Zaman Aşımı | Veri Türü |
-| --------------| -----------|---------------- | --------- | 
+| --------------| -----------|---------------- | --------- |
 | Yankı Komutu  | echo       |  30             | metin      |
 
 ![Yankı ayrıntılarını "Komutunu yapılandırma" formu](./media/howto-set-up-template/commandsecho.png)
 
-Seçtikten sonra **Kaydet** ve **Bitti**, **Yankı** komut bir kutucuk görünür ve gerçek Cihazınızı bağlandıktan sonra cihaz echo için kullanılmak üzere hazırdır. Alan adları, komutun başarıyla çalıştırılacak komutları sırayla ilgili cihaz kod özellik adları eşleşmelidir.
-
+Seçtikten sonra **Kaydet**, **Yankı** komut bir kutucuk görünür ve gelen kullanılmak üzere hazırdır **Device Explorer** , gerçek bir cihaz bağlandığında. Alan adları, komutun başarıyla çalıştırılacak komutları sırayla ilgili cihaz kod özellik adları eşleşmelidir.
 
 ## <a name="rules"></a>Kurallar
 
@@ -260,34 +247,29 @@ Kuralları cihazları neredeyse gerçek zamanlı izleme olanak tanır. Kurallar�
 
 ## <a name="dashboard"></a>Pano
 
-Bir cihaz hakkında bilgi için bir işleç gidebilecekleri panodur. Bir oluşturucu işleçleri cihazın nasıl davrandığını anlamanıza yardımcı olması için bu sayfada kutucuklar ekleyebilirsiniz. Birden çok Pano kutucukları, aygıt şablonunuza ekleyebilirsiniz. Pano kutucukları görüntü, çizgi grafik, çubuk grafik, ana performans göstergesi (KPI), ayarları ve özellikleri gibi birçok türleri ekleyin ve etiketi.
+Bir cihaz hakkında bilgi için bir işleç gidebilecekleri panodur. Bir oluşturucu işleçleri cihazın nasıl davrandığını anlamanıza yardımcı olması için bu sayfada kutucuklar ekleyebilirsiniz. Birden çok Pano kutucukları, aygıt şablonunuza ekleyebilirsiniz. Pano kutucukları görüntü, çizgi grafik, çubuk grafik, ana performans göstergesinin (KPI), ayarları ve özellikleri gibi birçok türleri ekleyin ve etiketi.
 
-Örneğin, ekleyebilirsiniz bir **ayarları ve özellikleri** seçerek seçim ayarları ve özellikleri geçerli değerlerini görüntülemek için kutucuk **Şablonu Düzenle** ve kitaplıktan bir kutucuğa:
+Örneğin, ekleyebilirsiniz bir **ayarları ve özellikleri** seçerek seçim ayarları ve özellikleri geçerli değerlerini görüntülemek için kutucuk **Pano** sekmesi ve kitaplıktan bir kutucuğa:
 
 !["Cihaz ayrıntıları Yapılandır" form ayarlarına ve özelliklerine ilişkin ayrıntılı](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
 
-Artık bir işleç panoyu görüntülediğinde, cihaz ayarlarını ve özelliklerini görüntüler. Bu kutucuk görebilirsiniz:
-
-![Görüntülenen ayarları ve özellikleri için kutucuğun bulunduğu "Pano" sekmesi](./media/howto-set-up-template/dashboardtile.png)
+Şimdi ne zaman bir işleç görünümleri Pano **Device Explorer**, kutucuğu görebilir.
 
 ### <a name="add-an-azure-maps-location-in-the-dashboard"></a>Azure haritalar konum Pano Ekle
 
-Bir konum özelliği daha önce söz yapılandırdıysanız [bir konum özelliği üzerinden Azure haritalar'ı oluşturma](#create-a-location-property-through-azure-maps), cihaz Panonuzda bir eşlemesi'ni kullanarak konum görselleştirebilirsiniz.
+Konum özelliği yapılandırdıysanız, cihaz Panonuzda bir eşlemesi'ni kullanarak konum görselleştirebilirsiniz.
 
-1. Üzerinde **Pano** sekmesinde **şablonu Düzen**.
+1. Gidin **Pano** sekmesi.
 
-   ![Tasarım modu açık olan "Pano" sekmesi](./media/howto-set-up-template/locationcloudproperty4map.png)
+1. Cihaz Panoda seçin **harita** kitaplığından.
 
-2. Cihaz Panoda seçin **harita** kitaplığından. 
-3. Bir başlık verebiliyorum. Aşağıdaki örnekte başlığa yükleme konumuna sahip, Özellikler sekmesi altında daha önce yapılandırdığınız location özelliği seçin. Aşağıdaki örnekte **yükleme adresi** seçilir.
+1. Haritayı bir başlık verin. Aşağıdaki örnek başlığa sahip **yükleme konumu**. Ardından, daha önce yapılandırılan konum özelliği seçin **özellikleri** sekmesi. Aşağıdaki örnekte, **yükleme adresi** seçilir.
 
    ![Form başlığı ve özelliklerine ilişkin ayrıntıları "Eşlemesi yapılandırmak"](./media/howto-set-up-template/locationcloudproperty5map.png)
 
-4. **Kaydet**’i seçin. Harita kutucuğunu şimdi seçtiğiniz konum görüntülenir. 
+4. **Kaydet**’i seçin. Harita kutucuğunu şimdi seçtiğiniz konum görüntülenir.
 
-   ![Seçilen konum eşlemesi kutucuğu](./media/howto-set-up-template/locationcloudproperty6map.png) 
-
-Harita, istenen boyuta yeniden boyutlandırabilirsiniz. Artık bir işleç panoyu görüntülediğinde, bir konum eşlemesi dahil olmak üzere, yapılandırdığınız tüm Pano kutucuklarının görebilirsiniz.
+Harita, istenen boyuta yeniden boyutlandırabilirsiniz. Şimdi ne zaman bir işleç görünümleri Pano **Device Explorer**, tüm Pano kutucuklarının yapılandırdıysanız, bir konum eşlemesi gibi görülebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

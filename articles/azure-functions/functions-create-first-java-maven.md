@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bafaf23791bef1bac42b5227d7775de0f5be2217
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 96ac8522f94a3555fe63575baca8bbfbabc272d9
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246047"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570462"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Java ve Maven ile ilk işlevinizi oluşturma
 
@@ -166,6 +166,9 @@ Dağıtım tamamlandığında, Azure işlev uygulamanıza erişmek için kullana
 ```
 
 Azure’da çalışan işlev uygulamasını `cURL` kullanarak test edin. Önceki adımdan kendi işlev uygulamanız için dağıtılan URL ile eşleşmek üzere aşağıdaki örnekten URL’yi değiştirmeniz gerekir.
+
+> [!NOTE]
+> Ayarladığınızdan emin olun **erişim hakları** için `Anonymous`. Varsayılan düzeyini seçtiğinizde `Function`, sunmak için gerekli [işlev anahtarı](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) işlevi uç noktanızı erişmek için istek.
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/01/2019
+ms.date: 03/11/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 644a2279f555af05d711e1455923795b5271e159
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97e5976603ee1574e8410702069b97a9f0ef6198
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191631"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768767"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Nasıl yapılır: Azure ad koşullu erişim bloğu eski kimlik doğrulaması   
 
@@ -114,6 +114,8 @@ Daha fazla bilgi için [dağıtımı yeni bir ilke?](best-practices.md#how-shoul
 
 
 ## <a name="what-you-should-know"></a>Bilmeniz gerekenler
+
+Kullanarak erişimini engelleme **diğer istemciler** da temel kimlik doğrulaması kullanan Exchange Online PowerShell engeller
 
 Bir ilke için yapılandırma **diğer istemciler** SPConnect gibi belirli istemcilerden gelen tüm kuruluş engeller. Bunun nedeni, eski istemciler, beklenmedik bir şekilde kimlik doğrulaması bu blok kullanmasıdır. Sorun, eski Office istemcileri gibi önemli Office uygulamaları için geçerli değildir.
 

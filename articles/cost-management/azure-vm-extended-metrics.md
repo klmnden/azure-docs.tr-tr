@@ -10,12 +10,12 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
-ms.openlocfilehash: 3d30693273f5d76e285554e230da0d4d74c7f30d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dfe957ae67a8e154a62e443d2cc1769531dab77b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881507"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544793"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Azure sanal makineleri için genişletilmiş ölçümler ekleme
 
@@ -31,7 +31,7 @@ Cloudyn Azure vm'lerinizden Azure ölçüm veri kaynakları hakkında bilgi ayr�
 Örneğin, Azure sanal makinelerinizin bellek % ve % CPU izlemek isteyebilirsiniz. Azure VM ölçümleri karşılık _[konak] CPU yüzdesi_ ve _[Konuk] bellek yüzdesi_.
 
 > [!NOTE]
-> Genişletilmiş ölçüm verileri toplama yalnızca Azure Konuk düzeyinde izlemeyi ile desteklenir. Cloudyn, log analytics VM uzantısı ile uyumlu değil.
+> Genişletilmiş ölçüm verileri toplama yalnızca Azure Konuk düzeyinde izlemeyi ile desteklenir. Cloudyn Azure İzleyici günlüklerine VM uzantısı ile uyumlu değil.
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Genişletilmiş ölçümler etkinleştirilip etkinleştirilmediğini belirleme
 

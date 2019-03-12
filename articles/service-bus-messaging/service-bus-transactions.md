@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2018
 ms.author: aschhab
-ms.openlocfilehash: 69dc9c974c259f51ac0c6c9d64bfcda7ee65e181
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: a839a4cad824a74bde388317cf3aaddf9c5bd47f
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844594"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588763"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Service Bus hareket işleme genel bakış
 
-Bu makalede, Microsoft Azure Service Bus işlem yeteneklerini açıklar. Tartışma çoğunu gösterilmiştir [atomik işlemler ile hizmet veri yolu örnek](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions). İşlem genel bir bakış için bu makalede sınırlıdır ve *aracılığıyla gönderme* Service Bus atomik işlemler örnek kapsamda daha geniş ve daha karmaşık olmakla birlikte, özelliği.
+Bu makalede, Microsoft Azure Service Bus işlem yeteneklerini açıklar. Tartışma çoğunu gösterilmiştir [hizmet veri yolu örnek ile AMQP işlemleri](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia). İşlem genel bir bakış için bu makalede sınırlıdır ve *aracılığıyla gönderme* Service Bus atomik işlemler örnek kapsamda daha geniş ve daha karmaşık olmakla birlikte, özelliği.
 
 ## <a name="transactions-in-service-bus"></a>Hizmet veri yolu işlemleri
 
-A [ *işlem* ](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions#what-are-transactions) iki veya daha fazla işlem içine gruplandıran bir *yürütme kapsam*. Doğası gereği bu tür bir işlem işlemlerinin belirli bir gruba ait tüm işlemleri başarılı veya başarısız ortaklaşa emin olmanız gerekir. Bu bakımdan, genellikle olarak adlandırılan tek bir birim olarak işlem hareket *kararlılık*. 
+A *işlem* iki veya daha fazla işlem içine gruplandıran bir *yürütme kapsam*. Doğası gereği bu tür bir işlem işlemlerinin belirli bir gruba ait tüm işlemleri başarılı veya başarısız ortaklaşa emin olmanız gerekir. Bu bakımdan, genellikle olarak adlandırılan tek bir birim olarak işlem hareket *kararlılık*.
 
 Service Bus, bir işlem iletisi aracısıdır ve kendi ileti depoları tüm iç işlemler için işlem tutarlılığı sağlar. İletileri taşıma gibi iletileri Service Bus içinde tüm aktarımları bir [eski ileti sırası](service-bus-dead-letter-queues.md) veya [otomatik iletme](service-bus-auto-forwarding.md) varlıklar arasında iletileri işlem olan. Bu nedenle, Service Bus iletiyi kabul ederse, zaten olduğundan depolanır ve bir sıra numarası ile etiketlenmiş. Daha sonra Service Bus içinde tüm ileti aktarımları varlıklar arasında Eşgüdümlü işlemlerdir ve bunların hiçbiri kaybına neden (kaynak başarılı ve başarısız hedef) veya çoğaltma (başarısız kaynak ve hedef başarılı) ileti.
 
@@ -55,26 +55,47 @@ Aktarma sırası gönderenin giriş iletileri kaynağı olduğunda işlem bu öz
 Bu tür aktarımı ayarlamak için hedef sırası aktarımı kuyruk üzerinden hedefleyen bir iletiyi gönderenin oluşturun. Ayrıca, aynı kuyruktan iletileri çeken bir alıcı vardır. Örneğin:
 
 ```csharp
-var sender = this.messagingFactory.CreateMessageSender(destinationQueue, myQueueName);
-var receiver = this.messagingFactory.CreateMessageReceiver(myQueueName);
+var connection = new ServiceBusConnection(connectionString);
+
+var sender = new MessageSender(connection, QueueName);
+var receiver = new MessageReceiver(connection, QueueName);
 ```
 
-Aşağıdaki örnekte olduğu gibi bu öğelerden sonra basit bir işlem kullanır:
+Aşağıdaki örnekte olduğu gibi bu öğelerden sonra basit bir işlem kullanır. Tam örnek başvurmak için başvuru [kaynak kodu github'da](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia):
 
 ```csharp
-var msg = receiver.Receive();
+var receivedMessage = await receiver.ReceiveAsync();
 
-using (scope = new TransactionScope())
+using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 {
-    // Do whatever work is required 
+    try
+    {
+        // do some processing
+        if (receivedMessage != null)
+            await receiver.CompleteAsync(receivedMessage.SystemProperties.LockToken);
 
-    var newmsg = ... // package the result 
+        var myMsgBody = new MyMessage
+        {
+            Name = "Some name",
+            Address = "Some street address",
+            ZipCode = "Some zip code"
+        };
 
-    msg.Complete(); // mark the message as done
-    sender.Send(newmsg); // forward the result
+        // send message
+        var message = myMsgBody.AsMessage();
+        await sender.SendAsync(message).ConfigureAwait(false);
+        Console.WriteLine("Message has been sent");
 
-    scope.Complete(); // declare the transaction done
-} 
+        // complete the transaction
+        ts.Complete();
+    }
+    catch (Exception ex)
+    {
+        // This rolls back send and complete in case an exception happens
+        ts.Dispose();
+        Console.WriteLine(ex.ToString());
+    }
+}
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

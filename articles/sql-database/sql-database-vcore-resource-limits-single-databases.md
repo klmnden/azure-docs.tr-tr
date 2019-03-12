@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/04/2019
-ms.openlocfilehash: f4d6826d13f92db7a430f668c56825926d198235
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/06/2019
+ms.openlocfilehash: 127e3385f1fd9cf0975ff19818d3112fe5a713d0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340108"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571023"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL veritabanı sanal çekirdek tabanlı model sınırları tek bir veritabanı için satın alma
 
@@ -29,6 +29,9 @@ DTU tabanlı satın alma modeli sınırları için bir SQL veritabanı sunucusun
 > Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
 
 Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek veritabanı için ayarlayabileceğiniz [Azure portalında](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), [ Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases), veya [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
+
+> [!IMPORTANT]
+> Bkz. yönergeler ve önemli noktalar ölçekleme için [tek bir veritabanının ölçeğini](sql-database-single-database-scale.md).
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Genel amaçlı hizmet katmanı: Depolama boyutlarına ve işlem boyutları
 
@@ -51,7 +54,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Maks. eş zamanlı çalışan (istek)|200|400|600|800|1000|1200|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|1|1.|1.|1.|1.|1|
-|Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|000
+|Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
@@ -146,7 +149,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Maks. eş zamanlı oturum|200|400|600|800|1000|1200|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|4|4|4|4|4|4|
-|Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|
+|Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
@@ -170,7 +173,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |En fazla eşzamanlı oturum açma (istek)|1400|1600|1800|2000|3200|4800|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|4|4|4|4|4|4|
-|Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|
+|Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 

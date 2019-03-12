@@ -10,26 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/08/2019
 ms.author: jingwang
-ms.openlocfilehash: fe0783891bd5f571c06551e19c154d6f22768e84
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 474ebaad60328b011e91337c46040ae37c603e21
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821550"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731063"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>SAP Business Warehouse açık bir Azure Data Factory kullanarak hub'ı aracılığıyla veri kopyalama
 
 Bu makalede, kopyalama etkinliği Azure Data Factory'de bir SAP Business Warehouse (BW) öğesinden açık hub'ı aracılığıyla veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
-
-## <a name="sap-bw-open-hub-integration"></a>SAP BW Open Hub tümleştirmesi 
-
-[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) SAP BW verileri ayıklamak için etkili bir yoludur. Aşağıdaki diyagramda imajlarını kendi SAP sistemde tipik akışlar birini gösterir, SAP ECC hangi büyük veri akışları PSA -> DSO -> Küp ->.
-
-SAP BW Open Hub hedef (OHD) için SAP veri geçirilen hedef tanımlar. SAP veri aktarım işlemi (DTP) tarafından desteklenen herhangi bir nesne açık hub'ı veri kaynakları, örneğin DSO, Infocube, veri kaynağı, vb. olarak kullanılabilir. Veritabanı tabloları (yerel veya uzak) - geçirilen verilerin depolandığı - açık Hub hedef türü olabilir ve düz dosyaları. BW OHD yerel tabloda veri kopyalama bu SAP BW Open Hub Bağlayıcısı desteği. Durumunda diğer türleri kullanıyorsanız, veritabanı veya dosya sistemine diğer bağlayıcıları kullanarak doğrudan bağlantı kurabilir.
-
-![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -41,6 +33,37 @@ Tüm desteklenen havuz veri deposuna SAP Business Warehouse açık hub'ı üzeri
 - Olabilen altında DSO, Infocube, MultiProvider, veri kaynağı, vb. açık Hub hedef yerel tablo aracılığıyla veri kopyalama.
 - Temel kimlik doğrulaması kullanarak veri kopyalama.
 - Uygulama sunucusuna bağlanılıyor.
+
+## <a name="sap-bw-open-hub-integration"></a>SAP BW Open Hub tümleştirmesi 
+
+[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) SAP BW verileri ayıklamak için etkili bir yoludur. Aşağıdaki diyagramda imajlarını kendi SAP sistemde tipik akışlar birini gösterir, SAP ECC hangi büyük veri akışları PSA -> DSO -> Küp ->.
+
+SAP BW Open Hub hedef (OHD) için SAP veri geçirilen hedef tanımlar. SAP veri aktarım işlemi (DTP) tarafından desteklenen herhangi bir nesne açık hub'ı veri kaynakları, örneğin DSO, Infocube, veri kaynağı, vb. olarak kullanılabilir. Veritabanı tabloları (yerel veya uzak) - geçirilen verilerin depolandığı - açık Hub hedef türü olabilir ve düz dosyaları. BW OHD yerel tabloda veri kopyalama bu SAP BW Open Hub Bağlayıcısı desteği. Durumunda diğer türleri kullanıyorsanız, veritabanı veya dosya sistemine diğer bağlayıcıları kullanarak doğrudan bağlantı kurabilir.
+
+![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
+
+## <a name="delta-extraction-flow"></a>Delta ayıklama akışı
+
+ADF SAP BW Open Hub Bağlayıcısı iki isteğe bağlı özellikleri sunar: `excludeLastRequest` ve `baseRequestId` açık Hub'ından delta yükü işlemek için kullanılabilir. 
+
+- **excludeLastRequestId**: Son istek kayıtlarını hariç verilmeyeceğini belirtir. Varsayılan değer True'dur. 
+- **baseRequestId**: Delta yükleme isteği kimliği. Ayarlandıktan sonra yalnızca veri RequestId bu özelliğin değerinden daha büyük olan alınır. 
+
+Genel olarak, Azure Data Factory (ADF) için ayıklama SAP InfoProviders gelen 2 adımlardan oluşur: 
+
+1. **SAP BW veri aktarım işlemi (DTP)** Bu adım bir SAP BW InfoProvider veriler, bir SAP BW Open Hub tabloya kopyalar. 
+
+1. **ADF veri kopyalama** Bu adımda, ADF bağlayıcı tarafından okunan açık Hub tablosu 
+
+![Delta ayıklama akışı](media\connector-sap-business-warehouse-open-hub\delta-extraction-flow.png)
+
+İlk adımda bir DTP yürütülür. Her yürütme yeni bir SAP talep kimliği oluşturur. İstek Kimliği açık Hub tablosunda depolanır ve sonra belirlemek delta için ADF bağlayıcı tarafından kullanılır. İki adımı zaman uyumsuz olarak çalışır: DTP SAP tarafından tetiklenir ve ADF veri kopyalama ADF tetiklenir. 
+
+Varsayılan olarak, ADF son delta açık Hub tablosundan okuyor değil ("hariç tutma son isteği" seçeneğini true). İşbu sözleşme ile ADF verileri % 100 (son delta eksik) açık Hub tablodaki verileri güncel değil. Hiçbir satır zaman uyumsuz ayıklama nedeni kayıp, buna karşılık, bu yordamı sağlar. DTP hala aynı tabloya yazma olsa bile ADF açık Hub tablosu okunurken düzgün çalışır. 
+
+Genellikle son çalıştırılmasındaki hazırlama veri deposu (örneğin, yukarıdaki diyagramda Azure Blob üzerinde), ADF tarafından en fazla kopyalanan istek kimliği saklayın. Bu nedenle, aynı istekte ikinci kez ADF tarafından sonraki çalıştırmada okunmadı. Bu arada, verileri otomatik olarak açık Hub tablosundan silinmez unutmayın.
+
+İçin uygun delta, işleme istek farklı DTPs kimlikleri aynı açık Hub tabloya sahip izin verilmiyor. Bu nedenle, her açık Hub hedef (OHD) için birden fazla DTP oluşturmamalıdır. Aynı InfoProvider tam ve değişim ayıklama ihtiyaç duyulduğunda için aynı InfoProvider iki OHDs oluşturmanız gerekir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -60,6 +83,10 @@ SAP Business Warehouse açık Hub bu bağlayıcıyı kullanmak için gerekir:
 - SAP açık Hub hedef türünde oluşturma **veritabanı tablosu** "Teknik anahtarı" seçeneği işaretli.  Ayrıca, gerekli olmamasına rağmen silme veri tablosundan olarak işaretlemeden bırakın için önerilir. DTP yararlanın (doğrudan yürütün veya var olan bir işlem zincirine tümleştirme) verileri (örneğin, küp) kaynak nesneden yerleşmesi açık hub hedef tabloya seçtiniz.
 
 ## <a name="getting-started"></a>Başlarken
+
+> [!TIP]
+>
+> SAP BW Open Hub Bağlayıcısı'nı kullanarak bir kılavuz için bkz. [veri yükleme SAP Business Warehouse (BW) Azure Data Factory kullanarak](load-sap-bw-data.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

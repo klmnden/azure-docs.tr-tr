@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 0fe4da13e8242d858d553e0532b82cf1adca450a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 04712b1ba1eccd71dcfcc9012ebcbdfcbdcd2404
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338768"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773697"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Azure API Management hizmeti bir iç sanal ağ ile kullanma
 Azure sanal ağlar ile Azure API Management API'leri değil internet üzerinden erişilebilen yönetebilirsiniz. VPN'si teknolojileri birkaç bağlantı kurmak kullanılabilir. API Management, iki ana modda bir sanal ağ içinde dağıtılabilir:
@@ -32,7 +32,7 @@ API Management, iç modda kullanma, aşağıdaki senaryoları elde edebilirsiniz
 
 * Siteden siteye veya Azure ExpressRoute VPN bağlantıları kullanarak özel veri merkezinizde güvenli bir şekilde erişmesini dışındaki üçüncü taraflarca barındırılan API'ler olun.
 * Karma bulut senaryolarında, bulut tabanlı API'ler ve ortak bir ağ geçidi üzerinden şirket içi API'ler göstererek etkinleştirin.
-* Apı'lerinizi tek bir ağ geçidi uç noktası kullanarak birden çok coğrafi bölgelerde barındırılan yönetin. 
+* Apı'lerinizi tek bir ağ geçidi uç noktası kullanarak birden çok coğrafi bölgelerde barındırılan yönetin.
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
@@ -47,7 +47,7 @@ Bu makalede açıklanan adımları gerçekleştirmek için aşağıdakiler gerek
 + **Azure API Management örneği**. Daha fazla bilgi için [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
 
 ## <a name="enable-vpn"> </a>API yönetimi bir iç sanal ağ oluşturma
-Bir iç sanal ağ API Management hizmetinde bir iç yük dengeleyici (ILB) barındırılır.
+API Management hizmeti bir iç sanal ağ içinde arkasında barındırılan bir [iç yük dengeleyici (Klasik)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Bu, kullanılabilecek tek seçenek budur ve değiştirilemez.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Azure portalını kullanarak bir sanal ağ bağlantısını etkinleştirme
 
@@ -103,11 +103,12 @@ Bu API Management hizmet uç noktalarına erişmek için API Management dağıt�
 
    * 10.1.0.5     contosointernalvnet.scm.azure-api.net
 
-Tüm hizmet uç noktaları, oluşturduğunuz sanal makineden erişebilirsiniz. Bir sanal ağda özel DNS sunucusu kullanıyorsanız, ayrıca bir DNS kayıtları oluşturmak ve bu uç noktalar her yerden erişim sanal ağınızda. 
+Tüm hizmet uç noktaları, oluşturduğunuz sanal makineden erişebilirsiniz.
+Bir sanal ağda özel DNS sunucusu kullanıyorsanız, ayrıca bir DNS kayıtları oluşturmak ve bu uç noktalar her yerden erişim sanal ağınızda.
 
 ### <a name="access-on-custom-domain-names"></a>Özel etki alanı adları hakkında daha fazla erişim
 
-   1. API Management hizmeti ile varsayılan konak adları erişmek istemiyorsanız, aşağıdaki görüntüde gösterildiği gibi tüm hizmet uç noktalarınıza için özel etki alanı adlarını ayarlayabilirsiniz: 
+   1. API Management hizmeti ile varsayılan konak adları erişmek istemiyorsanız, aşağıdaki görüntüde gösterildiği gibi tüm hizmet uç noktalarınıza için özel etki alanı adlarını ayarlayabilirsiniz:
 
    ![API Management için özel bir etki alanı ayarlama][api-management-custom-domain-name]
 

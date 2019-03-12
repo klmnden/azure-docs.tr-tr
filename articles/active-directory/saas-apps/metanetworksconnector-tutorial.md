@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 4ae5f30d-113b-4261-b474-47ffbac08bf7
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: a510fcce6b004e8384ce888ad421802bc144e73f
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: a9c65411bc926fae37763538a256a7635c4e9f17
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985980"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773963"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Öğretici: Meta ağları Bağlayıcısı ile Azure Active Directory Tümleştirme
 
@@ -123,7 +123,7 @@ Azure AD çoklu oturum açma Meta ağları Bağlayıcısı ile yapılandırmak i
 
 6. Meta ağları bağlayıcı uygulaması, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekliyor. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
 
-    ![görüntü](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
     
 7. Yukarıdaki için Ayrıca, SAML yanıtta geçirilecek birkaç daha fazla öznitelik Meta ağları bağlayıcı uygulaması bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
     
@@ -132,14 +132,14 @@ Azure AD çoklu oturum açma Meta ağları Bağlayıcısı ile yapılandırmak i
     | firstName | User.givenName | |
     | Soyadı | User.surname | |
     | emailaddress| User.Mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | name | User.userPrincipalName| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | ad | User.userPrincipalName| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | telefon | User.telephoneNumber | |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![görüntü](common/new-save-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![görüntü](common/new-attribute-details.png)
+    ![image](common/new-attribute-details.png)
 
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 

@@ -6,16 +6,16 @@ author: craigshoemaker
 ms.author: cshoe
 manager: jeconnoc
 keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem, sunucusuz mimari
-ms.service: azure-functions; cosmos-db
+ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 7194c28e4e0620afb2ab6e5c817b2f9b322248a9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0421ec62d25bbfaba2909d16498cac5afd038a53
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728072"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776334"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 1.x
 
@@ -33,7 +33,7 @@ Bu makalede ile nasıl çalışılacağı açıklanmaktadır [Azure Cosmos DB](.
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Azure Cosmos DB bağlamaları yalnızca SQL API ile kullanım için desteklenir. Tüm diğer Azure Cosmos DB API'leri için veritabanına işlevinizden API'niz için statik bir istemci kullanarak erişmeli dahil olmak üzere [Azure Cosmos DB'nin MongoDB API'si](../cosmos-db/mongodb-introduction.md)] (.. /cosmos-DB/mongodb-introduction.MD) [Cassandra API'si](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md), ve [tablo API'si](../cosmos-db/table-introduction.md).
+> Azure Cosmos DB bağlamaları yalnızca SQL API ile kullanım için desteklenir. Tüm diğer Azure Cosmos DB API'leri için veritabanına işlevinizden API'niz için statik bir istemci kullanarak erişmeli dahil olmak üzere [Azure Cosmos DB'nin MongoDB API'si](../cosmos-db/mongodb-introduction.md), [Cassandra API](../cosmos-db/cassandra-introduction.md), [ Gremlin API](../cosmos-db/graph-introduction.md), ve [tablo API'si](../cosmos-db/table-introduction.md).
 
 ## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 

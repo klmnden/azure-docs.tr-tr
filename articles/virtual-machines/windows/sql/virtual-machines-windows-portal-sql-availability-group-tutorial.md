@@ -3,7 +3,7 @@ title: SQL Server kullanılabilirlik gruplarını - Azure sanal makineler - öğ
 description: Bu öğreticide, Azure sanal makineler üzerinde bir SQL Server Always On kullanılabilirlik grubu oluşturma işlemi gösterilmektedir.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 61a05f912e8b8e0b954dc43faeb7d6e35a08b657
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 9242edb8ea08b858ae6ad092f4d855483e72d0bf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820153"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777473"
 ---
-# <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Yapılandırma Always On kullanılabilirlik grubu Azure VM'de el ile
+# <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Öğretici: Yapılandırma Always On kullanılabilirlik grubu Azure VM'de el ile
 
 Bu öğreticide, Azure sanal makineler üzerinde bir SQL Server Always On kullanılabilirlik grubu oluşturma işlemi gösterilmektedir. Tam öğretici, bir kullanılabilirlik grubunda iki SQL Server örneklerinde veritabanı çoğaltmasıyla oluşturur.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: d692eb471c514015271a688e4660700788f1baaa
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 64e9350606748116d2eef247790e88ed0d576c3f
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431471"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570377"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server için Azure Hibrit Teklifi
 Yazılım Güvencesi olan müşteriler için Windows Server için Azure hibrit avantajı, şirket içi Windows Server lisanslarınızı kullanın ve Windows sanal makineler, düşük bir maliyet karşılığında Azure üzerinde çalıştırmak sağlar. Windows işletim sistemi ile yeni sanal makineleri dağıtmak için Windows Server için Azure hibrit Avantajı'nı kullanabilirsiniz. Bu makale Windows Server için Azure hibrit avantajı ile yeni VM'ler dağıtmayı ve varolan nasıl güncelleştirebilirsiniz adımları üzerinden Vm'leri çalıştıran gider. Windows Server için Azure hibrit Avantajı hakkında daha fazla bilgi için bkz: Lisans ve maliyet tasarrufu [Windows Server için Azure hibrit avantajı lisans sayfası](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -77,11 +77,11 @@ az vm create \
 ### <a name="template"></a>Şablon
 Resource Manager şablonlarınızı, ek bir parametre içinde `licenseType` belirtilmesi gerekir. Daha fazla bilgi edinebilirsiniz [Azure Resource Manager şablonları yazma](../../resource-group-authoring-templates.md)
 ```json
-"properties": {  
-   "licenseType": "Windows_Server",
-   "hardwareProfile": {
+"properties": {
+    "licenseType": "Windows_Server",
+    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
-   }
+    }
 ```
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Windows Server için Azure hibrit Avantajı'nı kullanarak mevcut bir VM'ye dönüştürme
@@ -161,7 +161,7 @@ Sanal makine veya sanal makine ölçek kümesi kaynak dikey penceresinden tablo 
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
-$vms = Get-AzVM 
+$vms = Get-AzVM
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 
@@ -171,7 +171,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Windows Server için Azure hibrit avantajı ile bir sanal makine ölçek kümesini dağıtma
-İçinde sanal makine ölçek kümesi Resource Manager şablonları, ek bir parametre `licenseType` , VirtualMachineProfile özelliği içinde belirtilmelidir. Oluşturma sırasında bunu veya ARM şablonu aracılığıyla, Powershell, Azure CLI veya REST ölçek kümenizi için güncelleştirin.
+İçinde sanal makine ölçek kümesi Resource Manager şablonları, ek bir parametre `licenseType` , VirtualMachineProfile özelliği içinde belirtilmelidir. Oluşturma sırasında bunu veya ARM şablonu aracılığıyla, PowerShell, Azure CLI veya REST ölçek kümenizi için güncelleştirin.
 
 Aşağıdaki örnek, bir Windows Server 2016 Datacenter görüntüsü ile ARM şablonu kullanır:
 ```json

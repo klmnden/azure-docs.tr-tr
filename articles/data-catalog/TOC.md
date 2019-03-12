@@ -40,5 +40,5 @@
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Sürüm notları](../active-directory/fundamentals/whats-new.md)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=data-catalog)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-catalog)
 ## [Terminoloji](data-catalog-terminology.md)

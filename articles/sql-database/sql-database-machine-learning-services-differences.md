@@ -3,7 +3,6 @@ title: Azure SQL veritabanı Machine Learning Hizmetleri (Önizleme) için temel
 description: Bu konuda, Azure SQL veritabanı Machine Learning Hizmetleri (R ile) ve SQL Server Machine Learning Hizmetleri arasındaki önemli farklılıkları açıklar.
 services: sql-database
 ms.service: sql-database
-ms.subservice: machine-learning-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: c750942f8f0f2727d1d11945a84bffb434a01193
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 57ea52c179376e8378680f436d396ffaf9357f68
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242132"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771859"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Machine Learning Hizmetleri (Önizleme) Azure SQL veritabanında SQL Server arasındaki temel farklılıklar
 
@@ -59,10 +58,6 @@ R için kullanılabilir bellek yetersiz ise bir hata iletisi alırsınız. Genel
 - Dış betik hatası oluştu: Hata: boyutunun vektör ayrılamıyor.
 
 Bellek kullanımı üzerinde ne kadar bağımlı R betikleriniz ve paralel sorgular çalıştırılmasını sayısı kullanılır. Yukarıdaki hataları alırsanız, bu sorunu çözmek için daha yüksek bir hizmet katmanına veritabanına ölçeklendirebilirsiniz.
-
-## <a name="security-isolation"></a>Güvenlik yalıtımı
-
-Azure SQL veritabanı'nda SQL Platform Soyutlama Katmanı (SQLPAL) dış işlemler için yalıtım sağlar. Bu yalıtım, ek bir R betikleri çalıştırma için güvenlik katmanı sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2018
+ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 04a82d1ed8735954072f9549f3b2676df0935449
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: c35352c47edb4f34100501ac791c84108fa9ac17
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269306"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762849"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Dize işlevleri için Azure Resource Manager şablonları
 
@@ -40,11 +40,12 @@ Resource Manager, dizeleri ile çalışmak için aşağıdaki işlevleri sunar:
 * [Son](#last)
 * [lastIndexOf](#lastindexof)
 * [Uzunluğu](#length)
+* [newGuid](#newguid)
 * [padLeft](#padleft)
 * [Değiştir](#replace)
 * [Atla](#skip)
 * [split](#split)
-* [startsWith](resource-group-template-functions-string.md#startswith)
+* [startsWith](#startswith)
 * [dize](#string)
 * [alt dize](#substring)
 * [sınav zamanı](#take)
@@ -53,14 +54,12 @@ Resource Manager, dizeleri ile çalışmak için aşağıdaki işlevleri sunar:
 * [Kırpma](#trim)
 * [uniqueString](#uniquestring)
 * [URI](#uri)
-* [uriComponent](resource-group-template-functions-string.md#uricomponent)
-* [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
-
-<a id="base64" />
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+* [uriComponent](#uricomponent)
+* [uriComponentToString](#uricomponenttostring)
+* [utcNow](#utcnow)
 
 ## <a name="base64"></a>Base64
+
 `base64(inputString)`
 
 Giriş dizesinin base64 gösterimini döndürür.
@@ -69,7 +68,7 @@ Giriş dizesinin base64 gösterimini döndürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| inputString |Evet |dize |Bir base64 gösterimine döndürülecek değer. |
+| inputString |Evet |string |Bir base64 gösterimine döndürülecek değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -124,21 +123,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | toStringOutput | String | Bir iki üç |
 | toJsonOutput | Nesne | {"bir": "a", "iki": "b"} |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-<a id="base64tojson" />
-
 ## <a name="base64tojson"></a>base64ToJson
+
 `base64tojson`
 
 Bir JSON nesnesi için bir base64 gösterimine dönüştürür.
@@ -147,7 +133,7 @@ Bir JSON nesnesi için bir base64 gösterimine dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| base64value değeri |Evet |dize |Bir JSON nesnesine dönüştürmek için base64 gösterimi. |
+| base64value değeri |Evet |string |Bir JSON nesnesine dönüştürmek için base64 gösterimi. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -202,21 +188,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | toStringOutput | String | Bir iki üç |
 | toJsonOutput | Nesne | {"bir": "a", "iki": "b"} |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-<a id="base64tostring" />
-
 ## <a name="base64tostring"></a>base64ToString
+
 `base64ToString(base64Value)`
 
 Bir base64 gösterimi bir dizeye dönüştürür.
@@ -225,7 +198,7 @@ Bir base64 gösterimi bir dizeye dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| base64value değeri |Evet |dize |Bir dizeye dönüştürmek için base64 gösterimi. |
+| base64value değeri |Evet |string |Bir dizeye dönüştürmek için base64 gösterimi. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -280,21 +253,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | toStringOutput | String | Bir iki üç |
 | toJsonOutput | Nesne | {"bir": "a", "iki": "b"} |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-<a id="concat" />
-
 ## <a name="concat"></a>concat
+
 `concat (arg1, arg2, arg3, ...)`
 
 Birden çok dize değerleri birleştirir ve birleştirilmiş dizeyi döndürür veya birden çok dizisi birleştirir ve birleştirilmiş bir dizi döndürür.
@@ -304,7 +264,7 @@ Birden çok dize değerleri birleştirir ve birleştirilmiş dizeyi döndürür 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
 | arg1 |Evet |dize veya dizi |Birleştirme için ilk değer. |
-| Ek bağımsız değişkenler |Hayır |dize |Sıralı birleştirme için ek değerler. |
+| Ek bağımsız değişkenler |Hayır |string |Sıralı birleştirme için ek değerler. |
 
 ### <a name="return-value"></a>Dönüş değeri
 Bir dize veya birleştirilmiş değerleri dizisi.
@@ -338,18 +298,6 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
 | concatOutput | String | önek 5yj4yjf5mbg72 |
-
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
-```
 
 Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) iki diziyi birleştirme işlemi gösterilmektedir.
 
@@ -392,21 +340,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | ---- | ---- | ----- |
 | döndürülecek | Dizi | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
-```
-
-<a id="contains" />
-
 ## <a name="contains"></a>içerir
+
 `contains (container, itemToFind)`
 
 Bir dizinin değer içermesi, bir nesne içeren bir anahtar veya bir alt dizenin bir dize içeren olup olmadığını denetler. Dize karşılaştırma büyük/küçük harf duyarlıdır. Ancak, bir nesne bir anahtar içeriyorsa test ederken, karşılaştırma büyük küçük harfe duyarlıdır.
@@ -486,21 +421,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
-```
-
-<a id="datauri" />
-
 ## <a name="datauri"></a>dataUri
+
 `dataUri(stringToConvert)`
 
 Bir veri URI'SİNİN bir değere dönüştürür.
@@ -509,7 +431,7 @@ Bir veri URI'SİNİN bir değere dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Evet |dize |Bir veri URI'sine dönüştürülecek değer. |
+| stringToConvert |Evet |string |Bir veri URI'sine dönüştürülecek değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -554,21 +476,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Merhaba Dünya! |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
-```
-
-<a id="datauritostring" />
-
 ## <a name="datauritostring"></a>dataUriToString
+
 `dataUriToString(dataUriToConvert)`
 
 Bir veri URI'SİNİN dize değerine biçimlendirilmiş.
@@ -577,7 +486,7 @@ Bir veri URI'SİNİN dize değerine biçimlendirilmiş.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Evet |dize |Verileri dönüştürmek için URI değeri. |
+| dataUriToConvert |Evet |string |Verileri dönüştürmek için URI değeri. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -622,21 +531,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Merhaba Dünya! |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
-```
-
-<a id="empty" /> 
-
 ## <a name="empty"></a>boş
+
 `empty(itemToTest)`
 
 Bir dizi, nesne veya dize boş olup olmadığını belirler.
@@ -700,21 +596,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | objectEmpty | Bool | True |
 | stringEmpty | Bool | True |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
-```
-
-<a id="endswith" />
-
 ## <a name="endswith"></a>endsWith
+
 `endsWith(stringToSearch, stringToFind)`
 
 Bir dize değeri ile bitip bitmediğini belirler. Karşılaştırma büyük/küçük harfe duyarsızdır.
@@ -723,8 +606,8 @@ Bir dize değeri ile bitip bitmediğini belirler. Karşılaştırma büyük/kü�
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Evet |dize |Bulunacak öğe içeren bir değer. |
-| stringToFind |Evet |dize |Bulunacak değer. |
+| stringToSearch |Evet |string |Bulunacak öğe içeren bir değer. |
+| stringToFind |Evet |string |Bulunacak değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -779,21 +662,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
-```
-
-<a id="first" />
-
 ## <a name="first"></a>ilk
+
 `first(arg1)`
 
 Dize veya dizinin ilk öğesinin ilk karakteri döndürür.
@@ -844,18 +714,6 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | arrayOutput | String | bir |
 | stringOutput | String | O |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
-```
-
 ## <a name="guid"></a>GUID
 
 `guid (baseString, ...)`
@@ -866,14 +724,14 @@ Parametre olarak sağlanan değerlere göre genel olarak benzersiz bir tanımlay
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| baseString |Evet |dize |Karma işlev GUID oluşturmak için kullanılan değer. |
-| gerektiği gibi ek parametreler |Hayır |dize |Benzersizlik düzeyini belirten değer oluşturmak için gereken sayıda dizeleri ekleyebilirsiniz. |
+| baseString |Evet |string |Karma işlev GUID oluşturmak için kullanılan değer. |
+| gerektiği gibi ek parametreler |Hayır |string |Benzersizlik düzeyini belirten değer oluşturmak için gereken sayıda dizeleri ekleyebilirsiniz. |
 
 ### <a name="remarks"></a>Açıklamalar
 
 Bu işlev, genel olarak benzersiz bir tanımlayıcı biçiminde bir değer oluşturmak ihtiyacınız olduğunda yararlıdır. Sonuç için benzersizlik kapsamını sınırlayan parametre değerlerini sağlayın. Abonelik, kaynak grubu veya dağıtım aşağı benzersiz adı olup olmadığını belirtebilirsiniz.
 
-Döndürülen değer rastgele bir dize, ancak bunun yerine bir karma işlev sonucu değil. 36 karakterden döndürülen değerdir. Genel olarak benzersiz değil.
+Döndürülen değer rastgele bir dize, ancak bunun yerine bir karma işlev parametrelerine sonucu değil. 36 karakterden döndürülen değerdir. Genel olarak benzersiz değil. Parametreler üzerinde bu karma değere dayalı olmayan yeni bir GUID oluşturmak için kullanın [newGuid](#newguid) işlevi.
 
 Aşağıdaki örnekler, yaygın olarak kullanılan düzeyleri için benzersiz bir değer oluşturmak için GUID kullanmayı gösterir.
 
@@ -927,21 +785,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 }
 ```
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
-```
-
-<a id="indexof" />
-
 ## <a name="indexof"></a>indexOf
+
 `indexOf(stringToSearch, stringToFind)`
 
 Bir dize içindeki bir değerin ilk konumunu döndürür. Karşılaştırma büyük/küçük harfe duyarsızdır.
@@ -950,8 +795,8 @@ Bir dize içindeki bir değerin ilk konumunu döndürür. Karşılaştırma büy
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Evet |dize |Bulunacak öğe içeren bir değer. |
-| stringToFind |Evet |dize |Bulunacak değer. |
+| stringToSearch |Evet |string |Bulunacak öğe içeren bir değer. |
+| stringToFind |Evet |string |Bulunacak değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1001,21 +846,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | lastString | Int | 0 |
 | Bulunamadı | Int | -1 |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
-```
-
-<a id="last" />
-
 ## <a name="last"></a>Son
+
 `last (arg1)`
 
 Döndürür en son karakter dizesi veya dizinin son öğesi.
@@ -1066,21 +898,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | arrayOutput | String | üç |
 | stringOutput | String | E |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
-```
-
-<a id="lastindexof" />
-
 ## <a name="lastindexof"></a>lastIndexOf
+
 `lastIndexOf(stringToSearch, stringToFind)`
 
 Bir dize içindeki bir değerin son konumunu döndürür. Karşılaştırma büyük/küçük harfe duyarsızdır.
@@ -1089,8 +908,8 @@ Bir dize içindeki bir değerin son konumunu döndürür. Karşılaştırma büy
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Evet |dize |Bulunacak öğe içeren bir değer. |
-| stringToFind |Evet |dize |Bulunacak değer. |
+| stringToSearch |Evet |string |Bulunacak öğe içeren bir değer. |
+| stringToFind |Evet |string |Bulunacak değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1140,21 +959,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | lastString | Int | 0 |
 | Bulunamadı | Int | -1 |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
-```
-
-<a id="length" />
-
 ## <a name="length"></a>Uzunluğu
+
 `length(string)`
 
 Bir dize veya bir dizideki öğelerin karakter sayısını döndürür.
@@ -1212,21 +1018,105 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
+## <a name="newguid"></a>newGuid
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+`newGuid()`
+
+Genel olarak benzersiz bir tanımlayıcı biçiminde bir değer döndürür. **Bu işlev, parametre için varsayılan değeri yalnızca kullanılabilir.**
+
+### <a name="remarks"></a>Açıklamalar
+
+Bu gibi durumlarda, bu işlev içindeki bir ifade yalnızca bir parametrenin varsayılan değeri için kullanabilirsiniz. Bu işlev bir şablonda başka bir yerde kullanarak bir hata döndürür. Her çağrıldığında farklı bir değer döndürdüğünden işlev şablonunun diğer bölümlerinde izin verilmiyor. Aynı parametrelere sahip aynı şablon dağıtımı, güvenilir bir şekilde aynı sonucu verir mıydı.
+
+NewGuid işlevi farklıdır [GUID](#guid) hiçbir parametre almaz çünkü işlev. GUID ile aynı parametre çağırdığınızda, her zaman aynı tanımlayıcıyı döndürür. GUID, belirli bir ortam için aynı GUID güvenilir bir şekilde oluşturmak ihtiyacınız olduğunda kullanın. Kaynakları bir test ortamına dağıtmak gibi her seferinde farklı bir tanımlayıcı gerektiğinde newGuid kullanın.
+
+Kullanırsanız [seçeneğini bir önceki başarılı dağıtımı yeniden](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)ve önceki dağıtım newGuid kullanan bir parametre içeriyorsa, parametreyi yeniden değerlendirimiş değil. Bunun yerine, önceki dağıtımla parametre değeri geri alma dağıtımda otomatik olarak yeniden kullanılır.
+
+Bir test ortamında art arda kısa bir süre için yalnızca canlı kaynakları dağıtmanız gerekebilir. Benzersiz adlar oluşturmak yerine newGuid ile kullanabileceğiniz [uniqueString](#uniquestring) benzersiz adlar oluşturmak için.
+
+NewGuid işlevi için bir varsayılan değer dayanan bir şablonu yeniden dağıtırken dikkatli olun. Yeniden parametresi için bir değer sağlamıyorsa, işlev değerlendirilir. Mevcut bir kaynağı güncelleştirmek yerine yeni bir tane oluşturmak isterseniz, önceki dağıtımdan parametre değerini geçirin.
+
+### <a name="return-value"></a>Dönüş değeri
+
+Genel olarak benzersiz bir tanımlayıcı biçimi 36 karakter içeren bir dize.
+
+### <a name="examples"></a>Örnekler
+
+Aşağıdaki örnek şablonu, yeni bir tanımlayıcıya sahip bir parametre gösterir.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "guidValue": {
+            "type": "string",
+            "defaultValue": "[newGuid()]"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "guidOutput": {
+            "type": "string",
+            "value": "[parameters('guidValue')]"
+        }
+    }
+}
 ```
 
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
+Önceki örnekteki çıktı, her dağıtım için farklılık gösterir ancak şuna benzer olacaktır:
 
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+| Ad | Tür | Değer |
+| ---- | ---- | ----- |
+| guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+
+Aşağıdaki örnek, bir depolama hesabı için benzersiz bir ad oluşturmak için newGuid işlevi kullanır. Bu şablon, burada depolama hesabı için kısa bir süre var ve imzalanmasını değil test ortamı için işe yarayabilir.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "guidValue": {
+            "type": "string",
+            "defaultValue": "[newGuid()]"
+        }
+    },
+    "variables": {
+        "storageName": "[concat('storage', uniqueString(parameters('guidValue')))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageName')]",
+            "location": "West US",
+            "apiVersion": "2018-07-01",
+            "sku":{
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "properties": {}
+        }
+    ],
+    "outputs": {
+        "nameOutput": {
+            "type": "string",
+            "value": "[variables('storageName')]"
+        }
+    }
+}
 ```
 
-<a id="padleft" />
+Önceki örnekteki çıktı, her dağıtım için farklılık gösterir ancak şuna benzer olacaktır:
+
+| Ad | Tür | Değer |
+| ---- | ---- | ----- |
+| nameOutput | string | storagenziwvyru7uxie |
+
 
 ## <a name="padleft"></a>padLeft
+
 `padLeft(valueToPad, totalLength, paddingCharacter)`
 
 Toplam belirtilen uzunlukta ulaşana kadar sola karakter ekleyerek sağa hizalanmış bir dize döndürür.
@@ -1275,21 +1165,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
-```
-
-<a id="replace" />
-
 ## <a name="replace"></a>Değiştir
+
 `replace(originalString, oldString, newString)`
 
 Başka bir dizeyle değiştirildiği bir dizenin tüm örnekleri ile yeni bir dize döndürür.
@@ -1298,9 +1175,9 @@ Başka bir dizeyle değiştirildiği bir dizenin tüm örnekleri ile yeni bir di
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| originalString |Evet |dize |Sahip tüm örneklerini başka bir dizeyle değiştirildiği bir dize değeri. |
-| Eskidize |Evet |dize |Orijinal dizeden kaldırılacak dize. |
-| Yenidize |Evet |dize |Kaldırılan dize yerine eklenecek dize. |
+| originalString |Evet |string |Sahip tüm örneklerini başka bir dizeyle değiştirildiği bir dize değeri. |
+| Eskidize |Evet |string |Orijinal dizeden kaldırılacak dize. |
+| Yenidize |Evet |string |Kaldırılan dize yerine eklenecek dize. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1341,21 +1218,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | firstOutput | String | 1231231234 |
 | secodeOutput | String | 123-123-xxxx |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
-```
-
-<a id="skip" />
-
 ## <a name="skip"></a>atla
+
 `skip(originalValue, numberToSkip)`
 
 Sonra belirtilen sayıda öğeyi belirtilen sayıda karakter veya tüm öğeleri olan bir dizi sonra tüm karakterleri içeren bir dize döndürür.
@@ -1422,21 +1286,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | arrayOutput | Dizi | ["üç"] |
 | stringOutput | String | iki üç |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
-```
-
-<a id="split" />
-
 ## <a name="split"></a>split
+
 `split(inputString, delimiter)`
 
 Tarafından belirtilen sınırlayıcılardan ayrılmış alt dizelere Giriş dizesinin içeren dize dizisi döndürür.
@@ -1445,7 +1296,7 @@ Tarafından belirtilen sınırlayıcılardan ayrılmış alt dizelere Giriş diz
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| inputString |Evet |dize |Ayrılacak dize. |
+| inputString |Evet |string |Ayrılacak dize. |
 | Sınırlayıcı |Evet |dize veya dize dizisi |Dizeyi bölerken kullanılacak ayırıcı. |
 
 ### <a name="return-value"></a>Dönüş değeri
@@ -1494,21 +1345,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | firstOutput | Dizi | ["bir", "iki", "üç"] |
 | secondOutput | Dizi | ["bir", "iki", "üç"] |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
-```
-
-<a id="startswith" />
-
 ## <a name="startswith"></a>startsWith
+
 `startsWith(stringToSearch, stringToFind)`
 
 Bir dizeyi bir değerle başlayıp başlamadığını belirler. Karşılaştırma büyük/küçük harfe duyarsızdır.
@@ -1517,8 +1355,8 @@ Bir dizeyi bir değerle başlayıp başlamadığını belirler. Karşılaştırm
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Evet |dize |Bulunacak öğe içeren bir değer. |
-| stringToFind |Evet |dize |Bulunacak değer. |
+| stringToSearch |Evet |string |Bulunacak öğe içeren bir değer. |
+| stringToFind |Evet |string |Bulunacak değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1573,21 +1411,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
+## <a name="string"></a>string
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
-```
-
-<a id="string" />
-
-## <a name="string"></a>dize
 `string(valueToConvert)`
 
 Belirtilen değerin bir dizeye dönüştürür.
@@ -1657,21 +1482,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | arrayOutput | String | ["a", "b", "c"] |
 | intOutput | String | 5 |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
-```
-
-<a id="substring" />
-
 ## <a name="substring"></a>alt dize
+
 `substring(stringToParse, startIndex, length)`
 
 Belirtilen karakter konumunda başlar ve belirtilen sayıda karakteri içeren bir alt dizeyi döndürür.
@@ -1680,7 +1492,7 @@ Belirtilen karakter konumunda başlar ve belirtilen sayıda karakteri içeren bi
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Evet |dize |Alt dizenin ayıklanacağı özgün dize. |
+| stringToParse |Evet |string |Alt dizenin ayıklanacağı özgün dize. |
 | startIndex |Hayır |int |Sıfır tabanlı başlangıç karakteri konumu alt dize. |
 | Uzunluğu |Hayır |int |Alt dizenin karakter sayısı. Dize içindeki bir konuma başvurmalıdır. Sıfır olmalıdır veya büyük. |
 
@@ -1731,21 +1543,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | ---- | ---- | ----- |
 | substringOutput | String | iki |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
-```
-
-<a id="take" />
-
 ## <a name="take"></a>sınav zamanı
+
 `take(originalValue, numberToTake)`
 
 Dize veya bir dizi öğeleri dizisi başından itibaren belirtilen sayıda başından itibaren belirtilen sayıda karakteri içeren bir dize döndürür.
@@ -1812,21 +1611,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | arrayOutput | Dizi | ["", "iki"] |
 | stringOutput | String | açık |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
-```
-
-<a id="tolower" />
-
 ## <a name="tolower"></a>toLower
+
 `toLower(stringToChange)`
 
 Belirtilen dizeyi küçük harfe dönüştürür.
@@ -1835,7 +1621,7 @@ Belirtilen dizeyi küçük harfe dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Evet |dize |Küçük harflere dönüştürülecek değer. |
+| stringToChange |Evet |string |Küçük harflere dönüştürülecek değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1876,21 +1662,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | toLowerOutput | String | Bir iki üç |
 | toUpperOutput | String | BİR İKİ ÜÇ |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
-```
-
-<a id="toupper" />
-
 ## <a name="toupper"></a>toUpper
+
 `toUpper(stringToChange)`
 
 Belirtilen dizeyi büyük harfe dönüştürür.
@@ -1899,7 +1672,7 @@ Belirtilen dizeyi büyük harfe dönüştürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Evet |dize |Büyük harfe dönüştürülecek değer. |
+| stringToChange |Evet |string |Büyük harfe dönüştürülecek değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1940,21 +1713,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | toLowerOutput | String | Bir iki üç |
 | toUpperOutput | String | BİR İKİ ÜÇ |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
-```
-
-<a id="trim" />
-
 ## <a name="trim"></a>Kırpma
+
 `trim (stringToTrim)`
 
 Belirtilen dizeden tüm öndeki ve sondaki boşluk karakterlerini kaldırır.
@@ -1963,7 +1723,7 @@ Belirtilen dizeden tüm öndeki ve sondaki boşluk karakterlerini kaldırır.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Evet |dize |Trim değer. |
+| stringToTrim |Evet |string |Trim değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1999,21 +1759,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | ---- | ---- | ----- |
 | döndürülecek | String | Bir iki üç |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
-```
-
-<a id="uniquestring" />
-
 ## <a name="uniquestring"></a>uniqueString
+
 `uniqueString (baseString, ...)`
 
 Parametre olarak sağlanan değerlere göre belirleyici karma dize oluşturur. 
@@ -2022,8 +1769,8 @@ Parametre olarak sağlanan değerlere göre belirleyici karma dize oluşturur.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| baseString |Evet |dize |Karma işlev benzersiz bir dize oluşturmak için kullanılan değer. |
-| gerektiği gibi ek parametreler |Hayır |dize |Benzersizlik düzeyini belirten değer oluşturmak için gereken sayıda dizeleri ekleyebilirsiniz. |
+| baseString |Evet |string |Karma işlev benzersiz bir dize oluşturmak için kullanılan değer. |
+| gerektiği gibi ek parametreler |Hayır |string |Benzersizlik düzeyini belirten değer oluşturmak için gereken sayıda dizeleri ekleyebilirsiniz. |
 
 ### <a name="remarks"></a>Açıklamalar
 
@@ -2062,6 +1809,8 @@ Aşağıdaki örnek, kaynak grubunuzun tabanlı bir depolama hesabı için benze
     ...
 ```
 
+Her seferinde yeni bir benzersiz ad oluşturmanız gerekiyorsa bir şablonu dağıtmak ve kaynağı güncelleştirmek için hedefi yok, kullanabileceğiniz [utcNow](#utcnow) uniqueString işleviyle. Bir test ortamında bu yaklaşımı kullanabilirsiniz. Bir örnek için bkz. [utcNow](#utcNow).
+
 ### <a name="return-value"></a>Dönüş değeri
 
 13 karakter içeren bir dize.
@@ -2088,21 +1837,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 }
 ```
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
-```
-
-<a id="uri" />
-
 ## <a name="uri"></a>uri
+
 `uri (baseUri, relativeUri)`
 
 Bir mutlak URI baseUri ve relativeUri dize birleştirerek oluşturur.
@@ -2111,8 +1847,8 @@ Bir mutlak URI baseUri ve relativeUri dize birleştirerek oluşturur.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| baseUri |Evet |dize |Temel uri dizesi. |
-| relativeUri |Evet |dize |Taban URI dizeye eklenecek göreli uri dizesi. |
+| baseUri |Evet |string |Temel uri dizesi. |
+| relativeUri |Evet |string |Taban URI dizeye eklenecek göreli uri dizesi. |
 
 Değeri **baseUri** parametresi, belirli bir dosya dahil edebilirsiniz, ancak yalnızca temel yol URI diziden oluşturulurken kullanılır. Örneğin, geçirme `http://contoso.com/resources/azuredeploy.json` baseUri parametre sonuçları bir temel URI'sini olarak `http://contoso.com/resources/`.
 
@@ -2165,21 +1901,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | componentOutput | String | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
-```
-
-<a id="uricomponent" />
-
 ## <a name="uricomponent"></a>uriComponent
+
 `uricomponent(stringToEncode)`
 
 Bir URI kodlar.
@@ -2188,7 +1911,7 @@ Bir URI kodlar.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Evet |dize |Kodlanacak değer. |
+| stringToEncode |Evet |string |Kodlanacak değer. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -2233,21 +1956,8 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | componentOutput | String | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
-```
-
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
-```
-
-<a id="uricomponenttostring" />
-
 ## <a name="uricomponenttostring"></a>uriComponentToString
+
 `uriComponentToString(uriEncodedString)`
 
 Kodlamalı bir dize URI değeri döndürür.
@@ -2256,7 +1966,7 @@ Kodlamalı bir dize URI değeri döndürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Evet |dize |URI bir dizeye dönüştürülecek değer kodlanmış. |
+| uriEncodedString |Evet |string |URI bir dizeye dönüştürülecek değer kodlanmış. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -2301,16 +2011,113 @@ Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/
 | componentOutput | String | HTTP%3a%2f%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
-Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
+## <a name="utcnow"></a>utcNow
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+`utcNow(format)`
+
+(UTC) datetime değeri belirtilen biçimde döndürür. Biçim sağlanmazsa ISO 8601 (yyyyMMddTHHmmssZ) biçimi kullanılır. **Bu işlev, parametre için varsayılan değeri yalnızca kullanılabilir.**
+
+### <a name="parameters"></a>Parametreler
+
+| Parametre | Gerekli | Tür | Açıklama |
+|:--- |:--- |:--- |:--- |
+| biçim |Hayır |string |URI bir dizeye dönüştürülecek değer kodlanmış. Hangisini [standart biçim dizeleri](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) veya [özel biçim dizeleri](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+
+### <a name="remarks"></a>Açıklamalar
+
+Bu gibi durumlarda, bu işlev içindeki bir ifade yalnızca bir parametrenin varsayılan değeri için kullanabilirsiniz. Bu işlev bir şablonda başka bir yerde kullanarak bir hata döndürür. Her çağrıldığında farklı bir değer döndürdüğünden işlev şablonunun diğer bölümlerinde izin verilmiyor. Aynı parametrelere sahip aynı şablon dağıtımı, güvenilir bir şekilde aynı sonucu verir mıydı.
+
+Kullanırsanız [seçeneğini bir önceki başarılı dağıtımı yeniden](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)ve önceki dağıtım utcNow kullanan bir parametre içeriyorsa, parametreyi yeniden değerlendirimiş değil. Bunun yerine, önceki dağıtımla parametre değeri geri alma dağıtımda otomatik olarak yeniden kullanılır.
+
+UtcNow işlevi için bir varsayılan değer dayanan bir şablonu yeniden dağıtırken dikkatli olun. Yeniden parametresi için bir değer sağlamıyorsa, işlev değerlendirilir. Mevcut bir kaynağı güncelleştirmek yerine yeni bir tane oluşturmak isterseniz, önceki dağıtımdan parametre değerini geçirin.
+
+### <a name="return-value"></a>Dönüş değeri
+
+Geçerli UTC tarih saat değeri.
+
+### <a name="examples"></a>Örnekler
+
+Aşağıdaki örnek şablonu, tarih saat değeri için farklı biçimler gösterir.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "utcValue": {
+            "type": "string",
+            "defaultValue": "[utcNow()]"
+        },
+        "utcShortValue": {
+            "type": "string",
+            "defaultValue": "[utcNow('d')]"
+        },
+        "utcCustomValue": {
+            "type": "string",
+            "defaultValue": "[utcNow('M d')]"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "utcOutput": {
+            "type": "string",
+            "value": "[parameters('utcValue')]"
+        },
+        "utcShortOutput": {
+            "type": "string",
+            "value": "[parameters('utcShortValue')]"
+        },
+        "utcCustomOutput": {
+            "type": "string",
+            "value": "[parameters('utcCustomValue')]"
+        }
+    }
+}
 ```
 
-PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
+Önceki örnekteki çıktı, her dağıtım için farklılık gösterir ancak şuna benzer olacaktır:
 
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+| Ad | Tür | Değer |
+| ---- | ---- | ----- |
+| utcOutput | string | 20190305T175318Z |
+| utcShortOutput | string | 03/05/2019 |
+| utcCustomOutput | string | 3 5 |
+
+Sonraki örnek, bir etiket değeri ayarlanırken işlevden bir değer kullanmayı gösterir.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "utcShort": {
+            "type": "string",
+            "defaultValue": "[utcNow('d')]"
+        },
+        "rgName": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "name": "[parameters('rgName')]",
+            "location": "westeurope",
+            "tags":{
+                "createdDate": "[parameters('utcShort')]"
+            },
+            "properties":{}
+        }
+    ],
+    "outputs": {
+        "utcShort": {
+            "type": "string",
+            "value": "[parameters('utcShort')]"
+        }
+    }
+}
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 38a5434d4b6f27aacdf1861fa0b005501ad1e28b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7069114a8cb63b8b166bc29e92d8f355c49824bb
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308899"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727153"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 
@@ -230,28 +230,28 @@ Birincil veritabanında Denetimi etkinleştirdiğinizde, coğrafi olarak çoğal
 
 **PowerShell cmdlet'leri (WHERE yan tümcesi desteği, ek bir filtreleme dahil)**:
 
-- [Denetim İlkesi (Set-AzSqlDatabaseAuditing) veritabanı Blob güncelle](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
-- [Sunucu Blob denetimi İlkesi (Set-AzSqlServerAuditing) güncelle](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
+- [Veritabanı Denetim İlkesi (Set-AzSqlDatabaseAuditing) güncelle](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [Sunucu denetimi İlkesi (Set-AzSqlServerAuditing) güncelle](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
 - [Veritabanı Denetim İlkesi alın (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [Sunucu Blob denetimi İlkesi alın (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
+- [Denetim İlkesi (Get-AzSqlServerAuditing) Server'ı edinin](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 Bir komut dosyası örneği için bkz [PowerShell kullanarak denetim ve tehdit algılamayı yapılandırma](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 ## <a id="subheading-9"></a>REST API'sini kullanarak SQL veritabanı denetimini yönetme
 
-**REST API - Blob denetimi**:
+**REST API**:
 
-- [Denetim İlkesi veritabanı Blob güncelle](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
-- [Sunucu Blob denetimi İlkesi güncelle](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Denetim İlkesi veritabanı Blob alma](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
-- [Sunucu Blob denetimi ilkesi alma](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Veritabanı Denetim İlkesi güncelle](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [Oluşturma veya güncelleştirme Denetim ilkesi sunucusu](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Veritabanı denetim ilkesi alma](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
+- [Denetim İlkesi Server'ı edinin](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 Burada yan tümcesi destek ek filtreleme ile genişletilmiş İlkesi:
 
-- [Oluşturma veya güncelleştirme veritabanı *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [Oluşturma veya güncelleştirme sunucusu *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Veritabanı Al *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [Sunucu Al *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Oluşturma veya güncelleştirme veritabanı *Genişletilmiş* Denetim İlkesi](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+- [Oluşturma veya güncelleştirme sunucusu *Genişletilmiş* Denetim İlkesi](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Veritabanı Al *Genişletilmiş* Denetim İlkesi](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+- [Sunucu Al *Genişletilmiş* Denetim İlkesi](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 ## <a id="subheading-10"></a>ARM şablonları kullanarak SQL veritabanı denetimini yönetme
 

@@ -4,16 +4,16 @@ description: Azure Depolama, Microsoft’un bulut depolama çözümüdür. Azure
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d84fe768170cffd433b18a1a3dacb1a9c2be7e9f
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: b3f2b499d34d4982e607549dc1bb588764a001fb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329993"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770434"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Depolama’ya Giriş
 

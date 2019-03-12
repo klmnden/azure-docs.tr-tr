@@ -5,15 +5,15 @@ services: storage
 author: artemuwka
 ms.service: storage
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: 86d2569d0ab920bd32a25e1331d74ed4f623143a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 111c24c1cd608542a5ef7da85f93ca22082af6d9
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437676"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726728"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>AzCopy v10 ile veri aktarımı (Önizleme)
 
@@ -24,9 +24,9 @@ AzCopy v10 (Önizleme) yeniden tasarlanan bir komut satırı arabirimi ve yeni m
 - Azure Blob veya tam tersi bir dosya sistemi eşitleyin. Kullanım `azcopy sync <source> <destination>`. Artımlı kopyalama senaryoları için idealdir.
 - Azure Data Lake depolama Gen2 API'leri destekler. Kullanım `myaccount.dfs.core.windows.net` ADLS Gen2 API'leri çağırmak için bir URI olarak.
 - Tüm bir hesabı (yalnızca Blob hizmeti) başka bir hesaba kopyalamayı destekler.
-- Hesap kopyalanacak hesabı artık yeni kullanıyor [URL'den Put](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API'leri. İstemciye veri aktarımı olmadan daha hızlı bir aktarım getiren gerekli!
+- Hesap kopyalanacak hesabı artık yeni kullanıyor [URL'den blok yerleştirme](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API'leri. İstemciye veri aktarımı olmadan daha hızlı bir aktarım getiren gerekli!
 - Liste/Kaldır dosyalar ve bloblar belirli bir yolda.
-- Joker karakter düzenleri, bir yolda yanı sıra dahil etme ve dışlama bayrakları----destekler.
+- Bir yolu da olarak--destekler joker desenleri bayrağı hariç tutun.
 - Geliştirilmiş dayanıklılık: her AzCopy örnek bir iş sırasını ve ilgili günlük dosyasını oluşturur. Görüntüleyebilir ve önceki işlerini yeniden başlatın ve sürdürme başarısız olan işler. AzCopy aktarım bir hatadan sonra da otomatik olarak yeniden deneyecek.
 - Genel performans geliştirmeleri.
 
@@ -35,9 +35,9 @@ AzCopy v10 (Önizleme) yeniden tasarlanan bir komut satırı arabirimi ve yeni m
 ### <a name="latest-preview-version-v10"></a>En son önizleme sürümünü (v10)
 
 En güncel AzCopy önizleme sürümünü indirin:
-- [Windows](https://aka.ms/downloadazcopy-v10-windows)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac)
+- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
+- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 ### <a name="latest-production-version-v81"></a>En güncel üretim sürümüne (v8.1)
 
@@ -49,18 +49,23 @@ En güncel AzCopy önizleme sürümünü indirin:
 
 ## <a name="post-installation-steps"></a>Yükleme sonrası adımlar
 
-AzCopy v10 yükleme gerektirmez. Tercih edilen bir komut satırı uygulamasını açın ve klasöre gidin. burada `azcopy.exe` yürütülebilir bulunur. İsterseniz, klasör AzCopy konumunu sistem yolunuza ekleyebilirsiniz.
+AzCopy v10 yükleme gerektirmez. Tercih edilen bir komut satırı uygulamasını açın ve klasöre gidin. burada `azcopy.exe` (Windows) veya `azcopy` (Linux) bulunduğu. İsterseniz, klasör AzCopy konumunu sistem yolunuza ekleyebilirsiniz.
 
 ## <a name="authentication-options"></a>Kimlik doğrulama seçenekleri
 
 AzCopy v10 Azure depolama ile kimlik doğrulaması yapılırken aşağıdaki seçenekleri kullanmanıza olanak tanır:
-- **Azure Active Directory [desteklenen Blob ve ADLS Gen2 hizmeti]**. Kullanım ```.\azcopy login``` için Azure Active Directory kullanarak oturum açın.  Kullanıcının olmalıdır ["Depolama Blob verileri katkıda bulunan" rolü atanmış](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) Azure Active Directory kimlik doğrulamasını kullanarak Blob depolama alanına yazılacak.
+- **Azure Active Directory [desteklenen Blob ve ADLS Gen2 hizmeti]**. Kullanım ```.\azcopy login``` için Azure Active Directory kullanarak oturum açın.  Kullanıcının olmalıdır ["Depolama Blob verileri katkıda bulunan" rolü atanmış](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) Azure Active Directory kimlik doğrulamasını kullanarak Blob depolama alanına yazılacak. Yönetilen hizmet kimliği (MSI) kullanarak kimlik doğrulaması için kullandığınız `azcopy login --identity` sonra Azure bilgi işlem örneği verileri katkıda bulunan rolü verme.
 - **SAS belirteçleri [desteklenen Blob ve Dosya Hizmetleri için]**. SAS belirteci kullanmak için komut satırında blob yolu ekleyin. Azure portalını kullanarak bir SAS belirteci oluşturabilir [Depolama Gezgini](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), veya tercih ettiğiniz diğer araçlar. Daha fazla bilgi için [örnekler](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
-> [!IMPORTANT]
-> Bir destek isteği Microsoft Support (veya bir 3. taraf ilgili sorun giderme) Lütfen herkesle SAS sağlamak için yürütülecek çalıştığınız komut sonuç kısaltılmıştır sürümünü yanlışlıkla paylaşılmıyor paylaşımı gönderirken. Günlük dosyasının başında sonuç kısaltılmıştır sürümü bulabilirsiniz. Daha fazla bilgi için bu makalenin ilerleyen bölümlerinde sorun giderme bölümünü gözden geçirin.
-
 ## <a name="getting-started"></a>Başlarken
+
+> [!TIP]
+> **Bir grafik kullanıcı arabirimi tercih ediyorsunuz?**
+>
+> Deneyin [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/), yöneten Azure depolama veri basitleştiren bir masaüstü istemcisi ve **artık AzCopy kullanan** için ve Azure depolama dışında veri aktarımını hızlandırmak için.
+>
+> Depolama Gezgini'nde AzCopy özelliği 'Önizleme' menüsü altında etkinleştirmeniz yeterlidir. Depolama Gezgini, daha sonra karşıya yükleme ve Gelişmiş performans için Blob depolama alanına veri indirirken AzCopy kullanır.
+> ![AzCopy, Azure depolama Gezgini'nde bir aktarım altyapısı olarak etkinleştir](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
 AzCopy v10 basit Self belgelenmiş sözdizimi geçersiz. Genel sözdizimi, Azure Active Directory ile oturum açıldığında şu şekilde görünür:
 
@@ -80,7 +85,7 @@ AzCopy v10 basit Self belgelenmiş sözdizimi geçersiz. Genel sözdizimi, Azure
 İşte nasıl kullanılabilir komutların bir listesini alabilirsiniz:
 
 ```azcopy
-.\azcopy -help
+.\azcopy --help
 # Using the alias instead
 .\azcopy -h
 ```
@@ -88,7 +93,7 @@ AzCopy v10 basit Self belgelenmiş sözdizimi geçersiz. Genel sözdizimi, Azure
 Örnekler için aşağıdaki komutu çalıştırın, belirli bir komut ve Yardım sayfasını görmek için:
 
 ```azcopy
-.\azcopy <cmd> -help
+.\azcopy <cmd> --help
 # Example:
 .\azcopy cp -h
 ```
@@ -153,7 +158,7 @@ Daha fazla örnek almak için aşağıdaki komutu kullanın:
 
 İki depolama hesabı arasında veri kopyalamak için aşağıdaki komutu kullanın:
 ```azcopy
-.\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
+.\azcopy cp "https://account.blob.core.windows.net/<sastoken>" "https://otheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
 
 > [!NOTE]
@@ -161,27 +166,35 @@ Daha fazla örnek almak için aşağıdaki komutu kullanın:
 
 ## <a name="copy-a-vhd-image-to-a-storage-account"></a>Bir depolama hesabına VHD görüntüsü kopyalayın
 
-AzCopy v10 varsayılan olarak, blok bloblarınızdan veri yükler. Bir kaynak dosyası vhd uzantısı içeriyorsa, Bununla birlikte, AzCopy v10 varsayılan olarak, sayfa blob yükleyeceksiniz. Bu davranış, şu anda yapılandırılabilir değildir.
+Kullanım `--blob-type=PageBlob` sayfa blobu olarak Blob depolama alanına bir disk görüntüsünü karşıya yüklemek için.
 
-## <a name="sync-incremental-copy-and-delete-blob-storage-only"></a>Eşitleme: artımlı kopyalar ve siler (yalnızca Blob Depolama)
+```azcopy
+.\azcopy cp "C:\myimages\diskimage.vhd" "https://account.blob.core.windows.net/mycontainer/diskimage.vhd<sastoken>" --blob-type=PageBlob
+```
+
+## <a name="sync-incremental-copy-and-optional-delete-blob-storage-only"></a>Eşitleme: artımlı kopya ve (isteğe bağlı) silme (yalnızca Blob Depolama)
+
+Sync komutunun, bir kaynak dizin hedef karşılaştırma dosya adlarını ve son değiştirilen zaman dizinin içeriğini eşitler. İsteğe bağlı olarak bu kaynakta mevcut değilse bu işlem hedef dosyaların silinmesini içerir, `--delete-destination=prompt|true` bayrağı sağlanır. Silme davranışı varsayılan olarak devre dışıdır.
 
 > [!NOTE]
-> Sync komutunun içeriğini kaynaktan hedefe eşitler ve bu kaynakta mevcut değilse bu hedef dosyaların SİLİNMESİNİ içerir. Eşitlemek istediğiniz hedef kullandığınızdan emin olun.
+> Kullanım `--delete-destination` bayrağı konusunda dikkatli olun. Etkinleştirme [geçici silme](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) silme davranışını hesabınızdaki yanlışlıkla silmeleri engelleme için eşitlenmiş etkinleştirmeden önce özellik.
+>
+> Zaman `--delete-destination` ayarlandığında true, AzCopy kullanıcıya bir istem olmadan hedef kaynakta mevcut dosyaları da siler. Onay için istemde istediğiniz kullanırsanız `--delete-destination=prompt`.
 
 Bir depolama hesabı için yerel dosya sisteminize eşitlemek için aşağıdaki komutu kullanın:
 
 ```azcopy
-.\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
+.\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer<sastoken>"
 ```
 
 Aynı şekilde, bir Blob kapsayıcısına bir yerel dosya sistemi aşağı eşitleyebilirsiniz:
 
 ```azcopy
 # If you're using Azure Active Directory authentication the sastoken is not required
-.\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
+.\azcopy sync "https://account.blob.core.windows.net/mycontainer" "C:\local\path"
 ```
 
-Komutu artımlı olarak üzerinde son değiştirilen zaman damgaları göre hedef kaynağı eşitleme sağlar. AzCopy v10 ekleyin ya da kaynak dosya silme, aynı hedef yapar. Silme işleminden önce dosyaları silmeyi onaylamak için AzCopy ister.
+Komutu artımlı olarak üzerinde son değiştirilen zaman damgaları göre hedef kaynağı eşitleme sağlar. AzCopy v10 ekleyin ya da kaynak dosya silme, aynı hedef yapar. Silme davranışını eşitleme komutta etkinleştirilirse, bunların kaynak artık mevcut değilse AzCopy hedefinizden dosyaları siler.
 
 ## <a name="advanced-configuration"></a>Gelişmiş yapılandırma
 
@@ -214,13 +227,6 @@ export AZCOPY_CONCURRENCY_VALUE=<value>
 # If the value is blank then the default value is currently in use
 ```
 
-## <a name="troubleshooting"></a>Sorun giderme
-
-AzCopy v10 günlük ve tüm işler için plan dosyalarını oluşturur. Araştırmak ve olası sorunları gidermek için günlükleri'ni kullanabilirsiniz. Günlükleri (UPLOADFAILED COPYFAILED ve DOWNLOADFAILED), hata durumunu içerecek tam yolunu ve hatanın nedenini. İş günlüklerini ve planı dosyalarını % USERPROFILE bulunur\\Windows ya da $HOME .azcopy klasörü\\Mac ve Linux'ta .azcopy klasör.
-
-> [!IMPORTANT]
-> Bir destek isteği Microsoft Support (veya bir 3. taraf ilgili sorun giderme) Lütfen herkesle SAS sağlamak için yürütülecek çalıştığınız komut sonuç kısaltılmıştır sürümünü yanlışlıkla paylaşılmıyor paylaşımı gönderirken. Günlük dosyasının başında sonuç kısaltılmıştır sürümü bulabilirsiniz.
-
 ### <a name="change-the-location-of-the-log-files"></a>Günlük dosyalarının konumunu değiştirin
 
 Gerekirse günlük dosyalarının veya işletim sistemi diski dolmaması için konumu değiştirebilirsiniz.
@@ -237,6 +243,17 @@ export AZCOPY_LOG_LOCATION=<value>
 # If the value is blank then the default value is currently in use
 ```
 
+### <a name="change-the-default-log-level"></a>Varsayılan günlük düzeyi değiştirme
+
+Varsayılan olarak, AzCopy günlük düzeyi bilgileri ayarlanır. Disk alanından kazanmak için günlük ayrıntı azaltmak istiyorsanız, ayarı kullanarak üzerine ``--log-level`` seçeneği. Kullanılabilir günlük düzeyleri şunlardır: Hata ayıklama, bilgi, uyarı, hata, PANİK ve önemli
+
+## <a name="troubleshooting"></a>Sorun giderme
+
+AzCopy v10 günlük ve tüm işler için plan dosyalarını oluşturur. Araştırmak ve olası sorunları gidermek için günlükleri'ni kullanabilirsiniz. Günlükleri (UPLOADFAILED COPYFAILED ve DOWNLOADFAILED), hata durumunu içerecek tam yolunu ve hatanın nedenini. İş günlükleri ve planı dosyalarını % USERPROFILE % içinde bulunur\\Windows ya da $HOME .azcopy klasörü\\Mac ve Linux'ta .azcopy klasör.
+
+> [!IMPORTANT]
+> Bir destek isteği Microsoft Support (veya bir 3. taraf ilgili sorun giderme) Lütfen herkesle SAS sağlamak için yürütülecek çalıştığınız komut sonuç kısaltılmıştır sürümünü yanlışlıkla paylaşılmıyor paylaşımı gönderirken. Günlük dosyasının başında sonuç kısaltılmıştır sürümü bulabilirsiniz.
+
 ### <a name="review-the-logs-for-errors"></a>Hatalar için günlükleri gözden geçirin
 
 Aşağıdaki komutu 04dc9ca9-158f-7945-5933-564021086c79 günlüğünden UPLOADFAILED durumundaki tüm hataları alırsınız:
@@ -244,6 +261,8 @@ Aşağıdaki komutu 04dc9ca9-158f-7945-5933-564021086c79 günlüğünden UPLOADF
 ```azcopy
 cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
+
+Alternatif olarak kullanarak aktarmak için başarısız olan dosya adlarını gördüğünüz `azcopy jobs show <jobid> --with-status=Failed` komutu.
 
 ### <a name="view-and-resume-jobs"></a>İşleri görüntüleme ve devam et
 
@@ -270,10 +289,6 @@ Tanımlayıcısını (güvenlik nedeniyle kalıcı değildir) bir SAS belirteci 
 ```azcopy
 .\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
 ```
-
-### <a name="change-the-default-log-level"></a>Varsayılan günlük düzeyi değiştirme
-
-Varsayılan olarak, AzCopy günlük düzeyi bilgileri ayarlanır. Disk alanından kazanmak için günlük ayrıntı azaltmak istiyorsanız, ayarı kullanarak üzerine ``--log-level`` seçeneği. Kullanılabilir günlük düzeyleri şunlardır: Hata ayıklama, bilgi, uyarı, hata, PANİK ve önemli
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

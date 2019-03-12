@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a4481e1bbc6248a9616fa7b3fe1d67c7d90af56e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 5fe0fc5aa6bdb217a5e7a8ecb8b1898fd8d3ecf8
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429426"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570190"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Öğretici: Bilişsel arama öğrenin arama API'lerini (Önizleme)
 
@@ -55,7 +55,7 @@ Azure Search’e REST çağrıları yapmak için PowerShell veya Telerik Fiddler
 
 1. **Kaynak oluştur**’a tıklayın, Azure Search’ü arayın ve **Oluştur**’a tıklayın. İlk kez bir arama hizmeti ayarlıyorsanız [Portalda Azure Search hizmeti oluşturma](search-create-service-portal.md) bölümüne bakın.
 
-  ![Pano portalı](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Portalda Azure Search hizmeti oluşturma")
+   ![Pano portalı](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Portalda Azure Search hizmeti oluşturma")
 
 1. Kaynak grubu için, bu öğreticide oluşturduğunuz tüm kaynakları içerecek bir kaynak grubu oluşturun. Böylece, öğreticiyi tamamladıktan sonra kaynakları temizlemeniz kolaylaşır.
 
@@ -63,19 +63,19 @@ Azure Search’e REST çağrıları yapmak için PowerShell veya Telerik Fiddler
 
 1. Fiyatlandırma katmanı için, **Ücretsiz** bir hizmet oluşturarak öğreticileri ve hızlı başlangıçları tamamlayabilirsiniz. Kendi verilerinizi kullanarak daha ayrıntılı araştırma yapmak için **Temel** veya **Standart** gibi bir [ücretli hizmet](https://azure.microsoft.com/pricing/details/search/) oluşturun. 
 
-  Ücretsiz hizmet; 3 dizin, 16 MB maksimum blob boyutu ve 2 dizinleme dakikası ile sınırlıdır ve bu da bilişsel aramanın tüm yeteneklerini uygulamak için yeterli değildir. Farklı katmanlara ilişkin sınırları gözden geçirmek için bkz. [Hizmet Sınırları](search-limits-quotas-capacity.md).
+   Ücretsiz hizmet; 3 dizin, 16 MB maksimum blob boyutu ve 2 dizinleme dakikası ile sınırlıdır ve bu da bilişsel aramanın tüm yeteneklerini uygulamak için yeterli değildir. Farklı katmanlara ilişkin sınırları gözden geçirmek için bkz. [Hizmet Sınırları](search-limits-quotas-capacity.md).
 
-  ![Portalda Hizmet tanım sayfası](./media/cognitive-search-tutorial-blob/create-search-service1.png "portalında hizmet tanımı sayfası")
-  ![portalında hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service2.png "hizmet tanımı sayfasında portal")
+   ![Portalda Hizmet tanım sayfası](./media/cognitive-search-tutorial-blob/create-search-service1.png "portalında hizmet tanımı sayfası")
+   ![portalında hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service2.png "hizmet tanımı sayfasında portal")
 
  
 1. Hizmet bilgilerine hızlı erişim için hizmeti panoya sabitleyin.
 
-  ![Portaldaki hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service3.png "Portaldaki hizmet tanımı sayfası")
+   ![Portaldaki hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service3.png "Portaldaki hizmet tanımı sayfası")
 
 1. Hizmet oluşturulduktan sonra aşağıdaki bilgileri toplayın: **URL** genel bakış sayfasından ve **api anahtarını** (birincil veya ikincil) anahtarlar sayfasındaki.
 
-  ![Portaldaki uç nokta ve anahtar bilgileri](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Portaldaki uç nokta ve anahtar bilgileri")
+   ![Portaldaki uç nokta ve anahtar bilgileri](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Portaldaki uç nokta ve anahtar bilgileri")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob hizmetini ayarlama ve örnek veriler yükleme
 
@@ -106,21 +106,21 @@ Bu öğretici için, PowerShell, Postman veya Fiddler gibi HTTP isteklerini form
 ### <a name="sample-request"></a>Örnek İstek
 ```http
 POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
-Content-Type: application/json  
-api-key: [admin key]  
+Content-Type: application/json
+api-key: [admin key]
 ```
 #### <a name="request-body-syntax"></a>İstek Gövdesi Sözdizimi
 ```json
-{   
-    "name" : "demodata",  
-    "description" : "Demo files to demonstrate cognitive search capabilities.",  
-    "type" : "azureblob",
-    "credentials" :
-    { "connectionString" :
-      "DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>;"
-    },  
-    "container" : { "name" : "<your blob container name>" }
-}  
+{
+  "name" : "demodata",
+  "description" : "Demo files to demonstrate cognitive search capabilities.",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" :
+    "DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>;"
+  },
+  "container" : { "name" : "<your blob container name>" }
+}
 ```
 İsteği gönderin. Web testi aracı, 201 durum kodunu döndürerek işlemin başarılı olduğunu onaylamalıdır. 
 
@@ -158,7 +158,7 @@ Content-Type: application/json
 #### <a name="request-body-syntax"></a>İstek Gövdesi Sözdizimi
 ```json
 {
-  "description": 
+  "description":
   "Extract entities, detect language and extract key-phrases",
   "skills":
   [
@@ -193,26 +193,26 @@ Content-Type: application/json
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages", 
+      "textSplitMode" : "pages",
       "maximumPageLength": 4000,
       "inputs": [
-      {
-        "name": "text",
-        "source": "/document/content"
-      },
-      { 
-        "name": "languageCode",
-        "source": "/document/languageCode"
-      }
-    ],
-    "outputs": [
-      {
-            "name": "textItems",
-            "targetName": "pages"
-      }
-    ]
-  },
-  {
+        {
+          "name": "text",
+          "source": "/document/content"
+        },
+        {
+          "name": "languageCode",
+          "source": "/document/languageCode"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "textItems",
+          "targetName": "pages"
+        }
+      ]
+    },
+    {
       "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
       "context": "/document/pages/*",
       "inputs": [
@@ -351,41 +351,41 @@ Content-Type: application/json
   "targetIndexName" : "demoindex",
   "skillsetName" : "demoskillset",
   "fieldMappings" : [
-        {
-          "sourceFieldName" : "metadata_storage_path",
-          "targetFieldName" : "id",
-          "mappingFunction" : 
-            { "name" : "base64Encode" }
-        },
-        {
-          "sourceFieldName" : "content",
-          "targetFieldName" : "content"
-        }
-   ],
-  "outputFieldMappings" : 
+    {
+      "sourceFieldName" : "metadata_storage_path",
+      "targetFieldName" : "id",
+      "mappingFunction" :
+        { "name" : "base64Encode" }
+    },
+    {
+      "sourceFieldName" : "content",
+      "targetFieldName" : "content"
+    }
+  ],
+  "outputFieldMappings" :
   [
-        {
-          "sourceFieldName" : "/document/organizations", 
-          "targetFieldName" : "organizations"
-        },
-        {
-          "sourceFieldName" : "/document/pages/*/keyPhrases/*", 
-          "targetFieldName" : "keyPhrases"
-        },
-        {
-            "sourceFieldName": "/document/languageCode",
-            "targetFieldName": "languageCode"
-        }      
+    {
+      "sourceFieldName" : "/document/organizations",
+      "targetFieldName" : "organizations"
+    },
+    {
+      "sourceFieldName" : "/document/pages/*/keyPhrases/*",
+      "targetFieldName" : "keyPhrases"
+    },
+    {
+      "sourceFieldName": "/document/languageCode",
+      "targetFieldName": "languageCode"
+    }
   ],
   "parameters":
   {
     "maxFailedItems":-1,
     "maxFailedItemsPerBatch":-1,
-    "configuration": 
+    "configuration":
     {
-        "dataToExtract": "contentAndMetadata",
-        "imageAction": "generateNormalizedImages"
-        }
+      "dataToExtract": "contentAndMetadata",
+      "imageAction": "generateNormalizedImages"
+    }
   }
 }
 ```

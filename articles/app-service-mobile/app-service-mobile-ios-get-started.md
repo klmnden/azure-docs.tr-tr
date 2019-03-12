@@ -11,15 +11,15 @@ ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 9809b51f1279c99de69cd1c219ffc57351ff21ef
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: d0d6a3d9da2768c2d7b04bd9c4a7c24fba9eb65e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41921082"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781689"
 ---
 # <a name="create-an-ios-app"></a>iOS uygulaması oluşturma
 
@@ -31,7 +31,7 @@ Bu öğreticide, bir iOS uygulamasına bulut tabanlı arka uç hizmeti olan [Azu
 
 Bu öğreticiyi tamamlamak için bir [Mac bilgisayar](https://azure.microsoft.com/pricing/free-trial/) ve Azure hesabınızın olması gerekir
 
-## <a name="step-i-create-a-new-azure-mobile-app-backend"></a>Adım I: Yeni bir Azure mobil uygulama arka ucu oluşturma
+## <a name="step-i-create-a-new-azure-mobile-app-backend"></a>Adım ı: Yeni bir Azure mobil uygulama arka ucu oluşturma
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
@@ -39,7 +39,7 @@ Bu öğreticiyi tamamlamak için bir [Mac bilgisayar](https://azure.microsoft.co
 
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="step-iii-download-and-run-the-ios-app"></a>Adım III: iOS uygulamasını indirme ve çalıştırma
+## <a name="step-iii-download-and-run-the-ios-app"></a>Adım III: İOS uygulamasını indirme ve çalıştırma
 
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
 

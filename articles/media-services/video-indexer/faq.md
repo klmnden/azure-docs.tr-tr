@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bc52c4eaf77b9441683eea8e5f899c6ef34d62e8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8d70fca5820dbd2152ca378916bfbcdbad4a027f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002366"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776767"
 ---
 # <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
@@ -158,6 +158,10 @@ Erişim belirteçleri, her saat yeni bir erişim belirteci oluşturmak gereken �
 
 Video Indexer, dizin içerik giriş süresine göre basit Kullandıkça Öde fiyatlandırma modeli kullanır. Ek ücretleri, kodlama, akış, depolama, ağ kullanımı ve medya ayrılmış birimleri uygulanabilir. Daha fazla bilgi için [fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) sayfası.
 
+### <a name="when-am-i-billed-for-using-video-indexer"></a>Video Indexer'ı kullanmak için ne zaman faturalandırılırım?
+
+Sıralanacak video gönderirken, kullanıcı video analizi ses analizi veya her ikisi de olarak dizinleme tanımlayın. Bu, SKU'ları ücretlendirilir belirler. İşleme sırasında önemli bir düzey hata varsa, bir hata kodu yanıt olarak döndürülür. Böyle bir durumda hiçbir faturalandırma gerçekleşir.  Kritik bir hata kodumuz hatanın neden olabilir veya bir iç hizmet bağımlılık kritik bir hata var. Hataları yanlış kimlik veya öngörü ayıklama gibi kritik olarak kabul edilmez ve bir yanıt döndürdü. Her durumda geçerli (hata olmayan kod) yanıt döndürülür burada faturalandırma gerçekleşir.
+ 
 ### <a name="does-video-indexer-offer-a-free-trial"></a>Video Indexer ücretsiz bir deneme sunar?
 
 Evet, Video Indexer tam hizmet ve API işlevselliğini sağlayan ücretsiz bir deneme sunar. Bir kota videoların web tabanlı bir arabirim kullanıcılar için ve 2.400 dakika API kullanıcılar için 600 dakika yoktur. 

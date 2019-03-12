@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 03/07/2019
 ms.author: diberry
-ms.openlocfilehash: 093c60287b16073a6c04e824dc439f5dc069ec96
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bbe46db1972951b466b431c9efc0420e15ff6dee
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863678"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765179"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Bölgeler ve ilişkili anahtarları yayımlama ve yazma
 
@@ -95,6 +95,9 @@ Küme ayracı ile belirtilen parametreler, aşağıdaki tabloda açıklanmaktad�
 |Uygulama Kimliği|URL rotasına kullanılan ve uygulama panosunda bulunan LUIS uygulama kimliği|
 |q|Sohbet Robotu gibi istemci uygulamasından gönderilen utterance metin|
 
+## <a name="failover-regions"></a>Yük devretme bölgeleri
+
+Her bir bölgeye yük devretme için ikincil bir bölgeye sahiptir. Avrupa ve Avustralya içinde üzerinden başarısız üzerinden Avrupa başarısız Avustralya içinde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

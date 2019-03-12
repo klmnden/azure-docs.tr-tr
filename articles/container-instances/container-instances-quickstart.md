@@ -1,6 +1,6 @@
 ---
-title: Hızlı Başlangıç - Azure Container Instances - CLI bir uygulama çalıştırma
-description: Bu hızlı başlangıçta, Azure Container ınstances'da bir yalıtılmış kapsayıcıda çalıştırmak için bir Docker kapsayıcı uygulamasını dağıtmak için Azure CLI kullanma
+title: Hızlı Başlangıç - Azure Container Instances'a - CLI Docker kapsayıcısı dağıtma
+description: Bu hızlı başlangıçta, bir yalıtılmış bir Azure kapsayıcı örneğinde çalışan kapsayıcılı web uygulaması hızlı bir şekilde dağıtmak için Azure CLI'yı kullanın
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 93a41610035d91774256410cea6af1d06b085d30
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 7252636287d634927979d70954f48cab5aecde5d
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562071"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732281"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>Hızlı Başlangıç: Azure CLI ile Azure Container ınstances'da bir kapsayıcı uygulaması çalıştırma
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Hızlı Başlangıç: Azure CLI kullanarak azure'da bir kapsayıcı örneği dağıtma
 
-Docker kapsayıcılarınızı kolay ve hızlı bir şekilde Azure'da çalıştırmak için Azure Container Instances hizmetini kullanın. Sanal makine dağıtmanız veya Kubernetes gibi tam kapsamlı bir düzenleme platformu kullanmanız gerekmez. Bu hızlı başlangıçta, bir kapsayıcı oluşturacak ve uygulamayı bir tam etki alanı adı (FQDN) ile kullanılabilir hale getirmek için Azure CLI'yı kullanın. Tek bir dağıtım komutu yürüttükten birkaç saniye sonra çalışan uygulamaya göz atabilirsiniz:
+Azure Container Instances, kolay ve hızlı ile Azure'da sunucusuz Docker kapsayıcıları çalıştırmak için kullanın. Azure Kubernetes hizmeti gibi bir tam kapsayıcı düzenleme platformunu ihtiyacınız kalmadığında bir kapsayıcı örneği isteğe bağlı bir uygulamayı dağıtın.
+
+Bu hızlı başlangıçta, yalıtılmış bir Docker kapsayıcısı dağıtma ve uygulamayı bir tam etki alanı adı (FQDN) ile kullanılabilir hale getirmek için Azure CLI'yı kullanın. Bir tek dağıtım komutu yürüttükten sonra birkaç saniye kapsayıcıda çalışan uygulamaya göz atabilirsiniz:
 
 ![Azure Container Instances hizmetine dağıtılmış uygulamanın tarayıcıdaki görüntüsü][aci-app-browser]
 
@@ -25,7 +27,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][azure-account]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Bu hızlı başlangıcı tamamlamak için Azure Cloud Shell veya yerel bir Azure CLI yüklemesi kullanabilirsiniz. Yerel ortamda kullanmak istiyorsanız 2.0.27 veya üzeri sürümüne ihtiyacınız olacaktır. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
+Bu hızlı başlangıcı tamamlamak için Azure Cloud Shell veya yerel bir Azure CLI yüklemesi kullanabilirsiniz. Yerel olarak 2.0.55 sürümü kullanmak istiyorsanız veya üzeri önerilir olur. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -39,11 +41,11 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 
-Artık bir kaynak grubuna sahip olduğunuza göre Azure'da kapsayıcı çalıştırabilirsiniz. Azure CLI ile kapsayıcı örneği oluşturmak için [az container create][az-container-create] komutunda bir kaynak grubu adı, kapsayıcı örneği adı ve Docker kapsayıcı görüntüsü belirtin. Bu hızlı başlangıçta, kullandığınız `microsoft/aci-helloworld` görüntü genel Docker Hub kayıt defterinden. Bu görüntü, statik bir HTML sayfası görevi görür node.js'de yazılmış küçük bir web uygulamasını paketler.
+Artık bir kaynak grubuna sahip olduğunuza göre Azure'da kapsayıcı çalıştırabilirsiniz. Azure CLI ile kapsayıcı örneği oluşturmak için [az container create][az-container-create] komutunda bir kaynak grubu adı, kapsayıcı örneği adı ve Docker kapsayıcı görüntüsü belirtin. Bu hızlı başlangıçta, genel kullandığınız `microsoft/aci-helloworld` görüntü. Bu görüntü, statik bir HTML sayfası görevi görür node.js'de yazılmış küçük bir web uygulamasını paketler.
 
 Açılacak bir veya daha fazla bağlantı noktası, DNS ad etiketi ya da ikisini birden belirterek kapsayıcılarınızı internete açabilirsiniz. Bu hızlı başlangıçta, web uygulaması genel olarak erişilebilir olması bir DNS ad etiketi içeren bir kapsayıcıya dağıtın.
 
-Bir kapsayıcı örneği başlatmak için aşağıdaki komutu yürütün. `--dns-name-label` değeri, örneği oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. "DNS ad etiketi kullanılamıyor" hata iletisiyle karşılaşırsanız farklı bir DNS ad etiketi deneyin.
+Bir kapsayıcı örneği başlatmak için aşağıdaki komutu yürütün. Ayarlanmış bir `--dns-name-label` örneği oluşturduğunuz Azure bölgesi içinde benzersiz olan değer. "DNS ad etiketi kullanılamıyor" hata iletisiyle karşılaşırsanız farklı bir DNS ad etiketi deneyin.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
@@ -97,13 +99,13 @@ Günlükleri görüntülemeye ek olarak, yerel standart çıkış ve standart ha
 Öncelikle şunu yürütün [az kapsayıcı ekleme] [ az-container-attach] kapsayıcının çıkış akışlarına kapsayıcıya yerel Konsolunuzu eklenecek komut:
 
 ```azurecli-interactive
-az container attach --resource-group myResourceGroup -n mycontainer
+az container attach --resource-group myResourceGroup --name mycontainer
 ```
 
 Bağlandıktan sonra, ek çıkışlar oluşturmak için tarayıcınızı birkaç defa yenileyin. İşlemi tamamladığınızda `Control+C` ile konsolunuzu ayırın. Aşağıdakine benzer bir çıktı görmeniz gerekir:
 
 ```console
-$ az container attach --resource-group myResourceGroup -n mycontainer
+$ az container attach --resource-group myResourceGroup --name mycontainer
 Container 'mycontainer' is in state 'Running'...
 (count: 1) (last timestamp: 2018-03-15 21:17:59+00:00) pulling image "microsoft/aci-helloworld"
 (count: 1) (last timestamp: 2018-03-15 21:18:05+00:00) Successfully pulled image "microsoft/aci-helloworld"
@@ -155,7 +157,7 @@ Kapsayıcıları Azure üzerinde bir düzenleme sistemi içinde çalıştırma s
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
 [azure-account]: https://azure.microsoft.com/free/
-[node-js]: http://nodejs.org
+[node-js]: https://nodejs.org
 
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach

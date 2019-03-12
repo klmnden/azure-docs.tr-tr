@@ -11,21 +11,22 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f489abeab0e1374d2d40ade79c4eb55fd633b909
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a7c29d1bfcc0737f76afc43cb8997d6a1d16c82b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443292"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731365"
 ---
 # <a name="access-data-from-your-datastores"></a>Verilere erişmek, veri depoları
-Bu makalede, erişim ve veri depoları aracılığıyla Azure Machine Learning iş akışlarında verilerinizle etkileşim kurmak için farklı yollarını öğrenin.
 
-Bu nasıl yapılır örnekler için aşağıdaki görevleri gösterir: 
+Veri depoları ile etkileşime geçmek ve, kodunuzu yerel olarak bir işlem kümesinde veya sanal makine üzerinde çalışan, veri erişim sağlar. Bu makalede, veri depoları olun Azure Machine Learning iş akışları, erişilebilir olduğunu öğrenin ve işlem bağlamınızın kullandırılır.
+
+Bu nasıl yapılır örnekler için aşağıdaki görevleri gösterir:
 * [Bir veri deposu seçin](#access)
-* [Bir veri deposu alma](#get)
-* [Karşıya yükleme ve verileri veri depoları için indirme](#upload-and-download-data)
-* Eğitim sırasında erişim veri deposu
+* [Verileri alma](#get)
+* [Karşıya yükleme ve verileri veri depoları için indirme](#up-and-down)
+* [Eğitim sırasında erişim veri deposu](#train)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -85,7 +86,7 @@ Aşağıdaki örnekler, bir veri deposu olarak bir Azure Blob kapsayıcısı vey
 
 <a name="get"></a>
 
-## <a name="get-data-in-your-datastore"></a>Veri deposunda veri alma
+## <a name="find--define-datastores"></a>Veri depoları tanımlayın & Bul
 
 Geçerli çalışma alanında kayıtlı belirtilen bir veri deposu almak için kullanın [ `get()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) :
 
@@ -110,7 +111,8 @@ Geçerli çalışma alanı için bir farklı varsayılan veri deposu tanımlamak
 ws.set_default_datastore('your datastore name')
 ```
 
-## <a name="upload-and-download-data"></a>Karşıya yükleme ve verileri indirme
+<a name="up-and-down"></a>
+## <a name="upload--download-data"></a>Karşıya yükleme ve verileri indirme
 [ `upload()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) Ve [ `download()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) yöntemleri aşağıdaki örneklerde açıklandığı özgüdür ve için aynı şekilde çalışan [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) ve [AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) sınıfları.
 
 ### <a name="upload"></a>Karşıya Yükle
@@ -142,6 +144,7 @@ ds.download(target_path='your target path',
 ```
 `target_path` Verileri yüklemek için yerel bir dizin konumdur. Dosya Paylaşımı (veya blob kapsayıcısı) indirmek için klasöre bir yol belirtmek için bu yolun sağlamak `prefix`. Varsa `prefix` olduğu `None`, dosya paylaşımı (veya blob kapsayıcısı) tüm içeriği karşıdan.
 
+<a name="train"></a>
 ## <a name="access-datastores-during-training"></a>Eğitim sırasında erişim veri depoları
 Bir veri deposu (örneğin, eğitim veya doğrulama veri) üzerinde uzak işlem hedefi Python SDK'sını kullanarak üzerinden çalıştırın eğitim sırasında erişebileceğiniz [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) sınıfı.
 

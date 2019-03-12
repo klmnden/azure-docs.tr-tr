@@ -7,23 +7,23 @@ services: microsoft-genomics
 author: ruchir
 editor: jasonwhowell
 ms.author: ruchir
-ms.service: microsoft-genomics
+ms.service: genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
-ms.openlocfilehash: 2c10259e4b9fa180d09ceef0359e7ec99e8200b1
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 01f4cca8e177d8f9c9325a7920eb7e72c005bbd6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239908"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760952"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
 İşte birkaç MSGEN'i Microsoft Genomics hizmeti kullanırken karşılaştığınız yaygın sorunlardan bazılarını için sorun giderme ipuçları.
 
  Sorun giderme için ilgili olmayan SSS için [sık sorulan sorular](frequently-asked-questions-genomics.md).
-## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>1. adım: iş akışı ile ilişkili hata kodları bulun
+## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>1. Adım: İş akışı ile ilişkili hata kodları bulun
 
 İş akışı tarafından ile ilişkili hata iletileri bulabilirsiniz:
 
@@ -93,14 +93,14 @@ msgen status -w 1001 -f "config.txt"
 Sorun giderme için standardoutput.txt içeriğini incelemek ve görünen herhangi bir hata iletisi dikkat edin.
 
 
-## <a name="step-2-try-recommended-steps-for-common-errors"></a>2. adım: önerilen sık karşılaşılan sorunlar için adımları deneyin
+## <a name="step-2-try-recommended-steps-for-common-errors"></a>2. Adım: Sık karşılaşılan sorunlar için önerilen adımları deneyin
 
 Bu bölümde kısaca Microsoft Genomics hizmeti (msgen'i) ve bunları gidermek için kullanabileceğiniz stratejiler yaygın hataları çıkış vurgular. 
 
 Microsoft Genomics hizmetine (msgen'i) hataları aşağıdaki iki tür durum oluşturabilir:
 
-1. İç hizmet hataları: parametre veya giriş dosyaları düzelterek çözülebilir hizmete, iç hata. Bazen iş akışını yeniden göndermeyi bu hataları düzeltebilir.
-2. Giriş hataları: doğru bağımsız değişkenleri kullanarak veya dosya biçimleri düzeltme çözülebilir hataları.
+1. İç hizmet hataları: Parametreleri veya giriş dosyaları düzelterek çözülebilir hizmete, iç hata. Bazen iş akışını yeniden göndermeyi bu hataları düzeltebilir.
+2. Giriş hataları: Doğru bağımsız değişkenleri kullanarak veya dosya biçimleri düzeltme çözülmüş hataları.
 
 ### <a name="1-internal-service-errors"></a>1. İç hizmet hataları
 
@@ -137,7 +137,7 @@ Bu eyleme dönüştürülebilir kullanıcı hatalardır. Dosya ve hata kodu tür
 | FASTQ        | 308        |  FASTQ okuma hatası. Okuma ikisinde'nın farklı bir şekilde yanıt verdi. Doğru FASTQ dosyası seçtiğiniz?                                                                                       | FASTQ dosya biçimi düzeltin ve iş akışını yeniden gönderin.                                                                         |
 |        |       |                                                                                        |                                                                           |
 
-## <a name="step-3-contact-microsoft-genomics-support"></a>3. adım: Kişi Microsoft Genomics desteği
+## <a name="step-3-contact-microsoft-genomics-support"></a>3. Adım: Microsoft Genomiks desteğe başvurun
 
 İş hataları devam ederseniz veya diğer herhangi bir sorunuz varsa, Azure portalında Microsoft Genomiks desteğe başvurun. Bir destek talebi göndermek nasıl hakkında daha fazla bilgi bulunabilir [burada](file-support-ticket-genomics.md).
 

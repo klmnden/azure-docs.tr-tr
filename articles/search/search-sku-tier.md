@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: cf2359834aa79b1d3fef8b65e4ef4191eb6ff867
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d325a5dfd57bb6b69e6cf171487adfa8d374512f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467450"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762934"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure arama için bir fiyatlandırma katmanı seçin
 
@@ -32,30 +32,57 @@ Tüm katmanları olsa da dahil olmak üzere **ücretsiz** katman, genellikle öz
 > Özellik eşliği istisnası [dizin oluşturucular](search-indexer-overview.md), hangi S3HD üzerinde mevcut değildir.
 >
 
-Bir katman içinde yapabilecekleriniz [çoğaltma ve bölüm kaynakları](search-capacity-planning.md) performans ayarlama. İki veya üç her ile başlamalı ve geçici olarak bir dizin oluşturma ağır iş yükü için işlem gücünü yükseltmek. Bir katman içinde kaynak düzeylerini ayarlama olanağı esneklik kazandırır ancak biraz da analiz karmaşık hale getirir. Daha düşük bir katmana daha yüksek kaynak/yinelemeler ile daha iyi değeri ve daha düşük kaynak ile daha yüksek bir katmana performans sunar görmek için denemeniz gerekebilir. Ne zaman ve neden kapasiteyi ayarlamak hakkında daha fazla bilgi için bkz: [performans ve iyileştirme konuları](search-performance-optimization.md).
+Bir katman içinde yapabilecekleriniz [çoğaltma ve bölüm kaynakları](search-capacity-planning.md) artırabilir veya ölçek azaltabilirsiniz. Biri veya her ikisi ile başlayın ve geçici olarak bir dizin oluşturma ağır iş yükü için işlem gücünü yükseltmek. Bir katman içinde kaynak düzeylerini ayarlama olanağı esneklik kazandırır ancak biraz da analiz karmaşık hale getirir. Daha düşük bir katmana daha yüksek kaynak/yinelemeler ile daha iyi değeri ve daha düşük kaynak ile daha yüksek bir katmana performans sunar görmek için denemeniz gerekebilir. Ne zaman ve neden kapasiteyi ayarlamak hakkında daha fazla bilgi için bkz: [performans ve iyileştirme konuları](search-performance-optimization.md).
 
-<!---
-The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
---->
+## <a name="tiers-for-azure-search"></a>Azure Search için katmanları
+
+Aşağıdaki tabloda kullanılabilir Katmanlar listelenmektedir. Katman bilgileri diğer kaynakları dahil [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/search/), [hizmet ve veri sınırları](search-limits-quotas-capacity.md)ve bir hizmet sağlanırken portal sayfası.
+
+|Katman | Kapasite |
+|-----|-------------|
+|Ücretsiz | Diğer abonelerle paylaşılan. 3 dizin ve 50 MB depolama için sınırlı ölçeklenemez. |
+|Temel | Bilgi işlem kaynaklarını daha küçük ölçekli üretim iş yükleri için ayrılmış. Bir 2 GB'lık bölümü ve üç kopyaya kadar. |
+|Standart 1 (S1) | Yedekleme, daha fazla depolama ve işleme kapasitesi her düzeyde olan ayrılmış makineye S1 üzerinde. Bölüm, 25 GB/bölüm (hizmet başına en fazla 300 GB belge) S1 boyutudur. |
+|Standart 2 (S2 için) | Benzer S1 ancak 100 GB/bölüm (hizmet başına en fazla 1,2 TB belgeler) |
+|Standart 3 (S3 için) | 200 GB/bölüm (hizmet başına en fazla 2,4 TB belgeleri). |
+|Standart 3 yüksek yoğunluklu (S3-HD) | Yüksek yoğunluklu olan bir *modu barındırma* S3. Temel alınan donanım, çok sayıda küçük dizinler, çoklu müşteri mimarisi senaryolarına yönelik için optimize edilmiştir. S3 ancak donanım optimize gibi çok sayıda küçük dizinleri üzerinde hızlı dosya okuma için aynı birim başına ücret S3 HD sahiptir.|
+
 
 ## <a name="how-billing-works"></a>Faturalandırma nasıl çalışır?
 
-Azure Search'te, portalda bir arama kaynak oluştururken maliyetler doğurduğuna dört yolu vardır:
+Azure Search'te With Azure Search'te ödemeniz üç yolu vardır ve sabit ve değişken bileşenleri vardır. Bu bölümde her fatura bileşenini sırayla incelenir.
 
-* Çoğaltmalar ve bölümler normal dizin oluşturma ve görevleri sorgulamak için kullanılan ekleniyor. Her biri ile başlayın, ancak birini veya ikisini eklemek için kapasite seçme ve ek kaynak düzeyleri için ödeme artırabilirsiniz. 
-* Dizin oluşturma sırasında veri çıkış ücretleri. Bir Azure SQL veritabanı veya Cosmos DB veri kaynağından veri çekme sırasında bu kaynaklar için fatura işlemde yönelik ücretleri görürsünüz.
-* İçin [bilişsel arama](cognitive-search-concept-intro.md) yalnızca görüntü ayıklama belge çözme sırasında belgelerinizden ayıklanan resimlerinin sayısı üzerinden faturalandırılır. Metin ayıklama şu anda ücretsiz olarak kullanılabilir.
-* İçin [bilişsel arama](cognitive-search-concept-intro.md) zenginleştirmelerinin yalnızca, temel alarak [yerleşik bilişsel beceriler](cognitive-search-predefined-skills.md) bir Bilişsel hizmetler kaynağı göre faturalandırılır. Bilişsel hizmetler kullanarak doğrudan görev gerçekleştirilen gibi zenginleştirmelerinin aynı oranda faturalandırılır.
+### <a name="1-core-service-costs-fixed-and-variable"></a>1. Çekirdek hizmet maliyetleri (sabit ve değişken)
+
+Hizmetinde, en düşük ücret ilk arama birimi (1 çoğaltma x 1 bölüm), ve hizmet üzerinde herhangi bir şey bu yapılandırma'dan çalıştırılamaz bu miktar hizmet ömrü boyunca sabit. 
+
+Aşağıdaki ekran görüntüsünde, ücretsiz, temel ve S1 için birim fiyatlandırma gösterilir (S2 ve S3 gösterilmez). Temel bir hizmet ya da bir standart hizmet oluşturduysanız, aylık maliyetiniz için görüntülenen değeri ortalama *fiyat 1* ve *fiyat 2* sırasıyla. İşlem gücü ve depolama kapasitesini her ardışık katmanları büyük olduğundan birim maliyetlerini her katman için artar.
+
+![Birim başına](./media/search-sku-tier/per-unit-pricing.png "birim başına")
+
+Eklentiyi ilk ücret Ek çoğaltmalar ve bölümler var. En düşük yapılandırmayı her biri, bu nedenle bir arama hizmeti bir çoğaltma ve bölüm gerektirir. En düşük, çoğaltmalar ve bölümler birbirinden bağımsız olarak ekleyin. Örneğin, yalnızca çoğaltmalar veya bölümler yalnızca ekleyebilirsiniz. 
+
+Ek çoğaltmalar ve bölümler ücretlendirilir göre bir [formül](#search-units). Maliyetleri (maliyet double'birden fazla kapasite Katlama) doğrusal değildir. Formül Works ilişkin bir örnek için bkz. ["çoğaltmalar ve bölümler tahsis etme"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+
+### <a name="2-data-egress-charges-during-indexing"></a>2. Dizin oluşturma sırasında veri çıkış ücretleri
+
+Bir Azure SQL veritabanı veya Cosmos DB veri kaynağından veri çekme sırasında bu kaynaklar için fatura işlemde yönelik ücretleri görürsünüz. Bu ücretler Azure Search ölçümleri değildir ancak Azure SQL veritabanı veya Azure Cosmos DB veri çekmek için dizin oluşturucular kullanıyorsanız, faturanızda o ücreti görürsünüz çünkü bunlar aşağıda belirtilmiştir.
+
+### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. Yapay ZEKA-zenginleştirilmiş Bilişsel hizmetler kullanarak dizin oluşturma
+
+İçin [bilişsel arama](cognitive-search-concept-intro.md) yalnızca görüntü ayıklama belge çözme sırasında belgelerinizden ayıklanan resimlerinin sayısı üzerinden faturalandırılır. Metin ayıklama şu anda ücretsiz olarak kullanılabilir. Diğer zenginleştirmelerinin temel alarak [yerleşik bilişsel beceriler](cognitive-search-predefined-skills.md) bir Bilişsel hizmetler kaynağı göre faturalandırılır. Bilişsel hizmetler kullanarak doğrudan görev gerçekleştirilen gibi zenginleştirmelerinin aynı oranda faturalandırılır.
 
 Kullanmıyorsanız, [bilişsel arama](cognitive-search-concept-intro.md) veya [Azure Search dizin oluşturucularında](search-indexer-overview.md), çoğaltmalar ve bölümler normal dizin oluşturma ve sorgu iş yükleri için etkin kullanımda yalnızca maliyetlerinizi ilgilidir.
 
-### <a name="billing-for-general-purpose-indexing-and-queries"></a>Genel amaçlı dizin oluşturma ve sorgular için faturalama
+<a name="search-units"></a>
+
+### <a name="billing-based-on-search-units"></a>Arama birimleri temel faturalandırma
 
 Azure arama işlemleri için en önemli fatura kavramı anlamak için olan bir *arama birimi* (SU). Çoğaltmalar ve bölümler dizin oluşturma ve sorgular için Azure Search bağlı olduğundan, onu yalnızca birini veya diğerini tarafından faturalandırmak için anlam ifade etmez. Bunun yerine, her iki bileşik üzerinde üzerinden faturalandırılır. 
 
 SU olan çarpımını *çoğaltma* ve *bölümleri* hizmeti tarafından kullanılan: **`(R X P = SU)`**
 
-Her hizmetin en az bir SU (bir çoğaltma bir bölüm ile çarpılmış) başlar. En büyük herhangi bir hizmet için birden çok yolla sağlanabilir 36 su şöyledir: 6 bölümler x 6 çoğaltmalar veya 3 bölümler x 12 çoğaltmalar. Daha azını toplam kapasite kullanımı yaygındır. 9 SUs faturalandırılır. Örneğin, bir yineleme 3, 3 bölümlü hizmeti. 
+Her hizmetin en az bir SU (bir çoğaltma bir bölüm ile çarpılmış) başlar. En büyük herhangi bir hizmet için birden çok yolla sağlanabilir 36 su şöyledir: 6 bölümler x 6 çoğaltmalar veya 3 bölümler x 12 çoğaltmalar. Daha azını toplam kapasite kullanımı yaygındır. 9 SUs faturalandırılır. Örneğin, bir yineleme 3, 3 bölümlü hizmeti. Gözden geçirebilirsiniz [bu grafik](search-capacity-planning.md#chart) geçerli birleşimleri bir bakışta görmek için.
 
 Fatura oranı **SU başına saatlik**, giderek daha yüksek fiyatlarla sahip her bir katman ile. Genel olarak daha yüksek bir saatlik ücret söz konusu katman için katkıda bulunan, daha büyük ve daha hızlı bölümleri olan daha yüksek katmanlarında sunulur. Her katmanın bulunabilir için derecelendirir [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/search/). 
 

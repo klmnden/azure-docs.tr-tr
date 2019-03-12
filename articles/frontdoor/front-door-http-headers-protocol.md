@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 0dcb769627714be9da55faf2a8e82c8750789498
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b34ab417ab1d9ef77c3141d5aa130c338fb89188
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038859"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726337"
 ---
 # <a name="azure-front-door-service---http-headers-protocol-support"></a>Azure ön kapısı hizmeti - HTTP üstbilgileri protokol desteği
 Bu belge, aşağıdaki görüntüde belirtildiği gibi arama yolu çeşitli bölümleriyle Azure ön kapısı hizmetinin desteklediği protokolü özetlenmektedir. Aşağıdaki bölümlerde, ön kapısı desteklediği HTTP üstbilgileri hakkında daha fazla öngörüye verilmektedir.
@@ -28,8 +28,7 @@ Bu belge, aşağıdaki görüntüde belirtildiği gibi arama yolu çeşitli böl
 
 ## <a name="1-client-to-front-door"></a>1. İstemci ön kapısı
 (Bunları değiştirmeden) ön kapısı çoğu üst bilgiye gelen istek kabul eder, ancak bunlar gönderiliyorsa, gelen istekte kaldırılacak bazı ayrılmış üstbilgiler vardır. Bu, aşağıdaki ön ekleri ile üst bilgileri içerir:
- - X-FD *
- - X-MS *
+ - X-FD-*
 
 ## <a name="2-front-door-to-backend"></a>2. Arka uca ön kapısı
 
@@ -37,9 +36,14 @@ Yukarıda bahsedilen kısıtlamaları nedeniyle kaldırıldı sürece ön kapıs
 
 | Üst bilgi  | Örnek ve açıklaması |
 | ------------- | ------------- |
-| X-MS-başvuru |  *X-MS-Ref: 0WrHgWgAAAACFupORp/8MS6vxhG/WUvawV1NURURHRTAzMjEARWRnZQ ==* </br> Ön kapısı tarafından sunulan bir isteği tanımlayan benzersiz başvuru dize budur. Erişim günlükleri aramak için kullanılan sorun giderme için önemlidir.|
-| X-MS-RequestChain |  *X-MS-RequestChain: atlama sayısı = 1* </br> Bu istek döngü algılamak için ön kapı kullanan bir üst bilgi ve kullanıcılar üzerinde bir bağımlılık almamalıdır. |
-| X-MS-aracılığıyla |  *X-MS-Via: Azure* </br> Bu, Azure/ön kapısı istemci ve arka uç arasındaki istek için bir ara alıcı olduğunu belirtmek için ön kapı tarafından eklenir. |
+| Şunun aracılığıyla: |  *Aracılığıyla: 1.1 azure* </br> İstemcinin HTTP sürümü üst bilgi değeri olarak 'Azure' arkasından ön kapısı ekler. Bu istemcinin HTTP sürümü belirtmek için eklenir ve bu Azure ön kapısı istemci ve arka uç arasındaki istek için bir ara alıcı oluştu.  |
+| X-Azure-ClientIP | *X-Azure-Clientıp: 127.0.0.1* </br> İşlenmekte olan istek ile ilişkili "istemci" Internet Protokol adresi temsil eder. Örneğin, bir proxy sunucudan gelen bir istek özgün arayan IP adresini belirtmek için X-iletilen-için üst bilgisi ekleyebilir. |
+| X-Azure-SocketIP |  *X-Azure-SocketIP: 127.0.0.1* </br> Geçerli İsteğin kaynaklandığı TCP bağlantısıyla ilişkili yuva Internet Protokol adresi temsil eder. Bir isteğin istemci IP adresi, rasgele bir son kullanıcı tarafından kılınabilir çünkü yuva IP adresine eşit olmayabilir.|
+| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Ön kapısı tarafından sunulan bir isteği tanımlayan benzersiz başvuru dize budur. Erişim günlükleri aramak için kullanılan sorun giderme için önemlidir.|
+| X Azure RequestChain |  *X-Azure-RequestChain: atlama sayısı = 1* </br> Bu istek döngü algılamak için ön kapı kullanan bir üst bilgi ve kullanıcılar üzerinde bir bağımlılık almamalıdır. |
+| X-iletilen-için | *X-iletilen-için: 127.0.0.1* </br> X-Forwarded-For (XFF) HTTP üstbilgi alanı, isteğin kaynak IP adresini bir web sunucusuna HTTP Ara sunucu veya yük dengeleyici üzerinden bağlanan bir istemci tanımlamaya yönelik yaygın bir yöntemdir. Varsa mevcut bir XFF üst bilgisi ön kapısı istemci yuvası IP başka ona ekler sonra istemci yuvası IP XFF üstbilgiyle ekler. |
+| X iletilen konak | *X iletilen konak: contoso.azurefd.net* </br> X iletilen konak HTTP üstbilgisi alanını olduğundan istek işleme arka uç sunucusu için ön kapı ana bilgisayar adından farklı olabilir, ana bilgisayar HTTP istek üst bilgisinde istemci tarafından istenen özgün ana bilgisayar tanımlamaya yönelik yaygın bir yöntemdir. |
+| X iletilen Proto | *X iletilen Proto: http* </br> X iletilen Proto HTTP üstbilgisi alanını yapılandırmasına bağlı olarak ön kapısı HTTP isteği için ters proxy olsa bile, HTTPS kullanarak arka uç ile iletişim kurmaya devam edebileceğini beri kaynak protokolü bir HTTP isteğinin tanımlamak için yaygın bir yöntemdir. |
 
 ## <a name="3-front-door-to-client"></a>3. İstemci ön kapısı
 
@@ -47,12 +51,12 @@ Yukarıda bahsedilen kısıtlamaları nedeniyle kaldırıldı sürece ön kapıs
 
 | Üst bilgi  | Örnek |
 | ------------- | ------------- |
-| X-MS-başvuru |  *X-MS-Ref: 0WrHgWgAAAACFupORp/8MS6vxhG/WUvawV1NURURHRTAzMjEARWRnZQ ==* </br> Ön kapısı tarafından sunulan bir isteği tanımlayan benzersiz başvuru dize budur. Erişim günlükleri aramak için kullanılan sorun giderme için önemlidir.|
+| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Ön kapısı tarafından sunulan bir isteği tanımlayan benzersiz başvuru dize budur. Erişim günlükleri aramak için kullanılan sorun giderme için önemlidir.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bilgi edinmek için nasıl [ön kapı oluşturmak](quickstart-create-front-door.md).
-- Bilgi [ön kapısı işleyişi](front-door-routing-architecture.md).
+- [Front Door oluşturmayı](quickstart-create-front-door.md) öğrenin.
+- [Front Door’un nasıl çalıştığını](front-door-routing-architecture.md) öğrenin.
 
 <!--Image references-->
 [1]: ./media/front-door-http-headers-protocol/front-door-protocol-summary.png

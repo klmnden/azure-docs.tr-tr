@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/28/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e37d5b050c5ca957b59c1e0a60c88171c1fc4a23
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582250"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531173"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak Azure Güvenlik Duvarı DNAT ile gelen trafiği filtreleme
 
@@ -37,7 +37,7 @@ Bu öğretici için eşlenen iki sanal ağ oluşturuyorsunuz:
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-1. [http://portal.azure.com](http://portal.azure.com) adresinden Azure portalında oturum açın.
+1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 2. Azure portal giriş sayfasında **Kaynak grupları**'na ve ardından **Ekle**'ye tıklayın.
 3. **Kaynak grubu adı** alanına **RG-DNAT-Test** yazın.
 4. **Abonelik** bölümünde aboneliğinizi seçin.
@@ -152,7 +152,7 @@ Dağıtım bittikten sonra sanal makineyle ilişkili özel IP adresini not alın
    |---------|---------|
    |Ad     |FW-DNAT-test|
    |Abonelik     |\<aboneliğiniz\>|
-   |Kaynak grubu     |**Var olanı kullan**: RG-DNAT-Test |
+   |Kaynak grubu     |**Var olanı kullan**: RG dnat'ı Test |
    |Konum     |Önceden kullandığınız konumu seçin|
    |Bir sanal ağ seçin     |**Var olanı kullan**: VN-Hub|
    |Genel IP adresi     |**Yeni oluşturun**. Genel IP adresinin türü Standart SKU olmalıdır.|
@@ -229,4 +229,4 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 Şimdi Azure Güvenlik Duvarı günlüklerini izleyebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Öğretici: Azure Güvenlik Duvarı günlüklerini izleme](./tutorial-diagnostics.md)
+> [Öğretici: Azure güvenlik duvarı günlüklerini izleyin](./tutorial-diagnostics.md)

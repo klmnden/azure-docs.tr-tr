@@ -2,19 +2,19 @@
 title: Terraform kullanarak özel bir Packer görüntüsünden Azure sanal makine ölçek kümesi oluşturma
 description: Terraform kullanarak Packer tarafından oluşturulan özel bir görüntüden (sanal ağ ve takılmış disklere sahip) Azure sanal makine ölçek kümesi yapılandırın ve sürüm oluşturun.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, ölçek kümesi, sanal makine, ağ, depolama alanı, modüller, özel görüntüler, packer
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/29/2017
-ms.openlocfilehash: 12c6ebc9b29c356ad169dbd921e71c7aa0c273b7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: b9c7c20b6b3bbad8731dc00e2c6e3d88f92936df
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077513"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765416"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Terraform kullanarak özel bir Packer görüntüsünden Azure sanal makine ölçek kümesi oluşturma
 

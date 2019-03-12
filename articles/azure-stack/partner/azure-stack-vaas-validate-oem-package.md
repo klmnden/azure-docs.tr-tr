@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 02/19/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f5b884ddda292b1c523a5364d34753ccb3a5bbdf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: c2b0343ff472fe380750152712ca88d9ebb404e2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194455"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782794"
 ---
 # <a name="validate-oem-packages"></a>OEM paketleri doğrula
 
@@ -41,59 +41,98 @@ Kullanırken **paket doğrulama** bir paket doğrulamak için iş akışı için
 
 Depolama hesabınızda blobları paket için bir kapsayıcı oluşturun. Bu kapsayıcıdaki tüm paket doğrulama çalıştırmalarını için kullanılabilir.
 
-1. İçinde [Azure portalı](https://portal.azure.com)içinde oluşturduğunuz depolama hesabına gidin [doğrulama hizmet kaynakları olarak ayarlama](azure-stack-vaas-set-up-resources.md).
-2. Sol dikey penceredeki **Blob hizmeti**, select deyiminde **kapsayıcıları**.
-3. Seçin **+ kapsayıcı** menüsünde örn, kapsayıcı için bir ad sağlayın ve çubuk `vaaspackages`.
+1. İçinde [Azure portalında](https://portal.azure.com)içinde oluşturduğunuz depolama hesabına gidin [doğrulama hizmet kaynakları olarak ayarlama](azure-stack-vaas-set-up-resources.md).
+
+2. Sol dikey penceredeki **Blob hizmeti**seçin **kapsayıcıları**.
+
+3. Seçin **+ kapsayıcı** menü çubuğundan.
+    1. Örneğin, kapsayıcı için bir ad sağlamanız `vaaspackages`.
+    1. Kimlik doğrulaması yapılmamış istemcilerin VaaS gibi istediğiniz erişim düzeyini seçin. Her senaryoda paketleri VaaS erişim konusunda daha fazla ayrıntı için bkz. [kapsayıcı erişim düzeyi işleme](#handling-container-access-level).
 
 ### <a name="upload-package-to-storage-account"></a>Paket depolama hesabına yükleyin.
 
-1. Doğrulamak istediğiniz paketi hazırlayın. Birden çok dosya paketiniz varsa, içine sıkıştırın bir `.zip` dosya.
-2. İçinde [Azure portalı](https://portal.azure.com), paket kapsayıcıyı seçin ve paket seçerek karşıya **karşıya** menü çubuğundaki.
-3. Paketi seçin `.zip` dosyasını karşıya yükleyin. İçin varsayılan değerleri tutun **Blob türü** (yani, **blok blobu**) ve **bloğu boyutunu**.
+1. Doğrulamak istediğiniz paketi hazırlayın. Bu bir `.zip` dosya içerikleri açıklanan yapısı eşleşmelidir [OEM paket oluşturma](azure-stack-vaas-create-oem-package.md).
 
-> [!NOTE]
-> Lütfen `.zip` içeriği kökünde yerleştirilir `.zip` dosya. Pakette hiçbir alt klasör olmalıdır.
+    > [!NOTE]
+    > Lütfen `.zip` içeriği kökünde yerleştirilir `.zip` dosya. Pakette hiçbir alt klasör olmalıdır.
+
+1. İçinde [Azure portalında](https://portal.azure.com), paket kapsayıcıyı seçin ve paket seçerek karşıya **karşıya** menü çubuğundaki.
+
+1. Paketi seçin `.zip` dosyasını karşıya yükleyin. İçin varsayılan değerleri tutun **Blob türü** (diğer bir deyişle, **blok blobu**) ve **bloğu boyutunu**.
 
 ### <a name="generate-package-blob-url-for-vaas"></a>Paket blob URL'si için VaaS oluştur
 
-Oluştururken bir **paket doğrulama** VaaS portalı akışı paketinizi içeren Azure depolama blob için bir URL sağlamanız gerekir.
+Oluştururken bir **paket doğrulama** VaaS portalı akışı paketinizi içeren Azure depolama blob için bir URL sağlamanız gerekir. Bazı *etkileşimli* dahil olmak üzere testleri **aylık AzureStack güncelleştirme doğrulama** ve **OEM uzantı paketi doğrulama**, ayrıca paket BLOB'ları için bir URL gerektirir.
 
-#### <a name="option-1-generating-a-blob-sas-url"></a>1. seçenek: SAS URL blob'u oluşturuluyor
+#### <a name="handling-container-access-level"></a>İşleme kapsayıcı erişim düzeyi
 
-Depolama kapsayıcısı veya blobları için genel okuma erişimini etkinleştirmek istemiyorsanız bu seçeneği kullanın.
+İster bir paket doğrulama iş akışı oluşturuyorsanız veya zamanlama üzerinde VaaS tarafından gerekli en düşük erişim düzeyine bağlıdır bir *etkileşimli* test edin.
 
-1. İçinde [Azure portalında](https://portal.azure.com/), depolama hesabınıza gidin ve paketinizi içeren .zip olarak gidin
+Durumunda, **özel** ve **Blob** erişim düzeyi, geçici olarak VaaS vererek paket bloba erişim izni vermelidir bir [paylaşılan erişim imzası](https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1?) (SAS). **Kapsayıcı** erişim düzeyi SAS URL'lerini oluşturmak için gerekli değildir, ancak kapsayıcı ve bloblarını kimliği doğrulanmamış erişime izin verir.
 
-2. Seçin **Generate SAS** bağlam menüsünden
+|Erişim düzeyi | İş akışı gereksinimi | Test gereksinimi |
+|---|---------|---------|
+|Özel | Paket blob başına bir SAS URL'si oluşturun ([1. seçenek](#option-1-generate-a-blob-sas-url)). | Hesap düzeyinde bir SAS URL'si oluşturun ve el ile paket blob adını ekleyin ([seçeneği 2](#option-2-construct-a-container-sas-url)). |
+|Blob | Blob URL'si özelliği sağlar ([seçeneği 3](#option-3-grant-public-read-access)). | Hesap düzeyinde bir SAS URL'si oluşturun ve el ile paket blob adını ekleyin ([seçeneği 2](#option-2-construct-a-container-sas-url)). |
+|Kapsayıcı | Blob URL'si özelliği sağlar ([seçeneği 3](#option-3-grant-public-read-access)). | Blob URL'si özelliği sağlar ([seçeneği 3](#option-3-grant-public-read-access)).
 
-3. Seçin **okuma** gelen **izinleri**
+Paketlerinizi erişim verme seçeneklerini en az erişimden en yüksek erişim sıralanır.
 
-4. Ayarlama **başlangıç zamanı** geçerli saat ve **bitiş saati** en az 48 saate **başlangıç zamanı**. Aynı paket ile diğer testler çalıştıracaksanız artırmayı **bitiş saati** testinizin uzunluğu. Sonra VaaS aracılığıyla zamanlanmış herhangi bir test **bitiş saati** başarısız olur ve yeni SAS oluşturulması gerekecek.
+#### <a name="option-1-generate-a-blob-sas-url"></a>1. seçenek: Bir blob SAS URL'si oluşturun
+
+Depolama kapsayıcınızda erişim düzeyini ayarlamak bu seçeneği kullanırsanız **özel**, burada kapsayıcı kapsayıcıya veya bloblarına genel okuma erişimi sağlamaz.
+
+> [!NOTE]
+> Bu yöntem çalışmaz *etkileşimli* testleri. Bkz: [seçeneği 2: Bir kapsayıcı SAS URL'si oluşturmak](#option-2-construct-a-container-sas-url).
+
+1. İçinde [Azure portalında](https://portal.azure.com/), depolama hesabınıza gidin ve paketinizi içeren .zip olarak gidin.
+
+2. Seçin **Generate SAS** bağlam menüsünden.
+
+3. Seçin **okuma** gelen **izinleri**.
+
+4. Ayarlama **başlangıç zamanı** geçerli saat ve **bitiş saati** en az 48 saate **başlangıç zamanı**. Diğer iş akışları ile aynı paket oluşturacaksanız, artırmayı **bitiş saati** testinizin uzunluğu.
 
 5. Seçin **blob SAS belirteci ve URL üretmek**.
 
 Kullanım **Blob SAS URL'si** zaman paket sağlayan blob URL'leri portala.
 
-#### <a name="option-2-grant-public-read-access"></a>2. seçenek: Genel okuma erişimi verin
+#### <a name="option-2-construct-a-container-sas-url"></a>2. seçenek: Bir kapsayıcı SAS URL'si oluşturun
+
+Depolama kapsayıcınızda erişim düzeyini ayarlamak bu seçeneği kullanırsanız **özel** ve paket blob URL'sini sağlamanız gereken bir *etkileşimli* test edin. Bu URL de iş akışı düzeyinde kullanılabilir.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+
+1. Seçin **Blob** gelen **izin verilen hizmetler seçenekleri**. Diğer seçenekleri seçimini kaldırın.
+
+1. Seçin **kapsayıcı** ve **nesne** gelen **izin verilen kaynak türleri**.
+
+1. Seçin **okuma** ve **listesi** gelen **iznine**. Diğer seçenekleri seçimini kaldırın.
+
+1. Seçin **başlangıç zamanı** olarak geçerli saati ve **bitiş saati** için en az 14 gün sonra **başlangıç zamanı**. Aynı paket ile diğer testler çalıştıracaksanız artırmayı **bitiş saati** testinizin uzunluğu. Sonra VaaS aracılığıyla zamanlanmış herhangi bir test **bitiş saati** başarısız olur ve yeni SAS oluşturulması gerekecek.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
+    Biçim şu şekilde görünmelidir: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+1. Paket kapsayıcısı dahil etmek için oluşturulan SAS URL'sini değiştirmek `{containername}`, paket blobunuz adını `{mypackage.zip}`gibi:  `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+    Portala URL'leri paket sağlayan blob olduğunda bu değeri kullanın.
+
+#### <a name="option-3-grant-public-read-access"></a>Seçenek 3: Genel okuma erişimi verin
+
+Kimliği doğrulanmamış istemciler için tek tek bloblar veya durumunda erişim izin vermek için kabul edilebilir ise, bu seçeneği kullanın *etkileşimli* testleri, kapsayıcı.
 
 > [!CAUTION]
 > Bu seçenek, anonim salt okunur erişim için BLOB'kurmak açar.
 
-1. GRANT **genel okuma erişimi yalnızca BLOB'lar için** bölümündeki yönergeleri izleyerek paket kapsayıcıya [kapsayıcılara ve blob'lara anonim kullanıcılara izin vermek](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
+1. Paket kapsayıcıya erişim düzeyini ayarlayın **Blob** veya **kapsayıcı** bölümündeki yönergeleri izleyerek [kapsayıcılara ve blob'laraanonimkullanıcılaraizinvermek](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-> [!NOTE]
-> Paket URL'si sağlıyorsanız bir *etkileşimli test* sağlamanız gerekir (örneğin, aylık AzureStack güncelleştirme doğrulaması veya OEM uzantı paketi doğrulama), **tam genel okuma erişimini** için Test ile devam edin.
+    > [!NOTE]
+    > Paket URL'si sağlıyorsanız bir *etkileşimli* test vermelidir **tam genel okuma erişimini** testiyle devam etmek için kapsayıcı.
 
-2. Paket kapsayıcıda özellikler bölmesini açmak için paket blob seçin.
+1. Paket kapsayıcıda özellikler bölmesini açmak için paket blob seçin.
 
-3. Kopyalama **URL**. Portala URL'leri paket sağlayan blob olduğunda bu değeri kullanın.
-
-## <a name="apply-monthly-update"></a>Aylık güncelleştirme uygulama
-
-[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
-
-> [!NOTE]
-> Aylık güncelleştirmeyi uyguladıktan sonra güncelleştirme başarıyla uygulandı ve iyi durumda olduğunu doğrulamak için Test-AzureStack çalıştırmanızı öneririz. AzureStack test başarısız olursa, sorunu Microsoft'a bildirin. Test geçiş ile Sorun çözülene kadar devam yok. Bu Test Azure Stack komut çalıştırma hakkında daha fazla bilgi bulunabilir [makale](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+1. Kopyalama **URL**. Portala URL'leri paket sağlayan blob olduğunda bu değeri kullanın.
 
 ## <a name="create-a-package-validation-workflow"></a>Paket doğrulama iş akışı oluşturma
 
@@ -136,17 +175,44 @@ Aşağıdaki testler OEM paket doğrulaması için gereklidir:
 
     > [!NOTE]
     > Var olan bir örneği üzerinde bir doğrulama testi zamanlama portalda eski örneği yerine yeni bir örneğini oluşturur. Eski örneği için günlükleri korunur ancak Portalı'ndan erişilebilir değildir.  
-    Bir test başarıyla tamamlandıktan sonra **zamanlama** eylemi devre dışı kalır.
+    > Bir test başarıyla tamamlandıktan sonra **zamanlama** eylemi devre dışı kalır.
 
 2. Sınama Aracı'nı seçin. Ekleme hakkında bilgi yerel test yürütme aracıları, bkz: [yerel aracı dağıtma](azure-stack-vaas-local-agent.md).
 
-3. Tam OEM uzantı paketi doğrulama seçmek amacıyla **zamanlama** bağlam menüsünden test örneği zamanlamak için bir istem açın.
+3. OEM uzantı paketini doğrulamayı tamamlamak için seçin **zamanlama** bağlam menüsünden test örneği zamanlamak için bir istem açın.
 
 4. Test parametreleri gözden geçirin ve ardından **Gönder** zamanlayarak için OEM uzantı paketi doğrulama.
 
+    OEM uzantı paketi doğrulama, iki el ile adımlar bölünür: Azure yığını güncelleştirmesi ve OEM güncelleştirme.
+
+    1. **Seçin** "Precheck betiği yürütmek için kullanıcı Arabiriminde Çalıştır". Tamamlanması yaklaşık 5 dakika sürer ve hiçbir eylem gerektirmez otomatikleştirilmiş bir testi budur.
+
+    1. Precheck betik tamamlandıktan sonra el ile adımıysa: **yükleme** Azure Stack portalını kullanarak en son kullanılabilir Azure Stack güncelleştirme.
+
+    1. **Çalıştırma** Test AzureStack damgası üzerinde. Herhangi bir hata oluşursa, kişi ve test ile devam etmeyin [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
+
+        Test-AzureStack komut çalıştırma hakkında daha fazla bilgi için bkz: [Azure Stack doğrulama sistem durumu](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+
+    1. **Seçin** "İleri" postcheck betiği yürütülemedi. Bu otomatik test ve Azure Stack'te güncelleştirme işleminin sonunu işaretler.
+
+    1. **Seçin** OEM güncelleştirmesi precheck betiği yürütmek için "Run".
+
+    1. Ön denetim tamamlandıktan sonra el ile adımıysa: **yükleme** portal üzerinden OEM uzantı paketi.
+
+    1. **Çalıştırma** Test AzureStack damgası üzerinde.
+
+        > [!NOTE]
+        > Önceki örneklerde olduğu gibi test ve kişi ile devam etmeyin [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) başarısız olması durumunda. Bu adım, bir yeniden dağıtım kaydedecek şekilde önemlidir.
+
+    1. **Seçin** "İleri" postcheck betiği yürütülemedi. Bu, OEM güncelleştirme adım sonunu işaretler.
+
+    1. Testin sonunda kalan tüm sorularınızı ve **seçin** "Gönder".
+
+    1. Bu etkileşimli test sonunu işaretler.
+
 5. Sonuç, OEM uzantı paketini doğrulama için gözden geçirin. Test başarılı oldu sonra bulut benzetimi altyapısı yürütme için zamanlayın.
 
-Tüm testler başarıyla tamamladıktan sonra VaaS çözümünüzü ve paket doğrulama adını gönder [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) paket imzalama istemek için.
+Bir paket imzalama isteğini göndermek için Gönder [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) çözüm adı ve paket doğrulama adı bu çalıştırmasıyla ilişkili.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

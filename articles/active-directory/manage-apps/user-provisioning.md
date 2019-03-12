@@ -15,12 +15,12 @@ ms.date: 07/30/2018
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e8b099f845df66dfe8c43bc6f968fd63b30d09d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 198f32b5f3d7572807b6af3e41ccf8085d9cbc0b
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186361"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576948"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Sağlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına kullanıcı otomatikleştirin
 
@@ -108,11 +108,11 @@ Uygulama Yönetimi ekranında, sağlama yapılandırılan **sağlama** sekmesi.
 
 ![Ayarlar](./media/user-provisioning/provisioning_settings1.PNG)
 
-* **Kapsam filtreleri** hangi kullanıcıların sağlama hizmeti söyleyin ve grupları kaynak sistemindeki sağlanan ve/veya hedef sistem için sağlaması kaldırıldı. Kapsam birlikte değerlendirildiğini filtreleri gereken iki unsur vardır kimin sağlama kapsamında olduğunu belirleyin:
+* **Kapsam filtreleri**, hazırlama hizmetine kaynak sistemdeki hangi kullanıcıların ve grupların hedef sistem için hazırlanacağını ve/veya hangilerinin sağlamalarının kaldırılacağını bildirir. Hazırlama kapsamındakileri belirleme amacıyla birlikte değerlendirilen iki kapsam filtresi yaklaşımı vardır:
 
-    * **Öznitelik değerleri üzerinde filtre** -belirli bir öznitelik değerleri üzerinde filtreleme "Kaynak nesne kapsamı" menüsünde öznitelik eşlemelerini sağlar. Örneğin, yalnızca "Sales", "Departman" özniteliğine sahip kullanıcıların sağlama kapsamında olması gerektiğini belirtebilirsiniz. Daha fazla bilgi için [kapsam belirleme filtrelerini kullanma](define-conditional-rules-for-provisioning-user-accounts.md).
+    * **Öznitelik değerlerine göre filtreleme** - Öznitelik eşlemelerindeki "Kaynak Nesne Kapsamı" menüsü, belirli öznitelik değerlerine göre filtreleme yapılmasını sağlar. Örneği yalnızca "Departman" özniteliği "Satış" olan kullanıcıların hazırlama kapsamına girmesini sağlayabilirsiniz. Daha fazla bilgi için bkz. [Kapsam filtrelerini kullanma](define-conditional-rules-for-provisioning-user-accounts.md).
 
-    * **Süzgeç atamalarını üzerinde** -Hazırlama "Scope" menüsünde > Portalı Ayarları bölümü olup yalnızca "atanan" Kullanıcılar ve gruplar sağlama kapsamında olmalıdır veya Azure AD dizini içindeki tüm kullanıcılar'ın kaldırılması gerekip gerekmediğini belirtmenizi sağlar sağlanan. "Kullanıcılar ve gruplar atama" hakkında daha fazla bilgi için bkz: [kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atamak](assign-user-or-group-access-portal.md).
+    * **Süzgeç atamalarını üzerinde** -Hazırlama "Scope" menüsünde > Portalı Ayarları bölümü olup yalnızca "atanan" Kullanıcılar ve gruplar sağlama kapsamında olmalıdır veya Azure AD dizini içindeki tüm kullanıcılar'ın kaldırılması gerekip gerekmediğini belirtmenizi sağlar sağlanan. Kullanıcıları ve grupları "atama" hakkında bilgi için bkz. [Azure Active Directory'de kurumsal uygulamalara kullanıcı veya grup atama](assign-user-or-group-access-portal.md).
     
 * **Ayarları** veya şu anda çalışıyor olsun dahil olmak üzere, bir uygulama için sağlama hizmetinin işlem denetimi.
 
@@ -260,7 +260,7 @@ Evet. Ne zaman "eşitleme yalnızca atanan kullanıcılar ve gruplar için" yap�
 
 Ancak, dinamik gruplar kullanımını SaaS uygulamaları için Azure AD'den sağlama uçtan uca kullanıcı genel performansını etkileyebilir. Lütfen dinamik gruplar kullanırken, bu uyarılar ve öneriler göz önünde bulundurun:
 
-* Dinamik grup üyeliği değişiklikleri ne kadar hızlı değerlendirebilirsiniz nasıl hızla kullanıcı dinamik bir grup olarak sağlanan veya bir SaaS uygulamasında sağlaması bağlıdır. Dinamik bir grup işleme durumunu denetleme hakkında daha fazla bilgi için bkz: [bir üyelik kuralı için işlem durumunu denetleme](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
+* Dinamik grup üyeliği değişiklikleri ne kadar hızlı değerlendirebilirsiniz nasıl hızla kullanıcı dinamik bir grup olarak sağlanan veya bir SaaS uygulamasında sağlaması bağlıdır. Dinamik bir grup işleme durumunu denetleme hakkında daha fazla bilgi için bkz: [bir üyelik kuralı için işlem durumunu denetleme](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
 
 * Üyelik kaybı bir sağlamayı kaldırma olay sonuçlanacağı dinamik gruplar kullanırken kuralları dikkatli bir şekilde hazırlama ve sağlamayı göz önünde bulundurun kullanıcıyla dikkate alınmalıdır.
 

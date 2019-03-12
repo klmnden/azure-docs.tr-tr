@@ -1,5 +1,5 @@
 ---
-title: Azure Stackk, Kubernetes dağıtımı sorunlarını giderme | Microsoft Docs
+title: Azure Stack, Kubernetes dağıtımı sorunlarını giderme | Microsoft Docs
 description: Azure Stack, Kubernetes dağıtımı sorunlarını gidermeyi öğrenin.
 services: azure-stack
 documentationcenter: ''
@@ -11,16 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
-ms.author: mabrigg
+ms.author: mabvrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5436b562b4f9054e0e00e3cc6abb1724797437db
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752305"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729638"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Azure Stack, Kubernetes dağıtımı sorunlarını giderme
 
@@ -87,7 +86,7 @@ Küme dağıtımı için genel süreç Aşağıdaki diyagramda gösterilmektedir
 Kubernetes kümenizi destekleyen sanal makinelere günlüklerini toplayabilir. Ayrıca dağıtım günlüğünü gözden geçirebilirsiniz. Azure Stack, kullanılacağını ve Azure yığından dağıtımınızla ilgili günlüklerini almak için gereken sürümünü doğrulamak için Azure Stack yöneticinizle konuşun gerekebilir.
 
 1. Gözden geçirme [dağıtım durumu](#review-deployment-status) ve [günlüklerini](#get-logs-from-a-vm) ana düğüm Kubernetes kümenize öğesinden.
-2. Azure Stack en son sürümünü kullandığınızdan emin olun. Hangi sürümü kullandığınızdan emin değilseniz, Azure Stack yöneticinize başvurun. Kubernetes kümesi Marketi zaman 0.3.0 Azure Stack 1808 veya üzeri bir sürümünü gerektirir.
+2. Azure Stack en son sürümünü kullandığınızdan emin olun. Hangi sürümü kullandığınızdan emin değilseniz, Azure Stack yöneticinize başvurun.
 3.  VM oluşturma dosyalarınızı gözden geçirin. Aşağıdaki sorunları vardı:  
     - Ortak anahtar geçersiz olabilir. Oluşturduğunuz anahtarı gözden geçirin.  
     - VM oluşturma veya oluşturma hatası tetikleyen bir iç hata tetiklenen. Azure Stack aboneliğiniz için kapasite sınırlamaları dahil olmak üzere hata, bir dizi etkene neden olabilir.
@@ -148,21 +147,26 @@ Günlükleri almak için aşağıdaki adımları uygulayın:
 3. Aynı oturumda ortamınızla eşleşecek şekilde güncelleştirildi parametrelerle aşağıdaki komutu çalıştırın:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmd-host 192.168.102.37
     ```
 
 4. Parametreleri gözden geçirin ve ortamınıza bağlı değerlerini ayarlayın.
     | Parametre           | Açıklama                                                                                                      | Örnek                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i,--dosya kimliği | Kubernetes ana VM bağlanmak için RSA özel anahtar dosyası. Anahtar ile başlamalıdır `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
-    | -h, --host          | Genel IP veya Kubernetes kümesi ana VM tam etki alanı adını (FQDN). VM adı ile başlayan `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -d, --vmd-host       | Genel IP veya DVM FQDN'si. VM adı ile başlayan `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+    | f-,--force | Özel anahtarı karşıya yüklemeden önce istemde bulunmayın. | |
+    | -i,--dosya kimliği | Kubernetes ana VM bağlanmak için RSA özel anahtar dosyası. Anahtar ile başlaması gerekir: <br>`-----BEGIN RSA PRIVATE KEY-----` | C:\data\id_rsa.pem                                                        |
+    | -h, --help  | Komut kullanımı için yazdırma `getkuberneteslogs.sh` betiği. | |
+    | m-,--ana konak          | Genel IP veya Kubernetes kümesi ana VM tam etki alanı adını (FQDN). VM adı ile başlayan `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
     | u-,--kullanıcı          | Kubernetes küme ana VM kullanıcı adı. Market öğesi yapılandırdığınızda bu adını ayarlayın.                                                                    | azureuser                                                                     |
-    | -d, --vmdhost       | Genel IP veya DVM FQDN'si. VM adı ile başlayan `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+
+
+
 
    Parametre değerleriniz eklediğinizde, aşağıdaki kodu şöyle görünebilir:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file "C:\secretsecret.pem" --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmdhost 192.168.102.37
      ```
 
     Başarılı çalıştırma günlükleri oluşturur.

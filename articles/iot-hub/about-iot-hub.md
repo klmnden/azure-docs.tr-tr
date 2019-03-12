@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
 manager: briz
-ms.openlocfilehash: f4254cd90d8cf3b9f4cd206b729a3d44784b377a
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
-ms.translationtype: HT
+ms.openlocfilehash: 6dadd746bccd028a2b81a980d99ab47ec9e6e2a3
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343636"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726746"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT Hub nedir?
 
@@ -110,7 +110,7 @@ IoT Hub ve cihaz SDK’ları, cihazları bağlamak için aşağıdaki protokolle
 
 ## <a name="quotas-and-limits"></a>Kotalar ve sınırlar
 
-Her Azure aboneliği, hizmet kötüye kullanımını önlemek için varsayılan kota sınırları içerir ve bu sınırlar, IoT çözümünüzün kapsamını etkileyebilir. Abonelik başına geçerli sınır, 10 IoT hub/abonelik şeklindedir. Destek birimiyle görüşerek kota artışı isteyebilirsiniz. Kota sınırları hakkındaki diğer ayrıntılar için:
+Her Azure aboneliği, hizmet kötüye kullanımını önlemek için varsayılan kota sınırları içerir ve bu sınırlar, IoT çözümünüzün kapsamını etkileyebilir. Abonelik başına esasına göre geçerli sınırlar abonelik başına 50 IOT hub ' dir. Destek birimiyle görüşerek kota artışı isteyebilirsiniz. Kota sınırları hakkındaki diğer ayrıntılar için:
 
 * [Azure aboneliği hizmet sınırları](../azure-subscription-service-limits.md)
 
@@ -120,4 +120,4 @@ Her Azure aboneliği, hizmet kötüye kullanımını önlemek için varsayılan 
 
 Uçtan uca IoT çözümünü denemek için IoT Hub hızlı başlangıçlarına göz atın:
 
-* [Hızlı Başlangıç: Bir cihazdan IoT hub’a telemetri gönderme](quickstart-send-telemetry-node.md)
+* [Hızlı Başlangıç: Bir IOT hub'ına bir CİHAZDAN telemetri gönderme](quickstart-send-telemetry-node.md)

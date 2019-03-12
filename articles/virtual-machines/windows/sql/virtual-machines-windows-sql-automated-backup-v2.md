@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e20599833d3073e4819dbc974d4b2afe962ba18a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984316"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780023"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines'de (Resource Manager) için otomatik yedekleme v2
 
@@ -52,7 +52,7 @@ Otomatik yedekleme v2 kullanmak için aşağıdaki önkoşulları gözden geçir
 
 - Hedef veritabanlarının tam kurtarma modelini kullanmanız gerekir. Daha fazla tam kurtarma modelinin etkisi hakkında yedeklemeler hakkında bilgi için [yedekleme altında tam kurtarma modeli](https://technet.microsoft.com/library/ms190217.aspx).
 - Sistem veritabanlarının tam kurtarma modelini kullanmanız gerekmez. Ancak, günlük yedeklerinin modeli veya MSDB alınması gerekiyorsa, tam kurtarma modelini kullanmanız gerekir.
-- Varsayılan SQL Server örneğinde hedef veritabanlarına olmalıdır. SQL Server Iaas uzantısı adlandırılmış örnekler desteklemez.
+- Hedef veritabanları ya da varsayılan SQL Server örneğinde olmalıdır veya [yüklendiğinden](virtual-machines-windows-sql-server-iaas-faq.md#administration) adlandırılmış örneği. 
 
 > [!NOTE]
 > Otomatik yedekleme dayanır **SQL Server Iaas Aracısı uzantısı**. Geçerli SQL sanal makine galeri görüntüleri, varsayılan olarak bu uzantı ekleyin. Daha fazla bilgi için [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).
@@ -107,7 +107,7 @@ Büyük veritabanlarının sayısını içeren bir SQL Server VM'si var.
 
 Pazartesi günü aşağıdaki ayarlarla otomatik yedekleme v2 etkinleştir:
 
-- Yedekleme zamanlaması: El ile
+- Yedekleme zamanlaması: Manual
 - Tam yedekleme sıklığı: Günlük
 - Tam yedekleme başlangıç saati: 22:00
 - Tam yedekleme zaman penceresi: 6 saat

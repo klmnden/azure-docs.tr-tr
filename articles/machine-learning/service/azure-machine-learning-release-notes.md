@@ -9,14 +9,14 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 2/25/2019
+ms.date: 03/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: d72676d7eaad539fc6e023bc96ccbb16f0958a7a
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bb074dd848ce5e752ba8e4ca1d3a8ee533a2f5d2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311381"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777456"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
@@ -24,6 +24,21 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  
 + Azure Machine Learning'ın [ **Python için ana SDK'sı**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [ **veri hazırlama SDK'sı**](https://aka.ms/data-prep-sdk)
 
+## <a name="2019-03-11"></a>2019-03-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1018"></a>Azure Machine SDK için Python v1.0.18 Learning
+
+ + **Değişiklikleri**
+   + Azureml tensorboard paket azureml contrib tensorboard değiştirir.
+
+### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>Azure Machine Learning veri hazırlama SDK v1.0.17
+
++ **Yeni Özellikler**
+  + Artık ifade dilini kullanarak bir sonuç sütun oluşturmak için iki sayısal sütunlar ekleyerek destekler.
+
++ **Hata düzeltmeleri ve geliştirmeleri**
+  + Belgeler ve parametre random_split için İyileştirildi.
+  
 ## <a name="2019-02-27"></a>2019-02-27
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1016"></a>Azure Machine Learning veri hazırlama SDK v1.0.16
@@ -37,25 +52,27 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.  
 
 + **Yeni Özellikler**
 
-  + Azure Machine Learning SDK'sı artık destekleyen bir [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) eğitim ve özel bağlayıcı kod kullanarak bir model dağıtma işlemini kolaylaştırmak için estimator sınıfı.
+  + Azure Machine Learning, popüler DNN çerçevesini bağlayıcı artık birinci sınıf destek sağlar. Kullanarak [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) sınıfı kullanıcılar kolayca eğitin ve bağlayıcı Modellerinizi dağıtın.
+    + Bilgi nasıl [dağıtılmış eğitimi ChainerMN ile çalıştırın.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
+    + Bilgi edinmek için nasıl [HyperDrive kullanarak bağlayıcı ile hiper parametre ayarı çalıştırın](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + Azure Machine Learning işlem hatlarını özelliği tetikleyici işlem hattı çalıştırmasını veri deposu değişikliklerine göre eklendi. İşlem hattı [zamanlama not defteri](https://aka.ms/pl-schedule) bu özelliği göstermek için güncelleştirilir.
-  
+
 + **Hata düzeltmeleri ve geliştirmeleri**
   + Azure Machine Learning işlem hatlarını destek source_directory_data_store özelliği (örneğin, bir blob depolama) istenen bir veri deposu olarak ayarlanması için üzerinde ekledik [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) için sağlanan [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Varsayılan olarak, adımları çok sayıda eşzamanlı olarak çalıştırıldığında azaltma sorunları içine çalışabilir yedekleme veri deposu olarak Azure dosya depolama adımları kullanın.
 
 ### <a name="azure-portal"></a>Azure portal
 
 + **Yeni Özellikler**
-    + Yeni bir Sürükle ve bırak Düzenleyicisi deneyimi raporlar için tablo. Kullanıcılar bir sütun tablonun önizlemesi nerede görüntülenecek tablo alanı sekme grubundan sürükleyebilirsiniz. Sütunları yeniden.
-    + Yeni günlük dosyası Görüntüleyici
-    + Çalıştırmaları, işlem, modelleri, görüntüleri ve dağıtımları etkinlikleri sekmesinden denemek için bağlantılar
+  + Yeni bir Sürükle ve bırak Düzenleyicisi deneyimi raporlar için tablo. Kullanıcılar bir sütun tablonun önizlemesi nerede görüntülenecek tablo alanı sekme grubundan sürükleyebilirsiniz. Sütunları yeniden.
+  + Yeni günlük dosyası Görüntüleyici
+  + Çalıştırmaları, işlem, modelleri, görüntüleri ve dağıtımları etkinlikleri sekmesinden denemek için bağlantılar
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1015"></a>Azure Machine Learning veri hazırlama SDK v1.0.15
 
 + **Yeni Özellikler**
   + Dosya yazma destekleyen bir veri akışı akışlardan artık veri hazırlama. Ayrıca yeni dosya adları oluşturmak için dosya akışı adları değiştirme olanağı sağlar.
     + Nasıl yapılır kılavuzunda: [Dosya akışları ile çalışmayı not defteri](https://aka.ms/aml-data-prep-file-stream-nb)
- 
+
 + **Hata düzeltmeleri ve geliştirmeleri**
   + T-özetinin büyük veri kümeleri üzerinde performansı İyileştirildi.
   + Veri hazırlığı, artık bir DataPath okuma verileri destekler.

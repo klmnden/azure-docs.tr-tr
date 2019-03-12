@@ -7,16 +7,16 @@ manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: bb0bfa5eac3dd9031718fb12f270f5fc03bbaea6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164628"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772183"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js için Batch SDK'sını kullanmaya başlama
 
@@ -85,7 +85,7 @@ Her Batch hesabının ilgili erişim anahtarları vardır. Bu anahtarlar Azure B
 
 Sonraki adımlarda kullanılacak anahtarı kopyalayın ve saklayın.
 
-### <a name="step-3-create-an-azure-batch-service-client"></a>3. adım: Bir Azure Batch hizmeti istemcisi oluşturma
+### <a name="step-3-create-an-azure-batch-service-client"></a>3. Adım: Bir Azure Batch hizmeti istemcisi oluşturma
 Aşağıdaki kod parçacığı ilk olarak azure-batch Node.js modülünü içe aktarır ve ardından bir Batch Hizmeti istemcisi oluşturur. İlk olarak, önceki adımda kopyaladığınız Batch hesabınızın anahtarıyla bir SharedKeyCredentials nesnesi oluşturmanız gerekir.
 
 ```nodejs
@@ -119,7 +119,7 @@ Ekran görüntüsüne bakın:
 
 
 
-### <a name="step-4-create-an-azure-batch-pool"></a>4. adım: Bir Azure Batch havuzu oluşturma
+### <a name="step-4-create-an-azure-batch-pool"></a>4. Adım: Bir Azure Batch havuzu oluşturma
 Bir Azure Batch havuzu birden çok VM’den (Batch Düğümleri olarak da bilinir) oluşur. Azure Batch hizmeti, görevleri bu düğümlere dağıtır ve yönetir. Havuzunuz için aşağıdaki yapılandırma parametrelerini tanımlayabilirsiniz.
 
 * Sanal Makine Türü görüntüsü
@@ -254,13 +254,13 @@ Pool.get işlevi tarafından döndürülen örnek bir sonuç nesnesi aşağıdad
 ```
 
 
-### <a name="step-4-submit-an-azure-batch-job"></a>4. adım: Bir Azure Batch işi gönderme
+### <a name="step-4-submit-an-azure-batch-job"></a>4. Adım: Bir Azure Batch işi gönderme
 Azure Batch işi, benzer görevlerden oluşan bir mantıksal gruptur. Senaryomuzdaki ise "csv'yi JSON’a işle" işidir. Burada her görev her Azure Depolama kapsayıcısında bulunan csv dosyalarını işliyor olabilir.
 
 Bu görevler paralel olarak çalışır ve Azure Batch hizmeti tarafından düzenlenmiş birden çok düğüm arasında dağıtılır.
 
 > [!Tip]
-> Aynı anda tek bir düğümde çalışacak maksimum görev sayısını belirtmek için [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) özelliğini kullanabilirsiniz.
+> Aynı anda tek bir düğümde çalışacak maksimum görev sayısını belirtmek için [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) özelliğini kullanabilirsiniz.
 >
 >
 
@@ -273,7 +273,7 @@ Bu örnekteki [kabuk betiği](https://github.com/shwetams/azure-batchclient-samp
 Betiği Azure Depolama Hesabına yüklemeyebilir ve betiğe erişmek için bir SAS URI'sı oluşturabilirsiniz. Bu işlem Azure Depolama Node.js SDK'sı kullanılarak otomatik olarak da yapılabilir.
 
 > [!Tip]
-> Bir işin hazırlama görevi, yalnızca ilgili görevi çalıştırması gereken VM düğümlerinde çalışır. Önkoşulların, üzerinde çalışan görevlerden bağımsız olarak tüm düğümlere yüklenmesini istiyorsanız havuz eklerken [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) özelliğini kullanabilirsiniz. Aşağıdaki hazırlık görev tanımını referans olarak kullanabilirsiniz.
+> Bir işin hazırlama görevi, yalnızca ilgili görevi çalıştırması gereken VM düğümlerinde çalışır. Önkoşulların, üzerinde çalışan görevlerden bağımsız olarak tüm düğümlere yüklenmesini istiyorsanız havuz eklerken [startTask](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) özelliğini kullanabilirsiniz. Aşağıdaki hazırlık görev tanımını referans olarak kullanabilirsiniz.
 >
 >
 
@@ -311,7 +311,7 @@ Görevleri çalıştırmak yüklenecek herhangi bir önkoşul yoksa hazırlama g
 ```
 
 
-### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>5. adım: Bir iş için Azure Batch görevlerini gönderme
+### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>5. Adım: Bir iş için Azure Batch görevlerini gönderme
 
 İşlem csv işimiz oluşturulduğuna göre bu iş için görevleri oluşturabiliriz. Dört kapsayıcımız olduğunu varsayarsak, her kapsayıcı için bir tane olmak üzere dört görev oluşturmamız gerekir.
 
@@ -349,7 +349,7 @@ var container_list = ["con1","con2","con3","con4"]
 
 Kod, havuza birden çok görev ekler. Oluşturulan tüm görevler, oluşturulan VM havuzunda bir düğüm üzerinde yürütülür. Görevlerin sayısı bir havuzdaki VM sayısını veya maxTasksPerNode özelliğinin değerini aşarsa görevler bir düğüm kullanılabilir duruma gelene kadar bekler. Bu düzenleme Azure Batch tarafından otomatik olarak gerçekleştirilir.
 
-Portalda görevler ve iş durumları hakkında ayrıntılı görünümler bulunur. Azure Düğüm SDK'sında list ve get işlevlerini de kullanabilirsiniz. Ayrıntılar belgeler [bağlantısında](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) verilmiştir.
+Portalda görevler ve iş durumları hakkında ayrıntılı görünümler bulunur. Azure Düğüm SDK'sında list ve get işlevlerini de kullanabilirsiniz. Ayrıntılar belgeler [bağlantısında](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) verilmiştir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

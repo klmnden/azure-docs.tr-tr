@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: cdcf7f466e65cffd36bdcc816a9808ecac2ae242
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 77f6a48402aef5b493b115d2137ccb6a507050b7
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991302"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760214"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
@@ -38,7 +38,7 @@ Kimlik bilgisi varlığı adı geçerli değilse bu hata oluşur. Kullanıcı ad
 
 Neyin yanlış olduğunu belirlemek için aşağıdaki adımları uygulayın:  
 
-1. Özel karakterler içermediğinden emin olun. Bu karakterler **@** Azure'a bağlanmak için kullandığınız Otomasyon kimlik bilgisi varlığı ad karakteri.  
+1. Özel karakterler içermediğinden emin olun. Bu karakterler **\@** Azure'a bağlanmak için kullandığınız Otomasyon kimlik bilgisi varlığı ad karakteri.  
 2. Azure Otomasyonu kimlik bilgisi, yerel PowerShell ISE Düzenleyici içinde depolanan parola ve kullanıcı adı kullanıp kullanmadığını denetleyin. Bunu yapabilirsiniz kullanıcı adı ve parola doğru PowerShell ISE'de aşağıdaki cmdlet'leri çalıştırarak denetleyin:  
 
    ```powershell

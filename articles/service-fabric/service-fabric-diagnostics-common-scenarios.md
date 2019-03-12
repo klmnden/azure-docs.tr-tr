@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 355b859428712b2e7b086fdfc152044814695b7b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 8d6d2d83e24b5e42af5f4322021eebfe9bf09494
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243950"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551307"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Yaygın senaryolar ile Service Fabric'i tanılama
 
@@ -72,7 +72,7 @@ Bu makalede çözümleri aşağıdaki araçları kullanır. Bu küme up ve yapı
 
     ```kusto
     ServiceFabricOperationalEvent
-    | where EventID >= 25622 or EventID <= 25626
+    | where EventID >= 25622 and EventID <= 25626
     ```
 
 5. Üst kısmında "Yeni uyarı kuralı" tıklayın ve bu sorgu tabanlı bir olay ulaşan her zaman, artık bir uyarı iletişim seçtiğiniz yöntemi elde edersiniz.

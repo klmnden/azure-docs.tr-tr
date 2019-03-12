@@ -3,7 +3,7 @@ title: SQL Server kullanılabilirlik gruplarını - Azure sanal makineler - ola�
 description: Bu makalede, Azure sanal makinelerinde farklı bir bölgede bir çoğaltması ile bir SQL Server kullanılabilirlik grubu yapılandırma açıklanmaktadır.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: d64c55857cda0aa64dc010566490e1696fffdea0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5e4b63d4fc8b437bd4d476c72d23f9dbf5242d5b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972389"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780567"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Farklı bölgelerdeki Azure sanal makinelerinde Always On kullanılabilirlik grubu yapılandırma
 
@@ -169,7 +169,7 @@ Bağlantı test ediliyor sonra birincil çoğaltmayı birincil veri merkeziniz d
 | ----- | ----- | ----- | ----- | -----
 | Birincil veri merkezi | SQL-1 | Birincil | Zaman uyumlu | Automatic
 | Birincil veri merkezi | SQL-2 | İkincil | Zaman uyumlu | Automatic
-| İkincil veya uzak veri merkezi | SQL-3 | İkincil | Zaman uyumsuz | El ile
+| İkincil veya uzak veri merkezi | SQL-3 | İkincil | Zaman uyumsuz | Manual
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Planlanmış ve zorla el ile yük devretme hakkında daha fazla bilgi

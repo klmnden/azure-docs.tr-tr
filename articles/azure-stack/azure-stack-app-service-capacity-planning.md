@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 20b79b3c2581db94627746f52ed6837aa80b6be5
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 2c726675d799a8bb5f9ed1d1dd595aa7f4700036
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447755"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774609"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Kapasite Azure Stack'te Azure App Service sunucu rolleri için planlama
 
@@ -52,7 +52,7 @@ Azure App Service denetleyicisi genellikle CPU, bellek ve ağ kaynaklarını dü
 
 **Önerilen en az**: Standart A1'in iki örneği
 
-Ön uç, istekleri web çalışanı kullanılabilirliğine bağlı olarak web çalışanlarına yönlendirir. Yüksek kullanılabilirlik için birden fazla ön uç olması gerekir ve ikiden daha fazla olabilir. Kapasite planlama için her çekirdek saniyede yaklaşık 100 isteği işleyebileceğini düşünün.
+Ön uç yolları istekleri web çalışanı kullanılabilirliğine bağlı olarak web çalışanları için. Yüksek kullanılabilirlik için birden fazla ön uç olması gerekir ve ikiden daha fazla olabilir. Kapasite planlama için her çekirdek saniyede yaklaşık 100 isteği işleyebileceğini düşünün.
 
 ## <a name="management-role"></a>Yönetim rolü
 

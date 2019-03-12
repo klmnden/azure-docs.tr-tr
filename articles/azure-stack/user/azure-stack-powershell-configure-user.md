@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 6839d46efdcd9b6a09e8b2c98e0334f6e6ea1620
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2012810e42c3a35e8e93f85402d92dae1151516b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405607"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731528"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>PowerShell ile Azure Stack için kullanıcı olarak bağlanma
 
@@ -94,7 +94,13 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+<<<<<<< BAŞ
+- [Şablonları Azure Stack için geliştirme](azure-stack-develop-templates.md)
+- [Şablonları PowerShell ile dağıtma](azure-stack-deploy-template-powershell.md)
+ - [Azure Stack PowerShell modülü başvurusu](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)
+=======
 - [Şablonları Azure Stack için geliştirme](azure-stack-develop-templates.md)  
 - [Şablonları PowerShell ile dağıtma](azure-stack-deploy-template-powershell.md)  
 - [Azure Stack modül başvurusu](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  
+>>>>>>> ac8c5a2d00d4eb5b4ef65359c5349ddff1bf30cf
 - PowerShell'i bulut işleci ortamı ayarlamak istiyorsanız, başvurmak [Azure Stack işlecin PowerShell ortamını yapılandırma](../azure-stack-powershell-configure-admin.md) makalesi.

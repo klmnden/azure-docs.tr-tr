@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 19e1721a638dfc750938e09e1626c4e291367723
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 234d59f9d625af6d0309b2995cc734fad6028b1e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432454"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767048"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Azure Otomasyonu durum yapılandırması ile çalışmaya başlama
 
@@ -157,7 +157,6 @@ Azure Vm'leri (Klasik ve Resource Manager), şirket içi Vm'leri, Linux makinele
    ![Kayıt dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/RegisterVM.png)
 
    Belirtilen aralıklarda tarafından belirtilen VM uygulanır düğüm yapılandırmasının **yapılandırma modu sıklığı**, ve VM düğüm yapılandırması tarafından belirtilen aralıklarla güncelleştirmeleri denetler **Yenile Sıklık**. Bu değerleri nasıl kullanıldığı hakkında daha fazla bilgi için bkz. [yerel Configuration Manager Yapılandırma](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
-1. İçinde **Azure Vm'leri ekleme** dikey penceresinde tıklayın **Oluştur**.
 
 Azure VM ekleme işlemini başlatır. Tamamlandığında, VM görünür **düğümleri** sekmesinde **durum yapılandırması (DSC)** Otomasyon hesabı sayfasında.
 

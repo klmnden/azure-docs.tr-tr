@@ -6,27 +6,27 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 2e935425-3923-4a33-89b2-0f2100b0c0c4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 3bd7f895e3cc30c4c5a0496977d65d68c220931f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a160bc0247d2f80dda620b67c946805926d78006
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084511"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773972"
 ---
-# <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Hızlı Başlangıç: yerel Jupyter not defterini geçirme
+# <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Hızlı Başlangıç: Yerel Jupyter not defterini geçirme
 
 Kendi bilgisayarınızda yerel olarak oluşturduğunuz Jupyter not defterleri yalnızca sizin erişilebilir. Dosyalarınızı anlamına gelir, çeşitli paylaşabilirsiniz, ancak ardından alıcılar not defteri kendi yerel kopyasına sahip ve neden olabilecek tüm değişiklikleri birleştirmek için zordur. GitHub gibi paylaşılan çevrimiçi depoda not defterlerini depolayabilir, ancak bunun yapılması yine de her bir ortak çalışanı kendi yerel Jupyter yükleme sizinkiyle aynı yapılandırmaya sahip olmasını gerektirir.
 
 Azure not defterleri için yerel ya da depo tabanlı not defterlerinizi geçiş yaparak, bunları içinden anında, ortak çalışanlarla paylaşmanız bulutta depolar. Bu ortak çalışanlar görüntüleyip, Not Defteri çalıştırmak için yalnızca bir tarayıcı gereklidir ve bunların [oturum](quickstart-sign-in-azure-notebooks.md) Azure not defterleri için bunlar da değişiklik yapabilirsiniz.
 
-Bu hızlı başlangıçta bir not defteri yerel bilgisayarınıza veya başka bir ulaşılabilir dosya URL'si geçirme işlemi gösterilmektedir. Bir GitHub deposundan not defterlerini geçirmek için bkz [hızlı başlangıç: bir not defteri kopyalama](quickstart-clone-jupyter-notebook.md).
+Bu hızlı başlangıçta bir not defteri yerel bilgisayarınıza veya başka bir ulaşılabilir dosya URL'si geçirme işlemi gösterilmektedir. Bir GitHub deposundan not defterlerini geçirmek için bkz [hızlı başlangıç: Bir not defteri kopyalama](quickstart-clone-jupyter-notebook.md).
 
 ## <a name="create-a-project-on-azure-notebooks"></a>Azure not defterleri ile ilgili bir proje oluşturun
 
@@ -48,7 +48,7 @@ Bu hızlı başlangıçta bir not defteri yerel bilgisayarınıza veya başka bi
 
     ![Bir URL veya yerel bilgisayar bir not defterini karşıya yüklemek için komutu](media/quickstarts/upload-from-computer-url-command.png)
 
-   (Not defterinizin bir GitHub deposunda ise, yeniden yönergeleri takip [hızlı başlangıç: bir not defteri kopyalama](quickstart-clone-jupyter-notebook.md) yerine.)
+   (Not defterinizin bir GitHub deposunda ise, yeniden yönergeleri takip [hızlı başlangıç: Bir not defteri kopyalama](quickstart-clone-jupyter-notebook.md) yerine.)
 
     - Kullanıyorsanız **bilgisayarı**, sürükle ve bırak, *.ipynb* seçin veya açılan dosyalarıyla **dosya seçin**, ardından gözatın ve içeri aktarmak istediğiniz dosyaları seçin. Ardından **karşıya**. Karşıya yüklenen dosyalar olan yerel dosyalarla aynı adı verilir. (Herhangi bir içeriği karşıya yükleme gerekmez *.ipynb_checkpoints* klasörleri.)
 

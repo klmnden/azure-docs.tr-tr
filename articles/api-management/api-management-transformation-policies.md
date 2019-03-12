@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 4e7af92ed0ce04bb14bd49c24de4928baa4f00ec
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3d5962ec097c5cd72693530328b710af915054d0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448076"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768921"
 ---
 # <a name="api-management-transformation-policies"></a>API Management dönüştürme ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -208,6 +208,15 @@ Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilk
 <set-backend-service base-url="base URL of the backend service" />
 ```
 
+or
+
+```xml
+<set-backend-service backend-id="identifier of the backend entity specifying base URL of the backend service" />
+```
+
+> [!NOTE]
+> Arka uç varlık yönetimi yönetilebilir [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) ve [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+
 ### <a name="example"></a>Örnek
 
 ```xml
@@ -260,8 +269,8 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 
 |Ad|Açıklama|Gerekli|Varsayılan|
 |----------|-----------------|--------------|-------------|
-|temel url|Yeni arka uç hizmeti temel URL'si.|Hayır|Yok|
-|arka uç kimliği|Yönlendirmek için arka uç tanımlayıcısı.|Hayır|Yok|
+|temel url|Yeni arka uç hizmeti temel URL'si.|Aşağıdakilerden birini `base-url` veya `backend-id` mevcut olması gerekir.|Yok|
+|arka uç kimliği|Yönlendirmek için arka uç tanımlayıcısı. (Arka uç varlıkları aracılığıyla yönetilir [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) ve [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Aşağıdakilerden birini `base-url` veya `backend-id` mevcut olması gerekir.|Yok|
 |SF bölüm anahtarı|Yalnızca arka uç Service Fabric hizmeti ve 'backend-id' kullanarak belirtilen olduğunda geçerlidir. Ad çözümleme hizmeti belirli bir bölümünden çözmek için kullanılır.|Hayır|Yok|
 |SF çoğaltma türü|Yalnızca arka uç Service Fabric hizmeti ve 'backend-id' kullanarak belirtilen olduğunda geçerlidir. Denetimler bir bölüm için birincil veya ikincil çoğaltma isteği tamamlamalıdır. |Hayır|Yok|
 |SF çözümleme durumu|Yalnızca arka uç Service Fabric hizmeti olduğunda geçerlidir. Service Fabric arka uç çağrısı ile yeni çözüm yinelenmesi varsa tanımlama koşulu.|Hayır|Yok|
@@ -482,17 +491,15 @@ OriginalUrl.
  Daha fazla bilgi için [ilke ifadeleri](api-management-policy-expressions.md) ve [bağlam değişkeni](api-management-policy-expressions.md#ContextVariables).
 
 > [!NOTE]
-> Birden çok üst bilgi değeri bir CSV dize, örneğin bitiştirilir:  
-> `headerName: value1,value2,value3`
+> Birden çok üst bilgi değeri bir CSV dize, örneğin bitiştirilir: `headerName: value1,value2,value3`
 >
 > Özel durumlar, standartlaştırılmış üst bilgiler, hangi değerleri şunlardır:
 > - virgül içerebilir (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
 > - tarih içerebilir (`Cookie`, `Set-Cookie`, `Warning`),
 > - tarih içeren (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
 >
-> Bu özel durumlar olması durumunda birden çok üstbilgi değerlerini bir dizeye birleştirilmiş değil ve ayrı üst bilgi olarak örneğin geçirilir:  
->`User-Agent: value1`  
->`User-Agent: value2`  
+> Bu özel durumlar olması durumunda birden çok üstbilgi değerlerini bir dizeye birleştirilmiş değil ve ayrı üst bilgi olarak örneğin geçirilir: `User-Agent: value1`
+>`User-Agent: value2`
 >`User-Agent: value3`
 
 ### <a name="elements"></a>Öğeler

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: d8031d4984a278c04342853a06fecb3c8a9a8171
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: cf3dc71e96dac96a6406c97a433398b31a370869
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194460"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571176"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Tutarlılık, kullanılabilirlik ve performans dengeleri 
 
@@ -66,6 +66,6 @@ T son güncelleştirmeden bu yana saat "T" zaman aralığı =.
 
 Genel dağıtım ve genel tutarlılık seçenekleri hakkında daha fazla dağıtılmış sistemlerde öğrenin. Aşağıdaki makalelere bakın:
 
-- [Modern dağıtılmış bir veritabanı sistemleri tasarım tutarlılık seçenekleri](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
+- [Modern dağıtılmış bir veritabanı sistemleri tasarım tutarlılık seçenekleri](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [Yüksek kullanılabilirlik](high-availability.md)
 - [Azure Cosmos DB SLA'sı](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

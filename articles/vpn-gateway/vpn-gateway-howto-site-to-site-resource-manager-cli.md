@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 18834357651e5fb72dd849a8d8e2e7687f0a8141
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 6cf427ee1dbd47d3b762035abc2236bda65db116
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730365"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773189"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>CLI kullanarak Siteden Siteye VPN bağlantısı olan bir sanal ağ oluşturma
 
@@ -36,7 +36,7 @@ Siteden Siteye VPN ağ geçidi bağlantısı, şirket içi ağınızı bir IPsec
 Yapılandırmaya başlamadan önce aşağıdaki ölçütleri karşıladığınızı doğrulayın:
 
 * Uyumlu bir VPN cihazı ve bu cihazı yapılandırabilecek birinin bulunduğundan emin olun. Uyumlu VPN cihazları ve cihaz yapılandırması hakkında daha fazla bilgi için bkz.[VPN Cihazları Hakkında](vpn-gateway-about-vpn-devices.md).
-* VPN cihazınız için dışarıya dönük genel bir IPv4 adresi olduğunu doğrulayın. Bu IP adresi bir NAT’nin arkasında olamaz.
+* VPN cihazınız için dışarıya dönük genel bir IPv4 adresi olduğunu doğrulayın.
 * Şirket içi ağ yapılandırmanızda bulunan IP adresi aralıklarıyla ilgili fazla bilginiz yoksa size bu ayrıntıları sağlayabilecek biriyle çalışmanız gerekir. Bu yapılandırmayı oluşturduğunuzda, Azure’un şirket içi konumunuza yönlendireceği IP adres aralığı ön eklerini oluşturmanız gerekir. Şirket içi ağınızın alt ağlarından hiçbiri, bağlanmak istediğiniz sanal ağ alt ağlarıyla çakışamaz.
 * Azure Cloud Shell, CLI komutları (aşağıdaki yönergeleri) çalıştırmak için kullanabilirsiniz. Ancak, komutları yerel olarak çalıştırmayı tercih ederseniz (2.0 veya üzeri) CLI komutlarının en son sürümünü yüklediğinizi doğrulayın. CLI komutlarını yükleme hakkında bilgi için bkz. [Azure CLI’yi yükleme](/cli/azure/install-azure-cli) ve [Azure CLI’yi Kullanmaya Başlama](/cli/azure/get-started-with-azure-cli). 
  
@@ -115,7 +115,7 @@ Yerel ağ geçidi genellikle şirket içi konumunuz anlamına gelir. Siteye Azur
 
 Aşağıdaki değerleri kullanın:
 
-* *--gateway-ip-address* şirket içi VPN cihazınızın IP adresidir. VPN cihazınız bir NAT’nin arkasında olamaz.
+* *--gateway-ip-address* şirket içi VPN cihazınızın IP adresidir.
 * *--local-address-prefixes* şirket içi adres alanlarınızdır.
 
 Birden fazla adres ön ekine sahip bir yerel ağ geçidi eklemek için [az network local-gateway create](/cli/azure/network/local-gateway) komutunu kullanın:

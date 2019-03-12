@@ -2,19 +2,19 @@
 title: Azure'da Terraform ile merkez sanal ağ oluşturma
 description: Azure'da diğer ağlar arasında ortak bir bağlantı noktası gibi davranan bir merkez sanal ağı oluşturmak nasıl bulunacağını gösteren öğretici.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, hub ve bağlı bileşen, ağlar, hibrit ağlar, devops, sanal makine, azure, sanal ağ eşleme, merkez-uç, hub.
 author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
-ms.openlocfilehash: 11603a2863ea9d9a2f5e790a64b1cafef5fc1087
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 52eb6615442618893741f507d9cae6bd31d5f558
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57411403"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774583"
 ---
 # <a name="tutorial-create-a-hub-virtual-network-with-terraform-in-azure"></a>Öğretici: Azure'da Terraform ile merkez sanal ağ oluşturma
 

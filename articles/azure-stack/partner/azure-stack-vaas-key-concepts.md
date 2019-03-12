@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a128be720675898a2512f43bf714b9ad6aca0450
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 3830dc15cebe24a8fb910b641b7b986437aeec52
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338544"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768987"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Hizmet temel kavramları olarak doğrulama
 
@@ -52,7 +52,7 @@ VaaS iş akışı VaaS çözüm bağlamında çalışır. Bu test paketleri, bir
 
 ### <a name="getting-started-with-vaas-workflows"></a>VaaS iş akışları ile çalışmaya başlama
 
-1. Çözümleri Panoda yeni bir çözüm oluşturun veya var olan bir'ı seçin. Bu yeniler ve iş akışı kutucukları olanak tanır.
+1. Çözümleri Panoda yeni bir çözüm oluşturun veya var olan bir'ı seçin. Bu yeniler ve iş akışı kutucukları etkinleştirir.
 2. Yeni bir iş akışı oluşturmak için seçin **Başlat** herhangi bir kutucuğa üzerinde. Her iş akışına özel bilgiler için aşağıdaki makalelere bakın:
     - Test geçişi: [Hızlı Başlangıç: Doğrulama, ilk test zamanlamak için bir servis portalı kullanın.](azure-stack-vaas-schedule-test-pass.md)
     - Çözüm doğrulama: [Yeni bir Azure Stack çözüm doğrula](azure-stack-vaas-validate-solution-new.md)

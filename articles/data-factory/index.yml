@@ -1,23 +1,23 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8a1f9967b51d3655c962620b9436dfe4f9ffd521
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2179b212dbbc7891b003664f4bea3d47cbb3a34e
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442537"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575401"
 documentType: LandingData
 title: Azure Data Factory Belgeleri
 metadata:
   title: Azure Data Factory Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
   description: Data Factory hizmetini kullanarak analiz için şirket içinden ve buluttan ya da ters yönde veri aktarmaya yönelik otomatik veri işlem hatları ayarlama hakkında bilgi edinin.
   services: data-factory
-  author: douglaslMS
+  author: sharonlo101
+  ms.author: shlo
   manager: craigg
   ms.service: data-factory
   ms.tgt_pltfrm: na
   ms.topic: overview
   ms.date: 08/06/2018
-  ms.author: douglasl
 abstract:
   description: Bir bulut verileri tümleştirme hizmeti olan Data Factory’yi kullanarak veri depolama, taşıma ve işleme hizmetlerini otomatik veri komut zincirlerinde birleştirme hakkında bilgi edinin. Öğreticilerde ve diğer belgelerde, veri işlem hatlarını ayarlama ve yönetme ile verileri analiz için taşıma ve dönüştürme konularında bilgi sağlanmıştır. <p>Data Factory hizmetinin V1 sürümünü kullanıyorsanız <a href=/azure/data-factory/v1/data-factory-introduction>V1 belgelerini</a> inceleyin.</p>
   aside:

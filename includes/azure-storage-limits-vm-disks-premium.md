@@ -4,36 +4,36 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 5ac7982d306125804fc5b7873e537f9381f717cb
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: e7e57c6a821731874dcb1d99a3133b6ede1da26e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52280011"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553942"
 ---
 **Premium yönetilmeyen sanal makine diskleri: Hesap başına limitler**
 
-| Kaynak | Varsayılan Sınır |
+| Kaynak | Varsayılan limit |
 | --- | --- |
 | Hesap başına toplam disk kapasitesi |35 TB |
 | Hesap başına toplam anlık görüntü kapasitesi |10 TB |
-| Hesap başına en fazla bant genişliği (giriş ve çıkış <sup>1</sup>) |En fazla 50 Gbps |
+| En yüksek bant genişliği (giriş ve çıkış) hesabı başına<sup>1</sup> |En fazla 50 Gbps |
 
-<sup>1</sup>*Giriş*, bir depolama hesabına gönderilen tüm verileri (istekler) ifade eder. *Çıkış*, bir depolama hesabından alınan tüm verileri (yanıtlar) ifade eder.
+<sup>1</sup>*giriş* bir depolama hesabına gönderilen istekleri gelen tüm verileri ifade eder. *Çıkış* yanıtlardan bir depolama hesabından alınan tüm verilere başvuruda bulunmaktadır.
 
 **Premium yönetilmeyen sanal makine diskleri: Disk başına limitler**
 
-| Premium Depolama Diski Türü | P10 | P20 | P30 | P40 | P50 |
+| Premium depolama diski türü | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- |
-| Disk boyutu |128 GiB |512 GiB |1024 GiB (1 TB) |2048 giB (2 TB)|4095 giB (4 TB)|
-| Disk başına en fazla IOPS |500 |2300 |5000 |7500 |7500 |
-| Disk başına en fazla aktarım hızı |100 MB/s | 150 MB/s |200 MB/sn |250 MB/sn |250 MB/sn |
-| Depolama hesabı başına en fazla disk sayısı |280 |70 |35 | 17 | 8 |
+| Disk boyutu |128 GiB |512 GiB |1.024 giB (1 TB) |2.048 giB (2 TB)|4.095 giB (4 TB)|
+| Disk başına maksimum IOPS |500 |2.300 |5.000 |7.500 |7.500 |
+| Disk başına en fazla aktarım hızı |100 MB/sn | 150 MB/sn |200 MB/sn |250 MB/sn |250 MB/sn |
+| Depolama hesabı başına disk sayısı |280 |70 |35 | 17 | 8 |
 
-**Premium yönetilmeyen sanal makine diskleri: Sanal makine başına limitler**
+**Premium yönetilmeyen sanal makine diskleri: VM başına limitler**
 
-| Kaynak | Varsayılan Sınır |
+| Kaynak | Varsayılan limit |
 | --- | --- |
-| VM başına en fazla IOPS |GS5 VM ile 80.000 IOPS |
-| Sanal makine başına en fazla aktarım hızı |GS5 VM ile 2.000 MB/sn |
+| VM başına maksimum IOPS |GS5 VM ile 80.000 IOPS |
+| VM başına en fazla aktarım hızı |GS5 VM ile 2.000 MB/sn |
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 2e34aef9a6f184c60fbb23023f798941a1fc11da
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 3ec3abffc7962051f4cfc02d5369581ca193d70e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894437"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775586"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Öğretici: Azure Lab Services içinde bir sınıf laboratuvarına erişim
 Bu öğreticide, öğrenci olarak bir sınıf laboratuvarındaki sanal makineye (VM) bağlanırsınız. 
@@ -44,8 +44,9 @@ Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 1. Seçin **Connect** kutucuğuna erişmek istediğiniz Laboratuvar sanal makinesi için. 
 
     ![VM’ye bağlanma](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
-2. RDP dosyasını diske kaydedin ve (bir Windows VM olduğunu varsayarak) açın
-3. Makinede oturum açmak için eğitimcinizden/profesörünüzden aldığınız **kullanıcı adı** ve **parola** bilgisini kullanın. 
+2. Aşağıdaki adımlardan birini uygulayın: 
+    1. İçin **Windows** sanal makineleri Kaydet **RDP** sabit disk dosyası. Sanal makineye bağlanmak için RDP dosyasını açın. Kullanım **kullanıcı adı** ve **parola** makineye oturum açmak için Eğitimci/Profesör alın. 
+    3. İçin **Linux** sanal makineler, kopyalama ve SSH bağlantı dizesini kaydedin **sanal makinenize bağlanın** iletişim kutusu. Bir SSH terminalden Bu bağlantı dizesini kullan (gibi [Putty](https://www.putty.org/)) sanal makineye bağlanmak için. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, eğitimcinizden/profesörünüzden aldığınız kayıt bağlantısını kullanarak bir sınıf laboratuvarına eriştiniz.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 18853d10c4acf1573772d72a8fb2c347cce545df
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 9992faa11585d49d3024e00338b4c1dc09da9195
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730178"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726677"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Azure dosya eşitleme için StorSimple 5000-7000 serisinden veri geçirme
 
@@ -87,7 +87,7 @@ Azure dosya eşitleme paylaşımına StorSimple birimlerde yapılandırılmış 
     Bu adımı atlayın ve farklı bir Windows Server ana bilgisayar kullanıyorsanız, sonraki adıma gidin. AFS aynı Windows dosya sunucusu kullanıyorsanız, artık birkaç dakika kapalı kalma süresi yaşar. 
     - **Kapalı kalma süresi başlar** -oluşturduğunuz sunucu uç noktasını silme *1F adım*. 
     - Verilerin ileri giderek bulunmasını istediğiniz yol ile yeni bir sunucu uç noktası oluşturun.
-    - Sunucu uç noktası (Bu işlem birkaç dakika sürebilir) sağlıklı gösterir. sonra bu yeni konumda veri görürsünüz. Artık bu yeni konumdaki dosyaları sunmak için Windows Server konağınızda yapılandırabilirsiniz. -  **Kapalı kalma süresi sona erer**.
+    - Sunucu uç noktası (Bu işlem birkaç dakika sürebilir) sağlıklı gösterir. sonra bu yeni konumda veri görürsünüz. Artık bu yeni konumdaki dosyaları sunmak için Windows Server konağınızda yapılandırabilirsiniz. - **Kapalı kalma süresi sona erer**.
 5.  Ardından Azure dosya eşitleme için başka bir Windows dosya sunucusu kullanıyorsanız, herhangi bir kesintiyle karşılaşmayacaksınız. 
     - Başka bir sunucu uç noktası yoluyla StorSimple cihazı yerine bir önbellek olarak kullanmaya hazırsınız yerel depolama ekleyin. 
     - Yeni Sunucu dosyalarında birkaç dakika içinde görmeye olacaktır. Herhangi bir zamanda StorSimple Cihazınızı bu yeni konuma konaktaki geçiş yapmak ücretsizdir.

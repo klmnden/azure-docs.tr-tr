@@ -1,18 +1,18 @@
 ---
 title: Azure'da kubernetes Helm ile kapsayıcıları dağıtın
-description: Azure Kubernetes Service (AKS) kümesini kapsayıcıları dağıtmak için Helm paketleme Aracı'nı kullanın
+description: Azure Kubernetes Service (AKS) kümesini kapsayıcıları dağıtmak için Helm paketleme Aracı'nı kullanmayı öğrenin
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/01/2018
+ms.date: 03/06/2019
 ms.author: iainfou
-ms.openlocfilehash: a3f5bad20ddd0968f2e76008799494adbb55bc31
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ccd98f5bf859673ae69b80dfcd0e5020ba289682
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092175"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768561"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) Helm ile uygulamaları yükleme
 
@@ -22,7 +22,7 @@ Bu makalede yapılandırma ve bir Kubernetes kümesinde AKS üzerinde Helm kulla
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu belgedeki adımlarda bir AKS kümesi oluşturduğunuz ve belirledik varsayılır bir `kubectl` kümeyle bağlantı. Bu öğelere gereksiniminiz varsa, bkz: [AKS hızlı başlangıçları][aks-quickstart].
+Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
 
 Helm yüklü CLI geliştirme sisteminizde çalışan ve başlatma, durdurma ve Helm ile uygulamaları yönetmenize olanak tanır istemci de gerekir. Azure Cloud Shell'i kullanırsanız, Helm CLI zaten yüklüdür. Yükleme yönergeleri, yerel platformunda görmek için [yükleme Helm][helm-install].
 
@@ -153,7 +153,7 @@ Aşağıdaki sıkıştırılmış örneğe çıktı Helm grafiği tarafından ol
 $ helm install stable/wordpress
 
 NAME:   wishful-mastiff
-LAST DEPLOYED: Thu Jul 12 15:53:56 2018
+LAST DEPLOYED: Wed Mar  6 19:11:38 2019
 NAMESPACE: default
 STATUS: DEPLOYED
 
@@ -201,8 +201,8 @@ Kümenizde yüklenmiş sürümlerin listesini görmek için [helm list komutu] [
 ```console
 $ helm list
 
-NAME             REVISION    UPDATED                     STATUS      CHART              NAMESPACE
-wishful-mastiff  1           Thu Jul 12 15:53:56 2018    DEPLOYED    wordpress-2.1.3  default
+NAME                REVISION    UPDATED                     STATUS      CHART            APP VERSION    NAMESPACE
+wishful-mastiff   1         Wed Mar  6 19:11:38 2019    DEPLOYED    wordpress-2.1.3  4.9.7          default
 ```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
@@ -236,4 +236,6 @@ Helm ile Kubernetes uygulama dağıtımlarını yönetme hakkında daha fazla bi
 [helm-ssl]: https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller
 
 <!-- LINKS - internal -->
-[aks-quickstart]: ./kubernetes-walkthrough.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5e53c427564e37e04045d59d35c0d5d5ff285d05
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: a1dba3b497807841f9b86d685f5bb560ebdd9316
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403964"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532434"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Bir Linux sanal makinesinde sanal bir TPM ile IOT Edge cihazı oluşturma ve sağlama
 
@@ -95,7 +95,7 @@ Sanal makine, derleme, cihazın almak için kullanabileceğiniz bir C SDK'sı ar
 3. Sanal makinenizde oturum açın ve ardından adımları [bir Linux geliştirme ortamı ayarlama](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) yükleyin ve c için Azure IOT cihaz SDK'sını derleme 
 
    >[!TIP]
-   >Bu makalede sırasında kopyalayın ve buradan sanal makine, Hyper-V Yöneticisi'ni bağlantı uygulama kolay değil Yapıştır. Sanal makineye Hyper-V IP adresini almak için Yöneticisi aracılığıyla bir kez bağlamak isteyebilirsiniz: `ifconfig`. Ardından, SSH bağlanmak için bir IP adresi kullanabilirsiniz: `ssh <username>@<ipaddress>`.
+   >Bu makalede sırasında kopyalayın ve Hyper-V Yöneticisi'ni bağlantı uygulama kolay değil, sanal makineden yapıştırın. Sanal makineye Hyper-V IP adresini almak için Yöneticisi aracılığıyla bir kez bağlamak isteyebilirsiniz: `ifconfig`. Ardından, SSH bağlanmak için bir IP adresi kullanabilirsiniz: `ssh <username>@<ipaddress>`.
 
 4. Derleme, cihaz sağlama bilgilerini alır bir C SDK'sı aracı için aşağıdaki komutları çalıştırın. 
 

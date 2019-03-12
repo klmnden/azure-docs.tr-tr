@@ -9,12 +9,12 @@ author: mgottein
 manager: cgronlun
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: dcecb98d5e254e3fadd114c227e783a60fc6fa4e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b7e7ecd2a82a8d64967288def9c6ede7a292f72a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316158"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759400"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Azure Search ile Blob deposu arama
 
@@ -52,5 +52,5 @@ Azure arama, doğrudan Blob Depolama portal sayfasında blob'lara eklenebilir.
 
 Tıklayın **Azure Search Ekle** burada mevcut bir Azure Search hizmeti seçin veya yeni bir hizmet oluşturun, bir akışı başlatmak için. Yeni bir hizmet oluşturun, depolama hesabınızın portal deneyimi gitme. Geri depolama portal sayfasına gidin ve yeniden seçin **Azure Search Ekle** hizmetiniz seçebileceğiniz seçeneği.
 
-### <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 Azure Search Blob dizin oluşturucu tam hakkında daha fazla bilgi [belgeleri](https://aka.ms/azsblobindexer).

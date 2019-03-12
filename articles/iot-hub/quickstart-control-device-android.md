@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/19/2018
 ms.author: wesmc
-ms.openlocfilehash: b8623acc9d29f083e34c7fa7494e866317146802
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d42bf11f97d7ba532ea41350522e3a8c71ff7f86
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252567"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727119"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Hızlı Başlangıç: Bir IOT hub'ına (Android) bağlı cihazı denetleme
 
@@ -116,6 +116,13 @@ Cihaz SDK'sı örnek uygulama, fiziksel bir Android cihazı veya Android öykün
 
 3. Android Studio'da **dosya** > **projeyi Gradle dosyalarıyla Eşitle**. Derleme tamamlandığında doğrulayın.
 
+   > [!NOTE]
+   > Proje eşitleme başarısız olursa aşağıdakilerden biri olabilir:
+   >
+   > * Eski Android Studio sürümünüz için Android Gradle eklentisi ve projede başvurulmuş Gradle sürümleridir. İzleyin [bu yönergeleri](https://developer.android.com/studio/releases/gradle-plugin) başvuru ve doğru sürümlerini eklentisi ve Gradle yüklemenizin yükleyin.
+   > * Android SDK için lisans anlaşması imzalı değil. Derleme çıkışını Lisans Sözleşmesi'ni imzalamak ve SDK'yı indirmek için yönergeleri izleyin.
+
+
 4. Derleme tamamlandıktan sonra tıklayın **çalıştırma** > **'uygulamayı' Çalıştır**. Fiziksel bir Android cihazı veya Android öykünücüsünde çalıştırmak üzere uygulamayı yapılandırır. Bir Android uygulaması bir fiziksel cihaz veya öykünücü üzerinde çalışan daha fazla bilgi için bkz: [uygulamanızı çalıştırma](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Uygulama yüklendikten sonra tıklayın **Başlat** IOT Hub'ınıza telemetri göndermeye başlaması düğmesi:
@@ -163,6 +170,13 @@ Bir IOT Hub arka uç hizmeti uygulaması genellikle bir IOT Hub'ındaki tüm cih
     ```
 
 3. Android Studio'da **dosya** > **projeyi Gradle dosyalarıyla Eşitle**. Derleme tamamlandığında doğrulayın.
+
+   > [!NOTE]
+   > Proje eşitleme başarısız olursa aşağıdakilerden biri olabilir:
+   >
+   > * Eski Android Studio sürümünüz için Android Gradle eklentisi ve projede başvurulmuş Gradle sürümleridir. İzleyin [bu yönergeleri](https://developer.android.com/studio/releases/gradle-plugin) başvuru ve doğru sürümlerini eklentisi ve Gradle yüklemenizin yükleyin.
+   > * Android SDK için lisans anlaşması imzalı değil. Derleme çıkışını Lisans Sözleşmesi'ni imzalamak ve SDK'yı indirmek için yönergeleri izleyin.
+
 
 4. Derleme tamamlandıktan sonra tıklayın **çalıştırma** > **'uygulamayı' Çalıştır**. Ayrı bir fiziksel Android cihaz veya Android öykünücüsünde çalıştırmak üzere uygulamayı yapılandırır. Bir Android uygulaması bir fiziksel cihaz veya öykünücü üzerinde çalışan daha fazla bilgi için bkz: [uygulamanızı çalıştırma](https://developer.android.com/training/basics/firstapp/running-app).
 

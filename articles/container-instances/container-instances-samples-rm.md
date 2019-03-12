@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 03/07/2019
 ms.author: danlep
-ms.openlocfilehash: e825e0bdd08db0e9c1b51c09859aba2e7c716f91
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: bf9f2be8a0854a6968f3be6bfdaf3a59fc81dc76
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856478"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57728957"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Azure Container Instances için Azure Resource Manager şablonları
 
@@ -34,6 +34,7 @@ Dağıtım seçenekleri için bkz. [dağıtım](#deployment) bölümü. Azure Co
 | **Ağ** ||
 | [UDP kullanıma sunulan kapsayıcı][net-udp] | UDP bağlantı noktası kullanıma sunan bir Windows veya Linux kapsayıcı dağıtır. |
 | [Genel IP ile Linux kapsayıcısı][net-publicip] | Tek bir Linux kapsayıcısı bir genel IP erişilebilir dağıtır. |
+| [Bir sanal ağ (Önizleme) bir kapsayıcı grubu dağıtma][net-vnet] | Yeni sanal ağ, alt ağ, ağ profili ve kapsayıcı grubu dağıtır. |
 | **Azure kaynakları** ||
 | [Azure depolama hesabı oluşturun ve dosyalarını paylaşın][az-files] | Azure CLI'yı bir depolama hesabı ve bir Azure dosya paylaşımı oluşturmak için bir kapsayıcı örneği kullanır.
 
@@ -55,6 +56,7 @@ Kaynakları Resource Manager şablonları ile dağıtmak için birkaç seçeneğ
 [az-files]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-storage-file-share
 [net-publicip]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-linuxcontainer-public-ip
 [net-udp]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-udp
+[net-vnet]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
 [repo]: https://github.com/Azure/azure-quickstart-templates
 [vol-emptydir]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-emptydir
 [vol-gitrepo]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-gitrepo

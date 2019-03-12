@@ -1,6 +1,6 @@
 ---
-title: Azure Stack'te Kubernetes panosunu etkinleştirme | Microsoft Docs
-description: Azure stack'teki Kubernetes panosunu etkinleştirmeyi öğrenin
+title: Azure Stack'te Kubernetes panosuna erişme | Microsoft Docs
+description: Azure stack'teki Kubernetes panosuna erişme hakkında bilgi edinin
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,24 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: cdc1be0c0274977fe14ef704fbb74fa955ad7e11
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 243fb01a5c8112afaf310f616b93c2667ac6f19d
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242420"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729861"
 ---
-# <a name="enable-the-kubernetes-dashboard-in-azure-stack"></a>Azure Stack'te Kubernetes panosunu etkinleştir 
+# <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Azure Stack'te Kubernetes panosuna erişme 
 
 *Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti* 
 > [!Note]   
 > Azure Stack'te Kubernetes önizlemeye sunuldu. Azure Stack bağlantısı kesilmiş senaryo preview tarafından şu anda desteklenmiyor. 
 
-Kubernetes, temel yönetim işlemlerini için kullanabileceğiniz bir web Pano içerir. Bu pano, temel sistem durumu ve uygulamalarınız için ölçümleri görüntüleme, oluşturma ve Hizmetleri dağıtın ve mevcut uygulamaları düzenlemek olanak tanır. Bu makalede Azure Stack'te Kubernetes panosunu etkinleştirme gösterilmektedir.
+Kubernetes, temel yönetim işlemlerini için kullanabileceğiniz bir web Pano içerir. Bu pano, temel sistem durumu ve uygulamalarınız için ölçümleri görüntüleme, oluşturma ve Hizmetleri dağıtın ve mevcut uygulamaları düzenlemek olanak tanır. Bu makalede Azure Stack'te Kubernetes panosunu ayarlama gösterilmektedir.
 
 ## <a name="prerequisites-for-kubernetes-dashboard"></a>Kubernetes panosunu için Önkoşullar
 

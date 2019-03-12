@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 3a1d363e08d4c7e9899f034b2260e764d07ed79d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: c7eb490bdf484651613c5c7a72d2a31be5306634
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344947"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773801"
 ---
-# <a name="understand-and-work-with-scopes"></a>Anlama ve kapsamlar ile çalışma
+# <a name="understand-and-work-with-scopes"></a>Kapsamları anlama ve bunlarla çalışma
 
 Bu makalede faturalama ve kaynak yönetimi kapsamları Azure'da ve maliyet yönetimi ve API kapsamlarını kullanma kullanılabilir anlamanıza yardımcı olur.
 
@@ -31,7 +31,7 @@ Burada, faturalama verileri yönetmek, ödemeler belirli roller sahip, faturalar
 
 ## <a name="how-cost-management-uses-scopes"></a>Maliyet Yönetimi kapsamları kullanma
 
-Maliyet Yönetimi works hiç üzerinde kaynak kuruluşların tüm Faturalama hesabı ya da tek bir kaynak grubu olup olmadığını, erişimleri düzeyinde maliyetlerini yönetmek izin kapsamları. Fatura kapsam (abonelik türü) Microsoft sözleşmenize göre farklılık gösterse de RBAC kapsamları yok.
+Maliyet Yönetimi works hiç üzerinde kaynak kuruluşların tüm Faturalama hesabı ya da tek bir kaynak grubu olup olmadığını, erişimleri düzeyinde maliyetlerini yönetmek izin kapsamları. Fatura kapsam (abonelik türü) Microsoft sözleşmenize göre farklılık gösterse de RBAC kapsamları yoktur.
 
 ## <a name="azure-rbac-scopes"></a>Azure RBAC kapsamları
 
@@ -145,6 +145,10 @@ Faturalama hesap altında açıkça kalan yoktur çünkü faturalandırma kullan
 ## <a name="cloud-solution-provider-csp-scopes"></a>Bulut çözümü sağlayıcısı (CSP) kapsamları
 
 Bulut çözümü sağlayıcısı (CSP) iş ortakları maliyet Yönetimi'nde bugün desteklenmez. Bunun yerine kullanabileceğiniz [iş ortağı Merkezi](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+
+## <a name="how-to-switch-between-scopes-within-cost-management"></a>Maliyet Yönetimi kapsamlarda arasında geçiş yapma
+
+Azure portalındaki tüm maliyet Yönetimi deneyimleri dahil bir **kapsam** zehirli hızla kapsamını değiştirmek için erişim sağlayan dikey penceresinin üst sol konumunda. Tıklayarak **kapsam** zehirli fatura hesapları ve kök yönetim grubu, kök yönetim grubu altında iç içe olmayan tüm abonelikleri gösteren bir kapsam Seçici açılır. Bir kapsam seçin için arka plan vurgulayın ve ardından'ı **seçin** altındaki düğmesini. İç içe geçmiş kapsamlar (örneğin bir abonelik içindeki kaynak grupları) için detaya gidin için kapsam adı bağlantısını tıklatın. Tüm iç içe geçme düzeyi üst kapsamda seçmek için tıklatın **seçin <scope>**  Kapsam Seçici üstünde düğme.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Kaynak kimliği için bir kapsam tanımlama
 

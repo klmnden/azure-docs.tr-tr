@@ -6,21 +6,21 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 9e5f4d6f2086048e428f313bc49cc6f599ee1bec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 35b5f1e29ae125dcac79c278578e900a73ffc7be
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085340"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771404"
 ---
-# <a name="quickstart-create-a-project-with-a-custom-environment"></a>Hızlı Başlangıç: özel bir ortamla bir proje oluşturma
+# <a name="quickstart-create-a-project-with-a-custom-environment"></a>Hızlı Başlangıç: Özel bir ortamla proje oluşturma
 
 Azure not defterlerinde bir proje, not defterleri, veri dosyaları, belgeler, resimler ve özgü Kurulum komutları ile yapılandırılmış bir ortam ile birlikte vb. gibi dosyaları koleksiyonudur. Proje ortamıyla tanımlayarak, proje kendi Azure not defterleri hesaba klonlar herkes gerekli ortam yeniden oluşturmak ihtiyaç duydukları tüm bilgilere sahiptir.
 
@@ -38,7 +38,7 @@ Azure not defterlerinde bir proje, not defterleri, veri dosyaları, belgeler, re
 
 1. İçinde **yeni proje oluştur** görünen açılan girin veya aşağıdaki bilgileri ayarlayın ve ardından **Oluştur**:
 
-    - **Proje adı**: Proje özel bir ortam ile
+    - **Proje adı**: Özel bir ortamla proje
     - **Proje kimliği**: Proje özel ortam
     - **Genel proje**: (Seçili)
     - **Bir Benioku.MD oluşturma**: (Seçili)

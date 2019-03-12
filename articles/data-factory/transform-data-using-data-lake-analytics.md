@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: 9918dd55181eb82257f23f8974159ed5e762fedd
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: d5b074fcf182bcc9bf4dc17ba21215d27e13cbdd
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268111"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760979"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Üzerinde Azure Data Lake Analytics U-SQL betikleri çalıştırarak verileri dönüştürme 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -162,7 +162,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Yukarıdaki örnek betik, girdi ve çıktı betik içinde tanımlanan **@in** ve **@out** parametreleri. Değerleri **@in** ve **@out** U-SQL betiği parametrelerinde geçirilir dinamik olarak Data Factory tarafından 'parameters' bölümünü kullanarak. 
+Yukarıdaki örnek betik, girdi ve çıktı betik içinde tanımlanan  **\@içinde** ve  **\@kullanıma** parametreleri. Değerleri  **\@içinde** ve  **\@kullanıma** U-SQL betiği parametrelerinde geçirilir dinamik olarak Data Factory tarafından 'parameters' bölümünü kullanarak. 
 
 Azure Data Lake Analytics hizmeti üzerinde çalıştırılan işler için işlem hattı Tanımınızda degreeOfParallelism ve öncelik gibi diğer özellikleri de belirtebilirsiniz.
 

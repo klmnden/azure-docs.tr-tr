@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: fec5ef3ef190270d22e9a7d0306eb9477b39a8c8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4e11b1bc16f874f892288f9677a71023f483de7c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095249"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769983"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Azure VPN ağ geçidi RADIUS kimlik doğrulaması için çok faktörlü kimlik doğrulamasını NPS sunucusu ile tümleştirme 
 
@@ -32,7 +32,7 @@ Mfa'yı etkinleştirmek için kullanıcıların Azure Active ya da şirket için
 
 ## <a name="detailed-steps"></a>Ayrıntılı adımlar
 
-### <a name="step-1-create-a-virtual-network-gateway"></a>1. adım: sanal ağ geçidi oluşturma
+### <a name="step-1-create-a-virtual-network-gateway"></a>1. Adım: Sanal ağ geçidi oluşturma
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Sanal ağ geçidini barındıran sanal ağında seçin **alt ağlar**ve ardından **ağ geçidi alt ağı** bir alt ağ oluşturmak için. 
@@ -40,10 +40,10 @@ Mfa'yı etkinleştirmek için kullanıcıların Azure Active ya da şirket için
     ![Ağ geçidi alt ağı ekleme hakkında görüntü](./media/vpn-gateway-radiuis-mfa-nsp/gateway-subnet.png)
 3. Aşağıdaki ayarlar belirterek bir sanal ağ geçidi oluşturun:
 
-    - **Ağ geçidi türü**: **VPN**’i seçin.
-    - **VPN türü**: seçin **rota tabanlı**.
-    - **SKU**: gereksinimlerinize göre bir SKU türüne göre seçin.
-    - **Sanal ağ**: ağ geçidi alt ağı oluşturduğunuz sanal ağı seçin.
+    - **Ağ geçidi türü**: Seçin **VPN**.
+    - **VPN türü**: Seçin **rota tabanlı**.
+    - **SKU**: Gereksinimlerinize göre bir SKU türü seçin.
+    - **Sanal ağ**: Ağ geçidi alt ağı oluşturduğunuz sanal ağı seçin.
 
         ![Sanal ağ geçidi ayarlarını hakkında görüntü](./media/vpn-gateway-radiuis-mfa-nsp/create-vpn-gateway.png)
 
@@ -54,8 +54,8 @@ Mfa'yı etkinleştirmek için kullanıcıların Azure Active ya da şirket için
 1. NPS sunucu üzerinde [Azure MFA için NPS uzantısını yükleme](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
 2. NSP konsolunu açın, sağ **RADUIS istemcileri**ve ardından **yeni**. Aşağıdaki ayarlar belirterek RADUIS istemci oluşturun:
 
-    - **Kolay ad**: herhangi bir ad yazın.
-    - **Adres (IP veya DNS)**: 1. adımda oluşturduğunuz ağ geçidi alt ağı girin.
+    - **Kolay ad**: Herhangi bir ad yazın.
+    - **Adres (IP veya DNS)**: Adım 1'de oluşturduğunuz ağ geçidi alt ağı girin.
     - **Paylaşılan gizli diziyi**: herhangi bir gizli anahtar yazın ve daha sonra kullanmak üzere unutmayın.
 
       ![Görüntünün RADUIS istemci ayarları hakkında](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
@@ -73,8 +73,8 @@ Mfa'yı etkinleştirmek için kullanıcıların Azure Active ya da şirket için
 2. Oluşturduğunuz sanal ağ geçidi'ni açın. Ağ geçidi türü ayarlandığından emin olun **VPN** ve VPN türünde **rota tabanlı**.
 3. Tıklayın **noktası site yapılandırmasını** > **Şimdi Yapılandır**ve ardından aşağıdaki ayarları belirtin:
 
-    - **Adres havuzu**: 1. adımda oluşturduğunuz ağ geçidi alt ağı girin.
-    - **Kimlik doğrulama türü**: seçin **RADIUS kimlik doğrulaması**.
+    - **Adres havuzu**: 1 adımda oluşturduğunuz ağ geçidi alt ağı girin.
+    - **Kimlik doğrulama türü**: Seçin **RADIUS kimlik doğrulaması**.
     - **Sunucu IP adresi**: NPS sunucusunun IP adresini yazın.
 
       ![Site ayarları noktasına hakkında görüntü](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)

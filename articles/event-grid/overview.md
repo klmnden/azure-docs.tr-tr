@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/06/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 01c88b9bc64bc1541e97aff26e41c360acfaf6bd
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 1fa9eaa5f4ba399622e0b8889ab722e4a4e130a0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809981"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770485"
 ---
 # <a name="what-is-azure-event-grid"></a>Azure Event Grid nedir?
 
@@ -44,6 +44,7 @@ Kaynağın özellikleriyle ilgili tüm ayrıntılar ve ilgili makaleler için bk
 * Service Bus
 * Depolama Blobu
 * Depolama Genel-amaçlı v2 (GPv2)
+* Azure Haritalar
 
 ## <a name="event-handlers"></a>Olay işleyicileri
 
@@ -87,7 +88,7 @@ Event Grid, Event Hubs ve Service Bus hizmetlerinin bir karşılaştırması iç
 
 ## <a name="what-can-i-do-with-event-grid"></a>Event Grid ile ne yapabilirim?
 
-Azure Event Grid, birkaç büyük ölçüde sunucusuz geliştiren özellikler, işlem Otomasyonu sağlar ve [tümleştirme](http://azure.com/integration) çalışır: 
+Azure Event Grid, birkaç büyük ölçüde sunucusuz geliştiren özellikler, işlem Otomasyonu sağlar ve [tümleştirme](https://azure.com/integration) çalışır: 
 
 ### <a name="serverless-application-architectures"></a>Sunucusuz uygulama mimarileri
 

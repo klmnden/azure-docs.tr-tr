@@ -1,24 +1,24 @@
 ---
 title: Hizmet eşlemesi çözümünü kullanarak Azure'da | Microsoft Docs
 description: Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulan ve hizmetler arasındaki iletişimi eşleyen bir Azure çözümüdür. Bu makalede, ortamınızda hizmet eşlemesi dağıtmak ve çeşitli senaryoları de kullanım için Ayrıntılar sağlanır.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 041cc302f05b109de2b79697dd048a6bc0752a4f
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 143d14df3019aa0c5c5dd798f656f95c8ebde372
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232932"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731086"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure'da hizmet eşlemesi çözümünü kullanma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi ile bunları düşündüğünüz gibi sunucularınızı görüntüleyebilirsiniz: kritik Hizmetleri sunmak birbirine sistemleri olarak. Bir aracı yüklemesini dışında hiçbir yapılandırma tüm TCP bağlantılı mimarisi arasında bağlantı noktaları gerekli ve hizmet eşlemesi sunucuları, işlemler, gelen ve giden bağlantı gecikmesi arasındaki bağlantıları gösterir.
@@ -374,7 +374,7 @@ Kayıt türü ile *ServiceMapComputer_CL* Envanter verileri için hizmet eşleme
 
 | Özellik | Açıklama |
 |:--|:--|
-| Tür | *ServiceMapComputer_CL* |
+| Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Çalışma alanı içindeki bir makine için benzersiz tanımlayıcı |
 | ResourceName_s | Çalışma alanı içindeki bir makine için benzersiz tanımlayıcı |
@@ -399,7 +399,7 @@ Kayıt türü ile *ServiceMapProcess_CL* hizmet eşlemesi aracılarıyla sunucul
 
 | Özellik | Açıklama |
 |:--|:--|
-| Tür | *ServiceMapProcess_CL* |
+| Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | Çalışma alanı içinde bir işlem için benzersiz tanımlayıcı |
 | ResourceName_s | Üzerinde çalıştığı makinenin içinde bir işlem için benzersiz tanımlayıcı|
@@ -440,7 +440,7 @@ ServiceMapProcess_CL | Burada CommandLine_s contains_cs "sql" | Özetleme arg_ma
 (ServiceMapComputer_CL) "10.229.243.232" araması | Özetleme arg_max(TimeGenerated, *) ResourceId tarafından
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Belirtilen bir makinedeki tüm bilinen işlemlere listesi
-ServiceMapProcess_CL | Burada MachineResourceName_s "m-559dbcd8-3130-454d-8d1d-f624e57961bc" == | Özetleme arg_max(TimeGenerated, *) ResourceId tarafından
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-computers-running-sql"></a>SQL çalıştıran tüm bilgisayarları listeleyin
 ServiceMapComputer_CL | Burada ResourceName_s içinde (((ServiceMapProcess_CL) arama "\*sql\*" | farklı MachineResourceName_s)) | ayrı ComputerName_s
@@ -449,7 +449,7 @@ ServiceMapComputer_CL | Burada ResourceName_s içinde (((ServiceMapProcess_CL) a
 ServiceMapProcess_CL | Burada ExecutableName_s "curl" == | ayrı ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>CentOS çalıştıran tüm bilgisayarların bir bilgisayar grubu oluşturun
-ServiceMapComputer_CL | Burada OperatingSystemFullName_s contains_cs "CentOS" | ayrı ComputerName_s
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Bir gruptaki makinelerin giden bağlantılar özetleme
 ```

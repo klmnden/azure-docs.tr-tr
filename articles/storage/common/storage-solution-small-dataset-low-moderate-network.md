@@ -4,16 +4,16 @@ description: Ortamınızda Orta ağ bant genişliği düşük olması ve küçü
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: b9c19c4cd85b1ab2bc3ea010d029361957de3943
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7cdaebe62c7071b26c29e599bb0614dbe7631085
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53264115"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778034"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Orta ağ bant genişliği düşük ile küçük veri kümeleri için veri aktarımı
  
@@ -51,7 +51,7 @@ Aşağıdaki tabloda temel işlevleri farklılıkları özetlemektedir.
 
 | Özellik                                                            | Azure Depolama Gezgini                    | Azure portal  | AzCopy<br>Azure PowerShell<br>Azure CLI            | Azure depolama REST API veya SDK'ları |
 |----------------------------------------------|-------------------------------------------|--------------------------------------|-------------------|---------------------------------------|
-| Kullanılabilirlik                                                       | İndirme ve yükleme <br>Tek başına aracı | Azure portalında Web tabanlı araştırma araçları           | Komut satırı aracı |.NET, Java, Python, JavaScript, C++, Go, Ruby ve PHP'ye programlanabilir arabirimleri                                                         |
+| Kullanılabilirlik                                                       | İndir ve yükle <br>Tek başına aracı | Azure portalında Web tabanlı araştırma araçları           | Komut satırı aracı |.NET, Java, Python, JavaScript, C++, Go, Ruby ve PHP'ye programlanabilir arabirimleri                                                         |
 | Grafik arabirimi                                              | Evet                                       | Evet                                                     | Hayır                | Hayır                                                      |
 | Desteklenen platformlar                                              | Windows, Mac, Linux                       | Web tabanlı     |Windows, Mac, Linux     |Tüm platformlar                                                         |
 | BLOB Depolama işlemlerine izin<br>BLOB'ları ve klasörleri            | Karşıya Yükle<br>İndirme<br>Yönetme    | Karşıya Yükle<br>İndirme<br>Yönetme  |Karşıya Yükle<br>İndirme<br>Yönetme             | Evet, özelleştirilebilir                                                        |
@@ -64,5 +64,5 @@ Aşağıdaki tabloda temel işlevleri farklılıkları özetlemektedir.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bilgi edinmek için nasıl [Azure Depolama Gezgini ile veri aktarma](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer).
-- [AzCopy ile veri aktarma](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+- [AzCopy ile verileri aktarma](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
 

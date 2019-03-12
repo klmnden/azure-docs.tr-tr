@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cc09756e30cec75a1a121c25f162aa0408fd7a9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 53c14ce92a422c2254a1e9b7fc4989b49790a88a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173700"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774447"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect eşitleme: Filtrelemeyi yapılandırma
 Filtreleme kullanarak, hangi nesnelerin Azure Active Directory (Azure AD) görüneceğini şirket içi dizininizden denetleyebilirsiniz. Varsayılan yapılandırma, yapılandırılmış Ormanlardaki etki alanlarındaki tüm nesneleri alır. Genel olarak, bu önerilen yapılandırmadır. E-posta gönderin ve herkesin çağırmak için eksiksiz bir genel adres listesi gibi Exchange Online ve Skype Kurumsal, Office 365 iş yükleri kullanarak kullanıcıların yararlanır. Varsayılan yapılandırma ile bir şirket içi Exchange veya Lync uygulamasıyla sahip olabileceği aynı deneyimi sahip.
@@ -261,7 +261,7 @@ Bu örnekte, böylece yalnızca kullanıcılar kendi e-posta ve userPrincipalNam
 4. Kullandığınız Connect sürümüne bağlı olarak, adlı Kural ya da bulmak **Out AAD için – kullanıcı katılın** veya **Out - AAD'ye kullanıcı katılın SOAInAD**, tıklatıp **Düzenle**.
 5. Açılır pencerede yanıt **Evet** kuralın bir kopyası oluşturmasını ister.
 6. Üzerinde **açıklama** sayfasında, değişiklik **öncelik** 50 gibi kullanılmayan bir değer.
-7. Tıklayın **Scoping filtre** sol taraftaki gezinti ve ardından **Ekle yan tümcesi**. İçinde **özniteliği**seçin **posta**. İçinde **işleci**seçin **ENDSWITH**. İçinde **değer**, türü **@contoso.com**ve ardından **Ekle yan tümcesi**. İçinde **özniteliği**seçin **userPrincipalName**. İçinde **işleci**seçin **ENDSWITH**. İçinde **değer**, türü **@contoso.com**.
+7. Tıklayın **Scoping filtre** sol taraftaki gezinti ve ardından **Ekle yan tümcesi**. İçinde **özniteliği**seçin **posta**. İçinde **işleci**seçin **ENDSWITH**. İçinde **değer**, türü  **\@contoso.com**ve ardından **Ekle yan tümcesi**. İçinde **özniteliği**seçin **userPrincipalName**. İçinde **işleci**seçin **ENDSWITH**. İçinde **değer**, türü  **\@contoso.com**.
 8. **Kaydet**’e tıklayın.
 9. Yapılandırmayı tamamlamak için çalıştırmanız gerekir bir **tam eşitleme**. Bölüm okumaya devam edin [Uygula ve değişiklikleri doğrulayın](#apply-and-verify-changes).
 

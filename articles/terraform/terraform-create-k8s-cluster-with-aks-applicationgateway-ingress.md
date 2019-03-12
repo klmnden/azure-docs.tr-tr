@@ -2,19 +2,19 @@
 title: Azure Kubernetes Service (AKS) giriş denetleyicisine olarak Application Gateway ile bir Kubernetes kümesi oluşturma
 description: Giriş denetleyicisine olarak uygulama ağ geçidi ile Azure Kubernetes hizmeti ile bir Kubernetes kümesi oluşturmak nasıl bulunacağını gösteren öğretici.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, sanal makine, azure, kubernetes, giriş, uygulama ağ geçidi
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 1/10/2019
-ms.openlocfilehash: 6add7323fdbcf07681e8566437632aa6679828e4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 7eb88f0bd30c9f28f8980cdc0e16ba46a9da9551
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891990"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765603"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes hizmeti ve Terraform kullanan uygulama ağ geçidi giriş denetleyicisine ile bir Kubernetes kümesi oluşturma
 [Azure Kubernetes Service (AKS)](/azure/aks/) , barındırılan Kubernetes ortamınızı yönetir. AKS hızlı ve kolay kapsayıcı düzenleme uzmanlığı gerektirmeden kapsayıcıya alınmış uygulamaları dağıtmayı ve yönetmeyi kolaylaştırır. Ayrıca, kaynakları isteğe bağlı olarak sağlama, yükseltme ve ölçeklendirme işlemlerini uygulamalarınızı çevrimdışı duruma geçirmeden yaparak sürekliliği olan işlemlerin ve bakımların yükünü ortadan kaldırır.

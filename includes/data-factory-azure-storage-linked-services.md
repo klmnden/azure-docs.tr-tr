@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: e5f2afa4bc8a4b8eae523fde323d835c0c53fe8e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f7c189c59b5098ef22491a914a618afda2b5f51e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572843"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554786"
 ---
 ### <a name="azure-storage-linked-service"></a>Azure Storage Bağlı Hizmeti
 **Azure depolama bağlı hizmeti** kullanarak bir Azure depolama hesabı bir Azure data factory'ye bağlamak tanır **hesap anahtarı**, sağlayan data factory ile küresel erişim için Azure depolama. Aşağıdaki tabloda, Azure depolama bağlı hizmetine özel JSON öğeleri için bir açıklama sağlar.
@@ -19,20 +19,20 @@ ms.locfileid: "51572843"
 | type |Type özelliği ayarlanmalıdır: **AzureStorage** |Evet |
 | bağlantı dizesi |ConnectionString özelliği için Azure depolamaya bağlanmak için gereken bilgileri belirtin. |Evet |
 
-Görünüm/hesap anahtarı için bir Azure depolama kopyalama adımları için aşağıdaki bölüme bakın: [erişim anahtarları](../articles/storage/common/storage-account-manage.md#access-keys).
+Görünüm/hesap anahtarı için bir Azure depolama kopyalama adımları için aşağıdaki bölüme bakın: [Erişim anahtarları](../articles/storage/common/storage-account-manage.md#access-keys).
 
 **Örnek:**  
 
 ```json
-{  
-    "name": "StorageLinkedService",  
-    "properties": {  
-        "type": "AzureStorage",  
-        "typeProperties": {  
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"  
-        }  
-    }  
-}  
+{
+    "name": "StorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
+    }
+}
 ```
 
 ### <a name="azure-storage-sas-linked-service"></a>Azure depolama Sas bağlı hizmeti
@@ -55,15 +55,15 @@ Azure depolama SAS bağlı hizmet, bir paylaşılan erişim imzası (SAS) kullan
 **Örnek:**
 
 ```json
-{  
-    "name": "StorageSasLinkedService",  
-    "properties": {  
-        "type": "AzureStorageSas",  
-        "typeProperties": {  
-            "sasUri": "<Specify SAS URI of the Azure Storage resource>"   
-        }  
-    }  
-}  
+{
+    "name": "StorageSasLinkedService",
+    "properties": {
+        "type": "AzureStorageSas",
+        "typeProperties": {
+            "sasUri": "<Specify SAS URI of the Azure Storage resource>"
+        }
+    }
+}
 ```
 
 Oluştururken bir **SAS URI'sini**, aşağıdakileri de göz önünde bulundurur:  

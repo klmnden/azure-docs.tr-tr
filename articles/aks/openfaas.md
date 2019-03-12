@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: dc0f4bd1e5b07e30f3c89807fbbbc908b3149810
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 5ed6e0b21b00ede3f78a102fd004e5706ae3cea5
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542540"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571227"
 ---
 # <a name="using-openfaas-on-aks"></a>AKS OpenFaaS kullanma
 
-[OpenFaaS] [ open-faas] sunucusuz işlevler kapsayıcıları üzerinde oluşturmaya yönelik bir çerçevedir. Açık kaynaklı proje, bu büyük ölçekli benimseme topluluk içinde kazanmıştır. Bu belge yükleme ve bir Azure Kubernetes Service (AKS) kümesine OpenFaas kullanma ayrıntılı olarak açıklanmaktadır.
+[OpenFaaS] [ open-faas] kapsayıcıları kullanarak sunucusuz işlevler oluşturmaya yönelik bir çerçevedir. Açık kaynaklı proje, bu büyük ölçekli benimseme topluluk içinde kazanmıştır. Bu belge yükleme ve bir Azure Kubernetes Service (AKS) kümesine OpenFaas kullanma ayrıntılı olarak açıklanmaktadır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -29,46 +29,51 @@ Bu makaledeki adımları tamamlamak için aşağıdakilere ihtiyacınız vardır
 * Azure CLI geliştirme sisteminizde yüklü.
 * Git komut satırı araçları, sisteminizde yüklü.
 
-## <a name="get-openfaas"></a>OpenFaaS Al
+## <a name="add-the-openfaas-helm-chart-repo"></a>OpenFaaS helm grafiği depo Ekle
 
-Geliştirme sisteminizde OpenFaaS proje depoyu kopyalayın.
-
-```azurecli-interactive
-git clone https://github.com/openfaas/faas-netes
-```
-
-Kopyalanan deponun dizine değiştirin.
+En son değişikliklerle güncel tutmak için kendi helm grafikleri OpenFaaS tutar.
 
 ```azurecli-interactive
-cd faas-netes
+helm repo add openfaas https://openfaas.github.io/faas-netes/
+helm repo update
 ```
 
 ## <a name="deploy-openfaas"></a>OpenFaaS dağıtma
 
 İyi uygulama olarak, OpenFaaS ve OpenFaaS işlevleri kendi Kubernetes ad alanında depolanmalıdır.
 
-OpenFaaS sistem için bir ad alanı oluşturun.
+İşlevler ve OpenFaaS sistem için bir ad alanı oluşturun:
 
 ```azurecli-interactive
-kubectl create namespace openfaas
+kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
 ```
 
-OpenFaaS işlevleri için ikinci bir ad alanı oluşturun.
+REST API ve OpenFaaS UI portalı için bir parola oluştur:
 
 ```azurecli-interactive
-kubectl create namespace openfaas-fn
+# generate a random password
+PASSWORD=$(head -c 12 /dev/urandom | shasum| cut -d' ' -f1)
+
+kubectl -n openfaas create secret generic basic-auth \
+--from-literal=basic-auth-user=admin \
+--from-literal=basic-auth-password="$PASSWORD"
 ```
+
+Sahip gizli dizi, değer elde edebileceği `echo $PASSWORD`.
+
+Burada oluşturduğunuz parolayı helm grafiği ile OpenFaaS Bulutu LoadBalancer üzerinden İnternet'e ifşa eden ağ geçidi, temel kimlik doğrulamasını etkinleştirmek için kullanılır.
 
 Kopyalanan depoya bir Helm grafiği OpenFaaS için dahil edilir. AKS kümenizi OpenFaaS dağıtmak için bu tabloyu kullanın.
 
 ```azurecli-interactive
-helm install --namespace openfaas -n openfaas \
-  --set functionNamespace=openfaas-fn, \
-  --set serviceType=LoadBalancer, \
-  --set rbac=false chart/openfaas/
+helm upgrade openfaas --install openfaas/openfaas \
+    --namespace openfaas  \
+    --set basic_auth=true \
+    --set functionNamespace=openfaas-fn \
+    --set serviceType=LoadBalancer
 ```
 
-Çıktı:
+Çıkış:
 
 ```
 NAME:   openfaas
@@ -104,14 +109,23 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-OpenFaaS sistem test etmek için Gözat 8080 numaralı bağlantı noktasındaki dış IP adresine `http://52.186.64.52:8080` Bu örnekte.
+OpenFaaS sistem test etmek için Gözat 8080 numaralı bağlantı noktasındaki dış IP adresine `http://52.186.64.52:8080` Bu örnekte. Oturum açmak için istenir. Parolanızı getirilecek girin `echo $PASSWORD`.
 
-![OpenFaaS kullanıcı Arabirimi](media/container-service-serverless/openfaas.png)
+![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
 Son olarak, OpenFaaS CLI'yı yükleyin. Bu örnekte kullanılan brew bkz [OpenFaaS CLI belgeleri] [ open-faas-cli] daha fazla seçenek için.
 
 ```console
 brew install faas-cli
+```
+
+Ayarlama `$OPENFAAS_URL` yukarıda bulunan genel IP için.
+
+Azure CLI ile oturum açın:
+
+```azurecli-interactive
+export OPENFAAS_URL=http://52.186.64.52:8080
+echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 ```
 
 ## <a name="create-first-function"></a>İlk işlevinizi oluşturma
@@ -128,7 +142,7 @@ Tıklayarak **dağıtma yeni işlev** araması **Figlet**. Figlet işlevi seçin
 curl -X POST http://52.186.64.52:8080/function/figlet -d "Hello Azure"
 ```
 
-Çıktı:
+Çıkış:
 
 ```console
  _   _      _ _            _
@@ -195,7 +209,7 @@ Verileri veritabanı'na yükler.
 mongoimport --uri=$COSMOS -c plans < plans.json
 ```
 
-Çıktı:
+Çıkış:
 
 ```console
 2018-02-19T14:42:14.313+0000    connected to: localhost
@@ -221,7 +235,7 @@ Curl kullanarak işlevi test etme. IP adresi ile OpenFaaS ağ geçidi adresini g
 curl -s http://52.186.64.52:8080/function/cosmos-query
 ```
 
-Çıktı:
+Çıkış:
 
 ```json
 [{"ID":"","Name":"two_person","FriendlyName":"","PortionSize":"","MealsPerWeek":"","Price":72,"Description":"Our basic plan, delivering 3 meals per week, which will feed 1-2 people."}]
@@ -233,10 +247,11 @@ Ayrıca, OpenFaaS UI içinde işlevi test edebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Varsayılan dağıtımını OpenFaas OpenFaaS ağ geçidi ve işlevleri için kilitli gerekir. [Alex Ellis Blog Gönderisi](https://blog.alexellis.io/lock-down-openfaas/) güvenli yapılandırma seçenekleri hakkında daha fazla ayrıntı sahiptir.
+Gizli ölçümleri görüntüleme ve otomatik ölçeklendirmeyi kullanma kümesi kapsayan kendi GitHub bot oluşturma gibi konular uygulamalı laboratuvarlar ile OpenFaaS Atölyesi ile öğrenmeye devam edebilirsiniz.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [open-faas]: https://www.openfaas.com/
 [open-faas-cli]: https://github.com/openfaas/faas-cli
+[openfaas-workshop]: https://github.com/openfaas/workshop
