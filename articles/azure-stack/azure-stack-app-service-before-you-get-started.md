@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 02/22/2019
-ms.openlocfilehash: 01b0a86ede79187d8f180df0f2f71f6eaadb7428
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: e39904378edd9583cd7802d0a75f2f365a35d2b6
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990544"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791962"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack üzerinde App Service ile çalışmaya başlamadan önce
 
@@ -147,11 +147,11 @@ Sertifika kimliği şu biçimde eşleşen bir konu içermelidir.
 | --- | --- |
 | SSO.appservice. \<bölge\>.\< DomainName\>.\< Uzantı\> | sso.appservice.redmond.azurestack.external |
 
-
 ### <a name="validate-certificates"></a>Sertifika doğrulama
-App service kaynak sağlayıcısı dağıtmadan önce yapmanız gerekenler [kullanılacak sertifika doğrulama](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) kullanılabilir Azure Stack hazırlık Denetleyicisi aracını kullanarak [PowerShell Galerisi](https://aka.ms/AzsReadinessChecker). Azure Stack hazırlık Denetleyicisi Aracı'nı oluşturulan PKI sertifikalarını uygulama hizmetleri dağıtımı için uygun olduğunu doğrular. 
 
-Tüm gerekli ile çalışırken en iyi bir uygulama olarak [Azure Stack PKI sertifikaları](azure-stack-pki-certs.md), test edin ve gerekirse sertifikalar yeniden gönderin için yeterli zaman bırakmak planlamanız gerekir. 
+App service kaynak sağlayıcısı dağıtmadan önce yapmanız gerekenler [kullanılacak sertifika doğrulama](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) kullanılabilir Azure Stack hazırlık Denetleyicisi aracını kullanarak [PowerShell Galerisi](https://aka.ms/AzsReadinessChecker). Azure Stack hazırlık Denetleyicisi Aracı'nı oluşturulan PKI sertifikalarını uygulama hizmetleri dağıtımı için uygun olduğunu doğrular.
+
+Tüm gerekli ile çalışırken en iyi bir uygulama olarak [Azure Stack PKI sertifikaları](azure-stack-pki-certs.md), test edin ve gerekirse sertifikalar yeniden gönderin için yeterli zaman bırakmak planlamanız gerekir.
 
 ## <a name="virtual-network"></a>Sanal ağ
 
@@ -170,6 +170,15 @@ Alt ağlar
 - PublishersSubnet /24
 - WorkersSubnet /21
 
+## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>Gerekli bir dosya sunucusu ve SQL Server için lisanslama sorunları
+
+Azure Stack'te Azure App Service, bir dosya sunucusu ve SQL Server'ın çalışması için gerektirir.  Azure Stack dağıtımınıza dışında bulunan önceden mevcut olan kaynakları kullanabilir veya kendi Azure Stack varsayılan sağlayıcı aboneliği dahilindeki dağıtmak ücretsizdir.
+
+Kaynakları, Azure Stack varsayılan sağlayıcı aboneliği içinde dağıtmayı tercih ederseniz, bu kaynakları (Windows Server lisansları ve SQL Server lisanslarını) için lisans aşağıdaki tabi Azure Stack'te Azure App Service'in maliyeti dahil edilen kısıtlamalar:
+
+- Altyapı içine dağıtılır **varsayılan sağlayıcı aboneliği**;
+- Altyapı, yalnızca Azure Stack kaynak sağlayıcısı üzerinde Azure App Service tarafından kullanılır.  Diğer iş yükleri, Yönetim (diğer kaynak sağlayıcıları, örneğin SQL-RP gibi) veya Kiracı (bir veritabanı gerektiren örneğin Kiracı uygulamalar,), yapmak için verilen bu alt yapısını kullanın.
+
 ## <a name="prepare-the-file-server"></a>Dosya sunucusunu hazırlama
 
 Azure App Service, bir dosya sunucusu kullanılmasını gerektirir. Üretim dağıtımları için dosya sunucusu yüksek oranda kullanılabilir ve hataları işleme yeteneğine sahip olacak şekilde yapılandırılması gerekir.
@@ -180,7 +189,7 @@ Yalnızca Azure Stack geliştirme Seti'ni dağıtımlar için kullandığınız 
 
 ### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>Yüksek oranda kullanılabilir bir dosya sunucusu ve SQL Server Hızlı Başlangıç şablonu
 
-A [başvuru mimarisi, Hızlı Başlangıç şablonu](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) artık kullanımda dosya sunucusu, SQL Server dağıtacağınız, Active Directory destekleyen bir sanal ağ altyapısında yüksek oranda kullanılabilir bir dağıtımını destekleyecek şekilde yapılandırılmış Azure Stack'te Azure App Service.  
+A [başvuru mimarisi, Hızlı Başlangıç şablonu](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) artık kullanımda dosya sunucusu, SQL Server dağıtacağınız, Active Directory destekleyen bir sanal ağ altyapısında yüksek oranda kullanılabilir bir dağıtımını destekleyecek şekilde yapılandırılmış Azure Stack'te Azure App Service.
 
 ### <a name="steps-to-deploy-a-custom-file-server"></a>Bir özel dosya sunucusu dağıtma adımları
 
@@ -303,12 +312,11 @@ Herhangi bir SQL sunucu rolleri için varsayılan bir örnek veya adlandırılm�
 App Service yükleyicisi, SQL Server veritabanı kapsama etkin olduğundan emin olun kontrol eder. App Service veritabanlarını barındıracak SQL Server veritabanı kapsama etkinleştirmek için aşağıdaki SQL komutlarını çalıştırın:
 
 ```sql
-sp_configure 'contained database authentication', 1;  
-GO  
-RECONFIGURE;  
+sp_configure 'contained database authentication', 1;
+GO
+RECONFIGURE;
 GO
 ```
-
 
 >[!IMPORTANT]
 > App Service'ta da mevcut bir sanal ağ dağıtmayı tercih ederseniz SQL Server App Service ve dosya sunucusu ayrı bir alt ağa dağıtılması gerekir.

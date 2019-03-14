@@ -1,19 +1,19 @@
 ---
 title: Ansible'ı kullanarak Azure'da Azure Kubernetes Service kümeleri oluşturma ve yapılandırma
 description: Ansible'ı kullanarak Azure'da Azure Kubernetes Service kümesi oluşturmayı ve kullanmayı öğrenin
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, kapsayıcı, Kubernetes
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: f4541bb9516855c4391188fb57e5ab64bc03c76e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1e56ebe4c1928b455fa5abb626f1a5001af42382
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890493"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792676"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Ansible'ı kullanarak Azure'da Azure Kubernetes Service kümeleri oluşturma ve yapılandırma
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Ansible'ı kullanarak Azure Kubernetes Service (AKS) örneğinizi yönetebilirsiniz. Bu makalede Ansible'ı kullanarak Azure Kubernetes Service kümesi oluşturma ve yapılandırma adımları gösterilmektedir.

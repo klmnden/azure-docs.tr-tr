@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: d09ce810605055b5be53219f254beb6660addbee
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 07e3552b58b702cb94c879dd34397010c07522db
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445713"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791945"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Günlük verilerini ve Azure İzleyici'de çalışma alanlarını yönetme
 Azure İzleyici depoları, temelde verileri ve yapılandırma bilgilerini içeren bir kapsayıcı ve Log Analytics çalışma alanında verilerini günlüğe kaydedebilirsiniz. Verileri günlüğe kaydetmek için erişimi yönetmek için çalışma alanları ile ilgili çeşitli yönetim görevlerini gerçekleştirin. Siz veya kuruluşunuzun diğer üyeleri, IT altyapınızın tümünden veya bir bölümünden toplanan farklı veri kümelerini yönetmek için birden çok çalışma alanı kullanabilirsiniz.
@@ -85,6 +85,7 @@ Bir kullanıcının erişimi olan veri, aşağıdaki tabloda listelenen çoklu f
 | [Erişim modu](#access-modes) | Kullanıcının kullandığı yöntem, çalışma alanına erişir.  Kullanılabilir verilerin kapsamını ve uygulanan erişim denetimi modu tanımlar. |
 | [Erişim denetim modu](#access-control-mode) | İzinler çalışma alanı ya da kaynak düzeyinde uygulanır tanımlar için çalışma alanı ayarlama. |
 | [İzinler](#manage-accounts-and-users) | İzinler, tek tek veya çalışma alanı veya kaynak için kullanıcı gruplarına uygulanır. Hangi verilerin kullanıcı erişimi olacaktır tanımlar. |
+| [Tablo düzeyi RBAC](#table-level-rbac) | İsteğe bağlı ayrıntılı izinler, kullanıcıların erişim modu veya erişim denetim modu bağımsız olarak tüm kullanıcılara uygulanır. Bir kullanıcının hangi veri türlerini tanımlar. |
 
 
 
@@ -93,7 +94,7 @@ _Erişim modu_ bir kullanıcı bir Log Analytics çalışma alanı nasıl erişt
 
 **Çalışma alanı merkezli**: Bu modda, bir kullanıcı izinlerine sahip oldukları çalışma alanındaki tüm günlükleri görüntüleyebilirsiniz. Bu modda sorgular çalışma alanındaki tüm tablolardaki tüm verileri kapsayan. Bu günlükleri gibi seçtiğinizde, kapsam olarak çalışma alanı ile erişildiğinde kullanılan erişim moddur **günlükleri** gelen **Azure İzleyici** Azure portalındaki menü.
 
-**Kaynak odaklı**: Çalışma alanı seçtiğinizde, gibi belirli bir kaynak için eriştiğinizde **günlükleri** Azure portalında bir kaynak menüsünden yalnızca o kaynak için günlükleri görüntüleyebilirsiniz. Bu modda sorgular yalnızca bu kaynakla ilişkilendirilmiş veri kapsamına eklenir. Bu mod ayrıca ayrıntılı rol tabanlı erişim denetimi (RBAC) sağlar. 
+**Kaynak odaklı**: Çalışma alanı seçtiğinizde, gibi belirli bir kaynak için eriştiğinizde **günlükleri** Azure portalında bir kaynak menüsünden erişiminiz olan tüm tablolarda yalnızca o kaynak için günlükleri görüntüleyebilirsiniz. Bu modda sorgular yalnızca bu kaynakla ilişkilendirilmiş veri kapsamına eklenir. Bu mod ayrıca ayrıntılı rol tabanlı erişim denetimi (RBAC) sağlar. 
 
 > [!NOTE]
 > Yalnızca ilgili kaynak düzgün bir şekilde ilişkili günlükleri kaynak odaklı sorgular için kullanılabilir. Şu anda aşağıdaki kaynaklar sınırlamalara sahiptir: 
@@ -113,16 +114,16 @@ Erişim modu aşağıdaki tabloda özetlenmiştir:
 |:---|:---|:---|
 | Her model kimin için tasarlanmıştır? | Merkezi Yönetim. Çok çeşitli kaynaklara erişmesi gereken veri toplama ve kullanıcıları yapılandırmak için gereken yöneticileri. Ayrıca Azure dışındaki kaynaklar için günlüklerine erişmek için sahip kullanıcılar için şu anda gereklidir. | Uygulama ekipler. İzlenmekte olan Azure kaynak yöneticileri. |
 | Günlükleri görüntülemek için ne bir kullanıcı gerektiriyor mu? | Çalışma alanına izinleri. Bkz: **çalışma alanı izinlerini** içinde [hesapları ve kullanıcıları yönetme](#manage-accounts-and-users). | Kaynak yönelik okuma erişimi. Bkz: **kaynağı izinlerini** içinde [hesapları ve kullanıcıları yönetme](#manage-accounts-and-users). İzinleri olabilir (örneğin içeren kaynak grubunu'ye kadar) devralınan veya doğrudan kaynağa atanmış. Günlükleri kaynak için izni otomatik olarak atanır. |
-| İzinleri kapsamı nedir? | Çalışma alanı. Çalışma alanına erişimi olan kullanıcılar, bu çalışma alanındaki tüm günlükleri sorgulayabilir. | Azure kaynak. Kullanıcı, günlükleri sorgulayabilir kaynaklar için bunların herhangi bir çalışma alanından erişiminiz ancak günlükler için diğer kaynaklar sorgulanamıyor. |
+| İzinleri kapsamı nedir? | Çalışma alanı. Çalışma alanına erişimi olan kullanıcılar sahip oldukları izinleri, çalışma alanını tablodan tüm günlükleri sorgulayabilir. Bkz: [tablo erişim denetimi](#table-access-control) | Azure kaynak. Kullanıcı, günlükleri sorgulayabilir kaynaklar için bunların herhangi bir çalışma alanından erişiminiz ancak günlükler için diğer kaynaklar sorgulanamıyor. |
 | Kullanıcı erişim günlükleri nasıl kullanabilir? | Başlangıç **günlükleri** gelen **Azure İzleyici** menüsü veya **Log Analytics çalışma alanları**. | Başlangıç **günlükleri** Azure kaynak menüsünden. |
 
 
 ## <a name="access-control-mode"></a>Erişim denetimi modu
 _Erişim denetim modu_ bu çalışma alanı için izinleri nasıl belirlendiğini tanımlayan bir ayar her çalışma alanı üzerinde.
 
-**Çalışma alanı izinleri gerektiren**:  Bu denetim modu ayrıntılı RBAC izin vermez. Bir kullanıcı çalışma alanına erişmek, çalışma alanına izinleri verilmelidir. 
+**Çalışma alanı izinleri gerektiren**:  Bu denetim modu ayrıntılı RBAC izin vermez. Bir kullanıcı çalışma alanına erişmek, çalışma alanına veya özel tablolara izinleri verilmelidir. 
 
-Kullanıcı merkezli çalışma modu çalışma erişirse, bunlar tüm verileri çalışma alanına erişebilir. Bir kullanıcı çalışma alanında kaynak odaklı modu erişirse, bunlar yalnızca verileri bu kaynağa erişebilir.
+Kullanıcı merkezli çalışma modu çalışma erişirse, tüm verilerine erişim için erişim verilmiş herhangi bir tablo gerekir. Bir kullanıcı çalışma alanında kaynak odaklı modu erişirse, bunlar yalnızca veri bu kaynak için erişim verilmiş tüm tablolarda erişebilir.
 
 Mart 2019 önce oluşturulan tüm çalışma alanları için varsayılan ayar budur.
 
@@ -144,6 +145,46 @@ Geçerli çalışma alanına erişim denetim modu görüntüleyebileceğiniz **g
 Bu ayarı değiştirebilirsiniz **özellikleri** çalışma sayfası. Çalışma alanını yapılandırmak için izinleri yoksa, ayarı değiştirmeyi devre dışı bırakılır.
 
 ![Çalışma alanı erişimi modunu Değiştir](media/manage-access/change-access-control-mode.png)
+
+### <a name="define-access-control-mode-in-azure-portal"></a>Azure portalında erişim denetim modu tanımlayın
+Geçerli çalışma alanına erişim denetim modu görüntüleyebileceğiniz **genel bakış** çalışma sayfası **Log Analytics çalışma alanı** menüsü.
+
+![Görünüm çalışma alanına erişim denetim modu](media/manage-access/view-access-control-mode.png)
+
+Bu ayarı değiştirebilirsiniz **özellikleri** çalışma sayfası. Çalışma alanını yapılandırmak için izinleri yoksa, ayarı değiştirmeyi devre dışı bırakılır.
+
+![Çalışma alanı erişimi modunu Değiştir](media/manage-access/change-access-control-mode.png)
+
+### <a name="define-access-control-mode-in-powershell"></a>Erişim denetimi modu PowerShell'de tanımlayın
+
+Abonelikteki tüm çalışma alanları için erişim denetim modu incelemek için aşağıdaki komutu kullanın:
+
+```PowerShell
+Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
+```
+
+Belirli bir çalışma alanı için erişim denetim modu ayarlamak için aşağıdaki betiği kullanın:
+
+```PowerShell
+$WSName = "my-workspace"
+$Workspace = Get-AzResource -Name $WSName -ExpandProperties
+if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+    { $Workspace.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
+else 
+    { $Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
+Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properties -Force
+```
+
+Abonelikteki tüm çalışma alanları için erişim denetim modu ayarlamak için aşağıdaki betiği kullanın.
+
+```PowerShell
+Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
+if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+    { $_.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
+else 
+    { $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
+Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
+```
 
 ### <a name="define-access-mode-in-resource-manager-template"></a>Erişim modu Resource Manager şablonunda tanımlama
 Bir Azure Resource Manager şablonunda erişim modu yapılandırmak için ayarlanmış **enableLogAccessUsingOnlyResourcePermissions** özellik bayrağı için çalışma alanı için aşağıdaki değerlerden biri.
@@ -241,6 +282,58 @@ Kullanıcılar sorgu kaynak odaklı erişimi kullanarak bir çalışma alanında
 
 Bu izin, genellikle içeren rolden verilir  _\*/okuma veya_ _\*_ izinleri gibi yerleşik [okuyucu](../../role-based-access-control/built-in-roles.md#reader) ve [ Katkıda bulunan](../../role-based-access-control/built-in-roles.md#contributor) rolleri. Bu izin, belirli eylemleri içeren özel rolleri veya adanmış yerleşik roller içermeyebilir unutmayın.
 
+Bkz: [tablo başına erişim denetimini tanımlama](#defining-per-table-access-control) üstündeyse farklı erişim denetimi için farklı tablolar oluşturmak istiyorsunuz.
+
+
+## <a name="table-level-rbac"></a>Tablo düzeyi RBAC
+**Tablo düzeyi RBAC** , diğer izinlere ek olarak bir Log Analytics çalışma alanında verilerine daha ayrıntılı bir denetim sağlamanıza olanak verir. Bu denetim, yalnızca belirli bir kullanıcı kümesine erişilebilir olan belirli veri türlerini tanımlamanızı sağlar.
+
+Tablo erişim denetimi ile uygulama [Azure özel roller](../../role-based-access-control/custom-roles.md) vermek veya erişimini belirli [tabloları](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) çalışma. Bu roller çalışma alanlarıyla çalışma merkezli ya da kaynak odaklı uygulanır [erişim denetimi modları](#access-control-modes) kullanıcının bakılmaksızın [erişim modu](#access-mode).
+
+Oluşturma bir [özel rol](../../role-based-access-control/custom-roles.md) erişim tablosu için erişim denetimi tanımlamak için aşağıdaki eylemler ile.
+
+- Bir tabloya erişim vermek için de dahil **eylemleri** Rol tanımının bölümü.
+- Bir tablo erişimini engellemek için de dahil **NotActions** Rol tanımının bölümü.
+- Kullanım * tüm tabloları belirtmek için.
+
+Örneğin, erişimi olan bir rol oluşturmak için _sinyal_ ve _AzureActivity_ tablolar, aşağıdaki eylemleri kullanarak özel bir rol oluşturun:
+
+```
+"Actions":  [
+              "Microsoft.OperationalInsights/workspaces/query/Heartbeat/read",
+              "Microsoft.OperationalInsights/workspaces/query/AzureActivity/read"
+  ],
+```
+
+Yalnızca erişimi olan bir rol oluşturmak için _SecurityBaseline_ ve başka bir tablo yoktur, aşağıdaki eylemleri kullanarak özel bir rol oluşturun:
+
+```
+    "Actions":  [
+        "Microsoft.OperationalInsights/workspaces/query/*/read"
+    ],
+    "NotActions":  [
+        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+    ],
+```
+
+### <a name="custom-logs"></a>Özel günlükler
+ Özel günlükler, özel günlükleri ve HTTP veri toplayıcı API'sini gibi veri kaynakları tarafından oluşturulur. Günlük türü tanımlamak için en kolay yolu altında listelenen tablolar denetleyerek olan [özel günlükleri günlük şemada](../log-query/get-started-portal.md#understand-the-schema).
+
+ Şu anda vermek alamaz veya tek tek özel Günlükleri erişimini ancak vermek veya erişimini tüm özel günlükleri. Tüm özel günlükleri erişimi olan bir rol oluşturmak için aşağıdaki eylemleri kullanarak özel bir rol oluşturun:
+
+```
+    "Actions":  [
+        "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
+    ],
+```
+
+### <a name="considerations"></a>Dikkat edilmesi gerekenler
+
+- Bir kullanıcı, genel atanırsa üzerinde okuma izni içeren standart okuyucu veya katkıda bulunan rollerine sahip  _\*/okuma_ eylemi geçersiz kılar tablo başına erişim denetimi ve bunları tüm günlük verilerine erişim izni verebilirsiniz.
+- Bir kullanıcı diğer herhangi bir izin vermeden tablo başına erişim izni verildiyse API'sinden ancak Azure Portalı'ndan günlük verilerine erişme olanağına olacaktır. Azure portalına erişim sağlamak için Log Analytics okuyucusu rolüne temel kullanın.
+- Abonelik için yöneticileri diğer izin ayarlarından bağımsız olarak tüm veri türlerine erişebilir.
+- Çalışma alanı sahipleri tablo başına erişim denetimi için herhangi bir kullanıcı gibi kabul edilir.
+- Rol atamaları sayısını azaltmak için tek tek kullanıcılar yerine gruplara güvenlik atamanız gerekir. Bu da, yapılandırmak ve erişimi doğrulamak için mevcut Grup Yönetimi araçları kullanmanıza yardımcı olur.
 
 
 

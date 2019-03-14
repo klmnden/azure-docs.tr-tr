@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/3/2018
 ms.author: pabouwer
-ms.openlocfilehash: f34d8c547738921374eaf5edcfcec4911423d9dc
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 25a68f55eb9a6deb037029d5d8a984ce74f12be5
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699220"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791469"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Yükleme ve Istio Azure Kubernetes Service (AKS) kullanma
 
@@ -82,7 +82,7 @@ Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 `istioctl` İstemci ikili İstemci makinenizde çalıştırır ve Istio yönlendirme kuralları ve ilkeleri yönetmenize olanak sağlar. Yeniden yükleme adımları, istemci işletim sistemleri arasında biraz farklılık gösterir. Tercih ettiğiniz ortam için adımlar aşağıdaki yükleme birini seçin.
 
 > [!IMPORTANT]
-> Kalan adımların tümünü indirdiğiniz ve önceki bölümde ayıklanan Istio sürüm üst düzey klasöründen çalıştırın.
+> Yüklediğiniz ve açtığınız Istio sürüm üst düzey klasöründen adımları Bu bölümde, çalıştırdığınızdan emin olun.
 
 ### <a name="macos"></a>macOS
 
@@ -145,6 +145,9 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 ```
 
 ## <a name="install-the-istio-kubernetes-components"></a>Istio Kubernetes bileşenlerini yükleme
+
+> [!IMPORTANT]
+> Yüklediğiniz ve açtığınız Istio sürüm üst düzey klasöründen adımları Bu bölümde, çalıştırdığınızdan emin olun.
 
 AKS kümenizi Istio bileşenleri yüklemek için Helm kullanın. Istio kaynakları yükleme `istio-system` ad alanını ve güvenlik ve izleme gibi ek seçenekleri etkinleştirebilirsiniz:
 

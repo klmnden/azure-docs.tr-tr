@@ -1,19 +1,19 @@
 ---
 title: Oluşturma ve MySQL için Azure veritabanı, ansible ürününü kullanarak yapılandırma
 description: MySQL sunucusu için Azure Veritabanı oluşturmak ve yapılandırmak için Ansible'ı kullanmayı öğrenin
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, mysql, veritabanı
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/23/2018
-ms.openlocfilehash: 85f3957af599c80c46871a126681d29dfa513431
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 23530dbda06ba99a9c9b2e1665abb09afd8161b1
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051025"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791078"
 ---
 # <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible"></a>Oluşturma ve MySQL için Azure veritabanı, ansible ürününü kullanarak yapılandırma
 [MySQL için Azure Veritabanı](https://docs.microsoft.com/azure/mysql/), bulutta yüksek kullanılabilirlikte MySQL veritabanları çalıştırmak, yönetmek ve ölçeklendirmek için kullanılan yönetilen bir hizmettir. Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. 

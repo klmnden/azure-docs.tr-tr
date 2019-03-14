@@ -3,14 +3,16 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 002/08/2019
-ms.openlocfilehash: 12c86ca71b7421678b68684cccca86411d604d61
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.date: 03/06/2019
+ms.openlocfilehash: b20ee2df1f468323c3298854371c97950c017e49
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741539"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57788944"
 ---
+Kapsayıcıya sorguları için kullanılan bir Azure kaynak fiyatlandırma katmanını faturalandırılır `<ApiKey>`.
+
 Bilişsel hizmetler kapsayıcıları, kullanım ölçümü için Azure'a bağlanmadan çalıştırmak için lisanslanmaz. Müşteriler, her zaman faturalandırma bilgileri ölçüm hizmeti ile iletişim kurmak kapsayıcıları etkinleştirmeniz gerekiyor. Bilişsel hizmetler kapsayıcılar, Microsoft müşteri verilerini (örneğin, görüntü veya metin analiz edilen) göndermeyin. Kapsayıcı yaklaşık her 10 ila 15 dakika kullanım raporları.
 
 `docker run` Faturalama amacıyla aşağıdaki değişkenleri kullanır:

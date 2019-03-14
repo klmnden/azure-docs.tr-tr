@@ -1,19 +1,19 @@
 ---
 title: Sanal makine ölçek kümesi ansible'ı kullanarak Azure'da otomatik ölçeklendirme
 description: Sanal makine ölçek kümesini Azure otomatik ölçeklendirme ile ölçeklendirme için Ansible'ı kullanmayı öğrenin
-ms.service: ansible
+ms.service: azure
 keywords: ansible'ı, azure, devops, bash, playbook, Ölçek, otomatik ölçeklendirme, sanal makine, sanal makine ölçek kümesi, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.openlocfilehash: 7721dba37131616122f8a5a902e3c63de5c7157f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 578ad3207f62e74805be056ca11d3bd9b46513da
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157063"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792438"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-azure-using-ansible"></a>Sanal makine ölçek kümesi ansible'ı kullanarak Azure'da otomatik ölçeklendirme
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Azure'da sanal makine ölçek kümenizi (VMSS) yönetmek için, tıpkı diğer Azure kaynaklarını yönettiğiniz gibi Ansible kullanabilirsiniz. 

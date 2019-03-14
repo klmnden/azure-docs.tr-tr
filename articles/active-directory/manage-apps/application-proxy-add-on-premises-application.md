@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f29b55b03d28728ad038f0071a7ba8a75a7acd2c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4d03efe2f8f8c3cad9ab37ea100b050a6e13aafc
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199451"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792132"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Öğretici: Azure Active Directory Uygulama proxy'si aracılığıyla uzaktan erişim için şirket içi uygulama ekleme
 
@@ -40,17 +40,18 @@ Kiracınıza uygulama eklemek için şunlara ihtiyacınız vardır:
 * Uygulama yönetici hesabı.
 
 ### <a name="windows-server"></a>Windows server
+
 Uygulama proxy'si kullanmak için Windows Server 2012 R2 çalıştıran bir Windows server gerekir veya üzeri. Sunucu üzerinde uygulama ara sunucusu bağlayıcısını yükleyeceksiniz. Uygulama Ara sunucusu hizmetlerini azure'da ve şirket içi uygulamaları yayımlamayı planlama bağlanmak bu bağlayıcı sunucusu gerekir.
 
 Üretim ortamınızda, yüksek kullanılabilirlik için birden fazla Windows sunucusu olması önerilir. Bu öğreticide, bir Windows server yeterli olur.
 
-**Bağlayıcı sunucusu için öneriler**
+#### <a name="recommendations-for-the-connector-server"></a>Bağlayıcı sunucusu için öneriler
 
 1. Fiziksel olarak yakın uygulama sunucularını bağlayıcıyı ve uygulama arasında performansını iyileştirmek için bağlayıcı sunucusu bulun. Daha fazla bilgi için [ağ topolojisi hakkında önemli noktalar](application-proxy-network-topology.md).
 
 2. Bağlayıcı sunucusu ve web uygulamaları sunucular aynı Active Directory etki alanına ait olmalıdır. Sunucuların aynı etki alanında olması için tümleşik Windows kimlik doğrulaması (IWA) ve Kerberos Kısıtlı temsilci (KCD) ile çoklu oturum açma (SSO) kullanarak bir gereksinimdir. Bağlayıcı sunucusu ve web uygulama sunucuları farklı Active Directory etki alanlarında ise, kaynak tabanlı temsilci seçme için çoklu oturum açmayı kullanmanız gerekir. Daha fazla bilgi için [uygulama proxy'si ile çoklu oturum açma için KCD](application-proxy-configure-single-sign-on-with-kcd.md).
 
-**Yazılım gereksinimleri**
+#### <a name="software-requirements"></a>Yazılım gereksinimleri
 
 Windows bağlayıcı sunucusu TLS 1.2 uygulama ara sunucusu bağlayıcısını yüklemeden önce etkin olmalıdır. Var olan Bağlayıcılarla 1.5.612.0 sürümleri yapılana kadar önceki TLS sürümlerini üzerinde çalışmaya devam eder. 
 
@@ -67,8 +68,8 @@ TLS 1.2 etkinleştirmek için:
 
 2. Sunucuyu yeniden başlatın
 
-  
 ## <a name="prepare-your-on-premises-environment"></a>Şirket içi ortamınızı hazırlama
+
 Azure AD uygulama proxy'si için ortamınızı hazırlama için ilk Azure veri merkezlerine iletişim etkinleştirmeniz gerekir. Yolda bir güvenlik duvarı varsa, bağlayıcı uygulama ara sunucusuna HTTPS (TCP) istekleri verebilmeniz için açık olduğundan emin olun.
 
 ### <a name="open-ports"></a>Bağlantı noktalarını aç
@@ -97,6 +98,7 @@ Aşağıdaki URL'lere erişim izin ver:
 Güvenlik Duvarı veya proxy DNS beyaz listeye ekleme izin veriyorsa, beyaz liste bağlantıları için \*. msappproxy.net ve \*. servicebus.windows.net. Erişime izin vermek, gerekirse [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). IP aralıklarını haftalık olarak güncelleştirilir.
 
 ## <a name="install-and-register-a-connector"></a>Yükleme ve bir bağlayıcıyı kaydetme
+
 Uygulama proxy'si kullanmak için uygulama proxy'si hizmeti ile kullanmak için seçtiğiniz her Windows server üzerinde bir bağlayıcı yüklemeniz gerekir. Giden bağlantı şirket içi uygulama sunucularından Azure AD'de uygulama ara sunucusuna yöneten bir aracı Bağlayıcıdır. Bir bağlayıcı sunucuları gibi Azure AD Connect'in yüklü diğer kimlik doğrulama aracılarının de yükleyebilirsiniz.
 
 Bağlayıcıyı yüklemek için:
@@ -122,12 +124,12 @@ Bağlayıcılar, kapasite planlaması ve nasıl güncel kalın hakkında daha fa
 
 Qlik Sense uygulama kullanıyorsanız, her zaman en son Bağlayıcısı'nı yükleyin. Qlik Sense WebSockets, yalnızca 1.5.612.0 bağlayıcı sürümlerinde desteklenen veya üzeri olduğu kullanır.
 
-
 ## <a name="verify-the-connector-installed-and-registered-correctly"></a>Yüklü ve kayıtlı doğru bağlayıcı doğrulayın
 
 Azure portalı veya Windows server'ınıza yeni bir bağlayıcı düzgün yüklendiğini doğrulamak için kullanabilirsiniz.
 
 ### <a name="verify---azure-portal"></a>Doğrulama - Azure portalı
+
 Yüklü ve kayıtlı doğru bağlayıcıyı onaylamak için:
 
 1. Kiracı dizininize oturum [Azure portalında](https://portal.azure.com).
@@ -139,6 +141,7 @@ Yüklü ve kayıtlı doğru bağlayıcıyı onaylamak için:
 Bağlayıcı yükleme ile ilgili daha fazla yardım için bkz [bir uygulama ara sunucusu Bağlayıcısı yüklemesi sırasında sorunlarla](application-proxy-connector-installation-problem.md).
 
 ### <a name="verify---windows-server"></a>Doğrulama - Windows server
+
 Yüklü ve kayıtlı doğru bağlayıcıyı onaylamak için:
 
 1. Windows Hizmetleri Yöneticisi'ni tıklatarak **Windows** anahtarı ve girerek *services.msc*.
@@ -165,7 +168,7 @@ Ortamınızı hazırladığınız ve yüklü bir bağlayıcı göre şirket içi
 
 4. İçinde **kendi şirket içi uygulamanızı ekleme** dikey penceresinde, uygulama ile ilgili aşağıdaki bilgileri sağlayın:
 
-    ![Uygulamanızı yapılandırma](./media/application-proxy-publish-azure-portal/configure-app.png)
+    ![Şirket içi uygulamanızı yapılandırma](./media/application-proxy-add-on-premises-application/add-on-premises-app-with-application-proxy-updated.png)
 
     | Alan | Açıklama |
     | :---- | :---------- |
@@ -186,8 +189,6 @@ Ortamınızı hazırladığınız ve yüklü bir bağlayıcı göre şirket içi
     | **Üst bilgilerinde URL'leri Çevir** | Bu değer olarak tutmak **Evet** özgün ana bilgisayar üst bilgisi'kimlik doğrulama isteği, uygulamanızın gerektirdiği durumlar haricinde. |
     | **Uygulama gövdesi URL'leri Çevir** | Bu değer olarak tutmak **Hayır** sürece diğer şirket içi uygulamalara yönelik sabit kodlanmış HTML bağlantıları ve özel etki alanları kullanmayın. Daha fazla bilgi için [çeviri uygulama ara sunucusu ile bağlantı](application-proxy-configure-hard-coded-link-translation.md).<br><br>Bu değer kümesine **Evet** bu Microsoft Cloud App Security (MCAS) ile uygulama izlemeyi planlıyorsanız. Daha fazla bilgi için [erişim, Microsoft Cloud App Security ve Azure Active Directory ile gerçek zamanlı uygulama izlemeyi yapılandırma](application-proxy-integrate-with-microsoft-cloud-application-security.md) |
    
-
-
 6. **Add (Ekle)** seçeneğini belirleyin.
 
 ## <a name="test-the-application"></a>Uygulamayı test etme
@@ -195,6 +196,7 @@ Ortamınızı hazırladığınız ve yüklü bir bağlayıcı göre şirket içi
 Test etmeye hazırsınız uygulaması doğru eklenir. Aşağıdaki adımlarda, uygulamaya bir kullanıcı hesabı eklemeniz ve oturum açmayı deneyin.
 
 ### <a name="add-a-user-for-testing"></a>Test etmek için kullanıcı ekleme
+
 Bir kullanıcı uygulamaya eklemeden önce kullanıcı hesabı kurumsal ağ içinde uygulamaya erişmek için izinlere zaten sahip olun.
 
 Bir test kullanıcısı eklemek için:
@@ -223,6 +225,7 @@ Oturum açma için uygulamayı test etmek için:
 Sorun giderme için bkz: [uygulama proxy'si sorunlarını giderme sorunlarını ve hata iletileri](application-proxy-troubleshoot.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bu öğreticide, şirket içi ortamınızı uygulaması Ara sunucusu ile çalışacak şekilde hazırlanmış yüklü ve kayıtlı uygulama Proxy Bağlayıcısı. Ardından, Azure AD kiracınızla bir uygulamayı eklendi. Bir kullanıcının uygulamayı bir Azure AD hesabı kullanarak oturum açabilir, doğrulandı.
 
 Şu işlemleri yaptınız:
@@ -237,8 +240,3 @@ Uygulama için çoklu oturum açma yapılandırmaya hazırsınız. Tek bir oturu
 
 > [!div class="nextstepaction"]
 >[Çoklu oturum açmayı yapılandırma](what-is-single-sign-on.md#choosing-a-single-sign-on-method)
-
-
-
-
-

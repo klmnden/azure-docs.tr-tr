@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: 31d3c404d22c9b8ad66c2d5d1adf34c38cc4a682
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 20e92317e748ebe19661a7c35d68829229b62378
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010863"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791384"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Başvuru - IOT Hub kotaları ve azaltma
 
@@ -42,8 +42,8 @@ Aşağıdaki tabloda zorlanan kısıtlamalar gösterilmektedir. Değerleri tek t
 | Bulut-cihaz alır<sup>1</sup> <br/> (yalnızca cihaz HTTPS kullandığında)| 16.67/sec/Unit (1000/dk/birim) | 16.67/sec/Unit (1000/dk/birim) | 833.33/sec/Unit (50000/dk/birim) |
 | Karşıya dosya yükleme | 1.67 dosya karşıya yükleme bildirimi/sn/birim (100/dk/birim) | 1.67 dosya karşıya yükleme bildirimi/sn/birim (100/dk/birim) | 83.33 dosya karşıya yükleme bildirimi/sn/birim (5000/dk/birim) |
 | Doğrudan yöntemler<sup>1</sup> | 160KB/sn/birim<sup>2</sup> | 480KB/sn/birim<sup>2</sup> | 24MB/sn/birim<sup>2</sup> | 
-| İkiz (cihaz ve modül) okuma<sup>1</sup> | 10/sn | Daha yüksek 10/sn veya 1/sn/birim | 50/sn/birim |
-| İkiz Güncelleştirmesi (cihaz ve modül)<sup>1</sup> | 10/sn | Daha yüksek 10/sn veya 1/sn/birim | 50/sn/birim |
+| İkiz (cihaz ve modül) okuma<sup>1</sup> | 100/sn | Daha yüksek 100/sn veya 10/sn/birim | 500/sn/birim |
+| İkiz Güncelleştirmesi (cihaz ve modül)<sup>1</sup> | 50/sn | Daha yüksek 50/sn veya 5/sn/birim | 250/sn/birim |
 | İşler işlemleri<sup>1,3</sup> <br/> (oluşturma, güncelleştirme, listeleme, silme) | 1.67/sec/Unit (100/dk/birim) | 1.67/sec/Unit (100/dk/birim) | 83.33/sec/Unit (5000/dk/birim) |
 | Cihaz işlemleri işleri<sup>1</sup> <br/> (ikiz güncelleştirmesi, doğrudan yöntem çağırma) | 10/sn | Daha yüksek 10/sn veya 1/sn/birim | 50/sn/birim |
 | Yapılandırmalar ve edge dağıtımlarını<sup>1</sup> <br/> (oluşturma, güncelleştirme, listeleme, silme) | 0.33/sec/Unit (20/dk/birim) | 0.33/sec/Unit (20/dk/birim) | 0.33/sec/Unit (20/dk/birim) |
@@ -52,7 +52,7 @@ Aşağıdaki tabloda zorlanan kısıtlamalar gösterilmektedir. Değerleri tek t
 | En fazla cihaz akış veri aktarımı<sup>4</sup> (toplam günlük birim) | 300 MB | 300 MB | 300 MB |
 
 
-<sup>1</sup>bu özellik, IOT Hub'ın temel katmanda kullanılabilir değil. Daha fazla bilgi için [doğru IOT hub'a seçme](iot-hub-scaling.md). <br/><sup>2</sup>8 KB'lık olan ölçüm boyutunu azaltma. <br/><sup>3</sup>aynı anda yalnızca bir etkin cihaz içeri/dışarı aktarma işi olabilir. <br/><sup>4</sup>IOT Hub cihaz akışlarıdır yalnızca S1, S2, S3 ve F1 SKU'ları için kullanılabilir.
+<sup>1</sup>bu özellik, IOT Hub'ın temel katmanda kullanılabilir değil. Daha fazla bilgi için [doğru IOT hub'a seçme](iot-hub-scaling.md). <br/><sup>2</sup>4 KB olan ölçüm boyutunu azaltma. <br/><sup>3</sup>aynı anda yalnızca bir etkin cihaz içeri/dışarı aktarma işi olabilir. <br/><sup>4</sup>IOT Hub cihaz akışlarıdır yalnızca S1, S2, S3 ve F1 SKU'ları için kullanılabilir.
 
 *Cihaz bağlantılarını* kısıtlama oranı, yeni cihaz bağlantılarını kurulabileceği ile IOT hub'ı yönetir. *Cihaz bağlantılarını* azaltma, en fazla eşzamanlı olarak bağlanan cihaz sayısını belirleyen değil. *Cihaz bağlantılarını* hızı azaltma, IOT hub için sağlanan birim sayısını bağlıdır.
 

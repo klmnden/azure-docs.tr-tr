@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 03/12/2019
 ms.author: celested
-ms.reviewer: asteen
+ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7df7469a6975fa5e84b43487b524ca888718d7d2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5f9c4f2c618851b596cd8f2dfa1fd45820a05049
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162331"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791690"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Uygulama proxy'si uygulaması için çoklu oturum açma yapılandırma
 
@@ -43,6 +43,8 @@ SSO yapılandırmak için ilk uygulamanızı Azure Active Directory üzerinden �
 
 -   **Üst bilgi tabanlı oturum açma**: Üst bilgi tabanlı oturum açma bir iş ortaklığı etkinleştirilir ve bazı ek yapılandırma gerektirir. Üst bilgileri için kimlik doğrulaması kullanan bir uygulama için çoklu oturum açma yapılandırmaya yönelik adım adım yönergeler ve iş ortaklığı hakkında daha fazla bilgi için bkz: [belgeleri Azure AD için PingAccess](application-proxy-configure-single-sign-on-with-ping-access.md).
 
+-   **SAML çoklu oturum açma**: SAML çoklu oturum açma ile Azure AD kullanıcının Azure AD hesabı kullanarak uygulamaya kimliğini doğrular. Azure AD oturum açma bilgileri uygulamaya bir bağlantı protokolü üzerinden iletişim kurar. SAML tabanlı çoklu oturum açma ile kullanıcılar, SAML Taleplerde tanımladığınız kurallarına göre belirli uygulama rolleri eşleyebilirsiniz. SAML çoklu oturum açmayı ayarlama hakkında daha fazla bilgi için bkz: [uygulama proxy'si ile çoklu oturum açma için SAML](application-proxy-configure-single-sign-on-on-premises-apps.md).
+
 Bu seçeneklerin her biri "Kurumsal uygulamalar" uygulamanızda giderek ve ardından açarak bulunabilir **çoklu oturum açma** sol menüde sayfası. Uygulamanız eski portalda oluşturulmuş olsa bile, tüm bu seçenekler göremeyebilirsiniz unutmayın.
 
 Bu sayfada, ayrıca bir gördüğünüz ek oturum açma seçeneği: Bağlantılı oturum açma. Bu seçenek, uygulama proxy'si tarafından da desteklenir. Ancak, bu seçeneği çoklu oturum açma uygulamaya eklemez. Bu uygulamanın tek Active Directory Federasyon Hizmetleri gibi başka bir hizmet kullanılarak uygulanan oturum zaten olabilir belirtti. 
@@ -50,4 +52,7 @@ Bu sayfada, ayrıca bir gördüğünüz ek oturum açma seçeneği: Bağlantıl�
 Bu seçenek, bir uygulamaya bir bağlantı, kullanıcıların ilk land uygulamaya erişirken oluşturmak için bir yönetici sağlar. Active Directory Federasyon Hizmetleri 2.0 kullanan kullanıcıların kimliğini doğrulamak üzere yapılandırılmış bir uygulama ise, örneğin, bir yönetici "bağlantılı oturum açma" seçeneği erişim panelinde bir bağlantı oluşturmak için kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Uygulama Ara sunucusu ile uygulamalarınıza çoklu oturum açma sağlayın](application-proxy-configure-single-sign-on-with-kcd.md)
+- [Uygulama proxy'si ile çoklu oturum açma için vaulting parola](application-proxy-configure-single-sign-on-password-vaulting.md)
+- [Kerberos kısıtlanmış temsil için çoklu oturum açma uygulama ara sunucusu ile](application-proxy-configure-single-sign-on-with-kcd.md)
+- [Üst bilgi tabanlı kimlik doğrulaması için uygulama proxy'si ile çoklu oturum açma](application-proxy-configure-single-sign-on-with-ping-access.md) 
+- [Uygulama proxy'si ile çoklu oturum açma için SAML](application-proxy-configure-single-sign-on-on-premises-apps.md).

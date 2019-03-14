@@ -2,7 +2,7 @@
 title: Geçiş etkinliğini izlemek için Azure veritabanı geçiş hizmeti kullanın. | Microsoft Docs
 description: Geçiş etkinliğini izlemek için Azure veritabanı geçiş hizmeti kullanmayı öğrenin.
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/14/2018
-ms.openlocfilehash: a7fc48c149d488ab7860513b617b8a5806b1feb6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/12/2019
+ms.openlocfilehash: 44fbbcf42635288be055feddde1d9df2a1c67541
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721164"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790789"
 ---
 # <a name="monitor-migration-activity"></a>Geçiş etkinliğini izleme
 Bu makalede, bir veritabanı ve tablo düzeyindeki hem bir geçiş işleminin ilerleme durumunu izlemek nasıl öğrenin.

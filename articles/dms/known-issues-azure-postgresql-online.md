@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/22/2018
-ms.openlocfilehash: 363a4bd4be5e175aad346486b56c4f6efd877143
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/12/2019
+ms.openlocfilehash: 5cca15e609a723870be7a564bf61fcd0d88e5706
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340533"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790552"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>PostgreSQL için Azure DB online geçişleri ile bilinen sorunları/geçiş sınırlamaları
 

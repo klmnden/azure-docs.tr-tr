@@ -2,7 +2,7 @@
 title: Veri geçiş hizmeti ve araçları matris - Azure | Microsoft Docs
 description: Veritabanlarını geçirmek ve çeşitli aşamaları geçiş işlemini desteklemek için kullanılabilen araçları ve Hizmetleri hakkında bilgi edinin.
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/13/2018
-ms.openlocfilehash: 9887860470632c37a586cb3029e2ef7d455a3a9c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/12/2019
+ms.openlocfilehash: f62c3105674f741702c35e50ce4afe436f67918d
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713294"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792098"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Hizmetleri ve veri geçişi senaryoları için kullanılabilen Araçlar
 
@@ -43,7 +43,7 @@ Aşağıdaki tablolarda, hizmet ve veri geçişi için başarıyla planlamak ve 
 | Cassandra | Cosmos DB |  |  |  |
 | MySQL | Azure SQL DB, mı, VM | [Azure Geçişi](https://azure.microsoft.com/services/azure-migrate/) | [Bulut Atlas *](https://www.unifycloud.com/cloud-migration-tool/) | [TCO hesaplayıcı](https://azure.microsoft.com/pricing/tco/calculator/) |
 | MySQL | MySQL için Azure DB | [Azure Geçişi](https://azure.microsoft.com/services/azure-migrate/) |  | [TCO hesaplayıcı](https://azure.microsoft.com/pricing/tco/calculator/) |
-| RDS Mysql'i | MySQL için Azure DB |  |  | [TCO hesaplayıcı](https://azure.microsoft.com/pricing/tco/calculator/) |
+| RDS MySQL | MySQL için Azure DB |  |  | [TCO hesaplayıcı](https://azure.microsoft.com/pricing/tco/calculator/) |
 | PostgreSQL | PostgreSQL için Azure DB | [Azure Geçişi](https://azure.microsoft.com/services/azure-migrate/) |  | [TCO hesaplayıcı](https://azure.microsoft.com/pricing/tco/calculator/) |
 | RDS PostgreSQL | PostgreSQL için Azure DB |  |  | [TCO hesaplayıcı](https://azure.microsoft.com/pricing/tco/calculator/) |
 | DB2 | Azure SQL DB, mı, VM |  |  |  |
@@ -67,7 +67,7 @@ Aşağıdaki tablolarda, hizmet ve veri geçişi için başarıyla planlamak ve 
 | Cassandra | Cosmos DB |  |  |  |
 | MySQL | Azure SQL DB, mı, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Bulut Atlas *](https://www.unifycloud.com/cloud-migration-tool/) |  |
 | MySQL | MySQL için Azure DB |  |  |  |
-| RDS Mysql'i | MySQL için Azure DB |  |  |  |
+| RDS MySQL | MySQL için Azure DB |  |  |  |
 | PostgreSQL | PostgreSQL için Azure DB |  |  |  |
 | RDS PostgreSQL | PostgreSQL için Azure DB |  |  |  |
 | DB2 | Azure SQL DB, mı, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
@@ -77,7 +77,7 @@ Aşağıdaki tablolarda, hizmet ve veri geçişi için başarıyla planlamak ve 
 
 ## <a name="migration-phase"></a>Geçiş aşaması
 
-| **Kaynak** | **Hedef** | **Şema** | **Veriler**<br/>**(Çevrimdışı)** | **Veriler**<br/>**(Çevrimiçi)** |
+| **Kaynak** | **Hedef** | **Şema** | **Veriler**<br/>**(Çevrimdışı)** | **Veriler**<br/>**(Online)** |
 | --- | --- | --- | --- | --- |
 | SQL Server | Azure SQL DB | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloudamize *](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize *](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize *](https://www.cloudamize.com/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striim *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | SQL Server | Azure SQL DB mı | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize *](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize *](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize *](https://www.cloudamize.com/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striim *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
@@ -91,7 +91,7 @@ Aşağıdaki tablolarda, hizmet ve veri geçişi için başarıyla planlamak ve 
 | Cassandra | Cosmos DB | [Imanis veri *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [Imanis veri *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) | [Imanis veri *](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) |
 | MySQL | Azure SQL DB, mı, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striim *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | MySQL | MySQL için Azure DB | [MySQL döküm *](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striim *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
-| RDS Mysql'i | MySQL için Azure DB | [MySQL döküm *](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striim *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| RDS MySQL | MySQL için Azure DB | [MySQL döküm *](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striim *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | PostgreSQL | PostgreSQL için Azure DB | [PG döküm *](https://www.postgresql.org/docs/11/static/app-pgdump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striim *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | RDS PostgreSQL | PostgreSQL için Azure DB | [PG döküm *](https://www.postgresql.org/docs/11/static/app-pgdump.html) | [DMS](https://azure.microsoft.com/services/database-migration/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striim *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | DB2 | Azure SQL DB, mı, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity *](https://www.attunity.com/products/replicate/)<br/>[Striim *](https://www.striim.com/partners/striim-for-microsoft-azure/) |
@@ -115,7 +115,7 @@ Aşağıdaki tablolarda, hizmet ve veri geçişi için başarıyla planlamak ve 
 | Cassandra | Cosmos DB |  |
 | MySQL | Azure SQL DB, mı, VM |  |
 | MySQL | MySQL için Azure DB |  |
-| RDS Mysql'i | MySQL için Azure DB |  |
+| RDS MySQL | MySQL için Azure DB |  |
 | PostgreSQL | PostgreSQL için Azure DB |  |
 | RDS PostgreSQL | PostgreSQL için Azure DB |  |
 | DB2 | Azure SQL DB, mı, VM |  |

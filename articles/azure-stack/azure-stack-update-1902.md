@@ -16,12 +16,12 @@ ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 9bad9b6fb285c27264c8c0567aebd4d4f2850582
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 66dfdf3a88a4bacdc118fed00d79f02b22da7869
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731356"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792472"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 güncelleştirme
 
@@ -73,9 +73,34 @@ Azure Stack düzeltmeleri yalnızca Azure Stack tümleşik sistemleri için geç
 
 <!-- ## Fixed issues -->
 
-## <a name="changes"></a>Değişiklikler
+## <a name="improvements"></a>Geliştirmeleri
 
 - 1902 derleme planlar, teklifler, kotalar ve eklenti planı oluşturmak için Azure Stack Yönetici portalında yeni bir kullanıcı arabirimi sunar. Ekran görüntüleri de dahil daha fazla bilgi için bkz. [planlar, teklifler ve kotalar oluşturma](azure-stack-create-plan.md).
+
+<!--
+1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
+1399240 3322580: [PNU] Optimize the DSC resource execution on the Host  PNU
+1398846 Bug 3751038: ECEClient.psm1 should provide cmdlet to resume action plan instance    PNU
+1398818 3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context   PNU
+1381018 [1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists   PNU
+-->
+- Paket bütünlüğü ve güvenlik yanı sıra, daha kolay yönetim için çevrimdışı alımı geliştirmek için Microsoft güncelleştirme paketinin .exe ve .bin dosyalarından bir .zip dosyası olarak değişti. Yeni biçime ek güvenilirliğini zamanlarda, güncelleştirme hazırlığı kabin neden olabilecek unpacking işlem ekler. Aynı paket biçimi OEM paketlerden güncelleştirmek için de geçerlidir.
+- Test AzureStack çalıştırırken Azure Stack operatör deneyimini iyileştirmek için işleçleri artık yalnızca kullanabilirsiniz, "Test-AzureStack-Grup UpdateReadiness" aksine, bir dahil etme deyiminden sonra on ek parametre geçirme.
+
+  ```powershell
+    Test-AzureStack -Group UpdateReadiness  
+  ```  
+  
+- Güncelleştirme işlemi sırasında genel güvenilirlik ve çekirdek altyapı hizmetleri kullanılabilirliğini artırmak için güncelleştirme eylemi planının parçası olarak yerel güncelleştirme kaynak sağlayıcısı algılar ve otomatik genel düzeltmeler gerektiğinde çağırır. Genel düzeltme "onarım" iş akışları içerir:
+    - Altyapı sanal makineleri için uygun olmayan bir durumda olan ve gerektiğinde bunları onarmayı dener denetleniyor 
+    - SQL hizmet sorunları için Denetim planının bir parçası denetleyin ve gerektiğinde bunları onarmaya çalışır
+    - Yazılım yük dengeleyici (SLB) hizmetinin durumunu, Ağ denetleyicisi (NC) bir parçası olarak denetleyin ve gerektiğinde bunları onarmaya çalışır
+    - Ağ denetleyicisi (NC) hizmet durumunu denetleyin ve gerektiğinde onarmaya çalışır
+    - Acil Durum Kurtarma Konsolu hizmeti (ERCS) service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın
+    - XRP service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın
+    - Azure tutarlı depolama (ACS) service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın
+
+
 
 ## <a name="common-vulnerabilities-and-exposures"></a>Yaygın güvenlik açıklarına ve exposures'ı
 

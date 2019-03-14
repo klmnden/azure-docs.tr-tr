@@ -2,7 +2,7 @@
 title: Ağ Topolojileri için Azure veritabanı geçiş hizmetini kullanarak Azure SQL veritabanı yönetilen örneği geçişleri | Microsoft Docs
 description: Veritabanı geçiş hizmeti için kaynak ve hedef yapılandırmalar hakkında bilgi edinin.
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: bc54b3dbcdb304b18f916e5fbd4866ff54d1bfa2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/12/2019
+ms.openlocfilehash: 82c91515ac3fae65623e3750471fec46b5d4bf5b
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713205"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790688"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>İçin Azure veritabanı geçiş hizmetini kullanarak Azure SQL DB yönetilen örneği geçişlerinin ağ topolojileri
 Bu makalede, kapsamlı bir geçiş deneyimi için Azure SQL veritabanı yönetilen örneği şirket içi SQL Server'lardaki sağlamak için Azure veritabanı geçiş hizmeti çalışabilirsiniz çeşitli ağ topolojileri açıklanır.

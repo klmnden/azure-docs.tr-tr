@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: celested
-ms.reviewer: arvindh
+ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 186bc220778ed669672bfbc689dad6471195f4ce
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 84f1b7c9461d2eba5e13be8b15b2cbcc62715c23
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448569"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792047"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için çoklu oturum açma
 Kullanıcılar uygulamalara, Azure Active Directory'de (Azure AD) oturum çoklu oturum açma (SSO) güvenlik ve kolaylık ekler. Bu makalede tek oturum açma yöntemleri açıklar ve uygulamalarınızı yapılandırırken en uygun SSO yöntemi seçmenize yardımcı olur.
@@ -35,14 +35,14 @@ Bir uygulama için çoklu oturum açmayı yapılandırmak için birkaç yolu var
 
 Bu akış, hangi çoklu oturum açma yöntemi, sizin durumunuz için en iyi olduğuna karar vermenize yardımcı olur. 
 
-![Çoklu oturum açma yöntemi seçin](./media/what-is-single-sign-on/choose-single-sign-on-method.png)
+![Çoklu oturum açma yöntemi seçin](./media/what-is-single-sign-on/choose-single-sign-on-method-updated.png)
 
 Aşağıdaki tabloda, tek oturum açma yöntemleri özetler ve daha fazla ayrıntı için bağlantılar. 
 
 | Çoklu oturum açma yöntemi | Uygulama türleri | Kullanılması gereken durumlar |
 | :------ | :------- | :----- |
 | [Openıd Connect ve OAuth](#openid-connect-and-oauth) | Yalnızca bulut | Openıd Connect ve OAuth yeni bir uygulama geliştirirken kullanın. Bu protokol, uygulama yapılandırmasını basitleştiren, kullanımı kolay SDK'lar sahip ve MS Graph kullanmak için uygulamanızı sağlar.
-| [SAML](#saml-sso) | Yalnızca bulut | Mümkün olduğunda, Openıd Connect veya OAuth kullanan değil mevcut uygulamalar için SAML seçin. SAML SAML protokollerden birini kullanarak kimlik doğrulaması uygulamaları için çalışır.|
+| [SAML](#saml-sso) | Bulut ve şirket içi | Mümkün olduğunda, Openıd Connect veya OAuth kullanan değil mevcut uygulamalar için SAML seçin. SAML SAML protokollerden birini kullanarak kimlik doğrulaması uygulamaları için çalışır.|
 | [Parola tabanlı](#password-based-sso) | Bulut ve şirket içi | Uygulama, kullanıcı adı ve parola ile kimlik doğrulamasını gerçekleştirdiğinde parola tabanlı seçin. Parola tabanlı çoklu oturum açma güvenli uygulama parola depolama ve bir web tarayıcısı uzantısı veya mobil uygulama kullanarak yeniden yürütme sağlar. Bu yöntem, uygulama tarafından sağlanan mevcut oturum açma işlemi kullanır, ancak yönetici parolaları yönetmek etkinleştirir. |
 | [Bağlı](#linked-sso) | Bulut ve şirket içi | Uygulama için çoklu oturum açmayı başka bir kimlik sağlayıcı hizmetine de yapılandırıldığında bağlı çoklu oturum açma seçin. Bu seçenek varsayılan olarak, uygulamayı çoklu oturum açma eklemez. Ancak, uygulamanın tek Active Directory Federasyon Hizmetleri gibi başka bir hizmet kullanılarak uygulanan oturum zaten olabilir.|
 | [Devre dışı](#disabled-sso) | Bulut ve şirket içi | Uygulama için çoklu oturum açmayı yapılandırılmaya hazır değilken, devre dışı çoklu oturum açma seçin. Kullanıcıların, bunlar bu uygulamayı başlatmak her seferinde kullanıcı adı ve parola girmeniz gerekir.|

@@ -1,19 +1,19 @@
 ---
 title: Bash Azure Cloud shell'de Ansible çalıştırma
 description: Azure Cloud Shell'de Bash ile çeşitli Ansible görevleri gerçekleştirme hakkında bilgi edinin
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/07/2018
 ms.topic: quickstart
-ms.openlocfilehash: 61b23b5bc2620c82051b0ba1de4bb54b44a495e0
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 37426f1cdc51734c28b2c9739e26ad35f08e606f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359196"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791401"
 ---
 # <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Bash Azure Cloud shell'de Ansible çalıştırma
 

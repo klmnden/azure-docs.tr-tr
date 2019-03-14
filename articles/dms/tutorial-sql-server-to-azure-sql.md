@@ -2,7 +2,7 @@
 title: "Öğretici: SQL Server'dan Azure SQL veritabanı'nda bir tek ve havuza veritabanı çevrimdışı geçirmek için Azure veritabanı geçiş hizmeti kullanın. | Microsoft Docs"
 description: Azure veritabanı geçiş Hizmeti'ni kullanarak tek veritabanı veya havuza alınmış Azure SQL veritabanını çevrimdışına veritabanında SQL Server şirket içinden geçirmeyi öğrenin.
 services: dms
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/28/2019
-ms.openlocfilehash: 24f4ac5851746e64ea910853f24db5a3ffa95574
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.date: 03/12/2019
+ms.openlocfilehash: ada8fa1702e93b98fa3c167cb0fd75810bfe294b
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991313"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792268"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>Öğretici: Tek veritabanı veya havuza alınmış veritabanını Azure SQL veritabanı'nda SQL Server'ı geçirme DMS kullanarak çevrimdışı
 

@@ -1,19 +1,19 @@
 ---
 title: Ansible kullanarak Azure’da Linux sanal makine yönetme
 description: Ansible kullanarak Azure’da Linux sanal makine yönetmeyi öğrenin
-ms.service: ansible
+ms.service: virtual-machines-linux
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.openlocfilehash: ef19043465cb67401786cddec4972f67231995bb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8f97cf8a4231e9a2144f27c0540de96574e13795
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077819"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789886"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Ansible kullanarak Azure’da Linux sanal makine yönetme
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Ansible'ı kullanarak Azure sanal makinelerinizi diğer kaynaklar gibi yönetebilirsiniz. Bu makalede bir Ansible playbook'unu kullanarak Linux sanal makinesini başlatma ve durdurma adımları gösterilmektedir. 

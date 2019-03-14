@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed8a07a5578174bec758587fbdbc0710ffae9dc1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e9212493d574762bed3f2204716bd0c81686e93e
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171766"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791300"
 ---
 # <a name="azure-active-directory-code-samples-v20-endpoint"></a>Azure Active Directory kod örnekleri (v2.0 uç noktası)
 
@@ -63,7 +63,7 @@ Aşağıdaki örnekleri kullanıcılarının oturumunu, web uygulamaları göste
 
  Platform | Yalnızca kullanıcılar oturum açtığında | Kullanıcılar oturum açtığında ve Microsoft Graph çağırır
  -------- | ------------------- | ---------------------------------
-![ASP.NET Çekirdeği](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.1 | [aspnetcore-webapp-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) | Aynı örnek [aspnetcore2 2 signInAndCallGraph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/aspnetcore2-2-signInAndCallGraph) dal
+![ASP.NET Çekirdeği](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.1 | [ASP.NET Core WebApp kullanıcılar oturum açtığında Öğreticisi](https://aka.ms/aspnetcore-webapp-sign-in) | Aynı örnek [ASP.NET Core Web uygulaması, Microsoft Graph çağırır](https://aka.ms/aspnetcore-webapp-call-msgraph) aşaması
 ![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET hızlı başlangıç](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [DotNet-admin-kısıtlı-kapsamları-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p>[msgraph eğitim aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 ![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [Node.js hızlı başlangıç](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
 ![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph eğitim rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp)

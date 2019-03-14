@@ -2,7 +2,7 @@
 title: "Öğretici: MongoDB için API için Azure Cosmos DB'nin MongoDB çevrimiçi geçirmek için Azure veritabanı geçiş hizmeti kullanın | Microsoft Docs"
 description: MongoDB şirket içinden Azure Cosmos DB API için çevrimiçi MongoDB için Azure veritabanı geçiş hizmeti kullanarak geçirmeyi öğrenin.
 services: dms
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/28/2019
-ms.openlocfilehash: 85455020099ee738425fde9c03df152669f73863
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.date: 03/12/2019
+ms.openlocfilehash: 8bcd51a771b9f0389bb44f916e3ef900cc6aad71
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992507"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792200"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>Öğretici: MongoDB için Azure Cosmos DB API için MongoDB geçişi çevrimiçi DMS (Önizleme) kullanma
 MongoDB için API Azure Cosmos DB'nin MongoDB örneğini Bulut veya bir şirket içi veritabanları bir çevrimiçi (en düşük kapalı kalma süresi) geçişi gerçekleştirmek için Azure veritabanı geçiş hizmetini kullanabilirsiniz.

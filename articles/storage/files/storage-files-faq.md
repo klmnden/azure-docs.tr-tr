@@ -7,12 +7,13 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: f53df953d0a879d029a1cae3819a0e3154bd8f75
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.topic: conceptual
+ms.openlocfilehash: 7305fbf21557061250a80e095998ad7ea2f35510
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213866"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792523"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilen bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlarda eşzamanlı olarak bağlayabilir. Ayrıca verilerin kullanıldığı yakın, hızlı erişim için Azure dosya eşitleme'ı kullanarak Azure dosya paylaşımları Windows Server makinelerinde önbelleğe alabilir.

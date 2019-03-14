@@ -2,7 +2,7 @@
 title: Veritabanı geçiş senaryosu durumunu | Microsoft Docs
 description: Azure veritabanı geçiş hizmeti tarafından desteklenen geçiş senaryoları durumu hakkında bilgi edinin.
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 02/11/2019
-ms.openlocfilehash: 39a7f7ce6660016f00e36c5f6619eba2fa461023
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/12/2019
+ms.openlocfilehash: fea50b896c769587b21b8a4e2ce8c585d7aee8c4
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993172"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791571"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti tarafından desteklenen geçiş senaryoları durumu
 Azure veritabanı geçiş hizmeti çeşitli geçiş senaryoları (kaynak/hedef çiftleri) için hem de çevrimdışı destekleyecek şekilde tasarlanmıştır (tek seferlik) ve çevrimiçi (sürekli eşitleme) geçişi. Azure veritabanı geçiş hizmeti tarafından sağlanan senaryo kapsamı zamanla genişletilir. Yeni senaryolar düzenli olarak eklenmektedir. Bu makalede, Azure veritabanı geçiş hizmeti ve durum tarafından şu anda desteklenen geçiş senaryoları tanımlar (özel [ya da sınırlı] Önizleme, genel Önizleme veya genel kullanıma sunuldu) veya her bir senaryo.

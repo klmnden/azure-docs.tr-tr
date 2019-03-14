@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 1eebc879ad56ba4f35e6a8a1b857ae877a6a2f01
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: af2225d749283c7124f89d5a7cd735b2f6bfd121
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726269"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792625"
 ---
 # <a name="mapping-data-flow-union-transformation"></a>Veri akışı birleşim dönüştürme eşlemesi
 
@@ -20,7 +20,7 @@ ms.locfileid: "57726269"
 
 UNION, tek SQL birleşim bu akışları birleşim dönüşümü yeni çıktısı olarak ile birden çok veri akışı birleştirecek. Tüm şema her giriş akışından bir birleştirme anahtarı gerek kalmadan, veri akışı içinde birleştirilebilir.
 
-N-akış ayarları tablo sayısını, yapılandırılmış her satırın yanındaki "+" simgesini seçerek birleştirebilirsiniz.
+Hem kaynak verileri, hem de mevcut dönüşümleri akışlar, veri akışı dahil olmak üzere yapılandırılmış her satırın yanındaki "+" simgesini seçerek, n-akış ayarları tablo sayısını birleştirebilirsiniz.
 
 ![Birleşim dönüştürme](media/data-flow/union.png "birleşim")
 
@@ -35,3 +35,15 @@ Bunu başarmak için eklemek istediğiniz tüm kaynak dahil ederek birleşim aya
 Sonra birleşim Select dönüştürme ayarlarsanız, çakışan alanlarını veya headerless kaynaklardan adlı olmayan alanları yeniden adlandırma mümkün olacaktır. Bu örnekte üç farklı kaynaklardan 132 toplam sütunlarla birleştirme meta verileri görmek için "inceleyin" tıklayın:
 
 ![Birleşim dönüştürme son](media/data-flow/union333.png "birleşim 3")
+
+## <a name="name-and-position"></a>Ad ve konum
+
+"Birleşim adıyla" seçtiğinizde, her bir sütun değerine karşılık gelen sütunun yeni bir birleştirilmiş meta veri şema ile her bir kaynaktan gelen içine kaldıracağız.
+
+"Konumu birleşimiyle" seçeneğini belirlerseniz, her bir sütun değerine her kaynaktan gelen verileri aynı akışa burada eklenen yeni birleştirilmiş veri akışını sonuçta her karşılık gelen bir kaynaktan gelen özgün konuma kaldıracağız:
+
+![Birleşim çıkış](media/data-flow/unionoutput.png "birleşim çıkış")
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Benzer dönüştürmeler de dahil olmak üzere keşfedin [katılın](data-flow-join.md) ve [EXISTS](data-flow-exists.md).

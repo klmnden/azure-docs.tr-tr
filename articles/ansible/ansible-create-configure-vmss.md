@@ -1,19 +1,19 @@
 ---
 title: Ansible kullanarak Azure'da sanal makine ölçek kümesi oluşturma
 description: Ansible kullanarak Azure’da sanal makine ölçek kümesi oluşturmayı ve yapılandırmayı öğrenin
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, sanal makine, sanal makine ölçek kümesi, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: 920a631ed379651751641c22e4b43f6731197377
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1b2949aef14b3c8550cef90a18641a3df7d8cd41
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054167"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791707"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible kullanarak Azure'da sanal makine ölçek kümesi oluşturma
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Azure'da sanal makine ölçek kümenizi (VMSS) yönetmek için, tıpkı diğer Azure kaynaklarını yönettiğiniz gibi Ansible kullanabilirsiniz. Bu makalede Ansible'ın sanal makine ölçek kümesi oluşturmak ve ölçeklendirmek için nasıl kullanıldığı gösterilmektedir. 

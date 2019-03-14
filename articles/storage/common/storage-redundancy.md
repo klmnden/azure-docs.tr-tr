@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: cbe8970e3e7b924025a93b50f9b8c9e46643b349
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 347ae6dbdbab866b6d82d64bec4e668689078429
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872055"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791248"
 ---
 # <a name="azure-storage-redundancy"></a>Azure depolama yedekliliği
 
@@ -51,7 +51,7 @@ Azure depolama hakkında bilgi için dayanıklılık ve kullanılabilirlik garan
 > Premium depolama yalnızca yerel olarak yedekli depolama (LRS) destekler.
 
 ## <a name="changing-replication-strategy"></a>Çoğaltma stratejisi değiştirme
-Biz kullanarak depolama hesabınızın çoğaltma stratejinizi değiştirmenize izin [Azure portalında](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), veya çok [ Azure istemci kütüphaneleri](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Depolama hesabınızın çoğaltma türünü değiştirme, süresini sonuçlanmaz.
+Kullanarak, depolama hesabınızın çoğaltma stratejinizi değiştirebilirsiniz [Azure portalında](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), veya biri [Azure istemcisi kitaplıkları](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Depolama hesabınızın çoğaltma türünü değiştirme, süresini sonuçlanmaz.
 
    > [!NOTE]
    > Şu anda ZRS için hesabınızı dönüştürün için portalı veya API kullanamazsınız. Hesabınızın çoğaltma için ZRS dönüştürmek istiyorsanız, bkz. [bölgesel olarak yedekli depolama (ZRS)](storage-redundancy-zrs.md) Ayrıntılar için.
@@ -59,7 +59,9 @@ Biz kullanarak depolama hesabınızın çoğaltma stratejinizi değiştirmenize 
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>Hesabımın çoğaltma stratejinizi değiştirme maliyetlerin var mı?
 Bu dönüştürme path değişkeninize bağlıdır. Ucuz en pahalı yedeklilik teklife sıralama LRS, ZRS, GRS ve RA-GRS sahibiz. Örneğin, *gelen* şeye LRS belirlenen ek ücretleri ödemesi daha karmaşık bir yedeklilik düzeyini devam ediyor. Giden *için* GRS veya RA-GRS bir çıkış bant genişliği ücret doğurur çünkü verilerinizi (bölgenizde birincil), uzak ikincil bölgeye çoğaltılır. Bu tek seferlik bir ücret ilk kurulum sırasında dir. Veri kopyalandıktan sonra daha fazla dönüştürme ücretlendirme yoktur. Tüm yeni çoğaltmak için yalnızca ücretlendirilirsiniz veya mevcut verileri güncelleştirme. Bant genişliği ücretlerine ilişkin daha fazla ayrıntı için bkz. [Azure depolama fiyatlandırması sayfası](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-LRS için GRS değiştirirseniz, hiçbir ek ücret yoktur, ancak ikincil konumdan, çoğaltılan veriler silinir.
+LRS için GRS depolama hesabınızı dönüştürün, hiçbir ek ücret yoktur, ancak ikincil konumdan, çoğaltılan veriler silinir.
+
+GRS veya LRS için RA-GRS depolama hesabınızın dönüştürürseniz, bu hesabı ek 30 gün boyunca dönüştürülüp dönüştürülmediğini tarih ötesinde RA-GRS faturalandırılır.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

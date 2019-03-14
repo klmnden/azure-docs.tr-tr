@@ -2,7 +2,7 @@
 title: 'Öğretici: Bir Azure SQL veritabanı veya bir Azure SQL veritabanı yönetilen örneği SQL Server RDS çevrimiçi geçişi gerçekleştirmek için Azure veritabanı geçiş hizmeti kullanın | Microsoft Docs'
 description: Bir çevrimiçi geçiş RDS SQL Server'dan Azure SQL veritabanı veya bir Azure SQL veritabanı yönetilen örneği için Azure veritabanı geçiş hizmeti kullanarak gerçekleştirmek öğrenin.
 services: dms
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/01/2019
-ms.openlocfilehash: 5691c10236b4aa3687551fe084ec5fefd9a3aeaa
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.date: 03/12/2019
+ms.openlocfilehash: 95ce91edcd1273f0fdf7c1e710d19d717eb34e80
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193390"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792166"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Öğretici: RDS SQL Server'ı Azure SQL veritabanı'na geçirme veya Azure SQL veritabanı yönetilen örneği çevrimiçi DMS kullanarak
 RDS SQL Server örneğine veritabanlarını geçirmek için Azure veritabanı geçiş hizmetini kullanabilirsiniz [Azure SQL veritabanı](https://docs.microsoft.com/azure/sql-database/) veya [Azure SQL veritabanı yönetilen örneği](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) en düşük kapalı kalma süresi. Bu öğreticide, geçiş **Adventureworks2012** geri yüklenen veritabanı bir RDS SQL Server örneği SQL Server 2012'in (veya üzeri) Azure SQL veritabanı veya Azure SQL veritabanı için Azure veritabanı geçişi kullanarak yönetilen örnek Hizmeti.

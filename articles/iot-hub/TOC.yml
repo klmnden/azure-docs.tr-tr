@@ -274,19 +274,14 @@ items:
         href: iot-hub-configure-file-upload-powershell.md
       - name: Azure CLI kullanma
         href: iot-hub-configure-file-upload-cli.md
-    - name: Tanılama ile izleme
+    - name: Azure İzleyicisi'nde ölçümler
+      href: iot-hub-metrics.md
+    - name: Tanılama günlükleri ayarlama
       href: iot-hub-monitor-resource-health.md
-      items:
-      - name: Tanılama ayarlarına geçirme
-        href: iot-hub-migrate-to-diagnostics-settings.md
-      - name: İşlemleri izleme
-        href: iot-hub-operations-monitoring.md
     - name: X.509 sertifikası ile merkezinizi güvenli hale getirme
       href: iot-hub-security-x509-get-started.md
     - name: IoT hub’ı yükseltme
       href: iot-hub-upgrade.md
-    - name: Ölçümleri kullanma
-      href: iot-hub-metrics.md
     - name: İleti izlemeyi etkinleştirme
       href: iot-hub-distributed-tracing.md
     - name: IP filtrelemeyi yapılandırma
@@ -378,6 +373,12 @@ items:
     href: https://docs.microsoft.com/rest/api/iothub/certificates
   - name: Resource Manager şablonu
     href: /azure/templates/microsoft.devices/iothub-allversions
+  - name: Özellik ve API’yi kullanımdan kaldırma
+    items:
+    - name: İşlemleri izleme
+      href: iot-hub-operations-monitoring.md
+    - name: Tanılama ayarlarına geçirme
+      href: iot-hub-migrate-to-diagnostics-settings.md
 - name: İlgili
   items:
   - name: Çözümler
@@ -444,9 +445,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: cdeb8f013ee8a0dff212d5fc9facc199ed81828e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3bde9a6b9abcb5b99224ae9397756fe410cc0708
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530891"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791877"

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: 4e661f838cc0b8e52ff72e4e44a43d611fa3355f
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 856f4bd9c2b04ff10ed598c5e641955e1de99398
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727391"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792421"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Azure Data Factory'de yürütme veri akışı etkinliği
 Yürütme veri akışı etkinliği hattının hata ayıklama (sanal) ve tetiklenen işlem hattı çalıştırmaları, ADF veri akışı çalıştırmak için kullanın.
@@ -54,6 +54,12 @@ Yürütme veri akışı etkinliği hattının hata ayıklama (sanal) ve tetiklen
 ### <a name="run-on"></a>Çalıştırma yeri
 
 Bu, veri akışı yürütülmesi için işlem ortamını seçin. Azure otomatik olarak çözülmeli varsayılan Integration Runtime varsayılandır. Bu seçenek veri fabrikası ile aynı bölgede Spark ortamında veri akışını yürütecek. İşlem türü, işlem ortamı için başlatma birkaç dakika sürer anlamına gelir. bir işi küme olacaktır.
+
+### <a name="debugging-pipelines-with-data-flows"></a>Bir veri akışı işlem hatlarında hata ayıklama
+
+![Düğme hata ayıklama](media/data-flow/debugbutton.png "Hata Ayıkla düğmesine")
+
+Veri akışı hata ayıklama veri akışlarınızı çalıştırma bir işlem hattı hata ayıklama etkileşimli olarak test etmek için warmed küme yararlanmak için kullanın. İçinde bir işlem hattı, bir veri akışı test etmek için Pipleine hata ayıklama seçeneğini kullanın.
 
 ### <a name="compute-type"></a>İşlem türü
 

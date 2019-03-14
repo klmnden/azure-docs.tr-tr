@@ -1,19 +1,19 @@
 ---
 title: Azure'da CentOS for Ansible çözüm şablonu dağıtma
 description: Ansible çözüm şablonu araçları Azure ile çalışacak şekilde yapılandırılmış yanı sıra, Azure'da barındırılan bir CentOS sanal makineye dağıtmayı öğrenin.
-ms.service: ansible
+ms.service: azure
 keywords: ansible'ı, azure, devops, çözüm şablonu, sanal makine, azure kaynakları, centos ve red hat için yönetilen kimlikleri
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.openlocfilehash: 9fa711c86e3ef7f05e87504905ec642808d8f601
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6dfc1c0f9dcf29d9cf24df19fbd043c71852aeac
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770291"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790968"
 ---
 # <a name="deploy-the-ansible-solution-template-for-azure-to-centos"></a>Azure'da CentOS for Ansible çözüm şablonu dağıtma
 Azure için Ansible çözüm şablonu, ansible'ı ve Azure ile çalışacak şekilde yapılandırılmış Araçları Paketi ile birlikte bir CentOS sanal makinede Ansible örneği yapılandırmak için tasarlanmıştır. Araçlar şunları içerir:

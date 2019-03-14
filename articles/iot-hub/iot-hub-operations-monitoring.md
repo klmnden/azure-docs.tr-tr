@@ -1,26 +1,26 @@
 ---
-title: Azure IOT Hub işlemlerini izleme | Microsoft Docs
+title: Azure IOT Hub işlemlerini (kullanım dışı) izleme | Microsoft Docs
 description: Azure IOT Hub işlemlerini gerçek zamanlı IOT hub'ınızdaki işlemlerin durumunu izlemek için izleme kullanma
 author: nberdy
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/10/2017
+ms.date: 03/11/2019
 ms.author: nberdy
-ms.openlocfilehash: 3aa452cd178bd0d064726c5be7dbdf65c6ef8d92
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d839e2e9922ac68af3aea37884e8b2f72b80b0e7
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160057"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791588"
 ---
-# <a name="iot-hub-operations-monitoring"></a>IOT Hub işlemlerini izleme
+# <a name="iot-hub-operations-monitoring-deprecated"></a>IOT Hub işlemlerini (kullanım dışı) izleme
 
 IOT Hub işlemlerini izleme, gerçek zamanlı IOT hub'ınızdaki işlemlerin durumunu izlemenize olanak sağlar. IOT Hub olaylarını birkaç işlem kategorisi izler. Olay işleme için IOT hub'ınızın bir uç nokta için bir veya daha fazla kategorilerden göndermeye içine seçebilirsiniz. Hatalar için verileri izlemek veya veri modellerini daha karmaşık bir işlem ayarlayın.
 
 >[!NOTE]
->IOT Hub işlemlerini izleme kullanım dışıdır ve 10 Mart 2019 üzerinde IOT Hub'ından kaldırılacak. İşlemleri ve IOT Hub'ın sistem durumu izleme için bkz: [Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın][lnk-monitor]. Kullanımdan kaldırma zaman çizelgesini hakkında daha fazla bilgi için bkz: [Azure IOT çözümlerinizi Azure İzleyici ve Azure kaynak durumu izleme][lnk-blog-announcement].
+>IOT hub'ı **işlem izleme kullanım dışıdır ve IOT hub'ı 10 Mart 2019 tarihinde kaldırılmıştır**. İşlemleri ve IOT Hub'ın sistem durumu izleme için bkz: [Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın][lnk-monitor]. Kullanımdan kaldırma zaman çizelgesini hakkında daha fazla bilgi için bkz: [Azure IOT çözümlerinizi Azure İzleyici ve Azure kaynak durumu izleme][lnk-blog-announcement].
 
 IOT hub'ı altı olayların kategorilerini izler:
 

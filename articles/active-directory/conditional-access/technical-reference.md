@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/30/2019
+ms.date: 03/12/2019
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7687cb4eb6cacd604a05a820e04f71755e0b66b1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5e2e8a3c923f18d0e3d481539bb7278bc8fd7aaf
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201423"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792336"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -51,25 +51,43 @@ Koşullu erişim ilkeleriyle birlikte nasıl kullanıcılarınızın erişim den
 
 Microsoft'tan aşağıdaki bulut uygulamaları için koşullu erişim ilkesi atayabilirsiniz:
 
-- Azure Information Protection - [daha fazla bilgi edinin](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 
-- Azure RemoteApp
-
-- Azure SQL veritabanı - [daha fazla bilgi edinin](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
-
-- Microsoft Dynamics 365
-
-- Microsoft Office 365 Yammer
-
-- Microsoft Office 365 Exchange Online
-
-- Microsoft Office 365 SharePoint (OneDrive iş ve Project Online içerir) çevrimiçi
-
-- Microsoft Power BI 
-
+- Azure Analysis Services
 - Azure DevOps
+- Azure SQL veritabanı ve veri ambarı - [daha fazla bilgi edinin](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
+- Dynamics CRM Online
+- Microsoft Application Insights Analytics
+- Microsoft Azure Information Protection - [daha fazla bilgi edinin](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- Microsoft Azure Yönetimi - [daha fazla bilgi edinin](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- Microsoft Azure RemoteApp
+- Microsoft Azure abonelik yönetimi
+- Microsoft Cloud App Security
+- Erişim denetimi Portalı Microsoft Commerce araçları
+- Microsoft Commerce araçları kimlik doğrulama hizmeti
+- Microsoft Flow
+- Microsoft Forms
+- Microsoft Intune
+- Microsoft Intune kaydı
+- Microsoft Planner
+- Microsoft Power BI
+- Microsoft PowerApps
+- Bing içinde Microsoft arama
+- Microsoft StaffHub
+- Microsoft Stream
+- Microsoft Teams 
+- Office 365 Exchange Online
+- Office 365 SharePoint Online
+- Office 365 Yammer
+- Office inceleyin
+- Office Sway 
+- Outlook Groups
+- Project Online
+- Skype Kurumsal Çevrimiçi Sürüm
+- Sanal özel ağ (VPN)
+- Visual Studio App Center
+- Windows Defender ATP
 
-- Microsoft Teams
+
 
 
 ### <a name="other-applications"></a>Diğer uygulamalar 

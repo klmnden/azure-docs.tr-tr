@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 3d3188afa54232e51efefa9bcf2fe8cd065a99cb
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 52bdbd1f7fb02c33e9cd6eef862d5be299bf1dad
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570972"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792353"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Öğretici: Azure SignalR hizmeti kimlik doğrulaması ile Azure işlevleri
 
@@ -113,7 +113,7 @@ Azure İşlevleri çalışma zamanını yerel ortamda çalıştırma ve hata ay�
         },
         "Host": {
             "LocalHttpPort": 7071,
-            "CORS": "http://localhost:5500",
+            "CORS": "http://127.0.0.1:5500",
             "CORSCredentials": true
         }
     }
@@ -122,6 +122,9 @@ Azure İşlevleri çalışma zamanını yerel ortamda çalıştırma ve hata ay�
     * Azure SignalR Hizmeti bağlantı dizesini `AzureSignalRConnectionString` adlı bir ayara girin. Azure portaldan Azure SignalR Hizmeti kaynağının **Anahtarlar** sayfasındaki değeri alın. Birincil veya ikincil bağlantı dizesini kullanabilirsiniz.
     * `WEBSITE_NODE_DEFAULT_VERSION` ayarı yerel ortamda kullanılmaz ancak uygulama Azure'a dağıtıldığında kullanılması gerekir.
     * `Host` bölümü yerel İşlevler ana bilgisayarı için bağlantı noktası ve CORS ayarlarını yapılandırır (Azure'da çalışırken bu ayarın bir etkisi yoktur).
+
+        > [!NOTE]
+        > İçerik sunmak için genellikle Canlı sunucu yapılandırılmış http://127.0.0.1:5500. Farklı bir URL kullanıyor veya farklı bir HTTP sunucusu değişiklik kullandığınız bulursanız `CORS` doğru kaynağı yansıtacak şekilde ayarı.
 
     ![SignalR Hizmeti anahtarını alma](media/signalr-tutorial-authenticate-azure-functions/signalr-get-key.png)
 

@@ -2,7 +2,7 @@
 title: "Öğretici: Bir Azure SQL veritabanı yönetilen örneği SQL Server'ın çevrimiçi bir geçiş gerçekleştirmek için Azure veritabanı geçiş hizmeti kullanın. | Microsoft Docs"
 description: Bir Azure SQL veritabanı yönetilen örneği SQL Server şirket içinden Azure veritabanı geçiş hizmeti kullanarak çevrimiçi bir geçiş gerçekleştirmek öğrenin.
 services: dms
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/28/2019
-ms.openlocfilehash: 27f0dfc7346f0eeb774c17d47399a0096751e14c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.date: 03/12/2019
+ms.openlocfilehash: 790501aff42bec483862b735a0c5de7f8107ed46
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992541"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792319"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Öğretici: SQL Server'ı Azure SQL veritabanı yönetilen örneğine geçirme çevrimiçi DMS kullanarak
 

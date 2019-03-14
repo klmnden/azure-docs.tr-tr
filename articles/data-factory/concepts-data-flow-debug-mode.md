@@ -7,25 +7,25 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 82559c89094649b377dc2a898798ce6aad5fbcc7
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: d3cabbcc04766d4a209ecf96db3f842902b465a5
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570496"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792404"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Eşleme veri akışı hata ayıklama modu
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Azure Data Factory eşleme veri akışı tasarım yüzeyinin üstündeki hata ayıklama düğmesiyle arasında geçiş yapabilen bir hata ayıklama modu vardır. Ne zaman veri akışları, hata ayıklama modu ayarını tasarlama işlem sonrasında, verileri etkileşimli olarak izlemek yapı ve veri akışlarınızı hata ayıklama, dönüştürme şekil.
+Azure Data Factory eşleme veri akışı tasarım yüzeyine üst kısmındaki veri akışı hata ayıklama düğmesiyle arasında geçiş yapabilen bir hata ayıklama modu vardır. Ne zaman veri akışları, hata ayıklama modu ayarını tasarlama işlem sonrasında, verileri etkileşimli olarak izlemek yapı ve veri akışlarınızı hata ayıklama, dönüştürme şekil. Hata ayıklama oturumu, hem veri akışı tasarım oturumlarda yanı sıra veri akışı işlem hattı hata ayıklama yürütme sırasında kullanılabilir.
 
-<img src="media/data-flow/debugbutton.png" width="400">
+![Düğme hata ayıklama](media/data-flow/debugbutton.png "Hata Ayıkla düğmesine")
 
 ## <a name="overview"></a>Genel Bakış
-Hata ayıklama modu etkin olduğunda, etkileşimli olarak çalışan Azure Databricks etkileşimli kümesi ile veri akışınızı oluşturacaksınız. Hata ayıklama Azure Data Factory'de kapattığınızda oturumu sona erecektir. Hata ayıklama oturumunuz açık olduğu süre boyunca Azure Databricks tarafından tahakkuk saatlik ücretler farkında olmalıdır.
+Hata ayıklama modu etkin olduğunda, etkileşimli veri akışınızı etkin bir Spark kümesi oluşturacaksınız. Hata ayıklama Azure Data Factory'de kapattığınızda oturumu sona erecektir. Hata ayıklama oturumunuz açık olduğu süre boyunca Azure Databricks tarafından tahakkuk saatlik ücretler farkında olmalıdır.
 
-Çoğu durumda, böylece iş mantığınızı doğrulamak ve Azure Data Factory'de iş yayımlamadan önce veri Bağlantılarınızdaki görüntülemek, veri akışları hata ayıklama modunda oluşturmak için bir alışkanlıktır.
+Çoğu durumda, böylece iş mantığınızı doğrulamak ve Azure Data Factory'de iş yayımlamadan önce veri Bağlantılarınızdaki görüntülemek, veri akışları hata ayıklama modunda oluşturmak için bir alışkanlıktır. Bir işlem hattı içinde veri akışınızı test etmek için'ardışık düzen paneline "Debug" düğmesi de kullanmalısınız.
 
 ## <a name="debug-mode-on"></a>Hata ayıklama modu
 Hata ayıklama modu arasında geçiş yaptığınızda, etkileşimli Azure Databricks kümesine gelin ve seçeneklerini kaynak örnekleme için istek bir yan bölme form istenir. Azure Databricks etkileşimli bir kümeden kullanın ve her birinden bir örnekleme boyutu, kaynak dönüşümler seçin veya bir metin dosyası kullanmak için test verilerini çekme gerekir.
@@ -54,3 +54,9 @@ Hata ayıklama zaman Kapat ve böylece, Azure Databricks kümeyi sonlandırabili
 Seçerek tek tek sütun, veri Önizleme sekmesinde açılır bir grafik en sağdaki her alan hakkında ayrıntılı istatistiklerle, veri kılavuzunun üzerinde çalışır. Azure Data Factory görüntülemek için grafik hangi tür veri Örnekleme sırasında bir belirlemeyi hale getirir. Yüksek kardinalite alanları varsayılan NULL / veri değeri sıklığı gösteren çubuk grafikler düşük önem düzeyi olan kategorik hem de sayısal verileri görüntüler ancak grafikleri NULL değil. Ayrıca görürsünüz en büyük / uzun dize alanları uzunluğunu min / en büyük sayısal alanlar, standart sapma, yüzdebirliklerini, sayıları ve ortalama değerler. 
 
 <img src="media/data-flow/chart.png" width="400">
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Tamamlanmış derleme ve hata ayıklama veri akışınız olduktan sonra [bir işlem hattından yürütme.](control-flow-execute-data-flow-activity.md)
+
+Bir veri akışı işlem hattınızı test ederken, işlem hattını kullanma [yürütme seçeneği hata ayıklama çalıştırın.](iterative-development-debugging.md)
