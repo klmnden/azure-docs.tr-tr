@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 33e968ac608c393d65f69bfd6abbc0d205fb9bd9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718886"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078797"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps için .NET arka uç sunucu SDK’sı ile çalışma
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -240,10 +240,10 @@ Ayrıca `UseDefaultConfiguration()` genişletme yöntemi yerine `MapApiControlle
 ## <a name="how-to-work-with-authentication"></a>Nasıl yapılır: Kimlik doğrulaması ile çalışma
 Azure Mobile Apps kullanan App Service kimlik doğrulaması / yetkilendirme mobil arka ucunuzdaki güvenliğini sağlamak için.  Bu bölümde, .NET arka uç sunucu projenizi kimlik doğrulamayla ilgili aşağıdaki görevleri gerçekleştirmek nasıl gösterir:
 
-* [Nasıl Yapılır: Kimlik doğrulaması için bir sunucu projesi ekleme](#add-auth)
-* [Nasıl Yapılır: Uygulamanız için özel kimlik doğrulaması kullan](#custom-auth)
-* [Nasıl Yapılır: Kimliği doğrulanmış kullanıcı bilgilerini alma](#user-info)
-* [Nasıl Yapılır: Yetkili kullanıcıların veri erişimini kısıtlamak](#authorize)
+* [Nasıl yapılır: Kimlik doğrulaması için bir sunucu projesi ekleme](#add-auth)
+* [Nasıl yapılır: Uygulamanız için özel kimlik doğrulaması kullan](#custom-auth)
+* [Nasıl yapılır: Kimliği doğrulanmış kullanıcı bilgilerini alma](#user-info)
+* [Nasıl yapılır: Yetkili kullanıcıların veri erişimini kısıtlamak](#authorize)
 
 ### <a name="add-auth"></a>Nasıl Yapılır: Kimlik doğrulaması için bir sunucu projesi ekleme
 Kimlik doğrulama sunucu projenizi genişleterek ekleyebileceğiniz **MobileAppConfiguration** nesne ve OWIN ara yazılımını yapılandırma. Yüklediğinizde [Microsoft.Azure.Mobile.Server.Quickstart] paket ve çağrı **UseDefaultConfiguration** genişletme yöntemi, 3. adımına atlayabilirsiniz.
@@ -263,7 +263,7 @@ Mobile Apps arka ucunuzu istemcilerin kimliğini doğrulamak hakkında bilgi edi
 > Özel kimlik doğrulamasını etkinleştirmek için önce Azure portalında uygulama hizmetiniz için bir sağlayıcı seçmeden App Service kimlik doğrulaması etkinleştirmeniz gerekir. Bu, barındırıldığında WEBSITE_AUTH_SIGNING_KEY ortam değişkeni olanak sağlar.
 > 
 > 
-App Service kimlik doğrulama/yetkilendirme sağlayıcılardan birini kullanmak istemiyorsanız, kendi oturum açma sistemi uygulayabilirsiniz. Yükleme [Microsoft.Azure.Mobile.Server.Login] ile kimlik doğrulaması belirteci oluşturma yardımcı olmak üzere paket.  Kullanıcı kimlik bilgilerini doğrulamak için kendi kodunuzu sağlar. Örneğin, bir veritabanında salted ve karma parolaları karşı denetleyebilir. Aşağıdaki örnekte `isValidAssertion()` yöntemi (başka yerde tanımlanmış), bu denetimler için sorumludur.
+> App Service kimlik doğrulama/yetkilendirme sağlayıcılardan birini kullanmak istemiyorsanız, kendi oturum açma sistemi uygulayabilirsiniz. Yükleme [Microsoft.Azure.Mobile.Server.Login] ile kimlik doğrulaması belirteci oluşturma yardımcı olmak üzere paket.  Kullanıcı kimlik bilgilerini doğrulamak için kendi kodunuzu sağlar. Örneğin, bir veritabanında salted ve karma parolaları karşı denetleyebilir. Aşağıdaki örnekte `isValidAssertion()` yöntemi (başka yerde tanımlanmış), bu denetimler için sorumludur.
 
 Özel kimlik doğrulama bir ApiController oluşturma ve gösterme kullanıma sunulduğunu `register` ve `login` eylemler. İstemcinin kullanıcıdan bilgi toplamak için özel bir kullanıcı Arabirimi kullanmanız gerekir.  Bilgileri standart bir HTTP POST çağrısına API'SİYLE sonra gönderilir. Onaylama işlemi sunucuyu doğrular, sonra bir belirteç kullanarak verilir `AppServiceLoginHandler.CreateToken()` yöntemi.  ApiController **barındırmamalıdır** kullanın `[MobileAppController]` özniteliği.
 
