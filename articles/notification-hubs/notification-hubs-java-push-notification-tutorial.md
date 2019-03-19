@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 45ff4ff79a443e49a7d01a41a249db9e4d0a070b
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 993eafd5a0b74be706d13fe8e06483c223f81eb6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560813"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901194"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Java'dan Notification Hubs'ı kullanma
 
@@ -389,4 +389,4 @@ Bu konuda, basit bir Java REST istemci bildirim hub'ları için nasıl oluşturu
 [Yerelleştirilmiş son dakika haberleri göndermek]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Kimliği doğrulanmış kullanıcılara bildirimler gönderme]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Kimliği doğrulanmış kullanıcılara çapraz platform bildirimleri gönder]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Maven]: http://maven.apache.org/
+[Maven]: https://maven.apache.org/

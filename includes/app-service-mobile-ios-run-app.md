@@ -4,19 +4,19 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 8146489a913ce863cee7534331231a248a3ea7ac
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: f4ba467b6d80c9ccafba0a91c1f04152b92cf869
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890972"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125370"
 ---
 1. Mac’inizde [Azure portal] ziyaret edin. **Tüm Hizmetler** > **Uygulama Hizmetleri** > oluşturduğunuz arka uca tıklayın. Mobil uygulama ayarlarında, tercih ettiğiniz dili seçin:
 
-    - Objective-C &ndash; **Hızlı Başlangıç** > **iOS (Objective-C)**
-    - Swift &ndash; **Hızlı Başlangıç** > **iOS (Swift)**
+   - Objective-C &ndash; **Hızlı Başlangıç** > **iOS (Objective-C)**
+   - Swift &ndash; **Hızlı Başlangıç** > **iOS (Swift)**
 
-    **3. İstemci uygulamanızı yapılandırın**’ın altında **İndir**’e tıklayın. Arka ucunuza bağlanacak önceden yapılandırılmış tam bir Xcode projesini indirir. Projeyi Xcode kullanarak açın.
+     **3. İstemci uygulamanızı yapılandırın**’ın altında **İndir**’e tıklayın. Arka ucunuza bağlanacak önceden yapılandırılmış tam bir Xcode projesini indirir. Projeyi Xcode kullanarak açın.
 
 1. Projeyi oluşturmak için **Çalıştır** düğmesine basın ve uygulamayı iOS benzeticisinde başlatın.
 

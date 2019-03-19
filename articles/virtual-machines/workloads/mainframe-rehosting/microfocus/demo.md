@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: 2a29b484b58b887981b1879ceba5bf7426bb6c2e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 733649c2b7f27ec5e80cb77adba708a158fb2c22
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192013"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099476"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-in-azure"></a>Micro odak Kurumsal Geliştirici 4.0 azure'da Micro odak CICS BankDemo ' ayarlayın
 
@@ -69,9 +69,9 @@ VM üzerinde Kurumsal Geliştirici 4.0 yükledikten sonra birlikte Enterprise Se
 
 7. İçin **özellikleri**, kontrol **Microsoft .NET framework 4.6**ve aşağıdakileri denetleyin:
 
-    - Adlandırılmış kanal etkinleştirmesi
-    - TCP etkinleştirme
-    - TCP bağlantı noktası paylaşma
+   - Adlandırılmış kanal etkinleştirmesi
+   - TCP etkinleştirme
+   - TCP bağlantı noktası paylaşma
 
      ![Rol ve Özellik Ekleme Sihirbazı'nı ekleyin: Rol Hizmetleri](media/01-demo-roles.png)
 
