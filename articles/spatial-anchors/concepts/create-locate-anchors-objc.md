@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 288c11c54fd86b53314e2d7f32c788ff64831641
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: f560b82e5efab21ea335e74c97efd15e7c6e3702
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753315"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850743"
 ---
 # <a name="create-and-locate-anchors-using-azure-spatial-anchors-in-objective-c"></a>Oluşturma ve Azure uzamsal bağlayıcılarını kullanarak Objective-C içinde yer işaretleri bulun
 
@@ -25,9 +25,11 @@ ms.locfileid: "56753315"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar arasında paylaşmak izin verin. İyi tercih ettiğiniz geliştirme ortamı ile çalışmak için ayarlanmıştır. Bu makalede, ki Objective-c yapmak nasıl ele alacağız
+Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar arasında paylaşmak izin verin. Bu, birkaç geliştirme ortamlarında destekler. Bu makalede, ki Objective-c yapmak nasıl ele alacağız
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
+
+Daha fazla bilgi edinin [ASACloudSpatialAnchorSession](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession) sınıfı.
 
 ```objc
     ASACloudSpatialAnchorSession *_cloudSession;
@@ -36,6 +38,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
+
+Daha fazla bilgi edinin [ASASessionConfiguration](https://docs.microsoft.com/objectivec/api/spatial-anchors/asasessionconfiguration) sınıfı.
 
 ```objc
     _cloudSession.configuration.accountKey = @"MyAccountKey";
@@ -48,6 +52,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
+
+Daha fazla bilgi edinin [tokenRequired](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsessiondelegate#tokenrequired) protokol yöntemi.
 
 ```objc
     - (void)tokenRequired:(ASACloudSpatialAnchorSession *)cloudSession :(ASATokenRequiredEventArgs *)args {
@@ -95,6 +101,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-ios.md)]
 
+Daha fazla bilgi edinin [Başlat](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#start) yöntemi.
+
 ```objc0
     _cloudSession.session = self.sceneView.session;
     _cloudSession.delegate = self;
@@ -103,11 +111,15 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
+Daha fazla bilgi edinin [processFrame](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#processframe) yöntemi.
+
 ```objc
     [_cloudSession processFrame:_sceneView.session.currentFrame];
 ```
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
+
+Daha fazla bilgi edinin [sessionUpdated](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsessiondelegate#sessionupdated) protokol yöntemi.
 
 ```objc
     - (void)sessionUpdated:(ASACloudSpatialAnchorSession *)cloudSession :(ASASessionUpdatedEventArgs *)args {
@@ -121,6 +133,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
+
+Daha fazla bilgi edinin [ASACloudSpatialAnchor](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchor) sınıfı.
 
 ```objc
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
@@ -147,6 +161,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
+Daha fazla bilgi edinin [getSessionStatusWithCompletionHandler](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#getsessionstatus) yöntemi.
+
 ```objc
     [_cloudSession getSessionStatusWithCompletionHandler:^(ASASessionStatus *value, NSError *error) {
         if (error) {
@@ -160,6 +176,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
+Daha fazla bilgi edinin [appProperties](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchor#appproperties) özelliği.
+
 ```objc
     ASACloudSpatialAnchor *cloudAnchor = [[ASACloudSpatialAnchor alloc] init];
     cloudAnchor.localAnchor = localAnchor;
@@ -171,6 +189,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
+Daha fazla bilgi edinin [updateAnchorProperties](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#updateanchorproperties) yöntemi.
+
 ```objc
     ASACloudSpatialAnchor *anchor = /* locate your anchor */;
     [anchor.appProperties setValue:@"just now" forKey:@"last-user-access"];
@@ -180,6 +200,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
+
+Daha fazla bilgi edinin [getAnchorProperties](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#getanchorproperties) yöntemi.
 
 ```objc
     [_cloudSession getAnchorProperties:@"anchorId" withCompletionHandler:^(SCCCloudSpatialAnchor *anchor, NSError *error) {
@@ -198,6 +220,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
+Daha fazla bilgi edinin [sona erme](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchor#expiration) özelliği.
+
 ```objc
     int secondsInAWeek = 60 * 60 * 24 * 7;
     NSDate *oneWeekFromNow = [[NSDate alloc] initWithTimeIntervalSinceNow: (NSTimeInterval) secondsInAWeek];
@@ -206,6 +230,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
+Daha fazla bilgi edinin [createWatcher](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#createwatcher) yöntemi.
+
 ```objc
     ASAAnchorLocateCriteria *criteria = [ASAAnchorLocateCriteria new];
     criteria.identifiers = @[ @"id1", @"id2", @"id3" ];
@@ -213,6 +239,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
+
+Daha fazla bilgi edinin [anchorLocated](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsessiondelegate#anchorlocated) protokol yöntemi.
 
 ```objc
     - (void)anchorLocated:(ASACloudSpatialAnchorSession *)cloudSession :(ASAAnchorLocatedEventArgs *)args {
@@ -240,6 +268,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
+Daha fazla bilgi edinin [deleteAnchor](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#deleteanchor) yöntemi.
+
 ```objc
     [_cloudSession deleteAnchor:cloudAnchor withCompletionHandler:^(NSError *error) {
         // Perform any processing you may want when delete finishes
@@ -248,11 +278,15 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
+Daha fazla bilgi edinin [Durdur](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#stop) yöntemi.
+
 ```objc
     [_cloudSession stop];
 ```
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
+
+Daha fazla bilgi edinin [sıfırlama](https://docs.microsoft.com/objectivec/api/spatial-anchors/asacloudspatialanchorsession#reset) yöntemi.
 
 ```objc
     [_cloudSession reset];

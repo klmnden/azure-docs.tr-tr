@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/25/2018
+ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 170f20ae65a8ba58291a630dc76496cbdcdb36de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341177"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138125"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performans ve ölçek dayanıklı işlevler (Azure işlevleri)
 
@@ -48,6 +48,15 @@ Dayanıklı işlevler görev hub başına bir iş öğesi kuyruk yok. Temel bir 
 Vardır birden çok *denetim kuyrukları* dayanıklı işlevler görev hub başına. A *denetim kuyruk* daha basit bir iş öğesi kuyruk daha fazla karmaşık olan. Denetim kuyruklar, durum bilgisi olan orchestrator işlevleri tetiklemek için kullanılır. Orchestrator işlevi örnekleri durum bilgisi olan teklileri olduğundan, sanal makineler arasında yük dağıtmak için rakip bir tüketici modeli kullanmak mümkün değildir. Bunun yerine, orchestrator iletileri, yük dengeli arasında denetim sıralar. Sonraki bölümlerde bu davranışı hakkında daha fazla ayrıntı bulunabilir.
 
 Denetim kuyrukları çeşitli düzenleme yaşam döngüsü ileti türlerini içerir. Örnekler [orchestrator denetim iletileri](durable-functions-instance-management.md), etkinlik işlevi *yanıt* iletileri ve Zamanlayıcı iletileri. Tek bir yoklama bir denetim kuyruktan 32 adede kadar ileti kuyruktan çıkarıldı. Bu iletiler, meta verileri için hedeflenen hangi düzenleme örneği de dahil olmak üzere yanı sıra yük verisi içerir. Dequeued birden çok ileti aynı düzenleme örneği için yönelikse, toplu iş olarak işlenir.
+
+### <a name="queue-polling"></a>Kuyruk yoklama
+
+Dayanıklı görev uzantısı boş kuyruk üzerinde depolama işlem maliyetleri yoklama etkisini azaltmak için bir rastgele üstel geri alma algoritması uygular. Bir ileti bulunduğunda, çalışma zamanı için başka bir ileti hemen denetler; ileti bulunduğunda, yeniden denemeden önce bir süre bekler. Bir kuyruk iletisi almak için sonraki başarısız girişimden sonra bekleme süresi, 30 saniye olarak varsayılan olarak en fazla bekleme zamanı ulaşıncaya kadar artmaya devam eder.
+
+En yüksek yoklama gecikmesidir aracılığıyla yapılandırılabilir `maxQueuePollingInterval` özelliğinde [host.json dosya](../functions-host-json.md#durabletask). Bu daha yüksek bir değere ayarlanması daha yüksek ileti işleme gecikmeleri neden olabilir. Daha yüksek gecikme süreleri, yalnızca etkin olmadığı dönemler sonra beklenen. Bu daha düşük bir değere ayarlanması artan depolama işlemleri nedeniyle daha yüksek depolama maliyetine neden olabilir.
+
+> [!NOTE]
+> Azure işlevleri tüketim ve Premium planlardaki çalıştırırken [Azure işlevlerini ölçeklendirme denetleyicisi](../functions-scale.md#how-the-consumption-plan-works) her denetimi ve iş öğesi kuyruk 10 saniyede yoklama yapar. Bu ek yoklama işlevi uygulama örnekleri ve ölçek kararlar için ne zaman belirlemek gereklidir. Yazma sırasında bu 10 ikinci aralığı sabittir ve yapılandırılamaz.
 
 ## <a name="storage-account-selection"></a>Depolama hesabı seçme
 
@@ -235,4 +244,4 @@ Beklediğiniz üretilen iş sayısı ve CPU görmediğinizden ve bellek kullanı
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [İçinde dayanıklı ilk işlevinizi oluşturmaC#](durable-functions-create-first-csharp.md)
+> [C# dilinde ilk dayanıklı işlevinizi oluşturma](durable-functions-create-first-csharp.md)

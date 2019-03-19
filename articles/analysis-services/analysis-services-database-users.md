@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7f8c410f368c5c63bd24bed25b9807b8061180be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: d7ba922d66bf97dbd8173b0d5466a7e55a41f6b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189805"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993182"
 ---
 # <a name="manage-database-roles-and-users"></a>Veritabanı rolleri ve kullanıcıları yönetme
 
@@ -71,6 +71,7 @@ Roller ve kullanıcılar için bir dağıtılan model veritabanı eklemek için 
 2. İçinde **Rol Oluştur**, bir rol adı ve açıklama girin.
 
 3. Bir izin seçin.
+
    |İzin|Açıklama|  
    |----------------|-----------------|  
    |**Tam Denetim (Yönetici)**|Üyeleri, model şeması değiştirebilirsiniz işlemek ve tüm verileri sorgulayabilir.| 

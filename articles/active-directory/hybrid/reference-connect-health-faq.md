@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf1dc33276c10a9b7fe7c7ebb6619b8c47d66bfb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447838"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852986"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health hakkında sık sorulan sorular
 Bu makale, Azure Active Directory (Azure AD) Connect Health hakkında sık sorulan sorular (SSS) yanıtlarını içerir. Bu SSS, özellik, sınırlamalar ve Destek faturalandırma modeli içeren hizmetin nasıl kullanılacağını hakkında sorular kapsar.
@@ -192,6 +192,9 @@ CheckForMS17-010
 **S: My ADFS neden olduğunu değil oluşturulmasını denetler?**
 
 Lütfen PowerShell cmdlet'ini kullanın <i>Get-AdfsProperties - AuditLevel</i> denetim günlüklerini değil de emin olmak için durumu devre dışı. Daha fazla bilgi edinin [AD FS denetim günlüklerini](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). AD FS sunucusuna gönderilen denetim ayarları var. Gelişmiş, auditpol.exe ile herhangi bir değişiklik (uygulama üretilen yapılandırılmamışsa üzerine olay) olacaktır dikkat edin. Bu durumda, lütfen üretilen uygulama hatalarını ve başarı günlüğe kaydetmek için yerel güvenlik ilkesi ayarlayın.
+
+**S: Aracı sertifikası, otomatik yenilenen önce sona erme ne zaman sunulacaktır?**
+Aracı sertifika otomatik olarak yenilenmesi **6 ay** , sona erme tarihinden önce. Lütfen yenilenmezse, kararlı Aracısı'nın ağ bağlantısı olduğundan emin olun. Aracı hizmetleri yeniden başlatın veya en son sürüme güncelleştirme de sorunu çözebilir.
 
 
 ## <a name="related-links"></a>İlgili bağlantılar

@@ -5,15 +5,15 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 9e192c736235fcf8b8b5374787ad94aaf87427bf
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 24682156cf0c50ccf69c39f83f59e9b867bbcf0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727085"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901857"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -39,7 +39,7 @@ Bir Azure aboneliği, bir kurtarma Hizmetleri kasası, bir önbellek depolama he
 Bir abonelik yöneticisi değilseniz, ihtiyaç duyduğunuz çoğaltma izinleri sahip. Değilseniz, bir Azure VM kaynak grubu ve Site Recovery ve seçili depolama hesabına yazma izinleri yapılandırın veya yönetilen disk yapılandırmanızı temel alarak belirttiğiniz sanal ağ oluşturmak için izinler gerekir. [Daha fazla bilgi edinin](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 ### <a name="can-i-use-guest-os-server-license-on-azure"></a>Konuk işletim sistemi sunucu lisansı Azure üzerinde kullanabilir miyim?
-Evet, Microsoft Yazılım Güvencesi müşterileri kullanabilir [Azure hibrit avantajı](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/) lisanslama maliyetlerini kaydetmek için **Windows Server makineleri** azure'a veya Azure olağanüstü durum kurtarma için kullanılacak geçirilir.
+Evet, Microsoft Yazılım Güvencesi müşterileri kullanabilir [Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/) lisanslama maliyetlerini kaydetmek için **Windows Server makineleri** azure'a veya Azure olağanüstü durum kurtarma için kullanılacak geçirilir.
 
 ## <a name="pricing"></a>Fiyatlandırma
 
@@ -50,6 +50,27 @@ Lisanslama SSS bölümümüzü edinmek [burada](https://aka.ms/asr_pricing_FAQ) 
 ### <a name="how-can-i-calculate-approximate-charges-during-the-use-of-site-recovery"></a>Nasıl miyim yaklaşık ücretleri Site Recovery kullanım sırasında hesaplayabilirsiniz?
 
 Kullanabileceğiniz [fiyatlandırma hesaplayıcısını](https://aka.ms/asr_pricing_calculator) Azure Site RECOVERY'yi kullanırken maliyetlerini tahmin etmek için. Maliyetleri ayrıntılı tahmin için dağıtım Planlayıcısı aracını çalıştırın (https://aka.ms/siterecovery_deployment_planner) ve analiz [maliyet tahmini raporunu](https://aka.ms/asr_DP_costreport).
+
+### <a name="is-there-any-difference-in-cost-when-i-replicate-directly-to-managed-disk"></a>Doğrudan yönetilen diske çoğaltırım olduğunda maliyet herhangi bir fark var mı?
+
+Yönetilen diskler, depolama hesapları biraz farklı ücretlendirilir. Lütfen 100 GiB boyutu kaynak diski için aşağıdaki örneğe bakın. Örneğin, fark depolama maliyetine özeldir. Bu maliyet anlık görüntüler, önbellek depolama ve işlem maliyetini içermez.
+
+* Standart depolama hesabı Vs. HDD standart yönetilen Disk
+
+    - **ASR tarafından sağlanan depolama diskini**: S10
+    - **Standart depolama hesabı üzerinde ücret kullanılan birim**: 5 ABD Doları / ay
+    - **Standart yönetilen disk üzerinde sağlanan birimin ücret**: 5.89 başına aylık
+
+* Premium depolama hesabı Vs. Premium SSD yönetilen Disk 
+    - **ASR tarafından sağlanan depolama diskini**: P10
+    - **Premium depolama hesabı ücretlendirilir sağlanan birimde**: 17.92 başına aylık
+    - **Premium yönetilen disk üzerinde sağlanan birimin ücret**: 17.92 başına aylık
+
+Daha fazla bilgi [yönetilen disklere yönelik fiyatlandırma ayrıntılarını](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+### <a name="do-i-incur-additional-charges-for-cache-storage-account-with-managed-disks"></a>Ek ücretler önbellek depolama hesabına yönetilen disklerle ödemem?
+
+Hayır, önbelleği için ek ücrete tabi değildir. Önbellek her zaman VMware-Azure arası mimari parçasıdır. Standart depolama hesabına çoğaltırken, bu önbellek depolama aynı hedef depolama hesabındaki bir parçasıdır.
 
 ### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>Bir aydan uzun süredir Azure Site Recovery kullanıcısıyım. Yine de korunan her örnek için ilk 31 gün ücretsiz mi olacak?
 
@@ -125,6 +146,14 @@ Evet, ExpressRoute Vm'lerini Azure'a çoğaltma için kullanılabilir. Site Reco
 
 Devre dışı bırakın ve çoğaltma yükseltin veya depolama hesabı türü düşürmek etkinleştirmeniz gerekir.
 
+### <a name="can-i-replicate-to-storage-accounts-for-new-machine"></a>Yeni makine için depolama hesaplarına çoğaltabilir miyim?
+
+Hayır, Mar'19 başlayarak, Azure üzerinde yönetilen disklere portaldan çoğaltma yapabilirsiniz. Yeni bir makine için depolama hesaplarına çoğaltma, yalnızca REST API ve Powershell kullanılabilir. API sürümü 2016-08-10 veya 2018-01-10 depolama hesaplarına çoğaltma için kullanın.
+
+### <a name="what-are-the-benefits-in-replicating-to-managed-disks"></a>Yönetilen disklere çoğaltma içinde yararları nelerdir?
+
+İlgili makaleyi okuyun [Azure Site Recovery, yönetilen diskler ile olağanüstü durum kurtarma basitleştirir](https://azure.microsoft.com/blog/simplify-disaster-recovery-with-managed-disks-for-vmware-and-physical-servers/).
+
 ### <a name="how-can-i-change-managed-disk-type-after-machine-is-protected"></a>Makine korunduktan sonra yönetilen Disk türünü nasıl değiştirebilirim?
 
 Evet, yönetilen disk türünü kolayca değiştirebilirsiniz. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Ancak, yönetilen disk türünü değiştirdikten sonra Yük devretme test etmeniz veya yük devretme sonrası bu etkinlik oluşturulduğunda, yeni kurtarma noktaları için beklemeniz emin olun.
@@ -148,10 +177,10 @@ VMware Vm'lerini Azure'a çoğaltırken çoğaltma sürekli olarak yapılır.
 Evet, yük devretme IP adresi tutabilirsiniz. 'İşlem ve ağ' dikey penceresinde yük devretmeden önce hedef IP adresi belirttiğinizden emin olun. Ayrıca, yük devretme, yeniden çalışma sırasındaki IP çakışmalarını önlemek için zamanında makineleri kapatmayı emin olun.
 
 ### <a name="can-i-extend-replication"></a>Ben çoğaltma uzatabilir miyim?
-Genişletilmiş veya zincir çoğaltma desteklenmez. Bu özelliği isteği [geri bildirim Forumu](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+Genişletilmiş veya zincir çoğaltma desteklenmez. Bu özelliği isteği [geri bildirim Forumu](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Çevrimdışı ilk çoğaltma yapabilirim?
-Bu özellik desteklenmez. Bu özelliği isteği [geri bildirim Forumu](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Bu özellik desteklenmez. Bu özelliği isteği [geri bildirim Forumu](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>Diskleri çoğaltmanın dışında tutabilirsiniz?
 Evet, diskleri çoğaltmadan hariç tutabilirsiniz.
@@ -208,9 +237,11 @@ Olası, şirket içi VMware altyapınızı ve Vm'leri ile iletişim kurmak yapı
 Yapılandırma sunucusunun düzenli zamanlanmış yedeklemeleri almaya öneririz. Başarıyla yeniden çalışma için geri başarısız sanal makine yapılandırma sunucusu veritabanında bulunmalı ve yapılandırma sunucusunun çalıştığından ve bağlı durumda olması gerekir. Genel yapılandırma sunucusu yönetim görevleri hakkında daha fazla bilgi [burada](vmware-azure-manage-configuration-server.md).
 
 ### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>Yapılandırma sunucusu ayarlama, ı indirebilir ve MySQL el ile yükleme?
+
 Evet. MySQL indirin ve yerleştirebilir **C:\Temp\ASRSetup** klasör. Daha sonra el ile yükleyin. VM yapılandırma sunucusu ayarlarsınız ve koşullarını kabul edin, MySQL olarak listelenecek **yüklü** içinde **yükleyip**.
 
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Miyim MySQL yüklenmesini önlemek ancak Site Recovery yükleme izin?
+
 Evet. MySQL yükleyiciyi indirir ve yerleştirebilir **C:\Temp\ASRSetup** klasör.  Yapılandırma sunucusu VM'SİNİN ayarladığınızda, koşulları kabul edin ve tıklayarak **yükleyip**, eklediğiniz MySQL yüklemek için yükleyici portalını kullanacaksınız.
  
 ### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Yapılandırma sunucusu sanal makine başka bir şey için kullanabilir miyim?

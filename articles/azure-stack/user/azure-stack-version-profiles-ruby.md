@@ -16,12 +16,12 @@ ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 73c770f45666ce76b770796ac9714d007c2870cb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5c7031b0d0a08106473409233db0ad95ecb32525
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247196"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095373"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Azure stack'teki Ruby ile API Sürüm profillerini kullanma
 
@@ -86,7 +86,7 @@ gem install 'azure_sdk'
 Azure Ruby SDK'sı, Azure Stack ile kullanmak için aşağıdaki değerleri girin ve ardından şu değerleri içeren ortam değişkenlerini ayarlayın. Tablodan sonra sağlanan işletim sistemi ortam değişkenlerini ayarlama konusunda yönergelere bakın.
 
 | Değer | Ortam değişkenleri | Açıklama |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Kiracı Kimliği | AZURE_TENANT_ID | Azure Stack değerini [Kiracı kimliği](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview). |
 | İstemci Kimliği | AZURE_CLIENT_ID | Hizmet sorumlusu uygulama kimliği bu belgenin önceki bölümde üzerinde hizmet sorumlusu oluşturulurken kaydedilen.  |
 | Abonelik Kimliği | AZURE_SUBSCRIPTION_ID | [Abonelik kimliği](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) nasıl, teklifler eriştiği Azure Stack'te. |

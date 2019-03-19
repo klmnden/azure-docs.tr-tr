@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: e25da238648b32edcbfaefbdcf1a6240df97916f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728336"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855308"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Birden çok depolama hesabı arasında Media Services varlıklarını yönetme  
 
@@ -42,7 +42,7 @@ Birden çok depolama hesapları Media Services hesabınızı eklerken aşağıda
 
 Diğer önemli noktalar:
 
-Medya Hizmetleri'ni kullanan değerini **IAssetFile.Name** URL'leri akış içeriği için (örneğin, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/ oluştururken özelliği streamingParameters.) Bu nedenle, yüzde kodlama izin verilmez. Name özelliği değeri aşağıdakilerden herhangi birini olamaz [yüzde kodlama-ayrılmış karakterleri](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir '.' Dosya adı uzantısı.
+Medya Hizmetleri'ni kullanan değerini **IAssetFile.Name** URL'leri akış içeriği için (örneğin, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/ oluştururken özelliği streamingParameters.) Bu nedenle, yüzde kodlama izin verilmez. Name özelliği değeri aşağıdakilerden herhangi birini olamaz [yüzde kodlama-ayrılmış karakterleri](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir '.' Dosya adı uzantısı.
 
 ## <a name="to-attach-storage-accounts"></a>Depolama hesapları eklemek için  
 

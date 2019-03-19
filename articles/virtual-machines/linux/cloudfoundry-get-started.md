@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 18aa5ab16a1690fdcead46ebc15d72837f62612d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 68ae01b814de08098c0ba6b5713f420cfebc3d97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302478"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001265"
 ---
 # <a name="cloud-foundry-on-azure"></a>Azure’da Cloud Foundry
 
@@ -48,7 +48,7 @@ Microsoft, aşağıdaki topluluk kanalları aracılığıyla OSS CF için mümk�
 
 Birtakım özel yönetim araçları ve kurumsal destek birlikte OSS dağıtım olarak aynı temel platform Pivotal Cloud Foundry içerir. PCF Azure'da çalıştırmak için Pivotal lisanstan edinmeniz gerekir. PCF teklifi Azure Marketi aracılığıyla bir 90 günlük deneme lisansı içerir.
 
-Araçlarda [Pivotal Operations Manager](http://docs.pivotal.io/pivotalcf/customizing/), dağıtım ve Cloud Foundry foundation yönetimini basitleştiren bir web uygulaması ve [Pivotal uygulamaları Manager](https://docs.pivotal.io/pivotalcf/console/), yönetmek için bir web uygulaması Kullanıcılar ve uygulamalar.
+Araçlarda [Pivotal Operations Manager](https://docs.pivotal.io/pivotalcf/customizing/), dağıtım ve Cloud Foundry foundation yönetimini basitleştiren bir web uygulaması ve [Pivotal uygulamaları Manager](https://docs.pivotal.io/pivotalcf/console/), yönetmek için bir web uygulaması Kullanıcılar ve uygulamalar.
 
 Yukarıdaki OSS CF için listelenen destek kanallarına ek olarak, PCF lisans Pivotal desteği ile iletişime geçmenizi sağlar. Ayrıca, Microsoft ve Pivotal, Yardım için her iki taraf da başvurun ve sorunu nereden kaynaklandığını bağlı olarak uygun şekilde yönlendirilmesini sorgunuz izin destek iş akışları etkinleştirdiniz.
 

@@ -9,12 +9,12 @@ ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 29c6dc0f7e71508e7b4ecb4e0f1d5c849df7a68c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110792"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Markdown kutucuğu, özel içerik göstermek için Azure panolarında kullanın.
 
@@ -24,17 +24,17 @@ Markdown kutucuğu özel, statik içeriği görüntülemek için Azure panoları
 
 1. Seçin **Pano** Azure portal kenar. Tüm özel panoları Pano görünümünde oluşturduysanız, aşağı açılan Pano seçmek için özel markdown kutucuğu burada görünmesi gereken kullanın. Düzenle simgesini seçerek açın **kutucuk Galerisi**.
 
-  ![Ekran gösterme Pano düzenleme görünümü](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
+   ![Ekran gösterme Pano düzenleme görünümü](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
 2. İçinde **kutucuk Galerisi**, adlı kutucuğu bulun **Markdown** tıklatıp **Ekle**. Panoya bir kutucuk eklenir ve **Düzenle Markdown** bölmesi açılır.
 
 1. Düzen **başlık**, **alt konu başlığını**, ve **içerik** kutucuğu özelleştirmek için alanları. Burada gösterilen örnekte, özel bir Yardım Masası bilgileri görüntülemek için markdown kutucuğu düzenlendi.
 
-  ![Markdown kutucuğunu düzenleme Görünümü'nü gösteren ekran görüntüsü](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
+   ![Markdown kutucuğunu düzenleme Görünümü'nü gösteren ekran görüntüsü](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
 
 4. Seçin **Bitti** kapatmak için **Düzenle Markdown** bölmesi. İçeriğinizi ardından sağ alt köşede tutamacı sürükleyerek boyutlandırılabilir Markdown kutucuğu görüntülenir.
 
-  ![Ekran gösteren özel markdown kutucuğu](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
+   ![Ekran gösteren özel markdown kutucuğu](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 
 ## <a name="markdown-content-capabilities-and-limitations"></a>Markdown içerik özellikleri ve sınırlamaları
 

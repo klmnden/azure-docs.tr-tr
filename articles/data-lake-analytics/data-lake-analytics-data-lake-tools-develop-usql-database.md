@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 4518011fbeaefbb32403f5b37e434e7315beffa0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 1982f974acd1e9d5e8cae91201f6503eb2ae678a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734933"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898814"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Bir Azure Data Lake için U-SQL veritabanı geliştirme için U-SQL veritabanı projesi kullanın
 
@@ -101,7 +101,7 @@ Bir U-SQL veritabanı bir U-SQL veritabanı projesi veya Visual Studio'da .usqld
 U-SQL projesi U-SQL veritabanı projesi başvurabilirsiniz. Başvuru iki iş yükünden etkiler:
 
 - *Proje derleme*: U-SQL betikleri oluşturmadan önce başvurulan veritabanı ortamları ayarlama. 
-- *Yerel çalıştırma (yerel-projesine karşı) hesabı*: başvurulan veritabanı ortamları (yerel-projeye) dağıtılan önce U-SQL betiği yürütme hesabı. [Yerel çalıştırma ve (yerel makine) arasındaki fark hakkında daha fazla bilgi edinin ve (bir yerel proje) burada hesap](data-lake-analytics-data-lake-tools-local-run.md).
+- *Yerel çalıştırma (yerel-projesine karşı) hesabı*: Başvurulan veritabanı ortamları (yerel-projeye) dağıtılan önce U-SQL betiği yürütme hesabı. [Yerel çalıştırma ve (yerel makine) arasındaki fark hakkında daha fazla bilgi edinin ve (bir yerel proje) burada hesap](data-lake-analytics-data-lake-tools-local-run.md).
 
 ### <a name="how-to-add-a-u-sql-database-reference"></a>U-SQL veritabanı başvurusu ekleme
 

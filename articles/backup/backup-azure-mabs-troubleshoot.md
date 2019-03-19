@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: kasinh
-ms.openlocfilehash: 0ebf1bae023115a268547e5c64e3a2681438092a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 22507a1b89c6a7d6867e9b669e1a2e70106a4e41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340680"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880577"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Sunucusu sorunlarını giderme
 
@@ -104,4 +104,4 @@ Bilgileri aşağıdaki tablolarda Azure Backup sunucusu kullanırken karşılaş
 
 | İşlem | Hata Ayrıntıları | Geçici çözüm |
 | --- | --- | --- |
-| Bir Office 365 hesabınızı kullanarak e-posta bildirimlerini ayarlama |Hata Kimliği: 2013| **Neden:**<br> Office 365 hesabınız kullanılmaya çalışılıyor <br>**Önerilen eylem:**<ol><li> Emin olmak için ilk şey, Exchange'de "İzin ver anonim geçişi üzerinde bir alma bağlayıcısında" DPM sunucunuz için ayarlandığını ' dir. Bu yapılandırma hakkında daha fazla bilgi için bkz. [izin anonim geçişi üzerinde bir alma bağlayıcısında](https://technet.microsoft.com/library/bb232021.aspx) TechNet'teki.</li> <li> Bir iç SMTP geçiş kullanın ve Office 365 sunucunuzu kullanarak ayarlamanız gerekir, bir geçiş olması için IIS ayarlayabilirsiniz. DPM sunucusuna yapılandırma [IIS kullanarak SMTP o365'e geçiş](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **ÖNEMLİ:** Kullandığınızdan emin olun user@domain.com biçimi ve *değil* etki alanı\kullanıcı.<br><br><li>SMTP sunucusu olarak yerel sunucu adını kullanacak şekilde noktası DPM bağlantı noktası 587. Bu e-postaları alınması gereken kullanıcı e-posta gelin.<li> Kullanıcı adı ve parola DPM SMTP Kurulumu sayfasında DPM açıktır etki alanındaki bir etki alanı hesabı olmalıdır. </li><br> **NOT**: SMTP sunucu adresini değiştirirken, yeni ayarlarında değişiklik yapmak, ayarlar kutusunu kapatın ve yeni değeri yansıtır emin olmak için yeniden açın.  Her zaman bu şekilde test en iyi uygulama, bu nedenle, yeni ayarların etkili, yalnızca değiştirme ve test neden.<br><br>Bu işlem sırasında herhangi bir zamanda DPM Konsolu kapatmak ve aşağıdaki kayıt defteri anahtarlarını düzenleyerek bu ayarları silebilirsiniz: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> SMTPPassword silin ve SMTPUserName anahtarları**. Yeniden başlattıktan sonra kullanıcı Arabirimine geri ekleyebilirsiniz.
+| Bir Office 365 hesabınızı kullanarak e-posta bildirimlerini ayarlama |Hata Kimliği: 2013| **Neden:**<br> Office 365 hesabınız kullanılmaya çalışılıyor <br>**Önerilen eylem:**<ol><li> Emin olmak için ilk şey, Exchange'de "İzin ver anonim geçişi üzerinde bir alma bağlayıcısında" DPM sunucunuz için ayarlandığını ' dir. Bu yapılandırma hakkında daha fazla bilgi için bkz. [izin anonim geçişi üzerinde bir alma bağlayıcısında](https://technet.microsoft.com/library/bb232021.aspx) TechNet'teki.</li> <li> Bir iç SMTP geçiş kullanın ve Office 365 sunucunuzu kullanarak ayarlamanız gerekir, bir geçiş olması için IIS ayarlayabilirsiniz. DPM sunucusuna yapılandırma [IIS kullanarak SMTP o365'e geçiş](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **ÖNEMLİ:** Kullanıcı kullandığınızdan emin olun\@etkialanı.com biçimi ve *değil* etki alanı\kullanıcı.<br><br><li>SMTP sunucusu olarak yerel sunucu adını kullanacak şekilde noktası DPM bağlantı noktası 587. Bu e-postaları alınması gereken kullanıcı e-posta gelin.<li> Kullanıcı adı ve parola DPM SMTP Kurulumu sayfasında DPM açıktır etki alanındaki bir etki alanı hesabı olmalıdır. </li><br> **NOT**: SMTP sunucu adresini değiştirirken, yeni ayarlarında değişiklik yapmak, ayarlar kutusunu kapatın ve yeni değeri yansıtır emin olmak için yeniden açın.  Her zaman bu şekilde test en iyi uygulama, bu nedenle, yeni ayarların etkili, yalnızca değiştirme ve test neden.<br><br>Bu işlem sırasında herhangi bir zamanda DPM Konsolu kapatmak ve aşağıdaki kayıt defteri anahtarlarını düzenleyerek bu ayarları silebilirsiniz: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> SMTPPassword silin ve SMTPUserName anahtarları**. Yeniden başlattıktan sonra kullanıcı Arabirimine geri ekleyebilirsiniz.

@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/16/2019
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5f8dffa01b2d7dd7fa966d2b417019f1d2afb1bc
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 25dda12ca33165cfc64ffd949a2068acb5150b84
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867023"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097158"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Öğretici: Bağlı Azure Resource Manager şablonları oluşturma
 
 Bağlı Azure Resource Manager şablonları oluşturma hakkında bilgi edinin. Bağlı şablonları kullanarak bir şablonun başka bir şablonu çağırmasını sağlayabilirsiniz. Şablonları modüllere ayırmak için harika bir yoldur. Bu öğreticide kullanılan aynı şablonu kullanan [Öğreticisi: Bağımlı kaynaklarla Azure Resource Manager şablonları oluşturma](./resource-manager-tutorial-create-templates-with-dependent-resources.md), bir sanal makine, sanal ağ ve depolama hesabı dahil olmak üzere diğer bağımlı kaynak oluşturur. Depolama hesabı kaynak oluşturma bağlı bir şablona ayırın.
+
+Bağlı bir şablona bir işlevi çağırmak gibi işlemdir.  Ayrıca bağlı şablona parametre değerlerini geçirmek nasıl ve "dönüş değerlerini" bağlantılı şablondan alma öğrenin.
 
 Bu öğretici aşağıdaki görevleri kapsar:
 
@@ -34,6 +36,8 @@ Bu öğretici aşağıdaki görevleri kapsar:
 > * Bağımlılık yapılandırma
 > * Şablonu dağıtma
 > * Ek uygulamalar
+
+Daha fazla bilgi için [bağlantılı ve iç içe geçmiş şablonlar Azure kaynakları dağıtılırken](./resource-group-linked-templates.md).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
@@ -67,95 +71,97 @@ Azure Hızlı Başlangıç Şablonları, Resource Manager şablonları için bir
 3. Dosyayı açmak için **Aç**’ı seçin.
 4. Şablonun tanımladığı beş kaynak vardır:
 
-    * `Microsoft.Storage/storageAccounts`. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). 
-    * `Microsoft.Network/publicIPAddresses`. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses). 
-    * `Microsoft.Network/virtualNetworks`. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks). 
-    * `Microsoft.Network/networkInterfaces`. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces). 
-    * `Microsoft.Compute/virtualMachines`. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [`Microsoft.Storage/storageAccounts`](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)
+   * [`Microsoft.Network/publicIPAddresses`](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)
+   * [`Microsoft.Network/virtualNetworks`](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)
+   * [`Microsoft.Network/networkInterfaces`](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
+   * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
-    Şablonu özelleştirme önce bazı temel şablon anlamak faydalıdır.
+     Şablonu özelleştirme önce bazı temel şablon şeması anlamak faydalıdır.
 5. **Dosya**>**Farklı Kaydet**'i seçerek dosyanın bir kopyasını yerel bilgisayarınıza **azuredeploy.json** adıyla kaydedin.
 6. Dosyanın **linkedTemplate.json** adıyla başka bir kopyasını oluşturmak için **Dosya**>**Farklı Kaydet**’i seçin.
 
 ## <a name="create-the-linked-template"></a>Bağlı şablon oluşturma
 
-Bağlı şablon bir depolama hesabı oluşturur. Bağlı şablon, bir depolama hesabı oluşturan bağımsız şablon ile neredeyse aynıdır. Bu öğreticide, bağlı şablonun bir değeri ana şablona geri geçirmesi gerekir. Bu değer `outputs` öğesinde tanımlanır.
+Bağlı şablon bir depolama hesabı oluşturur. Bağlı şablonun şablon olarak tek başına bir depolama hesabı oluşturmak için kullanılabilir. Bu öğreticide, bağlı şablonun iki parametre alır ve ana şablonun bir değer geçirir. Bu "dönüş" içinde tanımlanan değer `outputs` öğesi.
 
-1. Dosya açık değilse Visual Studio Code'da linkedTemplate.json açın.
+1. Açık **linkedTemplate.json** dosya açık değilse Visual Studio code'da.
 2. Aşağıdaki değişiklikleri yapın:
 
+    * Dışında tüm parametrelerini kaldırın **konumu**.
+    * **storageAccountName** adlı bir parametre ekleyin. 
+        ```json
+        "storageAccountName":{
+          "type": "string",
+          "metadata": {
+              "description": "Azure Storage account name."
+          }
+        },
+        ```
+        Depolama hesabı adını ve konumunu ana şablonu için bağlantılı şablon parametreleri olarak geçirilir.
+        
+    * Kaldırma **değişkenleri** öğenin ve tüm değişken tanımlar.
     * Depolama hesabı dışındaki tüm kaynakları kaldırın. Toplam dört kaynağı kaldırırsınız.
     * Değerini güncelleştirin **adı** depolama hesabı kaynak öğesi:
 
         ```json
           "name": "[parameters('storageAccountName')]",
         ```
-    * Kaldırma **değişkenleri** öğenin ve tüm değişken tanımlar.
-    * Dışında tüm parametrelerini kaldırın **konumu**.
-    * **storageAccountName** adlı bir parametre ekleyin. Depolama hesabı adı, ana şablondan bağlı şablona bir parametre olarak geçirilir.
 
-        ```json
-        "storageAccountName":{
-        "type": "string",
-        "metadata": {
-            "description": "Azure Storage account name."
-        }
-        },
-        ```
     * **outputs** öğesini güncelleştirdiğinizde aşağıdaki gibi görünür:
-
+    
         ```json
         "outputs": {
-            "storageUri": {
-                "type": "string",
-                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-              }
+          "storageUri": {
+              "type": "string",
+              "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
+            }
         }
         ```
-        **storageUri**, ana şablonda sanal makine kaynak tanımı için gereklidir.  Değeri bir çıkış değeri olarak ana şablona geri geçirin.
+       **storageUri**, ana şablonda sanal makine kaynak tanımı için gereklidir.  Değeri bir çıkış değeri olarak ana şablona geri geçirin.
 
-    İşiniz bittiğinde, şablon şöyle görünür:
+        İşiniz bittiğinde, şablon şöyle görünür:
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-          "storageAccountName":{
-            "type": "string",
-            "metadata": {
-              "description": "Azure Storage account name."
+        ```json
+        {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "storageAccountName": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure Storage account name."
+              }
+            },
+            "location": {
+              "type": "string",
+              "defaultValue": "[resourceGroup().location]",
+              "metadata": {
+                "description": "Location for all resources."
+              }
             }
           },
-          "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-              "description": "Location for all resources."
+          "resources": [
+            {
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[parameters('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                "name": "Standard_LRS"
+              },
+              "kind": "Storage",
+              "properties": {}
+            }
+          ],
+          "outputs": {
+            "storageUri": {
+              "type": "string",
+              "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
             }
           }
-        },
-        "resources": [
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('storageAccountName')]",
-            "apiVersion": "2016-01-01",
-            "location": "[parameters('location')]",
-            "sku": {
-              "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
-          }
-        ],
-        "outputs": {
-            "storageUri": {
-                "type": "string",
-                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-              }
         }
-    }
-    ```
+        ```
 3. Değişiklikleri kaydedin.
 
 ## <a name="upload-the-linked-template"></a>Bağlı şablonu karşıya yükleme
@@ -227,7 +233,7 @@ Uygulamada, ana şablonu dağıtın ve SAS belirteci süre sonu vermek daha güv
 
 Ana şablon azuredeploy.json olarak adlandırılır.
 
-1. Açık değilse, Visual Studio Code’da azuredeploy.json dosyasını açın.
+1. Açık **azuredeploy.json** Visual Studio code'da değil açıldığında.
 2. Depolama hesabı kaynak tanımı şablonu silin:
 
     ```json
@@ -302,8 +308,6 @@ Depolama hesabı artık bağlı şablonda tanımlandığı için, `Microsoft.Com
     *linkedTemplate*, dağıtım kaynağının adıdır.  
 3. Güncelleştirme **özellikleri/diagnosticsProfile/bootDiagnostics/storageUri** önceki ekran görüntüsünde gösterildiği gibi.
 4. Değiştirilen şablonu kaydedin.
-
-Daha fazla bilgi için bkz. [Azure kaynaklarını dağıtırken bağlı ve iç içe geçmiş şablonları kullanma](./resource-group-linked-templates.md)
 
 ## <a name="deploy-the-template"></a>Şablonu dağıtma
 

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d90439e498e8812551d9e2994165f1714d3bdaab
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093344"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109316"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Azure Stream Analytics ve Azure Machine Learning kullanarak yaklaşım analizi gerçekleştirme
 Bu makalede, Azure Machine Learning tümleşik basit bir Azure Stream Analytics işi hızlı bir şekilde ayarlamak açıklar. Cortana Intelligence Galerisi'nde akış metin verileri analiz ve gerçek zamanlı yaklaşım puanını belirlemek için Machine Learning yaklaşım analizi modeli kullanın. Cortana Intelligence Suite'i kullanarak yaklaşım analizi model oluşturmanın ayrıntılı olarak incelenmektedir hakkında endişelenmeden, bu görevi gerçekleştirmenize olanak tanır.
@@ -145,7 +145,7 @@ Bu adım için Github'da kullanılabilir bir gibi herhangi bir CSV dosyasına ku
 
    ![Yeni Stream Analytics işi girişi için ayarlar](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-4. **Kaydet**’e tıklayın.
+1. **Kaydet**’e tıklayın.
 
 ### <a name="configure-the-job-output"></a>İş çıkışını yapılandırma
 İş, sonuçlar burada giriş aynı blob depolamaya gönderir. 

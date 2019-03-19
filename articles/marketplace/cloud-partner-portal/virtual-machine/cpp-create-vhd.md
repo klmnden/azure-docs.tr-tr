@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bd085804f532811e71d421e3f683c50c1c3416cb
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 5643b7c80307cea36f60bcc116c82ea7b31171f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575497"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096580"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Azure ile uyumlu bir VHD oluşturun
 
@@ -55,18 +55,18 @@ Microsoft [Azure portalında](https://ms.portal.azure.com/), aşağıdaki adıml
     ![Yeni VM dikey penceresinde işlem](./media/publishvm_014.png)
 
 5. Uygun sanal görüntüyü seçtikten sonra aşağıdaki değerleri sağlayın:
-  * Üzerinde **Temelleri** dikey penceresinde girin bir **adı** alfasayısal karakterler 1-15 arasındaki sanal makine için. (Bu örnekte `DemoVm009`.)
-  * Girin bir **kullanıcı adı** ve güçlü **parola**, VM'de yerel hesap oluşturmak için kullanılır.  (Burada `adminUser` kullanılır.)  Parola 8-123 karakter uzunluğunda olmalıdır ve en az şu dört karmaşıklık gereksinimini karşılamalıdır: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. Daha fazla bilgi için [kullanıcı adı ve parola gereksinimleri](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
-  * Oluşturduğunuz kaynak grubunu seçin (burada `DemoResourceGroup`).
-  * Bir Azure veri merkezi seçin **konumu** (burada `West US`).
-  * Tıklayın **Tamam** bu değerleri kaydedin. 
+   * Üzerinde **Temelleri** dikey penceresinde girin bir **adı** alfasayısal karakterler 1-15 arasındaki sanal makine için. (Bu örnekte `DemoVm009`.)
+   * Girin bir **kullanıcı adı** ve güçlü **parola**, VM'de yerel hesap oluşturmak için kullanılır.  (Burada `adminUser` kullanılır.)  Parola 8-123 karakter uzunluğunda olmalıdır ve en az şu dört karmaşıklık gereksinimini karşılamalıdır: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. Daha fazla bilgi için [kullanıcı adı ve parola gereksinimleri](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
+   * Oluşturduğunuz kaynak grubunu seçin (burada `DemoResourceGroup`).
+   * Bir Azure veri merkezi seçin **konumu** (burada `West US`).
+   * Tıklayın **Tamam** bu değerleri kaydedin. 
 
-6.  Aşağıdaki öneriler kullanarak dağıtmak için VM boyutunu seçin:
-  * VHD'yi şirket içinde geliştirmeyi planlıyorsanız boyut önemli değildir. En küçük VM'lerden birini kullanabilirsiniz.
-  * Görüntüyü Azure'da geliştirmeyi planlıyorsanız, seçilen görüntü için önerilen VM boyutlarından birini kullanın.
-  * Fiyatlandırma bilgileri için başvurmak **önerilen fiyatlandırma katmanları** portalda görüntülenen Seçici. Yayımcı tarafından sağlanan üç önerilen boyut görüntüler. (Burada, yayımcı Microsoft'tur.)
+6. Aşağıdaki öneriler kullanarak dağıtmak için VM boyutunu seçin:
+   * VHD'yi şirket içinde geliştirmeyi planlıyorsanız boyut önemli değildir. En küçük VM'lerden birini kullanabilirsiniz.
+   * Görüntüyü Azure'da geliştirmeyi planlıyorsanız, seçilen görüntü için önerilen VM boyutlarından birini kullanın.
+   * Fiyatlandırma bilgileri için başvurmak **önerilen fiyatlandırma katmanları** portalda görüntülenen Seçici. Yayımcı tarafından sağlanan üç önerilen boyut görüntüler. (Burada, yayımcı Microsoft'tur.)
 
-    ![Yeni sanal makinenin boyut dikey penceresi](./media/publishvm_015.png)
+   ![Yeni sanal makinenin boyut dikey penceresi](./media/publishvm_015.png)
 
 7. İçinde **ayarları** dikey penceresinde ayarlayın **yönetilen diski kullanma** seçeneğini **Hayır**.  Bu, el ile yeni VHD yönetmenize olanak sağlar. ( **Ayarları** dikey penceresinde de seçerek depolama ve ağ seçeneklerini, örneğin, diğer değişiklik değiştirmenizi sağlar **Premium (SSD)** içinde **Disk türü**.)  Tıklayın **Tamam** devam etmek için.
 

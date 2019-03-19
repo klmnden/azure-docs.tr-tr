@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3dda16450f5454b4fae6d18235b05b7bb29a8b91
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4b622a5925aebd140fed2ac74eaf7cc186803b90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018867"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113760"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory'de Hive etkinliğini kullanarak verileri dönüştürme 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -73,15 +73,15 @@ HDInsight Hive etkinliği bir Data factory'de [işlem hattı](data-factory-creat
 }
 ```
 ## <a name="syntax-details"></a>Söz dizimi ayrıntıları
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | ad |Etkinliğin adı |Evet |
 | açıklama |Etkinliğin ne için kullanıldığını açıklayan metin |Hayır |
-| type |Hdınsighthive |Evet |
+| type |HDinsightHive |Evet |
 | girişler |Hive etkinliği tarafından tüketilen girişleri |Hayır |
 | çıkışlar |Hive etkinliği tarafından üretilen çıkış |Evet |
 | linkedServiceName |Data Factory öğesinde bağlantılı hizmet olarak kayıtlı HDInsight kümesine başvuru |Evet |
-| komut dosyası |Hive betiği satır içi belirtin |Hayır |
+| script |Hive betiği satır içi belirtin |Hayır |
 | betik yolu |Hive betiği bir Azure blob depolama alanında Store ve dosyanın yolunu belirtin. 'Script' veya 'scriptPath' özelliğini kullanın. Her ikisi de birlikte kullanılamaz. Dosya adı büyük/küçük harfe duyarlıdır. |Hayır |
 | tanımlar |Hive betiği 'hiveconf' kullanarak içinde başvurmak için anahtar/değer çiftleri parametrelerini belirtin |Hayır |
 
@@ -242,7 +242,7 @@ Parametreli bir Hive betiği kullanmak için aşağıdakileri yapın
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
     ```
-## <a name="see-also"></a>Ayrıca Bkz.
+  ## <a name="see-also"></a>Ayrıca Bkz.
 * [Pig etkinliği](data-factory-pig-activity.md)
 * [MapReduce etkinliği](data-factory-map-reduce.md)
 * [Hadoop akış etkinliğinde](data-factory-hadoop-streaming-activity.md)

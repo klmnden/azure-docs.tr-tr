@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 25fdce2381cc6dd65559a2450a42de5389589863
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7c4bd326c597b8e989dfc7aac5239ddb2d38376a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197336"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884783"
 ---
 # <a name="saas-application-storefront-details-tab"></a>SaaS uygulama mağaza Ayrıntılar sekmesi
 
@@ -37,7 +37,7 @@ Teklif için sağladığınız mağaza ayrıntıları aşağıdaki tabloda açı
 |  **Teklif alanları**   |  **Açıklama**  |
 |  ---------------   |  ---------------  |
 |      Teklif özeti              |        Ürününüzün değer önerisi özeti. Bu teklife ilişkin arama sayfasında görünür. En fazla 100 karakter olmalıdır.           |
-|      Teklif açıklaması              |      Uygulama Ayrıntıları sayfasında görünür açıklaması. İzin verilen en fazla 1300 karakterdir. İçeriği biçimlendirmek için temel HTML İşaretleme etiketleri kullanabilirsiniz. Örneğin, &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;, ve &lt;li&gt;. Biçimlendirilmiş açıklama nasıl görüneceğine bakmak için gibi çevrimiçi bir gerçek zamanlı HTML aracını kullanın http://htmledit.squarefree.com             |
+|      Teklif açıklaması              |      Uygulama Ayrıntıları sayfasında görünür açıklaması. İzin verilen en fazla 1300 karakterdir. İçeriği biçimlendirmek için temel HTML İşaretleme etiketleri kullanabilirsiniz. Örneğin, &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;, ve &lt;li&gt;. Biçimlendirilmiş açıklama nasıl görüneceğine bakmak için gibi çevrimiçi bir gerçek zamanlı HTML aracını kullanın https://htmledit.squarefree.com             |
 |          Sektörler          |        Teklifiniz için en iyi hizalanır sektörler seçin. Uygulamanızı birden çok sektörler için ile ilişkili ise, en fazla iki seçebilirsiniz.           |
 |          Önerilen kategorileri (en fazla 3)         |        Teklifiniz için en iyi hizalanır kategorilerini seçin. En fazla üç kategoriden seçebilirsiniz.           |
 |           Uygulama sürümü         |        Uygulamanızı sürüm numarasını girin.           |

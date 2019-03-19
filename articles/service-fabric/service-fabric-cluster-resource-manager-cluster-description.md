@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 1020e18894f4bb307ad14f780e76eab1df1314bb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 810388a85e4ad339ff1444d21ac231fe4c00aeac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875982"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120542"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Service fabric kümesi açıklayan
 Service Fabric Küme Kaynak Yöneticisi bir kümesini tanımlamak için çeşitli mekanizmalar sağlar. Çalışma zamanı sırasında küme kaynak yöneticisi, kümede çalışan hizmetler yüksek kullanılabilirliğini sağlamak için bu bilgileri kullanır. Önemli kurallar zorlarken, ayrıca küme içindeki kaynak tüketimini iyileştirmek çalışır.
@@ -47,6 +47,7 @@ Service Fabric Hizmetleri güvenli bir şekilde yerleştirmek için bu bilgileri
 Grafikte, biz hata etki alanlarına katkıda bulunabilir ve tüm farklı hataya neden olan etki alanları listesinde tüm varlıkları renk. Bu örnekte, veri merkezleri ("DC"), raflar ("R") ve dikey pencereleri ("B") sahip. Kısıtlanmamışsa, birden fazla sanal makine her dikey pencerede tutar, hata etki alanı hiyerarşideki başka bir katmanı olabilir.
 
 <center>
+
 ![Hata etki alanları düzenlenmiş düğümleri][Image1]
 </center>
 
@@ -59,6 +60,7 @@ Her hata etki alanı hiyerarşideki derinlik düzeyini düğümlerde aynı sayı
 İmbalanced etki alanları ne gibi görünüyor? Aşağıdaki diyagramda, iki farklı küme düzenleri göstereceğiz. İlk örnekte, düğümler, hata etki alanları arasında eşit şekilde dağıtılır. İkinci örnekte, bir hata etki alanı, başka bir hata etki alanı daha pek çok daha fazla düğüm var. 
 
 <center>
+
 ![İki farklı küme düzenleri][Image2]
 </center>
 
@@ -72,6 +74,7 @@ Yükseltme etki alanları çok hata etki alanları gibi ancak birkaç önemli fa
 Aşağıdaki diyagramda, üç hata etki alanlarında üç yükseltme etki alanı şeritli gösterilmektedir. Ayrıca, burada her farklı hata ve yükseltme etki alanları sona eriyor bir olası yerleşimini üç farklı kopyaya için bir durum bilgisi olan hizmet gösterir. Bu yerleşimi hata etki alanı hizmeti yükseltmesi sırasında ortasında kaybı sağlar ve kod ve verilerin bir kopyasını çözümlenmedi.  
 
 <center>
+
 ![Hata ve yükseltme etki alanları ile yerleştirme][Image3]
 </center>
 
@@ -88,6 +91,7 @@ Toplam hata veya yükseltme etki alanları sayısını nasıl örtüşecek üzer
 - Burada hata etki alanları ve yükseltme etki alanları bir matris çizgileri genellikle çalışan makineler ile form "şeritli" veya "matris" modeli
 
 <center>
+
 ![Hata ve yükseltme etki alanı düzeni][Image4]
 </center>
 
@@ -190,9 +194,9 @@ Küme Kaynak Yöneticisi, en düşük düzeyde güvenlik hala güvence altına a
 Her iki yaklaşım güçlü ve zayıf olduğundan, bu iki stratejiler birleştiren uyarlanabilir bir yaklaşım tanıttık.
 
 > [!NOTE]
->Bu, Service Fabric sürüm 6.2 ile başlayarak varsayılan davranışı olacaktır. 
->
-Uyarlanabilir bir yaklaşım, varsayılan "en büyük fark" mantığı kullanır ve yalnızca gerekli olduğunda "çekirdek güvenli" mantıksal anahtarları. Küme Kaynak Yöneticisi otomatik olarak hangi stratejiyi nasıl kümeyi ve Hizmetleri yapılandırılmış en bakarak gerekli olduğunu belirler. Belirli bir hizmet için: *TargetReplicaSetSize hata etki alanları sayısı ve yükseltme etki alanlarının sayısı ile kalansız ise **ve** düğüm sayısını (hata etki alanları sayısı) küçük veya ona eşit olduğu * (yükseltme etki alanları sayısı) kümesi Resource Manager, bu hizmet için "temel çekirdek" mantıksal kullanmalıdır.* Küme Kaynak Yöneticisi durum bilgisi olmayan hizmetler için ilgili olmaması çekirdek kayıp rağmen durum bilgisiz ve durum bilgisi olan hizmetler için bu yaklaşım kullanacağını aklınızda size aittir.
+> Bu, Service Fabric sürüm 6.2 ile başlayarak varsayılan davranışı olacaktır. 
+> 
+> Uyarlanabilir bir yaklaşım, varsayılan "en büyük fark" mantığı kullanır ve yalnızca gerekli olduğunda "çekirdek güvenli" mantıksal anahtarları. Küme Kaynak Yöneticisi otomatik olarak hangi stratejiyi nasıl kümeyi ve Hizmetleri yapılandırılmış en bakarak gerekli olduğunu belirler. Belirli bir hizmet için: *TargetReplicaSetSize hata etki alanları sayısı ve yükseltme etki alanlarının sayısı ile kalansız ise **ve** düğüm sayısını (hata etki alanları sayısı) küçük veya ona eşit olduğu * (yükseltme etki alanları sayısı) kümesi Resource Manager, bu hizmet için "temel çekirdek" mantıksal kullanmalıdır.* Küme Kaynak Yöneticisi durum bilgisi olmayan hizmetler için ilgili olmaması çekirdek kayıp rağmen durum bilgisiz ve durum bilgisi olan hizmetler için bu yaklaşım kullanacağını aklınızda size aittir.
 
 Önceki örneğe geri dönelim ve küme artık 8 düğüm (küme yine beş hata etki alanları ve beş yükseltme etki alanları ve bu küme kalır beş barındırılan hizmetin TargetReplicaSetSize yapılandırılmış) olduğunu varsayalım. 
 
@@ -344,6 +348,7 @@ Bazen (aslında çoğu zaman), belirli iş yükleri yalnızca belirli türdeki d
 Bu tür yapılandırmaları desteklemek için Service Fabric düğümlere uygulanması etiketleri birinci sınıf bir kavramı vardır. Bu etiketler adlı **düğümü özellikleri**. **Yerleştirme kısıtlamaları** olan bir veya daha fazla düğüm özelliklerini seçin, tek tek hizmetlerine bağlı deyimleri. Yerleştirme kısıtlamaları Hizmetleri çalıştırdığı tanımlar. Kısıtlamaları kümesini Genişletilebilir - herhangi bir anahtar/değer çifti çalışabilir. 
 
 <center>
+
 ![Düzen farklı iş yüklerini küme][Image5]
 </center>
 
@@ -351,6 +356,7 @@ Bu tür yapılandırmaları desteklemek için Service Fabric düğümlere uygula
 Service Fabric tanımlamadan girmelerine gerek otomatik olarak kullanılabilecek bazı varsayılan düğümü özellikleri tanımlar. Her düğümde tanımlanan varsayılan Özellikler **NodeType** ve **NodeName**. Yerleştirme kısıtlama olarak örneğin yazabilirsiniz `"(NodeType == NodeType03)"`. NodeType aşağıdakilerden en yaygın olarak kullanılan özellikleri genellikle bulduk. 1:1 ile bir makine türü karşılık gelen olduğundan yararlı olur. Her makine türü, geleneksel bir n katmanlı uygulama iş yükü türüne karşılık gelir.
 
 <center>
+
 ![Yerleştirme kısıtlamaları ve düğümü özellikleri][Image6]
 </center>
 
@@ -474,6 +480,7 @@ Tüm kaynak etkinleştirdiyseniz *Dengeleme*, Service Fabric'in Küme Kaynak Yö
 Çalışma zamanı sırasında Kalan kapasite kümedeki ve düğümlerdeki Küme Kaynak Yöneticisi izler. Kapasite izlemek için her bir hizmetin kullanım hizmetin çalıştırıldığı düğüme ait kapasiteden Küme Kaynak Yöneticisi çıkarır. Bu bilgileri kullanarak Service Fabric Küme Kaynak Yöneticisi yerleştirin veya kapasite aşımı düğümlerini yapılmaz, böylece çoğaltmaları taşımak nereye ekleyeceğimi.
 
 <center>
+
 ![Küme düğümlerini ve kapasite][Image7]
 </center>
 

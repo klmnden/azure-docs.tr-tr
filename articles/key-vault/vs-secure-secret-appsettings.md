@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 206804ede429e8a9ace75c16b8f0ac4a8d3f49f7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 79b1c740bca56982243ddc130d8747fdc955247f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443613"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124125"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Güvenli bir şekilde bir web uygulaması için gizli uygulama ayarlarını Kaydet
 
@@ -143,9 +143,9 @@ Hızlı bir prototip yazma ve Azure kaynaklarını hazırlayacak istemiyorsanız
 Projeniz için bir anahtar Kasası'nı yapılandırmak için ASP.NET core bölümündeki yönergeleri izleyin.
 
 1. Aşağıdaki NuGet paketini projenize yükleyin.
-```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets
-```
+   ```
+   Microsoft.Configuration.ConfigurationBuilders.UserSecrets
+   ```
 
 2. Key Vault yapılandırma Oluşturucu, Web.config içinde tanımlayın. Bu bölümde önce yerleştirin *appSettings* bölümü. Değiştirin *vaultName* Key Vault'unuza genel Azure veya tam URI ise bağımsız bulut kullanıyorsanız, anahtar kasası adı olacak.
 
@@ -159,16 +159,16 @@ Microsoft.Configuration.ConfigurationBuilders.UserSecrets
         </builders>
     </configBuilders>
     ```
-3.  AppSettings bölümünde, Key Vault yapılandırma Oluşturucusu'nu kullanarak belirtin. Gizli bir kukla değer ayarı için herhangi bir giriş olduğundan emin olun.
+3. AppSettings bölümünde, Key Vault yapılandırma Oluşturucusu'nu kullanarak belirtin. Gizli bir kukla değer ayarı için herhangi bir giriş olduğundan emin olun.
 
-    ```xml
-    <appSettings configBuilders="AzureKeyVault">
-        <add key="webpages:Version" value="3.0.0.0" />
-        <add key="webpages:Enabled" value="false" />
-        <add key="ClientValidationEnabled" value="true" />
-        <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-        <add key="secret" value="" />
-    </appSettings>
-    ```
+   ```xml
+   <appSettings configBuilders="AzureKeyVault">
+       <add key="webpages:Version" value="3.0.0.0" />
+       <add key="webpages:Enabled" value="false" />
+       <add key="ClientValidationEnabled" value="true" />
+       <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+       <add key="secret" value="" />
+   </appSettings>
+   ```
 
 4. Projede hata ayıklamaya başlayın. Başarılı bir şekilde çalışması gerekir.

@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: aschhab
-ms.openlocfilehash: 44601d069f8c93e6101b5856e49ecf8c4b519e78
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 4862377a8441d5ec920d6b52dbed8ad405144227
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569085"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857972"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>PHP ile Service Bus konu başlıklarını ve aboneliklerini kullanma
 
@@ -35,7 +35,7 @@ Bu makalede hizmet veri yolu konuları ve abonelikleri kullanmayı gösterir. PH
 Azure Blob hizmete erişen bir PHP uygulaması oluşturmak için sınıflar başvurmak için tek gereksinim olmasıdır [PHP için Azure SDK'sı](../php-download-sdk.md) gelen kod içinde. Herhangi bir geliştirme aracı, uygulama veya not defteri oluşturmak için kullanabilirsiniz.
 
 > [!NOTE]
-> PHP yüklemenizi de olmalıdır [OpenSSL uzantısı](http://php.net/openssl) yüklenir ve etkinleştirilir.
+> PHP yüklemenizi de olmalıdır [OpenSSL uzantısı](https://php.net/openssl) yüklenir ve etkinleştirilir.
 > 
 > 
 
@@ -341,5 +341,5 @@ Daha fazla bilgi için [kuyruklar, konular ve abonelikler][Queues, topics, and s
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [sqlfilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
-[require-once]: http://php.net/require_once
+[require-once]: https://php.net/require_once
 [Service Bus quotas]: service-bus-quotas.md

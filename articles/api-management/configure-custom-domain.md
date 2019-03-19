@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: cb7ccc665cdf9867232580fd8b687b344e43116d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a771b437258046f937b97a9e37ffedbe0a17c1c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587285"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079810"
 ---
 # <a name="configure-a-custom-domain-name"></a>Özel bir etki alanı adı yapılandırma 
 
@@ -45,22 +45,22 @@ Bu makalede açıklanan adımları gerçekleştirmek için aşağıdakiler gerek
 1. Seçin **özel etki alanları ve SSL**.
     
     Bir özel etki alanı adı atamak için uç noktalar vardır. Şu anda aşağıdaki uç noktaların bulunmaktadır: 
-    + **Proxy** (varsayılan: `<apim-service-name>.azure-api.net`), 
-    + **Portal** (varsayılan: `<apim-service-name>.portal.azure-api.net`),     
-    + **Yönetim** (varsayılan: `<apim-service-name>.management.azure-api.net`), 
-    + **SCM** (varsayılan: `<apim-service-name>.scm.azure-api.net`).
+   + **Proxy** (varsayılan: `<apim-service-name>.azure-api.net`), 
+   + **Portal** (varsayılan: `<apim-service-name>.portal.azure-api.net`),     
+   + **Yönetim** (varsayılan: `<apim-service-name>.management.azure-api.net`), 
+   + **SCM** (varsayılan: `<apim-service-name>.scm.azure-api.net`).
 
-    >[!NOTE]
-    > Tüm uç noktalar veya bunlardan bazıları güncelleştirebilirsiniz. Yaygın olarak, müşteriler güncelleştirme **Proxy** (Bu URL'yi API Management aracılığıyla kullanıma sunulan API çağırmak için kullanılır) ve **portalı** (Geliştirici Portalı URL'si). **Yönetim** ve **SCM** uç noktaları APIM müşteriler tarafından dahili olarak kullanılır ve bu nedenle daha az sıklıkta özel etki alanı atanır.
+     >[!NOTE]
+     > Tüm uç noktalar veya bunlardan bazıları güncelleştirebilirsiniz. Yaygın olarak, müşteriler güncelleştirme **Proxy** (Bu URL'yi API Management aracılığıyla kullanıma sunulan API çağırmak için kullanılır) ve **portalı** (Geliştirici Portalı URL'si). **Yönetim** ve **SCM** uç noktaları APIM müşteriler tarafından dahili olarak kullanılır ve bu nedenle daha az sıklıkta özel etki alanı atanır.
 
 1. Güncelleştirmek istediğiniz uç nokta seçin. 
 1. Sağdaki pencerede **özel**.
 
-    + İçinde **özel etki alanı adı**, kullanmak istediğiniz adı belirtin. Örneğin, `api.contoso.com`. Joker karakter etki alanı adlarını (örneğin, *. etkialanı.com) da desteklenir.
-    + İçinde **sertifika**, Key Vault'tan bir sertifika seçin. Geçerli bir yükleyebilirsiniz. PFX dosyasını açıp sağlayan kendi **parola**, sertifika bir parolayla korunuyorsa.
+   + İçinde **özel etki alanı adı**, kullanmak istediğiniz adı belirtin. Örneğin, `api.contoso.com`. Joker karakter etki alanı adlarını (örneğin, *. etkialanı.com) da desteklenir.
+   + İçinde **sertifika**, Key Vault'tan bir sertifika seçin. Geçerli bir yükleyebilirsiniz. PFX dosyasını açıp sağlayan kendi **parola**, sertifika bir parolayla korunuyorsa.
 
-    > [!TIP]
-    > Özel etki alanı SSL sertifikası yönetmek için Azure anahtar kasası kullanıyorsanız, sertifika Key Vault'a eklediğiniz emin olun [olarak bir *sertifika*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate)değil bir *gizli*. Sertifika için autorotate ayarlarsanız, API Management en son sürümü otomatik olarak seçer.
+     > [!TIP]
+     > Özel etki alanı SSL sertifikası yönetmek için Azure anahtar kasası kullanıyorsanız, sertifika Key Vault'a eklediğiniz emin olun [olarak bir *sertifika*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate)değil bir *gizli*. Sertifika için autorotate ayarlarsanız, API Management en son sürümü otomatik olarak seçer.
 
 1. Uygula düğmesini tıklatın.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: ef360fd56c3530a49c2f36846db34b29ca1cf444
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 3890283f70bfd922d0c436f76b38d7f81d7b8c6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788027"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107027"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Yük devretme ve ilk durumuna geri döndürme, ikincil şirket içi siteye çoğaltılan Hyper-V Vm'leri
 
@@ -49,7 +49,7 @@ Hyper-V Vm'leri için normal veya planlanan bir yük devretme çalıştırabilir
 - Normal bir yük devretme için beklenmeyen kesintiler kullanın. Bu yük devretme çalıştırdığınızda, Site Recovery ikincil sitede bir sanal makine oluşturur ve yukarı güçlendirir. Eşitlenmiş edilmemiş bekleyen veri bağlı olarak veri kaybı oluşabilir.
 - Planlı yük devretme, bakım için veya beklenen bir kesinti sırasında kullanılabilir. Bu seçenek, sıfır veri kaybı sağlar. Planlı yük devretme tetiklendiğinde kaynak VM'ler kapatılır. Eşitlenmemiş veriler eşitlenir ve yük devretme tetiklenir. 
 - 
-Bu yordamda, normal bir yük devretme çalıştırma açıklanmaktadır.
+  Bu yordamda, normal bir yük devretme çalıştırma açıklanmaktadır.
 
 
 1. **Ayarlar** > **Çoğaltılan öğeler** bölümünde VM > **Yük devretme**’ye tıklayın.

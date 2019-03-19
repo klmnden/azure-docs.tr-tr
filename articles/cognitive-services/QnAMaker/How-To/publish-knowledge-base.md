@@ -1,26 +1,26 @@
 ---
 title: Bilgi bankası yayımlama
-titleSuffix: QnA Maker - Azure Cognitive Services
-description: Bilgi Bankası yayımlama bilgi bankanızı bir soruyu yanıtlarken uç noktası olarak kullanılabilir hale getirme son adımdır. Bilgi Bankası yayımladığınızda, soru-cevap bilgi bankanızı içeriğini taşır test dizini Azure Search'te bir üretim dizini.
+titleSuffix: QnA Maker API - Azure Cognitive Services
+description: Soru-cevap Oluşturucu API'si hizmeti, Bilgi Bankası'nda yayımlama bilgi bankanızı bir soruyu yanıtlarken uç noktası olarak kullanılabilir hale getirmek için son adımdır. Bilgi Bankası yayımladığınızda, soru-cevap bilgi bankanızı içeriğini taşır test dizini Azure Search'te bir üretim dizini.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 03/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 585e5f8f955a405b08bef42588ab5caff71c7bba
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c65654e7d6b2e66a07116ea9555ed316ace88912
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865922"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091962"
 ---
-# <a name="publish-a-knowledge-base-using-the-qna-maker-portal"></a>Soru-cevap Oluşturucu portalı kullanarak Bilgi Bankası yayımlama
+# <a name="publish-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Soru-cevap Oluşturucu API'si hizmeti portalını kullanarak Bilgi Bankası yayımlama
 
-Bilgi Bankası yayımlama bilgi bankanızı bir istemci uygulama bir soruyu yanıtlarken uç noktası olarak kullanılabilir hale getirme son adımdır. 
+Soru-cevap Oluşturucu API'si hizmeti, Bilgi Bankası'nda yayımlama bilgi bankanızı bir soruyu yanıtlarken uç noktası olarak kullanılabilir hale getirmek için son adımdır. 
 
 Bilgi Bankası yayımladığınızda, bilgi bankanızı soru ve yanıt içeriğini taşır test dizini Azure Search'te bir üretim dizini.
 

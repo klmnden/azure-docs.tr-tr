@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d48ad97d50c413c4530e54f2538fda9cd0e31b8f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 09cc38cd5343e8b01b3e704191ea40c133d724f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342686"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103732"
 ---
 # <a name="try-speech-services-for-free"></a>Konuşma Hizmetleri ücretsiz olarak deneyin
 
@@ -87,19 +87,19 @@ Azure hesabınızda bir konuşma Hizmetleri kaynak (ücretsiz veya Ücretli katm
 
 1. Altında **Oluştur**, girin:
 
-    * Yeni kaynak için bir ad. Adı aynı hizmetin birden fazla aboneliğe arasında ayırt etmenize yardımcı olur.
-    * Yeni kaynak ücretleri nasıl faturalandırılır belirlemek için ilişkili olduğu Azure aboneliğini seçin.
-    * Kaynağı nerede kullanılacak bir bölge seçin. Şu anda konuşma Hizmetleri Doğu Asya, Kuzey Avrupa ve Batı ABD bölgelerinde kullanılabilir.
-    * Ya da ücretsiz veya Ücretli fiyatlandırma katmanı seçin. Tıklayın **fiyatlandırma ayrıntılarının tamamını görüntüle** her katman için fiyatlandırma ve kullanım Kotalar hakkında tam bilgi için.
-    * Bu konuşma abonelik için yeni bir kaynak grubu oluşturun veya mevcut bir kaynak grubu aboneliği atayın. Kaynak düzenlenir, çeşitli Azure aboneliklerinizi tutmak Yardım gruplandırır.
-    * Aboneliğinize gelecekte kolay erişim için seçin **panoya Sabitle** onay kutusu.
-    * Seçin **oluşturun.**
+   * Yeni kaynak için bir ad. Adı aynı hizmetin birden fazla aboneliğe arasında ayırt etmenize yardımcı olur.
+   * Yeni kaynak ücretleri nasıl faturalandırılır belirlemek için ilişkili olduğu Azure aboneliğini seçin.
+   * Kaynağı nerede kullanılacak bir bölge seçin. Şu anda konuşma Hizmetleri Doğu Asya, Kuzey Avrupa ve Batı ABD bölgelerinde kullanılabilir.
+   * Ya da ücretsiz veya Ücretli fiyatlandırma katmanı seçin. Tıklayın **fiyatlandırma ayrıntılarının tamamını görüntüle** her katman için fiyatlandırma ve kullanım Kotalar hakkında tam bilgi için.
+   * Bu konuşma abonelik için yeni bir kaynak grubu oluşturun veya mevcut bir kaynak grubu aboneliği atayın. Kaynak düzenlenir, çeşitli Azure aboneliklerinizi tutmak Yardım gruplandırır.
+   * Aboneliğinize gelecekte kolay erişim için seçin **panoya Sabitle** onay kutusu.
+   * Seçin **oluşturun.**
 
-    ![Oluştur düğmesine seçin](media/index/try-speech-api-create-speech4.png)
+     ![Oluştur düğmesine seçin](media/index/try-speech-api-create-speech4.png)
 
-    Oluşturmak ve yeni konuşma kaynağınızı dağıtmak için bir dakika sürer. Seçin **hızlı** yeni kaynağınız hakkındaki bilgileri görmek için.
+     Oluşturmak ve yeni konuşma kaynağınızı dağıtmak için bir dakika sürer. Seçin **hızlı** yeni kaynağınız hakkındaki bilgileri görmek için.
 
-    ![Hızlı Başlangıç paneli](media/index/try-speech-api-create-speech5.png)
+     ![Hızlı Başlangıç paneli](media/index/try-speech-api-create-speech5.png)
 
 1. Altında **hızlı**, tıklayın **anahtarları** abonelik anahtarlarınızı görüntülemek için 1. adım altında bağlantı. Her aboneliğin, iki anahtarı vardır; uygulamanızda iki anahtarı kullanabilirsiniz. Kodunuzu yapıştırma panoya kopyalamak için her anahtar yanındaki düğmeyi seçin.
 

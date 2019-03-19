@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 09/18/2018
-ms.openlocfilehash: b8bd57953845278aa75e8cbdf41ae28300edad58
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3d825a0f8a23380b4d9cf453076ab4b18ee67831
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184916"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095526"
 ---
 # <a name="azure-stack-capacity-planning"></a>Azure Stack kapasite planlaması
 Azure Stack çözümünü değerlendirirken, genel ve Azure Stack bulut kapasite üzerinde doğrudan etkisi donanım yapılandırma seçeneğiniz vardır. Bunlar, CPU, bellek yoğunluğu, depolama yapılandırması ve genel çözüm ölçek veya sunucu sayısını Klasik seçimlerdir. Geleneksel bir sanallaştırma çözümü, kullanılabilir kapasitesini belirlemek için bu bileşenlerin basit aritmetik geçerli değildir. Azure Stack altyapısını veya yönetim bileşenleri çözüm içinde barındırmak için geliştirilmiştir ilk neden olmasıdır. Çözümün kapasite bazıları ayrılır, dayanıklılık desteklemek üzere ikinci sebebi; Kiracı iş yüklerini bir kesintiyi en aza indirmek için bir yol çözümün yazılım güncelleştiriliyor.
@@ -49,7 +49,7 @@ Kapasite hesaplamalarıyla ilişkin ayrıntılı bir açıklaması Bu bölümde 
 |     |     |     |     |     |     |     |     |
 
 > <sup>1</sup> standart D2 VM'ler.
-
+> 
 > <sup>2</sup> sanal çekirdek/fiziksel çekirdek oranı.
 
 Yukarıda belirtildiği gibi VM kapasitesi kullanılabilir belleğe göre belirlenir. Sanal çekirdek fiziksel çekirdek oranları için sürece çözümü daha fazla sayıda fiziksel çekirdek (başka bir CPU seçilir) ile oluşturulmuş olan VM yoğunluğunu kullanılabilir CPU kapasitesi nasıl değiştireceğini exemplify. Aynı depolama kapasitesi ve depolama önbellek kapasitesi geçerlidir.

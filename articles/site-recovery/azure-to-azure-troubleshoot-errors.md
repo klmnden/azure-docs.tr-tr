@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: b4359a90bb511b538499848effea7be22a23fac0
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 62a2da72a2659b95e4da41de67da4c609b8f049e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570632"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835591"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure'dan Azure'a VM çoğaltmayla sorunları giderme
 
@@ -79,7 +79,7 @@ SuSE Linux sertifika listesini korumak için çözümlemeyin kullandığından, 
 
 4. Baltimore kök CA sertifika bulunmazsa sertifikayı indirin.  
 
-    ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
+    ``# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
 5. DigiCert_Global_Root_CA cert var olup olmadığını denetleyin.
 
@@ -158,12 +158,12 @@ Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP 
 - **Olası nedeni** </br>
   - Site recovery uç noktalarına DNS çözümleme hatası nedeniyle bağlantı kurulamıyor.
   - Bu daha sık yeniden koruma sırasında sanal makine üzerinde başarısız oldu, ancak DR bölgesindeki DNS sunucusu erişilebilir değil görülür.
-  
+
 - **Çözümleme**
    - Özel DNS kullanıyorsanız sonra emin olun, DNS sunucusu olağanüstü durum kurtarma bölgeden erişilebilir. Sanal Makineye gidin özel bir DNS olup olmadığını denetlemek için > olağanüstü durum kurtarma ağı > DNS sunucuları. DNS sunucusu sanal makineden erişmeyi deneyin. Erişilebilir değilse, ardından erişilebilir DNS sunucusu üzerinde başarısız olan veya DR ağ DNS arasındaki site satırının oluşturma kolaylaştırır.
-  
+
     ![COM hatası](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
- 
+
 
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Sorun 2: Site Recovery yapılandırması başarısız oldu (151196)
 - **Olası nedeni** </br>
@@ -172,10 +172,10 @@ Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP 
 - **Çözümleme**
   - Azure Site Recovery, Office 365 IP aralıkları erişimi kimlik doğrulaması için gereklidir.
     VM üzerinde giden ağ bağlantısını denetlemek için Azure ağ güvenlik grubu (NSG) kuralları/güvenlik duvarı proxy'si kullanıyorsanız, O365 aralıkları için iletişime izin vermek emin olun. Oluşturma bir [Azure Active Directory (AAD) hizmet etiketi](../virtual-network/security-overview.md#service-tags) erişimi için AAD karşılık gelen tüm IP adreslerine izin vermek için NSG kural tabanlı
-        - Azure Active Directory (AAD) gelecekte yeni adresler eklenir, yeni NSG kuralları oluşturmak gerekir.
->[!NOTE]
-> Sanal makineler arkasında olsa **standart** iç yük dengeleyici sonra O365 IP'ler yani erişimi sahip değil Varsayılan olarak Login.micorsoftonline.com. Olarak değiştirin ya da **temel** iç yük dengeleyici türü veya dışarı bağlanan erişime [makale] belirtildiği gibi oluşturun (https://aka.ms/lboutboundrulescli).
->
+      - Azure Active Directory (AAD) gelecekte yeni adresler eklenir, yeni NSG kuralları oluşturmak gerekir.
+
+> [!NOTE]
+> Sanal makineler arkasında olsa **standart** iç yük dengeleyici sonra O365 IP'ler yani erişimi sahip değil Varsayılan olarak Login.micorsoftonline.com. Olarak değiştirin ya da **temel** iç yük dengeleyici türü veya dışarı bağlanan erişime belirtildiği gibi oluşturma [makale](https://aka.ms/lboutboundrulescli).
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>3. sorun: Site Recovery yapılandırması başarısız oldu (151197)
 - **Olası nedeni** </br>
@@ -183,24 +183,24 @@ Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP 
 
 - **Çözümleme**
   - Azure Site Recovery gerekli erişim [Site kurtarma IP aralıkları](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) bölgeye bağlı olarak. Bu gerekli IP aralıkları sanal makineden erişilebilir olduğundan emin olun.
-    
+
 
 ### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>4. sorun: A2A çoğaltması trafiği (151072) şirket içi proxy sunucusu üzerinden geçtiğinde başarısız oldu
- - **Olası nedeni** </br>
-   - Özel ara sunucu ayarlarını geçersiz ve ASR Mobility Hizmeti Aracısı otomatik-IE proxy ayarları algılamadı
+- **Olası nedeni** </br>
+  - Özel ara sunucu ayarlarını geçersiz ve ASR Mobility Hizmeti Aracısı otomatik-IE proxy ayarları algılamadı
 
 
- - **Çözümleme**
-   1.   Mobility hizmeti aracısı için proxy ayarlarını Windows üzerinde IE ve Linux'ta /etc/environment algılar.
-   2.  Ardından yalnızca ASR Mobility hizmeti için proxy ayarlamak isterseniz, konumundaki ProxyInfo.conf proxy ayrıntıları sağlayabilirsiniz:</br>
-       - ``/usr/local/InMage/config/`` üzerinde ***Linux***
-       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` üzerinde ***Windows***
-   3.   ProxyInfo.conf proxy ayarlarını aşağıdaki INI biçiminde olmalıdır.</br>
-                   *[proxy]*</br>
-                   *Adres =http://1.2.3.4*</br>
-                   *Bağlantı noktası 567 =*</br>
-   4. ASR Mobility Hizmeti Aracısı destekler yalnızca ***kimliği doğrulanmamış proxy***.
- 
+- **Çözümleme**
+  1. Mobility hizmeti aracısı için proxy ayarlarını Windows üzerinde IE ve Linux'ta /etc/environment algılar.
+  2. Ardından yalnızca ASR Mobility hizmeti için proxy ayarlamak isterseniz, konumundaki ProxyInfo.conf proxy ayrıntıları sağlayabilirsiniz:</br>
+     - ``/usr/local/InMage/config/`` üzerinde ***Linux***
+     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` üzerinde ***Windows***
+  3. ProxyInfo.conf proxy ayarlarını aşağıdaki INI biçiminde olmalıdır.</br>
+                *[proxy]*</br>
+                *Adres =http://1.2.3.4*</br>
+                *Bağlantı noktası 567 =*</br>
+  4. ASR Mobility Hizmeti Aracısı destekler yalnızca ***kimliği doğrulanmamış proxy***.
+
 
 ### <a name="fix-the-problem"></a>Sorunu
 Güvenilir listeye eklenecek [gerekli URL'leri](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) veya [gerekli IP aralıkları](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), adımları [ağ rehberi belgesi](site-recovery-azure-to-azure-networking-guidance.md).
@@ -281,6 +281,7 @@ VM üzerinde çoğaltmayı etkinleştirmek için sağlama durumu olmalıdır **b
 
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM +/ Birim Gölge Kopyası Hizmeti hatası (hata kodu 151025)
+
 **Hata kodu** | **Olası nedenler** | **Öneriler**
 --- | --- | ---
 151025<br></br>**İleti**: Site kurtarma uzantısı yüklenemedi | -'COM + Sistem uygulaması' hizmeti devre dışı.</br></br>-'Birim gölge kopyası' hizmeti devre dışı bırakıldı.| 'COM + Sistem uygulaması' ve 'Birim gölge kopyası' hizmetlerini otomatik veya el ile başlatma moduna ayarlayın.
@@ -304,31 +305,31 @@ GRUB yapılandırma dosyaları ("/ boot/grub/menu.lst", "/ boot/grub/grub.cfg", 
 
 
 - GRUB dosyasıdır aşağıdaki satırı **/boot/grub2/grub.cfg**. <br>
-*Linux /boot/vmlinuz-3.12.49-11-default **kök = / dev/sda2** ${extra_cmdline} **= / dev/sda1 sürdürme** splash sessiz sessiz showopts =*
+  *Linux /boot/vmlinuz-3.12.49-11-default **kök = / dev/sda2** ${extra_cmdline} **= / dev/sda1 sürdürme** splash sessiz sessiz showopts =*
 
 
 - GRUB dosyasıdır aşağıdaki satırı **/boot/grub/menu.lst**
-*çekirdek /boot/vmlinuz-3.0.101-63-default **kök = / dev/sda2** **= / dev/sda1 Sürdür ** splash sessiz crashkernel = 256M-:128M showopts vga = 0x314 =*
+  *çekirdek /boot/vmlinuz-3.0.101-63-default **kök = / dev/sda2** **= / dev/sda1 Sürdür ** splash sessiz crashkernel = 256M-:128M showopts vga = 0x314 =*
 
 Yukarıdaki kalın dize gözlemlerseniz, GRUB parametreleri "root" ve "Devam" UUID yerine gerçek cihaz adları vardır.
- 
+
 **Nasıl:**<br>
 Cihaz adları, karşılık gelen UUID ile değiştirilmelidir.<br>
 
 
 1. Komutunu yürüterek cihazı UUID'si Bul "blkid <device name>". Örneğin:<br>
-```
-blkid /dev/sda1 
-```<br>
-```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br>
-```blkid /dev/sda2```<br> 
-```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
-```<br>
+   ```
+   blkid /dev/sda1 
+   ```<br>
+   ```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br>
+   ```blkid /dev/sda2```<br> 
+   ```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+   ```<br>
 
 
 
 1. Now replace the device name with its UUID in the format like "root=UUID=<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
-*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+   *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 1. Restart the protection again
 
 ## Enable protection failed as device mentioned in the GRUB configuration doesn't exist(error code 151124)
@@ -338,14 +339,14 @@ The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/bo
 Few examples: </br>
 
 1. The following line is from the GRUB file **"/boot/grub2/grub.cfg"** on RHEL7. </br>
-*linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
-Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
+   *linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M\@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*</br>
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
 1. The following line is from the GRUB file **"/etc/default/grub"** on RHEL7 </br>
- *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>
-Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
+   *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*</br>
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg". 
 1. The following line is from the GRUB file **"/boot/grub/menu.lst"** on RHEL6 </br>
-*kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
- Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".<br>
+   *kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* </br>
+   Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".<br>
 
 **How to Fix:**<br>
 

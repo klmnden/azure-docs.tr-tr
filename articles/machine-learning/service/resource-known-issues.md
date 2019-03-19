@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3cf71de72a6005c59d76e2d88059a1ae16ec2970
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5814e05aa65bf005a3156aa75e65747bbd46733c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817482"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58171066"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bilinen sorunlar ve sorun giderme Azure Machine Learning hizmeti
 
@@ -45,6 +45,7 @@ Web hizmeti dağıtılırken hata oluşturma görüntüsü. Geçici çözüm ola
 Gözlemlerseniz, `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, daha fazla belleğe sahip bir dağıtımda kullanılan VM'ler için SKU değişimi.
 
 ## <a name="fpgas"></a>FPGA'lar
+
 İstenen ve FPGA kotası için onaylanmış kadar FPGA modellerde dağıtmayı mümkün olmayacaktır. Erişim istemek için kota istek formunu doldurun: https://aka.ms/aml-real-time-ai
 
 ## <a name="databricks"></a>Databricks
@@ -52,23 +53,52 @@ Gözlemlerseniz, `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died
 Databricks ve Azure Machine Learning sorunları.
 
 ### <a name="failure-when-installing-packages"></a>Paketler yüklenirken hata
-Daha fazla paketleri yüklendiğinde Databricks üzerinde bir Azure Machine Learning SDK yükleme hataları. Gibi bazı paketler `psutil`, çakışmaları neden olabilir. Yükleme hataları önlemek için paketleri dondurma LIB sürümüyle yükleyin. Bu sorun, Databricks ve Azure Machine Learning hizmeti SDK'sı - değil ilgili, diğer kitaplıklar ile çok karşılaşacağınız. Örnek:
-   ```python
-   pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+
+Daha fazla paketleri yüklendiğinde azure Machine Learning SDK yüklemesi Azure Databricks üzerinde başarısız olur. Gibi bazı paketler `psutil`, çakışmaları neden olabilir. Yükleme hataları önlemek için kitaplığı sürüm dondurma tarafından paketleri yükleyin. Bu sorun, Databricks ve Azure Machine Learning hizmeti SDK'sını ilişkilidir. Çok diğer kitaplıkları, bu sorunla karşılaşabilirsiniz. Örnek:
+
+```python
+pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+```
+
+Alternatif olarak, yükleme sorunlarını Python kitaplıkları karşılıklı tutmak, init komut dosyalarını kullanabilirsiniz. Bu yaklaşım resmi olarak desteklenmez. Daha fazla bilgi için [küme kapsamlı init betikleri](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+
+### <a name="cancel-an-automated-machine-learning-run"></a>Bir otomatik makine öğrenme çalıştırması iptal et
+
+Çalıştırma iptal edin ve çalıştırın, yeni bir deneme başlatın otomatik makine öğrenimi özellikleri Azure Databricks üzerinde kullandığınızda, Azure Databricks kümenizi yeniden başlatın.
+
+### <a name="10-iterations-for-automated-machine-learning"></a>> 10 yinelemeden otomatik machine learning için
+
+10'dan fazla yinelemeler, varsa ayarları, öğrenme otomatik makine kümesi `show_output` için `False` çalıştırmayı ne zaman gönderdiğiniz.
+
+### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Azure Machine Learning SDK/otomatik machine learning için pencere öğesi
+
+Not defterlerini HTML pencere öğeleri ayrıştıramadığından, Azure Machine Learning SDK'sı pencere öğesi bir Databricks not defteri desteklenmez. Pencere öğesi, Azure Databricks not defteri hücresinde bu Python kodu kullanarak, portalda görüntüleyebilirsiniz:
+
+```
+displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
+```
+
+### <a name="import-error-no-module-named-pandascoreindexes"></a>İçeri aktarma hatası: 'Pandas.core.indexes' adlı bir modül yok
+
+Kullandığınızda, bu hatayı görürseniz, machine learning otomatik:
+
+1. Azure Databricks kümenizde iki paketleri yüklemek için şu komutu çalıştırın: 
+
    ```
-Alternatif olarak, yükleme sorunlarını Python kitaplıklar ile yan yana tutmak, init komut dosyalarını kullanabilirsiniz. Bu yaklaşım, resmi olarak desteklenen bir yaklaşım değildir. Başvurabilirsiniz [bu belge](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+   scikit-learn==0.19.1
+   pandas==0.22.0
+   ```
 
-### <a name="cancel-an-automated-ml-run"></a>Otomatik bir ML çalıştırmayı iptal et
-Kullanarak makine öğrenimi özelliklerinden Databricks üzerinde bir çalışmayı iptal edip yeni bir deneme çalıştırma başlatmak istiyorsanız otomatik olduğunda, Azure Databricks kümenizi yeniden başlatın.
+1. Ayırma ve ardından, not defterinizin kümeye yeniden bağlayın. 
 
-### <a name="10-iterations-for-automated-ml"></a>> 10 yinelemeden otomatik ML için
-10'dan fazla yineleme varsa, otomatik ml ayarlarında ayarlamak `show_output` için `False` çalıştırmayı ne zaman gönderdiğiniz.
-
+Bu sorunu çözmezse, kümeyi yeniden başlatmayı deneyin.
 
 ## <a name="azure-portal"></a>Azure portal
+
 Doğrudan paylaşım bağlantısı SDK veya portalından çalışma alanınızda görüntülemeye giderseniz, uzantı normal genel bakış sayfası ile abonelik bilgilerini görüntülemek mümkün olmayacaktır. Siz de başka bir çalışma alanına geçmeniz mümkün olmayacaktır. Başka bir çalışma alanını görüntülemek gerekiyorsa, doğrudan gitmek için geçici çözüm olan [Azure portalında](https://portal.azure.com) ve çalışma alanı adı arayın.
 
 ## <a name="diagnostic-logs"></a>Tanılama günlükleri
+
 Bazen Yardım isteme, tanılama bilgilerini sağlarsanız, yararlı olabilir.
 Günlük dosyaları burada Canlı aşağıda verilmiştir:
 

@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 7a90a0af8c6c7fd19b784d97e2ce30bea7910089
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 585a5878ce50a5c64c3eb90593de4ff8df5a09d1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550720"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091282"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory karma kimlik çözümünüz için doğru kimlik doğrulama yöntemini seçin 
 
@@ -135,10 +135,10 @@ Başvurmak [geçişli kimlik doğrulaması uygulama](https://docs.microsoft.com/
 
 * **Gelişmiş senaryolar**. Müşteriler Azure AD yerel olarak desteklemeyen bir kimlik doğrulaması gerekli olduğunda, bir Federasyon kimlik doğrulaması çözüm genellikle gereklidir. Yardımcı olmak için ayrıntılı bilgi [doğrudan oturum açma seçeneğini](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Ortak aşağıdaki gereksinimleri göz önünde bulundurun:
 
-    * Akıllı kart veya sertifika gerektiren kimlik doğrulaması.
-    * Şirket içi MFA sunucularda veya çok faktörlü üçüncü taraf sağlayıcılar.
-    * Üçüncü taraf kimlik doğrulama çözümlerini kullanarak kimlik doğrulaması. Bkz: [Azure AD Federasyonu uyumluluk listesi](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
-    * Oturum açma gerektiren bir sAMAccountName, örneğin, etki alanı\kullanıcı adı, yerine bir kullanıcı asıl adı (UPN), örneğin, user@domain.com.
+  * Akıllı kart veya sertifika gerektiren kimlik doğrulaması.
+  * Şirket içi MFA sunucularda veya çok faktörlü üçüncü taraf sağlayıcılar.
+  * Üçüncü taraf kimlik doğrulama çözümlerini kullanarak kimlik doğrulaması. Bkz: [Azure AD Federasyonu uyumluluk listesi](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
+  * Oturum açma gerektiren bir sAMAccountName, örneğin, etki alanı\kullanıcı adı, yerine bir kullanıcı asıl adı (UPN), örneğin, user@domain.com.
 
 * **İş sürekliliği**. Federasyon sistemleri genellikle bir grup olarak bilinen sunucular, yük dengeli bir dizi gerektirir. Bu grupta bir iç ağa ve kimlik doğrulaması istekler için yüksek kullanılabilirlik sağlamak için çevre ağ topolojisi içinde yapılandırılır.
 

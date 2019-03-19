@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 0a746ace4806495b17462b506f030811247240e2
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: c81ff5ea330c4c0ba26a92a3b5399cfa961e4b2b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247200"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856867"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-portal"></a>Azure portalını kullanarak bölgesel ön uç ile standart yük dengeleyici oluşturma
 
@@ -36,7 +36,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-load-balancer-with-zonal-frontend-ip-address"></a>Bölgesel bir ön uç IP adresine sahip yük dengeleyici oluşturma
 
-1. Bir tarayıcıdan Azure portalına gidin: [ http://portal.azure.com ](http://portal.azure.com) ve Azure hesabınızla oturum açın.
+1. Bir tarayıcıdan Azure portalına gidin: [ https://portal.azure.com ](https://portal.azure.com) ve Azure hesabınızla oturum açın.
 2. Ekranın sol üst tarafında seçin **kaynak Oluştur** > **ağ** > **yük dengeleyici.**
 3. İçinde **yük dengeleyici Oluştur** sayfasındaki **adı** türü **myLoadBalancer**.
 4. **Tür** bölümünde **Genel**’i seçin.
@@ -46,8 +46,8 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 >[!NOTE] 
 > Genel IP Bu adımda oluşturduğunuz standart SKU'nun varsayılan olarak açıktır.
 
-7. İçin **kaynak grubu**, tıklayın **Yeni Oluştur**, Anahtar'a tıklayın ve **myResourceGroupZLB** kaynak grubunun adı.
-8. İçin **konumu**seçin **Batı Avrupa**ve ardından **Tamam**. Yük dengeleyici dağıtımı başlar ve birkaç dakika içinde başarıyla tamamlanır.
+1. İçin **kaynak grubu**, tıklayın **Yeni Oluştur**, Anahtar'a tıklayın ve **myResourceGroupZLB** kaynak grubunun adı.
+1. İçin **konumu**seçin **Batı Avrupa**ve ardından **Tamam**. Yük dengeleyici dağıtımı başlar ve birkaç dakika içinde başarıyla tamamlanır.
 
     ![Azure portalı ile bölgesel olarak yedekli standart yük dengeleyici oluşturma](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
 

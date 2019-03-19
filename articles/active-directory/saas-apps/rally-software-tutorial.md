@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba4f1d41497af8f57a343eacc92c5da7d2488d07
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e7264792a123a8f8ce6c4a08a6c502de578d374c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163708"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891969"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Öğretici: Rally yazılımı ile Azure Active Directory Tümleştirme
 
@@ -206,7 +206,7 @@ Azure AD kullanıcılarının oturum açabilmesi, Azure Active Directory kullan�
 
     a. İçinde **kullanıcı adı** metin kutusuna kullanıcı adını yazın ister **Brittsimon**.
    
-    b. İçinde **e-posta adresi** metin gibi kullanıcının e-posta girin **brittasimon@contoso.com**.
+    b. İçinde **e-posta adresi** metin gibi kullanıcının e-posta girin **brittasimon\@contoso.com**.
 
     c. İçinde **ad** metin kutusunda, gibi kullanıcı adını girin **Britta**.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 2330e395244f33653af415b5db896fdc2aa2024d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852992"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107044"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Dağıtılmış izleme ve Service Bus mesajlaşması ile bağıntı
 
@@ -213,7 +213,7 @@ Bazı durumlarda, performans ek yük ya da depolama tüketimini azaltmak için o
 
 1. `IsEnabled(<OperationName>, string entity, null)` Örneğin, `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")`. 'Start' veya 'Durdur' sonunda dikkat edin. Belirli işlemleri veya Kuyrukları filtrelemek için kullanın. Geri çağırma döndürürse `false`, işlemi için olayları gönderilemedi
 
-  * 'Process' ve 'ProcessSession' işlemleri için de alırsınız `IsEnabled(<OperationName>, string entity, Activity activity)` geri çağırma. Dayalı olarak olayları filtrelemek için kullanmak `activity.Id` veya etiketleri özellikleri.
+   * 'Process' ve 'ProcessSession' işlemleri için de alırsınız `IsEnabled(<OperationName>, string entity, Activity activity)` geri çağırma. Dayalı olarak olayları filtrelemek için kullanmak `activity.Id` veya etiketleri özellikleri.
   
 2. `IsEnabled(<OperationName>.Start)` Örneğin, `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")`. 'Start' olay harekete olup olmadığını denetler. Sonuç, yalnızca 'Start' olay etkiler, ancak daha fazla izleme bağımlı değil.
 

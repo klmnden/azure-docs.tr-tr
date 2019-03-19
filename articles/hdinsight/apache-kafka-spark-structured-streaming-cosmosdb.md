@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e964e00cd326d924a77a53348942f91ebbdbdea4
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 9d29608ded920b14af1be6d4d68ab1d77c3c8cb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630169"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099163"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Apache Spark yapılandırılmış akış Apache Kafka ve Azure Cosmos DB ile kullanma
 
@@ -52,19 +52,19 @@ Bir Azure sanal ağı, Kafka, oluşturabileceğiniz ve el ile Spark kümeleri, a
 
     Bu şablon aşağıdaki kaynakları oluşturur:
 
-    * HDInsight 3.6 kümesi üzerinde bir Kafka.
+   * HDInsight 3.6 kümesi üzerinde bir Kafka.
 
-    * HDInsight 3.6 kümesi üzerinde bir Spark.
+   * HDInsight 3.6 kümesi üzerinde bir Spark.
 
-    * HDInsight kümeleri içeren bir Azure Sanal Ağı.
+   * HDInsight kümeleri içeren bir Azure Sanal Ağı.
 
-        > [!NOTE]  
-        > Şablon tarafından oluşturulan sanal ağ 10.0.0.0/16 adres alanı kullanır.
+       > [!NOTE]  
+       > Şablon tarafından oluşturulan sanal ağ 10.0.0.0/16 adres alanı kullanır.
 
-    * Bir Azure Cosmos DB SQL API veritabanı.
+   * Bir Azure Cosmos DB SQL API veritabanı.
 
-    > [!IMPORTANT]  
-    > Bu örnekte kullanılan yapılandırılmış akış not defteri, HDInsight 3.6 üzerinde Spark gerektirir. HDInsight üzerinde Spark’ın daha önceki bir sürümünü kullanıyorsanız, not defterini kullanırken hatalarla karşılaşırsınız.
+     > [!IMPORTANT]  
+     > Bu örnekte kullanılan yapılandırılmış akış not defteri, HDInsight 3.6 üzerinde Spark gerektirir. HDInsight üzerinde Spark’ın daha önceki bir sürümünü kullanıyorsanız, not defterini kullanırken hatalarla karşılaşırsınız.
 
 2. Girişleri doldurmak için aşağıdaki bilgileri kullanın **özel dağıtım** bölümü:
    

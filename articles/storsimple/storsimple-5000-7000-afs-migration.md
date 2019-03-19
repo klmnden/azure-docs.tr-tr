@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 9992faa11585d49d3024e00338b4c1dc09da9195
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: c27244af6da01163fa9ab554b6b9c1d9c99bab23
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726677"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104582"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Azure dosya eşitleme için StorSimple 5000-7000 serisinden veri geçirme
 
@@ -57,7 +57,7 @@ Burada, eski 5000 veya 7000 Serisi Cihazınızı için Azure dosya eşitleme ge�
 - Ana bilgisayar, yerel olarak önbelleğe alınan verileri tutmak için yeterli yerel depolama alanına sahiptir.
 - Azure dosya eşitleme dağıtmak için kullanacağınız Azure aboneliği düzeyinde erişim sahibi. Sahibi veya yönetici düzeyi izinler yoksa eşitleme grubunuz için bir bulut uç noktası oluştururken sorunlarla karşılaşabilirsiniz.
 - Erişim bir [genel amaçlı v2 depolama hesabı](https://docs.microsoft.com/azure/storage/common/storage-account-overview) ile eşitlemek için istediğiniz bir Azure dosya paylaşımı. Daha fazla bilgi için bkz. [Depolama hesabı oluşturma](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
- - Nasıl yapılır [bir Azure dosya paylaşımı oluşturma](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
+  - Nasıl yapılır [bir Azure dosya paylaşımı oluşturma](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="migration-process"></a>Geçiş işlemi
 

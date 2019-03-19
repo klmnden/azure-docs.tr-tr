@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 5e6d155a3efebfc8289263ac703a87e9aa3287cd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: dc8deb16f7d124c5fb11568f25050eee99a245b8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834766"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096767"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>DR tatbikatı Hyper-V Vm'leri için ikincil bir siteye çalıştırın.
 
@@ -30,12 +30,12 @@ Birincil düğümden ikincil siteye yük devretme testi çalıştırın. VM yük
     - Var olan bir ağ ile yük devretme çalıştırın. Bir üretim ağı kullanmayın öneririz.
     - Yük devretme çalıştırın ve Site Recovery otomatik olarak bir test ağı oluşturmak istiyorum. Bu durumda Site Recovery ağ otomatik olarak oluşturun ve yük devretme testi tamamlandığında yukarı temizleyin.
 - Yük devretme testi için bir kurtarma noktası seçmeniz gerekir: 
-    - **En son işlenen**: Bu seçenekte VM yükü Site Recovery tarafından işlenen en son kurtarma noktasına devredilir. İşlenmemiş verileri işlemek için zaman harcanmadığından bu seçenekte düşük bir RTO (Kurtarma Süresi Hedefi) sağlanır.
-    - **Uygulamayla tutarlı olan sonuncu**: Bu seçenek yük devretme sanal Makineye en son uygulamayla tutarlı kurtarma noktası, Site Recovery tarafından işlenen. 
-    - **En son**: Bu seçenek ilk önce yük devretme için her VM için bir kurtarma noktası oluşturmak için Site Recovery hizmetine gönderilen tüm veriler işlenir. Yük devretme yük devretme tetiklendiğinde Site Recovery'ye çoğaltılan tüm verilere sahip sonra VM oluşturulduğundan, bu seçenek en düşük RPO (kurtarma noktası hedefi) sağlar.
-    - **En son işlenen VM'li**: çoklu VM tutarlılığı etkin olan bir veya daha fazla VM içeren kurtarma planları için kullanılabilir. En son ortak çoklu VM tutarlı kurtarma noktası ayarı etkin Vm'lerle devredin. Diğer VM'ler en son işlenen kurtarma noktasına yük devredebilirsiniz.
+    - **En son işlenen**: Bu seçenek bir VM'nin Site Recovery tarafından işlenen en son kurtarma noktasına devreder. İşlenmemiş verileri işlemek için zaman harcanmadığından bu seçenekte düşük bir RTO (Kurtarma Süresi Hedefi) sağlanır.
+    - **Uygulamayla tutarlı olan sonuncu**: Bu seçeneği bir VM'nin Site Recovery tarafından işlenen en son uygulamayla tutarlı kurtarma noktasına devredilir. 
+    - **En son**: Bu seçenek ilk önce yük devretme için her VM için bir kurtarma noktası oluşturmak için Site Recovery hizmetine gönderilen tüm verileri işler. Yük devretme yük devretme tetiklendiğinde Site Recovery'ye çoğaltılan tüm verilere sahip sonra VM oluşturulduğundan, bu seçenek en düşük RPO (kurtarma noktası hedefi) sağlar.
+    - **En son işlenen VM'li**: Çoklu VM tutarlılığı etkin olan bir veya daha fazla VM içeren kurtarma planları için kullanılabilir. En son ortak çoklu VM tutarlı kurtarma noktası ayarı etkin Vm'lerle devredin. Diğer VM'ler en son işlenen kurtarma noktasına yük devredebilirsiniz.
     - **En son çoklu VM uygulamayla tutarlı**: Bu seçenek, çoklu VM tutarlılığı etkin olan bir veya daha fazla VM içeren kurtarma planları için kullanılabilir. En son ortak çoklu VM uygulamayla tutarlı kurtarma noktası çoğaltma grubunun parçası olan Vm'leri devredin. Bunların en son uygulamayla tutarlı kurtarma noktası için diğer Vm'lere devredin.
-    - **Özel**: belirli bir VM'ye belirli bir kurtarma noktasına yük devretmek için bu seçeneği kullanın.
+    - **Özel**: Belirli bir VM'ye belirli bir kurtarma noktasına yük devretmek için bu seçeneği kullanın.
 
 
 
@@ -43,11 +43,11 @@ Birincil düğümden ikincil siteye yük devretme testi çalıştırın. VM yük
 
 Yük devretme testi çalıştırdığınızda, test çoğaltma makineler için ağ ayarlarını seçin tabloda özetlenen istenir.
 
-**Seçenek** | **Ayrıntılar** 
---- | --- 
-**Yok** | Test sanal makinesi, çoğaltma VM'si bulunduğu konak üzerinde oluşturulur. Buluta eklenmez ve herhangi bir ağa bağlı değil.<br/><br/> Oluşturulduktan sonra makinenin bir VM ağı'na bağlanabilirsiniz.
-**Var olanı kullan** | Test sanal makinesi, çoğaltma VM'si bulunduğu konak üzerinde oluşturulur. Bu buluta eklenmez.<br/><br/>Üretim ağınızdan yalıtılmış olan bir VM ağı oluşturun.<br/><br/>Bir VLAN tabanlı ağ kullanıyorsanız (üretimde kullanılmaz) ayrı bir mantıksal ağ oluşturma VMM'de bu amaçla öneririz. Bu mantıksal ağ, yük devretme testi için VM ağları oluşturmak için kullanılır.<br/><br/>Mantıksal ağın en az bir sanal makine barındıran Hyper-V sunucularının ağ bağdaştırıcıları ile ilişkili olması gerekir.<br/><br/>VLAN için mantıksal ağları, ağ sitelerini mantıksal ağa ekleyin yalıtılmış olması gerekir.<br/><br/>Windows ağ sanallaştırma tabanlı bir mantıksal ağ kullanıyorsanız, Azure Site Recovery otomatik olarak yalıtılmış VM ağları oluşturur. 
-**Bir ağ oluşturma** | Bir geçici bir test ağı belirttiğiniz ayarına göre otomatik olarak oluşturulan **mantıksal ağ** ve onun ilişkili ağ siteleri.<br/><br/> Yük devretme sanal makineleri oluşturulur denetler. |Bir kurtarma planı birden fazla VM ağı kullanıyorsa bu seçeneği kullanmanız gerekir.<br/><br/> Windows ağ Sanallaştırması ağlarına kullanıyorsanız, bu seçenek otomatik olarak çoğaltma sanal makinesinin ağ (alt ağlar ve IP adresi havuzları) aynı ayarlarla bir VM ağları oluşturabilir. Test yük devretmesi tamamlandıktan sonra bu VM ağları otomatik olarak temizlenir.<br/><br/> Test çoğaltma sanal makinesi bulunduğu konakta VM oluşturulur. Bu buluta eklenmez.
+| **Seçenek** | **Ayrıntılar** | |
+| --- | --- | --- |
+| **Yok.** | Test sanal makinesi, çoğaltma VM'si bulunduğu konak üzerinde oluşturulur. Buluta eklenmez ve herhangi bir ağa bağlı değil.<br/><br/> Oluşturulduktan sonra makinenin bir VM ağı'na bağlanabilirsiniz.| |
+| **Var olanı kullan** | Test sanal makinesi, çoğaltma VM'si bulunduğu konak üzerinde oluşturulur. Bu buluta eklenmez.<br/><br/>Üretim ağınızdan yalıtılmış olan bir VM ağı oluşturun.<br/><br/>Bir VLAN tabanlı ağ kullanıyorsanız (üretimde kullanılmaz) ayrı bir mantıksal ağ oluşturma VMM'de bu amaçla öneririz. Bu mantıksal ağ, yük devretme testi için VM ağları oluşturmak için kullanılır.<br/><br/>Mantıksal ağın en az bir sanal makine barındıran Hyper-V sunucularının ağ bağdaştırıcıları ile ilişkili olması gerekir.<br/><br/>VLAN için mantıksal ağları, ağ sitelerini mantıksal ağa ekleyin yalıtılmış olması gerekir.<br/><br/>Windows ağ sanallaştırma tabanlı bir mantıksal ağ kullanıyorsanız, Azure Site Recovery otomatik olarak yalıtılmış VM ağları oluşturur. | |
+| **Bir ağ oluşturma** | Bir geçici bir test ağı belirttiğiniz ayarına göre otomatik olarak oluşturulan **mantıksal ağ** ve onun ilişkili ağ siteleri.<br/><br/> Yük devretme sanal makineleri oluşturulur denetler.<br/><br/> Bir kurtarma planı birden fazla VM ağı kullanıyorsa bu seçeneği kullanmanız gerekir.<br/><br/> Windows ağ Sanallaştırması ağlarına kullanıyorsanız, bu seçenek otomatik olarak çoğaltma sanal makinesinin ağ (alt ağlar ve IP adresi havuzları) aynı ayarlarla bir VM ağları oluşturabilir. Test yük devretmesi tamamlandıktan sonra bu VM ağları otomatik olarak temizlenir.<br/><br/> Test çoğaltma sanal makinesi bulunduğu konakta VM oluşturulur. Bu buluta eklenmez.|
 
 ### <a name="best-practices"></a>En iyi uygulamalar
 
@@ -100,8 +100,8 @@ Uygulama testi için bir yük devretme testi çalıştırmak için test ortamın
 ### <a name="prepare-dns"></a>DNS hazırlama
 Bir DNS sunucusu yük devretme testi için aşağıdaki gibi hazırlayın:
 
-* **DHCP**: sanal makineler DHCP kullanıyorsanız, IP adresi DNS testin test DHCP sunucusunda güncelleştirilmelidir. Bir ağ türü Windows ağ sanallaştırma kullanıyorsanız, VMM sunucusu DHCP sunucusu olarak görev yapar. Bu nedenle, DNS IP adresi, yük devretme ağı testinde güncelleştirilmelidir. Bu durumda, sanal makinelerin kendilerini ilgili DNS sunucusuna kaydedin.
-* **Statik adres**: sanal makinelere statik IP adresi kullanırsanız, test DNS sunucusunun IP adresini yük devretme ağı testinde güncelleştirilmelidir. DNS test sanal makinelerin IP adresiyle güncelleştirmeniz gerekebilir. Aşağıdaki örnek betik, bu amaç için kullanabilirsiniz:
+* **DHCP**: Sanal makineler DHCP kullanıyorsanız, IP adresi DNS testin test DHCP sunucusunda güncelleştirilmesi gerekir. Bir ağ türü Windows ağ sanallaştırma kullanıyorsanız, VMM sunucusu DHCP sunucusu olarak görev yapar. Bu nedenle, DNS IP adresi, yük devretme ağı testinde güncelleştirilmelidir. Bu durumda, sanal makinelerin kendilerini ilgili DNS sunucusuna kaydedin.
+* **Statik adres**: Sanal makinelere statik IP adresi kullanırsanız, test DNS sunucusunun IP adresini yük devretme ağı testinde güncelleştirilmelidir. DNS test sanal makinelerin IP adresiyle güncelleştirmeniz gerekebilir. Aşağıdaki örnek betik, bu amaç için kullanabilirsiniz:
 
         Param(
         [string]$Zone,

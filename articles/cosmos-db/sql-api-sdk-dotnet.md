@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 92d5d458615b029553dee2f8047c85e3fb5f9696
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 83a866b20d2802b7d49363b7c6451356e938eac1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892613"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838927"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB SQL API'si için .NET SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -47,6 +47,10 @@ ms.locfileid: "55892613"
 * Yeni nesne modeli, üst düzey CosmosClient ve yöntemleri ile ilgili CosmosDatabases ve CosmosContainers CosmosItems sınıflar arasında bölün. 
 * Akışları için destek. 
 * Durum kodu döndürür ve yanıt döndürüldüğünde yalnızca durum sunucudan CosmosResponseMessage güncelleştirildi. 
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+
+* Tanılama geliştirmeleri
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 
@@ -357,6 +361,7 @@ Devre dışı bırakılan bir SDK'sı kullanarak Azure Cosmos DB yapılan tüm i
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.2.3](#2.2.3) |11 Şubat 2019 |--- |
 | [2.2.2](#2.2.2) |06 Şubat 2019 |--- |
 | [2.2.1](#2.2.1) |Aralık 24 Mayıs 2018 |--- |
 | [2.2.0](#2.2.0) |07 aralık 2018'e |--- |

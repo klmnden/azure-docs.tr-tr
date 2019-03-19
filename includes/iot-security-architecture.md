@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 61fb8380bcad7a30d822ab610f52e8515477d683
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56247203"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125205"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Nesnelerin interneti (IOT) güvenlik mimarisi
 
@@ -182,11 +182,11 @@ Her Azure IOT mimaride özetlenen kategorileri, bu örnek veri/bilgi bulunmaktad
 | **Bileşen** | **Tehdit** | **Risk azaltma** | **Risk** | **Uygulama** |
 | --- | --- | --- | --- | --- |
 | Cihaz |S |Cihaza kimlik atama ve cihaz kimlik doğrulaması |Aygıt veya aygıtın başka bir cihazı ile değiştiriliyor. Nasıl doğru cihaza varsayılır biliyor musunuz? |Aktarım Katmanı Güvenliği (TLS) veya IPSec kullanarak cihaz kimlik doğrulaması. Altyapı önceden paylaşılan anahtar (PSK) kullanarak tam asimetrik şifreleme işleyemiyor bu cihazlarda desteklemelidir. Azure AD yararlanın [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
-|| TRID |Cihaz tamperproof mekanizmalarına, örneğin, sabit için anahtarları ve diğer şifreleme malzemelerini CİHAZDAN ayıklamak mümkün kolaylaştırarak uygulayın. |Birisi (fiziksel girişim) cihaz oynama, riski oluşturur. Nasıl emin, bu cihaz misiniz oynanmış değil. |En etkili azaltma içinden anahtarları okunamaz, ancak yalnızca bu anahtarı kullanırsınız, ancak hiçbir zaman anahtarının ifşa şifreleme işlemleri için kullanılan özel yonga üzerinde devresi anahtarları depolama sağlayan güvenilir platform Modülü (TPM) özelliktir. Cihaz şifreleme bellek. Anahtar Yönetimi için cihaz. Kod imzalama. | |
-|| E |Cihazın erişim denetimi sahip. Yetkilendirme düzeni. |Cihazı için bireysel işlemlere gerçekleştirilecek bir dış kaynağa ya da güvenliği aşılmış sensörlerden komutları temel alınarak izin veriyorsa, aksi takdirde işlemleri gerçekleştirmek saldırı erişilebilir sağlar. |Cihaz için Yetkilendirme düzeni sahip | |
+|| TRID |Cihaz tamperproof mekanizmalarına, örneğin, sabit için anahtarları ve diğer şifreleme malzemelerini CİHAZDAN ayıklamak mümkün kolaylaştırarak uygulayın. |Birisi (fiziksel girişim) cihaz oynama, riski oluşturur. Nasıl emin, bu cihaz misiniz oynanmış değil. |En etkili azaltma içinden anahtarları okunamaz, ancak yalnızca bu anahtarı kullanırsınız, ancak hiçbir zaman anahtarının ifşa şifreleme işlemleri için kullanılan özel yonga üzerinde devresi anahtarları depolama sağlayan güvenilir platform Modülü (TPM) özelliktir. Cihaz şifreleme bellek. Anahtar Yönetimi için cihaz. Kod imzalama. |
+|| E |Cihazın erişim denetimi sahip. Yetkilendirme düzeni. |Cihazı için bireysel işlemlere gerçekleştirilecek bir dış kaynağa ya da güvenliği aşılmış sensörlerden komutları temel alınarak izin veriyorsa, aksi takdirde işlemleri gerçekleştirmek saldırı erişilebilir sağlar. |Cihaz için Yetkilendirme düzeni sahip |
 | Alan ağ geçidi |S |Bulut ağ geçidi için bir alan ağ geçidi (PSK, sertifika tabanlı veya talep tabanlı gibi.) kimlik doğrulaması |Ardından, birisi alan ağ geçidi davranabilir, kendisini herhangi bir CİHAZDAN sunabilir. |RSA/PSK TLS, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Aynı genel – aygıtların temel depolama ve kanıtlama sorunlarının en iyi durum kullanın TPM. Kablosuz algılayıcı ağları (WSN) desteklemek IPSec 6LowPAN uzantısı. |
-|| TRID |Alan ağ geçidi (TPM?) izinsiz kullanıma karşı koruyun |Alan ağ geçidi için Bahsediyor bulut ağ geçidi düşünmeye kandırmaya saldırıları yanıltma bilgi ifşasına ve verilerin izinsiz kullanımına neden olabilir |Bellek şifreleme, TPM's, kimlik doğrulaması. | |
-|| E |Alan ağ geçidi için erişim denetimi mekanizması | | | |
+|| TRID |Alan ağ geçidi (TPM?) izinsiz kullanıma karşı koruyun |Alan ağ geçidi için Bahsediyor bulut ağ geçidi düşünmeye kandırmaya saldırıları yanıltma bilgi ifşasına ve verilerin izinsiz kullanımına neden olabilir |Bellek şifreleme, TPM's, kimlik doğrulaması. |
+|| E |Alan ağ geçidi için erişim denetimi mekanizması | | |
 
 Tehditleri bu kategorideki bazı örnekleri aşağıda verilmiştir:
 

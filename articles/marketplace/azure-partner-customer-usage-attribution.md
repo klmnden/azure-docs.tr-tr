@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 3f3c7523bfc800a74da56b1b3241ac5756c68d14
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 44efe3482e9e1657125cc28441819ea173c982ab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215515"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861953"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure iş ortağı müşteri kullanım attribution
 
@@ -280,7 +280,7 @@ Market ekleme ve/veya müşteri kullanım attribution yardıma ihtiyacınız var
    - Kullanım ilişkilendirme sorunlarda seçin **diğer**.
    - Azure Market CPP ile erişim sorunları için seçin **erişim sorunu**.
    
-    ![Sorun kategorisini seçin](media/marketplace-publishers-guide/lu-article-incident.png)
+     ![Sorun kategorisini seçin](media/marketplace-publishers-guide/lu-article-incident.png)
 
 1. Seçin **isteği Başlat**.
 
@@ -299,7 +299,7 @@ Bir Microsoft iş ortağı teknik anlamak ve müşteri kullanım attribution bir
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Teknik danışmanlığı talebinizi nasıl
 
-1. Ziyaret [ http://aka.ms/TechnicalJourney ](http://aka.ms/TechnicalJourney).
+1. Ziyaret [ https://aka.ms/TechnicalJourney ](https://aka.ms/TechnicalJourney).
 1. Teknik yolculuğunuza görüntülemek için bulut altyapısı seçin ve yönetim ve yeni bir sayfa açılır.
 1. Dağıtım hizmetler gönderme isteği düğmesine tıklayın.
 1. MSA (MPN hesabı) veya AAD'nizi (iş ortağı Pano hesap) kullanarak oturum açın oturum açma kimlik bağlı olarak, bir çevrimiçi istek formunu açar: 
@@ -308,7 +308,7 @@ Bir Microsoft iş ortağı teknik anlamak ve müşteri kullanım attribution bir
     * Bir başlık ve sorunun açıklamasını girin (sağlamak mümkün olduğunca çok ayrıntı).
 1. Gönder'e tıklayın
 
-Görüntüleme ekran görüntüleri içeren yönergeler [ http://aka.ms/TechConsultInstructions ](http://aka.ms/TechConsultInstructions).
+Görüntüleme ekran görüntüleri içeren yönergeler [ https://aka.ms/TechConsultInstructions ](https://aka.ms/TechConsultInstructions).
 
 ### <a name="whats-next"></a>Yenilikler
 

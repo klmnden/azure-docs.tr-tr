@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 971d9b557b56a645f0c99c41fb3afb3ed01db3d0
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: ea643622973456f6334333731f3a3e7be6a41089
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732269"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889531"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Öğretici: ClickTime ile Azure Active Directory Tümleştirme
 
@@ -108,6 +108,7 @@ Azure AD çoklu oturum açma ile ClickTime yapılandırmak için aşağıdaki ad
     a. İçinde **tanımlayıcı** metin kutusuna bir URL yazın: `https://app.clicktime.com/sp/`
 
     b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+    
     | |
     |--|
     | `https://app.clicktime.com/Login/` |
@@ -163,7 +164,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -222,7 +223,7 @@ ClickTime söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir gö
    
     a.  İçinde **tam adı** metin kutusuna tam adı gibi kullanıcı **Britta Simon**. 
   
-    b.  İçinde **e-posta adresi** metin kutusuna kullanıcı e-posta türünü ister **brittasimon@contoso.com**.
+    b.  İçinde **e-posta adresi** metin kutusuna kullanıcı e-posta türünü ister **brittasimon\@contoso.com**.
        
     > [!NOTE]
     > İsterseniz, yeni kişi nesnesinin ek özellikleri ayarlayabilirsiniz.

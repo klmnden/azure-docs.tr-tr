@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: b24b06ab121b1484e458a9e725fd90590af05c08
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7a2c300e30050e7e46a2b2c724258539df85e410
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761506"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093431"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Hızlı Başlangıç: Bir Azure DNS bölgesi ve kaydı Azure CLI kullanarak oluşturma
 
@@ -92,7 +92,7 @@ Test 'A' kaydı test DNS bölgesi olduğuna göre ad çözümlemesi adında bir 
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-Ana bilgisayar adı **www.contoso.xyz** çözümler **10.10.10.10**yapılandırdığınız şekilde. Bu sonuç, ad çözümlemesi doğru şekilde çalıştığını doğrular.
+Ana bilgisayar adı **www\.contoso.xyz** çözümler **10.10.10.10**yapılandırdığınız şekilde. Bu sonuç, ad çözümlemesi doğru şekilde çalıştığını doğrular.
 
 ## <a name="delete-all-resources"></a>Tüm kaynakları silme
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 893113b5383cfc2904a053b49edee19cb39f443c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e82dd76c456f463666bc17bfda9664cf24012eed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166249"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170216"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>Öğretici: InTime ile Azure Active Directory Tümleştirme
 
@@ -40,7 +40,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 Azure AD Tümleştirmesi ile InTime yapılandırmak için aşağıdaki öğeler gerekir:
 
 - Azure AD aboneliği
-- Abonelik InTime çoklu oturum açma etkin
+- Abonelik bir InTime çoklu oturum açma etkin
 
 > [!NOTE]
 > Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
@@ -89,7 +89,7 @@ Yapılandırma ve Azure AD çoklu oturum açma InTime ile test etmek için aşa�
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[InTime test kullanıcısı oluşturma](#create-a-intime-test-user)**  - kullanıcı Azure AD gösterimini bağlı InTime Britta simon'un bir karşılığı vardır.
+1. **[Bir InTime test kullanıcısı oluşturma](#create-a-intime-test-user)**  - kullanıcı Azure AD gösterimini bağlı InTime Britta simon'un bir karşılığı vardır.
 1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
@@ -169,7 +169,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     d. **Oluştur**’a tıklayın.
  
-### <a name="create-a-intime-test-user"></a>InTime test kullanıcısı oluşturma
+### <a name="create-an-intime-test-user"></a>Bir InTime test kullanıcısı oluşturma
 
 Bu bölümde, Britta Simon InTime içinde adlı bir kullanıcı oluşturun. Çalışmak [InTime Destek ekibine](mailto:hdollard@intimesoft.com) InTime platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 

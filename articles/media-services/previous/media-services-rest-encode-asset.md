@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: e51fa086b26e5692d8dd572654b7c1ec50c641c5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 608abd09227014513a0ad358d7a2c225b5ab2b97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005157"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863381"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Media Encoder Standard kullanarak bir varlığı kodlama
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ AMS API'ye bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğ
 >
 > Varlıklar Media Services erişirken, HTTP isteklerini özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
 >
-> Zaman JSON kullanan ve kullanılacağını belirtme **__metadata** anahtar sözcüğü ayarlamanız gerekir (örneğin,'başvurusu bağlı nesnede) istekte **kabul** başlığına [ayrıntılıJSONbiçimi](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Kabul et: application/json; odata ayrıntılı =.
+> Zaman JSON kullanan ve kullanılacağını belirtme **__metadata** anahtar sözcüğü ayarlamanız gerekir (örneğin,'başvurusu bağlı nesnede) istekte **kabul** başlığına [ayrıntılıJSONbiçimi](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Kabul et: application/json; odata ayrıntılı =.
 >
 >
 
@@ -151,7 +151,7 @@ Görev zinciri oluşturmayı etkinleştirmek için:
 * İşin başka bir görev çıktısı olan giriştir en az bir görev olmalıdır.
 
 ## <a name="use-odata-batch-processing"></a>OData toplu işleme
-Aşağıdaki örnek, bir işi ve görevleri oluşturmak için OData toplu işlem kullanmayı gösterir. Toplu işlem hakkında daha fazla bilgi için bkz: [açık veri Protokolü (OData) toplu işleme](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Aşağıdaki örnek, bir işi ve görevleri oluşturmak için OData toplu işlem kullanmayı gösterir. Toplu işlem hakkında daha fazla bilgi için bkz: [açık veri Protokolü (OData) toplu işleme](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
     POST https://media.windows.net/api/$batch HTTP/1.1
     DataServiceVersion: 1.0;NetFx

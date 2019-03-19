@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 7d0743c09adf1c50d888d2e279ba85a8369bf286
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 6c96b7139787a3863b3f7a47949d9cdf20cc5021
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991640"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855682"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Etkinleştirme veya Application Insights Profiler ' ı görüntüleme sorunlarını giderme
 
@@ -36,11 +36,11 @@ Profiler, Application Insights kaynağınızın izleme iletileri ve özel olayla
     ```
     Aşağıdaki görüntüde arama iki örnekleri iki yapay ZEKA kaynaklardan görüntüler: 
     
-    * Profiler çalışırken solda, uygulama isteklerini almak değil. İleti, karşıya yükleme hiçbir etkinlik nedeniyle iptal edildi açıklanmaktadır. 
+   * Profiler çalışırken solda, uygulama isteklerini almak değil. İleti, karşıya yükleme hiçbir etkinlik nedeniyle iptal edildi açıklanmaktadır. 
 
-    * Sağ Profiler çalışmaya ve Profiler çalışırken gerçekleşen istekleri algılandığında özel olaylar gönderilir. Profiler bir istek için izleme eklenmiş ve izlemede görüntüleyebileceğiniz ServiceProfilerSample özel olay gösterilirse, geldiğini **Application Insights performans** bölmesi.
+   * Sağ Profiler çalışmaya ve Profiler çalışırken gerçekleşen istekleri algılandığında özel olaylar gönderilir. Profiler bir istek için izleme eklenmiş ve izlemede görüntüleyebileceğiniz ServiceProfilerSample özel olay gösterilirse, geldiğini **Application Insights performans** bölmesi.
 
-    Telemetri yoktu gösterilirse, Profiler çalışmıyor. Sorun gidermek için bu makalenin sonraki bölümlerinde, belirli uygulama türü için sorun giderme bölümlere bakın.  
+     Telemetri yoktu gösterilirse, Profiler çalışmıyor. Sorun gidermek için bu makalenin sonraki bölümlerinde, belirli uygulama türü için sorun giderme bölümlere bakın.  
 
      ![Profiler telemetri arayın][profiler-search-telemetry]
 
@@ -90,7 +90,7 @@ Profiler'ı yapılandırırken, güncelleştirmeler web uygulamasının Ayarlar 
 
 1. İçinde **Web uygulaması denetimi** bölmesi açık **ayarları**.
 
-1. Ayarlama **.Net Framework sürümü** için **v4.6**.
+1. Ayarlama **.NET Framework sürümünü** için **v4.6**.
 
 1. Ayarlama **her zaman açık** için **üzerinde**.
 
@@ -124,7 +124,7 @@ Profiler web uygulamasında sürekli bir webjob olarak çalışır. Web uygulama
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Profiler'ı ve Azure Tanılama ile ilgili sorunları giderme
 
-  >**Bulut Hizmetleri için en son sürümünü WAD sevk profil oluşturucu bir hata yoktur.** Profil Oluşturucu bir bulut hizmeti ile kullanmak için yalnızca AI SDK'sı sürüm 2.7.2 kadar destekler. AI SDK'sının daha yeni bir sürümü kullanıyorsanız, 2.7.2 için profil oluşturucuyu kullanmak için dönmeniz gerekir.
+  >**Bulut Hizmetleri için en son sürümünü WAD sevk profil oluşturucu bir hata yoktur.** Profil Oluşturucu bir bulut hizmeti ile kullanmak için yalnızca AI SDK'sı sürüm 2.7.2 kadar destekler. AI SDK'sının daha yeni bir sürümü kullanıyorsanız, 2.7.2 için profil oluşturucuyu kullanmak için dönmeniz gerekir. App Insights SDK'sı sürümünü düşürmek için Visual Studio kullanıyorsanız, çalışma zamanında bir bağlama yeniden yönlendirme hatası alabilirsiniz. Bu durum, yapay ZEKA SDK'sı, ancak eski sürüme düşürme otomatik olarak güncelleştirilmesini değil sonra "2.7.2.0" için "Newversıon" Microsoft.applicationınsights web.config dosyasında ayarlamanız gerekir çünkü.
 
 Profiler Azure tanılama tarafından doğru şekilde yapılandırılıp yapılandırılmadığını görmek için aşağıdakileri yapın: 
 1. İlk olarak, dağıtılan Azure tanılama yapılandırması içeriğini beklediğiniz olup olmadığını denetleyin. 

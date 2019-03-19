@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 09abb8fa2c8d08b27b83a2510b4c1133458b8363
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 3f837820d05f7e10524e65bd8a7775d45c4cc600
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240738"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110435"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde veri toplamayı
 Güvenlik Merkezi, Azure sanal makineleri (VM'ler) ve Azure harici bilgisayarları güvenlik açıklarını ve tehditleri izlemek için veri toplar. Güvenlik-ilgili çeşitli yapılandırmaları ve olay günlüklerini makineden okur ve verileri analiz için çalışma alanınıza kopyalayan Log Analytics aracısını kullanarak verileri toplanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri) çalışan işlemler, makine adı, IP adresleri ve kullanıcı oturum. Log Analytics aracısını, ayrıca kilitlenme bilgi dökümü dosyalarını çalışma alanınıza kopyalar.
@@ -50,13 +50,13 @@ Log Analytics aracısını otomatik sağlamayı etkinleştirmek için:
 1. Güvenlik Merkezi ana menüsünde seçin **Güvenlik İlkesi**.
 2. Tıklayın **ayarlarını Düzenle** listesinde istediğiniz Abonelik ayarları sütununda.
 
-  ![Abonelik seçme][7]
+   ![Abonelik seçme][7]
 
 3. **Güvenlik ilkesi** bölümünde **Veri Toplama**’yı seçin.
 4. Altında **otomatik sağlama**seçin **üzerinde** otomatik sağlamayı etkinleştirmek için.
 5. **Kaydet**’i seçin.
 
-  ![Otomatik sağlamayı etkinleştirme][1]
+   ![Otomatik sağlamayı etkinleştirme][1]
 
 >[!NOTE]
 > - Önceden var olan bir yükleme sağlama konusunda yönergeler için bkz. [önceden var olan bir aracı yüklemesi durumlarda otomatik sağlama](#preexisting).
@@ -76,15 +76,15 @@ Güvenlik Merkezi otomatik olarak veri depolamak için varsayılan çalışma al
 
 Güvenlik Merkezi tarafından oluşturulan bir çalışma alanı seçmek için:
 
-1.  Altında **varsayılan çalışma alanı yapılandırması**, select, Güvenlik Merkezi tarafından oluşturulan çalışma alanlarını kullanın.
+1. Altında **varsayılan çalışma alanı yapılandırması**, select, Güvenlik Merkezi tarafından oluşturulan çalışma alanlarını kullanın.
    ![Fiyatlandırma katmanı seçin][10] 
 
-2. **Kaydet**’e tıklayın.<br>
+1. **Kaydet**’e tıklayın.<br>
     Güvenlik Merkezi, coğrafi konum içinde yeni bir kaynak grubu ve varsayılan çalışma alanı oluşturur ve aracıyı bu çalışma alanına bağlar. Çalışma alanını ve kaynak grubu için adlandırma kuralı aşağıdaki gibidir:<br>
-**Çalışma alanı: DefaultWorkspace-[abonelik-kimliği]-[Bölge]<br> kaynak grubu: DefaultResourceGroup-[Bölge]**
+   **Çalışma alanı: DefaultWorkspace-[abonelik-kimliği]-[Bölge]<br> kaynak grubu: DefaultResourceGroup-[Bölge]**
 
    Bir abonelik birden çok geolocations Vm'leri içeriyorsa, Güvenlik Merkezi birden çok çalışma alanı oluşturur. Birden çok çalışma alanı, veri gizlilik kuralları korumak için oluşturulur.
--   Güvenlik Merkezi bir Güvenlik Merkezi çözüm çalışma alanının fiyatlandırma katmanını ayarlamak için abonelik başına otomatik olarak etkinleştirir. 
+1. Güvenlik Merkezi bir Güvenlik Merkezi çözüm çalışma alanının fiyatlandırma katmanını ayarlamak için abonelik başına otomatik olarak etkinleştirir. 
 
 > [!NOTE]
 > Log analytics fiyatlandırma katmanında, Güvenlik Merkezi tarafından oluşturulan çalışma alanları, Güvenlik Merkezi faturalandırma etkilemez. Güvenlik Merkezi her zaman, Güvenlik Merkezi güvenlik ilkesi ve bir çalışma alanına yüklenmiş çözümlere göre faturalandırılır. Güvenlik Merkezi'nin ücretsiz katmanı için etkinleştirir *SecurityCenterFree* çözüm için varsayılan çalışma alanı. Güvenlik Merkezi standart katmanı için etkinleştirir *güvenlik* çözüm için varsayılan çalışma alanı.
@@ -111,10 +111,10 @@ Mevcut bir Log Analytics çalışma alanı seçmek için:
 
 2. Aşağı açılır menüden, toplanan verileri depolamak için bir çalışma alanı seçin.
 
-  > [!NOTE]
-  > Tüm aboneliklerinizi tüm çalışma alanları açılır menü, kullanılabilir. Bkz: [çapraz abonelik çalışma alanı seçimi](security-center-enable-data-collection.md#cross-subscription-workspace-selection) daha fazla bilgi için. Çalışma alanına erişim izni olması gerekir.
-  >
-  >
+   > [!NOTE]
+   > Tüm aboneliklerinizi tüm çalışma alanları açılır menü, kullanılabilir. Bkz: [çapraz abonelik çalışma alanı seçimi](security-center-enable-data-collection.md#cross-subscription-workspace-selection) daha fazla bilgi için. Çalışma alanına erişim izni olması gerekir.
+   >
+   >
 
 3. **Kaydet**’i seçin.
 4. Seçtikten sonra **Kaydet**, daha önce varsayılan çalışma alanına bağlı izlenen Vm'leri yeniden istiyorsanız istenir.
@@ -150,8 +150,8 @@ Tüm aboneliklerinizdeki tüm çalışma alanları, verilerinizin depolanacağı
 Azure Güvenlik Merkezi'nde veri koleksiyonunu katmanı seçerek yalnızca Log Analytics çalışma alanınızda, güvenlik olaylarının depolama etkiler. Log Analytics aracısını hala toplamak ve Log Analytics çalışma alanınızda (varsa) depolamak seçtiğiniz hangi güvenlik olayları katmanı bağımsız olarak Azure Güvenlik Merkezi'nin tehdit algılamaları için gereken güvenlik olayları analiz edin. Çalışma alanınızda güvenlik olayları depolamak seçme araştırma, arama ve çalışma alanınızda bu olayların denetimini etkinleştirir. 
 > [!NOTE]
 > Log analytics'te veri depolama, veri depolama için ek ücret, daha fazla ayrıntı için fiyatlandırma sayfasına bakın.
->
-Çalışma alanınızda depolanmış Abonelikleriniz ve çalışma alanlarından olayların dört kümesi için ilke filtreleme hakkı seçebilirsiniz: 
+> 
+> Çalışma alanınızda depolanmış Abonelikleriniz ve çalışma alanlarından olayların dört kümesi için ilke filtreleme hakkı seçebilirsiniz: 
 
 - **Hiçbiri** – güvenlik olay depolama devre dışı bırakın. Bu varsayılan ayardır.
 - **En az** – olayları olay birimi en aza indirmek isteyen müşteriler için daha küçük bir dizi.
@@ -224,7 +224,7 @@ Otomatik kaynaklardan herhangi bir zamanda bu güvenlik ilkesi ayarı devre dı�
 3. Üzerinde **güvenlik ilkesi – veri toplama** dikey altında **otomatik sağlama** seçin **kapalı**.
 4. **Kaydet**’i seçin.
 
-  ![Otomatik sağlamayı devre dışı bırak][6]
+   ![Otomatik sağlamayı devre dışı bırak][6]
 
 Otomatik sağlama (Kapalı) devre dışı bırakıldığında, varsayılan çalışma alanı yapılandırma bölümü görüntülenmez.
 
@@ -243,57 +243,57 @@ Microsoft Monitoring Agent'ı el ile yüklemek için birkaç yolu vardır. El il
 ### <a name="operations-management-suite-vm-extension-deployment"></a>Operations Management Suite VM uzantısı dağıtımı 
 
 Güvenlik Merkezi, Vm'lerinizden güvenlik verilerini toplamak ve öneriler ve uyarılar sağlamak için Microsoft Monitoring Agent, el ile yükleyebilirsiniz.
-1.  Otomatik sağlama – Kapalı'i seçin.
-2.  Çalışma alanı oluşturma ve Microsoft Monitoring agent'ı ayarlamayı planladığınız çalışma alanı için fiyatlandırma katmanını ayarlayın:
+1. Otomatik sağlama – Kapalı'i seçin.
+2. Çalışma alanı oluşturma ve Microsoft Monitoring agent'ı ayarlamayı planladığınız çalışma alanı için fiyatlandırma katmanını ayarlayın:
 
-    a.  Güvenlik Merkezi ana menüsünde seçin **Güvenlik İlkesi**.
+   a.  Güvenlik Merkezi ana menüsünde seçin **Güvenlik İlkesi**.
      
-    b.  Aracısını bağlamak istediğiniz çalışma alanını seçin. Çalışma alanı aynı abonelikte Güvenlik Merkezi'nde kullanın ve çalışma alanı okuma/yazma izinlerine sahip olduğundan emin olun.
-        ![Çalışma alanı seçin][8]
+   b.  Aracısını bağlamak istediğiniz çalışma alanını seçin. Çalışma alanı aynı abonelikte Güvenlik Merkezi'nde kullanın ve çalışma alanı okuma/yazma izinlerine sahip olduğundan emin olun.
+       ![Çalışma alanı seçin][8]
 3. Fiyatlandırma katmanını ayarlayın.
    ![Fiyatlandırma katmanı seçin][9] 
    >[!NOTE]
    >Çalışma alanı zaten varsa, bir **güvenlik** veya **SecurityCenterFree** etkin çözüm, fiyatlandırma ayarlanacak otomatik olarak. 
    > 
 
-4.  Resource Manager şablonu kullanılarak yeni Vm'lere aracılarda dağıtmak istiyorsanız, OMS sanal makine uzantısını yükleyin:
+4. Resource Manager şablonu kullanılarak yeni Vm'lere aracılarda dağıtmak istiyorsanız, OMS sanal makine uzantısını yükleyin:
 
-    a.  [Windows için OMS sanal makine uzantısını yükleme](../virtual-machines/extensions/oms-windows.md)
+   a.  [Windows için OMS sanal makine uzantısını yükleme](../virtual-machines/extensions/oms-windows.md)
     
-    b.  [Linux için OMS sanal makine uzantısını yükleme](../virtual-machines/extensions/oms-linux.md)
-5.  Uzantıları mevcut Vm'lere dağıtmak için yönergeleri izleyin. [Azure sanal makineler hakkında veri toplama](../azure-monitor/learn/quick-collect-azurevm.md).
+   b.  [Linux için OMS sanal makine uzantısını yükleme](../virtual-machines/extensions/oms-linux.md)
+5. Uzantıları mevcut Vm'lere dağıtmak için yönergeleri izleyin. [Azure sanal makineler hakkında veri toplama](../azure-monitor/learn/quick-collect-azurevm.md).
 
-  > [!NOTE]
-  > Bölüm **olay ve performans verileri toplama** isteğe bağlıdır.
-  >
+   > [!NOTE]
+   > Bölüm **olay ve performans verileri toplama** isteğe bağlıdır.
+   >
 6. Uzantıyı dağıtmak için PowerShell kullanmak için aşağıdaki PowerShell örneği kullanın:  [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
    
-    1.  Git **Log Analytics** tıklayın **Gelişmiş ayarlar**.
+   1. Git **Log Analytics** tıklayın **Gelişmiş ayarlar**.
     
-        ![Log Analytics'i ayarlama][11]
+      ![Log Analytics'i ayarlama][11]
 
-    2. Dışı değerleri kopyalayın **Workspaceıd** ve **birincil anahtar**.
+   2. Dışı değerleri kopyalayın **Workspaceıd** ve **birincil anahtar**.
   
-       ![Değerleri kopyalayın][12]
+      ![Değerleri kopyalayın][12]
 
-    3. Genel yapılandırma ve özel yapılandırma aşağıdaki değerlerle doldurun:
+   3. Genel yapılandırma ve özel yapılandırma aşağıdaki değerlerle doldurun:
      
-            $PublicConf = '{
-                "workspaceId": "WorkspaceID value",
-                "MultipleConnections": true
-            }' 
+           $PublicConf = '{
+               "workspaceId": "WorkspaceID value",
+               "MultipleConnections": true
+           }' 
  
-            $PrivateConf = '{
-                "workspaceKey": "<Primary key value>”
-            }' 
+           $PrivateConf = '{
+               "workspaceKey": "<Primary key value>”
+           }' 
 
       - Bir Windows VM'de yüklerken:
         
-             Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
+            Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
     
-       - Bir Linux VM'de yüklerken:
+      - Bir Linux VM'de yüklerken:
         
-             Set-AzVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
+            Set-AzVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
 > [!NOTE]
 > Yönergeler için PowerShell kullanarak yerleşik güvenlik Merkezi'ne nasıl görürüm [ekleme PowerShell kullanarak Azure Güvenlik Merkezi'nin otomatik hale getirmek](security-center-powershell-onboarding.md).

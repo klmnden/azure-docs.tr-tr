@@ -1,18 +1,18 @@
 ---
 title: Azure AD uygulaması Windows Iaas Vm'leri (önceki sürüm) ile Azure Disk şifrelemesi
 description: Bu makalede, Microsoft Azure Disk şifrelemesi için Windows Iaas Vm'leri etkinleştirme hakkında yönergeler sağlar.
-author: mestew
+author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.author: mstewart
-ms.date: 03/04/2019
+ms.author: mbaldwin
+ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 47310efc32f1fa8d691da21ba30eaccd379cf812
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: cac8c4a196fd893a87ddd0f79fbdf482b503839e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764379"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856065"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms-previous-release"></a>Azure Disk şifrelemesi için Windows Iaas Vm'leri (önceki sürüm) etkinleştir
 
@@ -129,11 +129,11 @@ Kullanım [kümesi AzVMDiskEncryptionExtension](/powershell/module/az.compute/se
 ### <a name="bkmk_RunningWinVMCLI"></a>Var olan veya Azure CLI ile sanal makine çalıştırma şifrelemeyi etkinleştir
 Kullanım [az vm şifrelemeyi etkinleştirme](/cli/azure/vm/encryption#az-vm-encryption-enable) azure'da çalıştırılan Iaas sanal makine üzerinde şifrelemeyi etkinleştirmek için komutu.
 
--  **İstemci gizli anahtarı kullanarak çalışan bir VM şifrele:**
+- **İstemci gizli anahtarı kullanarak çalışan bir VM şifrele:**
 
-     ```azurecli-interactive
-     az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --aad-client-id "<my spn created with CLI/my Azure AD ClientID>"  --aad-client-secret "My-AAD-client-secret" --disk-encryption-keyvault "MySecureVault" --volume-type [All|OS|Data]
-     ```
+    ```azurecli-interactive
+    az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --aad-client-id "<my spn created with CLI/my Azure AD ClientID>"  --aad-client-secret "My-AAD-client-secret" --disk-encryption-keyvault "MySecureVault" --volume-type [All|OS|Data]
+    ```
 
 - **İstemci gizli anahtarı sarmalama KEK kullanarak çalışan bir VM şifrele:**
 
@@ -155,10 +155,10 @@ Kullanım [az vm şifrelemeyi etkinleştirme](/cli/azure/vm/encryption#az-vm-enc
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```
  
- > [!NOTE]
- >Anlık görüntü için zorunludur ve/veya yedekleme yönetilen disk sanal makine örneğinin dışında ve Azure Disk şifrelemesi etkinleştirilmeden önce temel. Yönetilen diskin anlık görüntüsünü portaldan alınabilir veya [Azure Backup](../backup/backup-azure-vms-encryption.md) kullanılabilir. Yedekleme kurtarma seçeneğini şifreleme sırasında beklenmeyen bir hata olması durumunda olası olduğundan emin olun. Bir yedekleme yapıldıktan sonra Set-AzVMDiskEncryptionExtension cmdlet - skipVmBackup parametresini belirterek yönetilen disklerini şifrelemek için kullanılabilir. Bu komut, yönetilen disk tabanlı Vm'leri karşı yapılan bir yedekleme ve bu parametre belirtildi kadar başarısız olacak. 
->
->Şifrelenirken veya şifreleme devre dışı bırakıldığında VM yeniden başlatılmasına neden olabilir. 
+  > [!NOTE]
+  >Anlık görüntü için zorunludur ve/veya yedekleme yönetilen disk sanal makine örneğinin dışında ve Azure Disk şifrelemesi etkinleştirilmeden önce temel. Yönetilen diskin anlık görüntüsünü portaldan alınabilir veya [Azure Backup](../backup/backup-azure-vms-encryption.md) kullanılabilir. Yedekleme kurtarma seçeneğini şifreleme sırasında beklenmeyen bir hata olması durumunda olası olduğundan emin olun. Bir yedekleme yapıldıktan sonra Set-AzVMDiskEncryptionExtension cmdlet - skipVmBackup parametresini belirterek yönetilen disklerini şifrelemek için kullanılabilir. Bu komut, yönetilen disk tabanlı Vm'leri karşı yapılan bir yedekleme ve bu parametre belirtildi kadar başarısız olacak. 
+  >
+  >Şifrelenirken veya şifreleme devre dışı bırakıldığında VM yeniden başlatılmasına neden olabilir. 
 
 ### <a name="bkmk_RunningWinVMwRM"> </a>Resource Manager şablonu kullanma
 Disk şifrelemesi kullanarak Azure'da Iaas Windows Vm'leri çalıştırma ya da varolan etkinleştirebilirsiniz [çalışan bir Windows VM şifreleme için Resource Manager şablonunu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
@@ -174,7 +174,7 @@ Var olan veya bir Azure AD İstemci Kimliğini kullanan sanal makineleri çalı�
 | --- | --- |
 | Aadclientıd | Bir anahtar kasasına gizli anahtarları yazmak için izne sahip olan Azure AD uygulamasının istemci kimliği. |
 | AADClientSecret | Bir anahtar kasasına gizli anahtarları yazmak için izne sahip olan Azure AD uygulamasının istemci gizli anahtarı. |
-| keyVaultName | BitLocker anahtarı karşıya yüklenmelidir anahtar kasasının adı. Cmdlet'ini kullanarak elde edeceğinizi `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` veya Azure CLI komutunu ' az keyvault list--resource-group "MySecureGroup" |Convertfrom-JSON'|
+| keyVaultName | BitLocker anahtarı karşıya yüklenmelidir anahtar kasasının adı. Cmdlet'ini kullanarak elde edeceğinizi `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` veya Azure CLI komutu `az keyvault list --resource-group "MySecureGroup"`|
 |  KeyEncryptionKeyURL | Oluşturulan BitLocker anahtarı şifrelemek için kullanılan anahtar şifreleme anahtarı URL'si. Bu seçerseniz isteğe bağlı bir parametredir **nokek** UseExistingKek aşağı açılan listesinde. Seçerseniz **kek** UseExistingKek aşağı açılan listeden girmelisiniz _keyEncryptionKeyURL_ değeri. |
 | VolumeType | Şifreleme işlemi gerçekleştirilir birim türü. Geçerli değerler _işletim sistemi_, _veri_, ve _tüm_. |
 | SequenceVersion | BitLocker işlemi dizisi sürümü. Bu sürüm numarası, aynı sanal makinede her bir disk şifreleme işlemi gerçekleştirildiğinde artırın. |
@@ -204,29 +204,6 @@ $VirtualMachine = New-AzVMConfig -VMName "MySecureVM" -VMSize "Standard_A1"
 $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name "SecureOSDisk" -VhdUri "os.vhd" Caching ReadWrite -Windows -CreateOption "Attach" -DiskEncryptionKeyUrl "https://mytestvault.vault.azure.net/secrets/Test1/514ceb769c984379a7e0230bddaaaaaa" -DiskEncryptionKeyVaultId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myKVresourcegroup/providers/Microsoft.KeyVault/vaults/mytestvault"
 New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 ```
-
-
-### <a name="bkmk_VHDpreRM"> </a>Iaas VM'ler bir Resource Manager şablonu ile önceden şifrelenmiş VHD'ler ile şifreleme 
-Disk şifrelemesi kullanarak şifrelenmiş VHD'nizi etkinleştirebilirsiniz [Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm).
-
-1. Azure Hızlı Başlangıç şablonu üzerinde **azure'a Dağıt**.
-
-2. Abonelik, kaynak grubu, kaynak grubu konumu, parametreleri, yasal koşulları ve Sözleşmesi'ni seçin. Tıklayın **Oluştur** yeni Iaas VM üzerinde şifrelemeyi etkinleştirmek için.
-
-Aşağıdaki tabloda, şifrelenmiş bir VHD için Resource Manager şablon parametreleri listelenmektedir:
-
-| Parametre | Açıklama |
-| --- | --- |
-| newStorageAccountName | Şifrelenmiş işletim sistemi VHD'SİNİN depolanacağı depolama hesabı adı. Bu depolama hesabı zaten aynı kaynak grubunda ve aynı konumdaki VM oluşturulmuş olmalıdır. |
-| osVhdUri | Depolama hesabı işletim sistemi VHD URI'si. |
-| osType | İşletim sistemi ürün türü (Windows/Linux). |
-| virtualNetworkName | VM NIC ait olması gereken Vnet'in adı. Ad zaten aynı kaynak grubunda ve aynı konumdaki VM oluşturulmuş olmalıdır. |
-| subnetName | VM NIC ait olması gereken bir VNet üzerinde alt ağın adı. |
-| vmSize | VM boyutu. Şu anda yalnızca standart A, D ve G serisi desteklenmektedir. |
-| keyVaultResourceID | Azure Resource Manager'daki anahtar kasası kaynağı tanımlayan ResourceId. PowerShell cmdlet'ini kullanarak elde edeceğinizi `(Get-AzKeyVault -VaultName "MyKeyVaultName"; -ResourceGroupName "MyKeyVaultResourceGroupName").ResourceId` veya Azure CLI komutunu kullanarak `az keyvault show --name "MySecureVault" --query id`|
-| keyVaultSecretUrl | Anahtar Kasası'nda ayarladığınız disk şifreleme anahtarı URL'si. |
-| keyVaultKekUrl | Oluşturulan disk şifreleme anahtarını şifrelemek için anahtar şifreleme anahtarı URL'si. |
-| vmName | Iaas VM adı. |
 
 ## <a name="enable-encryption-on-a-newly-added-data-disk"></a>Yeni eklenen verileri disk şifrelemeyi etkinleştirin
 Yapabilecekleriniz [Windows PowerShell kullanarak bir VM için yeni bir disk ekleyin](../virtual-machines/windows/attach-disk-ps.md), veya [Azure portalı üzerinden](../virtual-machines/windows/attach-managed-disk-portal.md). 

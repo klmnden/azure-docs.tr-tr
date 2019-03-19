@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d7f67015d4df20ea39c1225d52be36340b8f65d1
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 487c142400dc2bfa6f44e17963535051af017196
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556985"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116190"
 ---
 # <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Öğretici: Stream Analytics ve Power BI: Veri akışı için gerçek zamanlı analiz Panosu
 Azure Stream Analytics lider iş zekası araçları birini avantajlarından yararlanmanıza olanak tanır [Microsoft Power BI](https://powerbi.com/). Bu makalede, şunların nasıl iş zekası araçları, Azure Stream Analytics işleri için çıkış olarak Power BI kullanarak oluşturun. Ayrıca nasıl gerçek zamanlı bir Pano oluşturup kullanacağınızı öğrenin.
@@ -56,16 +56,16 @@ Gerçek zamanlı sahtekarlık algılama öğreticide çıktı Azure Blob depolam
 
 7. Sizin döndürdü için **yeni çıkış** dikey penceresinde aşağıdaki bilgileri girin:
 
-    * **Grup çalışma alanı**: Power BI kiracınızın veri kümesini oluşturmak için istediğiniz bir çalışma alanı seçin.
-    * **Veri kümesi adı**:  `sa-dataset` yazın. Farklı bir ad kullanabilirsiniz. Bunu yaparsanız, bunu daha sonra kullanmak üzere not edin.
-    * **Tablo adı**: `fraudulent-calls` yazın. Şu anda Power BI çıkışına Stream Analytics işlerine bir veri kümesinde yalnızca bir tabloya sahip olabilir.
+   * **Grup çalışma alanı**: Power BI kiracınızın veri kümesini oluşturmak için istediğiniz bir çalışma alanı seçin.
+   * **Veri kümesi adı**:  `sa-dataset` yazın. Farklı bir ad kullanabilirsiniz. Bunu yaparsanız, bunu daha sonra kullanmak üzere not edin.
+   * **Tablo adı**: `fraudulent-calls` yazın. Şu anda Power BI çıkışına Stream Analytics işlerine bir veri kümesinde yalnızca bir tabloya sahip olabilir.
 
-    ![Power BI çalışma alanı veri kümesi ve tablo](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
+     ![Power BI çalışma alanı veri kümesi ve tablo](./media/stream-analytics-power-bi-dashboard/create-pbi-ouptut-with-dataset-table.png)
 
-    > [!WARNING]
-    > Power BI veri kümesi ve Stream Analytics işinde belirttiğiniz ayarlara olarak aynı ada sahip bir tablo varsa, mevcut üzerine yazılır.
-    > Açıkça bu veri kümesi ve tablo, Power BI hesabınızda oluşturduğunuz değil öneririz. Stream Analytics işinizi başlattığınızda ve iş parçacıklarının çıkış Power BI'da oturum başlatır. otomatik olarak oluşturulur. İş sorgusu hiçbir sonuç döndürmezse, tablo ve veri kümesi oluşturulmaz.
-    >
+     > [!WARNING]
+     > Power BI veri kümesi ve Stream Analytics işinde belirttiğiniz ayarlara olarak aynı ada sahip bir tablo varsa, mevcut üzerine yazılır.
+     > Açıkça bu veri kümesi ve tablo, Power BI hesabınızda oluşturduğunuz değil öneririz. Stream Analytics işinizi başlattığınızda ve iş parçacıklarının çıkış Power BI'da oturum başlatır. otomatik olarak oluşturulur. İş sorgusu hiçbir sonuç döndürmezse, tablo ve veri kümesi oluşturulmaz.
+     >
 
 8. **Oluştur**’a tıklayın.
 
@@ -189,13 +189,13 @@ Streaming Analytics işinizi gelen akışındaki sahte çağrıları için arama
     * Değer ekleyip **fraudulentcalls** seçeneğini belirleyin.
     * **Görüntülenecek zaman penceresini** için son 10 dakikayı seçin.
 
-    ![Power BI'da kutucuk için çizgi grafik oluşturma](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
+      ![Power BI'da kutucuk için çizgi grafik oluşturma](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
 9. Tıklayın **sonraki**, başlık ve alt konu başlığını eklemek ve tıklayın **Uygula**.
 
-    Power BI Panosu artık, sahte çağrıları ile ilgili iki görünüm veri akış verilerini algıladığından sağlar.
+     Power BI Panosu artık, sahte çağrıları ile ilgili iki görünüm veri akış verilerini algıladığından sağlar.
 
-    ![Dolandırıcılık amaçlı çağrıları için iki kutucuk gösteren Power BI panosunun tamamlandı](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
+     ![Dolandırıcılık amaçlı çağrıları için iki kutucuk gösteren Power BI panosunun tamamlandı](./media/stream-analytics-power-bi-dashboard/pbi-dashboard-fraudulent-calls-finished.png)
 
 
 ## <a name="learn-more-about-power-bi"></a>Power BI hakkında bilgi alın

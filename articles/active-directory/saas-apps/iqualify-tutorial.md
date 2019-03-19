@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25711bd09adf17fa82f9177f4badad723e590b12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6c8cd7a2cfc96af791e4b07ae4c6d35b645acba0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184202"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835807"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Öğretici: İQualify LMS ile Azure Active Directory Tümleştirme
 
@@ -112,12 +112,14 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve i
     ![iQualify LMS etki alanı ve URL'ler çoklu oturum açma bilgileri](./media/iqualify-tutorial/tutorial_iqualify_url.png)
 
     a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: 
+
     | |
     |--|--|
     | Üretim ortamı: `https://<yourorg>.iqualify.com/`|
     | Test ortamı: `https://<yourorg>.iqualify.io`|
     
     b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: 
+
     | |
     |--|--|
     | Üretim ortamı: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
@@ -128,6 +130,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve i
     ![iQualify LMS etki alanı ve URL'ler çoklu oturum açma bilgileri](./media/iqualify-tutorial/tutorial_iqualify_url1.png)
 
     İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak:
+    
     | |
     |--|--|
     | Üretim ortamı: `https://<yourorg>.iqualify.com/login` |

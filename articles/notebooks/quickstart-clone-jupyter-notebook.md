@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: ced279575c0dd6ca2509911a53a23c2ebf9eb77e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: cfce5765cda1e3a1dfb7eb073719191b13b0696e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762051"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089208"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Hızlı Başlangıç: Not defterini kopyalama
 
@@ -40,13 +40,13 @@ Kopyalama kopyasını bir GitHub Not Defteri, bunun yerine Azure not defterleri 
 
 1. İçinde **karşıya GitHub deposu** görüntülenir, girin veya aşağıdaki bilgileri ayarlayın ve ardından seçin **alma**:
 
-    - **GitHub deposu**: Microsoft/bilişsel-services-not defterlerini (Bu ad, Azure Bilişsel hizmetler için Jupyter not defterlerini klonlar [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks)).
-    - **Yinelemeli olarak kopyalama**: (Seçili)
-    - **Proje adı**: Bilişsel hizmetler kopyalama
-    - **Proje kimliği**: bilişsel-services-kopya
-    - **Genel**: (Seçili)
+   - **GitHub deposu**: Microsoft/bilişsel-services-not defterlerini (Bu ad, Azure Bilişsel hizmetler için Jupyter not defterlerini klonlar [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks)).
+   - **Yinelemeli olarak kopyalama**: (Seçili)
+   - **Proje adı**: Bilişsel hizmetler kopyalama
+   - **Proje kimliği**: bilişsel-services-kopya
+   - **Genel**: (Seçili)
 
-    ![Depo bilgilerini toplamak için GitHub deposunu açılan karşıya yükleme](media/quickstarts/upload-github-repo-popup.png)
+     ![Depo bilgilerini toplamak için GitHub deposunu açılan karşıya yükleme](media/quickstarts/upload-github-repo-popup.png)
 
 1. İşlem tamamlanırken arkanıza endişelenmeyin; bir depo kopyalama, birkaç dakika sürebilir.
 

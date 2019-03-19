@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: a24448507fa16a48ab3522c3307261d989d773ee
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 9c507bf1526bbee78d519362fc51453803820d57
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895033"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108401"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Media Encoder Premium iş akışı biçimleri ve codec bileşenleri
 
@@ -26,8 +26,6 @@ ms.locfileid: "55895033"
 > Premium Kodlayıcı sorular için e-posta mepd@microsoft.com.
 > 
 > Bu konuda tartışılan Media Encoder Premium iş akışı medya işlemci Çin'de kullanılamaz. 
-> 
-> 
 
 Bu belge, girdi ve çıktı dosya biçimlerini ve genel Önizleme sürümü tarafından desteklenen codec bileşenleri listesini içeren **Media Encoder Premium iş akışı** Kodlayıcı.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 3cac893fcaafd4fe8d35aab2a10da92019d3ed42
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 114f4ccccaa861928263eb59b4e43379989abcca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698981"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077862"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Contoso geçişi: Şirket içi bir Linux uygulamasını Azure VM’lerinde ve Azure MySQL’de yeniden barındırın
 
@@ -127,7 +127,7 @@ Contoso yöneticileri geçişi nasıl tamamlanacağını garanti aşağıda veri
 > [!div class="checklist"]
 > * **1. adım: Azure Site Recovery için hazırlama**: Bunlar, çoğaltılan verileri tutmak ve bir kurtarma Hizmetleri kasası oluşturmak için bir Azure depolama hesabı oluşturun.
 > * **2. adım: Site Recovery için şirket içi Vmware'leri hazırlama**: Bunlar için VM bulma ve aracı yükleme hesabı hazırlayın ve yük devretme sonrasında Azure Vm'lerine bağlanmak için hazırlık yapma.
- * **3. adım: Veritabanını sağlamak]**: Azure'da, bunlar Azure MySQL veritabanı örneği sağlayın.
+>   * **3. adım: Veritabanını sağlamak]**: Azure'da, bunlar Azure MySQL veritabanı örneği sağlayın.
 > * **4. adım: Vm'lerini çoğaltma**: Bunlar Site Recovery kaynak ve hedef ortamını yapılandırma, bir çoğaltma ilkesi ayarlayın ve VM'ler için Azure depolama çoğaltmaya başlayın.
 > * **5. adım: Veritabanı geçişi**: Bunlar, geçiş MySQL araçları ile ayarlayın.
 > * **6. adım: Site Recovery ile Vm'leri geçirme**: Son olarak, bunlar her şeyin çalıştığından emin olmak için yük devretme testi çalıştırma ve ardından sanal makineleri Azure'a geçirmek için bir tam yük devretme çalıştırın.
@@ -147,10 +147,10 @@ Contoso yöneticileri, bir depolama hesabı oluşturun ve şu şekilde Kasası:
 
 1. Bunlar depolama hesabı oluşturma (**contosovmsacc20180528**) Doğu ABD 2 bölgesinde.
 
-    - Depolama hesabının, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
-    - Bunlar, standart depolama ve LRS çoğaltma ile genel amaçlı bir hesabı kullanın.
+   - Depolama hesabının, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
+   - Bunlar, standart depolama ve LRS çoğaltma ile genel amaçlı bir hesabı kullanın.
 
-    ![Site Kurtarma Depolama](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
+     ![Site Kurtarma Depolama](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
 
 3. Ağ ve depolama hesabı ile yerinde, bunlar (ContosoMigrationVault) bir kasa oluşturun ve içine yerleştirin **ContosoFailoverRG** birincil Doğu ABD 2 bölgesinde bir kaynak grubu.
 

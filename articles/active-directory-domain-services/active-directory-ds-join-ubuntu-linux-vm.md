@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: f9c8273e82d46c34c36533605c08200c308815af
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8699585a7f8e5cdfc81a40b94fbe10fa677a0030
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154279"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121001"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Bir Ubuntu sanal makinesi, Azure'da yönetilen bir etki alanına katılın.
 Bu makalede, bir Ubuntu Linux sanal makinesi bir Azure AD Domain Services yönetilen etki alanına ekleme işlemini göstermektedir.
@@ -125,10 +125,9 @@ Gerekli paketleri, Linux sanal makinesinde yüklü olan, sonraki görev sanal ma
 
    > [!NOTE]
    > **Sorun giderme:** Varsa *bölge bulma* yönetilen etki alanınıza bulamıyor:
-     * Etki alanı (try ping) sanal makineden erişilebilir olduğundan emin olun.
-     * Sanal makinenin yönetilen etki alanında kullanılabilir olduğu aynı sanal ağa gerçekten dağıtılmış olduğunu kontrol edin.
-     * Sanal ağın DNS sunucusu ayarlarını yönetilen etki alanının etki alanı denetleyicilerine işaret edecek şekilde güncelleştirdiyseniz denetleyin.
-   >
+   >   * Etki alanı (try ping) sanal makineden erişilebilir olduğundan emin olun.
+   >   * Sanal makinenin yönetilen etki alanında kullanılabilir olduğu aynı sanal ağa gerçekten dağıtılmış olduğunu kontrol edin.
+   >   * Sanal ağın DNS sunucusu ayarlarını yönetilen etki alanının etki alanı denetleyicilerine işaret edecek şekilde güncelleştirdiyseniz denetleyin.
 
 2. Kerberos başlatın. SSH terminalinizde şu komutu yazın:
 

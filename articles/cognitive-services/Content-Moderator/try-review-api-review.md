@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: d963cdd484727ac46aed1915643dd92462e2c643
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2e40165bde7f3ce2eabd91b55c5bbc8139282b60
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857829"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101474"
 ---
 # <a name="create-reviews-from-the-api-console"></a>API Konsolu incelemeleri oluşturma
 
@@ -33,35 +33,35 @@ API çevrimiçi Konsolu aracılığıyla dediğini konsoluna girmek için bazı 
 
 Bir test konsoluna erişmek için en basit yolu **kimlik bilgilerini** penceresi.
 
-1.  İçinde **kimlik bilgilerini** penceresinde [gözden geçirme API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+1. İçinde **kimlik bilgilerini** penceresinde [gözden geçirme API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
-  **Gözden geçirin - oluşturma** sayfası açılır.
+   **Gözden geçirin - oluşturma** sayfası açılır.
 
-2.  İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin.
+2. İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin.
 
-  ![Gözden geçirme - kayıt seçimi sayfası oluşturma](images/test-drive-region.png)
+   ![Gözden geçirme - kayıt seçimi sayfası oluşturma](images/test-drive-region.png)
 
-  **Gözden geçirin - oluşturma** API konsolu açılır.
+   **Gözden geçirin - oluşturma** API konsolu açılır.
   
-3.  Gerekli sorgu parametreleri, içerik türü ve abonelik anahtarınız için değerleri girin. İçinde **istek gövdesi** kutusunda, (örneğin, görüntü konumu) içerik, meta verileri ve içerikle ilişkili diğer bilgileri belirtin.
+3. Gerekli sorgu parametreleri, içerik türü ve abonelik anahtarınız için değerleri girin. İçinde **istek gövdesi** kutusunda, (örneğin, görüntü konumu) içerik, meta verileri ve içerikle ilişkili diğer bilgileri belirtin.
 
-  ![Gözden geçirme - konsol sorgu parametreleri, üst bilgileri ve istek gövdesi kutusu oluşturma](images/test-drive-review-1.PNG)
+   ![Gözden geçirme - konsol sorgu parametreleri, üst bilgileri ve istek gövdesi kutusu oluşturma](images/test-drive-review-1.PNG)
   
-4.  **Gönder**’i seçin. Gözden geçirme kimliği oluşturulur. Aşağıdaki adımlarda kullanmak için bu kimliği kopyalayın.
+4. **Gönder**’i seçin. Gözden geçirme kimliği oluşturulur. Aşağıdaki adımlarda kullanmak için bu kimliği kopyalayın.
 
-  ![Gözden geçirme - Konsolu yanıt içerik kutusu İnceleme Kimliğini görüntüler oluşturma](images/test-drive-review-2.PNG)
+   ![Gözden geçirme - Konsolu yanıt içerik kutusu İnceleme Kimliğini görüntüler oluşturma](images/test-drive-review-2.PNG)
   
-5.  Seçin **alma**ve API bölgenizi eşleşen düğmesini seçerek açın. Sonuçta elde edilen sayfasında değerlerini girin **teamName**, **ReviewID**, ve **abonelik anahtarı**. Seçin **Gönder** sayfasında düğme. 
+5. Seçin **alma**ve API bölgenizi eşleşen düğmesini seçerek açın. Sonuçta elde edilen sayfasında değerlerini girin **teamName**, **ReviewID**, ve **abonelik anahtarı**. Seçin **Gönder** sayfasında düğme. 
 
-  ![Gözden geçirme - Get sonuçları konsol oluşturun](images/test-drive-review-3.PNG)
+   ![Gözden geçirme - Get sonuçları konsol oluşturun](images/test-drive-review-3.PNG)
   
-6.  Tarama sonuçlarını görürsünüz.
+6. Tarama sonuçlarını görürsünüz.
 
-  ![Gözden geçirme - konsol yanıt içerik kutusu oluşturma](images/test-drive-review-4.PNG)
+   ![Gözden geçirme - konsol yanıt içerik kutusu oluşturma](images/test-drive-review-4.PNG)
   
-7.  Content Moderator Panoda seçin **gözden geçirme** > **görüntü**. Taranan görüntü görünür, insan tarafından İnceleme için hazır.
+7. Content Moderator Panoda seçin **gözden geçirme** > **görüntü**. Taranan görüntü görünür, insan tarafından İnceleme için hazır.
 
-  ![Gözden geçirme aracı bir futbol Top görüntüsü](images/test-drive-review-5.PNG)
+   ![Gözden geçirme aracı bir futbol Top görüntüsü](images/test-drive-review-5.PNG)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 16d85510efb055d7d564ffadb9fff2b200771bc6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 66c43556e698063b95ce1c3787458e40c9d71504
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438838"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079477"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Portalı kullanarak bir ExpressRoute bağlantı hattına bir sanal ağı bağlama
 > [!div class="op_single_selector"]
@@ -54,13 +54,13 @@ Bu makale, Azure portalını kullanarak bir Azure ExpressRoute bağlantı hattı
 
 1. ExpressRoute bağlantı hattı ve Azure özel eşdüzey hizmet sağlama başarılı bir şekilde yapılandırıldığından emin olun. Bölümündeki yönergeleri [ExpressRoute devresi oluşturma](expressroute-howto-circuit-arm.md) ve [yönlendirmeyi yapılandırma](expressroute-howto-routing-arm.md). ExpressRoute devreniz şu resimdeki gibi görünmelidir:
 
-  ![ExpressRoute bağlantı hattı ekran görüntüsü](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
+   ![ExpressRoute bağlantı hattı ekran görüntüsü](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
 2. ExpressRoute bağlantı hattı için sanal ağ geçidinizin bağlantı için bağlantı sağlama şimdi başlayabilirsiniz. Tıklayın **bağlantı** > **Ekle** açmak için **Bağlantı Ekle** sayfasında ve değerlerini yapılandırın.
 
-  ![Bağlantı ekran görüntüsü Ekle](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)
+   ![Bağlantı ekran görüntüsü Ekle](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)
 3. Bağlantınızın başarılı bir şekilde yapılandırıldıktan sonra bağlantı nesnesi bağlantı bilgilerini gösterir.
 
-  ![Bağlantı nesnesi ekran görüntüsü](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
+   ![Bağlantı nesnesi ekran görüntüsü](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
 
 ## <a name="connect-a-vnet-to-a-circuit---different-subscription"></a>Devreye - farklı bir aboneliğe bir VNet bağlama
 
@@ -95,10 +95,10 @@ Bağlantı hattı sahibinden bir yetkilendirme oluşturur. ExpressRoute bağlant
 
 1. ExpressRoute sayfasında tıklatın **yetkilendirmeleri** Anahtar'a tıklayın ve bir **adı** tıklatın ve yetkilendirme için **Kaydet**.
 
-  ![Yetkilendirmeler](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
+   ![Yetkilendirmeler](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)
 2. Yapılandırma kaydedildikten sonra kopyalama **kaynak kimliği** ve **yetkilendirme anahtarını**.
 
-  ![Yetkilendirme anahtarı](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
+   ![Yetkilendirme anahtarı](./media/expressroute-howto-linkvnet-portal-resource-manager/authkey.png)
 
 **Bağlantı Yetkilendirme silmek için**
 
@@ -112,18 +112,18 @@ Bağlantı hattı kullanıcısı, kaynak Kimliğini ve bağlantı hattı sahibin
 
 1. Tıklayın **+ yeni** düğmesi.
 
-  ![Yeni'yi tıklatın](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
+   ![Yeni'yi tıklatın](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
 2. Arama **"Bağlantısı"** Market'te seçin ve tıklayın **Oluştur**.
 
-  ![Bağlantı arayın](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
+   ![Bağlantı arayın](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 3. Emin **bağlantı türü** "ExpressRoute" ayarlanır.
 4. Ayrıntıları girin ve ardından tıklayın **Tamam** temel bilgileri sayfasında.
 
-  ![Temel bilgileri sayfası](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
+   ![Temel bilgileri sayfası](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. İçinde **ayarları** seçin sayfasında **sanal ağ geçidi** ve **yetkilendirmeyi kullanma** onay kutusu.
 6. Girin **yetkilendirme anahtarını** ve **eş devre URI'si** ve bağlantı bir ad verin. **Tamam** düğmesine tıklayın.
 
-  ![Ayarlar sayfası](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
+   ![Ayarlar sayfası](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. Bilgileri gözden **özeti** sayfasında ve tıklayın **Tamam**.
 
 **Bağlantı Yetkilendirme serbest bırakmak için**

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9116dd8a27b268b656f688083032a127177d2d51
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 2628cafada47b2602b195c44d4b6f2e6b16012ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754569"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092778"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Azure sanal makineleri HANA büyük örneklerine bağlanma
 
@@ -85,7 +85,7 @@ Zaten bazı HANA büyük örnekleri dağıtmak için gerekli IP adresi aralıkla
 
 - **Sanal ağ adres alanı**: **Sanal ağ adres alanı** adres alanı parametreniz Azure sanal ağlarda bulunan atadığınız IP adresi aralıklarını olduğu. Bu ağlar, SAP HANA büyük örneği ortama bağlanın.
 
- Bu adres alanı parametresi bir çok satırlı değer olduğunu öneririz. Azure VM alt ağ aralığını ve Azure ağ geçidi alt ağı aralıklarının oluşmalıdır. Bu alt ağ aralığı, önceki grafikleri gösterildi. Şirket içi veya sunucu IP havuzu veya ER P2P adres aralığı ile çakışmamalıdır. 
+  Bu adres alanı parametresi bir çok satırlı değer olduğunu öneririz. Azure VM alt ağ aralığını ve Azure ağ geçidi alt ağı aralıklarının oluşmalıdır. Bu alt ağ aralığı, önceki grafikleri gösterildi. Şirket içi veya sunucu IP havuzu veya ER P2P adres aralığı ile çakışmamalıdır. 
  
 Bu IP adresi aralıklarının nasıl alır? 
 
@@ -108,7 +108,7 @@ Kurumsal ağ ekip veya hizmet sağlayıcısı, ağınızda kullanılmayan IP adr
   
 - **Sunucu IP havuzu adres aralığı:** Bu IP adresi aralığı, HANA büyük örnek sunucularına tek bir IP adresi atamak için kullanılır. Bir/24 önerilen alt boyutudur CIDR bloğu. Gerekirse, en az 64 IP adresleri ile daha küçük olabilir. Bu aralıktaki ilk 30 IP adresleri, Microsoft tarafından kullanım için ayrılmıştır. Aralık boyutu seçtiğinizde bu olgu için dikkate aldığınızdan emin olun. Bu aralık, şirket içi veya diğer Azure IP adresleri çakışmamalıdır. Bu IP adresi aralığı nasıl alır? Kurumsal ağ ekip veya hizmet sağlayıcısı, ağınızda şu anda kullanılmakta bir IP adresi aralığı sağlamalıdır. 
 
- **Bu aralığı ilk bir dağıtım için isterken Microsoft'a gönderilmesi gereken bir IP adresi aralığı**.
+  **Bu aralığı ilk bir dağıtım için isterken Microsoft'a gönderilmesi gereken bir IP adresi aralığı**.
  
 Tanımlamak ve daha önce açıklanan IP adres aralıklarını planlama gerekir. Ancak, tüm bunları Microsoft'a iletmek gerekmez. Microsoft ad için gerekli olan IP adresi aralıklarını şunlardır:
 

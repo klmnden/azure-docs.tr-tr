@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 3cb8f52677991997a0176a9f8d408e2fd6d2d8d9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: de920a9addf9d2053a3c101c6b1f9a2c1a2feb27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974280"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106755"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Hızlı Başlangıç: Power BI için Azure Veri Gezgini Bağlayıcısı'nı kullanarak verileri Görselleştir
 
@@ -53,7 +53,7 @@ Bu hızlı başlangıcı tamamlamak için şunlara ihtiyacınız vardır:
     |---|---|---|
     | Küme | *https://help.kusto.windows.net* | Yardım kümesi için URL. Diğer kümeler için URL biçimindedir *https://\<ClusterName\>.\< Bölge\>. kusto.windows.net*. |
     | Database | Boş bırakın | Bağlanmakta olduğunuz kümesi üzerinde barındırılan bir veritabanı. Biz bu daha sonraki bir adımda seçersiniz. |
-    | Tablo adı | Boş bırakın | Bir veritabanı ya da bir sorgu tablo ister ' StormEvents | 1000' yararlanın. Biz bu daha sonraki bir adımda seçersiniz. |
+    | Tablo adı | Boş bırakın | Bir veritabanı ya da bir sorgu tablo ister <code>StormEvents \| take 1000</code>. Biz bu daha sonraki bir adımda seçersiniz. |
     | Gelişmiş seçenekler | Boş bırakın | Sonuç gibi sorgularınız için seçenekleri boyutunu ayarlayın. |
     | Veri bağlantısı modu | *DirectQuery* | Power BI veri aldığında veya doğrudan veri kaynağına bağlanan belirler. Bu bağlayıcıyı kullanarak, iki seçenekten birini kullanabilirsiniz. |
     | | | |
@@ -91,4 +91,4 @@ Bu Hızlı Başlangıç için oluşturduğunuz rapor artık ihtiyacınız kalmad
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Power BI'da içeri aktarılan bir sorgu kullanarak verileri Görselleştir](power-bi-imported-query.md)
+> [Hızlı Başlangıç: Power BI hizmetinde içeri aktarılan bir sorgu kullanarak verileri Görselleştir](power-bi-imported-query.md)

@@ -4,17 +4,17 @@ description: Statik ve dinamik parametreleri ve bunları kullanarak dinamik bir 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d7c923dd819f826d9d9aaf8d5b88355a9feb344f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823170"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838026"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Parametreler ile dinamik şemaları oluşturma
 
@@ -41,8 +41,13 @@ Bu güvenlik önlemi şema birlikte gizli dizilerin depolanmasında güvenli olm
 - Key Vault gizli dizi adı
 - Key Vault gizli dizi sürümü
 
-Blueprint atanan olarak başvurulan Key Vault aynı abonelikte bulunması gerekir.
-Ayrıca olmalıdır **şablon dağıtımı için Azure Resource Manager'a erişimi etkinleştir** Key Vault'un üzerinde yapılandırılmış **erişim ilkeleri** sayfası. Bu özellik etkinleştirme hakkında yönergeler için bkz. [Key Vault - etkinleştir şablonu dağıtım](../../../managed-applications/key-vault-access.md#enable-template-deployment). Azure Key Vault hakkında daha fazla bilgi için bkz. [anahtar kasasına genel bakış](../../../key-vault/key-vault-overview.md).
+Şema atamasını kullanıyorsa bir **yönetilen sistem tarafından atanan kimliği**, Key Vault başvurulan _gerekir_ şema tanımını atanır aynı abonelikte yok.
+
+Şema atamasını kullanıyorsa bir **yönetilen kullanıcı tarafından atanan kimliği**, Key Vault başvurulan _olabilir_ merkezi bir abonelikte yok. Yönetilen kimlik, anahtar Kasası'şema atamasını önce uygun hakları verilmesi gerekir.
+
+Her iki durumda da, anahtar kasası olmalıdır **şablon dağıtımı için Azure Resource Manager'a erişimi etkinleştir** yapılandırılan **erişim ilkeleri** sayfası. Bu özellik etkinleştirme hakkında yönergeler için bkz. [Key Vault - etkinleştir şablonu dağıtım](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+
+Azure Key Vault hakkında daha fazla bilgi için bkz. [anahtar kasasına genel bakış](../../../key-vault/key-vault-overview.md).
 
 ## <a name="parameter-types"></a>Parametre türleri
 
@@ -236,8 +241,8 @@ Yapıtlar bir kaynak grubu için bir "şablonu adıyla" tanımlanmış **adı**,
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Şema yaşam döngüsü](lifecycle.md) hakkında bilgi edinin
-- [Şema sıralamasını](sequencing-order.md) özelleştirmeyi öğrenin
-- [Şema kaynak kilitleme](resource-locking.md) özelliğini kullanmayı öğrenin
-- [Var olan atamaları güncelleştirmeyi](../how-to/update-existing-assignments.md) öğrenin
-- [Genel sorun giderme](../troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin
+- Hakkında bilgi edinin [blueprint yaşam döngüsü](lifecycle.md).
+- Özelleştirme öğrenin [blueprint sıralama sipariş](sequencing-order.md).
+- Öğrenin yapmak kullanım [blueprint kaynak kilitleme](resource-locking.md).
+- Bilgi edinmek için nasıl [mevcut Atamaları Güncelleştir](../how-to/update-existing-assignments.md).
+- İle bir blueprint ataması sırasında sorunları gidermek [genel sorun giderme](../troubleshoot/general.md).

@@ -16,12 +16,12 @@ ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: ed149398a1244ad0cb09c3e0fe128973c6caa00d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b61bf4f05f52b9d28ee09bb6c0de30544396e815
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408012"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091605"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Öğretici: Yüksek oranda kullanılabilir SQL veritabanı teklifi
 
@@ -65,7 +65,7 @@ SQL Server AlwaysOn Kullanılabilirlik grubu kullanarak dağıtmak için bu böl
 - SQL ve dosya paylaşım tanığı Vm'leri içeren bir kullanılabilirlik kümesi  
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Seçin **\+** **kaynak Oluştur** > **özel**, ardından **şablon dağıtımı**.
 
@@ -156,7 +156,7 @@ Sonra SQL kullanılabilirlik grubu oluşturulduğundan, yapılandırılmış ve 
 > Bu adımları Azure Stack Kullanıcı Portalı'ndan (Microsoft.SQLAdapter hizmeti) SQL Server özellikleriyle bir abonelikle bir kiracı kullanıcı olarak çalıştırın.
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Seçin **\+** **kaynak Oluştur** > **veri \+ depolama**, ardından **SQL veritabanı**.<br><br>Adı, harmanlama, en büyük boyutunu ve abonelik, kaynak grubunu ve konumu dağıtım için kullanmak da dahil olmak üzere gerekli veritabanı özellik bilgileri sağlar. 
 

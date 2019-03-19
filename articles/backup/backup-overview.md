@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b590d75abb9e3f6465594a5c8c684b94e6f2e07f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864311"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122021"
 ---
 # <a name="what-is-azure-backup"></a>Azure Backup nedir?
 
@@ -55,10 +55,10 @@ Her iki hizmet tamamlayıcı ancak farklı bir işlevsellik sağlar.
 BCDR gereksinimlerinizi şekil yardımcı olması için tablo noktalarını kullanın. 
 
 **Hedefi** | **Ayrıntılar** | **Karşılaştırma**
---- | --- | --- | --- |
+--- | --- | --- 
 **Veri yedekleme/saklama** | Yedekleme verileri korunur ve gün, ay veya yıl bile uyumluluk açısından bakıldığında gerekirse saklanan. | Azure yedekleme gibi yedekleme çözümleri, ince yedeklemek istediğiniz veri çekmek izin ve ince yedekleme ve bekletme ilkeleri ayarlayın.<br/><br/> Site Recovery, aynı ince ayar yapma izin vermez.
 **Kurtarma noktası hedefi (RPO)** | Kurtarma işleminin gerekli olduğu durumlarda kabul edilebilir veri kaybı miktarı. | Daha fazla değişken RPO yedeklemelere sahip.<br/><br/> Veritabanı Yedeklemeleri 15 dakika kadar düşük RPO'lar VM yedeklemeleri genellikle bir gün, bir RPO bulunur.<br/><br/> Site Recovery, düşük RPO'ya sağlar, bu çoğaltma sürekli veya sık, olduğundan kaynak ve çoğaltma kopyalama arasındaki delta küçük olmasını sağlayın.
-**Kurtarma süresi hedefi (RTO)** |Bir geri yükleme veya kurtarma işlemini tamamlamak için geçen süre. | Daha büyük RPO nedeniyle, bir yedekleme çözümünün işlemesi gereken veri miktarı genellikle çok daha yüksektir; bu da daha uzun RTO'lara yol açar. Örneğin, bandın şirket dışı bir konumdan taşınması için harcanan süreye bağlı olarak, bantlardan veri geri yükleme işlemi birkaç gün sürebilir. | Site kurtarma gibi olağanüstü durum kurtarma çözümleri düşük RPO'ya sahip hedef daha yüksek bir düzeyde kaynağı ile eşitlenmiş çoğaltma sürekli/sık genellikle anlamına gelir. |
+**Kurtarma süresi hedefi (RTO)** |Bir geri yükleme veya kurtarma işlemini tamamlamak için geçen süre. | Daha büyük RPO nedeniyle, bir yedekleme çözümünün işlemesi gereken veri miktarı genellikle çok daha yüksektir; bu da daha uzun RTO'lara yol açar. Örneğin, bandın şirket dışı bir konumdan taşınması için harcanan süreye bağlı olarak, bantlardan veri geri yükleme işlemi birkaç gün sürebilir. 
 
 ## <a name="what-backup-scenarios-are-supported"></a>Hangi yedekleme senaryoları desteklenir mi?
 

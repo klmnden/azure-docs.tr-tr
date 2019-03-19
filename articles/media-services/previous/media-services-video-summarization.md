@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: milanga;juliako;
-ms.openlocfilehash: c0a6feb1eba1e409c29a650741eadc31f1017342
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 30c342ca31b33d910406bf74d90d49979e5c46bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004817"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838111"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Video özetleme oluşturmak için Azure medya Video küçük resimleri kullanma  
 ## <a name="overview"></a>Genel Bakış
@@ -37,10 +37,10 @@ Bazı durumlarda, çıktı farklı perde, videonuzu oluşan değil, tek bir gör
 Azure medya Video küçük resimleri medya işleyicisini neler yapabileceğinizi bazı örnekleri aşağıda verilmiştir:
 
 ### <a name="original-video"></a>Özgün videoyu
-[Özgün videoyu](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
+[Özgün videoyu](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
 
 ### <a name="video-thumbnail-result"></a>Video küçük resim sonucu
-[Video küçük resim sonucu](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[Video küçük resim sonucu](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="task-configuration-preset"></a>Görev yapılandırması (hazır)
 Video küçük resim görevle oluştururken **Azure medya Video küçük resimleri**, yapılandırma hazır belirtmeniz gerekir. Küçük resim Yukarıdaki örnek aşağıdaki temel JSON yapılandırma ile oluşturulmuştur:
@@ -62,7 +62,7 @@ Video küçük resim görevle oluştururken **Azure medya Video küçük resimle
 Varsayılan süre aşağıdaki tabloda açıklanmaktadır, **maxMotionThumbnailInSecs** kullanılmaz.
 
 |  |  |  |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | Video süresi |d < 3 dk |3 dk < d < 15 dk |
 | Küçük resim süresi |15 saniye (2-3 Sahne) |30 saniye (3-5 Sahne) |
 
@@ -276,7 +276,7 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
 ```
 
 ### <a name="video-thumbnail-output"></a>Video küçük resim çıkışı
-[Video küçük resim çıkışı](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
+[Video küçük resim çıkışı](https://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Fd06f24dc-bc81-488e-a8d0-348b7dc41b56%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -287,5 +287,5 @@ Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Servic
 ## <a name="related-links"></a>İlgili bağlantılar
 [Azure Media Services Analizi'ne genel bakış](media-services-analytics-overview.md)
 
-[Azure medya analizi tanıtımları](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure medya analizi tanıtımları](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

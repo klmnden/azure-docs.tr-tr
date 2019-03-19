@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd5d724583dd4682fb6c0b01e8ec11196936289b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211912"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116274"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Hizmetten hizmete temsilci kullanım kullanıcı kimliği On-Behalf-Of akışı çağırır.
 
@@ -63,12 +63,12 @@ Orta katman hizmet hem istemci uygulaması, Azure AD'ye kaydetme.
     1. Uygulama türüne bağlı olarak, oturum açma URL'si veya yeniden yönlendirme URL'si için temel URL'yi ayarlayın.
     1. Seçin **Oluştur** uygulama oluşturmak için.
 1. Azure portalında çıkmadan önce bir gizli anahtar oluşturun.
-    1. Azure portalında, uygulamanızı seçip **ayarları**.
-    1. Seçin **anahtarları** Ayarlar menüsünden ve bir yıl veya iki yıl anahtar süresine sahip bir anahtar ekleyin.
-    1. Bu sayfa kaydettiğinizde, Azure portalında anahtar değeri görüntüler. Kopyalayın ve anahtar değeri güvenli bir konuma kaydedin.
+   1. Azure portalında, uygulamanızı seçip **ayarları**.
+   1. Seçin **anahtarları** Ayarlar menüsünden ve bir yıl veya iki yıl anahtar süresine sahip bir anahtar ekleyin.
+   1. Bu sayfa kaydettiğinizde, Azure portalında anahtar değeri görüntüler. Kopyalayın ve anahtar değeri güvenli bir konuma kaydedin.
 
-    > [!IMPORTANT]
-    > Uygulamanızda uygulama ayarlarını yapılandırmak için anahtar ihtiyacınız vardır. Bu anahtar değeri yeniden gösterilmez ve herhangi başka bir yolla alınabilir değil. Azure portalında görünür duruma geldiği kaydedin.
+      > [!IMPORTANT]
+      > Uygulamanızda uygulama ayarlarını yapılandırmak için anahtar ihtiyacınız vardır. Bu anahtar değeri yeniden gösterilmez ve herhangi başka bir yolla alınabilir değil. Azure portalında görünür duruma geldiği kaydedin.
 
 ### <a name="register-the-client-application"></a>İstemci uygulamayı kaydetme
 

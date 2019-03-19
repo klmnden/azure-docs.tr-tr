@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1f2b8e79d5b7638a8266ada9f789b055d9249dc5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d83b659cc04218fad66ea95216e69682b265dc83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531071"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077811"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Öğretici: Verileri kopyalamak amacıyla Azure Data Factory işlem hattı oluşturmak için REST API kullanma 
 > [!div class="op_single_selector"]
@@ -64,24 +64,24 @@ Bir işlem hattında birden fazla etkinlik olabilir. Bir etkinliğin çıkış v
   
   1. Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin:
     
-    ```PowerShell 
-    Connect-AzAccount
-    ```   
+     ```PowerShell 
+     Connect-AzAccount
+     ```   
   2. Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın:
 
-    ```PowerShell     
-    Get-AzSubscription
-    ``` 
+     ```PowerShell     
+     Get-AzSubscription
+     ``` 
   3. Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **&lt;NameOfAzureSubscription**&gt; değerini Azure aboneliğinizin adıyla değiştirin. 
      
-    ```PowerShell
-    Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
-    ```
+     ```PowerShell
+     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
+     ```
   4. PowerShell’de aşağıdaki komutu çalıştırarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun:  
 
-    ```PowerShell     
+     ```PowerShell     
       New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-    ```
+     ```
      
       Kaynak grubu zaten varsa bunun güncelleştirileceğini mi (Y) yoksa (N) olarak tutulacağını mı belirtirsiniz. 
      

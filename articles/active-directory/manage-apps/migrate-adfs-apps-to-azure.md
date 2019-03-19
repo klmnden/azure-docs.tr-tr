@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d43a8a316ff28d2cdb9e231057aea3de85d7d444
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f2739b5d2d944ea9a8b8cefdcc741abc8a2b632a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205588"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113410"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Uygulamalar AD FS'den Azure AD'ye taşıma 
 
@@ -99,7 +99,7 @@ Geçiş işlemi, uygulamanın şirket içinde nasıl yapılandırıldığını d
 |Uygulama yapılandırma öğesi|Açıklama|AD FS yapılandırmasındaki konum|Azure AD yapılandırmasında buna karşılık gelen konum|SAML belirteç öğesi|
 |-----|-----|-----|-----|-----|
 |Uygulama oturum açma URL'si|Bu uygulamanın oturum açma sayfasının URL'si. Burası, kullanıcının SP tarafından başlatılmış bir SAML akışında uygulamada oturum açmak için gittiği yerdir.|Yok|Azure AD'de oturum açma URL'si Azure Portal'ın içinde, uygulamanın **Çoklu oturum açma** özelliklerinde oturum açma URL'si olarak yapılandırılır.</br></br>(Oturum açma URL'sini görmek için **Gelişmiş URL ayarlarını göster**'i seçmeniz gerekebilir.)|Yok|
-|Uygulama yanıt URL'si|Kimlik sağlayıcısının (IdP) perspektifinden uygulamanın URL'si. Burası, kullanıcı IdP'de oturum açtıktan sonra kullanıcının ve belirtecin gönderildiği yerdir.</br></br> Bazen "SAML onay belgesi tüketici uç noktası" olarak da adlandırılır.|Uygulamanın AD FS bağlı olan taraf güveninde bulunur. Bağlı olan tarafa sağ tıklayın, **Özellikler**'i seçin ve sonra da **Uç Noktalar** sekmesini seçin.|Azure AD'de yanıt URL'si Azure Portal'ın içinde, uygulamanın **Çoklu oturum açma** özelliklerinde yanıt URL'si olarak yapılandırılır.</br></br>(Yanıt URL'sini görmek için **Gelişmiş URL ayarlarını göster**'i seçmeniz gerekebilir.)|SAML belirtecindeki **Destination** öğesiyle eşlenir.</br></br> Örnek değer: https://contoso.my.salesforce.com|
+|Uygulama yanıt URL'si|Kimlik sağlayıcısının (IdP) perspektifinden uygulamanın URL'si. Burası, kullanıcı IdP'de oturum açtıktan sonra kullanıcının ve belirtecin gönderildiği yerdir.</br></br> Bazen "SAML onay belgesi tüketici uç noktası" olarak da adlandırılır.|Uygulamanın AD FS bağlı olan taraf güveninde bulunur. Bağlı olan tarafa sağ tıklayın, **Özellikler**'i seçin ve sonra da **Uç Noktalar** sekmesini seçin.|Azure AD'de yanıt URL'si Azure Portal'ın içinde, uygulamanın **Çoklu oturum açma** özelliklerinde yanıt URL'si olarak yapılandırılır.</br></br>(Yanıt URL'sini görmek için **Gelişmiş URL ayarlarını göster**'i seçmeniz gerekebilir.)|SAML belirtecindeki **Destination** öğesiyle eşlenir.</br></br> Örnek değer: `https://contoso.my.salesforce.com`|
 |Uygulama oturumu kapatma URL'si|Kullanıcı uygulamada oturumunu kapattığında, IdP'nin kullanıcı oturumu açtığı diğer tüm uygulamalarda da oturumu kapatmak için “oturum kapatma temizleme” isteklerinin gönderildiği URL.|AD FS Yönetimi'nde, **Bağlı Olan Taraf Güvenleri**'nin altında bulunur. Bağlı olan tarafa sağ tıklayın, **Özellikler**'i seçin ve sonra da **Uç Noktalar** sekmesini seçin.|Yok. Azure AD, tüm uygulamalarda oturumun kapatılması anlamına gelen “çoklu oturum kapatma” işlemini desteklemez. Kullanıcının yalnızca Azure AD oturumunu kapatır.|Yok|
 |Uygulama tanımlayıcısı|IdP’nin perspektifinden uygulamanın tanımlayıcısı. Tanımlayıcı olarak çoğunlukla oturum açma URL değeri kullanılır (ama her zaman kullanılmaz).</br></br> Bazen uygulama bunu “varlık kimliği" olarak adlandırır.|AD FS'de, bu bağlı olan taraf kimliğidir. Bağlı olan taraf güvenine sağ tıklayın, **Özellikler**'i seçin ve sonra da **Tanımlayıcılar** sekmesini seçin.|Azure AD'de, tanımlayıcı Azure Portal'ın içinde uygulamanın **Çoklu oturum açma** özelliklerinde, **Etki Alanı ve URL'ler** altında Tanımlayıcı olarak yapılandırılır. (**Gelişmiş URL ayarlarını göster** onay kutusunu seçmeniz gerekebilir.)|SAML belirtecindeki **Audience** öğesine karşılık gelir.|
 |Uygulama federasyon meta verileri|Uygulamanın federasyon meta verilerinin konumu. IdP bunu, uç noktalar veya şifreleme sertifikaları gibi belirli yapılandırma ayarlarını otomatik olarak güncelleştirmek için kullanır.|Uygulamanın federasyon meta veri URL'si, uygulamaya ilişkin AD FS bağlı olan taraf güveninde bulunur. Güvene sağ tıklayın, **Özellikler**'i seçin ve ardından **İzleme** sekmesini seçin.|Yok. Azure AD uygulama federasyon meta verilerini doğrudan kullanmayı desteklemez.|Yok|

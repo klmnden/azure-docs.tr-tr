@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: bb1616c7cbf5c9c4620aed3e31896e32fe0163f9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 6d11961f06a75341e633c7a8963e6b83ed37cf13
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606223"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076743"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Openapı 2.0 (Önizleme) Azure işlevleri'nde meta veri desteği
 Openapı 2.0 (eski adıyla Swagger) meta verileri desteği Azure işlevleri bir Openapı 2.0 tanımı bir işlev uygulaması içinde yazmak için kullanabileceğiniz bir önizleme özelliği değil. Ardından, işlev uygulamasını kullanarak bu dosyayı barındırabilirsiniz.
@@ -56,8 +56,8 @@ Oluşturulan bir Swagger çatı eşleştirildiğinden aşağıdaki tabloda Azure
 |Swagger.json|Portal kullanıcı Arabirimi|Function.JSON|
 |:----|:-----|:-----|
 |[Ana Bilgisayar](https://swagger.io/specification/#fixed-fields-15)|**İşlev uygulaması ayarları** > **App Service ayarlarını** > **genel bakış** > **URL'si**|*Mevcut değil*
-|[Yolları](https://swagger.io/specification/#paths-object-29)|**Tümleştirme** > **seçili HTTP metotları**|Bağlamaları: Yol
-|[Yol öğesi](https://swagger.io/specification/#path-item-object-32)|**Tümleştirme** > **rota şablonu**|Bağlamaları: Yöntemler
+|[Yolları](https://swagger.io/specification/#paths-object-29)|**Tümleştirme** > **seçili HTTP metotları**|Bindings: Yol
+|[Yol öğesi](https://swagger.io/specification/#path-item-object-32)|**Tümleştirme** > **rota şablonu**|Bindings: Yöntemler
 |[Güvenlik](https://swagger.io/specification/#security-scheme-object-112)|**anahtarları**|*Mevcut değil*|
 |Operationıd *|**Rota + izin verilen fiiller**|Rota + izin verilen fiiller|
 
@@ -72,9 +72,9 @@ Oluşturulan bir Swagger çatı eşleştirildiğinden aşağıdaki tabloda Azure
  Kaynak denetiminden API tanımınıza değiştirmek kaynak denetimi etkinleştirmeden önce portalda barındırma API tanımı etkinleştirmeniz gerekir. Bu yönergeleri izleyin:
 
 1. Gözat **API tanımı (Önizleme)** , işlev uygulaması ayarları içinde.
-  1. Ayarlama **API tanımı kaynağı** için **işlevi**.
-  1. Tıklayın **API tanımı şablonu oluşturun** ardından **Kaydet** daha sonra değiştirmek için bir şablon tanımı oluşturmak için.
-  1. API tanımı URL'si ve anahtarı not edin.
+   1. Ayarlama **API tanımı kaynağı** için **işlevi**.
+   1. Tıklayın **API tanımı şablonu oluşturun** ardından **Kaydet** daha sonra değiştirmek için bir şablon tanımı oluşturmak için.
+   1. API tanımı URL'si ve anahtarı not edin.
 1. [Sürekli Tümleştirme/sürekli dağıtım (CI/CD) ayarlayın](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
 2. Sürümünde kaynak denetiminde \site\wwwroot swagger.JSON değiştirme\.azurefunctions\swagger\swagger.json.
 

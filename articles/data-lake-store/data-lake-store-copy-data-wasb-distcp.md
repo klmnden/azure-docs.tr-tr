@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 9740de34fe7cf7d06af1803cc6d77d7e89bbb73f
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 5c3f393278d3d51dd3a53cd19335cd242c15c6d8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391530"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168716"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Azure depolama BLOB'ları ile Azure Data Lake depolama Gen1 arasında veri kopyalamak için Distcp kullanma
 > [!div class="op_single_selector"]
@@ -33,9 +33,6 @@ Azure Data Lake depolama Gen1 erişimi olan bir HDInsight kümesine varsa, veril
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Bir Azure Data Lake depolama Gen1 hesap**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake depolama Gen1 ile çalışmaya başlama](data-lake-store-get-started-portal.md)
 * **Azure HDInsight kümesinde** bir Data Lake depolama Gen1 hesabına erişim. Bkz: [ile Data Lake depolama Gen1 bir HDInsight kümesi oluşturma](data-lake-store-hdinsight-hadoop-use-portal.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
-
-## <a name="do-you-learn-fast-with-videos"></a>Videolarla daha hızlı mı öğreniyorsunuz?
-[Bu videoyu](https://mix.office.com/watch/1liuojvdx6sie) nasıl Azure depolama Blobları ile Data Lake depolama Gen1 arasında veri kopyalamak DistCp kullanma.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Bir HDInsight Linux kümesinden Distcp kullanma
 
@@ -79,9 +76,9 @@ DistCp'ın en düşük ayrıntı düzeyi, tek bir dosya olduğundan, en fazla e�
 
 Aşağıda kullanabileceğiniz bazı yönergeler verilmiştir.
 
-* **1. adım: toplam YARN bellek belirlemek** -DistCp işi çalıştırdığı kümenin YARN bellek belirlemek için ilk adımdır. Bu bilgiler, kümeyle ilişkili Ambari portalında kullanılabilir. YARN için gidin ve YARN bellek görmek için yapılandırmaları sekmesini görüntüleyin. Toplam YARN bellek elde etmek için kümenizdeki sahip YARN bellek düğüm düğüm sayısı ile çarpın.
+* **1. adım: Toplam YARN bellek belirlemek** -DistCp işi çalıştırdığı kümenin YARN bellek belirlemek için ilk adımdır. Bu bilgiler, kümeyle ilişkili Ambari portalında kullanılabilir. YARN için gidin ve YARN bellek görmek için yapılandırmaları sekmesini görüntüleyin. Toplam YARN bellek elde etmek için kümenizdeki sahip YARN bellek düğüm düğüm sayısı ile çarpın.
 
-* **2. adım: azaltıcının sayısını hesaplamak** -değerini **m** toplam YARN bellek YARN kapsayıcı boyutuna göre bölünen sayının eşittir. YARN kapsayıcı boyutu bilgileri de Ambari portalda kullanılabilir. YARN için gidin ve yapılandırmaları sekmesini görüntüleyin. YARN kapsayıcı boyutu Bu pencerede görüntülenir. Azaltıcının numaradan ulaşması için eşitlik (**m**) olan
+* **2. adım: Azaltıcının sayısını hesaplamak** -değerini **m** toplam YARN bellek YARN kapsayıcı boyutuna göre bölünen sayının eşittir. YARN kapsayıcı boyutu bilgileri de Ambari portalda kullanılabilir. YARN için gidin ve yapılandırmaları sekmesini görüntüleyin. YARN kapsayıcı boyutu Bu pencerede görüntülenir. Azaltıcının numaradan ulaşması için eşitlik (**m**) olan
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: feb9d0a01cbba75fc9868f5a603d494c5c09ae2e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e41647140373fcf637cad55af62764bd87826a62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386306"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849355"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Uygulamalar ve hizmetler Azure Resource Manager kaynaklarını yönetme
 
@@ -28,8 +28,8 @@ Service Fabric kümenizi Azure Resource Manager aracılığıyla üzerine uygula
 Herhangi bir Kurulum, idare veya kümenizde gerektiren küme yönetim uygulamaları dağıtmanız için önerilen yöntem budur. Bu içerir [düzeltme düzenleme uygulaması](service-fabric-patch-orchestration-application.md), Watchdogs veya diğer uygulamalar veya hizmetler dağıtılmadan önce kümenizde çalışan olması gereken uygulamaları. 
 
 Uygun olduğunda artırmak için Resource Manager kaynakları yönetin:
-* Denetim kaydı: Resource Manager her işlemin denetler ve bir ayrıntılı tutar *etkinlik günlüğü* size bu uygulama ve kümeniz için yapılan değişiklikleri izleme.
-* Rol tabanlı erişim denetimi (RBAC): bir kümede dağıtılan uygulamaların yanı sıra kümeleri erişimi yönetme aynı Resource Manager şablonu yapılabilir.
+* Denetim kaydı: Kaynak Yöneticisi her işlemi denetler ve ayrıntılı bir tutar *etkinlik günlüğü* size bu uygulama ve kümeniz için yapılan değişiklikleri izleme.
+* Rol tabanlı erişim denetimi (RBAC): Kümede dağıtılan uygulamaların yanı sıra küme yönetimi aynı Resource Manager şablonu yapılabilir.
 * Azure Resource Manager (Azure portalı) aracılığıyla bir bir küme ve önemli uygulama dağıtımlarını yönetmek için uğrak olur.
 
 Aşağıdaki kod parçacığında, bir şablon yönetilen kaynaklar farklı türlerde gösterir:
@@ -69,9 +69,9 @@ Aşağıdaki kod parçacığında, bir şablon yönetilen kaynaklar farklı tür
 3. Bu şekilde olmasını istediğiniz uygulamaları dağıttığını verdi sonra uygulamaların paketlenmiş, daraltılmış ve bir dosya paylaşımında put gerekir. Paylaşım, REST uç noktası için Azure kaynak dağıtım sırasında kullanılacağı Yöneticisi üzerinden erişilebilir olması gerekiyor.
 4. Resource Manager şablonunuzda aşağıdaki küme bildirimi her uygulamanın özellikleri açıklanmaktadır. Bu özellikler, çoğaltma veya örnek sayısının ve kaynaklar (diğer uygulamalar veya hizmetler) arasında bir bağımlılık zincirleri içerir. Kapsamlı özellikler listesi için bkz. [REST API Swagger özelliği](https://aka.ms/sfrpswaggerspec). Bu uygulamanın yerini almaz veya hizmet bildirimleri, ancak bunun yerine kümenin Resource Manager şablonu bir parçası olarak bunları nedir bazılarını açıklar unutmayın. Durum bilgisi olmayan hizmet dağıtma içeren bir örnek şablonu aşağıda verilmiştir *Service1* ve durum bilgisi olan hizmet *Service2* parçası olarak *Application1*:
 
-  ```json
-  {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+   ```json
+   {
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
       "clusterName": {
@@ -251,11 +251,11 @@ Aşağıdaki kod parçacığında, bir şablon yönetilen kaynaklar farklı tür
         }
       }
     ]
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE] 
-  > *ApiVersion* ayarlanmalıdır `"2017-07-01-preview"`. Küme zaten dağıtılmış olduğu sürece bu şablonu ayrıca küme bağımsız olarak dağıtılabilir.
+   > [!NOTE] 
+   > *ApiVersion* ayarlanmalıdır `"2017-07-01-preview"`. Küme zaten dağıtılmış olduğu sürece bu şablonu ayrıca küme bağımsız olarak dağıtılabilir.
 
 5. Dağıtın! 
 
@@ -264,7 +264,7 @@ Aşağıdaki kod parçacığında, bir şablon yönetilen kaynaklar farklı tür
 Kümeniz zaten çalışır durumda ve kaynak kaynaklar üzerinde uygulamaları kaldırma yerine dağıtılmış Yöneticisi olarak yönetmek istediğiniz ve bunları yeniden dağıtırken, uygulamalar için aynı API'leri kullanarak bir PUT çağrısı kullanabilirsiniz, bazı uygulamaları alma Resource Manager kaynaklarını onaylanır. 
 
 > [!NOTE]
-> İyi durumda olmayan uygulamalar yoksaymak için bir küme yükseltmesi müşteri izin verecek şekilde belirleyebilirsiniz "maxPercentUnhealthyApplications: 100" "upgradeDescription/healthPolicy" bölümünde; tüm ayarların ayrıntılı açıklamaları olan [hizmet dokularını REST API Küme yükseltme İlkesi belgeleri](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> İyi durumda olmayan uygulamalar yoksaymak için bir küme yükseltmesi müşteri izin verecek şekilde belirleyebilirsiniz "maxPercentUnhealthyApplications: 100"" upgradeDescription/healthPolicy"bölümünde; tüm ayarların ayrıntılı açıklamaları olan [hizmet dokularını REST API Küme yükseltme İlkesi belgeleri](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

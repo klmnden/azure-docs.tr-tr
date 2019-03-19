@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8008f96e00b0d9a4366832110c696c67a9c7257
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dc3a42c280a344ef08fa23111df8652b6167cfb0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165425"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109908"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Öğretici: Panorama9 ile Azure Active Directory Tümleştirme
 
@@ -198,18 +198,18 @@ Panorama9 söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir gö
 
 1. Üstteki menüden **Yönet**ve ardından **kullanıcılar**.
    
-  ![Kullanıcılar](./media/panorama9-tutorial/ic790027.png "kullanıcılar")
+   ![Kullanıcılar](./media/panorama9-tutorial/ic790027.png "kullanıcılar")
 
 1. Kullanıcılar bölümünde tıklayın **+** yeni kullanıcı eklemek için.
 
- ![Kullanıcılar](./media/panorama9-tutorial/ic790028.png "kullanıcılar")
+   ![Kullanıcılar](./media/panorama9-tutorial/ic790028.png "kullanıcılar")
 
 1. Kullanıcı verileri bölümüne gidin, geçerli bir Azure Active Directory kullanıcı içine sağlamak istediğiniz e-posta adresini yazın **e-posta** metin.
 
 1. Kullanıcılar bölümüne tıklayın gelen **Kaydet**.
    
 > [!NOTE]
-    > Azure Active Directory hesap sahibinin e-posta alır ve etkin hale gelir önce hesabını onaylamak için bir bağlantı izler.
+> Azure Active Directory hesap sahibinin e-posta alır ve etkin hale gelir önce hesabını onaylamak için bir bağlantı izler.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 

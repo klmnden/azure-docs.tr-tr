@@ -16,12 +16,12 @@ ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: d140b80ecb5fe2a7211245044b08f43fde4233a8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 459398f5f40ae5fb28dfa4ac73b94aecca7304eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240995"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099425"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack kapasite Planlayıcısı
 Azure Stack Capacity Planner, Azure Stack kaynak kapasite planlaması için kullanılan bir elektronik tablodur. Kapasite Planlayıcısı çeşitli bilgi işlem kaynakları tahsis tasarlayın ve bunlar arasında seçim donanım tekliflerinin nasıl uyduğunu görmek yeteneği sağlar. Azure Stack hesaplayıcı'nın kullanılması için ayrıntılı yönergeler aşağıda verilmiştir.
@@ -61,8 +61,8 @@ Bu aracı, VM kaynak ayırma için iki yöntem sunar; olarak veya tek bir VM'nin
 2. Belirli bir donanıma karşı çeşitli VM kaynak ayırmalar model istiyorsanız, sayfanın sağ üst köşesindeki mavi aşağı açılır liste kutusunun hemen altındaki "Geçerli SKU" etiketi bulun. Bu liste kutusu çekme ve istenen donanımınız SKU'ı seçin.
 3. Artık çeşitli boyutta VM'ler modelinize eklemeye başlamak hazırsınız. Belirli bir VM türüne eklemek için VM giriş solunda mavi anahatları belirlenmiş kutuya bir miktar değeri girin.
 
-  > [!NOTE]
-  > Toplam VM depolama VM veri diskinin toplam kapasiteyi gösterir (desteklenen disk sayısı * (1 TB) tek bir disk maksimum kapasitesini). Yapılandırma göstergeleri temel alan konusu her Azure Stack VM için depolama kaynağı istenen düzeyine seçebilir böylece biz kullanılabilir depolama yapılandırmaları tablo doldurulmuş. Ancak, ekleyebilir veya kullanılabilir depolama yapılandırmaları tablo gerektiği şekilde değiştirmeniz gerektiğini unutmayın.<br><br>Her sanal makine başlangıçta atanan bir yerel geçici depolama ile başlar. Ölçülü kaynak sağlama geçici depolama yansıtacak şekilde yerel temp sayısı ve açılan menüden izin verilen maksimum geçici depolama alanı miktarı gibi bir şeye değiştirilebilir.
+   > [!NOTE]
+   > Toplam VM depolama VM veri diskinin toplam kapasiteyi gösterir (desteklenen disk sayısı * (1 TB) tek bir disk maksimum kapasitesini). Yapılandırma göstergeleri temel alan konusu her Azure Stack VM için depolama kaynağı istenen düzeyine seçebilir böylece biz kullanılabilir depolama yapılandırmaları tablo doldurulmuş. Ancak, ekleyebilir veya kullanılabilir depolama yapılandırmaları tablo gerektiği şekilde değiştirmeniz gerektiğini unutmayın.<br><br>Her sanal makine başlangıçta atanan bir yerel geçici depolama ile başlar. Ölçülü kaynak sağlama geçici depolama yansıtacak şekilde yerel temp sayısı ve açılan menüden izin verilen maksimum geçici depolama alanı miktarı gibi bir şeye değiştirilebilir.
 
 4. Vm'leri eklediğinizde, değiştirme kullanılabilen SKU kaynakları gösteren grafikler görürsünüz. Bu, çeşitli boyutlarda ve Vm'leri miktarlarını modelleme işlemi sırasında ekleme etkilerini görmenize olanak sağlar. Değişikliklerin etkisini görüntülemenin bir başka yolu doğrudan kullanılabilir sanal makinelerin listesini listelenen tüketilen ve hala kullanılabilir numaraları izleyin sağlamaktır. Bu sayı şu anda seçili donanımda SKU göre tahmini değerleri yansıtır.
 5. Vm'leri kümeniz oluşturulduktan sonra önerilen donanım SKU doğrudan "Geçerli SKU" etiketi altında sayfanın sağ üst köşesinde bulunan "Önerilen SKU" düğmesine tıklayarak bulabilirsiniz. Bu düğmeyi kullanarak, daha sonra sanal makine yapılandırmalarınızı değiştirebilir ve her yapılandırma, donanım desteklediğini görün.

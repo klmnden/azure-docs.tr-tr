@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 7237a9a6a99b57401af40512a6d2e21a3fe49e53
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: b2e8d629f4007729ad0538aee9bdb8e67747b026
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159494"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015133"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>İş akışı eylemi yineleyin veya Azure Logic Apps dizilerde işlem döngü oluşturma
 
@@ -166,7 +166,8 @@ Bir koşul veya bir durum değişikliklerini kadar Eylemler yinelemek için bu e
 > Bu adımları Office 365 Outlook kullanıyoruz, ancak Logic Apps destekleyen herhangi bir e-posta sağlayıcısı kullanabilirsiniz. 
 > [Buradaki bağlayıcı listesini denetleyin](https://docs.microsoft.com/connectors/). Başka bir e-posta hesabı kullanırsanız genel adımlar aynı olacaktır ancak kullanıcı Arabirimi biraz farklı görünebilir. 
 
-1. Boş bir mantıksal uygulama oluşturma. Logic Apps Tasarımcısı'nda arama kutusunun altındaki seçin **tüm**. "Yinelenme" arayın. Tetikleyiciler listesinden şu tetikleyiciyi seçin: **Yinelenme - zamanlama**
+1. Boş bir mantıksal uygulama oluşturma. Logic Apps Tasarımcısı'nda arama kutusunun altındaki seçin **tüm**. "Yinelenme" arayın. 
+   Tetikleyiciler listesinden şu tetikleyiciyi seçin: **Yinelenme - zamanlama**
 
    !["– Zamanlama yinelenme" tetikleyicisi Ekle](./media/logic-apps-control-flow-loops/do-until-loop-add-trigger.png)
 
@@ -181,7 +182,8 @@ Bir koşul veya bir durum değişikliklerini kadar Eylemler yinelemek için bu e
    | **Şu saatlerde** | 8 |
    ||| 
 
-1. Tetikleyici altında seçin **yeni adım**. "Değişkenler" için arama yapın ve şu eylemi seçin: **Değişken - değişken Başlat**
+1. Tetikleyici altında seçin **yeni adım**. 
+   "Değişkenler" için arama yapın ve şu eylemi seçin: **Değişken - değişken Başlat**
 
    !["Değişken - değişken Başlat" eylemini ekleme](./media/logic-apps-control-flow-loops/do-until-loop-add-variable.png)
 
@@ -202,7 +204,8 @@ Bir koşul veya bir durum değişikliklerini kadar Eylemler yinelemek için bu e
 
    ![Döngü "Kadar" Ekle](./media/logic-apps-control-flow-loops/do-until-loop-add-until-loop.png)
 
-1. Döngünün çıkış koşulu seçerek yapı **sınırı** değişkeni ve **eşittir** işleci. Girin **10** karşılaştırma değeri.
+1. Döngünün çıkış koşulu seçerek yapı **sınırı** değişkeni ve **eşittir** işleci. 
+   Girin **10** karşılaştırma değeri.
 
    ![Döngü durdurmak için çıkış koşulu oluşturma](./media/logic-apps-control-flow-loops/do-until-loop-settings.png)
 
@@ -214,32 +217,33 @@ Bir koşul veya bir durum değişikliklerini kadar Eylemler yinelemek için bu e
 
 1. İçin **adı**seçin **sınırı** değişkeni. İçin **değer**, "1" girin. 
 
-   !["Sınır" artışla 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
+    !["Sınır" artışla 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
 1. Dışında ve bir döngünün altında seçin **yeni adım**. 
 
-1. Arama kutusunun altındaki seçin **tüm**. Bul ve örneğin e-posta gönderen bir eylem ekleyin: 
+1. Arama kutusunun altındaki seçin **tüm**. 
+    Bul ve örneğin e-posta gönderen bir eylem ekleyin: 
 
-   ![E-posta gönderen bir eylem ekleme](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
+    ![E-posta gönderen bir eylem ekleme](media/logic-apps-control-flow-loops/do-until-loop-send-email.png)
 
 1. İstenirse, e-posta hesabınızda oturum açın.
 
 1. E-posta eylemin özelliklerini ayarlayın. Ekleme **sınırı** konuya değişken. Bu şekilde, değişkenin geçerli değeri, belirtilen, örneğin koşulunu doğrulayabilirsiniz:
 
-    ![E-posta özelliklerini ayarlama](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
+     ![E-posta özelliklerini ayarlama](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-    | Özellik | Değer | Açıklama |
-    | -------- | ----- | ----------- | 
-    | **Alıcı** | *<email-address@domain>* | Alıcının e-posta adresi. Test için kendi e-posta adresinizi kullanın. | 
-    | **Konu** | Geçerli değer "Sınırın" **sınırı** | E-posta konusunu belirtin. Bu örnekte, eklediğinizden emin olun **sınırı** değişkeni. | 
-    | **Gövde** | <*e-posta içeriği*> | E-posta ileti göndermek istediğiniz içeriği belirtin. Bu örnekte, istediğiniz herhangi bir metni girin. | 
-    |||| 
+     | Özellik | Değer | Açıklama |
+     | -------- | ----- | ----------- | 
+     | **Alıcı** | *< e-posta adresi\@etki alanı >* | Alıcının e-posta adresi. Test için kendi e-posta adresinizi kullanın. | 
+     | **Konu** | Geçerli değer "Sınırın" **sınırı** | E-posta konusunu belirtin. Bu örnekte, eklediğinizden emin olun **sınırı** değişkeni. | 
+     | **Gövde** | <*email-content*> | E-posta ileti göndermek istediğiniz içeriği belirtin. Bu örnekte, istediğiniz herhangi bir metni girin. | 
+     |||| 
 
 1. Mantıksal uygulamanızı kaydedin. Tasarımcı araç çubuğunda mantıksal uygulamanızı el ile test etmeyi **çalıştırma**.
 
-    Mantığınızı çalışmaya başladıktan sonra bir e-posta, belirttiğiniz içeriğe sahip olursunuz:
+     Mantığınızı çalışmaya başladıktan sonra bir e-posta, belirttiğiniz içeriğe sahip olursunuz:
 
-    ![Alınan e-posta](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
+     ![Alınan e-posta](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
 ## <a name="prevent-endless-loops"></a>Sonsuz döngüler engelle
 

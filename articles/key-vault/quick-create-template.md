@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/04/2019
 ms.author: jgao
-ms.openlocfilehash: 2cb6e210aa0e232a4ebb60dc44777a55f2c4f7fc
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4b774e5b0a5c64a9af9a5a54ba264c6226558a24
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318550"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880049"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Hızlı Başlangıç: Ayarlayın ve Resource Manager şablonu kullanarak Azure Key Vault gizli dizi alma
 
@@ -67,7 +67,7 @@ Bu hızlı başlangıçta kullanılan şablon dandır [Azure hızlı başlangı�
     * **Kiracı Kimliği**: Şablon işlevi kiracı kimliğinizi otomatik olarak alır.  Varsayılan değeri değiştirmeyin
     * **Ad kullanıcı kimliği**: aldığınız Azure AD kullanıcı nesne kimliği girin [önkoşulları](#prerequisites).
     * **Gizli dizi adı**: anahtar kasasında depolama gizli dizi için bir ad girin.  Örneğin, **adminpassword**
-    * **Gizli değer**: gizli değer girin.  Bir parola depolarsanız, oluşturduğunuz üretilen parola kullanmak için önerilir [önkoşul](#prerequisite).
+    * **Gizli değer**: gizli değer girin.  Bir parola depoluyorsanız Önkoşullarında oluşturduğunuz oluşturulan parola kullanmak için önerilir.
     * **Yukarıdaki hüküm ve koşulları durumu için kabul ediyorum**: Seçin.
 3. **Satın al**'ı seçin.
 

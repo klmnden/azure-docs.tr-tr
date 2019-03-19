@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: cb68e93553be66d0d0be0edf61e491217bfe4d48
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407856"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091316"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>HDInsight, Apache Hadoop ile Apache Ambari Hive görünümünü kullanırsınız.
 
@@ -73,7 +73,7 @@ Apache Ambari Hive görünümünü kullanarak Hive sorguları çalıştırmayı 
    * `DROP TABLE`: Tablo zaten mevcut durumda tablo ve veri dosyalarını siler.
 
    * `CREATE EXTERNAL TABLE`: Yeni bir "dış" Tablo kovanında oluşturur.
-   Dış tablolar yalnızca tablo tanımı kovanında depolayın. Verileri özgün konumunda bırakılır.
+     Dış tablolar yalnızca tablo tanımı kovanında depolayın. Verileri özgün konumunda bırakılır.
 
    * `ROW FORMAT`: Verilerin nasıl biçimlendirildiğini gösterir. Bu durumda, her günlük alanlar boşlukla ayrılır.
 
@@ -81,8 +81,8 @@ Apache Ambari Hive görünümünü kullanarak Hive sorguları çalıştırmayı 
 
    * `SELECT`: Burada ' % s'değeri [Hata] sütunu t4 içeren tüm satırların sayımını seçer.
 
-    > [!IMPORTANT]  
-    > Bırakın __veritabanı__ seçimde __varsayılan__. Bu belgedeki örneklerde, HDInsight ile dahil varsayılan veritabanı kullanın.
+     > [!IMPORTANT]  
+     > Bırakın __veritabanı__ seçimde __varsayılan__. Bu belgedeki örneklerde, HDInsight ile dahil varsayılan veritabanı kullanın.
 
 5. Sorgu başlatmak için **yürütme** düğmesinin altında çalışma sayfası. Düğme turuncu olur ve metin değişikliklerini **Durdur**.
 
@@ -102,7 +102,7 @@ Bir sorgu planı görselleştirmesini görüntülemek için seçin **Visual aç�
 
 **Visual açıklayan** sorgu görünümü karmaşık sorgular akışını anlamak yararlı olabilir. Bu görünüm bir metinsel eşdeğerini kullanarak görebilirsiniz **açıklama** sorgu Düzenleyicisi'nde düğmesi.
 
-### <a name="tez-ui"></a>Tez kullanıcı Arabirimi
+### <a name="tez-ui"></a>Tez UI
 
 Tez kullanıcı Arabirimi için sorguyu görüntülemek için seçin **Tez** sekmesi altında çalışma sayfası.
 
@@ -148,7 +148,7 @@ Hive görünümü için bir UDF ekledikten sonra bir **Ekle UDF'ler** düğmesin
 
 * Kaynak adı: myudfs
 
-* Kaynak yolu: /myudfs.jar
+* Resource path: /myudfs.jar
 
 * UDF adı: myawesomeudf
 

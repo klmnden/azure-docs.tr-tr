@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: 188e58261cec90e9afcc885f3da21fa3fab3b746
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2925ca5a303876a68b6d605c7312d43af102b6e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875442"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088477"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Öğretici: Bing haber arama API'si Visual Studio'da bağlı hizmetler ile bağlanın veC#
 
@@ -87,14 +87,14 @@ Bu makalede Bing Haber Arama hizmeti için Visual Studio Bağlı Hizmet özelli�
 
 Projenize Bing Haber Arama API'si desteğini eklediniz. API'yi kullanarak web sayfasına akıllı arama özelliği eklemek için aşağıdaki adımları izleyin.
 
-1.  *Startup.cs* dosyasının `ConfigureServices` metoduna `IServiceCollection.AddSingleton` çağrısı ekleyin. Bu işlem temel ayarları içeren yapılandırma nesnesini projenizdeki kodun kullanımına sunar.
+1. *Startup.cs* dosyasının `ConfigureServices` metoduna `IServiceCollection.AddSingleton` çağrısı ekleyin. Bu işlem temel ayarları içeren yapılandırma nesnesini projenizdeki kodun kullanımına sunar.
  
    ```csharp
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddMvc();
-            services.AddSingleton<IConfiguration>(Configuration);
-        }
+       public void ConfigureServices(IServiceCollection services)
+       {
+           services.AddMvc();
+           services.AddSingleton<IConfiguration>(Configuration);
+       }
    ```
 
 

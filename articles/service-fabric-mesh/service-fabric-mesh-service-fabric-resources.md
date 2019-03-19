@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 702e1ef9c8593c2106be256e6fd7de602bf41aa7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3cee0ada75c4ea265c7e9c598408eb6b01477d6c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020005"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903683"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Service Fabric kaynak modeli giriş
 
@@ -84,7 +84,7 @@ Uygulama kodunuza Service Fabric bile Mesh dışında taşınabilir kalır ve uy
 
 ## <a name="packaging-and-deployment"></a>Paketleme ve dağıtım
 
-Service Fabric Örgü uygulamalar kaynak modelini temel alan, Docker kapsayıcıları olarak paketlenir.  Service Fabric Mesh bir paylaşılan, çok kiracılı bir ortamdır ve kapsayıcılar yüksek bir yalıtım düzeyi verin.  Bu uygulamalar, JSON biçiminde veya (daha sonra JSON'a dönüştürülür) YAML biçimi kullanarak açıklanmıştır. Azure Service Fabric Mesh bir Mesh uygulamasını dağıtırken, uygulamayı tanımlamak için kullanılan JSON'u Azure Resource Manager şablonudur. Kaynakları Azure kaynaklarına eşlenir.  Bir Service Fabric kümesine Mesh uygulaması dağıtırken (tek başına veya Azure'da barındırılan), uygulamayı tanımlamak için kullanılan JSON için bir Azure Resource Manager şablonu benzer bir biçimidir.  Mesh uygulama dağıtıldıktan sonra HTTP arabirimleri veya Azure CLI yönetilebilir. 
+Service Fabric Örgü uygulamalar kaynak modelini temel alan, Docker kapsayıcıları olarak paketlenir.  Service Fabric Mesh bir paylaşılan, çok kiracılı bir ortamdır ve kapsayıcılar yüksek bir yalıtım düzeyi verin.  Bu uygulamalar, JSON biçiminde veya (daha sonra JSON'a dönüştürülür) YAML biçimi kullanarak açıklanmıştır. Azure Service Fabric Mesh bir Mesh uygulamasını dağıtırken, uygulamayı tanımlamak için kullanılan JSON'u bir Azure Resource Manager şablonudur. Kaynakları Azure kaynaklarına eşlenir.  Bir Service Fabric kümesine Mesh uygulaması dağıtırken (tek başına veya Azure'da barındırılan), uygulamayı tanımlamak için kullanılan JSON için bir Azure Resource Manager şablonu benzer bir biçimidir.  Mesh uygulama dağıtıldıktan sonra HTTP arabirimleri veya Azure CLI yönetilebilir. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar 

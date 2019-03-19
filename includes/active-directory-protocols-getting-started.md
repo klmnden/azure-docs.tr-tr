@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: priyamo
-ms.openlocfilehash: 4794241ccfd7adcc0795245ae0983d9069ab431e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d97aa34f8e76a1ea49841f26534b6a5403e6b5d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56211555"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125206"
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>Uygulamanızı AD kiracınıza kaydetme
 İlk olarak, uygulamanızı, Azure Active Directory (Azure AD) kiracısına kaydetmeniz gerekir. Bu, uygulamanıza bir Uygulama Kimliği verir ve uygulamanızın belirteçleri alabilmesini sağlar.
@@ -30,7 +30,7 @@ ms.locfileid: "56211555"
 * Tıklayarak **uygulama kayıtları** tıklayın **yeni uygulama kaydı**.
 * Komut istemlerini izleyin ve yeni bir uygulama oluşturun. Bu öğretici için oluşturduğunuz uygulamanın web uygulaması veya yerel uygulama olması önemli değildir, ancak web uygulamaları veya yerel uygulamalar için belirli örnekler görmek istiyorsanız [hızlı başlangıç](../articles/active-directory/develop/v1-overview.md) bölümümüze bakabilirsiniz.
   * Web uygulamaları için girin **oturum açma URL'si**, kullanıcıların oturum açacağı uygulamanızın temel URL'si olan `http://localhost:12345`.
-<!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
+    <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * Yerel uygulamaları sağlamak için bir **yeniden yönlendirme URI'si**, hangi Azure AD'nin belirteç yanıtlarını döndürmek için kullanacağı. Uygulamanıza özgü bir değer girin, örn. `http://MyFirstAADApp`
 * Kayıt tamamlandıktan sonra Azure AD uygulamanızı bir benzersiz istemci tanımlayıcısı atar **uygulama kimliği**. Bu değere ihtiyacınız sonraki bölümlerde, bu nedenle uygulama sayfasından kopyalayın.
 * Uygulamanızı Azure portalında bulmak için tıklatın **uygulama kayıtları**ve ardından **tüm uygulamaları görüntüle**.

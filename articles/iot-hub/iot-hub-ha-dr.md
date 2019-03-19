@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 308d9a04e52572e00e1cbed24548e5f09adda571
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: ac47ad10f394eaf31a9f7c12d7a2a03ea23283f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985929"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092659"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IOT hub'ı yüksek kullanılabilirlik ve olağanüstü durum kurtarma
 
@@ -128,9 +128,9 @@ Bu adım basitleştirmek için kere etkili olan işlemler kullanmalısınız. Id
 Bu makaledeki başvuru çerçevesi çalışır, çözümünüz için doğru seçeneği belirlemenize için kullanılabilir bir HA/DR seçeneklerin özeti sunulan aşağıda verilmiştir.
 
 | HA/DR seçeneği | RTO | RPO | El ile müdahale gerektirir? | Uygulama karmaşıklığı | Ek ücret etkisi|
-| --- | --- | --- | --- | --- | --- | --- |
-| Microsoft tarafından başlatılan bir yük devretme |2 - 26 saat|RPO tabloya bakın|Hayır|Hiçbiri|Hiçbiri|
-| El ile yük devretme |10 dakikalık - 2 saat|RPO tabloya bakın|Evet|Çok düşük. Bu işlem Portal tetiklemek yeterlidir.|Hiçbiri|
+| --- | --- | --- | --- | --- | --- |
+| Microsoft tarafından başlatılan bir yük devretme |2 - 26 saat|RPO tabloya bakın|Hayır|None|None|
+| El ile yük devretme |10 dakikalık - 2 saat|RPO tabloya bakın|Evet|Çok düşük. Bu işlem Portal tetiklemek yeterlidir.|None|
 | Çapraz bölge HA |< 1 dakika|Özel HA çözümünüzü çoğaltma sıklığına bağlıdır|Hayır|Yüksek|maliyeti, IOT hub'ı 1 x 1 >|
 
 ## <a name="next-steps"></a>Sonraki adımlar

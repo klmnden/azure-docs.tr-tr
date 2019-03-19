@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 763dfbc3813a63ffbc91180de1d5b518cef2a46d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470171"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100454"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Azure Data Box için bir destek bileti açın 
 
@@ -55,14 +55,14 @@ Bir destek isteği oluşturmak için aşağıdaki adımları gerçekleştirin:
 
 4. İçinde **yeni destek isteği**, tıklayın **adım 3 irtibat bilgileri**. İçinde **iletişim bilgilerini**, aşağıdaki adımları uygulayın:
 
-    1. İçinde **başvurun seçenekleri**, tercih ettiğiniz iletişim yöntemi (telefon veya e-posta) ve dil sağlar. Yanıt süresi, abonelik planınıza göre otomatik olarak seçilir.
-    2. İçinde **iletişim bilgilerini**, ad, e-posta, isteğe bağlı bir kişi, ülke sağlayın. Seçin **Kaydet kişi değişikliklerini gelecekteki destek istekleri**.
-    3. **Oluştur**’a tıklayın.
+   1. İçinde **başvurun seçenekleri**, tercih ettiğiniz iletişim yöntemi (telefon veya e-posta) ve dil sağlar. Yanıt süresi, abonelik planınıza göre otomatik olarak seçilir.
+   2. İçinde **iletişim bilgilerini**, ad, e-posta, isteğe bağlı bir kişi, ülke sağlayın. Seçin **Kaydet kişi değişikliklerini gelecekteki destek istekleri**.
+   3. **Oluştur**’a tıklayın.
    
-        ![İletişim bilgileri](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
+       ![İletişim bilgileri](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
-    Microsoft Support daha fazla bilgi, tanılama ve çözümleme için size ulaşmak için bu bilgileri kullanır.
-İsteğinizi gönderdikten sonra bir destek mühendisi olabildiğince çabuk isteğinizle birlikte ilerlemek için sizinle iletişime geçecektir.
+      Microsoft Support daha fazla bilgi, tanılama ve çözümleme için size ulaşmak için bu bilgileri kullanır.
+      İsteğinizi gönderdikten sonra bir destek mühendisi olabildiğince çabuk isteğinizle birlikte ilerlemek için sizinle iletişime geçecektir.
 
 ## <a name="manage-a-support-request"></a>Destek isteğini yönetin
 

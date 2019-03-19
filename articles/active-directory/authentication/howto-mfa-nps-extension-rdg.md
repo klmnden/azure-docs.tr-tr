@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d7fc01e0869462928e28c01e51c91ae93fa5a8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e540eeecf49f8fb00df4a03de95c5063da360229
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171953"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124057"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Ağ İlkesi Sunucusu (NPS) uzantısı ve Azure AD kullanarak Uzak Masaüstü Ağ Geçidi altyapınızı tümleştirin
 
@@ -124,7 +124,7 @@ NPS uzantısı yapılandırma işleminin bir parçası olarak, Azure AD kiracın
 1. Seçin **özellikleri**.
 1. Özellikler dikey penceresinde, dizin Kimliği'nin yanındaki tıklayın **kopyalama** kimliği panoya kopyalamak için aşağıda gösterildiği gibi simgesi.
 
- ![Özellikler](./media/howto-mfa-nps-extension-rdg/image1.png)
+   ![Özellikler](./media/howto-mfa-nps-extension-rdg/image1.png)
 
 ### <a name="install-the-nps-extension"></a>NPS uzantısını yükleme
 
@@ -139,11 +139,11 @@ NPS uzantısı, Ağ İlkesi ve erişim Hizmetleri'ni (NPS) rolü yüklü bir sun
 1. NPS sunucusunda çift **NpsExtnForAzureMfaInstaller.exe**. İstenirse, tıklayın **çalıştırma**.
 1. NPS uzantısı için Azure mfa'yı Kurulum iletişim kutusunda, yazılım lisans koşullarını gözden geçirin. kontrol **lisans hüküm ve koşulları kabul ediyorum**, tıklatıp **yükleme**.
 
-  ![Azure mfa'yı Kurulum](./media/howto-mfa-nps-extension-rdg/image2.png)
+   ![Azure mfa'yı Kurulum](./media/howto-mfa-nps-extension-rdg/image2.png)
 
 1. NPS uzantısı için Azure mfa'yı Kurulum iletişim kutusunda **Kapat**.
 
-  ![Azure mfa NPS uzantısı](./media/howto-mfa-nps-extension-rdg/image3.png)
+   ![Azure mfa NPS uzantısı](./media/howto-mfa-nps-extension-rdg/image3.png)
 
 ### <a name="configure-certificates-for-use-with-the-nps-extension-using-a-powershell-script"></a>Bir PowerShell betiğini kullanarak NPS uzantısı ile kullanım için sertifikaları yapılandırma
 
@@ -165,19 +165,19 @@ Betiği kullanmak için Azure AD yönetici kimlik bilgilerinizi ve daha önce ko
 1. PowerShell isteminde `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`basın **ENTER**.
 1. Tür `.\AzureMfaNpsExtnConfigSetup.ps1`basın **ENTER**. Betik, Azure Active Directory PowerShell Modülü yüklü olup olmadığını denetler. Yüklü değilse, komut sizin için modülünü yükler.
 
-  ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
+   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   
 1. PowerShell modülünün yükleme betiği doğruladıktan sonra Azure Active Directory PowerShell modülü iletişim kutusunu görüntüler. İletişim kutusunda, Azure AD yönetici kimlik bilgilerini ve parolayı girin ve tıklayın **oturum**.
 
-  ![PowerShell hesabı açın](./media/howto-mfa-nps-extension-rdg/image5.png)
+   ![PowerShell hesabı açın](./media/howto-mfa-nps-extension-rdg/image5.png)
 
 1. İstendiğinde, panoya daha önce kopyaladığınız Kiracı kimliği yapıştırın ve basın **ENTER**.
 
-  ![Kiracı Kimliğini girin](./media/howto-mfa-nps-extension-rdg/image6.png)
+   ![Kiracı Kimliğini girin](./media/howto-mfa-nps-extension-rdg/image6.png)
 
 1. Betik, otomatik olarak imzalanan bir sertifika oluşturur ve başka yapılandırma değişiklikleri gerçekleştirir. Çıktı, görüntüyü aşağıda gösterildiği gibi olması gerekir.
 
-  ![Kendinden imzalı bir sertifika](./media/howto-mfa-nps-extension-rdg/image7.png)
+   ![Kendinden imzalı bir sertifika](./media/howto-mfa-nps-extension-rdg/image7.png)
 
 ## <a name="configure-nps-components-on-remote-desktop-gateway"></a>Uzak Masaüstü Ağ Geçidi üzerinde NPS bileşenlerini yapılandırma
 
@@ -192,26 +192,26 @@ Uzak Masaüstü Bağlantısı Yetkilendirme İlkeleri (RD Cap'leri) bir Uzak Mas
 1. RD Ağ Geçidi sunucusunda açın **Sunucu Yöneticisi**.
 1. Menüsünde **Araçları**, işaret **Uzak Masaüstü Hizmetleri**ve ardından **Uzak Masaüstü Ağ Geçidi Yöneticisi**.
 
-  ![Uzak Masaüstü Hizmetleri](./media/howto-mfa-nps-extension-rdg/image8.png)
+   ![Uzak Masaüstü Hizmetleri](./media/howto-mfa-nps-extension-rdg/image8.png)
 
 1. RD Ağ Geçidi Yöneticisi'nde sağ  **\[sunucu adı\] (yerel)**, tıklatıp **özellikleri**.
 
-  ![Sunucu Adı](./media/howto-mfa-nps-extension-rdg/image9.png)
+   ![Sunucu Adı](./media/howto-mfa-nps-extension-rdg/image9.png)
 
 1. Özellikler iletişim kutusunda, seçmek **RD CAP Store** sekmesi.
 1. RD CAP Store sekmesinde **NPS çalıştıran merkezi sunucu**. 
 1. İçinde **NPS çalıştıran sunucu için bir ad veya IP adresi girin** alan, NPS uzantısını yüklediğiniz sunucunun IP adresini veya sunucu adını yazın.
 
-  ![Adını veya IP adresini girin](./media/howto-mfa-nps-extension-rdg/image10.png)
+   ![Adını veya IP adresini girin](./media/howto-mfa-nps-extension-rdg/image10.png)
   
 1. **Ekle**'ye tıklayın.
 1. İçinde **paylaşılan gizli diziyi** iletişim kutusunda, paylaşılan gizlilik girin ve ardından **Tamam**. Bu paylaşılan gizli dizinin kaydedin ve kaydı güvenli bir şekilde saklayın emin olun.
 
- >[!NOTE]
- >Paylaşılan gizliliğin, RADIUS sunucuları ve istemciler arasında güven oluşturmak için kullanılır. Uzun ve karmaşık bir parola oluşturun.
- >
+   >[!NOTE]
+   >Paylaşılan gizliliğin, RADIUS sunucuları ve istemciler arasında güven oluşturmak için kullanılır. Uzun ve karmaşık bir parola oluşturun.
+   >
 
- ![Paylaşılan parola](./media/howto-mfa-nps-extension-rdg/image11.png)
+   ![Paylaşılan parola](./media/howto-mfa-nps-extension-rdg/image11.png)
 
 1. **Tamam**’a tıklayarak iletişim kutusunu kapatın.
 
@@ -222,23 +222,23 @@ Kullanıcıların kimlik bilgilerini doğrulamak için zaman olduğundan emin ol
 1. RD Ağ Geçidi sunucusunda, Sunucu Yöneticisi'ni açın. Menüsünde **Araçları**ve ardından **ağ ilkesi sunucusu**. 
 1. İçinde **NPS (yerel)** genişletin **RADIUS istemcileri ve sunucuları**seçip **uzak RADIUS sunucu**.
 
- ![Uzak RADIUS sunucusu](./media/howto-mfa-nps-extension-rdg/image12.png)
+   ![Uzak RADIUS sunucusu](./media/howto-mfa-nps-extension-rdg/image12.png)
 
 1. Ayrıntılar bölmesinde **TS Ağ Geçidi sunucusu GRUBUNU**.
 
- >[!NOTE]
- >NPS ilkelerinin merkezi sunucu yapılandırıldığında bu RADIUS sunucu grubu oluşturuldu. RD Ağ Geçidi grubunda birden daha fazla olması durumunda bu sunucuya veya sunucu grubu RADIUS iletileri iletir.
- >
+   >[!NOTE]
+   >NPS ilkelerinin merkezi sunucu yapılandırıldığında bu RADIUS sunucu grubu oluşturuldu. RD Ağ Geçidi grubunda birden daha fazla olması durumunda bu sunucuya veya sunucu grubu RADIUS iletileri iletir.
+   >
 
 1. İçinde **TS Ağ Geçidi sunucusu grubu özellikleri** iletişim kutusunda, RD Cap'leri depolamak ve ardından yapılandırılmış NPS sunucusu adı ve IP adresi seçin **Düzenle**. 
 
- ![TS Ağ Geçidi sunucusu grubu](./media/howto-mfa-nps-extension-rdg/image13.png)
+   ![TS Ağ Geçidi sunucusu grubu](./media/howto-mfa-nps-extension-rdg/image13.png)
 
 1. İçinde **RADIUS sunucusu Düzenle** iletişim kutusunda **Yük Dengeleme** sekmesi.
 1. İçinde **Yük Dengeleme** sekmesinde **istek kabul etmeden önce yanıt almadan saniye sayısını bırakılan** alan, varsayılan değer 3 ila 30 ila 60 saniye arasında bir değer olarak değiştirin.
 1. İçinde **sunucu kullanılamaz olarak tanımlandığında istekler arasındaki saniye sayısını** alanında, önceki adımda belirtilen değerden büyük veya ona eşit bir değer 30 saniye varsayılan değeri değiştirin.
 
- ![RADIUS sunucusunu Düzenle](./media/howto-mfa-nps-extension-rdg/image14.png)
+   ![RADIUS sunucusunu Düzenle](./media/howto-mfa-nps-extension-rdg/image14.png)
 
 1. Tıklayın **Tamam** iletişim kutularını kapatmak için iki kez.
 
@@ -251,7 +251,7 @@ RD Ağ Geçidi bağlantısı Yetkilendirme İlkeleri için bir merkezi ilke depo
 1. İçinde **TS Ağ Geçidi kimlik doğrulama İlkesi Özellikleri** iletişim kutusu, tıklayın **ayarları** sekmesi.
 1. Üzerinde **ayarları** iletme, bağlantı isteği altında sekmesini **kimlik doğrulaması**. RADIUS istemcisi, kimlik doğrulama istekleri iletmek için yapılandırılır.
 
- ![Kimlik doğrulama ayarları](./media/howto-mfa-nps-extension-rdg/image15.png)
+   ![Kimlik doğrulama ayarları](./media/howto-mfa-nps-extension-rdg/image15.png)
 
 1. Tıklayın **iptal**.
 
@@ -268,7 +268,7 @@ Bu senaryoda düzgün çalışması için NPS sunucusunun Active Directory'de ka
 1. Sağ tıklayın ağ ilkesi sunucusu konsolunda **NPS (yerel)** ve ardından **Active Directory'de kayıt sunucusu**.
 1. Tıklayın **Tamam** iki kez.
 
- ![Sunucu AD'ye kaydetme](./media/howto-mfa-nps-extension-rdg/image16.png)
+   ![Sunucu AD'ye kaydetme](./media/howto-mfa-nps-extension-rdg/image16.png)
 
 1. Konsolunu sonraki yordam için açık bırakın.
 
@@ -278,12 +278,12 @@ Uzak Masaüstü Ağ Geçidi NPS sunucusunun RADIUS istemcisi olarak yapılandır
 
 1. NPS uzantısı yüklü olduğu, buna NPS sunucusunda **NPS (yerel)** konsolunda, sağ **RADIUS istemcileri** tıklatıp **yeni**.
 
- ![Yeni RADIUS istemcisi](./media/howto-mfa-nps-extension-rdg/image17.png)
+   ![Yeni RADIUS istemcisi](./media/howto-mfa-nps-extension-rdg/image17.png)
 
 1. İçinde **yeni RADIUS istemcisi** iletişim kutusunda, gibi kolay bir ad verin _ağ geçidi_ve IP adresi ya da Uzak Masaüstü Ağ Geçidi sunucusunun DNS adı. 
 1. İçinde **paylaşılan gizlilik** ve **paylaşılan gizliliği onayla** alanları önceden kullanmış olduğunuz aynı parolayı girin.
 
- ![Ad ve adres](./media/howto-mfa-nps-extension-rdg/image18.png)
+   ![Ad ve adres](./media/howto-mfa-nps-extension-rdg/image18.png)
 
 1. Tıklayın **Tamam** yeni RADIUS istemcisi iletişim kutusunu kapatın.
 
@@ -294,28 +294,28 @@ NPS sunucusu ile Azure mfa'yı uzantısı atanmış merkezi ilke deposu bağlant
 1. NPS sunucusunda, NPS (yerel) konsolunu açın, **ilkeleri**, tıklatıp **ağ ilkeleri**.
 1. Sağ **diğer erişim sunucularına bağlantı**, tıklatıp **yinelenen ilke**.
 
- ![Yinelenen ilke](./media/howto-mfa-nps-extension-rdg/image19.png)
+   ![Yinelenen ilke](./media/howto-mfa-nps-extension-rdg/image19.png)
 
 1. Sağ **diğer erişim sunucularına bağlantı kopyalama**, tıklatıp **özellikleri**.
 
- ![Ağ Özellikleri](./media/howto-mfa-nps-extension-rdg/image20.png)
+   ![Ağ Özellikleri](./media/howto-mfa-nps-extension-rdg/image20.png)
 
 1. İçinde **diğer erişim sunucularına bağlantı kopyalama** iletişim kutusundaki **ilke adı**, gibi uygun bir ad girin _RDG_CAP_. Denetleme **etkin ilke**seçip **erişim ver**. İsteğe bağlı olarak **ağ erişim sunucusu türü**seçin **Uzak Masaüstü Ağ Geçidi**, veya olarak bırakılabilir **belirtilmemiş**.
 
- ![Bağlantı kopyalama](./media/howto-mfa-nps-extension-rdg/image21.png)
+   ![Bağlantı kopyalama](./media/howto-mfa-nps-extension-rdg/image21.png)
 
 1. Tıklayın **kısıtlamaları** sekmesini tıklatıp denetleyin **istemcilerin kimlik doğrulama yöntemi anlaşmadan bağlanmasına izin ver**.
 
- ![İstemcilerin bağlanmasına izin ver](./media/howto-mfa-nps-extension-rdg/image22.png)
+   ![İstemcilerin bağlanmasına izin ver](./media/howto-mfa-nps-extension-rdg/image22.png)
 
 1. İsteğe bağlı olarak, tıklayın **koşullar** sekmesini ve bağlantının, örneğin, belirli bir Windows grubu üyeliği'da yetkilendirilmesi karşılanması gereken koşulları ekleyin.
 
- ![Koşullar](./media/howto-mfa-nps-extension-rdg/image23.png)
+   ![Koşullar](./media/howto-mfa-nps-extension-rdg/image23.png)
 
 1. **Tamam** düğmesine tıklayın. İlgili Yardım konusunu görüntülemek için sorulduğunda **Hayır**.
 1. Erişim verir ve yeni ilkeniz ilkenin etkinleştirildiğini listenin başında olduğundan emin olun.
 
- ![Ağ ilkeleri](./media/howto-mfa-nps-extension-rdg/image24.png)
+   ![Ağ ilkeleri](./media/howto-mfa-nps-extension-rdg/image24.png)
 
 ## <a name="verify-configuration"></a>Yapılandırmayı doğrulama
 

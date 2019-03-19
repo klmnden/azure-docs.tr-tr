@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 37a7610cf2458906729432b1cf53043f1badd64b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ef1d8f1a72c5936ff661636c4c51acf439a0a5ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855206"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>Bir Azure Machine Learning Studio Web hizmetini Excel'den kullanma
 
@@ -33,8 +33,8 @@ Bir web hizmeti oluşturduktan sonra tıklayarak **WEB Hizmetleri** studio sol t
 **Klasik Web hizmeti**
 
 1. Üzerinde **PANO** web hizmeti için bir satır için sekmesinde **istek/yanıt** hizmeti. Bu hizmet, tek bir çıkış olsaydı, görmelisiniz **Excel çalışma kitabını indirin** söz konusu satırdaki bağlantı.
-   
-    ![](./media/consuming-from-excel/excellink.png)
+
+    ![Studio Web hizmeti portalını kullanarak çalışma kitabını indirin](./media/consuming-from-excel/excellink.png)
 2. Tıklayarak **Excel çalışma kitabını indirin**.
 
 **Yeni Web hizmeti**
@@ -46,17 +46,17 @@ Bir web hizmeti oluşturduktan sonra tıklayarak **WEB Hizmetleri** studio sol t
 
 1. Çalışma kitabını açın.
 2. Bir güvenlik uyarısı görüntülenmez; tıklayarak **düzenlemeyi etkinleştir** düğmesi.
-   
-    ![](./media/consuming-from-excel/enableeditting.png)
+
+    ![Korumalı Görünüm güvenlik uyarısını kaldırmaya düzenlemeyi etkinleştir](./media/consuming-from-excel/enableeditting.png)
 3. Bir güvenlik uyarısı görüntülenir. Tıklayarak **içeriği etkinleştir** makroları elektronik tablonuz üzerinde çalıştırmak için düğme.
-   
-    ![](./media/consuming-from-excel/enablecontent.png)
+
+    ![Makroları devre dışı bırakma güvenlik uyarısını kapatmak içeriği etkinleştir](./media/consuming-from-excel/enablecontent.png)
 4. Makrolar etkinleştirildikten sonra bir tablo oluşturulur. Mavi olan sütunlarda gerekli RRS web hizmeti giriş olarak veya **parametreleri**. RRS hizmet çıktısını Not **tahmin edilen değerler** yeşil. Belirli bir satır için tüm sütunları dolduğunda, çalışma kitabına otomatik olarak Puanlama API'yi çağıran ve puanlanmış sonuçların görüntüler.
-   
-    ![](./media/consuming-from-excel/sampletable.png)
+
+    ![Tablo parametresi giriş ve sonuç için tahmin edilen değerler](./media/consuming-from-excel/sampletable.png)
 5. Birden fazla satır puanlamak için dolgu verileri ve tahmin edilen değerler ikinci satırı oluşturulur. Aynı anda birden çok satır bile yapıştırabilirsiniz.
 
-Verileri görselleştirme yardımcı olmak için tahmin edilen değerleri (grafikleri power map, koşullu biçimlendirme, vb.) Excel özelliklerinden herhangi birini kullanabilirsiniz.    
+Verileri görselleştirme yardımcı olmak için tahmin edilen değerleri (grafikleri power map, koşullu biçimlendirme, vb.) Excel özelliklerinden herhangi birini kullanabilirsiniz.
 
 ## <a name="sharing-your-workbook"></a>Çalışma kitabınızı paylaşma
 İş için makrolar, API anahtarınızı elektronik bir parçası olmalıdır. Bu çalışma kitabını yalnızca varlık/güvenilir kişiler ile paylaşmalıdır anlamına gelir.

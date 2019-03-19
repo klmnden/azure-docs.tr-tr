@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 866e93c81e5c4f7ad38528ae937317fde3a3f45d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: dc1be0d1d00ae64f38690f019580119b03debedf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857065"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106602"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Öğretici: Rolleri kullanarak bağlamsal ilgili desenlerini ayıklayın
 
@@ -369,7 +369,7 @@ Kişi adları gibi şehir adları da farklı sözcükler ve noktalama işaretler
         "label": "neutral",
         "score": 0.5
       }
-}
+   }
     ```
 
 Amaç puanı artık çok daha yüksektir ve rol adları varlık yanıtının parçasıdır.

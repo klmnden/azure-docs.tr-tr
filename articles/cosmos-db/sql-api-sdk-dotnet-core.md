@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: d25fcbce99017ff19adebd61275b395c980a3cf5
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: cc6c66ccb0bb08d709b2015d643544fb9dc30f52
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891709"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57846744"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -49,6 +49,10 @@ Azure Cosmos DB .NET Core SDK'sı özellik eşliği ile en son sürümüne sahip
 * Yeni nesne modeli, üst düzey CosmosClient ve yöntemleri ile ilgili CosmosDatabases ve CosmosContainers CosmosItems sınıflar arasında bölün.
 * Akışları için destek.
 * Durum kodu döndürür ve yanıt döndürüldüğünde yalnızca durum sunucudan CosmosResponseMessage güncelleştirildi.
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+
+* Tanılama geliştirmeleri
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 
@@ -233,6 +237,7 @@ Bu SDK ilgili sorularınız varsa postalayabilir [StackOverflow](https://stackov
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.2.3](#2.2.3) |11 Mart 2019 |--- |
 | [2.2.2](#2.2.2) |06 Şubat 2019 |--- |
 | [2.2.1](#2.2.1) |Aralık 24 Mayıs 2018 |--- |
 | [2.2.0](#2.2.0) |07 aralık 2018'e |--- |

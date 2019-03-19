@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
-ms.openlocfilehash: 6fd81403d7c58fc196326d360aeccea9354f1088
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4155a67f70ccc238c6046c07dded7f0214689617
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762504"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993502"
 ---
 # <a name="tutorial-create-a-hub-virtual-network-appliance-with-terraform-in-azure"></a>Öğretici: Azure'da Terraform ile merkez sanal ağ Gereci oluşturma
 
@@ -38,7 +38,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 ## <a name="create-the-directory-structure"></a>Dizin yapısını oluşturma
 
-1. [Azure portala](http://portal.azure.com) gidin.
+1. [Azure portala](https://portal.azure.com) gidin.
 
 1. [Azure Cloud Shell](/azure/cloud-shell/overview)'i açın. Önceden bir ortam seçmediyseniz **Bash** ortamını seçin.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 5d873b18db8ac52c40736a629ff78e3282365730
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 4dbbaeea736dd46478ad9992201ea28bd7bfc2ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473988"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855512"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Dağıtma ve PowerShell kullanarak notification hubs'ı yönetme
 
@@ -154,9 +154,9 @@ Kullanıma hazır bazı komut dosyaları indirme için de kullanılabilir:
 
 - [Service Bus PowerShell betikleri](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
-[Satın alma seçenekleri]: http://azure.microsoft.com/pricing/purchase-options/
-[Üye teklifleri]: http://azure.microsoft.com/pricing/member-offers/
-[Ücretsiz deneme]: http://azure.microsoft.com/pricing/free-trial/
+[Satın alma seçenekleri]: https://azure.microsoft.com/pricing/purchase-options/
+[Üye teklifleri]: https://azure.microsoft.com/pricing/member-offers/
+[Ücretsiz deneme]: https://azure.microsoft.com/pricing/free-trial/
 [için Notification Hubs .NET API]: /powershell/azureps-cmdlets-docs
 [Bildirim hub'ları için .NET API'si]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace

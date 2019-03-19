@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 320a23e425ecb11e36af3efe988b25e598948132
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3b302c60aefec1c4cd37a7dde82a2f11a9eeed33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118522"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862871"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Bir anahtar kasasına erişimin güvenliğini sağlama
 
@@ -28,7 +28,7 @@ Azure Key Vault, sertifikalar, bağlantı dizeleri ve parolalar gibi şifreleme 
 
 ## <a name="access-model-overview"></a>Erişim modeline genel bakış
 
-Bir anahtar kasasına erişim, iki arabirim ile denetlenir: *yönetim düzlemi* ve *veri düzlemi*. Yönetim düzlemi, anahtar kasası kendi yönettiğiniz ' dir. Bu düzlemi işlemlerine dahil etmek oluşturma ve anahtar kasalarını silme, anahtar kasası özellikleri alınıyor ve erişim ilkeleri güncelleştiriliyor. Veri düzlemi, anahtar kasasında depolanan verilerle çalıştığınız ' dir. Ekleme, silme ve anahtarlara, parolalara ve sertifikalara değiştirmek.
+Bir anahtar kasasına erişim, iki arabirim ile denetlenir: **yönetim düzlemi** ve **veri düzlemi**. Yönetim düzlemi, anahtar kasası kendi yönettiğiniz ' dir. Bu düzlemi işlemlerine dahil etmek oluşturma ve anahtar kasalarını silme, anahtar kasası özellikleri alınıyor ve erişim ilkeleri güncelleştiriliyor. Veri düzlemi, anahtar kasasında depolanan verilerle çalıştığınız ' dir. Ekleme, silme ve anahtarlara, parolalara ve sertifikalara değiştirmek.
 
 Tüm çağıranların (kullanıcılar veya uygulamalar) ya da masasında bir anahtar kasasına erişmek için uygun kimlik doğrulaması ve yetkilendirme olması gerekir. Kimlik doğrulaması arayan kimliğini oluşturur. Yetkilendirme, çağırana yürütebilir hangi işlemleri belirler. 
 
@@ -62,7 +62,7 @@ Aşağıdaki tabloda yönetim ve veri düzlemi uç noktaları gösterilmektedir.
 
 ## <a name="management-plane-and-rbac"></a>Yönetim düzlemi ve RBAC
 
-Yönetim düzlemi işlemleri çağıran yürütmek yetkilendirmek için RBAC kullanın. RBAC modelinde, her Azure aboneliği bir Azure AD örneğini sahiptir. Kullanıcılar, gruplar ve uygulamalar için bu dizindeki erişim. Azure aboneliğinde Azure Resource Manager dağıtım modelini kullanan kaynakları yönetmek için erişim izni verilir. Erişim vermek [Azure portalında](https://portal.azure.com/), [Azure CLI](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), veya [Azure Resource Manager REST API'leri](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+Yönetim düzlemi işlemleri çağıran yürütmek yetkilendirmek için RBAC (rol tabanlı erişim denetimi) kullanın. RBAC modelinde, her Azure aboneliği bir Azure AD örneğini sahiptir. Kullanıcılar, gruplar ve uygulamalar için bu dizindeki erişim. Azure aboneliğinde Azure Resource Manager dağıtım modelini kullanan kaynakları yönetmek için erişim izni verilir. Erişim vermek [Azure portalında](https://portal.azure.com/), [Azure CLI](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), veya [Azure Resource Manager REST API'leri](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Bir kaynak grubunda bir anahtar kasası oluşturur ve Azure AD'yi kullanarak erişimi yönetin. Kullanıcılara vermek ya da bir kaynak grubundaki anahtar kasalarını yönetme olanağı gruplandırır. Belirli kapsam düzeyinde uygun RBAC rollerini atayarak erişim. Bir kullanıcıya anahtar kasalarını yönetmesi için erişim vermek için önceden tanımlanmış bir atamanız `key vault Contributor` belirli bir kapsamda kullanıcı rolü. Bir RBAC rolü için aşağıdaki kapsamları düzeyleri atanabilir:
 

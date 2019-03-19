@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/07/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a269c15b9b38b190196e6c2e77ff5b4b3826ba65
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 57905b3d3c062c299a0f414ae6110dd0b6249198
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342185"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848039"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Öğretici: Azure SQL'e erişmek için bir Windows VM sistem tarafından atanan yönetilen kimliği kullanma
 
@@ -103,7 +103,7 @@ VM'de çalıştırılan kod şimdi sistem tarafından atanan yönetilen kimliği
 
 Azure SQL, Azure AD kimlik doğrulamasını yerel olarak desteklediğinden Azure kaynakları için yönetilen kimlikler kullanılarak alınan erişim belirteçlerini doğrudan kabul eder. SQL bağlantısı oluştururken **erişim belirteci** yöntemini kullanırsınız. Bu, Azure SQL’in Azure AD tümleştirmesi kapsamındadır ve bağlantı dizesinde kimlik bilgileri sağlama işleminden farklıdır.
 
-Burada, erişim belirteci kullanarak SQL'e bağlantı açan bir .Net kod örneği verilmiştir. Bu kodun, VM’nin sistem tarafından atanan yönetilen kimliğinin uç noktasına erişebilmesi için VM üzerinde çalıştırılması gerekir. **.NET framework 4.6** ya da daha yüksek erişim belirteci yöntemini kullanmak için gereklidir. AZURE-SQL-SERVERNAME ve DATABASE değerlerini uygun şekilde değiştirin. Azure SQL için kaynak kimliğinin "https://database.windows.net/" olduğuna dikkat edin.
+Erişim belirteci kullanarak SQL bağlantı açma bir .NET kod örneği aşağıda verilmiştir. Bu kodun, VM’nin sistem tarafından atanan yönetilen kimliğinin uç noktasına erişebilmesi için VM üzerinde çalıştırılması gerekir. **.NET framework 4.6** ya da daha yüksek erişim belirteci yöntemini kullanmak için gereklidir. AZURE-SQL-SERVERNAME ve DATABASE değerlerini uygun şekilde değiştirin. Azure SQL için kaynak Kimliğini Not `https://database.windows.net/`.
 
 ```csharp
 using System.Net;

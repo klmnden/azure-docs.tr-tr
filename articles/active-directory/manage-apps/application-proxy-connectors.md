@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907511b7f20311479e7b11a30f3d5719daea3f87
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 4f96a67fecead65af28a975267590ebb08c715d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301477"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853025"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD uygulama ara sunucusu bağlayıcıları anlama
 
@@ -93,7 +93,8 @@ Beklenen trafik hacmini işlemeye yetecek bağlayıcılar arasında yeterli kapa
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* Bu makineyi, bazı önerilen ayarlar .net ötesinde varsayılan bağlantı sınırları artırmak için özel bir ayarı kullanılır. Kiracınız için değiştirildi. Bu sınırı almak için destek ile irtibat kurmadan önce varsayılan ayarlarla bir test çalıştırmanızı öneririz.
+
+\* Bu makineyi, bazı önerilen ayarlar .NET ötesinde varsayılan bağlantı sınırları artırmak için özel bir ayarı kullanılır. Kiracınız için değiştirildi. Bu sınırı almak için destek ile irtibat kurmadan önce varsayılan ayarlarla bir test çalıştırmanızı öneririz.
  
 >[!NOTE]
 >Kadar en fazla TPS 4, 8 ve 16 çekirdekli makinelerde arasındaki farkı yoktur. Bunlar arasındaki temel fark, beklenen gecikme ' dir.  

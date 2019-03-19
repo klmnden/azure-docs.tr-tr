@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9c6b1e77b6fce8bedb8f035fcb18acb8c56ad5a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dda84d30124eca1526f227ffec134f48451c9cb0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200742"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102576"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Cerner Orta yapılandırın
 
@@ -60,7 +60,7 @@ Yapılandırma ve sağlama hizmetini etkinleştirmeden önce hangi kullanıcıla
 Bu bölümde, Azure AD sağlama API'si Cerner'ın SCIM kullanıcı hesabını kullanarak Cerner Central'ın kullanıcı listesi için bağlama size yol gösterir ve sağlama hizmeti oluşturmak için yapılandırma güncelleştirmesi ve atanan kullanıcı hesaplarında Cerner Orta temel devre dışı Azure AD'de kullanıcı ve grup atama.
 
 > [!TIP]
-> Ayrıca seçtiğiniz etkin SAML tabanlı çoklu oturum açma için Cerner Orta, yönergeleri izleyerek sağlanan [Azure portalı (https://portal.azure.com). Bu iki özellik birbirini tamamlar ancak otomatik sağlama bağımsız olarak, çoklu oturum açma yapılandırılabilir. Daha fazla bilgi için [oturum açma Cerner Orta tek öğretici](cernercentral-tutorial.md).
+> Ayrıca seçtiğiniz etkin SAML tabanlı çoklu oturum açma için Cerner Orta, yönergeleri izleyerek sağlanan [Azure portalında](https://portal.azure.com). Bu iki özellik birbirini tamamlar ancak otomatik sağlama bağımsız olarak, çoklu oturum açma yapılandırılabilir. Daha fazla bilgi için [oturum açma Cerner Orta tek öğretici](cernercentral-tutorial.md).
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Otomatik kullanıcı hesabı Azure AD'de Cerner merkezi siteden sağlamayı yapılandırmak için:
@@ -68,13 +68,13 @@ Bu bölümde, Azure AD sağlama API'si Cerner'ın SCIM kullanıcı hesabını ku
 
 Cerner Orta için kullanıcı hesapları sağlamak için Cerner Cerner Merkezi sistem hesabı isteyin ve Azure AD Cerner'ın SCIM uç noktaya bağlanmak için kullanabileceğiniz bir OAuth taşıyıcı belirteci oluşturmak gerekir. Tümleştirme Cerner korumalı alan ortamında üretim ortamına dağıtmadan önce gerçekleştirilmesi önerilir.
 
-1.  İlk adım Cerner yönetme kişiler sağlamak ve Azure AD tümleştirme yönergeleri işlemini tamamlamak için gereken belgelere erişmek için gerekli bir CernerCare hesabı. Gerekirse, her bir geçerli ortamda CernerCare hesaplarını oluşturmak için aşağıdaki URL'lerden kullanın.
+1. İlk adım Cerner yönetme kişiler sağlamak ve Azure AD tümleştirme yönergeleri işlemini tamamlamak için gereken belgelere erişmek için gerekli bir CernerCare hesabı. Gerekirse, her bir geçerli ortamda CernerCare hesaplarını oluşturmak için aşağıdaki URL'lerden kullanın.
 
    * Korumalı alan:  https://sandboxcernercare.com/accounts/create
 
    * Üretim:  https://cernercare.com/accounts/create  
 
-2.  Ardından, Azure AD için bir sistem hesabı oluşturulmalıdır. Korumalı alan ve üretim ortamlarınız için bir sistem hesabı istemek için aşağıdaki yönergeleri kullanın.
+2. Ardından, Azure AD için bir sistem hesabı oluşturulmalıdır. Korumalı alan ve üretim ortamlarınız için bir sistem hesabı istemek için aşağıdaki yönergeleri kullanın.
 
    * Yönergeler:  https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
@@ -82,7 +82,7 @@ Cerner Orta için kullanıcı hesapları sağlamak için Cerner Cerner Merkezi s
 
    * Üretim:  https://cernercentral.com/system-accounts/
 
-3.  Ardından, bir OAuth taşıyıcı belirteci her biri, sistem hesapları için oluşturur. Bunu yapmak için aşağıdaki yönergeleri izleyin.
+3. Ardından, bir OAuth taşıyıcı belirteci her biri, sistem hesapları için oluşturur. Bunu yapmak için aşağıdaki yönergeleri izleyin.
 
    * Yönergeler:  https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
@@ -96,33 +96,33 @@ Cerner Orta için kullanıcı hesapları sağlamak için Cerner Cerner Merkezi s
 
 6. Çoklu oturum açma için zaten Cerner Orta yapılandırdıysanız, Cerner arama alanını kullanarak merkezi Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** araması **Cerner orta** uygulama galerisinde. Arama sonuçlarından Cerner Orta seçin ve uygulama listenize ekleyin.
 
-7.  Örneğiniz Cerner Orta seçip **sağlama** sekmesi.
+7. Örneğiniz Cerner Orta seçip **sağlama** sekmesi.
 
-8.  Ayarlama **hazırlama modu** için **otomatik**.
+8. Ayarlama **hazırlama modu** için **otomatik**.
 
    ![Cerner sağlama Orta](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
 
-9.  Altında aşağıdaki alanları doldurun **yönetici kimlik bilgileri**:
+9. Altında aşağıdaki alanları doldurun **yönetici kimlik bilgileri**:
 
    * İçinde **Kiracı URL'si** #4. adımda alınan bölge kimliği ile "User-listesi-bölge-ID" değiştirerek bir URL aşağıdaki biçimde girin.
 
 > Korumalı alan: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
-
+> 
 > Üretim: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * İçinde **gizli belirteç** alan, #3. adımda oluşturulan OAuth taşıyıcı belirtecini girin ve tıklayın **Bağlantıyı Sına**.
 
    * Portalınızı upperright tarafında bir başarı bildirimini görmeniz gerekir.
 
-10. Bir kişi veya grup sağlama hatası bildirimlerini alması gereken e-posta adresini girin **bildirim e-posta** alan ve aşağıdaki onay kutusunu işaretleyin.
+1. Bir kişi veya grup sağlama hatası bildirimlerini alması gereken e-posta adresini girin **bildirim e-posta** alan ve aşağıdaki onay kutusunu işaretleyin.
 
-11. **Kaydet**’e tıklayın. 
+1. **Kaydet**’e tıklayın. 
 
-12. İçinde **öznitelik eşlemelerini** bölümünde, Azure AD'den Cerner merkezi siteden eşitlenmesi için kullanıcı ve grup öznitelikleri gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri güncelleştirme işlemleri için Cerner merkez grupları ve kullanıcı hesaplarını eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
+1. İçinde **öznitelik eşlemelerini** bölümünde, Azure AD'den Cerner merkezi siteden eşitlenmesi için kullanıcı ve grup öznitelikleri gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri güncelleştirme işlemleri için Cerner merkez grupları ve kullanıcı hesaplarını eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 
-13. Azure AD sağlama hizmeti için Cerner Orta etkinleştirmek için değiştirin **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
+1. Azure AD sağlama hizmeti için Cerner Orta etkinleştirmek için değiştirin **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
 
-14. **Kaydet**’e tıklayın. 
+1. **Kaydet**’e tıklayın. 
 
 Bu, herhangi bir kullanıcı ve/veya Cerner Orta kullanıcılar ve Gruplar bölümünde atanan grupları ilk eşitlemeyi başlatır. İlk eşitleme yaklaşık 40 dakikada Azure AD sağlama hizmeti çalışıyor sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Cerner Orta uygulamanızdan sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklayan etkinlik günlüklerini sağlama için bağlantıları izleyin.
 

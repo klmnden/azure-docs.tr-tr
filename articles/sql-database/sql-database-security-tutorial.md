@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 4fc1b4d4d0d7f215f8fee1de01e171c3fdc5aae5
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308797"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893280"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Öğretici: Tek veya havuza alınmış veritabanını koruma
 
@@ -77,11 +77,11 @@ Sunucu düzeyinde güvenlik duvarı kurallarını ayarlamak için:
 
 1. Üzerinde **genel bakış** sayfasında **sunucu güvenlik duvarını Ayarla**. **Güvenlik Duvarı ayarları** veritabanı sunucusu için sayfası açılır.
 
-    1. Seçin **istemci IP'si Ekle** geçerli IP adresinizi yeni bir güvenlik duvarı kuralına eklemek için araç çubuğunda. Kural, tek bir IP adresi veya bir IP adresi aralığı için 1433 numaralı bağlantı noktasını açabilirsiniz. **Kaydet**’i seçin.
+   1. Seçin **istemci IP'si Ekle** geçerli IP adresinizi yeni bir güvenlik duvarı kuralına eklemek için araç çubuğunda. Kural, tek bir IP adresi veya bir IP adresi aralığı için 1433 numaralı bağlantı noktasını açabilirsiniz. **Kaydet**’i seçin.
 
-    ![sunucu güvenlik duvarı kuralı ayarla](./media/sql-database-security-tutorial/server-firewall-rule2.png)
+      ![sunucu güvenlik duvarı kuralı ayarla](./media/sql-database-security-tutorial/server-firewall-rule2.png)
 
-    1. Seçin **Tamam** kapatın **Güvenlik Duvarı ayarları** sayfası.
+   1. Seçin **Tamam** kapatın **Güvenlik Duvarı ayarları** sayfası.
 
 Artık sunucuda belirtilen IP adresine veya IP adresi aralığına sahip herhangi bir veritabanına bağlanabilirsiniz.
 
@@ -248,11 +248,11 @@ Gelişmiş veri güvenliği etkinleştirmek için:
 
 1. Üzerinde **SQL server** sayfasında, bulmak **güvenlik** seçin ve bölüm **gelişmiş veri güvenliği**.
 
-    1. Seçin **ON** altında **gelişmiş veri güvenliği** özelliği etkinleştirmek için. Güvenlik Açığı değerlendirme sonuçlarını kaydetmek için bir depolama hesabı seçin. Daha sonra **Kaydet**’e tıklayın.
+   1. Seçin **ON** altında **gelişmiş veri güvenliği** özelliği etkinleştirmek için. Güvenlik Açığı değerlendirme sonuçlarını kaydetmek için bir depolama hesabı seçin. Daha sonra **Kaydet**’e tıklayın.
 
-    ![Gezinti bölmesi](./media/sql-database-security-tutorial/threat-settings.png)
+      ![Gezinti bölmesi](./media/sql-database-security-tutorial/threat-settings.png)
 
-    Ayrıca, güvenlik uyarıları, depolama ayrıntıları ve tehdit algılama türleri alacak e-postalar yapılandırabilirsiniz.
+      Ayrıca, güvenlik uyarıları, depolama ayrıntıları ve tehdit algılama türleri alacak e-postalar yapılandırabilirsiniz.
 
 1. Geri dönüp **SQL veritabanları** sayfasını seçin ve veritabanı **gelişmiş veri güvenliği** altında **güvenlik** bölümü. Burada veritabanı için çeşitli güvenlik göstergeler bulabilirsiniz.
 
@@ -274,25 +274,25 @@ Denetimi etkinleştirmek için:
 
 1. Altında **denetim** ayarları, aşağıdaki değerleri ayarlayın:
 
-    1. Ayarlama **denetim** için **ON**.
+   1. Ayarlama **denetim** için **ON**.
 
-    1. Seçin **denetim günlük hedefi** aşağıdakilerden biri olarak:
+   1. Seçin **denetim günlük hedefi** aşağıdakilerden biri olarak:
 
-        - **Depolama**, burada olay günlüklerine kaydedilir ve olarak indirilebilir bir Azure depolama hesabına *.xel* dosyaları
+       - **Depolama**, burada olay günlüklerine kaydedilir ve olarak indirilebilir bir Azure depolama hesabına *.xel* dosyaları
 
-           > [!TIP]
-           > Rapor şablonları denetim gelen en iyi şekilde yararlanmak için denetlenen tüm veritabanları için aynı depolama hesabını kullanın.
+          > [!TIP]
+          > Rapor şablonları denetim gelen en iyi şekilde yararlanmak için denetlenen tüm veritabanları için aynı depolama hesabını kullanın.
 
-        - **Log Analytics**, sorgu ya da daha fazla analiz için olayları otomatik olarak depolayan
+       - **Log Analytics**, sorgu ya da daha fazla analiz için olayları otomatik olarak depolayan
 
-            > [!NOTE]
-            > A **Log Analytics çalışma alanı** analiz, özel uyarı kuralları ve Excel veya Power BI dışarı aktarma gibi gelişmiş özellikleri desteklemek için gereklidir. Sorgu Düzenleyicisi, bir çalışma alanı kullanılabilir.
+           > [!NOTE]
+           > A **Log Analytics çalışma alanı** analiz, özel uyarı kuralları ve Excel veya Power BI dışarı aktarma gibi gelişmiş özellikleri desteklemek için gereklidir. Sorgu Düzenleyicisi, bir çalışma alanı kullanılabilir.
 
-        - **Olay hub'ı**, olaylar, diğer uygulamalarda kullanmak için yönlendirilmesini sağlar
+       - **Olay hub'ı**, olaylar, diğer uygulamalarda kullanmak için yönlendirilmesini sağlar
 
-    1. **Kaydet**’i seçin.
+   1. **Kaydet**’i seçin.
 
-    ![Denetim ayarları](./media/sql-database-security-tutorial/audit-settings.png)
+      ![Denetim ayarları](./media/sql-database-security-tutorial/audit-settings.png)
 
 1. Seçebileceğiniz artık **denetim günlüklerini görüntüle** veritabanı olayları verilerini görüntülemek için.
 
@@ -334,7 +334,7 @@ Etkinleştirmek veya şifrelemesini doğrulamak için:
     ![Saydam Veri Şifrelemesi](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
-> Şifreleme durumunu görüntülemek için veritabanı kullanarak bağlanmak [SSMS](./sql-database-connect-query-ssms.md) ve sorgu `encryption_state` sütununun [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) görünümü. Durumunu `3` veritabanı şifrelenir gösterir.
+> Şifreleme durumunu görüntülemek için veritabanı kullanarak bağlanmak [SSMS](./sql-database-connect-query-ssms.md) ve sorgu `encryption_state` sütununun [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) görünümü. Durumunu `3` veritabanı şifrelenir gösterir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

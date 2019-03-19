@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bacefaada8ab0d63bb17d22f67b91c51a789de8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c769d241f54d5d86ef4954609eec555d8aab947a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172340"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858006"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Parola çoklu oturum açma galeri dışı bir uygulama yapılandırma sorunu
 
@@ -46,25 +46,25 @@ Genel olarak, **otomatik oturum açma alanı yakalama çalışmazsa elle seçene
 
 Yapılandırmak için **parola tabanlı çoklu oturum açma** kullanarak uygulama için **otomatik oturum açma alanı yakalama**, aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
+1. Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+2. Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4. tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5. tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
+   * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
-6.  Çoklu oturum açmayı yapılandırmak istediğiniz uygulamayı seçin.
+6. Çoklu oturum açmayı yapılandırmak istediğiniz uygulamayı seçin.
 
-7.  Uygulama yüklendikten sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
+7. Uygulama yüklendikten sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  Modu **parola tabanlı oturum açma.**
+8. Modu **parola tabanlı oturum açma.**
 
-9.  Girin **oturum açma URL'si**, kullanıcılara nereden girin, kullanıcı adını ve oturum açmak için parola URL'si. **Oturum açma alanlarını sağladığınız URL'SİNDE görünür olduğundan emin olun**.
+9. Girin **oturum açma URL'si**, kullanıcılara nereden girin, kullanıcı adını ve oturum açmak için parola URL'si. **Oturum açma alanlarını sağladığınız URL'SİNDE görünür olduğundan emin olun**.
 
 10. **Kaydet** düğmesine tıklayın.
 
@@ -76,25 +76,25 @@ Oturum açma alanlarını el ile yakalamak için öncelikle erişim paneli taray
 
 Yapılandırmak için **parola tabanlı çoklu oturum açma** kullanarak uygulama için **el ile oturum açma alanı yakalama**, aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
+1. Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+2. Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4. tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5. tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
    * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
-6.  Çoklu oturum açmayı yapılandırmak istediğiniz uygulamayı seçin.
+6. Çoklu oturum açmayı yapılandırmak istediğiniz uygulamayı seçin.
 
-7.  Uygulama yüklendikten sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
+7. Uygulama yüklendikten sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  Modu **parola tabanlı oturum açma.**
+8. Modu **parola tabanlı oturum açma.**
 
-9.  Girin **oturum açma URL'si**, kullanıcılara nereden girin, kullanıcı adını ve oturum açmak için parola URL'si. **Oturum açma alanlarını sağladığınız URL'SİNDE görünür olduğundan emin olun**.
+9. Girin **oturum açma URL'si**, kullanıcılara nereden girin, kullanıcı adını ve oturum açmak için parola URL'si. **Oturum açma alanlarını sağladığınız URL'SİNDE görünür olduğundan emin olun**.
 
 10. **Kaydet** düğmesine tıklayın.
 
@@ -174,21 +174,21 @@ Ayrıca uzantısı Chrome ve Firefox için aşağıdaki doğrudan bağlantılard
 
 Aşağıdaki adımları izleyerek, herhangi bir portal bildirim ayrıntılarını görebilirsiniz:
 
-1.  tıklayın **bildirimleri** Azure portalının sağ üst kısımdaki simgesine (zil)
+1. tıklayın **bildirimleri** Azure portalının sağ üst kısımdaki simgesine (zil)
 
-2.  Herhangi bir bildirim seçin bir **hata** durumu (yanında bir kırmızı (!) sahip olanlar).
+2. Herhangi bir bildirim seçin bir **hata** durumu (yanında bir kırmızı (!) sahip olanlar).
 
-  >! Bildirimlerde dikkat] tıklayamazsınız bir **başarılı** veya **sürüyor** durumu.
-  >
-  >
+   >! Bildirimlerde dikkat] tıklayamazsınız bir **başarılı** veya **sürüyor** durumu.
+   >
+   >
 
-3.  **Bildirim ayrıntılarını** bölmesi açılır.
+3. **Bildirim ayrıntılarını** bölmesi açılır.
 
-4.  Bilgileri kendiniz sorun hakkında daha fazla ayrıntı anlamak için.
+4. Bilgileri kendiniz sorun hakkında daha fazla ayrıntı anlamak için.
 
-5.  Hala yardıma ihtiyacınız varsa, sorununuzu Yardım almak için bir destek mühendisi veya ürün grubu bilgileri de paylaşabilirsiniz.
+5. Hala yardıma ihtiyacınız varsa, sorununuzu Yardım almak için bir destek mühendisi veya ürün grubu bilgileri de paylaşabilirsiniz.
 
-6.  Tıklayın **kopyalama** **simgesi** sağındaki **kopyalama hatası** desteği veya ürün grubu mühendisiyle paylaşın için tüm bildirim ayrıntılarını kopyalamak için metin kutusu.
+6. Tıklayın **kopyalama** **simgesi** sağındaki **kopyalama hatası** desteği veya ürün grubu mühendisiyle paylaşın için tüm bildirim ayrıntılarını kopyalamak için metin kutusu.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Bir destek mühendisiyle bildirim ayrıntılarını göndererek Yardım alma
 
@@ -226,7 +226,7 @@ Daha her bildirimin öğelerini anlamına gelir ve bunların her birini örnekle
 
 -   **UPN** – işlemi gerçekleştiren kullanıcının
 
-    -   Örnek: **tperkins@f128.info**
+    -   Örneğin, **tperkins\@f128.info**
 
 -   **Kiracı kimliği** – işlemi gerçekleştiren kullanıcının üyesi olduğu kiracının benzersiz kimliği
 
@@ -240,11 +240,11 @@ Daha her bildirimin öğelerini anlamına gelir ve bunların her birini örnekle
 
 -   **Görünen ad** – **(boş olabilir)** hatanın ayrıntılı bir görünen ad
 
-    -   Örnek * – **uygulama proxy'si ayarları**
+    -   Örneğin, **uygulama proxy'si ayarları**
 
 -   **Durum** – bildirim özel durumu
 
-    -   Örnek * – **başarısız oldu**
+    -   Örneğin, **başarısız oldu**
 
 -   **Nesne Kimliği** – **(boş olabilir)** karşı işlemi gerçekleştirildi nesne kimliği
 
@@ -252,7 +252,7 @@ Daha her bildirimin öğelerini anlamına gelir ve bunların her birini örnekle
 
 -   **Ayrıntılar** – ayrıntılı açıklaması ne işlemi nedeniyle oluştu
 
-    -   Örneğin, **iç url 'https://bing.com/' zaten kullanımda olduğundan geçerli değil.**
+    -   Örneğin, **iç url '<https://bing.com/>' zaten kullanımda olduğundan geçerli değil.**
 
 -   **Kopyalama hatası** – tıklayın **Kopyala simgesine** sağındaki **kopyalama hatası** desteği veya ürün grubu mühendisiyle paylaşın için tüm bildirim ayrıntılarını kopyalamak için metin kutusu
 

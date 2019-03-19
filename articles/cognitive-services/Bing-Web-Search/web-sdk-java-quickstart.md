@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 420a0769af85d050f2786b65eb929a24d8b9da5d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7209df902f03a7055e142dcbbb7743b6832958b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874167"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863789"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Hızlı Başlangıç: Java için Bing Web araması SDK'sını kullanma
 
@@ -28,15 +28,16 @@ Kodu hemen görmek istiyor musunuz? GitHub'daki [Java için Bing Web Araması SD
 Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Bu hızlı başlangıcı çalıştırmak için aşağıdakilere ihtiyacınız olacaktır:
 
 * [JDK 7 veya 8](https://aka.ms/azure-jdks)
 * [Apache Maven](https://maven.apache.org/download.cgi) veya favori derleme otomasyonu aracınız
 * Abonelik anahtarı
 
-## <a name="create-a-project-and-configure-your-pom-file"></a>Proje oluşturma ve POM dosyanızı yapılandırma
+## <a name="create-a-project-and-set-up-your-pom-file"></a>Bir proje oluşturup POM dosyanızın ayarlayın
 
-Maven veya favori derleme otomasyonu aracınızı kullanarak yeni bir Java projesi oluşturun. Maven kullanıyorsanız POM dosyanıza aşağıdaki dosyaları ekleyin. `mainClass` yerine uygulamanızı yazın.
+Maven veya favori derleme otomasyonu aracınızı kullanarak yeni bir Java projesi oluşturun. Maven kullanıyorsanız varsayılarak aşağıdaki satırları ekleyin, [proje nesne modeli (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) dosya. `mainClass` yerine uygulamanızı yazın.
 
 ```xml
 <build>
@@ -180,7 +181,7 @@ public static boolean runSample(BingWebSearchAPI client) {
 ```java
 /*
 * WebPages
-* If the search response contains web pages, the first result's name
+* If the search response has web pages, the first result's name
 * and url are printed.
 */
 if (webData != null && webData.webPages() != null && webData.webPages().value() != null &&
@@ -200,7 +201,7 @@ if (webData != null && webData.webPages() != null && webData.webPages().value() 
 }
 /*
  * Images
- * If the search response contains images, the first result's name
+ * If the search response has images, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.images() != null && webData.images().value() != null &&
@@ -220,7 +221,7 @@ if (webData != null && webData.images() != null && webData.images().value() != n
 }
 /*
  * News
- * If the search response contains news articles, the first result's name
+ * If the search response has news articles, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.news() != null && webData.news().value() != null &&
@@ -240,7 +241,7 @@ if (webData != null && webData.news() != null && webData.news().value() != null 
 
 /*
  * Videos
- * If the search response contains videos, the first result's name
+ * If the search response has videos, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.videos() != null && webData.videos().value() != null &&

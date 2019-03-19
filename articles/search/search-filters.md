@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 539a7fc5b9d3038424059f1ee599c6966a968781
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629610"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079154"
 ---
 # <a name="filters-in-azure-search"></a>Azure Search'te filtreler 
 
@@ -32,17 +32,17 @@ Bunun yerine belirli veri çubuğunda hedeflenen arama amaçlıyorsanız *yapıl
 
 1. Dizin veri değerlere göre dizininizi dilim için filtre kullanın. Şehir, konut türü ve kullanılmıyordu sahip bir şema göz önünde bulundurulduğunda, (içinde Seattle, apartman dairesi, rıhtımının) ölçütlerinizi karşılayan belgeleri açıkça seçmek için bir filtre oluşturabilir. 
 
-  Tam metin araması aynı girişlerle genellikle şuna benzer sonuçlar üretir, ancak tam bir eşleşme içerik dizininize göre filtre döneminin gerektirir, bir filtre daha kesin. 
+   Tam metin araması aynı girişlerle genellikle şuna benzer sonuçlar üretir, ancak tam bir eşleşme içerik dizininize göre filtre döneminin gerektirir, bir filtre daha kesin. 
 
 2. Arama deneyimi, bir filtre gereksinimiyle geliyorsa bir filtre kullanın:
 
- * [Çok yönlü gezinme](search-faceted-navigation.md) kullanıcı tarafından seçilen modeli kategori geri geçirmek için bir filtre kullanır.
- * Coğrafi arama, "Yakınımda Bul" geçerli konumu koordinatlarını uygulamaları geçirmek için bir filtre kullanır. 
- * Güvenlik filtreleri güvenlik tanımlayıcıları, burada dizindeki bir eşleşme belgeye erişim hakları için proxy olarak hizmet veren filtre ölçütü olarak geçirin.
+   * [Çok yönlü gezinme](search-faceted-navigation.md) kullanıcı tarafından seçilen modeli kategori geri geçirmek için bir filtre kullanır.
+   * Coğrafi arama, "Yakınımda Bul" geçerli konumu koordinatlarını uygulamaları geçirmek için bir filtre kullanır. 
+   * Güvenlik filtreleri güvenlik tanımlayıcıları, burada dizindeki bir eşleşme belgeye erişim hakları için proxy olarak hizmet veren filtre ölçütü olarak geçirin.
 
 3. Arama ölçütleri sayısal bir alan üzerinde filtre kullanın. 
 
-  Sayısal alanlar belge odalı ve arama sonuçlarında görünebilir, ancak bunlar ayrı ayrı (tam metin araması tabidir) aranabilir değil. Sayısal verileri temel alan seçim ölçütü gerekirse bir filtre uygulayın.
+   Sayısal alanlar belge odalı ve arama sonuçlarında görünebilir, ancak bunlar ayrı ayrı (tam metin araması tabidir) aranabilir değil. Sayısal verileri temel alan seçim ölçütü gerekirse bir filtre uygulayın.
 
 ### <a name="alternative-methods-for-reducing-scope"></a>Kapsam azaltmak için alternatif yöntemler
 
@@ -141,10 +141,8 @@ REST API'SİNDE filtrelenemez olup *üzerinde* varsayılan olarak. Filtrelenebil
 
 Bir alan filtrelenebilir olmayan ve filtrelenebilir yapmak istiyorsanız yeni bir alan eklemek veya var olan alanın yeniden oluşturmak zorunda. Bir alan tanımı değiştirilmesi dizinin fiziksel yapısını değiştirir. Azure Search'te tüm izin verilen erişim yollarını, alan tanımları değiştirdiğinizde, veri yapılarının yeniden BIOS'ta hızlı sorgu hızı için dizine eklenir. 
 
-Her bir alanı yeniden dizine her belgenin geri kalanında dokunmadan, mevcut belge anahtarını ve ilişkili değerleri gönderen bir birleştirme işlemi gerektiren bir düşük etki işlemi olabilir. Yeniden derleme gereksinim karşılaşırsanız, yönergeler için aşağıdaki bağlantılara bakın:
+Her bir alanı yeniden dizine her belgenin geri kalanında dokunmadan, mevcut belge anahtarını ve ilişkili değerleri gönderen bir birleştirme işlemi gerektiren bir düşük etki işlemi olabilir. Yeniden gereksinim karşılaşırsanız bkz [eylemleri dizin oluşturma (karşıya yükleme, birleştirme, mergeOrUpload, silme)](search-what-is-data-import.md#indexing-actions) seçeneklerin bir listesi için.
 
- + [.NET SDK kullanarak dizin oluşturma eylemleri](https://docs.microsoft.com/azure/search/search-import-data-dotnet#decide-which-indexing-action-to-use)
- + [REST API kullanarak dizin oluşturma eylemleri](https://docs.microsoft.com/azure/search/search-import-data-rest-api#decide-which-indexing-action-to-use)
 
 ## <a name="text-filter-fundamentals"></a>Metin filtresi temelleri
 
@@ -157,8 +155,8 @@ Metin dizelerinin büyük/küçük harfe duyarlıdır. Hiçbir alt-büyük/küç
 
 | Yaklaşım | Açıklama | 
 |----------|-------------|
-| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Belirli bir alanı için dizelerin virgülle ayrılmış listesi sağlayan bir işlev. Dizeleri kapsamda sorgu için her alana uygulanan filtre ölçütlerini kapsar. <br/><br/>`search.in(f, ‘a, b, c’)` anlamsal olarak eşdeğer olan `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`dışında değerler listesinin büyük olduğunda çok daha hızlı yürütür.<br/><br/>Öneririz **search.in** için işlev [güvenlik filtreleri](search-security-trimming-for-azure-search.md) ve herhangi bir filtre, belirli bir alandaki değerlere eşleştirilecek ham metin oluşan için. Bu yaklaşım, hız için tasarlanmıştır. Yüz binlerce değerleri için subsecond yanıt süresi bekleyebilirsiniz. Açık sınırsız işlevine geçirilebilecek öğe sayısını olsa da, gecikme süresi derlemekten sağladığınız dizeleri sayısını artırır. | 
-| [Search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Tam metin arama işlemleri kesinlikle Boole filtresi işlemleri aynı filtre ifadesi olan karıştırmak izin veren bir işlev. Bu, birden çok sorgu filtresi kombinasyonları için geçerli bir istek sağlar. Bunun için de kullanabilirsiniz bir *içeren* filtresi üzerinde daha büyük bir dizedeki bir kısmi dize. |  
+| [search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Belirli bir alanı için dizelerin virgülle ayrılmış listesi sağlayan bir işlev. Dizeleri kapsamda sorgu için her alana uygulanan filtre ölçütlerini kapsar. <br/><br/>`search.in(f, ‘a, b, c’)` anlamsal olarak eşdeğer olan `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`dışında değerler listesinin büyük olduğunda çok daha hızlı yürütür.<br/><br/>Öneririz **search.in** için işlev [güvenlik filtreleri](search-security-trimming-for-azure-search.md) ve herhangi bir filtre, belirli bir alandaki değerlere eşleştirilecek ham metin oluşan için. Bu yaklaşım, hız için tasarlanmıştır. Yüz binlerce değerleri için subsecond yanıt süresi bekleyebilirsiniz. Açık sınırsız işlevine geçirilebilecek öğe sayısını olsa da, gecikme süresi derlemekten sağladığınız dizeleri sayısını artırır. | 
+| [search.ismatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Tam metin arama işlemleri kesinlikle Boole filtresi işlemleri aynı filtre ifadesi olan karıştırmak izin veren bir işlev. Bu, birden çok sorgu filtresi kombinasyonları için geçerli bir istek sağlar. Bunun için de kullanabilirsiniz bir *içeren* filtresi üzerinde daha büyük bir dizedeki bir kısmi dize. |  
 | [$filter işleci dizesi alanı =](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Kullanıcı tanımlı bir ifade alanlarını, işleçlerini ve değerlerini oluşur. | 
 
 ## <a name="numeric-filter-fundamentals"></a>Sayısal filtre temelleri

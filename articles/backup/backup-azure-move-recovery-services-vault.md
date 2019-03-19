@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.author: sogup
-ms.openlocfilehash: 0ab626bffa3520af0ea23314cbaed118d66e280f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0eb19ba8278df2d77466e5be13731723557e85a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008268"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082084"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Azure abonelik ve kaynak gruplarında (sınırlı genel Önizleme) bir kurtarma Hizmetleri kasası Taşı
 
@@ -37,10 +37,8 @@ Bu makalede, Azure abonelikleri genelinde veya başka bir kaynak grubuna aynı a
 -   Abonelikler arasında VM yedekleme verilerini içeren bir kasayı taşırsanız, Vm'lerinizin aynı aboneliğe taşıyın ve yedeklemeler devam etmek için aynı hedef kaynak grubu kullanın.<br>
 
 > [!NOTE]
->
-Kurtarma Hizmetleri kasaları ile kullanmak üzere yapılandırılmış **Azure Site Recovery** , henüz taşınamıyor. Herhangi bir VM yapılandırdıysanız (Azure Iaas, Hyper-V, VMware) veya fiziksel makineler için olağanüstü durum kurtarma'yı kullanarak **Azure Site Recovery**, taşıma işlemi engellenir. Site Recovery hizmeti için kaynak taşıma özelliğini henüz kullanılamıyor.
->
->
+> 
+> Kurtarma Hizmetleri kasaları ile kullanmak üzere yapılandırılmış **Azure Site Recovery** , henüz taşınamıyor. Herhangi bir VM yapılandırdıysanız (Azure Iaas, Hyper-V, VMware) veya fiziksel makineler için olağanüstü durum kurtarma'yı kullanarak **Azure Site Recovery**, taşıma işlemi engellenir. Site Recovery hizmeti için kaynak taşıma özelliğini henüz kullanılamıyor.
 
 ## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>Kurtarma Hizmetleri kasasına taşımak için kaynak aboneliği Kaydet
 
@@ -48,26 +46,26 @@ Kaynak aboneliği kaydetmek için **taşıma** kurtarma Hizmetleri kasasına, Po
 
 1. Azure hesabınızda oturum açma
 
-  ```
-  Connect-AzureRmAccount
-  ```
+   ```
+   Connect-AzureRmAccount
+   ```
 
-2.  Kaydetmek istediğiniz aboneliği seçin
+2. Kaydetmek istediğiniz aboneliği seçin
 
-    ```
-    Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-3.  Bu aboneliği Kaydet
+   ```
+   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+   ```
+3. Bu aboneliği Kaydet
 
-  ```
-  Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
-  ```
+   ```
+   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   ```
 
 4. Komutunu çalıştırın
 
-  ```
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-  ```
+   ```
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   ```
 
 Abonelik taşıma işlemi Azure portal veya PowerShell kullanarak başlamadan önce Güvenilenler listesine eklenmek 30 dakika bekleyin.
 
@@ -78,27 +76,27 @@ Bir kurtarma Hizmetleri kasası ve ilişkili kaynakları farklı bir kaynak grub
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Listesini açmak **kurtarma Hizmetleri kasaları** ve taşımak istediğiniz kasayı seçin. Kasa panosunda oturum açtığında, aşağıdaki görüntüde gösterildiği gibi görünür.
 
-  ![Açık kurtarma Hizmetleri kasası](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+   ![Açık kurtarma Hizmetleri kasası](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-  Görmüyorsanız, **Essentials** , kasa için bilgileri açılan simgesine tıklayın. Artık kasanız için temel bilgileri görmeniz gerekir.
+   Görmüyorsanız, **Essentials** , kasa için bilgileri açılan simgesine tıklayın. Artık kasanız için temel bilgileri görmeniz gerekir.
 
-  ![Temel bilgi sekmesi](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
+   ![Temel bilgi sekmesi](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
 3. Kasa genel bakış menüde **değiştirme** yanındaki **kaynak grubu**açmak için **kaynakları taşıma** dikey penceresi.
 
-  ![Kaynak grubu Değiştir](./media/backup-azure-move-recovery-services/change-resource-group.png)
+   ![Kaynak grubu Değiştir](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
 4. İçinde **kaynakları taşıma** dikey penceresinde, seçilen kasa için önerilir aşağıdaki görüntüde gösterildiği gibi onay kutusunu seçerek ilgili isteğe bağlı kaynakları Taşı.
 
-  ![Abonelik taşıma](./media/backup-azure-move-recovery-services/move-resource.png)
+   ![Abonelik taşıma](./media/backup-azure-move-recovery-services/move-resource.png)
 
 5. Hedef kaynak grubu eklemek için **kaynak grubu** açılan listesini seçin mevcut bir kaynak grubu veya tıklayın **yeni bir grup oluşturmak** seçeneği.
 
-  ![Kaynak Oluştur](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
+   ![Kaynak Oluştur](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
 6. Kaynak grubuna ekledikten sonra onaylayın **bunları yeni kaynak kimliğini kullanacak şekilde güncelleştirilene kadar araçların ve komut dosyalarının taşınmış kaynaklarla ilişkili çalışmayacağını anlıyorum** seçeneğini ve ardından **Tamam** tamamlamak için Kasa taşıma.
 
-  ![Onay iletisi](./media/backup-azure-move-recovery-services/confirmation-message.png)
+   ![Onay iletisi](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
 
 ## <a name="use-azure-portal-to-move-a-recovery-services-vault-to-a-different-subscription"></a>Kurtarma Hizmetleri kasası farklı bir aboneliğe taşımak için Azure portalını kullanma
@@ -116,16 +114,16 @@ Bir kurtarma Hizmetleri kasasını ve ilişkili kaynakları farklı bir aboneli�
 
 3. Kasa genel bakış menüde **değiştirme** yanındaki **abonelik**açmak için **kaynakları taşıma** dikey penceresi.
 
-  ![Aboneliği Değiştir](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
+   ![Aboneliği Değiştir](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
 4. Taşınacak, kaynakları seçin kullanmanızı öneririz burada **Tümünü Seç** seçeneği listelenen tüm isteğe bağlı kaynakları seçin.
 
-  ![Kaynak taşıma](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
+   ![Kaynak taşıma](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
 5. Hedef abonelik seçin **abonelik** aşağı açılan listesinde, istediğiniz kasaya taşınacak.
 6. Hedef kaynak grubu eklemek için **kaynak grubu** açılan listesini seçin mevcut bir kaynak grubu veya tıklayın **yeni bir grup oluşturmak** seçeneği.
 
-  ![Abonelik Ekle](./media/backup-azure-move-recovery-services/add-subscription.png)
+   ![Abonelik Ekle](./media/backup-azure-move-recovery-services/add-subscription.png)
 
 7. Tıklayın **bunları yeni kaynak kimliğini kullanacak şekilde güncelleştirilene kadar araçların ve komut dosyalarının taşınmış kaynaklarla ilişkili çalışmayacağını anlıyorum** onaylayın ve ardından seçeneği **Tamam**.
 

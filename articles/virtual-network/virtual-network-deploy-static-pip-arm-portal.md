@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: jdial
-ms.openlocfilehash: 9b6db45e38267c70adef3f5a341b8b918b9e78fb
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 42e035b9dca6168fe77e6982505692cf18bfcb40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714436"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106432"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Azure portalını kullanarak statik genel IP adresiyle bir sanal makine oluşturun
 
@@ -58,7 +58,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
    ![Bir bağlantı noktası seçin](./media/virtual-network-deploy-static-pip-arm-portal/select-port.png)
 
 7. Geri kalan varsayılan ayarları kabul edin ve seçin **Tamam**.
-8. Üzerinde **özeti** sayfasında **Oluştur**. Sanal makinenin dağıtılması birkaç dakika sürer.
+8. **Özet** sayfasında **Oluştur**'u seçin. Sanal makinenin dağıtılması birkaç dakika sürer.
 9. Sanal makine dağıtıldıktan sonra girin *Mypublicıpaddress* portalın üst kısmındaki arama kutusuna. Zaman **Mypublicıpaddress** arama sonuçlarında görünür.
 10. Atanan ve adresi atanan genel IP adresini görüntüleyebilirsiniz **myVM** sanal makine, aşağıdaki resimde gösterildiği gibi:
 
@@ -71,7 +71,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
     ![Görünüm genel IP adresi](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-configuration.png)
 
 > [!WARNING]
-Sanal makinenin işletim sistemi içinde IP adresi ayarlarını değiştirmeyin. İşletim sistemi Azure genel IP adreslerini farkında değil. Özel IP adresi ayarları işletim sistemine ekleyebilirsiniz ancak sürece bunu öneririz gerektiği kadar edindikten sonra değil [bir işletim sistemine özel bir IP adresi Ekle](virtual-network-network-interface-addresses.md#private).
+> Sanal makinenin işletim sistemi içinde IP adresi ayarlarını değiştirmeyin. İşletim sistemi Azure genel IP adreslerini farkında değil. Özel IP adresi ayarları işletim sistemine ekleyebilirsiniz ancak sürece bunu öneririz gerektiği kadar edindikten sonra değil [bir işletim sistemine özel bir IP adresi Ekle](virtual-network-network-interface-addresses.md#private).
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

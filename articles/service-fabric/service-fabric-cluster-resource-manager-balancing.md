@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 534a9584427efd15b8119f8421fb041199b97fbf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9a124bd9a52e22c359fb771e4d4c8714bd1dbe2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731591"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123241"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Service fabric kümenizi Dengeleme
 Service Fabric küme kaynak yöneticisi ekleme veya çıkarma düğümleri veya hizmetler için tepki dinamik yük değişiklikleri destekler. Sabiti ihlallerini de otomatik olarak düzeltir ve proaktif olarak kümeye yeniden dengeler. Ancak bu eylemler ne sıklıkta alınır ve bunları tetikler?
@@ -122,6 +122,7 @@ tek başına dağıtımlarında ClusterConfig.json veya Azure için Template.jso
 ```
 
 <center>
+
 ![Eşik örnek Dengeleme][Image1]
 </center>
 
@@ -130,6 +131,7 @@ Bu örnekte, her hizmetin bir bazı ölçüm birimi tüketiyor. İlk örnekte, b
 En az iki beş bir oranı kaynaklanan olmakla birlikte alt örnek bir düğümde en fazla yükü 10 ' dur. Beş üç Bu ölçüm için belirlenen karşı eşik değerinden büyüktür. Sonuç olarak, bir çalıştırma yeniden Dengeleme karşı Zamanlayıcı harekete zamanlanmış bir sonraki açışınızda olacaktır. Böyle bir durumda Düğüm3 için genellikle bazı yük dağıtılır. Bazı yük, aynı zamanda Service Fabric Küme Kaynak Yöneticisi doyumsuz bir yaklaşım kullanmadığı Düğüm2 için Dağıtılmış. 
 
 <center>
+
 ![Eşik örnek eylemleri Dengeleme][Image2]
 </center>
 
@@ -145,6 +147,7 @@ Bazen, düğümlerinin görece imbalanced olmasına rağmen *toplam* kümesindek
 Biz bu ölçümün üç bizim Dengeleme eşiği korumak varsayalım. Ayrıca bir etkinlik eşiğini 1536 sahibiz varsayalım. Küme Dengeleme yoktur eşiği imbalanced olsa bu durumda, bu etkinlik eşiği hiçbir düğüm hiçbir şey olmuyor şekilde karşılar. Alt örnekte Node1 etkinliği eşiğin üstünde ' dir. Dengeleme eşiği hem ölçüm etkinlik eşiği aştığından, Dengeleme zamanlanır. Örneğin, aşağıdaki diyagramda bakalım: 
 
 <center>
+
 ![Etkinlik eşiği örneği][Image3]
 </center>
 
@@ -194,6 +197,7 @@ Bazen kendisi imbalanced olmadığı hizmet taşınmış ancak (yerel tartışma
 Elbette, burada buraya ekleyeceğiz görebilirsiniz: Zinciri yoktur! Biz dört bağımsız Hizmetleri gerçekten yoksa, üç hizmetlerinin ilgili ve kendi kendine kapalı bir sahibiz.
 
 <center>
+
 ![Dengeleme hizmetlerini birlikte][Image4]
 </center>
 
@@ -202,6 +206,7 @@ Bu zincir nedeniyle dengesizlik ölçümler 1-4 içinde çoğaltmalar veya harek
 Küme Kaynak Yöneticisi, hangi hizmetlerin ilgili otomatik olarak belirler. Ekleme, kaldırma veya hizmetleri için ölçümler değiştirme ilişkilerini etkileyebilir. Örneğin, Service2 Dengeleme iki çalıştırma arasında Metric2 kaldırmak için güncelleştirilmiş olabilir. Bu zincir Service1 Service2 arasındaki keser. Şimdi iki ilgili hizmetler grupları yerine vardır üç:
 
 <center>
+
 ![Dengeleme hizmetlerini birlikte][Image5]
 </center>
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 22347ce7296dc55d98f1ee6d4458fa6d7c5a21e6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551301"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902255"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -73,7 +73,7 @@ Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Otomasy
 6. Üzerinde **Çözüm Ekle** sayfasında **Otomasyon hesabı**. Yeni bir Log Analytics çalışma alanı oluşturuyorsanız, kendisiyle ilişkilendirilmiş olması için yeni bir Otomasyon hesabı oluşturun veya bir Log Analytics çalışma alanına bağlı olmayan bir Otomasyon hesabı seçin. Mevcut bir Otomasyon hesabı seçin veya **Otomasyon hesabı oluşturma**ve **Otomasyon hesabı Ekle** sayfasında, aşağıdaki bilgileri sağlayın:
    - **Ad** alanına Otomasyon hesabının adını girin.
 
-    Diğer tüm seçenekler seçili Log Analytics çalışma alanı otomatik olarak doldurulur. Bu seçenekler değiştirilemez. Bu çözüme dahil olan runbook'lar için varsayılan kimlik doğrulama yöntemi, bir Azure Farklı Çalıştır hesabıdır. Tıkladıktan sonra **Tamam**, yapılandırma seçenekleri doğrulanır ve Otomasyon hesabı oluşturulur. Bu işlemin ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz.
+     Diğer tüm seçenekler seçili Log Analytics çalışma alanı otomatik olarak doldurulur. Bu seçenekler değiştirilemez. Bu çözüme dahil olan runbook'lar için varsayılan kimlik doğrulama yöntemi, bir Azure Farklı Çalıştır hesabıdır. Tıkladıktan sonra **Tamam**, yapılandırma seçenekleri doğrulanır ve Otomasyon hesabı oluşturulur. Bu işlemin ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz.
 
 7. Son olarak, üzerinde **Çözüm Ekle** sayfasında **yapılandırma**. **Parametreleri** sayfası görüntülenir.
 
@@ -289,8 +289,8 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan iş kayıtlarına ilişki
 
 |Sorgu | Açıklama|
 |----------|----------|
-|Runbook'una ilişkin başarıyla tamamlanmış ScheduledStartStop_Parent Bul | ```search Category == "JobLogs" | Burada (RunbookName_s "ScheduledStartStop_Parent" ==) | Burada (resulttype'ı "Tamamlandı" ==)  | Özetleme |AggregatedValue = count() tarafından resulttype'ı, bin (TimeGenerated, 1 saat) | Sort TimeGenerated desc tarafından '''|
-|Runbook'una ilişkin başarıyla tamamlanmış SequencedStartStop_Parent Bul | ```search Category == "JobLogs" | Burada (RunbookName_s "SequencedStartStop_Parent" ==) | Burada (resulttype'ı "Tamamlandı" ==) | Özetleme |AggregatedValue = count() tarafından resulttype'ı, bin (TimeGenerated, 1 saat) | Sort TimeGenerated desc tarafından '''|
+|Runbook'una ilişkin başarıyla tamamlanmış ScheduledStartStop_Parent Bul | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
+|Runbook'una ilişkin başarıyla tamamlanmış SequencedStartStop_Parent Bul | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize <br>&#124; AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc```|
 
 ## <a name="viewing-the-solution"></a>Çözümü görüntüleme
 

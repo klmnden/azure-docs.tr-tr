@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93e33ea311a064058e739bfcf6d63dc2d5462110
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7dfef0e27dd3e38e5a965f47a47619671a3127b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435074"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117668"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Galeri dışı uygulamalar için çoklu oturum açma, Azure Active Directory'de yapılandırma
 
@@ -29,8 +29,8 @@ Bu özellikler ayrıca, lisans sözleşmenize göre kullanılabilir. Daha fazla 
 
 - SAML 2.0 kimlik sağlayıcısı (SP tarafından başlatılan veya IDP tarafından başlatılan) destekleyen herhangi bir uygulamanın Self Servis tümleştirme
 - Self Servis tümleştirme kullanarak bir HTML tabanlı oturum açma sayfası olan herhangi bir web uygulaması [parola tabanlı SSO](what-is-single-sign-on.md#password-based-sso)
-* Self Servis bağlantı kullanıcı sağlama için SCIM'yi protokolünü kullanan uygulamalar ([burada açıklanan](use-scim-to-provision-users-and-groups.md))
-* Herhangi bir uygulama için bağlantılar ekleme yeteneği [Office 365 uygulama başlatıcısında](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) veya [Azure AD erişim paneli](what-is-single-sign-on.md#linked-sso)
+- Self Servis bağlantı kullanıcı sağlama için SCIM'yi protokolünü kullanan uygulamalar ([burada açıklanan](use-scim-to-provision-users-and-groups.md))
+- Herhangi bir uygulama için bağlantılar ekleme yeteneği [Office 365 uygulama başlatıcısında](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) veya [Azure AD erişim paneli](what-is-single-sign-on.md#linked-sso)
 
 Bu yalnızca kullanan ancak henüz için Azure AD uygulama Galerisi konaklarınızda yok SaaS uygulamaları içerebilir, ancak kuruluşunuzun Bulut veya şirket içi denetim sunucuları dağıtılan üçüncü taraf web uygulamaları.
 

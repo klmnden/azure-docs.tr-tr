@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1f1fbc49a42ec9b72ebe74a96ee099630d7416b1
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 06478cb3366054bd20239bf80f026562efd26232
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570672"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087406"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>OData ifadesi söz dizimi filtreleri ve Azure Search order by yan tümceleri
 
@@ -55,62 +55,62 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 ### <a name="filter-operators"></a>Filtre işleçleri  
 
--   Mantıksal işleçler (ve, veya değil).  
+- Mantıksal işleçler (ve, veya değil).  
 
--   Karşılaştırma ifadeleri (`eq, ne, gt, lt, ge, le`). Dize karşılaştırmaları büyük/küçük harfe duyarlıdır.  
+- Karşılaştırma ifadeleri (`eq, ne, gt, lt, ge, le`). Dize karşılaştırmaları büyük/küçük harfe duyarlıdır.  
 
--   Desteklenen sabitleri [varlık veri modeli](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) türleri (bkz [desteklenen veri türleri &#40;Azure Search&#41; ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) desteklenen türlerinin bir listesi için). Sabit koleksiyon türleri desteklenmez.  
+- Desteklenen sabitleri [varlık veri modeli](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) türleri (bkz [desteklenen veri türleri &#40;Azure Search&#41; ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) desteklenen türlerinin bir listesi için). Sabit koleksiyon türleri desteklenmez.  
 
--   Alan adlarına başvurular. Yalnızca `filterable` filtre ifadelerinde alanlar kullanılabilir.  
+- Alan adlarına başvurular. Yalnızca `filterable` filtre ifadelerinde alanlar kullanılabilir.  
 
--   `any` Hiçbir parametre olmadan. Bu tür bir alan olup olmadığını test `Collection(Edm.String)` tüm öğeleri içerir.  
+- `any` Hiçbir parametre olmadan. Bu tür bir alan olup olmadığını test `Collection(Edm.String)` tüm öğeleri içerir.  
 
--   `any` ve `all` sınırlı bir lambda ifadesi desteği. 
+- `any` ve `all` sınırlı bir lambda ifadesi desteği. 
     
-    -   `any/all` türünde alanlar üzerinde desteklenen `Collection(Edm.String)`. 
+  -   `any/all` türünde alanlar üzerinde desteklenen `Collection(Edm.String)`. 
     
-    -   `any` yalnızca basit eşitlik ifadeleridir veya ile kullanılabilir bir `search.in` işlevi. Örneğin oluşmalıdır ve tek bir alan ve bir değişmez değer arasında bir karşılaştırma basit ifadeler `Title eq 'Magna Carta'`.
+  -   `any` yalnızca basit eşitlik ifadeleridir veya ile kullanılabilir bir `search.in` işlevi. Örneğin oluşmalıdır ve tek bir alan ve bir değişmez değer arasında bir karşılaştırma basit ifadeler `Title eq 'Magna Carta'`.
     
-    -   `all` yalnızca basit eşitsizlik ifadeleri ile veya kullanılabilir bir `not search.in`.   
+  -   `all` yalnızca basit eşitsizlik ifadeleri ile veya kullanılabilir bir `not search.in`.   
 
--   Jeo-uzamsal işlevler `geo.distance` ve `geo.intersects`. `geo.distance` İşlevi iki nokta mesafeyi içinde uzaklık döndürür, geçirilen filtre bir parçası olarak bir alan ve bir sabit olan bir oluşturuluyor. `geo.intersects` Belirli bir noktaya içinde belirli bir Çokgen ise, bir alan noktasıdır ve Çokgen filtresinin bir bölümü olarak geçirilen bir sabit olarak belirtildiğinden işlev true döndürür.  
+- Jeo-uzamsal işlevler `geo.distance` ve `geo.intersects`. `geo.distance` İşlevi iki nokta mesafeyi içinde uzaklık döndürür, geçirilen filtre bir parçası olarak bir alan ve bir sabit olan bir oluşturuluyor. `geo.intersects` Belirli bir noktaya içinde belirli bir Çokgen ise, bir alan noktasıdır ve Çokgen filtresinin bir bölümü olarak geçirilen bir sabit olarak belirtildiğinden işlev true döndürür.  
 
-    Çokgen depolanan bir iki boyutlu yüzeydir noktaları dizisi olarak bir sınırlayıcı tanımlama halka (aşağıdaki örneğe bakın). Çokgen kapatılması, yani ilk gerekir ve son noktası kümeleri aynı olması gerekir. [Bir çokgenin noktaları saat yönünün tersi sırada olması gerekir](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
+  Çokgen depolanan bir iki boyutlu yüzeydir noktaları dizisi olarak bir sınırlayıcı tanımlama halka (aşağıdaki örneğe bakın). Çokgen kapatılması, yani ilk gerekir ve son noktası kümeleri aynı olması gerekir. [Bir çokgenin noktaları saat yönünün tersi sırada olması gerekir](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
-    `geo.distance` Azure Search'te mesafeyi kilometre cinsinden uzaklığı döndürür. Bu, genellikle uzaklıkları ölçütleri dönüş OData Jeo-uzamsal işlemleri destekleyen diğer hizmetlerden farklıdır.  
+  `geo.distance` Azure Search'te mesafeyi kilometre cinsinden uzaklığı döndürür. Bu, genellikle uzaklıkları ölçütleri dönüş OData Jeo-uzamsal işlemleri destekleyen diğer hizmetlerden farklıdır.  
 
-    > [!NOTE]  
-    >  GEO.distance filtrede kullanırken, sabit kullanarak işlevi tarafından döndürülen uzaklık karşılaştırmalıdır `lt`, `le`, `gt`, veya `ge`. İşleçler `eq` ve `ne` uzaklıkları karşılaştırılırken desteklenmez. Örneğin, bir doğru kullanımı geo.distance budur: `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.  
+  > [!NOTE]  
+  >  GEO.distance filtrede kullanırken, sabit kullanarak işlevi tarafından döndürülen uzaklık karşılaştırmalıdır `lt`, `le`, `gt`, veya `ge`. İşleçler `eq` ve `ne` uzaklıkları karşılaştırılırken desteklenmez. Örneğin, bir doğru kullanımı geo.distance budur: `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`.  
 
--   `search.in` İşlevi verilen dize alanı verilen değerlerin listesini birine eşit olup olmadığını test eder. Bu ayrıca any veya all, tek bir dize koleksiyonu alanı değer verilen değerlerin listesini ile karşılaştırmak için kullanılabilir. Alan ve listedeki her değer arasındaki aynı şekilde olarak büyük küçük harfe duyarlı bir biçimde belirlenir `eq` işleci. Bu nedenle bir ifade ister `search.in(myfield, 'a, b, c')` eşdeğerdir `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`dışında `search.in` çok daha iyi performans verir. 
+- `search.in` İşlevi verilen dize alanı verilen değerlerin listesini birine eşit olup olmadığını test eder. Bu ayrıca any veya all, tek bir dize koleksiyonu alanı değer verilen değerlerin listesini ile karşılaştırmak için kullanılabilir. Alan ve listedeki her değer arasındaki aynı şekilde olarak büyük küçük harfe duyarlı bir biçimde belirlenir `eq` işleci. Bu nedenle bir ifade ister `search.in(myfield, 'a, b, c')` eşdeğerdir `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`dışında `search.in` çok daha iyi performans verir. 
 
-    İlk parametre olarak `search.in` işlev, dizeyi alan başvurusu (veya bir aralık değişkeni bir dize koleksiyonu alanı durumda üzerinden burada `search.in` içinde kullanılan bir `any` veya `all` ifadesi). İkinci parametre değerleri, boşluk ve/veya virgülle ayrılmış listesini içeren bir dizedir. Değerlerinizin bu karakterleri içerdiğinden boşluk ve virgül dışındaki ayırıcıları kullanmanız gerekiyorsa, isteğe bağlı üçüncü bir parametre belirtebilirsiniz `search.in`. 
+  İlk parametre olarak `search.in` işlev, dizeyi alan başvurusu (veya bir aralık değişkeni bir dize koleksiyonu alanı durumda üzerinden burada `search.in` içinde kullanılan bir `any` veya `all` ifadesi). İkinci parametre değerleri, boşluk ve/veya virgülle ayrılmış listesini içeren bir dizedir. Değerlerinizin bu karakterleri içerdiğinden boşluk ve virgül dışındaki ayırıcıları kullanmanız gerekiyorsa, isteğe bağlı üçüncü bir parametre belirtebilirsiniz `search.in`. 
 
-    Bu üçüncü parametresi, burada her karakter dizesinin veya bu dizenin alt ayırıcı olarak ikinci parametre değerleri listesi ayrıştırılırken değerlendirilir bir dizedir.
+  Bu üçüncü parametresi, burada her karakter dizesinin veya bu dizenin alt ayırıcı olarak ikinci parametre değerleri listesi ayrıştırılırken değerlendirilir bir dizedir.
 
-    > [!NOTE]   
-    > Bazı senaryolar, çok sayıda sabit değerler karşı bir alan karşılaştırma gerektirir. Örneğin, güvenlik kırpma filtrelerle uygulama Belge Kimliği alanı kimlikleri okuma erişimi izni isteyen kullanıcı için bir listesiyle karşılaştıran gerektirebilir. Bu gibi senaryolarda kullanarak öneririz `search.in` eşitlik ifadeleridir, daha karmaşık bir ayrım yerine işlevi. Örneğin, `search.in(Id, '123, 456, ...')` yerine `Id eq 123 or Id eq 456 or ....`. 
-    >
-    > Kullanırsanız `search.in`, ikinci parametre, yüzlerce veya binlerce değerlerinin listesini içerdiğinde saniyenin altındaki yanıt süresi bekleyebilirsiniz. Öğe sayısı için geçirebilirsiniz açık sınırsız olduğunu unutmayın `search.in`, ancak yine de en büyük istek boyutuyla sınırlıdır. Ancak, değerler sayısı arttıkça gecikme çıkarılır.
+  > [!NOTE]   
+  > Bazı senaryolar, çok sayıda sabit değerler karşı bir alan karşılaştırma gerektirir. Örneğin, güvenlik kırpma filtrelerle uygulama Belge Kimliği alanı kimlikleri okuma erişimi izni isteyen kullanıcı için bir listesiyle karşılaştıran gerektirebilir. Bu gibi senaryolarda kullanarak öneririz `search.in` eşitlik ifadeleridir, daha karmaşık bir ayrım yerine işlevi. Örneğin, `search.in(Id, '123, 456, ...')` yerine `Id eq 123 or Id eq 456 or ....`. 
+  >
+  > Kullanırsanız `search.in`, ikinci parametre, yüzlerce veya binlerce değerlerinin listesini içerdiğinde saniyenin altındaki yanıt süresi bekleyebilirsiniz. Öğe sayısı için geçirebilirsiniz açık sınırsız olduğunu unutmayın `search.in`, ancak yine de en büyük istek boyutuyla sınırlıdır. Ancak, değerler sayısı arttıkça gecikme çıkarılır.
 
--   `search.ismatch` İşlevi, arama sorgusu bir filtre ifadesi bir parçası olarak değerlendirir. Arama sorgusuyla eşleşen belgelerin sonuç kümesinde döndürülür. Bu işlevin aşağıdaki aşırı kullanılabilir:
-    - `search.ismatch(search)`
-    - `search.ismatch(search, searchFields)`
-    - `search.ismatch(search, searchFields, queryType, searchMode)`
+- `search.ismatch` İşlevi, arama sorgusu bir filtre ifadesi bir parçası olarak değerlendirir. Arama sorgusuyla eşleşen belgelerin sonuç kümesinde döndürülür. Bu işlevin aşağıdaki aşırı kullanılabilir:
+  - `search.ismatch(search)`
+  - `search.ismatch(search, searchFields)`
+  - `search.ismatch(search, searchFields, queryType, searchMode)`
 
-    burada: 
+  burada: 
   
-    - `search`: arama sorgusu (her ikisinde [basit](query-simple-syntax.md) veya [tam](query-lucene-syntax.md) sorgu söz dizimi). 
-    - `queryType`: "Basit" veya "tam" varsayılan "Basit". Hangi sorgu dili kullanıldı belirtir `search` parametresi.
-    - `searchFields`: tüm aranabilir alanları dizindeki Varsayılanları, içinde arama yapmak aranabilir alanların virgülle ayrılmış listesi.    
-    - `searchMode`: "tümü" veya "tüm" varsayılan "herhangi bir". Arama terimleriyle tüm belgeyi bir eşleşme olarak saymak için eşlenmesi gereken olup olmadığını gösterir.
+  - `search`: arama sorgusu (her ikisinde [basit](query-simple-syntax.md) veya [tam](query-lucene-syntax.md) sorgu söz dizimi). 
+  - `queryType`: "Basit" veya "tam" varsayılan "Basit". Hangi sorgu dili kullanıldı belirtir `search` parametresi.
+  - `searchFields`: tüm aranabilir alanları dizindeki Varsayılanları, içinde arama yapmak aranabilir alanların virgülle ayrılmış listesi.    
+  - `searchMode`: "tümü" veya "tüm" varsayılan "herhangi bir". Arama terimleriyle tüm belgeyi bir eşleşme olarak saymak için eşlenmesi gereken olup olmadığını gösterir.
 
-    Yukarıdaki tüm parametreleri karşılık gelen eşdeğerdir [istek parametrelerini arama](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+  Yukarıdaki tüm parametreleri karşılık gelen eşdeğerdir [istek parametrelerini arama](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
--   `search.ismatchscoring` Gibi işlev `search.ismatch` işlev, parametre olarak geçen arama sorgusuyla eşleşen belgeler için true değerini döndürür. İlgi eşleşen belgelerin puan fark aralarında `search.ismatchscoring` sorgu durumunda sırada genel belge puanı katkıda `search.ismatch`, belge puanı değiştirilmez. Bu işlevin aşağıdaki aşırı gereksinimlerine aynı parametrelerle kullanılabilir `search.ismatch`:
-    - `search.ismatchscoring(search)`
-    - `search.ismatchscoring(search, searchFields)`
-    - `search.ismatchscoring(search, searchFields, queryType, searchMode)`
+- `search.ismatchscoring` Gibi işlev `search.ismatch` işlev, parametre olarak geçen arama sorgusuyla eşleşen belgeler için true değerini döndürür. İlgi eşleşen belgelerin puan fark aralarında `search.ismatchscoring` sorgu durumunda sırada genel belge puanı katkıda `search.ismatch`, belge puanı değiştirilmez. Bu işlevin aşağıdaki aşırı gereksinimlerine aynı parametrelerle kullanılabilir `search.ismatch`:
+  - `search.ismatchscoring(search)`
+  - `search.ismatchscoring(search, searchFields)`
+  - `search.ismatchscoring(search, searchFields, queryType, searchMode)`
 
   `search.ismatch` Ve `search.ismatchscoring` birbirleriyle ve filtre Cebir geri kalanı ile tam olarak dikgen işlevleri. Başka bir deyişle, her iki işlev aynı filtre ifadesinde kullanılabilir. 
 

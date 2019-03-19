@@ -14,12 +14,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 855cf81dbf24b0662048f69061ca85b72ff5f670
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 12e36c49d8c4db60302d4b72dfa81ea4aceec77b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171256"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107398"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Uygulama Ara sunucusu ve Qlik Sense 
 Azure Active Directory Uygulama Ara sunucusu ve Qlik Sense kolayca Qlik Sense dağıtımınız için uzaktan erişim sağlamak için uygulama ara sunucusu kullanmanız mümkün olduğundan emin olmak için birlikte kurdu.  
@@ -41,13 +41,13 @@ Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: adı
 2. Seçin **Azure Active Directory** > **kurumsal uygulamalar**. 
 3. Seçin **Ekle** dikey penceresinin üstünde. 
 4. Seçin **şirket içi uygulama**. 
-5.       Yeni uygulamanız hakkındaki bilgilerle gerekli alanları doldurun. Ayarları için aşağıdaki yönergeleri kullanın: 
-    - **İç URL**: Bu uygulama QlikSense URL bir iç URL olması gerekir. Örneğin, **https&#58;//demo.qlikemm.com:4244** 
-    - **Ön kimlik doğrulama yöntemi**: Azure Active Directory (ancak bu zorunlu önerilir) 
-1.       Seçin **Ekle** dikey pencerenin alt kısmındaki. Uygulamanızı eklenir ve Hızlı Başlangıç menüsü açılır. 
-2.       Hızlı Başlangıç menüde **test etmek için kullanıcı atama**, ve en az bir kullanıcı uygulamaya ekleyin. Bu test hesabı şirket içi uygulamaya erişimi olduğundan emin olun. 
-3.       Seçin **atama** test kullanıcı atama kaydetmek için. 
-4.       (İsteğe bağlı) Uygulama Yönetimi dikey penceresinde, çoklu oturum açma seçin. Seçin **Kerberos kısıtlanmış temsil** açılan menüsünden ve Qlik yapılandırmanıza göre gerekli alanları doldurun. **Kaydet**’i seçin. 
+5. Yeni uygulamanız hakkındaki bilgilerle gerekli alanları doldurun. Ayarları için aşağıdaki yönergeleri kullanın: 
+   - **İç URL**: Bu uygulama QlikSense URL bir iç URL olması gerekir. Örneğin, **https&#58;//demo.qlikemm.com:4244** 
+   - **Ön kimlik doğrulama yöntemi**: Azure Active Directory (ancak bu zorunlu önerilir) 
+1. Seçin **Ekle** dikey pencerenin alt kısmındaki. Uygulamanızı eklenir ve Hızlı Başlangıç menüsü açılır. 
+2. Hızlı Başlangıç menüde **test etmek için kullanıcı atama**, ve en az bir kullanıcı uygulamaya ekleyin. Bu test hesabı şirket içi uygulamaya erişimi olduğundan emin olun. 
+3. Seçin **atama** test kullanıcı atama kaydetmek için. 
+4. (İsteğe bağlı) Uygulama Yönetimi dikey penceresinde, çoklu oturum açma seçin. Seçin **Kerberos kısıtlanmış temsil** açılan menüsünden ve Qlik yapılandırmanıza göre gerekli alanları doldurun. **Kaydet**’i seçin. 
 
 ### <a name="application-2"></a>Uygulama #2: 
 Aşağıdaki istisnalarla birlikte uygulama #1 olduğu gibi aynı adımları izleyin: 

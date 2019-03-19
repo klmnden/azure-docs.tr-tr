@@ -12,12 +12,12 @@ ms.date: 3/11/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 787c436261635376ff82e8762cbc1469f4375e6b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 58bdc0e698fc28929c2080b1737770275b1164ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729950"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848737"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS tümleştirme çalışma zamanı için Azure Active Directory kimlik doğrulamasını etkinleştirme
 
@@ -76,37 +76,55 @@ Mevcut bir Azure AD grubunu kullanın veya Azure AD PowerShell kullanarak yeni b
 
 Yapabilecekleriniz [yapılandırma ve SQL ile Azure AD kimlik doğrulamasını yönetme](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) aşağıdaki adımları kullanarak:
 
-1.  Azure portalında **tüm hizmetleri** -> **SQL sunucuları** sol gezinti bölmesinden.
+1.  Azure portalında **tüm hizmetleri** -> **SQL sunucuları** sol gezinti bölmesinden.
 
 2.  Azure AD kimlik doğrulaması ile yapılandırılması, Azure SQL veritabanı sunucusu seçin.
 
-3.  İçinde **ayarları** dikey penceresinde bölümünü **Active Directory Yöneticisi**.
+3.  İçinde **ayarları** dikey penceresinde bölümünü **Active Directory Yöneticisi**.
 
-4.  Komut çubuğunda **yönetici Ayarla**.
+4.  Komut çubuğunda **yönetici Ayarla**.
 
-5.  Sunucu Yöneticisi yapılması ve ardından seçmek için bir Azure AD kullanıcı hesabı seçin **seçin.**
+5.  Sunucu Yöneticisi yapılması ve ardından seçmek için bir Azure AD kullanıcı hesabı seçin **seçin.**
 
-6.  Komut çubuğunda **kaydedin.**
+6.  Komut çubuğunda **kaydedin.**
 
 ### <a name="create-a-contained-user-in-azure-sql-database-server-representing-the-azure-ad-group"></a>Azure SQL veritabanı sunucusunda Azure AD grubunu temsil eden içerilen kullanıcı oluşturma
 
 Bu sonraki adım için ihtiyacınız [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-1.  SSMS'yi başlatın.
+1. SSMS'yi başlatın.
 
-2.  İçinde **sunucuya Bağlan** iletişim kutusunda, Azure SQL veritabanı sunucu adını girin **sunucu adı** alan.
+2. İçinde **sunucuya Bağlan** iletişim kutusunda, Azure SQL veritabanı sunucu adını girin **sunucu adı** alan.
 
-3.  İçinde **kimlik doğrulaması** alanın, Seç **Active Directory - MFA desteğiyle Evrensel** (diğer iki kullanabilirsiniz bkz: Active Directory kimlik doğrulama türleri [ Yapılandırma ve SQL ile Azure AD kimlik doğrulamasını yönetme](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)).
+3. İçinde **kimlik doğrulaması** alanın, Seç **Active Directory - MFA desteğiyle Evrensel** (diğer iki kullanabilirsiniz Active Directory kimlik doğrulama türlerini görmek [yapılandırma ve yönetme Azure AD kimlik doğrulaması ile SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)).
 
-4.  İçinde **kullanıcı adı** alan, örneğin sunucu yöneticisi olarak ayarladığınız Azure AD hesabının adını testuser@xxxonline.com.
+4. İçinde **kullanıcı adı** alan, örneğin sunucu yöneticisi olarak ayarladığınız Azure AD hesabının adını testuser@xxxonline.com.
 
-5.  seçin **Connect** ve oturum açma işlemini tamamlayın.
+5. seçin **Connect** ve oturum açma işlemini tamamlayın.
 
-6.  İçinde **Nesne Gezgini**, genişletme **veritabanları** -> **sistem veritabanları** klasör.
+6. İçinde **Nesne Gezgini**, genişletme **veritabanları** -> **sistem veritabanları** klasör.
 
-7.  Sağ **ana** seçin ve veritabanı **yeni sorgu**.
+7. Sağ **ana** seçin ve veritabanı **yeni sorgu**.
 
-8.  Sorgu penceresinde aşağıdaki T-SQL komutunu girin ve seçin **yürütme** araç.
+8. Sorgu penceresinde aşağıdaki T-SQL komutunu girin ve seçin **yürütme** araç.
+
+   ```sql
+   CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
+   ```
+
+   Kapsanan kullanıcı grubunu temsil etmek için oluşturma komutu başarıyla tamamlamanız gerekir.
+
+9. Sorgu penceresine işaretini kaldırın, aşağıdaki T-SQL komutu girin ve seçin **yürütme** araç.
+
+   ```sql
+   ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
+   ```
+
+   Komutu, kapsanan kullanıcı veritabanını (SSISDB) oluşturma olanağı verme başarıyla tamamlanmalıdır.
+
+10. SQL kimlik doğrulaması kullanarak, SSISDB oluşturuldu ve ona erişmek için Azure AD kimlik doğrulaması için Azure-SSIS IR kullanmaya geçmek istiyorsunuz, sağ **SSISDB** seçin ve veritabanı **yeni sorgu**.
+
+11. Sorgu penceresinde aşağıdaki T-SQL komutunu girin ve seçin **yürütme** araç.
 
     ```sql
     CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
@@ -114,25 +132,7 @@ Bu sonraki adım için ihtiyacınız [Microsoft SQL Server Management Studio](h
 
     Kapsanan kullanıcı grubunu temsil etmek için oluşturma komutu başarıyla tamamlamanız gerekir.
 
-9.  Sorgu penceresine işaretini kaldırın, aşağıdaki T-SQL komutu girin ve seçin **yürütme** araç.
-
-    ```sql
-    ALTER ROLE dbmanager ADD MEMBER [SSISIrGroup]
-    ```
-
-    Komutu, kapsanan kullanıcı veritabanını (SSISDB) oluşturma olanağı verme başarıyla tamamlanmalıdır.
-
-10.  SQL kimlik doğrulaması kullanarak, SSISDB oluşturuldu ve ona erişmek için Azure AD kimlik doğrulaması için Azure-SSIS IR kullanmaya geçmek istiyorsunuz, sağ **SSISDB** seçin ve veritabanı **yeni sorgu**.
-
-11.  Sorgu penceresinde aşağıdaki T-SQL komutunu girin ve seçin **yürütme** araç.
-
-    ```sql
-    CREATE USER [SSISIrGroup] FROM EXTERNAL PROVIDER
-    ```
-
-    Kapsanan kullanıcı grubunu temsil etmek için oluşturma komutu başarıyla tamamlamanız gerekir.
-
-12.  Sorgu penceresine işaretini kaldırın, aşağıdaki T-SQL komutu girin ve seçin **yürütme** araç.
+12. Sorgu penceresine işaretini kaldırın, aşağıdaki T-SQL komutu girin ve seçin **yürütme** araç.
 
     ```sql
     ALTER ROLE db_owner ADD MEMBER [SSISIrGroup]
@@ -191,9 +191,9 @@ Bu sonraki adım için ihtiyacınız [Microsoft SQL Server Management Studio](h
     
     Yönetilen kimlik ADF veritabanını (SSISDB) oluşturma olanağı verme komutu başarıyla tamamlanması.
 
-8.  SQL kimlik doğrulaması kullanarak, SSISDB oluşturuldu ve ona erişmek için Azure AD kimlik doğrulaması için Azure-SSIS IR kullanmaya geçmek istiyorsunuz, sağ **SSISDB** seçin ve veritabanı **yeni sorgu**.
+8.  SQL kimlik doğrulaması kullanarak, SSISDB oluşturuldu ve ona erişmek için Azure AD kimlik doğrulaması için Azure-SSIS IR kullanmaya geçmek istiyorsunuz, sağ **SSISDB** seçin ve veritabanı **yeni sorgu**.
 
-9.  Sorgu penceresinde aşağıdaki T-SQL komutunu girin ve seçin **yürütme** araç.
+9.  Sorgu penceresinde aşağıdaki T-SQL komutunu girin ve seçin **yürütme** araç.
 
     ```sql
     CREATE USER [{the managed identity name}] FOR LOGIN [{the managed identity name}] WITH DEFAULT_SCHEMA = dbo

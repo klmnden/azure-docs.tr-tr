@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 9e4c4e8c8d7aa89e2a27efc2c2deebd4863be23e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ca6be2b08c9a38813b2c98eef7e5696bd61fd074
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242964"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893042"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Olay toplama ve Linux Azure Tanılama'yı kullanarak koleksiyon
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Karşıya yükleme ve günlükleri toplamak için bir yolu, günlükleri, Azure 
 ## <a name="log-and-event-sources"></a>Günlük ve olay kaynakları
 
 ### <a name="service-fabric-platform-events"></a>Service Fabric platform olaylarına
-Service Fabric aracılığıyla birkaç Giden kutusu günlükleri yayan [LTTng](http://lttng.org)işletimsel olaylar veya çalışma zamanı olayları dahil olmak üzere. Bu günlükler, kümenin Resource Manager şablonu belirten konumda depolanır. Alma veya depolama hesabı ayrıntıları belirlemek için etiketini ara **AzureTableWinFabETWQueryable** ve Ara **StoreConnectionString**.
+Service Fabric aracılığıyla birkaç Giden kutusu günlükleri yayan [LTTng](https://lttng.org)işletimsel olaylar veya çalışma zamanı olayları dahil olmak üzere. Bu günlükler, kümenin Resource Manager şablonu belirten konumda depolanır. Alma veya depolama hesabı ayrıntıları belirlemek için etiketini ara **AzureTableWinFabETWQueryable** ve Ara **StoreConnectionString**.
 
 ### <a name="application-events"></a>Uygulama olayları
  Olaylar, belirtildiği gibi uygulamaların ve hizmetlerin koddan yazılımınızı işaretlerken yayılan. Metin tabanlı günlük dosyalarını--örneğin LTTng Yazar herhangi bir günlük çözümü kullanabilirsiniz. Daha fazla bilgi için uygulamanızı izlemeyi LTTng belgelerine bakın.
@@ -52,5 +52,5 @@ Bu, belirtilen günlük dosyalarını izlemek için LAD aracıyı yapılandırı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-1. Sorun giderme sırasında incelemeniz hangi olayların daha ayrıntılı olarak anlamak için bkz [LTTng belgeleri](http://lttng.org/docs) ve [kullanarak LAD](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+1. Sorun giderme sırasında incelemeniz hangi olayların daha ayrıntılı olarak anlamak için bkz [LTTng belgeleri](https://lttng.org/docs) ve [kullanarak LAD](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
 2. [Log Analytics aracısını ayarlama](service-fabric-diagnostics-event-analysis-oms.md) ölçümleri toplamak amacıyla, kümenizde dağıttığınız kapsayıcılarını izleme ve günlüklerinizi görselleştirin 

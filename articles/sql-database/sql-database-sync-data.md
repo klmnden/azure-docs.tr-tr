@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5e8e634bfb69d7c274322d34d26ff614f75905af
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 01da5f0798316517869fcc94eed2a7428fffba7b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215940"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850709"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL Data Sync ile birden fazla Bulut ve şirket içi veritabanı arasında veri eşitleme
 
@@ -40,7 +40,7 @@ Veri eşitleme, aşağıdaki senaryolar için tercih edilen bir çözüm değil:
 |----------|----------------------------|
 | Olağanüstü Durum Kurtarma | [Azure coğrafi olarak yedekli yedeklemeleri](sql-database-automated-backups.md) |
 | Okuma ölçeği | [Yük Dengeleme (Önizleme) salt okunur sorgu iş yükleri için salt okunur çoğaltmalar kullanın](sql-database-read-scale-out.md) |
-| ETL (OLTP OLAP için) | [Azure veri fabrikası](https://azure.microsoft.com/services/data-factory/) veya [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| ETL (OLTP OLAP için) | [Azure veri fabrikası](https://azure.microsoft.com/services/data-factory/) veya [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
 | Şirket içi SQL Server'dan Azure SQL veritabanına geçiş | [Azure veritabanı geçiş hizmeti](https://azure.microsoft.com/services/database-migration/) |
 |||
 

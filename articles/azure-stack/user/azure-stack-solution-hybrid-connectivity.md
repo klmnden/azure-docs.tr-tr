@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a05021255c6226329f1d7a3f0e7fa8c9be756646
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c9be377dc74ac936aa3139d395b6a02f3b3192eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546730"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084370"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile karma bulut bağlantısı yapılandırma
 
@@ -152,12 +152,12 @@ Azure'da bir sanal ağ geçidi oluşturmak için aşağıdaki adımları kullan�
 3. İçinde **sanal ağ geçidi**seçin **Oluştur** açmak için **sanal ağ geçidi Oluştur** sayfası.
 4. Üzerinde **sanal ağ geçidi Oluştur**, gösterildiği gibi ağ geçidiniz için değerlerleri belirtin **öğretici örnek değerleri**, aşağıdaki ek değerler:
 
-    - **SKU**: temel
-    - **Sanal ağ**: Daha önce oluşturduğunuz sanal ağı seçin. Oluşturduğunuz ağ geçidi alt ağı otomatik olarak seçilir.
-    - **İlk IP yapılandırması**:  Ağ geçidinizin genel IP budur.
-        - Seçin **ağ geçidi IP yapılandırması oluştur**, size aldığı **genel IP adresi seçin** sayfası.
-        - Seçin **+ Yeni Oluştur** açmak için **genel IP adresi oluşturma** sayfası.
-        - Girin bir **adı** genel IP adresi için. SKU olarak bırakın **temel**ve ardından **Tamam** yaptığınız değişiklikleri kaydedin.
+   - **SKU**: temel
+   - **Sanal ağ**: Daha önce oluşturduğunuz sanal ağı seçin. Oluşturduğunuz ağ geçidi alt ağı otomatik olarak seçilir.
+   - **İlk IP yapılandırması**:  Ağ geçidinizin genel IP budur.
+     - Seçin **ağ geçidi IP yapılandırması oluştur**, size aldığı **genel IP adresi seçin** sayfası.
+     - Seçin **+ Yeni Oluştur** açmak için **genel IP adresi oluşturma** sayfası.
+     - Girin bir **adı** genel IP adresi için. SKU olarak bırakın **temel**ve ardından **Tamam** yaptığınız değişiklikleri kaydedin.
 
        > [!Note]
        > Şu anda, VPN ağ geçidi, yalnızca dinamik genel IP adresi ayırmayı desteklemektedir. Ancak, bu IP adresinin VPN ağ geçidinize atandıktan sonra değiştiği anlamına gelmez. Genel IP adresi, yalnızca ağ geçidi silinip yeniden oluşturulduğunda değişir. Yeniden boyutlandırma, sıfırlama veya diğer iç bakım/yükseltme işlemleri VPN ağ geçidiniz için IP adresi değişmez.

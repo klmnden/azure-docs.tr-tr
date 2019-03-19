@@ -12,12 +12,12 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: c456954c3bf68fd87e51162ea6aab1d0a54b86ad
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237030"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103409"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Excel Azure SQL veritabanı'nda tek bir veritabanına bağlanma ve rapor oluşturma
 
@@ -43,10 +43,10 @@ Ayrıca, bir Excel kopyanızın olması gerekir. Bu makalede [Microsoft Excel 20
 
 4. İçinde **SQL Server veritabanı** iletişim kutusunda **veritabanı** sol tarafında ve ardından girin, **kullanıcı adı** ve **parola** için Bağlanmak istediğiniz SQL veritabanı sunucusu. Seçin **Connect** açmak için **Gezgin**. 
 
-  ![Sunucu adını ve oturum açma kimlik bilgilerini girme](./media/sql-database-connect-excel/connect-to-server.png)
+   ![Sunucu adını ve oturum açma kimlik bilgilerini girme](./media/sql-database-connect-excel/connect-to-server.png)
 
-  > [!TIP]
-  > Ağ ortamınıza bağlı olarak, SQL Database sunucusunun istemci IP adresinizden gelen trafiğe izin vermemesi halinde bağlanamayabilirsiniz veya mevcut bağlantınız kesilebilir. [Azure portalına](https://portal.azure.com/) gidip SQL sunucuları seçeneğine tıklayın, sunucunuza tıklayın ve ardından ayarlar altında bulunan güvenlik duvarı seçeneğine tıklayıp istemci IP adresinizi ekleyin. Ayrıntılı bilgi için bkz. [Güvenlik duvarı ayarlarını yapılandırma](sql-database-configure-firewall-settings.md).
+   > [!TIP]
+   > Ağ ortamınıza bağlı olarak, SQL Database sunucusunun istemci IP adresinizden gelen trafiğe izin vermemesi halinde bağlanamayabilirsiniz veya mevcut bağlantınız kesilebilir. [Azure portalına](https://portal.azure.com/) gidip SQL sunucuları seçeneğine tıklayın, sunucunuza tıklayın ve ardından ayarlar altında bulunan güvenlik duvarı seçeneğine tıklayıp istemci IP adresinizi ekleyin. Ayrıntılı bilgi için bkz. [Güvenlik duvarı ayarlarını yapılandırma](sql-database-configure-firewall-settings.md).
 
 5. İçinde **Gezgin**seçin listeden çalışmak istediğiniz veritabanını seçin tabloları veya görünümleri ile çalışmak istediğiniz (seçtik **vGetAllCategories**) ve ardından **yük**Excel elektronik tablosuna veritabanınızdan verileri taşımak için.
 
@@ -75,17 +75,17 @@ Bağlantı kurduktan sonra veri yükleme ile birkaç farklı seçeneğiniz vard�
 Bağlantı ayrıntıları kalıcı olarak kaydetmek için bir .odc dosyası oluşturabilir ve bu bağlantısı içinde seçilebilir bir seçenek **varolan bağlantılar** iletişim kutusu. 
 
 1. Sayfanın üstündeki menü çubuğunda seçin **veri** sekmesine tıklayın ve ardından **varolan bağlantılar** başlatmak için **varolan bağlantılar** iletişim kutusu. 
-    1. Seçin **daha fazlası için Gözat** açmak için **veri kaynağı Seç** iletişim kutusu.   
-    2. Seçin **+NewSqlServerConnection.odc** dosya ve ardından **açın** açmak için **Veri Bağlantı Sihirbazı'nı**.
+   1. Seçin **daha fazlası için Gözat** açmak için **veri kaynağı Seç** iletişim kutusu.   
+   2. Seçin **+NewSqlServerConnection.odc** dosya ve ardından **açın** açmak için **Veri Bağlantı Sihirbazı'nı**.
 
-    ![Yeni Bağlantı](media/sql-database-connect-excel/new-connection.png)
+      ![Yeni Bağlantı](media/sql-database-connect-excel/new-connection.png)
 
 2. İçinde **Veri Bağlantı Sihirbazı**, sunucu adınız ve SQL veritabanı kimlik bilgilerinizi yazın. **İleri**’yi seçin. 
-    1. Açılır listeden verilerinizi içeren veritabanını seçin. 
-    2. Tablo veya Görünüm ilgilendiğiniz seçin. VGetAllCategories seçtik.
-    3. **İleri**’yi seçin. 
+   1. Açılır listeden verilerinizi içeren veritabanını seçin. 
+   2. Tablo veya Görünüm ilgilendiğiniz seçin. VGetAllCategories seçtik.
+   3. **İleri**’yi seçin. 
 
-    ![Veri Bağlantı Sihirbazı](media/sql-database-connect-excel/data-connection-wizard.png) 
+      ![Veri Bağlantı Sihirbazı](media/sql-database-connect-excel/data-connection-wizard.png) 
 
 3. Dosyanızın konumunu seçin **dosya adı**ve **kolay ad** Veri Bağlantı Sihirbazı'nın sonraki ekranda. Bu olası istenmeyen erişim için verilerinizi getirebilir ancak parolayı dosyasına kaydetmek seçebilirsiniz. Seçin **son** ne zaman hazır. 
 

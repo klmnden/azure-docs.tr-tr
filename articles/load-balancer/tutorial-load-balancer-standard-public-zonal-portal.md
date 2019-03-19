@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 5f3b9b48fc5f15738c3de9928ca0bb220a66db12
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 563b54fe9b4ab65cd8d3008e9d3955618194031f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985997"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899555"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak bir Standard Load Balancer ile kullanılabilirlik alanı içinde Yük Dengeleme sanal makineleri
 
@@ -39,9 +39,9 @@ Standard Load Balancer ile kullanılabilirlik alanlarını kullanma hakkında da
 
 İsterseniz bu öğreticiyi tamamlamak için [Azure CLI](load-balancer-standard-public-zonal-cli.md) kullanabilirsiniz.
 
-## <a name="sign-in-to-azure"></a>Oturum açın: Azure
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[http://portal.azure.com](http://portal.azure.com) adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-public-standard-load-balancer-instance"></a>Genel bir Standard Load Balancer örneği oluşturma
 
@@ -63,25 +63,25 @@ Standard Load Balancer yalnızca standart genel IP adresini destekler. Yük deng
     |Kullanılabilirlik bölgesi| **1**'i seçin.    |
 3. İçinde **gözden geçir + Oluştur** sekmesinde **Oluştur**.   
 
- ## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
+   ## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
 
 Bu bölümde, bir sanal ağ oluşturursunuz. Ayrıca, yük dengeleyicinizin arka uç havuzuna eklenecek bölge için aynı bölgede (bölge 1) iki sanal makine oluşturursunuz. Ardından alanlar arası yedekli yük dengeleyicinin test edilmesine yardımcı olması için sanal makinelere IIS yükleyeceksiniz. Bir VM başarısız olursa aynı bölgedeki VM için sistem durumu araştırması başarısız olur. Trafik aynı bölgedeki diğer VM’ler tarafından sunulmaya devam eder.
 
-### <a name="create-a-virtual-network"></a>Sanal ağ oluştur
+### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 1. Ekranın sol üst kısmında **Kaynak oluştur** > **Ağ** > **Sanal ağ** seçeneğini belirleyin.  Sanal ağ için şu değerleri girin:
     - Sanal ağın adı olarak **myVNet**.
     - Mevcut kaynak grubunun adı olarak **myResourceGroupZLB**.
     - Alt ağ adı olarak **myBackendSubnet**.
 2. Sanal ağı oluşturmak için **Oluştur**’u seçin.
 
-    ![Sanal ağ oluştur](./media/tutorial-load-balancer-standard-zonal-portal/create-virtual-network.png)
+    ![Sanal ağ oluşturma](./media/tutorial-load-balancer-standard-zonal-portal/create-virtual-network.png)
 
 ## <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
 
 1. Ekranın sol üst kısmında **Kaynak oluştur** seçeneğini belirleyin. Arama kutusuna **Ağ Güvenlik Grubu** yazın. Ağ güvenlik grubu sayfasında **Oluştur**’u seçin.
 2. **Ağ güvenlik grubu oluşturma** sayfasında şu değerleri girin:
-    - Ağ güvenlik grubunun adı olarak **myNetworkSecurityGroup**.
-    - Mevcut kaynak grubunun adı olarak **myResourceGroupLBAZ**.
+   - Ağ güvenlik grubunun adı olarak **myNetworkSecurityGroup**.
+   - Mevcut kaynak grubunun adı olarak **myResourceGroupLBAZ**.
    
      ![Ağ güvenlik grubu oluşturma](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 832614c46f0269460245d081f20897b591e31fce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694491"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101576"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso geçişi: Bir Azure VM ve SQL veritabanı yönetilen örneği üzerinde bir şirket içi uygulama yeniden barındırma
 
@@ -222,7 +222,7 @@ Contoso aşağıdaki faktörleri göz önünde bulundurur:
 - Bir alt ağ yalnızca bir yol tablosu ile ilişkilendirilebilir.
 - Microsoft Azure'da rota tabloları oluşturmak için herhangi bir ek ücret yoktur.
 
- Yöneticileri yönlendirme Contoso ayarlamak için aşağıdakileri yapın:
+  Yöneticileri yönlendirme Contoso ayarlamak için aşağıdakileri yapın:
 
 1. UDR (yol) tablosunda oluşturdukları **ContosoNetworkingRG** kaynak grubu.
 
@@ -441,11 +441,11 @@ Kaynak ve hedef ayarlandığında Contoso yöneticileri bir çoğaltma ilkesi ol
 
 1. İçinde **altyapıyı hazırlama** > **çoğaltma ayarları** > **Çoğaltma İlkesi** >  **oluşturma ve İlişkilendirme**, oluşturdukları **ContosoMigrationPolicy** ilkesi.
 2. Bunlar, varsayılan ayarları kullanın:
-    - **RPO eşiği**: Varsayılan 60 dakika. Bu değer kurtarma noktalarının hangi sıklıkta oluşturulacağını tanımlar. Devamlı çoğaltma bu sınırı aşarsa bir uyarı oluşturulur.
-    - **Kurtarma noktası bekletme**: Varsayılan 24 saat. Bu değer, ne kadar süreyle her kurtarma noktası için bekletme süresinin olacağını belirtir. Çoğaltılan VM’ler bir aralıktaki herhangi bir noktaya kurtarılabilir.
-    - **Uygulamayla tutarlı anlık görüntü sıklığı**: 1 saatlik varsayılan. Bu değer, uygulamayla tutarlı anlık görüntülerin oluşturulma sıklığı belirtir.
+   - **RPO eşiği**: Varsayılan 60 dakika. Bu değer kurtarma noktalarının hangi sıklıkta oluşturulacağını tanımlar. Devamlı çoğaltma bu sınırı aşarsa bir uyarı oluşturulur.
+   - **Kurtarma noktası bekletme**: Varsayılan 24 saat. Bu değer, ne kadar süreyle her kurtarma noktası için bekletme süresinin olacağını belirtir. Çoğaltılan VM’ler bir aralıktaki herhangi bir noktaya kurtarılabilir.
+   - **Uygulamayla tutarlı anlık görüntü sıklığı**: 1 saatlik varsayılan. Bu değer, uygulamayla tutarlı anlık görüntülerin oluşturulma sıklığı belirtir.
  
-    ![-Çoğaltma İlkesi oluşturma](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
+     ![-Çoğaltma İlkesi oluşturma](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
 
 3. İlke, yapılandırma sunucusu ile otomatik olarak ilişkilendirilir. 
 

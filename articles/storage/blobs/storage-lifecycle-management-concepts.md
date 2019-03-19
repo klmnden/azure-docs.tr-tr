@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: c126516f6a792a4e778e4b0f75b6a31960139ba8
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 93c19bc39f64df21dfa9db2490ab2103aba8191d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570020"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086114"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Depolama (Önizleme) yaşam döngüsünü yönetme
 
@@ -100,7 +100,7 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```
 
 > [!NOTE]
-Depolama hesabınız için güvenlik duvarı kuralları etkinleştirirseniz, yaşam döngüsü yönetimi istekleri engellenebilir. Bu istekler, özel durumlar sağlayarak engelini kaldırabilirsiniz. Daha fazla bilgi için bkz: özel durumlar [güvenlik duvarları ve sanal ağları yapılandırma](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+> Depolama hesabınız için güvenlik duvarı kuralları etkinleştirirseniz, yaşam döngüsü yönetimi istekleri engellenebilir. Bu istekler, özel durumlar sağlayarak engelini kaldırabilirsiniz. Daha fazla bilgi için bkz: özel durumlar [güvenlik duvarları ve sanal ağları yapılandırma](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ## <a name="policy"></a>İlke
 
@@ -190,7 +190,7 @@ Filtreler, BLOB Depolama hesabında bir alt kural eylemi sınırlayın. Birden f
 | Filtre adı | Filtre türü | Notlar | Gerekli |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Önceden tanımlanmış bir sabit listesi değerleri dizisi. | Önizleme sürümü yalnızca destekler `blockBlob`. | Evet |
-| prefixMatch | Olması eşleşecek şekilde ön ekleri için dize dizisi. Bir önek dizesi, bir kapsayıcı adı ile başlamalıdır. Örneğin, tüm BLOB'ları altındaki eşleştirmek istiyorsanız "https://myaccount.blob.core.windows.net/container1/foo/..." için bir kural, prefixMatch olduğu `container1/foo`. | PrefixMatch tanımlamazsanız, hesabındaki tüm bloblar için kurallar uygulanır. | Hayır |
+| prefixMatch | Olması eşleşecek şekilde ön ekleri için dize dizisi. Bir önek dizesi, bir kapsayıcı adı ile başlamalıdır. Örneğin, tüm BLOB'ları altındaki eşleştirmek istiyorsanız "<https://myaccount.blob.core.windows.net/container1/foo/>..." bir kural için prefixMatch olan `container1/foo`. | PrefixMatch tanımlamazsanız, hesabındaki tüm bloblar için kurallar uygulanır. | Hayır |
 
 ### <a name="rule-actions"></a>Kural eylemi
 
@@ -204,8 +204,8 @@ Yürütme koşul karşılandığında eylemler için filtrelenmiş bloblara uygu
 | tierToArchive | Seyrek veya sık erişimli katmanı şu anda bloblarını destekler | Desteklenmiyor |
 | delete        | Desteklenen                                   | Desteklenen     |
 
->[!NOTE] 
-Aynı bloba birden fazla eylem tanımlarsanız, yaşam döngüsü yönetimi için blob ucuz eylemini uygular. Örneğin, eylem `delete` eyleminden daha ucuz `tierToArchive`. Eylem `tierToArchive` eyleminden daha ucuz `tierToCool`.
+> [!NOTE]
+> Aynı bloba birden fazla eylem tanımlarsanız, yaşam döngüsü yönetimi için blob ucuz eylemini uygular. Örneğin, eylem `delete` eyleminden daha ucuz `tierToArchive`. Eylem `tierToArchive` eyleminden daha ucuz `tierToCool`.
 
 Önizleme aşamasında olan eylem yürütme koşullar üzerinde yaş temel alır. Temel blobları yaş izlemek için son değiştirilme zamanı kullanın ve yaş izlemek için anlık görüntüleri kullanmak anlık görüntü oluşturma zamanı blob.
 

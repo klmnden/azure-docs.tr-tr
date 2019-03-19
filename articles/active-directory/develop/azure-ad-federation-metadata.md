@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4daf43ed1cf757e95ba2963e2a2f395788aed17
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fcabf51b3a368841f7f135a32c4824eb3db571ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179323"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864941"
 ---
 # <a name="federation-metadata"></a>Federasyon meta verileri
 Azure Active Directory (Azure AD), hizmetler için Azure AD sorunlarını güvenlik belirteçleri kabul edecek şekilde yapılandırılmış bir Federasyon meta veri belgesi yayımlar. Federasyon meta veri belge biçimi açıklanan [Web Hizmetleri Federasyon dili (WS-Federation) sürüm 1.2](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), genişleten [OASISgüvenlikonaylamaişlemibiçimlendirmedili(SAML)v2.0içinmetaverileri](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).

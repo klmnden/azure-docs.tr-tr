@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8ba09d1841ada25f6b763f187f629ef0c7eae598
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 96a2e9f2f6e114c9a4b74111cd6a6d085022a4c8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548039"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872679"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-with-nodejs-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme node.js'de ile REST API kullanarak uzak bir resmi çözümleme
 
@@ -54,7 +54,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 1. Bir komut istemi penceresi açın.
 1. İstemde, dosyayı çalıştırmak için `node` komutunu kullanın. Örneğin, `node analyze-image.js`.
 
-```nodejs
+```javascript
 'use strict';
 
 const request = require('request');

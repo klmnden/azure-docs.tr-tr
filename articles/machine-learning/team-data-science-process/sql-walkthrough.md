@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 953f2cdac41dcd610afbde39a318c0237b0b9099
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c9d707d1a76b3b5913d66745767df8e84362a192
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114748"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890868"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process'in çalışması: SQL Server'ı kullanma
-Bu öğreticide, oluşturma ve SQL Server ve genel kullanıma açık bir veri kümesini kullanarak makine öğrenme modeli dağıtma sürecinde size yol-- [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Standart veri bilimi iş akışı yordamdan sonraki: alma ve verileri, mühendislik işlevlerini, öğrenme süreçlerini kolaylaştırmasına sonra yapı ve model dağıtma keşfedin.
+Bu öğreticide, oluşturma ve SQL Server ve genel kullanıma açık bir veri kümesini kullanarak makine öğrenme modeli dağıtma sürecinde size yol-- [NYC taksi Gelişlerin](https://www.andresmh.com/nyctaxitrips/) veri kümesi. Standart veri bilimi iş akışı yordamdan sonraki: alma ve verileri, mühendislik işlevlerini, öğrenme süreçlerini kolaylaştırmasına sonra yapı ve model dağıtma keşfedin.
 
 ## <a name="dataset"></a>Veri kümesi tanımı NYC taksi Geçiren
 NYC taksi seyahat verilerini yaklaşık 20 GB sıkıştırılmış CSV dosyalar (sıkıştırmadan ~ 48 GB), her seyahat için ücretli 173 milyondan fazla bireysel gelişlerin ve fares. Her bir seyahat kaydı alma ve dropoff konumu zaman, anonimleştirilmiş hack (sürücü) lisans numarası ve medallion (taksi'nın benzersiz tanımlayıcı) numarasını içerir. Veriler tüm dönüş 2013 yılında kapsar ve aşağıdaki iki veri kümesi için her ay sağlanır:
@@ -82,7 +82,7 @@ Azure veri bilimi ortamı oluşturmanız için:
 Veri kümesi boyutu, veri kaynağı konumu ve seçili Azure hedef ortama bağlı olarak, bu senaryo benzer [senaryo \#5: Büyük veri kümesinde bir yerel dosyalar, hedef Azure VM'de SQL Server](plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Genel kaynaktan veri alma
-Alınacak [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) veri kümesi genel konumundan kullanabilirsiniz açıklanan yöntemlerden herhangi birini [için ve Azure Blob Depolama'dan veri taşıma](move-azure-blob.md) verileri yeni sanal makinenize kopyalamak için.
+Alınacak [NYC taksi Gelişlerin](https://www.andresmh.com/nyctaxitrips/) veri kümesi genel konumundan kullanabilirsiniz açıklanan yöntemlerden herhangi birini [için ve Azure Blob Depolama'dan veri taşıma](move-azure-blob.md) verileri yeni sanal makinenize kopyalamak için.
 
 AzCopy kullanarak verileri kopyalamak için:
 
@@ -622,8 +622,8 @@ Bu izlenecek yol öğreticide bilgilerin üzerinden geçelim için model eğitim
 Bu örnek gözden geçirme ve kendi eşlik eden betikleri ve Ipython notebook(s) paylaşılır Microsoft tarafından MIT lisansı altında. LICENSE.txt dosyasına örnek kod dizini github'da daha fazla ayrıntı için lütfen denetleyin.
 
 ### <a name="references"></a>Başvurular
-• [Andrés Monroy NYC taksi Gelişlerin indirme sayfası](http://www.andresmh.com/nyctaxitrips/)  
-• [FOILing NYC'ın taksi seyahat verilerini Chris Whong tarafından](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [Andrés Monroy NYC taksi Gelişlerin indirme sayfası](https://www.andresmh.com/nyctaxitrips/)  
+• [FOILing NYC'ın taksi seyahat verilerini Chris Whong tarafından](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 • [NYC taksi ve Limousine komisyon araştırma ve istatistikleri](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png

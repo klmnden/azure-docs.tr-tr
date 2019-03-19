@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
-ms.openlocfilehash: 336903b6cd451e25f7c696e445be724989c39996
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 648369d89bd2b5b08171e1f6f5482c81bfba3c66
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761948"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010345"
 ---
 # <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-with-terraform-in-azure"></a>Öğretici: Bir hub'ı oluşturup azure'da Terraform ile karma ağ topolojisi
 
@@ -81,7 +81,7 @@ Bu serideki her öğretici ile çalışırken, çeşitli bileşenler ayrı Terra
 
 Tanıtımı için Terraform yapılandırma dosyalarının bulunduğu dizin oluşturun.
 
-1. [Azure portala](http://portal.azure.com) gidin.
+1. [Azure portala](https://portal.azure.com) gidin.
 
 1. [Azure Cloud Shell](/azure/cloud-shell/overview)'i açın. Önceden bir ortam seçmediyseniz **Bash** ortamını seçin.
 

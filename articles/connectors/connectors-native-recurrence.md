@@ -11,12 +11,12 @@ ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
 ms.date: 01/08/2019
-ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: eb22539d1f433e396935f82e4cb3786d5699d21a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107846"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083963"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Oluşturma ve Azure Logic Apps ile yinelenen görevleri ve iş akışları çalıştırma
 
@@ -95,12 +95,12 @@ Mantıksal uygulamanızı tetikleyecek ve gelecekte yalnızca bir kez çalışt�
 
 Bu özellikler için yineleme tetikleyicisi yapılandırabilirsiniz.
 
-| Ad | Gereklidir | Özellik adı | Tür | Açıklama | 
+| Ad | Gerekli | Özellik adı | Type | Açıklama | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **Sıklık** | Evet | frequency | Dize | Yineleme için zaman birimi: **İkinci**, **dakika**, **saat**, **gün**, **hafta**, veya **ay** | 
+| **Sıklık** | Evet | frequency | String | Yineleme için zaman birimi: **İkinci**, **dakika**, **saat**, **gün**, **hafta**, veya **ay** | 
 | **Aralık** | Evet | interval | Tamsayı | İş akışı sıklığı temel alarak çalışan ne sıklıkta açıklar pozitif bir tamsayı. <p>Aralığı için varsayılan değer 1'dir. Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 12.000 1 saat </br>-Dakikası: 1-72,000 dakika </br>-Saniye: 1-9,999,999 saniye<p>Örneğin, aralığı 6'dır ve "Month" sıklığıdır yinelenme her 6 ayda olur. | 
-| **Saat dilimi** | Hayır | timeZone | Dize | Bu tetikleyiciyi kabul etmez çünkü yalnızca bir başlangıç zamanı belirttiğinizde geçerlidir [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Uygulamak istediğiniz saat dilimini seçin. | 
-| **Başlangıç saati** | Hayır | startTime | Dize | Bir başlangıç zamanı şu biçimde belirtin: <p>YYYY-MM-ddTHH bir saat dilimi seçerseniz <p>-veya- <p>YYYY-AA-saat dilimi seçmezseniz ssZ <p>Örneğin, 18 Eylül 2017 2: 00'da isterseniz, ardından belirtin "2017-09-18T14:00:00" Pasifik saati gibi bir saat dilimi seçin. Ya da belirtin "2017-09-18T14:00:00Z" olmadan bir saat dilimi. <p>**Not:** Bu başlangıç zamanı izlemelidir [ISO 8601 tarih saat belirtimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) içinde [UTC tarih saat biçiminde](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), olmadan bir [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Bir saat dilimi seçmezseniz, sonunda boşluk olmadan "Z" harfi eklemeniz gerekir. Bu "Z" eş değeri başvuruyor [Denizcilik zaman](https://en.wikipedia.org/wiki/Nautical_time). <p>Basit zamanlamalar için ilk yinelenme, başlangıç zamanıdır sırada karmaşık zamanlamalar için tetikleyici başlangıç saatinden herhangi bir erken etkinleşmez. [*Başlangıç tarihi ve saati kullanabilirim, yolları nelerdir?*](#start-time) | 
+| **Saat dilimi** | Hayır | timeZone | String | Bu tetikleyiciyi kabul etmez çünkü yalnızca bir başlangıç zamanı belirttiğinizde geçerlidir [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Uygulamak istediğiniz saat dilimini seçin. | 
+| **Başlangıç saati** | Hayır | startTime | String | Bir başlangıç zamanı şu biçimde belirtin: <p>YYYY-MM-ddTHH bir saat dilimi seçerseniz <p>-veya- <p>YYYY-AA-saat dilimi seçmezseniz ssZ <p>Örneğin, 18 Eylül 2017 2: 00'da isterseniz, ardından belirtin "2017-09-18T14:00:00" Pasifik saati gibi bir saat dilimi seçin. Ya da belirtin "2017-09-18T14:00:00Z" olmadan bir saat dilimi. <p>**Not:** Bu başlangıç zamanı izlemelidir [ISO 8601 tarih saat belirtimi](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) içinde [UTC tarih saat biçiminde](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), olmadan bir [UTC farkı](https://en.wikipedia.org/wiki/UTC_offset). Bir saat dilimi seçmezseniz, sonunda boşluk olmadan "Z" harfi eklemeniz gerekir. Bu "Z" eş değeri başvuruyor [Denizcilik zaman](https://en.wikipedia.org/wiki/Nautical_time). <p>Basit zamanlamalar için ilk yinelenme, başlangıç zamanıdır sırada karmaşık zamanlamalar için tetikleyici başlangıç saatinden herhangi bir erken etkinleşmez. [*Başlangıç tarihi ve saati kullanabilirim, yolları nelerdir?*](#start-time) | 
 | **Şu günlerde** | Hayır | weekDays | Dize veya dize dizisi | "Week" seçeneğini belirlerseniz, iş akışını çalıştırmak istediğiniz bir veya daha fazla gün seçebilirsiniz: **Pazartesi**, **Salı**, **Çarşamba**, **Perşembe**, **Cuma**, **Cumartesi**, ve **Pazar** | 
 | **Şu saatlerde** | Hayır | hours | Tamsayı veya tamsayı dizisi | "Day" veya "Week" seçeneğini belirlerseniz, bir veya daha fazla tamsayılar 0 ile 23 iş akışını çalıştırmak istediğinizde günün saat seçebilirsiniz. <p>Örneğin, "10", "12" ve "14" belirtin, 10 AM, PM 12 ve 2 Pasifik saat işaretlerinde olarak alırsınız. | 
 | **Şu dakikalarda** | Hayır | minutes | Tamsayı veya tamsayı dizisi | "Day" veya "Week" seçeneğini belirlerseniz, bir veya daha fazla tamsayılar 0 ile 59 arasında iş akışını çalıştırmak istediğinizde saat dakika seçebilirsiniz. <p>Örneğin, "30" dakika işareti belirtebilirsiniz ve önceki örnekte için günün saatlerini kullanarak 10:30 AM, alın 12:30 PM ve 2:30 PM. | 
@@ -142,7 +142,7 @@ Bu özellikler için yineleme tetikleyicisi yapılandırabilirsiniz.
 <a name="run-once"></a>
 
 **S:** Mantıksal uygulama gelecekte yalnızca bir kez çalıştırılacak istersem? </br>
-**Y:** Mantıksal uygulamanızı tetikleyecek ve yinelenen olmadan bir kez çalıştırmak için kullanabileceğiniz **Zamanlayıcı: Bir kez işlerinizi** şablonu. Yeni bir mantıksal uygulama oluşturduktan sonra ancak Logic Apps Tasarımcısı'nda altında açmadan önce **şablonları** bölümü, gelen **kategori** listesinden **zamanlama**ve ardından seçin Şablonu:
+**C:** Mantıksal uygulamanızı tetikleyecek ve yinelenen olmadan bir kez çalıştırmak için kullanabileceğiniz **Zamanlayıcı: Bir kez işlerinizi** şablonu. Yeni bir mantıksal uygulama oluşturduktan sonra ancak Logic Apps Tasarımcısı'nda altında açmadan önce **şablonları** bölümü, gelen **kategori** listesinden **zamanlama**ve ardından seçin Şablonu:
 
 ![Seçin "Zamanlayıcı: İşleri bir kez çalıştır"şablonu](./media/connectors-native-recurrence/choose-run-once-template.png)
 
@@ -151,7 +151,7 @@ Ya da boş mantıksal uygulama şablonunu kullanıyorsanız, mantıksal uygulama
 <a name="example-recurrences"></a>
 
 **S:** Diğer örnek yineleme zamanlaması nelerdir? </br>
-**Y:** Daha fazla örnekleri aşağıda verilmiştir:
+**C:** Daha fazla örnekleri aşağıda verilmiştir:
 
 | Yineleme | Interval | Sıklık | Başlangıç saati | Şu günlerde | Şu saatlerde | Şu dakikalarda | Not |
 | ---------- | -------- | --------- | ---------- | ------------- | -------------- | ---------------- | ---- |
@@ -181,7 +181,7 @@ Ya da boş mantıksal uygulama şablonunu kullanıyorsanız, mantıksal uygulama
 <a name="start-time"></a>
 
 **S:** Başlangıç tarihi ve saati kullanabilirim, yolları nelerdir? </br>
-**Y:** Yineleme başlangıç tarihi ve saati ile nasıl kontrol edebilir ve Logic Apps altyapısı bu tekrarlar nasıl yürütür gösteren bazı desenleri şunlardır:
+**C:** Yineleme başlangıç tarihi ve saati ile nasıl kontrol edebilir ve Logic Apps altyapısı bu tekrarlar nasıl yürütür gösteren bazı desenleri şunlardır:
 
 | Başlangıç saati | Zamanlama olmadan yinelenme | Zamanlama ile yinelenme | 
 | ---------- | --------------------------- | ------------------------ | 
@@ -202,7 +202,7 @@ Bu senaryoda, mantıksal altyapısı hesaplar çalışma zamanları başlangıç
 | Başlangıç saati | İlk çalıştırma | Gelecekteki çalışma zamanları | 
 | ---------- | ------------ | ---------- | 
 | 2017-09 -**07** , 2:00 PM | 2017-09 -**09** , 2:00 PM | 2017-09 -**11** , 2:00 PM </br>2017-09 -**13** , 2:00 PM </br>2017-09 -**15** , 2:00 PM </br>ve benzeri...
-||||| 
+||||
 
 Bu nedenle bu senaryo için belirttiğiniz başlangıç geçmiş ne kadar olursa olsun zaman, örneğin, 2017-09 -**05** 2: 00'dan en veya 2017-09 -**01** 2: 00'te, ilk çalışma zamanında aynıdır.
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4c50ba76cf1e9b8103bd006c9f97c18a3e92d0c2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d9d26ced30f718f06d6d0ba9eb7c2a78682305ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550288"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102375"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - sık sorulan sorular
 > [!NOTE]
@@ -178,7 +178,7 @@ Bir dilim aşağıdaki yollardan birinde çalıştırabilirsiniz:
     ```PowerShell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-Bkz: [kümesi AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] cmdlet'i hakkında daha fazla ayrıntı için.
+  Bkz: [kümesi AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] cmdlet'i hakkında daha fazla ayrıntı için.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Ne kadar bir dilimi işlemesi için sürer?
 Veri dilimi işlemesi için ne kadar sürdüğünü öğrenmek için etkinlik penceresi Gezgini'nde izleme ve yönetme uygulamasını kullanın. Bkz: [etkinlik penceresi Gezgini](data-factory-monitor-manage-app.md#activity-window-explorer) Ayrıntılar için.

@@ -5,22 +5,22 @@ services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 11/28/2018
+ms.date: 03/12/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: mvc
+ms.custom: mvc, fasttrack-edit
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: b6df653f89f05a9b253ecea102ed8310ff2a53b7
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 78c2f599ba7d22e6de070f5867398e111a396d45
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438303"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849746"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Core Tools ve Azure CLI'yi kullanarak Linux’ta barındırılan ilk işlevinizi oluşturma (önizleme)
 
-Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayımlamak zorunda kalmadan kodunuzu [sunucusuz](https://azure.com/serverless) bir Linux ortamında yürütmenize olanak tanır. Linux üzerinde barındırma özelliği şu anda önizleme aşamasındadır ve [İşlevler 2.0 çalışma zamanını](functions-versions.md) gerektirir. Linux üzerinde işlev uygulamalarınızı çalıştırmak için Önizleme konuları hakkında daha fazla bilgi için bkz: [bu makalede Linux işlevleri](https://aka.ms/funclinux).
+Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayımlamak zorunda kalmadan kodunuzu [sunucusuz](https://azure.com/serverless) bir Linux ortamında yürütmenize olanak tanır. Linux barındırma gerektirir [işlevler 2.0 çalışma zamanını](functions-versions.md). Linux'ta sunucusuz bir işlev uygulaması çalıştırmak için destek [tüketim planı](functions-scale.md#consumption-plan) şu anda Önizleme aşamasındadır. Daha fazla bilgi için bkz. [Önizleme konuları makalede](https://aka.ms/funclinux).
 
 Bu hızlı başlangıç makalesi, Azure CLI ile Linux üzerinde çalışan ilk işlev uygulamanızı oluşturma adımlarını göstermektedir. İşlev kodu yerel ortamda oluşturulur ve ardından [Azure Functions Core Tools](functions-run-local.md) ile Azure'a dağıtılır.
 
@@ -49,7 +49,7 @@ func init MyFunctionProj
 İstendiğinde, aşağıdaki dil seçimlerinden bir worker çalışma zamanı seçmek için ok tuşlarını kullanın:
 
 + `dotnet`: yeni bir .NET Core sınıf kitaplığı projesi (.csproj) oluşturur.
-+ `node`: bir JavaScript projesi oluşturur.
++ `node`: bir JavaScript veya TypeScript projesi oluşturur. İstendiğinde, `JavaScript`.
 + `python`: bir Python projesi oluşturur. Python işlevleri için [Python hızlı](functions-create-first-function-python.md).
 
 Komut yürütüldüğünde, aşağıdaki çıktıya benzer bir şey görürsünüz:
@@ -59,6 +59,12 @@ Writing .gitignore
 Writing host.json
 Writing local.settings.json
 Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
+```
+
+Yeni `MyFunctionProj` proje klasörüne gitmek için aşağıdaki komutu kullanın.
+
+```bash
+cd MyFunctionProj
 ```
 
 [!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
@@ -71,23 +77,16 @@ Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## <a name="create-a-linux-app-service-plan"></a>Bir Linux App Service planı oluşturma
-
-[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
-
 ## <a name="create-a-linux-function-app-in-azure"></a>Azure'da bir Linux işlev uygulaması oluşturma
 
 Linux’ta işlevlerinizin yürütülmesini barındıran bir işlev uygulamasına sahip olmanız gerekir. İşlev uygulaması, işlev kodunuzun yürütülmesi için sunucusuz bir ortam sağlar. Kaynakların daha kolay yönetilmesi, dağıtılması ve paylaşılması için işlevleri bir mantıksal birim olarak gruplandırmanıza olanak tanır. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) komutunu kullanarak Linux üzerinde çalışan bir işlev uygulaması oluşturun.
 
-Aşağıdaki komutta benzersiz bir işlev uygulamasının adını `<app_name>` yer tutucusunun ve `<storage_name>` depolama hesabı adının yerine ekleyin. `<app_name>` aynı zamanda işlev uygulamasının varsayılan DNS etki alanıdır. Bu ad Azure'daki tüm uygulamalar arasında benzersiz olmalıdır. Ayrıca ayarlamalısınız `<language>` işlev uygulamanız için çalışma zamanı gelen `dotnet` (C#), `node` (JavaScript) veya `python`.
+Aşağıdaki komutta benzersiz bir işlev uygulamasının adını `<app_name>` yer tutucusunun ve `<storage_name>` depolama hesabı adının yerine ekleyin. `<app_name>` aynı zamanda işlev uygulamasının varsayılan DNS etki alanıdır. Bu ad Azure'daki tüm uygulamalar arasında benzersiz olmalıdır. Ayrıca ayarlamalısınız `<language>` işlev uygulamanız için çalışma zamanı gelen `dotnet` (C#), `node` (JavaScript/TypeScript) veya `python`.
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --consumption-plan-location westus --os-type Linux \
 --name <app_name> --storage-account  <storage_name> --runtime <language>
 ```
-
-> [!NOTE]
-> Linux dışında App Service uygulamalarının bulunduğu `myResourceGroup` adlı bir kaynak grubunuz varsa farklı bir kaynak grubu kullanmanız gerekir. Windows ve Linux uygulamalarını aynı kaynak grubunda barındıramazsınız.  
 
 İşlev uygulaması oluşturulduktan sonra şu ileti görüntülenir:
 
@@ -104,9 +103,4 @@ Artık projenizi Azure'daki yeni işlev uygulamasında yayımlayabilirsiniz.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Sonraki adımlar
-
-Bu makalede varsayılan Azure App Service kapsayıcısında işlev uygulaması barındırma adımları gösterildi. İşlevlerinizi Linux’ta kendi özel kapsayıcınızda da barındırabilirsiniz.
-
-> [!div class="nextstepaction"]
-> [Linux üzerinde özel görüntü kullanarak bir işlev oluşturma](functions-create-function-linux-custom-image.md)
+[!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]

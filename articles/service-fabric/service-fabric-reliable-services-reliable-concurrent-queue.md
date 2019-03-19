@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: aljo
-ms.openlocfilehash: d4d399258ac1bd83fe4cfb46344576ca74e66f1e
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 6fefbd21a5c301111afdc27ec1d332d713c669ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805146"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119658"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service fabric'te ReliableConcurrentQueue giriş
 Güvenilir eşzamanlı kuyruk, bir zaman uyumsuz işlem ve çoğaltılan kuyruğa hangi özellikleri yüksek eşzamanlılık kuyruğudur ve sıradan çıkarma işlemleri. Yüksek aktarım hızına ve düşük gecikme süreli katı FIFO tarafından sağlanan sıralama esneterek sunmak için tasarlanan [güvenilir kuyruk](https://msdn.microsoft.com/library/azure/dn971527.aspx) ve bunun yerine bir mümkün olan en iyi sıralama sağlar.
@@ -70,7 +70,7 @@ using (var txn = this.StateManager.CreateTransaction())
 Görev başarıyla tamamlandı ve bu orada sıranın değiştirme eşzamanlı işlem olduğunu varsayalım. Kullanıcı sıranın öğelerini aşağıdaki sıralardan birine içermesi için geçerli olacaktır:
 
 > 10, 20
-
+> 
 > 20, 10
 
 
@@ -165,7 +165,7 @@ using (var txn = this.StateManager.CreateTransaction())
 
 İşlem iptal ediyoruz, öğeleri aşağıdaki sıralardan birine kuyruğun baş dön eklenir:
 > 10, 20
-
+> 
 > 20, 10
 
 Aynı işlem olduğu değil başarıyla tüm durumlarda geçerlidir *kabul edilen*.

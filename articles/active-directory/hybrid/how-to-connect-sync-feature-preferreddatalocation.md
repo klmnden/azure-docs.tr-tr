@@ -16,12 +16,12 @@ ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbe9a10c85efa2f52a04f5c2fab87421a08f0a16
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118451"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect eşitleme: Office 365 kaynaklar için tercih edilen veri konumu yapılandırın
 Bu konunun amacı, öznitelik tercih edilen veri konumu için Azure Active Directory (Azure AD) Connect eşitleme yapılandırma konusunda rehberlik sağlamaktır. Birisi çoklu coğrafi özellikleri Office 365'te kullandığında, kullanıcının Office 365 verilerine coğrafi konumunu belirlemek için bu öznitelik kullanın. (Koşulları *bölge* ve *coğrafi* birbirinin yerine kullanılır.)
@@ -192,8 +192,8 @@ Genel olarak, tam eşitleme döngüsü gereklidir. Active Directory ve Azure AD 
    3. İletişim kutusunda **tam içeri aktarma**seçip **Tamam**.
    4. İşlemin tamamlanmasını bekleyin.
 
-    > [!NOTE]
-    > Kaynak özniteliği zaten içeri aktarılan öznitelikler listesinde yer alıyorsa, şirket içi Active Directory Bağlayıcısı üzerinde tam içeri aktarma atlayabilirsiniz. Diğer bir deyişle, bu makalenin önceki kısımlarında adımı 2 sırasında herhangi bir değişiklik yapmak yoktu.
+      > [!NOTE]
+      > Kaynak özniteliği zaten içeri aktarılan öznitelikler listesinde yer alıyorsa, şirket içi Active Directory Bağlayıcısı üzerinde tam içeri aktarma atlayabilirsiniz. Diğer bir deyişle, bu makalenin önceki kısımlarında adımı 2 sırasında herhangi bir değişiklik yapmak yoktu.
 
 2. Çalıştırma **tam içeri aktarma** Azure AD Bağlayıcısı üzerinde:
 

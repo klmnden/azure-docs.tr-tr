@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2018
 ms.author: banders
-ms.openlocfilehash: a71c456f017e80da85f27437738aa963ec967a3c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 7e5697073b9406d915eda99a5e71e3123c48073a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904174"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880241"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>Otomasyon Azure ayırma için API'leri
 
@@ -29,7 +29,7 @@ Program aracılığıyla Azure hizmeti veya yazılımı ayırmaları kuruluşunu
 
 Rezervasyon satın almayı planladığınız öneriler almak için öneri API'si, kuruluşunuzun kullanımına göre ayırma kullanın. Daha fazla bilgi için [ayırma öneriler alın](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 
-Tüketim API kullanım ayrıntılarını kullanarak, kaynak kullanımınızı analiz edebilirsiniz. Daha fazla bilgi için [kullanım ayrıntıları - listesi için faturalama dönemi Faturalama hesabı](/rest/api/consumption/usagedetails/listforbillingperiodbybillingaccount). Azure kaynaklarını tutarlı bir şekilde kullanmak genellikle en iyi için bir ayırma adaydır.
+Tüketim API kullanım ayrıntılarını kullanarak, kaynak kullanımınızı analiz edebilirsiniz. Daha fazla bilgi için [kullanım ayrıntıları - listesi için faturalama dönemi Faturalama hesabı](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslistforbillingperiod). Azure kaynaklarını tutarlı bir şekilde kullanmak genellikle en iyi için bir ayırma adaydır.
 
 ## <a name="buy-a-reservation"></a>Ayırma satın alma
 

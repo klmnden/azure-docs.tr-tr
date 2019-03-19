@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5ade3ac7587d4ac5c5a6d8e174e76e76088e4e57
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bc2e41fd5da4737ea1efe329b70964535daff54a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157950"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105973"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Kullanıcı girişini doğrulama, Azure AD B2C kullanıcı yolculuğunun talep alışverişlerine REST API tümleştirme
 
@@ -249,10 +249,10 @@ Bir talep sağlayıcısı, birden fazla teknik profili çeşitli nedenlerden dol
 Aşağıdaki XML kod parçacığı, iki teknik profili ile bir talep sağlayıcı düğüm içerir:
 
 * **TechnicalProfile Id="REST-API-SignUp"**: RESTful hizmetini tanımlar.
-   * `Proprietary` bir RESTful tabanlı sağlayıcısı için protokol olarak tanımlanır.
-   * `InputClaims` Azure AD B2C'den REST hizmeti için gönderilecek Talepleri tanımlar.
+  * `Proprietary` bir RESTful tabanlı sağlayıcısı için protokol olarak tanımlanır.
+  * `InputClaims` Azure AD B2C'den REST hizmeti için gönderilecek Talepleri tanımlar.
 
-   Bu örnekte, talep içeriğini `givenName` REST hizmeti gönderir `firstName`, talep içeriğini `surname` REST hizmeti gönderir `lastName`, ve `email` olarak gönderir. `OutputClaims` Öğesi, Azure AD B2C geri RESTful hizmetinden alınan talepleri tanımlar.
+    Bu örnekte, talep içeriğini `givenName` REST hizmeti gönderir `firstName`, talep içeriğini `surname` REST hizmeti gönderir `lastName`, ve `email` olarak gönderir. `OutputClaims` Öğesi, Azure AD B2C geri RESTful hizmetinden alınan talepleri tanımlar.
 
 * **TechnicalProfile kimliği = "LocalAccountSignUpWithLogonEmail"**: Doğrulama teknik profili, var olan bir teknik profilini (temel ilkede tanımlanan) ekler. Kaydolma yolculuğu teknik profil doğrulama teknik profili çağırır. RESTful hizmeti bir HTTP hatası 409 (çakışma hatası) döndürürse, kullanıcıya hata iletisi görüntülenir.
 

@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 7e43af7d749719c2f69df9b53766c5452931884b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 244b2d1764f30f790c3e51e23cd2fa0af6375960
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542922"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894385"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure tanılama günlüğünü ve Windows Olay iletme'yi Azure günlük tümleştirmesi
 
@@ -113,37 +113,37 @@ Temel kurulum tamamlandıktan sonra yükleme sonrası ve doğrulama adımların�
 1. PowerShell'i yönetici olarak açın. Ardından, C:\Program Files\Microsoft Azure günlük tümleştirmesi gidin.
 2. Azure günlük tümleştirmesi cmdlet'leri içeri aktarın. Cmdlet'lerini içeri aktarmak için komut dosyasını çalıştırmak `LoadAzlogModule.ps1`. ENTER `.\LoadAzlogModule.ps1`, ve ardından Enter tuşuna basın (kullanımına dikkat edin **.\\**  Bu komutta). Aşağıdaki resimde görünen benzer bir şey görmeniz gerekir:
 
-  ![LoadAzlogModule.ps1 komut çıktısının ekran görüntüsü](./media/security-azure-log-integration-get-started/loaded-modules.png)
+   ![LoadAzlogModule.ps1 komut çıktısının ekran görüntüsü](./media/security-azure-log-integration-get-started/loaded-modules.png)
 3. Ardından, belirli bir Azure ortamı kullanmak için Azure günlük tümleştirmesi yapılandırın. Bir *Azure ortamı* birlikte çalışmak istediğiniz Azure bulut veri merkezine türüdür. Olmakla birlikte birkaç Azure ortamları şu anda, uygun seçenekleri olan **AzureCloud** veya **AzureUSGovernment**. PowerShell'i yönetici olarak çalışan C:\Program Files\Microsoft Azure günlük Integration\ olduğundan emin olun. Ardından, bu komutu çalıştırın:
 
-  `Set-AzlogAzureEnvironment -Name AzureCloud` (for **AzureCloud**)
+   `Set-AzlogAzureEnvironment -Name AzureCloud` (for **AzureCloud**)
   
-  ABD devlet kurumları Azure bulutuna kullanmak istiyorsanız, kullanın **AzureUSGovernment** için **-adı** değişkeni. Diğer Azure bulutlarını şu anda desteklenmiyor.  
+   ABD devlet kurumları Azure bulutuna kullanmak istiyorsanız, kullanın **AzureUSGovernment** için **-adı** değişkeni. Diğer Azure bulutlarını şu anda desteklenmiyor.  
 
-  > [!NOTE]
-  > Komut başarılı olduğunda, geri bildirim gönderilmez. 
+   > [!NOTE]
+   > Komut başarılı olduğunda, geri bildirim gönderilmez. 
 
 4. Bir sistem izleyebilmeniz için önce Azure tanılama için kullanılan depolama hesabı adı gereklidir. Azure portalında Git **sanal makineler**. İzleyeceğiniz bir Windows sanal makine için bakın. İçinde **özellikleri** bölümünden **tanılama ayarları**.  Ardından, **aracı**. Belirtilen depolama hesabı adını not edin. Bu hesap adı, sonraki adım için ihtiyacınız.
 
-  ![Azure tanılama ayarları bölmesinin ekran görüntüsü](./media/security-azure-log-integration-get-started/storage-account-large.png) 
+   ![Azure tanılama ayarları bölmesinin ekran görüntüsü](./media/security-azure-log-integration-get-started/storage-account-large.png) 
 
-  ![Konuk düzeyinde izleme düğmesi, ekran etkinleştir](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
+   ![Konuk düzeyinde izleme düğmesi, ekran etkinleştir](./media/security-azure-log-integration-get-started/azure-monitoring-not-enabled-large.png)
 
-  > [!NOTE]
-  > Sanal makine oluşturulduğunda, izleme etkin değildi, önceki görüntüde gösterildiği gibi etkinleştirebilirsiniz.
+   > [!NOTE]
+   > Sanal makine oluşturulduğunda, izleme etkin değildi, önceki görüntüde gösterildiği gibi etkinleştirebilirsiniz.
 
 5. Şimdi, Azure günlük tümleştirmesi makineye geri dönün. Bağlantı depolama hesabına sistemden Azure günlük Tümleştirmesi'ni yüklü olduğunu doğrulayın. Azure günlük tümleştirmesi hizmetini çalıştıran bilgisayarın, Azure tanılama tarafından izlenen sistemlerinin her oturum bilgilerini almak için depolama hesabına erişmesi gerekir. Bağlantıyı doğrulamak için: 
-  1. [Azure Depolama Gezgini'ni indir](http://storageexplorer.com/).
-  2. Kurulumu tamamlayın.
-  3. Yükleme tamamlandığında seçin **sonraki**. Bırakın **başlatma Microsoft Azure Depolama Gezgini** onay kutusu seçili.  
-  4. Azure'da oturum açın.
-  5. Azure tanılama için yapılandırılmış depolama hesabı görebildiğini doğrulayın: 
+   1. [Azure Depolama Gezgini'ni indir](https://storageexplorer.com/).
+   2. Kurulumu tamamlayın.
+   3. Yükleme tamamlandığında seçin **sonraki**. Bırakın **başlatma Microsoft Azure Depolama Gezgini** onay kutusu seçili.  
+   4. Azure'da oturum açın.
+   5. Azure tanılama için yapılandırılmış depolama hesabı görebildiğini doğrulayın: 
 
    ![Depolama Gezgini'nde depolama hesabı ekran görüntüsü](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
-  6. Birkaç seçenek, depolama hesapları altında görünür. Altında **tabloları**, adlı bir tablo görürsünüz **WADWindowsEventLogsTable**.
+   1. Birkaç seçenek, depolama hesapları altında görünür. Altında **tabloları**, adlı bir tablo görürsünüz **WADWindowsEventLogsTable**.
 
-  Sanal makine oluşturulduğunda, izleme etkin değildi, daha önce açıklandığı gibi etkinleştirebilirsiniz.
+   Sanal makine oluşturulduğunda, izleme etkin değildi, daha önce açıklandığı gibi etkinleştirebilirsiniz.
 
 
 ## <a name="integrate-windows-vm-logs"></a>Windows VM günlükleri tümleştirme
@@ -156,36 +156,36 @@ Bu adımı tamamlamak için birkaç şey gerekir:
 * **Depolama anahtarı**: Bu sanal makine için Azure tanılama bilgilerini depolandığı depolama hesabı için depolama anahtarı.  
 
 Depolama anahtarını elde etmek için aşağıdaki adımları tamamlayın:
-1. [Azure Portal](http://portal.azure.com) gidin.
+1. [Azure Portal](https://portal.azure.com) gidin.
 2. Gezinti bölmesinde seçin **tüm hizmetleri**.
 3. İçinde **filtre** kutusuna **depolama**. Ardından, **depolama hesapları**.
 
-  ![Depolama hesapları tüm hizmetlerin gösteren ekran görüntüsü](./media/security-azure-log-integration-get-started/filter.png)
+   ![Depolama hesapları tüm hizmetlerin gösteren ekran görüntüsü](./media/security-azure-log-integration-get-started/filter.png)
 
 4. Depolama hesaplarının listesi görüntülenir. Depolama günlük atanmış hesaba çift tıklayın.
 
-  ![Depolama hesaplarının bir listesini gösteren ekran görüntüsü](./media/security-azure-log-integration-get-started/storage-accounts.png)
+   ![Depolama hesaplarının bir listesini gösteren ekran görüntüsü](./media/security-azure-log-integration-get-started/storage-accounts.png)
 
 5. **Ayarlar** altında **Erişim anahtarları**'nı seçin.
 
-  ![Erişim anahtarları seçeneği menüde gösteren ekran görüntüsü](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
+   ![Erişim anahtarları seçeneği menüde gösteren ekran görüntüsü](./media/security-azure-log-integration-get-started/storage-account-access-keys.png)
 
 6. Kopyalama **key1**ve ardından aşağıdaki adımı için erişebileceğiniz güvenli bir konuma kaydedin.
 7. Azure günlük tümleştirmesi yüklediğiniz sunucuda, yönetici olarak bir komut istemi penceresi açın. (Bir Yöneticiyseniz ve PowerShell değil bir komut istemi penceresi açmak emin olun).
 8. C:\Program Files\Microsoft Azure günlük tümleştirmesi için gidin.
 9. Bu komutu çalıştırın: `Azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey>`.
  
-  Örnek:
+   Örnek:
   
-  `Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
+   `Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
-  Abonelik kimliği, olay XML görünmesini istiyorsanız, abonelik kimliği için kolay ad ekleyin:
+   Abonelik kimliği, olay XML görünmesini istiyorsanız, abonelik kimliği için kolay ad ekleyin:
 
-  `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
+   `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
   
-  Örnek:
+   Örnek:
   
-  `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
+   `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
 > [!NOTE]
 > 60 dakika kadar bekleyin ve ardından depolama hesabından çekilen olayları görüntüleyin. Azure günlük tümleştirmesi olayları görüntülemek için seçin **Olay Görüntüleyicisi'ni** > **Windows Günlükleri** > **iletilen olaylar**.
@@ -200,11 +200,11 @@ Veri iletilen olaylar klasöründe bir saat sonra listemde görünmüyor, bu ad�
 
 1. Azure günlük tümleştirmesi hizmeti çalıştıran makinenin kontrol edin. Azure erişebildiğinizi doğrulayın. Bağlantı, tarayıcıda test etmek için gitmek deneyin [Azure portalında](https://portal.azure.com).
 2. Kullanıcı hesabı Azlog klasör users\Azlog için yazma izni olduğundan emin olun.
-  1. Dosya Gezgini'ni açın.
-  2. C:\Users gidin.
-  3. C:\users\Azlog sağ tıklayın.
-  4. Seçin **güvenlik**.
-  5. Seçin **NT Service\Azlog**. Hesap izinlerini denetleyin. Hesap Bu sekmeden eksik ya da uygun izinleri görünmüyorsa, bu sekmedeki hesap izinleri verebilirsiniz.
+   1. Dosya Gezgini'ni açın.
+   2. C:\Users gidin.
+   3. C:\users\Azlog sağ tıklayın.
+   4. Seçin **güvenlik**.
+   5. Seçin **NT Service\Azlog**. Hesap izinlerini denetleyin. Hesap Bu sekmeden eksik ya da uygun izinleri görünmüyorsa, bu sekmedeki hesap izinleri verebilirsiniz.
 3. Komutu çalıştırdığınızda `Azlog source list`, emin depolama hesabını komut eklendi `Azlog source add` çıktısında listelenir.
 4. Azure günlük tümleştirmesi hizmeti herhangi bir hata bildirilirse görmek için Git **Olay Görüntüleyicisi'ni** > **Windows Günlükleri** > **uygulama**.
 
@@ -224,15 +224,15 @@ Azure etkinlik günlüğü oluşan Azure'da abonelik düzeyindeki olayların bir
 2. Şu komutu çalıştırın:  ```azlog createazureid```
 
     Bu komut için Azure oturum açma bilgilerinizi ister. Komut daha sonra Azure Active Directory Hizmet sorumlusu oturum açma kullanıcı bir yönetici, ortak yönetici veya sahibi olduğu Azure abonelikleri barındıran Azure AD kiracılarıyla oluşturur. Yalnızca Konuk kullanıcı Azure AD kiracısında oturum açan kullanıcı olduğundan komut başarısız olur. Azure kimlik doğrulamasını Azure AD gerçekleştirilir. Azure günlük tümleştirmesi için hizmet sorumlusu oluşturma, Azure aboneliklerinden okumak üzere erişim verilen Azure AD kimliğini oluşturur.
-3.  Azure günlük tümleştirmesi, abonelik için Etkinlik günlüğünü okuma için önceki adımı erişim oluşturulan hizmet sorumlusuna yetkisi vermek için aşağıdaki komutu çalıştırın. Abonelik komutu çalıştırmak için bir sahip olmanız gerekir.
+3. Azure günlük tümleştirmesi, abonelik için Etkinlik günlüğünü okuma için önceki adımı erişim oluşturulan hizmet sorumlusuna yetkisi vermek için aşağıdaki komutu çalıştırın. Abonelik komutu çalıştırmak için bir sahip olmanız gerekir.
 
-    ```Azlog.exe authorize subscriptionId``` Örnek:
+   ```Azlog.exe authorize subscriptionId``` Örnek:
 
    ```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
 
-4.  Azure Active Directory denetim günlüğü JSON dosyalarını bunları oluşturulduğunu onaylamak için aşağıdaki klasörleri denetleyin:
-    - C:\Users\azlog\AzureResourceManagerJson
-    - C:\Users\azlog\AzureResourceManagerJsonLD
+4. Azure Active Directory denetim günlüğü JSON dosyalarını bunları oluşturulduğunu onaylamak için aşağıdaki klasörleri denetleyin:
+   - C:\Users\azlog\AzureResourceManagerJson
+   - C:\Users\azlog\AzureResourceManagerJsonLD
 
 > [!NOTE]
 > Güvenlik bilgileri ve Olay yönetimi (SIEM) sistemi JSON dosyalarındaki bilgileri getirme ayrıntılı yönergeler için SIEM satıcınıza başvurun.

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7db08cde0df1ba3d9bc227758ab3ad00c1fc422
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2f569b497afe01db0fc4c3aa29589e6f2c538faf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207382"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108670"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>Hızlı Başlangıç: Geliştirme ortamı kurma
 
@@ -55,8 +55,8 @@ Birçok geliştiricinin, Azure AD kiracılarına bağlı hizmetler veya abonelik
 
 > [!TIP]
 > Kiracı kimliğini bulmanız gerekiyorsa şunları yapabilirsiniz:
-* Dizin / kiracı kimliği değerini almak için hesap adınızın üzerine gelin, veya
-* Azure portalında **Azure Active Directory > Özellikler > Dizin Kimliği**'ni seçin
+> * Dizin / kiracı kimliği değerini almak için hesap adınızın üzerine gelin, veya
+> * Azure portalında **Azure Active Directory > Özellikler > Dizin Kimliği**'ni seçin
 
 Hesabınızla ilişkilendirilmiş bir kiracınız yoksa, hesap adınızın altında bir GUID görürsünüz ve sonraki bölümde verilen adımları izleyene kadar uygulamaları kaydetme gibi eylemler gerçekleştiremezsiniz.
 

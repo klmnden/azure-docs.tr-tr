@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: ae057feb70d9ddb2c2dae10bae20eca1b613f76f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2083390c3d228e57151db8b165b876054d6c12cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996979"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876570"
 ---
 # <a name="playing-your-content-with-existing-players"></a>İçeriğinizi mevcut oynatıcılarda oynatma
 Azure Media Services, kesintisiz akış, HTTP canlı akış ve MPEG-Dash gibi birçok popüler akış biçimlerinde destekler. Bu konuda, akışlarınız test etmek için kullanabileceğiniz mevcut oynatıcılarda işaret eder.
@@ -31,12 +31,12 @@ Azure Media Services, kesintisiz akış, HTTP canlı akış ve MPEG-Dash gibi bi
 
 Bazı dikkate alınması gereken noktalar vardır:
 
-* **MEDYA HİZMETLERİ İÇERİK OYNATICISI** varsayılan akış uç noktasından oynatır. Varsayılan dışı bir akış uç noktasından oynatmak istiyorsanız başka bir oynatıcı kullanın. Örneğin, [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* **MEDYA HİZMETLERİ İÇERİK OYNATICISI** varsayılan akış uç noktasından oynatır. Varsayılan dışı bir akış uç noktasından oynatmak istiyorsanız başka bir oynatıcı kullanın. Örneğin, [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ![AMSPlayer][AMSPlayer]
 
 ### <a name="azure-media-player"></a>Azure Media Player
-Kullanım [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) kayıttan yürütme için aşağıdaki biçimlerden birinde içerik (açık ya da korumalı):
+Kullanım [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) kayıttan yürütme için aşağıdaki biçimlerden birinde içerik (açık ya da korumalı):
 
 * Kesintisiz Akış
 * MPEG DASH
@@ -45,17 +45,17 @@ Kullanım [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplay
 
 ### <a name="flash-player"></a>Flash Player
 #### <a name="aes-encrypted-with-token"></a>AES şifreli belirteciyle
-[http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
+[https://aestoken.azurewebsites.net](https://aestoken.azurewebsites.net)
 
 ### <a name="silverlight-players"></a>Silverlight oynatıcıları
 
 #### <a name="playready-with-token"></a>Belirteci ile PlayReady
-[http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
+[https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
 
 ### <a name="dash-players"></a>DASH oynatıcılar
-[http://dashplayer.azurewebsites.net](http://dashplayer.azurewebsites.net)
+[https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
 
-[http://dashif.org](http://dashif.org)
+[https://dashif.org](https://dashif.org)
 
 ### <a name="other"></a>Diğer
 HLS ayrıca URL'leri test etmek için:

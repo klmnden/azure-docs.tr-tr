@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 4998084ed15e6ed455789689674e134c6cd9d0a8
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749775"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012225"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Azure İzleyici günlük sorguları dizelerle çalışma
 
@@ -64,9 +64,9 @@ print @"C:\backslash\not\escaped\with @ prefix"
 `hasprefix_cs`    |Sağ taraftaki terimi, sol taraftaki önekidir         |Evet            |`"North America" hasprefix_cs "Ame"`
 `!hasprefix_cs`   |Sağ taraftaki sol taraftaki terimi ön eki değil     |Evet            |`"North America" !hasprefix_cs "CA"` 
 `hassuffix`    |Sağ taraftaki olan sol taraftaki bir terim soneki         |Hayır            |`"North America" hassuffix "ica"`
-`!hassuffix`   |Sol taraftaki bir terim soneki sağ taraftaki değil     |Hayır            |' "Kuzey Amerika"! "americ" hassuffix
+`!hassuffix`   |Sol taraftaki bir terim soneki sağ taraftaki değil     |Hayır            |`"North America" !hassuffix "americ"`
 `hassuffix_cs`    |Sağ taraftaki olan sol taraftaki bir terim soneki         |Evet            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |Sol taraftaki bir terim soneki sağ taraftaki değil     |Evet            |' "Kuzey Amerika"! "ICA" hassuffix_cs
+`!hassuffix_cs`   |Sol taraftaki bir terim soneki sağ taraftaki değil     |Evet            |`"North America" !hassuffix_cs "icA"`
 `contains`     |Sağ taraftaki bir alt dizi sol taraftaki gerçekleşir.  |Hayır            |`"FabriKam" contains "BRik"`
 `!contains`    |Sağ taraftaki sol taraftaki içinde oluşmaz.           |Hayır            |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |Sağ taraftaki bir alt dizi sol taraftaki gerçekleşir.  |Evet           |`"FabriKam" contains_cs "Kam"`
@@ -259,6 +259,7 @@ SecurityEvent
 ```
 
 Aşağıdaki sonuçları olabilir:
+
 Etkinlik                                        |değiştirildi
 ------------------------------------------------|----------------------------------------------------------
 4663 - bir nesneye erişmek için bir girişimde bulunuldu  |Etkinlik Kimliği 4663: Bir nesneye erişmek için girişimde bulunuldu.

@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c60dc2ca93547b93ce2ee457393570479069c899
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 10335f9c74b9033b303c960a77af136cc80d75bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216277"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094373"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Nasıl alternatif girişlerini kullan
 
@@ -48,6 +48,8 @@ Hangi kullanıcı eğitimi iletişim kutusunda belirli bir noktada etti alternat
 3. "City", "Varlık adı." yazın
 4. "Oluştur" düğmesine tıklayın.
 
+![](../media/T10_actions.png)
+
 Şimdi, üç eylem oluşturalım.
 
 ### <a name="create-the-first-action"></a>İlk Eylem oluştur
@@ -58,11 +60,15 @@ Hangi kullanıcı eğitimi iletişim kutusunda belirli bir noktada etti alternat
 4. "City" "Eleyerek sağlar" alanına yazın
 5. "Oluştur" düğmesine tıklayın.
 
+![](../media/T10_action_create_1.png)
+
 ### <a name="create-the-second-action"></a>İkinci Eylem oluştur
 
 1. Sol panelde, "Eylemler" sonra "Yeni Eylem" düğmesine tıklayın.
 2. "Botun yanıt..." alanı, "$city, hava durumu, büyük olasılıkla güneşli sağlıyor." yazın
 3. "Oluştur" düğmesine tıklayın.
+
+![](../media/T10_action_create_2.png)
 
 ### <a name="create-the-third-action"></a>Üçüncü Eylem oluştur
 
@@ -71,7 +77,11 @@ Hangi kullanıcı eğitimi iletişim kutusunda belirli bir noktada etti alternat
 3. "City" "Eleyerek sağlar" alanına yazın
 4. "Oluştur" düğmesine tıklayın.
 
+![](../media/T10_action_create_3.png)
+
 Artık üç eylem var.
+
+![](../media/T10_actions.png)
 
 ### <a name="train-the-model"></a>Modeli eğitme
 
@@ -82,7 +92,9 @@ Artık üç eylem var.
 5. Sohbet panelinde nerede yazacaktır "Yazın, iletinizi...", "Denver" yazın
 6. "Puan Eylemler" düğmesine tıklayın.
 7. Yanıtı seçin, "hava durumu, Denver, büyük olasılıkla güneşli sağlıyor."
-8. "Kaydet" düğmesine tıklayın.
+8. "Değişiklikleri Gönder" düğmesine tıklayın.
+
+![](../media/T10_training_1.png)
 
 Şimdi başka bir eğitimi iletişim oluşturarak daha fazla modeli eğitin.
 
@@ -96,7 +108,9 @@ Artık üç eylem var.
 6. "Seattle" ı "city" varlık listesinden tıklatın.
 7. "Puan Eylemler" düğmesine tıklayın.
 8. Yanıtı seçin, "Seattle hava durumu, büyük olasılıkla güneşli sağlıyor."
-9. "Kaydet" düğmesine tıklayın.
+9. "Değişiklikleri Gönder" düğmesine tıklayın.
+
+![](../media/T10_training_2.png)
 
 ### <a name="third-model-train-dialog-using-alternative-input"></a>Alternatif girişini kullanarak üçüncü modeli eğitme iletişim
 
@@ -106,27 +120,29 @@ Artık üç eylem var.
     - Model için en iyi seçenek, belirsiz olduğundan varsayılan olarak yüksek yüzdelik dilim seçmelisiniz.
 4. "Öğretim İptal" düğmesine ve ardından "Onayla" düğmesine tıklayın.
 
-![](../media/tutorial8_closescores.png)
+![](../media/T10_training_3.png)
 
 Şimdi daha iyi alternatif girişlerini kullanarak sistem ayarlayın. Öğretim ya da üzeri, alternatif bir giriş ekleyebilirsiniz.
 
-5. Sol paneldeki "Train iletişim kutuları"'a tıklayın ve ardından "Ne yapabilirsiniz?" Train iletişim kutuları listesinden.
-6. "Ne yapabilirsiniz?" tıklayın Sohbet panelinde utterance.
-7. "İçinde alternatif Girişi Ekle..." alanı, "help" yazın ve isabet girin.
-8. "Değişiklikleri Kaydet" düğmesine tıklayın.
+1. Sol paneldeki "Train iletişim kutuları"'a tıklayın ve ardından "Ne yapabilirsiniz?" Train iletişim kutuları listesinden.
+1. "Ne yapabilirsiniz?" tıklayın Sohbet panelinde utterance.
+1. "İçinde alternatif Girişi Ekle..." alanı, "help" yazın ve isabet girin.
+1. "Değişiklikleri Kaydet" düğmesine tıklayın.
 
-![](../media/tutorial8_helpalternates.png)
+![](../media/T10_training_4.png)
 
 Houston işlemek için başka bir alternatif giriş ekleyelim.
 
-9. "Seattle hava durumu nedir?" tıklayın Sohbet panelinde utterance.
-10. Alan "alternatif giriş Ekle", "Tahmin için Houston" türü ve ENTER tuşuna basın.
-    - Hata iletisi vurgular olgu alternatif girişleri, anlamsal olarak eşdeğer ve özgün utterance olarak aynı varlıkları içerir; yalnızca aynı değerleri varlık. Aynı varlıkları varlığını gereklidir.
-11. "Houston üzerinde"'a tıklayın ve "city" varlık listesinden seçin.
-12. Alan "alternatif giriş Ekle", "Tahmin için Seattle" türü ve ENTER tuşuna basın.
-13. "Seattle" üzerinde tıklayın ve "city" varlıkları listeden seçin.
-14. "Değişiklikleri Kaydet" düğmesine tıklayın.
-15. "Kaydet Düzenle" düğmesine tıklayın.
+1. "Seattle hava durumu nedir?" tıklayın Sohbet panelinde utterance.
+1. Alan "alternatif giriş Ekle", "Tahmin için Houston" türü ve ENTER tuşuna basın.
+   - Hata iletisi vurgular olgu alternatif girişleri, anlamsal olarak eşdeğer ve özgün utterance olarak aynı varlıkları içerir; yalnızca aynı değerleri varlık. Aynı varlıkları varlığını gereklidir.
+1. "Houston üzerinde"'a tıklayın ve "city" varlık listesinden seçin.
+1. Alan "alternatif giriş Ekle", "Tahmin için Seattle" türü ve ENTER tuşuna basın.
+1. "Seattle" üzerinde tıklayın ve "city" varlıkları listeden seçin.
+1. "Değişiklikleri Kaydet" düğmesine tıklayın.
+1. "Kaydet Düzenle" düğmesine tıklayın.
+
+![](../media/T10_training_5.png)
 
 ### <a name="testing-the-model"></a>Model test etme
 
@@ -134,7 +150,7 @@ Houston işlemek için başka bir alternatif giriş ekleyelim.
 2. Sohbet panelinde nerede yazacaktır "Yazın, iletinizi...", "bana help" yazın
 3. Sohbet panelinde nerede yazacaktır "Yazın, iletinizi...", "Denver tahminini" yazın
 
-![](../media/tutorial8_altcities.png)
+![](../media/T10_logdialog.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

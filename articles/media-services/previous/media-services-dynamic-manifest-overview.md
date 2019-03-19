@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c982707b24f18e840e866b1dcc858fe2aceb686e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4f72738d0ca9b8c6dc170892a985d821923a4405
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000019"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894028"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtreler ve dinamik bildirimlere
 
@@ -34,7 +34,7 @@ Bu konuda, yaygın senaryoları tartışır filtreleri kullanarak filtreler prog
 ## <a name="overview"></a>Genel Bakış
 İçeriğinizi (Canlı etkinlik veya isteğe bağlı video akışı) müşterilere teslim ederken hedefiniz, farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli video teslim sağlamaktır. Bu hedef şunları yapmanız elde etmek için:
 
-* kullanarak akışınızı Çoklu bit hızlı kodlama ([bit hızı Uyarlamalı](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (Bu halleder kaliteyi ve ağ koşullarını) video akışına ve 
+* kullanarak akışınızı Çoklu bit hızlı kodlama ([bit hızı Uyarlamalı](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (Bu halleder kaliteyi ve ağ koşullarını) video akışına ve 
 * Media Services'i kullanma [dinamik paketleme](media-services-dynamic-packaging-overview.md) dinamik olarak akışınız içine farklı protokollere (Bu halleder farklı cihazlarda akış) yeniden paketler. Media Services teslim aşağıdaki hızı Uyarlamalı akış teknolojilerini destekler: HTTP canlı akış (HLS), kesintisiz akış ve MPEG DASH. 
 
 ### <a name="manifest-files"></a>Bildirim dosyaları
@@ -72,7 +72,7 @@ Bir bildirim dosyası örneği aşağıdadır:
 
     </SmoothStreamingMedia>
 
-### <a name="dynamic-manifests"></a>Dinamik bildirimlerin
+### <a name="dynamic-manifests"></a>Dinamik bildirimler
 Vardır [senaryoları](media-services-dynamic-manifest-overview.md#scenarios) istemcinizi varsayılan varlığın bildirim dosyasında tanımlanan değerinden daha fazla esneklik gerektiğinde. Örneğin:
 
 * Cihaz özel: yalnızca belirtilen yorumlama ve/veya içeriği ("işleme filtreleme") çalmak için kullanılan cihaz tarafından desteklenen belirtilen dil parçaları sunun. 

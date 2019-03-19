@@ -1,51 +1,52 @@
 ---
-title: Kullanıcıları ve rolleri bir Azure Machine Learning çalışma alanı yönetme
+title: Bir Azure Machine Learning çalışma alanı rolleri yönetme
 titleSuffix: Azure Machine Learning service
-description: Kullanıcıları ve rolleri bir Azure Machine Learning hizmeti çalışma alanında yönetmeyi öğrenin.
+description: Rol tabanlı erişim denetimi (RBAC) kullanarak bir Azure Machine Learning hizmeti çalışma alanına erişim öğrenin.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: hning86
-ms.author: haining
+ms.author: larryfr
+author: Blackmist
 ms.date: 2/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 623aaff3cba86e8e523a86e4adcb0a359c339c45
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: b40edf705ba61713f4b695dd55a6a20028936c82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336473"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993812"
 ---
-# <a name="manage-users-and-roles-in-an-azure-machine-learning-workspace"></a>Kullanıcıları ve rolleri bir Azure Machine Learning çalışma alanı yönetme
+# <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Bir Azure Machine Learning çalışma alanı erişimi yönetme
 
-Bu makalede, bir Azure Machine Learning çalışma alanına kullanıcı ekleme öğrenin. Ayrıca farklı rollere kullanıcılar atamanız ve özel roller oluşturma konusunda bilgi edinin.
+Bu makalede, bir Azure Machine Learning çalışma alanına erişim yönetme konusunda bilgi edinin. [Rol tabanlı erişim denetimi (RBAC)](/azure/role-based-access-control/overview) Azure kaynaklarına erişimi yönetmek için kullanılır. Azure Active Directory'de kullanıcıları kaynaklarına erişimi belirli rollere atanır. Azure, hem yerleşik roller hem de özel roller oluşturma olanağı sağlar.
 
-## <a name="built-in-roles"></a>Yerleşik roller
+## <a name="default-roles"></a>Varsayılan roller
+
 Bir Azure Machine Learning çalışma alanı, bir Azure kaynağıdır. Yeni bir Azure Machine Learning çalışma alanı oluşturulduğunda, diğer Azure kaynakları gibi üç varsayılan rol ile gelir. Çalışma alanına kullanıcı ekleme ve bunları bu yerleşik rollerden birine atayın.
 
-- **Okuyucu**
-    
-    Bu rolü çalışma alanında salt okunur Eylemler sağlar. Okuyucular listelemek ve varlıklar bir çalışma alanında görüntülemek, ancak oluşturabilir veya bu varlıkları güncelleştirin.
+| Rol | Erişim düzeyi |
+| --- | --- |
+| **Okuyucu** | Çalışma alanındaki Eylemler salt okunur. Okuyucular listelemek ve varlıklar bir çalışma alanında görüntülemek, ancak oluşturabilir veya bu varlıkları güncelleştirin. |
+| **Katılımcı** | (Uygunsa) Sil görüntülemek, oluşturmak, düzenlemek veya bir çalışma alanında varlıklar. Örneğin, Katkıda Bulunanlar bir deneme oluşturma, oluşturmak veya işlem kümesi ekleme, çalıştırma gönderin ve bir web hizmetini dağıtma. |
+| **Sahip** | Tam erişim görüntülemek, oluşturmak, düzenlemek veya (uygunsa) silme yeteneği dahil olmak üzere çalışma alanında, bir çalışma alanında varlıklar. Ayrıca, rol atamalarını değiştirebilirsiniz. |
 
-- **Katılımcı**
-    
-    Bu rol, görüntülemek, oluşturmak, düzenlemek veya (uygunsa) silmek kullanıcılara bir çalışma alanında varlıklar. Örneğin, Katkıda Bulunanlar bir deneme oluşturma, oluşturmak veya işlem kümesi ekleme, çalıştırma gönderin ve bir web hizmetini dağıtma.
+> [!IMPORTANT]
+> Azure'da birden çok düzeyi için rol erişimini sınırlayabilirsiniz. Örneğin, bir çalışma grubu sahip erişimi olan bir çalışma grubu içeren kaynak grubunu sahip erişimi olmayabilir. Daha fazla bilgi için [RBAC nasıl çalıştığını](/azure/role-based-access-control/overview#how-rbac-works).
 
-- **Sahip**
-    
-    Bu rol kullanıcılara tam erişim görüntülemek, oluşturmak, düzenlemek veya (uygunsa) silme yeteneği dahil olmak üzere çalışma alanına sağlar. bir çalışma alanında varlıklar. Ayrıca, ekleme veya kullanıcıları kaldırmak ve rol atamalarını değiştirme.
+Belirli yerleşik roller hakkında daha fazla bilgi için bkz. [Azure için yerleşik roller](/azure/role-based-access-control/built-in-roles).
 
-## <a name="add-or-remove-users"></a>Kullanıcı eklemek veya kaldırmak
-Bir çalışma alanının sahibi değilseniz, ekleyin ve kullanıcılar, aşağıdaki yöntemlerden birini seçerek çalışma alanından kaldırın:
+## <a name="manage-workspace-access"></a>Çalışma alanı erişimi yönetme
+
+Bir çalışma alanının sahibi değilseniz, ekleme ve çalışma alanı için rolleri kaldırın. Roller kullanıcılara da atayabilirsiniz. Nasıl erişimi yönetmek keşfetmek için aşağıdaki bağlantıları kullanın:
 - [Azure portalı kullanıcı Arabirimi](/azure/role-based-access-control/role-assignments-portal)
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
 - [REST API](/azure/role-based-access-control/role-assignments-rest)
 - [Azure Resource Manager şablonları](/azure/role-based-access-control/role-assignments-template)
 
-Yüklediyseniz [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md), çalışma alanına kullanıcı eklemek için bir CLI komutunu kullanabilirsiniz.
+Yüklediyseniz [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md), roller kullanıcılara atamak için CLI komutunu kullanabilirsiniz.
 
 ```azurecli-interactive 
 az ml workspace share -n <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
@@ -58,12 +59,13 @@ az ml workspace share -n my_workspace -g my_resource_group --role Contributor --
 ```
 
 ## <a name="create-custom-role"></a>Özel rol oluştur
-Yerleşik roller uzaksa, özel roller oluşturabilirsiniz. Özel roller olabilir okuma, yazma, silme ve bu çalışma alanında kaynak izinleri işlem. Rol kullanılabilir belirli bir çalışma alanı düzeyinde, belirli bir kaynak grubu düzeyinde veya belirli bir abonelik düzeyinde yapabilirsiniz. 
+
+Yerleşik roller uzaksa, özel roller oluşturabilirsiniz. Özel roller olabilir okuma, yazma, silme ve bu çalışma alanında kaynak izinleri işlem. Rol kullanılabilir belirli bir çalışma alanı düzeyinde, belirli bir kaynak grubu düzeyinde veya belirli bir abonelik düzeyinde yapabilirsiniz.
 
 > [!NOTE]
 > Bu kaynak içinde özel roller oluşturmanızı da o düzeyde kaynak sahibi olmalıdır.
 
-Özel bir rol oluşturmak için ilk olarak izin ve rol için istediğiniz kapsam belirten bir rol tanımı JSON dosyasını oluşturun. Örneğin, belirli bir çalışma alanı düzeyinde kapsama alınan "veri Bilimcisi" adlı özel bir rol için bir rol tanımı dosyası şu şekildedir:
+Özel bir rol oluşturmak için ilk olarak izin ve rolü için kapsamı belirtir bir rol tanımı JSON dosyasını oluşturun. Aşağıdaki örnek, belirli bir çalışma alanı düzeyinde kapsama alınan "veri Bilimcisi" adlı özel bir rol tanımlar:
 
 `data_scientist_role.json` :
 ```json
@@ -83,9 +85,11 @@ Yerleşik roller uzaksa, özel roller oluşturabilirsiniz. Özel roller olabilir
     ]
 }
 ```
+
 Değiştirebileceğiniz `AssignableScopes` abonelik düzeyinde, kaynak grubu düzeyinde veya belirli bir çalışma alanı düzeyinde bu özel rolü kapsamını belirlemek için alan.
 
 Bu özel rolü, aşağıdaki eylemler dışında çalışma alanındaki her şeyi yapabilirsiniz:
+
 - Oluşturun veya bir işlem kaynağı güncelleştirin.
 - Bir işlem kaynağı silemezsiniz.
 - Ekleyemezsiniz, silin veya rol atamalarını değiştirme.
@@ -97,18 +101,17 @@ Bu özel rolü dağıtmak için aşağıdaki Azure CLI komutunu kullanın:
 az role definition create --role-definition data_scientist_role.json
 ```
 
-Dağıtımdan sonra bu rol belirtilen çalışma alanında kullanılabilir hale gelir. Şimdi ekleyin ve Azure portalında bu rolü atayın. Veya kullanarak bu role sahip bir kullanıcı ekleyebilirsiniz `az ml workspace share` CLI komutunu:
+Dağıtımdan sonra bu rol belirtilen çalışma alanında kullanılabilir hale gelir. Şimdi ekleyin ve Azure portalında bu rolü atayın. Veya, kullanarak bir kullanıcıya bu rolü atayabilirsiniz `az ml workspace share` CLI komutunu:
 
 ```azurecli-interactive
 az ml workspace share -n my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
 
-Azure'da özel roller hakkında daha fazla bilgi için bkz: [bu belgeyi](/azure/role-based-access-control/custom-roles).
+Daha fazla bilgi için [Azure kaynakları için özel roller](/azure/role-based-access-control/custom-roles).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir çalışma alanı oluşturmak, eğitmek ve modeller Azure Machine Learning hizmeti ile dağıtmak için nasıl kullanılacağını öğrenmek için eksiksiz bir öğreticiyi izleyin.
-
-> [!div class="nextstepaction"]
-> [Öğretici: Modelleri eğitme](tutorial-train-models-with-aml.md)
+- [Kurumsal Güvenliğe genel bakış](concept-enterprise-security.md)
+- [Denemeleri ve sanal ağ içindeki çıkarım güvenli bir şekilde çalıştırın](how-to-enable-virtual-network.md)
+- [Öğretici: Modelleri eğitme](tutorial-train-models-with-aml.md)

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: e240cbadbee87938107c4a9bf034c47db42acf92
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bb5a4b3a3019007948a9996ed6715e755f284f9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098655"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58175176"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -97,14 +97,14 @@ Uyarıları otomatik olarak anomalileri harcama ve fazla harcama riskleri payda�
 
 Bu örnekte **zaman içinde gerçek maliyet** harcamalarınızı bir Azure sanal makinesinde toplam bütçenize yaklaştığında bildirim göndermek için rapor. Bu senaryoda, 20.000 $ toplam bütçeye varsa ve maliyetleri 10.000 ABD Doları ulaştığında maliyetler bütçenize $ 9. 000 ve ek bir uyarının yarısını yaklaştığı olduğunda bir bildirim almak istiyorsanız.
 
-1. Cloudyn portal üst kısmındaki menüden **maliyetleri** > **maliyet analizi** > **zaman içinde gerçek maliyet**. 
-2. **Gruplar** seçeneğini **Hizmet** olarak, **Hizmet filtreleme** seçeneğini **Azure/VM** olarak ayarlayın. 
+1. Cloudyn portal üst kısmındaki menüden **maliyetleri** > **maliyet analizi** > **zaman içinde gerçek maliyet**.
+2. **Gruplar** seçeneğini **Hizmet** olarak, **Hizmet filtreleme** seçeneğini **Azure/VM** olarak ayarlayın.
 3. Üst raporun sağ seçin **eylemleri** seçip **rapor zamanla**.
-4. Zamanlanan aralıklarla kendinize raporu e-posta göndermek için seçin **zamanlama** sekmesinde **kaydedin veya bu zamanlamayı** rapor iletişim. **E-posta ile gönder**’i seçtiğinizden emin olun. Tüm etiketler, gruplandırma ve filtreleme, kullanım, e-postayla rapora dahil edilir. 
-5. Seçin **eşiği** sekmesini seçip **gerçek maliyet vs. Eşik** öğesini seçin. 
-   1. İçinde **kırmızı uyarıya** 10000 eşiği kutusuna girin. 
-   2. İçinde **sarı uyarı** 9000 eşiği kutusuna girin. 
-   3. İçinde **ardışık olarak verilecek uyarı sayısını** kutusunda, almak için ardışık olarak verilecek uyarı sayısını girin. Belirttiğiniz toplam uyarı sayısını aldığınızda, başka bir uyarı gönderilmez. 
+4. Zamanlanan aralıklarla kendinize raporu e-posta göndermek için seçin **zamanlama** sekmesinde **kaydedin veya bu zamanlamayı** rapor iletişim. **E-posta ile gönder**’i seçtiğinizden emin olun. Tüm etiketler, gruplandırma ve filtreleme, kullanım, e-postayla rapora dahil edilir.
+5. Seçin **eşiği** sekmesini seçip **gerçek maliyet vs. Eşik** öğesini seçin.
+   1. İçinde **kırmızı uyarıya** 10000 eşiği kutusuna girin.
+   2. İçinde **sarı uyarı** 9000 eşiği kutusuna girin.
+   3. İçinde **ardışık olarak verilecek uyarı sayısını** kutusunda, almak için ardışık olarak verilecek uyarı sayısını girin. Belirttiğiniz toplam uyarı sayısını aldığınızda, başka bir uyarı gönderilmez.
 6. **Kaydet**’i seçin.
 
 ![Kırmızı ve sarı uyarı eşikleri harcamayı göre gösteren örnek](./media/tutorial-review-usage/schedule-alert01.png)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 72238db8322132f42e14656c106b82d8604af21f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435108"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107823"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>IOT Edge otomatik dağıtımlar tek tek cihazlarda veya uygun ölçekte anlama
 
@@ -32,7 +32,7 @@ Bu makalede yapılandırmasına odaklanılmıştır ve cihazların filolarına a
 2. IOT Hub hizmeti, tüm hedeflenen cihazların istenen modülleriyle yapılandırılacakları ile iletişim kurar. 
 3. IOT Hub hizmeti, IOT Edge cihazları alır ve işleci için kullanılabilir hale getirir.  Örneğin, bir işleç bir uç cihazın ne zaman başarılı bir şekilde yapılandırılmamış veya bir modülü çalışma zamanı sırasında başarısız olursa görebilirsiniz. 
 4. Herhangi bir zamanda hedefleme koşullara uyan IOT Edge cihazları yeni dağıtım için yapılandırılmış. Örneğin, sağlanan ve Washington eyaletinde cihaz grubuna eklenen yeni bir IOT Edge cihazı otomatik olarak, Washington eyaletinde tüm IOT Edge cihazları hedefleyen bir dağıtım yapılandırır. 
- 
+ 
 Bu makalede, yapılandırma ve dağıtım izleme alan her bir bileşeni açıklar. Oluşturma ve dağıtımı güncelleştirme yönergeleri için bkz [dağıtma ve izleme uygun ölçekte IOT Edge modülleri](how-to-deploy-monitor.md).
 
 ## <a name="deployment"></a>Dağıtım

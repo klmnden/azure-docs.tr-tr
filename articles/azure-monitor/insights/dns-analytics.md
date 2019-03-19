@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 6e3c456b3ee92f30b3b152a39faf3f1fe483013f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fdc3c42da7f3d2290806a8cd00d7c90d16f3b87d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876611"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103936"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS analizi Önizleme çözümü, DNS altyapısıyla ilgili Öngörüler toplayın
 
@@ -66,7 +66,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 - **Güvenilen etki alanı adları**. Çözüm, tüm arama sorguları işlemez. Bu, etki alanı adı son eklerini bir beyaz liste tutar. Bu beyaz liste etki alanı adı sonekleri eşleşen etki alanı adlarını çözümlemeye arama sorguları, çözüm tarafından işlenmez. Azure İzleyici gönderilen verilerin iyileştirmek için izin verilenler listesinde etki alanı adları işlenmiyor yardımcı olur. Varsayılan Güvenilenler listesinde popüler genel etki alanı adları, www.google.com ve www.facebook.com gibi içerir. Kaydırarak tam varsayılan listesini görüntüleyebilir.
 
- Arama Öngörüler için görüntülemek istediğiniz herhangi bir etki alanı adı soneki eklemek üzere listeden değiştirebilirsiniz. İçin arama öngörülerini görüntülemek istemediğiniz herhangi bir etki alanı adı sonekini de kaldırabilirsiniz.
+  Arama Öngörüler için görüntülemek istediğiniz herhangi bir etki alanı adı soneki eklemek üzere listeden değiştirebilirsiniz. İçin arama öngörülerini görüntülemek istemediğiniz herhangi bir etki alanı adı sonekini de kaldırabilirsiniz.
 
 - **Sık iletişim kuran istemci eşiği**. Arama istekleri sayısının vurgulanmış için eşiğini aşan DNS istemcileri **DNS istemcileri** dikey penceresi. Varsayılan Eşik 1000'dir. Eşik düzenleyebilirsiniz.
 

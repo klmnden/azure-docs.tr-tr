@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8316e571e97fce65b3f8308709d3300bc585663f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434878"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901551"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure Otomasyonu - eski kaynak denetimi tümleştirmesi
 
@@ -66,22 +66,22 @@ Bir GitHub hesabı ve Azure Otomasyonu bağlamak istediğiniz bir depo zaten var
      | **Parametre** | **Değer** |
      |:--- |:--- |
      | Ad |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Tür |Dize |
+     | Type |String |
      | Değer |{"Dal":\<*dal adınızı*>, "RunbookFolderPath":\<*Runbook klasörünün yolu*>, "Sağlayıcı türü":\<*1'için ' e kadar bir değere sahip GitHub*>, "Depo":\<*deponuzun adını*>, "Username":\<*bilgisayarınızı GitHub kullanıcı adı*>} |
 
-    * Değişken **Microsoft.Azure.Automation.SourceControl.OAuthToken**, sizin OAuthToken güvenli şifreli değerini içerir.  
+     * Değişken **Microsoft.Azure.Automation.SourceControl.OAuthToken**, sizin OAuthToken güvenli şifreli değerini içerir.  
 
-    |**Parametre**            |**Değer** |
-    |:---|:---|
-    | Ad  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-    | Tür | Unknown(Encrypted) |
-    | Değer | <*Şifrelenmiş OAuthToken*> |  
+     |**Parametre**            |**Değer** |
+     |:---|:---|
+     | Ad  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+     | Type | Unknown(Encrypted) |
+     | Değer | <*Şifrelenmiş OAuthToken*> |  
 
-    ![Değişkenler](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
+     ![Değişkenler](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 
-    * **Kaynak denetimi Otomasyonu** GitHub hesabınıza yetkili bir uygulama olarak eklenir. Uygulamayı görüntülemek için: GitHub giriş sayfanızdan gidin, **profili** > **ayarları** > **uygulamaları**. Bu uygulama, bir Otomasyon hesabı GitHub deponuza eşitleme Azure Otomasyonu sağlar.  
+     * **Kaynak denetimi Otomasyonu** GitHub hesabınıza yetkili bir uygulama olarak eklenir. Uygulamayı görüntülemek için: GitHub giriş sayfanızdan gidin, **profili** > **ayarları** > **uygulamaları**. Bu uygulama, bir Otomasyon hesabı GitHub deponuza eşitleme Azure Otomasyonu sağlar.  
 
-    ![Git uygulama](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
+     ![Git uygulama](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
 
 
 ## <a name="using-source-control-in-automation"></a>Kaynak denetimi Otomasyonu kullanma
@@ -124,10 +124,6 @@ Depo eşitleme sayfasında Eşitle düğmesi, tüm runbook'ları runbook klasör
 
     > [!NOTE] 
     > Kaynak denetiminden bir eşitleme şu anda Automation hesabınız için mevcut runbook'ları taslak sürümünü üzerine yazar **tüm** olan runbook'ları kaynak denetimi. Git eşitlemek için komut satırı eşdeğer yönergesi **git çekme**
-
-
-## <a name="troubleshooting-source-control-problems"></a>Kaynak denetimi ile ilgili sorunları giderme
-Herhangi bir onay işareti ile hata veya eşitleme işi varsa, iş durumu askıya alınması gerektiğini ve iş sayfasında hata hakkında daha fazla ayrıntı görüntüleyebilirsiniz.  **Tüm günlükler** bölümü, bu işle ilişkili tüm PowerShell akışlar gösterir. Bu, herhangi bir sorun, iade ile ya da eşitleme gidermenize yardımcı olmak için gereken ayrıntılarla sağlar. Ayrıca, eşitleme ya da bir runbook'ta denetimi oluştu eylemlerin sırasını gösterir.  
 
 ![AllLogs görüntüsü](media/automation-source-control-integration-legacy/automation_13_AllLogs.png)
 
