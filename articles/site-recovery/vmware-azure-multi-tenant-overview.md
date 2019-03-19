@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 2e68ad6d999a5ff003abe35a0cce75bc5f2cebef
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723935"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104463"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>VMware olağanüstü durum kurtarma için Azure CSP ile çok kiracılı desteği'ne genel bakış
 
@@ -75,17 +75,17 @@ Yapılandırma sunucusu, özel bir rol atanmış olan bir hesap ile yapılandır
 1. Önceden tanımlanmış kopyalayarak yeni bir rol oluşturmak *salt okunur* rolünü ve ardından (örneğin, bu örnekte gösterildiği gibi Azure_Site_Recovery) uygun bir ad verin.
 2. Bu rol için aşağıdaki izinler atayın:
 
-    * **Veri deposu**: Ayırma boşluk, göz atma veri deposu, düşük düzeyli dosya işlemleri, dosya, sanal makine dosyalarını güncelleştirme Kaldır
-    * **Ağ**: Ağ atama
-    * **Kaynak**: VM güç VM geçişi, VM üzerinde desteklenen geçiş kaynak havuzuna atayın
-    * **Görevleri**: Görev, güncelleme görevi oluşturun
-    * **VM - yapılandırma**: Tümü
-    - **VM - etkileşim** > yanıt soru, cihaz bağlantısı, CD yapılandırma ortamı, disket ortamını yapılandırma, kapatma, açma, VMware araçlarını yükleme
-    - **VM - Envanter** > oluşturma varolandan Yeni Oluştur, kaydetme, kaydı kaldırma
-    - **VM - sağlama** > sanal makine indirmeye izin, izin sanal makine dosyalarını karşıya yükleme
-    - **VM - anlık görüntü Yönetimi** > anlık görüntüleri kaldırma
+   * **Veri deposu**: Ayırma boşluk, göz atma veri deposu, düşük düzeyli dosya işlemleri, dosya, sanal makine dosyalarını güncelleştirme Kaldır
+   * **Ağ**: Ağ atama
+   * **Kaynak**: VM güç VM geçişi, VM üzerinde desteklenen geçiş kaynak havuzuna atayın
+   * **Görevleri**: Görev, güncelleme görevi oluşturun
+   * **VM - yapılandırma**: Tümü
+   * **VM - etkileşim** > yanıt soru, cihaz bağlantısı, CD yapılandırma ortamı, disket ortamını yapılandırma, kapatma, açma, VMware araçlarını yükleme
+   * **VM - Envanter** > oluşturma varolandan Yeni Oluştur, kaydetme, kaydı kaldırma
+   * **VM - sağlama** > sanal makine indirmeye izin, izin sanal makine dosyalarını karşıya yükleme
+   * **VM - anlık görüntü Yönetimi** > anlık görüntüleri kaldırma
 
-        ![Rolü Düzenle iletişim kutusu](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
+       ![Rolü Düzenle iletişim kutusu](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
 
 3. (Kiracı yapılandırma sunucusunda kullanılan) vCenter hesabı için erişim düzeyleri gibi çeşitli nesneler için ata:
 

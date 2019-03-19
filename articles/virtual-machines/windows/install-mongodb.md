@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: a45d6a6064173cea7ed15065ab3464718cc8578e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: afd8e6b47fb86985acde062af1fb38ec3af4e902
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998488"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Yükleme ve azure'da Windows sanal makinesi üzerinde MongoDB yapılandırma
-[MongoDB](http://www.mongodb.org) popüler açık kaynaklı, yüksek performanslı NoSQL veritabanıdır. Bu makalede yükleme ve azure'da bir Windows Server 2016 sanal makine (VM) üzerinde MongoDB yapılandırma sırasında size kılavuzluk eder. Ayrıca [azure'da bir Linux sanal makinesi üzerinde MongoDB yükleme](../linux/install-mongodb.md).
+[MongoDB](https://www.mongodb.org) popüler açık kaynaklı, yüksek performanslı NoSQL veritabanıdır. Bu makalede yükleme ve azure'da bir Windows Server 2016 sanal makine (VM) üzerinde MongoDB yapılandırma sırasında size kılavuzluk eder. Ayrıca [azure'da bir Linux sanal makinesi üzerinde MongoDB yükleme](../linux/install-mongodb.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 Yükleyip MongoDB yapılandırmadan önce bir VM oluşturun ve ideal olarak, bir veri diski eklemek için gerekir. VM oluşturma ve bir veri diski eklemek için aşağıdaki makalelere bakın:
@@ -34,7 +34,7 @@ MongoDB yükleme ve yapılandırma, başlamak için [, Windows Server VM'de otur
 
 ## <a name="install-mongodb"></a>MongoDB'yi yükleme
 > [!IMPORTANT]
-> Kimlik doğrulaması ve IP adresi bağlama gibi MongoDB güvenlik özellikleri varsayılan olarak etkin değildir. Güvenlik özellikleri, MongoDB, bir üretim ortamına dağıtmadan önce etkinleştirilmesi gerekir. Daha fazla bilgi için [MongoDB güvenlik ve kimlik doğrulama](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
+> Kimlik doğrulaması ve IP adresi bağlama gibi MongoDB güvenlik özellikleri varsayılan olarak etkin değildir. Güvenlik özellikleri, MongoDB, bir üretim ortamına dağıtmadan önce etkinleştirilmesi gerekir. Daha fazla bilgi için [MongoDB güvenlik ve kimlik doğrulama](https://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
 
 1. Uzak Masaüstü kullanarak VM'nize bağlandıktan sonra görev çubuğundan Internet Explorer açın.
@@ -46,7 +46,7 @@ MongoDB yükleme ve yapılandırma, başlamak için [, Windows Server VM'de otur
    * Tıklayın **siteleri** düğmesi. Ekleme *https://\*. mongodb.com* listesine Güvenilen siteler ve ardından iletişim kutusunu kapatın.
      
      ![Internet Explorer güvenlik ayarlarını yapılandırın](./media/install-mongodb/configure-internet-explorer-security.png)
-4. Gözat [MongoDB - indirir](http://www.mongodb.com/downloads) sayfa (http://www.mongodb.com/downloads).
+4. Gözat [MongoDB - indirir](https://www.mongodb.com/downloads) sayfa (https://www.mongodb.com/downloads).
 5. Gerekirse, seçin **Community Server** edition'ı ve ardından geçerli en son kararlı sürüm için*Windows Server 2008 R2 64 bit ve üzeri*. Yükleyiciyi indirmek için tıklayın **İNDİRME (MSI)**.
    
     ![MongoDB yükleyicisini indirin](./media/install-mongodb/download-mongodb.png)

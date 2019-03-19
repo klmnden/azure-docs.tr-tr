@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 16717bbbb8974a1adb740c8fee5a5ba06043f53e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e77c7ea6036e92c33c975f8180053a8880db55a0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544384"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090534"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Hızlı Başlangıç: PHP ve Bing haber arama REST API'si kullanarak bir haber arama yapın
 
@@ -200,4 +200,4 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-[Tek sayfalı web uygulaması oluşturma](tutorial-bing-news-search-single-page-app.md)
+> [Tek sayfalı web uygulaması oluşturma](tutorial-bing-news-search-single-page-app.md)

@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2018
-ms.openlocfilehash: 830a7ef1f25ea52959baf992274b5f7711b646b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f48c3c9691170df6d460bfe9a6da0e02e4be32c3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165420"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077709"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>İndirin ve Azure Stack geliştirme Seti'ni (ASDK) ayıklayın
 Geliştirme Seti ana bilgisayarınız ASDK yüklemeye yönelik temel gereksinimleri karşıladığından emin olduktan sonra indirmeyi ve ayıklamayı ASDK dağıtım paketi Cloudbuilder.vhdx almak için sonraki adım olacaktır.
@@ -29,15 +29,15 @@ Geliştirme Seti ana bilgisayarınız ASDK yüklemeye yönelik temel gereksiniml
 ## <a name="download-the-asdk"></a>ASDK indirin
 1. Yükleme başlamadan önce bilgisayarınızın aşağıdaki gereksinimleri karşıladığından emin olun:
 
-  - Bilgisayarda en az 60 işletim sistemi diski için ayrıca boş dört ayrı, aynı mantıksal sabit disk sürücüler üzerinde disk alanı GB olmalıdır.
-  - [.NET framework 4.6 (veya sonraki bir sürümü)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) yüklü olması gerekir.
+   - Bilgisayarda en az 60 işletim sistemi diski için ayrıca boş dört ayrı, aynı mantıksal sabit disk sürücüler üzerinde disk alanı GB olmalıdır.
+   - [.NET framework 4.6 (veya sonraki bir sürümü)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) yüklü olması gerekir.
 
 2. [Başlangıç sayfasına gidin](https://azure.microsoft.com/overview/azure-stack/try/?v=try) , Azure Stack geliştirme Seti'ni indirme, ayrıntılarınızı girin ve ardından **Gönder**.
 3. İndirme ve çalıştırma [Azure Stack Geliştirme Seti için dağıtım denetleyicisi](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) önkoşul denetleyicisini komut dosyası. Bu tek başına komut dosyası için Azure Stack geliştirme Seti'ni Kurulumu tarafından yapılan ön koşullar denetimleri geçer. Azure Stack Geliştirme Seti için daha büyük paketi yüklemeden önce donanım ve yazılım gereksinimleri karşılayıp onaylamak için bir yol sunar.
 4. Altında **yazılım indirme**, tıklayın **Azure Stack geliştirme Seti'ni**.
 
-  > [!NOTE]
-  > ASDK indirme (AzureStackDevelopmentKit.exe) yaklaşık 10 GB'dir.
+   > [!NOTE]
+   > ASDK indirme (AzureStackDevelopmentKit.exe) yaklaşık 10 GB'dir.
 
 ## <a name="extract-the-asdk"></a>ASDK ayıklayın
 1. İndirme tamamlandıktan sonra tıklayın **çalıştırma** ASDK ayıklayıcısı (AzureStackDevelopmentKit.exe) başlatmak için.

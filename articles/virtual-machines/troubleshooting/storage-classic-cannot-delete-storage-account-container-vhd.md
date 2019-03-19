@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 5d4d74d4c3b5ec6779458e84da07c03033c37935
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330622"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078168"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Klasik depolama kaynağı silme hatalarını giderme
 Bu makalede, Azure Klasik depolama hesabı, kapsayıcı veya *.vhd sayfa blob dosyası silinmeye çalışılırken şu hatalar biri meydana geldiğinde sorun giderme kılavuzu verilmiştir. 
@@ -59,10 +59,10 @@ Diskleri ile "bir sanal makineye eklenmemiş"
 #### <a name="azure-powershell"></a>Azure PowerShell
 Kullanıcı artık, Klasik PowerShell cmdlet'lerini kullanarak kullanılmakta olan bir depolama hesabını silmeye çalışır. Kullanıcı şu iletiyi görürsünüz:
 
-><span style="color:cyan">**Remove-AzureStorageAccount - StorageAccountName myclassicaccount**</span>
-
-><span style="color:red">Remove-AzureStorageAccount: BadRequest: Ör bazı etkin görüntülere ve/veya diskleri, depolama hesabı myclassicaccount sahip  
-myclassicaccount. Bu görüntülerin ve/veya diskleri bu depolama hesabını silmeden önce kaldırılır emin olun.</span>
+> <span style="color:cyan">**Remove-AzureStorageAccount - StorageAccountName myclassicaccount**</span>
+> 
+> <span style="color:red">Remove-AzureStorageAccount: BadRequest: Ör bazı etkin görüntülere ve/veya diskleri, depolama hesabı myclassicaccount sahip  
+> myclassicaccount. Bu görüntülerin ve/veya diskleri bu depolama hesabını silmeden önce kaldırılır emin olun.</span>
 
 ## <a name="unable-to-delete-storage-container"></a>Depolama kapsayıcısı silinemedi
 
@@ -77,9 +77,9 @@ Azure portalı, kapsayıcıdaki bir *.vhd sayfa blob dosyasına işaret eden bir
 #### <a name="azure-powershell"></a>Azure PowerShell
 PowerShell kullanarak silmek kullanıcı seçerse, şu hataya neden olur. 
 
-><span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
-
-><span style="color:red">Remove-AzureStorageContainer : Uzak sunucu hata döndürdü: (412) burada şu anda kapsayıcı üzerindeki kira ve istekte hiçbir kiralama kimliği belirtildi... HTTP durum kodu: 412 - HTTP hata iletisi: Kapsayıcı üzerinde şu anda bir kira yoktur ve istekte hiçbir kiralama kimliği belirtildi.</span>
+> <span style="color:cyan">**Remove-AzureStorageContainer -Context $context -Name vhds**</span>
+> 
+> <span style="color:red">Remove-AzureStorageContainer : Uzak sunucu hata döndürdü: (412) burada şu anda kapsayıcı üzerindeki kira ve istekte hiçbir kiralama kimliği belirtildi... HTTP durum kodu: 412 - HTTP hata iletisi: Kapsayıcı üzerinde şu anda bir kira yoktur ve istekte hiçbir kiralama kimliği belirtildi.</span>
 
 ## <a name="unable-to-delete-a-vhd"></a>Bir vhd silinemedi 
 
@@ -99,9 +99,9 @@ Portalda, silinmek üzere seçilen blobların listesi bağlı olarak iki deneyim
 #### <a name="azure-powershell"></a>Azure PowerShell 
 PowerShell kullanarak silmek kullanıcı seçerse, şu hataya neden olur. 
 
-><span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
-
-><span style="color:red">Remove-AzureStorageBlob : Uzak sunucu hata döndürdü: (412) burada şu anda blob üzerinde kiralama ve istekte hiçbir kiralama kimliği belirtildi... HTTP durum kodu: 412 - HTTP hata iletisi: Blob üzerinde şu anda bir kira yoktur ve istekte hiçbir kiralama kimliği belirtildi.</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> 
+> <span style="color:red">Remove-AzureStorageBlob : Uzak sunucu hata döndürdü: (412) burada şu anda blob üzerinde kiralama ve istekte hiçbir kiralama kimliği belirtildi... HTTP durum kodu: 412 - HTTP hata iletisi: Blob üzerinde şu anda bir kira yoktur ve istekte hiçbir kiralama kimliği belirtildi.</span>
 
 
 ## <a name="resolution-steps"></a>Çözüm adımları

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/14/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1c21cc778ed398c28077ef1a20ebbb7b295c2baa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012392"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack tümleşik sistemleri için veri merkezi tümleştirme konuları
 Bir Azure Stack tümleşik sisteminde ilgileniyorsanız, dağıtım ve sistem Merkezinizde nasıl uyduğunu önemli planlama konuları anlamanız gerekir. Bu makalede, Azure Stack çok düğümlü sisteminiz için önemli altyapısı kararları vermenize yardımcı olmak için bu konuları üst düzey bir genel bakış sağlar. Bu noktalar anlaşılması, veri merkezinizi Azure Stack dağıtırken OEM donanım satıcınız ile çalışırken yardımcı olur.  
@@ -162,7 +162,7 @@ Azure Stack çözümüyle dahil, donanım yaşam döngüsü konak donanımlara y
 | Alan | Dış izleme çözümü |
 | -- | -- |
 | Azure Stack yazılımı | [Azure Stack Operations Manager için Yönetim Paketi](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Nagios eklentisi](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>REST tabanlı API çağrıları | 
-| Fiziksel sunucuları (Bmc'ler IPMI aracılığıyla) | OEM donanım - Operations Manager satıcı Yönetim Paketi<br>OEM donanım satıcısı tarafından sağlanan çözümü<br>Donanım satıcısı Nagios eklentileri | OEM iş ortağı destekli izleme çözümü (dahil) | 
+| Fiziksel sunucuları (Bmc'ler IPMI aracılığıyla) | OEM donanım - Operations Manager satıcı Yönetim Paketi<br>OEM donanım satıcısı tarafından sağlanan çözümü<br>Donanım satıcısı Nagios eklentiler.<br>OEM iş ortağı destekli izleme çözümü (dahil) | 
 | Ağ cihazlarını (SNMP) | Operations Manager ağ cihazı bulma<br>OEM donanım satıcısı tarafından sağlanan çözümü<br>Nagios anahtarı eklentisi |
 | Kiracı abonelik durumu izleme | [Windows Azure için System Center Yönetim Paketi](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 

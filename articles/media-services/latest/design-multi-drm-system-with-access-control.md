@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 40e7f257df41fa4836b9df692be48a4b6c57fc80
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ef695d913c73f0a4266b20f21f1008108b85b4d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813007"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893025"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Erişim denetimi ile birden çok DRM içerik koruma sisteminin tasarımı 
 
@@ -29,7 +29,7 @@ Tasarlama ve bir üzerinden-üst düzey (OTT) için Digital Rights Management (D
 
 Bu belge için hedeflenen okuyucular OTT veya çevrimiçi akış/çoklu ekranı çözümler isteyen DRM alt sistemler okuyucuları DRM alt sistemlerde çalışan mühendisleri ' dir. Okuyucular DRM teknolojileri PlayReady, Widevine, FairPlay veya Adobe erişim gibi piyasadaki en az biri ile bilgi sahibi olduğunuz varsayılır.
 
-Bu tartışmada birden çok DRM ile Azure Media Services tarafından desteklenen 3 benzeri DRM ekliyoruz: Ortak şifreleme (CENC) PlayReady ve Widevine, FairPlay yanı sıra, AES-128 şifresiz anahtar şifrelemesiyle koruyun. Çevrimiçi akış ve OTT sektör önemli bir eğilim, çeşitli istemci platformlarında yerel benzeri DRM kullanmaktır. Bu eğilim, çoklu DRM ve kendi İstemci SDK'sı çeşitli istemci platformları için kullanılan önceki bir kaydırmadır. Yerel birden çok DRM ile CENC kullandığınızda, PlayReady ve Widevine başına şifrelenir [genel şifreleme (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) belirtimi.
+Bu tartışmada birden çok DRM ile Azure Media Services tarafından desteklenen 3 benzeri DRM ekliyoruz: Ortak şifreleme (CENC) PlayReady ve Widevine, FairPlay yanı sıra, AES-128 şifresiz anahtar şifrelemesiyle koruyun. Çevrimiçi akış ve OTT sektör önemli bir eğilim, çeşitli istemci platformlarında yerel benzeri DRM kullanmaktır. Bu eğilim, çoklu DRM ve kendi İstemci SDK'sı çeşitli istemci platformları için kullanılan önceki bir kaydırmadır. Yerel birden çok DRM ile CENC kullandığınızda, PlayReady ve Widevine başına şifrelenir [genel şifreleme (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) belirtimi.
 
 BT'nin content protection için yerel çoklu DRM kullanmanın avantajları şunlardır:
 
@@ -49,7 +49,7 @@ BT'nin content protection için yerel çoklu DRM kullanmanın avantajları şunl
 Aşağıdaki tabloda, farklı platformlarda yerel DRM desteği ve farklı tarayıcılarda EME desteği özetler.
 
 | **İstemci Platformu** | **Yerel DRM** | **EME** |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Akıllı TV, STB** | PlayReady, Widevine ve/veya diğer | Katıştırılmış tarayıcı/EME için PlayReady ve/veya Widevine|
 | **Windows 10** | PlayReady | Microsoft Edge/ıe11 için PlayReady|
 | **Android cihazlar (telefonlar, tabletler, TV)** |Widevine |Chrome için Widevine |
@@ -145,7 +145,7 @@ Aşağıdaki tablo, eşlemeyi gösterir.
 | **Anahtar yönetimi** |Başvuru uygulaması için gerekli değildir |
 | **İçerik yönetimi** |Bir C# konsol uygulaması |
 
-Diğer bir deyişle, IDP ve STS'nin hem Azure AD tarafından sağlanır. [Azure Media Player API'sine](http://amp.azure.net/libs/amp/latest/docs/) oyuncu için kullanılır. Hem Azure Media Services hem de Azure Media Player CENC kesintisiz akış ve AES-128 şifrelemesi DASH, HLS ve kesintisiz üzerinden DASH, HLS üzerinden FairPlay, PlayReady destekler.
+Diğer bir deyişle, IDP ve STS'nin hem Azure AD tarafından sağlanır. [Azure Media Player API'sine](https://amp.azure.net/libs/amp/latest/docs/) oyuncu için kullanılır. Hem Azure Media Services hem de Azure Media Player CENC kesintisiz akış ve AES-128 şifrelemesi DASH, HLS ve kesintisiz üzerinden DASH, HLS üzerinden FairPlay, PlayReady destekler.
 
 Genel yapısı ve önceki teknoloji eşleme ile akışı aşağıdaki diyagramda gösterilmiştir:
 
@@ -199,7 +199,7 @@ Uygulama, aşağıdaki adımları içerir:
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.activedirectory
 
-8. Bir oynatıcı kullanarak oluşturma [Azure Media Player API'sine](http://amp.azure.net/libs/amp/latest/docs/). Kullanma [Azure Media Player ProtectionInfo API'sine](http://amp.azure.net/libs/amp/latest/docs/) farklı DRM platformlarda kullanılacak DRM teknolojileri belirtmek için.
+8. Bir oynatıcı kullanarak oluşturma [Azure Media Player API'sine](https://amp.azure.net/libs/amp/latest/docs/). Kullanma [Azure Media Player ProtectionInfo API'sine](https://amp.azure.net/libs/amp/latest/docs/) farklı DRM platformlarda kullanılacak DRM teknolojileri belirtmek için.
 
 9. Aşağıdaki tablo, testi matris gösterir.
 
@@ -365,7 +365,7 @@ Güvenlik anahtarları iki tür vardır:
 
 > [!NOTE]
 > .NET Framework kullanırsanız / C# geliştirme platformu olarak X509 bir asimetrik güvenlik anahtarı için kullanılan sertifika bir anahtar uzunluğu en az 2048 olması gerekir. Bu sınıf .NET Framework System.IdentityModel.Tokens.X509AsymmetricSecurityKey gereksinimdir. Aksi takdirde, şu özel durum oluşturulur:
-
+> 
 > IDX10630: 'İmzalama System.IdentityModel.Tokens.X509AsymmetricSecurityKey', '2048' bitten küçük olamaz.
 
 ## <a name="the-completed-system-and-test"></a>Tamamlanmış Sistem ve test

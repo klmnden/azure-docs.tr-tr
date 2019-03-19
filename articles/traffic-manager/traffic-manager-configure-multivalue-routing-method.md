@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 40b266c92a86006746ab5341ac5fa1d785ee6032
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: de7288e2062fdfab363c46749b34c7afcacbb6e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197177"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094812"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Trafik Yöneticisi'nde çoklu değer yönlendirme yöntemini yapılandırma
 
@@ -49,7 +49,7 @@ En düşük gecikme süresine uç noktaya göndererek kullanıcı trafiği yönl
     | Konum                | Bu ayar, kaynak grubunun konumunu ifade eder ve genel olarak dağıtılacak Traffic Manager profilini etkilemez.                              |
    |        |           | 
   
-  ![Traffic Manager profili oluşturma](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
+   ![Traffic Manager profili oluşturma](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Traffic Manager uç noktalarını ekleme
 
@@ -61,13 +61,13 @@ En düşük gecikme süresine uç noktaya göndererek kullanıcı trafiği yönl
 
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
-    | Tür                    | Dış uç noktası                                   |
+    | Type                    | Harici uç nokta                                   |
     | Ad           | myEndpoint1                                        |
     | Tam etki alanı adı (FQDN) veya IP           | Bu Traffic Manager profiline eklemek istediğiniz uç noktaya genel IP adresini yazın                         |
     |        |           |
 
 4. 2 ve 3 adlı başka bir uç nokta ekleme *myEndpoint2*, için **tam etki alanı adı (FQDN) veya IP**, ikinci uç nokta genel IP adresini girin.
-5.  Her iki uç noktanın eklenmesi tamamlandığında, **Çevrimiçi** izleme durumuyla birlikte **Traffic Manager profili** bölümünde gösterilir.
+5. Her iki uç noktanın eklenmesi tamamlandığında, **Çevrimiçi** izleme durumuyla birlikte **Traffic Manager profili** bölümünde gösterilir.
 
    ![Traffic Manager uç noktası ekleme](./media/traffic-manager-multivalue-routing-method/add-endpoint.png)
  

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 10/04/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: cc42a0289316116b843696c984f9fc3c2114eb6c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 141112b8b6b44706a750d8a97780e018d96a5006
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592902"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890806"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için bellek ve eşzamanlılık sınırları
 Çeşitli performans düzeylerini ve Azure SQL veri ambarı kaynak sınıflarında ayrılan bellek ve eşzamanlılık sınırları görüntüleyin. Daha fazla bilgi için ve bu özellikler iş yükü yönetimi planınızı uygulamak için bkz: [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md). 
@@ -70,7 +70,7 @@ Hizmet düzeyleri için DW100 DW6000-Gen1 arasındadır.
 | DW6000            | 60            | 1                              | 1440                           |
 
 ## <a name="concurrency-maximums"></a>Eşzamanlılık sınırları
-Her sorgu verimli bir şekilde yürütmek için yeterli kaynakları içerdiğinden emin olmak için her sorgu için eşzamanlılık yuvaları atayarak SQL veri ambarı kaynak kullanımını izler. Sistem sorgular nerede bunlar yetecek kadar bekleyin bir sıraya koyar [eşzamanlılık yuvaları](resource-classes-for-workload-management.md#concurrency-slots) kullanılabilir. Eşzamanlılık yuvaları, ayrıca CPU önceliği belirleyin. Daha fazla bilgi için [iş yükünüzü çözümleme](analyze-your-workload.md)
+Her sorgu verimli bir şekilde yürütmek için yeterli kaynakları içerdiğinden emin olmak için her sorgu için eşzamanlılık yuvaları atayarak SQL veri ambarı kaynak kullanımını izler. Sistem sorguları önem ve eşzamanlılık yuvaları dayalı bir kuyruğun içine yerleştirir. Eşzamanlılık yuvaları yeterli kullanılabilir olana kadar kuyrukta sorguları bekleyin. [Önem derecesi](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) ve eşzamanlılık yuvaları, CPU Öncelik belirleyin. Daha fazla bilgi için [iş yükünüzü çözümleme](analyze-your-workload.md)
 
 ### <a name="gen2"></a>Gen2
  

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65bc0c0ee1ccc1e1f3da5e364582534dfbc0d425
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: cf069e053068eaee3f36153c3888e6c711724267
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530714"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182175"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki denetim etkinliği raporları 
 
@@ -98,7 +98,7 @@ Aşağıdaki alanlarda denetim verilerini filtreleyebilirsiniz:
 - B2C
 - Koşullu Erişim
 - Çekirdek Dizin
-- Hak Yönetimi
+- Yetkilendirme Yönetimi
 - Kimlik Koruması
 - Davetli Kullanıcılar
 - PIM
@@ -204,7 +204,7 @@ Uygulamalarınızla ilgili denetim verilerini gözden geçirmek istiyorsanız, a
 
 ## <a name="office-365-activity-logs"></a>Office 365 etkinlik günlükleri
 
-Office 365 etkinlik günlüklerini görüntüleyebilirsiniz [Office 365 Yönetim Merkezi](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Olsa bile yalnızca Office 365 Yönetim Merkezi Office 365 ve Azure AD etkinlik günlükleri dizin kaynaklarının çoğunu paylaşır, Office 365 etkinlik günlüklerinin tam bir görünümünü sağlar. 
+Office 365 etkinlik günlüklerini görüntüleyebilirsiniz [Microsoft 365 Yönetim merkezini](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Olsa da Microsoft 365 Yönetim Merkezi yalnızca Office 365 ve Azure AD etkinlik günlükleri dizin kaynaklarının çoğunu paylaşır, Office 365 etkinlik günlüklerinin tam bir görünümünü sağlar. 
 
 Office 365 etkinlik günlüklerini programlı olarak kullanarak da erişebilirsiniz [Office 365 Yönetim API'leri](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69bc0c801feb787861af480c60af4345103f5325
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2281fb046ca9b96aa5800150d630b9086236c5c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781791"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846931"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Öğretici: SuccessFactors ile Azure Active Directory Tümleştirme
 
@@ -106,6 +106,7 @@ Azure AD çoklu oturum açma ile SuccessFactors yapılandırmak için aşağıda
     ![SuccessFactors etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier-reply.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak:
+
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -114,6 +115,7 @@ Azure AD çoklu oturum açma ile SuccessFactors yapılandırmak için aşağıda
     | `https://<companyname>.sapsf.eu`|
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
+
     | |
     |--|
     | `https://www.successfactors.com/<companyname>`|
@@ -127,6 +129,7 @@ Azure AD çoklu oturum açma ile SuccessFactors yapılandırmak için aşağıda
     | `https://www.successfactors.cn/<companyname>`|
 
     c. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak:
+
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -242,7 +245,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

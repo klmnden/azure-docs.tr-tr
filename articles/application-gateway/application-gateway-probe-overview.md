@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: 15481706d56af6cd9565e8c475b4770e432c1838
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337376"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120559"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Uygulama ağ geçidi sistem durumu izlemeye genel bakış
 
@@ -64,7 +64,7 @@ Eşleşme ölçütlerini belirtilen sonra bu yapılandırmayı kullanarak araşt
 > [!NOTE]
 > Bağlantı noktasını arka uç HTTP ayarları olarak aynı bağlantı noktasıdır.
 
-Yalnızca, varsayılan araştırmasını baktığını http://127.0.0.1:\<port\> sistem durumunu belirlemek için. Bir özel URL'ye gidin veya diğer herhangi bir ayarı değiştirmek için sistem durumu araştırma yapılandırmanız gerekiyorsa, özel araştırmalar kullanmanız gerekir.
+Varsayılan araştırma yalnızca http arar:\//127.0.0.1:\<bağlantı noktası\> sistem durumunu belirlemek için. Bir özel URL'ye gidin veya diğer herhangi bir ayarı değiştirmek için sistem durumu araştırma yapılandırmanız gerekiyorsa, özel araştırmalar kullanmanız gerekir.
 
 ### <a name="probe-intervals"></a>Araştırma aralığı
 

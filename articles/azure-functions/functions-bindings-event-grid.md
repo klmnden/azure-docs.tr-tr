@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 12056ebec0f0a23ed255532a8ba27b130ecb81d1
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: b2ab07e40ac2652d97e912f8c7bd3b8893bfc114
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750455"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094169"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay Kılavuzu tetikleyicisi
 
@@ -321,7 +321,7 @@ Tam bir örnek için bkz. C# örnek.
 Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini açıklayan *function.json* dosya. Oluşturucu parametresi veya ayarlamak için özellikler yok `EventGridTrigger` özniteliği.
 
 |Function.JSON özelliği |Açıklama|
-|---------|---------|----------------------|
+|---------|---------|
 | **type** | Gerekli - kümesine olmalıdır `eventGridTrigger`. |
 | **direction** | Gerekli - kümesine olmalıdır `in`. |
 | **Adı** | Gereklidir - işlev kodu olay verileri alan parametresi için kullanılan bir değişken adı. |
@@ -484,10 +484,10 @@ Alternatif olarak, anahtar değeri kendiniz belirlemek için bir HTTP PUT gönde
 
 Bir olay Kılavuzu tetikleyicisi test etmek için yerel olarak, Event Grid HTTP istekleri, kaynaktan bulutta yerel makinenize teslim gerekir. Bunu yapmanın bir yolu, çevrimiçi ve el ile bunları yerel makinenizde yeniden gönderme istekleri yakalayarak şöyledir:
 
-2. [Görüntüleyicisi web uygulaması oluşturma](#create-a-viewer-web-app) , olay iletileri yakalar.
-3. [Bir Event Grid aboneliği oluşturmak](#create-an-event-grid-subscription) , Olay Görüntüleyicisi'ni uygulamaya gönderir.
-4. [Bir isteği](#generate-a-request) ve Görüntüleyicisi uygulamadan istek gövdesine kopyalayın.
-5. [El ile istek gönderin](#manually-post-the-request) , Event Grid localhost URL'sini işlevi tetikleyin.
+1. [Görüntüleyicisi web uygulaması oluşturma](#create-a-viewer-web-app) , olay iletileri yakalar.
+1. [Bir Event Grid aboneliği oluşturmak](#create-an-event-grid-subscription) , Olay Görüntüleyicisi'ni uygulamaya gönderir.
+1. [Bir isteği](#generate-a-request) ve Görüntüleyicisi uygulamadan istek gövdesine kopyalayın.
+1. [El ile istek gönderin](#manually-post-the-request) , Event Grid localhost URL'sini işlevi tetikleyin.
 
 Bitirdiğinizde testi, aynı abonelik için üretim uç noktası güncelleştirerek kullanabilirsiniz. Kullanım [az eventgrid olay aboneliği güncelleştirme](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI komutu.
 
@@ -557,10 +557,10 @@ Olay Kılavuzu tetikleyicisi işlevi yürütür ve günlükleri aşağıdaki ör
 
 Bir olay Kılavuzu tetikleyicisi yerel olarak test etmek için başka bir HTTP bağlantısı Internet ile geliştirme bilgisayarınızda arasında otomatik hale getirmek için yoludur. Adlı bir açık kaynak aracı ile bunu yapabilirsiniz [ngrok](https://ngrok.com/):
 
-3. [Ngrok uç nokta oluşturma](#create-an-ngrok-endpoint).
-4. [Olay Kılavuzu tetikleyicisi işlevi çalıştırmak](#run-the-event-grid-trigger-function).
-5. [Bir Event Grid aboneliği oluşturmak](#create-a-subscription) , olayları ngrok uç noktasına gönderir.
-6. [Bir olayı tetikleyin](#trigger-an-event).
+1. [Ngrok uç nokta oluşturma](#create-an-ngrok-endpoint).
+1. [Olay Kılavuzu tetikleyicisi işlevi çalıştırmak](#run-the-event-grid-trigger-function).
+1. [Bir Event Grid aboneliği oluşturmak](#create-a-subscription) , olayları ngrok uç noktasına gönderir.
+1. [Bir olayı tetikleyin](#trigger-an-event).
 
 Bitirdiğinizde testi, aynı abonelik için üretim uç noktası güncelleştirerek kullanabilirsiniz. Kullanım [az eventgrid olay aboneliği güncelleştirme](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI komutu.
 

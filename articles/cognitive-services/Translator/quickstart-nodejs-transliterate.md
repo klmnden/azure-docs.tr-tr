@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 1dcd17854adacc853215f4c5a9982862d3e488c4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: db2d9fcf3dbb168061805906dae6ecc3a03e3301
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738581"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884413"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Hızlı Başlangıç: Node.js ile metin alfabeye için Translator Text API kullanın
 
@@ -32,7 +32,7 @@ Bu hızlı başlangıç şunları gerektirir:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Bir proje oluşturun ve gerekli modülleri içeri aktarın
 
-Favori IDE ortamınızda veya düzenleyicide yeni bir proje oluşturun. Ardından bu kod parçacığını projenizde `transliterate-text.js` adlı bir dosyaya kopyalayın.
+Adlı bir dosya ile en sevdiğiniz IDE veya düzenleyici ya da yeni bir klasör kullanarak yeni bir proje oluşturma `translate-text.js` masaüstünüzde. Ardından bu kod parçacığı proje/dosyanıza kopyalayın:
 
 ```javascript
 const request = require('request');
@@ -126,7 +126,7 @@ Kodunuzu bizimkiyle karşılaştırmak isterseniz, tam örnek kodu [GitHub](http
 [
     {
         "script": "latn",
-        "text": "konnnichiha"
+        "text": "konnichiwa"
     }
 ]
 ```

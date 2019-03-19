@@ -4,18 +4,18 @@ ms.service: storage
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: tamram
-ms.openlocfilehash: b099f5ff7e43f2deeb3b8c41adcb802cd431a65a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: fa0edaaa3ee785f89faceb51419d360752bb9825
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53636012"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58052153"
 ---
 Azure dosya eşitleme aracısının sorunlarını gidermek için ve yeni işlevler eklemek için düzenli olarak güncelleştirilir. Kullanılabilir olarak Azure dosya eşitleme Aracısı güncelleştirmelerini almak için Microsoft Update'i yapılandırma öneririz.
 
 #### <a name="major-vs-minor-agent-versions"></a>Büyük küçük Aracı sürümleri karşılaştırması
-* Ana Aracı sürümleri, genellikle yeni özellikler içerir ve duymuşsunuzdur sürüm numarasının ilk parçası olarak sahip. Örneğin: *2.\*.\**
-* Küçük Aracı sürümleri "düzeltme" olarak da adlandırılır ve ana sürümler daha sık kullanıma sunulur. Bunlar genellikle hata düzeltmeleri ve geliştirmeleri daha küçük ancak herhangi bir yeni özellik içerir. Örneğin:  *\*.3.\**
+* Ana Aracı sürümleri, genellikle yeni özellikler içerir ve duymuşsunuzdur sürüm numarasının ilk parçası olarak sahip. Örneğin: \*2.\*.\*\*
+* Küçük Aracı sürümleri "düzeltme" olarak da adlandırılır ve ana sürümler daha sık kullanıma sunulur. Bunlar genellikle hata düzeltmeleri ve geliştirmeleri daha küçük ancak herhangi bir yeni özellik içerir. Örneğin: \* \*.3.\*\*
 
 #### <a name="upgrade-paths"></a>Yükseltme yolları
 Dört Onaylandı ve test Azure dosya eşitleme Aracısı güncelleştirmelerini yüklemek için yollar vardır. 

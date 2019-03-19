@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 34cedd2b389187e55201b62acc38fca291cdd736
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: bc38b4457179c11f9d6b2656aacb8aa66848c444
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761797"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992469"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing yerel iş arama API'si v7 başvurusu
 
@@ -173,18 +173,21 @@ Bing istek için kullanılan sorgu bağlamı tanımlar.
 |originalQuery|İstekte belirtilen sorgu dizesi.|String|  
 
 ### <a name="identifiable"></a>Tanımlama
+
 |Ad|Değer|Type|  
 |-------------|-----------------|----------|
 |id|Bir kaynak tanımlayıcısı|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Tanımlar grubu bir arama sonuçları, aşağıdaki gibi mainline.
+
 |Ad|Değer|Type|  
 |-------------|-----------------|----------|
 |öğeler|Grup içinde görüntülemek için arama sonuçları listesi.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Görüntülenecek bir arama sonucu öğesi tanımlar.
+
 |Ad|Değer|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Görüntülenecek yanıtında öğenin sıfır tabanlı dizini. Bu alan öğe içermiyorsa, yanıt tüm öğeleri görüntüler. Örneğin, haber yanıt tüm haber makalelerini görüntüler.|Tamsayı|

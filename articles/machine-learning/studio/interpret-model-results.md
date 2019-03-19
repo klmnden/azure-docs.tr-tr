@@ -1,21 +1,21 @@
 ---
-title: Machine Learning Studio'da model sonuçlarını yorumlama
+title: Model sonuçlarını yorumlama
 titleSuffix: Azure Machine Learning Studio
 description: Bir algoritma kullanarak ve score model çıktıları görselleştirme için en iyi parametresinde nasıl seçeceğinizi öğrenin.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 778f713fb1046d3c1987b065c9dc25c4ad9825cb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c46f22fb5c906aaffa48f39a0c643ca2a48573f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822557"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877284"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da model sonuçlarını yorumlama
 Bu konuda, görselleştirin ve Azure Machine Learning Studio'da tahmin sonuçlarını yorumlama açıklanmaktadır. Bir modeli eğitilir ve Öngörüler, ("modeli puanlanmış") üzerinde yapılan sonra anlamak ve yorumlamak tahmin sonuç gerekir.
@@ -52,7 +52,7 @@ Azure Machine Learning Studio için sınıflandırma türlerinin her biriyle da�
 ### <a name="two-class-classification"></a>İki sınıflı sınıflandırma
 **Örnek deneme**
 
-Iris çiçek sınıflandırma iki sınıflı sınıflandırma problemi örneğidir. Iris çiçek kendi özelliklere göre sınıflandırmak için bir görevdir. Azure Machine Learning Studio'da sağlanan kullanarak Iris veri kümesini popüler alt kümesidir [Iris veri kümesini](http://en.wikipedia.org/wiki/Iris_flower_data_set) iki türler (sınıflar 0 ve 1) çiçek yalnızca örneklerini içeren. Her çiçek (sepal uzunluğu, sepal genişliği, petal uzunluğu ve petal genişliği) için dört özellikler mevcuttur.
+Iris çiçek sınıflandırma iki sınıflı sınıflandırma problemi örneğidir. Iris çiçek kendi özelliklere göre sınıflandırmak için bir görevdir. Azure Machine Learning Studio'da sağlanan kullanarak Iris veri kümesini popüler alt kümesidir [Iris veri kümesini](https://en.wikipedia.org/wiki/Iris_flower_data_set) iki türler (sınıflar 0 ve 1) çiçek yalnızca örneklerini içeren. Her çiçek (sepal uzunluğu, sepal genişliği, petal uzunluğu ve petal genişliği) için dört özellikler mevcuttur.
 
 ![Iris deneme ekran görüntüsü](./media/interpret-model-results/1.png)
 

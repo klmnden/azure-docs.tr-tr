@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 03920bc3ed17eac9d76cea78877f1f008e83f4dd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bcaf470fae34056fe932cf8b5fd3076899f895ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197360"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880288"
 ---
 # <a name="create-a-new-saas-application-offer"></a>Yeni bir SaaS uygulaması teklif oluşturma
 
@@ -34,6 +34,7 @@ Sonraki diyagramda bir SaaS uygulaması teklif oluşturma işlemi gösterilmekte
 ## <a name="offer-components"></a>Teklif bileşenleri
 
 SaaS uygulama teklifini aşağıdaki tabloda açıklanan beş bölümlerden oluşur:
+
 |  **Varlık grubu**   |  **Açıklama**  |
 |  ---------------   |  ---------------  |
 |    Teklif ayarları  |  SaaS uygulaması için benzersiz bir kimliğe yapılandırmak için kullanın.                 |
@@ -45,7 +46,7 @@ SaaS uygulama teklifini aşağıdaki tabloda açıklanan beş bölümlerden olu�
 
 ## <a name="new-offer-form"></a>Yeni Teklif formu
 
-Oturum [bulut iş ortağı portalı](http://cloudpartner.azure.com/)ve ardından **+ yeni teklif** sol menü çubuğundan. Menü yeni sunar, seçin **SaaS uygulamaları** yeni teklif formunu görüntülemek ve yeni bir SaaS uygulaması teklif için varlıklar tanımlayan işlemini başlatmak için.
+Oturum [bulut iş ortağı portalı](https://cloudpartner.azure.com/)ve ardından **+ yeni teklif** sol menü çubuğundan. Menü yeni sunar, seçin **SaaS uygulamaları** yeni teklif formunu görüntülemek ve yeni bir SaaS uygulaması teklif için varlıklar tanımlayan işlemini başlatmak için.
 
 ![SaaS uygulamaları için yeni teklif menüsü](./media/azure-new-saas-offer.png)
 
@@ -54,8 +55,8 @@ Oturum [bulut iş ortağı portalı](http://cloudpartner.azure.com/)ve ardından
 Yeni Teklif sayfa SaaS Teklif türü için bir sekme ve yeni bir teklif oluşturmak için kullanacağınız form alanlarını sunmaktadır. Aşağıdaki makalelerdeki her yeni teklifiniz için Destek Hizmetleri ve varlık gruplarını tanımlamak için sekmesinde kullanmayı açıklar.
 
 - [Teklif Ayarları sekmesi](./cpp-offer-settings-tab.md)
-- [Teknik bilgileri sekmesi](./cpp-technical-info-tab.md)
-- [Kanal bilgileri sekmesi](./cpp-channel-info-tab.md)
+- [Teknik Bilgiler sekmesi](./cpp-technical-info-tab.md)
+- [Kanal Bilgileri sekmesi](./cpp-channel-info-tab.md)
 - [Test Sürüşü sekmesi](./cpp-testdrive-tab.md)
-- [StoreFront Ayrıntılar sekmesi](./cpp-storefront-tab.md)
+- [Vitrin Ayrıntıları sekmesi](./cpp-storefront-tab.md)
 - [Kişiler sekmesi](./cpp-contacts-tab.md)

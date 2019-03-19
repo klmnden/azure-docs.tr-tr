@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fe1ef8c141c4a4daa443f800181f8e6e3199d0cc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 78ee2c1ce402a29f1a9dfdd29f31daef09134eba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331308"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997024"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Pig etkinliği Azure Data Factory kullanarak verileri dönüştürme
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -82,7 +82,8 @@ Data Factory, HDInsight Pig etkinliği [işlem hattı](data-factory-create-pipel
 ```
 
 ## <a name="syntax-details"></a>Söz dizimi ayrıntıları
-| Özellik | Açıklama | Gereklidir |
+
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | ad |Etkinliğin adı |Evet |
 | açıklama |Etkinliğin ne için kullanıldığını açıklayan metin |Hayır |
@@ -90,7 +91,7 @@ Data Factory, HDInsight Pig etkinliği [işlem hattı](data-factory-create-pipel
 | girişler |Pig etkinlik tarafından kullanılan bir veya daha fazla giriş |Hayır |
 | çıkışlar |Pig etkinliği tarafından üretilen bir veya daha fazla çıkışı |Evet |
 | linkedServiceName |Data Factory öğesinde bağlantılı hizmet olarak kayıtlı HDInsight kümesine başvuru |Evet |
-| komut dosyası |Pig betiği satır içi belirtin |Hayır |
+| script |Pig betiği satır içi belirtin |Hayır |
 | betik yolu |Pig betiği bir Azure blob depolama alanında Store ve dosyanın yolunu belirtin. 'Script' veya 'scriptPath' özelliğini kullanın. Her ikisi de birlikte kullanılamaz. Dosya adı büyük/küçük harfe duyarlıdır. |Hayır |
 | tanımlar |Pig betiği içinde başvurmak için anahtar/değer çiftleri parametrelerini belirtin |Hayır |
 
@@ -124,7 +125,7 @@ Bir Data Factory işlem hattı, bu Pig betiği yürütmek için aşağıdaki ad�
 1. Kaydetmek için bağlı hizmet oluşturma [kendi HDInsight işlem kümesi](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) veya yapılandırma [isteğe bağlı HDInsight işlem kümesi](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Bu bağlı hizmeti adlandıralım **HDInsightLinkedService**.
 2. Oluşturma bir [bağlı hizmet](data-factory-azure-blob-connector.md) verileri barındıran Azure Blob Depolama bağlantısını yapılandırmak için. Bu bağlı hizmeti adlandıralım **StorageLinkedService**.
 3. Oluşturma [veri kümeleri](data-factory-create-datasets.md) girdi ve çıktı verilerini gösteren. Giriş veri kümesi adlandıralım **PigSampleIn** ve çıktı veri kümesi **PigSampleOut**.
-4. Bir dosyada Azure Blob Depolama #2. adımda yapılandırılmış Pig sorgu kopyalayın. Verileri barındıran Azure depolama birinden sorgu dosyasını barındıran farklı ise, ayrı bir Azure depolama bağlı hizmet oluşturun. Etkinlik yapılandırması bağlı hizmette bakın. Kullanım ** scriptPath ** pig betik dosyasının yolunu belirtmek için ve **scriptLinkedService**. 
+4. Bir dosyada Azure Blob Depolama #2. adımda yapılandırılmış Pig sorgu kopyalayın. Verileri barındıran Azure depolama birinden sorgu dosyasını barındıran farklı ise, ayrı bir Azure depolama bağlı hizmet oluşturun. Etkinlik yapılandırması bağlı hizmette bakın. Kullanım **scriptPath** pig betik dosyasının yolunu belirtmek için ve **scriptLinkedService**. 
    
    > [!NOTE]
    > Kullanarak Pig betiği satır içi etkinliği tanımındaki sağlayabilirsiniz **betik** özelliği. Ancak, size tüm özel karakterleri kaçış için betik gereksinimleri olarak bu yaklaşım önerilmez ve hata ayıklama sorunlara neden olabilir. #4. adım izlemek için en iyi yöntem olacaktır.

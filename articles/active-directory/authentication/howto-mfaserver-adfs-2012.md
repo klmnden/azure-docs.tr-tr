@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30f35010b5072c89779b8030055a2d37beb58b0d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 80a35182af3c4a7992ef416fcee038240e2bdfca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200457"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074961"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Azure Multi-Factor Authentication Sunucusunu Windows Server’da AD FS ile çalışacak şekilde yapılandırma
 
@@ -46,21 +46,29 @@ Başlamadan önce, aşağıdaki bilgileri unutmayın:
 3. Kuruluşunuz için belirtmek istediğiniz ek seçenekleri belirleyin.
 4. **AD FS Bağdaştırıcısı’nı Yükle**'ye tıklayın.
    
-   <center>![Bulut](./media/howto-mfaserver-adfs-2012/server.png)</center>
+   <center>
+   
+   ![Bulut](./media/howto-mfaserver-adfs-2012/server.png)</center>
 
 5. Active Directory penceresinin açılması iki anlama gelir. Bilgisayarınız bir etki alanına katıldıysa ve AD FS Bağdaştırıcısı ile Multi-Factor Authentication hizmeti arasındaki hizmeti güvenli hale getirmek üzere Active Directory yapılandırması tamamlanmamıştır. Bu yapılandırmayı otomatik olarak tamamlamak için **İleri** düğmesine tıklayın ya da **Otomatik Active Directory yapılandırmasını atla ve ayarları el ile yapılandır** onay kutusunu işaretleyin. **İleri**’ye tıklayın.
 6. Yerel Grup pencerelerinin açılması iki anlama gelir. Bilgisayarınız bir etki alanına katılmadıysa ve AD FS bağdaştırıcısı ile Multi-Factor Authentication hizmeti arasındaki hizmeti güvenli hale getirmek üzere yerel grup yapılandırması tamamlanmamıştır. Bu yapılandırmayı otomatik olarak tamamlamak için **İleri** düğmesine tıklayın ya da **Otomatik Yerel Grup yapılandırmasını atla ve ayarları el ile yapılandır** onay kutusunu işaretleyin. **İleri**’ye tıklayın.
 7. Yükleme sihirbazında **İleri**’ye tıklayın. Azure Multi-Factor Authentication Sunucusu PhoneFactor Admins grubunu oluşturur ve AD FS hizmeti hesabını PhoneFactor Admins grubuna ekler.
-   <center>![Bulut](./media/howto-mfaserver-adfs-2012/adapter.png)</center>
+   <center>
+   
+   ![Bulut](./media/howto-mfaserver-adfs-2012/adapter.png)</center>
 8. **Yükleyiciyi Başlat** sayfasında **İleri**’ye tıklayın.
 9. Multi-Factor Authentication AD FS bağdaştırıcısı yükleyicisinde **İleri**’ye tıklayın.
 10. Yükleme tamamlandığında **Kapat**'a tıklayın.
 11. Bağdaştırıcı yüklendiğinde AD FS’ye kaydetmeniz gerekir. Windows PowerShell’i açın ve aşağıdaki komutu çalıştırın:<br>
     `C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
-    <center>![Bulut](./media/howto-mfaserver-adfs-2012/pshell.png)</center>
+    <center>
+    
+    ![Bulut](./media/howto-mfaserver-adfs-2012/pshell.png)</center>
 12. Yeni kaydettiğiniz bağdaştırıcıyı kullanmak için AD FS’deki genel kimlik doğrulama ilkesini düzenleyin. AD FS yönetim konsolunda **Kimlik Doğrulama İlkeleri** düğümüne gidin. **Multi-factor Authentication** bölümünde **Genel Ayarlar** bölümünün yanındaki **Düzenle** bağlantısına tıklayın. **Genel Kimlik Doğrulama İlkesini Düzenle** penceresinde, ek kimlik doğrulama yöntemi olarak **Multi-Factor Authentication**’ı seçin ve ardından **Tamam**'a tıklayın. Bağdaştırıcı WindowsAzureMultiFactorAuthentication olarak kaydedilir. Kaydın etkili olması için AD FS hizmetini yeniden başlatın.
 
-<center>![Bulut](./media/howto-mfaserver-adfs-2012/global.png)</center>
+<center>
+
+![Bulut](./media/howto-mfaserver-adfs-2012/global.png)</center>
 
 Bu noktada Multi-Factor Authentication Sunucusu, AD FS ile birlikte kullanım amacıyla ek kimlik doğrulama sağlayıcısı olmak üzere kurulur.
 
@@ -80,7 +88,7 @@ Bu noktada Multi-Factor Authentication Sunucusu, AD FS ile birlikte kullanım am
 MultiFactorAuthenticationAdfsAdapter.config dosyasını düzenlemek için aşağıdaki adımları izleyin:
 
 1. **UseWebServiceSdk** düğümünü **true** olarak ayarlayın.  
-2. **WebServiceSdkUrl** değerini Multi-Factor Authentication Web Hizmeti SDK URL’sine ayarlayın. Örneğin:  *https://contoso.com/&lt; certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*burada *certificatename* sertifikanızın adıdır.  
+2. **WebServiceSdkUrl** değerini Multi-Factor Authentication Web Hizmeti SDK URL’sine ayarlayın. Örneğin: *<https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx>* burada *certificatename* sertifikanızın adıdır.  
 3. `Register-AdfsAuthenticationProvider` komutunun sonuna `-ConfigurationFilePath &lt;path&gt;` ekleyerek Register-MultiFactorAuthenticationAdfsAdapter.ps1 komut dosyasını düzenleyin; burada *&lt;path&gt;* MultiFactorAuthenticationAdfsAdapter.config dosyasının tam yoludur.
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>Web Hizmeti SDK’sını bir kullanıcı adı ve parola kullanarak yapılandırma

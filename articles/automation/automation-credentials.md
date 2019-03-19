@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a842c0807a3cfbad78a43bcffa896c83bceedfb9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 1070cc97624b39ec929f5083f7073179fb1f068c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959298"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899154"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure automation'da kimlik bilgisi varlıkları
 
-Bir Otomasyon kimlik bilgisi varlığı, bir kullanıcı adı ve parola gibi güvenlik kimlik bilgilerini içeren bir nesne içerir. Kullanıcı adı ve parola için bazı uygulama veya hizmet kimlik doğrulaması gerektiren sağlamak PSCredential nesnesinin ayıklamak veya kimlik doğrulaması için bir PSCredential nesnesi kabul cmdlet'ler Runbook'larda ve DSC yapılandırmaları kullanabilir. Kimlik bilgileri özellikleri Azure Automation'da güvenli bir şekilde depolanır ve runbook veya DSC yapılandırması ile erişilebilen [Get-AutomationPSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) etkinlik.
+Bir Otomasyon kimlik bilgisi varlığı, bir kullanıcı adı ve parola gibi güvenlik kimlik bilgilerini içeren bir nesne içerir. Kullanıcı adı ve parola için bazı uygulama veya hizmet kimlik doğrulaması gerektiren sağlamak PSCredential nesnesinin ayıklamak veya kimlik doğrulaması için bir PSCredential nesnesi kabul cmdlet'ler Runbook'larda ve DSC yapılandırmaları kullanabilir. Kimlik bilgileri özellikleri Azure Automation'da güvenli bir şekilde depolanır ve runbook veya DSC yapılandırması ile erişilebilen [Get-AutomationPSCredential](#activities) etkinlik.
 
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -31,10 +31,10 @@ Aşağıdaki tabloda yer alan cmdlet'ler Windows PowerShell ile Otomasyon kimlik
 
 | Cmdlet'ler | Açıklama |
 |:--- |:--- |
-| [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Bir kimlik bilgisi varlığı hakkındaki bilgileri alır. Yalnızca kimlik almak gelen **Get-AutomationPSCredential** etkinlik. |
-| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Yeni bir Otomasyon kimlik bilgisi oluşturur. |
-| [Remove - AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Otomasyon kimlik bilgileri kaldırır. |
-| [Set - AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Var olan Otomasyon kimlik bilgileri özelliklerini ayarlar. |
+| [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential) |Bir kimlik bilgisi varlığı hakkındaki bilgileri alır. Yalnızca kimlik almak gelen **Get-AutomationPSCredential** etkinlik. |
+| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Yeni bir Otomasyon kimlik bilgisi oluşturur. |
+| [Remove-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Otomasyon kimlik bilgileri kaldırır. |
+| [Set-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Var olan Otomasyon kimlik bilgileri özelliklerini ayarlar. |
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet'leri
 
@@ -42,10 +42,10 @@ AzureRM için aşağıdaki tabloda yer alan cmdlet'ler Windows PowerShell ile Ot
 
 | Cmdlet'ler | Açıklama |
 |:--- |:--- |
-| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential?view=azurermps-4.4.0) |Bir kimlik bilgisi varlığı hakkındaki bilgileri alır.  |
-| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |Yeni bir Otomasyon kimlik bilgisi oluşturur. |
-| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |Otomasyon kimlik bilgileri kaldırır. |
-| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |Var olan Otomasyon kimlik bilgileri özelliklerini ayarlar. |
+| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential) |Bir kimlik bilgisi varlığı hakkındaki bilgileri alır.  |
+| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential) |Yeni bir Otomasyon kimlik bilgisi oluşturur. |
+| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential) |Otomasyon kimlik bilgileri kaldırır. |
+| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential) |Var olan Otomasyon kimlik bilgileri özelliklerini ayarlar. |
 
 ## <a name="activities"></a>Etkinlikler
 
@@ -53,7 +53,7 @@ Aşağıdaki tablodaki etkinlikler bir runbook ve DSC yapılandırmaları kimlik
 
 | Etkinlikler | Açıklama |
 |:--- |:--- |
-| Get-AutomationPSCredential |Runbook'tan veya DSC yapılandırmasından içinde kullanmak için bir kimlik bilgisi alır. Döndürür bir [System.Management.Automation.PSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential) nesne. |
+| Get-AutomationPSCredential |Runbook'tan veya DSC yapılandırmasından içinde kullanmak için bir kimlik bilgisi alır. Döndürür bir [System.Management.Automation.PSCredential](/dotnet/api/system.management.automation.pscredential) nesne. |
 
 > [!NOTE]
 > Değişkenleri kullanmaktan kaçınmanız gerekir – Name parametresinde, Get-AutomationPSCredential olduğundan bu runbook veya DSC yapılandırmaları arasındaki bağımlılıkları genişlemesiyle ve kimlik bilgisi varlıkları tasarım zamanında.
@@ -93,7 +93,7 @@ New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name
 
 ## <a name="using-a-powershell-credential"></a>Bir PowerShell kimlik bilgisi kullanma
 
-Bir runbook'tan veya DSC yapılandırmasından ile kimlik bilgisi varlığı almak **Get-AutomationPSCredential** etkinlik. Bu döndürür bir [PSCredential nesnesinin](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) bir etkinlik veya cmdlet'i parametre gerektiren bir PSCredential ile kullanabilirsiniz. Tek tek kullanmak için kimlik bilgisi nesnesinin özelliklerini de alabilirsiniz. Nesnesi için kullanıcı adı ve parolayı güvenli bir özelliğe sahiptir ve kullanabileceğiniz **GetNetworkCredential** döndürülecek yöntemi bir [NetworkCredential](https://msdn.microsoft.com/library/system.net.networkcredential.aspx) nesnesini güvenli olmayan bir sürümü sağlar parola.
+Bir runbook'tan veya DSC yapılandırmasından ile kimlik bilgisi varlığı almak **Get-AutomationPSCredential** etkinlik. Bu döndürür bir [PSCredential nesnesinin](/dotnet/api/system.management.automation.pscredential) bir etkinlik veya cmdlet'i parametre gerektiren bir PSCredential ile kullanabilirsiniz. Tek tek kullanmak için kimlik bilgisi nesnesinin özelliklerini de alabilirsiniz. Nesnesi için kullanıcı adı ve parolayı güvenli bir özelliğe sahiptir ve kullanabileceğiniz **GetNetworkCredential** döndürülecek yöntemi bir [NetworkCredential](/dotnet/api/system.net.networkcredential) nesnesini güvenli olmayan bir sürümü sağlar parola.
 
 ### <a name="textual-runbook-sample"></a>Metinsel runbook örneği
 

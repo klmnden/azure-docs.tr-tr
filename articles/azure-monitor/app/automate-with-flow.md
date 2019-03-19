@@ -9,18 +9,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2017
+ms.date: 03/12/2019
 ms.author: mbullwin
-ms.openlocfilehash: 685ce54f75b20879230163f216246746b4a36922
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: cbb9cceef68febec0af991c3d8d5df3e3404f1c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53756826"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834059"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow için Azure Application Insights işlemleri Bağlayıcısı ile otomatik hale getirin
 
-Hizmetinizi düzgün çalışıp çalışmadığını denetlemek için telemetri verilerini sürekli olarak çalışan aynı sorgu kendiniz bulurum? Eğilimleri ve anormallikleri bulmak için bu sorguları otomatikleştirme ve ardından etrafında kendi akışlarınızı oluşturmak istiyorsunuz? Microsoft Flow için Azure Application Insights Bağlayıcısı (Önizleme) doğru araç bu amaçlar için kullanılır.
+Hizmetinizi düzgün çalışıp çalışmadığını denetlemek için telemetri verilerini sürekli olarak çalışan aynı sorgu kendiniz bulurum? Eğilimleri ve anormallikleri bulmak için bu sorguları otomatikleştirme ve ardından etrafında kendi akışlarınızı oluşturmak istiyorsunuz? Azure Application Insights Bağlayıcısı Microsoft Flow için doğru aracı bu amaçları içindir.
 
 Bu tümleştirme sayesinde tek bir satır kod yazmadan artık çok sayıda işlemi otomatikleştirebilirsiniz. Bir Application Insights eylemini kullanarak akış oluşturduktan sonra akış Application Insights Analytics sorgunuzun otomatik olarak çalıştırır. 
 
@@ -34,38 +34,45 @@ Bu öğreticide, verileri bir web uygulaması için Grup öznitelikleri için An
 
 ### <a name="step-1-create-a-flow"></a>1. Adım: Akış oluşturun
 1. Oturum [Microsoft Flow](https://flow.microsoft.com)ve ardından **Akışlarım**.
-2. Tıklayın **sıfırdan bir akış oluşturun**.
+2. Tıklayın **yeni** ardından **boş akış Oluştur**.
+
+    ![Sıfırdan yeni akış oluştur](./media/automate-with-flow/1createflow.png)
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>2. Adım: Akışınız için bir Tetikleyici oluşturma
-1. Seçin **zamanlama**ve ardından **zamanlama - yinelenme**.
-1. İçinde **sıklığı** kutusunda **gün**hem de **aralığı** kutusuna **1**.
+1. Sekmesini seçin yapı bileşeninde **zamanlama**ve ardından **zamanlama - yinelenme**.
 
-    ![Microsoft Flow tetikleyici iletişim kutusu](./media/automate-with-flow/flow1.png)
+    ![Yapı altında seçin zamanlamak](./media/automate-with-flow/2schedule.png)
+
+1. İçinde **aralığı** kutusuna **1**hem de **sıklığı** kutusunda **gün**.
+2. Tıklayın **yeni adım**
+
+    ![Frequency ve interval değerleriyle girme ile zamanlama yinelenme değeri ayarlama](./media/automate-with-flow/3schedulerecurrence.png)
 
 
 ### <a name="step-3-add-an-application-insights-action"></a>3. Adım: Application Insights Eylem Ekle
-1. Tıklayın **yeni adım**ve ardından **Eylem Ekle**.
 1. Arama **Azure Application Insights**.
-1. Tıklayın **Azure Application Insights - analiz görselleştirme sorgu Önizleme**.
+2. Tıklayın **Azure Application Insights - görselleştirme Analytics sorgusu**.
+ 
+    ![Eylem seçin: Azure Application Insights Analytics görselleştirme sorgusu](./media/automate-with-flow/4visualize.png)
 
-    ![Analiz sorgusu penceresi](./media/automate-with-flow/flow2.png)
-
-### <a name="step-4-connect-to-an-application-insights-resource"></a>4. adım: Bir Application Insights kaynağına bağlanma
+### <a name="step-4-connect-to-an-application-insights-resource"></a>4. Adım: Bir Application Insights kaynağına bağlanma
 
 Bu adımı tamamlamak için kaynak için bir uygulama kimliği ve API anahtarı gerekir. Azure portalından, aşağıdaki diyagramda gösterildiği gibi geri alabilir:
 
-![Azure portalında uygulama kimliği](./media/automate-with-flow/appid.png) 
+![Azure portalında uygulama kimliği](./media/automate-with-flow/5apiaccess.png)
+
+![Azure portalında API anahtarı](./media/automate-with-flow/6apikey.png)
 
 - Uygulama kimliği ve API anahtarı ile birlikte bağlantınız için bir ad sağlayın.
 
-    ![Microsoft Flow bağlantı penceresi](./media/automate-with-flow/flow3.png)
+    ![Microsoft Flow bağlantı penceresi](./media/automate-with-flow/7connection.png)
 
-### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>5. adım: Analytics sorgu ve grafik türünü belirtin
+### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>5. Adım: Analytics sorgu ve grafik türünü belirtin
 Bu örnekte sorgu, son gün içinde başarısız olan istekleri seçer ve bunları işleminin bir parçası olarak oluşan özel durumları ile ilişkilendirir. Analytics bunları operation_ıd tanımlayıcısına göre ilişkilendirir. Sorgu sonuçları autocluster algoritması kullanılarak ardından ayırır. 
 
 Kendi sorgularınızı oluşturduğunuzda, akışınıza eklemeden önce bunlar düzgün Analytics'te çalıştığını doğrulayın.
 
-- Aşağıdaki Analytics sorgusu ekleyin ve ardından HTML tablosu grafik türü seçin. 
+- Aşağıdaki Analytics sorgusu ekleme ve HTML tablosu grafik türü seçin. Ardından **yeni adım**.
 
     ```
     requests
@@ -78,15 +85,14 @@ Kendi sorgularınızı oluşturduğunuzda, akışınıza eklemeden önce bunlar 
     | evaluate autocluster()
     ```
     
-    ![Analytics sorgu Yapılandırması penceresi](./media/automate-with-flow/flow4.png)
+    ![Analytics sorgu Yapılandırması penceresi](./media/automate-with-flow/8query.png)
 
-### <a name="step-6-configure-the-flow-to-send-email"></a>6. adım: E-posta gönderme akışı Yapılandır
+### <a name="step-6-configure-the-flow-to-send-email"></a>6. Adım: E-posta gönderme akışı Yapılandır
 
-1. Tıklayın **yeni adım**ve ardından **Eylem Ekle**.
 1. Arama **Office 365 Outlook**.
-1. Tıklayın **Office 365 Outlook - e-posta Gönder**.
+2. Tıklayın **Office 365 Outlook - e-posta Gönder**.
 
-    ![Office 365 Outlook seçim penceresi](./media/automate-with-flow/flow2b.png)
+    ![Office 365 Outlook seçim penceresi](./media/automate-with-flow/9outlookaction.png)
 
 1. İçinde **bir e-posta** penceresinde aşağıdakileri yapın:
 
@@ -98,7 +104,7 @@ Kendi sorgularınızı oluşturduğunuzda, akışınıza eklemeden önce bunlar 
 
    d. Tıklayın **Gelişmiş Seçenekleri Göster**.
 
-    ![Office 365 Outlook yapılandırma](./media/automate-with-flow/flow5.png)
+    ![Office 365 Outlook yapılandırma](./media/automate-with-flow/10sendemailbody.png)
 
 1. Dinamik içerik menüsünde, aşağıdakileri yapın:
 
@@ -108,12 +114,12 @@ Kendi sorgularınızı oluşturduğunuzda, akışınıza eklemeden önce bunlar 
     
     c. İçinde **HTML'dir** kutusunda **Evet**.
 
-    ![Office 365 e-posta Yapılandırması penceresi](./media/automate-with-flow/flow7.png)
+    ![Office 365 e-posta Yapılandırması penceresi](./media/automate-with-flow/11emailattachment.png)
 
-### <a name="step-7-save-and-test-your-flow"></a>7. adım: Akışınızı test edin ve Kaydet
-- İçinde **Akış adı** kutusuna akışınız için bir ad ekleyin ve ardından **akış oluşturma**.
+### <a name="step-7-save-and-test-your-flow"></a>7. Adım: Akışınızı test edin ve Kaydet
+- İçinde **Akış adı** kutusuna akışınız için bir ad ekleyin ve ardından **Kaydet**.
 
-    ![Akış oluşturma penceresi](./media/automate-with-flow/flow8.png)
+    ![Akışı adlandırın ve kaydedin](./media/automate-with-flow/12nameflow.png)
 
 Tetikleyici spustit tuto akci bekleyebilir veya hemen göre akış çalıştırma [tetikleyici talep üzerine çalıştırmaya](https://flow.microsoft.com/blog/run-now-and-six-more-services/).
 

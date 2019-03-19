@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 78858ba888986b75a1da77caaec1ef02ffcdf307
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b9d6569504b5352c6187afe12d903c986019c517
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467705"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860712"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>SQL veritabanı tek ve havuza alınmış veritabanlarını çoğaltma
 
@@ -40,7 +40,7 @@ SQL Server çoğaltma üzerinde tek ve havuza alınmış veritabanları için ya
 - SQL Server 2014'ü (12.x) RTM CU10
 - SQL Server 2012 (11.x) SP2 CU8 veya SP3
 - Eski bir sürümü kullanılarak çoğaltma yapılandırmaya çalışmadan sonuçlanabilir hata numarası (işlem abone. bağlanamadı) MSSQL_REPL20084 ve MSSQL_REPL40532 (sunucu açamıyor \<adı > oturum açma tarafından istenen. "Oturum açma başarısız.).  
-- Azure SQL veritabanı'nın tüm özelliklerini kullanabilmek için en son sürümlerini kullanarak [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ve [SQL Server veri Araçları](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).  
+- Azure SQL veritabanı'nın tüm özelliklerini kullanabilmek için en son sürümlerini kullanarak [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ve [SQL Server veri Araçları](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
   
 ## <a name="remarks"></a>Açıklamalar
 

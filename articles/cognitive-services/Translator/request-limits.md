@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 96ee65bfe8792bd56feb39f48659397cb517471a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 97b0b6256b7aaf7b42565fe9453fb87a0c414569
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735375"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861579"
 ---
 # <a name="request-limits-for-translator-text"></a>Translator metin çevirisi için istek sınırları
 
@@ -43,7 +43,7 @@ Bu sınırlar, Microsoft'un genel sistemlerine kısıtlanır. Microsoft Translat
 
 ## <a name="latency"></a>Gecikme süresi
 
-Translator metin çevirisi, 13 saniye en fazla bir gecikme vardır. Bu zamana kadar bir sonuç ya da bir zaman aşımı yanıt aldığınız. Genellikle, yanıtları için 300 milisaniye 150 milisaniye olarak döndürülür. Yanıt süreleri boyutu veya istek ve dil çifti göre değişir.
+Translator metin çevirisi API'si standart modelleri kullanarak 15 saniyede en fazla bir gecikme vardır. Özel modelleri kullanarak çeviri 25 saniye en fazla bir gecikme vardır. Bu zamana kadar bir sonuç ya da bir zaman aşımı yanıt aldığınız. Genellikle, yanıtları için 300 milisaniye 150 milisaniye olarak döndürülür. Yanıt süreleri, istek ve dil çiftin boyutuna bağlı olarak değişir. Bir çeviri almazsanız veya bir [hata yanıtı](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) bu süre içinde size ağ bağlantınızı denetleyin ve yeniden deneyin.
 
 ## <a name="sentence-length-limits"></a>Tümce uzunluk sınırları
 

@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7829627352815bc96a7a81bcbbc7e51240c858e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9cfff565dec0d6f9d2bbea8edf39f180d4b63fd9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993166"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>SSS ve Azure kaynakları için yönetilen kimliklerle bilinen sorunlar
 
@@ -55,17 +55,17 @@ Kimlik, güvenlik sınırı için bağlı bir kaynaktır. Örneğin, bir sanal m
 VM'ler ile Azure kaynakları için yönetilen kimliklerle, IMDS uç noktası kullanmanızı öneririz. Azure örnek meta veri hizmeti, Azure Resource Manager aracılığıyla oluşturulan tüm Iaas Vm'leri için erişilebilir bir REST uç noktasıdır. 
 
 Yönetilen kimlik IMDS Azure kaynakları için kullanmanın avantajlarından bazıları şunlardır:
-    - Tüm Azure Iaas desteklenen işletim sistemleri, IMDS Azure kaynakları için yönetilen kimlikleri kullanabilirsiniz.
-    - Azure kaynakları için yönetilen kimlikleri etkinleştirmek için vm'nizde bir uzantı yüklemek için artık gerekli. 
-    - Tarafından yönetilen kimlikleri Azure kaynakları için kullanılan sertifikaları artık VM yok.
-    - Bir bilinen yönlendirilemeyen IP adresi, VM içinden yalnızca bulunan IMDS uç nokta var.
-    - 1000 kullanıcı tarafından atanan yönetilen kimlikleri, tek bir sanal makineye atanabilir. 
+- Tüm Azure Iaas desteklenen işletim sistemleri, IMDS Azure kaynakları için yönetilen kimlikleri kullanabilirsiniz.
+- Azure kaynakları için yönetilen kimlikleri etkinleştirmek için vm'nizde bir uzantı yüklemek için artık gerekli. 
+- Tarafından yönetilen kimlikleri Azure kaynakları için kullanılan sertifikaları artık VM yok.
+- Bir bilinen yönlendirilemeyen IP adresi, VM içinden yalnızca bulunan IMDS uç nokta var.
+- 1000 kullanıcı tarafından atanan yönetilen kimlikleri, tek bir sanal makineye atanabilir. 
 
 VM uzantısını Azure kaynakları için yönetilen kimlikleri hala kullanılabilir; ancak biz bulunan yeni işlevleri artık geliştiriyorsunuz. IMDS uç noktasını kullanmaya geçiş öneririz. 
 
 VM uzantısı uç noktasını kullanma sınırlamaları bazıları şunlardır:
-    - Linux dağıtımları için sınırlı destek: CoreOS Stable, CentOS 7.1, Red Hat 7.2, Ubuntu 15.04, Ubuntu 16.04
-    - Kullanıcı tarafından atanan yalnızca 32 yönetilen kimlikleri, sanal Makineye atanabilir.
+- Linux dağıtımları için sınırlı destek: CoreOS Stable, CentOS 7.1, Red Hat 7.2, Ubuntu 15.04, Ubuntu 16.04
+- Kullanıcı tarafından atanan yalnızca 32 yönetilen kimlikleri, sanal Makineye atanabilir.
 
 
 Not: VM uzantısını Azure kaynakları için yönetilen kimlikleri Ocak 2019 destek kapsamının dışında olacaktır. 
@@ -75,8 +75,8 @@ Azure örnek meta veri hizmeti hakkında daha fazla bilgi için bkz. [IMDS belge
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Abonelik başka bir dizine taşırsanız yönetilen kimlikleri otomatik olarak yeniden oluşturulur?
 
 Hayır. Abonelik başka bir dizine taşırsanız, el ile yeniden oluşturun ve Azure RBAC rolü atamalarını tekrar vermeniz gerekir.
-    - Yönetilen kimlik sistemi atanmış: devre dışı bırakıp yeniden etkinleştirin. 
-    - Kullanıcı tarafından atanan yönetilen kimliklerle için: silmek, yeniden oluşturun ve bunları yeniden gerekli kaynakları (örneğin, sanal makineler) ekleme
+- Yönetilen kimlik sistemi atanmış: devre dışı bırakıp yeniden etkinleştirin. 
+- Kullanıcı tarafından atanan yönetilen kimliklerle için: silmek, yeniden oluşturun ve bunları yeniden gerekli kaynakları (örneğin, sanal makineler) ekleme
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Farklı bir dizin/kiracısındaki bir kaynağa erişmek için yönetilen bir kimlik kullanabilir miyim?
 

@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: c020d3c7513efda93d7ac5d3bdd79f21f8bc77dd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0f5d36dfbe614e35256231a91a9e15055e2e81cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818486"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843632"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Yerleşik güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri
 
@@ -41,14 +41,19 @@ Aşağıdaki tabloda, desteklenen eşlemeleri gösterir:
 |AustraliaSoutheast|AustraliaSoutheast|
 |CanadaCentral|CanadaCentral|
 |CentralIndia|CentralIndia|
-|EastUS|EastUS2|
+|EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
 |WestEurope|WestEurope|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
-|EastUS2EUAP|CentralUSEUAP|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP ve EastUS eşlemeleri Otomasyon hesapları için Log Analytics çalışma alanları için tam bir bölgeden bölgeye eşleme değildir, ancak doğru eşleme.
+
+> [!NOTE]
+> Talep nedeniyle bir bölge Otomasyon hesabı veya Log Analytics çalışma alanınızı oluştururken kullanılamıyor olabilir.  Bu durumda, bir bölgede kaynakları oluşturabileceğiniz önceki tabloda kullanmakta olduğunuz emin olun.
 
 Değişiklik İzleme ve Sayım çözümü, sanal makinelerinizde [değişiklikleri izleme](automation-vm-change-tracking.md) ve [sayım](automation-vm-inventory.md) olanağı sağlar. Bu adımda çözümü bir sanal makine üzerinde etkinleştirirsiniz.
 
@@ -91,7 +96,7 @@ Grup doldurmak için kullanılan sorguyu görüntülemek için ya da kayıtlı b
 
 Otomasyon hesabı seçin **Envanter** veya **değişiklik izleme** altında **yapılandırma yönetimi**, veya **güncelleştirme yönetimi** altında **güncelleştirme yönetimi**.
 
-Tıklayın **+ Azure VM ekleme**, listeden bir veya daha fazla sanal makine seçin. Sanal makinelerin etkinleştirilemez, out ve seçilmesi için gri. Üzerinde **güncelleştirme yönetimini etkinleştirme** sayfasında **etkinleştirme**. Bu eylem seçili Vm'lerden bilgisayar grubu kayıtlı araması çözümü ekler.
+Tıklayın **+ Azure VM ekleme**, listeden bir veya daha fazla sanal makine seçin. Sanal makinelerin etkinleştirilemez, out ve seçilmesi için gri. Otomasyon hesabınızın konum ne olursa olsun tüm bölgelerdeki Azure Vm'leri bulunabilir. Üzerinde **güncelleştirme yönetimini etkinleştirme** sayfasında **etkinleştirme**. Bu eylem seçili Vm'lerden bilgisayar grubu kayıtlı araması çözümü ekler.
 
 ![Azure sanal makineleri etkinleştirme](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 

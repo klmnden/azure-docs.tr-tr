@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6f7eaa91faabfea7bb951eb9863ffecd2f5499
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: be7094db14f53af939ded2313823bf2749e59a46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182383"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183161"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Grup tabanlı Azure Active Directory lisansı nedir?
 
@@ -49,7 +49,7 @@ Grup tabanlı lisanslamanın başlıca özellikleri şunlardır:
 
 - Kullanıcı düzeyi lisanslama gerektiren tüm Microsoft bulut hizmetleri desteklenir. Bu, tüm Office 365 ürünleri, Enterprise Mobility + Security ve Dynamics 365 destekler.
 
-- Grup tabanlı lisanslama şu anda yalnızca [Azure portal](https://portal.azure.com) üzerinden sağlanır. Kullanıcı ve grup yönetimi için öncelikli olarak Office 365 portalı gibi diğer yönetim portallarını kullanıyorsanız, bunu yapmaya devam edebilirsiniz. Ancak, lisansları grup düzeyinde yönetmek için Azure portalını kullanmalısınız.
+- Grup tabanlı lisanslama şu anda yalnızca üzerinden [Azure portalında](https://portal.azure.com). Öncelikle diğer yönetim portallarını kullanıcı ve Grup Yönetimi için gibi kullandığınız [Microsoft 365 Yönetim merkezini](https://admin.microsoft.com), bunu yapmak devam edebilirsiniz. Ancak, lisansları grup düzeyinde yönetmek için Azure portalını kullanmalısınız.
 
 - Azure AD, grup üyeliği değişikliklerinden kaynaklanan lisans değişikliklerini otomatik olarak yönetir. Normalde, lisans değişiklikleri üyelik değişikliğini izleyen birkaç dakika içinde geçerlilik kazanır.
 

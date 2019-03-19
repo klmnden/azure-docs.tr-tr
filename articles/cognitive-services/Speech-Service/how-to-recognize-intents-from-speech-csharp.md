@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 680c10d8402853f1ac2f519b8f07f81b9718ab9e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855733"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Öğretici: Amaçlardan tutun Speech SDK'sı kullanarak konuşma tanımaC#
 
@@ -45,9 +45,9 @@ Bu öğreticiye başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun
 
 ## <a name="luis-and-speech"></a>LUIS ve konuşma
 
-LUIS, konuşmadaki amaçları tanımak için Konuşma hizmetiyle tümleştirilir. Konuşma hizmeti aboneliğine ihtiyacınız yoktur; LUIS yeterlidir.
+LUIS, amaçlardan tutun Konuşma tanımaya konuşma Hizmetleri ile tümleşir. Yalnızca LUIS konuşma Hizmetleri aboneliği gerekmez.
 
-LUIS iki tür anahtar kullanır: 
+LUIS iki tür anahtar kullanır:
 
 |Anahtar türü|Amaç|
 |--------|-------|
@@ -56,7 +56,7 @@ LUIS iki tür anahtar kullanır:
 
 Bu öğreticide uç nokta anahtarı, LUIS anahtarıdır. Bu öğreticide, [Önceden oluşturulmuş Ev otomasyonu app’ini kullanma](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) başlığı altındaki yönergeleri izleyerek oluşturabildiğiniz örnek Ev Otomasyonu LUIS app kullanılır. Kendiniz bir LUIS app oluşturduysanız, onun yerine kendi oluşturduğunuzu da kullanabilirsiniz.
 
-LUIS app oluşturduğunuzda otomatik olarak bir başlatma anahtarı oluşturulur; böylece, metin sorgularını kullanarak app’i test edebilirsiniz. Bu anahtar Konuşma hizmeti tümleştirmesini etkinleştirmez ve bu öğreticiyle çalışmaz. Azure panosunda bir LUIS kaynağı oluşturmalı ve bu kaynağı LUIS app’e atamalısınız. Bu öğretici için ücretsiz abonelik katmanını kullanabilirsiniz. 
+LUIS app oluşturduğunuzda otomatik olarak bir başlatma anahtarı oluşturulur; böylece, metin sorgularını kullanarak app’i test edebilirsiniz. Bu anahtar, konuşma Hizmetleri Tümleştirme etkinleştirmez ve bu öğreticiyle çalışmaz. Azure panosunda bir LUIS kaynağı oluşturmalı ve bu kaynağı LUIS app’e atamalısınız. Bu öğretici için ücretsiz abonelik katmanını kullanabilirsiniz.
 
 Azure panosunda LUIS kaynağını oluşturduktan sonra [LUIS portalında](https://www.luis.ai/home) oturum açın, Uygulamalarım sayfasında uygulamanızı seçin ve app’in Yönet sayfasına geçin. Son olarak, kenar çubuğunda **Anahtarlar ve Uç Noktalar**’a tıklayın.
 
@@ -123,7 +123,7 @@ Aşağıdaki bölümlerde kod açıklaması yer alır.
 Konuşmadaki amaçların tanınmasında ilk adım LUIS uç nokta anahtarınızdan ve bölgenizden bir konuşma yapılandırması oluşturmaktır. Konuşma yapılandırmaları, Konuşma SDK’sının çeşitli özelliklerine yönelik tanıyıcılar oluşturmak için kullanılabilir. Konuşma yapılandırmasında kullanmak istediğiniz aboneliği belirtmek için birden çok yol sağlanır; burada, abonelik anahtarını ve bölgesini alan `FromSubscription` yolunu kullanıyoruz.
 
 > [!NOTE]
-> Konuşma Hizmeti aboneliğinin değil, LUIS aboneliğinizin anahtarını ve bölgesini kullanın.
+> Anahtar ve LUIS aboneliğinizin, bir konuşma Hizmetleri aboneliğin bölge kullanın.
 
 Daha sonra, `new IntentRecognizer(config)` kullanarak bir amaç tanıyıcı oluşturun. Yapılandırma hangi aboneliğin kullanılacağını zaten bildiğinden, tanıyıcıyı oluştururken abonelik anahtarını ve uç noktasını bir kez daha belirtmek gerekmez.
 
@@ -174,7 +174,7 @@ Aşağıdaki kod, Konuşma SDK’sını kullanarak amaç tanımanın iki ek öze
 
 Diğer özellik, işlenecek konuşmayı içeren sesin WAV dosyasından okunmasıdır. Amaç tanıyıcı oluşturulduğunda kullanılabilecek ses yapılandırmasını oluşturmayı içerir. Bu dosya 16 kHz örnekleme hızıyla tek kanallı (mono) olmalıdır.
 
-Bu özellikleri denemek için `RecognizeIntentAsync()` yönteminin gövdesini aşağıdaki kodla değiştirin. 
+Bu özellikleri denemek için `RecognizeIntentAsync()` yönteminin gövdesini aşağıdaki kodla değiştirin.
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 

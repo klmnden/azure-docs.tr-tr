@@ -1,6 +1,6 @@
 ---
-title: Bir Azure Service Fabric hizmeti sistemi ve yerel güvenlik hesapları altında Çalıştır | Microsoft Docs
-description: Sistem ve yerel güvenlik hesapları altında bir Service Fabric uygulaması çalıştırmayı öğrenin.  Güvenlik ilkeleri oluşturabilir ve hizmetlerinizi güvenli bir şekilde çalıştırmak için Çalıştır ilke uygulayabilirsiniz.
+title: Bir Azure Service Fabric hizmetinin sistemi ve yerel güvenlik hesapları altında çalıştırmak | Microsoft Docs
+description: Service Fabric uygulaması sistem ve yerel güvenlik hesapları altında çalıştırmayı öğrenin.  Güvenlik ilkeleri oluşturma ve güvenli bir şekilde hizmetlerinizi çalıştırmak için Çalıştır ilkesini uygulayın.
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 33ca23834f35e631c6943ec22a88f4fe3dc853e1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f454ec7805db0a79f9346f252809c9d7f6869734
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212407"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871020"
 ---
-# <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Bir hizmet bir yerel kullanıcı hesabı veya yerel sistem hesabı olarak çalıştırılması
-Azure Service Fabric kullanarak, kümedeki farklı kullanıcı hesabı altında çalışan uygulamaları güvenliğini sağlayabilirsiniz. Varsayılan olarak, Service Fabric uygulamaları Fabric.exe işlemin altında çalıştığı hesap altında çalışır. Service Fabric ayrıca yerel bir kullanıcı veya sistem hesabı altında uygulamaları çalıştırmak için yeteneği sağlar. Desteklenen yerel sistem hesabı türleri **YerelKullanıcı**, **NetworkService**, **Yerelhizmet**, ve **LocalSystem**.  Service Fabric Windows tek başına kümede çalıştırıyorsanız altında bir hizmeti çalıştırabilirsiniz [Active Directory etki alanı hesapları](service-fabric-run-service-as-ad-user-or-group.md) veya [Grup yönetilen hizmet hesapları](service-fabric-run-service-as-gmsa.md).
+# <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Bir yerel kullanıcı hesabı veya yerel sistem hesabı bir hizmet çalıştırma
+Azure Service Fabric kullanarak kümedeki farklı bir kullanıcı hesabı altında çalışan uygulamaların güvenliğini sağlayabilirsiniz. Varsayılan olarak, Service Fabric uygulamaları Fabric.exe işlemin altında çalıştığı hesabın altına çalıştırın. Service Fabric uygulamaları yerel bir kullanıcı veya sistem hesabı altında çalıştırma özelliği de sağlar. Desteklenen yerel sistem hesabı türleri **LocalUser**, **NetworkService**, **LocalService**, ve **LocalSystem**.  Service Fabric Windows tek başına küme üzerinde çalıştırıyorsanız, altında bir hizmeti çalıştırabileceğiniz [Active Directory etki alanı hesapları](service-fabric-run-service-as-ad-user-or-group.md) veya [Grup yönetilen hizmet hesapları](service-fabric-run-service-as-gmsa.md).
 
-Hizmetleri veya güvenli kaynaklarında çalıştırmak için gerekli olan kullanıcı hesaplarını tanımlayan uygulama bildiriminde **sorumluları** bölümü. Ayrıca, tanımlayabilir ve kullanıcı grupları oluşturun, böylece bir veya daha fazla kullanıcı birlikte yönetilebilir. Bu, farklı hizmet giriş noktaları için birden çok kullanıcı ve grup düzeyinde kullanılabilen ortak ayrıcalıkları gerekir yararlıdır.  Kullanıcılar, ardından belirli bir hizmet veya uygulamanın tüm hizmetlere uygulanan bir RunAs ilke başvurulur. 
+Uygulama bildiriminde Hizmetleri veya güvenli kaynaklara çalıştırmak için gereken kullanıcı hesaplarını tanımladığınız **sorumluları** bölümü. Ayrıca, tanımlamak ve kullanıcı grupları oluşturun, böylece bir veya daha fazla kullanıcı birlikte yönetilebilir. Bu, birden çok kullanıcı için farklı hizmet giriş noktaları vardır ve bunlar grubu düzeyinde kullanılabilir olan ortak ayrıcalıklara gerektiğinde kullanışlıdır.  Kullanıcılar, ardından belirli bir hizmet veya uygulamanın tüm hizmetler için uygulanan bir RunAs ilke başvurulur. 
 
-Varsayılan olarak, ana giriş noktasını RunAs ilkesi uygulanır.  Gerekirse bir RunAs ilke Kurulum giriş noktası için aynı zamanda uygulayabilirsiniz [belirli yüksek ayrıcalıklı kurulum işlemlerini sistem hesabı altında Çalıştır](service-fabric-run-script-at-service-startup.md), veya her iki ana ve Kurulum giriş noktaları.  
+Varsayılan olarak, ana giriş noktasını RunAs ilke uygulanır.  Gerekirse Kurulum Giriş noktasına RunAs İlkesi de uygulayabilirsiniz [belirli yüksek ayrıcalıklı kurulum işlemlerini bir sistem hesabı altında Çalıştır](service-fabric-run-script-at-service-startup.md), veya her iki ana ve Kurulum giriş noktaları.  
 
 > [!NOTE] 
-> Bir hizmet için bir RunAs ilkesi uygulamak ve uç nokta kaynakları HTTP protokolü ile hizmet bildirimi bildirir, belirtmelisiniz bir **SecurityAccessPolicy**.  Daha fazla bilgi için bkz: [HTTP ve HTTPS uç noktaları için bir güvenlik erişim ilkesi atama](service-fabric-assign-policy-to-endpoint.md). 
+> Bir hizmete bir RunAs ilke uygulayın ve hizmet bildirimi uç noktası HTTP protokolü kaynaklarla bildirir, belirtmelisiniz bir **SecurityAccessPolicy**.  Daha fazla bilgi için [HTTP ve HTTPS Uç noktalara yönelik güvenlik erişim ilkesi atama](service-fabric-assign-policy-to-endpoint.md). 
 >
 
-## <a name="run-a-service-as-a-local-user"></a>Bir hizmet yerel bir kullanıcı olarak çalıştırın
-Uygulamasında bir hizmeti güvenli hale getirmek için kullanılan yerel bir kullanıcı oluşturabilirsiniz. Zaman bir **YerelKullanıcı** hesap türü belirtilen uygulama bildirimi ilkeleri bölümünde Service Fabric, uygulamanın dağıtıldığı makinelerde yerel kullanıcı hesaplarını oluşturur. Varsayılan olarak, bu hesaplar, uygulama bildiriminde belirtilenlerle aynı adları yok (örneğin, *Customer3* aşağıdaki uygulama bildirim örnekte). Bunun yerine, dinamik olarak oluşturulur ve rastgele parolalara sahip.
+## <a name="run-a-service-as-a-local-user"></a>Bir hizmet yerel kullanıcı olarak çalıştırın
+Uygulama içinde bir hizmeti güvenli hale getirmek için kullanılan yerel bir kullanıcı oluşturabilirsiniz. Olduğunda bir **LocalUser** hesap türü, Service Fabric, uygulamanın dağıtıldığı makinelerde yerel kullanıcı hesaplarını oluşturur uygulama bildiriminin ilkeleri bölümünde belirtilir. Varsayılan olarak, bu hesaplar, uygulama bildiriminde belirtilenlerle aynı adları yoktur (örneğin, *Customer3* aşağıdaki uygulama bildirim örnekte). Bunun yerine, dinamik olarak oluşturulur ve rastgele parolalar vardır.
 
-İçinde **RunAsPolicy** bölümünde bir **ServiceManifestImport**, kullanıcı hesabını belirtmek **sorumluları** hizmet kod paketi çalıştırmak için bölüm.  Aşağıdaki örnek, yerel bir kullanıcı oluşturmak ve ana giriş noktası için bir RunAs ilkesi uygulamak gösterilmektedir:
+İçinde **RunAsPolicy** bölümü bir **Servicemanifestımport**, oluşturduğunuz kullanıcı hesabını belirtin **sorumluları** hizmet kod paketinin alınmalıdır.  Aşağıdaki örnek, yerel bir kullanıcı oluşturun ve ana giriş noktası bir RunAs ilkeyi uygulamak gösterilmektedir:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application7Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application7Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="Web1_InstanceCount" DefaultValue="-1" />
   </Parameters>
@@ -66,11 +66,11 @@ Uygulamasında bir hizmeti güvenli hale getirmek için kullanılan yerel bir ku
 ```
 
 ## <a name="create-a-local-user-group"></a>Bir yerel kullanıcı grubu oluşturun
-Kullanıcı grupları oluşturun ve bir veya daha fazla kullanıcı grubuna ekleyin. Bu, farklı hizmet giriş noktaları için birden çok kullanıcı ve grup düzeyinde kullanılabilen bazı ortak ayrıcalıklara sahip olması gerekir yararlıdır. Aşağıdaki uygulama bildirim örnek adlı bir yerel Grup gösterir *LocalAdminGroup* yönetici ayrıcalıklarına sahip. İki kullanıcı *Customer1* ve *Customer2*, bu yerel grubun üyesi yapılır. İçinde **ServiceManifestImport** bölümünde, ilkenin çalıştırmak için geçerli olduğu bir RunAs *Stateful1Pkg* kod paketi olarak *Customer2*.  Başka bir RunAs İlkesi çalıştırmak için uygulanan *Web1Pkg* kod paketi olarak *Customer1*.
+Kullanıcı grupları oluşturun ve bir veya daha fazla kullanıcı grubuna ekleyin. Bu, farklı hizmet giriş noktaları için birden çok kullanıcı ve grup düzeyinde kullanılabilir olan belirli ortak ayrıcalıklara sahip olması için ihtiyaç duydukları kullanışlıdır. Aşağıdaki uygulama bildirim örnek adlı bir yerel Grup gösterir *LocalAdminGroup* yönetici ayrıcalıklarına sahip. İki kullanıcı *Customer1* ve *Customer2*, bu yerel grubun üyeleri yapılır. İçinde **Servicemanifestımport** bölümünde, ilkenin uygulandığı çalıştırmak için bir RunAs *Stateful1Pkg* kod paketi olarak *Customer2*.  Çalıştırmak için başka bir RunAs ilke uygulanır *Web1Pkg* kod paketi olarak *Customer1*.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application7Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application7Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
@@ -127,12 +127,12 @@ Kullanıcı grupları oluşturun ve bir veya daha fazla kullanıcı grubuna ekle
 </ApplicationManifest>
 ```
 
-## <a name="apply-a-default-policy-to-all-service-code-packages"></a>Varsayılan bir ilke tüm hizmet kod paketleri için geçerlidir
-Kullandığınız **DefaultRunAsPolicy** bölüm tüm kodları için varsayılan bir kullanıcı hesabı paketleri belirtmek için belirli bir sahip değilseniz **RunAsPolicy** tanımlanmış. Bir uygulama tarafından kullanılan hizmet bildiriminde belirtilen kod paketleri çoğunu aynı kullanıcı altında çalıştırmanız gerekiyorsa, uygulamayı yalnızca bu kullanıcı hesabıyla varsayılan bir RunAs ilkesi tanımlayabilirsiniz. Kod paketi yoksa belirleyen aşağıdaki örnekte bir **RunAsPolicy** belirtilen kod paketi altında çalışması gereken **MyDefaultAccount** ilkeleri bölümünde belirtilen kullanıcı.  Desteklenen hesap YerelKullanıcı, NetworkService veya LocalSystem ve Yerelhizmet türleridir.  Ayrıca bir yerel kullanıcı veya hizmet kullanıyorsanız, hesap adı ve parola belirtin.
+## <a name="apply-a-default-policy-to-all-service-code-packages"></a>Tüm hizmet kod paketleri için varsayılan ilke geçerlidir
+Kullandığınız **DefaultRunAsPolicy** paketleri tüm kodlar için varsayılan bir kullanıcı hesabı belirtmek için bölüm, belirli bir sahip değilseniz **RunAsPolicy** tanımlı. Bir uygulama tarafından kullanılan hizmet bildiriminde belirtilen kod paketleri çoğunu altında aynı kullanıcı çalıştırmanız gerekiyorsa, uygulama yalnızca söz konusu kullanıcı hesabı ile varsayılan bir RunAs ilkesi tanımlayabilirsiniz. Aşağıdaki örnek, bir kod paketi yoksa belirtir bir **RunAsPolicy** belirtilen kod paketi çalışması gereken **MyDefaultAccount** ilkeleri bölümünde belirtilen kullanıcı.  Desteklenen hesabı LocalUser, NetworkService veya LocalSystem ve LocalService türleridir.  Aynı zamanda bir yerel kullanıcı veya hizmet kullanırken, hesap adı ve parola belirtin.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application7Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application7Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="Web1_InstanceCount" DefaultValue="-1" />
   </Parameters>
@@ -159,15 +159,15 @@ Kullandığınız **DefaultRunAsPolicy** bölüm tüm kodları için varsayılan
 </ApplicationManifest>
 ```
 
-## <a name="debug-a-code-package-locally-using-console-redirection"></a>Konsol yeniden yönlendirme özelliğini kullanarak yerel olarak bir kod paketi hata ayıklama
-Bazen, çalışan bir hizmeti konsol çıktısı görmek hata ayıklama amacıyla yararlıdır. Çıktıyı bir dosyaya yazar hizmet bildiriminde Giriş noktasındaki bir konsol yeniden yönlendirme ilkesi ayarlayabilirsiniz. Dosya çıktısı adlı uygulama klasörüne yazılır **günlük** küme düğümünde burada uygulamanın dağıtıldığı ve çalıştırın. 
+## <a name="debug-a-code-package-locally-using-console-redirection"></a>Konsol yönlendirmesi kullanarak yerel olarak bir kod paketi hatalarını ayıklama
+Bazen, çalışan bir hizmete konsol çıktısı görmek hata ayıklama amaçları için yararlıdır. Çıktıyı bir dosyaya yazar hizmet bildirimindeki Giriş noktasında, konsol yeniden yönlendirme ilkesi ayarlayabilirsiniz. Dosya çıktısı adlı uygulama klasörüne yazılır **günlük** küme düğümünde uygulama burada dağıtılan ve çalıştırın. 
 
 > [!WARNING]
-> Hiçbir zaman bu uygulamayı yük devretme etkileyebileceğinden üretimde dağıtılan bir uygulamada konsol yeniden yönlendirme ilkesi kullanın. *Yalnızca* bunu yerel geliştirme ve hata ayıklama amacıyla kullanın.  
+> Hiçbir zaman konsol yeniden yönlendirme ilkesi, bu uygulamanın yük devretme etkileyebileceğinden, üretimde dağıtılan bir uygulamada kullanın. *Yalnızca* bunu yerel geliştirme ve hata ayıklama amacıyla kullanın.  
 > 
 > 
 
-Aşağıdaki hizmet örnekte gösterildiği bir FileRetentionCount değerle konsol yeniden yönlendirmesini etkinleştirme bildirimi:
+Şu hizmet örnekte gösterildiği konsol yönlendirmesi FileRetentionCount değeriyle etkinleştirme bildirimi:
 
 ```xml
 <CodePackage Name="Code" Version="1.0.0">
@@ -184,8 +184,8 @@ Aşağıdaki hizmet örnekte gösterildiği bir FileRetentionCount değerle kons
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Uygulama modeli anlama](service-fabric-application-model.md)
-* [Bir hizmet bildirimi kaynakları belirtme](service-fabric-service-manifest-resources.md)
+* [Uygulama modelini anlama](service-fabric-application-model.md)
+* [Bir hizmet bildiriminde kaynakları belirtme](service-fabric-service-manifest-resources.md)
 * [Uygulama dağıtma](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

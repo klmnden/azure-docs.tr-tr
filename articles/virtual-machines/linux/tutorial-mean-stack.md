@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 97734ad6119e89c00634035b1646bc29ac6549bd
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: a8f756385b62dfb21e910b9373dc275c7f679d3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237878"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009665"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Öğretici: Azure'da bir Linux sanal makinesi üzerinde MongoDB, Express, AngularJS ve Node.js (MEAN) yığını oluşturun
 
@@ -91,13 +91,13 @@ sudo apt-get install -y nodejs
 ```
 
 ## <a name="install-mongodb-and-set-up-the-server"></a>MongoDB yükleme ve sunucuyu ayarlama
-[MongoDB](http://www.mongodb.com), verileri JSON benzeri esnek belgelerde depolar. Bir veritabanındaki alanlar, belgeden belgeye değişiklik gösterebilir ve veri yapısı zaman içinde değiştirilebilir. Örnek uygulamamız için MongoDB anahtarına kitap adını, isbn numarasını, yazarı ve sayfa sayısını içeren kitap kayıtları ekliyoruz. 
+[MongoDB](https://www.mongodb.com), verileri JSON benzeri esnek belgelerde depolar. Bir veritabanındaki alanlar, belgeden belgeye değişiklik gösterebilir ve veri yapısı zaman içinde değiştirilebilir. Örnek uygulamamız için MongoDB anahtarına kitap adını, isbn numarasını, yazarı ve sayfa sayısını içeren kitap kayıtları ekliyoruz. 
 
 1. Sanal makinede, SSH ile açtığınız bash kabuğunu kullanarak MongoDB anahtarını ayarlayın.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
-    echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+    echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
     ```
 
 2. Paket yöneticisini anahtarla güncelleştirin.
@@ -149,7 +149,7 @@ sudo apt-get install -y nodejs
 
 ## <a name="install-express-and-set-up-routes-to-the-server"></a>Express’i yükleme ve sunucuya rotalar ayarlama
 
-[Express](https://expressjs.com), web uygulamaları ve mobil uygulamalar için özellikler sağlayan minimal ve esnek bir Node.js web uygulaması çerçevesidir. Bu öğreticide Express, MongoDB veritabanına/veritabanından kitap bilgilerini geçirmek için kullanılmaktadır. [Mongoose](http://mongoosejs.com), uygulama verilerinizi modellemek için kolay ve şema temelli bir çözüm sağlar. Bu öğreticide Mongoose, veritabanına yönelik bir kitap şeması sağlamak için kullanılmaktadır.
+[Express](https://expressjs.com), web uygulamaları ve mobil uygulamalar için özellikler sağlayan minimal ve esnek bir Node.js web uygulaması çerçevesidir. Bu öğreticide Express, MongoDB veritabanına/veritabanından kitap bilgilerini geçirmek için kullanılmaktadır. [Mongoose](https://mongoosejs.com), uygulama verilerinizi modellemek için kolay ve şema temelli bir çözüm sağlar. Bu öğreticide Mongoose, veritabanına yönelik bir kitap şeması sağlamak için kullanılmaktadır.
 
 1. Express’i ve Mongoose’u yükleyin.
 

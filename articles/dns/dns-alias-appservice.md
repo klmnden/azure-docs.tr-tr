@@ -7,20 +7,20 @@ ms.service: dns
 ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
-ms.openlocfilehash: 2b14753237e118540da6306fa9f06816f3e58b71
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979864"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086335"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Konak yük dengeli Azure web apps bölgenin tepesindeki
 
-DNS protokolü, bir A veya AAAA kaydı bölgenin tepesindeki dışında herhangi bir şeyi atamayı engeller. Bir örnek bölge tepesinde contoso.com'dur. Bu kısıtlama, yük dengeli uygulamalarda arkasında Traffic Manager sahip uygulama sahipleri için bir sorunu gösterir. Traffic Manager profilinde bölgenin tepesinde kaydını işaret etmek mümkün değildir. Sonuç olarak, uygulama sahipleri, geçici bir çözüm kullanmanız gerekir. Uygulama katmanındaki bir yeniden yönlendirme başka bir etki bölge tepesinde yeniden yönlendirmeniz gerekir. Contoso.com yeniden yönlendirme www.contoso.com için buna bir örnektir. Bu düzenleme tek bir yeniden yönlendirme işlevine yönelik bir hata noktası sunar.
+DNS protokolü, bir A veya AAAA kaydı bölgenin tepesindeki dışında herhangi bir şeyi atamayı engeller. Bir örnek bölge tepesinde contoso.com'dur. Bu kısıtlama, yük dengeli uygulamalarda arkasında Traffic Manager sahip uygulama sahipleri için bir sorunu gösterir. Traffic Manager profilinde bölgenin tepesinde kaydını işaret etmek mümkün değildir. Sonuç olarak, uygulama sahipleri, geçici bir çözüm kullanmanız gerekir. Uygulama katmanındaki bir yeniden yönlendirme başka bir etki bölge tepesinde yeniden yönlendirmeniz gerekir. Contoso.com yeniden yönlendirme için www örneğidir\.contoso.com. Bu düzenleme tek bir yeniden yönlendirme işlevine yönelik bir hata noktası sunar.
 
 Diğer ad kayıtlarını ile bu sorun artık yok. Artık uygulama sahipleri kendi bölge tepesinde kayıt dış uç noktaları olan bir Traffic Manager profiline işaret edebilir. Uygulama sahibi kendi DNS bölgesi içinde başka bir etki alanı için kullanılan aynı Traffic Manager profilini işaret edebilir.
 
-Örneğin, contoso.com ve www.contoso.com aynı Traffic Manager profiline işaret edebilir. Traffic Manager profilini yapılandırılmış yalnızca harici son noktaları olduğu sürece bu durum geçerlidir.
+Örneğin, contoso.com ve www\.contoso.com aynı Traffic Manager profiline işaret edebilir. Traffic Manager profilini yapılandırılmış yalnızca harici son noktaları olduğu sürece bu durum geçerlidir.
 
 Bu makalede, etki alanı apex için bir diğer ad kaydı oluşturun ve yapılandırın, web uygulamalarınız için Traffic Manager profili bitiş noktalarını öğrenin.
 
@@ -28,11 +28,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Birlikte test edilecek Azure DNS içinde barındırabileceğiniz bir etki alanı adınızın olması gerekir. Bu etki alanının tam denetimi olmalıdır. Tam Denetim ad sunucusu (NS) kayıtlarını etki alanı için ayarlama özelliğini içerir.
+Birlikte test edilecek Azure DNS içinde barındırabileceğiniz bir etki alanı adınızın olması gerekir. Bu etki alanı üzerinde tam denetime sahip olmanız gerekir. Tam denetim, etki alanı için ad sunucusu (NS) kayıtlarını ayarlama olanağını kapsar.
 
-Azure DNS’te etki alanınızı barındırma yönergeleri için bkz. [Öğretici: Azure DNS’te etki alanınızı barındırma](dns-delegate-domain-azure-dns.md).
+Etki alanınızı Azure DNS'de barındırmak yönergeler için bkz: [Öğreticisi: Etki alanınızı Azure DNS'de konak](dns-delegate-domain-azure-dns.md).
 
-Bu öğreticide kullanılan örnek etki alanı contoso.com ise, ancak kendi etki alanı adını kullanın.
+Bu öğreticide örnek olarak contoso.com etki alanı kullanılmaktadır ancak sizin kendi etki alanı adınızı kullanmanız gerekir.
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -76,7 +76,7 @@ Bir App Service planı her iki web uygulaması oluşturun.
 
 Kaynak grubunuzda bir Traffic Manager profili oluşturun. Varsayılan ayarları kullanın ve trafficmanager.net ad alanı içinde benzersiz bir ad yazın.
 
-Traffic Manager profili oluşturma hakkında daha fazla bilgi için bkz: [hızlı başlangıç: yüksek oranda kullanılabilir web uygulaması için bir Traffic Manager profili oluşturma](../traffic-manager/quickstart-create-traffic-manager-profile.md).
+Traffic Manager profili oluşturma hakkında daha fazla bilgi için bkz: [hızlı başlangıç: Yüksek oranda kullanılabilir web uygulaması için bir Traffic Manager profili oluşturma](../traffic-manager/quickstart-create-traffic-manager-profile.md).
 
 ### <a name="create-endpoints"></a>Uç noktalar oluşturma
 
@@ -87,14 +87,14 @@ Artık iki web uygulaması uç noktaları oluşturabilirsiniz.
 3. **Ekle**'ye tıklayın.
 4. Uç noktaları yapılandırmak için aşağıdaki tabloyu kullanın:
 
-   |Tür  |Ad  |Hedef  |Konum  |Özel üst bilgi ayarları|
+   |Type  |Ad  |Hedef  |Konum  |Özel Üstbilgi ayarları|
    |---------|---------|---------|---------|---------|
-   |Dış uç noktası     |Bitiş-01|App-01 için kayıtlı IP adresi|Doğu ABD|konak:\<uygulama-01 için kaydettiğiniz URL'si\><br>Örnek: **konak: uygulama-01.azurewebsites.net**|
-   |Dış uç noktası     |Bitiş-02|App-02 için kayıtlı IP adresi|Orta ABD|konak:\<uygulama-02 kaydettiğiniz URL'si\><br>Örnek: **konak: uygulama-02.azurewebsites.net**
+   |Harici uç nokta     |Bitiş-01|App-01 için kayıtlı IP adresi|Doğu ABD|konak:\<uygulama-01 için kaydettiğiniz URL'si\><br>Örnek: **konak: uygulama-01.azurewebsites.net**|
+   |Harici uç nokta     |Bitiş-02|App-02 için kayıtlı IP adresi|Orta ABD|konak:\<uygulama-02 kaydettiğiniz URL'si\><br>Örnek: **konak: uygulama-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>DNS bölgesi oluşturma
 
-Test ya da mevcut bir DNS bölgesini kullanabilirsiniz veya yeni bir bölge oluşturabilirsiniz. Oluşturmak ve azure'da yeni bir DNS bölgesi temsilci seçmek için bkz [öğretici: Azure DNS etki alanınızı barındıran](dns-delegate-domain-azure-dns.md).
+Test ya da mevcut bir DNS bölgesini kullanabilirsiniz veya yeni bir bölge oluşturabilirsiniz. Oluşturmak ve azure'da yeni bir DNS bölgesi temsilci seçmek için bkz: [Öğreticisi: Etki alanınızı Azure DNS'de konak](dns-delegate-domain-azure-dns.md).
 
 ### <a name="add-the-alias-record-set"></a>Diğer kayıt kümesi Ekle
 
@@ -104,9 +104,9 @@ DNS bölgenizi hazır olduğunda bir diğer ad kaydı için bölge tepesinde ekl
 2. **Kayıt kümesi**’ne tıklayın.
 3. Aşağıdaki tabloda kullanılarak ayarlanan kaydı ekleyin:
 
-   |Ad  |Tür  |Diğer kayıt kümesi  |Diğer ad türü  |Azure kaynak|
+   |Ad  |Type  |Diğer kayıt kümesi  |Diğer ad türü  |Azure kaynağı|
    |---------|---------|---------|---------|-----|
-   |@     |A|Evet|Azure kaynak|Traffic Manager - profilinizi|
+   |@     |A|Evet|Azure kaynağı|Traffic Manager - profilinizi|
 
 ## <a name="add-custom-hostnames"></a>Özel ana bilgisayar adlarını ekleme
 
@@ -141,6 +141,6 @@ Artık web uygulamanızı size ulaşabildiğimizden emin olmak için test edebil
 
 Diğer ad kayıtları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Öğretici: Azure genel IP adresine başvurmak için bir diğer ad kaydı yapılandırma](tutorial-alias-pip.md)
-- [Öğretici: bir diğer ad kaydı apex etki alanı adları ile Traffic Manager'ı destekleyecek şekilde yapılandırma](tutorial-alias-tm.md)
+- [Öğretici: Bir Azure genel IP adresini belirtmek için bir diğer ad kaydı yapılandırma](tutorial-alias-pip.md)
+- [Öğretici: Bir diğer ad kaydı Apex etki alanı adları ile Traffic Manager'ı destekleyecek şekilde yapılandırma](tutorial-alias-tm.md)
 - [DNS SSS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)

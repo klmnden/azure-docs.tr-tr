@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 245cbafb42becc230f5e480cfc8e6fa41c352190
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7c2e3b2bea7ddef3dfbf69f85b499d9a60158689
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309392"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999127"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Esnek veritabanı araçlarını kullanmaya başlayın
 
@@ -28,7 +28,7 @@ Bu belge, geliştirici deneyimini tanıtır [elastik veritabanı istemci Kitapl�
 ### <a name="prerequisites"></a>Önkoşullar
 
 * Bir Java Developer Kit (JDK), sürüm 1.8 veya sonraki bir sürümü
-* [Maven](http://maven.apache.org/download.cgi)
+* [Maven](https://maven.apache.org/download.cgi)
 * Azure'da veya yerel bir SQL Server örneğini bir SQL veritabanı sunucusu
 
 ### <a name="download-and-run-the-sample-app"></a>Örnek uygulamasını indirme ve çalıştırma
@@ -74,7 +74,7 @@ Tebrikler! Başarıyla oluşturulan ve Azure SQL veritabanı elastik veritabanı
 ### <a name="prerequisites"></a>Önkoşullar
 
 * Visual Studio 2012 veya üzeri ile C#. Ücretsiz bir sürümde indirme [Visual Studio indirmeleri](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* NuGet 2.7 veya sonraki bir sürümü. En son sürümü edinmek için bkz. [NuGet yükleme](http://docs.nuget.org/docs/start-here/installing-nuget).
+* NuGet 2.7 veya sonraki bir sürümü. En son sürümü edinmek için bkz. [NuGet yükleme](https://docs.nuget.org/docs/start-here/installing-nuget).
 
 ### <a name="download-and-run-the-sample-app"></a>Örnek uygulamasını indirme ve çalıştırma
 
@@ -132,7 +132,7 @@ Esnek veritabanı araçları hakkında daha fazla bilgi için aşağıdaki makal
   * [Azure SQL - Entity Framework tümleştirmesi için esnek veritabanı araçları](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Betik Merkezi'nde parça esnekliği](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Esnek ölçek Duyurusu](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
-* Kanal 9: [Esnek ölçek genel bakış videosu](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
+* Kanal 9: [Esnek ölçek genel bakış videosu](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * Tartışma forumu: [Azure SQL veritabanının Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 * Performansını ölçmek için: [Parça eşleme yöneticisi için performans sayaçları](sql-database-elastic-database-client-library.md)
 

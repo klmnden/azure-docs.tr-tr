@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.openlocfilehash: ca1778688f160fc918bd456f92ebe8935bb05d03
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: a24f0810a5b785a57a8a255f3f762f2d2a8e6ee4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008755"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170828"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Hızlı Başlangıç: Bir IOT hub'ına (.NET) bağlı cihazı denetleme
 
@@ -93,7 +93,7 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 Arka uç uygulamasının hub’a bağlanmasına ve iletileri almasına olanak sağlamak için IoT hub _hizmet bağlantı dizesi_ de gerekir. Aşağıdaki komut, IoT hub'ınız için hizmeti bağlantı dizesini alır:
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --output table
 ```
 
 Şu ifadeye benzer şekilde görünen hizmet bağlantı dizesini not edin:

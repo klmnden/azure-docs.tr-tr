@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a0b4c41d347ba556e737d422af22fb5a47c7c4ff
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a7aa5401cbba9fafda9f995a882934ef0edfa481
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108730"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881155"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process'in çalışması: Azure HDInsight Hadoop kümelerini kullanma
-Bu kılavuzda kullandığımız [Team Data Science işlem (TDSP)](overview.md) uçtan uca bir senaryoda. Kullandığımız bir [Azure HDInsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfetmek, özellik mühendisi verileri genel olarak kullanılabilir ve [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) dataset ve aşağı örnek veriler için. İkili ve çok sınıflı sınıflandırma ve regresyon Tahmine dayalı görevler işlemek üzere Azure Machine Learning ile veri modelleri ekleriz. 
+Bu kılavuzda kullandığımız [Team Data Science işlem (TDSP)](overview.md) uçtan uca bir senaryoda. Kullandığımız bir [Azure HDInsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfetmek, özellik mühendisi verileri genel olarak kullanılabilir ve [NYC taksi Gelişlerin](https://www.andresmh.com/nyctaxitrips/) dataset ve aşağı örnek veriler için. İkili ve çok sınıflı sınıflandırma ve regresyon Tahmine dayalı görevler işlemek üzere Azure Machine Learning ile veri modelleri ekleriz. 
 
 Daha büyük bir veri kümesi ne yapılacağını gösteren bir kılavuz için bkz. [Team Data Science Process - Azure HDInsight Hadoop kümeleri kullanan bir 1 TB veri çubuğunda](hive-criteo-walkthrough.md).
 
@@ -84,7 +84,7 @@ Bir HDInsight kümesi üç adımda kullanan gelişmiş analiz için bir Azure or
 > 
 > 
 
-Kopyalanacak [NYC taksi Gelişlerin](http://www.andresmh.com/nyctaxitrips/) makinenize veri kümesini ortak konumundan açıklanan yöntemlerden herhangi birini kullanmak [için ve Azure Blob depolamadan/depolamaya veri taşıma](move-azure-blob.md).
+Kopyalanacak [NYC taksi Gelişlerin](https://www.andresmh.com/nyctaxitrips/) makinenize veri kümesini ortak konumundan açıklanan yöntemlerden herhangi birini kullanmak [için ve Azure Blob depolamadan/depolamaya veri taşıma](move-azure-blob.md).
 
 Burada, AzCopy verilerini içeren dosyaları aktarmak için nasıl kullanılacağını açıklar. AzCopy karşıdan yüklenip kurulacak konumundaki yönergeleri [AzCopy komut satırı yardımcı programı ile çalışmaya başlama](../../storage/common/storage-use-azcopy.md).
 
@@ -516,7 +516,7 @@ Hadoop komut satırı konsolundan aşağıdaki komutu çalıştırın:
 
 Doğrudan arasındaki uzaklığı iki konum, taksi gerçek seyahat mesafesini arasında bir fark olup olmadığını bilmek isteyebilirsiniz. Bir yolcu bunlar sürücü kasıtlı olarak bunlar daha uzun bir yol tarafından gerçekleştirilen olduğunu anlamasına ipucu olma olasılığını olabilir.
 
-Gerçek seyahat uzaklık karşılaştırması görmek için ve [Haversine uzaklık](http://en.wikipedia.org/wiki/Haversine_formula) iki boylam enlem noktaları arasında ("harika daire" uzaklık), yığın içinde kullanılabilir trigonometrik işlevler kullanabilirsiniz:
+Gerçek seyahat uzaklık karşılaştırması görmek için ve [Haversine uzaklık](https://en.wikipedia.org/wiki/Haversine_formula) iki boylam enlem noktaları arasında ("harika daire" uzaklık), yığın içinde kullanılabilir trigonometrik işlevler kullanabilirsiniz:
 
     set R=3959;
     set pi=radians(180);
@@ -822,8 +822,8 @@ Veri kümesi, makine öğrenimi modelleri oluşturmak için başlangıç noktas�
 Bu örnek gözden geçirme ve eşlik eden kodlarını MIT lisansı altında Microsoft tarafından paylaşılır. Daha fazla ayrıntı için **LICENSE.txt** GitHub üzerinde örnek kod, dizinde dosya.
 
 ## <a name="references"></a>Başvurular
-• [Andrés Monroy NYC taksi Gelişlerin indirme sayfası](http://www.andresmh.com/nyctaxitrips/)  
-• [FOILing NYC'ın taksi seyahat verilerini Chris Whong tarafından](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [Andrés Monroy NYC taksi Gelişlerin indirme sayfası](https://www.andresmh.com/nyctaxitrips/)  
+• [FOILing NYC'ın taksi seyahat verilerini Chris Whong tarafından](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 • [NYC taksi ve Limousine komisyon araştırma ve istatistikleri](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png

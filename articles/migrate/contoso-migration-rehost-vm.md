@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 47b16966f9e72a43cf4fb934706f7b96becef59a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4a6ed900753747c1d5bf394aced54da11177320f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694508"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118400"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Contoso geçişi: Şirket içi bir uygulamayı Azure VM’lerde yeniden barındırma
 
@@ -168,10 +168,10 @@ Bunlar bu aşağıdaki ayarlamaları yapın:
     - Uygulama veritabanı VM (SQLVM) bir üretim ağında alt ağ (PROD-DB-EUS2) veritabanı geçirir.
 
 2. Bir depolama hesabı-Contoso ayarlama birincil bölgede bir Azure depolama hesabı (contosovmsacc20180528) oluşturur.
-    - Depolama hesabının, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
-    - Standart depolama ve LRS çoğaltma ile genel amaçlı bir hesabını kullanırlar.
+   - Depolama hesabının, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
+   - Standart depolama ve LRS çoğaltma ile genel amaçlı bir hesabını kullanırlar.
 
-    ![Site Kurtarma Depolama](./media/contoso-migration-rehost-vm/asr-storage.png)
+     ![Site Kurtarma Depolama](./media/contoso-migration-rehost-vm/asr-storage.png)
 
 3. Bir kasa ile yerinde ağ ve depolama hesabı oluşturma, Contoso şimdi bir kurtarma Hizmetleri kasası (ContosoMigrationVault) oluşturulur ve birincil Doğu ABD 2 bölgelerindeki ContosoFailoverRG kaynak grubundaki yerleştirir.
 
@@ -221,15 +221,15 @@ Yük devretmeden sonra Azure Vm'lerine bağlanmak Contoso istiyor. Bunu yapmak i
 
 1. İnternet üzerinden erişim için bunlar:
 
- - Yük devretmeden önce şirket içi VM'de RDP'yi etkinleştirin.
- - İçin TCP ve UDP kurallarının eklendiğinden emin olun **genel** profili.
- - RDP'ye izin verildiğinden onay **Windows Güvenlik Duvarı** > **verilen uygulamaları** tüm profiller için.
+   - Yük devretmeden önce şirket içi VM'de RDP'yi etkinleştirin.
+   - İçin TCP ve UDP kurallarının eklendiğinden emin olun **genel** profili.
+   - RDP'ye izin verildiğinden onay **Windows Güvenlik Duvarı** > **verilen uygulamaları** tüm profiller için.
 
 2. Siteden siteye VPN üzerinden erişim için bunlar:
 
- - Şirket içi makinede RDP'yi etkinleştirin.
- - İçinde RDP'ye izin ver **Windows Güvenlik Duvarı** -> **izin verilen uygulamalar ve Özellikler**, için **etki alanı ve özel** ağlar.
- - Şirket içi VM'deki işletim sisteminin SAN ilkesinin ayarlamak **OnlineAll**.
+   - Şirket içi makinede RDP'yi etkinleştirin.
+   - İçinde RDP'ye izin ver **Windows Güvenlik Duvarı** -> **izin verilen uygulamalar ve Özellikler**, için **etki alanı ve özel** ağlar.
+   - Şirket içi VM'deki işletim sisteminin SAN ilkesinin ayarlamak **OnlineAll**.
 
 Ayrıca, bir yük devretme çalıştırdıklarında bunlar aşağıdakileri denetlemeniz gerekir:
 
@@ -341,10 +341,10 @@ Olan her şeyi yerinde, Contoso yöneticileri artık VM'ler için çoğaltmayı 
 
 4. Seçmeleri **WebVM** çoğaltma için çoğaltma ilkesi denetleyin ve çoğaltmayı etkinleştirin.
 
-    - Bu aşamada, yalnızca seçer WEBVM VNet ve alt ağ seçilmelidir ve uygulama sanal makinelerini farklı alt ağlarda yer alır.
-    - Çoğaltma etkinleştirildiğinde site Recovery Mobility hizmeti VM üzerinde otomatik olarak yükler.
+   - Bu aşamada, yalnızca seçer WEBVM VNet ve alt ağ seçilmelidir ve uygulama sanal makinelerini farklı alt ağlarda yer alır.
+   - Çoğaltma etkinleştirildiğinde site Recovery Mobility hizmeti VM üzerinde otomatik olarak yükler.
 
-    ![Çoğaltmayı etkinleştirme](./media/contoso-migration-rehost-vm/enable-replication3.png)
+     ![Çoğaltmayı etkinleştirme](./media/contoso-migration-rehost-vm/enable-replication3.png)
 
 5. Bunlar çoğaltma ilerlemeyi **işleri**. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
 6. İçinde **Essentials** Azure portalında yapısı Azure'a çoğaltılan VM'ler için görebilir.

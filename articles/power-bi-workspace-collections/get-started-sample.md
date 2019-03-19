@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 4a7da4a6e7b4b395063f7e4c9a3e97d610492ef6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 222c2983d83fe2373159ea542260be7b5a8d8ce5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882680"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885190"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI çalışma alanı koleksiyonları örnek ile kullanmaya başlama
 
@@ -93,7 +93,7 @@ Bir rapor tıkladıktan sonra **EmbedSample** web uygulaması görünmelidir bir
 
 ## <a name="explore-the-sample-code"></a>Örnek kodu inceleyin
 
-**Microsoft Power BI çalışma alanı koleksiyonları** örnektir nasıl tümleştireceğinizi gösteren bir örnek web uygulaması **Power BI** uygulamanıza raporlar. En iyi yöntemleri göstermek için bir Model-View-Controller (MVC) tasarım deseni kullanır. Bu bölüm içinde keşfedebilirsiniz örnek kod bölümlerini vurgular **Power BI embedded** web uygulaması çözümü. Model-View-Controller (MVC) deseni, etki alanı, sunu ve kullanıcı girişi üç ayrı sınıf uygulamasına göre eylemleri modelleme ayırır: Model, Görünüm ve denetimi. MVC hakkında daha fazla bilgi için bkz: [ASP.NET hakkında bilgi edinin](http://www.asp.net/mvc).
+**Microsoft Power BI çalışma alanı koleksiyonları** örnektir nasıl tümleştireceğinizi gösteren bir örnek web uygulaması **Power BI** uygulamanıza raporlar. En iyi yöntemleri göstermek için bir Model-View-Controller (MVC) tasarım deseni kullanır. Bu bölüm içinde keşfedebilirsiniz örnek kod bölümlerini vurgular **Power BI embedded** web uygulaması çözümü. Model-View-Controller (MVC) deseni, etki alanı, sunu ve kullanıcı girişi üç ayrı sınıf uygulamasına göre eylemleri modelleme ayırır: Model, Görünüm ve denetimi. MVC hakkında daha fazla bilgi için bkz: [ASP.NET hakkında bilgi edinin](https://www.asp.net/mvc).
 
 **Microsoft Power BI çalışma alanı koleksiyonları** örnek kod gibi ayrılmış. Örnek kod kolayca bulabilmesi için her bölüm embedded.sln Powerbı çözüm dosya adını içerir.
 
@@ -270,4 +270,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Örnek Ekleme](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](http://community.powerbi.com/)
+Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](https://community.powerbi.com/)

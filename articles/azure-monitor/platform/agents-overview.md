@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: dececc961e40d83cf44442dc61054bc8833208f0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d1e896aee4ba699704ce01e0cff8210d53700993
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265040"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899817"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure İzleme Aracısı genel bakış 
 Microsoft Azure, Microsoft Windows ve Azure, veri merkezinizi veya diğer bulut sağlayıcılarında barındırılan Linux çalıştıran sanal makineler farklı veri türleri toplamak için birden çok yol sağlar. Bir VM'yi izlemek için kullanılabilen aracıları üç tür şunlardır:
@@ -37,7 +37,7 @@ Toplanacak seçebilirsiniz:
 * İşletim sistemi performans sayaçları ve olay günlüklerini veya önceden tanımlanmış birtakım toplamak belirtebilirsiniz. 
 * Tüm istekleri ve/veya bir IIS web sunucusuna başarısız istekler
 * .NET uygulama izleme çıkış günlükleri
-* Windows (ETW) olayları için olay izleme 
+* Windows için olay izleme (ETW) olayları 
 * Syslog günlüğü olaylarını Topla  
 * Kilitlenme bilgi dökümleri 
 
@@ -52,7 +52,7 @@ Azure Tanılama aracı, aşağıdakileri yapmak istediğinizde kullanılmalıdı
 * Ölçümleri alma ve Cloud Services'dan Klasik VM'ler, toplanan verileri günlüğe kaydetmek için log Analytics'i yapılandırmak ve Service Fabric düğümleri bir Azure depolama hesabında depolanır.
 
 ## <a name="log-analytics-agent"></a>Log Analytics Aracısı
-Gelişmiş, birden fazla ölçüm ve günlükleri kümesini toplamak gereken izleme için Windows ve Linux için Log Analytics aracısını gereklidir. Log Analytics aracısını kapsamlı yönetimi için şirket içi fiziksel ve sanal makineler arasında bilgisayarlar System Center Operations Manager tarafından izlenen geliştirilmiştir ve diğer bulutlarda Vm'lerinde barındırılan. Windows ve Linux aracıları hem çözüm tabanlı izleme verilerini, hem de, yapılandırdığınız özel veri kaynaklarını toplamak için bir Log Analytics çalışma alanına bağlayın.
+Gelişmiş, birden fazla ölçüm ve günlükleri kümesini toplamak gereken izleme için Log Analytics aracısını (Microsoft Monitoring Agent (MMA) olarak da bilinir) Windows ve Linux için gereklidir. Log Analytics aracısını kapsamlı yönetimi için şirket içi fiziksel ve sanal makineler arasında bilgisayarlar System Center Operations Manager tarafından izlenen geliştirilmiştir ve diğer bulutlarda Vm'lerinde barındırılan. Windows ve Linux aracıları hem çözüm tabanlı izleme verilerini, hem de, yapılandırdığınız özel veri kaynaklarını toplamak için bir Log Analytics çalışma alanına bağlayın.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 

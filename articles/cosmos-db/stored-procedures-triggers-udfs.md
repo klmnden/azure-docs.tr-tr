@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 89cc7906c0503daa11f0a34520c17552a4e6b5af
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d1960fbc9fc9e8c1d672b66d3cf1f41399842059
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454224"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083207"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler
 
@@ -26,7 +26,7 @@ Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler) Ja
 
 * **Atomik işlemler:** Azure Cosmos DB, tek bir saklı yordam ya da bir tetikleyici içinde gerçekleştirilen veritabanı işlemleri atomiktir garanti eder. Tüm işlemlerin başarılı ya da bunların hiçbiri başarılı tek bir toplu iş ilgili işlemlere birleştirerek uygulama atomik bu işlevselliği sağlar.
 
-- **Performans:** JSON verilerini doğası gereği JavaScript dil türü sisteme eşlenir. Birkaç en iyi duruma getirme gibi JSON belgelerinin arabellek havuzu ve yürütme kodu için istek üzerine ulaşılabilir yönetilmelerini yavaş gerçekleştirmesi için bu eşleme sağlar. İş mantığı içeren veritabanına aktarma ile ilgili diğer performans avantajı vardır:
+* **Performans:** JSON verilerini doğası gereği JavaScript dil türü sisteme eşlenir. Birkaç en iyi duruma getirme gibi JSON belgelerinin arabellek havuzu ve yürütme kodu için istek üzerine ulaşılabilir yönetilmelerini yavaş gerçekleştirmesi için bu eşleme sağlar. İş mantığı içeren veritabanına aktarma ile ilgili diğer performans avantajı vardır:
 
    * *Toplu işleme:* Grup ekleme gibi işlemleri ve bunları toplu olarak gönderin. Ağ trafiğinin gecikme süresini maliyetleri ve ayrı işlemler oluşturmak için mağaza ek yükünü önemli ölçüde azaltılır.
 
@@ -34,7 +34,7 @@ Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler) Ja
 
    * *Sıralama:* Bazen operations birini gerçekleştirebilir tetikleyici bir mekanizma gerekir veya verilere ek güncelleştirmeler. Kararlılık yanı sıra, ayrıca performans avantajları vardır sunucu tarafında yürütülürken.
 
-- **Saklama:** Saklı yordamlar, tek bir yerde mantıksal gruplandırmak için kullanılabilir. Kapsülleme veri öğesinden bağımsız olarak uygulamalarınızı gelişmesi sağlar verileri en üstünde bir soyutlama katmanı ekler. Bu Soyutlama Katmanı, doğrudan uygulamanıza ek mantık ekleme yönetmek zorunda olmadığınız ve şemasız verileri gerektiğinde yararlıdır. Özet, Canlı betikleri erişimden kolaylaştırarak inovasyonu verilerin güvenliğini sağlar.
+* **Saklama:** Saklı yordamlar, tek bir yerde mantıksal gruplandırmak için kullanılabilir. Kapsülleme veri öğesinden bağımsız olarak uygulamalarınızı gelişmesi sağlar verileri en üstünde bir soyutlama katmanı ekler. Bu Soyutlama Katmanı, doğrudan uygulamanıza ek mantık ekleme yönetmek zorunda olmadığınız ve şemasız verileri gerektiğinde yararlıdır. Özet, Canlı betikleri erişimden kolaylaştırarak inovasyonu verilerin güvenliğini sağlar.
 
 > [!TIP]
 > Saklı yordamlar en ağır yazma işlemleri için çok uygundur. Saklı yordamları kullanmak karar verirken yazma olası en uzun süreyi Kapsüllenen etrafında iyileştirin. Genel olarak bakıldığında, saklı yordamlar istemciye döndürmek için okuma çok sayıda batch saklı yordamları kullanarak istenen avantajı verecek olmayan çok sayıda okuma işlemleri yapmak için en verimli değildir.

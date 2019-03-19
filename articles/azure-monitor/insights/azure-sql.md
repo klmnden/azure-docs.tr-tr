@@ -10,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 991032a603844e697c122d8a26923f4c95a4a78c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 66ab1fa9779aa378c4153adc0da81b3d172e1320
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778799"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170233"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Analytics (Önizleme) kullanarak Azure SQL veritabanı izleme
 
@@ -66,9 +66,13 @@ Yukarıdaki sayfayı ayrıca tek bir Azure SQL Analytics çalışma alanı birde
 
 ## <a name="using-the-solution"></a>Çözümü kullanma
 
-Çözüm çalışma alanınıza eklediğinizde, çalışma alanınızı bir Azure SQL Analytics kutucuk eklenir ve bu genel bakışta görünür. Kutucuk, çözüm tanılama telemetrisini alan yönetilen örneğe Azure SQL veritabanları, elastik havuzlar, yönetilen örnekler ve veritabanlarının sayısını gösterir.
+Çözüm çalışma alanınıza eklediğinizde, çalışma alanınızı bir Azure SQL Analytics kutucuk eklenir ve bu genel bakışta görünür. Kutucuk içeriği yüklemek için Özet Görüntüle bağlantıyı seçin.
 
-![Azure SQL Analytics kutucuğuna](./media/azure-sql/azure-sql-sol-tile.png)
+![Azure SQL Analytics Özet kutucuğu](./media/azure-sql/azure-sql-sol-tile-01.png)
+
+Veriler yüklendikten sonra kutucuğu çözüm tanılama telemetrisini alan yönetilen örneğe Azure SQL veritabanları, elastik havuzlar, yönetilen örnekler ve veritabanlarının sayısını gösterir.
+
+![Azure SQL Analytics kutucuğuna](./media/azure-sql/azure-sql-sol-tile-02.png)
 
 Çözüm--bir Azure SQL veritabanları ve elastik havuzlar ve diğer görünüm yönetilen örneği, veritabanlarını ve yönetilen örnekleri izlemek için izleme için iki ayrı görünümler sağlar.
 

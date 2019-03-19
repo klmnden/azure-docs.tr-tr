@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 72d4a9cd9a8b9244c428d49b5270952deb6f5162
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 56c09d9c6d1249713de7c6a0428ad2a124eee157
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454496"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013082"
 ---
 # <a name="azure-storage-security-guide"></a>Azure depolama Güvenlik Kılavuzu
 
@@ -111,7 +111,7 @@ Bir Azure depolama hesabı yönetim işlemlerini erişmek için RBAC kullanma ha
 ### <a name="managing-your-storage-account-keys"></a>Depolama hesabı anahtarlarınızı yönetme
 Depolama hesabı anahtarları, depolama hesabı adı ile birlikte BLOB, tablo ve kuyruk iletileri bir Azure Dosya paylaşımındaki dosyaları içindeki varlıklar, örneğin depolama hesabında depolanan verileri nesnelere erişmek için kullanılan Azure tarafından oluşturulan 512 bit dizelerdir. Depolama hesabı anahtarları denetimleri veri düzlemine erişim bu depolama hesabı için erişimi denetleme.
 
-Her Depolama hesabında "Anahtar 1" ve "2. anahtara" anılacaktır iki anahtar olduğundan [Azure portalında](http://portal.azure.com/) ve PowerShell cmdlet'leri. Bunlar dahil ancak bunlarla sınırlı olmamak kullanarak birkaç yöntemden birini kullanarak el ile yeniden üretilebilir [Azure portalında](https://portal.azure.com/), PowerShell, Azure CLI veya .NET depolama istemci kitaplığı veya Azure Storage Hizmetleri programlı olarak kullanma REST API.
+Her Depolama hesabında "Anahtar 1" ve "2. anahtara" anılacaktır iki anahtar olduğundan [Azure portalında](https://portal.azure.com/) ve PowerShell cmdlet'leri. Bunlar dahil ancak bunlarla sınırlı olmamak kullanarak birkaç yöntemden birini kullanarak el ile yeniden üretilebilir [Azure portalında](https://portal.azure.com/), PowerShell, Azure CLI veya .NET depolama istemci kitaplığı veya Azure Storage Hizmetleri programlı olarak kullanma REST API.
 
 Herhangi bir sayı, depolama hesabı anahtarlarını yeniden nedenleri vardır.
 
@@ -187,7 +187,7 @@ Ayrıca, SAS kullanılarak yapılan istekleri belirli bir IP adresi veya IP adre
 #### <a name="definition-of-a-shared-access-signature"></a>Paylaşılan erişim imzası tanımı
 Paylaşılan erişim imzası bir kaynağa işaret eden URL eklenecek sorgu parametreleri kümesidir.
 
-izin verilen erişim ve kendisi için erişimine izin verilen süreyi hakkında bilgi sağlar. Bir örnek aşağıda verilmiştir; Bu URI, beş dakikalığına blob okuma erişimi sağlar. SAS parametreleri sorgu URL'SİNİN kodlanmış, iki nokta üst üste (:) veya bir alan için % %20 3A gibi olması gerektiğini unutmayın.
+izin verilen erişim ve kendisi için erişimine izin verilen süreyi hakkında bilgi sağlar. Bir örnek aşağıda verilmiştir; Bu URI, beş dakikalığına blob okuma erişimi sağlar. SAS sorgu parametreleri URL kodlu, iki nokta üst üste (:) için % 3A gibi olması gerektiğini unutmayın veya bir alan için % 20.
 
 ```
 http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
@@ -244,7 +244,7 @@ Paylaşılan erişim imzalarını ve depolanan erişim ilkelerini örnekleri ile
 
     Bu makale, SAS Modeli'ni veya paylaşılan erişim imzaları örnekleri bir açıklama içerir ve SAS'ın en iyi yöntem önerileri kullanın. De ele izni iptal olur.
 
-* Kimlik Doğrulaması
+* Authentication
 
   * [Azure Storage Hizmetleri için kimlik doğrulaması](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Paylaşılan erişim imzaları öğretici kullanmaya başlama

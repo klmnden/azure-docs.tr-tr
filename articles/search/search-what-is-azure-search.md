@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ab41826661db3f46161aca4e650e5e974c6b3b45
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8893d8a55f77b54c9327e913af192ad39df46ba2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994985"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090024"
 ---
 # <a name="what-is-azure-search"></a>Azure Search nedir?
 Azure Search, geliştiricilere, web uygulamalarındaki, mobil uygulamalardaki ve kurumsal uygulamalardaki özel, heterojen içeriğe yönelik zengin arama deneyimi ekleme araçlarını ve API’lerini sunan, hizmet olarak arama bulut çözümüdür. Sorgu yürütme işlemi, kullanıcı tarafından tanımlanan bir dizine göre gerçekleştirilir.
@@ -116,8 +116,8 @@ Alternatif olarak, [MSDN abone Avantajlarınızı etkinleştirebilir](https://az
 
 3. .NET veya REST API'sini kullanarak kod yazmaya yönelin:
 
-  + [.NET SDK’sını kullanma](search-howto-dotnet-sdk.md), yönetilen kodda ana iş akışını gösterir.  
-  + [REST API'si ile çalışmaya başlama](https://github.com/Azure-Samples/search-rest-api-getting-started), REST API’sinin kullanımıyla aynı adımları gösterir. Bu hızlı başlangıçta, Postman veya Fiddler, REST API'leri çağırmak için de kullanabilirsiniz: [Azure Search REST API'lerini keşfetme](search-fiddler.md).
+   + [.NET SDK’sını kullanma](search-howto-dotnet-sdk.md), yönetilen kodda ana iş akışını gösterir.  
+   + [REST API'si ile çalışmaya başlama](https://github.com/Azure-Samples/search-rest-api-getting-started), REST API’sinin kullanımıyla aynı adımları gösterir. Bu hızlı başlangıçta, Postman veya Fiddler, REST API'leri çağırmak için de kullanabilirsiniz: [Azure Search REST API'lerini keşfetme](search-fiddler.md).
 
 ## <a name="watch-this-video"></a>Bu videoyu izleyin
 

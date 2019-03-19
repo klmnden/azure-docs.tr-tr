@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: 3f500abe0ea37b35236547824c655adc1a4c4d93
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ef0e29217e03b3c5d1b2880a6ce755c6cc02ceba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448841"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004444"
 ---
 # <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
 
 Kullanırken bir şirket içi yapılandırma sunucusunu dağıtma [Azure Site Recovery](site-recovery-overview.md) VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için. Yapılandırma sunucusu koordinatları iletişimleri arasında şirket içi VMware ve Azure. Veri çoğaltma işlemlerini yönetir. Bu makalede, VMware Vm'lerini Azure'a çoğaltırken, yapılandırma sunucusu dağıtmak için gereken adımlar anlatılmaktadır. [Bu makaleyi takip](physical-azure-set-up-source.md) fiziksel sunucu çoğaltması için yapılandırma sunucusunu ayarlamak gerekiyorsa.
 
->[!TIP]
-Yapılandırma sunucusu rolü parçası olan Azure Site Recovery mimarisi hakkında bilgi edinebilirsiniz [burada](vmware-azure-architecture.md).
+> [!TIP]
+> Yapılandırma sunucusu rolü parçası olan Azure Site Recovery mimarisi hakkında bilgi edinebilirsiniz [burada](vmware-azure-architecture.md).
 
 ## <a name="deployment-of-configuration-server-through-ova-template"></a>OVA şablon aracılığıyla yapılandırma sunucusu dağıtımı
 
@@ -46,7 +46,7 @@ Bir kullanıcıyla gerektiren **aşağıdakilerden birini** AAD (Azure Active Di
    1. Azure Active Directory'ye gidin > kullanıcı ayarları
    1. Altında ** uygulama kayıtları ","Kullanıcılar uygulamaları kaydedebilir","Evet"olarak seçilmelidir.
 
-    ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
+      ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
 > Active Directory Federasyon Services(ADFS) olduğu **desteklenmiyor**. Lütfen üzerinden yönetilen bir hesap kullanın [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
@@ -70,11 +70,11 @@ Birden fazla VMware VM çoğaltma yapıyorsanız okuma [kapasite planlaması kon
 3. **Sunucu Ekle** bölümünde **Sunucu türü**’nde **VMware için yapılandırma sunucusu**’nun görüntülenip görüntülenmediğini kontrol edin.
 4. Yapılandırma sunucusu için Open Virtualization uygulaması (OVA) şablonunu indirin.
 
-  > [!TIP]
->Ayrıca doğrudan yapılandırma sunucusu şablonunun en son sürümünü indirebilirsiniz [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+   > [!TIP]
+   >Ayrıca doğrudan yapılandırma sunucusu şablonunun en son sürümünü indirebilirsiniz [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
->[!NOTE]
-OVA şablonu ile sağlanan lisans 180 gün boyunca geçerli bir değerlendirme lisanstır. POST bu dönem, tedarik edilen lisansa sahip windows etkinleştirmek müşteri gerekir.
+> [!NOTE]
+> OVA şablonu ile sağlanan lisans 180 gün boyunca geçerli bir değerlendirme lisanstır. POST bu dönem, tedarik edilen lisansa sahip windows etkinleştirmek müşteri gerekir.
 
 ## <a name="import-the-template-in-vmware"></a>VMware’de şablonu içeri aktarma
 
@@ -136,6 +136,7 @@ Yapılandırma sunucusuna Ek NIC eklemek istiyorsanız, sunucuyu kasaya kaydetme
     |İndirmek & MySQL el ile yükleme?     |  Evet. MySQL uygulama indirme ve bu klasöre yerleştirin **C:\Temp\ASRSetup**, el ile yükleyin. Şimdi ne zaman kabul etmiş olursunuz. koşulları > tıklayarak **indirme ve yükleme**, portalı söylüyor *zaten yüklü*. Sonraki adıma geçebilirsiniz.       |
     |MySQL çevrimiçi indirilmesini engelleyebilirim?     |   Evet. MySQL yükleyici uygulamanızı klasörüne yerleştirin **C:\Temp\ASRSetup**. Koşullarını kabul edin > tıklayarak **indirme ve yükleme**, portal sizin tarafınızdan eklenen yükleyici kullanır ve uygulama yüklenir. Sonraki adım post yüklemeye devam edebilirsiniz.    |
     |İndirme ve Azure Site Recovery aracılığıyla MySQL yükleme yapmak istiyorum     |  Lisans sözleşmesini kabul & tıklayın **yükleyip**. Sonraki adım post yüklemeye devam edebilirsiniz.       |
+
 5. **Gereç yapılandırmasını doğrulama** bölümünde ön koşullar, siz devam etmeden önce doğrulanır.
 6. **vCenter Server/vSphere ESXi sunucusu yapılandırma** bölümünde, çoğaltmak istediğiniz VM’lerin bulunduğu vCenter sunucusunun veya vSphere konağının FQDN’sini ya da IP adresini girin. Sunucunun dinleme gerçekleştirdiği bağlantı noktasını girin. Kasadaki VMware sunucusu için kullanılacak bir kolay ad girin.
 7. VMware sunucusu ile bağlantı için yapılandırma sunucusu tarafından kullanılacak kimlik bilgilerini girin. Site Recovery, bu kimlik bilgilerini çoğaltma için kullanılabilen VMware VM’lerini otomatik olarak bulmak üzere kullanır. Seçin **ekleme**, ardından **devam**. Buraya girdiğiniz kimlik bilgileri yerel olarak kaydedilir.

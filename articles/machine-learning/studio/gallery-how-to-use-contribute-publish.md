@@ -6,20 +6,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 53104aeaa88464a666a6ece495e51bf58bd1f002
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 382d05869a56dc0920d60bca55d99be4b46e3f52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816870"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885428"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Paylaşın ve Azure AI Gallery'de kaynakları keşfedin
 
-**[Azure AI Gallery](http://gallery.azure.ai)**  bulmak için bir topluluk odaklı site ve çözümleri paylaşımı, Azure yapay ZEKA ile oluşturulmuş.
+**[Azure AI Gallery](https://gallery.azure.ai)**  bulmak için bir topluluk odaklı site ve çözümleri paylaşımı, Azure yapay ZEKA ile oluşturulmuş.
 Galeri, kendi analiz çözümleri geliştirmek üzere kullanabileceği kaynakları çeşitli sahiptir.
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Galeride neler bulabilirim?
@@ -201,4 +201,4 @@ Kullanıcılarımız tarafından ve kullanıcılarımız için odaklı Galeriye 
 
 ![Geri Bildirim](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[BENİ GALERİSİNE GÖTÜR &GT;&GT;](http://gallery.azure.ai)**
+**[BENİ GALERİSİNE GÖTÜR &GT;&GT;](https://gallery.azure.ai)**

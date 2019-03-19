@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00cde6f9d17eb44fefae10d8694a89abf51540a5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9e822906a072ec8244c7108e98289482adebb5a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182076"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098687"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Azure AD ile Federasyon için Çoklu Etki Alanı Desteği
 Aşağıdaki belgeler, Office 365 veya Azure AD etki alanları ile Federasyon olduğunda birden çok en üst düzey etki alanları ve alt etki alanlarını kullanma hakkında yönergeler sağlar.
@@ -69,7 +69,7 @@ Başka bir şey, `-SupportMultipleDomain` mu, AD FS sistem Azure AD için verile
 
 Bu nedenle Azure AD'ye kimlik doğrulaması sırasında veya kullanıcı belirteci IssuerUri öğesinde, Office 365, Azure AD'de etki alanını bulmak için kullanılır.  Bir eşleşme bulunamıyor, kimlik doğrulaması başarısız olur.
 
-Örneğin, bir kullanıcının UPN ise bsimon@bmcontoso.com, belirteç, AD FS sorunları IssuerUri öğesinde ayarlanacak http://bmcontoso.com/adfs/services/trust. Bu öğe, Azure AD yapılandırmasının eşleşir ve kimlik doğrulaması başarılı olur.
+Örneğin, bir kullanıcının UPN ise bsimon@bmcontoso.com, belirteç, AD FS sorunları IssuerUri öğesinde ayarlanacak <http://bmcontoso.com/adfs/services/trust>. Bu öğe, Azure AD yapılandırmasının eşleşir ve kimlik doğrulaması başarılı olur.
 
 Bu mantık uygulayan özel talep kuralı verilmiştir:
 

@@ -11,12 +11,12 @@ ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
-ms.openlocfilehash: 7b1886321ca4afd4b4710bd9fddf16d2d5eb224b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c0985df445ae34795d5287144d4664755cc006da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126596"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182124"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Web kancaları ve Azure Logic Apps kullanarak olay-tabanlı iş akışları veya Eylemler oluşturma
 
@@ -29,9 +29,9 @@ Daha fazla bilgi edinin [destekleyen bir Web kancasını özel API oluşturma](.
 
 ## <a name="use-the-webhook-trigger"></a>Web kancası tetikleyicisini kullanma
 
-A [ *tetikleyici* ](connectors-overview.md) bir mantıksal uygulama iş akışı başlatan olaylardır. Bir Web kancası tetikleyici olay tabanlı ve yeni öğeler için yoklama içermez. Gibi [istek tetikleyicisi](connectors-native-reqres.md), mantıksal uygulama bir olay meydana anında başlatılır. Web kancası tetikleyicisine kaydeder bir *geri çağırma URL'si* hizmet ve kullandığı için mantıksal uygulama olarak harekete geçirmek için bu URL'yi gerekir.
+A [ *tetikleyici* ](connectors-overview.md) bir mantıksal uygulama iş akışı başlatan olaylardır. Web kancası tetikleyici yeni öğeler için yoklama hangi bağımlı olmayan olay tabanlı. Ne zaman bir Web kancası tetikleyici ile mantıksal uygulamanızı kaydetmeniz veya etkin devre dışı olarak gelen mantıksal uygulamanızı değiştirdiğinizde, Web kancası tetikleyicisine *abone* belirtilen hizmet ya da kaydederek uç noktası bir *geriçağırmaURL'si* hizmet veya uç nokta. Tetikleyici sonra gerektiği gibi mantıksal uygulamayı çalıştırmak için bu URL'yi kullanır. Gibi [istek tetikleyicisi](connectors-native-reqres.md), beklenen olay durumda hemen mantıksal uygulama başlatılır. Tetikleyici *abonelikten çıkma* tetikleyiciyi kaldırın ve mantıksal uygulamanızı kaydedin veya mantıksal uygulamanızdan etkinken devre dışı olarak değiştirdiğinizde.
 
-HTTP tetikleyicisi mantıksal Uygulama Tasarımcısı'nda ayarlama gösteren bir örnek aşağıda verilmiştir. Zaten dağıtmış olan veya izleyen bir API erişme adımlarda varsayılır [Web kancası abone olma ve logic apps'te deseni aboneliği](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). Her bir mantıksal uygulama ile yeni bir Web kancası kaydedildi veya geçiş devre dışı iken etkin olarak abone ol çağrı yapılır. Bir mantıksal uygulama Web kancası tetikleyici kaldırıldı ve kaydedildiğinde veya gelen geçiş unsubscribe çağrı yapılır devre dışı olarak etkinleştirildi.
+HTTP tetikleyicisi mantıksal Uygulama Tasarımcısı'nda ayarlama gösteren bir örnek aşağıda verilmiştir. Zaten dağıtmış olan veya izleyen bir API erişme adımlarda varsayılır [Web kancası abone olma ve logic apps'te deseni aboneliği](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
 
 **Web kancası tetikleyicisine eklemek için**
 
@@ -40,7 +40,7 @@ HTTP tetikleyicisi mantıksal Uygulama Tasarımcısı'nda ayarlama gösteren bir
 
    Bu adım olarak aynı deseni izler [HTTP eylemi](connectors-native-http.md) biçimi.
 
-     ![HTTP tetikleyicisi](./media/connectors-native-webhook/using-trigger.png)
+     ![HTTP Tetikleyicisi](./media/connectors-native-webhook/using-trigger.png)
 
 3. En az bir eylem ekleyin.
 4. Tıklayın **Kaydet** mantıksal uygulamayı yayımlamak için. Bu adım, bu mantıksal uygulama tetiklemek için gereken bir geri çağırma URL'si ile abone uç noktası çağırır.
@@ -48,9 +48,15 @@ HTTP tetikleyicisi mantıksal Uygulama Tasarımcısı'nda ayarlama gösteren bir
 
 ## <a name="use-the-webhook-action"></a>Web kancası eylemi kullanın
 
-Bir [ *eylem* ](connectors-overview.md) mantıksal uygulamada tanımlanan iş akışı tarafından bir işlemi gerçekleştirilir. Bir Web kancası eylemi kaydeder bir *geri çağırma URL'si* hizmet ve devam etmeden önce URL'yi çağrılana kadar bekler. ["Onay e-posta Gönder"](connectors-create-api-office365-outlook.md) bu yapıdadır bağlayıcıyı örneğidir. Bu düzen, herhangi bir hizmeti aracılığıyla Web kancası eylem halinde genişletebilirsiniz. 
+Bir [ *eylem* ](connectors-overview.md) bir tanımlanan işlemi ve mantıksal uygulamanızın iş akışı tarafından Çalıştır. Mantıksal uygulama bir Web kancası eylemi, bu eylem çalıştırıldığında *abone* belirtilen hizmet ya da kaydederek uç noktası bir *geri çağırma URL'si* hizmet veya uç nokta. Web kancası eylemi ardından aramaları çalıştıran logic app sürdürür önce URL'yi hizmet kadar bekler. Mantıksal uygulama hizmet veya uç noktası bu gibi durumlarda aboneliğini iptal eder: 
 
-Mantıksal Uygulama Tasarımcısı'nda bir Web kancası eylemi ayarlama gösteren bir örnek aşağıda verilmiştir. Adımları dağıttıktan veya izleyen bir API eriştiğiniz varsayar [Web kancası abone olma ve aboneliği logic apps'te kullanılan desen](../logic-apps/logic-apps-create-api-app.md#webhook-actions). Mantıksal uygulama, Web kancası eylemi yürütüldüğünde abone ol çağrı yapılır. Bir çalışma için bir yanıt beklerken iptal edilir ya da uygulama mantığı önce zaman aşımına olduğunda unsubscribe çağrı yapılır.
+* Web kancası eylemi başarıyla tamamlandığında
+* Bir yanıtı beklenirken mantıksal uygulama çalıştırması iptal edilirse
+* Uygulama mantığı önce zaman aşımına uğruyor
+
+Örneğin, [ **onay e-posta Gönder** ](connectors-create-api-office365-outlook.md) eylem Bu desen aşağıdaki Web kancası eylem örneği verilmiştir. Bu düzen, herhangi bir hizmeti aracılığıyla Web kancası eylem halinde genişletebilirsiniz. 
+
+Mantıksal Uygulama Tasarımcısı'nda bir Web kancası eylemi ayarlama gösteren bir örnek aşağıda verilmiştir. Adımları dağıttıktan veya izleyen bir API eriştiğiniz varsayar [Web kancası abone olma ve aboneliği logic apps'te kullanılan desen](../logic-apps/logic-apps-create-api-app.md#webhook-actions). 
 
 **Bir Web kancası eylemi eklemek için**
 
@@ -94,10 +100,10 @@ Bir * gerekli alan anlamına gelir.
 | Aboneliği yöntemi * |method |Aboneliği kaldırma isteği için kullanılacak HTTP yöntemi |
 | URI * aboneliği iptal et |uri |Aboneliği kaldırma isteği için kullanılacak HTTP URI |
 | Gövde abone olun |body |Abonelik için HTTP istek gövdesi |
-| Üstbilgileri abone olun |headers |HTTP isteği üstbilgileri için abone ol |
+| Üstbilgileri abone olun |Üst bilgileri |HTTP isteği üstbilgileri için abone ol |
 | Kimlik doğrulaması abone olun |kimlik doğrulaması |Abone için kullanılacak HTTP kimlik doğrulaması. [HTTP Bağlayıcısı bakın](connectors-native-http.md#authentication) için Ayrıntılar |
 | Gövde aboneliği iptal et |body |HTTP istek gövdesi için Aboneliği Kaldır |
-| Üstbilgileri aboneliği iptal et |headers |HTTP isteği üstbilgileri için Aboneliği Kaldır |
+| Üstbilgileri aboneliği iptal et |Üst bilgileri |HTTP isteği üstbilgileri için Aboneliği Kaldır |
 | Kimlik doğrulaması aboneliği iptal et |kimlik doğrulaması |Abonelik iptali için kullanılacak HTTP kimlik doğrulaması. [HTTP Bağlayıcısı bakın](connectors-native-http.md#authentication) için Ayrıntılar |
 
 **Çıkış Ayrıntıları**
@@ -130,10 +136,10 @@ Bir * gerekli alan anlamına gelir.
 | Aboneliği yöntemi * |method |Aboneliği kaldırma isteği için kullanılacak HTTP yöntemi |
 | URI * aboneliği iptal et |uri |Aboneliği kaldırma isteği için kullanılacak HTTP URI |
 | Gövde abone olun |body |Abonelik için HTTP istek gövdesi |
-| Üstbilgileri abone olun |headers |HTTP isteği üstbilgileri için abone ol |
+| Üstbilgileri abone olun |Üst bilgileri |HTTP isteği üstbilgileri için abone ol |
 | Kimlik doğrulaması abone olun |kimlik doğrulaması |Abone için kullanılacak HTTP kimlik doğrulaması. [HTTP Bağlayıcısı bakın](connectors-native-http.md#authentication) için Ayrıntılar |
 | Gövde aboneliği iptal et |body |HTTP istek gövdesi için Aboneliği Kaldır |
-| Üstbilgileri aboneliği iptal et |headers |HTTP isteği üstbilgileri için Aboneliği Kaldır |
+| Üstbilgileri aboneliği iptal et |Üst bilgileri |HTTP isteği üstbilgileri için Aboneliği Kaldır |
 | Kimlik doğrulaması aboneliği iptal et |kimlik doğrulaması |Abonelik iptali için kullanılacak HTTP kimlik doğrulaması. [HTTP Bağlayıcısı bakın](connectors-native-http.md#authentication) için Ayrıntılar |
 
 **Çıkış Ayrıntıları**

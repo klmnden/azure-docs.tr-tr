@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 8fd737bb784938f7cbff243837678f41d5ac55c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792790"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076811"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Hata ayıklama ve tanılama Apache Spark uygulamaları için genişletilmiş Apache Spark geçmiş sunucusu kullanın
 
@@ -106,11 +106,11 @@ Spark geçmiş sunucusu web kullanıcı Arabirimi gibi görünür:
 
 + Tıklayarak işi kayıttan yürütme **kayıttan yürütme** Durdur düğmesini tıklayarak dilediğiniz zaman durdurmak ve düğme. Görev görünen farklı durumunu göstermek için renk, kayıttan yürütme:
 
-    + Yeşil başarılı olanlar için: İş başarıyla tamamlandı.
-    + Turuncu için yeniden deneme: Başarısız olan ancak işin kesin sonucunu etkilemeyen görevleri örnekleri. Bu görevler sahip yinelenen veya daha sonra başarılı olabilecek örnekleri yeniden deneyin.
-    + Mavi çalıştırmak için: Görev çalışıyor.
-    + Bekleme için beyaz veya atlandı: Görev çalıştırılmayı bekliyor veya aşamayı atlandı.
-    + Kırmızı başarısız oldu: Görev başarısız oldu.
+  + Yeşil başarılı olanlar için: İş başarıyla tamamlandı.
+  + Turuncu için yeniden deneme: Başarısız olan ancak işin kesin sonucunu etkilemeyen görevleri örnekleri. Bu görevler sahip yinelenen veya daha sonra başarılı olabilecek örnekleri yeniden deneyin.
+  + Mavi çalıştırmak için: Görev çalışıyor.
+  + Bekleme için beyaz veya atlandı: Görev çalıştırılmayı bekliyor veya aşamayı atlandı.
+  + Kırmızı başarısız oldu: Görev başarısız oldu.
 
     ![renk örneği çalıştırma grafiği](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -132,20 +132,20 @@ Spark geçmiş sunucusu web kullanıcı Arabirimi gibi görünür:
     ![Grafik araç ipucu](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + İş grafiği sekmesinde, araç ipucu ve görevleri karşılamak oluşturulduysa görüntülenen küçük simge aşamaları olacaktır koşullar altında:
-    + Veri dengesizliği: veri okuma boyutu > Ortalama Veri Okuma boyutu Bu aşama içinde tüm görevlerin * 2 ve veri okuma boyutu > 10 MB.
-    + Zaman eğimi: yürütme süresi > Bu aşamayı içindeki tüm görevlerin ortalama yürütme süresi * 2 ve yürütme süresi > 2 dakika.
+  + Veri dengesizliği: veri okuma boyutu > Ortalama Veri Okuma boyutu Bu aşama içinde tüm görevlerin * 2 ve veri okuma boyutu > 10 MB.
+  + Zaman eğimi: yürütme süresi > Bu aşamayı içindeki tüm görevlerin ortalama yürütme süresi * 2 ve yürütme süresi > 2 dakika.
 
     ![graf eğriltme simgesi](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + İş graf düğümüyle her aşaması aşağıdaki bilgileri görüntüler:
-    + KİMLİĞİ.
-    + Adı ya da açıklaması.
-    + Toplam görev sayısı.
-    + Okunan veriler: Giriş boyutu ve karışık Okuma boyutu.
-    + Veri yazma: çıkış boyutu ve karışık yazma boyutu.
-    + Yürütme süresi: yapılan ilk girişim başlangıç saati ve tamamlanma zamanı son girişimi arasındaki zaman.
-    + Satır sayısı: Giriş kayıtları, toplam çıkış kayıtları, okunan kayıtlar karışık ve karışık yazma kayıtları.
-    + İlerleme durumu.
+  + KİMLİĞİ.
+  + Adı ya da açıklaması.
+  + Toplam görev sayısı.
+  + Okunan veriler: Giriş boyutu ve karışık Okuma boyutu.
+  + Veri yazma: çıkış boyutu ve karışık yazma boyutu.
+  + Yürütme süresi: yapılan ilk girişim başlangıç saati ve tamamlanma zamanı son girişimi arasındaki zaman.
+  + Satır sayısı: Giriş kayıtları, toplam çıkış kayıtları, okunan kayıtlar karışık ve karışık yazma kayıtları.
+  + İlerleme durumu.
 
     > [!NOTE]  
     > Varsayılan olarak, iş graf düğümüyle her bir aşama (aşama yürütme süresi dışında) en son bilgileri görüntülenir, ancak kayıttan yürütme grafiği sırasında düğüm her girişimin bilgileri gösterir.
@@ -312,10 +312,10 @@ Düzeltme ile yükseltmek istiyorsanız, aşağıdaki spark enhancement.jar* yü
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
 
-    + Kontrol **baş** ve **çalışan**.
-    + **Parametreleri**: bash kullanım parametreleri izleme ayarlayın.
+   + Kontrol **baş** ve **çalışan**.
+   + **Parametreleri**: bash kullanım parametreleri izleme ayarlayın.
 
-    ![Günlük karşıya yükleme veya yükseltme düzeltme](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![Günlük karşıya yükleme veya yükseltme düzeltme](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
 ## <a name="known-issues"></a>Bilinen sorunlar

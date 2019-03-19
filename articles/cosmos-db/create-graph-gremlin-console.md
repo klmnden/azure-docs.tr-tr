@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: b431d1b739342c54cbc218efdfded1ee516ecaa7
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 06601fbad43b3daf00e06efbe95a092e76559e36
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586401"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849831"
 ---
-# <a name="quickstart-create-query-and-traverse-a-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Hızlı Başlangıç: Oluşturma, sorgulama ve Gremlin konsolunu kullanarak bir Azure Cosmos DB grafik veritabanı çapraz geçiş yapma
+# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Hızlı Başlangıç: Oluşturma, sorgulama ve Gremlin konsolunu kullanarak bir Azure Cosmos DB grafik veritabanı çapraz geçiş yapma
 
 > [!div class="op_single_selector"]
 > * [Gremlin konsolu](create-graph-gremlin-console.md)
@@ -81,13 +81,13 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
 köşeli ayraçlar [] içindeki konak parametresinin değeri aldığınızdan emin olun. 
 
-3. Terminalinizde [Gremlin Konsolunu](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/) başlatmak için `bin/gremlin.bat` veya `bin/gremlin.sh` çalıştırın.
-4. Terminalinizde uygulama hizmetinize bağlanmak için `:remote connect tinkerpop.server conf/remote-secure.yaml` çalıştırın.
+1. Terminalinizde [Gremlin Konsolunu](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/) başlatmak için `bin/gremlin.bat` veya `bin/gremlin.sh` çalıştırın.
+1. Terminalinizde uygulama hizmetinize bağlanmak için `:remote connect tinkerpop.server conf/remote-secure.yaml` çalıştırın.
 
     > [!TIP]
     > `No appenders could be found for logger` hatasını alırsanız, remote-secure.yaml dosyasındaki seri hale getirici değerini 2. adımda açıklanan şekilde güncelleştirdiğinizden emin olun. 
 
-5. Ardından tüm konsol komutlarını uzak sunucuya yönlendirmek için `:remote console` komutunu çalıştırın.
+1. Ardından tüm konsol komutlarını uzak sunucuya yönlendirmek için `:remote console` komutunu çalıştırın.
 
    > [!NOTE]
    > `:remote console` komutunu çalıştırmaz ancak tüm konsol komutlarını uzak sunucuya yönlendirmek isterseniz, komutun önüne `:>` ekleyin; örneğin komutu `:> g.V().count()` olarak çalıştırın. Bu önek komutun bir parçasıdır ve Azure Cosmos DB ile Gremlin konsolunu kullanırken önemlidir. Bu öneki çıkararak konsola komutu yerel olarak; genellikle bellek içi bir grafikte yürütmesini söylemiş olursunuz. Bu `:>` önekini kullandığınızda, konsola, bu örnekte Azure Cosmos DB'de (localhost öykünücüsü veya bir Azure örneği) olmak üzere uzak bir komutu yürütmesini söylemiş olursunuz.

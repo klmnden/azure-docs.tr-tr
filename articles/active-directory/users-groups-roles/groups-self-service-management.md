@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5584e4ecc78a8805135cb3f36bd5f5cd7079129
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5122c9142eccf12193e7e429a3af5ac44fbb8fd6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767082"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111336"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Self Servis Grup Yönetimi Azure Active Directory'de ayarlama 
 
@@ -46,8 +46,8 @@ Oluşturulan gruplar | Güvenlik grubu varsayılan davranışı | Office 365 gru
 2. **Kullanıcılar ve gruplar**'ı ve ardından **Grup ayarları**'nı seçin.
 3. **Self servis grup yönetimi etkin** ayarını **Evet** olarak belirleyin.
 4. **Kullanıcılar güvenlik grupları oluşturabilir** veya **Kullanıcılar Office 365 grupları oluşturabilir** ayarını **Evet** olarak belirleyin.
-  * Bu ayarlar etkinleştirildiğinde, dizininizdeki tüm kullanıcılara yeni güvenlik grupları oluşturma ve bu gruplara üye ekleme izni verilir. Bu yeni gruplar ayrıca diğer tüm kullanıcılar Erişim Paneli’nde gösterilir. Grup üzerindeki ilke ayarı izin veriyorsa diğer kullanıcılar bu gruplara katılmak için istekler oluşturabilir. 
-  * Bu ayarlar devre dışı ise kullanıcılar grup oluşturamaz ve sahibi oldukları mevcut grupları değiştiremez. Ancak, bu grupların üyeliklerini yönetmeye ve diğer kullanıcıların gruplara katılma isteklerini onaylamaya devam edebilirler.
+   * Bu ayarlar etkinleştirildiğinde, dizininizdeki tüm kullanıcılara yeni güvenlik grupları oluşturma ve bu gruplara üye ekleme izni verilir. Bu yeni gruplar ayrıca diğer tüm kullanıcılar Erişim Paneli’nde gösterilir. Grup üzerindeki ilke ayarı izin veriyorsa diğer kullanıcılar bu gruplara katılmak için istekler oluşturabilir. 
+   * Bu ayarlar devre dışı ise kullanıcılar grup oluşturamaz ve sahibi oldukları mevcut grupları değiştiremez. Ancak, bu grupların üyeliklerini yönetmeye ve diğer kullanıcıların gruplara katılma isteklerini onaylamaya devam edebilirler.
 
 **Kullanıcılar güvenlik grupları oluşturabilir** ve **Kullanıcılar Office 365 grupları oluşturabilir** ayarlarını kullanarak kullanıcılarınız için self servis grup yönetimi ile ilgili daha ayrıntılı bir erişim denetimi elde edebilirsiniz. **Kullanıcılar grup oluşturabilir** seçeneği etkinleştirildiğinde, kiracınızdaki tüm kullanıcılara yeni grup oluşturma ve bu gruplara üye ekleme izni verilir. Ayarı **Bazıları** olarak belirlediğinizde grup yönetimini bir kullanıcı grubuyla kısıtlamış olursunuz. Bu anahtar **Bazıları** olarak ayarlandığında kullanıcıların yeni gruplar oluşturabilmesi ve gruplara üye ekleyebilmesi için SSGMSecurityGroupsUsers grubuna kullanıcı eklemeniz gerekir. **Kullanıcılar güvenlik grupları oluşturabilir** ve **Kullanıcılar Office 365 grupları oluşturabilir** seçeneğini **Tümü** olarak ayarlayarak, kiracınızdaki tüm kullanıcıların yeni grup oluşturabilmesini sağlayabilirsiniz.
 

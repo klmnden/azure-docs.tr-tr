@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/16/2018
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 0f5de24d42ccc930a4746251b9f466f241c3508e
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: f0bac9d50e73ed703905545261e86796ede214e2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806717"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180849"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server Vm'lerinde Azure üzerinde SAP hana yüksek kullanılabilirlik
 
@@ -193,6 +193,9 @@ Github üzerindeki tüm gerekli kaynakları dağıtmak için hızlı başlangı�
 
 SAP HANA için gerekli bağlantı noktaları hakkında daha fazla bilgi için bu bölümde okuma [Kiracı veritabanlarına bağlantı](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) içinde [SAP HANA Kiracı veritabanlarını](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) kılavuzu veya [SAP notu 2388694][2388694].
 
+> [!IMPORTANT]
+> Azure vm'lerinde Azure yük dengeleyicinin arkasına yerleştirilen TCP zaman damgaları etkinleştirmeyin. TCP zaman damgaları etkinleştirme, sistem durumu araştırmaları başarısız olmasına neden olur. Parametre kümesi **net.ipv4.tcp_timestamps** için **0**. Ayrıntılar için bkz. [yük dengeleyici sistem durumu araştırmalarının](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+> SAP notu [2382421](https://launchpad.support.sap.com/#/notes/2382421) şu anda 1 net.ipv4.tcp_timestamps ayarlamanızı bildiren çakışan deyimi içeriyor. Azure yük dengeleyicinin arkasına yerleştirilen Azure Vm'leri için parametre **net.ipv4.tcp_timestamps** için **0**. 
 
 ## <a name="create-a-pacemaker-cluster"></a>Pacemaker küme oluşturma
 

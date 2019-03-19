@@ -15,12 +15,12 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87c92387c14cd0b82ec26acb411609c794c2601e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ee09526c2bf1ebf9821e1f84dc99bfc8635b9ee2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171273"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086199"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>PIM Azure kaynak Rolleri Ata
 
@@ -32,8 +32,8 @@ Azure AD PIM (ancak bunlarla sınırlı olmayan) özel roller yanı sıra yerle�
 - Güvenlik Yöneticisi
 - Güvenlik Yöneticisi ve daha fazlası
 
->[!NOTE]
-Kullanıcılar veya sahibi ya da kullanıcı erişimi yöneticisi rolü ve Azure AD'de abonelik yönetimini etkinleştirme genel Yöneticiler atanmış bir grubun üyelerinin kaynağa yöneticilerdir. Bu yöneticileri, Rolleri Ata, rol ayarlarını yapılandırma ve Azure kaynakları için PIM kullanarak erişimi gözden geçirin. Listesini görüntülemek [Azure kaynakları için yerleşik roller](../../role-based-access-control/built-in-roles.md).
+> [!NOTE]
+> Kullanıcılar veya sahibi ya da kullanıcı erişimi yöneticisi rolü ve Azure AD'de abonelik yönetimini etkinleştirme genel Yöneticiler atanmış bir grubun üyelerinin kaynağa yöneticilerdir. Bu yöneticileri, Rolleri Ata, rol ayarlarını yapılandırma ve Azure kaynakları için PIM kullanarak erişimi gözden geçirin. Listesini görüntülemek [Azure kaynakları için yerleşik roller](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="assign-a-role"></a>Rol atama
 

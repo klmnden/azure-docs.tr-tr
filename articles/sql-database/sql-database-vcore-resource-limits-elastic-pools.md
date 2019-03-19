@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/06/2019
-ms.openlocfilehash: a1e76aafa271ff021517c3d06c3c6e02103413d3
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.date: 03/15/2019
+ms.openlocfilehash: c11f52d2bbc55187a16227cf9553cc7ba6013e1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571482"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853146"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Sanal çekirdek tabanlı satın alma modeli sınırlarını kullanarak elastik havuzlar için kaynak sınırları
 
@@ -96,7 +96,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Genel amaçlı hizmet katmanı: 5. nesil işlem platformu (1. bölüm)
 
 |İşlem boyutu|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |S/W oluşturma|5|5|5|5|5|5|5|
 |Sanal çekirdekler|2|4|6|8|10|12|14|
 |Bellek (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
@@ -108,7 +108,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Depolama türü|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|Premium (uzak) depolama|
 |GÇ gecikmesi (yaklaşık)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|5-7 ms (yazma)<br>5-10 ms (okuma)|
 |Hedef IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
-|Günlük oran sınırları (MBps)|2,5|56|7.5|10|12,5|15|17.5|
+|Günlük oran sınırları (MBps)|2,5|5.6|7.5|10|12,5|15|17.5|
 |Maks. eş zamanlı çalışan (istek) havuz başına *|210|420|630|840|1050|1260|1470|
 |(İstek) havuz başına maks. eş zamanlı oturum *|210|420|630|840|1050|1260|1470|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
@@ -124,7 +124,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Genel amaçlı hizmet katmanı: 5. nesil işlem platformu (2. bölüm)
 
 |İşlem boyutu|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |S/W oluşturma|5|5|5|5|5|5|5|
 |Sanal çekirdekler|16|18|20|24|32|40|80|
 |Bellek (GB)|81.6|91.8|102|122.4|163.2|204|408|
@@ -165,7 +165,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |TempDB boyutu (GB)|32|64|96|128|160|192|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Hedef IOPS (64 KB)|5000|10000|15000|20000|25000|30000|
-|Günlük oran sınırları (MBps)|6|12|18|24|30|36|
+|Günlük oran sınırları (MBps)|7.5|15|22.5|30|37.5|45|
 |Maks. eş zamanlı çalışan (istek) havuz başına *|210|420|630|840|1050|1260|
 |(İstek) havuz başına maks. eş zamanlı oturum *|210|420|630|840|1050|1260|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
@@ -184,7 +184,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |:--- | --: |--: |--: |--: |--: |--: |
 |S/W oluşturma|4|4|4|4|4|4|
 |Sanal çekirdekler|7|8|9|10|16|24|
-|Bellek (GB)|81.6|91.8|102|122.4|163.2|204|408|
+|Bellek (GB)|81.6|91.8|102|122.4|163.2|204|
 |Columnstore desteği|Yok|Yok|Yok|Yok|Yok|Yok|
 |Bellek içi OLTP depolama alanı (GB)|7|8|9.5|11|20|36|
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
@@ -193,7 +193,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |TempDB boyutu (GB)|224|256|288|320|384|384|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Hedef IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
-|Günlük oran sınırları (MBps)|
+|Günlük oran sınırları (MBps)|52.5|60|67.5|75|80|80|
 |Maks. eş zamanlı çalışan (istek) havuz başına *|1470|1680|1890|2100|3360|5040|
 |(İstek) havuz başına maks. eş zamanlı oturum *|1470|1680|1890|2100|3360|5040|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
@@ -209,7 +209,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>İş kritik hizmet katmanı: 5. nesil işlem platformu (1. bölüm)
 
 |İşlem boyutu|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |S/W oluşturma|5|5|5|5|5|5|5|
 |Sanal çekirdekler|2|4|6|8|10|12|14|
 |Bellek (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
@@ -221,7 +221,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Hedef IOPS (64 KB)|5000|10000|15000|20000|25000|30000|35000|
-|Günlük oran sınırları (MBps)|48|48|48|48|48|48|48|
+|Günlük oran sınırları (MBps)|7.5|15|22.5|30|37.5|45|52.5|
 |Maks. eş zamanlı çalışan (istek) havuz başına *|210|420|630|840|1050|1260|1470|
 |(İstek) havuz başına maks. eş zamanlı oturum *|210|420|630|840|1050|1260|1470|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
@@ -237,7 +237,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>İş kritik hizmet katmanı: 5. nesil işlem platformu (2. bölüm)
 
 |İşlem boyutu|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |S/W oluşturma|5|5|5|5|5|5|5|
 |Sanal çekirdekler|16|18|20|24|32|40|80|
 |Bellek (GB)|81.6|91.8|102|122.4|163.2|204|408|
@@ -249,7 +249,7 @@ Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabi
 |Depolama türü|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|Yerel SSD|
 |GÇ gecikmesi (yaklaşık)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|1-2 ms (yazma)<br>1-2 ms (okuma)|
 |Hedef IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Günlük oran sınırları (MBps)|48|48|48|48|48|48|48|
+|Günlük oran sınırları (MBps)|60|67.5|75|90|120|120|120|
 |Maks. eş zamanlı çalışan (istek) havuz başına *|1680|1890|2100|2520|3360|4200|8400|
 |(İstek) havuz başına maks. eş zamanlı oturum *|1680|1890|2100|2520|3360|4200|8400|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|

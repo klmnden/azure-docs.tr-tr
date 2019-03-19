@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6266ec1f01a50756f745c3e8185c9fe34e102b4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2e25848359de91d67925f49901c6c170978ea592
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196204"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078712"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Hızlı Başlangıç: Microsoft oturum açma tümleşik bir Xamarin uygulaması derleme
 
@@ -59,11 +59,12 @@ Belirteçlerini almak sağlamak amacıyla, ilk Azure AD kiracınıza kaydetme ve
 3. Sol bölmede **Tüm hizmetler**'e tıklayın ve ardından **Azure Active Directory**'yi seçin.
 4. **Uygulama kayıtları**'na tıklayın ve **Ekle**'yi seçin.
 5. Yeni bir **yerel istemci uygulaması**, yönergeleri izleyin.
-  * **Adı** kullanıcılara uygulamayı açıklar.
-  * **Yeniden Yönlendirme URI'si**, Azure AD'nin belirteç yanıtlarını döndürmek için kullandığı şema ve dize bileşimidir. Bir değer girin (örneğin, http://DirectorySearcher).
+   * **Adı** kullanıcılara uygulamayı açıklar.
+   * **Yeniden Yönlendirme URI'si**, Azure AD'nin belirteç yanıtlarını döndürmek için kullandığı şema ve dize bileşimidir. Bir değer girin (örneğin, `http://DirectorySearcher`).
 6. Azure AD kaydı tamamladıktan sonra uygulamayı benzersiz bir uygulama kimliği atar. Değeri Şuradan Kopyala: **uygulama** daha sonra gerekeceği için sekmesinde.
 7. Üzerinde **ayarları** sayfasında **gerekli izinler**ve ardından **Ekle**.
-8. Seçin **Microsoft Graph** API olarak. Altında **Temsilcili izinler**, ekleme **dizin verilerini okuma** izni. Bu eylem, kullanıcılar için Graph API sorgulamak uygulamayı etkinleştirir.
+8. Seçin **Microsoft Graph** API olarak. Altında **Temsilcili izinler**, ekleme **dizin verilerini okuma** izni. 
+   Bu eylem, kullanıcılar için Graph API sorgulamak uygulamayı etkinleştirir.
 
 ## <a name="step-3-install-and-configure-adal"></a>3. Adım: Yükleme ve ADAL'ı yapılandırma
 
@@ -95,9 +96,9 @@ Azure AD'de bir uygulama edindikten sonra ADAL'ı yükleyebilir ve kimlikle ilgi
 2. DirectorySearcherLib projesinde DirectorySearcher.cs açın.
 3. Sınıf üye değerlerinin Azure portalına girilen değerlerle değiştirin. ADAL kullandığında, kodunuzun bu değerleri gösterir.
 
-  * *Kiracı* Azure AD kiracınızın (örneğin, contoso.onmicrosoft.com) etki alanıdır.
-  * *ClientID* portaldan kopyaladığınız uygulamanın istemci kimliğidir.
-  * *ReturnUri* yeniden yönlendirme URI'si portalda girdiğiniz olan (örneğin, http://DirectorySearcher).
+   * *Kiracı* Azure AD kiracınızın (örneğin, contoso.onmicrosoft.com) etki alanıdır.
+   * *ClientID* portaldan kopyaladığınız uygulamanın istemci kimliğidir.
+   * *ReturnUri* yeniden yönlendirme URI'si portalda girdiğiniz olan (örneğin, `http://DirectorySearcher`).
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>4. Adım: Azure AD belirteçlerini almak için ADAL'ı kullanın
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 2b661968fd64f4d2a61bc59f9b99b1eea6b01f86
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 17893a37bbaf67014c9b34dd446af204b907ff24
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997281"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004974"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Özel bir araştırma için Azure uygulama ağ geçidi (Klasik) PowerShell kullanarak oluşturma
 
@@ -151,7 +151,7 @@ Yapılandırma parametreleri şunlardır:
 |Parametre|Açıklama|
 |---|---|
 |**Ad** |Özel araştırma için başvuru adı. |
-* **Protokolü** | Kullanılan protokol (olası değerler: HTTP veya HTTPS).|
+| **Protokol** | Kullanılan protokol (olası değerler: HTTP veya HTTPS).|
 | **Konak** ve **yolu** | Örneğinin durumunu belirlemek için uygulama ağ geçidi tarafından çağrılan tam URL yolu. Örneğin, bir Web siteniz varsa http://contoso.com/, özel araştırma için yapılandırılabilir "http://contoso.com/path/custompath.htm" başarılı HTTP yanıt için araştırma denetimleri için.|
 | **Aralık** | Saniye cinsinden yoklama aralığı denetimleri yapılandırır.|
 | **zaman aşımı** | Bir HTTP yanıt denetimi için yoklama zaman aşımı tanımlar.|
@@ -161,18 +161,18 @@ Araştırma adı başvurulduğundan \<BackendHttpSettings\> hangi arka uç havuz
 
 ## <a name="add-a-custom-probe-to-an-existing-application-gateway"></a>Var olan bir uygulama ağ geçidi için özel bir araştırma Ekle
 
-Geçerli bir uygulama ağ geçidi yapılandırmasını değiştirmek, üç adımı gerektirir: geçerli XML yapılandırma dosyası alma, özel bir araştırma için değiştirebilir ve uygulama ağ geçidinin yeni XML ayarlarla yapılandırın.
+Geçerli bir uygulama ağ geçidi yapılandırmasını değiştirme üç adımı gerektirir: Uygulama ağ geçidinin yeni XML ayarlarla yapılandırın ve özel bir araştırma için değiştirebilir veya geçerli XML yapılandırma dosyasını alın.
 
 1. XML dosyasını almak `Get-AzureApplicationGatewayConfig`. Bu cmdlet, bir yoklama ayarı eklemek için değiştirilecek XML yapılandırmasını dışarı aktarır.
 
-  ```powershell
-  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
-  ```
+   ```powershell
+   Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+   ```
 
 1. XML dosyasını bir metin düzenleyicisinde açın. Ekleme bir `<probe>` sonra bölüm `<frontendport>`.
 
-  ```xml
-<Probes>
+   ```xml
+   <Probes>
     <Probe>
         <Name>Probe01</Name>
         <Protocol>Http</Protocol>
@@ -182,12 +182,12 @@ Geçerli bir uygulama ağ geçidi yapılandırmasını değiştirmek, üç adım
         <Timeout>15</Timeout>
         <UnhealthyThreshold>5</UnhealthyThreshold>
     </Probe>
-</Probes>
-  ```
+   </Probes>
+   ```
 
-  XML backendHttpSettings bölümünde araştırma adı aşağıdaki örnekte gösterildiği gibi ekleyin:
+   XML backendHttpSettings bölümünde araştırma adı aşağıdaki örnekte gösterildiği gibi ekleyin:
 
-  ```xml
+   ```xml
     <BackendHttpSettings>
         <Name>setting1</Name>
         <Port>80</Port>
@@ -196,9 +196,9 @@ Geçerli bir uygulama ağ geçidi yapılandırmasını değiştirmek, üç adım
         <RequestTimeout>120</RequestTimeout>
         <Probe>Probe01</Probe>
     </BackendHttpSettings>
-  ```
+   ```
 
-  XML dosyasını kaydedin.
+   XML dosyasını kaydedin.
 
 1. Kullanarak uygulama ağ geçidi yapılandırması ile yeni XML dosyasını güncelleştirin `Set-AzureApplicationGatewayConfig`. Bu cmdlet, application gateway'iniz yeni yapılandırmayla güncelleştirir.
 

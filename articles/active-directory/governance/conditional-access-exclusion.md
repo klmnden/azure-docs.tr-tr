@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75ff08111e96fd4b210dfeb09db521856f4f5e52
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a197a6c27b337d7aa97667dc07b1059e82050549
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727511"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892735"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Koşullu erişim ilkeleri'nden dışlanacak kullanıcıları yönetmek için Azure AD erişim gözden geçirmeleri kullanın
 
@@ -102,7 +102,7 @@ Artık bu hariç tutma grubu kullanan bir koşullu erişim ilkesi oluşturabilir
 Belirli ülkelerde erişimi engeller bir koşullu erişim ilkesine sahip varsayalım. Bu, bir grup ilkesinden dışlandı içerir. Grubun üyeleri, burada gözden geçirilmemiş bir önerilen erişim gözden geçirmesi aşağıdadır.
 
 > [!NOTE]
-> Bir genel yönetici veya kullanıcı hesabı yöneticisi rolü, erişim gözden geçirmeleri oluşturmak için gereklidir.
+> Bir genel yönetici veya Kullanıcı Yöneticisi rolü, erişim gözden geçirmeleri oluşturmak için gereklidir.
 
 1. Gözden geçirme, her hafta tekrar oluşmasını.
 

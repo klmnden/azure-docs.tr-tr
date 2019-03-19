@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 623968467da775c55adf006a84a16ba46bd21d1d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 53e24a6874a1e43b0de07893a6ace3a44b81d373
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887463"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110180"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Azure İzleyici günlük verilerini Power BI'a aktarma
 
@@ -60,11 +60,11 @@ Power BI Desktop, veri kümeleri ve Power BI'da yayımlanan raporlar oluşturman
 ## <a name="publish-to-power-bi"></a>Power BI'da yayımlama
 Power BI'da yayımladığınızda, bir veri kümesi ve bir rapor oluşturulur.  Ardından bu Power BI Desktop'ta bir rapor oluşturursanız, verilerinizle yayımlanır.  Aksi durumda, boş bir rapor oluşturulur.  Power BI raporu veya veri kümesini temel alan yeni bir tane oluşturun.
 
-8. Verilerinizi temel alan bir rapor oluşturun.  Kullanım [Power BI Desktop belgesine](https://docs.microsoft.com/power-bi/desktop-report-view) ile bilgi sahibi değilseniz.  Power BI için göndermeye hazır olduğunuzda, tıklayın **Yayımla**.  İstendiğinde, Power BI hesabınızda bir hedef seçin.  Belirli bir hedefe aklınızda yoksa kullanması **çalışma Alanım**.
+1. Verilerinizi temel alan bir rapor oluşturun.  Kullanım [Power BI Desktop belgesine](https://docs.microsoft.com/power-bi/desktop-report-view) ile bilgi sahibi değilseniz.  Power BI için göndermeye hazır olduğunuzda, tıklayın **Yayımla**.  İstendiğinde, Power BI hesabınızda bir hedef seçin.  Belirli bir hedefe aklınızda yoksa kullanması **çalışma Alanım**.
 
     ![Power BI Desktop yayımlama](media/powerbi/desktop-publish.png)
 
-3. Yayımlama tamamlandığında tıklayın **Power BI'da açın** Power BI, yeni veri kümesi ile açın.
+1. Yayımlama tamamlandığında tıklayın **Power BI'da açın** Power BI, yeni veri kümesi ile açın.
 
 
 ### <a name="configure-scheduled-refresh"></a>Zamanlanmış yenileme yapılandırma

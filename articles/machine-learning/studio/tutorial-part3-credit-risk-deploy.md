@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f64000ed502ee817f907e6ac9c89c2f037725a39
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823799"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839026"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>3. Öğretici: Kredi riski model - Azure Machine Learning Studio dağıtma
 
@@ -72,12 +72,11 @@ Aşağıdaki modüller Sil yapmanız gerekir:
 
 Her modülü seçin ve Delete tuşuna basın veya modül sağ tıklayıp **Sil**. 
 
-![SVM modeli kaldırıldı](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
-
+![Destekli vektör makinesi modeli kaldırılacağı silmek için hangi modülü vurgular](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 Modelimiz şöyle görünmelidir:
 
-![SVM modeli kaldırıldı](./media/tutorial-part3-credit-risk-deploy/publish3.png)
+![Destekli vektör makinesi modeli silindiğinde elde edilen deneme](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
 Bu modeli kullanarak dağıtmak hazırız artık [iki sınıflı artırılmış karar ağacı][two-class-boosted-decision-tree].
 

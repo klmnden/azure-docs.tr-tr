@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 5fb8f54f50d821e53ec260c67ad5cf56c7f5671b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 82910f7b29789fa777f6deb2c185c57e847e1c88
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816547"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109265"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric kümesi kapasite planlaması konuları
 Herhangi bir üretim dağıtımı için kapasite planlaması önemli bir adımdır. Bu işlemin bir parçası olarak dikkate almanız gereken öğelerden bazıları aşağıda verilmiştir.
@@ -82,16 +82,16 @@ Dayanıklılık katmanı, sanal makinelerinizin temel Azure altyapısıyla sahip
 
 > [!WARNING]
 > Çalışan Bronz dayanıklılığa sahip düğüm türleri elde _ayrıcalıkların olmadığı_. Bu durum bilgisiz iş yüklerinizi etkileyen altyapı işler değil durduruldu veya kaldırılacak geciktirilmiş, hangi iş yüklerinizi etkileyebilecek anlamına gelir. Yalnızca Bronz yalnızca durum bilgisiz iş yükleri çalıştıran düğümü türleri için kullanın. Üretim iş yükleri çalıştıran Silver veya yukarıda önerilir. 
-
+> 
 > Herhangi bir dayanıklılık düzeyi ne olursa olsun [ayırmayı kaldırma](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) VM ölçek kümesi üzerinde işlem kümesi yok eder
 
 **Silver veya Gold dayanıklılık düzeyleri kullanmanın avantajları**
- 
+ 
 - Bir ölçeklendirme işlemi gereken adım sayısını azaltır (diğer bir deyişle, düğümü devre dışı bırakma ve kaldırma ServiceFabricNodeState çağırıldı otomatik olarak).
 - Bir müşteri tarafından başlatılan yerinde VM SKU değiştirme işlemi ya da Azure altyapı işlemler nedeniyle veri kaybı riskini azaltır.
 
 **Silver veya Gold dayanıklılık düzeyleri kullanmanın dezavantajları**
- 
+ 
 - Dağıtımlar, sanal makine ölçek kümesi ve diğer ilgili Azure kaynaklarını Gecikmeli, zaman aşımına uğrayabilir veya tamamen sorunları, kümenizdeki veya altyapı düzeyinde tarafından engellendi. 
 - Sayısını artıran [çoğaltma yaşam döngüsü olaylarını](service-fabric-reliable-services-lifecycle.md) (örneğin, birincil takasları) nedeniyle Azure altyapı işlemleri sırasında düğüm deactivations otomatik.
 - Azure platformu yazılım güncelleştirme veya donanım bakım etkinlikleri gerçekleşen sırasında süreler için hizmet düğümlerinde alır. Bu etkinlikleri sırasında devre dışı bırakılması/devre dışı durumuna sahip düğümleri görebilirsiniz. Bu, kümenizin kapasitesi geçici olarak azaltır, ancak kullanılabilirlik kümesi veya uygulamaları etkilememesi gerekir.

@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0b8f99246852a699f8036a98d8ddf1df7e310c1c
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 4da02a4576b0a44c4b80a556d128c154adc246b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753279"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898559"
 ---
 # <a name="create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Oluşturma ve Azure uzamsal bağlayıcılarını kullanarak Unity yer işaretleri bulun
 
@@ -25,9 +25,11 @@ ms.locfileid: "56753279"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar arasında paylaşmak izin verin. İyi tercih ettiğiniz geliştirme ortamı ile çalışmak için ayarlanmıştır. Bu makalede, biz Unity yapmak nasıl ele alacağız.
+Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar arasında paylaşmak izin verin. Bu, birkaç geliştirme ortamlarında destekler. Bu makalede, biz Unity yapmak nasıl ele alacağız.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
+
+Daha fazla bilgi edinin [CloudSpatialAnchorSession](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession) sınıfı.
 
 ```csharp
     CloudSpatialAnchorSession cloudSession;
@@ -36,6 +38,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
+
+Daha fazla bilgi edinin [SessionConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionconfiguration) sınıfı.
 
 ```csharp
     this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
@@ -48,6 +52,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
+
+Daha fazla bilgi edinin [TokenRequiredDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.tokenrequireddelegate) temsilci.
 
 ```csharp
     this.cloudSession.TokenRequired += (object sender, TokenRequiredEventArgs args) =>
@@ -97,6 +103,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
+Daha fazla bilgi edinin [Başlat](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.start) yöntemi.
+
 ```csharp
 #if UNITY_IOS
     this.arkitSession = UnityARSessionNativeInterface.GetARSessionNativeInterface();
@@ -114,6 +122,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
+
+Daha fazla bilgi edinin [ProcessFrame](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.processframe) yöntemi.
 
 ```csharp
 #if UNITY_ANDROID
@@ -137,6 +147,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
+Daha fazla bilgi edinin [SessionUpdatedDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionupdateddelegate) temsilci.
+
 ```csharp
     this.cloudSession.SessionUpdated += (object sender, SessionUpdatedEventArgs args)
     {
@@ -148,6 +160,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
+
+Daha fazla bilgi edinin [CloudSpatialAnchor](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor) sınıfı.
 
 ```csharp
     // Create a local anchor, perhaps by hit-testing and spawning an object within the scene
@@ -197,6 +211,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
+Daha fazla bilgi edinin [GetSessionStatusAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.getsessionstatusasync) yöntemi.
+
 ```csharp
     SessionStatus value = await this.cloudSession.GetSessionStatusAsync();
     if (value.RecommendedForCreateProgress < 1.0f) return;
@@ -204,6 +220,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
+
+Daha fazla bilgi edinin [AppProperties](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.appproperties) özelliği.
 
 ```csharp
     CloudSpatialAnchor cloudAnchor = new CloudSpatialAnchor() { LocalAnchor = localAnchor };
@@ -214,6 +232,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
+Daha fazla bilgi edinin [UpdateAnchorPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.updateanchorpropertiesasync) yöntemi.
+
 ```csharp
     CloudSpatialAnchor anchor = /* locate your anchor */;
     anchor.AppProperties[@"last-user-access"] = @"just now";
@@ -221,6 +241,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
+
+Daha fazla bilgi edinin [GetAnchorPropertiesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.getanchorpropertiesasync) yöntemi.
 
 ```csharp
     var anchor = await cloudSession.GetAnchorPropertiesAsync(@"anchorId");
@@ -233,11 +255,15 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
+Daha fazla bilgi edinin [sona erme](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchor.expiration) özelliği.
+
 ```csharp
     cloudAnchor.Expiration = DateTimeOffset.Now.AddDays(7);
 ```
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
+
+Daha fazla bilgi edinin [CreateWatcher](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.createwatcher) yöntemi.
 
 ```csharp
     AnchorLocateCriteria criteria = new AnchorLocateCriteria();
@@ -246,6 +272,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
+
+Daha fazla bilgi edinin [AnchorLocatedDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocateddelegate) temsilci.
 
 ```csharp
     this.cloudSession.AnchorLocated += (object sender, AnchorLocatedEventArgs args) =>
@@ -274,6 +302,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
+Daha fazla bilgi edinin [DeleteAnchorAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync) yöntemi.
+
 ```csharp
     await this.cloudSession..DeleteAnchorAsync(cloudAnchor);
     // Perform any processing you may want when delete finishes
@@ -281,17 +311,23 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
+Daha fazla bilgi edinin [Durdur](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.stop) yöntemi.
+
 ```csharp
     this.cloudSession.Stop();
 ```
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
+Daha fazla bilgi edinin [sıfırlama](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.reset) yöntemi.
+
 ```csharp
     this.cloudSession.Reset();
 ```
 
 [!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup-unity.md)]
+
+Daha fazla bilgi edinin [Dispose](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.dispose) yöntemi.
 
 ```csharp
     this.cloudSession.Dispose();

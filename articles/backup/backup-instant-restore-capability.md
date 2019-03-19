@@ -8,17 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 7d54e137cbfb35c84173c79e65a1070eabb52e78
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: a618482b73e8e423bc00b7c9010c9282da69cd3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731635"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844729"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Geliştirilmiş yedeği almak ve performansı Azure Backup anında geri yükleme özelliğine sahip geri yükleme
 
 > [!NOTE]
 > Biz yeniden adlandırma kullanıcılar görüşlerine dayalı **VM yedek yığını V2** için **anında geri yükleme** Karışıklığı önlemek için Azure Stack işlevsellikle azaltmak için.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Yeni model anlık geri yüklemek için aşağıdaki özellik geliştirmeleri sağlar:
 
@@ -27,7 +29,6 @@ Yeni model anlık geri yüklemek için aşağıdaki özellik geliştirmeleri sa�
 * 4 TB'a kadar destekler disk boyutları.
 * Standart SSD diskleri destekler.
 *   Yönetilmeyen bir sanal makinenin özgün depolama hesaplarına (disk başına), kullanma yeteneğini geri yüklerken. Depolama hesabı arasında dağıtılmış diskleri VM olsa bile bu özelliği var. Çok çeşitli sanal makine yapılandırmaları için geri yükleme işlemlerini hızlandırır
-
 
 
 ## <a name="whats-new-in-this-feature"></a>Bu özelliği yenilikler nelerdir?
@@ -91,19 +92,19 @@ Self Servis ve anlık geri yüklemek için yükseltmek istiyorsanız, yükseltil
 1.  Azure hesabınızda oturum açın:
 
     ```
-    PS C:> Connect-AzureRmAccount
+    PS C:> Connect-AzAccount
     ```
 
 2.  Kaydetmek istediğiniz aboneliği seçin:
 
     ```
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    PS C:>  Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
     ```
 
 3.  Bu abonelik kaydedin:
 
     ```
-    PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
+    PS C:>  Register-AzProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
 ## <a name="upgrade-to-instant-restore-using-cli"></a>CLI kullanarak anlık geri yüklemeniz yükseltme
@@ -134,7 +135,7 @@ Kabuk aşağıdaki komutları çalıştırın:
 Yükseltilmiş bir PowerShell terminalden aşağıdaki cmdlet'i çalıştırın:
 
 ```
-Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
+Get-AzProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
 ```
 
 ### <a name="cli"></a>CLI

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 01b67cc0c20710fcf7c9a072e0ba3baaf286852a
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 60466f0c3c0e674dcbfa287a0368462fd5a1d18f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423652"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120321"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric ile Azure API Yönetimi'ne genel bakış
 
@@ -83,9 +83,9 @@ Bunu başarmak için bir gelen işlem İlkesi ile bir Service Fabric gelen HTTP 
 
 Bu örnekte, bir uygulamanın her bir kullanıcı için aşağıdaki formülü kullanarak dinamik olarak oluşturulan bir adla yeni bir durum bilgisi olmayan hizmet örneği oluşturulur:
  
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- Her hizmet benzersiz bir adı vardır, ancak adlarını ön Hizmetleri yanıt kullanıcı olarak oluşturulur veya yönetici giriş ve bu nedenle APIM ilkeleri ya da yönlendirme kuralları sabit kodlanmış olamaz çünkü bilinmez. Bir istek göndermek hangi hizmetin adını arka uç İlkesi tanımından bunun yerine, oluşturulur `name` URL istek yolunda sağlanan değeri. Örneğin:
+  Her hizmet benzersiz bir adı vardır, ancak adlarını ön Hizmetleri yanıt kullanıcı olarak oluşturulur veya yönetici giriş ve bu nedenle APIM ilkeleri ya da yönlendirme kuralları sabit kodlanmış olamaz çünkü bilinmez. Bir istek göndermek hangi hizmetin adını arka uç İlkesi tanımından bunun yerine, oluşturulur `name` URL istek yolunda sağlanan değeri. Örneğin:
 
   - Bir istek `/api/users/foo` hizmet örneğine yönlendirilir `fabric:/app/users/foo`
   - Bir istek `/api/users/bar` hizmet örneğine yönlendirilir `fabric:/app/users/bar`
@@ -102,9 +102,9 @@ Bunu başarmak için bir gelen işlem İlkesi ile bir Service Fabric gelen HTTP 
 
 Bu örnekte, uygulamanın her bir kullanıcı için aşağıdaki formülü kullanarak dinamik olarak oluşturulan bir adla yeni bir durum bilgisi olan hizmet örneği oluşturulur:
  
- - `fabric:/app/users/<username>`
+- `fabric:/app/users/<username>`
 
- Her hizmet benzersiz bir adı vardır, ancak adlarını ön Hizmetleri yanıt kullanıcı olarak oluşturulur veya yönetici giriş ve bu nedenle APIM ilkeleri ya da yönlendirme kuralları sabit kodlanmış olamaz çünkü bilinmez. Bir istek göndermek hangi hizmetin adını arka uç İlkesi tanımından bunun yerine, oluşturulur `name` değeri sağlanan URL istek yolu. Örneğin:
+  Her hizmet benzersiz bir adı vardır, ancak adlarını ön Hizmetleri yanıt kullanıcı olarak oluşturulur veya yönetici giriş ve bu nedenle APIM ilkeleri ya da yönlendirme kuralları sabit kodlanmış olamaz çünkü bilinmez. Bir istek göndermek hangi hizmetin adını arka uç İlkesi tanımından bunun yerine, oluşturulur `name` değeri sağlanan URL istek yolu. Örneğin:
 
   - Bir istek `/api/users/foo` hizmet örneğine yönlendirilir `fabric:/app/users/foo`
   - Bir istek `/api/users/bar` hizmet örneğine yönlendirilir `fabric:/app/users/bar`

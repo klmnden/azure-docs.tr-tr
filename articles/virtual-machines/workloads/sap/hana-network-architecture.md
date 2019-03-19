@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1262ed841fe8f6f9c2d5339d79abf06c1ab15a25
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 724a91b6ba0be030a2281bce366e4378892df59b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392882"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011589"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA (büyük örnekler) ağ mimarisi
 
@@ -27,7 +27,7 @@ Azure Ağ Hizmetleri mimarisi, SAP HANA büyük örnek uygulamaları başarılı
 
 - SAP sistemlerini şirket içinde dağıtılabilir. Kendi boyutları nedeniyle bu sistemleri şu an Azure'da barındırılamaz. SQL Server (veritabanı) olarak çalışır ve Vm'leri sunabileceğinden daha fazla CPU veya bellek kaynağı gerektiren SAP ERP sistemi bir ürün örneğidir.
 - SAP HANA tabanlı SAP sistemlerini şirket içinde dağıtılabilir.
-- Vm'lerde SAP sistemlerini dağıtılmış. Geliştirme, test, korumalı alan, bu sistemler olabilir veya üretim kaynak tüketimi ve bellek talebe göre Azure'da (VM'ler) içinde başarıyla dağıtabilirsiniz SAP NetWeaver tabanlı uygulamalardan herhangi biri için örnekler. Bu sistemler de veritabanlarını SQL Server gibi temel alabilir. Daha fazla bilgi için [SAP destek Not #1928533-azure'da SAP uygulamaları: desteklenen ürünler ve Azure VM türleri](https://launchpad.support.sap.com/#/notes/1928533/E). Ve bu sistemler gibi SAP HANA veritabanları temel alabilir. Daha fazla bilgi için [SAP HANA sertifikalı ve Iaas platformları](http://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
+- Vm'lerde SAP sistemlerini dağıtılmış. Geliştirme, test, korumalı alan, bu sistemler olabilir veya üretim kaynak tüketimi ve bellek talebe göre Azure'da (VM'ler) içinde başarıyla dağıtabilirsiniz SAP NetWeaver tabanlı uygulamalardan herhangi biri için örnekler. Bu sistemler de veritabanlarını SQL Server gibi temel alabilir. Daha fazla bilgi için [SAP destek Not #1928533-azure'da SAP uygulamaları: Desteklenen Ürünler ve Azure VM türleri](https://launchpad.support.sap.com/#/notes/1928533/E). Ve bu sistemler gibi SAP HANA veritabanları temel alabilir. Daha fazla bilgi için [SAP HANA sertifikalı ve Iaas platformları](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
 - SAP HANA (büyük örnekler) azure'da Azure büyük örnek damga yararlanan SAP uygulama sunucuları (VM üzerinde) azure'da dağıtılabilir.
 
 Karma SAP ortamı ile dört veya daha fazla farklı dağıtım senaryolarının normaldir. Ayrıca birçok müşteri durumlar vardır, Azure'da çalışan SAP ortamlarını tamamlandı. VM'ler daha güçlü hale gibi tüm SAP çözümlerini Azure'da taşıma müşteri sayısını artırır.
@@ -79,7 +79,7 @@ Azure'da SAP dağıtımları için fark vardır:
 - SAP uygulama mimarisi ağ gecikmesine daha tipik senaryolar şirket içi ile Azure arasında veri alışverişi burada daha hassastır.
 - Sanal ağ geçidi en az iki ExpressRoute bağlantılarına sahiptir. Her iki bağlantı için sanal ağ geçidinin gelen verileri maksimum bant genişliğini paylaşır.
 
-Karşılaşılan ağ gecikme sürelerini VM'ler ve HANA büyük örneği arasında birimleri bir tipik VM VM ağ gidiş dönüş gecikmesi yüksek olabilir. Bağımlı Azure bölgesi, ölçülen değerleri aşağıda ortalama olarak sınıflandırılan 0,7 ms gidiş dönüş gecikmesi da aşabilir [SAP notu #1100926 - SSS: ağ performansı](https://launchpad.support.sap.com/#/notes/1100926/E). Azure bölgesi ve aracı bir Azure VM ve HANA büyük örneği birim arasındaki gidiş dönüş ağ gecikmesini ölçmek için bağımlı, ölçülen gecikme süresi en fazla ve 2 milisaniye geçici olabilir. Bununla birlikte, müşteriler SAP HANA büyük örneği başarıyla üzerinde SAP HANA tabanlı üretim SAP uygulamaları dağıtın. Azure HANA büyük örneği İş süreçlerinizi kapsamlı olarak test emin olun.
+Karşılaşılan ağ gecikme sürelerini VM'ler ve HANA büyük örneği arasında birimleri bir tipik VM VM ağ gidiş dönüş gecikmesi yüksek olabilir. Bağımlı Azure bölgesi, ölçülen değerleri aşağıda ortalama olarak sınıflandırılan 0,7 ms gidiş dönüş gecikmesi da aşabilir [SAP notu #1100926 - SSS: Ağ performansı](https://launchpad.support.sap.com/#/notes/1100926/E). Azure bölgesi ve aracı bir Azure VM ve HANA büyük örneği birim arasındaki gidiş dönüş ağ gecikmesini ölçmek için bağımlı, ölçülen gecikme süresi en fazla ve 2 milisaniye geçici olabilir. Bununla birlikte, müşteriler SAP HANA büyük örneği başarıyla üzerinde SAP HANA tabanlı üretim SAP uygulamaları dağıtın. Azure HANA büyük örneği İş süreçlerinizi kapsamlı olarak test emin olun.
  
 VM'ler ve HANA büyük örneği arasındaki belirleyici ağ gecikme süresi sağlamak için seçtiğiniz sanal ağ geçidi SKU'su gereklidir. Şirket içi VM'ler arasındaki trafiği desenlerinden farklı olarak, HANA büyük örneği ile VM'ler arasındaki trafik desenini aktarılacak istekleri ve veri birimlerini küçük ancak yüksek ani artışlara geliştirebilirsiniz. İyi tür artışlarını işlemek için UltraPerformance ağ geçidi SKU'SUNUN kullanılmasını öneririz. HANA büyük örneği SKU'ları Type II sınıfı için bir sanal ağ geçidi olarak UltraPerformance ağ geçidi SKU'sunu kullanımını zorunludur.
 
@@ -113,7 +113,7 @@ Daha fazla ölçeklenebilir olmasına ağ mimarisi için:
 - Tek ve büyük bir SAP uygulama katmanı için birden fazla sanal ağ yararlanın.
 - Dağıtılan her SAP sistemi için ayrı bir sanal ağ, aynı sanal ağda altında ayrı alt ağlara bu SAP sistemlerini birkaç rolde birleştirmeye kıyasla dağıtın.
 
- SAP hana (büyük örnekler) azure'da daha ölçeklenebilir bir ağ mimarisi:
+  SAP hana (büyük örnekler) azure'da daha ölçeklenebilir bir ağ mimarisi:
 
 ![SAP uygulama katmanında birden çok sanal ağ üzerinden dağıtma](./media/hana-overview-architecture/image4-networking-architecture.png)
 
@@ -132,12 +132,12 @@ Sanal Ağ eşlemesi hakkında daha fazla bilgi için bkz. [sanal ağ eşlemesi](
 
 * SAP HANA (büyük örnekler) Azure birimlerdeki gönderdiğiniz sunucu IP havuzu adres aralığı atanan bir IP adresi vardır. Daha fazla bilgi için [SAP HANA (büyük örnekler) altyapısı ve Azure bağlantısı](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Bu IP adresi, Azure aboneliği ve azure'da HANA (büyük örnekler) için sanal ağları birbirine bağlayan ExpressRoute aracılığıyla erişilebilir. Sunucu IP havuzu adres aralığı donanım birimi doğrudan atanır / IP adresi atanır. Sahip *değil* Bu çözüm ilk dağıtımları durumda olduğu gibi NAT artık atanmış. 
 
-> [!NOTE] 
+> [!NOTE]
 > İlk iki liste öğelerini açıklandığı gibi geçici akışındaki kısıtlamayı çözmek için ek bileşenler yönlendirme için kullanın. Kısıtlamayı çözmek için kullanılan bileşenleri olabilir:
-
+> 
 > * Bir ters ve ondan veri yönlendirmek için proxy. Örneğin, F5 BIG-IP, NGINX ile trafiği bir sanal güvenlik duvarı/trafik yönlendirme çözümü olarak azure'da dağıtılan Yöneticisi.
 > * Kullanarak [IPTables kurallarını](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) HANA büyük örneği birimleri farklı bölgelerde veya şirket içi konumlar ve HANA büyük örneği birimleri arasında yönlendirme etkinleştirmek için bir Linux VM'de.
-
+> 
 > Uygulama ve üçüncü taraf içeren özel çözümler için destek ağ Gereçleri veya IPTables Microsoft tarafından sağlanmayan unutmayın. Destek, kullanılan bileşenin bir satıcı veya entegratörü tarafından sağlanmalıdır. 
 
 ## <a name="internet-connectivity-of-hana-large-instance"></a>Internet bağlantısı HANA büyük örneği

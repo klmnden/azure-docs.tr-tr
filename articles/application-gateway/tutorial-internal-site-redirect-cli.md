@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 9f82ed280d18be304129bf8b7807213a75110df2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 186d0bb9161d70d9e458d25dc1b9cbe518bb790e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660995"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082747"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Azure CLI kullanarak iç yeniden yönlendirmeyi ile bir uygulama ağ geçidi oluşturma
 
-Azure CLI'yı yapılandırmak için kullanabileceğiniz [web trafiğini yeniden yönlendirme](application-gateway-multi-site-overview.md) oluşturduğunuzda bir [uygulama ağ geçidi](application-gateway-introduction.md). Bu öğreticide, bir sanal makine ölçek kümesi kullanarak arka uç havuzu oluşturun. Ardından dinleyicileri ve web trafiği uygun havuzu ulaşan emin olmak için kendi etki alanları temel alarak kurallar yapılandırın. Bu öğreticide, birden çok etki alanları ve kullandığı örnekleri olduğunuz varsayılır *www.contoso.com* ve *www.contoso.org*.
+Azure CLI'yı yapılandırmak için kullanabileceğiniz [web trafiğini yeniden yönlendirme](application-gateway-multi-site-overview.md) oluşturduğunuzda bir [uygulama ağ geçidi](application-gateway-introduction.md). Bu öğreticide, bir sanal makine ölçek kümesi kullanarak arka uç havuzu oluşturun. Ardından dinleyicileri ve web trafiği uygun havuzu ulaşan emin olmak için kendi etki alanları temel alarak kurallar yapılandırın. Bu öğreticide, birden çok etki alanları ve kullandığı örnekleri olduğunuz varsayılır *www\.contoso.com* ve *www\.contoso.org*.
 
 Bu makalede şunları öğreneceksiniz:
 
@@ -101,7 +101,7 @@ Uygulama ağ geçidinin oluşturulması birkaç dakika sürebilir. Uygulama ağ 
 
 ## <a name="add-listeners-and-rules"></a>Dinleyiciler ve kurallar ekleme 
 
-Uygulama ağ geçidinin trafiği arka uç havuzuna uygun şekilde yönlendirmesini sağlamak için bir dinleyici gereklidir. Bu öğreticide iki etki alanınız için iki dinleyici oluşturacaksınız. Bu örnekte, dinleyici etki alanları için oluşturulan *www.contoso.com* ve *www.contoso.org*.
+Uygulama ağ geçidinin trafiği arka uç havuzuna uygun şekilde yönlendirmesini sağlamak için bir dinleyici gereklidir. Bu öğreticide iki etki alanınız için iki dinleyici oluşturacaksınız. Bu örnekte, dinleyici etki alanları için oluşturulan *www\.contoso.com* ve *www\.contoso.org*.
 
 [az network application-gateway http-listener create](/cli/azure/network/application-gateway) kullanarak gereken arka uç dinleyicilerini ekleyin.
 
@@ -124,7 +124,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Yeniden yönlendirme yapılandırması Ekle
 
-Gelen trafiği gönderir yeniden yönlendirme yapılandırması Ekle *www.consoto.org* dinleyicisi için *www.contoso.com* kullanarak uygulama ağ geçidi [az network application-gateway yeniden yönlendirme yapılandırması oluşturma](/cli/azure/network/application-gateway/redirect-config).
+Gelen trafiği gönderir yeniden yönlendirme yapılandırması Ekle *www\.consoto.org* dinleyicisi için *www\.contoso.com* kullanarakapplicationGateway'de[az ağ uygulama ağ geçidini yeniden yönlendirme yapılandırması oluşturma](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -213,7 +213,7 @@ Tarayıcınızın adres çubuğuna, etki alanı adınızı girin. Örneğin http
 
 ![Uygulama ağ geçidinde contoso test etme](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 
-Diğer etki alanınıza, adresi değiştirin; örneğin http://www.contoso.org ve trafiği www.contoso.com için dinleyici için yeniden yönlendirilen görmeniz gerekir.
+Diğer etki alanınıza, adresi değiştirin; örneğin http://www.contoso.org ve trafiği www için dinleyici için yeniden yönlendirilen görmelisiniz\.contoso.com.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

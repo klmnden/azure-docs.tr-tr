@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 81b09ff3e8bb7e5a41432ff0bdaac36b657d74ea
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 5aeb84e5086fb0cf5c30e175ad419ee70bed55ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569136"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075194"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Azure SQL veritabanı tek veritabanı oluşturma
 
@@ -42,8 +42,8 @@ AdventureWorksLT örnek verilerini içeren tek bir veritabanı oluşturmak için
    - **Kaynak grubu**: Seçin **Yeni Oluştur**, türü *myResourceGroup*seçip **Tamam**.
    - **Kaynak Seç**: Açılır listesine tıklayıp **örnek (AdventureWorksLT)**.
 
-    > [!IMPORTANT]
-    > Seçtiğinizden emin olun **örnek (AdventureWorksLT)** bu ve bu verileri kullanan diğer Azure SQL veritabanı hızlı başlangıçları kolayca izleyebilmeniz veri.
+     > [!IMPORTANT]
+     > Seçtiğinizden emin olun **örnek (AdventureWorksLT)** bu ve bu verileri kullanan diğer Azure SQL veritabanı hızlı başlangıçları kolayca izleyebilmeniz veri.
   
    ![Tek veritabanı oluşturma](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -76,9 +76,9 @@ AdventureWorksLT örnek verilerini içeren tek bir veritabanı oluşturmak için
 
 10. Üzerinde **SQL veritabanı** form, select **Oluştur** dağıtma ve kaynak grubu, sunucu ve veritabanı sağlama.
 
-   Dağıtım birkaç dakika sürer. Seçebileceğiniz **bildirimleri** dağıtım ilerlemesini izlemek için araç çubuğunda.
+    Dağıtım birkaç dakika sürer. Seçebileceğiniz **bildirimleri** dağıtım ilerlemesini izlemek için araç çubuğunda.
 
-   ![Bildirim](./media/sql-database-get-started-portal/notification.png)
+    ![Bildirim](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="query-the-database"></a>Veritabanını sorgulama
 

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 02/15/2019
-ms.openlocfilehash: 6ec32a40cea4f95d9225134cfb36d4930245d1c5
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: e306245da2c76560ad447358fa1a57e491c370ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750608"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855699"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Öğretici: Ayıklama, dönüştürme ve Azure Databricks kullanarak verileri yüklemek
 
@@ -40,6 +40,10 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
+> [!Note]
+> Kullanarak bu öğreticiyi gerçekleştirilmesi **Azure ücretsiz deneme aboneliği**.
+> Azure Databricks kümesini oluşturmak için ücretsiz hesap oluşturmak istiyorsanız kümeyi oluşturmadan önce profilinize gidin ve aboneliğini **kullandıkça öde** modeline geçirin. Daha fazla bilgi için bkz. [Ücretsiz Azure hesabı](https://azure.microsoft.com/free/).
+     
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce aşağıdaki görevleri tamamlayın:
@@ -50,7 +54,7 @@ Bu öğreticiye başlamadan önce aşağıdaki görevleri tamamlayın:
 
 * Azure Blob depolama hesabı ve bu hesabın içinde bir kapsayıcı oluşturun. Ayrıca, depolama hesabına erişmek için erişim anahtarını alın. Bkz: [hızlı başlangıç: Bir Azure Blob Depolama hesabı oluşturma](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-* Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturun. Bkz: [bir Azure Data Lake depolama Gen2 hesabı oluşturma](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+* Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturun. Bkz: [Azure Data Lake depolama Gen2 hesap oluşturma](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 *  Bir hizmet sorumlusu oluşturun. Bkz: [nasıl yapılır: Azure AD'yi kaynaklara erişebilen uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 

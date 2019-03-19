@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 733ae4451988651df2a62a22aa6eb1b6fae44309
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ea4cf03b368cebbfc7d1229be28014b54f2c11d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331733"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004323"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>İçin veya Azure Blob Depolama, Azure Data Factory kullanarak veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -80,7 +80,7 @@ Data factory, Azure blob gibi şema okuma veri kaynakları için "yapı" tür bi
 
 **TypeProperties** bölümünde her veri kümesi türü için farklıdır ve bilgiler sağlar konumu hakkında vb., verilerin veri deposundaki biçimlendirin. TypeProperties bölümü için veri kümesi türü **AzureBlob** veri kümesi, aşağıdaki özelliklere sahiptir:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | folderPath |Kapsayıcı ve blob depolama alanında bir klasör yolu. Örnek: myblobcontainer\myblobfolder\ |Evet |
 | fileName |Blob adı. İsteğe bağlı ve büyük küçük harfe duyarlı dosya adıdır.<br/><br/>Etkinlik (kopyalama dahil), bir filename belirtirseniz, belirli bir blobu üzerinde çalışır.<br/><br/>Dosya adı belirtilmemişse, kopya tüm BLOB'ları folderPath için giriş veri kümesi içerir.<br/><br/>Zaman **fileName** bir çıktı veri kümesi için belirtilmemiş ve **preserveHierarchy** belirtilmezse etkinlik havuzunda oluşturulan dosya adı aşağıdaki olacak bu biçimi: Veriler. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
@@ -126,13 +126,13 @@ Bölümleri & etkinlikleri tanımlamak için mevcut özelliklerin tam listesi i�
 
 **BlobSource** şu özelliklerde destekler **typeProperties** bölümü:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca veri yinelemeli olarak okunur olup olmadığını belirtir. |(Varsayılan değer) true, False |Hayır |
 
 **BlobSink** aşağıdaki özellikleri destekler **typeProperties** bölümü:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | copyBehavior |Kaynak BlobSource veya dosya sistemi olduğunda kopyalama davranışını tanımlar. |<b>PreserveHierarchy</b>: hedef klasördeki ise dosya hiyerarşisini korur. Kaynak dosyanın kaynak klasöre göreli yol, hedef dosya hedef klasöre göreli yoluna aynıdır.<br/><br/><b>FlattenHierarchy</b>: kaynak klasördeki tüm dosyaları ilk hedef klasörün içinde düzeyindedir. Hedef dosyalar otomatik adına sahip. <br/><br/><b>MergeFiles</b>: tüm dosyaları kaynak klasörden bir dosya birleştirir. Birleştirilmiş Dosya adı, dosya/Blob adı belirtilmezse, belirtilen adı olur; Aksi takdirde, otomatik olarak oluşturulan dosya adı olacaktır. |Hayır |
 
@@ -181,6 +181,7 @@ Hızla bir Azure blob depolama içine/dışına veri kopyalamak nasıl bakalım.
     John, Doe
     Jane, Doe
     ```
+
 ### <a name="create-the-data-factory"></a>Veri Fabrikası oluşturma
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Tıklayın **kaynak Oluştur** sol üst köşesdeki **zeka + analiz**, tıklatıp **Data Factory**.
@@ -249,14 +250,14 @@ Hızla bir Azure blob depolama içine/dışına veri kopyalamak nasıl bakalım.
     4. Azure depolama hesabınızı seçin.
     5. **İleri**’ye tıklayın.
 10. Üzerinde **çıktı dosyasını veya klasörünü seçin** sayfası:  
-    6. belirtin **klasör yolu** olarak **adfblobconnector/output / {year} / {month} / {day}**. Girin **sekmesini**.
-    7. İçin **yıl**seçin **yyyy**.
-    8. İçin **ay**, kümesine olduğunu onaylayın **MM**.
-    9. İçin **gün**, kümesine olduğunu onaylayın **GG**.
-    10. Onaylayın **sıkıştırma türü** ayarlanır **hiçbiri**.
-    11. Onaylayın **kopyalama davranışı** ayarlanır **dosyaları Birleştir**. Aynı ada sahip çıkış dosyası zaten varsa, yeni içerik aynı dosyanın sonuna eklenir.
-    12. **İleri**’ye tıklayın.
-    ![Kopyalama aracı - çıktı dosyasını veya klasörünü seçin](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
+    1. belirtin **klasör yolu** olarak **adfblobconnector/output / {year} / {month} / {day}**. Girin **sekmesini**.
+    1. İçin **yıl**seçin **yyyy**.
+    1. İçin **ay**, kümesine olduğunu onaylayın **MM**.
+    1. İçin **gün**, kümesine olduğunu onaylayın **GG**.
+    1. Onaylayın **sıkıştırma türü** ayarlanır **hiçbiri**.
+    1. Onaylayın **kopyalama davranışı** ayarlanır **dosyaları Birleştir**. Aynı ada sahip çıkış dosyası zaten varsa, yeni içerik aynı dosyanın sonuna eklenir.
+    1. **İleri**’ye tıklayın.
+       ![Kopyalama aracı - çıktı dosyasını veya klasörünü seçin](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. Üzerinde **dosya biçimi ayarları** sayfasında, ayarları gözden geçirin ve tıklayın **sonraki**. Ek seçenekler burada bir üst bilgi çıkış dosyasına eklemek için biridir. Bu seçeneği belirlerseniz, bir üst bilgi satırı kaynak şemasından sütunların adlarıyla eklenir. Varsayılan sütun adları kaynağı için şema görüntülerken yeniden adlandırabilirsiniz. Örneğin, ilk sütun, ad ve Soyadı ikinci sütuna değiştirebilir. Ardından, çıktı dosyası şu adlara sahip bir üst bilgisiyle sütun adları olarak oluşturulur.
     ![Kopyalama aracı - hedef için dosya biçimi ayarları](media/data-factory-azure-blob-connector/file-format-destination.png)
 12. Üzerinde **performans ayarları** sayfasında, onaylayın **bulut birimleri** ve **paralel kopya** ayarlandığından **otomatik**, İleri'ye tıklayın. Bu ayarlar hakkında daha fazla ayrıntı için bkz: [kopyalama etkinliği performansı ve ayarlama Kılavuzu](data-factory-copy-activity-performance.md#parallel-copy).
@@ -281,7 +282,7 @@ Hızla bir Azure blob depolama içine/dışına veri kopyalamak nasıl bakalım.
     2017/04/24
     2017/04/25
     ```
-İzleme ve veri fabrikaları yönetme hakkında ayrıntılı bilgi için bkz: [İzleyici ve Data Factory işlem hattı yönetme](data-factory-monitor-manage-app.md) makalesi.
+   İzleme ve veri fabrikaları yönetme hakkında ayrıntılı bilgi için bkz: [İzleyici ve Data Factory işlem hattı yönetme](data-factory-monitor-manage-app.md) makalesi.
 
 ### <a name="data-factory-entities"></a>Data Factory varlıkları
 Şimdi, Data Factory giriş sayfasını içeren sekmeye dönün. İki bağlı hizmet, iki veri kümesi ve, data factory'de bir işlem hattı artık olduğuna dikkat edin.

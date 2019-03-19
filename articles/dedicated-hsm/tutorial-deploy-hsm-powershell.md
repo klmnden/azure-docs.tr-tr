@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 4fd701c92ea2cf1447f0c3ea14db6a968ac8910e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: fdda53172bef9fb7a4a09cbacfdc5fa4ec4c7509
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115683"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122361"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Öğretici: PowerShell kullanarak mevcut sanal ağına HSM'ler dağıtma
 
@@ -255,8 +255,8 @@ Yalnızca HSM cihazla tamamlandıysa, sonra bir kaynak olarak silinir ve olması
 9. `syslog rotate`
 
 
->[!NOTE]
-herhangi bir Gemalto cihaz yapılandırma ile ilgili sorun varsa başvurmalısınız [Gemalto müşteri desteği](https://safenet.gemalto.com/technical-support/).
+> [!NOTE]
+> herhangi bir Gemalto cihaz yapılandırma ile ilgili sorun varsa başvurmalısınız [Gemalto müşteri desteği](https://safenet.gemalto.com/technical-support/).
 
 Bu kaynak grubundaki kaynaklar ile tamamladınız, ardından şu komutla tüm kaldırabilirsiniz:
 

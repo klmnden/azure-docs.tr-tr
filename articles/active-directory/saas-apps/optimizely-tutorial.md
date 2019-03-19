@@ -4,58 +4,48 @@ description: Azure Active Directory ve Optimizely arasında çoklu oturum açmay
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 28ef03e1-9aad-4301-af97-d94e853edc74
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/07/2018
+ms.topic: tutorial
+ms.date: 03/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 534a373024556db86d0553b68ce3f847ff085486
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6029e24f0a08efeeae0ae7644305e07669b6f8b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210722"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176433"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Öğretici: Optimizely ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Optimizely tümleştirme konusunda bilgi edinin.
-
 Azure AD ile Optimizely tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Optimizely erişimi, Azure AD'de denetleyebilirsiniz
-- Otomatik olarak imzalanan için Optimizely (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
+* Optimizely erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) Optimizely için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile Optimizely yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Abonelik bir Optimizely çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik Optimizely çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
-Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-1. Galeriden Optimizely ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+* Optimizely destekler **SP** tarafından başlatılan
 
 ## <a name="adding-optimizely-from-the-gallery"></a>Galeriden Optimizely ekleme
 
@@ -63,154 +53,181 @@ Azure AD'de Optimizely tümleştirmesini yapılandırmak için Optimizely Galeri
 
 **Galeriden Optimizely eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Uygulamalar][2]
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Uygulamalar][3]
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-4. Arama kutusuna **Optimizely**.
+4. Arama kutusuna **Optimizely**seçin **Optimizely** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/optimizely-tutorial/tutorial_optimizely_search.png)
+     ![Sonuç listesinde Optimizely](common/search-new-app.png)
 
-5. Sonuçlar panelinde seçin **Optimizely**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/optimizely-tutorial/tutorial_optimizely_addfromgallery.png)
-
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
-
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." adlı bir test kullanıcı tabanlı Optimizely ile test etme
-
-Tek iş için oturum açma için Azure AD ne Optimizely karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Optimizely ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
-
-Değerini atayarak bu bağlantı ilişki kurulduktan **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** Optimizely içinde.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Optimizely adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının Optimizely ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma Optimizely ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Bir Optimizely test kullanıcısı oluşturma](#creating-an-optimizely-test-user)**  - kullanıcı Azure AD gösterimini bağlı Optimizely Britta simon'un bir karşılığı vardır.
-4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Optimizely çoklu oturum açmayı yapılandırma](#configure-optimizely-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Optimizely test kullanıcısı oluşturma](#create-optimizely-test-user)**  - kullanıcı Azure AD gösterimini bağlı Optimizely Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Optimizely uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile Optimizely yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile Optimizely yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **Optimizely** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Optimizely** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/optimizely-tutorial/tutorial_optimizely_samlbase.png)
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-3. Üzerinde **Optimizely etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/optimizely-tutorial/tutorial_optimizely_url.png)
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://app.optimizely.net/<instance name>`
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:  `urn:auth0:optimizely:contoso`
+    ![Optimizely etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://app.optimizely.net/<instance name>`
+
+    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `urn:auth0:optimizely:contoso`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Değer, öğreticinin ilerleyen bölümlerinde açıklanan tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirir.
+    > Bu değerler gerçek değildir. Değer, öğreticinin ilerleyen bölümlerinde açıklanan tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirir. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-4. Optimizely uygulama belirli bir biçimde SAML onaylamalarını bekler. Lütfen bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirme sayfasında bölümü. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/optimizely-tutorial/tutorial_optimizely_attribute.png)
-    
-5. Tıklayın **görünümü ve diğer tüm kullanıcı özniteliklerini düzenleyin** onay kutusu **kullanıcı öznitelikleri** bölüm öznitelikleri genişletin. Her birini görüntülenen öznitelikleri - aşağıdaki adımları gerçekleştirin
+5. Optimizely uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
 
-    | Öznitelik Adı | Öznitelik Değeri |
+    ![image](common/edit-attribute.png)
+
+6. Yukarıdaki için ayrıca Optimizely uygulama SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
+
+    | Ad | Kaynak özniteliği |
     | ---------------| --------------- |
     | e-posta | User.Mail |
+    
+    a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    a. Tıklayın **eklemek agentconfigutil** açmak için **öznitelik Ekle** iletişim.
+    ![image](common/new-save-attribute.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/optimizely-tutorial/tutorial_attribute_04.png)
+    ![image](common/new-attribute-details.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/optimizely-tutorial/tutorial_attribute_05.png)
+    b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
-    b. İçinde **adı** metin kutusuna **öznitelik adı** ilgili satır için gösterilen.
+    c. Bırakın **Namespace** boş.
 
-    c. Gelen **değer** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+    d. Kaynağı olarak **özniteliği**.
 
-    d. **Tamam**’a tıklayın.
+    e. Gelen **kaynak özniteliği** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
 
-6. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+    f. Tıklayın **Tamam**
 
-    ![Çoklu oturum açmayı yapılandırın](./media/optimizely-tutorial/tutorial_optimizely_certificate.png)
+    g. **Kaydet**’e tıklayın.
 
-7. Tıklayın **Kaydet** düğmesi.
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/optimizely-tutorial/tutorial_general_400.png)
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-8. Üzerinde **Optimizely yapılandırma** bölümünde **yapılandırma Optimizely** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **Optimizely kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/optimizely-tutorial/tutorial_optimizely_configure.png)
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-9. Çoklu oturum açmayı yapılandırma **Optimizely** yan Optimizely hesap yöneticinize başvurun ve indirilen sağlamak **sertifika (Base64)**, ve **SAML çoklu oturum açma hizmeti URL'si**.
+    a. Oturum Açma URL'si:
 
-10. E-postanıza yanıtta Optimizely üzerinde oturum URL'si (SP tarafından başlatılan SSO'yu) ve tanımlayıcı (hizmet sağlayıcı varlık kimliği) değerlerini sağlar.
+    b. Azure AD Tanımlayıcısı
 
-    a. Kopyalama **SP tarafından başlatılan SSO'yu URL** Optimizely ve içine yapıştırma tarafından sağlanan **işareti bulunan URL'si** metin kutusunda **Optimizely etki alanı ve URL'ler** bölümü Azure portalı.
+    c. Oturum Kapatma URL'si
 
-    b. Kopyalama **hizmet sağlayıcısı varlık kimliği** Optimizely ve içine yapıştırma tarafından sağlanan **tanımlayıcı** metin kutusunda **Optimizely etki alanı ve URL'ler** bölümü Azure portalı.
+### <a name="configure-optimizely-single-sign-on"></a>Optimizely tek oturum açmayı yapılandırın
 
-11. Bir farklı bir tarayıcı penceresinde Optimizely uygulamanıza oturum.
+1. Çoklu oturum açmayı yapılandırma **Optimizely** yan Optimizely hesap yöneticinize başvurun ve indirilen sağlamak **sertifika (Base64)** ve uygun URL'ler kopyalanır.
 
-12. Hesap adı üst sağ alt köşesinde tıklayın ve ardından **hesap ayarları**.
+2. E-postanıza yanıtta Optimizely üzerinde oturum URL'si (SP tarafından başlatılan SSO'yu) ve tanımlayıcı (hizmet sağlayıcı varlık kimliği) değerlerini sağlar.
+
+    a. Kopyalama **SP tarafından başlatılan SSO'yu URL** Optimizely ve içine yapıştırma tarafından sağlanan **işareti bulunan URL'si** metin kutusunda **temel SAML yapılandırma** bölümü Azure portalı.
+
+    b. Kopyalama **hizmet sağlayıcısı varlık kimliği** Optimizely ve içine yapıştırma tarafından sağlanan **tanımlayıcı** metin kutusunda **temel SAML yapılandırma** bölümü Azure portalı.
+
+3. Bir farklı bir tarayıcı penceresinde Optimizely uygulamanıza oturum.
+
+4. Hesap adı üst sağ alt köşesinde tıklayın ve ardından **hesap ayarları**.
 
     ![Azure AD çoklu oturum açma](./media/optimizely-tutorial/tutorial_optimizely_09.png)
 
-13. Hesap sekmesinde, onay kutusunu **SSO etkinleştirme** çoklu oturum açma altında **genel bakış** bölümü.
+5. Hesap sekmesinde, onay kutusunu **SSO etkinleştirme** çoklu oturum açma altında **genel bakış** bölümü.
   
     ![Azure AD çoklu oturum açma](./media/optimizely-tutorial/tutorial_optimizely_10.png)
 
-14. **Kaydet**’e tıklayın
+6. **Kaydet**’e tıklayın
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD kullanıcısı oluşturun][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/optimizely-tutorial/create_aaduser_01.png) 
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/optimizely-tutorial/create_aaduser_02.png) 
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/optimizely-tutorial/create_aaduser_03.png) 
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/optimizely-tutorial/create_aaduser_04.png) 
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    a. İçinde **adı** metin kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** Britta simon'un.
-
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
 
-### <a name="creating-an-optimizely-test-user"></a>Bir Optimizely test kullanıcısı oluşturma
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+
+Bu bölümde, Azure çoklu oturum açma kullanmak için Optimizely erişim vererek Britta Simon etkinleştirin.
+
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Optimizely**.
+
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
+2. Uygulamalar listesinde **Optimizely**.
+
+    ![Uygulamalar listesinde Optimizely bağlantı](common/all-applications.png)
+
+3. Soldaki menüde **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
+
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+
+### <a name="create-optimizely-test-user"></a>Optimizely test kullanıcısı oluşturma
 
 Bu bölümde, Britta Simon Optimizely içinde adlı bir kullanıcı oluşturun.
 
@@ -226,57 +243,17 @@ Bu bölümde, Britta Simon Optimizely içinde adlı bir kullanıcı oluşturun.
 
 4. Bir e-posta daveti alırlar. E-posta adresini kullanarak oturum açmak için Optimizely sahiptirler.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
-
-Bu bölümde, Azure çoklu oturum açma kullanmak için Optimizely erişim vererek Britta Simon etkinleştirin.
-
-![Kullanıcı Ata][200] 
-
-**Britta Simon Optimizely için atamak için aşağıdaki adımları gerçekleştirin:**
-
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
-
-    ![Kullanıcı Ata][201]
-
-2. Uygulamalar listesinde **Optimizely**.
-
-    ![Çoklu oturum açmayı yapılandırın](./media/optimizely-tutorial/tutorial_optimizely_app.png) 
-
-3. Soldaki menüde **kullanıcılar ve gruplar**.
-
-    ![Kullanıcı Ata][202]
-
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
-
-    ![Kullanıcı Ata][203]
-
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
-
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
-
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-
-### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde Optimizely kutucuğa tıkladığınızda, otomatik olarak Optimizely uygulamanıza açan.
+Erişim paneli Optimizely kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Optimizely için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/optimizely-tutorial/tutorial_general_01.png
-[2]: ./media/optimizely-tutorial/tutorial_general_02.png
-[3]: ./media/optimizely-tutorial/tutorial_general_03.png
-[4]: ./media/optimizely-tutorial/tutorial_general_04.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/optimizely-tutorial/tutorial_general_100.png
-
-[200]: ./media/optimizely-tutorial/tutorial_general_200.png
-[201]: ./media/optimizely-tutorial/tutorial_general_201.png
-[202]: ./media/optimizely-tutorial/tutorial_general_202.png
-[203]: ./media/optimizely-tutorial/tutorial_general_203.png

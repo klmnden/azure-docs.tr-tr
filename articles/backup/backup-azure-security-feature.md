@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
-ms.openlocfilehash: fcb5941c56eda19f9c524a2c078a76483426b862
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 2ba94963238cd5ee96df5c178a072addc5ddd75e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267003"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082934"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Azure Backup kullanan karma yedeklemeler korumaya yardımcı olmak için güvenlik özellikleri
 Yetkisiz erişim, kötü amaçlı yazılım ve fidye yazılımı gibi güvenlik konularıyla ilgili endişelerini artmaktadır. Bu güvenlik sorunları para ve veri açısından pahalı olabilir. Bu tür saldırılara karşı korunmak için Azure Backup artık karma yedeklemeler korumaya yardımcı olmak için güvenlik özellikleri sağlar. Bu makalede bir Azure kurtarma Hizmetleri aracısını ve Azure Backup sunucusu kullanarak bu özelliklerin nasıl etkinleştirileceği anlatılmaktadır. Bu özellikler şunları içerir:
@@ -82,7 +82,7 @@ Denetimleri yalnızca geçerli kullanıcı çeşitli işlemler gerçekleştirebi
 Kritik işlemler için kimlik doğrulaması ek bir koruma katmanı ekleme bir parçası olarak, gerçekleştirdiğinizde güvenlik PIN'i girmeleri istenir **silme verilerle korumayı Durdur** ve **değişiklik parola** operations.
 
 > [!NOTE]
-
+> 
 > Şu anda güvenlik PIN'i için desteklenmiyor **silme verilerle korumayı Durdur** DPM ve MABS için.
 
 Bu PIN'i almak için:

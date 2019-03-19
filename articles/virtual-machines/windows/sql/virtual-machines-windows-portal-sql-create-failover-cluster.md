@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 7e0dea82614363883bbfb4a34894a2248faeb176
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 19910782142bf78c10dda155f40a5c41bdd64958
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769668"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842762"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure sanal makinelerinde SQL Server Yük devretme kümesi örneğini yapılandırma
 
@@ -101,7 +101,7 @@ Bu önkoşulları yerine getirilince, yük devretme kümeniz oluşturmaya devam 
 
 ## <a name="step-1-create-virtual-machines"></a>1. Adım: Sanal makineler oluşturma
 
-1. Oturum [Azure portalında](http://portal.azure.com) aboneliğinizle.
+1. Oturum [Azure portalında](https://portal.azure.com) aboneliğinizle.
 
 1. [Azure kullanılabilirlik kümesi oluşturma](../tutorial-availability-sets.md).
 

@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ac0ef463f05c2f361c75827e300b2866e16dfef1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 647b2ae5f23ef6f94e3a56eb777053a7eb3e0097
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446988"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090449"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Öğretici: .NET API kullanarak kopyalama Etkinlikli bir işlem hattı oluşturma
 > [!div class="op_single_selector"]
@@ -515,9 +515,9 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
     ```
 18. Menüden **Hata Ayıkla** -> **Hata Ayıklamayı Başlat**’a tıklayarak örneği çalıştırın. **Getting run details of a data slice** iletisini gördüğünüzde birkaç dakika bekleyin ve **ENTER** tuşuna basın.
 19. Azure portalı kullanarak **APITutorialFactory** veri fabrikasının aşağıdaki yapıtlarla birlikte oluşturulduğunu doğrulayın:
-   * Bağlı hizmet: **LinkedService_AzureStorage**
-   * Veri kümesi: **Inputdataset** ve **OutputDataset**.
-   * İşlem hattı: **PipelineBlobSample**
+    * Bağlı hizmet: **LinkedService_AzureStorage**
+    * Veri kümesi: **Inputdataset** ve **OutputDataset**.
+    * İşlem hattı: **PipelineBlobSample**
 20. Belirtilen Azure SQL veritabanındaki **emp** tablosunda, iki çalışan kaydının oluşturulduğunu doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar

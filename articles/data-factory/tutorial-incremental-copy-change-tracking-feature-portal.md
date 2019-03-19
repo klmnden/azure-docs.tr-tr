@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: ce4002ff37de3fcc96b86bcfb8ee9b0239212ef3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a5a364c2065a7f4b9607eb4b078456324f261ce8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760826"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121885"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Değişiklik izleme bilgilerini kullanarak Azure SQL Veritabanından Azure Blob Depolama alanına verileri artımlı olarak yükleme 
 Bu öğreticide, kaynak Azure SQL veritabanındaki **değişiklik izleme** bilgilerine dayanan değişiklik verilerini Azure blob depolamasına yükleyen bir işlem hattına sahip olan bir Azure veri fabrikası oluşturursunuz.  
@@ -372,29 +372,29 @@ Bu adımda, aşağıdaki etkinliklerle bir işlem hattı oluşturursunuz ve bunu
     ![Arama Etkinliği - ad](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. **Özellikler** penceresinde **Ayarlar**’a geçin ve aşağıdaki adımları uygulayın:
 
-    1. **Kaynak Veri Kümesi** alanı için **SourceDataset**’i seçin.
-    2. **Sorgu Kullan** için **Sorgu**’yu seçin. 
-    3. **Sorgu** için aşağıdaki SQL sorgusunu girin. 
+   1. **Kaynak Veri Kümesi** alanı için **SourceDataset**’i seçin.
+   2. **Sorgu Kullan** için **Sorgu**’yu seçin. 
+   3. **Sorgu** için aşağıdaki SQL sorgusunu girin. 
 
-        ```sql
-        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
-        ```
+       ```sql
+       SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
+       ```
 
-    ![Arama Etkinliği - ayarlar](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      ![Arama Etkinliği - ayarlar](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. **Etkinlikler** araç kutusunda **Veri Akışı**’nı genişletin ve **Kopyalama** etkinliğini sürükleyerek işlem hattı tasarımcısının yüzeyine bırakın. Etkinliğin adını **IncrementalCopyActivity** olarak ayarlayın. Bu etkinlik, son değişiklik izleme sürümü ile geçerli değişiklik izleme sürümü arasındaki verileri hedef veri deposuna kopyalar. 
 
     ![Kopyalama Etkinliği - ad](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
 8. **Özellikler** penceresinde **Kaynak** sekmesine geçin ve aşağıdaki adımları uygulayın:
 
-    1. **Kaynak Veri Kümesi** için **SourceDataset**’i seçin. 
-    2. **Sorgu Kullan** için **Sorgu**’yu seçin. 
-    3. **Sorgu** için aşağıdaki SQL sorgusunu girin. 
+   1. **Kaynak Veri Kümesi** için **SourceDataset**’i seçin. 
+   2. **Sorgu Kullan** için **Sorgu**’yu seçin. 
+   3. **Sorgu** için aşağıdaki SQL sorgusunu girin. 
 
-        ```sql
-        select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
-        ```
+       ```sql
+       select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
+       ```
     
-    ![Kopyalama Etkinliği - kaynak ayarları](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
+      ![Kopyalama Etkinliği - kaynak ayarları](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
 9. **Havuz** sekmesine geçin ve **Havuz Veri Kümesi** alanı için **SinkDataset**’i seçin. 
 
     ![Kopyalama Etkinliği - havuz ayarları](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png)
@@ -425,9 +425,9 @@ Bu adımda, aşağıdaki etkinliklerle bir işlem hattı oluşturursunuz ve bunu
 15. Araç çubuğunda **Doğrula**’ya tıklayın. Doğrulama hatası olmadığından emin olun. **>>** seçeneğine tıklayarak **İşlem Hattı Doğrulama Raporu** penceresini kapatın. 
 
     ![Doğrula düğmesi](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  **Tümünü Yayımla** düğmesine tıklayarak varlıkları (bağlı hizmetler, veri kümeleri ve işlem hatları) Data Factory hizmetinde yayımlayın. **Yayımlama başarılı** iletisini görene kadar bekleyin. 
+16. **Tümünü Yayımla** düğmesine tıklayarak varlıkları (bağlı hizmetler, veri kümeleri ve işlem hatları) Data Factory hizmetinde yayımlayın. **Yayımlama başarılı** iletisini görene kadar bekleyin. 
 
-        ![Yayımla düğmesi](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       ![Yayımla düğmesi](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Artımlı kopyalama işlem hattını çalıştırma
 1. İşlem hattının araç çubuğunda **Tetikle**’ye tıklayıp **Şimdi Tetikle**’ye tıklayın. 

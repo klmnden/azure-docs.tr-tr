@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 7bac115ab3215a7dde625f194bdf325f9e0af318
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118144"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter söz dizimi
 
@@ -119,7 +119,7 @@ A `<regular_identifier>` ayrılmış bir anahtar sözcük olamaz.
   
 `<pattern>` bir dize olarak değerlendirilen bir ifade olmalıdır. LIKE işleci için bir desen olarak kullanılır.      Bu joker karakterleri içerebilir:  
   
--   `%`: Sıfır veya daha fazla karakter dizesi.  
+-   `%`:  Sıfır veya daha fazla karakter dizesi.  
   
 -   `_`: Herhangi bir tek karakter.  
   
@@ -223,29 +223,29 @@ Aşağıdakileri göz önünde bulundurun [SqlFilter](/dotnet/api/microsoft.serv
   
 ### <a name="property-evaluation-semantics"></a>Özellik değerlendirmesi semantiği  
   
--   Mevcut olmayan sistem özelliği değerlendirilecek girişiminde oluşturur bir [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) özel durum.  
+- Mevcut olmayan sistem özelliği değerlendirilecek girişiminde oluşturur bir [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) özel durum.  
   
--   Var olmayan bir özellik olarak dahili olarak değerlendirilir **bilinmeyen**.  
+- Var olmayan bir özellik olarak dahili olarak değerlendirilir **bilinmeyen**.  
   
- Bilinmeyen değerlendirme aritmetik işleçler içinde:  
+  Bilinmeyen değerlendirme aritmetik işleçler içinde:  
   
--   İkili işleçleri sol ve sağ tarafında işlenen olarak değerlendirilir, **bilinmeyen**, sonuç ise **bilinmeyen**.  
+- İkili işleçleri sol ve sağ tarafında işlenen olarak değerlendirilir, **bilinmeyen**, sonuç ise **bilinmeyen**.  
   
--   Bir işlenen olarak değerlendirildiği taktirde birli işleçler için **bilinmeyen**, sonuç ise **bilinmeyen**.  
+- Bir işlenen olarak değerlendirildiği taktirde birli işleçler için **bilinmeyen**, sonuç ise **bilinmeyen**.  
   
- Bilinmeyen değerlendirme ikili Karşılaştırma işleçleri içinde:  
+  Bilinmeyen değerlendirme ikili Karşılaştırma işleçleri içinde:  
   
--   Sol ve sağ tarafında işlenen olarak değerlendirilir, **bilinmeyen**, sonuç ise **bilinmeyen**.  
+- Sol ve sağ tarafında işlenen olarak değerlendirilir, **bilinmeyen**, sonuç ise **bilinmeyen**.  
   
- Bilinmeyen değerlendirme `[NOT] LIKE`:  
+  Bilinmeyen değerlendirme `[NOT] LIKE`:  
   
--   Herhangi bir işlenen olarak değerlendirildiği taktirde **bilinmeyen**, sonuç ise **bilinmeyen**.  
+- Herhangi bir işlenen olarak değerlendirildiği taktirde **bilinmeyen**, sonuç ise **bilinmeyen**.  
   
- Bilinmeyen değerlendirme `[NOT] IN`:  
+  Bilinmeyen değerlendirme `[NOT] IN`:  
   
--   Sol işlenen olarak değerlendirildiği taktirde **bilinmeyen**, sonuç ise **bilinmeyen**.  
+- Sol işlenen olarak değerlendirildiği taktirde **bilinmeyen**, sonuç ise **bilinmeyen**.  
   
- Bilinmeyen değerlendirme **ve** işleci:  
+  Bilinmeyen değerlendirme **ve** işleci:  
   
 ```  
 +---+---+---+---+  
@@ -281,6 +281,6 @@ Aşağıdakileri göz önünde bulundurun [SqlFilter](/dotnet/api/microsoft.serv
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [SQLFilter sınıfı (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
-- [SQLFilter sınıfı (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
+- [SQLFilter class (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLFilter class (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
 - [SQLRuleAction sınıfı](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)

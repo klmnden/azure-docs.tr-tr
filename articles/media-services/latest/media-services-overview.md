@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/26/2019
+ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: de1bd8599682baae860737401d02c7c1dec9e223
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 018392db2ffb510d41385d8e0af19635c35678e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960658"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003408"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3 nedir?
 
@@ -49,9 +49,9 @@ Bu sürüm aşağıdaki özellikleri sağlar:
 
 * Medya işleme veya analiz görevlerinin basit iş akışlarını tanımlamanıza yardımcı olan **dönüştürmeler**. Dönüştürme, video ve ses dosyalarınızı işlemeye yönelik bir tariftir. İşleri Dönüştürmeye göndererek içerik kitaplığınızdaki tüm dosyaları işlemek için art arda bunu uygulayabilirsiniz.
 * Videolarınızı işleme (kodlama veya analiz etme) **İşleri**. Azure Blob depolamada bulunan dosyaların yolları, SAS URL’leri veya HTTPS URL’leri kullanılarak bir işte girdi içeriği belirtilebilir. AMS v3 şu anda HTTPS URL'leri üzerinden yığın halinde aktarım kodlamasını desteklememektedir.
-* İş ilerlemesini veya iş durumlarını ya da Canlı Kanal başlatma/durdurma ve hata olaylarını izleyen **Bildirimler**. Bildirimler, Azure Event Grid bildirim sisteminde tümleşiktir. Azure Media Services’ta birçok kaynaktaki olaya kolayca abone olabilirsiniz. 
-* Dönüştürmeler, Akış Uç Noktaları, Kanallar vb. oluşturmak ve dağıtmak için **Azure Kaynak Yönetimi** şablonları kullanılabilir.
-* Kaynak düzeyinde **rol tabanlı erişim denetimi** ayarlanabilir ve böylece Dönüştürmeler, Kanallar vb. gibi belirli kaynaklara erişimi kilitlemeniz sağlanır.
+* **Bildirimleri** işin ilerleme durumunu veya durumları ya da Canlı olayları başlatma/durdurma ve hatası olaylarını izleyin. Bildirimler, Azure Event Grid bildirim sisteminde tümleşiktir. Azure Media Services’ta birçok kaynaktaki olaya kolayca abone olabilirsiniz. 
+* **Azure kaynak yönetimi** şablonları dönüşümleri, akış uç noktalarını, Canlı olayları ve daha fazlasını oluşturmak ve dağıtmak için kullanılabilir.
+* **Rol tabanlı erişim denetimi** dönüşümleri, Canlı olayları ve diğer gibi belirli kaynaklara erişim kilitlemenize olanak tanıyan kaynak düzeyinde ayarlanabilir.
 * Birçok dilde **İstemci SDK’ları**: .NET, .NET core, Python, Go, Java ve Node.js.
 
 ## <a name="naming-conventions"></a>Adlandırma kuralları

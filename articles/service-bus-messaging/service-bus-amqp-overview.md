@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 70a0463094f98612169e78e4bcdd4eac9c8ebf24
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 34829482e570354c1ab1e1fd6cec0c96b993cd83
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844713"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167040"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Hizmet veri yolu AMQP 1.0 desteği
 Azure Service Bus bulut hizmeti ve şirket içi [Windows Server için hizmet veri yolu (hizmet veri yolu 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) Gelişmiş ileti sıraya alma Protokolü (AMQP) 1.0 desteği. AMQP, platformlar arası, açık standart protokolü kullanılarak karma uygulamalar oluşturmanıza olanak sağlar. Farklı diller ve çerçeveler kullanılarak oluşturulur ve farklı işletim sistemleri üzerinde çalışan bileşenlerini kullanarak uygulama oluşturabilirsiniz. Tüm bu bileşenler, Service Bus ve sorunsuz bir şekilde bağlanabilir, verimli bir şekilde ve tam uygunlukta yapılandırılmış iş mesaj alışverişi.
@@ -77,7 +77,7 @@ Aşağıdaki şekilde, standart Java mesaj hizmeti (JMS) API ve Windows üzerind
 | C |Apache Qpid Proton-C |
 | PHP |Apache Qpid Proton-PHP |
 | Python |Apache Qpid Proton-Python |
-| C# |AMQP .net Lite |
+| C# |AMQP .NET Lite |
 
 **Şekil 2: AMQP 1.0 istemci kitaplıkları, tablo**
 

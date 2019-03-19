@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3da54c4f7fae5a613d88f169d58a083f9273c0d3
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: f9c6faff10f68d720bc3c86a191e4cd1b1f9abdc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587897"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123615"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Güvenlik bilgilerinizi (Önizleme) oturum açma sayfası isteminden ayarlayın
 Hemen iş veya Okul hesabınızda oturum sonra güvenlik bilgilerinizi ayarlamak için istenirse, bu adımları takip edebilirsiniz.
@@ -39,10 +39,10 @@ Kuruluşunuz için gerekli güvenlik bilgilerini ayarlamadıysanız, yalnızca b
 
 1. Seçtikten sonra **sonraki** isteminde bir **hesabı güvenli Sihirbazı'nı tutmak** , yönetici ve kuruluş ayarlamak gerekli ilk yöntem gösteren görünür. Bu örnek için Microsoft Authenticator uygulamasıdır.
 
-    >[!Note]
-    >Microsoft Authenticator uygulaması dışında bir authenticator uygulamasını kullanmak isteyip istemediğinizi seçin **farklı authenticator uygulamasını kullanmak istiyorum** bağlantı.
-    
-    >Kuruluşunuz kimlik doğrulayıcı uygulamasını yanı sıra farklı bir yöntemi seçmenize izin veriyorsa, seçebileceğiniz **farklı yöntem bağlantıyı oluşturan ayarlamak istediğiniz**.
+   > [!Note]
+   > Microsoft Authenticator uygulaması dışında bir authenticator uygulamasını kullanmak isteyip istemediğinizi seçin **farklı authenticator uygulamasını kullanmak istiyorum** bağlantı.
+   > 
+   > Kuruluşunuz kimlik doğrulayıcı uygulamasını yanı sıra farklı bir yöntemi seçmenize izin veriyorsa, seçebileceğiniz **farklı yöntem bağlantıyı oluşturan ayarlamak istediğiniz**.
 
     ![Kimlik doğrulama uygulaması indirme sayfasını gösteren, hesap güvenli Sihirbazı tutun](media/security-info/securityinfo-prompt-get-auth-app.png)
 

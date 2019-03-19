@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7f67b7363719f544c485503e0f8207bb1f1078ce
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244715"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891112"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure güvenlik ve uyumluluk planı: UK resmi iş yükleri için barındırma PaaS Web uygulaması
 
@@ -168,7 +168,7 @@ Azure depolama güvenliğini sağlama hakkında ayrıntılı bilgi bulunabilir [
 
 ### <a name="monitoring-logging-and-audit"></a>İzleme, günlüğe kaydetme ve Denetim
 
-#### <a name="azure-monitor-logs"></a>Azure izleme günlükleri
+#### <a name="azure-monitor-logs"></a>Azure İzleyici günlükleri
 
 [Azure İzleyici günlüklerine](https://azure.microsoft.com/services/log-analytics/) ve şirket içi Ortamlarınızdaki bulutunuzdaki kaynaklar tarafından oluşturulan verileri toplayıp analiz yardımcı olan bir Azure hizmetidir.
 
@@ -219,7 +219,7 @@ Ayrıca, bulut güvenliği İttifakı (CSA) bulut denetim matrisi bulut sağlay�
 
 Bu plan, Birleşik Krallık Ulusal siber Güvenlik Merkezi (NCSC tarafından) Gözden ve NCSC 14 bulut güvenliği prensipleri hizalar
 
-Otomasyon şablonları bizim Microsoft iş ortağı ve UK müşteri başarı birim Azure bulut çözümü Mimarı takım tarafından test edilmiştir [Ampliphae](http://www.ampliphae.com/).
+Otomasyon şablonları bizim Microsoft iş ortağı ve UK müşteri başarı birim Azure bulut çözümü Mimarı takım tarafından test edilmiştir [Ampliphae](https://www.ampliphae.com/).
 
 
 ## <a name="deploy-the-solution"></a>Çözümü dağıtma

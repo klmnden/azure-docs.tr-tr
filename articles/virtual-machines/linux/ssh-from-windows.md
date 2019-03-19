@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 247d09e58ded2de12fb7cc6b5a036b695e715077
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0ac62a99f5735647f67917d441645e30444b3818
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298662"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005685"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure'da Windows ile SSH anahtarlarını kullanma
 
@@ -37,9 +37,9 @@ Windows bilgisayarlar, her zaman yüklü karşılaştırılabilir SSH komutları
 
 Yerel olarak yükleyebilirsiniz diğer ortak Windows SSH istemcileri aşağıdaki paketlerinde bulunur:
 
-* [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
+* [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Windows için Git](https://git-for-windows.github.io/)
-* [MobaXterm](http://mobaxterm.mobatek.net/)
+* [MobaXterm](https://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
 Bash hizmetinde kullanılabilir SSH yardımcı programları da kullanabilirsiniz [Azure Cloud Shell](../../cloud-shell/overview.md). 
@@ -62,7 +62,7 @@ Daha fazla arka plan ve bilgi için bkz. [hızlı](mac-create-ssh-keys.md) veya 
 
 ### <a name="create-ssh-keys-with-puttygen"></a>PuTTYgen ile SSH anahtarları oluşturma
 
-SSH anahtarları oluşturmak için bir GUI tabanlı aracı kullanmayı tercih ederseniz, birlikte PuTTYgen anahtarı Oluşturucu kullanabilirsiniz [PuTTY yükleme paketini](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
+SSH anahtarları oluşturmak için bir GUI tabanlı aracı kullanmayı tercih ederseniz, birlikte PuTTYgen anahtarı Oluşturucu kullanabilirsiniz [PuTTY yükleme paketini](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
 
 PuTTYgen ile bir SSH RSA anahtar çifti oluşturmak için:
 
@@ -110,7 +110,7 @@ VM tam zamanında erişim ilkesi kullanıyorsa, sanal Makineye bağlanmadan önc
 
 ### <a name="connect-with-putty"></a>PuTTY ile bağlanma
 
-Yüklediyseniz [PuTTY yükleme paketini](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) ve bir PuTTY özel anahtar (.ppk) dosyası, daha önce oluşturulan bir Linux VM PuTTY ile bağlanabilirsiniz.
+Yüklediyseniz [PuTTY yükleme paketini](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) ve bir PuTTY özel anahtar (.ppk) dosyası, daha önce oluşturulan bir Linux VM PuTTY ile bağlanabilirsiniz.
 
 1. Putty'yi başlatın.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial;anavin
-ms.openlocfilehash: e752c19dc74135c05b971f8eb296da61259d0c20
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 28783b61a9361d97c151294140819249c9a100c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217776"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875229"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Oluşturma, değiştirme veya bir sanal ağ eşlemesini Sil
 
@@ -114,9 +114,9 @@ Sanal ağlar, bazen kurmak istiyor, ancak her zaman bir eşdüzey hizmet sağlam
 ## <a name="requirements-and-constraints"></a>Gereksinimler ve kısıtlamalar
 
 - <a name="cross-region"></a>Aynı bölgede ya da farklı bölgelerdeki sanal ağları eşleyebilirsiniz. Farklı bölgelerdeki sanal ağları eşleme de denir olarak *genel sanal ağ eşleme*. 
-- Genel eşleme oluştururken, eşlenen sanal ağlarda tüm Azure genel bulut bölgelerine veya Çin bulut bölgeleri var ancak bölgesi değil kamu bulut. Yalnızca sanal ağı eşleme aynı bölgedeki Azure kamu bulut bölgeleri kullanabilirsiniz. Bulutlar arasında eş olamaz.
-- Bir sanal ağ içindeki kaynaklarla genel olarak eşlenmiş sanal ağdaki bir iç temel yük dengeleyicinin ön uç IP adresi ile iletişim kuramıyor. Temel yük dengeleyici desteği yalnızca aynı bölge içinde bulunmaktadır. Küresel VNet eşlemesi için standart yük dengeleyici desteği yok.
-- Uzak ağ geçitlerini veya genel olarak eşlenmiş sanal ağlarda ağ geçidi aktarımına izin ver kullanılamaz. Uzak ağ geçitlerini kullan veya ağ geçidi aktarımına izin vermek için eşlenen sanal ağlarda aynı bölgede olması gerekir.
+- Genel eşleme oluştururken, eşlenen sanal ağlarda tüm Azure genel bulut bölgesi veya Çin bulut bölgeleri veya kamu bulut bölgeleri içinde bulunabilir. Bulutlar arasında eş olamaz. Örneğin, bir sanal ağa Azure Çin Bulutu, Azure genel bulutundaki bir VNet eşlenemez.
+- Bir sanal ağ içindeki kaynaklarla genel olarak eşlenmiş sanal ağdaki bir iç temel yük dengeleyicinin ön uç IP adresi ile iletişim kuramıyor. Temel yük dengeleyici desteği yalnızca aynı bölge içinde bulunmaktadır. Standart yük dengeleyici desteği, VNet eşlemesi hem de genel sanal ağ eşleme için var.
+- Önizleme'de genel olarak eşlenmiş sanal ağlardaki ağ geçidi aktarımına izin ver ya da uzak ağ geçitlerini kullan. Önizleme, tüm Azure bölgeleri, Çin bulut bölgeleri ve kamu bulut bölgelerinde kullanılabilir. Hiçbir beyaz listeye ekleme gereklidir. CLI, PowerShell, şablonları veya API üzerinden önizlemede test edebilirsiniz. Portal Önizleme sürümünde desteklenmiyor.
 - Sanal ağlar aynı ya da farklı Aboneliklerde olabilir. Farklı Aboneliklerdeki sanal ağları eşleyebilme, aynı veya farklı Azure Active Directory kiracısı ile ilişkilendirilmesi iki abonelik de olabilir. Bir AD kiracısına zaten sahip değilseniz, yapabilecekleriniz [oluşturmak](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Farklı Azure Active Directory kiracılarıyla ilişkili Aboneliklerdeki sanal ağları arasında eşleme için destek Portalı'nda kullanılabilir değil. CLI, PowerShell veya şablonları kullanabilirsiniz.
 - Eş sanal ağlar, IP adresi alanları çakışmamalıdır olması gerekir.
 - Adres aralıklarını ekleyin veya başka bir sanal ağ ile sanal ağ eşlendikten sonra sanal ağın adres alanından adres aralıkları silin. Adres aralıkları kaldırın, eşlemeyi silmek, eklediğinizde veya adres aralıklarını kaldırmak için ardından eşleme yeniden oluşturun. Adres aralıklarını ekleyin veya adres aralıkları sanal ağlardan bağlantısını kaldırmak için bkz: [sanal ağlarını yönetme](manage-virtual-network.md).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5639984c6eef7d1c081fd52061988d3535c00fa
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 6888a8787856ef23c459c7ffc18f8e2b4de17f6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576999"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901153"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
 
@@ -36,19 +36,19 @@ Bu makalede, Azure Active Directory (Azure AD) kiracınız içindeki kullanıcı
   * Faturalama yöneticisi
   * Partner Tier1 Desteği
   * Partner Tier2 Desteği
-  * Exchange hizmeti yöneticisi
-  * Lync hizmeti yöneticisi
-  * Kullanıcı hesabı yöneticisi
+  * Exchange yöneticisi
+  * Skype Kurumsal yöneticisi
+  * Kullanıcı yöneticisi
   * Dizin yazıcılar
   * Genel yönetici veya şirket Yöneticisi
-  * SharePoint Hizmet Yöneticisi
+  * SharePoint yöneticisi
   * Uyumluluk yöneticisi
   * Uygulama yöneticisi
   * Güvenlik yöneticisi
   * Ayrıcalıklı rol yöneticisi
-  * Microsoft Intune Hizmet Yöneticisi
+  * Intune yöneticisi
   * Uygulama Ara sunucusu Hizmet Yöneticisi
-  * CRM Hizmet Yöneticisi
+  * Dynamics 365 yöneticisi
   * Power BI Hizmet Yöneticisi
   * Kimlik doğrulama Yöneticisi
   * Ayrıcalıklı kimlik yöneticisi
@@ -81,7 +81,7 @@ Aşağıdaki tabloda, oluşturulan ve Azure AD'de yönetilen kullanıcı hesapla
 
 | Özellik | Gereksinimler |
 | --- | --- |
-| İzin verilen karakter |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
+| İzin verilen karakter |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> |
 | Karakterlere izin verilmez |<ul><li>Unicode karakter.</li><li>Alanları.</li><li> Nokta karakteri içeremez "." hemen "\@ \" sembol".</li></ul> |
 | Parola kısıtlamaları |<ul><li>En az 8 karakter ve en fazla 16 karakter.</li><li>Üç tanesi dört birini gerektirir:<ul><li>Küçük harf karakterler.</li><li>Büyük harf karakterler.</li><li>Sayılar (0-9).</li><li>Semboller (önceki parola kısıtlamalarını bakın).</li></ul></li></ul> |
 | Parola sona erme süresi |<ul><li>Varsayılan değer: **90** gün.</li><li>Değeri kullanılarak yapılandırılabilir `Set-MsolPasswordPolicy` Azure Active Directory modülü için Windows PowerShell cmdlet'i.</li></ul> |
@@ -110,7 +110,7 @@ Başlamak için yapmanız [Azure AD PowerShell modülünü indirip](https://docs
 1. Windows PowerShell için şirket Yöneticisi kimlik bilgilerinizi kullanarak bağlanın.
 1. Aşağıdaki komutlardan birini yürütün:
 
-   * Tek bir kullanıcının parolasını ermeyecek şekilde ayarlanmış olup olmadığını görmek için UPN kullanarak aşağıdaki cmdlet'i çalıştırın (örneğin, *aprilr@contoso.onmicrosoft.com*) ya da kontrol etmek istediğiniz kullanıcının kullanıcı kimliği: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * Tek bir kullanıcının parolasını ermeyecek şekilde ayarlanmış olup olmadığını görmek için UPN kullanarak aşağıdaki cmdlet'i çalıştırın (örneğin, *aprilr\@contoso.onmicrosoft.com*) ya da kontrol etmek istediğiniz kullanıcının kullanıcı kimliği: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * Görmek için **parola her zaman geçerli olsun** ayar tüm kullanıcılar için aşağıdaki cmdlet'i çalıştırın: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
 
 ### <a name="set-a-password-to-expire"></a>Parola süresi dolacak şekilde ayarlayın

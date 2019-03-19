@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 798c7e4b5efa3ca016f5e1b7e5c0967599fa6436
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 21fcc6ae09718ffbb22e1d438926586dd3cde71d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993121"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182668"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Nasıl yapılır: Bir varlık indirme ile teslim etme  
 Bu makalede, medya varlıklar Media Services'e sunmaya yönelik seçenekler açıklanmaktadır. Çok sayıda uygulama senaryolarında Media Services içerik teslim edebilirsiniz. Kodlama sonra oluşturulan medya varlıkları veya akış Bulucusu kullanarak erişebilir. Bir içerik teslim ağı (CDN) kullanarak, Gelişmiş performans ve ölçeklenebilirlik için içerik sunabilirsiniz.

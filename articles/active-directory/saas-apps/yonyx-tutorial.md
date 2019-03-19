@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d08b1f3889136fadee68b3aa95d879b0495bddb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fce7653770d0fb3134f266137e167125b9161865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198428"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097602"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Öğretici: Azure Active Directory tümleştirmesiyle Yonyx etkileşimli kılavuzları
 
@@ -174,8 +174,8 @@ Bu bölümün amacı, Britta Simon Yonyx etkileşimli yönergelerinde adlı bir 
 
 Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Yonyx etkileşimli kılavuzları erişme denemesi sırasında oluşturulur.
 
->[!NOTE]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, Yonyx etkileşimli kılavuzları destek ekibi ile iletişime geçmeniz <mailto:support@yonyx.com>. 
+> [!NOTE]
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, Yonyx etkileşimli kılavuzları destek ekibi ile iletişime geçmeniz <mailto:support@yonyx.com>. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

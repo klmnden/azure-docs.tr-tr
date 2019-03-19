@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90e6f922c6851d5ed3b564f202e0b87b231f2f25
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: a925b13e6aed55f13bb38df53f2d6063b0948730
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730538"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838247"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Öğretici: EKincare ile Azure Active Directory Tümleştirme
 
@@ -125,6 +125,7 @@ Azure AD çoklu oturum açma ile eKincare yapılandırmak için aşağıdaki ad�
     | EmployeeID | *User.extensionattribute1* |
     | organizationid | *"uniquevalue"* |
     | Kuruluş adı | *User.CompanyName* |
+    
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
     ![image](common/new-save-attribute.png)
@@ -179,7 +180,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

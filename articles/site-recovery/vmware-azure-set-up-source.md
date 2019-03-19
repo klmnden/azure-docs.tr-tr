@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 5282f2e153ec2f1304bec9aadaf8fab88961edd9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 536b7ed21e7dd54fcbea97951330b08925961713
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443635"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884974"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Azure'a çoğaltma için VMware için kaynak ortamı ayarlama
 
@@ -24,7 +24,7 @@ Bu makalede, VMware Vm'lerini Azure'a çoğaltma için kaynak şirket içi ortam
 Sahip olduğunuz varsayılır:
 
 - Dağıtımınızı yardımıyla planlı [Azure Site Recovery dağıtım Planlayıcısı](site-recovery-deployment-planner.md). Bu, istenen kurtarma noktası hedefini (RPO) karşılayacak günlük veri değişikliği hızınıza, göre yeterli bant genişliğini, size yardımcı olur.
-- [Kaynaklarını ayarlama](tutorial-prepare-azure.md) içinde [Azure portalında](http://portal.azure.com).
+- [Kaynaklarını ayarlama](tutorial-prepare-azure.md) içinde [Azure portalında](https://portal.azure.com).
 - [Şirket içi VMware ayarlama](vmware-azure-tutorial-prepare-on-premises.md), otomatik bulma için adanmış bir hesap da dahil olmak üzere.
 
 ## <a name="choose-your-protection-goals"></a>Koruma hedeflerinizi seçme
@@ -58,18 +58,18 @@ Kesintisiz çoğaltma ve bağlantı sorunları önlemek için virüsten koruma y
 - C:\Program Files\Microsoft Azure Site Recovery sağlayıcısı
 - C:\Program Files\Microsoft Azure Site Recovery Yapılandırma Yöneticisi 
 - C:\Program Files\Microsoft Azure Site Recovery hata koleksiyon aracı 
- - C:\thirdparty
- - C:\Temp
- - C:\strawberry
- - C:\ProgramData\MySQL
- - C:\Program Files (x86)\MySQL
- - C:\ProgramData\ASR
- - C:\ProgramData\Microsoft Azure Site kurtarma
- - C:\ProgramData\ASRLogs
- - C:\ProgramData\ASRSetupLogs
- - C:\ProgramData\LogUploadServiceLogs
- - C:\inetpub
- - ASR sunucusu yükleme dizininde. Örneğin: E:\Program dosyaları (x86) \Microsoft Azure Site kurtarma
+  - C:\thirdparty
+  - C:\Temp
+  - C:\strawberry
+  - C:\ProgramData\MySQL
+  - C:\Program Files (x86)\MySQL
+  - C:\ProgramData\ASR
+  - C:\ProgramData\Microsoft Azure Site kurtarma
+  - C:\ProgramData\ASRLogs
+  - C:\ProgramData\ASRSetupLogs
+  - C:\ProgramData\LogUploadServiceLogs
+  - C:\inetpub
+  - ASR sunucusu yükleme dizininde. Örneğin: E:\Program dosyaları (x86) \Microsoft Azure Site kurtarma
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>Virüsten koruma yazılımı üzerinde genişleme etkinse sunucusu/ana hedef işleme
 

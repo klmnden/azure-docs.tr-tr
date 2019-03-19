@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 7b01ee726d8417e34645e743497a02455fbe709c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9baeb1c21252f8b7f7b24debde48108532d9865c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453256"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118315"
 ---
 # <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Öğretici: Azure Notification Hubs ve Bing uzamsal veri ile konum temelli bildirimler gönderme
 
@@ -63,12 +63,12 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 
     ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. **Veri kaynağını karşıya yükleyin** sayfasında aşağıdaki eylemleri yapın:
-    1. **Veri biçimi** için **kanal**’ı seçin.
-    2. Göz atın ve seçim `NotificationHubGeofence.pipe` önceki adımda oluşturulan dosya.
-    3. **Karşıya Yükle** düğmesini seçin.
+   1. **Veri biçimi** için **kanal**’ı seçin.
+   2. Göz atın ve seçim `NotificationHubGeofence.pipe` önceki adımda oluşturulan dosya.
+   3. **Karşıya Yükle** düğmesini seçin.
 
-    > [!NOTE]
-    > **Sorgu Anahtarı**'ndan farklı olan **Ana Anahtar** için yeni bir anahtar belirtmeniz istenebilir. Pano aracılığıyla yeni bir anahtar oluşturun ve veri kaynağını karşıya yükleme sayfasını yenileyin.
+      > [!NOTE]
+      > **Sorgu Anahtarı**'ndan farklı olan **Ana Anahtar** için yeni bir anahtar belirtmeniz istenebilir. Pano aracılığıyla yeni bir anahtar oluşturun ve veri kaynağını karşıya yükleme sayfasını yenileyin.
 6. Veri dosyasını karşıya yükledikten sonra, veri kaynağını yayımladığınızdan emin olmanız gerekir. Daha önce yaptığınız gibi **Veri kaynakları** -> **Veri Kaynaklarını Yönet**’i seçin.
 7. Listeden veri kaynağınızı seçin ve **Eylemler** sütunundaki **Yayımla** seçeneğini belirleyin.
 
@@ -112,11 +112,11 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
     ```
     Çalıştırmak için aşağıdaki parametreleri belirtin:
 
-    * **Veri Kaynağı Kimliği** ve **Veri Kaynağı Adı**: Veri kaynakları, Bing Haritalar API'sinde konumlar ve çalışma saatleri gibi kümelenmiş çeşitli meta veriler içerir.  
-    * **Varlık Adı**: Bildirim için bir başvuru noktası olarak kullanmak istediğiniz varlık.
-    * **Bing Haritalar API'si Anahtarı**: Daha önce Bing Geliştirme Merkezi hesabı oluşturduğunuzda edindiğiniz anahtardır.
+   * **Veri Kaynağı Kimliği** ve **Veri Kaynağı Adı**: Veri kaynakları, Bing Haritalar API'sinde konumlar ve çalışma saatleri gibi kümelenmiş çeşitli meta veriler içerir.  
+   * **Varlık Adı**: Bildirim için bir başvuru noktası olarak kullanmak istediğiniz varlık.
+   * **Bing Haritalar API'si Anahtarı**: Daha önce Bing Geliştirme Merkezi hesabı oluşturduğunuzda edindiğiniz anahtardır.
 
-    Veri kaynağınız hazır olduktan sonra UWP uygulaması üzerinde çalışmaya başlayabilirsiniz.
+     Veri kaynağınız hazır olduktan sonra UWP uygulaması üzerinde çalışmaya başlayabilirsiniz.
 2. Uygulamanız için konum hizmetlerini etkinleştirin. **Çözüm Gezgini**'nde `Package.appxmanifest` dosyasını açın.
 
     ![](./media/notification-hubs-geofence/vs-package-manifest.png)

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4dcf482e02d38e18b7b86fc57565a47510627d44
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e470f9d6f33e8b534be22132881f4806bed85f5d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652873"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078372"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Öğretici: Apache Spark yapılandırılmış akışını HDInsight üzerinde Apache Kafka ile kullanma
 
@@ -131,12 +131,12 @@ Bir Azure Sanal Ağı oluşturmak ve sonra bunun içinde Kafka ve Spark kümeler
 
     Bu şablon aşağıdaki kaynakları oluşturur:
 
-    * HDInsight 3.6 kümesi üzerinde bir Kafka.
-    * HDInsight 3.6 kümesi üzerinde bir Spark 2.2.0.
-    * HDInsight kümeleri içeren bir Azure Sanal Ağı.
+   * HDInsight 3.6 kümesi üzerinde bir Kafka.
+   * HDInsight 3.6 kümesi üzerinde bir Spark 2.2.0.
+   * HDInsight kümeleri içeren bir Azure Sanal Ağı.
 
-    > [!IMPORTANT]  
-    > Bu öğreticide kullanılan yapılandırılmış akış not defteri için HDInsight 3.6 üzerinde Spark 2.2.0 gerekir. HDInsight üzerinde Spark’ın daha önceki bir sürümünü kullanıyorsanız, not defterini kullanırken hatalarla karşılaşırsınız.
+     > [!IMPORTANT]  
+     > Bu öğreticide kullanılan yapılandırılmış akış not defteri için HDInsight 3.6 üzerinde Spark 2.2.0 gerekir. HDInsight üzerinde Spark’ın daha önceki bir sürümünü kullanıyorsanız, not defterini kullanırken hatalarla karşılaşırsınız.
 
 2. **Özelleştirilmiş şablon** bölümündeki girişleri doldurmak için aşağıdaki bilgileri kullanın:
 

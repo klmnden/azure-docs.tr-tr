@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: bb2ebeedb1b34288a3d402ffdf4df80aa3be83cd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1102a8c80b0040c7044d64c674d956d339238623
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154084"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086658"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Red Hat Enterprise Linux 7 sanal makinesini yönetilen bir etki alanına ekleme
 Bu makalede, bir Red Hat Enterprise Linux (RHEL) 7 sanal makinesini bir Azure AD Domain Services yönetilen etki alanına ekleme işlemini göstermektedir.
@@ -86,12 +86,11 @@ Gerekli paketleri, Linux sanal makinesinde yüklü olan, sonraki görev sanal ma
     sudo realm discover CONTOSO100.COM
     ```
 
-     > [!NOTE]
-     > **Sorun giderme:** Varsa *bölge bulma* yönetilen etki alanınıza bulamıyor:
-     * Etki alanı (try ping) sanal makineden erişilebilir olduğundan emin olun.
-     * Sanal makinenin yönetilen etki alanında kullanılabilir olduğu aynı sanal ağa gerçekten dağıtılmış olduğunu kontrol edin.
-     * Sanal ağın DNS sunucusu ayarlarını yönetilen etki alanının etki alanı denetleyicilerine işaret edecek şekilde güncelleştirdiyseniz denetleyin.
-     >
+   > [!NOTE]
+   > **Sorun giderme:** Varsa *bölge bulma* yönetilen etki alanınıza bulamıyor:
+   >   * Etki alanı (try ping) sanal makineden erişilebilir olduğundan emin olun.
+   >   * Sanal makinenin yönetilen etki alanında kullanılabilir olduğu aynı sanal ağa gerçekten dağıtılmış olduğunu kontrol edin.
+   >   * Sanal ağın DNS sunucusu ayarlarını yönetilen etki alanının etki alanı denetleyicilerine işaret edecek şekilde güncelleştirdiyseniz denetleyin.
 
 2. Kerberos başlatın. SSH terminalinizde şu komutu yazın:
 

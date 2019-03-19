@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: adc85514c0f4e2f7245a7db6dffbe6b9dc5e6d42
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6e27d00e4b12ade82cfde6b3a4927edc7d69798a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435200"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075825"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>Apache Hadoop Linux tabanlı HDInsight (SSH) ile Apache Mahout kullanarak film önerileri oluşturma
 
@@ -170,15 +170,15 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     Bu komut, kullanıcı kimliği 4 için oluşturulan öneriler bakar.
 
-    * **Kullanıcı ratings.txt** derecelendirilmiş olmasa filmler almak için kullanılır.
+   * **Kullanıcı ratings.txt** derecelendirilmiş olmasa filmler almak için kullanılır.
 
-    * **Moviedb.txt** filmler adlarını almak için kullanılır.
+   * **Moviedb.txt** filmler adlarını almak için kullanılır.
 
-    * **Recommendations.txt** bu kullanıcı için film önerileri almak için kullanılır.
+   * **Recommendations.txt** bu kullanıcı için film önerileri almak için kullanılır.
 
      Bu komutun çıktısı şu metne benzer:
 
-        Yedi yıl içinde (1997) Tibet puan 5.0 = Indiana Jones ve son Crusade (1989), puan 5.0 = Jaws (1975) puan 5.0 = algılama ve Sensibility (1995), puan 5.0 = bağımsızlığı gün (ıd4) (1996) puanı My en iyi arkadaşınızın 5.0 = (1997'den) Düğün puan 5.0 = Jerry Maguire (1996) puan 5.0 = Scream 2 (1997), puan = 5.0, sonlandırma süresi bir (1996), puan 5.0 =
+       Yedi yıl içinde (1997) Tibet puan 5.0 = Indiana Jones ve son Crusade (1989), puan 5.0 = Jaws (1975) puan 5.0 = algılama ve Sensibility (1995), puan 5.0 = bağımsızlığı gün (ıd4) (1996) puanı My en iyi arkadaşınızın 5.0 = (1997'den) Düğün puan 5.0 = Jerry Maguire (1996) puan 5.0 = Scream 2 (1997), puan = 5.0, sonlandırma süresi bir (1996), puan 5.0 =
 
 ## <a name="delete-temporary-data"></a>Geçici verileri silme
 

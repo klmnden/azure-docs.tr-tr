@@ -1,5 +1,5 @@
 ---
-title: Dil desteği - konuşma tanıma hizmeti API'si
+title: Dil desteği - konuşma Hizmetleri
 titleSuffix: Azure Cognitive Services
 description: Azure konuşma Hizmetleri birlikte konuşma çevirisi, Konuşmayı metne ve metin okuma dönüştürme için çok sayıda dilleri destekler. Bu makalede, hizmet tarafından dil desteği kapsamlı bir listesini sağlar.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 22916a188c79d5894faf48dd71d6ab17a582cf8b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 927781c61a9ca2a1ef23db47294468dad7140dff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878043"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885360"
 ---
-# <a name="language-and-region-support-for-speech-service-api"></a>Konuşma hizmeti API'sini dil ve bölge desteği
+# <a name="language-and-region-support-for-the-speech-services"></a>Konuşma Hizmetleri dil ve bölge desteği
 
 Farklı diller için farklı bir konuşma hizmetleri işlevleri desteklenir. Aşağıdaki tablolarda, dil desteği özetler.
 
@@ -179,7 +179,7 @@ zh-TW | Çince (Tayvan)|Kadın | "Microsoft Server Konuşma metin konuşma ses (
 Ses özelleştirme bizim için İngilizce (en-US), ana kara Çince (zh-CN), Fransızca (fr-FR), Almanca (de-DE) ve İtalyanca (it-IT) kullanılabilir.
 
 > [!NOTE]
-> Almanca ve İtalyanca üslup eğitimi Fransızca, 2. 000 + ile bir veri kümesi konuşma başlatır. Çince-İngilizce dilli modelleri da bir ilk konuşma 2000'den fazla veri kümesi ile desteklenir.
+> Fransızca, Almanca ve İtalyanca üslup Eğitimi, bir veri kümesi ile 2000'den fazla konuşma başlatır. Çince-İngilizce dilli modelleri da bir ilk konuşma 2000'den fazla veri kümesi ile desteklenir.
 
 ## <a name="speech-translation"></a>Konuşma çevirisi
 
@@ -255,5 +255,5 @@ Ses özelleştirme bizim için İngilizce (en-US), ana kara Çince (zh-CN), Fran
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
+* [Konuşma Tanıma Hizmetleri deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
 * [C# ' de Konuşma tanıma öğrenin](quickstart-csharp-dotnet-windows.md)

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/11/2018
-ms.openlocfilehash: 9bd601aee87ab0776069c80bfdeffb70b06c3c86
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 93f2ac284931ba664e0965e537e515c824e6f7a6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073892"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092302"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Jenkins ve mavi/yeşil dağıtım düzenini kullanarak Azure Kubernetes Service'e (AKS) dağıtım yapma
 
@@ -117,12 +117,12 @@ Mavi/yeşil dağıtımı AKS'de el ile veya önceden kopyalanan örnekte sağlan
 #### <a name="set-up-the-kubernetes-cluster-via-the-sample-setup-script"></a>Kubernetes kümesini örnek kurulum betiği ile ayarlama
 1. Aşağıdaki yer tutucuları ortamınız için uygun değerler ile değiştirerek **deploy/aks/setup/setup.sh** dosyasını düzenleyin: 
 
-    - **&lt;kaynak-grubu-adınız>**
-    - **&lt;kubernetes-kümesi-adınız>**
-    - **&lt;konumunuz>**
-    - **&lt;dns-adı-sonekiniz>**
+   - **&lt;kaynak-grubu-adınız>**
+   - **&lt;kubernetes-kümesi-adınız>**
+   - **&lt;konumunuz>**
+   - **&lt;dns-adı-sonekiniz>**
 
-    ![Bazı yer tutucuları vurgulanmış olan bir bash setup.sh betiğinin ekran görüntüsü](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
+     ![Bazı yer tutucuları vurgulanmış olan bir bash setup.sh betiğinin ekran görüntüsü](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
 
 1. Kurulum betiğini çalıştırın.
 

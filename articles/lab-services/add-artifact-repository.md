@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 85763a895b61d184db033c09a413cc897ef6eaa3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 42b59c8da9e66b0f749d067e3df867911c7108e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551611"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106840"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>DevTest Labs Laboratuvarınızı yapıt deposu ekleme
 DevTest Labs, VM oluşturma veya VM oluşturulduktan sonra sırada bir sanal makineye eklenecek bir yapıt belirtmenizi sağlar. Bu yapıt, bir aracı veya VM üzerinde yüklemek istediğiniz bir uygulama olabilir. Yapıtlar, GitHub veya VSTS Git deposundan yüklenen bir JSON dosyasında tanımlanır. 
@@ -74,11 +74,11 @@ Bu bölümde, Azure portalında bir laboratuvar yapıt deposuna eklemek için ad
 
     ![Depo Ekle düğmesi](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. Üzerinde **depoları** sayfasında, aşağıdaki bilgileri belirtin:
-  1. **Ad**. Depo için bir ad girin.
-  2. **Git kopya URL'si**. Daha önce kopyaladığınız Azure DevOps Services veya GitHub Git HTTPS kopya URL girin.
-  3. **Dal**. Tanımlarınızı almak için dal girin.
-  4. **Kişisel erişim belirteci**. Azure DevOps Services veya GitHub daha önce aldığınız kişisel erişim belirteci girin.
-  5. **Klasör yolları**. Yapı ya da Resource Manager şablonu tanımlarını içeren kopya URL göreli en az bir klasör yolu girin. Bir alt belirttiğinizde, klasör yoluna eğik çizgi dahil emin olun.
+   1. **Ad**. Depo için bir ad girin.
+   2. **Git kopya URL'si**. Daha önce kopyaladığınız Azure DevOps Services veya GitHub Git HTTPS kopya URL girin.
+   3. **Dal**. Tanımlarınızı almak için dal girin.
+   4. **Kişisel erişim belirteci**. Azure DevOps Services veya GitHub daha önce aldığınız kişisel erişim belirteci girin.
+   5. **Klasör yolları**. Yapı ya da Resource Manager şablonu tanımlarını içeren kopya URL göreli en az bir klasör yolu girin. Bir alt belirttiğinizde, klasör yoluna eğik çizgi dahil emin olun.
 
         ![Depoları alanı](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 6. **Kaydet**’i seçin.

@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 99b4712373423d30dc83408cc80eccc93b342c10
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5073d3ab967c4c4e1b90636c247839875a6aa0d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086318"
 ---
 # <a name="how-to-use-version-tagging"></a>Sürüm etiketleme kullanma
 
@@ -67,9 +67,9 @@ Sürüm 1 için tek bir eylem oluşturacağız.
 
 Şimdi Biz bu "Sürüm" modelin 1 etiketlemeniz.
 
-4. Sol bölmede 'ayarları "'nı tıklatın ve ardından tıklayın ![](../media/tutorial18_version_tags.PNG)açığa çıkarmak için"Sürüm etiketleri"simgesi `New Tag` düğmesine tıklamamalıdır tıklatmanız gerekir.
+1. Sol bölmede 'ayarları "'nı tıklatın ve ardından tıklayın ![](../media/tutorial18_version_tags.PNG)açığa çıkarmak için"Sürüm etiketleri"simgesi `New Tag` düğmesine tıklamamalıdır tıklatmanız gerekir.
     - "Sürüm 1" olarak adlandırın
-4. İçinde "Live etiket" seçin, açılan "sürüm 1".  
+1. İçinde "Live etiket" seçin, açılan "sürüm 1".  
     - Artık bu Botunu kullanarak kanalları "1. sürümünü" Modelimizi kullanacaktır.
     - Varlıklar, Eylemler ve eğitme iletişim kutuları bu sürüm 1 modelin artık değiştirilebilir.
     - "Etiket düzenleme" olarak "sürümü 1" seçerseniz yalnızca Model görüntüleme ve düzenleme olmadan mümkün olacaktır.

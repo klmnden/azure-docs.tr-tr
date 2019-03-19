@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: ab57e3cd99d015343330f4d9c558b9af729dcd5c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 08a4f3c20d0ede93e139329b5f0039de0edeebf5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437828"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008443"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Öğretici: Geliştirme ve sanal cihazınız için bir Node.js IOT Edge modülü dağıtma
 
@@ -61,14 +61,14 @@ Kapsayıcı kayıt defteri zaten yoksa, azure'da yeni bir tane oluşturmak için
 
 2. Kapsayıcı kayıt defterinizi oluşturmak için aşağıdaki değerleri girin:
 
-   | Alan | Değer | 
+   | Alan | Değer |
    | ----- | ----- |
    | Kayıt defteri adı | Benzersiz bir ad girin. |
    | Abonelik | Açılan listeden bir abonelik seçin. |
    | Kaynak grubu | IoT Edge hızlı başlangıçlarında ve öğreticilerinde oluşturduğunuz tüm test kaynakları için aynı kaynak grubunu kullanmanızı öneririz. Örneğin, **IoTEdgeResources**. |
    | Konum | Size yakın bir konum seçin. |
    | Yönetici kullanıcı | **Etkinleştir**'i seçin. |
-   | SKU | **Temel**'i seçin. | **Terminal**
+   | SKU | **Temel**'i seçin. |
 
 5. **Oluştur**’u seçin.
 
@@ -197,11 +197,11 @@ Her şablonda, **tempSensor** modülündeki sensör simülasyon verilerini alıp
 11. Dağıtım bildirimine NodeModule modül ikizini ekleyin. Aşağıdaki JSON içeriğini `moduleContent` bölümünün en altına, `$edgeHub` modül ikizinin arkasına ekleyin: 
 
    ```json
-       "NodeModule": {
-           "properties.desired":{
-               "TemperatureThreshold":25
-           }
-       }
+      "NodeModule": {
+          "properties.desired":{
+              "TemperatureThreshold":25
+          }
+      }
    ```
 
    ![Modül ikizi için dağıtım şablonu Ekle](./media/tutorial-node-module/module-twin.png)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
-ms.openlocfilehash: 1be635826edbb60d50b06cc7c529e32b6280390b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d0c8c01ae0d87c944922dece74e13f00879b02f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249396"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010256"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Güvenli bir şekilde yüklemek ve StorSimple Cihazınızı çalışır
 ![Uyarı simgesi](./media/storsimple-safety/IC740879.png)
@@ -145,7 +145,7 @@ Güç kaynağı, geçici, kısa vadeli güç kesintileri sırasında bellek içe
 
 ![Fark simgesi](./media/storsimple-safety/IC740881.png) **dikkat edin:**
 
-Sevkiyat ya da aksi takdirde pil uçakla taşıma adresinde IATA Lithium pil rehberi belgesi izleyin [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+Sevkiyat ya da aksi takdirde pil uçakla taşıma adresinde IATA Lithium pil rehberi belgesi izleyin [https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](https://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
 Bu güvenlik uyarıları gözden geçirdikten sonra sonraki adımlara Cihazınızı kutusundan çıkarma, rafa ve cihazınızın kablolarını bağlama üzeresiniz.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8df015465322c39d6e319390c2cf98a9c76e10da
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 675ce4f9b6b34f98c81ad85f03a7c7cb178f1d6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447515"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893144"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brandfolder"></a>Öğretici: Brandfolder ile Azure Active Directory Tümleştirme
 
@@ -140,7 +140,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: f20cd877e4cc53490016d251c5bdb343ab0cb4b0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: acec53a99fd6d809dc01ce12b02987d66579b0c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250342"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118298"
 ---
 # <a name="manage-role-based-access-control"></a>Rol tabanlı erişim denetimini yönetme
 
@@ -41,8 +41,8 @@ Azure Stack'te bir kullanıcı, okuyucu, sahibi veya katkıda bulunan her bir ab
 
 ## <a name="set-access-permissions-for-a-universal-group"></a>Bir evrensel grubu için erişim izinlerini ayarlayın 
 
-> [!Note]  
-Active Directory yalnızca şunlara Hizmetleri (AD FS) federe.
+> [!Note]
+> Active Directory yalnızca şunlara Hizmetleri (AD FS) federe.
 
 1. Yönetmek istediğiniz kaynağa sahip izinlerine sahip bir hesapla oturum açın.
 2. Kaynak dikey penceresinde **erişim** simgesi ![](media/azure-stack-manage-permissions/image1.png).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 895499865fb1d47669fcca2aeaa571b2fb79237b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b4fd3d7cd1d25415ba5938586aee448bdc512aa7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438729"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100471"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Ekleme, değiştirme veya bir sanal ağ alt ağı Sil
 
@@ -52,7 +52,7 @@ Oturum açın ya da Azure ile bağlandığınız hesabı atanmalıdır [ağ Kat�
 
        Hizmet uç noktasını kaldırmak için hizmet uç noktası için kaldırmak istediğiniz hizmeti seçimini kaldırın. Hizmet uç noktaları ve bunlar etkinleştirilebilir için hizmetler hakkında daha fazla bilgi için bkz. [sanal ağ hizmet uç noktalarına genel bakış](virtual-network-service-endpoints-overview.md). Bir hizmet için hizmet uç noktası için etkinleştirdiğinizde, ayrıca hizmeti ile oluşturulan bir kaynak için alt ağ için ağ erişimini etkinleştirmeniz gerekir. Örneğin, hizmet uç noktası için etkinleştirirseniz *Microsoft.Storage*, ağ erişimi için ağ erişimi vermek istediğiniz tüm Azure depolama hesaplarına da etkinleştirmeniz gerekir. Hizmet uç noktası için etkin bir alt ağ erişimini etkinleştirme hakkında daha fazla ayrıntı için hizmet uç noktası için etkin hizmetin belgelerine bakın.
 
-    Hizmet uç noktası için bir alt ağ etkin olduğunu doğrulamak için görüntüleme [geçerli rotalar](diagnose-network-routing-problem.md) alt ağdaki herhangi bir ağ arabirimi için. Bir uç nokta yapılandırıldığında, gördüğünüz bir *varsayılan* hizmetin adres ön eklerini ve nexthoptype değeri, yol **VirtualNetworkServiceEndpoint**. Yönlendirme hakkında daha fazla bilgi için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
+     Hizmet uç noktası için bir alt ağ etkin olduğunu doğrulamak için görüntüleme [geçerli rotalar](diagnose-network-routing-problem.md) alt ağdaki herhangi bir ağ arabirimi için. Bir uç nokta yapılandırıldığında, gördüğünüz bir *varsayılan* hizmetin adres ön eklerini ve nexthoptype değeri, yol **VirtualNetworkServiceEndpoint**. Yönlendirme hakkında daha fazla bilgi için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
 6. Seçtiğiniz sanal ağ alt ağı eklemek için seçin **Tamam**.
 
 **Komutları**

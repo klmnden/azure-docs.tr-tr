@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: cfefa8a1bfee03959d0f3b077d9915a6badb1ffd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fd680b00feb8a75dfec952d7211554100fca00d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988094"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075075"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer pencere öğeleri uygulamalarınıza ekleyin
 
@@ -45,7 +45,7 @@ Pencere öğesi temel URL, sürüm 2 ile başlayarak, hesabın bölgesine içeri
 |t|Başlangıçtan itibaren saniye sayısı|Yürütücünün dosyayı zamanda belirtilen noktadan itibaren yürütmeye başlamasını sağlar.<br/>Örnek: t=60|
 |captions|Dil kodu|Pencere öğesi yüklenirken açıklamalı alt yazıyı belirtilen dilde getirerek açıklamalı alt yazı menüsünde mevcut olmasını sağlar.<br/>Örnek: captions=en-US|
 |showCaptions|Bir boole değeri|Yürütücünün etkin olan açıklamalı alt yazıları yüklemesini sağlar.<br/>Örnek: showCaptions=true|
-|type||Bir ses yürütücüsü dış görünümünü etkinleştirir (video bölümü kaldırılır).<br/>Örnek: type=audio|"
+|type||Bir ses yürütücüsü dış görünümünü etkinleştirir (video bölümü kaldırılır).<br/>Örnek: type=audio|
 |autoplay|Bir boole değeri|Yürütücünün, yüklendiğinde videoyu oynatmaya başlatıp başlatmayacağını gösterir (varsayılan: true).<br/>Örnek: autoplay=false|
 |language|Dil kodu|Yürütücünün dilini denetler (varsayılan: en-US)<br/>Örnek: language=de-DE|
 

@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
 ms.subservice: common
-ms.openlocfilehash: 51ee5362a01a846378228a42343cc0e2b9f72497
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 13ddb4d64908421e999174623003acd2fb24024d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470221"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014899"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Azure depolama kaynaklarını C++ dilinde listesi
 Liste, Azure depolama ile birçok geliştirme senaryoları için anahtar işlemlerdir. Bu makalede, en verimli şekilde listenin C++ için Microsoft Azure depolama istemci Kitaplığı'ndaki sağlanan API'leri kullanarak Azure Depolama'daki nesnelerini listeleme açıklar.
 
 > [!NOTE]
-> Bu kılavuzda hedefleyen C++ sürümü için Azure depolama istemci kitaplığı aracılığıyla kullanılabilir olan 2.x [NuGet](http://www.nuget.org/packages/wastorage) veya [GitHub](https://github.com/Azure/azure-storage-cpp).
+> Bu kılavuzda hedefleyen C++ sürümü için Azure depolama istemci kitaplığı aracılığıyla kullanılabilir olan 2.x [NuGet](https://www.nuget.org/packages/wastorage) veya [GitHub](https://github.com/Azure/azure-storage-cpp).
 > 
 > 
 
@@ -34,7 +34,7 @@ Depolama istemcisi kitaplığı çeşitli Azure storage'da listesi veya sorgusun
 Bu yöntemlerin her biri farklı aşırı yüklemeler farklı senaryolar için kullanma gösterilmektedir.
 
 ## <a name="asynchronous-versus-synchronous"></a>Zaman uyumlu ve zaman uyumsuz
-C++ için depolama istemci kitaplığı üzerine inşa edildiğinden [C++ REST Kitaplığı](https://github.com/Microsoft/cpprestsdk), kendiliğinden zaman uyumsuz işlemleri kullanarak destekliyoruz [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Örneğin:
+C++ için depolama istemci kitaplığı üzerine inşa edildiğinden [C++ REST Kitaplığı](https://github.com/Microsoft/cpprestsdk), kendiliğinden zaman uyumsuz işlemleri kullanarak destekliyoruz [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Örneğin:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -194,7 +194,7 @@ C++ için Azure depolama ve istemci Kitaplığı hakkında daha fazla bilgi içi
 * [BLOB depolama alanından C++ kullanma](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Tablo depolama'yı C++ kullanma](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Kuyruk Depolama'yı C++ kullanma](../storage-c-plus-plus-how-to-use-queues.md)
-* [C++ API belgeleri için Azure depolama istemci kitaplığı.](http://azure.github.io/azure-storage-cpp/)
+* [C++ API belgeleri için Azure depolama istemci kitaplığı.](https://azure.github.io/azure-storage-cpp/)
 * [Azure Depolama Ekibi Blog’u](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Azure Depolama Belgeleri](https://azure.microsoft.com/documentation/services/storage/)
 

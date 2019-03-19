@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 5ccfef8a6ad367e8fac100217713cd323341a535
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53183480"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833510"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Azure'da barındırılan VM yapılandırma
 
@@ -28,7 +28,8 @@ Bu makalede, boyut, güncelleştirme ve bir Azure üzerinde barındırılan sana
 
 ## <a name="sizing-the-vhds"></a>VHD'ler boyutlandırma
 
-<!--TD: Check if the following assertion is true. I didn't understand the original content. --> Bir işletim sistemi (ve isteğe bağlı olarak ek hizmetler) ile önceden yapılandırılmış sanal makinelerin seçtiniz sonra standart bir Azure VM boyutu açıklandığı zaten seçtiniz [sanal makine SKU'ları sekmesini](./cpp-skus-tab.md).  Çözümünüzü önceden yapılandırılmış bir işletim sistemi ile başlayarak önerilen bir yaklaşımdır.  Bir işletim sistemi elle yüklüyorsanız, ancak daha sonra birincil VHD'nizi VM görüntünüzdeki boyut gerekir:
+<!--TD: Check if the following assertion is true. I didn't understand the original content. -->
+Bir işletim sistemi (ve isteğe bağlı olarak ek hizmetler) ile önceden yapılandırılmış sanal makinelerin seçtiniz sonra standart bir Azure VM boyutu açıklandığı zaten seçtiniz [sanal makine SKU'ları sekmesini](./cpp-skus-tab.md).  Çözümünüzü önceden yapılandırılmış bir işletim sistemi ile başlayarak önerilen bir yaklaşımdır.  Bir işletim sistemi elle yüklüyorsanız, ancak daha sonra birincil VHD'nizi VM görüntünüzdeki boyut gerekir:
 
 - Windows için işletim sistemi VHD'si 127-128 GB olarak oluşturulması gereken sabit biçimli VHD. 
 - 30-50 GB olarak Linux için bu VHD oluşturulması gereken sabit biçimli VHD.
@@ -44,7 +45,7 @@ Veri diskleri en fazla 1 TB büyüklüğünde olabilir. Kendi boyutuna karar ver
 
 Windows Server 2016 için çalıştırma **Güncelleştirmeleri denetle** komutu.  Aksi takdirde, daha eski Windows sürümleri için bkz. [güncelleştirme Windows Update aracılığıyla alma](https://support.microsoft.com/help/3067639/how-to-get-an-update-through-windows-update).  Windows update son kritik ve önemli güvenlik güncelleştirmelerini otomatik olarak yükler.
 
-Linux dağıtımları için güncelleştirmeleri yaygın olarak indirilir ve komut satırı aracını veya grafik programı yüklenir.  Örneğin, Ubuntu Linux sağlar [apt-get](http://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) komut ve [güncelleştirme Yöneticisi](http://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) işletim sistemini güncelleştirmek için aracı.
+Linux dağıtımları için güncelleştirmeleri yaygın olarak indirilir ve komut satırı aracını veya grafik programı yüklenir.  Örneğin, Ubuntu Linux sağlar [apt-get](https://manpages.ubuntu.com/manpages/cosmic/man8/apt-get.8.html) komut ve [güncelleştirme Yöneticisi](https://manpages.ubuntu.com/manpages/cosmic/man8/update-manager.8.html) işletim sistemini güncelleştirmek için aracı.
 
 
 ## <a name="perform-additional-security-checks"></a>Ek güvenlik denetimleri gerçekleştirme
@@ -72,7 +73,7 @@ Windows işletim sistemi diskleri ile genelleştirilmiş [sysprep aracını](htt
 > [!WARNING]
 >  Sysprep'i çalıştırın, sonra güncelleştirmeleri otomatik olarak çalıştırılabilir olduğundan VM'nin dağıtıldıktan kadar açmak gerekir.  Bu kapatma VHD işletim sistemine özgü örneği değişiklik yapmasını gerçekleştirilen sonraki güncelleştirmelerle kaçınır veya hizmetleri yüklendi.
 
-[Bir VHD genelleştirmek için adımları] Sysprep'i çalıştırma hakkında daha fazla bilgi için bkz ()https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+Sysprep çalıştırma hakkında daha fazla bilgi için bkz. [VHD genelleştirmek için adımları](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
 
 ### <a name="linux"></a>Linux
 

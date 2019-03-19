@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 2e2a388b399ff34e36ab65a734593704cf274dc0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 9cfec02e2ea3496589474e61f583fb840a70f78d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312095"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881338"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -183,22 +183,22 @@ Uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları
 
 | Ayar      | Açıklama                            |
 | ------------ | -------------------------------------- |
-| **Isencrypted** | Ayarlandığında **true**, tüm değerlerin bir yerel makine anahtarı kullanılarak şifrelenir. İle kullanılan `func settings` komutları. Varsayılan değer **false**. |
-| **Değerler** | Uygulama ayarları ve yerel olarak çalıştırırken kullanılan bağlantı dizeleri koleksiyonu. Bu değerler, azure'daki işlev uygulamanızın uygulama ayarlarında gibi karşılık **AzureWebJobsStorage** ve **AzureWebJobsDashboard**. Birçok tetikleyiciler ve bağlamalar gibi bir bağlantı dizesi uygulama ayarına başvuran bir özelliği olan **bağlantı** için [Blob Depolama tetikleyicisi](functions-bindings-storage-blob.md#trigger---configuration). Tür özellikleri için tanımlanan bir uygulama ayarı ihtiyacınız **değerleri** dizisi. <br/>**AzureWebJobsStorage** dışındaki HTTP Tetikleyicileri için gerekli uygulama ayardır. Olduğunda [Azure storage öykünücüsü](../storage/common/storage-use-emulator.md) ayarlayabileceğiniz yerel olarak yüklü **AzureWebJobsStorage** için `UseDevelopmentStorage=true` ve temel araçları öykünücüsü kullanır. Geliştirme sırasında kullanışlıdır ancak gerçek depolama bağlantısı dağıtımdan önce test etmeniz gerekir. |
-| **Ana Bilgisayar** | Bu bölümdeki ayarlarını yerel olarak çalıştırılırken işlevleri ana bilgisayar işlemi özelleştirin. |
-| **LocalHttpPort** | Yerel işlevler ana çalıştırırken kullanılan varsayılan bağlantı noktasını ayarlar (`func host start` ve `func run`). `--port` Komut satırı seçeneği bu değerin üzerine göre önceliklidir. |
-| **CORS** | İzin verilen çıkış noktaları tanımlar [çıkış noktaları arası kaynak paylaşımı (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Kaynakları, boşluk virgülle ayrılmış bir liste olarak sağlanır. Joker karakter değeri (\*) desteklenir, her türlü kaynağa gelen isteklere izin verir. |
-| **ConnectionStrings** | Bu koleksiyon, işlev bağlamaları tarafından kullanılan bağlantı dizeleri için kullanmayın. Bu koleksiyon yalnızca genellikle bağlantı dizeleri alma çerçeveleri tarafından kullanılan **ConnectionStrings** gibi bir yapılandırma bölümünü dosya [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Bağlantı dizelerini bu nesne, sağlayıcı türü ortamı eklenir [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Bu koleksiyondaki öğelerin diğer uygulama ayarları ile Azure'a yayımlanmaz. Bu değerleri açıkça eklemelidir **bağlantı dizeleri** , işlev uygulaması ayarları koleksiyonu. Oluşturuyorsanız bir [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) işlev kodunuzu bağlantı dizesi değerindeki saklamalısınız **uygulama ayarları** diğer bağlantı. |
+| **`IsEncrypted`** | Ayarlandığında `true`, tüm değerlerin bir yerel makine anahtarı kullanılarak şifrelenir. İle kullanılan `func settings` komutları. Varsayılan değer `false`. |
+| **`Values`** | Uygulama ayarları ve yerel olarak çalıştırırken kullanılan bağlantı dizeleri koleksiyonu. Bu değerler, azure'daki işlev uygulamanızın uygulama ayarlarında gibi karşılık [ `AzureWebJobsStorage` ]. Birçok tetikleyiciler ve bağlamalar gibi bir bağlantı dizesi uygulama ayarına başvuran bir özelliği olan `Connection` için [Blob Depolama tetikleyicisi](functions-bindings-storage-blob.md#trigger---configuration). Tür özellikleri için tanımlanan bir uygulama ayarı ihtiyacınız `Values` dizisi. <br/>[`AzureWebJobsStorage`] gerekli bir uygulama dışındaki HTTP tetikleyici ayarlanıyor. <br/>Sürüm 2.x çalışma zamanı işlevleri gerektirir [ `FUNCTIONS_WORKER_RUNTIME` ] ayarını projeniz için temel araçları tarafından oluşturulur. <br/> Olduğunda [Azure storage öykünücüsü](../storage/common/storage-use-emulator.md) ayarlayabileceğiniz yerel olarak yüklü [ `AzureWebJobsStorage` ] için `UseDevelopmentStorage=true` ve temel araçları öykünücüsü kullanır. Geliştirme sırasında kullanışlıdır ancak gerçek depolama bağlantısı dağıtımdan önce test etmeniz gerekir. |
+| **`Host`** | Bu bölümdeki ayarlarını yerel olarak çalıştırılırken işlevleri ana bilgisayar işlemi özelleştirin. |
+| **`LocalHttpPort`** | Yerel işlevler ana çalıştırırken kullanılan varsayılan bağlantı noktasını ayarlar (`func host start` ve `func run`). `--port` Komut satırı seçeneği bu değerin üzerine göre önceliklidir. |
+| **`CORS`** | İzin verilen çıkış noktaları tanımlar [çıkış noktaları arası kaynak paylaşımı (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Kaynakları, boşluk virgülle ayrılmış bir liste olarak sağlanır. Joker karakter değeri (\*) desteklenir, her türlü kaynağa gelen isteklere izin verir. |
+| **`ConnectionStrings`** | Bu koleksiyon, işlev bağlamaları tarafından kullanılan bağlantı dizeleri için kullanmayın. Bu koleksiyon yalnızca genellikle bağlantı dizeleri alma çerçeveleri tarafından kullanılan `ConnectionStrings` gibi bir yapılandırma bölümünü dosya [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Bağlantı dizelerini bu nesne, sağlayıcı türü ortamı eklenir [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Bu koleksiyondaki öğelerin diğer uygulama ayarları ile Azure'a yayımlanmaz. Bu değerleri açıkça eklemelidir `Connection strings` , işlev uygulaması ayarları koleksiyonu. Oluşturuyorsanız bir [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) işlev kodunuzu bağlantı dizesi değerindeki saklamalısınız **uygulama ayarları** , diğer bağlantılarla portalında. |
 
 İşlev uygulaması ayarları değerleri, ortam değişkenleri olarak kodunuzda da okunabilir. Daha fazla bilgi için bu dile özgü başvuru konularında ortam değişkenleri bölümüne bakın:
 
-+ [C# önceden derlenmiş](functions-dotnet-class-library.md#environment-variables)
-+ [C# betiği (.csx)](functions-reference-csharp.md#environment-variables)
-+ [F#betik (.fsx)](functions-reference-fsharp.md#environment-variables)
-+ [Java](functions-reference-java.md#environment-variables)
-+ [JavaScript](functions-reference-node.md#environment-variables)
+* [C# önceden derlenmiş](functions-dotnet-class-library.md#environment-variables)
+* [C# betiği (.csx)](functions-reference-csharp.md#environment-variables)
+* [F#betik (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
-İçin geçerli bir depolama bağlantı dizesi ayarlandığında **AzureWebJobsStorage** ve öykünücü kullanılmıyor, aşağıdaki hata iletisi gösterilir:
+İçin geçerli bir depolama bağlantı dizesi ayarlandığında [ `AzureWebJobsStorage` ] ve öykünücü kullanılmıyor, aşağıdaki hata iletisi gösterilir:
 
 > Local.settings.json içinde AzureWebJobsStorage için eksik değer. Bu HTTP dışındaki tüm tetikleyiciler için gereklidir. Çalıştırabileceğiniz ' func azure functionapp getirme-app-settings \<functionAppName\>' ya da local.settings.json içinde bir bağlantı dizesi belirtin.
 
@@ -216,12 +216,12 @@ Depolama öykünücüsü için geliştirme kullanırken, bile, bir gerçek depol
 
 + Bağlantı dizesi aşağıdaki komutlardan birini ile azure'dan indirmek için temel araçları kullanın:
 
-    + Tüm ayarlar, var olan bir işlev uygulamasından indirin:
+  + Tüm ayarlar, var olan bir işlev uygulamasından indirin:
 
     ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    + Belirli bir depolama hesabı için bağlantı dizesini alın:
+  + Belirli bir depolama hesabı için bağlantı dizesini alın:
 
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>
@@ -481,3 +481,5 @@ Bir hata veya özellik isteği için [açık bir GitHub sorunu](https://github.c
 [Azure işlevleri temel araçları]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+['FUNCTIONS_WORKER_RUNTIME']: functions-app-settings.md#functions_worker_runtime
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

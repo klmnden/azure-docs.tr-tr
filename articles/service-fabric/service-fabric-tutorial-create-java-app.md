@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 92cee8e95888d5084165413ce49d4c884e476e71
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 5ad3d7c27b003fb3963333471bceb3226655a5eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571448"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874890"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Öğretici: Service Fabric üzerinde uygulama ile bir Java web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmeti oluşturun
 
@@ -76,6 +76,7 @@ Bu öğreticiye başlamadan önce:
     ![Uygulamanın oluşturulmasını izleyen Eclipse Paket Gezgini]( ./media/service-fabric-tutorial-create-java-app/eclipse-package-explorer.png)
 
 Tablo, önceki ekran görüntüsünde yer alan paket gezginindeki her bir öğenin kısa bir açıklamasını sunar. 
+
 | **Paket Gezgini Öğesi** | **Açıklama** |
 | --- | --- |
 | PublishProfiles | Yerel ve Azure Service Fabric kümelerinin profil ayrıntılarını açıklayan JSON dosyalarını içerir. Bu dosyaların içerikleri, uygulama dağıtılırken eklenti tarafından kullanılır. |
@@ -103,7 +104,7 @@ Durum bilgisi olmayan hizmet tarafından işlenen kullanıcı Arabirimi eklemek 
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <body>
 
@@ -911,7 +912,7 @@ Bu noktada uygulama, yerel Service Fabric kümesinde dağıtılmaya hazırdır.
 
 4. Eclipse için Paket Gezgini’nde **Oylama** projesine sağ tıklayın ve **Service Fabric -> Uygulama Yayımla ...** seçeneklerine tıklayın. 
 5. **Uygulama Yayımla** penceresinde açılan listeden **Local.json** seçeneğini belirleyin ve **Yayımla**’ya tıklayın.
-6. Web tarayıcınıza gidip **http://localhost:8080** adresine erişerek yerel Service Fabric kümesinde çalıştırılan uygulamanızı görüntüleyin. 
+6. Web tarayıcısı ve erişim Git `http://localhost:8080` yerel Service Fabric kümesinde çalıştırılan uygulamanızı görüntülemek için. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

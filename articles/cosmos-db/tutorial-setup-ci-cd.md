@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: b4d8214608e8193172da078fc352c66145253ada
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c5ae3523da6da3286a65328cf302c5b211987d6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878974"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895244"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure DevOps'ta Azure Cosmos DB öykünücüsü derleme göreviyle CI/CD işlem hattı oluşturma
 
@@ -31,9 +31,9 @@ Derleme görevini kullanmak için öncelikle Azure DevOps kuruluşunuza yükleme
 Ardından uzantının yükleneceği kuruluşu seçin. 
 
 > [!NOTE]
-> Bir Azure DevOps kuruluşuna uzantı yükleyebilmek için hesap sahibi veya proje koleksiyonu yöneticisi olmanız gerekir. Gerekli izinlere sahip değilseniz ancak hesap üyesiyseniz uzantı isteyebilirsiniz. [Daha fazla bilgi edinin.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
+> Azure DevOps kuruluş için bir uzantı yüklemeniz için bir hesap sahibi veya proje koleksiyonu yöneticisi olmanız gerekir. Gerekli izinlere sahip değilseniz ancak hesap üyesiyseniz uzantı isteyebilirsiniz. [Daha fazla bilgi edinin.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
 
-![Uzantının yükleneceği Azure DevOps kuruluşunu seçme](./media/tutorial-setup-ci-cd/addExtension_2.png)
+![Azure DevOps kuruluştaki bir uzantı yüklemek için seçin](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
 ## <a name="create-a-build-definition"></a>Derleme tanımı oluşturma
 

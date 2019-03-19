@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 8254e3221fee3d76e2d27715f76c26397c309f08
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 65023fbf96dc3e1276413f8c40ecb262d60c1454
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862726"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863364"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Azure Cosmos DB veriler üzerinde toplu işlemler gerçekleştirmek için toplu Yürütücü Java kitaplığı kullanma
 
 Bu öğretici, Azure Cosmos DB'nin toplu Yürütücü Java kitaplığı kullanarak içeri aktarma ve Azure Cosmos DB belgeleri güncelleştirmek için yönergeler sağlar. Toplu Yürütücü kitaplığı ve yüksek düzeyde işleme ve depolama yararlanmanıza nasıl yardımcı olduğunu öğrenmek için bkz. [Yürütücü kitaplığına genel bakış toplu](bulk-executor-overview.md) makalesi. Bu öğreticide, rastgele belgeleri oluşturan bir Java uygulaması oluşturma ve bir Azure Cosmos DB kapsayıcısının içine alınan toplu oldukları. İçeri aktardıktan sonra toplu bir belge bazı özelliklerini güncelleştirir. 
 
-Şu anda toplu Yürütücü kitaplığı, Gremlin API hesapları yalnızca Azure Cosmos DB SQL API ile desteklenir. Bu makalede, SQL API hesaplarıyla toplu Yürütücü .net kitaplığını kullanmayı açıklar. Toplu Yürütücü .NET kitaplığı ile Gremlin API kullanımı hakkında bilgi edinmek için [Azure Cosmos DB Gremlin API'SİNDE toplu işlemler gerçekleştirme](bulk-executor-graph-dotnet.md).
+Şu anda toplu Yürütücü kitaplığı, Gremlin API hesapları yalnızca Azure Cosmos DB SQL API ile desteklenir. Bu makalede, SQL API hesaplarıyla toplu Yürütücü .NET kitaplığını kullanmayı açıklar. Toplu Yürütücü .NET kitaplığı ile Gremlin API kullanımı hakkında bilgi edinmek için [Azure Cosmos DB Gremlin API'SİNDE toplu işlemler gerçekleştirme](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -86,13 +86,13 @@ Kopyalanan deponun iki örnekleri "BulkImport" ve "\azure-cosmosdb-bulkexecutor-
    // Set retries to 0 to pass complete control to bulk executor
    client.getConnectionPolicy().getRetryOptions().setMaxRetryWaitTimeInSeconds(0);
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
-```
+   ```
 
 4. Bir Azure Cosmos DB kapsayıcısı'na aktarma toplu olarak rastgele belgeler oluşturur API importAll çağırın. Komut satırı yapılandırmaları CmdLineConfiguration.java dosyası içinde yapılandırabilirsiniz.
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
-```
+   ```
    Toplu içeri aktarma API'si belgeleri JSON olarak serileştirilen bir koleksiyonunu kabul eder ve daha fazla ayrıntı için aşağıdaki söz dizimine sahiptir, bkz: [API belgeleri](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java

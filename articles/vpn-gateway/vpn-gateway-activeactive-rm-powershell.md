@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang, cherylmc
-ms.openlocfilehash: d1c5ea0ae60894e810d2f4eb0edff2126171a220
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 4c5a7a138a2b491867c5c4ba7234415036c8ba0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417117"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100845"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Azure VPN Gateways ile aktif / aktif S2S VPN bağlantıları yapılandırma
 
@@ -36,10 +36,8 @@ Bunlar birlikte ihtiyaçlarınıza uygun bir daha karmaşık ve yüksek oranda k
 
 > [!IMPORTANT]
 > Aktif / Aktif modu, yalnızca aşağıdaki SKU'ları kullanır: 
-  * VpnGw1, VpnGw2, VpnGw3
-  * Yüksek performanslı (eski eski SKU'lar için)
-> 
-> 
+>   * VpnGw1, VpnGw2, VpnGw3
+>   * Yüksek performanslı (eski eski SKU'lar için)
 
 ## <a name ="aagateway"></a>1. bölüm - oluşturma ve etkin-etkin VPN gateways yapılandırma
 Aşağıdaki adımlar, Azure VPN ağ geçidi etkin-etkin modda yapılandıracaksınız. Etkin-etkin ve etkin bekleme ağ geçitleri arasındaki temel farklar:

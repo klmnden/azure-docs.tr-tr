@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 58773dded162ea51ccc6e502bbbdd4e13965c1d6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c312433832f7402eaff8b40c4e0a2a61397f6f87
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203497"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123513"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection talep dönüşümleri
 
@@ -29,7 +29,7 @@ Yeni bir stringCollection talep dize talep ekler.
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | Öğesi | dize | Çıkış talebi için eklenecek ClaimType. |
+| Inputclaim | Öğesi | string | Çıkış talebi için eklenecek ClaimType. |
 | Inputclaim | koleksiyon | StringCollection | [İsteğe bağlı] Belirtilmişse, talep dönüştürme bu koleksiyondan öğelerin kopyalar ve çıkış koleksiyon talep sonuna öğe ekler. |
 | outputClaim | koleksiyon | StringCollection | Bu ClaimsTransformation çağrıldıktan sonra üretilen ClaimTypes. |
 
@@ -52,10 +52,10 @@ Aşağıdaki talep dönüştürme ekler **e-posta** için ClaimType **otherMails
 ### <a name="example"></a>Örnek
 
 - Giriş talepleri:
-    - **koleksiyon**: ["someone@outlook.com"]
-    - **öğe**: "admin@contoso.com"
+  - **koleksiyon**: ["someone@outlook.com"]
+  - **öğe**: "admin@contoso.com"
 - Çıkış talep: 
-    - **koleksiyon**: ["someone@outlook.com","admin@contoso.com"]
+  - **koleksiyon**: ["someone@outlook.com","admin@contoso.com"]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
@@ -64,7 +64,7 @@ Bir dize parametresi için yeni bir stringCollection talep ekler.
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
 | Inputclaim | koleksiyon | StringCollection | [İsteğe bağlı] Belirtilmişse, talep dönüştürme bu koleksiyondan öğelerin kopyalar ve çıkış koleksiyon talep sonuna öğe ekler. |
-| InputParameter | Öğesi | dize | Çıkış talebi için eklenecek değer. |
+| InputParameter | Öğesi | string | Çıkış talebi için eklenecek değer. |
 | outputClaim | koleksiyon | StringCollection | Bu ClaimsTransformation çağrıldıktan sonra üretilecek ClaimTypes. |
 
 Kullanım bu talep dönüştürmeyi için yeni veya mevcut bir stringCollection bir dize değeri ekleyin. Aşağıdaki örnek, bir sabit bir e-posta adresini ekler (admin@contoso.com) için **otherMails** talep. 
@@ -86,11 +86,11 @@ Kullanım bu talep dönüştürmeyi için yeni veya mevcut bir stringCollection 
 ### <a name="example"></a>Örnek
 
 - Giriş talepleri:
-    - **koleksiyon**: ["someone@outlook.com"]
+  - **koleksiyon**: ["someone@outlook.com"]
 - Giriş parametreleri 
-    - **öğe**: "admin@contoso.com"
+  - **öğe**: "admin@contoso.com"
 - Çıkış talep:
-    - **koleksiyon**: ["someone@outlook.com","admin@contoso.com"]
+  - **koleksiyon**: ["someone@outlook.com","admin@contoso.com"]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
@@ -99,7 +99,7 @@ Kullanım bu talep dönüştürmeyi için yeni veya mevcut bir stringCollection 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
 | Inputclaim | koleksiyon | StringCollection | Talep dönüştürme tarafından öğesini almak için kullanılan ClaimTypes. |
-| outputClaim | extractedItem | dize | Bu ClaimsTransformation çağrıldıktan sonra üretilen ClaimTypes. Koleksiyondaki ilk öğe. |
+| outputClaim | extractedItem | string | Bu ClaimsTransformation çağrıldıktan sonra üretilen ClaimTypes. Koleksiyondaki ilk öğe. |
 
 Aşağıdaki örnek okur **otherMails** talep ve ilk öğesine dönüş **e-posta** talep. 
 
@@ -117,7 +117,7 @@ Aşağıdaki örnek okur **otherMails** talep ve ilk öğesine dönüş **e-post
 ### <a name="example"></a>Örnek
 
 - Giriş talepleri:
-    - **koleksiyon**: ["someone@outlook.com","someone@contoso.com"]
+  - **koleksiyon**: ["someone@outlook.com","someone@contoso.com"]
 - Çıkış talep: 
-    - **extractedItem**: "someone@outlook.com"
+  - **extractedItem**: "someone@outlook.com"
 

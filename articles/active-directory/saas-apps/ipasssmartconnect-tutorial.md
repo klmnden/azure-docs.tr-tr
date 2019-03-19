@@ -4,218 +4,218 @@ description: Azure Active Directory ve iPass SmartConnect arasında çoklu oturu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: dee6d039-f9bb-49a2-a408-5ed40ef17d9f
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/20/2018
+ms.topic: tutorial
+ms.date: 03/14/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91a68a208496904fcc8bfe13a227c61bf313214f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b5b39a436ae356cf2543f03db3d6a84d1daa936a
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198176"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189504"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Öğretici: İPass SmartConnect ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile iPass SmartConnect tümleştirme konusunda bilgi edinin.
-
 Azure AD ile iPass SmartConnect tümleştirme ile aşağıdaki avantajları sağlar:
 
-- İPass SmartConnect erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak imzalanan için iPass SmartConnect (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* İPass SmartConnect erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak iPass SmartConnect (çoklu oturum açma) için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirmesi SmartConnect iPass ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Abonelik bir iPass SmartConnect çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* iPass SmartConnect tek oturum açma etkin abonelik
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden iPass SmartConnect ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* iPass SmartConnect destekler **SP ve IDP** tarafından başlatılan
+* iPass SmartConnect destekler **zamanında** kullanıcı sağlama
 
 ## <a name="adding-ipass-smartconnect-from-the-gallery"></a>Galeriden iPass SmartConnect ekleme
+
 Azure AD'de iPass SmartConnect tümleştirmesini yapılandırmak için iPass SmartConnect Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden iPass SmartConnect eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-1. Arama kutusuna **iPass SmartConnect**seçin **iPass SmartConnect** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **iPass SmartConnect**seçin **iPass SmartConnect** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![sonuç listesinde iPass SmartConnect](./media/ipasssmartconnect-tutorial/tutorial_ipasssmartconnect_addfromgallery.png)
+     ![sonuç listesinde iPass SmartConnect](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı SmartConnect tabanlı iPass ile test edin.
-
-Tek iş için oturum açma için Azure AD hangi karşılık gelen kullanıcı iPass SmartConnect bir kullanıcının Azure AD'de olduğunu bilmesi gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının iPass ilgili kullanıcı arasında bir bağlantı ilişki SmartConnect kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma iPass SmartConnect tabanlı adlı bir test kullanıcı ile test etme **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının iPass ilgili kullanıcı arasında bir bağlantı ilişki SmartConnect kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma iPass SmartConnect ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Bir iPass SmartConnect test kullanıcısı oluşturma](#create-an-ipass-smartconnect-test-user)**  - Britta Simon iPass kullanıcı Azure AD gösterimini bağlı SmartConnect içinde bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[İPass SmartConnect çoklu oturum açmayı yapılandırma](#configure-ipass-smartconnect-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[İPass SmartConnect test kullanıcısı oluşturma](#create-ipass-smartconnect-test-user)**  - Britta Simon iPass kullanıcı Azure AD gösterimini bağlı SmartConnect içinde bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma, iPass SmartConnect uygulama yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma SmartConnect iPass ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma SmartConnect iPass ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **iPass SmartConnect** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **iPass SmartConnect** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![Çoklu oturum açma iletişim kutusu](./media/ipasssmartconnect-tutorial/tutorial_ipasssmartconnect_samlbase.png)
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-1. Üzerinde **iPass SmartConnect etki alanı ve URL'ler** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu, herhangi bir adım gerçekleştirmeniz gerekmez.
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    ![iPass SmartConnect etki alanı ve URL'ler çoklu oturum açma bilgileri](./media/ipasssmartconnect-tutorial/tutorial_ipasssmartconnect_url1.png)
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-1. Gelişmiş URL ayarlarını Göster'i denetleyin ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+4. Üzerinde **temel SAML yapılandırma** bölümünde kullanıcısının clonedatabase'i uygulama zaten Azure ile önceden tümleşik olarak herhangi bir adımı gerçekleştirmek.
 
-    ![iPass SmartConnect etki alanı ve URL'ler çoklu oturum açma bilgileri](./media/ipasssmartconnect-tutorial/tutorial_ipasssmartconnect_url2.png)
+    ![iPass SmartConnect etki alanı ve URL'ler çoklu oturum açma bilgileri](common/preintegrated.png)
 
-    Oturum açma URL'si metin kutusuna bir URL yazın: `https://om-activation.ipass.com/ClientActivation/ssolanding.go`
+5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
-1. iPass SmartConnect uygulama belirli bir biçimde SAML onaylamalarını bekliyor. Lütfen bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirme sayfasında bölümü. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir.
+    ![iPass SmartConnect etki alanı ve URL'ler çoklu oturum açma bilgileri](common/metadata-upload-additional-signon.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/ipasssmartconnect-tutorial/attribute.png)
+    İçinde **oturum açma URL'si** metin kutusuna bir URL yazın:  `https://om-activation.ipass.com/ClientActivation/ssolanding.go`
 
-1. Tıklayın **görünümü ve diğer tüm kullanıcı özniteliklerini düzenleyin** onay kutusu **kullanıcı öznitelikleri** bölüm öznitelikleri genişletin. Her birini görüntülenen öznitelikleri - aşağıdaki adımları gerçekleştirin
+6. iPass SmartConnect uygulama belirli bir biçimde SAML onaylamalarını bekliyor. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
 
-    | Öznitelik Adı | Öznitelik Değeri | Namespace değeri|
-    | ---------------| --------------- |----------------|
-    | FirstName | User.givenName |   |
-    | Soyadı | User.surname | |
-    | e-posta | User.userPrincipalName | |
-    | kullanıcı adı | User.userPrincipalName | |
+    ![image](common/edit-attribute.png)
 
-    a. Tıklayın **eklemek agentconfigutil** açmak için **öznitelik Ekle** iletişim.
+7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda kullanarak talep Düzenle **düzenleme simgesi** veya talep kullanarak **Ekle yeni talep**SAML belirteci özniteliği yukarıdaki görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açmayı yapılandırın](./media/ipasssmartconnect-tutorial/tutorial_attribute_04.png)
+    | Ad |  Kaynak özniteliği|
+    | ---------------| ----------|
+    | FirstName | User.givenName |
+    | Soyadı | User.surname |
+    | e-posta | User.userPrincipalName |
+    | kullanıcı adı | User.userPrincipalName |
+    | | |
 
-    ![Çoklu oturum açmayı yapılandırın](./media/ipasssmartconnect-tutorial/tutorial_attribute_05.png)
+    a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
 
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
-    c. Gelen **değer** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+    c. Bırakın **Namespace** boş.
 
-    d. Ad alanı değeri bu satır için boş bırakın.
+    d. Kaynağı olarak **özniteliği**.
 
-    e. **Tamam**’a tıklayın.
+    e. Gelen **kaynak özniteliği** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **meta veri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
+    f. Tıklayın **Tamam**
 
-    ![Sertifika indirme bağlantısı](./media/ipasssmartconnect-tutorial/tutorial_ipasssmartconnect_certificate.png)
+    g. **Kaydet**’e tıklayın.
 
-1. Tıklayın **Kaydet** düğmesi.
+8. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/ipasssmartconnect-tutorial/tutorial_general_400.png)
+    ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-1. Çoklu oturum açmayı yapılandırma **iPass SmartConnect** tarafı, indirilen göndermek için ihtiyacınız **meta veri XML** ve **etki alanı adı** için [iPass SmartConnect Destek](mailto:help@ipass.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+9. Üzerinde **SmartConnect iPass kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
+
+    a. Oturum Açma URL'si:
+
+    b. Azure AD Tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-ipass-smartconnect-single-sign-on"></a>İPass SmartConnect çoklu oturum açmayı yapılandırın
+
+Çoklu oturum açmayı yapılandırma **iPass SmartConnect** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** ve uygun Azure portalına kopyalanan URL'lerden [iPass SmartConnect Destek](mailto:help@ipass.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/ipasssmartconnect-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/ipasssmartconnect-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/ipasssmartconnect-tutorial/create_aaduser_03.png)
-
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/ipasssmartconnect-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
-
-### <a name="create-an-ipass-smartconnect-test-user"></a>Bir iPass SmartConnect test kullanıcısı oluşturma
-
-Bu bölümde, Britta Simon SmartConnect iPass içinde adlı bir kullanıcı oluşturun. Çalışmak [iPass SmartConnect Destek ekibine](mailto:help@ipass.com) kullanıcı veya iPass SmartConnect platformunda Güvenilenler listesine eklenmek için gerekli olan etki alanı eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak iPass SmartConnect platforma sağlanan. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Azure çoklu oturum açma iPass SmartConnect erişim vererek kullanmak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200]
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **iPass SmartConnect**.
 
-**Britta Simon SmartConnect iPass için atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **iPass SmartConnect**.
 
-    ![Kullanıcı Ata][201]
+    ![Uygulamalar listesinde SmartConnect bağlantı iPass](common/all-applications.png)
 
-1. Uygulamalar listesinde **iPass SmartConnect**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Uygulamalar listesinde SmartConnect bağlantı iPass](./media/ipasssmartconnect-tutorial/tutorial_ipasssmartconnect_app.png)  
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Atama Ekle bölmesi][203]
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+### <a name="create-ipass-smartconnect-test-user"></a>İPass SmartConnect test kullanıcısı oluşturma
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+Bu bölümde, Britta Simon SmartConnect iPass içinde adlı bir kullanıcı oluşturun. Çalışmak [iPass SmartConnect Destek ekibine](mailto:help@ipass.com) kullanıcı veya iPass SmartConnect platformunda Güvenilenler listesine eklenmek için gerekli olan etki alanı eklemek için. Etki alanı ekibi tarafından eklenirse, kullanıcıların otomatik olarak iPass SmartConnect platforma sağlanan. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
@@ -255,22 +255,10 @@ e. Etkinleştirme başlatılmazsa etkinleştirmeyi SSA İyileştiricisine sayfas
 
 f. İstemci etkin.
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/ipasssmartconnect-tutorial/tutorial_general_01.png
-[2]: ./media/ipasssmartconnect-tutorial/tutorial_general_02.png
-[3]: ./media/ipasssmartconnect-tutorial/tutorial_general_03.png
-[4]: ./media/ipasssmartconnect-tutorial/tutorial_general_04.png
-
-[100]: ./media/ipasssmartconnect-tutorial/tutorial_general_100.png
-
-[200]: ./media/ipasssmartconnect-tutorial/tutorial_general_200.png
-[201]: ./media/ipasssmartconnect-tutorial/tutorial_general_201.png
-[202]: ./media/ipasssmartconnect-tutorial/tutorial_general_202.png
-[203]: ./media/ipasssmartconnect-tutorial/tutorial_general_203.png
-
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
-Customer intent: As a IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: b58cbcdccced3952c3171daa14f80986e473c5dd
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
+ms.openlocfilehash: 29c04fc04b5d277e982a37402a128b2dbe787e2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111501"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898508"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure Kimlik Yönetimi güvenliğine genel bakış
 
@@ -67,7 +67,7 @@ Daha fazla bilgi edinin:
 
 ## <a name="reverse-proxy"></a>Ters proxy
 
-Azure AD uygulama proxy'si gibi şirket içi uygulama yayımlamanıza olanak tanır [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) siteleri [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), ve [IIS](http://www.iis.net/)-tabanlı özel ağınızdaki uygulamalar ve ağınızın dışından kullanıcılar güvenli erişim sağlar. Uygulama Ara sunucusu uzaktan erişim sağlar ve SSO için birçok türde şirket içi web uygulamaları Azure AD'ye destekleyen SaaS uygulamaları binlerce sahip. Çalışanların uygulamasında oturum açabilir, uygulamalarınızdaki ev kendi cihazlarında ve bu bulut tabanlı bir proxy üzerinden kimlik doğrulaması.
+Azure AD uygulama proxy'si gibi şirket içi uygulama yayımlamanıza olanak tanır [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) siteleri [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), ve [IIS](https://www.iis.net/)-tabanlı özel ağınızdaki uygulamalar ve ağınızın dışından kullanıcılar güvenli erişim sağlar. Uygulama Ara sunucusu uzaktan erişim sağlar ve SSO için birçok türde şirket içi web uygulamaları Azure AD'ye destekleyen SaaS uygulamaları binlerce sahip. Çalışanların uygulamasında oturum açabilir, uygulamalarınızdaki ev kendi cihazlarında ve bu bulut tabanlı bir proxy üzerinden kimlik doğrulaması.
 
 Daha fazla bilgi edinin:
 

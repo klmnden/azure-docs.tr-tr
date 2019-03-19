@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 99e282b720bb29ed5fb94ad2c9779ae56a019836
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3c0be935a4ffb51c03d2f63b14ab7c0c713dd2ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993507"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006258"
 ---
 # <a name="deprecated-update-an-application-in-kubernetes"></a>(KULLANIM DIŞI) Kubernetes'te uygulama güncelleştirme
 
 > [!TIP]
-> Azure Kubernetes hizmeti kullanan Bu öğretici için güncelleştirilmiş sürümü görmek [öğretici: Azure Kubernetes Service (AKS) uygulama güncelleştirme](../../aks/tutorial-kubernetes-app-update.md).
+> Azure Kubernetes hizmeti kullanan Bu öğretici için güncelleştirilmiş sürümü görmek [Öğreticisi: Azure Kubernetes Service (AKS) uygulama güncelleştirme](../../aks/tutorial-kubernetes-app-update.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -75,7 +75,7 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>Uygulamayı yerel olarak test etme
 
-Güncelleştirilmiş uygulamayı görüntülemek için http://localhost:8080 adresine göz atın.
+Güncelleştirilmiş uygulamayı görüntülemek için `http://localhost:8080` adresine göz atın.
 
 ![Azure’da Kubernetes kümesinin görüntüsü](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -109,7 +109,7 @@ En uzun çalışma süresini sağlamak için uygulama podunun birden çok örne�
 kubectl get pod
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -138,7 +138,7 @@ Dağıtımı izlemek için [kubectl get pod](https://kubernetes.io/docs/referenc
 kubectl get pod
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE

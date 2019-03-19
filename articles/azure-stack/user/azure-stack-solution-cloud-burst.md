@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a8c4ef5df586c87862ea8e1634e9a72356401d0b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bcb538cf2e546e4913ccb223e143c2343e114de7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247434"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896203"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Öğretici: Azure ile Bulutlar arası ölçeklendirme çözümleri oluşturun
 
@@ -128,7 +128,7 @@ Azure Repos
 
 1. Yapı tanımları oluşturma yeteneği doğrulamak için Azure işlem hatları oturum açın.
 
-2. Ekleme **- r win10-x64** kod. Bu.Net Core ile kendi içinde bir dağıtım tetiklemek gereklidir.
+2. Ekleme **- r win10-x64** kod. Bu, .NET Core ile kendi içinde bir dağıtımı tetiklemek gereklidir.
 
     ![Alternatif metin](media/azure-stack-solution-cloud-burst/image4.png)
 
@@ -266,7 +266,7 @@ Mevcut uç nokta bilgileri, Azure Stack bağlantı Azure işlem hatlarına kulla
 
 Kullanım [Azure Resource Manager şablonları gibi web](https://azure.microsoft.com/resources/templates/) uygulama kodu her iki bulutlara dağıtmak için Azure depoları.
 
-### <a name="add-code-to-a-azure-repos-project"></a>Kodu bir Azure depoları projeye Ekle
+### <a name="add-code-to-an-azure-repos-project"></a>Kodu bir Azure depoları projeye Ekle
 
 1.  Azure Stack üzerinde proje oluşturma haklarına sahip bir hesapla Azure depoları için oturum açın. Sonraki ekran görüntüsü yakalamayı HybridCICD projesine bağlanma işlemi gösterilmektedir.
 
@@ -286,7 +286,7 @@ Kullanım [Azure Resource Manager şablonları gibi web](https://azure.microsoft
 
 2.  Gidin **Web uygulaması derleme** proje sayfası.
 
-3.  İçinde **bağımsız değişkenleri**, ekleme **- r win10-x64** kod. .Net Core ile kendi içinde bir dağıtım tetiklemek için bu gereklidir.
+3.  İçinde **bağımsız değişkenleri**, ekleme **- r win10-x64** kod. Bu, .NET Core ile kendi içinde bir dağıtım tetiklemek için gereklidir.
 
 4.  Yapı çalıştırın. [Müstakil dağıtım derleme](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) işlem, Azure ve Azure Stack üzerinde çalışabilen yapıtları yayımlar.
 

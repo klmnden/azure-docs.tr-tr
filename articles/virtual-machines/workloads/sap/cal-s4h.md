@@ -16,21 +16,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: a99fb959ae1ac1434bedffd782a7c4e0a302d361
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c59fcf43cb4767f1d95d769dfce4d5c8755e45ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431428"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990490"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>SAP S/4HANA veya BW/4hana'yı azure'da dağıtın
 Bu makalede, S/4hana'yı Azure üzerindeki SAP Cloud Appliance Library (SAP CAL) 3.0 kullanarak dağıtmayı açıklar. BW/4HANA gibi diğer SAP HANA tabanlı çözümleri dağıtmak için aynı adımları izleyin.
 
 > [!NOTE]
-SAP CAL hakkında daha fazla bilgi için Git [SAP Cloud Appliance Library](https://cal.sap.com/) Web sitesi. SAP de sahip bir blog hakkında [SAP bulut Gereci kitaplığı 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
-
+> SAP CAL hakkında daha fazla bilgi için Git [SAP Cloud Appliance Library](https://cal.sap.com/) Web sitesi. SAP de sahip bir blog hakkında [SAP bulut Gereci kitaplığı 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+> 
 > [!NOTE]
-29 Mayıs 2017'den itibaren SAP CAL'ı dağıtmak için daha az tercih edilen Klasik dağıtım modeli yanı sıra Azure Resource Manager dağıtım modelini kullanabilirsiniz. Yeni Resource Manager dağıtım modelini kullanan ve klasik dağıtım modeli dikkate öneririz.
+> 29 Mayıs 2017'den itibaren SAP CAL'ı dağıtmak için daha az tercih edilen Klasik dağıtım modeli yanı sıra Azure Resource Manager dağıtım modelini kullanabilirsiniz. Yeni Resource Manager dağıtım modelini kullanan ve klasik dağıtım modeli dikkate öneririz.
 
 ## <a name="step-by-step-process-to-deploy-the-solution"></a>Çözümü dağıtmak için adım adım işlemi
 
@@ -49,8 +49,8 @@ Aşağıdaki ekran görüntüleri dizisi S/4hana'yı Azure üzerindeki SAP CAL'�
 
     c. Azure aboneliğinize dağıtmak için SAP CAL izin verin.
 
-    > [!NOTE]
-    Sonraki adımlar Resource Manager dağıtımları için bir SAP CAL hesabının nasıl oluşturulacağını gösterir. Klasik dağıtım modeline bağlı bir SAP CAL hesabı zaten varsa, *gereken* yeni bir SAP CAL hesabı oluşturmak için aşağıdaki adımları izleyin. Resource Manager modelinde dağıtmak yeni SAP CAL hesabı gerekir.
+   > [!NOTE]
+   >  Sonraki adımlar Resource Manager dağıtımları için bir SAP CAL hesabının nasıl oluşturulacağını gösterir. Klasik dağıtım modeline bağlı bir SAP CAL hesabı zaten varsa, *gereken* yeni bir SAP CAL hesabı oluşturmak için aşağıdaki adımları izleyin. Resource Manager modelinde dağıtmak yeni SAP CAL hesabı gerekir.
 
 1. Yeni bir SAP CAL hesabı oluşturun. **Hesapları** sayfa, Azure için üç seçeneğiniz gösterir: 
 
@@ -96,10 +96,10 @@ Sizin için bir SAP CAL hesabı başarıyla oluşturuldu:
 Artık S/4hana'yı azure'da kullanıcı aboneliğinize dağıtmaya başlayabilirsiniz.
 
 > [!NOTE]
-Devam etmeden önce Azure H serisi VM'ler için Azure vCPU kotaları sahip olup olmadığını belirler. Şu anda SAP CAL bazı SAP HANA tabanlı çözümleri dağıtmak için H-serisi Azure Vm'leri kullanır. Azure aboneliğiniz için H-serisi herhangi H serisi, vCPU kotaları olmayabilir. Bu durumda, en az 16 H serisi, Vcpu kotası almak için Azure desteğine başvurun gerekebilir.
-
+> Devam etmeden önce Azure H serisi VM'ler için Azure vCPU kotaları sahip olup olmadığını belirler. Şu anda SAP CAL bazı SAP HANA tabanlı çözümleri dağıtmak için H-serisi Azure Vm'leri kullanır. Azure aboneliğiniz için H-serisi herhangi H serisi, vCPU kotaları olmayabilir. Bu durumda, en az 16 H serisi, Vcpu kotası almak için Azure desteğine başvurun gerekebilir.
+> 
 > [!NOTE]
-Azure'da SAP CAL üzerinde bir çözümü dağıttığınızda, yalnızca bir Azure bölgesine seçebileceğiniz bulabilirsiniz. SAP CAL tarafından önerilen farklı Azure bölgelerinde uygulamasına dağıtmak için SAP'den CAL aboneliği satın almanız gerekir. SAP CAL hesabınızın Başlangıçta önerilen olanlar dışındaki Azure bölgeleri sunmak için etkin olması için bir ileti açmak gerekebilir.
+> Azure'da SAP CAL üzerinde bir çözümü dağıttığınızda, yalnızca bir Azure bölgesine seçebileceğiniz bulabilirsiniz. SAP CAL tarafından önerilen farklı Azure bölgelerinde uygulamasına dağıtmak için SAP'den CAL aboneliği satın almanız gerekir. SAP CAL hesabınızın Başlangıçta önerilen olanlar dışındaki Azure bölgeleri sunmak için etkin olması için bir ileti açmak gerekebilir.
 
 ### <a name="deploy-a-solution"></a>Bir çözüm dağıtma
 
@@ -120,7 +120,7 @@ Biz burada dağıtım temel yolunu gösterir.
 
     d. Bir ana girin **parola** çözümü sekiz veya dokuz karakter. Parola yöneticileri farklı bileşenleri için kullanılır.
 
-   ![SAP CAL ana mod: Örneği oluşturma](./media/cal-s4h/s4h-pic10a.png)
+   ![SAP CAL temel modu: Örnek Oluştur](./media/cal-s4h/s4h-pic10a.png)
 
 1. Tıklayın **Oluştur**, görüntülenen ileti kutusunda tıklatıp **Tamam**.
 

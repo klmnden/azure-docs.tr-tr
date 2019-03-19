@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 171bf94bbccd45b9be995977c9ec2a26a75d9602
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8ea3b3580cb70d0453a5ec6a38f6063788ebf7f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403490"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082033"
 ---
 # <a name="configure-expressroute-global-reach"></a>ExpressRoute Global Reach’i yapılandırma
 
@@ -38,11 +38,11 @@ Yapılandırmaya başlamadan önce aşağıdakileri onaylayın:
 
 1. Yapılandırmayı başlatmak için Azure hesabınızda oturum açın ve kullanmak istediğiniz aboneliği seçin.
 
-  [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
+   [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 2. Kullanmak istediğiniz ExpressRoute bağlantı hatlarını belirleyin. Desteklenen ülkeler yerleşime ve eşleme farklı konumlarda oluşturulan sürece her iki ExpressRoute bağlantı hatları arasında ExpressRoute Global erişim etkinleştirebilirsiniz. 
 
-  * Her iki bağlantı hatları, aboneliğin sahibi, aşağıdaki bölümlerde yapılandırması çalıştırmak için her iki bağlantı hattı seçebilirsiniz.
-  * İki bağlantı hatlarının farklı Azure aboneliklerinde ise bir Azure aboneliği onayı gerekir. Diğer Azure aboneliğinde yapılandırma komutu çalıştırdığınızda yetkilendirme anahtar geçirin.
+   * Her iki bağlantı hatları, aboneliğin sahibi, aşağıdaki bölümlerde yapılandırması çalıştırmak için her iki bağlantı hattı seçebilirsiniz.
+   * İki bağlantı hatlarının farklı Azure aboneliklerinde ise bir Azure aboneliği onayı gerekir. Diğer Azure aboneliğinde yapılandırma komutu çalıştırdığınızda yetkilendirme anahtar geçirin.
 
 ## <a name="enable-connectivity"></a>Bağlantı etkinleştir
 
@@ -52,27 +52,27 @@ Yapılandırmaya başlamadan önce aşağıdakileri onaylayın:
 
 1. Bağlantı hattı 1 ve 2 bağlantı hattı almak için aşağıdaki komutları kullanın. İki bağlantı hatları, aynı abonelikte yer alan.
 
-  ```azurepowershell-interactive
-  $ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
-  $ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
-  ```
+   ```azurepowershell-interactive
+   $ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+   $ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
+   ```
 2. 1 bağlantı hattı karşı aşağıdaki komutu çalıştırın ve 2 numaralı bağlantı hattının özel eşleme kimliği geçirebilirsiniz. Komutu çalıştırdığınızda aşağıdakilere dikkat edin:
 
-  * Özel Eşleme Kimliği, aşağıdaki örneğe benzer: 
+   * Özel Eşleme Kimliği, aşağıdaki örneğe benzer: 
 
-    ```
-    /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
-    ```
-  * *-AddressPrefix* bir/29 IPv4 olmalıdır alt ağ, örneğin, "10.0.0.0/29". IP adreslerini bu alt ağda iki ExpressRoute bağlantı hatları arasında bağlantı kurmak için kullanırız. Azure sanal ağlarınıza veya şirket içi ağınızdaki bu alt ağda adresleri kullanmamalısınız.
+     ```
+     /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
+     ```
+   * *-AddressPrefix* bir/29 IPv4 olmalıdır alt ağ, örneğin, "10.0.0.0/29". IP adreslerini bu alt ağda iki ExpressRoute bağlantı hatları arasında bağlantı kurmak için kullanırız. Azure sanal ağlarınıza veya şirket içi ağınızdaki bu alt ağda adresleri kullanmamalısınız.
 
-    ```azurepowershell-interactive
-    Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/29'
-    ```
+     ```azurepowershell-interactive
+     Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/29'
+     ```
 3. Yapılandırma 1 bağlantı hattı üzerinde şu şekilde kaydedin:
 
-  ```azurepowershell-interactive
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
-  ```
+   ```azurepowershell-interactive
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
+   ```
 
 Önceki işlemi tamamlandığında, şirket içi ağlarınız ile iki ExpressRoute bağlantı hatları her iki tarafında arasında bağlantısına sahip olur.
 
@@ -82,23 +82,23 @@ Yapılandırmaya başlamadan önce aşağıdakileri onaylayın:
 
 1. Bir yetkilendirme anahtar oluşturun.
 
-  ```azurepowershell-interactive
-  $ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
-  Add-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $ckt_2 -Name "Name_for_auth_key"
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_2
-  ```
+   ```azurepowershell-interactive
+   $ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
+   Add-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $ckt_2 -Name "Name_for_auth_key"
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_2
+   ```
 
-  Yetkilendirme anahtarı yanı sıra, bağlantı hattı 2 özel eşleme Kimliğini not edin.
+   Yetkilendirme anahtarı yanı sıra, bağlantı hattı 2 özel eşleme Kimliğini not edin.
 2. 1 bağlantı hattı karşı aşağıdaki komutu çalıştırın. Bağlantı hattının özel eşleme kimliği 2 ve yetkilendirme anahtarını geçirirsiniz.
 
-  ```azurepowershell-interactive
-  Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix '__.__.__.__/29' -AuthorizationKey '########-####-####-####-############'
-  ```
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix '__.__.__.__/29' -AuthorizationKey '########-####-####-####-############'
+   ```
 3. 1 bağlantı hattındaki yapılandırmayı kaydedin.
 
-  ```azurepowershell-interactive
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
-  ```
+   ```azurepowershell-interactive
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
+   ```
 
 Önceki işlemi tamamlandığında, şirket içi ağlarınız ile iki ExpressRoute bağlantı hatları her iki tarafında arasında bağlantısına sahip olur.
 

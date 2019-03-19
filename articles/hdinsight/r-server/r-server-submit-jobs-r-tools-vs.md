@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 351734ea394b8820e87799a6d9a87979dd9c3807
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 3165adf09281f4ad35b77c2e0fbb89e40c04c631
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604540"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120967"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio için R Araçları’ndan iş gönderme
 
@@ -31,21 +31,21 @@ Araçlar sunarak RTVS R akışınızı geliştirir [R etkileşimli penceresi](ht
 2. Seçin *veri bilimi ve analitik uygulamalar* iş yükü, ardından **R dili desteğini**, **R geliştirme için çalışma zamanı desteği**, ve  **Microsoft R Client** seçenekleri.
 
 3. SSH kimlik doğrulaması için ortak ve özel anahtarları olması gerekir.
-<!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
+   <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
 4. Yükleme [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) makinenizde. ML Server sağlar [ `RevoScaleR` ](https://msdn.microsoft.com/microsoft-r/scaler/scaler) ve `RxSpark` işlevleri.
 
 5. Yükleme [PuTTY](https://www.putty.org/) çalıştırmak için bir işlem bağlam sağlamak için `RevoScaleR` HDInsight kümenize yerel istemcinizden işlevleri.
 
 6. R araçları için çalışma alanınız için yeni bir düzen sağlayan Visual Studio ortamınıza veri bilimi ayarları uygulamak için bir seçenekleri var.
-    1. Geçerli Visual Studio ayarlarınızı kaydetmek için kullanın **Araçlar > içeri ve dışarı aktarma ayarları** komutunu ve ardından **seçili ortam ayarlarını dışarı aktar** ve bir dosya adı belirtin. Bu ayarları geri yüklemek için aynı komutu kullanın ve seçin **seçili ortam ayarlarını içeri aktarma**.
+   1. Geçerli Visual Studio ayarlarınızı kaydetmek için kullanın **Araçlar > içeri ve dışarı aktarma ayarları** komutunu ve ardından **seçili ortam ayarlarını dışarı aktar** ve bir dosya adı belirtin. Bu ayarları geri yüklemek için aynı komutu kullanın ve seçin **seçili ortam ayarlarını içeri aktarma**.
 
-    2. Git **R Araçları** menü öğesi, ardından **veri bilimi ayarları...** .
+   2. Git **R Araçları** menü öğesi, ardından **veri bilimi ayarları...** .
 
-        ![Veri bilimi ayarları...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
+       ![Veri bilimi ayarları...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
-    > [!NOTE]  
-    > 1. adımda yaklaşımı kullanarak da kaydedebilir ve kişiselleştirilmiş bir veri Bilimcisi düzeninizi geri yinelenen yerine **veri bilimi ayarları** komutu.
+      > [!NOTE]  
+      > 1. adımda yaklaşımı kullanarak da kaydedebilir ve kişiselleştirilmiş bir veri Bilimcisi düzeninizi geri yinelenen yerine **veri bilimi ayarları** komutu.
 
 ## <a name="execute-local-r-methods"></a>Yerel R yöntemleri çalıştırma
 

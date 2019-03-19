@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 243697c20f10a019a73326c3bd79e23fc3342640
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ddcaca46a2b8f9501337b3591d6ed666876e1de9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113609"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093778"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>Öğretici: Azure veri kutusu Edge (Önizleme) yükleyin
 
@@ -94,15 +94,15 @@ Bir standart 19 inç rafa cihaza yüklenmesi gerekir. Raf üstü için aşağıd
     ![Raf raylarını takma](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
 
 2. Dış rails raf dolap dikey üyeler yükleyin. Parmaklık slaytları yönle yardımcı olmak için işaretlenmiş **ön**, ve bu amaçla muhafaza önüne doğru yapıştırılır.    
-    1. Ray tertibatının ön ve arkasındaki ray pimlerini bulun. Rayı iki raf direğinin arasına yerleştirmek için uzatın. Dış rayı önce rafın arka tarafına takın. Köşeli ayraç arka raf montaj boşluklarını konumlandırmak için bağlama arka ayarlayın.   
+   1. Ray tertibatının ön ve arkasındaki ray pimlerini bulun. Rayı iki raf direğinin arasına yerleştirmek için uzatın. Dış rayı önce rafın arka tarafına takın. Köşeli ayraç arka raf montaj boşluklarını konumlandırmak için bağlama arka ayarlayın.   
 
-    2. Arka braket üzerindeki tetiği itip sabit tutarak metal kancaları açığa çıkarın. Hizalama ve geri köşeli ayraç bağlama boşluklarını eklemek ve tetikleyici bırakın.
+   2. Arka braket üzerindeki tetiği itip sabit tutarak metal kancaları açığa çıkarın. Hizalama ve geri köşeli ayraç bağlama boşluklarını eklemek ve tetikleyici bırakın.
 
-    3. Ön braketi montaj deliğiyle hizalayın.
+   3. Ön braketi montaj deliğiyle hizalayın.
 
-    4. Ön köşeli ayraç artık rafa düzeltilmelidir. İsteğe bağlı olarak 10 M Vida X M5 gerekirse rails gönderiler ile güvenli hale getirmek için kullanılabilir. 
+   4. Ön köşeli ayraç artık rafa düzeltilmelidir. İsteğe bağlı olarak 10 M Vida X M5 gerekirse rails gönderiler ile güvenli hale getirmek için kullanılabilir. 
 
-    ![Raf raylarını takma](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+      ![Raf raylarını takma](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
 
 3. Kasa üzerinde iç parmaklık iliştirmek için iç parmaklık üzerinde anahtar deliği kesintileri kasa kenarındaki bulmayla PIN ile hizalanır emin olun. Kasa tespit pimlerinin iç raydaki delik açıklıklarından dışarı çıktığından emin olun. Ray duyulabilir bir ses eşliğinde yerine oturana kadar rayı kasanın önüne doğru çekin. Aynı işlemleri diğer iç ray için tekrarlayın. Raf montajını tamamlamak için iç rayın takılı olduğu kasayı kızağa yerleştirin.
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 713068b940532331ee4a6c5f5a92816d328e41ec
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a4c9ec133b3686a92cec7e7c8d4552c1302e3074
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55735966"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125042"
 ---
 Kaynak gruplarını kullanarak Azure kaynakları ve iş yükleri dağıtmak amacıyla Azure CLI’yı Resource Manager komutları ve şablonlarıyla kullanabilmeniz için önce Azure’lu bir hesaba sahip olmanız gerekir. Hesabınız yoksa [buradan ücretsiz Azure denemesi](https://azure.microsoft.com/pricing/free-trial/) edinebilirsiniz.
 
@@ -31,7 +31,7 @@ Bu makalede, Klasik Azure CLI ile yönetme ve Azure aboneliğinizdeki kaynaklar�
 > 
 
 | Görev | Resource Manager |
-| --- | --- | --- |
+| --- | --- |
 | En temel VM’yi oluşturma |`azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(`azure vm image list` komutundan `image-urn` öğesini edinin. Örnekler için [bu makaleye](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) bakın.) |
 | Linux VM oluşturma |`azure  vm create [options] <resource-group> <name> <location> -y "Linux"` |
 | Windows VM oluşturma |`azure  vm create [options] <resource-group> <name> <location> -y "Windows"` |

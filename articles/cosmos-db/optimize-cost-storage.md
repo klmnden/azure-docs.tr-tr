@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 34b151c14323e7ee22c31f22a63b07a0fb18671e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: aed32db257ddbc8cb5b8f4af5f27024c23583798
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536224"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892413"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Azure Cosmos DB'de depolama maliyetini en iyi duruma getirme
 
@@ -39,7 +39,7 @@ Zengin medya türleri, örneğin, videolar, resimler, vs. depolamak istiyorsanı
 
 ## <a name="check-storage-consumed"></a>Tüketilen depolama alanını kontrol edin
 
-Bir Azure Cosmos kapsayıcı depolama kullanımını denetlemek için kapsayıcıdaki bir baş veya GET isteği çalıştırın ve incelemek `x-ms-request-quota` ve `x-ms-request-usage` üstbilgileri. Alternatif olarak, .net SDK ile çalışırken kullanabileceğiniz [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), ve [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) tüketilen depolama alanı almak için özellikleri.
+Bir Azure Cosmos kapsayıcı depolama kullanımını denetlemek için kapsayıcıdaki bir baş veya GET isteği çalıştırın ve incelemek `x-ms-request-quota` ve `x-ms-request-usage` üstbilgileri. Alternatif olarak, .NET SDK ile çalışırken kullanabileceğiniz [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), ve [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) tüketilen depolama alanı almak için özellikleri.
 
 ## <a name="using-sdk"></a>SDK'sını kullanma
 

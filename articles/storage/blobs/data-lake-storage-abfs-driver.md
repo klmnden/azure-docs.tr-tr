@@ -8,12 +8,12 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 47646a1593f01c4ea695b549bbde22260ffaf2f7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 83e2f6f42de5c729667f366a6e068f1c8bd71f02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962443"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011076"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob dosya sistemi sürücü (ABFS): Hadoop için adanmış bir Azure depolama sürücüsü
 
@@ -21,7 +21,7 @@ Azure Data Lake depolama Gen2 verileri için birincil erişim yöntemleri biri a
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Önceki özelliği: Windows Azure depolama blobu sürücü
 
-Windows Azure depolama blobu sürücü veya [WASB sürücü](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) Azure Blob Depolama için özgün destek sağlanır. Bu sürücü eşleme dosya sisteminin ilgili karmaşık görevleri, Azure Blob Depolama tarafından kullanıma sunulan stili arabirimi (gerektirdiği gibi Hadoop dosya sistemi arabirimi) semantiği, nesne depolamak gerçekleştirdi. Bu sürücü, Blob'larda depolanan verileri yüksek performanslı erişim sağlayan, bu model desteklemeye devam eder ancak önemli miktarda sürdürülmesi zor hale getirme, bu eşlemeyi gerçekleştiren kod içerir. Ayrıca, bazı işlemler gibi [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) ve [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) dizinleri uygulandığında geniş birçok (nesne depoları yetersizliği nedeniyle işlemi gerçekleştirmek için bir sürücü gerektirir Destek dizinler için), genellikle azaltılmış performansa neden olur. ABFS sürücü WASB, devralınan eksiklikleri üstesinden gelmek için tasarlanmıştır.
+Windows Azure depolama blobu sürücü veya [WASB sürücü](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) Azure Blob Depolama için özgün destek sağlanır. Bu sürücü eşleme dosya sisteminin ilgili karmaşık görevleri, Azure Blob Depolama tarafından kullanıma sunulan stili arabirimi (gerektirdiği gibi Hadoop dosya sistemi arabirimi) semantiği, nesne depolamak gerçekleştirdi. Bu sürücü, Blob'larda depolanan verileri yüksek performanslı erişim sağlayan, bu model desteklemeye devam eder ancak önemli miktarda sürdürülmesi zor hale getirme, bu eşlemeyi gerçekleştiren kod içerir. Ayrıca, bazı işlemler gibi [FileSystem.rename()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) ve [FileSystem.delete()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) dizinleri uygulandığında geniş birçok (nesne depoları yetersizliği nedeniyle işlemi gerçekleştirmek için bir sürücü gerektirir Destek dizinler için), genellikle azaltılmış performansa neden olur. ABFS sürücü WASB, devralınan eksiklikleri üstesinden gelmek için tasarlanmıştır.
 
 ## <a name="the-azure-blob-file-system-driver"></a>Azure Blob dosya sistemi sürücüsü
 
@@ -52,13 +52,13 @@ Hadoop application Data Lake depolama Gen2'ye yeteneğine sahip bir hesap içind
 
 ### <a name="configuration"></a>Yapılandırma
 
-Tüm yapılandırma ABFS sürücü için depolanan <code>core-site.xml</code> yapılandırma dosyası. Hadoop dağıtımlarında özelliklerine sahip [Ambari](http://ambari.apache.org/), yapılandırma de Ambari REST API ve web portalı kullanılarak yönetilebilir.
+Tüm yapılandırma ABFS sürücü için depolanan <code>core-site.xml</code> yapılandırma dosyası. Hadoop dağıtımlarında özelliklerine sahip [Ambari](https://ambari.apache.org/), yapılandırma de Ambari REST API ve web portalı kullanılarak yönetilebilir.
 
-Tüm desteklenen yapılandırma girdileri ayrıntılarını belirtilir [resmi Hadoop belgeleri](http://hadoop.apache.org/docs/current/hadoop-azure/index.html).
+Tüm desteklenen yapılandırma girdileri ayrıntılarını belirtilir [resmi Hadoop belgeleri](https://hadoop.apache.org/docs/current/hadoop-azure/index.html).
 
 ### <a name="hadoop-documentation"></a>Hadoop belgeleri
 
-ABFS sürücü tam olarak belgelenen [resmi Hadoop belgeleri](http://hadoop.apache.org/docs/current/hadoop-azure/index.html)
+ABFS sürücü tam olarak belgelenen [resmi Hadoop belgeleri](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

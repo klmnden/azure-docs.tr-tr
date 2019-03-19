@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e5d097afa3af111a7de8341b90d8c6c05ac0347
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6a37a811c7944334571b4043d8ba937ffadc1e71
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205758"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891578"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Öğretici: Work.com ile Azure Active Directory Tümleştirme
 
@@ -262,9 +262,9 @@ Azure Active Directory Kullanıcıları oturum açabilmesi, bunlar için Work.co
     
     c. İçinde **diğer** metin kutusuna **adı** kullanıcının **BrittaS**.
     
-    d. İçinde **e-posta** metin kutusuna **e-posta adresi** kullanıcının **Brittasimon@contoso.com**.
+    d. İçinde **e-posta** metin kutusuna **e-posta adresi** kullanıcının **Brittasimon\@contoso.com**.
     
-    e. İçinde **kullanıcı adı** metin kutusu, türü, bir kullanıcının kullanıcı adını ister **Brittasimon@contoso.com**.
+    e. İçinde **kullanıcı adı** metin kutusu, türü, bir kullanıcının kullanıcı adını ister **Brittasimon\@contoso.com**.
     
     f. İçinde **takma ad** metin bir **takma ad** kullanıcının **Simon**.
     

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f0a10a56aeecf9973ea12b022e0030fb4635fbf
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 91ab8e8757c4a5313fde5f4d883e45648c9143b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984557"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901364"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Önizleme: Azure AD parola koruması hakkında sık sorulan sorular şirket içinde
 
@@ -86,6 +86,10 @@ Hayır. Proxy sunucusu durum bilgisiz olduğundan, hangi belirli bir proxy sunuc
 **S: Diğer hizmetler gibi Azure AD Connect ile yan yana Azure AD parola koruması Proxy Hizmeti dağıtmak mudur?**
 
 Evet. Azure AD parola koruması Proxy Hizmeti ve Azure AD Connect hiçbir zaman doğrudan birbiriyle çelişen.
+
+**S: Hangi sırayla proxy'leri ve DC aracıları yüklü ve kayıtlı?**
+
+Bir Proxy Aracısı yüklemesi, DC aracı yüklemesi, orman kayıt ve kayıt Proxy sıralama desteklenir.
 
 **S: Ben öğesine dağıtılması nedeniyle bu özellik, my etki alanı denetleyicilerinde isabet performans endişe olması gerekiyor mu?**
 

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 85c3c913564dd38ece76ddd7f72b8ea4da52958e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: fcf3fe85b6dd184b4f58060aab4fcf3ce146af13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778833"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58015165"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory’de Databricks Not Defteri etkinliği ile bir Databricks not defteri çalıştırma
 
@@ -151,7 +151,7 @@ Bu bölümde bir Databricks bağlı hizmetini yazacaksınız. Bu bağlı hizmet,
 
           ![Yeni klasör oluşturma](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       1. [Yeni not defteri oluşturun](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python). Bu not defterini **adftutorial** Klasörü altında **mynotebook** olarak adlandırıp **,** **Oluştur**’a tıklayın.
+       1. [Yeni bir not defteri oluşturma](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) adlandıralım **mynotebook** altında **adftutorial** klasörünü tıklatın **oluşturun.**
 
           ![Yeni not defteri oluşturma](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 

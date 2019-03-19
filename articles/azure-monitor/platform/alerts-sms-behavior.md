@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 85480a098dc5ef70938a5ec4cd7a31105496df6f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 225c86ee1a7f764f60b2da0b8e3be02aa5dd22e7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461409"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123309"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>SMS uyarı Eylem grupları davranışı
 ## <a name="overview"></a>Genel Bakış ##
@@ -28,7 +28,7 @@ Bu makalede, SMS uyarısı davranışı yer almaktadır ve yanıt kullanıcını
 ## <a name="receiving-an-sms-alert"></a>SMS uyarı alma
 Bir uyarı tetiklendiğinde bir eylem grubu bir parçası olarak yapılandırılmış bir SMS alıcı SMS alır. SMS, aşağıdaki bilgileri içerir:
 * Bu uyarının gönderildiği Shortname eylem grubu
-- Uyarı başlığı
+* Uyarı başlığı
 
 | YANITLA | Açıklama |
 | ----- | ----------- |

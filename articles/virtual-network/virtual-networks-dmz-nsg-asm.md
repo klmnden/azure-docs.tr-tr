@@ -1,6 +1,6 @@
 ---
-title: Azure DMZ örnek – yapı Nsg'ler ile basit DMZ | Microsoft Docs
-description: Bir çevre ağ güvenlik grupları (NSG) ile derleme
+title: Azure DMZ örnek – derleme Nsg'ler ile basit DMZ | Microsoft Docs
+description: Ağ güvenlik grupları (NSG) ile bir çevre ağı oluşturma
 services: virtual-network
 documentationcenter: na
 author: tracsman
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 115a459c6a9e4ea96931c89272a49396f0656258
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23928891"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993337"
 ---
-# <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Örnek 1 – Nsg'ler ile klasik PowerShell kullanarak basit bir DMZ derleme
-[Güvenlik sınırı en iyi yöntemler sayfasına dön][HOME]
+# <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Örnek 1 – derleme Nsg'leri kullanarak Klasik PowerShell ile basit DMZ
+[Güvenlik sınırı en iyi yöntemler sayfasına geri dönün][HOME]
 
 > [!div class="op_single_selector"]
 > * [Resource Manager Şablonu](virtual-networks-dmz-nsg.md)
@@ -30,61 +30,61 @@ ms.locfileid: "23928891"
 > 
 >
 
-Bu örnekte basit DMZ dört Windows sunucuları ve ağ güvenlik grupları oluşturulur. Bu örnek, her bir adımın daha derin bir anlayış sağlamak için ilgili PowerShell komutların her birini açıklar. Ayrıca bir ayrıntılı sağlamak için bir trafik senaryosu bölümü olan adım adım çevre savunma katmanlar arasında nasıl trafiği devam eder. Son olarak, içindeki başvuruların sınamak ve çeşitli senaryolarıyla denemeler için bu ortamı oluşturmak için yönerge ve tam bir kod bölümüdür. 
+Bu örnekte, dört Windows sunucu ve ağ güvenlik grupları ile basit DMZ oluşturur. Bu örnek, her adımda daha derin bir anlayış sağlamak için ilgili PowerShell komutların her birini açıklar. Ayrıca bir ayrıntılı sağlamak için bir trafik senaryo bölümü yoktur adım adım dmz'deki savunma katmanları ile nasıl trafiği devam eder. Son olarak, test ve deneme ile çeşitli senaryolar için bu ortamı oluşturmak için yönerge ve tam kod başvuruları bölüm yöneliktir. 
 
-![NSG ile giriş DMZ][1]
+![Gelen NSG ile DMZ][1]
 
-## <a name="environment-description"></a>Ortam açıklaması
-Bu örnekte, bir abonelik aşağıdaki kaynaklar içeriyor:
+## <a name="environment-description"></a>Ortam tanımı
+Bu örnekte, bir aboneliği aşağıdaki kaynaklar içerir:
 
-* İki bulut hizmetlerini: "FrontEnd001" ve "BackEnd001"
-* Sanal ağ, "CorpNetwork" iki alt ağı; "Ön uç" ve "Arka uç"
+* İki bulut Hizmetleri: "FrontEnd001" ve "BackEnd001"
+* "CorpNetwork"; iki alt ağa sahip bir sanal ağ "FrontEnd" ve "Arka uç"
 * Her iki alt ağa uygulanan ağ güvenlik grubu
-* Uygulama web sunucusu ("IIS01") temsil eden bir Windows sunucusu
+* Uygulama bir web sunucusu ("IIS01") temsil eden bir Windows Server
 * Uygulama arka uç sunucuları ("AppVM01", "AppVM02") temsil eden iki windows sunucuları
-* Bir DNS sunucusu ("DNS01") temsil eden bir Windows sunucusu
+* Bir DNS sunucusu ("DNS01") temsil eden bir Windows server
 
-References bölümünde bu örnekte açıklanan ortamı çoğunu derlemeler bir PowerShell komut dosyası yok. VM'ler ve sanal ağlar, derleme örnek komut dosyası tarafından yapılır rağmen değil açıklanmıştır bu belgede ayrıntılı. 
+Başvuru bölümünde, bu örnekte açıklanan ortam çoğunu oluşturan bir PowerShell Betiği yoktur. VM'ler ve sanal ağlar oluşturma örnek komut dosyası tarafından yapılır ancak değil açıklanmıştır ayrıntılı bu belgedeki. 
 
 Ortamı oluşturmak için;
 
-1. References bölümünde bulunan ağ yapılandırma xml dosyasını kaydedin (adlar, konum ve IP adresleri verilen senaryo eşleşecek şekilde güncelleştirilir)
-2. Kullanıcı değişkenleri (Abonelikleri, hizmet adlarını, vb. karşı) çalıştırılacak komut dosyasıdır ortamıyla eşleşecek şekilde güncelleştirin
-3. PowerShell komut dosyası yürütme
+1. References bölümünde dahil ağ yapılandırma xml dosyasını kaydedin (adları, konum ve IP adresleri verilen senaryo eşleşecek şekilde güncelleştirilmiş)
+2. Kullanıcı değişkenleri betiğinde betiğidir (abonelik, hizmet adlarını, vb. karşı) çalıştırılacak ortam eşleşecek şekilde güncelleştirin
+3. PowerShell Betiği yürütün
 
 >[!Note]
->PowerShell Betiği miktarlara bölge ağ yapılandırması xml dosyasında miktarlara bölge ile eşleşmelidir.
+>PowerShell betik miktarlara bölge ağ yapılandırma xml dosyasında miktarlara bölge eşleşmelidir.
 >
 >
 
-Komut dosyasını başarıyla ek çalıştırır sonra isteğe bağlı adımlar izlenebilir, web sunucusu ve uygulama sunucusu bu DMZ yapılandırma ile test izin vermek için basit bir web uygulaması ile ayarlamak için iki komut dosyası başvuruları bölümünde bulunur.
+Başarıyla ek komut dosyası çalıştırıldıktan sonra isteğe bağlı adımlar alınmış olabilir, bu DMZ yapılandırma ile test izin vermek için basit bir web uygulaması ile uygulama sunucusu ve web sunucusu kurmak için iki komut dosyası başvuruları bölümünde bulunur.
 
-Aşağıdaki bölümlerde ağ güvenlik grupları ve bunların Bu örnek için PowerShell Betiği anahtar satırları arasında adım adım ilerlemenizi sağlayarak işlevleri ayrıntılı bir açıklama belirtin.
+Aşağıdaki bölümlerde, ağ güvenlik grupları ve nasıl önemli satırlarını PowerShell Betiği walking tarafından bu örnek için işlev ayrıntılı bir açıklama sağlayın.
 
 ## <a name="network-security-groups-nsg"></a>Ağ Güvenlik Grupları (NSG)
-Bu örnekte, bir NSG grubu yerleşik ve altı kurallarıyla yüklendi. 
+Bu örnekte, bir NSG grubu oluşturulan ve daha sonra altı kuralları ile yüklendi. 
 
 > [!TIP]
-> Genel olarak bakıldığında, belirli "İzin ver" kurallarınızı önce oluşturmanız gerekir ve daha genel "Deny" kuralları en son. Kurallar öncelik atanmış belirtir ilk değerlendirilir. Trafiği belirli bir kuralın uygulanacağı bulunduktan sonra başka hiçbir kural değerlendirilir. NSG kuralları her (alt ağ perspektifinden) gelen veya giden yönde uygulayabilirsiniz.
+> Genel olarak bakıldığında, belirli "İzin ver" kurallarınızı önce oluşturmanız ve ardından daha genel "Reddet" kuralları son. Kurallar öncelik atanmış belirtir, ilk değerlendirilir. Trafiği belirli bir kuralın uygulanacağı bulunduktan sonra başka hiçbir kural değerlendirilir. NSG kuralları, gelen veya giden yönde (alt ağ perspektifinden) ya da uygulayabilirsiniz.
 > 
 > 
 
-Bildirimli olarak, aşağıdaki kural gelen trafik için oluşturulmakta:
+Bildirimli olarak, aşağıdaki kuralları için gelen trafiği oluşturulmakta:
 
-1. İç DNS trafiğinin (bağlantı noktası 53) izin verilir
-2. Her VM için RDP trafiğinin (3389 numaralı bağlantı noktası) Internet'ten izin verilir
-3. Web sunucusu (IIS01) için HTTP trafiğine (bağlantı noktası 80) Internet'ten izin verilir
-4. Tüm trafiği (tüm bağlantı noktaları) IIS01 AppVM1 izin verilir
-5. Tüm trafiği (tüm bağlantı noktaları) Internet'ten tüm VNet (her iki alt ağ) reddedildi
-6. Tüm trafiği (tüm bağlantı noktaları) ön uç alt ağından arka uç alt ağa reddedildi
+1. İç DNS trafiği (bağlantı noktası 53) izin verilir
+2. Herhangi bir VM için RDP trafiğinin (3389 bağlantı noktası) Internet'ten izin verilir
+3. Web sunucusu (IIS01) İnternet'ten gelen HTTP trafiğine (bağlantı noktası 80) izin verilir
+4. Tüm trafiğe (tüm bağlantı noktaları) IIS01 AppVM1 için izin verilir
+5. Tüm trafiği (tüm bağlantı noktaları) İnternet'ten gelen tüm VNet (her iki alt ağ) reddedildi
+6. Tüm trafik (tüm bağlantı noktaları) Frontend alt ağından arka uç alt ağına reddedildi
 
-Bu kurallar ile bağlı her alt ağ için bir HTTP isteği hem kuralları 3, web sunucusu Internet'ten gelen ise (izin ver) ve 5 (uygulamak reddetme), ancak 3 kuralı, yalnızca geçerli olur ve kural 5 oyuna değil gelen daha yüksek öncelikli olduğundan. Bu nedenle web sunucusuna HTTP isteği izin verilir. Bu aynı trafiği DNS01 sunucunun erişmeye, kural 5 (Reddet) uygulamak için ilk olacaktır ve trafiği sunucuya geçirmeniz izin verilmiyor. Kural 6 (Reddet) arka uç alt ağına (dışında izin verilen trafiği kurallarında 1 ve 4) Konuşmayı gelen ön uç alt ağ blokları, bu kural kümesine durumda arka uç ağ saldırgan ön uç web uygulamasında arka uç "korumalı" ağa (yalnızca AppVM01 sunucuda kullanıma sunulan kaynakları) erişimi sınırlı bir saldırganın güvenlik ihlalleri korur.
+Bu kurallar ile hem kuralları 3 web sunucusuna Internet'ten gelen HTTP isteği ise, her alt ağa bağlı (izin ver) ve 5 (Reddet. geçerli), ancak yalnızca geçerli ve kural 5 oyuna değil gelir kural 3 daha yüksek bir önceliğe sahip olduğundan. Bu nedenle web sunucusuna HTTP isteği izin verilecek. Bu aynı trafiği DNS01 sunucunun erişmeye kural 5 (Reddet) uygulamak için ilk olacaktır ve trafiği sunucuya geçirmek için izin verilecek değil. Kural 6 (Reddet) arka uç alt ağına (dışında izin verilen trafik kuralları 1 ve 4) Konuşmayı gelen ön uç alt ağını engeller, bir saldırganın güvenlik ihlalleri saldırgan ön uç web uygulamasının sınırlı durumda bu kural kümesi arka uç ağını korur. arka uca "ağa (yalnızca AppVM01 sunucu üzerinde kullanıma sunulan kaynakları) korumalı erişim".
 
-İnternet giden trafiğe izin veren varsayılan bir giden kuralı yok. Bu örnekte, biz giden trafiğe izin vermek ve herhangi bir giden kuralı değiştirme değil. Her iki yönde trafik kilitlemek için kullanıcı tanımlı yönlendirme gereklidir ve "Örnek 3" üzerinde incelediniz [güvenlik sınırı en iyi yöntemler sayfası][HOME].
+İnternet'e trafik çıkış izin veren varsayılan bir giden kuralı yok. Bu örnekte, biz giden trafiğe izin vermek ve herhangi bir giden kuralı değiştirme değil. Her iki yönde trafik kilitlemek için kullanıcı tanımlı yönlendirme gereklidir ve üzerinde "Örnek 3" araştırılan [güvenlik sınırı en iyi yöntemler sayfası][HOME].
 
-Her kural aşağıdaki gibi daha ayrıntılı olarak ele (**Not**: dolar işareti aşağıdaki liste başlayarak herhangi bir öğeye (örneğin: $NSGName) kullanıcı tanımlı bir değişken başvurusu bölümünde bu belgenin betikten):
+Her kural aşağıdaki gibi daha ayrıntılı olarak ele (**Not**: aşağıdaki başlayarak listenin bir dolar işareti ile herhangi bir öğeyi (örneğin: $NSGName) bir kullanıcı tanımlı değişken başvuru bölümünde, bu belgenin bir betikten):
 
-1. İlk ağ güvenlik grubu kuralları tutmak için yerleşik gerekir:
+1. İlk ağ güvenlik grubu kuralları tutacak oluşturulması gerekir:
 
     ```PowerShell
     New-AzureNetworkSecurityGroup -Name $NSGName `
@@ -92,23 +92,23 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele (**Not**: dolar işaret
         -Label "Security group for $VNetName subnets in $DeploymentLocation"
     ```
 
-2. Bu örnekte ilk kural DNS sunucusu arka uç alt ağdaki tüm iç ağ arasında DNS trafiğine izin verir. Kural bazı önemli parametreleri içerir:
+2. Bu örnekte ilk kural, tüm iç ağ DNS sunucusuna arka uç alt ağı arasında DNS trafiğine izin verir. Kural, bazı önemli parametrelere sahiptir:
    
-   * "Tür" trafik akışı hangi yönde bu kural etkinleşir belirtir. Perspektifinden (bağlı olarak bu NSG burada bağlı) alt ağ ya da sanal makinenin yönü olur. Bu nedenle türüdür "Giriş" ve trafik alt girerek, kural geçerli olur ve alt ağdan çıkan trafiğe etkilenmemiştir bu kural tarafından varsa.
-   * "Öncelik" bir trafik akışı değerlendirileceğini sırasını belirler. Düşük sayı öncelik o kadar yüksektir. Belirli bir trafik akışı için bir kural uygulandığı zaman başka hiçbir kural işlenir. Bu nedenle bir kural öncelik 1 ile trafiğine izin verir ve trafiği, öncelik 2 olan bir kural reddeder ve her iki kural trafiğe uygulanır durumunda trafik akışı için izin verilir (Kural 1 yüksek önceliğe sahip olduğundan etkisi sürdü ve başka hiçbir kural uygulanan).
-   * Bu kural tarafından etkilenen trafiği engellendi veya izin verilen "Eylem" belirtir.
+   * "Type" trafik akışını hangi yönde bu kural etkinleşir gösterir. Perspektifinden (bağlı olarak bu NSG yere bağlıdır) alt ağı veya sanal makine yönüdür. Bu nedenle "Giriş" türüdür ve trafiğin alt girdiğinden, kural uygular ve alt ağdan çıkan trafiğe etkilenmemiştir bu kural tarafından varsa.
+   * "Öncelik" bir trafik akışı değerlendirilme sırasını ayarlar. Düşük sayı öncelik o kadar yüksektir. Belirli bir trafik akışı için bir kural uygulandığı zaman başka hiçbir kural işlenir. Böylece öncelik 1 ile bir kuralı, trafiğine izin verir ve trafiği, öncelik 2 ile bir kural engelleyen ve her iki kural'ı trafiğe uygulamak durumunda trafik akışına izin verilecek (Kural 1 daha yüksek bir önceliğe sahip olduğundan etkisi sürdü ve başka hiçbir kural uygulandı).
+   * Bu kural tarafından etkilenen trafiği engellendi veya izin, "Action" belirtir.
 
-    ```PowerShell    
-    Get-AzureNetworkSecurityGroup -Name $NSGName | `
+     ```PowerShell    
+     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule -Name "Enable Internal DNS" `
         -Type Inbound -Priority 100 -Action Allow `
         -SourceAddressPrefix VIRTUAL_NETWORK -SourcePortRange '*' `
         -DestinationAddressPrefix $VMIP[4] `
         -DestinationPortRange '53' `
         -Protocol *
-    ```
+     ```
 
-3. Bu kural RDP bağlantı noktasına bağlı alt ağ üzerinde herhangi bir sunucuda internet'ten akış RDP trafiğine izin verir. Bu kural adres öneklerini iki özel tür kullanır; "Vırtual_network" ve "INTERNET." Bu etiketler adres öneklerinin daha büyük bir kategori adres için kolay bir yoludur.
+3. Bu kural, herhangi bir sunucuda ilişkili alt ağ üzerinde RDP noktasına internet'ten akışı RDP trafiğine izin verir. Bu kural, adres ön ekleri iki özel tür kullanır; "Vırtual_network" ve "INTERNET." Bu etiketler, daha büyük bir kategorisini adres önekleri belirtmek için kolay bir yoludur.
 
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
@@ -120,7 +120,7 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele (**Not**: dolar işaret
          -Protocol *
     ```
 
-4. Bu kural, web sunucusu isabet gelen internet trafiğine izin verir. Bu kural, yönlendirme davranışını değiştirmez. Kuralın yalnızca geçirmek için IIS01 giden trafiğe izin verir. Bu nedenle Internet trafiği bu kural izin ve daha fazla kural işlemeyi durdur hedef olarak web sunucusunun sahip. (Öncelikle kuralında 140 diğer tüm gelen Internet trafiğini engellendi). Yalnızca HTTP trafiğini işlemek, yalnızca hedef bağlantı noktası 80 izin vermek için bu kural daha fazla kısıtlanmasını.
+4. Bu kural, web sunucusu isabet gelen internet trafiğini sağlar. Bu kural, yönlendirme davranışını değiştirmez. Kuralın yalnızca geçirmek için IIS01 hedefleyen trafiğe izin verir. Bu nedenle trafik Internet'ten bu kural izin ve daha fazla kural işlemeyi durdur hedef olarak web sunucusuna sahip. (Kuralda öncelikte 140 tüm diğer gelen internet trafiğini engellendi). Yalnızca HTTP trafiğini işlemek, yalnızca hedef 80 numaralı bağlantı noktasına izin vermek için bu kural daha kısıtlanmasını.
 
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
@@ -132,7 +132,7 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele (**Not**: dolar işaret
          -Protocol *
     ```
 
-5. Bu kural AppVM01 sunucuya daha yeni bir kural bloklarını arka uç trafiği diğer ön uç IIS01 sunucudan geçmesine trafiğine izin verir. Bu kural, bağlantı noktasının eklenmesi gereken biliniyorsa geliştirmek için. IIS sunucusu yalnızca SQL Server'da AppVM01 basarsa, örneğin, hedef bağlantı noktası aralığı değiştirildiği "*" (tüm) böylece web uygulaması hiç tehlikeye AppVM01 üzerinde daha küçük bir gelen saldırı yüzeyini sağlar 1433 (SQL bağlantı noktası) için.
+5. Bu kural, arka uç trafiği diğer ön uç AppVM01 sunucuya daha yeni bir kural bloklarını IIS01 sunucudan geçirilecek trafiğine izin verir. Bu kural, bağlantı noktasının eklenmesi gereken biliniyorsa geliştirmek için. IIS sunucusu yalnızca SQL Server üzerinde AppVM01 ulaşıyorsa, örneğin, hedef bağlantı noktası aralığı gelen değiştirilmelidir "*" (herhangi) için web uygulaması sürekli görmüş AppVM01 daha küçük bir gelen saldırı yüzeyinde böylece izin 1433'ü (SQL bağlantı noktası).
 
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
@@ -144,7 +144,7 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele (**Not**: dolar işaret
         -Protocol *
     ```
 
-6. Bu kural, ağ üzerindeki herhangi bir sunucuya internet'ten trafiği engeller. Öncelikle 110 ve 120 kurallarıyla etkisi yalnızca gelen Internet trafiği güvenlik duvarı ve RDP bağlantı noktalarını sunucularda ve blokları şey izin vermektir. Bu kural, tüm beklenmeyen akışlar engellemek için bir "yedek" kuralıdır.
+6. Bu kural, ağ üzerindeki herhangi bir sunucuya internet'ten trafiği engeller. Öncelikle 110 ve 120 kurallarıyla etkisi yalnızca gelen internet trafiğini güvenlik duvarı ve RDP bağlantı noktaları sunucuları ve blokları için her şey izin vermektir. Bu kural, tüm beklenmeyen akışlar engellemek için bir "yedek" kuralıdır.
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
         Set-AzureNetworkSecurityRule `
@@ -155,7 +155,7 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele (**Not**: dolar işaret
         -DestinationPortRange '*' `
         -Protocol *
     ```
-7. Son bir kural arka uç alt ağına ön uç alt ağından trafiği engeller. Bu kural yalnızca bir gelen kuralı olduğundan, geriye doğru trafiğinin (Başlangıç ön uç için arka uç) izin verilir.
+7. Son kuralı trafiği arka uç alt ağına ön uç alt ağından reddeder. Bu kural yalnızca bir gelen kuralı olduğundan, dönen trafik (alanından, ön uç için arka uç) izin verilir.
 
     ```PowerShell
     Get-AzureNetworkSecurityGroup -Name $NSGName | `
@@ -169,117 +169,117 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele (**Not**: dolar işaret
     ```
 
 ## <a name="traffic-scenarios"></a>Trafik senaryoları
-#### <a name="allowed-internet-to-web-server"></a>(*İzin verilen*) web sunucusu Internet'e
-1. Bir Internet kullanıcı FrontEnd001.CloudApp.Net (Internet'e yönelik bulut hizmeti) istekler bir HTTP sayfası
-2. Bulut hizmeti geçişleri trafiğini açık uç noktasını IIS01 doğru bağlantı noktası 80 üzerinden (web sunucusu)
-3. Ön uç alt gelen kuralı işleme başlar:
-   1. NSG kural 1 (DNS) değil, uygulamak için sonraki kural taşıma
+#### <a name="allowed-internet-to-web-server"></a>(*İzin verilen*) web sunucusuna Internet
+1. İnternet kullanıcı FrontEnd001.CloudApp.Net (Internet'e yönelik bulut hizmeti) istekler bir HTTP sayfası
+2. Bulut hizmet IIS01 doğrultusunda 80 numaralı bağlantı noktasında açık uç noktası aracılığıyla geçiş trafiği (web sunucusu)
+3. Ön uç alt ağını gelen kuralı işleme başlar:
+   1. NSG kuralı 1 (DNS) değil, uygulamak için sonraki kural taşıma
    2. NSG kuralı 2 (RDP) değil, uygulamak için sonraki kural taşıma
-   3. NSG kural 3 (IIS01 Internet'e) için geçerli, izin verilen, Dur kural işlenirken trafiğidir
-4. İç IP adresi web sunucusunun IIS01 (10.0.1.5) trafiği isabetler
-5. IIS01 web trafiği için dinleme, bu isteği alır ve isteği işlemeye başlıyor
-6. IIS01 SQL Server AppVM01 hakkında bilgi için sorar
+   3. NSG kuralı 3 (Internet'e IIS01) geçerli, trafiğin izin verilen, Dur kural işleme
+4. Trafiği iç IP adresi (10.0.1.5'i) web sunucusunun IIS01 denk gelir.
+5. IIS01 web trafiği, bu isteği alır ve isteği işlemeye başlar.
+6. IIS01 SQL Server AppVM01 hakkında bilgi için sorar.
 7. Ön uç alt ağda hiçbir giden kuralları olduğundan, trafiğe izin verilir
-8. Arka uç alt gelen kuralı işleme başlar:
-   1. NSG kural 1 (DNS) değil, uygulamak için sonraki kural taşıma
+8. Arka uç alt ağı gelen kuralı işleme başlar:
+   1. NSG kuralı 1 (DNS) değil, uygulamak için sonraki kural taşıma
    2. NSG kuralı 2 (RDP) değil, uygulamak için sonraki kural taşıma
-   3. NSG kural 3 (Internet güvenlik duvarı için) değil, uygulamak için sonraki kural taşıma
-   4. NSG kuralı 4 (IIS01 AppVM01 için) uygulamak, trafiğine izin verilir, kural işleme Durdur
-9. AppVM01 SQL sorgusu alır ve yanıtlar
+   3. NSG kuralı 3 (Internet için Güvenlik Duvarı) değil, uygulamak için sonraki kural taşıma
+   4. NSG kuralı 4 (IIS01 AppVM01 için) uygulamak için trafiğe izin verilir, kuralı işlemeyi durdur
+9. AppVM01 SQL sorgusunu alır ve bunlara yanıt verir
 10. Arka uç alt ağda hiçbir giden kuralları olduğundan, yanıt izin verilir
-11. Ön uç alt gelen kuralı işleme başlar:
-    1. Gelen için geçerli NSG kural yok NSG hiçbiri uygulama kuralları için ön uç alt ağa, arka uç alt ağından gelen trafik
-    2. Alt ağlar arasında trafiğe izin varsayılan sistem kuralı, trafiğine izin bu trafiği olanak tanır.
-12. IIS sunucusu SQL yanıtı alır ve HTTP yanıtı tamamlar ve istek sahibine gönderir
-13. Hiçbir giden kuralları olduğundan ön uç alt ağda yanıt izin verilir ve internet kullanıcı istenen web sayfasının alır.
+11. Ön uç alt ağını gelen kuralı işleme başlar:
+    1. Gelen için uygulanan NSG kural yoktur hiçbir NSG kurallarını uygulamak için ön uç alt ağına arka uç alt ağından gelen trafiği
+    2. Alt ağlar arasında trafiğe izin veren varsayılan sistem kuralı, trafiğe izin verilmesi bu trafiğe izin.
+12. IIS sunucusu SQL yanıtı alır ve HTTP yanıtı tamamlandıktan ve istek sahibine gönderir
+13. Giden kural olduğundan ön uç alt ağda yanıt izin verilir ve web sayfasının kullanıcı internet alır.
 
-#### <a name="allowed-rdp-to-backend"></a>(*İzin verilen*) arka uç için RDP
-1. Sunucu Yöneticisi internet üzerindeki AppVM01 xxxxx rastgele atanan bağlantı noktası numarası (atanan bağlantı noktası, Azure portal veya PowerShell aracılığıyla bulunabilir) AppVM01 için RDP olduğu BackEnd001.CloudApp.Net:xxxxx üzerinde RDP oturumu istekleri
-2. Arka uç alt gelen kuralı işleme başlar:
-   1. NSG kural 1 (DNS) değil, uygulamak için sonraki kural taşıma
-   2. NSG kuralı 2 (RDP) uygulamak için izin verilen, Dur kural işlenirken trafiğidir
-3. Hiçbir giden kuralları, varsayılan kuralları uygula ve dönüş trafiğine izin verilir
+#### <a name="allowed-rdp-to-backend"></a>(*İzin verilen*) RDP için arka uç
+1. İnternet üzerinde Sunucu Yöneticisi AppVM01 xxxxx RDP AppVM01 (atanan bağlantı noktası, Azure portalında veya PowerShell aracılığıyla bulunabilir) için rastgele atanan bağlantı noktası numarasını olduğu BackEnd001.CloudApp.Net:xxxxx üzerinde RDP oturumu isteği
+2. Arka uç alt ağı gelen kuralı işleme başlar:
+   1. NSG kuralı 1 (DNS) değil, uygulamak için sonraki kural taşıma
+   2. NSG kuralı 2 (RDP) geçerli, trafiğin izin verilen, Dur kural işleme
+3. Hiçbir giden kuralları, varsayılan kuralları uygulanır ve dönüş trafiğine izin verilir
 4. RDP oturumu etkin
-5. Kullanıcı adı ve parola AppVM01 isteyen
+5. AppVM01 kullanıcı adı ve parola bilgilerini ister.
 
-#### <a name="allowed-web-server-dns-look-up-on-dns-server"></a>(*İzin verilen*) Web sunucusu DNS araması DNS sunucusunda
-1. Sunucu, IIS01, www.data.gov bir veri akışı gereksinimlerini ancak adresini çözümlemek için gereksinimlerini web.
-2. Ağ yapılandırma için VNet listeleri DNS01 (arka uç alt ağda 10.0.2.4) birincil DNS sunucusu olarak IIS01 DNS isteği için DNS01 gönderir
-3. Ön uç alt ağdaki hiçbir giden kuralları, trafiğe izin verilir
-4. Arka uç alt gelen kuralı işleme başlar:
-   * NSG kural 1 (DNS) uygulamak için izin verilen, Dur kural işlenirken trafiğidir
+#### <a name="allowed-web-server-dns-look-up-on-dns-server"></a>(*İzin verilen*) DNS sunucusundaki Web sunucusu DNS Arama
+1. Sunucu, IIS01 www.data.gov bir veri akışı gereksinimlerini, ancak adresini çözümlemek için gereksinimleri web.
+2. Ağ yapılandırma için VNet listeleri DNS01 (arka uç alt ağında 10.0.2.4) birincil DNS sunucusu olarak IIS01 DNS01 için DNS isteği gönderir
+3. Ön uç alt ağı yok giden kuralları, trafiğe izin verilir
+4. Arka uç alt ağı gelen kuralı işleme başlar:
+   * NSG kuralı 1 (DNS) geçerli, trafiğin izin verilen, Dur kural işleme
 5. DNS sunucusu isteği alır
-6. DNS sunucusu önbelleğe adresi yoksa ve bir kök DNS sunucusu internet'te sorar
-7. Hiçbir giden kuralları arka uç alt ağdaki trafiğe izin verilir
-8. Bu oturumda dahili olarak başlatıldı beri Internet DNS sunucusu yanıt, yanıt izin verilir
+6. DNS sunucusu önbelleğe alınmış adresleriniz değil ve bir kök DNS sunucusu internet'te sorar
+7. Hiçbir giden kuralları arka uç alt ağı üzerinde trafiğe izin verilir
+8. Bu oturum dahili olarak başlatıldıktan sonra Internet DNS sunucusu yanıt, yanıt izin verilir
 9. DNS sunucusu yanıtı önbelleğe alır ve geri IIS01 ilk isteğine yanıt verir
-10. Hiçbir giden kuralları arka uç alt ağdaki trafiğe izin verilir
-11. Ön uç alt gelen kuralı işleme başlar:
-    1. Gelen için geçerli NSG kural yok NSG hiçbiri uygulama kuralları için ön uç alt ağa, arka uç alt ağından gelen trafik
-    2. Trafiğe izin için alt ağlar arasında trafiğe izin varsayılan sistem kuralı bu trafiği olanak tanır
+10. Hiçbir giden kuralları arka uç alt ağı üzerinde trafiğe izin verilir
+11. Ön uç alt ağını gelen kuralı işleme başlar:
+    1. Gelen için uygulanan NSG kural yoktur hiçbir NSG kurallarını uygulamak için ön uç alt ağına arka uç alt ağından gelen trafiği
+    2. Trafiğe izin verilmesi bu trafiğe izin alt ağlar arasında trafiğe izin veren varsayılan sistem kuralı
 12. IIS01 DNS01 yanıtı alır
 
-#### <a name="allowed-web-server-access-file-on-appvm01"></a>(*İzin verilen*) Web sunucusu erişimini dosyasını AppVM01 üzerinde
+#### <a name="allowed-web-server-access-file-on-appvm01"></a>(*İzin verilen*) AppVM01 üzerinde Web sunucusu erişim dosyası
 1. Bir dosyanın AppVM01 IIS01 sorar
-2. Ön uç alt ağdaki hiçbir giden kuralları, trafiğe izin verilir
-3. Arka uç alt gelen kuralı işleme başlar:
-   1. NSG kural 1 (DNS) değil, uygulamak için sonraki kural taşıma
+2. Ön uç alt ağı yok giden kuralları, trafiğe izin verilir
+3. Arka uç alt ağı gelen kuralı işleme başlar:
+   1. NSG kuralı 1 (DNS) değil, uygulamak için sonraki kural taşıma
    2. NSG kuralı 2 (RDP) değil, uygulamak için sonraki kural taşıma
-   3. NSG kural 3 (IIS01 Internet'e) değil, uygulamak için sonraki kural taşıma
-   4. NSG kuralı 4 (IIS01 AppVM01 için) uygulamak, trafiğine izin verilir, kural işleme Durdur
+   3. NSG kuralı 3 (Internet'e IIS01) değil, uygulamak için sonraki kural taşıma
+   4. NSG kuralı 4 (IIS01 AppVM01 için) uygulamak için trafiğe izin verilir, kuralı işlemeyi durdur
 4. AppVM01 isteği alır ve (erişim yetkisi varsayılarak) dosyası ile yanıt verir
 5. Arka uç alt ağda hiçbir giden kuralları olduğundan, yanıt izin verilir
-6. Ön uç alt gelen kuralı işleme başlar:
-   1. Gelen için geçerli NSG kural yok NSG hiçbiri uygulama kuralları için ön uç alt ağa, arka uç alt ağından gelen trafik
-   2. Alt ağlar arasında trafiğe izin varsayılan sistem kuralı, trafiğine izin bu trafiği olanak tanır.
-7. IIS sunucu dosya alır
+6. Ön uç alt ağını gelen kuralı işleme başlar:
+   1. Gelen için uygulanan NSG kural yoktur hiçbir NSG kurallarını uygulamak için ön uç alt ağına arka uç alt ağından gelen trafiği
+   2. Alt ağlar arasında trafiğe izin veren varsayılan sistem kuralı, trafiğe izin verilmesi bu trafiğe izin.
+7. IIS sunucusu dosyayı alır
 
 #### <a name="denied-web-to-backend-server"></a>(*Reddedildi*) arka uç sunucusuna Web
-1. Bir Internet kullanıcı BackEnd001.CloudApp.Net hizmeti aracılığıyla AppVM01 bir dosyaya erişmeyi dener
-2. Dosya Paylaşımı için açık uç nokta yok olduğundan, bu trafiği bulut hizmeti geçirmek değil'yı ve tarafından sunucuya ulaşmak olmayacaktır
-3. Uç noktaları için herhangi bir nedenle açıksa, NSG kural 5 (sanal ağa Internet) bu trafiği engeller
+1. Bir Internet kullanıcı BackEnd001.CloudApp.Net hizmet aracılığıyla AppVM01 bir dosyaya erişmeye çalışır
+2. Dosya Paylaşımı için açık uç nokta olduğundan bu trafiği bulut hizmeti geçecekse değil ve tarafından sunucuya ulaşmak mıydı
+3. NSG kuralı 5 (Internet'e VNet) uç noktaları için herhangi bir nedenle açıksa, bu trafiği engeller
 
-#### <a name="denied-web-dns-look-up-on-dns-server"></a>(*Reddedildi*) DNS sunucusunda Web DNS araması
-1. Bir iç DNS kaydında DNS01 BackEnd001.CloudApp.Net hizmeti aracılığıyla aramak bir internet kullanıcı çalışır
-2. DNS için açık uç nokta yok olduğundan, bu trafiği bulut hizmeti geçirmek değil'yı ve tarafından sunucuya ulaşmak olmayacaktır
-3. Uç noktaları için herhangi bir nedenle açıksa, NSG kural 5 (sanal ağa Internet) bu trafiği engeller (Not: Bu kural 1 (DNS), iki nedenden dolayı geçerli değil, ilk kaynak adresi Internet, bu kural yalnızca kaynağı olarak yerel vnet'e uygulanır, hiçbir zaman trafiği reddetmeye böylece de bu kural bir izin verme kuralı)
+#### <a name="denied-web-dns-look-up-on-dns-server"></a>(*Reddedildi*) DNS sunucusundaki Web DNS Arama
+1. DNS01 BackEnd001.CloudApp.Net hizmeti aracılığıyla bir iç DNS kaydını aramak bir internet kullanıcı çalışır
+2. DNS için açık uç nokta olduğundan bu trafiği bulut hizmeti geçecekse değil ve tarafından sunucuya ulaşmak mıydı
+3. Uç noktaları için herhangi bir nedenle açıksa, bu trafiğin NSG kuralı 5 (Internet'e VNet) engellenecekse (Not: Bu kural 1'in (DNS), iki nedenden dolayı uygulanamaz ilk kaynak adresi internet, bu kural yerel sanal ağ kaynağı olarak yalnızca uygular. hiçbir zaman trafiği reddetmeye Ayrıca bu kural bir izin verme kuralı olduğundan)
 
 #### <a name="denied-web-to-sql-access-through-firewall"></a>(*Reddedildi*) Web güvenlik duvarı üzerinden SQL erişimi
-1. Bir Internet kullanıcının SQL verileri FrontEnd001.CloudApp.Net (Internet'e yönelik bulut hizmeti) ' ister.
-2. SQL için açık uç nokta yok olduğundan bu trafiği bulut hizmeti geçip geçmeyeceğini değil ve güvenlik duvarı ulaşmak olmayacaktır
-3. Uç noktaları için herhangi bir nedenle açıksa, ön uç alt gelen kuralı işleme başlar:
-   1. NSG kural 1 (DNS) değil, uygulamak için sonraki kural taşıma
+1. İnternet kullanıcı SQL veri FrontEnd001.CloudApp.Net (Internet'e yönelik bulut hizmeti) istekleri
+2. SQL için açık uç nokta olduğundan bu trafiği bulut hizmeti geçecekse değil ve güvenlik duvarı ulaşmak mıydı
+3. Uç noktaları için herhangi bir nedenle açıksa, ön uç alt ağını gelen kuralı işleme başlar:
+   1. NSG kuralı 1 (DNS) değil, uygulamak için sonraki kural taşıma
    2. NSG kuralı 2 (RDP) değil, uygulamak için sonraki kural taşıma
-   3. NSG kural 3 (IIS01 Internet'e) için geçerli, izin verilen, Dur kural işlenirken trafiğidir
-4. Trafik isabetler IIS01 iç IP adresi (10.0.1.5)
-5. IIS01 1433 numaralı bağlantı noktasını, dolayısıyla isteğine yanıt olarak dinlemede değil
+   3. NSG kuralı 3 (Internet'e IIS01) geçerli, trafiğin izin verilen, Dur kural işleme
+4. Trafik İsabetleri IIS01 iç IP adresi (10.0.1.5'i)
+5. IIS01 dinleme bağlantı noktası 1433'ü, dolayısıyla isteğine yanıt olarak değil
 
 ## <a name="conclusion"></a>Sonuç
-Bu örnek, arka uç alt ağından gelen trafiği yalıtma, nispeten basit ve düz ileriye doğru bir yoludur.
+Bu örnekte, arka uç alt ağından gelen trafiği yalıtma, görece basit ve anlaşılır bir yoludur.
 
-Daha fazla örnekler ve ağ güvenlik sınırları genel bir bakış bulunabilir [burada][HOME].
+Daha fazla örnek ve ağ güvenlik sınırları genel bir bakış bulunabilir [burada][HOME].
 
 ## <a name="references"></a>Başvurular
 ### <a name="main-script-and-network-config"></a>Ana komut dosyası ve ağ yapılandırma
-Tam komut dosyasını bir PowerShell komut dosyası kaydedin. Ağ Yapılandırma "NetworkConf1.xml." adlı bir dosyaya kaydet
+Bir PowerShell komut dosyasında tam komut dosyasını kaydedin. Ağ Yapılandırması "NetworkConf1.xml." adlı bir dosyaya kaydedin
 Kullanıcı tanımlı değişkenleri gerektiği gibi değiştirin ve betiği çalıştırın.
 
 #### <a name="full-script"></a>Tam betik
-Bu komut dosyası, kullanıcı tanımlı değişkenlere bağlı olur;
+Bu betik, kullanıcı tarafından tanımlanan değişkenleri esas alarak olur;
 
 1. Bir Azure aboneliğine Bağlanma
 2. Depolama hesabı oluşturma
-3. VNet ve ağ yapılandırma dosyasında tanımlanan iki alt ağ oluşturma
-4. Dört windows server Vm'lerinin oluşturma
+3. Bir sanal ağ ve ağ yapılandırma dosyasında tanımlanan iki alt ağ oluşturma
+4. Dört windows server sanal makineleri oluşturma
 5. NSG dahil olmak üzere yapılandırın:
    * Bir NSG oluşturma
    * Kuralları ile doldurma
    * NSG için uygun alt ağları bağlama
 
-Bu PowerShell Betiği, bir bilgisayar veya sunucu, Internet'e yerel olarak çalıştırılmalıdır.
+Bu PowerShell Betiği, bilgisayar veya sunucu bir İnternet'e bağlı yerel olarak çalıştırılmalıdır.
 
 > [!IMPORTANT]
-> Bu komut dosyasını çalıştırdığınızda, uyarı veya PowerShell'de pop diğer bilgilendirici iletileri olabilir. Yalnızca hata iletileri kırmızı sorunu nedeni edilir.
+> Bu betik çalıştırıldığında, uyarı veya PowerShell'de pop diğer bilgilendirme iletileri olabilir. Yalnızca hata iletileri kırmızı endişeye neden olan.
 > 
 >
 
@@ -541,10 +541,10 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
 ```
 
 #### <a name="network-config-file"></a>Ağ yapılandırma dosyası
-Güncelleştirilmiş konumu ile bu xml dosyasını kaydedin ve bağlantıyı önceki komut $NetworkConfigFile değişkeninde bu dosyaya ekleyin.
+Güncelleştirilmiş konumu ile bu xml dosyasını kaydedin ve önceki komut $NetworkConfigFile değişkeninde bu dosyaya bağlantı ekleyin.
 
 ```XML
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
   <VirtualNetworkConfiguration>
     <Dns>
       <DnsServers>
@@ -576,16 +576,16 @@ Güncelleştirilmiş konumu ile bu xml dosyasını kaydedin ve bağlantıyı ön
 ```
 
 #### <a name="sample-application-scripts"></a>Örnek uygulama komut dosyaları
-Bu ve diğer çevre örnekleri için örnek bir uygulama yüklemek isterseniz, bir aşağıdaki bağlantıda sağlanmış: [örnek uygulama betiği][SampleApp]
+Bu ve diğer DMZ örnekleri için örnek uygulamayı yüklemek istiyorsanız, aşağıdaki bağlantıda bir sağlanmıştır: [Örnek uygulama betiği][SampleApp]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Güncelleştirme ve XML dosyasını kaydedin
-* Ortamı oluşturmak için PowerShell betiğini çalıştırın
-* Örnek uygulamayı yükle
-* Bu DMZ aracılığıyla farklı trafik akışları test etme
+* XML dosyasını kaydedin ve güncelleştirin
+* Ortamı oluşturmak için PowerShell betiğini çalıştırma
+* Örnek uygulamayı yüklemek
+* Bu DMZ ile farklı trafik akışları test etme
 
 <!--Image References-->
-[1]: ./media/virtual-networks-dmz-nsg-asm/example1design.png "NSG ile giriş DMZ"
+[1]: ./media/virtual-networks-dmz-nsg-asm/example1design.png "Gelen NSG ile DMZ"
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md

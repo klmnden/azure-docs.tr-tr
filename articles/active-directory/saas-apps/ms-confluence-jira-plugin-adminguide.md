@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b81129ada4710eff58d50bf998802e8ac1b2788
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1a674748e9e95828436df25222f6daad881e0487
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191070"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109146"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Azure Active Directory için Atlassian Jıra ve Confluence Yönetici Kılavuzu
 
@@ -110,33 +110,33 @@ Aşağıdaki görüntüde, Jıra hem Confluence yapılandırma ekranında göste
 
 ![Eklenti yapılandırması ekran](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-*   **Meta veri URL'si**: Azure AD Federasyon meta verilerini almak için URL.
+* **Meta veri URL'si**: Azure AD Federasyon meta verilerini almak için URL.
 
-*   **Tanımlayıcıları**: İstek kaynağı doğrulamak için Azure AD kullanan URL. Eşlendiği **tanımlayıcı** Azure AD'de öğesi. Eklenti otomatik olarak bu URL https:// olarak türetilen *< etki alanı: bağlantı noktası >*/.
+* **Tanımlayıcıları**: İstek kaynağı doğrulamak için Azure AD kullanan URL. Eşlendiği **tanımlayıcı** Azure AD'de öğesi. Eklenti otomatik olarak bu URL https:// olarak türetilen *< etki alanı: bağlantı noktası >*/.
 
-*   **Yanıt URL'si**: SAML oturum açma başlatır, kimlik sağlayıcısı (IDP) ' yanıt URL'si. Eşlendiği **yanıt URL'si** Azure AD'de öğesi. Eklenti otomatik olarak bu URL https:// olarak türetilen *< etki alanı: bağlantı noktası >*/plugins/servlet/saml/auth.
+* **Yanıt URL'si**: SAML oturum açma başlatır, kimlik sağlayıcısı (IDP) ' yanıt URL'si. Eşlendiği **yanıt URL'si** Azure AD'de öğesi. Eklenti otomatik olarak bu URL https:// olarak türetilen *< etki alanı: bağlantı noktası >*/plugins/servlet/saml/auth.
 
-*   **Oturum açma URL'si**: Oturum açma URL'SİNDE Idp'nizi SAML oturum açma işlemini başlatır. Eşlendiği **oturum açma** Azure AD'de öğesi. Eklenti otomatik olarak bu URL https:// olarak türetilen *< etki alanı: bağlantı noktası >*/plugins/servlet/saml/auth.
+* **Oturum açma URL'si**: Oturum açma URL'SİNDE Idp'nizi SAML oturum açma işlemini başlatır. Eşlendiği **oturum açma** Azure AD'de öğesi. Eklenti otomatik olarak bu URL https:// olarak türetilen *< etki alanı: bağlantı noktası >*/plugins/servlet/saml/auth.
 
-*   **IDP varlık kimliği**: Idp'nizi kullanan varlık kimliği. Meta veri URL'sini çözümlendiğinde bu kutuyu doldurulur.
+* **IDP varlık kimliği**: Idp'nizi kullanan varlık kimliği. Meta veri URL'sini çözümlendiğinde bu kutuyu doldurulur.
 
-*   **Oturum açma URL'si**: Oturum açma URL'den geçirebilirsiniz. Bu kutuyu meta veri URL'sini çözümlenmiş olduğunda Azure AD'den doldurulur.
+* **Oturum açma URL'si**: Oturum açma URL'den geçirebilirsiniz. Bu kutuyu meta veri URL'sini çözümlenmiş olduğunda Azure AD'den doldurulur.
 
-*   **Oturum kapatma URL'si**: Oturum kapatma URL'si Idp'nizi öğesinden. Bu kutuyu meta veri URL'sini çözümlenmiş olduğunda Azure AD'den doldurulur.
+* **Oturum kapatma URL'si**: Oturum kapatma URL'si Idp'nizi öğesinden. Bu kutuyu meta veri URL'sini çözümlenmiş olduğunda Azure AD'den doldurulur.
 
-*   **X.509 sertifikası**: Idp'nin X.509 sertifikası. Bu kutuyu meta veri URL'sini çözümlenmiş olduğunda Azure AD'den doldurulur.
+* **X.509 sertifikası**: Idp'nin X.509 sertifikası. Bu kutuyu meta veri URL'sini çözümlenmiş olduğunda Azure AD'den doldurulur.
 
-*   **Oturum açma düğmesi adı**: Kuruluşunuzun oturum açma sayfasında görmek için kullanıcıların istediği oturum açma düğmesi adı.
+* **Oturum açma düğmesi adı**: Kuruluşunuzun oturum açma sayfasında görmek için kullanıcıların istediği oturum açma düğmesi adı.
 
-*   **SAML kullanıcı kimliği konumları**: Jıra veya Confluence kullanıcı kimliği içinde SAML yanıtı beklenirken konumu. İçinde yer alabileceği **Nameıd** veya özel öznitelik adı.
+* **SAML kullanıcı kimliği konumları**: Jıra veya Confluence kullanıcı kimliği içinde SAML yanıtı beklenirken konumu. İçinde yer alabileceği **Nameıd** veya özel öznitelik adı.
 
-*   **Öznitelik adı**: Kullanıcı Kimliği beklenirken özniteliğinin adı.
+* **Öznitelik adı**: Kullanıcı Kimliği beklenirken özniteliğinin adı.
 
-*   **Etkin giriş bölgesi bulmayı**: Şirketin Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsa, yapmanız - tabanlı oturum açma - seçimi içinde.
+* **Etkin giriş bölgesi bulmayı**: Şirketin Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsa, yapmanız - tabanlı oturum açma - seçimi içinde.
 
-*   **Etki alanı adı**: Etki alanı oturum açma, AD FS tabanlı adıdır.
+* **Etki alanı adı**: Etki alanı oturum açma, AD FS tabanlı adıdır.
 
-*   **Çoklu oturum kapatma etkinleştirme**: Jıra veya Confluence kullanıcı ne zaman kapattığında Azure AD oturumunu kapatmak istiyorsanız olun seçimi.
+* **Çoklu oturum kapatma etkinleştirme**: Jıra veya Confluence kullanıcı ne zaman kapattığında Azure AD oturumunu kapatmak istiyorsanız olun seçimi.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

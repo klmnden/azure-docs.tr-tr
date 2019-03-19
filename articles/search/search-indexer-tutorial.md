@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: e23c9e04d06e509cba32c728ae6f86e1328d88cc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312060"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111081"
 ---
 # <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Öğretici: Azure Search dizin oluşturucuyu kullanarak bir Azure SQL veritabanında gezinin
 
@@ -90,20 +90,20 @@ Arama hizmeti uç noktasını ve anahtarı portalda bulabilirsiniz. Anahtar, hiz
 
 4. Bu adı kopyalayın ve Visual Studio'da ilk girdi olarak **appsettings.json** dosyasına yapıştırın.
 
-  > [!Note]
-  > Hizmet adı, search.windows.net'i içeren uç noktanın bir parçasıdır. Merak ediyorsanız, tam URL'yi Genel Bakış sayfasındaki **Temel Bileşenler**'de görebilirsiniz. URL bu örnekteki gibi görünür: https://your-service-name.search.windows.net
+   > [!Note]
+   > Hizmet adı, search.windows.net'i içeren uç noktanın bir parçasıdır. Merak ediyorsanız, tam URL'yi Genel Bakış sayfasındaki **Temel Bileşenler**'de görebilirsiniz. URL bu örnekteki gibi görünür: https://your-service-name.search.windows.net
 
 5. Son taraftaki **Ayarlar** > **Anahtarlar**'da, yönetici anahtarlarından birini kopyalayın ve **appsettings.json**'a ikinci girdi olarak yapıştırın. Anahtarlar, hazırlama sırasında hizmetiniz için oluşturulan alfasayısal dizelerdir ve hizmet işlemlerine yetkili erişim için gereklidir. 
 
-  Her iki ayarı da ekledikten sonra, dosyanız şu örneğe benzer olmalıdır:
+   Her iki ayarı da ekledikten sonra, dosyanız şu örneğe benzer olmalıdır:
 
-  ```json
-  {
+   ```json
+   {
     "SearchServiceName": "azs-tutorial",
     "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
     . . .
-  }
-  ```
+   }
+   ```
 
 ## <a name="prepare-an-external-data-source"></a>Dış veri kaynağını hazırlama
 
@@ -125,7 +125,7 @@ Aşağıdaki alıştırmada, mevcut sunucu veya veritabanı olmadığı varsayı
 
 4. Yeni veritabanınızın SQL Veritabanı sayfasını (zaten açık değilse) açın. Kaynak adı *SQL Server* değil *SQL veritabanı* olmalıdır.
 
-  ![SQL veritabanı sayfası](./media/search-indexer-tutorial/hotels-db.png)
+   ![SQL veritabanı sayfası](./media/search-indexer-tutorial/hotels-db.png)
 
 4. Komut çubuğunda **Araçlar** > **Sorgu düzenleyicisi**'ne tıklayın.
 
@@ -135,24 +135,24 @@ Aşağıdaki alıştırmada, mevcut sunucu veya veritabanı olmadığı varsayı
 
 7. Dosyayı seçin ve **Aç**'a tıklayın. Betik aşağıdaki ekran görüntüsüne benzer görünmelidir:
 
-  ![SQL betiği](./media/search-indexer-tutorial/sql-script.png)
+   ![SQL betiği](./media/search-indexer-tutorial/sql-script.png)
 
 8. Sorguyu yürütmek için **Çalıştır**'a tıklayın. Sonuçlar bölmesinde, 3 satır için sorgu başarılı oldu iletisini görmeniz gerekir.
 
 9. Bu tablodan bir satır kümesi döndürmek için, doğrulama adımı olarak aşağıdaki sorguyu yürütebilirsiniz:
 
-   ```sql
-   SELECT HotelId, HotelName, Tags FROM Hotels
-   ```
-   `SELECT * FROM Hotels` sorgu prototipi Sorgu Düzenleyicisi'nde çalışmaz. Örnek verilerde, Konum alanında coğrafi koordinatlar vardır ve bunlar şu anda düzenleyicide işlenmemektedir. Sorgulanacak diğer sütunların listesi için, şu deyimi yürütebilirsiniz: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    ```sql
+    SELECT HotelId, HotelName, Tags FROM Hotels
+    ```
+    `SELECT * FROM Hotels` sorgu prototipi Sorgu Düzenleyicisi'nde çalışmaz. Örnek verilerde, Konum alanında coğrafi koordinatlar vardır ve bunlar şu anda düzenleyicide işlenmemektedir. Sorgulanacak diğer sütunların listesi için, şu deyimi yürütebilirsiniz: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. Artık bir dış veri kümeniz olduğuna göre, veritabanının ADO.NET bağlantı dizesini kopyalayın. Veritabanınızın SQL Veritabanı sayfasında **Ayarlar** > **Bağlantı Dizeleri**'ne gidin ve ADO.NET bağlantı dizesini kopyalayın.
  
-  ADO.NET bağlantı dizesi aşağıdaki örneğe benzer; geçerli bir veritabanı adı, kullanıcı adı ve parola kullanacak şekilde değiştirilmiştir.
+    ADO.NET bağlantı dizesi aşağıdaki örneğe benzer; geçerli bir veritabanı adı, kullanıcı adı ve parola kullanacak şekilde değiştirilmiştir.
 
-  ```sql
-  Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-  ```
+    ```sql
+    Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    ```
 11. Bağlantı dizesini, Visual Studio'da **appsettings.json** dosyasındaki üçüncü girdi olarak "AzureSqlConnectionString" içine yapıştırın.
 
     ```json
@@ -250,15 +250,15 @@ Azure Portal'da, arama hizmetinin Genel Bakış sayfasında üst kısımdaki **A
 
 2. Boş bir arama göndermek için **Ara** düğmesine tıklayın. 
 
-  Dizininizdeki üç girdi, JSON belgeleri olarak döndürülür. Yapının tamamını görebilmeniz için arama gezgini belgeleri JSON olarak döndürür.
+   Dizininizdeki üç girdi, JSON belgeleri olarak döndürülür. Yapının tamamını görebilmeniz için arama gezgini belgeleri JSON olarak döndürür.
 
 3. Ardından, bir arama dizesi girin: `search=river&$count=true`. 
 
-  Bu sorgu, `river` terimi için tam metin aramasını çağırır ve sonuç eşleşen belgelerin sayısını içerir. Binlerce veya milyonlarca belge içeren çok büyük bir dizininiz olduğunda, test senaryolarında eşleşen belge sayısının döndürülmesi yararlı olur. Bizim örneğimizde, sorguyla eşleşen tek bir belge vardır.
+   Bu sorgu, `river` terimi için tam metin aramasını çağırır ve sonuç eşleşen belgelerin sayısını içerir. Binlerce veya milyonlarca belge içeren çok büyük bir dizininiz olduğunda, test senaryolarında eşleşen belge sayısının döndürülmesi yararlı olur. Bizim örneğimizde, sorguyla eşleşen tek bir belge vardır.
 
 4. Son olarak, JSON çıkışını ilgilendiğiniz alanlarla sınırlandıran bir arama dizesi girin: `search=river&$count=true&$select=hotelId, baseRate, description`. 
 
-  Sorgu yanıtı seçili alanlara daraltılır ve sonuçta daha kısa bir çıkış elde edilir.
+   Sorgu yanıtı seçili alanlara daraltılır ve sonuçta daha kısa bir çıkış elde edilir.
 
 ## <a name="view-indexer-configuration"></a>Dizin oluşturucu yapılandırmasını görüntüleme
 
@@ -268,7 +268,7 @@ Az önce programlama yoluyla oluşturduğunuz dizin oluşturucu da dahil olmak �
 2. Ekranı aşağı kaydırarak **Dizin Oluşturucular** ve **Veri Kaynakları** kutucuklarını bulun.
 3. Kaynakların listesini açmak için kutucuğa tıklayın. Yapılandırma ayarlarını görüntülemek veya değiştirmek için, dizin oluşturucuları veya veri kaynaklarını tek tek seçebilirsiniz.
 
-  ![Dizin oluşturucu ve veri kaynağı kutucukları](./media/search-indexer-tutorial/tiles-portal.png)
+   ![Dizin oluşturucu ve veri kaynağı kutucukları](./media/search-indexer-tutorial/tiles-portal.png)
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme

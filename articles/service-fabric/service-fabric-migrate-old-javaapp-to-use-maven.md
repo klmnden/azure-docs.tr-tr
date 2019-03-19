@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: b880a80e19c5a85a35d5e1d78022fe4acc74f0e1
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 75a3f8e6c872e0bbb9fde8c5776d99ba0cf2c3d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999178"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116614"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Eski Java Service Fabric uygulamanızı Maven’dan Java kitaplıklarını alacak şekilde güncelleştirme
 Service Fabric Java ikili dosyalarını yakın zamanda Service Fabric Java SDK’dan Maven’a taşıdık. En son Service Fabric Java bağımlılıklarını almak için artık **mavencentral**’ı kullanabilirsiniz. Bu hızlı başlangıç, daha önce Service Fabric Java SDK ile kullanılacak şekilde Yeoman veya Eclipse kullanarak oluşturduğunuz mevcut Java uygulamalarını Maven tabanlı derlemeyle uyumlu olacak şekilde güncelleştirmenize yardımcı olur.
@@ -27,17 +27,17 @@ Service Fabric Java ikili dosyalarını yakın zamanda Service Fabric Java SDK�
 ## <a name="prerequisites"></a>Önkoşullar
 1. Önce mevcut Java SDK'sını kaldırmanız gerekir.
 
-  ```bash
-  sudo dpkg -r servicefabricsdkjava
-  ```
+   ```bash
+   sudo dpkg -r servicefabricsdkjava
+   ```
 2. [Burada](service-fabric-cli.md) belirtilen adımları izleyerek Service Fabric CLI'sını yükleyin.
 
 3. Service Fabric Java uygulamalarını oluşturmak ve çalışmak için JDK 1.8 ve Gradle’ın yüklü olduğundan emin olmanız gerekir. Henüz yüklü değilse, JDK 1.8 (openjdk-8-jdk) ve Gradle’ı yüklemek için aşağıdakini çalıştırabilirsiniz.
 
- ```bash
- sudo apt-get install openjdk-8-jdk-headless
- sudo apt-get install gradle
- ```
+   ```bash
+   sudo apt-get install openjdk-8-jdk-headless
+   sudo apt-get install gradle
+   ```
 4. [Buradaki](service-fabric-application-lifecycle-sfctl.md) adımları takip ederek uygulamanızın yükleme ve kaldırma betiklerini yeni Service Fabric CLI’sını kullanacak şekilde güncelleştirin. Hızlı başlangıç [örneklerine](https://github.com/Azure-Samples/service-fabric-java-getting-started) bakabilirsiniz.
 
 >[!TIP]

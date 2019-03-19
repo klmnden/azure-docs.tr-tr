@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: c8713c4d3f6bd7835fed8e668407ea9ee55cc712
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6b1b92f25d24294fc5b685b4ce737c03800face3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111841"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093101"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Öğretici: CLI kullanarak HSM'leri mevcut sanal ağa dağıtma
 
@@ -245,8 +245,8 @@ Yalnızca HSM cihazla tamamlandıysa, sonra bir kaynak olarak silinir ve olması
 9. `syslog rotate`
 
 
->[!NOTE]
-herhangi bir Gemalto cihaz yapılandırma ile ilgili sorun varsa başvurmalısınız [Gemalto müşteri desteği](https://safenet.gemalto.com/technical-support/).
+> [!NOTE]
+> herhangi bir Gemalto cihaz yapılandırma ile ilgili sorun varsa başvurmalısınız [Gemalto müşteri desteği](https://safenet.gemalto.com/technical-support/).
 
 
 Bu kaynak grubundaki kaynaklar ile tamamladınız, ardından şu komutla tüm kaldırabilirsiniz:

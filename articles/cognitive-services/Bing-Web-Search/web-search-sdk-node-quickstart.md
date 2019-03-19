@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 94bc7d2ddca84b01dd799552fe7a331c9bb958a1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 96848e30c13d226978a6be1a1786e9ed2b4ab7c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856912"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892872"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Hızlı Başlangıç: Bing Web araması SDK'sı için Node.js kullanma
 
@@ -43,14 +43,14 @@ Node.js projemiz için geliştirme ortamını ayarlayarak başlayalım.
     mkdir YOUR_PROJECT
     ```
 
-2. Yeni bir paket dosyası oluşturun:
+1. Yeni bir paket dosyası oluşturun:
 
     ```console
     cd YOUR_PROJECT
     npm init
     ```
 
-3. Şimdi birkaç Azure modülü yükleyip `package.json` içine ekleyelim:
+1. Şimdi birkaç Azure modülü yükleyip `package.json` içine ekleyelim:
 
     ```console
     npm install --save azure-cognitiveservices-websearch

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24b08bb843b4f1a0eb9f2471cb17b81f2c8ac4d0
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 76323ab00a3562cae10520b18008d030e40043fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417542"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864686"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway yapılandırma ayarları hakkında
 
@@ -43,7 +43,7 @@ Bir VPN ağ geçidi gerektirir `-GatewayType` *Vpn*.
 
 Örnek:
 
-```powershell
+```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
@@ -63,7 +63,7 @@ Resource Manager sanal ağ geçidi oluşturmak için Azure portalını kullanıy
 
 Aşağıdaki PowerShell örneği belirtir `-GatewaySku` VpnGw1 olarak. Bir ağ geçidi oluşturmak için PowerShell kullanırken ilk IP yapılandırmasını oluşturun ve ardından buna başvurmak için bir değişken kullanın gerekir. Bu örnekte, yapılandırma değişkeni $gwipconfig ' dir.
 
-```powershell
+```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
@@ -77,7 +77,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 ###  <a name="resizechange"></a>Yeniden boyutlandırma veya SKU değiştirme
 
-Bir VPN ağ geçidi varsa ve farklı bir ağ geçidi SKU'sunu kullanmak istediğiniz ya da, ağ geçidi SKU'sunu yeniden boyutlandırmak için veya başka bir SKU'ya değiştirmek için seçenekleriniz şunlardır. Başka bir ağ geçidi SKU'su değiştirdiğinizde, mevcut ağ geçidini tamamen silin ve yeni bir tane oluşturun. Bu yapı 45 dakika kadar sürebilir. Ağ geçidi SKU'sunu, yeniden boyutlandırdığınızda silin ve ağ geçidini yeniden olmadığı için buna karşılık, çok az kapalı kalma süresi gerekir. Seçeneği değiştirmek yerine, ağ geçidi SKU'sunu yeniden boyutlandırma varsa, bunu istersiniz. Ancak, kural yok yeniden boyutlandırma ile ilgili:
+Bir VPN ağ geçidi varsa ve farklı bir ağ geçidi SKU'sunu kullanmak istediğiniz ya da, ağ geçidi SKU'sunu yeniden boyutlandırmak için veya başka bir SKU'ya değiştirmek için seçenekleriniz şunlardır. Başka bir ağ geçidi SKU'su değiştirdiğinizde, mevcut ağ geçidini tamamen silin ve yeni bir tane oluşturun. Bir ağ geçidi oluşturma 45 dakika kadar sürebilir. Buna karşılık, bir ağ geçidi SKU'su, yeniden boyutlandırdığınızda yok kadar kapalı kalma süresi silin ve ağ geçidini yeniden olmadığı için. Seçeneği değiştirmek yerine, ağ geçidi SKU'sunu yeniden boyutlandırma varsa, bunu istersiniz. Ancak, kural yok yeniden boyutlandırma ile ilgili:
 
 1. VpnGw1, VpnGw2 ve VpnGw3 SKU'ları arasında yeniden boyutlandırma gerçekleştirebilirsiniz.
 2. Eski ağ geçidi SKU'larıyla çalışırken Temel, Standart ve Yüksek Performanslı SKU'lar arasında yeniden boyutlandırma yapabilirsiniz.
@@ -102,7 +102,7 @@ Resource Manager dağıtım modelinde, her yapılandırma bir özel sanal ağ ge
 
 Aşağıdaki PowerShell örneği, bağlantı türü gerektiren bir S2S bağlantısı oluşturacağız *IPSec*.
 
-```powershell
+```azurepowershell-interactive
 New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
 -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
@@ -120,7 +120,7 @@ Bir sanal ağ geçidi oluşturulduktan sonra VPN türünü değiştiremezsiniz. 
 
 Aşağıdaki PowerShell örneği belirtir `-VpnType` olarak *RouteBased*. Bir ağ geçidi oluştururken, -VpnType öğesinin yapılandırmanız için doğru olduğundan emin olmanız gerekir.
 
-```powershell
+```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
@@ -132,7 +132,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ## <a name="gwsub"></a>Ağ geçidi alt ağı
 
-Bir VPN ağ geçidi oluşturmadan önce bir ağ geçidi alt ağı oluşturmanız gerekir. Ağ geçidi alt ağı sanal ağ geçidi Vm'lerini ve hizmetlerini kullanan IP adreslerini içerir. Sanal ağ geçidinizi oluştururken, ağ geçidi Vm'leri ağ geçidi alt ağına dağıtılır ve gerekli VPN ağ geçidi ayarlarla yapılandırılır. Başka bir şey (örneğin, ek VM'ler) ağ geçidi alt ağına hiçbir zaman dağıtmalısınız. Ağ geçidi alt ağı 'GatewaySubnet' olarak adlandırılmalıdır düzgün çalışması için. Ağ geçidi alt ağı "GatewaySubnet" adlandırma, bu alt ağ sanal ağ geçidi Vm'leri ve Hizmetleri dağıtmak için hazır olduğunu biliyor Azure olanak tanır.
+Bir VPN ağ geçidi oluşturmadan önce bir ağ geçidi alt ağı oluşturmanız gerekir. Ağ geçidi alt ağı sanal ağ geçidi Vm'lerini ve hizmetlerini kullanan IP adreslerini içerir. Sanal ağ geçidinizi oluştururken, ağ geçidi Vm'leri ağ geçidi alt ağına dağıtılır ve gerekli VPN ağ geçidi ayarlarla yapılandırılır. Hiçbir şey (örneğin, ek VM'ler) ağ geçidi alt ağına dağıtmayın. Ağ geçidi alt ağı 'GatewaySubnet' olarak adlandırılmalıdır düzgün çalışması için. Ağ geçidi alt ağı "GatewaySubnet" adlandırma, bu alt ağ sanal ağ geçidi Vm'leri ve Hizmetleri dağıtmak için hazır olduğunu biliyor Azure olanak tanır.
 
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
@@ -142,7 +142,7 @@ Ağ geçidi alt ağı oluştururken, alt ağın içerdiği IP adresi sayısını
 
 Resource Manager PowerShell aşağıdaki örnek GatewaySubnet adlı bir ağ geçidi alt ağı gösterir. Şu anda mevcut çoğu yapılandırma için yeterli IP adresi izin veren bir/27 CIDR gösterimini belirtir görebilirsiniz.
 
-```powershell
+```azurepowershell-interactive
 Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
@@ -156,7 +156,7 @@ Yerel ağ geçidi şirket içi VPN cihazının genel IP adresini bir ad verip ş
 
 Aşağıdaki PowerShell örneği, yeni bir yerel ağ geçidi oluşturur:
 
-```powershell
+```azurepowershell-interactive
 New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```

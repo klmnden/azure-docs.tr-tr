@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 89b18d71e864c198b7efafcff09777da21930b6c
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 8a2ea64d32194ff06378e3227b260c4f10d53175
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733646"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116682"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
 
@@ -38,7 +38,7 @@ Azure Geçişi’nin, değerlendirme amacıyla VM’leri otomatik olarak bulmas�
 
 Bir kiracı ortamda dağıtıyorsanız, bunu ayarlamak için yöntemlerinden biri aşağıda verilmiştir:
 
-1.  Her Kiracı ve kullanarak bir kullanıcı oluşturmak [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), belirli bir kiracıya ait tüm sanal makineler için salt okunur izinler atayın. Ardından, bu kimlik bilgilerinin bulma için kullanın. RBAC, karşılık gelen bir vCenter kullanıcı yalnızca kiracıya özgü Vm'leri erişimi olmasını sağlar.
+1. Her Kiracı ve kullanarak bir kullanıcı oluşturmak [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), belirli bir kiracıya ait tüm sanal makineler için salt okunur izinler atayın. Ardından, bu kimlik bilgilerinin bulma için kullanın. RBAC, karşılık gelen bir vCenter kullanıcı yalnızca kiracıya özgü Vm'leri erişimi olmasını sağlar.
 2. Aşağıdaki örnekte, kullanıcı #1 ve 2 numaralı kullanıcı için açıklandığı gibi farklı Kiracı kullanıcılar için RBAC ayarlayın:
 
     - İçinde **kullanıcı adı** ve **parola**, Toplayıcının içinde Vm'leri bulmak için kullanacağı salt okunur hesabın kimlik bilgilerini belirtin

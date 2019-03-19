@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: e3933fb593dfafc6ecc641d7c19741b7c0882c00
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 36d0a976b73fe5b6f89755ce790b919468744179
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878379"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091656"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery hizmeti güncelleştirmeleri
 Bir kuruluş olarak plansız kesintiler ve verilerinizin güvenliğini korumak için nasıl gideceğinizi ve Planlı çalışan uygulamaları/iş yüklerini out şekil yapmanız gerekir. Azure Site Recovery, Vm'leri ve fiziksel sunucuları bir site dışı kalırsa kullanılabilir çalışan uygulamalarınızı tutarak, BCDR stratejinize katkıda bulunur. Site Recovery, VM ve fiziksel sunucularda çalışan iş yüklerini çoğaltarak birincil sitenin kullanılamaz hale gelmesi durumunda bunların ikincil bir konumda kullanılabilir kalmasını sağlar. Birincil site yeniden çalışmaya başladığında birincil sitede iş yüklerini kurtarır.
@@ -108,7 +108,7 @@ Güncelleştirmeler ile devam etmeden önce bkz [Site Recovery destek bildirimiy
 Yeniden başlatma, Mobility Aracısı her bir yükseltmeden sonra tüm son değişiklikleri kaynak makinede yüklü olduğundan emin olmak için önerilir. Ancak **zorunlu**. Son yeniden başlatma sırasında aracı sürümü geçerli sürümü arasındaki fark, 4'ten büyükse, yeniden başlatma zorunludur. Ayrıntılı açıklaması için aşağıdaki tabloya bakın.
 
 |**Son yeniden başlatma sırasında aracı sürümü** | **Yükseltme** | **Olduğundan yeniden zorunlu?**|
-|---------|---------|---------|--------|
+|---------|---------|---------|
 |9.16 |  9.18 | Zorunlu değil|
 |9.16 | 9.19 | Zorunlu değil|
 | 9.16 | 9.20 | Zorunlu değil

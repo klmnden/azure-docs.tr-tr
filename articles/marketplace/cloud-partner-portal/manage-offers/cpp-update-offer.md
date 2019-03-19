@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 690ce08aa15a9677b04931ed1965ef819614ee84
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 76b607502324c3ca25b3536d5197a97dbb80399d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355778"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102154"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Azure Market ve AppSource teklifler güncelleştir
 
@@ -68,19 +68,19 @@ Bu değişiklikleri uygulamak için aşağıdaki adımları izleyin.
 
 Azure Marketi teklifleri için:
 
-2. Seçin **SKU'ları** sekmesi.  SKU'ları değiştirmek için seçin.
-3. Tıklayın **ülkeleri seçin** düğmesini **ülke/bölge kullanılabilirliği** alan.
-4. Bölge kullanılabilirliği iletişim kutusunda, bölge ekleme veya bu SKU için kaldırma.
+1. Seçin **SKU'ları** sekmesi.  SKU'ları değiştirmek için seçin.
+1. Tıklayın **ülkeleri seçin** düğmesini **ülke/bölge kullanılabilirliği** alan.
+1. Bölge kullanılabilirliği iletişim kutusunda, bölge ekleme veya bu SKU için kaldırma.
 
 AppSource teklifleri için:
 
-2. Seçin **mağaza ayrıntıları** sekmesi.
-3. Yanındaki **desteklenen ülkeler/bölgeler** etiket, tıklayın **desteklenen ülkeler/bölgeler**. 
-4. Desteklenen ülkeler/bölgeler iletişim kutusunda, bölge ekleme veya bu teklif için kaldırma.
+1. Seçin **mağaza ayrıntıları** sekmesi.
+1. Yanındaki **desteklenen ülkeler/bölgeler** etiket, tıklayın **desteklenen ülkeler/bölgeler**. 
+1. Desteklenen ülkeler/bölgeler iletişim kutusunda, bölge ekleme veya bu teklif için kaldırma.
 
 Ya da Market'te:
 
-5. Tıklayın **Yayımla** yayımlama işlemini başlatmak için. 
+1. Tıklayın **Yayımla** yayımlama işlemini başlatmak için. 
 
 Bir SKU yeni bölgede kullanılabilir yapıldığı belirli bu bölge için fiyatlandırma belirtme olanağı varsa **fiyatlandırma verilerini dışarı aktar** işlevselliği. Önceden kullanılabilen bir bölge geri ekliyorsanız, fiyatlandırma değişiklikleri verilmeyen olduğundan fiyatlandırma güncelleştirilemiyor.
 

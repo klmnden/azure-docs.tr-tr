@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: b99490102dd4f2c08a11be066b2ddc5fd6b7ea7b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bc7a49aa143400387afcd59d5b9307d82a028486
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535844"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098670"
 ---
 # <a name="post-deployment-tasks"></a>Dağıtım sonrası görevler
 
@@ -75,23 +75,23 @@ Sonraki adım için komuttan döndürülen AppID özelliğini not edin.
 
 Azure portalında:
 
-1.  Seçin **Azure Active Directory** > **uygulama kaydı**.
-2.  Uygulama kaydınızı (örneğin, OCPAzureAD) arayın.
-3.  Sonuçlarda uygulama kaydını tıklayın.
-4.  Altında **ayarları**seçin **gerekli izinler**.
-5.  Altında **gerekli izinler**seçin **Ekle**.
+1. Seçin **Azure Active Directory** > **uygulama kaydı**.
+2. Uygulama kaydınızı (örneğin, OCPAzureAD) arayın.
+3. Sonuçlarda uygulama kaydını tıklayın.
+4. Altında **ayarları**seçin **gerekli izinler**.
+5. Altında **gerekli izinler**seçin **Ekle**.
 
-  ![Uygulama kaydı](media/openshift-post-deployment/app-registration.png)
+   ![Uygulama kaydı](media/openshift-post-deployment/app-registration.png)
 
-6.  1. Adım'a tıklayın: API seçin ve ardından **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Tıklayın **seçin** altındaki.
+6. 1. Adım'a tıklayın: API seçin ve ardından **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Tıklayın **seçin** altındaki.
 
-  ![Uygulama kaydı API seçimi](media/openshift-post-deployment/app-registration-select-api.png)
+   ![Uygulama kaydı API seçimi](media/openshift-post-deployment/app-registration-select-api.png)
 
-7.  Adım 2: İzinleri seçin, **oturum açın ve kullanıcı profilini okuma** altında **Temsilcili izinler**ve ardından **seçin**.
+7. Adım 2: İzinleri seçin, **oturum açın ve kullanıcı profilini okuma** altında **Temsilcili izinler**ve ardından **seçin**.
 
-  ![Uygulama kaydı erişim](media/openshift-post-deployment/app-registration-access.png)
+   ![Uygulama kaydı erişim](media/openshift-post-deployment/app-registration-access.png)
 
-8.  **Done** (Bitti) öğesini seçin.
+8. **Done** (Bitti) öğesini seçin.
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>OpenShift Azure AD kimlik doğrulamasını yapılandırma
 

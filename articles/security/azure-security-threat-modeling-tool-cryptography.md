@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 947740ed28deea9682d10eecf9a66dab7540669e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 608792d8389a87bad3521d3a48947b20dd036d67
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880317"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887111"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Güvenlik çerçevesi: Şifreleme | Risk azaltma işlemleri 
+
 | Ürün/hizmet | Makale |
 | --------------- | ------- |
 | **Web uygulaması** | <ul><li>[Yalnızca onaylanan simetrik blok şifreleme özelliklerinden ve anahtar uzunluklarını kullanın](#cipher-length)</li><li>[Blok şifreleme modları ve başlatma vektörleri simetrik şifrelemeleri kullanım Onaylandı](#vector-ciphers)</li><li>[Onaylanan Asimetrik algoritmalar, anahtar uzunlukları ve doldurma kullanın](#padding)</li><li>[Onaylanan rastgele sayı oluşturucuları kullanma](#numgen)</li><li>[Simetrik stream şifrelemeleri kullanmayın](#stream-ciphers)</li><li>[Onaylanan MAC/HMAC/anahtarlı karma algoritmaları kullanın](#mac-hash)</li><li>[Yalnızca onaylanan şifreleme karması işlevlerini kullanma](#hash-functions)</li></ul> |
@@ -96,7 +97,7 @@ ms.locfileid: "56880317"
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Ürünleri onaylanmış ileti kimlik doğrulama kodu (MAC) veya karma tabanlı ileti kimlik doğrulama kodu (HMAC) algoritmaları yalnızca kullanmanız gerekir.</p><p>Bir ileti kimlik doğrulama kodu (MAC), hem gönderen güvenilirliğini ve gizli bir anahtar kullanarak iletinin bütünlüğünü doğrulamak, alıcının izin veren bir iletiye eklenmiş bir bilgi parçasıdır. Karma tabanlı bir ya da MAC kullanımını ([HMAC](http://csrc.nist.gov/publications/nistpubs/800-107-rev1/sp800-107-rev1.pdf)) veya [blok-şifre tabanlı MAC](http://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf) olarak verilse uzun tüm temel alınan karma veya simetrik şifreleme algoritmalar kullanmak için ayrıca onaylanan; şu anda bu içerir (Bu AES'ye dayalı) şifre tabanlı MAC HMAC SHA2 işlevleri (HMAC SHA256, HMAC SHA384 ve SHA512 HMAC) ve CMAC/OMAC1 ve OMAC2 engelleyin.</p><p>HMAC SHA1 kullanımını platform uyumluluğu için izin verilen ancak kuruluşunuzun şifre gözden geçirme sürecinden geçer ve bu yordamı için bir özel dosya için gerekli olacaktır. Küçüktür 128 bit HMAC'ler kesilmesi izin verilmez. Müşteri kullanmadan önce bir anahtar ve veri Onaylanmadı ve kuruluşunuzun Crypto tablosu geçmeleri gerekir karma yöntemleri gözden kullanma.</p>|
+| **Adımları** | <p>Ürünleri onaylanmış ileti kimlik doğrulama kodu (MAC) veya karma tabanlı ileti kimlik doğrulama kodu (HMAC) algoritmaları yalnızca kullanmanız gerekir.</p><p>Bir ileti kimlik doğrulama kodu (MAC), hem gönderen güvenilirliğini ve gizli bir anahtar kullanarak iletinin bütünlüğünü doğrulamak, alıcının izin veren bir iletiye eklenmiş bir bilgi parçasıdır. Karma tabanlı bir ya da MAC kullanımını ([HMAC](https://csrc.nist.gov/publications/nistpubs/800-107-rev1/sp800-107-rev1.pdf)) veya [blok-şifre tabanlı MAC](https://csrc.nist.gov/publications/nistpubs/800-38B/SP_800-38B.pdf) olarak verilse uzun tüm temel alınan karma veya simetrik şifreleme algoritmalar kullanmak için ayrıca onaylanan; şu anda bu içerir (Bu AES'ye dayalı) şifre tabanlı MAC HMAC SHA2 işlevleri (HMAC SHA256, HMAC SHA384 ve SHA512 HMAC) ve CMAC/OMAC1 ve OMAC2 engelleyin.</p><p>HMAC SHA1 kullanımını platform uyumluluğu için izin verilen ancak kuruluşunuzun şifre gözden geçirme sürecinden geçer ve bu yordamı için bir özel dosya için gerekli olacaktır. Küçüktür 128 bit HMAC'ler kesilmesi izin verilmez. Müşteri kullanmadan önce bir anahtar ve veri Onaylanmadı ve kuruluşunuzun Crypto tablosu geçmeleri gerekir karma yöntemleri gözden kullanma.</p>|
 
 ## <a id="hash-functions"></a>Yalnızca onaylanan şifreleme karması işlevlerini kullanma
 

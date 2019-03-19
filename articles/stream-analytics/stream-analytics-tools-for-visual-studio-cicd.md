@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2017
-ms.openlocfilehash: bb5b6a4e9d50a692342f497d27138c51e0dc93e4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 641254be37ac0019ee6a256fc99f96fc3bfb75a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729433"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122782"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Sürekli tümleştirme ve Stream Analytics araçları ile geliştirme
 Bu makalede, Visual Studio için Azure Stream Analytics araçları bir sürekli tümleştirme ve dağıtım sürecini kullanmayı kullanmayı açıklar.
@@ -21,8 +21,8 @@ Bu makalede, Visual Studio için Azure Stream Analytics araçları bir sürekli 
 2.3.0000.0 sürümünü kullanın veya üstü, [Visual Studio için Stream Analytics Araçları](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) MSBuild için destek alma.
 
 Bir NuGet paketi kullanılabilir: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Bu, Stream Analytics Visual Studio projelerinin sürekli tümleştirme ve dağıtım işlemini destekleyen MSBuild, yerel çalıştırma ve dağıtım araçlarını sağlar. 
-> [!NOTE] 
-Visual Studio için NuGet paketini yalnızca 2.3.0000.0 veya Stream Analytics Araçları'nın sürümünden sonraki bir sürümü kullanılabilir. Visual Studio Araçları'nın önceki sürümlerinde oluşturulmuş projeleri varsa 2.3.0000.0 veya sürümünden sonraki bir sürümü yalnızca açın ve kaydedin. Ardından, yeni özellikler etkinleştirilir. 
+> [!NOTE]
+> Visual Studio için NuGet paketini yalnızca 2.3.0000.0 veya Stream Analytics Araçları'nın sürümünden sonraki bir sürümü kullanılabilir. Visual Studio Araçları'nın önceki sürümlerinde oluşturulmuş projeleri varsa 2.3.0000.0 veya sürümünden sonraki bir sürümü yalnızca açın ve kaydedin. Ardından, yeni özellikler etkinleştirilir. 
 
 Daha fazla bilgi için [Visual Studio için Stream Analytics Araçları](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
@@ -45,8 +45,8 @@ Stream Analytics Visual Studio Proje başarıyla oluşturulursa, altında aşağ
 
 Visual Studio projenize ayarlarında parameters.json dosyasındaki varsayılan parametreleri arasındadır. Parametreleri, başka bir ortama dağıtmak istiyorsanız, uygun şekilde değiştirin.
 
-> [!NOTE] 
-Tüm kimlik bilgilerini varsayılan değerlerin ayarlandığından null. İşiniz *gerekli* buluta dağıtmadan önce değerleri ayarlamak için.
+> [!NOTE]
+> Tüm kimlik bilgilerini varsayılan değerlerin ayarlandığından null. İşiniz *gerekli* buluta dağıtmadan önce değerleri ayarlamak için.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {

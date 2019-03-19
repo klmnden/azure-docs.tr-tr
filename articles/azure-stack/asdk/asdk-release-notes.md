@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/18/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: bb9e5ba960251f728e14106ab1c586e1d3ef373f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 33f1ccf3f1c7bc657cc66efe7c5025356c954ad6
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538655"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187770"
 ---
 # <a name="asdk-release-notes"></a>ASDK sürüm notları
 
@@ -30,9 +30,11 @@ Abone olarak ASDK yenilikler ile güncel kalın [ ![RSS](./media/asdk-release-no
 
 ## <a name="build-11902069"></a>Derleme 1.1902.0.69
 
-### <a name="changes"></a>Değişiklikler
+### <a name="new-features"></a>Yeni Özellikler
 
 - 1902 derleme planlar, teklifler, kotalar ve eklenti planı oluşturmak için Azure Stack Yönetici portalında yeni bir kullanıcı arabirimi sunar. Ekran görüntüleri de dahil daha fazla bilgi için bkz. [planlar, teklifler ve kotalar oluşturma](../azure-stack-create-plan.md).
+
+- Diğer değişiklikler ve geliştirmeler bu sürümde bir listesi için bkz. [Bu bölümde](../azure-stack-update-1902.md#improvements) Azure Stack'te sürüm notları.
 
 <!-- ### New features
 
@@ -42,6 +44,20 @@ Abone olarak ASDK yenilikler ile güncel kalın [ ![RSS](./media/asdk-release-no
 
 - For a list of issues fixed in this release, see [this section](../azure-stack-update-1902.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../azure-stack-update-1902.md#known-issues-post-installation).
 - Note that [available Azure Stack hotfixes](../azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK. -->
+
+### <a name="known-issues"></a>Bilinen sorunlar
+
+- Soruna hangi paketlerin 1450 bayt bir iç yük dengeleyici (ILB) için bırakılan belirlenmiştir. Sorunu 1901 itibarıyla konağa taşınamaz rolü, geçiş yapan kapsüllenmiş VXLAN paket uyum sağlamak için çok düşük olan konak üzerindeki MTU ayarı kaynaklanır. İçinde bu sorunu kendisini bildirim gördük karşılaşabileceğiniz en az iki senaryo vardır:
+
+  - Bir iç yük dengeleyici (ILB) arkasında ve 660 bayt üzerinde olduğundan SQL her zaman açık SQL sorguları.
+  - Birden çok ana sunucu etkinleştirmeye Kubernetes dağıtımları başarısız.  
+
+  Aynı sanal ağda ancak farklı alt ağlarda bir ILB ile bir VM arasındaki iletişimi varsa sorun oluşur. Bu sorunu geçici olarak ASDK ana bilgisayarda yükseltilmiş komut isteminde aşağıdaki komutları çalıştırarak çalışabilirsiniz:
+
+  ```shell
+  netsh interface ipv4 set sub "hostnic" mtu=1660
+  netsh interface ipv4 set sub "management" mtu=1660
+  ```
 
 ## <a name="build-11901095"></a>Derleme 1.1901.0.95
 

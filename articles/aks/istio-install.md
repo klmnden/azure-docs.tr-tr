@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/3/2018
 ms.author: pabouwer
-ms.openlocfilehash: 25a68f55eb9a6deb037029d5d8a984ce74f12be5
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: d85b830b63e2d52f3eeb5df8645edccfccf43c76
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791469"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138159"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Yükleme ve Istio Azure Kubernetes Service (AKS) kullanma
 
@@ -38,7 +38,7 @@ Bu makalede, çeşitli ayrı adımlara Istio yükleme yönergeleri ayırır. Ist
 
 ## <a name="download-istio"></a>Istio indirin
 
-İlk olarak, indirin ve en son sürüm Istio ayıklayın. Adımları MacOS, Linux veya Linux için Windows alt sistemi bir bash kabuğunda ve PowerShell Kabuk için biraz farklıdır. Tercih ettiğiniz ortam için adımlar aşağıdaki yükleme birini seçin:
+İlk olarak, indirin ve en son sürüm Istio ayıklayın. Adımlar, bir bash kabuğunda MacOS, Linux veya bir PowerShell kabuk ve Linux için Windows alt sistemi için biraz farklıdır. Tercih ettiğiniz ortam için adımlar aşağıdaki yükleme birini seçin:
 
 * [Linux için MacOS, Linux veya Windows alt sistemi bash](#bash)
 * [PowerShell](#powershell)
@@ -148,6 +148,9 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 
 > [!IMPORTANT]
 > Yüklediğiniz ve açtığınız Istio sürüm üst düzey klasöründen adımları Bu bölümde, çalıştırdığınızdan emin olun.
+
+> [!NOTE]
+> Sürüm `1.0.6` ve Istio Helm grafiğinin yeni değişiklikler vardır. Bu sürümü yüklemeyi seçerseniz, artık bir gizli dizi Kiali için el ile oluşturmanız gerekir. Gizli dizi ayarladıysanız Grafana için el ile oluşturmanız gerekecektir `grafana.security.enabled=true`. Istio Helm grafiği görmek [README.md](https://github.com/istio/istio/tree/master/install/kubernetes/helm/istio#installing-the-chart) bu gizli anahtarları oluşturma hakkında daha fazla bilgi için.
 
 AKS kümenizi Istio bileşenleri yüklemek için Helm kullanın. Istio kaynakları yükleme `istio-system` ad alanını ve güvenlik ve izleme gibi ek seçenekleri etkinleştirebilirsiniz:
 

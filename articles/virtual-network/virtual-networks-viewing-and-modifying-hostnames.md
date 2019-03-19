@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: afd5361774af3379dc0d4054509e318e8263dcc5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3fdb0f566789382a1606b19e4fac179f9ecf40cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250195"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887468"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Görüntüleme ve ana bilgisayar adlarını değiştirme
 Ana bilgisayar adına göre başvurulmak üzere rol örneklerinizin izin vermek için hizmet yapılandırma dosyasında her rol için konak adı için bir değer ayarlamanız gerekir. İstenen konak adına ekleyerek bunu **vmName** özniteliği **rol** öğesi. Değerini **vmName** özniteliği, her bir rol örneğinin ana bilgisayar adı için bir temel olarak kullanılır. Örneğin, varsa **vmName** olduğu *webrole* ve bu rolü üç örnekleri vardır, örneklerin ana bilgisayar adları olacaktır *webrole0*, *webrole1*, ve *webrole2*. Sanal makine adına dayalı bir sanal makine için konak adı doldurulduğundan yapılandırma dosyasında sanal makineler için bir ana bilgisayar adı belirtmeniz gerekmez. Bir Microsoft Azure hizmetini yapılandırma hakkında daha fazla bilgi için bkz. [Azure hizmet yapılandırma şemasına (.cscfg dosyası)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
@@ -40,9 +40,9 @@ Uzak Masaüstü'nü (Windows), Windows PowerShell uzaktan iletişimini (Windows)
 ### <a name="azure-service-management-rest-api"></a>Azure Hizmet Yönetimi REST API'si
 Bir REST istemcisinden bu yönergeleri izleyin:
 
-1. Azure portalına bağlanmak için bir istemci sertifikası olduğundan emin olun. Bir istemci sertifikası almak için bölümünde verilen adımları izleyin. [nasıl yapılır: indirme ve içeri aktarma yayınlama ayarları ve abonelik bilgilerini](https://msdn.microsoft.com/library/dn385850.aspx). 
+1. Azure portalına bağlanmak için bir istemci sertifikası olduğundan emin olun. Bir istemci sertifikası almak için bölümünde verilen adımları izleyin. [nasıl yapılır: İndirme ve içeri aktarma yayımlama ayarları ve abonelik bilgilerini](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. X-ms-version değeri 2013-11-01 adlı bir üst bilgi girişi ayarlayın.
-3. Şu biçimde bir istek gönderin: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
+3. Şu biçimde bir istek gönderin: https:\//management.core.windows.net/\<subscrition kimliği\>/services/hostedservices/\<hizmet-adı\>? ekleme-detail = true
 4. Aranan **HostName** her öğe **Roleınstance** öğesi.
 
 > [!WARNING]

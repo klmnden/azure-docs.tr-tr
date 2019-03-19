@@ -7,20 +7,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 1930ca7406b6ef1b9fd20e1651bc031150dd952e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d1751c47ad4507260d9f8d6ea44fcb32ed0e7338
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729552"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864737"
 ---
-# <a name="azure-data-factory-mapping-data-flow-filter-transformation"></a>Azure veri fabrikası veri akışı filtre dönüştürme eşlemesi
+# <a name="azure-data-factoryfilter-transformation"></a>Azure veri FactoryFilter dönüştürme
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Filtre dönüşümleri satır filtreleme sağlar. Filtre koşulu tanımlayan bir ifade oluşturun. İfade oluşturucuyu başlatmak için metin kutusuna tıklayın. Hangi satır, geçerli veri akışı (filtre) geçmek için İleri dönüşümü izin verileceğini denetlemek için bir filtre ifadesi ifade oluşturucu içinde oluşturun.
+Filtre dönüşümleri satır filtreleme sağlar. Filtre koşulu tanımlayan bir ifade oluşturun. İfade oluşturucuyu başlatmak için metin kutusuna tıklayın. Hangi satır, geçerli veri akışı (filtre) geçmek için İleri dönüşümü izin verileceğini denetlemek için bir filtre ifadesi ifade oluşturucu içinde oluşturun. Filtre dönüşümü SQL deyiminin WHERE yan tümcesi olarak düşünün.
 
-Yani loan_status sütunu Filtrele:
+## <a name="filter-on-loanstatus-column"></a>Loan_status sütunu Filtrele:
 
 ```
 in([‘Default’, ‘Charged Off’, ‘Fully Paid’], loan_status).
@@ -31,3 +31,7 @@ Filmler tanıtım yıl sütunu filtreleyin:
 ```
 year > 1980
 ```
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Dönüştürme, filtre sütunu deneyin [dönüştürme seçin](data-flow-select.md)

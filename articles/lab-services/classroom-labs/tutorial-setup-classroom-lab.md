@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 6816c21d30ff5340441d58aff202c271eb1c836a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649603"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090330"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Öğretici: Bir sınıf laboratuvarı ayarlama 
 Bu öğreticide, sınıftaki öğrenciler tarafından kullanılan sanal makinelerle bir sınıf laboratuvarı ayarlayacaksınız.  
@@ -69,9 +69,9 @@ Laboratuvar sahibi diğer kullanıcılara ekleyebilirsiniz **Laboratuvar oluştu
 
     ![Tamamlanmış şablon yapılandırma sayfası](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Üzerinde **yapılandırma şablonu** sayfasında, aşağıdaki adımları uygulayın: Bu adımlar **isteğe bağlı** öğretici.
-    2. **Bağlan**'ı seçerek şablon VM'sine bağlanın. 
-    3. Şablon VM'sinde yazılım yükleme ve yapılandırma işlemlerini gerçekleştirin.     
-    5. Şablon için bir **açıklama** girin
+   1. **Bağlan**'ı seçerek şablon VM'sine bağlanın. 
+   1. Şablon VM'sinde yazılım yükleme ve yapılandırma işlemlerini gerçekleştirin.     
+   1. Şablon için bir **açıklama** girin
 9. Şablon sayfasında **İleri**'yi seçin. 
 10. **Şablonu yayımla** sayfasında aşağıdaki işlemleri gerçekleştirin. 
     1. Şablon hemen Yayımla ve **Yayımla**.  
@@ -89,10 +89,10 @@ Laboratuvar sahibi diğer kullanıcılara ekleyebilirsiniz **Laboratuvar oluştu
     ![Şablonu yayımlama - başarılı](../media/tutorial-setup-classroom-lab/publish-success.png)
 1. Laboratuvar **panosunu** görürsünüz. 
     
-    ![Sınıf laboratuvarı panosu](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
+     ![Sınıf laboratuvarı panosu](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
 4. Geçiş **sanal makineler** sayfasında soldaki menüden sanal makinelerde seçerek veya sanal makineleri kutucuğu seçtiğinizde. Bulunan sanal makineler gördüğünüzü onaylayın **atanmamış** durumu. Bu VM’ler henüz bir öğrenciye atanmamıştır. Bu makinelerin durumu **Durduruldu** olmalıdır. Bu sayfadan bir öğrenci VM'sini başlatabilir, VM'ye bağlanabilir, VM'yi durdurabilir ve VM'yi silebilirsiniz. VM'leri bu sayfadan başlatabilir veya öğrencilerinizin başlatmasını sağlayabilirsiniz. 
 
-    ![Durdurulmuş durumdaki sanal makineler](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
+     ![Durdurulmuş durumdaki sanal makineler](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 ## <a name="add-users-to-the-lab"></a>Kullanıcılar laboratuvara ekleme
 

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b35060aec8d9d040777fda247c798a42533b2ea4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182689"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091486"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünüz için veri koruma stratejisini tanımlayın
 Bu görevde, tanımladığınız iş gereksinimlerini karşılamak, karma kimlik çözümü için veri koruma stratejisi tanımlarsınız:
@@ -119,9 +119,9 @@ Kullanıcının Azure AD kullanarak kimliği doğrulandıktan sonra kullanıcın
 
 Şekil X gösterdi diyagramdaki her etkileşim, Azure AD tarafından kapsanan bir erişim denetimi senaryoyu temsil eder. Aşağıda, her senaryonun açıklaması vardır:
 
-  1. Uygulamalar için koşullu erişim şirket içinde barındırılan: Kayıtlı cihazlar, Windows Server 2012 R2 ile AD FS kullanmak üzere yapılandırılan uygulamalar için erişim ilkeleri ile kullanabilirsiniz.
+1. Uygulamalar için koşullu erişim şirket içinde barındırılan: Kayıtlı cihazlar, Windows Server 2012 R2 ile AD FS kullanmak üzere yapılandırılan uygulamalar için erişim ilkeleri ile kullanabilirsiniz.
 
-  2. Azure portalına erişim denetimi:  Azure da olanak tanır, rol tabanlı erişim denetimi (RBAC) kullanarak portalına erişim denetimi). Bu yöntem, bir kişi Azure Portalı'nda gerçekleştirebileceğiniz işlemlerin sayısını sınırlamak şirket sağlar. Portal erişimini denetlemek için RBAC kullanarak, BT yöneticileri aşağıdaki erişim yönetimi yaklaşımlardan kullanarak erişim devredebilirsiniz:
+2. Azure portalına erişim denetimi:  Azure da olanak tanır, rol tabanlı erişim denetimi (RBAC) kullanarak portalına erişim denetimi). Bu yöntem, bir kişi Azure Portalı'nda gerçekleştirebileceğiniz işlemlerin sayısını sınırlamak şirket sağlar. Portal erişimini denetlemek için RBAC kullanarak, BT yöneticileri aşağıdaki erişim yönetimi yaklaşımlardan kullanarak erişim devredebilirsiniz:
 
    - Grup tabanlı rol ataması: Erişim, yerel Active Directory'nizden eşitlenebilen Azure AD gruplarına atayabilirsiniz. Bu, kuruluşunuz, araçları ve grupları yönetmek için işlemlerdeki yaptı mevcut yatırımlardan yararlanma sağlar. Azure AD Premium Temsilcili Grup Yönetimi özelliğini de kullanabilirsiniz.
    - Yerleşik rolleri Azure üzerinde kullanın: Üç rol kullanabilirsiniz — sahibi, katkıda bulunan ve okuyucu, kullanıcılar ve gruplar yalnızca kullanıcıların işlerini yapmak için ihtiyaç duydukları görevleri gerçekleştirme izniniz olduğundan emin olun.
@@ -131,9 +131,9 @@ Kullanıcının Azure AD kullanarak kimliği doğrulandıktan sonra kullanıcın
    > Uygulamaları oluşturmak ve bunlar için erişim denetimi özelleştirmek istiyorsanız, ayrıca Azure AD uygulama rolleri için yetkilendirme kullanmak da mümkündür. Bu gözden [WebApp RoleClaims DotNet örnek](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) nasıl bu özellikten yararlanabilmek için uygulamanızı oluşturun.
 
 
-  3. Office 365 uygulamaları için koşullu erişim Intune:  BT yöneticileri bilgi çalışanlarının hizmetlere erişmek için uyumlu cihazlara izin verme aynı zamanda kurumsal kaynakların güvenliğini sağlamak için koşullu erişim cihaz ilkeleri sağlayabilirsiniz. 
+3. Office 365 uygulamaları için koşullu erişim Intune:  BT yöneticileri bilgi çalışanlarının hizmetlere erişmek için uyumlu cihazlara izin verme aynı zamanda kurumsal kaynakların güvenliğini sağlamak için koşullu erişim cihaz ilkeleri sağlayabilirsiniz. 
   
-  4. Saas uygulamaları için koşullu erişim: [Bu özellik](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) uygulama başına multi-Factor authentication erişim kuralları ve güvenilen bir ağda olmayan kullanıcılar için erişimi engelleme yapılandırmanıza olanak tanır. Uygulama ya da yalnızca belirtilen güvenlik gruplardaki kullanıcılar için atanmış olan tüm kullanıcılar için multi-Factor authentication kuralları uygulayabilirsiniz. Uygulamanın, kuruluşun içindeki ağ bir IP adresinden erişiyorsanız kullanıcıları çok faktörlü kimlik doğrulaması gereksinimden atlanabilir.
+4. Saas uygulamaları için koşullu erişim: [Bu özellik](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) uygulama başına multi-Factor authentication erişim kuralları ve güvenilen bir ağda olmayan kullanıcılar için erişimi engelleme yapılandırmanıza olanak tanır. Uygulama ya da yalnızca belirtilen güvenlik gruplardaki kullanıcılar için atanmış olan tüm kullanıcılar için multi-Factor authentication kuralları uygulayabilirsiniz. Uygulamanın, kuruluşun içindeki ağ bir IP adresinden erişiyorsanız kullanıcıları çok faktörlü kimlik doğrulaması gereksinimden atlanabilir.
 
 Erişim denetimi için seçenekleri çok katmanlı bir yaklaşım kullandığından, bu seçenekler arasında karşılaştırma kazanılan bu görev için geçerli değildir. Kaynaklarınıza erişimini denetlemek gereken her senaryo için kullanılabilen tüm seçenekleri yararlanarak emin olun.
 

@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: ae424638967de808f3ffb7d9a56a02398ed79f9e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a1a980e1f8b004c4a3dba53e4f83367022074c7c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768162"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007969"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Azure Market görüntüsü kullanarak Azure kaynakları için yönetilen kimliğe sahip bir Terraform Linux sanal makinesi oluşturma
 
@@ -77,7 +77,7 @@ Terraform VM görüntüsü aşağıdaki adımları gerçekleştirir:
 
 ## <a name="access-and-configure-a-linux-terraform-virtual-machine"></a>Linux Terraform sanal makinesi erişim ve yapılandırma adımları
 
-VM'yi oluşturduktan sonra SSH kullanarak oturum açabilirsiniz. Metin kabuk arabirimi için 3. adımın "Temel Bilgiler" bölümünde oluşturduğunuz hesap kimlik bilgilerini kullanın. Windows'da [Putty](http://www.putty.org/) gibi bir SSH istemcisi aracı indirebilirsiniz.
+VM'yi oluşturduktan sonra SSH kullanarak oturum açabilirsiniz. Metin kabuk arabirimi için 3. adımın "Temel Bilgiler" bölümünde oluşturduğunuz hesap kimlik bilgilerini kullanın. Windows'da [Putty](https://www.putty.org/) gibi bir SSH istemcisi aracı indirebilirsiniz.
 
 SSH kullanarak sanal makineye bağlandıktan sonra sanal makine üzerindeki Azure kaynakları için yönetilen kimliklere aboneliğin tamamında katkıda bulunan izni vermeniz gerekir. 
 

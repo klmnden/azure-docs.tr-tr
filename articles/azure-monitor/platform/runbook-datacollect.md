@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 4f6076407ea4745556e59d44bd37ab85288e6bd2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772948"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102593"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Azure Otomasyonu runbook'u Log analytics'te verileri toplama
 
@@ -131,13 +131,13 @@ Azure Otomasyonu, bir ortama içerir [runbook'unuzu test](../../automation/autom
 
 ![Runbook testi](media/runbook-datacollect/test-runbook.png)
 
-6. Tıklayın **Kaydet** runbook'u kaydetmek.
+1. Tıklayın **Kaydet** runbook'u kaydetmek.
 1. Tıklayın **Test bölmesi** runbook test ortamında açın.
-3. Runbook parametreleri olduğundan, bunlar için değerleri girin istenir. Kaynak grubu adını girin ve Otomasyon hesabı, iş bilgileri toplamak için anlatılmıştır.
-4. Tıklayın **Başlat** runbook başlatma.
-3. Runbook durumu ile başlar **sıraya alınan** için geçmeden önce **çalıştıran**.
-3. Json biçiminde toplanan işleri ile runbook ayrıntılı çıkış görüntülenmesi gerekir. İş listelenirse, ardından oluşmuş olabilir Otomasyon hesabında son bir saat içinde oluşturulan iş yok. Tüm runbook Otomasyon hesabında başlatmayı deneyin ve testi yeniden gerçekleştirin.
-4. Çıkış Log Analytics'e sonrası komut hataları göstermez emin olun. Bir ileti aşağıdakine benzer olması gerekir.
+1. Runbook parametreleri olduğundan, bunlar için değerleri girin istenir. Kaynak grubu adını girin ve Otomasyon hesabı, iş bilgileri toplamak için anlatılmıştır.
+1. Tıklayın **Başlat** runbook başlatma.
+1. Runbook durumu ile başlar **sıraya alınan** için geçmeden önce **çalıştıran**.
+1. Json biçiminde toplanan işleri ile runbook ayrıntılı çıkış görüntülenmesi gerekir. İş listelenirse, ardından oluşmuş olabilir Otomasyon hesabında son bir saat içinde oluşturulan iş yok. Tüm runbook Otomasyon hesabında başlatmayı deneyin ve testi yeniden gerçekleştirin.
+1. Çıkış Log Analytics'e sonrası komut hataları göstermez emin olun. Bir ileti aşağıdakine benzer olması gerekir.
 
     ![POST çıkış](media/runbook-datacollect/post-output.png)
 
@@ -189,9 +189,9 @@ Test için görmeye [ayrıntılı çıkış](../../automation/automation-runbook
 
 Zamanlama oluşturulduktan sonra bu zamanlamanın runbook her başlatıldığında kullanılacak parametre değerlerini ayarlamak gerekir.
 
-6. Tıklayın **parametrelerini yapılandırma ve çalıştırma ayarları**.
-7. Değerleri girin, **ResourceGroupName** ve **AutomationAccountName**.
-8. **Tamam** düğmesine tıklayın.
+1. Tıklayın **parametrelerini yapılandırma ve çalıştırma ayarları**.
+1. Değerleri girin, **ResourceGroupName** ve **AutomationAccountName**.
+1. **Tamam** düğmesine tıklayın.
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9. Runbook başlatıldığında zamanlamaya göre doğrulayın
 Bir runbook her başlatıldığında [bir iş oluşturulur](../../automation/automation-runbook-execution.md) ve günlüğe herhangi bir çıktı. Aslında, runbook toplama aynı işleri şunlardır. Runbook zamanlama için başlangıç saatini geçtikten sonra runbook için iş kontrol ederek beklenen şekilde başladığını doğrulayabilirsiniz.

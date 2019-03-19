@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
-ms.reviewer: sgilley
-author: hning86
-ms.author: haining
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2dabc331b13bc53a6d8e94d69c64b87c7f175c24
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a7665066a28343f1d2ca46d5210b210f8f103abd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762203"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896679"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için Azure portalını kullanma
 
@@ -37,7 +36,7 @@ Aşağıdaki Azure kaynakları, bölgesel kullanıma sunulduğunda çalışma al
 
 Oluşturduğunuz kaynaklar, diğer Machine Learning hizmeti öğreticileri ve nasıl yapılır makalelerinde önkoşul olarak kullanılabilir. Diğer Azure hizmetlerinde de olduğu gibi, Machine Learning hizmetiyle ilişkilendirilmiş bazı kaynakların sınırları vardır. İşlem kümesi boyutu buna bir örnektir. Daha fazla bilgi edinin [varsayılan limitler ve kotanızı artırmak nasıl](how-to-manage-quotas.md).
 
-Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
+Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 
 
 ## <a name="create-a-workspace"></a>Çalışma alanı oluşturma 
@@ -65,11 +64,11 @@ Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nası
 
 1. Çalışma sayfasında **çalışma, Azure Machine Learning hizmetini keşfedin**.
 
- ![Çalışma alanını keşfedin](./media/quickstart-get-started/explore_aml.png)
+   ![Çalışma alanını keşfedin](./media/quickstart-get-started/explore_aml.png)
 
 1. Seçin **açık Azure not defterleri** ilk denemenizi Azure not defterlerinde denemek için.  Azure not defterleri, ücretsiz bulutta çalıştırmadan Jupyter Notebook sağlayan ayrı bir hizmettir.  Bu bağlantı hizmeti kullandığınızda, çalışma alanınıza bağlanma hakkında bilgi Azure not defterlerinde oluşturduğunuz kitaplığa eklenir.
 
- ![Azure Notebooks'u açın](./media/quickstart-get-started/explore_ws.png)
+   ![Azure Notebooks'u açın](./media/quickstart-get-started/explore_ws.png)
 
 1. Azure Not Defterleri'nda oturum açın.  Azure portalında oturum açmak için kullandığınız hesapla oturum açmanız emin olun. Oturum açabilmeniz için kuruluşunuzda [yönetici onayı](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) gerekli olabilir.
 
@@ -79,7 +78,7 @@ Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nası
 
 1. Seçin **kopya**.
 
- ![Bir kitaplık kopyalama](./media/quickstart-get-started/clone.png)
+   ![Bir kitaplık kopyalama](./media/quickstart-get-started/clone.png)
 
 1. Proje durumu durdurulduğunu görüyorsanız tıklayın **ücretsiz bilgisayarda** ücretsiz notebook sunucusu kullanmak için.
 

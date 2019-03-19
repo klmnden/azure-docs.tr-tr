@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c33bf12dfaa4d9c9bd927cd8e7f8d61a09a962d1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 395d3887e35d6e9c043d4d947b605e71eb58bd6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762645"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Öğretici: İProva ile Azure Active Directory Tümleştirme
 
@@ -221,7 +221,7 @@ Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluş
 
     a. İçinde **adı** gibi bir ad girin, kutusunda **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** kutusuna *yourname@yourcompanydomain.extension*. 
+    b. İçinde **kullanıcı adı** kutusuna *adınız\@yourcompanydomain.extension*. 
     BrittaSimon@contoso.com bunun bir örneğidir.
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
@@ -266,14 +266,14 @@ Bu bölümde, Azure çoklu oturum açma iProva erişim vererek kullanmak Britta 
 
 5. **Add (Ekle)** seçeneğini belirleyin.
 
-6. İçinde **kullanıcıadı** kutusuna *brittasimon@yourcompanydomain.extension*. 
+6. İçinde **kullanıcıadı** kutusuna *brittasimon\@yourcompanydomain.extension*. 
     BrittaSimon@contoso.com bunun bir örneğidir.
 
 7. İçinde **tam adı** gibi tam bir ad girin, kutusunda **BrittaSimon**.
 
 8. Seçin **parolasız (kullanım çoklu oturum açma)** seçeneği.
 
-9. İçinde **e-posta adresi** kutusuna *yourname@yourcompanydomain.extension*. 
+9. İçinde **e-posta adresi** kutusuna *adınız\@yourcompanydomain.extension*. 
    BrittaSimon@contoso.com bunun bir örneğidir.
 
 10. Sayfanın sonuna kaydırın ve seçin **son**.

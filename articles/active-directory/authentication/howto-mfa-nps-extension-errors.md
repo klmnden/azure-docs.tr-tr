@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf2e1b97d228de47634e570a407ec03d7a13e540
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4c831a5a939e946d7189e4d35eaf051508e904a4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199655"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999534"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication için NPS uzantısından alınan hata iletilerini çözme
 
@@ -68,7 +68,7 @@ Bazı durumlarda, kendi kimlik doğrulama isteği başarısız olduğundan, kull
 
 | Hata kodu | Hata iletisi | Önerilen adımlar | 
 | ---------- | ------------- | ----------------- |
-| **OathCodeIncorrect** | Yanlış kod entered\OATH kodu yanlış | Bir hata kullanıcı hatalı kod girdi. | Kullanıcı yanlış kod girildi. Yeni bir kod istiyor ya da yeniden oturum açmayı yeniden deneyin sağlayın. | 
+| **OathCodeIncorrect** | Yanlış kod entered\OATH kodu yanlış | Kullanıcı yanlış kod girildi. Yeni bir kod istiyor ya da yeniden oturum açmayı yeniden deneyin sağlayın. | 
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | İzin verilen maksimum kod yeniden deneme üst sınırına | Kullanıcı doğrulama sınaması, çok fazla kez başarısız oldu. Ayarlarınıza bağlı olarak, bunlar bir yönetici tarafından artık engeli kaldırılmış gerekebilir.  |
 | **SMSAuthFailedWrongCodeEntered** | Girilen/metin iletisi OTP yanlış yanlış kod | Kullanıcı yanlış kod girildi. Yeni bir kod istiyor ya da yeniden oturum açmayı yeniden deneyin sağlayın. |
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6c71956bf43a0147d5abff4b708be93f62fe34fa
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4093febd19d71512e3c80704e88f9d5cf669d7d9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545071"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122072"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning ve Azure Data Factory kullanarak öngörülebilir komut zincirleri oluşturma
 
@@ -261,8 +261,8 @@ Gitmenizi öneririz [Data Factory ile ilk işlem hattınızı oluşturma] [ adf-
       >
       >
 
-    ```JSON
-    {
+      ```JSON
+      {
         "name": "PredictivePipeline",
         "properties": {
             "description": "use AzureML model",
@@ -300,8 +300,8 @@ Gitmenizi öneririz [Data Factory ile ilk işlem hattınızı oluşturma] [ adf-
             "start": "2016-02-13T00:00:00Z",
             "end": "2016-02-14T00:00:00Z"
         }
-    }
-    ```
+      }
+      ```
 
       Her ikisi de **Başlat** ve **son** tarih/saat olmalıdır [ISO biçimi](https://en.wikipedia.org/wiki/ISO_8601). Örneğin: 2014-10-14T16:32:41Z. **Son** zaman isteğe bağlıdır. İçin değer belirtmezseniz **son** özelliği olarak hesaplanır "**start + 48 hours.**" İşlem hattını süresiz olarak çalıştırmak için **end** özelliği değerini **9999-09-09** olarak ayarlayın. JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](https://msdn.microsoft.com/library/dn835050.aspx).
 

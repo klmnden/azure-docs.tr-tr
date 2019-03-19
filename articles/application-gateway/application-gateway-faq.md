@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 1/11/2019
+ms.date: 3/13/2019
 ms.author: victorh
-ms.openlocfilehash: 5552ca80059b4aa7ef96caf7984b4c15ec177d38
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 96bd9e679e1766e87a0bb807204df744bb3cca95
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316600"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897716"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway için sık sorulan sorular
 
@@ -75,7 +75,7 @@ Genel bir IP adresi bir uç nokta kullanırken, bu bilgileri genel IP adresi kay
 
 ### <a name="what-is-keep-alive-timeout-and-tcp-idle-timeout-setting-on-application-gateway"></a>Tutma zaman aşımı ve TCP boşta kalma zaman aşımı ayarını Application Gateway nedir?
 
-V1 SKU tutma zaman aşımını v2 SKU zaman aşımı süresi 120 sec. tutma 4 dakika varsayılandır Application Gateway VIP ön uç üzerinde 75 sec. TCP boşta kalma zaman aşımı şeklindedir.
+V1 SKU tutma zaman aşımı süresi 120 sec. tutma zaman aşımını v2 SKU 4 dakikalık varsayılandır Application Gateway VIP ön uç üzerinde 75 sec. TCP boşta kalma zaman aşımı şeklindedir.
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>IP veya DNS adını uygulama ağ geçidi ömrü boyunca ile değişiyor mu?
 
@@ -93,6 +93,8 @@ Yalnızca bir genel IP adresi, bir uygulama ağ geçidinde desteklenmiyor.
 
 Özel ön uç IP yapılandırması yapılandırılmışsa, uygulama ağ geçidi örneği başına bir özel IP adresi yanı sıra, başka bir özel IP adresini kullanır. Ayrıca, Azure ilk dört ayırır ve son her alt ağda iç kullanım için IP adresi.
 Örneğin, bir uygulama ağ geçidi üç örnekleri ve ardından bir/29 hiçbir özel ön uç IP ayarlanmışsa, alt ağ boyutu veya üzeri gereklidir. Bu durumda, uygulama ağ geçidi üç IP adresini kullanır. Üç örnekleri ve ardından/28 özel ön uç IP yapılandırması için bir IP adresi varsa dört IP adresleri gerekli olduğu gibi alt ağı veya büyük boyut gereklidir.
+
+En iyi uygulama, en az/28'i kullanın. alt ağ boyutu. Bu, 11 kullanılabilir adresleri tükeniyor sağlar. Uygulama yükünüz 10'dan fazla örnekleri gerektiriyorsa, / 27 veya /26 dikkate almanız gereken alt ağ boyutu.
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>S. Tek bir alt ağa birden fazla Application Gateway kaynağında dağıtabilir miyim?
 
@@ -356,7 +358,7 @@ Müşteriler depolama hesabına akışı tanılama günlükleri ve müşterileri
 
 ### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>Application Gateway için denetim günlüklerini nasıl alabilirim?
 
-Denetim günlükleri, Application Gateway için kullanılabilir. Portalında **etkinlik günlüğü** menü dikey penceresindeki Denetim günlüğüne erişmek için bir uygulama ağ geçidi. 
+Denetim günlükleri, Application Gateway için kullanılabilir. Portalında **etkinlik günlüğü** menü dikey penceresinde, Denetim günlüğüne erişmek için bir uygulama ağ geçidi. 
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>Application Gateway uyarılarla ayarlayabilirim?
 

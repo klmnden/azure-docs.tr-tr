@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 8010d7cbf960c3e2f6528687be97a47d31270696
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 0d9f13003a9b81085fda9635fc8b07566a1c0c66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997210"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107534"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(KULLANIM DIŞI) Log Analytics ile bir Azure Container Service kümesini izleme
 
@@ -91,37 +91,37 @@ $ kubectl create -f oms-daemonset.yaml
 ### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Kubernetes gizli kullanarak Log Analytics aracısını yükleme
 Log Analytics çalışma alanı kimliği ve anahtarını korumak için Kubernetes gizli DaemonSet YAML dosyası bir parçası olarak kullanabilirsiniz.
 
- - Betik, gizli şablon dosyası ve DaemonSet YAML dosyası kopyalayın (gelen [depo](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) ve aynı dizinde olduklarından emin olun.
-      - Gizli dizi betiği - gizli gen.sh oluşturuluyor
-      - Gizli şablon - gizli template.yaml
-   - DaemonSet YAML dosyası - omsagent ds secrets.yaml
- - Betiği çalıştırın. Betik Log Analytics çalışma alanı kimliği ve birincil anahtar için sorar. Ekleyin ve onu çalıştırabilmeniz için betik gizli yaml dosyası oluşturur.
-   ```
-   #> sudo bash ./secret-gen.sh
-   ```
+- Betik, gizli şablon dosyası ve DaemonSet YAML dosyası kopyalayın (gelen [depo](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) ve aynı dizinde olduklarından emin olun.
+  - Gizli dizi betiği - gizli gen.sh oluşturuluyor
+  - Gizli şablon - gizli template.yaml
+    - DaemonSet YAML dosyası - omsagent ds secrets.yaml
+- Betiği çalıştırın. Betik Log Analytics çalışma alanı kimliği ve birincil anahtar için sorar. Ekleyin ve onu çalıştırabilmeniz için betik gizli yaml dosyası oluşturur.
+  ```
+  #> sudo bash ./secret-gen.sh
+  ```
 
-   - Gizli dizileri pod, aşağıdaki komutu çalıştırarak oluşturun: ``` kubectl create -f omsagentsecret.yaml ```
+  - Gizli dizileri pod, aşağıdaki komutu çalıştırarak oluşturun: ``` kubectl create -f omsagentsecret.yaml ```
 
-   - Denetlemek için şu komutu çalıştırın:
+  - Denetlemek için şu komutu çalıştırın:
 
-   ```
-   root@ubuntu16-13db:~# kubectl get secrets
-   NAME                  TYPE                                  DATA      AGE
-   default-token-gvl91   kubernetes.io/service-account-token   3         50d
-   omsagent-secret       Opaque                                2         1d
-   root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
-   Name:           omsagent-secret
-   Namespace:      default
-   Labels:         <none>
-   Annotations:    <none>
+  ```
+  root@ubuntu16-13db:~# kubectl get secrets
+  NAME                  TYPE                                  DATA      AGE
+  default-token-gvl91   kubernetes.io/service-account-token   3         50d
+  omsagent-secret       Opaque                                2         1d
+  root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
+  Name:           omsagent-secret
+  Namespace:      default
+  Labels:         <none>
+  Annotations:    <none>
 
-   Type:   Opaque
+  Type:   Opaque
 
-   Data
-   ====
-   WSID:   36 bytes
-   KEY:    88 bytes
-   ```
+  Data
+  ====
+  WSID:   36 bytes
+  KEY:    88 bytes
+  ```
 
   - Arka plan programı kümesi çalıştırarak, omsagent oluşturma ``` kubectl create -f omsagent-ds-secrets.yaml ```
 

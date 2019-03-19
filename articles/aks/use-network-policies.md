@@ -7,21 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: 81b45a25c8040916b835ab333c5ce80ab6c1a788
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a20dfcd9e2ef12252235b74455964d115d9aef9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772322"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181495"
 ---
-# <a name="secure-traffic-between-pods-by-using-network-policies-in-azure-kubernetes-service"></a>Azure Kubernetes hizmetinde ağ ilkeleri kullanarak, pod'ları arasındaki trafiğin güvenliğini sağlama
+# <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Önizleme - ağ ilkelerini Azure Kubernetes Service (AKS) kullanarak pod'ları arasındaki trafiğin güvenliğini sağlama
 
 Kubernetes'te modern, mikro hizmet tabanlı uygulamaları çalıştırdığınızda, genellikle hangi bileşenlerin birbirleriyle iletişim kurabilir denetlemek istersiniz. En düşük öncelik ilkesini nasıl trafiği Azure Kubernetes Service (AKS) kümesini pod'ların arasında akış için uygulanmalıdır. Büyük olasılıkla, trafiği doğrudan arka uç uygulamaları engellemek istiyorsunuz diyelim. *Ağ İlkesi* özellik kubernetes pod'ların bir küme arasında giriş ve çıkış trafiği için kuralları tanımlamanıza olanak sağlar.
 
 Calico, bir açık kaynak ağ ve ağ güvenliği çözümleri Tigera tarafından kurulan Kubernetes Ağ İlkesi kuralları uygulayan bir ağ ilke altyapısı sunar. Bu makalede aks'deki pod'ları arasındaki trafik akışını denetlemek için Kubernetes ağ ilkeleri oluşturun ve Calico ağ ilke Altyapısı'nı gösterilmektedir.
 
 > [!IMPORTANT]
-> Bu özellik şu anda önizleme sürümündedir. Önizlemeler, [ek kullanım koşullarını][terms-of-use] kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma (GA) açılmadan önce değişebilir.
+> AKS Önizleme özellikleri, Self Servis ve kabul etme. Görüş ve hata topluluğumuza toplamak üzere önizlemeleri sağlanır. Ancak, Azure teknik destek birimi tarafından desteklenmez. Bir küme oluşturun veya var olan kümeleri için bu özellikleri ekleyin, bu özellik artık Önizleme aşamasındadır ve genel kullanılabilirlik (GA) mezunu kadar bu küme desteklenmiyor.
+>
+> Önizleme özellikleri sorunlarla karşılaşırsanız [AKS GitHub deposunda bir sorun açın] [ aks-github] hata başlığı önizleme özelliğini adı.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -451,6 +453,7 @@ Ağ kaynakları hakkında daha fazla bilgi için bkz. [kavramları Azure Kuberne
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

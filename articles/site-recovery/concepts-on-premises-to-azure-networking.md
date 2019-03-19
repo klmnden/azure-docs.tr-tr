@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: a78e5c411c03aaff07818c4e45183f8eff40492d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 334537e77d5f291dc38e008af7fed9a4ea973265
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211364"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108857"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>IP adresi yük devretmeden sonra Azure Vm'lerine bağlanmak için ayarlama
 
@@ -49,8 +49,8 @@ Kurgusal bir şirkette, Woodgrove Bank'ı kullanarak azure'a yük devretme için
 - Woodgrove Bankası'nda iş uygulamalarını şirket içi sitede barındırır. Bunlar mobil uygulamalarını azure'da barındırın.
 - Kendi şirket içi uç ağ ve Azure sanal ağı arasında VPN siteden siteye bağlantı yok. VPN bağlantısı nedeniyle Azure sanal ağı şirket içi ağınıza uzantısı görünür.
 - Azure Site Recovery ile şirket içi iş yüklerini çoğaltmak Woodgrove istiyor.
- - Woodgrove azure'a yük devredildikten sonra uygulamalar için IP adresleri saklamak ihtiyaç duydukları bırakmayarak sabit kodlanmış IP adreslerinde bağımlı uygulamaları vardır.
- - Azure'da çalışan kaynakları kullandığınız IP adresi aralığı 172.16.1.0/24 172.16.2.0/24.
+  - Woodgrove azure'a yük devredildikten sonra uygulamalar için IP adresleri saklamak ihtiyaç duydukları bırakmayarak sabit kodlanmış IP adreslerinde bağımlı uygulamaları vardır.
+  - Azure'da çalışan kaynakları kullandığınız IP adresi aralığı 172.16.1.0/24 172.16.2.0/24.
 
 ![Önce alt ağ yük devretme](./media/site-recovery-network-design/network-design7.png)
 

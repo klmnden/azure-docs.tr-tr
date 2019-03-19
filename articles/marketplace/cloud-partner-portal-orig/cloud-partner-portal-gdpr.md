@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1cd9e99d9f530abb34ff072a740d89bc511c64ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4e6f5095081f0549bc127b9b6949908a64214aee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241523"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857819"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Bulut iş ortağı portalı GDPR uyumluluğu
 ====================================
 
-[Genel veri koruma yönetmeliği (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm)bir Avrupa Birliği (AB) veri koruma ve gizlilik yasadır. GDPR şirketler kurallarını uygular, devlet kurumları, gütmeyen ve mal ve hizmet, AB veya kişilere teklif diğer kuruluşlar AB vatandaşlar için bağlı verileri toplayıp analiz.
+[Genel veri koruma yönetmeliği (GDPR)](https://ec.europa.eu/justice/data-protection/reform/index_en.htm)bir Avrupa Birliği (AB) veri koruma ve gizlilik yasadır. GDPR şirketler kurallarını uygular, devlet kurumları, gütmeyen ve mal ve hizmet, AB veya kişilere teklif diğer kuruluşlar AB vatandaşlar için bağlı verileri toplayıp analiz.
 
 Bulut iş ortağı portalı, veri ve bu verileri korumak için kullanılan güvenlik önlemlerini müşteri işlemesi ilgili ayrıntılı bilgileri sağlar. Bu bilgiler, ürün içi deneyimler erişilebilir.
 

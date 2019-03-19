@@ -16,12 +16,12 @@ ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 63de39fa97850c1df72bdcd964ed670e4e8b0608
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0b75085754a66fabf07076282c977acd7f10a556
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767201"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992327"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Başlangıç AzsReadinessChecker cmdlet başvurusu
 
@@ -299,6 +299,7 @@ Bu örnekte, dağıtım veya destek ekibi müşteriden Contoso Hazırlık raporu
 > -RegionName
 
 Azure Stack dağıtımın bölge adı belirtir.
+
 |  |  |
 |----------------------------|--------------|
 |Şunu yazın:                       |String        |
@@ -310,6 +311,7 @@ Azure Stack dağıtımın bölge adı belirtir.
 > -FQDN
 
 Azure Stack dağıtımın dış FQDN, ayrıca diğer adlı ExternalFQDN ve ExternalDomainName olarak belirtir.
+
 |  |  |
 |----------------------------|--------------|
 |Şunu yazın:                       |String        |
@@ -321,6 +323,7 @@ Azure Stack dağıtımın dış FQDN, ayrıca diğer adlı ExternalFQDN ve Exter
 > -IdentitySystem
 
 Azure Stack dağıtımın kimlik sistemi geçerli değerler, AAD veya ADFS, Azure Active Directory ve Active Directory Federasyon Hizmetleri için sırasıyla belirtir.
+
 |  |  |
 |----------------------------|--------------|
 |Şunu yazın:                       |String        |
@@ -333,6 +336,7 @@ Azure Stack dağıtımın kimlik sistemi geçerli değerler, AAD veya ADFS, Azur
 > -PfxPassword
 
 PFX sertifika dosyaları ile ilişkili parolayı belirtir.
+
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |SecureString |
@@ -344,6 +348,7 @@ PFX sertifika dosyaları ile ilişkili parolayı belirtir.
 > -PaaSCertificates
 
 Yollar ve parolaları PaaS sertifikaları içeren karma tablo belirtir.
+
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |Hashtable |
@@ -355,6 +360,7 @@ Yollar ve parolaları PaaS sertifikaları içeren karma tablo belirtir.
 > -DeploymentDataJSONPath
 
 Azure Stack dağıtım verileri JSON yapılandırma dosyasını belirtir. Bu dosya, dağıtım için oluşturulur.
+
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |String   |
@@ -366,6 +372,7 @@ Azure Stack dağıtım verileri JSON yapılandırma dosyasını belirtir. Bu dos
 > -PfxPath
 
 Bu araç, sertifika doğrulama tarafından belirtildiği şekilde düzeltmek için içeri/dışarı aktarma yordamı gerektiren sorunlu bir sertifika yolunu belirtir.
+
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |String   |
@@ -377,6 +384,7 @@ Bu araç, sertifika doğrulama tarafından belirtildiği şekilde düzeltmek iç
 > -ExportPFXPath  
 
 Sonuç PFX dosyasından içeri/dışarı aktarma yordamı için hedef yolu belirtir.  
+
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |String   |
@@ -388,6 +396,7 @@ Sonuç PFX dosyasından içeri/dışarı aktarma yordamı için hedef yolu belir
 > -Konu
 
 Bir sıralanmış sözlük konu için sertifika isteği oluşturma belirtir.
+
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |OrderedDictionary   |
@@ -415,6 +424,7 @@ Sertifika isteği SAN türünü belirtir. Geçerli değerler, MultipleCSR Single
 > -OutputRequestPath
 
 Hedef yolu belirtir sertifika isteği dosyaları için dizin zaten mevcut olmalıdır.
+
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |String   |
@@ -426,6 +436,7 @@ Hedef yolu belirtir sertifika isteği dosyaları için dizin zaten mevcut olmal�
 > -AADServiceAdministrator
 
 Azure Stack dağıtımı için kullanılacak Azure Active Directory Hizmet Yöneticisi belirtir.
+
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |PSCredential   |
@@ -437,6 +448,7 @@ Azure Stack dağıtımı için kullanılacak Azure Active Directory Hizmet Yöne
 > -AADDirectoryTenantName
 
 Azure Stack dağıtımı için kullanılacak Azure Active Directory adını belirtir.
+
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |String   |
@@ -448,6 +460,7 @@ Azure Stack dağıtımı için kullanılacak Azure Active Directory adını beli
 > -AzureEnvironment
 
 Azure Stack dağıtım ve kayıt için kullanılacak Azure hesapları, dizinler ve abonelikler içeren Services örneğini belirtir.
+
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |String   |
@@ -460,6 +473,7 @@ Azure Stack dağıtım ve kayıt için kullanılacak Azure hesapları, dizinler 
 > -RegistrationAccount
 
 Azure Stack kayıt için kullanılacak kayıt hesabı belirtir.
+
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |String   |
@@ -471,6 +485,7 @@ Azure Stack kayıt için kullanılacak kayıt hesabı belirtir.
 > -RegistrationSubscriptionID
 
 Azure Stack kayıt için kullanılacak kayıt abonelik Kimliğini belirtir.
+
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |Guid     |
@@ -482,6 +497,7 @@ Azure Stack kayıt için kullanılacak kayıt abonelik Kimliğini belirtir.
 > -ReportPath
 
 Hazırlık raporunu yolunu belirtir, varsayılan olarak geçerli dizin ve varsayılan rapor adı.
+
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |String   |
@@ -527,6 +543,7 @@ PaaS Hizmetleri/ana bilgisayar adları için sertifika istekleri eklenip eklenme
 > -ReportSections
 
 Ayrıntılı rapor yalnızca Özet, gösterecek şekilde olmadığını atlar belirtir.
+
 |  |  |
 |----------------------------|---------|
 |Şunu yazın:                       |String   |
@@ -539,6 +556,7 @@ Ayrıntılı rapor yalnızca Özet, gösterecek şekilde olmadığını atlar be
 > -Özet
 
 Ayrıntılı rapor yalnızca Özet, gösterecek şekilde olmadığını atlar belirtir.
+
 |  |  |
 |----------------------------|------------------|
 |Şunu yazın:                       |SwitchParameter   |
@@ -550,6 +568,7 @@ Ayrıntılı rapor yalnızca Özet, gösterecek şekilde olmadığını atlar be
 > -CleanReport
 
 Önceki yürütme ve doğrulamayı geçmişini kaldırır ve Doğrulamalar için yeni bir rapor yazar.
+
 |  |  |
 |----------------------------|------------------|
 |Şunu yazın:                       |SwitchParameter   |
@@ -574,6 +593,7 @@ Ayrıntılı rapor yalnızca Özet, gösterecek şekilde olmadığını atlar be
 > -Onaylayın
 
 Cmdlet'i çalıştırmadan önce onay ister.
+
 |  |  |
 |----------------------------|------------------|
 |Şunu yazın:                       |SwitchParameter   |
@@ -586,6 +606,7 @@ Cmdlet'i çalıştırmadan önce onay ister.
 > -WhatIf
 
 Cmdlet çalıştırılıyorsa ne olacağını gösterir. Cmdlet çalıştırılmaz.
+
 |  |  |
 |----------------------------|------------------|
 |Şunu yazın:                       |SwitchParameter   |
@@ -594,3 +615,4 @@ Cmdlet çalıştırılıyorsa ne olacağını gösterir. Cmdlet çalıştırılm
 |Varsayılan değer:              |False             |
 |Ardışık giriş yapılabilir:      |False             |
 |Joker karakterler kabul edin: |False             |
+
