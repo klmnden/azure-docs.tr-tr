@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 095866c08ca160664ba03ae0d0bdc4840f9ac954
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 20ce4ce311e657f4d34359c96dda939d0ced01b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865055"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834396"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-javascript-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme JavaScript ve REST API kullanarak küçük resim oluşturma
 
-Bu hızlı başlangıçta, Görüntü İşleme REST API’sini kullanarak bir görüntüden küçük resim oluşturacaksınız. [Küçük Resim Alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) yöntemi ile bir görüntünün küçük resmini alabilirsiniz. Giriş görüntüsünün en boy oranından farklı olabilen bir yükseklik ve genişlik belirtirsiniz. Görüntü işleme, akıllı bir şekilde ilgi belirlemek ve söz konusu bölgeyi temel alan kırpma koordinatları oluşturmak için akıllı kırpma kullanır.
+Bu hızlı başlangıçta, Görüntü İşleme REST API’sini kullanarak bir görüntüden küçük resim oluşturacaksınız. Belirttiğiniz giriş görüntüden en boy oranını değişebilir genişliği ve yüksekliği. Görüntü işleme, akıllı bir şekilde ilgi belirlemek ve söz konusu bölgeyi temel alan kırpma koordinatları oluşturmak için akıllı kırpma kullanır.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
 
@@ -164,10 +164,6 @@ Image for thumbnail:
 ## <a name="examine-the-response"></a>Yanıtı inceleme
 
 Küçük resmin görüntü verilerini temsil eden ikili veri halinde başarılı bir yanıt döndürülür. İstek başarılı olursa, yanıttaki ikili verilerden küçük resim oluşturulur ve tarayıcı penceresinde görüntülenir. İstek başarısız olursa, yanıt konsol penceresinde görüntülenir. Başarısız isteğin yanıtı, neyin yanlış gittiğini belirlemeye yardımcı olması için bir hata kodu ve bir ileti içerir.
-
-## <a name="clean-up-resources"></a>Kaynakları temizleme
-
-Artık gerekli değilse dosyayı silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

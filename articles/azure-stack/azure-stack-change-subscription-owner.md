@@ -16,12 +16,12 @@ ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: 02c5d063246844d5ed8945aba38aaada87691627
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1d9dd7d19c196679ead9b552bcf296b4acd4ca68
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763206"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842898"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Bir Azure Stack kullanıcı aboneliği sahibini değiştirin
 
@@ -49,7 +49,7 @@ Kullanıcı aboneliği fatura sahibini değiştirmek için aşağıdaki betiği 
 - **$ArmEndpoint**: Ortamınız için Resource Manager uç noktası.
 - **$TenantId**: Kiracı kimliğiniz
 - **$SubscriptionId**: Abonelik kimliğinizi
-- **$OwnerUpn**: Örneğin, bir hesap **user@example.com**, yeni faturalandırma sahibi olarak eklenecek.
+- **$OwnerUpn**: Örneğin, bir hesap **kullanıcı\@example.com**, yeni faturalandırma sahibi olarak eklenecek.
 
 ```powershell
 # Set up Azure Stack admin environment

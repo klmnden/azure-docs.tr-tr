@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cd3f506205a3ee4f4435b16fd2185eeb20aef3c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bb6ef5a87c5610d90188471db961ef20dfb18835
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447233"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895473"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>StorSimple sanal dizisi için uyarıları yönetmek için StorSimple cihaz Yöneticisi'ni kullanın
 
@@ -39,7 +39,7 @@ StorSimple sanal dizisi, her uyarı koşullarından e-postayla bildirim almak is
 > [!NOTE]
 > En fazla 20 e-posta adresi sanal dizi başına girebilirsiniz.
 
-E-posta bildirimi bir sanal dizin için etkinleştirdikten sonra bildirim listesi üyelerinin kritik uyarı her oluştuğunda bir e-posta iletisi alırsınız. İletilerin gönderildiği *storsimple-alerts-noreply@mail.windowsazure.com* ve uyarı koşulu anlatmaktadır. Alıcılar tıklayabilirsiniz **Unsubscribe** kendilerini e-posta bildirimi listesinden kaldırmak için.
+E-posta bildirimi bir sanal dizin için etkinleştirdikten sonra bildirim listesi üyelerinin kritik uyarı her oluştuğunda bir e-posta iletisi alırsınız. İletilerin gönderildiği *storsimple uyarılar noreply\@mail.windowsazure.com* ve uyarı koşulu anlatmaktadır. Alıcılar tıklayabilirsiniz **Unsubscribe** kendilerini e-posta bildirimi listesinden kaldırmak için.
 
 #### <a name="to-enable-email-notification-for-alerts"></a>Uyarılar için e-posta bildirimlerini etkinleştirmek için
 
@@ -53,7 +53,7 @@ E-posta bildirimi bir sanal dizin için etkinleştirdikten sonra bildirim listes
    
    1. İçinde **e-posta bildirimi etkinleştir** alanın, Seç **Evet**.
    2. İçinde **hizmet yöneticilerine e-posta** alanın, Seç **Evet** Hizmet Yöneticisi olmasını istediğiniz ve tüm ortak yöneticilerin Uyarı bildirimlerini almasını.
-   3. İçinde **ek e-posta alıcılarını** Uyarı bildirimlerini alması gereken diğer tüm alıcıların e-posta adreslerini girin. Biçiminde adlarını girin *someone@somewhere.com*. E-posta adreslerini ayırmak için noktalı virgül kullanın. En fazla sanal cihaz başına 20 e-posta adresi yapılandırabilirsiniz.
+   3. İçinde **ek e-posta alıcılarını** Uyarı bildirimlerini alması gereken diğer tüm alıcıların e-posta adreslerini girin. Biçiminde adlarını girin *birisi\@somewhere.com*. E-posta adreslerini ayırmak için noktalı virgül kullanın. En fazla sanal cihaz başına 20 e-posta adresi yapılandırabilirsiniz.
       
        ![uyarı bildirim yapılandırması](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. Bir test e-posta bildirimi göndermek için tıklayın **sınama epostası Gönder**. Test bildirimi iletir olarak StorSimple cihaz Yöneticisi hizmeti durum iletilerini görüntüler.
@@ -147,6 +147,7 @@ Aşağıdaki tablolarda, ek bilgi ve öneriler yanı sıra mümkün olan durumla
 | Kopyası <*cihaz adı* \> işlemi tamamlanamadı. |İş hatası kopyalayın. |Bir kopya oluşturulamadı. Aşağıdakilerden birini göz önünde bulundurun:<ul><li>Yedekleme listenize geçerli olmayabilir. Hala geçerli olduğunu doğrulamak için listeyi yenileyin.</li><li>Bağlantı sorunları kopyalama işleminin başarıyla tamamlanmasını engelliyor. Hiçbir bağlantı sorunu olduğundan emin olun.</li><li>Kullanılabilir depolama sınırına ulaştınız. Yer kazanmak için artık gerekmeyen tüm yedeklemeler silme göz önünde bulundurun.</li></ul>Sorunları çözün, uyarıyı temizleyin ve işlemi yeniden deneyin. |
 
 ### <a name="networking-alerts"></a>Ağ uyarıları
+
 | Uyarı metni | Olay | Daha fazla bilgi / Önerilen Eylemler |
 |:--- |:--- |:--- |
 | Kimlik doğrulama hizmetine bağlanamadı. |DataPath hata |Kimlik doğrulaması için kullanılan URL erişilebilir değil. Güvenlik Duvarı kurallarınız StorSimple cihazı için belirtilen URL desenleri eklediğinizden emin olun. Azure portalındaki URL desenleri hakkında daha fazla bilgi için Git [gereksinimlerinde StorSimple Virtual Array](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|

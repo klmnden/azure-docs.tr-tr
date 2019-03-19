@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 4c48e0d6c2b9d7ff2ff82da64a240e1bf0aacd39
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 51d0c7ade46143ecbf6fe46bc54e5d383d50b382
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998289"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173085"
 ---
 # <a name="deliver-content-to-customers"></a>Müşterilere içerik teslim edin
 Müşterilere, akış ve isteğe bağlı video içerik teslim, amacınız farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli video teslim andır.

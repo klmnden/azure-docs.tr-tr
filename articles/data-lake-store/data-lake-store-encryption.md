@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: df89f8fd4dd5c7690d858009e250a474f702f1a8
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125043"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098143"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Azure Data Lake depolama Gen1 veri şifreleme
 
@@ -21,7 +21,7 @@ Azure Data Lake depolama Gen1 şifreleme, verilerinizi koruma, Kurumsal güvenli
 
 Data Lake depolama Gen1 hem bekleyen hem de Aktarımdaki verilerin şifrelenmesini destekler. Bekleyen veriler için Data Lake depolama Gen1 destekler "üzerinde varsayılan olarak," saydam şifrelemeyi. Bu terimlerin biraz daha ayrıntılı olarak anlamı şudur:
 
-* **Üzerinde varsayılan olarak**: yeni bir Data Lake depolama Gen1 hesabı oluştururken varsayılan ayar şifrelemeyi etkinleştirir. Bundan sonra Data Lake depolama Gen1 içinde depolanan veriler her zaman kalıcı medyada depolanmadan önce şifrelenir. Bu durum tüm veriler için geçerlidir ve bir hesap oluşturulduktan sonra değiştirilemez.
+* **Üzerinde varsayılan olarak**: Yeni bir Data Lake depolama Gen1 hesabı oluştururken varsayılan ayar şifrelemeyi etkinleştirir. Bundan sonra Data Lake depolama Gen1 içinde depolanan veriler her zaman kalıcı medyada depolanmadan önce şifrelenir. Bu durum tüm veriler için geçerlidir ve bir hesap oluşturulduktan sonra değiştirilemez.
 * **Saydam**: Data Lake depolama Gen1 otomatik olarak kaydetmeden önce verileri şifreler ve almadan öncesinde verilerin şifresini çözer. Şifreleme yapılandırılır ve Data Lake depolama Gen1 hesap düzeyinde bir yönetici tarafından yönetilir. Veri erişimi API'lerinde hiçbir değişiklik yapılmaz. Bu nedenle, değişiklik bulunan uygulamalarda ve hizmetlerde şifreleme Data Lake depolama Gen1 ile etkileşim kuran gerekli değildir.
 
 (Diğer adıyla Hareket halindeki) veriler Aktarımdaki verileri Data Lake depolama Gen1 içinde de her zaman şifrelenir. Kalıcı medyaya depolama önce veri şifrelemeye ek olarak, aktarımdaki veriler de her zaman HTTPS kullanılarak korunmaktadır. HTTPS, Data Lake depolama Gen1 REST arabirimleri için desteklenen tek protokoldür. Aşağıdaki diyagramda, Data Lake depolama Gen1 içinde verilerin nasıl şifrelendiği gösterilmektedir:
@@ -74,7 +74,7 @@ Ana şifreleme anahtarları için modu seçtiğinizde aşağıdakileri unutmaman
 
 Veri şifreleme tasarımında kullanılan üç tür anahtar vardır. Aşağıdaki tabloda bir özet verilmektedir:
 
-| Anahtar                   | Kısaltma | İlişkili olduğu yer: | Depolama konumu                             | Tür       | Notlar                                                                                                   |
+| Anahtar                   | Kısaltma | İlişkili olduğu yer: | Depolama konumu                             | Type       | Notlar                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Ana Şifreleme Anahtarı | MEK          | Bir Data Lake depolama Gen1 hesabı | Key Vault                              | Asimetrik | Data Lake depolama Gen1 veya sizin tarafınızdan yönetilebilir.                                                              |
 | Veri Şifreleme Anahtarı   | DEK          | Bir Data Lake depolama Gen1 hesabı | Data Lake depolama Gen1 hizmet tarafından yönetilen kalıcı depolama | Simetrik  | DEK, MEK ile şifrelenir. Şifrelenmiş DEK, kalıcı medyada depolanır. |
@@ -120,17 +120,17 @@ Data Lake depolama Gen1 hesabınızı ayarlarken kendi anahtarlarınızı kullan
 
     ![Key Vault ekran görüntüsü](./media/data-lake-store-encryption/keyvault.png)
 
-3.  Data Lake depolama Gen1 hesabınızla ilişkili anahtarı seçin ve bu anahtarın yeni bir sürümünü oluşturun. Data Lake depolama Gen1 şu anda yalnızca bir anahtarın yeni bir sürüme anahtar döndürmeyi desteklediğini unutmayın. Farklı bir anahtara döndürmeyi desteklemez.
+3. Data Lake depolama Gen1 hesabınızla ilişkili anahtarı seçin ve bu anahtarın yeni bir sürümünü oluşturun. Data Lake depolama Gen1 şu anda yalnızca bir anahtarın yeni bir sürüme anahtar döndürmeyi desteklediğini unutmayın. Farklı bir anahtara döndürmeyi desteklemez.
 
    ![Yeni Sürümün vurgulandığı Anahtarlar penceresi ekran görüntüsü](./media/data-lake-store-encryption/keynewversion.png)
 
-4.  Data Lake depolama Gen1 hesabına Gözat ve Seç **şifreleme**.
+4. Data Lake depolama Gen1 hesabına Gözat ve Seç **şifreleme**.
 
-    ![Şifreleme'nin vurgulandığı ekran görüntüsü Data Lake depolama Gen1 hesabı penceresinin](./media/data-lake-store-encryption/select-encryption.png)
+   ![Şifreleme'nin vurgulandığı ekran görüntüsü Data Lake depolama Gen1 hesabı penceresinin](./media/data-lake-store-encryption/select-encryption.png)
 
-5.  Yeni bir anahtar sürümünün mevcut olduğu bir ileti ile bildirilir. Anahtarı yeni sürüme güncelleştirmek için **Anahtarı Döndür** seçeneğine tıklayın.
+5. Yeni bir anahtar sürümünün mevcut olduğu bir ileti ile bildirilir. Anahtarı yeni sürüme güncelleştirmek için **Anahtarı Döndür** seçeneğine tıklayın.
 
-    ![İleti ve anahtarı Döndür seçenekleri vurgulanmış ekran Data Lake depolama Gen1 penceresi](./media/data-lake-store-encryption/rotatekey.png)
+   ![İleti ve anahtarı Döndür seçenekleri vurgulanmış ekran Data Lake depolama Gen1 penceresi](./media/data-lake-store-encryption/rotatekey.png)
 
 Bu işlem iki dakikadan kısa sürer ve anahtar döndürme nedeniyle beklenen kapalı kalma süresi yoktur. İşlem tamamlandıktan sonra anahtarın yeni sürümü kullanılır.
 

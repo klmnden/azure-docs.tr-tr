@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 98e1f982eb627db2a7d2126109e5897c45649ce9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 58835b66824d55b64b77e34df64d34c8da1c269a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545133"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864822"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins eklentisini kullanarak Azure App Service'e dağıtım yapma 
 
@@ -90,7 +90,7 @@ Projenizi Web Apps’e dağıtmak için, derleme yapıtlarınızı dosya yüklem
 ### <a name="set-up-the-jenkins-job"></a>Jenkins işini ayarlama
 
 1. Jenkins Panosunda, **freestyle** (serbest stil) türünde yeni bir proje oluşturun.
-2. **Source Code Management** (Kaynak Kod Yönetimi) alanını, [Azure'a yönelik basit Java web uygulamasına](https://github.com/azure-devops/javawebappsample) ilişkin yerel çatalınızı kullanacak şekilde yapılandırın. **Depo URL'si** değerini girin. Örneğin, http://github.com/&lt;kimliğiniz>/javawebuygulamasıörneği.
+2. **Source Code Management** (Kaynak Kod Yönetimi) alanını, [Azure'a yönelik basit Java web uygulamasına](https://github.com/azure-devops/javawebappsample) ilişkin yerel çatalınızı kullanacak şekilde yapılandırın. **Depo URL'si** değerini girin. Örneğin: http:\//github.com/&lt;your_ID > / javawebappsample.
 3. **Execute shell** komutunu ekleyerek projeyi Maven ile oluşturmaya yönelik bir adım ekleyin. Bu örnekte, hedef klasördeki \*.war dosyasını **ROOT.war** olarak yeniden adlandırmak için ek bir komuta ihtiyacımız var:   
     ```bash
     mvn clean package
@@ -143,7 +143,7 @@ Linux üzerinde Web App, yalnızca yerleşik diller (.NET Core, Node.js, PHP ve 
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Docker için Jenkins işini ayarlama
 
 1. Jenkins Panosunda, **freestyle** (serbest stil) türünde yeni bir proje oluşturun.
-2. **Source Code Management** (Kaynak Kod Yönetimi) alanını, [Azure'a yönelik basit Java web uygulamasına](https://github.com/azure-devops/javawebappsample) ilişkin yerel çatalınızı kullanacak şekilde yapılandırın. **Depo URL'si** değerini girin. Örneğin, http://github.com/&lt;kimliğiniz>/javawebuygulamasıörneği.
+2. **Source Code Management** (Kaynak Kod Yönetimi) alanını, [Azure'a yönelik basit Java web uygulamasına](https://github.com/azure-devops/javawebappsample) ilişkin yerel çatalınızı kullanacak şekilde yapılandırın. **Depo URL'si** değerini girin. Örneğin: http:\//github.com/&lt;your_ID > / javawebappsample.
 3. **Execute shell** komutu ekleyerek projeyi Maven ile oluşturmaya yönelik bir adım ekleyin. Komuta aşağıdaki satırı ekleyin:
     ```bash
     mvn clean package

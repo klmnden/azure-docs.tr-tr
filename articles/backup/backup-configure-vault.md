@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 3700ffe0a2b0e0d3ec69bce3a11cdc36d28d9145
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 4aff7c486762d9ea7bd38ae152d169968432307e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569119"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898967"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>Azure Backup MARS Aracısı ile Windows makinelerini yedekleme
 
@@ -43,7 +43,7 @@ Neleri yedekleyebilir, aracının yüklü olduğu bağlıdır.
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
-- [Bilgi nasıl](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders) Azure Backup, MARS Aracısı Windows makinelerle yedekler.
+- [Bilgi nasıl](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders) Azure Backup, MARS Aracısı Windows makinelerle yedekler.
 - [Hakkında bilgi edinin](backup-architecture.md#architecture-back-up-to-dpmmabs) MARS Aracısı bir ikincil MABS veya DPM sunucusunda çalışan yedekleme mimarisi.
 - [Gözden geçirme](backup-support-matrix-mars-agent.md) ne desteklenir ve MARS Aracısı ile ne yedeklenebilir.
 - Yedeklemek istediğiniz makinelerde internet erişimi doğrulayın.
@@ -53,7 +53,7 @@ Neleri yedekleyebilir, aracının yüklü olduğu bağlıdır.
 
 Makinenize sınırlı internet erişimi, güvenlik duvarı ayarlarını makinede veya proxy bu URL'ler izin verdiğinden emin olun:
 
-- www.msftncsi.com
+- www\.msftncsi.com
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
@@ -72,15 +72,20 @@ Kurtarma Hizmetleri kasası, tüm yedeklemeleri ve zaman içinde oluşturduğunu
 
     ![Kurtarma Hizmetleri Kasası oluşturma 2. adım](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-4. **Ad** alanına, kasayı tanımlayacak kolay bir ad girin. Adın Azure aboneliği için benzersiz olması gerekir. 2 ila 50 karakterden oluşan bir ad yazın. Ad bir harf ile başlamalıdır ve yalnızca harf, rakam ve kısa çizgi içerebilir.
+4. **Ad** alanına, kasayı tanımlayacak kolay bir ad girin.
+
+   - Adın Azure aboneliği için benzersiz olması gerekir.
+   - Bu, 2 ile 50 karakter içerebilir.
+   - Bir harf ile başlamalı ve yalnızca harf, rakam ve kısa çizgi içerebilir.
 
 5. Azure aboneliği, kaynak grubu ve kasa oluşturulması gereken coğrafi bölgeyi seçin. Yedekleme verileri kasaya gönderilir. Sonra **Oluştur**’a tıklayın.
 
     ![Kurtarma Hizmetleri Kasası Oluşturma 3. adım](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-Uygulamanın kasasının oluşturulması birkaç dakika sürebilir. Portalda durum bildirimlerini izleyin. Kasayı oluşturduktan sonra kurtarma Hizmetleri kasaları listesinde görünür. Birkaç dakika sonra kasayı görmezseniz, tıklayın **Yenile**.
+   - Bu, kasasının oluşturulması biraz zaman alabilir.
+   - Portalın sağ üst alandaki durum bildirimlerini izleyin. Birkaç dakika sonra kasayı görmezseniz, tıklayın **Yenile**.
 
-![Yenile düğmesine tıklayın](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
+     ![Yenile düğmesine tıklayın](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
 
 ### <a name="set-storage-redundancy"></a>Küme depolama yedekliliği
 
@@ -129,17 +134,17 @@ Yedeklemek istediğiniz makineleri yükleme için MARS Aracısı'nı indirin.
 
 1. Çalıştırma **MARSagentinstaller.exe** yedeklemek istediğiniz makineleri dosyası.
 2. MARS Aracısı Kurulum Sihirbazı'ndaki > **yükleme ayarları**, önbelleğe yönelik kullanmak için aracı ve bir konuma yüklemek istediğiniz yeri belirtin. Ardından **İleri**'ye tıklayın.
-    - Azure Backup, önbellek Azure'a göndermeden önce veri anlık görüntülerini depolamak için kullanır.
-    - Önbellek konumunu yedeklemeniz veri boyutunun en az % 5'si kadar boş disk alanı olmalıdır.
+   - Azure Backup, önbellek Azure'a göndermeden önce veri anlık görüntülerini depolamak için kullanır.
+   - Önbellek konumunu yedeklemeniz veri boyutunun en az % 5'si kadar boş disk alanı olmalıdır.
 
-    ![MARS Sihirbazı yükleme ayarları](./media/backup-configure-vault/mars1.png)
+     ![MARS Sihirbazı yükleme ayarları](./media/backup-configure-vault/mars1.png)
 
 2. İçinde **Proxy Yapılandırması**, bir Windows makinede çalışan Aracısı internet'e nasıl bağlanacağını belirtin. Ardından **İleri**'ye tıklayın.
 
-    - Özel bir kullanıyorsanız, proxy Ara sunucu ayarlarını ve gerekirse kimlik bilgilerini belirtin.
-    - Aracıyı erişimi olması gerektiğini unutmayın [bu URL'leri](#verify-internet-access).
+   - Özel bir kullanıyorsanız, proxy Ara sunucu ayarlarını ve gerekirse kimlik bilgilerini belirtin.
+   - Aracıyı erişimi olması gerektiğini unutmayın [bu URL'leri](#verify-internet-access).
 
-    ![MARS Sihirbazı internet erişimi](./media/backup-configure-vault/mars2.png)
+     ![MARS Sihirbazı internet erişimi](./media/backup-configure-vault/mars2.png)
 
 3. İçinde **yükleme** Önkoşul denetimi gözden geçirin ve tıklayın **yükleme**.
 4. Aracı yüklendikten sonra tıklayın **kayıt işlemine geç**.

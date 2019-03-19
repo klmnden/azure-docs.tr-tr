@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: d208d989fb9b84ae7bc94c6a1882754ed2bacb5d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 0bf1558f81f2936b4556ee658a235cd09dddf905
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343970"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892923"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Market’teki Azure yönetilen uygulamaları
 
@@ -43,7 +43,7 @@ Azure Market’te yayımcı olmak için şunları yapmanız gerekir:
 
 1. Microsoft Kimliği oluşturma - Şirketinizin etki alanına ait olan ancak tek bir bireye ait olmayan bir e-posta adresini kullanarak Microsoft hesabınızı oluşturun. Bu e-posta adresi hem Microsoft Geliştirici Merkezi hem de Bulut İş Ortağı Portalı için kullanılır. Daha fazla bilgi için bkz. [Azure Market Yayımcı Kılavuzu](https://aka.ms/sellerguide).
 1. [Azure Market Adaylık Formunu](https://aka.ms/ampnomination) gönderme - For **Yayımlamayı düşündüğünüz çözüm** için **Yönetilen Uygulama**’yı seçin. Form gönderildikten sonra Markete Ekleme ekibi uygulamayı gözden geçirir ve isteği doğrular. Onay süreci bir ile üç gün sürer. Adaylığınız onaylandığında geliştirici merkezine yönelik kayıt ücretinin silinmesini sağlayan bir promosyon kodu alırsınız. Market Adaylık Formunu **doldurmazsanız** 99 $ kayıt ücreti ödemeniz istenir.
-1. [Geliştirici Merkezine](http://dev.windows.com/registration?accountprogram=azure) Kaydolma - Microsoft, kuruluşunuzun kayıtlı olduğu ülkeye yönelik geçerli bir VERGİ KİMLİĞİ olan geçerli bir tüzel kişi olduğunuzu doğrular. Onay işlemi 5 ile 10 gün sürebilir. Kayıt ücretini ödememek için adaylık sürecinde size gelen e-posta ile aldığınız promosyon kodunu kullanın. Daha fazla bilgi için bkz. [Azure Market Yayımcı Kılavuzu](https://aka.ms/sellerguide).
+1. [Geliştirici Merkezine](https://dev.windows.com/registration?accountprogram=azure) Kaydolma - Microsoft, kuruluşunuzun kayıtlı olduğu ülkeye yönelik geçerli bir VERGİ KİMLİĞİ olan geçerli bir tüzel kişi olduğunuzu doğrular. Onay işlemi 5 ile 10 gün sürebilir. Kayıt ücretini ödememek için adaylık sürecinde size gelen e-posta ile aldığınız promosyon kodunu kullanın. Daha fazla bilgi için bkz. [Azure Market Yayımcı Kılavuzu](https://aka.ms/sellerguide).
 1. [Bulut İş Ortağı Portalında](https://cloudpartner.azure.com) oturum açma - Yayımcı profilinde, Geliştirici Merkezi hesabınızı Market Yayımcı Profiliyle ilişkilendirin. Daha fazla bilgi için bkz. [Azure Market Yayımcı Kılavuzu](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Yeni bir Azure uygulaması teklifi oluşturma

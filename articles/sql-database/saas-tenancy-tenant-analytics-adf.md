@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 7d4748ced196abdb4f3f0bcb70ad6fe254b24bf7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657597"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850301"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Azure SQL veritabanı, SQL veri ambarı, Data Factory ve Power BI ile SaaS Analytics'i keşfedin
 
@@ -94,7 +94,7 @@ Bu adımda öğreticide kullandığınız ek kaynakları dağıtmak: SQL Data Wa
 
 Artık dağıttığınız Azure kaynaklarını gözden geçirin:
 #### <a name="tenant-databases-and-analytics-store"></a>Kiracı veritabanları ve analiz deposu
-Kullanım [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) bağlanmak için **tenants1-dpt -&lt;kullanıcı&gt;**  ve **Kataloğu-dpt -&lt;kullanıcı&gt;**  sunucuları. Değiştirin &lt;kullanıcı&gt; uygulamasını dağıtırken kullandığınız değerine sahip. Oturum açma bilgilerini kullanacak = *Geliştirici* ve parola = *P@ssword1*. Bkz: [giriş niteliğindeki öğretici](saas-dbpertenant-wingtip-app-overview.md) daha fazla kılavuzluk için.
+Kullanım [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) bağlanmak için **tenants1-dpt -&lt;kullanıcı&gt;**  ve **Kataloğu-dpt -&lt;kullanıcı&gt;**  sunucuları. Değiştirin &lt;kullanıcı&gt; uygulamasını dağıtırken kullandığınız değerine sahip. Oturum açma bilgilerini kullanacak = *Geliştirici* ve parola = *P\@ssword1*. Bkz: [giriş niteliğindeki öğretici](saas-dbpertenant-wingtip-app-overview.md) daha fazla kılavuzluk için.
 
 ![SSMS SQL Database sunucusuna bağlanma](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
@@ -113,7 +113,7 @@ Nesne Gezgini'nde:
 #### <a name="blob-storage"></a>Blob depolama
 1. İçinde [Azure portalı](https://ms.portal.azure.com), uygulamayı dağıtmak için kullanılan kaynak grubuna gidin. Adlı bir depolama hesabı doğrulamak **wingtipstaging\<kullanıcı\>**  eklendi.
 
-  ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
+   ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
 1. Tıklayın **wingtipstaging\<kullanıcı\>**  nesneler keşfetmek için depolama hesabı.
 1. Tıklayın **Blobları** Döşe
@@ -195,7 +195,7 @@ Power BI'a bağlamak için ve daha önce oluşturduğunuz görünümleri içeri 
 
     ![oturum-de-için-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Seçin **veritabanı** sol bölmede, daha sonra kullanıcı adını girin = *Geliştirici*ve parolayı girin = *P@ssword1*. **Bağlan**'a tıklayın.  
+5. Seçin **veritabanı** sol bölmede, daha sonra kullanıcı adını girin = *Geliştirici*ve parolayı girin = *P\@ssword1*. **Bağlan**'a tıklayın.  
 
     ![Veritabanı oturum açın](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

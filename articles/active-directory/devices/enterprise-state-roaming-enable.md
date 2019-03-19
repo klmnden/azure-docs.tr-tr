@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ce6dc4cf98f2886eb4eed7049048d67599ac42e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: adad43f337d4cf026ca8f48976a9fc713fd52200
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207492"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077420"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal Durumda Dolaşımı etkinleştirme
 Kurumsal durumda dolaşım, tüm kuruluşa bir Azure AD Premium veya Enterprise Mobility + Security (EMS) lisansı ile kullanılabilir. Azure AD aboneliğiniz alma hakkında daha fazla bilgi için bkz. [Azure AD'ye ürün sayfası](https://azure.microsoft.com/services/active-directory).
@@ -37,7 +37,7 @@ Kurumsal durumda Dolaşım etkinleştirdiğinizde, kuruluşunuz Azure Informatio
 
 1. Seçin **kullanıcılar eşitleme ayarları ve uygulama verilerini cihazlarda**. Daha fazla bilgi için [cihaz ayarlarının nasıl yapılandırılacağı](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
-  ![Etiketli Kullanıcılar Cihaz ayarı görüntüsü cihazlarda ayarları ve uygulama verilerini eşitleyebilir](./media/enterprise-state-roaming-enable/device-settings.png)
+   ![Etiketli Kullanıcılar Cihaz ayarı görüntüsü cihazlarda ayarları ve uygulama verilerini eşitleyebilir](./media/enterprise-state-roaming-enable/device-settings.png)
   
 Windows 10 cihaz Kurumsal durumda Dolaşım hizmetini kullanmak üzere bir Azure AD kimlik kullanarak cihaz kimliğini doğrulaması gerekir. Azure AD'ye katılmış cihazlar için oturum açma kullanıcının birincil kimliğini kendi Azure AD kimlik olduğundan ek yapılandırma gerekli değildir. Şirket içi Active Directory kullanan cihazlar için BT yöneticisi gerekir [yapılandırma hibrit Azure Active Directory alanına katılmış cihazlar](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps). 
 
@@ -64,11 +64,11 @@ Kullanıcı başına cihaz eşitleme Durum raporunda görüntülemek için aşa�
 
 1. Altında **Göster**seçin **ayarları ve uygulama verilerini eşitleyen cihazlar** eşitleme durumunu göstermek için.
   
-  ![cihaz eşitleme verilerini ayarın görüntüsü](./media/enterprise-state-roaming-enable/sync-status.png)
+   ![cihaz eşitleme verilerini ayarın görüntüsü](./media/enterprise-state-roaming-enable/sync-status.png)
   
 1. Bu kullanıcı için eşitleyen cihazlar varsa, burada gösterildiği gibi cihazlar bakın.
   
-  ![cihaz eşitleme sütunlu verilerin görüntüsü](./media/enterprise-state-roaming-enable/device-status-row.png)
+   ![cihaz eşitleme sütunlu verilerin görüntüsü](./media/enterprise-state-roaming-enable/device-status-row.png)
 
 ## <a name="data-retention"></a>Veri saklama
 Kurumsal durumda Dolaşım kullanarak Microsoft Bulut'a eşitlenmiş verileri el ile silinene kadar veya söz konusu veri eski olduğu belirlenir kadar korunur. 

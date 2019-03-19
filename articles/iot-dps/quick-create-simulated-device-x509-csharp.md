@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 832d7306c7e397a92e92fb25018b5021e4ac87fb
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 02054824d62030b96f8353140aa49ee0fa5c2265
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672296"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864533"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için C# cihaz SDK'sını kullanarak sanal bir X.509 cihazı oluşturma ve sağlama
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -35,7 +35,7 @@ Bu makalede bireysel kayıtlar gösterilmektedir.
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Geliştirme ortamını hazırlama 
 
-1. Olduğundan emin olun [.Net Core SDK'sını 2.1 veya üzeri](https://www.microsoft.com/net/download/windows) makinenizde yüklü. 
+1. Olduğundan emin olun [.NET Core 2.1 SDK veya üzeri](https://www.microsoft.com/net/download/windows) makinenizde yüklü. 
 
 1. `git` uygulamasının makinenizde yüklü olduğundan ve komut penceresinden erişilebilir ortam değişkenlerine eklendiğinden emin olun. Yüklenecek `git` araçlarının son sürümleri için [Software Freedom Conservancy’nin Git istemci araçlarına](https://git-scm.com/download/) bakın. Bunlara yerel Git deponuzla etkileşim kurmak için kullanabileceğiniz bir komut satırı uygulaması olan **Git Bash** dahildir. 
 
@@ -77,15 +77,15 @@ Bu bölümde, otomatik olarak imzalanan X.509 sertifikası kullanacaksınız. A�
 5. Cihaz Sağlama Hizmeti özet dikey penceresinde, **Kayıtları yönet**’i seçin. **Bireysel Kayıtlar** sekmesini seçin ve en üstteki **Bireysel kayıt ekle** düğmesine tıklayın. 
 
 6. **Kayıt Ekle** panelinin altına aşağıdaki bilgileri girin:
-    - Kimlik onay *Mekanizması* olarak **X.509**'u seçin.
-    - *Birincil sertifika .pem veya .cer dosyası*'nın altında, önceki adımlarda oluşturulmuş **certificate.cer** sertifika dosyasını seçmek için *Dosya seçin*’e tıklayın.
-    - **Cihaz Kimliği** alanını boş bırakın. Cihazınız, cihaz kimliği X.509 sertifikasındaki ortak ad (CN) olan **iothubx509device1** olacak şekilde sağlanır. Bu değer aynı zamanda bireysel kayıt girişi için kayıt kimliği olarak kullanılır. 
-    - İsteğe bağlı olarak, aşağıdaki bilgileri sağlayabilirsiniz:
-        - Sağlama hizmetinizle bağlanacak IoT hub'ını seçin.
-        - **Başlangıç cihaz ikizi durumu** alanını cihaz için istenen başlangıç yapılandırmasına göre güncelleştirin.
-    - Tamamlandığında **Kaydet** düğmesine tıklayın. 
+   - Kimlik onay *Mekanizması* olarak **X.509**'u seçin.
+   - *Birincil sertifika .pem veya .cer dosyası*'nın altında, önceki adımlarda oluşturulmuş **certificate.cer** sertifika dosyasını seçmek için *Dosya seçin*’e tıklayın.
+   - **Cihaz Kimliği** alanını boş bırakın. Cihazınız, cihaz kimliği X.509 sertifikasındaki ortak ad (CN) olan **iothubx509device1** olacak şekilde sağlanır. Bu değer aynı zamanda bireysel kayıt girişi için kayıt kimliği olarak kullanılır. 
+   - İsteğe bağlı olarak, aşağıdaki bilgileri sağlayabilirsiniz:
+       - Sağlama hizmetinizle bağlanacak IoT hub'ını seçin.
+       - **Başlangıç cihaz ikizi durumu** alanını cihaz için istenen başlangıç yapılandırmasına göre güncelleştirin.
+   - Tamamlandığında **Kaydet** düğmesine tıklayın. 
 
-    [![Portalda X.509 kanıtı için tek kayıt ekleme](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
+     [![Portalda X.509 kanıtı için tek kayıt ekleme](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
     
    Kayıt başarıyla tamamlandığında, X.509 kayıt girişiniz cihazınız *Bireysel Kayıtlar* sekmesindeki *Kayıt Kimliği* sütununun altında **iothubx509device1** olarak gösterilir. 
 

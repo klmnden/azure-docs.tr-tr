@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5fe0fc5aa6bdb217a5e7a8ecb8b1898fd8d3ecf8
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 410e5d618e1deb1887329bea41e2cd3c6d795e58
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570190"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075859"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Öğretici: Bilişsel arama öğrenin arama API'lerini (Önizleme)
 
@@ -59,7 +59,7 @@ Azure Search’e REST çağrıları yapmak için PowerShell veya Telerik Fiddler
 
 1. Kaynak grubu için, bu öğreticide oluşturduğunuz tüm kaynakları içerecek bir kaynak grubu oluşturun. Böylece, öğreticiyi tamamladıktan sonra kaynakları temizlemeniz kolaylaşır.
 
-1. Konum için aşağıdakilerden birini seçin [desteklenen bölgeler](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob#supported-regions) Bilişsel arama için.
+1. Konum için verilerinizi ve diğer bulut uygulamaları yakın bir bölge seçerek öneririz.
 
 1. Fiyatlandırma katmanı için, **Ücretsiz** bir hizmet oluşturarak öğreticileri ve hızlı başlangıçları tamamlayabilirsiniz. Kendi verilerinizi kullanarak daha ayrıntılı araştırma yapmak için **Temel** veya **Standart** gibi bir [ücretli hizmet](https://azure.microsoft.com/pricing/details/search/) oluşturun. 
 
@@ -89,7 +89,7 @@ Zenginleştirme işlem hattı, Azure veri kaynaklarından çekme işlemi yapar. 
 
 1. Örnek dosyalar yüklendikten sonra Blob depolamanız için bir bağlantı dizesi ve kapsayıcı adını alın. Azure portalda depolama hesabınıza giderek bunu yapabilirsiniz. **Erişim anahtarları** bölümünde **Bağlantı Dizesi** alanını kopyalayın.
 
-  Bağlantı dizesi, aşağıdaki örneğe benzer bir URL olmalıdır:
+   Bağlantı dizesi, aşağıdaki örneğe benzer bir URL olmalıdır:
 
       ```http
       DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
@@ -256,7 +256,7 @@ Bu bölümde, aranabilir dizine dahil edilecek alanları ve her bir alana ilişk
 
 Bu çalışmada aşağıdaki alanlar ve alan türleri kullanılır:
 
-| alan adları: | id       | content   | languageCode | keyPhrases         | organizations     |
+| alan adları: | `id`       | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -443,7 +443,7 @@ Content-Type: application/json
 
 Bu çalışmadaki diğer içerik, dil, anahtar tümceler ve kuruluşlar alanları için yineleyin. Virgülle ayrılmış bir liste kullanarak `$select` aracılığıyla birden fazla alan döndürebilirsiniz.
 
-Sorgu dizesinin karmaşıklık ve uzunluğuna bağlı olarak GET veya POST dizesini kullanabilirsiniz. Daha fazla bilgi için bkz. [REST API kullanarak sorgu](https://docs.microsoft.com/azure/search/search-query-rest-api).
+Sorgu dizesinin karmaşıklık ve uzunluğuna bağlı olarak GET veya POST dizesini kullanabilirsiniz. Daha fazla bilgi için bkz. [REST API kullanarak sorgu](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 <a name="access-enriched-document"></a>
 

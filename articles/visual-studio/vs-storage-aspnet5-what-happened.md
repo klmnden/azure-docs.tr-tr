@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 0e38e570b5ecb2a19af943e0dde96e2ed66f3507
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 71a95e1974cbcec9afcc3337eb37275532e1b527
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056181"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999714"
 ---
 # <a name="what-happened-to-my-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>ASP.NET 5 projeme ne oldu (Visual Studio Azure Depolama'ya bağlı hizmet)?
 ## <a name="references-added"></a>Eklenen başvuruları
@@ -38,5 +38,5 @@ Ayrıca, NuGet paketi **Microsoft.Framework.Configuration.Json** eklendi.
 ## <a name="connection-string-for-azure-storage-added"></a>Eklenen Azure depolama bağlantı dizesi
 Projenizin config.json dosyası bir öğenin seçili depolama hesabının bağlantı dizesini ve anahtarı ile oluşturuldu.
 
-Daha fazla bilgi için [ASP.NET 5](http://www.asp.net/vnext).
+Daha fazla bilgi için [ASP.NET 5](https://www.asp.net/vnext).
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75e276cb0beb982d797fcf6816d84eae6b135b74
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 6d6e453819ad749972de89658fa695d803d8e222
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652289"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898831"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Aracısı Yüklemesi
 Bu belge, Azure AD Connect Health Aracılarını yüklemenize ve yapılandırmanıza yardımcı olur. Aracıları [buradan](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent) indirebilirsiniz.
@@ -235,6 +235,28 @@ Yapılandırmayı tamamladıysanız bu hizmetlerin çalışır durumda olması g
 
 ![Azure AD Connect Health'i doğrulama](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
+### <a name="quick-agent-installation-in-multiple-servers"></a>Birden çok sunucu hızlı Aracısı yükleme
+1. Azure AD'de bir parolayla bir kullanıcı hesabı oluşturun.
+2. Ata **sahibi** rolü için Azure AD Connect Health Portalı aracılığıyla yerel bu AAD hesabında. Adımları [burada](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). Tüm hizmet örneklerine rolü atayın. 
+3. Yükleme için yerel etki alanı denetleyicisinde .exe MSI dosyasını indirin.
+4. Kayıt için aşağıdaki betiği çalıştırın. Parametreleri oluşturulan yeni kullanıcı hesabı ve parolası ile değiştirin. 
+
+```
+AdHealthAddsAgentSetup.exe /quiet
+sleep 30
+$userName = "NEWUSER@DOMAIN"
+$secpasswd = ConvertTo-SecureString "PASSWORD" -AsPlainText -Force
+$myCreds = New-Object System.Management.Automation.PSCredential ($userName, $secpasswd)
+import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
+ 
+Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $password
+
+```
+1. İşiniz bittiğinde, aşağıdakilerden birini veya birkaçını yaparak yerel hesabı için erişim kaldırabilirsiniz: 
+    * Yerel hesap için AAD Connect Health için rol atamasını Kaldır
+    * Yerel hesap parolasını döndürün. 
+    * AAD yerel hesabı devre dışı bırak
+    * AAD yerel hesabı Sil  
 
 ## <a name="agent-registration-using-powershell"></a>PowerShell kullanarak Aracı Kaydı
 Uygun aracı setup.exe dosyasını yükledikten sonra role bağlı olarak aşağıdaki PowerShell komutlarını kullanarak aracı kaydı adımını gerçekleştirebilirsiniz. Bir PowerShell penceresi açın ve uygun komutu yürütün:

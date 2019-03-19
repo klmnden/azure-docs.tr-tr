@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 2f31809a0d80079730966e2ecdb017b68563949e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: cbbc710c9408c84c601d7b9eb9560641b5313a05
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825111"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090942"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure portalını kullanarak Azure Resource Manager kaynak gruplarını yönetme
 
@@ -46,11 +46,11 @@ Kaynak grubu, kaynaklarla ilgili meta verileri depolar. Kaynak grubu için bir k
 3. **Add (Ekle)** seçeneğini belirleyin.
 4. Aşağıdaki değerleri girin:
 
-    - **Abonelik**: Azure aboneliğinizi seçin. 
-    - **Kaynak grubu**: Yeni bir kaynak grubu adı girin. 
-    - **Bölge**: Bir Azure konumu seçin **Orta ABD**.
+   - **Abonelik**: Azure aboneliğinizi seçin. 
+   - **Kaynak grubu**: Yeni bir kaynak grubu adı girin. 
+   - **Bölge**: Bir Azure konumu seçin **Orta ABD**.
 
-    ![Kaynak grubu oluşturun](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
+     ![Kaynak grubu oluşturun](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
 5. Seçin **gözden geçir + oluştur**
 6. **Oluştur**’u seçin. Bir kaynak grubu oluşturmak için birkaç saniye sürer.
 7. Seçin **Yenile** üstteki menüden, kaynak grubu listesini yenileyin ve sonra açmak için yeni oluşturulan kaynak grubunu seçin. Veya **bildirim**(zil simgesi) seçin ve üst **kaynak grubuna gidin** yeni oluşturulan kaynak grubu açmak için
@@ -130,14 +130,14 @@ Bu yöntem, bazı dağıtımlar için şablonları dışarı aktarır. Portal ya
 3. Dağıtımlardan biri listeden seçin.
 4. Sol bölmede seçin **şablon**. Resource Manager sizin için aşağıdaki altı dosyayı alır:
 
-    - **Şablon** - Çözümünüze ait altyapıyı tanımlayan şablon. Portal üzerinden depolama hesabı oluşturduğunuzda, Resource Manager bunu dağıtmak için bir şablon kullandı ve bu şablonu gelecekte başvurmak üzere kaydetti.
-    - **Parametreler**: Dağıtım sırasında değerleri geçirmek için kullanabileceğiniz bir parametre dosyası. İlk dağıtım sırasında sağladığınız değerleri içerir. Şablonu yeniden dağıtırken bu değerlerden herhangi birini değiştirebilirsiniz.
-    - **CLI** -şablonu dağıtmak için kullanabileceğiniz bir Azure CLI betiği.
-    - **PowerShell**: Şablonu dağıtmak için kullanabileceğiniz bir Azure PowerShell betiği.
-    - **.NET**: Şablonu dağıtmak için kullanabileceğiniz bir .NET sınıfı.
-    - **Ruby** - Şablonu dağıtmak için kullanabileceğiniz bir Ruby sınıfı.
+   - **Şablon** - Çözümünüze ait altyapıyı tanımlayan şablon. Portal üzerinden depolama hesabı oluşturduğunuzda, Resource Manager bunu dağıtmak için bir şablon kullandı ve bu şablonu gelecekte başvurmak üzere kaydetti.
+   - **Parametreler**: Dağıtım sırasında değerleri geçirmek için kullanabileceğiniz bir parametre dosyası. İlk dağıtım sırasında sağladığınız değerleri içerir. Şablonu yeniden dağıtırken bu değerlerden herhangi birini değiştirebilirsiniz.
+   - **CLI** -şablonu dağıtmak için kullanabileceğiniz bir Azure CLI betiği.
+   - **PowerShell**: Şablonu dağıtmak için kullanabileceğiniz bir Azure PowerShell betiği.
+   - **.NET**: Şablonu dağıtmak için kullanabileceğiniz bir .NET sınıfı.
+   - **Ruby** - Şablonu dağıtmak için kullanabileceğiniz bir Ruby sınıfı.
 
-    Varsayılan olarak, portal şablonunu görüntüler.
+     Varsayılan olarak, portal şablonunu görüntüler.
 
 5. Seçin **indirme** yerel bilgisayarınıza bir şablonu dışarı aktarmak için.
 
@@ -151,14 +151,14 @@ Dağıtım geçmişinden bir şablonu alınırken, kaynaklarınızı portal değ
 1. Silmek istediğiniz kaynak grubunu açın.  Bkz: [açık kaynak grupları](#open-resource-groups).
 2. Sol bölmede seçin **Otomasyon betiği**. Resource Manager sizin için aşağıdaki altı dosyayı alır:
 
-    - **Şablon** - Çözümünüze ait altyapıyı tanımlayan şablon. Portal üzerinden depolama hesabı oluşturduğunuzda, Resource Manager bunu dağıtmak için bir şablon kullandı ve bu şablonu gelecekte başvurmak üzere kaydetti.
-    - **Parametreler**: Dağıtım sırasında değerleri geçirmek için kullanabileceğiniz bir parametre dosyası. İlk dağıtım sırasında sağladığınız değerleri içerir. Şablonu yeniden dağıtırken bu değerlerden herhangi birini değiştirebilirsiniz.
-    - **CLI** -şablonu dağıtmak için kullanabileceğiniz bir Azure CLI betiği.
-    - **PowerShell**: Şablonu dağıtmak için kullanabileceğiniz bir Azure PowerShell betiği.
-    - **.NET**: Şablonu dağıtmak için kullanabileceğiniz bir .NET sınıfı.
-    - **Ruby** - Şablonu dağıtmak için kullanabileceğiniz bir Ruby sınıfı.
+   - **Şablon** - Çözümünüze ait altyapıyı tanımlayan şablon. Portal üzerinden depolama hesabı oluşturduğunuzda, Resource Manager bunu dağıtmak için bir şablon kullandı ve bu şablonu gelecekte başvurmak üzere kaydetti.
+   - **Parametreler**: Dağıtım sırasında değerleri geçirmek için kullanabileceğiniz bir parametre dosyası. İlk dağıtım sırasında sağladığınız değerleri içerir. Şablonu yeniden dağıtırken bu değerlerden herhangi birini değiştirebilirsiniz.
+   - **CLI** -şablonu dağıtmak için kullanabileceğiniz bir Azure CLI betiği.
+   - **PowerShell**: Şablonu dağıtmak için kullanabileceğiniz bir Azure PowerShell betiği.
+   - **.NET**: Şablonu dağıtmak için kullanabileceğiniz bir .NET sınıfı.
+   - **Ruby** - Şablonu dağıtmak için kullanabileceğiniz bir Ruby sınıfı.
 
-    Varsayılan olarak, portal şablonunu görüntüler.
+     Varsayılan olarak, portal şablonunu görüntüler.
 3. Seçin **indirme** yerel bilgisayarınıza bir şablonu dışarı aktarmak için.
 
 Dışarı aktarılan bazı şablonlar kullanılabilmesi için önce bazı düzenlemeler gerekir. Şablonları geliştirme hakkında bilgi edinmek için [adım adım öğreticiler](/azure/azure-resource-manager/).

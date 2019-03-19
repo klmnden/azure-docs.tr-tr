@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7bd4c261af4159429a91bd8b425180037eec8c23
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 112d0bd4b6802179692d0d177775027e552d1170
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670902"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085329"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Azure haritalar'ı kullanarak bir bölge sınırının ayarlayın
 
@@ -25,11 +25,11 @@ Event Grid hakkında daha fazla bilgi için bkz: [Azure Event Grid](https://docs
 Bu öğreticide, öğreneceksiniz, nasıl yapılır:
 
 > [!div class="checklist"]
-* Azure haritalar, karşıya yükleme veri API'sini kullanarak veri hizmeti döndürürüz alanında karşıya yükleyin.
-*   Döndürürüz olayları işlemek için bir olay ızgarası ayarlama.
-*   Kurulum döndürürüz olay işleyicisi.
-*   Logic Apps kullanarak döndürürüz olaylara yanıt olarak uyarılar ayarlayın.
-*   Bir yapı varlık oluşturma site içinde olsun veya olmasın izlemek için Azure haritalar döndürürüz hizmet API'lerini kullanın.
+> * Azure haritalar, karşıya yükleme veri API'sini kullanarak veri hizmeti döndürürüz alanında karşıya yükleyin.
+> *   Döndürürüz olayları işlemek için bir olay ızgarası ayarlama.
+> *   Kurulum döndürürüz olay işleyicisi.
+> *   Logic Apps kullanarak döndürürüz olaylara yanıt olarak uyarılar ayarlayın.
+> *   Bir yapı varlık oluşturma site içinde olsun veya olmasın izlemek için Azure haritalar döndürürüz hizmet API'lerini kullanın.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -150,9 +150,9 @@ Postman uygulamasını açın ve Azure haritalar, verileri karşıya yükleme AP
 
 5. Gönder ve yanıt üst bilgisi gözden geçirin. Location üst bilgisini gelecekte kullanım için veri indirin veya URI içeriyor. Ayrıca bir benzersiz içerdiği `udId` karşıya yüklenen veriler için.
 
-  ```HTTP
-  https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
 
 ## <a name="set-up-an-event-handler"></a>Bir olay işleyicisini
 
@@ -163,15 +163,15 @@ Tümünü gör [olay işleyicileri desteklenen](https://docs.microsoft.com/azure
 
 1. Azure Portalı'nda mantıksal uygulama oluşturma
 
-  ![Mantıksal uygulamalar oluşturma](./media/tutorial-geofence/logic-app.png)
+   ![Mantıksal uygulamalar oluşturma](./media/tutorial-geofence/logic-app.png)
 
 2. Bir HTTP isteği tetikleyicisini seçin ve ardından "outlook Bağlayıcısı'nı bir eylem olarak bir e-posta Gönder"
   
-  ![Logic Apps şeması](./media/tutorial-geofence/logic-app-schema.png)
+   ![Logic Apps şeması](./media/tutorial-geofence/logic-app-schema.png)
 
 3. HTTP URL'sini kopyalayın ve HTTP URL uç noktasını oluşturmak için mantıksal uygulamayı kaydedin.
 
-  ![Logic Apps uç noktası](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Logic Apps uç noktası](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Azure haritalar olay aboneliği oluşturma
@@ -208,53 +208,53 @@ Donanım farklı karşılık gelen konum koordinatlarını ile beş HTTP alma b�
  
 1. 1. konum:
     
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
-  ![Bölge sınırının sorgu 1](./media/tutorial-geofence/geofence-query1.png)
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
+   ![Bölge sınırının sorgu 1](./media/tutorial-geofence/geofence-query1.png)
 
-  Yanıt yukarıdaki bakarsanız, ana bölge sınırının negatif mesafe ekipman bölge sınırının içinde olduğu ve alt bölge sınırı'ndan pozitif alt bölge sınırının dışında olduğu anlamına gelir anlamına gelir. 
+   Yanıt yukarıdaki bakarsanız, ana bölge sınırının negatif mesafe ekipman bölge sınırının içinde olduğu ve alt bölge sınırı'ndan pozitif alt bölge sınırının dışında olduğu anlamına gelir anlamına gelir. 
 
 2. 2. konum: 
    
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
     
-  ![Bölge sınırının sorgu 2](./media/tutorial-geofence/geofence-query2.png)
+   ![Bölge sınırının sorgu 2](./media/tutorial-geofence/geofence-query2.png)
 
-  Yukarıdaki JSON yanıtında dikkatle bakarsanız ekipman alt site dışında ancak ana sınırı içinde. Bir olayı tetiklenmiyor ve hiç e-posta gönderilir.
+   Yukarıdaki JSON yanıtında dikkatle bakarsanız ekipman alt site dışında ancak ana sınırı içinde. Bir olayı tetiklenmiyor ve hiç e-posta gönderilir.
 
 3. 3. konum: 
   
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Bölge sınırının sorgu 3](./media/tutorial-geofence/geofence-query3.png)
+   ![Bölge sınırının sorgu 3](./media/tutorial-geofence/geofence-query3.png)
 
-  Bir durum değişikliği oluştu ve artık ekipman içinde her iki ana ve alt site, bölge sınırlarının. Bu olay ve bildirim yayımlar için Operations Manager e-posta gönderilir.
+   Bir durum değişikliği oluştu ve artık ekipman içinde her iki ana ve alt site, bölge sınırlarının. Bu olay ve bildirim yayımlar için Operations Manager e-posta gönderilir.
 
 4. 4. konum: 
 
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
   
-  ![Bölge sınırının sorgu 4](./media/tutorial-geofence/geofence-query4.png)
+   ![Bölge sınırının sorgu 4](./media/tutorial-geofence/geofence-query4.png)
 
    Karşılık gelen yanıt dikkatle gözlemleyerek ekipman alt bölge sınırının çıkıldı olsa bile hiçbir olay burada yayımlanabilmesi fark edebilirsiniz. Kullanıcının belirtilen GET isteğine zamanında bakarsanız, alt bölge sınırının göre bu süre sona ve donanım yine de ana bölge sınırının içinde olduğunu görebilirsiniz. Alt bölge sınırının altında geometri kimliği atabilirsiniz `expiredGeofenceGeometryId` yanıt gövdesi içinde.
 
 
 5. 5. konum:
       
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Bölge sınırının sorgu 5](./media/tutorial-geofence/geofence-query5.png)
+   ![Bölge sınırının sorgu 5](./media/tutorial-geofence/geofence-query5.png)
 
-  Donanım ana yapım site döndürürüz ayrıldığını görebilirsiniz. Bir olayı yayımlar, ciddi ihlal eder ve Operations Manager için kritik bir uyarı e-posta gönderilir.
+   Donanım ana yapım site döndürürüz ayrıldığını görebilirsiniz. Bir olayı yayımlar, ciddi ihlal eder ve Operations Manager için kritik bir uyarı e-posta gönderilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

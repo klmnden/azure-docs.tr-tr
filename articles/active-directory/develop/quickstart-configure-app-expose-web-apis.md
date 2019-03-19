@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 940ca126eb18b81fd31f1ee2876948563e9d97af
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188385"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080854"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Hızlı Başlangıç: Web API (Önizleme) kullanıma sunmak için uygulama yapılandırma
 
@@ -106,10 +106,10 @@ Uygulama bildirimi aracılığıyla yeni bir kapsamı kullanıma sunmak için:
       }
       ```
 
-  > [!NOTE]
-  > `id` değerinin program aracılığıyla veya [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) gibi bir GUID oluşturma aracı kullanılarak oluşturulması gerekir. `id`, web API'si tarafından kullanıma sunulan kapsam için benzersiz tanıtıcıyı temsil eder. Bir istemci web API'nize erişmek için gerekli izinlerle uygun şekilde yapılandırıldıktan sonra Azure AD tarafından bir OAuth 2.0 erişim belirteci düzenlenir. İstemci web API'sini çağırdığında uygulama kaydında istenen izinlere göre ayarlanan kapsam (scp) talebine sahip olan erişim belirtecini sunar.
-  >
-  > Gerekirse daha sonra ek kapsamları kullanıma sunabilirsiniz. Web API'niz farklı işlevlerle ilişkilendirilmiş birden fazla kapsamı kullanıma sunabilir. Kaynağınız alınan OAuth 2.0 erişim belirtecindeki kapsam (`scp`) taleplerini değerlendirerek web API'si erişimini çalışma zamanında denetleyebilir.
+   > [!NOTE]
+   > `id` değerinin program aracılığıyla veya [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) gibi bir GUID oluşturma aracı kullanılarak oluşturulması gerekir. `id`, web API'si tarafından kullanıma sunulan kapsam için benzersiz tanıtıcıyı temsil eder. Bir istemci web API'nize erişmek için gerekli izinlerle uygun şekilde yapılandırıldıktan sonra Azure AD tarafından bir OAuth 2.0 erişim belirteci düzenlenir. İstemci web API'sini çağırdığında uygulama kaydında istenen izinlere göre ayarlanan kapsam (scp) talebine sahip olan erişim belirtecini sunar.
+   >
+   > Gerekirse daha sonra ek kapsamları kullanıma sunabilirsiniz. Web API'niz farklı işlevlerle ilişkilendirilmiş birden fazla kapsamı kullanıma sunabilir. Kaynağınız alınan OAuth 2.0 erişim belirtecindeki kapsam (`scp`) taleplerini değerlendirerek web API'si erişimini çalışma zamanında denetleyebilir.
 
 1. İşlemi tamamladıktan sonra **Kaydet**’e tıklayın. Web API'nizi dizininizdeki diğer uygulamalar tarafından kullanılacak şekilde yapılandırmış oldunuz.
 1. [Web API'sinin diğer uygulamaların kullanımına sunulduğunu doğrulama](#verify-the-web-api-is-exposed-to-other-applications) adımlarını izleyin.

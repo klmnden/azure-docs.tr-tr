@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: d91d62c387fc7bcaef8b7f2cb7e8d865c882aeed
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: f2cd8f5074f815e84caaedb01335406657f29088
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445466"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088018"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Özel görüntü ile bir sınıflandırıcı oluşturma
 
@@ -100,7 +100,7 @@ Başka bir dizi görüntüleri karşıya yüklemek için bu bölümde dön ve ad
 
 > [!NOTE]
 > Custom Vision Service'e bazı otomatik negatif görüntü işlemeyi destekler. Bir üzüm Muz sınıflandırıcı karşılaştırması oluşturmaya ve tahmin için bir ayakkabı görüntüsü göndermek, örneğin, sınıflandırıcı %0 yakın olarak bu görüntüyü üzüm ve Muz için Puanlama.
-
+> 
 > Öte yandan, negatif görüntüler yalnızca eğitim kullanılan görüntülerin çeşitlemesi olduğu durumlarda, model negatif görüntüleri harika benzerlikler nedeniyle etiketli bir sınıf olarak sınıflandırır olasılığı yüksektir. Clementine özelliklerinin çoğu bu portakallar benzer çünkü gibi turuncu grapefruit sınıflandırıcı karşılaştırması sahip ve bir clementine görüntüdeki akışı, onu clementine turuncu puan. Negatif görüntülerinizi bu yapısı varsa, bir veya daha fazla ek etiketler oluşturma öneririz (gibi **diğer**) ve bu sınıflar arasında daha iyi ayırt etmek model izin vermek eğitim sırasında negatif görüntüler bu etikete sahip etiket .
 
 ## <a name="train-the-classifier"></a>Sınıflandırıcıyı eğitme

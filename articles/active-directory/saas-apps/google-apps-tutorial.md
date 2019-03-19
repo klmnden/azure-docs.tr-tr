@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a12b8457be70a8821d34575a082a421d2ba3a715
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 78e395db2f8ccaf4fbe9fb64b0faf9ac70c1b21c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781859"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839043"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Öğretici: G Suite ile Azure Active Directory Tümleştirme
 
@@ -150,6 +150,7 @@ Azure AD çoklu oturum açma G Suite ile yapılandırmak için aşağıdaki adı
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
+
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
@@ -167,6 +168,7 @@ Azure AD çoklu oturum açma G Suite ile yapılandırmak için aşağıdaki adı
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
+    
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
@@ -267,7 +269,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

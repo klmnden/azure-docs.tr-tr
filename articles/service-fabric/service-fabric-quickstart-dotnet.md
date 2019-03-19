@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 8e83da53d0b2f71abc1f74a0ca8fbc2405e75bda
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: aebc308f6bfaddbe8e9b430096cb6698d7dd06c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736592"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099078"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Hızlı Başlangıç: Service Fabric için .NET reliable services uygulaması dağıtma
 
@@ -47,9 +47,10 @@ Bu hızlı başlangıcı tamamlamak için:
 2. [Git'i yükleyin](https://git-scm.com/)
 3. [Microsoft Azure Service Fabric SDK'sını yükleyin](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
 4. Visual Studio'nun yerel Service Fabric kümesine dağıtım yapmasını sağlamak için aşağıdaki komutu çalıştırın:
-    ```powershell
-    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
-    ```
+
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+   ```
     
 ## <a name="build-a-cluster"></a>Küme oluşturma
 
@@ -63,14 +64,14 @@ Artık çalışma zamanı, SDK, Visual Studio Araçları, Docker'ı yükleme ve 
 1. Yönetici olarak yeni, yükseltilmiş bir PowerShell penceresi açın.
 2. Aşağıdaki PowerShell komutunu çalıştırarak geliştirme kümesini oluşturun:
 
-    ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
-    ```
+   ```powershell
+   . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
+   ```
 3. Yerel Küme Yöneticisi aracını başlatmak için aşağıdaki komutu çalıştırın:
 
-    ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
-    ```
+   ```powershell
+   . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
+   ```
 
 >[!NOTE]
 > Bu hızlı başlangıçtaki örnek uygulama, Windows 7'de mevcut olmayan özellikleri kullanır.
@@ -131,23 +132,23 @@ Kodda neler olduğuna bakmak için aşağıdaki adımları tamamlayın:
 2. **/VotingData/Controllers/VoteDataController.cs** dosyasını açın ve bu web API'sinin **Put** yönteminde (54. satır) bir kesme noktası ayarlayın.
 
 3. Tarayıcıya dönün ve bir oylama seçeneğine tıklayın veya yeni oylama seçeneği ekleyin. Web ön ucunun api denetleyicisinde ilk kesme noktasına ulaşırsınız.
-    * Burası, tarayıcıda JavaScript'in ön uç hizmetindeki API denetleyicisine istek gönderdiği yerdir.
+   * Burası, tarayıcıda JavaScript'in ön uç hizmetindeki API denetleyicisine istek gönderdiği yerdir.
 
-    ![Oy Ön Uç Hizmeti Ekleme](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
+     ![Oy Ön Uç Hizmeti Ekleme](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    * İlk olarak, arka uç hizmetimiz için ReverseProxy'nin URL'sini oluşturun **(1)**.
-    * Ardından, HTTP PUT İsteğini ReverseProxy'ye gönderin **(2)**.
-    * Son olarak, yanıtı arka uç hizmetinden istemciye döndürün **(3)**.
+   * İlk olarak, arka uç hizmetimiz için ReverseProxy'nin URL'sini oluşturun **(1)**.
+   * Ardından, HTTP PUT İsteğini ReverseProxy'ye gönderin **(2)**.
+   * Son olarak, yanıtı arka uç hizmetinden istemciye döndürün **(3)**.
 
 4. Devam etmek için **F5** tuşuna basın
-    - Tarayıcı tarafından sorulursa, ServiceFabricAllowedUsers grubuna Hata Ayıklama Modu için okuma ve yürütme izinleri verin.
-    - Şimdi arka uç hizmetindeki kesme noktasındasınız.
+   - Tarayıcı tarafından sorulursa, ServiceFabricAllowedUsers grubuna Hata Ayıklama Modu için okuma ve yürütme izinleri verin.
+   - Şimdi arka uç hizmetindeki kesme noktasındasınız.
 
-    ![Oy Arka Uç Hizmeti Ekleme](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
+     ![Oy Arka Uç Hizmeti Ekleme](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    * Yöntemin ilk satırında **(1)**, `StateManager` `counts` adlı güvenilir bir sözlük alır veya ekler.
-    * Güvenilir bir sözcükteki değerlerle tüm etkileşimler bir işlem gerektirir; bu using deyimi **(2)** o işlemi oluşturur.
-    * İşlemde, oylama seçeneği için uygun anahtarın değerini güncelleştirin ve işlemi yürütün **(3)**. Commit yöntemi döndüğünde, sözlükteki veriler güncelleştirilir ve kümedeki diğer düğümlere çoğaltılır. Artık veriler güvenli bir şekilde kümede depolanır ve arka uç hizmeti verilerin kullanılabilir olduğu diğer düğümlere yük devretebilir.
+   - Yöntemin ilk satırında **(1)**, `StateManager` `counts` adlı güvenilir bir sözlük alır veya ekler.
+   - Güvenilir bir sözcükteki değerlerle tüm etkileşimler bir işlem gerektirir; bu using deyimi **(2)** o işlemi oluşturur.
+   - İşlemde, oylama seçeneği için uygun anahtarın değerini güncelleştirin ve işlemi yürütün **(3)**. Commit yöntemi döndüğünde, sözlükteki veriler güncelleştirilir ve kümedeki diğer düğümlere çoğaltılır. Artık veriler güvenli bir şekilde kümede depolanır ve arka uç hizmeti verilerin kullanılabilir olduğu diğer düğümlere yük devretebilir.
 5. Devam etmek için **F5** tuşuna basın
 
 Hata ayıklama oturumunu durdurmak için **Shift+F5** tuşlarına basın.

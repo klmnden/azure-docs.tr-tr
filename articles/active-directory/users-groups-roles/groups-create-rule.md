@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5668c3fa43130ee1a0271d6040b1989ee8ab79
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 79b40af914cd55ae37205123df595ab177c87752
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242641"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098211"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Dinamik bir grup oluşturun ve durumunu denetle
 
@@ -41,8 +41,8 @@ Söz dizimi, desteklenen özellikler, işleçler ve değerleri için bir üyelik
    ![Dinamik üyelik kuralı ekle](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 5. Üyelik sorgunuz için kullanılabilen özel uzantı özellikleri görmek için
-  1. Seçin **özel uzantı özelliklerini alma**
-  2. Uygulama Kimliğini girin ve ardından **yenileme özellikleri**. 
+   1. Seçin **özel uzantı özelliklerini alma**
+   2. Uygulama Kimliğini girin ve ardından **yenileme özellikleri**. 
 6. Bir kural oluşturduktan sonra seçin **Sorgu Ekle** dikey pencerenin alt kısmındaki.
 7. Seçin **Oluştur** üzerinde **grubu** grubu oluşturmak için dikey pencere.
 

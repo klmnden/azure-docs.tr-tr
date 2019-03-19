@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 3ca3222f47b6a728905f895007269e3c22acd66d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: cefde79cf8c544a6900b1efa5dbcefbc43638d40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789951"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009959"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Azure'a Hyper-V VM'LERİNDE olağanüstü durum kurtarma için ağ eşlemesini hazırlama
 
@@ -24,8 +24,8 @@ Bu makalede, anlamak ve System Center Virtual Machine Manager (VMM) bulutlarınd
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>Azure'a çoğaltma için ağ eşlemesini hazırlama
 
 Azure, bir kaynak VMM sunucusunda VM ağları arasında ağ eşleme eşlemeler çoğaltma yapıyorsanız ve hedef Azure sanal ağları. Eşleme sürecinde şu işlemler gerçekleştirilir:
-    -  **Ağ bağlantısı**— çoğaltılan Azure Vm'leri için eşlenen ağ bağlanmasını sağlar. Farklı bir kurtarma planında üzerinden başarısız olsa bile, aynı ağda yük devretme tüm makineler birbirine bağlanabilir.
-    - **Ağ geçidi**— bir ağ geçidi hedef Azure ağında ayarlanıp ayarlanmadığını VM'ler diğer şirket içi sanal makinelere bağlanabilir.
+-  **Ağ bağlantısı**— çoğaltılan Azure Vm'leri için eşlenen ağ bağlanmasını sağlar. Farklı bir kurtarma planında üzerinden başarısız olsa bile, aynı ağda yük devretme tüm makineler birbirine bağlanabilir.
+- **Ağ geçidi**— bir ağ geçidi hedef Azure ağında ayarlanıp ayarlanmadığını VM'ler diğer şirket içi sanal makinelere bağlanabilir.
 
 Ağ eşleme gibi çalışır:
 
@@ -107,7 +107,7 @@ Yeniden çalışma (ters çoğaltma) söz konusu olduğunda ne olacağını gör
 
 **VM** | **VM ağına bağlı**
 ---|---
-VM1 | VMNetwork1 ağ
+VM1 | VMNetwork1-Network
 VM2 (VM1'in çoğaltması) | VMNetwork1 Chicago
 
 Bu ayarlarla olası senaryolar birkaç içinde neler gözden geçirelim.

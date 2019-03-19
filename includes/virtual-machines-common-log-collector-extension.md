@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 2ed9d9fd020bb14db7e1d171a32c25239d7ee802
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 0171b3ae2f45d46769b13ac0849593944c6a6209
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735958"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125165"
 ---
 Microsoft Azure bulut hizmeti sorunları tanılama, sorunlar ortaya çıktığında sanal makineler hizmetin günlük dosyalarını toplama gerektirir. AzureLogCollector uzantısı isteğe bağlı bir veya daha fazla bulut hizmeti Vm'lerden (web rolleri ve çalışan rolleri için) tek seferlik günlüklerin toplanmasını gerçekleştirin ve tüm hizmetlerde oturum uzaktan olmadan bir Azure depolama hesabına – toplanan dosyaları aktarmak için kullanabileceğiniz Sanal makinelerin.
 
@@ -93,37 +93,37 @@ Bir veya daha fazla örneğini bir bulut hizmeti veya sanal makine seçilen roll
 1. Azure PowerShell aboneliğinize bağlanmak için yönergeleri izleyin.
 2. Ekleme ve AzureLogCollector uzantıyı etkinleştirmek istediğiniz hizmet adı, yuva, rolleri ve rol örnekleri belirtin.
 
-  ```powershell
-  #Specify your cloud service name
-  $ServiceName = 'extensiontest2'
+   ```powershell
+   #Specify your cloud service name
+   $ServiceName = 'extensiontest2'
 
-  #Specify the slot. 'Production' or 'Staging'
-  $slot = 'Production'
+   #Specify the slot. 'Production' or 'Staging'
+   $slot = 'Production'
 
-  #Specified the roles on which the extension will be installed and enabled
-  $roles = @("WorkerRole1","WebRole1")
+   #Specified the roles on which the extension will be installed and enabled
+   $roles = @("WorkerRole1","WebRole1")
 
-  #Specify the instances on which extension will be installed and enabled.  Use wildcard * for all instances
-  $instances = @("*")
+   #Specify the instances on which extension will be installed and enabled.  Use wildcard * for all instances
+   $instances = @("*")
 
-  #Specify the collection mode, "Full" or "GA"
-  $mode = "GA"
-  ```
+   #Specify the collection mode, "Full" or "GA"
+   $mode = "GA"
+   ```
 
 3. Dosyaları toplanacak ek veri klasörü belirtin (Bu adım isteğe bağlıdır).
 
-  ```powershell
-  #add one location
-  $a1 = New-Object PSObject
+   ```powershell
+   #add one location
+   $a1 = New-Object PSObject
 
-  $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
-  $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
-  $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
-  $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
+   $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
+   $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
+   $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
+   $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
 
-  $AdditionalDataList+= $a1
-  #more locations can be added....
-  ```
+   $AdditionalDataList+= $a1
+   #more locations can be added....
+   ```
 
    > [!NOTE]
    > Belirteci kullanabilirsiniz `%roleroot%` bir sabit sürücü kullanmaz olduğundan rol kök sürücüsünde belirtmek için.
@@ -131,16 +131,16 @@ Bir veya daha fazla örneğini bir bulut hizmeti veya sanal makine seçilen roll
    > 
 4. Azure depolama hesabı adı ve toplanan dosyalar karşıya yüklenecek bir anahtar sağlar.
 
-  ```powershell
-  $StorageAccountName = 'YourStorageAccountName'
-  $StorageAccountKey  = 'YourStorageAccountKey'
-  ```
+   ```powershell
+   $StorageAccountName = 'YourStorageAccountName'
+   $StorageAccountKey  = 'YourStorageAccountKey'
+   ```
 
 5. (Bir makalenin sonunda bulunur) SetAzureServiceLogCollector.ps1 yönelik bir bulut hizmeti AzureLogCollector uzantıyı etkinleştirmek için şu şekilde çağırın. Yürütme tamamlandıktan sonra karşıya yüklenen dosya altında bulabilirsiniz. `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
-  ```powershell
-  .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
-  ```
+   ```powershell
+   .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
+   ```
 
 Aşağıdaki betiğe geçirilen parametreler tanımıdır. (Bu aşağıda da kopyalanır.)
 
@@ -197,36 +197,36 @@ Azure PowerShell aboneliğinize bağlanmak için yönergeleri izleyin.
 
 1. Hizmet adı, VM ve koleksiyon modu belirtin.
 
-  ```powershell
-  #Specify your cloud service name
-  $ServiceName = 'YourCloudServiceName'
+   ```powershell
+   #Specify your cloud service name
+   $ServiceName = 'YourCloudServiceName'
 
-  #Specify the VM name
-  $VMName = "'YourVMName'"
+   #Specify the VM name
+   $VMName = "'YourVMName'"
 
-  #Specify the collection mode, "Full" or "GA"
-  $mode = "GA"
+   #Specify the collection mode, "Full" or "GA"
+   $mode = "GA"
 
-  Specify the additional data folder for which files will be collected (this step is optional).
+   Specify the additional data folder for which files will be collected (this step is optional).
 
-  #add one location
-  $a1 = New-Object PSObject
+   #add one location
+   $a1 = New-Object PSObject
 
-  $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
-  $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
-  $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
-  $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
+   $a1 | Add-Member -MemberType NoteProperty -Name "Name" -Value "StorageData"
+   $a1 | Add-Member -MemberType NoteProperty -Name "SearchPattern" -Value "*"
+   $a1 | Add-Member -MemberType NoteProperty -Name "Location" -Value "%roleroot%storage"  #%roleroot% is normally E: or F: drive
+   $a1 | Add-Member -MemberType NoteProperty -Name "Recursive" -Value "true"
 
-  $AdditionalDataList+= $a1
+   $AdditionalDataList+= $a1
         #more locations can be added....
-  ```
+   ```
   
 2. Azure depolama hesabı adı ve toplanan dosyalar karşıya yüklenecek bir anahtar sağlar.
 
-  ```powershell
-  $StorageAccountName = 'YourStorageAccountName'
-  $StorageAccountKey  = 'YourStorageAccountKey'
-  ```
+   ```powershell
+   $StorageAccountName = 'YourStorageAccountName'
+   $StorageAccountKey  = 'YourStorageAccountKey'
+   ```
 
 3. (Bir makalenin sonunda bulunur) SetAzureVMLogCollector.ps1 yönelik bir bulut hizmeti AzureLogCollector uzantıyı etkinleştirmek için şu şekilde çağırın. Yürütme tamamlandıktan sonra karşıya yüklenen dosya altında bulabilirsiniz. `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c7b3695e5cb43a9c8f659a3ac1baddab51526b2d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: eeb3b2098cf477004ba7ad85a903f1a8e2267392
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893740"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117838"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services'da desteklenen veri kaynakları
 
@@ -52,14 +52,14 @@ Bağlanan veri kaynaklarından ve Azure AS sunucusuna bir şirket içi ağ geçi
 |  --- | --- | --- |
 | SQL Server |SQL Server yerel istemcisi 11.0, SQL Server için Microsoft OLE DB sağlayıcısı, SQL Server için .NET Framework veri sağlayıcısı | SQL Server için .NET framework veri sağlayıcısı |
 | SQL Server veri ambarı |SQL Server yerel istemcisi 11.0, SQL Server için Microsoft OLE DB sağlayıcısı, SQL Server için .NET Framework veri sağlayıcısı | SQL Server için .NET framework veri sağlayıcısı |
-| Oracle |Oracle, .NET için Oracle veri sağlayıcısı için Microsoft OLE DB sağlayıcısı |.NET için Oracle veri sağlayıcısı | |
-| Teradata |Teradata için .NET Teradata veri sağlayıcısı için OLE DB sağlayıcısı |.NET için Teradata veri sağlayıcısı | |
+| Oracle |Oracle, .NET için Oracle veri sağlayıcısı için Microsoft OLE DB sağlayıcısı |.NET için Oracle veri sağlayıcısı |
+| Teradata |Teradata için .NET Teradata veri sağlayıcısı için OLE DB sağlayıcısı |.NET için Teradata veri sağlayıcısı |
 | | | |
 
 ### <a name="in-memory-only"></a>Bellek içi yalnızca
 
 |Veri kaynağı  |  
-|---------|---------|
+|---------|
 |Access veritabanı     |  
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
@@ -83,7 +83,7 @@ Bağlanan veri kaynaklarından ve Azure AS sunucusuna bir şirket içi ağ geçi
 |SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Sybase Veritabanı     |  
 |XML tablosu<sup>[1](#tab1400b)</sup>    |  
-|||
+||
  
 <a name="tab1400b">1</a> tablosal 1400 ve daha yüksek bir model.
 

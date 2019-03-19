@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d620701bc8590bee746be35f69b0da890c359601
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b51f8d9329bc86320501183d7dba7735fb369fa5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205367"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092387"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için Samanage yapılandırın
 
@@ -108,9 +108,9 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
 5. Altında **yönetici kimlik bilgileri** giriş bölümünde **yönetici kullanıcı adı** ve **yönetici parolası** Samanage hesabınızın. Bu değerleri örnekleri şunlardır:
 
-    *   İçinde **yönetici kullanıcı adı** alan, Samanage kiracınıza yönetici hesabının kullanıcı adını doldurun. Örnek: admin@contoso.com.
+   * İçinde **yönetici kullanıcı adı** alan, Samanage kiracınıza yönetici hesabının kullanıcı adını doldurun. Örnek: admin@contoso.com.
 
-    *   İçinde **yönetici parolası** alan, yönetici kullanıcı adı için karşılık gelen yönetici hesabının parolasını doldurun.
+   * İçinde **yönetici parolası** alan, yönetici kullanıcı adı için karşılık gelen yönetici hesabının parolasını doldurun.
 
 6. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD için Samanage bağlanabilirsiniz. Bağlantı başarısız olursa Samanage hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
 

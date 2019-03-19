@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: magoedte
-ms.openlocfilehash: 7654de7041b2aa7a5b72f551893c3e0fb60bbd40
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c59e0e7cd846f77082b7131aaec15e4945a18191
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309868"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110163"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Log Analytics, Azure Resource Manager şablonlarını kullanarak yönetme
 
@@ -43,7 +43,7 @@ Bu makalede, şablonları ile gerçekleştirebileceğiniz yapılandırma bazıla
 Aşağıdaki tabloda, bu örnekte kullanılan kaynaklar için API sürümü listeler.
 
 | Kaynak | Kaynak türü | API sürümü |
-|:---|:---|:---|:---|
+|:---|:---|:---|
 | Çalışma alanı   | çalışma alanı    | 2017-03-15-Önizleme |
 | Arama      | savedSearches | 2015-03-20 |
 | Veri kaynağı | veri kaynakları   | 2015-11-01-Önizleme |

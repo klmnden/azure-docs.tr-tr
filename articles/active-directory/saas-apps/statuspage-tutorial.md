@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e940d7593b6760a81a781fd72c0bb45347b00c2a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 912bc9fea7b721b9a74198572bbf916ee0ebe6cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168162"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007113"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Öğretici: StatusPage ile Azure Active Directory Tümleştirme
 
@@ -114,23 +114,25 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     ![Çoklu oturum açmayı yapılandırın](./media/statuspage-tutorial/tutorial_statuspage_url.png)
 
     a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
+
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/` |
     | `https://<subdomain>.statuspage.io/` |
 
     b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: 
+    
     | |
     |--|
     | `https://<subdomain>.statuspagestaging.com/sso/saml/consume` |
     | `https://<subdomain>.statuspage.io/sso/saml/consume` |
 
-    > [!NOTE]
-    > Adresinden StatusPage Destek ekibine başvurun [ SupportTeam@statuspage.io ](mailto:SupportTeam@statuspage.io)çoklu oturum açma için yapılandırmak için gerekli meta verileri istemek için. 
-    >
-    >a. Meta verileri, veren değerini kopyalayın ve ardından yapıştırın **tanımlayıcı** metin.
-    >
-    >b. Meta verilerden yanıt URL'sini kopyalayıp içine yapıştırın **yanıt URL'si** metin.
+   > [!NOTE]
+   > Adresinden StatusPage Destek ekibine başvurun [ SupportTeam@statuspage.io ](mailto:SupportTeam@statuspage.io)çoklu oturum açma için yapılandırmak için gerekli meta verileri istemek için. 
+   > 
+   > a. Meta verileri, veren değerini kopyalayın ve ardından yapıştırın **tanımlayıcı** metin.
+   > 
+   > b. Meta verilerden yanıt URL'sini kopyalayıp içine yapıştırın **yanıt URL'si** metin.
 
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
@@ -156,15 +158,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
 1. SSO Kurulumu sayfasında, aşağıdaki adımları gerçekleştirin:
    
-    ![Çoklu oturum açmayı yapılandırın](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
+     ![Çoklu oturum açmayı yapılandırın](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
 
-    ![Çoklu oturum açmayı yapılandırın](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
+     ![Çoklu oturum açmayı yapılandırın](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
  
-    a. İçinde **SSO hedef URL** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
+     a. İçinde **SSO hedef URL** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
 
-    b. İndirilen sertifikanızı Not Defteri'nde açın, içeriği kopyalayın ve ardından yapıştırın **sertifika** metin. 
+     b. İndirilen sertifikanızı Not Defteri'nde açın, içeriği kopyalayın ve ardından yapıştırın **sertifika** metin. 
 
-    c. Tıklayın **YAPILANDIRMASINI Kaydet**.
+     c. Tıklayın **YAPILANDIRMASINI Kaydet**.
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)

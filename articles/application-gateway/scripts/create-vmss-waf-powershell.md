@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: de4a0ecb335e9c44cbb096bb8d17f91963a91378
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 8161ea327593419fb5b80d0be681b72f9392d7df
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310140"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857530"
 ---
 # <a name="restrict-web-traffic-using-azure-powershell"></a>Azure PowerShell kullanarak web trafiğini kısıtlama
 
@@ -66,7 +66,7 @@ Bu betik, dağıtımı oluşturmak için aşağıdaki komutları kullanır. Tabl
 | [Add-AzVmssNetworkInterfaceConfiguration](/powershell/module/az.compute/add-azvmssnetworkinterfaceconfiguration) | Ölçek kümesi için ağ arabirimini tanımlayın. |
 | [Yeni AzVmss](/powershell/module/az.compute/new-azvm) | Sanal makine ölçek kümesi oluşturun. |
 | [Yeni AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Bir depolama hesabı oluşturur. |
-| [Set-AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting) | Veri kaydı için tanılamaları yapılandırır. |
+| [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) | Veri kaydı için tanılamaları yapılandırır. |
 | [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) | Uygulama ağ geçidinin genel IP adresini alır. |
 |[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Kaynak grubunu ve grubun içerdiği tüm kaynakları kaldırır. | 
 ## <a name="next-steps"></a>Sonraki adımlar

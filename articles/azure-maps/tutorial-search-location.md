@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3e9572906a18698c9798a01a782948606112440a
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: f04041234bbb7197e276a65b011d16bb15cee90e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588899"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099510"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Haritalar’ı kullanarak yakınlardaki ilgi çekici noktaları arama
 
@@ -162,7 +162,7 @@ Harita Denetimi API’si, Haritalar’ı web uygulamanızla kolayca tümleştirm
    });
    ```
 
-  Kaynak eşleme tam yüklü olduğunda, bu kod kesimi içinde eşlemesine eklenen yük olay ateşlenir. Harita yükleme olayı işleyicisinde sonuç verilerin depolanacağı bir veri kaynağı oluşturulur. Bir simge katmanı oluşturulur ve veri kaynağına eklenir. Bu katman, veri kaynağındaki sonuç verilerin nasıl işleneceğini belirtir. Bu örnekte sonuç koordinatlarının üzerinde ortalanmış olan ve diğer simgelerin çakışmasına izin verilen koyu mavi yuvarlak raptiye simgesi şeklindedir. Harita katmanları için sonuç katmanı eklendi.
+   Kaynak eşleme tam yüklü olduğunda, bu kod kesimi içinde eşlemesine eklenen yük olay ateşlenir. Harita yükleme olayı işleyicisinde sonuç verilerin depolanacağı bir veri kaynağı oluşturulur. Bir simge katmanı oluşturulur ve veri kaynağına eklenir. Bu katman, veri kaynağındaki sonuç verilerin nasıl işleneceğini belirtir. Bu örnekte sonuç koordinatlarının üzerinde ortalanmış olan ve diğer simgelerin çakışmasına izin verilen koyu mavi yuvarlak raptiye simgesi şeklindedir. Harita katmanları için sonuç katmanı eklendi.
 
 <a id="usesearch"></a>
 

@@ -7,16 +7,16 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 1066a4f602fb3af1f10fc82026870a5b0497896b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 43df80e060ff698537f7fd65075006e6dfffe6c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764798"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117158"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Öğretici: Bir web uygulaması için özel bir etki alanında DNS kayıtları oluşturma 
 
-Azure DNS'yi web uygulamalarınız için özel etki alanı barındıracak şekilde yapılandırabilirsiniz. Örneğin bir Azure web uygulaması oluşturabilir ve kullanıcılarınızın buna www.contoso.com adresini veya contoso.com tam etki alanı adını (FQDN) kullanarak erişmesini sağlayabilirsiniz.
+Azure DNS'yi web uygulamalarınız için özel etki alanı barındıracak şekilde yapılandırabilirsiniz. Örneğin, bir Azure web uygulaması oluşturma ve iki www kullanarak, kullanıcıların erişimine sahip\.contoso.com veya tam etki alanı adı (FQDN) olarak contoso.com.
 
 > [!NOTE]
 > contoso.com bu öğreticide örnek etki alanı olarak kullanılmıştır. contoso.com yerine kendi etki alanı adınızı yazın.

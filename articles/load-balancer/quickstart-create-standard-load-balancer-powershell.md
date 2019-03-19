@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 5ce8de675eb398335df6a160213ee01add9ac129
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 87c1d047e783715b3a5beee4604e064322f965dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440753"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101896"
 ---
 # <a name="get-started"></a>Hızlı Başlangıç: Azure PowerShell kullanarak bir Standard Load Balancer oluşturma
 
@@ -278,11 +278,11 @@ IIS gibi iki arka uç VM'nin özel bir web sayfasıyla yükleyin:
 
 1. Yük Dengeleyicinin Genel IP adresini alın. `Get-AzPublicIPAddress` kullanarak, Yük Dengeleyicinin Genel IP adresini alın.
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
     Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
-  ```
+   ```
 2. Önceki adımda elde ettiğiniz Genel IP adresini kullanarak VM1 ile bir uzak masaüstü bağlantısı oluşturun. 
 
    ```azurepowershell-interactive

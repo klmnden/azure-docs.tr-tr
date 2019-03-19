@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: kasinh
-ms.openlocfilehash: 7669d713f9a96ef893f7ec2ac895c28f654385c8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7fa68e11ccac69db9335e589f5048264df9d0a47
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810976"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074990"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Bir SharePoint grubunu Azure’a yedekleme
 Microsoft Azure'da çok diğer veri kaynaklarını yedekleme aynı şekilde, Microsoft Azure Backup sunucusu (MABS) kullanarak bir SharePoint grubunu yedekleme. Azure Backup, yedekleme zamanlaması günlük oluşturmak için esneklik sağlar, haftalık, aylık veya yıllık yedekleme işaret ve çeşitli yedekleme noktaları için bekletme ilkesi seçenekleri sunar. Ayrıca, Hızlı Kurtarma süresi hedeflerini (RTO) için yerel disk kopyaları depolamak ve ekonomik, uzun süreli saklama için azure'a kopyaları depolamak için yeteneği sağlar.
@@ -22,7 +22,7 @@ Microsoft Azure'da çok diğer veri kaynaklarını yedekleme aynı şekilde, Mic
 Azure yedekleme DPM için aşağıdaki senaryoları destekler:
 
 | İş yükü | Sürüm | SharePoint dağıtımı | Koruma ve kurtarma |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |Fiziksel sunucu veya Hyper-V/VMware sanal makinesi olarak dağıtılan SharePoint <br> -------------- <br> SQL AlwaysOn | Kurtarma seçeneklerini SharePoint grubunu koruma: Kurtarma grubu, veritabanı ve disk kurtarma noktalarından dosya veya liste öğesi.  Azure kurtarma noktalarından kurtarma grubu ve veritabanı. |
 
 ## <a name="before-you-start"></a>Başlamadan önce

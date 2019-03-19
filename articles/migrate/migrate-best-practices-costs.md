@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 974ea5803b6e31ad8f940265071f41440d5355da
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6f6440e12840538614b4092b173ab25ae37a68a6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700647"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110295"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Maliyet ve boyutlandırma iş yükleri için en iyi uygulamaları için Azure geçişi
 
@@ -40,17 +40,18 @@ Geçirilen iş yükleri için aylık faturanızı tahmin etmek için kullanabile
 
 - **Azure fiyatlandırma hesaplayıcısı**: Tahmin etmek için örneğin VM ve depolama istediğiniz ürünleri seçin. Maliyetleri tahmin oluşturmak için fiyatlandırma hesaplayıcısını girdiğiniz.
 
- ![Azure fiyatlandırma hesaplayıcısı](./media/migrate-best-practices-costs/pricing.png) *Azure fiyatlandırma hesaplayıcısı*
+  ![Azure fiyatlandırma hesaplayıcısı](./media/migrate-best-practices-costs/pricing.png) *Azure fiyatlandırma hesaplayıcısı*
 
 - **Azure geçişi**: Maliyetlerini tahmin etmek için gözden geçirin ve Azure'da iş yüklerinizi çalıştırmak için gereken kaynaklar için hesabı gerekir. Bu verileri almak için sunucu, VM'ler, veritabanları ve depolama da dahil olmak üzere varlıklarınızı envanterini oluşturun. Bu bilgileri toplamak için Azure Geçişi'ı kullanabilirsiniz.
 
- - Azure geçişi bulur ve bir envanterini sağlamak üzere şirket içi ortamınızdaki değerlendirir.
- - Azure geçişi, eşleme ve tam resmini sahip sanal makineler arasındaki bağımlılıkları gösterir.
- - Azure geçişi değerlendirmesi tahmini maliyetini içerir.
+  - Azure geçişi bulur ve bir envanterini sağlamak üzere şirket içi ortamınızdaki değerlendirir.
+  - Azure geçişi, eşleme ve tam resmini sahip sanal makineler arasındaki bağımlılıkları gösterir.
+  - Azure geçişi değerlendirmesi tahmini maliyetini içerir.
     - İşlem maliyetleri: Değerlendirme oluşturduğunuzda önerilen Azure VM boyutu kullanarak, Azure geçişi faturalandırma API'si tahmini aylık VM maliyetleri hesaplamak için kullanır. Tahmin işletim sistemi, Yazılım Güvencesi, ayrılmış örnekler, VM çalışma süresi, konum ve para birimi ayarları göz önünde bulundurur. Tüm VM'lerin değerlendirmede maliyeti toplar ve bir toplam aylık işlem maliyeti hesaplar.
     - Depolama maliyeti: Azure geçişi, aylık toplam depolama maliyetlerini değerlendirme içindeki tüm sanal makineleri depolama maliyetlerini toplayarak hesaplar. Aylık depolama maliyeti belirli bir makine için aylık maliyeti bağlı tüm diskleri kullanarak hesaplayabilirsiniz. 
 
-    ![Azure geçişi](./media/migrate-best-practices-costs/assess.png) *Azure geçişi değerlendirmesi*
+    ![Azure geçişi](./media/migrate-best-practices-costs/assess.png)
+    *Azure geçişi değerlendirmesi*
 
 **Daha fazla bilgi edinin:**
 - [Kullanım](https://azure.microsoft.com/pricing/calculator/) Azure fiyatlandırma hesaplayıcısı.
@@ -92,13 +93,13 @@ Ayarlama ve şirket içi depolama (SAN ya da NAS) ve bunları desteklemek için 
 
 Azure depolama veri farklı türler sağlar.
 
-**Veri türü** | **Ayrıntılar** | **Kullanım** 
---- | --- |  ---
-**Bloblar** | Çok miktarda metin veya ikili veri gibi yapılandırılmamış nesne depolamak için en iyi duruma getirilmiş<br/><br/> | Verilere erişen her yerden HTTP/HTTPS üzerinden. | Akış ve rastgele erişim senaryoları için kullanın. Örneğin, görüntü ve belgelerin doğrudan bir tarayıcıya sunmak için video ve ses akışı ve yedekleme ve olağanüstü durum kurtarma veri depolayın.
-**Dosyalar** | Yönetilen dosya paylaşımları SMB 3.0 üzerinden erişilen | Geçiş dosya paylaşımları, şirket içinde olduğunda kullanın ve birden çok erişim/dosya verileri için bağlantılar sağlar.
-**Diskler** | Sayfa BLOB'ları üzerinde temel.<br/><br/> Disk türü (hızlı): Standart (HDD veya SSD) veya Premium (SSD).<br/><br/>Disk Yönetimi: Yönetilmeyen (yönettiğiniz disk ayarlarını ve depolama) veya yönetilen (disk türünü seçin ve Azure tarafından yönetilen disk için). | Premium diskler, VM'ler için kullanın. Basit yönetim ve ölçeklendirme için yönetilen diskleri kullanın.
-**Kuyruklar** | Store ve çok büyük sayılarda mesajı kimliği doğrulanmış aramalar (HTTP veya HTTPS) erişilen alma | Uygulama bileşenleri ile zaman uyumsuz ileti kuyruğu bağlanın.
-**Tabloları** | Tablolar Store. | Artık Azure Cosmos DB tablo API'si, parçası.
+| **Veri türü** | **Ayrıntılar** | **Kullanım** |
+|--- | --- |  --- |
+|**Bloblar** | Çok miktarda metin veya ikili veri gibi yapılandırılmamış nesne depolamak için en iyi duruma getirilmiş<br/>Verilere erişen her yerden HTTP/HTTPS üzerinden. | Akış ve rastgele erişim senaryoları için kullanın. Örneğin, görüntü ve belgelerin doğrudan bir tarayıcıya sunmak için video ve ses akışı ve yedekleme ve olağanüstü durum kurtarma veri depolayın.|
+|**Dosyalar** | Yönetilen dosya paylaşımları SMB 3.0 üzerinden erişilen | Geçiş dosya paylaşımları, şirket içinde olduğunda kullanın ve birden çok erişim/dosya verileri için bağlantılar sağlar.|
+|**Diskler** | Sayfa BLOB'ları üzerinde temel.<br/><br/> Disk türü (hızlı): Standart (HDD veya SSD) veya Premium (SSD).<br/><br/>Disk Yönetimi: Yönetilmeyen (yönettiğiniz disk ayarlarını ve depolama) veya yönetilen (disk türünü seçin ve Azure tarafından yönetilen disk için). | Premium diskler, VM'ler için kullanın. Basit yönetim ve ölçeklendirme için yönetilen diskleri kullanın.|
+|**Kuyruklar** | Store ve çok büyük sayılarda mesajı kimliği doğrulanmış aramalar (HTTP veya HTTPS) erişilen alma | Uygulama bileşenleri ile zaman uyumsuz ileti kuyruğu bağlanın.|
+|**Tabloları** | Tablolar Store. | Artık Azure Cosmos DB tablo API'si, parçası.|
 
 
 
@@ -211,19 +212,21 @@ Maliyet Yönetimi'nde, şunları yapabilirsiniz:
 
 
 - **Bir bütçe oluşturmak**: Finansal sorumluluk için bütçe oluşturun.
-    - Hizmetleri kullanan veya belirli bir süre (aylık, üç aylık, Yıllık) ve bir kapsamın (abonelikler/kaynak grupları) için abone için hesap. Örneğin, bir aylık, üç aylık veya yıllık dönem için bir Azure aboneliği bütçe oluşturabilirsiniz.
-    - Bütçe oluşturduktan sonra maliyet analizi gösterilmektedir. Geçerli harcama karşı bütçenizi görüntüleme maliyetlerinizi analiz edilirken gerektiği ve harcama ilk adımlarından biridir.
-    - Bütçe eşiklerine ulaşıldığında, e-posta bildirimleri gönderilebilir.
-    - Analiz için Azure depolama için maliyet Yönetimi verilerine dışarı aktarabilirsiniz.
+  - Hizmetleri kullanan veya belirli bir süre (aylık, üç aylık, Yıllık) ve bir kapsamın (abonelikler/kaynak grupları) için abone için hesap. Örneğin, bir aylık, üç aylık veya yıllık dönem için bir Azure aboneliği bütçe oluşturabilirsiniz.
+  - Bütçe oluşturduktan sonra maliyet analizi gösterilmektedir. Geçerli harcama karşı bütçenizi görüntüleme maliyetlerinizi analiz edilirken gerektiği ve harcama ilk adımlarından biridir.
+  - Bütçe eşiklerine ulaşıldığında, e-posta bildirimleri gönderilebilir.
+  - Analiz için Azure depolama için maliyet Yönetimi verilerine dışarı aktarabilirsiniz.
 
-    ![Maliyet Yönetimi bütçe](./media/migrate-best-practices-costs/budget.png) *Azure maliyet Yönetimi bütçe*
+    ![Maliyet Yönetimi bütçe](./media/migrate-best-practices-costs/budget.png)
+    *Azure maliyet Yönetimi bütçe*
 
 - **Maliyet analizi yapmak**: Keşfedin ve maliyetleri nasıl doğan, anlamanıza yardımcı olması için kuruluş maliyetlerinizi analiz etmek için bir maliyet analizi alın ve harcama eğilimleri belirleyin.
-    - Maliyet analizi EA kullanıcılar tarafından kullanılabilir.
-    - Kapsamlar, departman, hesap, abonelik veya kaynak grubu tarafından da dahil olmak üzere bir dizi için maliyet analizi verilerini görüntüleyebilirsiniz.
-    - Geçerli aya ait toplam maliyetleri ve birikmiş günlük maliyetlerin gösteren bir maliyet analizi alabilirsiniz. 
+  - Maliyet analizi EA kullanıcılar tarafından kullanılabilir.
+  - Kapsamlar, departman, hesap, abonelik veya kaynak grubu tarafından da dahil olmak üzere bir dizi için maliyet analizi verilerini görüntüleyebilirsiniz.
+  - Geçerli aya ait toplam maliyetleri ve birikmiş günlük maliyetlerin gösteren bir maliyet analizi alabilirsiniz. 
 
-    ![Maliyet Yönetimi çözümlemesi](./media/migrate-best-practices-costs/analysis.png) *Azure maliyet Yönetimi çözümleme*
+    ![Maliyet Yönetimi çözümlemesi](./media/migrate-best-practices-costs/analysis.png)
+    *Azure maliyet Yönetimi çözümleme*
 - **Öneri**: Nasıl en iyi duruma getirmek ve verimliliği artırmak Göster Danışmanı önerileri alın.
 
 

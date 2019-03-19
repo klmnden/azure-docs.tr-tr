@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6c146a99be369f92a72717ad1ec4b79bddafe28c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 40c7e00ad5271457904fc3273fdb633b0c7a8016
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819335"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085074"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Öğretici: Azure Resource Manager şablonları ile SQL BACPAC dosyalarını içeri aktarın
 
@@ -65,11 +65,11 @@ Azure Hızlı Başlangıç Şablonları, Resource Manager şablonları için bir
 
     Şablonda tanımlanan üç kaynak vardır:
 
-    * `Microsoft.Sql/servers`. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
-    * `Microsoft.SQL/servers/securityAlertPolicies`. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies).
-    * `Microsoft.SQL.servers/databases`.  Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.Sql/servers`. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.sql/servers).
+   * `Microsoft.SQL/servers/securityAlertPolicies`. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies).
+   * `Microsoft.SQL.servers/databases`.  Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
 
-    Şablonu özelleştirmeden önce temel noktaları kavramak faydalı olacaktır.
+     Şablonu özelleştirmeden önce temel noktaları kavramak faydalı olacaktır.
 4. **Dosya**>**Farklı Kaydet**'i seçerek dosyanın bir kopyasını yerel bilgisayarınıza **azuredeploy.json** adıyla kaydedin.
 
 ## <a name="edit-the-template"></a>Şablonu düzenleme

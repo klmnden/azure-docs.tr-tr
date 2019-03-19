@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 02a2e9a6d513db5ac82b7bde5c8d3f0ca187ad15
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: cf7afb50006fb273b4d685f9e4259be1cb60fe4e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533961"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084751"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Azure portalından Chef İstemcisi'ni yükleme
 Azure portalından Chef istemci uzantısını doğrudan üzerine bir Linux veya Windows makinesi ekleyebilirsiniz. Bu makalede yeni bir Linux sanal makine kullanarak işlemi boyunca size yol gösterir.
@@ -52,31 +52,31 @@ Bu bölümde, bir Linux makine oluşturmak için öncelikle Azure portalını ku
 
 1. Üzerinde **Temelleri** sekmesinde, aşağıdaki değerleri belirtin ve ardından **Tamam**.
 
-    - **Ad** -yeni bir sanal makine için bir ad girin.
-    - **VM disk türü** -seçeneklerinden birini belirtin **SSD** veya **HDD** depolama disk türü. Azure'da sanal makine disk türleri hakkında daha fazla bilgi için bkz [bir disk türü seçin](../virtual-machines/windows/disks-types.md).
-    - **Kullanıcı adı** -sanal makinede yönetici ayrıcalıkları verilmiş bir kullanıcı adı girin.
-    - **Kimlik doğrulama türü** - seçin **parola**. Belirleyebilirsiniz **SSH ortak anahtarı**ve bir SSH ortak anahtar değeri sağlayın. Bu Tanıtım (ve ekran görüntüleri), amacıyla **parola** seçilir.
-    - **Parola** ve **parolayı onayla** -kullanıcı için bir parola girin.
-    - **Azure Active Directory ile oturum aç** - seçin **devre dışı bırakılmış**.
-    - **Abonelik** -birden fazla aboneliğiniz varsa, istediğiniz Azure aboneliğini seçin.
-    - **Kaynak grubu** -kaynak grubunuz için bir ad girin.
-    - **Konum** - seçin **Doğu ABD**.
+   - **Ad** -yeni bir sanal makine için bir ad girin.
+   - **VM disk türü** -seçeneklerinden birini belirtin **SSD** veya **HDD** depolama disk türü. Azure'da sanal makine disk türleri hakkında daha fazla bilgi için bkz [bir disk türü seçin](../virtual-machines/windows/disks-types.md).
+   - **Kullanıcı adı** -sanal makinede yönetici ayrıcalıkları verilmiş bir kullanıcı adı girin.
+   - **Kimlik doğrulama türü** - seçin **parola**. Belirleyebilirsiniz **SSH ortak anahtarı**ve bir SSH ortak anahtar değeri sağlayın. Bu Tanıtım (ve ekran görüntüleri), amacıyla **parola** seçilir.
+   - **Parola** ve **parolayı onayla** -kullanıcı için bir parola girin.
+   - **Azure Active Directory ile oturum aç** - seçin **devre dışı bırakılmış**.
+   - **Abonelik** -birden fazla aboneliğiniz varsa, istediğiniz Azure aboneliğini seçin.
+   - **Kaynak grubu** -kaynak grubunuz için bir ad girin.
+   - **Konum** - seçin **Doğu ABD**.
 
-    ![Bir sanal makine oluşturmak için sekmesinde temelleri](./media/chef-extension-portal/add-vm-basics.png)
+     ![Bir sanal makine oluşturmak için sekmesinde temelleri](./media/chef-extension-portal/add-vm-basics.png)
 
 1. Üzerinde **bir boyut seçin** sekmesinde, sanal makine boyutu seçin ve ardından **seçin**.
 
 1. Üzerinde **ayarları** önceki sekmeleri seçtiğiniz değerlere göre için sekmesinde değerleri çoğunu doldurulur. **Uzantılar**'ı seçin.
 
-    ![Ayarlar sekmesi aracılığıyla sanal makine uzantıları eklenir](./media/chef-extension-portal/add-vm-select-extensions.png)
+     ![Ayarlar sekmesi aracılığıyla sanal makine uzantıları eklenir](./media/chef-extension-portal/add-vm-select-extensions.png)
 
 1. Üzerinde **uzantıları** sekmesinde **uzantısı ekleme**.
 
-    ![Bir sanal makine için bir uzantı eklemek için Add uzantı seçin](./media/chef-extension-portal/add-vm-add-extension.png)
+     ![Bir sanal makine için bir uzantı eklemek için Add uzantı seçin](./media/chef-extension-portal/add-vm-add-extension.png)
 
 1. Üzerinde **yeni kaynak** sekmesinde **Linux Chef uzantısı (1.2.3-Beta)**.
 
-    ![Chef, Linux ve Windows sanal makineleri için uzantıları sahip](./media/chef-extension-portal/select-linux-chef-extension.png)
+     ![Chef, Linux ve Windows sanal makineleri için uzantıları sahip](./media/chef-extension-portal/select-linux-chef-extension.png)
 
 1. Üzerinde **Linux Chef uzantısı** sekmesinde **Oluştur**.
 
@@ -94,7 +94,7 @@ Bu bölümde, bir Linux makine oluşturmak için öncelikle Azure portalını ku
     - **Databag gizlilik şifrelenmiş** -bu makine şifrelenmiş Databag erişimi olması gereken gizli dizi içeren bir dosya seçin. Bu boş bırakılabilir.
     - **Chef sunucu SSL sertifikası** -Chef sunucunuza atanan SSL sertifikasını seçin. Bu boş bırakılabilir.
 
-    ![Bir Linux sanal makinesinde Chef sunucusu yükleme](./media/chef-extension-portal/install-extension.png)
+      ![Bir Linux sanal makinesinde Chef sunucusu yükleme](./media/chef-extension-portal/install-extension.png)
 
 1. İçin döndürülürken **uzantıları** sekmesinde **Tamam**.
 

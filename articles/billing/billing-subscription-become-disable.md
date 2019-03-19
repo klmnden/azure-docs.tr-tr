@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 19895ef706ab5a5ec0aa390465ce260e68d71d78
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 2da6a5c93d4bf4fcf8763be47b9eb629b930e3b3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903120"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843482"
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Neden Azure Aboneliğim devre dışı bırakıldı ve nasıl yeniden?
 
@@ -36,7 +36,7 @@ Azure ücretsiz hesabı için kaydolduğunuzda, 200 ABD Doları değerinde Azure
 Ücretsiz deneme sürümü ve Visual Studio Enterprise gibi kredi ile Azure aboneliklerini üzerlerinde harcama limitleri vardır. Bu hizmetleri yer alacak en fazla yalnızca kullanabileceğiniz anlamına gelir. Azure kullanımınızı harcama sınırına ulaştığında, söz konusu fatura dönemindeki kalan aboneliğiniz devre dışı bırakır. Yanlışlıkla aboneliğinize dahil olan kredi kullanımlarda ücretlerden korunmanız için aboneliğiniz devre dışı bırakıldı. Harcama limitinizi kaldırmak için bkz: [hesap Merkezi'nde harcama limitini Kaldır](billing-spending-limit.md#remove).
 
 > [!NOTE] 
-> Ücretsiz deneme aboneliği varsa ve harcama limitini kaldırın, sonunda ücretsiz deneme, Kullandıkça Öde aboneliğinizi dönüştürür. Tam abonelik oluşturduğunuz sonraki 30 gün için kalan kredilerinizi kullanmaya devam. Ayrıca Hizmetleri 12 ay boyunca ücretsiz erişebilirsiniz.
+> Ücretsiz deneme aboneliği varsa ve harcama limitini kaldırın, sonunda ücretsiz deneme, Kullandıkça Öde aboneliğinizi dönüştürür. Tam abonelik oluşturduğunuz sonraki 30 gün için kalan kredilerinizi kullanmaya devam. Ayrıca 12 ay boyunca ücretsiz hizmetlere erişmeye devam edebilirsiniz.
 
 İzleme ve Azure için faturalandırma etkinliğini yönetme hakkında bilgi için bkz: [Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen maliyetleri engelleme](billing-getting-started.md).
 
@@ -63,4 +63,4 @@ Diğer abonelik türlerinde [desteğe](https://portal.azure.com/?#blade/Microsof
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

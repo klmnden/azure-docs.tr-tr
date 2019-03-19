@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 848663c509fd3635b33b8e7735feb940da215bfa
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1ad9661d85c7ec91f361cdc4d126e0a91e376b66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441823"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853299"
 ---
 # <a name="scp-programming-guide"></a>SCP Programlama Kılavuzu
 SCP, güvenilir ve tutarlı, gerçek zamanlı oluşturmak için platform ve yüksek performanslı bilgi işlem uygulama ' dir. Üst kısmındaki yerleşik [Apache Storm](https://storm.incubator.apache.org/) --bir akış işleme sistemi OSS topluluklar göre tasarlanmıştır. Storm Nathan Marz tarafından tasarlanmıştır ve açık Twitter tarafından kaynaklanan oluştu. Bunu yararlanır [Apache ZooKeeper](https://zookeeper.apache.org/), işbirliği ve durum yönetimini son derece güvenilir etkinleştirmek için başka bir Apache projesi dağıtılmış. 
@@ -32,7 +32,7 @@ SCP içinde veri diziler sürekli akışları olarak modellenir. Genellikle dizi
 
 SCP en iyi çaba, en az bir kez destekler ve tam olarak-bir kez veri işleme. Bir dağıtılmış akış işleme uygulamasında, ağ kesintisi, makine arızasından ya da kullanıcı kod hatası vb. gibi veri işleme sırasında çeşitli hatalar oluşabilir. En az bir kez işlemeyi, tüm veriler hata oluştuğunda otomatik olarak aynı verileri yürüterek en az bir kez işlenir sağlar. En az bir kez işlemeyi, basit ve güvenilir ve uygun da birçok uygulama. Ancak, uygulamanın tam sayım gerektirdiğinde, aynı verileri olası uygulama topolojisinde yeniden bu yana en az bir kez işleme yeterli değildir. Bu durumda, tam olarak-işlem sonucu emin olmak için tasarlanan sonra bile, veriler yeniden yürütülmesi ve birden çok kez işlenen doğrudur.
 
-SCP perde yararlanarak üzerinde Java sanal makinesi (JVM) Storm ile gerçek zamanlı veri işlem uygulamaları geliştirmek .NET geliştiricilerinin sağlar. .NET ve JVM yerel TCP yuvaları üzerinden iletişim kurar. Temel olarak her Spout/Cıvata bir .net/Java işlemi, kullanıcı mantığını .net işlem bir eklenti olarak çalıştığı çiftidir.
+SCP perde yararlanarak üzerinde Java sanal makinesi (JVM) Storm ile gerçek zamanlı veri işlem uygulamaları geliştirmek .NET geliştiricilerinin sağlar. .NET ve JVM yerel TCP yuvaları üzerinden iletişim kurar. Temel olarak her Spout/Cıvata bir .NET/Java işlemi, kullanıcı mantığını .NET işlem bir eklenti olarak çalıştığı çiftidir.
 
 SCP üzerine bir veri işleme uygulaması derlemek için birkaç adım gerekir:
 
@@ -355,12 +355,12 @@ SCP.NET işlem topolojileri tanımlamak için aşağıdaki işlevler eklemiştir
 | **Yeni işlevleri** | **Parametreler** | **Açıklama** |
 | --- | --- | --- |
 | **Tx topolopy** |Topoloji adı<br />spout eşleme<br />bolt eşleme |Topoloji adı ile bir işlem topolojisi tanımlayın &nbsp;tanımı Haritası ve bolt'lar tanımı harita spout'lar |
-| **SCP tx spout** |Exec-name<br />args<br />alanlar |Bir işlem spout tanımlayın. Uygulama ile çalıştığı ***exec-name*** kullanarak ***args***.<br /><br />***Alanları*** spout için çıkış alanlar |
-| **tx batch bolt SCP** |Exec-name<br />args<br />alanlar |Bir işlem toplu Bolt tanımlayın. Uygulama ile çalıştığı ***exec-name*** kullanarak ***args.***<br /><br />Bolt çıktı alanlarını alanların olur. |
-| **tx işleme bolt SCP** |Exec-name<br />args<br />alanlar |Bir işlem tabanlı işleme bolt tanımlayın. Uygulama ile çalıştığı ***exec-name*** kullanarak ***args***.<br /><br />***Alanları*** bolt için çıkış alanlar |
+| **SCP tx spout** |Exec-name<br />args<br />Alanları |Bir işlem spout tanımlayın. Uygulama ile çalıştığı ***exec-name*** kullanarak ***args***.<br /><br />***Alanları*** spout için çıkış alanlar |
+| **tx batch bolt SCP** |Exec-name<br />args<br />Alanları |Bir işlem toplu Bolt tanımlayın. Uygulama ile çalıştığı ***exec-name*** kullanarak ***args.***<br /><br />Bolt çıktı alanlarını alanların olur. |
+| **tx işleme bolt SCP** |Exec-name<br />args<br />Alanları |Bir işlem tabanlı işleme bolt tanımlayın. Uygulama ile çalıştığı ***exec-name*** kullanarak ***args***.<br /><br />***Alanları*** bolt için çıkış alanlar |
 | **nontx topolopy** |Topoloji adı<br />spout eşleme<br />bolt eşleme |Topoloji adı ile bir işlem topolojisi tanımlayın&nbsp; tanımı Haritası ve bolt'lar tanımı harita spout'lar |
-| **scp-spout** |Exec-name<br />args<br />alanlar<br />parametreler |Bir işlem spout tanımlayın. Uygulama ile çalıştığı ***exec-name*** kullanarak ***args***.<br /><br />***Alanları*** spout için çıkış alanlar<br /><br />***Parametreleri*** "nontransactional.ack.enabled" gibi bazı parametreler belirtmek için kullanarak, isteğe bağlıdır. |
-| **SCP bolt** |Exec-name<br />args<br />alanlar<br />parametreler |İşleme uygun olmayan Bolt tanımlayın. Uygulama ile çalıştığı ***exec-name*** kullanarak ***args***.<br /><br />***Alanları*** bolt için çıkış alanlar<br /><br />***Parametreleri*** "nontransactional.ack.enabled" gibi bazı parametreler belirtmek için kullanarak, isteğe bağlıdır. |
+| **scp-spout** |Exec-name<br />args<br />Alanları<br />parametreler |Bir işlem spout tanımlayın. Uygulama ile çalıştığı ***exec-name*** kullanarak ***args***.<br /><br />***Alanları*** spout için çıkış alanlar<br /><br />***Parametreleri*** "nontransactional.ack.enabled" gibi bazı parametreler belirtmek için kullanarak, isteğe bağlıdır. |
+| **SCP bolt** |Exec-name<br />args<br />Alanları<br />parametreler |İşleme uygun olmayan Bolt tanımlayın. Uygulama ile çalıştığı ***exec-name*** kullanarak ***args***.<br /><br />***Alanları*** bolt için çıkış alanlar<br /><br />***Parametreleri*** "nontransactional.ack.enabled" gibi bazı parametreler belirtmek için kullanarak, isteğe bağlıdır. |
 
 SCP.NET tanımlanan aşağıdaki anahtar sözcükler vardır:
 
@@ -450,7 +450,7 @@ Burada,
 3. [0,1] alan kimlikleri, 0'dan başlayan bir karma kümesini belirtir.
 
 ### <a name="hybrid-topology"></a>Karma bir topolojide
-Yerel bir Storm Java dilinde yazılır. SCP.Net C etkinleştirmek için Gelişmiş ve\# geliştiricilerin C yazma\# kendi iş mantığı işlemek için kod. Ancak yalnızca C içeren karma topolojiler de destekler\# spout/Cıvatalar, aynı zamanda Java Spout/Cıvatalar.
+Yerel bir Storm Java dilinde yazılır. SCP.NET C etkinleştirmek için Gelişmiş ve\# geliştiricilerin C yazma\# kendi iş mantığı işlemek için kod. Ancak yalnızca C içeren karma topolojiler de destekler\# spout/Cıvatalar, aynı zamanda Java Spout/Cıvatalar.
 
 ### <a name="specify-java-spoutbolt-in-spec-file"></a>Java Spout/Cıvata belirtim dosyasını belirtin.
 Belirtim dosyasındaki "spout scp" ve "bolt scp" de Java Spout'lar ve Bolt'lar belirtmek için kullanılabilir, bir örnek aşağıda verilmiştir:
@@ -562,7 +562,7 @@ Konak modunda, kullanıcı kodu DLL olarak derlenir ve SCP platformu tarafından
 
 ## <a name="scp-programming-examples"></a>SCP programlama örnekleri
 ### <a name="helloworld"></a>HelloWorld
-**HelloWorld** SCP.Net denemek göstermek için basit bir örnektir. Adlı bir spout ile bir işlem olmayan topolojisi kullanan **Oluşturucu**ve adlı iki Cıvatalar **Bölümlendirici** ve **sayaç**. Spout **Oluşturucu** rastgele cümleler oluşturur ve bu cümlelere yayma **Bölümlendirici**. Bolt **Bölümlendirici** cümlelere sözcükleri böler ve bu sözcükler için yayma **sayacı** bolt. Bolt "sayaç", her bir sözcüğün geçtiği sayısını kaydetmek için bir sözlük kullanır.
+**HelloWorld** SCP.NET denemek göstermek için basit bir örnektir. Adlı bir spout ile bir işlem olmayan topolojisi kullanan **Oluşturucu**ve adlı iki Cıvatalar **Bölümlendirici** ve **sayaç**. Spout **Oluşturucu** rastgele cümleler oluşturur ve bu cümlelere yayma **Bölümlendirici**. Bolt **Bölümlendirici** cümlelere sözcükleri böler ve bu sözcükler için yayma **sayacı** bolt. Bolt "sayaç", her bir sözcüğün geçtiği sayısını kaydetmek için bir sözlük kullanır.
 
 İki özel dosyalar **HelloWorld.spec** ve **HelloWorld\_EnableAck.spec** bu örneğin. C'de\# kod, etkin olup olmadığını ack Java taraftan pluginConf alarak kullanıma bulabildiği.
 

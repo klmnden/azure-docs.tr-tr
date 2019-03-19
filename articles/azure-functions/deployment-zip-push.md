@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 2762e5c4f2b67415a0e42e80a34ae5b34c57adc9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086590"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Azure işlevleri için zip dağıtım
 
@@ -51,13 +51,13 @@ Ancak, işlevleriniz Azure portalında Düzenleyicisi'ni kullanarak oluşturmuş
 
 + **Azure portalından:**
 
-    1. Oturum [Azure portalında](https://portal.azure.com)ve ardından işlev uygulamanıza gidin.
+  1. Oturum [Azure portalında](https://portal.azure.com)ve ardından işlev uygulamanıza gidin.
 
-    2. Üzerinde **genel bakış** sekmesinde **uygulama içeriği karşıdan**. Yükleme seçeneklerinizi belirleyin ve ardından **indirme**.
+  2. Üzerinde **genel bakış** sekmesinde **uygulama içeriği karşıdan**. Yükleme seçeneklerinizi belirleyin ve ardından **indirme**.
 
-        ![İşlev uygulaması projenizi indirin](./media/deployment-zip-push/download-project.png)
+      ![İşlev uygulaması projenizi indirin](./media/deployment-zip-push/download-project.png)
 
-    İşlev uygulamanızı .zip anında iletme dağıtımı kullanarak yeniden yayımlanması doğru biçimde indirilen .zip dosyasıdır. Portal indirme, işlev uygulamanızı doğrudan Visual Studio'da açmak için gerekli dosyaları da ekleyebilirsiniz.
+     İşlev uygulamanızı .zip anında iletme dağıtımı kullanarak yeniden yayımlanması doğru biçimde indirilen .zip dosyasıdır. Portal indirme, işlev uygulamanızı doğrudan Visual Studio'da açmak için gerekli dosyaları da ekleyebilirsiniz.
 
 + **REST API'lerini kullanarak:**
 

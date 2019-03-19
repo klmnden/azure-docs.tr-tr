@@ -1,6 +1,6 @@
 ---
-title: Dönüştürme Azure yönetilen diskler depolaması standart, premium ve tersi | Microsoft Docs
-description: Azure dönüştürmek standart katmandan Premium ve tersi, Azure PowerShell kullanarak yönetilen diskleri
+title: Dönüştürme Azure yönetilen diskler depolaması standart katmandan Premium katmana veya Premiumdan standarda | Microsoft Docs
+description: Azure dönüştürmek standart katmandan Premium katmana veya Premiumdan standarda Azure PowerShell kullanarak yönetilen diskleri
 services: virtual-machines-windows
 documentationcenter: ''
 author: ramankumarlive
@@ -16,27 +16,27 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 8f04f566d6d403d15a08a8900223061cdff1938c
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: f97140ffeed9115a0308215ea082baee611501fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008670"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009879"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Güncelleştirme yönetilen disk depolama türü
 
-Azure diskleri teklifler dört depolama türü seçenekleri yönetilen: Ultra yüksek katı hal sürücüleri (SSD), Premium SSD, standart bir SSD ve standart sabit disk sürücülerinin (HDD). Yönetilen disk performans ihtiyaçlarınıza göre en düşük kapalı kalma süresiyle depolama türleri arasında geçiş yapabilirsiniz. Depolama türleri arasında geçiş yapma, yönetilmeyen bir disk için desteklenmiyor; Ancak, kolayca [yönetilmeyen disk bir yönetilen diske dönüştürme](convert-unmanaged-to-managed-disks.md).
+Dört seçenek Azure yönetilen diskler: Ultra Azure Disk Depolama, Premium SSD, standart bir SSD ve standart HDD. Az kapalı kalma süresi ile performans ihtiyaçlarınıza göre bu depolama türleri arasında geçiş yapabilirsiniz. Bu işlev, yönetilmeyen diskler için desteklenmiyor. Ancak kolayca [yönetilmeyen disk bir yönetilen diske dönüştürme](convert-unmanaged-to-managed-disks.md) için disk türleri arasında geçiş yapabilirsiniz.
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Dönüştürme, sanal makine (VM) yeniden başlatılması gerektiğinden, diskleri depolama geçişini önceden var olan bir bakım penceresi sırasında zamanlamanız gerekir.
-* İlk yönetilmeyen disk kullanıyorsanız, [yönetilen diske dönüştürme](convert-unmanaged-to-managed-disks.md) depolama türleri arasında geçiş yapmanıza izin vermek için.
+* Dönüştürme sanal makine (VM) yeniden başlatılması gerektiğinden, disk depolama alanı geçişini önceden var olan bir bakım penceresi sırasında zamanlamanız gerekir.
+* İlk diskinizi yönetilmiyorsa, [yönetilen diske dönüştürme](convert-unmanaged-to-managed-disks.md) için depolama seçenekleri arasında geçiş yapabilirsiniz.
 
-## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium"></a>Bir VM'nin tüm yönetilen diskler için premium standart moddan Dönüştür
+## <a name="switch-all-managed-disks-of-a-vm-between-premium-and-standard"></a>Premium ve standart arasında bir VM'nin tüm yönetilen disklere geçin
 
-Aşağıdaki örnek, tüm diskleri VM standart katmandan premium depolamaya geçiş gösterilmektedir. Premium yönetilen diskler kullanmak için sanal makinenizin kullanmalısınız bir [VM boyutu](sizes.md) , premium depolamayı destekler. Bu örnek ayrıca premium Depolama'yı destekleyen bir boyuta geçer:
+Bu örnek, Premium depolama için standart veya Premium standart depolama için bir sanal makinenin diskleri dönüştürme gösterilmektedir. Premium yönetilen diskleri kullanmak için sanal makinenizin kullanmalısınız bir [VM boyutu](sizes.md) , Premium depolamayı destekler. Bu örnek ayrıca premium Depolama'yı destekleyen bir boyuta geçer:
 
 ```azurepowershell-interactive
 # Name of the resource group that contains the VM
@@ -49,7 +49,7 @@ $vmName = 'yourVM'
 $storageType = 'Premium_LRS'
 
 # Premium capable size
-# Required only if converting storage from standard to premium
+# Required only if converting storage from Standard to Premium
 $size = 'Standard_DS2_v2'
 
 # Stop and deallocate the VM before changing the size
@@ -57,15 +57,15 @@ Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
 
 $vm = Get-AzVM -Name $vmName -resourceGroupName $rgName
 
-# Change the VM size to a size that supports premium storage
-# Skip this step if converting storage from premium to standard
+# Change the VM size to a size that supports Premium storage
+# Skip this step if converting storage from Premium to Standard
 $vm.HardwareProfile.VmSize = $size
 Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 # Get all disks in the resource group of the VM
 $vmDisks = Get-AzDisk -ResourceGroupName $rgName 
 
-# For disks that belong to the selected VM, convert to premium storage
+# For disks that belong to the selected VM, convert to Premium storage
 foreach ($disk in $vmDisks)
 {
     if ($disk.ManagedBy -eq $vm.Id)
@@ -79,9 +79,9 @@ foreach ($disk in $vmDisks)
 Start-AzVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="convert-a-managed-disk-from-standard-to-premium"></a>Yönetilen disk standart katmandan premium Dönüştür.
+## <a name="switch-individual-managed-disks-between-standard-and-premium"></a>Standart ve Premium arasında bireysel yönetilen disklere geçin
 
-Geliştirme/test yükünüz için maliyetlerinizi azaltmak için standart ve premium diskler bir karışımını isteyebilirsiniz. Bunu yapmak için daha iyi performans gerektiren diskler için premium depolama yükseltin. Aşağıdaki örnek, tek bir disk, standart bir VM'den premium depolamaya geçiş işlemi gösterilmektedir ve bunun tersi de geçerlidir. Premium yönetilen diskler kullanmak için sanal makinenizin kullanmalısınız bir [VM boyutu](sizes.md) , premium depolamayı destekler. Bu örnek ayrıca premium Depolama'yı destekleyen bir boyut için geçiş işlemini gösterir:
+Geliştirme/test yükünüz için maliyetlerinizi azaltmak için standart ve Premium diskler bir karışımını isteyebilirsiniz. Daha iyi performans gerektiren diskleri yükseltmeyi seçebilir. Bu örnek, Premium depolama için standart veya Premium standart depolama için tek bir VM disk dönüştürme gösterilmektedir. Premium yönetilen diskleri kullanmak için sanal makinenizin kullanmalısınız bir [VM boyutu](sizes.md) , Premium depolamayı destekler. Bu örnek ayrıca Premium Depolama'yı destekleyen bir boyut için geçiş işlemini gösterir:
 
 ```azurepowershell-interactive
 
@@ -103,8 +103,8 @@ Stop-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Nam
 
 $vm = Get-AzVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name 
 
-# Change the VM size to a size that supports premium storage
-# Skip this step if converting storage from premium to standard
+# Change the VM size to a size that supports Premium storage
+# Skip this step if converting storage from Premium to Standard
 $vm.HardwareProfile.VmSize = $size
 Update-AzVM -VM $vm -ResourceGroupName $rgName
 
@@ -116,24 +116,24 @@ Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
 
-## <a name="convert-managed-disks-from-standard-to-premium-in-azure-portal"></a>Azure Portalı'nda premium yönetilen diskler standart Dönüştür
+## <a name="convert-managed-disks-from-standard-to-premium-in-the-azure-portal"></a>Yönetilen diskler standart katmandan Premium Azure Portalı'nda Dönüştür
 
-Yönetilen disk Standart'tan Azure portalında premium dönüştürebilirsiniz.
+Şu adımları uygulayın:
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. VM listesinden seçin **sanal makineler** portalında.
-3. VM durdurulmamışsa tıklayın **Durdur** üst kısmındaki VM'e genel bakış dikey penceresinde ve durdurmak sanal makine için bekleyin.
-3. VM dikey penceresinde, seçin **diskleri** menüsünde.
+3. VM durduruldu değil, seçin **Durdur** VM üst kısmındaki **genel bakış** bölmesi ve durdurmak sanal makine için bekleyin.
+3. VM için bölmesinde seçin **diskleri** menüsünde.
 4. Dönüştürmek istediğiniz diski seçin.
 5. Seçin **yapılandırma** menüsünde.
 6. Değişiklik **hesap türü** gelen **standart HDD** için **Premium SSD**.
-7. Tıklayın **Kaydet** ve disk dikey penceresini kapatın.
+7. Tıklayın **Kaydet**ve disk bölmesini kapatın.
 
-Disk türü güncelleştirme etkilidir anlık. Dönüştürme işleminden sonra sanal Makinenizin yeniden başlatabilirsiniz.
+Disk türü anlık dönüştürmedir. Dönüştürme işleminden sonra sanal Makinenizin yeniden başlatabilirsiniz.
 
-## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd"></a>Yönetilen disk için standart SSD standart HDD dönüştürme
+## <a name="switch-managed-disks-between-standard-hdd-and-standard-ssd"></a>Standart HDD ve SSD standart arasında yönetilen disklere geçin 
 
-Aşağıdaki örnek, tek bir standart HDD bir VM'den için standart SSD disk geçiş işlemi gösterilmektedir ve bunun tersi de geçerlidir:
+Bu örnek, tek bir sanal makine diski standart HDD'den SSD'ye standart ya da standart HDD'ye standart SSD dönüştürme gösterilmektedir:
 
 ```azurepowershell-interactive
 
@@ -164,4 +164,3 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bir VM salt okunur bir kopyasını kullanarak olun bir [anlık görüntü](snapshot-copy-managed-disk.md).
-

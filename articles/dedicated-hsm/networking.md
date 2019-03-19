@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: d872c4eff3d55ddf5d98243055e831a7a223a8ef
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: aed0eb6ba4cdaa57d282ac4484e0c27c0697afb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115462"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58083139"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Azure ayrılmış HSM ağ
 
@@ -51,8 +51,8 @@ Bir HSM cihazını HSM cihazını bir tümleştirme azure'a yerleştirilmesi ger
 Bulut tabanlı kaynaklar oluşturulurken özel bir bağlantı şirket içi geri için tipik bir gereksinim olduğu BT kaynakları. Ayrılmış HSM söz konusu olduğunda, bu genellikle HSM cihazları yapılandırmak HSM istemci yazılımının ve yedeklemeleri ve günlükleri, analiz için HSM'ler alınan gibi etkinlikler için de olacaktır. Seçenekleri gibi bir anahtar karar noktası bağlantısının doğasını ' dir.  Büyük olasılıkla olacaktır (HSM'ler dahil) kaynaklarla Azure bulutunda güvenli iletişim gerektiren birden çok şirket içi kaynaklara en esnek seçeneği siteden siteye VPN aynıdır. Bu bağlantıyı kolaylaştırmak için bir VPN cihazı için bir müşteri kuruluş gerektirir. Noktadan siteye VPN bağlantısı, şirket içi bir tek yönetim iş istasyonu gibi tek bir uç nokta varsa kullanılabilir.
 Bağlantı seçenekleri hakkında daha fazla bilgi için bkz. [VPN Gateway planlama seçenekleri](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable).
 
->[!NOTE]
-Şu anda ExpressRoute, şirket içi kaynaklara bağlantı için bir seçenek değil. Bu da unutulmamalıdır ExpressRoute ağ geçidini yukarıda açıklanan şekilde kullanılan, bağlantıları şirket içi altyapı için uygun değildir.
+> [!NOTE]
+> Şu anda ExpressRoute, şirket içi kaynaklara bağlantı için bir seçenek değil. Bu da unutulmamalıdır ExpressRoute ağ geçidini yukarıda açıklanan şekilde kullanılan, bağlantıları şirket içi altyapı için uygun değildir.
 
 ### <a name="point-to-site-vpn"></a>Noktadan siteye VPN
 
@@ -80,8 +80,8 @@ HSM cihazlarına, alternatif bir HSM'ye trafiği yönlendirmek için yazılım k
 
 Global olarak dağıtılmış uygulamaları veya yüksek kullanılabilirlik bölgesel yük devretme senaryolarını bölgelerdeki sanal ağları bağlamak için gereklidir. Azure ayrılmış HSM ile iki sanal ağ arasında güvenli bir tünel sağlayan VPN ağ geçidi kullanarak yüksek kullanılabilirlik sağlanabilir. Vnet-Vnet bağlantıları hakkında daha fazla bilgi için VPN ağ geçidini kullanarak başlıklı makaleye bakın [VPN ağ geçidi nedir?](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V)
 
->[!NOTE]
-Küresel Vnet eşlemesi, ayrılmış HSM'ler senaryolarıyla bu zamanda ve VPN ağ geçidi bunun yerine kullanılması gereken bölgeler arası bağlantısı kullanılamıyor. 
+> [!NOTE]
+> Küresel Vnet eşlemesi, ayrılmış HSM'ler senaryolarıyla bu zamanda ve VPN ağ geçidi bunun yerine kullanılması gereken bölgeler arası bağlantısı kullanılamıyor. 
 
 ![Genel sanal ağ](media/networking/global-vnet.png)
 

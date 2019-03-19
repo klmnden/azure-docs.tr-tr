@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: c6763580a6693020c497c500342ff3ae4dc840d4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: fd1c130e9228f334889668f66927dece2425b39f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339237"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090687"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux’ta HDInsight kullanma ile ilgili bilgiler
 
@@ -114,7 +114,8 @@ Azure depolama ya da Data Lake Storage kullanırken, verilere erişmek için HDI
 
 HDInsight veri depolama kaynaklarını (Azure Blob Depolama ve Azure Data Lake depolama), bilgi işlem kaynaklarından birbirinden ayrılmıştır. Bu nedenle, gereksinim ve iş tamamlandığında, daha sonra kümeyi silmek hesaplama yapmak için HDInsight kümeleri oluşturabilir, ihtiyacınız olduğu sürece bu arada, veri dosyalarını tutmak güvenli bir şekilde bulut depolamada kalıcı olan.
 
-### <a name="uri-and-scheme"></a>URI ve düzeni
+
+### <a name="URI-and-scheme"></a>URI ve düzeni
 
 Bazı komutlar düzeni URI'ın bir parçası olarak bir dosyaya erişirken belirlemenizi gerektirebilir. Örneğin, Storm-HDFS bileşen düzeni belirtmenizi gerektirir. Varsayılan olmayan depolama ("ek" depolama alanı olarak kümeye eklenen depolama) kullanırken, URI'ın bir parçası olarak her zaman şeması kullanması gerekir.
 

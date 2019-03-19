@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 145c6ac01cce9a70f3753b54a46638bf9d9c23b4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e72b115420e49a50f18ae9a27c6243394427ea4a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729755"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000412"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Market listelemesi yönergeleri
 
@@ -72,16 +72,18 @@ Tüm teklifleri karşılamalıdır [listeleme tüm gereksinimleri](https://docs.
 ----
 
 ## <a name="container-offer-requirements"></a>Kapsayıcı teklif gereksinimleri
+
 |  | Liste öğesi | Temel gereksinimleri | En iyi gereksinimleri | 
 |:--- |:--- |:--- |:--- |
 |1 |Teklif ayarları | <br>• Teklif kimliği: En çok 50 karakter <br>• Yayımcı kimliği: Açılan listeden seçin <br>• Adı: En çok 50 karakter | Başlık stili açıklama içinde zaten kullanılabilir istemediğiniz yansıtmalar başlıkları uzun. | 
-| 2 | SKU'lar | İş ortağı yeni SKU'larında tıklar.| Başlık stili açıklama içinde zaten kullanılabilir istemediğiniz yansıtmalar başlıkları uzun.  |  |
+| 2 | SKU'lar | İş ortağı yeni SKU'larında tıklar.| Başlık stili açıklama içinde zaten kullanılabilir istemediğiniz yansıtmalar başlıkları uzun.  |
 | 3 | Market Yapıtları | Logo doğru görüntüleme |<br>• Logosu "Azure Portalı'nda biçimi büyük görüntüdür hero görüntüsü" içerir <br>• Logos: (48 x 48) küçük ve büyük (216 x 216) gereksinimleri verilmiştir. <br>• Hero resim gereksinimleri: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Ekran (en fazla 5):  CPP bir .png görüntü çözünürlüğü 1280 x 720 gerektirir.|
 | 4 | Tedarik Yönetimi |<br>• Sağlama Yönetimi: Müşteri adaylarınızı depolanacağı sistem seçin. <br>• Öğrenin, CRM sistemine bağlanmak [burada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
 
 ----
 
 ## <a name="consulting-offer-requirements"></a>Danışmanlık teklif gereksinimleri
+
 |  | Liste öğesi | Temel gereksinimleri | En iyi gereksinimleri |
 |:--- |:--- |:--- |:--- |
 | 1 | Teklif başlığı  |  <br>• Açıkça hizmet türü ve süresi şu biçimde listelemesi gerekir: ADI: SÜRE TÜRÜ. (yani, "Engagement sunar: 1 haftalık kavram kanıtı")  | <br>• Yayımcı adı yinelemez <br>Başlık stili tanımı zaten kullanılabilir • yansıtır-uzun başlıkları istiyor musunuz. | 

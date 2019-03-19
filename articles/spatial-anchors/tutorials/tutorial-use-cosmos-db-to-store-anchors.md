@@ -1,6 +1,6 @@
 ---
 title: Öğretici - oturumları ve Azure uzamsal yer işaretleri ve bir Azure Cosmos DB uç cihazları arasında paylaşma | Microsoft Docs
-description: Bu öğreticide, Azure Cosmos DB ile Unity bir arka uç hizmeti ile cihazlar arasındaki Azure uzamsal bağlantı tanımlayıcıları paylaşma hakkında bilgi edinin.
+description: Bu öğreticide, Azure Cosmos DB ile bir arka uç hizmetiyle Unity Android/iOS cihazları arasındaki Azure uzamsal bağlantı tanımlayıcıları paylaşma hakkında bilgi edinin.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f0cd42fc37727099ed95a1c6fc2d427b7862412e
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: b585b13f40be447a5c5a4b348efc28bf5171e210
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752146"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863194"
 ---
 # <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors-and-an-azure-cosmos-db-back-end"></a>Öğretici: Oturumlarda ve cihazlarda Azure uzamsal yer işaretleri ve bir Azure Cosmos DB uç arasında paylaşma
 
@@ -22,7 +22,7 @@ Bu öğreticide nasıl kullanılacağını gösterilecek [Azure uzamsal bağlay�
 1. Tek bir oturumda yer işaretleri oluşturmanız ve ardından aynı veya farklı cihazdaki başka bir oturumda bulun. Örneğin, başka bir gün.
 2. Aynı anda aynı yerde birden çok cihaz bulunabilir bağlantıları oluşturun.
 
-![Kalıcılık](./media/persistence.gif)
+![Kalıcılığı](./media/persistence.gif)
 
 [Azure uzamsal bağlayıcılarını](../overview.md) olan karma gerçeklik oluşturmanıza olanak sağlayan bir platformlar arası Geliştirici hizmeti deneyimleri konumlarına cihazlar arasında zaman içinde kalıcı nesneler kullanma. İşiniz bittiğinde, iki veya daha fazla cihaza dağıttığınız bir uygulamayı sahip olacaksınız. Azure uzamsal bir örneği tarafından oluşturulan bağlantıları başkalarına Cosmos DB kullanarak kendi tanımlayıcıları paylaşır.
 
@@ -37,7 +37,7 @@ Bu öğreticide nasıl kullanılacağını gösterilecek [Azure uzamsal bağlay�
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
-Bu, Unity ve Azure Cosmos DB Bu öğreticide kullanacaksınız ancak bunu yalnızca Azure uzamsal bağlantı tanımlayıcıları diğer cihazlar arasında paylaşmak nasıl bir örnek gösterecek şekilde olduğunu fark değer olur. Kullanıcı, diğer diller ve arka uç teknolojilerinden aynı hedefe ulaşmak için kullanabilirsiniz. Ayrıca, bu öğreticide kullanılan ASP.NET Core Web uygulaması üzerinde .NET Core 2.2 SDK bağımlılığı vardır. Normal Azure Web Apps üzerinde (Windows için) düzgün çalışıyor, ancak şu anda Linux için Azure Web Apps üzerinde çalışmaz.
+Bu, Unity ve Azure Cosmos DB Bu öğreticide kullanacaksınız ancak bunu yalnızca Azure uzamsal bağlantı tanımlayıcıları diğer cihazlar arasında paylaşmak nasıl bir örnek gösterecek şekilde olduğunu fark değer olur. Diğer diller ve arka uç teknolojilerinden aynı hedefe ulaşmak için kullanabilirsiniz. Ayrıca, bu öğreticide kullanılan ASP.NET Core Web uygulaması üzerinde .NET Core 2.2 SDK bağımlılığı vardır. Normal Azure Web Apps üzerinde (Windows için) düzgün çalışıyor, ancak şu anda Linux için Azure Web Apps üzerinde çalışmaz.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -46,6 +46,10 @@ Bu, Unity ve Azure Cosmos DB Bu öğreticide kullanacaksınız ancak bunu yalnı
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../../includes/cosmos-db-create-dbaccount-table.md)]
 
 Not `Connection String` daha sonra kullanılır.
+
+## <a name="open-the-sample-project-in-unity"></a>Örnek Proje içinde Unity açın
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 ## <a name="deploy-your-sharing-anchors-service"></a>Paylaşım, yer işaretleri hizmetini dağıtma
 

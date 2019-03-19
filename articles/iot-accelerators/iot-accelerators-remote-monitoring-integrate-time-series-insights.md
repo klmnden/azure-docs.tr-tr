@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 655d65ebfbb0141acd829a64414d9ba20dd2c697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 850d8bbb525763e0e7d0c0441173180b7c469dd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633751"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085159"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Azure Time Series Insights’ı Uzaktan İzleme ile tümleştirme
 
@@ -92,11 +92,12 @@ IOT hub'ınıza bağlanmak için yeni bir olay kaynağı oluşturun. Önceki ad�
     | Kaynak | **IoT Hub’ı** |
     | İçeri aktarma seçeneği | **Mevcut aboneliklerden IOT hub'ı kullanın** |
     | Abonelik Kimliği | Açılan listeden Azure aboneliğinizi seçin. |
-    | IOT hub'ı adı | **contosorma57a6**. Uzaktan izleme çözümünüzden IOT hub'ınızın adını kullanın. |
-    | IOT hub'ı ilke adı | **iothubowner** kullanılan ilkeyi sahibi ilke olduğundan emin olun. |
-    | IOT hub'ı ilke anahtarı | Bu alan otomatik olarak doldurulur. |
-    | IOT hub tüketici grubu | **timeseriesinsights** |
-    | Olay serileştirme biçimi | **JSON**     | Zaman damgası özellik adı | Boş bırakın |
+    | Iot hub'ı adı | **contosorma57a6**. Uzaktan izleme çözümünüzden IOT hub'ınızın adını kullanın. |
+    | Iot hub'ı ilke adı | **iothubowner** kullanılan ilkeyi sahibi ilke olduğundan emin olun. |
+    | Iot hub'ı ilke anahtarı | Bu alan otomatik olarak doldurulur. |
+    | Iot hub'ı tüketici grubu | **timeseriesinsights** |
+    | Olay serileştirme biçimi | **JSON**     | 
+    | Zaman damgası özellik adı | Boş bırakın |
 
     ![Olay kaynağı oluşturma](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 

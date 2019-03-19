@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 38ab7b80e2f03176c3bedfd98a2d0e20fc02592b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 773e600577b35019b8a3619c7eec3e93b77a4382
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865901"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085805"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>PowerShell ile Azure Stack için yedeklemeyi etkinleştirme
 
@@ -51,9 +51,11 @@ Aynı PowerShell oturumunda, değişkenleri ortamınız için ekleyerek, aşağ�
 | $sharepath      | Yolunu yazın **yedekleme depolama konumu**. Ayrı bir cihazda barındırılan bir dosya paylaşımı yolu için bir Evrensel Adlandırma Kuralı (UNC) dize kullanmanız gerekir. Bir UNC dize paylaşılan dosyalarını veya cihazları gibi kaynakların konumunu belirtir. Yedekleme verilerini kullanılabilirliğini sağlamak için cihazı ayrı bir konumda olmalıdır. |
 | $frequencyInHours | Saat cinsinden ne sıklıkta belirler yedekler oluşturulur. 12 varsayılan değerdir. Zamanlayıcı, en fazla 12 ve en az 4 destekler.|
 | $retentionPeriodInDays | Gün cinsinden saklama süresi, kaç güne kadar yedek bir dış konuma göre korunur belirler. Varsayılan değer 7'dir. Zamanlayıcı, en fazla 14 ve en az 2 destekler. Yedekleri saklama süresinden daha eski bir dış konumdan otomatik olarak silinir.|
-| $encryptioncertpath | Şifreleme sertifika yolu, dosya yolunu belirtir. Veri şifreleme için kullanılan ortak anahtarla CER dosyası. |
+| $encryptioncertpath | 1901 ve ötesinde geçerlidir.  Azure Stack modülü sürüm 1.7 ve sonrasındaki parametresi kullanılabilir. Şifreleme sertifika yolu, dosya yolunu belirtir. Veri şifreleme için kullanılan ortak anahtarla CER dosyası. |
+| $encryptionkey | Uygulanan 1811 derleme veya önceki bir sürümü. Parametresi, Azure Stack modülü sürüm 1.6 veya önceki bir sürümü kullanılabilir. Veri şifreleme için kullanılan şifreleme anahtarı. Kullanım [yeni AzsEncryptionKeyBase64](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) cmdlet'i yeni bir anahtar oluşturun. |
 |     |     |
 
+### <a name="enable-backup-on-1901-and-beyond-using-certificate"></a>1901 ve sertifika kullanılarak ötesinde yedeklemeyi etkinleştirme
 ```powershell
     # Example username:
     $username = "domain\backupadmin"
@@ -80,6 +82,25 @@ Aynı PowerShell oturumunda, değişkenleri ortamınız için ekleyerek, aşağ�
     # Set the backup settings with the name, password, share, and CER certificate file.
     Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionCertPath "c:\temp\cert.cer"
 ```
+### <a name="enable-backup-on-1811-or-earlier-using-certificate"></a>1811 ya da daha önce kullanarak bir sertifika yedeklemeyi etkinleştirme
+```powershell
+    # Example username:
+    $username = "domain\backupadmin"
+ 
+    # Example share path:
+    $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+
+    $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
+
+    # Create a self-signed certificate using New-SelfSignedCertificate, export the public key portion and save it locally.
+
+    $key = New-AzsEncryptionKeyBase64
+    $Securekey = ConvertTo-SecureString -String ($key) -AsPlainText -Force
+
+    # Set the backup settings with the name, password, share, and CER certificate file.
+    Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $Securekey
+```
+
    
 ##  <a name="confirm-backup-settings"></a>Yedekleme ayarlarını Onayla
 
@@ -119,7 +140,7 @@ Sonuç, aşağıdaki örnek çıktı gibi görünmelidir:
     BackupRetentionPeriodInDays : 5
    ```
 
-###<a name="azure-stack-powershell"></a>Azure Stack PowerShell 
+### <a name="azure-stack-powershell"></a>Azure Stack PowerShell 
 Altyapı yedeklemeyi yapılandırmak için PowerShell cmdlet Set-AzsBackupConfiguration ' dir. Önceki sürümlerde, cmdlet kümesi AzsBackupShare oluştu. Bu cmdlet, bir sertifikanın belirtilmesi gerekir. Altyapı yedeklemesine bir şifreleme anahtarı ile yapılandırıldıysa, şifreleme anahtarını güncelleştiremezsiniz veya özelliğini görüntüleyin. Yönetici PowerShell 1.6 sürümünü kullanmanız gerekir. 
 
 Altyapı yedekleme için 1901 güncelleştirmeden önce yapılandırıldıysa, şifreleme anahtarını görüntüleyin ve yönetici PowerShell 1.6 sürümünü kullanabilirsiniz. Sürüm 1.6 için şifreleme anahtarını güncelleştirmek için bir sertifika dosyası izin vermez.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b3b011d9789cbb3dcd8557eda1473b7fd2609075
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fa5dfabeae829d52475d2e3cd6ccb123d8308c7c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454292"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013566"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Geliştirme ve test için Azure depolama öykünücüsü kullanma
 
@@ -54,7 +54,7 @@ Depolama öykünücüsü, çalıştırdığınız ilk kez yerel depolama ortamı
 Varsayılan olarak yüklü depolama öykünücüsü `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 > [!TIP]
-> Kullanabileceğiniz [Microsoft Azure Depolama Gezgini](http://storageexplorer.com) yerel depolama öykünücüsü kaynak ile çalışmak için. Yüklü ve depolama öykünücüsü başlatıldı sonra "(Geliştirme)" için "Depolama hesapları altında" Depolama Gezgini'ni kaynakları ağacında arayın.
+> Kullanabileceğiniz [Microsoft Azure Depolama Gezgini](https://storageexplorer.com) yerel depolama öykünücüsü kaynak ile çalışmak için. Yüklü ve depolama öykünücüsü başlatıldı sonra "(Geliştirme)" için "Depolama hesapları altında" Depolama Gezgini'ni kaynakları ağacında arayın.
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Farklı bir SQL veritabanını kullanmak üzere depolama öykünücüsünü başlatma
@@ -64,15 +64,15 @@ Depolama öykünücüsü varsayılan LocalDB örnekten başka bir SQL veritaban�
 1. Bölümünde anlatıldığı gibi depolama öykünücüsü konsol penceresi açıyor [başlangıç ve depolama öykünücüsü başlatma](#start-and-initialize-the-storage-emulator) bölümü.
 1. Konsol penceresinde aşağıdaki komutu yazın. burada `<SQLServerInstance>` SQL Server örneğinin adıdır. Localdb'yi kullanmak üzere belirtin `(localdb)\MSSQLLocalDb` SQL Server örneği olarak.
 
-  `AzureStorageEmulator.exe init /server <SQLServerInstance>`
+   `AzureStorageEmulator.exe init /server <SQLServerInstance>`
 
-  Varsayılan SQL Server örneğini kullanacak şekilde öykünücü yönlendirir aşağıdaki komutu kullanabilirsiniz:
+   Varsayılan SQL Server örneğini kullanacak şekilde öykünücü yönlendirir aşağıdaki komutu kullanabilirsiniz:
 
-  `AzureStorageEmulator.exe init /server .`
+   `AzureStorageEmulator.exe init /server .`
 
-  Veya, varsayılan LocalDB örneğini veritabanına yeniden başlatır aşağıdaki komutu kullanabilirsiniz:
+   Veya, varsayılan LocalDB örneğini veritabanına yeniden başlatır aşağıdaki komutu kullanabilirsiniz:
 
-  `AzureStorageEmulator.exe init /forceCreate`
+   `AzureStorageEmulator.exe init /forceCreate`
 
 Bu komutlar hakkında daha fazla bilgi için bkz. [depolama öykünücüsü komut satırı aracını referans](#storage-emulator-command-line-tool-reference).
 
@@ -91,7 +91,7 @@ Bağlantı dizeleri hakkında daha fazla bilgi için bkz. [yapılandırma Azure 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Xamarin kitaplığı gibi bazı Azure depolama istemci kitaplıkları, yalnızca paylaşılan erişim imzası (SAS) belirteci ile kimlik doğrulamasını destekler. Bir aracı gibi kullanarak SAS belirteci oluşturabilirsiniz [Depolama Gezgini](http://storageexplorer.com/) veya paylaşılan anahtar kimlik doğrulamasını destekleyen başka bir uygulama.
+Xamarin kitaplığı gibi bazı Azure depolama istemci kitaplıkları, yalnızca paylaşılan erişim imzası (SAS) belirteci ile kimlik doğrulamasını destekler. Bir aracı gibi kullanarak SAS belirteci oluşturabilirsiniz [Depolama Gezgini](https://storageexplorer.com/) veya paylaşılan anahtar kimlik doğrulamasını destekleyen başka bir uygulama.
 
 Ayrıca, Azure PowerShell kullanarak bir SAS belirteci oluşturabilirsiniz. Aşağıdaki örnek, bir blob kapsayıcısı için tam izinlere sahip bir SAS belirteci oluşturur:
 
@@ -281,4 +281,4 @@ Depolama öykünücüsü burada döndürdü düzeltildi `DataServiceVersion` hiz
 
 * Platformlar arası, topluluk tarafından tutulan açık kaynak depolama öykünücüsü değerlendirmek [Azurite](https://github.com/arafato/azurite). 
 * [.NET kullanarak azure depolama örnekleri](../storage-samples-dotnet.md) Uygulamanızı geliştirirken kullanabileceğiniz birkaç kod örneklerinin bağlantılarını içerir.
-* Kullanabileceğiniz [Microsoft Azure Depolama Gezgini](http://storageexplorer.com) bulut depolama hesabı ve depolama öykünücüsünde kaynaklarla çalışmak için.
+* Kullanabileceğiniz [Microsoft Azure Depolama Gezgini](https://storageexplorer.com) bulut depolama hesabı ve depolama öykünücüsünde kaynaklarla çalışmak için.

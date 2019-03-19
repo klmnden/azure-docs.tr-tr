@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: eb1aa90cf7a1fafaa066e5a1109d1031b53034e2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: cefbd4f16902b3a6816ebb4e818a81b18ba00d54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756436"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995552"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Öğretici: Azure Kubernetes Service (AKS) uygulama güncelleştirme
 
@@ -65,7 +65,7 @@ docker-compose up --build -d
 
 ## <a name="test-the-application-locally"></a>Uygulamayı yerel olarak test etme
 
-Güncelleştirilmiş kapsayıcı görüntüsünde yaptığınız değişikliklerin göründüğünü doğrulamak için yerel web tarayıcısında http://localhost:8080 adresine gidin.
+Güncelleştirilmiş kapsayıcı görüntüsünde yaptığınız değişikliklerin göründüğünü doğrulamak için yerel web tarayıcısında `http://localhost:8080` adresine gidin.
 
 ![Azure’da Kubernetes kümesinin görüntüsü](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: jeedes
-ms.openlocfilehash: fb0ee0d2410df355d28bcb673f0edbb7bb9b2020
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8e72661bcb0e90be9b127d54cb3ddf6bb73ca7c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782216"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877471"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartvidio"></a>Öğretici: Smartvid.io ile Azure Active Directory Tümleştirme
 
@@ -140,7 +140,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

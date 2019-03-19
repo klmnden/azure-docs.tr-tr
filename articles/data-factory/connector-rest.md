@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 372275740b7d4fd757e97a3966e4e87c9d2de940
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 807a6b38b9f2cbe2a3c8787fe09c2ea14106a942
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105398"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864907"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory kullanarak bir REST uç noktasından veri kopyalama
 
@@ -65,7 +65,7 @@ Aşağıdaki özellikleri bağlantılı REST hizmeti için desteklenir:
 
 Ayarlama **authenticationType** özelliğini **temel**. Önceki bölümde açıklanan genel özelliklerine ek olarak aşağıdaki özellikleri belirtin:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | Kullanıcı adı | REST uç noktasına erişmek için kullanılacak kullanıcı adı. | Evet |
 | password | Kullanıcının parolasını ( **kullanıcıadı** değeri). Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için türü. Ayrıca [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
@@ -135,7 +135,7 @@ Ayarlama **authenticationType** özelliğini **AadServicePrincipal**. Önceki b�
 
 Ayarlama **authenticationType** özelliğini **ManagedServiceIdentity**. Önceki bölümde açıklanan genel özelliklerine ek olarak aşağıdaki özellikleri belirtin:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | aadResourceId | Belirtmek istediğiniz yetkilendirme için örneğin AAD kaynak `https://management.core.windows.net`.| Evet |
 
@@ -274,8 +274,8 @@ Normalde, REST API, makul sayıda altında tek bir istek, yanıt yükü boyutunu
 
 Bu genel bir REST Bağlayıcısı aşağıdaki sayfalandırma desenleri destekler: 
 
-* Sonraki isteğin mutlak URL özellik değeri geçerli bir yanıt gövdesindeki =
-* Sonraki isteğin mutlak URL üst bilgi değeri geçerli yanıt üst bilgilerinde =
+* Sonraki isteğin mutlak veya göreli URL'si özellik değeri geçerli bir yanıt gövdesindeki =
+* Sonraki isteğin mutlak veya göreli URL'si geçerli yanıt üst bilgilerinde de üst bilgi değeri =
 * Sonraki isteğin sorgu parametresi özellik değeri geçerli bir yanıt gövdesindeki =
 * Sonraki isteğin sorgu parametresi geçerli yanıt üst bilgilerinde de üst bilgi değeri =
 * Sonraki isteğin başlık özellik değeri geçerli bir yanıt gövdesindeki =
@@ -287,7 +287,7 @@ Bu genel bir REST Bağlayıcısı aşağıdaki sayfalandırma desenleri destekle
 
 | Anahtar | Açıklama |
 |:--- |:--- |
-| AbsoluteUrl | Sonraki istek için URL'yi belirtir. |
+| AbsoluteUrl | Sonraki istek için URL'yi belirtir. Bu olabilir **mutlak bir URL ya da göreli URL**. |
 | QueryParameters. *request_query_parameter* veya QueryParameters ['request_query_parameter'] | "request_query_parameter" kullanıcı-sonraki HTTP isteği URL'si bir sorgu parametresi adlarında başvuran tanımlanır. |
 | Üstbilgileri. *request_header* veya üstbilgisi ['request_header'] | "request_header" kullanıcı-sonraki HTTP isteği bir üst bilgi adı başvuran tanımlanır. |
 

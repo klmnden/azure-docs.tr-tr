@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f399cf55123ad6bc8ccb011c5d7d59f615af652d
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: ecf39623c70441e4b726221b4e92e2492370a9bc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904395"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846761"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>İletişim e-posta adresi ve telefon numarası gibi Azure hesap profili bilgilerinizi değiştirin
 
@@ -38,15 +38,15 @@ E-posta adresine hesap yönetici profilinde, abonelik faturalandırma ile ilgili
 
 ### <a name="can-notifications-be-sent-to-a-different-email-address-other-than-the-account-administrator-email-address-associated-with-my-account"></a>Bildirimleri farklı bir e-posta adresine hesabımla ilişkilendirilen Hesap Yöneticisi e-posta adresini diğer gönderilebilir mi?
 
-Evet. Hesabın e-posta adresinde bir hesap altındaki tüm abonelikler ile ilgili önemli bildirimleri alır. Bu nedenle, Hesap Yöneticisi düzenli olarak denetleyen bir ilgili kişi e-posta adresi belirtmeniz önerilir.
+Evet. Bir hesabın altında bulunan tüm aboneliklerle ilgili önemli bildirimler, hesaba eklenen e-posta adresine gönderilir. Bu nedenle, Hesap Yöneticisi düzenli olarak denetleyen bir ilgili kişi e-posta adresi belirtmeniz önerilir.
 
 ### <a name="can-i-change-the-account-administrator-email-address-in-my-profile"></a>Profilim Hesap Yöneticisi e-posta adresini değiştirebilir miyim?
 
-Evet. Hesap Yöneticisi olan bir Azure hesabı ayarlayın ve kimin hesap altındaki tüm abonelikler hakkında önemli e-posta bildirimleri alan bir kişidir. Hesap Yöneticisi düzenli olarak denetleyen bir ilgili kişi e-posta adresi belirtmenizi öneririz.
+Evet. Hesap Yöneticisi, Azure hesabını oluşturan ve hesabın altında bulunan tüm aboneliklerle ilgili önemli e-posta bildirimlerinin gönderildiği kişidir. Hesap Yöneticisi tarafından düzenli olarak kontrol edilen bir iletişim e-posta adresi belirtmenizi öneririz.
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>Profili e-postamı güncelleştirme oturum açma e-posta adresimi güncelleştirmesi mu?
 
-Hayır. Profili e-posta adresi güncelleştiriliyor, oturum açma e-posta adresini güncelleştirmez. Oturum açma e-posta adresinizi değiştirmek için hesabın sahipliğini aktarmak zorunda.
+Hayır. Profilinizdeki e-posta adresinizi güncelleştirdiğinizde oturum açarken kullandığınız e-posta adresi güncelleştirilmez. Oturum açarken kullandığınız e-posta adresini güncelleştirmek için hesabın sahipliğini aktarmanız gerekir.
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>Profil Adresim güncelleştirme fatura kredi kartı Adresim güncelleştirmesi mu?
 
@@ -54,9 +54,9 @@ Hayır. Profili e-posta adresi güncelleştiriliyor, oturum açma e-posta adresi
 
 ### <a name="why-cant-i-update-the-country"></a>Ülke neden güncelleştiremiyorum?
 
-Teknik kısıtlamalar nedeniyle, size var olan bir hesapta ülke değiştiremezsiniz. Ancak, istediğiniz ülkeyi içinde bir hesap oluşturun ve ardından ilgili hesabı hizmetlerinizi taşımak için Azure desteğine başvurun.
+Teknik kısıtlamalar nedeniyle var olan hesaplardaki ülke bilgisinin değiştirilmesine izin verilmemektedir. Ancak, istediğiniz ülkeyi içinde bir hesap oluşturun ve ardından ilgili hesabı hizmetlerinizi taşımak için Azure desteğine başvurun.
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 

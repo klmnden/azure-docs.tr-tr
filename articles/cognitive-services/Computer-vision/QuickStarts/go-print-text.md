@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 93b66424bcafc47c8f25854a1e2d2d39e8a2aa6e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1efbb963deb71f9fa35660ecb6111413e2553e4b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862131"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904329"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-go-in-computer-vision"></a>Hızlı Başlangıç: REST API kullanarak yazdırılan metin (OCR) ayıklayın ve görüntü işleme Git
 
@@ -220,10 +220,6 @@ Başarılı bir yanıt JSON biçiminde döndürülür. Örnek uygulama, aşağı
   "textAngle": 0
 }
 ```
-
-## <a name="clean-up-resources"></a>Kaynakları temizleme
-
-Artık gerekli değilse derlenmiş paketi ve içinden paketin derlenmiş olduğu dosyayı silin, ardından komut istemi penceresini ve metin düzenleyicisini kapatın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

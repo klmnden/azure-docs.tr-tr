@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: d69a2a26fb0b487a3efa4b5376ca6480569aa846
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9b6c0715cb85e245aba94adfb8b33d0d07ece9a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450898"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084421"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Öğretici: Azure Notification hubs'ı kullanarak belirli kullanıcılara anında iletme bildirimleri
 
@@ -64,7 +64,7 @@ Mobile Apps arka uç hizmetinize kullanmak istiyorsanız, bkz. [Mobile Apps ile 
    * **APNS**: Etiket ve Apple Platform Bildirim Hizmeti'ne bildirimi gönderilmesine izin vermek için anahtar.
    * **Alıcı Username:A** yer tutucu metinle UITextField *alıcı kullanıcı adı etiketi*hemen GCM etiket ve sol ve sağ kenar boşlukları ve GCM etiketinin altına kısıtlanmış.
 
-    Bazı bileşenler eklenmiştir [Notification hubs'ı (iOS) ile çalışmaya başlama](notification-hubs-ios-apple-push-notification-apns-get-started.md) öğretici.
+     Bazı bileşenler eklenmiştir [Notification hubs'ı (iOS) ile çalışmaya başlama](notification-hubs-ios-apple-push-notification-apns-get-started.md) öğretici.
 
 3. **CTRL** bileşenlerden görünüme sürükleyin `ViewController.h` ve bu yeni çıkışlar ekleyin.
 

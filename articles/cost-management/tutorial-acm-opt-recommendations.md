@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 6a26b4c08915b44d24290fde2c74d71b9362c11c
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 8471ae8ed0b391df11d81569b5660a2b098f5793
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338578"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000928"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Öğretici: Önerilerden maliyetlerini iyileştirme
 
@@ -41,7 +41,9 @@ Etkinlik için en az 14 gün etkin sanal makinelere sahip olmalıdır.
 
 ## <a name="view-cost-optimization-recommendations"></a>Maliyet iyileştirme önerileri görüntüleme
 
-Azure portalında, hizmetler listesinde **Maliyet Yönetimi + Faturalama**’ya tıklayın. Listenin altında sonra **maliyet Yönetimi**seçin **Danışmanı önerilerini**. Advisor maliyet önerileri gösterilir.
+İstenen kapsam bir abonelik için maliyet iyileştirme önerilerini görüntülemek için Azure portal ve select açın **Danışmanı önerilerini**.
+
+Bir yönetim grubu için öneriler görüntülemek için istenen kapsamı, Azure portal ve select açın **maliyet analizi** menüsünde. Kullanım **kapsam** zehirli bir yönetim grubu gibi farklı bir kapsam penceresine geçin. Seçin **Danışmanı önerilerini** menüsünde. Kapsamlar hakkında daha fazla bilgi için bkz: [anlayın ve kapsamlı iş](understand-work-scopes.md).
 
 ![Azure portalında gösterilen maliyet Yönetimi Danışmanı önerileri](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 

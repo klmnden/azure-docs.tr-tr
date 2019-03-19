@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 946af124c5e16620c5052ac32d47ddb5fe4537d2
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 41b80e3914c93a4baeb39f35c7281f8fe81ff37c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406038"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835325"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analizi hakkında sık sorulan sorular
 
@@ -120,6 +120,12 @@ Hayır. Bir NSG akış günlükleri için etkinleştirdiğiniz tüm depolama hes
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Bir "Bulunamadı" hatası nedeniyle trafik analizi için bir NSG yapılandırma olamaz
 
 Desteklenen bir bölge seçin. Desteklenmeyen bir bölge seçin, bir "Bulunamadı" hatasını alıyorsunuz. Bu makalenin önceki bölümlerinde listelenen desteklenen bölgeler.
+
+## <a name="why-am-i-getting-the-error-failed-to-update-flow-logs-settings-for--internalservererror-when-enabling-nsgs-in-us-gov-virginia"></a>"İçin akış günlüğü ayarları güncelleştirmek için... başarısız hata neden alıyorum İç sunucu hatası..." NSG'DE'ın ABD Devleti Virginia etkinleştirilirken?
+
+'Microsoft.Network' kaynak sağlayıcısı ABD Devleti Virginia bir abonelik için yeniden kayıtlı olduğu bir hata nedeniyle budur. Ekip, sorunun üzerinde çalışıyor. Geçici bir çözüm olarak, gerekir ['Microsoft.Network' RP el ile yeniden kaydetmeniz](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
+
+Sorun devam ederse lütfen desteğe başvurun. 
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>Durum ne alıyorum "yüklenemedi," altında NSG akış günlükleri sayfası?
 

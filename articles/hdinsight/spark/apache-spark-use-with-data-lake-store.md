@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: d4228091c52e65da70d91fffd8af2f2472fa8f43
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 97a9d688eaa607df9677b6e1e2e3759cbe53bd5c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430565"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122546"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>Data Lake depolama Gen1 verilerini çözümlemek için HDInsight Spark kümesi kullanın
 
@@ -81,34 +81,34 @@ Ek depolama alanı ve varsayılan depolama alanı olarak Azure depolama blobu ol
 
 5. Örnek verileri kullanarak bir geçici tablosuna yükleme **HVAC.csv** dosya Data Lake depolama Gen1 hesabına kopyalanır. Aşağıdaki URL deseni kullanarak Data Lake Store hesabına verilerine erişebilir.
 
-    * Varsayılan depolama alanı olarak Data Lake depolama Gen1 varsa HVAC.csv yolda aşağıdaki URL'ye benzer olacaktır:
+   * Varsayılan depolama alanı olarak Data Lake depolama Gen1 varsa HVAC.csv yolda aşağıdaki URL'ye benzer olacaktır:
 
-            adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
+           adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 
-        Ya da kısaltılmış bir biçimi aşağıdaki gibi kullanabilirsiniz:
+       Ya da kısaltılmış bir biçimi aşağıdaki gibi kullanabilirsiniz:
 
-            adl:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
+           adl:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 
-    * Ek depolama alanı olarak Data Lake Storage varsa, gibi kopyaladığınız konuma HVAC.csv olacaktır:
+   * Ek depolama alanı olarak Data Lake Storage varsa, gibi kopyaladığınız konuma HVAC.csv olacaktır:
 
-            adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
+           adl://<data_lake_store_name>.azuredatalakestore.net/<path_to_file>
 
      Boş bir hücreye aşağıdaki kod örneği yapıştırın, yerine **MYDATALAKESTORE** Data Lake Store hesap adını ve basın **SHIFT + ENTER**. Bu kod örneği, verileri **hvac** adlı geçici bir tabloya kaydeder.
 
-            # Load the data. The path below assumes Data Lake Storage is default storage for the Spark cluster
-            hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/cluster/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+           # Load the data. The path below assumes Data Lake Storage is default storage for the Spark cluster
+           hvacText = sc.textFile("adl://MYDATALAKESTORE.azuredatalakestore.net/cluster/mysparkcluster/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
-            # Create the schema
-            hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
+           # Create the schema
+           hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
 
-            # Parse the data in hvacText
-            hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
+           # Parse the data in hvacText
+           hvac = hvacText.map(lambda s: s.split(",")).filter(lambda s: s[0] != "Date").map(lambda s:(str(s[0]), str(s[1]), int(s[2]), int(s[3]), str(s[6]) ))
 
-            # Create a data frame
-            hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
+           # Create a data frame
+           hvacdf = sqlContext.createDataFrame(hvac,hvacSchema)
 
-            # Register the data fram as a table to run queries against
-            hvacdf.registerTempTable("hvac")
+           # Register the data fram as a table to run queries against
+           hvacdf.registerTempTable("hvac")
 
 6. Bir PySpark çekirdeği kullandığınız için `%%sql` sihrini kullanarak yeni oluşturduğunuz **hvac** geçici tablosunda bundan böyle bir SQL sorgusunu doğrudan çalıştırabilirsiniz. Hakkında daha fazla bilgi için `%%sql` Sihirli yanı sıra PySpark çekirdeği kullanılabilen diğer sihirler bkz [Apache Spark HDInsight kümeleri ile Jupyter not defterlerinde kullanılabilen çekirdekler](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 

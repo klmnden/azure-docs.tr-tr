@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 56a4645c5f86e9f95e82533b7f5f81b7bca51e7b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 1b6419feef96b57bafd0831531bd8cfa56142cc4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245327"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089157"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud shell'de Bash için hızlı başlangıç
 
@@ -44,14 +44,14 @@ Ortam açılan sol tarafı Kabuk penceresinin bildiren bir onay `Bash`. <br>
 
 ### <a name="set-your-subscription"></a>Aboneliğinizi ayarlama
 1. Liste abonelikler erişebilirsiniz.
-```azurecli-interactive
-az account list
-```
+   ```azurecli-interactive
+   az account list
+   ```
 
 2. Tercih edilen aboneliğinizi ayarlayın: <br>
-```azurecli-interactive
-az account set --subscription my-subscription-name`
-```
+   ```azurecli-interactive
+   az account set --subscription my-subscription-name`
+   ```
 
 > [!TIP]
 > Aboneliğinizi kullanarak sonraki oturumlar için anımsanır `/home/<user>/.azure/azureProfile.json`.
@@ -77,26 +77,26 @@ Bu VM üzerinde kullanıcı adınızı Cloud Shell içinde kullanılan kullanıc
 ### <a name="ssh-into-your-linux-vm"></a>SSH Linux vm'nize
 1. Azure portal arama çubuğunda sanal Makinenizin adını arayın.
 2. VM adı ve genel IP adresini almak için "Bağlan" düğmesine tıklayın. <br>
-![](media/quickstart/sshcmd-copy.png)
+   ![](media/quickstart/sshcmd-copy.png)
 
 3. SSH ile VM'ye `ssh` cmd'yi
-```
-ssh username@ipaddress
-```
+   ```
+   ssh username@ipaddress
+   ```
 
 SSH bağlantısı kurulduktan sonra Ubuntu Hoş Geldiniz istemini görmeniz gerekir. <br>
 ![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Temizleme 
 1. Çıkış, ssh oturumu.
-```azurecli-interactive
-exit
-```
+   ```azurecli-interactive
+   exit
+   ```
 
 2. Kaynak grubunuzu ve içerdiği tüm kaynakları silin.
-```azurecli-interactive
-az group delete -n MyRG
-```
+   ```azurecli-interactive
+   az group delete -n MyRG
+   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Cloud Shell'deki Bash hizmetinde kalıcı dosyaları hakkında bilgi edinin](persisting-shell-storage.md) <br>

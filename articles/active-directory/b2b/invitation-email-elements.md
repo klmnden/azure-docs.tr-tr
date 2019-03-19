@@ -9,15 +9,15 @@ ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f701642c76446049ad2868ae59a03370e798b6a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453703"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014906"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B işbirliği davet e-- Azure Active Directory öğeleri
 
@@ -32,7 +32,7 @@ En iyi şekilde nasıl yeteneklerini kullanılacak bilmesi e-postanın bazı ö�
 E-postanın şu deseni izler: Davet ettiğiniz &lt;kiracıadı&gt; kuruluş
 
 ### <a name="from-address"></a>Gönderici adresi
-Bir LinkedIn desen Kimden adresi için kullanırız.  Davet eden olan temizleyin ve şirket, ve ayrıca bir Microsoft e-posta geldiğini açıklamak e-posta adresi gerekir. Biçimi şu şekildedir: &lt;Davet eden görünen adını&gt; gelen &lt;kiracıadı&gt; (Microsoft aracılığıyla) <invites@microsoft.com>
+Bir LinkedIn desen Kimden adresi için kullanırız.  Davet eden olan temizleyin ve şirket, ve ayrıca bir Microsoft e-posta geldiğini açıklamak e-posta adresi gerekir. Biçimi şu şekildedir: Microsoft Invitations <invites@microsoft.com> veya &lt;davet eden görünen adını&gt; gelen &lt;kiracıadı&gt; (Microsoft aracılığıyla) <invites@microsoft.com>.
 
 ### <a name="reply-to"></a>Yanıtla
 Yanıt için e-posta, davet eden'ın e-posta için kullanılabilir olduğunda, yeniden davet eden e-posta göndermesi için e-posta yanıtlama ayarlanır.
@@ -56,8 +56,12 @@ Profil resminizi henüz ayarlamadıysanız, davet eden'ın baş resmi yerine bir
 ### <a name="body"></a>Gövde
 Davet eden ne zaman ölçeklemesini ileti gövdesinde [directory, Grup veya uygulama için Konuk kullanıcı davet](add-users-administrator.md) veya [davet API kullanarak](customize-invitation-api.md). Güvenlik nedenleriyle HTML etiketlerini işlemek için bir metin alanı var.
 
+  ![e-posta gövdesi resmi](media/invitation-email-elements/invitation-email-body.png)
+
 ### <a name="footer-section"></a>Alt bilgi bölümü
-Alt bilgi, Microsoft şirket markası içerir ve e-posta izlenmeyen bir diğer addan gönderildiğini bilmeniz alıcı olanak tanır. Özel durumlar:
+Alt bilgi, Microsoft şirket markası içerir ve e-posta izlenmeyen bir diğer addan gönderildiğini bilmeniz alıcı olanak tanır. 
+
+Özel durumlar:
 
 - Davet eden, davet eden Kiracı içinde bir e-posta adresi yok
 

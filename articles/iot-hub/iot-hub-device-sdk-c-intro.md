@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: fe34668577efb1552731af7760896bccbb99cf67
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: a0099fa085e21c381b74dc2690ffcf0870345f21
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992360"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C için Azure IOT cihaz SDK'sı
 
@@ -89,7 +89,7 @@ Device explorer aracı ile ilgili bilgi sahibi değilseniz, aşağıdaki yordam�
 
 1. Programını çalıştırdığınızda, bu arabirim bakın:
 
-  ![Device Explorer İkizi ekran görüntüsü](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
+   ![Device Explorer İkizi ekran görüntüsü](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
 
 1. Girin, **IOT Hub bağlantı dizesine** ilk alan tıklayıp **güncelleştirme**. Bu adım, IOT Hub ile iletişim kurabilmesi için Aracı'nı yapılandırır. 
 
@@ -97,17 +97,17 @@ Device explorer aracı ile ilgili bilgi sahibi değilseniz, aşağıdaki yordam�
 
 1. IOT Hub bağlantı dizesine yapılandırıldığında tıklayın **Yönetim** sekmesinde:
 
-  ![Device Explorer İkizi / yönetim ekran görüntüsü](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
+   ![Device Explorer İkizi / yönetim ekran görüntüsü](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
 
 Bu sekme, IOT hub'ına kayıtlı cihazları yönettiğiniz kullanılabilir.
 
 1. Tıklayarak bir cihaz oluşturun **Oluştur** düğmesi. Bir iletişim kutusu, bir dizi önceden doldurulmuş anahtarlar (birincil ve ikincil) birlikte görüntüler. Girin bir **cihaz kimliği** ve ardından **Oluştur**.
 
-  ![Cihaz ekran oluşturma](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
+   ![Cihaz ekran oluşturma](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
 
 1. Cihaz oluşturulduğunda, cihazları yeni oluşturduğunuz de dahil olmak üzere tüm kayıtlı cihazlarla güncelleştirmeleri listeleyin. Yeni Cihazınızı sağ tıkladığınızda bu menü bakın:
 
-  ![Device Explorer İkizi sağ sonucu](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
+   ![Device Explorer İkizi sağ sonucu](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
 
 1. Seçerseniz **seçili cihaz için bağlantı dizesini kopyalayın**, cihaz bağlantı dizesini panoya kopyalandı. Cihaz bağlantı dizesini bir kopyasını tutun. Aşağıdaki bölümlerde açıklanan örnek uygulamaları çalıştırırken gerekir.
 
@@ -351,7 +351,7 @@ Kavramsal olarak **seri hale getirici** kitaplığı yer alan üst kısmındaki 
 
 Önceki örnekte, bu paketlerin en gördüğünüz ancak **Microsoft.Azure.IoTHub.Serializer** yenidir. Bu paket kullandığınızda gereklidir **seri hale getirici** kitaplığı.
 
-Örnek uygulamada uygulamasını bulabilirsiniz ***iothub_client\_örnekleri\_iothub_convenience_sample** dosya.
+Örnek uygulamada uygulamasını bulabilirsiniz **iothub_client\_örnekleri\_iothub_convenience_sample** dosya.
 
 Aşağıdaki bölümlerde, bu örnek anahtar bölümleri arasında yol.
 

@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.openlocfilehash: 6509db136524d90db11b83acb701bda71c541060
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 54a7f308163cb2463554da32f0fae8b897c0742f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882629"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080548"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak akış verileri üzerinde yaklaşım analizi
 
@@ -41,7 +41,11 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Ön koşullar
+> [!Note]
+> Kullanarak bu öğreticiyi gerçekleştirilmesi **Azure ücretsiz deneme aboneliği**.
+> Azure Databricks kümesini oluşturmak için ücretsiz hesap oluşturmak istiyorsanız kümeyi oluşturmadan önce profilinize gidin ve aboneliğini **kullandıkça öde** modeline geçirin. Daha fazla bilgi için bkz. [Ücretsiz Azure hesabı](https://azure.microsoft.com/free/).
+
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce aşağıdaki gereksinimlerin karşılandığından emin olun:
 - Azure Event Hubs ad alanı.
@@ -97,11 +101,11 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
 
     Aşağıdakiler dışında diğer tüm varsayılan değerleri kabul edin:
 
-    * Küme için bir ad girin.
-    * Bu makale için **4.0 (beta)** çalışma zamanıyla bir küme oluşturun.
-    * **\_\_ dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiğinizden emin olun. Küme kullanılmazsa kümenin sonlandırılması için biz süre (dakika cinsinden) belirtin.
+   * Küme için bir ad girin.
+   * Bu makale için **4.0 (beta)** çalışma zamanıyla bir küme oluşturun.
+   * **\_\_ dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiğinizden emin olun. Küme kullanılmazsa kümenin sonlandırılması için biz süre (dakika cinsinden) belirtin.
 
-    **Küme oluştur**’u seçin. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleyebilir ve Spark işleri çalıştırabilirsiniz.
+     **Küme oluştur**’u seçin. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleyebilir ve Spark işleri çalıştırabilirsiniz.
 
 ## <a name="create-a-twitter-application"></a>Twitter uygulaması oluşturma
 
@@ -125,16 +129,16 @@ Twitter uygulaması için aldığınız değerleri kaydedin. Öğreticinin sonra
 
 Bu öğreticide, Event Hubs’a tweet’ler göndermek için Twitter API’lerini kullanırsınız. Azure Event Hubs’a verileri okuyup yazmak için de [Apache Spark Event Hubs bağlayıcısını](https://github.com/Azure/azure-event-hubs-spark) kullanırsınız. Kümenizin parçası olarak bu API’leri kullanmak için, Azure Databricks’e bunları kitaplıklar olarak ekler ve sonra Spark kümenizle ilişkilendirirsiniz. Aşağıdaki yönergeler, çalışma alanınızda **Paylaşılan** klasörüne kitaplığın nasıl ekleneceğini göstermektedir.
 
-1.  Azure Databricks çalışma alanında **Çalışma Alanı**’nı seçin ve sonra **Paylaşılan**’a sağ tıklayın. Bağlam menüsünden **Oluştur** > **Kitaplık** seçeneklerini belirleyin.
+1. Azure Databricks çalışma alanında **Çalışma Alanı**’nı seçin ve sonra **Paylaşılan**’a sağ tıklayın. Bağlam menüsünden **Oluştur** > **Kitaplık** seçeneklerini belirleyin.
 
-    ![Kitaplık ekle iletişim kutusu](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-option.png "Kitaplık ekle iletişim kutusu")
+   ![Kitaplık ekle iletişim kutusu](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-option.png "Kitaplık ekle iletişim kutusu")
 
 2. Yeni Kitaplık sayfasında **Kaynak** için **Maven Koordinatı**’nı seçin. **Koordinat** için, eklemek istediğiniz paketin koordinatını girin. Bu öğreticide kullanılan kitaplıklar için Maven koordinatları aşağıdaki gibidir:
 
-    * Spark Event Hubs bağlayıcısı - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
-    * Twitter API’si - `org.twitter4j:twitter4j-core:4.0.6`
+   * Spark Event Hubs bağlayıcısı - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
+   * Twitter API’si - `org.twitter4j:twitter4j-core:4.0.6`
 
-    ![Maven koordinatları sağlama](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Maven koordinatları sağlama")
+     ![Maven koordinatları sağlama](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Maven koordinatları sağlama")
 
 3. **Kitaplık Oluştur**’u seçin.
 
@@ -164,13 +168,13 @@ Bu öğreticide kullandığınız [Microsoft Bilişsel hizmetler metin analizi A
 
     ![Bilişsel hizmetler hesabı oluşturma](./media/databricks-sentiment-analysis-cognitive-services/create-cognitive-services-account.png "Bilişsel hizmetler hesabı oluşturma")
 
-    - Bilişsel Hizmetler hesabı için bir ad girin.
-    - Hesabın oluşturulacağı Azure aboneliğini seçin.
-    - Bir Azure konumu seçin.
-    - Hizmet için bir fiyatlandırma katmanı seçin. Bilişsel Hizmetler fiyatlandırması hakkında daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    - Yeni bir kaynak grubu oluşturun veya mevcut bir isteyip istemediğinizi belirtin.
+   - Bilişsel Hizmetler hesabı için bir ad girin.
+   - Hesabın oluşturulacağı Azure aboneliğini seçin.
+   - Bir Azure konumu seçin.
+   - Hizmet için bir fiyatlandırma katmanı seçin. Bilişsel Hizmetler fiyatlandırması hakkında daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cognitive-services/).
+   - Yeni bir kaynak grubu oluşturun veya mevcut bir isteyip istemediğinizi belirtin.
 
-    **Oluştur**’u seçin.
+     **Oluştur**’u seçin.
 
 5. Hesap oluşturulduktan sonra gelen **genel bakış** sekmesinde **erişim anahtarlarını gösterme**.
 

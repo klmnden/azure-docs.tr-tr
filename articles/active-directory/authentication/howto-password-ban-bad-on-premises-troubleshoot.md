@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63fdd60c4c462626cc43a7a453bddc0b020b92cf
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 760ad30daabee61300768b7c67824f39437ac87f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409899"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006961"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>Önizleme: Azure AD parola koruması sorunlarını giderme
 
@@ -37,7 +37,7 @@ Bu sorunun her zamanki nedeni, bir ara sunucu henüz kaydedilmemiş, ' dir. Kay�
 
 Ana bu sorunun DC aracı yönetici olay günlüğünde 30018 olayları belirtisidir. Bu, birkaç olası nedeni olabilir:
 
-1. DC aracının kayıtlı proxy(s) ağ bağlantısı izin vermeyen ağ yalıtılmış bir kısmını bulunur. Bu sorun, bu nedenle diğer DC aracıları, çoğaltma sysvol paylaşımının ilke dosyaları aracılığıyla yalıtılmış DC tarafından alınır, Azure tarafından sağlanan parola ilkelerini indirilebilmesi proxy(s) ile iletişim sürece expected\benign olabilir.
+1. DC aracının kayıtlı proxy(s) ağ bağlantısı izin vermeyen ağ yalıtılmış bir kısmında bulunur. Bu sorun, bu nedenle diğer DC aracıları, çoğaltma sysvol paylaşımının ilke dosyaları aracılığıyla yalıtılmış DC tarafından alınır, Azure tarafından sağlanan parola ilkelerini indirilebilmesi proxy(s) ile iletişim sürece expected\benign olabilir.
 
 1. Proxy ana makinenin RPC uç nokta Eşleyici uç noktasını (bağlantı noktası 135) erişimi engelliyor
 
@@ -63,13 +63,13 @@ KDS hizmeti başlangıç modu devre dışı olarak yapılandırılmışsa, Azure
 
 KDS hizmeti, hizmet yönetim MMC konsolu aracılığıyla ya da el ile başlatmak için bu sorun için basit bir test olduğu veya diğer hizmet Yönetim Araçları (örneğin, "net start kdssvc" bir komut istemi konsoldan çalıştırma) kullanarak. KDS hizmeti başarıyla başlatmak ve çalıştırmak için bekleniyor.
 
-En yaygın kök nedeni, Active Directory etki alanı denetleyicisi nesnesini varsayılan etki alanı denetleyicileri kuruluş dışında bulunan olmasıdır. Bu yapılandırma KDS hizmeti tarafından desteklenmiyor ve Azure AD parola koruması tarafından uygulanan bir kısıtlama değildir. Bu koşul için düzeltme etki alanı denetleyicisi nesnesini varsayılan etki alanı denetleyicileri OU altında bir konuma taşımaktır.
+Başlangıç erişememe KDS hizmeti için en yaygın kök nedeni, Active Directory etki alanı denetleyicisi nesnesini varsayılan etki alanı denetleyicileri kuruluş dışında bulunan olmasıdır. Bu yapılandırma KDS hizmeti tarafından desteklenmiyor ve Azure AD parola koruması tarafından uygulanan bir kısıtlama değildir. Bu koşul için düzeltme etki alanı denetleyicisi nesnesini varsayılan etki alanı denetleyicileri OU altında bir konuma taşımaktır.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Zayıf parolalarda kabul edilir ancak olmamalıdır
 
 Bu sorunu çeşitli nedenleri olabilir.
 
-1. DC aracılar indirilen bir ilke olamaz ya da mevcut ilkeleri şifresi çözülemiyor. Yukarıdaki konularında olası nedenleri kontrol edin.
+1. DC Aracısı bir ilkesini indiremiyorsunuz veya mevcut ilkeleri şifresi çözülemiyor. Yukarıdaki konularında olası nedenleri kontrol edin.
 
 1. Parola ilkesini zorunlu kıl modunda denetim için hala ayarlanmış durumda. Bu yapılandırma etkinse, Azure AD parola koruması portalı kullanarak zorla için yeniden yapılandırın. Bkz: [etkinleştirme parola koruması](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 

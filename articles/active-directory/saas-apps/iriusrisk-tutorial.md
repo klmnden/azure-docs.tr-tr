@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e39bdcde896bca094b60b87308127a6ea01f1dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4aecb2850f80f0991c7466b388147ab4b21c4780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169744"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170709"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Öğretici: IriusRisk ile Azure Active Directory Tümleştirme
 
@@ -40,7 +40,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 Azure AD Tümleştirmesi ile IriusRisk yapılandırmak için aşağıdaki öğeler gerekir:
 
 - Azure AD aboneliği
-- Abonelik IriusRisk çoklu oturum açma etkin
+- Abonelik bir IriusRisk çoklu oturum açma etkin
 
 > [!NOTE]
 > Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
@@ -89,7 +89,7 @@ Yapılandırma ve Azure AD çoklu oturum açma IriusRisk ile test etmek için a�
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[IriusRisk test kullanıcısı oluşturma](#create-a-iriusrisk-test-user)**  - kullanıcı Azure AD gösterimini bağlı IriusRisk Britta simon'un bir karşılığı vardır.
+1. **[Bir IriusRisk test kullanıcısı oluşturma](#create-a-iriusrisk-test-user)**  - kullanıcı Azure AD gösterimini bağlı IriusRisk Britta simon'un bir karşılığı vardır.
 1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
@@ -164,7 +164,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     d. **Oluştur**’a tıklayın.
  
-### <a name="create-a-iriusrisk-test-user"></a>IriusRisk test kullanıcısı oluşturma
+### <a name="create-an-iriusrisk-test-user"></a>Bir IriusRisk test kullanıcısı oluşturma
 
 Bu bölümün amacı IriusRisk Britta Simon adlı bir kullanıcı oluşturmaktır. IriusRisk tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa IriusRisk erişme denemesi sırasında oluşturulur.
 

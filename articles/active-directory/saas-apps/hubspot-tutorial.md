@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26fd70b80dd512b530d367d57cd9fc04ec28f27b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8bbb307654d4aaf753a4a3284875dee4f5707f2a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211708"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901749"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Öğretici: HubSpot ile Azure Active Directory Tümleştirme
 
@@ -187,7 +187,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -215,7 +215,7 @@ HubSpot söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir göre
 
     ![Çoklu oturum açmayı yapılandırın](./media/hubspot-tutorial/user2.png)
 
-5. Bir kullanıcı gibi e-posta adresini girin **brittasimon@contoso.com** içinde **Ekle e-posta addess(es)** textbox tıklayın **sonraki**.
+5. Bir kullanıcı gibi e-posta adresini girin **brittasimon\@contoso.com** içinde **Ekle e-posta addess(es)** textbox tıklayın **sonraki**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/hubspot-tutorial/user3.png)
 

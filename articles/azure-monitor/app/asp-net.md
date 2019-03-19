@@ -10,20 +10,20 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6b849ad72554af163d8ac3d5ff1248023dc71052
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 358ca13548f0215fabee949c5fa3dee64beb2d6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996966"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET web siteniz için Application Insights'ı ayarlama
 
 Bu yordam ASP.NET web uygulamanızı [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) hizmetine telemetri gönderecek şekilde yapılandırır. Kendi IIS sunucunuzda şirket içi olarak veya Bulut’ta barındırılan ASP.NET uygulamaları için çalışır. Uygulamanızın performansını ve nasıl kullanıldığını anlamanıza yardımcı olan grafikler ve güçlü bir sorgu dilinin yanı sıra hata ya da performans sorunları hakkında otomatik uyarılar alırsınız. Çoğu geliştirici, özellikleri bu haliyle mükemmel bulsa da, gerekirse telemetriyi genişletip özelleştirebilirsiniz.
 
-Visual Studio'da kurulum yalnızca birkaç tıklama ile yapılır. Telemetri hacmini sınırlayarak ücret doğmamasını sağlayabilirsiniz. Bunun yapılması, çok fazla kullanıcı olmadan bir siteyi deneyip hatalarını ayıklamanıza veya izlemenize olanak tanır. Devam edip üretim merkezinizi izlemeye karar verdiğinizde, sınırı daha sonra kolayca artırabilirsiniz.
+Visual Studio'da kurulum yalnızca birkaç tıklama ile yapılır. Telemetri hacmini sınırlayarak ücret doğmamasını sağlayabilirsiniz. Bu işlev deneyip hatalarını ayıklamanıza veya olmayan çok sayıda kullanıcı içeren bir site izlemenizi sağlar. Devam edip üretim merkezinizi izlemeye karar verdiğinizde, sınırı daha sonra kolayca artırabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Application Insights’ı ASP.NET web sitenize eklemek için şunu yapmanız gerekir:
@@ -37,11 +37,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 ## <a name="ide"></a> 1. adım: Application Insights SDK ekleme
 
 > [!IMPORTANT]
-> Application Insights ekleme işlemi, ASP.NET şablon türüne göre değişiklik gösterir. **Boş** bir şablon veya **Azure Mobil Uygulaması** şablonu kullanıyorsanız **Proje** > **Application Insights Telemetri Ekleme** seçeneğini belirleyin. Diğer tüm ASP.NET şablonları için aşağıdaki yönergelere başvurun. 
+> Bu örnekte ekran görüntüleri, Visual Studio 2017 sürüm 15.9.9 üzerinde temel alır. Application Insights ekleme deneyimi boyunca sürümleri Visual Studio 2017'in yanı sıra ASP.NET şablon türüne göre değişir. Eski sürümler "Application ınsights'ı Yapılandır" gibi alternatif metin olabilir.
 
-Çözüm Gezgini’nde web uygulamanızın adına sağ tıklayın ve **Application Insights’ı Yapılandır** seçeneğini belirleyin
+Çözüm Gezgini'nde web uygulamanızın adına sağ tıklayın ve seçin **Ekle** > **Application Insights Telemetrisi**
 
-![Application Insights’ı Yapılandır seçeneğinin vurgulandığı Çözüm Gezgini’nin ekran görüntüsü](./media/asp-net/0001-configure-application-insights.png)
+![Application Insights’ı Yapılandır seçeneğinin vurgulandığı Çözüm Gezgini’nin ekran görüntüsü](./media/asp-net/add-telemetry-new.png)
 
 (Application Insights SDK sürümünüze bağlı olarak, son SDK sürümüne güncelleştirme yapmanız istenebilir. İstenirse **SDK’yı güncelleştir**’i seçin.)
 
@@ -49,15 +49,15 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 Application Insights Yapılandırması ekranı:
 
-**Ücretsiz Olarak Başla**’yı seçin.
+Seçin **başlama**.
 
-![Uygulamanızı Application Insights'a kaydedin sayfasının ekran görüntüsü](./media/asp-net/0004-start-free.png)
+![Uygulamanızı Application Insights'a kaydedin sayfasının ekran görüntüsü](./media/asp-net/00004-start-free.png)
 
 Verilerin depolandığı kaynak grubunu veya konumu ayarlamak isterseniz **Ayarları yapılandır**'a tıklayın. Kaynak grupları, verilere erişimi denetlemek için kullanılır. Örneğin aynı sistemin parçalarını oluşturan birden uygulamanız varsa bunların Application Insights verilerini aynı kaynak grubuna ekleyebilirsiniz.
 
- **Kaydol**’u seçin. 
+ **Kaydol**’u seçin.
 
-![Uygulamanızı Application Insights'a kaydedin sayfasının ekran görüntüsü](./media/asp-net/0005-register-ed.png)
+![Uygulamanızı Application Insights'a kaydedin sayfasının ekran görüntüsü](./media/asp-net/00005-register-ed.png)
 
  Telemetri hem hata ayıklama sırasında hem de uygulamanızı yayımladıktan sonra [Azure portalına](https://portal.azure.com) gönderilir.
 > [!NOTE]
@@ -68,7 +68,7 @@ F5 tuşuna basarak uygulamanızı çalıştırın. Farklı sayfalar açarak tele
 
 Visual Studio'da günlüğe kaydedilmiş etkinliklerin sayısını görürsünüz.
 
-![Visual Studio’nun ekran görüntüsü. Hata ayıklama sırasında Application Insights düğmesi görünür.](./media/asp-net/0006-Events.png)
+![Visual Studio’nun ekran görüntüsü. Hata ayıklama sırasında Application Insights düğmesi görünür.](./media/asp-net/00006-Events.png)
 
 ## <a name="step-3-see-your-telemetry"></a>3. Adım: Telemetrinize bakma
 Visual Studio’da veya Application Insights web portalında telemetrinizi görebilirsiniz. Uygulamanızın hatalarını ayıklamanıza yardımcı olması için Visual Studio'da telemetri arayın. Sisteminiz canlıyken web portalında performans ve kullanımı izleyin. 
@@ -95,7 +95,7 @@ Application Insights kaynağınızı açın. [Azure portalında](https://portal.
 
 Portal, uygulamanızdan alınan telemetri görünümünde açılır.
 
-![Application Insights’a genel bakış sayfasının ekran görüntüsü](./media/asp-net/66.png)
+![Application Insights’a genel bakış sayfasının ekran görüntüsü](./media/asp-net/007.png)
 
 Daha fazla ayrıntı görmek için portalda istediğiniz kutucuğa veya grafiğe tıklayın.
 
@@ -117,8 +117,6 @@ Telemetrinizi tanılama araması ve [eğilimler](../../azure-monitor/app/visual-
 
 Tebrikler! Application Insights paketini uygulamanıza yüklediniz ve Azure üzerinde Application Insights hizmetine telemetri gönderecek şekilde yapılandırdınız.
 
-![Telemetri hareketlerinin diyagramı](./media/asp-net/01-scheme.png)
-
 Uygulamanızın telemetrisini alan Azure kaynağı bir *izleme anahtarı* ile tanımlanır. Bu anahtarı ApplicationInsights.config dosyasında bulabilirsiniz.
 
 
@@ -126,10 +124,6 @@ Uygulamanızın telemetrisini alan Azure kaynağı bir *izleme anahtarı* ile ta
 [SDK’nın yeni bir sürümüne](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases) yükseltme yapmak için, **NuGet paket yöneticisini** açıp yüklü paketleri filtreleyin. **Microsoft.ApplicationInsights.Web**’i seçip **Yükselt**’i seçin.
 
 ApplicationInsights.config’de herhangi bir özelleştirme gerçekleştirdiyseniz yükseltmeden önce dosyanın bir kopyasını kaydedin. Daha sonra, yaptığınız değişiklikleri yeni sürümle birleştirin.
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -155,7 +149,7 @@ ApplicationInsights.config’de herhangi bir özelleştirme gerçekleştirdiysen
 
 * [Kullanılabilirlik testleri](../../azure-monitor/app/monitor-web-app-availability.md): Sitenizin Web'de görünür olduğundan emin olmak için testler oluşturun.
 * [Akıllı tanılama](../../azure-monitor/app/proactive-diagnostics.md): Bunları ayarlamak için herhangi bir şey yapmak zorunda kalmamak için bu testler otomatik olarak çalıştırın. Uygulamanızda olağan dışı oranda başarısız istek olup olmadığını bildirirler.
-* [Ölçüm uyarıları](../../azure-monitor/app/alerts.md): Bu ölçüm bir eşiği aştığında sizi uyaracak ayarlayın. Bunları, uygulamanıza kodladığınız özel ölçümlerde ayarlayabilirsiniz.
+* [Ölçüm uyarıları](../../azure-monitor/app/alerts.md): Bir ölçüm eşiği aştığında sizi uyaracak uyarılar ayarlayın. Bunları, uygulamanıza kodladığınız özel ölçümlerde ayarlayabilirsiniz.
 
 ### <a name="automation"></a>Otomasyon
 

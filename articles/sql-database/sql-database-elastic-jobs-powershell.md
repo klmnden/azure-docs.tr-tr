@@ -11,19 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: dc9b58402ed0fcc48d60b51d30f891ffcadddbe0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 52a12486add25cd32400af755aa6cd8cac07c6f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315631"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905078"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>PowerShell (Önizleme) kullanarak SQL veritabanı esnek işler oluşturma ve yönetme
 
 İçin PowerShell API'lerini **elastik veritabanı işleri** (Önizleme), komut dosyaları çalıştırılacağı karşı veritabanlarından oluşan bir grupta tanımlamanıza olanak sağlar. Bu makale oluşturmak ve yönetmek nasıl **elastik veritabanı işleri** PowerShell cmdlet'lerini kullanarak. Bkz: [esnek işler genel bakış](sql-database-elastic-jobs-overview.md). 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Azure aboneliği. Ücretsiz deneme için bkz: [ücretsiz bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/).

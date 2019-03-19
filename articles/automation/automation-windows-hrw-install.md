@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a434453d6164dbb9fed7aebc3b3636b45daafa21
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d0a32f45326eb307bc31d10f4efb842d811a38c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313251"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842523"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows karma Runbook çalışanı dağıtma
 
@@ -138,14 +138,9 @@ Karma Runbook çalışanı özelliğini birincil amacı, yerel kaynakları yöne
 
 Yüklü modülleri tarafından başvurulan bir konumda olmalıdır **PSModulePath** ortam değişkeni böylece karma çalışanı bunları otomatik olarak aktarabilirsiniz. Daha fazla bilgi için [PSModulePath yükleme yolunu değiştirmek](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
 
-## <a name="troubleshoot"></a>Sorun giderme
-
-Sorun giderme, karma Runbook çalışanları öğrenmek için bkz [Windows karma Runbook çalışanları sorunlarını giderme](troubleshoot/hybrid-runbook-worker.md#windows)
-
-Güncelleştirme yönetimi ile ilgili sorunları giderme konusunda ek adımlar için bkz: [güncelleştirme yönetimi: sorun giderme](troubleshoot/update-management.md).
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Şirket içi veri merkezinizde veya diğer bulut ortamı işlemlerini otomatikleştirmek için runbook'larınızı yapılandırma konusunda bilgi için bkz: [bir karma Runbook çalışanı üzerinde runbook çalıştırma](automation-hrw-run-runbooks.md).
 * Karma Runbook çalışanlarını kaldırma yönergeleri için bkz: [Azure Otomasyon karma Runbook çalışanlarını kaldırma](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
-
+* Sorun giderme, karma Runbook çalışanları öğrenmek için bkz [Windows karma Runbook çalışanları sorunlarını giderme](troubleshoot/hybrid-runbook-worker.md#windows)
+* Güncelleştirme yönetimi ile ilgili sorunları giderme konusunda ek adımlar için bkz: [güncelleştirme yönetimi: sorun giderme](troubleshoot/update-management.md).

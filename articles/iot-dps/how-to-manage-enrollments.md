@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0970131c4b674fd864ad574b0f749cd6d7f6f2a2
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 51b072bfd0827528a5504133dff8c1cdd7a7ca86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056174"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089395"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Azure portalı ile cihaz kayıtlarını yönetme
 
@@ -28,15 +28,15 @@ Sağlama hizmeti ile cihazlarınızı kaydedebilirsiniz iki yolu vardır:
 
     Kayıt grubu portalında aşağıdaki adımları kullanarak cihazları bir grup oluşturabilirsiniz:
 
-    1. Azure portalında oturum açın ve tıklayın **tüm kaynakları** sol taraftaki menüden.  
-    1. Cihazınıza kaynakları listesinden kaydetmek istediğiniz cihaz sağlama hizmetine tıklayın.  
-    1. Sağlama hizmetinize:  
-       a. Tıklayın **kayıtları Yönet**, ardından **kayıt grupları** sekmesi.  
-       b. Üstteki **Ekle** düğmesine tıklayın.  
-       c. "Kayıt grubu Ekle" panelini göründüğünde, kayıt listesi girişi bilgilerini girin.  **Grup adı** gereklidir. Ayrıca "CA veya Ara" seçin **sertifika türü**ve kök karşıya **birincil sertifika** cihaz grubu için.  
-       d. **Kaydet**’e tıklayın. Oluşturma başarılı kayıt grubunuzun, grup adı altında gösterildiğini görmelisiniz **kayıt grupları** sekmesi.  
+  1. Azure portalında oturum açın ve tıklayın **tüm kaynakları** sol taraftaki menüden.  
+  1. Cihazınıza kaynakları listesinden kaydetmek istediğiniz cihaz sağlama hizmetine tıklayın.  
+  1. Sağlama hizmetinize:  
+     a. Tıklayın **kayıtları Yönet**, ardından **kayıt grupları** sekmesi.  
+     b. Üstteki **Ekle** düğmesine tıklayın.  
+     c. "Kayıt grubu Ekle" panelini göründüğünde, kayıt listesi girişi bilgilerini girin.  **Grup adı** gereklidir. Ayrıca "CA veya Ara" seçin **sertifika türü**ve kök karşıya **birincil sertifika** cihaz grubu için.  
+     d. **Kaydet**’e tıklayın. Oluşturma başarılı kayıt grubunuzun, grup adı altında gösterildiğini görmelisiniz **kayıt grupları** sekmesi.  
 
-       [![Portalda kayıt grubu](./media/how-to-manage-enrollments/group-enrollment.png)] (. / media/how-to-manage-enrollments/group-enrollment.png#lightbox)
+     [![Portalda kayıt grubu](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
 
 * Bir **bireysel kayıt** kaydedebilir, tek bir cihaz için bir giriş. Bireysel kayıtlar, ya da x509 kullanabilir sertifikalarını veya SAS belirteçlerini (bir fiziksel veya sanal'nden TPM) kanıtlama mekanizması olarak. Benzersiz ilk yapılandırma gerektiren cihazlar için veya kanıtlama mekanizması olarak TPM ya da sanal TPM aracılığıyla SAS belirteçleri yalnızca kullanabileceğiniz cihazlar için bireysel kayıtların kullanılmasını öneririz. Bireysel kayıtlar için istenen IoT hub cihazı kimliği belirtilmiş olabilir.

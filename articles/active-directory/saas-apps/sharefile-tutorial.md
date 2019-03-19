@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4086c6e591029c926dbf3b7c527ffd8d936bc79b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d5839329f78fc349210f9439c5b1580a21f5172a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760265"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834413"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Öğretici: Citrix ShareFile ile Azure Active Directory Tümleştirme
 
@@ -119,6 +119,7 @@ Citrix ShareFile ile Azure AD çoklu oturum açmayı yapılandırmak için aşa�
     | |
     
     c. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak:
+    
     | |
     |---|
     | `https://<tenant-name>.sharefile.com/saml/acs`|
@@ -186,7 +187,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -235,7 +236,7 @@ Citrix ShareFile açarken Azure AD kullanıcılarının etkinleştirmek için bu
    
     ![Temel bilgiler](./media/sharefile-tutorial/IC799951.png "temel bilgileri")
    
-    a. İçinde **e-posta adresi** metin Britta Simon e-posta adresini yazın **brittasimon@contoso.com**.
+    a. İçinde **e-posta adresi** metin Britta Simon e-posta adresini yazın **brittasimon\@contoso.com**.
    
     b. İçinde **ad** metin kutusuna **ad** kullanıcının **Britta**.
    

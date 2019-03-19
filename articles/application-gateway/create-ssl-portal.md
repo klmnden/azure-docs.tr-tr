@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 33e24a8d8715dd6f2b37ed566a1479dffd93c466
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 92db27aa486936d53c2e2e1c92db7d728b7d99c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308100"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091843"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Azure portalını kullanarak SSL sonlandırma ile bir uygulama ağ geçidi yapılandırma
 
@@ -78,12 +78,12 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
 4. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
 5. Tıklayın **bir sanal ağ seçin**, tıklayın **Yeni Oluştur**ve ardından sanal ağ için şu değerleri girin:
 
-    - *myVNet* - Sanal ağın adı.
-    - *10.0.0.0/16* - Sanal ağın adres alanı.
-    - *myAGSubnet* - Alt ağın adı.
-    - *10.0.0.0/24* - Alt ağın adres alanı.
+   - *myVNet* - Sanal ağın adı.
+   - *10.0.0.0/16* - Sanal ağın adres alanı.
+   - *myAGSubnet* - Alt ağın adı.
+   - *10.0.0.0/24* - Alt ağın adres alanı.
 
-    ![Sanal ağ oluşturma](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![Sanal ağ oluşturma](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. Sanal ağı ve alt ağı oluşturmak için **Tamam**’a tıklayın.
 7. Tıklayın **genel bir IP adresi seçin**, tıklayın **Yeni Oluştur**ve ardından genel IP adresini adını girin. Bu örnekte genel IP adresinin adı *myAGPublicIPAddress* şeklindedir. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
@@ -149,13 +149,13 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
 
 ### <a name="add-backend-servers"></a>Arka uç sunucuları ekleme
 
-3. Tıklayın **tüm kaynakları**ve ardından **myAppGateway**.
-4. **Arka uç havuzları** öğesine tıklayın. Uygulama ağ geçidi ile varsayılan bir havuz otomatik olarak oluşturulur. **appGatewayBackendPool** öğesine tıklayın.
-5. Tıklayın **Ekle hedef** arka uç havuzu için oluşturduğunuz her sanal makineye eklenecek.
+1. Tıklayın **tüm kaynakları**ve ardından **myAppGateway**.
+1. **Arka uç havuzları** öğesine tıklayın. Uygulama ağ geçidi ile varsayılan bir havuz otomatik olarak oluşturulur. **appGatewayBackendPool** öğesine tıklayın.
+1. Tıklayın **Ekle hedef** arka uç havuzu için oluşturduğunuz her sanal makineye eklenecek.
 
     ![Arka uç sunucuları ekleme](./media/create-ssl-portal/application-gateway-backend.png)
 
-6. **Kaydet**’e tıklayın.
+1. **Kaydet**’e tıklayın.
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme
 

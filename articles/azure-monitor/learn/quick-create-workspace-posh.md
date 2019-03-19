@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 06c878d3b3ad2fe3144d5e55c1a01880ddcab62c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 055daebb28131268e517845a47d4c39aba90f201
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312214"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871220"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Azure PowerShell ile bir Log Analytics çalışma alanı oluşturma
 
@@ -46,6 +46,8 @@ PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz Bu öğretici A
 
 ## <a name="create-a-workspace"></a>Çalışma alanı oluşturma
 Bir çalışma alanı ile [yeni AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Aşağıdaki örnekte adlı bir çalışma alanı oluşturur *TestWorkspace* kaynak grubundaki *Laboratuvar* içinde *eastus* yerel bir Resource Manager şablonu kullanarak konumu Makine. JSON şablonunu, çalışma alanının adı için yalnızca isteyecek şekilde yapılandırılmış ve büyük olasılıkla ortamınızdaki standart bir yapılandırma olarak kullanılacak diğer parametreler için varsayılan bir değer belirtir. 
+
+Desteklenen bölgeleri hakkında daha fazla bilgi için bkz: [Log Analytics'in sunulduğu bölgeler](https://azure.microsoft.com/regions/services/) ve Azure İzleyici'deki Ara **ürünü arama** alan. 
 
 Aşağıdaki parametreleri varsayılan değeri ayarlayın:
 
@@ -114,7 +116,7 @@ Aşağıdaki parametreleri varsayılan değeri ayarlayın:
     }
     ```
 
-2. Gereksinimlerinizi karşılayacak şekilde şablonunu düzenleyin.  Gözden geçirme [Microsoft.OperationalInsights/workspaces şablon](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) başvuru hangi özellikler ve değerler desteklendiğini öğrenin. 
+2. Gereksinimlerinizi karşılayacak şekilde şablonunu düzenleyin. Gözden geçirme [Microsoft.OperationalInsights/workspaces şablon](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) başvuru hangi özellikler ve değerler desteklendiğini öğrenin. 
 3. Bu dosyayı farklı Kaydet **deploylaworkspacetemplate.json** yerel bir klasöre.   
 4. Bu şablonu dağıtmaya hazırsınız. Şablonu içeren klasörden aşağıdaki komutları kullanın:
 

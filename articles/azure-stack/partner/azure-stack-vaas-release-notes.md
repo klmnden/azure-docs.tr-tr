@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 3cda9d487d9548251c68d61db51bf2fb826b6f79
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 96325d7c21ccf7d93deaafbad974009004030157
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775297"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091996"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Hizmet olarak doğrulama için sürüm notları
 
@@ -42,10 +42,10 @@ Bu makalede, bir hizmet olarak Azure Stack doğrulama için sürüm notları bul
 
 OEM güncelleştirme adıma aldıktan sonra Azure Stack aylık güncelleştirme doğrulama iş akışını çalıştırdığınız ve OEM Paket sürümü 1810 veya üzeri değilse, bir hata alırsınız. Bu bir hatadır. Bir düzeltme Geliştiriliyor. Risk azaltma adımlarını aşağıdaki gibidir:
 
-1.  OEM güncelleştirme normal olarak çalıştırın.
-2.  Paket başarılı uygulamadan sonra test AzureStack yürütme ve çıkış kaydedin.
-3.  Testi iptal edin.
-4.  Kaydedilen çıktı Gönder VaaSHelp@microsoft.com çalıştırmanın geçirme sonuçlarını almak için.
+1. OEM güncelleştirme normal olarak çalıştırın.
+2. Paket başarılı uygulamadan sonra test AzureStack yürütme ve çıkış kaydedin.
+3. Testi iptal edin.
+4. Kaydedilen çıktı Gönder VaaSHelp@microsoft.com çalıştırmanın geçirme sonuçlarını almak için.
 
 ## <a name="version-402"></a>Sürüm 4.0.2
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7432cbf8fae098c0753641f2002b72eaab3ddbb4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321747"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57851372"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Öğretici: ASP.NET Core Web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmetiyle uygulama oluşturma ve dağıtma
 
@@ -187,7 +187,7 @@ ASP.NET uygulaması için varsayılan düzen olan **Views/Shared/_Layout.cshtml*
 
 ```html
 <!DOCTYPE html>
-<html ng-app="VotingApp" xmlns:ng="http://angularjs.org">
+<html ng-app="VotingApp" xmlns:ng="https://angularjs.org">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -621,22 +621,22 @@ Kodda neler olduğuna bakmak için aşağıdaki adımları tamamlayın:
 4. Tarayıcıya dönün ve bir oylama seçeneğine tıklayın veya yeni oylama seçeneği ekleyin. Web ön ucunun api denetleyicisinde ilk kesme noktasına ulaşırsınız.
     
 
-    1. Burası, tarayıcıda JavaScript'in ön uç hizmetindeki API denetleyicisine istek gönderdiği yerdir.
+   1. Burası, tarayıcıda JavaScript'in ön uç hizmetindeki API denetleyicisine istek gönderdiği yerdir.
 
-    ![Oy Ön Uç Hizmeti Ekleme](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+      ![Oy Ön Uç Hizmeti Ekleme](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. İlk olarak, arka uç hizmeti için ReverseProxy'nin URL'sini oluşturun **(1)**.
-    3. Ardından, HTTP PUT İsteğini ReverseProxy'ye gönderin **(2)**.
-    4. Son olarak, yanıtı arka uç hizmetinden istemciye döndürün **(3)**.
+   2. İlk olarak, arka uç hizmeti için ReverseProxy'nin URL'sini oluşturun **(1)**.
+   3. Ardından, HTTP PUT İsteğini ReverseProxy'ye gönderin **(2)**.
+   4. Son olarak, yanıtı arka uç hizmetinden istemciye döndürün **(3)**.
 
 5. Devam etmek için **F5** tuşuna basın.
-    1. Şimdi arka uç hizmetindeki kesme noktasındasınız.
+   1. Şimdi arka uç hizmetindeki kesme noktasındasınız.
 
-    ![Oy Arka Uç Hizmeti Ekleme](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
+      ![Oy Arka Uç Hizmeti Ekleme](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. Yöntemin ilk satırında **(1)** `counts` adlı güvenilir sözlüğü almak veya eklemek için `StateManager` kullanın.
-    3. Güvenilir bir sözcükteki değerlerle tüm etkileşimler bir işlem gerektirir; bu using deyimi **(2)** o işlemi oluşturur.
-    4. İşlemde, oylama seçeneği için uygun anahtarın değerini güncelleştirin ve işlemi yürütün **(3)**. Commit yöntemi döndüğünde, sözlükteki veriler güncelleştirilir ve kümedeki diğer düğümlere çoğaltılır. Artık veriler güvenli bir şekilde kümede depolanır ve arka uç hizmeti verilerin kullanılabilir olduğu diğer düğümlere yük devretebilir.
+   2. Yöntemin ilk satırında **(1)** `counts` adlı güvenilir sözlüğü almak veya eklemek için `StateManager` kullanın.
+   3. Güvenilir bir sözcükteki değerlerle tüm etkileşimler bir işlem gerektirir; bu using deyimi **(2)** o işlemi oluşturur.
+   4. İşlemde, oylama seçeneği için uygun anahtarın değerini güncelleştirin ve işlemi yürütün **(3)**. Commit yöntemi döndüğünde, sözlükteki veriler güncelleştirilir ve kümedeki diğer düğümlere çoğaltılır. Artık veriler güvenli bir şekilde kümede depolanır ve arka uç hizmeti verilerin kullanılabilir olduğu diğer düğümlere yük devretebilir.
 6. Devam etmek için **F5** tuşuna basın.
 
 Hata ayıklama oturumunu durdurmak için **Shift+F5** tuşlarına basın.

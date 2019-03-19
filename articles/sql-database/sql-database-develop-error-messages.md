@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: 4c01402932e35297e4284c09a35a14c304b4bf7c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2682f98628f3c1cf22a2c3767f52bedbc148fa62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550252"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888579"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL veritabanı istemci uygulamaları için SQL hata kodları: Veritabanı bağlantı hataları ve diğer sorunlar
 
@@ -55,7 +55,7 @@ Aşağıdaki hatalar geçicidir ve uygulama mantığını yeniden denenmesi gere
 
 | Hata kodu | Severity | Açıklama |
 | ---:| ---:|:--- |
-| 4060 |16 |Veritabanı açılamıyor. "%.&#x2a;ls" oturum açma tarafından istenen. Oturum açma başarısız. |Daha fazla bilgi için [hataları için 4000 4999](https://docs.microsoft.comsql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-2017#errors-4000-to-4999)|
+| 4060 |16 |Veritabanı açılamıyor. "%.&#x2a;ls" oturum açma tarafından istenen. Oturum açma başarısız. Daha fazla bilgi için [hataları için 4000 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |Hizmet isteğinizi işlerken bir hatayla karşılaştı. Lütfen yeniden deneyin. Hata kodu %d.<br/><br/>Hizmetin kapalı yazılım veya donanım yükseltmeleri, donanım arızaları veya başka bir yük devretme sorunları nedeniyle olduğunda bu hatayı alırsınız. Hata 40197 ileti içinde gömülü hata kodu (%d) hatası oluştu, yük devretme veya türü hakkında ek bilgi sağlar. Bazı kodları 40197 hata iletisi içinde gömülü hata 40020, 40143 40166 ve 40540 örnekleridir.<br/><br/>SQL veritabanı sunucusuna otomatik olarak yeniden bağlanmayı veritabanınızı sağlıklı bir kopyasına bağlanır. Uygulamanızı hata 40197, günlük sorun giderme iletisi içinde katıştırılmış bir hata kodu (%d) catch ve kaynakların kullanılabilir olduğundan ve, bağlantı yeniden kurulana kadar SQL veritabanı'na yeniden bağlanmayı deneyin. Daha fazla bilgi için [geçici hatalar](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |Hizmet şu anda meşgul. İsteği 10 saniye sonra yeniden deneyin. Olay Kimliği: %ls. Kodu: %d. Daha fazla bilgi için bkz. <br/>&bull; &nbsp;[Veritabanı sunucusu kaynak sınırları](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Tek veritabanları için DTU tabanlı sınırları](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Elastik havuzlar için DTU tabanlı limitleri](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[tek veritabanları için sanal çekirdek tabanlı sınırları](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[Elastik havuzlar için sanal çekirdek tabanlı limitleri](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Yönetilen örnek kaynak sınırları](sql-database-managed-instance-resource-limits.md).|
 | 40613 |17 |Veritabanı '%.&#x2a;ls' sunucusundaki '%.&#x2a;ls' şu anda kullanılamıyor. Lütfen bağlantıyı daha sonra yeniden deneyin. Sorun devam ederse müşteri desteğine başvurun ve oturum izleme Kimliğini verin '%.&#x2a;ls'.<br/><br/> Veritabanına kurulan bir varolan adanmış yönetici bağlantısı (DAC) zaten varsa, bu hata oluşabilir. Daha fazla bilgi için [geçici hatalar](sql-database-connectivity-issues.md#transient-errors-transient-faults).|

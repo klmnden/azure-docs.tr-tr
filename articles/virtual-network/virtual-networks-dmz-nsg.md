@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 680b47fd65cfde1fe01dfff9b74ddd42d1a73c1f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 68655ea03f53fe7100f67d111fcd3c8595bdf4c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052402"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109401"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Örnek 1 – derleme Nsg'leri kullanarak bir Azure Resource Manager şablonu ile basit DMZ
 [Güvenlik sınırı en iyi yöntemler sayfasına geri dönün][HOME]
@@ -97,14 +97,14 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele alınmıştır:
     ``` 
 
 2. Bu örnekte ilk kural, tüm iç ağ DNS sunucusuna arka uç alt ağı arasında DNS trafiğine izin verir. Kural, bazı önemli parametrelere sahiptir:
-  * DNS trafiği DNS sunucusu ulaşmasına izin verilir, böylece "destinationAddressPrefix" - "10.0.2.4" için hedef adres ön eki ayarlanır.
-  * Trafik akışını hangi yönde bu kural etkinleşir "Yönü" belirtir. Perspektifinden (bağlı olarak bu NSG yere bağlıdır) alt ağı veya sanal makine yönüdür. Bu nedenle yönü "Giriş" ve trafiğin alt girdiğinden, kural uygular ve alt ağdan çıkan trafiğe değil etkilenecek bu kural tarafından varsa.
-  * "Öncelik" bir trafik akışı değerlendirilme sırasını ayarlar. Düşük sayı öncelik o kadar yüksektir. Belirli bir trafik akışı için bir kural uygulandığı zaman başka hiçbir kural işlenir. Böylece öncelik 1 ile bir kuralı, trafiğine izin verir ve trafiği, öncelik 2 ile bir kural engelleyen ve her iki kural'ı trafiğe uygulamak durumunda trafik akışına izin verilecek (Kural 1 daha yüksek bir önceliğe sahip olduğundan etkisi sürdü ve başka hiçbir kural uygulandı).
-  * "Erişim", bu kural tarafından etkilenen trafik engellenmiş ("Reddet") veya izin verilen ("izin ver") olduğunu gösterir.
+   * DNS trafiği DNS sunucusu ulaşmasına izin verilir, böylece "destinationAddressPrefix" - "10.0.2.4" için hedef adres ön eki ayarlanır.
+   * Trafik akışını hangi yönde bu kural etkinleşir "Yönü" belirtir. Perspektifinden (bağlı olarak bu NSG yere bağlıdır) alt ağı veya sanal makine yönüdür. Bu nedenle yönü "Giriş" ve trafiğin alt girdiğinden, kural uygular ve alt ağdan çıkan trafiğe değil etkilenecek bu kural tarafından varsa.
+   * "Öncelik" bir trafik akışı değerlendirilme sırasını ayarlar. Düşük sayı öncelik o kadar yüksektir. Belirli bir trafik akışı için bir kural uygulandığı zaman başka hiçbir kural işlenir. Böylece öncelik 1 ile bir kuralı, trafiğine izin verir ve trafiği, öncelik 2 ile bir kural engelleyen ve her iki kural'ı trafiğe uygulamak durumunda trafik akışına izin verilecek (Kural 1 daha yüksek bir önceliğe sahip olduğundan etkisi sürdü ve başka hiçbir kural uygulandı).
+   * "Erişim", bu kural tarafından etkilenen trafik engellenmiş ("Reddet") veya izin verilen ("izin ver") olduğunu gösterir.
 
-    ```JSON
-    "properties": {
-    "securityRules": [
+     ```JSON
+     "properties": {
+     "securityRules": [
       {
         "name": "enable_dns_rule",
         "properties": {
@@ -119,7 +119,7 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele alınmıştır:
           "direction": "Inbound"
         }
       },
-    ```
+     ```
 
 3. Bu kural, herhangi bir sunucuda ilişkili alt ağ üzerinde RDP noktasına internet'ten akışı RDP trafiğine izin verir. 
 
@@ -221,23 +221,23 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele alınmıştır:
 1. NIC'nin IIS01 NIC ile ilişkili genel IP adresinden gelen HTTP sayfası Internet kullanıcı istekleri
 2. Genel IP adresini IIS01 doğru sanal ağa trafiği geçirir (web sunucusu)
 3. Ön uç alt ağını gelen kuralı işleme başlar:
-  1. NSG kuralı 1 (DNS) değil, uygulamak için sonraki kural taşıma
-  2. NSG kuralı 2 (RDP) değil, uygulamak için sonraki kural taşıma
-  3. NSG kuralı 3 (Internet'e IIS01) geçerli, trafiğin izin verilen, Dur kural işleme
+   1. NSG kuralı 1 (DNS) değil, uygulamak için sonraki kural taşıma
+   2. NSG kuralı 2 (RDP) değil, uygulamak için sonraki kural taşıma
+   3. NSG kuralı 3 (Internet'e IIS01) geçerli, trafiğin izin verilen, Dur kural işleme
 4. Trafiği iç IP adresi (10.0.1.5'i) web sunucusunun IIS01 denk gelir.
 5. IIS01 web trafiği, bu isteği alır ve isteği işlemeye başlar.
 6. IIS01 SQL Server AppVM01 hakkında bilgi için sorar.
 7. Ön uç alt ağı yok giden kuralları, trafiğe izin verilir
 8. Arka uç alt ağı gelen kuralı işleme başlar:
-  1. NSG kuralı 1 (DNS) değil, uygulamak için sonraki kural taşıma
-  2. NSG kuralı 2 (RDP) değil, uygulamak için sonraki kural taşıma
-  3. NSG kuralı 3 (Internet için Güvenlik Duvarı) değil, uygulamak için sonraki kural taşıma
-  4. NSG kuralı 4 (IIS01 AppVM01 için) uygulamak için trafiğe izin verilir, kuralı işlemeyi durdur
+   1. NSG kuralı 1 (DNS) değil, uygulamak için sonraki kural taşıma
+   2. NSG kuralı 2 (RDP) değil, uygulamak için sonraki kural taşıma
+   3. NSG kuralı 3 (Internet için Güvenlik Duvarı) değil, uygulamak için sonraki kural taşıma
+   4. NSG kuralı 4 (IIS01 AppVM01 için) uygulamak için trafiğe izin verilir, kuralı işlemeyi durdur
 9. AppVM01 SQL sorgusunu alır ve bunlara yanıt verir
 10. Arka uç alt ağda hiçbir giden kuralları olduğundan, yanıt izin verilir
 11. Ön uç alt ağını gelen kuralı işleme başlar:
-  1. Gelen için uygulanan NSG kural yoktur hiçbir NSG kurallarını uygulamak için ön uç alt ağına arka uç alt ağından gelen trafiği
-  2. Alt ağlar arasında trafiğe izin veren varsayılan sistem kuralı, trafiğe izin verilmesi bu trafiğe izin.
+    1. Gelen için uygulanan NSG kural yoktur hiçbir NSG kurallarını uygulamak için ön uç alt ağına arka uç alt ağından gelen trafiği
+    2. Alt ağlar arasında trafiğe izin veren varsayılan sistem kuralı, trafiğe izin verilmesi bu trafiğe izin.
 12. IIS sunucusu SQL yanıtı alır ve HTTP yanıtı tamamlandıktan ve istemciye gönderir
 13. Ön uç alt ağda hiçbir giden kuralları olduğundan, yanıt verilir ve istediğiniz web sayfası Internet kullanıcı alır.
 
@@ -245,8 +245,8 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele alınmıştır:
 1. İnternet üzerindeki bir sunucu yöneticisi bir genel IP adresi (Bu genel IP adresi, portalı veya PowerShell bulunabilir) IIS01 NIC ile ilişkili NIC'nin IIS01 için RDP oturumu isteği
 2. Genel IP adresini IIS01 doğru sanal ağa trafiği geçirir (web sunucusu)
 3. Ön uç alt ağını gelen kuralı işleme başlar:
-  1. NSG kuralı 1 (DNS) değil, uygulamak için sonraki kural taşıma
-  2. NSG kuralı 2 (RDP) geçerli, trafiğin izin verilen, Dur kural işleme
+   1. NSG kuralı 1 (DNS) değil, uygulamak için sonraki kural taşıma
+   2. NSG kuralı 2 (RDP) geçerli, trafiğin izin verilen, Dur kural işleme
 4. Hiçbir giden kuralları, varsayılan kuralları uygulanır ve dönüş trafiğine izin verilir
 5. RDP oturumu etkin
 6. IIS01 kullanıcı adı ve parola bilgilerini ister.
@@ -261,7 +261,7 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele alınmıştır:
 2. Ağ yapılandırma için VNet listeleri DNS01 (arka uç alt ağında 10.0.2.4) birincil DNS sunucusu olarak IIS01 DNS01 için DNS isteği gönderir
 3. Ön uç alt ağı yok giden kuralları, trafiğe izin verilir
 4. Arka uç alt ağı gelen kuralı işleme başlar:
-  * NSG kuralı 1 (DNS) geçerli, trafiğin izin verilen, Dur kural işleme
+   * NSG kuralı 1 (DNS) geçerli, trafiğin izin verilen, Dur kural işleme
 5. DNS sunucusu isteği alır
 6. DNS sunucusu önbelleğe alınmış adresleriniz değil ve bir kök DNS sunucusu internet'te sorar
 7. Hiçbir giden kuralları arka uç alt ağı üzerinde trafiğe izin verilir
@@ -269,23 +269,23 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele alınmıştır:
 9. DNS sunucusu yanıtı önbelleğe alır ve geri IIS01 ilk isteğine yanıt verir
 10. Hiçbir giden kuralları arka uç alt ağı üzerinde trafiğe izin verilir
 11. Ön uç alt ağını gelen kuralı işleme başlar:
-  1. Gelen için uygulanan NSG kural yoktur hiçbir NSG kurallarını uygulamak için ön uç alt ağına arka uç alt ağından gelen trafiği
-  2. Trafiğe izin verilmesi bu trafiğe izin alt ağlar arasında trafiğe izin veren varsayılan sistem kuralı
+    1. Gelen için uygulanan NSG kural yoktur hiçbir NSG kurallarını uygulamak için ön uç alt ağına arka uç alt ağından gelen trafiği
+    2. Trafiğe izin verilmesi bu trafiğe izin alt ağlar arasında trafiğe izin veren varsayılan sistem kuralı
 12. IIS01 DNS01 yanıtı alır
 
 #### <a name="allowed-web-server-access-file-on-appvm01"></a>(*İzin verilen*) AppVM01 üzerinde Web sunucusu erişim dosyası
 1. Bir dosyanın AppVM01 IIS01 sorar
 2. Ön uç alt ağı yok giden kuralları, trafiğe izin verilir
 3. Arka uç alt ağı gelen kuralı işleme başlar:
-  1. NSG kuralı 1 (DNS) değil, uygulamak için sonraki kural taşıma
-  2. NSG kuralı 2 (RDP) değil, uygulamak için sonraki kural taşıma
-  3. NSG kuralı 3 (Internet'e IIS01) değil, uygulamak için sonraki kural taşıma
-  4. NSG kuralı 4 (IIS01 AppVM01 için) uygulamak için trafiğe izin verilir, kuralı işlemeyi durdur
+   1. NSG kuralı 1 (DNS) değil, uygulamak için sonraki kural taşıma
+   2. NSG kuralı 2 (RDP) değil, uygulamak için sonraki kural taşıma
+   3. NSG kuralı 3 (Internet'e IIS01) değil, uygulamak için sonraki kural taşıma
+   4. NSG kuralı 4 (IIS01 AppVM01 için) uygulamak için trafiğe izin verilir, kuralı işlemeyi durdur
 4. AppVM01 isteği alır ve (erişim yetkisi varsayılarak) dosyası ile yanıt verir
 5. Arka uç alt ağda hiçbir giden kuralları olduğundan, yanıt izin verilir
 6. Ön uç alt ağını gelen kuralı işleme başlar:
-  1. Gelen için uygulanan NSG kural yoktur hiçbir NSG kurallarını uygulamak için ön uç alt ağına arka uç alt ağından gelen trafiği
-  2. Alt ağlar arasında trafiğe izin veren varsayılan sistem kuralı, trafiğe izin verilmesi bu trafiğe izin.
+   1. Gelen için uygulanan NSG kural yoktur hiçbir NSG kurallarını uygulamak için ön uç alt ağına arka uç alt ağından gelen trafiği
+   2. Alt ağlar arasında trafiğe izin veren varsayılan sistem kuralı, trafiğe izin verilmesi bu trafiğe izin.
 7. IIS sunucusu dosyayı alır
 
 #### <a name="denied-rdp-to-backend"></a>(*Reddedildi*) RDP için arka uç
@@ -312,9 +312,9 @@ Her kural aşağıdaki gibi daha ayrıntılı olarak ele alınmıştır:
 1. İnternet kullanıcı SQL veri IIS01 istekleri
 2. Bu sunucular NIC ile ilişkili genel IP adresi olduğundan, bu trafiğin VNet hiçbir zaman girersiniz ve tarafından sunucuya ulaşmak mıydı
 3. Bir genel IP adresi herhangi bir nedenden dolayı etkinleştirilirse, ön uç alt ağını gelen kuralı işleme başlar:
-  1. NSG kuralı 1 (DNS) değil, uygulamak için sonraki kural taşıma
-  2. NSG kuralı 2 (RDP) değil, uygulamak için sonraki kural taşıma
-  3. NSG kuralı 3 (Internet'e IIS01) geçerli, trafiğin izin verilen, Dur kural işleme
+   1. NSG kuralı 1 (DNS) değil, uygulamak için sonraki kural taşıma
+   2. NSG kuralı 2 (RDP) değil, uygulamak için sonraki kural taşıma
+   3. NSG kuralı 3 (Internet'e IIS01) geçerli, trafiğin izin verilen, Dur kural işleme
 4. Trafik İsabetleri IIS01 iç IP adresi (10.0.1.5'i)
 5. IIS01 dinleme bağlantı noktası 1433'ü, dolayısıyla isteğine yanıt olarak değil
 

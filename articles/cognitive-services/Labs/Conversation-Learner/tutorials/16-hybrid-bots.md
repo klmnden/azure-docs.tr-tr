@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 17be364959c5cdc1beaf48aa86966ede5c7c7309
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b90fc42aa56bfc813ec464670336dea75cff0f0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219371"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117447"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>Konuşma Öğrenici teknolojileri oluşturan diğer bot ile kullanma
 
@@ -119,11 +119,11 @@ Tek konuşma daha yalın modeli botlar yalnızca konuşma Öğrenici modeli tara
 2. 'Hello' girin.  Çünkü `isOpen` değeri ayarlanmazsa, robot "Ben kapalı Üzgünüz" yazar ve kullanıcının oturumu sona erdirin.
 
 #### <a name="scenario-2-store-is-open"></a>Senaryo 2: Store Aç
-3. 'Store'u açın' girin.  Bu ayarlar `isOpen` true.
-4. 'Atölye' girin.
-5. 'Hello' girin.  Çünkü `isOpen` değeri ayarı true, robot "Ne satın etmek istiyorsunuz?" Yazar
-6. 'Sandalye' girin. varlık olarak CL belleğe 'sandalye' kaydedilecek `purchaseItem`. Son oturum geri çağırma bu değer konuşma deposuna kopyalayan çağrılır.
-7. 'Geçmiş' girin.  Bu son haliyle bot 'Satın aldığınız sandalye' Yazar `purchaseItem`.
+1. 'Store'u açın' girin.  Bu ayarlar `isOpen` true.
+1. 'Atölye' girin.
+1. 'Hello' girin.  Çünkü `isOpen` değeri ayarı true, robot "Ne satın etmek istiyorsunuz?" Yazar
+1. 'Sandalye' girin. varlık olarak CL belleğe 'sandalye' kaydedilecek `purchaseItem`. Son oturum geri çağırma bu değer konuşma deposuna kopyalayan çağrılır.
+1. 'Geçmiş' girin.  Bu son haliyle bot 'Satın aldığınız sandalye' Yazar `purchaseItem`.
 
 ## <a name="conclusion"></a>Sonuç
 

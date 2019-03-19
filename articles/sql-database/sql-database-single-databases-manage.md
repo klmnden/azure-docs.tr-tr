@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 531597f4cd66ba3250ef5e62e64ef36916b1014b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: bcbed12940b7766d7ffb9e67b7c63931160ba9b2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317093"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905248"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>SQL veritabanı sunucuları ve Azure SQL veritabanı'nda tek veritabanları oluşturma ve yönetme
 
@@ -58,6 +58,8 @@ Varolan bir veritabanını yönetmek için gidin **SQL veritabanları** sayfası
 ## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell: SQL veritabanı sunucuları ve tek veritabanlarını yönetmek
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 Azure SQL veritabanı sunucularını, tek ve havuza alınmış veritabanları ve SQL veritabanı sunucusu güvenlik duvarı Azure PowerShell ile oluşturmak ve yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps).
 

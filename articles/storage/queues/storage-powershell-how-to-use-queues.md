@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.subservice: queues
-ms.openlocfilehash: 64e8f9d1fb29718b0a3d4655c739abc93ecb088c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7f317c061c66a344731172f83e1c85dc5487379d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763849"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005190"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell ile Azure kuyruk depolama işlemleri
 
@@ -122,7 +122,7 @@ $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQ
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
 
-Kullanırsanız [Azure Depolama Gezgini](http://storageexplorer.com), Azure hesabınıza bağlanın ve Kuyruklar depolama hesabında görüntüleyebilir ve detaya gitme kuyrukta iletileri görüntülemek için bir kuyruğun içine. 
+Kullanırsanız [Azure Depolama Gezgini](https://storageexplorer.com), Azure hesabınıza bağlanın ve Kuyruklar depolama hesabında görüntüleyebilir ve detaya gitme kuyrukta iletileri görüntülemek için bir kuyruğun içine. 
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>Kuyruktan bir ileti okuma ardından silin
 

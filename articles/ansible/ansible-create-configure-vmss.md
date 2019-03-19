@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: 1b2949aef14b3c8550cef90a18641a3df7d8cd41
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 1176987ab318a97a7db6a12e619e7b7db06ad2da
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791707"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097898"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible kullanarak Azure'da sanal makine ölçek kümesi oluşturma
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Azure'da sanal makine ölçek kümenizi (VMSS) yönetmek için, tıpkı diğer Azure kaynaklarını yönettiğiniz gibi Ansible kullanabilirsiniz. Bu makalede Ansible'ın sanal makine ölçek kümesi oluşturmak ve ölçeklendirmek için nasıl kullanıldığı gösterilmektedir. 
@@ -276,5 +276,5 @@ Komutun Cloud Shell'de çalıştırılmasının sonucu artık üç örneğin mev
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"] 
 > [Ansible'ı kullanarak sanal makine ölçek kümeleri uygulamalarını dağıtma](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
-
+> 
 > [Ansible'ı kullanarak bir sanal makine ölçek kümesi otomatik olarak ölçeklendirme](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

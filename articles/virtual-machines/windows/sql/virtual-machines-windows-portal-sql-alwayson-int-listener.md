@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 43f2694f597d99edaf127a6afd64376cca33dad2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3b90ae3e9808b22b6d6c41e3ac11bec0293bd4bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448161"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107891"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Azure'da bir Always On kullanılabilirlik grubu için bir yük dengeleyici yapılandırma
 Bu makalede, Azure Resource Manager ile çalışan Azure sanal makineler'de SQL Server Always On kullanılabilirlik grubu için yük dengeleyici oluşturma açıklanmaktadır. Azure sanal makinelerinde SQL Server örnekleri olan bir kullanılabilirlik grubu yük dengeleyici gerektirir. Yük Dengeleyici IP adresi için kullanılabilirlik grubu dinleyicisi depolar. Bir kullanılabilirlik grubu birden çok bölgede kapsıyorsa, her bölge bir yük dengeleyicinin gerekir.
@@ -235,18 +235,18 @@ Azure portalı ile bir yük dengeleyici için bir IP adresi eklemek için aşağ
 
 10. Yeni Yük Dengeleme kuralını aşağıdaki ayarlarla yapılandırın:
 
-   |Ayar |Değer
-   |:-----|:----
-   |**Ad** |Yük Dengeleme kuralını tanımlamak için bir ad. 
-   |**Ön uç IP adresi** |Oluşturduğunuz IP adresi seçin. 
-   |**Protokol** |TCP
-   |**Bağlantı Noktası** |SQL Server örneklerini kullanarak bağlantı noktasını kullanın. Bunu değiştirmediğiniz sürece bağlantı noktası 1433 varsayılan bir örnek kullanır. 
-   |**Arka uç bağlantı noktası** |Aynı değeri kullanın **bağlantı noktası**.
-   |**Arka uç havuzu** |SQL Server örneklerini içeren sanal makineler içeren havuz. 
-   |**Durum araştırması** |Oluşturduğunuz araştırmayı seçin.
-   |**Oturum kalıcılığı** |None
-   |**Boşta kalma zaman aşımı (dakika)** |Varsayılan (4)
-   |**Kayan IP (doğrudan sunucu dönüşü)** | Etkin
+    |Ayar |Değer
+    |:-----|:----
+    |**Ad** |Yük Dengeleme kuralını tanımlamak için bir ad. 
+    |**Ön uç IP adresi** |Oluşturduğunuz IP adresi seçin. 
+    |**Protokol** |TCP
+    |**Bağlantı Noktası** |SQL Server örneklerini kullanarak bağlantı noktasını kullanın. Bunu değiştirmediğiniz sürece bağlantı noktası 1433 varsayılan bir örnek kullanır. 
+    |**Arka uç bağlantı noktası** |Aynı değeri kullanın **bağlantı noktası**.
+    |**Arka uç havuzu** |SQL Server örneklerini içeren sanal makineler içeren havuz. 
+    |**Durum araştırması** |Oluşturduğunuz araştırmayı seçin.
+    |**Oturum kalıcılığı** |None
+    |**Boşta kalma zaman aşımı (dakika)** |Varsayılan (4)
+    |**Kayan IP (doğrudan sunucu dönüşü)** | Etkin
 
 ### <a name="configure-the-availability-group-to-use-the-new-ip-address"></a>Yeni IP adresini kullanmak için kullanılabilirlik grubu yapılandırma
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: edbdfeb87af78ba77aa0e418efc12116a38766fc
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 7e1c6d771e2452e99b47c256c99e25e281b9a3aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960454"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849236"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB'de farklı API'ler ile ilgili sık sorulan sorular
 
@@ -34,7 +34,7 @@ Azure Cosmos DB için yeni web, mobil, oyun, iyi bir seçimdir ve IOT uygulamala
 
 A [istek birimi](request-units.md) (RU) olan bir Azure Cosmos DB'de aktarım hızı ölçümü. 1 RU aktarım hızı için 1 KB boyutundaki bir belgeyi GET işlemesine karşılık gelir. Okuma, yazma, SQL sorguları ve saklı yordam yürütmeleri dahil olmak üzere Azure Cosmos DB'deki her işlemin, işlemi tamamlamak için gereken aktarım hızına göre belirleyici bir RU değerine sahiptir. CPU, GÇ, bellek ve bunların uygulama işlemesini nasıl etkilediğini hakkında düşünmek yerine tek RU ölçü açısından düşünebilirsiniz.
 
-Her Azure Cosmos DB kapsayıcısı RU saniye başına aktarım hızı açısından sağlanan aktarım hızı ile yapılandırabilirsiniz. Her ölçekten uygulama için RU değerlerini ölçmek için istekleri ayrı ayrı kıyaslayabilir ve tüm istekler genelinde istek birimlerinin toplam işlemek için bir kapsayıcı sağlayın. Ayrıca, ölçeği büyütün veya ihtiyaçları, uygulama geliştikçe, kapsayıcının aktarım hızını ölçeklendirin. İstek birimleri hakkında daha fazla bilgi ve Yardım için kapsayıcı belirleme deneyin gereksinimlerini [aktarım hızı hesaplayıcı](https://www.documentdb.com/capacityplanner).
+Her Azure Cosmos DB kapsayıcısı RU saniye başına aktarım hızı açısından sağlanan aktarım hızı ile yapılandırabilirsiniz. Her ölçekten uygulama için RU değerlerini ölçmek için istekleri ayrı ayrı kıyaslayabilir ve tüm istekler genelinde istek birimlerinin toplam işlemek için bir kapsayıcı sağlayın. Ayrıca, ölçeği büyütün veya ihtiyaçları, uygulama geliştikçe, kapsayıcının aktarım hızını ölçeklendirin. İstek birimleri hakkında daha fazla bilgi ve kapsayıcı gereksinimlerinizi belirleme konusunda yardım için deneyin [aktarım hızı hesaplayıcı](https://www.documentdb.com/capacityplanner).
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Azure Cosmos DB anahtar/değer, sütun, belge ve graf gibi çeşitli veri modellerini nasıl destekler?
 
@@ -191,10 +191,6 @@ Toplu belgeleri Azure Cosmos DB'ye aşağıdaki yollardan biriyle ekleme:
 * Bölümünde anlatıldığı gibi veri geçiş aracı [Azure Cosmos DB için veritabanı geçiş aracı](import-data.md).
 * Saklı yordamlar, açıklandığı [Azure Cosmos DB için sunucu tarafı JavaScript programlama](stored-procedures-triggers-udfs.md).
 
-### <a name="ive-set-up-my-container-to-use-lazy-indexing-i-see-that-my-queries-dont-return-expected-results"></a>My kapsayıcısı ayarlamak yavaş dizinleme kullanılacak ayarladım, Sorgularım beklenen sonuçları döndürmeyin görüyorum.
-
-Yavaş dizin, dizin oluşturma bölümünde açıklandığı gibi bu davranışlara neden olabilir. Tüm uygulamalar için tutarlı bir dizin her zaman kullanmalısınız.
-
 ### <a name="does-the-sql-api-support-resource-link-caching"></a>SQL API desteği kaynak bağlantıyı önbelleğe almayı mu?
 
 Evet, Azure Cosmos DB bir RESTful hizmeti olduğu için kaynak bağlantıları sabittir ve önbelleğe alınabilir. SQL API istemciler, herhangi bir kaynak gibi belge veya koleksiyon yapılan okumalar için bir "If-None-Match" üst bilgisi belirtin ve sunucu sürümü değiştikten sonra kendi yerel kopyalarını güncelleştirin.
@@ -215,7 +211,7 @@ Bu JavaScript sınırlamasıdır. JavaScript IEEE 754 belirtildiği gibi çift d
 
 ### <a name="what-is-the-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB MongoDB API'si nedir?
 
-Azure Cosmos DB MongoDB API'si uygulamaları kolayca ve şeffaf bir şekilde var olan ve topluluk tarafından desteklenen SDK'ları ve sürücülerini kullanarak yerel Azure Cosmos DB veritabanı altyapısı ile iletişim kurmasına olanak sağlayan bir kablo protokolünü uyumluluk katmanıdır MongoDB.Developers artık, Azure Cosmos DB yararlanan uygulamalar oluşturmak için mevcut MongoDB araç zincirleriyle ve becerileri kullanabilirsiniz. Çok yöneticili çoğaltma, otomatik dizin oluşturma işlemi, yedekleme bakım ile küresel dağıtım gibi benzersiz Azure Cosmos DB, yeteneklerini geliştiriciler avantajından finansal hizmet düzeyi sözleşmeleri (SLA'lar) vb. desteklenir.
+Azure Cosmos DB'nin MongoDB için API uygulamaları kolayca ve şeffaf bir şekilde var olan ve topluluk tarafından desteklenen SDK'ları ve sürücüleri için MongoDB kullanarak yerel Azure Cosmos DB veritabanı altyapısı ile iletişim kurmasına olanak sağlayan bir kablo protokolünü uyumluluk katmanıdır. Geliştiriciler artık, Azure Cosmos DB yararlanan uygulamalar oluşturmak için mevcut MongoDB araç zincirleriyle ve becerileri kullanabilirsiniz. Çok yöneticili çoğaltma, otomatik dizin oluşturma işlemi, yedekleme bakım ile küresel dağıtım gibi benzersiz Azure Cosmos DB, yeteneklerini geliştiriciler avantajından finansal hizmet düzeyi sözleşmeleri (SLA'lar) vb. desteklenir.
 
 ### <a name="how-do-i-connect-to-my-database"></a>Veritabanım için nasıl bağlanabilirim?
 
@@ -232,7 +228,7 @@ Ortak MongoDB hata kodlarıyla birlikte Azure Cosmos DB MongoDB API'si, kendi be
 | Hata               | Kod  | Açıklama  | Çözüm  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | İstek birimleri tüketilen toplam sayısı, koleksiyon için sağlanan istek birimi hızdan daha ve kısıtlanan. | Bir kapsayıcı veya bir dizi kapsayıcılar için Azure portal veya deneniyor yeniden atanan aktarım hızını ölçeklendirmeyi düşünün. |
-| ExceededMemoryLimit | 16501 | Çok kiracılı bir hizmet, istemcinin bellek birimi işlemi geçti. | Destek ile iletişime geçin veya daha kısıtlayıcı bir sorgu ölçütü ile bir işlem kapsamını azaltın [Azure portalında](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Örnek:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {adı: "Andy"}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {yaş: -1}}<br> &nbsp; &nbsp; &nbsp;&nbsp;])*) |
+| ExceededMemoryLimit | 16501 | Çok kiracılı bir hizmet, istemcinin bellek birimi işlemi geçti. | Destek ile iletişime geçin veya daha kısıtlayıcı bir sorgu ölçütü ile bir işlem kapsamını azaltın [Azure portalında](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Örnek: <em> &nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {adı: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {yaş: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
 
 ### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>Simba sürücü kullanımı için Azure Cosmos DB API'si ile MongoDB için desteklenen MongoDB için mi?
 
@@ -255,22 +251,23 @@ Hayır, var olan depolama SDK'ları çalışması gerekir. Ancak, bir her zaman 
 Azure Cosmos DB tablo API'si ile tablolar oluşturmak istediğiniz Azure tablo Depolama'dan gelen kullanıcılar bilincinde olmanız gereken bazı davranış farkları vardır:
 
 * Azure Cosmos DB tablo API'si, garantili performans sağlamak için ayrılmış bir kapasite modeli kullanır. ancak bu tablo oluşturulduktan hemen sonra kapasite kullanılmıyor olsa bile bir kapasite için ödeme yaptığını anlamına gelir. Azure tablo ile bir depolama kapasitesi için kullanılan yalnızca öder. Tablo API'si 10 MS'den okuyup Azure tablo depolama, 10 saniye SLA sunarken 15 MS'den SLA 99. yüzdebirlik dilimde neden sunabilir açıklamak için yardımcı olur. Ancak cihazını Maliyet para kapasite SLA onlara tüm istekleri işlemek kullanılabilir olduğundan emin olmak için tüm istekleri olmadan bile boş tablolar ile tablo API'si tablolar, Azure Cosmos DB tarafından sunulan.
-* Azure tablo depolama olarak tablo API'si tarafından döndürülen sorgu sonuçları bölüm anahtarı/satır anahtarı sırasına sıralanmaz.
+* Azure tablo Depolama'da olduğu gibi tablo API'si tarafından döndürülen sorgu sonuçları bölüm anahtarı/satır anahtarı sırasına sıralanmaz.
 * Satır anahtarı yalnızca en fazla 255 bayt olabilir
 * Toplu işlemleri yalnızca en fazla 2 MB olabilir
 * CORS şu anda desteklenmiyor
-* Azure tablo depolama tablo adlarını büyük küçük harfe duyarlı değildir, ancak Azure Cosmos DB tablo API'si oldukları
+* Azure tablo depolama tablo adlarını büyük küçük harfe duyarlı değildir, ancak bunlar Azure Cosmos DB tablo API'si
 * Azure Cosmos DB'nin iç biçimleri gibi ikili alanlar kodlama bilgi için bazıları şu anda bir dilediğiniz kadar verimli değildir. Bu nedenle bu beklenmeyen sınırlamaları veri boyutuna göre neden olabilir. Örneğin, şu anda bir tablo varlığı, tam bir Meg kodlama veri boyutu artar çünkü ikili verileri depolamak için kullanamadık.
 * Varlık özellik adı 'Id' şu anda desteklenmiyor
 * TableQuery TakeCount 1000 sınırlı değildir
 
 REST API açısından birçok Azure Cosmos DB tablo API'si tarafından desteklenmeyen uç noktalar/sorgu seçenek vardır:
+
 | REST yöntemleri | REST uç noktası/sorgu seçeneği | Belge URL'leri | Açıklama |
 | ------------| ------------- | ---------- | ----------- |
 | YERLEŞTİRME, ALIN | /? restype =service@compözellikleri| [Tablo hizmeti özelliklerini ayarla](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) ve [tablo hizmeti özelliklerini alma](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Bu uç nokta, CORS kuralları, depolama Analizi Yapılandırması ve günlüğe kaydetme ayarlarını ayarlamak için kullanılır. Analiz ve günlüğe kaydetme daha Azure depolama tabloları, Azure Cosmos DB'de farklı işlenme ve CORS şu anda desteklenmiyor |
 | SEÇENEKLER | / < resource-tablo-adı > | [Uçuş öncesi CORS tablo isteği](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Bu, Azure Cosmos DB, şu anda desteklemeyen CORS bir parçasıdır. |
 | GET | /? restype =service@compistatistikleri = | [Tablo hizmeti istatistikleri alın](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Birincil ve ikincil veritabanı arasında verilerin çoğaltılması ne kadar hızlı bilgi sağlar. Çoğaltma yazma parçası olarak bu Cosmos DB'de gerekli değildir. |
-| YERLEŞTİRME, ALIN | /mytable?comp=acl | [Tablodaki ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) ve [ACL tablosu ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Bu, alır ve paylaşılan erişim imzaları (SAS) yönetmek için kullanılan saklı erişim ilkeleri ayarlar. SAS karşın, bunlar ayarlayın ve farklı yönetilen. |
+| YERLEŞTİRME, ALIN | /mytable?comp=acl | [Tablodaki ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) ve [ACL tablosu ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Bu, alır ve paylaşılan erişim imzaları (SAS) yönetmek için kullanılan saklı erişim ilkeleri ayarlar. SAS karşın, bunlar ayarlayın ve farklı bir şekilde yönetilebilir. |
 
 Buna ek olarak Azure Cosmos DB tablo API'si, JSON biçiminde değil ATOM yalnızca destekler.
 
@@ -311,7 +308,7 @@ Bağlantı dizesini Azure portalında bağlantı dizesi sayfasından alabilirsin
 
 ### <a name="how-do-i-override-the-config-settings-for-the-request-options-in-the-net-sdk-for-the-table-api"></a>Tablo API'si için .NET SDK'sı istek seçenekleri yapılandırma ayarlarını nasıl geçersiz?
 
-Yapılandırma ayarları hakkında daha fazla bilgi için bkz. [Azure Cosmos DB özellikleri](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). Bazı ayarlar Createcloudtableclient'a yöntemi ve diğer istemci uygulamasındaki appSettings bölümündeki app.config aracılığıyla işlenir.
+Bazı ayarlar Createcloudtableclient'a yöntemi ve diğer istemci uygulamasındaki appSettings bölümündeki app.config aracılığıyla işlenir. Yapılandırma ayarları hakkında daha fazla bilgi için bkz. [Azure Cosmos DB özellikleri](tutorial-develop-table-dotnet.md).
 
 ### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdks"></a>Mevcut Azure tablo depolama SDK'larını kullanan müşteriler için herhangi bir değişiklik vardır?
 
@@ -377,7 +374,7 @@ Azure Cosmos DB küresel çoğaltma portalındaki bölmesi, bir bölge eklemek v
 
 ### <a name="how-do-i-configure-my-preferred-read-regions-for-low-latency-when-i-distribute-my-data"></a>Verilerim dağıtabilirim, düşük gecikme süresi için tercih edilen my okuma bölgeleri nasıl yapılandırabilirim?
 
-Yerel konum yardımcı olmak için app.config dosyasında PreferredLocation anahtarı kullanın. LocationMode ayarlanmışsa var olan uygulamalar için tablo API'si bir hata oluşturur. Tablo API'si bu bilgileri app.config dosyasından alır çünkü bu kodu kaldırın. Daha fazla bilgi için [Azure Cosmos DB özellikleri](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities).
+Yerel konum yardımcı olmak için app.config dosyasında PreferredLocation anahtarı kullanın. LocationMode ayarlanmışsa var olan uygulamalar için tablo API'si bir hata oluşturur. Tablo API'si bu bilgileri app.config dosyasından alır çünkü bu kodu kaldırın. 
 
 ### <a name="how-should-i-think-about-consistency-levels-in-the-table-api"></a>Tablo API'si tutarlılık düzeyleri hakkında ne düşünüyorsunuz?
 
@@ -389,7 +386,7 @@ Varsayılan olarak, Azure tablo depolama, bir bölge içinde güçlü tutarlıl�
 
 ### <a name="does-azure-cosmos-db-table-api-offer-more-consistency-levels-than-azure-table-storage"></a>Azure Cosmos DB tablo API'si, Azure tablo Depolama'den daha fazla tutarlılık düzeyi sunar?
 
-Evet, Azure Cosmos DB dağıtılmış yapısını Avantajı hakkında daha fazla bilgi için bkz. [tutarlılık düzeyleri](consistency-levels.md). Tutarlılık düzeyleri için garanti sağlandığından, bunları güvenle kullanabilirsiniz. Daha fazla bilgi için [Azure Cosmos DB özellikleri](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities).
+Evet, Azure Cosmos DB dağıtılmış yapısını Avantajı hakkında daha fazla bilgi için bkz. [tutarlılık düzeyleri](consistency-levels.md). Tutarlılık düzeyleri için garanti sağlandığından, bunları güvenle kullanabilirsiniz.
 
 ### <a name="when-global-distribution-is-enabled-how-long-does-it-take-to-replicate-the-data"></a>Genel dağıtım etkinleştirildiğinde, ne kadar veri çoğaltmak için sürer?
 
@@ -419,7 +416,7 @@ Evet, Azure Cosmos DB tablo API'si, herhangi bir şema tanımı olmadan tüm öz
 
 ### <a name="can-i-change-the-indexing-policy"></a>Dizin oluşturma ilkesini değiştirebilirim?
 
-Evet, dizin tanımını sağlayarak dizin oluşturma ilkesini değiştirebilirsiniz. Daha fazla bilgi için [Azure Cosmos DB özellikleri](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). Düzgün bir şekilde kodlama ve ayarları kaçış gerekir.
+Evet, dizin tanımını sağlayarak dizin oluşturma ilkesini değiştirebilirsiniz. Düzgün bir şekilde kodlama ve ayarları kaçış gerekir.
 
 Olmayan - .NET SDK'ları için dizin oluşturma ilkesini adresindeki portalında yalnızca ayarlanabilir **Veri Gezgini**, değiştirin ve ardından gitmek istediğiniz belirli tablosuna gidin **ölçek ve ayarlar**dizin oluşturma ilkesi -> İstenen değişikliği yapın ve ardından **Kaydet**.
 
@@ -639,11 +636,11 @@ g.V('mary').out('knows').executionProfile()
 ]
 ```
 
-Çıktı yukarıdaki profilinin köşe nesneleri, Edge nesneleri ve çalışma veri kümesinin boyutunu almak için ne kadar süre gösterir. Bu Azure Cosmos DB sorgular için standart maliyet ölçümleri ilişkilidir.
+Çıktı yukarıdaki profilinin köşe nesneleri, edge nesneleri ve çalışma veri kümesinin boyutunu almak için ne kadar süre gösterir. Bu Azure Cosmos DB sorgular için standart maliyet ölçümleri ilişkilidir.
 
 ## <a id="cassandra"></a> Cassandra API'si
 
-### <a name="what-is-the-protocol-version-supported-in-the-private-preview-is-there-a-plan-to-support-other-protocols"></a>Özel önizleme sürümünde desteklenen protokol sürümü nedir? Diğer protokoller desteklemek için bir plan var mı?
+### <a name="what-is-the-protocol-version-supported-by-azure-cosmso-db-cassandra-api-is-there-a-plan-to-support-other-protocols"></a>Azure Cosmso DB Cassandra API'si tarafından desteklenen protokol sürümü nedir? Diğer protokoller desteklemek için bir plan var mı?
 
 Azure Cosmos DB Apache Cassandra API'si, bugün CQL sürüm 4 destekler. Diğer protokoller destekleme hakkında Geribildiriminiz varsa bize [uservoice geri bildirimi](https://feedback.azure.com/forums/263030-azure-cosmos-db) veya bir e-posta Gönder [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com).
 
@@ -747,7 +744,7 @@ Kullanım [ölçümleri](use-metrics.md) kullanım [tanılama günlükleri](logg
 
 ### <a name="which-client-sdks-can-work-with-apache-cassandra-api-of-azure-cosmos-db"></a>Hangi istemci SDK'ları, Apache Cassandra API'si, Azure Cosmos DB ile çalışabilir mi?
 
-Özel önizleme Apache Cassandra SDK'ın istemcisinde CQLv3 kullanan sürücüleri istemci programları için kullanıldı. Diğer sürücüleri kullanabilir veya karşılaştığınız sorunları, e-posta gönderin varsa [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com).
+CQLv3 kullanan Apache Cassandra SDK'ın istemci sürücüleri istemci programları için kullanıldı. Diğer sürücüleri kullanabilir veya karşılaştığınız sorunları, e-posta gönderin varsa [ askcosmosdbcassandra@microsoft.com ](mailto:askcosmosdbcassandra@microsoft.com).
 
 ### <a name="is-composite-partition-key-supported"></a>Bileşik bölüm anahtarı destekleniyor mu?
 
@@ -784,7 +781,7 @@ Evet, Azure Cosmos DB, herhangi bir şema tanımı olmadan tüm özniteliklerin 
 
 Gelecekte bu özelliği desteklemeyi planlıyoruz.
 
-### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-changefeed-and-other-functionality-will-these-capabilities-be-added-to-the-cassandra-api"></a>Azure Cosmos DB platformu olarak çok sayıda changefeed ve diğer işlevler gibi özelliklere sahip gibi görünüyor. Bu özellikler Cassandra API'sine eklenecek mi?
+### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-change-feed-and-other-functionality-will-these-capabilities-be-added-to-the-cassandra-api"></a>Bir platform olarak Azure Cosmos DB değişiklik akışı ve diğer işlevleri gibi özellikler pek çok gibi görünüyor. Bu özellikler Cassandra API'sine eklenecek mi?
 
 Apache Cassandra API'si aynı Apache Cassandra CQL işlevselliği sağlar. Çeşitli özellikler gelecekte destekleme Uygulanabilirlik bak planlıyoruz.
 

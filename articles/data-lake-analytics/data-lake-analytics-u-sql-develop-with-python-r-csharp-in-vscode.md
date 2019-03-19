@@ -8,12 +8,12 @@ ms.author: jejiang
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 11/22/2017
-ms.openlocfilehash: 53859f5a81cf1d797ec93e83d75df5a329590dce
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6c234ad6756f4e65e172bf0ffc0ae5a1d35d109b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051641"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087491"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>U-SQL Python, R ve Azure Data Lake Analytics, Visual Studio Code için C# ile geliştirme
 Python yazmak için Visual Studio Code (VSCode) kullanmayı öğrenin, R ve C# ile U-SQL arkasındaki kod ve iş göndermek için Azure Data Lake hizmeti. VSCode için Azure Data Lake araçları hakkında daha fazla bilgi için bkz. [Visual Studio Code için Azure Data Lake araçları kullanmak](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -30,10 +30,10 @@ Python ve R uzantıları derlemeleri ADL hesabınız için kaydolun.
 3. Seçin **yükleyin U-SQL uzantıları**. 
 4. U-SQL Uzantıları yükledikten sonra onay iletisi görüntülenir. 
 
-  ![Python ve R için ortamı ayarlama](./media/data-lake-analytics-data-lake-tools-for-vscode/setup-the-enrionment-for-python-and-r.png)
+   ![Python ve R için ortamı ayarlama](./media/data-lake-analytics-data-lake-tools-for-vscode/setup-the-enrionment-for-python-and-r.png)
 
-  > [!Note]
-  > Python ve R dil hizmeti ile ilgili en iyi deneyimler için lütfen VSCode Python ve R uzantıyı yükleyin. 
+   > [!Note]
+   > Python ve R dil hizmeti ile ilgili en iyi deneyimler için lütfen VSCode Python ve R uzantıyı yükleyin. 
 
 ## <a name="develop-python-file"></a>Soubor Pythonu geliştirin
 1. Tıklayın **yeni dosya** çalışma alanınızdaki.
@@ -58,7 +58,7 @@ Python ve R uzantıları derlemeleri ADL hesabınız için kaydolun.
         USING Outputters.Csv();
     ```
     
-3. Bir komut dosyasını sağ tıklatın ve ardından **ADL: arkasında Python kodu dosyası oluştur**. 
+3. Bir komut dosyasını sağ tıklatın ve ardından **ADL: Python arka plan kod dosyasında oluşturmak**. 
 4. **Xxx.usql.py** dosyası kullanarak çalışma klasörünüzde oluşturulur. Python dosyasında kodunuzu yazın. Bir kod örneği verilmiştir.
 
     ```Python
@@ -115,7 +115,7 @@ Python ve R uzantıları derlemeleri ADL hesabınız için kaydolun.
     TO @OutputFilePredictions
     USING Outputters.Tsv();
     ```
-3. Sağ **USQL** dosya ve ardından **ADL: arkasında R kodu dosyası oluştur**. 
+3. Sağ **USQL** dosya ve ardından **ADL: Dosyanın arkasındaki R kodu**. 
 4. **Xxx.usql.r** dosyası kullanarak çalışma klasörünüzde oluşturulur. R dosyasında kodunuzu yazın. Bir kod örneği verilmiştir.
 
     ```R
@@ -125,7 +125,7 @@ Python ve R uzantıları derlemeleri ADL hesabınız için kaydolun.
 5. Sağ **USQL** dosyası tıklayabilirsiniz **derleme betiği** veya **işi Gönder** işi çalıştırmak için.
 
 ## <a name="develop-c-file"></a>C# dosyası geliştirin
-Tek bir U-SQL betiği ile ilişkili bir C# dosyasını bir arka plan kod dosyasıdır. Özel bir betik UDO, UDA, UDT ve UDF arka plan kod dosyasında tanımlayabilirsiniz. UDO, UDA, UDT ve UDF doğrudan betikte derleme ilk kayıt olmadan kullanılabilir. Arka plan kod dosyası eşleme, U-SQL komut dosyasını aynı klasöre yerleştirin. Xxx.usql adlandırılan bu betik, arka plan kod xxx.usql.cs adlandırılır. Arka plan kod dosyasına el ile silmeniz, arka plan kod özelliği, ilişkili bir U-SQL betiği için devre dışı bırakılır. U-SQL betiği için müşteri kod yazma hakkında daha fazla bilgi için bkz. [yazma ve U-SQL'de özel kod kullanma: kullanıcı tanımlı işlevler]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
+Tek bir U-SQL betiği ile ilişkili bir C# dosyasını bir arka plan kod dosyasıdır. Özel bir betik UDO, UDA, UDT ve UDF arka plan kod dosyasında tanımlayabilirsiniz. UDO, UDA, UDT ve UDF doğrudan betikte derleme ilk kayıt olmadan kullanılabilir. Arka plan kod dosyası eşleme, U-SQL komut dosyasını aynı klasöre yerleştirin. Xxx.usql adlandırılan bu betik, arka plan kod xxx.usql.cs adlandırılır. Arka plan kod dosyasına el ile silmeniz, arka plan kod özelliği, ilişkili bir U-SQL betiği için devre dışı bırakılır. U-SQL betiği için müşteri kod yazma hakkında daha fazla bilgi için bkz. [yazma ve U-SQL'de özel kod kullanma: Kullanıcı tanımlı işlevleri]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
 
 1. Tıklayın **yeni dosya** çalışma alanınızdaki.
 2. U-SQL dosya içinde kodunuzu yazın. Bir kod örneği verilmiştir.
@@ -157,7 +157,7 @@ Tek bir U-SQL betiği ile ilişkili bir C# dosyasını bir arka plan kod dosyas�
         TO @"/output/SearchLogtest.txt" 
         USING Outputters.Tsv();
     ```
-3. Sağ **USQL** dosya ve ardından **ADL: arkasında CS kodu dosyası oluştur**. 
+3. Sağ **USQL** dosya ve ardından **ADL: CS arka plan kod dosyasında oluşturmak**. 
 4. **Xxx.usql.cs** dosyası kullanarak çalışma klasörünüzde oluşturulur. CS dosyasında kodunuzu yazın. Bir kod örneği verilmiştir.
 
     ```CS

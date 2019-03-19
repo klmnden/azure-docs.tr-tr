@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 20a4e24800b2fa05990d294cb374841c50c4f79b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 89cc8c4bffe910de0861d7f44925a10df3811fdb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811363"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097483"
 ---
 <a name="web-analytics"></a>Web analizi
 =============
@@ -49,7 +49,7 @@ Kendi kampanyanızı oluşturmak için iki yolunuz vardır.
 
 Örneğin kullanabilirsiniz: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-2. (Gelişmiş): URL'de bizim desteklenen, genel kampanya kimlikleri birini kullanın. Otomatik olarak bu ek etiketleri tanımak için kuralı destekliyoruz, kullanmanız gereken ek başvuru etiketlerle destekleme olmasını istiyoruz:
+1. (Gelişmiş): URL'de bizim desteklenen, genel kampanya kimlikleri birini kullanın. Otomatik olarak bu ek etiketleri tanımak için kuralı destekliyoruz, kullanmanız gereken ek başvuru etiketlerle destekleme olmasını istiyoruz:
     
     1. **utm\_kampanyası**
     2. **utm\_kaynak**

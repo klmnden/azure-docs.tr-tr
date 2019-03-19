@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86de7fd5dcd9885d68204c4ef335e1b61a26574e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 43e4cf27d9a57db58c0f90b269e7a52622508ee1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747739"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998770"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Azure altyapı SAP yüksek kullanılabilirlik için bir Windows Yük devretme kümesi ve paylaşılan disk SAP ASCS/SCS kullanarak hazırlama
 
@@ -42,7 +42,7 @@ ms.locfileid: "55747739"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -231,26 +231,26 @@ _**Şekil 1:** SAP yüksek kullanılabilirlik Azure Resource Manager parametrele
 >
 >
 
-1.  Azure portalında, **parametreleri** bölmesinde, **NEWOREXISTINGSUBNET** kutusunda **mevcut**.
-2.  İçinde **SUBNETID** kutusunda, Azure sanal makinelerinizi dağıtmak planladığınız hazırlanan Azure ağ alt ağı Kimliğiniz tam dizesi ekleyin.
-3.  Tüm Azure ağ alt ağların bir listesini almak için bu PowerShell komutunu çalıştırın:
+1. Azure portalında, **parametreleri** bölmesinde, **NEWOREXISTINGSUBNET** kutusunda **mevcut**.
+2. İçinde **SUBNETID** kutusunda, Azure sanal makinelerinizi dağıtmak planladığınız hazırlanan Azure ağ alt ağı Kimliğiniz tam dizesi ekleyin.
+3. Tüm Azure ağ alt ağların bir listesini almak için bu PowerShell komutunu çalıştırın:
 
-  ```PowerShell
-  (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
-  ```
+   ```PowerShell
+   (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
+   ```
 
-  **Kimliği** alan değeri için alt ağ kimliği gösterir
+   **Kimliği** alan değeri için alt ağ kimliği gösterir
 4. Tüm alt ağ kimliği değerlerin bir listesini almak için bu PowerShell komutunu çalıştırın:
 
-  ```PowerShell
-  (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
-  ```
+   ```PowerShell
+   (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
+   ```
 
-  Alt ağ Kimliğini şöyle görünür:
+   Alt ağ Kimliğini şöyle görünür:
 
-  ```
-  /subscriptions/<subscription ID>/resourceGroups/<VPN name>/providers/Microsoft.Network/virtualNetworks/azureVnet/subnets/<subnet name>
-  ```
+   ```
+   /subscriptions/<subscription ID>/resourceGroups/<VPN name>/providers/Microsoft.Network/virtualNetworks/azureVnet/subnets/<subnet name>
+   ```
 
 ## <a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a> Test ve tanıtım için yalnızca bulutta yer alan SAP örnek dağıtın
 Yalnızca bulutta yer alan dağıtım modelinde, yüksek kullanılabilirlik SAP sistemine dağıtabilirsiniz. Bu tür bir dağıtım, öncelikle tanıtım ve test kullanım durumları için kullanışlıdır. Üretimi kullanım örnekleri için uygun değildir.
@@ -297,16 +297,16 @@ ASCS/SCS şablonu birden fazla ASCS/SCS örneği barındıran bir Windows Server
 
 ASCS/SCS çoklu SID şablonu, ayarlamak için [ASCS/SCS çoklu SID şablon] [ sap-templates-3-tier-multisid-xscs-marketplace-image] veya [yönetilen diskleri kullanarak ASCS/SCS çoklu SID şablon] [ sap-templates-3-tier-multisid-xscs-marketplace-image-md], aşağıdaki parametreler için değerleri girin:
 
-  - **Kaynak önek**:  Dağıtım sırasında oluşturulan tüm kaynakları önek olarak eklemek için kullanılan kaynak öneki ayarlayın. Kaynakları tek bir SAP sistemine ait olmadığından kaynak öneki tek SAP sistemine SID'si değil.  Önek üç ve altı karakter arasında olmalıdır.
-  - **Yığın türü**: SAP sistemine yığın türünü seçin. Yığın türüne bağlı olarak, Azure Load Balancer (ABAP ya da yalnızca Java) veya iki (ABAP + Java) özel IP adresi başına SAP sistemine sahiptir.
-  -  **İşletim sistemi türü**: Sanal makinelerin işletim sistemi seçin.
-  -  **SAP sistemi sayısı**: Bu kümede yüklemek istediğiniz SAP sistemlerini sayısını seçin.
-  -  **Sistem kullanılabilirliği**: Seçin **HA**.
-  -  **Yönetici kullanıcı adı ve yönetici parolası**: Makinede oturum açmak için kullanılan yeni bir kullanıcı oluşturun.
-  -  **Yeni veya var olan bir alt ağa**: Var olan bir alt ağ kullanın veya yeni bir sanal ağ ve alt ağı oluşturmak bu seçeneği ayarlayın. Şirket içi ağınıza bağlı bir sanal ağınız zaten varsa, seçin **mevcut**.
-  -  **Alt ağ kimliği**: Tanımlanan bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle şu şekilde görünür:
+- **Kaynak önek**:  Dağıtım sırasında oluşturulan tüm kaynakları önek olarak eklemek için kullanılan kaynak öneki ayarlayın. Kaynakları tek bir SAP sistemine ait olmadığından kaynak öneki tek SAP sistemine SID'si değil.  Önek üç ve altı karakter arasında olmalıdır.
+- **Yığın türü**: SAP sistemine yığın türünü seçin. Yığın türüne bağlı olarak, Azure Load Balancer (ABAP ya da yalnızca Java) veya iki (ABAP + Java) özel IP adresi başına SAP sistemine sahiptir.
+- **İşletim sistemi türü**: Sanal makinelerin işletim sistemi seçin.
+- **SAP sistemi sayısı**: Bu kümede yüklemek istediğiniz SAP sistemlerini sayısını seçin.
+- **Sistem kullanılabilirliği**: Seçin **HA**.
+- **Yönetici kullanıcı adı ve yönetici parolası**: Makinede oturum açmak için kullanılan yeni bir kullanıcı oluşturun.
+- **Yeni veya var olan bir alt ağa**: Var olan bir alt ağ kullanın veya yeni bir sanal ağ ve alt ağı oluşturmak bu seçeneği ayarlayın. Şirket içi ağınıza bağlı bir sanal ağınız zaten varsa, seçin **mevcut**.
+- **Alt ağ kimliği**: Tanımlanan bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle şu şekilde görünür:
 
-   /Subscriptions/\<abonelik kimliği\>/resourceGroups/\<kaynak grubu adı\>/providers/Microsoft.Network/virtualNetworks/\<sanal ağ adı\>/subnets/ \<alt ağ adı\>
+  /Subscriptions/\<abonelik kimliği\>/resourceGroups/\<kaynak grubu adı\>/providers/Microsoft.Network/virtualNetworks/\<sanal ağ adı\>/subnets/ \<alt ağ adı\>
 
 Şablon birden çok SAP sistemlerini destekleyen bir Azure Load Balancer örneği dağıtır:
 
@@ -335,16 +335,16 @@ Veritabanı şablonu, bir veya iki tek SAP sistemine ilişkisel veritabanı yön
 
 Veritabanı çoklu SID Şablonu ' ayarlamak için [veritabanı çoklu SID şablonu] [ sap-templates-3-tier-multisid-db-marketplace-image] veya [yönetilen diskleri kullanarak veritabanı çoklu SID şablonu] [ sap-templates-3-tier-multisid-db-marketplace-image-md], aşağıdaki parametreler için değerleri girin:
 
-  -  **SAP sistem kimliği**: Yüklemek istediğiniz SAP sistemine SAP sistemi Kimliğini girin. Kimlik ön eki olarak dağıtılan kaynaklar için kullanılır.
-  -  **İşletim sistemi türü**: Sanal makinelerin işletim sistemi seçin.
-  -  **DbType**: Kümeye yüklemek istediğiniz veritabanı türünü seçin. Seçin **SQL** Microsoft SQL Server yüklemek istiyorsanız. Seçin **HANA** sanal makinelerde SAP HANA yüklemeyi planlıyorsanız. Doğru işletim sistemi türü seçtiğinizden emin olun. Seçin **Windows** SQL ve HANA için bir Linux dağıtımı seçin. Sanal makinelere bağlanan Azure Load Balancer, seçili veritabanı türü destekleyecek şekilde yapılandırılır:
-    * **SQL**: Yük Dengeleyici Yük Dengeleme bağlantı noktası 1433'tür. SQL Server AlwaysOn ayarlarınızı bu bağlantı noktasını kullandığınızdan emin olun.
-    * **HANA**: Yük Dengeleyici Yük Dengeleme ve bağlantı noktalarını 35015 35017. SAP HANA ile örnek numarasını yüklediğinizden emin olun **50**.
-    Yük Dengeleyici yoklama bağlantı noktası 62550 kullanır.
-  -  **SAP sistemi boyutu**: Yeni sisteme sağlar SAP sayısını ayarlayın. Kaç tane SAP sistemi gerektiriyor değil eminseniz, SAP teknoloji iş ortağı veya sistem Entegratörü isteyin.
-  -  **Sistem kullanılabilirliği**: Seçin **HA**.
-  -  **Yönetici kullanıcı adı ve yönetici parolası**: Makinede oturum açmak için kullanılan yeni bir kullanıcı oluşturun.
-  -  **Alt ağ kimliği**: ASCS/SCS şablon dağıtımının bir parçası ASCS/SCS şablon dağıtımı sırasında kullanılan alt ağ kimliği veya oluşturulmuş alt ağ Kimliğini girin.
+- **SAP sistem kimliği**: Yüklemek istediğiniz SAP sistemine SAP sistemi Kimliğini girin. Kimlik ön eki olarak dağıtılan kaynaklar için kullanılır.
+- **İşletim sistemi türü**: Sanal makinelerin işletim sistemi seçin.
+- **DbType**: Kümeye yüklemek istediğiniz veritabanı türünü seçin. Seçin **SQL** Microsoft SQL Server yüklemek istiyorsanız. Seçin **HANA** sanal makinelerde SAP HANA yüklemeyi planlıyorsanız. Doğru işletim sistemi türü seçtiğinizden emin olun. Seçin **Windows** SQL ve HANA için bir Linux dağıtımı seçin. Sanal makinelere bağlanan Azure Load Balancer, seçili veritabanı türü destekleyecek şekilde yapılandırılır:
+  * **SQL**: Yük Dengeleyici Yük Dengeleme bağlantı noktası 1433'tür. SQL Server AlwaysOn ayarlarınızı bu bağlantı noktasını kullandığınızdan emin olun.
+  * **HANA**: Yük Dengeleyici Yük Dengeleme ve bağlantı noktalarını 35015 35017. SAP HANA ile örnek numarasını yüklediğinizden emin olun **50**.
+  Yük Dengeleyici yoklama bağlantı noktası 62550 kullanır.
+- **SAP sistemi boyutu**: Yeni sisteme sağlar SAP sayısını ayarlayın. Kaç tane SAP sistemi gerektiriyor değil eminseniz, SAP teknoloji iş ortağı veya sistem Entegratörü isteyin.
+- **Sistem kullanılabilirliği**: Seçin **HA**.
+- **Yönetici kullanıcı adı ve yönetici parolası**: Makinede oturum açmak için kullanılan yeni bir kullanıcı oluşturun.
+- **Alt ağ kimliği**: ASCS/SCS şablon dağıtımının bir parçası ASCS/SCS şablon dağıtımı sırasında kullanılan alt ağ kimliği veya oluşturulmuş alt ağ Kimliğini girin.
 
 ### <a name="application-servers-template"></a> Uygulama sunucuları şablonu
 
@@ -372,20 +372,20 @@ Bizim örneğimizde 10.0.0.0/16 adres alanı, Azure sanal ağı örneği var. Al
 
 Gerekli DNS IP adresleri için aşağıdaki adımları tamamlayın:
 
-1.  Azure portalında, **DNS sunucuları** bölmesinde emin olun, sanal ağınızın **DNS sunucuları** seçeneği **özel DNS**.
-2.  Sahip olduğunuz ağ türüne göre ayarlarınızı seçin. Daha fazla bilgi için aşağıdaki kaynaklara bakın:
-    * [Kurumsal ağ bağlantısı (şirket içi)][planning-guide-2.2]: Şirket içi DNS sunucularının IP adreslerini ekleyin.  
-    Azure'da çalışan sanal makineleri şirket içi DNS sunucularına genişletebilirsiniz. Bu senaryoda DNS hizmeti çalıştıran Azure sanal makinelerin IP adreslerini ekleyebilirsiniz.
-    * Azure'da yalıtılmış VM dağıtımları için: Bir DNS sunucusu olarak hizmet veren aynı sanal ağ örneğinde ek bir sanal makine dağıtın. DNS hizmeti çalıştıran Azure sanal makinelerini yedeklemek için ayarladığınız IP adreslerini ekleyin.
+1. Azure portalında, **DNS sunucuları** bölmesinde emin olun, sanal ağınızın **DNS sunucuları** seçeneği **özel DNS**.
+2. Sahip olduğunuz ağ türüne göre ayarlarınızı seçin. Daha fazla bilgi için aşağıdaki kaynaklara bakın:
+   * [Kurumsal ağ bağlantısı (şirket içi)][planning-guide-2.2]: Şirket içi DNS sunucularının IP adreslerini ekleyin.  
+   Azure'da çalışan sanal makineleri şirket içi DNS sunucularına genişletebilirsiniz. Bu senaryoda DNS hizmeti çalıştıran Azure sanal makinelerin IP adreslerini ekleyebilirsiniz.
+   * Azure'da yalıtılmış VM dağıtımları için: Bir DNS sunucusu olarak hizmet veren aynı sanal ağ örneğinde ek bir sanal makine dağıtın. DNS hizmeti çalıştıran Azure sanal makinelerini yedeklemek için ayarladığınız IP adreslerini ekleyin.
 
-    ![Şekil 2: Azure sanal ağı için DNS sunucuları yapılandırma][sap-ha-guide-figure-3001]
+   ![Şekil 2: Azure sanal ağı için DNS sunucuları yapılandırma][sap-ha-guide-figure-3001]
 
-    _**Şekil 2:** Azure sanal ağı için DNS sunucuları yapılandırma_
+   _**Şekil 2:** Azure sanal ağı için DNS sunucuları yapılandırma_
 
-  > [!NOTE]
-  > DNS sunucularının IP adreslerini değiştirirseniz, değişikliği uygulamak ve yeni DNS sunucularını yaymak için bir Azure sanal makineleri yeniden başlatmanız gerekir.
-  >
-  >
+   > [!NOTE]
+   > DNS sunucularının IP adreslerini değiştirirseniz, değişikliği uygulamak ve yeni DNS sunucularını yaymak için bir Azure sanal makineleri yeniden başlatmanız gerekir.
+   >
+   >
 
 Bizim örneğimizde, DNS hizmeti yüklenir ve bu Windows sanal makinelerinde yapılandırılır:
 
@@ -411,19 +411,19 @@ Diğer iki sanal ana bilgisayar adları, pr1 ascs sap ve pr1-dbms-sap ve ilişki
 ## <a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> SAP sanal makineleri için statik IP adresi ayarlama
 Kümedeki sanal makinelerin dağıttıktan sonra tüm sanal makineler için statik IP adresleri kümesi gerekir. Bunu yapmak, Azure sanal ağ yapılandırması ve konuk işletim sistemi içinde değil.
 
-1.  Azure portalında **kaynak grubu** > **ağ kartı** > **ayarları** > **IPadresi**.
-2.  İçinde **IP adresleri** bölmesi altında **atama**seçin **statik**. İçinde **IP adresi** kutusunda, kullanmak istediğiniz IP adresini girin.
+1. Azure portalında **kaynak grubu** > **ağ kartı** > **ayarları** > **IPadresi**.
+2. İçinde **IP adresleri** bölmesi altında **atama**seçin **statik**. İçinde **IP adresi** kutusunda, kullanmak istediğiniz IP adresini girin.
 
-  > [!NOTE]
-  > Ağ kartının IP adresini değiştirirseniz, değişikliği uygulamak için Azure sanal makineleri yeniden başlatmanız gerekir.  
-  >
-  >
+   > [!NOTE]
+   > Ağ kartının IP adresini değiştirirseniz, değişikliği uygulamak için Azure sanal makineleri yeniden başlatmanız gerekir.  
+   >
+   >
 
-  ![Şekil 3: Statik IP adresleri her sanal makinenin ağ kartı için ayarlayın][sap-ha-guide-figure-3002]
+   ![Şekil 3: Statik IP adresleri her sanal makinenin ağ kartı için ayarlayın][sap-ha-guide-figure-3002]
 
-  _**Şekil 3:** Statik IP adresleri her sanal makinenin ağ kartı için ayarlayın_
+   _**Şekil 3:** Statik IP adresleri her sanal makinenin ağ kartı için ayarlayın_
 
-  Tüm sanal makineler için Active Directory ve DNS hizmetiniz için kullanmak istediğiniz sanal makineleri dahil olan tüm ağ arabirimlerinin, bu adımı yineleyin.
+   Tüm sanal makineler için Active Directory ve DNS hizmetiniz için kullanmak istediğiniz sanal makineleri dahil olan tüm ağ arabirimlerinin, bu adımı yineleyin.
 
 Bizim örneğimizde, bu sanal makineler ve statik IP adresleri vardır:
 
@@ -450,13 +450,13 @@ SAP Azure Resource Manager şablonu SAP ASCS/SCS örneği küme ve DBMS küme i�
 
 Azure iç yük dengeleyici için statik bir IP adresi ayarlamak için:
 
-1.  İç yük dengeleyici IP adresi ilk dağıtım ayarlar **dinamik**. Azure portalında, üzerinde **IP adresleri** bölmesi altında **atama**seçin **statik**.
-2.  İç yük dengeleyicinin IP adresi ayarlama **pr1 lb ascs** SAP ASCS/SCS örneği sanal ana bilgisayar adını IP adresine.
-3.  İç yük dengeleyicinin IP adresi ayarlama **pr1 lb dbms** DBMS örneğinin sanal ana bilgisayar adını IP adresine.
+1. İç yük dengeleyici IP adresi ilk dağıtım ayarlar **dinamik**. Azure portalında, üzerinde **IP adresleri** bölmesi altında **atama**seçin **statik**.
+2. İç yük dengeleyicinin IP adresi ayarlama **pr1 lb ascs** SAP ASCS/SCS örneği sanal ana bilgisayar adını IP adresine.
+3. İç yük dengeleyicinin IP adresi ayarlama **pr1 lb dbms** DBMS örneğinin sanal ana bilgisayar adını IP adresine.
 
-  ![Şekil 4: SAP ASCS/SCS örneği için iç yük dengeleyici için statik IP adresi ayarlama][sap-ha-guide-figure-3003]
+   ![Şekil 4: SAP ASCS/SCS örneği için iç yük dengeleyici için statik IP adresi ayarlama][sap-ha-guide-figure-3003]
 
-  _**Şekil 4:** SAP ASCS/SCS örneği için iç yük dengeleyici için statik IP adresi ayarlama_
+   _**Şekil 4:** SAP ASCS/SCS örneği için iç yük dengeleyici için statik IP adresi ayarlama_
 
 Bizim örneğimizde, bu statik IP adresine sahip iki Azure iç yük Dengeleyiciler sunuyoruz:
 
@@ -522,20 +522,20 @@ IP adresini yük dengeleyici pr1-lb-dbms DBMS örneğinin sanal ana bilgisayar a
 
 SAP ASCS veya SCS örneği için farklı bir sayı kullanmak istiyorsanız, varsayılan değerleri adları ve bağlantı noktalarının değerlerini değiştirmeniz gerekir.
 
-1.  Azure portalında  **\<SID\>-lb ascs yük dengeleyici** > **Yük Dengeleme kuralları**.
-2.  Tüm Yük Dengeleme SAP ASCS veya SCS örneğine ait kuralları için bu değerleri değiştirin:
+1. Azure portalında  **\<SID\>-lb ascs yük dengeleyici** > **Yük Dengeleme kuralları**.
+2. Tüm Yük Dengeleme SAP ASCS veya SCS örneğine ait kuralları için bu değerleri değiştirin:
 
-  * Ad
-  * Bağlantı noktası
-  * Arka uç bağlantı noktası
+   * Ad
+   * Bağlantı noktası
+   * Arka uç bağlantı noktası
 
-  Örneğin, varsayılan ASCS örnek numarasını 00-31 olarak değiştirmek isterseniz, Tablo 1'de listelenen tüm bağlantı noktaları için değişiklikler yapmanız gerekir.
+   Örneğin, varsayılan ASCS örnek numarasını 00-31 olarak değiştirmek isterseniz, Tablo 1'de listelenen tüm bağlantı noktaları için değişiklikler yapmanız gerekir.
 
-  İşte bir örnek bağlantı noktası için bir güncelleştirme *lbrule3200*.
+   İşte bir örnek bağlantı noktası için bir güncelleştirme *lbrule3200*.
 
-  ![Şekil 6: ASCS/SCS varsayılan Yük Dengeleme kuralları Azure iç yük dengeleyici için değiştirin][sap-ha-guide-figure-3005]
+   ![Şekil 6: ASCS/SCS varsayılan Yük Dengeleme kuralları Azure iç yük dengeleyici için değiştirin][sap-ha-guide-figure-3005]
 
-  _**Şekil 6:** ASCS/SCS varsayılan Yük Dengeleme kuralları Azure iç yük dengeleyici için değiştirin_
+   _**Şekil 6:** ASCS/SCS varsayılan Yük Dengeleme kuralları Azure iç yük dengeleyici için değiştirin_
 
 ## <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> Windows sanal makineleri etki alanına ekleyin
 
@@ -582,81 +582,81 @@ SAP ASCS/SCS örneği için bir Windows Server Yük devretme kümesi ayarlama, b
 
 ### <a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a> Küme düğümleri bir küme yapılandırmasında Topla
 
-1.  Rol Ekle ve Özellikler Sihirbazı'nda Yük Devretme Kümelemesi her iki küme düğümlerine ekleyin.
-2.  Yük devretme kümesi, yük devretme kümesi Yöneticisi'ni kullanarak ayarlayın. Yük Devretme Kümesi Yöneticisi'nde **küme oluşturma**ve ardından yalnızca ilk kümesi (a düğümü) adını ekleyin. İkinci düğümü henüz eklemeyin; İkinci düğümü daha sonraki bir adımda eklediğiniz.
+1. Rol Ekle ve Özellikler Sihirbazı'nda Yük Devretme Kümelemesi her iki küme düğümlerine ekleyin.
+2. Yük devretme kümesi, yük devretme kümesi Yöneticisi'ni kullanarak ayarlayın. Yük Devretme Kümesi Yöneticisi'nde **küme oluşturma**ve ardından yalnızca ilk kümesi (a düğümü) adını ekleyin. İkinci düğümü henüz eklemeyin; İkinci düğümü daha sonraki bir adımda eklediğiniz.
 
-  ![Şekil 8: İlk küme düğümüne sunucu veya sanal makine adını ekleyin][sap-ha-guide-figure-3007]
+   ![Şekil 8: İlk küme düğümüne sunucu veya sanal makine adını ekleyin][sap-ha-guide-figure-3007]
 
-  _**Şekil 8:** İlk küme düğümüne sunucu veya sanal makine adını ekleyin_
+   _**Şekil 8:** İlk küme düğümüne sunucu veya sanal makine adını ekleyin_
 
-3.  Küme ağ adı (sanal ana bilgisayar adı) girin.
+3. Küme ağ adı (sanal ana bilgisayar adı) girin.
 
-  ![Şekil 9: Küme adı girin][sap-ha-guide-figure-3008]
+   ![Şekil 9: Küme adı girin][sap-ha-guide-figure-3008]
 
-  _**Şekil 9:** Küme adı girin_
+   _**Şekil 9:** Küme adı girin_
 
-4.  Kümeyi oluşturduktan sonra küme doğrulama testi çalıştırın.
+4. Kümeyi oluşturduktan sonra küme doğrulama testi çalıştırın.
 
-  ![Şekil 10: Küme doğrulama denetimini Çalıştır][sap-ha-guide-figure-3009]
+   ![Şekil 10: Küme doğrulama denetimini Çalıştır][sap-ha-guide-figure-3009]
 
-  _**Şekil 10:** Küme doğrulama denetimini Çalıştır_
+   _**Şekil 10:** Küme doğrulama denetimini Çalıştır_
 
-  Bu noktada işleminde disklerle ilgili tüm uyarılar yoksayabilirsiniz. Dosya paylaşım tanığı ve SIOS diskleri daha sonra paylaşılan ekleyeceksiniz. Bu aşamada, bir çekirdek sahip hakkında endişelenmeniz gerekmez.
+   Bu noktada işleminde disklerle ilgili tüm uyarılar yoksayabilirsiniz. Dosya paylaşım tanığı ve SIOS diskleri daha sonra paylaşılan ekleyeceksiniz. Bu aşamada, bir çekirdek sahip hakkında endişelenmeniz gerekmez.
 
-  ![Şekil 11: Hiçbir çekirdek diski bulundu][sap-ha-guide-figure-3010]
+   ![Şekil 11: Hiçbir çekirdek diski bulundu][sap-ha-guide-figure-3010]
 
-  _**Şekil 11:** Hiçbir çekirdek diski bulundu_
+   _**Şekil 11:** Hiçbir çekirdek diski bulundu_
 
-  ![Şekil 12: Küme Çekirdek kaynağı yeni bir IP adresi gerekiyor][sap-ha-guide-figure-3011]
+   ![Şekil 12: Küme Çekirdek kaynağı yeni bir IP adresi gerekiyor][sap-ha-guide-figure-3011]
 
-  _**Şekil 12:** Küme Çekirdek kaynağı yeni bir IP adresi gerekiyor_
+   _**Şekil 12:** Küme Çekirdek kaynağı yeni bir IP adresi gerekiyor_
 
-5.  Çekirdeği Küme hizmetinin IP adresini değiştirin. Çekirdeği Küme hizmetinin IP adresini değiştirmek kadar küme sanal makine düğümlerinin sunucusunun IP adresini işaret başlatılamıyor. Bunu yapmak **özellikleri** çekirdek küme hizmetin IP kaynak sayfası.
+5. Çekirdeği Küme hizmetinin IP adresini değiştirin. Çekirdeği Küme hizmetinin IP adresini değiştirmek kadar küme sanal makine düğümlerinin sunucusunun IP adresini işaret başlatılamıyor. Bunu yapmak **özellikleri** çekirdek küme hizmetin IP kaynak sayfası.
 
-  Örneğin, bir IP adresi (örneğimizde, 10.0.0.42) atamak küme sanal ana bilgisayar adı pr1-ascs-VIR için ihtiyacımız var.
+   Örneğin, bir IP adresi (örneğimizde, 10.0.0.42) atamak küme sanal ana bilgisayar adı pr1-ascs-VIR için ihtiyacımız var.
 
-  ![Şekil 13: Özellikler iletişim kutusunda, IP adresini değiştirme][sap-ha-guide-figure-3012]
+   ![Şekil 13: Özellikler iletişim kutusunda, IP adresini değiştirme][sap-ha-guide-figure-3012]
 
-  _**Şekil 13:** İçinde **özellikleri** iletişim kutusunda, IP adresini değiştirme_
+   _**Şekil 13:** İçinde **özellikleri** iletişim kutusunda, IP adresini değiştirme_
 
-  ![Şekil 14: Küme için ayrılmış IP adresi atama][sap-ha-guide-figure-3013]
+   ![Şekil 14: Küme için ayrılmış IP adresi atama][sap-ha-guide-figure-3013]
 
-  _**Şekil 14:** Küme için ayrılmış IP adresi atama_
+   _**Şekil 14:** Küme için ayrılmış IP adresi atama_
 
-6.  Küme sanal ana bilgisayar adı çevrimiçi duruma getirin.
+6. Küme sanal ana bilgisayar adı çevrimiçi duruma getirin.
 
-  ![Şekil 15: Küme Çekirdek çalışmaya, doğru IP adresiyle hizmetidir][sap-ha-guide-figure-3014]
+   ![Şekil 15: Küme Çekirdek çalışmaya, doğru IP adresiyle hizmetidir][sap-ha-guide-figure-3014]
 
-  _**Şekil 15:** Küme Çekirdek çalışmaya, doğru IP adresiyle hizmetidir_
+   _**Şekil 15:** Küme Çekirdek çalışmaya, doğru IP adresiyle hizmetidir_
 
-7.  İkinci küme düğümüne ekleyin.
+7. İkinci küme düğümüne ekleyin.
 
-  Çekirdeği Küme hizmeti çalışır duruma geldikten sonra ikinci küme düğümüne ekleyebilirsiniz.
+   Çekirdeği Küme hizmeti çalışır duruma geldikten sonra ikinci küme düğümüne ekleyebilirsiniz.
 
-  ![İkinci küme düğümüne Şekil 16 Ekle][sap-ha-guide-figure-3015]
+   ![İkinci küme düğümüne Şekil 16 Ekle][sap-ha-guide-figure-3015]
 
-  _**Şekil 16:** İkinci küme düğümü Ekle_
+   _**Şekil 16:** İkinci küme düğümü Ekle_
 
-8.  İkinci küme düğümünde konak için bir ad girin.
+8. İkinci küme düğümünde konak için bir ad girin.
 
-  ![Şekil 17: İkinci küme düğümü ana bilgisayar adı girin][sap-ha-guide-figure-3016]
+   ![Şekil 17: İkinci küme düğümü ana bilgisayar adı girin][sap-ha-guide-figure-3016]
 
-  _**Şekil 17:** İkinci küme düğümü ana bilgisayar adı girin_
+   _**Şekil 17:** İkinci küme düğümü ana bilgisayar adı girin_
 
-  > [!IMPORTANT]
-  > Olduğundan emin olun **tüm uygun Depolama alanlarını kümeye ekleyin** onay kutusu *değil* seçili.  
-  >
-  >
+   > [!IMPORTANT]
+   > Olduğundan emin olun **tüm uygun Depolama alanlarını kümeye ekleyin** onay kutusu *değil* seçili.  
+   >
+   >
 
-  ![Şekil 18: Onay kutusunu seçin][sap-ha-guide-figure-3017]
+   ![Şekil 18: Onay kutusunu seçin][sap-ha-guide-figure-3017]
 
-  _**Şekil 18:** Yapmak *değil* onay kutusunu işaretleyin_
+   _**Şekil 18:** Yapmak *değil* onay kutusunu işaretleyin_
 
-  Çekirdek ve diskler hakkında uyarıları gözardı edebilirsiniz. Çekirdek ayarlayın ve diski daha sonra açıklandığı paylaş [bir SAP ASCS/SCS Küme Paylaşımı diski için SIOS DataKeeper Cluster Edition][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios].
+   Çekirdek ve diskler hakkında uyarıları gözardı edebilirsiniz. Çekirdek ayarlayın ve diski daha sonra açıklandığı paylaş [bir SAP ASCS/SCS Küme Paylaşımı diski için SIOS DataKeeper Cluster Edition][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios].
 
-  ![Şekil 19: Disk çekirdek hakkında uyarılar yoksay][sap-ha-guide-figure-3018]
+   ![Şekil 19: Disk çekirdek hakkında uyarılar yoksay][sap-ha-guide-figure-3018]
 
-  _**Şekil 19:** Disk çekirdek hakkında uyarılar yoksay_
+   _**Şekil 19:** Disk çekirdek hakkında uyarılar yoksay_
 
 
 #### <a name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a> Küme dosya paylaşımı tanığını yapılandırma
@@ -668,74 +668,74 @@ Bir küme dosya paylaşım tanığı yapılandırma, bu görevleri kapsar:
 
 #### <a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a> Dosya paylaşımı oluşturma
 
-1.  Dosya paylaşım tanığı yerine bir çekirdek disk seçin. Bu seçenek, SIOS DataKeeper destekler.
+1. Dosya paylaşım tanığı yerine bir çekirdek disk seçin. Bu seçenek, SIOS DataKeeper destekler.
 
-  Bu makaledeki örneklerde, Azure'da çalışan Active Directory veya DNS sunucusu dosya paylaşımı tanığı açıktır. Dosya paylaşım tanığı domcontr 0 olarak adlandırılır. Active Directory ve DNS hizmetinizin (aracılığıyla veya Azure ExpressRoute VPN ağ geçidi) Azure VPN bağlantısı yapılandırmış olmanız, çünkü şirket içi ve dosya paylaşım tanığı çalıştırmak uygun değildir.
+   Bu makaledeki örneklerde, Azure'da çalışan Active Directory veya DNS sunucusu dosya paylaşımı tanığı açıktır. Dosya paylaşım tanığı domcontr 0 olarak adlandırılır. Active Directory ve DNS hizmetinizin (aracılığıyla veya Azure ExpressRoute VPN ağ geçidi) Azure VPN bağlantısı yapılandırmış olmanız, çünkü şirket içi ve dosya paylaşım tanığı çalıştırmak uygun değildir.
 
-  > [!NOTE]
-  > Yalnızca şirket içi Active Directory ve DNS hizmetiniz çalıştırıyorsa, Active Directory veya DNS Windows işletim şirket içinde çalışan sisteminde, dosya paylaşım tanığı yapılandırmayın. Azure ve Active Directory veya DNS şirket içi çalışan küme düğümleri arasındaki ağ gecikme süresi, çok büyük ve bağlantı sorunlarına neden olabilir. Küme düğümü yakın çalıştıran Azure sanal makinesinde dosya paylaşım tanığı yapılandırma emin olun.  
-  >
-  >
+   > [!NOTE]
+   > Yalnızca şirket içi Active Directory ve DNS hizmetiniz çalıştırıyorsa, Active Directory veya DNS Windows işletim şirket içinde çalışan sisteminde, dosya paylaşım tanığı yapılandırmayın. Azure ve Active Directory veya DNS şirket içi çalışan küme düğümleri arasındaki ağ gecikme süresi, çok büyük ve bağlantı sorunlarına neden olabilir. Küme düğümü yakın çalıştıran Azure sanal makinesinde dosya paylaşım tanığı yapılandırma emin olun.  
+   >
+   >
 
-  Çekirdek sürücüde en az 1024 MB boş alan gerekir. 2.048 MB boş alan çekirdek sürücüsü için öneririz.
+   Çekirdek sürücüde en az 1024 MB boş alan gerekir. 2.048 MB boş alan çekirdek sürücüsü için öneririz.
 
-2.  Küme adı nesnesi ekleyin.
+2. Küme adı nesnesi ekleyin.
 
-  ![Şekil 20: Küme adı nesnesi için paylaşım izinleri atama][sap-ha-guide-figure-3019]
+   ![Şekil 20: Küme adı nesnesi için paylaşım izinleri atama][sap-ha-guide-figure-3019]
 
-  _**Şekil 20:** Küme adı nesnesi için paylaşım izinleri atama_
+   _**Şekil 20:** Küme adı nesnesi için paylaşım izinleri atama_
 
-  İzinleri, veri paylaşımı için küme adı nesnesi (Bizim örneğimizde, pr1 ascs VIR$) değiştirileceğini yetkilisi eklediğinizden emin olun.
+   İzinleri, veri paylaşımı için küme adı nesnesi (Bizim örneğimizde, pr1 ascs VIR$) değiştirileceğini yetkilisi eklediğinizden emin olun.
 
-3.  Küme adı nesnesi listeye eklemek için seçin **Ekle**. Bilgisayar nesnelerini Şekil 22'de gösterilen ek olarak denetlemek için filtreyi değiştirin.
+3. Küme adı nesnesi listeye eklemek için seçin **Ekle**. Bilgisayar nesnelerini Şekil 22'de gösterilen ek olarak denetlemek için filtreyi değiştirin.
 
-  ![Şekil 21: Bilgisayarları eklemek için değişiklik nesne türleri][sap-ha-guide-figure-3020]
+   ![Şekil 21: Bilgisayarları eklemek için değişiklik nesne türleri][sap-ha-guide-figure-3020]
 
-  _**Şekil 21:** Değişiklik **nesne türlerini** bilgisayarları dahil etme_
+   _**Şekil 21:** Değişiklik **nesne türlerini** bilgisayarları dahil etme_
 
-  ![Şekil 22: Bilgisayarlar onay kutusunu seçin][sap-ha-guide-figure-3021]
+   ![Şekil 22: Bilgisayarlar onay kutusunu seçin][sap-ha-guide-figure-3021]
 
-  _**Şekil 22:** Seçin **bilgisayarlar** onay kutusu_
+   _**Şekil 22:** Seçin **bilgisayarlar** onay kutusu_
 
-4.  Şekil 21'de gösterildiği gibi küme adı nesnesi girin. Kaydı zaten oluşturulduğundan, Şekil 20'de gösterildiği gibi izinleri değiştirebilirsiniz.
+4. Şekil 21'de gösterildiği gibi küme adı nesnesi girin. Kaydı zaten oluşturulduğundan, Şekil 20'de gösterildiği gibi izinleri değiştirebilirsiniz.
 
-5.  Seçin **güvenlik** paylaşımı ve ardından sekme daha ayrıntılı küme adı nesnesi için izinleri.
+5. Seçin **güvenlik** paylaşımı ve ardından sekme daha ayrıntılı küme adı nesnesi için izinleri.
 
-  ![Şekil 23: Dosya Paylaşımı çekirdeği üzerinde Küme adı nesnesi için güvenlik özniteliklerini ayarlayın][sap-ha-guide-figure-3022]
+   ![Şekil 23: Dosya Paylaşımı çekirdeği üzerinde Küme adı nesnesi için güvenlik özniteliklerini ayarlayın][sap-ha-guide-figure-3022]
 
-  _**Şekil 23:** Dosya Paylaşımı çekirdeği üzerinde Küme adı nesnesi için güvenlik özniteliklerini ayarlayın_
+   _**Şekil 23:** Dosya Paylaşımı çekirdeği üzerinde Küme adı nesnesi için güvenlik özniteliklerini ayarlayın_
 
 #### <a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a> Yük Devretme Kümesi Yöneticisi'nde dosya paylaşım tanığı çekirdek ayarlayın
 
-1.  Açık çekirdeği Ayarlama Sihirbazı'nı yapılandırın.
+1. Açık çekirdeği Ayarlama Sihirbazı'nı yapılandırın.
 
-  ![Şekil 24: Yapılandırma küme çekirdek Ayarlama Sihirbazı'nı başlatın][sap-ha-guide-figure-3023]
+   ![Şekil 24: Yapılandırma küme çekirdek Ayarlama Sihirbazı'nı başlatın][sap-ha-guide-figure-3023]
 
-  _**Şekil 24:** Yapılandırma küme çekirdek Ayarlama Sihirbazı'nı başlatın_
+   _**Şekil 24:** Yapılandırma küme çekirdek Ayarlama Sihirbazı'nı başlatın_
 
-2.  Üzerinde **çekirdek yapılandırma seçeneğini** sayfasında **çekirdek tanığı Seç**.
+2. Üzerinde **çekirdek yapılandırma seçeneğini** sayfasında **çekirdek tanığı Seç**.
 
-  ![Şekil 25: Çekirdek yapılandırmaları arasından seçim yapabilirsiniz][sap-ha-guide-figure-3024]
+   ![Şekil 25: Çekirdek yapılandırmaları arasından seçim yapabilirsiniz][sap-ha-guide-figure-3024]
 
-  _**Şekil 25:** Çekirdek yapılandırmaları arasından seçim yapabilirsiniz_
+   _**Şekil 25:** Çekirdek yapılandırmaları arasından seçim yapabilirsiniz_
 
-3.  Üzerinde **çekirdek tanığı Seç** sayfasında **dosya paylaşım tanığı yapılandırma**.
+3. Üzerinde **çekirdek tanığı Seç** sayfasında **dosya paylaşım tanığı yapılandırma**.
 
-  ![Şekil 26: Dosya paylaşım tanığı seçin][sap-ha-guide-figure-3025]
+   ![Şekil 26: Dosya paylaşım tanığı seçin][sap-ha-guide-figure-3025]
 
-  _**Şekil 26:** Dosya paylaşım tanığı seçin_
+   _**Şekil 26:** Dosya paylaşım tanığı seçin_
 
-4.  Dosya Paylaşımı için UNC yolu girin (Bizim örneğimizde \\domcontr 0\FSW). Yapabilirsiniz değişikliklerin bir listesini görmek için seçin **sonraki**.
+4. Dosya Paylaşımı için UNC yolu girin (Bizim örneğimizde \\domcontr 0\FSW). Yapabilirsiniz değişikliklerin bir listesini görmek için seçin **sonraki**.
 
-  ![Şekil 27: Tanık paylaşımı için dosya paylaşım konumunu tanımlayın][sap-ha-guide-figure-3026]
+   ![Şekil 27: Tanık paylaşımı için dosya paylaşım konumunu tanımlayın][sap-ha-guide-figure-3026]
 
-  _**Şekil 27:** Tanık paylaşımı için dosya paylaşım konumunu tanımlayın_
+   _**Şekil 27:** Tanık paylaşımı için dosya paylaşım konumunu tanımlayın_
 
-5.  Seçin ve ardından değişiklikleri **sonraki**. Şekil 28'de gösterildiği gibi küme yapılandırmasını başarılı bir şekilde yeniden yapılandırmanız gerekir:  
+5. Seçin ve ardından değişiklikleri **sonraki**. Şekil 28'de gösterildiği gibi küme yapılandırmasını başarılı bir şekilde yeniden yapılandırmanız gerekir:  
 
-  ![Şekil 28: Küme yeniden yapılandırılması onayı][sap-ha-guide-figure-3027]
+   ![Şekil 28: Küme yeniden yapılandırılması onayı][sap-ha-guide-figure-3027]
 
-  _**Şekil 28:** Küme yeniden yapılandırılması onayı_
+   _**Şekil 28:** Küme yeniden yapılandırılması onayı_
 
 Windows Yük devretme kümesi başarıyla yükledikten sonra bunlar koşullara azure'da yük devretme algılama uyum bazı eşiklerini değiştirmek gerekir. Değiştirilecek parametreleri bölümünde belgelendirilen [yük devretme kümesi ağ eşikleri ayarlarken][tuning-failover-cluster-network-thresholds]. İki sanal makinelerinizin oluşturan varsayarak ASCS/SCS Windows Küme yapılandırması aynı alt ağdaki içindir, bu değerleri aşağıdaki parametreleri değiştirin:
 
@@ -788,105 +788,105 @@ SIOS yazılımını yüklemeden önce DataKeeperSvc etki alanı kullanıcısı o
 
 SIOS DataKeeper yüklemek için:
 
-1.  SIOS yazılımı, her iki küme düğümlerinde yükleyin.
+1. SIOS yazılımı, her iki küme düğümlerinde yükleyin.
 
-  ![SIOS yükleyici][sap-ha-guide-figure-3030]
+   ![SIOS yükleyici][sap-ha-guide-figure-3030]
 
-  ![Şekil 31: SIOS DataKeeper yüklemenin ilk sayfa][sap-ha-guide-figure-3031]
+   ![Şekil 31: SIOS DataKeeper yüklemenin ilk sayfa][sap-ha-guide-figure-3031]
 
-  _**Şekil 31:** SIOS DataKeeper yüklemenin ilk sayfa_
+   _**Şekil 31:** SIOS DataKeeper yüklemenin ilk sayfa_
 
-2.  İletişim kutusunda **Evet**.
+2. İletişim kutusunda **Evet**.
 
-  ![Şekil 32: Bir hizmet devre dışı bırakılacak DataKeeper bildirir][sap-ha-guide-figure-3032]
+   ![Şekil 32: Bir hizmet devre dışı bırakılacak DataKeeper bildirir][sap-ha-guide-figure-3032]
 
-  _**Şekil 32:** Bir hizmet devre dışı bırakılacak DataKeeper bildirir_
+   _**Şekil 32:** Bir hizmet devre dışı bırakılacak DataKeeper bildirir_
 
-3.  İletişim kutusunda, seçtiğiniz olan öneririz **etki alanı veya sunucu hesabı**.
+3. İletişim kutusunda, seçtiğiniz olan öneririz **etki alanı veya sunucu hesabı**.
 
-  ![Şekil 33: SIOS DataKeeper için kullanıcı seçimi][sap-ha-guide-figure-3033]
+   ![Şekil 33: SIOS DataKeeper için kullanıcı seçimi][sap-ha-guide-figure-3033]
 
-  _**Şekil 33:** SIOS DataKeeper için kullanıcı seçimi_
+   _**Şekil 33:** SIOS DataKeeper için kullanıcı seçimi_
 
-4.  SIOS DataKeeper için oluşturduğunuz parola ve etki alanı hesabı kullanıcı adı girin.
+4. SIOS DataKeeper için oluşturduğunuz parola ve etki alanı hesabı kullanıcı adı girin.
 
-  ![Şekil 34: Etki alanı kullanıcı adı ve parolayı için SIOS DataKeeper yükleme girin][sap-ha-guide-figure-3034]
+   ![Şekil 34: Etki alanı kullanıcı adı ve parolayı için SIOS DataKeeper yükleme girin][sap-ha-guide-figure-3034]
 
-  _**Şekil 34:** Etki alanı kullanıcı adı ve parolayı için SIOS DataKeeper yükleme girin_
+   _**Şekil 34:** Etki alanı kullanıcı adı ve parolayı için SIOS DataKeeper yükleme girin_
 
-5.  SIOS DataKeeper Örneğiniz için lisans anahtarı Şekil 35 ' gösterildiği gibi yükleyin.
+5. SIOS DataKeeper Örneğiniz için lisans anahtarı Şekil 35 ' gösterildiği gibi yükleyin.
 
-  ![Şekil 35: SIOS DataKeeper lisans anahtarınızı girin][sap-ha-guide-figure-3035]
+   ![Şekil 35: SIOS DataKeeper lisans anahtarınızı girin][sap-ha-guide-figure-3035]
 
-  _**Şekil 35:** SIOS DataKeeper lisans anahtarınızı girin_
+   _**Şekil 35:** SIOS DataKeeper lisans anahtarınızı girin_
 
-6.  İstendiğinde, sanal makineyi yeniden başlatın.
+6. İstendiğinde, sanal makineyi yeniden başlatın.
 
 ### <a name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a> SIOS DataKeeper ' ayarlayın
 
 Her iki düğümde SIOS DataKeeper yükledikten sonra yapılandırmayı başlatın. Yapılandırma amacı, her sanal makineye bağlı ek diskler arasında zaman uyumlu veri çoğaltmayı olmasını sağlamaktır.
 
-1.  DataKeeper yönetim ve yapılandırma aracını başlatın ve ardından **Connect Server**.
+1. DataKeeper yönetim ve yapılandırma aracını başlatın ve ardından **Connect Server**.
 
-  ![Şekil 36: SIOS DataKeeper yönetim ve yapılandırma aracı][sap-ha-guide-figure-3036]
+   ![Şekil 36: SIOS DataKeeper yönetim ve yapılandırma aracı][sap-ha-guide-figure-3036]
 
-  _**Şekil 36:** SIOS DataKeeper yönetim ve yapılandırma aracı_
+   _**Şekil 36:** SIOS DataKeeper yönetim ve yapılandırma aracı_
 
-2.  Adını veya ilk düğümü yönetim ve yapılandırma aracını için ve ikinci adım, ikinci düğüme bağlanmak TCP/IP'yi adresini girin.
+2. Adını veya ilk düğümü yönetim ve yapılandırma aracını için ve ikinci adım, ikinci düğüme bağlanmak TCP/IP'yi adresini girin.
 
-  ![Şekil 37: TCP/IP adresi ilk düğümü yönetim ve yapılandırma aracı için ve ikinci adım, ikinci düğümü bağlanmanız gerekir ya da adını Ekle][sap-ha-guide-figure-3037]
+   ![Şekil 37: TCP/IP adresi ilk düğümü yönetim ve yapılandırma aracı için ve ikinci adım, ikinci düğümü bağlanmanız gerekir ya da adını Ekle][sap-ha-guide-figure-3037]
 
-  _**Şekil 37:** TCP/IP adresi ilk düğümü yönetim ve yapılandırma aracı için ve ikinci adım, ikinci düğümü bağlanmanız gerekir ya da adını Ekle_
+   _**Şekil 37:** TCP/IP adresi ilk düğümü yönetim ve yapılandırma aracı için ve ikinci adım, ikinci düğümü bağlanmanız gerekir ya da adını Ekle_
 
-3.  İki düğüm arasındaki çoğaltma işi oluşturun.
+3. İki düğüm arasındaki çoğaltma işi oluşturun.
 
-  ![Şekil 38: Çoğaltma işi oluşturma][sap-ha-guide-figure-3038]
+   ![Şekil 38: Çoğaltma işi oluşturma][sap-ha-guide-figure-3038]
 
-  _**Şekil 38:** Çoğaltma işi oluşturma_
+   _**Şekil 38:** Çoğaltma işi oluşturma_
 
-  Bir sihirbaz çoğaltma işi oluşturma işleminde size kılavuzluk eder.
+   Bir sihirbaz çoğaltma işi oluşturma işleminde size kılavuzluk eder.
 
-4.  Çoğaltma işi adı tanımlayın.
+4. Çoğaltma işi adı tanımlayın.
 
-  ![Şekil 39: Çoğaltma işi adını tanımlayın][sap-ha-guide-figure-3039]
+   ![Şekil 39: Çoğaltma işi adını tanımlayın][sap-ha-guide-figure-3039]
 
-  _**Şekil 39:** Çoğaltma işi adını tanımlayın_
+   _**Şekil 39:** Çoğaltma işi adını tanımlayın_
 
-  ![Şekil 40: Geçerli kaynak düğüm olmalıdır düğümü için temel veri tanımlama][sap-ha-guide-figure-3040]
+   ![Şekil 40: Geçerli kaynak düğüm olmalıdır düğümü için temel veri tanımlama][sap-ha-guide-figure-3040]
 
-  _**Şekil 40:** Geçerli kaynak düğüm olmalıdır düğümü için temel veri tanımlama_
+   _**Şekil 40:** Geçerli kaynak düğüm olmalıdır düğümü için temel veri tanımlama_
 
-5.  Adı, TCP/IP adresi ve hedef düğümünün disk birimi tanımlayın.
+5. Adı, TCP/IP adresi ve hedef düğümünün disk birimi tanımlayın.
 
-  ![Şekil 41: Adı, TCP/IP adresi ve geçerli hedef düğümünün disk birimi tanımlayın][sap-ha-guide-figure-3041]
+   ![Şekil 41: Adı, TCP/IP adresi ve geçerli hedef düğümünün disk birimi tanımlayın][sap-ha-guide-figure-3041]
 
-  _**Şekil 41:** Adı, TCP/IP adresi ve geçerli hedef düğümünün disk birimi tanımlayın_
+   _**Şekil 41:** Adı, TCP/IP adresi ve geçerli hedef düğümünün disk birimi tanımlayın_
 
-6.  Sıkıştırma algoritmaları tanımlar. Bizim örneğimizde, çoğaltma akışını sıkıştırmak öneririz. Çoğaltma akışı sıkıştırma, özellikle yeniden eşitleme durumlarda yeniden eşitleme zamanı önemli ölçüde azaltır. Sıkıştırma, bir sanal makinenin CPU ve RAM kaynaklarını kullanır. Sıkıştırma oranı arttıkça, bu nedenle kullanılan CPU kaynakları hacmi yapar. Bu ayar daha sonra ayarlayabilirsiniz.
+6. Sıkıştırma algoritmaları tanımlar. Bizim örneğimizde, çoğaltma akışını sıkıştırmak öneririz. Çoğaltma akışı sıkıştırma, özellikle yeniden eşitleme durumlarda yeniden eşitleme zamanı önemli ölçüde azaltır. Sıkıştırma, bir sanal makinenin CPU ve RAM kaynaklarını kullanır. Sıkıştırma oranı arttıkça, bu nedenle kullanılan CPU kaynakları hacmi yapar. Bu ayar daha sonra ayarlayabilirsiniz.
 
-7.  Başka bir ayarı kontrol etmeniz mi çoğaltma zaman uyumlu veya zaman uyumsuz olarak gerçekleşir. SAP ASCS/SCS yapılandırmaları koruduğunuzda, zaman uyumlu çoğaltma kullanmanız gerekir.  
+7. Başka bir ayarı kontrol etmeniz mi çoğaltma zaman uyumlu veya zaman uyumsuz olarak gerçekleşir. SAP ASCS/SCS yapılandırmaları koruduğunuzda, zaman uyumlu çoğaltma kullanmanız gerekir.  
 
-  ![Şekil 42: Çoğaltma ayrıntılarını tanımlayın][sap-ha-guide-figure-3042]
+   ![Şekil 42: Çoğaltma ayrıntılarını tanımlayın][sap-ha-guide-figure-3042]
 
-  _**Şekil 42:** Çoğaltma ayrıntılarını tanımlayın_
+   _**Şekil 42:** Çoğaltma ayrıntılarını tanımlayın_
 
-8.  Çoğaltma işi tarafından çoğaltılmış birimi paylaşılan bir disk olarak bir Windows Server Yük devretme kümesi yapılandırması için gösterilen olup olmadığını tanımlar. SAP ASCS/SCS yapılandırmasını seçin **Evet** böylece küme birimi olarak kullanabileceği paylaşılan bir disk olarak çoğaltılmış bir birimi Windows Küme görür.
+8. Çoğaltma işi tarafından çoğaltılmış birimi paylaşılan bir disk olarak bir Windows Server Yük devretme kümesi yapılandırması için gösterilen olup olmadığını tanımlar. SAP ASCS/SCS yapılandırmasını seçin **Evet** böylece küme birimi olarak kullanabileceği paylaşılan bir disk olarak çoğaltılmış bir birimi Windows Küme görür.
 
-  ![Şekil 43: Çoğaltılmış birimi küme birimi olarak ayarlamak için Evet'i seçin][sap-ha-guide-figure-3043]
+   ![Şekil 43: Çoğaltılmış birimi küme birimi olarak ayarlamak için Evet'i seçin][sap-ha-guide-figure-3043]
 
-  _**Şekil 43:** Seçin **Evet** çoğaltılmış birimi küme birimi olarak ayarlamak için_
+   _**Şekil 43:** Seçin **Evet** çoğaltılmış birimi küme birimi olarak ayarlamak için_
 
-  Birim oluşturulduktan sonra DataKeeper yönetimini ve yapılandırmasını araç çoğaltma işi etkin olduğunu gösterir.
+   Birim oluşturulduktan sonra DataKeeper yönetimini ve yapılandırmasını araç çoğaltma işi etkin olduğunu gösterir.
 
-  ![Şekil 44: SAP ASCS/SCS paylaşımı diski DataKeeper zaman uyumlu yansıtma etkin][sap-ha-guide-figure-3044]
+   ![Şekil 44: SAP ASCS/SCS paylaşımı diski DataKeeper zaman uyumlu yansıtma etkin][sap-ha-guide-figure-3044]
 
-  _**Şekil 44:** SAP ASCS/SCS paylaşımı diski DataKeeper zaman uyumlu yansıtma etkin_
+   _**Şekil 44:** SAP ASCS/SCS paylaşımı diski DataKeeper zaman uyumlu yansıtma etkin_
 
-  Yük Devretme Kümesi Yöneticisi şekil 45 gösterildiği DataKeeper disk olarak disk artık gösterir:
+   Yük Devretme Kümesi Yöneticisi şekil 45 gösterildiği DataKeeper disk olarak disk artık gösterir:
 
-  ![Şekil 45: Yük Devretme Kümesi Yöneticisi DataKeeper çoğaltılan disk gösterir.][sap-ha-guide-figure-3045]
+   ![Şekil 45: Yük Devretme Kümesi Yöneticisi DataKeeper çoğaltılan disk gösterir.][sap-ha-guide-figure-3045]
 
-  _**Şekil 45:** Yük Devretme Kümesi Yöneticisi DataKeeper çoğaltılan disk gösterir._
+   _**Şekil 45:** Yük Devretme Kümesi Yöneticisi DataKeeper çoğaltılan disk gösterir._
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

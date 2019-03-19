@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 3f55b3b099cc22fda2bebf0dcb8d3e9c1a580f02
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 410727022b092e2dd8ab8b05e628e25fd60ab833
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099710"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102535"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Active Directory kimlikleri kullanarak Azure Search Sonuçları kırpma için güvenlik filtreleri
 
@@ -22,13 +22,13 @@ Bu makalede Azure Active Directory (AAD) güvenlik kimlikleri filtreleri ile bir
 
 Bu makale aşağıdaki görevleri kapsar:
 > [!div class="checklist"]
-- AAD grupları ve kullanıcı oluşturma
-- Kullanıcı oluşturmuş olduğunuz grubuyla ilişkilendirin
-- Yeni gruplar önbelleğe alma
-- İlişkili grupları ile dizin belgeleri
-- Grup tanımlayıcıları Filtresi ile arama isteği sorunu
-
->[!NOTE]
+> - AAD grupları ve kullanıcı oluşturma
+> - Kullanıcı oluşturmuş olduğunuz grubuyla ilişkilendirin
+> - Yeni gruplar önbelleğe alma
+> - İlişkili grupları ile dizin belgeleri
+> - Grup tanımlayıcıları Filtresi ile arama isteği sorunu
+> 
+> [!NOTE]
 > Bu makaledeki örnek kod parçacıkları C# dilinde yazılmıştır. Tam kaynak kodunu [GitHub](https://aka.ms/search-dotnet-howto)'da bulabilirsiniz. 
 
 ## <a name="prerequisites"></a>Önkoşullar

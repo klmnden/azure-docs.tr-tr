@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: f856753ae74b43e257cb222422f4d4eb27ee099c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8541362a16c7d12a0e3a4cf009ed9cd5faf9f1cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404884"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097636"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>ExpressRoute devre eşlemeleri Sıfırla
 
@@ -33,48 +33,48 @@ Burada, ExpressRoute eşlemeleri sıfırlama yararlı birkaç senaryo vardır.
 
 1. PowerShell'i yerel olarak çalıştırıyorsanız, PowerShell Konsolunuzu yükseltilmiş ayrıcalıklarla açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
 
-  ```azurepowershell
-  Connect-AzAccount
-  ```
+   ```azurepowershell
+   Connect-AzAccount
+   ```
 2. Birden çok Azure aboneliğiniz varsa, hesabın aboneliklerini denetleyin.
 
-  ```azurepowershell-interactive
-  Get-AzSubscription
-  ```
+   ```azurepowershell-interactive
+   Get-AzSubscription
+   ```
 3. Kullanmak istediğiniz aboneliği belirtin.
 
-  ```azurepowershell-interactive
-  Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 4. ExpressRoute devreniz almak için aşağıdaki komutları çalıştırın.
 
-  ```azurepowershell-interactive
-  $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-  ```
+   ```azurepowershell-interactive
+   $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+   ```
 5. Devre dışı bırakmak veya etkinleştirmek istediğiniz eşlemeyi tanımlar. *Eşlemeler* bir dizidir. Aşağıdaki örnekte, Azure özel eşdüzey hizmet sağlama ve eşlemeler [1] Microsoft Peering eşlemeleri [0] olduğu.
 
-  ```azurepowershell-interactive
-Name                             : ExpressRouteARMCircuit
-ResourceGroupName                : ExpressRouteResourceGroup
-Location                         : westus
-Id                               : /subscriptions/########-####-####-####-############/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-Etag                             : W/"cd011bef-dc79-49eb-b4c6-81fb6ea5d178"
-ProvisioningState                : Succeeded
-Sku                              : {
+   ```azurepowershell-interactive
+   Name                             : ExpressRouteARMCircuit
+   ResourceGroupName                : ExpressRouteResourceGroup
+   Location                         : westus
+   Id                               : /subscriptions/########-####-####-####-############/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+   Etag                             : W/"cd011bef-dc79-49eb-b4c6-81fb6ea5d178"
+   ProvisioningState                : Succeeded
+   Sku                              : {
                                      "Name": "Standard_MeteredData",
                                      "Tier": "Standard",
                                      "Family": "MeteredData"
                                    }
-CircuitProvisioningState         : Enabled
-ServiceProviderProvisioningState : Provisioned
-ServiceProviderNotes             :
-ServiceProviderProperties        : {
+   CircuitProvisioningState         : Enabled
+   ServiceProviderProvisioningState : Provisioned
+   ServiceProviderNotes             :
+   ServiceProviderProperties        : {
                                      "ServiceProviderName": "Coresite",
                                      "PeeringLocation": "Los Angeles",
                                      "BandwidthInMbps": 50
                                    }
-ServiceKey                       : ########-####-####-####-############
-Peerings                         : [
+   ServiceKey                       : ########-####-####-####-############
+   Peerings                         : [
                                      {
                                        "Name": "AzurePrivatePeering",
                                        "Etag": "W/\"cd011bef-dc79-49eb-b4c6-81fb6ea5d178\"",
@@ -130,17 +130,17 @@ Peerings                         : [
                                        "Connections": []
                                      }
                                    ]
-Authorizations                   : []
-AllowClassicOperations           : False
-GatewayManagerEtag               :
-  ```
+   Authorizations                   : []
+   AllowClassicOperations           : False
+   GatewayManagerEtag               :
+   ```
 6. Eşleme durumunu değiştirmek için aşağıdaki komutları çalıştırın.
 
-  ```azurepowershell-interactive
-  $ckt.Peerings[0].State = "Disabled"
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
-Eşleme, ayarladığınız bir durumda olması gerekir. 
+   ```azurepowershell-interactive
+   $ckt.Peerings[0].State = "Disabled"
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
+   Eşleme, ayarladığınız bir durumda olması gerekir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 ExpressRoute sorunu gidermek için yardıma ihtiyacınız varsa şu makalelere bakın:

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43ddf56e4c72e7e59778fc43a808b9800bc3b9b3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 602dd0fd4050a3b4336c560bbd82b32f3903b93c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187733"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850205"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Öğretici: PolicyStat ile Azure Active Directory Tümleştirme
 
@@ -176,7 +176,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve P
 
     c. İçinde **son Name özniteliği** metin kutusuna **lastname** kullanıcının **Simon**.
 
-    d. İçinde **e-posta özniteliği** metin kutusuna **emailaddress** kullanıcının **BrittaSimon@contoso.com**.
+    d. İçinde **e-posta özniteliği** metin kutusuna **emailaddress** kullanıcının **BrittaSimon\@contoso.com**.
 
     e. Tıklayın **değişiklikleri kaydetmek**.
 

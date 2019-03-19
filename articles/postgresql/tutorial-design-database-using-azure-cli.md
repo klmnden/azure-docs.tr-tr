@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
-ms.openlocfilehash: 56589df6a0135f15eb1b74708a47829e6fec3299
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: eba1ffcbe07c617661d902de0726f17e4fec0a00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547002"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992078"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Öğretici: Azure CLI kullanarak PostgreSQL için Azure veritabanı tasarlama 
 Bu öğreticide, şunları nasıl yapacağınızı öğrenmek için Azure CLI (komut satırı arabirimi) ve diğer yardımcı programları kullanırsınız:
@@ -121,25 +121,25 @@ Sonuç JSON biçimindedir. **administratorLogin** ve **fullyQualifiedDomainName*
 İstemci bilgisayarınızda PostgreSQL yüklüyse, [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)’nin yerel bir örneğini veya Azure Bulut Konsolu’nu kullanarak Azure PostgreSQL sunucusuna bağlanabilirsiniz. Şimdi PostgreSQL için Azure Veritabanı sunucusuna bağlanmak üzere psql komut satır yardımcı programını kullanalım.
 
 1. PostgreSQL için Azure Veritabanı veritabanına bağlanmak üzere aşağıdaki psql komutunu çalıştırın:
-```azurecli-interactive
-psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
-```
+   ```azurecli-interactive
+   psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
+   ```
 
-  Örneğin aşağıdaki komut, erişim kimlik bilgilerini kullanarak **mydemoserver.postgres.database.azure.com** PostgreSQL sunucunuzda **postgres** adlı varsayılan veritabanına bağlanır. Parola istendiğinde seçtiğiniz `<server_admin_password>` değerini girin.
+   Örneğin aşağıdaki komut, erişim kimlik bilgilerini kullanarak **mydemoserver.postgres.database.azure.com** PostgreSQL sunucunuzda **postgres** adlı varsayılan veritabanına bağlanır. Parola istendiğinde seçtiğiniz `<server_admin_password>` değerini girin.
   
-  ```azurecli-interactive
-psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
-```
+   ```azurecli-interactive
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
+   ```
 
-2.  Sunucuya bağlandıktan sonra, istemde boş bir veritabanı oluşturun:
-```sql
-CREATE DATABASE mypgsqldb;
-```
+2. Sunucuya bağlandıktan sonra, istemde boş bir veritabanı oluşturun:
+   ```sql
+   CREATE DATABASE mypgsqldb;
+   ```
 
-3.  İstemde, bağlantıyı yeni oluşturulan **mypgsqldb** veritabanına geçirmek için aşağıdaki komutu yürütün:
-```sql
-\c mypgsqldb
-```
+3. İstemde, bağlantıyı yeni oluşturulan **mypgsqldb** veritabanına geçirmek için aşağıdaki komutu yürütün:
+   ```sql
+   \c mypgsqldb
+   ```
 
 ## <a name="create-tables-in-the-database"></a>Veritabanında tablo oluşturma
 Artık PostgreSQL için Azure Veritabanına nasıl bağlanacağınızı bildiğinize göre bazı temel görevleri tamamlayabilirsiniz:
@@ -192,6 +192,7 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 `az postgres server restore` komutu için aşağıdaki parametreler gerekir:
+
 | Ayar | Önerilen değer | Açıklama  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Kaynak sunucunun bulunduğu kaynak grubu.  |

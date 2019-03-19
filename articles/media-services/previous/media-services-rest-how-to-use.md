@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako;johndeu
-ms.openlocfilehash: e0011d36ccff7b9d621679f15776bbdb15d0cbe4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1e8d21c39a428049594237900aa76f783a3ed0ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005463"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860366"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Media Services işlemlerini REST API'si genel bakış 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -35,7 +35,7 @@ Kimlik doğrulaması için Media Services REST API makalesinde özetlenen Azure 
 REST kullanırken aşağıdaki maddeler geçerlidir.
 
 * Varlıkları sorgulanırken ortak REST v2 1000 sonuçları için sorgu sonuçları sınırladığı için tek seferde döndürülen 1000 varlıkların bir sınır yoktur. Kullanmanız gereken **atla** ve **ele** (.NET) / **üst** (REST) bölümünde anlatıldığı gibi [bu .NET örnek](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) ve [bu REST API örnek](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
-* Zaman JSON kullanan ve kullanılacağını belirtme **__metadata** anahtar sözcüğü isteğinde (örneğin, bağlantılı nesne başvuru) ayarlamanız gerekir **kabul** başlığına [ayrıntılı JSON biçimi](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(aşağıdaki örneğe bakın). OData anlamak **__metadata** özellik isteğinde sürece, ayrıntılı ayarlayın.  
+* Zaman JSON kullanan ve kullanılacağını belirtme **__metadata** anahtar sözcüğü isteğinde (örneğin, bağlantılı nesne başvuru) ayarlamanız gerekir **kabul** başlığına [ayrıntılı JSON biçimi](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(aşağıdaki örneğe bakın). OData anlamak **__metadata** özellik isteğinde sürece, ayrıntılı ayarlayın.  
   
         POST https://media.windows.net/API/Jobs HTTP/1.1
         Content-Type: application/json;odata=verbose

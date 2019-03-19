@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: dfff159d7e0204a752935458a2b4845499c0d652
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ecfd86a7e4a8ef97663cc930906fd909b6f0fae8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453408"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011124"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Microsoft Azure depolama istemci tarafı şifreleme ile Python
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "55453408"
 4. İçerik şifreleme anahtarı (CEK), ardından şifreli kullanıcı verilerin şifresini çözmek için kullanılır.
 
 ## <a name="encryption-mechanism"></a>Şifreleme mekanizması
-Depolama istemcisi kitaplığı kullanan [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) kullanıcı verilerini şifrelemek için. Özellikle, [Şifre blok zincirleme (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) AES moduyla. Her bir hizmet works biraz farklı şekilde, her biri aşağıda ele alınacaktır.
+Depolama istemcisi kitaplığı kullanan [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) kullanıcı verilerini şifrelemek için. Özellikle, [Şifre blok zincirleme (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) AES moduyla. Her bir hizmet works biraz farklı şekilde, her biri aşağıda ele alınacaktır.
 
 ### <a name="blobs"></a>Bloblar
 İstemci Kitaplığı, şu anda yalnızca tüm blobları şifreleme desteklemektedir. Özellikle, kullanıcıların kullanması durumunda şifreleme desteklenir **oluşturma*** yöntemleri. İndirmeler, hem tam hem aralığı indirmeler desteklenir ve paralelleştirme hem karşıya yükleme ve indirme için kullanılabilir.
@@ -91,9 +91,9 @@ Tablo verileri şifreleme gibi çalışır:
 2. İstemci Kitaplığı, rasgele içerik bir şifreleme anahtarı (CEK) 32 bayt her varlık için birlikte 16 bayt bir rastgele başlatma vektörü (IV) oluşturur ve özellik başına yeni bir IV türetme tarafından şifrelenmiş özellikler Zarf şifreleme gerçekleştirir. Şifrelenmiş özelliği ikili veri olarak depolanır.
 3. Sarmalanan CEK ve bazı ek şifreleme meta verileri sonra iki ek ayrılmış özellikleri olarak depolanır. İlk özellik ayrılmış (\_ClientEncryptionMetadata1) IV, sürüm ve Sarmalanan anahtar bilgilerini tutan bir dize özelliği. İkinci özellik ayrılmış (\_ClientEncryptionMetadata2) şifrelenir özellikleri hakkında bilgileri tutan ikili bir özelliktir. Bu ikinci özellik bilgileri (\_ClientEncryptionMetadata2), kendisi şifrelenir.
 4. Şifreleme için gereken bu ek ayrılmış özellikleri nedeniyle, kullanıcılar artık 252 yerine yalnızca 250 özel özellikler olabilir. Varlık toplam boyutu 1 MB'tan az olmalıdır.
-   
+
    Yalnızca dize özellikleri şifrelenmiş olduğunu unutmayın. Diğer özellikler şifrelenmesini türlerindeyse, dizeleri dönüştürülmelidir. Şifrelenmiş dizeleri hizmette ikili özellikleri olarak depolanır ve bunlar geri dizeleri (ham dize, EntityProperties EdmType.STRING türüyle değil) şifre çözme sonra dönüştürülür.
-   
+
    Şifreleme İlkesi yanı sıra, tablolar için kullanıcıların şifrelenmiş özelliklerini belirtmeniz gerekir. Bu, ya da bu özellikleri TableEntity türü kümesine EdmType.STRING nesneleriyle depolayarak yapılabilir ve true olarak ayarlanmış veya tableservice nesnede encryption_resolver_function ayarlama şifreleme. Bir şifreleme çözümleyici bölüm anahtarını, satır anahtarını ve özellik adını alır ve bu özellik şifrelenmesi gerekip gerekmediğini belirten bir Boole değeri döndüren bir işlevdir. Şifreleme sırasında istemci kitaplığı, bir özellik için kablo yazılırken şifrelenmesi gerekip gerekmediğine karar vermek için bu bilgileri kullanır. Temsilci özellikleri nasıl şifrelenir etrafında mantıksal olasılığı için de sağlar. (X, örneğin, daha sonra özellik A şifrelemek; Aksi takdirde özellik A ve b şifreleme) Bunu okurken veya varlıkları sorgulayarak bu bilgiyi sağlamak gerekli olduğunu unutmayın.
 
 ### <a name="batch-operations"></a>Toplu işlemler
@@ -105,9 +105,9 @@ Toplu işin şifreleme ilkesi (varlıklar tableservice'nın Şifreleme İlkesi'n
 > [!NOTE]
 > Varlıkları şifrelendiği, filtre sorgularını bir şifrelenmiş özellikte çalıştıramazsınız.  Denerseniz, şifrelenmiş veriler şifrelenmemiş veri ile Karşılaştırılacak Service'i denediğiniz çünkü sonuçlar hatalı olacaktır.
 > 
->
-Sorgu işlemleri gerçekleştirmek için sonuç kümesinde tüm anahtarları çözümleyemiyorsa anahtar bir çözümleyici belirtmeniz gerekir. Sorgu sonucuna yer alan bir varlık için bir sağlayıcı çözümlenemezse, istemci kitaplığının bir hata atar. Sunucu tarafı projeksiyonlar gerçekleştirir herhangi bir sorgu için özel şifreleme meta veri özelliklerini istemci kitaplığı ekler (\_ClientEncryptionMetadata1 ve \_ClientEncryptionMetadata2) varsayılan olarak seçili sütunları.
-
+> 
+> Sorgu işlemleri gerçekleştirmek için sonuç kümesinde tüm anahtarları çözümleyemiyorsa anahtar bir çözümleyici belirtmeniz gerekir. Sorgu sonucuna yer alan bir varlık için bir sağlayıcı çözümlenemezse, istemci kitaplığının bir hata atar. Sunucu tarafı projeksiyonlar gerçekleştirir herhangi bir sorgu için özel şifreleme meta veri özelliklerini istemci kitaplığı ekler (\_ClientEncryptionMetadata1 ve \_ClientEncryptionMetadata2) varsayılan olarak seçili sütunları.
+> 
 > [!IMPORTANT]
 > İstemci tarafı şifreleme kullanırken şu önemli noktalara dikkat edin:
 > 
@@ -115,8 +115,6 @@ Sorgu işlemleri gerçekleştirmek için sonuç kümesinde tüm anahtarları ç�
 > * Tablolar için benzer bir kısıtlama yok. Şifrelenmiş özellikler şifreleme meta verileri güncelleştirmeden güncelleştiremezsiniz dikkat edin.
 > * Meta veriler üzerinde şifrelenmiş bir blobu ayarlarsanız, şifre çözme için meta verileri ayarlama eklenebilir olmadığından gerekli şifrelemeyle ilgili meta veriler üzerine yazabilir. Bu da anlık görüntüler için geçerlidir; meta veri şifrelenmiş bir blobun anlık görüntüsünü oluşturulurken belirtmekten kaçının. Meta veriler ayarlanmalıdır, çağırdığınızdan emin olun **get_blob_metadata** ilk geçerli şifreleme meta verileri ve meta verileri ayarlanırken eşzamanlı yazma sorunu önlemek için yöntemi.
 > * Etkinleştirme **require_encryption** bayrağı yalnızca şifrelenmiş verileri ile çalışma kullanıcılar için hizmet nesnesi. Aşağıda daha fazla bilgi için bkz.
-> 
-> 
 
 Depolama istemcisi kitaplığı bekliyor. sağlanan KEK ve anahtar Çözümleyicisi aşağıdaki arabirim uygulamak için. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) Python KEK yönetim Beklemede ve tamamlandığında bu kitaplığa tümleştirilecektir desteği.
 
@@ -136,10 +134,10 @@ En az anahtar Çözümleyici, verilen bir anahtar kimlik yukarıdaki arabirimini
 
 * Şifreleme için anahtar her zaman kullanılır ve bir anahtar olmaması bir hataya neden olur.
 * Şifre çözme için:
-  
+
   * Anahtar çözümleyici belirtilmişse anahtarını almak için çağrılır. Çözümleyici belirtildi, ancak anahtar tanımlayıcısı için bir eşleme yok. bir hata oluşturulur.
   * Tanımlayıcısını gerekli anahtar tanımlayıcısı eşleşiyorsa çözümleyici belirtilmedi, ancak belirtilen bir anahtarı anahtar kullanılır. Tanımlayıcı eşleşmiyorsa, bir hata oluşturulur.
-    
+
     Şifreleme örnekleri azure.storage.samples <fix URL>bloblar, kuyruklar ve tablolar için daha ayrıntılı bir uçtan uca senaryoyu göstermek.
       Örnek uygulamaları KEK ve anahtar çözümleyici örnek dosyaları sırasıyla KeyWrapper ve KeyResolver sağlanır.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric ters proxy tanılama | Microsoft Docs
-description: İzleme ve tanılama ters proxy isteği işlemeyi öğrenin.
+description: İzleme ve isteği işlemeye ters proxy Tanılama hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: kavyako
@@ -13,106 +13,107 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 662fc124af71c1ce976037a3544f59e3cea54ef0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c9c8c649208cff95f4ee515d39cc8cca3e2c64bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207640"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121494"
 ---
-# <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>İzleme ve istek işleme ters proxy tanılama
+# <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>İzleme ve isteği işlemeye ters proxy tanılama
 
-Service Fabric 5.7 sürümünden itibaren ters proxy olayları koleksiyonu için kullanılabilir. Olaylar, isteği işleme hatası ters proxy ve girişleri hem başarılı hem başarısız istekler için ayrıntılı olaylarla içeren ikinci kanal ilgili yalnızca hata olaylarıyla iki kanalda kullanılabilir.
+Service Fabric 5.7 sürümünden itibaren ters proxy olayları koleksiyonu için kullanılabilir. Olayları yalnızca hata olaylarıyla istek işleme hatası ters proxy ve girişi başarılı ve başarısız istekler için Ayrıntılı olayları içeren ikinci bir kanal ile ilgili iki kanalda kullanılabilir.
 
-Başvurmak [ters proxy olayları toplamak](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) bu kanalları yerel ve Azure Service Fabric kümeleri toplama olaylarından etkinleştirmek için.
+Başvurmak [ters proxy olayları toplamak](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) yerel ve Azure Service Fabric kümeleri bu kanallar toplama olayları etkinleştirmek için.
 
-## <a name="troubleshoot-using-diagnostics-logs"></a>Tanılama günlükleri kullanarak sorun giderme
-Bir karşılaşabilirsiniz ortak başarısız günlüklerinizi yorumlama hakkında bazı örnekler şunlardır:
+## <a name="troubleshoot-using-diagnostics-logs"></a>Tanılama günlüklerini kullanarak sorun giderme
+Bir sınırlamasıyla yaygın hata günlüklerinizi yorumlama hakkında bazı örnekler şunlardır:
 
 1. Ters proxy yanıt durum kodu 504 (zaman aşımı) döndürür.
 
-    Nedenlerinden biri, istek zaman aşımı süresi içinde yanıt vermek başarısız olan hizmet nedeni olabilir.
-İlk olay günlüklerini aşağıda isteğinin ayrıntılarını ters proxy aldı. İkinci olay isteği hizmetine iletme sırasında nedeniyle başarısız olduğunu gösterir "İç hata ERROR_WINHTTP_TIMEOUT =" 
+    Nedenlerinden biri, istek zaman aşımı süresi içinde yanıt Hizmeti'nin nedeniyle olabilir.
+   İlk olay günlükleri ters proxy alınan isteği ayrıntılarını aşağıda. 
+   İkinci olay istek hizmetine ileten hata nedeniyle başarısız olduğunu gösterir. "İç hata ERROR_WINHTTP_TIMEOUT =" 
 
     Yükü içerir:
 
-    *  **traceId**: Bu GUID, tek bir isteğine karşılık gelen tüm olayları ilişkilendirmek için kullanılabilir. İçinde iki olay traceId aşağıda = **2f87b722-e254-4ac2-a802-fd315c1a0271**, aynı isteğine ait oldukları olduğunu belirtmek.
-    *  **requestUrl**: istek gönderildi URL (ters proxy URL).
-    *  **Fiili**: HTTP fiili.
-    *  **remoteAddress**: istemci isteği gönderilirken adresidir.
-    *  **resolvedServiceUrl**: hizmet uç noktası URL'si için gelen istek çözülmüş. 
-    *  **errorDetails**: hata hakkında ek bilgi.
+   * **traceId**: Bu GUID, tek bir istek için karşılık gelen tüm olayları ilişkilendirmek için kullanılabilir. İçinde iki olay, traceId aşağıda = **2f87b722-e254-4ac2-a802-fd315c1a0271**, ait oldukları aynı istekle olduğunu belirtmek.
+   * **requestUrl**: İsteğin gönderildiği URL (ters proxy URL'si).
+   * **Fiili**: HTTP fiili.
+   * **remoteAddress**: İstemci isteği gönderen adresi.
+   * **resolvedServiceUrl**: Gelen istek çözümlendiği hizmet uç noktası URL'si. 
+   * **Hata ayrıntıları**: Hatayla ilgili ek bilgiler.
 
-    ```
-    {
-      "Timestamp": "2017-07-20T15:57:59.9871163-07:00",
-      "ProviderName": "Microsoft-ServiceFabric",
-      "Id": 51477,
-      "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Request url = https://localhost:19081/LocationApp/LocationFEService?zipcode=98052, verb = GET, remote (client) address = ::1, resolved service url = Https://localhost:8491/LocationApp/?zipcode=98052, request processing start time =     15:58:00.074114 (745,608.196 MSec) ",
-      "ProcessId": 57696,
-      "Level": "Informational",
-      "Keywords": "0x1000000000000021",
-      "EventName": "ReverseProxy",
-      "ActivityID": null,
-      "RelatedActivityID": null,
-      "Payload": {
-        "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
-        "requestUrl": "https://localhost:19081/LocationApp/LocationFEService?zipcode=98052",
-        "verb": "GET",
-        "remoteAddress": "::1",
-        "resolvedServiceUrl": "Https://localhost:8491/LocationApp/?zipcode=98052",
-        "requestStartTime": "2017-07-20T15:58:00.0741142-07:00"
-      }
-    }
+     ```
+     {
+     "Timestamp": "2017-07-20T15:57:59.9871163-07:00",
+     "ProviderName": "Microsoft-ServiceFabric",
+     "Id": 51477,
+     "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Request url = https://localhost:19081/LocationApp/LocationFEService?zipcode=98052, verb = GET, remote (client) address = ::1, resolved service url = Https://localhost:8491/LocationApp/?zipcode=98052, request processing start time =     15:58:00.074114 (745,608.196 MSec) ",
+     "ProcessId": 57696,
+     "Level": "Informational",
+     "Keywords": "0x1000000000000021",
+     "EventName": "ReverseProxy",
+     "ActivityID": null,
+     "RelatedActivityID": null,
+     "Payload": {
+      "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
+      "requestUrl": "https://localhost:19081/LocationApp/LocationFEService?zipcode=98052",
+      "verb": "GET",
+      "remoteAddress": "::1",
+      "resolvedServiceUrl": "Https://localhost:8491/LocationApp/?zipcode=98052",
+      "requestStartTime": "2017-07-20T15:58:00.0741142-07:00"
+     }
+     }
 
-    {
-      "Timestamp": "2017-07-20T16:00:01.3173605-07:00",
-      ...
-      "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Error while forwarding request to service: response status code = 504, description = Reverse proxy Timeout, phase = FinishSendRequest, internal error = ERROR_WINHTTP_TIMEOUT ",
-      ...
-      "Payload": {
-        "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
-        "statusCode": 504,
-        "description": "Reverse Proxy Timeout",
-        "sendRequestPhase": "FinishSendRequest",
-        "errorDetails": "internal error = ERROR_WINHTTP_TIMEOUT"
-      }
-    }
-    ```
+     {
+     "Timestamp": "2017-07-20T16:00:01.3173605-07:00",
+     ...
+     "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Error while forwarding request to service: response status code = 504, description = Reverse proxy Timeout, phase = FinishSendRequest, internal error = ERROR_WINHTTP_TIMEOUT ",
+     ...
+     "Payload": {
+      "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
+      "statusCode": 504,
+      "description": "Reverse Proxy Timeout",
+      "sendRequestPhase": "FinishSendRequest",
+      "errorDetails": "internal error = ERROR_WINHTTP_TIMEOUT"
+     }
+     }
+     ```
 
 2. Ters proxy yanıt durum kodu 404 (bulunamadı) döndürür. 
     
-    Eşleşen hizmet uç noktası bulmak başarısız olduğundan ters proxy 404 döndüğü bir örnek olay aşağıdadır.
+    Eşleşen hizmet uç noktasını bulmak başarısız olduğu ters proxy 404 döndüğü bir örnek olay aşağıdadır.
     Burada ilgi yükü girişler:
-    *  **processRequestPhase**: hatanın oluştuğu sırada isteği işleme sırasında aşamasını gösterir ***TryGetEndpoint*** yani iletmek için hizmet uç noktası getirilmeye çalışılırken. 
-    *  **errorDetails**: uç noktası arama ölçütlerini listeler. Burada listenerName belirttiğiniz görebilirsiniz = **FrontEndListener** içerirken çoğaltma uç nokta listesi yalnızca ada sahip bir dinleyici **OldListener**.
+   * **processRequestPhase**: İstek işleme sırasında hatanın oluştuğu andaki aşamasını gösterir ***TryGetEndpoint*** yani iletmek için hizmet uç noktası getirilmeye çalışılırken. 
+   * **Hata ayrıntıları**: Uç nokta arama ölçütlerini listeler. Burada, listenerName belirttiğiniz görebilirsiniz = **FrontEndListener** çoğaltma uç nokta listesi yalnızca ada sahip bir dinleyici içerirken **OldListener**.
     
-    ```
-    {
+     ```
+     {
+     ...
+     "Message": "c1cca3b7-f85d-4fef-a162-88af23604343 Error while processing request, cannot forward to service: request url = https://localhost:19081/LocationApp/LocationFEService?ListenerName=FrontEndListener&zipcode=98052, verb = GET, remote (client) address = ::1, request processing start time = 16:43:02.686271 (3,448,220.353 MSec), error = FABRIC_E_ENDPOINT_NOT_FOUND, message = , phase = TryGetEndoint, SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"\":\"Https:\/\/localhost:8491\/LocationApp\/\"}} ",
+     "ProcessId": 57696,
+     "Level": "Warning",
+     "EventName": "ReverseProxy",
+     "Payload": {
+      "traceId": "c1cca3b7-f85d-4fef-a162-88af23604343",
+      "requestUrl": "https://localhost:19081/LocationApp/LocationFEService?ListenerName=NewListener&zipcode=98052",
       ...
-      "Message": "c1cca3b7-f85d-4fef-a162-88af23604343 Error while processing request, cannot forward to service: request url = https://localhost:19081/LocationApp/LocationFEService?ListenerName=FrontEndListener&zipcode=98052, verb = GET, remote (client) address = ::1, request processing start time = 16:43:02.686271 (3,448,220.353 MSec), error = FABRIC_E_ENDPOINT_NOT_FOUND, message = , phase = TryGetEndoint, SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"\":\"Https:\/\/localhost:8491\/LocationApp\/\"}} ",
-      "ProcessId": 57696,
-      "Level": "Warning",
-      "EventName": "ReverseProxy",
-      "Payload": {
-        "traceId": "c1cca3b7-f85d-4fef-a162-88af23604343",
-        "requestUrl": "https://localhost:19081/LocationApp/LocationFEService?ListenerName=NewListener&zipcode=98052",
-        ...
-        "processRequestPhase": "TryGetEndoint",
-        "errorDetails": "SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Https:\/\/localhost:8491\/LocationApp\/\"}}"
-      }
-    }
-    ```
-    Başka bir örneği burada ters proxy dönebilirsiniz 404 bulunamıyorsa: ApplicationGateway\Http yapılandırma parametresi **SecureOnlyMode** ters proxy ile true olarak ayarlandığında dinliyor **HTTPS**, ancak çoğaltma bitiş noktalarının tümü güvenli olmayan (HTTP dinleme).
-    İstek iletmek HTTPS dinleme bir uç nokta bulunamadı bu yana proxy döndürür 404 ters çevrilir. Olay yükü daraltmak sorunu belirlemelerine yardımcı olur. parametreleri çözümleme:
+      "processRequestPhase": "TryGetEndoint",
+      "errorDetails": "SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Https:\/\/localhost:8491\/LocationApp\/\"}}"
+     }
+     }
+     ```
+     Ters proxy döndürdüğü 404 başka bir örnek olduğundan bulunamadı: ApplicationGateway\Http yapılandırma parametresi **SecureOnlyMode** ters proxy ile true olarak ayarlanırsa üzerinde dinleme **HTTPS**, ancak yineleme bitiş noktalarının tümü güvenli olmayan (HTTP dinleme).
+     Bir uç nokta isteği iletmek için HTTPS dinleme bulunamıyor beri proxy döndürür 404 tersine çevirir. Yük sorunu daraltmak için yardımcı olur olay parametreleri analiz ediliyor:
     
-    ```
-        "errorDetails": "SecureOnlyMode = true, gateway protocol = https, listenerName = NewListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Http:\/\/localhost:8491\/LocationApp\/\", \"NewListener\":\"Http:\/\/localhost:8492\/LocationApp\/\"}}"
-    ```
+     ```
+      "errorDetails": "SecureOnlyMode = true, gateway protocol = https, listenerName = NewListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Http:\/\/localhost:8491\/LocationApp\/\", \"NewListener\":\"Http:\/\/localhost:8492\/LocationApp\/\"}}"
+     ```
 
-3. Ters proxy isteği zaman aşımı hatasıyla başarısız oluyor. 
-    Olay günlükleri (burada gösterilmiyor) alınan istek ayrıntılarını bir olay içeriyor.
-    Sonraki olay hizmeti 404 durum koduyla yanıt verdi ve yeniden çözümlemek ters proxy başlatır gösterir. 
+3. İstek ters proxy için bir zaman aşımı hatası ile başarısız olur. 
+    Olay günlükleri, olay (burada gösterilmiyor) alınan istek ayrıntılarla içeriyor.
+    Sonraki olayı, hizmeti bir 404 durum kodu ile yanıt verdi ve ters proxy yeniden çözümleyebilir başlatır gösterir. 
 
     ```
     {
@@ -133,11 +134,11 @@ Bir karşılaşabilirsiniz ortak başarısız günlüklerinizi yorumlama hakkın
       }
     }
     ```
-    Tüm olayları toplanırken her çözümleyin ve iletme girişimi gösteren olayların tren bakın.
-    Serideki son olay istek işleme başarılı Çöz girişimlerine yanı sıra zaman aşımı ile başarısız oldu gösterir.
+    Tüm olayları toplayan her çözmek ve iletme girişimi gösteren olayların trene görürsünüz.
+    İstek işleme başarılı çözümleme girişimi sayısı ile birlikte bir zaman aşımı ile başarısız oldu serideki son olayın gösterir.
     
     > [!NOTE]
-    > Varsayılan olarak devre dışı ayrıntılı kanal olay toplama tutmak ve bir gereksinim temelinde sorun giderme için etkinleştirmek için önerilir.
+    > Varsayılan olarak devre dışı ayrıntılı kanal olay koleksiyonu tutmak ve bir gereksinim olarak sorun giderme için etkinleştirmek için önerilir.
 
     ```
     {
@@ -156,13 +157,13 @@ Bir karşılaşabilirsiniz ortak başarısız günlüklerinizi yorumlama hakkın
     }
     ```
     
-    Koleksiyon yalnızca kritik/hata olayları etkinleştirilirse, zaman aşımı ve çözümleme girişimlerine ilişkin ayrıntıları içeren bir olay bakın. 
+    Yalnızca kritik/hata olaylarını toplama etkinse, zaman aşımı ve çözümleme girişimi sayısını ayrıntılarını içeren bir olay bakın. 
     
-    404 durum kodu kullanıcıya geri göndermek istediğiniz hizmetleri eklemek bir "X-ServiceFabric" üstbilgisi yanıtta. Üst bilgi yanıtı eklendikten sonra ters proxy durum kodunu istemciye iletir.  
+    Kullanıcı için bir 404 durum kodu göndermek istediğiniz hizmetleri, bir "X-ServiceFabric" üst bilgisi yanıtta eklemelidir. Yanıt üst bilgisi eklendikten sonra ters proxy durum kodunu istemciye geri gönderir.  
 
 4. İstemci isteği kesildiğinde durumları.
 
-    Aşağıdaki olay ters proxy istemci yanıtı iletme ancak istemci kesilene kaydedilir:
+    Aşağıdaki olay ters Ara sunucu, istemciye yanıt iletme ancak istemci bağlantısını keser kaydedilir:
 
     ```
     {
@@ -182,22 +183,22 @@ Bir karşılaşabilirsiniz ortak başarısız günlüklerinizi yorumlama hakkın
     ```
 5. Ters Proxy 404 FABRIC_E_SERVICE_DOES_NOT_EXIST döndürür
 
-    Hizmet bildirimi içinde hizmet uç noktası için kullanılacak URI düzeni belirtilmezse FABRIC_E_SERVICE_DOES_NOT_EXIST hata döndürülür.
+    Hizmet bildirimi içinde hizmet uç noktası için kullanılacak URI düzeni belirtilmediği takdirde FABRIC_E_SERVICE_DOES_NOT_EXIST hata döndürülür.
 
     ```
     <Endpoint Name="ServiceEndpointHttp" Port="80" Protocol="http" Type="Input"/>
     ```
 
-    Sorunu gidermek için bildirimde URI düzeni belirtin.
+    Sorunu çözmek için kullanılacak URI düzeni bildiriminde belirtin.
     ```
     <Endpoint Name="ServiceEndpointHttp" UriScheme="http" Port="80" Protocol="http" Type="Input"/>
     ```
 
 > [!NOTE]
-> Şu anda Web yuvası isteği işlemiyle ilgili olaylar günlüğe kaydedilmez. Bu bir sonraki sürümde eklenecek.
+> Şu anda websocket isteğini işlemiyle ilgili olayları günlüğe kaydedilmez. Bu, sonraki sürümde eklenecek.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyon](service-fabric-diagnostics-event-aggregation-wad.md) günlük toplama Azure kümelerinde etkinleştirme.
-* Visual Studio'da Service Fabric olayları görüntülemek için bkz: [İzleyici ve yerel olarak tanılamak](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
+* [Olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyon](service-fabric-diagnostics-event-aggregation-wad.md) Azure kümelerinde günlük toplamayı etkinleştirmek için.
+* Visual Studio'da Service Fabric olayları görüntülemek için bkz: [İzleyici yerel olarak ve tanılama](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 * Başvurmak [güvenli hizmetlerine bağlanmak için ters proxy yapılandırma](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) için Azure Resource Manager şablonu örnekleri yapılandırmak için farklı hizmet sertifikası ile ters proxy doğrulama seçenekleri güvenli.
-* Okuma [Service Fabric ters proxy](service-fabric-reverseproxy.md) daha fazla bilgi için.
+* Okuma [Service Fabric ters proxy'si](service-fabric-reverseproxy.md) daha fazla bilgi için.

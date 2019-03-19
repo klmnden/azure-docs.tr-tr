@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 6d307111d8c19324cb6daf82a234ff9128103fd2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9108c52529319288fba48dbad3c6f8aa6cb5f725
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763444"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850760"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Olayları Azure Event Hubs ile akış yakalamayı etkinleştirme
 
@@ -47,8 +47,12 @@ Azure Data Lake Store'a veri almak için bir Data Lake Store hesabı ve bir olay
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Azure Data Lake Store hesabı ve klasörleri oluşturma
 
-1. [Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama](../data-lake-store/data-lake-store-get-started-portal.md) bölümündeki yönergeleri uygulayarak bir Data Lake Store hesabı oluşturun.
+> [!NOTE]
+> Şu anda yalnızca Gen 1, Azure Data Lake Store, Gen 2 Event Hubs yakalama özelliğini destekler. 
+
+1. Bölümündeki yönergeleri izleyerek bir Data Lake Store Gen 1 hesap oluşturma [Azure Data Lake Azure portalını kullanarak Store ile çalışmaya başlama](../data-lake-store/data-lake-store-get-started-portal.md).
 2. Event Hubs verilerini almak ve Data Lake Store hesabınıza veri yazabilmesi için Event Hubs'a izin atamak istediğiniz Data Lake Stora hesabı içinde bir klasör oluşturmak için [Event Hubs'a izin atama](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) bölümündeki yönergeleri uygulayın.  
+
 
 ### <a name="create-an-event-hub"></a>Olay hub’ı oluşturma
 

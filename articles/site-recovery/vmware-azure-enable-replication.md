@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 3/6/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 26b0370af900e1c29bf11606339487cf27f88039
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 41ff32f840b7a0e9e5fa5d8f7bf25a93fa679955
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533434"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098704"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Azure'a VMware Vm'leri için çoğaltmayı etkinleştirme
 
@@ -72,7 +72,7 @@ VMware sanal makineleri çoğaltılırken:
 12. Etkinleştirme **çoklu VM tutarlılığını** makineler çoğaltma grubuna toplamak istiyorsanız. Grup için bir ad belirtin ve ardından **Tamam**. 
 
     > [!NOTE]
-
+    > 
     >    * Bir çoğaltma grubundaki makineler birlikte çoğaltılır ve devrettikleri zaman kilitlenmeyle tutarlı ve uygulamayla tutarlı kurtarma noktalarını paylaştıktan.
     >    * Böylece bunlar iş yüklerinizi yansıtma Vm'leri ve fiziksel sunucuları araya toplayın. Çoklu VM tutarlılığını etkinleştirmek, iş yükü performansını etkileyebilir. Yalnızca makineler aynı iş yükünü çalıştırıyorsa ve tutarlılık ihtiyacınız varsa bu seçeneği kullanın.
 
@@ -87,17 +87,17 @@ Ardından, kaynak makinenin özelliklerini doğrulayın. Azure VM adının karş
 1. Tıklayın **ayarları** > **çoğaltılan öğeler** > ve ardından makine seçin. **Essentials** sayfa makine ayarları ve durumu hakkında bilgileri gösterir.
 2. **Özellikler** kısmında VM'nin çoğaltma ve yük devretme bilgilerini inceleyebilirsiniz.
 3. İçinde **işlem ve ağ** > **işlem özellikleri**, birden çok VM propoerties değiştirebilirsiniz:
-    * Azure VM name - gerekirse Azure gereksinimlerine uymak için adı değiştirin
-    * Hedef VM boyutu veya VM türü - ' % s'varsayılan VM boyutu bağlı kaynak VM boyutu seçilir. Yük devretmeden önce dilediğiniz zaman gereksinimini göre farklı bir VM boyutu seçebilirsiniz. VM disk boyutu Ayrıca kaynak disk boyutu temel alınır ve yalnızca yük devretme sonrasında değişen olabilir unutmayın. Disk boyutları ve IOP cinsinden üzerinde daha fazla bilgi bizim [diskler için ölçeklenebilirlik hedefleri](../virtual-machines/windows/disk-scalability-targets.md) makalesi.
+   * Azure VM name - gerekirse Azure gereksinimlerine uymak için adı değiştirin
+   * Hedef VM boyutu veya VM türü - ' % s'varsayılan VM boyutu bağlı kaynak VM boyutu seçilir. Yük devretmeden önce dilediğiniz zaman gereksinimini göre farklı bir VM boyutu seçebilirsiniz. VM disk boyutu Ayrıca kaynak disk boyutu temel alınır ve yalnızca yük devretme sonrasında değişen olabilir unutmayın. Disk boyutları ve IOP cinsinden üzerinde daha fazla bilgi bizim [diskler için ölçeklenebilirlik hedefleri](../virtual-machines/windows/disk-scalability-targets.md) makalesi.
 
-    ![İşlem ve ağ özellikleri](./media/vmware-azure-enable-replication/vmproperties.png)
+     ![İşlem ve ağ özellikleri](./media/vmware-azure-enable-replication/vmproperties.png)
 
-    *  Kaynak grubu - seçebilirsiniz bir [kaynak grubu](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) öğesinden, bir makine yük devretme sonrasında bir parçası haline gelir. Yük devretmeden önce dilediğiniz zaman bu ayarı değiştirebilirsiniz. Farklı kaynak grubuna, bu makine sonu için koruma ayarlarını makineyi geçirirseniz, yük devretme gönderin.
-    * Kullanılabilirlik kümesi - seçebilirsiniz bir [kullanılabilirlik kümesi](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) yük devretme sonrasında bir parçası olarak makinenize gerekiyorsa. Bir kullanılabilirlik kümesi seçeneğini belirliyoruz ancak unutmayın:
+   * Kaynak grubu - seçebilirsiniz bir [kaynak grubu](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) öğesinden, bir makine yük devretme sonrasında bir parçası haline gelir. Yük devretmeden önce dilediğiniz zaman bu ayarı değiştirebilirsiniz. Farklı kaynak grubuna, bu makine sonu için koruma ayarlarını makineyi geçirirseniz, yük devretme gönderin.
+   * Kullanılabilirlik kümesi - seçebilirsiniz bir [kullanılabilirlik kümesi](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) yük devretme sonrasında bir parçası olarak makinenize gerekiyorsa. Bir kullanılabilirlik kümesi seçeneğini belirliyoruz ancak unutmayın:
 
-        * Belirtilen kaynak grubuna ait kullanılabilirlik kümeleri listelenir.  
-        * Farklı sanal ağlar ile makineler aynı kullanılabilirlik kümesinin bir parçası olamaz.
-        * Yalnızca aynı boyutta sanal makineler bir kullanılabilirlik kümesinin bir parçası olabilir.
+       * Belirtilen kaynak grubuna ait kullanılabilirlik kümeleri listelenir.  
+       * Farklı sanal ağlar ile makineler aynı kullanılabilirlik kümesinin bir parçası olamaz.
+       * Yalnızca aynı boyutta sanal makineler bir kullanılabilirlik kümesinin bir parçası olabilir.
 4. Ayrıca, görüntüleyebilir ve hedef ağ, alt ağ ve Azure VM'sine atanan IP adresi hakkında bilgi ekleyin.
 5. İçinde **diskleri**, çoğaltılacak VM'deki işletim sistemi ve veri disklerini görebilirsiniz.
 

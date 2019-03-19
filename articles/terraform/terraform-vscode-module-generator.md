@@ -9,17 +9,17 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 489f81842cca864ad1d55d7bb524fea7af960c65
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8405624831c572f194fa0afaad2f0caa40bcf9ba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775841"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001285"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Yeoman kullanarak Azure'da Terraform temel şablon oluşturma
 
 [Terraform](https://docs.microsoft.com/azure/terraform/
-), Azure'da kolayca altyapı oluşturmanın yolunu sağlar. [Yeoman](http://yeoman.io/), modül geliştiricisinin Terraform modülleri oluşturma işini büyük ölçüde kolaylaştırırken mükemmel bir *en iyi deneyim* çerçevesi sağlar.
+), Azure'da kolayca altyapı oluşturmanın yolunu sağlar. [Yeoman](https://yeoman.io/), modül geliştiricisinin Terraform modülleri oluşturma işini büyük ölçüde kolaylaştırırken mükemmel bir *en iyi deneyim* çerçevesi sağlar.
 
 Bu makalede, Yeoman modül oluşturucusunu kullanarak temel Terraform şablonu oluşturma hakkında bilgi edineceksiniz. Ardından, iki farklı yöntemle, yeni Terraform şablonunuzu test etme öğreneceksiniz:
 

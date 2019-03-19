@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 9a9fe0a92f8a8eadbd72ae56303348413a9d10c3
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 1f90ce71084ba3acbf5a0aec5c7b8e9683323766
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057147"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011611"
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Azure tablo depolama ve Visual Studio ile çalışmaya başlama nasıl bağlı hizmetler
 
@@ -27,7 +27,7 @@ Bu makalede oluşturduğunuz veya Visual Studio kullanarak bir ASP.NET Core proj
 
 Azure Table storage hizmeti büyük miktarlarda yapısal veriyi depolamanızı sağlar. Kimliği doğrulanmış çağrılarından içindeki ve Azure Bulutu dışındaki kabul eden bir NoSQL veri deposu hizmetidir. Azure tabloları, yapılandırılmış ve ilişkisel olmayan verilerin depolanması için idealdir. Azure tablo depolama kullanma hakkında daha fazla genel bilgi için bkz: [.NET kullanarak Azure tablo depolama ile çalışmaya başlama](../storage/storage-dotnet-how-to-use-tables.md).
 
-Başlamak için önce depolama hesabınızdaki bir tablo oluşturun. Bu makalede daha sonra C# dilinde bir tablo oluşturma ve ekleme, değiştirme, okuma ve tablo girdilerini kaldırma gibi temel tablo işlemlerini nasıl gerçekleştireceğinizi gösterir.  Kod, .NET için Azure depolama istemci kitaplığı kullanır. ASP.NET hakkında daha fazla bilgi için bkz: [ASP.NET](http://www.asp.net).
+Başlamak için önce depolama hesabınızdaki bir tablo oluşturun. Bu makalede daha sonra C# dilinde bir tablo oluşturma ve ekleme, değiştirme, okuma ve tablo girdilerini kaldırma gibi temel tablo işlemlerini nasıl gerçekleştireceğinizi gösterir.  Kod, .NET için Azure depolama istemci kitaplığı kullanır. ASP.NET hakkında daha fazla bilgi için bkz: [ASP.NET](https://www.asp.net).
 
 Bazı Azure depolama API'leri uyumsuzdur ve bu makalede kod zaman uyumsuz yöntemler kullanıldığını varsayar. Bkz: [zaman uyumsuz programlama](https://docs.microsoft.com/dotnet/csharp/async) daha fazla bilgi için.
 

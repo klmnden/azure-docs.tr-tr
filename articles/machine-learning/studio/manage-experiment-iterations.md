@@ -1,21 +1,21 @@
 ---
-title: Machine Learning Studio'da deneme yinelemelerini yönetme
+title: Deneme yinelemelerini yönetme
 titleSuffix: Azure Machine Learning Studio
 description: Azure Machine Learning Studio'da deneme yinelemelerini yönetme konusunda. Önceki çalıştırmaları, denemelerinizi meydan okuyun, yeniden ziyaret, sonuçta onaylayın veya önceki varsayımlar daraltmak için herhangi bir zamanda gözden geçirebilirsiniz.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 6dfab8cb22bc2c411a87c217dcbade04c2a26221
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 34a72f2e7b6be90654c0f053d5b8978b0283d56c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823765"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890534"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio’da deneme yinelemelerini yönetme
 Tahmine dayalı analiz modeli geliştirmek olduğu bir süreçtir - çeşitli işlevleri ve denemenizi parametrelerini değiştirirken, memnun ana kadar sonuçlarınız yakınsanır eğitilmiş ve verimli bir model vardır. Bu işlem için anahtar deneme parametreleri ve yapılandırmaları çeşitli yinelemeler izlemektir.

@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 02/22/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 97123ec795353073b912bd83e0abb45e23549a75
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: b9c89b6cb6dbc6cb217be671eb0e52c0416811ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749809"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889854"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Media Services v3 API SDK'ları / araçlarla geliştirmeye başlayın
 
@@ -95,7 +95,7 @@ Medya Hizmetleri'ni keşfedin [.NET ref](https://aka.ms/ams-v3-dotnet-ref) belge
 - [DRM dinamik şifreleme ve lisans teslimat hizmeti - .NET](protect-with-drm.md)
 - [Mevcut ilkeden - .NET bir imzalama anahtarı alma](get-content-key-policy-dotnet-howto.md)
 - [Medya Hizmetleri - .NET ile filtre oluşturma](filters-dynamic-manifest-dotnet-howto.md)
-- [Azure işlevler v2 Media Services v3 ile talep üzerine örnekleri video Gelişmiş](http://aka.ms/ams3functions)
+- [Azure işlevler v2 Media Services v3 ile talep üzerine örnekleri video Gelişmiş](https://aka.ms/ams3functions)
 
 ## <a name="java"></a>Java
 

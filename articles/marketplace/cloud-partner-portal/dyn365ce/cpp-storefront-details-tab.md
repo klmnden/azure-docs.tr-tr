@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 66119ffab8c6117e223468834b59e6d6b19409a0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54445071"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997957"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 müşteri katılımı mağaza Ayrıntılar sekmesi
 
@@ -56,7 +56,7 @@ Burada aşağıdaki tabloda bu sekmesindeki alanlar açıklanmaktadır:
 |  Uygulama türü             | Appsource'ta uygulama için etkin bir deneme türünü seçin. **Ücretsiz** uygulamanızı ücretsiz; kullanılabilir gösterir **Deneme** ücretsiz; kısa bir süre için müşterilerin uygulamanızı deneyebilirsiniz gösterir ve **benimle iletişim kurun** müşteriler appsource'ta uygulamasının bir deneme sürümü isteyebilir gösterir.  |
 | Uygulamanız için Yardım bağlantısına | Çevrimiçi belgeleri veya diğer Yardım kaynak uygulama için URL.  |
 | Desteklenen ülkeler/bölgeler | Bir açılır iletişim kutusu uygulama Burada sunulan coğrafi bölgeler seçimini etkinleştirir.  Dünya çapındaki dağıtım varsayılandır. |
-| Desteklenen diller   | Uygulamanızın desteklediği dilleri seçin. Desteklenen seçenekler şu anda yalnızca birkaç dili.  (Bu listede yer almayan diğer dilleri uygulamanız destekliyorsa, teklifinizi yayımlayın ve bu bilgileri e-posta devam: appsource@microsoft.com.)  |
+| Desteklenen diller   | Uygulamanızın desteklediği dilleri seçin. Desteklenen seçenekler şu anda yalnızca birkaç dili.  (Bu listede yer almayan diğer dilleri uygulamanız destekliyorsa, teklifinizi yayımlayın ve bu bilgileri e-posta devam: appsource\@microsoft.com.)  |
 | Uygulama sürümü           | Uygulama için sürüm numarası    |
 | Uygulama yayın tarihi      | Yayın/yayımlama tarihi |
 | Ürünleri ile uygulamanızı çalışır. | Ürün veya hizmetler arası uygulamanız ile çalışır. En fazla üç ürün listeleyebilirsiniz. Bir ürün listesine tıklayın **+ yeni** ve görüntülenen metin kutusunda bir ürün adını girin.  |

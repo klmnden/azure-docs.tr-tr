@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 58d1d47b548569f7542e24bd09a41299f12e496e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 3e1738c3e5acbe63faf1d614e2435088efd8c4d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787894"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014781"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>PHP kullanarak nesneleri Azure Blob depolama içine/dışına aktarma
 Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok bloblarını karşıya yüklemek, indirmek ve listelemek için PHP'yi nasıl kullanabileceğinizi öğreneceksiniz. 
@@ -24,7 +24,7 @@ Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok blobla
 
 Aşağıdaki ek önkoşulların yüklü olduğundan emin olun:
 
-* [PHP](http://php.net/downloads.php)
+* [PHP](https://php.net/downloads.php)
 * [PHP için Azure depolama SDK'si](https://github.com/Azure/azure-storage-php)
 
 ## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin:
@@ -74,7 +74,7 @@ This is the content of the blob uploaded: Hello Azure!
 ```
 Ekrandaki tuşuna bastığınızda, örnek program depolama kapsayıcısını ve dosyaları siler. Devam etmeden önce, iki dosya için sunucunuzun klasörünü kontrol edin. Dosyaları açarak aynı olduklarını görebilirsiniz.
 
-Ayrıca, Blob depolamadaki dosyaları görüntülemek için, [Azure Depolama Gezgini](http://storageexplorer.com) gibi bir araç da kullanabilirsiniz. Azure Depolama Gezgini, depolama hesabı bilgilerinize erişmenize olanak tanıyan ücretsiz ve platformlar arası bir araçtır. 
+Ayrıca, Blob depolamadaki dosyaları görüntülemek için, [Azure Depolama Gezgini](https://storageexplorer.com) gibi bir araç da kullanabilirsiniz. Azure Depolama Gezgini, depolama hesabı bilgilerinize erişmenize olanak tanıyan ücretsiz ve platformlar arası bir araçtır. 
 
 Dosyaları doğruladıktan sonra, tanıtımı tamamlamak ve test dosyalarını silmek için herhangi bir tuşa basın. Artık örnek dosyanın işlevini gördüğünüze göre, koda göz atmak için example.rb dosyasını açabilirsiniz. 
 

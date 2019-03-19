@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 8073dff6dbd8bbceb16d7fdcf8d39012233c32d6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 24c500251c8e91b7542c5c9d3e77676205c88c1f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240465"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090976"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure stack'teki ölçek birimi düğüm eylemleri
 
@@ -42,15 +42,15 @@ Yönetici portalı'nda, bir ölçek birimi ve ilişkili düğümlerinin durumunu
 3. Sonuçlarda ölçek birimi seçin.
 4. Sol taraftaki altında **genel**seçin **düğümleri**.
 
-  Aşağıdaki bilgileri görüntüle:
+   Aşağıdaki bilgileri görüntüle:
 
-  - Tek tek düğümler listesi
-  - İşlemsel durum (aşağıdaki listeye bakın)
-  - Güç durumunu (çalışıyor veya durduruldu)
-  - sunucu modeli
-  - Temel Kart Yönetim denetleyicisine (BMC) IP adresi
-  - Toplam çekirdek sayısı
-  - toplam bellek miktarı
+   - Tek tek düğümler listesi
+   - İşlemsel durum (aşağıdaki listeye bakın)
+   - Güç durumunu (çalışıyor veya durduruldu)
+   - sunucu modeli
+   - Temel Kart Yönetim denetleyicisine (BMC) IP adresi
+   - Toplam çekirdek sayısı
+   - toplam bellek miktarı
 
 ![bir ölçek birimi durumu](media/azure-stack-node-actions/multinodeactions.png)
 

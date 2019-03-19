@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: spelluru
-ms.openlocfilehash: 6cd06778ad54fa698c5bc2fe4ccf02f4be2ee2ec
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: f1194d8385d1e7ddcb906d0c8c3a2b56648e2547
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807073"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120831"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Azure Lab Services Laboratuvar hesaplarını yönetme 
 Azure Lab Services içinde bir laboratuvar hesabı sınıf laboratuvarlarını gibi yönetilen Laboratuvar türleri için bir kapsayıcıdır. Yönetici Azure Lab Services ile bir laboratuvar hesabı ayarlama ayarlar ve Laboratuvarları hesabı oluşturabilirsiniz Laboratuvar sahipleri erişim sağlar. Bu makalede bir laboratuvar hesabı oluşturun, tüm Laboratuvar hesaplarını görüntülemek veya bir laboratuvar hesabı silme işlemini açıklamaktadır.
@@ -38,7 +38,9 @@ Aşağıdaki adımlar, Azure portalını kullanarak Azure Lab Services ile nası
     2. Laboratuvar hesabı oluşturmak istediğiniz **Azure aboneliğini** seçin.
     3. **Kaynak grubu** için, **Yeni oluştur**’u seçip kaynak grubu için bir ad girin.
     4. **Konum** için, laboratuvar hesabının oluşturulmasını istediğiniz bir konumu/bölgeyi seçin. 
-    5. **Oluştur**’u seçin. 
+    5. İçin **eş sanal ağ**, Laboratuvar ağı için bir eş sanal ağ (VNet) seçin. Bu hesap içinde oluşturduğunuz laboratuvarlar, seçilen sanal ağa bağlı ve seçili sanal ağ kaynaklara erişime sahip. 
+    7. İçin **Laboratuvar konumunu seçmek için izin Laboratuvar oluşturan** alanında, Laboratuvar için bir konum seçmek için laboratuvar creators isteyip istemediğinizi belirtin. Varsayılan olarak, seçenek devre dışıdır. Bunu devre dışı bırakıldığında, Laboratuvar creators oluşturmakta olduğunuz Laboratuvar için bir konum belirtilemez. Labs Laboratuvar hesabına en yakın coğrafi konumda oluşturulur. Etkinleştirildiğinde, Laboratuvar oluşturan bir laboratuvar oluşturma sırasında bir konum seçebilirsiniz.      
+    8. **Oluştur**’u seçin. 
 
         ![Laboratuvar hesabı oluştur penceresi](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Seçin **zil simgesine** araç çubuğunda (**bildirimleri**), dağıtım başarılı oldu ve ardından onaylamak **kaynağa Git**. 
@@ -86,6 +88,18 @@ Laboratuvar sahibi olarak laboratuvar oluşturucuların laboratuvar hesabında l
     1. Son sütundaki **... (üç nokta)** simgesini ve ardından **Görüntüyü etkinleştir**'i seçin. 
     2. Listede görüntü adlarının yanında yer alan onay kutularını seçerek bir daha fazla görüntüyü seçin ve **Seçilen görüntüleri etkinleştir**'e tıklayın. 
 
+## <a name="configure-the-lab-account"></a>Laboratuvar hesabı yapılandırın
+1. Üzerinde **Laboratuvar hesabı** sayfasında **Labs yapılandırma** sol menüsünde.
+
+    ![Laboratuvar yapılandırma sayfası](../media/how-to-manage-lab-accounts/labs-configuration-page.png) 
+1. İçin **eş sanal ağ**seçin **etkin** veya **devre dışı bırakılmış**. Varsayılan değer **devre dışı bırakılmış**. Eş sanal ağ'ı etkinleştirmek için aşağıdaki adımları uygulayın: 
+    1. **Etkin**’i seçin.
+    2. Seçin **VNet** aşağı açılan listeden. 
+    3. Araç çubuğunda **Kaydet**’i seçin. 
+    
+        Bu hesap içinde oluşturduğunuz laboratuvarlar seçilen sanal ağa bağlanır. Seçilen sanal ağ içindeki kaynaklara erişebilir. 
+3. İçin **Laboratuvar konumunu seçmek için izin Laboratuvar oluşturan**seçin **etkin** Laboratuvar için bir konum seçmek için laboratuvar oluşturan istiyorsanız. Etkinleştirilirse, labs Laboratuvar hesabının bulunduğu aynı konumda otomatik olarak oluşturulur. 
+
 ## <a name="view-lab-accounts"></a>Laboratuvar hesaplarını görüntüle
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Seçin **tüm kaynakları** menüsünde. 
@@ -93,19 +107,6 @@ Laboratuvar sahibi olarak laboratuvar oluşturucuların laboratuvar hesabında l
     Ayrıca, abonelik, kaynak grubu, konumları ve etiketleri göre de filtreleyebilirsiniz. 
 
     ![Tüm kaynaklar Laboratuvar hesaplarını ->](../media/how-to-manage-lab-accounts/all-resources-lab-accounts.png)
-
-
-## <a name="delete-a-lab-account"></a>Bir laboratuvar hesabı Sil
-Laboratuvar hesaplarını bir listede görüntüler önceki bölümde yönergeleri izleyin. Bir laboratuvar hesabı silmek için aşağıdaki yönergeleri kullanın: 
-
-1. Seçin **Laboratuvar hesabı** silmek istediğiniz. 
-2. Seçin **Sil** araç çubuğundan. 
-
-    ![Laboratuvar hesaplarını Sil düğmesini ->](../media/how-to-manage-lab-accounts/delete-button.png)
-1. Tür **Evet** onay.
-1. **Sil**’i seçin. 
-
-    ![Laboratuvar hesabı - onayını Sil](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
 
 ## <a name="view-and-manage-labs-in-the-lab-account"></a>Görüntüleme ve Labs'de bir laboratuvar hesabı yönetme
 
@@ -119,6 +120,8 @@ Laboratuvar hesaplarını bir listede görüntüler önceki bölümde yönergele
     4. Laboratuvarda izin verilen kullanıcıların sayısı. 
     5. Laboratuvar durumu. 
 
+
+
 ## <a name="delete-a-lab-in-the-lab-account"></a>Bir laboratuvar hesabı laboratuvarda Sil
 Labs'de bir laboratuvar hesabı listesini görmek için önceki bölümdeki yönergeleri uygulayın.
 
@@ -128,6 +131,20 @@ Labs'de bir laboratuvar hesabı listesini görmek için önceki bölümdeki yön
 2. Seçin **Evet** uyarı iletisinde. 
 
     ![Laboratuvar Silmeyi Onayla](../media/how-to-manage-lab-accounts/confirm-lab-delete.png)
+
+## <a name="delete-a-lab-account"></a>Bir laboratuvar hesabı Sil
+Laboratuvar hesaplarını bir listede görüntüler önceki bölümde yönergeleri izleyin. Bir laboratuvar hesabı silmek için aşağıdaki yönergeleri kullanın: 
+
+1. Seçin **Laboratuvar hesabı** silmek istediğiniz. 
+2. Seçin **Sil** araç çubuğundan. 
+
+    ![Laboratuvar hesaplarını Sil düğmesini ->](../media/how-to-manage-lab-accounts/delete-button.png)
+1. Tür **Evet** onay.
+1. **Sil**’i seçin. 
+
+    ![Laboratuvar hesabı - onayını Sil](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki makalelere bakın:

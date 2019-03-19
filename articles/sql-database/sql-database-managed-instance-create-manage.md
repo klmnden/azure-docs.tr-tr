@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 852f181ff0bb84bc3bcdb6d674ecf72eca900d7d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: c4f8144c3e941c673da3ecc9be7ac7f091583d4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312588"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864679"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Azure SQL veritabanı yönetilen örnekleri için yönetilen API Başvurusu
 
@@ -30,6 +30,8 @@ Bir Azure SQL veritabanı yönetilen örneği oluşturmayı gösteren Hızlı Ba
 ## <a name="powershell-create-and-manage-managed-instances"></a>PowerShell: Yönetilen örnekleri oluşturma ve yönetme
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 Azure PowerShell ile yönetilen örnekleri oluşturma ve yönetme hakkında bilgi için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell modülü yükleme](/powershell/azure/install-az-ps).
 

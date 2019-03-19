@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 831b17eefb971a5ed617e5cb30730ce23c87e374
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 3e5d1546c658631911f25c43e94275f00c7a5140
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340467"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901891"
 ---
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>Güvenlik sorularını kullanmak için güvenlik bilgileri (Önizleme) ayarlama
 Yöntemi, parolanızı sıfırlayamıyoruz eklemek için aşağıdaki adımları izleyebilirsiniz. Bu ilk kez ayarladıktan sonra dönebilirsiniz **güvenlik bilgisi** sayfasına ekleme, güncelleştirme veya güvenlik bilgilerinizi silin.
@@ -31,10 +31,12 @@ Kuruluşunuzun ayarlara bağlı olarak seçin ve, güvenlik bilgisi yöntemlerin
 
 Güvenlik sorularını kullanıyorsanız, bunları başka bir yöntem ile birlikte kullanmanızı öneririz. Bazı kişiler sorularınızın yanıtlarını biliyor olabilirsiniz güvenlik sorularını diğer yöntemlerinden daha az güvenli olabilir.
 
->[!Note]
->Güvenlik sorularını dizindeki kullanıcı nesnesinin üzerinde özel ve güvenli bir şekilde depolanır ve yalnızca sizin tarafınızdan kayıt sırasında yanıtlanması. Okuma veya soru veya yanıt değiştirmek için yöneticinize bir yolu yoktur.
-
->Güvenlik soruları seçeneğini görmüyorsanız, kuruluşunuzun, doğrulama için güvenlik sorularını kullan izin vermez mümkündür. Bu durumda, daha fazla yardım için yöneticinize başvurun veya başka bir yöntem seçmeniz gerekir.
+> [!Note]
+> Güvenlik sorularını dizindeki kullanıcı nesnesinin üzerinde özel ve güvenli bir şekilde depolanır ve yalnızca sizin tarafınızdan kayıt sırasında yanıtlanması. Okuma veya soru veya yanıt değiştirmek için yöneticinize bir yolu yoktur.
+> 
+> Güvenlik soruları seçeneğini görmüyorsanız, kuruluşunuzun, doğrulama için güvenlik sorularını kullan izin vermez mümkündür. Bu durumda, daha fazla yardım için yöneticinize başvurun veya başka bir yöntem seçmeniz gerekir.
+> 
+> Yönetici hesabı parola sıfırlama yöntemi olarak güvenlik sorularını kullanmak için izin verilmez. Bir yönetici düzeyi hesabı oturum açtıysanız bu seçeneği görmezsiniz.
 
 ### <a name="to-set-up-your-security-questions"></a>Güvenlik sorularınızı ayarlamak için
 

@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 03/14/2019
 ms.author: lagayhar
-ms.openlocfilehash: 224da9285ab0aef312688e4dfa1da49451abfa5a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ece8b4ac3946f543c13975e40b1025bb3cc222f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674659"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013261"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java web projesinde Application Insights ile başlarken
 
@@ -39,10 +39,9 @@ Spring çerçevesini tercih ediyorsanız, [Application Insights kılavuzunu kull
 1. [Microsoft Azure portalında](https://portal.azure.com) oturum açın.
 2. Bir Application Insights kaynağı oluşturun. Uygulama türünü Java web uygulaması olarak ayarlayın.
 
-    ![Ad girme, Java web uygulaması seçme ve Oluştur’a tıklama](./media/java-get-started/02-create.png)
 3. Yeni kaynağın izleme anahtarını bulun. Bu anahtarı hemen kod projenize yapıştırmalısınız.
 
-    ![Yeni kaynağa genel bakışta, Özellikler'e tıklayıp izleme anahtarını kopyalama](./media/java-get-started/03-key.png)
+    ![Yeni kaynağa genel bakışta, Özellikler'e tıklayıp izleme anahtarını kopyalama](./media/java-get-started/instrumentation-key-001.png)
 
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Projenize Java için Application Insights SDK’sı ekleme
 *Projeniz için uygun yolu seçin.*
@@ -301,13 +300,13 @@ Geliştirme makinenizde hata ayıklama modunda çalıştırın ya da sunucunuza 
 
 HTTP isteklerine ilişkin veriler genel bakış dikey penceresinde görüntülenir. (Orada değilse, birkaç saniye bekleyip Yenile’ye tıklayın.)
 
-![örnek veri](./media/java-get-started/5-results.png)
+![Örnek veriler genel bakış görüntüsü](./media/java-get-started/overview-graphs.png)
 
 [Ölçümler hakkında daha fazla bilgi edinin.][metrics]
 
 Daha ayrıntılı derlenmiş ölçümler görmek için herhangi bir grafiğe tıklayın.
 
-![](./media/java-get-started/6-barchart.png)
+![Application Insights hataları bölmesinde grafiklerle](./media/java-get-started/006-barcharts.png)
 
 > Application Insights, MVC uygulamaları için HTTP isteklerinin biçiminin şu olduğunu varsayar: `VERB controller/action`. Örneğin, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` ve `GET Home/Product/sdf96vws`; `GET Home/Product` içinde gruplandırılır. Bu gruplandırma, istek sayısı veya isteklerin yürütülme süresi gibi anlamlı istek toplamalarını etkinleştirir.
 >
@@ -316,16 +315,12 @@ Daha ayrıntılı derlenmiş ölçümler görmek için herhangi bir grafiğe tı
 ### <a name="instance-data"></a>Örnek veriler
 Ayrı ayrı örnekleri görmek için belirli bir istek türüne tıklayın.
 
-Application Insights’ta iki tür veri görüntülenir: ortalama, sayım ve toplam olarak depolanan birleşik veriler; HTTP isteklerinin tek tek raporu, özel durumlar, sayfa görünümleri veya özel olaylar olarak görüntülenen örnek veriler.
-
-İstek özellikleri görüntülendiğinde, istekler ve özel durumlar gibi bununla ilişkili telemetri olayları görebilirsiniz.
-
-![](./media/java-get-started/7-instance.png)
+![Belirli bir örnek görünüme detaya gidin](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Analytics: Güçlü sorgu dili
 Daha fazla veri birleştirdiğinizde hem veri toplama, hem de tek tek örneklerini bulmak için sorguları çalıştırabilirsiniz.  [Analiz](../../azure-monitor/app/analytics.md) hem performans, hem de kullanım için olmasının yanı sıra tanılama için de güçlü bir araçtır.
 
-![Analizi örneği](./media/java-get-started/025.png)
+![Analizi örneği](./media/java-get-started/0025.png)
 
 ## <a name="7-install-your-app-on-the-server"></a>7. Uygulamanızı sunucuya yükleme
 Artık uygulamanızı sunucuya yayımlayın, herkesin kullanmasını sağlayın ve portalda gösterilen telemetriye bakın.
@@ -343,11 +338,25 @@ Artık uygulamanızı sunucuya yayımlayın, herkesin kullanmasını sağlayın 
 
     (Bu bileşen, performans sayaçlarını etkinleştirir.)
 
+## <a name="azure-app-service-config-spring-boot"></a>Azure App Service yapılandırma (Spring Boot)
+
+Spring önyükleme uygulamalar Windows üzerinde çalışan Azure App Services'ta çalıştırmak için ek yapılandırma gerektirir. Değiştirme **web.config** ve aşağıdakileri ekleyin:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <handlers>
+            <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified"/>
+        </handlers>
+        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\AzureWebAppExample-0.0.1-SNAPSHOT.jar&quot;">
+        </httpPlatform>
+    </system.webServer>
+</configuration>
+```
 
 ## <a name="exceptions-and-request-failures"></a>Özel durumlar ve istek hataları
-İşlenmeyen özel durumlar otomatik olarak toplanır:
-
-![Ayarlar, Hatalar’ı açın](./media/java-get-started/21-exceptions.png)
+İşlenmeyen özel durumları otomatik olarak toplanır.
 
 Diğer özel durumlar hakkında veri toplamak için iki seçeneğiniz vardır:
 
@@ -366,9 +375,9 @@ Gelen SDK yapılandırması daha fazla makalemizde üzerinde açıklanmıştır 
 Giden SDK yapılandırması tanımlanmış [AI Agent.xml](java-agent.md) dosya.
 
 ## <a name="performance-counters"></a>Performans sayaçları
-Çeşitli performans sayaçlarını görmek için **Ayarlar**, **Sunucular**’ı açın.
+Açık **Araştır**, **ölçümleri**çeşitli performans sayaçlarını görmek için.
 
-![](./media/java-get-started/11-perf-counters.png)
+![Seçili işlem özel baytlar ölçümleri bölmesinin ekran görüntüsü](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Performans sayacı koleksiyonunu özelleştirme
 Standart performans sayaçları dizisinin koleksiyonunu devre dışı bırakmak için aşağıdaki kodu ApplicationInsights.xml dosyasının kök düğümü altına ekleyin:
@@ -418,10 +427,6 @@ Her [Windows performans sayacı](https://msdn.microsoft.com/library/windows/desk
 * counterName – Performans sayacının adı.
 * instanceName – Performans sayacı kategorisi örneğinin adı veya kategoride tek örnek varsa boş bir dize (""). categoryName adı Process olursa ve uygulamanızın çalıştığı geçerli JVM işleminden performans sayacını toplamak istiyorsanız `"__SELF__"` öğesini belirtin.
 
-Özel ölçümleriniz [Ölçüm Gezgini][metrics]'nde olduğundan performans sayaçlarınız görünürdür.
-
-![](./media/java-get-started/12-custom-perfs.png)
-
 ### <a name="unix-performance-counters"></a>Unix Performans sayaçları
 * Çok çeşitli sistem ve ağ verisi almak için [Application Insights eklentisiyle collectd yükleyin](java-collectd.md).
 
@@ -465,22 +470,12 @@ Artık SDK'yı da yüklediğinize göre, kendi telemetrinizi göndermek için AP
 * Sorunların tanımlanması için [Olayları ve günlükleri arayın][diagnostic].
 
 ## <a name="availability-web-tests"></a>Kullanılabilirlik web testleri
-Kullanıma hazır ve düzgün yanıt verdiğini denetlemek için Application Insights belirli aralıklarla web sitenizi test edebilir. [Ayarlamak için][availability], Web testleri'ne tıklayın.
+Kullanıma hazır ve düzgün yanıt verdiğini denetlemek için Application Insights belirli aralıklarla web sitenizi test edebilir.
 
-![Web testleri’ne ve ardından Web testi ekle’ye tıklayın](./media/java-get-started/31-config-web-test.png)
-
-Yanıt süreleri grafiklerine ek olarak, siteniz devre dışı kalırsa e-posta bildirimleri de alacaksınız.
-
-![Web testi örneği](./media/java-get-started/appinsights-10webtestresult.png)
-
-[Kullanılabilirlik web testleri hakkında daha fazla bilgi edinin.][availability]
+[Kullanılabilirlik web testleri ayarlama hakkında daha fazla bilgi edinin.][availability]
 
 ## <a name="questions-problems"></a>Sorularınız mı var? Sorunlarınız mı var?
 [Java Sorun Giderme](java-troubleshoot.md)
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Bağımlılık çağrılarını izleme](java-agent.md)

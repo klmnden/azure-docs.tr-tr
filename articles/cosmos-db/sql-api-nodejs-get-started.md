@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 4441797eb41dc909a98be3c42931140e71e36f80
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: fe925ed408f64424de8da98f6e182a06a41bf015
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270360"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075058"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Öğretici: Azure Cosmos DB SQL API verileri yönetmek için JavaScript SDK ile bir Node.js konsol uygulaması oluşturma
 
@@ -338,7 +338,7 @@ Artık Azure Cosmos DB istemcisini başlatmaya yarayacak koda sahip olduğunuza 
 Böylece depolamak ve sorgulamak, ardından Azure Cosmos DB hesabı içinde bir kapsayıcı oluşturun. 
 
 > [!WARNING]
-Fiyatlandırmaya olan bir kapsayıcı oluşturma. Ziyaret bizim [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cosmos-db/) beklenmesi gerekenler bilmesi.
+> Fiyatlandırmaya olan bir kapsayıcı oluşturma. Ziyaret bizim [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cosmos-db/) beklenmesi gerekenler bilmesi.
 
 Bir kapsayıcı kullanarak oluşturulabilir `createIfNotExists` veya işlevden oluşturma **kapsayıcıları** sınıfı.  Kapsayıcı öğelerden (SQL API kullanıldığında JSON belgeleri) ve ilişkili JavaScript uygulama mantığından oluşur.
 
@@ -462,7 +462,7 @@ Bir öğe oluşturma işlevi kullanılarak oluşturulabilir. **öğeleri** sın�
    /**
    * Create family item if it does not exist
    */
-  async function createFamilyItem(itemBody) {
+   async function createFamilyItem(itemBody) {
      try {
          // read the item to see if it exists
          const { item } = await client.database(databaseId).container(containerId).item(itemBody.id).read();
@@ -612,9 +612,9 @@ Azure Cosmos DB, JSON öğelerini silmeyi destekler.
 1. **deleteFamilyItem** işlevini **replaceFamilyItem** işlevinin altına kopyalayıp yapıştırın.
 
    ```javascript
-  /**
-  * Delete the item by ID.
-  */
+   /**
+   * Delete the item by ID.
+   */
    async function deleteFamilyItem(itemBody) {
       await client.database(databaseId).container(containerId).item(itemBody.id).delete(itemBody);
       console.log(`Deleted item:\n${itemBody.id}\n`);

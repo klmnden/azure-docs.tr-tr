@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7c4994863f3c145c7095bcc12dd69ff02fab8455
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6b3357ec06c89645b9c41e9efdb582a18af40672
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540292"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074684"
 ---
 # <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>Öğretici: Azure Önizleme Gözcü çalışmalarıyla araştırın
 
@@ -42,7 +42,7 @@ Bir durum, birden çok uyarı içerebilir. Bu, belirli bir araştırma için tü
 
 1. Seçin **çalışmaları**. **Çalışmaları** sayfa, sahip olduğunuz kaç çalışması bilmenizi sağlar, ne kadar kaç ayarladığınız açık olduğunu **sürüyor**, ve kaç kapatılır. Her durumda, gerçekleştiği zaman ve servis talebi durumunu görebilirsiniz. İlk işlemeye karar verirken önem derecesi arayın. İçinde **çalışmaları** sayfasında **uyarılar** olayla ilgili tüm uyarıları görmek için sekmesinde. Durum bölümü görüntülenebilir önceki eşlenen varlıkları **varlıkları** sekmesi.  Durumlarda, örneğin durumu veya önem sırasına göre gerektiği şekilde filtreleyebilirsiniz. Baktığınızda **çalışmaları** sekmesinde tanımlanan algılama kurallarınızı tarafından tetiklenen uyarılar içerir açık durumda görürsünüz **Analytics**. Üst kısmında gördüğünüz etkin servis talepleri, yeni çalışmaları ve ilerleme durumlarda. Önem derecesine göre tüm çalışmalarınızı genel bir bakış da görebilirsiniz.
 
-  ![Uyarı Panosu](./media/tutorial-investigate-cases/cases.png)
+   ![Uyarı Panosu](./media/tutorial-investigate-cases/cases.png)
 
 2. Bir araştırma başlamak için belirli bir servis talebi üzerinde tıklayın. Sağ tarafta (sizin eşlemesini göre), önem derecesi, Özet ilgili varlıkların sayısı dahil olmak üzere durumu için ayrıntılı bilgileri görebilirsiniz. Her durumda benzersiz bir kimliğe sahiptir. Servis talebi önem durumda dahil en önemli uyarı göre belirlenir.  
 

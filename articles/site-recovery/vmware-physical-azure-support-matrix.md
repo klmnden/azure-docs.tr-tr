@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: raynew
-ms.openlocfilehash: 637a8e91ba03240cd4c2c530ae2c982d2115c81d
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 086a3b4bf34f2ea7454bb018f9468dd21629a8ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569833"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903105"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için destek matrisi
 
@@ -48,7 +48,7 @@ Boş disk alanı | İşlem sunucusu önbelleği için gereken alanı 600 GB.
 Boş disk alanı | Bekletme sürücüsü için gereken alanı 600 GB.
 İşletim sistemi  | Windows Server 2012 R2 veya Windows Server 2016 |
 İşletim sistemi yerel ayarı | İngilizce (en-us)
-PowerCLI | [Powerclı 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "Powerclı 6.0") yüklü olması gerekir.
+PowerCLI | [Powerclı 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "Powerclı 6.0") sürümlerinden ile yapılandırma sunucusu için gerekli değildir [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery).
 Windows Server rolleri | Etkinleştirme: <br/> - Active Directory Domain Services <br/>- İnternet Bilgi Hizmetleri <br/> - Hyper-V |
 Grup İlkeleri| Etkinleştirme: <br/> -Komut istemine erişimi engelleyin. <br/> -Kayıt defteri düzenleme araçlarına erişimi engelleyin. <br/> -Mantıksal dosya ekleri için güven. <br/> -Betik yürütmeyi açma. <br/> [Daha fazla bilgi](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Emin olun:<br/><br/> -Önceden var olan bir varsayılan Web sitesi yok <br/> -Etkinleştir [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> -Etkinleştir [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı  <br/> -Önceden var olan Web sitesi/uygulama bağlantı noktası 443 üzerinde dinleme yok<br/>
@@ -185,7 +185,7 @@ Konuk/sunucu çok yollu (MPIO) | Hayır
 
 > [!NOTE]
 > UEFI önyükleme Windows Server 2012 çalıştıran VMware sanal makinelerini veya daha sonra Azure'a geçirilebilir. Aşağıdaki kısıtlamalar uygulanır:
-
+> 
 > - Azure'a geçiş desteklenir. Şirket içi VMware sitesinde yeniden çalışma desteklenmez.
 > - Sunucu işletim sistemi diskinde dörtten fazla bölümler olmamalıdır.
 > - Mobility hizmeti sürümü 9.13 veya üstü gerektirir.
@@ -265,7 +265,7 @@ Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma<br/><br/> İçi
 ## <a name="download-latest-azure-site-recovery-components"></a>En son Azure Site Recovery bileşenlerini yükle
 
 **Ad** | **Açıklama** | **En son sürümü indirme yönergeleri**
---- | --- | --- | --- | ---
+--- | --- | --- 
 Yapılandırma sunucusu | Şirket içi VMware sunucularını ve Azure arasındaki iletişimleri koordine eder <br/><br/> Şirket içi VMware sunucularında yüklü | Yeni yükleme için tıklatın [burada](vmware-azure-deploy-configuration-server.md). Varolan bileşeni en son sürüme yükseltmek için tıklayın [burada](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 İşlem sunucusu|Varsayılan olarak yapılandırma sunucusuna yüklenir. Bu çoğaltma verilerini alıp; Bu, önbelleğe alma, sıkıştırma ve şifreleme ile iyileştirir; ve Azure depolamaya gönderir. Dağıtımınız büyüdükçe, daha büyük çoğaltma trafiği hacimlerini idare etmek ayrı, ek işlem sunucuları ekleyebilirsiniz.| Yeni yükleme için tıklatın [burada](vmware-azure-set-up-process-server-scale.md). Varolan bileşeni en son sürüme yükseltmek için tıklayın [burada](vmware-azure-manage-process-server.md#upgrade-a-process-server).
 Mobility hizmeti | Şirket içi VMware sunucuları/fiziksel sunucular ile Azure/ikincil site arasında çoğaltma koordinatları<br/><br/> VMware VM veya fiziksel sunucuları çoğaltmak istediğiniz yüklü | Yeni yükleme için tıklatın [burada](vmware-azure-install-mobility-service.md). Varolan bileşeni en son sürüme yükseltmek için tıklayın [burada](vmware-physical-mobility-service-overview.md##update-mobility-service-from-azure-portal).

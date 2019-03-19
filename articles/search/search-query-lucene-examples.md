@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 962c1cff91a5ac3f52dc67c30bd2c7a4e2e22b9d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 8ec6a6a24629f72199d5f5afa86200acf53aba01
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631847"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136555"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Lucene sözdizimi sorgu örnekleri, Azure Search'te Gelişmiş sorgular oluşturmak için
 Azure arama için sorgular oluşturma sırasında varsayılan değiştirebilirsiniz [Basit Sorgu ayrıştırıcı](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ile kapsamlı [Azure Search'te Lucene sorgu ayrıştırıcısına](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) özelleştirilmiş ve Gelişmiş sorguyu formüle etmek için tanımları. 
@@ -172,7 +172,7 @@ Belirli bir alanda gibi eşleşen artırıyor bir Puanlama profili göz önünde
 Faktörü düzeyi ayarlarken terimi yüksek boost faktör, daha fazla ilgili diğer arama terimlerini göreli olacaktır. Varsayılan olarak, boost faktörü 1'dir. Boost çarpanı sıfırdan büyük olmalı ancak (örneğin, 0.2) 1'den küçük olabilir.
 
 
-## <a name="example-6-regex"></a>Örnek 6: Normal ifade
+## <a name="example-6-regex"></a>Örnek 6: Regex
 
 Bir normal ifade araması eğik arasında "/", belgelenmiş içinde olarak içeriğine göre bir eşleşme bulur [RegExp sınıfı](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
@@ -206,7 +206,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 Lucene sorgu ayrıştırıcısına kodunuzda belirtmeyi deneyin. Aşağıdaki bağlantıları arama sorguları hem .NET hem de REST API için nasıl yapılacağını açıklar. Belirtmek için bu makalede öğrendiklerinizi uygulamak ihtiyacınız olacak şekilde bağlantıları varsayılan basit söz dizimi kullanın. **queryType**.
 
 * [Azure Search .NET SDK kullanarak dizininizi sorgulama](search-query-dotnet.md)
-* [Azure Search REST API kullanarak dizininizi sorgulama](search-query-rest-api.md)
+* [Azure Search REST API kullanarak dizininizi sorgulama](search-create-index-rest-api.md)
 
 Ek söz dizimi başvurusu, sorgu mimarisi ve örnekleri aşağıdaki bağlantılarda bulunabilir:
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/03/2019
 ms.author: mayg
 ms.custom: MVC
-ms.openlocfilehash: dd84becdf7043f3ae1c8070bdc1918d377bc3e3b
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 5168fc28952631f00c2415d6bc171a130dc85dfd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337881"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838570"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Şirket içi makinelerin olağanüstü durum kurtarma işlemleri için Azure kaynaklarını hazırlama
 
@@ -35,7 +35,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[Azure Portal](http://portal.azure.com) oturum açın.
+[Azure Portal](https://portal.azure.com) oturum açın.
 
 ## <a name="verify-account-permissions"></a>Hesap izinlerini doğrulama
 

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: af269085550f71323c8098b4cdf3c88ec8035dfe
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 20d50ac4ac4a1919077ebe67bb529e2dc5abf187
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563312"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109755"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Raspberry Pi'yi Cihazınızı Uzaktan izleme çözüm hızlandırıcısına (Node.js) bağlama
 
@@ -163,158 +163,158 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantıs
 
 1. Telemetri değerleri rastgele seçmek için kullanılacak aşağıdaki yardımcı işlevi ekleyin:
 
-    ```javascript
-    function generateRandomIncrement() {
-        return ((Math.random() * 2) - 1);
-    }
-    ```
+     ```javascript
+     function generateRandomIncrement() {
+         return ((Math.random() * 2) - 1);
+     }
+     ```
 
 1. Çözümden doğrudan yöntem çağrıları işlemek için aşağıdaki genel işlevi ekleyin. İşlev çağrıldı, ancak bu örnekte, cihazın herhangi bir şekilde değiştirmez doğrudan yöntem hakkında bilgi görüntüler. Çözüm, cihazlarda işlem yapmak için doğrudan yöntemleri kullanır:
 
-    ```javascript
-    function onDirectMethod(request, response) {
-      // Implement logic asynchronously here.
-      console.log('Simulated ' + request.methodName);
+     ```javascript
+     function onDirectMethod(request, response) {
+       // Implement logic asynchronously here.
+       console.log('Simulated ' + request.methodName);
 
-      // Complete the response
-      response.send(200, request.methodName + ' was called on the device', function (err) {
-        if (err) console.error('Error sending method response :\n' + err.toString());
-        else console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
-      });
-    }
-    ```
+       // Complete the response
+       response.send(200, request.methodName + ' was called on the device', function (err) {
+         if (err) console.error('Error sending method response :\n' + err.toString());
+         else console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+       });
+     }
+     ```
 
 1. İşlemek için aşağıdaki işlevi ekleyin **FirmwareUpdate** doğrudan çözümünden yöntem çağrıları. İşlev doğrudan yöntem yükteki geçirilen parametreler doğrular ve bir üretici yazılımı güncelleştirme simülasyonu zaman uyumsuz olarak çalışır:
 
-    ```javascript
-    function onFirmwareUpdate(request, response) {
-      // Get the requested firmware version from the JSON request body
-      var firmwareVersion = request.payload.Firmware;
-      var firmwareUri = request.payload.FirmwareUri;
+     ```javascript
+     function onFirmwareUpdate(request, response) {
+       // Get the requested firmware version from the JSON request body
+       var firmwareVersion = request.payload.Firmware;
+       var firmwareUri = request.payload.FirmwareUri;
       
-      // Ensure we got a firmware values
-      if (!firmwareVersion || !firmwareUri) {
-        response.send(400, 'Missing firmware value', function(err) {
-          if (err) console.error('Error sending method response :\n' + err.toString());
-          else console.log('400 Response to method \'' + request.methodName + '\' sent successfully.');
-        });
-      } else {
-        // Respond the cloud app for the device method
-        response.send(200, 'Firmware update started.', function(err) {
-          if (err) console.error('Error sending method response :\n' + err.toString());
-          else {
-            console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
+       // Ensure we got a firmware values
+       if (!firmwareVersion || !firmwareUri) {
+         response.send(400, 'Missing firmware value', function(err) {
+           if (err) console.error('Error sending method response :\n' + err.toString());
+           else console.log('400 Response to method \'' + request.methodName + '\' sent successfully.');
+         });
+       } else {
+         // Respond the cloud app for the device method
+         response.send(200, 'Firmware update started.', function(err) {
+           if (err) console.error('Error sending method response :\n' + err.toString());
+           else {
+             console.log('200 Response to method \'' + request.methodName + '\' sent successfully.');
 
-            // Run the simulated firmware update flow
-            runFirmwareUpdateFlow(firmwareVersion, firmwareUri);
-          }
-        });
-      }
-    }
-    ```
+             // Run the simulated firmware update flow
+             runFirmwareUpdateFlow(firmwareVersion, firmwareUri);
+           }
+         });
+       }
+     }
+     ```
 
 1. İlerlemeyi çözüme geri raporlar bir uzun süre çalışan üretici yazılımı güncelleştirme akış benzetimini yapmak için aşağıdaki işlevi ekleyin:
 
-    ```javascript
-    // Simulated firmwareUpdate flow
-    function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
-      console.log('Simulating firmware update flow...');
-      console.log('> Firmware version passed: ' + firmwareVersion);
-      console.log('> Firmware URI passed: ' + firmwareUri);
-      async.waterfall([
-        function (callback) {
-          console.log("Image downloading from " + firmwareUri);
-          var patch = {
-            FirmwareUpdateStatus: 'Downloading image..'
-          };
-          reportUpdateThroughTwin(patch, callback);
-          sleep(10000, callback);
-        },
-        function (callback) {
-          console.log("Downloaded, applying firmware " + firmwareVersion);
-          deviceOnline = false;
-          var patch = {
-            FirmwareUpdateStatus: 'Applying firmware..',
-            Online: false
-          };
-          reportUpdateThroughTwin(patch, callback);
-          sleep(8000, callback);
-        },
-        function (callback) {
-          console.log("Rebooting");
-          var patch = {
-            FirmwareUpdateStatus: 'Rebooting..'
-          };
-          reportUpdateThroughTwin(patch, callback);
-          sleep(10000, callback);
-        },
-        function (callback) {
-          console.log("Firmware updated to " + firmwareVersion);
-          deviceOnline = true;
-          var patch = {
-            FirmwareUpdateStatus: 'Firmware updated',
-            Online: true,
-            Firmware: firmwareVersion
-          };
-          reportUpdateThroughTwin(patch, callback);
-          callback(null);
-        }
-      ], function(err) {
-        if (err) {
-          console.error('Error in simulated firmware update flow: ' + err.message);
-        } else {
-          console.log("Completed simulated firmware update flow");
-        }
-      });
+     ```javascript
+     // Simulated firmwareUpdate flow
+     function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
+       console.log('Simulating firmware update flow...');
+       console.log('> Firmware version passed: ' + firmwareVersion);
+       console.log('> Firmware URI passed: ' + firmwareUri);
+       async.waterfall([
+         function (callback) {
+           console.log("Image downloading from " + firmwareUri);
+           var patch = {
+             FirmwareUpdateStatus: 'Downloading image..'
+           };
+           reportUpdateThroughTwin(patch, callback);
+           sleep(10000, callback);
+         },
+         function (callback) {
+           console.log("Downloaded, applying firmware " + firmwareVersion);
+           deviceOnline = false;
+           var patch = {
+             FirmwareUpdateStatus: 'Applying firmware..',
+             Online: false
+           };
+           reportUpdateThroughTwin(patch, callback);
+           sleep(8000, callback);
+         },
+         function (callback) {
+           console.log("Rebooting");
+           var patch = {
+             FirmwareUpdateStatus: 'Rebooting..'
+           };
+           reportUpdateThroughTwin(patch, callback);
+           sleep(10000, callback);
+         },
+         function (callback) {
+           console.log("Firmware updated to " + firmwareVersion);
+           deviceOnline = true;
+           var patch = {
+             FirmwareUpdateStatus: 'Firmware updated',
+             Online: true,
+             Firmware: firmwareVersion
+           };
+           reportUpdateThroughTwin(patch, callback);
+           callback(null);
+         }
+       ], function(err) {
+         if (err) {
+           console.error('Error in simulated firmware update flow: ' + err.message);
+         } else {
+           console.log("Completed simulated firmware update flow");
+         }
+       });
 
-      // Helper function to update the twin reported properties.
-      function reportUpdateThroughTwin(patch, callback) {
-        console.log("Sending...");
-        console.log(JSON.stringify(patch, null, 2));
-        client.getTwin(function(err, twin) {
-          if (!err) {
-            twin.properties.reported.update(patch, function(err) {
-              if (err) callback(err);
-            });      
-          } else {
-            if (err) callback(err);
-          }
-        });
-      }
+       // Helper function to update the twin reported properties.
+       function reportUpdateThroughTwin(patch, callback) {
+         console.log("Sending...");
+         console.log(JSON.stringify(patch, null, 2));
+         client.getTwin(function(err, twin) {
+           if (!err) {
+             twin.properties.reported.update(patch, function(err) {
+               if (err) callback(err);
+             });      
+           } else {
+             if (err) callback(err);
+           }
+         });
+       }
 
-      function sleep(milliseconds, callback) {
-        console.log("Simulate a delay (milleseconds): " + milliseconds);
-        setTimeout(function () {
-          callback(null);
-        }, milliseconds);
-      }
-    }
-    ```
+       function sleep(milliseconds, callback) {
+         console.log("Simulate a delay (milleseconds): " + milliseconds);
+         setTimeout(function () {
+           callback(null);
+         }, milliseconds);
+       }
+     }
+     ```
 
 1. Çözüme telemetri verileri göndermek için aşağıdaki kodu ekleyin. İstemci uygulaması, iletinin ileti şeması tanımlamak için özellikleri ekler:
 
-    ```javascript
-    function sendTelemetry(data, schema) {
-      if (deviceOnline) {
-        var d = new Date();
-        var payload = JSON.stringify(data);
-        var message = new Message(payload);
-        message.properties.add('iothub-creation-time-utc', d.toISOString());
-        message.properties.add('iothub-message-schema', schema);
+     ```javascript
+     function sendTelemetry(data, schema) {
+       if (deviceOnline) {
+         var d = new Date();
+         var payload = JSON.stringify(data);
+         var message = new Message(payload);
+         message.properties.add('iothub-creation-time-utc', d.toISOString());
+         message.properties.add('iothub-message-schema', schema);
 
-        console.log('Sending device message data:\n' + payload);
-        client.sendEvent(message, printErrorFor('send event'));
-      } else {
-        console.log('Offline, not sending telemetry');
-      }
-    }
-    ```
+         console.log('Sending device message data:\n' + payload);
+         client.sendEvent(message, printErrorFor('send event'));
+       } else {
+         console.log('Offline, not sending telemetry');
+       }
+     }
+     ```
 
 1. Bir istemci örneği oluşturmak için aşağıdaki kodu ekleyin:
 
-    ```javascript
-    var client = Client.fromConnectionString(connectionString, Protocol);
-    ```
+     ```javascript
+     var client = Client.fromConnectionString(connectionString, Protocol);
+     ```
 
 1. Aşağıdaki kodu ekleyin:
 
@@ -324,8 +324,8 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantıs
     * Doğrudan yöntemler için işleyiciler kaydedin. Örnek, üretici yazılımı güncelleştirme doğrudan yöntemi için ayrı bir işleyici kullanır.
     * Telemetri göndermeye başlaması.
 
-    ```javascript
-    client.open(function (err) {
+      ```javascript
+      client.open(function (err) {
       if (err) {
         printErrorFor('open')(err);
       } else {
@@ -381,15 +381,15 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantıs
           client.close(printErrorFor('client.close'));
         });
       }
-    });
-    ```
+      });
+      ```
 
 1. Değişiklikleri kaydetmek **remote_monitoring.js** dosya.
 
 1. Örnek uygulamayı başlatmak için Raspberry Pi üzerinde komut isteminizde aşağıdaki komutu çalıştırın:
 
-    ```sh
-    node remote_monitoring.js
-    ```
+     ```sh
+     node remote_monitoring.js
+     ```
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

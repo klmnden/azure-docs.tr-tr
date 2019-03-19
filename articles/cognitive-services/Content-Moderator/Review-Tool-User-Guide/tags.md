@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 942b30ab9949a28c42949913d90e7448c22b658f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: fa3b7be6ac7cc398685bf5ad7d21173bcb072b69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206291"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118417"
 ---
 # <a name="create-and-use-moderation-tags"></a>Oluşturma ve denetleme etiketleri kullanma
 
@@ -23,15 +23,15 @@ ms.locfileid: "55206291"
 
 ## <a name="create-tags"></a>Etiket oluşturma
 
-1.  Etiketleri ayarlar sekmesinden seçin.
+1. Etiketleri ayarlar sekmesinden seçin.
 
-  ![İçerik denetleme etiketleri](images/tags-1.png)
+   ![İçerik denetleme etiketleri](images/tags-1.png)
 
-2.  Etiket için iki harfli kısa bir kod girin.
-3.  Etiket için bir ad girin. Kısa ve açıklayıcı adı tutun. Örneğin, **isbullying**.
-4.  Bir açıklama girin.
-5.  Ekle'ye tıklayın.
-6.  Oluşturma etiketleri tamamladığınızda, Kaydet'e tıklayın.
+2. Etiket için iki harfli kısa bir kod girin.
+3. Etiket için bir ad girin. Kısa ve açıklayıcı adı tutun. Örneğin, **isbullying**.
+4. Bir açıklama girin.
+5. Ekle'ye tıklayın.
+6. Oluşturma etiketleri tamamladığınızda, Kaydet'e tıklayın.
 
 ![İçerik denetleme etiketlerini tanımlamaya](images/tags-2-define.png)
 

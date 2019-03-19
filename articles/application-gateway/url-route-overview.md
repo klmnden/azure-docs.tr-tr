@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/23/2018
 ms.author: victorh
-ms.openlocfilehash: 759f5e8441ec62ef11d4be93921e3c4f2629145c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ee0267146140d095487b293331a7de493ba151c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774171"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895592"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Azure Application Gateway URL yolu tabanlı yönlendirmeye genel bakış
 
@@ -29,7 +29,7 @@ Aşağıdaki örnekte, Application Gateway için örneğin contoso.com üç arka
 
 ![imageURLroute](./media/url-route-overview/figure1.png)
 
-http://contoso.com/video/* için istekler VideoServerPool’a ve http://contoso.com/images/* için istekler ImageServerPool’a yönlendirilir. Yol desenlerinden hiçbiri eşleşmiyorsa DefaultServerPool seçilir.
+İçin istekleri <http://contoso.com/video/*> , videoserverpool'a ve <http://contoso.com/images/*> istekler Imageserverpool'a yönlendirilir. Yol desenlerinden hiçbiri eşleşmiyorsa DefaultServerPool seçilir.
 
 > [!IMPORTANT]
 > Kurallar, portalda listelendikleri sırayla işlenir. Temel dinleyiciyi yapılandırmadan önce çok siteli dinleyicileri yapılandırmanız önerilir.  Bu işlem, trafiğin doğru arka uca yönlendirilmesini güvence altına alır. Temel dinleyici listede ilk sıradaysa ve gelen bir istekle eşleşiyorsa, o dinleyici tarafından işlenir.

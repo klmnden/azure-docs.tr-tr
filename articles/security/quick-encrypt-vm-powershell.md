@@ -3,7 +3,7 @@ title: Hızlı Başlangıç - Azure PowerShell ile bir Windows IaaS VM'ini Şifr
 description: Bu hızlı başlangıçta, azure'da Windows Iaas VM şifrelemek için Azure PowerShell kullanmayı öğrenin.
 services: security
 documentationcenter: na
-author: mestew
+author: msmbaldwin
 manager: MBaldwin
 ms.assetid: c8abd340-5ed4-42ec-b83f-4d679b61494d
 ms.service: security
@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
-ms.author: mstewart
+ms.author: mbaldwin
 ms.custom: seodec18
-ms.openlocfilehash: a59a1745d14b60c726f6041544c37d9c5bb186c4
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 4af2db5af49e1fc70ee46f4fc4c953731daedf0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990659"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862378"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Hızlı Başlangıç: Azure PowerShell ile bir Windows Iaas VM'LERİNİ şifreleme
 

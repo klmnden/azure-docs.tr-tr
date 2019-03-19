@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: f12f5f1f7791fa09b07c3035db65f2f488f36d7f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 93ba17c58dfcb5955bafbcc63655778903f60c18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776589"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076352"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Azure dosya paylaşımını Windows'da kullanma
 [Azure Dosyaları](storage-files-introduction.md), Microsoft’un kullanımı kolay bulut dosya sistemidir. Azure dosya paylaşımları, Windows ve Windows Server’da sorunsuz bir şekilde kullanılabilir. Bu makalede Azure dosya paylaşımını Windows ve Windows Server ile kullanma konusunda dikkat edilmesi gerekenler anlatılmaktadır.
@@ -303,5 +303,5 @@ Bu kayıt defteri anahtarını oluşturduktan sonra SMB 1'i devre dışı bırak
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Dosyaları hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın:
 - [Azure Dosyaları dağıtımını planlama](storage-files-planning.md)
-* [SSS](../storage-files-faq.md)
-* [Windows’da sorun giderme](storage-troubleshoot-windows-file-connection-problems.md)      
+- [SSS](../storage-files-faq.md)
+- [Windows’da sorun giderme](storage-troubleshoot-windows-file-connection-problems.md)      

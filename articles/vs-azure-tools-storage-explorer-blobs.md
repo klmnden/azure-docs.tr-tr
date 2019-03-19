@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: fd13cb25fbe3696bf67615ef956f478b7c355547
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: f46467871a5ae0147b5dc60881bda4175eabac56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422061"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858176"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Depolama Gezgini ile Azure Blob depolama kaynaklarını yönetme
 ## <a name="overview"></a>Genel Bakış

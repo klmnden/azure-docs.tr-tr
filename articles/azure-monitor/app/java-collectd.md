@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: c8320a0f504927830c47400f1f1ef0369c0e1cad
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 783cef6ff4e107838bb3ff7502fb4a8e9189ec3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011196"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>toplanan: Application ınsights Linux performans ölçümleri
 
@@ -26,14 +26,12 @@ ms.locfileid: "54116543"
 
 Genellikle zaten varsa, toplanan kullanacağınız [Application Insights ile Java web hizmetinizin izleme eklenmiş][java]. Uygulamanızın performansını geliştirmek veya sorunları tanılamak için yardımcı olacak daha fazla veri sağlar. 
 
-![Örnek grafikler](./media/java-collectd/sample.png)
-
 ## <a name="get-your-instrumentation-key"></a>İzleme anahtarınızı alın
 İçinde [Microsoft Azure Portal'da](https://portal.azure.com)açın [Application Insights](../../azure-monitor/app/app-insights-overview.md) verilerin görünmesini istediğiniz kaynak. (Veya [yeni kaynak Oluştur](../../azure-monitor/app/create-new-resource.md ).)
 
 Kaynağı tanımlayan izleme anahtarını bir kopyasını alın.
 
-![Tümüne Gözat, kaynağınızı açın ve ardından temel bileşenler açılan listeyi seçin ve izleme anahtarını kopyalama](./media/java-collectd/02-props.png)
+![Tümüne Gözat, kaynağınızı açın ve ardından temel bileşenler açılan listeyi seçin ve izleme anahtarını kopyalama](./media/java-collectd/instrumentation-key-001.png)
 
 ## <a name="install-collectd-and-the-plug-in"></a>Toplanan ve eklenti yükleme
 Linux sunucusu makinelerinizde:
@@ -93,9 +91,7 @@ Diğer yapılandırma [toplanan eklentileri](https://collectd.org/wiki/index.php
 Toplanan göre yeniden kendi [el ile](https://collectd.org/wiki/index.php/First_steps).
 
 ## <a name="view-the-data-in-application-insights"></a>Application Insights'ta verileri görüntüleyin
-Application Insights kaynağınızı açın [ölçüm Gezgini ve grafikler ekleyin][metrics], özel kategori görmek istediğiniz ölçümleri seçme.
-
-![](./media/java-collectd/result.png)
+Application Insights kaynağınızı açın [ölçüm ve grafikler ekleyin][metrics], özel kategori görmek istediğiniz ölçümleri seçme.
 
 Varsayılan olarak, kendisinden ölçümleri toplanmış olan tüm konak makinelerde ölçümleri toplanır. Grafik ayrıntıları dikey penceresinde, konak başına ölçümleri görüntülemek için gruplandırma'yı açın ve tarafından toplanan konak grubu seçin.
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/28/2019
-ms.openlocfilehash: a48e9a21c97ecb881798b0f944e91cfcf81f0a72
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: cf6122b45f82b9304acd28819861b9fda2dcb5ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295772"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085737"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight kümeleri ile Azure Depolama'yı kullanma
 
@@ -197,7 +197,7 @@ example/jars/hadoop-mapreduce-examples.jar
 ### <a name="access-blobs-using-azure-powershell"></a> Azure PowerShell'i kullanma
 
 > [!NOTE]
-
+> 
 > Bu bölümdeki komutlar blob'larda depolanan verilere erişmek için PowerShell kullanmaya ilişkin temel bir örnek sağlar. HDInsight ile çalışmak için özelleştirilmiş daha tam özellikli bir örnek için bkz. [HDInsight Araçları](https://github.com/Blackmist/hdinsight-tools).
 
 Blob ile ilgili cmdlet’leri listelemek için aşağıdaki komutu kullanın:

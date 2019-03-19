@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 690ef0a6eb85934ffc5bd8e546843bc70559c28d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 4a1f9556413df7ad8954171d2b446419d3bc2975
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406295"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092319"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>PowerShell kullanarak ExpressRoute ve siteden siteye arada var olabilen bağlantılar yapılandırma
 > [!div class="op_single_selector"]
@@ -87,14 +87,14 @@ Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve Exp
 
 1. Oturum açın ve aboneliğinizi seçin.
 
-  [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
+   [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 2. Değişkenleri ayarlayın.
 
-  ```azurepowershell-interactive
-  $location = "Central US"
-  $resgrp = New-AzResourceGroup -Name "ErVpnCoex" -Location $location
-  $VNetASN = 65515
-  ```
+   ```azurepowershell-interactive
+   $location = "Central US"
+   $resgrp = New-AzResourceGroup -Name "ErVpnCoex" -Location $location
+   $VNetASN = 65515
+   ```
 3. Ağ Geçidi Alt Ağı içeren bir sanal ağ oluşturun. Sanal ağ oluşturma hakkında daha fazla bilgi için bkz. [Sanal ağ oluşturma](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Alt ağ oluşturma hakkında daha fazla bilgi için bkz. [Alt ağ oluşturma](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
    
    > [!IMPORTANT]
@@ -104,64 +104,64 @@ Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve Exp
    
     Yeni bir VNet oluşturun.
 
-  ```azurepowershell-interactive
-  $vnet = New-AzVirtualNetwork -Name "CoexVnet" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AddressPrefix "10.200.0.0/16"
-  ```
+   ```azurepowershell-interactive
+   $vnet = New-AzVirtualNetwork -Name "CoexVnet" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AddressPrefix "10.200.0.0/16"
+   ```
    
     Alt ağlar ekleyin.
 
-  ```azurepowershell-interactive
-  Add-AzVirtualNetworkSubnetConfig -Name "App" -VirtualNetwork $vnet -AddressPrefix "10.200.1.0/24"
-  Add-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
-  ```
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name "App" -VirtualNetwork $vnet -AddressPrefix "10.200.1.0/24"
+   Add-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
+   ```
    
     VNet yapılandırmasını kaydedin.
 
-  ```azurepowershell-interactive
-  $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
+   ```
 4. <a name="vpngw"></a>Ardından, Siteden Siteye VPN ağ geçidinizi oluşturun. VPN ağ geçidi yapılandırması hakkında daha fazla bilgi için bkz. [Siteden Siteye bağlantı ile VNet yapılandırma](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md). GatewaySku yalnızca *VpnGw1*, *VpnGw2*, *VpnGw3*, *Standard* ve *HighPerformance* VPN ağ geçitlerinde desteklenir. ExpressRoute-VPN Gateway ağ geçidi bir arada var olabilen yapılandırmaları, temel SKU'da desteklenmez. VpnType değeri *RouteBased* olmalıdır.
 
-  ```azurepowershell-interactive
-  $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
-  $gwIP = New-AzPublicIpAddress -Name "VPNGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
-  $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "VPNGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
-  New-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "VpnGw1"
-  ```
+   ```azurepowershell-interactive
+   $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
+   $gwIP = New-AzPublicIpAddress -Name "VPNGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
+   $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "VPNGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
+   New-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "VpnGw1"
+   ```
    
     Azure VPN ağ geçidi, BGP yönlendirme protokolünü destekler. Aşağıdaki komuta -Asn anahtarını ekleyerek söz konusu Sanal Ağ için ASN (AS Numarası) belirtebilirsiniz. Bu parametreyi belirtmediğinizde AS numarası varsayılan olarak 65515 şeklinde ayarlanır.
 
-  ```azurepowershell-interactive
-  $azureVpn = New-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "VpnGw1" -Asn $VNetASN
-  ```
+   ```azurepowershell-interactive
+   $azureVpn = New-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "VpnGw1" -Asn $VNetASN
+   ```
    
     BGP eşleme IP’sini ve Azure’un VPN ağ geçidi için kullandığı AS numarasını $azureVpn.BgpSettings.BgpPeeringAddress ve $azureVpn.BgpSettings.Asn’de bulabilirsiniz. Daha fazla bilgi için bkz. Azure VPN ağ geçidi için [BGP’yi yapılandırma](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md).
 5. Bir yerel site VPN ağ geçidi varlığı oluşturun. Bu komut, şirket içi VPN ağ geçidinizi yapılandırmaz. Azure VPN ağ geçidinin bağlanabilmesi için ortak IP ve şirket içi adres alanı gibi yerel ağ geçidi ayarlarını paylaşmanıza olanak tanır.
    
     Yerel VPN cihazınız yalnızca statik yönlendirmeyi destekliyorsa statik rotaları aşağıdaki şekilde yapılandırabilirsiniz:
 
-  ```azurepowershell-interactive
-  $MyLocalNetworkAddress = @("10.100.0.0/16","10.101.0.0/16","10.102.0.0/16")
-  $localVpn = New-AzLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress *<Public IP>* -AddressPrefix $MyLocalNetworkAddress
-  ```
+   ```azurepowershell-interactive
+   $MyLocalNetworkAddress = @("10.100.0.0/16","10.101.0.0/16","10.102.0.0/16")
+   $localVpn = New-AzLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress *<Public IP>* -AddressPrefix $MyLocalNetworkAddress
+   ```
    
     Yerel VPN cihazınız BGP’yi destekliyorsa ve dinamik yönlendirmeyi etkinleştirmek istiyorsanız yerel VPN cihazınızın kullandığı BGP eşleme IP’sini ve AS numarasını bilmeniz gerekir.
 
-  ```azurepowershell-interactive
-  $localVPNPublicIP = "<Public IP>"
-  $localBGPPeeringIP = "<Private IP for the BGP session>"
-  $localBGPASN = "<ASN>"
-  $localAddressPrefix = $localBGPPeeringIP + "/32"
-  $localVpn = New-AzLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress $localVPNPublicIP -AddressPrefix $localAddressPrefix -BgpPeeringAddress $localBGPPeeringIP -Asn $localBGPASN
-  ```
+   ```azurepowershell-interactive
+   $localVPNPublicIP = "<Public IP>"
+   $localBGPPeeringIP = "<Private IP for the BGP session>"
+   $localBGPASN = "<ASN>"
+   $localAddressPrefix = $localBGPPeeringIP + "/32"
+   $localVpn = New-AzLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress $localVPNPublicIP -AddressPrefix $localAddressPrefix -BgpPeeringAddress $localBGPPeeringIP -Asn $localBGPASN
+   ```
 6. Yerel VPN cihazınızı yeni Azure VPN ağ geçidine bağlanmak için yapılandırın. VPN cihazını yapılandırma hakkında daha fazla bilgi için bkz. [VPN Cihazı Yapılandırma](../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 
 7. Azure’da Siteden Siteye ağ geçidini yerel ağ geçidine bağlayın.
 
-  ```azurepowershell-interactive
-  $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
-  New-AzVirtualNetworkGatewayConnection -Name "VPNConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $azureVpn -LocalNetworkGateway2 $localVpn -ConnectionType IPsec -SharedKey <yourkey>
-  ```
+   ```azurepowershell-interactive
+   $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
+   New-AzVirtualNetworkGatewayConnection -Name "VPNConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $azureVpn -LocalNetworkGateway2 $localVpn -ConnectionType IPsec -SharedKey <yourkey>
+   ```
  
 
 8. Varolan bir ExpressRoute bağlantı hattına bağlanıyorsanız 8 ve 9. adımları atlayıp 10. adıma geçin. ExpressRoute bağlantı hatlarını yapılandırın. ExpressRoute bağlantı hattını yapılandırma hakkında daha fazla bilgi için bkz. [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-arm.md).
@@ -171,18 +171,18 @@ Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve Exp
 
 10. <a name="gw"></a>ExpressRoute ağ geçidi oluşturun. ExpressRoute ağ geçidi yapılandırması hakkında daha fazla bilgi için bkz. [ExpressRoute ağ geçidi yapılandırması](expressroute-howto-add-gateway-resource-manager.md). GatewaySKU değeri *Standard*, *HighPerformance* veya *UltraPerformance* olmalıdır.
 
-  ```azurepowershell-interactive
-  $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
-  $gwIP = New-AzPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
-  $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
-  $gw = New-AzVirtualNetworkGateway -Name "ERGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "ExpressRoute" -GatewaySku Standard
-  ```
+    ```azurepowershell-interactive
+    $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
+    $gwIP = New-AzPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
+    $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
+    $gw = New-AzVirtualNetworkGateway -Name "ERGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "ExpressRoute" -GatewaySku Standard
+    ```
 11. ExpressRoute ağ geçidini ExpressRoute bağlantı hattına bağlayın. Bu adım tamamlandıktan sonra, ExpressRoute aracılığıyla şirket içi ağınız ve Azure arasında bağlantı kurulur. Bağlantı işlemi hakkında daha fazla bilgi için bkz.[VNets’i ExpressRoute’a bağlama](expressroute-howto-linkvnet-arm.md).
 
-  ```azurepowershell-interactive
-  $ckt = Get-AzExpressRouteCircuit -Name "YourCircuit" -ResourceGroupName "YourCircuitResourceGroup"
-  New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
-  ```
+    ```azurepowershell-interactive
+    $ckt = Get-AzExpressRouteCircuit -Name "YourCircuit" -ResourceGroupName "YourCircuitResourceGroup"
+    New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
+    ```
 
 ## <a name="add"></a>Zaten mevcut bir VNet için bir arada var olabilen bağlantılar yapılandırma
 Yalnızca bir sanal ağ geçidine (Siteden Siteye VPN ağ geçidi gibi) sahip olan bir sanal ağınız varsa ve farklı türde (ExpressRoute ağ geçidi gibi) bir ağ geçidi eklemek istiyorsanız ağ geçidi alt ağ boyutunu kontrol edin. Ağ geçidi alt ağı /27 veya üzerindeyse aşağıdaki adımları atlayıp bir sonraki bölümdeki adımları izleyerek Siteden Siteye VPN ağ geçidi veya ExpressRoute ağ geçidi ekleyebilirsiniz. Ağ geçidi alt ağı /28 veya /29 ise, önce sanal ağ geçidi silmeniz ve ağ geçidi alt ağı boyutunu artırmanız gerekir. Bu bölümdeki adımlar bunu nasıl yapacağınızı gösterir.
@@ -191,14 +191,14 @@ Bu yapılandırma için kullanacağınız cmdlet'ler tanıdıklarınızdan biraz
 
 1. Mevcut ExpressRoute veya Siteden Siteye VPN ağ geçidini silin.
 
-  ```azurepowershell-interactive 
-  Remove-AzVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
-  ```
+   ```azurepowershell-interactive 
+   Remove-AzVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
+   ```
 2. Ağ Geçidi Alt Ağını silin.
 
-  ```azurepowershell-interactive
-  $vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> Remove-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   $vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup> Remove-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
+   ```
 3. /27 veya daha büyük bir Ağ Geçidi Alt Ağı ekleyin.
    
    > [!NOTE]
@@ -206,16 +206,16 @@ Bu yapılandırma için kullanacağınız cmdlet'ler tanıdıklarınızdan biraz
    > 
    > 
 
-  ```azurepowershell-interactive
-  $vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
-  Add-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
-  ```
+   ```azurepowershell-interactive
+   $vnet = Get-AzVirtualNetwork -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
+   Add-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.0/24"
+   ```
    
     VNet yapılandırmasını kaydedin.
 
-  ```azurepowershell-interactive
-  $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
+   ```
 4. Bu noktada, hiçbir ağ geçidi olmayan bir sanal ağa sahip olursunuz. Yeni ağ geçitleri oluşturmak ve bağlantıları ayarlamak için önceki bölümde belirtilen adımları izleyin.
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>VPN ağ geçidine noktadan siteye yapılandırması eklemek için
@@ -224,20 +224,20 @@ Bir arada bulunma kurulumda VPN ağ geçidinize noktadan siteye yapılandırmas�
 
 1. VPN İstemcisi adres havuzunu ekleyin.
 
-  ```azurepowershell-interactive
-  $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
-  Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
-  ```
+   ```azurepowershell-interactive
+   $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
+   Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
+   ```
 2. VPN ağ geçidiniz için VPN kök sertifikasını Azure’a yükleyin. Bu örnekte, kök sertifikasının aşağıdaki PowerShell cmdlet'lerinin çalıştığı yerel makinede depolanır ve PowerShell'i yerel olarak çalıştığını kabul edilir. Ayrıca, Azure portalını kullanarak sertifikayı karşıya yükleyebilirsiniz.
 
-  ```powershell
-  $p2sCertFullName = "RootErVpnCoexP2S.cer" 
-  $p2sCertMatchName = "RootErVpnCoexP2S" 
-  $p2sCertToUpload=get-childitem Cert:\CurrentUser\My | Where-Object {$_.Subject -match $p2sCertMatchName} 
-  if ($p2sCertToUpload.count -eq 1){write-host "cert found"} else {write-host "cert not found" exit} 
-  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
-  Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
-  ```
+   ```powershell
+   $p2sCertFullName = "RootErVpnCoexP2S.cer" 
+   $p2sCertMatchName = "RootErVpnCoexP2S" 
+   $p2sCertToUpload=get-childitem Cert:\CurrentUser\My | Where-Object {$_.Subject -match $p2sCertMatchName} 
+   if ($p2sCertToUpload.count -eq 1){write-host "cert found"} else {write-host "cert not found" exit} 
+   $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
+   Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
+   ```
 
 Noktadan Siteye VPN hakkında daha fazla bilgi içini bkz. [Noktadan Siteye bağlantı yapılandırma](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 474ebaad60328b011e91337c46040ae37c603e21
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: c64842dc89c9519c738701558f510940f4cc148d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731063"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103919"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>SAP Business Warehouse açık bir Azure Data Factory kullanarak hub'ı aracılığıyla veri kopyalama
 
@@ -55,7 +55,7 @@ Genel olarak, Azure Data Factory (ADF) için ayıklama SAP InfoProviders gelen 2
 
 1. **ADF veri kopyalama** Bu adımda, ADF bağlayıcı tarafından okunan açık Hub tablosu 
 
-![Delta ayıklama akışı](media\connector-sap-business-warehouse-open-hub\delta-extraction-flow.png)
+![Delta ayıklama akışı](media/connector-sap-business-warehouse-open-hub/delta-extraction-flow.png)
 
 İlk adımda bir DTP yürütülür. Her yürütme yeni bir SAP talep kimliği oluşturur. İstek Kimliği açık Hub tablosunda depolanır ve sonra belirlemek delta için ADF bağlayıcı tarafından kullanılır. İki adımı zaman uyumsuz olarak çalışır: DTP SAP tarafından tetiklenir ve ADF veri kopyalama ADF tetiklenir. 
 

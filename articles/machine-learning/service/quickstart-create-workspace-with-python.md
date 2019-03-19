@@ -11,12 +11,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 950ea04addb0c88d4c745d2de3d95df787885137
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 9a17f2722af187e88bebf217d56a5a80aba46bc4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403439"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876536"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için Python SDK'sını kullanma
 
@@ -49,7 +49,7 @@ Aşağıdaki Azure kaynakları, bölgesel kullanıma sunulduğunda çalışma al
 > Bu makalede kod gerektiren Azure Machine Learning SDK'sı sürüm 1.0.2 veya üzeri ve zamanlarını 1.0.8 sürümü ile test edilmiştir.
 
 
-Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
+Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 
 ## <a name="install-the-sdk"></a>SDK yükle
 
@@ -57,6 +57,9 @@ Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Dene
 > Bir Azure veri bilimi sanal makinesi veya Azure Databricks kullanırsanız, bu bölümü atlayın.
 > * 27 Eylül 2018'den sonra oluşturulan Azure veri bilimi sanal makineleri, önceden yüklenmiş Python SDK ile birlikte gelir.
 > * Azure Databricks ortamda [Databricks yükleme adımlarını](how-to-configure-environment.md#azure-databricks) yerine.
+
+>[!NOTE]
+> Yükleme ve SDK'sından Jupyter not defteri yerel bilgisayarınızda kullandığınız için bu yönergeleri kullanın. Uzak sanal makinede Jupyter kullanmak için bir Uzak Masaüstü veya terminal oturumu ayarlayın. 
 
 SDK'yı yüklemeden yalıtılmış bir Python ortamı oluşturmanızı öneririz. Bu makalede kullansa [Miniconda](https://docs.conda.io/en/latest/miniconda.html), ayrıca tam kullanabilirsiniz [Anaconda](https://www.anaconda.com/) yüklü veya [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
@@ -113,7 +116,9 @@ Bu hızlı başlangıçtaki yönergeler hızlı ve öğretici not defterlerini �
     ```
 
 > [!IMPORTANT]
-> Bazı komut satırı araçlarını, tırnak işaretleri gibi eklemeniz gerekebilir: * 'azureml-sdk [Not]' * 'azureml-sdk [automl]'
+> Bazı komut satırı araçlarını, tırnak işaretleri gibi eklemeniz gerekebilir:
+> *  'azureml-sdk[notebooks]'
+> * 'azureml-sdk [automl]'
 >
 
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 2/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04a43a41b2e115f5bf7cc6b4bf3ca1bd352f5918
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 5ff1718211fa298e4daee694795a0b2438033fe2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729764"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838145"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Öğretici: Egnyte ile Azure Active Directory Tümleştirme
 
@@ -178,7 +178,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -229,7 +229,7 @@ Egnyte için oturum açmak Azure AD kullanıcılarının etkinleştirmek için b
     
     ![Yeni standart kullanıcı](./media/egnyte-tutorial/ic787825.png "yeni standart kullanıcı")   
 
-    a. İçinde **e-posta** metin kutusuna, kullanıcının gibi e-posta girin **Brittasimon@contoso.com**.
+    a. İçinde **e-posta** metin kutusuna, kullanıcının gibi e-posta girin **Brittasimon\@contoso.com**.
 
     b. İçinde **kullanıcıadı** metin kutusunda, gibi kullanıcının kullanıcı adı girin **Brittasimon**.
 

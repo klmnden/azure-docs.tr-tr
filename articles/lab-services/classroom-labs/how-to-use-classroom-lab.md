@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 7b5d9c85a790252b403a04439f326da1d9ea28c6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7c4a73c86245067a07dc253041c43ae6c17f7172
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782964"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096988"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Azure Lab Services’teki bir sınıf laboratuvarına erişme
 Bu makalede, bir sınıf laboratuvarına nasıl erişileceği, laboratuvardaki sanal makineye nasıl bağlanılacağı ve sanal makinenin nasıl durdurulacağı açıklanmaktadır. 
@@ -47,9 +47,9 @@ Labs kullanarak kaydettikten sonra aşağıdaki adımları izleyerek tüm sını
 1. Henüz başlatılmışsa, sanal Makineyi seçin başlangıç **Başlat** kutucuğundaki. 
 2. Erişmek istediğiniz laboratuvarın sanal makinesini temsil eden kutucukta **Bağlan**’ı seçin. 
 3. Aşağıdaki adımlardan birini uygulayın: 
-    1. İçin **Windows** sanal makineleri Kaydet **RDP** sabit disk dosyası. Sanal makineye bağlanmak için RDP dosyasını açın. Kullanım **kullanıcı adı** ve **parola** makineye oturum açmak için Eğitimci/Profesör alın. 
-    3. İçin **Linux** sanal makineler, kopyalama ve SSH bağlantı dizesini kaydedin **sanal makinenize bağlanın** iletişim kutusu. Bir SSH terminalden Bu bağlantı dizesini kullan (gibi [Putty](https://www.putty.org/)) sanal makineye bağlanmak için.
-## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Bir sınıf laboratuvarındaki sanal makineyi durdurma
+   1. İçin **Windows** sanal makineleri Kaydet **RDP** sabit disk dosyası. Sanal makineye bağlanmak için RDP dosyasını açın. Kullanım **kullanıcı adı** ve **parola** makineye oturum açmak için Eğitimci/Profesör alın. 
+   3. İçin **Linux** sanal makineler, kopyalama ve SSH bağlantı dizesini kaydedin **sanal makinenize bağlanın** iletişim kutusu. Bir SSH terminalden Bu bağlantı dizesini kullan (gibi [Putty](https://www.putty.org/)) sanal makineye bağlanmak için.
+      ## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Bir sınıf laboratuvarındaki sanal makineyi durdurma
 
 Sanal makinenizin durdurmayı seçin **Durdur** kutucuğundaki. Sanal makine durdurulduğunda, kutucuktaki **Başlat** düğmesi etkinleştirilir. 
 

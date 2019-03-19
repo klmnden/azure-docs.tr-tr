@@ -5,26 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 03/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 31ca6deef6d81ca7beb08f6df1a15d52ef381a46
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 9f2eae4160dbef164ec70e8fa4d7b3a83706ae96
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880135"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Analysis Services tablolu modellerine yönelik uyumluluk düzeyi
 
-*Uyumluluk düzeyi* Analysis Services altyapısı yayın özel davranışları gösterir. Uyumluluk düzeyini değişiklikler genellikle SQL Server'ın ana sürümler ile çakışacak. Bu değişiklikleri, Azure Analysis Services'ı, her iki platform arasında eşlik korumak için de uygulanır. Uyumluluk düzeyi, tablosal Modellerinizi etkin özellikler de değişir. Örneğin, DirectQuery ve tablosal nesne meta verilerini uyumluluk düzeyine bağlı olarak farklı uygulamalara sahip. Uyumluluk düzeyine sahip tablosal model projesi içinde Visual Studio (SSDT) belirtilir. İçinde oluşturulan ve Power BI Desktop'tan alınan tablosal modelleri yalnızca kullanarak 1400 uyumluluk düzeyinde ' dir.
+*Uyumluluk düzeyi* Analysis Services altyapısı yayın özel davranışları gösterir. Uyumluluk düzeyini değişiklikler genellikle SQL Server'ın ana sürümler ile çakışacak. Bu değişiklikleri, Azure Analysis Services'ı, her iki platform arasında eşlik korumak için de uygulanır. Uyumluluk düzeyi, tablosal Modellerinizi etkin özellikler de değişir. Örneğin, DirectQuery ve tablosal nesne meta verilerini uyumluluk düzeyine bağlı olarak farklı uygulamalara sahip. Uyumluluk düzeyine sahip tablosal model projesi içinde Visual Studio (SSDT) belirtilir.
 
-Azure Analysis Services 1200 ve 1400 uyumluluk düzeylerinde tablosal modelleri destekler. 
-
-> [!NOTE]
-> Power BI Desktop Eylül 2018'e ve sonraki sürümleri 1465 bir .pbix uyumluluk düzeyine sahip. Bu uyumluluk düzeyi, Azure Analysis Services'de desteklenir. Ancak, bir Power BI Desktop dosyasını içeri üretim ortamları için önerilmez. Daha fazla bilgi için bkz. [bir Power BI Desktop dosyasını içeri aktarma](analysis-services-import-pbix.md).
-
-Son uyumluluk düzeyini 1400 ' dir. Bu düzey, SQL Server 2017 Analysis Services ile örtüşür. 1400 uyumluluk düzeyinde önemli özellikleri şunlardır:
+Azure Analysis Services 1200 ve 1400 uyumluluk düzeylerinde tablosal modelleri destekler. Son uyumluluk düzeyini 1400 ' dir. Bu düzey, SQL Server 2017 Analysis Services ile örtüşür. 1400 uyumluluk düzeyinde önemli özellikleri şunlardır:
 
 *  TOM API'leri ve TMSL betik oluşturma desteği ile veri bağlantısı ve içeri aktarma için yeni özellikler. 
 *  Veri dönüştürme ve Veri Al ve M ifadeleri kullanarak veri mashup özellikleri.
@@ -55,5 +50,4 @@ Son uyumluluk düzeyini 1400 ' dir. Bu düzey, SQL Server 2017 Analysis Services
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-  [Azure portalında bir model oluşturma](analysis-services-create-model-portal.md)   
   [Analysis Services'ı yönetme](analysis-services-manage.md)  

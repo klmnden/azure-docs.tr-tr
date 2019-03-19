@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: rajanaki
-ms.openlocfilehash: e7644128a3f0e0ea531933286e95b15149fdebd3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: b67290f72f762331a6d699fb79aef0c0d7f9fb65
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557878"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853282"
 ---
 # <a name="upgrade-windows-server-2012-r2-hosts-scvmm-2012-r2-configured-with-azure-site-recovery-to-windows-server-2016--scvmm-2016"></a>Windows Server 2012 R2 ana bilgisayarları, Windows Server 2016 & SCVMM 2016 Azure Site Recovery ile yapılandırılmış SCVMM 2012 R2 yükseltme
 
@@ -50,8 +50,8 @@ Yükseltmeden önce aşağıdakilere dikkat edin:-
     - Önceden olarak, kümeye eklemek yeni SCVMMs aynı adları geçerli olduğundan emin olun. 
 
 - Her iki kenarı da SCVMMs tarafından yönetilen sitelerinizden ikisi arasında çoğaltıyorsanız, birincil tarafı yükseltmeden önce kurtarma tarafı önce yükseltmeniz emin olun.
-> [!WARNING]
-> İçin Dağıtılmış anahtar yönetimi altında SCVMM 2012 R2 yükseltilirken seçin **şifreleme anahtarlarını Active Directory'de depolamak**. Hizmet hesabını ve dağıtılmış anahtar yönetimi ayarlarını dikkatle seçin. Gibi şablonlardaki parolalar değil yükseltmeden sonra kullanılabilir ve büyük olasılıkla için yaptığınız seçime göre şifrelenmiş veriler Azure Site Recovery ile çoğaltmayı etkiler
+  > [!WARNING]
+  > İçin Dağıtılmış anahtar yönetimi altında SCVMM 2012 R2 yükseltilirken seçin **şifreleme anahtarlarını Active Directory'de depolamak**. Hizmet hesabını ve dağıtılmış anahtar yönetimi ayarlarını dikkatle seçin. Gibi şablonlardaki parolalar değil yükseltmeden sonra kullanılabilir ve büyük olasılıkla için yaptığınız seçime göre şifrelenmiş veriler Azure Site Recovery ile çoğaltmayı etkiler
 
 > [!IMPORTANT]
 > Lütfen ayrıntılı SCVMM belgelerine başvurun [önkoşulları](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#requirements-and-limitations)
@@ -79,8 +79,8 @@ Windows Server 2012 R2 konaklarınız yükseltmeden önce SCVMM 2012 R2'yi SCVMM
 
 4. [VMM 2016'yı yükleyin](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#install-vmm-2016)
 5. SCVMM başlatın ve her bir ana bilgisayar durumunu **dokularını** sekmesi. Tıklayın **Yenile** en son durumu almak için. "Dikkat gerekiyor" durumuna görmeniz gerekir. 
-17. Son yükleme [Microsoft Azure Site Recovery sağlayıcısı](http://aka.ms/downloaddra) SCVMM üzerinde.
-16. Son yükleme [Microsoft Azure kurtarma hizmeti (MARS) aracısı](http://aka.ms/latestmarsagent) kümenin her bir konakta. SCVMM ana başarıyla sorgulayabilir olduğundan emin olmak için yenileyin.
+17. Son yükleme [Microsoft Azure Site Recovery sağlayıcısı](https://aka.ms/downloaddra) SCVMM üzerinde.
+16. Son yükleme [Microsoft Azure kurtarma hizmeti (MARS) aracısı](https://aka.ms/latestmarsagent) kümenin her bir konakta. SCVMM ana başarıyla sorgulayabilir olduğundan emin olmak için yenileyin.
 
 **Windows Server 2012 R2 konak Windows Server 2016'ya yükseltme**
 
@@ -97,8 +97,8 @@ Windows Server 2012 R2 konaklarınız yükseltmeden önce SCVMM 2012 R2'yi SCVMM
 1.  Denetim Masası'na giderek kaldırma ASR sağlayıcısı -> Programlar -> Programlar ve Özellikler -> Microsoft Azure Site Recovery ve üzerinde Kaldır'ı tıklatın
 2. Belirtilen adımları takip [burada](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#upgrade-a-standalone-vmm-server) tabanlı üzerinde yürütmek istediğiniz yükseltme modu.
 3. SCVMM konsolunu başlatın ve her bir ana bilgisayar durumunu **dokularını** sekmesi. Tıklayın **Yenile** en son durumu almak için. "Dikkat gerekiyor" durumuna görmeniz gerekir.
-4. Son yükleme [Microsoft Azure Site Recovery sağlayıcısı](http://aka.ms/downloaddra) SCVMM üzerinde.
-5. En son güncelleştirme [Microsoft Azure kurtarma hizmeti (MARS) aracısı](http://aka.ms/latestmarsagent) kümenin her bir konakta. SC VMM konakları başarıyla sorgulayabilir olduğundan emin olmak için yenileyin.
+4. Son yükleme [Microsoft Azure Site Recovery sağlayıcısı](https://aka.ms/downloaddra) SCVMM üzerinde.
+5. En son güncelleştirme [Microsoft Azure kurtarma hizmeti (MARS) aracısı](https://aka.ms/latestmarsagent) kümenin her bir konakta. SC VMM konakları başarıyla sorgulayabilir olduğundan emin olmak için yenileyin.
 
 
 **Windows Server 2012 R2 konak Windows Server 2016'ya yükseltme**

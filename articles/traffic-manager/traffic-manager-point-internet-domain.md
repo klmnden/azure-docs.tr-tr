@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
-ms.openlocfilehash: c11d8ddcd9a1c1f051ab779a66710ab3d968acab
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 77a5fbab6ecda910750ab2b8bae987e77607223a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200590"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903529"
 ---
 # <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Bir şirketin İnternet etki alanını Azure Traffic Manager etki alanına yönlendirme
 
@@ -25,7 +25,7 @@ Traffic Manager profili oluşturduğunuzda, Azure bu profil için otomatik olara
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
-*www.contoso.com* adresi için yapılan tüm trafik istekleri *contoso.trafficmanager.net* adresine yönlendirilir.
+Tüm trafik istekleri için *www\.contoso.com* yönlendirilmiş *contoso.trafficmanager.net*.
 
 > [!IMPORTANT]
 > *contoso.com* gibi ikinci düzey bir etki alanını Traffic Manager etki alanına yönlendiremezsiniz. DNS protokolü standartları, ikinci düzey etki alanı adları için CNAME kayıtlarına izin vermez.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: cbe9e5c734708701828b2b70f062d88c960dc224
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a1743e677e1005e5b4479c1d431b6b8bdbe77c8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432694"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848703"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory kimlik doğrulama (Önizleme) kullanarak Azure'da bir Linux sanal makinede oturum açın
 
@@ -186,7 +186,7 @@ Access denied
 
 Bir web tarayıcısında kimlik doğrulaması adımını başarıyla tamamlanırsa, hemen yeni bir kod ile yeniden oturum açmanız istenebilir. Bu hata genellikle SSH isteminde belirttiğiniz oturum açma adı ve Azure AD ile oturum açtığı hesabı arasında bir uyuşmazlık nedeniyle oluşur. Bu sorunu düzeltmek için:
 
-- SSH isteminde belirttiğiniz oturum açma adının doğru olduğunu doğrulayın. Oturum açma adı bir yazım yanlışı SSH isteminde belirttiğiniz oturum açma adı ve Azure AD ile oturum açtığı hesabı arasında bir uyuşmazlık neden olabilir. Örneğin, yazdığınız *azuresuer@contoso.onmicrosoft.com* yerine *azureuser@contoso.onmicrosoft.com*.
+- SSH isteminde belirttiğiniz oturum açma adının doğru olduğunu doğrulayın. Oturum açma adı bir yazım yanlışı SSH isteminde belirttiğiniz oturum açma adı ve Azure AD ile oturum açtığı hesabı arasında bir uyuşmazlık neden olabilir. Örneğin, yazdığınız *azuresuer\@contoso.onmicrosoft.com* yerine *azureuser\@contoso.onmicrosoft.com*.
 - Birden çok kullanıcı hesabı varsa, farklı bir kullanıcı hesabı tarayıcı penceresinde Azure AD'de oturum açarken sağlamayan emin olun.
 - Linux büyük küçük harfe duyarlı bir işletim sistemidir. Arasında bir fark 'Azureuser@contoso.onmicrosoft.com've'azureuser@contoso.onmicrosoft.com', bir uyuşmazlığı neden. SSH isteminde doğru büyük küçük harf duyarlılığı ile UPN belirttiğinizden emin olun.
 

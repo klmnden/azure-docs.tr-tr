@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 17c493568953265ac12ebccc680652ed5da6ae4d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 13156b3419d961850c8e4e408a9cf565a5f957ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313000"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086403"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights'tan Power BI akışı
 [Power BI](https://www.powerbi.com/) verileri analiz etmek ve öngörüleri paylaşmak yardımcı olan bir iş araçları paketidir. Her cihazda kullanılabilen zengin panolar. Analytics sorguları da dahil olmak üzere pek çok kaynaktan veri birleştirebilir [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -96,7 +96,7 @@ Yenileme belirtecinizi güncelleştirilmediyse, bu durum oluşabilir. Hâlâ eri
 1. Azure portalında oturum açın ve kaynak erişebildiğinden emin olun.
 2. Pano için kimlik bilgilerini yenilemeyi deneyin.
 
- Erişiminiz ve kimlik bilgileri yenileme işe yaramazsa, Lütfen bir destek bileti açın.
+   Erişiminiz ve kimlik bilgileri yenileme işe yaramazsa, Lütfen bir destek bileti açın.
 
 ### <a name="bad-gateway-502"></a>Hatalı ağ geçidi (502)
 Bunun nedeni genellikle çok fazla veri döndüren bir Analytics sorgusunu tarafından. Daha küçük bir zaman aralığı için sorgu kullanmayı deneyin. 

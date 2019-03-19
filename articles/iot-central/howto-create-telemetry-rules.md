@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4668ffd30742f81552cd29f6cdba4c0f82549687
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5f6bc30c318e2f5511b352f1a52f0a5360e4b6f1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773512"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081568"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Bir telemetri kuralı oluşturabilir ve Azure IOT Central uygulamanızdaki bildirimleri ayarlama
 
@@ -56,13 +56,13 @@ Koşul, kural tarafından izlenen ölçütleri tanımlar.
 1. İzlemek istediğiniz telemetri seçin **ölçüm** açılır.
 
 1. Ardından, **toplama**, **işleci**ve bir **eşiği** değeri.
-    - Toplama isteğe bağlıdır. Toplama, koşulu karşılayan her telemetri veri noktası için kural tetiklendiğinde. Kural neredeyse anında sıcaklık 80 ise tetikleyici sonra kural Tetikleyiciler için yapılandırılmışsa, örneğin, ne zaman cihaz sıcaklık > 80 bildirir.
-    - Bir toplama işlevi, ortalama, Min, maks gibi sayısı daha sonra seçilen kullanıcı sağlamalıdır bir **toplama zaman penceresi** üzerinden hangi koşulun değerlendirilmesi gerekir. Örneğin, ayarlarsanız "5 dakika" olarak döneme ve kural arar 80 ortalama sıcaklık en az 5 dakika boyunca 80 olduğunda kural tetiklendiğinde yukarıda ortalama sıcaklık. Kuralı değerlendirme sıklığı aynıdır **toplama zaman penceresi**, yani, bu örnekte, kural her 5 dakikada bir kez değerlendirilir.
+   - Toplama isteğe bağlıdır. Toplama, koşulu karşılayan her telemetri veri noktası için kural tetiklendiğinde. Kural neredeyse anında sıcaklık 80 ise tetikleyici sonra kural Tetikleyiciler için yapılandırılmışsa, örneğin, ne zaman cihaz sıcaklık > 80 bildirir.
+   - Bir toplama işlevi, ortalama, Min, maks gibi sayısı daha sonra seçilen kullanıcı sağlamalıdır bir **toplama zaman penceresi** üzerinden hangi koşulun değerlendirilmesi gerekir. Örneğin, ayarlarsanız "5 dakika" olarak döneme ve kural arar 80 ortalama sıcaklık en az 5 dakika boyunca 80 olduğunda kural tetiklendiğinde yukarıda ortalama sıcaklık. Kuralı değerlendirme sıklığı aynıdır **toplama zaman penceresi**, yani, bu örnekte, kural her 5 dakikada bir kez değerlendirilir.
 
-    ![Koşul](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
+     ![Koşul](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
 
-    >[!NOTE]
-    >Birden fazla telemetri Ölçüm altında eklenebilir **koşul**. Birden çok koşulu belirtildiğinde, kural tetiklemek tüm koşulların karşılanması gerekir. Her koşulu, bir 'Ve' yan tümcesi tarafından örtük olarak katıldı. Her ölçü, toplam kullanırken toplanmalıdır.
+     >[!NOTE]
+     >Birden fazla telemetri Ölçüm altında eklenebilir **koşul**. Birden çok koşulu belirtildiğinde, kural tetiklemek tüm koşulların karşılanması gerekir. Her koşulu, bir 'Ve' yan tümcesi tarafından örtük olarak katıldı. Her ölçü, toplam kullanırken toplanmalıdır.
 
 ### <a name="configure-actions"></a>Eylemleri Yapılandır
 

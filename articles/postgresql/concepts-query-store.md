@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 8cd4cf12390ff29754b55d2827ea4750e7123a27
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: db62c1ec03ae9005f33a09010486b04ac6976742
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730517"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005900"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Query Store ile performans izleme
 
@@ -36,8 +36,8 @@ Query Store bir katılımı özelliği olduğundan, bir sunucuda varsayılan ola
 4. Değerine `TOP` ve **Kaydet**.
 
 Bekleme istatistikleri, Query Store etkinleştirmek için: 
-5. Arama `pgms_wait_sampling.query_capture_mode` parametresi.
-6. Değerine `ALL` ve **Kaydet**.
+1. Arama `pgms_wait_sampling.query_capture_mode` parametresi.
+1. Değerine `ALL` ve **Kaydet**.
 
 
 Alternatif olarak, Azure CLI kullanarak bu parametreleri ayarlayabilirsiniz.
@@ -87,6 +87,7 @@ Nasıl daha fazla bekleme istatistikleri Query Store kullanarak iş yükünüzü
 Query Store etkin olduğunda pencere başına 500 ayrı sorguları en fazla 15 dakikalık toplama windows verileri kaydeder. 
 
 Query Store parametreleri yapılandırmak için aşağıdaki seçenekler kullanılabilir.
+
 | **Parametre** | **Açıklama** | **Varsayılan** | **Aralığı**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | Hangi deyimleri izlenen ayarlar. | yok | Hiçbiri, üst, tüm |
@@ -95,6 +96,7 @@ Query Store parametreleri yapılandırmak için aşağıdaki seçenekler kullan�
 | pg_qs.track_utility | Yardımcı programı komutları izlenip izlenmeyeceğini ayarlar | açık | açık, kapalı |
 
 Özellikle istatistikleri beklemek için aşağıdaki seçenekler geçerlidir.
+
 | **Parametre** | **Açıklama** | **Varsayılan** | **Aralığı**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Deyimleri için izlenen kümelerini istatistikleri bekleyin. | yok | None, tüm|

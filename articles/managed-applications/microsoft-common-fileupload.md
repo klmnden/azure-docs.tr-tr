@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2886dbafe6bf20718f4e3cd2976764fc432dbb04
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 92a5f7c058904015cb22a239b7e7c4938ae1fdae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021761"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895261"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload kullanıcı Arabirimi öğesi
 Karşıya yüklenecek bir veya daha fazla dosyaları belirtmek bir kullanıcı olanak sağlayan bir denetimdir.
@@ -48,7 +48,7 @@ Karşıya yüklenecek bir veya daha fazla dosyaları belirtmek bir kullanıcı o
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- `constraints.accept` Tarayıcının dosya iletişim kutusunda gösterilen dosya türlerini belirtir. Bkz: [HTML5 belirtimi](http://www.w3.org/TR/html5/forms.html#attr-input-accept) için izin verilen değerler. Varsayılan değer **null**.
+- `constraints.accept` Tarayıcının dosya iletişim kutusunda gösterilen dosya türlerini belirtir. Bkz: [HTML5 belirtimi](https://www.w3.org/TR/html5/forms.html#attr-input-accept) için izin verilen değerler. Varsayılan değer **null**.
 - Varsa `options.multiple` ayarlanır **true**, kullanıcının birden fazla dosya seçin tarayıcının dosya iletişim kutusunda izni. Varsayılan değer **false**.
 - Bu öğenin değerine göre iki modda yükleme dosyalarını destekler. `options.uploadMode`. Varsa **dosya** belirtilirse, çıkış dosyasının BLOB içeriğini sahiptir. Varsa **url** belirtilmişse dosyayı geçici bir konuma yüklenir ve çıktıyı blobun URL'sini içerir. 24 saat sonra geçici blobları temizlenecek. Varsayılan değer **dosya**.
 - Karşıya yüklenen bir dosya korunur. Çıkış URL'sini içeren bir [SAS belirteci](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) dağıtım sırasında dosyasına erişim için.

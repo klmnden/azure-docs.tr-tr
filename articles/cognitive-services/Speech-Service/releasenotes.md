@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: e389df02966146b217802d4e93f844a4fee425a3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 7f54507fdfd21c9402e04eb867710a774f9e6bb3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958665"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856099"
 ---
 # <a name="release-notes"></a>Sürüm notları
 
@@ -32,7 +32,7 @@ Bir hata düzeltmesi sürüm ve yalnızca yerel ve yönetilen SDK'yı etkileyen 
 
 **Yeni Özellikler**
 
-* Speech SDK'sı, seçimi giriş mikrofonu AudioConfig sınıfı aracılığıyla destekler. Bu veri akışı için ses konuşma hizmeti için varsayılan olmayan mikrofondan gelen sağlar. Daha fazla ayrıntı açıklayan belgeleri görmek için [ses giriş cihaz seçimi](how-to-select-audio-input-devices.md). Bu henüz JavaScript'ten kullanılamaz.
+* Speech SDK'sı, seçimi giriş mikrofonu AudioConfig sınıfı aracılığıyla destekler. Bu, veri akışı için ses konuşma Hizmetleri için varsayılan olmayan mikrofondan gelen sağlar. Belgeleri açıklayan daha fazla bilgi için bkz. [ses giriş cihaz seçimi](how-to-select-audio-input-devices.md). Bu henüz JavaScript'ten kullanılamaz.
 * Speech SDK'sı, artık bir beta sürümünde Unity destekler. Lütfen sorunu bölümünde geri bildirim sağlamak [GitHub örnek deposundan](https://aka.ms/csspeech/samples). Bu sürüm Windows x86 ve x64 (Masaüstü veya evrensel Windows platformu uygulamaları), Unity destekler ve Android (ARM32/64, x86). Daha fazla bilgi kullanılabilir bizim [Unity hızlı](quickstart-csharp-unity.md).
 * Dosya `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (önceki sürümlerde sevk) artık gerekli değildir. İşlevselliği artık çekirdek SDK'sı tümleşiktir.
 
@@ -64,7 +64,7 @@ Aşağıdaki yeni içerikler ise bizim [örnek depoyu](https://aka.ms/csspeech/s
   * İlk destek ve uygulama tümcecik ipuçları için.
   * Tanıma için JSON hizmetiyle özellikler koleksiyonunu döndürür
 * Windows DLL'leri, artık bir sürüm kaynağı içerir.
-* Bir tanıyıcı oluşturursanız `FromEndpoint` doğrudan uç nokta URL'sine parametreleri ekleyebilirsiniz. Kullanarak `FromEndpoint` standart yapılandırma özellikleri aracılığıyla tanıyıcı yapılandırabilirsiniz değil.
+* Bir tanıyıcı oluşturursanız `FromEndpoint` doğrudan uç nokta URL'sine parametreleri ekleyebilirsiniz. Kullanarak `FromEndpoint` tanıyıcı aracılığıyla standart yapılandırma özelliklerini yapılandıramazsınız.
 
 **Hata düzeltmeleri**
 
@@ -89,7 +89,7 @@ Bu yalnızca JavaScript bir sürümdür. Herhangi bir özellik ekledik. Aşağı
 **Yeni Özellikler**
 
 * Python
-  * Python desteği (3.5 ve üzeri) Beta sürümü bu sürümle birlikte kullanılabilir. Daha fazla ayrıntı için [Burada gördüğünüz](quickstart-python.md).
+  * Python desteği (3.5 ve üzeri) Beta sürümü bu sürümle birlikte kullanılabilir. Daha fazla bilgi için here](quickstart-python.md) bakın.
 * JavaScript
   * JavaScript Speech SDK'sı, açık kaynaklı olmuştur. Kaynak kodu [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
   * Şimdi Node.js destekliyoruz, daha fazla bilgi bulunabilir [burada](quickstart-js-node.md).
@@ -113,7 +113,7 @@ Bu yalnızca JavaScript bir sürümdür. Herhangi bir özellik ekledik. Aşağı
 * Bazı durumlarda özel durumları sızmasını.
 * Bellek sızıntısı çeviri olay bağımsız değişkenlerini düzeltiliyor.
 * Sabit bir kilitleme sorunu yeniden içinde uzun süre çalışan oturumları.
-* Hangi başarısız çevirileri için nihai sonucu eksik yol açabilecek bir sorun düzeltildi.
+* Başarısız çevirileri için nihai sonucu eksik yol açabilecek bir sorun düzeltildi.
 * C# İÇİN: Ana iş parçacığında zaman uyumsuz bir işlemi bekleniyor değildi, tanıyıcı zaman uyumsuz görev tamamlanmadan önce bırakılan mümkündü.
 * Java: Java sanal makinenin içindeki bir kilitlenme kaynaklanan bir sorun düzeltildi.
 * Objective-C: Sabit liste eşlemesi RecognizedIntent RecognizingIntent yerine döndürüldü.
@@ -122,7 +122,7 @@ Bu yalnızca JavaScript bir sürümdür. Herhangi bir özellik ekledik. Aşağı
 
 **Örnekler**
 
-* Güncelleştirilmiş ve çeşitli örnekleri (örneğin çeviri, vb. çıkış sesleri) sabit.
+* Güncelleştirilmiş ve çeşitli örnekleri (örneğin çıkış sesleri çeviri, vb..) sabit.
 * Node.js Örnekleri eklenen [örnek depoyu](https://aka.ms/csspeech/samples).
 
 ## <a name="speech-sdk-110"></a>Konuşma SDK 1.1.0
@@ -141,7 +141,7 @@ Bu yalnızca JavaScript bir sürümdür. Herhangi bir özellik ekledik. Aşağı
 
 **Hata düzeltmeleri**
 
-* Tanıyıcılar işlem bulunan birkaç özel durum düzeltildi. Ayrıca özel durum yakalandı ve iptal edildi olaya dönüştürülür.
+* Tanıyıcılar işlem bulunan birkaç özel durum düzeltildi. Ayrıca, özel durum yakalandı ve iptal edildi olaya dönüştürülür.
 * Özellik Yönetimi'nde bir bellek sızıntısı düzeltin.
 * Ses giriş dosyası tanıyıcı kilitlenebiliyordu hata düzeltildi.
 * Olayları sonra oturumu durdurulduğunda burada alınan bir hata düzeltildi.
@@ -179,7 +179,7 @@ Güvenilirlik geliştirmeleri ve hata düzeltmeleri:
 
 **Bozucu değişiklikler**
 
-* Bu sürümle birlikte birkaç önemli değişiklikler yapılmıştır.
+* Bu sürümle birlikte, birkaç önemli değişiklikler yapılmıştır.
   Lütfen denetleyin [bu sayfayı](https://aka.ms/csspeech/breakingchanges_1_0_0) Ayrıntılar için.
 
 ## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Bilişsel hizmetler konuşma SDK 0.6.0: Ağustos 2018 sürüm

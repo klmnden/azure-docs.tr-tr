@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: 7deea91a016616d9015004857ad9e5ae70e24111
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5bbde2f1059982424c2557d6a767692b3491f6aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432881"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098483"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>İzleme ve Site Recovery sorun giderme
 
@@ -149,19 +149,19 @@ Ayrıca Panoda sanal makineler sayfasındaki makineler izleyebilirsiniz.
     ![Site Recovery çoğaltılan öğeleri listesi görünümü](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. Üzerinde **çoğaltılan öğeler** sayfasında görüntüleyebilir ve filtre bilgileri. Üst Eylem menüsünde yük devretme testi çalıştırma veya belirli hataları görüntüleme dahil olmak üzere belirli bir makine için eylemler gerçekleştirebilirsiniz.
-3.  Tıklayın **sütunları** RPO, gösterilecek örneğin ek sütunları gösterecek şekilde yapılandırma sorunlarını ve çoğaltma hataları hedefleyin.
+3. Tıklayın **sütunları** RPO, gösterilecek örneğin ek sütunları gösterecek şekilde yapılandırma sorunlarını ve çoğaltma hataları hedefleyin.
 4. Tıklayın **filtre** çoğaltma durumu veya belirli bir çoğaltma ilkesi gibi belirli parametreleri temel alan bilgiler görüntülemek için.
 5. Bir makine için yük devretme testi gibi işlemleri başlatmak için ya da onunla ilişkili özel hata ayrıntılarını görüntülemek için sağ tıklayın.
 6. Daha fazla için detaylarına gitmek için bir makineye tıklayın. Ayrıntıları içerir:
-      - **Çoğaltma bilgileri**: Geçerli durumu ve makinenin sistem durumu.
-      - **RPO** (kurtarma noktası hedefi): Geçerli RPO için sanal makine ve RPO son Hesaplandı zaman.
-      - **Kurtarma noktaları**: Makine için en son kullanılabilir kurtarma noktaları.
-      - **Yük devretmeye hazırlık**: Yük devretme testi (makineler) Mobility hizmetini çalıştıran makine ve yapılandırma sorunlarını çalışan Aracısı sürümü makinenin çalıştırılıp çalıştırılmadığını gösterir.
-      - **Hataları**: Şu anda makine ve olası nedenleri/Eylemler gözlemlenen çoğaltma hatası belirtileri listesi.
-      - **Olayları**: Makineyi etkileyen en son olayların kronolojik bir listesi. Hata ayrıntılarını şu anda gözlemlenebilir hatası belirtileri olayları bir geçmiş kaydını makine etkilemiş sorunlarını üzerindeyken gösterir.
-      - **Altyapı görünümü**: Makineleri Azure'a çoğaltırken senaryosu için altyapı durumunu gösterir.
+   - **Çoğaltma bilgileri**: Geçerli durumu ve makinenin sistem durumu.
+   - **RPO** (kurtarma noktası hedefi): Geçerli RPO için sanal makine ve RPO son Hesaplandı zaman.
+   - **Kurtarma noktaları**: Makine için en son kullanılabilir kurtarma noktaları.
+   - **Yük devretmeye hazırlık**: Yük devretme testi (makineler) Mobility hizmetini çalıştıran makine ve yapılandırma sorunlarını çalışan Aracısı sürümü makinenin çalıştırılıp çalıştırılmadığını gösterir.
+   - **Hataları**: Şu anda makine ve olası nedenleri/Eylemler gözlemlenen çoğaltma hatası belirtileri listesi.
+   - **Olayları**: Makineyi etkileyen en son olayların kronolojik bir listesi. Hata ayrıntılarını şu anda gözlemlenebilir hatası belirtileri olayları bir geçmiş kaydını makine etkilemiş sorunlarını üzerindeyken gösterir.
+   - **Altyapı görünümü**: Makineleri Azure'a çoğaltırken senaryosu için altyapı durumunu gösterir.
 
-    ![Site Recovery çoğaltılan öğe ayrıntıları/genel bakış](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+     ![Site Recovery çoğaltılan öğe ayrıntıları/genel bakış](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
 
 ### <a name="common-questions"></a>Sık sorulan sorular
@@ -191,7 +191,7 @@ Bu kritik olaylar için e-posta bildirimleri almak için abone olabilirsiniz:
 Aşağıdaki şekilde abone olabilirsiniz:
 
 Kasadaki > **izleme ve raporlar** bölümünde **Site Recovery etkinlikleri**.
-2. Tıklayın **e-posta bildirimleri**.
-3. İçinde **e-posta bildirimi**bildirimlerini açmak ve kimin göndermek belirtin. Tüm abonelik yöneticileri, bildirimler ve isteğe bağlı olarak belirli bir e-posta adreslerini gönderilmesini gönderebilirsiniz.
+1. Tıklayın **e-posta bildirimleri**.
+1. İçinde **e-posta bildirimi**bildirimlerini açmak ve kimin göndermek belirtin. Tüm abonelik yöneticileri, bildirimler ve isteğe bağlı olarak belirli bir e-posta adreslerini gönderilmesini gönderebilirsiniz.
 
     ![E-posta bildirimleri](./media/site-recovery-monitor-and-troubleshoot/email.png)

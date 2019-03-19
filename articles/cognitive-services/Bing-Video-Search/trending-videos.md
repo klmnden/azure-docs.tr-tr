@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2aa3c0cd9112f2de9ccda818e74b0b2c377133bf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 486cf2e3bcf851f23011bb2fb8d91691d6190698
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869373"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120848"
 ---
 # <a name="get-trending-videos-with-the-bing-video-search-api"></a>Bing Video arama API'si ile popüler videolar Al 
 
@@ -124,4 +124,4 @@ Aşağıdaki örnek, kategori ve alt kategori tarafından listelenen popüler vi
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-[Video Öngörüler elde edin](video-insights.md)
+> [Video Öngörüler elde edin](video-insights.md)

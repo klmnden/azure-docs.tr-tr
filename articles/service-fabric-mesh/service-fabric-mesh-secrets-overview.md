@@ -9,12 +9,12 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: b6db9b6cb2ccbf1c8d29edb817d35677109ae755
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4268356db5f46e92862e19d6391cfe5a94511270
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768630"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007473"
 ---
 # <a name="service-fabric-mesh-application-secrets"></a>Service Fabric Mesh uygulama gizli dizilerini
 Service Fabric Mesh gizli Azure kaynaklarını destekler. Service Fabric Mesh gizli dizi herhangi bir depolama bağlantı dizeleri, parolalar veya güvenli şekilde iletilmesini ve depolanan gereken diğer değerleri gibi hassas metin bilgi olabilir.
@@ -25,10 +25,6 @@ Service Fabric Mesh gizli Azure kaynaklarını destekler. Service Fabric Mesh gi
 Mesh uygulaması gizli oluşur:
 * A **gizli dizileri** kaynağı metin gizli dizileri depolayan bir kapsayıcıdır. İçindeki gizli dizileri **gizli dizileri** kaynak depolanır ve güvenli bir şekilde iletilen.
 * Bir veya daha fazla **gizli anahtarları/değerleri** depolanan kaynakları **gizli dizileri** kaynak kapsayıcısı. Her **gizli anahtarları/değerleri** bir sürüm numarası tarafından kaynak ayırt edici.
-
-## <a name="inline-or-stored-in-azure-key-vault"></a>Satır içi veya depolanan Azure Key Vault
-- Mesh uygulama ve hizmet kaynaklarını Azure Key Vault gizli dizileri erişebilmesi için Yönetilen hizmet kimliği (MSI) ile Azure Active Directory (AAD) içerir.
-- Parolalara ve sertifikalara ilkeleriyle alındı-üzerinde otomatik olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar 
 Service Fabric Mesh gizli dizileri hakkında daha fazla bilgi için bkz:

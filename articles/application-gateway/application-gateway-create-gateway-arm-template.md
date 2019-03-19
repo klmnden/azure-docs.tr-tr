@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: b41fbc3e834c7740d435e30a571d2a00671bfa64
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 682aac8ec6716ac59c6bdc0710065c916a0c41b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316413"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084938"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Azure Resource Manager şablonunu kullanarak uygulama ağ geçidi oluşturma
 
@@ -60,16 +60,16 @@ GitHub’dan sanal ağ ve iki adet alt ağ oluşturmak için, mevcut Azure Resou
 1. Kaydettiğiniz dosyayı açın ve altındaki içeriğe bakın **parametreleri** satırında
 1. Azure Resource Manager şablonu parametreleri, dağıtım sırasında doldurulabilecek değerler için yer tutucu sağlar.
 
-  | Parametre | Açıklama |
-  | --- | --- |
-  | **subnetPrefix** |Uygulama ağ geçidi alt ağının CIDR bloğu. |
-  | **applicationGatewaySize** | Application gateway boyutu.  WAF yalnızca orta ve büyük izin verir. |
-  | **backendIpaddress1** |İlk web sunucusunun IP adresi. |
-  | **backendIpaddress2** |İkinci web sunucusunun IP adresi. |
-  | **wafEnabled** | WAF etkin olup olmadığını belirlemek için ayarlanıyor.|
-  | **wafMode** | Web uygulaması güvenlik duvarı modu.  Kullanılabilir seçenekler **önleme** veya **algılama**.|
-  | **wafRuleSetType** | WAF kural kümesi türü.  Şu anda desteklenen tek seçenek OWASP aşamasındadır. |
-  | **wafRuleSetVersion** |Kural kümesi sürümü. Şu anda desteklenen seçenekler OWASP CRS 2.2.9 ve 3.0 belirtilmiştir. |
+   | Parametre | Açıklama |
+   | --- | --- |
+   | **subnetPrefix** |Uygulama ağ geçidi alt ağının CIDR bloğu. |
+   | **applicationGatewaySize** | Application gateway boyutu.  WAF yalnızca orta ve büyük izin verir. |
+   | **backendIpaddress1** |İlk web sunucusunun IP adresi. |
+   | **backendIpaddress2** |İkinci web sunucusunun IP adresi. |
+   | **wafEnabled** | WAF etkin olup olmadığını belirlemek için ayarlanıyor.|
+   | **wafMode** | Web uygulaması güvenlik duvarı modu.  Kullanılabilir seçenekler **önleme** veya **algılama**.|
+   | **wafRuleSetType** | WAF kural kümesi türü.  Şu anda desteklenen tek seçenek OWASP aşamasındadır. |
+   | **wafRuleSetVersion** |Kural kümesi sürümü. Şu anda desteklenen seçenekler OWASP CRS 2.2.9 ve 3.0 belirtilmiştir. |
 
 1. Altındaki içeriği denetleyin **kaynakları** ve aşağıdaki özelliklere dikkat edin:
 
@@ -82,44 +82,44 @@ GitHub’dan sanal ağ ve iki adet alt ağ oluşturmak için, mevcut Azure Resou
 1. Dosyayı bilgisayarınızdaki yerel bir klasöre kaydedin.
 1. Kaydettiğiniz dosyayı açın ve parametre değerlerini düzenleyin. Senaryomuzda açıklanan uygulama ağ geçidini dağıtmak için aşağıdaki değerleri kullanın.
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "addressPrefix": {
-            "value": "10.0.0.0/16"
-            },
-            "subnetPrefix": {
-            "value": "10.0.0.0/28"
-            },
-            "applicationGatewaySize": {
-            "value": "WAF_Medium"
-            },
-            "capacity": {
-            "value": 2
-            },
-            "backendIpAddress1": {
-            "value": "10.0.1.10"
-            },
-            "backendIpAddress2": {
-            "value": "10.0.1.11"
-            },
-            "wafEnabled": {
-            "value": true
-            },
-            "wafMode": {
-            "value": "Detection"
-            },
-            "wafRuleSetType": {
-            "value": "OWASP"
-            },
-            "wafRuleSetVersion": {
-            "value": "3.0"
-            }
-        }
-    }
-    ```
+     ```json
+     {
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+             "addressPrefix": {
+             "value": "10.0.0.0/16"
+             },
+             "subnetPrefix": {
+             "value": "10.0.0.0/28"
+             },
+             "applicationGatewaySize": {
+             "value": "WAF_Medium"
+             },
+             "capacity": {
+             "value": 2
+             },
+             "backendIpAddress1": {
+             "value": "10.0.1.10"
+             },
+             "backendIpAddress2": {
+             "value": "10.0.1.11"
+             },
+             "wafEnabled": {
+             "value": true
+             },
+             "wafMode": {
+             "value": "Detection"
+             },
+             "wafRuleSetType": {
+             "value": "OWASP"
+             },
+             "wafRuleSetVersion": {
+             "value": "3.0"
+             }
+         }
+     }
+     ```
 
 1. Dosyayı kaydedin. JSON şablonunu ve parametre şablonunu, [JSlint.com](https://www.jslint.com/) gibi çevrimiçi JSON doğrulama araçlarını kullanarak test edebilirsiniz.
 

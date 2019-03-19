@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e86180a643b27056edc9901d590760cedcbf259
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331886"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081840"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>PostgreSQL Azure Data Factory ile verileri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,12 +50,12 @@ Farklı araçlar/API'lerini kullanarak bir şirket içi PostgreSQL veri deposund
 
 - Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz.
 - Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz:
-    - Azure portal
-    - Visual Studio
-    - Azure PowerShell
-    - Azure Resource Manager şablonu
-    - .NET API’si
-    - REST API
+  - Azure portal
+  - Visual Studio
+  - Azure PowerShell
+  - Azure Resource Manager şablonu
+  - .NET API’si
+  - REST API
 
     Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
 
@@ -88,7 +88,7 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir özellikleri tam
 
 TypeProperties bölümünün her tür veri kümesi için farklıdır ve verilerin veri deposundaki konumu hakkında bilgi sağlar. TypeProperties bölümü için veri kümesi türü **RelationalTable** (PostgreSQL veri kümesini içeren) aşağıdaki özelliklere sahiptir:
 
-| Özellik | Açıklama | Gereklidir |
+| Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | tableName |Bağlı hizmeti PostgreSQL veritabanı örneğinde tablonun adını gösterir. TableName, büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
 
@@ -99,7 +99,7 @@ Oysa etkinliğin typeProperties bölümündeki özellikler her etkinlik türü i
 
 Kaynak türü olduğunda **RelationalSource** (PostgreSQL içeren), typeProperties bölümünde aşağıdaki özellikler kullanılabilir:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `"query": "select * from \"MySchema\".\"MyTable\""`. |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
 
@@ -306,46 +306,46 @@ PostgreSQL için veri taşıma, aşağıdaki eşlemeler PostgreSQL türünden .N
 
 | PostgreSQL veritabanı türü | PostgresSQL diğer adları | .NET framework türü |
 | --- | --- | --- |
-| abstime | |Tarih saat | &nbsp;
+| abstime | |Tarih saat |
 | bigint |Int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bit [(n)] | |Bayt [], dize | &nbsp;
+| bit [(n)] | |Bayt [], dize |
 | bit değişen [(n)] |varbit |Bayt [], dize |
 | boole |bool |Boole |
-| Kutusu | |Bayt [], dize |&nbsp;
-| bytea | |Bayt [], dize |&nbsp;
-| karakter [(n)] |char [(n)] |Dize |
-| [(n)] değişen karakter |varchar [(n)] |Dize |
-| CID | |Dize |&nbsp;
-| CIDR | |Dize |&nbsp;
-| Daire | |Bayt [], dize |&nbsp;
-| date | |Tarih saat |&nbsp;
-| daterange | |Dize |&nbsp;
-| çift duyarlık |FLOAT8 |çift |
-| inet | |Bayt [], dize |&nbsp;
-| intarry | |Dize |&nbsp;
-| int4range | |Dize |&nbsp;
-| int8range | |Dize |&nbsp;
+| Kutusu | |Bayt [], dize |
+| bytea | |Bayt [], dize |
+| karakter [(n)] |char [(n)] |String |
+| [(n)] değişen karakter |varchar [(n)] |String |
+| CID | |String |
+| cidr | |String |
+| Daire | |Bayt [], dize |
+| date | |Tarih saat |
+| daterange | |String |
+| çift duyarlık |FLOAT8 |Double |
+| inet | |Bayt [], dize |
+| intarry | |String |
+| int4range | |String |
+| int8range | |String |
 | integer |int, int4 |Int32 |
-| aralığı [alanları] [(p)] | |Timespan |&nbsp;
-| json | |Dize |&nbsp;
-| jsonb | |Bayt] |&nbsp;
-| satır | |Bayt [], dize |&nbsp;
-| lseg | |Bayt [], dize |&nbsp;
-| macaddr | |Bayt [], dize |&nbsp;
-| para | |Onluk |&nbsp;
-| sayısal [(p, s)] |ondalık [(p, s)] |Onluk |
-| numrange | |Dize |&nbsp;
-| OID | |Int32 |&nbsp;
-| yol | |Bayt [], dize |&nbsp;
-| pg_lsn | |Int64 |&nbsp;
-| Noktası | |Bayt [], dize |&nbsp;
-| Çokgen | |Bayt [], dize |&nbsp;
-| Gerçek |float4 |Tek |
+| aralığı [alanları] [(p)] | |Timespan |
+| json | |String |
+| jsonb | |Byte[] |
+| satır | |Bayt [], dize |
+| lseg | |Bayt [], dize |
+| macaddr | |Bayt [], dize |
+| para | |Decimal |
+| sayısal [(p, s)] |ondalık [(p, s)] |Decimal |
+| numrange | |String |
+| OID | |Int32 |
+| yol | |Bayt [], dize |
+| pg_lsn | |Int64 |
+| nokta | |Bayt [], dize |
+| Çokgen | |Bayt [], dize |
+| Gerçek |float4 |Single |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | seri |serial4 |Int32 |
-| metin | |Dize |&nbsp;
+| metin | |String |
 
 ## <a name="map-source-to-sink-columns"></a>Sütunları havuz için kaynak eşlemesi
 Kaynak veri kümesindeki sütunları havuz veri kümesi için eşleme sütunları hakkında bilgi edinmek için bkz. [Azure Data factory'de veri kümesi sütunlarını eşleme](data-factory-map-columns.md).

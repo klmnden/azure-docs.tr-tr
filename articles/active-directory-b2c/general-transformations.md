@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4e28dff6235e869c9275a8b0ba8d80252a9ea792
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6a9a819e75e487999a2b50ae758b8d9c6c716a4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167385"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084904"
 ---
 # <a name="general-claims-transformations"></a>Genel talep dönüştürmeleri
 
@@ -48,7 +48,7 @@ Bu dönüşüm talebi yok veya herhangi bir değer içeren denetlemek için tale
 ### <a name="example"></a>Örnek
 
 - Giriş talepleri:
-    - **Inputclaim**: someone@contoso.com
+  - **Inputclaim**: someone@contoso.com
 - Çıkış talep: 
     - **outputClaim**: true
 
@@ -58,10 +58,10 @@ Güvenlik değeri ve bir gizli dizi kullanarak sağlanan düz metin karma.
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | düz metin | dize | Şifrelenecek giriş talep |
-| Inputclaim | güvenlik değeri | dize | Anahtar güvenlik değerinin parametre. Oluşturabileceğiniz rastgele bir sıra değerini kullanarak `CreateRandomString` talep dönüştürme. |
-| InputParameter | randomizerSecret | dize | Mevcut bir Azure AD B2C işaret **ilke anahtarları**. Yeni bir tane oluşturmak için: Azure AD B2C kiracınızı seçin **B2C Ayarları > kimlik deneyimi çerçevesi**. Seçin **ilke anahtarları** kiracınızda kullanılabilir tuşlarını görmek için. **Add (Ekle)** seçeneğini belirleyin. İçin **seçenekleri**seçin **el ile**. (Önek B2C_1A_ otomatik olarak eklenebilir.) bir ad sağlayın. Gizli kutusuna, gibi 1234567890 kullanmak istediğiniz herhangi bir gizli dizi girin. Anahtar kullanımı için seçin **gizli**. **Oluştur**’u seçin. |
-| outputClaim | Karma | dize | Bu dönüşüm talep sonra üreten ClaimType çağrılmış. Yapılandırılmış talep `plaintext` Inputclaim. |
+| Inputclaim | düz metin | string | Şifrelenecek giriş talep |
+| Inputclaim | güvenlik değeri | string | Anahtar güvenlik değerinin parametre. Oluşturabileceğiniz rastgele bir sıra değerini kullanarak `CreateRandomString` talep dönüştürme. |
+| InputParameter | randomizerSecret | string | Mevcut bir Azure AD B2C işaret **ilke anahtarları**. Yeni bir tane oluşturmak için: Azure AD B2C kiracınızı seçin **B2C Ayarları > kimlik deneyimi çerçevesi**. Seçin **ilke anahtarları** kiracınızda kullanılabilir tuşlarını görmek için. **Add (Ekle)** seçeneğini belirleyin. İçin **seçenekleri**seçin **el ile**. (Önek B2C_1A_ otomatik olarak eklenebilir.) bir ad sağlayın. Gizli kutusuna, gibi 1234567890 kullanmak istediğiniz herhangi bir gizli dizi girin. Anahtar kullanımı için seçin **gizli**. **Oluştur**’u seçin. |
+| outputClaim | Karma | string | Bu dönüşüm talep sonra üreten ClaimType çağrılmış. Yapılandırılmış talep `plaintext` Inputclaim. |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">

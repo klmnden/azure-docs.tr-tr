@@ -11,18 +11,20 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 090c3919bcaee98f5ef398cd581bbf9070f5e87a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e80bbc868376a41212d924bd31df6ac70a52ded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765345"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901976"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Veritabanı işlerini kullanarak yönetim görevlerini otomatikleştirme
 
 Azure SQL veritabanı oluşturmak ve düzenli aralıklarla T-SQL sorguları çalıştırmak ve bakım görevlerini gerçekleştirmek için bir veya daha çok veritabanlarında yürütülebilir işleri zamanlamak sağlar. Her iş yürütme durumunu kaydeder ve herhangi bir hata oluşursa işlemleri de otomatik olarak yeniden dener.
 Hedef veritabanı veya Azure SQL veritabanlarında burada iş yürütülür ve ayrıca bir işi çalıştırmak için zamanlamalar tanımlayın tanımlayabilirsiniz.
 Bir iş, hedef veritabanına oturum açmanın görev işler. Ayrıca tanımlamak, korumak ve Azure SQL veritabanlarından oluşan bir grupta yürütülecek Transact-SQL betikleri kalıcı.
+
+## <a name="when-to-use-automated-jobs"></a>Ne zaman otomatik işlerini kullanma
 
 Proje Otomasyon kullanabilirsiniz, birçok senaryo vardır:
 
@@ -35,8 +37,10 @@ Proje Otomasyon kullanabilirsiniz, birçok senaryo vardır:
   - Bir Azure SQL veritabanı koleksiyonunda bulunan verileri tek bir hedef tabloda toplayın.
   - Çok sayıda veritabanında müşteri telemetri verilerinin toplanması gibi daha uzun süre çalışan veri işleme sorguları çalıştırın. Sonuçlar daha ayrıntılı analiz için tek bir hedef tabloda toplanır.
 - Veri hareketleri
- - Diğer veritabanlarıyla veritabanlarınızı yapılan değişiklikleri çoğaltmak veya uzak veritabanlarında yapılan güncelleştirmeler toplama işleri oluşturmak ve veritabanında değişen uygulayın.
- - SQL Server Integration Services (SSIS) kullanarak veritabanlarınıza ya da veri yükleme işleri oluşturun.
+  - Diğer veritabanlarıyla veritabanlarınızı yapılan değişiklikleri çoğaltmak veya uzak veritabanlarında yapılan güncelleştirmeler toplama işleri oluşturmak ve veritabanında değişen uygulayın.
+  - SQL Server Integration Services (SSIS) kullanarak veritabanlarınıza ya da veri yükleme işleri oluşturun.
+
+## <a name="overview"></a>Genel Bakış
 
 Aşağıdaki iş zamanlama teknolojiler, Azure SQL veritabanı'nda mevcuttur:
 
@@ -157,9 +161,9 @@ SQL Server'da bulunan SQL Aracısı özelliklerden bazıları, yönetilen örne�
 - SQL Aracısı ayarları salt okunur. Yordam `sp_set_agent_properties` yönetilen örneği'nde desteklenmiyor.
 - Etkinleştirme/Aracısı devre dışı bırakma, yönetilen örneği'nde şu anda desteklenmiyor. SQL Aracısı her zaman çalışıyor.
 - Bildirimleri kısmen desteklenir
- - Çağrı desteklenmiyor.
- - NetSend desteklenmiyor.
- - Uyarılar değil henüz desteklenmemektedir.
+  - Çağrı desteklenmiyor.
+  - NetSend desteklenmiyor.
+  - Uyarılar değil henüz desteklenmemektedir.
 - Ara sunucular desteklenmez.
 - Eventlog desteklenmiyor.
 

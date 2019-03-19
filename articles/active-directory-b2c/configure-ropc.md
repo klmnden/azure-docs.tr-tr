@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e464787919577b89b1cfec11e579cb17c18e2878
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 777aca4754d4d5dc893f930994ffe61db18362fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404236"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089344"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C'de kaynak sahibi parola kimlik bilgileri akışı yapılandırma
 
@@ -37,15 +37,15 @@ Aşağıdaki akışlara ait desteklenmez:
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Kaynak sahibi kullanıcı akışı oluştur
 
-1.  Azure portalında Azure AD B2C kiracınızın genel Yöneticisi olarak oturum açın.
-2.  Azure AD B2C kiracınıza geçiş yapmak için portalın sağ üst köşedeki B2C dizinini seçin.
-3.  Tıklayın **kullanıcı akışları**seçip **yeni kullanıcı akışı**.
-4.  Tıklayın **tüm** sekmenize **ROPC kullanarak oturum**.
-5.  Kullanıcı akışı için bir ad sağlayın *ROPC_Auth*.
-6.  Altında **uygulama taleplerini**, tıklayın **daha fazla Göster**.
-7.  Görünen ad, e-posta adresi ve kimlik sağlayıcısı gibi uygulamanız için gereken uygulama taleplerini seçin.
-8.  **Tamam**’ı ve ardından **Oluştur**’u seçin.
-9.  Tıklayın **kullanıcı akışı çalıştırma**.
+1. Azure portalında Azure AD B2C kiracınızın genel Yöneticisi olarak oturum açın.
+2. Azure AD B2C kiracınıza geçiş yapmak için portalın sağ üst köşedeki B2C dizinini seçin.
+3. Tıklayın **kullanıcı akışları**seçip **yeni kullanıcı akışı**.
+4. Tıklayın **tüm** sekmenize **ROPC kullanarak oturum**.
+5. Kullanıcı akışı için bir ad sağlayın *ROPC_Auth*.
+6. Altında **uygulama taleplerini**, tıklayın **daha fazla Göster**.
+7. Görünen ad, e-posta adresi ve kimlik sağlayıcısı gibi uygulamanız için gereken uygulama taleplerini seçin.
+8. **Tamam**’ı ve ardından **Oluştur**’u seçin.
+9. Tıklayın **kullanıcı akışı çalıştırma**.
 
    Ardından, bu örnek gibi bir uç nokta görürsünüz:
 

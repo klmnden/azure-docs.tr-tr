@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: gregman
-ms.openlocfilehash: 456f7607786bd674cb6ede78d1164db033605799
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5b3dcb3abad071cb5d079d6c740cc09e2577a363
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528839"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116427"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Azure IOT Edge Ubuntu sanal makineler üzerinde çalıştırın
 
@@ -45,48 +45,48 @@ Azure IOT Edge çalışma zamanı bir Ubuntu 16.04 önceden yapılandırılmış
 "Azure IOT Edge için" Azure portalından arayın ve seçin **Ubuntu Server 16.04 LTS + Azure IOT Edge çalışma zamanı** VM oluşturma iş akışı başlatmak için. Buradan, adım 3 ve 4. Yukarıdaki "Dağıtma gelen Azure Market" yönergeleri tamamlayın.
 
 ## <a name="deploy-from-azure-cli"></a>Azure CLI üzerinden dağıtma
-1.  Bu CLI bir sanal makineden dağıtımı ilk defa ise, Azure aboneliğiniz için programlamalı dağıtımını etkinleştirmek gerekir:
-    1. Açık [Azure IOT Edge üzerinde Ubuntu'da](https://aka.ms/azure-iot-edge-ubuntuvm) Market teklifi
-    1. Seçin **almak artık BT** ve **devam** sonraki iletişim
-    1. Seçin **programlı bir şekilde dağıtmak istiyorsunuz? Başlama** portalındaki iletişim kutusunun alt kısmındaki
-    1. Tıklayarak **etkinleştirme** düğmesine **Programlamalı dağıtımı Yapılandır** sayfasında'e tıklayın **Kaydet**
-1.  Sizin masaüstünüzde Azure CLI kullanıyorsanız, oturum açarak başlatın:
+1. Bu CLI bir sanal makineden dağıtımı ilk defa ise, Azure aboneliğiniz için programlamalı dağıtımını etkinleştirmek gerekir:
+   1. Açık [Azure IOT Edge üzerinde Ubuntu'da](https://aka.ms/azure-iot-edge-ubuntuvm) Market teklifi
+   1. Seçin **almak artık BT** ve **devam** sonraki iletişim
+   1. Seçin **programlı bir şekilde dağıtmak istiyorsunuz? Başlama** portalındaki iletişim kutusunun alt kısmındaki
+   1. Tıklayarak **etkinleştirme** düğmesine **Programlamalı dağıtımı Yapılandır** sayfasında'e tıklayın **Kaydet**
+1. Sizin masaüstünüzde Azure CLI kullanıyorsanız, oturum açarak başlatın:
 
-    ```azurecli-interactive
-    az login
-    ```
+   ```azurecli-interactive
+   az login
+   ```
     
-1.  Birden fazla aboneliğiniz varsa, kullanmak istediğiniz aboneliği seçin:
-    1.  Aboneliklerinizi listeleyin:
+1. Birden fazla aboneliğiniz varsa, kullanmak istediğiniz aboneliği seçin:
+   1. Aboneliklerinizi listeleyin:
     
-       ```azurecli-interactive
-       az account list --output table
-       ```
+      ```azurecli-interactive
+      az account list --output table
+      ```
     
-    1.  Kopyalama için kullanmak istediğiniz aboneliği Subscriptionıd alanı
-    1.  Az önce kopyaladığınız Kimliğiyle şu komutu çalıştırın:
+   1. Kopyalama için kullanmak istediğiniz aboneliği Subscriptionıd alanı
+   1. Az önce kopyaladığınız Kimliğiyle şu komutu çalıştırın:
     
-       ```azurecli-interactive 
-       az account set -s {SubscriptionId}
-       ```
+      ```azurecli-interactive 
+      az account set -s {SubscriptionId}
+      ```
     
-1.  Yeni bir kaynak grubu oluşturun (veya var olan bir sonraki adımlarda belirtin):
+1. Yeni bir kaynak grubu oluşturun (veya var olan bir sonraki adımlarda belirtin):
 
-    ```azurecli-interactive
-    az group create --name IoTEdgeResources --location westus2
-    ```
+   ```azurecli-interactive
+   az group create --name IoTEdgeResources --location westus2
+   ```
     
-1.  Yeni bir sanal makine oluşturun:
+1. Yeni bir sanal makine oluşturun:
 
-    ```azurecli-interactive
-    az vm create --resource-group IoTEdgeResources --name EdgeVM –-image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
-    ```
+   ```azurecli-interactive
+   az vm create --resource-group IoTEdgeResources --name EdgeVM –-image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   ```
 
-1.  Cihaz bağlantı dizesini ayarlayalım (izleyebilirsiniz [Azure CLI ile yeni bir Azure IOT Edge cihazı kaydetme](how-to-register-device-cli.md) bu işlemle ilgili bilgi sahibi değilseniz, nasıl yapılır kılavuzunda):
+1. Cihaz bağlantı dizesini ayarlayalım (izleyebilirsiniz [Azure CLI ile yeni bir Azure IOT Edge cihazı kaydetme](how-to-register-device-cli.md) bu işlemle ilgili bilgi sahibi değilseniz, nasıl yapılır kılavuzunda):
 
-    ```azurecli-interactive
-    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
-    ```
+   ```azurecli-interactive
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
+   ```
 
 Kurulumdan sonra bu VM'ye SSH istiyorsanız, Publicıpaddress komutu kullanın: `ssh azureuser@{publicIpAddress}`
 

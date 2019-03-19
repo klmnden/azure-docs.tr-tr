@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 03/04/2019
-ms.openlocfilehash: e4ccb9be5d13ea72086fbaae2ffb2ec63ad55786
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/12/2019
+ms.openlocfilehash: f3c485659bc686efbb4101879e5cd24e7bb3db46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340329"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905112"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Yapılandırma ve Azure Active Directory kimlik doğrulaması SQL ile yönetme
 
@@ -29,12 +29,14 @@ Bu makalede, oluşturma ve Azure AD doldurun ve ardından Azure ile Azure AD kul
 > Bir Azure Active Directory hesabı kullanarak bir Azure sanal makinesinde çalışan SQL Server için bağlanması desteklenmiyor. Bunun yerine bir etki alanı Active Directory hesabı kullanın.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 ## <a name="create-and-populate-an-azure-ad"></a>Oluşturma ve Azure AD'yi doldurma
 
 Azure AD'yi oluşturun ve kullanıcılar ve gruplar ile doldurun. Azure AD, ilk Azure AD olabilir yönetilen etki alanı. Azure AD, bir şirket içi Active Directory etki alanı Federasyon Hizmetleri Azure AD ile de olabilir.
 
-Daha fazla bilgi edinmek için bkz. [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../active-directory/hybrid/whatis-hybrid-identity.md), [Kendi etki alanı adınızı Azure AD'ye ekleme](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure artık Windows Server Active Directory ile federasyonu destekliyor](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD dizininizi yönetme](../active-directory/fundamentals/active-directory-administer.md), [Azure AD'yi Windows PowerShell kullanarak yönetme](/powershell/azure/overview?view=azureadps-2.0) ve [Karma Kimlik için gerekli bağlantı noktaları ve protokoller](../active-directory/hybrid/reference-connect-ports.md).
+Daha fazla bilgi edinmek için bkz. [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../active-directory/hybrid/whatis-hybrid-identity.md), [Kendi etki alanı adınızı Azure AD'ye ekleme](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure artık Windows Server Active Directory ile federasyonu destekliyor](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD dizininizi yönetme](../active-directory/fundamentals/active-directory-administer.md), [Azure AD'yi Windows PowerShell kullanarak yönetme](/powershell/azure/overview) ve [Karma Kimlik için gerekli bağlantı noktaları ve protokoller](../active-directory/hybrid/reference-connect-ports.md).
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Azure Active Directory'ye bir Azure aboneliği ekleme veya ilişkilendirme
 
@@ -240,6 +242,7 @@ Azure Active Directory Yöneticisi REST API'lerini kullanarak da sağlayabilirsi
 ### <a name="cli"></a>CLI  
 
 Aşağıdaki CLI komutları çağırarak, bir Azure AD Yöneticisi ayrıca sağlayabilirsiniz:
+
 | Komut | Açıklama |
 | --- | --- |
 |[az sql server ad Yöneticisi oluşturma](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Azure SQL server veya Azure SQL veri ambarı için Azure Active Directory yönetici sağlar. (Geçerli abonelikten olması gerekir.) |
@@ -349,7 +352,7 @@ Azure AD kullanarak bir Azure AD sorumlusu adıyla bağlanma yönetilen etki ala
 İçin SQL DB/DW yerel için Azure AD ile kimlik doğrulaması için bu yöntemi kullanın ya da federasyonla yönetilen Azure AD kullanıcılarının. Yerel kullanıcı açıkça Azure AD'de oluşturulmuş ve Azure AD ile birleştirildiyse bir Federasyon kullanıcısı bir Windows kullanıcı olsa da, etki alanı kullanıcı adı ve parola kullanarak kimlik doğrulaması gerçekleştirilen. (Kullanıcı ve parola kullanarak) İkinci yöntem, bir kullanıcı kendi windows kimlik bilgileri kullanmak istiyor, ancak (örneğin, bir uzaktan erişim'i kullanarak) etki alanı ile kendi yerel makinesine katılmamış kullanılabilir. Bu durumda, bir Windows kullanıcı, etki alanı hesabı ve parolasını belirtebilirsiniz ve SQL DB/federe kimlik bilgilerini kullanarak DW'ye kimlik doğrulamasından geçmesini sağlayabilirsiniz.
 
 1. Management Studio veya veri Araçları'nı başlatın ve **sunucuya Bağlan** (veya **veritabanı altyapısına Bağlan**) iletişim kutusundaki **kimlik doğrulaması** kutusunda  **Active Directory - parola**.
-2. İçinde **kullanıcı adı** biçiminde Azure Active Directory kullanıcı adınızı yazın **username@domain.com**. Bir etki alanından bir hesabı Azure Active Directory ile federasyona eklemek veya kullanıcı adları hesabınız Azure Active Directory'den olmalıdır.
+2. İçinde **kullanıcı adı** biçiminde Azure Active Directory kullanıcı adınızı yazın **kullanıcıadı\@etkialanı.com**. Bir etki alanından bir hesabı Azure Active Directory ile federasyona eklemek veya kullanıcı adları hesabınız Azure Active Directory'den olmalıdır.
 3. İçinde **parola** kutusuna, Azure Active Directory hesabının, kullanıcı parolayı yazın ya da Federasyon etki alanı hesabı.
 
     ![AD parola kimlik doğrulaması][12]

@@ -16,12 +16,12 @@ ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 09/28/2018
-ms.openlocfilehash: c7a6330f8e0197092f4c581f46c3cc6e68dba247
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: eef9e45d71dd5a8c29112f74deaf8342dc0d1406
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540279"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101508"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Java'da Azure Stack ile API Sürüm profillerini kullanma
 
@@ -62,11 +62,11 @@ Tüm seçeneklerin aynı uygulamada birleştirebilirsiniz unutmayın.
 
 Java SDK'sını yüklemek için aşağıdaki adımları kullanın:
 
-1.  Git'i yüklemek için resmi yönergeleri izleyin. Yönergeler için [Git'i yükledikten Başlarken -](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+1. Git'i yüklemek için resmi yönergeleri izleyin. Yönergeler için [Git'i yükledikten Başlarken -](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2.  Yüklemek için resmi yönergeleri [Java SDK'sı](https://zulu.org/download/) ve [Maven](https://maven.apache.org/). Java Developer Kit 8 sürümünü doğru sürümüdür. Doğru Apache Maven sürümüdür 3.0 veya üstü. JAVA_HOME ortam değişkenini Java Development Kit yükleme konumuna hızlı başlangıcı tamamlamak için ayarlamanız gerekir. Daha fazla bilgi için [Java ve Maven ile ilk işlevinizi oluşturma](../../azure-functions/functions-create-first-java-maven.md).
+2. Yüklemek için resmi yönergeleri [Java SDK'sı](https://zulu.org/download/) ve [Maven](https://maven.apache.org/). Java Developer Kit 8 sürümünü doğru sürümüdür. Doğru Apache Maven sürümüdür 3.0 veya üstü. JAVA_HOME ortam değişkenini Java Development Kit yükleme konumuna hızlı başlangıcı tamamlamak için ayarlamanız gerekir. Daha fazla bilgi için [Java ve Maven ile ilk işlevinizi oluşturma](../../azure-functions/functions-create-first-java-maven.md).
 
-3.  Doğru bağımlılık paketlerini yüklemek için Java uygulamanızı Pom.xml dosyasını açın. Bir bağımlılık, aşağıdaki kodda gösterildiği gibi ekleyin:
+3. Doğru bağımlılık paketlerini yüklemek için Java uygulamanızı Pom.xml dosyasını açın. Bir bağımlılık, aşağıdaki kodda gösterildiği gibi ekleyin:
 
    ```xml  
    <dependency>
@@ -76,17 +76,17 @@ Java SDK'sını yüklemek için aşağıdaki adımları kullanın:
    </dependency>
    ```
 
-4.  Yüklenmesi gereken paketleri kullanmak istediğiniz profili sürümüne bağlıdır. Paket adları profil sürümleri şunlardır:
+4. Yüklenmesi gereken paketleri kullanmak istediğiniz profili sürümüne bağlıdır. Paket adları profil sürümleri şunlardır:
     
    - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
    - **com.microsoft.azure**
-      - **en son**
+     - **en son**
 
-5.  Yoksa, bir abonelik oluşturur ve daha sonra kullanmak için abonelik Kimliğini kaydedin. Abonelik oluşturma hakkında yönergeler için bkz: [Azure Stack'te teklifleri abonelikleri oluşturma](../azure-stack-subscribe-plan-provision-vm.md).
+5. Yoksa, bir abonelik oluşturur ve daha sonra kullanmak için abonelik Kimliğini kaydedin. Abonelik oluşturma hakkında yönergeler için bkz: [Azure Stack'te teklifleri abonelikleri oluşturma](../azure-stack-subscribe-plan-provision-vm.md).
 
-6.  Hizmet sorumlusu oluşturma ve istemci Kimliğini ve istemci gizli anahtarını kaydedin. Azure Stack için hizmet sorumlusu oluşturma hakkında yönergeler için bkz: [uygulamalar erişim sağlamak için Azure Stack](../azure-stack-create-service-principals.md). İstemci kimliği olarak da bilinen uygulama kimliği bir hizmet sorumlusu oluştururken olduğuna dikkat edin.
+6. Hizmet sorumlusu oluşturma ve istemci Kimliğini ve istemci gizli anahtarını kaydedin. Azure Stack için hizmet sorumlusu oluşturma hakkında yönergeler için bkz: [uygulamalar erişim sağlamak için Azure Stack](../azure-stack-create-service-principals.md). İstemci kimliği olarak da bilinen uygulama kimliği bir hizmet sorumlusu oluştururken olduğuna dikkat edin.
 
-7.  Hizmet sorumlunuzu aboneliğinizde katkıda bulunan/sahip rolü olduğundan emin olun. Hizmet sorumlusuna bir rol atamak yönergeler için bkz: [uygulamalar erişim sağlamak için Azure Stack](../azure-stack-create-service-principals.md).
+7. Hizmet sorumlunuzu aboneliğinizde katkıda bulunan/sahip rolü olduğundan emin olun. Hizmet sorumlusuna bir rol atamak yönergeler için bkz: [uygulamalar erişim sağlamak için Azure Stack](../azure-stack-create-service-principals.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -117,6 +117,22 @@ UNIX tabanlı sistemlerde, aşağıdaki komutu kullanabilirsiniz:
 
 ```shell
 Export AZURE_TENANT_ID=<Your_Tenant_ID>
+```
+
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack CA kök sertifikasını güven
+
+ASDK kullanıyorsanız, CA kök sertifikasını uzak makinenizdeki güven gerekir. Tümleşik sistemlerle bunu gerekmez.
+
+#### <a name="windows"></a>Windows
+
+1. Azure Stack imzalanan sertifikayı masaüstünüze dışarı aktarın
+
+1. Bir cmd Kabuğu'nda dizini için %JAVA_HOME%\bin değiştirin.
+
+1. Bu komut çalıştırın:
+
+```shell
+      .\keytool.exe -importcert -noprompt -file <location of the exported certificate here> -alias root -keystore %JAVA_HOME%\lib\security\cacerts -trustcacerts -storepass changeit
 ```
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack Kaynak Yöneticisi uç noktası
@@ -162,10 +178,10 @@ Aşağıdaki kod, Azure Stack hizmet sorumlusu kimliğini doğrular. Kimliği ve
 
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
-                    .withDefaultSubscriptionId(subscriptionId);
+                    .withDefaultSubscriptionID(subscriptionID);
 Azure azureStack = Azure.configure()
                     .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
-                    .authenticate(credentials, credentials.defaultSubscriptionId());
+                    .authenticate(credentials, credentials.defaultSubscriptionID());
 ```
 
 Bu, uygulamanızı Azure Stack başarıyla dağıtmak için API profili bağımlılıkları kullanmanıza olanak sağlar.
@@ -181,8 +197,8 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("resourceManagerEndpointUrl", armEndpoint);
                     put("galleryEndpointUrl", settings.get("galleryEndpoint"));
                     put("activeDirectoryEndpointUrl", settings.get("login_endpoint"));
-                    put("activeDirectoryResourceId", settings.get("audience"));
-                    put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
+                    put("activeDirectoryResourceID", settings.get("audience"));
+                    put("activeDirectoryGraphResourceID", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
                     put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
@@ -226,33 +242,33 @@ HttpResponse response = httpClient.execute(getRequest);
 
 ### <a name="sample-unit-test-project"></a>Örnek birim testi projesi 
 
-1.  Aşağıdaki komutu kullanarak depoyu kopyalayın:
+1. Aşağıdaki komutu kullanarak depoyu kopyalayın:
     
-    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
+   `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
-2.  Bir Azure hizmet sorumlusu oluşturma ve aboneliğe erişmek için bir rol atayın. Bir hizmet sorumlusu oluşturma hakkında yönergeler için bkz: [bir sertifika ile hizmet sorumlusu oluşturmak için Azure PowerShell kullanarak](../azure-stack-create-service-principals.md).
+2. Bir Azure hizmet sorumlusu oluşturma ve aboneliğe erişmek için bir rol atayın. Bir hizmet sorumlusu oluşturma hakkında yönergeler için bkz: [bir sertifika ile hizmet sorumlusu oluşturmak için Azure PowerShell kullanarak](../azure-stack-create-service-principals.md).
 
-3.  Aşağıdaki gerekli ortam değişken değerleri alın:
+3. Aşağıdaki gerekli ortam değişken değerleri alın:
     
-    -  AZURE_TENANT_ID
-    -  AZURE_CLIENT_ID
-    -  AZURE_CLIENT_SECRET
-    -  AZURE_SUBSCRIPTION_ID
-    -  ARM_ENDPOINT
-    -  RESOURCE_LOCATION
+   -  AZURE_TENANT_ID
+   -  AZURE_CLIENT_ID
+   -  AZURE_CLIENT_SECRET
+   -  AZURE_SUBSCRIPTION_ID
+   -  ARM_ENDPOINT
+   -  RESOURCE_LOCATION
 
-4.  Komut istemi kullanarak oluşturduğunuz hizmet Sorumlusundan alınan bilgileri kullanarak, aşağıdaki ortam değişkenlerini ayarlayın:
+4. Komut istemi kullanarak oluşturduğunuz hizmet Sorumlusundan alınan bilgileri kullanarak, aşağıdaki ortam değişkenlerini ayarlayın:
     
-    - dışarı aktarma AZURE_TENANT_ID {Kiracı kimliğinizi} =
-    - dışarı aktarma AZURE_CLIENT_ID {istemci kimliğiniz} =
-    - dışarı aktarma AZURE_CLIENT_SECRET {istemci gizli anahtarı} =
-    - dışarı aktarma AZURE_SUBSCRIPTION_ID {abonelik kimliğinizi} =
-    - dışarı aktarma ARM_ENDPOINT {, Azure Stack Kaynak Yöneticisi URL'si} =
-    - dışarı aktarma RESOURCE_LOCATION {location Azure Stack} =
+   - dışarı aktarma AZURE_TENANT_ID {Kiracı Kimliğinizi} =
+   - dışarı aktarma AZURE_CLIENT_ID {istemci Kimliğiniz} =
+   - dışarı aktarma AZURE_CLIENT_SECRET {istemci gizli anahtarı} =
+   - dışarı aktarma AZURE_SUBSCRIPTION_ID {abonelik Kimliğinizi} =
+   - dışarı aktarma ARM_ENDPOINT {, Azure Stack Kaynak Yöneticisi URL'si} =
+   - dışarı aktarma RESOURCE_LOCATION {location Azure Stack} =
 
    Windows içinde kullanmak **ayarlamak** yerine **dışarı**.
 
-5.  Kullanma `getactivedirectorysettings` kod arm meta veri uç noktası almak ve uç nokta bilgileri ayarlamak için HTTP İstemcisi'ni kullanın.
+5. Kullanma `getactivedirectorysettings` kod arm meta veri uç noktası almak ve uç nokta bilgileri ayarlamak için HTTP İstemcisi'ni kullanın.
 
    ```java
    public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
@@ -274,7 +290,7 @@ HttpResponse response = httpClient.execute(getRequest);
    HttpResponse response = httpClient.execute(getRequest);
    ```
 
-6.  Pom.xml dosyasında Azure Stack için 2018-03-01-karma profili kullanmak için aşağıdaki bağımlılığı ekleyin. Bu bağımlılık, bu profil ile ilişkili aşağıdaki işlem, ağ, depolama, KeyVault ve uygulama hizmetleri kaynak sağlayıcı için modülleri yükler.
+6. Pom.xml dosyasında Azure Stack için 2018-03-01-karma profili kullanmak için aşağıdaki bağımlılığı ekleyin. Bu bağımlılık, bu profil ile ilişkili aşağıdaki işlem, ağ, depolama, KeyVault ve uygulama hizmetleri kaynak sağlayıcı için modülleri yükler.
       
    ```xml
    <dependency>
@@ -284,7 +300,7 @@ HttpResponse response = httpClient.execute(getRequest);
    </dependency>
    ```
 
-8.  Ortam değişkenlerini ayarlamak için açık bir komut isteminde, aşağıdaki satırı girin:
+8. Ortam değişkenlerini ayarlamak için açık bir komut isteminde, aşağıdaki satırı girin:
     
    ```shell
    mvn clean compile exec:java

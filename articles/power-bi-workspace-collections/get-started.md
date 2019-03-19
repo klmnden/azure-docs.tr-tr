@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: c736a9b4962de26f43dc79773149e834c37cbe85
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 944f008d0243d974a5d439438a5a645b7f3ca248
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233414"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856799"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Microsoft Power BI Çalışma Alanı Koleksiyonları'nı kullanmaya başlama
 
@@ -37,7 +37,7 @@ ms.locfileid: "51233414"
 
 Şimdi Azure portalını kullanarak **Çalışma Alanı Koleksiyonu** oluşturma adımlarını inceleyelim.
 
-1. **Azure portalı** açıp oturum açın: [http://portal.azure.com](http://portal.azure.com).
+1. **Azure portalı** açıp oturum açın: [https://portal.azure.com](https://portal.azure.com).
 2. Üst panelde **+ Yeni**'yi seçin.
    
    ![Azure portalındaki +Yeni seçeneği](media/get-started/create-workspace-1.png)
@@ -119,5 +119,5 @@ JavaScript API kullanarak doğrudan uygulamanızda bir veri kümesinden rapor ol
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Örnek Ekleme](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](http://community.powerbi.com/)
+Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](https://community.powerbi.com/)
 

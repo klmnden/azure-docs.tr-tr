@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: b8f343c2293df6a1dec808addf8881c27514fc06
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 19637a1fe49550d0ed7aea7e3a596f1f77f5984b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436664"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082050"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Azure özel betik uzantısı sürüm 2 ile Linux sanal makineleri kullanın.
 Özel betik uzantısı sürüm 2 indirir ve Azure sanal makinelerinde betikleri çalıştırır. Bu uzantı dağıtım sonrası yapılandırma, yazılım yükleme veya başka bir yapılandırma/yönetim görevi için kullanışlıdır. Betikler Azure depolama veya başka bir erişilebilir internet konuma indirebilir veya uzantı çalışma zamanında sağlayabilir. 
@@ -115,7 +115,7 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 | typeHandlerVersion | 2.0 | int |
 | fileUris (örn.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (örn.) | Python MyPythonScript.py < param1 my > | string |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| komut dosyası | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix (örn.) | false | boole |
 | zaman damgası (örn.) | 123456789 | 32 bit tamsayı |
 | storageAccountName (örn.) | examplestorageacct | string |
@@ -124,7 +124,7 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 ### <a name="property-value-details"></a>Özellik değeri ayrıntıları
 * `skipDos2Unix`: (isteğe bağlı, boolean) dos2unix dönüştürme betiği tabanlı dosya URL'lerini veya betiği atlayın.
 * `timestamp` Bu alan yalnızca betiğini yeniden çalıştırmak bu alanın değerini değiştirerek tetiklemek için (isteğe bağlı, 32 bit tamsayı) kullanın.  Kabul edilebilir tamsayı değerdeki; yalnızca önceki değerinden farklı olmalıdır.
- * `commandToExecute`: (**gerekli** betik ayarlanmamış olması halinde, string) yürütmek için giriş noktası betiği. Bu alan, bunun yerine komutunuz parolalar gibi gizli dizileri içeriyorsa kullanın.
+  * `commandToExecute`: (**gerekli** betik ayarlanmamış olması halinde, string) yürütmek için giriş noktası betiği. Bu alan, bunun yerine komutunuz parolalar gibi gizli dizileri içeriyorsa kullanın.
 * `script`: (**gerekli** commandToExecute ayarlanmamış olması halinde, string) bir base64 kodlu (ve isteğe bağlı olarak gzip'ed) / bin/sh yürütülen kod.
 * `fileUris`: (isteğe bağlı, dize dizisi) dosyaların indirilmesi için URL.
 * `storageAccountName`: (isteğe bağlı, dize) depolama hesabı adı. Depolama kimlik bilgileri, belirtirseniz, tüm `fileUris` URL'leri, Azure BLOB'ları için olmalıdır.

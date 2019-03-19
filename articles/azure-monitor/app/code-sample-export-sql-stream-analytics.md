@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 502ccf15fe3e2f803febb711d4ea8850abbaea85
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 0166622539a439a99aef7e476519881518baa0b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116594"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106347"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Çözüm: Stream Analytics kullanarak Application Insights'tan SQL'e aktarma
 Bu makale, telemetri verilerini taşıma [Azure Application Insights] [ start] kullanarak bir Azure SQL veritabanı'na [sürekli dışarı aktarma] [ export] ve [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -181,8 +181,8 @@ Application Insights kaynağınıza ait iKey ve adını almak için kendi genel 
 > Örnek işlevi, Giriş yolu doğru şekilde ayarladığınızdan emin denetlemek için kullanın. Başarısız olursa: İlgili veri depolama alanı için seçtiğiniz örnek zaman aralığı içinde emin olun. Giriş tanımını düzenleyin ve depolama hesabı, yol ön eki ayarlayın ve tarih biçimi doğru denetleyin.
 > 
 > 
-## <a name="set-query"></a>Sorgu kümesi
-Sorgu bölümünü açın:
+> ## <a name="set-query"></a>Sorgu kümesi
+> Sorgu bölümünü açın:
 
 Varsayılan sorguyla değiştirin:
 
