@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 04ec95e891b4e9333949a3a0f40dcc9df88e49e7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 015a2d344b066bd7b65c3228a2795c3395793f2b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865871"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097039"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>Hızlı Başlangıç: Node.js için Bing varlık arama SDK'sı ile arama isteği gönder
 
@@ -53,7 +53,7 @@ Bing varlık arama SDK'sını yüklemek için:
 
 ## <a name="send-a-request-and-receive-a-response"></a>Bir istek gönderir ve yanıt
 
-2. İle bir varlıkları arama isteği Gönder `entitiesOperations.search()`. Bir yanıt aldıktan sonra yazdırabilirsiniz `queryContext`, sayı, döndürülen sonuçlar ve ilk sonucu açıklaması.
+1. İle bir varlıkları arama isteği Gönder `entitiesOperations.search()`. Bir yanıt aldıktan sonra yazdırabilirsiniz `queryContext`, sayı, döndürülen sonuçlar ve ilk sonucu açıklaması.
       
     ```javascript
     entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {

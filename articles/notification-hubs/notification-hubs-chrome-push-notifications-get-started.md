@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: ffac79209f998f1ef042ed5fcb4d8c6a45de2c2e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 03374f63345bd6c9e4f2b603443a1448493e1cdc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447046"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894623"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Öğretici: Azure Notification Hubs ile Chrome uygulamalarına anında iletme bildirimleri
 
@@ -266,7 +266,7 @@ Chrome Uygulaması JavaScript aracılığıyla oluşturulur ve bunu oluşturmak 
         sendNHRegistrationRequest();
     }
 
-    // From http://msdn.microsoft.com/library/dn495627.aspx
+    // From https://msdn.microsoft.com/library/dn495627.aspx
     function splitConnectionString()
     {
         var parts = connectionString.split(';');
@@ -361,17 +361,17 @@ Chrome Uygulaması JavaScript aracılığıyla oluşturulur ve bunu oluşturmak 
 
     Betik aşağıdaki anahtar parametrelere sahiptir:
 
-    * `window.onload` Kullanıcı Arabirimi üzerindeki iki düğmenin düğme tıklama olaylarını tanımlar. İlk düğme tıklama olay işleyicisi GCM'ye kaydedilir. Diğeri, Azure Notification Hubs'a kaydedilmek üzere GCM'ye kayıttan sonra döndürülen kayıt kimliğini kullanır.
-    * `updateLog` kod günlüğü bilgilerine imkan tanıyan işlevdir.
-    * `registerWithGCM` yapan ilk düğme tıklama işleyicisidir `chrome.gcm.register` geçerli Chrome uygulaması örneğini kaydetmek için GCM'ye çağırın.
-    * `registerCallback` GCM kayıt çağrısı döndürüldüğünde çağrılan geri çağırma işlevidir.
-    * `registerWithNH` Notification Hubs ile kaydeden ikinci düğme tıklama işleyicisidir. `hubName` ve `connectionString` öğelerini (kullanıcı tarafından belirtilen) alır ve Notification Hubs Kayıt REST API'si çağrısını işler.
-    * `splitConnectionString` ve `generateSaSToken` tüm REST API çağrılarında kullanılması gereken SaS belirteci oluşturma işleminin JavaScript uygulamasını temsil eden yardımcılardır. Daha fazla bilgi için bkz. [Ortak Kavramlar](https://msdn.microsoft.com/library/dn495627.aspx).
-    * `sendNHRegistrationRequest` Azure Notification hubs'ı bir HTTP REST çağrısı yapan işlevdir.
-    * `registrationPayload` Kayıt XML yükünü tanımlar. Daha fazla bilgi için bkz. [Kayıt NH REST API’si oluşturma]. Kayıt kimliğini GCM'den alınan değerle güncelleştirin.
-    * `client` bir örneği olan `XMLHttpRequest` uygulamanın HTTP POST isteği yapmak için kullanır. `Authorization` üst bilgisini `sasToken` ile güncelleştirin. Bu çağrının başarıyla tamamlanması, bu Chrome Uygulaması örneğinin Azure Notification Hubs'a kaydedilmesini sağlar.
+   * `window.onload` Kullanıcı Arabirimi üzerindeki iki düğmenin düğme tıklama olaylarını tanımlar. İlk düğme tıklama olay işleyicisi GCM'ye kaydedilir. Diğeri, Azure Notification Hubs'a kaydedilmek üzere GCM'ye kayıttan sonra döndürülen kayıt kimliğini kullanır.
+   * `updateLog` kod günlüğü bilgilerine imkan tanıyan işlevdir.
+   * `registerWithGCM` yapan ilk düğme tıklama işleyicisidir `chrome.gcm.register` geçerli Chrome uygulaması örneğini kaydetmek için GCM'ye çağırın.
+   * `registerCallback` GCM kayıt çağrısı döndürüldüğünde çağrılan geri çağırma işlevidir.
+   * `registerWithNH` Notification Hubs ile kaydeden ikinci düğme tıklama işleyicisidir. `hubName` ve `connectionString` öğelerini (kullanıcı tarafından belirtilen) alır ve Notification Hubs Kayıt REST API'si çağrısını işler.
+   * `splitConnectionString` ve `generateSaSToken` tüm REST API çağrılarında kullanılması gereken SaS belirteci oluşturma işleminin JavaScript uygulamasını temsil eden yardımcılardır. Daha fazla bilgi için bkz. [Ortak Kavramlar](https://msdn.microsoft.com/library/dn495627.aspx).
+   * `sendNHRegistrationRequest` Azure Notification hubs'ı bir HTTP REST çağrısı yapan işlevdir.
+   * `registrationPayload` Kayıt XML yükünü tanımlar. Daha fazla bilgi için bkz. [Kayıt NH REST API’si oluşturma]. Kayıt kimliğini GCM'den alınan değerle güncelleştirin.
+   * `client` bir örneği olan `XMLHttpRequest` uygulamanın HTTP POST isteği yapmak için kullanır. `Authorization` üst bilgisini `sasToken` ile güncelleştirin. Bu çağrının başarıyla tamamlanması, bu Chrome Uygulaması örneğinin Azure Notification Hubs'a kaydedilmesini sağlar.
 
-    Bu proje için genel klasör yapısı aşağıdaki yapısı gibi olmalıdır:  ![Google Chrome uygulaması - klasör yapısı][21]
+     Bu proje için genel klasör yapısı aşağıdaki yapısı gibi olmalıdır: ![Google Chrome uygulaması - klasör yapısı][21]
 
 ### <a name="set-up-and-test-your-chrome-app"></a>Chrome Uygulamanızı ayarlama ve test etme
 
@@ -406,7 +406,7 @@ Test amacıyla, bir .NET konsol uygulaması kullanarak Chrome anında iletme bil
     Install-Package Microsoft.Azure.NotificationHubs
     ```
 
-   Azure Service Bus SDK'sıyla başvuru [WindowsAzure.ServiceBus NuGet paketini otomatik olarak projeye eklenir](http://nuget.org/packages/WindowsAzure.ServiceBus/).
+   Azure Service Bus SDK'sıyla başvuru [WindowsAzure.ServiceBus NuGet paketini otomatik olarak projeye eklenir](https://nuget.org/packages/WindowsAzure.ServiceBus/).
 4. `Program.cs` öğesini açın ve aşağıdaki `using` deyimini ekleyin:
 
     ```csharp
@@ -481,8 +481,8 @@ Bu öğreticide, arka uca kayıtlı olan tüm istemcilere yayın bildirimleri g�
 [Chrome Uygulaması GCM Örneği]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
 [Mobil Cihazlarda Chrome Uygulamaları]: https://developer.chrome.com/apps/chrome_apps_on_mobile
-[Kayıt NH REST API’si oluşturma]: http://msdn.microsoft.com/library/azure/dn223265.aspx
-[crypto-js kitaplığı]: http://code.google.com/p/crypto-js/
+[Kayıt NH REST API’si oluşturma]: https://msdn.microsoft.com/library/azure/dn223265.aspx
+[crypto-js kitaplığı]: https://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
 [Azure Notification Hubs Notify Users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md

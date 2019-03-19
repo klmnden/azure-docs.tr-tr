@@ -1,5 +1,5 @@
 ---
-title: Proje akustik hakkında sık sorulan sorular
+title: Proje akustik sık sorulan sorular
 titlesuffix: Azure Cognitive Services
 description: Bu sayfayı içeren proje akustik hakkında sık sorulan soruların yanıtlarını yükleme yönergeleri ve hazırlama işlemi sağlar.
 services: cognitive-services
@@ -7,25 +7,29 @@ author: kegodin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: conceptual
+ms.topic: resources
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 12dda5d7af1236ec2d7eddbe025b8fdba47d7bca
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c43c81d42a39bda504b02eb6c053a16a2cf53aec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881083"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58138057"
 ---
-# <a name="frequently-asked-questions"></a>Sık sorulan sorular
+# <a name="project-acoustics-frequently-asked-questions"></a>Proje akustik sık sorulan sorular
 
 ## <a name="what-is-project-acoustics"></a>Project Acoustics nedir?
 
-Proje akustik Unity eklentisi ses wave davranışı önce çalışma zamanı statik aydınlatma yakındır hesaplayan bir akustik sistemidir. Çalışma zamanı CPU maliyeti düşük olacak şekilde cloud wave kaynaklanan ağır yüklerden fizik hesaplamalar yapar.  
+Eklenti projesi akustik paketini ses wave davranışı önce çalışma zamanı statik aydınlatma yakındır hesaplayan bir akustik sistemidir. Çalışma zamanı CPU maliyeti düşük olacak şekilde cloud wave kaynaklanan ağır yüklerden fizik hesaplamalar yapar.  
 
 ## <a name="where-can-i-download-the-plugin"></a>Eklenti nereden indirebilirim?
 
-Akustik eklentisini değerlendirmek istiyorsanız [buraya](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) tıklayarak Tasarımcı Önizlemesine katılabilirsiniz.
+Proje akustik'nden indirebileceğiniz [proje akustik Download Center sayfası](https://www.microsoft.com/en-us/download/details.aspx?id=57346).
+
+## <a name="does-project-acoustics-support-x-platform"></a>Proje akustik desteklemiyor <x> platform?
+
+Platform desteği geliştikçe akustik müşteri gereksinimlerine göre proje. Lütfen bize ulaşın [proje akustik forumları](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics) desteği hakkında ek platformlar için sorgulamak için.
 
 ## <a name="is-azure-used-at-runtime"></a>Azure, çalışma zamanında kullanılır?
 
@@ -45,17 +49,17 @@ Hayır. Sistem düzeyinde ayrıntılı geometri doğrudan alın. Bu, iç işleme
  
 ## <a name="whats-in-the-runtime-lookup-table"></a>Çalışma zamanı arama tablosunda nedir?
 
-ACE dosyanın çok sayıda kaynak ve dinleyici konum çiftleri arasındaki akustik parametrelerinin bir tablodur.
+ACE dosya içeren bir tablodur akustik parametreler arasında çok sayıda kaynak ve dinleyici konum çiftleri yanı voxelized Sahne geometriyi parametre enterpolasyon için kullanılır.
  
-## <a name="can-it-handle-moving-sources"></a>Kaynakları taşıma işleyebileceği?
+## <a name="can-project-acoustics-handle-moving-sources"></a>Proje akustik taşıma kaynağını işleyebilir?
 
-Evet, **Microsoft Acoustics** Unity spatializer eklentisi her ses işleme değer çizgisi geçerli kaynak ve dinleyici konumlarıyla arama tablosunda danışır. Spatializer'ın DSP her değer çizgisi akustik işleme parametreler sorunsuz bir şekilde güncelleştirir.
+Evet, proje akustik arama tablosuna bakar ve kaynakları ve dinleyici taşıma işleyebilmesi her değer çizgisi üzerinde ses DSP güncelleştirir.
  
-## <a name="can-it-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>Dinamik geometri işleyebileceği? Kapılar kapatıyor? Hemen attı duvarlarının?
+## <a name="can-project-acoustics-handle-dynamic-geometry-closing-doors-walls-blown-away"></a>Proje akustik dinamik geometri işleyebilirsiniz? Kapılar kapatıyor? Hemen attı duvarlarının?
 
-Hayır. Akustik statik bir oyun düzeyi durumuna bağlı filtrelerinde parametrelerdir. Biz kapı geometri akustik dışında bırakmak önermek ve ardından kurulan teknikleri kullanarak yıkıcı ve taşınabilir oyun nesnelerine durumuna bağlı olarak ek kapatma uygulayın.
+Hayır. Akustik statik bir oyun düzeyi durumuna bağlı filtrelerinde parametrelerdir. Kapı geometri akustik dışında bırakın ve ardından ek kapatma durumuna yıkıcı bağlı uygulama öneririz ve teknikleri kullanarak taşınabilir oyun nesne oluşturulur.
  
-## <a name="does-it-handle-materials"></a>Bu malzemeleri işliyor?
+## <a name="does-project-acoustics-use-acoustic-materials"></a>Proje akustik akustik malzemeleri kullanıyor mu?
 
 Evet. Malzemeleri absorptivity sürüş fiziksel malzeme adlarından sizin düzeyinizde olarak seçilir.
  
@@ -65,12 +69,12 @@ Araştırmalar olası player konumların bir örnekleme ' dir. Her araştırma b
  
 ## <a name="why-spend-so-much-compute-in-the-cloud-what-does-it-buy-me"></a>Neden bulutta çok fazla işlem harcama? Ne bana satın?
 
-Proje akustik doğru ve güvenilir akustik parametreleri bile son derece karmaşık sanal ortamları için her mimari açıdan dikkate alarak sağlar. Bu, kesintisiz kapatma/engel olmadan el ile tüm iş ve birimler çizim olmadan dinamik Yankı değişim sağlar. Tüm bunları yaparken kalan çalışma zamanı sırasında CPU üzerinde açık.
+Proje akustik doğru ve güvenilir akustik parametreleri bile son derece karmaşık sanal ortamları için her mimari açıdan dikkate alarak sağlar. Bu, kesintisiz kapatma ve engel ve birimler çizim dinamik Yankı değişim el ile çalışma yapmadan sağlar. Tüm bunları yaparken kalan çalışma zamanı sırasında CPU üzerinde açık.
 
 ## <a name="what-exactly-happens-during-baking"></a>Tam olarak "saklanacağı sırasında" ne olacak?
 
-Sistem "araştırma" Eşit aralıklı örnek konumları kümesini oluşturmak için olası player konumları göz önünde bulundurur. Her araştırma bağımsız görevleri düzeyi için bir hazırlama oluşur: Sistem bir cuboid "Benzetimi araştırma sırasında ortalanmış bölge" olarak kabul eder ve bu bölgede en fazla 25 cm çözünürlükte ayrıntılı wave benzetimini yapar.
+Akustik wave benzetimleri cuboid benzetimi bölgelerin her dinleyici araştırma sırasında ortalanmış bir hazırlama oluşur.
 
-## <a name="next-steps"></a>Sonraki Adımlar
-* Keşfedin [örnek Sahne](sample-walkthrough.md)
+## <a name="next-steps"></a>Sonraki adımlar
+* Deneyin [proje akustik Unity örnek içerik](unity-quickstart.md) veya [Unreal örnek içerik](unreal-quickstart.md)
 

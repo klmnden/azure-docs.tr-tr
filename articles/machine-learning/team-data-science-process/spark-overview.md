@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 82c4bca1c72d5440385e3fda6208b1e74a5444a1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 932587afcffcb3b1a259a02a98c648e938e99931
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453159"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845347"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Azure HDInsight üzerinde Spark kullanan veri bilimi genel bakış
 
 Bu paketi konuları veri alımı, özellik Mühendisliği, modelleme ve model değerlendirme gibi genel veri bilimi görevlerini tamamlamak için HDInsight Spark kullanmayı gösterir. Kullanılan veri kümesinin 2013 NYC taksi seyahat ve taksi bir örnektir. Mantıksal ve doğrusal regresyon, rastgele ormanları ve gradyan artırmalı ağaçları modellerinin içerir. Konular, Azure blob depolama (WASB) şu modelleri depolamak ve puan ve Tahmine dayalı performanslarını değerlendirmek de gösterir. Daha gelişmiş konular ele modelleri nasıl olabileceğini çapraz doğrulama ve hiper parametreli Süpürme kullanarak eğitilir. Bu genel bakış konusu, ayrıca sağlanan izlenecek adımları tamamlamak için gereken bir Spark kümesi oluşturma nasıl açıklayan konulara başvuruyor.
 
 ## <a name="spark-and-mllib"></a>Spark ve MLlib
-[Spark](http://spark.apache.org/) büyük veri analizi uygulamalarının performansını artırmak üzere bellek içi destekleyen açık kaynaklı bir paralel işleme altyapısıdır işleme olduğu. Spark işleme altyapısı hız, kullanım kolaylığı ve Gelişmiş analiz için oluşturulmuştur. Spark'ın dağıtılmış bellek içi hesaplama özellikleri onu kullanılan makine öğrenimi ve grafik hesaplamalarında yinelemeli algoritmalar için iyi bir seçim haline getirir. [MLlib](http://spark.apache.org/mllib/) algoritmik getiren Spark'ın ölçeklenebilir makine öğrenimi kitaplığı modelleme dağıtılmış bu ortam özellikleri.
+[Spark](https://spark.apache.org/) büyük veri analizi uygulamalarının performansını artırmak üzere bellek içi destekleyen açık kaynaklı bir paralel işleme altyapısıdır işleme olduğu. Spark işleme altyapısı hız, kullanım kolaylığı ve Gelişmiş analiz için oluşturulmuştur. Spark'ın dağıtılmış bellek içi hesaplama özellikleri onu kullanılan makine öğrenimi ve grafik hesaplamalarında yinelemeli algoritmalar için iyi bir seçim haline getirir. [MLlib](https://spark.apache.org/mllib/) algoritmik getiren Spark'ın ölçeklenebilir makine öğrenimi kitaplığı modelleme dağıtılmış bu ortam özellikleri.
 
 ## <a name="hdinsight-spark"></a>HDInsight Spark
 [HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) Azure barındırılan açık kaynaklı Spark'ın bir tekliftir. İçin destek de içerir **Jupyter PySpark not defterleri** Spark kümesinde dönüştürme, filtreleme ve Azure BLOB'ları (WASB) içinde depolanan verileri görselleştiren Spark SQL etkileşimli sorguları çalıştırabilirsiniz. PySpark Spark için Python API'dir. Çözümler ve burada yüklü üzerinde Spark kümeleri Jupyter not defterlerini çalıştırmak verileri görselleştirmek için ilgili çizimleri Göster kod parçacıkları. Bu konu başlıklarındaki modelleme adımları eğitmek, değerlendirmek, kaydetme ve her bir türü modelin kullanma işlemi gösterilmektedir kodunu içerir.
@@ -49,19 +49,17 @@ Bu not defterlerini Jupyter notebook sunucusu pySpark3 Çekirdeği'nde çalışt
 
 > [!NOTE]
 > Havayolu veri kümesini sınıflandırma algoritmalarının kullanımını daha iyi anlamak için Spark 2.0 not defterleri için eklendi. Aşağıdaki bağlantıları kalkış veri kümesi ve hava durumu dataset zamanında Havayolu hakkında bilgi için bkz.
-
->- Havayolu zamanında kalkış verileri: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
-
->- Havaalanı hava durumu verileri: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
->
->
+> 
+> - Havayolu zamanında kalkış verileri: [https://www.transtats.bts.gov/ONTIME/](https://www.transtats.bts.gov/ONTIME/)
+> 
+> - Havaalanı hava durumu verileri: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/)
 
 <!-- -->
 
 <!-- -->
 
 > [!NOTE]
-Spark 2.0 not defterleri ile ilgili NYC taksi ve Havayolu uçuş gecikme veri kümeleri, 10 dakika veya (HDI kümenizin boyutuna bağlı olarak) çalıştırmak için daha fazla sürebilir. Yukarıdaki listede ilk not defterini veri keşfi, Görselleştirme ve ML model eğitiminin birçok yönden alt örneklenen NYC veri taksi ve taksi dosyalarını önceden birleştirilmiş silinmiş kümesi ile çalıştırmak için daha az zaman alan bir not defteri gösterir: [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb). Bu Not Defteri (2-3 dakika) tamamlanması daha kısa bir zaman alır ve iyi bir kolayca Spark 2.0 için sağladık Kodu Keşfetme noktası başlatılıyor olabilir.
+> Spark 2.0 not defterleri ile ilgili NYC taksi ve Havayolu uçuş gecikme veri kümeleri, 10 dakika veya (HDI kümenizin boyutuna bağlı olarak) çalıştırmak için daha fazla sürebilir. Yukarıdaki listede ilk not defterini veri keşfi, Görselleştirme ve ML model eğitiminin birçok yönden alt örneklenen NYC veri taksi ve taksi dosyalarını önceden birleştirilmiş silinmiş kümesi ile çalıştırmak için daha az zaman alan bir not defteri gösterir: [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb). Bu Not Defteri (2-3 dakika) tamamlanması daha kısa bir zaman alır ve iyi bir kolayca Spark 2.0 için sağladık Kodu Keşfetme noktası başlatılıyor olabilir.
 
 <!-- -->
 
@@ -94,7 +92,7 @@ Spark 1.6 için aşağıdaki yordamları ilgilidir. Spark 2.0 sürümüne için 
 NYC taksi seyahat verilerini yaklaşık 20 GB sıkıştırılmış virgülle ayrılmış değerler (CSV) dosyaları (~ 48 sıkıştırılmamış GB), her seyahat için ücretli 173 milyondan fazla bireysel gelişlerin ve fares. Her bir seyahat kayıt gönderildikten dropoff konumu ve zaman, anonimleştirilmiş hack (sürücü) lisans numarası ve medallion (taksi'nın benzersiz tanımlayıcı) numarasını içerir. Veriler tüm dönüş 2013 yılında kapsar ve aşağıdaki iki veri kümesi için her ay sağlanır:
 
 1. 'Trip_data' CSV dosyaları öğrenilip Yolcuların Sayısı gibi seyahat ayrıntıları içerir ve süresi ve seyahat uzunluğu dropoff işaret geçirmek. Birkaç örnek kayıt şunlardır:
-   
+
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-06 00:18:35,2013-01-06 00:22:54,1,259,1.50,-74.006683,40.731781,-73.994499,40.75066
@@ -102,7 +100,7 @@ NYC taksi seyahat verilerini yaklaşık 20 GB sıkıştırılmış virgülle ayr
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 2. 'Trip_fare' CSV dosyaları için ödeme türü, taksi tutar, ek ücret ve vergiler, ipuçları ve Ücretli geçişler, gibi her seyahat Ücretli taksi ve ödenen toplam tutarı ayrıntılarını içerir. Birkaç örnek kayıt şunlardır:
-   
+
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,2013-01-06 00:18:35,CSH,6,0.5,0.5,0,0,7

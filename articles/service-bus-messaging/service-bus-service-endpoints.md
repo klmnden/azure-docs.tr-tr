@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
-ms.openlocfilehash: c467c963a558f84a0a08887d3777dccf7cd8554d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234076"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843585"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Azure Service Bus ile sanal ağ hizmet uç noktaları kullanma
 
@@ -48,7 +48,7 @@ Sonuç, alt ağ ve ilgili Service Bus ad alanı, Mesajlaşma Hizmeti uç noktas�
 
 ## <a name="enable-service-endpoints-with-service-bus"></a>Hizmet uç noktaları ile Service Bus'ı etkinleştir
 
-Sanal ağ hizmet uç noktaları ile Service Bus kullanırken önemli bir konu, bu uç noktaları, standart ve Premium katman hizmet veri yolu ad alanı karıştırma uygulamalarda etkinleştirmemelisiniz ' dir. Standart katman sanal ağlar desteklemediğinden, uç nokta yalnızca Premium katmanı ad sınırlıdır. VNet standart ad alanı için trafiği engeller.
+Sanal ağ hizmet uç noktaları ile Service Bus kullanırken önemli bir konu, bu uç noktaları, standart ve Premium katman hizmet veri yolu ad alanı karıştırma uygulamalarda etkinleştirmemelisiniz ' dir. Standart katman sanal ağlar desteklemediğinden, uç nokta yalnızca Premium katmanı ad sınırlıdır.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet tümleştirmesi etkin Gelişmiş Güvenlik senaryoları 
 
@@ -79,11 +79,11 @@ Aşağıdaki Resource Manager şablonu var olan bir Service Bus ad alanı için 
 > Olası hiçbir Reddet kural varken, Azure Resource Manager şablonu ayarlanmış varsayılan eylem sahip **"İzin ver"** hangi bağlantıları kısıtlama yoktur.
 > Sanal ağ veya güvenlik duvarı kuralları yaparken, ki değiştirmeli ***"Defaultactıon"***
 > 
-> başlangıç
+> kaynak
 > ```json
 > "defaultAction": "Allow"
 > ```
-> -
+> Bitiş
 > ```json
 > "defaultAction": "Deny"
 > ```

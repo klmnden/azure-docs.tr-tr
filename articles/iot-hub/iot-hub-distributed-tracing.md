@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 0a2027e3ae0fb40058b5bdbfd212687697877076
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0553bd904cfaabaefce4e6ab3f7fbf5d356922d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875268"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100369"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Azure IOT cihaz-bulut iletileri dağıtılmış izleme (Önizleme) ile izleme
 
@@ -264,12 +264,12 @@ Log Analytics tarafından gösterildiği örnek günlükleri:
 
 Farklı günlük türlerini anlamak için bkz: [Azure IOT hub'ı tanılama günlükleri](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
 
-### <a name="application-map"></a>Uygulama Eşlemesi
+### <a name="application-map"></a>Uygulama Haritası
 
 IOT iletileri akışını görselleştirmek için Uygulama Haritası örnek uygulamasını ayarlayın. Örnek uygulama için Dağıtılmış izleme günlükleri gönderir [Uygulama Haritası](../application-insights/app-insights-app-map.md) bir Azure işlevi ve bir olay hub'ı kullanarak.
 
 > [!div class="button"]
-<a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Github üzerinde örnek edinin</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Github üzerinde örnek edinin</a>
 
 Bu aşağıdaki resimde, üç yönlendirme uç noktaları ile uygulama eşlemesinde dağıtılmış izleme gösterir:
 

@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 87573b74f34e0a503db8f543da1d78a3c5b170f6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 74b1f854cfca6a280f1da5c6bdeeae4deb112f9c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753241"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857394"
 ---
 # <a name="create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>Oluşturma ve C +'da Azure uzamsal bağlayıcılarını kullanarak yer işaretleri bulun +/ NDK
 
@@ -25,9 +25,11 @@ ms.locfileid: "56753241"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar arasında paylaşmak izin verin. İyi tercih ettiğiniz geliştirme ortamı ile çalışmak için ayarlanmıştır. Bu makalede, biz bunu yapmanın C +'da nasıl ele alacağız +/ NDK.
+Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar arasında paylaşmak izin verin. Bu, birkaç geliştirme ortamlarında destekler. Bu makalede, biz bunu yapmanın C +'da nasıl ele alacağız +/ NDK.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
+
+Daha fazla bilgi edinin [CloudSpatialAnchorSession](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession) yapısı.
 
 ```cpp
     std::shared_ptr<CloudSpatialAnchorSession> cloudSession_;
@@ -36,6 +38,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
+
+Daha fazla bilgi edinin [SessionConfiguration](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/sessionconfiguration) yapısı.
 
 ```cpp
     auto configuration = cloudSession_->Configuration();
@@ -51,8 +55,10 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
 
+Daha fazla bilgi edinin [TokenRequiredDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/tokenrequireddelegate) temsilci.
+
 ```cpp
-    auto accessTokenRequiredToken = cloudSession_->AccessTokenRequired([](auto&&, auto&& args) {
+    auto accessTokenRequiredToken = cloudSession_->TokenRequired([](auto&&, auto&& args) {
         args->AccessToken(R"(MyAccessToken)");
     });
 ```
@@ -98,6 +104,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
+Daha fazla bilgi edinin [Başlat](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#start) yöntemi.
+
 ```cpp
     cloudSession_->Session(ar_session_);
     cloudSession_->Start();
@@ -105,11 +113,15 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
+Daha fazla bilgi edinin [ProcessFrame](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#processframe) yöntemi.
+
 ```cpp
     cloudSession_->ProcessFrame(ar_frame_);
 ```
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
+
+Daha fazla bilgi edinin [SessionUpdatedDelegate](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/sessionupdateddelegate) temsilci.
 
 ```cpp
     auto sessionUpdatedToken = cloudSession_->SessionUpdated([this](auto&&, auto&& args) {
@@ -124,6 +136,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
+
+Daha fazla bilgi edinin [CloudSpatialAnchor](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor) yapısı.
 
 ```cpp
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
@@ -175,6 +189,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
+Daha fazla bilgi edinin [GetSessionStatusAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#getsessionstatusasync) yöntemi.
+
 ```cpp
     cloudSession_->GetSessionStatusAsync([this](Status status, const std::shared_ptr<SessionStatus>& value) {
         if (status != Status::OK) {
@@ -190,6 +206,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
+Daha fazla bilgi edinin [AppProperties](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#appproperties) yöntemi.
+
 ```cpp
     std::shared_ptr<CloudSpatialAnchor> cloudAnchor = std::make_shared<CloudSpatialAnchor>();
     cloudAnchor->LocalAnchor(localAnchor);
@@ -202,6 +220,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
+
+Daha fazla bilgi edinin [UpdateAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#updateanchorpropertiesasync) yöntemi.
 
 ```cpp
     std::shared_ptr<CloudSpatialAnchor> anchor = /* locate your anchor */;
@@ -217,6 +237,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
+
+Daha fazla bilgi edinin [GetAnchorPropertiesAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#getanchorpropertiesasync) yöntemi.
 
 ```cpp
     cloudSession_->GetAnchorPropertiesAsync(R"(anchorId)", [this](Status status, const std::shared_ptr<CloudSpatialAnchor>& anchor) {
@@ -238,6 +260,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
+Daha fazla bilgi edinin [sona erme](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchor#expiration) yöntemi.
+
 ```cpp
     std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
     std::chrono::system_clock::time_point oneWeekFromNow = now + std::chrono::hours(7 * 24);
@@ -247,6 +271,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
+Daha fazla bilgi edinin [CreateWatcher](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#createwatcher) yöntemi.
+
 ```cpp
     auto criteria = std::make_shared<AnchorLocateCriteria>();
     criteria->Identifiers({ R"(id1)", R"(id2)", R"(id3)" });
@@ -254,6 +280,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
+
+Daha fazla bilgi edinin [AnchorLocated](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/anchorlocateddelegate) temsilci.
 
 ```cpp
     auto anchorLocatedToken = cloudSession_->AnchorLocated([this](auto&&, auto&& args) {
@@ -281,6 +309,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
+Daha fazla bilgi edinin [DeleteAnchorAsync](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#deleteanchorasync) yöntemi.
+
 ```cpp
     cloudSession_->DeleteAnchorAsync(cloudAnchor, [this](Status status) {
         // Perform any processing you may want when delete finishes
@@ -289,11 +319,15 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
+Daha fazla bilgi edinin [Durdur](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#stop) yöntemi.
+
 ```cpp
     cloudSession_->Stop();
 ```
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
+
+Daha fazla bilgi edinin [sıfırlama](https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/cloudspatialanchorsession#reset) yöntemi.
 
 ```cpp
     cloudSession_->Reset();

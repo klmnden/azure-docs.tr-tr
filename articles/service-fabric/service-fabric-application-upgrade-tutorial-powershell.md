@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: e11ac55afe41231fcbc3aabb3ef54b46108eb49c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bbee63888e3edbd1e8395593ac34009bbe73e87e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185868"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880657"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell kullanarak Service Fabric uygulaması yükseltme
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ En sık kullanılan ve önerilen yükseltme izlenen sıralı yükseltmesini bir 
 
 Service Fabric izlenen sıralı yükseltmeler, uygulama Yöneticisi uygulama sağlıklı olup olmadığını belirlemek için Service Fabric kullanan sistem durumu değerlendirme ilkesi yapılandırabilirsiniz. Ayrıca, yönetici (Otomatik geri alma işlemi yaptığınızda örneğin.) sistem durumu değerlendirmesi başarısız olduğunda gerçekleştirilecek eylemi yapılandırabilir Bu bölümde bir PowerShell kullanan bir SDK örnekleri için izlenen bir yükseltme kılavuzluk eder. 
 
-## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>1. Adım: Derleme ve görsel nesneler örneği dağıtma
+## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>1. adım: Derleme ve görsel nesneler örneği dağıtma
 Derleme ve uygulamayı uygulama projesine sağ tıklayarak yayımlama **VisualObjectsApplication,** seçerek **Yayımla** komutu.  Daha fazla bilgi için [Service Fabric uygulaması yükseltme Öğreticisi](service-fabric-application-upgrade-tutorial.md).  Alternatif olarak, uygulamanızı dağıtmak için PowerShell kullanabilirsiniz.
 
 > [!NOTE]
@@ -48,7 +48,7 @@ Visual Studio projeyi oluşturduktan sonra PowerShell komutu kullanabilirsiniz [
 
 Şimdi, kullanabileceğiniz [Service Fabric Explorer'ı, küme ve uygulamayı görüntülemek için](service-fabric-visualizing-your-cluster.md). Uygulama bir web hizmeti için Internet Explorer'da yazarak gezinilebilir sahip [ http://localhost:8081/visualobjects ](http://localhost:8081/visualobjects) adres çubuğundaki.  Ekranda Dolaşma bazı kayan görsel nesneler görmeniz gerekir.  Ayrıca, kullanabileceğiniz [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) uygulama durumunu denetlemek için.
 
-## <a name="step-2-update-the-visual-objects-sample"></a>2. Adım: Görsel nesneler örnek güncelleştirme
+## <a name="step-2-update-the-visual-objects-sample"></a>2. adım: Görsel nesneler örnek güncelleştirme
 Adım 1'de dağıtılmış sürümle görsel nesneler değil döndürme fark edebilirsiniz. Şimdi bir görsel nesneler burada döndürmek için bu uygulamayı yükseltin.
 
 VisualObjects çözümünde VisualObjects.ActorService projeyi seçin ve StatefulVisualObjectActor.cs dosyasını açın. Bu dosyanın içindeki yöntemine gidin `MoveObject`, açıklama `this.State.Move()`ve açıklama durumundan çıkarın `this.State.Move(true)`. Hizmet yükseltildikten sonra bu değişiklik nesnesini döndürür.
@@ -59,7 +59,7 @@ Visual Studio kullanabileceğiniz *bildirim dosyaları düzenleme* bildirim dosy
 Değişiklikler yapıldıktan sonra bildirimin aşağıdakine benzer olması gerekir (vurgulanan bölümleri değişiklikleri göster):
 
 ```xml
-<ServiceManifestName="VisualObjects.ActorService" Version="2.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ServiceManifestName="VisualObjects.ActorService" Version="2.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
 
 <CodePackageName="Code" Version="2.0">
 ```
@@ -67,14 +67,14 @@ Değişiklikler yapıldıktan sonra bildirimin aşağıdakine benzer olması ger
 Artık *ApplicationManifest.xml* dosyası (altında bulunan **VisualObjects** altındaki proje **VisualObjects** çözüm) 2.0sürümünegüncellenir**VisualObjects.ActorService** proje. Ayrıca, uygulama sürümü için 2.0.0.0 1.0.0.0 ile güncelleştirilir. *ApplicationManifest.xml* aşağıdaki kod parçacığı gibi görünmelidir:
 
 ```xml
-<ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifestxmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
 
  <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```
 
 Artık, seçerek proje oluşturun. yalnızca **ActorService** proje ve ardından sağ tıklayıp **derleme** Visual Studio'da seçeneği. Seçerseniz **tümünü yeniden derle**, nedeniyle kod değişmiş tüm projelerde sürümleri güncelleştirmeniz gerekir. Sonra şimdi sağ tıklayarak güncelleştirilmiş uygulama paketini ***VisualObjectsApplication***, Service Fabric menüsünü seçip **paket**. Bu eylem, dağıtılabilir bir uygulama paketi oluşturur.  Güncelleştirilmiş uygulamanız dağıtılmaya hazırdır.
 
-## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>3. Adım:  Sistem durumu ilkeleri hakkında karar verin ve yükseltme parametreleri
+## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>3. adım:  Sistem durumu ilkeleri hakkında karar verin ve yükseltme parametreleri
 İle kendinizi alıştırın [uygulama yükseltme parametreleri](service-fabric-application-upgrade-parameters.md) ve [yükseltme işlemi](service-fabric-application-upgrade.md) çeşitli yükseltme parametreleri, zaman aşımları ve sistem durumu ölçütü uygulanan iyi bir anlayış edinmek için. Bu kılavuz için hizmet sistem durumu değerlendirme ölçütü Varsayılana Ayarla (ve önerilen) tüm hizmetlerin ve örnek gerektiği anlamına gelir değerleri *sağlıklı* yükseltmeden sonra.  
 
 Bununla birlikte, şimdi artırmak *HealthCheckStableDuration* 180 saniye (Hizmetleri sonraki güncelleştirme etki alanına yükseltmeye devam etmeden önce en az 120 saniye için iyi durumda olacak şekilde).  Ayrıca ayarlayalım *UpgradeDomainTimeout* 1200 saniye olacak şekilde ve *UpgradeTimeout* 3000 saniye olacak şekilde.

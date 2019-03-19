@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
-ms.openlocfilehash: f1d64170c3f9622169dd1218e4c63652c9f94b9b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: db8445ec2b3dd8bdefa661d7f186e720c6fada09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820680"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858886"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Uygulamanızı FTP/S kullanarak Azure App Service'e dağıtma
 
@@ -44,6 +44,14 @@ FTP Panoda tıklayın **kopyalama** FTPS uç noktası ve uygulama kimlik bilgile
 
 Kullanmanız önerilir **uygulama kimlik** her uygulama için benzersiz olduğundan, uygulamanıza dağıtılacak. Ancak, tıklarsanız **kullanıcı kimlik bilgilerini**, aboneliğinizdeki tüm App Service uygulamaları için FTP/S oturum açma için kullanabileceğiniz bir kullanıcı düzeyinde kimlik ayarlayabilirsiniz.
 
+> [!NOTE]
+> Kullanıcı düzeyinde kimlik requirers şu biçimde bir kullanıcı adı kullanarak bir FTP/FTPS uç nokta kimlik doğrulama işlemi: 
+>
+>`<app-name>\<user-name>`
+>
+> Kullanıcı düzeyinde kimlik, kullanıcı ve belirli bir kaynağa bağlı olduğundan, kullanıcı adı oturum açma eylemi doğru uygulama uç noktasına yönlendirmek için şu biçimde olmalıdır.
+>
+
 ## <a name="deploy-files-to-azure"></a>Dosyalar Azure'da dağıtma
 
 1. FTP istemcinizden (örneğin, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), veya [WinSCP](https://winscp.net/index.php)), uygulamanızı bağlamak için topladığınız bağlantı bilgilerini kullanın.
@@ -58,7 +66,6 @@ Kullanmanız önerilir **uygulama kimlik** her uygulama için benzersiz olduğun
 > - web.config nesil (burada bir [Node.js örnek](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
 > Bu gerekli dosyalar yerel makinenizde el ile oluşturun ve bunları birlikte uygulamanızın dağıtabilirsiniz.
->
 >
 
 ## <a name="enforce-ftps"></a>FTPS zorla
@@ -108,6 +115,6 @@ Azure App Service, hem etkin ve Pasif modu bağlanmayı destekler. (İşletim si
 
 Daha gelişmiş dağıtım senaryoları için deneyin [Git ile azure'a dağıtma](deploy-local-git.md). Git tabanlı azure'a dağıtım, sürüm denetimi, paket geri yükleme, MSBuild ve daha fazlasını sağlar.
 
-## <a name="more-resources"></a>Diğer kaynaklar
+## <a name="more-resources"></a>Daha fazla kaynak
 
 * [Azure App Service'e dağıtım kimlik bilgileri](deploy-configure-credentials.md)

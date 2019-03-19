@@ -8,18 +8,18 @@ ms.author: gwallace
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f742f6923b7d9f40a8752d77c7702e9b2ea2a4cf
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7932d057a348957d369ba325044055ac8dfe3428
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185877"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170199"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Ölçüm uyarıları ile runbook'ları izleme
 
 Bu makalede, runbook'ların tamamlanma durumu temelinde uyarılar oluşturma hakkında bilgi edinin.
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 https://portal.azure.com adresinden Azure'da oturum açın
 
@@ -36,6 +36,9 @@ Azure portalında, Otomasyon hesabınıza gidin. Altında **izleme**seçin **uya
 2. **Sinyal mantığını yapılandırma** sayfa, uyarıyı tetikleyen mantığını burada tanımlarsınız. İki boyutlarla sunulur geçmiş grafiğinin altında **Runbook adı** ve **durumu**. Sonuçları filtrelemek için kullanılan bir ölçüm için farklı özellikleri boyutlarıdır. İçin **Runbook adı**, uyarı veya uyarı tüm runbook'ları boş bırakın istediğiniz runbook'u seçin. İçin **durumu**, bir durum için izlemek istediğiniz açılır listeden seçin. Açılan menüde görüntülenen runbook adını ve durumunu geçen hafta içinde çalışan sahip işler için değerler.
 
    Bir durum veya açılır listede gösterilmeyen runbook uyarı isterseniz **\+** boyut yanında. Bu eylem, o boyut için yakın zamanda yayılan edilmemiş bir özel değer girin olanak tanıyan bir iletişim kutusu açılır. Bir özellik için mevcut olmayan bir değer girerseniz, uyarıyı tetikleyen olmaz.
+
+   > [!NOTE]
+   > İçin bir ad uygulamazsanız **RunbookName** boyut, gizli bir sistem runbook'ları içeren durumu ölçütlerini karşılayan tüm runbook'ları varsa, bir uyarı alırsınız.
 
 3. Altında **uyarı mantığı**, koşul ve, uyarı için eşiğin tanımlayın. Koşulunuzu tanımlanan önizlemesini altında gösterilir.
 

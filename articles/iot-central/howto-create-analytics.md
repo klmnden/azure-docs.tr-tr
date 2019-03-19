@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 19dbddc635041d0e5cf617cbe20713abc07cefaf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 05915e2059e45c002a9dfa71a538ed6391caa157
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775756"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078338"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Cihazınızın verileri analiz etmek için Analytics kullanma
 
@@ -30,7 +30,7 @@ Seçmeniz gerekir bir **cihaz kümesi**, ekleme bir **filtre** (isteğe bağlı)
 * **Filtreler:** İsteğe bağlı olarak, verileriniz üzerinde geliştirmeniz için arama filtreleri ekleyebilirsiniz. Aynı anda en fazla 10 filtreleri ekleyebilirsiniz. Örneğin, sıcaklık çalıştırılmış olan 60 derecenin Git Oakland içindeki tüm Refrigerators içinde bulun.
 * **Zaman aralığı:** Varsayılan olarak veri son 10 dakika ile alıyoruz. Önceden tanımlanmış saat aralıklardan biri için bu değeri değiştirin veya bir özel zaman aralığı seçin.
 
- ![Analiz sorgusu](media/howto-create-analytics/analytics-query.png)
+  ![Analiz sorgusu](media/howto-create-analytics/analytics-query.png)
 
 ## <a name="visualizing-your-data"></a>Verilerinizi Görselleştirme
 
@@ -51,7 +51,7 @@ Sorgu sonuçlarını görselleştirme gereksinimlerinizi karşılayacak şekilde
 * **Kılavuzu Göster:** Sonuçlarınız, tablo biçiminde, böylece her veri noktası için belirli bir değeri görüntülemek kullanılabilir. Bu görünüm, ayrıca erişilebilirlik standartlarını karşılar.
 * **Grafiğin göster:** Sonuçlarınızı yukarı tanımlamanıza yardımcı olması için bir satır biçimi veya aşağı eğilimleri ve anormallikleri görüntülenir.
 
- ![Analiz için kılavuz görünümü gösteriliyor](media/howto-create-analytics/analytics-showgrid.png)
+  ![Analiz için kılavuz görünümü gösteriliyor](media/howto-create-analytics/analytics-showgrid.png)
 
 Yakınlaştırma, verileriniz üzerinde giriş sayfasında olanak tanır. Odaklanmak için sonuç kümesinde istediğiniz bir zaman dönemi bulursanız, imlecinizi yakınlaştırmak ve aşağıdaki eylemlerden birini gerçekleştirmek için kullanılabilir denetimleri kullanmak istediğiniz alanı almak için kullanın:
 
@@ -59,7 +59,7 @@ Yakınlaştırma, verileriniz üzerinde giriş sayfasında olanak tanır. Odakla
 * **Uzaklaştır:** Bu denetim, yakınlaştırma, son yakınlaştırma bir düzeyi sağlar. Yakınlaştırma belirttiyseniz, verilerinizi üç kez gerçekleştirilen işlemlerin uzaklaştırma'için bir adım teker teker tekrar açın.
 * **Yakınlaştırma sıfırlanması:** Yakınlaştırma düzeyleri çeşitli gerçekleştirdiğiniz sonra özgün Sonuç kümenizi döndürülecek yakınlaştırma sıfırlama denetimini kullanabilirsiniz.
 
- ![Verileriniz üzerinde yakınlaştırma gerçekleştirin](media/howto-create-analytics/analytics-zoom.png)
+  ![Verileriniz üzerinde yakınlaştırma gerçekleştirin](media/howto-create-analytics/analytics-zoom.png)
 
 Çizgi stili gereksinimlerinizi karşılayacak şekilde değiştirebilirsiniz. Dört seçeneğiniz vardır:
 
@@ -68,7 +68,7 @@ Yakınlaştırma, verileriniz üzerinde giriş sayfasında olanak tanır. Odakla
 * **Adım:** Satır grafikteki her nokta arasında bir adımdır.
 * **Dağılım:** Tüm noktaları grafikteki satırları bağlamayı çizilir.
 
- ![Farklı satır türleri Analytics'te kullanılabilir](media/howto-create-analytics/analytics-linetypes.png)
+  ![Farklı satır türleri Analytics'te kullanılabilir](media/howto-create-analytics/analytics-linetypes.png)
 
 Son olarak, üç moddan birini seçerek y ekseni verilerinizi düzenleyebilirsiniz:
 
@@ -76,7 +76,7 @@ Son olarak, üç moddan birini seçerek y ekseni verilerinizi düzenleyebilirsin
 * **Yığılmamış:** Her ölçü için bir grafik karşı bir y ekseni çizilme ancak y değerlerini vurgulanan ölçü göre değişir. Yığılmamış grafikleri, birden çok ölçü kaplama ve aynı zaman aralığı için bu ölçümleri arasında desenleri görmek istediğinizde yararlıdır.
 * **Y ekseni paylaşılan:** Tüm grafikleri aynı y ekseni paylaşın ve eksen için değerleri değiştirmeyin. Paylaşılan y ekseni grafikleri, bölünmüş tarafından verileri dilimleme sırasında tek bir ölçü aramak istediğinizde kullanışlıdır.
 
- ![Verilerinizi farklı görselleştirme modları y ekseni düzenleyin](media/howto-create-analytics/analytics-yaxis.png)
+  ![Verilerinizi farklı görselleştirme modları y ekseni düzenleyin](media/howto-create-analytics/analytics-yaxis.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

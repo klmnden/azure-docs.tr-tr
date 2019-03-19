@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8225f5a093724c00dcc336d5dc2195f4addc998b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f0972e840fab3c624616ba8aa70bae74be5b1dc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237833"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090483"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Hızlı Başlangıç: ASP.NET web uygulaması oluşturma 
 
@@ -74,9 +74,9 @@ Daha sonra, uygulama için önbellek oluşturursunuz.
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>*CacheSecrets.config* dosyasını düzenlemek için
 
-3. Bilgisayarınızda *CacheSecrets.config* adlı bir dosya oluşturun. Bu dosyayı örnek uygulamanızın kaynak koduyla iade edilmeyecek bir konuma yerleştirin. Bu hızlı başlangıç için *CacheSecrets.config* dosyası şu konumda bulunur: *C:\AppSecrets\CacheSecrets.config*.
+1. Bilgisayarınızda *CacheSecrets.config* adlı bir dosya oluşturun. Bu dosyayı örnek uygulamanızın kaynak koduyla iade edilmeyecek bir konuma yerleştirin. Bu hızlı başlangıç için *CacheSecrets.config* dosyası şu konumda bulunur: *C:\AppSecrets\CacheSecrets.config*.
 
-4. *CacheSecrets.config* dosyasını düzenleyin. Ardından aşağıdaki içeriği ekleyin:
+1. *CacheSecrets.config* dosyasını düzenleyin. Ardından aşağıdaki içeriği ekleyin:
 
     ```xml
     <appSettings>
@@ -84,14 +84,14 @@ Daha sonra, uygulama için önbellek oluşturursunuz.
     </appSettings>
     ```
 
-5. `<cache-name>` adını, önbellek ana bilgisayar adınızla değiştirin.
+1. `<cache-name>` adını, önbellek ana bilgisayar adınızla değiştirin.
 
-6. `<access-key>` adını, önbelleğinizin birincil anahtarıyla değiştirin.
+1. `<access-key>` adını, önbelleğinizin birincil anahtarıyla değiştirin.
 
     > [!TIP]
     > Birincil erişim anahtarını yeniden oluştururken anahtar döndürme sırasında alternatif anahtar olarak ikincil erişim anahtarını kullanabilirsiniz.
->
-7. Dosyayı kaydedin.
+   >
+1. Dosyayı kaydedin.
 
 ## <a name="update-the-mvc-application"></a>MVC uygulamasını güncelleştirme
 

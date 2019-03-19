@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 840a74894e7dfacbb6b236cce4012beeb62689fb
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: cb82c3112634163328e08b330083f5b4942798ab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731935"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880984"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Öğretici: Communifire ile Azure Active Directory Tümleştirme
 
@@ -130,7 +130,7 @@ Azure AD çoklu oturum açma ile Communifire yapılandırmak için aşağıdaki 
 
     a. Seçin **oturum SAML yanıtını ve onayını** gelen **imzalama seçeneği**.
     
-    b. **Kaydet**’e tıklayın
+    b. **Kaydet**'e tıklayın.
 
     ![Communifire imzalama seçeneği](./media/communifire-tutorial/tutorial-communifire-signing-option.png)
  
@@ -166,7 +166,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

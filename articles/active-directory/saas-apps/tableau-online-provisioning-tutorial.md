@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6ed8bae32cb8d0680b1f9aa66f26407c3313ea06
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194878"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077828"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Öğretici: Tableau çevrimiçi yapılandırmak için otomatik kullanıcı hazırlama
 
@@ -106,13 +106,13 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılara ve/veya Tableau i
 
 5. Altında **yönetici kimlik bilgileri** giriş bölümünde **etki alanı**, **yönetici kullanıcı adı**, **yönetici parolası**, ve **içerik URL** Tableau Online hesabınızın:
 
-    *   İçinde **etki alanı** alanında, adım 6'da temel bir alt etki alanı doldurun.
+   * İçinde **etki alanı** alanında, adım 6'da temel bir alt etki alanı doldurun.
 
-    *   İçinde **yönetici kullanıcı adı** alan, Clarizen kiracınıza yönetici hesabının kullanıcı adını doldurun. Örnek: admin@contoso.com.
+   * İçinde **yönetici kullanıcı adı** alan, Clarizen kiracınıza yönetici hesabının kullanıcı adını doldurun. Örnek: admin@contoso.com.
 
-    *   İçinde **yönetici parolası** alan, yönetici kullanıcı adı için karşılık gelen yönetici hesabının parolasını doldurun.
+   * İçinde **yönetici parolası** alan, yönetici kullanıcı adı için karşılık gelen yönetici hesabının parolasını doldurun.
 
-    *   İçinde **içerik URL'si** alanında, adım 6'da temel bir alt etki alanı doldurun.
+   * İçinde **içerik URL'si** alanında, adım 6'da temel bir alt etki alanı doldurun.
 
 6. Çevrimiçi Tableau değerlerini yönetici hesabınızda oturum açtıktan sonra **etki alanı** ve **içerik URL'si** yönetici sayfasına URL'den ayıklanabilir.
 

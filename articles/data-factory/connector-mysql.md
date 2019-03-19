@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 1bc2277b4100fe7571dc27758de12f1ca00020a1
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: e05e2f2d04aeb572307f8114ca80f148b3d50e3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656524"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124040"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>MySQL Azure Data Factory kullanarak verileri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +57,7 @@ MySQL bağlı hizmeti için aşağıdaki özellikleri destekler:
 Bir bağlantı dizesi olan `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Daha fazla özellik durumunuz ayarlayabilirsiniz:
 
 | Özellik | Açıklama | Seçenekler | Gerekli |
-|:--- |:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |:--- |
 | SSLMode | Bu seçenek sürücü SSL şifreleme ve doğrulama Mysql'e bağlanırken kullanıp kullanmayacağını belirtir. Örneğin `SSLMode=<0/1/2/3/4>`| Devre dışı (0) / tercih edilen (1) **(varsayılan)** / gerekli (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Hayır |
 | useSystemTrustStore | Bu seçenek, bir CA sertifikası sistem güven deposu veya belirtilen bir PEM dosyası kullanılıp kullanılmayacağını belirtir. Örneğin `UseSystemTrustStore=<0/1>;`| (1) etkin / devre dışı (0) **(varsayılan)** | Hayır |
 

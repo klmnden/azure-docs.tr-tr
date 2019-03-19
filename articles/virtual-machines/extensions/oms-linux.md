@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/30/2018
+ms.date: 03/12/2019
 ms.author: roiyz
-ms.openlocfilehash: a004182371299e98933d0469e9c85313b29ede3e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 538eb492829c8ad171d1d27b51405725f53f352a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853231"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Linux için Azure İzleyici sanal makine uzantısı
 
@@ -58,6 +58,7 @@ Aşağıdaki tabloda, her sürüm için Log Analytics aracısını paketi ve Azu
 
 | Azure İzleyici Linux VM uzantısı sürümü | Log Analytics aracısını Paket sürümü | 
 |--------------------------------|--------------------------|
+| 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
 | 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 
 | 1.7.9 | [1.6.1-3](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.1.3)| 

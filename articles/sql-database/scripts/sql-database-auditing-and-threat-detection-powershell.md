@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: 525de37ba1765ecc98d1b0d09362e0e5377967ff
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: d206d3f95f28fe058e836c3d0abbf0f270329657
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575792"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857326"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>PowerShell kullanarak SQL Veritabanı denetim ve tehdit algılamasını yapılandırma
 
@@ -45,13 +45,13 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
-| Komut | Notlar |
+| Komut | Notes |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Tek veritabanı veya elastik havuz barındıran bir SQL veritabanı sunucusu oluşturur. |
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Tek veritabanı veya elastik havuz oluşturur. |
 | [Yeni AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Bir Depolama hesabı oluşturur. |
-| [Set-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/set-azsqldatabaseauditingpolicy) | Bir veritabanı için denetim ilkesini ayarlar. |
+| [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing) | Bir veritabanı için denetim ilkesini ayarlar. |
 | [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | Bir veritabanında tehdit algılama ilkesi ayarlar. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 |||

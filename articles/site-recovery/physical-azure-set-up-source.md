@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2e5b90f36a6dc5c88db3f6f449c911d22de680b1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e9bf06ba058078fc5012410bdd75ef90ff6c93d4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976809"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899018"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Fiziksel sunucuları azure'a olağanüstü durum kurtarması için yapılandırma sunucusunu ayarlama
 
@@ -22,7 +22,7 @@ Bu makalede, Azure'da Windows veya Linux çalıştıran fiziksel sunucuları ço
 ## <a name="prerequisites"></a>Önkoşullar
 
 Sahip olduğunuz varsayılır:
-- Bir kurtarma Hizmetleri kasası [Azure portalında](http://portal.azure.com "Azure portalında").
+- Bir kurtarma Hizmetleri kasası [Azure portalında](https://portal.azure.com "Azure portalında").
 - Yapılandırma sunucusunu yüklemek için fiziksel bir bilgisayar.
 - Yapılandırma sunucusunu yüklemekte makinede TLS 1.0 devre dışı bıraktık, TLs 1.2 etkin olduğundan ve .NET Framework 4.6 veya üzeri bir sürüm (devre dışı güçlü şifreleme ile) makinede yüklü emin olun. [Daha fazla bilgi edinin](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
@@ -47,10 +47,10 @@ Aşağıdaki tabloda, en düşük donanım, yazılım ve yapılandırma sunucusu
 
 1. İçinde **kaynağı hazırla**,'a tıklayın, bir yapılandırma sunucusu yoksa, **+ yapılandırma sunucusu** eklemek için.
 
-  ![Kaynağı ayarlama](./media/physical-azure-set-up-source/plus-config-srv.png)
+   ![Kaynağı ayarlama](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. İçinde **Sunucusu Ekle** dikey penceresinde bu maddeyi **yapılandırma sunucusu** görünür **sunucu türü**.
 4. Site Recovery birleşik Kurulumu yükleme dosyasını indirin.
-5. Kasa kayıt anahtarını indirin. Birleşik Kurulum'u çalıştırdığınızda, kayıt anahtarı gerekir. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
+5. Kasa kayıt anahtarını indir Birleşik Kurulum'u çalıştırdığınızda, kayıt anahtarı gerekir. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
 
     ![Kaynağı ayarlama](./media/physical-azure-set-up-source/set-source2.png)
 6. Yapılandırma sunucusu olarak kullandığınız makinede çalıştırma **Azure Site Recovery birleşik Kurulumu** yapılandırma sunucusu, işlem sunucusu ve ana hedef sunucusu yüklemek için.
@@ -66,7 +66,7 @@ Aşağıdaki tabloda, en düşük donanım, yazılım ve yapılandırma sunucusu
 > Yapılandırma sunucusu, bir komut satırı yüklenebilir. [Daha fazla bilgi edinin](physical-manage-configuration-server.md#install-from-the-command-line).
 
 
-## <a name="common-issues"></a>Genel sorunlar
+## <a name="common-issues"></a>Sık karşılaşılan sorunlar
 
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 3938dece92ed133d268fceda746cbe05305e15ae
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 388a0419d5de87c3eb7faff9b556f888e52ac12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449504"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117379"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Makine bağımlılık eşlemesi kullanan Grup makineleri
 
@@ -89,7 +89,7 @@ Bağımlılık Aracısı desteği hakkında daha fazla bilgi [Windows](../azure-
 [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) bağımlılık Aracısı'nı yüklemek için komut dosyalarını nasıl kullanabileceğiniz hakkında.
 
 
-## <a name="create-a-group"></a>Grup oluşturma
+## <a name="create-a-group"></a>Grup oluştur
 
 1. Aracıları yükledikten sonra portal ve tıklayın Git **Yönet** > **makineler**.
 2. Aracıların yüklü olduğu makinenin arayın.
@@ -105,8 +105,8 @@ Bağımlılık Aracısı desteği hakkında daha fazla bilgi [Windows](../azure-
 
 4. Zaman aralığı etikette süre tıklayarak için farklı süreler sırasında bağımlılıkları bakabilirsiniz. Varsayılan olarak aralığı bir saattir. Zaman aralığı değiştirmek veya başlangıç ve bitiş tarihlerini ve süresini belirtin.
 
-    > [!NOTE]
-      Şu anda, bağımlılık görselleştirmesi UI bir saatten uzun bir zaman aralığı seçimini desteklemez. Azure İzleyicisi'ni oturumu [bağımlılık verileri sorgulamak](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) üzerinden uzun bir süre.
+   > [!NOTE]
+   >    Şu anda, bağımlılık görselleştirmesi UI bir saatten uzun bir zaman aralığı seçimini desteklemez. Azure İzleyicisi'ni oturumu [bağımlılık verileri sorgulamak](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) üzerinden uzun bir süre.
 
 5. Gruplamak istediğiniz bağımlı makineler tanımladıktan sonra harita üzerinde birden çok makine seçin ve Ctrl + tıklama kullanın **Grup makineleri**.
 6. Bir grup adı belirtin. Bağımlı makinelere Azure geçişi tarafından bulunduğundan emin olun.

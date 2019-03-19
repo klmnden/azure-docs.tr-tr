@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: e4bc5de9345bcb65f82ca7ac0095b3e0fd3907e9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: aefbe4265cb97a003b908c5631e1f9ed4e0192cc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166007"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102137"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Azure Data Box Gateway bant genişliği zamanlamalarını yönetmek için Azure portalı kullanma  
 
@@ -43,13 +43,13 @@ Kullanıcı eklemek için Azure portalda aşağıdaki adımları gerçekleştiri
 
 3. **Zamanlama ekle** sayfasında: 
 
-    1. Zamanlamanın **Başlangıç günü**, **Bitiş günü**, **Başlangıç saati** ve **Bitiş saati** değerlerini belirleyin. 
-    2. Zamanlama gün boyu çalışıyorsa **Tüm gün** seçeneğini işaretleyebilirsiniz. 
-    3. **Bant genişliği hızı**, cihazınızda gerçekleştirilen bulutla ilgili işlemler (yükleme ve indirme) için kullanılan bant genişliğidir ve saniye başına megabit (Mb/sn) cinsinden ölçülür. Bu alana 1 ile 1000 arasında bir sayı girin. 
-    4. Veri yükleme ve indirme işlemlerini kısıtlamak istemiyorsanız **Sınırsız** bant genişliğini seçin. 
-    5. **Ekle**'ye tıklayın.
+   1. Zamanlamanın **Başlangıç günü**, **Bitiş günü**, **Başlangıç saati** ve **Bitiş saati** değerlerini belirleyin. 
+   2. Zamanlama gün boyu çalışıyorsa **Tüm gün** seçeneğini işaretleyebilirsiniz. 
+   3. **Bant genişliği hızı**, cihazınızda gerçekleştirilen bulutla ilgili işlemler (yükleme ve indirme) için kullanılan bant genişliğidir ve saniye başına megabit (Mb/sn) cinsinden ölçülür. Bu alana 1 ile 1000 arasında bir sayı girin. 
+   4. Veri yükleme ve indirme işlemlerini kısıtlamak istemiyorsanız **Sınırsız** bant genişliğini seçin. 
+   5. **Ekle**'yi tıklatın.
 
-    ![Kullanıcı ekle'ye tıklayın](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
+      ![Kullanıcı ekle'ye tıklayın](media/data-box-gateway-manage-bandwidth-schedules/add-schedule-2.png)
 
 3. Belirtilen parametrelerle bir zamanlama oluşturulur. Bu zamanlama daha sonra portaldaki bant genişliği zamanlamaları listesinde görüntülenir.
 

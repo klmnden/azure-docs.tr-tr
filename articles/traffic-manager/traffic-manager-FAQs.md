@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 4d47192ea69047b0b12deffc41776a87c16ca6ab
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c26117bf298d5fe7fd8a14e0aa2b14834e412328
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959757"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009935"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager'ın sık sorulan sorular (SSS)
 
@@ -340,6 +340,7 @@ Hayır, Traffic Manager uç nokta adresi türleri burada IPv4 karıştırabilirs
 Bir profili karşı bir sorgu alındığında, Traffic Manager belirtilen yönlendirme yöntemine göre döndürülmesi gereken uç nokta ve sistem durumu uç nokta ilk bulur. Ardından gelen sorguyu istenen kayıt türüne ve tabloyu temel alan bir yanıt döndürmeden önce uç noktası ile ilişkili kayıt türünün görünüyor.
 
 Çoklu değer dışında herhangi bir yönlendirme yöntemi olan profiller için:
+
 |Gelen sorgu isteği|    Uç noktası türü|  Sağlanan yanıt|
 |--|--|--|
 |TÜM |  A / AAAA / CNAME |  Hedef uç noktası| 
@@ -350,6 +351,7 @@ Bir profili karşı bir sorgu alındığında, Traffic Manager belirtilen yönle
 |CNAME |    CNAME | Hedef uç noktası|
 |CNAME  |A / AAAA | NODATA |
 |
+
 Yönlendirme yöntemi olan profiller için birden çok değerli ayarlamak için:
 
 |Gelen sorgu isteği|    Uç noktası türü | Sağlanan yanıt|
@@ -447,7 +449,7 @@ Traffic Manager ad sunucularıyla profil hiyerarşisindeki her DNS sorgusu işle
 
 Aşağıdaki tabloda iç içe uç noktası için durum denetimleri Traffic Manager davranışı açıklanmaktadır.
 
-| Alt profil İzleyicisi durumu | Üst uç noktası İzleyicisi durumu | Notlar |
+| Alt profil İzleyicisi durumu | Üst uç noktası İzleyicisi durumu | Notes |
 | --- | --- | --- |
 | Devre dışı. Alt profili devre dışı bırakıldı. |Durduruldu |Üst uç nokta durumu durduruldu, devre dışı. Devre dışı durumunu belirten üst profilde uç noktayı devre dışı bıraktığınız ayrılmıştır. |
 | Düzeyi düşürülmüş. En az bir alt profili bitiş noktasına Degraded durumda. |Çevrimiçi: alt profildeki çevrimiçi uç noktaların sayısını en az MinChildEndpoints değeridir.<BR>CheckingEndpoint: alt profildeki çevrimiçi artı CheckingEndpoint uç noktaların sayısını en az MinChildEndpoints değeridir.<BR>Düzeyi düşürülmüş: Aksi takdirde. |Trafiği bir uç noktaya durumu CheckingEndpoint yönlendirilir. MinChildEndpoints çok yüksek olarak ayarlanırsa, uç nokta her zaman düşer. |

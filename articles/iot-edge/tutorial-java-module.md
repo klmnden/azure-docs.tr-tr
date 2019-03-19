@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 9abdbd232b7f346aae9ee5fbe93d23afa4aaf32c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 874e9760acdfeb72aa0d3c0253509210e711c4e9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562377"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111829"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Öğretici: Bir Java IOT Edge modülü geliştirme ve sanal Cihazınızı dağıtma
 
@@ -70,7 +70,7 @@ Kapsayıcı kayıt defteri zaten yoksa, azure'da yeni bir tane oluşturmak için
    | ----- | ----- |
    | Kayıt defteri adı | Benzersiz bir ad girin. |
    | Abonelik | Açılan listeden bir abonelik seçin. |
-   | Kaynak grubu | Daha kolay yönetim için tüm IOT Edge hızlı başlangıçlar ve öğreticilerle sırasında oluşturduğunuz test kaynakları için aynı kaynak grubunu kullanın. Örneğin, **IoTEdgeResources**. |
+   | Kaynak grup | Daha kolay yönetim için tüm IOT Edge hızlı başlangıçlar ve öğreticilerle sırasında oluşturduğunuz test kaynakları için aynı kaynak grubunu kullanın. Örneğin, **IoTEdgeResources**. |
    | Konum | Size yakın bir konum seçin. |
    | Yönetici kullanıcı | **Etkinleştir**'i seçin. |
    | SKU | **Temel**'i seçin. | 
@@ -233,11 +233,11 @@ Ortam dosyası, kapsayıcı kayıt defterinizin kimlik bilgilerini depolar ve bu
 13. Dağıtım bildirimine **JavaModule** modül ikizini ekleyin. Aşağıdaki JSON içeriğini **moduleContent** bölümünün en altına, **$edgeHub** modül ikizinin arkasına ekleyin: 
 
    ```json
-       "JavaModule": {
-           "properties.desired":{
-               "TemperatureThreshold":25
-           }
-       }
+      "JavaModule": {
+          "properties.desired":{
+              "TemperatureThreshold":25
+          }
+      }
    ```
 
    ![Modül ikizi için dağıtım şablonu Ekle](./media/tutorial-java-module/module-twin.png)

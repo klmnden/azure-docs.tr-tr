@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 718a519786f31d796b0cb2e3924c9361ebd65fbc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a942f91dfa03eea2d9dc14b4b44e2ef5ee57c1ba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433255"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078644"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Azure Cosmos DB SQL API hesabı (SDK sürüm 3 Önizleme) verileri yönetmek için bir .NET konsol uygulaması oluşturma
 
@@ -52,7 +52,7 @@ Zamanınız yok mu? Endişelenmeyin! Eksiksiz çözümü [GitHub](https://github
 
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>1. Adım: Azure Cosmos DB hesabı oluşturma
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>1. adım: Azure Cosmos DB hesabı oluşturun
 Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten varsa [Visual Studio Çözümünüzü Kurma](#SetupVS)'ya atlayabilirsiniz. Azure Cosmos DB öykünücüsü'nü kullanıyorsanız, bu adımları izleyin [Azure Cosmos DB öykünücüsü'nü](local-emulator.md) öykünücünün kurulumunu ve atlayın [Kurulum, Visual Studio projesi](#SetupVS).
 
 [!INCLUDE [create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount-preview.md)]
@@ -173,7 +173,7 @@ Harika! Kurulumu tamamladığımıza göre, biraz kod yazmaya başlayalım. Bu �
 
 Tebrikler! Bir Azure Cosmos DB hesabına başarıyla bağlandınız. 
 
-## <a name="step-4-create-a-database"></a>4. Adım: Veritabanı oluşturma
+## <a name="step-4-create-a-database"></a>4. Adım: Veritabanı oluştur
 Bir veritabanını kullanarak oluşturulabilir [ **Createdatabaseasync** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) veya [ **Documentclient** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) işlevi ``CosmosDatabases`` sınıfı. Veritabanı, kapsayıcılar genelinde bölümlenmiş öğelerin mantıksal bir kapsayıcısıdır.
     
 1. Kopyalama ve yapıştırma **CreateDatabase** yöntemi aşağıdaki, **GetStartedDemoAsync** yöntemi. **CreateDatabase** kimliğine sahip yeni bir veritabanı oluşturur ``FamilyDatabase`` , zaten, öğesinden belirtilen kimliğe sahip yoksa ``databaseId`` alan. 
@@ -321,7 +321,7 @@ Bir kapsayıcı kullanarak oluşturulabilir [ **CreateContainerIfNotExistsAsync*
         await this.CreateContainer();
     }
     ```
-Seçin **F5** uygulamanızı çalıştırmak için.
+   Seçin **F5** uygulamanızı çalıştırmak için.
 
 Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB kapsayıcısı oluşturdunuz.  
 
@@ -599,7 +599,7 @@ Tebrikler! Bir Azure Cosmos DB kapsayıcısı karşı başarıyla sorguladınız
         await this.ReplaceFamilyItem();
     }
     ```
-Seçin **F5** uygulamanızı çalıştırmak için.
+   Seçin **F5** uygulamanızı çalıştırmak için.
 
 Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB öğesini değiştirdiniz.
 

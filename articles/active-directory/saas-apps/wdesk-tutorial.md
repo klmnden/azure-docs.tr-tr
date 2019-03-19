@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff88f25d4bf7fea09ea07673326e068840243b98
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 75d0e962169529ab8d17aeeeed8aab26e7b7e994
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176586"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Öğretici: Wdesk ile Azure Active Directory Tümleştirme
 
@@ -219,7 +219,7 @@ Wdesk için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bu
    
     ![Bir Azure AD test kullanıcısı oluşturma](./media/wdesk-tutorial/createuser1.png)  
 
-1. İçinde **kullanıcı** metin kutusunda, gibi kullanıcının kullanıcı adı girin **brittasimon@contoso.com** tıklatıp **devam** düğmesi.
+1. İçinde **kullanıcı** metin kutusunda, gibi kullanıcının kullanıcı adı girin **brittasimon\@contoso.com** tıklatıp **devam** düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/wdesk-tutorial/createuser3.png)
 
@@ -227,7 +227,7 @@ Wdesk için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bu
   
     ![Bir Azure AD test kullanıcısı oluşturma](./media/wdesk-tutorial/createuser4.png)
  
-    a. İçinde **e-posta** metin kutusuna, kullanıcının gibi e-posta girin **brittasimon@contoso.com**.
+    a. İçinde **e-posta** metin kutusuna, kullanıcının gibi e-posta girin **brittasimon\@contoso.com**.
 
     b. İçinde **ad** metin kutusunda, gibi kullanıcı adını girin **Britta**.
 

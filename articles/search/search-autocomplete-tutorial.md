@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: de48f3129beba31f80f5bd4d0c131b28f2b1c91a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: 4b66e5201de2c01aaf6a579d3b71b085dd14b1b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997175"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900905"
 ---
 # <a name="tutorial-add-autocomplete-to-your-search-box-using-azure-search"></a>Öğretici: Azure arama'yı kullanarak, arama kutusu otomatik tamamlama Ekle
 
@@ -35,7 +35,7 @@ Aşağıdaki görevleri gerçekleştireceksiniz:
 > * Uygulama ayarlarına arama hizmeti bilgilerini ekleme
 > * Arama giriş kutusu ekleme
 > * Bir uzak kaynaktan çeken bir otomatik tamamlama listesi için destek eklendi 
-> * Öneriler ve otomatik tamamlama .net SDK'sını ve REST API kullanarak alma
+> * Öneriler ve otomatik tamamlama .NET SDK'sını ve REST API kullanarak alma
 > * Performansı iyileştirmek için istemci tarafında önbelleğe almayı destekleme 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -44,7 +44,7 @@ Aşağıdaki görevleri gerçekleştireceksiniz:
 
 * Öğretici için örnek [kaynak kodunu](https://github.com/azure-samples/search-dotnet-getting-started) indirin.
 
-* (İsteğe bağlı) Etkin Azure hesabı ve Azure Search hizmeti. Azure hesabınız yoksa [ücretsiz denemeye](https://azure.microsoft.com/free/) kaydolabilirsiniz. Hizmeti sağlama konusunda yardım almak için bkz. [Arama hizmeti oluşturma](search-create-service-portal.md). Bu öğretici farklı bir örnek için oluşturulmuş olan barındırılmış NYCJobs dizini kullanılarak tamamlanabileceğinden hesap ve hizmet oluşturma adımları isteğe bağlıdır.
+* (İsteğe bağlı) Etkin Azure hesabı ve Azure Search hizmeti. Azure hesabınız yoksa, oturum açabileceğiniz bir [ücretsiz deneme sürümü](https://azure.microsoft.com/free/). Hizmeti sağlama konusunda yardım almak için bkz. [Arama hizmeti oluşturma](search-create-service-portal.md). Bu öğretici farklı bir örnek için oluşturulmuş olan barındırılmış NYCJobs dizini kullanılarak tamamlanabileceğinden hesap ve hizmet oluşturma adımları isteğe bağlıdır.
 
 * (İsteğe bağlı) NYCJobs verilerini kendi Azure Search hizmetinizdeki bir dizine aktarmak için [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) örnek kodunu indirin.
 
@@ -65,7 +65,7 @@ NYCJobs örnek uygulamasındaki verileri kendi dizininize aktarmak istiyorsanız
 
 ### <a name="running-the-sample"></a>Örneği çalıştırma
 
-Artık öğreticideki örnek uygulamayı çalıştırmaya hazırsınız.  Öğreticiyi çalıştırmak için AutocompleteTutorial.sln çözüm dosyasını Visual Studio'da açın.  Çözümde bir ASP.NET MVC projesi bulunur.  Projeyi çalıştırmak ve sayfayı istediğiniz tarayıcıda yüklemek için F5'e basın.  En üstte C# ve JavaScript seçeneklerini göreceksiniz.  C# seçeneği tarayıcıdan HomeController çağrısı yapar ve sonuçları almak için Azure Search .Net SDK'sını kullanır.  JavaScript seçeneği Azure Search REST API'sini doğrudan tarayıcıdan çağırır.  Bu akışın dışında denetleyicisi gerektirdiğinden bu seçenek genellikle fark edilir derecede daha iyi performans sahip olacaktır.  İhtiyaçlarınıza ve dil tercihlerinize uygun seçeneği tercih edebilirsiniz.  Sayfasında her biri için bazı yönergeler ile birden fazla otomatik tamamlama örnekleri vardır.  Her örnekte deneyebileceğiniz önerilen örnek metin vardır.  Gerçekleştirilen işlemleri görmek için her arama kutusuna birkaç harf yazmayı deneyin.
+Artık öğreticideki örnek uygulamayı çalıştırmaya hazırsınız.  Öğreticiyi çalıştırmak için AutocompleteTutorial.sln çözüm dosyasını Visual Studio'da açın.  Çözümde bir ASP.NET MVC projesi bulunur.  Projeyi çalıştırmak ve sayfayı istediğiniz tarayıcıda yüklemek için F5'e basın.  En üstte C# ve JavaScript seçeneklerini göreceksiniz.  C# Seçeneği tarayıcıdan HomeController çağırır ve sonuçları almak için Azure Search .NET SDK'sını kullanır.  JavaScript seçeneği Azure Search REST API'sini doğrudan tarayıcıdan çağırır.  Bu akışın dışında denetleyicisi gerektirdiğinden bu seçenek genellikle fark edilir derecede daha iyi performans sahip olacaktır.  İhtiyaçlarınıza ve dil tercihlerinize uygun seçeneği tercih edebilirsiniz.  Sayfasında her biri için bazı yönergeler ile birden fazla otomatik tamamlama örnekleri vardır.  Her örnekte deneyebileceğiniz önerilen örnek metin vardır.  Gerçekleştirilen işlemleri görmek için her arama kutusuna birkaç harf yazmayı deneyin.
 
 ## <a name="how-this-works-in-code"></a>Bu kodda nasıl çalışır?
 
@@ -116,7 +116,7 @@ Aşağıdaki satırı değiştirin:
 source: "/home/suggest?highlights=false&fuzzy=false&",
 ```
 
-şu şekilde:
+Şu şekilde:
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=true&",
@@ -213,11 +213,11 @@ Bunu yukarıdaki Home denetleyicisini çağıran örnekle karşılaştırdığı
 
 ## <a name="takeaways"></a>Paketler
 
-Bu öğreticide, bir arama kutusu otomatik tamamlama ve öneriler destekleyen oluşturmaya yönelik temel adımlar gösterilmektedir.  Bir ASP.NET MVC uygulaması derledikten sonra önerileri almak için Azure Search .Net SDK'sını veya REST API'sini kullanabileceğinizi gördünüz.
+Bu öğreticide, bir arama kutusu otomatik tamamlama ve öneriler destekleyen oluşturmaya yönelik temel adımlar gösterilmektedir.  Gördüğünüz bir ASP.NET MVC uygulaması oluşturma ve öneriler almak için Azure Search .NET SDK veya REST API'sini kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Öneriler ve otomatik tamamlama'ya arama deneyiminizi tümleştirin.  .Net SDK'sını veya doğrudan REST API'sini kullanmanın Azure Search'ün gücünü arama kutusuna metin giren kullanıcılarınıza sunmanızı nasıl sağlayabileceğini inceleyin.
+Öneriler ve otomatik tamamlama'ya arama deneyiminizi tümleştirin.  Nasıl doğrudan .NET SDK veya REST API'yi kullanarak daha üretken hale getirmek için yazarken, kullanıcılarınız için Azure Search gücünü katın yardımcı olabileceğini göz önünde bulundurun.
 
 > [!div class="nextstepaction"]
 > [Autocomplete REST API'si](https://docs.microsoft.com/rest/api/searchservice/autocomplete)

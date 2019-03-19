@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 318ec5a4f9aceaf02048768cbf630eff08feff6b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a9d0daaacb046df7943202775adc77bc912cce11
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998017"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189521"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Media Services'i kullanarak canlı akış genel bakış
 
@@ -146,14 +146,14 @@ Aşağıdaki tabloda, Kanal durumlarının faturalandırma modu ile nasıl eşle
 | Kanal durumu | Portal Arabirimi Göstergeleri | Faturalandırma nedir? |
 | --- | --- | --- |
 | Başlatılıyor |Başlatılıyor |Hayır (geçici durum) |
-| Çalışıyor |Hazır (çalışan program yok)<br/>or<br/>Akış (en az bir program çalışıyor) |EVET |
+| Çalıştırılıyor |Hazır (çalışan program yok)<br/>veya<br/>Akış (en az bir program çalışıyor) |EVET |
 | Durduruluyor |Durduruluyor |Hayır (geçici durum) |
 | Durduruldu |Durduruldu |Hayır |
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Geri bildirimde bulunma
+## <a name="provide-feedback"></a>Geri bildirim gönder
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>İlgili konular

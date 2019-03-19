@@ -8,12 +8,12 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: f4c29526f675cab461153b4749c4f6edc237dada
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 50790e50602fbc8d302a67ea9963a4e492ce2f0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467341"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009763"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Öğretici: Denetim trafik Traffic Manager'ı kullanarak ağırlıklı uç noktalar ile yönlendirme
 
@@ -36,7 +36,7 @@ Traffic Manager'ın nasıl çalıştığını görmek için bu öğretici kapsam
 - Farklı Azure bölgelerinde çalıştırılan temel Web siteleri iki örneği: Doğu ABD ve Batı Avrupa.
 - Traffic Manager'ı test etmek için iki test amaçlı VM: bir VM Doğu ABD bölgesinde, diğeri ise Batı Avrupa bölgesinde olmalıdır. Traffic Manager’ın kullanıcı trafiğini uç noktasına daha yüksek bir ağırlık atanan bir web sitesine nasıl yönlendirdiğini göstermek için test VM’leri kullanılır.
 
-### <a name="sign-in-to-azure"></a>Azure'da oturum açma
+### <a name="sign-in-to-azure"></a>Oturum açın: Azure
 
 [Azure Portal](https://portal.azure.com) oturum açın.
 
@@ -57,29 +57,32 @@ Bu bölümde Doğu ABD ve Batı Avrupa Azure bölgelerinde *myIISVMEastUS* ve *m
     |Ad|**myIISVMEastUS** yazın.|
     |Kullanıcı adı| Seçtiğiniz bir kullanıcı adını girin.|
     |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
-    |Kaynak grubu| **Yeni**'yi seçin ve **myResourceGroupTM1** girin.|
+    |Kaynak grup| **Yeni**'yi seçin ve **myResourceGroupTM1** girin.|
     |Konum| **Doğu ABD**’yi seçin.|
     |||
+
 4. **Boyut seçin** bölümünden bir sanal makine boyutu seçin.
 5. **Ayarlar** için aşağıdaki değerleri seçin ve **Tamam**’ı belirleyin:
     
     |Ayar|Değer|
     |---|---|
     |Sanal ağ| **Sanal ağ**'ı seçin. **Sanal ağ oluştur** sayfasında **Ad** alanına **myVNet1** girin. **Alt ağ** için **mySubnet** yazın.|
-    |Ağ Güvenliği Grubu|**Temel**'i seçin. **Ortak gelen bağlantı noktası seçin** açılan menüsünde **HTTP** ve **RDP**'yi seçin. |
-    |Önyükleme tanılamaları|**Devre dışı** girişini seçin.|
+    |Ağ Güvenlik Grubu|**Temel**'i seçin. **Ortak gelen bağlantı noktası seçin** açılan menüsünde **HTTP** ve **RDP**'yi seçin. |
+    |Önyükleme tanılama|**Devre dışı** girişini seçin.|
     |||
+
 6. **Özet**’in **Oluştur** bölümünde **Oluştur**’u seçerek sanal makine dağıtımını başlatın.
 
 7. Aşağıdaki değişikliklerle birlikte 1.-6. adımları tekrar tamamlayın:
 
     |Ayar|Değer|
     |---|---|
-    |Kaynak grubu | **Yeni**'yi seçin ve **myResourceGroupTM2** girin.|
+    |Kaynak grup | **Yeni**'yi seçin ve **myResourceGroupTM2** girin.|
     |Konum|**Batı Avrupa** yazın.|
     |VM Adı | **myIISVMWEurope** yazın.|
     |Sanal ağ | **Sanal ağ**'ı seçin. **Sanal ağ oluştur** sayfasında **Ad** alanına **myVNet2** girin. **Alt ağ** için **mySubnet** yazın.|
     |||
+
 8. Sanal makinelerin oluşturulması birkaç dakika sürebilir. Her iki VM de oluşturulmadan diğer adımlara geçmeyin.
 
 ![VM oluşturma](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -132,16 +135,17 @@ Bu bölümde, *mVMEastUS* adlı VM'yi oluşturacaksınız. Bu VM’yi Traffic Ma
     |Ad|**myVMEastUS** yazın.|
     |Kullanıcı adı| Seçtiğiniz bir kullanıcı adını girin.|
     |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
-    |Kaynak grubu| **Var olanı kullan**’ı seçin ve sonra **myResourceGroupTM1** öğesini seçin.|
+    |Kaynak grup| **Var olanı kullan**’ı seçin ve sonra **myResourceGroupTM1** öğesini seçin.|
     |||
 
 4. **Boyut seçin** bölümünden bir sanal makine boyutu seçin.
 5. **Ayarlar** için aşağıdaki değerleri seçin ve **Tamam**’ı belirleyin:
+
     |Ayar|Değer|
     |---|---|
     |Sanal ağ| **Sanal ağ**'ı seçin. **Sanal ağ oluştur** sayfasında **Ad** alanına **myVNet3** girin. Alt ağ için **mySubnet** yazın.|
-    |Ağ Güvenliği Grubu|**Temel**'i seçin. **Ortak gelen bağlantı noktası seçin** açılan menüsünde **HTTP** ve **RDP**'yi seçin. |
-    |Önyükleme tanılamaları|**Devre dışı** girişini seçin.|
+    |Ağ Güvenlik Grubu|**Temel**'i seçin. **Ortak gelen bağlantı noktası seçin** açılan menüsünde **HTTP** ve **RDP**'yi seçin. |
+    |Önyükleme tanılama|**Devre dışı** girişini seçin.|
     |||
 
 6. **Özet**’in **Oluştur** bölümünde **Oluştur**’u seçerek sanal makine dağıtımını başlatın.
@@ -158,7 +162,7 @@ Bu bölümde, *mVMEastUS* adlı VM'yi oluşturacaksınız. Bu VM’yi Traffic Ma
     | Ad                   | trafficmanager.net bölgesi içinde benzersiz bir ad girin. Traffic Manager profilinize erişmek için kullanılan trafficmanager.net DNS adında bulunur.                                   |
     | Yönlendirme yöntemi          | **Ağırlıklı** yönlendirme yöntemini seçin.                                       |
     | Abonelik            | Aboneliğinizi seçin.                          |
-    | Kaynak grubu          | **Var olanı kullan**’ı seçin ve sonra **myResourceGroupTM1** öğesini seçin. |
+    | Kaynak grup          | **Var olanı kullan**’ı seçin ve sonra **myResourceGroupTM1** öğesini seçin. |
     |        |   |
 
     ![Traffic Manager profili oluşturma](./media/tutorial-traffic-manager-weighted-endpoint-routing/create-traffic-manager-profile.png)
@@ -173,7 +177,7 @@ IIS sunucuları myIISVMEastUS ve myIISVMWEurope, kullanıcı trafiği yönlendir
 
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
-    | Tür                    | Azure uç noktasını girin.                                   |
+    | Type                    | Azure uç noktasını girin.                                   |
     | Ad           | **myEastUSEndpoint** yazın.                                        |
     | Hedef kaynak türü           | **Genel IP adresi**'ni seçin.                          |
     | Hedef kaynak          | Genel IP adresine sahip kaynakların aynı abonelik altında listelenmesi için genel IP adresi seçin. **Kaynak** bölümünde **myIISVMEastUS-ip** adlı genel IP adresini seçin. Bu, Doğu ABD bölgesindeki IIS sunucusu VM'sinin IP adresidir.|

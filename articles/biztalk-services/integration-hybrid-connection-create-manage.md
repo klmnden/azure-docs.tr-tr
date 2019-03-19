@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 0a9197c8c46cc480f5f096f1d2ef98c0d5823f35
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 584b9d67808e75222d832f045e5d3f93fbb326ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455794"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105099"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Karma Bağlantıları Oluşturma ve Yönetme
 
 > [!IMPORTANT]
 > BizTalk Karma Bağlantılar kullanımdan kalktı ve yerine App Service Karma Bağlantılar kullanıma sunuldu. Var olan BizTalk Karma Bağlantılarınızı nasıl yöneteceğiniz de dahil olmak üzere daha fazla bilgi için bkz. [Azure App Service Karma Bağlantılar](../app-service/app-service-hybrid-connections.md).
-
->[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
+> 
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="overview-of-the-steps"></a>Adımlara genel bakış
 1. Girerek karma bağlantı oluşturma **ana bilgisayar adı** veya **FQDN** özel ağınızda şirket içi kaynak.
@@ -114,7 +114,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 Kopyalandıktan sonra ilkeyi değiştirmek için Grup İlkesi Düzenleyicisi'ni kullanabilirsiniz.
 
-## <a name="next"></a>Sonraki
+## <a name="next"></a>İleri
 [Karma bağlantılara genel bakış](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>Ayrıca Bkz.

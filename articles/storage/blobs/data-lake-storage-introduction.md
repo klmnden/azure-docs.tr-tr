@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 713905ac0c6dcd53f468fe7e9af7c565ee38ac66
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b25a47e929ef540ad3a74a86d431962d37cde434
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106537"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009422"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2'ye Giriş
 
@@ -37,7 +37,7 @@ Geçmişte, bulut tabanlı analiz performansı, yönetim ve güvenlik alanların
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Data Lake depolama Gen2 temel özellikleri
 
--   **Hadoop uyumlu erişim**: Data Lake depolama Gen2'ye yönetmenizi ve sahip olduğu gibi veri erişim sağlayan bir [Hadoop dağıtılmış dosya sistemi (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Yeni [ABFS sürücü](data-lake-storage-abfs-driver.md) dahil olmak üzere tüm Apache Hadoop ortamlar içinde kullanılabilir [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), ve [SQL veri ambarı](https://docs.microsoft.com/azure/sql-data-warehouse/) Data Lake depolama 2. nesil'deki depolanan verilere erişmek için.
+-   **Hadoop uyumlu erişim**: Data Lake depolama Gen2'ye yönetmenizi ve sahip olduğu gibi veri erişim sağlayan bir [Hadoop dağıtılmış dosya sistemi (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Yeni [ABFS sürücü](data-lake-storage-abfs-driver.md) dahil olmak üzere tüm Apache Hadoop ortamlar içinde kullanılabilir [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), ve [SQL veri ambarı](https://docs.microsoft.com/azure/sql-data-warehouse/) Data Lake depolama 2. nesil'deki depolanan verilere erişmek için.
 
 -   **POSIX izinleri kümesi**: ACL ve POSIX izinlerle birlikte için Data Lake depolama Gen2'ye özel bazı ek ayrıntı Data Lake Gen2 güvenlik modelini destekler. Ayarları, Depolama Gezgini veya Hive ve Spark gibi çerçeveleri aracılığıyla yapılandırılabilir.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/3/2019
 ms.author: mayg
-ms.openlocfilehash: c63a5205f58d014d06b79b075b3d3d9328502e48
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1abd18e294ef73e989191d189ea599bca2b4d903
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338051"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881087"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: sık sorulan sorular (SSS)
 Bu makale, Azure Site Recovery hakkında sık sorulan sorular içerir. Bu makaleyi okuduktan sonra sorularınız varsa gönderin [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -91,7 +91,7 @@ Evet. Bir bölgede Site Recovery kasası oluşturduğunuzda, etkinleştirmek ve 
 Azure Site Recovery, genel bir uç nokta verileri Azure depolama hesabınız ya da yönetilen diskler, çoğaltır. Çoğaltma, siteden siteye VPN üzerinden değildir. Bir Azure sanal ağı ile siteden siteye VPN, oluşturabilirsiniz. Bu, Site Recovery çoğaltma ile engellemez.
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>Sanal makinelerini Azure'a çoğaltma için ExpressRoute kullanabilir miyim?
-Evet, [ExpressRoute kullanılabilir](concepts-expressroute-with-site-recovery.md) şirket içi sanal makinelerini Azure'a çoğaltma için. Azure Site Recovery, veri genel bir uç nokta bir Azure depolama alanına çoğaltır. Kurmanız gerekecektir [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering) veya [Microsoft eşlemesi](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) Site Recovery çoğaltması için ExpressRoute kullanmak için. Microsoft eşlemesi, çoğaltma için önerilen Yönlendirme etki alanıdır. Sanal makineler üzerinde bir Azure sanal ağı için başarısız olduktan sonra bunları erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering) kurulum ile Azure sanal ağı. Çoğaltma özel eşdüzey hizmet sağlama üzerinden desteklenmiyor. VMware makineleri veya fiziksel makineler koruduğunuz durumda olduğundan emin olun [ağ gereksinimleri](vmware-azure-configuration-server-requirements.md#network-requirements) çoğaltma için de karşılandığından. 
+Evet, [ExpressRoute kullanılabilir](concepts-expressroute-with-site-recovery.md) şirket içi sanal makinelerini Azure'a çoğaltma için. Azure Site Recovery, genel bir uç nokta verileri bir Azure depolama alanına çoğaltır. Kurmanız gerekecektir [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering) veya [Microsoft eşlemesi](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) Site Recovery çoğaltması için ExpressRoute kullanmak için. Microsoft eşlemesi, çoğaltma için önerilen Yönlendirme etki alanıdır. Sanal makineler üzerinde bir Azure sanal ağı için başarısız olduktan sonra bunları erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering) kurulum ile Azure sanal ağı. Çoğaltma özel eşdüzey hizmet sağlama üzerinden desteklenmiyor. VMware makineleri veya fiziksel makineler koruduğunuz durumda olduğundan emin olun [ağ gereksinimleri](vmware-azure-configuration-server-requirements.md#network-requirements) çoğaltma için de karşılandığından. 
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Sanal makinelerin Azure'a çoğaltılması için herhangi bir önkoşul var mı?
 [VMware Vm'lerini](vmware-physical-azure-support-matrix.md#replicated-machines) ve [Hyper-V Vm'lerini](hyper-v-azure-support-matrix.md#replicated-vms) çoğaltmak istediğiniz Azure Azure gereksinimleriyle uyumlu olması gerekir.
@@ -119,10 +119,10 @@ Bir LRS veya GRS depolama gerekir. Bölgesel bir kesintinin meydana gelmesi veya
 * **Azure Vm'leri, VMware ve fiziksel sunucuları:** Bir çoğaltma sıklığı burada geçerli değildir. Çoğaltma sürekli olarak yapılır.
 
 ### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>Ben üçüncül başka bir siteye çoğaltma var olan kurtarma sitesinden uzatabilir miyim?
-Genişletilmiş veya zincir çoğaltma desteklenmez. Bu özelliği isteği [geri bildirim Forumu](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+Genişletilmiş veya zincir çoğaltma desteklenmez. Bu özelliği isteği [geri bildirim Forumu](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### <a name="can-i-do-an-offline-replication-the-first-time-i-replicate-to-azure"></a>Azure'a ilk kez çoğaltma yaparken çevrimdışı bir çoğaltma gerçekleştirebilir miyim?
-Bu özellik desteklenmez. Bu özelliği isteği [geri bildirim Forumu](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Bu özellik desteklenmez. Bu özelliği isteği [geri bildirim Forumu](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-specific-disks-from-replication"></a>Belirli diskleri çoğaltmanın dışında tutabilir miyim?
 Bu, VMware Vm'leri ve Hyper-V Vm'lerini Azure portalını kullanarak Azure'a çoğaltırken desteklenir.
@@ -141,9 +141,9 @@ Evet. Daha fazla dağıtım makalelerinde bant genişliği azaltma hakkında:
 * [Kapasite VMware Vm'lerini ve fiziksel sunucuları çoğaltmak için planlama](site-recovery-plan-capacity-vmware.md)
 * [Kapasite Hyper-V Vm'lerini Azure'a çoğaltma için planlama](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
-## <a name="failover"></a>Yük devretme
+## <a name="failover"></a>Yük devret
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Nasıl miyim üzerinden Azure'a geçemiyorum, yük devretme sonrasında Azure sanal makinelerini erişim sağlanır?
-Azure VM'lerine güvenli bir İnternet bağlantısı, siteden siteye VPN veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için etmenizi hazırlamanız gerekir. [Daha fazla bilgi](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+Azure VM'lerine güvenli bir İnternet bağlantısı, siteden siteye VPN veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için etmenizi hazırlamanız gerekir. [Daha fazla bilgi edinin](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 
 ### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>Verilerim dayanıklı ise miyim nasıl Azure emin Azure'a yük?

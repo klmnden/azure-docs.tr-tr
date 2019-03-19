@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dcab8d1cfd076e57a25ee3d36fadd86f158c53b8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 47a77def43a9577e5a3506899da47db2f684b495
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880606"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835131"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Bir Azure sanal makinesinde SQL Server’a veri taşıma
 
@@ -58,7 +58,7 @@ BCP ile SQL Server yüklü bir komut satırı yardımcı programıdır ve verile
 
 > [!NOTE]
 > **Verilerim için BCP olduğu?**  
-> Gerekli olmamasına karşın, hedef SQL Server ile aynı makinede bulunan kaynak verileri içeren dosyalarını daha hızlı aktarımları için (ağ hızı vs yerel disk g/ç hızı) sağlar. Makine verilerini içeren düz dosyaları taşıyabilirsiniz çeşitli dosya kopyalama kullanarak SQL Server yüklü olduğu gibi araçlar [AZCopy](../../storage/common/storage-use-azcopy.md), [Azure Depolama Gezgini](http://storageexplorer.com/) veya Uzak Masaüstü aracılığıyla windows kopyala/yapıştır Protokolü (RDP).
+> Gerekli olmamasına karşın, hedef SQL Server ile aynı makinede bulunan kaynak verileri içeren dosyalarını daha hızlı aktarımları için (ağ hızı vs yerel disk g/ç hızı) sağlar. Makine verilerini içeren düz dosyaları taşıyabilirsiniz çeşitli dosya kopyalama kullanarak SQL Server yüklü olduğu gibi araçlar [AZCopy](../../storage/common/storage-use-azcopy.md), [Azure Depolama Gezgini](https://storageexplorer.com/) veya Uzak Masaüstü aracılığıyla windows kopyala/yapıştır Protokolü (RDP).
 >
 >
 
@@ -75,10 +75,10 @@ CREATE TABLE <tablename>
 )
 ```
 
-2. Bcp, yüklü olduğu makinenin komut satırından aşağıdaki komutu gönderdikten tarafından tablo şemasını açıklayan biçim dosyası oluşturur.
+1. Bcp, yüklü olduğu makinenin komut satırından aşağıdaki komutu gönderdikten tarafından tablo şemasını açıklayan biçim dosyası oluşturur.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
-3. Bcp komut aşağıdaki gibi kullanarak veritabanına veri ekleyin. SQL Server aynı makinede yüklü varsayılarak bu komut satırından çalışması gerekir:
+1. Bcp komut aşağıdaki gibi kullanarak veritabanına veri ekleyin. SQL Server aynı makinede yüklü varsayılarak bu komut satırından çalışması gerekir:
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
@@ -142,7 +142,7 @@ Toplu ekleme için bazı örnek komutlar şunlardır aşağıda gösterildiği g
 ```sql
 SET DATEFORMAT ymd;
 ```
-2. Toplu içeri aktarma deyimlerini kullanarak verileri içeri aktarın:
+1. Toplu içeri aktarma deyimlerini kullanarak verileri içeri aktarın:
 
 ```sql
 BULK INSERT <tablename>
@@ -195,7 +195,7 @@ Açıklandığı gibi bir şirket içi SQL Server'dan dışarı aktarma verileri
 4. Bölümünde açıklanan yöntemlerden dilediğinizi [dosya kaynağı verilerini taşıma](#filesource_to_sqlonazurevm) verileri düz dosyaları bir SQL Server'a taşımak için.
 
 ### <a name="sql-migration"></a>SQL veritabanı Geçiş Sihirbazı
-[SQL Server veritabanı Geçiş Sihirbazı](http://sqlazuremw.codeplex.com/) iki SQL server örnekleri arasında veri taşımak için kullanışlı bir yol sağlar. Bu sütun türlerini ve diğer çeşitli İşlevler'i seçin, kaynakları ve hedef tablolar arasında veri şemasını harita izin verir. Bu işlem arka planda altında toplu kopyalama (BCP) kullanır. SQL veritabanı Geçiş Sihirbazı Hoş Geldiniz ekranının ekran görüntüsü aşağıda gösterilmiştir.  
+[SQL Server veritabanı Geçiş Sihirbazı](https://sqlazuremw.codeplex.com/) iki SQL server örnekleri arasında veri taşımak için kullanışlı bir yol sağlar. Bu sütun türlerini ve diğer çeşitli İşlevler'i seçin, kaynakları ve hedef tablolar arasında veri şemasını harita izin verir. Bu işlem arka planda altında toplu kopyalama (BCP) kullanır. SQL veritabanı Geçiş Sihirbazı Hoş Geldiniz ekranının ekran görüntüsü aşağıda gösterilmiştir.  
 
 ![SQL Server Yükseltme Sihirbazı][2]
 

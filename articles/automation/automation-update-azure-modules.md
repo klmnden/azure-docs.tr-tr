@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fad3d77d15d78ffdaf1afca3675a82242b844778
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 03174e6336589f8aa49a7fc7197da1301ff54400
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730398"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009772"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure automation'da Azure PowerShell modüllerini güncelleştirme
 
@@ -58,27 +58,27 @@ Bu işlem, Azure modüllerini güncelleştir kullanırken dikkate almanız gerek
 
 1. Otomasyon hesabınızın modülleri sayfasında adlı bir seçenek yoktur **Azure modüllerini güncelleştirme**. Her zaman etkindir.<br><br> ![Modüller sayfasında seçenek Azure modüllerini güncelleştir](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-  > [!NOTE]
-  > Bir test emin olmak için Otomasyon hesabı güncelleştirmeniz önerilir, Azure modülleri güncelleştirmeden önce mevcut komut dosyalarınızı Azure modüllerinizi güncelleştirmeden önce beklendiği gibi çalışır.
-  >
-  > **Azure modüllerini güncelleştirme** düğmesi kullanılabilir yalnızca genel bulutta. mevcut değildir [bağımsız bölgeler](https://azure.microsoft.com/global-infrastructure/). Lütfen kullanın **güncelleştirme AutomationAzureModulesForAccount** runbook, Azure modüllerini güncelleştir. Buradan indirebileceğiniz [güncelleştirme Azure modülleri runbook depo](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update). Açık kaynak runbook kullanma hakkında daha fazla bilgi edinmek için [açık kaynak runbook ile Azure modüllerini güncelleştirme](#open-source).
+   > [!NOTE]
+   > Bir test emin olmak için Otomasyon hesabı güncelleştirmeniz önerilir, Azure modülleri güncelleştirmeden önce mevcut komut dosyalarınızı Azure modüllerinizi güncelleştirmeden önce beklendiği gibi çalışır.
+   >
+   > **Azure modüllerini güncelleştirme** düğmesi kullanılabilir yalnızca genel bulutta. mevcut değildir [bağımsız bölgeler](https://azure.microsoft.com/global-infrastructure/). Lütfen kullanın **güncelleştirme AutomationAzureModulesForAccount** runbook, Azure modüllerini güncelleştir. Buradan indirebileceğiniz [güncelleştirme Azure modülleri runbook depo](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update). Açık kaynak runbook kullanma hakkında daha fazla bilgi edinmek için [açık kaynak runbook ile Azure modüllerini güncelleştirme](#open-source).
 
 2. Tıklayın **Azure modüllerini güncelleştirme**, devam etmek isteyip istemediğinizi soran bir onay bildirimi gösterilir.<br><br> ![Bildirim Azure modüllerini güncelleştir](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
 3. Tıklayın **Evet** ve modül güncelleştirme işlemi başlar. Güncelleştirme işlemi aşağıdaki modüllerini güncelleştirmek için yaklaşık 15-20 dakika alır:
 
-  * Azure
-  * Azure Depolama
-  * AzureRm.Automation
-  * AzureRm.Compute
-  * AzureRm.Profile
-  * AzureRm.Resources
-  * AzureRm.Sql
-  * AzureRm.Storage
+   * Azure
+   * Azure Depolama
+   * AzureRm.Automation
+   * AzureRm.Compute
+   * AzureRm.Profile
+   * AzureRm.Resources
+   * AzureRm.Sql
+   * AzureRm.Storage
 
-    Modül zaten güncel olduğundan, işlem birkaç saniye içinde tamamlanır. Güncelleştirme işlemi tamamlandığında bildirim alırsınız.<br><br> ![Azure modüllerini güncelleştirme durumunu güncelleştirme](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
+     Modül zaten güncel olduğundan, işlem birkaç saniye içinde tamamlanır. Güncelleştirme işlemi tamamlandığında bildirim alırsınız.<br><br> ![Azure modüllerini güncelleştirme durumunu güncelleştirme](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
-    .NET core AzureRm modülleri (AzureRm.*. Çekirdek) Azure Automation'da desteklenmez ve içeri aktarılamıyor.
+     .NET core AzureRm modülleri (AzureRm.*. Çekirdek) Azure Automation'da desteklenmez ve içeri aktarılamıyor.
 
 > [!NOTE]
 > Yeni bir zamanlanmış iş çalıştırıldığında azure Otomasyonu, Otomasyon hesabınızda en son modüllerini kullanır.  

@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1927e9b4aeec6f424c69632d8811c49c97d3aad1
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 9634e2578ea256d1dec71389f676ee53627e6272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961559"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077777"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Yedekleme ve kurtarma hesabı kimlik bilgileriyle Microsoft Authenticator uygulaması
 
@@ -27,9 +27,9 @@ ms.locfileid: "56961559"
 
 Microsoft Authenticator uygulamasını hesaplarınızı sırası gibi ilgili uygulama ayarları ve hesap kimlik bilgileri buluta yedekler. Yedeklemeden sonra uygulama bilgilerinizi yeni bir cihazda olabilecek erişimin kaybedilmesini önleme kurtarmak için de kullanabilirsiniz out veya hesaplarını yeniden oluşturmak zorunda.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Her yedekleme depolama konumu için bir kişisel Microsoft hesabı ve bir iCloud hesabıyla gerekir. Ancak, bu depolama konumu içinde birkaç hesapları yedekleyebilirsiniz. Örneğin, bir kişisel hesap, okul hesabı ve Facebook, Google gibi bir üçüncü taraf hesabı ve benzeri.
-
+> 
 > Kullanıcı adınızı ve kimliğinizi ispatlamak için gerekli olan hesap doğrulama kodu içeren yalnızca kişisel ve 3. taraf hesap bilgilerinizi depolanır. Size e-postaları veya dosyaları dahil olmak üzere hesaplarınızla ilişkili herhangi bir bilgi depolamayın. Biz de olmayan ilişkilendirmek veya hesaplarınızı herhangi bir şekilde veya herhangi bir ürün veya hizmeti ile paylaşın. Ve son olarak, BT yöneticinizin bu hesapların ilgili herhangi bir bilgi elde etmezsiniz.
 
 ## <a name="back-up-your-account-credentials"></a>Hesap kimlik bilgilerini yedekle

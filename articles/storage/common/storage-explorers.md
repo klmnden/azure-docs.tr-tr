@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: dineshmurthy
 ms.subservice: common
-ms.openlocfilehash: c45c70055817eeeed19f9c8a832a76b10beceaa6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ae6ceee33aa6d96c360782c33232e0c7561cf209
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467042"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015320"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage İstemci Araçları
 Azure Depolama'nın kullanıcıların sık görünüm/bir Azure depolama istemci aracı kullanarak verileri ile etkileşemeyebilirsiniz istiyorsunuz. Aşağıdaki tablolarda, biz bunu olanak tanıyan bir dizi listeleyin. Ya da numaralandırma ve/veya veri soyutlama erişim olanağı sağlar, size her bir bloğunda bir "X" yerleştirin. Tablo ayrıca araçları olup olmadığını boş olmadığını gösterir. "Deneme" ücretsiz deneme sürümü yoktur, ancak tam ürün ücretsiz değil gösterir. "E/H", farklı bir sürümünü satın alınabilir olduğu sürece bir sürümünü ücretsiz olarak kullanılabilir olduğunu gösterir.
@@ -29,7 +29,7 @@ Yalnızca bir anlık görüntü kullanılabilir Azure depolama istemci Araçlar�
     <th rowspan="2">Sayfa Blobu</th>
     <th rowspan="2">Ekleme Blobu</th>
     <th rowspan="2">Tablolar</th>
-    <th rowspan="2">Kuyruklar</th>
+    <th rowspan="2">Sıralar</th>
     <th rowspan="2">Dosyalar</th>
     <th rowspan="2">Ücretsiz</th>
     <th colspan="4">Platform</th>
@@ -55,7 +55,7 @@ Yalnızca bir anlık görüntü kullanılabilir Azure depolama istemci Araçlar�
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://storageexplorer.com/">Microsoft Azure Depolama Gezgini</a></td>
+    <td><a href="https://storageexplorer.com/">Microsoft Azure Depolama Gezgini</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -95,7 +95,7 @@ Biz aşağıdaki üçüncü taraf araçları tarafından istenen kalite ve işle
     <th rowspan="2">Sayfa Blobu</th>
     <th rowspan="2">Ekleme Blobu</th>
     <th rowspan="2">Tablolar</th>
-    <th rowspan="2">Kuyruklar</th>
+    <th rowspan="2">Sıralar</th>
     <th rowspan="2">Dosyalar</th>
     <th rowspan="2">Ücretsiz</th>
     <th colspan="4">Platform</th>
@@ -107,7 +107,7 @@ Biz aşağıdaki üçüncü taraf araçları tarafından istenen kalite ve işle
     <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata: Azure Management Studio</a></td>
+    <td><a href="https://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata: Azure Management Studio</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -149,7 +149,7 @@ Biz aşağıdaki üçüncü taraf araçları tarafından istenen kalite ve işle
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.cloudberrylab.com/explorer/microsoft-azure.aspx">CloudBerry Gezgini</a></td>
+    <td><a href="https://www.cloudberrylab.com/explorer/microsoft-azure.aspx">CloudBerry Gezgini</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -163,7 +163,7 @@ Biz aşağıdaki üçüncü taraf araçları tarafından istenen kalite ve işle
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.gapotchenko.com/cloudcombine">Bulut birleştirin</a></td>
+    <td><a href="https://www.gapotchenko.com/cloudcombine">Bulut birleştirin</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -191,7 +191,7 @@ Biz aşağıdaki üçüncü taraf araçları tarafından istenen kalite ve işle
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.gladinet.com/Azure-Storage/index.htm">Gladinet bulut</a></td>
+    <td><a href="https://www.gladinet.com/Azure-Storage/index.htm">Gladinet bulut</a></td>
     <td>X</td>
     <td></td>
     <td></td>

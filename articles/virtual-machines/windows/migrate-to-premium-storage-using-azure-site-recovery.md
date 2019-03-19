@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: f7c422d560341e51fad582439117533b7d9cd4c8
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 5744ee76d36b1cea256cd2594bcbc07c954f38f7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327672"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993297"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Azure Site Recovery kullanarak Premium depolamaya geçiş
 
@@ -74,7 +74,7 @@ Bu geçiş senaryosu için Azure gereksinimleri şunlardır:
 
 Aynı bölge içinde veya bölgeler arasında Azure Iaas Vm'lerine geçirmek için Site RECOVERY'yi kullanabilirsiniz. Aşağıdaki yönergeler bu makaleden geçiş senaryosu için uyarlanmış [çoğaltmak VMware Vm'lerini veya fiziksel sunucuları azure'a](../../site-recovery/vmware-walkthrough-overview.md). Lütfen bu makaledeki yönergeleri yanı sıra ayrıntılı adımlar için bağlantıları izleyin.
 
-### <a name="step-1-create-a-recovery-services-vault"></a>1. Adım: Kurtarma Hizmetleri kasası oluşturma
+### <a name="step-1-create-a-recovery-services-vault"></a>1. adım: Kurtarma Hizmetleri kasası oluşturma
 
 1. [Azure portalı](https://portal.azure.com) açın.
 2. Seçin **kaynak Oluştur** > **Yönetim** > **yedekleme ve Site Recovery (OMS)**. Alternatif olarak, seçebileceğiniz **Gözat** > **kurtarma Hizmetleri kasası** > **Ekle**.
@@ -82,7 +82,7 @@ Aynı bölge içinde veya bölgeler arasında Azure Iaas Vm'lerine geçirmek iç
    >Yedekleme ve Site Recovery önceden parçası ![OMS Suite'i](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand).
 1. VM'ler için çoğaltılacak bir bölge belirtin. Aynı bölgede geçiş amacıyla, kaynak depolama hesabı ve kaynak VM'lerin bulunduğu bölgeyi seçin. 
 
-### <a name="step-2-choose-your-protection-goals"></a>2. Adım: Koruma hedeflerinizi seçme 
+### <a name="step-2-choose-your-protection-goals"></a>2. adım: Koruma hedeflerinizi seçme 
 
 1. Açmak istediğiniz yapılandırma sunucusunu yüklemek için sanal makinede [Azure portalında](https://portal.azure.com).
 2. Git **kurtarma Hizmetleri kasaları** > **ayarları** > **Site Recovery** > **1. adım: Altyapıyı hazırlama** > **koruma hedefi**.
@@ -93,7 +93,7 @@ Aynı bölge içinde veya bölgeler arasında Azure Iaas Vm'lerine geçirmek iç
 
    ![Koruma hedefi bölmesinde doldurulmuş kutuları][3]
 
-### <a name="step-3-set-up-the-source-environment-configuration-server"></a>3. Adım: Kaynak ortamı ayarlamak (yapılandırma sunucusu)
+### <a name="step-3-set-up-the-source-environment-configuration-server"></a>3. adım: Kaynak ortamı ayarlamak (yapılandırma sunucusu)
 
 1. İndirme **Azure Site Recovery birleşik Kurulumu** ve giderek kasa kayıt anahtarını **altyapıyı hazırlama** > **kaynağı hazırla**  >  **Sunucusu Ekle** bölmeleri. 
  
@@ -141,7 +141,7 @@ Site Recovery, bir veya birden çok uyumlu Azure depolama hesabınızın ve ağ�
 
 Yapılandırma sunucunuzda oluşturduğunuz çoğaltma ilkesiyle başarıyla ilişkilendirildi olduğunu doğrulamak için izleyin [çoğaltma ayarlarını belirleme](../../site-recovery/vmware-walkthrough-overview.md).
 
-### <a name="step-6-plan-capacity"></a>6. Adım: Kapasiteyi planlama
+### <a name="step-6-plan-capacity"></a>6. Adım: Kapasite planlama
 
 1. Kullanım [kapasite Planlayıcısı](../../site-recovery/site-recovery-capacity-planner.md) ağ bant genişliği, depolama ve diğer gereksinimler, çoğaltma karşılamak için doğru bir şekilde tahmin gerekiyor. 
 2. İşiniz bittiğinde **Evet, yaptım** içinde **kapasite planlamasını tamamladınız mı?**.
@@ -205,7 +205,7 @@ Site Recovery, aynı veya benzer bir Premium depolama özelliğine sahip VM tür
 
 3. **Azure Site Recovery altyapısı temiz**. Site Recovery artık gerekli değilse, temel altyapıyla temizleyebilirsiniz. Çoğaltılan öğeler, yapılandırma sunucusunu ve kurtarma ilkesi silin ve sonra Azure Site Recovery kasayı silin.
 
-## <a name="troubleshooting"></a>Sorun giderme
+## <a name="troubleshooting"></a>Sorun Giderme
 
 * [İzleme ve sorun giderme sanal makineleri ve fiziksel sunucular için koruma](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Microsoft Azure Site Recovery Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
@@ -216,12 +216,12 @@ Sanal makineleri geçirmek için belirli senaryolar için aşağıdaki kaynaklar
 
 * [Azure sanal makineleri depolama hesapları arasında geçirme](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Oluşturma ve Azure'a bir Windows Server VHD yükleme](upload-generalized-managed.md)
-* [Amazon AWS geçirme sanal makineleri için Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+* [Amazon AWS geçirme sanal makineleri için Microsoft Azure](https://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Ayrıca, Azure depolama ve Azure sanal makineler hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Azure Depolama](https://azure.microsoft.com/documentation/services/storage/)
-* [Azure Sanal Makineler](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Azure sanal makineleri](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

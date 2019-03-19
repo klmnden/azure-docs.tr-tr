@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 0b5fe1b1df306bf0930715bc6cfb586e5445f85c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839968"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110503"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Yeniden koruma birincil bölgeye Azure Vm'leri üzerinde başarısız oldu
 
@@ -35,12 +35,12 @@ Olduğunda, [yük devretme](site-recovery-failover.md) başka bir kullanarak Azu
 
 1. İçinde **kasası** > **çoğaltılan öğeler**başarısız VM'ye sağ tıklayın ve seçin **yeniden koruma**. Yeniden koruma yönü, ikincil siteden göstermelidir.
 
-  ![Yeniden koruma](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![Yeniden koruma](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 2. Kaynak grubu, ağ, depolama ve kullanılabilirlik kümeleri gözden geçirin. Daha sonra, **Tamam**'a tıklayın. Yeni olarak işaretli tüm kaynaklar varsa, bunlar yeniden koruma işleminin bir parçası oluşturulur.
 3. Yeniden koruma işi, hedef siteye en son verileri sağlar. Bittikten sonra değişim çoğaltması gerçekleşir. Daha sonra birincil sitenin devredebilir. Depolama hesabını seçebilir veya sırasında kullanmak istediğiniz ağ yeniden koruma, Özelleştir seçeneğini kullanarak.
 
-  ![Seçenek özelleştirme](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
+   ![Seçenek özelleştirme](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
 
 ### <a name="customize-reprotect-settings"></a>Yeniden koruma ayarlarını özelleştirme
 
@@ -48,7 +48,7 @@ Yeniden koruma sırasında ' % s'hedef VMe aşağıdaki özelliklerini özelleş
 
 ![Özelleştirme](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
-|Özellik |Notlar  |
+|Özellik |Notes  |
 |---------|---------|
 |Hedef kaynak grubu     | Hedef kaynak grubu, sanal Makinenin oluşturulduğu değiştirin. Yeniden koruma bir parçası, hedef sanal makine silindi. Yük devretmeden sonra VM'ye oluşturulacağı altında yeni bir kaynak grubu seçebilirsiniz.        |
 |Hedef sanal ağ     | Hedef ağ yeniden koruma işi sırasında değiştirilemez. Ağ değiştirmek için ağ eşlemesini yineler.         |

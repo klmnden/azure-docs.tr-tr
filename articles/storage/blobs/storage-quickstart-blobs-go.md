@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: abe3d79f352ef04abf8f90f50824b6426457c2a1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 69895fff5e1daaf02caec54a6d38052e36ad8d49
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445475"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999049"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Hızlı Başlangıç: Karşıya yükleme, indirme ve Go kullanarak blobları Listele
 
@@ -89,7 +89,7 @@ Press the enter key to delete the sample files, example container, and exit the 
 Devam etmek için tuşa bastığınızda, örnek program depolama kapsayıcısını ve dosyaları siler. 
 
 > [!TIP]
-> Ayrıca, Blob depolamadaki dosyaları görüntülemek için, [Azure Depolama Gezgini](http://storageexplorer.com) gibi bir araç da kullanabilirsiniz. Azure Depolama Gezgini, depolama hesabı bilgilerinize erişmenize olanak tanıyan ücretsiz ve platformlar arası bir araçtır. 
+> Ayrıca, Blob depolamadaki dosyaları görüntülemek için, [Azure Depolama Gezgini](https://storageexplorer.com) gibi bir araç da kullanabilirsiniz. Azure Depolama Gezgini, depolama hesabı bilgilerinize erişmenize olanak tanıyan ücretsiz ve platformlar arası bir araçtır. 
 >
 
 ## <a name="understand-the-sample-code"></a>Örnek kodu anlama

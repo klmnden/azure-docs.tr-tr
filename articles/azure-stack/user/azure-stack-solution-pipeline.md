@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 13c5d194ca5e6a606b319a42fdba7a597a8d4852
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9c7e6640bdb17e9f996545c2c3315c0c1ade42d1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781213"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902221"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack’e uygulama dağıtma
 
@@ -78,17 +78,17 @@ Bu öğreticide, Azure ve Azure Stack bazı temel bilgi sahibi olduğunuzu varsa
 ### <a name="azure-stack-requirements"></a>Azure Stack gereksinimleri
 
 * Bir Azure Stack tümleşik sistemi kullanın veya Azure Stack geliştirme Seti'ni (ASDK) dağıtın. ASDK dağıtmak için:
-    * [Öğreticisi: Yükleyicisi'ni kullanarak ASDK dağıtma](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) ayrıntılı dağıtım yönergeleri sağlar.
-    * Kullanım [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) ASDK dağıtım sonrası adımları otomatikleştirmek için PowerShell Betiği.
+  * [Öğreticisi: Yükleyicisi'ni kullanarak ASDK dağıtma](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) ayrıntılı dağıtım yönergeleri sağlar.
+  * Kullanım [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) ASDK dağıtım sonrası adımları otomatikleştirmek için PowerShell Betiği.
 
     > [!Note]
     > ASDK yüklemeyi tamamlamak için bu nedenle buna göre planlayın yaklaşık yedi saat sürer.
 
- * Dağıtma [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS Hizmetleri Azure stack'e.
- * Oluşturma [planı/teklifler](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) Azure Stack'te.
- * Oluşturma bir [Kiracı aboneliği](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) Azure Stack'te.
- * Bir Web uygulaması, Kiracı aboneliği oluşturabilir. Daha sonra kullanmak için yeni Web App URL'si not edin.
- * Kiracı aboneliği bir Windows Server 2012 sanal makinesi dağıtın. Yapı sunucunuz ve Azure DevOps hizmetlerini çalıştırmak için bu sunucu kullanır.
+  * Dağıtma [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS Hizmetleri Azure stack'e.
+  * Oluşturma [planı/teklifler](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) Azure Stack'te.
+  * Oluşturma bir [Kiracı aboneliği](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) Azure Stack'te.
+  * Bir Web uygulaması, Kiracı aboneliği oluşturabilir. Daha sonra kullanmak için yeni Web App URL'si not edin.
+  * Kiracı aboneliği bir Windows Server 2012 sanal makinesi dağıtın. Yapı sunucunuz ve Azure DevOps hizmetlerini çalıştırmak için bu sunucu kullanır.
 * Bir Windows Server 2016 görüntüsü ile .NET 3.5 bir sanal makine (VM) sağlayın. Bu sanal Makineyi bir özel yapı aracısı Azure Stack oluşturulur.
 
 ### <a name="developer-tool-requirements"></a>Geliştirici aracı gereksinimleri
@@ -97,8 +97,8 @@ Bu öğreticide, Azure ve Azure Stack bazı temel bilgi sahibi olduğunuzu varsa
 * [Visual Studio 2017'yi](https://docs.microsoft.com/visualstudio/install/install-visual-studio) ve [oturum açma Azure DevOps hizmetlerine](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Projenize bağlayın ve [yerel ortamda kopyalayın](https://www.visualstudio.com/docs/git/gitquickstart).
 
- > [!Note]
- > Windows Server ve SQL Server çalıştırmak için Dağıtılmış doğru görüntüleri, Azure Stack ortamınıza gerekir. Ayrıca dağıtılan App Service olması gerekir.
+  > [!Note]
+  > Windows Server ve SQL Server çalıştırmak için Dağıtılmış doğru görüntüleri, Azure Stack ortamınıza gerekir. Ayrıca dağıtılan App Service olması gerekir.
 
 ## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>Azure DevOps Hizmetleri Tümleştirme için özel Azure işlem hatları Aracısı'nı hazırlama
 
@@ -287,7 +287,7 @@ Aşağıdaki eşlemeyi kullanarak bir hizmet bağlantı oluşturabilirsiniz:
 | Ortam | AzureStack | Ortamınızın adını. |
 | Ortam URL'si | `https://management.local.azurestack.external` | Yönetim uç noktanıza. |
 | Kapsam düzeyi | Abonelik | Bağlantının kapsamı. |
-| Abonelik Kimliği | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Azure Stack kullanıcı abonelik kimliği |
+| Abonelik kimliği | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Azure Stack kullanıcı abonelik kimliği |
 | Abonelik adı | name@contoso.com | Azure Stack kullanıcı abonelik adı. |
 | Hizmet sorumlusu istemci kimliği | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | Asıl Kimliğinden [bu](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) bu makaledeki bir bölüm. |
 | Hizmet sorumlusu anahtarı | THESCRETGOESHERE = | Aynı makalede (veya betiği kullandıysanız parolayı) anahtarı. |
@@ -312,7 +312,7 @@ Aşağıdaki eşlemeyi kullanarak bir hizmet bağlantı oluşturabilirsiniz:
 | Ortam | AzureStack | Ortamınızın adını. |
 | Ortam URL'si | `https://management.local.azurestack.external` | Yönetim uç noktanıza. |
 | Kapsam düzeyi | Abonelik | Bağlantının kapsamı. |
-| Abonelik Kimliği | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Azure Stack kullanıcı abonelik kimliği |
+| Abonelik kimliği | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Azure Stack kullanıcı abonelik kimliği |
 | Abonelik adı | name@contoso.com | Azure Stack kullanıcı abonelik adı. |
 | Hizmet sorumlusu istemci kimliği | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | AD FS için oluşturduğunuz gelen hizmet sorumlusu istemci kimliği. |
 | Sertifika | `<certificate>` |  Sertifikayı PFX'ten PEM'ye dönüştürün. Sertifika PEM dosyasının içeriğini bu alana yapıştırın. <br> PFX PEM'ye dönüştürme:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
@@ -363,7 +363,7 @@ Karma CI/CD, hem uygulama kodunda hem de altyapı kodunu uygulayabilirsiniz. Kul
 
 2. Gidin **Web uygulaması derleme** proje sayfası.
 
-3. İçinde **bağımsız değişkenleri**, ekleme **- r win10-x64** kod. .Net Core ile kendi içinde bir dağıtım tetiklemek için bu gereklidir.
+3. İçinde **bağımsız değişkenleri**, ekleme **- r win10-x64** kod. Bu, .NET Core ile kendi içinde bir dağıtım tetiklemek için gereklidir.
 
     ![Bağımsız değişken derleme işlem hattı ekleyin](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 
@@ -392,7 +392,7 @@ Yayın işlem hattı oluşturmak, son adım, uygulamanızdaki yapı işlemi olur
 
 4. Üzerinde **yapıt ekleme**, gelen **kaynak (derleme tanımı)** aşağı açılır menüsünde, Azure bulut yapı uygulamayı seçin.
 
-    ![Yapıt ekleme](media/azure-stack-solution-hybrid-pipeline/103.png)
+    ![Yapıt ekle](media/azure-stack-solution-hybrid-pipeline/103.png)
 
 5. Üzerinde **işlem hattı** sekmesinde **1. Aşama**, **1 görev** bağlantı **ortam görevlerini görüntüle**.
 
@@ -428,7 +428,7 @@ Yayın işlem hattı oluşturmak, son adım, uygulamanızdaki yapı işlemi olur
 
 13. Üzerinde **bir şablon seçin**, başka bir ortama ekleyin. Çekme **Azure uygulama hizmeti dağıtımının** seçip **Uygula**.
 
-    ![Şablonu seçin](media/azure-stack-solution-hybrid-pipeline/112.png)
+    ![Şablon seçin](media/azure-stack-solution-hybrid-pipeline/112.png)
 
 14. "Azure Stack" olarak girin **ortam adı**.
 

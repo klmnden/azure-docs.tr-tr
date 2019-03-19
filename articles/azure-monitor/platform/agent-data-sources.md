@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: ad4270700712311d8bea2e2014701a99e44c735f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e4550dde533044260c120b17c4f72758f90e8bff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102127"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Azure İzleyici aracı veri kaynakları
 Azure İzleyici aracılardan topladığı veriler, yapılandırdığınız veri kaynakları tarafından tanımlanır.  Aracılardan gelen veri olarak depolanır [günlük verilerini](data-collection.md) bir kayıt kümesi ile.  Her veri kaynağı kendi özellikler kümesini sahip her türüyle belli bir türdeki kayıtları oluşturur.
@@ -29,8 +29,8 @@ Azure İzleyici aracılardan topladığı veriler, yapılandırdığınız veri 
 Aşağıdaki tablo, Azure İzleyici'de şu anda kullanılabilir aracı veri kaynaklarını listeler.  Bu veri kaynağı için ayrıntı sağlayan ayrı bir makale için bir bağlantı vardır.   Ayrıca kendi yöntemi ve toplama sıklığı bilgi sağlar. 
 
 
-| Veri kaynağı | Platform | Microsoft İzleme Aracısı | Operations Manager Aracısı | Azure Storage | Operations Manager gerekli? | Operations Manager aracısı veri yönetim grubu gönderilir. | Toplama sıklığı |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Veri kaynağı | Platform | Microsoft İzleme Aracısı | Operations Manager Aracısı | Azure depolama | Operations Manager gerekli? | Operations Manager aracısı veri yönetim grubu gönderilir. | Toplama sıklığı |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | [Özel günlükler](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | geldiğinde |
 | [Özel günlükler](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | geldiğinde |
 | [IIS günlükleri](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |Günlük dosyası aktarma ayarına bağlıdır |

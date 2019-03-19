@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
-ms.openlocfilehash: cd3fdec0e50d64af28306034e6e1086e67526b7d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b67fcb82bdcc94d7faeceedb7420a869e6578cad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007326"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>StorSimple sanal dizisi üzerinde güncelleştirme 0.4 yükleyin
 
@@ -48,7 +48,7 @@ Microsoft Update Kataloğu'ndan yazılım güncelleştirmesi indirmek için aşa
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Güncelleştirmeyi veya düzeltmeyi indirmek için
 
-1. Internet Explorer'ı başlatın ve gidin [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
+1. Internet Explorer'ı başlatın ve gidin [ https://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Microsoft Update Kataloğu’nu bu bilgisayarda ilk kez kullanıyorsanız, sorulduğunda **Yükle**’ye tıklayarak Microsoft Update Kataloğu eklentisini yükleyin.
 
@@ -58,7 +58,7 @@ Microsoft Update Kataloğu'ndan yazılım güncelleştirmesi indirmek için aşa
    
     ![Katalogda arama](./media/storsimple-virtual-array-install-update-04/download1.png)
 
-4. **Ekle**'ye tıklayın. Güncelleştirme sepete eklenir.
+4. **Ekle**'yi tıklatın. Güncelleştirme sepete eklenir.
 
 5. **Sepeti Görüntüle**’ye tıklayın.
 

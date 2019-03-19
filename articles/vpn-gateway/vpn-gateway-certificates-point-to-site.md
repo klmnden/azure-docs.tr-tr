@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: e574759ff8af172841db9fc94ee860a19dd14200
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 74639dee6fb548e1c9067cae6fc22f6e3cc872c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415374"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096240"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Oluşturma ve noktadan siteye için sertifika dışarı aktarma PowerShell'i kullanma
 
@@ -30,12 +30,12 @@ Bir otomatik olarak imzalanan kök sertifika oluşturmak için New-SelfSignedCer
 1. Windows 10 veya Windows Server 2016 çalıştıran bir bilgisayarda, yükseltilmiş ayrıcalıklarla bir Windows PowerShell konsolu açın. Bu örnekler, "Deneyin" Azure Cloud Shell'de çalışmaz. Bu örnek yerel olarak çalıştırmanız gerekir.
 2. Otomatik olarak imzalanan kök sertifika oluşturmak için aşağıdaki örneği kullanın. Aşağıdaki örnek, '' Sertifikalar-Geçerli kullanıcı\kişisel\sertifikalar' otomatik olarak yüklenen P2SRootCert' adlı bir otomatik olarak imzalanan kök sertifika oluşturur. Sertifika açarak görüntüleyebilirsiniz *certmgr.msc*, veya *kullanıcı sertifikalarını Yönet*.
 
-  ```powershell
-  $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
-  -Subject "CN=P2SRootCert" -KeyExportPolicy Exportable `
-  -HashAlgorithm sha256 -KeyLength 2048 `
-  -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
-  ```
+   ```powershell
+   $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+   -Subject "CN=P2SRootCert" -KeyExportPolicy Exportable `
+   -HashAlgorithm sha256 -KeyLength 2048 `
+   -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
+   ```
 
 ## <a name="clientcert"></a>2. İstemci sertifikası oluşturma
 
@@ -65,37 +65,37 @@ Ek istemci sertifikalarını oluşturma ya da otomatik olarak imzalanan kök ser
 
 1. Bilgisayarda yüklü otomatik olarak imzalanan kök sertifikayı belirleyin. Bu cmdlet, bilgisayarınızda yüklü sertifikaların bir listesini döndürür.
 
-  ```powershell
-  Get-ChildItem -Path “Cert:\CurrentUser\My”
-  ```
+   ```powershell
+   Get-ChildItem -Path “Cert:\CurrentUser\My”
+   ```
 2. Döndürülen listeden konu adını bulun ve ardından bir metin dosyasına yanında bulunan parmak izini kopyalayın. Aşağıdaki örnekte, iki sertifika vardır. CN adının bir alt sertifikası oluşturmak istediğiniz otomatik olarak imzalanan kök sertifika adıdır. Bu durumda, 'P2SRootCert'.
 
-  ```
-  Thumbprint                                Subject
+   ```
+   Thumbprint                                Subject
   
-  AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
-  7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
-  ```
+   AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
+   7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
+   ```
 3. Önceki adımdaki parmak izini kullanarak kök sertifikası için bir değişken bildirir. Parmak İZİ alt sertifika oluşturmak istediğiniz kök sertifika parmak iziyle değiştirin.
 
-  ```powershell
-  $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
-  ```
+   ```powershell
+   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
+   ```
 
-  Örneğin, önceki adımda P2SRootCert için parmak izini kullanarak değişkeni şöyle görünür:
+   Örneğin, önceki adımda P2SRootCert için parmak izini kullanarak değişkeni şöyle görünür:
 
-  ```powershell
-  $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
-  ```
-4.  Değiştirebilir ve bir istemci sertifikası oluşturmak için örneği çalıştırın. Değişiklik yapmadan aşağıdaki örneği çalıştırırsanız, sonuç 'P2SChildCert' adlı bir istemci sertifikası olur. Başka bir alt sertifikayı Adlandır istiyorsanız, CN değeri değiştirin. Bu örnekte çalıştırırken TextExtension değiştirmeyin. Oluşturduğunuz istemci sertifikası, bilgisayarınızda 'Sertifikalar - Geçerli kullanıcı\kişisel\sertifikalar' otomatik olarak yüklenir.
+   ```powershell
+   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
+   ```
+4. Değiştirebilir ve bir istemci sertifikası oluşturmak için örneği çalıştırın. Değişiklik yapmadan aşağıdaki örneği çalıştırırsanız, sonuç 'P2SChildCert' adlı bir istemci sertifikası olur. Başka bir alt sertifikayı Adlandır istiyorsanız, CN değeri değiştirin. Bu örnekte çalıştırırken TextExtension değiştirmeyin. Oluşturduğunuz istemci sertifikası, bilgisayarınızda 'Sertifikalar - Geçerli kullanıcı\kişisel\sertifikalar' otomatik olarak yüklenir.
 
-  ```powershell
-  New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
-  -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
-  -HashAlgorithm sha256 -KeyLength 2048 `
-  -CertStoreLocation "Cert:\CurrentUser\My" `
-  -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
-  ```
+   ```powershell
+   New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
+   -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
+   -HashAlgorithm sha256 -KeyLength 2048 `
+   -CertStoreLocation "Cert:\CurrentUser\My" `
+   -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
+   ```
 
 ## <a name="cer"></a>3. Kök sertifikanın ortak anahtarı (.cer) dışarı aktarma
 

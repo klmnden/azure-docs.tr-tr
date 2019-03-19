@@ -14,12 +14,12 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee21080fd95815289f73654cc5bc650296c8e8dd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 47128bce8dbbee1b28f6b0a3a5783e5ccee501bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433374"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177407"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>İki aşamalı doğrulama için uygulama parolaları yönetme
 
@@ -89,7 +89,7 @@ Oluşturun ve MyApps portalı üzerinden uygulama parolalarını Sil.
 
 1. İş veya Okul hesabınızda oturum açın.
 
-2. Git https://portal.office.comseçin **ayarları** simgesini sağ üst kısmındaki **Office 365 portalında** sayfasında ve ardından **ek güvenlik doğrulaması**.
+2. Git [ https://portal.office.com ](https://portal.office.com)seçin **ayarları** simgesini sağ üst kısmındaki **Office 365 portalında** sayfasında ve ardından **ek güvenlik doğrulama**.
 
     ![Office portalı gösteren ek güvenlik doğrulama alanı genişletilmiş](media/security-info/security-info-o365password.png)
 
@@ -105,7 +105,7 @@ Oluşturun ve MyApps portalı üzerinden uygulama parolalarını Sil.
 
 1. İş veya Okul hesabınızda oturum açın.
 
-2. Git https://portal.office.comseçin **ayarları** simgesini sağ üst kısmındaki **Office 365 portalında** sayfasında ve ardından **ek güvenlik doğrulaması**.
+2. Git [ https://portal.office.com ](https://portal.office.com)seçin **ayarları** simgesini sağ üst kısmındaki **Office 365 portalında** sayfasında ve ardından **ek güvenlik doğrulama**.
 
 3. Şunu metni seçin **oluşturma ve uygulama parolaları yönetme** açmak için **uygulama parolaları** sayfası.
 

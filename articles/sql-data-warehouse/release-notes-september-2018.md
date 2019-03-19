@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: bd6531bc950e006f15924bb9a0d6428f9e69d544
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: bc559a1224aace2ee599c24c8dce07a6d55173fd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330843"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863721"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Eylül 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Eylül 2018'de sunulan değişiklikler ve yeni özellikleri açıklar.
@@ -124,7 +124,7 @@ SQL veri ambarı hakkında biraz bilmek, bilgi nasıl hızlı bir şekilde [SQL 
 [Müşteri Danışma Ekibi blogları]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Müşteri başarı hikayeleri]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Özellik istekleri]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow forumu]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow forumu]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videolar]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

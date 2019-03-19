@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e32f0ac6fcc6839bad973c3d014436d08ae43896
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b841cbe838156cd00876a9a13c7a9cbe1790ea80
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211318"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842221"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Öğretici: Peakon ile Azure Active Directory Tümleştirme
 
@@ -170,7 +170,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve P
 
     e. Tıklayın **simgesi** kopyalamak için **yanıt URL'si (ACS)** ve yapıştırın **yanıt URL'si** metin kutusunda **temel SAML yapılandırma**   Azure portalında bölümü.
 
-    f. **Kaydet**’e tıklayın
+    f. **Kaydet**'e tıklayın.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -190,7 +190,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -220,7 +220,7 @@ Peakon söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görev
 
     a. İçinde **adı** metin türü adı olarak **Britta** ve Soyadı olarak **simon**.
 
-    b. İçinde **e-posta** metin kutusu, türü e-posta adresi ister **Brittasimon@contoso.com**.
+    b. İçinde **e-posta** metin kutusu, türü e-posta adresi ister **Brittasimon\@contoso.com**.
 
     c. Tıklayın **Oluştur çalışan**.
 

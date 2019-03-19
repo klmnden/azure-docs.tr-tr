@@ -16,12 +16,12 @@ ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f4eab44a55574f84f29488e78cd60522d7a52eb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6f2e5674413cb4057187b7573fde0bcd8899caab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171205"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905180"
 ---
 # <a name="email-notifications-in-pim"></a>PIM e-posta bildirimleri
 
@@ -31,7 +31,7 @@ Azure AD Privileged Identity Management (PIM), ne zaman bir rol atandıktan veya
 
 E-postalar için her iki Azure AD PIM gönderilen ve Azure kaynağı rolleri aşağıdaki gönderen e-posta adresi vardır:
 
-- E-posta adresi:  **azure-noreply@microsoft.com**
+- E-posta adresi: **azure noreply\@microsoft.com**
 - Görünen ad: Microsoft Azure
 
 Bu e-postaları içeren bir **PIM** konu satırı önek. Bir örneği aşağıda verilmiştir:

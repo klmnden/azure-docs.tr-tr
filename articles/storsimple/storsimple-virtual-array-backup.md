@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure StorSimple sanal dizinin yedekleme Öğreticisi | Microsoft Docs
-description: StorSimple sanal dizinin paylaşımları ve birimler yedekleme açıklar.
+title: Microsoft Azure StorSimple Virtual Array yedekleme Öğreticisi | Microsoft Docs
+description: StorSimple sanal dizisi paylaşımları ve birimleri yedekleme açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,104 +15,104 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c926f0c80ce56cac3106ad97ec3ec2e18a8e2cc6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a61dcca1f78b6ba444a2deefcf6b8bb4fd5c5087
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23875651"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121987"
 ---
-# <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Paylaşımlar veya birimler, StorSimple sanal dizisinde yedekle
+# <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Paylaşımları veya birimler, StorSimple sanal dizisi yedekleme
 
 ## <a name="overview"></a>Genel Bakış
 
-StorSimple sanal dizinin bir dosya sunucusu veya bir iSCSI sunucusu yapılandırılmış bir karma bulut depolama şirket içi sanal cihazdır. Sanal dizinin cihazda zamanlanmış ve el ile yedeklerini tüm paylaşımlar veya birimler oluşturmasına olanak tanır. Dosya sunucusu olarak yapılandırıldığında, öğe düzeyinde kurtarma de sağlar. Bu öğretici, zamanlanmış ve el ile yedekleme oluşturmak ve sanal dizisindeki silinmiş bir dosyayı geri yüklemek için öğe düzeyinde kurtarma gerçekleştirmek açıklar.
+StorSimple sanal dizisi, bir dosya sunucusu veya bir iSCSI sunucusu olarak yapılandırılmış bir karma bulut depolama şirket içi sanal cihazı ' dir. Sanal dizi cihaz üzerinde tüm paylaşımları veya birimler zamanlanmış ve el ile yedekleme oluşturmasına olanak tanır. Dosya sunucusu olarak yapılandırıldığında, ayrıca öğe düzeyinde kurtarma sağlar. Bu öğreticide, zamanlanmış ve el ile yedekleme oluşturmak ve sanal diziniz silinen bir dosyaya geri yüklemek için öğe düzeyinde kurtarma gerçekleştirmek açıklar.
 
-Bu öğretici, StorSimple sanal diziler için yalnızca geçerlidir. 8000 serisi hakkında daha fazla bilgi için Git [8000 serisi aygıtı için bir yedekleme oluşturmak](storsimple-manage-backup-policies-u2.md)
+Bu öğretici, StorSimple sanal diziler için yalnızca geçerlidir. 8000 serisi hakkında daha fazla bilgi için Git [8000 serisi cihaz için bir yedekleme oluşturma](storsimple-manage-backup-policies-u2.md)
 
-## <a name="back-up-shares-and-volumes"></a>Paylaşımları ve birimler yedekleme
+## <a name="back-up-shares-and-volumes"></a>Paylaşımları ve birimleri yedekleme
 
-Yedeklemeleri zaman noktası korumasını sağlar, kurtarılabilirliği iyileştirmeye ve paylaşımları ve birimler için geri yükleme sürelerini en aza. StorSimple Cihazınızda iki yolla paylaşımı veya birimi yedekleyebilirsiniz: **zamanlanmış** veya **el ile**. Yöntemlerin her biri aşağıdaki bölümlerde ele alınmıştır.
+Yedeklemeler, zaman içinde nokta koruma sağlamak, kurtarılabilirliği iyileştirmeye ve paylaşımları ve birimler için geri yükleme sürelerini en aza indirin. StorSimple Cihazınızda iki yolla bir paylaşım veya birim yedekleme: **Zamanlanmış** veya **el ile**. Bu yöntemlerin her biri, aşağıdaki bölümlerde ele alınmıştır.
 
 ## <a name="change-the-backup-start-time"></a>Yedekleme başlangıç saatini değiştir
 
 > [!NOTE]
-> Bu sürümde, zamanlanmış yedeklemeler, her gün belirtilen zamanda çalışan ve tüm paylaşımlar veya birimler cihazda yedekler varsayılan bir ilke tarafından oluşturulur. Şu anda zamanlanmış yedeklemeler için özel ilkeler oluşturmak mümkün değil.
+> Bu sürümde, zamanlanmış yedeklemeleri her gün belirtilen saatte çalıştırır ve cihazda tüm paylaşımları veya birimleri yedekleyen bir varsayılan ilke oluşturulur. Şu anda zamanlanmış yedeklemeler için özel ilkeler oluşturmak mümkün değildir.
 
 
-StorSimple sanal dizinizi (22:30) günün belirli bir zamanda başlatır ve tüm paylaşımlar veya birimler cihazda günde bir kez yedekler varsayılan yedekleme ilkesine sahip. Hangi yedekleme başlar, ancak sıklığı ve (hangi korumak için yedeklemeler sayısını belirtir) bekletme değiştirilemez zaman değiştirebilirsiniz. Bu yedeklemeler sırasında sanal cihazın tamamının yedeklenir. Bu olası cihaz performansını etkileyebilir ve cihazda dağıtılan iş yükleri etkiler. Bu nedenle, bu yedeklemeler için yoğun olmayan saatler zamanlamanızı öneririz.
+StorSimple Virtual Array'iniz (22:30) gün belirtilen saatte başlayıp tüm paylaşımları veya birimler cihazda günde bir kez yedekler varsayılan yedekleme ilkesi vardır. Hangi yedekleme başlatır, ancak sıklığı ve (hangi korur yedeklemelerinin sayısını belirtir) bekletme değiştirilemez süreyi değiştirebilirsiniz. Bu yedeklemeler sırasında sanal cihazın tamamını yedeklenir. Bu potansiyel olarak cihaz performansını etkileyebilir ve cihaza dağıtılan iş yükleri etkiler. Bu nedenle, bu yedeklemeler için yoğun olmayan saatler zamanlamanızı öneririz.
 
- Varsayılan yedekleme başlangıç saati değiştirmek için aşağıdaki adımları gerçekleştirin [Azure portal](https://portal.azure.com/).
+ Varsayılan yedekleme başlangıç saati değiştirmek için aşağıdaki adımları gerçekleştirin. [Azure portalında](https://portal.azure.com/).
 
-#### <a name="to-change-the-start-time-for-the-default-backup-policy"></a>Varsayılan yedekleme ilkesinin başlangıç saati değiştirmek için
+#### <a name="to-change-the-start-time-for-the-default-backup-policy"></a>Varsayılan yedekleme ilkesi için başlangıç saatini değiştirmek için
 
-1. Git **aygıtları**. StorSimple cihaz Yöneticisi hizmetiniz ile kaydedilmiş cihazların listesi görüntülenir. 
+1. Git **cihazları**. StorSimple cihaz Yöneticisi hizmetine kayıtlı cihazların listesi görüntülenir. 
    
-    ![aygıtlara gidin](./media/storsimple-virtual-array-backup/changebuschedule1.png)
+    ![cihazlara gidin](./media/storsimple-virtual-array-backup/changebuschedule1.png)
 
-2. Seçin ve aygıtınızı tıklatın. **Ayarları** dikey penceresinde görüntülenir. Git **Yönet > Yedekleme ilkeleri**.
+2. Cihazınızı tıklatıp seçin. **Ayarları** dikey penceresi görüntülenir. Git **Yönet > Yedekleme ilkelerine**.
    
     ![Cihazınızı seçin](./media/storsimple-virtual-array-backup/changebuschedule2.png)
 
-3. İçinde **yedekleme ilkeleri** dikey penceresinde, varsayılan başlangıç zamanıdır 22:30. Günlük Zamanlama için yeni başlangıç saati aygıt saat diliminde belirtebilirsiniz.
+3. İçinde **yedekleme ilkeleri** dikey penceresinde varsayılan başlangıç saati, 22:30 olan. Cihaz saat diliminde günlük zamanlama için yeni başlangıç saati belirtebilirsiniz.
    
-    ![Yedekleme ilkeleri gidin](./media/storsimple-virtual-array-backup/changebuschedule5.png)
+    ![Yedekleme ilkelerini gidin](./media/storsimple-virtual-array-backup/changebuschedule5.png)
 
-4. **Kaydet** düğmesine tıklayın.
+4. **Kaydet**’e tıklayın.
 
 ### <a name="take-a-manual-backup"></a>El ile yedekleyin
 
-Zamanlanmış yedeklemeleri yanı sıra, el ile (isteğe bağlı) herhangi bir zamanda cihaz verilerin yedeğini sürebilir.
+Zamanlanmış yedeklemeler ek olarak, el ile (isteğe bağlı) herhangi bir zamanda cihaz verilerini yedekleme oluşturabilirsiniz.
 
 #### <a name="to-create-a-manual-backup"></a>El ile yedekleme oluşturmak için
 
-1. Git **aygıtları**. Cihazınızı seçin ve sağ **...**  seçili satırdaki sağ uçta. Bağlam menüsünden seçin **yedek alın**.
+1. Git **cihazları**. Cihazınızı seçin ve sağ **...**  en sağdaki seçilen satırdaki. Bağlam menüsünden seçin **yedek Al**.
    
-    ![yedek alın gidin](./media/storsimple-virtual-array-backup/takebackup1m.png)
+    ![yedek Al gidin](./media/storsimple-virtual-array-backup/takebackup1m.png)
 
-2. İçinde **yedek alın** dikey penceresinde tıklatın **yedek alın**. Bu dosya sunucusundaki tüm paylaşımlar veya iSCSI sunucunuzdaki tüm birimleri yedekleyin. 
+2. İçinde **yedek Al** dikey penceresinde tıklayın **yedek Al**. Bu dosya sunucusundaki tüm paylaşımları veya iSCSI sunucunuzdaki tüm birimleri yedekleme. 
    
-    ![Başlangıç yedekleme](./media/storsimple-virtual-array-backup/takebackup2m.png)
+    ![Yedekleme başlangıcı:](./media/storsimple-virtual-array-backup/takebackup2m.png)
    
-    Bir talep üzerine yedekleme başlatılır ve bir yedekleme işi başlatıldığını görebilirsiniz.
+    İsteğe bağlı yedekleme başlar ve bir yedekleme işi başlatıldı görürsünüz.
    
-    ![Başlangıç yedekleme](./media/storsimple-virtual-array-backup/takebackup3m.png) 
+    ![Yedekleme başlangıcı:](./media/storsimple-virtual-array-backup/takebackup3m.png) 
    
-    İş başarıyla tamamlandıktan sonra yeniden bildirilir. Yedekleme işleminin ardından başlatır.
+    İş başarıyla tamamlandıktan sonra yeniden bildirilir. Daha sonra yedekleme işlemini başlatır.
    
-    ![Yedekleme işi oluşturuldu](./media/storsimple-virtual-array-backup/takebackup4m.png)
+    ![oluşturulan yedekleme işi](./media/storsimple-virtual-array-backup/takebackup4m.png)
 
-3. Yedeklemeleri ilerlemesini izlemek ve iş ayrıntılarını inceleyin için bildirime tıklayın. Bu, olanak sürer **iş ayrıntıları**.
+3. İş ayrıntılarını inceleyin ve yedeklemeleri ilerlemesini izlemek için bildirime tıklayın. Sayfasına yönlendirileceksiniz **iş ayrıntıları**.
    
      ![yedekleme işi ayrıntıları](./media/storsimple-virtual-array-backup/takebackup5m.png)
 
-4. Yedekleme tamamlandıktan sonra Git **Yönetim > Yedekleme kataloğu**. Cihazınızda bir bulut anlık görüntüsü tüm paylaşımlar (veya birimleri) görürsünüz.
+4. Yedekleme tamamlandıktan sonra Git **Yönetim > Yedekleme kataloğu**. Cihazınızda bir bulut anlık görüntüsü veya tüm paylaşımları (birimler) görürsünüz.
    
     ![Tamamlanan yedekleme](./media/storsimple-virtual-array-backup/takebackup19m.png) 
 
-## <a name="view-existing-backups"></a>Var olan yedekleri görüntüleyin
+## <a name="view-existing-backups"></a>Var olan yedekleri görüntüleme
 Var olan yedekleri görüntülemek için Azure portalında aşağıdaki adımları gerçekleştirin.
 
 #### <a name="to-view-existing-backups"></a>Var olan yedekleri görüntülemek için
 
-1. Git **aygıtları** dikey. Seçin ve aygıtınızı tıklatın. İçinde **ayarları** dikey penceresinde, Git **Yönetim > Yedekleme kataloğu**.
+1. Git **cihazları** dikey penceresi. Cihazınızı tıklatıp seçin. İçinde **ayarları** dikey penceresinde, Git **Yönetim > Yedekleme kataloğu**.
    
     ![Yedekleme Kataloğu'na gidin](./media/storsimple-virtual-array-backup/viewbackups1.png)
-2. Filtreleme için kullanılmak üzere aşağıdaki ölçütleri belirtin:
+2. Filtreleme için kullanılacak aşağıdaki ölçütleri belirtin:
    
-    - **Zaman aralığı** – olabilir **son 1 saat**, **son 24 saat**, **son 7 gün**, **son 30 gündeki**, **geçen yıl** , ve **özel tarih**.
+   - **Zaman aralığı** – olabilir **son 1 saat**, **son 24 saat**, **son 7 gün**, **son 30 gündeki**, **son yıl** , ve **özel tarih**.
     
-    - **Aygıtları** – dosya sunucuları, StorSimple cihaz Yöneticisi hizmetine kayıtlı iSCSI sunucuları veya listeden seçin.
+   - **Cihazları** – dosya sunucularında veya iSCSI sunucuları, StorSimple cihaz Yöneticisi hizmetine kayıtlı listesinden seçin.
    
-    - **Başlatılan** – otomatik olarak **zamanlanmış** (göre bir yedekleme İlkesi) veya **el ile** (sizin tarafınızdan) başlatıldı.
+   - **Başlatılan** – otomatik olarak **zamanlanmış** (tarafından bir yedekleme İlkesi) veya **el ile** (sizin tarafınızdan) başlattı.
    
-    ![Filtre yedekleri](./media/storsimple-virtual-array-backup/viewbackups2.png)
+     ![Yedeklemeleri filtrelemek](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
-3. **Uygula**'ya tıklayın. Yedeklemeleri filtrelenmiş listesi görüntülenir **yedekleme kataloğu** dikey. Not yalnızca 100 yedekleme öğeleri belirli bir zamanda görüntülenebilir.
+3. **Uygula**'ya tıklayın. Filtrelenmiş liste yedeklerini görüntülenen **yedekleme kataloğu** dikey penceresi. Not yalnızca 100 yedekleme öğeleri belirli bir anda gösterilebilir.
    
     ![Güncelleştirilmiş yedekleme kataloğu](./media/storsimple-virtual-array-backup/viewbackups3.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi edinmek [StorSimple sanal dizinizi yönetme](storsimple-ova-web-ui-admin.md).
+Daha fazla bilgi edinin [StorSimple Virtual Array'iniz yönetme](storsimple-ova-web-ui-admin.md).
 

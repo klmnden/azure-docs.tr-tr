@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98126c6459c77ec4580665b0d157d532a1fe636c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 03652329acaeb737cb7cb4010ef48938caa17acc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672262"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096920"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>SaaS uygulamalarını B2B işbirliği için yapılandırma
 
@@ -37,63 +37,63 @@ Kendi kuruluş hesabını kullanarak oturum açmasına etkinleştirmek için bir
 
 1. Azure AD ile Dropbox iş uygulaması eklemek için seçin **kurumsal uygulamalar** sol bölmesi ve ardından **Ekle**.
 
-  ![Kurumsal uygulamalar sayfasında "Ekle" düğmesi](media/configure-saas-apps/add-dropbox.png)
+   ![Kurumsal uygulamalar sayfasında "Ekle" düğmesi](media/configure-saas-apps/add-dropbox.png)
 
 2. İçinde **uygulama ekleme** penceresinde girin **dropbox** arama kutusuna ve ardından **iş için Dropbox** sonuç listesinde.
 
-  ![Uygulama Sayfası Ekle "dropbox" arayın](media/configure-saas-apps/add-app-dialog.png)
+   ![Uygulama Sayfası Ekle "dropbox" arayın](media/configure-saas-apps/add-app-dialog.png)
 
 3. Üzerinde **çoklu oturum açma** sayfasında **çoklu oturum açma** sol bölmedeki ve enter **user.mail** içinde **kullanıcı tanımlayıcısı** kutusu. (Varsayılan olarak UPN ayarlanır.)
 
-  ![Uygulama için çoklu oturum açmayı yapılandırma](media/configure-saas-apps/configure-app-sso.png)
+   ![Uygulama için çoklu oturum açmayı yapılandırma](media/configure-saas-apps/configure-app-sso.png)
 
 4. Dropbox yapılandırmasında kullanılacak bir sertifika yüklemek için seçin **yapılandırma DropBox**ve ardından **SAML çoklu oturum üzerinde hizmet URL'si** listesinde.
 
-  ![Dropbox yapılandırması için sertifika indirme](media/configure-saas-apps/download-certificate.png)
+   ![Dropbox yapılandırması için sertifika indirme](media/configure-saas-apps/download-certificate.png)
 
 5. Oturum açmak için Dropbox oturum açma URL'si ile **çoklu oturum açma** sayfası.
 
-  ![Dropbox oturum açma sayfası](media/configure-saas-apps/sign-in-to-dropbox.png)
+   ![Dropbox oturum açma sayfası](media/configure-saas-apps/sign-in-to-dropbox.png)
 
 6. Menüsünde **Yönetici Konsolu**.
 
-  ![Dropbox menüsündeki "Yönetici konsolunda" bağlantısı](media/configure-saas-apps/dropbox-menu.png)
+   ![Dropbox menüsündeki "Yönetici konsolunda" bağlantısı](media/configure-saas-apps/dropbox-menu.png)
 
 7. İçinde **kimlik doğrulaması** iletişim kutusunda **daha fazla**, sertifikayı karşıya yüklemek ve ardından **URL'de oturum** kutusuna, SAML çoklu oturum açma URL'si girin.
 
-  ![Daraltılmış kimlik doğrulaması iletişim kutusunda "Daha fazla" bağlantısı](media/configure-saas-apps/dropbox-auth-01.png)
+   ![Daraltılmış kimlik doğrulaması iletişim kutusunda "Daha fazla" bağlantısı](media/configure-saas-apps/dropbox-auth-01.png)
 
-  !["Oturum URL'de" genişletilmiş kimlik doğrulama iletişim kutusunda](media/configure-saas-apps/paste-single-sign-on-URL.png)
+   !["Oturum URL'de" genişletilmiş kimlik doğrulama iletişim kutusunda](media/configure-saas-apps/paste-single-sign-on-URL.png)
 
 8. Azure portalında otomatik Kullanıcı Kurulumu yapılandırmak için seçin **sağlama** seçin sol bölmede **otomatik** içinde **sağlama modu** kutusuna ve ardından seçin **Yetkilendirme**.
 
-  ![Azure portalında otomatik kullanıcı sağlamayı yapılandırma](media/configure-saas-apps/set-up-automatic-provisioning.png)
+   ![Azure portalında otomatik kullanıcı sağlamayı yapılandırma](media/configure-saas-apps/set-up-automatic-provisioning.png)
 
 Dropbox uygulamada konuk veya üye kullanıcı ayarlanan sonra Dropbox'tan ayrı bir davet alırsınız. Dropbox çoklu oturum açmayı kullanmak için davetlilerin daveti bir bağlantıya tıklayarak kabul etmeniz gerekir.
 
-## <a name="box"></a>Box
+## <a name="box"></a>Kutu
 SAML Protokolü temelinde Federasyon kutusuna Konuk kullanıcıları Azure AD hesabıyla kimliğini açabileceğinizi bilirsiniz. Bu yordamda, meta verileri için Box.com yükleyin.
 
 1. Box uygulamasına Kurumsal uygulamaları ekleyin.
 
 2. Çoklu oturum açma şu sırayla yapılandırın:
 
-  ![Kutusu çoklu oturum açmayı yapılandırın](media/configure-saas-apps/configure-box-sso.png)
+   ![Kutusu çoklu oturum açmayı yapılandırın](media/configure-saas-apps/configure-box-sso.png)
 
- a. İçinde **oturum açma URL'si** kutusuna, Azure portalında kutusunu, oturum açma URL'si uygun şekilde ayarlandığından emin olun. Bu URL'yi Box.com kiracınızın URL'dir. Bu adlandırma kuralını uygulamalıdır *https://.box.com*.  
- **Tanımlayıcı** bu uygulama için geçerli değildir ancak yine de zorunlu bir alan olarak görünür.
+   a. İçinde **oturum açma URL'si** kutusuna, Azure portalında kutusunu, oturum açma URL'si uygun şekilde ayarlandığından emin olun. Bu URL'yi Box.com kiracınızın URL'dir. Bu adlandırma kuralını uygulamalıdır *https://.box.com*.  
+   **Tanımlayıcı** bu uygulama için geçerli değildir ancak yine de zorunlu bir alan olarak görünür.
 
- b. İçinde **kullanıcı tanımlayıcısı** kutusuna **user.mail** (için SSO Konuk hesapları için).
+   b. İçinde **kullanıcı tanımlayıcısı** kutusuna **user.mail** (için SSO Konuk hesapları için).
 
- c. Altında **SAML imzalama sertifikası**, tıklayın **yeni sertifika oluştur**.
+   c. Altında **SAML imzalama sertifikası**, tıklayın **yeni sertifika oluştur**.
 
- d. Kimlik sağlayıcısı olarak Azure AD'yi kullanacak şekilde Box.com kiracınızı yapılandırmaya başlamak için meta veri dosyası indirin ve yerel sürücünüze kaydedin.
+   d. Kimlik sağlayıcısı olarak Azure AD'yi kullanacak şekilde Box.com kiracınızı yapılandırmaya başlamak için meta veri dosyası indirin ve yerel sürücünüze kaydedin.
 
- e. İleri kutusuna meta veri dosyası, sizin için çoklu oturum açmayı yapılandıran takım destekler.
+   e. İleri kutusuna meta veri dosyası, sizin için çoklu oturum açmayı yapılandıran takım destekler.
 
 3. Sol bölmede, Azure AD'ye otomatik kullanıcı kurulum seçin **sağlama**ve ardından **Authorize**.
 
-  ![Azure AD kutusuna bağlanmak için yetki](media/configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
+   ![Azure AD kutusuna bağlanmak için yetki](media/configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
 
 Dropbox davetlilerin gibi kutusu katılımcıların kendi kutusu uygulamasından davetini gerekir.
 
