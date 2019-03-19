@@ -8,18 +8,18 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: 5de5f2f48504a711d4b7cff614abdd4214d0ba09
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fa3bf2b513ce7c5a0ea0210c66a9123ceaf1de37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739725"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015269"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>IBM zD & T geliştirme/test ortamı Azure'a yükleme
 
 IBM Z sistemlerinde anabilgisayar iş yükleri için geliştirme/test ortamı oluşturmak için IBM Z geliştirme ve Test Ortamı (zD & T) üzerinde Azure sanal makine (VM) altyapı (Iaas) hizmet olarak dağıtabilirsiniz.
 
-ZD & T, sağladığı maliyet tasarruflarından x86, uygulayabileceğiniz platformu, daha az kritik olan geliştirme ve test ortamları ve ardından güncelleştirmeleri Z sistem üretim ortamına geri gönderin. Daha fazla bilgi için [IBM ZD & T yükleme yönergeleri](http://www-01.ibm.com/support/docview.wss?uid=swg24044565#INSTALL).
+ZD & T, sağladığı maliyet tasarruflarından x86, uygulayabileceğiniz platformu, daha az kritik olan geliştirme ve test ortamları ve ardından güncelleştirmeleri Z sistem üretim ortamına geri gönderin. Daha fazla bilgi için [IBM ZD & T yükleme yönergeleri](https://www-01.ibm.com/support/docview.wss?uid=swg24044565#INSTALL).
 
 Azure ve Azure Stack aşağıdaki sürümleri destekler:
 

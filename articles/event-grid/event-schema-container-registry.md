@@ -1,19 +1,19 @@
 ---
 title: Azure Event Grid kapsayıcı kayıt defteri olay şeması
-description: Kapsayıcı engellendi olayları Azure Event Grid ile sağlanan özellikleri tanımlar
+description: Kapsayıcı kayıt defteri olayları Azure Event Grid ile sağlanan özellikleri tanımlar
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/13/2019
+ms.date: 03/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 6f00d4f249543ece0eb8db4a8e040300d55b2de8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462853"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084336"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Kapsayıcı kayıt defteri için Azure Event Grid olay şeması
 
@@ -21,12 +21,14 @@ Bu makalede, kapsayıcı kayıt defteri olaylarını şema ve özellikleri sağl
 
 ## <a name="available-event-types"></a>Kullanılabilir olay türleri
 
-BLOB Depolama, aşağıdaki olay türlerini gösterir:
+Azure Container Registry, aşağıdaki olay türlerini gösterir:
 
 | Olay türü | Açıklama |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Görüntü gönderildiğinde oluşturulur. |
 | Microsoft.ContainerRegistry.ImageDeleted | Görüntü silindiğinde oluşturulur. |
+| Microsoft.ContainerRegistry.ChartPushed | Helm grafiği gönderildiğinde oluşturulur. |
+| Microsoft.ContainerRegistry.ChartDeleted | Helm grafiği silindiğinde oluşturulur. |
 
 ## <a name="example-event"></a>Örnek olay
 
@@ -93,28 +95,84 @@ Silinmiş bir görüntü olayın şeması benzer:
 }]
 ```
 
+Olay gönderildi bir grafik için şema görüntülenen bir gönderilen olay için şemaya benzer, ancak bir istek nesnesi içermez:
+
+```json
+[{
+  "id": "ea3a9c28-5b17-40f6-a500-3f02b6829277",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartPushed",
+  "eventTime": "2019-03-12T22:16:31.5164086Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:16:31.0087496+00:00",
+    "action":"chart_push",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+Silinmiş hesap olayın şeması kasasına silinen olay için şemaya benzer, ancak bir istek nesnesi içermez:
+
+```json
+[{
+  "id": "39136b3a-1a7e-416f-a09e-5c85d5402fca",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartDeleted",
+  "eventTime": "019-03-12T22:42:08.7034064Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:42:08.3783775+00:00",
+    "action":"chart_delete",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
 ## <a name="event-properties"></a>Olay Özellikleri
 
 Bir olay aşağıdaki üst düzey veri vardır:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| konu başlığı | dize | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
-| konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
-| olay türü | dize | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
-| eventTime | dize | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
-| id | dize | Olayın benzersiz tanımlayıcısı. |
+| konu başlığı | string | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
+| konu | string | Yayımcı tarafından tanımlanan olay konu yolu. |
+| olay türü | string | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
+| eventTime | string | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
+| id | string | Olayın benzersiz tanımlayıcısı. |
 | veriler | object | BLOB Depolama olay verileri. |
-| dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
-| metadataVersion | dize | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
+| dataVersion | string | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
+| metadataVersion | string | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 
 Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| id | dize | Olay Kimliği |
-| timestamp | dize | Olayın gerçekleştiği zaman. |
-| action | dize | Belirtilen olayın kapsayan eylem. |
+| id | string | Olay Kimliği |
+| timestamp | string | Olayın gerçekleştiği zaman. |
+| action | string | Belirtilen olayın kapsayan eylem. |
 | hedef | object | Olay hedefi. |
 | istek | object | Olayı oluşturan istek. |
 
@@ -122,22 +180,24 @@ Hedef nesne, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| mediaType | dize | Başvurulan nesnenin MIME türü. |
+| mediaType | string | Başvurulan nesnenin MIME türü. |
 | boyut | integer | İçeriğin bayt sayısı. Uzunluk alanı ile aynıdır. |
-| Özet | dize | Kayıt defteri V2 HTTP API belirtimi tarafından tanımlanan içeriği, Özet. |
+| Özet | string | Kayıt defteri V2 HTTP API belirtimi tarafından tanımlanan içeriği, Özet. |
 | Uzunluğu | integer | İçeriğin bayt sayısı. Boyut alanına ile aynıdır. |
-| depo | dize | Depo adı. |
-| etiket | dize | Etiket adı. |
+| depo | string | Depo adı. |
+| etiket | string | Etiket adı. |
+| ad | string | Grafik adı. |
+| version | string | Grafik sürümü. |
 
 İstek nesnesi, aşağıdaki özelliklere sahiptir:
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
-| id | dize | Olayı başlatan isteği kimliği. |
-| addr | dize | IP veya ana bilgisayar adı ve büyük olasılıkla bağlantı noktası olayı başlatan istemci bağlantısı. Standart http isteğinden RemoteAddr değerdir. |
-| konak | dize | Harici olarak erişilebilen ana bilgisayar adını http ana bilgisayar üstbilgisi gelen isteklerde tarafından belirtilen kayıt defteri örneği. |
-| method | dize | Olayı oluşturan istek yöntemi. |
-| UserAgent | dize | İsteğin kullanıcı aracısını üstbilgisi. |
+| id | string | Olayı başlatan isteği kimliği. |
+| addr | string | IP veya ana bilgisayar adı ve büyük olasılıkla bağlantı noktası olayı başlatan istemci bağlantısı. Standart http isteğinden RemoteAddr değerdir. |
+| konak | string | Harici olarak erişilebilen ana bilgisayar adını http ana bilgisayar üstbilgisi gelen isteklerde tarafından belirtilen kayıt defteri örneği. |
+| method | string | Olayı oluşturan istek yöntemi. |
+| UserAgent | string | İsteğin kullanıcı aracısını üstbilgisi. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

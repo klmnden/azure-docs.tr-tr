@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: fc2333b6bd41b9efdd1fcafd6168906525cb537a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b422074c33f52a6819d2a05144a85768a2e484a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440582"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011926"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>REST kullanarak HDInsight üzerinde Apache Hadoop MapReduce işlerle çalışma
 
@@ -107,10 +107,10 @@ HDInsight kümesi üzerinde bir Apache Hadoop MapReduce işlerini çalıştırma
     (/ Mapreduce/jar) URI'nin sonuna, bu isteği bir jar dosyası içinde bir sınıftaki bir MapReduce işi başlatır WebHCat söyler. Bu komutta kullanılan parametreler aşağıdaki gibidir:
 
    * **-d**: `-G` POST yöntemine istek varsayılan olarak bu nedenle, kullanılmaz. `-d` istekle beraber gönderilen veri değerleri belirtir.
-    * **User.Name**: Komutu çalıştıran kullanıcının
-    * **jar**: Olmasını sınıfı içeren jar dosyasını konumunu çalıştı
-    * **sınıf**: MapReduce mantığı içeren sınıfı
-    * **arg**: MapReduce işi için geçirilecek bağımsız değişkenleri. Bu durumda, giriş metin dosyasına ve çıkış için kullanılan dizini
+     * **User.Name**: Komutu çalıştıran kullanıcının
+     * **jar**: Olmasını sınıfı içeren jar dosyasını konumunu çalıştı
+     * **sınıf**: MapReduce mantığı içeren sınıfı
+     * **arg**: MapReduce işi için geçirilecek bağımsız değişkenleri. Bu durumda, giriş metin dosyasına ve çıkış için kullanılan dizini
 
    Bu komut, iş durumunu denetlemek için kullanılan bir iş kimliği döndürülmesi gerekir:
 
