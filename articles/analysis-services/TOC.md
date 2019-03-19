@@ -43,8 +43,6 @@
 ### [Sunucu yöneticisi rolüne hizmet sorumlusu ekleme](analysis-services-addservprinc-admins.md)
 
 ## Model
-### [Power BI Desktop dosyasını içeri aktarma](analysis-services-import-pbix.md)
-### [Azure portalında bir model oluşturma (önizleme)](analysis-services-create-model-portal.md)
 ### [Visual Studio'dan dağıtma (SSDT)](analysis-services-deploy.md)
 ### [REST API ile yenileme](analysis-services-async-refresh.md)
 ### [Visual Studio'da veri modelleme - Adventure Works (1400) öğreticisi](tutorials/aas-adventure-works-tutorial.md)
@@ -97,13 +95,3 @@
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
-
-
-
-
-
-
-
-
-
-

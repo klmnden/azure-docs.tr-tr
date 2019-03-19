@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box Belgeleri
-description: Farklı depolama kapasitelerine sahip ürünlerden oluşan Azure Data Box ailesi, terabaytlarca verinin Azure'a hızlı, uygun maliyetli ve güvenilir bir şekilde gönderilmesine yardımcı olur. Microsoft, çevrimdışı veya ağ üzerinden veri aktarımını mümkün kılan özel depolama cihazları göndererek güvenli veri aktarımını hızlandırır.
+description: 'Farklı depolama kapasitelerine sahip ürünlerden oluşan Azure Data Box ailesi, terabaytlarca verinin Azure''a hızlı, uygun maliyetli ve güvenilir bir şekilde gönderilmesine yardımcı olur. Microsoft, çevrimdışı veya ağ üzerinden veri aktarımını mümkün kılan özel depolama cihazları göndererek güvenli veri aktarımını hızlandırır.'
 services: databox
 author: alkohli
 manager: twooley
@@ -11,16 +11,10 @@ ms.devlang: na
 ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 09e0debba88ed87ab84b567e797d3ae63ec32a81
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157114"
 ---
+<div id="main" class="v2">
 <h1>Azure Data Box</h1>
 <p>Farklı depolama kapasitelerine sahip ürünlerden oluşan Azure Data Box ailesi, terabaytlarca (TB) verinin Azure'a hızlı, uygun maliyetli ve güvenilir bir şekilde gönderilmesine yardımcı olur. Microsoft, çevrimdışı veya ağ üzerinden veri aktarımını mümkün kılan özel depolama cihazları göndererek güvenli veri aktarımını hızlandırır.</p>
-
 <h2>Çevrimdışı veri aktarımı</h2>
 <p>Sınırlı bant genişliği veya bağlantı bulunmayan durumlar için</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -79,7 +73,6 @@ ms.locfileid: "54157114"
         </a>
     </li>
 </ul>
-
 <h2>Çevrimiçi veri aktarımı</h2>
 <p>Ağ üzerinden aktarım</p>
 <ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
@@ -120,3 +113,4 @@ ms.locfileid: "54157114"
         </a>
     </li>
 </ul>
+</div>

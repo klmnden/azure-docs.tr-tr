@@ -3,20 +3,20 @@
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 ## [SSS](../sql/virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
-# Kullanmaya Başlama
+# Başlarken
 ## [Azure Portal’da bir VM sağlama](../sql/virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## [Azure PowerShell kullanarak bir VM sağlama](virtual-machines-windows-classic-ps-sql-create.md)
 ## [Bir VM’ye bağlanma](virtual-machines-windows-classic-sql-connect.md)
 ## [SQL Server veritabanını geçirme](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Yüksek Kullanılabilirliği Yapılandırma
 ### [Yüksek kullanılabilirlik seçenekleri](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
 ### [PowerShell ile Always On kullanılabilirlik grubu yapılandırma](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [Kullanılabilirlik grubu için iç dinleyici yapılandırma](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Kullanılabilirlik grubu için dış dinleyici yapılandırma](virtual-machines-windows-classic-ps-sql-ext-listener.md)
 ### [Şirket içi kullanılabilirlik grubunu Azure'a genişletme](virtual-machines-windows-classic-sql-onprem-availability.md)
-## Yönet
+## Yönetme
 ### [SQL Server IaaS Aracısı Uzantısını kullanma](virtual-machines-windows-classic-sql-server-agent-extension.md)
 ### [Otomatik Düzeltme Eki Uygulama](virtual-machines-windows-classic-sql-automated-patching.md)
 ### [Azure Anahtar Kasası Tümleştirme Yapılandırması](virtual-machines-windows-classic-ps-sql-keyvault.md)
@@ -46,5 +46,5 @@
 ## [SQL Server Veri Araçları (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 ## [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 ## [SQL Server Araçları](https://docs.microsoft.com/sql/tools/overview-sql-tools)
-## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
+## [Stack Overflow](https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
 

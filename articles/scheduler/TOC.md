@@ -32,7 +32,7 @@
 ## [Azure Scheduler yol haritası](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Azure yol haritası](https://azure.microsoft.com/updates/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/scheduler/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=scheduler)
