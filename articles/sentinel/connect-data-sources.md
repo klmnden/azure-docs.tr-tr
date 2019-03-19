@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: c2d9e83b28ac18f08ca67e9c4f675b1fe9d5d17c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a1c74f0ed9fd9b9abccfb7c2762cadf948c8fce0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431793"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884804"
 ---
 # <a name="connect-data-sources"></a>Veri kaynaklarını bağlama
 
@@ -70,7 +70,7 @@ Aşağıdaki veri toplama yöntemleri Azure Gözcü tarafından desteklenir:
     
 ## Aracı bağlantı seçenekleri<a name="agent-options"></a>
 
-Azure Gözcü için dış cihazınıza bağlanmak için aracı adanmış bir makinede dağıtılması gerekir (VM veya şirket içi) Gereci ve Azure Gözcü arasındaki iletişimi desteklemek için. Deploly aracıyı otomatik olarak veya elle yapabilirsiniz. Otomatik dağıtım, yalnızca ayrılmış makineniz Azure'da oluşturduğunuz yeni bir VM ise kullanılabilir. 
+Azure Gözcü için dış cihazınıza bağlanmak için aracı adanmış bir makinede dağıtılması gerekir (VM veya şirket içi) Gereci ve Azure Gözcü arasındaki iletişimi desteklemek için. Aracı otomatik olarak veya el ile dağıtabilirsiniz. Otomatik dağıtım, yalnızca ayrılmış makineniz Azure'da oluşturduğunuz yeni bir VM ise kullanılabilir. 
 
 
 ![Azure'da CEF](./media/connect-cef/cef-syslog-azure.png)

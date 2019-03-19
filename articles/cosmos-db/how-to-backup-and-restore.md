@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e79fdf2d7d680b3a229385c0fd96d844b3425b18
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 1d886e146e9e18eb735e6f88d2cb2c1a4a472924
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992490"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996886"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Verileri Azure Cosmos DB'de bir yedekten geri yükleyin 
 
-Veritabanınız veya bir kapsayıcı kaza ile silerseniz, şunları yapabilirsiniz [bir destek bileti]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) veya [Azure destek çağrısı]( https://azure.microsoft.com/support/options/) çevrimiçi otomatik yedeklemelerden veri geri yükleme. Azure desteği, seçili planlarında yalnızca gibi **standart**, ** geliştirici ve bunları yüksek planlar. Azure desteği ile kullanılabilir değildir **temel** planı. Farklı destek planları hakkında bilgi edinmek için [Azure destek planları](https://azure.microsoft.com/support/plans/) sayfası. 
+Veritabanınız veya bir kapsayıcı kaza ile silerseniz, şunları yapabilirsiniz [bir destek bileti]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) veya [Azure destek çağrısı]( https://azure.microsoft.com/support/options/) çevrimiçi otomatik yedeklemelerden veri geri yükleme. Azure desteği, seçili planlarında yalnızca gibi **standart**, **Geliştirici**ve bunları yüksek planlar. Azure desteği ile kullanılabilir değildir **temel** planı. Farklı destek planları hakkında bilgi edinmek için [Azure destek planları](https://azure.microsoft.com/support/plans/) sayfası. 
 
 Yedeklemenin belirli bir anlık görüntüsüne geri yüklemek için Azure Cosmos DB verileri bu anlık görüntü için yedekleme döngüsü boyunca kullanılabilir olmasını gerektirir.
 

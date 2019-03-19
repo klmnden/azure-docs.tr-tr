@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: f81e7a0008c015c033d30045970fe1bd67597ff9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 26f25a0dcbeef0d5b7456d42caaca392c3ca6a1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452207"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075621"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Yükleme ve Azure Backup sunucusu yükseltme
 > [!div class="op_single_selector"]
@@ -231,16 +231,16 @@ Aşağıdaki bölümlerde, istemci bilgisayarlar için koruma aracılarını gü
 
 2. Görüntü bölmesinde, koruma aracısını güncelleştirmek istediğiniz bilgisayarları seçin.
 
-  > [!NOTE]
-  > **Aracı güncelleştirmeleri** sütunu her korumalı bilgisayar için bir koruma Aracısı güncelleştirmesi çıktığında gösterir. İçinde **eylemleri** bölmesinde **güncelleştirme** eylemi, yalnızca korumalı bir bilgisayarın seçili olduğundan ve güncelleştirmeleri kullanılabilir.
-  >
-  >
+   > [!NOTE]
+   > **Aracı güncelleştirmeleri** sütunu her korumalı bilgisayar için bir koruma Aracısı güncelleştirmesi çıktığında gösterir. İçinde **eylemleri** bölmesinde **güncelleştirme** eylemi, yalnızca korumalı bir bilgisayarın seçili olduğundan ve güncelleştirmeleri kullanılabilir.
+   >
+   >
 
 3. Seçili bilgisayarlara güncelleştirilmiş koruma aracıları yüklemek için **eylemleri** bölmesinde **güncelleştirme**.
 
 4. Bilgisayar ağa bağlanana kadar ağa bağlı olmayan bir istemci bilgisayar için **aracı durumu** sütun bir durumu gösterir **güncelleştirme Beklemede**.
 
-  Bir istemci bilgisayar ağa bağlandıktan sonra **aracı güncelleştirmeleri** sütununda istemci bilgisayar durumunu gösteren **güncelleştirme**.
+   Bir istemci bilgisayar ağa bağlandıktan sonra **aracı güncelleştirmeleri** sütununda istemci bilgisayar durumunu gösteren **güncelleştirme**.
 
 ## <a name="move-mabs-to-a-new-server"></a>Yeni bir sunucuya MABS Taşı
 
@@ -262,10 +262,11 @@ MABS, depolama korurken yeni bir sunucuya taşımanız gerekiyorsa adımlar şun
 9. DPMDB'yi SQL geri yükleme
 10. Microsoft Azure Backup'a yeni server CD'sinde yönetici komut satırından konumu ve bin klasörüne yükleyin
 
-Örnek yol: C:\Windows\System32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
-Azure'a yedekleme çalıştırmak DPMSYNC-SYNC
+    Örnek yol: C:\Windows\System32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\" 
 
-10) DPMSYNC çalıştırın-eşitleme Not eskileri taşıma yerine DPM depolama havuzuna yeni diskler ekledikten sonra çalıştırırsanız DPMSYNC - Reallocatereplica
+11. Azure yedekleme, çalıştırma DPMSYNC-SYNC
+
+    Eskileri taşıma yerine DPM depolama havuzuna yeni diskler eklediyseniz, ardından DPMSYNC - reallocatereplica öğesini çalıştırın
 
 ## <a name="network-connectivity"></a>Ağ bağlantısı
 Azure Backup sunucusu başarıyla çalışmak ürün için Azure Backup hizmeti bağlantısı gerektirir. Makineyi azure'a bağlantısı olup olmadığını doğrulamak için kullanın ```Get-DPMCloudConnection``` Azure Backup sunucusu PowerShell konsolundaki cmdlet'i. Bu cmdlet'in çıktısı TRUE ise bağlantı var. daha sonra başka hiçbir bağlantısı yoktur.
@@ -306,33 +307,33 @@ MABS yükseltmek için aşağıdaki yordamları kullanın.
 ### <a name="upgrade-from-mabs-v2-to-v3"></a>V3 için MABS V2'den yükseltme
 
 > [!NOTE]
-
+> 
 > MABS V2 MABS V3 yüklemek için bir önkoşul olmamasına. Ancak, MABS V3 yalnızca MABS V2'den yükseltme yapabilirsiniz.
 
 MABS yükseltmek için aşağıdaki adımları kullanın:
 
 1. MABS V3 MABS V2'den yükseltme için işletim sisteminizi Windows Server 2016 veya Windows Server 2019 gerekirse yükseltin.
 
-2.  Sunucunuzu yükseltin. Adımları benzer [yükleme](#install-and-upgrade-azure-backup-server). Ancak, SQL ayarları için SQL örneğinizin SQL 2017'ye yükseltmek veya kendi SQL server 2017 kullanmak için bir seçenek alırsınız.
+2. Sunucunuzu yükseltin. Adımları benzer [yükleme](#install-and-upgrade-azure-backup-server). Ancak, SQL ayarları için SQL örneğinizin SQL 2017'ye yükseltmek veya kendi SQL server 2017 kullanmak için bir seçenek alırsınız.
 
-  > [!NOTE]
+   > [!NOTE]
+   > 
+   > SQL örneğinizin yükseltiliyor, mevcut SQL Raporlama örneği kaldırılır ve bu nedenle MABS yeniden yükseltme girişimi başarısız olur ancak çıkmayın.
 
-  > SQL örneğinizin yükseltiliyor, mevcut SQL Raporlama örneği kaldırılır ve bu nedenle MABS yeniden yükseltme girişimi başarısız olur ancak çıkmayın.
+   Dikkat edilecek önemli noktalar:
 
-  Dikkat edilecek önemli noktalar:
-
-  > [!IMPORTANT]
-
-  >  SQL 2017 yükseltmesinin bir parçası olarak SQL şifreleme anahtarlarını yedeklemeniz ve Raporlama Hizmetleri kaldırın. SQL server yükseltmesi sonrasında raporlama service(14.0.6827.4788) yüklü & şifreleme anahtarı geri yüklenir.
-
- > SQL 2017 elle yapılandırırken başvurmak *SQL 2017 ile SSRS yapılandırma* bölümü altında yükleme yönergeleri.
+   > [!IMPORTANT]
+   > 
+   >  SQL 2017 yükseltmesinin bir parçası olarak SQL şifreleme anahtarlarını yedeklemeniz ve Raporlama Hizmetleri kaldırın. SQL server yükseltmesi sonrasında raporlama service(14.0.6827.4788) yüklü & şifreleme anahtarı geri yüklenir.
+   > 
+   > SQL 2017 elle yapılandırırken başvurmak *SQL 2017 ile SSRS yapılandırma* bölümü altında yükleme yönergeleri.
 
 3. Korumalı sunuculardaki koruma aracılarını güncelleştirin.
 4. Yedeklemeler, üretim sunucuları yeniden başlatma gerek kalmadan devam etmelidir.
 5. Artık verilerinizi korumaya başlayabilir. Korurken, Modern yedekleme depolama alanı için yükseltme yapıyorsanız, yedeklemeleri depolamak ve denetlemek için sağlanan alanı altında istediğiniz birimleri de seçebilirsiniz. [Daha fazla bilgi edinin](backup-mabs-add-storage.md).
 
 > [!NOTE]
-
+> 
 > MABS V1'den V2'ye yükseltiyorsanız, işletim sisteminizi Windows Server 2016 veya Windows Server 2012 R2 olduğundan emin olun. System Center 2016 veri koruma Yöneticisi'ni Modern yedekleme depolama alanı gibi yeni özelliklerden yararlanmak için Windows Server 2016'da yedekleme sunucusu V2 yüklemeniz gerekir. Yükseltme veya yedekleme sunucusu V2'ı yüklemeden önce okumanız [yükleme önkoşulları](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) MABS için geçerlidir.
 
 ## <a name="troubleshooting"></a>Sorun giderme

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: cb64b96f179bd71c3f885a54b17decb794b40c1a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567392"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994915"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Parçalı bir çok kiracılı uygulamasını dağıtma ve keşfetme
 
@@ -66,9 +66,9 @@ Artık adlarınızı seçin ve not edin.
 ### <a name="steps"></a>Adımlar
 
 1. Aşağıdaki mavi tıklayın **azure'a Dağıt** düğmesi.
-    - Azure portalı ile Wingtip bilet SaaS dağıtım şablonu açar.
+   - Azure portalı ile Wingtip bilet SaaS dağıtım şablonu açar.
 
-    [![Düğme için Azure'a dağıtın.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+     [![Düğme için Azure'a dağıtın.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 1. Dağıtım için gerekli parametre değerlerini girin.
 
@@ -125,9 +125,9 @@ Her mekan, etkinliklerini ve bilet satmak için kişiselleştirilmiş web uygula
 Bir merkezi **olay hub'ı** Web sayfası, belirli dağıtım içindeki kiracıların bağlantıların listesini sağlar. Denemek için aşağıdaki adımları kullanın **olay hub'ı** Web sayfası ve tek tek web uygulaması:
 
 1. Açık **olay hub'ı** web tarayıcınızda:
-    - http://events.wingtip-mt.&lt; Kullanıcı&gt;. trafficmanager.net &nbsp; *(Değiştir &lt;kullanıcı&gt; dağıtımınızın kullanıcı değerine sahip.)*
+   - http://events.wingtip-mt.&lt; Kullanıcı&gt;. trafficmanager.net &nbsp; *(Değiştir &lt;kullanıcı&gt; dağıtımınızın kullanıcı değerine sahip.)*
 
-    ![olay hub’ı](media/saas-multitenantdb-get-started-deploy/events-hub.png)
+     ![olay hub’ı](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. **Olay Hub’ında** **Fabrikam Caz Kulübü**’ne tıklayın.
 
@@ -208,7 +208,7 @@ Ardından, biz başka bir kiracı, bu süre içinde kendi veritabanı sağlayın
 
 Artık dağıtılan kaynaklardan bazıları bakacağız:
 
-1. İçinde [Azure portalında](http://portal.azure.com), kaynak grupları, listeye göz atın. Uygulama dağıtıldığında, oluşturduğunuz kaynak grubunu açın.
+1. İçinde [Azure portalında](https://portal.azure.com), kaynak grupları, listeye göz atın. Uygulama dağıtıldığında, oluşturduğunuz kaynak grubunu açın.
 
    ![kaynak grubu](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
@@ -275,7 +275,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 -->
 
-[link-aka-ms-deploywtp-mtapp-52k]: http://aka.ms/deploywtp-mtapp
+[link-aka-ms-deploywtp-mtapp-52k]: https://aka.ms/deploywtp-mtapp
 
 
 [link-azure-get-started-powershell-41q]: https://docs.microsoft.com/powershell/azure/get-started-azureps
@@ -286,7 +286,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 <!--  Image references.
 
-[image-deploy-to-azure-blue-48d]: http://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
+[image-deploy-to-azure-blue-48d]: https://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
 -->
 
 [image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Azure'a dağıtmaya düğmesi."

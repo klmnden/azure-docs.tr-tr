@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 7e5abf1100c09f8f28d268b3f2defe953c5f36f0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3b2cfc932c6322df8237ec7cdf820fc4242bfa72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770144"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887230"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Azure Scheduler ile ilk işinizi oluşturun ve zamanlayın - Azure portal
 
@@ -34,7 +34,7 @@ Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_b
 
    ![Scheduler kaynağı oluşturma](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
-   Şimdi şu URL'ye GET isteği gönderen bir iş oluşturun: `http://www.microsoft.com/` 
+   Şimdi şu URL'ye GET isteği gönderen bir iş oluşturun: `https://www.microsoft.com/` 
 
 1. **Scheduler İşi** bölümüne şu bilgileri girin:
 
@@ -51,7 +51,7 @@ Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_b
    |----------|---------------|-------------| 
    | **Eylem** | **Http** | Çalıştırılacak eylemin türü | 
    | **Yöntem** | **Get** | Çağrılacak yöntem | 
-   | **URL** | **http://www.microsoft.com** | Hedef URL | 
+   | **URL** | **https://www.microsoft.com** | Hedef URL | 
    |||| 
    
    ![İşi tanımlama](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)

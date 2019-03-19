@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 8981f6a2b2d42627530fb8bf820ff8373e8f50b0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5c0fe0921446dde12771bacf096f806701b90444
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971674"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118008"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Storm-starter örneklerini kullanarak HDInsight üzerinde Apache Storm ile çalışmaya başlama
 
@@ -124,26 +124,26 @@ Storm Kullanıcı Arabirimini kullanarak topolojiyi izlemek için aşağıdaki a
 
     Bu sayfa aşağıdaki bilgileri sağlar:
 
-    * **Topoloji istatistikleri** - Topoloji performansı hakkında zaman pencereleri halinde düzenlenmiş temel bilgiler.
+   * **Topoloji istatistikleri** - Topoloji performansı hakkında zaman pencereleri halinde düzenlenmiş temel bilgiler.
 
-        > [!NOTE]  
-        > Belirli bir zaman penceresinin seçilmesi sayfanın diğer bölümlerinde gösterilen bilgiler için zaman penceresini değiştirir.
+       > [!NOTE]  
+       > Belirli bir zaman penceresinin seçilmesi sayfanın diğer bölümlerinde gösterilen bilgiler için zaman penceresini değiştirir.
 
-    * **Spout’lar** - Her bir spout’un döndürdüğü son hata dahil olmak üzere spout’lar hakkında temel bilgi.
+   * **Spout’lar** - Her bir spout’un döndürdüğü son hata dahil olmak üzere spout’lar hakkında temel bilgi.
 
-    * **Cıvatalar** - Cıvatalar hakkında temel bilgiler.
+   * **Cıvatalar** - Cıvatalar hakkında temel bilgiler.
 
-    * **Topoloji yapılandırması** - Topoloji yapılandırması hakkında ayrıntılı bilgi.
+   * **Topoloji yapılandırması** - Topoloji yapılandırması hakkında ayrıntılı bilgi.
 
-    Bu sayfa ayrıca topoloji üzerinde gerçekleştirilebilen eylemleri sağlar:
+     Bu sayfa ayrıca topoloji üzerinde gerçekleştirilebilen eylemleri sağlar:
 
-    * **Etkinleştir** - Devre dışı bırakılan bir topolojiyi işlemeyi sürdürür.
+   * **Etkinleştir** - Devre dışı bırakılan bir topolojiyi işlemeyi sürdürür.
 
-    * **Devre dışı bırak** - Çalışan topolojiyi duraklatır.
+   * **Devre dışı bırak** - Çalışan topolojiyi duraklatır.
 
-    * **Yeniden dengele** - Topolojinin paralelliğini ayarlar. Kümedeki düğüm sayısını değiştirdikten sonra çalışan topolojileri yeniden dengelemeniz gerekir. Yeniden dengeleme, kümede artan/azalan düğüm sayısını dengelemek üzere paralelliği ayarlamaya imkan tanır. Daha fazla bilgi için [Apache Storm topolojisinin paralelliğini anlama](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+   * **Yeniden dengele** - Topolojinin paralelliğini ayarlar. Kümedeki düğüm sayısını değiştirdikten sonra çalışan topolojileri yeniden dengelemeniz gerekir. Yeniden dengeleme, kümede artan/azalan düğüm sayısını dengelemek üzere paralelliği ayarlamaya imkan tanır. Daha fazla bilgi için [Apache Storm topolojisinin paralelliğini anlama](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-    * **Sonlandır** - Belirtilen zaman aşımından sonra Storm topolojisini sonlandırır.
+   * **Sonlandır** - Belirtilen zaman aşımından sonra Storm topolojisini sonlandırır.
 
 3. Bu sayfada **Spout’lar** veya **Cıvatalar** bölümünden bir giriş seçin. Seçilen bileşen hakkında bilgiler görüntülenir.
 

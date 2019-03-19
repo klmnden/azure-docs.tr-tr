@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 39ff70670d628ca672022b84e59ed3cc8a17d925
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9562d0cd1ad97a459c3630456a6070ac2b6e63f3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447048"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096036"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Kiracılar arası raporlama kullanarak dağıtılmış sorguları
 
@@ -27,7 +27,7 @@ Bu öğreticide, dağıtılmış sorgular için raporlama veritabanlarını Kira
 Bu öğreticide şunları öğrenirsiniz:
 
 > [!div class="checklist"]
-
+> 
 > * Bir raporlama veritabanını dağıtma
 > * Tüm Kiracı veritabanlarında dağıtılmış sorguları çalıştırma
 > * Genel görünümler her veritabanında kiracılar genelinde etkili sorgulamayı etkinleştirebilirsiniz nasıl
@@ -148,7 +148,7 @@ Artık dağıtılmış sorguları çalıştırmak ve tüm kiracılarda Öngörü
 
 Yürütme planını incelerken, Ayrıntılar için planının simgeler üzerine gelin. 
 
-Önemli not için bu ayarı olan **dağıtım SHARDED(VenueId) =** birçok senaryo için performans artırır, dış veri kaynağı tanımlanır. Her *VenueId* haritalar tek bir veritabanı için filtreleme kolayca yapılır uzaktan, yalnızca gerekli verileri döndürüyor.
+Önemli not için bu ayarı olan **dağıtım SHARDED(VenueId) =** birçok senaryo için performans artırır, dış veri kaynağı tanımlanır. Her *VenueId* tek bir veritabanının eşlenir, filtreleme kolayca yapılır uzaktan, yalnızca gerekli verileri döndürüyor.
 
 1. Aç... \\Öğrenme modülleri\\işlem analizi\\geçici raporlama\\*tanıtım AdhocReportingQueries.sql* ssms'de.
 2. Bağlı olduğunuzdan emin olun **adhocreporting** veritabanı.
@@ -181,7 +181,7 @@ Yürütme planını incelerken, Ayrıntılar için planının simgeler üzerine 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-
+> 
 > * Tüm kiracı veritabanlarında dağıtılmış sorguları çalıştırma
 > * Raporlama veritabanı dağıtma ve dağıtılmış sorguları çalıştırmak için gerekli bir şema tanımlayın.
 

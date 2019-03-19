@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 16c7fe68e67094cef21d9efbffdccd614827ae6d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 2fe786d90612feff312983dbd25dc6d691be6e70
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089786"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Sanal makine ayarlarla bir Azure VM'yi yedekleme
 
@@ -44,18 +44,18 @@ Azure Vm'lerini yedekleme için bir uzantı makine üzerinde çalışan VM Arac�
 3. VM listesinden yedeklemek istediğiniz VM'yi seçin.
 4. VM menüsünde **yedekleme**. 
 5. İçinde **kurtarma Hizmetleri kasası**, aşağıdakileri yapın:
-  - Bir kasa zaten varsa, tıklayın **var olanı Seç**ve bir kasa seçin.
-  - Bir kasa yoksa tıklayın **Yeni Oluştur**. Kasa için bir ad belirtin. VM aynı bölge ve kaynak grubunda oluşturulur. VM ayarlarını doğrudan yedekten etkinleştirdiğinizde, bu ayarları değiştiremezsiniz.
+   - Bir kasa zaten varsa, tıklayın **var olanı Seç**ve bir kasa seçin.
+   - Bir kasa yoksa tıklayın **Yeni Oluştur**. Kasa için bir ad belirtin. VM aynı bölge ve kaynak grubunda oluşturulur. VM ayarlarını doğrudan yedekten etkinleştirdiğinizde, bu ayarları değiştiremezsiniz.
 
-  ![Yedekleme Sihirbazını Etkinleştirme](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+   ![Yedekleme Sihirbazını Etkinleştirme](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
 6. İçinde **yedekleme ilkesi seçmek**, aşağıdakileri yapın:
 
-  - Varsayılan ilkesini bırakın. Bu VM'yi belirtilen zaman günde bir kez yedekler ve kasadaki yedekler 30 gün boyunca tutar.
-  - Varsa mevcut bir yedekleme İlkesi'ni seçin.
-  - Yeni bir ilke oluşturun ve ilke ayarlarını tanımlayın.  
+   - Varsayılan ilkesini bırakın. Bu VM'yi belirtilen zaman günde bir kez yedekler ve kasadaki yedekler 30 gün boyunca tutar.
+   - Varsa mevcut bir yedekleme İlkesi'ni seçin.
+   - Yeni bir ilke oluşturun ve ilke ayarlarını tanımlayın.  
 
-  ![Yedekleme ilkesini seçme](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+   ![Yedekleme ilkesini seçme](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. Tıklayın **etkinleştirme yedekleme**. Bu yedekleme İlkesi VM ile ilişkilendirir. 
 
@@ -64,7 +64,7 @@ Azure Vm'lerini yedekleme için bir uzantı makine üzerinde çalışan VM Arac�
 8. Portal bildirimleri yapılandırma ilerleme durumunu izleyebilirsiniz.
 9. VM menüsünde, iş tamamlandıktan sonra tıklayın **yedekleme**. Sayfada yedekleme durumu sanal makine, Kurtarma noktaları, çalışan işleri ve verilen uyarılar hakkında daha fazla bilgi için gösterilir.
 
-  ![Yedekleme durumu](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
+   ![Yedekleme durumu](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
 10. Backup'ı etkinleştirdikten sonra ilk yedekleme çalışır. İlk yedeklemeyi hemen başlatmak veya yedekleme zamanlamasına uygun olarak başlatana kadar bekleyin.
     - İlk yedekleme işlemi tamamlanana kadar **son yedekleme durumu** olarak gösterir **uyarı (ilk yedekleme Beklemede)**.

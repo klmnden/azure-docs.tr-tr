@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b06ceb86e8406657766be1375889fcfe1b4673d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 292fa61ae87d87f27b988d250b694e05f6fa1d3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204551"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119437"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir .NET Masaüstü (WPF) uygulamasından Microsoft Graph API çağırma
 
@@ -77,9 +77,9 @@ Artık Azure AD'de bir uygulamanız olduğuna göre, ADAL'ı yükleyebilir ve ki
 
 1. İçinde `DirectorySearcher` projesini açarsanız `app.config`.
 1. Öğe değerlerini değiştirin `<appSettings>` Azure portalında giriş değerleri yansıtacak şekilde bölümü. Kodunuz ADAL'ı her kullandığında bu değerlere başvurur.
-  * `ida:Tenant` Contoso.onmicrosoft.com gibi Azure AD kiracınızın etki alanı
-  * `ida:ClientId` Portaldan kopyaladığınız uygulamanızın istemci kimliği.
-  * `ida:RedirectUri` Portalı'nda kayıtlı yeniden yönlendirme URL'si.
+   * `ida:Tenant` Contoso.onmicrosoft.com gibi Azure AD kiracınızın etki alanı
+   * `ida:ClientId` Portaldan kopyaladığınız uygulamanızın istemci kimliği.
+   * `ida:RedirectUri` Portalı'nda kayıtlı yeniden yönlendirme URL'si.
 
 ## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>3. Adım: Azure AD belirteçlerini almak için ADAL'ı kullanın
 

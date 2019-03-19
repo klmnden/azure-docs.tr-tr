@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: af604dbabe9df56322342230eaec70548f53c927
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 556d67bb67e9eb01c442cdf158561f16a5bcf922
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794507"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875949"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight'ta Apache HBase örneğiyle çalışmaya başlama
 
@@ -111,7 +111,7 @@ HBase içinde (uygulaması [bulut BigTable](https://cloud.google.com/bigtable/))
 
 HBase’de verileri tablolara yüklemek için bazı yöntemler vardır.  Daha fazla bilgi için bkz. [Toplu yükleme](https://hbase.apache.org/book.html#arch.bulk.load).
 
-Örnek veri dosyası, ortak blob kapsayıcısı *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt* içinde bulunabilir.  Veri dosyasının içeriği şudur:
+Örnek veri dosyası, bir ortak blob kapsayıcısında bulunabilir *wasb://hbasecontacts\@hditutorialdata.blob.core.windows.net/contacts.txt*.  Veri dosyasının içeriği şudur:
 
     8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
@@ -175,14 +175,14 @@ Kullanarak HBase tablolarındaki verileri sorgulayabilirsiniz [Apache Hive](http
 
 REST API’sinin güvenliği [temel kimlik doğrulaması](https://en.wikipedia.org/wiki/Basic_access_authentication) ile sağlanır. Kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderilmesi için istekleri her zaman Güvenli HTTP (HTTPS) kullanarak yapmalısınız.
 
-2. Mevcut HBase tablolarını listelemek için şu komutu kullanın:
+1. Mevcut HBase tablolarını listelemek için şu komutu kullanın:
 
     ```bash
     curl -u <UserName>:<Password> \
     -G https://<ClusterName>.azurehdinsight.net/hbaserest/
     ```
 
-3. İki sütunlu aileler içeren yeni bir HBase tablosu oluşturmak için aşağıdaki komutu kullanın:
+1. İki sütunlu aileler içeren yeni bir HBase tablosu oluşturmak için aşağıdaki komutu kullanın:
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -194,7 +194,7 @@ REST API’sinin güvenliği [temel kimlik doğrulaması](https://en.wikipedia.o
     ```
 
     Şema JSon biçiminde sağlanır.
-4. Bazı verileri eklemek için aşağıdaki komutu kullanın:
+1. Bazı verileri eklemek için aşağıdaki komutu kullanın:
 
     ```bash   
     curl -u <UserName>:<Password> \
@@ -207,12 +207,12 @@ REST API’sinin güvenliği [temel kimlik doğrulaması](https://en.wikipedia.o
    
     -d anahtarında belirtilen değerleri base64 ile kodlamanız gerekir. Örnekte:
    
-   * MTAwMA ==: 1000
-   * UGVyc29uYWw6TmFtZQ ==: Kişisel: adı
+   * MTAwMA==: 1000
+   * UGVyc29uYWw6TmFtZQ==: Kişisel: adı
    * Sm9obiBEb2xl: John Dole
      
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) birden fazla (toplu) değer eklemenizi sağlar.
-5. Bir satır almak için aşağıdaki komutu kullanın:
+1. Bir satır almak için aşağıdaki komutu kullanın:
    
     ```bash 
     curl -u <UserName>:<Password> \
@@ -247,15 +247,15 @@ HDInsight içinde HBase, kümelerin izlenmesi için bir Web Kullanıcı Arabirim
 2. Soldaki menüden **HBase**’e tıklayın.
 3. Sayfanın üstündeki **Hızlı bağlantılar**’a tıklayın, etkin Zookeeper düğümü bağlantısının üzerine gelin ve **HBase Master Kullanıcı Arabirimi**’ne tıklayın.  Kullanıcı arabirimi başka bir tarayıcı sekmesinde açılır:
 
-  ![HDInsight HBase HMaster Kullanıcı Arabirimi](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+   ![HDInsight HBase HMaster Kullanıcı Arabirimi](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-  HBase Master Kullanıcı Arabirimi aşağıdaki bölümleri içerir:
+   HBase Master Kullanıcı Arabirimi aşağıdaki bölümleri içerir:
 
-  - Bölge sunucuları
-  - Yedekleme yöneticileri
-  - Tablolar
-  - Görevler
-  - Yazılım öznitelikleri
+   - Bölge sunucuları
+   - Yedekleme yöneticileri
+   - Tablolar
+   - Görevler
+   - Yazılım öznitelikleri
 
 ## <a name="delete-the-cluster"></a>Küme silme
 Tutarsızlıkları önlemek için kümeyi silmeden önce HBase tablolarını devre dışı bırakmanız önerilir.

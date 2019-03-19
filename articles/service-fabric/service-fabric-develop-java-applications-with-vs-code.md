@@ -1,6 +1,6 @@
 ---
-title: Visual Studio Code ile Java Azure Service Fabric uygulamaları geliştirme | Microsoft Docs
-description: Bu makalede, oluşturmak, dağıtmak ve Visual Studio Code kullanarak Java Service Fabric uygulamaları hata ayıklama gösterilmektedir.
+title: Visual Studio Code ile Azure Service Fabric Java uygulamaları geliştirin | Microsoft Docs
+description: Bu makalede, oluşturmanızı, dağıtmanızı ve Visual Studio Code kullanarak Java Service Fabric uygulamalarında hata ayıklamak gösterilmektedir.
 services: service-fabric
 documentationcenter: .net
 author: JimacoMS
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 54c94c50f6292694e947d97a10fd6976c14e19df
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 9e5a2138de7e2c0e892bd0efeb0db1e2aee87422
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37116180"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014698"
 ---
-# <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Visual Studio Code ile Java Service Fabric uygulamaları geliştirme
+# <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Visual Studio Code ile Java Service Fabric uygulamaları geliştirin
 
-[VS Code için Service Fabric Reliable Services Uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-service-fabric-reliable-services) Windows, Linux ve macOS işletim sistemlerinde Java Service Fabric uygulamalar oluşturmanızı kolaylaştırır.
+[VS Code için Service Fabric güvenilir hizmetler uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-service-fabric-reliable-services) Java Service Fabric uygulamaları Windows, Linux ve Macos'ta işletim sistemlerinde oluşturmayı kolaylaştırır.
 
-Bu makalede oluşturun, dağıtın ve Visual Studio Code kullanarak bir Java Service Fabric uygulaması hata ayıklama gösterilmektedir.
+Bu makalede, oluşturmanızı, dağıtmanızı ve Visual Studio Code'u kullanarak bir Java Service Fabric uygulamasında hata ayıklama işlemini göstermektedir.
 
 > [!IMPORTANT]
-> Service Fabric Java uygulamalarını Windows makinelerde geliştirilmiş olmalıdır, ancak yalnızca Azure Linux kümeleri üzerinde dağıtılabilir. Windows, Java uygulamalarında hata ayıklama desteklenmiyor.
+> Service Fabric Java uygulamalarını Windows makinelerde geliştirilebilir, ancak yalnızca Azure Linux kümeleri üzerinde dağıtılabilir. Java uygulamalarında hata ayıklama, Windows üzerinde desteklenmiyor.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu makale, zaten VS Code, VS Code Service Fabric Reliable Services uzantısı ve geliştirme ortamınız için gereken bağımlılıkları yüklediğinizi varsayar. Daha fazla bilgi için bkz: [Başlarken](./service-fabric-get-started-vs-code.md#prerequisites).
+Bu makalede, zaten VS Code, VS Code için Service Fabric güvenilir hizmetler uzantısı ve geliştirme ortamınız için gereken herhangi bir bağımlılığın yüklediğinizi varsayar. Daha fazla bilgi için bkz. [Başlarken](./service-fabric-get-started-vs-code.md#prerequisites).
 
 ## <a name="download-the-sample"></a>Örneği indirme
-Bu makalede oylama uygulamada kullanan [Service Fabric Java uygulaması hızlı başlangıç örnek GitHub deposunu](https://github.com/Azure-Samples/service-fabric-java-quickstart). 
+Bu makalede oylama uygulamasında kullanan [Service Fabric Java uygulaması hızlı başlangıç örnek GitHub deposunda](https://github.com/Azure-Samples/service-fabric-java-quickstart). 
 
-Geliştirme makinenizde depoya kopyalamak için (Windows komut penceresinde) bir terminal penceresinden aşağıdaki komutu çalıştırın:
+Depoyu geliştirme makinenize kopyalamak için (Windows komut penceresinde) bir terminal penceresinden aşağıdaki komutu çalıştırın:
 
 ```sh
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
@@ -45,39 +45,39 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 ## <a name="open-the-application-in-vs-code"></a>Uygulama VS Code'da açın
 
-Açık VS kodu.  Explorer simgeyi tıklatın **etkinlik çubuğu** tıklatıp **Klasör Aç**, veya **Dosya -> Klasör Aç**. Gidin *./service-fabric-java-quickstart/Voting* kopyaladığınız deponun ardından klasörden dizininde tıklatın **Tamam**. Çalışma alanı aşağıdaki ekran görüntüsünde gösterilen aynı dosyaları içermelidir.
+Açık VS kodu.  Gezgini simgesine tıklayın **etkinlik çubuğu** tıklatıp **Klasör Aç**, veya **Dosya -> Klasör Aç**. Gidin *./service-fabric-java-quickstart/Voting* kopyaladığınız deponun ardından klasörden dizinine tıklayın **Tamam**. Çalışma alanı, aşağıdaki ekran görüntüsünde gösterilen aynı dosyaları içermelidir.
 
 ![Java oylama uygulaması çalışma](./media/service-fabric-develop-java-applications-with-vs-code/java-voting-application.png)
 
 ## <a name="build-the-application"></a>Uygulama oluşturma
 
-1. Tuşuna (Ctrl + Shift + p) açmak için **komutu palet** VS code'da.
-2. Aramak ve seçmek **Service Fabric: derleme uygulama** komutu. Derleme çıktı tümleşik terminal gönderilir.
+1. (Ctrl + Shift + p) açmak için ENTER tuşuna **komut paleti** VS code'da.
+2. Arayın ve seçin **Service Fabric: Uygulama derleme** komutu. Derleme çıktısında tümleşik terminale gönderilir.
 
-   ![VS code'da uygulama komutu derleme](./media/service-fabric-develop-java-applications-with-vs-code/sf-build-application.png)
+   ![VS code'da uygulama komutu oluşturun](./media/service-fabric-develop-java-applications-with-vs-code/sf-build-application.png)
 
 ## <a name="deploy-the-application-to-the-local-cluster"></a>Uygulamayı yerel kümeye dağıtma
 Uygulamayı oluşturduktan sonra yerel kümeye dağıtabilirsiniz. 
 
 > [!IMPORTANT]
-> Yerel küme için Java uygulamalarını dağıtma Windows makinelerde desteklenmiyor.
+> Java uygulamalarını yerel kümeye dağıtma Windows makinelerde desteklenmiyor.
 
-1. Gelen **komutu palet**seçin **Service Fabric: uygulama dağıtma (Localhost) komutu**. Yükleme işleminin çıktısı tümleşik terminal gönderilir.
+1. Gelen **komut paleti**seçin **Service Fabric: Uygulama (Localhost) komutu dağıtma**. Yükleme işlemini çıktısı için tümleşik Terminalini gönderilir.
 
    ![VS code'da uygulama komutu dağıtma](./media/service-fabric-develop-java-applications-with-vs-code/sf-deploy-application.png)
 
-4. Dağıtım tamamlandığında, bir tarayıcı başlatmak ve Service Fabric Explorer açın: http://localhost:19080/Explorer. Uygulamanın çalıştığını görmelisiniz. Bu biraz zaman alabilir bu nedenle endişelenmeyin. 
+4. Dağıtım tamamlandığında, tarayıcıyı başlatın ve Service Fabric Explorer'ı açın: `http://localhost:19080/Explorer`. Uygulamanın çalıştığını görmelisiniz. Bu biraz zaman alabilir. Bu nedenle sabırlı olun. 
 
-   ![Service Fabric Explorer'da oylama uygulaması](./media/service-fabric-develop-java-applications-with-vs-code/sfx-localhost-java.png)
+   ![Service Fabric Explorer'ın oylama uygulaması](./media/service-fabric-develop-java-applications-with-vs-code/sfx-localhost-java.png)
 
-4. Uygulamanın çalıştığını doğruladıktan sonra bir tarayıcı başlatmak ve bu sayfayı açın: http://localhost:8080. Web uygulamasının ön budur. Öğeler ekleme ve bunlar üzerinde oylamak için tıklatın.
+4. Uygulamanın çalıştığını doğruladıktan sonra tarayıcıyı başlatın ve şu sayfayı açın: `http://localhost:8080`. Bu, uygulamanın ön uç web API'sidir. Öğeleri ekleyebilir ve oylamak için tıklayın.
 
    ![Tarayıcıda oylama uygulaması](./media/service-fabric-develop-java-applications-with-vs-code/voting-sample-in-browser.png)
 
-5. Uygulamayı kümeden kaldırmak için seçin **Service Fabric: uygulaması Kaldır** komutunu **komutu palet**. Kaldırma işlemi çıktısını tümleşik terminal gönderilir. Uygulamayı yerel kümeden kaldırıldığını doğrulamak için Service Fabric Explorer'ı kullanabilirsiniz.
+5. Uygulamayı kümeden kaldırmak için işaretleyin **Service Fabric: Uygulamayı kaldırma** komutunu **komut paleti**. Kaldırma işlemi çıktısı için tümleşik Terminalini gönderilir. Uygulama yerel kümeden kaldırıldığını doğrulamak için Service Fabric Explorer'ı kullanabilirsiniz.
 
 ## <a name="debug-the-application"></a>Uygulamada hata ayıklama
-VS kodunu uygulamalarında hata ayıklama sırasında uygulama yerel bir kümede çalıştırması gerekir. Kesme noktaları ardından koda eklenebilir.
+VS code'da uygulamalarında hata ayıklaması yaparken yerel bir kümede uygulamayı çalıştırması gerekir. Kesme noktaları ardından kodu eklenebilir.
 
 > [!IMPORTANT]
 > Java uygulamalarında hata ayıklama Windows makinelerde desteklenmiyor.
@@ -85,50 +85,50 @@ VS kodunu uygulamalarında hata ayıklama sırasında uygulama yerel bir kümede
 VotingDataService ve hata ayıklama için oylama uygulaması hazırlamak için aşağıdaki adımları tamamlayın:
 
 1. Güncelleştirme *Voting/VotingApplication/VotingDataServicePkg/Code/entryPoint.sh* dosya.
-Komutunu satır 6 ('#' ı kullanın) açıklama ve aşağıdaki komut dosyasının en altına ekleyin:
+Açıklama komutunu 6 satırında ('#' kullanın) ve aşağıdaki komut dosyasının alt kısmına ekleyin:
 
    ```
    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingDataService.jar
    ```
 
-2. Güncelleştirme *Voting/VotingApplication/ApplicationManifest.xml* dosya. Ayarlama **MinReplicaSetSize** ve **TargetReplicaSetSize** öznitelikleri "1" **StatefulService** öğe:
+2. Güncelleştirme *Voting/VotingApplication/ApplicationManifest.xml* dosya. Ayarlama **MinReplicaSetSize** ve **TargetReplicaSetSize** öznitelikleri "1" **StatefulService** öğesi:
    
    ```xml
          <StatefulService MinReplicaSetSize="1" ServiceTypeName="VotingDataServiceType" TargetReplicaSetSize="1">
    ```
 
-3. Hata ayıklama simgeyi tıklatın **etkinlik çubuğu** hata ayıklayıcı görünümünü VS Code'da açın. Hata ayıklayıcı görünüm üstündeki dişli simgesine tıklayın ve seçin **Java** açılır ortamı menüsünde. Launch.json'u dosyasını açar. 
+3. Hata ayıklama simgesini **etkinlik çubuğu** hata ayıklayıcı görünümü VS Code'da açın. Hata ayıklayıcı görünümü üst kısmındaki dişli simgesine tıklayıp **Java** ortam açılan menüden. Launch.json dosyası açılır. 
 
-   ![VS Code çalışma alanında simgesi hata ayıklama](./media/service-fabric-develop-java-applications-with-vs-code/debug-icon-workspace.png)
+   ![VS Code çalışma simgesi hata ayıklama](./media/service-fabric-develop-java-applications-with-vs-code/debug-icon-workspace.png)
 
-3. Bağlantı noktası değeri adlı yapılandırmasında Launch.json'u dosyasında ayarlanan **(Ekle) hata ayıklama** için **8001**. Dosyayı kaydedin.
+3. Launch.json dosyasında yapılandırmasını adlı bağlantı noktası değeri ayarlamak **Hata Ayıkla (Ekle)** için **8001**. Dosyayı kaydedin.
 
-   ![Launch.json'u için hata ayıklama yapılandırması](./media/service-fabric-develop-java-applications-with-vs-code/launch-json-java.png)
+   ![Launch.json için hata ayıklama yapılandırması](./media/service-fabric-develop-java-applications-with-vs-code/launch-json-java.png)
 
-4. Kullanarak uygulamayı yerel kümeye dağıtın **Service Fabric: uygulama dağıtma (Localhost)** komutu. Service Fabric Explorer'da uygulama çalıştığından emin olun. Uygulamanız artık ayıklanacak hazırdır.
+4. Kullanarak uygulamayı yerel kümeye dağıtma **Service Fabric: Uygulama (Localhost) dağıtma** komutu. Service Fabric Explorer'da uygulamanın çalıştığını doğrulayın. Artık uygulamanızı hata ayıklama hazırdır.
 
 Bir kesme noktası ayarlamak için aşağıdaki adımları tamamlayın:
 
-1. Explorer'da açın */Voting/VotingDataService/src/statefulservice/VotingDataService.java* dosya. Kod ilk satırında bir kesme noktası belirleyerek `try` engelleyin `addItem` yöntemi (satır 80).
+1. Gezgini açmak */Voting/VotingDataService/src/statefulservice/VotingDataService.java* dosya. Kod ilk satırında bir kesme noktası ayarlamak `try` engelleyin `addItem` yöntemi (80. satır).
    
-   ![Oylama veri hizmetinde kesme noktası ayarlayın](./media/service-fabric-develop-java-applications-with-vs-code/breakpoint-set.png)
+   ![Veri hizmetinde oylama kesme noktası Ayarla](./media/service-fabric-develop-java-applications-with-vs-code/breakpoint-set.png)
 
    > [!IMPORTANT]
-   > Kesme noktaları yürütülebilir kod satırlarında ayarladığınızdan emin olun. Örneğin yöntemi bildirimlerinde ayarlamak kesme noktaları `try` deyimleri veya `catch` deyimleri hata ayıklayıcı tarafından eksik.
-2. Hata ayıklama başlamak için hata ayıklama simgeyi tıklatın **etkinlik çubuğu**seçin **hata ayıklama (Ekle)** debug menüsünden, yapılandırma ve çalıştırma düğmesine (yeşil ok) tıklayın.
+   > Yürütülebilir kod satırlarını üzerinde kesme noktaları ayarlayın sağlayın. Örneğin yöntem bildirimlerinde ayarlanan kesme noktaları `try` deyimleri veya `catch` deyimleri hata ayıklayıcı tarafından eksik.
+2. Hata ayıklamayı başlatmak için hata ayıklama simgeyi tıklatın **etkinlik çubuğu**seçin **hata ayıklama (Ekle)** hata ayıklama menüsünden yapılandırma ve çalıştırma (yeşil ok) düğmesini tıklatın.
 
-   ![Hata ayıklama (Ekle) yapılandırma](./media/service-fabric-develop-java-applications-with-vs-code/debug-attach-java.png)
+   ![Hata Ayıkla (Ekle) yapılandırma](./media/service-fabric-develop-java-applications-with-vs-code/debug-attach-java.png)
 
-3. Bir web tarayıcısında Git http://localhost:8080. Yeni bir öğe metin kutusuna yazın ve'ı tıklatın **+ Ekle**. Kesme noktası isabet. Yürütme, satırları, yöntemleri, adımla Adımlama devam etmek için geçerli yöntemi dışında adım VS Code üstünde Debug araç kullanabilirsiniz. 
+3. Bir web tarayıcısında Git `http://localhost:8080`. Yeni bir öğe metin kutusuna yazıp tıklayın **+ Ekle**. Kesme noktasına isabet. Hata ayıklama araç çubuğu, VS Code üst kısmında yürütme, satırları, yöntemleri, içine Adımlama üzerinden adımla devam etmek için geçerli yöntemi dışında adım kullanabilirsiniz. 
    
    ![Kesme noktası isabet](./media/service-fabric-develop-java-applications-with-vs-code/breakpoint-hit.png)
        
-4. Hata ayıklama oturumu sonlandırmak için hata ayıklama araç VS Code üstündeki Tak simgesine tıklayın.
+4. Hata ayıklama oturumunu sona erdirmek için VS Code üst kısmındaki hata ayıklama araç çubuğundaki Tak simgeye tıklayın.
    
-   ![Hata Ayıklayıcı'dan bağlantısını kesme](./media/service-fabric-develop-java-applications-with-vs-code/debug-bar-disconnect.png)
+   ![Hata Ayıklayıcı'dan bağlantısını kes](./media/service-fabric-develop-java-applications-with-vs-code/debug-bar-disconnect.png)
        
-5. Hata ayıklama tamamladığınızda kullanabileceğiniz **Service Fabric: uygulaması Kaldır** yerel kümenizden oylama uygulamayı kaldırmak için komutu. 
+5. Hata ayıklama işlemini tamamladığınızda, kullanabileceğiniz **Service Fabric: Uygulamayı kaldırma** yerel kümenize Voting uygulamasını kaldırmak için komutu. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bilgi edinmek için nasıl [geliştirmek ve VS Code ile C# Service Fabric uygulamalarında hata ayıklama](./service-fabric-develop-csharp-applications-with-vs-code.md).
+* Bilgi edinmek için nasıl [geliştirme ve hata ayıklama C# VS Code ile Service Fabric uygulamaları](./service-fabric-develop-csharp-applications-with-vs-code.md).

@@ -11,12 +11,12 @@ ms.date: 01/04/2019
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: c684d275052e011d965210c132e09bab679cf166
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576264"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003557"
 ---
 # <a name="templates"></a>Şablonlar
 
@@ -40,11 +40,13 @@ Data Factory işlem hattı iki şekilde aşağıdaki şablonundan oluşturmaya b
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Dışında kutusu Data Factory şablonları
 
-Veri fabrikası, veri fabrikası işlem hattı şablonları kaydetmek için Azure Resource Manager şablonları kullanır. İçin hazır Data Factory şablonlar dışında kullanılan bildirim dosyası ile birlikte tüm Resource Manager şablonları, gördüğünüz [resmi Azure Data Factory Github deposunda](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Microsoft tarafından sağlanan önceden tanımlanmış şablonları içerir, ancak aşağıdaki öğeler için sınırlı değildir:
+Veri fabrikası, veri fabrikası işlem hattı şablonları kaydetmek için Azure Resource Manager şablonları kullanır. İçin hazır Data Factory şablonlar dışında kullanılan bildirim dosyası ile birlikte tüm Resource Manager şablonları, gördüğünüz [resmi Azure Data Factory GitHub deposunda](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Microsoft tarafından sağlanan önceden tanımlanmış şablonları içerir, ancak aşağıdaki öğeler için sınırlı değildir:
 
 -   Şablonları kopyalayın:
 
     -   [Toplu kopyalama veritabanından](solution-template-bulk-copy-with-control-table.md)
+    
+    -   [Yeni dosyaları LastModifiedDate tarafından Kopyala](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Birden çok dosya kapsayıcıları arasında dosya tabanlı depoları kopyalayın](solution-template-copy-files-multiple-containers.md)
 

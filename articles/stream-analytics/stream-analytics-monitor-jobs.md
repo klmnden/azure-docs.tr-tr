@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: fac56117c4c70e2735580abb52d05e008d660003
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: be86287f8341b6b86064e51f8a26a8c7f97e867e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089429"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100811"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Program aracılığıyla bir Stream Analytics işi İzleyicisi oluşturma
 
@@ -142,8 +142,8 @@ Aşağıdaki kod gereken değişkenleri ve yönetim istemcilerin ayarlar.
 
 Aşağıdaki kod etkinleştirir için izleme bir **mevcut** Stream Analytics işi. Kodun ilk bölümünü belirli bir Stream Analytics işi hakkında bilgi almak için Stream Analytics hizmetinde bir GET isteği yapar. Kullandığı *kimliği* (GET istekten alınan) özelliği için Put yöntemini PUT gönderir kod yarısını istek Insights hizmeti için Stream Analytics işi için izlemeyi etkinleştirmek için ikinci bir parametre olarak.
 
->[!WARNING]
->Daha önce farklı Stream Analytics işi, Azure portalından veya programlama aracılığıyla için izleme etkinleştirdiyseniz, kod, aşağıda **olduğunda kullanılan aynı depolama hesabı adını sağlamanızı öneririz, daha önce izleme etkin.**
+> [!WARNING]
+> Daha önce farklı Stream Analytics işi, Azure portalından veya programlama aracılığıyla için izleme etkinleştirdiyseniz, kod, aşağıda **olduğunda kullanılan aynı depolama hesabı adını sağlamanızı öneririz, daha önce izleme etkin.**
 > 
 > Depolama hesabı bölgeye, Stream Analytics işinizi oluşturduğunuz, iş için özel olarak bağlanır.
 > 
@@ -152,13 +152,13 @@ Aşağıdaki kod etkinleştirir için izleme bir **mevcut** Stream Analytics iş
 > Depolama hesabı adını değiştirmek için kullandığınız `<YOUR STORAGE ACCOUNT NAME>` aşağıdaki kodda için izlemeyi etkinleştirme Stream Analytics işiyle aynı Abonelikteki bir depolama hesabı olmalıdır.
 > 
 > 
-```csharp
-    // Get an existing Stream Analytics job
-    JobGetParameters jobGetParameters = new JobGetParameters()
-    {
-        PropertiesToExpand = "inputs,transformation,outputs"
-    };
-    JobGetResponse jobGetResponse = streamAnalyticsClient.StreamingJobs.Get(resourceGroupName, streamAnalyticsJobName, jobGetParameters);
+> ```csharp
+>     // Get an existing Stream Analytics job
+>     JobGetParameters jobGetParameters = new JobGetParameters()
+>     {
+>         PropertiesToExpand = "inputs,transformation,outputs"
+>     };
+>     JobGetResponse jobGetResponse = streamAnalyticsClient.StreamingJobs.Get(resourceGroupName, streamAnalyticsJobName, jobGetParameters);
 
     // Enable monitoring
     ServiceDiagnosticSettingsPutParameters insightPutParameters = new ServiceDiagnosticSettingsPutParameters()
@@ -172,15 +172,15 @@ Aşağıdaki kod etkinleştirir için izleme bir **mevcut** Stream Analytics iş
 ```
 
 
-## <a name="get-support"></a>Destek alın
+## Get support
 
-Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>Sonraki adımlar
+## Next steps
 
-* [Azure Stream analytics'e giriş](stream-analytics-introduction.md)
-* [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
-* [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
-* [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Akış Analizi Yönetimi REST API'si Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

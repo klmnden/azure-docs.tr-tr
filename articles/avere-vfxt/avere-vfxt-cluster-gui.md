@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 30c03d52e31f70448eef07b4567083061605d8dd
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f989f4d103efecf2b6e206287dd8b7b300a1796d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300481"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856850"
 ---
 # <a name="access-the-vfxt-cluster"></a>Erişim vFXT küme
 
@@ -31,7 +31,7 @@ Bağlamadan önce küme denetleyicisi oluştururken kullanılan SSH ortak/özel 
 
 Linux tabanlı bir istemci kullanıyorsanız, bir SSH tünel oluşturma komutu ile bu formu kullanın: 
 
-SSH -L *local_port*:*cluster_mgmt_ip*: 443 *controller_username*@*controller_public_IP*
+SSH -L *local_port*:*cluster_mgmt_ip*: 443 *controller_username*\@*controller_public_IP*
 
 Bu komut kümenin yönetim IP adresi küme denetleyicisinin IP adresi üzerinden bağlanır.
 
@@ -47,7 +47,7 @@ SSH ortak anahtarınızı kümeyi oluşturmak için kullanılan ve eşleşen ana
 
 Bu örnek genel Windows tabanlı terminal yardımcı programını PuTTY kullanır.
 
-PuTTY içinde dolgu **ana bilgisayar adı** küme denetleyicisi kullanıcı adı ve IP adresi alanı: *your_username*@*controller_public_IP*.
+PuTTY içinde dolgu **ana bilgisayar adı** küme denetleyicisi kullanıcı adı ve IP adresi alanı: *your_username*\@*controller_public_IP*.
 
 Örnek: ``azureuser@203.0.113.51``
 
@@ -69,7 +69,7 @@ SSH ortak anahtarınızı kümeyi oluşturmak için kullanılan ve eşleşen ana
 
 Bu adım, bir web tarayıcısı vFXT küme üzerinde çalışan yapılandırma yardımcı programı bağlanmak için kullanır.
 
-* Bir SSH tüneli bağlantısı için web tarayıcınızı açın ve gidin https://127.0.0.1:8443. 
+* Bir SSH tüneli bağlantısı için web tarayıcınızı açın ve gidin `https://127.0.0.1:8443`. 
 
   Tarayıcıda localhost IP adresini kullanmanız gerekmez, tüneli oluştururken IP adresi kümeye bağlı. Yerel bağlantı noktası 8443 dışında kullandıysanız, bağlantı noktası numaranızı kullanın.
 

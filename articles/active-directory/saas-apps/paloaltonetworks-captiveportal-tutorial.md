@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7523eef4e3dc25929616f1d151ab22841db13993
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781995"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888306"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Öğretici: Palo Alto ağları Captive portalı ile Azure Active Directory Tümleştirme
 
@@ -105,12 +105,12 @@ Yapılandırma ve Azure AD çoklu oturum açma Palo Alto ağları Captive portal
 
     ![Palo Alto ağları Captive portalı temel SAML yapılandırma bölmesi](common/idp-intiated.png)
 
-    1. İçin **tanımlayıcı**, deseni bir URL girin `https://<customer_firewall_host_name>/SAML20/SP`.
+   1. İçin **tanımlayıcı**, deseni bir URL girin `https://<customer_firewall_host_name>/SAML20/SP`.
 
-    2. İçin **yanıt URL'si**, deseni bir URL girin `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
+   2. İçin **yanıt URL'si**, deseni bir URL girin `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
 
-    > [!NOTE]
-    > Bu adımda yer tutucu değerlerini gerçek tanımlayıcısıyla güncelleştirin ve yanıt URL'leri. Gerçek değerlere ulaşmak için ilgili kişi [Palo Alto ağları Captive portalı istemcisi Destek ekibine](https://support.paloaltonetworks.com/support).
+      > [!NOTE]
+      > Bu adımda yer tutucu değerlerini gerçek tanımlayıcısıyla güncelleştirin ve yanıt URL'leri. Gerçek değerlere ulaşmak için ilgili kişi [Palo Alto ağları Captive portalı istemcisi Destek ekibine](https://support.paloaltonetworks.com/support).
 
 5. İçinde **SAML imzalama sertifikası** yanındaki bölümünde **Federasyon meta verileri XML**seçin **indirme**. İndirilen dosyayı bilgisayarınıza kaydedin.
 
@@ -158,7 +158,7 @@ Ardından, adlı bir test kullanıcısı oluşturma *Britta Simon* Azure portal�
 
     1. İçin **adı**, girin **BrittaSimon**.
   
-    2. İçin **kullanıcı adı**, girin **@ BrittaSimon\<your_company_domain\>**. Örneğin, **BrittaSimon@contoso.com**.
+    2. İçin **kullanıcı adı**, girin **BrittaSimon\@\<your_company_domain\>**. Örneğin, **BrittaSimon\@contoso.com**.
 
     3. İçin **parola**, bir parola girin. Girdiğiniz parola kaydı tutmanızı öneririz. Seçebileceğiniz **Göster parola** parolayı görüntülemek için onay kutusunu.
 

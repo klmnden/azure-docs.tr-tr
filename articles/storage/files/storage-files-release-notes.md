@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 3/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: f2f109b6861e54cc613fd06f26983897f7c1a9bb
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 063699f016c3e165dfb07d17c26e7f29a13c81f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727136"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118621"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure dosya eşitleme Aracısı sürüm notları
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Windows Server yüklemeleriniz, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürülür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilirsiniz. Dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -55,7 +55,7 @@ Aşağıdaki sürüm notları (12 Şubat 2019'da yayımlanan) Azure dosya eşitl
 ### <a name="improvements-and-issues-that-are-fixed"></a>Geliştirmeler ve düzeltilen sorunlar
 
 - Azure kamu bulutu için destek
-    - Azure kamu bulutu için Önizleme desteği ekledik. Bu bir teknik listelenen abonelik ve Microsoft'tan bir özel aracı karşıdan gerektirir. Önizleme erişim elde etmek için lütfen doğrudan adresinden bize e-posta [ AzureFiles@microsoft.com ](mailto:AzureFiles@microsoft.com).
+  - Azure kamu bulutu için Önizleme desteği ekledik. Bu bir teknik listelenen abonelik ve Microsoft'tan bir özel aracı karşıdan gerektirir. Önizleme erişim elde etmek için lütfen doğrudan adresinden bize e-posta [ AzureFiles@microsoft.com ](mailto:AzureFiles@microsoft.com).
 - Yinelenen verileri kaldırma desteği
     - Yinelenen verileri kaldırma işlemi artık Windows Server 2016 ve Windows Server 2019 üzerinde etkin katmanlama bulut ile tam olarak desteklenir. Bulut katmanlaması etkin bir birimde yinelenen verileri kaldırma etkinleştirme, daha fazla depolama alanı sağlama olmadan daha fazla dosyaları şirket içi önbellek olanak tanır.
 - Çevrimdışı veri aktarımı (örneğin aracılığıyla Data Box) için destek

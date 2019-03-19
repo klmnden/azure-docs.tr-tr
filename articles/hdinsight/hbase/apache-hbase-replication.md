@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 52b52cce1e93e55563cf695f06bd7821ebcfc585
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: d50c3f4452dd00b5656b6cde5e671caebcb4bb7c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444914"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112543"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure sanal ağlarda bulunan Apache HBase kümesi çoğaltma ayarlama
 
@@ -70,14 +70,14 @@ Yardımcı olması için ortamları ayarlama, bazı oluşturduk [Azure Resource 
 | Özellik | Değer |
 |----------|-------|
 | Konum | Batı ABD |
-| Sanal ağ adı | &lt;ClusterNamePrevix >-vnet1 |
+| VNet adı | &lt;ClusterNamePrevix >-vnet1 |
 | Adres alanı ön eki | 10.1.0.0/16 |
 | Alt ağ adı | alt ağ 1 |
 | Alt ağ ön eki | 10.1.0.0/24 |
 | (Ağ geçidi) alt ağ adı | GatewaySubnet (değiştirilemez) |
 | (Ağ geçidi) alt ağ ön eki | 10.1.255.0/27 |
 | Ağ geçidi adı | vnet1gw |
-| Geçit türü | VPN |
+| Ağ geçidi türü | VPN |
 | Ağ geçidi VPN türü | RouteBased |
 | Ağ geçidi SKU'su | Temel |
 | Ağ geçidi IP | vnet1gwıp |
@@ -87,14 +87,14 @@ Yardımcı olması için ortamları ayarlama, bazı oluşturduk [Azure Resource 
 | Özellik | Değer |
 |----------|-------|
 | Konum | Doğu ABD |
-| Sanal ağ adı | &lt;ClusterNamePrevix >-vnet2'den |
+| VNet adı | &lt;ClusterNamePrevix >-vnet2'den |
 | Adres alanı ön eki | 10.2.0.0/16 |
 | Alt ağ adı | alt ağ 1 |
 | Alt ağ ön eki | 10.2.0.0/24 |
 | (Ağ geçidi) alt ağ adı | GatewaySubnet (değiştirilemez) |
 | (Ağ geçidi) alt ağ ön eki | 10.2.255.0/27 |
 | Ağ geçidi adı | vnet2gw |
-| Geçit türü | VPN |
+| Ağ geçidi türü | VPN |
 | Ağ geçidi VPN türü | RouteBased |
 | Ağ geçidi SKU'su | Temel |
 | Ağ geçidi IP | vnet1gwıp |
@@ -288,15 +288,15 @@ Aşağıdaki adımlar komut dosyası eylemi komut dosyası Azure portalından ç
 4. Sayfanın üst kısmında seçin **yeni Gönder**.
 5. Seçin veya aşağıdaki bilgileri girin:
 
-  1. **Ad**: Girin **çoğaltmayı etkinleştir**.
-  2. **Bash betiği URL'si**: Girin **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
-  3.  **HEAD**: Bu seçili olduğundan emin olun. Bir düğüm türleri temizleyin.
-  4. **Parametreleri**: Aşağıdaki örnek parametreleri mevcut tüm tablolar için çoğaltmayı etkinleştirin ve ardından tüm veri kaynağı kümeden hedef kümeye kopyalayın:
+   1. **Ad**: Girin **çoğaltmayı etkinleştir**.
+   2. **Bash betiği URL'si**: Girin **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+   3. **HEAD**: Bu seçili olduğundan emin olun. Bir düğüm türleri temizleyin.
+   4. **Parametreleri**: Aşağıdaki örnek parametreleri mevcut tüm tablolar için çoğaltmayı etkinleştirin ve ardından tüm veri kaynağı kümeden hedef kümeye kopyalayın:
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
-    > [!NOTE]
-    > Ana bilgisayar adı yerine FQDN'yi için hem kaynak hem de hedef küme DNS adını kullanın.
+      > [!NOTE]
+      > Ana bilgisayar adı yerine FQDN'yi için hem kaynak hem de hedef küme DNS adını kullanın.
 
 6. **Oluştur**’u seçin. Betik özellikle kullandığınızda çalıştırmak için biraz zaman **- copydata** bağımsız değişken.
 

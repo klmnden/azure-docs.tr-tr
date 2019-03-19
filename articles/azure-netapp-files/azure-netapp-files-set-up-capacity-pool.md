@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: 7cb9cc6cc5ce98eb88e9b9cdf76f000c33f5509e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8f50b2ad34c705c8d3831d8243f136c41d750dc0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780720"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074446"
 ---
 # <a name="set-up-a-capacity-pool"></a>Kapasite havuzunu ayarlama
 
@@ -41,19 +41,19 @@ Kapasite havuzu ayarlamak, içinde birim oluşturmanıza olanak tanır.
     Yeni Kapasite Havuzu penceresi görüntülenir.
 
 3. Yeni kapasite havuzuyla ilgili aşağıdaki bilgileri sağlayın:  
-  * **Ad**  
-    Kapasite havuzunun adını belirtin.  
-    Kapasite havuzu adı her NetApp hesabı için benzersiz olmalıdır.
+   * **Ad**  
+     Kapasite havuzunun adını belirtin.  
+     Kapasite havuzu adı her NetApp hesabı için benzersiz olmalıdır.
 
-  * **Hizmet düzeyi**   
-    Bu alan, kapasite havuzunun hedef performansını gösterir.  
-    Kapasitesi havuzu için hizmet düzeyi belirtin: [**Premium** ](azure-netapp-files-service-levels.md#Premium) veya [ **standart**](azure-netapp-files-service-levels.md#Standard).
+   * **Hizmet düzeyi**   
+     Bu alan, kapasite havuzunun hedef performansını gösterir.  
+     Kapasitesi havuzu için hizmet düzeyi belirtin: [**Premium** ](azure-netapp-files-service-levels.md#Premium) veya [ **standart**](azure-netapp-files-service-levels.md#Standard).
 
-  * **Boyut**     
-    Satın aldığınız kapasite havuzunun boyutunu belirtin.        
-    Kapasite havuzunun boyutu en az 4 TiB’dir. Havuzunuzu 4 TiB’nin katları olan büyüklüklerde oluşturabilirsiniz.   
+   * **Boyut**     
+     Satın aldığınız kapasite havuzunun boyutunu belirtin.        
+     Kapasite havuzunun boyutu en az 4 TiB’dir. Havuzunuzu 4 TiB’nin katları olan büyüklüklerde oluşturabilirsiniz.   
       
-    ![Yeni kapasite havuzu](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
+     ![Yeni kapasite havuzu](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
 4. **Tamam** düğmesine tıklayın.
 

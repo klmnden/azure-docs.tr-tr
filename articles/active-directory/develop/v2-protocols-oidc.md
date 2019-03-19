@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d94e64af362ef9698350b8231718cc841731f7e5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6c20ae6acaf600cdde6e168c6db96deb7a28e9fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162841"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112713"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 ve Openıd Connect Protokolü
 
@@ -105,7 +105,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Bu isteğin yürütülmesi için aşağıdaki bağlantıya tıklayın. Oturum açtıktan sonra tarayıcınızı yönlendirilecek https://localhost/myapp/, adres çubuğundaki bir kimlik belirteci ile. Bu istek kullanan Not `response_mode=fragment` (yalnızca tanıtım amacıyla). Kullanmanızı öneririz `response_mode=form_post`.
+> Bu isteğin yürütülmesi için aşağıdaki bağlantıya tıklayın. Oturum açtıktan sonra tarayıcınızı yönlendirilecek `https://localhost/myapp/`, adres çubuğundaki bir kimlik belirteci ile. Bu istek kullanan Not `response_mode=fragment` (yalnızca tanıtım amacıyla). Kullanmanızı öneririz `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 | Parametre | Koşul | Açıklama |
@@ -178,7 +178,7 @@ Aşağıdaki tabloda, döndürülen hata kodları açıklanmaktadır `error` par
 
 Yalnızca bir id_token alma, kullanıcının kimliğini doğrulamak için yeterli değildir; id_token'ın imzayı doğrulamak ve uygulamanızın gereksinimlerini başına belirteçteki talepleri doğrulamak gerekir. V2.0 uç noktası kullanan [JSON Web belirteçleri (Jwt'ler)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) ve Belirteçleri imzalamak ve geçerli olduğunu doğrulamak için ortak anahtar şifrelemesi.
 
-Doğrulamak seçebileceğiniz `id_token` istemci kodu, ancak yaygın bir uygulama olan göndermek için `id_token` bir arka uç sunucusuna ve orada doğrulama gerçekleştirin. İd_token imzası doğruladıktan sonra birkaç talepleri doğrulamak için gerekli vardır. Bkz [ `id_token` başvuru](id-tokens.md) daha fazla bilgi edinmek için de dahil olmak üzere [doğrulama belirteçleri](id-tokens.md#validating-an-idtoken) ve [önemli bilgiler hakkında imzalama anahtar geçişi](active-directory-signing-key-rollover.md). Öneririz belirteçleri doğrulamak ve ayrıştırmak için bir kitaplık yapmayı kullanımı - en az bir dil ve platform için kullanılabilir.
+Doğrulamak seçebileceğiniz `id_token` istemci kodu, ancak yaygın bir uygulama olan göndermek için `id_token` bir arka uç sunucusuna ve orada doğrulama gerçekleştirin. İd_token imzası doğruladıktan sonra birkaç talepleri doğrulamak için gerekli vardır. Bkz [ `id_token` başvuru](id-tokens.md) daha fazla bilgi edinmek için de dahil olmak üzere [doğrulama belirteçleri](id-tokens.md#validating-an-id_token) ve [önemli bilgiler hakkında imzalama anahtar geçişi](active-directory-signing-key-rollover.md). Öneririz belirteçleri doğrulamak ve ayrıştırmak için bir kitaplık yapmayı kullanımı - en az bir dil ve platform için kullanılabilir.
 <!--TODO: Improve the information on this-->
 
 Senaryonuza bağlı olarak ek istekleri doğrulamak isteyebilirsiniz. Bazı ortak doğrulamaları şunlardır:
@@ -235,7 +235,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 ```
 
 > [!TIP]
-> Bu isteğin yürütülmesi için aşağıdaki bağlantıya tıklayın. Oturum açtıktan sonra tarayıcının yönlendirildiği https://localhost/myapp/kimlik belirteci ve adres çubuğuna bir kod. Bu istek kullanan Not `response_mode=fragment` yalnızca tanıtım amacıyla. Kullanmanızı öneririz `response_mode=form_post`.
+> Bu isteğin yürütülmesi için aşağıdaki bağlantıya tıklayın. Oturum açtıktan sonra tarayıcının yönlendirildiği `https://localhost/myapp/`kimlik belirteci ve adres çubuğuna bir kod. Bu istek kullanan Not `response_mode=fragment` yalnızca tanıtım amacıyla. Kullanmanızı öneririz `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
@@ -279,4 +279,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Olası hata kodları ve önerilen istemci yanıtları açıklaması için bkz: [yetkilendirme uç noktası hataları için hata kodlarını](#error-codes-for-authorization-endpoint-errors).
 
-Bir yetkilendirme kodunu ve bir kimlik belirteci varsa, kullanıcı oturum açın ve kendi adınıza erişim belirteçlerini almak. Kullanıcının oturum açmak için kimlik belirteci doğrulamak [açıklandığı gibi tam olarak](id-tokens.md#validating-an-idtoken). Erişim belirteçlerini almak için açıklanan adımları izleyin. [OAuth kod flow belgeleri](v2-oauth2-auth-code-flow.md#request-an-access-token).
+Bir yetkilendirme kodunu ve bir kimlik belirteci varsa, kullanıcı oturum açın ve kendi adınıza erişim belirteçlerini almak. Kullanıcının oturum açmak için kimlik belirteci doğrulamak [açıklandığı gibi tam olarak](id-tokens.md#validating-an-id_token). Erişim belirteçlerini almak için açıklanan adımları izleyin. [OAuth kod flow belgeleri](v2-oauth2-auth-code-flow.md#request-an-access-token).

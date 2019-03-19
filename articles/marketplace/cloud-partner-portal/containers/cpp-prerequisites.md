@@ -3,7 +3,7 @@ title: Azure kapsayıcıları teklif önkoşulları | Microsoft Docs
 description: Bir Azure kapsayıcı yayımlamak için Önkoşullar.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: dan-wesley
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: fd308c645593a401736a0a1ab1d336d63d900217
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 09c9afcf3126f7f84c20f5514bc038a65b2ea1b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979814"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990718"
 ---
 # <a name="container-publishing-prerequisites"></a>Kapsayıcı yayımlama önkoşulları
 
-Bu makalede, bir kapsayıcı teklifin Azure Marketi'nde yayımlama önkoşulları açıklanır.
+Bu makalede, bir kapsayıcı teklifin Azure Marketi'nde yayımlama önkoşulları açıklanır.  Zaten yapmadıysanız, gözden geçirmeniz gereken [kapsayıcıları teklifi yayımlama Kılavuzu](../../marketplace-containers.md).
 
 ## <a name="publishing-prerequisites"></a>Yayımlama önkoşulları
 
@@ -35,12 +35,11 @@ Yeni bir kapsayıcı görüntüsü yayımlamak için aşağıdaki önkoşulları
 - Kullanıma hazır kapsayıcı meta verileriniz vardır. Örneğin, aşağıdaki kapsamlı olmayan listesi:
   - Bir başlık
   - Bir açıklama (HTML biçiminde)
-  - Bir logo görüntüsü (PNG biçiminde) ve bu resim boyutları düzeltildi: 40 x 40 piksel, 90 x 90 piksel, 115 x 115 piksel ve 255 x 115 piksel.
-- Kullanım koşullarını ve gizlilik ilkesi
-- Belgeler
+  - Bir logo görüntüsü (PNG biçiminde) ve bu resim boyutları düzelttik: 40 x 40 piksel, 90 x 90 piksel, 115 x 115 piksel ve 255 x 115 piksel.
+- A *kullanım* ve *gizlilik ilkesi* deyimleri
+- Kapsayıcı çözümü belgeleri
 - Destek kişileri
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Teknik varlıkları kapsayıcınızı hazırlama](./cpp-create-technical-assets.md)
-- [Kapsayıcı teklifinizi oluşturun](./cpp-create-offer.md) 
+Zaten yapmadıysanız, şunları yapmalısınız [teknik varlıkları kapsayıcınızı hazırlama](./cpp-create-technical-assets.md) , önce [kapsayıcı teklifinizle oluşturmak](./cpp-create-offer.md).  

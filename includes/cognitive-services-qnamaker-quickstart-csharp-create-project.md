@@ -10,14 +10,14 @@ ms.topic: include
 ms.custom: include file
 ms.date: 09/27/2018
 ms.author: diberry
-ms.openlocfilehash: 6bda00a20dd83e005a57b50b0183b2b9f49667b4
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e077373532ffdc409c3748e969c33a3b84b4f6c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55291082"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177776"
 ---
 1. Visual Studio 2017 Community Edition'ı açın.
-1. Yeni bir **Konsol Uygulaması (.NET Core)** projesi oluşturun ve `QnaMakerQuickstart` olarak adlandırın. Diğer ayarlar için varsayılan değerleri kabul edin.
+1. Yeni bir **konsol uygulaması (.NET Core)** proje ve proje adı `QnaMakerQuickstart`. Diğer ayarlar için varsayılan değerleri kabul edin.
 1. Çözüm Gezgini'nde **QnaMakerQuickstart** proje adına sağ tıklayın ve **NuGet Paketlerini Yönet...** öğesini seçin.
 1. NuGet penceresinde **Tarayıcı**'yı seçip **Newtonsoft.JSON** aratın ve paketi yükleyin. Bu paket, Soru-Cevap Oluşturma HTTP yanıtıyla döndürülen JSON kodunu ayrıştırmak için kullanılır. 

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: ea2f27069ca445a4d74ddc634f5c396ab13564a1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4d9dfbcfc1dd00209a90386bf75f0c2515a28060
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854475"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Konuk tarafından yürütülebilir birden çok uygulama dağıtma
 Bu makalede, paketleyin ve birden fazla Konuk yürütülebilir dosyaları Azure Service Fabric'e dağıtma gösterilmektedir. Oluşturmak ve tek bir Service Fabric paket dağıtımı için okuma nasıl için [Konuk yürütülebilir dosyası, Service Fabric'e dağıtma](service-fabric-deploy-existing-app.md).
 
 Bu izlenecek yolda veri deposu olarak MongoDB kullanan bir Node.js ön ucuna sahip bir uygulamanın nasıl dağıtılacağı gösterir, ancak başka bir uygulama üzerinde bağımlılıkları olan herhangi bir uygulama adımları uygulayabilirsiniz.   
 
-Visual Studio, birden fazla Konuk yürütülebilir dosyaları içeren uygulama paketini oluşturmak için kullanabilirsiniz. Bkz: [var olan bir uygulamayı paketlemek için Visual Studio kullanarak](service-fabric-deploy-existing-app.md). İlk Konuk yürütülebilir dosyası ekledikten sonra uygulama projesine sağ tıklayın ve seçin **Ekle -> Yeni Service Fabric hizmeti** ikinci Konuk yürütülebilir projeyi çözüme eklemek için. Not: Visual Studio projesini kaynak bağlamak isterseniz, Visual Studio çözümü uygulama paketinizi değişiklikleri kaynak güncel olduğundan emin olun. 
+Visual Studio, birden fazla Konuk yürütülebilir dosyaları içeren uygulama paketini oluşturmak için kullanabilirsiniz. Bkz: [var olan bir uygulamayı paketlemek için Visual Studio kullanarak](service-fabric-deploy-existing-app.md). İlk Konuk yürütülebilir dosyası ekledikten sonra uygulama projesine sağ tıklayın ve seçin **Ekle -> Yeni Service Fabric hizmeti** ikinci Konuk yürütülebilir projeyi çözüme eklemek için. Not: Visual Studio projesini kaynak bağlamak isterseniz, Visual Studio çözümü uygulama paketinizi değişiklikleri kaynak güncel olduğundan emin. 
 
 ## <a name="samples"></a>Örnekler
 * [Paketleme ve dağıtma Konuk yürütülebilir dosyası için örnek](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
@@ -167,7 +167,7 @@ MongoDB, Service Fabric uygulama paketini eklemek için uygulamayı içeren ayn�
 Gördüğünüz gibi aracı yeni bir klasör, MongoDB, MongoDB ikili dosyaları içeren dizine eklenir. Açarsanız `ApplicationManifest.xml` dosyasını, paket şimdi Node.js uygulama ve MongoDB içerdiğini görebilirsiniz. Aşağıdaki kod, uygulama bildiriminin içeriği gösterir.
 
 ```xml
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyNodeApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyNodeApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="MongoDB" ServiceManifestVersion="1.0" />
    </ServiceManifestImport>

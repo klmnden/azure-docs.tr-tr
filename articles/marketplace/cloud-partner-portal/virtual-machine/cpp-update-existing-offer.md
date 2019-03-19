@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: Ankit.Sud
-ms.openlocfilehash: ee828c908cb3b103befa3890b43bb2c1f04f7cf0
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 254215389d129874f7ac3fc855b26819d41a095c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214053"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852483"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Azure Marketi'nde mevcut bir VM teklifi güncelleştirme
 
@@ -65,7 +65,7 @@ Güvenlik düzeltme ekleri, ek özellikler ve benzeri düzenli olarak güncelle�
 
 4.  Altında **Disk sürümü**, tıklayarak **+ yeni Disk sürümü** yeni bir VM görüntüsü eklemek için.
 
-5.  Yeni VM görüntüleri **Disk sürümü**. Disk sürümü izlemesi gereken [semantik sürüm](http://semver.org/) biçimi. Sürümleri X.Y.Z, burada X, Y ve Z tamsayılardır biçiminde olmalıdır. Sağladığınız yeni sürümü önceki sürümlerin tümü büyük olduğundan emin olun; Aksi takdirde yeniden yayımlanması sonra yeni sürümü portalında veya Azure Marketi'nde görüntülenmez.
+5.  Yeni VM görüntüleri **Disk sürümü**. Disk sürümü izlemesi gereken [semantik sürüm](https://semver.org/) biçimi. Sürümleri X.Y.Z, burada X, Y ve Z tamsayılardır biçiminde olmalıdır. Sağladığınız yeni sürümü önceki sürümlerin tümü büyük olduğundan emin olun; Aksi takdirde yeniden yayımlanması sonra yeni sürümü portalında veya Azure Marketi'nde görüntülenmez.
 
 6.  İçin **işletim sistemi VHD URL'si**, girin [paylaşılan erişim imzası (SAS) URI](./cpp-get-sas-uri.md) işletim sistemi VHD'si için oluşturulan. 
 

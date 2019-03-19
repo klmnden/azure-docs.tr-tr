@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: 9a96f80c609f446dcc1fea2a87925dec3dadfedd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0a2088e603828a7850cb250c1874008d63fe9c89
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471904"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992463"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Microsoft Azure depolama için Java ile istemci tarafı şifreleme ve Azure anahtar kasası
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Genel Bakış
-[Java için Azure depolama istemci Kitaplığı](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) Azure Storage'a yüklemeden ve istemciye indirirken verilerin şifresini çözme önce istemci uygulamalar içinde verilerin şifrelenmesini destekler. Kitaplık ayrıca ile tümleştirmeyi destekler [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) depolama hesabı anahtarı yönetimi için.
+[Java için Azure depolama istemci Kitaplığı](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) Azure Storage'a yüklemeden ve istemciye indirirken verilerin şifresini çözme önce istemci uygulamalar içinde verilerin şifrelenmesini destekler. Kitaplık ayrıca ile tümleştirmeyi destekler [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) depolama hesabı anahtarı yönetimi için.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Şifreleme ve şifre çözme aracılığıyla Zarf yöntemi
 Şifreleme ve şifre çözme işlemleri için zarf teknik izleyin.  
@@ -43,7 +43,7 @@ ms.locfileid: "55471904"
 4. İçerik şifreleme anahtarı (CEK), ardından şifreli kullanıcı verilerin şifresini çözmek için kullanılır.
 
 ## <a name="encryption-mechanism"></a>Şifreleme mekanizması
-Depolama istemcisi kitaplığı kullanan [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) kullanıcı verilerini şifrelemek için. Özellikle, [Şifre blok zincirleme (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) AES moduyla. Her bir hizmet works biraz farklı şekilde, her biri aşağıda ele alınacaktır.
+Depolama istemcisi kitaplığı kullanan [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) kullanıcı verilerini şifrelemek için. Özellikle, [Şifre blok zincirleme (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) AES moduyla. Her bir hizmet works biraz farklı şekilde, her biri aşağıda ele alınacaktır.
 
 ### <a name="blobs"></a>Bloblar
 İstemci Kitaplığı, şu anda yalnızca tüm blobları şifreleme desteklemektedir. Özellikle, kullanıcıların kullanması durumunda şifreleme desteklenir **karşıya*** yöntemlerini veya **openOutputStream** yöntemi. İndirmeler, hem tam hem aralığı indirmeler desteklenen için.  
@@ -55,9 +55,9 @@ Depolama istemcisi kitaplığı kullanan [AES](http://en.wikipedia.org/wiki/Adva
 > 
 > 
 
-Şifrelenmiş bir blobu indirme içeren tüm blob kullanarak içerik alma **indirme * / openInputStream** kullanışlı yöntemler. Sarmalanan CEK sarmalanmamış ve şifresi çözülmüş veriler kullanıcılara döndürmek için (Bu durumda blob meta veri olarak depolanır) IV ile birlikte kullanılır.
+Şifrelenmiş bir blobu indirme içeren tüm blob kullanarak içerik alma **indirme**/**openInputStream** kullanışlı yöntemler. Sarmalanan CEK sarmalanmamış ve şifresi çözülmüş veriler kullanıcılara döndürmek için (Bu durumda blob meta veri olarak depolanır) IV ile birlikte kullanılır.
 
-Bir rastgele aralık indiriliyor (**downloadRange*** yöntemleri) az miktarda bir başarıyla istenen şifresini çözmek için kullanılan ek veri alabilmek için kullanıcı tarafından sağlanan aralık ayarlamak şifrelenmiş bir blobu içerir. Aralık.  
+Bir rastgele aralık indiriliyor (**downloadRange** yöntemleri) az miktarda bir başarıyla istenen şifresini çözmek için kullanılan ek veri alabilmek için kullanıcı tarafından sağlanan aralık ayarlamak şifrelenmiş bir blobu içerir. Aralık.  
 
 Tüm türleri blob (blok blobları, sayfa blobları ve ekleme blobları) şifrelenmiş/bu düzeni kullanarak şifresi.
 
@@ -98,8 +98,8 @@ Tablo verileri şifreleme gibi çalışır:
 > [!NOTE]
 > Varlıkları şifrelendiği, filtre sorgularını bir şifrelenmiş özellikte çalıştıramazsınız.  Denerseniz, şifrelenmiş veriler şifrelenmemiş veri ile Karşılaştırılacak Service'i denediğiniz çünkü sonuçlar hatalı olacaktır.
 > 
->
-Sorgu işlemleri gerçekleştirmek için sonuç kümesinde tüm anahtarları çözümleyemiyorsa anahtar bir çözümleyici belirtmeniz gerekir. Sorgu sonucuna yer alan bir varlık için bir sağlayıcı çözümlenemezse, istemci kitaplığının bir hata atar. Sunucu tarafı projeksiyonlar gerçekleştirir herhangi bir sorgu için istemci kitaplığının özel şifreleme meta veri özelliklerini (_ClientEncryptionMetadata1 ve _ClientEncryptionMetadata2) varsayılan olarak seçilen sütunlara ekler.
+> 
+> Sorgu işlemleri gerçekleştirmek için sonuç kümesinde tüm anahtarları çözümleyemiyorsa anahtar bir çözümleyici belirtmeniz gerekir. Sorgu sonucuna yer alan bir varlık için bir sağlayıcı çözümlenemezse, istemci kitaplığının bir hata atar. Sunucu tarafı projeksiyonlar gerçekleştirir herhangi bir sorgu için istemci kitaplığının özel şifreleme meta veri özelliklerini (_ClientEncryptionMetadata1 ve _ClientEncryptionMetadata2) varsayılan olarak seçilen sütunlara ekler.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 Azure Anahtar Kasası, bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarının ve gizli anahtarların korunmasına yardımcı olur. Azure anahtar Kasası'nı kullanarak anahtarları ve gizli anahtarları (örneğin, kimlik doğrulaması anahtarları, depolama hesabı anahtarları, veri şifreleme anahtarı, kullanıcılar şifreleyebilirsiniz PFX dosyaları ve parolalar), donanım güvenlik modülleri (HSM'ler) tarafından korunan anahtarları kullanarak. Daha fazla bilgi için [Azure anahtar kasası nedir?](../../key-vault/key-vault-whatis.md).
@@ -248,9 +248,9 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 Depolama veri sonuçlarınızı ek performans yükünden şifreleme unutmayın. İçerik anahtar ve IV oluşturulmalıdır, içeriği şifrelenir ve ek meta verileri biçimlendirilmiş karşıya ve. Bu ek yükü şifrelenen veri miktarı bağlı olarak değişir. Müşterilerin uygulamalarını geliştirme sırasında performans için her zaman test etmenizi öneririz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* İndirme [Java Maven paketi için Azure depolama istemci kitaplığı](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
+* İndirme [Java Maven paketi için Azure depolama istemci kitaplığı](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 * İndirme [Java kaynak kodunu github'dan için Azure depolama istemci kitaplığı](https://github.com/Azure/azure-storage-java)   
 * Java Maven paketleri için Azure anahtar kasası Maven Kitaplığı yükleyin:
-  * [Çekirdek](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) paket
-  * [İstemci](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) paket
+  * [Çekirdek](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) paket
+  * [İstemci](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) paket
 * Ziyaret [Azure anahtar kasası belgeleri](../../key-vault/key-vault-whatis.md)

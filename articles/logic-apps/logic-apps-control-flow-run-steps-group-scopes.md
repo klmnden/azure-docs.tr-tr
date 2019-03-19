@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 9e485797dcc40c426b208971c04acffa168e528a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: d73a43aedde9a88e009ddca1f0363dbcd92e1379
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455913"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080463"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Azure Logic apps'te kapsamları Grup durumuyla göre eylemleri çalıştırma
 
@@ -89,7 +89,8 @@ Mantıksal uygulamanızı kaydetmek istediğiniz zaman, genellikle çalışmalar
       | **Aktarım türü tarih türü** | None | Yalnızca toplu ulaşım modu için geçerlidir. | 
       ||||  
 
-1. [Koşul Ekle](../logic-apps/logic-apps-control-flow-conditional-statement.md) geçerli seyahat süresi trafik ile belirli bir süre aşıyor olup olmadığını denetler. Bu örnekte, aşağıdaki adımları izleyin:
+1. [Koşul Ekle](../logic-apps/logic-apps-control-flow-conditional-statement.md) geçerli seyahat süresi trafik ile belirli bir süre aşıyor olup olmadığını denetler. 
+   Bu örnekte, aşağıdaki adımları izleyin:
 
    1. Koşulu şu açıklama ile yeniden adlandırın: **Trafik zaman belirtilen süreden fazlaysa**
 
@@ -105,7 +106,8 @@ Mantıksal uygulamanızı kaydetmek istediğiniz zaman, genellikle çalışmalar
 
       ![Tamamlanmış koşul](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
 
-1. İçinde **doğruysa** dal, e-posta sağlayıcınız için bir "e-posta Gönder" eylemini ekleyin. Bu eylem, bu görüntünün altındaki adımları izleyerek ayarlama:
+1. İçinde **doğruysa** dal, e-posta sağlayıcınız için bir "e-posta Gönder" eylemini ekleyin. 
+   Bu eylem, bu görüntünün altındaki adımları izleyerek ayarlama:
 
    !["True ise", "e-posta Gönder" eylemini ekleme dal](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
@@ -124,7 +126,7 @@ Mantıksal uygulamanızı kaydetmek istediğiniz zaman, genellikle çalışmalar
    1. Dinamik içerik listesinde **İfade**’yi seçin.
 
    1. Bulmak ve seçmek **div()** işlevi. 
-   İmlecinizi, işlevin parantez içinde yerleştirin.
+      İmlecinizi, işlevin parantez içinde yerleştirin.
 
    1. İmlecinizi bir işlevin parantez içinde olsa da, seçin **dinamik içerik** dinamik içerik listesini görüntüleyin. 
    
@@ -144,11 +146,11 @@ Mantıksal uygulamanızı kaydetmek istediğiniz zaman, genellikle çalışmalar
 
    1. İşiniz bittiğinde seçin **Tamam**.
 
-  1. İfade çözümlendikten sonra başında boşluk koyarak şu metni ekleyin: ``` minutes```
+   1. İfade çözümlendikten sonra başında boşluk koyarak şu metni ekleyin: ``` minutes```
   
-     **Gövdesi** alan artık şu örnekteki gibi görünür:
+       **Gövdesi** alan artık şu örnekteki gibi görünür:
 
-     ![Tamamlanmış "Gövde" alanı](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![Tamamlanmış "Gövde" alanı](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
 
 1. Mantıksal uygulamanızı kaydedin.
 

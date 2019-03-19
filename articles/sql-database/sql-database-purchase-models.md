@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: c0e7f941f9845ed7531f3adf03fbca9fbeb2787d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 0e9001111d6aa48f0dad69a2fb3b2186bfc37ab7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456699"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010517"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL veritabanı'nı satın alma modeli
 
@@ -104,7 +104,7 @@ Mevcut bir havuza, veritabanı kapalı kalma süresi ve havuzdaki veritabanları
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Bir iş yüküne göre gerekli Dtu sayısını belirlemek
 
-Bir mevcut şirket içi veya kullanabileceğiniz SQL Server sanal makine iş yükünü Azure SQL veritabanına geçirmek istiyorsanız [DTU hesaplayıcıyı](http://dtucalculator.azurewebsites.net/) gerekli Dtu sayısını yaklaşık olarak belirlemenizi sağlayan. Mevcut bir Azure SQL veritabanı iş yükünü için kullandığınız [sorgu performansı içgörüleri](sql-database-query-performance.md) veritabanı kaynak tüketiminizi (Dtu'lar) ilişkin iş yükünüz iyileştirmek için daha kapsamlı içgörüler anlamak için. Ayrıca [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV'sini kullanarak son bir saat kaynak tüketimi görüntüleyin. Alternatif olarak, katalog görünümünü [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) son 14 gündür, ancak daha düşük bir aslına uygunluk beş dakikalık ortalamalar kaynak tüketimini görüntüler.
+Bir mevcut şirket içi veya kullanabileceğiniz SQL Server sanal makine iş yükünü Azure SQL veritabanına geçirmek istiyorsanız [DTU hesaplayıcıyı](https://dtucalculator.azurewebsites.net/) gerekli Dtu sayısını yaklaşık olarak belirlemenizi sağlayan. Mevcut bir Azure SQL veritabanı iş yükünü için kullandığınız [sorgu performansı içgörüleri](sql-database-query-performance.md) veritabanı kaynak tüketiminizi (Dtu'lar) ilişkin iş yükünüz iyileştirmek için daha kapsamlı içgörüler anlamak için. Ayrıca [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV'sini kullanarak son bir saat kaynak tüketimi görüntüleyin. Alternatif olarak, katalog görünümünü [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) son 14 gündür, ancak daha düşük bir aslına uygunluk beş dakikalık ortalamalar kaynak tüketimini görüntüler.
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Esnek bir kaynak havuzundan fayda iş yükleri
 

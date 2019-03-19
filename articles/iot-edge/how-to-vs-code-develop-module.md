@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 02/20/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1a15600889a3c5a3c0ca587c78499f32be0ab8ed
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 9a7d83070caad86d7d66b62a9592dbb1e0017f97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456716"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884248"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Geliştirme ve modülleri, Azure IOT Edge için hata ayıklama için Visual Studio Code'u kullanın
 
@@ -154,7 +154,7 @@ Ayarlama ve simülatör başlangıç için komutu çalıştırın **Azure IOT Ed
 
 1. Geliştirme dilini gereksinimlerine göre hata ayıklama için ortamınızı hazırlama, modülünüzde bir kesme noktası ayarlayın ve kullanmak için hata ayıklama yapılandırmasını seçin:
    - **C#**
-     - Visual Studio Code tümleşik terminale dizinine ***&lt;, modül adı&gt;*** uygulama klasörü ve.Net Core oluşturmak için aşağıdaki komutu çalıştırın.
+     - Visual Studio Code tümleşik terminale dizinine ***&lt;, modül adı&gt;*** klasörü ve .NET Core uygulaması oluşturmak için aşağıdaki komutu çalıştırın.
 
        ```cmd
        dotnet build
@@ -165,7 +165,7 @@ Ayarlama ve simülatör başlangıç için komutu çalıştırın **Azure IOT Ed
      - Visual Studio kod hatalarını görünümü seçerek gidin **Görüntüle > hata ayıklama**. Hata ayıklama Yapılandırması  ***&lt;, modül adı&gt;* yerel hata ayıklama (.NET Core)** açılır listeden.
 
         > [!NOTE]
-        > Varsa,.Net Core `TargetFramework` program yolunuzda ile tutarlı değil `launch.json`, program yolu el ile güncelleştirmeniz gerekecektir `launch.json` eşleştirilecek `TargetFramework` .csproj dosyanızda, Visual Studio Code başarıyla bu başlatabilirsiniz şekilde Program.
+        > Varsa, .NET Core `TargetFramework` program yolunuzda ile tutarlı değil `launch.json`, program yolu el ile güncelleştirmeniz gerekecektir `launch.json` eşleştirilecek `TargetFramework` .csproj dosyanızda, Visual Studio Code başarıyla bu başlatabilirsiniz şekilde Program.
 
    - **Node.js**
      - Visual Studio Code tümleşik terminale dizinine ***&lt;, modül adı&gt;*** klasörü ve düğüm paketleri yüklemek için aşağıdaki komutu çalıştırın

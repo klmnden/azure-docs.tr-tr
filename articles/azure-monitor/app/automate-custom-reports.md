@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 74fdfed23d30dbf88b2faa6028039159010d9afc
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 37de2de18656f0f8ba85495b3fd72315e0bd885b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53756807"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113087"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights verilerle özel raporları otomatikleştirme
 
@@ -110,12 +110,12 @@ availabilityResults
     
     (AI_ değerleri raporlamak istediğiniz Application Insights kaynağı için API erişimi altında bulunabilir. Bir Application Insights API anahtarı yoksa seçeneği yoktur **API anahtarı oluştur**.)
     
-    * AI_APP_ID uygulama kimliği =
-    * AI_APP_KEY API anahtarı =
-    * SendGridAPI SendGrid API anahtarı =
+   * AI_APP_ID uygulama kimliği =
+   * AI_APP_KEY API anahtarı =
+   * SendGridAPI SendGrid API anahtarı =
 
-    > [!NOTE]
-    > SendGrid hesabı yoksa bir tane oluşturabilirsiniz. Azure işlevleri için SendGrid belgelere [burada](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Yalnızca SendGrid Kurulum ve bu makalenin sonunda sağlanan bir API anahtarı oluşturmak en az bir açıklama istiyorsanız. 
+     > [!NOTE]
+     > SendGrid hesabı yoksa bir tane oluşturabilirsiniz. Azure işlevleri için SendGrid belgelere [burada](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Yalnızca SendGrid Kurulum ve bu makalenin sonunda sağlanan bir API anahtarı oluşturmak en az bir açıklama istiyorsanız. 
 
 9. Seçin **tümleştir** altında çıkışları tıklatın **SendGrid ($return)**.
 

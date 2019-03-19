@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5cd4228cf02187accd7240f89ac39058a1b6058
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: fd8453c93b4e48a076d8efbe1d438d15d8131fc9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771013"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864414"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Öğretici: GoodPractice araç seti ile Azure Active Directory Tümleştirmesi
 
@@ -69,7 +69,7 @@ Azure AD'de GoodPractice Araç Seti tümleştirmesini yapılandırmak için Good
 4. Arama kutusuna **GoodPractice Araç Seti**seçin **GoodPractice Araç Seti** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
      ![Sonuç listesinde GoodPractice Araç Seti](common/search-new-app.png)
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
+   ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
 Bu bölümde, yapılandırmanız ve GoodPractice araç seti ile Azure AD çoklu oturum açmayı test adlı bir test kullanıcı tabanlı **Britta Simon**.
 Tek iş için oturum açma için bir Azure AD kullanıcısının GoodPractice Araç Seti ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
@@ -146,7 +146,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

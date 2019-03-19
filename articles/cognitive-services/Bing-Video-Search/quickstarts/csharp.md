@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: f4b42ff2639bf7e6a982f7c21b6ac4f2a8c84c5e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 29d0dc032bd14161674c58d6e502ad77c3bf75e5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538927"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108789"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Hızlı Başlangıç: Bing Video arama REST API'si kullanarak video arayın veC#
 
@@ -52,7 +52,7 @@ Bu örnek için kaynak kodu kullanılabilir [github'da](https://github.com/Azure
 
 ### <a name="create-a-struct-to-format-the-bing-video-search-api-response"></a>Bing Video arama API'si yanıtı biçimlendirmek için bir yapı oluşturma
 
-3. Görüntü arama sonuçlarını ve JSON üst bilgi bilgilerini içerecek bir `SearchResult` yapısı tanımlayın.
+1. Görüntü arama sonuçlarını ve JSON üst bilgi bilgilerini içerecek bir `SearchResult` yapısı tanımlayın.
 
     ```csharp
     struct SearchResult

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ef55f25657d1decb09e438d443e7c289823f7d9d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ed429d923cad2c715621990c146d4cf3a23e7bca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605917"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904767"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Bağlı Fabrika çözüm Hızlandırıcı için sık sorulan sorular
 
@@ -104,7 +104,7 @@ Benzetim kendinden aşağıdaki cihazları kaydeder:
 * Proxy.munich0.corp.contoso
 * Proxy.Rio.corp.contoso
 * proxy.seattle.corp.contoso
-* Publisher.Beijing.corp.contoso
+* publisher.beijing.corp.contoso
 * Publisher.capetown.corp.contoso
 * publisher.mumbai.corp.contoso
 * publisher.munich0.corp.contoso
@@ -129,7 +129,7 @@ Alternatif olarak sanal makineye SSH aracılığıyla oturum açın ve çalışm
 
 Bir yayımcı cihazlar tarafından gönderilen verilerin inceleyin:
 
-* Publisher.Beijing.corp.contoso
+* publisher.beijing.corp.contoso
 * Publisher.capetown.corp.contoso
 * publisher.mumbai.corp.contoso
 * publisher.munich0.corp.contoso
@@ -148,7 +148,7 @@ Kullanarak dağıtırken `build.ps1` ortam değişkeni bağlı Fabrika GitHub de
 
 Ayrıca, çözüm hızlandırıcınız dağıtımdan sonra bir Azure haritalar hesabı anahtarı ekleyebilirsiniz. Azure portalına gidin ve bağlı Fabrika dağıtımınızdaki App Service kaynak erişebilirsiniz. Gidin **uygulama ayarları**, bölüm nerede **uygulama ayarları**. Ayarlama **MapApiQueryKey** için [Azure haritalar hesabınızda anahtarı](../azure-maps/how-to-manage-account-keys.md). Ayarları kaydedin ve ardından gidin **genel bakış** ve App Service'ı yeniden başlatın.
 
-### <a name="how-do-i-create-a-azure-maps-account"></a>Azure haritalar hesabı nasıl oluşturulur?
+### <a name="how-do-i-create-an-azure-maps-account"></a>Azure haritalar hesabı nasıl oluşturulur?
 
 Bkz, [Azure haritalar hesabı ve anahtarları yönetme](../azure-maps/how-to-manage-account-keys.md).
 
@@ -174,15 +174,15 @@ Telemetri verilerini olmayan OPC UA cihazları bağlı Fabrika için göndermek 
 
     ```json
     [
-      {
-        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
-        "DisplayName": "<name_of_the_datapoint>",
-        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
-        "Value": {
-          "Value": <datapoint_value>,
-          "SourceTimestamp": "<timestamp>"
-        }
-      }
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
     ]
     ```
 

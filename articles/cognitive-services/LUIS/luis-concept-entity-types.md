@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 61211db72928bebf0e1ea50cad6362337f66f0eb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859631"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844597"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Varlık türleri ve bunların amacıyla LUIS
 
@@ -201,7 +201,7 @@ Bazı önceden oluşturulmuş bu varlıkların açık kaynaklı tanımlanan [tan
 
 ## <a name="regular-expression-entity"></a>Normal ifade varlığı 
 
-Normal bir ifade ham utterance metin için en iyisidir. Küçük büyük harf duyarlı ve kültürel bir değişken yok sayar.  Normal ifadenin eşleştirilmesi, yazım denetimi değişiklikleri karakter düzeyinde belirteci düzeyinde değil sonra uygulanır. Normal ifade birçok oluşur. parantez kullanılarak gibi çok karmaşık ise, ifade modele eklemek erişememenizin. Bölümü ancak bazıları [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) kitaplığı. 
+Normal bir ifade ham utterance metin için en iyisidir. Küçük büyük harf duyarlı ve kültürel bir değişken yok sayar.  Normal ifadenin eşleştirilmesi, yazım denetimi değişiklikleri karakter düzeyinde belirteci düzeyinde değil sonra uygulanır. Normal ifade birçok oluşur. parantez kullanılarak gibi çok karmaşık ise, ifade modele eklemek erişememenizin. Bölümü ancak bazıları [.NET Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) kitaplığı. 
 
 İyi bir varlıktır ne zaman uygun:
 

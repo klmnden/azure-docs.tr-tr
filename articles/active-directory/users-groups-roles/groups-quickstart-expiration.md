@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94e799c1728175431f94f720ec57b6332147741b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ab72c78f66a324159d802369aa1dea545b77549c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194487"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904125"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Hızlı Başlangıç: Office 365 grupları Azure Active Directory'de dolmak üzere
 
@@ -35,15 +35,15 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisite"></a>Önkoşul
 
-Grup süre sonu ilkesini ayarlamak için kiracıda Genel Yönetici veya Kullanıcı Hesabı Yöneticisi olmanız gerekir.
+Bir genel yönetici veya Kullanıcı Yöneticisi grubu süre sonlarını ayarlama kuruluştaki olması gerekir.
 
 ## <a name="turn-on-user-creation-for-groups"></a>Kullanıcılar için grup oluşturma özelliğini açma
 
-1. [Azure portalda](https://portal.azure.com) dizinin Genel Yönetici veya Kullanıcı Hesabı Yöneticisi hesaplarından biriyle oturum açın.
+1. Oturum [Azure portalında](https://portal.azure.com) bir genel yönetici veya Kullanıcı Yöneticisi kuruluş için olan bir hesapla.
 
 2. **Gruplar**'ı ve ardından **Genel**'i seçin.
   
-  ![Self servis grup ayarları](./media/groups-quickstart-expiration/self-service-settings.png)
+   ![Self servis grup ayarları](./media/groups-quickstart-expiration/self-service-settings.png)
 
 3. **Kullanıcılar Office 365 grupları oluşturabilir** ayarını **Evet** olarak belirleyin.
 
@@ -53,7 +53,7 @@ Grup süre sonu ilkesini ayarlamak için kiracıda Genel Yönetici veya Kullanı
 
 1. [Azure portalda](https://portal.azure.com), **Azure Active Directory** > **Gruplar** > **Süre Sonu**'nu açarak süre sonu ayarlarını açın.
   
-  ![Süre sonu ayarları](./media/groups-quickstart-expiration/expiration-settings.png)
+   ![Süre sonu ayarları](./media/groups-quickstart-expiration/expiration-settings.png)
 
 2. Süre sonu aralığını ayarlayın. Önceden belirlenmiş değerlerden birini seçin veya 31 günden yüksek bir değer girin. 
 

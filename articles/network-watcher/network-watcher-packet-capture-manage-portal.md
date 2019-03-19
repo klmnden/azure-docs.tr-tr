@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: jdial
-ms.openlocfilehash: 827a3c2f831c8e8fb459e494dcad58e3661e78bd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 22bdd50f129a48ade97db323f904f7e652a00d39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348166"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889990"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Portalı kullanarak Azure Ağ İzleyicisi ile paket yakalamayı yönetme
 
@@ -41,29 +41,29 @@ Ağ arabirimiyle ya da ağ arabiriminin bulunduğu alt ağ için ağ güvenlik g
 1. Tarayıcınızda gidin [Azure portalında](https://portal.azure.com) seçip **tüm hizmetleri**ve ardından **Ağ İzleyicisi** içinde **ağ bölümü**.
 2. Seçin **paket yakalaması** altında **Ağ Tanılama Araçları**. Var olan bir paket yakalamaları durumlarını bağımsız olarak listelenir.
 3. Seçin **Ekle** paket yakalaması oluşturmak için. Aşağıdaki özelliklerin değerlerini seçebilirsiniz:
-   - **Abonelik**: Paket yakalaması için oluşturmak istediğiniz sanal makinenin bulunduğu abonelik.
-   - **Kaynak grubu**: sanal makinenin kaynak grubu.
+   - **Abonelik**: Paket oluşturmak istediğiniz sanal makineyi yakalama için abonelik bileşenidir.
+   - **Kaynak grubu**: Sanal makinenin kaynak grubu.
    - **Hedef sanal makine**: Paket yakalaması için oluşturmak istediğiniz sanal makine.
    - **Paket yakalama adı**: Paket yakalaması için bir ad.
-   - **Depolama hesabı veya dosya**: seçin **depolama hesabı**, **dosya**, veya her ikisini de. Seçerseniz **dosya**, sanal makinenin içindeki bir yol yakalama yazılır.
-   - **Yerel dosya yolu**: Burada paket yakalaması kaydedilecek sanal makine üzerindeki yerel yol (yalnızca geçerli olduğunda *dosya* seçili). Yol geçerli bir yol olmalıdır. Linux sanal makinesi kullanıyorsanız, yol ile başlamalıdır */var/yakalar*.
-   - **Depolama hesapları**: seçtiyseniz, mevcut bir depolama hesabını seçin *depolama hesabı*. Bu seçenek yalnızca seçtiyseniz, kullanılabilir **depolama**.
+   - **Depolama hesabı veya dosya**: Seçin **depolama hesabı**, **dosya**, veya her ikisini de. Seçerseniz **dosya**, sanal makinenin içindeki bir yol yakalama yazılır.
+   - **Yerel dosya yolu**: Paket yakalaması nereye kaydedileceği sanal makinede yerel yol (yalnızca geçerli olduğunda *dosya* seçili). Yol geçerli bir yol olmalıdır. Linux sanal makinesi kullanıyorsanız, yol ile başlamalıdır */var/yakalar*.
+   - **Depolama hesapları**: Seçtiyseniz, mevcut bir depolama hesabını seçin *depolama hesabı*. Bu seçenek yalnızca seçtiyseniz, kullanılabilir **depolama**.
    
      > [!NOTE]
      > Paket depolama yakalar için premium depolama hesapları şu anda desteklenmemektedir.
 
-   - **Paket başına en fazla bayt**: her paket yakalanan bayt sayısı. Tüm baytları boş bırakılırsa yakalanır.
-   - **Oturum başına en fazla bayt**: yakalanan bayt sayısı. Değer, paket yakalama durakları ulaşıldıktan sonra.
-   - **Süre (saniye)**: Paket yakalaması durdurulmadan önce süre. Varsayılan 18, 000 saniyedir.
+   - **Paket başına en fazla bayt**: Her paket yakalanan bayt sayısı. Tüm baytları boş bırakılırsa yakalanır.
+   - **Oturum başına en fazla bayt**: Yakalanan bayt sayısı. Değer, paket yakalama durakları ulaşıldıktan sonra.
+   - **Süre (saniye)**: Paket yakalaması durdurulmadan önce zaman sınırını. Varsayılan 18, 000 saniyedir.
    - (İsteğe bağlı) filtrelemeyi. Seçin **+ Filtre Ekle**
      - **Protokol**: Paket yakalaması için filtre uygulamak için protokol. TCP, UDP ve değerleri kullanılabilir.
-     - **Yerel IP adresi**: paket için paket yakalaması yerel IP adresi bu değer eşleştiği filtreler.
+     - **Yerel IP adresi**: Paket yakalaması paketler için yerel IP adresi bu değer eşleştiği filtreler.
      - **Yerel bağlantı noktası**: Paket yakalaması paketler için yerel bağlantı noktası bu değer eşleştiği filtreler.
-     - **Uzak IP adresi**: uzak IP adresi bu değer eşleştiği paketler için paket yakalaması filtreler.
-     - **Uzak bağlantı noktası**: Uzak bağlantı noktası bu değer eşleştiği paketler için paket yakalaması filtreler.
+     - **Uzak IP adresi**: Paket yakalaması paketler için uzak IP adresi bu değer eşleştiği filtreler.
+     - **Uzak bağlantı noktası**: Paket yakalaması paketler için Uzak bağlantı noktası bu değer eşleştiği filtreler.
     
-    > [!NOTE]
-    > Bağlantı noktası ve IP adresi değerleri tek bir değer, değer aralığı ve bağlantı noktası için 80-1024 gibi bir aralığı olabilir. Gereksinim duyduğunuz kadar çok filtreleri tanımlayabilirsiniz.
+     > [!NOTE]
+     > Bağlantı noktası ve IP adresi değerleri tek bir değer, değer aralığı ve bağlantı noktası için 80-1024 gibi bir aralığı olabilir. Gereksinim duyduğunuz kadar çok filtreleri tanımlayabilirsiniz.
 
 4. **Tamam**’ı seçin.
 
@@ -88,7 +88,7 @@ Paket yakalama Görünümü'nde seçin **...**  paketin sağ taraftaki yakalama 
 
 ## <a name="download-a-packet-capture"></a>Paket yakalaması indirin
 
-Paket yakalama oturumunuz tamamladıktan sonra yakalama dosyasını blob depolama veya sanal makinede yerel bir dosya karşıya yüklendi. Paket yakalaması depolama konumunu paket yakalaması oluşturulurken tanımlanır. Yapabilecekleriniz Microsoft Azure Depolama Gezgini, bir depolama hesabına kayıtlı yakalama dosyalara erişmek için uygun bir araç olan [indirme](http://storageexplorer.com/).
+Paket yakalama oturumunuz tamamladıktan sonra yakalama dosyasını blob depolama veya sanal makinede yerel bir dosya karşıya yüklendi. Paket yakalaması depolama konumunu paket yakalaması oluşturulurken tanımlanır. Yapabilecekleriniz Microsoft Azure Depolama Gezgini, bir depolama hesabına kayıtlı yakalama dosyalara erişmek için uygun bir araç olan [indirme](https://storageexplorer.com/).
 
 Bir depolama hesabı belirttiyseniz, paket yakalama dosyaları şu konumda bir depolama hesabına kaydedilir:
 

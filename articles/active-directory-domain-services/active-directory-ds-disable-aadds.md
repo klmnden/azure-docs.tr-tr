@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: ergreenl
-ms.openlocfilehash: d72fa2551eb4db3cb68a52cd8a76dd7b9d27b6f0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a2abdbf1409564f94356279332d253627c5b447a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55179013"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111931"
 ---
 # <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak hizmetleri devre dışı bırak
 Bu makalede Azure AD dizininiz için Azure Active Directory (AD) etki alanı hizmetleri devre dışı bırakmak için Azure portalını kullanmayı gösterir.
@@ -28,12 +28,11 @@ Bu makalede Azure AD dizininiz için Azure Active Directory (AD) etki alanı hiz
 > [!WARNING]
 > **Silme işlemi kalıcıdır ve geri alınamaz.**
 > Dikkatli olun! Yönetilen etki alanı sildiğinizde:
-  * Yönetilen etki alanı için etki alanı denetleyicilerine XML'deki sağlanan ve sanal ağdan kaldırıldı.
-  * Yönetilen etki alanındaki verileri kalıcı olarak silinir. Bu özel OU'ları, GPO'ları, özel DNS kayıtları, hizmet sorumluları, yönetilen etki alanında oluşturduğunuz Gmsa'lar vb. içerir.
-  * Yönetilen etki alanına katılan makineler kendi güven ilişkisine sahip kaybedebilir ve etki alanına katılmamış olmanız gerekir.
-  * Kurumsal AD kimlik bilgilerini kullanarak bu makinelerde oturum açamazsınız. Yerel yönetici kimlik bilgileri makine için kullanın.
-Yönetilen etki alanı siliniyor Azure AD dizininizi silmeyin veya dizin olumsuz Aksi takdirde.
->
+>   * Yönetilen etki alanı için etki alanı denetleyicilerine XML'deki sağlanan ve sanal ağdan kaldırıldı.
+>   * Yönetilen etki alanındaki verileri kalıcı olarak silinir. Bu özel OU'ları, GPO'ları, özel DNS kayıtları, hizmet sorumluları, yönetilen etki alanında oluşturduğunuz Gmsa'lar vb. içerir.
+>   * Yönetilen etki alanına katılan makineler kendi güven ilişkisine sahip kaybedebilir ve etki alanına katılmamış olmanız gerekir.
+>   * Kurumsal AD kimlik bilgilerini kullanarak bu makinelerde oturum açamazsınız. Yerel yönetici kimlik bilgileri makine için kullanın.
+> Yönetilen etki alanı siliniyor Azure AD dizininizi silmeyin veya dizin olumsuz Aksi takdirde.
 
 Azure AD Domain Services yönetilen etki alanınızı silmek için aşağıdaki adımları gerçekleştirin:
 1. Gidin [Azure AD Domain Services Uzantısı](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) Azure portalında.

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 47d5616f86c8f4cb62773d0b92a24a5fb63b2ea7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c4b178cc7e0604f38e4da25452a3bad01f8145de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240481"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858159"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Azure'da bir coğrafi yapay zeka sanal makinesi sağlama 
 
@@ -33,7 +33,7 @@ Coğrafi-DSVM AI dahil olmak üzere çeşitli araçlar içerir:
 - elde etmeye ve metinsel verileri önceden işleme görüntüsü 
 - Microsoft R Server Geliştirici sürümü, Anaconda Python Jupyter not defterleri için Python ve R, Python ve SQL, R IDE'ler gibi geliştirme etkinlikleri için veritabanı araçları
 - Esri tarafından sağlanan Arcgıs Pro masaüstü yazılımı birlikte, yapay ZEKA uygulamaları Jeo-uzamsal verilerle çalışabilirsiniz Python ve R arabirimleri. 
-
+ 
 
 ## <a name="create-your-geo-ai-data-science-vm"></a>Coğrafi AI veri bilimi VM'si oluşturma
 
@@ -67,16 +67,16 @@ Coğrafi AI veri bilimi sanal makinesi örneğini oluşturmak için bir yordam �
    - **Özet**: Girdiğiniz tüm bilgilerin doğru olduğunu doğrulayın.
 
    - **Satın alma**: Tıklayın **satın** sağlamaya başlamak için. Hizmet koşulları için bir bağlantı sağlanır. VM, seçtiğiniz sunucu boyutu için işlem ötesinde herhangi bir ek ücreti yok **boyutu** adım. 
-
+ 
 >[!NOTE]
 > Sağlama yaklaşık 20-30 dakika sürer. Sağlama durumunu Azure portalında görüntülenir.
 
-
+ 
 ## <a name="how-to-access-the-geo-ai-data-science-virtual-machine"></a>Coğrafi AI veri bilimi sanal makinesi erişme
 
-Sanal makinenizin oluşturulduktan sonra yüklenmiş ve önceden yapılandırılmış araçları kullanmaya başlamak hazırsınız. Başlat menüsü kutucukları ve masaüstü simgelerini birçok araç vardır. Uzak Masaüstü uygulamasına önceki yapılandırdığınız yönetici hesabı kimlik bilgilerini kullanarak yapabilecekleriniz **Temelleri** bölümü. 
+ Sanal makinenizin oluşturulduktan sonra yüklenmiş ve önceden yapılandırılmış araçları kullanmaya başlamak hazırsınız. Başlat menüsü kutucukları ve masaüstü simgelerini birçok araç vardır. Uzak Masaüstü uygulamasına önceki yapılandırdığınız yönetici hesabı kimlik bilgilerini kullanarak yapabilecekleriniz **Temelleri** bölümü. 
 
-
+ 
 ## <a name="using-arcgis-pro-installed-in-the-vm"></a>Arcgıs Pro kullanarak sanal Makineye yüklenen
 
 Coğrafi-DSVM Arcgıs Pro Masaüstü önceden yüklenmiş ve DSVM tüm araçlar ile çalışmak için önceden yapılandırılmış ortam zaten sahip. Arcgıs başlattığınızda sizden Arcgıs hesabınıza bir oturum açma için ister. Zaten bir Arcgıs hesabınız ve yazılım lisansları varsa, var olan kimlik bilgilerinizi kullanabilirsiniz.  
@@ -87,7 +87,7 @@ Aksi takdirde, yeni Arcgıs hesabı ve lisans için kaydolun veya alma bir [ücr
 
 ![Arcgıs ücretsiz deneme](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Kayıt bir herhangi bir ücretli veya ücretsiz bir deneme Arcgıs hesabı oluşturduktan sonra Arcgıs Pro hesabınız için yönergeleri izleyerek yetkilendirebilirsiniz [Arcgıs Pro belgeleri ile çalışmaya başlama](http://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+Kayıt bir herhangi bir ücretli veya ücretsiz bir deneme Arcgıs hesabı oluşturduktan sonra Arcgıs Pro hesabınız için yönergeleri izleyerek yetkilendirebilirsiniz [Arcgıs Pro belgeleri ile çalışmaya başlama](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
 Arcgıs Pro masaüstüne Arcgıs hesabınızla oturum açtıktan sonra yüklü olan ve VM Jeo-uzamsal analiz ve makine öğrenimi projeleri için yapılandırılan veri bilimi araçlarını kullanmaya başlamak hazırsınız.
 

@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08ad61070fd3bfb8472cffb51fd0b1bb4bcf169b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7ef499e49fc4d1a0dc79dfc4efb818f7330b57b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169386"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995210"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Hızlı Başlangıç: Web API (Önizleme) erişmek için bir istemci uygulaması yapılandırma
 
@@ -74,11 +74,11 @@ Uygulamanıza yeniden yönlendirme URI’si eklemek için:
 
 1. Web ve genel istemci uygulamalarına özel bir yeniden yönlendirme URI’si eklemek için:
 
-    1. **Yeniden yönlendirme URI’si** bölümün bulun.
-    1. **Web** veya **Genel istemci (mobil ve masaüstü)** seçenekleri arasından oluşturduğunuz uygulama türünü seçin.
-    1. Uygulamanız için Yeniden Yönlendirme URI’sini girin.
-        * Web uygulamaları için, uygulamanızın temel URL'sini girin. Örneğin http://localhost:31544 yerel makinenizde çalışan bir web uygulamasının URL'si olabilir. Kullanıcılar, bir web istemci uygulamasında oturum açmak için bu URL'yi kullanır.
-        * Genel uygulamalar için, Azure AD'nin belirteç yanıtlarını döndürmek üzere kullandığı URI'yi girin. Uygulamanıza özgü bir değer girin; örneğin https://MyFirstApp.
+   1. **Yeniden yönlendirme URI’si** bölümün bulun.
+   1. **Web** veya **Genel istemci (mobil ve masaüstü)** seçenekleri arasından oluşturduğunuz uygulama türünü seçin.
+   1. Uygulamanız için Yeniden Yönlendirme URI’sini girin.
+      * Web uygulamaları için, uygulamanızın temel URL'sini girin. Örneğin `http://localhost:31544` yerel makinenizde çalışan bir web uygulamasının URL'si olabilir. Kullanıcılar, bir web istemci uygulamasında oturum açmak için bu URL'yi kullanır.
+      * Genel uygulamalar için, Azure AD'nin belirteç yanıtlarını döndürmek üzere kullandığı URI'yi girin. Uygulamanıza özgü bir değer girin; örneğin https://MyFirstApp.
 
 1. Ortak istemciler (mobil, masaüstü) için önerilen Yeniden Yönlendirme URI'lerini seçemk için bu adımları izleyin:
 

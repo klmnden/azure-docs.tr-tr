@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3ab98669e01c9cfb2d4f46b8ddd83ff69653337b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a5b4e0465e83dec5620954998db329e7902fb59c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434181"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106058"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Vhd'lerinizden VM dağıtma
 
@@ -51,13 +51,13 @@ Oluşturma ve bir kullanıcı VM görüntüsü dağıtmak için aşağıdaki ad�
 
 Sanal makinenizin dağıtıldıktan sonra hazır olduğunuz [VM görüntünüzü sertifika](./cpp-certify-vm.md).
 
-2.  Tıklayın **yeni** araması **şablon dağıtımı**, ardından **düzenleyicide kendi şablonunuzu oluşturun**.  <br/>
-  ![Azure portalında VHD'yi dağıtım şablonu oluşturma](./media/publishvm_021.png)
+1. Tıklayın **yeni** araması **şablon dağıtımı**, ardından **düzenleyicide kendi şablonunuzu oluşturun**.  <br/>
+   ![Azure portalında VHD'yi dağıtım şablonu oluşturma](./media/publishvm_021.png)
 
-3. Bunu kopyalayıp [JSON şablonunu](./cpp-deploy-json-template.md) Düzenleyicisi ve tıklatın **Kaydet**. <br/>
-  ![Azure portalında VHD'yi dağıtım şablonunu Kaydet](./media/publishvm_022.png)
+1. Bunu kopyalayıp [JSON şablonunu](./cpp-deploy-json-template.md) Düzenleyicisi ve tıklatın **Kaydet**. <br/>
+   ![Azure portalında VHD'yi dağıtım şablonunu Kaydet](./media/publishvm_022.png)
 
-4. Görüntülenen için parametre değerlerini sağlayın **özel dağıtım** özellik sayfaları.
+1. Görüntülenen için parametre değerlerini sağlayın **özel dağıtım** özellik sayfaları.
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
@@ -76,10 +76,10 @@ Sanal makinenizin dağıtıldıktan sonra hazır olduğunuz [VM görüntünüzü
    | VM Adı                     | Yeni bir VM adı                                                           |
    | Sanal ağ adı        | Sanal makine tarafından kullanılan sanal ağ adı                                   |
    | NIC adı                    | Sanal ağ çalıştıran ağ arabirim kartı adı               |
-   | VHD URL'si                     | İşletim sistemi diski VHD URL'si tamamlayın                                                     |
+   | VHD URL'Sİ                     | İşletim sistemi diski VHD URL'si tamamlayın                                                     |
    |  |  |
             
-5. Bu değerleri sizin sağlamanız sonra tıklayın **satın alma**. 
+1. Bu değerleri sizin sağlamanız sonra tıklayın **satın alma**. 
 
 Azure dağıtım başlayacak: Belirtilen depolama hesabı yolu içinde belirtilen yönetilmeyen VHD ile yeni bir VM oluşturur.  Tıklayarak ilerleme durumunu Azure portalında izleyebilirsiniz **sanal makineler** portalının sol taraftaki.  VM oluşturulduğunda durumu gelen değiştirecek `Starting` için `Running`. 
 

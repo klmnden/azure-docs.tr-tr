@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 84b66605939abd0f676625a5959f4a31ef1774db
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 3cffd09a54b09a425f3b7f3519b4ceb7a04a6d08
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818298"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855359"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri birden çok VM'de etkinleştir
 
@@ -28,7 +28,7 @@ https://portal.azure.com adresinden Azure’da oturum açın
 
 Azure portalında gidin **sanal makineler**.
 
-Onay kutularını kullanarak, değişiklik izleme ve stok veya güncelleştirme yönetimi ile eklemek istediğiniz sanal makineleri seçin. Onboarding aynı anda Üçe kadar farklı kaynak grupları için kullanılabilir.
+Onay kutularını kullanarak, değişiklik izleme ve stok veya güncelleştirme yönetimi ile eklemek istediğiniz sanal makineleri seçin. Onboarding aynı anda Üçe kadar farklı kaynak grupları için kullanılabilir. Otomasyon hesabınızın konum ne olursa olsun tüm bölgelerdeki Azure Vm'leri bulunabilir.
 
 ![VM'lerin listesini](media/automation-onboard-solutions-from-browse/vmlist.png)
 > [!TIP]
@@ -68,14 +68,19 @@ Aşağıdaki tabloda, desteklenen eşlemeleri gösterir:
 |AustraliaSoutheast|AustraliaSoutheast|
 |CanadaCentral|CanadaCentral|
 |CentralIndia|CentralIndia|
-|EastUS|EastUS2|
+|EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
 |WestEurope|WestEurope|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
-|EastUS2EUAP|CentralUSEUAP|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP ve EastUS eşlemeleri Otomasyon hesapları için Log Analytics çalışma alanları için tam bir bölgeden bölgeye eşleme değildir, ancak doğru eşleme.
+
+> [!NOTE]
+> Talep nedeniyle bir bölge Otomasyon hesabı veya Log Analytics çalışma alanınızı oluştururken kullanılamıyor olabilir.  Bu durumda, bir bölgede kaynakları oluşturabileceğiniz önceki tabloda kullanmakta olduğunuz emin olun.
 
 Etkinleştirmek için istemediğiniz herhangi bir sanal makineyi yanındaki onay işaretini kaldırın. Zaten seçili sanal makinelerin etkinleştirilemez.
 

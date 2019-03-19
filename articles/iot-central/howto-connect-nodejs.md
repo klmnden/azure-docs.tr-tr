@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c04358734923654366eb679505910e14d0e0059b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4d2701f078a26c22f52aebd0ef562dd60eaca923
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767541"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097983"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IOT Central uygulamanızı (Node.js) genel istemci uygulamaya bağlama
 
@@ -41,7 +41,7 @@ Aşağıdaki telemetriyi ekleme **ölçümleri** sayfası:
 | Basınç     | basınç    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
-  Veri telemetri ölçü bir kayan türüdür nokta sayısı.
+>   Veri telemetri ölçü bir kayan türüdür nokta sayısı.
 
 Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgili cihaz kod özellik adları alan adları eşleşmiyorsa, telemetri uygulamada görüntülenemiyor.
 
@@ -54,7 +54,7 @@ Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgil
 | Fan Modu     | fanmode     | 1       | Çalışıyor      | 0       | Durduruldu      |
 
 > [!NOTE]
-  Veri türü durumu ölçümü dizedir.
+>   Veri türü durumu ölçümü dizedir.
 
 Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgili cihaz kod özellik adları alan adları eşleşmiyorsa, uygulama durumu görüntülenemiyor.
 
@@ -67,7 +67,7 @@ Aşağıdaki olayın ekleme **ölçümleri** sayfası:
 | Elektriği  | overheat    | Hata    |
 
 > [!NOTE]
-  Veri türü olay ölçümü dizedir.
+>   Veri türü olay ölçümü dizedir.
 
 ### <a name="device-properties"></a>Cihaz özellikleri
 
@@ -279,5 +279,5 @@ Azure IOT Central, uygulamanızdaki bir operatör olarak, gerçek cihazınız i�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Genel bir Node.js istemcisi, Azure IOT Central uygulamasına bağlanmak öğrendiniz, önerilen sonraki adımlar şunlardır:
-* [Hazırlama ve Raspberry Pi'yi bağlanın](howto-connect-raspberry-pi-python.md)
+* [Raspberry Pi'yi hazırlama ve bağlama](howto-connect-raspberry-pi-python.md)
 <!-- Next how-tos in the sequence -->

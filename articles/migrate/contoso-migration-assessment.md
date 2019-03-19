@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: df3ae6fbeceb85df6d6e5245a5bbad517179733c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 4739308d301291bf88e8ae547ba85f9648339c4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991368"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118468"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso geçişi: Şirket içi iş yüklerini, Azure’a geçişe yönelik olarak değerlendirme
 
@@ -159,15 +159,15 @@ Artık, Contoso SmartHotel360 uygulama için şirket içi SQL Server veritabanı
 
     ![Data Migration Yardımcısı - kaynak seçin](./media/contoso-migration-assessment/dma-assessment-1.png)
 
-    > [!NOTE]
-      Şu anda, Data Migration Yardımcısı değerlendirmesi bir Azure SQL veritabanı yönetilen örneğine geçirmek için desteklememektedir. Geçici bir çözüm olarak, Contoso SQL Server Azure sanal makinesinde beklenen hedefi değerlendirme için kullanır.
+   > [!NOTE]
+   >    Şu anda, Data Migration Yardımcısı değerlendirmesi bir Azure SQL veritabanı yönetilen örneğine geçirmek için desteklememektedir. Geçici bir çözüm olarak, Contoso SQL Server Azure sanal makinesinde beklenen hedefi değerlendirme için kullanır.
 
 3. İçinde **hedef sürümü seçin**, Contoso, SQL Server 2017 hedef sürüm olarak seçer. SQL veritabanı yönetilen örneği tarafından kullanılan sürümü olduğundan, bu sürümü seçmek contoso gerekir.
 4. Contoso yardımcı uyumluluğu ve yeni özellikler hakkında bilgi bulmak için raporları seçer:
-    - **Uyumluluk sorunlarını** geçişten veya geçişten önce küçük bir ayarlama gerektiren değişiklikleri unutmayın. Bu rapor, kullanım dışı olan özellikleri şu anda kullanımda haberdar Contoso tutar. Sorunlar, uyumluluk düzeyine göre düzenlenir.
-    - **Yeni özellikler önerisi** geçişten sonra veritabanı için kullanılabilecek hedef SQL Server platformundaki yeni özellikleri notlar. Yeni bir özellik önerisi, başlıklar altında düzenlenir **performans**, **güvenlik**, ve **depolama**.
+   - **Uyumluluk sorunlarını** geçişten veya geçişten önce küçük bir ayarlama gerektiren değişiklikleri unutmayın. Bu rapor, kullanım dışı olan özellikleri şu anda kullanımda haberdar Contoso tutar. Sorunlar, uyumluluk düzeyine göre düzenlenir.
+   - **Yeni özellikler önerisi** geçişten sonra veritabanı için kullanılabilecek hedef SQL Server platformundaki yeni özellikleri notlar. Yeni bir özellik önerisi, başlıklar altında düzenlenir **performans**, **güvenlik**, ve **depolama**.
 
-    ![Data Migration Yardımcısı - uyumluluk sorunları ve yeni özellikleri](./media/contoso-migration-assessment/dma-assessment-2.png)
+     ![Data Migration Yardımcısı - uyumluluk sorunları ve yeni özellikleri](./media/contoso-migration-assessment/dma-assessment-2.png)
 
 2. İçinde **sunucuya Bağlan**, Contoso, veritabanı ve ona erişmek için kimlik bilgilerini çalışan ve VM adını girer. Contoso seçer **sunucu sertifikasına güven** VM, SQL Server erişebilir emin olmak için. Ardından, Contoso seçer **Connect**.
 
@@ -186,13 +186,13 @@ Bunlara erişilebilir hemen sonra sonuçlar görüntülenir. Contoso sorunları 
 
 1. İçinde **uyumluluk sorunlarını** raporunda, Contoso her uyumluluk düzeyinde herhangi bir sorun olup olmadığını denetler. Uyumluluk düzeyleri, SQL Server sürümleriyle aşağıdaki şekilde eşlenir:
 
-    - 100: SQL Server 2008/Azure SQL veritabanı
-    - 110: SQL Server 2012/Azure SQL veritabanı
-    - 120: SQL Server 2014/Azure SQL veritabanı
-    - 130: SQL Server 2016/Azure SQL veritabanı
-    - 140: SQL Server 2017/Azure SQL veritabanı
+   - 100: SQL Server 2008/Azure SQL veritabanı
+   - 110: SQL Server 2012/Azure SQL veritabanı
+   - 120: SQL Server 2014/Azure SQL veritabanı
+   - 130: SQL Server 2016/Azure SQL veritabanı
+   - 140: SQL Server 2017/Azure SQL veritabanı
 
-    ![Data Migration Yardımcısı - uyumluluk raporu verir.](./media/contoso-migration-assessment/dma-assessment-5.png)
+     ![Data Migration Yardımcısı - uyumluluk raporu verir.](./media/contoso-migration-assessment/dma-assessment-5.png)
 
 2. İçinde **özellik önerileri** raporu için Contoso, değerlendirmenin geçişten sonra önerdiği performans, güvenlik ve depolama özellikleri görüntüler. Çeşitli özellikler önerilir, bellek içi OLTP, columnstore dizinleri, Stretch Database, Always Encrypted, dinamik veri maskeleme ve saydam veri şifrelemesi gibi.
 
@@ -403,14 +403,14 @@ Contoso yükleme her sanal makinede çalıştırır.
 
     `sudo -i`
 3. Contoso MMA'yı yükler:
-    - Contoso çalışma alanı kimliği ve anahtarı komutu girer.
-    - 64-bit komutlardır.
-    - Çalışma alanı kimliği ve birincil anahtar, Azure portalında Log Analytics çalışma alanında bulunur. Seçin **ayarları**ve ardından **bağlı kaynaklar** sekmesi.
-    - Log Analytics Aracısı'nı indirme, sağlama toplamını doğrulama ve yüklemek için aşağıdaki komutları çalıştırın ve ekleme aracısı:
+   - Contoso çalışma alanı kimliği ve anahtarı komutu girer.
+   - 64-bit komutlardır.
+   - Çalışma alanı kimliği ve birincil anahtar, Azure portalında Log Analytics çalışma alanında bulunur. Seçin **ayarları**ve ardından **bağlı kaynaklar** sekmesi.
+   - Log Analytics Aracısı'nı indirme, sağlama toplamını doğrulama ve yüklemek için aşağıdaki komutları çalıştırın ve ekleme aracısı:
 
-    ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
-    ```
+     ```
+     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
+     ```
 
 #### <a name="install-the-dependency-agent-on-linux-vms"></a>Linux Vm'lerinde bağımlılık aracısını yükleme
 

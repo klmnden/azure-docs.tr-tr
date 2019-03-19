@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: ada0a54f014e4e896c0e91d1eeafb94e6d254d5b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 803d05e1aaf4d9c26a6132bde30f101ce3905924
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445096"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096835"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Yeni kiracılar sağlama ve bunları kataloğa kaydetme hakkında bilgi edinin
 
@@ -26,7 +26,7 @@ Bu öğreticide, sağlama ve kataloğa kaydetme SaaS düzenlerinin öğrenin. Ay
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-
+> 
 > * Tek bir yeni Kiracı sağlama.
 > * Ek Kiracı grubu sağlayın.
 
@@ -167,7 +167,7 @@ Otomatik sağlama düzeni ile bir istemci uygulaması veya betik sağlama hizmet
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-
+> 
 > * Tek bir yeni Kiracı sağlama.
 > * Ek Kiracı grubu sağlayın.
 > * Kiracılar sağlama ve bunları kataloğa kaydetme ayrıntılarını Adımlama.

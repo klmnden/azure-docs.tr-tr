@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 09e8ee05017c47c5b01bc529135004eff19b846f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ee5ed8871ea5c021ad8c87e35f45e42ad641a324
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118471"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124185"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Gelişmiş tehdit koruması ile Azure Güvenlik Merkezi
 
@@ -64,11 +64,11 @@ Güvenlik Merkezi'ne ekleme sunucularına tıklayın **Azure Güvenlik Merkezi'n
 1. İçinde **ekleme** dikey penceresini seçin ya da verileri depolamak için bir çalışma alanı oluşturun. <br>
 2. Tüm çalışma alanlarını göremiyorsanız, yetersiz izinler nedeniyle, çalışma alanınız için Azure güvenlik standart katmanı ayarlandığından emin olun. Daha fazla bilgi için [Güvenlik Merkezi'nin standart katmanında Gelişmiş güvenlik yükseltme](security-center-pricing.md).
     
-3.  Seçin **sunucuları ekleme** Microsoft Monitoring Agent'ı yükleme hakkında yönergeler görüntülemek için. 
+3. Seçin **sunucuları ekleme** Microsoft Monitoring Agent'ı yükleme hakkında yönergeler görüntülemek için. 
 
-4.  Ekledikten sonra makineleri altında izleyebilirsiniz **işlem ve uygulamaları**.
+4. Ekledikten sonra makineleri altında izleyebilirsiniz **işlem ve uygulamaları**.
 
-  ![Bilgisayarları ekleme](media/security-center-wdatp/onboard-computers.png)
+   ![Bilgisayarları ekleme](media/security-center-wdatp/onboard-computers.png)
 
 
 ## <a name="enable-windows-defender-atp-integration"></a>Windows Defender ATP tümleştirmesini etkinleştirme

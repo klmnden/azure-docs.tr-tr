@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9779885869666ffd1198afcda944823b99d52e5b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417982"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099180"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Portalı kullanarak farklı dağıtım modellerindeki sanal ağları bağlama
 
@@ -114,7 +114,7 @@ Bir sanal ağ VPN ağ geçidi ile zaten varsa, ağ geçidini dinamik olduğunu d
 1. Üzerinde **yeni VPN bağlantısı** sayfasında **ağ geçidini hemen Oluştur** onay kutusu.
 2. **İsteğe bağlı ağ geçidi yapılandırması**’na tıklayarak **Ağ geçidi yapılandırması** sayfasını açın.
 
-  ![Açık gateway yapılandırma sayfasında](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "açık ağ geçidi yapılandırma sayfası")
+   ![Açık gateway yapılandırma sayfasında](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "açık ağ geçidi yapılandırma sayfası")
 3. Tıklayın **alt ağ - gerekli ayarları Yapılandır** açmak için **alt ağ Ekle** sayfası. **Adı** gerekli değeri ile zaten yapılandırıldı: **GatewaySubnet**.
 4. **Adres aralığı** ağ geçidi alt ağı için aralığına başvurur. İle/29 bir ağ geçidi alt ağı oluşturmanız mümkün olsa da adres aralığı (3 adresleri), daha fazla IP adresi içeren bir ağ geçidi alt ağı oluşturma öneririz. Bu, daha fazla kullanılabilir IP adresleri gerektirebilir gelecek yapılandırmaları barındırmak. Mümkünse, / 27 veya/28'i kullanın. Bu adımları bir alıştırma olarak kullanırken, başvurabilirsiniz [örnek değerleri](#values). Bu örnekte, '10.0.0.32/28' kullanırız. Tıklayın **Tamam** ağ geçidi alt ağı oluşturmak için.
 5. Üzerinde **ağ geçidi Yapılandırması** sayfasında **boyutu** ağ geçidi SKU'sunu ifade eder. VPN ağ geçidiniz için ağ geçidi SKU'sunu seçin.
@@ -192,16 +192,16 @@ Bu bölümde, yerel site ayarları ile Resource Manager VPN ağ geçidi IP adres
 2. Sanal ağınızın sayfasında tıklayın **genel bakış**.
 3. İçinde **VPN bağlantıları** bölümünde, yerel grafiği sitenizdeki adına tıklayın.
 
-  ![VPN bağlantıları](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN bağlantıları")
+   ![VPN bağlantıları](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "VPN bağlantıları")
 4. Üzerinde **siteden siteye VPN bağlantıları** sayfasında, sitenin adını tıklayın.
 
-  ![Site adı](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "yerel site adı")
+   ![Site adı](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "yerel site adı")
 5. Yerel sitesinin bağlantısı sayfasında açmak için yerel site adına **yerel site** sayfası.
 
-  ![Açık yerel site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "yerel site Aç")
+   ![Açık yerel site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "yerel site Aç")
 6. Üzerinde **yerel site** sayfasında, yerine **VPN ağ geçidi IP adresi** Resource Manager ağ geçidi IP adresi ile.
 
-  ![Ağ geçidi IP adresini](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "ağ geçidi IP adresi")
+   ![Ağ geçidi IP adresini](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "ağ geçidi IP adresi")
 7. Tıklayın **Tamam** IP adresini güncelleştirin.
 
 ## <a name="RMtoclassic"></a>4. Bölüm - Resource Manager'ı Klasik bağlantı oluşturun

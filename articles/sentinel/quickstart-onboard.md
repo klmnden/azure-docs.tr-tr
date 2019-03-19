@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: c711ea3636a3ea045b4a145481f9da156b8c5bfc
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 30f6d08594bdf2e5d78bc8c7881a135d6e57f397
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246993"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852245"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Yerleşik Azure Sentinel Önizleme
 
@@ -43,8 +43,9 @@ Veri kaynaklarınızı bağlandıktan sonra verilerinizi temel alan ınsights y�
 - Kiracınız için katkıda bulunan izinleri Azure Gözcü etkinleştirmek için
 
 - Kiracı genel veya güvenlik yöneticisi izinleri
+ 
 
-## <a name="enable-azure-sentinel"></a>Azure Sentinel etkinleştir
+## Azure Sentinel etkinleştir <a name="enable"></a>
 
 1. Azure portalına gidin.
 2. Azure Gözcü oluşturulduğu, aboneliğin seçildiğinden emin olun. 
@@ -54,11 +55,12 @@ Veri kaynaklarınızı bağlandıktan sonra verilerinizi temel alan ınsights y�
 1. Tıklayın **+ Ekle**.
 1. Kullanma veya yeni bir tane oluşturmak istediğiniz çalışma alanını seçin. Birden fazla çalışma alanına Azure Gözcü çalıştırabilirsiniz, ancak veriler, tek bir çalışma alanına yalıtılır.
 
-   ![ara](./media/quickstart-onboard/choose-workspace.png)
+   ![search](./media/quickstart-onboard/choose-workspace.png)
 
-  >[!NOTE] 
-  > - **Çalışma alanı konumu** akışını Azure Gözcü için tüm veriler, seçili çalışma alanının coğrafi konumda depolanır anlamak önemlidir.  
-  > - Azure Güvenlik Merkezi tarafından oluşturulan varsayılan çalışma alanları listesinde görünmez; Azure Gözcü üzerlerinde yükleyemezsiniz.
+   >[!NOTE] 
+   > - **Çalışma alanı konumu** akışını Azure Gözcü için tüm veriler, seçili çalışma alanının coğrafi konumda depolanır anlamak önemlidir.  
+   > - Azure Güvenlik Merkezi tarafından oluşturulan varsayılan çalışma alanları listesinde görünmez; Azure Gözcü üzerlerinde yükleyemezsiniz.
+   > - Azure Sentinel aşağıdaki bölgelerden hiçbirinde dağıtılan çalışma alanları çalıştırabilirsiniz:  Avustralya Güneydoğu, Kanada Orta, Orta Hindistan, Doğu ABD, Doğu ABD 2 EUAP (Kanarya), Doğu, Güneydoğu Asya, UK Güney, Batı Avrupa, Batı ABD 2 Japonya.
 
 6. Tıklayın **Azure Sentinel ekleme**.
   

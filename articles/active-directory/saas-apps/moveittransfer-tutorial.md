@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 2cd63069a584ccef05236f925f99c3740c6a3402
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0f6b9c85fa3462486a32cf55b10cb06bb84b0072
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759551"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853061"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Öğretici: Azure Active Directory tümleştirmesiyle Moveıt aktarımı - Azure AD tümleştirmesi
 
@@ -149,10 +149,10 @@ Azure AD çoklu oturum açma Moveıt aktarımı - Azure AD Tümleştirmesi ile y
 
     ![Hizmet sağlayıcısı meta veri URL'si](./media/moveittransfer-tutorial/tutorial_moveittransfer_002.png)
     
-    * Doğrulama **Entityıd** eşleşen **tanımlayıcı** içinde **temel SAML yapılandırma** bölümü.
-    * Doğrulama **AssertionConsumerService** konumu URL ile eşleşen **yanıt URL'si** içinde **temel SAML yapılandırma** bölümü.
+   * Doğrulama **Entityıd** eşleşen **tanımlayıcı** içinde **temel SAML yapılandırma** bölümü.
+   * Doğrulama **AssertionConsumerService** konumu URL ile eşleşen **yanıt URL'si** içinde **temel SAML yapılandırma** bölümü.
     
-    ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
+     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 
 5. Tıklayın **kimlik sağlayıcısı Ekle** düğmesini yeni bir Federasyon kimlik sağlayıcısı ekleyin.
 
@@ -198,7 +198,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

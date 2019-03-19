@@ -1,5 +1,5 @@
 ---
-title: 'Birden çok siteye VPN Gateway ve PowerShell kullanarak bir sanal ağa bağlama: Klasik | Microsoft Docs'
+title: 'Bir sanal ağ VPN Gateway ve PowerShell kullanarak birden çok siteye Bağlan: Klasik | Microsoft Docs'
 description: Birden çok yerel şirket içi siteye bir VPN ağ geçidi kullanarak bir Klasik sanal ağa bağlayın.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 768f06c9d007e716f89ca61ccd9f8a2ccd575efd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 77f8b7094c96e507eef1d360a26240627bc0e350
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160877"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994018"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Bir sanal ağa bir VPN ağ geçidi bağlantısı var (Klasik) ile siteden siteye bağlantı ekleme
 
@@ -75,8 +75,8 @@ Zaten bir dinamik yönlendirme ağ geçidi ile siteden siteye VPN harika varsa! 
 2. Yeni ağ geçidi yapılandırması ve, VPN tüneli oluşturun. Yönergeler, yönergeler için bkz. [SKU ve VPN türünü belirtme](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Yönlendirme türü 'Dynamic' olarak belirttiğinizden emin olun.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Siteden siteye sanal ağ yoksa:
-1. Bu yönergeleri kullanarak, siteden siteye sanal ağ oluşturma: [bir siteden siteye VPN bağlantısı ile sanal ağ oluşturma](vpn-gateway-site-to-site-create.md).  
-2. Bu yönergeleri kullanarak dinamik yönlendirme ağ geçidi yapılandırma: [bir VPN ağ geçidi yapılandırma](vpn-gateway-configure-vpn-gateway-mp.md). Seçtiğinizden emin olun **dinamik yönlendirme** , ağ geçidi türü.
+1. Bu yönergeleri kullanarak, siteden siteye sanal ağ oluşturun: [Sanal ağ ile bir siteden siteye VPN bağlantısı oluşturma](vpn-gateway-site-to-site-create.md).  
+2. Bu yönergeleri kullanarak dinamik yönlendirme ağ geçidi yapılandırın: [Bir VPN ağ geçidi yapılandırma](vpn-gateway-configure-vpn-gateway-mp.md). Seçtiğinizden emin olun **dinamik yönlendirme** , ağ geçidi türü.
 
 ## <a name="export"></a>2. Ağ yapılandırma dosyasını dışarı aktar
 Azure ağ yapılandırma dosyanız, aşağıdaki komutu çalıştırarak dışarı aktarın. Farklı bir konuma gerekirse dışa aktarılacak dosyanın konumunu değiştirebilirsiniz.
@@ -88,7 +88,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ## <a name="3-open-the-network-configuration-file"></a>3. Ağ yapılandırma dosyasını açın
 Son adımda yüklediğiniz ağ yapılandırma dosyasını açın. İstediğiniz herhangi bir xml düzenleyici kullanın. Dosya, aşağıdakine benzer görünmelidir:
 
-        <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+        <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
             <LocalNetworkSites>
               <LocalNetworkSite name="Site1">

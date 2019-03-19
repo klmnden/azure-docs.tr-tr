@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd109637379f1fd2cdb108fbbb6c6c47224e00a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1350b2d86e18f213d99f1c27d64e371451f5f9b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431776"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840892"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication ile oturum açma deneyimi
 > [!NOTE]
@@ -34,7 +34,7 @@ Oturum açma deneyimini, ikinci bir faktör olarak kullanmak istediğinize bağl
 | [Mobil veya ofis telefonumu için bir telefon çağrısı ile](#signing-in-with-a-phone-call) |
 | [Cep telefonuma metin ile](#signing-in-with-a-text-message)
 | [Microsoft Authenticator uygulamasından ile bildirimleri](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
-| [Microsoft Authenticator uygulaması ile doğrulama kodları](#to-sign-in-using-a-verification-with-the-microsoft-authenticator-app) |
+| Microsoft Authenticator uygulaması ile doğrulama kodları |
 | [Alternatif bir yöntem ile tercih edilen yöntemimi şu anda kullanamazsınız çünkü](#signing-in-with-an-alternate-method) |
 
 ## <a name="signing-in-with-a-phone-call"></a>Telefonla Oturum imzalama
@@ -58,7 +58,7 @@ Aşağıdaki bilgiler, iki aşamalı doğrulama işlemleri için Microsoft Authe
 1. Bir uygulama veya hizmet, kullanıcı adı ve parolanızı kullanarak Office 365 gibi oturum açın.
 2. Microsoft, Cihazınızda Microsoft Authenticator uygulamasına bir bildirim gönderir.
 
-  ![Microsoft, bildirim gönderir.](./media/multi-factor-authentication-end-user-signin/notify.png)
+   ![Microsoft, bildirim gönderir.](./media/multi-factor-authentication-end-user-signin/notify.png)
 
 3. Telefon ve seçim bildirimi açın **doğrulama** anahtarı. Şirketiniz bir PIN gerektiriyorsa, buraya girin.
 4. Artık oturum açmanız.
@@ -70,7 +70,7 @@ Doğrulama kodları almak için Microsoft Authenticator uygulamasını kullanın
 1. Bir uygulama veya hizmet, kullanıcı adı ve parolanızı kullanarak Office 365 gibi oturum açın.
 2. Microsoft için bir doğrulama kodu ister.
 
-  ![Doğrulama kodunu girin](./media/multi-factor-authentication-end-user-signin/verify3.png)
+   ![Doğrulama kodunu girin](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. Telefonunuza Microsoft Authenticator uygulamasını açın ve kodu nerede açtığınız kutuya girin.
 
@@ -81,7 +81,7 @@ Bazı durumlarda telefon veya, tercih edilen doğrulama yöntemi olarak ayarlad�
 2. Seçin **farklı bir doğrulama seçeneği kullanma**. Kaç, Kurulum olmadığına göre farklı bir kimlik doğrulama seçenekleri görürsünüz.
 3. Alternatif bir yöntem seçin ve oturum açın.
 
-  ![Alternatif yöntemi kullanın](./media/multi-factor-authentication-end-user-signin/alt.png)
+   ![Alternatif yöntemi kullanın](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - İki aşamalı doğrulaması ile oturum açma sorunları varsa, daha fazla bilgi edinin [Azure multi-Factor Authentication sorununuz](multi-factor-authentication-end-user-troubleshoot.md).

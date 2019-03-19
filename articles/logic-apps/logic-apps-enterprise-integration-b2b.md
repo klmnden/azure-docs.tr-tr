@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
-ms.openlocfilehash: ad7a29f4a554d599b17576921542b1ac6e403911
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 05368f627c5e9482a43d5e30b0e16b1d47f6217c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127773"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074735"
 ---
 # <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps ve Enterprise Integration Pack ile B2B veri alma
 
@@ -47,11 +47,13 @@ AS2 ve X12 kullanan B2B mantıksal uygulama oluşturmak için bu adımları bir 
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-6.png)
 
-6. Ekleme **gövdesi** giriş olarak kullanılmasını istediğiniz. Bu örnekte, mantıksal uygulama tetiklenir HTTP isteği gövdesinin seçin. Üst bilgilerinde girişlerinin bir ifade girin veya **ÜSTBİLGİLERİ** alan:
+6. Ekleme **gövdesi** giriş olarak kullanılmasını istediğiniz. 
+   Bu örnekte, mantıksal uygulama tetiklenir HTTP isteği gövdesinin seçin. Üst bilgilerinde girişlerinin bir ifade girin veya **ÜSTBİLGİLERİ** alan:
 
     @triggerOutputs() ['üst bilgileri']
 
-7. Gerekli olanları Ekle **üstbilgileri** için AS2, HTTP istek üst bilgilerinde bulabilirsiniz. Bu örnekte, mantıksal uygulama tetikleyicisi üst bilgiler HTTP isteğinin seçin.
+7. Gerekli olanları Ekle **üstbilgileri** için AS2, HTTP istek üst bilgilerinde bulabilirsiniz. 
+   Bu örnekte, mantıksal uygulama tetikleyicisi üst bilgiler HTTP isteğinin seçin.
 
 8. Artık kod çözme X12 ileti eylemi ekleyin. Seçin **Eylem Ekle**.
 
@@ -65,7 +67,8 @@ AS2 ve X12 kullanan B2B mantıksal uygulama oluşturmak için bu adımları bir 
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-as2message.png)
 
-11. Şimdi, bu eylem için giriş belirtmeniz gerekir. Bu giriş AS2 önceki eylem çıktısı bulunmaktadır.
+11. Şimdi, bu eylem için giriş belirtmeniz gerekir. 
+    Bu giriş AS2 önceki eylem çıktısı bulunmaktadır.
 
     Gerçek ileti içeriği bir JSON nesnesidir ve base64 ile kodlanmış, olduğundan bir ifade giriş olarak belirtmeniz gerekir. 
     Aşağıdaki ifade girin **X12 DÜZ dosya iletisi için kod çözme** giriş alanı:

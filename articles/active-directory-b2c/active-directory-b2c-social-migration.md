@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d6f857e926343c4c3c26d746134bbb9d94754c12
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a1ecc4de9475e735cd17286826c1d8cea05904ab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866020"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089361"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Kullanıcıları sosyal kimlikleriyle geçirme
 Kimlik sağlayıcınız Azure AD B2C'ye geçirmek planlama yaparken, sosyal medya kimliklerinden kullanıcıları geçirme gerekebilir. Bu makalede, aşağıdakiler gibi mevcut sosyal kimlikleri hesapları geçirme açıklanmaktadır: Azure AD B2C'ye Facebook ve LinkedIn, Microsoft ve Google hesapları. Bu geçiş daha az yaygın olan ancak bu makale Federasyon kimlikleri için de geçerlidir.
@@ -32,14 +32,14 @@ Bu makalede, bir kullanıcı geçiş makalesini devamıdır ve sosyal kimlik ge�
 * **Yerel hesap sosyal kimlik ile birleştirerek**. Belirtildiği gibi yerel hesap oturum açma adları ve sosyal hesap kimlikleri farklı öznitelikler depolanır. `signInNames` olan yerel hesabı için kullanılan, while `userIdentities` sosyal hesap için. Tek bir Azure AD B2C hesabı yalnızca yerel hesap, yalnızca sosyal hesap olabilir veya bir kullanıcı kaydındaki sosyal kimlik yerel bir hesap birleştirin. Bu davranış, bir kullanıcının yerel hesabı credential(s) oturum veya sosyal kimliklerle oturum sırasında tek bir hesap yönetmenize olanak sağlar.
 
 * `UserIdentity` Tür - Azure AD B2C kiracısı bir sosyal hesap kullanıcının kimlik bilgilerini içerir:
-    * `issuer` Kullanıcı tanımlayıcısı facebook.com gibi verilen kimlik sağlayıcısı dize gösterimi.
-    * `issuerUserId` Base64 biçimindeki sosyal kimlik sağlayıcısı tarafından kullanılan benzersiz kullanıcı tanımlayıcısı.
+  * `issuer` Kullanıcı tanımlayıcısı facebook.com gibi verilen kimlik sağlayıcısı dize gösterimi.
+  * `issuerUserId` Base64 biçimindeki sosyal kimlik sağlayıcısı tarafından kullanılan benzersiz kullanıcı tanımlayıcısı.
 
     ```JSON
     "userIdentities": [{
-            "issuer": "Facebook.com",
-            "issuerUserId": "MTIzNDU2Nzg5MA=="
-        }
+          "issuer": "Facebook.com",
+          "issuerUserId": "MTIzNDU2Nzg5MA=="
+      }
     ]
     ```
 

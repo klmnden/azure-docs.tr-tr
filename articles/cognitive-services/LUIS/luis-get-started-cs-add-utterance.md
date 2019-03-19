@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: fb976842f3ea6f5df81c795b3be775ed57798b90
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: dd60897d19ef4de7369b2b127c88e778363a387f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870954"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852288"
 ---
 # <a name="quickstart-change-model-using-c"></a>Hızlı Başlangıç: Modeli kullanarak değiştirinC#
 
@@ -37,7 +37,7 @@ ms.locfileid: "55870954"
 
 ## <a name="create-quickstart-code"></a>Hızlı başlangıç kodu oluşturma 
 
-Visual Studio'da .Net Framework kullanarak yeni bir **Windows Klasik Masaüstü Konsolu** uygulaması oluşturun. 
+Visual Studio'da yeni bir oluşturma **Windows Klasik Masaüstü Konsolu** .NET Framework kullanarak uygulama. 
 
 ![Visual Studio proje türü](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 

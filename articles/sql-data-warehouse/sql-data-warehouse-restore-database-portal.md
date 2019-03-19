@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0d8bb451c821a4883c81e0e51c5d98e146e3008e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2d59235b067d9571bc8b64c33799431be6489502
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243547"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087219"
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>Azure SQL veri ambarı'nı (portal) geri yükleme
 > [!div class="op_single_selector"]
@@ -23,9 +23,9 @@ ms.locfileid: "55243547"
 > * [Portal][Portal]
 > * [PowerShell][PowerShell]
 > * [REST][REST]
->
->
-Bu makalede, Azure portalını kullanarak Azure SQL veri ambarı geri öğreneceksiniz.
+> 
+> 
+> Bu makalede, Azure portalını kullanarak Azure SQL veri ambarı geri öğreneceksiniz.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 **DTU kapasitenizi doğrulayın.** SQL veri ambarı'nın her örneği, varsayılan veri aktarım hızı birimi (DTU) kotası olan bir SQL server tarafından (örn. myserver.database.windows.net) barındırılır. SQL veri ambarı geri yüklemeden önce SQL server'ınızı geri veritabanı için yeterli kalan DTU kotası olduğundan emin olun. DTU kotası hesaplamak için ya da daha fazla Dtu istemek için öğrenmek için bkz: [DTU kota değişiklik isteği][Request a DTU quota change].

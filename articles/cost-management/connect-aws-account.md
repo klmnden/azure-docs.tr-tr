@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0e3d6255d6e2787d407d24a4217a0262ae4c974d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 411a3d606ac8ec2f262ec9a1aabac7b74ccd110a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098486"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010940"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Amazon Web Services hesabına bağlanma
 
@@ -45,7 +45,7 @@ Aşağıdaki bölümlerde, Cloudyn'e erişim sağlamak için bir salt okunur IAM
 1. Oturum açmak için AWS konsolunda https://console.aws.amazon.com/iam/home seçip **rolleri**.
 2. Tıklayın **Rol Oluştur** seçip **başka bir AWS hesabı**.
 3. İçinde **hesap kimliği** kutusu, yapıştırma `432263259397`. Bu hesap kimliği, Cloudyn hizmete AWS tarafından atanan Cloudyn veri toplayıcı hesabıdır. Tam hesap kimliği kullanın.
-4. Yanındaki **seçenekleri**seçin **dış ID gerektir**. Öğesinden daha önce kopyaladığınız benzersiz değerinizi yapıştırın **Dış kimlik** Cloudyn alanındaki. Ardından **sonraki: izinleri**.  
+4. Yanındaki **seçenekleri**seçin **dış ID gerektir**. Öğesinden daha önce kopyaladığınız benzersiz değerinizi yapıştırın **Dış kimlik** Cloudyn alanındaki. Ardından **sonraki: İzinleri**.  
     ![Cloudyn dış kimliği Oluştur rol sayfasında yapıştırın](./media/connect-aws-account/create-role01.png)
 5. Altında **izin ilkeleriyle ekleme**, **ilke türü** filtre kutusuna arama, türü `ReadOnlyAccess`seçin **ReadOnlyAccess**, ardından **sonraki: Gözden geçirme**.  
     ![salt okunur erişim ilke adları listesinden seçin](./media/connect-aws-account/readonlyaccess.png)
@@ -80,10 +80,10 @@ Aşağıdaki bölümlerde, Cloudyn'e erişim sağlamak için salt okunur bir kul
 1. Oturum açmak için AWS konsolunda https://console.aws.amazon.com/iam/home seçip **kullanıcılar**.
 2. Tıklayın **kullanıcı ekleme**.
 3. İçinde **kullanıcı adı** alanında, bir kullanıcı adı yazın.
-4. İçin **erişim türü**seçin **programlı erişim** tıklatıp **sonraki: izinleri**.  
+4. İçin **erişim türü**seçin **programlı erişim** tıklatıp **sonraki: İzinleri**.  
     ![Kullanıcı Ekle sayfasında bir kullanıcı adı girin](./media/connect-aws-account/add-user01.png)
 5. İzinler için seçin **mevcut ilkeleri doğrudan Ekle**.
-6. Altında **izin ilkeleriyle ekleme**, **ilke türü** filtre kutusuna arama, türü `ReadOnlyAccess`seçin **ReadOnlyAccess**ve ardından **İleri : Gözden geçirin**.  
+6. Altında **izin ilkeleriyle ekleme**, **ilke türü** filtre kutusuna arama, türü `ReadOnlyAccess`seçin **ReadOnlyAccess**ve ardından **İleri : Gözden geçirme**.  
     ![kullanıcı izinlerini ayarlamak için ReadOnlyAccess seçin](./media/connect-aws-account/set-permission-for-user.png)
 7. İnceleme sayfasında, seçimlerinizi doğru tıklayın emin olun ve **kullanıcı oluşturma**.
 8. Tam sayfada erişim anahtarı kimliği ve parolası erişim anahtarınızı gösterilir. Cloudyn'de kaydını yapılandırmak için bu bilgileri kullanın.
@@ -127,11 +127,11 @@ Bir S3 demetini ayrıntılı faturalandırma bilgileri depolamak için oluşturd
 6. İnceleme sayfasında tıklayın **Oluştur demet**. Demet listenizde görüntülenir.
 7. Oluşturduğunuz demetine tıklayıp **izinleri** sekmesini seçip **demet ilke**. Demet İlke Düzenleyicisi açılır.
 8. Aşağıdaki JSON örneği kopyalayın ve demet İlkesi Düzenleyicisi'nde yapıştırın.
-  - Değiştirin `<BillingBucketName>` , S3 demetini adı.
-  - Değiştirin `<ReadOnlyUserOrRole>` rolü veya kullanıcı ARN, daha önce kopyaladığınız.
+   - Değiştirin `<BillingBucketName>` , S3 demetini adı.
+   - Değiştirin `<ReadOnlyUserOrRole>` rolü veya kullanıcı ARN, daha önce kopyaladığınız.
 
-  ```json
-  {
+   ```json
+   {
     "Version": "2012-10-17",
     "Id": "Policy1426774604000",
     "Statement": [
@@ -169,8 +169,8 @@ Bir S3 demetini ayrıntılı faturalandırma bilgileri depolamak için oluşturd
             "Resource": "arn:aws:s3:::<BillingBucketName>/*"
         }
     ]
-  }
-  ```
+   }
+   ```
 
 9. **Kaydet**’e tıklayın.  
     ![Demet İlkesi Düzenleyicisi'nde Kaydet'e tıklayın](./media/connect-aws-account/bucket-policy-editor.png)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: d6d898b93af6c03b313ec2340eb076de85877155
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 205a8dae55394a82a60f54ed32bad95324a59517
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531003"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996933"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN kural altyapısı özellikleri
 Bu makalede Azure Content Delivery Network (CDN) için ayrıntılı açıklamaları ve kullanılabilir özellikleri listeler [kurallar altyapısı](cdn-rules-engine.md).
@@ -76,7 +76,7 @@ Bu özellik, bir kural içindeki ek bilgileri sağlamak için tasarlanmıştır.
 Ad | Amaç
 -----|--------
 [Açıklama](#comment) | İçinde bir kural eklenecek bir not sağlar.
- 
+ 
 ## <a name="header-features"></a>Üstbilgi Özellikleri
 
 Bu özellikler, eklemek, değiştirmek veya istek veya yanıt üst bilgileri silmek için tasarlanmıştır.
@@ -126,7 +126,7 @@ Enabled|Indicates that the request is eligible for Edge Optimizer processing.
 Disabled|Restores the default behavior. The default behavior is to deliver content over the ADN platform without any additional processing.
 
 **Default Behavior:** Disabled
- 
+ 
 
 ### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
@@ -164,7 +164,7 @@ Ad | Amaç
 [Önbelleğe alınabilir istek gövdesi boyutu](#cacheable-request-body-size) | Bir GÖNDERİ yanıtı önbelleğe olup olmadığını belirlemek için eşiği tanımlar.
 [Kullanıcı değişkeni](#user-variable) | Yalnızca iç kullanım içindir.
 
- 
+ 
 ## <a name="url-features"></a>URL özellikleri
 
 Bu özellikler, isteği yeniden yönlendirilen ya da farklı bir URL'ye yeniden olanak sağlar.
@@ -182,6 +182,7 @@ Ad | Amaç
 ---
 ### <a name="age-response-header"></a>Age yanıtı üstbilgisi
 **Amaç**: İstek sahibine gönderilen yanıtta bir Age yanıtı üstbilgisi içerilip içerilmeyeceğini belirler.
+
 Değer|Sonuç
 --|--
 Etkin | Age yanıtı üstbilgisi istek sahibine gönderilen yanıt dahil edilir.
@@ -191,7 +192,7 @@ Devre dışı | Age yanıtı üstbilgisi istek sahibine gönderilen yanıtından
 
 [Başa dön](#azure-cdn-rules-engine-features)
 
-</br>
+<br>
 
 ---
 ### <a name="bandwidth-parameters"></a>Bant genişliği parametreleri
@@ -394,6 +395,7 @@ Seçenek|Açıklama
 --|--
 Özgün yolu| Göreli yol için önbellek anahtarını yeniden istek türlerini tanımlayın. Göreli bir yol, temel kaynak yolu seçerek ve ardından bir normal ifade deseni tanımlayan tanımlanabilir.
 Yeni yol|Yeni önbellek anahtarı için göreli yolu tanımlayın. Göreli bir yol, temel kaynak yolu seçerek ve ardından bir normal ifade deseni tanımlayan tanımlanabilir. Bu göreli yolu kullanarak dinamik olarak oluşturulabilir [HTTP değişkenleri](cdn-http-variables.md).
+
 **Varsayılan davranışı:** bir isteğin önbellek anahtarı istek URI tarafından belirlenir.
 
 [Başa dön](#azure-cdn-rules-engine-features)
@@ -473,6 +475,7 @@ metin/html| HTML dosyaları
 metin/css|Geçişli stil sayfaları (CSS)
 Application/x-javascript|Javascript
 Uygulama/javascript|Javascript
+
 Anahtar bilgileri:
 
 - Birden çok Internet medya türleri, her biri tek bir boşluk ile sınırlayan tarafından belirtin. 
@@ -1024,6 +1027,7 @@ Değer|Sonuç
 --|--
 Etkin|Varlık kaynak sunucudan öğeleri tekrar Al POP'a neden olur.
 Devre dışı|Varsayılan davranışını geri yükler. İstek üzerine geçerli önbellek kıymetler hizmet için varsayılan davranıştır.
+
 Bu özellik, doğru önbelleğe alma ve içerik teslimi için gerekli değildir, ancak geçici bir çözüm olarak yararlı olabilir. Örneğin, kaynak sunucularda dinamik içerik oluşturucuları yanlışlıkla Pop'lere gönderilen bayt 0 yanıtları neden olabilir. Bu tür yanıtların POP'ları genellikle önbelleğe alınır. 0 bayt yanıt hiçbir zaman geçerli bir yanıt olduğunu biliyorsanız 
 
 Bu içerik için sonra bu özellik bu tür varlıklar istemcilerinize hizmet engelleyebilirsiniz.
@@ -1279,6 +1283,7 @@ Seçenek|Açıklama
 -|-
  Kaynak & düzeni | Bu ayarları yazılması istek türlerini tanımlayan bir istek URI desenini tanımlar. Yalnızca istek URL'si hem de aşağıdaki ölçütleri karşılayan yazılacaktır: <br/><br/>  - **Kaynak (veya içerik erişim noktası):** bir kaynak sunucuyu tanımlar göreli bir yol seçin. Bu yol _/XXXX/_ bölümü ve uç nokta adınız. <br/><br/> - **Kaynak (desen):** göreli yol istek tanımlayan bir desenle tanımlanması gerekir. Bu normal ifade deseni, doğrudan başlatır (yukarıya bakın) sonra daha önce seçilen içerik erişim noktası bir yol tanımlamanız gerekir. <br/> Daha önce tanımlanan istek URI ölçütlerini (diğer bir deyişle, kaynak ve desen) çakışmadığını, bu özellik için tanımlanan eşleşme koşullardan herhangi biri ile doğrulayın. Bir desen belirtin; boş değer deseni olarak kullanırsanız, tüm dizeleri eşleştirilir. 
  Hedef  |Yukarıdaki istekleri için tarafından yazılacak göreli URL tanımlayın: <br/>    1. Kaynak sunucu tanımlayan bir içerik erişim noktası seçme. <br/>    2. Bir göreli yol kullanarak tanımlama: <br/>        -Bir normal ifade deseni <br/>        - [HTTP değişkenleri](cdn-http-variables.md) <br/> <br/> Kaynak düzende $ kullanarak hedef modele yakalanan değerler yerine_n_ burada _n_ bunu yakalanan sıralama ölçütü bir değer tanımlar. Örneğin, 1 USD $2 ikinci değer temsil ederken, kaynak desende yakalanan ilk değeri temsil eder. 
+
  Bu özellik, geleneksel bir yeniden yönlendirme işlemi yapmadan URL yeniden yazma Pop'lere sağlar. Diğer bir deyişle, istek sahibinin yeniden URL istenen gibi aynı yanıt kodu alır.
 
 **Örnek Senaryo 1**

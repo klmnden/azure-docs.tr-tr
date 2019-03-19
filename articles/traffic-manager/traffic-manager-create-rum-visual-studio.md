@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 35b4b06a09b8ef7b27e8d105d7f2336668c49f8f
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 1a5b883a8c9688d4545c0e98c00f78a2e982a611
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570870"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079732"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Traffic Manager için Visual Studio Mobile Center ile gerçek kullanıcı ölçümleri gönderme
 
@@ -33,22 +33,22 @@ Gerçek kullanıcı ölçümleri'ni yapılandırmak için bir anahtarı almak ve
 Olması ve Traffic Manager için istemci uygulamanızdan gönderilen ölçüleri gerçek kullanıcı ölçümleri (RUM) anahtarı adı benzersiz bir dize kullanarak hizmeti tarafından tanımlanır. Azure portalı, REST API kullanarak ÇALIŞTIRMA bir anahtar alabilirsiniz veya PowerShell'i kullanarak / CLI arabirimleri.
 
 Aşağıdaki yordamı kullanarak, Azure portalını kullanarak RUM anahtarı almak için:
-   1. Azure portalında bir tarayıcıdan oturum açın. Zaten bir hesabınız yoksa, ücretsiz bir aylık deneme için kaydolabilirsiniz.
-   2. Portalın arama çubuğunda, değiştirmek istediğiniz Traffic Manager profil adı için arama yapın ve sonra sonuçları Traffic Manager profili seçin, görüntülenen.
-   3. Traffic Manager profili sayfasında tıklatın **gerçek kullanıcı ölçümleri** altında **ayarları**.
-   4. Tıklayın **anahtar oluştur** RUM yeni bir anahtar oluşturmak için.
+1. Azure portalında bir tarayıcıdan oturum açın. Zaten bir hesabınız yoksa, ücretsiz bir aylık deneme için kaydolabilirsiniz.
+2. Portalın arama çubuğunda, değiştirmek istediğiniz Traffic Manager profil adı için arama yapın ve sonra sonuçları Traffic Manager profili seçin, görüntülenen.
+3. Traffic Manager profili sayfasında tıklatın **gerçek kullanıcı ölçümleri** altında **ayarları**.
+4. Tıklayın **anahtar oluştur** RUM yeni bir anahtar oluşturmak için.
         
    ![Gerçek kullanıcı ölçümleri anahtarı oluşturma](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **Şekil 1: Gerçek kullanıcı ölçümleri anahtarı oluşturma**
 
-   5.   Sayfa oluşturulan RUM anahtarı ve HTML sayfanıza eklenmesi gereken JavaScript kod parçacığını görüntüler.
+5. Sayfa oluşturulan RUM anahtarı ve HTML sayfanıza eklenmesi gereken JavaScript kod parçacığını görüntüler.
  
    ![Gerçek kullanıcı ölçümleri anahtarı için JavaScript kodu](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
 
    **Şekil 2: Gerçek kullanıcı ölçümleri anahtarı ve ölçüm JavaScript'i**
  
-   6. Tıklayın **kopyalama** düğmesini RUM anahtarı kopyalayın. 
+6. Tıklayın **kopyalama** düğmesini RUM anahtarı kopyalayın. 
 
 ## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>2. Adım: ÇALIŞTIRMA paketi Mobile Center SDK'sı ile uygulamanızı izleyin
 

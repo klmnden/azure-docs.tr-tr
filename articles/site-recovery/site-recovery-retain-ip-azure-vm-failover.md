@@ -6,12 +6,12 @@ ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: f7b546e8a0ca52fd2037e471f01787bb64db032d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842756"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090755"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Yük devretme sırasında IP adreslerini koru
 
@@ -62,10 +62,10 @@ Kaynak bölgesel bir kesinti oluşursa, hedef bölge için tüm kaynaklarını �
 
 - Yük devretmeden önce yerinde zaten hedef IP adresi ile şirketi yük devretmelerini düzenlemek ve otomatik olarak arasında yük devretme işleminden sonra bağlantıları kurmak **kurtarma VNet** ve **Azure VNet**. Bu, aşağıdaki diyagramda gösterilmiştir...
 - İki sanal ağ arasındaki bağlantıları olan uygulama gereksinimlerine bağlı olarak (**kurtarma VNet** ve **Azure VNet**) hedef bölge olabilir kurulan önce sırasında (ara adım) olarak veya yük devretme işleminden sonra.
-    - Şirketin kullanabileceği [kurtarma planları](site-recovery-create-recovery-plans.md) bağlantı kuran zaman belirtmek için.
-    - VNet eşlemesi veya siteden siteye VPN kullanarak sanal ağlar arasında birbirine bağlanabilir.
-        - VNet eşlemesi bir VPN ağ geçidi kullanmaz ve farklı kısıtlamaları vardır.
-        - VNet eşlemesi [fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-network) VNet-VNet VPN ağ geçidi farklı hesaplanır [fiyatlandırma](https://azure.microsoft.com/pricing/details/vpn-gateway). Yük devretme işlemleri için biz genellikle ağ öngörülemeyen olayları en aza indirmek için bağlantı türü de dahil olmak üzere kaynak ağları olarak aynı bağlantı yöntemini kullanmak için önerin.
+  - Şirketin kullanabileceği [kurtarma planları](site-recovery-create-recovery-plans.md) bağlantı kuran zaman belirtmek için.
+  - VNet eşlemesi veya siteden siteye VPN kullanarak sanal ağlar arasında birbirine bağlanabilir.
+      - VNet eşlemesi bir VPN ağ geçidi kullanmaz ve farklı kısıtlamaları vardır.
+      - VNet eşlemesi [fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-network) VNet-VNet VPN ağ geçidi farklı hesaplanır [fiyatlandırma](https://azure.microsoft.com/pricing/details/vpn-gateway). Yük devretme işlemleri için biz genellikle ağ öngörülemeyen olayları en aza indirmek için bağlantı türü de dahil olmak üzere kaynak ağları olarak aynı bağlantı yöntemini kullanmak için önerin.
 
     ![Kaynakları Azure tam yük devretme](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
@@ -128,13 +128,13 @@ Bu senaryoda, **Şirket B** Azure ve şirket içinde çalışan Kalan çalışan
 Ağ mimarisi önce yük devretme nasıl göründüğünü aşağıda verilmiştir.
 
 - Uygulama Vm'leri Azure Doğu Asya'da barındırılır.
--  Doğu Asya sahip bir VNet (**kaynak VNet**) ile adres alanı 10.1.0.0/16.
-    - Doğu Asya sahip iş yükleri üç alt ağlar arasındaki bölme **kaynak VNet**:
-        - **Alt ağ 1**: 10.1.1.0/24
-        - **Alt ağı 2**: 10.1.2.0/24,
-        - **Alt ağ 3**: 10.1.3.0/24utilizing adres alanı 10.1.0.0/16 ile bir Azure sanal ağı. Bu sanal ağ adlı **kaynak sanal ağ**
- - Azure Güney Doğu Asya (hedef) ikincil bölgeye şöyledir:
-    - Güneydoğu Asya sahip bir kurtarma sanal ağ (**kurtarma VNet**) aynı **kaynak VNet**.
+- Doğu Asya sahip bir VNet (**kaynak VNet**) ile adres alanı 10.1.0.0/16.
+  - Doğu Asya sahip iş yükleri üç alt ağlar arasındaki bölme **kaynak VNet**:
+    - **Alt ağ 1**: 10.1.1.0/24
+    - **Alt ağı 2**: 10.1.2.0/24,
+    - **Alt ağ 3**: bir Azure sanal ağ adres alanı 10.1.0.0/16 ile 10.1.3.0/24utilizing. Bu sanal ağ adlı **kaynak sanal ağ**
+      - Azure Güney Doğu Asya (hedef) ikincil bölgeye şöyledir:
+  - Güneydoğu Asya sahip bir kurtarma sanal ağ (**kurtarma VNet**) aynı **kaynak VNet**.
 - Doğu Asya Vm'leri Azure ExpressRoute veya VPN sitesi site ile bir şirket içi veri merkezine bağlıdır.
 - RTO azaltmak için ağ geçitleri Azure Güneydoğu Asya, Kurtarma VNet üzerinde yük devretme öncesinde Şirket B sağlar.
 - Şirket B atar/hedef IP adresleri çoğaltılan VM'ler için doğrular. Hedef IP adresine kaynak IP adresi her VM için aynıdır.

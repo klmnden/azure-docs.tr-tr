@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: eb227b4b4cbdc40a4e708726bbe0f5d0c7eacb74
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: f791b17f2729af3efd2dff5d7884a168f8377154
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364685"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999763"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Windows istemci Azure'da geliştirme/test senaryoları için kullanın.
 Azure'da geliştirme/test senaryoları için Windows 10 Enterprise (x64), uygun bir Visual Studio (eski adıyla MSDN) aboneliğiniz sağlanan ya da Windows 7, Windows 8, kullanabilirsiniz. Bu makalede, Windows 7, Windows 8.1, Windows 10 Enterprise, Azure ve Azure Galerisi şu görüntüleri kullanımını çalıştırmak için uygunluk gereksinimleri özetlenmektedir.
@@ -59,7 +59,7 @@ Teklif Kimliğinizi bilmiyorsanız, şu iki yoldan biriyle Azure portalından al
 
 - Veya tıklayın **faturalama** ve abonelik kimliğinizi'ye tıklayın Teklif kimliği görünür *faturalama* penceresi.
 
-Teklif kimliği de görüntüleyebilirsiniz ['Subscriptions' sekmesinde](http://account.windowsazure.com/Subscriptions) Azure hesap Portalı'nın:
+Teklif kimliği de görüntüleyebilirsiniz ['Subscriptions' sekmesinde](https://account.windowsazure.com/Subscriptions) Azure hesap Portalı'nın:
 
 ![Azure hesap Portalı'ndan Teklif kimliği ayrıntıları](./media/client-images/offer-id-azure-account-portal.png) 
 

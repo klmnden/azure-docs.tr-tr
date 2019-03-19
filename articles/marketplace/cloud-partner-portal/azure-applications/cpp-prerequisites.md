@@ -3,7 +3,7 @@ title: Azure uygulama teklif önkoşulları | Microsoft Docs
 description: Azure uygulaması yayımlama önkoşulları Azure Marketi'nde teklif.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: dan-wesley
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,20 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: b3f978635127ef6aabb123d1c95b76ed06fccbbf
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: df127eec662f8598246f276ef9b1608ae3021512
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097799"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007150"
 ---
 # <a name="azure-application-prerequisites"></a>Azure uygulama önkoşulları
 
-Bu makalede, Azure Market'te bir yönetilen uygulama teklif yayımlamak için teknik ve işletmeye önkoşulları açıklanır.  Zaten yapmadıysanız, videoyu görüntülemek [yapı çözüm şablonları ve yönetilen uygulamalar, Azure Market'te](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+Bu makalede, Azure Market'te bir yönetilen uygulama teklif yayımlamak için teknik ve işletmeye önkoşulları açıklanır.  Zaten yapmadıysanız, aşağıdaki bilgi kaynaklarına gözden geçirin:
+- SKU türüne, ya da bağlı olarak [Azure uygulamaları: Çözüm şablonu teklifi yayımlama Kılavuzu'nu](../../marketplace-solution-templates.md) veya [Azure uygulamaları: Yönetilen uygulama teklifi yayımlama Kılavuzu](../../marketplace-managed-apps.md)
+- [Azure Market'te çözüm şablonları ve yönetilen uygulamalar oluşturmaya](https://channel9.msdn.com/Events/Build/2018/BRK3603) video
 
 
 ## <a name="technical-requirements"></a>Teknik gereksinimler
@@ -43,7 +45,7 @@ Daha fazla bilgi için [yönetilen uygulamanız için oluşturma Azure portal ku
 
 Aşağıdaki yordam, sözleşmeye dayalı ve yasal yükümlülüklerin yerine iş gereksinimleri şunlardır:
 
-* Kayıtlı bir bulut Market yayımcı olmalıdır. Kayıtlı değil, bulut Market yayımcısı olun makaledeki adımları izleyin.
+* Kayıtlı bir bulut Market yayımcı olmalıdır. Makaledeki adımları izleyin, kayıtlı değil, [bulut Market yayımcısı haline](../../become-publisher.md).
 
 >[!NOTE]
 >Bulut iş ortağı portalında oturum açmak için aynı Microsoft Developer Center kayıt hesabı kullanmanız gerekir. Azure Marketi Teklifleriniz için yalnızca bir Microsoft hesabı olması gerekir. Bu hesap, bireysel hizmetlerin veya teklifler için belirli olmamalıdır.
@@ -65,8 +67,8 @@ Yeni bir Azure uygulaması teklif yayımlamak için aşağıdaki gereksinimleri 
   * Bir başlık
   * Bir açıklama (HTML biçiminde)
   * Bir logo görüntüsü (PNG biçiminde) ve bu resim boyutları düzelttik: 40 x 40 piksel, 90 x 90 piksel, 115 x 115 piksel ve 255 x 115 piksel.
-* A *kullanım koşullarını* ve *gizlilik ilkesi*
-* Belgeler
+* A *kullanım* ve *gizlilik ilkesi* belgeleri
+* Uygulama belgeleri
 * Destek kişileri
 
 

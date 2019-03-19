@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afe467d56d0247e17f73bb85a39246c4c04629cd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f6c313cc654461ea22c126fede317ed230408b82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173462"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079205"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Parola çoklu oturum açma Azure AD galeri uygulaması için yapılandırma sorunu
 
@@ -37,23 +37,23 @@ Microsoft teknolojileri tümleştirmeler böldüğünüzde otomatik olarak algı
 
 Bu sorunu çözmek için önce bunları deneyin:
 
--   İlk çalıştığınızda kullanıcının **oturum açın uygulama Web sitesine doğrudan** kendileri için depolanan kimlik bilgileri ile.
+- İlk çalıştığınızda kullanıcının **oturum açın uygulama Web sitesine doğrudan** kendileri için depolanan kimlik bilgileri ile.
 
   * Oturum açma çalışırsa, ardından tıklayın kullanıcı sahip **kimlik bilgilerini güncelleştirme** düğmesini **uygulama kutucuğu** içinde **uygulamaları** bölümünü [uygulama erişimi Paneli](https://myapps.microsoft.com/) en son bilinen çalışma kullanıcı adı ve parola olarak güncelleştirmek için.
 
-   * Bu kullanıcı için kimlik bilgilerini, siz veya başka bir yöneticinin atadıysanız, kullanıcının veya grubun uygulama ataması için giderek bulabilirsiniz **kullanıcıları ve grupları** atama seçip uygulamanınsekmesi **Kimlik bilgilerini güncelleştirme** düğmesi.
+  * Bu kullanıcı için kimlik bilgilerini, siz veya başka bir yöneticinin atadıysanız, kullanıcının veya grubun uygulama ataması için giderek bulabilirsiniz **kullanıcıları ve grupları** atama seçip uygulamanınsekmesi **Kimlik bilgilerini güncelleştirme** düğmesi.
 
--   Kullanıcı kendi kimlik bilgilerini atanmış ise, kullanıcı sahip **parolalarını uygulamada dolduğunu değil emin olmak için onay** ve bu durumda, **süresi dolmuş parolasını güncelleştirmesi** uygulamada oturum açarken tarafından doğrudan.
+- Kullanıcı kendi kimlik bilgilerini atanmış ise, kullanıcı sahip **parolalarını uygulamada dolduğunu değil emin olmak için onay** ve bu durumda, **süresi dolmuş parolasını güncelleştirmesi** uygulamada oturum açarken tarafından doğrudan.
 
-   * Uygulama parolası güncelleştirildikten sonra kullanıcının'ı istek **kimlik bilgilerini güncelleştirme** düğmesini **uygulama kutucuğu** içinde **uygulamaları** bölümünü [Uygulama erişim panelinde](https://myapps.microsoft.com/) en son bilinen çalışma kullanıcı adı ve parola olarak güncelleştirmek için.
+  * Uygulama parolası güncelleştirildikten sonra kullanıcının'ı istek **kimlik bilgilerini güncelleştirme** düğmesini **uygulama kutucuğu** içinde **uygulamaları** bölümünü [Uygulama erişim panelinde](https://myapps.microsoft.com/) en son bilinen çalışma kullanıcı adı ve parola olarak güncelleştirmek için.
 
-   * Bu kullanıcı için kimlik bilgilerini, siz veya başka bir yöneticinin atadıysanız, kullanıcının veya grubun uygulama ataması için giderek bulabilirsiniz **kullanıcıları ve grupları** atama seçip uygulamanınsekmesi **Kimlik bilgilerini güncelleştirme** düğmesi.
+  * Bu kullanıcı için kimlik bilgilerini, siz veya başka bir yöneticinin atadıysanız, kullanıcının veya grubun uygulama ataması için giderek bulabilirsiniz **kullanıcıları ve grupları** atama seçip uygulamanınsekmesi **Kimlik bilgilerini güncelleştirme** düğmesi.
 
--   Aşağıdaki adımları izleyerek erişim paneli tarayıcı uzantısını güncelleştirme kullanıcı [erişim paneli tarayıcı uzantısını nasıl yükleyeceğiniz](#how-to-install-the-access-panel-browser-extension) bölümü.
+- Aşağıdaki adımları izleyerek erişim paneli tarayıcı uzantısını güncelleştirme kullanıcı [erişim paneli tarayıcı uzantısını nasıl yükleyeceğiniz](#how-to-install-the-access-panel-browser-extension) bölümü.
 
--   Erişim paneli tarayıcı uzantısını çalışır ve kullanıcı tarayıcısında etkin olduğundan emin olun.
+- Erişim paneli tarayıcı uzantısını çalışır ve kullanıcı tarayıcısında etkin olduğundan emin olun.
 
--   Kullanıcılarınız uygulamaya erişim panelinden oturum açmaya çalışırken değil olun **gizli, InPrivate veya özel modu**. Erişim paneli uzantısını bu modda desteklenmez.
+- Kullanıcılarınız uygulamaya erişim panelinden oturum açmaya çalışırken değil olun **gizli, InPrivate veya özel modu**. Erişim paneli uzantısını bu modda desteklenmez.
 
 Önceki öneriler çalışmaz durumda uygulamanın Azure AD ile tümleştirme geçici olarak bozuk uygulama tarafında gerçekleşen bir değişikliği durumda olabilir. Uygulamanın satıcısına getirir, örneğin, bu giriş, hangi nedenleri ayırmak için tümleştirme, kendi, gibi otomatikleştirilmiş bir betik, el ile vs için farklı davranır sayfasında otomatik ortaya çıkabilir. Neyse ki, çoğu durumda, Microsoft bu sorunları hızlı bir şekilde çözmek için uygulama satıcıları ile çalışabilirsiniz.
 
@@ -65,13 +65,13 @@ Bu, ek olarak **bu uygulamanın satıcısına kurmuş olduğunuz** **bunları ek
 
 Bu sorunun iki ana nedeni vardır:
 
--   Web sitesi ise, Internet Explorer'da etkin güvenlik ayarlarına bağlı olarak parçası olan bir **güvenilen**, bazen betiğimizi engellenmesi için uygulamanın yürütülmesini.
+- Web sitesi ise, Internet Explorer'da etkin güvenlik ayarlarına bağlı olarak parçası olan bir **güvenilen**, bazen betiğimizi engellenmesi için uygulamanın yürütülmesini.
 
   *  Bu sorunu çözmek için kullanıcıya bildirin **uygulamanın Web sitesini Ekle** için **Güvenilen siteler** içinde listesinde kendi **Internet Explorer güvenlik ayarlarınızın**. Kullanıcılarınızın gönderdiğiniz [my Güvenilen siteler listesine bir site ekleme](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) makalede ayrıntılı yönergeler için.
 
--   Nadir durumlarda, Internet Explorer'ın güvenlik doğrulaması bazen daha yavaş yüklenir betiğimizi yürütülmesi için sayfayı neden olabilir.
+- Nadir durumlarda, Internet Explorer'ın güvenlik doğrulaması bazen daha yavaş yüklenir betiğimizi yürütülmesi için sayfayı neden olabilir.
 
-   * Ne yazık ki bu durumda, tarayıcı sürümü, bilgisayar hızı veya ziyaret edilen site bağlı olarak farklılık gösterebilir. Bu durumda, biz bu belirli bir uygulama için tümleştirme düzeltebilmek için Destek birimine başvurmanızı öneririz.
+  * Ne yazık ki bu durumda, tarayıcı sürümü, bilgisayar hızı veya ziyaret edilen site bağlı olarak farklılık gösterebilir. Bu durumda, biz bu belirli bir uygulama için tümleştirme düzeltebilmek için Destek birimine başvurmanızı öneririz.
 
 Bu, ek olarak **bu uygulamanın satıcısına kurmuş olduğunuz** **bunları eklemeyeceğimize** yerel olarak kendi uygulama Azure Active Directory ile tümleştirmek için bunlarla çalışabilmesi için. Satıcıya gönderdiğiniz [Azure Active Directory Uygulama galerisinde uygulamanızı listeleme](../develop/howto-app-gallery-listing.md) bunları kullanmaya almak için.
 

@@ -16,12 +16,12 @@ ms.date: 2/17/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 171beb432a2c49f1896dc13208a3df1b922828c0
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 1ab59dfc42213fc5c5ce22841e572e2724e239aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245701"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119012"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack üzerinde desteklenen konuk işletim sistemleri
 
@@ -32,7 +32,7 @@ ms.locfileid: "57245701"
 Azure Stack aşağıdaki tabloda listelenen Windows konuk işletim sistemlerini destekler:
 
 | İşletim sistemi | Açıklama | Market'te kullanılabilir |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | Windows Server 1709 sürümü | 64 bit | Kapsayıcılar ile çekirdek |
 | Windows Server 2016 | 64 bit |  Veri Merkezi, veri merkezi çekirdek kapsayıcılar ile veri merkezi |
 | Windows Server 2012 R2 | 64 bit |  Veri merkezi |
@@ -58,7 +58,7 @@ Linux dağıtımları kullanılabilir olarak Market'te listelenen gerekli Window
 > [cloud-init](https://cloud-init.io/) Azure Stack üzerinde şu anda desteklenmiyor.
 
 | Dağıtım | Açıklama | Yayımcı | Market |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | CentOS tabanlı 6.9 | 64 bit | Rogue Wave | Evet |
 | CentOS tabanlı 7.4 | 64 bit | Rogue Wave | Evet |
 | ClearLinux | 64 bit | ClearLinux.org | Evet |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 3c4f1be97308062adc28a0b49ee36c3492906d63
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 791c63b7b7fed55f95905ba7131d6a1d4bb414ff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990225"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010499"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>SLES azure'da Red Hat Enterprise Linux üzerinde Pacemaker ayarlama
 
@@ -183,7 +183,7 @@ STONITH cihaz, Microsoft Azure karşı korunmasına yetki vermek için bir hizme
    Özellikler bölümüne gidin ve dizin kimliği yazma Bu **Kiracı kimliği**.
 1. Uygulama kayıtları tıklayın
 1. Ekle'ye tıklayın.
-1. Bir ad girin, "Web uygulaması/API'si" uygulama türünü seçin, bir oturum açma URL'sini girin (örneğin http://localhost) ve Oluştur'a tıklayın
+1. Bir ad girin, "Web uygulaması/API'si" uygulama türünü seçin, bir oturum açma URL'sini girin (örneğin `http://localhost`) ve Oluştur'a tıklayın
 1. Oturum açma URL'si kullanılmaz ve geçerli bir URL olabilir
 1. Yeni uygulamayı seçin ve ayarları sekmesini anahtarları
 1. Yeni bir anahtar için bir açıklama girin, "Her zaman geçerli olsun"'i seçin ve Kaydet'e tıklayın

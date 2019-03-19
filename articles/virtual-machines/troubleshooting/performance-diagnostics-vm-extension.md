@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 415cf34a8b19400091807005e1e9943aa025f244
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980032"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002741"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows için Azure performans tanılama VM uzantısı
 
@@ -89,7 +89,7 @@ Aşağıdaki JSON şema Azure performans tanılama VM uzantısı için gösterir
 
 Windows sanal makinelerinde uzantıyı yüklemek için aşağıdaki yönergeleri izleyin:
 
-1. [Azure Portal](http://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Bu uzantıyı yüklemek istediğiniz sanal makineyi seçin.
 
     ![Azure portalının ekran görüntüsü, sanal makinelerle vurgulanmış](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
@@ -112,7 +112,7 @@ Windows sanal makinelerinde uzantıyı yüklemek için aşağıdaki yönergeleri
 ## <a name="remove-the-extension"></a>Uzantıyı kaldırın
 Uzantıyı sanal makineden kaldırmak için bu adımları izleyin:
 
-1. Oturum [Azure portalında](http://portal.azure.com), bu uzantıyı kaldırın ve ardından istediğiniz sanal makineyi seçin **uzantıları** dikey penceresi. 
+1. Oturum [Azure portalında](https://portal.azure.com), bu uzantıyı kaldırın ve ardından istediğiniz sanal makineyi seçin **uzantıları** dikey penceresi. 
 2. Seçin (**...** ) seçin ve liste performans tanılama uzantısını girişinin **kaldırma**.
 
     ![Ekran görüntüsü, uzantıları dikey penceresinde vurgulanır Kaldır](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
@@ -125,7 +125,7 @@ Azure sanal makine uzantıları, Azure Resource Manager şablonları ile dağıt
 
 ```
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "vmName": {

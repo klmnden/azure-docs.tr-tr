@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7f0af2c64d04d83cc3eb4043007979c17c75e051
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4a2c90accaafea0c17456f8e6c5eae41199b17ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877295"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105174"
 ---
 > [!NOTE]
 > Bir sanal IP (App Service ortamı başvurmak için kullanılan VIP), her bir App Service ortam vardır.
->
-# <a name="create-an-external-app-service-environment"></a>Bir dış App Service ortamı oluşturma #
+> 
+> # <a name="create-an-external-app-service-environment"></a>Bir dış App Service ortamı oluşturma #
 
 Azure App Service Ortamı, Azure App Service’in Azure sanal ağı (VNet) içindeki bir alt ağa dağıtımıdır. Bir App Service Ortamı (ASE) iki şekilde dağıtılabilir:
 

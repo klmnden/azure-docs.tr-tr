@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bba14e37e811c941c9709eef6b6d8ffd8322643
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3772f42b1216cfb26d66b1d68fcb9e59fd8652d8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167142"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107551"
 ---
 # <a name="what-is-password-writeback"></a>Parola geri yazma nedir?
 
@@ -96,11 +96,11 @@ Federe veya parola karma sıfırlama veya buluttaki parolalarını değiştirme 
    >
 
 1. Parola ayarlama işleminin başarısız olması, bir hata yeniden denemek için kullanıcıya sorar. İşlemi nedeniyle başarısız olabilir:
-   * Hizmet oldu.
-   * Seçili parola kuruluşun ilkelerini karşılamadı.
-   * Yerel Active Directory kullanıcı bulma yapılamıyor.
+    * Hizmet oldu.
+    * Seçili parola kuruluşun ilkelerini karşılamadı.
+    * Yerel Active Directory kullanıcı bulma yapılamıyor.
 
-    Yönetici müdahalesi olmadan çözümlenecek deneyebilirsiniz için hata iletileri kullanıcılara rehberlik sağlar.
+      Yönetici müdahalesi olmadan çözümlenecek deneyebilirsiniz için hata iletileri kullanıcılara rehberlik sağlar.
 
 ## <a name="password-writeback-security"></a>Parola geri yazma güvenlik
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 12/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 498dc3f81968b60deb4f6f70466938026ac48f6a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9ce236748c1ca4f5e166fe1d7574f6a635d6204b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855895"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Sık sorulan sorular - Hyper-V'den Azure'a olağanüstü durum kurtarma
 
@@ -65,10 +65,9 @@ Evet, hem şifreleme-aktarım sırasında ve [azure'da şifreleme](https://docs.
 ### <a name="what-do-i-need-on-premises"></a>Ne şirket içi gerekiyor?
 
 Bir veya daha fazla Vm'niz olmalıdır bir veya daha fazla tek başına veya kümelenmiş Hyper-V konakları üzerinde çalışır. Ayrıca, System Center Virtual Machine Manager (VMM) tarafından yönetilen konaklarda çalışan sanal makineleri çoğaltabilirsiniz.
-    - Site Recovery dağıtımı sırasında VMM, çalıştırmıyorsanız, Hyper-V konakları ve kümeleri Hyper-V sitelerinde bir araya toplayın. Her Hyper-V konağında'de Site Recovery aracıları (Azure Site Recovery sağlayıcısı ve kurtarma Hizmetleri Aracısı) yükleyin.
-    - Vmm'de çoğaltma, Hyper-V konaklarını bir VMM bulutunda yer alıyorsa düzenleyin. Site kurtarma sağlayıcısı VMM sunucusunu ve her Hyper-V konağında kurtarma Hizmetleri aracısını yükleyin. VMM mantıksal/VM ağları ve Azure sanal ağlar eşleme.
-    - 
-[Daha fazla bilgi edinin](hyper-v-azure-architecture.md) Hyper-V-Azure arası mimari hakkında.
+- Site Recovery dağıtımı sırasında VMM, çalıştırmıyorsanız, Hyper-V konakları ve kümeleri Hyper-V sitelerinde bir araya toplayın. Her Hyper-V konağında'de Site Recovery aracıları (Azure Site Recovery sağlayıcısı ve kurtarma Hizmetleri Aracısı) yükleyin.
+- Vmm'de çoğaltma, Hyper-V konaklarını bir VMM bulutunda yer alıyorsa düzenleyin. Site kurtarma sağlayıcısı VMM sunucusunu ve her Hyper-V konağında kurtarma Hizmetleri aracısını yükleyin. VMM mantıksal/VM ağları ve Azure sanal ağlar eşleme.
+- [Daha fazla bilgi edinin](hyper-v-azure-architecture.md) Hyper-V-Azure arası mimari hakkında.
 
 ### <a name="can-i-replicate-vms-located-on-a-hyper-v-cluster"></a>Bir Hyper-V kümesinde yer alan VM'ler çoğaltabilirim?
 
@@ -139,11 +138,11 @@ Azure'a çoğalttığınızda, çoğaltma trafiği ortak uç noktalar Azure depo
 
 Hyper-V Vm'lerini her 30 saniye (hariç, premium depolama), 5 dakika veya 15 dakika çoğaltılabilir.
 
-###<a name="can-i-extend-replication"></a>Ben çoğaltma uzatabilir miyim?
-Genişletilmiş veya zincir çoğaltma desteklenmez. Bu özelliği isteği [geri bildirim Forumu](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+### <a name="can-i-extend-replication"></a>Ben çoğaltma uzatabilir miyim?
+Genişletilmiş veya zincir çoğaltma desteklenmez. Bu özelliği isteği [geri bildirim Forumu](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Çevrimdışı ilk çoğaltma yapabilirim?
-Bu özellik desteklenmez. Bu özelliği isteği [geri bildirim Forumu](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Bu özellik desteklenmez. Bu özelliği isteği [geri bildirim Forumu](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>Diskleri çoğaltmanın dışında tutabilirsiniz?
 Evet, diskleri çoğaltmadan hariç tutabilirsiniz. 

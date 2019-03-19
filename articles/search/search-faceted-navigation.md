@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/10/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 67cc955e4a265a2b29893bd0484dd905f4f2c2b2
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f1d557396f17357afd6f9e5d701e946668fcee65
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632442"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861052"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Arama'da çok yönlü navigasyon
 Çok yönlü gezinme, kendinden yönlendirmeli detayına gitme Gezinti arama uygulamalarda sağlayan filtreleme bir mekanizmadır. ' % S'terim 'çok yönlü gezinme' bilinmiyor olabilir, ancak büyük olasılıkla daha önce kullanılmış. Aşağıdaki örnekte gösterildiği gibi çok yönlü gezinme sonuçları filtrelemek için kullanılan kategorileri başka bir şey var.
@@ -67,7 +67,7 @@ Azure Search'te bir isteği bir veya daha fazla sorgu parametreler belirtilen (b
 
 Duyarlık, ilgisiz isabet filtreleme özelliği gerçekleştirilir gibi bir veya iki bu ifadelerin anladım:
 
--   **Arama =**  
+-   **search=**  
     Bu parametrenin değeri, arama ifade oluşturur. Tek bir metin ya da birden çok hüküm ve işleçleri içeren bir karmaşık arama ifadesi olabilir. Sunucu üzerinde bir arama ifadesi tam metin arama, aranabilir alanları sözcüklerle, derece sırayla sonuçları döndüren eşleşen için dizinde sorgulamak için kullanılır. Ayarlarsanız `search` null olarak sorgu yürütmesi, tüm dizini (diğer bir deyişle, `search=*`). Bu durumda, diğer öğeleri sorgu gibi bir `$filter` veya Puanlama profili, hangi belgeler döndürülür etkileyen temel unsurlar `($filter`) ve hangi sırayla (`scoringProfile` veya `$orderby`).
 
 -   **$filter =**  
@@ -435,7 +435,7 @@ Arama sonuçları ile çalışırken, sorgu oluşturma değişiklikleri URL'sini
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
-[http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
+[https://www.odata.org/documentation/odata-version-2-0/overview/]: https://www.odata.org/documentation/odata-version-2-0/overview/ 
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
 [Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 7da765bda815e9112dac809d259fd417dc4d866e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4b305087c0c755254d72811fb9275c509343c87e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981103"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878406"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Apache Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?
 
@@ -50,11 +50,14 @@ HDInsight küme sürümleri ile ilişkili bileşen sürümü aşağıdaki tablod
 | Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.3.1 |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (yalnızca Windows) |-|-|
 | Apache Livy |0,5 |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 1.1 |1.1, 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.1 |1.1, 1.0 * (aşağıdaki nota bakın) | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |4.2.1 |3.2.8 |-|-|-|
 | Apache kaydırıcı |-| 0.92.0 |-|-|-|-|-|-|
+
+> [!NOTE]
+> Sistem performans değerlendirmeleri nedeniyle Mart 2019 ' sürüm 0.10 Kafka için destek süresi sona erdi.
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Geçerli Hadoop bileşeni sürüm bilgileri için onay
 
@@ -122,12 +125,12 @@ Kurumsal güvenlik HDInsight kümenizi oluşturma küme iş akışının parças
 
 - Veriler için yetkilendirme
 
-    - Hive, Spark SQL ve Yarn kuyruklar için yetkilendirme için Apache Ranger tümleştirme.
-    - Dosyalar ve klasörler üzerindeki erişim denetimi ayarlayabilirsiniz.
+  - Hive, Spark SQL ve Yarn kuyruklar için yetkilendirme için Apache Ranger tümleştirme.
+  - Dosyalar ve klasörler üzerindeki erişim denetimi ayarlayabilirsiniz.
 
     Daha fazla bilgi için bkz.
 
-    - [Etki alanına katılmış HDInsight Apache Hive ilkelerini yapılandırma](./domain-joined/apache-domain-joined-run-hive.md)
+  - [Etki alanına katılmış HDInsight Apache Hive ilkelerini yapılandırma](./domain-joined/apache-domain-joined-run-hive.md)
 
 - İzleyici erişir ve yapılandırılmış ilkeler için denetim günlüklerini görüntüleyin. 
 

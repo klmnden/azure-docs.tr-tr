@@ -11,24 +11,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 48098ba32a8eb1c2d7a7bafa246b8e850229b430
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804544"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005793"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Azure portalını kullanarak Azure kaynakları için atamaları görünümü Reddet
 
-[Atamalar Reddet](deny-assignments.md) bir rol ataması bunları erişim verse bile kullanıcıların belirli bir Azure kaynak eylemler gerçekleştirme. Kendi oluşturulamıyor olsa bile atamaları, reddetme görüntülemeye yine genel izinlerinizi etkileyebileceğinden atamaları reddet. Bir reddetme atama hakkında bilgi almak için olmalıdır `Microsoft.Authorization/denyAssignments/read` çoğunda dahil izni [Azure kaynakları için yerleşik roller](built-in-roles.md).
-
-Bu makalede görüntülemek için Azure portalını kullanmayı açıklar atamaları reddet.
+[Atamalar Reddet](deny-assignments.md) bir rol ataması bunları erişim verse bile kullanıcıların belirli bir Azure kaynak eylemler gerçekleştirme. Bu makalede görüntülemek için Azure portalını kullanmayı açıklar atamaları reddet.
 
 > [!NOTE]
-> Şu anda izin verme atamalar salt okunurdur ve yalnızca Microsoft tarafından ayarlanabilir.
+> Şu anda kendi ekleyebilirsiniz tek yolu reddetme atamaları olan Azure şemaları kullanarak. Daha fazla bilgi için [yeni kaynaklar ile Azure Blueprint kaynak kilitleri korumak](../governance/blueprints/tutorials/protect-new-resources.md).
+
+## <a name="prerequisites"></a>Önkoşullar
+
+Bir reddetme atama hakkında bilgi edinmek için şunlara sahip olmalısınız:
+
+- `Microsoft.Authorization/denyAssignments/read` çoğu dahil izni [Azure kaynakları için yerleşik roller](built-in-roles.md).
 
 ## <a name="view-deny-assignments"></a>Reddetme atamalarını görüntüleyin
 

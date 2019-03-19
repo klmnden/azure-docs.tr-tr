@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: f6c2fbe5daeb114d6a5ea77c9823f1fa5bfe8425
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5d47b938560fb1bd15adfe1a1c2d35b7359d47a3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864477"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57977420"
 ---
 # <a name="graph-search-method"></a>Graph arama yöntemi
 
@@ -29,6 +29,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>İstek Parametreleri  
+
 Ad     | Değer | Gerekli mi?  | Açıklama
 -----------|-----------|---------|--------
 **Modu**       | Metin dizesi | Evet | Kullanmak istediğiniz mod adı. Değerin geçerli *json* veya *lambda*.
@@ -45,7 +46,9 @@ Graph arama yöntemi, bir HTTP POST isteği çağrılmalıdır. Post isteğinin 
 İçin *lambda* arama, POST gövdesini, düz metin dizesi. POST gövdesini olan tek bir C# deyimi, bir LIKQ lambda sorgu dizesi (bkz [belirtimi sorgu dizesinin](LambdaSearchSyntax.md) için *lambda* arama). 
 
 <br>
+
 ## <a name="response-json"></a>Yanıt (JSON)
+
 Ad | Açıklama
 -------|-----   
 **Sonuçları** | 0 veya sorgu ifadesi ile eşleşen daha fazla varlık dizisi. Her varlık, istenen özniteliklerinin değerlerini içerir. İstek başarıyla işlendi, bu alan mevcuttur.
@@ -55,6 +58,7 @@ Ad | Açıklama
 Bir sorgu içinde işlenemiyor, _800 ms_, _zaman aşımı_ hata döndürülür. 
 
 <br>
+
 #### <a name="example"></a>Örnek:
 
 ##### <a name="json-search"></a>JSON arama

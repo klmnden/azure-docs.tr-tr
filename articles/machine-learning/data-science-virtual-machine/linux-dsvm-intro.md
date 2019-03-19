@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 58f4d7be530aa3c7e0071a2f0d80bc30ebd5cf25
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e7b67905c96495382536555b87772e4eefada250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440922"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835756"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Azure'da bir Linux CentOS veri bilimi sanal makinesi sağlama
 
@@ -104,7 +104,7 @@ Bir örneği, Linux veri bilimi sanal makinesi oluşturmak için adımlar şunla
 Sağlama yaklaşık 10-20 dakika sürer. Sağlama durumunu Azure portalında görüntülenir.
 
 ## <a name="how-to-access-the-linux-data-science-virtual-machine"></a>Linux veri bilimi sanal makinesi erişme
-VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesabı kimlik bilgilerini kullan **Temelleri** bölümünde metin kabuk arabirimi için adım 3. Windows'da [Putty](http://www.putty.org) gibi bir SSH istemcisi aracı indirebilirsiniz. Bir grafik desktop (X Windows sistemi) tercih ederseniz, Putty üzerinde iletme X11 kullanın veya X2Go istemciyi yükleyin.
+VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesabı kimlik bilgilerini kullan **Temelleri** bölümünde metin kabuk arabirimi için adım 3. Windows'da [Putty](https://www.putty.org) gibi bir SSH istemcisi aracı indirebilirsiniz. Bir grafik desktop (X Windows sistemi) tercih ederseniz, Putty üzerinde iletme X11 kullanın veya X2Go istemciyi yükleyin.
 
 > [!NOTE]
 > X2Go istemci gerçekleştirilen önemli ölçüde testinde iletme X11 iyidir. X2Go istemci masaüstü bir grafik arabirim için kullanmanızı öneririz.
@@ -114,7 +114,7 @@ VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğ
 ## <a name="installing-and-configuring-x2go-client"></a>Yükleme ve X2Go istemci yapılandırma
 Linux sanal makinesi zaten X2Go sunucusu ile sağlanan ve istemci bağlantılarını kabul etmeye hazır. Linux VM grafik masaüstüne bağlanmak için istemcinizi aşağıdakileri yapın:
 
-1. İstemci platformunuza yönelik X2Go istemcisini indirme ve yükleme [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. İstemci platformunuza yönelik X2Go istemcisini indirme ve yükleme [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. X2Go istemci çalıştırıp seçeneğini **yeni oturumu**. Bu, birden fazla sekme ile bir yapılandırma penceresi açılır. Aşağıdaki yapılandırma parametrelerini girin:
    * **Oturum sekmesini**:
      * **Konak**: Ana bilgisayar adı veya IP adresini Linux veri bilimi sanal makinesi.
@@ -132,7 +132,7 @@ R veri analizi ve makine öğrenimi için en popüler diller biridir. R analiz i
 
 Başlatma için R konsolunda, yalnızca yazdığınız **R** Kabuğu'nda. Bu sizi, etkileşimli bir ortam götürür. R programınızı geliştirmek için genellikle Emacs veya olduğu gibi vi veya gedit gibi bir düzenleyici kullanın ve ardından içinde r betikleri çalıştırın RStudio ile R programınızı geliştirmek için tam grafik bir IDE ortamını sahip.
 
-Yüklemeniz için bir R betiğini de mevcuttur [üst 20 R paketleri](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) istiyorsanız. (Belirtildiği gibi) yazarak girilebilir R etkileşimli arabiriminde olduktan sonra bu betiği çalıştırın **R** Kabuğu'nda.  
+Yüklemeniz için bir R betiğini de mevcuttur [üst 20 R paketleri](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) istiyorsanız. (Belirtildiği gibi) yazarak girilebilir R etkileşimli arabiriminde olduktan sonra bu betiği çalıştırın **R** Kabuğu'nda.  
 
 ### <a name="python"></a>Python
 Anaconda Python dağıtım 2.7 ve 3.5 Python aracılığıyla geliştirmeye yönelik, yüklendi. Bu dağıtım, temel bir Python yaklaşık 300 en popüler matematik, mühendislik ve veri analizi paketlerinin yanı sıra içerir. Varsayılan metin düzenleyicisi kullanabilirsiniz. Ayrıca, Spyder, Anaconda Python dağıtımları ile birlikte bir Python IDE kullanabilirsiniz. Grafik bir masaüstü veya X11 Spyder gereken iletme. Grafik Desktop'ta Spyder kısayolu sağlanır.
@@ -203,7 +203,7 @@ Hadoop durdurabilirsiniz çalıştırarak ihtiyacınız olduğunda ilgili hizmet
 ### <a name="ides-and-editors"></a>IDE'ler ve düzenleyicilerden
 Birkaç kod düzenleyicilerinden, vardır. Bu, VI/VIM ve Emacs, gEdit, PyCharm, RStudio, Eclipse ve Intellij içerir. Eclipse, Intellij, RStudio ve PyCharm gEdit grafik düzenleyicilerden olan ve bunları kullanmak için bir grafik masaüstü oturum açmanız gerekir. Bu düzenleyicilerin Masaüstü ve uygulama vardır. bunları başlatmak için kısayol menüsü.
 
-**VIM** ve **Emacs** olan metin tabanlı düzenleyiciler. Emacs üzerinde biz Emacs konuşur istatistikleri (Emacs Düzenleyici içindeki R ile çalışmayı kolaylaştırır, EES) adlı bir eklenti paketi yüklediniz. Daha fazla bilgi şu adreste bulunabilir: [Sırala](http://ess.r-project.org/).
+**VIM** ve **Emacs** olan metin tabanlı düzenleyiciler. Emacs üzerinde biz Emacs konuşur istatistikleri (Emacs Düzenleyici içindeki R ile çalışmayı kolaylaştırır, EES) adlı bir eklenti paketi yüklediniz. Daha fazla bilgi şu adreste bulunabilir: [Sırala](https://ess.r-project.org/).
 
 **Eclipse** olan açık kaynak, birden çok dili destekleyen Genişletilebilir IDE. Java geliştiricileri edition VM'de yüklü örneğidir. Eklentiler için ortamı genişletmek için yüklenebilen birçok popüler dilde kullanılabilir. Adlı Eclipse'te yüklü bir eklenti de sahibiz **Eclipse için Azure Araç Seti**. Oluşturma, geliştirme, test ve Java gibi dilleri destekler Eclipse geliştirme ortamı ile Azure uygulamalarını dağıtma olanak tanır. Ayrıca bir **Java için Azure SDK'sı** , çeşitli Azure hizmetlerini bir Java ortamında erişim sağlar. Eclipse için Azure Araç Seti hakkında daha fazla bilgi şu adreste bulunabilir: [Eclipse için Azure Araç Seti](../../azure-toolkit-for-eclipse.md).
 
@@ -377,5 +377,5 @@ Bir sekme kümesi ile artık bir grafik arabirim açılır. Aşağıda bir örne
 * [Veri bilimi üzerinde Linux veri bilimi sanal makinesi](linux-dsvm-walkthrough.md) izlenecek yol, Linux veri bilimi buraya sağlanan VM ile çeşitli genel veri bilimi görevlerini gerçekleştirmek nasıl gösterir. 
 * Çeşitli veri bilimi araçlarını, veri bilimi sanal makinesi, bu makalede açıklanan araçları deneyerek keşfedin. Ayrıca çalıştırabileceğiniz *dsvm daha fazla bilgi* Kabuk temel bir giriş ve işaretçileri VM'de yüklü araçları hakkında daha fazla bilgi için sanal makine içinde.  
 * Sistematik olarak kullanarak uçtan uca analitik çözümler oluşturmayı öğrenin [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
-* Ziyaret [Cortana Analytics Galerisi](http://gallery.cortanaanalytics.com) Cortana Analytics Suite kullanan makine öğrenimi ve veri analizi örnekleri için.
+* Ziyaret [Cortana Analytics Galerisi](https://gallery.cortanaanalytics.com) Cortana Analytics Suite kullanan makine öğrenimi ve veri analizi örnekleri için.
 

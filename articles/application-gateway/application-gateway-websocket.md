@@ -1,25 +1,18 @@
 ---
 title: Azure Application Gateway'de WebSocket desteği | Microsoft Docs
 description: Bu sayfa, uygulama ağ geçidi WebSocket desteği'ne genel bakış sağlar.
-documentationcenter: na
-services: application-gateway
 author: amsriva
-manager: rossort
-editor: amsriva
-ms.assetid: 8968dac1-e9bc-4fa1-8415-96decacab83f
-ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/08/2017
 ms.author: amsriva
-ms.openlocfilehash: cc6e2480ea117a288ae94c9cd66be6a354d8230f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.service: application-gateway
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 03/18/2019
+ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993335"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168128"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Application Gateway'de WebSocket desteği'ne genel bakış
 
@@ -29,7 +22,15 @@ WebSocket protokolü, standartlaştırılmış [RFC6455](https://tools.ietf.org/
 
 WebSocket trafiğini almak için 80 veya 443 bağlantı noktasını standart bir HTTP dinleyicisi kullanmaya devam edebilirsiniz. WebSocket trafiğini sonra uygulama ağ geçidi kuralları'nda belirtildiği gibi uygun arka uç havuzuna kullanarak WebSocket etkin arka uç sunucusuna yönlendirilir. Arka uç sunucusuna açıklanan uygulama ağ geçidi araştırmaları yanıt [sistem durumu araştırması genel bakış](application-gateway-probe-overview.md) bölümü. Uygulama ağ geçidi sistem durumu araştırmaları, HTTP/HTTPS yalnızca etkilenir. Her arka uç sunucusuna WebSocket trafiğini sunucusuna yönlendirmek uygulama ağ geçidi için HTTP araştırmaları için yanıt vermelidir.
 
-## <a name="listener-configuration-element"></a>Dinleyici yapılandırma öğesi
+Sohbet, Pano ve oyun uygulamaları gibi hızlı, gerçek zamanlı iletişim yararlanan uygulamalarda kullanılır.
+
+## <a name="how-does-websocket-work"></a>WebSocket nasıl çalışır
+
+WebSocket bağlantısı kurmak için belirli bir HTTP tabanlı anlaşması, istemci ve sunucu arasında değiştirilir. Başarılı olursa, uygulama katmanı Protokolü "HTTP kullanarak daha önce oluşturulmuş TCP bağlantısı WebSockets için yükseltilir". Böyle bir kez HTTP tamamen resmi dışında olduğunda; verileri WebSocket bağlantısı kapatılana kadar her iki bitiş noktası tarafından WebSocket protokolü kullanılarak alınan veya gönderilemez. 
+
+![addcert](./media/application-gateway-websocket/websocket.png)
+
+### <a name="listener-configuration-element"></a>Dinleyici yapılandırma öğesi
 
 Var olan bir HTTP dinleyicisi WebSocket trafiğini desteklemek için kullanılabilir. Örnek şablon dosyasındaki httpListeners öğesinin bir parçacığı aşağıda verilmiştir. WebSocket desteği ve WebSocket trafiğini güvenli hale hem HTTP hem de HTTPS dinleyicileri gerekir. Benzer şekilde kullanabileceğiniz [portalı](application-gateway-create-gateway-portal.md) veya [PowerShell](application-gateway-create-gateway-arm.md) dinleyicileri ile bir uygulama ağ geçidi oluşturmak için açık WebSocket trafiğini desteklemek için 80/443 numaralı bağlantı noktası.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 16b4031c0242d79b6d866d612a4d4f594dc608fa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4622809f0e261236d6753daf5bb2e00ff814c849
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821958"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087882"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure ExpressRoute, Azure Vm'leri için olağanüstü durum kurtarma ile tümleştirin
 
@@ -91,11 +91,11 @@ Kuruluş dağıtımları genellikle iş yükleri merkezi bağlantı hub için İ
     - **Kaynak vnet2'den**: 10.2.0.0/24.
     - Her bir uç sanal ağ bağlı **Hub vNet**.
 - **Hub vNet**. Bir hub vNet yok **kaynak Hub vNet**: 10.10.10.0/24.
-    - Bu hub sanal ağ geçidi davranır.
-    - Bu hub'ı aracılığıyla alt ağlar arasındaki tüm iletişimler gidin.
- - Merkez sanal ağ alt ağları **. Hub sanal ağı iki alt ağa sahip:
-     - **NVA alt ağı**: 10.10.10.0/25. Bu alt ağ bir NVA (10.10.10.10) içerir.
-     - **Ağ geçidi alt ağı**: 10.10.10.128/25. Bu alt ağı bir ExpressRoute ağ geçidi aracılığıyla özel bir eşleme Yönlendirme etki alanı şirket içi siteye yönlendiren bir ExpressRoute bağlantısı bağlı içerir.
+  - Bu hub sanal ağ geçidi davranır.
+  - Bu hub'ı aracılığıyla alt ağlar arasındaki tüm iletişimler gidin.
+    - Merkez sanal ağ alt ağları **. Hub sanal ağı iki alt ağa sahip:
+    - **NVA alt ağı**: 10.10.10.0/25. Bu alt ağ bir NVA (10.10.10.10) içerir.
+    - **Ağ geçidi alt ağı**: 10.10.10.128/25. Bu alt ağı bir ExpressRoute ağ geçidi aracılığıyla özel bir eşleme Yönlendirme etki alanı şirket içi siteye yönlendiren bir ExpressRoute bağlantısı bağlı içerir.
 - Şirket içi veri merkezi, Hong Kong iş ortağı edge'de aracılığıyla bir ExpressRoute bağlantı hattı bağlantısı vardır.
 - Tüm yönlendirme (UDR) Azure yol tabloları denetlenir.
 - NVA üzerinden giden tüm trafiği sanal ağlar arası veya şirket içi veri merkezine yönlendirilir.
@@ -107,7 +107,7 @@ Kuruluş dağıtımları genellikle iş yükleri merkezi bağlantı hub için İ
 **Yön** | **Ayar** | **State**
 --- | --- | ---
 Uçtan merkeze | Sanal ağ adresi izin ver | Etkin
-Uçtan merkeze | İletilen trafiğe izin ver | Etkin
+Uçtan merkeze | Yönlendirilen trafiğe izin ver | Etkin
 Uçtan merkeze | Ağ geçidi aktarımına izin ver | Devre dışı
 Uçtan merkeze | Remove-ağ geçitlerini kullan | Etkin
 
@@ -118,7 +118,7 @@ Uçtan merkeze | Remove-ağ geçitlerini kullan | Etkin
 **Yön** | **Ayar** | **State**
 --- | --- | ---
 Merkezden uca | Sanal ağ adresi izin ver | Etkin
-Merkezden uca | İletilen trafiğe izin ver | Etkin
+Merkezden uca | Yönlendirilen trafiğe izin ver | Etkin
 Merkezden uca | Ağ geçidi aktarımına izin ver | Etkin
 Merkezden uca | Remove-ağ geçitlerini kullan | Devre dışı
 

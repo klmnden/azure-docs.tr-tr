@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 237294c1bc603402c349f7a56f20c34ed8d210fe
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 8a91614e7dfb804e6a902967ce60f898ed0e54ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42061733"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999749"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Kuyruk depolama ve Visual Studio ile çalışmaya başlama bağlı hizmetler (ASP.NET Core)
 
@@ -27,7 +27,7 @@ Bu makalede oluşturduğunuz veya Visual Studio kullanarak bir ASP.NET Core proj
 
 Azure kuyruk depolama, çok sayıda herhangi bir HTTP veya HTTPS kullanılarak kimliği doğrulanmış aramalar yoluyla dünyanın erişilebilen iletileri depolamak için kullanılan bir hizmettir. Tek bir kuyruk iletisinin 64 kilobayt (KB) boyutu olabilir ve bir kuyruk iletileri, depolama hesabının toplam kapasite sınırına kadar milyonlarca içerebilir. Ayrıca bkz: [.NET kullanarak Azure kuyruk depolama ile çalışmaya başlama](../storage/queues/storage-dotnet-how-to-use-queues.md) program aracılığıyla kuyruklar düzenleme hakkında bilgi.
 
-Kullanmaya başlamak için öncelikle bir Azure kuyruk depolama hesabınızdaki oluşturun. Bu makalede daha sonra bir sıra C# dilinde oluşturma ve ekleme, değiştirme, okuma ve kuyruk iletilerine kaldırma gibi temel kuyruk işlemlerini nasıl gerçekleştireceğinizi gösterir.  Kod, .NET için Azure depolama istemci kitaplığı kullanır. ASP.NET hakkında daha fazla bilgi için bkz: [ASP.NET](http://www.asp.net).
+Kullanmaya başlamak için öncelikle bir Azure kuyruk depolama hesabınızdaki oluşturun. Bu makalede daha sonra bir sıra C# dilinde oluşturma ve ekleme, değiştirme, okuma ve kuyruk iletilerine kaldırma gibi temel kuyruk işlemlerini nasıl gerçekleştireceğinizi gösterir.  Kod, .NET için Azure depolama istemci kitaplığı kullanır. ASP.NET hakkında daha fazla bilgi için bkz: [ASP.NET](https://www.asp.net).
 
 Bazı Azure depolama API'leri uyumsuzdur ve bu makalede kod zaman uyumsuz yöntemler kullanıldığını varsayar. Bkz: [zaman uyumsuz programlama](https://docs.microsoft.com/dotnet/csharp/async) daha fazla bilgi için.
 
@@ -66,7 +66,7 @@ ASP.NET Core projelerinde kuyruklarına erişmek için Azure kuyruk depolama eri
 
 ### <a name="create-a-queue-in-code"></a>Kodda bir kuyruk oluşturun
 
-Azure kuyruk kodu oluşturmak için arama '' Createıfnotexistsasync ':
+Azure kuyruk kodu oluşturmak için arama `CreateIfNotExistsAsync`:
 
 ```cs
 // Create the CloudQueue if it does not exist.

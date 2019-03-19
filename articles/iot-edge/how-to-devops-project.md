@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 57279a4e92b1f42505003f12d41c8203aa5603d4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 02977032c5975de4098600ddbebccfcbb9b0fafd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881878"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122901"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Azure DevOps projeleri (Önizleme) ile IOT Edge için CI/CD işlem hattı oluşturma
 
@@ -127,7 +127,7 @@ Azure DevOps projeleri, önceki bölümlerde, IOT Edge uygulamanız için eksiks
 
 12. Yayın işlem hattınızı menüsünü **görevleri** seçin **geliştirme** aşağı açılan listeden aşaması. DevOps projeleri, bir IOT hub'ı oluşturan, bir IOT Edge cihazı, hub'ında oluşturur, derleme işlem hattı örnek modülünden dağıtır ve IOT Edge cihazınız olarak çalıştırmak için bir sanal makine sağlar, için bir yayın aşama oluşturulur. CD için Azure IOT Edge görevleri hakkında daha fazla bilgi edinmek için [sürekli dağıtım için Azure işlem hatları yapılandırma](how-to-ci-cd.md#configure-continuous-deployment).
 
-   ![Sürekli dağıtım görevlerini görüntüle](media/how-to-devops-project/dev-release.png)
+    ![Sürekli dağıtım görevlerini görüntüle](media/how-to-devops-project/dev-release.png)
 
 13. Sağ tarafta seçin **yayınları görüntüleyebilir**. Bu görünümde yayın geçmişi gösterilir.
 

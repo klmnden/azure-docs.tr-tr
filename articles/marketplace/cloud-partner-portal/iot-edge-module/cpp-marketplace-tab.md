@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c119869c47547fd5d91f6ee91fcd772ea5941f46
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 30f44e0e8bae4071403b5c28cd4133970fc4d468
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431799"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010960"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>IOT Edge modülü Market sekmesi
 
 
-**Market** sekmesinde **yeni teklif** sayfası, pazarlama, satış ve yasal bilgileri ve sözleşmeleri, müşteri adaylarınıza sağlamak ve oluşturulan müşteri adayları yönetmenize olanak tanır Market. Bu uzun biçimi dört bölümlere ayrılmıştır: **genel bakış**, **pazarlama Yapıtları**, **sağlama Yönetim**, ve **yasal**.
+**Market** sekmesinde **yeni teklif** sayfası, pazarlama, satış ve yasal bilgileri ve sözleşmeleri, müşteri adaylarınıza sağlamak ve oluşturulan müşteri adayları yönetmenize olanak tanır Market. Bu uzun biçimi dört bölümlere ayrılmıştır: **Genel Bakış**, **Yapıtları pazarlama**, **sağlama Yönetim**, ve **yasal**.
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -78,7 +78,7 @@ Aşağıdaki tabloda, amacı ve bu alanların içeriğini açıklar.
 
 ## <a name="marketing-artifacts"></a>Pazarlama Yapıtları
 
-Bu bölüm aşağıdaki alt bölümlere sahiptir: **logoları**, **ekran**, ve **videoları**. 
+Bu bölüm aşağıdaki alt bölümleri içerir: **Logo**, **ekran**, ve **videoları**. 
 
 >[!Note]
 >Logo yalnızca tüm için en iyi müşteri ilgi çekecek şiddetle tavsiye edilir ancak yapıtlar, pazarlama gereklidir.
@@ -104,7 +104,7 @@ Bu bölüm aşağıdaki alt bölümlere sahiptir: **logoları**, **ekran**, ve *
 
 ### <a name="logo-guidelines"></a>Logo yönergeleri
 
-<!-- It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 Bulut iş ortağı portalına karşıya logo yönergeleri izlemelidir:
@@ -136,7 +136,7 @@ As an example, the following hero icon is for the Azure Container Service.
 -->
 
 
-## <a name="lead-management"></a>Tedarik Yönetimi
+## <a name="lead-management"></a>Müşteri adayı yönetimi
 
 Bu bölümde etkinleştirir müşteri toplamak için seçenekleri ayarlama Azure Marketi Teklifleriniz oluşturulan geliyor. Aşağıdaki depolama seçenekleri bir açılır listeden seçim yapabilirsiniz.
 
@@ -160,7 +160,7 @@ Teklifinizi başarıyla yayımladıktan sonra müşteri adayı bağlantı doğru
 
 ## <a name="legal"></a>Yasal Bilgiler
 
-Bu bölümde, her teklif için gerekli olan iki yasal belgeler sağlamanızı: gizlilik ilkesini ve kullanım koşulları.
+Bu bölümde, her teklif için gerekli olan iki yasal belgeler sağlamanıza olanak tanır: Gizlilik İlkesi ve kullanım koşulları.
 
 |  **Alan**                |     **Açıklama**                                                          |
 |  ---------                |     ---------------                                                          |

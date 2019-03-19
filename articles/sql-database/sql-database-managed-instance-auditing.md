@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 20c893aa0ff5bc1f20ecfd95d33038937f3af466
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: d283cfa18d31e360aed78ae5262c5416f94c0676
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576982"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086063"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL veritabanı yönetilen örneği denetimini kullanmaya başlama
 
@@ -50,7 +50,7 @@ Aşağıdaki bölümde, yönetilen Örneğinize denetim yapılandırma açıklan
 
    1. Bir kapsayıcı **adı**, genel erişim düzeyini ayarlayın **özel**ve ardından **Tamam**.
 
-     ![BLOB kapsayıcı yapılandırması oluşturma](./media/sql-managed-instance-auditing/3_create_container_config.png)
+      ![BLOB kapsayıcı yapılandırması oluşturma](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
 1. Denetim için kapsayıcıyı oluşturduktan sonra günlükleri vardır denetim günlükleri için hedef olarak yapılandırmak için kullanabileceğiniz iki yöntemdir: [T-SQL kullanarak](#blobtsql) veya [SQL Server Management Studio (SSMS) kullanıcı arabirimini kullanarak](#blobssms):
 
@@ -113,7 +113,7 @@ Aşağıdaki bölümde, yönetilen Örneğinize denetim yapılandırma açıklan
         GO
         ```
 
-      1. Tarafından devam [Server Audıt SPECIFICATION veya veritabanı denetim belirtimine oluşturma](#createspec)
+        1. Tarafından devam [Server Audıt SPECIFICATION veya veritabanı denetim belirtimine oluşturma](#createspec)
 
    - <a id="blobssms"></a>BLOB Depolama alanı için denetim günlüklerini SQL Server Management Studio (SSMS) 18'e (Önizleme) kullanarak yapılandırın:
 

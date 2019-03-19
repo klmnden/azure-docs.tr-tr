@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: juliako
-ms.openlocfilehash: 5290901348bb139140f1ad6d2ee50b9ddd88b297
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 57007674e11271e6a3d5bdf660531d01b1eff82c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214444"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861443"
 ---
 # <a name="dynamic-manifests"></a>Dinamik bildirimler
 
@@ -52,7 +52,7 @@ REST örnek için bkz: [karşıya yükleme, kodlama ve akışını REST dosyalar
 
 ### <a name="monitor-the-bitrate-of-a-video-stream"></a>İzleyici bir video Akış hızı
 
-Kullanabileceğiniz [Azure Media Player tanıtımını sayfası](http://aka.ms/amp) video akışının hızı izlemek için. Tanılama bilgilerini tanıtım sayfasını görüntüler **tanılama** sekmesinde:
+Kullanabileceğiniz [Azure Media Player tanıtımını sayfası](https://aka.ms/amp) video akışının hızı izlemek için. Tanılama bilgilerini tanıtım sayfasını görüntüler **tanılama** sekmesinde:
 
 ![Azure Media Player tanılama][amp_diagnostics]
 

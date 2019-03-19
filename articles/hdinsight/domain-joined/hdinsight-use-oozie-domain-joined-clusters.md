@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: b0ec8bf52b0b41aef4ea4cc2bfb6ed8fdcd170ec
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 15cdc78559a8f299e2bf0f357bbb7c0664881712
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343298"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116903"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Apache Oozie HDInsight Hadoop kümeleri Kurumsal güvenlik paketi ile çalıştırın.
 
@@ -38,9 +38,9 @@ Oozie, Java programları veya kabuk betikleri gibi sisteme özel işleri planlam
 Üzerinde güvenli Kabuk (SSH) daha fazla bilgi için [SSH kullanarak HDInsight (Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. SSH kullanarak HDInsight kümesine bağlanma:  
- ```bash
-ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
- ```
+   ```bash
+   ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
+   ```
 
 2. Başarılı bir Kerberos kimlik doğrulamak için `klist` komutu. Aksi takdirde, kullanın `kinit` Kerberos kimlik doğrulaması'nı başlatmak için.
 
@@ -54,23 +54,25 @@ ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
 ## <a name="define-the-workflow"></a>İş akışı tanımlama
 Oozie iş akışı tanımları, Apache Hadoop işlem tanım dili (hPDL) yazılır. hPDL XML işlem tanımı dilidir. İş akışını tanımlamak için aşağıdaki adımları uygulayın:
 
-1.  Bir etki alanı kullanıcısının çalışma ayarlayın:
- ```bash
-hdfs dfs -mkdir /user/<DomainUser>
-cd /home/<DomainUserPath>
-cp /usr/hdp/<ClusterVersion>/oozie/doc/oozie-examples.tar.gz .
-tar -xvf oozie-examples.tar.gz
-hdfs dfs -put examples /user/<DomainUser>/
- ```
-Değiştirin `DomainUser` ile etki alanı kullanıcı adı. Değiştirin `DomainUserPath` ile etki alanı kullanıcısı için giriş dizin yolu. Değiştirin `ClusterVersion` , küme Hortonworks Data Platform (HDP) sürümüne sahip.
+1. Bir etki alanı kullanıcısının çalışma ayarlayın:
+   ```bash
+   hdfs dfs -mkdir /user/<DomainUser>
+   cd /home/<DomainUserPath>
+   cp /usr/hdp/<ClusterVersion>/oozie/doc/oozie-examples.tar.gz .
+   tar -xvf oozie-examples.tar.gz
+   hdfs dfs -put examples /user/<DomainUser>/
+   ```
+   Değiştirin `DomainUser` ile etki alanı kullanıcı adı. 
+   Değiştirin `DomainUserPath` ile etki alanı kullanıcısı için giriş dizin yolu. 
+   Değiştirin `ClusterVersion` , küme Hortonworks Data Platform (HDP) sürümüne sahip.
 
-2.  Yeni bir dosya oluşturup aşağıdaki deyimi kullanın:
- ```bash
-nano workflow.xml
- ```
+2. Yeni bir dosya oluşturup aşağıdaki deyimi kullanın:
+   ```bash
+   nano workflow.xml
+   ```
 
 3. Nano Düzenleyici açıldıktan sonra aşağıdaki XML dosyanın içeriği girin:
- ```xml
+   ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <workflow-app xmlns="uri:oozie:workflow:0.4" name="map-reduce-wf">
        <credentials>
@@ -165,25 +167,25 @@ nano workflow.xml
        </kill>
        <end name="end" />
     </workflow-app>
- ```
+   ```
 4. Değiştirin `clustername` ile kümesinin adı. 
 
 5. Dosyayı kaydetmek için Ctrl + X'i seçin. `Y` yazın. Ardından **Enter**.
 
     İş akışı, iki bölüme ayrılır:
-    *   **Kimlik bilgisi bölümü.** Bu bölümde, Oozie eylemleri kimlik doğrulaması için kullanılan kimlik bilgilerini alır:
+   * **Kimlik bilgisi bölümü.** Bu bölümde, Oozie eylemleri kimlik doğrulaması için kullanılan kimlik bilgilerini alır:
 
-       Bu örnek Hive eylemler için kimlik doğrulaması kullanır. Daha fazla bilgi için bkz. [eylem kimlik doğrulaması](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html).
+     Bu örnek Hive eylemler için kimlik doğrulaması kullanır. Daha fazla bilgi için bkz. [eylem kimlik doğrulaması](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html).
 
-       Oozie eylemleri Hadoop Hizmetleri erişmek için kullanıcı bürünülecek kimlik bilgisi hizmet sağlar.
+     Oozie eylemleri Hadoop Hizmetleri erişmek için kullanıcı bürünülecek kimlik bilgisi hizmet sağlar.
 
-    *   **Eylem bölümü.** Bu bölümde üç eylem vardır: map-reduce, Hive server 2 ve 1 Hive sunucusu:
+   * **Eylem bölümü.** Bu bölümde üç eylem vardır: map-reduce, Hive server 2 ve 1 Hive sunucusu:
 
-      - Toplanan sözcük sayısını veren için Oozie paketinden bir örnek map-reduce eylemi çalıştığında harita azaltın.
+     - Toplanan sözcük sayısını veren için Oozie paketinden bir örnek map-reduce eylemi çalıştığında harita azaltın.
 
-       - Hive server 2 ve Hive sunucusu 1 eylemleri, HDInsight ile sağlanan örnek Hive tablosunda bir sorgu çalıştırın.
+     - Hive server 2 ve Hive sunucusu 1 eylemleri, HDInsight ile sağlanan örnek Hive tablosunda bir sorgu çalıştırın.
 
-        Hive eylemleri anahtar sözcüğünü kullanarak kimlik doğrulaması için kimlik bilgileri bölümünde tanımlanan kimlik bilgilerini kullanan `cred` eylem öğesindeki.
+     Hive eylemleri anahtar sözcüğünü kullanarak kimlik doğrulaması için kimlik bilgileri bölümünde tanımlanan kimlik bilgilerini kullanan `cred` eylem öğesindeki.
 
 6. Kopyalamak için aşağıdaki komutu kullanın `workflow.xml` dosyasını `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`:
      ```bash

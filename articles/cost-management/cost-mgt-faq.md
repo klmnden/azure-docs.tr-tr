@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 03/14/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: a27cd45ebec41a90a1627bff157c1058b83a25e6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6ebd25dc65f86e5e028c1c56943756b46d0db9a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098099"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011801"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Cloudyn için sık sorulan sorular
 
@@ -75,7 +75,7 @@ Yukarıdaki adımları tamamladıktan sonra bir veya iki gün içinde iyileştir
 İlk olarak, kullanıcı hesaplarını almak neden en yaygın senaryo bakalım *initiallySuspended*.
 
 > Microsoft bulut çözümü sağlayıcısı veya Kurumsal Anlaşma kullanıcı admin1 olabilir. Kuruluşundaki Cloudyn kullanmaya başlamak hazır olur.  Kendisi, Azure portalı üzerinden kaydeder ve Cloudyn portalında oturum açar. Cloudyn portalında oturum açtığında ve Cloudyn hizmet kaydeder kişi kendisine olur *birincil yönetici*. Tüm kullanıcı hesaplarını admin1 oluşturmaz. Ancak, Cloudyn portalını kullanarak yaptığı Azure hesapları oluşturma ve bir varlık hiyerarşisi ayarlar. Admin1 Admin2, kendisinin Cloudyn'e kaydetmek ve Cloudyn portalında oturum açmak için gereken bir kiracı Yöneticisi bildirir.
-
+> 
 > Azure portalı üzerinden Admin2 kaydeder. Ancak o hesabını olduğunu söyleyen bir hata alır kendisi, Cloudyn portalında oturum açmak çalıştığında, **askıya**. Admin1, birincil yönetici hesabı askıya alınması bildirilir. Admin1 Admin2'ın hesabı etkinleştirin ve vermek için gereksinim duyduğu *yönetici varlık erişimi* uygun varlıkların ve kullanıcı yönetim erişimini ve etkin kullanıcı hesabı sağlar.
 
 
@@ -126,9 +126,9 @@ Cloudyn, otomatik olarak, Kurumsal Anlaşma abonelik para algılar ve düzgün �
 
 Cloudyn, aşağıdaki veri yenileme zaman çizelgeleri sahiptir:
 
-- **İlk**: ayarladıktan sonra Cloudyn maliyet verilerini görüntülemek için 24 saat sürebilir. Ayrıca, Cloudyn boyutlandırma önerileri görüntülemek için yeterli veri toplamak üzere 10 güne kadar da sürebilir.
-- **Günlük**: on günün sonuna kadar her ay, Cloudyn verilerinizin önceki günden sonra UTC + 3 hakkında sonraki günün tarihi göstermelidir.
-- **Aylık**: her ayın on günü için ilk günden Cloudyn verilerinizi yalnızca önceki ayın sonuna üzerinden gösterebilir.
+- **İlk**: Sonra ayarlamak uygulamanın Cloudyn'de maliyet verilerini görüntülemek için 24 saat sürebilir. Ayrıca, Cloudyn boyutlandırma önerileri görüntülemek için yeterli veri toplamak üzere 10 güne kadar da sürebilir.
+- **Günlük**: On günün sonuna kadar her ay, Cloudyn verilerinizin önceki günden sonra UTC + 3 hakkında sonraki günün tarihi göstermelidir.
+- **Aylık**: Her ayın on günü için ilk günden Cloudyn verilerinizi yalnızca önceki ayın sonuna üzerinden gösterebilir.
 
 Cloudyn, önceki günün önceki gün tam veri kullanılabilir olduğunda verileri işler. Önceki günün verileri her gün genellikle UTC + 3 hakkında Cloudyn tarafından kullanılabilir. Etiketler gibi bazı veriler ilaveten 24 işlemek için saat sürebilir.
 

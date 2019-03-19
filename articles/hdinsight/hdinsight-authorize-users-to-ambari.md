@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 976bb44ae81a6c002d2503407a4d74d513a76042
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: f82ce7cbc060d7bb97e2ee90d872fbf2abd1983b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725278"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117787"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Kullanıcıları Apache Ambari Görünümleri için yetkilendirme
 
@@ -51,24 +51,24 @@ Ambari için örnekleri Görüntüle ile birlikte gelen [Apache Hive](https://hi
 
 **Bu gruplar için izin verme** ![bu gruplara izin verme](./media/hdinsight-authorize-users-to-ambari/add-group-to-view.png)
 
-4. Bir kullanıcı eklemek için seçin **Kullanıcı Ekle** düğmesi.
+1. Bir kullanıcı eklemek için seçin **Kullanıcı Ekle** düğmesi.
 
-    * Kullanıcı adı ve yazmaya önceden tanımlanmış adları aşağı açılan listesini görürsünüz.
+   * Kullanıcı adı ve yazmaya önceden tanımlanmış adları aşağı açılan listesini görürsünüz.
 
-    ![Kullanıcı yanı](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
+     ![Kullanıcı yanı](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
 
-    * Seçin veya yazdıktan, kullanıcı adı. Bu kullanıcı adı yeni bir kullanıcı eklemek için seçin **yeni** düğmesi.
+   * Seçin veya yazdıktan, kullanıcı adı. Bu kullanıcı adı yeni bir kullanıcı eklemek için seçin **yeni** düğmesi.
 
-    * Değişikliklerinizi kaydetmek için seçmeniz **mavi onay kutusu**.
+   * Değişikliklerinizi kaydetmek için seçmeniz **mavi onay kutusu**.
 
-    ![Girilen kullanıcı](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
+     ![Girilen kullanıcı](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
 
-5. Bir grup eklemek için seçin **Grup Ekle** düğmesi.
+1. Bir grup eklemek için seçin **Grup Ekle** düğmesi.
 
-    * Grup adını yazmaya başlayın. Mevcut bir grubu adını seçerek ya da yeni bir grup ekleme işlemini kullanıcı ekleme aynıdır.
-    * Değişikliklerinizi kaydetmek için seçmeniz **mavi onay kutusu**.
+   * Grup adını yazmaya başlayın. Mevcut bir grubu adını seçerek ya da yeni bir grup ekleme işlemini kullanıcı ekleme aynıdır.
+   * Değişikliklerinizi kaydetmek için seçmeniz **mavi onay kutusu**.
 
-    ![Girilen grubu](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
+     ![Girilen grubu](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
 
 Bu görünümü kullanmak için bir kullanıcıya izin atamak istediğiniz, ancak bunları ek izinlere sahip bir grubun bir üyesi olmasını istemediğiniz bir görünüme doğrudan kullanıcı ekleme yararlı olur. Yönetim yükünü azaltmak için gruplarına izinler atamak daha basit olabilir.
 

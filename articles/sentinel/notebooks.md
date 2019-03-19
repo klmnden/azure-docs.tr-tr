@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 83bbb7f6a683265e4f2ed20801d0c7541a54e9f9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 63ce2be847017ed7e80fe5e573d5553311f6af2f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244970"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107687"
 ---
 # <a name="use-notebooks-to-hunt-for-anomalies"></a>Anormallikleri için hunt için not defterlerini kullanma
 
@@ -48,15 +48,15 @@ Aşağıdaki örnekte, derin herkes beklenmeyen bir konumda ağınızdaki bir ş
   
    ![Not defterini seçin](./media/notebooks/select-notebook.png)
 
-3.  Tıklayın **alma** için GitHub deposunu Azure not defterleri projenize kopyalayın.
-  ![İçeri aktarma not defteri](./media/notebooks/import1.png)
-4.  Her bir not defteri hunt veya araştırma gerçekleştirme adımlarında size kılavuzluk eder. Modelleri, kitaplıklar ve diğer bağımlılıkları ve Azure Gözcü bağlantısı için yapılandırma otomatik olarak içeri aktarılır tek tıklamayla yürütmeyi etkinleştirme. Tüm kod ve not defteri çalıştırmak için gereken kitaplıkları önceden yüklenmiştir. Log Analytics çalışma alanınızın hiçbir yapılandırma karşı bir not defteri çalıştırma hemen başlayabilirsiniz.
+3. Tıklayın **alma** için GitHub deposunu Azure not defterleri projenize kopyalayın.
+   ![İçeri aktarma not defteri](./media/notebooks/import1.png)
+4. Her bir not defteri hunt veya araştırma gerçekleştirme adımlarında size kılavuzluk eder. Modelleri, kitaplıklar ve diğer bağımlılıkları ve Azure Gözcü bağlantısı için yapılandırma otomatik olarak içeri aktarılır tek tıklamayla yürütmeyi etkinleştirme. Tüm kod ve not defteri çalıştırmak için gereken kitaplıkları önceden yüklenmiştir. Log Analytics çalışma alanınızın hiçbir yapılandırma karşı bir not defteri çalıştırma hemen başlayabilirsiniz.
 
    ![Depoyu içeri aktarma](./media/notebooks/import2.png)
 
-5.  Keşfedin, değiştirmek ve sağlanan tüm örnek not defterleri çalıştırın. Bu yapı taşı olarak birçok farklı senaryolar için kullanılabilir.
+5. Keşfedin, değiştirmek ve sağlanan tüm örnek not defterleri çalıştırın. Bu yapı taşı olarak birçok farklı senaryolar için kullanılabilir.
 
-  ![Not defterini seçin](./media/notebooks/import3.png)
+   ![Not defterini seçin](./media/notebooks/import3.png)
 
 
 

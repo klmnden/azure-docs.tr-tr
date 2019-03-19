@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: fa07ebf3dbf3e5d3e5f4e96cdf4b77a3710c1d1e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 56620dc1d3e315caa3e259715ed84a539b91356d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448331"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888596"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Güvenlik çerçevesi: Kimlik doğrulaması | Risk azaltma işlemleri 
+
 | Ürün/hizmet | Makale |
 | --------------- | ------- |
 | **Web uygulaması**    | <ul><li>[Web uygulaması için kimlik doğrulaması için bir standart kimlik doğrulama mekanizması kullanmayı düşünün](#standard-authn-web-app)</li><li>[Uygulamalar başarısız kimlik doğrulama senaryoları güvenli bir şekilde işlemesi gerekir](#handle-failed-authn)</li><li>[Etkinleştirme adım veya uyarlamalı kimlik doğrulaması](#step-up-adaptive-authn)</li><li>[Yönetim arabirimleri uygun şekilde kilitlendiğini emin olun.](#admin-interface-lockdown)</li><li>[Uygulama parolası işlevlerini güvenli bir şekilde unuttum](#forgot-pword-fxn)</li><li>[Parola ve hesap ilkesi uygulandığından emin olun.](#pword-account-policy)</li><li>[Kullanıcı adı numaralandırma önlemek için denetimleri uygulayın](#controls-username-enum)</li></ul> |
@@ -338,7 +339,7 @@ MSMQ her zaman Windows etki alanı veya sertifika kimlik doğrulaması için gel
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
-| **Başvuruları**              | [Kimlik doğrulama ve yetkilendirme ASP.NET Web API'de](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [ASP.NET Web API ile dış kimlik doğrulama hizmeti (C#)](http://www.asp.net/web-api/overview/security/external-authentication-services) |
+| **Başvuruları**              | [Kimlik doğrulama ve yetkilendirme ASP.NET Web API'de](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [ASP.NET Web API ile dış kimlik doğrulama hizmeti (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
 | **Adımları** | <p>Kimlik doğrulaması nerede varlığın kimliğini, genellikle bir kullanıcı adı ve parola gibi kimlik bilgileri aracılığıyla kanıtlar işlemidir. Düşünülebilecek birden çok kimlik doğrulama protokolleri kullanılabilir vardır. Bunlardan bazıları aşağıda listelenmiştir:</p><ul><li>İstemci sertifikaları</li><li>Windows tabanlı</li><li>Form tabanlı</li><li>Federasyon - ADFS</li><li>Federasyon - Azure AD</li><li>Federasyon - kimlik sunucusu</li></ul><p>Başvuruları bölümündeki bağlantıları nasıl her kimlik doğrulama düzeni, bir Web API'SİNİN güvenliğini sağlamak için uygulanabilir üzerinde alt düzey ayrıntıları sağlayın.</p>|
 
 ## <a id="authn-aad"></a>Azure Active Directory tarafından desteklenen standart kimlik doğrulama senaryoları kullanın
@@ -475,7 +476,7 @@ await deviceClient.SendEventAsync(message);
 ### <a name="example"></a>Örnek
 **Node.JS: Kimlik doğrulaması**
 #### <a name="symmetric-key"></a>Simetrik anahtar
-* Azure'da bir IOT hub'ı oluşturma
+* Azure IOT hub oluşturma
 * Cihaz kimlik kayıt defterinde girişi oluşturma
     ```javascript
     var device = new iothub.Device(null);
@@ -489,7 +490,7 @@ await deviceClient.SendEventAsync(message);
     var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>SharedAccessKey=<SharedAccessKey>';
     var client = clientFromConnectionString(connectionString);
     ```
-#### <a name="sas-token"></a>SAS Belirteci
+  #### <a name="sas-token"></a>SAS belirteci
 * Simetrik anahtar ancak kullanırken, dahili olarak oluşturulan oluşturabilir ve aynı zamanda açıkça kullanın
 * Bir protokol tanımlar: `var Http = require('azure-iot-device-http').Http;`
 * Bir sas belirteci oluşturun:
@@ -506,7 +507,7 @@ await deviceClient.SendEventAsync(message);
     var base64UriEncoded = encodeURIComponent(base64signature);
     // construct authorization string
     var token = "SharedAccessSignature sr=" + resourceUri + "%2fdevices%2f"+deviceName+"&sig="
-    + base64UriEncoded + "&se=" + expires;
+  + base64UriEncoded + "&se=" + expires;
     if (policyName) token += "&skn="+policyName;
     return token;
     ```
@@ -514,7 +515,7 @@ await deviceClient.SendEventAsync(message);
     ```javascript
     Client.fromSharedAccessSignature(sas, Http); 
     ```
-#### <a name="certificates"></a>Sertifikalar
+  #### <a name="certificates"></a>Sertifikalar
 * Kendinden imzalı bir X509 oluşturmak sertifika ve anahtar sırasıyla depolamak için bir .cert ve .key dosyaları oluşturmak için OpenSSL gibi herhangi bir aracı kullanarak sertifika
 * Sertifikaları kullanarak güvenli bağlantı kabul eden bir cihaz hazırlayın.
     ```javascript

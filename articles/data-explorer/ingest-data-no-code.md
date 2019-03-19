@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 2/5/2019
-ms.openlocfilehash: c171962fd6177a01afdb8e9605b09574c99f485e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 3/14/2019
+ms.openlocfilehash: 422813c1ddb77aa11195d3021484744839c4e3bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889231"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994330"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Öğretici: Azure veri Gezgini'nde verileri tek satırlık bir kod olmadan alma
 
@@ -38,29 +38,44 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Azure İzleyici, veri sağlayıcısı: tanılama ve etkinlik günlükleri
 
-Görüntüleyebilir ve Azure İzleyici tanılama ve etkinlik günlükleri tarafından sağlanan verileri anlayın. Bu veri şemalarını temel alan bir alma işlem hattı oluşturacağız.
+Görüntüleyebilir ve Azure İzleyici tanılama ve etkinlik günlüklere tarafından sağlanan verileri anlayın. Bu veri şemalarını temel alan bir alma işlem hattı oluşturacağız. Her olay günlüğü'ndeki bir kayıt dizisi olduğuna dikkat edin. Öğreticide daha sonra bu kayıtları dizisi bölünür.
 
 ### <a name="diagnostic-logs-example"></a>Tanılama günlüklerini örnek
 
-Azure tanılama günlükleri, hizmetin çalışması hakkında veriler sağlayan bir Azure hizmeti tarafından yayılan ölçümleridir. Veriler ile 1 dakikalık bir zaman dilimi toplanır. Tanılama Günlüğü'ndeki her olay, bir kayıt içerir. Sorgu süresini bir Azure Veri Gezgini ölçüm olay şeması örneği aşağıdadır:
+Azure tanılama günlükleri, hizmetin çalışması hakkında veriler sağlayan bir Azure hizmeti tarafından yayılan ölçümleridir. Veriler ile 1 dakikalık bir zaman dilimi toplanır. Sorgu süresini bir Azure Veri Gezgini ölçüm olay şeması örneği aşağıdadır:
 
 ```json
 {
-    "count": 14,
-    "total": 0,
-    "minimum": 0,
-    "maximum": 0,
-    "average": 0,
-    "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
-    "time": "2018-12-20T17:00:00.0000000Z",
-    "metricName": "QueryDuration",
-    "timeGrain": "PT1M"
+    "records": [
+    {
+        "count": 14,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-20T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    },
+    {
+        "count": 12,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-21T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    }
+    ]
 }
 ```
 
 ### <a name="activity-logs-example"></a>Etkinlik günlükleri örneği
 
-Azure etkinlik günlüklerini kayıtların bir koleksiyonunu içeren abonelik düzeyinde günlüklerdir. Günlükleri, aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Tanılama günlükleri farklı olarak, her bir etkinlik günlüğü olayında bir kayıt dizisi vardır. Öğreticide daha sonra bu kayıtları dizisi bölmek gerekir. Erişim denetimi için bir etkinlik günlüğü olayının bir örnek aşağıda verilmiştir:
+Azure etkinlik günlükleri, aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlayan abonelik düzeyinde günlüklerdir. Erişim denetimi için bir etkinlik günlüğü olayının bir örnek aşağıda verilmiştir:
 
 ```json
 {
@@ -129,6 +144,8 @@ Azure veri Gezgini'nde *TestDatabase* veritabanı **sorgu** Azure Veri Gezgini W
 
 ### <a name="create-the-target-tables"></a>Hedef Tablo oluşturma
 
+Azure İzleyici günlüklerine yapısını tablosal değil. Verileri işlemek ve her olay için bir veya daha fazla kayıt genişletin. Ham verileri, adlı bir ara tablo alınan *ActivityLogsRawRecords* etkinlik günlükleri için ve *DiagnosticLogsRawRecords* tanılama günlükleri için. O anda veri yönetilebilir ve genişletilmiş. Bir güncelleştirme ilkesini kullanarak, genişletilmiş veri sonra içine alınan *ActivityLogsRecords* etkinlik günlükleri için tablo ve *DiagnosticLogsRecords* tanılama günlükleri için. Başka bir deyişle, etkinlik günlükleri ve tanılama günlüklerini almak için iki ayrı tablolara almak için iki ayrı tablo oluşturmanız gerekir.
+
 Azure Veri Gezgini veritabanında hedef tablolar oluşturmak için Azure Veri Gezgini Web kullanıcı arabirimini kullanın.
 
 #### <a name="the-diagnostic-logs-table"></a>Tanılama günlükleri tablo
@@ -143,9 +160,13 @@ Azure Veri Gezgini veritabanında hedef tablolar oluşturmak için Azure Veri Ge
 
     ![Sorgu çalıştırma](media/ingest-data-no-code/run-query.png)
 
-#### <a name="the-activity-logs-tables"></a>Tabloları etkinlik günlükleri
+1. Adlı ara veri tablosu oluşturma *DiagnosticLogsRawRecords* içinde *TestDatabase* aşağıdaki sorguyu kullanarak veri işleme için veritabanı. Seçin **çalıştırma** tablo oluşturun.
 
-Etkinlik günlükleri yapısını tablo olmadığından, verileri işlemek ve her olay için bir veya daha fazla kayıt genişletin gerekir. Ham verileri, adlı bir ara tablo alınan *ActivityLogsRawRecords*. O anda veri yönetilebilir ve genişletilmiş. Genişletilmiş veriler daha sonra içine alınan *ActivityLogsRecords* güncelleştirme İlkesi kullanarak tablo. Başka bir deyişle, etkinlik günlüklerini almak için iki ayrı tablolar oluşturmak gerekir.
+    ```kusto
+    .create table DiagnosticLogsRawRecords (Records:dynamic)
+    ```
+
+#### <a name="the-activity-logs-tables"></a>Tabloları etkinlik günlükleri
 
 1. Adlı bir tablo oluşturun *ActivityLogsRecords* içinde *TestDatabase* etkinlik günlük kayıtları almak için veritabanı. Tablo oluşturmak için aşağıdaki Azure Veri Gezgini sorguyu çalıştırın:
 
@@ -174,7 +195,7 @@ Etkinlik günlükleri yapısını tablo olmadığından, verileri işlemek ve he
 Tanılama günlükleri veri tablosuna eşlemek için aşağıdaki sorguyu kullanın:
 
 ```kusto
-.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
+.create table DiagnosticLogsRawRecords ingestion json mapping 'DiagnosticLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
 #### <a name="table-mapping-for-activity-logs"></a>Etkinlik günlükleri için Tablo eşleme
@@ -185,9 +206,11 @@ Etkinlik günlükleri veri tablosuna eşlemek için aşağıdaki sorguyu kullan�
 .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-### <a name="create-the-update-policy-for-activity-logs-data"></a>Etkinlik günlükleri veriler için güncelleştirme ilkesi oluştur
+### <a name="create-the-update-policy-for-log-data"></a>Günlük verileri için güncelleştirme ilkesi oluştur
 
-1. Oluşturma bir [işlevi](/azure/kusto/management/functions) , genişleyen sahip kayıtların koleksiyonudur ve böylece koleksiyondaki her değer ayrı bir satır alır. Kullanım [ `mvexpand` ](/azure/kusto/query/mvexpandoperator) işleci:
+#### <a name="activity-log-data-update-policy"></a>Etkinlik günlüğü verileri ilkesini güncelleştirme
+
+1. Oluşturma bir [işlevi](/azure/kusto/management/functions) , genişletir. etkinlik günlüğü kayıtlarını koleksiyonunu böylece koleksiyondaki her değer ayrı bir satır alır. Kullanım [ `mvexpand` ](/azure/kusto/query/mvexpandoperator) işleci:
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
@@ -212,6 +235,32 @@ Etkinlik günlükleri veri tablosuna eşlemek için aşağıdaki sorguyu kullan�
 
     ```kusto
     .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    ```
+
+#### <a name="diagnostic-log-data-update-policy"></a>Tanılama günlük verilerini ilkesini güncelleştirme
+
+1. Oluşturma bir [işlevi](/azure/kusto/management/functions) , genişleyen tanılama günlük kayıtları koleksiyonu böylece koleksiyondaki her değer ayrı bir satır alır. Kullanım [ `mvexpand` ](/azure/kusto/query/mvexpandoperator) işleci:
+     ```kusto
+    .create function DiagnosticLogRecordsExpand() {
+        DiagnosticLogsRawRecords
+        | mvexpand events = Records
+        | project
+            Timestamp = todatetime(events["time"]),
+            ResourceId = tostring(events["resourceId"]),
+            MetricName = tostring(events["metricName"]),
+            Count = toint(events["count"]),
+            Total = todouble(events["total"]),
+            Minimum = todouble(events["minimum"]),
+            Maximum = todouble(events["maximum"]),
+            Average = todouble(events["average"]),
+            TimeGrain = tostring(events["timeGrain"])
+    }
+    ```
+
+2. Ekleme [güncelleştirme ilkesi](/azure/kusto/concepts/updatepolicy) hedef tablosu için. Bu ilke otomatik olarak yeni alınan tüm veriler üzerinde sorgu çalıştıracaksınız *DiagnosticLogsRawRecords* ara veri tablosu ve sonuçları içine alma *DiagnosticLogsRecords* tablosu:
+
+    ```kusto
+    .alter table DiagnosticLogsRecords policy update @'[{"Source": "DiagnosticLogsRawRecords", "Query": "DiagnosticLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
 ## <a name="create-an-azure-event-hubs-namespace"></a>Bir Azure Event Hubs ad alanı oluşturma
@@ -252,12 +301,12 @@ Azure tanılama günlükleri bir depolama hesabına veya olay hub'ına verme öl
     ![Tanılama ayarları](media/ingest-data-no-code/diagnostic-settings.png)
 
 1. **Tanılama ayarları** bölmesi açılır. Aşağıdaki adımları uygulayın:
-    1. Tanılama günlük verilerini adı verin *ADXExportedData*.
-    1. Altında **ÖLÇÜM**seçin **AllMetrics** onay kutusunu (isteğe bağlı).
-    1. Seçin **Stream olay hub'ına** onay kutusu.
-    1. Seçin **yapılandırma**.
+   1. Tanılama günlük verilerini adı verin *ADXExportedData*.
+   1. Altında **ÖLÇÜM**seçin **AllMetrics** onay kutusunu (isteğe bağlı).
+   1. Seçin **Stream olay hub'ına** onay kutusu.
+   1. Seçin **yapılandırma**.
 
-    ![Tanılama ayarları bölmesi](media/ingest-data-no-code/diagnostic-settings-window.png)
+      ![Tanılama ayarları bölmesi](media/ingest-data-no-code/diagnostic-settings-window.png)
 
 1. İçinde **Select olay hub'ı** bölmesinde, oluşturduğunuz olay hub'ına tanılama günlüklerinin verileri dışarı aktarma yapılandırın:
     1. İçinde **seçin, olay hub'ı ad alanı** listesinde, seçin *AzureMonitoringData*.
@@ -330,7 +379,7 @@ Azure tanılama günlükleri bir depolama hesabına veya olay hub'ına verme öl
 
      **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
-    | **Tablo** | *DiagnosticLogsRecords* | Oluşturduğunuz tabloyu *TestDatabase* veritabanı. |
+    | **Tablo** | *DiagnosticLogsRawRecords* | Oluşturduğunuz tabloyu *TestDatabase* veritabanı. |
     | **Veri biçimi** | *JSON* | Tabloda kullanılan biçim. |
     | **Sütun eşleme** | *DiagnosticLogsRecordsMapping* | Oluşturduğunuz eşleme *TestDatabase* sütun adları ve veri türleri için gelen JSON verilerini eşleştiren veritabanı *DiagnosticLogsRecords* tablo.|
     | | |
@@ -400,6 +449,7 @@ ActivityLogsRecords
 ```
 
 Sorgu sonuçları:
+
 |   |   |
 | --- | --- |
 |   |  AVG(DurationMs) |

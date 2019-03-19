@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 207d1f7f5eb4db4203f2595a06f943e8ae69881e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432039"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121137"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure İzleyici uyarılarıyla karmaşık eylemleri tetiklemek nasıl
 
@@ -275,19 +275,19 @@ Azure hizmet durumu girişleri etkinlik günlüğü bir parçasıdır. Uyarı ol
 - Adım 9 ve 10 aynıdır.
 - 14 11 adımları için aşağıdaki işlemi kullanın:
 
-   1. Seçin **+** **yeni adım** seçip **koşul Ekle**. Mantıksal uygulama yalnızca giriş verileri bu değerleri aşağıdaki eşleştiğinde yürütür, böylece aşağıdaki koşulları ayarlayın. Ne zaman için tırnak ("2.0") içine alın ve metin kutusuna sürüm değeri girme, dize ve bir sayısal tür değil değerlendirilir emin olur.  Sistem sayfasına geri dönün, ancak arka plandaki kod hala dize türü tutar, tırnak işaretleri göstermez. 
-       - `schemaId == AzureMonitorMetricAlert`
-       - `version == "2.0"`
+  1. Seçin **+** **yeni adım** seçip **koşul Ekle**. Mantıksal uygulama yalnızca giriş verileri bu değerleri aşağıdaki eşleştiğinde yürütür, böylece aşağıdaki koşulları ayarlayın. Ne zaman için tırnak ("2.0") içine alın ve metin kutusuna sürüm değeri girme, dize ve bir sayısal tür değil değerlendirilir emin olur.  Sistem sayfasına geri dönün, ancak arka plandaki kod hala dize türü tutar, tırnak işaretleri göstermez. 
+     - `schemaId == AzureMonitorMetricAlert`
+     - `version == "2.0"`
        
        !["Ölçüm uyarı yükü koşul"](media/action-groups-logic-app/metric-alert-payload-condition.png "ölçüm uyarı yükü koşulu")
 
-   1. İçinde **doğruysa** koşul, ekleme bir **her** döngüsü ve Microsoft Teams eylem. İleti HTML ve dinamik içerik bir bileşimini kullanarak tanımlayın.
+  1. İçinde **doğruysa** koşul, ekleme bir **her** döngüsü ve Microsoft Teams eylem. İleti HTML ve dinamik içerik bir bileşimini kullanarak tanımlayın.
 
-       !["Ölçüm uyarı koşulun sonrası eylemi"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "ölçüm uyarı koşulun sonrası eylemi")
+      !["Ölçüm uyarı koşulun sonrası eylemi"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "ölçüm uyarı koşulun sonrası eylemi")
 
-   1. İçinde **false ise** koşulu için ölçüm uyarısı mantıksal uygulamanın beklentileri eşleşmiyor iletişim kurmak için bir Microsoft Teams eylem tanımlayın. JSON yükünü dahil et. Dosyasına nasıl başvurulacağı fark `triggerBody` dinamik içeriği `json()` ifade.
+  1. İçinde **false ise** koşulu için ölçüm uyarısı mantıksal uygulamanın beklentileri eşleşmiyor iletişim kurmak için bir Microsoft Teams eylem tanımlayın. JSON yükünü dahil et. Dosyasına nasıl başvurulacağı fark `triggerBody` dinamik içeriği `json()` ifade.
 
-       !["Ölçüm uyarı false koşulu sonrası eylemi"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "ölçüm uyarı false koşulu sonrası eylemi")
+      !["Ölçüm uyarı false koşulu sonrası eylemi"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "ölçüm uyarı false koşulu sonrası eylemi")
 
 - 15. adımına aynıdır. Mantıksal uygulamanızı kaydedin ve kendi eylem grubu için yönergeleri izleyin.
 

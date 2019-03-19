@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/08/2019
-ms.openlocfilehash: 7c34040180cd7c6b635d55e59498908b1373ae1b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d61a90a19dbcaef4394b3d2844c14ca24b7e5d4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57786622"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170267"
 ---
 # <a name="auto-train-a-forecast-model"></a>Otomatik-bir tahmin modeli eğitme
 
@@ -58,7 +58,7 @@ Bu durumda zaman alana göre artan düzende zaten veriler sıralanır `week_star
 
 ```python
 X_train = data.iloc[:950]
-X_test = data.iloc[50:]
+X_test = data.iloc[-50:]
 
 y_train = X_train.pop("sales_quantity").values
 y_test = X_test.pop("sales_quantity").values

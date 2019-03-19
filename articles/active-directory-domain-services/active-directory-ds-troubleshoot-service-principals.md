@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 2c39e8f172283f512037e0d991b2c22eb816c8f6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5bed5dd19f6b736aca7ed2d551c8be0e6f03a810
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191338"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094550"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Yönetilen etki alanınız için geçersiz bir hizmet sorumlusu yapılandırma sorunlarını giderme
 
@@ -41,7 +41,7 @@ Hangi hizmet sorumluları yeniden oluşturulması gerekir belirlemek için aşa�
 3. Aşağıdaki tabloyu kullanarak, arama kimliği arama kutusuna yapıştırarak ve tuşlarına basarak her uygulama kimliği girin. Arama sonuçlarını boş ise, "Çözüm" sütununda adımları izleyerek hizmet sorumlusu yeniden oluşturmanız gerekir.
 
 | Uygulama Kimliği | Çözüm |
-| :--- | :--- | :--- |
+| :--- | :--- |
 | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Eksik bir hizmet sorumlusu PowerShell ile yeniden oluşturun](#recreate-a-missing-service-principal-with-powershell) |
 | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Ad alanına Microsoft.AAD yeniden kaydettirin](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 | abba844e-bc0e-44b0-947a-dc74e5d09022  | [Ad alanına Microsoft.AAD yeniden kaydettirin](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |

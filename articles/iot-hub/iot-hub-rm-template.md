@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: fb3456f399e9fa8bbe35336a3b8933c39a0d03d9
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 4acf7a8bbc02a10468004092152b1d7c5c4d621f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008967"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075927"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Azure Resource Manager şablonu (.NET) kullanarak IOT hub oluşturma
 
@@ -125,7 +125,7 @@ Bir JSON şablonu ve parametre dosyası, kaynak grubunuzda bir IOT hub'ı oluşt
       }
     }
     ```
-  [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 5. İçinde **Sunucu Gezgini**, Azure aboneliğinize bağlayın ve Azure depolama hesabınızdaki adlı bir kapsayıcı oluşturma **şablonları**. İçinde **özellikleri** ayarlayın **genel okuma erişimini** izinlerini **şablonları** kapsayıcıya **Blob**.
 

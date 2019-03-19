@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0078c260e09ec9fd31ecf2124bc4bf7ad7f92b0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 534c0463cd8aee9fccfa183586b946032dada722
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173751"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094567"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Nasıl yapılır: Devre dışı bırakılmış Access Control Service ad alanlarını yeniden etkinleştirme
 
@@ -102,7 +102,7 @@ Daha fazla uzantıları artık otomatik olarak onaylanır. Geçirmek için ek s�
     | **Sorun türü** | `ACS to SAS Migration` |
     | **Konu** | Sorunu açıklayın |
 
-  ![Yeni teknik destek isteği](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![Yeni teknik destek isteği](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 

@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 26ea184055f1496babf4f98f5d103b9af9c77ac0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 92eef714f651ef0ce4e58fcfbb8fad75a38c55c8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973460"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121341"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>Vmware'den azure'a olağanüstü durum kurtarma için yapılandırma sunucusu gereksinimleri
 
@@ -58,7 +58,7 @@ IIS | -Önceden var olan varsayılan Web sitesi <br> -Önceden var olan Web site
 **Bileşen** | **Gereksinim** 
 --- | --- 
 IP adresi türü | Statik 
-İnternet erişimi | Sunucusunun şu URL'lere erişimi olmalıdır (doğrudan veya proxy aracılığıyla): <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> -https:\//management.azure.com <br> -*. Services.VisualStudio.com adresine <br> - time.nist.gov <br> - time.windows.com <br> OVF ayrıca aşağıdaki URL'lere erişim gerekir: <br> -https:\//login.microsoftonline.com <br> -https:\//secure.aadcdn.microsoftonline-p.com <br> -https:\//login.live.com  <br> -https:\//auth.gfx.ms <br> -https:\//graph.windows.net <br> -https:\//login.windows.net <br> -https:\//www.live.com <br> -https:\//www.microsoft.com <br> -https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
+İnternet erişimi | Sunucusunun şu URL'lere erişimi olmalıdır (doğrudan veya proxy aracılığıyla): <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> - https:\//management.azure.com <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF ayrıca aşağıdaki URL'lere erişim gerekir: <br> - https:\//login.microsoftonline.com <br> -https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> -https:\//auth.gfx.ms <br> -https:\//graph.windows.net <br> -https:\//login.windows.net <br> - https:\//www.live.com <br> -https:\//www.microsoft.com <br> -https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
 Bağlantı Noktaları | 443 (Denetim kanalı düzenleme)<br>9443 (Veri aktarımı) 
 NIC türü | VMXNET3 (yapılandırma sunucusu VMware VM ise)
 
@@ -75,11 +75,12 @@ Yapılandırma sunucusu için kapasite gereksinimleri aşağıdaki tabloda özet
 
 **Bileşen** | **Gereksinim** 
 --- | ---
-**CPU** | **Bellek** | **Önbellek diski** | **Veri değişiklik oranı** | **Çoğaltılan makineler**
---- | --- | --- | --- | ---
-8 Vcpu<br/><br/> Yuva 2 * 4 çekirdek \@ 2.5 GHz | 16 GB | 300 GB | 500 GB veya daha az | LES 100 makineler daha
-12 Vcpu<br/><br/> 2 socks * 6 çekirdek \@ 2.5 GHz | 18 GB | 600 GB | 500 GB - 1 TB | 100-150 makineler
-16 Vcpu<br/><br/> 2 socks * 8 çekirdek \@ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200 makineler
+
+| **CPU** | **Bellek** | **Önbellek diski** | **Veri değişiklik oranı** | **Çoğaltılan makineler** |
+| --- | --- | --- | --- | --- |
+| 8 Vcpu<br/><br/> Yuva 2 * 4 çekirdek \@ 2.5 GHz | 16 GB | 300 GB | 500 GB veya daha az | LES 100 makineler daha |
+| 12 Vcpu<br/><br/> 2 socks * 6 çekirdek \@ 2.5 GHz | 18 GB | 600 GB | 500 GB - 1 TB | 100-150 makineler |
+| 16 Vcpu<br/><br/> 2 socks * 8 çekirdek \@ 2.5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200 makineler | 
 
 
 

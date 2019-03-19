@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 50e5dfa21cf7a8f7203e7d96640e3cf5215130a6
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 945ba9b2ba4dbc22941ca6b105417f591f2dd837
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191470"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012752"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Oracle çözümleri ve dağıtım üzerinde Microsoft Azure
 Bu makalede, Microsoft Azure üzerinde çeşitli Oracle çözümlerini başarıyla dağıtmak için gerekli bilgiler ele alınmaktadır. Bu çözümler Azure marketi, Oracle tarafından yayımlanan sanal makine görüntüleri dayanır. Şu anda kullanılabilir görüntülerin listesini almak için aşağıdaki komutu çalıştırın:
@@ -43,7 +43,7 @@ Oracle-Linux            Oracle       7.3                     Oracle:Oracle-Linux
 Oracle-WebLogic-Server  Oracle       Oracle-WebLogic-Server  Oracle:Oracle-WebLogic-Server:Oracle-WebLogic-Server:12.1.2  12.1.2
 ```
 
-Bu görüntüler, "Kendi lisansını getir" olarak kabul edilir ve bu nedenle, yalnızca işlem, depolama ve ağ maliyetleri VM çalıştırmaktan kaynaklanan için ücretlendirilirsiniz.  Oracle yazılımı ve Oracle ile yerinde geçerli bir destek sözleşmesi olması kullanmak için düzgün şekilde lisanslandığından varsayılır. Oracle lisans taşınabilirliği şirket içinden Azure'a garantisi. Yayımlanan bkz [Oracle ve Microsoft](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) Not lisans taşınabilirliği hakkında ayrıntılı bilgi için. 
+Bu görüntüler, "Kendi lisansını getir" olarak kabul edilir ve bu nedenle, yalnızca işlem, depolama ve ağ maliyetleri VM çalıştırmaktan kaynaklanan için ücretlendirilirsiniz.  Oracle yazılımı ve Oracle ile yerinde geçerli bir destek sözleşmesi olması kullanmak için düzgün şekilde lisanslandığından varsayılır. Oracle lisans taşınabilirliği şirket içinden Azure'a garantisi. Yayımlanan bkz [Oracle ve Microsoft](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) Not lisans taşınabilirliği hakkında ayrıntılı bilgi için. 
 
 Kişiler de azure'da sıfırdan oluşturabilir veya kendi şirket içi ortamınızı özel bir görüntüyü karşıya yükleme özel bir görüntü çözümleri temel seçebilirsiniz.
 
@@ -55,7 +55,7 @@ Oracle, Oracle Linux tabanlı sanal makine görüntülerinde, Azure'da çalışt
 
 ### <a name="attached-disk-configuration-options"></a>Bağlı disk yapılandırma seçenekleri
 
-Kullanıma açılan diskler Azure Blob Depolama hizmetinin avantajlarından yararlanın. Her standart disk, yaklaşık 500 giriş/çıkış işlemi (IOPS) saniyede teorik üst sınırı yeteneğine sahiptir. Premium disk teklifimize yüksek performanslı veritabanı iş yükleri için tercih edilir ve disk başına en fazla 5000 IOPS değerlerine ulaşabilir. Performans gereksinimlerinizi karşılayan tek bir diske kullanabilirsiniz - birden çok kullanıma açılan diskler kullanıyorsanız maliyetli IOPS performansı iyileştirebilir ancak veritabanı verileri bunların arasında yaymaktır ve Oracle otomatik Depolama Yönetimi (ASM) kullanın. Bkz: [Oracle otomatik depolama genel bakış](http://www.oracle.com/technetwork/database/index-100339.html) daha fazla Oracle ASM belirli bilgi. Yükleme ve bir Linux Azure sanal makinesinde - Oracle ASM yapılandırma örneği için deneyebileceğiniz [yükleme ve Oracle otomatik Depolama Yönetimi yapılandırma](configure-oracle-asm.md) öğretici.
+Kullanıma açılan diskler Azure Blob Depolama hizmetinin avantajlarından yararlanın. Her standart disk, yaklaşık 500 giriş/çıkış işlemi (IOPS) saniyede teorik üst sınırı yeteneğine sahiptir. Premium disk teklifimize yüksek performanslı veritabanı iş yükleri için tercih edilir ve disk başına en fazla 5000 IOPS değerlerine ulaşabilir. Performans gereksinimlerinizi karşılayan tek bir diske kullanabilirsiniz - birden çok kullanıma açılan diskler kullanıyorsanız maliyetli IOPS performansı iyileştirebilir ancak veritabanı verileri bunların arasında yaymaktır ve Oracle otomatik Depolama Yönetimi (ASM) kullanın. Bkz: [Oracle otomatik depolama genel bakış](https://www.oracle.com/technetwork/database/index-100339.html) daha fazla Oracle ASM belirli bilgi. Yükleme ve bir Linux Azure sanal makinesinde - Oracle ASM yapılandırma örneği için deneyebileceğiniz [yükleme ve Oracle otomatik Depolama Yönetimi yapılandırma](configure-oracle-asm.md) öğretici.
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Oracle gerçek uygulama kümesi (Oracle RAC)
 Oracle RAC, bir şirket içi çok düğümlü küme yapılandırmasında tek bir düğümün hatalarını azaltmak için tasarlanmıştır. Hiper ölçekli genel bulut ortamları için yerel olmayan iki şirket içi teknolojisi kullanır: ağ çok noktaya yayın ve paylaşılan disk. Veritabanı çözümünüze azure'da Oracle RAC gerektiriyorsa, bu teknolojiler etkinleştirmek için 3 taraf yazılım gerekir. Oracle RAC hakkında daha fazla bilgi için lütfen bkz [FlashGrid çözüm sayfasında](https://www.flashgrid.io/oracle-rac-in-azure/).
@@ -63,11 +63,11 @@ Oracle RAC, bir şirket içi çok düğümlü küme yapılandırmasında tek bir
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Yüksek kullanılabilirlik ve olağanüstü durum kurtarma değerlendirmeleri
 Oracle veritabanlarının Azure'da kullanırken herhangi kapalı kalma süresini önlemek için bir yüksek kullanılabilirlik ve olağanüstü durum kurtarma çözümü uygulamak için sorumlu olursunuz. 
 
-(Bağlı olan üzerinde Oracle RAC) olmadan yüksek kullanılabilirlik ve olağanüstü durum kurtarma için Oracle Database Enterprise Edition sürümünü kullanarak Azure üzerinde gerçekleştirilebilir [veri koruma, etkin Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), veya [Oracle Golden kapısı](http://www.oracle.com/technetwork/middleware/goldengate), iki ayrı sanal makinelere iki veritabanı ile. Her iki sanal makine aynı olmalıdır [sanal ağ](https://azure.microsoft.com/documentation/services/virtual-network/) bunlar erişebildiğinden birbirine özel kalıcı IP adresi emin olmak için.  Ayrıca, sanal makineler aynı kullanılabilirlik kümesinde bunları ayrı hata etki alanlarına yerleştirin ve yükseltme etki alanlarında izin vermeniz yerleştirme öneririz.  Coğrafi yedeklilik - sahip olmasını isterseniz, bu iki veritabanı iki farklı bölgeler arasında çoğaltmak ve iki örnek, bir VPN ağ geçidi ile bağlanma olabilir.
+(Bağlı olan üzerinde Oracle RAC) olmadan yüksek kullanılabilirlik ve olağanüstü durum kurtarma için Oracle Database Enterprise Edition sürümünü kullanarak Azure üzerinde gerçekleştirilebilir [veri koruma, etkin Data Guard](https://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), veya [Oracle Golden kapısı](https://www.oracle.com/technetwork/middleware/goldengate), iki ayrı sanal makinelere iki veritabanı ile. Her iki sanal makine aynı olmalıdır [sanal ağ](https://azure.microsoft.com/documentation/services/virtual-network/) bunlar erişebildiğinden birbirine özel kalıcı IP adresi emin olmak için.  Ayrıca, sanal makineler aynı kullanılabilirlik kümesinde bunları ayrı hata etki alanlarına yerleştirin ve yükseltme etki alanlarında izin vermeniz yerleştirme öneririz.  Coğrafi yedeklilik - sahip olmasını isterseniz, bu iki veritabanı iki farklı bölgeler arasında çoğaltmak ve iki örnek, bir VPN ağ geçidi ile bağlanma olabilir.
 
 Bir öğretici sahibiz "[uygulama Oracle dataguard'ı azure'da](configure-oracle-dataguard.md)", yol gösterir temel kurulum yordamı deneme sürümü için bu Azure üzerinde.  
 
-Oracle Data Guard ile bir sanal makine, başka bir sanal makine, ikincil (Bekleyen) veritabanında birincil veritabanı ile yüksek kullanılabilirlik sağlanabilir ve tek yönlü çoğaltma aralarında ayarlayın. Veritabanı kopyasını okuma erişimi sonucudur. Oracle Goldengate'i ile iki veritabanı arasında iki yönlü çoğaltmayı yapılandırabilirsiniz. Bu araçları kullanarak veritabanlarınız için bir yüksek kullanılabilirlik çözümü hakkında bilgi edinmek için bkz: [etkin Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) ve [Goldengate'i](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) Oracle Web sitesinden belgeleri. Access veritabanı kopyasına salt okunur gereksinim duyarsanız, kullanabileceğiniz [etkin Oracle Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
+Oracle Data Guard ile bir sanal makine, başka bir sanal makine, ikincil (Bekleyen) veritabanında birincil veritabanı ile yüksek kullanılabilirlik sağlanabilir ve tek yönlü çoğaltma aralarında ayarlayın. Veritabanı kopyasını okuma erişimi sonucudur. Oracle Goldengate'i ile iki veritabanı arasında iki yönlü çoğaltmayı yapılandırabilirsiniz. Bu araçları kullanarak veritabanlarınız için bir yüksek kullanılabilirlik çözümü hakkında bilgi edinmek için bkz: [etkin Data Guard](https://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) ve [Goldengate'i](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) Oracle Web sitesinden belgeleri. Access veritabanı kopyasına salt okunur gereksinim duyarsanız, kullanabileceğiniz [etkin Oracle Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 
 Bir öğretici sahibiz "[uygulama azure'da Oracle Goldengate'i](configure-oracle-golden-gate.md)", yol gösterir temel kurulum yordamı deneme sürümü için bu Azure üzerinde.
 
@@ -91,7 +91,7 @@ Azure'da desteklemesi için bir yüksek kullanılabilirlik ve olağanüstü duru
 
          -Dweblogic.rjvm.enableprotocolswitch=true
 
-İlgili bilgi için bkz. KB makalesi **860340.1** adresindeki <http://support.oracle.com>.
+İlgili bilgi için bkz. KB makalesi **860340.1** adresindeki <https://support.oracle.com>.
 
 * **Dinamik Kümeleme ve sınırlamalar Yük Dengeleme.** Dinamik bir kümeye WebLogic Server kullanın ve bunu bir tek, genel yük dengeli uç noktası aracılığıyla azure'da kullanıma istediğinizi varsayalım. (Bir aralıktan dinamik olarak atanır) yönetilen sunucuların her birinde bir sabit bağlantı noktası numarası kullanmak ve yönetilen sunucuların fazla yönetici izleme makine sayısından başlatmayın sürece bu yapılabilir (diğer bir deyişle, en fazla bir sunucu başına sanal m yönetilen achine &). Başlatılmakta olan sanal makinelerin sayısından daha fazla WebLogic sunucusu yapılandırmanızı neden oluyorsa (diğer bir deyişle, WebLogic Server birden fazla aynı sanal makineye paylaşacağı), birden fazla WebLogic sunucuları örneklerini için mümkün değildir verilen bağlantı noktası numarası için – bağlamak için bu sanal makinedeki diğer başarısız.
 

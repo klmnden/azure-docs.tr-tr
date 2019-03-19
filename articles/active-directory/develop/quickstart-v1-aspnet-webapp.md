@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185325"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007617"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
 
@@ -146,7 +146,8 @@ Visual Studio'da oturum açma düğmesini eklemek ve kimlik doğrulaması sonras
 
     [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
-<!--start-collapse--> Bu sayfa siyah arka plan üzerinde SVG biçiminde bir oturum açma düğmesi ekler:<br/>![Microsoft ile Oturum Aç](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Daha fazla oturum açma düğmesi için bkz. [Uygulamalar için markalama yönergeleri](howto-add-branding-in-azure-ad-apps.md).
+<!--start-collapse-->
+Bu sayfa, siyah bir arka plan SVG biçiminde bir oturum açma düğmesi ekler:<br/>![Microsoft ile Oturum Aç](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Daha fazla oturum açma düğmesi için bkz. [Uygulamalar için markalama yönergeleri](howto-add-branding-in-azure-ad-apps.md).
 <!--end-collapse-->
 
 ## <a name="step-7-display-users-claims-by-adding-a-controller"></a>7. Adım: Kullanıcı talepleri bir denetleyici ekleyerek görüntüleme
@@ -300,7 +301,7 @@ Ayrıca kimlik doğrulaması isteğinde bulunan tüm kullanıcı taleplerinin ye
 
 Bu adımda Claims denetleyicisine anonim kullanıcı olarak erişmeyi test edeceksiniz:<br/>
 Bağlantıyı seçerek kullanıcı oturumunu kapatın ve oturumu kapatma işlemlerini tamamlayın.<br/>
-Şimdi tarayıcınızda http://localhost:{port}/claims yazarak `[Authorize]` özniteliğiyle korunan denetleyicinize erişmeyi deneyin
+Şimdi tarayıcınızda `http://localhost:{port}/claims` yazarak `[Authorize]` özniteliğiyle korunan denetleyicinize erişmeyi deneyin
 
 #### <a name="expected-results"></a>Beklenen sonuçlar
 

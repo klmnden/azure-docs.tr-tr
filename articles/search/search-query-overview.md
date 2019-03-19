@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: d2f3eb25c2193ad94098acd714d934795d007e98
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a197be06d9c6f4b70b8ffc06712ef315547b4140
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543925"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136521"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Azure Search'te bir sorgu oluşturmak nasıl
 
@@ -146,7 +146,7 @@ Bazen, madde temini ve sonuçları yapısı beklenmeyen. Sorgu sonuçlarını g�
 
 + Değişiklik **`searchMode=any`** (varsayılan) **`searchMode=all`** ölçütlerden herhangi birine yerine tüm ölçütleri eşleşme istemek için. Boole işleçleri eklendiğinde bu özellikle doğrudur sorgu.
 
-+ Sorgu tekniği, metin veya sözcük temelli analize gereklidir, ancak sorgu türünü dil işleme ışığının değiştirin. Tam metin araması'nda, metin veya sözcük temelli analize otomatik olarak yazım hatalarını, tekil çoğul sözcük biçimlerini ve hatta düzensiz fiilleri veya isimleri için düzeltir. Bazı sorgular gibi belirsiz veya joker karakter araması, metin analizi değil, işlem hattı ayrıştırma sorgunun parçası. Bazı senaryolarda, normal ifadeler geçici bir çözüm olarak kullanılır. 
++ Sorgu tekniği, metin veya sözcük temelli analize gereklidir, ancak sorgu türünü dil işleme ışığının değiştirin. Tam metin araması, metin veya yazım hataları, tekil çoğul sözcük biçimlerini ve hatta düzensiz fiilleri veya isimleri için sözcük analizi autocorrects. Bazı sorgular gibi belirsiz veya joker karakter araması, metin analizi değil, işlem hattı ayrıştırma sorgunun parçası. Bazı senaryolarda, normal ifadeler geçici bir çözüm olarak kullanılır. 
 
 ### <a name="paging-results"></a>Disk belleği sonuçları
 Azure Search, arama sonuçlarının sayfalanması uygulamasını kolaylaştırır. Kullanarak **`top`** ve **`skip`** parametreleri, arama sonuçları kümesini, yönetilebilir almanıza olanak, alt kümeler, sipariş arama isteklerini sorunsuz verebilir iyi arama kullanıcı Arabirimi uygulamalarını kolayca etkinleştirin. Bu daha küçük sonuç alt kümelerini alırken, tüm arama sonuçları kümesindeki belge sayısını da alabilirsiniz.
@@ -167,4 +167,4 @@ Azure Search'te arama sonuçlarının arama sorgusuyla eşleşen tam bölümü v
 + [Nasıl tam metin araması (sorgu mimarisi ayrıştırma) Azure Search'te çalışır](search-lucene-query-architecture.md)
 + [Arama Gezgini](search-explorer.md)
 + [. NET'te sorgulama](search-query-dotnet.md)
-+ [KALAN sorgulama](search-query-rest-api.md)
++ [KALAN sorgulama](search-create-index-rest-api.md)

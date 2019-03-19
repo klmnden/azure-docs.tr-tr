@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 3/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2dd9fc5691c646a72936039b6bcc5949d227c6b5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 288a6e1b1d88fcef6fbd5554ba811acc1dab776e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545345"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994246"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -168,7 +168,7 @@ Güvenlik duvarını sanal ağa dağıtın.
 9. **Yenile**'ye ve ardından **Firewall-route** rota tablosuna tıklayın.
 10. **Alt ağlar** > **İlişkilendir**’e tıklayın.
 11. **Sanal ağ** > **Test-FW-RG**’ye tıklayın.
-12. **Alt ağ** bölümünde **Workload-SN** girişine tıklayın. Bu rota için yalnızca **Workload-SN** alt ağını seçtiğinizden emin olun. Aksi takdirde güvenlik duvarınız düzgün çalışmaz.
+12. **Alt ağ** bölümünde **Workload-SN** girişine tıklayın. Yalnızca seçtiğinizden emin olun **iş yükü SN** bu rota için alt ağ, aksi takdirde, güvenlik duvarınızı çalışmaz doğru.
 
 13. **Tamam** düğmesine tıklayın.
 14. **Yollar** > **Ekle**’ye tıklayın.
@@ -218,7 +218,7 @@ Bu, bağlantı noktası 53’deki (DNS) iki IP adresine giden erişime izin vere
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>**Srv-Work** ağ arabiriminin birincil ve ikincil DNS adresini değiştirme
 
-Bu öğreticide birincil ve ikincil DNS adreslerini test amacıyla yapılandırıyorsunuz. Bu durum Azure Güvenlik Duvarı'nın genel gereksinimlerinden biri değildir.
+Bu öğreticide birincil ve ikincil DNS adreslerini test amacıyla yapılandırıyorsunuz. Bu genel bir Azure güvenlik duvarı gereksinim değildir.
 
 1. Azure portaldan **Test-FW-RG** kaynak grubunu açın.
 2. **Srv-Work** sanal makinesinin ağ arabirimine tıklayın.
@@ -244,7 +244,7 @@ Bu öğreticide birincil ve ikincil DNS adreslerini test amacıyla yapılandır�
 
    Güvenlik duvarının engellemesi gerekir.
 
-Güvenlik duvarı kurallarının çalıştığını doğruladığınıza göre:
+Şimdi güvenlik duvarı kuralları çalıştığını doğruladığınıza göre:
 
 - İzin verilen bir FQDN'ye göz atabilir ancak diğerlerine göz atamazsınız.
 - Yapılandırılmış dış DNS sunucusunu kullanarak DNS adlarını çözümleyebilirsiniz.

@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: e12ca7561181412318fa594093b047cd95e4e6bc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3e2c6a550a9358656fd0870c7e785d131c5b6380
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448049"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894402"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Microsoft Azure kurtarma Hizmetleri (MARS) aracısı ile yedekleme destek matrisi
 
@@ -26,9 +26,7 @@ Azure Backup, verileri şirket içi makinelerin ve Azure sanal makinelerini bir 
 - Windows sanal makinelerinde çalıştırın, böylece bunlar doğrudan bir kasasına yedekleyebilirsiniz.
 - Microsoft Azure Backup sunucusu (MABS) veya bir System Center Data Protection Manager (DPM) sunucusunda çalıştırın. Bu senaryoda, makine ve iş yüklerini MABS veya DPM sunucusuna yedekleme. MARS Aracısı, bu sunucuyu daha sonra azure'da bir kasaya yedekler. 
 
-Yedekleme seçeneklerinizin, aracının yüklü olduğu bağlıdır. Daha fazla bilgi için [MARS agent'ı kullanarak Azure Backup mimarisi](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders). MABS ve DPM yedekleme mimarisi hakkında daha fazla bilgi için bkz: [DPM veya MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Ayrıca bkz: [gereksinimleri](backup-support-matrix-mabs-dpm.md) yedekleme mimarisi.
-
-## <a name="supported-installations"></a>Desteklenen yüklemeler
+Yedekleme seçeneklerinizin, aracının yüklü olduğu bağlıdır. Daha fazla bilgi için [MARS agent'ı kullanarak Azure Backup mimarisi](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). MABS ve DPM yedekleme mimarisi hakkında daha fazla bilgi için bkz: [DPM veya MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Ayrıca bkz: [gereksinimleri](backup-support-matrix-mabs-dpm.md) yedekleme mimarisi.
 
 **Yükleme** | **Ayrıntılar**
 --- | ---
@@ -139,14 +137,12 @@ Azure Backup destekler *çevrimdışı dengeli dağıtım* diskleri kullanarak i
 
 Çevrimdışı Yedekleme sistem durumu dosyaları için kullanılamaz.
 
-
 ## <a name="support-for-data-restoration"></a>Verileri geri yükleme desteği
 
 Kullanarak [anında geri yükleme](backup-instant-restore-capability.md) Özelliği Azure Backup, kasaya kopyalamadan önce verileri geri yükleyebilirsiniz. .NET Framework 4.5.2 yedekleme makine çalıştırılması gerekir ya da daha yüksek.
 
 İşletim sisteminin önceki bir sürümünü çalıştıran bir hedef makine yedekleri geri yüklenemez. Örneğin, Windows 7 çalıştıran bir bilgisayardan gerçekleştirilen bir yedekleme Windows 8 veya daha sonra geri yüklenebilir. Ancak, Windows 7 çalıştıran bir bilgisayarda Windows 8 çalıştıran bir bilgisayardan gerçekleştirilen bir yedekleme geri yüklenemez.
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
-- Daha fazla bilgi edinin [yedekleme MARS Aracısı kullanan mimarisi](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders).
+- Daha fazla bilgi edinin [yedekleme MARS Aracısı kullanan mimarisi](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
 - Ne zaman desteklemiştir öğrenin, [MARS Aracısı MABS veya bir DPM sunucusunda çalıştırın](backup-support-matrix-mabs-dpm.md).

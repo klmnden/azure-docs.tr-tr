@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 76059c587a6378ccfe16c0a633bea0c6c7a8a57d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b8bb3db58538263ea60520d4537a76c6ebb6abf7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340102"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112526"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas kaynaklarını Klasik modelden Azure Resource Manager'a geçişini planlama
 Azure Resource Manager çok sayıda harika özellikleri sunarken, geçiş yolculuğunuza emin sorunsuz şeyler yapmak için planlamak için önemlidir. Harcadığınız zamanı planlama, sorunları geçiş etkinliklerini yürütülürken karşılaşmayacağınızdan emin olursunuz.
@@ -79,8 +79,8 @@ Başarılı müşteriler burada yukarıdaki soruları ele alınan, belgelenen ka
 
   Gerçek senaryonuza (işlem, ağ ve depolama) bir laboratuvar testi yürütmek, yumuşak bir geçiş sağlamak için en iyi bir yoludur. Bu, olmanıza yardımcı olur:
 
-  - Tamamen ayrı bir laboratuvar veya test etmek için var olan bir üretim dışı ortamda. Sürekli olarak geçirilebilir ve kalıcı olmayacak şekilde değiştirilebilir tamamen ayrı bir laboratuvar öneririz.  Betiklerin gerçek aboneliklerinden gelen meta veri toplama/hydrate aşağıda listelenmiştir.
-  - Laboratuvar içinde ayrı bir abonelik oluşturmak için iyi bir fikirdir. Laboratuvar art arda bozulur ve ayrı bir sahip, yalıtılmış abonelik bir şey gerçek yanlışlıkla silinecek, olasılığını azaltır nedenidir.
+- Tamamen ayrı bir laboratuvar veya test etmek için var olan bir üretim dışı ortamda. Sürekli olarak geçirilebilir ve kalıcı olmayacak şekilde değiştirilebilir tamamen ayrı bir laboratuvar öneririz.  Betiklerin gerçek aboneliklerinden gelen meta veri toplama/hydrate aşağıda listelenmiştir.
+- Laboratuvar içinde ayrı bir abonelik oluşturmak için iyi bir fikirdir. Laboratuvar art arda bozulur ve ayrı bir sahip, yalıtılmış abonelik bir şey gerçek yanlışlıkla silinecek, olasılığını azaltır nedenidir.
 
   Bu işlem AsmMetadataParser aracı kullanılarak gerçekleştirilebilir. [Buradaki aracı hakkında daha fazla bilgi](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -122,13 +122,13 @@ Birçok büyük geçişlerin bulunan sorunları yoktu. Bu kapsamlı bir liste de
     > Bu sınırların geçirilmesi Geçerli ortamınız ile aynı bölgede oluşturulması gerekir.
     >
 
-    - Ağ Arabirimleri
-    - Yük Dengeleyiciler
-    - Ortak IP'ler
-    - Statik genel IP'ler
-    - Çekirdek
-    - Ağ Güvenlik Grupları
-    - Yönlendirme Tabloları
+  - Ağ Arabirimleri
+  - Yük Dengeleyiciler
+  - Ortak IP'ler
+  - Statik genel IP'ler
+  - Çekirdek
+  - Ağ Güvenlik Grupları
+  - Yönlendirme Tabloları
 
     Geçerli Azure Resource Manager kotanızı aşağıdaki komutları kullanarak en son Azure PowerShell sürümüyle denetleyebilirsiniz.
     

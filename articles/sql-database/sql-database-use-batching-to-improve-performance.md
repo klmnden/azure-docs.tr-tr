@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 76b53132cca536f66aa2f739b27d74b08a3f16cf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997694"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>SQL veritabanı uygulama performansını artırmak için toplu işlem kullanma
 
@@ -298,7 +298,7 @@ Bu yaklaşım, 100'den daha az satır toplu işlemler için biraz daha hızlı o
 
 ### <a name="entity-framework"></a>Varlık çerçevesi
 
-Entity Framework, toplu işleme şu anda desteklemiyor. Farklı geliştiriciler Topluluğu'nda çalıştı geçersiz kılma gibi geçici çözümler göstermek **SaveChanges** yöntemi. Ancak çözümler genellikle karmaşık ve özelleştirilmiş uygulama ve veri modeli. Entity Framework codeplex projesi, şu anda bu özellik isteğinde tartışma sayfasında yok. Bu tartışmayı görüntülemek için bkz: [tasarım Toplantı Notları - 2 Ağustos 2012](http://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
+Entity Framework, toplu işleme şu anda desteklemiyor. Farklı geliştiriciler Topluluğu'nda çalıştı geçersiz kılma gibi geçici çözümler göstermek **SaveChanges** yöntemi. Ancak çözümler genellikle karmaşık ve özelleştirilmiş uygulama ve veri modeli. Entity Framework codeplex projesi, şu anda bu özellik isteğinde tartışma sayfasında yok. Bu tartışmayı görüntülemek için bkz: [tasarım Toplantı Notları - 2 Ağustos 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
 ### <a name="xml"></a>XML
 

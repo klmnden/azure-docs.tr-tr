@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95465fdc17131c996fa242d028addbab4191628c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d1bb62c9a11971f72a6c96c4652b136c19812cb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191121"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839330"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Öğretici: EverBridge ile Azure Active Directory Tümleştirme
 
@@ -127,22 +127,22 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve E
 
 5. Yapılandırmak için **EverBridge** olarak uygulama **EverBridge üye portalı**, **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    * Uygulamada yapılandırmak istiyorsanız **IDP** başlatılan modu:
+   * Uygulamada yapılandırmak istiyorsanız **IDP** başlatılan modu:
 
-        ![EverBridge etki alanı ve URL'ler tek oturum açma bilgileri](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
+       ![EverBridge etki alanı ve URL'ler tek oturum açma bilgileri](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
 
-        * İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
+       * İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
-        * İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
+       * İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
 
-    * Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+   * Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
-        ![EverBridge etki alanı ve URL'ler tek oturum açma bilgileri](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
+       ![EverBridge etki alanı ve URL'ler tek oturum açma bilgileri](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
 
-        * İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
+       * İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
 
-    > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [EverBridge Destek ekibine](mailto:support@everbridge.com) bu değerleri almak için.
+     > [!NOTE]
+     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [EverBridge Destek ekibine](mailto:support@everbridge.com) bu değerleri almak için.
 
 6. Üzerinde **SAML imzalama sertifikası** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta verileri XML** ve bilgisayarınızda meta veri dosyasını kaydedin.
 
@@ -164,21 +164,21 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve E
 
 9. Üstteki menüden **ayarları** sekmenize **çoklu oturum açma** altında **güvenlik**.
    
-    ![Çoklu oturum açmayı yapılandırın](./media/everbridge-tutorial/tutorial_everbridge_002.png)
+     ![Çoklu oturum açmayı yapılandırın](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
-    a. İçinde **adı** metin kimlik sağlayıcısının adını yazın (örneğin: şirketinizin adı).
+     a. İçinde **adı** metin kimlik sağlayıcısının adını yazın (örneğin: şirketinizin adı).
    
-    b. İçinde **API adı** metin API adını yazın.
+     b. İçinde **API adı** metin API adını yazın.
    
-    c. Tıklayın **Dosya Seç** düğmesine Azure portalından indirilen meta veri dosyasını karşıya yükleyin.
+     c. Tıklayın **Dosya Seç** düğmesine Azure portalından indirilen meta veri dosyasını karşıya yükleyin.
    
-    d. SAML kimlik konumda seçin **kimliğidir konu deyiminin NameIdentifier öğesinde**.
+     d. SAML kimlik konumda seçin **kimliğidir konu deyiminin NameIdentifier öğesinde**.
    
-    e. İçinde **kimlik sağlayıcısı oturum açma URL'si** metin değerini yapıştırın **oturum açma URL'si** , Azure Portalı'ndan kopyaladığınız.
+     e. İçinde **kimlik sağlayıcısı oturum açma URL'si** metin değerini yapıştırın **oturum açma URL'si** , Azure Portalı'ndan kopyaladığınız.
    
-    f. Hizmet sağlayıcısı tarafından başlatılan istek bağlamasındaki seçin **HTTP yeniden yönlendirme**.
+     f. Hizmet sağlayıcısı tarafından başlatılan istek bağlamasındaki seçin **HTTP yeniden yönlendirme**.
 
-    g. **Kaydet**’e tıklayın
+     g. **Kaydet**’e tıklayın
 
 10. Çoklu oturum açmayı yapılandırma **EverBridge** olarak uygulama **EverBridge üye portalı**, indirilen göndermem gerekiyor **Federasyon meta verileri XML** için [ Everbridge Destek ekibine](mailto:support@everbridge.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
@@ -200,7 +200,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

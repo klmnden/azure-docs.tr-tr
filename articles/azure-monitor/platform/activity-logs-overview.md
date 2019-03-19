@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: ad3b672a2db9bccaf5124d4bc897e85806966255
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fb3ed970b7f92e1cc06a9d1023e01f5888915e94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312809"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088681"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
@@ -118,10 +118,10 @@ Etkinlik günlüğü olay Hub'ına akış ya da Azure portalında "Dışarı akt
 
     ![Portal, Dışarı Aktar](./media/activity-logs-overview/activity-logs-portal-export-v2.png)
 3. Görüntülenen dikey penceresinde şunları seçebilirsiniz:  
-  * olayları dışarı aktarmak istediğiniz bölgeleri
-  * olayları kaydetmek istediğiniz depolama hesabı
-  * Bu olaylar depolamadaki saklamak istediğiniz gün sayısı. 0 gün ayarı günlükler süresiz korur.
-  * Bu olayları akış için oluşturulacak bir olay hub'ı istediğiniz hizmet veri yolu Namespace.
+   * olayları dışarı aktarmak istediğiniz bölgeleri
+   * olayları kaydetmek istediğiniz depolama hesabı
+   * Bu olaylar depolamadaki saklamak istediğiniz gün sayısı. 0 gün ayarı günlükler süresiz korur.
+   * Bu olayları akış için oluşturulacak bir olay hub'ı istediğiniz hizmet veri yolu Namespace.
 
      ![Etkinlik günlüğü dikey dışarı aktarma](./media/activity-logs-overview/activity-logs-portal-export-blade.png)
 4. Tıklayın **Kaydet** bu ayarları kaydedin. Ayarlar aboneliğinize hemen uygulanır.

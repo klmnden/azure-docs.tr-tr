@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: 8cde3402ef52747e61333c56903309259e07599a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: e11d541f0450c0de4ba6d60f889fc7471b1fa1aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747603"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011137"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>Backup Exec ile yedekleme hedefi olarak StorSimple
 
@@ -94,6 +94,7 @@ Aşağıdaki tablolar, cihaz modeli mimarisi başlangıç düzeyi bir kılavuz g
 |------------------------|---------------|-----------------|
 | Yerel depolama kapasitesi | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
 | Bulut depolama kapasitesi | &gt; 200 TiB\* | &gt; 500 TiB\* |
+
 \* Depolama boyutu, yinelenenleri kaldırma ya da sıkıştırma varsayar.
 
 **Birincil ve ikincil yedeklemeleri için StorSimple kapasiteler**
@@ -206,16 +207,16 @@ Aşağıdaki bölümlerde, çözümünüzün yönergelerine göre ayarlayın.
 
 ### <a name="operating-system-best-practices"></a>İşletim sistemi en iyi uygulamalar
 
--   Windows Server şifreleme ve yinelenenleri kaldırma NTFS dosya sistemi devre dışı bırakın.
--   Windows Server birleştirme StorSimple birimlerde devre dışı bırakın.
--   Windows Server StorSimple birimlerde dizin oluşturmayı devre dışı bırakın.
--   Kaynak ana bilgisayar (değil karşı StorSimple birimlerini) bir virüsten koruma taraması çalıştırın.
--   Varsayılan devre dışı kapatma [Windows Server bakım](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) Görev Yöneticisi'nde. Bu aşağıdaki yollardan birini yapın:
-   - Windows Görev Zamanlayıcısı'nda bakım configurator devre dışı bırakın.
-   - İndirme [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) Windows SysInternals öğesinden. PsExec indirdikten sonra Azure PowerShell bir Yöneticiyseniz ve türü çalıştırın:
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Windows Server şifreleme ve yinelenenleri kaldırma NTFS dosya sistemi devre dışı bırakın.
+- Windows Server birleştirme StorSimple birimlerde devre dışı bırakın.
+- Windows Server StorSimple birimlerde dizin oluşturmayı devre dışı bırakın.
+- Kaynak ana bilgisayar (değil karşı StorSimple birimlerini) bir virüsten koruma taraması çalıştırın.
+- Varsayılan devre dışı kapatma [Windows Server bakım](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) Görev Yöneticisi'nde. Bu aşağıdaki yollardan birini yapın:
+  - Windows Görev Zamanlayıcısı'nda bakım configurator devre dışı bırakın.
+  - İndirme [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) Windows SysInternals öğesinden. PsExec indirdikten sonra Azure PowerShell bir Yöneticiyseniz ve türü çalıştırın:
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>StorSimple en iyi uygulamalar
 
@@ -259,6 +260,7 @@ Aşağıdaki örnekte, bir GFS döndürme kullanırız. Aşağıdaki örnekte va
 | Yıllık tam | 1  | 10 | 10 |
 | GFS gereksinimi |   | 38 |   |
 | Ek kota  | 4  |   | 42 toplam GFS gereksinimi  |
+
 \* GFS çarpan koruma ve yedekleme İlkesi gereksinimlerinizi karşılayacak şekilde korumak için ihtiyaç duyduğunuz kopya sayısıdır.
 
 ## <a name="set-up-backup-exec-storage"></a>Backup Exec depolamayı ayarlama
@@ -312,7 +314,7 @@ Dört hafta, aylık ve yıllık GFS döndürme tablosunun bir örnek aşağıda 
 |---|---|---|
 | Haftalık (hafta 1-4) | Cumartesi | Pazartesi-Cuma |
 | Aylık  | Cumartesi  |   |
-| Yıllık | Cumartesi  |   |   |
+| Yıllık | Cumartesi  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>StorSimple birim atamak için Backup Exec yedekleme işi
@@ -373,6 +375,7 @@ Aşağıdaki tabloda, yedekler yerel ve StorSimple diskler üzerinde çalıştı
 | Aylık tam |StorSimple disk (uzun süreli) | 1 | 12 | 12 |
 | Yıllık tam |StorSimple disk (uzun süreli) | 1 | 1. | 1 |
 |GFS birim boyutu gereksinimini |  |  |  | 18*|
+
 \* Toplam Kapasite 17 TiB StorSimple'nın, diskler ve yerel RAID birimi 1 TiB içerir.
 
 
@@ -385,7 +388,7 @@ Aşağıdaki tabloda, yedekler yerel ve StorSimple diskler üzerinde çalıştı
 | 3 hafta | StorSimple hafta 2-4 |   |   |   |   |   |
 | 4 hafta | StorSimple hafta 2-4 |   |   |   |   |   |
 | Aylık | StorSimple aylık |   |   |   |   |   |
-| Yıllık | Yıllık StorSimple  |   |   |   |   |   |   |
+| Yıllık | Yıllık StorSimple  |   |   |   |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-archive-and-deduplication-job"></a>StorSimple birim atamak için bir Backup Exec Arşiv ve iş yinelenenleri kaldırma
@@ -445,15 +448,15 @@ Aşağıdaki bölümde, başlatın ve yedekleme sonrası işleme sırasında Sto
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Başlatın veya bir bulut anlık görüntüsünü silmek için
 
-1.  [Azure PowerShell'i yükleme](/powershell/azure/overview).
+1. [Azure PowerShell'i yükleme](/powershell/azure/overview).
 2. Karşıdan yükleme ve Kurulum [Yönet CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell Betiği.
 3. Betik çalıştıran sunucuda PowerShell'i yönetici olarak çalıştırın. Komut dosyasını çalıştırdığınızdan emin olun `-WhatIf $true` hangi kodun değiştiğini görmek için yapar. Doğrulama tamamlandıktan sonra geçmesi `-WhatIf $false`. Çalıştırma aşağıdaki komutu:
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
-4.  Betik yedekleme, yedekleme Exec işinde Backup Exec proje seçenekleri ön işleme düzenleme ve sonrası Komutlar işleme ekleyin.
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
+4. Betik yedekleme, yedekleme Exec işinde Backup Exec proje seçenekleri ön işleme düzenleme ve sonrası Komutlar işleme ekleyin.
 
-    ![Backup Exec konsol, yedekleme seçenekleri, ön ve son işlem komutları sekmesi](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
+   ![Backup Exec konsol, yedekleme seçenekleri, ön ve son işlem komutları sekmesi](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 
 > [!NOTE]
 > Günlük yedekleme işi sonunda işlem sonrası bir betik olarak StorSimple bulut anlık görüntü yedekleme ilkenizi çalıştırmanızı öneririz. RTO ve RPO karşılamanıza yardımcı olmak için yedekleme Uygulama ortamınızı geri hakkında daha fazla bilgi için lütfen ile yedekleme, Mimarı başvurun.

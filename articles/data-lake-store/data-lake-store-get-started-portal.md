@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 91c069f845ef6291f867099e59e79fd059d8caf1
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: a99d8a265cdc72b6bd1dd45ab670f514d828f808
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320234"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005691"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Azure Data Lake depolama Gen1 ile çalışmaya başlama Azure portalını kullanarak
 
@@ -76,9 +76,9 @@ Data Lake depolama Gen1 hesabında şifreleme yapılandırmak için bir Azure an
 
 > [!NOTE]
 > Ayrıca, Azure Resource Manager şablonlarını kullanarak bir Data Lake depolama Gen1 hesabı oluşturabilirsiniz. Bu şablonlara [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/resources/templates/?term=data+lake+store)’ndan erişebilirsiniz:
-    - Veri şifreleme olmadan: [Azure Data Lake depolama Gen1 hesabını veri şifrelemesi olmadan dağıtma](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
-    - Data Lake depolama Gen1 kullanarak veri şifrelemesi ile: [Şifreleme (Data Lake) ile Data Lake depolama Gen1 hesabı dağıtma](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
-    - Azure Key Vault kullanarak veri şifrelemesi ile: [Şifreleme (Key Vault) ile Data Lake depolama Gen1 hesabı dağıtma](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+> - Veri şifreleme olmadan: [Azure Data Lake depolama Gen1 hesabını veri şifrelemesi olmadan dağıtma](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
+> - Data Lake depolama Gen1 kullanarak veri şifrelemesi ile: [Şifreleme (Data Lake) ile Data Lake depolama Gen1 hesabı dağıtma](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
+> - Azure Key Vault kullanarak veri şifrelemesi ile: [Şifreleme (Key Vault) ile Data Lake depolama Gen1 hesabı dağıtma](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
 > 
 > 
 

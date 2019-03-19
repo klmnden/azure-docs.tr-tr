@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2d1818f42cb2bcb19f979f25962a6c9bdea10155
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 642f479aba62e5cc9dde63aed7c30de39b513a5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728021"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093358"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Kaynak tüketimine ve Service Fabric yük ölçümlerle yönetme
 *Ölçümleri* , hizmetleri çok değer verdiğiniz ve, kümedeki düğümler tarafından sağlanan kaynaklar. Bir ölçüm iyileştirmek veya hizmetlerinizin performansını izlemek için yönetmek istediğiniz herhangi bir şey: Örneğin, hizmetiniz aşırı yüklü olmadığını bilmek bellek tüketimi izlemek. Başka bir olup hizmet bellek az daha iyi performans elde etmek için sınırlı olduğu başka bir yere taşıyabilirsiniz şekil için kullanılır.
@@ -45,6 +45,7 @@ Temel iş yükleri için makul bir küme içindeki iş dağıtımını varsayıl
 Elde edecekleriniz aşağıda verilmiştir:
 
 <center>
+
 ![Varsayılan ölçümlerle küme düzeni][Image1]
 </center>
 
@@ -215,6 +216,7 @@ Bir anımsatıcı, bu sözdizimini ("MetricName MetricWeight, PrimaryDefaultLoad
 Hangi bir olası küme Düzen görünebileceğine bakalım:
 
 <center>
+
 ![Hem varsayılan hem de özel ölçümleri ile dengeli küme][Image2]
 </center>
 
@@ -239,6 +241,7 @@ Gerçek farklı ölçüm ağırlıkları kümedeki küme kaynak yöneticisi içi
 Bazı yük raporları ve farklı ölçüm bir örneğe göz atalım ağırlık verme kümedeki farklı ayırmaları sonuçlanır. Bu örnekte, göreli ağırlık ölçümlerine geçiş hizmetleri farklı düzenlemeleri oluşturmak için Küme Kaynak Yöneticisi neden olduğunu görürüz.
 
 <center>
+
 ![Ölçüm ağırlık örnek ve Dengeleme çözümlerinde üzerindeki etkileri][Image3]
 </center>
 
@@ -256,6 +259,7 @@ Her bir ölçüm için izlenen birden çok ağırlıkları vardır. İlk ağırl
 Küme Kaynak Yöneticisi hem genel hem de yerel Bakiye hakkında önemli yaramadı durumunda ne olacağını? Genel olarak dengelenir ancak, tek başına hizmetlerinden düşük kaynak bakiyesini neden çözümleri oluşturmak de kolaydır. Aşağıdaki örnekte, şimdi yalnızca varsayılan ölçümleri ile yapılandırılmış bir hizmet bakmak ve yalnızca genel Bakiye edildiği durumlarda ne olacağına bakalım:
 
 <center>
+
 ![Genel olarak tek bir çözüm etkisini][Image4]
 </center>
 

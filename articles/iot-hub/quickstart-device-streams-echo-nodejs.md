@@ -8,18 +8,20 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 590faaf727345dcfe8ab61a1860ca46d78256b22
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1e7efe28918cafb3fa9547c144be3360768d549c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219014"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079904"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Hızlı Başlangıç: Node.js IOT Hub cihaz akışları (Önizleme) ile bir cihaz uygulaması için iletişim
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
+
+Microsoft Azure IOT Hub cihaz akışları olarak şu anda destekleyen bir [önizleme özelliği](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [IOT Hub cihaz akışları](./iot-hub-device-streams-overview.md) güvenli ve güvenlik duvarı uyumlu bir şekilde iletişim kurmak hizmet ve cihaz uygulamalarınıza izin verin. Genel Önizleme süresince Node.js SDK'sı yalnızca hizmet tarafında cihaz akışlarını destekler. Sonuç olarak, bu hızlı başlangıçta, yalnızca hizmet tarafı uygulamayı çalıştırmak için yönergeleri kapsar. Kullanılabilir eşlik eden bir aygıt tarafı uygulama çalıştırmalısınız [C hızlı](./quickstart-device-streams-echo-c.md) veya [ C# hızlı](./quickstart-device-streams-echo-csharp.md) Kılavuzlar.
 
@@ -37,6 +39,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+Cihaz akışları şu anda önizlemesidir yalnızca IOT hub'ları aşağıdaki bölgelerde oluşturulan için desteklenir:
+
+  - **Orta ABD**
+  - **Orta ABD EUAP**
 
 Bu hızlı başlangıçta Hizmet tarafı uygulamayı çalıştırmak için geliştirme makinenizi Node.js v4.x.x veya sonraki bir sürümü gerekir.
 
@@ -80,7 +87,7 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
     **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adı ile değiştirin.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     Şuna benzer döndürülen değeri not edin:
@@ -100,7 +107,7 @@ Daha önce belirtildiği gibi IOT Hub Node.js SDK'sı hizmet tarafında yalnızc
 Aygıt tarafı uygulamayı çalıştıran varsayıldığında, node.js'de Hizmet tarafı uygulamayı çalıştırmak için aşağıdaki adımları izleyin:
 
 - Ortam değişkenleri olarak, cihaz kimliği ve hizmet kimlik bilgilerini sağlayın.
-```
+  ```
   # In Linux
   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
   export STREAMING_TARGET_DEVICE="MyDevice"
@@ -108,11 +115,11 @@ Aygıt tarafı uygulamayı çalıştıran varsayıldığında, node.js'de Hizmet
   # In Windows
   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
   SET STREAMING_TARGET_DEVICE=MyDevice
-```
-Değişiklik `MyDevice` cihazınız için seçtiğiniz cihaz kimliği.
+  ```
+  Değişiklik `MyDevice` cihazınız için seçtiğiniz cihaz kimliği.
 
 - Gidin `Quickstarts/device-streams-service` , sıkıştırması, proje klasörü ve düğüm kullanarak örneği çalıştırın.
-```
+  ```
   cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
   
   # Install the preview service SDK, and other dependencies
@@ -120,7 +127,7 @@ Değişiklik `MyDevice` cihazınız için seçtiğiniz cihaz kimliği.
   npm install
 
   node echo.js
-```
+  ```
 
 Son adımın sonunda, hizmet tarafı program cihazınıza ve kurulan sonra bir akışı başlatacak bir dize arabelleğine akış üzerinden hizmete gönderin. Bu örnekte, hizmet tarafı programı yalnızca terminal üzerinde stdin okur ve ardından bunu geri echo cihaza gönderir. Bu, iki uygulama arasındaki başarılı çift yönlü iletişim gösterir.
 

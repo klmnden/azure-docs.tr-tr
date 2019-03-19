@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 9021bb2a030472d4e83d78c8fc6363db570c3554
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: dceabc799e187f3af56588d5a9008e5cdca517c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318011"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864465"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Azure Search Dizin Oluşturucu kullanarak Cosmos DB dizinleme
 
@@ -23,7 +23,7 @@ Bu makalede bir Azure Cosmos DB yapılandırma işlemi gösterilmektedir [dizin 
 
 Terimleri kafanızı karıştırabilir olduğundan, hatalarının ayıklanabileceğini belirtmekte yarar [Azure Cosmos DB dizinleme](https://docs.microsoft.com/azure/cosmos-db/index-overview) ve [Azure arama dizini oluşturma](search-what-is-an-index.md) farklı işlemler, her bir hizmete benzersiz. Azure Search başlamadan önce dizin oluşturma, Azure Cosmos DB veritabanınıza gerekir zaten var ve verileri içerir.
 
-Kullanabileceğiniz [portalı](#cosmos-indexer-portal), [REST API'leri](#cosmos-indexer-rest), veya [.NET SDK'sı](#cosmos-indexer-dotnet) Cosmos içeriği dizine eklemek. Azure Search'te Cosmos DB dizinleyici gezinebileceği [Azure Cosmos öğeleri](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) bu protokolleri aracılığıyla erişilebilir:
+Kullanabileceğiniz [portalı](#cosmos-indexer-portal), Cosmos içeriği dizini oluşturmak için REST API'leri veya .NET SDK'sı. Azure Search'te Cosmos DB dizinleyici gezinebileceği [Azure Cosmos öğeleri](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) bu protokolleri aracılığıyla erişilebilir:
 
 * [SQL API'Sİ](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
 * [MongoDB API'si](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (genel Önizleme modundadır bu API için Azure arama desteği)  

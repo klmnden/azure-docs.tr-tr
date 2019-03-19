@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: bdc479c6cc91c3ebba343a8423a73fb2e0404a73
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: db701a239aedb312c7671e403cdfde7135130c6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992711"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089616"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Azure API Yönetimi'nde Azure Active Directory B2C kullanarak Geliştirici hesaplarını yetkilendirme nasıl
 
@@ -46,54 +46,54 @@ Azure Active Directory B2C, tüketicilere yönelik web ve mobil uygulamalar içi
 
 3. Kopyalama **yeniden yönlendirme URL'si**.
 
-  ![AAD B2C kimlik sağlayıcısına yeniden yönlendirme URL'si][api-management-howto-copy-b2c-identity-provider-redirect-url]
+   ![AAD B2C kimlik sağlayıcısına yeniden yönlendirme URL'si][api-management-howto-copy-b2c-identity-provider-redirect-url]
 
 4. Yeni bir sekmede, Azure Active Directory B2C kiracınızda Azure portal ve açık erişim **uygulamaları** dikey penceresi.
 
-  ![Yeni bir uygulamayı 1 kaydetme][api-management-howto-aad-b2c-portal-menu]
+   ![Yeni bir uygulamayı 1 kaydetme][api-management-howto-aad-b2c-portal-menu]
 
 5. Tıklayın **Ekle** yeni bir Azure Active Directory B2C uygulaması oluşturmak için.
 
-  ![Yeni bir uygulamayı 2 kaydetme][api-management-howto-aad-b2c-add-button]
+   ![Yeni bir uygulamayı 2 kaydetme][api-management-howto-aad-b2c-add-button]
 
 6. İçinde **yeni uygulama** dikey penceresinde, uygulama için bir ad girin. Seçin **Evet** altında **Web uygulaması/Web API'sini**ve **Evet** altında **örtük akışa izin ver**. Yapıştırın **tekrar yönlendirme URL'sini** 3. adımda kopyaladığınız **yanıt URL'si** metin kutusu.
 
-  ![Yeni bir uygulamayı 3 kaydetme][api-management-howto-aad-b2c-app-details]
+   ![Yeni bir uygulamayı 3 kaydetme][api-management-howto-aad-b2c-app-details]
 
 7. **Oluştur** düğmesine tıklayın. Uygulama oluşturulduğunda görünür **uygulamaları** dikey penceresi. Ayrıntılarını görmek için uygulamanın adına tıklayın.
 
-  ![Yeni bir uygulamayı 4 kaydetme][api-management-howto-aad-b2c-app-created]
+   ![Yeni bir uygulamayı 4 kaydetme][api-management-howto-aad-b2c-app-created]
 
 8. Gelen **özellikleri** dikey penceresinde kopyalama **uygulama kimliği** panoya.
 
-  ![Uygulama kimliği 1][api-management-howto-aad-b2c-app-id]
+   ![Uygulama kimliği 1][api-management-howto-aad-b2c-app-id]
 
 9. Geçiş API Management'a **Ekle kimlik sağlayıcısı** bölmesi ve içine yapıştırma kimliği **istemci kimliği** metin kutusu.
 
-  ![Uygulama kimliği 2][api-management-howto-aad-b2c-client-id]
+   ![Uygulama kimliği 2][api-management-howto-aad-b2c-client-id]
 
 10. B2C uygulaması kayıt anahtarı, tıklatın **anahtarları** düğmesine ve ardından **anahtar üret**. Tıklayın **Kaydet** yapılandırmasını kaydetmek ve görüntülemek için **uygulama anahtarı**. Anahtar, panoya kopyalayın.
 
-  ![1 uygulama anahtarı][api-management-howto-aad-b2c-app-key]
+    ![1 uygulama anahtarı][api-management-howto-aad-b2c-app-key]
 
 11. Geçiş API Management'a **Ekle kimlik sağlayıcısı** bölmesi ve anahtarını yapıştırın **gizli** metin kutusu.
 
-  ![2 uygulama anahtarı][api-management-howto-aad-b2c-client-secret]
+    ![2 uygulama anahtarı][api-management-howto-aad-b2c-client-secret]
 
 12. Azure Active Directory B2C kiracısında etki alanı adını **Kiracının izin verilen**.
 
-  ![İzin verilen Kiracı][api-management-howto-aad-b2c-allowed-tenant]
+    ![İzin verilen Kiracı][api-management-howto-aad-b2c-allowed-tenant]
 
 13. Belirtin **kaydolma İlkesi** ve **Signın ilke** B2C Kiracısı ilkelerden. İsteğe bağlı olarak, sağlayabilirsiniz **Profil Düzenleme İlkesi** ve **parolası sıfırlama İlkesi**.
 
-  ![İlkeler][api-management-howto-aad-b2c-policies]
+    ![İlkeler][api-management-howto-aad-b2c-policies]
 
-  > [!NOTE]
-  > İlkeleri hakkında daha fazla bilgi için bkz. [Azure Active Directory B2C: Genişletilebilir ilke çerçevesi].
+    > [!NOTE]
+    > İlkeleri hakkında daha fazla bilgi için bkz. [Azure Active Directory B2C: Genişletilebilir ilke çerçevesi].
 
 14. İstenen yapılandırmayı belirledikten sonra tıklayın **Kaydet**.
 
-  Değişiklikler kaydedildikten sonra geliştiricilerin yeni hesapları oluşturmanız ve Azure Active Directory B2C kullanarak oturum açın ve geliştirici portalında mümkün olacaktır.
+    Değişiklikler kaydedildikten sonra geliştiricilerin yeni hesapları oluşturmanız ve Azure Active Directory B2C kullanarak oturum açın ve geliştirici portalında mümkün olacaktır.
 
 ## <a name="sign-up-for-a-developer-account-by-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir geliştirici hesabı açın
 

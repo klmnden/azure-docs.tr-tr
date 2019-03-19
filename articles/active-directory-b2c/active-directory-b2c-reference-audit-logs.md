@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9967893e855770b693f0d581a07fe2910df4a3cb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 117d58f6f56fe1b24539c7bfe950f1a23d6de51a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186952"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003607"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C erişim denetim günlükleri
 
@@ -26,6 +26,7 @@ Azure Active Directory B2C (Azure AD B2C) verilen belirteçleri ve yönetici eri
 
 ## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Denetim günlükleri B2C kategorisinde kullanılabilen etkinlikler genel bakış
 **B2C** kategorisi denetim günlüklerinde aşağıdaki etkinlik türlerini içerir:
+
 |Etkinlik türü |Açıklama  |
 |---------|---------|
 |Yetkilendirme |Yetkilendirme, bir kullanıcının erişim B2C kaynaklara (örneğin, yönetici B2C ilkelerinin bir listesini erişme) ilgili etkinlikleri         |
@@ -33,7 +34,7 @@ Azure Active Directory B2C (Azure AD B2C) verilen belirteçleri ve yönetici eri
 |Uygulama | B2C uygulamaları CRUD işlemleri |
 |Anahtar |B2C anahtar kapsayıcısı içinde depolanan anahtarları CRUD işlemleri |
 |Kaynak |B2C kaynaklarını (örneğin, ilkeleri ve kimlik sağlayıcıları) CRUD işlemleri
-|Kimlik Doğrulaması |Belirteç verme ile kullanıcı kimlik bilgilerini ve doğrulama|
+|Authentication |Belirteç verme ile kullanıcı kimlik bilgilerini ve doğrulama|
 
 > [!NOTE]
 > Kullanıcı nesnesi CRUD etkinlikleri için başvurmak **çekirdek dizin** kategorisi.

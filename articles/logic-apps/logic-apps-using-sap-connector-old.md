@@ -2,7 +2,6 @@
 title: SAP sistemlerini - Azure Logic Apps bağlayın | Microsoft Docs
 description: Erişim ve Azure Logic Apps ile iş akışlarını otomatik hale getirerek SAP kaynakları yönetme
 author: ecfan
-manager: jeconnoc
 ms.author: estfan
 ms.date: 05/31/2018
 ms.topic: article
@@ -11,18 +10,17 @@ services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 77d1e11c1400f9a3d6bb6bda8e935cd4d24a195e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d677c0eae9c92f90783ed4ebd95a528b34c872ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230905"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170845"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps'ten SAP sistemlerini bağlanma
 
 > [!NOTE]
-> Bu SAP bağlayıcısı yakında kullanımdan kaldırılacak. SAP bağlayıcısı ve öneri seçin veya taşımak için yeni ve daha gelişmiş yayımlandı [yeni SAP Bağlayıcısı](./logic-apps-using-sap-connector.md).
->  
+> Bu SAP bağlayıcısı kullanımdan kaldırma için zamanlandı. Lütfen kullanın ya da geçiş [daha yeni ve daha gelişmiş SAP Bağlayıcısı](./logic-apps-using-sap-connector.md). 
 
 Bu makalede, SAP uygulama sunucusu ve SAP ileti sunucusu bağlayıcıları kullanarak, SAP kaynaklarınızı mantıksal uygulama içinde nasıl erişeceği gösterilmektedir. Böylece, görevler, süreçleri ve mantıksal uygulamalar oluşturarak SAP veri ve kaynaklarınız yönetme iş akışlarını otomatik hale getirebilirsiniz.
 
@@ -38,7 +36,7 @@ Henüz Azure aboneliğiniz yoksa, <a href="https://azure.microsoft.com/free/" ta
 
 Bu makaleyi izlemek için bu öğeler gerekir:
 
-* SAP sisteminiz ve mantıksal uygulamanızın iş akışı başlatan tetikleyici erişmek istediğiniz mantıksal uygulaması. SAP bağlayıcılar şu anda yalnızca eylemleri belirtin. Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: ilk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* SAP sisteminiz ve mantıksal uygulamanızın iş akışı başlatan tetikleyici erişmek istediğiniz mantıksal uygulaması. SAP bağlayıcılar şu anda yalnızca eylemleri belirtin. Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: İlk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP uygulama sunucusu</a> veya <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP ileti sunucusu</a>
 
@@ -67,7 +65,7 @@ Gönderebilirsiniz, böylece bu örnekte, bir mantıksal uygulama ile bir uç no
 
 1. Azure portalında mantıksal Uygulama Tasarımcısı açılır bir boş mantıksal uygulama oluşturun. 
 
-2. Arama kutusuna filtreniz olarak "http isteği" girin. Tetikleyiciler listesinden şu tetikleyiciyi seçin: **isteği - zaman bir HTTP isteği alındığında**
+2. Arama kutusuna filtreniz olarak "http isteği" girin. Tetikleyiciler listesinden şu tetikleyiciyi seçin: **İstek - bir HTTP isteği alındığında**
 
    ![HTTP isteği tetikleyicisi ekleyin](./media/logic-apps-using-sap-connector-old/add-trigger.png)
 
@@ -93,7 +91,7 @@ Azure Logic apps'te bir [eylem](../logic-apps/logic-apps-overview.md#logic-app-c
    * **SAP uygulama sunucusu - SAP Gönder**
    * **SAP ileti sunucusu - SAP Gönder**
 
-   Bu örnekte bu eylem: **SAP uygulama sunucusu - SAP Gönder**
+   Bu örnek, bu eylem kullanır: **SAP uygulama sunucusu - SAP Gönder**
 
    !["SAP uygulama sunucusu" veya "SAP ileti sunucusu" seçin](media/logic-apps-using-sap-connector-old/select-sap-action.png)
 
@@ -154,7 +152,7 @@ Azure Logic apps'te bir [eylem](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. SAP eylem altında mantıksal Uygulama Tasarımcısı seçin **yeni adım** > **Eylem Ekle**.
 
-2. Arama kutusuna filtreniz olarak "yanıt" girin. Eylem listesinden şu eylemi seçin: **istek - yanıt**
+2. Arama kutusuna filtreniz olarak "yanıt" girin. Eylem listesinden şu eylemi seçin: **İstek - yanıt**
 
 3. İçine tıklayın **gövdesi** dinamik içerik listesinde görünmesi kutusu. Bu listeden altında **göndermek için SAP**seçin **gövdesi** alan. 
 

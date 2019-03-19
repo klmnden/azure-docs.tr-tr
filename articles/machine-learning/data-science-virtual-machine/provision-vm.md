@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 8ee424412c9c54dadef7391084e3ab976da9ad7f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 0b8349c6c59ac64be15c75b28c083a4483f2f68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417457"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896271"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Azure'da Windows veri bilimi sanal makinesi sağlama
 
@@ -44,7 +44,7 @@ Aşağıdaki araçlar bir DSVM içinde dahil edilmiştir:
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) - hızlı makine çevrimiçi karma, allreduce, indirimleri, learning2search ve etkin ve etkileşimli öğrenme tekniklerle destekleyen sistemi öğrenme
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/) -hızlı ve doğru artırmalı ağaç uygulaması sağlayan bir araç
   * [Rattle](https://togaware.com/rattle/) -alır, R analitik aracı kullanmaya ile veri analizi ve makine öğrenimi r'de Bu, GUI tabanlı bir veri keşfi ve modelleme ile otomatik olarak R kodu oluşturmayı içerir.
-  * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) -görsel veri madenciliği ve makine öğrenimi Java'da yazılım
+  * [Weka](https://www.cs.waikato.ac.nz/ml/weka/) -görsel veri madenciliği ve makine öğrenimi Java'da yazılım
   * [Apache ayrıntıya](https://drill.apache.org/) -bir şemasız SQL sorgu alt Apache Hadoop, NoSQL ve bulut depolama. ODBC ve JDBC arabirimleri, NoSQL ve Power BI, Microsoft Excel ve Tableau gibi standart BI araçlarından dosyaları'nı sorgulamak için destekler.
 * Kitaplıklarında, R ve Python için Azure Machine Learning ve diğer Azure Hizmetleri kullanma
 * Git, GitHub ve Azure DevOps içeren kaynak kodu depoları ile çalışmak için Git Bash dahil. Git, Git Bash ve bir komut istemi erişilebilir çeşitli popüler Linux komut satırı yardımcı programları sağlar. Awk, sed, perl, grep, bulma, wget ve curl örnek verilebilir.
@@ -71,7 +71,7 @@ Bu veri bilimi VM görüntüsü için hiçbir yazılım ücreti yoktur. Yalnızc
 
 ## <a name="prerequisite"></a>Önkoşul
 
-Bir Microsoft Veri bilimi sanal makinesi oluşturmak için bir Azure aboneliğinizin olması gerekir. Bkz. [Azure ücretsiz deneme sürümü alma](http://azure.com/free).
+Bir Microsoft Veri bilimi sanal makinesi oluşturmak için bir Azure aboneliğinizin olması gerekir. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.com/free).
 
 ## <a name="create-your-dsvm"></a>DSVM oluşturma
 
@@ -229,4 +229,4 @@ Kullanabileceğiniz [Microsoft Web Platformu yükleyicisi](https://www.microsoft
 * Dosya Gezgini'nde gidin **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** r ile veri analizi Kurumsal ölçekte destekleyen RevoScaleR kitaplığı kullanma örnekleri için.  
 * Makaleyi okuyun [veri bilimi sanal makinesi üzerinde yapabileceğiniz on işlem](https://aka.ms/dsvmtenthings).
 * Sistematik olarak kullanarak uçtan uca analitik çözümler oluşturmayı öğrenin [Team Data Science Process](../team-data-science-process/index.yml).
-* Ziyaret [Azure AI Gallery](http://gallery.cortanaintelligence.com) Azure'da Azure Machine Learning ve ilgili verileri kullanan makine öğrenimi ve veri analizi için örnekleri Hizmetleri. Ayrıca bir simge için Bu galeri üzerinde sağladık **Başlat** menüsünde ve masaüstünde sanal makinenin.
+* Ziyaret [Azure AI Gallery](https://gallery.cortanaintelligence.com) Azure'da Azure Machine Learning ve ilgili verileri kullanan makine öğrenimi ve veri analizi için örnekleri Hizmetleri. Ayrıca bir simge için Bu galeri üzerinde sağladık **Başlat** menüsünde ve masaüstünde sanal makinenin.

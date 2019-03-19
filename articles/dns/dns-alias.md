@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: d751d4898be3fd19f9e6f5d03e9313e9d98e9dd2
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 6c5e0e47f006c6be170bdbf6fee431bfd3b6df0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446104"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105065"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS diğer ad kayıtlarını genel bakış
 
@@ -58,7 +58,7 @@ Bu kısıtlama sahip yük dengeli uygulamalarda uygulama sahipleri için sorun o
 
 Diğer ad kayıtlarını kullanan bu sorun çözülebilir. CNAME kayıtları aksine bölgenin tepesinde diğer ad kayıtlarını oluşturulabilir ve uygulama sahipleri kendi bölge tepesinde kayıt dış uç noktaları olan bir Traffic Manager profiline işaret edecek şekilde kullanabilirsiniz. Uygulama sahibi kendi DNS bölgesi içinde başka bir etki alanı için kullanılan aynı Traffic Manager profilini işaret edebilir.
 
-Örneğin, contoso.com ve www.contoso.com aynı Traffic Manager profiline işaret edebilir. Diğer ad kayıtlarını ile Azure Traffic Manager profillerini kullanma hakkında daha fazla bilgi edinmek için sonraki adımlar bölümüne bakın.
+Örneğin, contoso.com ve www\.contoso.com aynı Traffic Manager profiline işaret edebilir. Diğer ad kayıtlarını ile Azure Traffic Manager profillerini kullanma hakkında daha fazla bilgi edinmek için sonraki adımlar bölümüne bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 56434e12e1d5eec34e8848d71a018147f1e161f6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 54050c4c20b6ebb35f198775448f51ee8cdc533b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777269"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117651"
 ---
 # <a name="check-resource-usage-against-limits"></a>Sınırları karşı kaynak kullanımını denetleyin
 
@@ -34,16 +34,16 @@ Bu makalede, aboneliğiniz ve hangi içinde dağıttığınız her bir ağ kayna
 4. Kullanım bilgilerini görüntülemek istediğiniz abonelik adını seçin.
 5. Altında **ayarları**seçin **kullanım + kota**.
 6. Aşağıdaki seçeneklerden birini belirleyebilirsiniz:
-    - **Kaynak türleri**: Tüm kaynak türleri seçin ya da belirli türlerini görüntülemek istediğiniz kaynakları seçin.
-    - **Sağlayıcıları**: Tüm kaynak sağlayıcılarını seçin veya seçin **işlem**, **ağ**, veya **depolama**.
-    - **Konumları**: Tüm Azure konumları seçin ya da belirli konumları seçin.
-    - Tüm kaynakları veya yalnızca en az bir dağıtıldığı kaynakları göster seçeneğini belirleyebilirsiniz.
+   - **Kaynak türleri**: Tüm kaynak türleri seçin ya da belirli türlerini görüntülemek istediğiniz kaynakları seçin.
+   - **Sağlayıcıları**: Tüm kaynak sağlayıcılarını seçin veya seçin **işlem**, **ağ**, veya **depolama**.
+   - **Konumları**: Tüm Azure konumları seçin ya da belirli konumları seçin.
+   - Tüm kaynakları veya yalnızca en az bir dağıtıldığı kaynakları göster seçeneğini belirleyebilirsiniz.
 
-    Aşağıdaki resimde örnekte Doğu ABD bölgesinde dağıtılmış en az bir kaynak ile ağ kaynaklarını tüm gösterir:
+     Aşağıdaki resimde örnekte Doğu ABD bölgesinde dağıtılmış en az bir kaynak ile ağ kaynaklarını tüm gösterir:
 
-        ![View usage data](./media/check-usage-against-limits/view-usage.png)
+       ![Kullanım verilerini görüntüleme](./media/check-usage-against-limits/view-usage.png)
 
-    Sütunlar, sütunun başlığını seçerek sıralayabilirsiniz. Gösterilen sınırları Aboneliğinize yönelik limitlerdir. Varsayılan bir sınırı artırmanız gerekiyorsa, seçin **isteği artırmak**, ardından tamamlamak ve destek isteği gönderin. Tüm kaynaklar Azure'da listelenen üst sınırına sahip [sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). Geçerli sınırlarınızı zaten maksimum sayı ise, bu sınır yükseltilemez.
+     Sütunlar, sütunun başlığını seçerek sıralayabilirsiniz. Gösterilen sınırları Aboneliğinize yönelik limitlerdir. Varsayılan bir sınırı artırmanız gerekiyorsa, seçin **isteği artırmak**, ardından tamamlamak ve destek isteği gönderin. Tüm kaynaklar Azure'da listelenen üst sınırına sahip [sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). Geçerli sınırlarınızı zaten maksimum sayı ise, bu sınır yükseltilemez.
 
 ## <a name="powershell"></a>PowerShell
 

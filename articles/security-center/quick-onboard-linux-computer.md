@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: e6d2404e6f509c03d2d3965f34d8229de25df4b7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ee28bfebb6732c7bb3b689cf08b9b876adb74b1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114632"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104684"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Hızlı Başlangıç: Linux bilgisayarları Azure Güvenlik Merkezi'ne ekleme
 Azure aboneliklerinizi ekledikten sonra Linux Aracısı’nı sağlayarak Azure dışında (örneğin, şirket içinde veya diğer bulutlarda) çalışan Linux kaynakları için Güvenlik Merkezi’ni etkinleştirebilirsiniz.
@@ -37,7 +37,7 @@ Bu hızlı başlangıca başlamadan önce Güvenlik Merkezi’nin Standart fiyat
 1. [Azure portal](https://azure.microsoft.com/features/azure-portal/) oturum açın.
 2. **Microsoft Azure** menüsünde **Güvenlik Merkezi**’ni seçin. **Güvenlik Merkezi - Genel Bakış** açılır.
 
- ![Güvenlik Merkezine genel bakış][2]
+   ![Güvenlik Merkezine genel bakış][2]
 
 3. Güvenlik Merkezi ana menüsü altında, **Başlarken**’i seçin.
 4. **Başlangıç** sekmesini seçin. ![Başlangıç][3]
@@ -46,16 +46,16 @@ Bu hızlı başlangıca başlamadan önce Güvenlik Merkezi’nin Standart fiyat
 
     ![Azure olmayan bilgisayar ekleme](./media/quick-onboard-linux-computer/non-azure.png)
 
-6.  **Direct Agent** (Doğrudan Aracı) sayfasının **DOWNLOAD AND ONBOARD AGENT FOR LINUX** (Linux için aracıyı indir ve ekle) bölümünden **copy** (Kopyala) düğmesini seçerek *wget* komutunu kopyalayın.
+6. **Direct Agent** (Doğrudan Aracı) sayfasının **DOWNLOAD AND ONBOARD AGENT FOR LINUX** (Linux için aracıyı indir ve ekle) bölümünden **copy** (Kopyala) düğmesini seçerek *wget* komutunu kopyalayın.
 
-7.  Not Defteri'ni açın ve bu komutu yapıştırın. Bu dosyayı Linux bilgisayarınızdan erişilebilen bir konuma kaydedin.
+7. Not Defteri'ni açın ve bu komutu yapıştırın. Bu dosyayı Linux bilgisayarınızdan erişilebilen bir konuma kaydedin.
 
 ## <a name="install-the-agent"></a>Aracıyı yükleme
 
-1.  Linux bilgisayarınızda daha önce kaydedilen dosyayı açın. İçeriğin tamamını seçin, kopyalayın, bir terminal konsolu açın ve komutu yapıştırın.
-2.  Yükleme tamamlandığında *pgrep* komutunu çalıştırarak *omsagent*’ın yüklü olduğunu doğrulayın. Komut tarafından aşağıda gösterildiği gibi *omsagent* PID’si (İşlem Kimliği) döndürülür:
+1. Linux bilgisayarınızda daha önce kaydedilen dosyayı açın. İçeriğin tamamını seçin, kopyalayın, bir terminal konsolu açın ve komutu yapıştırın.
+2. Yükleme tamamlandığında *pgrep* komutunu çalıştırarak *omsagent*’ın yüklü olduğunu doğrulayın. Komut tarafından aşağıda gösterildiği gibi *omsagent* PID’si (İşlem Kimliği) döndürülür:
 
-  ![Aracıyı yükleme][5]
+   ![Aracıyı yükleme][5]
 
 Linux için Güvenlik Merkezi Aracısı günlükleri şu yolda bulunabilir: */var/opt/microsoft/omsagent/<workspace id>/log/*
 

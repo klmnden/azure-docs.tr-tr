@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: d5c18521f39b1b57b5f94a54bb3131e05abba745
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: ed8a829bd73a53dc94bf8b08648b3d6684f718f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556654"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109772"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Önizleme gezginde verileri Görselleştirme
 
@@ -141,7 +141,7 @@ Zaman serisi öngörüleri Önizleme ile çalışırken, ilk olarak bir zaman ar
 
 1. **Tarih aralığı için ve web denetiminden**: Bu web denetimi ile kolayca tıklayın ve istenen tarih ve saat aralığı seçin. Ayrıca, farklı saat dilimleri arasında geçiş yapmak için denetimi de kullanabilirsiniz. Geçerli çalışma alanınıza, uygulanacak değişiklikler yaptıktan sonra seçin **Kaydet**.
 
-  ![Explorer On üç][13]
+   ![Explorer On üç][13]
 
 ## <a name="time-series-insights-preview-navigation-panel"></a>Zaman serisi öngörüleri Önizleme Gezinti Bölmesi
 

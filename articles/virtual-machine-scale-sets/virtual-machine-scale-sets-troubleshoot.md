@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: e4b1153e46625f88c717fd9b7a5336ffe4ca7f6a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 3308b22606e87853aad7e3d3a3995aab8d1b5401
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739558"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005306"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri ile otomatik ölçeklendirme sorunlarını giderme
 **Sorun** – sanal makine ölçek kümeleri'ni kullanarak Azure Resource Manager ile otomatik ölçeklendirme altyapısı oluşturduktan – örneğin de bunun gibi bir şablon dağıtarak: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – ölçeklendirme kurallarınızı tanımlanmış olması ve harika, Hayır dışında çalışır Vm'leri yerleştirdiğiniz ne kadar yük önemli, otomatik ölçeklendirme değil.
@@ -72,14 +72,14 @@ Dikkat etmeniz gerekenler şunlardır:
     
     ![Cloud Explorer][explorer]
     
-   Her sanal makine verilerini depolandığı tabloları bir dizi görürsünüz. Linux ve CPU ölçüm örnek olarak alan, en son satırları arayın. Visual Studio cloud explorer'ın bir sorgu dili destekler; dolayısıyla bir sorgu çalıştırabilirsiniz. Örneğin, bir sorgu için çalıştırabileceğiniz "zaman damgası gt datetime'2016-02-02T21:20:00Z'" en son olayların alacağınızdan emin olmak. Saat dilimi UTC değerine karşılık gelir. Var. karşılık gelen ölçek kuralları ayarlamak, gördüğünüz mu? Aşağıdaki örnekte, son beş dakika boyunca % 100'e artırmak için makine 20 CPU başlatıldı.
+    Her sanal makine verilerini depolandığı tabloları bir dizi görürsünüz. Linux ve CPU ölçüm örnek olarak alan, en son satırları arayın. Visual Studio cloud explorer'ın bir sorgu dili destekler; dolayısıyla bir sorgu çalıştırabilirsiniz. Örneğin, bir sorgu için çalıştırabileceğiniz "zaman damgası gt datetime'2016-02-02T21:20:00Z'" en son olayların alacağınızdan emin olmak. Saat dilimi UTC değerine karşılık gelir. Var. karşılık gelen ölçek kuralları ayarlamak, gördüğünüz mu? Aşağıdaki örnekte, son beş dakika boyunca % 100'e artırmak için makine 20 CPU başlatıldı.
     
     ![Depolama tabloları][tables]
     
     Veri yoksa, Vm'lerde çalışan tanılama uzantısı sorun olduğu anlamına gelir. Veri yoksa ya da bir sorun var. ölçek kurallarınızı veya Insights hizmeti ile gelir. Denetleme [Azure durumu](https://azure.microsoft.com/status/).
     
     Otomatik ölçeklendirme sorunları yaşamaya devam ediyorsanız bu adımlarda kılavuzluğa odaklanmamı sonra aşağıdaki kaynakları deneyebilirsiniz: 
-    * Forumlar okumaya [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows), veya [yığın taşması](http://stackoverflow.com/questions/tagged/azure) 
+    * Forumlar okumaya [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows), veya [yığın taşması](https://stackoverflow.com/questions/tagged/azure) 
     * Bir destek çağrısı açın. Şablon ve performans verilerinizi bir görünümü paylaşmak hazırlıklı olun.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

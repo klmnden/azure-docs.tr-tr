@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cc16c47f3b1764ba6887fd832656dfe2567ba0e4
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: be6d9ab0011e3d6b5d8ae1da489fc60c316e2867
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588950"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095475"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Azure haritalar'ı kullanarak bir etkileşimli arama eşlemesi oluşturma
 
@@ -34,14 +34,14 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 2. İçinde **markette Ara** kutusuna **haritalar**.
 3. **Sonuçlar** içinden **Haritalar**’ı seçin. Seçin **Oluştur** haritanın altında görüntülenen düğme.
 4. Üzerinde **Azure haritalar hesabı oluştur** sayfasında, aşağıdaki değerleri girin:
-    - Yeni hesabınıza verilen **Ad**.
-    - Bu hesap için kullanmak istediğiniz **Abonelik**.
-    - Bu hesap için **Kaynak grubu**. Tercih edebileceğiniz **Yeni Oluştur** veya **var olanı kullan** kaynak grubu.
-    - Seçin **fiyatlandırma katmanı** tercih ettiğiniz.
-    - Okuma **lisans** ve **gizlilik bildirimi**. Koşulları kabul etmek için onay kutusunu işaretleyin.
-    - Son olarak, seçin **Oluştur** düğmesi.
+   - Yeni hesabınıza verilen **Ad**.
+   - Bu hesap için kullanmak istediğiniz **Abonelik**.
+   - Bu hesap için **Kaynak grubu**. Tercih edebileceğiniz **Yeni Oluştur** veya **var olanı kullan** kaynak grubu.
+   - Seçin **fiyatlandırma katmanı** tercih ettiğiniz.
+   - Okuma **lisans** ve **gizlilik bildirimi**. Koşulları kabul etmek için onay kutusunu işaretleyin.
+   - Son olarak, seçin **Oluştur** düğmesi.
 
-    ![Portalda bir Azure haritalar hesabı oluşturma](./media/quick-demo-map-app/create-account.png)
+     ![Portalda bir Azure haritalar hesabı oluşturma](./media/quick-demo-map-app/create-account.png)
 
 5. Hesabınız başarıyla oluşturulduktan sonra açın ve hesap menüsünden ayarları bölümünü bulun. Seçin **anahtarları** Azure haritalar hesabınız için birincil ve ikincil anahtarları görüntülemek için. **Birincil Anahtar** değerini sonraki bölümde kullanmak üzere yerel panonuza kopyalayın.
 

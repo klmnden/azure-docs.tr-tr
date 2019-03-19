@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: nitinme
-ms.openlocfilehash: 5c6d9bbfe5cf3632b21f374c23bf5df728478ce0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7f0bfa407705f4c9535e6dddc9a27a4f7130931d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761064"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113839"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Bilişsel hizmetler nelerdir?
 
@@ -46,7 +46,7 @@ Azure Bilişsel hizmetler API'leri ve SDK'ları Hizmetleri geliştiricilerin do�
 |[Bing yazım denetimi](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Bing yazım denetimi")|Bing yazım denetimi, bağlamsal dil bilgisi ve yazım denetimi sağlar.|
 |[Language Understanding'i LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "dil anlama")|Language Understanding hizmeti (LUIS), uygulamanızın ne bir kişi kendi kelimelerinizle istediği anlamak sağlar.|
 |[Metin analizi](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "metin analizi")|Metin analizi, doğal dil işleme yaklaşım analizi, anahtar ifade ayıklama ve dil algılama için ham metin üzerinde sağlar.|
-|[Translator metin çevirisi](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator metin çevirisi")|Translator metin çevirisi, neredeyse gerçek zamanlı makine tabanlı metin çeviri için sağlar.||
+|[Translator metin çevirisi](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator metin çevirisi")|Translator metin çevirisi, neredeyse gerçek zamanlı makine tabanlı metin çeviri için sağlar.|
 
 ## <a name="search-apis"></a>API arama
 

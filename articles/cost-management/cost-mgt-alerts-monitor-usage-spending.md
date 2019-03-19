@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: d6f7a597ff5737bb5e9a3f07122ece313bd432ff
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: feb7fcdd9005ef131acadfc63defbe4caeaca014
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337794"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991925"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Kullanımı ve harcamayı izleyin maliyet uyarılarını kullanın
 
@@ -49,7 +49,7 @@ Uyarı türleri için destek (Microsoft teklif) sahip bir Azure hesabı türüne
 
 ## <a name="view-cost-alerts"></a>Uyarıları maliyet görüntüle
 
-Azure portalında, hizmetler listesinde **Maliyet Yönetimi + Faturalama**’ya tıklayın. Listenin altında sonra **maliyet Yönetimi**seçin **uyarılar maliyet**.
+Maliyet uyarıları görüntülemek için Azure portal ve select istenen kapsama açın **bütçelerini** menüsünde. Kullanım **kapsam** zehirli farklı bir kapsama geçin. Seçin **uyarılar maliyet** menüsünde. Kapsamlar hakkında daha fazla bilgi için bkz: [anlayın ve kapsamlı iş](understand-work-scopes.md).
 
 ![Uyarılar, maliyet Yönetimi'nde gösterilen örnek görüntüsü](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 

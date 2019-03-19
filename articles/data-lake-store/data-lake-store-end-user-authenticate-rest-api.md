@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 1e952e32142672946fa987b763032dad66f564a9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d5603bb6bbb56d1aebb719902c60de631a4f14f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537890"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108197"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Son kullanıcı kimlik doğrulaması REST API kullanarak Azure Data Lake depolama Gen1 ile
 > [!div class="op_single_selector"]
@@ -45,38 +45,36 @@ Son kullanıcı oturum açma olması sonucunu, uygulamanızın bir erişim belir
 Bu senaryoda, uygulama kullanıcıdan oturum açmasını ister ve tüm işlemler, kullanıcı bağlamında gerçekleştirilir. Aşağıdaki adımları gerçekleştirin:
 
 1. Uygulamanızı kullanarak kullanıcıyı şu URL'ye yönlendirin:
-   
+
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
-   
+
    > [!NOTE]
    > \<REDIRECT-URI>, bir URL içinde kullanılmak üzere kodlanmalıdır. İçin https://localhost, kullanın `https%3A%2F%2Flocalhost`)
-   > 
-   > 
-   
+
     Bu öğreticinin amaçları doğrultusunda, yukarıdaki URL'deki yer tutucu değerlerini değiştirebilir ve bir web tarayıcısının adres çubuğuna yapıştırabilirsiniz. Azure oturum açma bilgilerinizi kullanarak kimlik doğrulaması gerçekleştirmeye yönlendirileceksiniz. Başarıyla oturum açtığınızda yanıt, tarayıcının adres çubuğunda görüntülenir. Yanıt şu biçimde olacaktır:
-   
+
         http://localhost/?code=<AUTHORIZATION-CODE>&session_state=<GUID>
 
 2. Yanıttaki yetki kodunu alın. Bu öğreticide, web tarayıcısı ve onu gönderisinde talep ve belirteç uç noktasına geçişi Adres çubuğundan, aşağıdaki kod parçacığında gösterildiği gibi yetkilendirme kodu kopyalayabilirsiniz:
-   
+
         curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token \
         -F redirect_uri=<REDIRECT-URI> \
         -F grant_type=authorization_code \
         -F resource=https://management.core.windows.net/ \
         -F client_id=<APPLICATION-ID> \
         -F code=<AUTHORIZATION-CODE>
-   
+
    > [!NOTE]
    > Bu durumda, \<REDIRECT-URI> öğesinin kodlanması gerekmez.
    > 
    > 
 
 3. Bir erişim belirteci içeren bir JSON nesnesi yanıttır (örneğin, `"access_token": "<ACCESS_TOKEN>"`) ve bir yenileme belirteci (örneğin, `"refresh_token": "<REFRESH_TOKEN>"`). Uygulamanız bir erişim belirtecinin süresi olduğunda başka bir erişim belirteci almak için Azure Data Lake depolama Gen1 ve yenileme belirteci erişirken erişim belirtecini kullanır.
-   
+
         {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":    "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
 
 4. Erişim belirtecinin süresi dolduğunda, aşağıdaki kod parçacığında gösterildiği gibi yenileme belirtecini kullanarak yeni bir erişim belirteci isteyebilirsiniz:
-   
+
         curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
              -F grant_type=refresh_token \
              -F resource=https://management.core.windows.net/ \
@@ -84,7 +82,7 @@ Bu senaryoda, uygulama kullanıcıdan oturum açmasını ister ve tüm işlemler
              -F refresh_token=<REFRESH-TOKEN>
 
 Etkileşimli kullanıcı kimlik doğrulaması hakkında daha fazla bilgi için bkz. [Yetki kodu izin akışı](https://msdn.microsoft.com/library/azure/dn645542.aspx).
-   
+
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, Azure Data Lake depolama Gen1 ile kimlik doğrulaması için hizmetten hizmete kimlik doğrulaması kullanmayı öğrendiniz REST API kullanarak. Şimdi, Azure Data Lake depolama Gen1 ile çalışmak için REST API kullanma hakkında konuşmak aşağıdaki makaleleri da bakabilirsiniz.
 

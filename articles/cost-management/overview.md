@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 03/13/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 7452ed3606817c71285f3ad32a6069995604d528
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 08a1980a8855fc119a5066e058e9bb4d2df6646e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438355"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998875"
 ---
 # <a name="what-is-the-cloudyn-service"></a>Cloudyn hizmeti nedir?
 
@@ -24,6 +24,35 @@ Microsoft’un bir bağlı şirketi olan Cloudyn, Azure kaynaklarınızın yanı
 Tanıtım videosunu izlemek için bkz. [Azure Cloudyn’e Giriş](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
 
 Azure Maliyet Yönetimi, Cloudyn'e benzer işlevler sunar. Azure Maliyet Yönetimi, yerel Azure maliyet yönetimi çözümüdür. Maliyet analizi yapmanıza, bütçe oluşturup yönetmenize, verileri dışarı aktarmanıza ve tasarruf önerilerini gözden geçirip gerekli eylemleri gerçekleştirmenize yardımcı olur. Daha fazla bilgi için bkz. [Azure Maliyet Yönetimi](overview-cost-mgt.md).
+
+## <a name="cloudyn-features-moving-to-azure-cost-management"></a>Azure maliyet Yönetimi'ne taşıma Cloudyn özellikleri
+
+Microsoft Cloudyn alınan ve maliyet yönetimi özellikleri Cloudyn portalından Azure'a yerel olarak geçirme. Yeni özellikleri kullanmak için oturum açma için Azure portalını ve gidin [maliyet yönetim ve Faturama](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) Azure hizmetleri listesinde. Cloudyn'e karşılaştırıldığında, Gelişmiş performans ve daha düşük veri gecikme süresi yaklaşık sekiz saat yerel deneyimi sunar.
+
+Azure maliyet yönetimi, Kurumsal Anlaşma, Kullandıkça Öde ve MSDN Teklif kategorileri için temel bir özelliği geçiş tamamlanır. Üzerinden Azure maliyet Yönetimi'ne geçiş sürecinde CSP abonelikleri içindir.
+
+Varsa bir teklif kategori henüz geçirilmiş, Cloudyn portalını kullanmaya devam etmeniz gerekir. Diğer herkes, Azure maliyet yönetimi kullanabilirsiniz.
+
+| Microsoft Azure teklifleri ve özellikleri | Önerilen maliyet Yönetimi Hizmeti |
+| --- | --- |
+| Azure Kurumsal Anlaşma | [Azure Maliyet Yönetimi](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| Azure Web Direct (PAYG/MSDN) | [Azure Maliyet Yönetimi](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| Azure Kamu | [Azure Maliyet Yönetimi](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| Azure CSP | [Cloudyn](https://azure.cloudyn.com) |
+| Bulutlar arası maliyet analizi AWS desteği (önizlemede) | [Azure Maliyet Yönetimi](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| AWS önerileri | [Cloudyn](https://azure.cloudyn.com) |
+
+Aşağıdaki özelliklerden bazıları Cloudyn'de kullanılabilir, ancak bunların tümünü Azure maliyet Yönetimi'nde kullanıma sunuldu.
+
+- API'ler
+- Azure işlem önerileri
+- Azure ayırma önerileri
+- Bütçeler
+- Maliyet analizi
+- Azure depolama hesabınız için verileri dışarı aktarma
+- Düşük gecikme süresi
+- Power BI İçerik Paketi ve bağlayıcı
+- Kaynak etiketi desteği
 
 ## <a name="monitor-usage-and-spending"></a>Kullanımı ve harcamayı izleyin
 
@@ -46,6 +75,7 @@ Uyarılar, olağan dışı veya fazla harcama gerçekleştiğinde size bildirimd
 Cloudyn ile en uygun VM kullanımını belirleyebilir ve boş VM’leri tespit edebilir ya da boş VM’leri ve bağlı olmayan diskleri kaldırabilirsiniz. Boyutlandırma Optimizasyonu ve Verimsizlik raporlarındaki bilgileri kullanarak VM’lerin boyutunu düşürme veya boş VM’leri kaldırma planı oluşturabilirsiniz. Bununla birlikte, şu an CSP iş ortağı hesapları ve aboneliklerinde iyileştirme raporları desteklenmemektedir.
 
 AWS Ayrılmış Örnekleri sağladıysanız satın alma önerilerini görüntüleme, kullanılmayan ayırmaları değiştirme ve sağlama planlama imkanı sunan Optimizasyon raporlarıyla ayrılmış örnek kullanımınızı geliştirebilirsiniz.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

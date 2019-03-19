@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e0942f028752b1e3db89802ee889eac7157815d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 194f422c1567103e41f3b39f8510931b1f4762b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205622"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105191"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: LocalDB 10 GB sınırından kurtarma
 Azure AD Connect’e kimlik verilerini depolamak için bir SQL Server veritabanı gerekiyor. Azure AD Connect ile yüklenen varsayılan SQL Server 2012 Express LocalDB’yi kullanabileceğiniz gibi, kendi tam SQL’nizi de kullanabilirsiniz. SQL Server Express 10 GB boyut sınırını uygular. LocalDB’yi kullanırken bu sınıra ulaşıldığında, Azure AD Connect Eşitleme Hizmeti artık düzgün başlatılamaz veya eşitleme yapamaz. Bu makalede, Kurtarma adımları sağlar.
@@ -81,13 +81,13 @@ Azure AD Connect için oluşturduğunuz veritabanına adıdır **ADSync**. Küç
 ### <a name="delete-run-history-data"></a>Geçmiş verileri çalıştırmak Sil
 Varsayılan olarak, Azure AD Connect için çalıştırma geçmişi verilerini yedi gün değerinde yukarı korur. Bu adımda, size Azure AD Connect eşitleme hizmeti yeniden eşitlemeyi başlayabilmesi veritabanı alanını geri kazanarak çalıştırma geçmişi verilerini silin.
 
-1.  Başlangıç **Eşitleme Hizmeti Yöneticisi** → Başlangıç eşitleme hizmetine giderek.
+1. Başlangıç **Eşitleme Hizmeti Yöneticisi** → Başlangıç eşitleme hizmetine giderek.
 
-2.  Git **işlemleri** sekmesi.
+2. Git **işlemleri** sekmesi.
 
-3.  Altında **eylemleri**seçin **Temizle çalıştırmaları**...
+3. Altında **eylemleri**seçin **Temizle çalıştırmaları**...
 
-4.  Ya da tercih edebilirsiniz **tüm çalıştırmalar Temizle** veya **Temizle çalıştıran önce... <date>**  seçeneği. İki günden eski olan geçmiş verileri çalıştırmak temizleyerek Başlat önerilir. DB boyutu sorunu çalıştırmaya devam ederseniz, ardından **tüm çalıştırmalar Temizle** seçeneği.
+4. Ya da tercih edebilirsiniz **tüm çalıştırmalar Temizle** veya **Temizle çalıştıran önce... <date>**  seçeneği. İki günden eski olan geçmiş verileri çalıştırmak temizleyerek Başlat önerilir. DB boyutu sorunu çalıştırmaya devam ederseniz, ardından **tüm çalıştırmalar Temizle** seçeneği.
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Çalıştırma geçmişi verilerini saklama süresini kısaltın
 Bu adım, birden çok eşitleme döngülerinizin sonra 10 GB sınırına sorunu çalıştıran olasılığını azaltmaktır.

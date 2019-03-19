@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 848f319836e492e486bfdcb3c9080860144a7e68
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3424137b36e4e277a8914ab04cdf7097660930e3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869407"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860763"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Hızlı Başlangıç: Bing Web araması için SDK'sını kullanınC#
 
@@ -32,14 +32,14 @@ Bu hızlı başlangıcı çalıştırmak için aşağıdakilere ihtiyacınız ol
 * [Visual Studio Code 2017](https://code.visualstudio.com/download)
   * [Visual Studio Code için C#](https://visualstudio.microsoft.com/downloads/)
   * [NuGet Paket Yöneticisi](https://github.com/jmrog/vscode-nuget-package-manager)
-* [.Net Core SDK](https://www.microsoft.com/net/download)
+* [.NET Core SDK](https://www.microsoft.com/net/download)
 
 ## <a name="create-a-project-and-install-dependencies"></a>Proje oluşturma ve bağımlılıkları yükleme
 
 > [!TIP]
 > Güncel kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)'dan Visual Studio çözümü olarak alın.
 
-İlk adım yeni bir konsol projesi oluşturmaktır. Konsol projesi oluşturma konusunda yardıma ihtiyacınız varsa bkz. [Merhaba Dünya -- İlk Programınız (C# Programlama Kılavuzu)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Bing Web Araması SDK'sını uygulamanızda kullanmak için NuGet Paket Yöneticisi'ni kullanarak `Microsoft.Azure.CognitiveServices.Search.WebSearch` paketini yüklemeniz gerekir.
+İlk adım yeni bir konsol projesi oluşturmaktır. Bir konsol projesi ayarlama konusunda Yardım gerekiyorsa bkz [Hello World--ilk bilgisayarınızı Program (C# Programlama Kılavuzu)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Bing Web Araması SDK'sını uygulamanızda kullanmak için NuGet Paket Yöneticisi'ni kullanarak `Microsoft.Azure.CognitiveServices.Search.WebSearch` paketini yüklemeniz gerekir.
 
 [Web Arama SDK'sı paketi](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) şunları da yükler:
 
@@ -61,7 +61,7 @@ using System.Linq;
 
 ## <a name="create-project-scaffolding"></a>Proje yapı iskelesini oluşturma
 
-Yeni konsol projenizi oluşturduğunuzda uygulamanız için bir ad alanı ve sınıf da oluşturulmuş olmalıdır. Programınız şu şekilde görünmelidir:
+Yeni konsol projenizi oluşturduğunuzda uygulamanız için bir ad alanı ve sınıf da oluşturulmuş olmalıdır. Programınızı şu örnekteki gibi görünmelidir:
 
 ```csharp
 namespace WebSearchSDK
@@ -101,7 +101,7 @@ public static void WebResults(WebSearchAPI client)
 
 ## <a name="handle-the-response"></a>Yanıtı işleme
 
-Şimdi yanıtı ayrıştırmak ve sonuçları yazdırmak için kod ekleyelim. Yanıt nesnesinde mevcutsa ilk web sayfası, görüntü, haber ve video için `name` ile `url` değeri yazdırılır.
+Şimdi yanıtı ayrıştırmak ve sonuçları yazdırmak için kod ekleyelim. Yanıt nesnesinde mevcutsa ilk web sayfası, görüntü, haber ve video için `Name` ile `Url` değeri yazdırılır.
 
 ```csharp
 if (webData?.WebPages?.Value?.Count > 0)
@@ -234,9 +234,10 @@ Bing Web Araması API'sine ilk çağrınızı gönderdiniz. Şimdi sorguları da
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Bing tarafından döndürülen sonuç sayısını sınırlama
 
-Bu örnekte "Best restaurants in Seattle" (Seattle'daki en iyi restoranlar) araması için döndürülen sonuçları sınırlandırmak için `count` ve `offset` parametreleri kullanılmıştır. İlk sonucun `name` ve `URL` değerleri yazdırılır.
+Bu örnekte "Best restaurants in Seattle" (Seattle'daki en iyi restoranlar) araması için döndürülen sonuçları sınırlandırmak için `count` ve `offset` parametreleri kullanılmıştır. İlk sonucun `Name` ve `Url` değerleri yazdırılır.
 
 1. Konsol projenize şu kodu ekleyin:
+
     ```csharp
     public static void WebResultsWithCountAndOffset(WebSearchAPI client)
     {
@@ -271,7 +272,9 @@ Bu örnekte "Best restaurants in Seattle" (Seattle'daki en iyi restoranlar) aram
         }
     }
     ```
+
 2. `main` içine `WebResultsWithCountAndOffset` ekleyin:
+
     ```csharp
     static void Main(string[] args)
     {
@@ -285,13 +288,15 @@ Bu örnekte "Best restaurants in Seattle" (Seattle'daki en iyi restoranlar) aram
         Console.ReadKey();
     }
     ```
+
 3. Uygulamayı çalıştırın.
 
 ### <a name="filter-for-news"></a>Haberler için filtre
 
-Bu örnekte arama sonuçlarını filtrelemek için `response_filter` parametresi kullanılmıştır. Döndürülen arama sonuçları "Microsoft" haberleriyle sınırlandırılmıştır. İlk sonucun `name` ve `URL` değerleri yazdırılır.
+Bu örnekte arama sonuçlarını filtrelemek için `response_filter` parametresi kullanılmıştır. Döndürülen arama sonuçları "Microsoft" haberleriyle sınırlandırılmıştır. İlk sonucun `Name` ve `Url` değerleri yazdırılır.
 
 1. Konsol projenize şu kodu ekleyin:
+
     ```csharp
     public static void WebSearchWithResponseFilter(WebSearchAPI client)
     {
@@ -328,7 +333,9 @@ Bu örnekte arama sonuçlarını filtrelemek için `response_filter` parametresi
         }
     }
     ```
+
 2. `main` içine `WebResultsWithCountAndOffset` ekleyin:
+
     ```csharp
     static void Main(string[] args)
     {
@@ -344,13 +351,15 @@ Bu örnekte arama sonuçlarını filtrelemek için `response_filter` parametresi
         Console.ReadKey();
     }
     ```
+
 3. Uygulamayı çalıştırın.
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Güvenli arama, yanıt sayısı ve yükseltme filtresini kullanma
 
-Bu örnekte "Music Videos" (Müzik Videoları) aramasının sonuçlarını filtrelemek için `answer_count`, `promote` ve `safe_search` parametreleri kullanılmıştır. İlk sonucun `name` ve `URL` değerleri görüntülenir.
+Bu örnekte "Music Videos" (Müzik Videoları) aramasının sonuçlarını filtrelemek için `answer_count`, `promote` ve `safe_search` parametreleri kullanılmıştır. İlk sonucun `Name` ve `ContentUrl` değerleri görüntülenir.
 
 1. Konsol projenize şu kodu ekleyin:
+
     ```csharp
     public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
     {
@@ -386,7 +395,9 @@ Bu örnekte "Music Videos" (Müzik Videoları) aramasının sonuçlarını filtr
         }
     }
     ```
+
 2. `main` içine `WebResultsWithCountAndOffset` ekleyin:
+
     ```csharp
     static void Main(string[] args)
     {
@@ -404,6 +415,7 @@ Bu örnekte "Music Videos" (Müzik Videoları) aramasının sonuçlarını filtr
         Console.ReadKey();
     }
     ```
+
 3. Uygulamayı çalıştırın.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme

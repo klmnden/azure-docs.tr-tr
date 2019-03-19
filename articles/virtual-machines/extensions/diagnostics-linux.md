@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 434971e707cdca62c76ede9f295e7af20aa4cc3f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997972"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Ölçüm ve günlükleri izlemek için Linux tanılama uzantısı kullanma
 
@@ -386,7 +386,7 @@ Bu isteğe bağlı bir bölüm rastgele yürütülmesini denetimleri [OMI](https
 
 Öğe | Değer
 ------- | -----
-ad alanı | (isteğe bağlı) İçinde sorgunun yürütülmesi gereken OMI ad alanı. Belirtilmemişse, varsayılan değer "kök/tarafından uygulanan scx",: [System Center platformlar arası sağlayıcıları](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
+ad alanı | (isteğe bağlı) İçinde sorgunun yürütülmesi gereken OMI ad alanı. Belirtilmemişse, varsayılan değer "kök/tarafından uygulanan scx",: [System Center platformlar arası sağlayıcıları](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 sorgu | Yürütülecek OMI sorgu.
 tablo | (isteğe bağlı) Belirtilen depolama hesabında bir Azure depolama tablosu (bkz [korumalı ayarlarından](#protected-settings)).
 frequency | (isteğe bağlı) Sorgu yürütme arasındaki saniye sayısı. 300 (5 dakika); varsayılan değer: en düşük değer 15 saniyedir.

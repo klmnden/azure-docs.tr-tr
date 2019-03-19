@@ -8,12 +8,12 @@ author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
-ms.openlocfilehash: 12f1e69aeb1021ed7bc97b0c54248c798cfd75b9
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 21fea65ed7056afa57d9acbacb2457bb4d09cff5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002303"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Terraform kullanarak bir Azure sanal makine ölçek kümesi oluşturma
 
@@ -41,7 +41,7 @@ Bu öğreticide, [Azure Cloud Shell](/azure/cloud-shell/overview)'i kullanarak a
 
 ## <a name="create-the-directory-structure"></a>Dizin yapısını oluşturma
 
-1. [Azure portala](http://portal.azure.com) gidin.
+1. [Azure portala](https://portal.azure.com) gidin.
 
 1. [Azure Cloud Shell](/azure/cloud-shell/overview)'i açın. Önceden bir ortam seçmediyseniz **Bash** ortamını seçin.
 
@@ -80,25 +80,25 @@ Azure Cloud Shell'de aşağıdaki adımları gerçekleştirin:
 
 1. Aşağıdaki kodu düzenleyiciye yapıştırın:
 
-  ```JSON
-  variable "location" {
+   ```JSON
+   variable "location" {
     description = "The location where resources will be created"
-  }
+   }
 
-  variable "tags" {
+   variable "tags" {
     description = "A map of the tags to use for the resources that are deployed"
     type        = "map"
 
     default = {
       environment = "codelab"
     }
-  }
+   }
 
-  variable "resource_group_name" {
+   variable "resource_group_name" {
     description = "The name of the resource group in which the resources will be created"
     default     = "myResourceGroup"
-  }
-  ```
+   }
+   ```
 
 1. Esc tuşuna basarak ekleme modundan çıkın.
 
@@ -122,13 +122,13 @@ Azure Cloud Shell'de aşağıdaki adımları gerçekleştirin:
 1. I tuşunu seçerek ekleme moduna geçin.
 
 1. Aşağıdaki kodu düzenleyiciye yapıştırarak tam etki alanı adını (FQDN) sanal makinelerin kullanımına açın.
-:
+   :
 
-  ```JSON
+   ```JSON
     output "vmss_public_ip" {
         value = "${azurerm_public_ip.vmss.fqdn}"
     }
-  ```
+   ```
 
 1. Esc tuşuna basarak ekleme modundan çıkın.
 
@@ -157,78 +157,78 @@ Azure Cloud Shell'de aşağıdaki adımları gerçekleştirin:
 
 1. Aşağıdaki kodu dosyanın sonuna yapıştırarak tam etki alanı adını (FQDN) sanal makinelerin kullanımına açın.
 
-  ```JSON
-  resource "azurerm_resource_group" "vmss" {
+   ```JSON
+   resource "azurerm_resource_group" "vmss" {
     name     = "${var.resource_group_name}"
     location = "${var.location}"
     tags     = "${var.tags}"
-  }
+   }
 
-  resource "random_string" "fqdn" {
+   resource "random_string" "fqdn" {
     length  = 6
     special = false
     upper   = false
     number  = false
-  }
+   }
 
-  resource "azurerm_virtual_network" "vmss" {
+   resource "azurerm_virtual_network" "vmss" {
     name                = "vmss-vnet"
     address_space       = ["10.0.0.0/16"]
     location            = "${var.location}"
     resource_group_name = "${azurerm_resource_group.vmss.name}"
     tags                = "${var.tags}"
-  }
+   }
 
-  resource "azurerm_subnet" "vmss" {
+   resource "azurerm_subnet" "vmss" {
     name                 = "vmss-subnet"
     resource_group_name  = "${azurerm_resource_group.vmss.name}"
     virtual_network_name = "${azurerm_virtual_network.vmss.name}"
     address_prefix       = "10.0.2.0/24"
-  }
+   }
 
-  resource "azurerm_public_ip" "vmss" {
+   resource "azurerm_public_ip" "vmss" {
     name                         = "vmss-public-ip"
     location                     = "${var.location}"
     resource_group_name          = "${azurerm_resource_group.vmss.name}"
     allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}"
     tags                         = "${var.tags}"
-  }
-  ```
+   }
+   ```
 
 1. Esc tuşuna basarak ekleme modundan çıkın.
 
 1. Dosyayı kaydedin ve aşağıdaki komutu girerek VI düzenleyicisini kapatın:
 
-  ```bash
-  :wq
-  ```
+   ```bash
+   :wq
+   ```
 
 ## <a name="provision-the-network-infrastructure"></a>Ağ altyapısını sağlama
 Azure Cloud Shell'i yapılandırma dosyalarını (.tf) oluşturduğunuz dizinde kullanarak aşağıdaki adımları gerçekleştirin:
 
 1. Terraform'u başlatın.
 
-  ```bash
-  terraform init
-  ```
+   ```bash
+   terraform init
+   ```
 
 1. Tanımlanan altyapıyı Azure'a dağıtmak için aşağıdaki komutu çalıştırın.
 
-  ```bash
-  terraform apply
-  ```
+   ```bash
+   terraform apply
+   ```
 
-  **location** değişkeni `variables.tf` dosyasında tanımlandığından ancak ayarlanmadığından Terraform bir "location" değeri belirlemenizi ister. "West US" gibi geçerli bir konum girip Enter tuşuyla onaylayabilirsiniz. (Boşluk içeren değerleri girerken parantez kullanın.)
+   **location** değişkeni `variables.tf` dosyasında tanımlandığından ancak ayarlanmadığından Terraform bir "location" değeri belirlemenizi ister. "West US" gibi geçerli bir konum girip Enter tuşuyla onaylayabilirsiniz. (Boşluk içeren değerleri girerken parantez kullanın.)
 
 1. Terraform, `output.tf` dosyasında tanımlanan şekilde çıkışı yazdırır. Aşağıdaki ekran görüntüsünde gösterildiği gibi FQDN &lt;kimlik>.&lt;konum>.cloudapp.azure.com biçiminde olur. Kimlik değeri hesaplanan bir değerdir ve konum yerine Terraform'u çalıştırırken belirlediğiniz değer gösterilir.
 
-  ![Genel IP adresi için sanal makine ölçek kümesi tam etki alanı adı](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
+   ![Genel IP adresi için sanal makine ölçek kümesi tam etki alanı adı](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
 
 1. Azure portal ana menüsünden **Kaynak grupları**'nı seçin.
 
 1. Terraform tarafından oluşturulan kaynakları görüntülemek için **Kaynak grupları** sekmesinde **myResourceGroup** kaynak grubunu seçin.
-  ![Sanal makine ölçek kümesi ağ kaynakları](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
+   ![Sanal makine ölçek kümesi ağ kaynakları](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
 
 ## <a name="add-a-virtual-machine-scale-set"></a>Sanal makine ölçek kümesi ekleme
 
@@ -238,22 +238,22 @@ Bu bölümde şablona aşağıdaki kaynakları eklemeyi öğreneceksiniz:
 - Yük dengeleyiciye atanacak Azure arka uç adres havuzu
 - Uygulama tarafından kullanılan ve yük dengeleyici üzerinde yapılandırılan sistem durumu yoklama bağlantı noktası
 - Bu makalenin önceki bölümlerinde dağıtılan sanal ağ üzerinde çalışan ve yük dengeleyicinin arkasında bulunan bir sanal makine ölçek kümesi
-- [cloud-init](http://cloudinit.readthedocs.io/en/latest/) kullanılarak yüklenen ve sanal makine ölçek kümesi düğümlerinde bulunan [Nginx](http://nginx.org/).
+- [cloud-init](https://cloudinit.readthedocs.io/en/latest/) kullanılarak yüklenen ve sanal makine ölçek kümesi düğümlerinde bulunan [Nginx](https://nginx.org/).
 
 Cloud Shell'de aşağıdaki adımları gerçekleştirin:
 
 1. `vmss.tf` yapılandırma dosyasını açın.
 
-  ```bash
-  vi vmss.tf
-  ```
+   ```bash
+   vi vmss.tf
+   ```
 
 1. Dosyanın sonuna gidin ve A tuşuna basarak ekleme moduna geçin.
 
 1. Dosyanın sonuna aşağıdaki kodu yapıştırın:
 
-  ```JSON
-  resource "azurerm_lb" "vmss" {
+   ```JSON
+   resource "azurerm_lb" "vmss" {
     name                = "vmss-lb"
     location            = "${var.location}"
     resource_group_name = "${azurerm_resource_group.vmss.name}"
@@ -264,22 +264,22 @@ Cloud Shell'de aşağıdaki adımları gerçekleştirin:
     }
 
     tags = "${var.tags}"
-  }
+   }
 
-  resource "azurerm_lb_backend_address_pool" "bpepool" {
+   resource "azurerm_lb_backend_address_pool" "bpepool" {
     resource_group_name = "${azurerm_resource_group.vmss.name}"
     loadbalancer_id     = "${azurerm_lb.vmss.id}"
     name                = "BackEndAddressPool"
-  }
+   }
 
-  resource "azurerm_lb_probe" "vmss" {
+   resource "azurerm_lb_probe" "vmss" {
     resource_group_name = "${azurerm_resource_group.vmss.name}"
     loadbalancer_id     = "${azurerm_lb.vmss.id}"
     name                = "ssh-running-probe"
     port                = "${var.application_port}"
-  }
+   }
 
-  resource "azurerm_lb_rule" "lbnatrule" {
+   resource "azurerm_lb_rule" "lbnatrule" {
       resource_group_name            = "${azurerm_resource_group.vmss.name}"
       loadbalancer_id                = "${azurerm_lb.vmss.id}"
       name                           = "http"
@@ -289,9 +289,9 @@ Cloud Shell'de aşağıdaki adımları gerçekleştirin:
       backend_address_pool_id        = "${azurerm_lb_backend_address_pool.bpepool.id}"
       frontend_ip_configuration_name = "PublicIPAddress"
       probe_id                       = "${azurerm_lb_probe.vmss.id}"
-  }
+   }
 
-  resource "azurerm_virtual_machine_scale_set" "vmss" {
+   resource "azurerm_virtual_machine_scale_set" "vmss" {
     name                = "vmscaleset"
     location            = "${var.location}"
     resource_group_name = "${azurerm_resource_group.vmss.name}"
@@ -348,8 +348,8 @@ Cloud Shell'de aşağıdaki adımları gerçekleştirin:
     }
 
     tags = "${var.tags}"
-}
-  ```
+   }
+   ```
 
 1. Esc tuşuna basarak ekleme modundan çıkın.
 
@@ -369,77 +369,77 @@ Cloud Shell'de aşağıdaki adımları gerçekleştirin:
 
 1. Aşağıdaki kodu düzenleyiciye yapıştırın:
 
-  ```JSON
-  #cloud-config
-  packages:
+   ```JSON
+   #cloud-config
+   packages:
     - nginx
-  ```
+   ```
 
 1. Esc tuşuna basarak ekleme modundan çıkın.
 
 1. Dosyayı kaydedin ve aşağıdaki komutu girerek VI düzenleyicisini kapatın:
 
-    ```bash
-    :wq
-    ```
+     ```bash
+     :wq
+     ```
 
 1. `variables.tf` yapılandırma dosyasını açın.
 
-  ```bash
-  vi variables.tf
-  ```
+    ```bash
+    vi variables.tf
+    ```
 
 1. Dosyanın sonuna gidin ve A tuşuna basarak ekleme moduna geçin.
 
 1. Dağıtımı özelleştirmek için dosyanın sonuna aşağıdaki kodu yapıştırın:
 
-  ```JSON
-  variable "application_port" {
-      description = "The port that you want to expose to the external load balancer"
-      default     = 80
-  }
+    ```JSON
+    variable "application_port" {
+       description = "The port that you want to expose to the external load balancer"
+       default     = 80
+    }
 
-  variable "admin_user" {
-      description = "User name to use as the admin account on the VMs that will be part of the VM Scale Set"
-      default     = "azureuser"
-  }
+    variable "admin_user" {
+       description = "User name to use as the admin account on the VMs that will be part of the VM Scale Set"
+       default     = "azureuser"
+    }
 
-  variable "admin_password" {
-      description = "Default password for admin account"
-  }
-  ```
+    variable "admin_password" {
+       description = "Default password for admin account"
+    }
+    ```
 
 1. Esc tuşuna basarak ekleme modundan çıkın.
 
 1. Dosyayı kaydedin ve aşağıdaki komutu girerek VI düzenleyicisini kapatın:
 
-    ```bash
-    :wq
-    ```
+     ```bash
+     :wq
+     ```
 
 1. Sanal makine ölçek kümesi dağıtımını görselleştirmek için bir Terraform planı oluşturun. (Kaynaklarınızın konumuna ek olarak bir parola da belirlemeniz gerekir.)
 
-  ```bash
-  terraform plan
-  ```
+    ```bash
+    terraform plan
+    ```
 
-  Komut çıktısı aşağıdaki ekran görüntüsüne benzer olmalıdır:
+    Komut çıktısı aşağıdaki ekran görüntüsüne benzer olmalıdır:
 
-  ![Sanal makine ölçek kümesi oluşturma işleminin çıkışı](./media/terraform-create-vm-scaleset-network-disks-hcl/add-mvss-plan.png)
+    ![Sanal makine ölçek kümesi oluşturma işleminin çıkışı](./media/terraform-create-vm-scaleset-network-disks-hcl/add-mvss-plan.png)
 
 1. Yeni kaynakları Azure'a dağıtın.
 
-  ```bash
-  terraform apply
-  ```
+    ```bash
+    terraform apply
+    ```
 
-  Komut çıktısı aşağıdaki ekran görüntüsüne benzer olmalıdır:
+    Komut çıktısı aşağıdaki ekran görüntüsüne benzer olmalıdır:
 
-  ![Terraform sanal makine ölçek kümesi kaynak grubu](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
+    ![Terraform sanal makine ölçek kümesi kaynak grubu](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
 
 1. Bir tarayıcı penceresi açın ve komutun döndürdüğü FQDN değerine bağlanın.
 
-  ![FQDN değerine göz atma sonuçları](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
+    ![FQDN değerine göz atma sonuçları](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
 ## <a name="add-an-ssh-jumpbox"></a>SSH sıçrama kutusu ekleme
 SSH *sıçrama kutusu*, ağdaki diğer sunuculara erişmek için üzerine "sıçradığınız" tek bir sunucudur. Bu adımda aşağıdaki kaynakları oluşturacaksınız:
@@ -450,25 +450,25 @@ SSH *sıçrama kutusu*, ağdaki diğer sunuculara erişmek için üzerine "sıç
 
 1. `vmss.tf` yapılandırma dosyasını açın.
 
-  ```bash
-  vi vmss.tf
-  ```
+   ```bash
+   vi vmss.tf
+   ```
 
 1. Dosyanın sonuna gidin ve A tuşuna basarak ekleme moduna geçin.
 
 1. Dosyanın sonuna aşağıdaki kodu yapıştırın:
 
-  ```JSON
-  resource "azurerm_public_ip" "jumpbox" {
+   ```JSON
+   resource "azurerm_public_ip" "jumpbox" {
     name                         = "jumpbox-public-ip"
     location                     = "${var.location}"
     resource_group_name          = "${azurerm_resource_group.vmss.name}"
     allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}-ssh"
     tags                         = "${var.tags}"
-  }
+   }
 
-  resource "azurerm_network_interface" "jumpbox" {
+   resource "azurerm_network_interface" "jumpbox" {
     name                = "jumpbox-nic"
     location            = "${var.location}"
     resource_group_name = "${azurerm_resource_group.vmss.name}"
@@ -481,9 +481,9 @@ SSH *sıçrama kutusu*, ağdaki diğer sunuculara erişmek için üzerine "sıç
     }
 
     tags = "${var.tags}"
-  }
+   }
 
-  resource "azurerm_virtual_machine" "jumpbox" {
+   resource "azurerm_virtual_machine" "jumpbox" {
     name                  = "jumpbox"
     location              = "${var.location}"
     resource_group_name   = "${azurerm_resource_group.vmss.name}"
@@ -515,24 +515,24 @@ SSH *sıçrama kutusu*, ağdaki diğer sunuculara erişmek için üzerine "sıç
     }
 
     tags = "${var.tags}"
-  }
-  ```
+   }
+   ```
 
 1. `output.tf` yapılandırma dosyasını açın.
 
-  ```bash
-  vi output.tf
-  ```
+   ```bash
+   vi output.tf
+   ```
 
 1. Dosyanın sonuna gidin ve A tuşuna basarak ekleme moduna geçin.
 
 1. Dağıtım tamamlandığında sıçrama kutusunun ana bilgisayar adının gösterilmesi için aşağıdaki kodu dosyanın sonuna yapıştırın:
 
-  ```
-  output "jumpbox_public_ip" {
+   ```
+   output "jumpbox_public_ip" {
       value = "${azurerm_public_ip.jumpbox.fqdn}"
-  }
-  ```
+   }
+   ```
 
 1. Esc tuşuna basarak ekleme modundan çıkın.
 
@@ -544,9 +544,9 @@ SSH *sıçrama kutusu*, ağdaki diğer sunuculara erişmek için üzerine "sıç
 
 1. Sıçrama kutusu dağıtın.
 
-  ```bash
-  terraform apply
-  ```
+   ```bash
+   terraform apply
+   ```
 
 Dağıtım tamamlandıktan sonra kaynak grubunun içeriği şu ekran görüntüsünde gösterilene benzer olacaktır:
 

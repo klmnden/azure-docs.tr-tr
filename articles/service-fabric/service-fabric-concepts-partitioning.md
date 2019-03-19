@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 492afcdd5143aa5a6597ba8c296d15059f9c7d64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 82b95080a9c93d8c02d4129ef93b1a6c9deba7aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453278"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852775"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partition Service Fabric güvenilir Hizmetleri
 Bu makalede, Azure Service Fabric güvenilir Hizmetleri bölümleme temel kavramlar tanıtılmaktadır. Makalesinde kullanılan kaynak kodu de kullanılabilir [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -113,7 +113,7 @@ Karma önemli bir bölümü, karma algoritması seçmektir. Hedef birbirine yak�
 
 İyi dağıtım karma algoritma özelliklerini şunlardır: işlem kolaydır, birkaç çakışmaları olan ve anahtarları eşit olarak dağıtır. Verimli bir karma algoritması iyi bir örnektir [FNV 1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) karma algoritması.
 
-Genel karma kod algoritması seçenekleri için iyi bir kaynaktır [karma işlevlerini Wikipedia sayfasında](http://en.wikipedia.org/wiki/Hash_function).
+Genel karma kod algoritması seçenekleri için iyi bir kaynaktır [karma işlevlerini Wikipedia sayfasında](https://en.wikipedia.org/wiki/Hash_function).
 
 ## <a name="build-a-stateful-service-with-multiple-partitions"></a>Birden çok bölüm ile durum bilgisi olan hizmet oluşturma
 Bir ilk durum bilgisi olan güvenilir hizmet ile birden çok bölüm oluşturalım. Bu örnekte, aynı bölüm içindeki aynı harfi ile başlayan tüm adların saklamak istediğiniz çok basit bir uygulama oluşturacaksınız.

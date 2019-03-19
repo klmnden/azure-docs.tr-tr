@@ -12,12 +12,12 @@ ms.date: 01/30/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03e91726dd8f37fb2c3b8ffe2c8e89762e8d3dd6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2281bc451a5acf9e4e634a124161a3e8b0734deb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546390"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090517"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Öğretici:  PHS, Azure AD Connect, AD FS için yedek olarak ayarlama
 
@@ -60,9 +60,9 @@ Biz, Federasyon, kullanarak bir Azure AD Connect ortama sahip olduğunuza göre 
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Kullanıcılarımızın biriyle oturum açma testi
 
-1.  Göz atın [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Göz atın [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Sunduğumuz yeni kiracıda oluşturduğunuz kullanıcı hesabınızla oturum açın.  Aşağıdaki biçimi kullanarak oturum açmanız gerekir: (user@domain.onmicrosoft.com). Şirket içi ad'nizde oturum açmak için kullanıcının kullandığı aynı parolayı kullanın.</br>
-![Doğrulayın](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Doğrulayın](media/tutorial-password-hash-sync/verify1.png)</br>
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

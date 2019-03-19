@@ -12,25 +12,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: a07512c801d8e6c0f0ff3242fe1b94eeab5b2534
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 64a4e7a181f7bd24e305ef5ee8d3d6657c3f394b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105007"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081296"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM ürünler/hizmetler BT Hizmet Yönetimi Bağlayıcısı ile bağlanma
 Bu makalede, iş öğeleri merkezi olarak yönetmek için Log Analytics'te ITSM ürününüz/hizmetiniz ve BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC) arasındaki bağlantıyı yapılandırmak hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [genel bakış](../../azure-monitor/platform/itsmc-overview.md).
 
 Aşağıdaki ITSM ürünler/hizmetler desteklenir. Ürün için ITSMC bağlanma hakkında ayrıntılı bilgi görüntülemek için bir ürün seçin.
 
-- [System Center Hizmet Yöneticisi](#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
+- [System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-azure)
 - [Provance](#connect-provance-to-it-service-management-connector-in-azure)
 - [Cherwell](#connect-cherwell-to-it-service-management-connector-in-azure)
 
 > [!NOTE]
-
+> 
 > ITSM Bağlayıcısı, yalnızca bulut tabanlı ServiceNow örneklerine bağlanabilirsiniz. Şirket içi ServiceNow örneği şu anda desteklenmemektedir.
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>System Center Service Manager BT hizmetine bağlanmak azure'da Yönetimi Bağlayıcısı
@@ -62,7 +62,7 @@ System Center Service Manager Örneğiniz için ITSMC bağlanmak için aşağıd
 4. Aşağıdaki tabloda açıklandığı gibi bilgileri belirtin ve tıklayın **Tamam** bağlantı oluşturmak için.
 
 > [!NOTE]
-
+> 
 > Bu parametre zorunludur.
 
 | **Alan** | **Açıklama** |
@@ -137,14 +137,14 @@ Service Manager örneğinin azure'da ITSMC bağlanan karma bağlantıyı yapıla
 
 6. Aşağıdaki değerleri yazın:
 
-    - **Uç nokta adı**: Yeni Karma bağlantı için bir ad belirtin.
-    -  **Uç nokta konak**: Service Manager yönetim sunucusunun FQDN'si.
-    - **Uç nokta bağlantı noktası**: Tür 5724
-    - **Servicebus ad alanı**: Var olan bir Service Bus ad alanı kullanabilir veya yeni bir tane oluşturun.
-    - **Konum**: konumu seçin.
-    -  **Ad**: Oluşturmakta olduğunuz servicebus için bir ad belirtin.
+   - **Uç nokta adı**: Yeni Karma bağlantı için bir ad belirtin.
+   - **Uç nokta konak**: Service Manager yönetim sunucusunun FQDN'si.
+   - **Uç nokta bağlantı noktası**: Tür 5724
+   - **Servicebus ad alanı**: Var olan bir Service Bus ad alanı kullanabilir veya yeni bir tane oluşturun.
+   - **Konum**: konumu seçin.
+   - **Ad**: Oluşturmakta olduğunuz servicebus için bir ad belirtin.
 
-    ![Karma bağlantı değerleri](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
+     ![Karma bağlantı değerleri](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. Tıklayın **Tamam** kapatmak için **karma bağlantı oluşturma** dikey penceresinde ve karma bağlantı oluşturmaya başlayabilirsiniz.
 
     Karma bağlantı oluşturulduktan sonra bu dikey pencerenin altında görüntülenir.
@@ -171,7 +171,7 @@ Karma bağlantı başarıyla bağlandı.
 
 ![başarılı bir karma bağlantı](media/itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
-
+> 
 > Sonra karma bağlantısı oluşturulur, doğrulayın ve dağıtılan Service Manager Web uygulamasını ziyaret ederek bağlantıyı test edin. Azure'da ITSMC bağlanmaya çalışmadan önce bağlantının başarılı olduğundan emin olun.
 
 Aşağıdaki örnek resimde, başarılı bir bağlantı ayrıntılarını gösterir:
@@ -244,20 +244,20 @@ Daha fazla bilgi edinin: [Azure uyarılarından ITSM iş öğeleri oluşturma](.
 
 Aşağıdaki yordam kullanıcı:
 
-1.  Ziyaret [ServiceNow deposu](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) yükleyip **servicenow'ı ve Microsoft OMS tümleştirmesi için kullanıcı uygulaması** ServiceNow örneğinizin içinde.
+1. Ziyaret [ServiceNow deposu](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) yükleyip **servicenow'ı ve Microsoft OMS tümleştirmesi için kullanıcı uygulaması** ServiceNow örneğinizin içinde.
    
    >[!NOTE]
    >Azure İzleyici sürekli geçiş Microsoft Operations Management Suite (OMS) gelen bir parçası olarak, OMS artık Log Analytics adlandırılır.     
-2.  Yüklemeden sonra sol gezinti çubuğunda ServiceNow örneğinin, arama ve seçme Microsoft OMS entegratörü ziyaret edin.  
-3.  Tıklayın **yükleme Yapılacaklar listesi**.
+2. Yüklemeden sonra sol gezinti çubuğunda ServiceNow örneğinin, arama ve seçme Microsoft OMS entegratörü ziyaret edin.  
+3. Tıklayın **yükleme Yapılacaklar listesi**.
 
-    Durum olarak görüntülenen **tamamlanmadı** oluşturulacak kullanıcı rolünün henüz ise.
+   Durum olarak görüntülenen **tamamlanmadı** oluşturulacak kullanıcı rolünün henüz ise.
 
-4.  Metin kutularındaki yanındaki **tümleştirme kullanıcı oluşturma**, azure'da ITSMC bağlanıp kullanıcı kullanıcı adını girin.
-5.  Bu kullanıcı için parola girin ve tıklayın **Tamam**.  
+4. Metin kutularındaki yanındaki **tümleştirme kullanıcı oluşturma**, azure'da ITSMC bağlanıp kullanıcı kullanıcı adını girin.
+5. Bu kullanıcı için parola girin ve tıklayın **Tamam**.  
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > Azure'da ServiceNow bağlantı kurmak için bu kimlik bilgilerini kullanın.
 
 Yeni oluşturulan kullanıcı atanmış varsayılan rolleri ile görüntülenir.
@@ -273,9 +273,9 @@ Yeni oluşturulan kullanıcı atanmış varsayılan rolleri ile görüntülenir.
 Kullanıcı başarıyla oluşturulduktan sonra durumunu **denetleyin yükleme Yapılacaklar listesi** uygulama için oluşturulan kullanıcı rolünün ayrıntılarını listeleme tamamlandı olarak taşır.
 
 > [!NOTE]
-
+> 
 > ITSM Bağlayıcısı ServiceNow Örneğinizde yüklü modüllerin olmadan ServiceNow olayları gönderebilirsiniz. ServiceNow Örneğinizde EventManagement modülünü kullanıyorsanız ve olayları veya uyarıları bağlayıcı kullanarak ServiceNow içinde oluşturmak istediğiniz aşağıdaki rolleri için tümleştirme kullanıcısının ekleyin:
-
+> 
 >    - evt_mgmt_integration
 >    - evt_mgmt_operator  
 
@@ -309,7 +309,7 @@ Provance bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 4. Aşağıdaki tabloda açıklandığı gibi bilgileri belirtin ve tıklayın **Tamam** bağlantı oluşturmak için.
 
 > [!NOTE]
-
+> 
 > Bu parametre zorunludur.
 
 | **Alan** | **Açıklama** |
@@ -360,7 +360,7 @@ Provance bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 4. Aşağıdaki tabloda açıklandığı gibi bilgileri belirtin ve tıklayın **Tamam** bağlantı oluşturmak için.
 
 > [!NOTE]
-
+> 
 > Bu parametre zorunludur.
 
 | **Alan** | **Açıklama** |

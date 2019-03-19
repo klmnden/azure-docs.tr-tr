@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 6960f6da2eb8c867d36ba4073d1a0fcafe8d75bf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9e29b08da35b9fd2f479f1d4e3b0d89ed881344b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443216"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902010"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Windows 10 için akış çevrimdışı PlayReady
 
@@ -41,7 +41,7 @@ Azure Media Services, çevrimdışı yükleme/oynatma DRM koruması desteği. Bu
 * MP4 birçok oynatıcılar, kodlayıcı araçlar tarafından desteklenir, ancak hiçbir bağlama yok MP4 kapsayıcı DRM; arasındaki
 * Uzun vadede CFF CENC ile Git yoludur. Bununla birlikte, bugün, Araçlar/player destek ekosistemi henüz yok. Çözüm, bugün ihtiyacımız var.
  
-Fikirdir: kesintisiz akış ([PIFF](http://go.microsoft.com/?linkid=9682897)) H264/AAC ile dosya biçimine sahip bir bağlamayla PlayReady (AES-128 CTRL). (Ses, video karışık olduğunu varsayarak) bireysel kesintisiz akış .ismv dosya kendisi bir fMP4 ve kayıttan yürütme için kullanılabilir. Kesintisiz akış içerik üzerinden PlayReady şifreleme aşması durumunda, her .ismv dosya korumalı bir PlayReady olur parçalanmış MP4. Tercih edilen hızı ile bir .ismv dosyasını seçin ve indirme için .mp4 olarak yeniden adlandırın.
+Fikirdir: kesintisiz akış ([PIFF](https://go.microsoft.com/?linkid=9682897)) H264/AAC ile dosya biçimine sahip bir bağlamayla PlayReady (AES-128 CTRL). (Ses, video karışık olduğunu varsayarak) bireysel kesintisiz akış .ismv dosya kendisi bir fMP4 ve kayıttan yürütme için kullanılabilir. Kesintisiz akış içerik üzerinden PlayReady şifreleme aşması durumunda, her .ismv dosya korumalı bir PlayReady olur parçalanmış MP4. Tercih edilen hızı ile bir .ismv dosyasını seçin ve indirme için .mp4 olarak yeniden adlandırın.
 
 PlayReady barındırma MP4 korumalı aşamalı indirme için iki seçenek vardır:
 
@@ -57,12 +57,12 @@ Aşağıda test varlıklar, ilk iki kümesi olan bir Azure sanal makinesinde bar
 
 Varlık #1:
 
-* Aşamalı indirme URL'si: [http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
+* Aşamalı indirme URL'si: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
 * PlayReady LA_URL (AMS): [https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
 
 Varlık #2:
 
-* Aşamalı indirme URL'si: [http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* Aşamalı indirme URL'si: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady LA_URL (şirket içi): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
 Kayıttan yürütme test etmek için bir evrensel Windows uygulaması Windows 10'da kullandık. İçinde [Windows 10 Evrensel örnekleri](https://github.com/Microsoft/Windows-universal-samples), adlı bir temel player örneği [Uyarlamalı akış örnek](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Tüm yapılacağını sahibiz gelir bizim yüklenen görüntü çekme ve Uyarlamalı akış kaynağı yerine bir kaynak olarak kullanmak için kodu ekleyin. Değişiklikler düğmesine tıklama olay işleyicisi:

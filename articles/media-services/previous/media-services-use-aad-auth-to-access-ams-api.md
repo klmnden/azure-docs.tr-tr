@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fa13ffe450b60bd8c896636911268a98b49bbc0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994110"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104140"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD kimlik doğrulamasıyla Azure Media Services API'sine erişim  
  
@@ -71,20 +71,20 @@ Yukarıdaki diyagramda, istekleri kronolojik sırada akışını sayıları tems
 1. Bir kullanıcıdan kimlik bilgilerini ister.
 2. Aşağıdaki parametrelerle bir Azure AD erişim belirteci isteği:  
 
-    * Azure AD Kiracı uç noktası.
+   * Azure AD Kiracı uç noktası.
 
-        Kiracı bilgileri, Azure portalından alınabilir. İmlecinizi üst oturum açan kullanıcı adının üzerine sağ alt köşesinde yerleştirin.
-    * Media Services kaynak URI'si. 
+       Kiracı bilgileri, Azure portalından alınabilir. İmlecinizi üst oturum açan kullanıcı adının üzerine sağ alt köşesinde yerleştirin.
+   * Media Services kaynak URI'si. 
 
-        Bu URI aynı Azure ortamında olan Media Services hesapları için aynıdır (örneğin, https://rest.media.azure.net).
+       Bu URI aynı Azure ortamında olan Media Services hesapları için aynıdır (örneğin, https://rest.media.azure.net).
 
-    * Media Services (yerel) uygulama istemci kimliği
-    * Media Services (yerel) uygulama yeniden yönlendirme URI'si.
-    * Kaynak REST Media Services için URI.
+   * Media Services (yerel) uygulama istemci kimliği
+   * Media Services (yerel) uygulama yeniden yönlendirme URI'si.
+   * Kaynak REST Media Services için URI.
         
-        REST API uç noktası URI'si temsil eder (örneğin, https://test03.restv2.westus.media.azure.net/api/).
+       REST API uç noktası URI'si temsil eder (örneğin, https://test03.restv2.westus.media.azure.net/api/).
 
-    Bu parametrelerin değerlerini almak için bkz: [Azure AD kimlik doğrulama ayarlarına erişmek için Azure portal'ı kullanmanızı](media-services-portal-get-started-with-aad.md) kullanarak kullanıcı kimlik doğrulaması seçeneği.
+     Bu parametrelerin değerlerini almak için bkz: [Azure AD kimlik doğrulama ayarlarına erişmek için Azure portal'ı kullanmanızı](media-services-portal-get-started-with-aad.md) kullanarak kullanıcı kimlik doğrulaması seçeneği.
 
 3. Azure AD erişim belirteci istemciye gönderilir.
 4. İstemci, Azure medya REST API'si ile Azure AD erişim belirteci bir istek gönderir.
@@ -113,20 +113,20 @@ Azure AD uygulamanızı oluşturduktan sonra aşağıdaki ayarları için değer
     
 1. Aşağıdaki parametrelere sahip bir Azure AD erişim belirteci (web API'si veya web uygulaması) bir orta katman uygulaması ister:  
 
-    * Azure AD Kiracı uç noktası.
+   * Azure AD Kiracı uç noktası.
 
-        Kiracı bilgileri, Azure portalından alınabilir. İmlecinizi üst oturum açan kullanıcı adının üzerine sağ alt köşesinde yerleştirin.
-    * Media Services kaynak URI'si. 
+       Kiracı bilgileri, Azure portalından alınabilir. İmlecinizi üst oturum açan kullanıcı adının üzerine sağ alt köşesinde yerleştirin.
+   * Media Services kaynak URI'si. 
 
-        Bu URI aynı Azure ortamında bulunan Media Services hesapları için aynıdır (örneğin, https://rest.media.azure.net).
+       Bu URI aynı Azure ortamında bulunan Media Services hesapları için aynıdır (örneğin, https://rest.media.azure.net).
 
-    * Kaynak REST Media Services için URI.
+   * Kaynak REST Media Services için URI.
 
-        REST API uç noktası URI'si temsil eder (örneğin, https://test03.restv2.westus.media.azure.net/api/).
+       REST API uç noktası URI'si temsil eder (örneğin, https://test03.restv2.westus.media.azure.net/api/).
 
-    * Azure AD uygulama değerlerini: istemci Kimliğini ve istemci gizli anahtarı.
+   * Azure AD uygulama değerlerini: istemci Kimliğini ve istemci gizli anahtarı.
     
-    Bu parametrelerin değerlerini almak için bkz: [Azure AD kimlik doğrulama ayarlarına erişmek için Azure portalını kullanma](media-services-portal-get-started-with-aad.md) kullanarak hizmet sorumlusu kimlik doğrulaması seçeneği.
+     Bu parametrelerin değerlerini almak için bkz: [Azure AD kimlik doğrulama ayarlarına erişmek için Azure portalını kullanma](media-services-portal-get-started-with-aad.md) kullanarak hizmet sorumlusu kimlik doğrulaması seçeneği.
 
 2. Azure AD erişim belirteci için orta katman gönderilir.
 4. Orta katman Azure AD belirteciyle Azure medya REST API isteği gönderir.

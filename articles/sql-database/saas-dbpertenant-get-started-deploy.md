@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 97570a16c7d87a3c8182909b61c04fde30b3fe9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453680"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000211"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Kiracı başına veritabanı desen ile SQL veritabanı kullanan çok kiracılı bir SaaS uygulama keşfedin ve dağıtın
 
@@ -56,7 +56,7 @@ Artık adlarınızı seçin ve not edin.
 
 1. Wingtip bilet SaaS Kiracı başına veritabanı dağıtım şablonu Azure Portalı'nda açmak için seçmeniz **azure'a Dağıt**.
 
-   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. Değerleri şablon için gerekli parametreler girin.
 
@@ -186,9 +186,9 @@ Arka plan işleri izlemek ve denetlemek istiyorsanız, aşağıdaki cmdlet'leri 
 
 4. Varsa `$OneTime = $false`, yük Oluşturucu, arka plan işleri başlatır ve sonra çalışmaya devam eder. 10 saniyede bir, sağlanan tüm yeni kiracılara izler. Ayarlarsanız `$OneTime = $true`, LoadGenerator arka plan işleri başlar ve durur ön planda çalışmıyor. Bu öğreticide, bırakın `$OneTime = $false`.
 
-  Durdurmak veya yük oluşturucuyu yeniden başlatmak istiyorsanız Ctrl-C ya da durdurma işlemi Ctrl-Break kullanın.
+   Durdurmak veya yük oluşturucuyu yeniden başlatmak istiyorsanız Ctrl-C ya da durdurma işlemi Ctrl-Break kullanın.
 
-  Ön planda çalışan yük Oluşturucu değiştirmeden bırakırsanız, başka PowerShell betikleri çalıştırmak için başka bir PowerShell ISE örneği kullanın.
+   Ön planda çalışan yük Oluşturucu değiştirmeden bırakırsanız, başka PowerShell betikleri çalıştırmak için başka bir PowerShell ISE örneği kullanın.
 
 &nbsp;
 
@@ -221,7 +221,7 @@ Yeni Kiracı listede görünür hale getirmek için olay hub'ı yenileyin.
 
 Bir yük koleksiyonuna yönelik karşı çalışan başladıktan sonra dağıtılan kaynaklardan bazıları göz atalım.
 
-1. İçinde [Azure portalında](http://portal.azure.com), SQL sunucuları listesine göz atın. Açılacağını **Kataloğu-dpt -&lt;kullanıcı&gt;** sunucusu.
+1. İçinde [Azure portalında](https://portal.azure.com), SQL sunucuları listesine göz atın. Açılacağını **Kataloğu-dpt -&lt;kullanıcı&gt;** sunucusu.
     - Katalog sunucusu iki veritabanı içeren **tenantcatalog** ve **basetenantdb** (yeni kiracılar oluşturmak için kopyalanan bir şablon veritabanı).
 
    ![Veritabanları](./media/saas-dbpertenant-get-started-deploy/databases.png)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: a4d1c143b7d3277715386b43511ac908a36f85f0
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 7ef152b130e77e833e19c51ff97d0cea577216c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844866"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845010"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Etkin Directory Role-Based erişim denetimi (Önizleme)
 
@@ -57,7 +57,7 @@ Kullanıcı hesabı artık Service Bus ad alanı erişimi olan ve daha önce olu
 
 Örnek uygulamayı çalıştırmadan önce Azure AD'ye kaydetme ve kendi adına Azure Service Bus erişmesine izin veren bir onay istemi onaylayın.
 
-Örnek uygulama bir konsol uygulaması olduğundan yerel bir uygulamayı kaydetme ve API izinlerini eklemeniz gerekir **Microsoft.ServiceBus** "gerekli izinler" kümesi. Yerel uygulamalar da gereken bir **redırect-URI** ; tanımlayıcı olarak hizmet veren Azure AD'de URI ağ hedef olması gerekmez. Kullanım `http://servicebus.microsoft.com` kod örneği olduğundan bu örnek için bu URI kullanır.
+Örnek uygulama bir konsol uygulaması olduğundan yerel bir uygulamayı kaydetme ve API izinlerini eklemeniz gerekir **Microsoft.ServiceBus** "gerekli izinler" kümesi. Yerel uygulamalar da gereken bir **redırect-URI** ; tanımlayıcı olarak hizmet veren Azure AD'de URI ağ hedef olması gerekmez. Kullanım `https://servicebus.microsoft.com` kod örneği olduğundan bu örnek için bu URI kullanır.
 
 Ayrıntılı kayıt adımları açıklanmıştır [Bu öğreticide](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Kaydetmek için adımları izleyin bir **yerel** uygulama ve ardından eklemek için güncelleştirme talimatları izleyin **Microsoft.ServiceBus** API için gerekli izinleri. Bu adımları izlediğiniz gibi Not **Tenantıd** ve **ApplicationId**gibi uygulamayı çalıştırmak için bu değerlere ihtiyacınız olur.
 

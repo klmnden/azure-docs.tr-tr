@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d9855f107f9888fbfbcb10a3df849e78c87c0605
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246771"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123411"
 ---
 # <a name="optimize-sql-server-performance"></a>SQL Server performansı en iyi duruma getirme
 
@@ -104,20 +104,20 @@ Her veri diski maksimum veri diski başına en fazla 2,300 IOPS sağladığında
 
 - **Disk bölümleme türüyle:** Daha fazla aktarım hızı için ek veri diskleri ekleyip disk bölümleme türüyle kullanabilirsiniz. Gereksinim duyduğunuz veri diski sayısı belirlemek için IOPS ve günlük dosyalarınızı ve verilerinizi ve TempDB dosyaları için gereken bant sayısını analiz edin. Sanal makine serisi ailesi tabanlı ve sanal makine boyutuna göre değil veri disk başına IOPS limitlerine olduğuna dikkat edin. Ağ bant genişliği sınırlarını, ancak sanal makine boyutunu temel alır. Tablolara bakın [sanal makine boyutları Azure Stack'te](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) daha fazla ayrıntı için. Aşağıdaki yönergeleri kullanın:
 
-    - Windows Server 2012 veya daha sonra kullanmanız [depolama alanları](https://technet.microsoft.com/library/hh831739.aspx) aşağıdaki yönergeleri ile:
+  - Windows Server 2012 veya daha sonra kullanmanız [depolama alanları](https://technet.microsoft.com/library/hh831739.aspx) aşağıdaki yönergeleri ile:
 
-        1.  Ayırma (stripe boyutu) çevrimiçi işlem (gerçekleştirme OLTP) iş yükleri ve 256 bölüm yanlış hizalanmış nedeniyle performansı etkilemelerini önlemek için KB (262.144 bayt) veri ambarı iş yükleri için 64 KB (65.536 bayt) olarak ayarlayın. PowerShell ile ayarlamanız gerekir.
+    1. Ayırma (stripe boyutu) çevrimiçi işlem (gerçekleştirme OLTP) iş yükleri ve 256 bölüm yanlış hizalanmış nedeniyle performansı etkilemelerini önlemek için KB (262.144 bayt) veri ambarı iş yükleri için 64 KB (65.536 bayt) olarak ayarlayın. PowerShell ile ayarlamanız gerekir.
 
-        2.  Ayarlama sütun sayısı = fiziksel disk numarası. PowerShell, sekizden fazla disk (Sunucu Yöneticisi kullanıcı Arabirimi değil) yapılandırırken kullanın.
+    2. Ayarlama sütun sayısı = fiziksel disk numarası. PowerShell, sekizden fazla disk (Sunucu Yöneticisi kullanıcı Arabirimi değil) yapılandırırken kullanın.
 
-            Örneğin, aşağıdaki PowerShell yeni bir depolama havuzu oluşturur ve ayırma boyutu 64 KB ile 2 sütun sayısını ayarlayın:
+       Örneğin, aşağıdaki PowerShell yeni bir depolama havuzu oluşturur ve ayırma boyutu 64 KB ile 2 sütun sayısını ayarlayın:
 
-          ```PowerShell  
-          $PoolCount = Get-PhysicalDisk -CanPool $True
-          $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
+       ```PowerShell  
+       $PoolCount = Get-PhysicalDisk -CanPool $True
+       $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 
-          New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
-          ```
+       New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
+       ```
 
 - Depolama havuzunuz yük beklentilerinizi ilişkili disk sayısını belirler. Farklı sanal makine boyutlarına bağlı veri diskleri farklı sayıda izin vermek demektir unutmayın. Daha fazla bilgi için [Azure Stack'te desteklenen sanal makine boyutları](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes).
 - Veri diskleri için en fazla olası IOPS alabilmek için tarafından desteklenen veri diskleri en fazla sayıda eklemek için kullanılması önerilir, [sanal makine boyutu](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes) ve disk bölümleme türüyle kullanın.

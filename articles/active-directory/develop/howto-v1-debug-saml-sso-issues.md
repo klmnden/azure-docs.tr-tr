@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b953d979fc5306372c1e751fbbb8942d19fed03f
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: f854c8b27065c2d2bf0c9964fe9dfce66aba423a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648923"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104514"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için SAML tabanlı çoklu oturum açma hata ayıklama
 
@@ -97,9 +97,9 @@ Hatayı gidermek için aşağıdaki adımları izleyin:
     - My Apps güvenli oturum açma uzantısı yüklü değilse, gelen **Test çoklu oturum açma** dikey penceresinde tıklayın **SAML yanıtını indirme**.
     - Uzantı yüklü değilse gibi bir araç kullanın [Fiddler](https://www.telerik.com/fiddler) SAML yanıtını almak için. 
 1. Bu öğeleri yanıt SAML belirtecindeki dikkat edin:
-    - Kullanıcının benzersiz tanımlayıcısı Nameıd değeri ve biçimi
-    - Belirtecinde verilen talepleri
-    - Belirteç imzalamak için kullanılan sertifika. 
+   - Kullanıcının benzersiz tanımlayıcısı Nameıd değeri ve biçimi
+   - Belirtecinde verilen talepleri
+   - Belirteç imzalamak için kullanılan sertifika. 
 
      SAML yanıtını hakkında daha fazla bilgi için bkz. [tek oturum açma SAML Protokolü](single-sign-on-saml-protocol.md).
 

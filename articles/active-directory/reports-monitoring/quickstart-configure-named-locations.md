@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbb50d22b5e0bd1a247dd806f45d9e4519214aba
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 328393d78514b236707cff1cedb9c34680900015
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208189"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120338"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'de adlandırılmış konumları yapılandırma
 
@@ -53,11 +53,11 @@ Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
 6. Yeni sayfada formu doldurun. 
 
-    * **Ad** kutusuna, adlandırılmış konumunuz için bir ad girin.
-    * **IP aralıkları** kutusuna CIDR biçiminde IP aralığını girin.  
-    * **Oluştur**’a tıklayın.
+   * **Ad** kutusuna, adlandırılmış konumunuz için bir ad girin.
+   * **IP aralıkları** kutusuna CIDR biçiminde IP aralığını girin.  
+   * **Oluştur**’a tıklayın.
     
-    ![Yeni dikey pencere](./media/quickstart-configure-named-locations/61.png)
+     ![Yeni dikey pencere](./media/quickstart-configure-named-locations/61.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

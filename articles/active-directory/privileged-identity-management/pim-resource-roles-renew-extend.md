@@ -16,12 +16,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cec018eec6e298e27329c03964dccf5809c1791
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 79549c1b8ed578319e43fc1c4354c7cd76f71589
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190645"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004236"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>PIM Azure kaynak rol atamalarını yenileme veya genişletme
 
@@ -49,7 +49,7 @@ Süresi dolan rol atamaları doğrudan rol ataması üyeleri genişletebilir **u
 
 Atama bitiş tarihi / saati olduğunda düğme 14 gün içinde **Genişlet** kullanıcı arabiriminde bir etkin bağlantı haline gelir. Aşağıdaki örnekte, geçerli tarihi 27 Mart olduğunu varsayalım.
 
-!["Genişlet" düğmesi](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
+![Genişletme düğmesi](media/azure-pim-resource-rbac/aadpim_rbac_extend_within_14.png)
 
 Bu rol ataması isteğinde bulunmanız için seçin **Genişlet** istek formunu açın.
 
@@ -64,11 +64,11 @@ Bu rol ataması isteğinde bulunmanız için seçin **Genişlet** istek formunu 
 
 Birkaç dakika içinde kaynak yöneticileri uzantı isteği gözden isteyen bir e-posta bildirimi alırsınız. Genişletmek için bir istek zaten gönderildi hatayı açıklayan Azure portalının en üstünde bir bildirim görüntülenir.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
+![Hatayı açıklayan bildirim](media/azure-pim-resource-rbac/aadpim_rbac_extend_failed_existing_request.png)
 
 Git **bekleyen istekler** sol bölmedeki isteğinizin durumunu görüntülemek için veya iptal etmek için sekmesinde.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
+![Bekleyen istekler](media/azure-pim-resource-rbac/aadpim_rbac_extend_cancel_request.png)
 
 ### <a name="admin-approve"></a>Yönetici Onayla
 
@@ -80,7 +80,7 @@ Bağlantıyı e-postadan takip kullanmanın yanı sıra yöneticileri onaylayabi
 
 Yönetici seçtiğinde **Onayla** veya **Reddet**, isteğin ayrıntılarını bir alan için denetim günlüklerini gerekçesi sağlamak için birlikte gösterilir.
 
-![](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
+![Rol ataması isteği Onayla](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_blade.png)
 
 Rol atamasını genişletme isteği onaylama sırasında kaynak yöneticileri yeni başlangıç tarihi, bitiş tarihi ve atama türü seçebilirsiniz. Atama türü değiştirme (örneğin bir gün) belirli bir görevi tamamlamak için sınırlı erişim sağlamak yönetici istiyorsa, gerekli olabilir. Bu örnekte, yönetici atamadan değiştirebilir **uygun** için **etkin**. Başka bir deyişle, bunlar etkinleştirmeye gerek kalmadan istek sahibine erişim sağlayabilir.
 
@@ -100,7 +100,7 @@ Kavramsal olarak benzer bir uzantı isteme işlemi sırasında süresi dolmuş b
 
 En çok 30 gün süresi dolmuş atama geçmişi kaynaklarına artık erişemez üyeleri erişebilir. Bunu yapmak için bunlar için Gözat **My rolleri** sol bölmesi ve ardından **rolleri süresi** Azure kaynak rolleri bölümünün sekmesinde.
 
-!["Rolleri süresi doldu" sekmesi](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
+![Süresi dolan rolleri sekmesi](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
 
 Varsayılan olarak gösterilen rollerin listesini **uygun roller**. Etkin roller atama için uygun arasında geçiş yapmak için açılan menüyü kullanın.
 

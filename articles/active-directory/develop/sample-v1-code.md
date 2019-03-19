@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a05b1885871c83da79839448fce2814016f0c082
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 64c199df2012e6ce3b3de5f34989cf5cbc135fdc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194572"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101032"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory kod örnekleri (v1.0 uç noktası)
 
@@ -45,7 +45,7 @@ Ayrıca örneklerimizi github'da katkıda bulunabilir. Bilgi edinmek için bkz. 
 Bu örnek, Azure AD ile güvenli hale getirilmiş bir tek sayfalı uygulama yazma işlemi gösterilmektedir.
 
  Platform | Kendi API çağrıları | Başka bir Web API'sini çağırır
- -------- |  --------------------- | ------------------ | ----------------
+ -------- |  --------------------- | ------------------ 
 ![JavaScript](media/sample-v2-code/logo_js.png) | [JavaScript singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
 ![Angular JS](media/sample-v2-code/logo_angular.png) | [angularjs singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | [angularjs singlepageapp cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
@@ -67,8 +67,8 @@ Aşağıdaki örnekleri kullanıcılar imzalama Web uygulamaları gösterir. Bu 
 
 Aşağıdaki örnekler, rol tabanlı erişim denetimi (RBAC) uygulamak gösterilmektedir. RBAC, belirli kullanıcılara bir web uygulamasındaki bazı özelliklerin izinlerini kısıtlamak için kullanılır. Kullanıcıların mi ait oldukları bağlı olarak yetkilendirilmiş bir **Azure AD grubu** veya belirli bir uygulama **rol**.
 
-Platform | Örnek
- -------- | -------------------
+Platform | Örnek |
+ -------- | ------------------- |
 ![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [DotNet webapp groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) <p/>  [DotNet webapp roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | Azure AD kullanan bir .NET 4.5 MVC web uygulaması **rolleri** için yetkilendirme
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Masaüstü ve mobil genel istemci uygulamaları Microsoft Graph veya bir Web API'si çağırma
@@ -95,7 +95,7 @@ Masaüstü (konsol)           | ![.NET Core/C#](media/sample-v2-code/logo_NETcor
 Aşağıdaki örnekler, Microsoft Graph veya bir web API'si (uygulama kimliği ile) hiçbir kullanıcıyla erişim Masaüstü ve web uygulamaları gösterir.
 
 İstemci uygulaması | Platform | Akış/verme | Bir ASP.NET veya ASP.NET Core 2.0 Web API'sini çağırır
------------------- | -------- | ---------- | -------------------- | -------------------------
+------------------ | -------- | ---------- | -------------------- 
 Arka plan programı uygulama (konsol)          | ![.NET](media/sample-v2-code/logo_NETframework.png) | Uygulama gizli anahtarı veya sertifika ile istemci kimlik bilgileri | [DotNet-arka plan programı](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [DotNet-arka plan programı-sertifika-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
 Arka plan programı uygulama (konsol)         | ![.NET](media/sample-v2-code/logo_NETcore.png) | Sertifika istemci kimlik bilgileri| [dotnetcore-arka plan programı-sertifika-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
 ASP.NET Web uygulaması  | ![.NET](media/sample-v2-code/logo_NETframework.png) | İstemci kimlik bilgileri | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)

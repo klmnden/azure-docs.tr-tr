@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bbb3e4f319584740f165b64948e1fd4dca2722b0
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 7f0b3a0f63b87928938e5c0e9d39cc49c0fc791d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729524"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999961"
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -30,12 +30,13 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
 
 - Azure sanal makinelerine geçiş için yalnızca şirket içi VMware sanal makinelerini (VM) değerlendirebilirsiniz. VMware sanal makineleri, vCenter Server (sürüm 5.5, 6.0, 6.5 veya 6.7) tarafından yönetilmelidir.
-- Destek sunuluyor çalışırken ilgileniyorsanız Hyper-V şu anda önizlemede üretim desteği için lütfen kaydolun [burada.](http://aka.ms/migratefuture)
+- Destek sunuluyor çalışırken ilgileniyorsanız Hyper-V şu anda önizlemede üretim desteği için lütfen kaydolun [burada.](https://aka.ms/migratefuture)
 - Fiziksel sunucuları değerlendirme için yararlanabileceğiniz bizim [iş ortağı Araçları](https://azure.microsoft.com/migration/partners/).
 - Tek keşifte en fazla 1500 sanal makine ve tek projede en fazla 1500 sanal makine bulabilirsiniz. Ayrıca tek değerlendirmede en fazla 1500 sanal makineyi değerlendirebilirsiniz.
 - Daha büyük bir ortam keşfetmek istiyorsanız keşfi bölüp birden fazla proje oluşturabilirsiniz. [Daha fazla bilgi edinin](how-to-scale-assessment.md). Azure Geçişi, abonelik başına 20’ye kadar projeyi destekler.
 - Azure Geçişi yalnızca yönetilen disklerin geçiş değerlendirmesini destekler.
 -  Bu gibi durumlarda, Azure geçişi projesini yalnızca aşağıdaki coğrafyalardaki oluşturabilirsiniz. Bu ancak diğer değerlendirmeler oluşturup oluşturamayacağınız kısıtlamaz Azure konumları hedefleyin.
+
     **Coğrafya** | **Depolama konumu**
     --- | ---
     Azure Kamu | ABD Devleti Virginia
@@ -73,27 +74,27 @@ Değerlendirme ayarları ihtiyaçlarınıza göre özelleştirilebilir. Değerle
 
 ## <a name="how-does-azure-migrate-work"></a>Azure Geçişi nasıl çalışır?
 
-1.  Bir Azure Geçişi projesi oluşturursunuz.
-2.  Azure Geçişi, toplayıcı aleti adı verilen bir şirket içi VM kullanarak şirket içi makinelerinize ilişkin bilgileri bulur. Aleti oluşturmak için Open Virtualization Appliance (.ova) biçimindeki kurulum dosyasını indirirsiniz ve şirket içi vCenter Server’ınıza VM olarak aktarırsınız.
+1. Bir Azure Geçişi projesi oluşturursunuz.
+2. Azure Geçişi, toplayıcı aleti adı verilen bir şirket içi VM kullanarak şirket içi makinelerinize ilişkin bilgileri bulur. Aleti oluşturmak için Open Virtualization Appliance (.ova) biçimindeki kurulum dosyasını indirirsiniz ve şirket içi vCenter Server’ınıza VM olarak aktarırsınız.
 3. VM'ye vCenter Server'dan bağlanır ve bağlantı sırasında yeni bir parola belirtirsiniz.
 4. Bulmayı başlatmak için VM'de toplayıcıyı çalıştırırsınız.
 5. Toplayıcı, VMware PowerCLI cmdlet’lerini kullanarak VM meta verilerini toplar. Bulma işlemi aracısızdır ve VMware konaklarına ya da VM’lere herhangi bir yükleme yapmaz. Toplanan meta veriler VM bilgilerini (çekirdekler, bellek, diskler, disk boyutları ve ağ bağdaştırıcıları) içerir. Ayrıca, CPU ve bellek kullanımı, disk IOPS, disk aktarım hızı (MB/sn) ve ağ çıktısı (MB/sn) gibi VM’lere ait performans verilerini toplar.
-5.  Meta veriler Azure Geçişi projesine gönderilir. Verileri Azure portalında görüntüleyebilirsiniz.
-6.  Değerlendirme amacıyla keşfedilen VM’leri gruplar halinde toplayın. Örneğin, aynı uygulamayı çalıştıran VM’leri gruplandırabilirsiniz. Daha kesin gruplandırma için, bir gruptaki belirli bir makine ya da tüm makinelerin bağımlılıklarını görüntülemek ve grubu geliştirmek için bağımlılık görselleştirmeyi kullanabilirsiniz.
-7.  Grup tanımlandıktan sonra bir değerlendirme oluşturursunuz.
-8.  Değerlendirme tamamlandıktan sonra portalda görüntüleyebilir veya Excel biçiminde indirebilirsiniz.
+5. Meta veriler Azure Geçişi projesine gönderilir. Verileri Azure portalında görüntüleyebilirsiniz.
+6. Değerlendirme amacıyla keşfedilen VM’leri gruplar halinde toplayın. Örneğin, aynı uygulamayı çalıştıran VM’leri gruplandırabilirsiniz. Daha kesin gruplandırma için, bir gruptaki belirli bir makine ya da tüm makinelerin bağımlılıklarını görüntülemek ve grubu geliştirmek için bağımlılık görselleştirmeyi kullanabilirsiniz.
+7. Grup tanımlandıktan sonra bir değerlendirme oluşturursunuz.
+8. Değerlendirme tamamlandıktan sonra portalda görüntüleyebilir veya Excel biçiminde indirebilirsiniz.
 
-  ![Azure Geçişi mimarisi](./media/migration-planner-overview/overview-1.png)
+   ![Azure Geçişi mimarisi](./media/migration-planner-overview/overview-1.png)
 
 ## <a name="what-are-the-port-requirements"></a>Bağlantı noktası gereksinimleri nelerdir?
 
 Tabloda Azure Geçişi iletişimleri için gereken bağlantı noktaları özetlenmektedir.
 
-Bileşen | İletişim kurar |  Ayrıntılar
---- | --- |---
-Toplayıcı  | Azure Geçişi hizmeti | Toplayıcı SSL bağlantı noktası 443 üzerinden hizmete bağlanır.
-Toplayıcı | vCenter Server | Varsayılan olarak toplayıcı, 443 numaralı bağlantı noktası üzerinden vCenter Server’a bağlanır. Sunucu farklı bir bağlantı noktasında dinliyorsa, VM üzerinde giden bağlantı noktası olarak yapılandırın.
-Şirket içi VM | Log Analytics Çalışma Alanı | [TCP 443] | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) Azure İzleyici günlüklerine bağlanmak için 443 numaralı TCP bağlantı noktasını kullanır. Bu bağlantı noktası yalnızca MMA aracısına ihtiyaç duyan bağımlılık görselleştirmesi özelliğini kullanıyorsanız gereklidir.
+| Bileşen | İletişim kurar |  Ayrıntılar |
+| --- | --- |--- |
+|Toplayıcı  | Azure Geçişi hizmeti | Toplayıcı SSL bağlantı noktası 443 üzerinden hizmete bağlanır.|
+|Toplayıcı | vCenter Server | Varsayılan olarak toplayıcı, 443 numaralı bağlantı noktası üzerinden vCenter Server’a bağlanır. Sunucu farklı bir bağlantı noktasında dinliyorsa, VM üzerinde giden bağlantı noktası olarak yapılandırın.|
+|Şirket içi VM | Log Analytics Çalışma Alanı | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) Azure İzleyici günlüklerine bağlanmak için 443 numaralı TCP bağlantı noktasını kullanır. Bu bağlantı noktası yalnızca MMA aracısına ihtiyaç duyan bağımlılık görselleştirmesi özelliğini kullanıyorsanız gereklidir.|
 
 
 ## <a name="what-happens-after-assessment"></a>Değerlendirmeden sonra ne olur?

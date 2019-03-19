@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 29b7893bbe813ece7cece9d1591dd574158f4482
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: 4dbc296729f9dd6efaab39457fcedc6d5f60c785
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409682"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125175"
 ---
 ## <a name="set-up-your-project"></a>Projenizi ayarlama
 
@@ -59,7 +59,7 @@ Bu adımda, belirteçlerin işleme gibi MSAL, etkileşim işlemek için bir sın
     ```csharp
     using Microsoft.Identity.Client;
     ```
-<!-- Workaround for Docs conversion bug -->
+   <!-- Workaround for Docs conversion bug -->
 
 2. Uygulama sınıfına aşağıdaki gibi güncelleştirin:
 

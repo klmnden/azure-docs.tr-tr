@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/13/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 66dfdf3a88a4bacdc118fed00d79f02b22da7869
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.lastreviewed: 03/13/2019
+ms.openlocfilehash: 4b6ad06f50962dd2e29caf9543d82912de338fd2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792472"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875830"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 güncelleştirme
 
@@ -57,7 +57,7 @@ Azure Stack düzeltmeleri yalnızca Azure Stack tümleşik sistemleri için geç
 ## <a name="prerequisites"></a>Önkoşullar
 
 > [!IMPORTANT]
-- Yükleme [en son Azure Stack düzeltme](#azure-stack-hotfixes) 1902 için güncelleştirmeden önce 1901 (varsa) için.
+> - Yükleme [en son Azure Stack düzeltme](#azure-stack-hotfixes) 1902 için güncelleştirmeden önce 1901 (varsa) için.
 
 - Bu güncelleştirme yüklemesi başlamadan önce çalıştırması [Test AzureStack](azure-stack-diagnostic-test.md) bulunan tüm çalışma sorunlarını çözün ve Azure Stack durumunu doğrulamak için aşağıdaki parametreleri, tüm uyarılar ve hatalar dahil olmak üzere. Ayrıca etkin Uyarıları gözden geçirin ve eylemi gerektiren tüm çözümleyin:
 
@@ -84,23 +84,49 @@ Azure Stack düzeltmeleri yalnızca Azure Stack tümleşik sistemleri için geç
 1398818 3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context   PNU
 1381018 [1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists   PNU
 -->
-- Paket bütünlüğü ve güvenlik yanı sıra, daha kolay yönetim için çevrimdışı alımı geliştirmek için Microsoft güncelleştirme paketinin .exe ve .bin dosyalarından bir .zip dosyası olarak değişti. Yeni biçime ek güvenilirliğini zamanlarda, güncelleştirme hazırlığı kabin neden olabilecek unpacking işlem ekler. Aynı paket biçimi OEM paketlerden güncelleştirmek için de geçerlidir.
-- Test AzureStack çalıştırırken Azure Stack operatör deneyimini iyileştirmek için işleçleri artık yalnızca kullanabilirsiniz, "Test-AzureStack-Grup UpdateReadiness" aksine, bir dahil etme deyiminden sonra on ek parametre geçirme.
+- Paket bütünlüğü ve güvenlik ve daha kolay yönetim için çevrimdışı alımı geliştirmek için Microsoft güncelleştirme paketinin .exe ve .bin dosyalarından bir .zip dosyası olarak değişti. Yeni biçime ek güvenilirlik zamanlarda, güncelleştirme hazırlığı kabin neden olabilecek unpacking işleme ekler. Aynı paket biçimi OEM paketlerden güncelleştirmek için de geçerlidir.
+
+- Çalıştırırken Azure Stack operatör deneyimini iyileştirmek üzere **Test AzureStack**, işleçleri artık yalnızca kullanabilir `Test-AzureStack -Group UpdateReadiness` sonra on ek parametreler geçirmek yerine bir `include` deyimi. Örneğin:
 
   ```powershell
-    Test-AzureStack -Group UpdateReadiness  
-  ```  
-  
-- Güncelleştirme işlemi sırasında genel güvenilirlik ve çekirdek altyapı hizmetleri kullanılabilirliğini artırmak için güncelleştirme eylemi planının parçası olarak yerel güncelleştirme kaynak sağlayıcısı algılar ve otomatik genel düzeltmeler gerektiğinde çağırır. Genel düzeltme "onarım" iş akışları içerir:
-    - Altyapı sanal makineleri için uygun olmayan bir durumda olan ve gerektiğinde bunları onarmayı dener denetleniyor 
-    - SQL hizmet sorunları için Denetim planının bir parçası denetleyin ve gerektiğinde bunları onarmaya çalışır
-    - Yazılım yük dengeleyici (SLB) hizmetinin durumunu, Ağ denetleyicisi (NC) bir parçası olarak denetleyin ve gerektiğinde bunları onarmaya çalışır
-    - Ağ denetleyicisi (NC) hizmet durumunu denetleyin ve gerektiğinde onarmaya çalışır
-    - Acil Durum Kurtarma Konsolu hizmeti (ERCS) service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın
-    - XRP service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın
-    - Azure tutarlı depolama (ACS) service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın
+  Test-AzureStack -Group UpdateReadiness  
+  ```
 
+- Güncelleştirme işlemi sırasında genel güvenilirlik ve çekirdek altyapı hizmetleri kullanılabilirliğini artırmak için yerel güncelleştirin kaynak sağlayıcısı güncelleştirme eylemi planının parçası algılamak ve gerektiği gibi otomatik genel düzeltmeler çağırır. Genel düzeltme "onarım" iş akışları içerir:
 
+  - Altyapı sanal makineleri için uygun olmayan bir durumda ve bunları gerektiği şekilde onarmayı dener denetleyin.
+  - SQL hizmet sorunları için Denetim planının bir parçası denetleyin ve bunları gerektiği şekilde onarmaya çalışır.
+  - Yazılım yük dengeleyici (SLB) hizmetinin durumunu, Ağ denetleyicisi (NC) bir parçası olarak denetleyin ve bunları gerektiği şekilde onarmaya çalışır.
+  - Ağ denetleyicisi (NC) hizmetinin durumunu denetleyin ve gerektiğinde onarmaya çalışır.
+  - Acil Durum Kurtarma Konsolu hizmeti (ERCS) service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın.
+  - XRP service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın.
+  - Azure tutarlı depolama (ACS) service fabric düğümleri durumunu denetleyin ve bunları gerektiği gibi onarın.
+
+<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
+- Çalışır durumdaki "Expanding depolama" ölçek birimi durumundan geçiş yaparken, kapasite genişletmesi sırasında güvenilirlik geliştirmeleri düğümünü ekleyin.    
+
+<!-- 
+1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
+1396607 3796092: Move Blob services log from Storage role to ACSBlob role to reduce the log size of Storage Diagnostics
+1404529 3835749: Enable Group Policy Diagnostic Logs    Diagnostics
+1436561 Bug 3949187: [Bug Fix] Remove AzsStorageSvcsSummary test from SecretRotationReadiness Test-AzureStack flag  Diagnostics
+1404512 3849946: Get-AzureStackLog should collect all child folders from c:\Windows\Debug   Diagnostics 
+-->
+- Azure'a geliştirmeleri günlük koleksiyonu güvenilirlik ve performansını geliştirmek için tanılama araçları yığın. Ek ağ iletişimi ve kimlik Hizmetleri için günlüğe kaydetme. 
+
+<!-- 1384958    Adding a Test-AzureStack group for Secret Rotation  Diagnostics -->
+- Güvenilirliğini geliştirmeleri **Test AzureStack** gizli döndürme hazırlık testi için.
+
+<!-- 1404751    3617292: Graph: Remove dependency on ADWS.  Identity -->
+- Bir müşterinin Active Directory ortamında ile iletişim kurarken AD Graph güvenilirliğini artırmak için geliştirmeler.
+
+<!-- 1391444    [ISE] Telemetry for Hardware Inventory - Fill gap for hardware inventory info   System info -->
+- Geliştirmeleri için donanım envanteri koleksiyonda **Get-AzureStackStampInformation**.
+
+- ERCS altyapısı üzerinde çalışan işlemlerinin güvenilirliğini artırmak için 12 GB ile 8 GB ile her ERCS örneği için bellek artırır. Azure Stack tümleşik sistemleri yüklemede, bu 12 GB Boyutundaki artış genel sonuçlanır.
+
+> [!IMPORTANT]
+> Azure Stack damganız 12 GB'den fazla kullanılabilir alana sahip olduğundan emin olun düzeltme eki ve güncelleştirme işleminin sonuçlarını en az miktarda Kiracı kapalı kalma süresi emin olmak için **kapasite** dikey penceresi. Bu bellek, yansıtılan artırmak gördüğünüz **kapasite** dikey penceresinde güncelleştirmenin başarıyla yüklenmesini sonra.
 
 ## <a name="common-vulnerabilities-and-exposures"></a>Yaygın güvenlik açıklarına ve exposures'ı
 
@@ -195,9 +221,18 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 - Bir Ubuntu 18.04 etkinleştirilmiş SSH yetkilendirme ile oluşturulan VM, oturum açmak için SSH anahtarları kullanmak izin vermez. Geçici bir çözüm olarak VM erişimi Linux uzantısı için SSH anahtarları sağladıktan sonra uygulamak için kullanmak veya parola tabanlı kimlik doğrulaması kullanın.
 
-- 1902, VM 12 GB ile 8 GB ile artırıldı ERCS altyapısı tarafından gerekli bellek oluşturun. Bir ASDK üzerinde bu 4 GB artış olur. Azure Stack tümleşik sistemleri yüklemede, bu 12 GB Boyutundaki artış olur.
+- Bir donanım yaşam döngüsü ana bilgisayar (HLH) yoksa: Grup İlkesi ayarlamak zorunda 1902 derlemeden önce **Bilgisayar Yapılandırması\Windows Ayarları\Güvenlik Ayarları\Yerel İlkeler\Güvenlik Seçenekleri** için **Gönder NTLM'yi –anlaşıldığındaNTLMv2oturumgüvenliğikullanın**. 1902 yapıdan beri olarak bırakmalısınız **tanımlanmamış** veya ayarlayın **yalnızca Gönder NTLMv2 yanıtı** (varsayılan değer olmayan). Aksi halde, bir PowerShell uzak oturum kurulamıyor ve aldığınız bir **erişim reddedildi** hata:
 
-   Azure Stack damganız 12 GB'den fazla kullanılabilir alana sahip olduğundan emin olun düzeltme eki ve güncelleştirme işleminin sonuçlarını en az miktarda Kiracı kapalı kalma süresi emin olmak için **kapasite** dikey penceresi. Bu bellek, yansıtılan artırmak gördüğünüz **kapasite** dikey penceresinde güncelleştirmenin başarıyla yüklenmesini sonra.
+   ```shell
+   PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
+   New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
+   about_Remote_Troubleshooting Help topic.
+   At line:1 char:12
+   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
+   +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
+      + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
+   ```
 
 ### <a name="networking"></a>Ağ  
 
@@ -220,19 +255,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 - Azure Stack'te aynı şekilde olarak genel Azure ağ güvenlik grupları (Nsg'ler) çalışmaz. Azure'da birden çok bağlantı noktası üzerinde bir NSG kuralı ayarlayabilirsiniz (kullanarak portal, PowerShell ve Resource Manager şablonlarını). Azure Stack'te ancak Şirket portalı aracılığıyla bir NSG kuralı birden çok bağlantı noktası ayarlanamıyor. Bu sorunu çözmek için bu ek kuralları ayarlamak için bir Resource Manager şablonu veya PowerShell kullanın.
 
 <!-- 3203799 - IS, ASDK -->
-- Azure Stack, 4'ten fazla ağ arabirimlerini (NIC'ler) bir sanal makine örnekleri için örnek boyutu ne olursa olsun bugün bağlanmasını desteklemez.
-
-- Soruna hangi paketlerin 1450 bayt bir iç yük dengeleyici (ILB) için bırakılan belirlenmiştir. Sorunu 1901 itibarıyla konağa taşınamaz rolü, geçiş yapan kapsüllenmiş VXLAN paket uyum sağlamak için çok düşük olan konak üzerindeki MTU ayarı kaynaklanır. İçinde bu sorunu kendisini bildirim gördük karşılaşabileceğiniz en az iki senaryo vardır:
-
-  - Bir iç yük dengeleyici (ILB) arkasında ve 660 bayt üzerinde olduğundan SQL her zaman açık SQL sorguları.
-  - Birden çok ana sunucu etkinleştirmeye Kubernetes dağıtımları başarısız.  
-
-  Aynı sanal ağda ancak farklı alt ağlarda bir ILB ile bir VM arasındaki iletişimi varsa sorun oluşur. Bu sorunu geçici olarak ASDK ana bilgisayarda yükseltilmiş komut isteminde aşağıdaki komutları çalıştırarak çalışabilirsiniz:
-
-  ```shell
-  netsh interface ipv4 set sub "hostnic" mtu=1660
-  netsh interface ipv4 set sub "management" mtu=1660
-  ```
+- Azure Stack, 4'ten fazla ağ arabirimlerini (NIC'ler) bir sanal makine örneğine Bugün, örnek boyutu ne olursa olsun bağlanmasını desteklemez.
 
 <!-- ### SQL and MySQL-->
 

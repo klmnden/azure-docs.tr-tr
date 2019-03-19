@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 1000ad3250963d9bab3f4c63567f9abf340b4e5d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f5d6ac81cc2553cc4a2d7b86c21417aa5ab1d572
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538962"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990642"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Öğretici: Azure Container Instances'a dağıtılacak için kapsayıcı görüntüsü oluşturma
 
@@ -116,7 +116,7 @@ $ docker run -d -p 8080:80 aci-tutorial-app
 a2e3e4435db58ab0c664ce521854c2e1a1bda88c9cf2fcff46aedf48df86cccf
 ```
 
-Şimdi kapsayıcının çalıştırıldığını onaylamak için tarayıcınızda http://localhost:8080 adresine gidin. Aşağıdakine benzer bir web sayfası görmeniz gerekir:
+Şimdi kapsayıcının çalıştırıldığını onaylamak için tarayıcınızda `http://localhost:8080` adresine gidin. Aşağıdakine benzer bir web sayfası görmeniz gerekir:
 
 ![Uygulamayı tarayıcıda yerel olarak çalıştırma][aci-tutorial-app-local]
 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 6e8ca9d3a7fbdf1926ac642ac60a37d298af0129
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c2c49563bf505ce70c4900c6c0a8e41c0f6ac9c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476864"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176625"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Öğretici: Büyük verileri bir veri ambarına akışla aktarma
 Azure [Event Grid](overview.md) uygulama ve hizmetlerden (olayları) bildirimler için react olanak tanıyan bir akıllı bir olay yönlendirme hizmetidir. Örneğin, bir Azure Blob Depolama veya Azure Data Lake Storage yakalanan Event Hubs verilerini işlemek için bir Azure işlevi tetikleyin ve verileri diğer veri depolarına geçirin. Bu [Event Hubs ve Event Grid tümleştirmesi örnek](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) Event Hubs Event Grid ile sorunsuz bir şekilde yakalanan Event Hubs verilerini blob depolamadan SQL veri ambarı'na geçirmek için nasıl kullanılacağını gösterir.
@@ -39,6 +39,9 @@ Bu makalede, aşağıdaki adımları uygulayın:
 > * Geçirilen veriler, veri ambarı'nda görüntüleyin.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
@@ -129,7 +132,7 @@ Bu adımda, gerekli altyapı ile dağıttığınız bir [Resource Manager şablo
     1. Kopyalayıp Cloud Shell penceresine aşağıdaki komutu yapıştırın.
 
         ```powershell
-        New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
+        New-AzResourceGroup -Name rgDataMigration -Location westcentralus
         ```
     2. İçin bir ad belirtin **kaynak grubu**.
     3. Press ENTER. 
@@ -137,7 +140,7 @@ Bu adımda, gerekli altyapı ile dağıttığınız bir [Resource Manager şablo
     1. Kopyalayıp Cloud Shell penceresine komutu yapıştırın. Alternatif olarak, tercih ettiğiniz bir düzenleyiciye kopyala/yapıştır, değerleri ayarlayın ve sonra Cloud Shell için komutu kopyalayın isteyebilirsiniz. 
 
         ```powershell
-        New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
+        New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
         ```
     2. Aşağıdaki varlıklar için değerleri belirtin:
         1. Daha önce oluşturduğunuz kaynak grubunun adı.

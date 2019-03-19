@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 915ccc60216f3f206bcdc53825decac4d6d020d0
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 0fefe01e413e30e4aa3c1fa90de77cbdece39c38
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57012031"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001696"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL veritabanı denetim günlük biçimi
 
@@ -35,7 +35,7 @@ BLOB depolamada depolanan denetim günlüklerini adlı bir kapsayıcıda depolan
 
 ### <a name="event-hub"></a>Olay Hub'ı
 
-Denetim olayları denetim yapılandırması sırasında tanımlandı ve gövdesinde yakalanan ad alanı ve olay hub'ına yazılır [Apache Avro](http://avro.apache.org/) olayları ve UTF-8 kodlaması ile JSON biçimlendirme kullanılarak depolanabilir. Denetim günlüklerini okumak için kullanabileceğiniz [Avro Araçları](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) veya bu biçim işleme benzer araçları.
+Denetim olayları denetim yapılandırması sırasında tanımlandı ve gövdesinde yakalanan ad alanı ve olay hub'ına yazılır [Apache Avro](https://avro.apache.org/) olayları ve UTF-8 kodlaması ile JSON biçimlendirme kullanılarak depolanabilir. Denetim günlüklerini okumak için kullanabileceğiniz [Avro Araçları](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) veya bu biçim işleme benzer araçları.
 
 ### <a name="log-analytics"></a>Log Analytics
 

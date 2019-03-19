@@ -7,20 +7,20 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: absha
-ms.openlocfilehash: 702101039c03b30bb8883ef0308fe68c5567a0c4
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 515243cb043bac8e9f28a3c63808e4fbd9b8f525
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57733399"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905044"
 ---
 # <a name="application-gateway-configuration-overview"></a>Uygulama ağ geçidi yapılandırmasına genel bakış
 
 Uygulama ağ geçidi farklı senaryolar işlemi gerçekleştirmek için farklı şekilde yapılandırılabilir çeşitli bileşenlerden oluşur. Bu makalede nasıl her yapılandırılması bileşendir aracılığıyla gösterilmektedir.
 
-![Uygulama ağ geçidi bileşenleri](.\media\configuration-overview\configuration-overview1.png)
+![Uygulama ağ geçidi bileşenleri](./media/configuration-overview/configuration-overview1.png)
 
-Yukarıdaki örnek resim 3 dinleyicileri içeren bir uygulama yapılandırma gösterilmektedir. Çok siteli dinleyicileri için ilk ikisidir http://acme.com/* ve http://fabrikam.com/*, sırasıyla. Her ikisi de 80 numaralı bağlantı noktasında dinliyor. Üçüncü dinleyici uçtan uca SSL sonlandırma ile temel bir dinleyici olduğundan. 
+Yukarıdaki örnek resim 3 dinleyicileri içeren bir uygulama yapılandırma gösterilmektedir. Çok siteli dinleyicileri için ilk ikisidir `http://acme.com/*` ve `http://fabrikam.com/*`sırasıyla. Her ikisi de 80 numaralı bağlantı noktasında dinliyor. Üçüncü dinleyici uçtan uca SSL sonlandırma ile temel bir dinleyici olduğundan. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -83,9 +83,9 @@ Dinleyici bağlantı noktası, protokol, ana bilgisayar ve IP adresi kullanarak 
 
 Arasından seçim yapabilirsiniz [temel veya çoklu site dinleyicisi](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#types-of-listeners) yeni bir dinleyici oluşturulurken. 
 
-- Tek bir sitede bir uygulama ağ geçidi arkasında barındırıyorsanız, temel dinleyici seçin. Bilgi [ile uygulama ağ geçidi ile temel bir dinleyici oluşturmak üzere nasıl](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
+- Tek bir sitede bir uygulama ağ geçidi arkasında barındırıyorsanız, temel dinleyici seçin. Bilgi [temel dinleyici ile bir uygulama ağ geçidi oluşturma](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Ardından aynı uygulama ağ geçidi örneğinde birden çok alt etki alanlarını aynı üst etki alanının veya birden fazla web uygulaması yapılandırıyorsanız, çoklu site dinleyicisi seçin. Çoklu site dinleyicisi için ayrıca bir ana bilgisayar adı girmeniz gerekir. Application Gateway aynı genel IP adresi ve bağlantı noktası üzerinde birden fazla Web sitesi barındırmak için HTTP 1.1 barındırma bilgilerini kullanır olmasıdır.![1551057450710](C:\Users\absha\AppData\Roaming\Typora\typora-user-images\1551057450710.png)
+- Ardından aynı uygulama ağ geçidi örneğinde birden çok alt etki alanlarını aynı üst etki alanının veya birden fazla web uygulaması yapılandırıyorsanız, çoklu site dinleyicisi seçin. Çoklu site dinleyicisi için ayrıca bir ana bilgisayar adı girmeniz gerekir. Application Gateway aynı genel IP adresi ve bağlantı noktası üzerinde birden fazla Web sitesi barındırmak için HTTP 1.1 barındırma bilgilerini kullanır olmasıdır.![1551057450710](C:/Users/absha/AppData/Roaming/Typora/typora-user-images/1551057450710.png)
 
 
 > [!NOTE]
@@ -195,7 +195,7 @@ Yeniden yönlendirme özelliği hakkında daha fazla bilgi için bkz: [yeniden y
 
   - ##### <a name="listener"></a>Dinleyici
 
-    Yeniden yönlendirme hedefi seçme dinleyicisi, tek bir dinleyici için ağ geçidi üzerinde başka bir dinleyici yönlendirme yardımcı olur. HTTP, HTTPS yeniden yönlendirmesi, yani, gelen HTTPS isteklerinin denetimi hedef dinleyici için gelen HTTP isteklerini denetleme kaynak dinleyiciyi yeniden yönlendirme trafiği için etkinleştirmek istediğiniz bu ayar gereklidir. Yeniden yönlendirme hedef iletilen istek dahil edilecek özgün istek yolu ve sorgu dizesi de seçebilirsiniz.![Uygulama ağ geçidi bileşenleri](.\media\configuration-overview\configure-redirection.png)
+    Yeniden yönlendirme hedefi seçme dinleyicisi, tek bir dinleyici için ağ geçidi üzerinde başka bir dinleyici yönlendirme yardımcı olur. HTTP, HTTPS yeniden yönlendirmesi, yani, gelen HTTPS isteklerinin denetimi hedef dinleyici için gelen HTTP isteklerini denetleme kaynak dinleyiciyi yeniden yönlendirme trafiği için etkinleştirmek istediğiniz bu ayar gereklidir. Yeniden yönlendirme hedef iletilen istek dahil edilecek özgün istek yolu ve sorgu dizesi de seçebilirsiniz.![Uygulama ağ geçidi bileşenleri](./media/configuration-overview/configure-redirection.png)
 
     HTTPS yeniden yönlendirmesi için HTTP hakkında daha fazla bilgi için bkz: [portalını kullanarak HTTP için HTTP yeniden yönlendirmesi](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal), [PowerShell kullanarak HTTP için HTTP yeniden yönlendirmesi](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell), [CLI'yı kullanarak HTTP için HTTP yeniden yönlendirmesi](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
 
@@ -277,7 +277,7 @@ Ardından özel bir etki alanına sahip ve mevcut özel DNS adını App Service'
 
 ### <a name="host-name-override"></a>Konak adı geçersiz kılma
 
-Bu özellik değiştirir *konak* burada belirttiğiniz ana bilgisayar adı için uygulama ağ geçidinde gelen istekteki üstbilgi. Örneğin, www.contoso.com olarak belirtilmişse **ana bilgisayar adı** ayarlama, özgün istek https://appgw.eastus.cloudapp.net/path1 değiştirilecek https://www.contoso.com/path1 isteği arka uç sunucusuna iletilmesi zaman. 
+Bu özellik değiştirir *konak* burada belirttiğiniz ana bilgisayar adı için uygulama ağ geçidinde gelen istekteki üstbilgi. Örneğin, www\.contoso.com olarak belirtilen **ana bilgisayar adı** ayarlama, özgün istek https://appgw.eastus.cloudapp.net/path1 değiştirilecek https://www.contoso.com/path1 isteği arka uç sunucusuna iletilmesi ne zaman. 
 
 ## <a name="backend-pool"></a>Arka uç havuzu
 

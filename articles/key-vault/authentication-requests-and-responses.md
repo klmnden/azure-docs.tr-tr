@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2d63c14c5eba1a9637cfd5544585e71d2bc86048
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7ca486768cf56059328801b1b4b1036bb8aeece8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535170"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081789"
 ---
 # <a name="authentication-requests-and-responses"></a>Kimlik doğrulaması, istekler ve yanıtlar
 
@@ -31,17 +31,17 @@ Bu konu, Azure Key Vault hizmeti için özellikleri kapsar. Azure REST arabiriml
 
  Azure anahtar Kasası'nda nesnelerle çalışmaya örnek URL'leri aşağıda verilmiştir:  
 
--   Bir Key Vault kullanımda TESTKEY adlı bir anahtar oluşturmak için- `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
+- Bir Key Vault kullanımda TESTKEY adlı bir anahtar oluşturmak için- `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
 
--   Bir Key Vault kullanımı IMPORTEDKEY adlı bir anahtar almak için- `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
+- Bir Key Vault kullanımı IMPORTEDKEY adlı bir anahtar almak için- `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
 
--   Bir Key Vault kullanımda ETTİYSENİZ adlı bir gizli diziyi almak için- `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
+- Bir Key Vault kullanımda ETTİYSENİZ adlı bir gizli diziyi almak için- `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
 
--   Bir anahtar kullanarak bir Özet İMZALAMAK için TESTKEY bir Key Vault kullanımda olarak çağrıldı- `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
+- Bir anahtar kullanarak bir Özet İMZALAMAK için TESTKEY bir Key Vault kullanımda olarak çağrıldı- `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
- Yetkili bir Key Vault için bir istek için her zaman gibidir,  `https://{keyvault-name}.vault.azure.net/`  
+  Yetkili bir Key Vault için bir istek için her zaman gibidir,  `https://{keyvault-name}.vault.azure.net/`  
 
- Anahtarlar, her zaman /keys yolun altında depolanır, gizli dizileri her zaman /secrets yolun altında depolanır.  
+  Anahtarlar, her zaman /keys yolun altında depolanır, gizli dizileri her zaman /secrets yolun altında depolanır.  
 
 ## <a name="api-version"></a>API Sürümü  
  Bu istemciler için tüm özellikleri kullanılabilse Protokolü sürüm oluşturma, alt düzey istemciler, uyum sağlamak için Azure Key Vault hizmetine destekler. İstemciler kullanmalıdır `api-version` sorgu dizesi parametresi için varsayılan olarak destekledikleri protokol sürümünü belirtin.  
@@ -64,17 +64,17 @@ Bu konu, Azure Key Vault hizmeti için özellikleri kapsar. Azure REST arabiriml
 ## <a name="error-responses"></a>Hata yanıtları  
  Hata işleme HTTP durum kodları kullanır. Tipik sonuçlar şu şekildedir:  
 
--   2xx – başarılı: Normal işlem için kullanılmaz. Yanıt gövdesi beklenen sonuç içerir  
+- 2xx – başarılı: Normal işlem için kullanılmaz. Yanıt gövdesi beklenen sonuç içerir  
 
--   3xx – yeniden yönlendirme: 304 "Değişiklik" şartlı alma karşılamak için döndürülebilir. Diğer 3xx kodları gelecekte DNS ve yolu değişiklikleri göstermek için kullanılabilir.  
+- 3xx – yeniden yönlendirme: 304 "Değişiklik" şartlı alma karşılamak için döndürülebilir. Diğer 3xx kodları gelecekte DNS ve yolu değişiklikleri göstermek için kullanılabilir.  
 
--   4xx – istemci hatası: Hatalı istekleri, eksik anahtar, sözdizimi hatası, geçersiz parametreler, kimlik doğrulama hataları için kullanıldığında, vb. Yanıt gövdesi ayrıntılı hata açıklamasını içerir.  
+- 4xx – istemci hatası: Hatalı istekleri, eksik anahtar, sözdizimi hatası, geçersiz parametreler, kimlik doğrulama hataları için kullanıldığında, vb. Yanıt gövdesi ayrıntılı hata açıklamasını içerir.  
 
--   5XX – sunucu hatası: İç sunucu hataları için kullanılır. Yanıt gövdesi özetlenen hata bilgilerini içerir.  
+- 5XX – sunucu hatası: İç sunucu hataları için kullanılır. Yanıt gövdesi özetlenen hata bilgilerini içerir.  
 
- Sistem, bir proxy veya güvenlik duvarı çalışacak şekilde tasarlanmıştır. Bu nedenle, bir istemci diğer hata kodları alabilirsiniz.  
+  Sistem, bir proxy veya güvenlik duvarı çalışacak şekilde tasarlanmıştır. Bu nedenle, bir istemci diğer hata kodları alabilirsiniz.  
 
- Bir sorun ortaya çıktığında azure Key Vault ayrıca yanıt gövdesi içinde hata bilgilerini döndürür. Yanıt gövdesi JSON ile biçimlendirilmemiş ve biçimi alır:  
+  Bir sorun ortaya çıktığında azure Key Vault ayrıca yanıt gövdesi içinde hata bilgilerini döndürür. Yanıt gövdesi JSON ile biçimlendirilmemiş ve biçimi alır:  
 
 ```  
 

@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80fd458356cf5b375e0b3d922d9bdca3f3a30503
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 0f5f190eee473d5eb483f901ada80cb67b4ffedd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961678"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110520"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Hesaplarınız için Microsoft Authenticator uygulamasını kullanarak oturum açın
 Microsoft Authenticator uygulamasını hesaplarınıza iki aşamalı doğrulama kullanırsanız oturum yardımcı olur. İki Faktörlü doğrulama özellikle hassas bilgileri görüntülerken hesaplarınızı daha güvenli bir şekilde erişmenize yardımcı olur. Parolaları bu nedenle Unutulan, çalınması veya ele geçirilen, iki Faktörlü doğrulama kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır.
@@ -28,8 +28,8 @@ Microsoft Authenticator uygulamasını birden çok yolla kullanabilirsiniz:
 
 - Oturum açma olmadan parola gerektirme, parmak izi, yüz tanıma veya PIN kullanıcı adınızı ve mobil Cihazınızı kullanarak sağlama.
 
- >[!Important]
- >Bu telefon oturum açma yöntemi, yalnızca iş veya Okul ve kişisel Microsoft hesapları ile çalışır. Microsoft olmayan hesapların standart iki Faktörlü doğrulama işlemi kullanmanızı gerektirir.
+  >[!Important]
+  >Bu telefon oturum açma yöntemi, yalnızca iş veya Okul ve kişisel Microsoft hesapları ile çalışır. Microsoft olmayan hesapların standart iki Faktörlü doğrulama işlemi kullanmanızı gerektirir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Microsoft Authenticator uygulamasını kullanabilmeniz için önce şunları yapmalısınız:
