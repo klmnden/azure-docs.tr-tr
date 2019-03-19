@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: e6814224827aac0da9c6faf5108ecf585bae7c35
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 80c9cd91efd14e3d4b4214bde089f73692568f76
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445390"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840197"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Azure Cosmos DB'de sorgu gerçekleştirerek
 
@@ -33,7 +33,7 @@ Bir veya birden çok bölümdeki verileri okuma sorguları, daha yüksek gecikme
 
 Azure Cosmos kapsayıcılarınızı veya depolanan bazı verileri bir kez oluşturun ve, sorguları çalıştırmak için Azure portalında Veri Gezgini'ni kullanabilirsiniz. Veri Gezgini'ni kullanarak, sorguları maliyetini de alabilirsiniz. Bu yöntem gerçek ücretleri tipik sorgular ve sisteminizin desteklediği işlemleri ile ilgili bir fikir verir.
 
-SDK'ları kullanarak sorguları maliyetini programlı olarak da edinebilirsiniz. Herhangi bir işlem yükü ölçmek için gibi oluştururken, güncelleştirme veya silme İnceleme `x-ms-request-charge` REST API'si kullanılırken başlığı. .net veya Java SDK'sı kullanıyorsanız `RequestCharge` isteği ücret alınacak eşdeğer özelliğin bir özelliktir ve bu özellik ResourceResponse veya FeedResponse içinde yok.
+SDK'ları kullanarak sorguları maliyetini programlı olarak da edinebilirsiniz. Herhangi bir işlem yükü ölçmek için gibi oluştururken, güncelleştirme veya silme İnceleme `x-ms-request-charge` REST API'si kullanılırken başlığı. .NET veya Java SDK'sı kullanıyorsanız `RequestCharge` isteği ücret alınacak eşdeğer özelliğin bir özelliktir ve bu özellik ResourceResponse veya FeedResponse içinde yok.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -59,7 +59,7 @@ Bazı durumlarda, 200 ve 429 yanıtları ve değişken istek birimleri cinsinden
 
 ## <a name="metrics-for-troubleshooting"></a>Sorun giderme için ölçümleri
 
-Performans ve kullanıcı tanımlı işlevler (UDF'ler) sorgular tarafından genellikle kullanılan aktarım hızı, işlev gövdesinde bağlıdır. Sorgu yürütme UDF ve tüketilen, RU sayısını harcandığını ne kadar süre öğrenmek için en kolay yolu olan sorgu ölçümlerini etkinleştirerek. .Net SDK'sı kullanıyorsanız, SDK tarafından döndürülen örnek sorgu ölçümler şunlardır:
+Performans ve kullanıcı tanımlı işlevler (UDF'ler) sorgular tarafından genellikle kullanılan aktarım hızı, işlev gövdesinde bağlıdır. Sorgu yürütme UDF ve tüketilen, RU sayısını harcandığını ne kadar süre öğrenmek için en kolay yolu olan sorgu ölçümlerini etkinleştirerek. .NET SDK'sı kullanıyorsanız, SDK tarafından döndürülen örnek sorgu ölçümler şunlardır:
 
 ```bash
 Retrieved Document Count                 :               1              

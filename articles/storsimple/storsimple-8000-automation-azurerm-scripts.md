@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4184d3605c464b5da495de0698155dda1ae4e474
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b7cc47c449b91693831dda74bf987f595fe65681
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438720"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997886"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>StorSimple cihazları yönetmek için Azure Resource Manager SDK tabanlı betik kullanma
 
@@ -77,7 +77,7 @@ Bu örnekte kullanılan betiği, bir StorSimple cihazında tüm işler listeleni
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
     ```    
-2. [NuGet CLI'yı indirme](http://www.nuget.org/downloads) önceki adımda oluşturduğunuz klasöre altında. Çeşitli sürümleri vardır _nuget.exe_. SDK'nızı için karşılık gelen sürümü seçin. Her bir indirme bağlantısı doğrudan işaret eden bir _.exe_ dosya. Sağ tıklayın ve dosyayı bilgisayarınıza kaydetmek mutlaka yerine tarayıcıda çalışıyor.
+2. [NuGet CLI'yı indirme](https://www.nuget.org/downloads) önceki adımda oluşturduğunuz klasöre altında. Çeşitli sürümleri vardır _nuget.exe_. SDK'nızı için karşılık gelen sürümü seçin. Her bir indirme bağlantısı doğrudan işaret eden bir _.exe_ dosya. Sağ tıklayın ve dosyayı bilgisayarınıza kaydetmek mutlaka yerine tarayıcıda çalışıyor.
 
     Ayrıca, karşıdan yüklemek ve betik, daha önce oluşturduğunuz aynı klasöre depolamak için aşağıdaki komutu çalıştırabilirsiniz.
     

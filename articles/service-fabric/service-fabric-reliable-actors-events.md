@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: c228821383a1bfedf380f97e3411fdacc322a6f9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: fead1cf639a379fc288122e39629909786aa3f14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054487"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844809"
 ---
 # <a name="actor-events"></a>Aktör olayları
 Aktör olaylar istemciye aktör en yüksek çaba bildirimleri göndermek için bir yol sağlar. Aktör olayları aktör istemci iletişimi için tasarlanmıştır ve aktör aktör iletişimi için kullanılmamalıdır.
@@ -114,4 +114,4 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 * [Aktör API başvuru belgeleri](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [C# örnek kod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [C# .NET Core örnek kodu](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
-* [Java örnek kodu](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java örnek kodu](https://github.com/Azure-Samples/service-fabric-java-getting-started)

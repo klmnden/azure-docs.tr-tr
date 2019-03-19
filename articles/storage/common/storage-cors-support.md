@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: cf40fd45114659bf1a5da4dbaa6bfa928f34088c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb1f4861f3867c592ecab86e85d3a4dfbab6738e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473774"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002960"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Çıkış noktaları arası kaynak paylaşımı (CORS) desteğiyle Azure depolama hizmetleri
-2013-08-15 sürümünden başlayarak, Azure depolama hizmeti Blob, tablo, kuyruk ve Dosya Hizmetleri için çıkış noktaları arası kaynak paylaşımı (CORS) destekler. CORS, başka bir etki alanındaki kaynaklara erişmek bir etki alanı altında çalışan bir web uygulamasını etkinleştiren bir HTTP özelliğidir. Web tarayıcısı olarak bilinen bir güvenlik kısıtlaması uygulamak [aynı çıkış noktası İlkesi](http://www.w3.org/Security/wiki/Same_Origin_Policy) engelleyen bir web sayfasından; farklı bir etki alanında arama API'leri CORS, başka bir etki alanındaki API'leri çağırmak bir etki alanı (kaynak etki alanı) izin vermek için güvenli bir yol sağlar. Bkz: [CORS belirtimi](http://www.w3.org/TR/cors/) CORS hakkında ayrıntılı bilgi için.
+2013-08-15 sürümünden başlayarak, Azure depolama hizmeti Blob, tablo, kuyruk ve Dosya Hizmetleri için çıkış noktaları arası kaynak paylaşımı (CORS) destekler. CORS, başka bir etki alanındaki kaynaklara erişmek bir etki alanı altında çalışan bir web uygulamasını etkinleştiren bir HTTP özelliğidir. Web tarayıcısı olarak bilinen bir güvenlik kısıtlaması uygulamak [aynı çıkış noktası İlkesi](https://www.w3.org/Security/wiki/Same_Origin_Policy) engelleyen bir web sayfasından; farklı bir etki alanında arama API'leri CORS, başka bir etki alanındaki API'leri çağırmak bir etki alanı (kaynak etki alanı) izin vermek için güvenli bir yol sağlar. Bkz: [CORS belirtimi](https://www.w3.org/TR/cors/) CORS hakkında ayrıntılı bilgi için.
 
 CORS kurallarını ayrı ayrı Depolama hizmetlerinin her biri için çağırarak ayarlayabileceğiniz [Blob hizmeti özelliklerini ayarla](https://msdn.microsoft.com/library/hh452235.aspx), [kuyruk hizmeti özelliklerini ayarla](https://msdn.microsoft.com/library/hh452232.aspx), ve [tablo hizmeti özelliklerini ayarla](https://msdn.microsoft.com/library/hh452240.aspx). Hizmet için CORS kurallarını ayarladığınızda, hizmete yönelik farklı bir etki alanından yapılan düzgün şekilde yetkili bir istek, belirttiğiniz kurallara göre izin verilip verilmeyeceğini belirlemek için değerlendirilir.
 
@@ -29,7 +29,7 @@ CORS kurallarını ayrı ayrı Depolama hizmetlerinin her biri için çağırara
 ## <a name="understanding-cors-requests"></a>CORS istekleri anlama
 Kaynak etki alanındaki bir CORS isteği, iki ayrı isteklerinin oluşabilir:
 
-* Hizmet tarafından uygulanan CORS kısıtlamalar sorgular bir denetim öncesi isteği. İstek yöntemi olduğu sürece denetim öncesi isteği gereklidir bir [basit yöntemi](http://www.w3.org/TR/cors/), GET, HEAD veya POST anlamına gelir.
+* Hizmet tarafından uygulanan CORS kısıtlamalar sorgular bir denetim öncesi isteği. İstek yöntemi olduğu sürece denetim öncesi isteği gereklidir bir [basit yöntemi](https://www.w3.org/TR/cors/), GET, HEAD veya POST anlamına gelir.
 * İstenen kaynağa karşı yapılan asıl isteğinin.
 
 ### <a name="preflight-request"></a>Denetim öncesi isteği
@@ -129,7 +129,7 @@ Ardından, aşağıdaki CORS isteklerini göz önünde bulundurun:
 
 | İstek |  |  | Yanıt |  |
 | --- | --- | --- | --- | --- |
-| **Yöntem** |**Kaynak** |**İstek üst bilgileri** |**Kuralın eşleşmesi** |**Sonuç** |
+| **Yöntem** |**Kaynak** |**İstek Üst Bilgileri** |**Kuralın eşleşmesi** |**Sonuç** |
 | **PUT** |http://www.contoso.com |x-ms-blob-content-type |İlk kuralı |Başarılı |
 | **GET** |http://www.contoso.com |x-ms-blob-content-type |İkinci kuralı |Başarılı |
 | **GET** |http://www.contoso.com |x-ms-istemci-isteği-ID |İkinci kuralı |Hata |
@@ -146,7 +146,7 @@ Yöntemi, izin verilen yöntemleri eşleşmediği için ikinci isteği ilk kural
 > 
 
 ## <a name="understanding-how-the-vary-header-is-set"></a>Vary üstbilgisi nasıl belirlendiğini anlama
-*Ayırmayı* standart bir HTTP/1.1 üst bilgi, tarayıcı veya kullanıcı aracısı isteği işlemek için sunucu tarafından seçilen ölçütleri hakkında öneri isteği üst bilgi alanları kümesinden oluşan başlığıdır. *Ayırmayı* üst bilgi, proxy'leri, tarayıcılar ve yanıt nasıl önbelleğe alınması gerektiğini belirlemek için kullanabileceğiniz CDN tarafından önbelleğe almak için temel olarak kullanılır. Belirtimi için Ayrıntılar için bkz [Vary üstbilgisi](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+*Ayırmayı* standart bir HTTP/1.1 üst bilgi, tarayıcı veya kullanıcı aracısı isteği işlemek için sunucu tarafından seçilen ölçütleri hakkında öneri isteği üst bilgi alanları kümesinden oluşan başlığıdır. *Ayırmayı* üst bilgi, proxy'leri, tarayıcılar ve yanıt nasıl önbelleğe alınması gerektiğini belirlemek için kullanabileceğiniz CDN tarafından önbelleğe almak için temel olarak kullanılır. Belirtimi için Ayrıntılar için bkz [Vary üstbilgisi](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 Kaynak etki alanı, tarayıcı veya başka bir kullanıcı aracısı CORS istek yanıtı önbelleğe alır, izin verilen kaynağı önbelleğe alınır. Önbelleği etkin durumdayken ikinci bir etki alanı için depolama kaynağı aynı isteği gönderdiğinde, önbelleğe alınmış kaynak etki alanı kullanıcı aracısını alır. Aksi takdirde başarılı olduğunda, isteği başarısız olur, ikinci etki alanına önbelleğe alınan etki alanı eşleşmiyor. Bazı durumlarda, Azure depolama ayırmayı üstbilgisini ayarlar **kaynak** isteyen etki alanı ve önbelleğe alınan kaynaktan farklı olduğu durumlarda hizmete sonraki CORS isteği göndermek için kullanıcı aracısı bildirin.
 
@@ -162,7 +162,7 @@ GET/HEAD dışındaki yöntemlerle istekleri unutmayın, bu yöntemlere yapılan
 Aşağıdaki tabloda Azure depolama gösterir. daha önce bahsedilen örneklerine dayalı GET/HEAD isteklerini yanıtlar:
 
 | İstek | Hesap ayarını ve kuralı değerlendirme sonucu |  |  | Yanıt |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | **İstekte mevcut kaynak üst bilgisi** |**Bu hizmet için belirtilen CORS kuralları** |**Eşleşen kural mevcut olan tüm origins(*) sağlar** |**Eşleşen kural için tam kaynak eşleşme var.** |**Ayarlamak için kaynak ayırmayı üst bilgi yanıtı içerir** |**Access-Control-izin verilen-Origin yanıtı içerir: "*"** |**Access-Control-kullanıma sunulan-Headers yanıtı içerir** |
 | Hayır |Hayır |Hayır |Hayır |Hayır |Hayır |Hayır |
 | Hayır |Evet |Hayır |Hayır |Evet |Hayır |Hayır |
@@ -184,5 +184,5 @@ Denetim öncesi başarısız istekleri faturalandırılmazsınız.
 
 [Tablo hizmeti özelliklerini ayarla](https://msdn.microsoft.com/library/hh452240.aspx)
 
-[W3C çıkış noktaları arası kaynak paylaşımı belirtimi](http://www.w3.org/TR/cors/)
+[W3C çıkış noktaları arası kaynak paylaşımı belirtimi](https://www.w3.org/TR/cors/)
 

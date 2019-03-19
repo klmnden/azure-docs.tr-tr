@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 797ac714d3205a271fe6590a3a320e1b9e2a073e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a8792c568622931bfae517b96cdec7d4cc0683ac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194742"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997233"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory'de özel etki alanı adlarını yönetme
 
@@ -88,13 +88,13 @@ Hata olduğunda döndürülür:
 ### <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
 **S: Neden etki alanı silme işlemi, bu etki alanı adına yönetilen Exchange gruplarını sahip olduğunu belirten bir hata ile başarısız oluyor?** <br>
-**Y:** Bugün, posta güvenlik grupları ve dağıtılmış listeleri gibi bazı grupları Exchange tarafından sağlanan ve el ile temizlenmesi gereken [Exchange yönetici Merkezi (EAC)](https://outlook.office365.com/ecp/). Var kalan ProxyAddresses üzerinde özel bir etki alanı adını kullanır ve başka bir etki alanı adını el ile güncelleştirilmesi gerekir. 
+**C:** Bugün, posta güvenlik grupları ve dağıtılmış listeleri gibi bazı grupları Exchange tarafından sağlanan ve el ile temizlenmesi gereken [Exchange yönetici Merkezi (EAC)](https://outlook.office365.com/ecp/). Var kalan ProxyAddresses üzerinde özel bir etki alanı adını kullanır ve başka bir etki alanı adını el ile güncelleştirilmesi gerekir. 
 
-**S: Olarak oturum admin@contoso.com ancak "contoso.com" etki alanı adı silemiyorum?**<br>
-**Y:** Kullanıcı hesabı adını silmeye çalıştığınız özel etki alanı adına başvuramaz. Genel yönetici hesabını ilk varsayılan etki alanı adını kullandığından emin olun (. onmicrosoft.com) gibi admin@contoso.onmicrosoft.com. Oturum açın. farklı bir genel yönetici hesabı gibi admin@contoso.onmicrosoft.com veya başka bir özel etki alanı adı "hesabı olduğu fabrikam.com" gibi admin@fabrikam.com.
+**S: Yönetici oturum\@contoso.com ancak "contoso.com" etki alanı adı silinemiyor?**<br>
+**C:** Kullanıcı hesabı adını silmeye çalıştığınız özel etki alanı adına başvuramaz. Genel yönetici hesabını ilk varsayılan etki alanı adını kullandığından emin olun (. onmicrosoft.com) gibi admin@contoso.onmicrosoft.com. Oturum açın. farklı bir genel yönetici hesabı gibi admin@contoso.onmicrosoft.com veya başka bir özel etki alanı adı "hesabı olduğu fabrikam.com" gibi admin@fabrikam.com.
 
 **S: Görmek ve Delete etki alanı düğmesi tıkladım `In Progress` silme işlemi için durumu. Ne kadar sürer? Başarısız olursa ne olur?**<br>
-**Y:** Etki alanı silme işlemi, etki alanı adı için tüm başvuruları yeniden adlandırır bir zaman uyumsuz bir arka plan görevdir. Bir veya iki dakika içinde tamamlanır. Etki alanı silme başarısız olursa olmadığından emin olun:
+**C:** Etki alanı silme işlemi, etki alanı adı için tüm başvuruları yeniden adlandırır bir zaman uyumsuz bir arka plan görevdir. Bir veya iki dakika içinde tamamlanır. Etki alanı silme başarısız olursa olmadığından emin olun:
 
 * Etki alanı adı appIdentifierURI ile yapılandırılan uygulamalar
 * Tüm posta etkin bir grup özel etki alanı adına başvuran

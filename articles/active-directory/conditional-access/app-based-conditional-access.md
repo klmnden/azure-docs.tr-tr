@@ -18,12 +18,12 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f7765b775706d3bdf09176bc4bfbf18533d054
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 57b7f540ccf80c6d25a7dfcfcad1ba7ca6698167
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441317"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113240"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Nasıl Yapılır: Koşullu erişim ile bulut uygulaması erişimi için onaylı istemci uygulama gerektir 
 
@@ -292,13 +292,13 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
 5. Olarak **erişim denetimleri**, aşağıdaki seçili olması gerekir:
 
-    - **Cihazın uyumlu olarak işaretlenmesini gerektir**
+   - **Cihazın uyumlu olarak işaretlenmesini gerektir**
 
-    - **(Önizleme) onaylı istemci uygulaması gerektir**
+   - **(Önizleme) onaylı istemci uygulaması gerektir**
 
-    - **Seçilen denetimlerden birini gerektir**   
+   - **Seçilen denetimlerden birini gerektir**   
  
-    ![Koşullu erişim](./media/app-based-conditional-access/11.png)
+     ![Koşullu erişim](./media/app-based-conditional-access/11.png)
 
 
 
@@ -388,13 +388,13 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
 5. Olarak **erişim denetimleri**, aşağıdaki seçili olması gerekir:
 
-    - **Cihazın uyumlu olarak işaretlenmesini gerektir**
+   - **Cihazın uyumlu olarak işaretlenmesini gerektir**
 
-    - **(Önizleme) onaylı istemci uygulaması gerektir**
+   - **(Önizleme) onaylı istemci uygulaması gerektir**
 
-    - **Seçilen tüm denetimleri gerekli kıl**   
+   - **Seçilen tüm denetimleri gerekli kıl**   
  
-    ![Koşullu erişim](./media/app-based-conditional-access/13.png)
+     ![Koşullu erişim](./media/app-based-conditional-access/13.png)
 
 
 
@@ -420,13 +420,13 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
 5. Olarak **erişim denetimleri**, aşağıdaki seçili olması gerekir:
 
-    - **Cihazın uyumlu olarak işaretlenmesini gerektir**
+   - **Cihazın uyumlu olarak işaretlenmesini gerektir**
 
-    - **(Önizleme) onaylı istemci uygulaması gerektir**
+   - **(Önizleme) onaylı istemci uygulaması gerektir**
 
-    - **Seçilen tüm denetimleri gerekli kıl**   
+   - **Seçilen tüm denetimleri gerekli kıl**   
  
-    ![Koşullu erişim](./media/app-based-conditional-access/64.png)
+     ![Koşullu erişim](./media/app-based-conditional-access/64.png)
 
 
 

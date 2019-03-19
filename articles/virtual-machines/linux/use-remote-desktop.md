@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 44b0f8b3d11b737ad88f7d33b036b52d24b70e33
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dec0b8bcd5a0e0d20ead5b149405e3716589ba53
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960336"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995719"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Yükleme ve yapılandırma azure'da bir Linux VM'ye bağlanmak için Uzak Masaüstü
 Azure'da Linux sanal makineleri (VM'ler), genellikle bir güvenli Kabuk (SSH) bağlantısı kullanarak komut satırından yönetilir. Yeni Linux veya hızlı sorun giderme senaryoları için Uzak Masaüstü kullanımını daha kolay olabilir. Bu makalede ayrıntılı bir masaüstü ortamını yüklemek ve yapılandırmak nasıl ([xfce](https://www.xfce.org)) ve Uzak Masaüstü ([xrdp](http://www.xrdp.org)) Resource Manager dağıtım modelini kullanarak Linux VM.
@@ -103,7 +103,7 @@ Kimlik doğrulandıktan sonra xfce masaüstü ortamını yükleyin ve aşağıda
 
 ![xrdp aracılığıyla xfce Masaüstü ortamı](./media/use-remote-desktop/xfce-desktop-environment.png)
 
-RDP istemcinizi ağ düzeyi kimlik doğrulamayı (NLA) kullanıyorsa, bu bağlantı ayarı devre dışı bırakmanız gerekebilir. XRDP NLA şu anda desteklemiyor. NLA, gibi destekleyen alternatif RDP çözümleri de bakabilirsiniz [FreeRDP](http://www.freerdp.com).
+RDP istemcinizi ağ düzeyi kimlik doğrulamayı (NLA) kullanıyorsa, bu bağlantı ayarı devre dışı bırakmanız gerekebilir. XRDP NLA şu anda desteklemiyor. NLA, gibi destekleyen alternatif RDP çözümleri de bakabilirsiniz [FreeRDP](https://www.freerdp.com).
 
 
 ## <a name="troubleshoot"></a>Sorun giderme

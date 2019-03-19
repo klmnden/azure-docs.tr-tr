@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 73a09a99b1dd275b20bcd389e9cc391f638e8bdd
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8b56151ae56de44cbab3003743ce6df33ec89612
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404272"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075638"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault sertifikalar ile çalışmaya başlama
 Aşağıdaki senaryolardan birkaç Key Vault'un sertifika yönetim hizmeti, ilk sertifikayı anahtar kasanızı oluşturmak için gereken ek adımları dahil olmak üzere birincil kullanımlarını özetler.
@@ -50,12 +50,12 @@ Sertifikalar, anahtar kasası sertifikası olarak birbirine bağlı üç birbiri
 
 **3. adım** -Yöneticisi veya CA ile doğrudan hesabından bir Contoso Yöneticisi, sertifikalar, CA'ın bağlı olarak sahip bir Contoso çalışanı (Key Vault kullanıcı) ile birlikte bir sertifika edinebilirsiniz.  
 
--   Bir anahtar kasası tarafından bir Ekle kimlik bilgisi işleme başlamak [sertifikayı veren ayarlama](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) kaynak. Sertifikayı veren süresi kaynak olarak Azure anahtar kasası (KV) olarak temsil edilen bir varlıktır. KV sertifikanın kaynağı hakkında bilgi sağlamak için kullanılır; Verenin adı, sağlayıcı, kimlik bilgilerini ve diğer yönetimsel ayrıntıları.
-    -   Örn. MyDigiCertIssuer  
-        -   Sağlayıcı  
-        -   Kimlik bilgileri – CA hesabı kimlik bilgileri. Her CA'ın kendi belirli veri vardır.  
+- Bir anahtar kasası tarafından bir Ekle kimlik bilgisi işleme başlamak [sertifikayı veren ayarlama](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) kaynak. Sertifikayı veren süresi kaynak olarak Azure anahtar kasası (KV) olarak temsil edilen bir varlıktır. KV sertifikanın kaynağı hakkında bilgi sağlamak için kullanılır; Verenin adı, sağlayıcı, kimlik bilgilerini ve diğer yönetimsel ayrıntıları.
+  - Örn. MyDigiCertIssuer  
+    -   Sağlayıcı  
+    -   Kimlik bilgileri – CA hesabı kimlik bilgileri. Her CA'ın kendi belirli veri vardır.  
 
-     CA sağlayıcılarıyla hesapları oluşturma hakkında daha fazla bilgi için ilgili gönderiye bakın [Key Vault blog](https://aka.ms/kvcertsblog).  
+    CA sağlayıcılarıyla hesapları oluşturma hakkında daha fazla bilgi için ilgili gönderiye bakın [Key Vault blog](https://aka.ms/kvcertsblog).  
 
 **Adım 3.1** -ayarlanan [sertifika kişileri](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) bildirimleri. Key Vault kullanıcı sorumlu budur. Key Vault, bu adımı uygulamaz.  
 

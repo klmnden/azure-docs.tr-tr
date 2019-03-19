@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0b24c5d2f174c9a656e81d0c85e12b589d7d7799
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811632"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837047"
 ---
 # <a name="appsource-package-preparation"></a>AppSource paketini hazırlama
 
@@ -40,7 +40,7 @@ Paket dağıtıcısı için paket Appsource'ta paketin bir parçasıdır.
 Paket dağıtıcısı için paket oluşturmak için aşağıdaki yönergeleri kullanın: [ https://msdn.microsoft.com/library/dn688182.aspx ](https://msdn.microsoft.com/library/dn688182.aspx). Tamamlandığında, varlıklar paketiniz oluşur:
 
 1. Paket klasörüne: tüm çözümleri, yapılandırma verilerini, düz dosyalar ve içerik paketiniz için içerir. _Not: Aşağıdaki örnekte "PkgFolder" adlı paket klasörde varsayacağız_
-2. DLL: derleme, paket için özel kod içerir. _Not: Aşağıdaki örnekte bu dosya, "MicrosoftSample.dll." adlı varsayacağız_
+2. DLL: Derleme, paket için özel kod içerir. _Not: Aşağıdaki örnekte bu dosya, "MicrosoftSample.dll." adlı varsayacağız_
 
 Şimdi, adlı bir dosya oluşturmanız gerekir "**Content_Types.xml**" Bu dosya tüm paketinizin bir parçası olan varlıklar uzantıları listelenir. Dosya için kod örneği aşağıda verilmiştir.
 
@@ -63,7 +63,7 @@ Son adım, aşağıdaki tek bir dosyada zip sağlamaktır. Bu çağrı **package
 
 1. PkgFolder (klasörü içindeki her şey dahil)
 2. dll
-3. **Content_Types.XML**
+3. **Content_Types.xml**
 
 Package.zip oluşturma adımları:
 
@@ -71,11 +71,11 @@ Package.zip oluşturma adımları:
 
 ![CRMScreenShot2](media/CRMScreenShot2.png)
 
-2. Tüm öğeleri klasörü seçin, sağ tıklayın ve göndermek için sıkıştırılmış (ZIP) klasörü seçin
+1. Tüm öğeleri klasörü seçin, sağ tıklayın ve göndermek için sıkıştırılmış (ZIP) klasörü seçin
 
 ![CRMScreenShot3](media/CRMScreenShot3.png)
 
-3. Package.zip için adı değiştirin
+1. Package.zip için adı değiştirin
 
 ![CRMScreenShot4](media/CRMScreenShot4.png)
 
@@ -97,7 +97,7 @@ AppSource paket birkaç ek dosyalar gerektirir.
         <StartDate>01/01/2016</StartDate>
         <EndDate>01/01/2021</EndDate>
         <SupportedCountries>US,CA</SupportedCountries>
-        <LearnMoreLink>http://www.microsoft.com</LearnMoreLink>
+        <LearnMoreLink>https://www.microsoft.com</LearnMoreLink>
         <Locales>
         <PackageLocale Code="1033" IsDefault="true">
         <Logo>logo32x32.png</Logo>
@@ -117,12 +117,12 @@ AppSource paket birkaç ek dosyalar gerektirir.
 |SolutionAnchorName |Görünen ad ve açıklama çözüm varlıkları için kullanılan paket dağıtıcısı çözüm zip dosyasının adı.|
 | startDate| Bu çözüm paketine kullanılabilir olacak tarihtir. AA/GG/YYYY biçiminde olan|
 |endDate|Bu çözüm paketine kullanılabilir olmasını durduracak tarihtir. AA/GG/YYYY biçiminde olan |
-|SupportedCountries |Bu paketi görürsünüz ülkelerin virgülle ayrılmış bir listesi budur. Tüm geçerli Ülke Kodları listesi için Çevrimiçi Hizmetleri ile görüşün. Bu listenin yazma zamanında edildi: AE, AL, AM, saniye başına AO, AR, AT, AU, AZ, BA, BB, BD, BE, BG, BH, BM, BN, BO, BR, BY, CA, CH, CI, CL, CM, ortak CR, CV, FA, CY, CZ, DE, DK,, DZ, AB, EE, EG , ES, FI, FR, GB, GE, GH, GR, GT, HK, HN, İK, HU, KİMLİĞİ, IE, IL, IN, IQ, OLDUĞU GİBİ BU, JM, JO, JP, L, KG, KN, KR, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, BANA, MK, MN, AY, MT, MU, MX, MY , NG, NI, NL, HAYIR, NZ, OM, PA, PE, PH, PK, PL, ÇEKME İSTEĞİ, PS, PT, KOPYALA, QA, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, ABD, UY, UZ, KALDIR, VI, VN, ZA, ZW |
+|SupportedCountries |Bu paketi görürsünüz ülkelerin virgülle ayrılmış bir listesi budur. Tüm geçerli Ülke Kodları listesi için Çevrimiçi Hizmetleri ile görüşün. Zaman bu yazılmasını listenin şöyleydi: AE, AL, AM, SANİYE BAŞINA AO, AR, AT, AU, AZ, BA, BB, BD, OLMASI, BG, BH, BM, BN, BO, BR TARAFINDAN CA, CH, CI, CL, CM, ORTAK, CR, CV, FA, CY, CZ, DE, DK,, DZ, AB, EE, ÖRN, ES, FI, FR, GB, GE, GH, GR, GT, HK , HN, İK, HU, KİMLİĞİ, IE, IL, IN, IQ, OLDUĞU GİBİ BU, JM, JO, JP, L, KG, KN, KR, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, BANA, MK, MN, AY, MT, MU, MX, MY, NG, NI, NL, HAYIR, NZ, OM, PA, PE, PH , PK, PL, ÇEKME İSTEĞİ, PS, PT, KOPYALA, QA, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, ABD, UY, UZ, KALDIR, VI, VN, ZA, ZW |
 |LearnMoreLink | Bu paket için daha fazla bilgi sayfası URL'si. |
 |Yerel ayarlar|Bu düğüm tercih edilen çözümde UX'i desteklemek istediğiniz her bir UX dilin bir örneği Bu düğüm, yerel ayar, logo ve her bir dilin koşullarını tanımlayan alt öğeleri içerir|
 |Yerel ayarlar: PackageLocale.Code|Bu düğüm için dilin LCID. Örnek: İngilizce (ABD) 1033'tür|
 |Yerel ayarlar: PackageLocale.IsDefault|Bu varsayılan dili olduğunu gösterir. Bu sonbaharda kullanılan müşteri tarafından seçmiş UX dil kullanılabilir değilse, dil yedekleyin.|
-|Yerel ayarlar: logosu|Bu logo, bu paket için kullanmak istiyorsanız. Simge boyutu 32 x 32'dir. PNG ve JPG izin verilen biçimler:|
+|Yerel ayarlar: Logo|Bu logo, bu paket için kullanmak istiyorsanız. Simge boyutu 32 x 32'dir. PNG ve JPG izin verilen biçimler:|
 |Yerel ayarlar: koşulları: PackageTerm.File|Bu lisans koşullarına içeren HTML belge dosya adıdır.|
 
 İşte burada görüntülenir:
@@ -132,10 +132,10 @@ AppSource paket birkaç ek dosyalar gerektirir.
 Son adım, aşağıdaki tek bir dosyada zip sağlamaktır.
 
 1. zip (daha önce oluşturduğunuz)
-2. **Content_Types.XML**
+2. **Content_Types.xml**
 3. xml
 4. PNG
-5. HTML
+5. html
 
 ![CRMScreenShot6](media/CRMScreenShot6.png)
 

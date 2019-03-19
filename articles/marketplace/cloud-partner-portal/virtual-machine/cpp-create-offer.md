@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0a875b69a10f6305b4ffe32b63d3db5b508faf01
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: a3124ca2f163291d266fba77255d2ee98d30fd23
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49640133"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888817"
 ---
 # <a name="create-virtual-machine-offer"></a>Sanal makine teklifi oluşturma
 
@@ -27,7 +27,7 @@ Bu bölümde, Azure Market'te yeni bir sanal makine (VM) teklif isteği oluştur
 
 ![Bir sanal makine teklifi için varlıklar](./media/publishvm_002.png)
 
-Burada:
+burada:
 
 |  **Varlık grubu**   |  **Açıklama**  |
 |  ---------------   |  ---------------  |
@@ -40,7 +40,7 @@ Burada:
 
 ## <a name="new-offer-form"></a>Yeni Teklif formu
 
-Bir kez oturum [bulut iş ortağı portalı](http://cloudpartner.azure.com/), tıklayın **+ yeni teklif** üzerinde sol menü öğesi. Ortaya çıkan menüden tıklayarak **sanal makineler** görüntülemek için **yeni teklif** oluşturmak ve yeni bir sanal makine teklifi için varlıklar tanımlayan işlemini başlatın. 
+Bir kez oturum [bulut iş ortağı portalı](https://cloudpartner.azure.com/), tıklayın **+ yeni teklif** üzerinde sol menü öğesi. Ortaya çıkan menüden tıklayarak **sanal makineler** görüntülemek için **yeni teklif** oluşturmak ve yeni bir sanal makine teklifi için varlıklar tanımlayan işlemini başlatın. 
 <!-- not all publishers see corevm or azure apps test, you need to be whitelisted to see them. we should hide those in these images. -->
 
 ![Yeni sanal makine teklifi kullanıcı arabirimi seçimi](./media/publishvm_003.png)
@@ -55,6 +55,6 @@ Bu bölümün sonraki konularda sekmeleri yansıtma **yeni teklif** sayfa (için
 
 - [Teklif Ayarları sekmesi](./cpp-offer-settings-tab.md)
 - [SKU'lar sekmesi](./cpp-skus-tab.md)
-- [Test sürücü sekmesi](./cpp-test-drive-tab.md)
+- [Test Sürüşü sekmesi](./cpp-test-drive-tab.md)
 - [Market sekmesi](./cpp-marketplace-tab.md)
 - [Destek sekmesi](./cpp-support-tab.md)

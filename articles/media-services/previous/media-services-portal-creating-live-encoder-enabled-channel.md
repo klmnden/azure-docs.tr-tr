@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 4e9abb20e6548d8612bc3b59aba4f7384913d081
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b09c80e08689768ab3e9646b7d6f60f72c33f764
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761557"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077794"
 ---
 # <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Azure portalı ile Çoklu bit hızına sahip akışlar oluşturmak üzere Media Services'i kullanarak canlı akış gerçekleştirme  
 > [!div class="op_single_selector"]
@@ -41,18 +41,16 @@ Yaygın canlı akış uygulamaları oluşturmak için gerekli olan genel adımla
 
 > [!NOTE]
 > Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Daha uzun bir süre için bir Kanal çalıştırmanız gerekiyorsa lütfen amslived@microsoft.com adresine başvurun.
-> 
-> 
 
 1. Bilgisayara bir video kamera bağlayın. Başlatın ve bir şu protokollerin birinde tek bit hızlı akış çıktısı alınabilen bir şirket içi Canlı Kodlayıcı yapılandırın: RTMP veya kesintisiz akış. Daha fazla bilgi için bkz. [Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar](https://go.microsoft.com/fwlink/?LinkId=532824).
-   
+
     Bu adım, Kanalınızı oluşturduktan sonra da gerçekleştirilebilir.
 2. Bir Kanal oluşturup başlatın. 
 3. Kanal alma URL’sini alın. 
-   
+
     Alma URL’si gerçek zamanlı kodlayıcı tarafından akışı Kanala göndermek için kullanılır.
 4. Kanal önizleme URL’sini alın. 
-   
+
     Kanalınızın canlı akışı düzgün şekilde aldığını doğrulamak için bu URL’yi kullanın.
 5. Bir olay/program oluşturun (ayrıca bir varlık oluşturur). 
 6. Olayı yayımlayın (ilişkili varlığa yönelik bir OnDemand bulucu oluşturulur).    
@@ -83,31 +81,31 @@ Bu öğreticide, Azure portalı aşağıdaki görevleri gerçekleştirmek için 
 1. [Azure portalında](https://portal.azure.com/), Media Services'i seçin ve ardından Media Services hesabınızın adına tıklayın.
 2. **Canlı Akış**’ı seçin.
 3. **Özel oluştur**’u seçin. Bu seçenek canlı kodlama için etkinleştirilmiş bir kanal oluşturmanızı sağlar.
-   
+
     ![Kanal oluşturma](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
 4. **Ayarlar**’a tıklayın.
-   
+
    1. **Live Encoding** kanal türünü seçin. Bu tür, gerçek zamanlı kodlama için etkinleştirilmiş bir Kanal oluşturmak istediğinizi belirtir. Bu durumda, gelen tek bit hızlı akış Kanala gönderilir ve belirlenmiş gerçek zamanlı kodlayıcı ayarları kullanılarak çoklu bit hızına sahip bir akışa kodlanır. Daha fazla bilgi için bkz. [Çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme](media-services-manage-live-encoder-enabled-channels.md). Tamam'a tıklayın.
    2. Bir kanalın adını belirtin.
    3. Ekranın alt kısmındaki Tamam’a tıklayın.
 5. **Al** sekmesini seçin.
-   
+
    1. Bu sayfada bir akış protokolü seçebilirsiniz. **Live Encoding** kanal türü için geçerli protokol seçenekleri şunlardır:
-      
+
       * Tek bit hızlı Parçalanmış MP4 (Kesintisiz Akış)
       * Tek bit hızlı RTMP
-        
+
         Her protokole ait detaylı bilgiler için bkz. [Çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme](media-services-manage-live-encoder-enabled-channels.md).
-        
+
         Kanal veya ilişkili olayları/programları çalışıyorken protokol seçeneğini değiştiremezsiniz. Farklı protokollere ihtiyacınız varsa her bir akış protokolü için farklı bir kanal oluşturmalısınız.  
    2. Alma işlemine IP kısıtlaması uygulayabilirsiniz. 
-      
+
        Bu kanala video almasına izin verilen IP adreslerini tanımlayabilirsiniz. İzin verilen IP adresleri, tek bir IP adresi (ör. '10.0.0.1'), bir IP adresi ve CIDR alt ağ maskesi kullanarak bir IP aralığı (ör. ‘10.0.0.1/22’) veya bir IP adresi ve noktalı ondalık alt ağ maskesi kullanarak bir IP aralığı (ör. '10.0.0.1(255.255.252.0)').
-      
+
        Herhangi bir IP adresi belirtilmezse ve bir kural tanımı yoksa hiçbir IP adresine izin verilmez. Tüm IP adreslerine izin vermek için, bir kural oluşturun ve 0.0.0.0/0 olarak ayarlayın.
 6. **Önizleme** sekmesinde önizlemeye IP kısıtlaması uygulayın.
 7. **Kodlama** sekmesinde kodlama ön ayarını belirtin. 
-   
+
     Şu anda seçebileceğiniz tek sistem önayarı **Varsayılan 720p** seçeneğidir. Özel bir ön ayar belirtmek için bir Microsoft destek bileti açın. Ardından, sizin için oluşturulan ön ayarın adını girin. 
 
 > [!NOTE]
@@ -153,18 +151,18 @@ Akışın Kanala akması sağlandıktan sonra bir Varlık, Program ve Akış Bul
 Olayı başlatmanın iki yolu vardır: 
 
 1. **Kanal** sayfasında **Canlı Olay**’a basarak yeni bir olay ekleyin.
-   
+
     Şunları belirleyin: olay adı, varlık adı, arşiv penceresi ve şifreleme seçeneği.
-   
+
     ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
-   
+
     **Bu canlı olayı şimdi yayımla** seçeneğini işaretli bıraktıysanız URL'leri YAYIMLAMA olayı oluşturulacaktır.
-   
+
     Olayı yayınlamaya hazır olduğunuzda **Başlat** tuşuna basabilirsiniz.
-   
+
     Olayı başlattıktan sonra, içeriği oynatmayı başlatmak için **İzle**’ye basabilirsiniz.
 2. Alternatif olarak, bir kısayol kullanıp **Kanal** sayfasındaki **Yayını Başlat** düğmesine basabilirsiniz. Bunun yapılması varsayılan bir Varlık, Program ve Akış Bulucu oluşturur.
-   
+
     Olaya **default** adı verilir ve arşiv penceresi 8 saat olarak ayarlanır.
 
 Yayımlanmış olayı **Canlı olay** sayfasından izleyebilirsiniz. 

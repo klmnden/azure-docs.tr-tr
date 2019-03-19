@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: a7930ea86f7972a6e4abb939fb148d519ca924e9
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: b35b069f05f117b227a2edbf5595f2682b7f6e86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416726"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997277"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Altyapı Backup hizmeti başvurusu
 
@@ -89,17 +89,20 @@ Gereksinimleri şunları içerir:
 Altyapı yedekleme denetleyicisi verilerini isteğe bağlı olarak yedekler. En son iki gün ve canlı en fazla yedi güne kadar yedek yedeklemek için önerilir. 
 
 **1811 ve sonraki süreci desteleyen**
+
 | Ortam ölçek | Yedekleme tahmini boyutu | Toplam gereken alan miktarı |
 |-------------------|--------------------------|--------------------------------|
 | 4-16 düğümleri        | 20 GB                    | 280 GB                        |
 | ASDK              | 10 GB                    | 140 GB                        |
 
 **Öncesi 1811**
+
 | Ortam ölçek | Yedekleme tahmini boyutu | Toplam gereken alan miktarı |
 |-------------------|--------------------------|--------------------------------|
 | 4-16 düğüm ASDK  | 10 GB                     | 140 GB                        |
 
 ### <a name="network-requirements"></a>Ağ gereksinimleri
+
 | Depolama konumu                                                                 | Ayrıntılar                                                                                                                                                                                 |
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Güvenilen ağ ortamında bir depolama cihazı üzerinde barındırılan SMB dosya paylaşımı | Azure Stack örneği bağlantısıyla bir ortamda yer alıyorsa, 445 bağlantı noktası gereklidir. Altyapı yedekleme denetleyicisi bağlantı noktası 445 üzerinden SMB dosya sunucusu için bir bağlantı başlatır. |
@@ -131,6 +134,7 @@ Bulut Kurtarma sırasında kullanılan özel anahtarla sertifikayı (. PFX) tara
 Planlama, dağıtma ve Microsoft Azure Stack örneklerinizin çalışmak gibi bu sınırları göz önünde bulundurun. Bu sınırlar aşağıdaki tabloda açıklanmaktadır.
 
 ### <a name="infrastructure-backup-limits"></a>Altyapı yedekleme sınırları
+
 | Sınır tanımlayıcı                                                 | Sınır        | Yorumlar                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Yedekleme türü                                                      | Yalnızca tam    | Altyapı yedekleme denetleyicisi, yalnızca tam yedeklemeleri destekler. Artımlı yedeklemeler desteklenmez.                                          |

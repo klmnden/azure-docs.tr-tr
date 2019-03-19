@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9409d196e307b75a14a272dee6c8c93789ca8556
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669797"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119760"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Azure Active Directory'de yönetici rolleri uygulama temsilcisi
 
@@ -37,8 +37,8 @@ Azure portalında uygulama erişimini yönetme olanağı vermek için:
 1. Oturum açın, [Azure AD kiracısı](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) kiracısında genel yönetici rolü için uygun olan bir hesapla.
 2. Yeterli izinlere sahip açtığınızda [roller ve yöneticiler sayfası](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
 3. Üye atamalarının görmek için aşağıdaki rollerden biri açın:
-  * **Uygulama Yöneticisi**
-  * **Bulut uygulaması Yöneticisi**
+   * **Uygulama Yöneticisi**
+   * **Bulut uygulaması Yöneticisi**
 4. Üzerinde **üyeleri** rolü seçme sayfasında **Üye Ekle**.
 5. Role eklenecek bir veya daha fazla üyeleri seçin. <!--Members can be users or groups.-->
 
@@ -50,8 +50,8 @@ Varsayılan olarak, tüm kullanıcılar, uygulama kayıtları oluşturabilir, an
 
 1. Oturum açın, [Azure AD kiracısı](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) kiracısında genel yönetici rolü için uygun olan bir hesapla.
 2. Yeterli izinlere edindiğinizde, birini veya her ikisini aşağıdakileri ayarlayın:
-  * Üzerinde [kiracınız için kullanıcı ayarları sayfası](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)ayarlayın **kullanıcılar uygulamaları kaydedebilir** No
-  * Üzerinde [kurumsal uygulamalar için kullanıcı ayarlarını](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)ayarlayın **kullanıcılar uygulamaları kendileri adına şirket verilerine erişme izni verebilir** No
+   * Üzerinde [kiracınız için kullanıcı ayarları sayfası](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)ayarlayın **kullanıcılar uygulamaları kaydedebilir** No
+   * Üzerinde [kurumsal uygulamalar için kullanıcı ayarlarını](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)ayarlayın **kullanıcılar uygulamaları kendileri adına şirket verilerine erişme izni verebilir** No
 3. Daha sonra gerektiğinde Uygulama geliştirici rol üyelerinin olması için bu izne ihtiyaç duyan kullanıcılar atayın.
 
 Bir kullanıcı bir uygulama kaydettiğinde, uygulamanın ilk sahibi olarak otomatik olarak eklenir.

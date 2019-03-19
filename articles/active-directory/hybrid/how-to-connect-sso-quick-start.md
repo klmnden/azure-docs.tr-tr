@@ -16,12 +16,12 @@ ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f2539674668a9738d03e9af9c4fb88327cb1933
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 345c97a19f789bb3d850df000824d4c23989a81f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865068"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086828"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı başlangıç
 
@@ -74,8 +74,9 @@ Azure AD Connect yüklemesi zaten varsa, seçin **değiştirme kullanıcı oturu
 ![Azure AD Connect: Kullanıcı oturum açma](./media/how-to-connect-sso-quick-start/changeusersignin.png)
 
 Sihirbazda gelene kadar devam **etkinleştirme çoklu oturum açma** sayfası. Her Active Directory etki alanı yönetici kimlik bilgileri, orman sağlar:
-    * Azure AD Connect aracılığıyla Azure AD'ye eşitleyin.
-    * Sorunsuz çoklu oturum açma için etkinleştirmek istediğiniz kullanıcıları içerir.
+
+* Azure AD Connect aracılığıyla Azure AD'ye eşitleyin.
+* Sorunsuz çoklu oturum açma için etkinleştirmek istediğiniz kullanıcıları içerir.
 
 Sihirbaz tamamlandıktan sonra kiracınızda sorunsuz çoklu oturum açma etkin.
 
@@ -126,11 +127,11 @@ Kullanıcıların Intranet bölge ayarlarını değiştirmek için iki yolu vard
    - **Değer adı**: Azure AD, Kerberos biletleri iletildiği URL'si.
    - **Değer** (veriler): **1** Intranet gösterir.
 
-    Sonucu şöyle görünür:
+     Sonucu şöyle görünür:
 
-    Değer adı: `https://autologon.microsoftazuread-sso.com`
+     Değer adı: `https://autologon.microsoftazuread-sso.com`
   
-    Değer (veriler): 1
+     Değer (veriler): 1
 
    >[!NOTE]
    > Bazı kullanıcıların (örneğin, bu kullanıcılar üzerinde paylaşılan bilgi noktaları oturum açarsanız) kullanarak sorunsuz çoklu oturum açmayı engellemek istiyorsanız, önceki değerlerini ayarlamak **4**. Bu eylem, Azure AD URL'si için kısıtlı bölge ekler ve her zaman sorunsuz çoklu oturum açma başarısız.
@@ -162,9 +163,9 @@ Kullanıcıların Intranet bölge ayarlarını değiştirmek için iki yolu vard
    - **Değer türü**: ***REG_DWORD***.
    - **Değer verisi**: ***00000001***.
  
-    ![Çoklu oturum açma](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Çoklu oturum açma](./media/how-to-connect-sso-quick-start/sso16.png)
  
-    ![Çoklu oturum açma](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![Çoklu oturum açma](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>Tarayıcı konuları
 

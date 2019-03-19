@@ -1,14 +1,12 @@
 ---
-ms.openlocfilehash: 2690a01535365ba097e0c058858f24e8c9d80aac
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: 2b1d75b4b32ebfffbddfaddf45b0c08fb1132995
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588746"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168562"
 ---
 # <a name="microsoft-azure-documentation"></a>Microsoft Azure Belgeleri
-
-> 5-9 Mart 2019 tarihleri arasında MicrosoftDocs/azure-docs deposunun geçerli Markdown altyapısından [Markdig](https://github.com/lunet-io/markdig) Markdown altyapısına geçişi yapılacak. Geçişi tamamlamak için bu süre boyunca genel çekme isteklerini birleştirme özelliğini askıya alacağız.
 
 [Microsoft Azure](https://azure.microsoft.com)’ın açık kaynak [belgelerine](https://docs.microsoft.com/azure) hoş geldiniz. Microsoft Azure belgelerine nasıl katkıda bulunabileceğinizi anlamak için lütfen bu README dosyasını inceleyin.
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 3abe7bae5506b721d4baf1e18da390b3e67977d8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 5a1cae376ab9db2b0c4b5e0e5514bf7745593433
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242955"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894589"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile mantıksal uygulamaları oluşturun ve dağıtın
 
@@ -82,7 +82,7 @@ Bu örnek mantıksal uygulama tanımını saatte bir çalışır ve belirttiğin
 | Parametre | Açıklama | JSON tanımı örneği | 
 | --------- | ----------- | ----------------------- | 
 | `logicAppName` | Adını tanımlayan Bu şablon mantıksal uygulama oluşturur. | "logicAppName": {"type": "dize", "metadata": {"description": "myExampleLogicAppName"}} |
-| `testUri` | Test etmek için ping konumu tanımlar. | "testUri": {"type": "dize", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 
+| `testUri` | Test etmek için ping konumu tanımlar. | "testUri": {"type": "dize", "defaultValue": "https://azure.microsoft.com/status/feed/"} | 
 ||||
 
 Daha fazla bilgi edinin [Logic Apps iş akışının tanımını ve özellikleri için REST API](https://docs.microsoft.com/rest/api/logic/workflows) ve [JSON ile mantıksal uygulama tanımları üzerinde oluşturma](logic-apps-author-definitions.md).

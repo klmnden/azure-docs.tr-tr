@@ -8,13 +8,13 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: mimig
 ms.custom: include file
-ms.openlocfilehash: 8a039dfe6d30243aa3b65b5abf8f4ae5629d6fe1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: cb6fcdc8077db3a46623df0c33bad757c47d2ba2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38733631"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57908680"
 ---
 > [!TIP]
-> Bu makaledeki içerik, Azure Tablo depolama ve Azure Cosmos DB Tablo API’si için geçerlidir. Azure Cosmos DB Tablo API’si, aktarım hızı iyileştirilmiş tablolar, global dağıtım ve otomatik ikincil dizinler sunan premium bir tekliftir. Daha fazla bilgi edinmek ve premium deneyimini denemek için lütfen bkz. [Azure Cosmos DB Tablo API’si](https://aka.ms/premiumtables).
+> Bu makaledeki içerik, Azure Tablo depolama ve Azure Cosmos DB Tablo API’si için geçerlidir. Azure Cosmos DB Tablo API’si, aktarım hızı iyileştirilmiş tablolar, global dağıtım ve otomatik ikincil dizinler sunan premium bir tekliftir.
 >

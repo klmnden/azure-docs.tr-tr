@@ -1,6 +1,6 @@
 ---
 title: Oturumlarda ve cihazlarda Azure uzamsal yer işaretleri ile arasında paylaşımı Öğreticisi - | Microsoft Docs
-description: Bu öğreticide, Azure uzamsal bağlantı tanımlayıcıları Unity bir arka uç hizmeti ile cihazlar arasındaki paylaşma hakkında bilgi edinin.
+description: Bu öğreticide, Azure uzamsal bağlantı tanımlayıcılar bir arka uç hizmetiyle Unity Android/iOS cihazlar arasında paylaşma hakkında bilgi edinin.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: df7f8aa5b49e3fe17be3b17a6e0f5d8861b26253
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 7d9fe58b7db60513eed81aae628ebd7ca754a53a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752161"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901313"
 ---
 # <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors"></a>Öğretici: Oturumlarda ve cihazlarda Azure uzamsal yer işaretleri ile arasında paylaşma
 
@@ -37,9 +37,13 @@ Azure uzamsal bağlayıcılarını konumlarına cihazlar arasında zaman içinde
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
-Bu, Unity ve ASP.NET Core Web uygulaması Bu öğreticide kullanacaksınız ancak bunu yalnızca Azure uzamsal bağlantı tanımlayıcıları diğer cihazlar arasında paylaşmak nasıl bir örnek gösterecek şekilde olduğunu fark değer olur. Kullanıcı, diğer diller ve arka uç teknolojilerinden aynı hedefe ulaşmak için kullanabilirsiniz. Ayrıca, bu öğreticide kullanılan ASP.NET Core Web uygulaması üzerinde .NET Core 2.2 SDK bağımlılığı vardır. Normal Azure Web Apps üzerinde (Windows için) düzgün çalışıyor, ancak şu anda Linux için Azure Web Apps üzerinde çalışmaz.
+Bu, Unity ve ASP.NET Core Web uygulaması Bu öğreticide kullanacaksınız ancak bunu yalnızca Azure uzamsal bağlantı tanımlayıcıları diğer cihazlar arasında paylaşmak nasıl bir örnek gösterecek şekilde olduğunu fark değer olur. Diğer diller ve arka uç teknolojilerinden aynı hedefe ulaşmak için kullanabilirsiniz. Ayrıca, bu öğreticide kullanılan ASP.NET Core Web uygulaması üzerinde .NET Core 2.2 SDK bağımlılığı vardır. Normal Azure Web Apps üzerinde (Windows için) düzgün çalışıyor, ancak şu anda Linux için Azure Web Apps üzerinde çalışmaz.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
+
+## <a name="open-the-sample-project-in-unity"></a>Örnek Proje içinde Unity açın
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 ## <a name="deploy-your-sharing-anchors-service"></a>Paylaşım, yer işaretleri hizmetini dağıtma
 
@@ -47,13 +51,19 @@ Visual Studio'yu açın ve proje açmak `Sharing\SharingServiceSample` klasör.
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
+## <a name="open-the-sample-project-in-unity"></a>Örnek Proje içinde Unity açın
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir ASP.NET Core Web uygulaması, azure'da dağıtılan ve ardından yapılandırılmış ve bir Unity uygulamasını dağıtmışsınızdır. Uygulamayla uzamsal yer işaretleri oluşturulur ve ASP.NET Core Web uygulamanızı kullanarak diğer cihazlarla paylaşılan. Böylece, paylaşılan uzamsal bağlayıcılarını depolamak için Cosmos DB kullanır, ASP.NET Core Web uygulamanızı geliştirme konusunda daha fazla bilgi edinmek için sonraki öğreticiye devam edin.
+Bu öğreticide, bir ASP.NET Core Web uygulaması, azure'da dağıtılan ve ardından yapılandırılmış ve bir Unity uygulamasını dağıtmışsınızdır. Uygulamayla uzamsal yer işaretleri oluşturulur ve ASP.NET Core Web uygulamanızı kullanarak diğer cihazlarla paylaşılan.
+
+Böylece, paylaşılan uzamsal bağlayıcılarını depolamak için Azure Cosmos DB kullanır, ASP.NET Core Web uygulamanızı geliştirme konusunda daha fazla bilgi edinmek için sonraki öğreticiye devam edin.
 
 > [!div class="nextstepaction"]
-> [Öğretici: Cosmos DB Store bağlayıcılarını kullanın](./tutorial-use-cosmos-db-to-store-anchors.md)
+> [Öğretici: Azure Cosmos DB Store bağlayıcılarını kullanın](./tutorial-use-cosmos-db-to-store-anchors.md)

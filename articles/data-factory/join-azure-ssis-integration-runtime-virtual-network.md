@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 24e2d7be0dfc32e499bc864f2fdf7e2b1c108969
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6c01232c9bdb685fbc54e5ebe1e1f9fa83073dc2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440225"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107806"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure-SSIS tümleştirme çalışma zamanını bir sanal ağa katılın
 Bir Azure sanal ağına aşağıdaki senaryolarda, Azure-SSIS Integration runtime (IR) katılın: 
@@ -26,7 +26,7 @@ Bir Azure sanal ağına aşağıdaki senaryolarda, Azure-SSIS Integration runtim
 
 - Sanal ağ hizmet uç noktaları/yönetilen örnek ile Azure SQL veritabanı'nda SQL Server Integration Services (SSIS) Katalog veritabanı barındırır. 
 
- Azure Data Factory, Azure-SSIS tümleştirme çalışma zamanınızın Klasik dağıtım modeli veya Azure Resource Manager dağıtım modeli oluşturulan bir sanal ağa eklemenize olanak tanır. 
+  Azure Data Factory, Azure-SSIS tümleştirme çalışma zamanınızın Klasik dağıtım modeli veya Azure Resource Manager dağıtım modeli oluşturulan bir sanal ağa eklemenize olanak tanır. 
 
 > [!IMPORTANT]
 > Klasik sanal ağ şu anda kullanımdan kaldırılıyor, bu nedenle Lütfen bunun yerine Azure Resource Manager sanal ağ.  Klasik sanal ağ'ı zaten kullanıyorsanız, Azure Resource Manager sanal ağı olabildiğince çabuk kullanmak için lütfen geçiş yapın.

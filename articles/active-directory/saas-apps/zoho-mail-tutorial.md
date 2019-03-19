@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da91e830f9220ce22228b3b7bedcc241101bd8ea
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: dfd3afea4a5f09f1e572030b28d3511b31d81b69
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775790"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Öğretici: Zoho ile Azure Active Directory Tümleştirme
 
@@ -170,7 +170,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -228,7 +228,7 @@ Azure AD kullanıcılarının Zoho posta oturum etkinleştirmek için bunlar Zoh
 
     b. İçinde **Soyadı** metin kullanıcı adının türünü ister **Simon**.
 
-    c. İçinde **e-posta kimliği** metin kutusuna kullanıcı e-posta kimliği türünü ister **brittasimon@contoso.com**.
+    c. İçinde **e-posta kimliği** metin kutusuna kullanıcı e-posta kimliği türünü ister **brittasimon\@contoso.com**.
 
     d. İçinde **parola** metin kutusu, kullanıcının parolasını girin.
    

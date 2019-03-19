@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 03/06/2019
-ms.openlocfilehash: 2f615214fb7b77614054841af7972eb814525dee
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 03/13/2019
+ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549927"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903139"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları
 
@@ -477,7 +477,11 @@ Aşağıdaki değişkenler, İşlevler ve görünümleri farklı sonuçlar dönd
 
 ### <a name="tempdb-size"></a>TEMPDB boyutu
 
-`tempdb` 12 bölme dosyalarıyla her en büyük boyutu 14 GB dosya. Bu maksimum boyutu dosya başına değiştirilemez ve yeni dosyaları eklenebilir `tempdb`. Bu sınırlama kısa süre içinde kaldırılacak. Bazı sorgular 168 GB'den fazla ihtiyaçları varsa bir hata döndürebilir `tempdb`.
+En büyük dosya boyutu `tempdb` 24 GB/core genel amaçlı katmanı, ondan olamaz. En fazla `tempdb` boyutu iş açısından kritik katmanında Örnek Depolama boyutuyla sınırlıdır. `tempdb` 12 veri dosyalarına veri her zaman ayrılır. Bu maksimum boyutu dosya başına değiştirilemez ve yeni dosyaları eklenebilir `tempdb`. Bazı sorgular, bunlar birden fazla 24 GB'a ihtiyacınız varsa bir hata döndürebilir / içinde çekirdek `tempdb`.
+
+### <a name="cannot-restore-contained-database"></a>Kapsanan veritabanı geri yüklenemiyor
+
+Yönetilen örnek geri yükleyemiyor [içerdiği veritabanları](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Kapsanan veritabanlarında, zaman içinde nokta geri yönetilen örneği'nde çalışmaz. Bu sorunu en kısa sürede kaldırılacak ve sırada, yönetilen örneği'nde yerleştirilir ve üretim veritabanları için içerme seçeneği kullanmayın veritabanlarınızı içerme seçeneği kaldırmak için önerilir.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Küçük veritabanı dosyalarıyla aşan depolama alanı
 
@@ -510,7 +514,7 @@ SQL Server Management Studio (SSMS) ve SQL Server veri Araçları (SSDT), yönet
 
 ### <a name="database-mail-profile"></a>Veritabanı posta profili
 
-Yalnızca bir veritabanı posta profili olabilir ve çağrılması gerekir `AzureManagedInstance_dbmail_profile`.
+SQL aracısı tarafından kullanılan veritabanı posta profili çağrılmalıdır `AzureManagedInstance_dbmail_profile`.
 
 ### <a name="error-logs-are-not-persisted"></a>Kalıcı olmayan hata günlükleri
 

@@ -1,346 +1,402 @@
 ---
-title: .NET SDK kullanarak tablo API'si ile geliştirme
-titleSuffix: Azure Cosmos DB
-description: .NET SDK kullanarak Azure Cosmos DB'de tablo API'si ile geliştirmeyi öğrenin
+title: Azure Cosmos DB tablosu .NET standart SDK'sını kullanarak API'yi kullanmaya başlama
+description: Azure Cosmos DB tablo API'si kullanarak bulutta yapılandırılmış veri Store.
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
-ms.topic: tutorial
-ms.date: 12/07/2018
-author: wmengmsft
-ms.author: wmeng
-ms.custom: seodec18
-ms.reviewer: sngun
-ms.openlocfilehash: 0f0e5219298cf0bce30e2a1e9d66135b4146db5d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.topic: sample
+ms.date: 03/11/2019
+ms.openlocfilehash: 0f324d39db38b17d436583277d60d87b2878d131
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036792"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880802"
 ---
-# <a name="develop-with-azure-cosmos-dbs-table-api-using-net-sdk"></a>.NET SDK kullanarak Azure Cosmos DB'nin tablo API'si ile geliştirme
+# <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>.NET SDK kullanarak Azure Cosmos DB tablo API'si ve Azure tablo depolama ile çalışmaya başlama
 
-Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz.
+[!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-Bu öğretici aşağıdaki görevleri kapsar: 
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-> [!div class="checklist"] 
-> * Azure Cosmos DB hesabı oluşturma 
-> * App.config dosyasında işlevi etkinleştirme 
-> * [Tablo API’si](table-introduction.md) kullanarak tablo oluşturma
-> * Tabloya bir varlık ekleme 
-> * Toplu işlem varlık yerleştirme 
-> * Tek bir varlık alma 
-> * Otomatik ikincil dizinleri kullanarak varlıkları sorgulama 
-> * Bir varlığı değiştirme 
-> * Bir varlığı silme 
-> * Bir tablo silme
- 
-## <a name="tables-in-azure-cosmos-db"></a>Azure Cosmos DB’de tablolar 
+Azure Cosmos DB tablo API'si veya Azure tablo depolama tasarım daha az bir şema ile bulutta bir anahtar/öznitelik sağlayan veri depolama, yapılandırılmış NoSQL depolamak için kullanabilirsiniz. Azure Cosmos DB tablo API'si ve tablo depolama şema daha az olduğundan, ihtiyaçları, uygulama geliştikçe verilerinizi uyarlamak da kolaylaşır. Kullanıcı verileri için web uygulamaları, adres defterleri, cihaz bilgileri veya hizmetiniz için gerekli meta verileri diğer türleri gibi esnek veri kümelerini depolamak için Azure Cosmos DB tablo API'si veya tablo Depolama'yı kullanabilirsiniz. 
 
-Azure Cosmos DB, şemasız tasarımla bir anahtar-değer deposuna gereksinim duyan uygulamalar için [Tablo API](table-introduction.md)’sini sağlar. Hem Azure Cosmos DB Tablo API’si hem de [Azure Tablo depolama](../storage/common/storage-introduction.md) artık aynı SDK’ları ve REST API’lerini desteklemektedir. Azure Cosmos DB’yi kullanarak yüksek aktarım hızı gereksinimleri olan tablolar oluşturabilirsiniz.
+Bu öğreticide, nasıl kullanılacağını gösteren bir örnek açıklanmaktadır [.NET için Microsoft Azure Cosmos DB tablo Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) Azure Cosmo DB tablo API'si ve Azure tablo depolama senaryolarında. Azure hizmete özgü bağlantı kullanmanız gerekir. Bu senaryoları kullanarak incelenmektedir C# tabloları oluşturma işlemini göstermektedir örnekler ekleme / güncelleştirme veri, veri sorgulama ve tabloları silin.
 
-Bu öğretici, Azure Tablo depolama SDK’sını bilen ve Azure Cosmos DB ile sunulan premium özellikleri kullanmak isteyen geliştiricilere yöneliktir. [.NET kullanarak Azure Tablo depolama ile çalışmaya başlama](table-storage-how-to-use-dotnet.md) makalesini temel alır ve ikincil dizinler, hazırlanmış aktarım hızı ve birden çok giriş gibi ek özelliklerden nasıl yararlanılacağını gösterir. Bu öğreticide Azure portalını kullanarak bir Azure Cosmos DB hesabı oluşturma ve sonra bir Tablo API uygulaması derleyip dağıtma işlemi açıklanmaktadır. Ayrıca tablo oluşturup silme ve tablo verileri ekleme, güncelleştirme, silme ve sorgulamaya yönelik .NET örneklerini göstereceğiz. 
+## <a name="prerequisites"></a>Önkoşullar
 
-Şu anda Azure Tablo depolama hizmetini kullanıyorsanız, Azure Cosmos DB Tablo API’si ile aşağıdaki avantajları elde edersiniz:
+Bu örneği başarıyla tamamlamak için aşağıdakiler gerekir:
 
-- Birden çok giriş ve [otomatik ve el ile yük devretme](high-availability.md) içeren anahtar teslim [genel dağıtım](distribute-data-globally.md)
-- Tüm özelliklere yönelik otomatik şemadan bağımsız dizinleme ("ikincil dizinler") desteği ve hızlı sorgular 
-- Dilediğiniz sayıda bölgede [depolama ve aktarım hızını bağımsız ölçeklendirme](partition-data.md) desteği
-- Saniyede yüzlerce ile milyonlarca istekten ölçeklenebilen [tablo başına ayrılmış aktarım hızı](request-units.md) desteği
-- Uygulama gereksinimlerinize bağlı olarak kullanılabilirlik, gecikme süresi ve tutarlılık arasında denge sağlamak için [beş ayarlanabilir tutarlılık düzeyi](consistency-levels.md) desteği
-- Tek bölge içinde %99,99 kullanılabilirlik ve daha yüksek kullanılabilirlik için daha fazla bölge ekleme olanağı ve genel kullanılabilirlikte [sektör lideri kapsamlı SLA’lar](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- Mevcut Azure depolama .NET SDK'sı ile çalışma ve uygulamanız için kod değişiklikleri yapılmaması
+* [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
-Bu öğretici, .NET SDK’sı kullanan Azure Cosmos DB Tablo API'sini ele almaktadır. [Azure Cosmos DB Tablo API .NET SDK'sını](https://aka.ms/tableapinuget) NuGet’ten indirebilirsiniz.
+* [.NET için Microsoft Azure CosmosDB tablo Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) -bu kitaplığı için .NET Standard ve .NET framework şu anda kullanılabilir. 
 
-Karmaşık Azure Tablo depolama görevleri hakkında bilgi almak için bkz.
+* [Azure Cosmos DB tablo API'si hesabı](create-table-dotnet.md#create-a-database-account).
 
-* [Azure Cosmos DB Tablo API’sine Giriş](table-introduction.md)
-* Kullanılabilir API’ler ile ilgili eksiksiz bilgiler için Tablo hizmeti başvuru belgeleri [Azure Cosmos DB Tablo API .NET SDK’sı](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb/client?view=azure-dotnet)
+## <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Tablo API’si hesabı oluşturma
 
-### <a name="about-this-tutorial"></a>Bu öğretici hakkında
-Bu öğretici, Azure Tablo depolama SDK’sını bilen ve Azure Cosmos DB ile sunulan premium özellikleri kullanmak isteyen geliştiricilere yöneliktir. [.NET kullanarak Azure Tablo depolama ile çalışmaya başlama](table-storage-how-to-use-dotnet.md) makalesini temel alır ve ikincil dizinler, hazırlanmış aktarım hızı ve birden çok giriş gibi ek özelliklerden nasıl yararlanılacağını gösterir. Azure portalını kullanarak bir Azure Cosmos DB hesabı oluşturma ve sonra bir Tablo uygulaması derleyip dağıtma işlemini ele alıyoruz. Ayrıca tablo oluşturup silme ve tablo verileri ekleme, güncelleştirme, silme ve sorgulamaya yönelik .NET örneklerini göstereceğiz. 
+[!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
-Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
+## <a name="create-a-net-console-project"></a>Bir .NET konsol projesi oluşturun
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Visual Studio'da yeni bir .NET konsol uygulaması oluşturun. Aşağıdaki adımlar Visual Studio 2017’de bir konsol uygulaması oluşturmayı gösterir. Adımlar Visual Studio’nun diğer sürümlerinde de benzerdir. Herhangi bir türde bir Azure bulut hizmeti veya web uygulaması da dahil olmak üzere, .NET uygulaması ve Masaüstü ve mobil uygulamaları, Azure Cosmos DB tablo kitaplığı kullanabilirsiniz. Bu kılavuzda, sadeleştirmek için konsol uygulaması kullanmaktayız.
 
-## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
+1. **Dosya** > **Yeni** > **Proje**’yi seçin.
 
-İlk olarak Azure portalında bir Azure Cosmos DB hesabı oluşturalım.  
- 
-> [!IMPORTANT]  
-> Genel olarak kullanılabilir Tablo API’si SDK’ları ile çalışmak için yeni bir Tablo API’si hesabı oluşturmanız gerekir. Önizleme sırasında oluşturulan Tablo API’si hesapları genel olarak kullanılabilir SDK’lar tarafından desteklenmez. 
->
+1. Seçin **yüklü** > **Visual C#**   >  **konsol uygulaması (.NET Core)**.
 
-[!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
+1. İçinde **adı** alan, uygulamanız için bir ad girin, örneğin, **CosmosTableSamples** (, farklı bir ad gerektiğinde sağlayabilirsiniz).
 
-## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
+1. **Tamam**’ı seçin.
 
-Şimdi GitHub'dan bir Tablo uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle program aracılığıyla çalışmanın ne kadar kolay olduğunu göreceksiniz. 
+Bu örnekte tüm kod örnekleri konsol uygulamanızın Main() yöntemine eklenebilir **Program.cs** dosya.
 
-1. Git Bash gibi bir Git terminal penceresi açın ve örnek uygulamayı yüklemek üzere bir klasör olarak değiştirmek için `cd` komutunu kullanın. 
+## <a name="install-the-required-nuget-package"></a>Gerekli NuGet paketini yükle
 
-    ```bash
-    cd "C:\git-samples"
-    ```
+NuGet paketini edinmek için şu adımları izleyin:
 
-2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulamanın bir kopyasını oluşturur. 
+1. **Çözüm Gezgini**'nde projenize sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
 
-    ```bash
-    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
-    ```
+1. Çevrimiçi olarak arayın `Microsoft.Azure.Cosmos.Table`, `Microsoft.Extensions.Configuration`, `Microsoft.Extensions.Configuration.Json`, `Microsoft.Extensions.Configuration.Binder` seçip **yükleme** Microsoft Azure Cosmos DB tablo kitaplığı yüklemek için.
 
-3. Ardından çözüm dosyasını Visual Studio'da açın. 
+## <a name="configure-your-storage-connection-string"></a>Depolama bağlantı dizelerinizi yapılandırma
 
-## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
+1. Gelen [Azure portalında](https://portal.azure.com/), tıklayın **bağlantı dizesi**. Pencerenin sağ tarafındaki kopyala düğmesini kullanarak **PRIMARY CONNECTION STRING**'i kopyalayın.
 
-Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin. Bu, uygulamanızın barındırılan veritabanıyla iletişim kurmasına olanak tanır. 
-
-1. [Azure portalında](https://portal.azure.com/) **Bağlantı Dizesi**’ne tıklayın. 
-
-    Ekranın sağ tarafındaki kopyala düğmesini kullanarak PRIMARY CONNECTION STRING’i kopyalayın.
-
-    ![Bağlantı Dizesi bölmesindeki CONNECTION STRING’i kopyalama ve görüntüleme](./media/create-table-dotnet/connection-string.png)
-
-2. Visual Studio'da app.config dosyasını açın. 
-
-3. Bu öğretici Depolama Öykünücüsü kullanmadığından 8. satırdaki StorageConnectionString öğesini açıklama durumundan çıkarın ve 7. satırdaki StorageConnectionString öğesini açıklama yapın. 7. ve 8. satır artık şöyle görünmelidir:
-
-    ```
-    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
-    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
-    ```
-
-4. Portaldan PRIMARY CONNECTION STRING öğesini 8. satırdaki StorageConnectionString değerine yapıştırın. Dizeyi tırnak işareti içinde yapıştırın.
+   ![Bağlantı Dizesi bölmesindeki PRIMARY CONNECTION STRING’i görüntüleyin ve kopyalayın](./media/create-table-dotnet/connection-string.png)
    
-    > [!IMPORTANT]
-    > Uç Noktanız documents.azure.com kullanıyorsa, bir önizleme hesabınız var demektir ve genel olarak kullanılabilir Tablo API’si SDK’ları ile çalışmak için [yeni bir Tablo API’si hesabı](#create-a-database-account) oluşturmanız gerekir. 
-    >
+1. Bağlantı dizenizi yapılandırmak için visual Studio'dan sağ projenizde tıklayın **CosmosTableSamples**.
 
-    8. Satır şuna benzer şekilde görünmelidir:
+1. Seçin **ekleme** ardından **yeni öğe**. Yeni bir dosya oluşturun **Settings.json** dosya türü ile **TypeScript JSON yapılandırma** dosya. 
 
-    ```
-    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
-    ```
+1. Settings.json dosyasındaki kodu aşağıdaki kodla değiştirin ve birincil bağlantı dizenizi atayabilirsiniz:
 
-5. App.config dosyasını kaydedin.
+   ```csharp
+   {
+   "StorageConnectionString": <Primary connection string of your Azure Cosmos DB account>
+   }
+   ```
 
-Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
+1. Projenize sağ tıklayın **CosmosTableSamples**. Seçin **Ekle**, **yeni öğe** ve adlı bir sınıf ekleyin **AppSettings.cs**.
 
-## <a name="azure-cosmos-db-capabilities"></a>Azure Cosmos DB özellikleri
-Azure Cosmos DB, Azure Tablo depolama API’sinde kullanılamayan birkaç özelliği destekler. 
+1. AppSettings.cs dosyaya aşağıdaki kodu ekleyin. Bu dosya Settings.json dosyasından bağlantı dizesini okur ve yapılandırma parametresine atar:
 
-Bazı işlevlere, bağlantı ilkesi ve tutarlılık düzeyini belirtmeye olanak tanıyan CreateCloudTableClient’a yeni aşırı yüklemeler yapılarak erişilir.
-
-| Tablo Bağlantı Ayarları | Açıklama |
-| --- | --- |
-| Bağlantı Modu  | Azure Cosmos DB iki bağlantı modunu destekler. `Gateway` modunda istekler her zaman Azure Cosmos DB ağ geçidine yapılır ve oradan ilgili veri bölümlerine iletilir. `Direct` bağlantı modunda istemci, tablo eşlemelerini bölümlere getirir ve istekler doğrudan veri bölümlerine karşı yapılır. Varsayılan `Direct` değeri önerilir.  |
-| Bağlantı Protokolü | Azure Cosmos DB iki bağlantı protokolünü destekler: `Https` ve `Tcp`. `Tcp` varsayılan ayardır ve daha basit olduğu için önerilir. |
-| Tercih Edilen Konumlar | Okuma için tercih edilen (çok girişli) konumların virgülle ayrılmış listesi. Her Azure Cosmos DB hesabı 1-30+ bölge ile ilişkilendirilebilir. Her istemci düşük gecikme okumaları için tercih edilen sırayla bu bölgelerin bir alt kümesini belirtebilir. Bölgeler [görünen adları](https://msdn.microsoft.com/library/azure/gg441293.aspx) kullanılarak adlandırılmalıdır, örneğin `West US`. Ayrıca bkz. [Birden çok giriş API'leri](tutorial-global-distribution-table.md). |
-| Tutarlılık Düzeyi | İyi tanımlanmış beş tutarlılık düzeyi (`Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix` ve `Eventual`) arasından seçim yaparak gecikme süresi, tutarlılık ve kullanılabilirliği dengeleyebilirsiniz. `Session` varsayılan değerdir. Tutarlılık düzeyi seçimi, çok bölgeli kurulumlarda önemli bir performans farkı oluşturur. Ayrıntılar için bkz. [Tutarlılık düzeyleri](consistency-levels.md). |
-
-Aşağıdaki `appSettings` yapılandırma değerleri ile diğer işlevler etkinleştirilebilir.
-
-| Anahtar | Açıklama |
-| --- | --- |
-| TableQueryMaxItemCount | Tek gidiş dönüşte tablo sorgusu başına döndürülen en fazla öğe sayısını yapılandırın. `-1` varsayılan değeri, Azure Cosmos DB’nin çalışma zamanındaki değeri dinamik olarak belirlemesine olanak tanır. |
-| TableQueryEnableScan | Sorgu herhangi bir filtre için dizini kullanamıyorsa, bir tarama ile yine de çalıştırın. `false` varsayılan değerdir.|
-| TableQueryMaxDegreeOfParallelism | Çapraz bölüm sorgusunun yürütülmesi için paralellik derecesi. `0` önceden getirme olmadan seridir, `1` önceden getirme ile seridir ve değerler yükseldikçe paralellik oranını artırır. `-1` varsayılan değeri, Azure Cosmos DB’nin çalışma zamanındaki değeri dinamik olarak belirlemesine olanak tanır. |
-
-Varsayılan değeri değiştirmek için Visual Studio'da Çözüm Gezgini'nden `app.config` dosyasını açın. `<appSettings>` öğesinin içeriğini aşağıda gösterildiği gibi ekleyin. `account-name` değerini depolama hesabınızın adıyla ve `account-key` değerini hesabınızın erişim anahtarıyla değiştirin. 
-
-```xml
-<configuration>
-    ...
-    <appSettings>
-      <!-- Client options -->
-      <add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.azure.com" />
-      <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.com" />
-
-      <!-- Table query options -->
-      <add key="TableQueryMaxItemCount" value="-1"/>
-      <add key="TableQueryEnableScan" value="false"/>
-      <add key="TableQueryMaxDegreeOfParallelism" value="-1"/>
-      <add key="TableQueryContinuationTokenLimitInKb" value="16"/>
-            
-    </appSettings>
-</configuration>
-```
-
-Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. `Program.cs` dosyasını açtığınızda Tablo kaynaklarını bu kod satırlarının oluşturduğunu göreceksiniz. 
-
-## <a name="create-the-table-client"></a>Tablo istemcisi oluşturma
-Tablo hesabına bağlanmak için bir `CloudTableClient` başlatın.
-
-```csharp
-CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-```
-Bu istemci, uygulama ayarlarında belirtilmişse `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel` ve `TablePreferredLocations` yapılandırma değerleri kullanılarak başlatılır.
-
-## <a name="create-a-table"></a>Bir tablo oluşturma
-
-Ardından, `CloudTable` kullanarak bir tablo oluşturun. Azure Cosmos DB’deki tablolar depolama ve aktarım hızı bakımından bağımsız olarak ölçeklendirilebilir ve bölümleme işlemi hizmet tarafından otomatik olarak gerçekleştirilir. 
-
-```csharp
-CloudTable table = tableClient.GetTableReference("people");
-400
-table.CreateIfNotExists(throughput: 800);
-```
-
-Tabloların oluşturulma şeklinde önemli bir fark yoktur. Azure depolamanın işlemlere yönelik tüketim temelli modelinin aksine Azure Cosmos DB, aktarım hızını ayırır. Aktarım hızını ayrılmıştır, bu nedenle istek hızınız sağladığınız aktarım hızında veya daha düşük olursa hiçbir zaman kısıtlanmazsınız.
-
-Varsayılan aktarım hızını bir CreateIfNotExists parametresi olarak ekleyerek yapılandırabilirsiniz.
-
-1 KB varlığın okuması 1 RU olarak normalleştirilir ve diğer işlemler CPU, bellek ve IOPS tüketimine göre sabit bir RU değerine normalleştirilir. Özellikle [Anahtar değer depoları](key-value-store-cost.md) için [Azure Cosmos DB’de istek birimleri](request-units.md) hakkında daha fazla bilgi edinin.
-
-Ardından, Azure Tablo depolama SDK’sını kullanarak basit okuma ve yazma (CRUD) işlemlerine göz atacağız. Bu öğreticide Azure Cosmos DB tarafından sağlanan tahmin edilebilen düşük tek basamaklı milisaniye gecikme süreleri ve hızlı sorgular gösterilmektedir.
-
-## <a name="add-an-entity-to-a-table"></a>Tabloya bir varlık ekleme
-Azure Tablo depolamadaki varlıklar `TableEntity` sınıfından genişletilir ve `PartitionKey` ile `RowKey` özelliklerine sahip olmalıdır. Bir müşteri varlığı için örnek bir tanım aşağıda verilmiştir.
-
-```csharp
-public class CustomerEntity : TableEntity
-{
-    public CustomerEntity(string lastName, string firstName)
+   ```csharp
+   namespace CosmosTableSamples
+   {
+    using Microsoft.Extensions.Configuration;
+    public class AppSettings
     {
-        this.PartitionKey = lastName;
-        this.RowKey = firstName;
+        public string StorageConnectionString { get; set; }
+        public static AppSettings LoadAppSettings()
+        {
+            IConfigurationRoot configRoot = new ConfigurationBuilder()
+                .AddJsonFile("Settings.json")
+                .Build();
+            AppSettings appSettings = configRoot.Get<AppSettings>();
+            return appSettings;
+        }
+    }
+   }
+   ```
+
+## <a name="parse-and-validate-the-connection-details"></a>Ayrıştırma ve bağlantı ayrıntılarını doğrulayın 
+
+1. Projenize sağ tıklayın **CosmosTableSamples**. Seçin **Ekle**, **yeni öğe** ve adlı bir sınıf ekleyin **Common.cs**. Bağlantı ayrıntılarını doğrulayın ve bu sınıf içinde bir tablo oluşturmak için kod yazacaksınız.
+
+1. Bir yöntemi tanımlamak `CreateStorageAccountFromConnectionString` aşağıda gösterildiği gibi. Bu yöntem, bağlantı dizesi ayrıntılarını ayrıştırma ve hesap adını ve hesap anahtarı Ayrıntıları "Settings.json" dosyasında sağlanan geçerli olduğunu doğrulayın. 
+
+   ```csharp
+   public static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
+    {
+            CloudStorageAccount storageAccount;
+            try
+            {
+                storageAccount = CloudStorageAccount.Parse(storageConnectionString);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid storage account information provided. Please confirm the AccountName and AccountKey are valid in the app.config file - then restart the application.");
+                throw;
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("Invalid storage account information provided. Please confirm the AccountName and AccountKey are valid in the app.config file - then restart the sample.");
+                Console.ReadLine();
+                throw;
+            }
+
+            return storageAccount;
+        }
+   ```
+
+
+## <a name="create-a-table"></a>Tablo oluşturma 
+
+[CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.cloudtableclient?redirectedfrom=MSDN&view=azure-dotnet) sınıfı, Table Storage’da depolanan tabloları ve varlıkları almanızı sağlar. Cosmos DB tablo API'si hesabı size herhangi bir tablo olmadığından, ekleyelim `CreateTableAsync` yönteme **Common.cs** sınıfı bir tablo oluşturun:
+
+```csharp
+public static async Task<CloudTable> CreateTableAsync(string tableName)
+  {
+    string storageConnectionString = AppSettings.LoadAppSettings().StorageConnectionString;
+
+    // Retrieve storage account information from connection string.
+    CloudStorageAccount storageAccount = CreateStorageAccountFromConnectionString(storageConnectionString);
+
+    // Create a table client for interacting with the table service
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
+
+    Console.WriteLine("Create a Table for the demo");
+
+    // Create a table client for interacting with the table service 
+    CloudTable table = tableClient.GetTableReference(tableName);
+    if (await table.CreateIfNotExistsAsync())
+    {
+      Console.WriteLine("Created Table named: {0}", tableName);
+    }
+    else
+    {
+      Console.WriteLine("Table {0} already exists", tableName);
     }
 
-    public CustomerEntity() { }
-
-    public string Email { get; set; }
-
-    public string PhoneNumber { get; set; }
+    Console.WriteLine();
+    return table;
 }
 ```
 
-Aşağıdaki kod parçacığında Azure depolama SDK'sı ile bir varlığın nasıl ekleneceği gösterilmiştir. Azure Cosmos DB dünyanın herhangi bir yerinde herhangi bir ölçekte garantili düşük gecikme süresi için tasarlanmıştır.
+## <a name="define-the-entity"></a>Varlık tanımlayın 
 
-Azure Cosmos DB hesabıyla aynı bölgede çalışan uygulamalar için yazma işlemleri p99’da <15 ms ve p50’de yaklaşık 6 ms sürede tamamlanır. Bu süre, yazma işlemlerinin istemciye yalnızca zaman uyumlu bir şekilde çoğaltıldıktan sonra geri kabul edildiğini, dayanıklı bir şekilde işlendiğini ve tüm içeriğin dizinlendiğini hesaba katar.
+Varlık eşleme C# özel bir sınıf kullanarak nesneleri türetilen [TableEntity](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx). Tabloya bir varlık eklemek için varlığınızın özelliklerini tanımlayan bir sınıf oluşturun.
 
-
-```csharp
-// Create a new customer entity.
-CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
-customer1.Email = "Walter@contoso.com";
-customer1.PhoneNumber = "425-555-0101";
-
-// Create the TableOperation object that inserts the customer entity.
-TableOperation insertOperation = TableOperation.Insert(customer1);
-
-// Execute the insert operation.
-table.Execute(insertOperation);
-```
-
-## <a name="insert-a-batch-of-entities"></a>Toplu işlem varlık yerleştirme
-Azure Tablo depolama, aynı toplu işlemde güncelleştirme, silme ve ekleme işlemlerini birleştirmenize olanak tanıyan bir toplu işlem API’sini destekler.
+Projenize sağ tıklayın **CosmosTableSamples**. Seçin **Ekle**, **yeni klasör** olarak adlandırın **Model**. Adlı bir sınıf Model klasörü içinde eklemek **CustimerEntity.cs** ve aşağıdaki kodu ekleyin.
 
 ```csharp
-// Create the batch operation.
-TableBatchOperation batchOperation = new TableBatchOperation();
-
-// Create a customer entity and add it to the table.
-CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
-customer1.Email = "Jeff@contoso.com";
-customer1.PhoneNumber = "425-555-0104";
-
-// Create another customer entity and add it to the table.
-CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
-customer2.Email = "Ben@contoso.com";
-customer2.PhoneNumber = "425-555-0102";
-
-// Add both customer entities to the batch insert operation.
-batchOperation.Insert(customer1);
-batchOperation.Insert(customer2);
-
-// Execute the batch operation.
-table.ExecuteBatch(batchOperation);
-```
-## <a name="retrieve-a-single-entity"></a>Tek bir varlık alma
-Azure Cosmos DB’de alma işlemleri (GET), aynı Azure bölgesinde p99’da <10 ms ve p50’de yaklaşık 1 ms sürede tamamlanır. Hesabınıza düşük gecikme okumaları için dilediğiniz kadar bölge ekleyebilir ve `TablePreferredLocations` ayarını yaparak uygulamaları yerel bölgelerinden ("birden çok girişli") okuyacak şekilde dağıtabilirsiniz. 
-
-Aşağıdaki kod parçacığını kullanarak tek bir varlığı alabilirsiniz:
-
-```csharp
-// Create a retrieve operation that takes a customer entity.
-TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
-
-// Execute the retrieve operation.
-TableResult retrievedResult = table.Execute(retrieveOperation);
-```
-> [!TIP]
-> [Birden fazla bölge ile geliştirme](tutorial-global-distribution-table.md) bölümünde birden çok giriş API’leri hakkında bilgi edinin
->
-
-## <a name="query-entities-using-automatic-secondary-indexes"></a>Otomatik ikincil dizinleri kullanarak varlıkları sorgulama
-Tablolar `TableQuery` sınıfı kullanılarak sorgulanabilir. Azure Cosmos DB, tablonuzdaki tüm sütunları otomatik olarak dizinleyen, yazma için iyileştirilmiş veritabanı altyapısına sahiptir. Azure Cosmos DB'de dizinleme şemadan bağımsızdır. Bu nedenle, şemanız satırlar arasında farklı olsa bile veya şema zaman içinde gelişse bile otomatik olarak dizinlenir. Azure Cosmos DB otomatik ikincil dizinleri desteklediğinden, herhangi bir özelliğe karşı sorgular dizini kullanabilir ve verimli bir şekilde sunulabilir.
-
-```csharp
-CloudTable table = tableClient.GetTableReference("people");
-
-// Filter against a property that's not partition key or row key
-TableQuery<CustomerEntity> emailQuery = new TableQuery<CustomerEntity>().Where(
-    TableQuery.GenerateFilterCondition("Email", QueryComparisons.Equal, "Ben@contoso.com"));
-
-foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
+namespace CosmosTableSamples.Model
 {
-    Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
-        entity.Email, entity.PhoneNumber);
+    using Microsoft.Azure.Cosmos.Table;
+    public class CustomerEntity : TableEntity
+    {
+        public CustomerEntity()
+        {
+        }
+
+        public CustomerEntity(string lastName, string firstName)
+        {
+            PartitionKey = lastName;
+            RowKey = firstName;
+        }
+
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+    }
 }
 ```
 
-Azure Cosmos DB, Tablo API’si için Azure Tablo depolama ile aynı sorgu işlevlerini destekler. Azure Cosmos DB ayrıca sıralama, toplamalar, jeo-uzamsal sorgu, hiyerarşi ve çok çeşitli yerleşik işlevleri de destekler. Bu özelliklere genel bakış için bkz. [Azure Cosmos DB sorgusu](how-to-sql-query.md). 
+Bu kod, bölüm anahtarı olarak soyadını ve satır anahtarı müşterinin ad kullanan bir varlık sınıfı tanımlar. Birlikte, bir varlığın bölüm ve sıra anahtarı varlığı tabloda benzersiz şekilde tanımlar. Aynı bölüm anahtarına sahip varlıklar farklı bölüm anahtarlı varlıklara göre daha hızlı sorgulanabilir ancak farklı bölüm anahtarlarının kullanılması paralel işlemler için büyük ölçeklendirme sağlar. Tablolarda depolanacak varlıklar, türetilen, desteklenen bir türde olmalıdır [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableentity?redirectedfrom=MSDN&view=azure-dotnet) sınıfı. Bir tabloda depolamak istediğiniz varlık özellikleri, türün genel özellikleri olmalı ve değerleri hem almayı hem de ayarlamayı desteklemelidir. Ayrıca, varlık türü bir parametresiz oluşturucu kullanıma açmalıdır.
 
-## <a name="replace-an-entity"></a>Bir varlığı değiştirme
-Bir varlığı güncelleştirmek için Tablo hizmetinden alın, varlık nesnesini değiştirin ve değişiklikleri Tablo hizmetine geri kaydedin. Aşağıdaki kod mevcut bir müşterinin telefon numarasını değiştirir. 
+## <a name="insert-or-merge-an-entity"></a>Ekleme veya bir varlık Birleştir
+
+Aşağıdaki kod örneği bir varlık nesnesi oluşturur ve tabloya ekler. InsertOrMerge yöntemi içinde [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet) sınıfı eklemek veya bir varlık birleştirmek için kullanılır. [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.cloudtable.executeasync?view=azure-dotnet) yöntemi, işlemi yürütmek için çağrılır. 
+
+Projenize sağ tıklayın **CosmosTableSamples**. Seçin **Ekle**, **yeni öğe** ve adlı bir sınıf ekleyin **SamplesUtils.cs**. Bu sınıf, varlıkları CRUD işlemleri gerçekleştirmek için gereken tüm kod depolar. 
 
 ```csharp
-TableOperation updateOperation = TableOperation.Replace(updateEntity);
-table.Execute(updateOperation);
+public static async Task<CustomerEntity> InsertOrMergeEntityAsync(CloudTable table, CustomerEntity entity)
+    {
+      if (entity == null)
+    {
+       throw new ArgumentNullException("entity");
+    }
+    try
+    {
+       // Create the InsertOrReplace table operation
+       TableOperation insertOrMergeOperation = TableOperation.InsertOrMerge(entity);
+
+       // Execute the operation.
+       TableResult result = await table.ExecuteAsync(insertOrMergeOperation);
+       CustomerEntity insertedCustomer = result.Result as CustomerEntity;
+        
+        // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure CosmoS DB 
+        if (result.RequestCharge.HasValue)
+          {
+            Console.WriteLine("Request Charge of InsertOrMerge Operation: " + result.RequestCharge);
+          }
+
+        return insertedCustomer;
+        }
+        catch (StorageException e)
+        {
+          Console.WriteLine(e.Message);
+          Console.ReadLine();
+          throw;
+        }
+    }
 ```
-Benzer şekilde, `InsertOrMerge` veya `Merge` işlemlerini gerçekleştirebilirsiniz.  
+
+### <a name="get-an-entity-from-a-partition"></a>Bir bölümün dışında bir varlık alma
+
+Bir bölümün dışında varlık altında alma yöntemini kullanarak alabilirsiniz [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet) sınıfı. Aşağıdaki kod örneği bölüm anahtarı satır anahtarı, bir müşteri varlığı e-posta ve telefon numarasını alır. Bu örnek, varlık için sorgu için kullanılan istek birimleri çıkış yazdırır. Bir varlık için sorgulamak için aşağıdaki kodu ekleyin. **SamplesUtils.cs** dosyası: 
+
+```csharp
+public static async Task<CustomerEntity> RetrieveEntityUsingPointQueryAsync(CloudTable table, string partitionKey, string rowKey)
+    {
+      try
+      {
+        TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>(partitionKey, rowKey);
+        TableResult result = await table.ExecuteAsync(retrieveOperation);
+        CustomerEntity customer = result.Result as CustomerEntity;
+        if (customer != null)
+        {
+          Console.WriteLine("\t{0}\t{1}\t{2}\t{3}", customer.PartitionKey, customer.RowKey, customer.Email, customer.PhoneNumber);
+        }
+
+        // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure CosmoS DB 
+        if (result.RequestCharge.HasValue)
+        {
+           Console.WriteLine("Request Charge of Retrieve Operation: " + result.RequestCharge);
+        }
+
+        return customer;
+        }
+        catch (StorageException e)
+        {
+           Console.WriteLine(e.Message);
+           Console.ReadLine();
+           throw;
+        }
+    }
+```
 
 ## <a name="delete-an-entity"></a>Bir varlığı silme
-Bir varlığı güncelleştirmek için gösterilen aynı yöntemi kullanarak, bir varlığı aldıktan sonra kolayca silebilirsiniz. Aşağıdaki kod bir müşteri girişini alır ve siler.
+
+Bir varlığı güncelleştirmek için gösterilen aynı yöntemi kullanarak, bir varlığı aldıktan sonra kolayca silebilirsiniz. Aşağıdaki kod bir müşteri girişini alır ve siler. Bir varlığı silmek için aşağıdaki kodu ekleyin. **SamplesUtils.cs** dosyası: 
 
 ```csharp
-TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
-table.Execute(deleteOperation);
+public static async Task DeleteEntityAsync(CloudTable table, CustomerEntity deleteEntity)
+   {
+     try
+     {
+        if (deleteEntity == null)
+     {
+        throw new ArgumentNullException("deleteEntity");
+     }
+
+    TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
+    TableResult result = await table.ExecuteAsync(deleteOperation);
+
+    // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure CosmoS DB 
+    if (result.RequestCharge.HasValue)
+    {
+       Console.WriteLine("Request Charge of Delete Operation: " + result.RequestCharge);
+    }
+
+    }
+    catch (StorageException e)
+    {
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
+    }
+}
 ```
 
-## <a name="delete-a-table"></a>Bir tablo silme
-Son olarak aşağıdaki kod örneği bir depolama hesabından bir tablo siler. Azure Cosmos DB ile bir tabloyu silip hemen yeniden oluşturabilirsiniz.
+## <a name="execute-the-crud-operations-on-sample-data"></a>Örnek verileri CRUD işlemleri yürütün
+
+Tablo, INSERT veya birleştirme varlıkları oluşturma yöntemleri tanımladıktan sonra bu yöntemler, örnek veriler üzerinde çalıştırın. Bunu yapmak için sağ, projeye tıklayın **CosmosTableSamples**. Seçin **Ekle**, **yeni öğe** ve adlı bir sınıf ekleyin **basicsamples.cs dosyasını** ve aşağıdaki kodu ekleyin. Bu kod, bir tablo oluşturur, varlıkları eklenir. Varlık ve proje sonundaki tabloda silmek istiyorsanız açıklamalarını kaldırın `table.DeleteIfExistsAsync()` ve `SamplesUtils.DeleteEntityAsync(table, customer)` aşağıdaki kodu yöntemleri:
 
 ```csharp
-CloudTable table = tableClient.GetTableReference("people");
-table.DeleteIfExists();
+using System;
+namespace CosmosTableSamples
+{
+    using System.Threading.Tasks;
+    using Microsoft.Azure.Cosmos.Table;
+    using Model;
+
+    class BasicSamples
+    {
+        public async Task RunSamples()
+        {
+            Console.WriteLine("Azure Cosmos DB Table - Basic Samples\n");
+            Console.WriteLine();
+
+            string tableName = "demo" + Guid.NewGuid().ToString().Substring(0, 5);
+
+            // Create or reference an existing table
+            CloudTable table = await Common.CreateTableAsync(tableName);
+
+            try
+            {
+                // Demonstrate basic CRUD functionality 
+                await BasicDataOperationsAsync(table);
+            }
+            finally
+            {
+                // Delete the table
+                // await table.DeleteIfExistsAsync();
+            }
+        }
+
+        private static async Task BasicDataOperationsAsync(CloudTable table)
+        {
+            // Create an instance of a customer entity. See the Model\CustomerEntity.cs for a description of the entity.
+            CustomerEntity customer = new CustomerEntity("Harp", "Walter")
+            {
+                Email = "Walter@contoso.com",
+                PhoneNumber = "425-555-0101"
+            };
+
+            // Demonstrate how to insert the entity
+            Console.WriteLine("Insert an Entity.");
+            customer = await SamplesUtils.InsertOrMergeEntityAsync(table, customer);
+
+            // Demonstrate how to Update the entity by changing the phone number
+            Console.WriteLine("Update an existing Entity using the InsertOrMerge Upsert Operation.");
+            customer.PhoneNumber = "425-555-0105";
+            await SamplesUtils.InsertOrMergeEntityAsync(table, customer);
+            Console.WriteLine();
+
+            // Demonstrate how to Read the updated entity using a point query 
+            Console.WriteLine("Reading the updated Entity.");
+            customer = await SamplesUtils.RetrieveEntityUsingPointQueryAsync(table, "Harp", "Walter");
+            Console.WriteLine();
+
+            // Demonstrate how to Delete an entity
+            //Console.WriteLine("Delete the entity. ");
+            //await SamplesUtils.DeleteEntityAsync(table, customer);
+            //Console.WriteLine();
+        }
+    }
+}
 ```
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme
+Önceki kodun "tanıtım" ile başlayan bir tablo oluşturur ve oluşturulan GUID tablo adına eklenir. Bu, ardından "Walter Harp" olarak adı ve Soyadı ile müşteri varlığı ekler ve daha sonra bu kullanıcının telefon numarasını güncelleştirir. 
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+Bu öğreticide, tablo API'si hesapta depolanan veriler üzerinde temel CRUD işlemleri gerçekleştirmek için kod yerleşik. Gibi gelişmiş işlemleri gerçekleştirebilirsiniz: bir bölüm içindeki tüm verilerin toplu ekleme verileri, sorgu bölüm içindeki verileri, listeleri tablo adları belirtilen bir önek ile başlayan hesabında bir dizi sorgu. Tam örnek form indirebileceğiniz [azure-cosmos-table-dotnet-core-getting-started](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started) GitHub deposu. [AdvancedSamples.cs](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started/blob/master/CosmosTableSamples/AdvancedSamples.cs) sınıfı, verilerinizde gerçekleştirebileceğiniz daha fazla işlem vardır.  
+
+## <a name="run-the-project"></a>Projeyi çalıştırma
+
+Şimdi çözüm oluşturun ve projeyi çalıştırmak için F5 tuşuna basın. Projeyi çalıştırdığınızda, komut isteminde aşağıdaki çıktıyı görürsünüz:
+
+![Komut istemi çıkışı](./media/tutorial-develop-table-standard/output-from-sample.png)
+
+Projeyi çalıştırırken Settings.json dosyasına bulunamıyor diyen bir hata alırsanız, proje ayarları için aşağıdaki XML giriş ekleyerek çözülebilir. CosmosTableSamples üzerinde sağ tıklayın, Düzen CosmosTableSamples.csproj seçin ve aşağıdaki ItemGroup ekleyin: 
+
+```csharp
+  <ItemGroup>
+    <None Update="Settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+```
+Artık Azure portalında oturum açıp veri tablosunda var olduğundan emin olun. 
+
+![Sonuçlarını portalında](./media/tutorial-develop-table-standard/results-in-portal.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide Azure Cosmos DB’yi Tablo API’si ile kullanmaya başlama konusunu ele aldık ve aşağıdaki işlemleri yaptınız: 
-
-> [!div class="checklist"] 
-> * Azure Cosmos DB hesabı oluşturma 
-> * App.config dosyasında işlevi etkinleştirme 
-> * Tablo oluşturma 
-> * Tabloya bir varlık ekleme 
-> * Varlık grubu ekleme 
-> * Tek bir varlık alma 
-> * Otomatik ikincil dizinleri kullanarak varlıkları sorgulama 
-> * Varlığı değiştirme 
-> * Varlığı silme 
-> * Tabloyu silme  
-
-Artık sonraki öğreticiye geçerek tablo verilerini sorgulama hakkında daha fazla bilgi edinebilirsiniz. 
+Artık sonraki öğreticiye devam edin ve Azure Cosmos DB tablo API'si hesabı için veri geçirmeyi öğrenin. 
 
 > [!div class="nextstepaction"]
-> [Tablo API’si ile sorgulama](tutorial-query-table.md)
+>[Verilerini sorgulama](../cosmos-db/table-import.md)

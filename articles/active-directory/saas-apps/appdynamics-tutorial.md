@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f33480c5dfefcb1c3e136149b31e829edfbcac54
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d6b8edf2627ade23fc6d1125afbabc34a1d9d21b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409457"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860389"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Öğretici: AppDynamics ile Azure Active Directory Tümleştirme
 
@@ -130,29 +130,29 @@ Azure AD çoklu oturum açma AppDynamics ile yapılandırmak için aşağıdaki 
 
 ### <a name="configure-appdynamics-single-sign-on"></a>AppDynamics tek oturum açmayı yapılandırın
 
-7. Farklı bir web tarayıcı penceresinde AppDynamics şirketinizin sitesi için bir yönetici olarak oturum açın.
+1. Farklı bir web tarayıcı penceresinde AppDynamics şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-8. Üst araç çubuğunda tıklatın **ayarları**ve ardından **Yönetim**.
+1. Üst araç çubuğunda tıklatın **ayarları**ve ardından **Yönetim**.
 
     ![Yönetim](./media/appdynamics-tutorial/ic790216.png "Yönetim")
 
-9. Tıklayın **kimlik doğrulama sağlayıcısı** sekmesi.
+1. Tıklayın **kimlik doğrulama sağlayıcısı** sekmesi.
 
     ![Kimlik doğrulama sağlayıcısı](./media/appdynamics-tutorial/ic790224.png "kimlik doğrulama sağlayıcısı")
 
-10. İçinde **kimlik doğrulama sağlayıcısı** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. İçinde **kimlik doğrulama sağlayıcısı** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![SAML yapılandırma](./media/appdynamics-tutorial/ic790225.png "SAML yapılandırma")
+   ![SAML yapılandırma](./media/appdynamics-tutorial/ic790225.png "SAML yapılandırma")
 
-    a. Olarak **kimlik doğrulama sağlayıcısı**seçin **SAML**.
+   a. Olarak **kimlik doğrulama sağlayıcısı**seçin **SAML**.
 
-    b. İçinde **oturum açma URL'si** metin değerini yapıştırın **oturum açma URL'si** , Azure Portalı'ndan kopyaladığınız.
+   b. İçinde **oturum açma URL'si** metin değerini yapıştırın **oturum açma URL'si** , Azure Portalı'ndan kopyaladığınız.
 
-    c. İçinde **oturum kapatma URL'si** metin değerini yapıştırın **oturum kapatma URL'si** , Azure Portalı'ndan kopyaladığınız.
+   c. İçinde **oturum kapatma URL'si** metin değerini yapıştırın **oturum kapatma URL'si** , Azure Portalı'ndan kopyaladığınız.
 
-    d. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve ardından ona yapıştırın **sertifika** metin kutusu
+   d. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve ardından ona yapıştırın **sertifika** metin kutusu
 
-    e. **Kaydet**’e tıklayın.
+   e. **Kaydet**’e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -172,7 +172,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

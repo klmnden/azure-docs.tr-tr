@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 272ec7298785128caebd850dc488ca01937a3960
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8fa3cd79011ab31349ec44edf52b8fd9048d0d37
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548516"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077981"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Bir HDInsight kümesi için Apache Spark uygulamaları oluşturmak için Intellij için Azure Araç Seti'ni kullanma
 
@@ -57,10 +57,10 @@ Scala eklentisini yüklemek için aşağıdaki adımları gerçekleştirin:
 3. Seçin **Spark proje (Scala)** ana penceresinde.
 
 4. Gelen **derleme aracı** aşağı açılan listesinde, aşağıdakilerden birini seçin:
-      * **Maven** Scala Proje Oluşturma Sihirbazı'nı desteği.
-      * **SBT** bağımlılıkları yönetmek ve için Scala projesi oluşturma.
+   * **Maven** Scala Proje Oluşturma Sihirbazı'nı desteği.
+   * **SBT** bağımlılıkları yönetmek ve için Scala projesi oluşturma.
 
-    ![Yeni Proje iletişim kutusu](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+     ![Yeni Proje iletişim kutusu](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
 5. **İleri**’yi seçin.
 

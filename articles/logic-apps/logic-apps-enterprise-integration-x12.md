@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.openlocfilehash: c4ee56f4ddcccb1fc4ddd84aa1c1b16dea9754d9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 6665ea8bc4016c9d64005f9c742115cf785ed5ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123966"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842150"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Enterprise Integration Pack ile Azure Logic apps'teki B2B Kurumsal tümleştirme için Exchange X12 iletileri
 
@@ -36,9 +36,10 @@ Gereksinim duyduğunuz öğeleri şu şekildedir:
 
 ## <a name="create-an-x12-agreement"></a>X X12 oluşturma Sözleşmesi
 
-1. [Azure portalı](http://portal.azure.com "Azure portalı") oturumunu açın. 
+1. [Azure portalı](https://portal.azure.com "Azure portalı") oturumunu açın. 
 
-2. Azure ana menüsünden seçin **tüm hizmetleri**. Arama kutusuna "tümleştirme" girin ve ardından **tümleştirme hesapları**.  
+2. Azure ana menüsünden seçin **tüm hizmetleri**. 
+   Arama kutusuna "tümleştirme" girin ve ardından **tümleştirme hesapları**.  
 
    ![Tümleştirme hesabı bulunamadı](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
@@ -49,7 +50,8 @@ Gereksinim duyduğunuz öğeleri şu şekildedir:
 
    ![Tümleştirme hesabı sözleşmesi oluşturulacağı konumu seçin](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
-4. Seçin **genel bakış**, ardından **sözleşmeleri** Döşe. Anlaşmaları kutucuk yoksa kutucuk önce ekleyin. 
+4. Seçin **genel bakış**, ardından **sözleşmeleri** Döşe. 
+   Anlaşmaları kutucuk yoksa kutucuk önce ekleyin. 
 
    !["Anlaşmaları" kutucuğunu seçin](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
@@ -57,7 +59,10 @@ Gereksinim duyduğunuz öğeleri şu şekildedir:
 
    !["Ekle" öğesini seçin](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
-6. Altında **Ekle**, girin bir **adı** sözleşmenize için. Sözleşme türü için **X12**. Seçin **konak iş ortağı**, **konak kimliği**, **Konuk iş ortağı**, ve **Konuk kimlik** sözleşmenize için. Daha fazla özellik Ayrıntılar için bu adımda tabloya bakın.
+6. Altında **Ekle**, girin bir **adı** sözleşmenize için. 
+   Sözleşme türü için **X12**. 
+   Seçin **konak iş ortağı**, **konak kimliği**, **Konuk iş ortağı**, ve **Konuk kimlik** sözleşmenize için. 
+   Daha fazla özellik Ayrıntılar için bu adımda tabloya bakın.
 
     ![Anlaşma ayrıntılarını sağlayın](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
@@ -72,8 +77,8 @@ Gereksinim duyduğunuz öğeleri şu şekildedir:
     | Ayarları Al |Bu özellikler, bir anlaşma tarafından alınan tüm iletileri için geçerlidir. |
     | Gönderme Ayarları |Bu özellikler, bir anlaşma tarafından gönderilen tüm iletiler için geçerlidir. |  
 
-  > [!NOTE]
-  > Gönderen niteleyicisi tanımlayıcısı ve alıcı niteleyicisi ve iş ortağı ve gelen ileti tanımlanmış tanımlayıcısı eşleşen anlaşma bağlıdır X12 çözünürlüğü. Bu değerler, iş ortağı değiştirirseniz, anlaşma güncelleştirirsiniz.
+   > [!NOTE]
+   > Gönderen niteleyicisi tanımlayıcısı ve alıcı niteleyicisi ve iş ortağı ve gelen ileti tanımlanmış tanımlayıcısı eşleşen anlaşma bağlıdır X12 çözünürlüğü. Bu değerler, iş ortağı değiştirirseniz, anlaşma güncelleştirirsiniz.
 
 ## <a name="configure-how-your-agreement-handles-received-messages"></a>Nasıl iletileri, anlaşma tanıtıcıları alınan yapılandırma
 
@@ -82,7 +87,7 @@ Sözleşme özelliklerini ayarladıysanız, işbu sözleşme nasıl tanımlar ve
 1.  Altında **Ekle**seçin **alma ayarı**.
 Sizinle iletiler birbiriyle değiştirir iş ortaklarıyla sözleşmenize göre bu özelliklerini yapılandırın. Bu bölümdeki tablolarda, özellik açıklamalarına bakın.
 
-    **Alma ayarlarını** bu bölümler halinde düzenlenmiştir: tanımlayıcılar, bildirim, şemalar, zarflar, denetim numaraları, doğrulama ve iç ayarlar.
+    **Alma ayarlarını** bu bölümler halinde düzenlenmiştir: Tanımlayıcılar, bildirim, şemalar, zarflar, denetim numaraları, doğrulama ve iç ayarlar.
 
 2. Bitirdikten sonra seçerek ayarlarınızı kaydettiğinizden emin olun **Tamam**.
 
@@ -151,7 +156,7 @@ Her doğrulama satır tamamladığınızda, başka bir otomatik olarak eklenir. 
 
 | Özellik | Açıklama |
 | --- | --- |
-| İleti Türü |EDI ileti türü seçin. |
+| Mesaj Türü |EDI ileti türü seçin. |
 | EDI Doğrulaması |EDI doğrulaması şema EDI özellikleri, uzunluk kısıtlamaları, boş veri öğeleri ve sondaki ayırıcılara tarafından tanımlanan veri türleri üzerinde gerçekleştirin. |
 | Genişletilmiş Doğrulama |Veri türü değilse EDI, doğrulama veri öğesi gereksinimdir ve yineleme, numaralandırmalar ve veri öğesi uzunluğu doğrulama (min/maks) izin verilir. |
 | Başta/Sonda Sıfırlara İzin Ver |Başta veya sonda sıfır ek korumak ve boşluk karakterleri. Bu karakterleri kaldırın. |
@@ -178,7 +183,7 @@ Her doğrulama satır tamamladığınızda, başka bir otomatik olarak eklenir. 
 1.  Altında **Ekle**seçin **gönderme ayarları**.
 Sizinle iletiler değiştirir ortağınızla birlikte sözleşmenize göre bu özelliklerini yapılandırın. Bu bölümdeki tablolarda, özellik açıklamalarına bakın.
 
-    **Gönderme ayarları** bu bölümler halinde düzenlenmiştir: tanımlayıcılar, bildirim, şemalar, zarflar, karakter kümeleri ve ayırıcılar, denetim numaraları ve doğrulama.
+    **Gönderme ayarları** bu bölümler halinde düzenlenmiştir: Tanımlayıcılar, bildirim, şemalar, zarflar, karakter kümeleri ve ayırıcılar, denetim numaraları ve doğrulama.
 
 2. Bitirdikten sonra seçerek ayarlarınızı kaydettiğinizden emin olun **Tamam**.
 
@@ -276,7 +281,7 @@ Her doğrulama satır tamamladığınızda, başka bir otomatik olarak eklenir. 
 
 | Özellik | Açıklama |
 | --- | --- |
-| İleti Türü |EDI ileti türü seçin. |
+| Mesaj Türü |EDI ileti türü seçin. |
 | EDI Doğrulaması |EDI doğrulaması şema EDI özellikleri, uzunluk kısıtlamaları, boş veri öğeleri ve sondaki ayırıcılara tarafından tanımlanan veri türleri üzerinde gerçekleştirin. |
 | Genişletilmiş Doğrulama |Veri türü değilse EDI, doğrulama veri öğesi gereksinimdir ve yineleme, numaralandırmalar ve veri öğesi uzunluğu doğrulama (min/maks) izin verilir. |
 | Başta/Sonda Sıfırlara İzin Ver |Başta veya sonda sıfır ek korumak ve boşluk karakterleri. Bu karakterleri kaldırın. |

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: c7eb490bdf484651613c5c7a72d2a31be5306634
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e7956e8873b552fcd73c51a51f51d99f21af324
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773801"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002941"
 ---
 # <a name="understand-and-work-with-scopes"></a>Kapsamları anlama ve bunlarla çalışma
 
@@ -146,9 +146,9 @@ Faturalama hesap altında açıkça kalan yoktur çünkü faturalandırma kullan
 
 Bulut çözümü sağlayıcısı (CSP) iş ortakları maliyet Yönetimi'nde bugün desteklenmez. Bunun yerine kullanabileceğiniz [iş ortağı Merkezi](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
 
-## <a name="how-to-switch-between-scopes-within-cost-management"></a>Maliyet Yönetimi kapsamlarda arasında geçiş yapma
+## <a name="switch-between-scopes-in-cost-management"></a>Maliyet Yönetimi'nde kapsamları arasında geçiş yapma
 
-Azure portalındaki tüm maliyet Yönetimi deneyimleri dahil bir **kapsam** zehirli hızla kapsamını değiştirmek için erişim sağlayan dikey penceresinin üst sol konumunda. Tıklayarak **kapsam** zehirli fatura hesapları ve kök yönetim grubu, kök yönetim grubu altında iç içe olmayan tüm abonelikleri gösteren bir kapsam Seçici açılır. Bir kapsam seçin için arka plan vurgulayın ve ardından'ı **seçin** altındaki düğmesini. İç içe geçmiş kapsamlar (örneğin bir abonelik içindeki kaynak grupları) için detaya gidin için kapsam adı bağlantısını tıklatın. Tüm iç içe geçme düzeyi üst kapsamda seçmek için tıklatın **seçin <scope>**  Kapsam Seçici üstünde düğme.
+Azure portalında tüm maliyet Yönetimi görünümlerini içeren bir **kapsam** zehirli görünümü sol üst. Hızlı bir şekilde kapsamını değiştirmek için kullanın. Tıklayın **kapsam** zehirli Kapsam Seçici'yi açın. Bu, fatura hesapları, kök yönetim grubu ve kök yönetim grubu altında iç içe olmayan tüm abonelikleri gösterir. Bir kapsam seçin için arka plan vurgulayın ve ardından'ı **seçin** altındaki. Ayrıntıya bir Abonelikteki kaynak grupları gibi iç içe geçmiş kapsamlar için açma kapsam adı bağlantısına tıklayın. Tüm iç içe geçme düzeyi üst kapsamda seçmek için tıklatın **seçin &lt;kapsam&gt;**  üst kapsam Seçici.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Kaynak kimliği için bir kapsam tanımlama
 
@@ -218,7 +218,7 @@ Maliyet Yönetimi API'leri ile çalışırken, bilmenin verdiği kapsamı öneml
 4. Kaynak Kimliği alan değerini kopyalayın.
 5. Kapsamınızı şöyledir: `"/subscriptions/{id}/resourceGroups/{name}"`
 
-Maliyet Yönetimi şu anda Azure genel desteklenir (https://management.azure.com) ve Azure kamu (https://management.usgovcloudapi.net). Azure kamu hakkında daha fazla bilgi için bkz: [Azure genel ve kamu API uç noktaları](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
+Maliyet Yönetimi desteklenen şu anda [Azure genel](https://management.azure.com) ve [Azure kamu](https://management.usgovcloudapi.net). Azure kamu hakkında daha fazla bilgi için bkz: [Azure genel ve kamu API uç noktaları](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

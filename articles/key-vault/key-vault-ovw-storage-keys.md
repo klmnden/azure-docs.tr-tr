@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: dc743f7e8ebaebf2b253a1c2c199133bc4266dd5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c2107e501affd5e3dd22e0fbc83d078b51d414a5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404379"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841149"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure anahtar kasası yönetilen depolama hesabı - CLI
 
@@ -40,6 +40,7 @@ Yönetilen depolama hesabı anahtar özelliğini kullanırken:
 - **Yalnızca depolama hesap anahtarlarınızı yönetmek Key Vault izin verir.** Key Vault'un işlemlerle engel şekilde kendiniz yönetmek denemeyin.
 - **Depolama hesabı anahtarları birden fazla anahtar kasası nesne tarafından yönetilecek izin verme**.
 - **Depolama hesabı anahtarlarınızı el ile yeniden yoksa**. Key Vault aracılığıyla bunları yeniden öneririz.
+- Key Vault, depolama hesabınızı yönetmek isteyen bir kullanıcı asıl şimdilik ve hizmet sorumlusu tarafından yapılabilir
 
 Aşağıdaki örnek, depolama hesabı anahtarlarını yönetmek Key Vault kullanmasının nasıl sağlanacağını gösterir.
 
@@ -124,7 +125,7 @@ Bu işlem başarıyla çalıştığında, aşağıda gösterildiği gibi benzer 
    "se=2020-01-01&sp=***"
 ```
 
-2. Bu adımda bir SAS tanımı oluşturmak için yukarıda oluşturulan çıktı ($sasToken) kullanacağız. Daha fazla belgelerini okuyun [burada](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+1. Bu adımda bir SAS tanımı oluşturmak için yukarıda oluşturulan çıktı ($sasToken) kullanacağız. Daha fazla belgelerini okuyun [burada](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
 
 ```
 az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
@@ -134,12 +135,11 @@ az keyvault storage sas-definition create --vault-name <YourVaultName> --account
  > [!NOTE] 
  > Kullanıcının depolama hesabı için izinler yok durumda biz ilk kullanıcının nesne kimliği alın
 
-    ```
-    az ad user show --upn-or-object-id "developer@contoso.com"
+ ```
+ az ad user show --upn-or-object-id "developer@contoso.com"
 
-    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
-    
-    ```
+ az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+ ```
     
 ## <a name="fetch-sas-tokens-in-code"></a>SAS belirteçleri kodda getirilemedi
 
@@ -147,8 +147,8 @@ Bu bölümde getirilirken tarafından depolama hesabınızda işlemleri nasıl y
 
 İçinde aşağıdaki bölümüne, biz bir SAS tanımında yukarıda da gösterildiği gibi oluşturulduktan sonra SAS belirteçlerini almak nasıl ekleyebileceğiniz gösterilmektedir.
 
-> [!NOTE] 
-  İçinde okumak için Key Vault kimlik doğrulaması için izleyebileceğiniz 3 yol vardır [temel kavramlar](key-vault-whatis.md#basic-concepts)
+> [!NOTE]
+>   İçinde okumak için Key Vault kimlik doğrulaması için izleyebileceğiniz 3 yol vardır [temel kavramlar](key-vault-whatis.md#basic-concepts)
 > - Yönetilen hizmet kimliği (kesinlikle önerilir) kullanma
 > - Hizmet sorumlusu ve sertifika kullanma 
 > - Hizmet sorumlusu ve parola (önerilmez) kullanma

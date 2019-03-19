@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2457ef2843b0d16359b7e47fc54c58e2ef5e6034
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53430055"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125024"
 ---
 > [!NOTE]
 > Bu örnekler S2S/ExpressRoute için geçerli değildir yapılandırmaları bir arada.
@@ -28,8 +28,8 @@ Klasik kaynak modeli kullanarak bir sanal ağ geçidi eklediğinizde, doğrudan 
 1. İçindeki adımları kullanarak ağ yapılandırma dosyasını indirme [ağ yapılandırma dosyasını](../articles/virtual-network/virtual-networks-using-network-configuration-file.md) makalesi. Bir metin düzenleyicisi kullanarak dosyayı açın.
 2. Bir yerel ağ alanına dosyaya ekleyin. Herhangi bir geçerli adresi önek kullanabilirsiniz. VPN ağ geçidi herhangi bir geçerli IP adresi ekleyebilirsiniz. Bu bölümdeki adres değerlerini ExpressRoute işlemleri için kullanılmaz, ancak dosya doğrulama için gereklidir. Örnekte, "branch1" sitenin adıdır. Farklı bir ad kullanın ancak aynı değeri ağ geçidi bölümünde kullandığınızdan emin olun.
 
-  ```
-  <VirtualNetworkConfiguration>
+   ```
+   <VirtualNetworkConfiguration>
     <Dns />
     <LocalNetworkSites>
       <LocalNetworkSite name="branch1">
@@ -38,15 +38,15 @@ Klasik kaynak modeli kullanarak bir sanal ağ geçidi eklediğinizde, doğrudan 
         </AddressSpace>
         <VPNGatewayAddress>3.2.1.4</VPNGatewayAddress>
     </LocalNetworkSite>
-  ```
+   ```
 3. İçin VirtualNetworkSites gidin ve alanları değiştirin.
 
-  * Ağ geçidi alt ağı, sanal ağınıza ilişkin mevcut olduğunu doğrulayın. Kullanmıyorsa, şu anda ekleyebilirsiniz. Adı "GatewaySubnet" olmalıdır.
-  * Ağ geçidi kısmında var olduğunu doğrulayın. Seçili değilse bunu ekleyin. Bu sanal ağ (bağlanmakta olduğunuz ağ temsil eden) yerel ağ alanı ile ilişkilendirmek için gereklidir.
-  * Bağlantı türü doğrulayın adanmış =. Bu, ExpressRoute bağlantıları için gereklidir.
+   * Ağ geçidi alt ağı, sanal ağınıza ilişkin mevcut olduğunu doğrulayın. Kullanmıyorsa, şu anda ekleyebilirsiniz. Adı "GatewaySubnet" olmalıdır.
+   * Ağ geçidi kısmında var olduğunu doğrulayın. Seçili değilse bunu ekleyin. Bu sanal ağ (bağlanmakta olduğunuz ağ temsil eden) yerel ağ alanı ile ilişkilendirmek için gereklidir.
+   * Bağlantı türü doğrulayın adanmış =. Bu, ExpressRoute bağlantıları için gereklidir.
 
-  ```
-  </LocalNetworkSites>
+   ```
+   </LocalNetworkSites>
     <VirtualNetworkSites>
       <VirtualNetworkSite name="myAzureVNET" Location="East US">
         <AddressSpace>
@@ -69,9 +69,9 @@ Klasik kaynak modeli kullanarak bir sanal ağ geçidi eklediğinizde, doğrudan 
         </Gateway>
       </VirtualNetworkSite>
     </VirtualNetworkSites>
-  </VirtualNetworkConfiguration>
-  </NetworkConfiguration>
-  ```
+   </VirtualNetworkConfiguration>
+   </NetworkConfiguration>
+   ```
 4. Dosyayı kaydedin ve Azure'a yükleyin.
 
 ### <a name="create-the-gateway"></a>Ağ geçidi oluşturma

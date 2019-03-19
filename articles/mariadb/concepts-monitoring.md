@@ -6,18 +6,18 @@ ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: 2ad641ae054f9542ec1ef42f5ebbe724ba4ecf87
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: f34e32b9bda83ac1185d0c7b7dcaaaa7b47161a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354034"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082492"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı'nda izleme
 İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. MariaDB için Azure veritabanı sunucunuzu davranışını öngörü sunan çeşitli ölçümleri sağlar.
 
 ## <a name="metrics"></a>Ölçümler
-Tüm Azure ölçümleri bir dakikalık sıklığı, ve 30 günlük geçmişi her ölçüm sağlar. Ölçümler üzerinde uyarılar yapılandırabilirsiniz. Diğer görevler otomatik eylemleri ayarlama, Gelişmiş analiz gerçekleştirme ve geçmiş arşivleme içerir. Daha fazla bilgi için bkz. [Azure ölçümlerine genel bakış] (.. /Monitoring-and-Diagnostics/Monitoring-Overview-Metrics.MD).
+Tüm Azure ölçümleri bir dakikalık sıklığı, ve 30 günlük geçmişi her ölçüm sağlar. Ölçümler üzerinde uyarılar yapılandırabilirsiniz. Diğer görevler otomatik eylemleri ayarlama, Gelişmiş analiz gerçekleştirme ve geçmiş arşivleme içerir. Daha fazla bilgi için [Azure ölçümlerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Adım adım yönergeler için bkz. [uyarıları ayarlamak nasıl](howto-alert-metric.md).
 
@@ -25,7 +25,7 @@ Adım adım yönergeler için bkz. [uyarıları ayarlamak nasıl](howto-alert-me
 Bu ölçümler, MariaDB için Azure veritabanı için kullanılabilir:
 
 |Ölçüm|Ölçüm görünen adı|Birim|Açıklama|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|CPU yüzdesi|Yüzde|CPU yüzdesi kullanılıyor.|
 |memory_percent|Bellek yüzdesi|Yüzde|Kullanılan bellek yüzdesi.|
 |io_consumption_percent|G/ç yüzdesi|Yüzde|G/ç yüzdesi kullanılıyor.|
@@ -41,8 +41,8 @@ Bu ölçümler, MariaDB için Azure veritabanı için kullanılabilir:
 |network_bytes_ingress|Ağ Girişi|Bayt|Ağ içinde arasında etkin bağlantılar.|
 
 ## <a name="server-logs"></a>Sunucu günlükleri
-Yavaş sorgu günlüğü sunucunuzda etkinleştirebilirsiniz. Günlüğe kaydetme hakkında daha fazla bilgi edinmek için [sunucu günlükleri](concepts-server-logs.md) sayfası.
+Yavaş sorgu günlüğü sunucunuzda etkinleştirebilirsiniz. Günlüğe kaydetme hakkında daha fazla bilgi edinmek için [sunucu günlükleri](concepts-server-logs.md) sayfası.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Erişim ve Azure portalı, REST API veya CLI kullanarak ölçümleri dışarı aktarma hakkında daha fazla bilgi için bkz. [Azure ölçümlerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
- - Bkz: [uyarıları ayarlamak nasıl](howto-alert-metric.md) bir ölçüme göre bir uyarı oluşturma hakkında yönergeler için.
+  - Bkz: [uyarıları ayarlamak nasıl](howto-alert-metric.md) bir ölçüme göre bir uyarı oluşturma hakkında yönergeler için.

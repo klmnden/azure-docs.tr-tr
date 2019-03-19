@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b50b8f6c54cbefde2120dd61643c23f5175927c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8706e839005d43ab9fa2662d13d7d3c3994c136
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211759"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077760"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Öğretici: Bir Azure depolama hesabına (Önizleme) Azure AD günlüklerini arşivleme
 
@@ -45,11 +45,11 @@ Bu özelliği kullanmak için şunlara ihtiyacınız vardır:
 3. **Dışarı Aktarma Ayarları**'nı seçin. 
 
 4. **Tanılama ayarları** bölmesinde aşağıdakilerden birini yapın:
-    * Var olan ayarları değiştirmek için **Ayarı düzenleyin**'i seçin.
-    * Yeni ayar eklemek için **Tanılama ayarı ekle**'yi seçin.  
-      En fazla üç ayar kullanabilirsiniz. 
+   * Var olan ayarları değiştirmek için **Ayarı düzenleyin**'i seçin.
+   * Yeni ayar eklemek için **Tanılama ayarı ekle**'yi seçin.  
+     En fazla üç ayar kullanabilirsiniz. 
 
-    ![Dışarı aktarma ayarları](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
+     ![Dışarı aktarma ayarları](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
 5. Ayarın amacını hatırlatması için kolay bir ad girin (örneğin, *Azure depolama hesabına gönder*). 
 

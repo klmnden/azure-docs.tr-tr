@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 246580d7c93677859c5800cdc9394c1603c4c36b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3b2c5f3e02241f8c4e8a9ae87bd7436863243978
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776981"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901534"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Hub çalışma ve projeleri için özel Translator geçirme
 
@@ -26,12 +26,8 @@ Bu Eylemler, geçiş sırasında gerçekleştirilir:
 * Dağıtılmış durumda değildi geçirilen tüm eğitimleri geçirilen taslak durumuna yerleştirilir. Bu durumda, geçirilen tanımıyla modeli seçeneğine sahip olur, ancak normal eğitim ücretleri geçerli olacaktır.
 * Herhangi bir noktada, eğitim, "Bleu puan" MT hub'ında modelinde TrainingDetails sayfasında bulunabilir Hub'ından BLEU puanı geçişi başlığı.
 
->[!Note]
-Bir eğitim işleminin başarılı olması 10.000 benzersiz ayıklanan cümleler en az özel Translator gerektirir. Özel Translator kısa eğitimlerle gerçekleştir olamaz [önerilen minimum](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
-
-## <a name="enable-account-migration"></a>Hesap geçişi etkinleştir
-
-Geçiş Aracı kullanmak için etkin Hub hesabı geçişinizi sahip olmanız gerekir. Bunu yapmak için e-posta [ custommt@microsoft.com ](mailto:custommt@microsoft.com) ile etkin istediğiniz tüm live ID hesaplarının listesi. Bu hesapları ile oturum e-posta adresleri olmalıdır.
+> [!Note]
+> Bir eğitim işleminin başarılı olması 10.000 benzersiz ayıklanan cümleler en az özel Translator gerektirir. Özel Translator kısa eğitimlerle gerçekleştir olamaz [önerilen minimum](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
 
 ## <a name="find-custom-translator-workspace-id"></a>Özel Translator çalışma alanı kimliği bulunamıyor
 

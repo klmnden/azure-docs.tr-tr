@@ -15,16 +15,33 @@ ms.date: 11/02/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 594fb736b8ec4b49cf1525047ff8a7ce5e5dc959
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194980"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840911"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect SSS
 
 ## <a name="general-installation"></a>Genel yükleme
+
+**S: Güvenlik saldırı yüzeyini azaltmak için Azure AD Connect sunucuma nasıl sağlamlaştırmak?**
+
+Microsoft, bu kritik bir bileşen BT ortamınızın için güvenlik saldırı yüzeyini azaltmak için Azure AD Connect sunucunuzu sağlamlaştırma önerir.  Aşağıdaki aşağıdaki önerileri, kuruluşunuz için güvenlik risklerini azaltır.
+
+* Azure AD Connect bir etki alanına katılmış sunucuya dağıtma ve etki alanı yöneticileri veya diğer sıkı bir şekilde denetlenen güvenlik gruplarına yönetici erişimi kısıtlama
+
+Daha fazla bilgi için bkz: 
+
+* [Yöneticiler grubunun güvenliğini sağlama](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+
+* [Yerleşik yönetici hesaplarını güvenli hale getirme](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+
+* [Güvenlik geliştirme ve saldırı yüzeylerini azaltarak sustainment](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+
+* [Active Directory saldırı yüzeyini azaltma](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+
 **S: Azure Active Directory (Azure AD) genel yönetici etkin iki öğeli kimlik doğrulamayı (2FA) varsa, yükleme çalışacak mı?**  
 Şubat 2016 yapıları itibarıyla, bu senaryo desteklenmiyor.
 

@@ -11,18 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: 282a20beb11172aa3a1d2c7326dc38ce8a7acfcf
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: fe348daa4613e0b515244686e48ed63a41991d81
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062664"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009378"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak Time Series Insights kaynakları oluşturma
 
 Bu makalede, Azure Resource Manager şablonları, PowerShell ve zaman serisi görüşleri kaynak sağlayıcısını kullanarak zaman serisi görüşleri kaynakları oluşturup dağıtmayı açıklar.
 
 Time Series Insights, aşağıdaki kaynakları destekler:
+
    | Kaynak | Açıklama |
    | --- | --- |
    | Ortam | Zaman serisi görüşleri ortamına olayları olay aracıları okuyun, depolanır ve sorgu için kullanılabilir hale mantıksal bir gruplandırmasıdır. Daha fazla bilgi için [Azure Time Series Insights ortamınızı planlama](time-series-insights-environment-planning.md) |
@@ -65,7 +66,7 @@ Bir parametre dosyası oluşturmak için kopyalama [201-timeseriesinsights-ortam
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "eventHubNamespaceName": {
@@ -116,7 +117,7 @@ Bir parametre dosyası oluşturmak için kopyalama [201-timeseriesinsights-ortam
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "eventHubNamespaceName": {
@@ -268,7 +269,7 @@ Outputs                 :
 GitHub Hızlı Başlangıç şablonu giriş sayfasında da içeren bir **azure'a Dağıt** düğmesi. Tıklayarak Azure Portalı'nda bir özel dağıtım sayfası açılır. Bu sayfadan girin veya her parametreler için değerler seçin [Gerekli Parametreler](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) veya [isteğe bağlı parametreler](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters) tablolar. Tıklayarak ayarlarını doldurduktan sonra **satın alma** düğmesi şablon dağıtımı başlatır.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## <a name="next-steps"></a>Sonraki adımlar

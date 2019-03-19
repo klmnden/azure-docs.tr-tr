@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d0e62edd156e8fafbf16437af33941a99f4607fd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440616"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885445"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Havacılıkta Tahmine dayalı bakım için Cortana Intelligence çözüm şablonları için teknik kılavuz
 
->[!Important]
-Bu makalede kullanım dışıdır. Havacılıkta Tahmine dayalı bakım hakkında bir tartışma hala gerekli, ancak güncel bilgiler için bkz [çözümüne genel bakış iş izleyiciler için](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
+> [!Important]
+> Bu makalede kullanım dışıdır. Havacılıkta Tahmine dayalı bakım hakkında bir tartışma hala gerekli, ancak güncel bilgiler için bkz [çözümüne genel bakış iş izleyiciler için](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
 
 
 Çözüm şablonları, Cortana Intelligence Suite üzerine bir E2E tanıtım oluşturma sürecini hızlandırmak için tasarlanmıştır. Dağıtılan şablon, gerekli Cortana Intelligence bileşenleri aboneliğinizle sağlar ve ardından aralarındaki ilişkilerin oluşturur. Ayrıca, veri işlem hattı örnek verilerle indirin ve yerel makinenize yükleyin, çözüm şablonu dağıttıktan sonra bir veri Oluşturucu uygulamasını sağlar. Oluşturucu verileri, veri işlem hattı ve ardından Power BI panosunda görselleştirilebilir machine learning öngörüleri, oluşturma başlangıç hydrates.
@@ -51,7 +51,7 @@ Aşağıdaki bölümlerde, çözüm parçalar açıklanmaktadır.
 ### <a name="synthetic-data-source"></a>Yapay veri kaynağı
 Bu şablon için kullanılan veri kaynağı indirip yerel olarak başarılı dağıtımdan sonra çalıştırma bir masaüstü uygulaması oluşturulur.
 
-Bu uygulamayı indirmek ve yüklemek için yönergeleri bulmak için ilk düğümünde, Tahmine dayalı bakım veri Oluşturucu, çözüm şablonu diyagramı seçin. Yönergeler, Özellikler araç çubuğunda bulunur. Bu uygulama akışları [Azure olay hub'ı](#azure-event-hub) hizmeti ile veri noktaları veya olaylar, çözüm akışının kalanında kullanılır. Bu veri kaynağı, genel olarak kullanılabilir verilerinden türetilen [NASA veri deposu](https://c3.nasa.gov/dashlink/resources/139/) kullanarak [Turbofan Engine performans düşüşü simülasyonu veri kümesi](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
+Bu uygulamayı indirmek ve yüklemek için yönergeleri bulmak için ilk düğümünde, Tahmine dayalı bakım veri Oluşturucu, çözüm şablonu diyagramı seçin. Yönergeler, Özellikler araç çubuğunda bulunur. Bu uygulama akışları [Azure olay hub'ı](#azure-event-hub) hizmeti ile veri noktaları veya olaylar, çözüm akışının kalanında kullanılır. Bu veri kaynağı, genel olarak kullanılabilir verilerinden türetilen [NASA veri deposu](https://c3.nasa.gov/dashlink/resources/139/) kullanarak [Turbofan Engine performans düşüşü simülasyonu veri kümesi](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
 Yalnızca, bilgisayarınızda yürütülürken olay oluşturma uygulamasını Azure olay hub'ı doldurur.  
 
@@ -79,7 +79,7 @@ Kullanım [Power BI](https://powerbi.microsoft.com) toplamalar ve tarafından sa
 ## <a name="how-to-bring-in-your-own-data"></a>Nasıl kendi verilerinizi getirin
 Bu bölümde, kendi verilerinizi Azure'a taşımalarına olanak açıklar ve bu mimariye Getir veriler için hangi alanlarda değişiklikler gerektirir.
 
-Veri kümeniz tarafından kullanılan veri kümesini eşleştiğini düşüktür [Turbofan Engine performans düşüşü simülasyonu veri kümesi](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) için bu çözüm şablonu kullanılır. Verilerinizi ve gereksinimleri anlama kendi verilerle çalışmak için bu şablonu nasıl değiştirileceği içinde çok önemlidir. 
+Veri kümeniz tarafından kullanılan veri kümesini eşleştiğini düşüktür [Turbofan Engine performans düşüşü simülasyonu veri kümesi](https://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) için bu çözüm şablonu kullanılır. Verilerinizi ve gereksinimleri anlama kendi verilerle çalışmak için bu şablonu nasıl değiştirileceği içinde çok önemlidir. 
 
 Aşağıdaki bölümlerde, değişiklikler yeni bir veri kümesi eklendiğinde gerektiren şablonunun bölümlerine açıklanmaktadır.
 
@@ -143,7 +143,7 @@ Bu [işlem hattı](../../data-factory/concepts-pipelines-activities.md) - tek bi
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) kullanılan denemeler, kalan kullanım ömrü (RUL), bir uçak motorunun Bu çözüm şablonu sağlar. Denemeyi tüketilen veri kümesi için özeldir ve değişikliği yapılması gerektiğinden veya değiştirilen verileri getirildi.
 
-Azure Machine Learning denemesi nasıl oluşturulduğu hakkında daha fazla bilgi için bkz: [Tahmine dayalı Bakım: Adım 1 / 3, veri hazırlama ve özellik Mühendisliği](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
+Azure Machine Learning denemesi nasıl oluşturulduğu hakkında daha fazla bilgi için bkz: [Tahmine dayalı Bakım: Adım 1 / 3, veri hazırlama ve özellik Mühendisliği](https://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
 ## <a name="monitor-progress"></a>İlerlemeyi İzle
 Veri oluşturucuyu başlatıldıktan sonra işlem hattı dehydrate başlar ve eylem aşağıdaki komutlar veri fabrikası tarafından verilen içine başlatılmadan çözümünüzü farklı bileşenlerini başlatın. İşlem hattını izlemek için iki yolu vardır.
@@ -186,7 +186,7 @@ Aşağıdaki adımları pbıx dosyasını (örneğin, tahmin sonuçlarını) ver
    * Çıkış penceresi sonraki pop, sol bölmede iki seçenek görürsünüz (**Windows** ve **veritabanı**). Tıklayın **'Database'**, doldurmak, **'Username'** ve **'Password'** (kullanıcı adı ve ilk çözüm dağıtılan ve bir Azure oluşturulan girdiğiniz parola budur SQL veritabanı). İçinde ***seçmek için bu ayarları uygulamak için hangi düzeye***, veritabanı düzeyinde seçeneği işaretleyin. Ardından **'Bağlan'**.
    * İkinci tabloda tıklatın **PMResult** ardından ![Gezinti simgesi](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) yanındaki **'Source'** altında **'UYGULANAN adımlar'** sağ **'Sorgu ayarları'** panelde, sunucu ve veritabanı adları Yukarıdaki adımlarda açıklandığı şekilde güncelleştirin ve Tamam'a tıklayın.
    * Önceki sayfaya geri destekli sonra penceresini kapatın. Bir ileti görüntüler - tıklayın **Uygula**. Son olarak, tıklayın **Kaydet** değişiklikleri kaydetmek için düğme. Power BI dosyanızı, şimdi sunucuyla bağlantı kurmuştur. Görselleştirmelerinizi boş ise göstergeleri sağ üst köşesinde Silgi simgesini tıklatarak tüm verileri görselleştirmek için görselleştirmelere seçimleri Temizle emin olun. Bir görselleştirmeyi yeni verileri yansıtması için Yenile düğmesini kullanın. Data factory 3 saatte bir yenileme zamanlandığında başlangıçta yalnızca çekirdek veri görselleştirmelerinizi üzerinde görürsünüz. Verileri yenilediğinizde görselleştirmeleriniz yansıtılan yeni Öngörüler 3 saat sonra görürsünüz.
-3. (İsteğe bağlı) Soğuk yolu panoya yayımlama [Power BI çevrimiçi Hizmetinde](http://www.powerbi.com/). Bu adım bir Power BI hesabı (veya Office 365 hesabı) gerektiğini unutmayın.
+3. (İsteğe bağlı) Soğuk yolu panoya yayımlama [Power BI çevrimiçi Hizmetinde](https://www.powerbi.com/). Bu adım bir Power BI hesabı (veya Office 365 hesabı) gerektiğini unutmayın.
    
    * Tıklayın **'Yayımla'** ve birkaç saniye sonra "Yayımlama Power BI başarılı!" görüntüleyen bir pencere görüntülenir. Yeşil bir onay işareti ile. Aşağıdaki "Açık PredictiveMaintenanceAerospace.pbix Power BI'da" bağlantısına tıklayın. Ayrıntılı yönergeler için bkz [Power BI Desktop'tan yayımlama](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Yeni bir Pano oluşturmak için: tıklayın **+** yanındaki oturum **panolar** sol bölmedeki bölümü. Bu yeni bir Pano için "Tahmine dayalı bakım tanıtımını" adını girin.
@@ -206,13 +206,13 @@ Aşağıdaki adımları pbıx dosyasını (örneğin, tahmin sonuçlarını) ver
    * Gereksinimlerinize göre yenileme zamanlayabilirsiniz. Daha fazla bilgi için bkz: [Power BI'da veri yenileme](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
 ### <a name="setup-hot-path-dashboard"></a>Kurulum etkin yolu Panosu
-Aşağıdaki adımlar, Çözüm dağıtımı sırasında oluşturulan Stream Analytics işlerini veri çıkışı görselleştirmek nasıl size rehberlik eder. A [Power BI çevrimiçi Hizmetinde](http://www.powerbi.com/) hesabı aşağıdaki adımları gerçekleştirmek için gereklidir. Bir hesabınız yoksa, şunları yapabilirsiniz [oluşturmak](https://powerbi.microsoft.com/pricing).
+Aşağıdaki adımlar, Çözüm dağıtımı sırasında oluşturulan Stream Analytics işlerini veri çıkışı görselleştirmek nasıl size rehberlik eder. A [Power BI çevrimiçi Hizmetinde](https://www.powerbi.com/) hesabı aşağıdaki adımları gerçekleştirmek için gereklidir. Bir hesabınız yoksa, şunları yapabilirsiniz [oluşturmak](https://powerbi.microsoft.com/pricing).
 
 1. Power BI çıkışına Azure Stream Analytics (ASA) ekleyin.
    
    * İçindeki yönergeleri izlemeniz gereken [Azure Stream Analytics ve Power BI: Bir analiz Panosu, akış verilerini gerçek zamanlı görünürlük](../../stream-analytics/stream-analytics-power-bi-dashboard.md) çıktısını Azure Stream Analytics işinizi Power BI panonuz olarak ayarlamak için.
    * ASA sorgu sahip olan üç çıkışları **aircraftmonitor**, **aircraftalert**, ve **flightsbyhour**. Sorgu, sorgu sekmesindeki tıklayarak görüntüleyebilirsiniz. Bu tabloların her birine karşılık gelen, ASA için bir çıktı eklemeniz gerekir. İlk çıkış eklediğinizde (**aircraftmonitor**) emin olun **çıkış diğer adı**, **veri kümesi adı** ve **tablo adı** aynı (olan**aircraftmonitor**). Çıktıların eklemek için adımları yineleyin **aircraftalert**, ve **flightsbyhour**. Üç tablo çıktı ve ASA işi başlatıldı ekledikten sonra bir onay iletisi ("başarılı başlangıç Stream Analytics işi maintenancesa02asapbi") almanız gerekir.
-2. Oturum [çevrimiçi Power BI](http://www.powerbi.com)
+2. Oturum [çevrimiçi Power BI](https://www.powerbi.com)
    
    * Veri kümeleri, çalışma Alanım bölümünde Sol paneldeki ***veri KÜMESİ*** adları **aircraftmonitor**, **aircraftalert**, ve **flightsbyhour** görüntülenmesi gerekir. Azure Stream Analytics'ten önceki adımda gönderilen veri akışı budur. Veri kümesi **flightsbyhour** aynı zamanda diğer iki veri kümesi arkasındaki SQL sorgusunun yapısı nedeniyle görünmeyebilir. Ancak, bir saat sonra gösterilmesi gerekir.
    * Emin ***görselleştirmeler*** bölmesinde açın ve ekranın sağ tarafında gösterilir.

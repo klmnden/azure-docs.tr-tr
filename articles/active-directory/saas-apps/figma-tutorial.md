@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 6e4bf95489a584a9f882ce616a6aef297b0a53e5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f95eac0cdb0fa7d5f9a2882138affc09ff489956
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782250"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900328"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Öğretici: Figma ile Azure Active Directory Tümleştirme
 
@@ -164,7 +164,7 @@ Azure AD çoklu oturum açma ile Figma yapılandırmak için aşağıdaki adıml
 
     ![Çoklu oturum açmayı yapılandırın](./media/figma-tutorial/configure01.png)
 
-    a. İçinde **e-posta adresi** metin kutusuna, kullanıcının gibi e-posta girin **brittasimon@contoso.com**.
+    a. İçinde **e-posta adresi** metin kutusuna, kullanıcının gibi e-posta girin **brittasimon\@contoso.com**.
 
     b. İçinde **adınız** metin kutusunda, gibi kullanıcı adını girin **Brittasimon**.
 
@@ -194,7 +194,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

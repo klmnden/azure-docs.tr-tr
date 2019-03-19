@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 8b37f86706e47e3998a4ba85e4416ce1a8a44c22
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: dd625dba0e125ccf993af524a0ab0c0cc66555fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567101"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834226"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Öğretici: Azure Notification hubs'ı kullanarak belirli iOS cihazlarına anında iletme bildirimleri gönderme
 
@@ -49,14 +49,14 @@ Bu konu başlığı altında oluşturduğunuz uygulama geliştirir [Öğreticisi
 
 1. İçinde **MainStoryboard_iPhone.storyboard** nesne kitaplığından aşağıdaki bileşenlerini ekleyin:
 
-    * "Yeni haber" yazan etiket,
-    * Kategori metinlerle "World", "Siyaset", "İş", "Teknoloji", "Bilimsel", "Spor", etiketler
-    * Kategori başına altı anahtarlar her anahtar kümesi **durumu** olmasını **kapalı** varsayılan olarak.
-    * Bir düğme "Subscribe" olarak etiketlenmiş
+   * "Yeni haber" yazan etiket,
+   * Kategori metinlerle "World", "Siyaset", "İş", "Teknoloji", "Bilimsel", "Spor", etiketler
+   * Kategori başına altı anahtarlar her anahtar kümesi **durumu** olmasını **kapalı** varsayılan olarak.
+   * Bir düğme "Subscribe" olarak etiketlenmiş
 
-    Film şeridini şu şekilde görünmelidir:
+     Film şeridini şu şekilde görünmelidir:
 
-    ![Xcode arabirim Oluşturucu][3]
+     ![Xcode arabirim Oluşturucu][3]
 
 2. Yardımcısı düzenleyicideki tüm anahtarlarda çıkışlar oluşturmak ve "WorldSwitch" çağırmaya "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
 3. Adlandırılan, bir düğme için eylem oluşturma `subscribe`; `ViewController.h` aşağıdaki kodu içermesi gerekir:
@@ -359,11 +359,11 @@ Bu öğreticide, kayıtlı belirli iOS cihazlara kategorileri için yayın bildi
 [3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
 
 <!-- URLs. -->
-[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: https://msdn.microsoft.com/library/jj927168.aspx
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-ios-xplat-localized-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
+[Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
 [Azure portal]: https://portal.azure.com

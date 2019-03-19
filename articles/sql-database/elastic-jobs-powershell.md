@@ -11,13 +11,13 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 2b31b13ac0667680ace37e5ee688844e8dccb08a
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/13/2019
+ms.openlocfilehash: f90e4281be27f4f30f4fdf0e3eb2932fa4e743ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315257"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840826"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>PowerShell kullanarak Elastik İş aracısı oluşturma
 
@@ -37,32 +37,34 @@ Bu öğreticide birden fazla veritabanında sorgu çalıştırmak için gerekli 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+Elastik veritabanı işleri yükseltilmiş sürümünü kullanmak için PowerShell cmdlet'leri yeni bir geçiş sırasında sahiptir. Mevcut iş kimlik bilgilerinizi, tüm bu yeni cmdlet'lere aktarım hedefler (veritabanları, sunucular, özel koleksiyonlar), iş tetikleyicileri, iş zamanlamalarını, işi içeriği ve işleri üzerinde yeni bir elastik İş Aracısı.
+
+### <a name="install-the-latest-elastic-jobs-cmdlets"></a>En son esnek işler cmdlet'leri yükleme
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
-- En son Elastik İş cmdlet'lerini almak için **AzureRM.Sql** 4.8.1-önizleme modülünü yükleyin. Aşağıdaki komutlar, yönetici erişimine sahip PowerShell'de çalıştırın.
+Yükleme **Az.Sql** 1.1.1-preview modülünün en son elastik iş cmdlet'lerini edinin. PowerShell'de yönetici erişimiyle aşağıdaki komutları çalıştırın.
 
-  ```powershell
-  # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
-  Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
-  
-  # Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
-  Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
-  
-  # Restart your powershell session with administrative access
-  
-  # Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
-  Install-Module -Name AzureRM.Sql -AllowPrerelease -RequiredVersion 4.8.1-preview -Force
-  
-  # Import the AzureRM.Sql 4.8.1 module
-  Import-Module AzureRM.Sql -RequiredVersion 4.8.1
-  
-  # Confirm if module successfully imported - if the imported version is 4.8.1, then continue
-  Get-Module AzureRM.Sql
-  ```
+```powershell
+# Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
+Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
 
-- Ek olarak **Azurerm.SQL'e** 4.8.1-preview modülü, Bu öğretici ayrıca gerektirir *sqlserver* PowerShell modülü. Ayrıntılar için bkz [SQL Server PowerShell modülü yükleme](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module).
+# Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
+Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
+
+# Restart your powershell session with administrative access
+
+# Places Az.Sql preview cmdlets side by side with existing Az.Sql version
+Install-Module -Name Az.Sql -RequiredVersion 1.1.1-preview -AllowPrerelease
+
+# Import the Az.Sql module
+Import-Module Az.Sql -RequiredVersion 1.1.1
+
+# Confirm if module successfully imported - if the imported version is 1.1.1, then continue
+Get-Module Az.Sql
+```
+
+- Ek olarak **Az.Sql** 1.1.1-preview modülü, Bu öğretici ayrıca gerektirir *sqlserver* PowerShell modülü. Ayrıntılar için bkz [SQL Server PowerShell modülü yükleme](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module).
 
 
 ## <a name="create-required-resources"></a>Gerekli kaynakları oluşturma

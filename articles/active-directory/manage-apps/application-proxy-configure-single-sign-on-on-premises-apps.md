@@ -16,16 +16,16 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6f385cae99e5bb605b75f84e642e17e01d0f54
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: ef5679ba2a6a62955f5402e8bfaa4f1884df722d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792896"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840605"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML çoklu oturum açma için uygulama ara sunucusu (Önizleme) ile şirket içi uygulamalar
 
-Şirket içi için çoklu oturum açma (SSO) sağlayabilir SAML kimlik doğrulaması ile güvenliği sağlanan uygulama proxy'si aracılığıyla yayımlanan uygulamaları. SAML çoklu oturum açma ile Azure Active Directory (Azure AD) kullanıcının Azure AD hesabı kullanarak uygulamaya kimliğini doğrular. Azure AD oturum açma bilgileri uygulamaya bir bağlantı protokolü üzerinden iletişim kurar. SAML tabanlı çoklu oturum açma ile kullanıcılar, SAML Taleplerde tanımladığınız kurallarına göre belirli uygulama rolleri eşleyebilirsiniz.
+SAML kimlik doğrulaması ile güvenli hale getirilir ve uygulama proxy'si aracılığıyla bu uygulamalara uzaktan erişim sağlayan bir şirket içi uygulamalar için çoklu oturum açma (SSO) sağlayabilirsiniz. SAML çoklu oturum açma ile Azure Active Directory (Azure AD) kullanıcının Azure AD hesabı kullanarak uygulamaya kimliğini doğrular. Azure AD oturum açma bilgileri uygulamaya bir bağlantı protokolü üzerinden iletişim kurar. Ayrıca, kullanıcılar, SAML Taleplerde tanımladığınız kurallarına göre belirli uygulama rolleri eşleyebilirsiniz. SAML SSO yanı sıra uygulama ara sunucusu sağlayarak kullanıcılarınızın dış uygulama ve sorunsuz SSO bir deneyim erişebilir.
 
 Uygulamalar tarafından verilen SAML belirteçlerini kullanamayabilir **Azure Active Directory**. Bu yapılandırma, bir şirket içi kimlik sağlayıcısı kullanan uygulamalar için geçerli değildir. Bu senaryolar için incelemeniz önerilir [kaynakları geçirmek için uygulamaların Azure AD'ye](migration-resources.md).
 
@@ -50,12 +50,12 @@ SAML SSO uygulama ara sunucusu ile SAML belirteci şifreleme özelliği ile de �
 1. Seçin **SAML** çoklu oturum açma yöntemi olarak.
 1. İçinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında, düzenleme **temel SAML yapılandırma** veri ve adımları izleyerek [Enter temel SAML yapılandırma](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) SAML tabanlı yapılandırmak için uygulama için kimlik doğrulaması.
 
-    * Emin **yanıt URL'si** kök ile eşleşen veya bir yol altında **dış URL** Azure AD'de uygulama ara sunucusu üzerinden uzaktan erişim için eklediğiniz şirket içi uygulama için.
+   * Emin **yanıt URL'si** kök ile eşleşen veya bir yol altında **dış URL** Azure AD'de uygulama ara sunucusu üzerinden uzaktan erişim için eklediğiniz şirket içi uygulama için.
 
-    ![Temel SAML yapılandırma verilerini girin](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
+     ![Temel SAML yapılandırma verilerini girin](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
-    > [!NOTE]
-    > Arka uç uygulaması bekliyorsa **yanıt URL'si** İç URL olması için kullanıcıların cihazlarında oturum My Apps güvenli uzantıyı yüklemek gerekecektir. Bu uzantı için uygun uygulama ara Sunucusu hizmeti otomatik olarak yönlendirir. Uzantıyı yüklemek için bkz: [My Apps güvenli oturum açma uzantısı](../user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+     > [!NOTE]
+     > Arka uç uygulaması bekliyorsa **yanıt URL'si** İç URL olması için kullanıcıların cihazlarında oturum My Apps güvenli uzantıyı yüklemek gerekecektir. Bu uzantı için uygun uygulama ara Sunucusu hizmeti otomatik olarak yönlendirir. Uzantıyı yüklemek için bkz: [My Apps güvenli oturum açma uzantısı](../user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
 
 ## <a name="test-your-app"></a>Uygulamanızı test etme
 

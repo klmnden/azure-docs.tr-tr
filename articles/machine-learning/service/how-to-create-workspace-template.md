@@ -6,16 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: larryfr
-ms.author: haining
-author: hning86
+ms.author: larryfr
+author: Blackmist
 ms.date: 02/11/2019
-ms.openlocfilehash: d91cb2a98c6861695ffdc231bd979abaf24b2c6e
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2b5ee1b5079f22985b03aaafac30c11a10a3c8f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670001"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850086"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace-by-using-a-template"></a>Bir şablonu kullanarak bir Azure Machine Learning hizmeti çalışma alanı oluşturma
 
@@ -25,7 +24,7 @@ Daha fazla bilgi için [Azure Resource Manager şablonu ile uygulama dağıtma](
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir **Azure aboneliği**. Biri yoksa deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree).
+* Bir **Azure aboneliği**. Biri yoksa deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree).
 
 * Bir şablondan bir CLI kullanmak için ya da ihtiyacınız [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) veya [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -193,12 +192,12 @@ Kaynak grubu Hizmetleri tutan kapsayıcıdır. Çeşitli hizmetler, Azure Machin
 1. Bağlantısındaki [özel şablondan kaynakları dağıtma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Adresindeki geldiğinde __şablonu Düzen__ ekranında, bu belge şablonundan yapıştırın.
 1. Seçin __Kaydet__ şablonu kullanmak için. Aşağıdaki bilgileri sağlayın ve listelenen hüküm ve koşulları kabul ediyorum:
 
-    * Abonelik: Bu kaynaklar için kullanılacak Azure aboneliğini seçin.
-    * Kaynak grubu: Hizmetleri içerecek bir kaynak grubu oluşturun veya seçin.
-    * Çalışma alanı adı: Oluşturulacak Azure Machine Learning çalışma alanı için kullanılacak ad. Çalışma alanı adı 3-33 karakter arasında olmalıdır. Yalnızca alfasayısal karakterler içerebilir ve '-'.
-    * Konum: Kaynakları oluşturulacağı konumu seçin.
+   * Abonelik: Bu kaynaklar için kullanılacak Azure aboneliğini seçin.
+   * Kaynak grubu: Hizmetleri içerecek bir kaynak grubu oluşturun veya seçin.
+   * Çalışma alanı adı: Oluşturulacak Azure Machine Learning çalışma alanı için kullanılacak ad. Çalışma alanı adı 3-33 karakter arasında olmalıdır. Yalnızca alfasayısal karakterler içerebilir ve '-'.
+   * Konum: Kaynakları oluşturulacağı konumu seçin.
 
-    ![Azure portalında şablon parametreleri](media/how-to-create-workspace-template/template-parameters.png)
+     ![Azure portalında şablon parametreleri](media/how-to-create-workspace-template/template-parameters.png)
 
 Daha fazla bilgi için [özel şablondan kaynakları dağıtma](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

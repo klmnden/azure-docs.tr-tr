@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 6fa22d57a693a9d3dceee5f697f3f4d2eb0e394c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 2d011dffa4db68a0cdf6ac3415ff1316906a4e87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309664"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884010"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Bir soru ile Bilgi Bankası'tan sorulara yanıtlar alınC#
 
@@ -37,7 +37,7 @@ Bu Hızlı Başlangıç için kod [ https://github.com/Azure-Samples/cognitive-s
 ## <a name="create-a-knowledge-base-project"></a>Bilgi bankası projesi oluşturma
 
 1. Visual Studio 2017 Community Edition'ı açın.
-1. Yeni bir konsol uygulaması oluşturma (.Net Core) proje ve proje QnaMakerQuickstart adlandırın. Diğer ayarlar için varsayılan değerleri kabul edin.
+1. Yeni bir konsol uygulaması (.NET Core) projesi ve adı ' % s'projesi QnaMakerQuickstart oluşturun. Diğer ayarlar için varsayılan değerleri kabul edin.
 
 ## <a name="add-the-required-dependencies"></a>Gerekli bağımlılıkları ekleme
 

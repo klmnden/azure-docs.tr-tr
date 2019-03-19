@@ -8,12 +8,12 @@ ms.workload: storage-backup-recovery
 ms.date: 3/3/2019
 ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: cf5b994146d84d92cae4591c042ed1cfbb042dee
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 105074892cc6dfa4da1e7c8ddd0a0aad9f1b60a1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437624"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002893"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Diskleri VMware vm'lerinin Azure'a çoğaltmanın dışında
 
@@ -80,7 +80,7 @@ Kaynak sanal makinedeki diskler aşağıdaki gibidir:
 DB-Disk0-OS | DISK0 | C:\ | İşletim sistemi diski
 DB-Disk1| Disk1 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
 DB-Disk2 (Disk, korumanın dışında tutuldu) | Disk2 | E:\ | Geçici dosyalar
-DB-Disk3 (Disk, korumanın dışında tutuldu) | Disk3 | F:\ | SQL tempdb veritabanı (klasör yolu (F:\MSSQL\Data\) </br /> </br />Yük devretmeden önce klasör yolunu yazın.
+DB-Disk3 (Disk, korumanın dışında tutuldu) | Disk3 | F:\ | SQL tempdb veritabanı (klasör yolu (F:\MSSQL\Data\) <br /> <br />Yük devretmeden önce klasör yolunu yazın.
 DB-Disk4 | Disk4 |G:\ |Kullanıcı Veritabanı2
 
 Sanal makinenin iki diskindeki veri değişim sıklığı geçici olduğundan, SalesDB sanal makinesini korurken Disk2 ve Disk3’ü çoğaltmanın dışında tutun. Azure Site Recovery bu diskleri çoğaltmaz. Yük devretmede, bu diskler Azure’da yük devretme sanal makinesinde mevcut olmaz.
@@ -90,7 +90,7 @@ Yük devretme sonrasında Azure sanal makinesindeki diskler aşağıdaki gibidir
 **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | ---
 DISK0 | C:\ | İşletim sistemi diski
-Disk1 | E:\ | Geçici depolama</br /> </br />Azure bu diski ekler ve kullanılabilir ilk sürücü harfini buna atar.
+Disk1 | E:\ | Geçici depolama<br /> <br />Azure bu diski ekler ve kullanılabilir ilk sürücü harfini atar.
 Disk2 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
 Disk3 | G:\ | Kullanıcı Veritabanı2
 
@@ -154,7 +154,7 @@ Geçici depolama diski için aşağıdaki Azure kılavuzuna bakın:
 **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | ---
 DISK0 | C:\ | İşletim sistemi diski
-Disk1 | E:\ | Geçici depolama</br /> </br />Azure bu diski ekler ve kullanılabilir ilk sürücü harfini buna atar.
+Disk1 | E:\ | Geçici depolama<br /> <br />Azure bu diski ekler ve kullanılabilir ilk sürücü harfini atar.
 Disk2 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
 Disk3 | G:\ | Kullanıcı Veritabanı2
 
@@ -193,7 +193,7 @@ Sanal makinenin VMware’den Azure’a yük devretmesi yapıldıktan sonra, Azur
 **Disk adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | İşletim sistemi diski
-DB-Disk1 | Disk1 | D:\ | Geçici depolama</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Geçici depolama<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Kullanıcı verileri 1
 DB-Disk3 | Disk3 | F:\ | Kullanıcı verileri 2
 
@@ -220,10 +220,10 @@ DB-Disk3 | Disk3 | F:\ | Kullanıcı verileri 2
 
 Sanal makinenin VMware’den Azure’a yük devretmesi yapıldıktan sonra, Azure sanal makinesindeki diskler aşağıdaki gibi olur:
 
-**Disk adı**| **Konuk işletim sistemi disk no.**| **Sürücü harfi** | **Diskteki veri türü**
+**Disk adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ |İşletim sistemi diski
-DB-Disk1 | Disk1 | D:\ | Geçici depolama</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Geçici depolama<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Kullanıcı verileri 1
 DB-Disk3 | Disk3 | F:\ | Kullanıcı verileri 2
 

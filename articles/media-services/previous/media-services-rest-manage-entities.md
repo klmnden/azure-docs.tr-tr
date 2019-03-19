@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 0f500ec776d90755d6738af80c34866105d354f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: ff7bb6fa087ab7fa362c13ca03d6f3100a505ce3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999411"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858966"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Media Services REST ile varlıkları yönetme  
 
@@ -29,7 +29,7 @@ ms.locfileid: "55999411"
 > 
 > 
 
-Microsoft Azure Media Services OData v3 oluşturulmuş bir REST tabanlı hizmetidir. Ekleme, sorgu, güncelleştirme ve diğer herhangi bir OData hizmeti mümkün olduğunca çok varlıkları aynı şekilde silin. Özel durumlar, uygun olduğunda belirtilir. OData hakkında daha fazla bilgi için bkz. [açık veri Protokolü belgeleri](http://www.odata.org/documentation/).
+Microsoft Azure Media Services OData v3 oluşturulmuş bir REST tabanlı hizmetidir. Ekleme, sorgu, güncelleştirme ve diğer herhangi bir OData hizmeti mümkün olduğunca çok varlıkları aynı şekilde silin. Özel durumlar, uygun olduğunda belirtilir. OData hakkında daha fazla bilgi için bkz. [açık veri Protokolü belgeleri](https://www.odata.org/documentation/).
 
 Bu konuda, Azure Media Services REST ile varlıkları yönetme işlemini göstermektedir.
 

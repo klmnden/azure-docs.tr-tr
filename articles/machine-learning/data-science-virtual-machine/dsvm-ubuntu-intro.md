@@ -16,25 +16,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: 206e50107e52d631cb33b7cb8dcc03474dd27e64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 92f9fcc8a10f90c0886667f33f3c7d4dec09bc8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456423"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884685"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Linux (Ubuntu) için veri bilimi sanal makinesi sağlama
 
 Linux için veri bilimi sanal makinesi, Azure üzerinde derin öğrenme dahil olmak üzere machine learning ile kullanmaya başlamak kolay bir Ubuntu tabanlı sanal makine görüntüsüdür. Derin öğrenme araçları içerir:
 
-  * [Caffe](http://caffe.berkeleyvision.org/): Hız, expressivity ve modülerlik için yerleşik bir derin öğrenme çerçevesi
+  * [Caffe](https://caffe.berkeleyvision.org/): Hız, expressivity ve modülerlik için yerleşik bir derin öğrenme çerçevesi
   * [Caffe2](https://github.com/caffe2/caffe2): Caffe çapraz platform sürümü
   * [Microsoft Bilişsel Araç Seti](https://github.com/Microsoft/CNTK): Bir derin Microsoft Research'nden yazılımları Araç Seti öğrenme
   * [H2O](https://www.h2o.ai/): Bir açık kaynaklı büyük veri platformu ve grafik kullanıcı arabirimi
   * [Keras](https://keras.io/): TensorFlow, Microsoft Bilişsel Araç Seti ve Theano python'da üst düzey sinir ağı API
-  * [MXNet](http://mxnet.io/): Birçok dil bağlamaları ile bir esnek ve verimli derin öğrenme kitaplığı
+  * [MXNet](https://mxnet.io/): Birçok dil bağlamaları ile bir esnek ve verimli derin öğrenme kitaplığı
   * [NVIDIA BASAMAK](https://developer.nvidia.com/digits): Derin öğrenme yaygın görevleri basitleştirir grafik bir sistem
-  * [PyTorch](http://pytorch.org/): Dinamik ağları için desteği olan üst düzey bir Python kitaplığı
+  * [PyTorch](https://pytorch.org/): Dinamik ağları için desteği olan üst düzey bir Python kitaplığı
   * [TensorFlow](https://www.tensorflow.org/): Makine zekası google'dan için bir açık kaynak kitaplığı
   * [Theano](http://deeplearning.net/software/theano/): Tanımlama, en iyi duruma getirme ve çok boyutlu diziler içeren Matematik ifadeler verimli bir şekilde değerlendirmek için bir Python kitaplığı
   * [Torch](http://torch.ch/): Makine öğrenimi algoritmaları için geniş destek bilimsel hesaplama çerçevesiyle
@@ -120,7 +120,7 @@ Ubuntu DSVM üç yöntemle erişebilirsiniz:
 
 ### <a name="ssh"></a>SSH
 
-VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesabı kimlik bilgilerini kullan **Temelleri** bölümünde metin kabuk arabirimi için adım 3. Windows'da [Putty](http://www.putty.org) gibi bir SSH istemcisi aracı indirebilirsiniz. Bir grafik desktop (X Windows sistemi) tercih ederseniz, Putty üzerinde iletme X11 kullanın veya X2Go istemciyi yükleyin.
+VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesabı kimlik bilgilerini kullan **Temelleri** bölümünde metin kabuk arabirimi için adım 3. Windows'da [Putty](https://www.putty.org) gibi bir SSH istemcisi aracı indirebilirsiniz. Bir grafik desktop (X Windows sistemi) tercih ederseniz, Putty üzerinde iletme X11 kullanın veya X2Go istemciyi yükleyin.
 
 > [!NOTE]
 > X2Go istemci testinde iletme X11 daha iyi gerçekleştirdi. X2Go istemci masaüstü bir grafik arabirim için kullanmanızı öneririz.
@@ -130,7 +130,7 @@ VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğ
 ### <a name="x2go"></a>X2Go
 Linux sanal makinesi zaten X2Go sunucusu ile sağlanan ve istemci bağlantılarını kabul etmeye hazır. Linux VM grafik masaüstüne bağlanmak için istemcinizi aşağıdaki yordamı tamamlayın:
 
-1. İstemci platformunuza yönelik X2Go istemcisini indirme ve yükleme [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. İstemci platformunuza yönelik X2Go istemcisini indirme ve yükleme [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. X2Go istemci çalıştırıp seçeneğini **yeni oturumu**. Bu, birden fazla sekme ile bir yapılandırma penceresi açılır. Aşağıdaki yapılandırma parametrelerini girin:
    * **Oturum sekmesini**:
      * **Konak**: Ana bilgisayar adı veya IP adresini Linux veri bilimi sanal makinesi.
@@ -205,7 +205,7 @@ R veri analizi ve makine öğrenimi için en popüler diller biridir. R analiz i
 
 Başlatma için R konsolunda, yalnızca yazdığınız **R** Kabuğu'nda. Bu sizi, etkileşimli bir ortam götürür. R programınızı geliştirmek için genellikle Emacs veya SAN gibi bir düzenleyici kullanın ve ardından içinde r betikleri çalıştırın RStudio ile R programınızı geliştirmek için tam grafik bir IDE ortamını sahip.
 
-Yüklemeniz için bir R betiğini de mevcuttur [üst 20 R paketleri](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) istiyorsanız. (Belirtildiği gibi) yazarak girilebilir R etkileşimli arabiriminde olduktan sonra bu betiği çalıştırın **R** Kabuğu'nda.  
+Yüklemeniz için bir R betiğini de mevcuttur [üst 20 R paketleri](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) istiyorsanız. (Belirtildiği gibi) yazarak girilebilir R etkileşimli arabiriminde olduktan sonra bu betiği çalıştırın **R** Kabuğu'nda.  
 
 ### <a name="python"></a>Python
 Anaconda Python 3.5 ortamları ve Python 2.7 ile yüklenir. 2.7 ortam adında _kök_, ve 3.5 ortam adında _py35_. Bu dağıtım, temel bir Python yaklaşık 300 en popüler matematik, mühendislik ve veri analizi paketlerinin yanı sıra içerir. 
@@ -276,7 +276,7 @@ Hadoop durdurabilirsiniz çalıştırarak ihtiyacınız olduğunda ilgili hizmet
 ### <a name="ides-and-editors"></a>IDE'ler ve düzenleyicilerden
 Birkaç kod düzenleyicilerinden, vardır. Bu, VI/VIM ve Emacs, PyCharm, RStudio ve Intellij içerir. Intellij ve RStudio PyCharm grafik düzenleyicilerden olan ve bunları kullanmak için bir grafik masaüstü oturum açmanız gerekir. Bu düzenleyicilerin Masaüstü ve uygulama vardır. bunları başlatmak için kısayol menüsü.
 
-**VIM** ve **Emacs** olan metin tabanlı düzenleyiciler. Emacs üzerinde biz Emacs konuşur istatistikleri (Emacs Düzenleyici içindeki R ile çalışmayı kolaylaştırır, EES) adlı bir eklenti paketi yüklediniz. Daha fazla bilgi şu adreste bulunabilir: [Sırala](http://ess.r-project.org/).
+**VIM** ve **Emacs** olan metin tabanlı düzenleyiciler. Emacs üzerinde biz Emacs konuşur istatistikleri (Emacs Düzenleyici içindeki R ile çalışmayı kolaylaştırır, EES) adlı bir eklenti paketi yüklediniz. Daha fazla bilgi şu adreste bulunabilir: [Sırala](https://ess.r-project.org/).
 
 **LaTex** Emacs eklenti ile birlikte texlive paketi aracılığıyla yüklenen [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) paketini LaTex belgelerinizi Emacs içinde yazma basitleştirir.  
 

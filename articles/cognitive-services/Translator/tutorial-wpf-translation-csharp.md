@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 97766472ea5f7b62a452e6cc5a71a77426e975ad
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235419"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078134"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Öğretici: WPF ile bir çeviri uygulaması oluşturma
 
@@ -240,7 +240,7 @@ Tüm Projemizin saklanmış olduğu içinde `MainWindow : Window` sınıfı. Abo
    // In the following sections, we'll add code below this.
    }
    ```
-   4. Bilişsel hizmetler abonelik anahtarınızı ekleyin ve kaydedin.
+   1. Bilişsel hizmetler abonelik anahtarınızı ekleyin ve kaydedin.
 
 Bu kod bloğunda biz çevirisi kullanılabilir diller hakkında bilgi içeren iki üye değişkenleri bildirdikten:
 

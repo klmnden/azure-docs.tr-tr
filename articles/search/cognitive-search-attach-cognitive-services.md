@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bfa9bbb9816148182b79a8231f2ddb3e46433804
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: d5fdae09055f922fe9783f6eb074457af12c60df
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413252"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880424"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Azure Search'te bir beceri kümesi ile bir Bilişsel hizmetler kaynağı ekleme 
 
@@ -60,21 +60,7 @@ Bilişsel hizmetler API'leri çağırmak için yetenekler yalnızca ücretlendir
 
 1. İçin **yeni Bilişsel hizmetler kaynağı oluşturma**, böylece kaynak oluşturabilir, yeni bir sekme açılır. Kaynağın benzersiz bir ad verin.
 
-1. Azure Search olarak aynı konumu seçin. Şu anda, bilişsel beceriler dizin oluşturma bu bölgelerde desteklenir:
-
-  * Batı Orta ABD
-  * Orta Güney ABD
-  * Doğu ABD
-  * Doğu ABD 2
-  * Batı ABD 2
-  * Orta Kanada
-  * Batı Avrupa
-  * Birleşik Krallık Güney
-  * Kuzey Avrupa
-  * Güney Brezilya
-  * Güneydoğu Asya
-  * Orta Hindistan
-  * Avustralya Doğu
+1. Yeni bir Bilişsel hizmetler kaynağı oluşturursanız **aynı bölgeyi seçin** , Azure Search kaynak olarak.
 
 1. Hepsi bir arada fiyatlandırma katmanını seçin **S0**. Bu katman, önceden tanımlanmış beceriler bilişsel arama, yedekleme görme ve dil özellikleri sunar.
 

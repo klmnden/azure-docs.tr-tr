@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: be2eee7e9951ac1975adfacc63d982a4fb4eabbd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 94686d62e8019bfc5dba1ccd4a00142512930c0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782437"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862225"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Öğretici: Periscope veri ile Azure Active Directory Tümleştirme
 
@@ -105,6 +105,7 @@ Azure AD çoklu oturum açma Periscope verilerle yapılandırmak için aşağıd
     ![Periscope veri etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna, URL'lerden herhangi birini yazın:
+    
     | |
     |--|
     | `https://app.periscopedata.com/` |
@@ -165,7 +166,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -218,7 +219,7 @@ Periscope veri oturum açmak Azure AD kullanıcılarının etkinleştirmek için
 
     b. İçinde **Soyadı** metin kutusunda, son kullanıcı gibi adını **Simon**.
 
-    c. İçinde **e-posta** metin kutusuna, kullanıcının gibi e-posta girin **brittasimon@contoso.com**.
+    c. İçinde **e-posta** metin kutusuna, kullanıcının gibi e-posta girin **brittasimon\@contoso.com**.
 
     d. Tıklayın **ekleme**.
 

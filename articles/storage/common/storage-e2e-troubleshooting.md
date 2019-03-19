@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a160ef767909814e363dbb692e58c30783aaf6f
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: ac30888c9f54c5dc88cb72aeec0f3db81d5a99dc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746321"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004939"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure depolama ölçümlerini ve günlüğe kaydetme, AzCopy ve ileti Çözümleyicisi kullanarak uçtan uca sorun giderme
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -133,9 +133,9 @@ Bir .NET uygulaması için istemci tarafı günlük kaydını yapılandırmak i�
 Depolama istemcisi kitaplığı, uygulamanın yapılandırma dosyasında (web.config veya app.config) belirtilen konumda istemci tarafı günlük verilerini depolar.
 
 ### <a name="collect-a-network-trace"></a>Ağ izleme Topla
-İstemci uygulamanız çalışırken, bir HTTP/HTTPS ağ izleme toplamak için ileti Çözümleyicisi'ni kullanabilirsiniz. İleti Çözümleyicisi'ni kullanan [Fiddler](http://www.telerik.com/fiddler) arka uçta. Ağ izleme toplama önce şifrelenmemiş HTTPS trafiğini kaydetmek için fiddler'ı yapılandırmanızı öneririz:
+İstemci uygulamanız çalışırken, bir HTTP/HTTPS ağ izleme toplamak için ileti Çözümleyicisi'ni kullanabilirsiniz. İleti Çözümleyicisi'ni kullanan [Fiddler](https://www.telerik.com/fiddler) arka uçta. Ağ izleme toplama önce şifrelenmemiş HTTPS trafiğini kaydetmek için fiddler'ı yapılandırmanızı öneririz:
 
-1. Yükleme [Fiddler](http://www.telerik.com/download/fiddler).
+1. Yükleme [Fiddler](https://www.telerik.com/download/fiddler).
 2. Fiddler'ı başlatın.
 3. Seçin **araçları | Fiddler seçenekleri**.
 4. Seçenekler iletişim kutusunda, emin **yakalama HTTPS bağlanır** ve **HTTPS trafiği şifresini** her ikisi de, aşağıda gösterildiği gibi seçilir.

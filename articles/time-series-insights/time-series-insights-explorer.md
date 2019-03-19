@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.custom: seodec18
-ms.openlocfilehash: d65ce83465f54a30b96bc1ee6644319e1b4fb020
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 301326f4ba858c7aef6c8bdec8f2cae3ed926847
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556603"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121052"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Gezgini
 Bu makalede, çeşitli özellikleri ve seçenekleri Time Series Insights Gezgini web app içinde kullanılabilir keşfediyor. Görselleştirilmiş oluşturmak için web tarayıcınızda Time Series Insights gezginini kullanın.
@@ -71,7 +71,7 @@ Zaman serisi görüşleri ortamınıza olay kaynağınızı bağlanan dakika iç
          |<, >, <=, >=     |  Çift, DateTime, zaman aralığı       |         |
          |=, !=, <>     | Dize, Bool, Double, DateTime, zaman aralığı, NULL        |         |
          |IN     | Dize, Bool, Double, DateTime, zaman aralığı, NULL        |  Tüm işlenenler aynı türde veya NULL sabiti olması.        |
-         |SAHİP     | Dize        |  Yalnızca sabit dize değişmez değerleri, sağ tarafında izin verilir. Boş dize ve NULL yapılamaz.       |
+         |SAHİP     | String        |  Yalnızca sabit dize değişmez değerleri, sağ tarafında izin verilir. Boş dize ve NULL yapılamaz.       |
 
       - **Sorgu örnekleri**
       
@@ -91,27 +91,27 @@ Zaman serisi görüşleri ortamınıza olay kaynağınızı bağlanan dakika iç
 
 10. **Grafik** verilerinizi görsel olarak keşfetmenize olanak sağlar. Grafik araçları içerir:
 
-   - Seç/belirli bir zaman aralığı veya tek bir veri dizisi seçimi sağlayan tıklatın.  
-   - Seçimi bir süre içinde span, yakınlaştırma veya olayları keşfedin.  
-   - Bir veri serisi içinde serisi başka bir sütunu örneğe göre Böl, seri yeni bir terim olarak ekleyebilir, yalnızca seçilen seriyi Göster, seçili seriyi dışta bırak, serisi ping veya seçili serisinden olayları keşfedin.
-   - Grafiğin sol filtre alanına tüm görüntülenen veri serisini görmek ve değer veya adına göre yeniden sıralama, tüm veri serisi veya özellikle sabitlenmiş veya sabitlenmemiş serisi görüntüleyin.  Ayrıca tek bir veri dizisi seçin ve seri başka bir sütunu örneğe göre Böl, seri yeni bir terim olarak Ekle, yalnızca seçilen seriyi Göster, seçili seriyi dışta bırak, serisi sabitleme veya seçili serisinden olayları keşfedin.
-   - Aynı anda birden çok kullanım koşulları görüntülerken, yığın, biriktir, veri serisi hakkında ek verileri görmek ve grafiğin sağ üst köşesindeki düğme ile tüm terimler arasında aynı y ekseni kullan.
+    - Seç/belirli bir zaman aralığı veya tek bir veri dizisi seçimi sağlayan tıklatın.  
+    - Seçimi bir süre içinde span, yakınlaştırma veya olayları keşfedin.  
+    - Bir veri serisi içinde serisi başka bir sütunu örneğe göre Böl, seri yeni bir terim olarak ekleyebilir, yalnızca seçilen seriyi Göster, seçili seriyi dışta bırak, serisi ping veya seçili serisinden olayları keşfedin.
+    - Grafiğin sol filtre alanına tüm görüntülenen veri serisini görmek ve değer veya adına göre yeniden sıralama, tüm veri serisi veya özellikle sabitlenmiş veya sabitlenmemiş serisi görüntüleyin.  Ayrıca tek bir veri dizisi seçin ve seri başka bir sütunu örneğe göre Böl, seri yeni bir terim olarak Ekle, yalnızca seçilen seriyi Göster, seçili seriyi dışta bırak, serisi sabitleme veya seçili serisinden olayları keşfedin.
+    - Aynı anda birden çok kullanım koşulları görüntülerken, yığın, biriktir, veri serisi hakkında ek verileri görmek ve grafiğin sağ üst köşesindeki düğme ile tüm terimler arasında aynı y ekseni kullan.
  
-   ![Grafik araç](media/time-series-insights-explorer/explorer5.png) 
+    ![Grafik araç](media/time-series-insights-explorer/explorer5.png) 
 
 11. **Isı Haritası** hızla benzersiz veya anormal veri serisi içinde belirli bir sorgu nokta için kullanılabilir. Yalnızca bir arama terimi bir ısı Haritası görselleştirilebilir.    
 
-   ![Isı Haritası](media/time-series-insights-explorer/explorer6.png)
+    ![Isı Haritası](media/time-series-insights-explorer/explorer6.png)
 
 12. **Olayları**:  Seçeneğini belirlediğinizde seçerek ya da sağ paneli kullanılabilir hale getirileceğini olayları yukarıdaki olayları keşfedin.  Tüm ham olaylarınızı burada görebilirsiniz ve olaylarınızı JSON veya CSV dosyaları olarak dışarı aktarın. Time Series Insights tüm ham verileri içerdiğini unutmayın.
 
-   ![Olaylar](media/time-series-insights-explorer/explorer7.png)
+    ![Olaylar](media/time-series-insights-explorer/explorer7.png)
 
 13. Tıklayın **İSTATİSTİKLERİ** olayları desenleri ve sütun istatistikleri kullanıma sunmak için keşfetmek sonra sekmesi.  
 
-   - **Desenler**: Bu özellik, seçili veri bölgesindeki en istatistiksel açıdan anlamlı desenleri proaktif olarak ortaya çıkarır. Bu, hangi desenleri en zaman ve enerji garanti anlamak için olayları binlerce aramak zorunda kalmamasını. Ayrıca, Time Series Insights analiz yapmadan devam etmek için doğrudan bu istatistiksel desenleri ile bağlantı sağlar. Bu özellik ayrıca, geçmiş verilerin son İnceleme araştırmalar için yararlıdır. 
+    - **Desenler**: Bu özellik, seçili veri bölgesindeki en istatistiksel açıdan anlamlı desenleri proaktif olarak ortaya çıkarır. Bu, hangi desenleri en zaman ve enerji garanti anlamak için olayları binlerce aramak zorunda kalmamasını. Ayrıca, Time Series Insights analiz yapmadan devam etmek için doğrudan bu istatistiksel desenleri ile bağlantı sağlar. Bu özellik ayrıca, geçmiş verilerin son İnceleme araştırmalar için yararlıdır. 
 
-   - **Sütun istatistikleri**:  Sütun istatistikleri, grafik ve seçili zaman aralığı seçili veri serisinin her bir sütundan gelen verilerin ayırmanız tablolar sağlar.  
+    - **Sütun istatistikleri**:  Sütun istatistikleri, grafik ve seçili zaman aralığı seçili veri serisinin her bir sütundan gelen verilerin ayırmanız tablolar sağlar.  
  
       ![İSTATİSTİKLER](media/time-series-insights-explorer/explorer8.png) 
 

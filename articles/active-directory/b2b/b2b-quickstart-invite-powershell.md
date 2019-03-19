@@ -11,12 +11,12 @@ author: msmimart
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be337e0a49d88fad13b9bf9df4efb76ad6976866
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7b9274652b7164a4aef71499912cb8b38ace29ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453057"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57854458"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Hızlı Başlangıç: PowerShell ile konuk kullanıcı ekleme
 
@@ -74,7 +74,7 @@ Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
 
 ## <a name="send-an-invitation"></a>Davet gönderme
 
-1. Test e-posta hesabınıza bir davet göndermek için aşağıdaki PowerShell komutunu çalıştırın (**"Sanda"** ve **sanda@fabrikam.com** öğesini, test e-posta hesabı adı ve e-posta adresi ile değiştirin): 
+1. Test e-posta hesabınıza bir davet göndermesi için aşağıdaki PowerShell komutunu çalıştırın (Değiştir **"Sanda"** ve **sanda\@fabrikam.com** test e-posta hesabı adınızı ve e-posta adresinizi ile): 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $true
@@ -90,7 +90,7 @@ Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
    ```powershell
    Get-AzureADUser -Filter "UserType eq 'Guest'"
    ```
-3. Kullanıcı asıl adı (UPN) *emailaddress*#EXT#@*etkialanı* biçiminde olacak şekilde, davet ettiğiniz kullanıcının listelendiğinden emin olmak için çıktıyı denetleyin. Örneğin, *sanda_fabrikam.com#EXT#@contoso.onmicrosoft.com*; burada contoso.onmicrosoft.com, davetleri gönderdiğiniz kaynak kuruluştur.
+3. Davet listelendiğinden, biçimde bir kullanıcı asıl adına (UPN) sahip olduğundan emin olmak için çıktıyı denetleyin *emailaddress*EXT #\@*etki alanı*. Örneğin, *sanda_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, contoso.onmicrosoft.com içinden gönderdiğiniz davetiye kuruluş olduğu.
 
    ![Eklenen konuk kullanıcıyı gösteren PowerShell çıktısı](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 

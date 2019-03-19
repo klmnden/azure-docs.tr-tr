@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/04/2019
-ms.openlocfilehash: c174167268e95e55b0916d2340005538d3ae8add
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 2be1f7bb6417834196da03b7cba22387744f8c19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336793"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876553"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL veritabanı dinamik veri maskeleme
 
@@ -55,7 +55,7 @@ Dinamik veri maskeleme, Azure SQL veritabanı yöneticisi, sunucu yöneticisi ta
 
 DDM hizmetinin öneriler motoru, veritabanınızdaki belirli alanları maskeleme için iyi adaylar olabilir hassas olabilecek alanlar olarak işaretler. Portalı'nda dinamik veri maskeleme dikey penceresinde, veritabanınız için önerilen sütunlar görürsünüz. Tek yapmak için ihtiyacınız olan tıklayın **maske Ekle** bir veya birden çok sütunun ve ardından **Kaydet** bu alanlar için bir maske uygulamak için.
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Dinamik veri maskeleme veritabanınız için Powershell cmdlet'lerini kullanarak ayarlama
+## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Dinamik veri maskeleme veritabanınız için PowerShell cmdlet'lerini kullanarak ayarlama
 
 Bkz: [Azure SQL veritabanı cmdlet'leri](https://docs.microsoft.com/powershell/module/az.sql).
 

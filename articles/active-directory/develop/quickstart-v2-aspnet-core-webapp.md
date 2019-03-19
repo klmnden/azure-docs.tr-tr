@@ -17,12 +17,12 @@ ms.date: 12/05/2018
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cf4fbe17df05b6d55f3ce309ff8cecbb47d455
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d1d6c13dd5f345840c77f54fada3dded9d75cb81
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204721"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013374"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET Core web uygulamasına ekleme
 
@@ -143,7 +143,7 @@ Yöntem `AddAuthentication` tarayıcı senaryolara kullanılan yanı sıra Open�
 > |Konum  |  |
 > |---------|---------|
 > | ClientId  | Azure Portalı'nda kayıtlı uygulamadan uygulama (istemci) kimliği. |
-> | Yetkili | Kullanıcının, kimlik doğrulaması STS uç noktası. Genellikle budur https://login.microsoftonline.com/{tenant}/v2.0 {tenant} olduğu Kiracı veya Kiracı Kimliğinizi adı, genel bulut için veya *ortak* başvuru için ortak uç nokta (çok kiracılı uygulamalar için kullanılır) |
+> | Yetkili | Kullanıcının, kimlik doğrulaması STS uç noktası. Genellikle budur <https://login.microsoftonline.com/{tenant}/v2.0> {tenant} olduğu Kiracı veya Kiracı Kimliğinizi adı, genel bulut için veya *ortak* başvuru için ortak uç nokta (çok kiracılı uygulamalar için kullanılır) |
 > | Tokenvalidationparameters değerini | Belirteç doğrulaması için parametre listesi. Bu durumda, `ValidateIssuer` ayarlanır `false` herhangi bir kişisel veya iş veya Okul hesabı oturum açma işlemleri kabul ettiğinizi belirtmek için. |
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Denetleyiciyi veya denetleyici yöntemini koruma

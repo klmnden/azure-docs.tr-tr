@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: ed60e379837a2c2af2a0cc2c3b27eec314bff56b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 80132a2d15333308766b62e89262133b1f05b394
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545183"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888732"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Node.js arka ucu ile Node.js cihaz IOT hub'ı modül kimlik ve modül ikizi ile çalışmaya başlama
 
@@ -43,7 +43,7 @@ Bu bölümde, IOT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği ve 
 
 1. Kodunuzu saklamak için bir dizin oluşturun.
 2. Bu dizin içinde ilk çalıştırma **npm init -y** boş bir package.json varsayılan değerlerle oluşturma. Bu işlev, kodunuz için proje dosyasıdır.
-3. Çalıştırma **npm yükleme -S azure-iothub@modules-preview ** hizmeti SDK'sını yüklemek için içinde **node_modules** alt.
+3. Çalıştırma **npm yükleme -S azure-iothub\@modülleri Önizleme** hizmeti SDK'sını yüklemek için içinde **node_modules** alt.
 
     > [!NOTE]
     > Alt ad node_modules "düğümü kitaplığı" auto'yu word modülü kullanır. IOT hub'ı olan modüller ilgisi terimini buraya sahiptir.
@@ -107,7 +107,7 @@ Bu bölümde, IOT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği ve 
 
 Bu uygulama Kimliğine sahip bir cihaz kimliği oluşturan **myFirstDevice** ve Kimliğe sahip bir modül kimliği **myFirstModule** cihaz altında **myFirstDevice**. (Bu modül kimliği, kimlik kayıt defterinde zaten varsa, kod yalnızca mevcut modül bilgilerini alır.) Bu durumda uygulama, bu kimliğin birincil anahtarını görüntüler. IoT hub'ınıza bağlanmak için sanal modül uygulamasında bu anahtarı kullanırsınız.
 
-5. Bu düğüm add.js kullanarak çalıştırın. Bu size bir bağlantı dizesi, cihaz kimliği ve başka bir modül kimliğiniz için sunar.
+1. Bu düğüm add.js kullanarak çalıştırın. Bu size bir bağlantı dizesi, cihaz kimliği ve başka bir modül kimliğiniz için sunar.
 
     > [!NOTE]
     > IoT Hub kimlik kayıt defteri yalnızca IoT hub'ına güvenli erişim sağlamak amacıyla cihaz ve modül kimliklerini depolar. Kimlik kayıt defteri, cihaz kimliklerini ve anahtarlarını güvenlik kimlik bilgileri olarak kullanmak için depolar. Kimlik kayıt defterinin her cihaz için depoladığı etkin/devre dışı bayrağını kullanarak, ilgili cihaza erişimi devre dışı bırakabilirsiniz. Uygulamanızın cihaza özgü diğer meta verileri depolaması gerekiyorsa uygulamaya özgü bir depo kullanması gerekir. Modül kimlikleri için etkin/devre dışı bayrağı yoktur. Daha fazla bilgi için bkz. [IoT Hub geliştirici kılavuzu][lnk-devguide-identity].
@@ -120,7 +120,7 @@ Bu bölümde, oluşturduğunuz bir Node.js uygulamasını sanal Cihazınızda mo
 
     ![Azure portalı modül ayrıntısı][15]
 
-2. Benzer şekilde, Yukarıdaki adımda yaptığınız, cihaz kodunuz için bir dizin oluşturun ve bunu başlatmak ve cihaz SDK'sını yüklemek için NPM kullanın (**npm yükleme -S azure-iot-device-amqp@modules-preview** ).
+2. Benzer şekilde, Yukarıdaki adımda yaptığınız, cihaz kodunuz için bir dizin oluşturun ve bunu başlatmak ve cihaz SDK'sını yüklemek için NPM kullanın (**npm yükleme -S azure-iot-device-amqp\@modülleri Önizleme**).
 
     > [!NOTE]
     > Npm yükleme komutu düşünüyor yavaş. Sabırlı olun, onu bir paket deposundaki kodu çok sayıda çekiyor.

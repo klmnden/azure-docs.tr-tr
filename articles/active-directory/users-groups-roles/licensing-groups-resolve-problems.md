@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c09df2a15fbd0bdfdd1478fad587e6a18695002c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2c40a25cd2baebaaeedc012e8e9faff91b297f57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207509"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082509"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory'de bir grup için lisans atama sorunlarını tanımlama ve çözme
 
@@ -33,19 +33,19 @@ Lisanslama, Grup tabanlı kullanırken aynı hatalar oluşabilir ancak Azure AD 
 ## <a name="how-to-find-license-assignment-errors"></a>Lisans atama hataları bulma
 **Lisans atama hataları bulmak için**
 
-   1. Hata durumunda belirli bir gruptaki kullanıcıları bulmak için Grup için bölmesini açın. Altında **lisansları**, hata durumunda herhangi bir kullanıcı varsa bir bildirim görüntülenir.
+1. Hata durumunda belirli bir gruptaki kullanıcıları bulmak için Grup için bölmesini açın. Altında **lisansları**, hata durumunda herhangi bir kullanıcı varsa bir bildirim görüntülenir.
 
    ![Grup, hata bildirimi](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
-   2. Etkilenen tüm kullanıcıların listesini açmak için bildirimi seçin. Daha fazla ayrıntı için ayrı ayrı her bir kullanıcı seçebilirsiniz.
+2. Etkilenen tüm kullanıcıların listesini açmak için bildirimi seçin. Daha fazla ayrıntı için ayrı ayrı her bir kullanıcı seçebilirsiniz.
 
    ![Hata durumundaki kullanıcıların grubu listesi](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-   3. Üzerinde en az bir hata içeren tüm grupları bulmak için **Azure Active Directory** dikey penceresini seçin **lisansları**ve ardından **genel bakış**. Grupları dikkat etmeniz gereken bir bilgi kutusu görüntülenir.
+3. Üzerinde en az bir hata içeren tüm grupları bulmak için **Azure Active Directory** dikey penceresini seçin **lisansları**ve ardından **genel bakış**. Grupları dikkat etmeniz gereken bir bilgi kutusu görüntülenir.
 
    ![Genel bakış, hata durumunda grupları hakkında bilgi](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
-   4. Hata içeren tüm grupların bir listesini görmek için kutusunu seçin. Daha fazla ayrıntı için her bir grup seçebilirsiniz.
+4. Hata içeren tüm grupların bir listesini görmek için kutusunu seçin. Daha fazla ayrıntı için her bir grup seçebilirsiniz.
 
    ![Genel bakış, hatalarla gruplarının listesi](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
@@ -104,9 +104,9 @@ Exchange Online kullanıyorsanız, kiracınızdaki bazı kullanıcılar yanlış
 
 > [!TIP]
 > Yinelenen proxy adresi olup olmadığını görmek için Exchange Online karşı aşağıdaki PowerShell cmdlet'ini yürütün:
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
+> ```
+> Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+> ```
 > Bu sorun hakkında daha fazla bilgi için bkz. [Exchange Online'da "Proxy adresi zaten kullanılıyor" hata iletisini](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Makale hakkında bilgileri de içerir. [Exchange Online'a uzak PowerShell kullanarak bağlanma konusunda](https://technet.microsoft.com/library/jj984289.aspx). Daha fazla bilgi için bu makaleye bakın [proxyAddresses özniteliği Azure AD'de nasıl doldurulur üzerinde](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 Etkilenen kullanıcılar için herhangi bir proxy adresi sorunu çözdükten sonra lisans artık uygulanabilir emin olmak için grupta lisans işleme zorlamak emin olun.

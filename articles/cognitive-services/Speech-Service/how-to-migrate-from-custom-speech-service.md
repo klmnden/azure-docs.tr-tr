@@ -1,7 +1,7 @@
 ---
 title: Özel konuşma tanıma hizmetinden konuşma Services'a geçme
 titlesuffix: Azure Cognitive Services
-description: Özel konuşma hizmeti artık konuşma hizmeti bir parçasıdır. En son kalite ve özellik güncelleştirmeleri yararlanmak için konuşma hizmeti geçin.
+description: Özel konuşma hizmeti artık konuşma Hizmetleri bir parçasıdır. En son kalite ve özellik güncelleştirmeleri yararlanmak için konuşma Hizmetleri geçin.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 44e13a301117ffe11e978666a38897ffd878c223
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 501555c68b7b5922bbf5a74d2a7ed5e548b900c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551288"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57833546"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Konuşma hizmeti için özel konuşma hizmeti geçirme
 
 Uygulamalarınızı konuşma hizmeti için özel konuşma tanıma hizmetinden geçirmek için bu makaleyi kullanın.
 
-Özel konuşma hizmeti artık konuşma hizmeti bir parçasıdır. En son kalite ve özellik güncelleştirmeleri yararlanmak için konuşma hizmeti geçin.
+Özel konuşma hizmeti artık konuşma hizmeti bir parçasıdır. En son kalite ve özellik güncelleştirmeleri yararlanmak için konuşma Hizmetleri geçin.
 
 ## <a name="migration-for-new-customers"></a>Yeni müşteriler için geçiş
 
@@ -39,11 +39,11 @@ Fiyatlandırma modeli konuşma hizmeti için bir saat dayalı bir fiyatlandırma
 
 3. Hızlı Başlangıç kılavuzları ve SDK'sı örnekleri doğru API'lerini kullanmayı izleyin. REST API'lerini kullanmanız durumunda Ayrıca kaynak anahtarları ve doğru Uç noktalara kullanmanız gerekir.
 
-4. Konuşma hizmeti ve API'leri kullanmak için İstemci uygulamayı güncelleştirin.
+4. İstemci uygulamayı konuşma Hizmetleri ve API'ler kullanacak şekilde güncelleştirin.
 
 ## <a name="migration-for-existing-customers"></a>Mevcut müşteriler için geçiş
 
-Konuşma hizmeti portalı konuşma hizmeti için mevcut kaynak anahtarlarınızı geçirin. Aşağıdaki adımları kullanın:
+Konuşma Hizmetleri portalında konuşma Hizmetleri için mevcut kaynak anahtarlarınızı geçirin. Aşağıdaki adımları kullanın:
 
 > [!NOTE]
 > Kaynak anahtarları yalnızca aynı bölge içinde geçirilebilir.
@@ -56,10 +56,10 @@ Konuşma hizmeti portalı konuşma hizmeti için mevcut kaynak anahtarlarınız�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Konuşma hizmetini ücretsiz deneyin](get-started.md).
+* [Konuşma hizmetlerini ücretsiz denemek](get-started.md).
 * Bilgi [Konuşmayı metne dönüştürme](./speech-to-text.md) kavramları.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
 * [Konuşma hizmeti nedir](overview.md)
-* [Konuşma hizmeti ve SDK Belgeleri](speech-sdk.md#get-the-sdk)
+* [Konuşma Hizmetleri ve Speech SDK'sı belgeleri](speech-sdk.md#get-the-sdk)

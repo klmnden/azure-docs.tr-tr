@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 81139734d0eb7d15e78c465c06fc429de48480c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5de70a0a7dd76210483c60275b7072008ea8a7f3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182995"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897240"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 
@@ -35,7 +35,7 @@ Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorun
 | Sorun | Açıklama |
 | --- | --- |
 | Birçok ortak HTTP üst bilgilerini REST API'SİNDE sağlanmayan. |REST API kullanarak Media Services uygulamalar geliştiriyorsanız, bazı ortak HTTP üst bilgi alanları bulabilirsiniz (dahil CLIENT-REQUEST-ID REQUEST-ID yanı sıra, RETURN-CLIENT-REQUEST-ID) desteklenmez. Üst bilgiler, gelecek güncelleştirmelerden birinde eklenecektir. |
-| Yüzde kodlama izin verilmiyor. |Media Services akış içeriğini URL'ler oluşturulurken IAssetFile.Name özelliğinin değeri kullanır (örneğin, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Bu nedenle, yüzde kodlama izin verilmiyor. Name özelliği değeri aşağıdakilerden herhangi birini olamaz [yüzde kodlama-ayrılmış karakterleri](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir "." dosya adı uzantısı için. |
+| Yüzde kodlama izin verilmiyor. |Media Services akış içeriğini URL'ler oluşturulurken IAssetFile.Name özelliğinin değeri kullanır (örneğin, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Bu nedenle, yüzde kodlama izin verilmiyor. Name özelliği değeri aşağıdakilerden herhangi birini olamaz [yüzde kodlama-ayrılmış karakterleri](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir "." dosya adı uzantısı için. |
 | Azure depolama SDK'sı sürüm 3.x başarısız parçasıdır ListBlobs yöntem. |Media Services oluşturur göre tüm SAS URL'lerini [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) sürümü. Bir blob kapsayıcı içindeki blobları listeleme için depolama SDK'sını kullanmak istiyorsanız, kullanın [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) depolama SDK'sı sürüm parçası olan yöntemin 2.x. |
 | Azaltma mekanizması Media Services, hizmete aşırı isteklerde uygulamalar için kaynak kullanımını kısıtlıyor. Hizmet, "Hizmet kullanılamıyor" 503 HTTP durum kodunu döndürebilir. |Daha fazla bilgi için bkz: 503 HTTP durum kodu açıklamasını [Media Services hata kodları](media-services-encoding-error-codes.md). |
 | Varlıkları sorgulama yaptığında, sürüm 2 genel REST sorgu sonuçlarını 1.000 sonuçları sınırladığı için 1000 varlıkların bir sınır aynı anda döndürülür. |Atla ve Al (.NET) / açıklandığı (REST) üst [bu .NET örnek](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) ve [bu REST API örnek](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
@@ -184,17 +184,17 @@ Temel, standart ve Premium encoding'e ayrılan birimleri yeniden adlandırılan 
  Medya Kodlayıcısı yaklaşık 12 ay sonra Media Encoder Standard'ın sürümünden itibaren kullanımdan kaldırılacaktır.
 
 ### <a name="azure-sdk-for-php"></a>PHP için Azure SDK
-Azure SDK'sı ekibi, yeni bir sürümü yayımlanan [PHP için Azure SDK'sı](http://github.com/Azure/azure-sdk-for-php) Media Services için güncelleştirmeleri ve yeni özellikleri içeren paket. Özellikle, PHP için Media Services SDK'sını en son artık destekliyor [içerik koruma](media-services-content-protection-overview.md) özellikleri. Bu özellikler, belirteç kısıtlamaları olmadan ve dinamik şifreleme ile AES ve DRM (PlayReady ve Widevine) özelliklerdir. Ayrıca ölçeklendirme destekler [birimleri kodlama](media-services-dotnet-encoding-units.md).
+Azure SDK'sı ekibi, yeni bir sürümü yayımlanan [PHP için Azure SDK'sı](https://github.com/Azure/azure-sdk-for-php) Media Services için güncelleştirmeleri ve yeni özellikleri içeren paket. Özellikle, PHP için Media Services SDK'sını en son artık destekliyor [içerik koruma](media-services-content-protection-overview.md) özellikleri. Bu özellikler, belirteç kısıtlamaları olmadan ve dinamik şifreleme ile AES ve DRM (PlayReady ve Widevine) özelliklerdir. Ayrıca ölçeklendirme destekler [birimleri kodlama](media-services-dotnet-encoding-units.md).
 
 Daha fazla bilgi için bkz.
 
-* Aşağıdaki [kod örnekleri](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) hızlıca çalışmaya başlamanıza yardımcı olur:
+* Aşağıdaki [kod örnekleri](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) hızlıca çalışmaya başlamanıza yardımcı olur:
   * **vodworkflow_aes.php**: Bu PHP dosya AES-128 dinamik şifreleme ve anahtar dağıtımı hizmetiyle nasıl kullanılacağını gösterir. .NET örnek bölümünde açıklanan dayanır [kullanım AES-128 dinamik şifreleme ve anahtar dağıtımı hizmetiyle](media-services-protect-with-aes128.md).
   * **vodworkflow_aes.php**: Bu PHP dosya PlayReady dinamik şifreleme ve lisans teslimat hizmetinin nasıl kullanılacağını gösterir. .NET örnek bölümünde açıklanan dayanır [kullanım PlayReady ve/veya Widevine dinamik ortak şifreleme](media-services-protect-with-playready-widevine.md).
   * **scale_encoding_units.php**: Bu PHP dosya encoding'e ayrılan birimleri ölçeklendirme işlemi gösterilmektedir.
 
 ## <a id="nov_changes_15"></a>Kasım 2015 sürümü
- Media Services, artık bulutta Widevine lisans teslim hizmeti sunar. Daha fazla bilgi için [bu bloga](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/) bakın. Ayrıca bkz [Bu öğreticide](media-services-protect-with-playready-widevine.md) ve [GitHub deposu](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
+ Media Services, artık bulutta Widevine lisans teslim hizmeti sunar. Daha fazla bilgi için [bu bloga](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/) bakın. Ayrıca bkz [Bu öğreticide](media-services-protect-with-playready-widevine.md) ve [GitHub deposu](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
 
 Media Services tarafından sağlanan Widevine lisans teslim hizmetleri Önizleme aşamasındadır. Daha fazla bilgi için [bu bloga](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/) bakın.
 
@@ -206,9 +206,9 @@ Media Services şu veri merkezlerinde çalışıyor: Brezilya Güney, Hindistan 
 
 ## <a id="september_changes_15"></a>Eylül 2015 sürümü
 Media Services şimdi her iki video isteğe bağlı ve canlı akışlarınızdan Widevine modüler DRM teknolojisi ile koruma olanağı sunar. Widevine lisansları teslim etmenize yardımcı olması için aşağıdaki teslimat Hizmetleri iş ortakları kullanabilirsiniz:
-* [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) 
-* [EZDRM](http://ezdrm.com/) 
-* [castLabs](http://castlabs.com/company/partners/azure/) 
+* [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/) 
+* [EZDRM](https://ezdrm.com/) 
+* [castLabs](https://castlabs.com/company/partners/azure/) 
 
 Daha fazla bilgi için [bu bloga](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) bakın.
   
@@ -311,7 +311,7 @@ Bu sürüm, varsayılan Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAu
 * HLS otomatik hedef süresi eklendi. Canlı akış yaparken HLS her zaman dinamik olarak paketlenir. Media Services, varsayılan olarak, ana kare aralığına (KeyFrameInterval) dayalı HLS segment paketleme oranı (FragmentsPerSegment) otomatik olarak hesaplar. Bu yöntem aynı zamanda gerçek zamanlı Kodlayıcı alınan bir grubu (GOP) resimlerin verilir. Daha fazla bilgi için [iş Media Services ile canlı akış](https://msdn.microsoft.com/library/azure/dn783466.aspx).
 
 ### <a name="media-services-net-sdk-updates"></a>Media Services .NET SDK'sını güncelleştirme
-[Media Services .NET SDK'sı](http://www.nuget.org/packages/windowsazure.mediaservices/) artık 3.1.0.0 sürümüdür. Aşağıdaki güncelleştirmeler yapılmıştır:
+[Media Services .NET SDK'sı](https://www.nuget.org/packages/windowsazure.mediaservices/) artık 3.1.0.0 sürümüdür. Aşağıdaki güncelleştirmeler yapılmıştır:
 
 * .NET SDK'sı bağımlılık, .NET 4.5 Framework yükseltildi.
 * Encoding'e ayrılan birimleri güncelleştirmek için kullanabileceğiniz yeni bir API eklendi. Daha fazla bilgi için [güncelleştirme ayrılmış birim türünü ve .NET kullanarak kodlama ayrılmış birimlerimizden artışı](media-services-dotnet-encoding-units.md).
@@ -556,35 +556,35 @@ Aşağıdaki işlevler Kasım SDK sürümünde yeni:
 <!-- Images. -->
 
 <!--- URLs. --->
-[Azure Media Services MSDN Forumu]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
+[Azure Media Services MSDN Forumu]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Azure Media Services REST API'si başvurusu]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
-[Media Services fiyatlandırma ayrıntıları]: http://azure.microsoft.com/pricing/details/media-services/
-[Giriş meta verileri]: http://msdn.microsoft.com/library/azure/dn783120.aspx
-[Çıkış meta verileri]: http://msdn.microsoft.com/library/azure/dn783217.aspx
-[Deliver content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
-[Index media files with the Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
-[StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
-[Work with Media Services live streaming]: http://msdn.microsoft.com/library/azure/dn783466.aspx
-[Use AES-128 dynamic encryption and the key delivery service]: http://msdn.microsoft.com/library/azure/dn783457.aspx
-[Use PlayReady dynamic encryption and the license delivery service]: http://msdn.microsoft.com/library/azure/dn783467.aspx
-[Preview features]: http://azure.microsoft.com/services/preview/
-[Media Services PlayReady lisans şablonuna genel bakış]: http://msdn.microsoft.com/library/azure/dn783459.aspx
-[Stream storage-encrypted content]: http://msdn.microsoft.com/library/azure/dn783451.aspx
+[Media Services fiyatlandırma ayrıntıları]: https://azure.microsoft.com/pricing/details/media-services/
+[Giriş meta verileri]: https://msdn.microsoft.com/library/azure/dn783120.aspx
+[Çıkış meta verileri]: https://msdn.microsoft.com/library/azure/dn783217.aspx
+[Deliver content]: https://msdn.microsoft.com/library/azure/hh973618.aspx
+[Index media files with the Azure Media Indexer]: https://msdn.microsoft.com/library/azure/dn783455.aspx
+[StreamingEndpoint]: https://msdn.microsoft.com/library/azure/dn783468.aspx
+[Work with Media Services live streaming]: https://msdn.microsoft.com/library/azure/dn783466.aspx
+[Use AES-128 dynamic encryption and the key delivery service]: https://msdn.microsoft.com/library/azure/dn783457.aspx
+[Use PlayReady dynamic encryption and the license delivery service]: https://msdn.microsoft.com/library/azure/dn783467.aspx
+[Preview features]: https://azure.microsoft.com/services/preview/
+[Media Services PlayReady lisans şablonuna genel bakış]: https://msdn.microsoft.com/library/azure/dn783459.aspx
+[Stream storage-encrypted content]: https://msdn.microsoft.com/library/azure/dn783451.aspx
 [Azure portal]: https://portal.azure.com
-[Dinamik paketleme]: http://msdn.microsoft.com/library/azure/jj889436.aspx
+[Dinamik paketleme]: https://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin's blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
-[Protect Smooth Streaming with PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx
-[.NET için Media Services SDK'sı mantığı yeniden deneyin]: http://msdn.microsoft.com/library/azure/dn745650.aspx
-[Çim vadisi EDIUS bulut üzerinden akış 7 duyurdu]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
-[Control Media Services Encoder output file names]: http://msdn.microsoft.com/library/azure/dn303341.aspx
-[Create overlays]: http://msdn.microsoft.com/library/azure/dn640496.aspx
-[Stitch video segments]: http://msdn.microsoft.com/library/azure/dn640504.aspx
+[Protect Smooth Streaming with PlayReady]: https://msdn.microsoft.com/library/azure/dn189154.aspx
+[.NET için Media Services SDK'sı mantığı yeniden deneyin]: https://msdn.microsoft.com/library/azure/dn745650.aspx
+[Çim vadisi EDIUS bulut üzerinden akış 7 duyurdu]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
+[Control Media Services Encoder output file names]: https://msdn.microsoft.com/library/azure/dn303341.aspx
+[Create overlays]: https://msdn.microsoft.com/library/azure/dn640496.aspx
+[Stitch video segments]: https://msdn.microsoft.com/library/azure/dn640504.aspx
 [Azure Media Services .NET SDK 3.0.0.1 and 3.0.0.2 releases]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
-[Azure AD Access Control Service]: http://msdn.microsoft.com/library/hh147631.aspx
-[Connect to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
+[Azure AD Access Control Service]: https://msdn.microsoft.com/library/hh147631.aspx
+[Connect to Media Services with the Media Services SDK for .NET]: https://msdn.microsoft.com/library/azure/jj129571.aspx
 [Media Services .NET SDK extensions]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [Azure SDK tools]: https://github.com/Azure/azure-sdk-tools
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services
-[Manage Media Services assets across multiple Storage accounts]: http://msdn.microsoft.com/library/azure/dn271889.aspx
-[Handle Media Services job notifications]: http://msdn.microsoft.com/library/azure/dn261241.aspx
+[Manage Media Services assets across multiple Storage accounts]: https://msdn.microsoft.com/library/azure/dn271889.aspx
+[Handle Media Services job notifications]: https://msdn.microsoft.com/library/azure/dn261241.aspx
 

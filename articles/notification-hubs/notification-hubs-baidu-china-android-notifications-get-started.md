@@ -14,12 +14,12 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: ec90c230674799d9b2f56f1659d61032d0eb834c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c9aadb0dcd5adabed6a6490760282c5201a79000
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780958"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848686"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama
 
@@ -132,8 +132,8 @@ Erişim bağlantı bilgileri penceresindeki `DefaultListenSharedAccessSignature`
 5. Ardından Azure Notification Hubs kitaplıklarını ekleyin. Uygulamanın `Build.Gradle` dosyasında bağımlılıklar bölümüne aşağıdaki satırları ekleyin.
 
     ```javascript
-    compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
-    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
+    implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
     Bağımlılıklar bölümünden sonra aşağıdaki depoyu ekleyin.
@@ -141,7 +141,7 @@ Erişim bağlantı bilgileri penceresindeki `DefaultListenSharedAccessSignature`
     ```javascript
     repositories {
         maven {
-            url "http://dl.bintray.com/microsoftazuremobile/SDK"
+            url "https://dl.bintray.com/microsoftazuremobile/SDK"
         }
     }
     ```
@@ -161,7 +161,7 @@ Erişim bağlantı bilgileri penceresindeki `DefaultListenSharedAccessSignature`
         tools:replace="android:allowBackup,icon,theme,label">
     ```
 
-6. [Baidu Anında İletme Android SDK’sı](http://push.baidu.com/doc/android/api) indirin ve açın. `pushservice-x.y.z jar` dosyasını libs klasörüne kopyalayın. Ardından `.so` dosyalarını Android uygulamanızın `src/main/jniLibs` (yeni bir klasör oluşturun) klasörlerine kopyalayın.
+6. [Baidu Anında İletme Android SDK’sı](https://push.baidu.com/doc/android/api) indirin ve açın. `pushservice-x.y.z jar` dosyasını libs klasörüne kopyalayın. Ardından `.so` dosyalarını Android uygulamanızın `src/main/jniLibs` (yeni bir klasör oluşturun) klasörlerine kopyalayın.
 
     ![Azure Notification Hubs - Baidu SDK Kitaplıkları](./media/notification-hubs-baidu-get-started/BaiduSDKLib.png)
 
@@ -497,7 +497,7 @@ Bu bölümde, bir .NET konsol uygulaması kullanarak bildirim göndermeyi göste
     Install-Package Microsoft.Azure.NotificationHubs
     ```
 
-    Bu yönerge, [Microsoft.Azure.Notification Hubs NuGet paketini](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) kullanarak Azure Notification Hubs SDK'sına bir başvuru ekler.
+    Bu yönerge, [Microsoft.Azure.Notification Hubs NuGet paketini](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) kullanarak Azure Notification Hubs SDK'sına bir başvuru ekler.
 
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
@@ -537,6 +537,6 @@ Bir test bildirimi göndermek için [Azure portalındaki] hata ayıklama sekmesi
 
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Baidu Anında İletme Android SDK’sı]: http://push.baidu.com/sdk/push_client_sdk_for_android
+[Baidu Anında İletme Android SDK’sı]: https://push.baidu.com/sdk/push_client_sdk_for_android
 [Azure portalındaki]: https://portal.azure.com/
-[Baidu portalında]: http://www.baidu.com/
+[Baidu portalında]: https://www.baidu.com/

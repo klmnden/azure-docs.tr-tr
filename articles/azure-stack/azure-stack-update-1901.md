@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 0bbf76e16334ae4847ec6f7fbf3aa88fb508e84d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 682ff9b139d7315604da70fbba47b5e81a290921
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731135"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886380"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 güncelleştirme
 
@@ -63,7 +63,7 @@ Azure Stack düzeltmeleri yalnızca Azure Stack tümleşik sistemleri için geç
 ## <a name="prerequisites"></a>Önkoşullar
 
 > [!IMPORTANT]
-- Yükleme [en son Azure Stack düzeltme](#azure-stack-hotfixes) 1901 için güncelleştirmeden önce 1811 (varsa) için.
+> - Yükleme [en son Azure Stack düzeltme](#azure-stack-hotfixes) 1901 için güncelleştirmeden önce 1811 (varsa) için.
 
 - Bu güncelleştirme yüklemesi başlamadan önce çalıştırması [Test AzureStack](azure-stack-diagnostic-test.md) bulunan tüm çalışma sorunlarını çözün ve Azure Stack durumunu doğrulamak için aşağıdaki parametreleri, tüm uyarılar ve hatalar dahil olmak üzere. Ayrıca etkin Uyarıları gözden geçirin ve eylemi gerektiren tüm çözümleyin:
 
@@ -89,7 +89,7 @@ Bu güncelleştirme, aşağıdaki yeni özellikleri ve Azure Stack için gelişt
    * **AzureRm.Storage**  
          AzureRm toplama modülü artık içerir zaten yayımlanmış sürüm 5.0.4 destekleyen **API Sürüm 2017-10-01**.  
    * **AzureRm.Compute**  
-         Eklenen basit parametre kümelerine `New-AzureRMVM` ve `NewAzureRMVMSS`, `-ImageName` parametresini belirten kullanıcı görüntüleri destekler.  
+         Eklenen basit parametre kümelerine `New-AzureRmVM` ve `New-AzureRmVmss`, `-Image` parametresini belirten kullanıcı görüntüleri destekler.  
    * **AzureRm.Insights**  
          AzureRm toplama modülü artık içerir zaten yayımlanmış sürüm 5.1.5 destekleyen **api sürümü 2018-01-01** ölçümler, ölçüm tanımlarını kaynak türleri için.
 
@@ -115,7 +115,8 @@ Güncelleştirilmiş modüller için başvuru incelemesi için bkz: [Azure Stack
 <!-- 16523695 – IS, ASDK -->
 - Bir sorun, sanal ağınızın DNS ayarlarınızı güncelleştirdikten sonra sabit **Azure Stack DNS'yi** için **özel DNS**, örnekler yeni ayarlarla güncelleştirilmedi.
 
-- <!-- 3235634 – IS, ASDK --> İçeren boyutlarıyla dağıtma hangi VM'ler içinde bir sorun düzeltildi bir **v2** soneki; Örneğin, **işler için standart_a2_v2**, gerekli olarak sonekini belirten **işler için standart_a2_v2** () küçük harf v). Küresel Azure sayesinde, artık kullanabilirsiniz gibi **işler için standart_a2_v2** (Büyük Harf V).
+- <!-- 3235634 – IS, ASDK -->
+  İçeren boyutlarıyla dağıtma hangi VM'ler içinde bir sorun düzeltildi bir **v2** soneki; Örneğin, **işler için standart_a2_v2**, gerekli olarak sonekini belirten **işler için standart_a2_v2** () küçük harf v). Küresel Azure sayesinde, artık kullanabilirsiniz gibi **işler için standart_a2_v2** (Büyük Harf V).
 
 <!-- 2869209 – IS, ASDK --> 
 - Kullanırken bir sorun düzeltildi [Ekle AzsPlatformImage cmdlet'i](/powershell/module/azs.compute.admin/add-azsplatformimage), hangi kullanmanız gerekiyordu, **- OsUri** parametre olarak depolama hesabı URI'si disk nereye yüklenir. Yerel disk yolu artık de kullanabilirsiniz.
@@ -291,9 +292,9 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 <!-- 3632798 - IS, ASDK -->
 - Portalda, bir gelen güvenlik kuralı ekleyin ve seçerseniz, **hizmet etiketi** çeşitli seçenekler görüntülenir, kaynak olarak **kaynak etiketi** Azure Stack için kullanılabilir değil bir listesi. Azure Stack'te geçerli yalnızca seçenekleri aşağıdaki gibidir:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     Diğer seçenekler olarak Azure Stack'te kaynak etiketleri desteklenmez. Benzer şekilde, bir giden güvenlik kuralı ekleyin ve seçin, **hizmet etiketi** hedef aynı seçeneklerinin listesi olarak **kaynak etiketi** görüntülenir. Aynı yalnızca geçerli seçenekler şunlardır **kaynak etiketi**önceki listede açıklandığı gibi.
 

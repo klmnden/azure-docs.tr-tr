@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 7c47e6df1e8b92d122dcc6bed55506f2fccf9e89
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 969821c8b83b8ef554c67f99e3a16e827b53e647
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877516"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845129"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Azure Cosmos DB'de toplu işlemleri gerçekleştirmek için toplu Yürütücü .NET kitaplığı kullanma
 
@@ -194,7 +194,7 @@ Toplu Yürütücü Kitaplığı kullanıldığında daha iyi performans için a�
       </listeners>
     </trace>
   </system.diagnostics>
-```
+  ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Nuget paket ayrıntıları hakkında bilgi edinin ve sürüm notları toplu Yürütücü .net Kitaplığı'nın için bkz:[toplu Yürütücü SDK ayrıntıları](sql-api-sdk-bulk-executor-dot-net.md). 
+* Nuget paket ayrıntıları hakkında bilgi edinin ve sürüm notları toplu Yürütücü .NET Kitaplığı'nın için bkz:[toplu Yürütücü SDK ayrıntıları](sql-api-sdk-bulk-executor-dot-net.md). 
