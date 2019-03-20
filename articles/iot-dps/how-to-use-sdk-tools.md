@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: eb5eecaca65cc8394bcc12fc5a475cf5e762f1c9
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: dc8c29b1c7d4e5056cb6aeee6335e32687fd547f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729974"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123683"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Geliştirme için sağlama işlemini basitleştirmek için SDK sağlanan araçları kullanma
 IOT Hub cihazı sağlama hizmeti sıfır dokunma ile sağlama işlemini kolaylaştıran just-ın-time [otomatik sağlama](concepts-auto-provisioning.md) güvenli ve ölçeklenebilir bir şekilde.  X.509 sertifikası veya Güvenilir Platform Modülü (TPM) biçiminde güvenlik kanıtlama gereklidir.  Microsoft ile işbirliği ayrıca [diğer güvenlik donanım iş ortaklarından](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) IOT dağıtım güvenliğindeki emin olmak için. Donanım güvenlik gereksinimi anlama, geliştiriciler için oldukça zor olabilir. Azure IOT sağlama hizmeti SDK'ları kümesi geliştiriciler kolaylık katman sağlama hizmetinizle iletişim kurmasına yazma istemcilerin kullanabilmesi için sağlanır. SDK'ları örnekleri yaygın senaryolar ve bunun yanı sıra güvenlik kanıtlama geliştirme kolaylaştıran araçlar kümesi de sağlar.
@@ -23,9 +23,9 @@ IOT Hub cihazı sağlama hizmeti sıfır dokunma ile sağlama işlemini kolayla�
 
 TPM simülatörünü kullanma adımları şunlardır:
 1. [Geliştirme ortamınızı hazırlama](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) ve GitHub deposunu kopyalayın:
-```
-git clone https://github.com/Azure/azure-iot-sdk-java.git
-```
+   ```
+   git clone https://github.com/Azure/azure-iot-sdk-java.git
+   ```
 2. Altındaki TPM simülatörü klasörüne gidin ```azure-iot-sdk-java/provisioning/provisioning-tool/tpm-simulator/```.
 3. Cihaz sağlama için herhangi bir istemci uygulama çalıştırılmadan önce Simulator.exe çalıştırın.
 4. Kayıt kimliği ve onay anahtarını elde etmek için sağlama işlemi boyunca arka planda simülatör olanak tanır.  Her iki değerin yalnızca bir örneğini çalıştırma için geçerlidir.
@@ -47,18 +47,18 @@ SDK'ları bir X.509 sertifikası Oluşturucu bulunan DICE öykünücüyle sağla
 
 Bu oluşturucu kullanılarak X.509 sertifikası oluşturmak için:
 1. [Geliştirme ortamınızı hazırlama](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) ve GitHub deposunu kopyalayın:
-```
-git clone https://github.com/Azure/azure-iot-sdk-java.git
-```
+   ```
+   git clone https://github.com/Azure/azure-iot-sdk-java.git
+   ```
 2. Kök azure-IOT-sdk-java ile değiştirin.
 3. Çalıştırma ```mvn install -DskipTests=true``` gerekli tüm paketleri indirmek ve SDK'yı derlemek için
 4. X.509 Certificate Generator içinde için kök dizinine gidin ```azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator```.
 5. İle oluşturma ```mvn clean install```
 6. Aşağıdaki komutları kullanarak aracı çalıştırın:
-```
-cd target
-java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
-```
+   ```
+   cd target
+   java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
+   ```
 7. İstendiğinde sertifikalarınız için _Common Name_ (Ortak Ad) girebilirsiniz.
 8. Yerel olarak aracının oluşturduğu bir **Client Cert**, **Client Cert Private Key**, **ara sertifika**ve **Root Cert**.
 

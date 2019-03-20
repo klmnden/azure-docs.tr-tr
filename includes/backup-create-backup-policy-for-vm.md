@@ -4,12 +4,12 @@ ms.service: backup
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: raynew
-ms.openlocfilehash: b589c88e5b5c5991db43a9f3c10003e17094b2e1
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 3631d2e9beaa7c0d9ee018a32981a278381a7d86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430874"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108500"
 ---
 ## <a name="defining-a-backup-policy"></a>Yedekleme ilkesi tanımlama
 Yedekleme ilkesi veri anlık görüntülerinin ne zaman alınacağının ve bu anlık görüntülerin ne kadar süreyle saklanacağının bir matrisini tanımlar. VM yedeklemesi için bir ilke tanımlandığında, yedekleme işini *günde bir kez* tetikleyebilirsiniz. Yeni bir ilke oluşturduğunuzda bu ilke kasaya uygulanır. Yedekleme İlkesi arabirimi şöyle görünür:
@@ -32,13 +32,11 @@ Yedekleme ilkesi veri anlık görüntülerinin ne zaman alınacağının ve bu a
     Aylık ve Yıllık elde tutma aralıkları günlük veya haftalık artışı temel alan anlık görüntüleri belirtmenizi sağlar.
 
    > [!NOTE]
-   >
-  - VM korurken yedekleme işi günde bir kez çalıştırılır. Yedeklemenin çalıştırıldığı saat her elde tutma aralığı için olanla aynıdır.
-  - Kurtarma noktası tarih ve saatte yedekleme işini zamanlama olduğunda yedek anlık görüntüyü bakılmaksızın tamamlandığında oluşturulur.
-    - Örn. Herhangi bir sorun nedeniyle, 12:01:00 anlık görüntü tamamlandıktan ve 11:30 PM zamanlanmış yedekleme sıklığı, kurtarma noktası sonraki tarih ve 12:01:00 ile oluşturulur.
-  - Aylık yedekleme olması durumunda yedekleme her ayın ilk gününde çalıştırmak üzere ayarlanmışsa ve sonraki günün bazı sorun nedeniyle anlık görüntü tamamlandıktan sonra aylık yedekleme için oluşturulan kurtarma noktası sonraki gün (yani etiketlenir İkincisi söz konusu ay).
-   >
-   >
+   > 
+   > - VM korurken yedekleme işi günde bir kez çalıştırılır. Yedeklemenin çalıştırıldığı saat her elde tutma aralığı için olanla aynıdır.
+   > - Kurtarma noktası tarih ve saatte yedekleme işini zamanlama olduğunda yedek anlık görüntüyü bakılmaksızın tamamlandığında oluşturulur.
+   >   - Örn. Herhangi bir sorun nedeniyle, 12:01:00 anlık görüntü tamamlandıktan ve 11:30 PM zamanlanmış yedekleme sıklığı, kurtarma noktası sonraki tarih ve 12:01:00 ile oluşturulur.
+   > - Aylık yedekleme olması durumunda yedekleme her ayın ilk gününde çalıştırmak üzere ayarlanmışsa ve sonraki günün bazı sorun nedeniyle anlık görüntü tamamlandıktan sonra aylık yedekleme için oluşturulan kurtarma noktası sonraki gün (yani etiketlenir İkincisi söz konusu ay).
 
 
 4. İlkeyle ilgili tüm seçeneklerin ayarlanmasından sonra, dikey pencerenin en üstünde **Kaydet**’e tıklayın.

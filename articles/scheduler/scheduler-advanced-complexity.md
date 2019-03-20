@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a413261d251c8dfc1de9209168ee8137b85009f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701021"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860627"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Gelişmiş zamanlamalar ve yinelenme için Azure zamanlayıcı işleri oluşturma
 
@@ -65,13 +65,13 @@ Bu tablo, yinelenme ve işlerinin zamanlamalarını ayarlarken kullanabileceğin
 
 | Öğe | Gerekli | Açıklama | 
 |---------|----------|-------------|
-| **startTime** | Hayır | Bir tarih saat dizesi değeri [ISO 8601 biçimi](http://en.wikipedia.org/wiki/ISO_8601) iş ilk temel bir zamanlamanın başladığı belirtir. <p>Karmaşık zamanlamalar için'dan önce iş başlar **startTime**. | 
+| **startTime** | Hayır | Bir tarih saat dizesi değeri [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601) iş ilk temel bir zamanlamanın başladığı belirtir. <p>Karmaşık zamanlamalar için'dan önce iş başlar **startTime**. | 
 | **recurrence** | Hayır | İş çalıştırıldığında için yinelenme kurallarını. **Yinelenme** nesnesi şu öğeleri destekler: **sıklığı**, **aralığı**, **zamanlama**, **sayısı**, ve **endTime**. <p>Kullanırsanız **yinelenme** öğesi de kullanmalısınız **sıklığı** öğesi, diğer yandan **yinelenme** öğeler isteğe bağlıdır. |
 | **frequency** | Evet, kullandığınızda **yinelenme** | Örnekleri arasında zaman birimi ve bu değerleri destekler: "Minute", "Hour", "Day", "Week", "Month" ve "Year" | 
 | **interval** | Hayır | Zaman birimleri arasında oluşum sayısını belirleyen pozitif bir tamsayı temel alarak **sıklığı**. <p>Örneğin, varsa **aralığı** 10'dur ve **sıklığı** "Week" ise işin 10 haftada bir yinelenir. <p>İşte aralık her sıklığı için en iyi bir sayısı: <p>-18 ay <br>-78 hafta <br>-548 gün <br>-Saat ve dakika için 1 aralığı < = <*aralığı*>< = 1000. | 
 | **schedule** | Hayır | Belirtilen dakika-işaretlerini, saat işaretlerinde, ayın günü ve haftanın günleri tabanlı yinelenme değişiklikleri tanımlar | 
 | **count** | Hayır | İş tamamlamadan önce çalışan sayısını belirten pozitif bir tamsayı. <p>Örneğin, bir günlük iş olduğunda **sayısı** 7'ye ayarlayın ve Pazartesi, başlangıç tarihi, iş tamamlanana Pazar günü çalışıyor. Başlangıç tarihi zaten geçtiyse, ilk çalıştırma oluşturma süreye göre hesaplanır. <p>Olmadan **endTime** veya **sayısı**, sonsuz işi çalıştırır. Her ikisini birden kullanamazsınız **sayısı** ve **endTime** aynı işi, ancak tamamlanmadan önce kabul kural. | 
-| **endTime** | Hayır | Bir tarih veya tarih/saat dize değeri [ISO 8601 biçimi](http://en.wikipedia.org/wiki/ISO_8601) iş durduğunda belirten çalışıyor. İçin bir değer ayarlayabilirsiniz **endTime** geçmişte olmasıdır. <p>Olmadan **endTime** veya **sayısı**, sonsuz işi çalıştırır. Her ikisini birden kullanamazsınız **sayısı** ve **endTime** aynı işi, ancak tamamlanmadan önce kabul kural. |
+| **endTime** | Hayır | Bir tarih veya tarih/saat dize değeri [ISO 8601 biçimi](https://en.wikipedia.org/wiki/ISO_8601) iş durduğunda belirten çalışıyor. İçin bir değer ayarlayabilirsiniz **endTime** geçmişte olmasıdır. <p>Olmadan **endTime** veya **sayısı**, sonsuz işi çalıştırır. Her ikisini birden kullanamazsınız **sayısı** ve **endTime** aynı işi, ancak tamamlanmadan önce kabul kural. |
 |||| 
 
 Örneğin, bir basit zamanlama ve yinelenme bir iş için bu JSON şema açıklanmaktadır: 
@@ -94,9 +94,9 @@ Bu tablo, yinelenme ve işlerinin zamanlamalarını ayarlarken kullanabileceğin
 
 *Tarihleri ve tarih/saat değerleri*
 
-* Scheduler işleri tarihleri yalnızca tarih ve izleyin [ISO 8601 belirtimi](http://en.wikipedia.org/wiki/ISO_8601).
+* Scheduler işleri tarihleri yalnızca tarih ve izleyin [ISO 8601 belirtimi](https://en.wikipedia.org/wiki/ISO_8601).
 
-* Tarih-saatleri zamanlayıcı işleri izleyin, tarih ve saat içerir [ISO 8601 belirtimi](http://en.wikipedia.org/wiki/ISO_8601)ve UTC'ye uzaklık belirtildiğinde UTC olarak kabul edilir. 
+* Tarih-saatleri zamanlayıcı işleri izleyin, tarih ve saat içerir [ISO 8601 belirtimi](https://en.wikipedia.org/wiki/ISO_8601)ve UTC'ye uzaklık belirtildiğinde UTC olarak kabul edilir. 
 
 Daha fazla bilgi için [kavramları, terminolojisi ve varlık](../scheduler/scheduler-concepts-terms.md).
 

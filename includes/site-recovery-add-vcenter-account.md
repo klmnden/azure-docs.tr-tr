@@ -4,12 +4,12 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: 290bca5f3839356817651096e6a274c868a5a268
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cd18d71d26410767a2d3119c12a1339bdc84bd33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221927"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107143"
 ---
 1. Yapılandırma sunucunuzda CSPSConfigtool.exe dosyasını başlatın. Masaüstünde kısayol olarak bulunur ve *yükleme konumu*\home\svsystems\bin klasöründedir.
 2. **Hesapları Yönet** > **Hesap Ekle**’ye tıklayın.
@@ -20,4 +20,4 @@ ms.locfileid: "50221927"
     ![Ayrıntılar](./media/site-recovery-add-vcenter-account/credentials2.png)
 
     > [!Note]
-  > Hesap adının portalda görünmesi 15 dakika veya daha fazla sürebilir. Hemen güncelleştirmek için **Yapılandırma Sunucuları** > ***sunucu adı*** > **Sunucuyu Yenile**’ye tıklayın.
+   > Hesap adının portalda görünmesi 15 dakika veya daha fazla sürebilir. Hemen güncelleştirmek için **Yapılandırma Sunucuları** > ***sunucu adı*** > **Sunucuyu Yenile**’ye tıklayın.

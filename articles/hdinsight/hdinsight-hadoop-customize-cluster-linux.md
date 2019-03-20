@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: d325cfd679c2a8b878ae9a7b483431aba32b2a5a
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: MT
+ms.openlocfilehash: 58fca4cfc4217c67be1a4e679d1a95f34ff5726f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313288"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108180"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Betik eylemlerini kullanarak Linux tabanlı HDInsight kümeleri özelleştirme
 
@@ -410,9 +410,9 @@ Microsoft Azure HDInsight hizmeti, açık kaynak teknolojilerini Apache Hadoop g
 
 * **Yerleşik bileşenlerini**. Bu bileşenler, HDInsight kümelerinde önceden ve kümeyi temel işlevlerini sağlar. Aşağıdaki bileşenler, bu kategoriye aittir:
 
-    * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
-    * Hive sorgu dili [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
-    * [Apache Mahout](https://mahout.apache.org/). 
+  * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
+  * Hive sorgu dili [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+  * [Apache Mahout](https://mahout.apache.org/). 
     
     Tam küme bileşenleri listesini kullanılabilir [Apache Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?](hdinsight-component-versioning.md)
 

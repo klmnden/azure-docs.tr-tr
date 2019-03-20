@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 76fc2c9a0864417e380471f8de59d148e0fbf7b4
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 093685ff2fa48799f0a91ee25727f5124dec6292
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651836"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225799"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Microsoft Bilişsel Araç Seti derin öğrenme modeli Azure HDInsight Spark kümesi ile kullanma
 
@@ -52,13 +52,13 @@ Jupyter not defterine aşağıdaki kalan adımları ele alınmaktadır.
 
 ## <a name="install-microsoft-cognitive-toolkit"></a>Microsoft Bilişsel araç setini yükleme
 
-Microsoft Bilişsel araç seti, script action kullanarak Spark kümesinde yükleyebilirsiniz. Betik eylemi, varsayılan olarak kullanılabilir değil küme üzerinde bileşenleri yüklemek için özel betikleri kullanılır. HDInsight .NET SDK kullanarak veya Azure PowerShell kullanarak özel betik Azure Portal'dan kullanabilirsiniz. Küme oluşturma veya kümeye çalışır duruma geldikten sonra bir parçası olarak ya da araç setini yükleme betiğini de kullanabilirsiniz. 
+Microsoft Bilişsel araç seti, script action kullanarak Spark kümesinde yükleyebilirsiniz. Betik eylemi, varsayılan olarak kullanılabilir değil küme üzerinde bileşenleri yüklemek için özel betikleri kullanılır. HDInsight .NET SDK kullanarak veya Azure PowerShell kullanarak özel betik Azure portalından kullanabilirsiniz. Küme oluşturma veya kümeye çalışır duruma geldikten sonra bir parçası olarak ya da araç setini yükleme betiğini de kullanabilirsiniz. 
 
 Bu makalede, Küme oluşturulduktan sonra Araç Seti'ni yüklemek için portalı kullanın. Özel betik çalıştırmak diğer yolları için bkz. [özelleştirme HDInsight kümelerini betik eylemi kullanarak](../hdinsight-hadoop-customize-cluster-linux.md).
 
-### <a name="using-the-azure-portal"></a>Azure Portal’ı kullanma
+### <a name="using-the-azure-portal"></a>Azure portalını kullanma
 
-Betik eylemi çalıştırmak için Azure Portal'ı kullanma hakkında yönergeler için bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation). Microsoft Bilişsel Araç Seti yüklemek için aşağıdaki girişleri sağladığınızdan emin olun.
+Betik eylemi çalıştırmak için Azure portalını kullanma hakkında yönergeler için bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation). Microsoft Bilişsel Araç Seti yüklemek için aşağıdaki girişleri sağladığınızdan emin olun.
 
 * Betik eylem adı için bir değer sağlayın.
 
@@ -74,7 +74,7 @@ Microsoft Bilişsel araç seti ile Azure HDInsight Spark kümesi kullanmak için
 
 1. GitHub deposunu kopyalayın [ https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration ](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration). Kopyalama yönergeleri için bkz. [bir depoyu kopyalama](https://help.github.com/articles/cloning-a-repository/).
 
-2. Azure Portalı'ndan zaten hazırlandı tıklayın Spark kümesi dikey penceresini açın **küme Panosu**ve ardından **Jupyter not defteri**.
+2. Azure portalından zaten hazırlandı tıklayın Spark kümesi dikey penceresini açın **küme Panosu**ve ardından **Jupyter not defteri**.
 
     Jupyter not defteri URL'sine giderek da başlatabilirsiniz `https://<clustername>.azurehdinsight.net/jupyter/`. Değiştirin \<clustername >, HDInsight kümenizin adıyla.
 

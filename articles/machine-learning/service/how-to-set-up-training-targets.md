@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: a549a46912b0d60f878a18cae1e70a763afc0243
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ec509fc8957d20f95123e9f0f645c3e9b6e832f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874707"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122378"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>İşlem hedeflerine yönelik model eğitiminin ayarlama
 
@@ -139,16 +139,16 @@ Bir kalıcı Azure Machine Learning işlem işleri arasında yeniden kullanılab
     * **vm_size**: Azure Machine Learning işlem tarafından oluşturulan düğümler VM ailesi.
     * **max_nodes**: Otomatik ölçeklendirme, Azure Machine Learning işlem iş çalıştırıldığında en fazla düğüm maksimum sayısı.
     
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-  Azure Machine Learning işlem oluşturduğunuzda, bazı gelişmiş özellikler yapılandırabilirsiniz. Özellikleri aboneliğinizde sabit boyutlu ya da mevcut bir Azure sanal ağ içindeki kalıcı bir küme oluşturmanıza imkan tanır.  Bkz: [AmlCompute sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
+   Azure Machine Learning işlem oluşturduğunuzda, bazı gelişmiş özellikler yapılandırabilirsiniz. Özellikleri aboneliğinizde sabit boyutlu ya da mevcut bir Azure sanal ağ içindeki kalıcı bir küme oluşturmanıza imkan tanır.  Bkz: [AmlCompute sınıfı](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) Ayrıntılar için.
     
- Ya da oluşturabilir ve Azure Machine Learning işlem bir kalıcı kaynak ekleme [Azure portalında](#portal-create).
+   Ya da oluşturabilir ve Azure Machine Learning işlem bir kalıcı kaynak ekleme [Azure portalında](#portal-create).
 
 1. **Yapılandırma**: Kalıcı işlem hedefi için bir çalıştırma yapılandırması oluşturun.
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
 İşlem bağlı ve çalıştırma yapılandırılmış göre sonraki adım olarak [eğitim çalıştırma gönderme](#submit).
 
@@ -161,41 +161,41 @@ Bir Docker kapsayıcısı, zaten var olan bir Python ortamını veya sistem tara
 
 Azure veri bilimi sanal makinesi (DSVM), bu senaryo için tercih ettiğiniz Azure VM olarak kullanın. Bu, önceden yapılandırılmış bir veri bilimi ve yapay ZEKA geliştirme ortamında Azure vm'dir. VM, araç ve çerçeve tam yaşam döngüsü makine öğrenimi geliştirme için seçkin bir seçenek sunar. Azure Machine Learning ile DSVM'sini kullanma hakkında daha fazla bilgi için bkz. [geliştirme ortamını yapılandırma](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
 
-1. **Oluşturma**: Modelinizi eğitmek için kullanmadan önce bir DSVM oluşturma. Bu kaynak oluşturmak için bkz [Linux (Ubuntu) için veri bilimi sanal makinesi sağlama](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+1. **oluşturma**: Modelinizi eğitmek için kullanmadan önce bir DSVM oluşturma. Bu kaynak oluşturmak için bkz [Linux (Ubuntu) için veri bilimi sanal makinesi sağlama](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
 
     > [!WARNING]
     > Azure Machine Learning yalnızca Ubuntu çalıştıran sanal makineleri destekler. Bir VM oluşturmak veya mevcut bir VM'yi seçin, Ubuntu kullanan bir VM seçmeniz gerekir.
 
 1. **Ekleme**: Mevcut bir sanal makine işlem hedefi olarak eklemek için sanal makine için tam etki alanı adı (FQDN), kullanıcı adı ve parola sağlamalısınız. Bu örnekte değiştirin \<fqdn > Genel VM'nin genel IP adresi veya FQDN ile. Değiştirin \<username > ve \<parola > SSH kullanıcı adı ve parolayla VM için.
 
- ```python
- from azureml.core.compute import RemoteCompute, ComputeTarget
+   ```python
+   from azureml.core.compute import RemoteCompute, ComputeTarget
 
- # Create the compute config 
- compute_target_name = "attach-dsvm"
- attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
+   # Create the compute config 
+   compute_target_name = "attach-dsvm"
+   attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
                                                     ssh_port=22,
                                                     username='<username>',
                                                     password="<password>")
 
- # If you authenticate with SSH keys instead, use this code:
- #                                                  ssh_port=22,
- #                                                  username='<username>',
- #                                                  password=None,
- #                                                  private_key_file="<path-to-file>",
- #                                                  private_key_passphrase="<passphrase>")
+   # If you authenticate with SSH keys instead, use this code:
+   #                                                  ssh_port=22,
+   #                                                  username='<username>',
+   #                                                  password=None,
+   #                                                  private_key_file="<path-to-file>",
+   #                                                  private_key_passphrase="<passphrase>")
 
- # Attach the compute
- compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
+   # Attach the compute
+   compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
 
- compute.wait_for_completion(show_output=True)
- ```
+   compute.wait_for_completion(show_output=True)
+   ```
 
- DSVM çalışma alanınıza eklemek veya [Azure portalını kullanarak](#portal-reuse).
+   DSVM çalışma alanınıza eklemek veya [Azure portalını kullanarak](#portal-reuse).
 
 1. **Yapılandırma**: DSVM işlem hedefi için bir çalıştırma yapılandırması oluşturun. Docker ve conda oluşturmak ve eğitim ortamı DSVM'nin yapılandırmak için kullanılır.
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
 
 İşlem bağlı ve çalıştırma yapılandırılmış göre sonraki adım olarak [eğitim çalıştırma gönderme](#submit).
@@ -204,7 +204,7 @@ Azure veri bilimi sanal makinesi (DSVM), bu senaryo için tercih ettiğiniz Azur
 
 Azure HDInsight, büyük veri analizi için popüler bir platformdur. Apache Spark, modelinizi eğitmek için kullanılan platform sağlar.
 
-1. **Oluşturma**:  Modelinizi eğitmek için kullanmadan önce HDInsight kümesi oluşturun. HDInsight kümesinde bir Spark oluşturmak için bkz: [HDInsight Spark kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
+1. **oluşturma**:  Modelinizi eğitmek için kullanmadan önce HDInsight kümesi oluşturun. HDInsight kümesinde bir Spark oluşturmak için bkz: [HDInsight Spark kümesi oluşturma](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
 
     Kümeyi oluşturduğunuzda, bir SSH kullanıcı adı ve parola belirtmeniz gerekir. Bir işlem hedefi olarak HDInsight'ı kullanmaya gerek duyduğunuzda, bu değerleri not alın.
     
@@ -212,11 +212,11 @@ Azure HDInsight, büyük veri analizi için popüler bir platformdur. Apache Spa
 
 1. **Ekleme**: Bir HDInsight kümesi işlem hedefi olarak eklemek için ana bilgisayar adı, kullanıcı adı ve parola HDInsight kümesi için sağlamanız gerekir. Aşağıdaki örnek, bir küme çalışma alanınıza eklemek için SDK'sını kullanır. Bu örnekte değiştirin \<clustername > değerini kümenizin adıyla. Değiştirin \<username > ve \<parola > SSH kullanıcı adı ve parola küme için.
 
-  ```python
- from azureml.core.compute import ComputeTarget, HDInsightCompute
- from azureml.exceptions import ComputeTargetException
+   ```python
+   from azureml.core.compute import ComputeTarget, HDInsightCompute
+   from azureml.exceptions import ComputeTargetException
 
- try:
+   try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
     attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azureinsight.net', 
                                                           ssh_port=22, 
@@ -226,17 +226,17 @@ Azure HDInsight, büyük veri analizi için popüler bir platformdur. Apache Spa
                                        name='myhdi', 
                                        attach_configuration=attach_config)
 
- except ComputeTargetException as e:
+   except ComputeTargetException as e:
     print("Caught = {}".format(e.message))
 
- hdi_compute.wait_for_completion(show_output=True)
-  ```
+   hdi_compute.wait_for_completion(show_output=True)
+   ```
 
-  HDInsight kümesi çalışma alanınıza eklemek veya [Azure portalını kullanarak](#portal-reuse).
+   HDInsight kümesi çalışma alanınıza eklemek veya [Azure portalını kullanarak](#portal-reuse).
 
 1. **Yapılandırma**: HDI işlem hedefi için bir çalıştırma yapılandırması oluşturun. 
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
 
 İşlem bağlı ve çalıştırma yapılandırılmış göre sonraki adım olarak [eğitim çalıştırma gönderme](#submit).

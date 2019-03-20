@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 67442a5861514eadfebfc877d91e735e05f6f63d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 64bab5c1b99720eecb189834d7a11802cf919ca3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117554"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106789"
 ---
 # <a name="alert-confidence-score"></a>Güvenilirlik puanı uyarısı 
 
@@ -45,7 +45,7 @@ Güvenilirlik puanı görüntülemek için:
 Bir uyarı Güvenlik Merkezi'nin ellerde katkıda verileri görüntülemek için:
 - Güvenlik altında dikey penceresinde, uyarı **güvenle**görüntülemek için güvenilirlik puanı katkıda gözlemleri ve uyarıyla ilgili Öngörüler edinin. Bu uyarıya neden etkinlikleri yapısını daha fazla öngörü sağlar.
 
- ![Şüpheli güvenilirlik puanı][2]
+  ![Şüpheli güvenilirlik puanı][2]
 
 Uyarı önceliklendirme ortamınızdaki önceliğini belirlemek için kullanım Güvenlik Merkezi'nin güvenilirlik puanı. Güvenilirlik puanı otomatik olarak uyarıları araştırırken, sektördeki en iyi yöntemler ve akıllı algoritmaları uygulayarak ve hangi tehditleri gerçek ve ilgilenmeniz odaklanmanıza gerek duyduğunuz senaryolara belirlemek için cevap sanal analistini davranan zaman ve çaba kaydeder.
 

@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d1f2e2319b662b7ff1661de9d9c3c8c007995d37
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 88a685d2999de1582c44c5aa84c49e8266ebb2db
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753264"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880152"
 ---
 # <a name="create-and-locate-anchors-using-azure-spatial-anchors-in-java"></a>Oluşturma ve Java uzamsal tutturucular Azure kullanarak yer işaretleri bulun
 
@@ -25,9 +25,11 @@ ms.locfileid: "56753264"
 > * [C++/NDK](create-locate-anchors-cpp-ndk.md)
 > * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
 
-Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar arasında paylaşmak izin verin. İyi tercih ettiğiniz geliştirme ortamı ile çalışmak için ayarlanmıştır. Bu makalede, biz Java'da yapmak nasıl ele alacağız.
+Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar arasında paylaşmak izin verin. Bu, birkaç geliştirme ortamlarında destekler. Bu makalede, biz Java'da yapmak nasıl ele alacağız.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
+
+Daha fazla bilgi edinin [CloudSpatialAnchorSession](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession) sınıfı.
 
 ```java
     private CloudSpatialAnchorSession mCloudSession;
@@ -36,6 +38,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
+
+Daha fazla bilgi edinin [SessionConfiguration](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.sessionconfiguration) sınıfı.
 
 ```java
     mCloudSession.getConfiguration().setAccountKey("MyAccountKey");
@@ -48,6 +52,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
+
+Daha fazla bilgi edinin [TokenRequiredListener](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.tokenrequiredlistener) arabirimi.
 
 ```java
     mCloudSession.addTokenRequiredListener(args -> {
@@ -95,6 +101,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
+Daha fazla bilgi edinin [Başlat](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.start) yöntemi.
+
 ```java
     mCloudSession.setSession(mSession);
     mCloudSession.start();
@@ -102,11 +110,15 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
+Daha fazla bilgi edinin [processFrame](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.processframe) yöntemi.
+
 ```java
     mCloudSession.processFrame(mSession.update());
 ```
 
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
+
+Daha fazla bilgi edinin [SessionUpdatedListener](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.sessionupdatedlistener) arabirimi.
 
 ```java
     mCloudSession.addSessionUpdatedListener(args -> {
@@ -121,6 +133,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
+
+Daha fazla bilgi edinin [CloudSpatialAnchor](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchor) sınıfı.
 
 ```java
     // Create a local anchor, perhaps by hit-testing and creating an ARAnchor
@@ -169,6 +183,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
+Daha fazla bilgi edinin [getSessionStatusAsync](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.getsessionstatusasync) yöntemi.
+
 ```java
     Future<SessionStatus> sessionStatusFuture = mCloudSession.getSessionStatusAsync();
     CheckForCompletion(sessionStatusFuture);
@@ -199,6 +215,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
+Daha fazla bilgi edinin [getAppProperties](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchor.getappproperties) yöntemi.
+
 ```java
     CloudSpatialAnchor cloudAnchor = new CloudSpatialAnchor();
     cloudAnchor.setLocalAnchor(localAnchor);
@@ -210,6 +228,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
+
+Daha fazla bilgi edinin [updateAnchorPropertiesAsync](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.updateanchorpropertiesasync) yöntemi.
 
 ```java
     CloudSpatialAnchor anchor = /* locate your anchor */;
@@ -241,6 +261,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
 
+Daha fazla bilgi edinin [getAnchorPropertiesAsync](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.getanchorpropertiesasync) yöntemi.
+
 ```java
     Future<CloudSpatialAnchor> getAnchorPropertiesFuture = mCloudSession.getAnchorPropertiesAsync("anchorId");
     CheckForCompletion(getAnchorPropertiesFuture);
@@ -271,6 +293,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
+Daha fazla bilgi edinin [setExpiration](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchor.setexpiration) yöntemi.
+
 ```java
     Date now = new Date();
     Calendar cal = Calendar.getInstance();
@@ -282,6 +306,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
+Daha fazla bilgi edinin [createWatcher](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.createwatcher) yöntemi.
+
 ```java
     AnchorLocateCriteria criteria = new AnchorLocateCriteria();
     criteria.setIdentifiers(new String[] { "id1", "id2", "id3" });
@@ -289,6 +315,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 ```
 
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
+
+Daha fazla bilgi edinin [AnchorLocatedListener](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.anchorlocatedlistener) arabirimi.
 
 ```java
     mCloudSession.addAnchorLocatedListener(args -> {
@@ -315,6 +343,8 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
+Daha fazla bilgi edinin [deleteAnchorAsync](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync) yöntemi.
+
 ```java
     Future deleteAnchorFuture = mCloudSession.deleteAnchorAsync(cloudAnchor);
     // Perform any processing you may want when delete finishes (deleteAnchorFuture is done)
@@ -322,17 +352,23 @@ Azure uzamsal yer işaretleri, yer işaretleri dünyanın farklı cihazlar aras�
 
 [!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
+Daha fazla bilgi edinin [Durdur](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.stop) yöntemi.
+
 ```java
     mCloudSession.stop();
 ```
 
 [!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
+Daha fazla bilgi edinin [sıfırlama](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.reset) yöntemi.
+
 ```java
     mCloudSession.reset();
 ```
 
 [!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup-java.md)]
+
+Daha fazla bilgi edinin [kapatmak](https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors.cloudspatialanchorsession.close) yöntemi.
 
 ```java
     mCloudSession.close();

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 536ca8895d130fd9273d556332830d020a485dc3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 812b3752bfffd16c09b466b036fb0ac91e77d5a4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958303"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104361"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>PowerShell kullanarak bir statik özel IP adresli bir sanal makine oluşturun
 
@@ -91,14 +91,12 @@ Yerel bilgisayarınızdan veya Azure Cloud Shell'i kullanarak aşağıdaki adım
 
 > [!WARNING]
 > Özel IP adresi ayarları işletim sistemine ekleyebilirsiniz ancak kadar edindikten sonra bunu öneririz [bir işletim sistemine özel bir IP adresi Ekle](virtual-network-network-interface-addresses.md#private).
->
->
-<a name = "change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>
-
+> 
+> 
+> <a name = "change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>
+> 
 > [!IMPORTANT]
 > İnternet'ten sanal Makineye erişmek için VM'ye bir genel IP adresi atamanız gerekir. Bir statik atama için dinamik bir özel IP adresi ataması da değiştirebilirsiniz. Ayrıntılar için bkz [IP adresleri ekleme veya değiştirme](virtual-network-network-interface-addresses.md). Ayrıca, ağ arabirimi, ağ arabiriminin oluşturduğunuz alt ağ veya her ikisi de bir ağ güvenlik grubu ilişkilendirerek, sanal makinenizde ağ trafiğini sınırlandırmak önerilir. Ayrıntılar için bkz [ağ güvenlik gruplarını yönetme](manage-network-security-group.md).
->
->
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

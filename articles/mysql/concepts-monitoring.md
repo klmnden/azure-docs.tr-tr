@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: 05af196d115376d744df1976c6a3d9fe9cab74e0
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 9dcb79e7f4ebd43da3f6c6fd35fa0707898d7ec8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958910"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111013"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda izleme
 İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. MySQL için Azure veritabanı sunucunuzu davranışını öngörü sunan çeşitli ölçümleri sağlar.
@@ -23,7 +23,7 @@ Tüm Azure ölçümleri bir dakikalık sıklığı, ve 30 günlük geçmişi her
 Bu ölçümler, MySQL için Azure veritabanı için kullanılabilir:
 
 |Ölçüm|Ölçüm görünen adı|Birim|Açıklama|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|CPU yüzdesi|Yüzde|CPU yüzdesi kullanılıyor.|
 |memory_percent|Bellek yüzdesi|Yüzde|Kullanılan bellek yüzdesi.|
 |io_consumption_percent|G/ç yüzdesi|Yüzde|G/ç yüzdesi kullanılıyor.|

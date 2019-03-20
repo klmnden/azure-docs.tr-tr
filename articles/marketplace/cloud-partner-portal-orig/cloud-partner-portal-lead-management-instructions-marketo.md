@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: abb0abb94d3b3e7abc4dce58cdb11fa0c2cedd34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 482d7a9662a79503bb2b197d5a6c63c9fa3c1c96
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811283"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113121"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Marketo müşteri adayı yönetimini yapılandırma
 
@@ -50,10 +50,10 @@ Bu makalede, Microsoft müşteri adaylarını işlemek için Marketo ayarlama a�
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
 
-8.  Ekleme kodu, yapılandırabilmek için gösterilen değerleri kopyalayın **sunucu kimliği**, **Munchkin kimliği**, ve **Form kimliği** bulut iş ortağı portalı Marketo alanları.
+1. Ekleme kodu, yapılandırabilmek için gösterilen değerleri kopyalayın **sunucu kimliği**, **Munchkin kimliği**, ve **Form kimliği** bulut iş ortağı portalı Marketo alanları.
 
 Sonraki örnek, Marketo katıştırma kod örneğindeki ihtiyacınız kimliklerini almak için bir kılavuz olarak kullanın.
 
-- Sunucu kimliği = **ys12**
-- Munchkin kimliği = **123 PQR 789**
+- Server Id = **ys12**
+- Munchkin Id = **123-PQR-789**
 - Form kimliği = **1179**\

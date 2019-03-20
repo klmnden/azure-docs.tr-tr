@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: b8995436677c195317b9ac304fe8c52cc2fcfc80
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: b9b4af353e5bbd36f1f8d7468c38542a0fabda85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602078"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112186"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Azure Kubernetes hizmeti, HDInsight üzerinde Apache Kafka ile kullanma
 
@@ -81,17 +81,17 @@ Bir AKS kümesi zaten yoksa, nasıl oluşturacağınızı öğrenmek için aşa�
 
 5. HDInsight ağ ve AKS küme ağı arasında eşleme yapılandırmak için sanal ağı seçin ve ardından __eşlemeler__. Seçin __+ Ekle__ ve formu doldurmak için aşağıdaki değerleri kullanın:
 
-    * __Ad__: Bu eşleme yapılandırması için benzersiz bir ad girin.
-    * __Sanal ağ__: Sanal ağ için seçmek için bu alanı kullanın **AKS kümesi**.
+   * __Ad__: Bu eşleme yapılandırması için benzersiz bir ad girin.
+   * __Sanal ağ__: Sanal ağ için seçmek için bu alanı kullanın **AKS kümesi**.
 
-    Diğer alanları varsayılan değerde bırakın ve ardından __Tamam__ eşlemesini yapılandırmak üzere.
+     Diğer alanları varsayılan değerde bırakın ve ardından __Tamam__ eşlemesini yapılandırmak üzere.
 
 6. AKS küme ağı arasında HDInsight ağ eşlemesini yapılandırmak üzere seçin __AKS küme sanal ağ__ve ardından __eşlemeler__. Seçin __+ Ekle__ ve formu doldurmak için aşağıdaki değerleri kullanın:
 
-    * __Ad__: Bu eşleme yapılandırması için benzersiz bir ad girin.
-    * __Sanal ağ__: Sanal ağ için seçmek için bu alanı kullanın __HDInsight küme__.
+   * __Ad__: Bu eşleme yapılandırması için benzersiz bir ad girin.
+   * __Sanal ağ__: Sanal ağ için seçmek için bu alanı kullanın __HDInsight küme__.
 
-    Diğer alanları varsayılan değerde bırakın ve ardından __Tamam__ eşlemesini yapılandırmak üzere.
+     Diğer alanları varsayılan değerde bırakın ve ardından __Tamam__ eşlemesini yapılandırmak üzere.
 
 ## <a name="install-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka yükleyin
 

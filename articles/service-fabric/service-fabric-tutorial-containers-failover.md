@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b099d1765f0ed56d6768501086bf8b9f83d5a86a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
-ms.translationtype: HT
+ms.openlocfilehash: f5ac1c53a97fc2a3749582c5f48b967e3ce0c2c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112278"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104276"
 ---
-# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Öğretici: Service Fabric ile kapsayıcı hizmetlerinin yük devretme ve ölçeklendirme işlemlerini gösterir
+# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Öğretici: Başarısız üstünde ve Service Fabric ile kapsayıcı hizmetlerinin ölçeklendirme gösterme
 
 Bu öğretici, bir serinin üçüncü bölümüdür. Bu öğreticide, Service Fabric kapsayıcı uygulamalarında yük devretmenin nasıl ele alındığını öğrenirsiniz. Ayrıca, kapsayıcı ölçeklendirme işleminden de bahsedilir. Bu öğreticide şunları yaptınız:
 
@@ -31,7 +31,7 @@ Bu öğretici, bir serinin üçüncü bölümüdür. Bu öğreticide, Service Fa
 > * Service Fabric kümesindeki bir kapsayıcıda yük devretme ile ilgili daha fazla bilgi edinin
 > * Uygulamadaki web ön uç kapsayıcılarını ölçeklendirme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [Kısım 2](service-fabric-tutorial-package-containers.md)’deki uygulama, etkin bir Service Fabric kümesinde çalışıyor.
 
@@ -63,8 +63,8 @@ Web ön ucunu ölçeklendirmek için aşağıdaki adımları gerçekleştirin:
 
 Şimdi web ön ucundaki örnek sayısını ölçeklendirebilirsiniz.
 
-3. Rakamı **2** olarak değiştirin ve **Hizmeti Ölçeklendir**'e tıklayın.
-4. Ağaç görünümünde **fabric:/TestContainer/azurevotefront** düğümüne tıklayın ve bölüm düğümünü (GUID ile gösterilir) genişletin.
+1. Rakamı **2** olarak değiştirin ve **Hizmeti Ölçeklendir**'e tıklayın.
+1. Ağaç görünümünde **fabric:/TestContainer/azurevotefront** düğümüne tıklayın ve bölüm düğümünü (GUID ile gösterilir) genişletin.
 
 ![sfxscaledone][sfxscaledone]
 

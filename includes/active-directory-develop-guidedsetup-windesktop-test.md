@@ -4,7 +4,7 @@ description: include dosyası
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: ac4f826ed1d27ee39d8e35605a3baa7f94b33e64
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 6345eca674086801f8bb0f45476009f04a10f2e3
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50035259"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58214253"
 ---
 ## <a name="test-your-code"></a>Kodunuzu test etme
 
@@ -46,7 +46,7 @@ Oturum açtıktan sonra Microsoft Graph API çağrısı tarafından döndürüle
 |**Ad** |Kullanıcının tam adı |Kullanıcı adı ve soyadı.|
 |**Kullanıcı Adı** |<span>user@domain.com</span> |Kullanıcıyı tanımlamak için kullanılan kullanıcı adı.|
 |**Belirteç süre sonu** |DateTime |Belirtecin süresinin dolma zamanı. MSAL, gerekirse belirteci yenilemeye tarafından sona erme tarihini genişleten.|
-|**Erişim belirteci** |Dize |HTTP için gönderilen belirteç dizesini gerektiren istekleri bir *yetkilendirme üst bilgisi*.|
+|**Erişim belirteci** |String |HTTP için gönderilen belirteç dizesini gerektiren istekleri bir *yetkilendirme üst bilgisi*.|
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Kapsamlar ve temsilci izinleri hakkında daha fazla bilgi

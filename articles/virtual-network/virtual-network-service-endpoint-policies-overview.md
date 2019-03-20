@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: a5df9215aec0b6c774b37f17b699e91ef813754d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771082"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104497"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Sanal ağ hizmet uç noktası ilkeleri (Önizleme)
 
@@ -158,11 +158,11 @@ Hizmet uç noktası ilkelerinde hiçbir merkezi günlük sağlanmaz. Hizmet tan�
 - Uç nokta ilkelerinde listelenen hesaplar için erişim reddedildi
   - Ağ güvenlik grupları veya güvenlik duvarı filtrelemesi erişimi engelliyor olabilir
   - İlkenin kaldırılması/yeniden uygulanması bağlantı kaybına yol açıyorsa:
-   - Azure hizmetinin uç noktalar üzerinden sanal ağdan erişime izin verecek şekilde yapılandırıldığını veya kaynağın varsayılan ilkesinin *Tümüne İzin Ver* olarak ayarlandığını doğrulayın.
+    - Azure hizmetinin uç noktalar üzerinden sanal ağdan erişime izin verecek şekilde yapılandırıldığını veya kaynağın varsayılan ilkesinin *Tümüne İzin Ver* olarak ayarlandığını doğrulayın.
       > [!NOTE]      
       > Uç nokta ilkeleri üzerinde erişim için hizmet kaynakları sanal ağlara karşı güvenlik altına alınmamış olmalıdır. Bununla birlikte, en iyi güvenlik yöntemlerinden biri olarak hizmet kaynaklarının Azure sanal ağlarınız gibi güvenilen ağlarınızla hizmet uç noktaları üzerinden ve şirket içinde IP güvenlik duvarı üzerinden güvenlik altına alınmasını öneririz.
   
-   - Hizmet tanılamalarında uç noktalar üzerinden trafiğin gösterildiğini doğrulayın.
+    - Hizmet tanılamalarında uç noktalar üzerinden trafiğin gösterildiğini doğrulayın.
     - Ağ güvenlik grubu akış günlüklerinde erişimin gösterilip gösterilmediğini ve depolama günlüklerinde beklendiği gibi hizmet uç noktaları üzerinden erişimin gösterilip gösterilmediğini denetleyin.
     - Azure desteğine başvurun.
 - Hizmet uç noktası ilkelerinde listelenmeyen hesaplar için erişim reddedildi

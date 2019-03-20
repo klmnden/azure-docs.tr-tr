@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/05/2019
+ms.date: 03/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0e7f2f2d798a82bed3247197da6bb09aa8110d9
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 641fe5439e320208d41969b9563293257648d488
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781519"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842099"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Öğretici: Azure Active Directory Tümleştirmesi ile yakınlaştırma
 
@@ -112,20 +112,20 @@ Azure AD çoklu oturum açma ile yakınlaştırma yapılandırmak için aşağı
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [yakınlaştırma istemci Destek ekibine](https://support.zoom.us/hc/en-us) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-5. Yakınlaştırma uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
+5. Yakınlaştırma uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
 
     ![image](common/edit-attribute.png)
 
-6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
+6. Buna ek olarak, yukarıda uygulama yakınlaştırmak için SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
     
     | Ad | Ad alanı  |  Kaynak özniteliği|
     | ---------------| --------------- | --------- |
-    | E-posta adresi  | User.Mail  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail |
-    | Ad  | User.givenName  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname |
-    | Soyadı  | User.surname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
-    | Telefon numarası  | User.telephoneNumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
-    | Bölüm  | User.Department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
-    | rol |    User.assignedrole |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role |
+    | E-posta adresi  | User.Mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
+    | Ad  | User.givenName  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
+    | Soyadı  | User.surname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
+    | Telefon numarası  | User.telephoneNumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
+    | Bölüm  | User.Department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
+    | rol |    User.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
 
     > [!NOTE]
     > Lütfen tıklayın [burada](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) Azure AD'de rol yapılandırma bilmek
@@ -159,7 +159,7 @@ Azure AD çoklu oturum açma ile yakınlaştırma yapılandırmak için aşağı
 
     a. Oturum Açma URL'si:
 
-    b. Azure Ad tanımlayıcısı
+    b. Azure AD Tanımlayıcısı
 
     c. Oturum Kapatma URL'si
 
@@ -179,13 +179,23 @@ Azure AD çoklu oturum açma ile yakınlaştırma yapılandırmak için aşağı
 
     a. İçinde **oturum açma sayfası URL'si** metin değerini yapıştırın **oturum açma URL'si** , Azure Portalı'ndan kopyaladığınız.
 
-    b. İçinde **sayfa oturum kapatma URL'si** metin değerini yapıştırın **oturum kapatma URL'si** , Azure Portalı'ndan kopyaladığınız.
+    b. İçin **sayfa oturum kapatma URL'si** değeri, gereken Azure Portalı'na gidin ve tıklayarak **Azure Active Directory** soldaki gidin **uygulama kayıtları**.
 
-    c. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve ardından ona yapıştırın **kimlik sağlayıcısı sertifikası** metin.
+    ![Azure Active Directory düğmesi](./media/zoom-tutorial/appreg.png)
 
-    d. İçinde **veren** metin değerini yapıştırın **Azure Ad tanımlayıcısı** , Azure Portalı'ndan kopyaladığınız. 
+    c. Tıklayarak **uç noktaları**
 
-    e. **Kaydet**’e tıklayın.
+    ![Uç nokta düğmesi](./media/zoom-tutorial/endpoint.png)
+
+    d. Kopyalama **SAML-P oturum kapatma uç noktası** yapıştırın **sayfa oturum kapatma URL'si** metin.
+
+    ![Kopyalama bitiş noktası düğmesi](./media/zoom-tutorial/endpoint1.png)
+
+    e. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve ardından ona yapıştırın **kimlik sağlayıcısı sertifikası** metin.
+
+    f. İçinde **veren** metin değerini yapıştırın **Azure AD tanımlayıcısı** , Azure Portalı'ndan kopyaladığınız. 
+
+    g. **Kaydet**’e tıklayın.
 
     > [!NOTE]
     > Daha fazla bilgi için yakınlaştırma belgeleri sayfasını ziyaret edin. [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
@@ -208,7 +218,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

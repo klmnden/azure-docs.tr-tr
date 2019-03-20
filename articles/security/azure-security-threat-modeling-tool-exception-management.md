@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 68bffaeef0451dae3a3b9707049dd2e44ad311fd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5c768497cc21b3fae82a9db290531af33841a2cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865884"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877311"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Güvenlik çerçevesi: Özel durum yönetimi | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -71,7 +71,7 @@ Hizmetinde hata ayıklama bilgilerini devre dışı bırakın. Bu kaldırarak ge
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | MVC 5, MVC 6 |
 | **Öznitelikler**              | Yok  |
-| **Başvuruları**              | [Özel durum işleme ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling), [Model doğrulama ASP.NET Web API](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
+| **Başvuruları**              | [Özel durum işleme ASP.NET Web API](https://www.asp.net/web-api/overview/error-handling/exception-handling), [Model doğrulama ASP.NET Web API](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **Adımları** | Varsayılan olarak, ASP.NET Web API en Yakalanmayan Özel durum kodu ile bir HTTP yanıtı çevrilir `500, Internal Server Error`|
 
 ### <a name="example"></a>Örnek
@@ -179,7 +179,7 @@ public HttpResponseMessage PostProduct(Product item)
 }
 ```
 
-Onay olağanüstü işleme hakkında ek ayrıntılar için başvurular bölümündeki bağlantıları ve ASP.Net Web API'de model doğrulama 
+Onay olağanüstü işleme hakkında ek ayrıntılar için başvurular bölümündeki bağlantıları ve ASP.NET Web API'de model doğrulama 
 
 ## <a id="messages"></a>Hata iletilerinde güvenlik ayrıntılarını gösterme
 

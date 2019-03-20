@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 67b9be6f7788acd44ac60fe0c71133d69a2c122e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a1e1be24f9cb6d762d5480385843e9a5356d4a29
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313846"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889803"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Yükleme esnek veritabanı işlerine genel bakış
 
@@ -27,12 +27,12 @@ ms.locfileid: "57313846"
 
 [**Elastik veritabanı işleri** ](sql-database-elastic-jobs-overview.md) PowerShell aracılığıyla veya Azure portalı üzerinden yüklenebilir. Yalnızca PowerShell paketi yüklerseniz PowerShell API'sini kullanarak işleri oluşturmak ve yönetmek için erişim sağlayabilir. Ayrıca, PowerShell API'lerini sağlamak önemli ölçüde daha fazla işlevsellik portal bu anda.
 
-Zaten yüklediyseniz **elastik veritabanı işleri** mevcut bir Portal üzerinden **elastik havuz**, en son Powershell Önizleme var olan yüklemeyi yükseltmek için komut dosyalarını içerir. Yüklemenizin en son sürüme yükseltmek için önemle tavsiye edilir **elastik veritabanı işleri** PowerShell API'leri kullanıma sunulan yeni işlevsellikten yararlanmak için bileşenleri.
+Zaten yüklediyseniz **elastik veritabanı işleri** mevcut bir Portal üzerinden **elastik havuz**, en son PowerShell Önizleme var olan yüklemeyi yükseltmek için komut dosyalarını içerir. Yüklemenizin en son sürüme yükseltmek için önemle tavsiye edilir **elastik veritabanı işleri** PowerShell API'leri kullanıma sunulan yeni işlevsellikten yararlanmak için bileşenleri.
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Azure aboneliği. Ücretsiz deneme için bkz: [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. En son sürümünü kullanarak yüklemeniz [Web Platformu yükleyicisi](https://go.microsoft.com/fwlink/p/?linkid=320376). Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
-* [NuGet komut satırı yardımcı programı](https://nuget.org/nuget.exe) elastik veritabanı işleri paketini yüklemek için kullanılır. Daha fazla bilgi için bkz. http://docs.nuget.org/docs/start-here/installing-nuget.
+* [NuGet komut satırı yardımcı programı](https://nuget.org/nuget.exe) elastik veritabanı işleri paketini yüklemek için kullanılır. Daha fazla bilgi için bkz. https://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>İndirme ve elastik veritabanı işleri PowerShell paketi içeri aktarma
 1. Microsoft Azure PowerShell komut penceresini başlatın ve NuGet komut satırı yardımcı programı (nuget.exe) karşıdan yüklediğiniz dizine gidin.
@@ -75,9 +75,7 @@ Bu örnek çağrıda sağlanan parametreleri için istenen ayarlarınız değiş
     <td>Yeni oluşturulan Azure bileşenlerini içerecek şekilde oluşturulan Azure kaynak grubu adı sağlar. Bu parametre, varsayılan olarak "__ElasticDatabaseJob için". Bu değeri değiştirmeniz önerilmez.</td>
     </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ResourceGroupLocation</td>
     <td>Yeni oluşturulan Azure bileşenleri için kullanılacak Azure konumdur. Bu parametre, Orta ABD konumu varsayılan olarak.</td>
 </tr>
@@ -85,28 +83,24 @@ Bu örnek çağrıda sağlanan parametreleri için istenen ayarlarınız değiş
 <tr>
     <td>ServiceWorkerCount</td>
     <td>Yüklenecek hizmet çalışanların sayısını sağlar. Bu parametre, varsayılan olarak 1. Daha fazla çalışan sayısı, hizmetin ölçeğini genişletin ve yüksek kullanılabilirlik sağlamak için kullanılabilir. "2" hizmetinin yüksek kullanılabilirlik gerektiren dağıtımları için kullanmak üzere önerilir.</td>
-    </tr>
-
 </tr>
-    <tr>
+
+<tr>
     <td>ServiceVmSize</td>
     <td>Bulut hizmeti dahilinde kullanım için VM boyutu sağlar. Bu parametre için A0 varsayar. Parametre değerlerini... /.. / A3 kabul edildiği bir çok küçük/küçük/Orta/büyük boyutu sırasıyla kullanılacak çalışan rolü neden. FO çalışan rolü boyutları hakkında daha fazla bilgi [elastik veritabanı işleri bileşenleri ve fiyatlandırma](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerDatabaseSlo</td>
     <td>İşlem boyutu Standard bir sürümü sağlar. Bu parametre için S0 varsayar. Parametre değerlerini... /.. /.. /.. / S9/S12 kabul edildiği ilgili işlem boyutu kullanmak Azure SQL veritabanı neden. SQL veritabanı işlem boyutları hakkında daha fazla bilgi için bkz. [elastik veritabanı işleri bileşenleri ve fiyatlandırma](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorUserName</td>
     <td>Yeni oluşturulan Azure SQL veritabanı sunucusu için yönetici kullanıcı adı sağlar. Belirtilmediğinde, kimlik bilgileri istemek için bir PowerShell kimlik bilgileri penceresi açılır.</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorPassword</td>
     <td>Yeni oluşturulan Azure SQL veritabanı sunucusu için yönetici parolasını sağlar. Sağlanan değil, kimlik bilgilerini soracak şekilde bir PowerShell kimlik bilgileri penceresi açılır.</td>
 </tr>
@@ -131,22 +125,17 @@ Bir yükleme VM boyutunu güncelleştirmek için seçtiğiniz değerlere güncel
   <th>Açıklama</th>
 </tr>
 
-  <tr>
+<tr>
     <td>ResourceGroupName</td>
     <td>Elastik veritabanı iş bileşenler ilk yüklendiğinde kullanılan Azure kaynak grubu adını tanımlar. Bu parametre, varsayılan olarak "__ElasticDatabaseJob için". Bu değeri değiştirmeniz önerilmez olduğundan, bu parametre belirtmeniz gerekmez.</td>
-    </tr>
 </tr>
 
-</tr>
-
-  <tr>
+<tr>
     <td>ServiceWorkerCount</td>
     <td>Yüklenecek hizmet çalışanların sayısını sağlar.  Bu parametre, varsayılan olarak 1.  Daha fazla çalışan sayısı, hizmetin ölçeğini genişletin ve yüksek kullanılabilirlik sağlamak için kullanılabilir.  "2" hizmetinin yüksek kullanılabilirlik gerektiren dağıtımları için kullanmak üzere önerilir.</td>
 </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ServiceVmSize</td>
     <td>Bulut hizmeti dahilinde kullanım için VM boyutu sağlar. Bu parametre için A0 varsayar. Parametre değerlerini... /.. / A3 kabul edildiği bir çok küçük/küçük/Orta/büyük boyutu sırasıyla kullanılacak çalışan rolü neden. FO çalışan rolü boyutları hakkında daha fazla bilgi [elastik veritabanı işleri bileşenleri ve fiyatlandırma](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>

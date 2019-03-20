@@ -1,6 +1,6 @@
 ---
-title: Azure yönetilen kimlikleri ile tümleştirmek için öğretici | Microsoft Docs
-description: Bu öğreticide, Azure yönetilen kimlikleri ile kimlik doğrulaması ve Azure uygulama yapılandırması erişim kazanmak için nasıl bilgi edinin
+title: Azure ile tümleştirmek için öğretici yönetilen kimlikleri | Microsoft Docs
+description: Bu öğreticide, Azure'ı kullanmayı öğrenin yönetilen kimlikleri ile kimlik doğrulaması ve Azure uygulama yapılandırması erişim kazanmak için
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -13,67 +13,69 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 874522b6b4ca3739e0736d4f70f76bb82cad25f9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: be19d37900acb8201922fa61fda61cc884d4c933
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957360"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226020"
 ---
-# <a name="tutorial-integrate-with-azure-managed-identities"></a>Öğretici: Azure yönetilen kimlikleriniz ile tümleştirebilirsiniz
+# <a name="tutorial-integrate-with-azure-managed-identities"></a>Öğretici: Azure ile tümleştirilmesini yönetilen kimlikleri
 
-Azure Active Directory [yönetilen kimlikleri](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) yardımcı olur, bulut uygulamanız için gizli dizileri Yönetimi basitleştirin. Yönetilen bir kimlik ile oluşturulmuş hizmet sorumlusunu Azure anahtar kasası veya bir yerel bağlantı dizesi içinde depolanan ayrı bir kimlik bilgisi yerine üzerinde çalıştığı Azure işlem hizmetlerini kullanmak için kodunuzu oluşturan ayarlayabilirsiniz. Azure uygulama yapılandırması ve .NET Core, .NET ve Java Spring istemci kitaplıkları, yerleşik MSI desteğiyle gelir. Bunu kullanmak için gerekli olmasa da, MSI gizli dizileri içeren bir erişim belirteci ihtiyacını ortadan kaldırır. Kodunuzu yalnızca erişebilmesi için bir uygulama yapılandırma deposu için hizmet uç noktasını bilmesi gerekir ve bu URL, kodunuzdaki herhangi bir gizli dizi gösterme, doğrudan kaygısı olmadan ekleyebilir.
+Azure Active Directory [yönetilen kimlikleri](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) bulut uygulamanız için gizli dizileri Yönetimi basitleştirin. Yönetilen bir kimlikle Azure bilgi işlem hizmetinin üzerinde çalıştığı için oluşturulan hizmet sorumlusu kullanmak kodunuzu oluşturan ayarlayabilirsiniz. Azure anahtar kasası veya bir yerel bağlantı dizesi içinde depolanan ayrı bir kimlik bilgisi yerine yönetilen bir kimlik kullanın. 
 
-Bu öğreticide, uygulama yapılandırması ile erişmek için MSI avantajlarından nasıl gerçekleştirebileceğiniz gösterilir. Bu hızlı başlangıçlar, sunulan web uygulaması oluşturur. Tam [uygulama yapılandırması ile bir ASP.NET Core uygulaması oluşturma](./quickstart-aspnet-core-app.md) devam etmeden önce ilk.
+Azure uygulama yapılandırması ve kendi .NET Core, .NET ve Java Spring istemci kitaplıkları, yönetilen hizmet kimliği (MSI) destekleyen yerleşik gelir. Bunu kullanmak için gerekli değildir ancak MSI gizli dizileri içeren bir erişim belirteci ihtiyacını ortadan kaldırır. Kodunuzu yalnızca erişebilmesi için depolama hizmet uç uygulama yapılandırması için bilmeniz gerekir. Bu URL, kodunuzdaki herhangi bir gizli dizi gösterme, doğrudan kaygısı olmadan ekleyebilir.
 
-Bu öğreticideki adımları tamamlamak için herhangi bir kod Düzenleyicisi'ni kullanabilirsiniz. Ancak, Windows, macOS ve Linux platformlarında sağlanan [Visual Studio Code](https://code.visualstudio.com/) mükemmel bir seçenektir.
+Bu öğreticide, uygulama yapılandırması ile erişmek için MSI avantajlarından nasıl gerçekleştirebileceğiniz gösterilir. Bu hızlı başlangıçlar, sunulan web uygulaması oluşturur. Devam etmeden önce [uygulama yapılandırması ile bir ASP.NET Core uygulaması oluşturma](./quickstart-aspnet-core-app.md) ilk.
+
+Bu öğreticideki adımları uygulamak için herhangi bir kod Düzenleyicisi'ni kullanabilirsiniz. [Visual Studio Code](https://code.visualstudio.com/) Windows, macOS ve Linux platformlarını mükemmel bir seçenek kullanılabilir.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Uygulama yapılandırması için bir yönetilen kimlik erişimi verme
-> * Yönetilen bir kimlik uygulama yapılandırması için bağlanırken kullanmak için uygulamanızı yapılandırın
+> * Uygulama yapılandırması için bir yönetilen kimlik erişim.
+> * Uygulama yapılandırması bağlandığınızda yönetilen bir kimlik kullanacak şekilde yapılandırın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiyi tamamlamak için aşağıdakilere sahip olmanız gerekir:
+Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
-* [.NET Core SDK](https://www.microsoft.com/net/download/windows)
-* [Yapılandırılmış Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)
+* [.NET core SDK'sı](https://www.microsoft.com/net/download/windows).
+* [Azure Cloud Shell yapılandırılmış](https://docs.microsoft.com/azure/cloud-shell/quickstart).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="add-a-managed-identity"></a>Yönetilen bir kimlik Ekle
 
-Portalda yönetilen bir kimlik ayarlamak için ilk olarak normal bir uygulama oluşturun ve ardından özelliği etkinleştirmek.
+Portalda yönetilen bir kimlik ayarlamak için ilk olarak normal bir uygulama oluşturun ve ardından özelliği etkinleştirin.
 
-1. Bir uygulama oluşturun [Azure portalında](https://aka.ms/azconfig/portal) normalde yaptığınız gibi. İçin portalda gidin.
+1. Bir uygulama oluşturun [Azure portalında](https://aka.ms/azconfig/portal) normalde yaptığınız gibi. Portalda gidin.
 
-2. Ekranı aşağı kaydırarak **ayarları** seçin ve grup sol gezinti bölmesinde **kimlik**.
+2. Ekranı aşağı kaydırarak **ayarları** grup sol bölmede, belirleyin **kimlik**.
 
-3. İçinde **sistem tarafından atanan** sekmesinde, geçiş **durumu** için **üzerinde** tıklatıp **Kaydet**.
+3. Üzerinde **sistem tarafından atanan** sekmesinde, geçiş **durumu** için **üzerinde** seçip **Kaydet**.
 
     ![App Service'te yönetilen kimlik ayarlayın](./media/set-managed-identity-app-service.png)
 
 ## <a name="grant-access-to-app-configuration"></a>Uygulama yapılandırması için erişim izni ver
 
-1. İçinde [Azure portalında](https://aka.ms/azconfig/portal), tıklayın **tüm kaynakları** ve hızlı başlangıçta oluşturduğunuz uygulama yapılandırma deposu.
+1. İçinde [Azure portalında](https://aka.ms/azconfig/portal)seçin **tüm kaynakları** ve hızlı başlangıç bölümünde oluşturduğunuz uygulama yapılandırma deposu seçin.
 
 2. Seçin **erişim denetimi (IAM)**.
 
-3. İçinde **denetleyin erişim** sekmesini tıklatın, **Ekle** içinde **bir rol ataması Ekle** UI kartı.
+3. Üzerinde **denetleyin erişim** sekmesinde **Ekle** içinde **rol ataması Ekle** UI kartı.
 
-4. Ayarlama **rol** olmasını *katkıda bulunan* ve **erişim Ata** olmasını *App Service* (altında *sistem tarafından atanan yönetilen kimlik*).
+4. Altında **rol**seçin **katkıda bulunan**. Altında **erişim Ata**seçin **App Service** altında **sistem atanan yönetilen kimlik**.
 
-5. Ayarlama **abonelik** Azure aboneliği ve uygulamanız için App Service kaynak seçin.
+5. Altında **abonelik**, Azure aboneliğinizi seçin. Uygulamanız için App Service kaynak seçin.
 
-6. **Kaydet**’e tıklayın.
+6. **Kaydet**’i seçin.
 
-    ![Yönetilen kimlik Ekle](./media/add-managed-identity.png)
+    ![Yönetilen bir kimlik Ekle](./media/add-managed-identity.png)
 
 ## <a name="use-a-managed-identity"></a>Yönetilen kimlik kullanma
 
-1. Açık *appsettings.json*, aşağıdaki ekleme ve değiştirme *< service_endpoint >* (köşeli ayraçlar dahil), uygulama yapılandırma deposunun URL'si ile:
+1. Açık *appsettings.json*ve aşağıdaki betiği ekleyin. Değiştirin *< service_endpoint >*, köşeli parantez ile uygulama yapılandırma deposu URL'si de dahil olmak üzere:
 
     ```json
     "AppConfig": {
@@ -81,7 +83,7 @@ Portalda yönetilen bir kimlik ayarlamak için ilk olarak normal bir uygulama ol
     }
     ```
 
-2. Açık *Program.cs* ve güncelleştirme `CreateWebHostBuilder` değiştirerek yöntemi `config.AddAzureAppConfiguration()` yöntemi.
+2. Açık *Program.cs*ve güncelleştirme `CreateWebHostBuilder` değiştirerek yöntemi `config.AddAzureAppConfiguration()` yöntemi.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -100,7 +102,7 @@ Portalda yönetilen bir kimlik ayarlamak için ilk olarak normal bir uygulama ol
 
 ## <a name="deploy-from-local-git"></a>Yerel Git’ten dağıtım
 
-Kudu derleme sunucusu ile uygulamanıza yönelik yerel Git dağıtımını etkinleştirmek için en kolay yolu, Cloud Shell'i kullanmaktır.
+Kudu derleme sunucusu ile uygulamanıza yönelik yerel Git dağıtımını etkinleştirmek için en kolay yolu, Azure Cloud Shell kullanmaktır.
 
 ### <a name="configure-a-deployment-user"></a>Dağıtım kullanıcısı yapılandırma
 
@@ -146,13 +148,13 @@ _Yerel terminal penceresine_ dönüp yerel Git deponuza bir Azure uzak deposu ek
 git remote add azure <url>
 ```
 
-Aşağıdaki komutla uygulamanızı dağıtmak için Azure uzak deposuna gönderin. Parola istendiğinde Azure portalında oturum açarken kullandığınız parolayı değil [Dağıtım kullanıcısı yapılandırma](#configure-a-deployment-user) adımında oluşturduğunuz parolayı girdiğinizden emin olun.
+Aşağıdaki komutla uygulamanızı dağıtmak için Azure uzak deposuna gönderin. Parola sorulduğunda, oluşturduğunuz parolayı girin [dağıtım kullanıcısı yapılandırma](#configure-a-deployment-user). Azure portalında oturum açmak için kullandığınız parolayı kullanmayın.
 
 ```bash
 git push azure master
 ```
 
-Çalışma zamanı özel Otomasyon çıkışında, ASP.NET, MSBuild gibi görebilirsiniz `npm install` Node.js için ve `pip install` Python için.
+Çalışma zamanı özel Otomasyon çıkışında, ASP.NET, MSBuild gibi görebileceğiniz `npm install` Node.js için ve `pip install` Python için.
 
 ### <a name="browse-to-the-azure-web-app"></a>Azure web uygulamasına göz atma
 
@@ -162,13 +164,13 @@ Web uygulamanıza içerik dağıtıldığını doğrulamak için bir tarayıcı 
 http://<app_name>.azurewebsites.net
 ```
 
-![App Service’te çalışan uygulama](../app-service/media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
+![App Service'te çalışan uygulama](../app-service/media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
 ## <a name="use-managed-identity-in-other-languages"></a>Diğer dillerde yönetilen kimliği kullanma
 
-Yönetilen kimlik için yerleşik destek de .NET Framework ve Java Spring için uygulama yapılandırma sağlayıcısı var. Bu durumlarda, sadece uygulama yapılandırma mağazanın URL uç noktasını, tam bir bağlantı dizesi yerine bir sağlayıcı yapılandırırken kullanın. Örneğin, bu hızlı başlangıçta oluşturulan .NET Framework konsol uygulaması için şu ayarlarında belirttiğiniz *App.config* dosyası:
+Yönetilen kimlik için yerleşik destek de .NET Framework ve Java Spring için uygulama yapılandırma sağlayıcısı var. Bir sağlayıcı yapılandırdığınızda bu gibi durumlarda yerine tam bağlantı dizesini uygulama yapılandırma mağazanın URL uç noktasını kullanın. Örneğin, bu hızlı başlangıçta oluşturulan .NET Framework konsol uygulaması için aşağıdaki ayarları belirtin *App.config* dosyası:
 
-    ```xml
+```xml
     <configSections>
         <section name="configBuilders" type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" restartOnExternalChanges="false" requirePermission="false" />
     </configSections>
@@ -184,7 +186,7 @@ Yönetilen kimlik için yerleşik destek de .NET Framework ve Java Spring için 
         <add key="AppName" value="Console App Demo" />
         <add key="Endpoint" value ="Set via an environment variable - for example, dev, test, staging, or production endpoint." />
     </appSettings>
-    ```
+```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -192,7 +194,7 @@ Yönetilen kimlik için yerleşik destek de .NET Framework ve Java Spring için 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, eklediğiniz Azure yönetilen hizmet kimliği erişim uygulama yapılandırmasını kolaylaştırmaya ve uygulamanız için kimlik bilgileri yönetimi iyileştirmek için. Uygulama yapılandırmasını kullanma hakkında daha fazla bilgi edinmek için Azure CLI örnekleri için devam edin.
+Bu öğreticide, eklediğiniz Azure yönetilen hizmet kimliği erişim uygulama yapılandırmasını kolaylaştırmaya ve uygulamanız için kimlik bilgileri yönetimi iyileştirmek için. Uygulama yapılandırmasını kullanma hakkında daha fazla bilgi için Azure CLI örnekleri için devam edin.
 
 > [!div class="nextstepaction"]
 > [CLI örnekleri](./cli-samples.md)

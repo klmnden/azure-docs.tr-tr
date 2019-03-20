@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 000f8de4d40fda39f183b0824bea6a09605e6e9d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a47a30995f651204782325a9f984086fdf382a03
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977618"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202206"
 ---
 # <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>İş akışları tanımlamak ve işlerini koordine etmek için HDInsight, Apache Hadoop ile zamana dayalı Apache Oozie düzenleyicisini kullanma
 Bu makalede, zamana dayalı Düzenleyicisi işlerini nasıl tetikleyeceğinizi yanı sıra iş akışlarını ve düzenleyicileri nasıl tanımlanacağını öğreneceksiniz. Git yararlıdır [HDInsight ile kullanmak Apache Oozie] [ hdinsight-use-oozie] önce bu makaleyi okuyun. Oozie ek olarak, Azure Data Factory kullanarak işleri zamanlayabilirsiniz. Azure Data Factory bilgi edinmek için [kullanım Apache Pig ve Apache Hive ile veri fabrikası](../data-factory/transform-data.md).
@@ -87,7 +87,7 @@ Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
     |SQL veritabanı adı|$sqlDatabaseName||Azure SQL veritabanı Sqoop verileri dışarı aktarır. |
 
   > [!NOTE]   
-  > Varsayılan olarak bir Azure SQL veritabanı, Azure HDInsight gibi Azure hizmetlerinden bağlantılar sağlar. Bu güvenlik duvarı ayarı devre dışıysa, Azure Portalı'ndan etkinleştirmeniz gerekir. SQL veritabanı oluşturma ve güvenlik duvarı kuralları yapılandırma hakkında daha fazla yönerge için bkz. [oluşturma ve SQL veritabanını Yapılandır][sqldatabase-get-started].
+  > Varsayılan olarak bir Azure SQL veritabanı, Azure HDInsight gibi Azure hizmetlerinden bağlantılar sağlar. Bu güvenlik duvarı ayarı devre dışıysa, Azure portalından etkinleştirmeniz gerekir. SQL veritabanı oluşturma ve güvenlik duvarı kuralları yapılandırma hakkında daha fazla yönerge için bkz. [oluşturma ve SQL veritabanını Yapılandır][sqldatabase-get-started].
 
 > [!NOTE]  
 > Doldurma tablolardaki değerleri. Bu öğreticide giden yararlı olacaktır.
@@ -192,7 +192,7 @@ Hive iş akışı eylemi HiveQL komut dosyasını çağırır. Bu komut dosyası
     |İş akışı değişkenleri|Açıklama|
     |---|---|
     |${jobTracker}|Hadoop işi İzleyicisi URL'sini belirtin. Kullanım **jobtrackerhost:9010** sürüm 3.0 ve 2.0 üzerinde HDInsight kümesi.|
-    |${nameNode}|Hadoop adı düğüm URL'sini belirtin. Varsayılan dosya sistemi wasb kullanın: / / adres, örneğin, *wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net*.|
+    |${nameNode}|Hadoop adı düğüm URL'sini belirtin. Varsayılan dosya sistemi wasb kullanın: / / adres, örneğin, *wasb: / /&lt;containerName&gt;\@&lt;storageAccountName&gt;. blob.core.windows.net*.|
     |${queueName}|İş için gönderilecek kuyruk adını belirtir. Kullanım **varsayılan**.|
 
     Hive eylem değişkenleri
@@ -655,15 +655,15 @@ Azure PowerShell, şu anda Oozie işleri tanımlamak için tüm cmdlet'leri sağ
 
 Ek işlevler çalıştırmak istiyorsanız # işareti kaldırın.
 
-9. Hdınsight kümenizi sürüm 2.1 ise, "https://$clusterName.azurehdinsight.net:443/oozie/v2/" "https://$clusterName.azurehdinsight.net:443/oozie/v1/" ile değiştirin. HDInsight kümesi sürüm 2.1 değil web hizmetlerinin desteklediği sürüm 2 yapar.
-10. Tıklayın **betiğini Çalıştır** veya basın **F5** betiği çalıştırmak için. Çıktı şuna benzer olacaktır:
+1. HDInsight kümenizi sürüm 2.1 ise, "https://$clusterName.azurehdinsight.net:443/oozie/v2/" "https://$clusterName.azurehdinsight.net:443/oozie/v1/" ile değiştirin. HDInsight kümesi sürüm 2.1 değil web hizmetlerinin desteklediği sürüm 2 yapar.
+1. Tıklayın **betiğini Çalıştır** veya basın **F5** betiği çalıştırmak için. Çıktı şuna benzer olacaktır:
 
-     ![Öğretici, iş akışı çıkışı çalıştırma][img-runworkflow-output]
-11. Dışarı aktarılan verileri görmek için SQL veritabanınıza bağlanın.
+    ![Öğretici, iş akışı çıkışı çalıştırma][img-runworkflow-output]
+1. Dışarı aktarılan verileri görmek için SQL veritabanınıza bağlanın.
 
 **İş hata günlüğünü kontrol etmek için**
 
-Bir iş akışının sorunlarını gidermek için Oozie günlük dosyası C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log küme baş düğümüne bulunabilir. RDP hakkında daha fazla bilgi için bkz: [yönetme HDInsight kümeleri Azure portalını kullanarak][hdinsight-admin-portal].
+Bir iş akışının sorunlarını gidermek için Oozie günlük dosyası C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log küme baş düğümüne bulunabilir. RDP hakkında daha fazla bilgi için bkz: [yönetme Apache Hadoop, Azure portalını kullanarak HDInsight kümeleri](hdinsight-administer-use-portal-linux.md).
 
 **Öğreticiyi yeniden çalıştırmak için**
 
@@ -719,7 +719,6 @@ Bu öğreticide, bir Oozie iş akışının ve Oozie düzenleyicisini nasıl tan
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 698e6fb861ab891a84aa43ca94769099a5c76943
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d944a51f7e0ee24d5a3768ba28d7a8294c30b99b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766827"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118774"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Geliştirici Kılavuzu
 
@@ -250,21 +250,21 @@ Ardından, veri kaynağı bir uygulama veya Tomcat servlet üzerinde çalışan 
 #### <a name="finally-place-the-driver-jars-in-the-tomcat-classpath-and-restart-your-app-service"></a>Son olarak, sürücü jar dosyaları dışındaki Tomcat sınıf getirin ve App service'inizi yeniden başlatın
 
 1. Bunları yerleştirerek JDBC sürücüsü dosyaları için Tomcat classloader kullanılabilir olduğundan emin olun `/home/tomcat/lib` dizin. (Zaten yoksa, bu dizin oluşturun.) Bu dosyalar, App Service örneğine karşıya yüklemek için aşağıdaki adımları gerçekleştirin:  
-    1. Azure App Service webpp uzantıyı yükleyin:
+   1. Azure App Service webpp uzantıyı yükleyin:
 
       ```azurecli-interactive
       az extension add –name webapp
       ```
 
-    1. App Service için yerel sisteminizden SSH tüneli oluşturmaya aşağıdaki CLI komutunu çalıştırın:
+   1. App Service için yerel sisteminizden SSH tüneli oluşturmaya aşağıdaki CLI komutunu çalıştırın:
 
       ```azurecli-interactive
       az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
       ```
 
-    1. SFTP istemcinizi ile yerel tünel bağlantı noktasına bağlanmak ve dosyaları karşıya yükleme `/home/tomcat/lib` klasör.
+   1. SFTP istemcinizi ile yerel tünel bağlantı noktasına bağlanmak ve dosyaları karşıya yükleme `/home/tomcat/lib` klasör.
 
-    Alternatif olarak, JDBC sürücüsünü yüklenecek bir FTP istemcisi kullanabilirsiniz. Aşağıdaki adımları [FTP kimlik bilgilerinizi almak için yönergeler](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
+      Alternatif olarak, JDBC sürücüsünü yüklenecek bir FTP istemcisi kullanabilirsiniz. Aşağıdaki adımları [FTP kimlik bilgilerinizi almak için yönergeler](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 2. Sunucu düzeyinde veri kaynağı oluşturduysanız, App Service Linux uygulamayı yeniden başlatın. Tomcat sıfırlanır `CATALINA_HOME` için `/home/tomcat/conf` ve güncelleştirilmiş yapılandırmayı kullanın.
 

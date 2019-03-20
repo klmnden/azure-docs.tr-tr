@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a242e2419c64b0b80665aa2a8859f73143210bab
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a51175d192a5afb1f84f8d0ed2de9796f198f82d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552206"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102409"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Öğretici: Tek bir AD ormanı ortamını bulutta federasyona ekleme
 
@@ -83,7 +83,7 @@ Sanal makine oluşturma işlemini tamamlamak için işletim sistemi yüklemesini
 
 1. Hyper-V Yöneticisi, sanal makinede çift tıklatın
 2. Başlat düğmesine tıklayın.
-3.  'CD veya DVD'den önyükleme için bir tuşa basın için ' istenir. Devam edin ve bunu yapın.
+3. 'CD veya DVD'den önyükleme için bir tuşa basın için ' istenir. Devam edin ve bunu yapın.
 4. Windows Server başlangıç ekranı dilinizi seçin ve tıklayın **sonraki**.
 5. Tıklayın **Şimdi Yükle**.
 6. Lisans anahtarınızı girip __iade **sonraki**.
@@ -281,9 +281,9 @@ Artık, şirket içi dizininde vardı kullanıcıları eşitlenmiştir ve artık
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Kullanıcılarımızın biriyle oturum açma testi
 
-1.  Göz atın [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Göz atın [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Sunduğumuz yeni kiracıda oluşturduğunuz kullanıcı hesabı ile oturum.  Aşağıdaki biçimi kullanarak oturum açmanız gerekir: (user@domain.onmicrosoft.com). Kullanıcının oturum açmak için kullandığı aynı parolayı kullanan şirket içi.
-![Doğrulayın](media/tutorial-password-hash-sync/verify1.png)
+   ![Doğrulayın](media/tutorial-password-hash-sync/verify1.png)
 
 Şimdi başarıyla test edin ve hangi Azure sunduğu ile kendinizi alıştırın için kullanabileceğiniz bir karma kimlik ortamı vardır.
 

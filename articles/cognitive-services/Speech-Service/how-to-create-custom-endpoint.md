@@ -1,6 +1,6 @@
 ---
-title: Azure'da konuşma hizmeti ile özel konuşma tanıma uç noktası oluşturma | Microsoft Docs
-description: Bilişsel hizmetler konuşma hizmeti ile özel bir konuşmayı metne uç noktası oluşturmayı öğrenin.
+title: Azure'da konuşma Hizmetleri ile bir özel konuşma tanıma uç noktası oluşturma | Microsoft Docs
+description: Azure konuşma Hizmetleri kullanarak özel bir konuşmayı metne uç oluşturmayı öğrenin.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -9,19 +9,19 @@ ms.subservice: custom-speech
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: panosper
-ms.openlocfilehash: 63d2c15c14340b0d7407b0144a8b8c75a2634e6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1f7a84d187ba6279caad4926d54bfc56254152af
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220255"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863007"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Özel bir konuşmayı metne dönüştürme uç noktası oluşturma
 
-Özel akustik modeller veya dil modellerini oluşturduktan sonra özel bir konuşmayı metne uç noktasına dağıtabilirsiniz. 
+Özel akustik modeller veya dil modellerini oluşturduktan sonra özel bir konuşmayı metne uç noktasına dağıtabilirsiniz.
 
 ## <a name="create-an-endpoint"></a>Uç nokta oluşturma
-Yeni özel uç nokta oluşturmak için Seç **uç noktaları** üzerinde **özel konuşma** sayfanın üstündeki menü. Bu eylem açılır **uç noktaları** geçerli özel uç noktalar tablosunu içeren sayfa. Uç nokta henüz oluşturmadıysanız, boş bir tablodur. Geçerli yerel ayar, tablo başlığında gösterilir. 
+Yeni özel uç nokta oluşturmak için Seç **uç noktaları** üzerinde **özel konuşma** sayfanın üstündeki menü. Bu eylem açılır **uç noktaları** geçerli özel uç noktalar tablosunu içeren sayfa. Uç nokta henüz oluşturmadıysanız, boş bir tablodur. Geçerli yerel ayar, tablo başlığında gösterilir.
 
 Farklı bir dil için bir dağıtım oluşturmak için Seç **yerel ayarını Değiştir**. Desteklenen diller hakkında daha fazla bilgi için.
 
@@ -44,6 +44,6 @@ Dağıtıma hazır olduğunda, bir bağlantı uç noktası adı olur. Bağlantı
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Diğer öğreticiler için bkz:
-- [Konuşma Tanıma Hizmeti deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
+- [Konuşma Tanıma Hizmetleri deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
 - [Özel akustik model oluşturma](how-to-customize-acoustic-models.md)
 - [Özel dil modeli oluşturma](how-to-customize-language-model.md)

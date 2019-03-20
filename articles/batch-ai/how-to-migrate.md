@@ -7,18 +7,18 @@ ms.topic: overview
 ms.author: jmartens
 author: j-martens
 ms.date: 2/28/2019
-ms.openlocfilehash: 5bc01ad6811cc5661d74770ce36281c9acba8912
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: e495ed06c640601c0500d14b42070a264fd687a9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196265"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862123"
 ---
 # <a name="migrating-from-batch-ai-to-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile batch AI ' geçiş
 
 **Azure Batch AI hizmeti Mart ayında devre dışı bırakılıyor.** Ölçekli eğitim ve puanlama Batch AI yeteneklerini de kullanıma sunulmuştur [Azure Machine Learning hizmeti](../machine-learning/service/overview-what-is-azure-ml.md), hangi genel olarak kullanılabilir hale 4 Aralık 2018'de.
 
-Makine öğrenimi özellikleri birçok diğer yanı sıra, Azure Machine Learning hizmeti, eğitim, dağıtma ve makine öğrenimi modellerini Puanlama için yönetilen bir bulut tabanlı bilgi işlem hedef içerir. Bu işlem hedef adlı [Azure Machine Learning işlem](../machine-learning/service/how-to-set-up-training-targets.md#amlcompute). [Geçiş ve bugün kullanmaya başlayın](#migrate). Azure Machine Learning hizmeti aracılığıyla etkileşim kurabilir, [Python SDK'ları](../machine-learning/service/quickstart-create-workspace-with-python.md), komut satırı arabirimi ve [Azure portalında](../machine-learning/service/quickstart-get-started.md).
+Makine öğrenimi özellikleri birçok diğer yanı sıra, Azure Machine Learning hizmeti, eğitim, dağıtma ve makine öğrenimi modellerini Puanlama için yönetilen bir bulut tabanlı bilgi işlem hedef içerir. Bu işlem hedef adlı [Azure Machine Learning işlem](../machine-learning/service/how-to-set-up-training-targets.md#amlcompute). Geçiş ve bugün kullanmaya başlayın. Azure Machine Learning hizmeti aracılığıyla etkileşim kurabilir, [Python SDK'ları](../machine-learning/service/quickstart-create-workspace-with-python.md), komut satırı arabirimi ve [Azure portalında](../machine-learning/service/quickstart-get-started.md).
 
 GA'ed Azure Machine Learning hizmeti ile Önizleme Batch AI ' yükseltme Estimators ve veri depoları gibi kullanmak daha kolay olan kavramları aracılığıyla daha iyi bir deneyim sunar. Ayrıca Azure hizmet düzeyi SLA'lar genel kullanım ve müşteri desteği garanti eder.
 
@@ -87,7 +87,7 @@ Azure Machine Learning çalışma alanı sınıfı hakkında daha fazla bilgi [S
 
 
 ## <a name="create-compute-clusters"></a>İşlem kümeleri oluşturma
-Azure Machine Learning bazı hizmet ve çalışma alanınıza (örn. eklenebilecek başkaları tarafından yönetilen, birden çok bilgisayar hedefine destekler Bir HDInsight kümesi veya uzak bir VM. Çeşitli hakkında daha fazla bilgiyi [hedefleri işlem](../machine-learning/service/how-to-set-up-training-targets.md). Azure Batch AI oluşturma kavramı, Azure Machine Learning hizmetinde bir AmlCompute kümesi oluşturmak için küme haritalarını işlem. Parametreler Azure Batch AI nasıl geçireceğiniz benzer bir işlem yapılandırmasında Amlcompute oluşturulması alır. Not için bir Azure Batch AI, varsayılan olarak kapalıdır ise otomatik ölçeklendirmenin AmlCompute kümenizdeki varsayılan olarak açıktır şeydir.
+Azure Machine Learning bazı hizmet ve çalışma alanınıza (örn. eklenebilecek başkaları tarafından yönetilen, birden çok bilgisayar hedefine destekler Bir HDInsight kümesi veya uzak bir VM. Çeşitli hakkında daha fazla bilgiyi [hedefleri işlem](../machine-learning/service/how-to-set-up-training-targets.md). Bir Azure Batch AI oluşturma kavramı, Azure Machine Learning hizmetinde bir AmlCompute kümesi oluşturmak için küme haritalarını işlem. Parametreler Azure Batch AI nasıl geçireceğiniz benzer bir işlem yapılandırmasında Amlcompute oluşturulması alır. Not için bir Azure Batch AI, varsayılan olarak kapalıdır ise otomatik ölçeklendirmenin AmlCompute kümenizdeki varsayılan olarak açıktır şeydir.
 
 İçin **Batch AI**, bu şekilde yaptınız:
 

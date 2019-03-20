@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 02/26/2019
-ms.openlocfilehash: 4f72def4d81f51fcf1bedbeb83798b16ebb6eb32
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 4ade1b05b1ec5c81774b5340cfdceb97e41218f3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888670"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123054"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Öğretici: Gerçek zamanlı olayları Azure Event Hubs için gönderilen veri anomaliler görselleştirin
 
@@ -328,10 +328,10 @@ Stream Analytics işinde **Çalıştır**'a, **Şimdi**'ye ve ardından **Çalı
     > Olay hub'ına veri akışı ve örnek uygulamayı çalıştırdığınızda, bu kutucuk sayısına (saniyede) hızlı bir şekilde değiştirir. Stream Analytics sorgusu değeri gerçekten güncelleştirmeleri çünkü **saniyede**. Bir 3 dakika dönen pencere toplamı son birkaç dakikada görmek için sorguyu güncelleştirin. 
 11. Başka bir görselleştirme ekleyin. İlk birkaç adımı tekrarlayın:
 
-   * **Kutucuk Ekle**'ye tıklayın.
-   * **Özel Akış Verileri**'ni seçin. 
-   * **İleri**'ye tıklayın.
-   * Veri kümenizi seçin ve **İleri**'ye tıklayın. 
+    * **Kutucuk Ekle**'ye tıklayın.
+    * **Özel Akış Verileri**'ni seçin. 
+    * **İleri**'ye tıklayın.
+    * Veri kümenizi seçin ve **İleri**'ye tıklayın. 
 
 12. **Görselleştirme Türü** olarak **Çizgi grafik** türünü seçin.
 

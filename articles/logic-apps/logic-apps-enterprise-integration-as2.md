@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.date: 06/08/2017
-ms.openlocfilehash: 2604cdd6bf758858328c2d30fc4cde535f0a7148
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 3413b235d9202530eb1a3129637e3746bbe6585b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124671"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872594"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>AS2 iletilerini paylaşma için Enterprise Integration Pack ile Azure Logic apps'teki B2B Kurumsal tümleştirme
 
@@ -35,7 +35,7 @@ Gereksinim duyduğunuz öğeleri şu şekildedir:
 
 ## <a name="create-an-as2-agreement"></a>Bir AS2 sözleşmesi oluşturma
 
-1.  [Azure portalı](http://portal.azure.com "Azure portalı") oturumunu açın.  
+1.  [Azure portalı](https://portal.azure.com "Azure portalı") oturumunu açın.  
 
 2. Ana Azure menüsünde **tüm hizmetleri**. Arama kutusuna "tümleştirme" girin ve ardından **tümleştirme hesapları**.
 

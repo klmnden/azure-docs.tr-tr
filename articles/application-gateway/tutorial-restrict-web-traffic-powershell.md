@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7e9c0bc4cdf34aac20f4823af3a2ca3eab962971
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5ba19c5156f25c2ff4a616e1482b6dfc83cadc27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314730"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894470"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Azure PowerShell kullanarak web uygulaması güvenlik duvarını etkinleştirme
 
@@ -266,7 +266,7 @@ $storageAccount = New-AzStorageAccount `
 
 ### <a name="configure-diagnostics"></a>Tanılama yapılandırma
 
-Tanılama verileri kaydetmek üzere ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, yapılandırma ve ApplicationGatewayFirewallLog günlüklerini kullanarak [kümesi AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting).
+Tanılama verileri kaydetmek üzere ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, yapılandırma ve ApplicationGatewayFirewallLog günlüklerini kullanarak [kümesi AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `

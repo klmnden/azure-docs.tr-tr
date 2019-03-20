@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8438bfa567c207e543ed716a2940bce991cc19
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 78b069e6534d8394de1f9a9fcdf51b871441c386
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196051"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838043"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Öğretici: Questetra BPM Suite ile Azure Active Directory Tümleştirmesi
 
@@ -210,9 +210,9 @@ Bu bölümün amacı, Britta Simon Questetra BPM paketindeki adlı bir kullanıc
    
     ![Test kullanıcısı oluşturma][300] 
    
-    a. İçinde **adı** metin kutusuna **adı** kullanıcının **britta.simon@contoso.com**.
+    a. İçinde **adı** metin kutusuna **adı** kullanıcının **britta.simon\@contoso.com**.
    
-    b. İçinde **e-posta** metin kutusuna **e-posta** kullanıcının **britta.simon@contoso.com**
+    b. İçinde **e-posta** metin kutusuna **e-posta** kullanıcının **britta.simon\@contoso.com**
    
     c. İçinde **parola** metin bir **parola** kullanıcının.
     

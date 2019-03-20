@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937f53ecd60d6bbcc8fbd02f978974ac34f77c00
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bec4385b77ce44e87ed1f947a5a7a3e3d0d52fc6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442023"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101372"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Kuruluşunuz Azure Active Directory'yi kullanmak için oturum açın
 Azure Active Directory (Azure AD) veya herhangi birini kullanarak yeni bir Microsoft Azure aboneliği için kaydolun:
@@ -27,8 +27,8 @@ Azure Active Directory (Azure AD) veya herhangi birini kullanarak yeni bir Micro
 
 - **İş veya Okul hesabı.** Tüm küçük, Orta ve kurumsal bulut Hizmetleri, Azure, Microsoft Intune veya Office 365 gibi Microsoft gelen erişim elde etmek için iş veya Okul ile ilgili hesabınızı kullanın. Bu hizmetlerden biri için bir kuruluş olarak kaydolduktan sonra Azure AD'ye otomatik olarak kuruluşunuzu temsil eden bulut tabanlı bir dizin sağlar. Daha fazla bilgi için [Azure AD dizininizi yönetme](active-directory-administer.md).
 
-    >[!Note]
-    İş veya Okul hesabınız zaten Azure AD erişiminiz varsa öneririz. Ancak, Azure aboneliğinizle ilişkili hesabı hangi türde kullanmanız gerekir.
+  > [!Note]
+  >   İş veya Okul hesabınız zaten Azure AD erişiminiz varsa öneririz. Ancak, Azure aboneliğinizle ilişkili hesabı hangi türde kullanmanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

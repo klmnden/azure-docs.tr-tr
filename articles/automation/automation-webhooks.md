@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/13/2019
+ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 920d6ee9b584e908885cf661d32aa700e655c3f8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816428"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224904"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Bir Web kancası ile bir Azure Otomasyonu runbook'u başlatma
 
@@ -22,6 +22,9 @@ A *Web kancası* , tek bir HTTP isteği ile Azure Otomasyonu'nda belirli bir run
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 Bir runbook başlatma diğer yöntemleri için Web kancaları karşılaştırabilirsiniz [Azure Automation'da bir runbook başlatma](automation-starting-a-runbook.md)
+
+> [!NOTE]
+> Python runbook'u başlatmak için bir Web kancası kullanma desteklenmiyor.
 
 ## <a name="details-of-a-webhook"></a>Bir Web kancası ayrıntıları
 

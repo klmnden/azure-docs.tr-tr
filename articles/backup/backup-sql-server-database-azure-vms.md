@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 5fe4161c688570cc3adaacc79a0dd1fe38460142
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 75e85ae15ded81faf372ba018829a185e8badd60
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58118910"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224626"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure vm'lerde SQL Server veritabanlarını yedekleyin
 
@@ -139,7 +139,7 @@ Yedekleme aşağıdaki gibi yapılandırın:
 
 4. Tıklayın **Tamam** açmak için **yedekleme İlkesi** dikey penceresi.
 
-    ![Bu örneği otomatik korumasını devre dışı](./media/backup-azure-sql-database/disable-auto-protection.png)
+    ![Always On kullanılabilirlik grubunda otomatik korumayı etkinleştir](./media/backup-azure-sql-database/enable-auto-protection.png)
 
 5. İçinde **yedekleme ilkesi seçmek**, bir ilkeyi seçin ve ardından tıklayın **Tamam**.
 
@@ -233,12 +233,13 @@ Kasa panosunda Git **Yönet** > **yedekleme ilkeleri** ve düzenlemek istediğin
 
 ## <a name="enable-auto-protection"></a>Otomatik korumayı etkinleştir  
 
-Otomatik olarak mevcut tüm veritabanlarını ve gelecekte bir tek başına SQL Server örneği veya SQL Server her zaman kullanılabilirlik grubuna eklenen veritabanlarını yedeklemek otomatik korumayı etkinleştirin.
+Otomatik olarak mevcut tüm veritabanlarını ve gelecekte bir tek başına SQL Server örneği veya bir SQL Server Always on kullanılabilirlik grubu için eklenen veritabanlarını yedeklemek otomatik korumayı etkinleştirin.
 
-  - Otomatik korumayı üzerinde ve bir ilkeyi seçtiğinizde, korumalı veritabanlarında önceki ilkesini kullanacak şekilde devam eder.
-  - Tek bir seferde otomatik koruma için seçebileceğiniz veritabanı sayısı sınırlı değildir.
+- Tek bir seferde otomatik koruma için seçebileceğiniz veritabanı sayısı sınırlı değildir.
+- Seçmeli olarak içerik koruyamıyor veya veritabanlarını korumadan örneği otomatik korumasını etkinleştirme zaman hariç.
+- Örneğiniz korumalı bazı veritabanları içeriyorsa, otomatik koruma üzerinde açana altında ilgili ilkelerini korunması olmaya devam eder. Ancak, korumalı olmayan tüm veritabanlarını ve gelecekte eklenin veritabanları olacaktır altında otomatik korumayı etkinleştirme sırasında tanımladığınız yalnızca tek bir ilke **yedeklemeyi Yapılandır**. Ancak, daha sonra otomatik korumalı bir veritabanıyla ilişkili ilkeyi değiştirebilirsiniz.  
 
-Otomatik koruma aşağıdaki gibi etkinleştirin:
+Otomatik korumayı etkinleştirmek için adımlar aşağıdaki gibidir:
 
   1. İçinde **yedeklenecek öğeleri**, otomatik korumayı etkinleştirmek istediğiniz örneği seçin.
   2. Altındaki açılan menüyü seçin **Autoprotect**ve kümesine **üzerinde**. Daha sonra, **Tamam**'a tıklayın.
@@ -247,37 +248,9 @@ Otomatik koruma aşağıdaki gibi etkinleştirin:
 
   3. Yedekleme için tüm veritabanlarını birlikte yapılandırılan ve izlenebilir **yedekleme işleri**.
 
-Otomatik korumayı devre dışı bırakmanız gerekirse, örnek adı altında tıklayın **yedeklemeyi Yapılandır**seçip **otomatik koruma devre dışı bırak** örneği. Tüm veritabanlarını yedeklemek devam eder. Ancak, gelecekteki veritabanlarının otomatik olarak korunması gerekmez.
+Otomatik korumayı devre dışı bırakmanız gerekirse, örnek adı altında tıklayın **yedeklemeyi Yapılandır**seçip **otomatik koruma devre dışı bırak** örneği. Tüm veritabanlarını yedeklemek devam eder, ancak gelecekte veritabanlarının otomatik olarak korunması gerekmez.
 
-
-## <a name="fix-sql-sysadmin-permissions"></a>SQL sysadmin izinleri Düzelt
-
-  İzinler nedeniyle hatayı düzeltmeniz gerekiyorsa bir **UserErrorSQLNoSysadminMembership** hata, aşağıdakileri yapın:
-
-  1. Bir hesap ile SQL Server sysadmin izinleri SQL Server Management Studio (SSMS) oturum açmak için kullanın. Özel izinler gerekmedikçe, Windows kimlik doğrulama çalışması gerekir.
-  2. SQL Server'da açın **güvenlik/oturum açma bilgileri** klasör.
-
-      ![Hesapları görmek için güvenlik/oturum açma bilgileri klasörünü açın](./media/backup-azure-sql-database/security-login-list.png)
-
-  3. Sağ **oturumları** klasörü ve select **yeni oturum açma**. İçinde **oturum açma - yeni**seçin **arama**.
-
-      ![Oturum Aç - yeni iletişim kutusu, Ara'yı seçin](./media/backup-azure-sql-database/new-login-search.png)
-
-  4. Windows sanal hizmet hesabı **NT SERVICE\AzureWLBackupPluginSvc** SQL bulma aşamasından ve sanal makine kaydı sırasında oluşturuldu. Gösterildiği gibi hesap adını girin **Seçilecek nesne adını girin**. Seçin **Adları Denetle** adı çözümlenemedi. **Tamam** düğmesine tıklayın.
-
-      ![Bilinmeyen hizmet adını çözümlemek için adları denetle seçin](./media/backup-azure-sql-database/check-name.png)
-
-  5. İçinde **sunucu rolleri**, emin **sysadmin** rolü seçilir. **Tamam** düğmesine tıklayın. Gerekli izinleri olması gerekir.
-
-      ![Sysadmin sunucu rolünün seçili olduğundan emin olun](./media/backup-azure-sql-database/sysadmin-server-role.png)
-
-  6. Artık veritabanı kurtarma Hizmetleri kasası ile ilişkilendirin. Azure portalında, **korumalı sunucuların** listesinde, bir hata durumunda sunucusuna sağ tıklayın > **yeniden Bul DBs**.
-
-      ![Sunucunun uygun izinlere sahip olun](./media/backup-azure-sql-database/check-erroneous-server.png)
-
-  7. İlerleme iade **bildirimleri** alan. Seçili veritabanlarındaki bulunduğunda bir başarı iletisi görünür.
-
-      ![Dağıtım başarılı iletisi](./media/backup-azure-sql-database/notifications-db-discovered.png)
+![Bu örneği otomatik korumasını devre dışı](./media/backup-azure-sql-database/disable-auto-protection.png)
 
  
 ## <a name="next-steps"></a>Sonraki adımlar

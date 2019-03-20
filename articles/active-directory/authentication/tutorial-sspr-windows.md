@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0463a2ad3fa74f33a52e15a246dfd4ffd63107a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200879"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224660"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
@@ -33,8 +33,10 @@ Bu öğreticide kullanıcıların parolalarını Windows 10 oturum açma ekranı
    * [Azure AD'ye katılmış](../device-management-azure-portal.md) veya
    * [Hibrit Azure AD'ye katılmış](../device-management-hybrid-azuread-joined-devices-setup.md), bir etki alanı denetleyicisine ağ bağlantısı ile.
 * Etkinleştirmeniz Azure AD Self Servis parola sıfırlama.
-* Windows 10 cihazlarınızı bir proxy sunucusu veya güvenlik duvarı ise URL'leri eklemelisiniz `passwordreset.microsoftonline.com` ve `ajax.aspnetcdn.com` HTTPS trafiğinin (bağlantı noktası 443) izin verilen URL'ler listesine.
+* Windows 10 cihazlarınızı bir proxy sunucusu veya güvenlik duvarı ise URL'leri eklemelisiniz `passwordreset.microsoftonline.com` ve `ajax.aspnetcdn.com` izin, HTTPS trafiği (bağlantı noktası 443) için URL'lerin listesi.
+* Windows 10 için SSPR yalnızca makine düzeyinde proxy'leriyle desteklenir
 * Aşağıdaki sınırlamalar, bu özellik ortamınızdaki denemeden önce gözden geçirin.
+* Görüntü kullanıyorsanız, önce sysprep web önbelleği CopyProfile adımı gerçekleştirmeden önce yerleşik yönetici için temizlenmiş olduğundan emin olun. Bu konu hakkında daha fazla bilgi destek makalesinde bulunabilir [özel varsayılan kullanıcı profilini kullanırken performans düşük](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 
 ## <a name="configure-reset-password-link-using-intune"></a>Intune'u kullanarak Parolayı sıfırla bağlantısını yapılandırma
 

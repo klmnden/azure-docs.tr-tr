@@ -1,6 +1,6 @@
 ---
 title: Azure AD parola koruması önizlemesi
-description: Azure AD parola koruması Önizlemesi'ni kullanarak şirket içi Active Directory zayıf parolalarda yasaklama
+description: Azure AD parola koruması Önizlemesi'ni kullanarak şirket içi Active Directory zayıf parolalarda yasakla
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,87 +11,90 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1beae186f6eb276b9aa302d3d51f0ba8688e591
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 2fdf308ff6178dcb51ec73e46d43b853f62e7777
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415757"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840962"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Önizleme: Windows Server Active Directory için Azure AD parola koruması zorlama
 
 |     |
 | --- |
-| Azure AD parola koruması ve özel yasaklı parola listesi Azure Active Directory genel Önizleme özellikleri şunlardır. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Azure Active Directory (Azure AD) parola koruması ve özel yasaklı parola listesi Azure ad genel Önizleme özellikleridir. Önizlemeler hakkında daha fazla bilgi için bkz. [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Azure AD parola koruması Azure Active Directory (parola ilkeleri bir kuruluşta geliştirmek için Azure AD) tarafından desteklenen, genel Önizleme aşamasında olan yeni bir özellik var. Azure AD parola koruması, şirket içi dağıtım iki genel kullanır ve özel Azure AD'de depolanan parola listelerini yasaklanmış ve aynı denetimleri şirket içinde Azure AD bulut tabanlı değişiklikler olarak gerçekleştirir.
+Azure AD parola koruması bir kuruluşta parola ilkelerini geliştirir genel önizlemede olan yeni bir özellik var. Şirket içi dağıtım parola koruması, Azure AD'de depolanan her iki genel ve özel yasaklanmış parola listelerini kullanır. Bunu, aynı denetimleri şirket içi olarak Azure AD için bulut tabanlı değişiklikler yapar.
 
 ## <a name="design-principles"></a>Tasarım ilkeleri
 
-Active Directory için Azure AD parola koruması ile aşağıdaki ilkeleri göz önünde tasarlanmıştır:
+Azure AD parola koruması ile bu ilkeleri göz önünde tasarlanmıştır:
 
-* Etki alanı denetleyicilerine asla doğrudan Internet ile iletişim kurmak için gereklidir
+* Etki alanı denetleyicileri hiçbir zaman doğrudan internet ile iletişim kurması gerekir.
 * Yeni bir ağ bağlantı noktaları, etki alanı denetleyicilerinde açılmadı.
-* Active Directory şema değişiklik büyük/küçük harf gerekmez. Yazılım, mevcut Active Directory kapsayıcısı ve serviceConnectionPoint şema nesneleri kullanır.
-* En düşük Active Directory etki alanı veya orman işlevsel düzeyi yok (DFL\FFL) gereklidir.
-* Yazılım oluşturmaz veya herhangi bir hesabı koruduğu Active Directory etki alanlarında gerektirir.
-* Düz metin parolalar kullanıcı etki alanı denetleyicisi (olmadığını parola doğrulama işlemleri sırasında veya başka bir zaman) hiçbir zaman ayrılmaz.
-* Artımlı dağıtım etki alanı denetleyicisi aracının yüklendiği parola ilkesi yalnızca uygulandığını artırabilen ile desteklenir.
-* Bulunabilen parola koruması güvenlik zorlama emin olmak için tüm DC'leri DC aracıyı yüklemek için önerilir.
+* Active Directory şema değişiklik büyük/küçük harf gerekmez. Yazılım mevcut Active Directory kullanan **kapsayıcı** ve **serviceConnectionPoint** şema nesneleri.
+* En düşük Active Directory etki alanı veya orman işlevsel düzeyi yok (DFL/FFL) gereklidir.
+* Yazılım oluşturma değil veya koruduğu Active Directory etki alanı hesaplarında gerektirir.
+* Kullanıcı düz metin parolaları, parola doğrulama işlemleri sırasında veya herhangi bir anda etki alanı denetleyicisi bırakmayın.
+* Artımlı dağıtım desteklenir. Ancak, etki alanı denetleyicisi Aracısı'nı (DC Aracısı) yüklü olduğu parola ilkesi devreye girer.
+* Evrensel parola koruması güvenlik zorlama emin olmak için etki alanı denetleyicilerinde, DC aracı yüklemenizi öneririz.
 
 ## <a name="architectural-diagram"></a>Mimari diyagramı
 
-Azure AD parola koruması bir şirket içi Active Directory ortamında dağıtmadan önce temel alınan tasarım ve işlevsel kavramları bilginizin olması önemlidir. Aşağıdaki diyagramda, Azure AD parola koruması bileşenlerinin birlikte nasıl çalıştığı gösterilmektedir:
+Azure AD parola koruması bir şirket içi Active Directory ortamında dağıtmadan önce temel alınan tasarım ve işlev kavramları anlamak önemlidir. Aşağıdaki diyagramda, parola koruması bileşenlerinin birlikte nasıl çalıştığı gösterilmektedir:
 
 ![Azure AD parola koruması bileşenleri birlikte nasıl çalıştığını](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
-Yukarıdaki diyagramda, Azure AD parola koruması üç temel yazılım bileşenleri gösterilmektedir:
+* Azure AD parola koruması Proxy Hizmeti geçerli Active Directory ormanındaki tüm etki alanına katılmış makinede çalıştırır. Birincil amacı, parola ilkesi indirme istekleri için Azure AD etki alanı denetleyicilerinden iletmek sağlamaktır. Daha sonra yanıtları Azure AD etki alanı denetleyicisine döndürür.
+* DC aracısının DLL parola filtresinin işletim sisteminden kullanıcı parolası doğrulama isteklerini alır. Bunları yerel olarak etki alanı denetleyicisinde çalışan DC aracı hizmetine iletir.
+* Parola koruma DC Aracı hizmeti DC aracısının DLL parola filtresinden parola doğrulama isteği alır. Geçerli (yerel olarak kullanılabilir) parola ilkesini kullanarak isteği işler ve sonucu döndürür: *geçirmek* veya *başarısız*.
 
-* Azure AD parola koruması Proxy Hizmeti geçerli Active Directory ormanındaki tüm etki alanına katılmış makinede çalıştırır. Birincil amacı, parola ilkesi indirme istekleri için Azure AD etki alanı denetleyicilerinden iletmek ve yanıt Azure AD'den etki alanı denetleyicisini geri dönüş oluşturmaktır.
-* Azure AD parola koruması DC aracı parola filtresi DLL'sinin işletim sisteminden kullanıcı parolası doğrulama isteklerini alır ve bunları yerel olarak etki alanı denetleyicisinde çalışan Azure AD parola koruması DC aracı hizmetine iletir.
-* Azure AD parola koruması DC Aracı hizmeti DC aracı parola filtresi DLL'den parola doğrulama isteklerini alır, geçerli (yerel olarak kullanılabilir) parola ilkesini kullanarak işleyen ve (pass\fail) sonuç döndürür.
+## <a name="how-password-protection-works"></a>Parola koruması nasıl çalışır?
 
-## <a name="theory-of-operations"></a>Teorik işlemleri
+Her Azure AD parola koruması Proxy Hizmeti örneği kendisini ormandaki etki alanı denetleyicilerine oluşturarak tanıtır bir **serviceConnectionPoint** Active Directory'de nesnesi.
 
-Bu nedenle Yukarıdaki diyagramda ve tasarım ilkelerini verilen nasıl Azure AD parola koruması gerçekten çalışır?
+Her DC Aracısı hizmeti parola koruması için ayrıca oluşturur bir **serviceConnectionPoint** Active Directory'de nesnesi. Bu nesne, öncelikle raporlama ve tanılama için kullanılır.
 
-Her Azure AD parola koruması Proxy hizmetini kendisini ormandaki etki alanı denetleyicileri için Active Directory'de serviceConnectionPoint nesne oluşturarak bildirir.
+DC Aracı hizmeti, Azure AD'de yeni bir parola ilkesi yüklenmesi başlatmaktan sorumludur. Bir Azure AD parola koruması Proxy Hizmeti proxy ormanın sorgulayarak bulmak için ilk adımıdır **serviceConnectionPoint** nesneleri. Mevcut proxy hizmet bulunduğunda, DC aracı proxy hizmeti için bir parola ilkesi indirme isteği gönderir. Proxy hizmeti, Azure AD'ye sırayla isteği gönderir. Proxy hizmeti, ardından DC Aracı hizmeti yanıtı döndürür.
 
-Her Azure AD parola koruması DC Aracısı hizmetini, aynı zamanda Active Directory'de bir serviceConnectionPoint nesnesi oluşturur. Ancak bu öncelikle raporlama ve tanılama için kullanılır.
+DC aracı hizmetini yeni bir parola ilkesi Azure AD'den aldıktan sonra hizmeti ilke, etki alanı kökünde adanmış bir klasörde depolar. *sysvol* klasör paylaşımı. Diğer etki alanındaki DC aracı hizmetlerden içinde yeni ilkeleri çoğaltma durumunda DC Aracı hizmeti bu klasör de izler.
 
-Azure AD parola koruması DC Aracı hizmeti, Azure AD'de yeni bir parola ilkesi yüklenmesi başlatmaktan sorumludur. İlk adım, proxy serviceConnectionPoint nesneleri ormanın sorgulayarak bir Azure AD parola koruması Proxy Hizmeti bulmaktır. Kullanılabilir proxy hizmeti bulunduktan sonra bir parola ilkesi indirme isteği buna karşılık, Azure AD'ye gönderir ve ardından DC Aracı hizmeti yanıtı döndürür proxy hizmeti DC aracı hizmetten gönderilir. Yeni bir parola ilkesi Azure AD'den aldıktan sonra DC Aracı hizmeti ilke kendi etki alanı sysvol paylaşımı kökünde adanmış bir klasörde depolar. Etki alanındaki diğer DC aracı hizmetlerden içinde yeni ilkeleri çoğaltma durumunda DC Aracısı hizmeti de bu klasör izler.
+DC Aracısı her zaman hizmeti başlatma sırasında yeni bir ilke ister. DC Aracı hizmeti başlatıldıktan sonra geçerli yerel olarak kullanılabilir ilke saatlik yaşını denetler. DC aracı İlkesi bir saatten eskiyse yeni bir ilke daha önce açıklandığı gibi Azure AD'den ister. Bir saatten daha eski geçerli ilke yoksa, DC aracı, bu ilkeyi kullanmaya devam eder.
 
-Azure AD parola koruması DC Aracısı her zaman yeni bir ilke hizmet başlangıç ister. DC Aracı hizmeti başlatıldıktan sonra düzenli aralıklarla olur (saatte bir kez), geçerli yerel olarak kullanılabilir ilke; yaşını denetleyin Aksi takdirde geçerli ilkeyi bir saat DC aracı hizmetini yeni bir ilke Azure AD'den yukarıda açıklanan şekilde ister daha eski ise, geçerli ilkeyi kullanmak DC aracı devam eder.
+Bir Azure AD parola koruması parola ilkesi indirilir her ilkenin bir kiracınıza özgüdür. Diğer bir deyişle, parola ilkeleri her zaman bir Microsoft Genel yasaklanmış parola listesi ve Kiracı başına özel yasaklanmış parola liste birleşimidir.
 
-Azure AD parola koruması DC Aracı hizmeti TCP üzerinden RPC (uzak yordam çağrısı) kullanarak Azure AD parola koruması Proxy Hizmeti ile iletişim kurar. Proxy hizmeti çağrıları ya da dinamik veya statik RPC bağlantı noktası (yapılandırıldığı gibi) dinler.
+DC aracı proxy hizmeti RPC üzerinden ile TCP üzerinden iletişim kurar. Proxy hizmeti bu çağrılar yapılandırmasına bağlı olarak dinamik veya statik RPC bağlantı noktasında dinler.
 
-Azure AD parola koruması DC Aracısı'nı hiçbir zaman ağ kullanılabilir bir bağlantı noktasını dinler ve Proxy Hizmeti DC aracı hizmetini çağırmak hiçbir zaman çalışır.
+DC Aracısı'nı hiçbir zaman ağ kullanılabilir bir bağlantı noktasında dinler.
 
-Durum bilgisi olmayan Azure AD parola koruması Proxy hizmetidir; hiçbir zaman ilkeleri önbelleğe alır ya da herhangi bir durumu Azure'dan indirilebilir.
+Proxy hizmeti, hiçbir zaman DC aracı hizmetini çağırır.
 
-Azure AD parola koruması DC Aracısı her zaman sadece en son yerel olarak kullanılabilir parola ilkesini kullanarak bir kullanıcının parolasını değerlendirir. Yerel DC üzerinde hiçbir parola ilkesi varsa, parolayı otomatik olarak kabul edilir ve yönetici uyarmak için olay günlüğü iletisi kaydedilir.
+Durum bilgisi olmayan proxy'si hizmetidir. Hiçbir zaman ilkeleri önbelleğe alır ya da herhangi bir durumu Azure'dan indirilebilir.
 
-Azure AD parola koruması gerçek zamanlı ilke uygulama altyapısı değil. Olabilir bir gecikme süresi arasında bir parola ilkesi yapılandırma değişikliği, Azure AD ve ulaştığında ve tüm etki alanı denetleyicilerinde zorlanır zaman yapılır.
+DC Aracı hizmeti, bir kullanıcının parolasını değerlendirmek için her zaman en son yerel olarak kullanılabilir parola ilkesi kullanır. Parola, parola ilkesi yok, yerel DC üzerinde kullanılabilir haldeyse, otomatik olarak kabul edilir. Bu durum oluştuğunda, olay iletisi yönetici uyarmak için günlüğe kaydedilir.
 
-## <a name="foresttenant-binding-for-azure-ad-password-protection"></a>Azure AD parola koruması için Forest\tenant bağlama
+Azure AD parola koruması gerçek zamanlı ilke uygulama altyapısı değildir. Ne zaman, Azure AD'de parola ilkesi yapılandırma değişiklik yapıldığında ve ne zaman ulaştığında değiştirmek ve tüm etki alanı denetleyicilerinde zorlanan arasında bir gecikme olabilir.
 
-Azure AD parola koruması bir Active Directory ormanındaki dağıtımını Active Directory ormanı ve Azure AD ile dağıtılan bir Azure AD parola koruması Proxy Hizmetleri, kaydı gerektirir. Her iki tür kayıtları (orman ve proxy'ler) belirli bir ile ilişkili Azure AD kiracısı, bir kayıt sırasında kullanılan kimlik bilgileri aracılığıyla örtük olarak tanımlanır. Bir Azure AD parola koruması parola ilkesi indirilir her zaman, her zaman bu kiracıya özel olan (yani, ilke her zaman genel Microsoft birleşimi olacaktır parola listesi ve Kiracı başına özel yasaklı parola listesi yasaklanmış). Farklı Azure AD'ye bağlanması için bir ormandaki farklı etki alanları veya proxy'ler yapılandırmak için desteklenmeyen kiracılar.
+## <a name="foresttenant-binding-for-password-protection"></a>Parola koruması için orman/Kiracı bağlama
+
+Azure AD parola koruması bir Active Directory ormanındaki dağıtımını söz konusu ormanın Azure AD ile kayıt gerektirir. Dağıtılan her bir proxy hizmeti ayrıca Azure AD ile kayıtlı olması gerekir. Bu orman ve proxy kayıtları belirli bir ile ilişkili kayıt sırasında kullanılan kimlik bilgileri tarafından örtük olarak tanımlandığında, Azure AD kiracısına.
+
+Active Directory ormanı ve bir orman içindeki tüm dağıtılan proxy Hizmetleri ile aynı kiracıda kayıtlı olması gerekir. Farklı Azure AD'ye kayıtlı orman Kiracı, bir Active Directory orman ya da tüm proxy hizmetleri için desteklenmiyor. Yanlış yapılandırılmış bir dağıtım belirtileri parola ilkelerini karşıdan yükleyebilir yeteneğinin içerir.
 
 ## <a name="license-requirements"></a>Lisans gereksinimleri
 
-Genel yasaklı parola listesi avantajları, Azure Active Directory (Azure AD) tüm kullanıcılar için geçerlidir.
+Genel yasaklı parola listesi avantajları, Azure ad tüm kullanıcılar için geçerlidir.
 
-Özel yasaklı parola listesi, Azure AD temel lisansı gerektirir.
+Özel yasaklanmış parola liste Azure AD temel lisansı gerektirir.
 
 Azure AD parola koruması için Windows Server Active Directory, Azure AD Premium lisansı gerektirir.
 
-Maliyetleri de dahil olmak üzere ek lisans bilgilerini bulunabilir [Azure Active Directory site fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).
+Ek lisans bilgileri için bkz. [Azure Active Directory fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="download"></a>İndirme
 
-İki aracı yükleyicileri indirilebileceğini Azure AD parola koruması için gerekli [Microsoft İndirme Merkezi](https://www.microsoft.com/download/details.aspx?id=57071)
+Azure AD parola koruması için iki gerekli aracı yükleyici kullanılabilir [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
 [Azure AD parola korumasını dağıtma](howto-password-ban-bad-on-premises-deploy.md)

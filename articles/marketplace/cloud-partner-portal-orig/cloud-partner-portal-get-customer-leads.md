@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2ebc0c90d62d1299c076f8d91ba9fed1998a20e5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2a425e607ea7dac394ab90a3fed4d4026056bbc1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450201"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118587"
 ---
 <a name="get-customer-leads"></a>Müşteri adayları alma
 ==================
@@ -39,13 +39,13 @@ Müşteri adayları, ilgilendiğiniz veya, bir üründen dağıtma müşteriler 
 
 <!-- -->
 
-2.  Müşteri "şimdi edinin" seçtikten sonra bilgi paylaşımı için toplanmasına onay verir. Bu müşteri adayı bir **ilk ilgi** lideri, ürününüzü alınırken ilgi ifade müşteri hakkındaki bilgiler paylaşacağı ediyoruz. Müşteri adayının üst edinme huninin bulunur.
+1. Müşteri "şimdi edinin" seçtikten sonra bilgi paylaşımı için toplanmasına onay verir. Bu müşteri adayı bir **ilk ilgi** lideri, ürününüzü alınırken ilgi ifade müşteri hakkındaki bilgiler paylaşacağı ediyoruz. Müşteri adayının üst edinme huninin bulunur.
 
-    ![Şimdi seçeneği Al](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
+   ![Şimdi seçeneği Al](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
 
-3.  Müşteri "Satın Al" seçer [Azure portalı](https://portal.azure.com/) ürününüzü almak için. Bu müşteri adayı bir **etkin** lideri, ürününüzü dağıtmaya başladı bir müşteri hakkındaki bilgiler paylaşacağı ediyoruz.
+1. Müşteri "Satın Al" seçer [Azure portalı](https://portal.azure.com/) ürününüzü almak için. Bu müşteri adayı bir **etkin** lideri, ürününüzü dağıtmaya başladı bir müşteri hakkındaki bilgiler paylaşacağı ediyoruz.
 
-    ![Satın alma seçeneği](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
+   ![Satın alma seçeneği](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
 
 
 ### <a name="appsource"></a>AppSource

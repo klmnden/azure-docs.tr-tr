@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8cf65f0ed3ecd5c9a86d6adcdd5defd930522f85
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: ef29dafe32c3c5988cd33f59c8436eeef4b45886
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301562"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849287"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Azure Search'te sonuçlarını arama ile çalışma
 Bu makalede, standart arama sonuçları sayfası, toplam sayısı, belge alma, sıralama düzenleri ve gezinti gibi öğeleri ekleme hakkında yönergeler sağlanır. Veri veya arama sonuçlarındaki bilgileri katkıda sayfasıyla ilgili seçenekleri aracılığıyla belirtilen [belgede arama](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) Azure arama hizmetinize gönderilen istekler. 
 
 REST API istekleri GET komutu, yol ve hangi istenen hizmet bildirmek sorgu parametreleri ve yanıt formüle etmek nasıl içerir. .NET SDK'da eşdeğer API'dir [DocumentSearchResult sınıfı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet).
 
-Birkaç kod örneği, burada bulduğunuz bir web ön uç arabirimi şunlardır: [New York City işleri demo app](http://azjobsdemo.azurewebsites.net/) ve [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Birkaç kod örneği, burada bulduğunuz bir web ön uç arabirimi şunlardır: [New York City işleri demo app](https://azjobsdemo.azurewebsites.net/) ve [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
 > Geçerli bir isteği bir hizmet URL'sini ve yolu, HTTP fiili gibi öğeleri içerir `api-version`ve benzeri. Konuyu uzatmamak amacıyla, biz yalnızca için sayfalandırma ilgili söz dizimi vurgulama için örnekleri kırpılır. İstek sözdizimi hakkında daha fazla bilgi için bkz. [Azure arama hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice). > 

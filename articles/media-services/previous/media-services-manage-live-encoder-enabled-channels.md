@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: ecdb6d7a225d3a2f2c5bbf90a36b91367faf04b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003355"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189861"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services aracılığıyla canlı akış gerçekleştirerek çoklu bit hızına sahip akışlar oluşturma
 
@@ -31,7 +31,7 @@ Azure Media Services (AMS) bir **kanal** için canlı akış içeriğinin işlen
 
 * Bir şirket içi Canlı Kodlayıcı, aşağıdaki biçimlerden birinde Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala tek bit hızlı akış gönderir: RTMP veya kesintisiz akış (parçalanmış MP4). Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
 * Çoklu bit hızına sahip bir şirket içi Canlı Kodlayıcı gönderir **RTMP** veya **kesintisiz akış** (parçalanmış MP4) kanala AMS ile live encoding özelliğinin etkin değil. Alınan akışların **kanal**herhangi başka bir işlemeye olmadan s. Bu yöntem çağrılır **doğrudan**. Çoklu bit hızlı kesintisiz akış çıktısı sağlayan şu gerçek zamanlı Kodlayıcıları kullanabilirsiniz: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco ve Elemental. Şu gerçek zamanlı kodlayıcılar RTMP çıktısı: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek ve Tricaster kodlayıcılar.  Gerçek zamanlı bir kodlayıcı, gerçek zamanlı kodlama için etkinleştirilmemiş bir kanala tek bit hızlı bir akış da gönderebilir, ancak bu işlem önerilmez. İstendiğinde, Media Services akışı müşterilere teslim eder.
-  
+
   > [!NOTE]
   > Doğrudan geçiş yöntemini kullanmak canlı akış yapmanın en ekonomik yoludur.
   > 
@@ -50,7 +50,7 @@ Kanal oluşturduğunuzda Media Services 2.10 sürüm ile başlayarak, kanalın a
 > 
 
 ## <a name="billing-implications"></a>Faturalandırma etkileri
-Bir canlı kodlama kanal API aracılığıyla durumuna geçişler "Çalışır" duruma geldiği faturalama başlar.   Azure portalında veya Azure Media Services Gezgin aracında durumunu da görüntüleyebilirsiniz (http://aka.ms/amse).
+Bir canlı kodlama kanal API aracılığıyla durumuna geçişler "Çalışır" duruma geldiği faturalama başlar.   Azure portalında veya Azure Media Services Gezgin aracında durumunu da görüntüleyebilirsiniz (https://aka.ms/amse).
 
 Aşağıdaki tabloda, kanal durumlarının faturalandırma durumları API ve Azure Portalı'nda nasıl eşleneceğine gösterilmektedir. UX Portal ve API arasında biraz farklı bir durumlarıdır Faturalama, kanal "Çalışıyor" durumunda API'si aracılığıyla veya Azure portalında "Hazır" veya "Akış" durumunda olduğu sürece etkin olacaktır.
 Daha fazla faturalama gelen kanal durdurmak için API aracılığıyla veya Azure portalında kanal'ı durdurmanız gerekir.
@@ -89,29 +89,27 @@ Yaygın canlı akış uygulamaları oluşturmak için gerekli olan genel adımla
 
 > [!NOTE]
 > Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Daha uzun bir süre için bir Kanal çalıştırmanız gerekiyorsa lütfen amslived@microsoft.com adresine başvurun. Gerçek zamanlı kodlama için fatura bir etkisi yoktur ve bir canlı kodlama kanal "Çalışıyor" durumda bırakır saatlik faturalandırma ücretler ödeyeceğinizi unutmayın.  Ek saatlik ücretlerden kaçınmak için Canlı etkinlik akışı tamamlandıktan sonra hemen çalışan kanallarınızın durdurmanız önerilir. 
-> 
-> 
 
 1. Bilgisayara bir video kamera bağlayın. Başlatma ve çıkışı bir şirket içi Canlı Kodlayıcı yapılandırma bir **tek** aşağıdaki protokollerden birini bit hızı akışı: RTMP veya kesintisiz akış. 
-   
+
     Bu adım, Kanalınızı oluşturduktan sonra da gerçekleştirilebilir.
 2. Bir Kanal oluşturup başlatın. 
 3. Kanal alma URL’sini alın. 
-   
+
     Alma URL’si gerçek zamanlı kodlayıcı tarafından akışı Kanala göndermek için kullanılır.
 4. Kanal önizleme URL’sini alın. 
-   
+
     Kanalınızın canlı akışı düzgün şekilde aldığını doğrulamak için bu URL’yi kullanın.
 5. Bir program oluşturun. 
-   
+
     Azure portalını kullanarak, bir program oluşturma bir varlık da oluşturur. 
-   
+
     .NET SDK veya REST kullanırken bir varlık oluşturun ve bir Program oluştururken bu varlığın kullanılacağını belirtmeniz gerekir. 
 6. Programla ilişkili varlığı yayımlayın.   
-   
+
     >[!NOTE]
     >AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumunda olması gerekir. 
-    
+
 7. Akışı ve arşivlemeyi başlatmaya hazır olduğunuzda programı başlatın.
 8. İsteğe bağlı olarak, gerçek zamanlı kodlayıcıya bir reklam başlatması bildirilebilir. Reklam, çıktı akışına eklenir.
 9. Olay için akışı ve arşivlemeyi durdurmak istediğinizde programı durdurun.
@@ -217,6 +215,7 @@ Bu kanal içindeki gerçek zamanlı Kodlayıcı tarafından kullanılmak üzere 
 **Default720p** video aşağıdaki 6 katmanlara kodlar.
 
 #### <a name="output-video-stream"></a>Çıkış Video Stream
+
 | Bit hızı | Genişlik | Yükseklik | MaxFPS | Profil | Çıkış Stream adı |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Yüksek |Video_1280x720_3500kbps |
@@ -357,7 +356,7 @@ Media Services öğrenme yollarını gözden geçirin.
 [Gerçek zamanlı kodlama singe hızından .NET SDK'sı ile bit hızı Uyarlamalı akış gerçekleştiren kanallar oluşturun](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 [REST API ile kanalları Yönet](https://docs.microsoft.com/rest/api/media/operations/channel)
- 
+
 [Medya Hizmetleri kavramları](media-services-concepts.md)
 
 [Azure Media Services bölünmüş MP4 Canlı içe alma belirtimi](media-services-fmp4-live-ingest-overview.md)

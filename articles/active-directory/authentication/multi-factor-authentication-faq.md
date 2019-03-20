@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c94c564434df0e9c48facedba1d2232f9510662e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cc7b935833a6b212bb008be86b26c613d8817133
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206483"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182617"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication hakkında sık sorulan sorular
 
@@ -87,7 +87,7 @@ Kullanabileceğiniz seçenekler hakkında daha fazla bilgi [Azure multi-Factor A
 
 Bazı durumlarda, Evet.
 
-Azure yöneticileri için multi-Factor Authentication, Azure ve Office 365 Yönetici portalı dahil olmak üzere Microsoft çevrimiçi hizmetlerine erişim için hiçbir ücret ödemeden Azure mfa'yı özelliklerinin bir alt kümesi sunar. Bu teklif, yalnızca genel Yöneticiler, Azure MFA'ın tam sürümünü MFA lisans, bir paket veya bir tek başına kullanım tabanlı sağlayıcısı aracılığıyla sahip değilseniz Azure Active Directory örnekleri için geçerlidir. Ardından yöneticilerinize ücretsiz sürümü kullanan ve Azure MFA tam sürümünü satın almanız, tüm genel Yöneticiler Ücretli bir sürüme otomatik olarak yükseltilir.
+Azure yöneticileri için multi-Factor Authentication dahil olmak üzere Microsoft çevrimiçi hizmetlerine erişim için hiçbir ücret ödemeden Azure mfa'yı özelliklerinin bir alt kümesi sunar [Azure portalında](https://portal.azure.com) ve [Microsoft 365 Yönetim merkezini](https://admin.microsoft.com). Bu teklif, yalnızca genel Yöneticiler, Azure MFA'ın tam sürümünü MFA lisans, bir paket veya bir tek başına kullanım tabanlı sağlayıcısı aracılığıyla sahip değilseniz Azure Active Directory örnekleri için geçerlidir. Ardından yöneticilerinize ücretsiz sürümü kullanan ve Azure MFA tam sürümünü satın almanız, tüm genel Yöneticiler Ücretli bir sürüme otomatik olarak yükseltilir.
 
 Office 365 kullanıcıları için multi-Factor Authentication, Exchange Online ve SharePoint Online gibi Office 365 hizmetlerine erişim için ücret olmadan Azure mfa'yı özelliklerinin bir alt kümesi sunar. Bu teklif, ilgili Azure Active Directory örneğini Azure MFA'ın tam sürümünü MFA lisans, bir paket veya bir tek başına kullanım tabanlı sağlayıcısı aracılığıyla sahip olmadığında, atanan bir Office 365 lisansına sahip kullanıcılar için geçerlidir.
 

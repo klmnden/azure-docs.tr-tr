@@ -1,20 +1,20 @@
 ---
-title: Azure Data Factory veri akışı sıralama dönüştürme
-description: Azure Data Factory veri sıralama birleştirme dönüştürme
+title: Azure veri fabrikası veri akışı sıralama dönüştürme eşlemesi
+description: Azure veri fabrikası veri sıralama dönüştürme eşlemesi
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 7adc8c80ecca12364fb7f761092b1a5d9f528e19
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d0482d1081c16dc89e7371c4c33de9b2bb4e4c2e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729772"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898763"
 ---
-# <a name="azure-data-factory-data-sort-transformations"></a>Azure Data Factory veri sıralama dönüşümleri
+# <a name="azure-data-factory-data-flow-sort-transformations"></a>Azure Data Factory veri akışı sıralama dönüşümleri
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -22,6 +22,7 @@ ms.locfileid: "56729772"
 
 Sıralama dönüşümü geçerli veri akışını gelen satırda sıralamanıza olanak sağlar. Sıralama dönüşümünde giden satırların sonradan ayarladığınız sıralama kuralları izler. Her bir sütun seçin ve her alanın yanındaki oku göstergesi kullanarak ASC veya Ara, sıralayın. Sütun sıralama uygulamadan önce değiştirmeniz gerekiyorsa, "Hesaplanan ifade Düzenleyicisi'ni başlatmak için sütunlarda"'a tıklayın. Bu, bir ifade yalnızca bir sütun sıralama için uygulama yerine sıralama işlemi için derleme olanağı sağlar.
 
+## <a name="case-insensitive"></a>Büyük/Küçük harfe duyarsız
 Dize veya metin alanları sıralarken durumu yok saymak istiyorsanız "Büyük küçük harfe duyarlı üzerinde" kapatabilirsiniz.
 
 Spark veri bölümleme "Sıralama bölümler yalnızca içinde" yararlanır. Her bölüm yalnızca içinde gelen veri sıralayarak veri akışları yerine tüm veri akışını sıralama bölümlenmiş verileri sıralayabilirsiniz.
@@ -31,3 +32,7 @@ Her bir sıralama dönüşümünde sıralama koşul yeniden. Bu nedenle sıralam
 Sıralama bölümleme etkileri
 
 ADF veri akışı, büyük veri Spark kümeleri, birden çok düğümlerine ve bölümlerine yayılmaz dağıtılmış veriler üzerinde yürütülür. Bu, aynı sırada verileri tutmak için sıralama dönüştürme bağlı değilse, veri akışı mimarileri oluşturma zaman içinde göz önünde bulundurmanız önemlidir. Bir sonraki dönüştürme verilerinizdeki bölümlemek kullanmayı tercih ederseniz söz konusu verilerin reshuffling nedeniyle sıralama kaybedebilirsiniz.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Sıraladıktan sonra kullanmak isteyebilirsiniz [toplama dönüşümü](data-flow-aggregate.md)

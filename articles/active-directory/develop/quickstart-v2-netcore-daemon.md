@@ -4,7 +4,7 @@ description: Nasıl bir .NET Core işlem bir erişim belirteci alma ve uygulaman
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 1/11/2019
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27cc0334e8332e3bc09ae4302e0b0efdda8067f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5c63269630d0ed74d1b17edbc5cb9e787499604e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194453"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200533"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Hızlı Başlangıç: Bir belirteç almak ve Microsoft Graph API'sini çağırmak uygulamanın kimliğini kullanarak bir konsol uygulaması
 
@@ -30,7 +30,7 @@ ms.locfileid: "56194453"
 
 Bu hızlı başlangıçta, uygulamanın kendi kimliğini kullanarak bir erişim belirteci alabilen ve ardından görüntülemek için Microsoft Graph API'sini çağırmak bir .NET Core uygulaması yazma öğreneceksiniz bir [kullanıcıların listesini](https://docs.microsoft.com/graph/api/user-list) dizinde. Bu senaryo, gözetimsiz, katılımsız iş ya da bir windows hizmeti, bir kullanıcının kimliği yerine uygulama kimliği ile çalıştırmak için gereken yere durumlarda yararlıdır.
 
-![Bu hızlı başlangıcın oluşturduğu örnek uygulama nasıl çalışır](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.png)
+![Bu Hızlı Başlangıç ile oluşturulan örnek uygulamasını nasıl çalıştığını gösterir](media/quickstart-v2-netcore-daemon/netcore-daemon-intro-updated.png)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -198,7 +198,7 @@ var app = new ConfidentialClientApplication(
 > |---------|---------|
 > | `secret` | Azure portalında uygulama istemci gizli anahtarı oluşturulur. |
 > | `clientId` | **Uygulama (istemci) Kimliği**, Azure portalda kayıtlı uygulamadır. Bu değeri Azure portalda uygulamanın **Genel bakış** sayfasında bulabilirsiniz. |
-> | `Authority`    | (İsteğe bağlı) STS uç noktası kullanıcının kimliğini doğrulamak. Genellikle https://login.microsoftonline.com/{tenant} {tenant} Kiracı veya Kiracı kimliği adı olduğu genel bulut için|
+> | `Authority`    | (İsteğe bağlı) STS uç noktası kullanıcının kimliğini doğrulamak. Genellikle <https://login.microsoftonline.com/{tenant}> {tenant} Kiracı veya Kiracı kimliği adı olduğu genel bulut için|
 > | `redirectUri`  | Kimlik doğrulamasından sonra gönderileceği URL. Bu konsol/etkileşimli olmayan bir uygulama olduğu için bu parametreyi bu durumda, kullanılmaz |
 > | `clientCredentials`  | Parola veya sertifika içeren istemci kimlik bilgileri nesnesi |
 > | `userTokenCache`  | Kullanıcı için belirteci bir önbellek örneği. Bu durumda, bu uygulama, uygulama ve kullanıcı bağlamında çalıştığından, bu değeri null|

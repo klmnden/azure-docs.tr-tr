@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 555d68198329353b47641e8a22abfcb33ae5b61c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0d7ca397cf45c4a67a914a8105deb9043adf46e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768306"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835291"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Azure StorSimple’dan Azure Media Services hesabına dosya yükleme  
 
@@ -47,7 +47,7 @@ Media Services’de dijital dosyalar bir varlığa yüklenir. Varlık; video, se
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-[.Net SDK’sı kullanarak Veri Yöneticisi’nde iş tetikleme](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
+[Veri Yöneticisi'nde iş tetikleme .NET SDK'yı kullanın](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

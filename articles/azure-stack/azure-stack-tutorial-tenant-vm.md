@@ -17,12 +17,12 @@ ms.author: jeffgilb
 ms.reviewer: unknown
 ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: a24b7314775ea7667ab992742586e5b5c8bbb369
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 34ef200ff96b098969c74937934d6178cfaf81ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205169"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117141"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Öğretici: sanal makineler, Azure Stack kullanıcılar için kullanılabilir yap
 
@@ -129,8 +129,8 @@ Teklif oluşturduğunuza göre bunu test edebilirsiniz. Bir kullanıcı olarak o
    Kullanıcı Portalı'ndan yeni aboneliği kullanarak bir sanal makine sağlayabilirsiniz.
 
    a. Kullanıcı Portalı bir kullanıcı hesabıyla oturum açın.
-      - Tümleşik bir sistem için URL, işlecin bölge ve dış etki alanı adına göre değişir ve biçimde olacaktır https://portal.&lt; *Bölge*&gt;.&lt; *FQDN*&gt;.
-   - Azure Stack geliştirme Seti'ni kullanıyorsanız, portalı adresidir https://portal.local.azurestack.external.
+   - Tümleşik bir sistem için URL, işlecin bölge ve dış etki alanı adına göre değişir ve biçimde olacaktır https://portal.&lt; *Bölge*&gt;.&lt; *FQDN*&gt;.
+     - Azure Stack geliştirme Seti'ni kullanıyorsanız, portalı adresidir https://portal.local.azurestack.external.
 
    b.  Panoda seçin **+ kaynak Oluştur** > **işlem** > **Windows Server 2016 Datacenter değerlendirme**seçip **Oluşturma**.
 

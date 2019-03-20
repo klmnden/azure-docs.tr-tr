@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: f92fe2432051b148bf0b35fccc3fa33db9b66a14
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5c21f1c9345fcf1b89afc3e1ee6b7f61ee79ddbe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093173"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168111"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors hizmetini kullanmaya başlama
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Visual Studio 2015 veya üzeri bir yönetici olarak başlatın ve ardından yeni
 
 ![Visual Studio - yeni proje için Service Fabric araçları][1]
 
-Sonraki iletişim kutusunda **Actor hizmetinin** altında **.Net Core 2.0** ve hizmet için bir ad girin.
+Sonraki iletişim kutusunda **Actor hizmetinin** altında **.NET Core 2.0** ve hizmet için bir ad girin.
 
 ![Service Fabric projesi şablonları][5]
 

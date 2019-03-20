@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: fd64376f68a177f12b2105ae0974eeeeefa94f4b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 966518f17392e6158089cb5b6df96f41674fed41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460089"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996155"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Microsoft Azure Storage veri hareketi kitaplığı ile veri aktarma
 
@@ -193,7 +193,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 
 Bu kod yolunu yerel bir dosya, yeni veya var olan bir kapsayıcının adını ve yeni bir blob adı için bize ister. `TransferManager.UploadAsync` Yöntemi, bu bilgileri kullanarak karşıya yükleme gerçekleştirir.
 
-İsabet `F5` uygulamanızı çalıştırmak için. Karşıya yükleme, depolama hesabınızla görüntüleyerek oluştuğunu doğrulayabilirsiniz [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/).
+İsabet `F5` uygulamanızı çalıştırmak için. Karşıya yükleme, depolama hesabınızla görüntüleyerek oluştuğunu doğrulayabilirsiniz [Microsoft Azure Depolama Gezgini](https://storageexplorer.com/).
 
 ## <a name="set-number-of-parallel-operations"></a>Paralel işlem kümesi sayısı
 Veri taşıma kitaplığı tarafından sunulan harika bir özellik, veri aktarımı verimliliğini artırmak için paralel işlem sayısını ayarlamak için olanağıdır. Varsayılan olarak, veri taşıma kitaplığı paralel işlem sayısı 8'e ayarlar * makinenizde çekirdek sayısı.

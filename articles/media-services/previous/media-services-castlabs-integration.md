@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: Mingfeiy;willzhan;Juliako
-ms.openlocfilehash: 0b3d8759f13f48e5fa95ff709fa283ed41e0ea25
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dfb82e91b0f65b85d34b7e20d57ed9929469321f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863266"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Azure Media Services’ta Widevine lisansları vermek için castLabs kullanma 
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "56003219"
 
 Bu makale, PlayReady ve Widevine benzeri DRM ile AMS tarafından dinamik olarak şifrelenmiş bir akış sunmak için Azure Media Services (AMS) nasıl kullanabileceğinizi açıklar. Media Services PlayReady lisans sunucusundan PlayReady lisans gelir ve Widevine lisans teslim edilen **castLabs** lisans sunucusu.
 
-Geri CENC (PlayReady ve/veya Widevine) tarafından korunan içeriği akış yürütmek için kullanabileceğiniz [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Bkz: [AMP belge](http://amp.azure.net/libs/amp/latest/docs/) Ayrıntılar için.
+Geri CENC (PlayReady ve/veya Widevine) tarafından korunan içeriği akış yürütmek için kullanabileceğiniz [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html). Bkz: [AMP belge](https://amp.azure.net/libs/amp/latest/docs/) Ayrıntılar için.
 
 Aşağıdaki diyagramda bir üst düzey Azure Media Services ve castLabs tümleştirme mimarisi gösterilmektedir.
 
@@ -101,10 +101,10 @@ Web uygulaması'nı (STS) kullanmak için:
 
 ## <a name="playing-back-a-video"></a>Video kayıttan yürütme
 
-Ortak şifreleme ile (PlayReady ve/veya Widevine) şifrelenmiş bir video kayıttan yürütme için kullanabilirsiniz [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Konsol uygulaması çalıştırırken, içerik anahtarı kimliği ve bildirim URL'sini okunmaz.
+Ortak şifreleme ile (PlayReady ve/veya Widevine) şifrelenmiş bir video kayıttan yürütme için kullanabilirsiniz [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html). Konsol uygulaması çalıştırırken, içerik anahtarı kimliği ve bildirim URL'sini okunmaz.
 
 1. Yeni bir sekme açın ve, STS başlatın: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
-2. Git [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+2. Git [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 3. Akış URL'si yapıştırın.
 4. Tıklayın **Gelişmiş Seçenekler** onay kutusu.
 5. İçinde **koruma** açılır menüsünde, select PlayReady ve/veya Widevine.

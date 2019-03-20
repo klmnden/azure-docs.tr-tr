@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4be3787df0c914762e02a2fa7ead870cbf945452
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a544ddb6f31481750b1cd46b52d2909d71739707
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455505"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897087"
 ---
 # <a name="heading"></a>Azure'da SQL Server verileri örneklendirme
 
 Bu makalede, SQL veya Python programlama dili kullanarak Azure SQL Server'da depolanan verileri örnek kullanmayı gösterir. Ayrıca bir dosyaya kaydetme, bir Azure blobuna yüklemeyi ve ardından Azure Machine Learning Studio'ya okuma tarafından Azure Machine Learning içine örneklenen verileri taşıma işlemini de gösterir.
 
-Python örnekleme kullandığı [pyodbc](https://code.google.com/p/pyodbc/) Azure üzerindeki SQL Server'a bağlanmak için ODBC kitaplığı ve [Pandas](http://pandas.pydata.org/) örnekleme yapmak için kitaplık.
+Python örnekleme kullandığı [pyodbc](https://code.google.com/p/pyodbc/) Azure üzerindeki SQL Server'a bağlanmak için ODBC kitaplığı ve [Pandas](https://pandas.pydata.org/) örnekleme yapmak için kitaplık.
 
 > [!NOTE]
 > Örnek SQL kodunu bu belgedeki verileri azure'da bir SQL Server'da olduğunu varsayar. Yüklü değilse, başvurmak [veri taşıma SQL Server için Azure üzerinde](move-sql-server-virtual-machine.md) makale için Azure üzerinde SQL Server'a veri taşıma konusunda yönergeler.
@@ -71,7 +71,7 @@ Bu bölümde kullanmayı gösterir [pyodbc Kitaplığı](https://code.google.com
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-[Pandas](http://pandas.pydata.org/) Python kitaplıkta Python programlama için veri işleme için zengin bir veri yapıları ve verileri analiz araçları sağlar. Aşağıdaki kod Pandas verisine %0,1 örnek verileri Azure SQL veritabanındaki bir tablodan okur:
+[Pandas](https://pandas.pydata.org/) Python kitaplıkta Python programlama için veri işleme için zengin bir veri yapıları ve verileri analiz araçları sağlar. Aşağıdaki kod Pandas verisine %0,1 örnek verileri Azure SQL veritabanındaki bir tablodan okur:
 
     import pandas as pd
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3b3a4b6767855fa2f7ba595072b187b7a8bff400
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a56c4b0bac61bd2039138ffed554130c6e520821
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167142"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service için SSH desteği
 
@@ -67,7 +67,7 @@ Azure App Service deposu olarak bu adımları gösterilen [örneği](https://git
         && echo "root:Docker!" | chpasswd
     ```
 
-2. Ekleme bir [ `COPY` yönerge](https://docs.docker.com/engine/reference/builder/#copy) Dockerfile kopyalamak için bir [sshd_config](https://man.openbsd.org/sshd_config) dosyasını */etc/ssh/* dizin. Yapılandırma dosyanızı sshd_config dosyasında Azure App Service GitHub deposunda dayanmalıdır [burada](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+2. Ekleme bir [ `COPY` yönerge](https://docs.docker.com/engine/reference/builder/#copy) Dockerfile kopyalamak için bir [sshd_config](https://man.openbsd.org/sshd_config) dosyasını */etc/ssh/* dizin. Yapılandırma dosyanızı sshd_config dosyasında Azure App Service GitHub deposunda dayanmalıdır [burada](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config).
 
     > [!NOTE]
     > *Sshd_config* bağlantı başarısız veya dosyası şunları içermelidir: 

@@ -1,6 +1,6 @@
 ---
 title: Azure Traffic Manager profillerini yönetme| Microsoft Belgeleri
-description: Bu makale, bir Azure Traffic Manager profili oluşturma, devre dışı bırakma, etkinleştirme ve silme konularında size yardımcı olur.
+description: Bu makalede, oluşturma, devre dışı bırakma, etkinleştirme ve bir Azure Traffic Manager profilini silmek yardımcı olur.
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: 11e63f95067a9ad6bb61a91da56fe22dc4962ae5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7b52d07db076b62845465ee9f22a3d794c8cdf76
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778477"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839534"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Bir Azure Traffic Manager profilini yönetme
 
@@ -29,7 +29,7 @@ Azure portalını kullanarak bir Traffic Manager profili oluşturabilirsiniz. Pr
 
 ### <a name="to-create-a-traffic-manager-profile"></a>Traffic Manager profili oluşturma
 
-1. Bir tarayıcıdan [Azure portalında](http://portal.azure.com) oturum açın. Henüz bir hesabınız yoksa, [bir aylık ücretsiz denemeye](https://azure.microsoft.com/free/) kaydolabilirsiniz. 
+1. Bir tarayıcıdan [Azure portalında](https://portal.azure.com) oturum açın. Henüz bir hesabınız yoksa, [bir aylık ücretsiz denemeye](https://azure.microsoft.com/free/) kaydolabilirsiniz. 
 2. **Kaynak oluştur** > **Ağ** > **Traffic Manager profili** > **Oluştur** seçeneğine tıklayın.
 4. **Traffic Manager profili oluştur** dikey penceresini aşağıdaki gibi doldurun:
     1. **Ad** alanında profiliniz için bir ad belirtin. Bu adın trafficmanager.net bölgesinde benzersiz olması ve Traffic Manager profilinize erişmek için kullanılan <name>, trafficmanager.net DNS adı ile sonuçlanması gerekir.
@@ -48,14 +48,14 @@ Mevcut bir profili devre dışı bırakarak Traffic Manager’ın kullanıcı is
 
 1. Özel etki alanı adı kullanıyorsanız İnternet DNS sunucunuzdaki CNAME kaydını, artık Traffic Manager profilinizi göstermeyecek şekilde değiştirin.
 2. Traffic Manager profil ayarları aracılığıyla trafiğin uç noktalara yönlendirilmesi durdurulur.
-3. Bir tarayıcıdan [Azure portalında](http://portal.azure.com) oturum açın.
+3. Bir tarayıcıdan [Azure portalında](https://portal.azure.com) oturum açın.
 2. Portalın arama çubuğunda, değiştirmek istediğiniz **Traffic Manager profili** adını arayın ve ardından gösterilen sonuçlardaki Traffic Manager profiline tıklayın.
 3. **Genel bakış** > **Devre dışı bırak** seçeneğine tıklayın.
 4. Traffic Manager profilini devre dışı bırakmak için onaylayın.
 
 ### <a name="to-enable-a-profile"></a>Bir profili etkinleştirme
 
-1. Bir tarayıcıdan [Azure portalında](http://portal.azure.com) oturum açın.
+1. Bir tarayıcıdan [Azure portalında](https://portal.azure.com) oturum açın.
 2. Portalın arama çubuğunda, değiştirmek istediğiniz **Traffic Manager profili** adını arayın ve ardından gösterilen sonuçlardaki Traffic Manager profiline tıklayın.
 3. **Genel bakış** > **Etkinleştir** seçeneğine tıklayın.
 1. Özel etki alanı adı kullanıyorsanız İnternet DNS sunucunuzda Traffic Manager profilinizin etki alanı adını gösterecek bir CNAME kaynak kaydı oluşturun.

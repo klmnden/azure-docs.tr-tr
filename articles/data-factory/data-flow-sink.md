@@ -3,16 +3,15 @@ title: Azure veri fabrikası veri akışı havuz dönüştürme eşlemesi
 description: Azure veri fabrikası veri akışı havuz dönüştürme eşlemesi
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: dba043721c2d81b7fe2c254f62328e54bb959cdc
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729381"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852449"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Veri akışı havuz dönüştürme eşlemesi
 
@@ -35,27 +34,17 @@ Azure depolama blobu veya Data Lake havuz türlerinde bir klasöre dönüştür�
 
 ![Havuz seçenekleri](media/data-flow/opt001.png "havuz seçenekleri")
 
-### <a name="output-settings"></a>Çıkış ayarları
-
-Üzerine yazma varsa tabloyu kesmek, ardından yeniden oluşturun ve verileri yükleme. Ekleme yeni satır ekleyin. Veri kümesini tablo adını tabloda hiç ADW hedefte mevcut değilse, veri akışı tablosu oluşturun ve sonra veri yükleme.
-
-"Otomatik eşleme" işaretini kaldırırsanız, hedef tablonuz alanları el ile eşleyebilirsiniz.
-
-![Havuz ADW seçenekleri](media/data-flow/adw2.png "adw havuz")
-
-#### <a name="field-mapping"></a>Alan eşleme
+## <a name="field-mapping"></a>Alan eşleme
 
 Havuz dönüşümünüzü eşleme sekmesinde hedefe (sağ taraf) gelen (sol taraf) sütun eşleyebilirsiniz. Bir veri akışı dosyalarını havuz, ADF yeni dosyaları bir klasöre her zaman yazın. Veritabanı veri kümesine eşlediğinizde, ya da bu şema ("üzerine yazmak için" ilke kaydetme ayarlanır) ile yeni bir tablo oluşturmak seçebilir veya mevcut bir yeni satır Ekle tablo ve mevcut şemaya alanları eşleyin.
 
-Tek tıklamayla birden çok sütun bağlantısı, birden çok sütun Delink veya birden çok satır aynı sütun adını eşleştirmek için eşleme tablosunda çoklu seçim kullanabilirsiniz.
+Tek tıklamayla birden çok sütun bağlantısı, birden çok sütun delink veya birden çok satır aynı sütun adını eşleştirmek için eşleme tablosunda çoklu seçim kullanabilirsiniz.
+
+Her zaman gelen alan kümesini alıp bunları hedef olarak eşleştirmek istediğiniz zaman-"Şema değişikliklerini izin ver" ayarı ise.
 
 ![Alan eşleme](media/data-flow/multi1.png "birden fazla seçenek")
 
 Sütunları eşlemelerinizi sıfırlamak istiyorsanız, eşlemeleri sıfırlamak için "Yeniden eşleme" düğmesine basın.
-
-![Bağlantıları](media/data-flow/maxcon.png "bağlantıları")
-
-### <a name="updates-to-sink-transformation-for-adf-v2-ga-version"></a>ADF V2 genel kullanım sürümü için dönüştürme havuz güncelleştirmeleri
 
 ![Havuz seçenekleri](media/data-flow/sink1.png "bir havuz")
 
@@ -65,7 +54,7 @@ Sütunları eşlemelerinizi sıfırlamak istiyorsanız, eşlemeleri sıfırlamak
 
 * Klasör temizleyin. ADF havuz klasör içeriğini hedef dosyaların hedef klasörde yazmadan önce keser.
 
-* Dosya adı seçenekleri
+## <a name="file-name-options"></a>Dosya adı seçenekleri
 
    * Varsayılan: Spark bölümü varsayılanlara dayanan adı dosyalara izin ver
    * Desen: Çıkış dosyaları için bir ad girin
@@ -75,14 +64,19 @@ Sütunları eşlemelerinizi sıfırlamak istiyorsanız, eşlemeleri sıfırlamak
 > [!NOTE]
 > Yürütme veri akışı etkinliği olmayan modda veri akışı hata ayıklama çalıştırırken dosya işlemleri yalnızca yürütme
 
-SQL havuz türleriyle ayarlayabilirsiniz:
+## <a name="database-options"></a>Veritabanı seçenekleri
 
-* Tablo Kes
-* (Açılan/oluşturma gerçekleştirir) tabloyu yeniden oluşturun
-* Büyük veri için toplu iş boyutu yükler. Bir sayı demetine Yazar öbeklere girin.
+* INSERT, update, delete, upsert eder izin verir. Eklemeleri izin vermek için varsayılandır. Güncelleştirme, upsert veya INSERT satırları istiyorsanız, etiketi satırlara bu belirli eylemler için öncelikle bir alter satır dönüştürme eklemeniz gerekir.
+* Truncate tablo (tüm satırları hedef tablonuzdan veri akışı tamamlamadan önce kaldırır)
+* (Açılan/oluşturma, hedef tablo veri akışı tamamlamadan önce gerçekleştirir) tabloyu yeniden oluşturun
+* Büyük veri için toplu iş boyutu yükler. Öbeklere demet yazma işlemleri için bir sayı girin
+* Hazırlamayı etkinleştir: Bu ADF Polybase, Azure veri ambarı, havuz veri kümesi olarak yüklerken kullanılacak yenilemelerini ister
 
-![Alan eşleme](media/data-flow/sql001.png "SQL seçenekleri")
+![SQL havuz seçenekleri](media/data-flow/alter-row2.png "SQL seçenekleri")
+
+> [!NOTE]
+> Güncelleştirme veya veritabanı havuzunuzu satır silme, anahtar sütunu ayarlamanız gerekir. Bu şekilde DML benzersiz satırda belirlemek Alter satır kuramıyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Veri akışınızı oluşturduğunuza göre eklemek bir [yürütme veri akışı etkinliği ardışık](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview).
+Veri akışınızı oluşturduğunuza göre eklemek bir [yürütme veri akışı etkinliği ardışık](concepts-data-flow-overview.md).

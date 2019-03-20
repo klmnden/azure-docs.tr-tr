@@ -1,23 +1,23 @@
 ---
-title: Makine öğrenme modeli bir web hizmeti nasıl olur?
+title: Bir model bir web hizmeti nasıl olur?
 titleSuffix: Azure Machine Learning Studio
-description: Nasıl bir geliştirme, Azure Machine Learning Studio'da model ilerler çalışır hale getirilen bir Web hizmeti için deneme mekanizması genel bakış.
+description: Nasıl bir Web hizmetine bir geliştirme, Azure Machine Learning Studio'da model ilerler deneme mekanizması genel bakış.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 808883fc96369538a26a06a7dadb5f0ecd6628d5
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 28bb96099acb800d9095325b8c7b46a6b5124b4e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823408"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835138"
 ---
-# <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Machine Learning Studio'da model denemeden bir çalışır hale getirilen Web hizmetine nasıl ilerlediğini
+# <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-a-web-service"></a>Machine Learning Studio'da model denemeden bir Web hizmetine nasıl ilerlediğini
 Azure Machine Learning Studio geliştirin, çalıştırın, test etme ve yineleme olanak tanıyan etkileşimli bir tuvale sağlayan bir ***deneme*** Tahmine dayalı bir modeli temsil eden. Çok çeşitli için modüller vardır:
 
 * Denemenizi giriş verileri
@@ -32,7 +32,7 @@ Denemenizi ile memnun olduğunuzda olarak dağıtabileceğiniz bir ***Klasik Azu
 Bu makalede, nasıl bir geliştirme, Machine Learning modeli ilerler çalışır hale getirilen bir Web hizmeti için deneme mekanizması genel bir bakış sunuyoruz.
 
 > [!NOTE]
-> Geliştirmek ve makine öğrenimi modelleri dağıtmak için farklı yöntemleri vardır, ancak bu makalede, Machine Learning Studio'yu nasıl kullanacağınızı odaklanmıştır. Örneğin, R ile Tahmine dayalı bir Klasik Web hizmeti oluşturmak nasıl bir açıklamasını okumak için blog gönderisine bakın [derleme ve dağıtma Tahmine dayalı Web Apps kullanarak RStudio ve Azure Machine Learning studio](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+> Geliştirmek ve makine öğrenimi modelleri dağıtmak için farklı yöntemleri vardır, ancak bu makalede, Machine Learning Studio'yu nasıl kullanacağınızı odaklanmıştır. Örneğin, R ile Tahmine dayalı bir Klasik Web hizmeti oluşturmak nasıl bir açıklamasını okumak için blog gönderisine bakın [derleme ve dağıtma Tahmine dayalı Web Apps kullanarak RStudio ve Azure Machine Learning studio](https://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
 >
 >
 

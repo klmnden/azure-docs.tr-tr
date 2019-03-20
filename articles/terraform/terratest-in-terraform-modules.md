@@ -8,15 +8,18 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/19/2018
-ms.openlocfilehash: 936fe347fb4f9d5e27e005099725674341960457
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 03/19/2019
+ms.openlocfilehash: 9d621905122ab7bf64432323d7d11cf8f1b50750
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773325"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224014"
 ---
 # <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Terratest kullanarak Azure'da Terraform modülleri test etme
+
+> [!NOTE]
+> Bu makaledeki örnek kod 0.12 (ve büyük) sürümü ile çalışmaz.
 
 Yeniden kullanılabilir, birleştirilebilir oluşturmak için Azure Terraform modüllerini ve test edilebilir bileşenlerini kullanabilirsiniz. Terraform modülleri altyapı kodu işlemleri uygulamak yararlı olan kapsülleme dahil edilip derecelendirilir.
 

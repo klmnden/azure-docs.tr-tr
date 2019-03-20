@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 705bc49cef13ae80d648ca59b50021250dede3bd
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e455b0167810c6e08853f3bce665cb6f314eec52
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736779"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181461"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Python kullanarak desteklenen dillerin listesini almak için kullanın
 
@@ -95,6 +95,8 @@ python get-languages.py
 Kodunuzu bizimkiyle karşılaştırmak isterseniz, tam örnek kodu [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)’da bulabilirsiniz.
 
 ## <a name="sample-response"></a>Örnek yanıt
+
+Bu ülke kısaltması Bul [dillerin listesini](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
 
 Bu örnek sonucun bir bölümünü gösterecek şekilde kısaltılmıştır:
 

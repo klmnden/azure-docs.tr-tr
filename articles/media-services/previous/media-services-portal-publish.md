@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 884f9025f4152c391b4b59384bc94b2136daa916
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 1f7e108b4410ba62060dd4411e4b28b896e93d58
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240754"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834430"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Azure portalında içerik yayımlama  
 > [!div class="op_single_selector"]
@@ -89,7 +89,7 @@ Videoyu seçin ve ardından **Oynat** düğmesini seçin.
 Bazı dikkate alınması gereken noktalar vardır:
 
 * Videonun yayımlandığından emin olun.
-* Azure portal medya oynatıcı varsayılan akış uç noktasından oynatılır. Varsayılan olmayan bir akış uç noktasından oynatmak istiyorsanız, URL'yi seçip kopyalayın ve başka bir oynatıcıya yapıştırın. Örneğin [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) üzerinde videonuzu test edebilirsiniz.
+* Azure portal medya oynatıcı varsayılan akış uç noktasından oynatılır. Varsayılan olmayan bir akış uç noktasından oynatmak istiyorsanız, URL'yi seçip kopyalayın ve başka bir oynatıcıya yapıştırın. Örneğin [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) üzerinde videonuzu test edebilirsiniz.
 * Akış akış uç noktasının çalışıyor olması gerekir.  
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma

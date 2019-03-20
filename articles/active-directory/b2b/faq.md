@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ee08e4dc2f6a4616c4b427ad7d33f56e135b27a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: aa6f0aeaa39114efbf3bd5587eac5744db386672
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442504"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105242"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B işbirliği hakkında SSS
 
@@ -59,12 +59,12 @@ B2B işbirliği kullanıcıları, sınırlı yönetici veya genel Yönetici rol�
 Evet! Bu ilkeyi yapılandırırken, üyeleri ve Yöneticiler için erişimi yanlışlıkla engelleyen kaçınmak dikkatli olun.
 Konuk kullanıcı erişimini engellemek için [Azure portalında](https://portal.azure.com), Windows Azure Klasik dağıtım modeli API'SİNDE bir koşullu erişim ilkesi kullanın:
 1. Değiştirme **tüm kullanıcılar** yalnızca üyeleri içeren grup.
-  ![değiştirme grubu ekran görüntüsü](media/faq/modify-all-users-group.png)
+   ![değiştirme grubu ekran görüntüsü](media/faq/modify-all-users-group.png)
 2. Konuk kullanıcıları içeren dinamik bir grup oluşturun.
-  ![Grup ekran oluşturma](media/faq/group-with-guest-users.png)
+   ![Grup ekran oluşturma](media/faq/group-with-guest-users.png)
 3. Bir koşullu erişim ilkesi için konuk kullanıcıları engelle portal erişimini aşağıdaki videoda gösterildiği gibi ayarlayın:
   
-  > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
+   > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Azure AD B2B işbirliği, çok faktörlü kimlik doğrulaması ve tüketici e-posta hesaplarını destekliyor mu?
 Evet. Çok faktörlü kimlik doğrulaması ve tüketici e-posta hesapları hem de Azure AD B2B işbirliği için desteklenir.
@@ -94,7 +94,7 @@ Konuk kullanıcı, kimlik doğrulaması için herhangi bir kimlik sağlayıcıs�
 
 ### <a name="where-can-i-find-a-b2b-collaboration-community-to-share-solutions-and-to-submit-ideas"></a>B2B işbirliği topluluk çözümleri paylaşın ve fikirleri göndermek için nerede bulabilirim?
 B2B işbirliği geliştirmek için geri bildirim için sürekli dinliyoruz. Lütfen kullanıcı paylaşın senaryoları, en iyi uygulamalar ve Azure AD B2B işbirliği hakkında beğendiğiniz özellikler. Tartışmaya katılın [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
- 
+ 
 Ayrıca, fikirlerinizi ve gelecek özellikleri için oy göndermek için davet ediyoruz [B2B işbirliği fikirleri](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>Kullanıcı "hemen kullanıma hazır" yani otomatik olarak kullanıldıktan, davetiye gönderebiliriz? Veya kullanıcı her zaman tıklatarak alma URL'sine sahip?

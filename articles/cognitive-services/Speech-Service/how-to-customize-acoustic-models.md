@@ -1,7 +1,7 @@
 ---
 title: 'Öğretici: Konuşma hizmeti sayesinde akustik model oluşturma'
 titlesuffix: Azure Cognitive Services
-description: Azure Bilişsel Hizmetler'de Özel Konuşma Tanıma Hizmeti ile akustik model oluşturmayı öğrenin.
+description: Konuşma Hizmetleri kullanarak Azure'da bir akustik model oluşturmayı öğrenin.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: b644d1d227b5dbd69af38cc32defffb8152b0cde
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f2a111558fa3f515b797745dc51e32f625bbd91f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878128"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844033"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Öğretici: Özel akustik model oluşturma
 
@@ -33,9 +33,9 @@ Azure Bilişsel Hizmetler hesabınız yoksa başlamadan önce [ücretsiz bir hes
 
 [Cognitive Services Subscriptions](https://cris.ai/Subscriptions) (Bilişsel Hizmetler Abonelikleri) sayfasını açarak Bilişsel Hizmetler hesabınızın bir aboneliğe bağlanmış olduğundan emin olun.
 
-**Connect existing subscription** (Var olan aboneliğe bağlan) öğesini seçerek Azure portalda oluşturulmuş olan bir Konuşma Tanıma Hizmeti aboneliğine bağlanabilirsiniz.
+Azure portalında seçerek oluşturulmuş bir konuşma Hizmetleri abonelik bağlanabilirsiniz **mevcut aboneliğe bağlanma**.
 
-Azure portalda Konuşma Tanıma Hizmeti aboneliği oluşturma hakkında bilgi için bkz. [Konuşma Tanıma Hizmeti'ni ücretsiz olarak deneyin](get-started.md).
+Azure portalında bir konuşma Hizmetleri abonelik oluşturma hakkında daha fazla bilgi için bkz: [konuşma Hizmetleri ücretsiz olarak deneyin](get-started.md).
 
 ## <a name="prepare-the-data"></a>Verileri hazırlama
 
@@ -69,7 +69,7 @@ Akustik modelin özelleştirilmesi için akustik bir veri kümesi, iki bölümde
 | Örnekleme Oranı | 8000 Hertz (Hz) veya 16.000 Hz |
 | Kanallar | 1 (mono) |
 | Örnek Biçimi | PCM, 16 bit tamsayılar |
-| Dosya Süresi | 0,1 saniye < süre < 12 saniye | 
+| Dosya Süresi | 0,1 saniye < süre < 12 saniye |
 | Sessizlik Payı | > 0,1 saniye |
 | Arşiv Biçimi | .zip |
 | Maksimum Arşiv Boyutu | 2 GB |
@@ -96,19 +96,19 @@ Tüm WAV dosyalarının transkripsiyonları tek bir düz metin dosyasına yerle�
 
 Transkripsiyon metinleri sistem tarafından işlenebilmesi için normalleştirilir. Ancak veriler Özel Konuşma Tanıma Hizmeti'ne yüklenmeden _önce_ kullanıcı tarafından gerçekleştirilmesi gereken bazı önemli normalleştirme adımları vardır. Transkripsiyonlarınızı hazırlarken kullanmanız gereken uygun dil için bkz. [Konuşma Tanıma Hizmeti için transkripsiyon yönergeleri](prepare-transcription.md).
 
-Sonraki bölümlerde yer alan adımları [Konuşma Tanıma Hizmeti portalını](https://cris.ai) kullanarak gerçekleştirin.
+Sonraki bölümde kullanarak adımları [konuşma Hizmetleri portalı](https://cris.ai).
 
 ## <a name="import-the-acoustic-dataset"></a>Akustik veri kümesini içeri aktarma
 
 Ses dosyalarını ve transkripsiyonları hazırladıktan sonra hizmetin web portalından içeri aktarabilirsiniz.
 
-Bu dosyaları içeri aktarmak için öncelikle [Konuşma Tanıma Hizmeti portalında](https://cris.ai) oturum açtığınızdan emin olun. Ardından şeritteki **Custom Speech** (Özel Konuşma) açılan listesinden **Adaptation Data** (Uyarlama Verileri) öğesini seçin. Özel Konuşma Tanıma Hizmeti'ne ilk kez veri yüklüyorsanız **Datasets** (Veri Kümeleri) adlı boş bir tablo görüntülenir. 
+Bunları almak için önce için oturum açmadıysanız, sağlayın [konuşma Hizmetleri portalı](https://cris.ai). Ardından şeritteki **Custom Speech** (Özel Konuşma) açılan listesinden **Adaptation Data** (Uyarlama Verileri) öğesini seçin. Özel Konuşma Tanıma Hizmeti'ne ilk kez veri yüklüyorsanız **Datasets** (Veri Kümeleri) adlı boş bir tablo görüntülenir.
 
 **Acoustic Datasets** (Akustik Veri Kümeleri) satırındaki **Import** (İçeri Aktar) düğmesini seçtiğinizde sitede yeni veri kümesi yükleme sayfası açılır.
 
 ![Akustik verileri içeri aktarma sayfası](media/stt/speech-acoustic-datasets-import.png)
 
-**Name** (Ad) ve **Description** (Açıklama) kutularına uygun bilgileri girin. Yüklediğiniz farklı veri kümelerini takip etmek için kolay anlaşılır açıklamalar kullanmanız önerilir. 
+**Name** (Ad) ve **Description** (Açıklama) kutularına uygun bilgileri girin. Yüklediğiniz farklı veri kümelerini takip etmek için kolay anlaşılır açıklamalar kullanmanız önerilir.
 
 **Transcriptions file (.txt)** (Transkripsiyon dosyaları) ve **Audio files (.zip)** (Ses dosyaları) kutularında **Browse** (Gözat) öğesini seçip düz metin transkripsiyon dosyanızı ve WAV dosyalarının bulunduğu zip arşivini bulun. Hazırlık işlemlerini tamamladığınızda verilerinizi yüklemek için **Import** (İçeri Aktar) öğesini seçin. Verileriniz yüklenir. Büyük veri kümelerinin aktarılması birkaç dakika sürebilir.
 
@@ -126,11 +126,11 @@ Veri kümesinin adını veya açıklamasını değiştirmek isterseniz **Edit** 
 
 Akustik veri kümenizin durumu *Complete* (Tamamlandı) olduğunda özel akustik model oluşturmak için kullanabilirsiniz. Bunu yapmak için **Custom Speech** (Özel Konuşma) açılan menüsündeki **Acoustic Models** (Akustik Modeller) öğesini seçin. **Your models** (Modelleriniz) adlı listede özel akustik modellerinizin tamamı listelenir. İlk kullanımda bu tablo boş olacaktır. Tablo başlığında geçerli yerel ayar gösterilir. Şu an için yalnızca İngilizce (ABD) dilinde akustik model oluşturabilirsiniz.
 
-Yeni bir model oluşturmak için tablo başlığının altındaki **Create New** (Yeni Oluştur) öğesini seçin. Yukarıda yaptığınız gibi modeli tanımlamanıza yardımcı olması için bir ad ve açıklama girin. Örneğin **Description** (Açıklama) alanını kullanarak modeli oluşturmak için kullandığınız başlangıç modelini ve akustik veri kümesini kaydedebilirsiniz. 
+Yeni bir model oluşturmak için tablo başlığının altındaki **Create New** (Yeni Oluştur) öğesini seçin. Yukarıda yaptığınız gibi modeli tanımlamanıza yardımcı olması için bir ad ve açıklama girin. Örneğin **Description** (Açıklama) alanını kullanarak modeli oluşturmak için kullandığınız başlangıç modelini ve akustik veri kümesini kaydedebilirsiniz.
 
 Ardından **Base Acoustic Model** (Temel Akustik Model) açılan listesinden bir temel model seçin. Temel model, özelleştirme işlemlerinizin başlangıç noktasıdır. İki temel akustik modelden birini seçebilirsiniz:
-* **Microsoft Search and Dictation AM** modeli; komutlar, arama sorguları veya dikte gibi bir uygulamaya yönlendirilen konuşmalar için uygundur. 
-* **Microsoft Conversational Model**, günlük konuşma tarzındaki konuşmaları tanımak için uygundur. Bu konuşma türü genelde başka bir kişiye hitaben yapılır ve çağrı merkezinde veya toplantılarda kullanılır. 
+* **Microsoft Search and Dictation AM** modeli; komutlar, arama sorguları veya dikte gibi bir uygulamaya yönlendirilen konuşmalar için uygundur.
+* **Microsoft Conversational Model**, günlük konuşma tarzındaki konuşmaları tanımak için uygundur. Bu konuşma türü genelde başka bir kişiye hitaben yapılır ve çağrı merkezinde veya toplantılarda kullanılır.
 
 Kısmi sonuçlar için gecikme süresi Conversational modellerde, Search ve Dictation modellerine kıyasla daha yüksektir.
 
@@ -153,6 +153,6 @@ Akustik model tablosunda bu yeni modele karşılık gelen yeni bir giriş görü
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Konuşma Tanıma Hizmeti deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
+- [Konuşma Tanıma Hizmetleri deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
 - [C# dilinde konuşma tanıma](quickstart-csharp-dotnet-windows.md)
 - [Git Örnek Verileri](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ca7f5d47d75e80a583b6613eb36fd3da9c61d707
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 28b6732745947043847ce944243bc87398e159fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761489"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892156"
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Azure üzerinde Aspera Server On Demand hizmetini kullanan bir Media Services hesabına dosya yükleme 
 
@@ -89,44 +89,44 @@ Azure için İsteğe Bağlı Azure satın alma işlemini tamamlamak için Azure 
 
     Aşağıdaki ekran görüntüsünde erişim oluşturma işlemi gösterilmektedir. 
 
-   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
 
     Aşağıdaki ekran görüntüsünde, portaldaki kullanım raporlama arabirimleri gösterilmektedir. 
 
-   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
 
 ## <a name="upload-files-with-aspera"></a>Aspera ile dosyaları karşıya yükleme
 
 1. Aspera istemci yazılımını indirip yükleyin:
     
-    * [Tarayıcı eklentisi](http://downloads.asperasoft.com/connect2/)
-    * [Zengin istemci](http://downloads.asperasoft.com/en/downloads/2)
+    * [Tarayıcı eklentisi](https://downloads.asperasoft.com/connect2/)
+    * [Zengin istemci](https://downloads.asperasoft.com/en/downloads/2)
 
 2. İlk aktarımınızı yapın. Aspera istemcisini kullanarak Aspera aktarım hizmetiyle aktarım yapmak için aşağıdaki işlemleri tamamlamanız gerekir: 
 
-    1. Aspera portalını kullanarak bir erişim anahtarı oluşturun.  
-    2. Aspera istemcisini indirin, yükleyin ve lisans ekleyin (yazılım Aspera portalında bulunabilir).  
+   1. Aspera portalını kullanarak bir erişim anahtarı oluşturun.  
+   2. Aspera istemcisini indirin, yükleyin ve lisans ekleyin (yazılım Aspera portalında bulunabilir).  
 
-    >[!NOTE]
-    >Yapılandırma bilgileri için lütfen Aspera istemci kılavuzunu okuyun.
+      >[!NOTE]
+      >Yapılandırma bilgileri için lütfen Aspera istemci kılavuzunu okuyun.
     
-    3. [Azure portalı](https://portal.azure.com/) kullanarak Azure Medya Hesabınız ile ilişkili depolama hesabınızın bazı bilgilerini alın. Almanız gereken bilgiler şunlardır: ad, anahtar ve içeriğinizi yerleştirmek istediğiniz depolama blobu kapsayıcısının adı. 
+   3. [Azure portalı](https://portal.azure.com/) kullanarak Azure Medya Hesabınız ile ilişkili depolama hesabınızın bazı bilgilerini alın. Almanız gereken bilgiler şunlardır: ad, anahtar ve içeriğinizi yerleştirmek istediğiniz depolama blobu kapsayıcısının adı. 
 
-        * Portaldan depolama bilgilerini almak için: Depolama hesabınızı bulun, Erişim anahtarları’na tıklayın ve hesabınızın adı ile anahtarını kopyalayın.
-        * Kapsayıcı adını almak için: Depolama hesabınızı bulun, **Bloblar**’ı ve sonra da içerik bilgisini yüklemek istediğiniz kapsayıcının adını seçin. 
+       * Portaldan depolama bilgilerini almak için: Depolama hesabınızı bulun, Erişim anahtarları’na tıklayın ve hesabınızın adı ile anahtarını kopyalayın.
+       * Kapsayıcı adını almak için: Depolama hesabınızı bulun, **Bloblar**’ı ve sonra da içerik bilgisini yüklemek istediğiniz kapsayıcının adını seçin. 
 
-    Aşağıdaki ekran görüntüsünde, 'Azure' depolama türünü, kimlik bilgilerini ve blob kapsayıcısını belirtmeniz gereken Aspera istemcisi **Bağlantı Yöneticisi** gösterilmektedir.
+      Aşağıdaki ekran görüntüsünde, 'Azure' depolama türünü, kimlik bilgilerini ve blob kapsayıcısını belirtmeniz gereken Aspera istemcisi **Bağlantı Yöneticisi** gösterilmektedir.
 
-    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
+      ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
 ## <a name="resources"></a>Kaynaklar
 
 Bu makalede aşağıdaki kaynaklardan bahsedilmiştir. 
 
-* [Connect Tarayıcı Eklentisi](http://downloads.asperasoft.com/connect2/)
-* [Connect Kılavuzu](http://downloads.asperasoft.com/en/documentation/8)
-* [Aspera İstemcisi](http://downloads.asperasoft.com/en/downloads/2)
-* [İstemci Kılavuzu](http://downloads.asperasoft.com/en/documentation/2)
+* [Connect Tarayıcı Eklentisi](https://downloads.asperasoft.com/connect2/)
+* [Connect Kılavuzu](https://downloads.asperasoft.com/en/documentation/8)
+* [Aspera İstemcisi](https://downloads.asperasoft.com/en/downloads/2)
+* [İstemci Kılavuzu](https://downloads.asperasoft.com/en/documentation/2)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

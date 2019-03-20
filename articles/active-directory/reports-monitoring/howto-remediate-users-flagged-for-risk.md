@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db4c2fc0781225af6cc59df72467a69e0ba73e1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0fc2aca2b785329b6faebd37c94493269d65c22b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189574"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182991"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında riskli olarak işaretlenmiş kullanıcıları düzeltme
 
@@ -46,7 +46,7 @@ Daha fazla bilgi için [işaretlenmiş kullanıcılar güvenlik raporundan](conc
 
 Erişim için Office 365 kimlik bilgilerinizi de kullanabilirsiniz **Azure Yönetim Merkezi'ne**. Azure AD’ye erişiminizi etkinleştirdikten sonra, Azure AD portalına yeniden yönlendirilirsiniz. Temel abonelik düzeyinde, raporlarda sağlanan ayrıntı miktarı sınırlıdır. Ek veriler ve analizler, Azure Premium abonelerine sağlanır.
 
-Erişim için **risk için işaretlenen kullanıcılar** Office 365 Yönetim merkezinde raporları:
+Erişim için **risk için işaretlenen kullanıcılar** Microsoft 365 Yönetim merkezinde raporları:
 
 1.  Sol taraftaki gezinti menüsünden seçin **Yönetim Merkezleri**. 
 2.  Seçin **Azure AD'ye**.

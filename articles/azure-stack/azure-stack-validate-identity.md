@@ -16,12 +16,12 @@ ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 880c44530a33918f9526e4a7d805f094cfbf0c90
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b43fb3ff158a7df609d7a828192815db6b15963b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772662"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850069"
 ---
 # <a name="validate-azure-identity"></a>Azure kimlik doğrulama 
 Azure Active Directory (Azure AD) Azure Stack ile kullanmak hazır olduğunu doğrulamak için Azure Stack hazırlık Denetleyicisi Aracı (AzsReadinessChecker) kullanın. Azure Stack dağıtıma başlamadan önce Azure kimlik çözümü doğrulayın.  
@@ -56,7 +56,7 @@ Aşağıdaki önkoşulların karşılanması gerekir.
 
    > `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
 
-2. PowerShell isteminden ayarlamak için aşağıdaki komutu çalıştırın *$serviceAdminCredential* Azure AD Kiracınız için Hizmet Yöneticisi olarak.  Değiştirin *serviceadmin@contoso.onmicrosoft.com* hesabı ve Kiracı. 
+2. PowerShell isteminden ayarlamak için aşağıdaki komutu çalıştırın *$serviceAdminCredential* Azure AD Kiracınız için Hizmet Yöneticisi olarak.  Değiştirin *serviceadmin\@contoso.onmicrosoft.com* hesabı ve Kiracı. 
    > `$serviceAdminCredential = Get-Credential serviceadmin@contoso.onmicrosoft.com -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant"` 
 
 3. Azure ad doğrulamayı başlatmak için aşağıdaki PowerShell isteminde çalıştırın. 

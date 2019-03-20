@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 03/18/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 2d57097e4d3317bfba5055a6b75ae72dd60f046a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fe19510d9b4c6311923b4b2ea15f133249e6cbd5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244701"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190048"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>SQL veri ambarı'nda dizin tabloları
 Öneriler ve Azure SQL veri ambarı tabloları dizinleme örnekler.
@@ -45,12 +45,12 @@ Burada kümelenmiş columnstore iyi bir seçenek olmayabilir birkaç senaryo var
 
 - Columnstore tabloları, varchar(max), nvarchar(max) ve varbinary(max) desteklemez. Yığın veya kümelenmiş dizin yerine göz önünde bulundurun.
 - Columnstore tabloları, geçici veriler için daha az verimli olabilir. Yığın ve hatta belki de geçici tablolara göz önünde bulundurun.
-- 100 milyondan az satır içeren küçük tablolar. Yığın tabloları göz önünde bulundurun.
+- 60 milyondan az satır içeren küçük tablolar. Yığın tabloları göz önünde bulundurun.
 
 ## <a name="heap-tables"></a>Yığın tabloları
-Verileri SQL Data Warehouse'da geçici olarak giriş, yığın tabloları kullanmanın işlem yapar bulabilirsiniz. Yığınlar yüklemeler daha hızlı dizin tabloları ve bazı durumlarda, sonraki okuma önbelleğinden yapılabilir olmasıdır.  Verileri yalnızca daha fazla dönüştürme gerçekleştirmeden önce hazırlamak için yüklüyorsanız, tabloyu yığın tablosuna yüklemek verileri kümelenmiş columnstore tablosuna yüklemekten çok daha hızlı. Ayrıca, verileri yüklenirken bir [geçici tablo](sql-data-warehouse-tables-temporary.md) kalıcı depolama için bir tablo yüklenirken daha hızlı yükler.  
+Verileri SQL veri ambarı'nda geçici olarak giriş, yığın tabloları kullanmanın işlem yapar bulabilirsiniz. Yığınlar yüklemeler daha hızlı dizin tabloları ve bazı durumlarda, sonraki okuma önbelleğinden yapılabilir olmasıdır.  Verileri yalnızca daha fazla dönüştürme gerçekleştirmeden önce hazırlamak için yüklüyorsanız, tabloyu yığın tablosuna yüklemek verileri kümelenmiş columnstore tablosuna yüklemekten çok daha hızlı. Ayrıca, verileri yüklenirken bir [geçici tablo](sql-data-warehouse-tables-temporary.md) kalıcı depolama için bir tablo yüklenirken daha hızlı yükler.  
 
-100 milyondan az satır küçük arama tablolar için sık sık yığın tabloları mantıklı.  100 milyondan fazla satır olduğunda en iyi sıkıştırma elde etmek küme columnstore tabloları başlayın.
+60 milyondan az satır küçük arama tablolar için sık sık yığın tabloları mantıklı.  60 milyondan fazla satır olduğunda en iyi sıkıştırma elde etmek küme columnstore tabloları başlayın.
 
 Yığın tablo oluşturmak için yığın WITH yan tümcesinde belirtin:
 
@@ -79,7 +79,7 @@ CREATE TABLE myTable
 WITH ( CLUSTERED INDEX (id) );
 ```
 
-Yalnızca bir tabloda kümelenmemiş bir dizin eklemek için aşağıdaki sözdizimini kullanın:
+Bir tabloda kümelenmemiş bir dizin eklemek için aşağıdaki sözdizimini kullanın:
 
 ```SQL
 CREATE INDEX zipCodeIndex ON myTable (zipCode);
@@ -182,7 +182,7 @@ Tablolar ile düşük segment kalitesi belirlediyseniz, kök nedeni belirlemek i
 Bu etkenler satır grubu başına en iyi 1 milyon satır değerinden küçük bir columnstore dizini, önemli ölçüde olması neden olabilir. Bunlar ayrıca bir sıkıştırılmış satır grubu yerine delta satır grubu gitmek satır neden olabilir. 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Dizin oluşturulduğunda bellek baskısı
-Sıkıştırılmış satır grubu başına satır sayısı, satır satır grubu işlemek kullanılabilir bellek miktarı ve genişliğine doğrudan ilişkilidir.  Satırlar columnstore tablolarına bellek baskısı altında yazıldığında, segment kalitesi düşebilir.  Bu nedenle, en iyi kadar bellek mümkün olduğunca columnstore dizin tabloları erişiminizi yazma oturum vermektir.  Bellek ve eşzamanlılık arasında bir denge olduğundan, doğru bellek ayırma kılavuzuna tablonuzun her bir satırdaki verileri bağlıdır, sisteminiz ve eşzamanlılık yuva sayısı için ayrılmış veri ambarı birimleri oturuma verebilirsiniz, tablonuza veri yazıyor demektir.  En iyi uygulama, DW600 ve mediumrc DW400 DW1000 kullanıyorsanız ve üzeri kullanıyorsanız DW300 kullanıyorsanız xlargerc veya daha az, largerc başlamanızı öneririz.
+Sıkıştırılmış satır grubu başına satır sayısı, satır satır grubu işlemek kullanılabilir bellek miktarı ve genişliğine doğrudan ilişkilidir.  Satırlar columnstore tablolarına bellek baskısı altında yazıldığında, segment kalitesi düşebilir.  Bu nedenle, en iyi kadar bellek mümkün olduğunca columnstore dizin tabloları erişiminizi yazma oturum vermektir.  Bellek ve eşzamanlılık arasında bir denge olduğundan, doğru bellek ayırma kılavuzuna tablonuzun her bir satırdaki verileri bağlıdır, sisteminiz ve eşzamanlılık yuva sayısı için ayrılmış veri ambarı birimleri oturuma verebilirsiniz, tablonuza veri yazıyor demektir.
 
 ### <a name="high-volume-of-dml-operations"></a>Yüksek hacimli DML işlemleri
 Güncelleştirme ve silme satırları DML işlemleri yüksek hacimli Etkisizliği columnstore ortaya çıkarabilir. Bir satır grubunda satırları çoğunu değiştirildiğinde, bu özellikle doğrudur.
@@ -205,7 +205,7 @@ Bazı veriler tablolarınızı veriler yüklendikten sonra takip tanımlamak ve 
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Segment kalitesini artırmak için dizinlerini yeniden oluşturma
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>1. Adım: Kimliğinizi belirlemek veya doğru kaynak sınıfı kullanan kullanıcı oluşturma
-Hemen segment kalitesini artırmak için bir hızlı yol, dizini yeniden sağlamaktır.  Yukarıdaki görünümü tarafından döndürülen SQL dizinlerinizi yeniden oluşturmak için kullanılabilecek bir ALTER INDEX REBUILD deyimi döndürür. Dizinlerinizi yeniden oluştururken dizininizi oluşturur oturum yeterli bellek tahsis emin olun.  Bunu yapmak için bu tablodaki önerilen minimum dizini yeniden oluşturma izni olan bir kullanıcının kaynak sınıfı artırın. Sistemde kullanıcı oluşturmadıysanız, bunu önce gerçekleştirmeniz gereken şekilde veritabanı sahibi kullanıcının kaynak sınıfı değiştirilemez. DW400 DW600 ve mediumrc DW1000 kullanıyorsanız ve üzeri kullanıyorsanız, önerilen en düşük kaynak xlargerc DW300 kullanıyorsanız veya daha az largerc sınıftır.
+Hemen segment kalitesini artırmak için bir hızlı yol, dizini yeniden sağlamaktır.  Yukarıdaki görünümü tarafından döndürülen SQL dizinlerinizi yeniden oluşturmak için kullanılabilecek bir ALTER INDEX REBUILD deyimi döndürür. Dizinlerinizi yeniden oluştururken dizininizi oluşturur oturum yeterli bellek tahsis emin olun.  Bunu yapmak için bu tablodaki önerilen minimum dizini yeniden oluşturma izni olan bir kullanıcının kaynak sınıfı artırın. 
 
 Daha fazla kullanıcıya kendi kaynak sınıfı artırarak bellek ilişkin bir örnek aşağıdadır. Kaynak sınıfları ile çalışmak için bkz [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md).
 
@@ -216,7 +216,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>2. Adım: Daha yüksek kaynak sınıfı kullanıcıyla kümelenmiş columnstore dizinleri yeniden oluştur
 Daha yüksek bir kaynak sınıfı kullanarak artık olan kullanıcı olarak 1. adımdaki (örneğin LoadUser) oturum açın ve ALTER INDEX deyimi yürütün. Bu kullanıcı dizini burada yeniden oluşturuluyorsa tablolara ALTER iznine sahip olduğundan emin olun. Bu örnekler, tüm columnstore dizinini yeniden oluşturmak nasıl ya da tek bir bölüm yeniden oluşturmak nasıl gösterir. Yeniden oluşturmak için daha fazla pratik bir kerede tek bir bölüm dizinleri olduğu büyük tablolar üzerinde.
 
-Alternatif olarak, dizini yeniden derlemeyi yerine, tabloyu yeni bir tabloya kopyalanamadı [CTAS kullanarak](sql-data-warehouse-develop-ctas.md). Hangi yolla en iyisidir? Büyük veri birimleri için CTAS genellikle daha hızlıdır [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Daha küçük veri hacimleri, ALTER INDEX kullanımı daha kolay ve tablo takas etmenizi yapılması gerekmez. Bkz: **CTAS ve bölüm değiştirme ile dizinlerini yeniden oluşturma** aşağıda CTAS bir dizini yeniden düzenleme hakkında daha fazla bilgi için.
+Alternatif olarak, dizini yeniden derlemeyi yerine, tabloyu yeni bir tabloya kopyalanamadı [CTAS kullanarak](sql-data-warehouse-develop-ctas.md). Hangi yolla en iyisidir? Büyük veri birimleri için CTAS genellikle daha hızlıdır [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Daha küçük veri hacimleri, ALTER INDEX kullanımı daha kolay ve tablo takas etmenizi yapılması gerekmez. 
 
 ```sql
 -- Rebuild the entire clustered index
@@ -263,25 +263,8 @@ WHERE   [OrderDateKey] >= 20000101
 AND     [OrderDateKey] <  20010101
 ;
 
--- Step 2: Create a SWITCH out table
-CREATE TABLE dbo.FactInternetSales_20000101
-    WITH    (   DISTRIBUTION = HASH(ProductKey)
-            ,   CLUSTERED COLUMNSTORE INDEX
-            ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                                (20000101
-                                )
-                            )
-            )
-AS
-SELECT *
-FROM    [dbo].[FactInternetSales]
-WHERE   1=2 -- Note this table will be empty
-
--- Step 3: Switch OUT the data 
-ALTER TABLE [dbo].[FactInternetSales] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales_20000101] PARTITION 2;
-
--- Step 4: Switch IN the rebuilt data
-ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2;
+-- Step 2: Switch IN the rebuilt data with TRUNCATE_TARGET option
+ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
 CTAS kullanarak bölümleri yeniden oluşturma hakkında daha fazla ayrıntı için bkz. [bölümleri kullanarak SQL veri ambarı'nda](sql-data-warehouse-tables-partition.md).

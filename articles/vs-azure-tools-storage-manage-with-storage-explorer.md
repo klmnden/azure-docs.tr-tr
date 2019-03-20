@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 9917901146eb0a050531a66ab24fbd88c91c02c9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 61bb5601cf20e9f6e4fba1300d8f84c9d039e564
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311214"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225102"
 ---
 # <a name="get-started-with-storage-explorer"></a>Depolama Gezgini ile çalışmaya başlama
 
@@ -55,18 +55,13 @@ Azure Depolama Gezgini, macOS üzerinde aşağıdaki sürümleri desteklenir:
 
 Azure Depolama Gezgini, Linux üzerinde aşağıdaki dağıtımlar desteklenir:
 
-* Ubuntu 16.04 x64 (önerilir)
-* Ubuntu 17.10 x64
+* Ubuntu 18.04 x64
+* Ubuntu 16.04 x64
 * Ubuntu 14.04 x64
 
 Azure Depolama Gezgini diğer dağıtımlarında çalışabilir fakat yalnızca bunlardır yukarıda listelenen resmi olarak desteklenir.
 
-Linux üzerinde Azure Depolama Gezgini'ni çalıştırmak için aşağıdaki bağımlılıkları/kitaplıkları sahip olmalısınız:
-
-* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
-* libsecret (Not: libsecret 1.so.0 makinenizde kullanılabilir olmalıdır. Yüklü libsecret farklı bir sürümü varsa, kendi .so dosyası libsecret-1.so.0 yumuşak bağlama deneyebilirsiniz)
-* libgconf-2-4
-* Güncel GCC
+Depolama Gezgini'ni yükleme Linux üzerinde daha fazla yardım için bkz. [sorun giderme kılavuzu](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
 
 Azure Depolama Gezgini [sürüm notları](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) bazı dağıtımlar için belirli adımları içerir.
 

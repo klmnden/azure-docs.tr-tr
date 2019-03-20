@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: ec0211c71b8be66262ef0f19dcd1f952051c97b8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: edf724d6fd659ad4e8887a9c68467d17a33f5ccc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332685"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110299"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Kullanımı ve maliyetleri için Application Insights'ı yönetme
 
@@ -167,15 +167,15 @@ Bu plan yalnızca bir Operations Management Suite aboneliği olan müşteriler i
 ### <a name="how-the-enterprise-plan-works"></a>Kurumsal plan nasıl çalışır?
 
 * Kurumsal plandaki tüm uygulamaları için telemetri gönderen her düğüm için ödeme yaparsınız.
- * A *düğüm* sunucusu fiziksel veya sanal makine veya uygulamanızı barındıran bir hizmet olarak platform rolü örneği.
- * Geliştirme makineler, istemci tarayıcıları ve mobil cihazlar düğüm olarak sayılmaz.
- * Uygulamanızı bir web hizmeti ve bir arka uç çalışan gibi telemetriyi göndermek birkaç bileşeni varsa bileşenleri ayrı olarak sayılır.
- * [Canlı ölçümler Stream](../../azure-monitor/app/live-stream.md) veri amacıyla sayılan değil. Bir abonelikte, uygulama başına değil, düğüm başına ücretlerdir. 12 için telemetri gönderen beş düğüm varsa uygulamalar, beş düğüm için ücretlendirme yapılır.
+  * A *düğüm* sunucusu fiziksel veya sanal makine veya uygulamanızı barındıran bir hizmet olarak platform rolü örneği.
+  * Geliştirme makineler, istemci tarayıcıları ve mobil cihazlar düğüm olarak sayılmaz.
+  * Uygulamanızı bir web hizmeti ve bir arka uç çalışan gibi telemetriyi göndermek birkaç bileşeni varsa bileşenleri ayrı olarak sayılır.
+  * [Canlı ölçümler Stream](../../azure-monitor/app/live-stream.md) veri amacıyla sayılan değil. Bir abonelikte, uygulama başına değil, düğüm başına ücretlerdir. 12 için telemetri gönderen beş düğüm varsa uygulamalar, beş düğüm için ücretlendirme yapılır.
 * Aylık ücret tırnak içinde olsa da, yalnızca içinde ve bir düğümün telemetri bir uygulamadan gönderdiği saat için ücret ödersiniz. Saatlik bir ücret 744 (ayda 31 gün saat sayısı) bölü tırnak işaretli aylık sabit ücrettir.
 * 200 MB veri birimi ayrılması günde (saatlik ayrıntı düzeyiyle) algılanan her düğüm için verilir. Kullanılmayan verileri ayırma günden sonraki devreden değil.
- * Kurumsal fiyatlandırma planını seçerseniz, her abonelik bir günlük kullanım hakkı bu abonelikte Application Insights kaynaklara telemetri gönderen düğüm sayısına göre verileri alır. Bu nedenle, tüm gün veri gönderen beş düğümünüz varsa, havuza alınmış bir indirimini bu Abonelikteki tüm Application Insights kaynakları için uygulanan 1 GB gerekir. Dahil edilen veri tüm düğümler arasında paylaşıldığından bazı düğümlerin diğerlerine göre daha fazla veri gönderdiğiniz olup olmaması önemli değildir. Belirli bir gün, Application Insights kaynakları Bu abonelik için günlük veri ayırma dahil edilmiş miktardan daha fazla veri almak, GB başına fazla kullanım veri ücretleri uygulanır. 
- * Günlük veri Kullanım Hakkı (UTC saat kullanarak) bir gündeki saat sayısı hesaplanır her düğüm 200 MB ile çarpılarak 24 bölü telemetri gönderir. Bu nedenle, 15 gün içinde 24 saat boyunca telemetri gönderen dört düğümünüz varsa, o gün için dahil edilen veri olması ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. Düğümleri o gün 1 GB veri gönderiyorsanız fiyatına 2.30 ABD Doları / GB veri fazla kullanımı için ücret 1,15 ABD Doları olacaktır.
- * Kurumsal plan günlük kullanım hakkı, temel plan tercih ettiğiniz uygulamalarla paylaşılmaz. Kullanılmayan indirimi gelen günlük devreden değil. 
+  * Kurumsal fiyatlandırma planını seçerseniz, her abonelik bir günlük kullanım hakkı bu abonelikte Application Insights kaynaklara telemetri gönderen düğüm sayısına göre verileri alır. Bu nedenle, tüm gün veri gönderen beş düğümünüz varsa, havuza alınmış bir indirimini bu Abonelikteki tüm Application Insights kaynakları için uygulanan 1 GB gerekir. Dahil edilen veri tüm düğümler arasında paylaşıldığından bazı düğümlerin diğerlerine göre daha fazla veri gönderdiğiniz olup olmaması önemli değildir. Belirli bir gün, Application Insights kaynakları Bu abonelik için günlük veri ayırma dahil edilmiş miktardan daha fazla veri almak, GB başına fazla kullanım veri ücretleri uygulanır. 
+  * Günlük veri Kullanım Hakkı (UTC saat kullanarak) bir gündeki saat sayısı hesaplanır her düğüm 200 MB ile çarpılarak 24 bölü telemetri gönderir. Bu nedenle, 15 gün içinde 24 saat boyunca telemetri gönderen dört düğümünüz varsa, o gün için dahil edilen veri olması ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. Düğümleri o gün 1 GB veri gönderiyorsanız fiyatına 2.30 ABD Doları / GB veri fazla kullanımı için ücret 1,15 ABD Doları olacaktır.
+  * Kurumsal plan günlük kullanım hakkı, temel plan tercih ettiğiniz uygulamalarla paylaşılmaz. Kullanılmayan indirimi gelen günlük devreden değil. 
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>Ayrı bir düğüm sayısını belirlemek nasıl örnekleri
 

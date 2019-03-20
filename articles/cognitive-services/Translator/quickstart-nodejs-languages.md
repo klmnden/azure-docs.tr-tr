@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 0d092b6dfbd453d5583fed8d993da6aec633ac1b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 013902927e0b59e5c1723868f7a3b3d553412000
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731506"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183076"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>Hızlı Başlangıç: Node.js ile desteklenen dillerin listesini almak için Translator Text API kullanın
 
@@ -88,6 +88,8 @@ node get-languages.js
 Kodunuzu bizimkiyle karşılaştırmak isterseniz, tam örnek kodu [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)’da bulabilirsiniz.
 
 ## <a name="sample-response"></a>Örnek yanıt
+
+Bu ülke kısaltması Bul [dillerin listesini](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
 
 Bu örnek sonucun bir bölümünü gösterecek şekilde kısaltılmıştır:
 

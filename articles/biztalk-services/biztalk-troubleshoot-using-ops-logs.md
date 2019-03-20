@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: f69035202a3358af38ebaf8e94abdd3b030e633f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e58a62761284e0671c0083d41f5dde4c13b32fe2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108265"
 ---
-# <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: işlem günlüklerini kullanarak sorun giderme
+# <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk Services: İşlem günlüklerini kullanarak sorun giderme
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="what-are-the-operation-logs"></a>İşlem günlükleri nelerdir
@@ -39,7 +39,7 @@ ms.locfileid: "51256077"
 ## <a name="view-biztalk-services-operation-logs"></a>BizTalk Services işlem günlükleri görüntüle
 1. Portalında **Yönetim Hizmetleri**ve ardından **işlem günlükleri** sekmesi.
 2. Abonelik, tarih aralığı, hizmet türü (örneğin, BizTalk Hizmetleri), hizmet adı veya (başarılı, başarısız) işlemin durumu gibi farklı parametreler göre günlükleri filtreleyebilirsiniz.
-3. Filtrelenmiş listeyi görüntülemek için onay işaretini seçin. Aşağıdaki görüntüde testbiztalkservice için ilgili etkinlikleri gösterir: ![işlem günlükleri görüntüleyin][ViewLogs] 
+3. Filtrelenmiş listeyi görüntülemek için onay işaretini seçin. Aşağıdaki görüntüde testbiztalkservice için ilgili etkinlikleri gösterir: ![İşlem günlüklerini görüntüle][ViewLogs] 
 4. Belirli bir işlemi hakkında daha fazla görüntülemek için satırı seçin ve tıklayın **ayrıntıları** altındaki görev çubuğunda.
 
 ## <a name="bizops"></a>Azure Yönetim Hizmetleri ile izlenen işlemler
@@ -67,11 +67,11 @@ Aşağıdaki tabloda, Azure Yönetim Hizmetleri kullanılarak izlenir işlemleri
 * [BizTalk hizmeti yedekleme](https://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [BizTalk hizmeti yedekten geri yükleyin.](https://go.microsoft.com/fwlink/p/?LinkID=325582)
 * [BizTalk Services: Geliştirici, temel, standart ve Premium sürümler grafiği](https://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: sağlama](https://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk Services: Durum Grafiğini hazırlama](https://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services: Sağlama](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: Durum grafiğini hazırlama](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk Services: Pano, İzleyici ve ölçek sekmeleri](https://go.microsoft.com/fwlink/p/?LinkID=302281)
 * [BizTalk Services: Azaltma](https://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk Services: Verenin Adı ve Verenin Anahtarı](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [BizTalk Services: Verenin adı ve verenin anahtarı](https://go.microsoft.com/fwlink/p/?LinkID=303941)
 * [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png

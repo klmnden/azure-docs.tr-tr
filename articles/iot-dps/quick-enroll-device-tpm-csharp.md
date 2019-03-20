@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 48409fec8a9edd8a56f6e0664e1451e9677c4281
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: e3b0aeeacadc918d9b17e1cd873170c73eced510
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155043"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834770"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>C# hizmeti SDK'sını kullanarak TPM cihazını IoT Hub Cihazı Sağlama Hizmeti'ne kaydetme
 
@@ -27,7 +27,7 @@ Bu adımlar, [C# Hizmeti SDK'sını](https://github.com/Azure/azure-iot-sdk-csha
 ## <a name="prepare-the-development-environment"></a>Geliştirme ortamını hazırlama
 
 1. Makinenizde [Visual Studio 2017](https://www.visualstudio.com/vs/)'nin yüklü olduğundan emin olun. 
-2. Makinenizde [.Net Core SDK'sının](https://www.microsoft.com/net/download/windows) yüklü olduğundan emin olun. 
+2. Olduğundan emin olun [.NET Core SDK'sı](https://www.microsoft.com/net/download/windows) makinenizde yüklü. 
 3. Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun.
 4. (İsteğe bağlı) Bu Hızlı Başlangıcın sonunda bir simülasyon cihazı kaydetmek istiyorsanız, [C# cihaz SDK'sını kullanarak bir simülasyon TPM cihazı oluşturma ve sağlama](quick-create-simulated-device-tpm-csharp.md) altındaki adımların cihaz için onay anahtarı aldığınız adıma kadar olan kısmını izleyin. Onay anahtarını, kayıt kimliğini ve isteğe bağlı olarak cihaz kimliğini not alın; bu Hızlı Başlangıcın devamında bunları kullanmanız gerekecektir. **Azure portalını kullanarak bireysel kayıt oluşturma adımlarını izlemeyin.**
 

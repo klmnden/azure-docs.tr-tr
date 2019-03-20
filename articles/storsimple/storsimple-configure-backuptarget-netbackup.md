@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
-ms.openlocfilehash: 913df079b56e131a3120971b635c49c2c04b2b1e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 17428405a0be45854a2eaaef831864f529ed145a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871579"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994472"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>Yedekleme hedefi olarak StorSimple NetBackup ile
 
@@ -94,6 +94,7 @@ Aşağıdaki tablolar, cihaz modeli mimarisi başlangıç düzeyi bir kılavuz g
 |------------------------|---------------|-----------------|
 | Yerel depolama kapasitesi | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
 | Bulut depolama kapasitesi | &gt; 200 TiB\* | &gt; 500 TiB\* |
+
 \* Depolama boyutu, yinelenenleri kaldırma ya da sıkıştırma varsayar.
 
 **Birincil ve ikincil yedeklemeleri için StorSimple kapasiteler**
@@ -207,16 +208,16 @@ Bu yönergelere göre konak yedek sunucu depolama ayarlayın:
 
 ### <a name="operating-system-best-practices"></a>İşletim sistemi en iyi uygulamalar
 
--   Windows Server şifreleme ve yinelenenleri kaldırma NTFS dosya sistemi devre dışı bırakın.
--   Windows Server birleştirme StorSimple birimlerde devre dışı bırakın.
--   Windows Server StorSimple birimlerde dizin oluşturmayı devre dışı bırakın.
--   Kaynak ana bilgisayar (değil karşı StorSimple birimlerini) bir virüsten koruma taraması çalıştırın.
--   Varsayılan devre dışı kapatma [Windows Server bakım](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) Görev Yöneticisi'nde. Bu aşağıdaki yollardan birini yapın:
-    - Windows Görev Zamanlayıcısı'nda bakım configurator devre dışı bırakın.
-    - İndirme [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) Windows SysInternals öğesinden. PsExec indirdikten sonra Windows PowerShell bir Yöneticiyseniz ve türü çalıştırın:
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Windows Server şifreleme ve yinelenenleri kaldırma NTFS dosya sistemi devre dışı bırakın.
+- Windows Server birleştirme StorSimple birimlerde devre dışı bırakın.
+- Windows Server StorSimple birimlerde dizin oluşturmayı devre dışı bırakın.
+- Kaynak ana bilgisayar (değil karşı StorSimple birimlerini) bir virüsten koruma taraması çalıştırın.
+- Varsayılan devre dışı kapatma [Windows Server bakım](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) Görev Yöneticisi'nde. Bu aşağıdaki yollardan birini yapın:
+  - Windows Görev Zamanlayıcısı'nda bakım configurator devre dışı bırakın.
+  - İndirme [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) Windows SysInternals öğesinden. PsExec indirdikten sonra Windows PowerShell bir Yöneticiyseniz ve türü çalıştırın:
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>StorSimple en iyi uygulamalar
 
@@ -257,6 +258,7 @@ Aşağıdaki örnekte, bir GFS döndürme kullanırız. Aşağıdaki örnekte va
 | Yıllık tam | 1  | 10 | 10 |
 | GFS gereksinimi |   | 38 |   |
 | Ek kota  | 4  |   | 42 toplam GFS gereksinimi  |
+
 \* GFS çarpan koruma ve yedekleme İlkesi gereksinimlerinizi karşılayacak şekilde korumak için ihtiyaç duyduğunuz kopya sayısıdır.
 
 ## <a name="set-up-netbackup-storage"></a>NetBackup depolamayı ayarlama
@@ -302,7 +304,7 @@ Dört hafta, aylık ve yıllık GFS döndürme tablosunun bir örnek aşağıda 
 |---|---|---|
 | Haftalık (hafta 1-4) | Cumartesi | Pazartesi-Cuma |
 | Aylık  | Cumartesi  |   |
-| Yıllık | Cumartesi  |   |   |
+| Yıllık | Cumartesi  |   |
 
 ## <a name="assigning-storsimple-volumes-to-a-netbackup-backup-job"></a>StorSimple birimlerini NetBackup yedekleme işi için atama
 
@@ -310,69 +312,69 @@ Aşağıdaki sırayı NetBackup aracı yönergelerine uygun olarak NetBackup ve 
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-backup-job"></a>NetBackup yedekleme işi için StorSimple birim atamak için
 
-1.  NetBackup yönetim konsolunda seçin **NetBackup Yönetim**, sağ **ilkeleri**ve ardından **yeni ilke**.
+1. NetBackup yönetim konsolunda seçin **NetBackup Yönetim**, sağ **ilkeleri**ve ardından **yeni ilke**.
 
-    ![NetBackup yönetim konsolunda, yeni bir ilke oluşturun](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
+   ![NetBackup yönetim konsolunda, yeni bir ilke oluşturun](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
 
-2.  İçinde **yeni ilke Ekle** iletişim kutusu, ilke için bir ad girin ve ardından **kullanım ilkesi Yapılandırma Sihirbazı'nı** onay kutusu. **Tamam**’ı seçin.
+2. İçinde **yeni ilke Ekle** iletişim kutusu, ilke için bir ad girin ve ardından **kullanım ilkesi Yapılandırma Sihirbazı'nı** onay kutusu. **Tamam**’ı seçin.
 
-    ![NetBackup yönetim konsolunda, yeni ilke iletişim kutusu Ekle](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
+   ![NetBackup yönetim konsolunda, yeni ilke iletişim kutusu Ekle](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
 
-3.  Yedekleme türü ve ardından yedekleme ilkesini Yapılandırma Sihirbazı'nda seçmediğiniz **sonraki**.
+3. Yedekleme türü ve ardından yedekleme ilkesini Yapılandırma Sihirbazı'nda seçmediğiniz **sonraki**.
 
-    ![NetBackup yönetim konsolunda, select yedekleme türü](./media/storsimple-configure-backup-target-using-netbackup/nbimage8.png)
+   ![NetBackup yönetim konsolunda, select yedekleme türü](./media/storsimple-configure-backup-target-using-netbackup/nbimage8.png)
 
-4.  İlke türü ayarlamak için seçin **standart**ve ardından **sonraki**.
+4. İlke türü ayarlamak için seçin **standart**ve ardından **sonraki**.
 
-    ![NetBackup yönetim konsolunda, select ilke türü](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
+   ![NetBackup yönetim konsolunda, select ilke türü](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5.  Konağınız seçin, **istemci işletim sistemini algılar** onay kutusunu işaretleyin ve ardından **Ekle**. **İleri**’yi seçin.
+5. Konağınız seçin, **istemci işletim sistemini algılar** onay kutusunu işaretleyin ve ardından **Ekle**. **İleri**’yi seçin.
 
-    ![NetBackup yönetim konsolunda, yeni bir ilke listesi istemcileri](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
+   ![NetBackup yönetim konsolunda, yeni bir ilke listesi istemcileri](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
-6.  Yedeklemek istediğiniz sürücüleri seçin.
+6. Yedeklemek istediğiniz sürücüleri seçin.
 
-    ![NetBackup yönetim konsolunda, yeni bir ilke için yedekleme seçimleri](./media/storsimple-configure-backup-target-using-netbackup/nbimage11.png)
+   ![NetBackup yönetim konsolunda, yeni bir ilke için yedekleme seçimleri](./media/storsimple-configure-backup-target-using-netbackup/nbimage11.png)
 
-7.  Dönüşümlü yedekleme gereksinimlerinizi karşılayacak sıklığı ve bekletme değerleri seçin.
+7. Dönüşümlü yedekleme gereksinimlerinizi karşılayacak sıklığı ve bekletme değerleri seçin.
 
-    ![NetBackup yönetim konsolunda, yedekleme sıklığı ve döndürme için yeni bir ilke](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
+   ![NetBackup yönetim konsolunda, yedekleme sıklığı ve döndürme için yeni bir ilke](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8.  Seçin **sonraki** > **sonraki** > **son**.  İlke oluşturulduktan sonra zamanlamasını değiştirebilirsiniz.
+8. Seçin **sonraki** > **sonraki** > **son**.  İlke oluşturulduktan sonra zamanlamasını değiştirebilirsiniz.
 
-9.  Oluşturulan yeni ilke genişletin ve ardından seçmek için Seç **zamanlamaları**.
+9. Oluşturulan yeni ilke genişletin ve ardından seçmek için Seç **zamanlamaları**.
 
-    ![NetBackup yönetim konsolunda, yeni bir ilke için zamanlamaları](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
+   ![NetBackup yönetim konsolunda, yeni bir ilke için zamanlamaları](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
 
-10.  Sağ **fark dahil edilen**seçin **yeni kopyalayın**ve ardından **Tamam**.
+10. Sağ **fark dahil edilen**seçin **yeni kopyalayın**ve ardından **Tamam**.
 
     ![NetBackup yönetim konsolunda, Yeni ilkeye kopyalama zamanlaması](./media/storsimple-configure-backup-target-using-netbackup/nbimage14.png)
 
-11.  Yeni oluşturulan zamanlama sağ tıklayın ve ardından **değişiklik**.
+11. Yeni oluşturulan zamanlama sağ tıklayın ve ardından **değişiklik**.
 
-12.  Üzerinde **öznitelikleri** sekmesinde **ilkesi depolama seçimi geçersiz kılma** onay kutusunu işaretleyin ve ardından Pazartesi artımlı yedeklemeler nereye birimi seçin.
+12. Üzerinde **öznitelikleri** sekmesinde **ilkesi depolama seçimi geçersiz kılma** onay kutusunu işaretleyin ve ardından Pazartesi artımlı yedeklemeler nereye birimi seçin.
 
     ![NetBackup Yönetim Konsolu'nda zamanlamasını değiştirme](./media/storsimple-configure-backup-target-using-netbackup/nbimage15.png)
 
-13.  Üzerinde **başlangıç penceresi** sekmesinde, zaman penceresi yedeklemeleriniz için seçin.
+13. Üzerinde **başlangıç penceresi** sekmesinde, zaman penceresi yedeklemeleriniz için seçin.
 
     ![NetBackup yönetim konsolunda, değişiklik başlangıç penceresi](./media/storsimple-configure-backup-target-using-netbackup/nbimage16.png)
 
-14.  **Tamam**’ı seçin.
+14. **Tamam**’ı seçin.
 
-15.  İçin her bir artımlı yedekleme 10-14 adımları yineleyin. Oluşturduğunuz her bir yedekleme zamanlaması ve uygun birimi seçin.
+15. İçin her bir artımlı yedekleme 10-14 adımları yineleyin. Oluşturduğunuz her bir yedekleme zamanlaması ve uygun birimi seçin.
 
-16.  Sağ **fark dahil edilen** zamanlayın ve silin.
+16. Sağ **fark dahil edilen** zamanlayın ve silin.
 
-17.  Yedekleme gereksinimlerinizi karşılamak için tam zamanlamanızı değiştirin.
+17. Yedekleme gereksinimlerinizi karşılamak için tam zamanlamanızı değiştirin.
 
     ![NetBackup yönetim konsolunda, tam zamanlamasını değiştirme](./media/storsimple-configure-backup-target-using-netbackup/nbimage17.png)
 
-18.  Başlangıç penceresi değiştirin.
+18. Başlangıç penceresi değiştirin.
 
     ![NetBackup Yönetim Konsolu'nda değiştirme başlangıç penceresi](./media/storsimple-configure-backup-target-using-netbackup/nbimage18.png)
 
-19.  Son zamanlama şöyle görünür:
+19. Son zamanlama şöyle görünür:
 
     ![NetBackup Yönetim Konsolu, son zamanlama](./media/storsimple-configure-backup-target-using-netbackup/nbimage19.png)
 
@@ -400,6 +402,7 @@ Aşağıdaki tabloda, yedekler yerel ve StorSimple diskler üzerinde çalıştı
 | Aylık tam |StorSimple disk (uzun süreli) | 1 | 12 | 12 |
 | Yıllık tam |StorSimple disk (uzun süreli) | 1 | 1. | 1 |
 |GFS birim boyutu gereksinimini |  |  |  | 18*|
+
 \* Toplam Kapasite 17 TiB StorSimple'nın, diskler ve yerel RAID birimi 1 TiB içerir.
 
 
@@ -412,7 +415,7 @@ Aşağıdaki tabloda, yedekler yerel ve StorSimple diskler üzerinde çalıştı
 | 3 hafta | StorSimple hafta 2-4 |   |   |   |   |   |
 | 4 hafta | StorSimple hafta 2-4 |   |   |   |   |   |
 | Aylık | StorSimple aylık |   |   |   |   |   |
-| Yıllık | Yıllık StorSimple  |   |   |   |   |   |   |
+| Yıllık | Yıllık StorSimple  |   |   |   |   |   |
 
 
 ## <a name="assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>StorSimple birim atamak NetBackup Arşiv ve çoğaltma işi
@@ -427,41 +430,41 @@ Aşağıdaki tabloda, yedekler yerel ve StorSimple diskler üzerinde çalıştı
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>StorSimple birim NetBackup Arşiv ve çoğaltma işi atamak için
 
-1.  NetBackup yönetim konsolunda seçin **depolama** > **depolama yaşam döngüsü ilkeleri** > **yeni depolama yaşam döngüsü ilkesi**.
+1. NetBackup yönetim konsolunda seçin **depolama** > **depolama yaşam döngüsü ilkeleri** > **yeni depolama yaşam döngüsü ilkesi**.
 
-    ![NetBackup yönetim konsolunda, yeni depolama yaşam döngüsü ilkesi](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
+   ![NetBackup yönetim konsolunda, yeni depolama yaşam döngüsü ilkesi](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 
-2.  Anlık görüntü için bir ad girin ve ardından **Ekle**.
+2. Anlık görüntü için bir ad girin ve ardından **Ekle**.
 
-3.  İçinde **yeni işlem** iletişim kutusundaki **özellikleri** sekmesinde için **işlemi**seçin **yedekleme**. İstediğiniz değerleri seçin **hedef depolama**, **saklama türü**, ve **saklama süresi**. **Tamam**’ı seçin.
+3. İçinde **yeni işlem** iletişim kutusundaki **özellikleri** sekmesinde için **işlemi**seçin **yedekleme**. İstediğiniz değerleri seçin **hedef depolama**, **saklama türü**, ve **saklama süresi**. **Tamam**’ı seçin.
 
-    ![NetBackup yönetim konsolunda, yeni işlem iletişim kutusu](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
+   ![NetBackup yönetim konsolunda, yeni işlem iletişim kutusu](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
 
-    Bu ilk yedekleme işlemi ve depo tanımlar.
+   Bu ilk yedekleme işlemi ve depo tanımlar.
 
-4.  Önceki işlem vurgulayın ve ardından seçmek için Seç **Ekle**. İçinde **değiştirme depolama işlemi** iletişim kutusunda, istediğiniz değerleri seçin **hedef depolama**, **saklama türü**, ve **saklamasüresi**.
+4. Önceki işlem vurgulayın ve ardından seçmek için Seç **Ekle**. İçinde **değiştirme depolama işlemi** iletişim kutusunda, istediğiniz değerleri seçin **hedef depolama**, **saklama türü**, ve **saklamasüresi**.
 
-    ![NetBackup yönetim konsolunda, depolama işlemi Değiştir iletişim kutusu](./media/storsimple-configure-backup-target-using-netbackup/nbimage23.png)
+   ![NetBackup yönetim konsolunda, depolama işlemi Değiştir iletişim kutusu](./media/storsimple-configure-backup-target-using-netbackup/nbimage23.png)
 
-5.  Önceki işlem vurgulayın ve ardından seçmek için Seç **Ekle**. İçinde **yeni depolama yaşam döngüsü ilkesi** iletişim kutusunda, bir yıl boyunca aylık yedeklemeler ekleyin.
+5. Önceki işlem vurgulayın ve ardından seçmek için Seç **Ekle**. İçinde **yeni depolama yaşam döngüsü ilkesi** iletişim kutusunda, bir yıl boyunca aylık yedeklemeler ekleyin.
 
-    ![NetBackup yönetim konsolunda, yeni depolama yaşam döngüsü ilkesi iletişim kutusu](./media/storsimple-configure-backup-target-using-netbackup/nbimage24.png)
+   ![NetBackup yönetim konsolunda, yeni depolama yaşam döngüsü ilkesi iletişim kutusu](./media/storsimple-configure-backup-target-using-netbackup/nbimage24.png)
 
-6.  Gereksinim duyduğunuz kapsamlı SLP'den bekletme ilkesi oluşturuncaya kadar 4-5 adımlarını tekrarlayın.
+6. Gereksinim duyduğunuz kapsamlı SLP'den bekletme ilkesi oluşturuncaya kadar 4-5 adımlarını tekrarlayın.
 
-    ![NetBackup yönetim konsolunda, yeni depolama yaşam döngüsü ilkesi iletişim kutusu ilkelerini Ekle](./media/storsimple-configure-backup-target-using-netbackup/nbimage25.png)
+   ![NetBackup yönetim konsolunda, yeni depolama yaşam döngüsü ilkesi iletişim kutusu ilkelerini Ekle](./media/storsimple-configure-backup-target-using-netbackup/nbimage25.png)
 
-7.  İşiniz bittiğinde, SLP'den bekletme ilkesi altında tanımlama **ilke**, ayrıntılı adımları izleyerek bir yedekleme ilkesi tanımlama [NetBackup yedekleme işi için atama StorSimple birimlerini](#assigning-storsimple-volumes-to-a-netbackup-backup-job).
+7. İşiniz bittiğinde, SLP'den bekletme ilkesi altında tanımlama **ilke**, ayrıntılı adımları izleyerek bir yedekleme ilkesi tanımlama [NetBackup yedekleme işi için atama StorSimple birimlerini](#assigning-storsimple-volumes-to-a-netbackup-backup-job).
 
-8.  Altında **zamanlamaları**, **zamanlamasını değiştirme** iletişim kutusunda sağ **tam**ve ardından **değişiklik**.
+8. Altında **zamanlamaları**, **zamanlamasını değiştirme** iletişim kutusunda sağ **tam**ve ardından **değişiklik**.
 
-    ![NetBackup yönetim konsolunda, zamanlamayı Değiştir iletişim kutusu](./media/storsimple-configure-backup-target-using-netbackup/nbimage26.png)
+   ![NetBackup yönetim konsolunda, zamanlamayı Değiştir iletişim kutusu](./media/storsimple-configure-backup-target-using-netbackup/nbimage26.png)
 
-9.  Seçin **ilkesi depolama seçimi geçersiz kılma** onay kutusunu işaretleyin ve ardından 1-6. adımda oluşturduğunuz SLP'den bekletme ilkesi seçin.
+9. Seçin **ilkesi depolama seçimi geçersiz kılma** onay kutusunu işaretleyin ve ardından 1-6. adımda oluşturduğunuz SLP'den bekletme ilkesi seçin.
 
-    ![NetBackup yönetim konsolunda, geçersiz kılma ilkesi depolama seçimi](./media/storsimple-configure-backup-target-using-netbackup/nbimage27.png)
+   ![NetBackup yönetim konsolunda, geçersiz kılma ilkesi depolama seçimi](./media/storsimple-configure-backup-target-using-netbackup/nbimage27.png)
 
-10.  Seçin **Tamam**ve artımlı yedekleme zamanlaması için yineleyin.
+10. Seçin **Tamam**ve artımlı yedekleme zamanlaması için yineleyin.
 
     ![NetBackup yönetim konsolunda, artımlı yedeklemeler için zamanlamayı Değiştir iletişim kutusu](./media/storsimple-configure-backup-target-using-netbackup/nbimage28.png)
 
@@ -474,6 +477,7 @@ Aşağıdaki tabloda, yedekler yerel ve StorSimple diskler üzerinde çalıştı
 | Yıllık tam | 1  | 10 | 10 |
 | GFS gereksinimi  |     |     | 38 |
 | Ek kota  | 4  |    | 42 toplam GFS gereksinimi |
+
 \* GFS çarpan koruma ve yedekleme İlkesi gereksinimlerinizi karşılayacak şekilde korumak için ihtiyaç duyduğunuz kopya sayısıdır.
 
 ## <a name="storsimple-cloud-snapshots"></a>StorSimple bulut anlık görüntüleri
@@ -503,13 +507,13 @@ Aşağıdaki bölümde, başlatın ve yedekleme sonrası işleme sırasında Sto
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Başlatın veya bir bulut anlık görüntüsünü silmek için
 
-1.  [Azure PowerShell'i yükleme](/powershell/azure/overview).
+1. [Azure PowerShell'i yükleme](/powershell/azure/overview).
 2. Karşıdan yükleme ve Kurulum [Yönet CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell Betiği.
 3. Betik çalıştıran sunucuda PowerShell'i yönetici olarak çalıştırın. Komut dosyasını çalıştırdığınızdan emin olun `-WhatIf $true` hangi kodun değiştiğini görmek için yapar. Doğrulama tamamlandıktan sonra geçmesi `-WhatIf $false`. Çalıştırma aşağıdaki komutu:
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
-4.  Yedekleme işi, NetBackup komut dosyası ekleyin. Bunu yapmak için ön işleme ve sonrası Komutlar işleme NetBackup proje seçenekleri düzenleyin.
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
+4. Yedekleme işi, NetBackup komut dosyası ekleyin. Bunu yapmak için ön işleme ve sonrası Komutlar işleme NetBackup proje seçenekleri düzenleyin.
 
 > [!NOTE]
 > Günlük yedekleme işi sonunda işlem sonrası bir betik olarak StorSimple bulut anlık görüntü yedekleme ilkenizi çalıştırmanızı öneririz. RTO ve RPO karşılamanıza yardımcı olmak için yedekleme Uygulama ortamınızı geri hakkında daha fazla bilgi için lütfen ile yedekleme, Mimarı başvurun.

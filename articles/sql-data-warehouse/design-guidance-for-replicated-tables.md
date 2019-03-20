@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/23/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 93e1904862af7eaad395bf14b0d09555d9d1d2ab
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 9b205dea0d6de6469847e8008010a3a2c9d19956
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990144"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113147"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Tasarım Kılavuzu, Azure SQL veri ambarı'nda çoğaltılmış tablolar'ı kullanma
 Bu makalede, SQL veri ambarı şema çoğaltılmış tablolarda tasarlamaya yönelik öneriler sunar. Veri taşıma ve sorgu karmaşıklığı azaltarak sorgu performansını artırmak için bu önerileri kullanın.
@@ -32,22 +32,23 @@ Tablo Tasarımı işleminin bir parçası olarak, verileriniz ve verileri nasıl
 - Olgu ve boyut tabloları bir veri ambarı'nda yok mu?   
 
 ## <a name="what-is-a-replicated-table"></a>Çoğaltılmış bir tabloda nedir?
-Çoğaltılmış bir tabloda, her işlem düğümü üzerinde erişilebilir tablo tam bir kopyasını sahiptir. Tablo çoğaltma JOIN veya toplama önce işlem düğümleri arasında veri aktarımı ihtiyacını ortadan kaldırır. Tabloda birden fazla kopya olduğundan, çoğaltılmış tablolar tablo boyutu sıkıştırılmış 2 GB'tan daha az olduğunda en iyi çalışır.
+Çoğaltılmış bir tabloda, her işlem düğümü üzerinde erişilebilir tablo tam bir kopyasını sahiptir. Tablo çoğaltma JOIN veya toplama önce işlem düğümleri arasında veri aktarımı ihtiyacını ortadan kaldırır. Tabloda birden fazla kopya olduğundan, çoğaltılmış tablolar tablo boyutu sıkıştırılmış 2 GB'tan daha az olduğunda en iyi çalışır.  2 GB sabit bir sınır değil.  Veriler statiktir ve değişmeyen, daha büyük tablolar çoğaltabilirsiniz.
 
 Aşağıdaki diyagramda, her işlem düğümü üzerinde erişilebilir çoğaltılmış bir tabloda gösterilmiştir. SQL veri ambarı'nda, çoğaltılmış tablo, her işlem düğümünde bir dağıtım veritabanı için tam olarak kopyalanır. 
 
 ![Çoğaltılan tablo](media/guidance-for-using-replicated-tables/replicated-table.png "çoğaltılan tablo")  
 
-Tablolarda çalıştığı bir yıldız şemasındaki küçük boyut tabloları için çoğaltılır. Boyut tabloları genellikle depolamak ve birden fazla kopyasını korumak için uygun yapan bir boyutu var. Boyutların müşteri adı ve adresi ve ürün ayrıntıları gibi yavaş değişen açıklayıcı verileri depolayın. Yavaş değişen veriler yapısını çoğaltılmış tablo daha az yeniden oluşturulması için yol açar. 
+Tablolarda çalıştığı için bir yıldız şeması boyut tablolarındaki çoğaltılır. Boyut tabloları genellikle Boyut tablosuna farklı dağıtılan olgu tabloları için birleştirilir.  Genellikle depolamak ve birden fazla kopyasını korumak için uygun yapan bir boyutu boyutlarıdır. Boyutların müşteri adı ve adresi ve ürün ayrıntıları gibi yavaş değişen açıklayıcı verileri depolayın. Yavaş değişen veriler yapısını çoğaltılmış tablo daha az bakım için yol açar. 
 
 Çoğaltılan kullanmayı tablosundan:
 
 - Disk üzerinde Tablo 2 GB'tan daha az, satır sayısı ne olursa olsun boyutudur. Bir tablonun boyutunu bulmak için kullanabileceğiniz [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) komutu: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
 - Tablo, aksi takdirde veri taşıma gerektirecek birleştirme kullanılır. Hepsini bir kez deneme tabloya bir karma dağıtılmış tablo gibi aynı sütunda dağıtılmaz tabloları birleştirme, veri taşıma sorguyu tamamlamak için gereklidir.  Tablolardan birinin küçükse, çoğaltılmış bir tabloda göz önünde bulundurun. Çoğu durumda hepsini bir kez deneme tabloları yerine çoğaltılmış tablolar'ı kullanmanızı öneririz. Sorgu planında veri taşıma işlemleri görüntülemek için kullanın [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).  BroadcastMoveOperation çoğaltılmış bir tabloda kullanılarak kaldırılabilir tipik veri taşıma işlemi var.  
-  Çoğaltılmış tablolar değil en iyi sorgu performansını verebilir olduğunda:
+ 
+Çoğaltılmış tablolar değil en iyi sorgu performansını verebilir olduğunda:
 
 - Tabloda, sık sık ekleme, güncelleştirme ve silme işlemleri vardır. Bu veri işleme dili (DML) işlemleri, çoğaltılmış tablo yeniden gerektirir. Yeniden oluşturma, sık sık daha yavaş performans neden olabilir.
-- Veri ambarı sık ölçeklendirilir. Veri ambarı ölçeklendirme yeniden doğurur işlem düğümlerinin sayısını değiştirir.
+- Veri ambarı sık ölçeklendirilir. Veri ambarı ölçeklendirme çoğaltılmış tablo yeniden doğurur işlem düğümlerinin sayısını değiştirir.
 - Tablosunda sütun çok sayıda, ancak veri işlemleri genellikle yalnızca az sayıda sütun erişim. Tüm tabloyu çoğaltmak yerine bu senaryoda, tablo dağıtın ve ardından sık erişilen sütunlarda dizin oluşturma daha etkili olabilir. SQL veri ambarı, yalnızca bir sorgu, veri taşıma gerektirdiğinde, istenen sütunlar için veri taşır. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Çoğaltılmış tablolar ile basit sorgu koşulları kullanın.
@@ -102,7 +103,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 Tüm tablo her işlem düğümünde zaten varolduğundan çoğaltılmış bir tabloda birleştirme için hiçbir veri taşıma gerektirmez. Boyut tabloları hepsini dağıtılmış ise birleştirme her işlem düğümüne yüklenecek tam olarak Boyut tablosuna kopyalar. Verileri taşımak için sorgu planı BroadcastMoveOperation olarak adlandırılan bir işlem içerir. Bu veri taşıma işlem türü, sorgu performansı yavaşlatır ve çoğaltılmış tablolar'ı kullanarak ortadan kalkar. Sorgu planı adımları görüntülemek için kullanın [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) sistem Katalog görünümü. 
 
 Örneğin, aşağıdaki sorguyu AdventureWorks şemayla içinde ` FactInternetSales` tablo karma dağıtılmış. `DimDate` Ve `DimSalesTerritory` daha küçük boyut tabloları tablolarıdır. Bu sorgu, Kuzey Amerika'da 2004 mali yıl için toplam satış döndürür:
- 
+ 
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
 FROM dbo.FactInternetSales s
@@ -138,7 +139,7 @@ Veri hemen değiştirildikten sonra yeniden oluşmaz. Bunun yerine, yeniden ilk 
 
 ### <a name="use-indexes-conservatively"></a>Dizinleri ölçülü kullanın
 Çoğaltılmış tablolar için standart bir dizin oluşturma yöntemleri uygulayın. SQL veri ambarı yeniden bir parçası olarak her çoğaltılmış tablo dizin oluşturur. Performans kazancı dizinlerini yeniden oluşturma, maliyetinden ağır yalnızca dizinleri kullanın.  
- 
+ 
 ### <a name="batch-data-loads"></a>Toplu veri yüklerini
 Çoğaltılmış tablolar veri yükleme yükleri birlikte toplu işleme tarafından yeniden oluşturulması en aza indirmek deneyin. Tüm toplu iş yükleri, select deyimi çalıştırmadan önce gerçekleştirin.
 
@@ -170,20 +171,20 @@ Bu sorgu kullanan [sys.pdw_replicated_table_cache_state](/sql/relational-databas
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
   FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
-    ON c.object_id = t.object_id 
-  JOIN sys.pdw_table_distribution_properties p 
-    ON p.object_id = t.object_id 
+  JOIN sys.pdw_replicated_table_cache_state c  
+    ON c.object_id = t.object_id 
+  JOIN sys.pdw_table_distribution_properties p 
+    ON p.object_id = t.object_id 
   WHERE c.[state] = 'NotReady'
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
- 
+ 
 Yeniden derleme tetiklemek için yukarıdaki çıktıda her bir tabloda aşağıdaki deyimi çalıştırın. 
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]
 ``` 
- 
+ 
 ## <a name="next-steps"></a>Sonraki adımlar 
 Çoğaltılmış tablo oluşturmak için bu deyimler birini kullanın:
 

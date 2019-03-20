@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: jdial
-ms.openlocfilehash: 5689cdb2e9f8028f8e1e05a9b43cc00719701fce
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 19fdf2e7e1c7c56b6bfe8ddbf7329d3722f4e8de
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213917"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188620"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağına sık sorulan sorular (SSS)
 
@@ -52,7 +52,7 @@ Oluşturun veya bir sanal ağı yapılandırmak için aşağıdaki araçları ku
 * Ağ yapılandırma dosyası (yalnızca klasik sanal ağlar için - netcfg). Bkz: [ağ yapılandırma dosyası kullanarak bir sanal ağ yapılandırma](virtual-networks-using-network-configuration-file.md) makalesi.
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Sanal Ağlarımın içinde hangi adres aralıkları kullanabilirim?
-Herhangi bir IP adresi aralığını tanımlanan [RFC 1918](http://tools.ietf.org/html/rfc1918). Örneğin: 10.0.0.0/16. Aşağıdaki adresi aralıklarını eklenemiyor:
+Herhangi bir IP adresi aralığını tanımlanan [RFC 1918](https://tools.ietf.org/html/rfc1918). Örneğin: 10.0.0.0/16. Aşağıdaki adresi aralıklarını eklenemiyor:
 * 224.0.0.0/4 (çok noktaya yayın)
 * 255.255.255.255/32 (yayın)
 * 127.0.0.0/8 (geri döngü)
@@ -285,7 +285,7 @@ Hayır. VNet eşlemesi, yerel veya genel bant genişliği kısıtlamalar uygulam
 ## <a name="virtual-network-tap"></a>Sanal ağ TAP
 
 ### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>Sanal ağ TAP için hangi Azure bölgeleri mevcuttur?
-Geliştirici önizlemesi sırasında yetenek Batı Orta ABD bölgesinde kullanılabilir. İzlenen ağ arabirimleri, sanal ağ TAP kaynağı ve Toplayıcı veya analiz çözümü için aynı bölgede dağıtılması gerekir.
+Sanal ağ TAP Önizleme tüm Azure bölgelerinde kullanılabilir. İzlenen ağ arabirimleri, sanal ağ TAP kaynağı ve Toplayıcı veya analiz çözümü için aynı bölgede dağıtılması gerekir.
 
 ### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>Sanal ağ GİRİŞİ herhangi filtreleme yetenekleri yansıtılmış paketlerde destekliyor mu?
 Filtreleme yetenekleri, sanal ağ TAP önizlemesi ile desteklenmez. Ne zaman DOKUNUN yapılandırma tüm giriş derin bir kopyasını bir ağ arabirimine eklenir ve çıkış trafiği Ağ arabirimindeki DOKUNUN hedefe sağlanacağına.
@@ -298,7 +298,7 @@ Evet. Aynı sanal ağ TAP kaynak için kullanılabilir yansıtılmış trafik e�
 
 ### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>Ben bir ağ arabirimi bir sanal ağ TAP yapılandırmasına etkinleştirirseniz üretim trafiği üzerinde herhangi bir performans değerlendirmeleri vardır?
 
-Sanal ağ TAP Geliştirici Önizleme aşamasındadır. Önizleme sırasında hizmet düzeyi anlaşması yoktur. Özelliği, üretim iş yükleri için kullanılmamalıdır. Bir sanal makinenin ağ arabirimiyle bir DOKUNUN yapılandırmasıyla etkin olduğunda, üretim trafiği göndermek için sanal makineye tahsis edilen azure ana bilgisayarda aynı kaynakları yansıtma işlevi gerçekleştirmek ve yansıtılmış paketleri göndermek için kullanılır. Doğru seçin [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) yeterli kaynak üretim ve yansıtılmış trafiği göndermek sanal makine için kullanılabilir olmasını sağlamak için sanal makine boyutu.
+Sanal ağ TAP Önizleme aşamasındadır. Önizleme sırasında hizmet düzeyi anlaşması yoktur. Özelliği, üretim iş yükleri için kullanılmamalıdır. Bir sanal makinenin ağ arabirimiyle bir DOKUNUN yapılandırmasıyla etkin olduğunda, üretim trafiği göndermek için sanal makineye tahsis edilen azure ana bilgisayarda aynı kaynakları yansıtma işlevi gerçekleştirmek ve yansıtılmış paketleri göndermek için kullanılır. Doğru seçin [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) yeterli kaynak üretim ve yansıtılmış trafiği göndermek sanal makine için kullanılabilir olmasını sağlamak için sanal makine boyutu.
 
 ### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>Hızlandırılmış için ağ [Linux](create-vm-accelerated-networking-cli.md) veya [Windows](create-vm-accelerated-networking-powershell.md) desteklenen sanal ağ TAP?
 
@@ -370,7 +370,7 @@ Azure hizmet hesabının silinmesini bağımsız bir işlemdir ve hizmet uç nok
 Sanal ağ hizmet uç noktaları etkin olduğunda, kaynak IP adresleri, sanal ağınızın alt ağdaki kaynaklara anahtarları Azure hizmeti trafiği için Azure sanal ağ özel IP adresleri genel IPv4 adresi kullanarak. Bu Azure Hizmetleri başarısız için genel bir IPv4 adresi için daha önce ayarlanan belirli bir IP Güvenlik Duvarı neden olabileceğini unutmayın. 
 
 ### <a name="does-service-endpoint-route-always-take-precedence"></a>Hizmet uç noktası rotası her zaman öncelikli mu?
-Hizmet uç noktaları BGP yolları önceliklidir ve en uygun yönlendirme sağlamak için hizmet uç noktası trafiğini bir sistem yolu ekleyin. Hizmet uç noktaları, Microsoft Azure omurga ağı üzerinde her zaman hizmet trafiğini sanal ağınızdan doğrudan hizmete yönlendirir. [Azure sanal ağ trafiği yönlendirme] nasıl Azure yol seçtiği hakkında daha fazla bilgi için bkz. (sanal-ağ-udr-overview.md).
+Hizmet uç noktaları BGP yolları önceliklidir ve en uygun yönlendirme sağlamak için hizmet uç noktası trafiğini bir sistem yolu ekleyin. Hizmet uç noktaları, Microsoft Azure omurga ağı üzerinde her zaman hizmet trafiğini sanal ağınızdan doğrudan hizmete yönlendirir. Azure'nın bir yolu nasıl seçer hakkında daha fazla bilgi için bkz. [Azure sanal ağ trafiği yönlendirme](virtual-networks-udr-overview.md).
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>NSG bir alt ağdaki hizmet uç noktaları ile nasıl çalışır?
 Azure hizmete erişmek için Nsg'ler giden bağlantıya izin gerekir. Tüm İnternet'e giden trafik, Nsg'ler açtıysanız, hizmet uç noktası trafiğini çalışması gerekir. Yalnızca hizmet etiketleri kullanarak IP hizmetine giden trafiği de sınırlayabilirsiniz.  

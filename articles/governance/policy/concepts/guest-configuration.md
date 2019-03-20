@@ -4,17 +4,17 @@ description: Konuk yapılandırma Azure İlkesi içinde bir Azure sanal makine a
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/27/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e6621172734ea02f971bd5064b403ad4844210a3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d97ac99cae963ddb9df4de06736c64d5d8ceafb5
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960777"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187668"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure İlkesi'nin Konuk yapılandırma anlama
 
@@ -64,7 +64,7 @@ Aşağıdaki tabloda, desteklenen her işletim sisteminde kullanılan yerel Ara�
 
 ### <a name="validation-frequency"></a>Doğrulama sıklığı
 
-Konuk yapılandırma istemcisi için yeni içerik 5 dakikada denetler. Bir konuk ataması alındıktan sonra ayarları 15 dakikalık bir aralıkta denetlenir. Denetim tamamlandıktan hemen sonra sonuçlar Konuk yapılandırma kaynak sağlayıcısı için gönderilir. Bir ilke olduğunda [değerlendirme tetikleyici](../how-to/get-compliance-data.md#evaluation-triggers) gerçekleşir, makinenin durumu, Konuk yapılandırma kaynak sağlayıcısı için yazılır. Bu olay, Azure İlkesi, Azure Resource Manager özelliklerini değerlendirmek neden olur. İsteğe bağlı bir ilke değerlendirmesi Konuk yapılandırma kaynak Sağlayıcısı'ndan en son değeri alır. Ancak, bu yapılandırma sanal makine içinde yeni bir denetim tetiklemediğini.
+Konuk yapılandırma istemcisi için yeni içerik 5 dakikada denetler. Bir konuk ataması alındıktan sonra ayarları 15 dakikalık bir aralıkta denetlenir. Denetim tamamlandıktan hemen sonra sonuçlar Konuk yapılandırma kaynak sağlayıcısı için gönderilir. Bir ilke olduğunda [değerlendirme tetikleyici](../how-to/get-compliance-data.md#evaluation-triggers) gerçekleşir, makinenin durumu, Konuk yapılandırma kaynak sağlayıcısı için yazılır. Bu, Azure İlkesi, Azure Resource Manager özelliklerini değerlendirmek neden olur. İsteğe bağlı bir ilke değerlendirmesi Konuk yapılandırma kaynak Sağlayıcısı'ndan en son değeri alır. Ancak, bu yapılandırma sanal makine içinde yeni bir denetim tetiklemediğini.
 
 ### <a name="supported-client-types"></a>Desteklenen istemci türleri
 
@@ -74,22 +74,18 @@ Aşağıdaki tabloda, desteklenen işletim sistemi listesini Azure görüntüler
 |-|-|-|
 |Canonical|Ubuntu Server|14.04, 16.04 18.04|
 |credativ|Debian|8, 9|
-|Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter|
+|Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 veri merkezi|
+|Microsoft|Windows İstemcisi|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4 7.5|
 |Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
 |SuSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Konuk yapılandırma, desteklenen bir işletim sistemi çalıştıran tüm sunucuları denetleyebilirsiniz.  Özel bir görüntü kullanan sunucular denetlemek istiyorsanız, çoğaltmak gereken **Deployıfnotexists** tanımı ve değiştirme **varsa** görüntü özelliklerinizi eklemek için bölümü.
+> Konuk yapılandırma, desteklenen bir işletim sistemi çalıştıran düğümleri denetleyebilirsiniz.  Özel bir görüntü kullanan sanal makineleri denetlemek istiyorsanız, çoğaltmak gereken **Deployıfnotexists** tanımı ve değiştirme **varsa** görüntü özelliklerinizi eklemek için bölümü.
 
 ### <a name="unsupported-client-types"></a>Desteklenmeyen istemci türleri
 
-Aşağıdaki tabloda, desteklenmeyen bir işletim sistemleri listelenmektedir:
-
-|İşletim sistemi|Notlar|
-|-|-|
-|Windows istemcisi | İstemci işletim sistemleri (örneğin, Windows 7 ve Windows 10) desteklenmez.
-|Windows Server 2016 Nano sunucu | Desteklenmiyor.|
+Windows Server Nano Server herhangi bir sürümü desteklenmiyor.
 
 ### <a name="guest-configuration-extension-network-requirements"></a>Konuk yapılandırma uzantısı ağ gereksinimleri
 
@@ -123,15 +119,29 @@ Azure İlkesi kullanan Konuk yapılandırma kaynak sağlayıcıları **complianc
 > [!NOTE]
 > Her Konuk yapılandırma tanımı için hem **Deployıfnotexists** ve **denetim** ilke tanımları bulunmalıdır.
 
-Tüm yerleşik ilkeleri Konuk yapılandırması için girişim atamaları tanımlarında kullanın grubuna dahil edilmiştir. Yerleşik *[Önizleme]: Parola güvenlik ayarları içinde Linux ve Windows sanal makineleri denetle* girişim 18 ilkeleri içerir. Altı **Deployıfnotexists** ve **denetim** Windows ve Linux için üç çiftleri için ilke tanımı çiftleri.
-Her, **Deployıfnotexists** [ilke tanımı kuralı](definition-structure.md#policy-rule) değerlendirilen sistemleri sınırlar.
+Tüm yerleşik ilkeleri Konuk yapılandırması için girişim atamaları tanımlarında kullanın grubuna dahil edilmiştir. Adlı yerleşik girişim *[Önizleme]: Parola güvenlik ayarları içinde Linux ve Windows sanal makineleri denetle* 18 ilkelerini içerir. Altı **Deployıfnotexists** ve **denetim** Windows ve Linux için üç çift çifti. Her durumda, yalnızca hedef mantıksal tanımındaki doğrular işletim sistemine göre değerlendirilir [ilke kuralı](definition-structure.md#policy-rule) tanımı.
+
+## <a name="client-log-files"></a>İstemci günlük dosyaları
+
+Konuk yapılandırma uzantısı günlük dosyaları aşağıdaki konumlara Yazar:
+
+Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\1.10.0.0\dsc\logs\dsc.log`
+
+Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log`
+
+## <a name="guest-configuration-samples"></a>Konuk yapılandırma örnekleri
+
+İlke Konuk yapılandırması için örnekleri aşağıdaki konumlarda kullanılabilir:
+
+- [Örnek dizini - Konuk yapılandırma](../samples/index.md#guest-configuration)
+- [Azure ilkesi örnekleri GitHub deposunda](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Gözden geçirme örneklere [Azure ilkesi örnekleri](../samples/index.md)
-- Gözden geçirme [İlkesi tanım yapısı](definition-structure.md)
-- Gözden geçirme [ilke etkilerini anlama](effects.md)
-- Anlamak için nasıl [programlı olarak ilkeler oluşturma](../how-to/programmatically-create.md)
-- Bilgi edinmek için nasıl [uyumluluk verilerini al](../how-to/getting-compliance-data.md)
-- Bilgi edinmek için nasıl [uyumlu olmayan kaynakları Düzelt](../how-to/remediate-resources.md)
-- [Kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/index.md) bölümünde yönetim gruplarını gözden geçirebilirsiniz
+- Gözden geçirme örneklere [Azure ilkesi örnekleri](../samples/index.md).
+- [İlke tanım yapısını](definition-structure.md) gözden geçirin.
+- [İlkenin etkilerini anlama](effects.md) konusunu gözden geçirin.
+- Anlamak için nasıl [programlı olarak ilkeler oluşturma](../how-to/programmatically-create.md).
+- Bilgi edinmek için nasıl [uyumluluk verilerini alma](../how-to/getting-compliance-data.md).
+- Bilgi edinmek için nasıl [uyumlu olmayan kaynakları düzeltme](../how-to/remediate-resources.md).
+- Bir yönetim grubu olan gözden geçirme [kaynaklarınızı Azure yönetim gruplarıyla düzenleme](../../management-groups/index.md).

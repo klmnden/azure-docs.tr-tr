@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a810ae13d9cfb68d11293ba883c52858aa4a2deb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b98cc0141954a079b848bd9639b081499819b8ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164762"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877012"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Geri yükleme ya da Azure Active Directory kullanarak son silinen bir kullanıcıyı kaldırma
 Bir kullanıcı sildikten sonra hesabı 30 gün için askıya alınmış durumda kalır. Bu 30 günlük penceresi sırasında kullanıcı hesabı, tüm özellikleriyle birlikte geri yüklenebilir. Bu 30 günlük penceresini geçtikten sonra kullanıcı, otomatik olarak ve kalıcı olarak silinir.
@@ -31,13 +31,13 @@ Geri yüklenebilen kullanıcılarınızın görüntülemek, silinen bir kullanı
 ## <a name="required-permissions"></a>Gerekli izinler
 Geri yüklemek ve kullanıcılar kalıcı olarak silmek için aşağıdaki rollerden biri olması gerekir.
 
-- Şirket Yöneticisi
+- Genel yönetici
 
 - Partner Tier1 Desteği
 
 - Partner Tier2 Desteği
 
-- Kullanıcı Hesabı Yöneticisi
+- Kullanıcı yöneticisi
 
 ## <a name="view-your-restorable-users"></a>Geri yüklenebilen kullanıcılarınızın görüntüleyin
 30 günden kısa süre önce silinmiş olan tüm kullanıcıları görebilirsiniz. Bu kullanıcılar geri yüklenebilir.

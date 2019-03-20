@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 03/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa9872ef76264956430bb69856a197042c196dfd
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6399f5b208bc4d7182622f29bd522cfc9a088e9d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550199"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224558"
 ---
 # <a name="combined-security-information-registration-preview"></a>Birleştirilmiş güvenlik bilgileri kayıt (Önizleme)
 
@@ -68,11 +68,11 @@ Daha fazla kimlik doğrulama yöntemleri gibi Azure AD'ye eklemeye devam ediyoru
 
 ## <a name="combined-registration-modes"></a>Birleşik kayıt modları
 
-Birleşik kayıt iki "mod" vardır: kesme ve yönetin. 
+Birleşik kayıt iki "mod" vardır: kesme ve yönetin.
 
-Kesme modu, bir kullanıcıya gösterilen kaydolun veya oturum açma sırasında güvenlik bilgileri Yenile Sihirbazı benzeri deneyim sunar. 
+Kesme modu, bir kullanıcıya gösterilen kaydolun veya oturum açma sırasında güvenlik bilgileri Yenile Sihirbazı benzeri deneyim sunar.
 
-Yönetme modu kullanıcının profilinin parçası olan ve güvenlik bilgilerini yönetmenizi sağlar. 
+Yönetme modu kullanıcının profilinin parçası olan ve güvenlik bilgilerini yönetmenizi sağlar.
 
 Kullanıcı MFA için kullanılabilecek bir yöntem daha önce kaydedildiyse her iki mod için bunlar güvenlik bilgilerini erişebilmeniz için önce MFA gerçekleştirmeniz gerekir.
 

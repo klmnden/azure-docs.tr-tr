@@ -11,43 +11,44 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c81ab72be58cd223eb9b3fe9ec53d56574a94e8
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 4b65eb38b6c8102295f40b5e169ae7c32a2342a2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430310"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201373"
 ---
-# <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>Güvenli bir şekilde kullanıcıları grup tabanlı lisanslama kullanarak ürün lisansları arasında geçirme
+# <a name="change-the-license-for-a-single-user-in-a-licensed-group-in-azure-active-directory"></a>Lisanslı bir Azure Active Directory grubunda tek bir kullanıcı lisansını değiştirme
 
 Bu makalede, kullanıcıları grup tabanlı lisanslama kullanırken ürün lisansları arasında taşımak için önerilen yöntem açıklanır. Bu yaklaşım, geçiş sırasında hiçbir hizmet veya veri kaybı olduğundan emin olmaktır: kullanıcılar geçiş ürünleri arasında sorunsuz bir şekilde. Geçiş işleminin iki çeşidi ele alınmaktadır:
 
--   Office 365 Kurumsal E3 ve Office 365 Kurumsal E5 arasında geçiş gibi çakışan hizmet planları içermeyen ürün lisansları arasında basit geçiş.
+- Office 365 Kurumsal E3 ve Office 365 Kurumsal E5 arasında geçiş gibi çakışan hizmet planları içermeyen ürün lisansları arasında basit geçiş.
 
--   Office 365 Kurumsal E3 ve Office 365 Kurumsal E1 arasında geçiş yapma gibi bazı çakışan hizmet planları, içeren ürünleri arasında daha karmaşık geçiş. Çakışmaları hakkında daha fazla bilgi için bkz. [çakışan hizmet planları](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) ve [hizmet aynı anda atanamaz planları](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
+- Office 365 Kurumsal E3 ve Office 365 Kurumsal E1 arasında geçiş yapma gibi bazı çakışan hizmet planları, içeren ürünleri arasında daha karmaşık geçiş. Çakışmaları hakkında daha fazla bilgi için bkz. [çakışan hizmet planları](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans) ve [hizmet aynı anda atanamaz planları](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-product-and-service-plan-reference#service-plans-that-cannot-be-assigned-at-the-same-time).
 
 Bu makale, geçirme ve doğrulama adımlarını gerçekleştirmek için kullanılan örnek PowerShell kodu içerir. Kod burada adımları el ile gerçekleştirmek için uygun değildir büyük ölçekli işlemler için özellikle yararlıdır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 Geçişe başlamadan önce belirli varsayımlara tüm kullanıcıların geçirilmesi için doğru olduğunu doğrulamak önemlidir. Varsayımlar tüm kullanıcılar için doğru değilse, geçiş için bazı başarısız olabilir. Sonuç olarak, bazı kullanıcıların Hizmetleri ya da veri erişimi kaybedebilir. Aşağıdaki varsayımların doğrulanmalıdır:
 
--   Kullanıcıların *kaynak lisans* grup tabanlı lisanslama kullanarak atanır. Liste kutusundan taşımak ürün için lisans tek kaynak gruptan devralınır ve doğrudan atanmamış.
+- Kullanıcıların *kaynak lisans* grup tabanlı lisanslama kullanarak atanır. Liste kutusundan taşımak ürün için lisans tek kaynak gruptan devralınır ve doğrudan atanmamış.
 
     >[!NOTE]
     >Lisansları doğrudan atanmış, uygulamayı engelleyebilir *hedef lisans*. Daha fazla bilgi edinin [doğrudan ve Grup lisans ataması](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-advanced#direct-licenses-coexist-with-group-licenses). Kullanmak istediğiniz bir [PowerShell Betiği](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-ps-examples#check-if-user-license-is-assigned-directly-or-inherited-from-a-group) kullanıcıları doğrudan bir lisans olup olmadığını kontrol edin.
 
--   Hedef ürün için kullanılabilir yeterince lisansa sahip. Yeterince lisansa sahip değilseniz, bazı kullanıcılar değil alabilirsiniz *hedef lisans*. Yapabilecekleriniz [kullanılabilir lisans sayısını denetleyin](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
+- Hedef ürün için kullanılabilir yeterince lisansa sahip. Yeterince lisansa sahip değilseniz, bazı kullanıcılar değil alabilirsiniz *hedef lisans*. Yapabilecekleriniz [kullanılabilir lisans sayısını denetleyin](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products).
 
--   Kullanıcılar ile çakışabilir diğer atanan ürün lisansları yok *hedef lisans* veya kaldırılmasını önlemek *kaynak lisans*. Örneğin, bir eklenti ürünü Workplace Analytics veya Project Online gibi bir lisans diğer ürünleri üzerinde bir bağımlılık sahip.
+- Kullanıcılar ile çakışabilir diğer atanan ürün lisansları yok *hedef lisans* veya kaldırılmasını önlemek *kaynak lisans*. Örneğin, bir eklenti ürünü Workplace Analytics veya Project Online gibi bir lisans diğer ürünleri üzerinde bir bağımlılık sahip.
 
--   Grupları, ortamınızda nasıl yönetildiğini anlama. Örneğin, grupları şirket içi yönetmenize ve bunları Azure Active Directory (Azure AD) aracılığıyla Azure AD Connect eşitleme, ardından, ekleme/kullanıcılar, şirket içi sisteminizi kullanarak kaldırma. Değişikliklerin Azure AD ile eşitleyin ve grup tabanlı lisanslama toplanmış zaman alır. Azure AD dinamik grup üyeliği kullanıyorsanız, ekleyin/kullanıcılar öznitelikleri değiştirerek Kaldır. Ancak, genel geçiş işlemi aynı kalır. Tek fark nasıl, ekleme/kullanıcılar grup üyeliği için Kaldır ' dir.
+- Grupları, ortamınızda nasıl yönetildiğini anlama. Örneğin, grupları şirket içi yönetmenize ve bunları Azure Active Directory (Azure AD) aracılığıyla Azure AD Connect eşitleme, ardından, ekleme/kullanıcılar, şirket içi sisteminizi kullanarak kaldırma. Değişikliklerin Azure AD ile eşitleyin ve grup tabanlı lisanslama toplanmış zaman alır. Azure AD dinamik grup üyeliği kullanıyorsanız, ekleyin/kullanıcılar öznitelikleri değiştirerek Kaldır. Ancak, genel geçiş işlemi aynı kalır. Tek fark nasıl, ekleme/kullanıcılar grup üyeliği için Kaldır ' dir.
 
 ## <a name="migrate-users-between-products-that-dont-have-conflicting-service-plans"></a>Çakışan hizmet planları var olmayan ürünler arasında kullanıcıları geçirme
+
 Geçiş hedefi ise kullanıcı lisanslarını değiştirmek için Grup tabanlı lisanslama kullanmaktır bir *kaynak lisans* (Bu örnekte: Office 365 Kurumsal E3) için bir *hedef lisans* (Bu örnekte: Office 365 Kurumsal E5). Bu senaryoda iki ürün çakışan hizmet planları, içermeyen bir çakışma olmadan aynı anda tam olarak atanabilir. Geçiş sırasında herhangi bir noktada kullanıcılar Hizmetleri ya da veri erişimini kaybeder. Geçiş küçük "toplu işler üzerinde." gerçekleştirilir. İşlemi sırasında oluşabilecek sorunları kapsamını en aza indirmek ve her toplu işin sonucunu doğrulayın. Genel olarak, işlem aşağıdaki gibidir:
 
 1.  Kullanıcılar bir kaynak grubu üyeleridir ve bunlar devral *kaynak lisans* gruptan.
@@ -65,6 +66,7 @@ Geçiş hedefi ise kullanıcı lisanslarını değiştirmek için Grup tabanlı 
 7.  Kullanıcılar sonraki toplu işlemler için işlemi tekrarlayın.
 
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Tek bir kullanıcı Azure portalını kullanarak geçirme
+
 Tek bir kullanıcı geçirme için basit bir anlatım budur.
 
 **1. ADIM**: Kullanıcının sahip olduğu bir *kaynak lisans* gruptan devralınır. Hiçbir doğrudan lisans atamaları vardır:

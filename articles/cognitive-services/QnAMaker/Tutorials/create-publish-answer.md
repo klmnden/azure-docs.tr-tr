@@ -11,23 +11,23 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: dd307e4abf4145bad9e0be79d261abf98d7bb3b7
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 42d53cee48be73a0d151b6f44d381463fa1c4e16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792370"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102171"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Öğretici: Kullanarak C#, bilgi tabanı oluşturan sonra soru yanıtlayın
 
 Bu öğretici, program aracılığıyla bilgi bankası (KB) oluşturup yayımlama ve bunu kullanarak müşteri sorularını cevaplama adımlarını göstermektedir. 
 
 > [!div class="checklist"]
-* Bilgi bankası oluşturma 
-* Oluşturma durumunu denetleme
-* Bilgi bankasını eğitme ve yayımlama
-* Uç nokta bilgisi alma
-* Curl kullanarak bilgi bankasını sorgulama
+> * Bilgi bankası oluşturma 
+> * Oluşturma durumunu denetleme
+> * Bilgi bankasını eğitme ve yayımlama
+> * Uç nokta bilgisi alma
+> * Curl kullanarak bilgi bankasını sorgulama
 
 
 Bu hızlı başlangıç şu Soru-Cevap Oluşturma API'lerini çağırır:

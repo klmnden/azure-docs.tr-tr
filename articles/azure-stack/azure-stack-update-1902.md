@@ -16,12 +16,12 @@ ms.date: 03/13/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: 4b6ad06f50962dd2e29caf9543d82912de338fd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: cccedaf8664ae504890d519c8b1aa57533592845
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875830"
+ms.locfileid: "58188297"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 güncelleştirme
 
@@ -161,7 +161,6 @@ Bu güncelleştirme, aşağıdaki güvenlik güncelleştirmeleri yükler:
 - [CVE 2019 0660](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0660)
 - [CVE 2019 0662](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0662)
 - [CVE 2019 0663](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0663)
-
 
 Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantılara tıklayın veya Microsoft Bilgi Bankası makalelerine bakın [4487006](https://support.microsoft.com/en-us/help/4487006).
 

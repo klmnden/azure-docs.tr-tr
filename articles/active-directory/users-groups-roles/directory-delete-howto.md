@@ -9,19 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb15f3e786313fca4ae9f0c224c68c96bac7836
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 833c2e460ae306a7673e580aaa304be93c3cd044
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077726"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199741"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Azure Active Directory kiracısı Sil
+
 Bir kiracı silindiğinde, kiracıda bulunan tüm kaynaklar da silinir. Kiracı, silmeden önce ilişkili kaynakları en aza indirerek hazırlamanız gerekir. Yalnızca Azure Active Directory (Azure AD) genel yönetici portalından Azure AD kiracısı silebilirsiniz.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Kiracı silme işlemi için hazırlama
@@ -39,13 +40,13 @@ Bazı denetimleri geçinceye kadar Azure AD'de bir kiracı silinemiyor. Bu denet
 
 2. **Azure Active Directory**'yi seçin.
 
-3. Anahtarı silmek istediğiniz kiracıya.
+3. Silmek istediğiniz kuruluş geçin.
   
-   ![Dizin düğmesini Sil](./media/directory-delete-howto/delete-directory-command.png)
+   ![Silmeden önce kuruluş onaylayın](./media/directory-delete-howto/delete-directory-command.png)
 
 4. Seçin **silme directory**.
   
-   ![Dizin düğmesini Sil](./media/directory-delete-howto/delete-directory-list.png)
+   ![Kuruluş silme komutunu seçin](./media/directory-delete-howto/delete-directory-list.png)
 
 5. Kiracınızda bir veya daha fazla denetimi geçemezse geçirmek hakkında daha fazla bilgi için bir bağlantı edinirsiniz. Tüm denetimlerden başarıyla sonra seçin **Sil** tıklayarak işlemi tamamlar.
 
@@ -55,7 +56,7 @@ Azure AD kiracınıza yapılandırıldığında, ayrıca lisans tabanlı aboneli
 
 Beklenecekler için deneme Office 365 aboneliği (Ücretli iş ortağı/CSP, Kurumsal Anlaşma veya Toplu Lisanslama dahil değil) süresi dolduğunda, aşağıdaki tabloya bakın. Office 365 veri saklama ve abonelik yaşam döngüsü hakkında daha fazla bilgi için bkz. [Office 365 işletme Aboneliğim sona erdiğinde verilerime ve erişim için ne olur?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
-Abonelik durumu | Veri | Veri erişimi
+Abonelik durumu | Veriler | Veri erişimi
 ----- | ----- | -----
 Etkin (deneme sürümü için 30 gün)  | Tüm erişilebilir veri    | <li>Kullanıcıların Office 365 dosyalar veya uygulamalar için normal erişimi<li>Yöneticiler normal Microsoft 365 Yönetim Merkezi ve kaynaklara erişimi 
 Süresi dolan (30 gün)   | Tüm erişilebilir veri    | <li>Kullanıcıların Office 365 dosyalar veya uygulamalar için normal erişimi<li>Yöneticiler normal Microsoft 365 Yönetim Merkezi ve kaynaklara erişimi
@@ -74,7 +75,7 @@ Bir aboneliğe koyabilirsiniz bir **Deprovisoned** durumu Microsoft 365 Yönetim
   
 3. Seçin **Sil** abonelik silip hüküm ve koşulları kabul edin. Tüm verileri kalıcı olarak üç gün içinde silinir. Fikrinizi değiştirirseniz üç gün boyunca abonelik yeniden etkinleştirebilir.
   
-   ![hüküm ve koşullar](./media/directory-delete-howto/delete-terms.png)
+   ![hüküm ve koşulları dikkatle okuyun](./media/directory-delete-howto/delete-terms.png)
 
 4. Abonelik durumu değiştirildiğinde artık abonelik silinmek üzere işaretlendi. Abonelik girer **yetki kaldırıldı** 72 saat belirtin.
 
@@ -83,4 +84,5 @@ Bir aboneliğe koyabilirsiniz bir **Deprovisoned** durumu Microsoft 365 Yönetim
    ![silme ekranında abonelik denetimi başarılı](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 [Azure Active Directory belgeleri](https://docs.microsoft.com/azure/active-directory/)

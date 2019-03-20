@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a5ebd50b3a5fe3b611bae28db98979eee40f9490
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811778"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899035"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure İzleyici’de Azure Depolama ölçümleri
 
@@ -23,7 +23,7 @@ Azure İzleyici, farklı Azure Hizmetleri genelinde izleme için birleştirilmi�
 
 ## <a name="access-metrics"></a>Erişim ölçümleri
 
-Azure İzleyici ölçümlerine erişim birden çok yol sağlar. Bunları erişebileceğiniz [Azure portalında](https://portal.azure.com), Event Hubs gibi analiz çözümleri ve Azure İzleyici API'leri (REST ve .net). Daha fazla bilgi için [Azure İzleyici ölçümleri](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure İzleyici ölçümlerine erişim birden çok yol sağlar. Bunları erişebileceğiniz [Azure portalında](https://portal.azure.com), Event Hubs gibi analiz çözümleri ve Azure İzleyici API'leri (REST ve .NET). Daha fazla bilgi için [Azure İzleyici ölçümleri](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Ölçümler, varsayılan olarak etkindir ve son 93 günün verilerini erişebilir. Uzun bir süre saklamak istiyorsanız ölçüm verileri bir Azure depolama hesabına arşivleyebilir. Bu yapılandırılan [tanılama ayarları](../../azure-monitor/platform/diagnostic-logs-overview.md) Azure İzleyici'de.
 
@@ -134,13 +134,13 @@ Blob, tablo, dosya veya kuyruk için ölçüm değerleri okumak istiyorsanız, y
 
 ```
 
-### <a name="access-metrics-with-the-net-sdk"></a>.Net SDK'sı ile erişim ölçümleri
+### <a name="access-metrics-with-the-net-sdk"></a>.NET SDK'sı ile erişim ölçümleri
 
-Azure İzleyicisi'nin sağladığı [.Net SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) ölçüm tanımı ve değerleri okunamıyor. [Örnek kod](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) SDK'sı ile farklı parametreler kullanma işlemini gösterir. Kullanmanız gereken `0.18.0-preview` veya sonraki sürümü için depolama ölçümleri. Kaynak Kimliği, .net SDK'sı kullanılır. Depolama Hizmetleri için kaynak kimliği anlama, daha fazla bilgi için lütfen okuyun.
+Azure İzleyicisi'nin sağladığı [.NET SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) ölçüm tanımı ve değerleri okunamıyor. [Örnek kod](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) SDK'sı ile farklı parametreler kullanma işlemini gösterir. Kullanmanız gereken `0.18.0-preview` veya sonraki sürümü için depolama ölçümleri. Kaynak Kimliği, .NET SDK kullanılır. Depolama Hizmetleri için kaynak kimliği anlama, daha fazla bilgi için lütfen okuyun.
 
-Aşağıdaki örnek, Azure İzleyici .net SDK'sı depolama ölçümlerini okuma için nasıl kullanılacağını gösterir.
+Aşağıdaki örnek, Azure İzleyici .NET SDK'sı depolama ölçümlerini okuma için nasıl kullanılacağını gösterir.
 
-#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>.Net SDK'sı ile hesap düzeyinde ölçüm tanımını listeleme
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>.NET SDK'sı ile hesap düzeyinde ölçüm tanımını listeleme
 
 Aşağıdaki örnek, hesap düzeyinde ölçüm tanımını listeleme gösterilmiştir:
 
@@ -177,7 +177,7 @@ Aşağıdaki örnek, hesap düzeyinde ölçüm tanımını listeleme gösterilmi
 
 Blob, tablo, dosya veya kuyruk ölçüm tanımlarını listelemek istiyorsanız, API ile her hizmet için farklı kaynak kimliklerini belirtmeniz gerekir.
 
-#### <a name="read-metric-values-with-the-net-sdk"></a>.Net SDK'sı ile okuma ölçüm değerleri
+#### <a name="read-metric-values-with-the-net-sdk"></a>.NET SDK'sı ile okuma ölçüm değerleri
 
 Aşağıdaki örnek nasıl okunduğunu gösterir `UsedCapacity` hesap düzeyinde veri:
 
@@ -227,7 +227,7 @@ Aşağıdaki örnek nasıl okunduğunu gösterir `UsedCapacity` hesap düzeyinde
 
 Blob, tablo, dosya veya kuyruk için ölçüm değerleri okumak istiyorsanız, yukarıdaki örnekte, her hizmet için farklı kaynak kimliklerini API ile belirtmeniz gerekir.
 
-#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>.Net SDK'sı ile çok boyutlu ölçüm değerleri okuyun
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>.NET SDK ile çok boyutlu ölçüm değerleri okuyun
 
 Çok boyutlu ölçümler için belirli bir boyut değeri ölçüm verilerini okumak istiyorsanız, meta veri filtresini tanımlamanız gerekir.
 
@@ -380,7 +380,7 @@ Azure depolama, Azure İzleyici'de aşağıdaki işlem ölçümlerini sağlar.
 | Çıkış | Çıkış verileri miktarı. Bu sayı, dış istemciden Azure Depolama'ya çıkan ve Azure içinde çıkan verileri içerir. Sonuç olarak bu sayı, faturalanabilir çıkışı yansıtmaz. <br/><br/> Birim: Bayt <br/> Toplama türü: Toplam <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
 | SuccessServerLatency | Azure Depolama tarafından gerçekleştirilen başarılı bir isteği işlemek için kullanılan ortalama süre. Bu değer, Başarı E2E Gecikme Süresi’nde belirtilen ağ gecikme süresini içermez. <br/><br/> Birim: Milisaniye <br/> Toplama türü: Ortalama <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
 | Başarı E2e | Bir depolama hizmetine yapılan başarılı isteklerin veya belirtilen API işleminin ortalama uçtan uca gecikme süresi. Bu değer, isteği okumak, yanıtı göndermek ve yanıtın onayını almak için Azure Depolama içinde gerekli işleme süresini içerir. <br/><br/> Birim: Milisaniye <br/> Toplama türü: Ortalama <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 1024 |
-| Kullanılabilirlik | Depolama hizmetinin veya belirtilen API işleminin kullanılabilirlik yüzdesi. Kullanılabilirlik, toplam Faturalandırılabilir isteklerin değeri ve beklenmeyen hata üreten bu istekleri dahil ilgili istek sayısına göre bölme göre hesaplanır. Azaltılmış kullanılabilirlik ve depolama hizmetine veya belirtilen API işlemi için beklenmeyen tüm hatalar sonuçlanır. <br/><br/> Birim: Yüzde <br/> Toplama türü: Ortalama <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 99.99 |
+| Kullanılabilirlik | Depolama hizmetinin veya belirtilen API işleminin kullanılabilirlik yüzdesi. Kullanılabilirlik, toplam Faturalandırılabilir isteklerin değeri ve beklenmeyen hata üreten bu istekleri dahil ilgili istek sayısına göre bölme göre hesaplanır. Beklenmeyen tüm hatalar, depolama hizmeti veya belirtilen API işlemi için kullanılabilirliğin azalmasıyla sonuçlanır. <br/><br/> Birim: Yüzde <br/> Toplama türü: Ortalama <br/> Geçerli boyut: GeoType ApiName ve kimlik doğrulaması ([tanımı](#metrics-dimensions)) <br/> Değeri örneği: 99.99 |
 
 ## <a name="metrics-dimensions"></a>Ölçümleri boyutları
 
@@ -389,7 +389,7 @@ Azure İzleyicisi'nde ölçümler için boyut şu Azure Storage'ı destekler.
 | Boyut Adı | Açıklama |
 | ------------------- | ----------------- |
 | BlobType | Yalnızca Blob ölçümler için blob türü. Desteklenen değerler şunlardır: **BlockBlob** ve **PageBlob**. Ekleme Blob BlockBlob içinde bulunur. |
-| ResponseType | İşlem yanıt türü. Kullanılabilir değerler şunlardır: <br/><br/> <li>ServerOtherError: Diğer tüm sunucu tarafı hatalarını açıklanan olanlar hariç </li> <li> ServerBusyError: Bir HTTP 503 durum kodunu döndürdü, kimliği doğrulanmış istek. </li> <li> ServerTimeoutError: Bir HTTP 500 durum kodunu döndürdü kimliği doğrulanmış istek zaman aşımına uğradı. Zaman aşımı nedeniyle bir sunucu hatası oluştu. </li> <li> AuthorizationError: Yetkisiz erişim veri ya da bir Yetkilendirme hatası nedeniyle başarısız oldu, kimliği doğrulanmış istek. </li> <li> NetworkError: Kimliği doğrulanmış ağ hataları nedeniyle başarısız olan istek. Bir istemci zamanından önce bir bağlantı zaman aşımı süresi dolmadan önce kapandığında en yaygın olarak gerçekleşir. </li> <li>    ClientThrottlingError: İstemci tarafı azaltma hata oluştu. </li> <li> ClientTimeoutError: Bir HTTP 500 durum kodunu döndürdü kimliği doğrulanmış istek zaman aşımına uğradı. İstemcinin ağ zaman aşımı veya istek zaman aşımı depolama hizmetinin beklenenden daha düşük bir değere ayarlanırsa, beklenen bir zaman aşımı var. Aksi takdirde, bir ServerTimeoutError bildirilir. </li> <li> ClientOtherError: Diğer tüm istemci tarafı hataları açıklanan olanlar hariç. </li> <li> Başarılı: Başarılı istek|
+| ResponseType | İşlem yanıt türü. Kullanılabilir değerler şunlardır: <br/><br/> <li>ServerOtherError: Açıklananlar hariç diğer tüm sunucu tarafı hatalar </li> <li> ServerBusyError: HTTP 503 durum kodu döndüren, kimliği doğrulanmış istek. </li> <li> ServerTimeoutError: HTTP 500 durum kodu döndüren, zaman aşımına uğramış ve kimliği doğrulanmış istek. Zaman aşımı bir sunucu hatası nedeniyle gerçekleşti. </li> <li> AuthorizationError: Yetkisiz veri erişimi veya yetkilendirme hatası nedeniyle başarısız olmuş bir kimliği doğrulanmış istek. </li> <li> NetworkError: Ağ hataları nedeniyle başarısız olmuş bir kimliği doğrulanmış istek. Çoğunlukla bir istemci, zaman aşımı süre sonundan önce bağlantıyı erkenden kapattığında gerçekleşir. </li> <li>    ClientThrottlingError: İstemci tarafı azaltma hatası. </li> <li> ClientTimeoutError: HTTP 500 durum kodu döndüren, zaman aşımına uğramış ve kimliği doğrulanmış istek. İstemcinin ağ zaman aşımı veya istek zaman aşımı depolama hizmetinin beklediğinden düşük bir değere ayarlanmışsa beklenen bir zaman aşımıdır. Aksi takdirde, bir ServerTimeoutError olarak bildirilir. </li> <li> ClientOtherError: Açıklananlar hariç diğer tüm istemci tarafı hatalar. </li> <li> Başarılı: Başarılı istek|
 | GeoType | Birincil veya ikincil kümeden işlem. Kullanılabilir değerler, birincil ve ikincil içerir. Okuma erişimli coğrafi olarak yedekli Storage(RA-GRS) nesneleri ikincil kiracıdan okurken uygulanır. |
 | ApiName | İşlem adı. Örneğin: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Tüm işlem adları için bkz [belge](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | Authentication | İşlemlerde kullanılan kimlik doğrulaması türü. Kullanılabilir değerler şunlardır: <br/> <li>AccountKey: İşlem, depolama hesabı anahtarı ile kimlik doğrulaması yapılır.</li> <li>SAS: İşlem, paylaşılan erişim imzaları ile kimlik doğrulaması yapılır.</li> <li>OAuth: İşlem, OAuth erişim belirteçleri ile doğrulanır.</li> <li>Anonim: İşlem anonim olarak istenir. Bu denetim öncesi isteği içermez.</li> <li>AnonymousPreflight: Denetim öncesi isteği bir işlemdir.</li> |

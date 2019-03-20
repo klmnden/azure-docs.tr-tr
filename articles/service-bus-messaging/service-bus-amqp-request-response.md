@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c6d6fc813a2691e821f3ef8f7c719945851a5001
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: c22ba0b57ed1161e1f7e2082d2ba21f27b656da1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570853"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121579"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure hizmet veri yolu AMQP 1.0: istek-yanıt tabanlı işlemler
 
@@ -607,7 +607,7 @@ Dizideki her eşleme girişi aşağıdaki özellikleri içerir:
 `com.microsoft:correlation-filter:list` içeren açıklandığı gibi bir dizi şöyledir:
 
 |Dizin (varsa var)|Değer türü|Değer içeriği|  
-|---------|----------------|--------------|--------------------|  
+|---------|----------------|--------------|
 | 0 | string | Bağıntı Kimliği |
 | 1 | string | İleti Kimliği |
 | 2 | string | Alıcı |

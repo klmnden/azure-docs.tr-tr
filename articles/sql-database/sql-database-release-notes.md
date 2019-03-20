@@ -10,12 +10,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: carlrab
-ms.openlocfilehash: 9a461f84577997ff976956b7f2f50500e9b3d323
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6600a578ba9c73c8a2c71466fd0b008f19058b80
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548073"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861307"
 ---
 # <a name="sql-database-release-notes"></a>SQL veritabanı sürüm notları
 
@@ -50,7 +50,7 @@ Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeler
 |Yönetilen örnek geliştirilmiş rota tabloları desteği| Daha fazla bilgi için [ağ gereksinimleri](sql-database-managed-instance-connectivity-architecture.md#network-requirements).|
 |Yönetilen örneğinde desteklenen veritabanını yeniden adlandırma | Daha fazla ayrıntı için [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) ve [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql) söz dizimi.|
 |Stream Analytics için başvuru veri kaynağı olarak SQL veritabanı. | Daha fazla bilgi için [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).|
-|Veri geçiş Yardımcısı, yönetilen örnek için destek ekler. |Daha fazla bilgi için [DMA'da yenilikler](https://docs.microsoft.com/sql/dma/dma-whatsnew?view=sql-server-2017).|
+|Veri geçiş Yardımcısı, yönetilen örnek için destek ekler. |Daha fazla bilgi için [DMA'da yenilikler](https://docs.microsoft.com/sql/dma/dma-whatsnew).|
 |SQL Server Geçiş Yardımcısı, yönetilen örnek için hedef hazır olma durumu değerlendirmesi için destek ekler. | Daha fazla bilgi için [SQL Server Geçiş Yardımcısı](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant).
 |Veri geçiş hizmeti Amazon RDS yönetilen örneğine geçişi destekler. | Daha fazla bilgi için [Öğreticisi: RDS SQL Server'ı Azure SQL veritabanı'na geçirme veya Azure SQL veritabanı yönetilen örneği çevrimiçi DMS kullanarak](../dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md).|
 | &nbsp; |
@@ -60,7 +60,7 @@ Bu makalede, SQL veritabanı hizmeti ve SQL veritabanı belgeleri geliştirmeler
 | Belgeleri geliştirmeleri | Ayrıntılar |
 | --- | --- |
 |Örnek dağıtım seçeneği açıklamalar yönetilen ekleme|Yönetilen örnek dağıtım seçenekleri tek veritabanı ve elastik havuz için Uygulanabilirlik açıklamak için birçok makale güncelleştirildi. |
-|DTU tabanlı satın alma modeli güncelleştirilmiş tempdb boyutları | Daha fazla bilgi için [SQL veritabanı'nda veritabanı Tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).|
+|DTU tabanlı satın alma modeli güncelleştirilmiş tempdb boyutları | Daha fazla bilgi için [SQL veritabanı'nda veritabanı Tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
 |Güncelleştirilmiş içeri ve dışarı aktarma bacpac dosyasını yönetilen örnek desteği| Daha fazla bilgi için [BACPAC alma](sql-database-import.md) ve [dışarı aktarmak için BACPAC](sql-database-export.md). |
 | &nbsp; |
 
@@ -97,4 +97,4 @@ Açık kaynak Azure SQL belgeleri kümesidir. Açık çalışmanın bazı avanta
 - Açık kaynak depolar, ilk sürümde en faydalı içeriği yayımlamak için açık olarak gözden geçirin.
 - Açık kaynak depolar, içeriği sürekli olarak geliştirmenize daha kolay hale getirmek için açık olarak güncelleştirin.
 
-Azure SQL veritabanı belgeleri içeriklerine katkıda bulunmak için bkz: [Microsoft Docs katkıda bulunan Kılavuzu Genel Bakış](https://docs.microsoft.com/en-us/contribute/). Kullanıcı deneyimi üzerinde [docs.microsoft.com](https://docs.microsoft.com/) tümleşir [GitHub](https://github.com/) doğrudan daha kolay yapmak için iş akışları. Başlayın [görüntülediğiniz belgeyi düzenleyerek](https://docs.microsoft.com/en-us/contribute/#quick-edits-to-existing-documents). Ya da tarafından Yardım [yeni konuları inceleyerek](https://docs.microsoft.com/en-us/contribute/#review-open-prs), veya [kalite sorunları oluşturarak](https://docs.microsoft.com/en-us/contribute/#create-quality-issues).
+Azure SQL veritabanı belgeleri içeriklerine katkıda bulunmak için bkz: [Microsoft Docs katkıda bulunan Kılavuzu Genel Bakış](https://docs.microsoft.com/contribute/). Kullanıcı deneyimi üzerinde [docs.microsoft.com](https://docs.microsoft.com/) tümleşir [GitHub](https://github.com/) doğrudan daha kolay yapmak için iş akışları. Başlayın [görüntülediğiniz belgeyi düzenleyerek](https://docs.microsoft.com/contribute/#quick-edits-to-existing-documents). Ya da tarafından Yardım [yeni konuları inceleyerek](https://docs.microsoft.com/contribute/#review-open-prs), veya [kalite sorunları oluşturarak](https://docs.microsoft.com/contribute/#create-quality-issues).
