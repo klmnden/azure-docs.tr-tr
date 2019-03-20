@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62320d6523652d91f35e55196a84cc32ea7bc55d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 36e1c8d6cae79147c5cd4b5a46f5e1c330811ab8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440174"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877658"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Öğretici: Procore SSO ile Azure Active Directory Tümleştirme
 
@@ -179,7 +179,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
        Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -204,7 +204,7 @@ Lütfen izleyin Procore SSOc tarafında Procore test kullanıcısı oluşturmak 
 
     b. İçinde **Soyadı** metin türü kullanıcının soyadını gibi **Simon**.
 
-    c. İçinde **e-posta adresi** metin türü kullanıcının e-posta adresi ister **BrittaSimon@contoso.com**.
+    c. İçinde **e-posta adresi** metin türü kullanıcının e-posta adresi ister **BrittaSimon\@contoso.com**.
 
     d. Seçin **izin şablonu** olarak **daha sonra izin şablonu Uygula**.
 

@@ -4,7 +4,7 @@ description: include dosyası
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 703a8ee989a4655768e09440ed250ade6c000050
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a9aeb2f45ec8c882c47425879ab6ef726ca94060
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125025"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203363"
 ---
 ## <a name="setting-up-your-web-server-or-project"></a>Web sunucunuzda veya proje ayarlama
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/29/2019
 ms.author: kumud
-ms.openlocfilehash: 18e4a7ae5010730054dd110828c63e8418b93f39
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 52524e6291faae8ccc27c0d53e9e38ab63a4c8d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296928"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58132438"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer ile TCP boşta kalma (genel Önizleme) Sıfırla
 
@@ -27,7 +27,7 @@ Kullanabileceğiniz [Standard Load Balancer](load-balancer-standard-overview.md)
 ![Yük Dengeleyici TCP Sıfırla](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
->Şu anda genel önizleme olarak kullanılabilir ve sınırlı sayıda kullanılabilir TCP boşta kalma zaman aşımı işlevselliğini sıfırlama yük Dengeleyiciyle [bölgeleri](#regions). Bu önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>TCP boşta kalma zaman aşımı işlevselliğini sıfırlama yük Dengeleyiciyle şu anda genel önizleme olarak kullanılabilir. Bu önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 Bu varsayılan davranış ve üzerinde bir gelen NAT kuralları, Yük Dengeleme kuralları, boşta kalma zaman aşımını TCP sıfırlar gönderme etkinleştir değiştirmek ve [giden kuralları](https://aka.ms/lboutboundrules).  Yük Dengeleyici kuralı başına etkin olduğunda, gönderir çift TCP Reset (TCP lk paketleri) yönlü istemci ve sunucu uç noktalarına eşleşen tüm akışlar için boşta kalma zaman aşımı, zamanında.
 

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 03/18/2018
 ms.author: kaanan
-ms.openlocfilehash: 48ccbedd6e3a7da0ec487f27709a47f9364f7da3
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 3d95a9ea555cceda82530eb5c487eeb993c1a678
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100066"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188569"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Bir DOKUNUN Azure CLI kullanarak sanal ağ ile çalışma
 
@@ -28,7 +28,7 @@ Azure sanal ağ TAP (Terminal erişim noktası) bir ağ paketi Toplayıcı veya 
 
 ## <a name="create-a-virtual-network-tap-resource"></a>Sanal ağ TAP kaynak oluşturma
 
-Okuma [önkoşulları](virtual-network-tap-overview.md#prerequisites) bir sanal ağ TAP kaynak oluşturmadan önce. İçinde izleyen komutları çalıştırabilirsiniz [Azure Cloud Shell](https://shell.azure.com/bash), veya Azure komut satırı arabirimi (CLI) bilgisayarınızdan çalıştırarak. Azure Cloud Shell, bilgisayarınızda Azure CLI yükleme gerektirmeyen bir ücretsiz etkileşimli kabuk ' dir. Azure için uygun olan bir hesapla oturum açmalısınız [izinleri](virtual-network-tap-overview.md#permissions). Bu makale Azure CLI Sürüm 2.0.46 gerekir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` Azure ile bir bağlantı oluşturmak için.
+Okuma [önkoşulları](virtual-network-tap-overview.md#prerequisites) bir sanal ağ TAP kaynak oluşturmadan önce. İçinde izleyen komutları çalıştırabilirsiniz [Azure Cloud Shell](https://shell.azure.com/bash), veya Azure komut satırı arabirimi (CLI) bilgisayarınızdan çalıştırarak. Azure Cloud Shell, bilgisayarınızda Azure CLI yükleme gerektirmeyen bir ücretsiz etkileşimli kabuk ' dir. Azure için uygun olan bir hesapla oturum açmalısınız [izinleri](virtual-network-tap-overview.md#permissions). Bu makale Azure CLI Sürüm 2.0.46 gerekir veya üzeri. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Sanal ağ DOKUNUN, şu anda bir uzantısı olarak kullanılabilir. Çalışmanız için gereken uzantıyı yüklemek için `az extension add -n virtual-network-tap`. Azure CLI'yi yerel olarak çalıştırıyorsanız, aynı zamanda çalıştırmak ihtiyacınız `az login` Azure ile bir bağlantı oluşturmak için.
 
 1. Sonraki adımlardan birinde kullanılan bir değişkenin aboneliğinize Kimliğini alın:
 

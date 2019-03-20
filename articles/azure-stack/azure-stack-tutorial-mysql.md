@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 8fc3246c76d7d09ea4518b5c548d5dbe05cc7a84
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ff1b137fb6461c4ebd17451b89a180364d833d4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164269"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116801"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Öğretici: Yüksek oranda kullanılabilir olan MySQL veritabanları sunar.
 
@@ -67,7 +67,7 @@ MySQL sunucusu dağıtmak için bu bölümdeki adımları küme kullanarak kulla
 - MySQL kümesi barındırmak için üç Linux Vm'leri
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Seçin **\+** **kaynak Oluştur** > **işlem**, ardından **çoğaltma ile MySQL**.
 
@@ -168,7 +168,7 @@ MySQL kümesi oluşturulduğundan, yapılandırılmış ve bir Azure Stack MySQL
 > Bu adımları Azure Stack Kullanıcı Portalı'ndan bir abonelik MySQL Server özellikleriyle (Microsoft.MySQLAdapter hizmeti) ile bir kiracı kullanıcı olarak çalıştırın.
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Seçin **\+** **kaynak Oluştur** > **veri \+ depolama**, ardından **MySQL veritabanı** .<br><br>Ad, harmanlaması, kullanılacak aboneliği ve dağıtımı için kullanılacak konumu dahil olmak üzere gerekli veritabanı özellik bilgileri sağlar. 
 

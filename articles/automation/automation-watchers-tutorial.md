@@ -8,12 +8,12 @@ author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 7870aca696ec61e707c5c774fd43e6d64c0cab82
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7d7ebc7493ff8e272e35abafeedd8fbc52b986ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002163"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Bir Azure Otomasyonu izleyicisini yerel bir makinede dosya değişiklikleri izlemek için görevleri oluşturun
 
@@ -89,8 +89,8 @@ Eylem runbook bir izleyici görevi, bir izleyici runbook'tan geçirilen verileri
 1. Seçin **eylemini yapılandırma** ve "İşlem NewFile" runbook'u seçin.
 1. Parametreler için aşağıdaki değerleri girin:
 
-   ***EVENTDATA** -boş bırakın. Veri İzleyicisi runbook'tan geçirilir.  
-   ***Çalıştırma ayarları** -olarak Azure'a bırakın Bu runbook Otomasyon hizmeti çalışırken.
+   * **EVENTDATA** -boş bırakın. Veri İzleyicisi runbook'tan geçirilir.  
+   * **Çalıştırma ayarları** -olarak Azure'a bırakın Bu runbook Otomasyon hizmeti çalışırken.
 
 1. Tıklayın **Tamam**ve ardından İzleyicisi sayfasına geri dönün.
 1. Tıklayın **Tamam** İzleyici görevi oluşturmak için.

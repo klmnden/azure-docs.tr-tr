@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/13/2019
 ms.author: xpouyat
-ms.openlocfilehash: 6aefa6b8745d14f59981520660b1f4c1323f8617
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 34aee7405ac7afb8646ec58c5cbb049e450a4987
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456168"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897444"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Lisans Microsoft® kesintisiz akış istemci taşıma kitini 
 ## <a name="overview"></a>Genel Bakış
@@ -127,6 +127,7 @@ Teknik sorular için lisans sahipleri için geçici ve son SSPK gönderebildiği
 * Enseo, Inc.
 * FilmFlex Movies Limited
 * Fluendo S.A.
+* FUNAI ELECTRIC CO., LTD
 * Gibson yeniliklerini sınırlı
 * Haier bilgi Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
@@ -158,7 +159,6 @@ Teknik sorular için lisans sahipleri için geçici ve son SSPK gönderebildiği
 * VIZIO, Inc.
 * Wistron Corporation
 * ZTE Corporation
-
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 21e7406d566be5be73342d530a4ad66b80a1d23f
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: deef5d17f9970f23c40c323bd1612cc3e3e1304e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990450"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107415"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Azure API Yönetimi'nde rol tabanlı erişim denetimi kullanma
 Azure API Management hakkında Azure rol tabanlı erişim denetimi (API Management Hizmetleri ve varlıkları (örneğin, API'leri ve ilkeleri) ayrıntılı erişim yönetimini etkinleştirmek için RBAC) kullanır. Bu makalede, API Yönetimi'nde yerleşik ve özel roller genel bir bakış sağlar. Azure portalında erişim yönetimi hakkında daha fazla bilgi için bkz. [Azure portalında erişim yönetimini kullanmaya başlama](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -32,7 +32,7 @@ API Yönetimi şu anda üç yerleşik rol sağlar ve iki daha fazla rol yakın g
 Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Azure portal veya Azure gibi diğer araçları kullanarak bu roller atayabilirsiniz [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli), ve [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Yerleşik rollerin nasıl atanacağı hakkında daha fazla ayrıntı için bkz: [Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanma](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 | Rol          | Okuma erişimi<sup>[1]</sup> | Yazma erişimi<sup>[2]</sup> | Hizmet oluşturma, silme, ölçeklendirme, VPN ve özel etki alanı yapılandırması | Eski yayımcı portalına erişim | Açıklama
-| ------------- | ---- | ---- | ---- | ---- | ---- | ---- |
+| ------------- | ---- | ---- | ---- | ---- | ---- 
 | Azure API Yönetimi Hizmeti Katılımcısı | ✓ | ✓ | ✓ | ✓ | Süper kullanıcı. API Management Hizmetleri ve varlıkları (örneğin, API'leri ve ilkeleri) tam CRUD erişimi vardır. Eski yayımcı portalına erişebilir. |
 | Azure API Management hizmet okuyucusu | ✓ | | || API Management Hizmetleri ve varlıkların salt okunur erişimi vardır. |
 | Azure API Management hizmet operatörü | ✓ | | ✓ | | API Management Hizmetleri, ancak değil varlıkları yönetebilir.|

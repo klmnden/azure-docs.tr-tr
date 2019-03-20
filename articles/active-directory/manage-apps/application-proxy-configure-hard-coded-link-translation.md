@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 778ae1aa9d5517912b9c67b27066a75d14358087
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9c010a7bcd2d811b31d9c2d05e81cce5dc85c2ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186070"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118604"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile yayımlanan uygulamalar için sabit kodlanmış bağlantıları yeniden yönlendirin
 
@@ -43,8 +43,8 @@ Bu üç özellik, kullanıcılarınızın nerede olursa olsun çalışma bağlan
  
 > [!NOTE]
 > Son seçenek ne olursa olsun nedeni için özel etki alanları uygulamalarını aynı iç ve dış URL'leri için kullanamazsınız, kiracılar için kullanılabilir. Bu özelliği etkinleştirmeden önce bkz. [Azure AD uygulama proxy'sinde özel etki alanları](application-proxy-configure-custom-domain.md) sizin için çalışabilir. 
-
->Veya uygulamayı yapılandırmak gerekirse bağlantıyla çeviri SharePoint için bkz. [SharePoint 2013 için alternatif erişim eşlemelerini yapılandırma](https://technet.microsoft.com/library/cc263208.aspx) eşleme bağlantıları için başka bir yaklaşım. 
+> 
+> Veya uygulamayı yapılandırmak gerekirse bağlantıyla çeviri SharePoint için bkz. [SharePoint 2013 için alternatif erişim eşlemelerini yapılandırma](https://technet.microsoft.com/library/cc263208.aspx) eşleme bağlantıları için başka bir yaklaşım. 
 
  
 ### <a name="option-1-intune-managed-browser-integration"></a>1. seçenek: Intune yönetilen tarayıcı tümleştirme 

@@ -5,18 +5,26 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/14/2019
 ms.author: mayg
-ms.openlocfilehash: d1e406567b5f56f6ad08e4d276202ebf43d92534
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321507"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093846"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Vmware'den azure'a olağanüstü durum kurtarma için Site Recovery dağıtım Planlayıcısı maliyet tahmini raporunu gözden geçirin
 
 Dağıtım planlayıcısı raporu, [Öneriler](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) sayfalarında maliyet tahmini özeti ve Maliyet Tahmini sayfasında da ayrıntılı maliyet analizi sağlar. Sanal makine başına ayrıntılı maliyet analizi içerir. 
+
+>[!Note]
+>Geçerli dağıtım planlayıcısı aracı sürümü, yönetilen disklere çoğaltılan VM'ler için maliyet tahmini sağlamaz.
+>* 'Yönetilen diskleri Kullan' parametresi "Evet" "İşlem ve ağ" dikey penceresinde ayarlandığında DR Tatbikatı maliyeti tahminleri ve yönetilen diskler, depolama hesapları için aynıdır.
+>* Çoğaltma için yaklaşık bir yıllık maliyeti tahmini elde etmek için aşağıdaki geçici ayarları yapın **maliyet tahmini** sayfası:
+>    * "Maliyet süresi" parametre kümesi'nde **ayarları** "Year" tabloya
+>    * İçinde **ayrıntılı maliyet analizi** tablo, 12 "Yıllık DR Tatbikatları sayısı" sütununu ayarlayın ve "her DR Tatbikatının süresi (gün)" 30 
+>    * Çoğaltma maliyeti benzer şekilde, sütun 'R' yani DR Tatbikatı depolama maliyeti yıllık doldurulmuş maliyet **DR Tatbikatı maliyeti yılda** alt bölüm.
 
 ### <a name="cost-estimation-summary"></a>Maliyet tahmini özeti 
 Grafta, seçtiğiniz hedef bölgede ve rapor oluşturma için belirttiğiniz para biriminde Azure'a tahmini toplam olağanüstü durum kurtarma (DR) maliyeti gösterilir.
@@ -106,9 +114,9 @@ Sanal makineleri el ile eklemek için:
 * Veri yedekliği 
 * Azure Hibrit Avantajı
 
-3.  Tablodaki tüm sanal makinelere Yıllık DR Tatbikatları Sayısı, Her DR Tatbikatının süresi (Gün), Veri yedekliği ve Azure Hibrit Kullanım Teklifi olarak aynı değeri uygulamak için 'Tümüne uygula' düğmesine tıklayabilirsiniz.
+1. Tablodaki tüm sanal makinelere Yıllık DR Tatbikatları Sayısı, Her DR Tatbikatının süresi (Gün), Veri yedekliği ve Azure Hibrit Kullanım Teklifi olarak aynı değeri uygulamak için 'Tümüne uygula' düğmesine tıklayabilirsiniz.
 
-4.  Maliyeti güncelleştirmek için 'Maliyeti yeniden hesapla' düğmesine tıklayın.
+1. Maliyeti güncelleştirmek için 'Maliyeti yeniden hesapla' düğmesine tıklayın.
 
 **VM adı**: VM adı.
 

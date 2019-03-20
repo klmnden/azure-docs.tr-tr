@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6c6559b5dd6c6a6e357ff2f258bad79d57205c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9809993d47141b70484892103e318a6f55381a2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192651"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856269"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-Factor Authentication ayarlarını yapılandırma
 
@@ -64,7 +64,7 @@ Kullanım _engelleme ve kullanıcıların engelini kaldırma_ kullanıcılar kim
 1. [Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.
 2. Gözat **Azure Active Directory** > **MFA** > **kullanıcıları engelle/engelini kaldır**.
 3. Seçin **Ekle** bir kullanıcıyı engellemek için.
-4. Seçin **çoğaltma grubu**. Engellenen bir kullanıcı olarak için kullanıcı adını girin **username@domain.com**. Bir yorum girin **neden** alan.
+4. Seçin **çoğaltma grubu**. Engellenen bir kullanıcı olarak için kullanıcı adını girin **kullanıcıadı\@etkialanı.com**. Bir yorum girin **neden** alan.
 5. Seçin **Ekle** engelleyen kullanıcı tamamlanması.
 
 ### <a name="unblock-a-user"></a>Kullanıcıların engelini kaldır
@@ -154,7 +154,7 @@ _Bir kerelik atlama_ iki aşamalı doğrulama gerçekleştirmeden bir kereliğin
 2. Gözat **Azure Active Directory** > **MFA** > **bir kerelik atlama**.
 3. **Add (Ekle)** seçeneğini belirleyin.
 4. Gerekirse, çoğaltma grubu için geçiş'i seçin.
-5. Kullanıcı adı olarak girin **username@domain.com**. Atlama sürmelidir saniye sayısını girin. Atlama nedeni girin.
+5. Kullanıcı adı olarak girin **kullanıcıadı\@etkialanı.com**. Atlama sürmelidir saniye sayısını girin. Atlama nedeni girin.
 6. **Add (Ekle)** seçeneğini belirleyin. Zaman sınırı hemen uygulanmaya başlanır. Kullanıcının bir kerelik atlama süresi dolmadan önce oturum açmanız gerekir.
 
 ### <a name="view-the-one-time-bypass-report"></a>Bir kerelik atlama raporunu görüntüle
@@ -252,7 +252,7 @@ Varsayılan olarak, kullanıcılar uygulama parolaları oluşturamaz. Uygulama p
 
 Kullanıcıların uygulama parolaları, ilk kayıt sırasında oluşturabilirsiniz. Kullanıcının kayıt işleminin sonunda uygulama parolaları oluşturma seçeneği vardır.
 
-Kullanıcılar, uygulama parolaları kayıt sonrasında de oluşturabilirsiniz. Uygulama parolaları, ayarları Azure portalında veya Office 365 Portalı aracılığıyla değiştirilebilir. Daha fazla bilgi ve kullanıcılarınız için ayrıntılı adımlar için bkz. [Azure multi-Factor Authentication, uygulama parolaları nedir?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Kullanıcılar, uygulama parolaları kayıt sonrasında de oluşturabilirsiniz. Daha fazla bilgi ve kullanıcılarınız için ayrıntılı adımlar için bkz. [Azure multi-Factor Authentication, uygulama parolaları nedir?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## <a name="trusted-ips"></a>Güvenilen IP'ler
 

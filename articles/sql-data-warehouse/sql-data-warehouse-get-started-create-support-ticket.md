@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4761a50905f28c215a47d579b931ab5db9d7e424
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b3ffc9794967f44708d8330d4dc5d5de11b794d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468079"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079188"
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>SQL Data Warehouse için destek bileti oluşturma
 SQL Veri Ambarı’nız ile ilgili herhangi bir sorun yaşıyorsanız mühendislik destek ekibimizin size yardımcı olabilmesi için bir destek bileti oluşturun.
@@ -35,8 +35,8 @@ SQL Veri Ambarı’nız ile ilgili herhangi bir sorun yaşıyorsanız mühendisl
      
      Bir Premier destek planınız varsa SQL Veri Ambarı ile ilgili sorunları [Microsoft Premier çevrimiçi portalı][Microsoft Premier online portal] üzerinden de bildirebilirsiniz.  Kapsam,yanıt süreleri ve fiyatlandırma dahil olmak üzere çeşitli destek planları hakkında daha fazla bilgi edinmek için bkz. [Azure destek planları][Azure support plan].  Azure desteği ile ilgili sık sorulan sorular için bkz. [Azure desteği ile ilgili SSS][Azure support FAQs].  
         
-    ![Temel bilgiler dikey penceresi](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
-    ![Temel bilgiler dikey penceresi1](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
+     ![Temel bilgiler dikey penceresi](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_1.PNG)
+     ![Temel bilgiler dikey penceresi1](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_2.PNG)
 4. **Sorun** dikey penceresini doldurun.
     ![Problem_blade](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_3.PNG)
    
@@ -46,7 +46,7 @@ SQL Veri Ambarı’nız ile ilgili herhangi bir sorun yaşıyorsanız mühendisl
    > 
    
 5. **İletişim bilgilerinizi** girin.
-![Contact_information](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_4.PNG)
+   ![Contact_information](./media/sql-data-warehouse-get-started-create-support-ticket/Create_ticket_4.PNG)
 
     
 6. Destek isteğini göndermek için **Oluştur**'a tıklayın.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 1e62495de35c8df4f446d371a0bbbcdc80c7118d
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 3b27fe0bec4ec23739e3cff02d6aed667f1d3e1d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650112"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226836"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Bir Apache HBase kümesi yeni sürüme geçirme
 
@@ -199,15 +199,21 @@ Aynı HBase ana sürümle (her ikisi de 1.1.2 Apache HBase ile gelir) 3.6 HDInsi
 
     ![Ambari kapsayıcı adı değiştirin.](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-8. Yaptığınız değişiklikleri kaydedin.
-9. Gerekli tüm hizmetleri Ambari tarafından belirtildiği gibi yeniden başlatın.
-10. Uygulamanızı yeni kümesine gelin.
+8. **Gelişmiş yazma özelliği olan HBase kümeleri kullanmıyorsanız bu adımı atlayın. Yalnızca gelişmiş yazma özelliğiyle HBase kümeleri için gereklidir.**
+   
+   Özgün kümeyi kapsayıcıya işaret edecek şekilde hbase.rootdir yolunu değiştirin.
+
+    ![Ambari hbase rootdir kapsayıcı adını değiştirme](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+    
+9. Yaptığınız değişiklikleri kaydedin.
+10. Gerekli tüm hizmetleri Ambari tarafından belirtildiği gibi yeniden başlatın.
+11. Uygulamanızı yeni kümesine gelin.
 
     > [!NOTE]  
     > Statik uygulamanız için DNS yükseltirken değiştirir. Bu DNS kodlamak yerine, bir CNAME kümenin adına işaret eden etki alanı adı DNS ayarları yapılandırabilirsiniz. Başka bir seçenek yeniden dağıtmaya gerek kalmadan güncelleştirebilirsiniz uygulamanız için bir yapılandırma dosyası kullanmaktır.
 
-11. Her şeyin beklendiği gibi çalışıp çalışmadığını görmek için alımı başlatın.
-12. Yeni küme tatmin edici ise, özgün kümeyi silin.
+12. Her şeyin beklendiği gibi çalışıp çalışmadığını görmek için alımı başlatın.
+13. Yeni küme tatmin edici ise, özgün kümeyi silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

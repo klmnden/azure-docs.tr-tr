@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: c7019eac4edc530de5ef64ba9eb32e8e4994e75b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 20f9655e1c3e7cce652802957f5eef1f333870e9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245208"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176506"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için ölçeklendirme seçenekleri
 
@@ -51,7 +51,7 @@ Bu dakikaysa değerleri ayarlamak gerekebilir. Varsayılan dakikaysa değerleri 
 
 ## <a name="cluster-autoscaler"></a>Otomatik ölçeklendiricinin küme
 
-Değişen taleplere pod işlem düğümü havuzu kaynakları üzerinde istenen göre düğüm sayısını ayarlayan bir küme ölçeklendiriciyi Kubernetes gerekir. Küme otomatik ölçeklendiricinin ölçek olayları ve kaynak eşikleri arasında zaman aralıkları gibi şeyler için başlangıç parametreleri kullanır. Küme otomatik ölçeklendirme bir değişiklik gerekli olduğunu belirlerse, AKS kümenizdeki düğüm sayısını artırabilir veya uygun şekilde azalır. Küme ölçeklendiriciyi kullanmak AKS kümeleri yedekleme ölçek yönetmek ve AKS düğümleri olayları ölçeklendirme için sanal makine ölçek kümeleri çalıştırın.
+Değişen taleplere pod düğüm havuzundaki istenen işlem kaynaklarını göre düğüm sayısını ayarlayan bir küme ölçeklendiriciyi (şu anda önizlemede aks'deki) Kubernetes gerekir. Varsayılan olarak, küme ölçeklendiriciyi API sunucusu için gerekli değişiklikleri düğüm sayısı 10 saniyede denetler. Küme otomatik ölçeklendirme bir değişiklik gerekli olduğunu belirlerse, AKS kümenizdeki düğüm sayısını artırabilir veya uygun şekilde azalır. Küme otomatik ölçeklendiricinin çalışan Kubernetes AKS RBAC özellikli kümeleriyle çalışır 1.10.x veya üzeri.
 
 ![Kubernetes küme ölçeklendiriciyi](media/concepts-scale/cluster-autoscaler.png)
 
@@ -81,7 +81,7 @@ AKS kümenizi hızlı bir şekilde ölçeklendirmek için Azure Container Instan
 
 ![ACI'ya ölçeklendirme Kubernetes veri bloğu](media/concepts-scale/burst-scaling.png)
 
-ACI ek altyapı işleriyle container Instances hızlı bir şekilde dağıtmanıza olanak tanır. AKS ile bağladığınızda, güvenli, mantıksal bir uzantı AKS kümenizin ACI olur. AKS kümenizde ACI sanal Kubernetes düğüm olarak gösterir Virtual Kubelet bileşeni yüklenir. Kubernetes pod'ların olarak değil sanal düğümleri aracılığıyla ACI örnekleri olarak VM düğümlerinin doğrudan AKS kümenizde çalışan pod'ların ardından zamanlayabilirsiniz.
+ACI ek altyapı işleriyle container Instances hızlı bir şekilde dağıtmanıza olanak tanır. AKS ile bağladığınızda, güvenli, mantıksal bir uzantı AKS kümenizin ACI olur. AKS kümenizde ACI sanal Kubernetes düğüm olarak gösterir Virtual Kubelet bileşeni yüklenir. Kubernetes pod'ların olarak değil sanal düğümleri aracılığıyla ACI örnekleri olarak VM düğümlerinin doğrudan AKS kümenizde çalışan pod'ların ardından zamanlayabilirsiniz. Sanal düğümü şu anda, AKS ön izleme aşamasındalar.
 
 Uygulamanızı sanal düğümü kullanmak için hiçbir değişiklik gerektirir. ACI ve AKS dağıtımları ölçeklendirebilirsiniz ve küme olarak gecikme olmadan yeni düğümler AKS kümenizde otomatik ölçeklendiricinin dağıtır.
 

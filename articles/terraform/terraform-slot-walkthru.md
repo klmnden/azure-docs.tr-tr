@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: c1ff166431ed75ade1192cdefadb7928943ab2b2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 08e90a69791b0555a6497166f6008e8619f40704
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771302"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992235"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Azure dağıtım yuvalarıyla altyapı sağlamak için Terraform'u kullanma
 
@@ -26,11 +26,11 @@ Bu makalede iki uygulamanın GitHub ve Azure ile gerçekleştirilen dağıtım a
 
 - **Azure aboneliği**: Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 
-- **GitHub hesabı**: Gereksinim duyduğunuz bir [GitHub](http://www.github.com) hesabı çatalını oluşturmanız ve GitHub deposunu testi kullanın.
+- **GitHub hesabı**: Gereksinim duyduğunuz bir [GitHub](https://www.github.com) hesabı çatalını oluşturmanız ve GitHub deposunu testi kullanın.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Terraform planını oluşturma ve uygulama
 
-1. [Azure portala](http://portal.azure.com) gidin.
+1. [Azure portala](https://portal.azure.com) gidin.
 
 1. [Azure Cloud Shell](/azure/cloud-shell/overview)'i açın. Önceden bir ortam seçmediyseniz **Bash** ortamını seçin.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 150f2b9155d5e920a7394e2fa55ce28701497868
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 44af0ccab45f1335d9dfec06287303a34391eded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763019"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113206"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
 
@@ -45,10 +45,10 @@ Azure IOT Central uygulamanızda gerçek bir CİHAZDAN ekleme **MXChip** cihaz �
 
 1. Ekleme bir **gerçek cihaz** Device Explorer seçin **+ yeni > gerçek** gerçek bir cihaz eklemek için.
 
-    * Cihaz kimliğini girebilir **<span style="color:Red">(küçük harf olması gerekir)</span>** veya önerilen cihaz kimliğini kullanması
-    * Cihaz adını girin veya önerilen adı kullanın
+   * Cihaz kimliğini girebilir **<span style="color:Red">(küçük harf olması gerekir)</span>** veya önerilen cihaz kimliğini kullanması
+   * Cihaz adını girin veya önerilen adı kullanın
 
-    ![Cihaz Ekleme](media/howto-connect-devkit/add-device.png)
+     ![Cihaz Ekleme](media/howto-connect-devkit/add-device.png)
 
 1. Bağlantı ayrıntıları gibi almak **kapsam kimliği, cihaz kimliği ve birincil anahtarınızı** seçerek eklenen bir cihazı için **Connect** cihaz sayfasında.
 

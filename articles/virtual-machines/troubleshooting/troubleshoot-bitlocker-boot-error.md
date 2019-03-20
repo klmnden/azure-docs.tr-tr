@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 1cfba4bf824d381e1b40ea0228ee902a1d6b5a9a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a7bd812d3aadfd3c358c8d0aeccf0e92ed474a05
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763223"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993199"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>BitLocker'ı Azure sanal makinesinde önyükleme hataları
 
@@ -32,7 +32,7 @@ ms.locfileid: "57763223"
 
 - BitLocker anahtarı içeren USB sürücüsüne takın.
 
-- Kilitli! Yeniden kullanmaya başlamak için kurtarma anahtarını girin (klavye düzeni: Bilgisayarınıza gizliliğinizi korumak için kilitli olduğu için çok fazla kez oturum açma bilgilerini ABD) yanlış girildi. Kurtarma anahtarını almak için şu adrese gidin http://windows.microsoft.com/recoverykeyfaq başka bir PC veya mobil Cihazınızda. Bu anahtar gerektiği durumlarda XXXXXXX kimliğidir. Veya bilgisayarınızı sıfırlayabilir.
+- Kilitli! Yeniden kullanmaya başlamak için kurtarma anahtarını girin (klavye düzeni: Bilgisayarınıza gizliliğinizi korumak için kilitli olduğu için çok fazla kez oturum açma bilgilerini ABD) yanlış girildi. Kurtarma anahtarını almak için şu adrese gidin https://windows.microsoft.com/recoverykeyfaq başka bir PC veya mobil Cihazınızda. Bu anahtar gerektiği durumlarda XXXXXXX kimliğidir. Veya bilgisayarınızı sıfırlayabilir.
 
 - Bu sürücü [] tuşuna Ekle yazarken parola görmek için kilidini açmak için parolayı girin.
 - Kurtarma anahtarınızı yük, Kurtarma anahtarını USB cihazından girin.

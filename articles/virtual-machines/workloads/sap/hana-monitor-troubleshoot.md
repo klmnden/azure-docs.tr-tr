@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fb81dd5bb94e09ba3583658a61e5c7cb8a74cf6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 392dd39e2b3b0e26e7b0ba645bf5a70231167ad5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882901"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014408"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>İzleme ve HANA taraftan sorun giderme
 
@@ -65,7 +65,7 @@ Grafı yükleyin, yüksek CPU tüketimi veya yüksek tüketim geçmişte göster
 
 Yüksek CPU kullanımı nedeniyle tetiklenen uyarı, ancak bunlarla sınırlı olmamak de dahil olmak üzere çeşitli nedenlerden kaynaklanabilir: belirli işlemleri, veri yükleme, asılı SQL deyimlerini ve hatalı sorgu performansı (örneğin, BW on HANA ve uzun süre çalışan işlerin yürütülmesi Küpler).
 
-Başvurmak [SAP HANA sorunlarını giderme: CPU ilgili neden olur ve çözümleri](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) ayrıntılı sorun giderme adımları için site.
+Başvurmak [SAP HANA sorunlarını giderme: CPU ilgili neden olur ve çözümleri](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) ayrıntılı sorun giderme adımları için site.
 
 ## <a name="operating-system"></a>İşletim Sistemi
 
@@ -87,7 +87,7 @@ SAP HANA veritabanı tarafından ayrılan bellek miktarını beklenenden daha y�
 - Bellek kullanımı (uyarı 45) sütun Store tablonun ana depolama
 - Çalışma zamanı döküm dosyaları (uyarı 46)
 
-Başvurmak [SAP HANA sorunlarını giderme: Bellek sorunlarını](http://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) ayrıntılı sorun giderme adımları için site.
+Başvurmak [SAP HANA sorunlarını giderme: Bellek sorunlarını](https://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) ayrıntılı sorun giderme adımları için site.
 
 ## <a name="network"></a>Ağ
 
@@ -104,7 +104,7 @@ Başvurmak [SAP notu #2081065 – SAP HANA ağ sorunlarını giderme](https://la
 
 Ayrıca, açık kaynak kullanan [IPERF](https://iperf.fr/) Aracı (veya benzeri) gerçek uygulama ağ performansını ölçmek için.
 
-Başvurmak [SAP HANA sorunlarını giderme: Ağ performansı ve bağlantı sorunları](http://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) ayrıntılı sorun giderme adımları için site.
+Başvurmak [SAP HANA sorunlarını giderme: Ağ performansı ve bağlantı sorunları](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) ayrıntılı sorun giderme adımları için site.
 
 ## <a name="storage"></a>Depolama
 
@@ -116,7 +116,7 @@ Birimlerin bağlı ekranın alt bölümünde, birimler, dosyalar ve g/ç istatis
 
 ![Birimlerin bağlı ekranın alt bölümünde birimler, dosyalar ve g/ç istatistikleri gibi ayrıntılarını görebilirsiniz.](./media/troubleshooting-monitoring/image6-volumes-tab-b.png)
 
-Başvurmak [SAP HANA sorunlarını giderme: G/ç ilgili temel nedenler ve çözümler](http://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) ve [SAP HANA sorunlarını giderme: Disk ilgili kök neden olur ve çözümleri](http://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) ayrıntılı sorun giderme adımları için site.
+Başvurmak [SAP HANA sorunlarını giderme: G/ç ilgili temel nedenler ve çözümler](https://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) ve [SAP HANA sorunlarını giderme: Disk ilgili kök neden olur ve çözümleri](https://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) ayrıntılı sorun giderme adımları için site.
 
 ## <a name="diagnostic-tools"></a>Tanılama araçları
 

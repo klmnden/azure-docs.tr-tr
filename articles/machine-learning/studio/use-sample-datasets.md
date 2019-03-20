@@ -6,29 +6,28 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: e4e29f4b714fe187622d778db58743ca4f02e84e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f86ae4977621927a09d9b83287a00dfa3bc17196
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445594"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881002"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da örnek veri kümelerini kullanma
 [top]: #machine-learning-sample-datasets
 
-Birkaç örnek veri kümeleri ve denemeleri, Azure Machine Learning Studio'da yeni bir çalışma alanı oluşturduğunuzda, varsayılan olarak dahil edilir. Bu örnek veri kümeleri birçoğu örnek modellerinde tarafından kullanılan [Azure AI Gallery](http://gallery.azure.ai/). Diğer çeşitli genellikle machine learning'de kullanılan verilere ilişkin örnekler dahil edilir.
+Birkaç örnek veri kümeleri ve denemeleri, Azure Machine Learning Studio'da yeni bir çalışma alanı oluşturduğunuzda, varsayılan olarak dahil edilir. Bu örnek veri kümeleri birçoğu örnek modellerinde tarafından kullanılan [Azure AI Gallery](https://gallery.azure.ai/). Diğer çeşitli genellikle machine learning'de kullanılan verilere ilişkin örnekler dahil edilir.
 
 Bu veri kümelerini bazıları, Azure Blob Depolama alanında kullanılabilir. Bu veri kümeleri için aşağıdaki tabloda, doğrudan bir bağlantı sağlar. Bu veri kümelerini kullanarak denemelerinizi kullanabilirsiniz [verileri içeri aktarma] [ import-data] modülü.
 
 Bu örnek veri kümeleri kalan kullanılabilir altında çalışma alanınızdaki **kaydedilmiş veri kümeleri**. Machine Learning Studio'da deneme tuvaline solundaki modül paletindeki bulabilirsiniz.
 Bu veri kümelerini birini kendi denemenizde, deneme tuvaline sürükleyerek kullanabilirsiniz.
 
-
-
+## <a name="datasets"></a>Veri kümeleri
 
 <table>
 
@@ -44,7 +43,7 @@ Bu veri kümelerini birini kendi denemenizde, deneme tuvaline sürükleyerek kul
 <p></p>
 <b>Kullanım:</b> Bir kişi yılı aşkın 50 bin işletmeyse olup olmadığını tahmin etmek için demografik bilgileri kullanan kişiler sınıflandırın.
 <p></p>
-<b>İlgili araştırma:</b> Kohavi, R., Becker, B., (1996). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
+<b>İlgili araştırma:</b> Kohavi, R., Becker, B., (1996). UCI makine öğrenimi depo <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
@@ -65,7 +64,7 @@ Risk puanı, başlangıçta otomatik fiyat ile ilişkilidir. Ardından, gerçek 
 <p></p>
 <b>Kullanım:</b> Risk puanı, gerileme veya çok değişkenli sınıflandırma özellikleri tarafından tahmin edin. 
 <p></p>
-<b>İlgili araştırma:</b> Schlimmer, J.C. (1987). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
+<b>İlgili araştırma:</b> Schlimmer, J.C. (1987). UCI makine öğrenimi depo <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
@@ -96,9 +95,9 @@ Bağış veri içeren son Bağış itibaren ay) ve sıklığı veya Bağışlar�
 <p></p>
 <b>Kullanım:</b> Sınıflandırma Bağış tansiyon Mart 2007 burada 1 hedef süreye ve 0 sırasında bir Bağış gösterir, bağış olmayan Bağış olup olmadığını tahmin etmek için kullanılan hedeftir. 
 <p></p>
-<b>İlgili araştırma:</b> Yeh, I.C., (2008). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri
+<b>İlgili araştırma:</b> Yeh, I.C., (2008). UCI makine öğrenimi depo <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri
 <p></p>
-Yeh, ı-Cheng, Yang, Kıng-Jang gönderdi ve Eğerlendirmesi, etiketi mı, "bilgi bulma Bernoulli dizisi,"Uzman sistemler ile uygulamalar, 2008, kullanılarak RFM modeli <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
+Yeh, ı-Cheng, Yang, Kıng-Jang gönderdi ve Eğerlendirmesi, etiketi mı, "bilgi bulma Bernoulli dizisi,"Uzman sistemler ile uygulamalar, 2008, kullanılarak RFM modeli <a href="https://dx.doi.org/10.1016/j.eswa.2008.07.018">https://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
@@ -109,7 +108,7 @@ Machine learning belgeleri sık görüntülenen Oncology Enstitüsü tarafından
 <p></p>
 <b>Kullanım:</b> Kanser türünü sınıflandırmak, 9 özniteliklerine dayalı, bazıları doğrusal ve bazı kategorik. 
 <p></p>
-<b>İlgili araştırma:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
+<b>İlgili araştırma:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI makine öğrenimi depo <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
@@ -162,13 +161,13 @@ KDD Kupası 2009 müşteri ilişkisi tahmin sınama etiketlerinden (<a href="htt
 <p></p>
 <b>Kullanım:</b> İki gerçek değerli yanıtları biri olarak tabanlı enerji verimliliğini derecelendirme tahmin etmek için regresyon veya sınıflandırma kullanın. En yakın tamsayıya yanıt değişkeni yuvarlak çok sınıflı sınıflandırma için olur. 
 <p></p>
-<b>İlgili araştırma:</b> Xifara, A. & Tsanas, A. (2012). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
+<b>İlgili araştırma:</b> Xifara, A. & Tsanas, A. (2012). UCI makine öğrenimi depo <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
   <td>Uçuş verileri geciktirir</td>
   <td>
-Yolcular uçuş zamanında ABD TranStats veri koleksiyondan alınan performans verileri Ulaştırma Bakanlığı (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">zamanında</a>).
+Yolcular uçuş zamanında ABD TranStats veri koleksiyondan alınan performans verileri Ulaştırma Bakanlığı (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">zamanında</a>).
 <p></p>
 Veri kümesi süre Nisan-Ekim 2013 kapsar. Azure Machine Learning Studio'da karşıya yüklemeden önce veri kümesi şu şekilde işlendi:
 <ul>
@@ -187,7 +186,7 @@ Uçak uçuş varış ve Amerika Birleşik Devletleri Ekim 2011'den departures ka
 <p></p>
 <b>Kullanım:</b> Uçuş gecikme tahmin edin. 
 <p></p>
-<b>İlgili araştırma:</b> Öğesinden, ABD bölüm nakliye <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
+<b>İlgili araştırma:</b> Öğesinden, ABD bölüm nakliye <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
   </td>
 </tr>
 
@@ -198,7 +197,7 @@ Sıcaklık ve nem dizinleri ve Rüzgar hızı gibi hava durumu verileri içerir.
 <p></p>
 <b>Kullanım:</b> Bu bir zor regresyon, bir yandan orman ateşlenir yazılan alanını tahmin olduğu görevdir. 
 <p></p>
-<b>İlgili araştırma:</b> Cortez, P., & Morais, A. (2008). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri
+<b>İlgili araştırma:</b> Cortez, P., & Morais, A. (2008). UCI makine öğrenimi depo <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri
 <p></p>
 [Cortez ve Morais, 2007] P. Cortez ve A. Morais. Veri madenciliği yönelik bir yaklaşım tahmin orman rutin verileri kullanarak ateşlenir. In J. Neves, M. F. Santos ve J. Machado EDT, yapay zeka, Study of 13 EPIA 2007 - Portekizce konferansı tutanaklarında yapay zeka, aralık, Guimarães, Portekiz, ss. 512-523, 2007 yeni eğilimler. APPIA, ISBN 13 978-989-95618-0-9. Bulunabilir: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
   </td>
@@ -207,7 +206,7 @@ Sıcaklık ve nem dizinleri ve Rüzgar hızı gibi hava durumu verileri içerir.
 <tr>
   <td>Almanca kredi kartı UCI veri kümesi</td>
   <td>
-UCI Statlog (Almanca kredi kartı) veri kümesi (<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog + Almanca + kredi + veri</a>), german.data dosyasını kullanarak.
+UCI Statlog (Almanca kredi kartı) veri kümesi (<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog + Almanca + kredi + veri</a>), german.data dosyasını kullanarak.
 <p></p>
 Öznitelik, düşük veya yüksek kredi riskleri olarak bir dizi tarafından açıklanan kişiler, veri kümesini sınıflandırır. Her örnek, bir kişiyi temsil eder. Sayısal ve kategorik, 20 özellikleri ve ikili bir etiket (kredi riski değeri) vardır. Yüksek kredi riski girdilere sahip etiket = 2, düşük kredi riski girdilere sahip etiket = 1. Düşük riskli Örneğin yüksek misclassifying maliyeti, yüksek riskli örneğin düşük misclassifying maliyeti 5 bilgileriyse 1 ' dir.
   </td>
@@ -227,7 +226,7 @@ Desen tanıma belgelerinde bulunacak en iyi bilinen veritabanı belki de budur. 
 <p></p>
 <b>Kullanım:</b> Ölçümler iris türünü tahmin edin.  
 <p></p>
-<b>İlgili araştırma:</b> Fisher, R.A. (1988). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
+<b>İlgili araştırma:</b> Fisher, R.A. (1988). UCI makine öğrenimi depo <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
@@ -246,7 +245,7 @@ Verileri yakıt tüketim galon başına mil içindeki çeşitli otomobiller içi
 <p></p>
 <b>Kullanım:</b> Birden çok değerli üç farklı özniteliklerin ve sürekli beş özniteliğe dayalı yakıt ekonomi tahmin edin. 
 <p></p>
-<b>İlgili araştırma:</b> StatLib, Carnegie Mellon University, (1993). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
+<b>İlgili araştırma:</b> StatLib, Carnegie Mellon University, (1993). UCI makine öğrenimi depo <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
@@ -256,7 +255,7 @@ Bir veri alt kümelerinin Digestive ve serbest hastalıklara veritabanı ve Aile
 <p></p>
 <b>Kullanım:</b> Konu ailelere (ikili sınıflandırma) olup olmadığını tahmin edin. 
 <p></p>
-<b>İlgili araştırma:</b> Sigillito, V. (1990). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml"</a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
+<b>İlgili araştırma:</b> Sigillito, V. (1990). UCI makine öğrenimi depo <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml"</a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri </td>
 </tr>
 
 <tr>
@@ -266,7 +265,7 @@ Müşterilerle ilgili demografik bilgileri ve tercihleri de dahil olmak üzere, 
 <p></p>
 <b>Kullanım:</b> Bu veri kümesi eğitmek ve öneren sistem test etmek için diğer iki Restoran veri kümeleri ile birlikte kullanın. 
 <p></p>
-<b>İlgili araştırma:</b> Bache, K. ve Lichman, M. (2013). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine.
+<b>İlgili araştırma:</b> Bache, K. ve Lichman, M. (2013). UCI makine öğrenimi depo <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine.
   </td>
 </tr>
 
@@ -277,7 +276,7 @@ Lokantalar ve yemek türü, Yemek stil ve konum gibi bunların özellikleri hakk
 <p></p>
 <b>Kullanım:</b> Bu veri kümesi eğitmek ve öneren sistem test etmek için diğer iki Restoran veri kümeleri ile birlikte kullanın. 
 <p></p>
-<b>İlgili araştırma:</b> Bache, K. ve Lichman, M. (2013). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine.
+<b>İlgili araştırma:</b> Bache, K. ve Lichman, M. (2013). UCI makine öğrenimi depo <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine.
   </td>
 </tr>
 
@@ -288,7 +287,7 @@ Bir ölçekte kullanıcılar tarafından restoranlar için 2 için 0 ile verilen
 <p></p>
 <b>Kullanım:</b> Bu veri kümesi eğitmek ve öneren sistem test etmek için diğer iki Restoran veri kümeleri ile birlikte kullanın. 
 <p></p>
-<b>İlgili araştırma:</b> Bache, K. ve Lichman, M. (2013). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine.
+<b>İlgili araştırma:</b> Bache, K. ve Lichman, M. (2013). UCI makine öğrenimi depo <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar Bilimine.
   </td>
 </tr>
 
@@ -301,7 +300,7 @@ Bu veri kümesi, bir dizi denemeler annealing çelik kayıtları içerir. İçer
 <p></p>
 Çelik derece izleyin bir kümesi standart SAE ya da diğer kuruluşlar tarafından tanımlanmış. Özel bir 'sınıf' (sınıf değişkeni) arayan ve gerekli değerleri öğrenmek mi istiyorsunuz. 
 <p></p>
-<b>İlgili araştırma:</b> Sterling'le, d & Buntine, W. (NA). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri
+<b>İlgili araştırma:</b> Sterling'le, d & Buntine, W. (NA). UCI makine öğrenimi depo <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgi ve bilgisayar bilimleri
 <p></p>
 Derece çelik için yararlı bir kılavuz burada bulunabilir: <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -322,13 +321,13 @@ Benzetim amacı, taban tabanlı Atmosfer Cherenkov gama telescopes doğruluğunu
 <p></p>
 Ayrıca, arka plan olayları (hadronic duşlar için h) sayısını önemsememiştir olduğunu unutmayın. Gerçek ölçüleri olayları çoğunu h veya gürültü sınıfı temsil eder. 
 <p></p>
-<b>İlgili araştırma:</b> Bock, R.K. (1995). UCI makine öğrenimi depo <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgileri </td>
+<b>İlgili araştırma:</b> Bock, R.K. (1995). UCI makine öğrenimi depo <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul bilgileri </td>
 </tr>
 
 <tr>
   <td>Hava durumu veri kümesi</td>
   <td>
-Saatlik land bulunduğunuz gözlemler noaa'ya (<a href="http://az754797.vo.msecnd.net/data/WeatherDataset.csv">201310 201304 verilerinin birleştirilmiş</a>).
+Saatlik land bulunduğunuz gözlemler noaa'ya (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">201310 201304 verilerinin birleştirilmiş</a>).
 <p></p>
 Hava Durumu verilerini havaalanı hava durumu istasyonlarını Nisan-Ekim 2013 zaman aralığını kapsayan yapılan gözlemler kapsar. Azure Machine Learning Studio'da karşıya yüklemeden önce veri kümesi şu şekilde işlendi:
 <ul>
@@ -343,7 +342,7 @@ Hava Durumu verilerini havaalanı hava durumu istasyonlarını Nisan-Ekim 2013 z
 <tr>
   <td>Wikipedia SP 500 veri kümesi</td>
   <td>
-Veri Wikipedia türetilmiştir (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) XML verileri olarak depolanan her S & P 500 şirket makalelerinin temel.
+Veri Wikipedia türetilmiştir (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>) XML verileri olarak depolanan her S & P 500 şirket makalelerinin temel.
 <p></p>
 Azure Machine Learning Studio'da karşıya yüklemeden önce veri kümesi şu şekilde işlendi:
 <ul>
@@ -382,7 +381,7 @@ Eğitim örneklerde RCV1 V2 Reuters haber veri kümesi özellikleri. 23 K haber 
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td>
-Veri kümesi KDD Kupası 1999 bilgi bulma ve veri madenciliği araçları yarışma (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).
+Veri kümesi KDD Kupası 1999 bilgi bulma ve veri madenciliği araçları yarışma (<a href="https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).
 <p></p>
 Veri kümesi indirildi ve Azure Blob depolamada depolanan (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) ve hem eğitim hem de test içerir. Eğitim veri kümesi, yaklaşık 126 bin satır ve etiketleri içeren 43 sütunları vardır. Üç sütun etiket bilgilerini bir parçasıdır ve 40 sütun, sayısal ve dize/kategorik özelliklerini içeren, modeli eğitmek için kullanılabilir. Test verilerini yaklaşık 22,5 örnekleri eğitim verileri olduğu gibi aynı 43 sütunlarla test K sahiptir.
   </td>
@@ -398,7 +397,7 @@ Haber makaleleri RCV1 V2 Reuters haber kümesindeki konu atamaları. Haber makal
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Bu veriler KDD Kupası 2010 Öğrenci performansı değerlendirme sınama gelir (<a href="http://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">Öğrenci performansı değerlendirme</a>). Kullanılan veri Algebra_2008_2009 eğitim kümesidir (Stamper, J., Niculescu-Mizil, A., Ritter, S. Gordon, G.J. ve Koedinger, K.R. (2010). Cebir miyim 2008-2009. Sınama kümesinden KDD Kupası 2010 eğitim veri madenciliği sınaması. Şimdi Bul <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
+Bu veriler KDD Kupası 2010 Öğrenci performansı değerlendirme sınama gelir (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">Öğrenci performansı değerlendirme</a>). Kullanılan veri Algebra_2008_2009 eğitim kümesidir (Stamper, J., Niculescu-Mizil, A., Ritter, S. Gordon, G.J. ve Koedinger, K.R. (2010). Cebir miyim 2008-2009. Sınama kümesinden KDD Kupası 2010 eğitim veri madenciliği sınaması. Şimdi Bul <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
 Veri kümesi indirildi ve Azure Blob depolamada depolanan (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) ve sistem özel Ders bir öğrenci günlük dosyalarını içerir. Sağlanan özellikler doğru şekilde sorun çözme önce yapılan Öğrenci sorun kimliği ve kısa açıklamasını, Öğrenci Kimliği, zaman damgası ve sayısını içerir. Özgün veri kümesinden 8,9 milyon kayda sahiptir; Bu veri kümesi için ilk 100 bin satır alt örneklenen olmuştur. Çeşitli türlerde 23 sekmeyle ayrılmış sütun bir veri kümesine sahiptir: kategorik, sayısal ve zaman damgası.
   </td>
@@ -406,6 +405,10 @@ Veri kümesi indirildi ve Azure Blob depolamada depolanan (<a href="https://azur
 
 </table>
 
+## <a name="next-steps"></a>Sonraki adımlar
+
+> [!div class="nextstepaction"]
+> [Kickstart denemelerinizin örnekler ile](sample-experiments.md)
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

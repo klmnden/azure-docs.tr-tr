@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448492"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847136"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Yayımlama Portalı'nda uygulamanızı kurma
 
@@ -27,16 +27,16 @@ Artık uygulamanızı Yayımlama Portalı'nda ayarlamaya hazır olursunuz.
 
 ## <a name="login-and-create-a-new-offer"></a>Oturum açma ve yeni bir teklif oluşturun
 
-1. Oturum [bulut iş ortağı portalı](http://cloudpartner.azure.com/).
+1. Oturum [bulut iş ortağı portalı](https://cloudpartner.azure.com/).
 2. Sol gezinti çubuğundan tıklayın "+ Yeni Teklif" ve "Dynamics 365 müşteri katılımı için."
 
 ![Yeni bir teklif seçme](./media/CRMScreenShot14.png)
 
-3. Yeni bir teklif "Düzenleyicisi" görünümü artık açılır ve biz yazma başlamaya hazırsınız.
+1. Yeni bir teklif "Düzenleyicisi" görünümü artık açılır ve biz yazma başlamaya hazırsınız.
 
 ![Yeni Teklif ekran](./media/CRMScreenShot15.png)
 
-4. "Doldurulması gerekir formlar" sol "Düzenleyicisi" görünümü içinde görülebilir. Her "form" doldurulması için alan kümesi oluşur. Gerekli alanlar, kırmızı bir yıldızla işaretlenir (\*).
+1. "Doldurulması gerekir formlar" sol "Düzenleyicisi" görünümü içinde görülebilir. Her "form" doldurulması için alan kümesi oluşur. Gerekli alanlar, kırmızı bir yıldızla işaretlenir (\*).
 
 Dynamics 365 müşteri katılımı teklif için yazma için dört ana formu vardır.
 
@@ -88,7 +88,7 @@ Bu alanlar için bir açıklama aşağıda verilmiştir:
 
 ### <a name="crm-package-availability"></a>CRM paket kullanılabilirlik
 
-Bu bölümde, CRM paketiniz için kullanılabilir hale getirilir, hangi bölgeleri seçin. Hangi bölgede hangi ülkelerde hizmet daha fazla bilgi için lütfen bağlantıya bakın: [http://o365datacentermap.azurewebsites.net/](http://o365datacentermap.azurewebsites.net/)
+Bu bölümde, CRM paketiniz için kullanılabilir hale getirilir, hangi bölgeleri seçin. Hangi bölgede hangi ülkelerde hizmet daha fazla bilgi için lütfen bağlantıya bakın: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Not: Almanya dağıtma "Bağımsız ve ABD Devleti bulut" özel izinler bağımsız gerektirir ve doğrulama sırasında sertifika
 

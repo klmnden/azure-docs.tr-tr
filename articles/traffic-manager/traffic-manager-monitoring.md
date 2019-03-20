@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 50ed230993f1df07b463297605a144830476803d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 083bdf9c5aec640fbbd7757b307ac47178e0b14b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540320"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076148"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager uç nokta izleme
 
@@ -40,7 +40,7 @@ Uç nokta izleme yapılandırmak için aşağıdaki ayarları Traffic Manager pr
 
 ## <a name="how-endpoint-monitoring-works"></a>Uç nokta izleme nasıl çalışır
 
-İzleme Protokolü HTTP veya HTTPS ' ayarlanırsa, Traffic Manager Araştırma Aracı protokol, bağlantı noktası ve göreli yol verilen kullanarak uç noktaya bir GET isteği yapar. Geri 200 Tamam yanıtı alır ya da yapılandırılan tüm yanıtlar ** beklenen durum kodu * aralıkları ** ardından, uç nokta olarak kabul edilir iyi durumda. Yanıt farklı bir değer ise veya sonra aracıyı yeniden dener (Bu ayarı 0 ise hiçbir yeniden dener yapılır), sayı hataları kaydırmadan kaçınma şansınız ayarına göre araştırma Traffic Manager belirtilen zaman aşımı süresi içinde yanıt alınamazsa. Art arda hata sayısını, sayı hataları kaydırmadan kaçınma şansınız ayarından daha yüksekse, bu uç nokta olarak sağlıksız olarak işaretlenir. 
+İzleme Protokolü HTTP veya HTTPS ' ayarlanırsa, Traffic Manager Araştırma Aracı protokol, bağlantı noktası ve göreli yol verilen kullanarak uç noktaya bir GET isteği yapar. Geri 200 Tamam yanıtı alır ya da yapılandırılan tüm yanıtlar **beklenen durum kodu \*aralıkları**, sonra da bu uç nokta sağlıklı olarak kabul edilir. Yanıt farklı bir değer ise veya sonra aracıyı yeniden dener (Bu ayarı 0 ise hiçbir yeniden dener yapılır), sayı hataları kaydırmadan kaçınma şansınız ayarına göre araştırma Traffic Manager belirtilen zaman aşımı süresi içinde yanıt alınamazsa. Art arda hata sayısını, sayı hataları kaydırmadan kaçınma şansınız ayarından daha yüksekse, bu uç nokta olarak sağlıksız olarak işaretlenir. 
 
 İzleme Protokolü TCP ise, Traffic Manager araştırma aracı kullanarak belirtilen bağlantı noktası TCP bağlantısı isteği başlatır. Bağlantı isteğine yanıt veren bir uç nokta yanıt verirse, bu sistem durumu denetimi başarılı işaretlenir ve Traffic Manager Araştırma Aracı TCP bağlantısı sıfırlar. Yanıt farklı bir değer ise veya zaman aşımı süresi içinde yanıt alınamazsa belirtilmezse, Traffic Manager aracısını yeniden dener (Bu ayarı 0 ise hiçbir yeniden dener yapılan), sayı hataları kaydırmadan kaçınma şansınız ayarına göre algılanıyor. Art arda hata sayısını, sayı hataları kaydırmadan kaçınma şansınız ayarından daha yüksekse, bu uç nokta sağlıksız olarak işaretlenir.
 

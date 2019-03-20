@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3e10c09b8f11566860256aaf4b793c6ae0d2d5e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e0a0a88e249c0a032e5afaeea14b9b3cfcbdc319
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876935"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080669"
 ---
 ## <a name="control-flow"></a>Denetim akışı
 
@@ -25,13 +25,13 @@ Bu belgede gösterilen haliyle konuşma Öğrenici ', (CI) denetim akışı aç�
 
 1. Kullanıcı bir terimini veya tümceciğini bot Örneğin, 'Seattle hava durumu nedir?' girer.
 1. CL varlıkları ayıklayan makine öğrenme modeli kullanıcı girişine geçirir.
-    - Bu model, derleme tarafından konuşma Öğrenici ve www.luis.ai tarafından barındırılan
+   - Bu model, derleme tarafından konuşma Öğrenici ve www.luis.ai tarafından barındırılan
 1. Ayıklanan tüm varlıkları ve kullanıcının metin girişinin botun kodunuzda varlık algılama geri çağırma yöntemine geçirilir.
     - Bu kod varlık kümesi/clear/işlemek değerleri olabilir.
 1. CL sinir ağı sonra varlık ayıklama ve kullanıcı girişi ve bot içinde tanımlanan tüm eylemler puanları çıkışını alır
-    - Bu örnekte, en yüksek olasılık eylem hava durumu tahminini sağlamaktır:
+   - Bu örnekte, en yüksek olasılık eylem hava durumu tahminini sağlamaktır:
 
-    ![](media/controlflow_forecast.PNG)
+     ![](media/controlflow_forecast.PNG)
 
 1. Seçili eylemi, bu durumda, hava durumu tahminini almak için bir API çağrısı gerektirir. 
 1. CL kullanarak kayıtlı bu API. Ardından AddCallback yöntemi çağrılır.  Bu API sonucunu sonra kullanıcıya bir ileti--Örneğin, 'Sunny 67'ın yüksek.' döndürülür

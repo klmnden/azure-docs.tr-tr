@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 01db1de5c6b533c346ce35c8474d996213873d10
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: fd2614c258aff146397e24e688eae18d84d3cfa6
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002204"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201169"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight’ta ölçeğe göre akış
 
@@ -45,7 +45,7 @@ Daha fazla bilgi için [Apache Spark Streaming nedir?](hdinsight-spark-streaming
 
 ## <a name="scaling-a-cluster"></a>Küme ölçeklendirme
 
-Oluşturma sırasında kümedeki düğüm sayısını belirtebilseniz de, büyüyebilen veya küçülebilen iş yüküyle eşleşmesi için kümeyi isteyebilirsiniz. Tüm HDInsight kümeleri izin [kümedeki düğüm sayısını değiştirmenize](hdinsight-administer-use-management-portal.md#scale-clusters). Tüm veriler gibi Azure Depolama'da veya Data Lake Storage Spark kümeleri veri kaybı olmadan ile bırakılabilir.
+Oluşturma sırasında kümedeki düğüm sayısını belirtebilseniz de, büyüyebilen veya küçülebilen iş yüküyle eşleşmesi için kümeyi isteyebilirsiniz. Tüm HDInsight kümeleri izin [kümedeki düğüm sayısını değiştirmenize](hdinsight-administer-use-portal-linux.md#scale-clusters). Tüm veriler gibi Azure Depolama'da veya Data Lake Storage Spark kümeleri veri kaybı olmadan ile bırakılabilir.
 
 Ayırma teknolojilere avantajları vardır. Örneğin, Kafka çok g/ç kullanımı yoğun olan ve çok gerek kalmayacak şekilde teknolojisi, arabelleğe alma bir olaydır işleme gücü. Buna karşılık, akış işlemcileri akışı Spark Streaming gibi bilgi işlem açısından yoğun gerektiren daha güçlü VM'ler. Birbirinden farklı kümeler halinde bu teknolojiler sağlayarak, bunları birbirinden bağımsız olarak sanal makinelerin en iyi şekilde sırasında ölçeklendirebilirsiniz.
 

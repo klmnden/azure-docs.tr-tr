@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: fca14eb5a51799e6d3c0e4f96cb956e4e6886cdb
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: aa9cdbaece2714dd4869268f394e6840fe42edda
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844832"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225408"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>HDInsight, Apache Hadoop kümelerinde boş kenar düğümlerini kullanma
 
@@ -91,7 +91,7 @@ Bu bölümde, mevcut bir HDInsight kümesine bir kenar düğümü eklemek için 
 > Var olan HDInsight kümesi için Azure kaynak grubu seçtiğinizden emin olun.  Aksi takdirde, "iç içe kaynak üzerinde istenen işlem gerçekleştirilemiyor. hata iletisi alıyorum Üst kaynak '&lt;ClusterName >' bulunamadı. "
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Bir küme oluştururken bir kenar düğümü Ekle
-Bu bölümde, bir kenar düğümü ile HDInsight kümesi oluşturmak için Resource Manager şablonu kullanın.  Resource Manager şablonu bulunabilir [Azure hızlı başlangıç şablonları galeri](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Resource Manager şablonu konumunda bulunan bir betik eylemi çağırır https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Betik eylemleri gerçekleştirmez.  Bunu çağıran bir betik eylemi bir Resource Manager şablonundan göstermektir.
+Bu bölümde, bir kenar düğümü ile HDInsight kümesi oluşturmak için Resource Manager şablonu kullanın.  Resource Manager şablonu bulunabilir [Azure hızlı başlangıç şablonları Galerisi'ne](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Resource Manager şablonu konumunda bulunan bir betik eylemi çağırır https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Betik eylemleri gerçekleştirmez.  Bunu çağıran bir betik eylemi bir Resource Manager şablonundan göstermektir.
 
 **Bir kenar düğümü ile bir HDInsight kümesi oluşturma**
 

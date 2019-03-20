@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: b1ea195ab0b06c4ca0fab37fe7e5701229b34938
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 01d36188c1684eae8303cb20ba0fd0c708ff91ba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387047"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079926"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Yeni kimlik doğrulaması için StorSimple'ınızı kullanın
 
@@ -59,9 +59,9 @@ Kimlik doğrulama URL'si kullanımdan kaldırma tarihi ötesinde güvenlik duvar
 StorSimple 8000 serisi cihaz kullanıyorsanız, yapmanız gereken hangi eylemin kullanmakta olduğunuz cihaz yazılım sürüme göre belirlemek için aşağıdaki tabloyu kullanın.
 
 | Cihazınızı çalışıyorsa| Aşağıdaki eylemi gerçekleştirin                                    |
-|--------------------------|------------------------|--------------------|--------------------------------------------------------------|
+|--------------------------|------------------------|
 | Güncelleştirme 5 veya üzeri ve cihaz çevrimdışı. <br> URL izin verilenler listesinde değil bir uyarı görürsünüz.|1. Güvenlik duvarı kurallarını, kimlik doğrulama URL'si içerecek şekilde değiştirin. Bkz: [kimlik doğrulaması URL'lerini](#url-changes-for-aad-authentication).<br>2. [Hizmet AAD kayıt anahtarını almanız](#aad-based-registration-keys).<br>3. [StorSimple 8000 serisi cihaz Windows PowerShell arabirimine bağlanma](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. Kullanım `Redo-DeviceRegistration` Windows PowerShell üzerinden cihazı kaydetmek için cmdlet'i. Önceki adımda aldığınız anahtarını belirtin.|
-| Güncelleştirme 5 veya üzeri ve cihaz çevrimiçi.| Eylem gerekmiyor.                                       |
+| Güncelleştirme 5 veya üzeri ve cihaz çevrimiçi.| İşlem yapmanız gerekmez.                                       |
 | Güncelleştirme 4 veya önceki sürümlerini ve cihaz çevrimdışı. |1. Güvenlik duvarı kurallarını, kimlik doğrulama URL'si içerecek şekilde değiştirin.<br>2. [Güncelleştirme 5 katalog sunucusuna indirin](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [Güncelleştirme 5 ile düzeltme yöntemi uygulamak](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [Hizmet AAD kayıt anahtarını almanız](#aad-based-registration-keys).<br>5. [StorSimple 8000 serisi cihaz Windows PowerShell arabirimine bağlanma](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. Kullanım `Redo-DeviceRegistration` Windows PowerShell üzerinden cihazı kaydetmek için cmdlet'i. Önceki adımda aldığınız anahtarını belirtin.|
 | Güncelleştirme 4 veya önceki sürümlerini ve cihaz çevrimiçi. |Güvenlik duvarı kurallarını, kimlik doğrulama URL'si içerecek şekilde değiştirin.<br> Güncelleştirme 5 Azure Portalı aracılığıyla yükleyin.              |
 | Güncelleştirme 5 önce bir sürüme sıfırlama üreteci.      |Portal, cihaz eski yazılım çalışırken bir AAD tabanlı kayıt anahtarını gösterir. Cihaz güncelleştirme 4 veya önceki çalışırken için önceki senaryoda adımları izleyin.              |

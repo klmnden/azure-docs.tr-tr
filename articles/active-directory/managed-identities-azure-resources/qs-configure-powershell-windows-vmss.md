@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/27/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df6675c8ed9bc600da5fc054698e6445f31abb1a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2dee7759dccf3093e9ba9f66bffcceaf603a11d4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203535"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226887"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>PowerShell kullanarak sanal makine ölçek kümelerinde Azure kaynakları için yönetilen kimlik Yapılandır
 
@@ -54,24 +54,16 @@ Bu bölümde, etkinleştirmek ve Azure PowerShell kullanarak bir sistem tarafın
 
 ### <a name="enable-system-assigned-managed-identity-during-the-creation-of-an-azure-virtual-machine-scale-set"></a>Bir Azure sanal makine ölçek kümesi oluşturma sırasında sistem tarafından atanan yönetilen kimlik etkinleştir
 
-Etkin sistem tarafından atanan yönetilen kimlikle bir VMSS oluşturmak için:
+Sanal makine ölçek kümesi etkin sistem tarafından atanan yönetilen kimlikle oluşturmak için:
 
-1. Başvurmak *örnek 1* içinde [yeni AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) sistem tarafından atanan bir yönetilen kimlikle bir VMSS oluşturma için cmdlet başvurusu makalesinde.  Parametre Ekle `-IdentityType SystemAssigned` için `New-AzVmssConfig` cmdlet:
+1. Başvurmak *örnek 1* içinde [yeni AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) bir sanal makine ölçek oluşturmak için cmdlet başvurusu makalesinde, sistem tarafından atanan bir yönetilen kimlikle ayarlayın.  Parametre Ekle `-IdentityType SystemAssigned` için `New-AzVmssConfig` cmdlet:
 
     ```powershell
     $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
+> [!NOTE]
+> İsteğe bağlı olarak, Azure kaynaklarını sanal makine ölçek kümesi uzantısını ancak yakında kullanımdan kaldırılacak yönetilen kimlikleri sağlamak. Azure örnek meta veri kimlik uç nokta kimlik doğrulaması için kullanmanızı öneririz. Daha fazla bilgi için [VM uzantısını kullanmayı bırakmak ve Azure IMDS uç nokta kimlik doğrulaması için kullanmaya başlama](howto-migrate-vm-extension.md).
 
-2. (İsteğe bağlı) Uzantısını kullanarak Azure kaynaklarınızı sanal makine ölçek kümesi yönetilen kimlikleri ekleyin `-Name` ve `-Type` parametresi [Ekle AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet'i. "ManagedIdentityExtensionForWindows" geçirebilir veya "ManagedIdentityExtensionForLinux", türüne bağlı olarak sanal makine ölçek kümesi ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir:
-
-    > [!NOTE]
-    > Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.
-
-   ```powershell
-   $setting = @{ "port" = 50342 }
-   $vmss = Get-AzVmss
-   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
-   ```
 
 ## <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Sistem tarafından atanan kimliği mevcut bir Azure sanal makine ölçek kümesi üzerinde yönetilen etkinleştir
 
@@ -89,13 +81,8 @@ Sistem tarafından atanan yönetilen bir kimlik var olan bir Azure sanal makine 
    Update-AzVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-3. VMSS uzantısıyla Azure kaynakları için yönetilen kimlikleri ekleyin `-Name` ve `-Type` parametresi [Ekle AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet'i. "ManagedIdentityExtensionForWindows" geçirebilir veya "ManagedIdentityExtensionForLinux", türüne bağlı olarak sanal makine ölçek kümesi ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir:
-
-   ```powershell
-   $setting = @{ "port" = 50342 }
-   $vmss = Get-AzVmss
-   Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
-   ```
+> [!NOTE]
+> İsteğe bağlı olarak, Azure kaynaklarını sanal makine ölçek kümesi uzantısını ancak yakında kullanımdan kaldırılacak yönetilen kimlikleri sağlamak. Azure örnek meta veri kimlik uç nokta kimlik doğrulaması için kullanmanızı öneririz. Daha fazla bilgi için [Azure IMDS uç nokta kimlik doğrulaması için VM uzantısı'ten geçiş](howto-migrate-vm-extension.md).
 
 ### <a name="disable-the-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Bir Azure sanal makine ölçek kümesinden sistem tarafından atanan yönetilen kimliği devre dışı
 
@@ -143,7 +130,7 @@ Mevcut bir Azure sanal makine ölçek kümesi için bir kullanıcı tarafından 
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Bir Azure sanal makine ölçek kümesinden bir kullanıcı tarafından atanan bir yönetilen kimlik Kaldır
 
-Kullanıcı tarafından atanan birden çok yönetilen kimlik sanal makine ölçek kümeniz varsa, aşağıdaki komutları kullanarak tüm sonuncu kaldırabilirsiniz. `<RESOURCE GROUP>` ve `<VMSS NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<USER ASSIGNED IDENTITY NAME>` Sanal makine ölçek kümesi üzerinde kalmalıdır kullanıcı tarafından atanan yönetilen kimliğin adı özelliği. Bu bilgileri kullanarak sanal makine ölçek kümesi'nin kimlik bölümünde bulunabilir `az vmss show`:
+Kullanıcı tarafından atanan birden çok yönetilen kimlik sanal makine ölçek kümeniz varsa, aşağıdaki komutları kullanarak tüm sonuncu kaldırabilirsiniz. `<RESOURCE GROUP>` ve `<VIRTUAL MACHINE SCALE SET NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<USER ASSIGNED IDENTITY NAME>` Sanal makine ölçek kümesi üzerinde kalmalıdır kullanıcı tarafından atanan yönetilen kimliğin adı özelliği. Bu bilgileri kullanarak sanal makine ölçek kümesi'nin kimlik bölümünde bulunabilir `az vmss show`:
 
 ```powershell
 Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType UserAssigned -IdentityID "<USER ASSIGNED IDENTITY NAME>"

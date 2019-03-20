@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: fd1e49a8bab3b6133a476bbafaa45e0e61fe1f1b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 58117bce8de667c9750b2e0c19992b99716945cc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730565"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124210"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
@@ -63,12 +63,12 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir:
 - Aşağıdaki yönetilen disk sorunları içinde 1809 sabittir ve ayrıca 1808 içinde sabit [Azure Stack düzeltme 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
-   - Hangi düğmelere SSD veri diskler yönetilen disk sanal makineler (DS, DSv2, Fs, Fs_V2) bir hatayla başarısız oldu. premium boyuta sorun düzeltildi:  *'Vmname' hata sanal makinenin diskleri güncelleştirilemedi: İstenen işlem gerçekleştirilemiyor, depolama hesabı türü 'Premium_LRS' VM boyutu için desteklenmediğinden ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
+  - Hangi düğmelere SSD veri diskler yönetilen disk sanal makineler (DS, DSv2, Fs, Fs_V2) bir hatayla başarısız oldu. premium boyuta sorun düzeltildi:  *'Vmname' hata sanal makinenin diskleri güncelleştirilemedi: İstenen işlem gerçekleştirilemiyor, depolama hesabı türü 'Premium_LRS' VM boyutu için desteklenmediğinden ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
    
-   - Kullanarak yönetilen disk VM'si oluşturma **createOption**: **Ekleme** şu hatayla başarısız oluyor: *İşlemi uzun süre çalışan 'Başarısız' durumuyla başarısız oldu. Ek bilgi: 'bir iç yürütme hatası oluştu.'*
-   Hata kodu: InternalExecutionError ErrorMessage: Bir iç yürütme hatası oluştu.
+  - Kullanarak yönetilen disk VM'si oluşturma **createOption**: **Ekleme** şu hatayla başarısız oluyor: *İşlemi uzun süre çalışan 'Başarısız' durumuyla başarısız oldu. Ek bilgi: 'bir iç yürütme hatası oluştu.'*
+    Hata kodu: InternalExecutionError ErrorMessage: Bir iç yürütme hatası oluştu.
    
-   Bu sorunu artık düzeltildi.
+    Bu sorunu artık düzeltildi.
 
 - <!-- 2702741 -  IS, ASDK --> Dinamik Ayırma kullanılarak dağıtılan hangi genel IP'ler, yöntemi değildi neden olan sorun düzeltildi durdurun-serbest verildiği sonra korunması garanti. Bunlar artık korunur.
 
@@ -297,10 +297,10 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 <!-- TBD - IS ASDK --> 
 - Güncelleştirme 1809 uyguladıktan sonra yönetilen disklere sahip VM'ler dağıtırken aşağıdaki sorunlarla karşılaşabilirsiniz:
 
-   - Yönetilen disklerle bir VM dağıtma 1808 güncelleştirmeden önce Abonelik oluşturulurken bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için her abonelik için şu adımları izleyin:
-      1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Tıklayın **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
-      2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **AzureStack DiskRP istemci** rol listelenmektedir.
-   2. Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin. [bu makalede](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
+  - Yönetilen disklerle bir VM dağıtma 1808 güncelleştirmeden önce Abonelik oluşturulurken bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için her abonelik için şu adımları izleyin:
+     1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Tıklayın **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
+     2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **AzureStack DiskRP istemci** rol listelenmektedir.
+  - Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin. [bu makalede](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
 
 - Bir Ubuntu 18.04 etkinleştirilmiş SSH yetkilendirme ile oluşturulan VM, oturum açmak için SSH anahtarları kullanmak izin vermez. Geçici bir çözüm olarak Lütfen VM erişimi Linux uzantısı için SSH anahtarları sağladıktan sonra uygulamak için kullanmak veya parola tabanlı kimlik doğrulaması kullanın.
 

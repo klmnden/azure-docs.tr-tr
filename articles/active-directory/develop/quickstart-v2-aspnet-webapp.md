@@ -3,8 +3,8 @@ title: Azure AD v2.0 ASP.NET web sunucusu hızlı başlangıcı | Microsoft Docs
 description: OpenID Connect kullanarak ASP.NET web uygulamasında Microsoft Oturum Açma işlemini yapmayı öğrenin.
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdc5200156533abf940ce8fc7ff2186ba3a961bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9ae388798716565c1fdeeb10b274c2a168ca86ea
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200488"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200268"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
 
@@ -29,7 +29,7 @@ ms.locfileid: "56200488"
 
 Bu hızlı başlangıçta, ASP.NET web uygulamasının herhangi bir Azure Active Directory (Azure AD) örneğinden kişisel hesaplarda (hotmail.com, outlook.com ve diğerleri), iş ve okul hesaplarında nasıl oturum açabildiğini öğreneceksiniz.
 
-![Bu hızlı başlangıcın oluşturduğu örnek uygulama nasıl çalışır](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.png)
+![Bu Hızlı Başlangıç ile oluşturulan örnek uygulamasını nasıl çalıştığını gösterir](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Hızlı başlangıç uygulamanızı kaydetme ve indirme
@@ -147,7 +147,7 @@ public void Configuration(IAppBuilder app)
 > |Konum  |  |
 > |---------|---------|
 > | `ClientId`     | Azure portalına kaydedilen uygulamaya ait Uygulama Kimliği |
-> | `Authority`    | Kimlik doğrulaması yapılacak kullanıcı için STS uç noktası. Çoğunlukla, genel bulut için https://login.microsoftonline.com/{tenant}/v2.0; burada {tenant}, kiracınızın adı, kiracınızın kimliği veya ortak uç noktaya başvuru olarak *common* değeridir (çok kiracılı uygulamalarda kullanılır) |
+> | `Authority`    | Kimlik doğrulaması yapılacak kullanıcı için STS uç noktası. Çoğunlukla, genel bulut için <https://login.microsoftonline.com/{tenant}/v2.0>; burada {tenant}, kiracınızın adı, kiracınızın kimliği veya ortak uç noktaya başvuru olarak *common* değeridir (çok kiracılı uygulamalarda kullanılır) |
 > | `RedirectUri`  | Azure AD v2.0 uç noktasında kimlik doğrulaması yapıldıktan sonra kullanıcıların gönderildiği URL |
 > | `PostLogoutRedirectUri`     | Oturum kapatıldıktan sonra kullanıcıların gönderildiği URL |
 > | `Scope`     | İstenen kapsamların listesi, boşlukla ayrılmış |

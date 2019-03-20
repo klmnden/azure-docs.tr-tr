@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 14a9e369f3366fc103cde2f0faafb570de409de7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 9258b58783d4670620a251fef866211f7634480f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311874"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096733"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Java işlevleri Geliştirici Kılavuzu
 
@@ -391,6 +391,6 @@ Azure işlevi Java geliştirme hakkında daha fazla bilgi için aşağıdaki kay
 * [Azure İşlevleri için en iyi uygulamalar](functions-best-practices.md)
 * [Azure İşlevleri geliştirici başvurusu](functions-reference.md)
 * [Azure işlevleri Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md)
-- Yerel geliştirme ve hata ayıklama ile [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [Intellij](functions-create-maven-intellij.md), ve [Eclipse](functions-create-maven-eclipse.md). 
+* Yerel geliştirme ve hata ayıklama ile [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [Intellij](functions-create-maven-intellij.md), ve [Eclipse](functions-create-maven-eclipse.md). 
 * [Uzaktan hata ayıklama Java Azure işlevleri ile Visual Studio kodu](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
 * [Azure işlevleri için maven plugin](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) -kolaylaştırın ile işlevi oluşturma `azure-functions:add` hedef ve hazırlamak için bir hazırlama dizin [ZIP dosyası dağıtım](deployment-zip-push.md).

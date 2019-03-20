@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2977286fd76bd2e1f71c53aaede2fd07009d2f3
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8942ebf3f006c2e1cc72b322dd243d46bf69f04d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409933"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888136"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Öğretici: Adobe Sign ile'Azure Active Directory Tümleştirme
 
@@ -128,7 +128,7 @@ Azure AD çoklu oturum açma ile Adobe Sign yapılandırmak için aşağıdaki a
 
 ### <a name="configure-adobe-sign-single-sign-on"></a>Adobe oturum çoklu oturum açmayı yapılandırın
 
-7. Yapılandırma önce başvurun [Adobe oturum istemci Destek ekibine](https://helpx.adobe.com/in/contact/support.html) beyaz liste için Adobe Sign etki alanınızda. Etki alanı ekleme şöyledir:
+1. Yapılandırma önce başvurun [Adobe oturum istemci Destek ekibine](https://helpx.adobe.com/in/contact/support.html) beyaz liste için Adobe Sign etki alanınızda. Etki alanı ekleme şöyledir:
 
     a. [Adobe oturum istemci Destek ekibine](https://helpx.adobe.com/in/contact/support.html) rastgele oluşturulmuş bir belirteç gönderir. Etki alanınız için belirteci aşağıdaki gibi olacaktır: **adobe oturum doğrulama xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx =**
 
@@ -147,33 +147,33 @@ Azure AD çoklu oturum açma ile Adobe Sign yapılandırmak için aşağıdaki a
     * Adobe tarafından sağlanan tam belirteç değeri içeren bir TXT kaydı ekleyin.
     * Yaptığınız değişiklikleri kaydedin.
 
-8. Farklı bir web tarayıcı penceresinde bir Adobe Sign şirketinizin sitesi için bir yönetici olarak oturum açın.
+1. Farklı bir web tarayıcı penceresinde bir Adobe Sign şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-9. SAML menüde **hesap ayarları** > **SAML ayarlarını**.
+1. SAML menüde **hesap ayarları** > **SAML ayarlarını**.
    
     ![Ekran Adobe oturum SAML Ayarları sayfası](./media/adobe-echosign-tutorial/ic789520.png "hesabı")
 
-10. İçinde **SAML ayarlarını** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. İçinde **SAML ayarlarını** bölümünde, aşağıdaki adımları gerçekleştirin:
   
-    ![SAML ayarlarını görüntüsü](./media/adobe-echosign-tutorial/ic789521.png "SAML ayarları")
+   ![SAML ayarlarını görüntüsü](./media/adobe-echosign-tutorial/ic789521.png "SAML ayarları")
    
-    ![SAML ayarlarını görüntüsü](./media/adobe-echosign-tutorial/ic789522.png "SAML ayarları")
+   ![SAML ayarlarını görüntüsü](./media/adobe-echosign-tutorial/ic789522.png "SAML ayarları")
 
-    a. Altında **SAML modu**seçin **SAML zorunlu**.
+   a. Altında **SAML modu**seçin **SAML zorunlu**.
    
-    b. Seçin **izin Echosign hesap yöneticileri Echosign kimlik bilgilerini kullanarak oturum açması**.
+   b. Seçin **izin Echosign hesap yöneticileri Echosign kimlik bilgilerini kullanarak oturum açması**.
    
-    c. Altında **kullanıcı oluşturma**seçin **SAML ile kimliği doğrulanmış kullanıcılar otomatik olarak Ekle**.
+   c. Altında **kullanıcı oluşturma**seçin **SAML ile kimliği doğrulanmış kullanıcılar otomatik olarak Ekle**.
 
-    d. Yapıştırma **Azure Ad tanımlayıcısı**, hangi Azure portaldan kopyaladığınız **IDP varlık kimliği** metin kutusu.
+   d. Yapıştırma **Azure Ad tanımlayıcısı**, hangi Azure portaldan kopyaladığınız **IDP varlık kimliği** metin kutusu.
     
-    e. Yapıştırma **oturum açma URL'si**, Azure portalından kopyalanan **Idp'nin oturum açma URL'si** metin kutusu.
+   e. Yapıştırma **oturum açma URL'si**, Azure portalından kopyalanan **Idp'nin oturum açma URL'si** metin kutusu.
    
-    f. Yapıştırma **oturum kapatma URL'si**, hangi Azure portaldan kopyaladığınız **IDP oturum kapatma URL'si** metin kutusu.
+   f. Yapıştırma **oturum kapatma URL'si**, hangi Azure portaldan kopyaladığınız **IDP oturum kapatma URL'si** metin kutusu.
 
-    g. İndirilen açın **Certificate(Base64)** dosyasını Not Defteri'nde. İçeriğini sizin panoya kopyalayın ve yapıştırın kendisine **IDP sertifika** metin kutusu.
+   g. İndirilen açın **Certificate(Base64)** dosyasını Not Defteri'nde. İçeriğini sizin panoya kopyalayın ve yapıştırın kendisine **IDP sertifika** metin kutusu.
 
-    h. Seçin **değişiklikleri kaydetmek**.
+   h. Seçin **değişiklikleri kaydetmek**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -193,7 +193,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

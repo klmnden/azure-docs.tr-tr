@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: aa3f2bc23b731f1e2c02d84edd6079debfbae134
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 249ed7b1be2731fc8165ca7f205ba1d94066818e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727272"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088052"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Depolama Gezgini sürüm notları
 
@@ -158,12 +158,12 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 
 * Artık Depolama Gezgini aracılığıyla Blob verilerinize erişmek için kullanabileceğiniz [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Oturum açtıktan ve Depolama Gezgini'ni depolama hesabınız için anahtarları alamıyor, OAuth belirteci verilerinizle etkileşim kurulurken kimlik doğrulaması için kullanılır.
 * Depolama Gezgini, artık ADLS Gen2 depolama hesaplarını destekler. Depolama Gezgini, hiyerarşik ad alanı için bir depolama hesabı etkin algıladığında, şunları yapacaksınız depolama hesabınızın adının yanında "(ADLS Gen2 Preview)" bakın. Depolama Gezgini, oturum açtığınızda hiyerarşik ad alanı etkin olup olmadığını ya da depolama hesabınızın adı ve anahtarıyla eklediyseniz algılayabilir. ADLS Gen2 depolama hesapları için Depolama Gezgini'ni kullanabilirsiniz:
-    * Oluşturun ve kapsayıcıları Sil
-    * Kapsayıcı özellikleri ve izinleri (sol taraf) yönetme
-    * Kapsayıcı içinde veri gitmek ve görüntülemek
-    * Yeni klasör oluşturma
-    * Yükleme, indirme, yeniden adlandırın ve dosya ve klasörleri Sil
-    * Dosya ve klasör özelliklerini ve izinleri (sağ taraf) yönetin.
+  * Oluşturun ve kapsayıcıları Sil
+  * Kapsayıcı özellikleri ve izinleri (sol taraf) yönetme
+  * Kapsayıcı içinde veri gitmek ve görüntülemek
+  * Yeni klasör oluşturma
+  * Yükleme, indirme, yeniden adlandırın ve dosya ve klasörleri Sil
+  * Dosya ve klasör özelliklerini ve izinleri (sağ taraf) yönetin.
     
     Geçici silme ve anlık görüntüleri gibi diğer tipik Blob özellikler şu anda kullanılamıyor. İzinleri yönetme de yalnızca oturum açarken kullanılabilir. Ayrıca, bir ADLS Gen2 depolama hesabında çalışırken, Depolama Gezgini AzCopy tüm karşıya ve karşıdan yüklemeler ve adını ve anahtar kimlik bilgileri tüm işlemler için kullanılabilir değilse varsayılan olarak kullanır.
 * Güçlü kullanıcı geri bildirim sonra kesme kira yine aynı anda birden çok bloblarda kiraları bölümlere ayırmak için kullanılabilir.
@@ -227,12 +227,12 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 
 * Artık Depolama Gezgini aracılığıyla Blob verilerinize erişmek için kullanabileceğiniz [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Oturum açtıktan ve Depolama Gezgini'ni depolama hesabınız için anahtarları alamıyor, OAuth belirteci verilerinizle etkileşim kurulurken kimlik doğrulaması için kullanılır.
 * Depolama Gezgini, artık ADLS Gen2 depolama hesaplarını destekler. Depolama Gezgini, hiyerarşik ad alanı için bir depolama hesabı etkin algıladığında, şunları yapacaksınız depolama hesabınızın adının yanında "(ADLS Gen2 Preview)" bakın. Depolama Gezgini, oturum açtığınızda hiyerarşik ad alanı etkin olup olmadığını ya da depolama hesabınızın adı ve anahtarıyla eklediyseniz algılayabilir. ADLS Gen2 depolama hesapları için Depolama Gezgini'ni kullanabilirsiniz:
-    * Oluşturun ve kapsayıcıları Sil
-    * Kapsayıcı özellikleri ve izinleri (sol taraf) yönetme
-    * Kapsayıcı içinde veri gitmek ve görüntülemek
-    * Yeni klasör oluşturma
-    * Yükleme, indirme, yeniden adlandırın ve dosya ve klasörleri Sil
-    * Dosya ve klasör özelliklerini ve izinleri (sağ taraf) yönetin.
+  * Oluşturun ve kapsayıcıları Sil
+  * Kapsayıcı özellikleri ve izinleri (sol taraf) yönetme
+  * Kapsayıcı içinde veri gitmek ve görüntülemek
+  * Yeni klasör oluşturma
+  * Yükleme, indirme, yeniden adlandırın ve dosya ve klasörleri Sil
+  * Dosya ve klasör özelliklerini ve izinleri (sağ taraf) yönetin.
     
     Geçici silme ve anlık görüntüleri gibi diğer tipik Blob özellikler şu anda kullanılamıyor. İzinleri yönetme de yalnızca oturum açarken kullanılabilir. Ayrıca, bir ADLS Gen2 depolama hesabında çalışırken, Depolama Gezgini AzCopy tüm karşıya ve karşıdan yüklemeler ve adını ve anahtar kimlik bilgileri tüm işlemler için kullanılabilir değilse varsayılan olarak kullanır.
 * Güçlü kullanıcı geri bildirim sonra kesme kira yine aynı anda birden çok bloblarda kiraları bölümlere ayırmak için kullanılabilir.
@@ -282,12 +282,12 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 
 * Artık Depolama Gezgini aracılığıyla Blob verilerinize erişmek için kullanabileceğiniz [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Oturum açtıktan ve Depolama Gezgini'ni depolama hesabınız için anahtarları alamıyor, OAuth belirteci verilerinizle etkileşim kurulurken kimlik doğrulaması için kullanılır.
 * Depolama Gezgini, artık ADLS Gen2 depolama hesaplarını destekler. Depolama Gezgini, hiyerarşik ad alanı için bir depolama hesabı etkin algıladığında, şunları yapacaksınız depolama hesabınızın adının yanında "(ADLS Gen2 Preview)" bakın. Depolama Gezgini, oturum açtığınızda hiyerarşik ad alanı etkin olup olmadığını ya da depolama hesabınızın adı ve anahtarıyla eklediyseniz algılayabilir. ADLS Gen2 depolama hesapları için Depolama Gezgini'ni kullanabilirsiniz:
-    * Oluşturun ve kapsayıcıları Sil
-    * Kapsayıcı özellikleri ve izinleri (sol taraf) yönetme
-    * Kapsayıcı içinde veri gitmek ve görüntülemek
-    * Yeni klasör oluşturma
-    * Yükleme, indirme, yeniden adlandırın ve dosya ve klasörleri Sil
-    * Dosya ve klasör özelliklerini ve izinleri (sağ taraf) yönetin.
+  * Oluşturun ve kapsayıcıları Sil
+  * Kapsayıcı özellikleri ve izinleri (sol taraf) yönetme
+  * Kapsayıcı içinde veri gitmek ve görüntülemek
+  * Yeni klasör oluşturma
+  * Yükleme, indirme, yeniden adlandırın ve dosya ve klasörleri Sil
+  * Dosya ve klasör özelliklerini ve izinleri (sağ taraf) yönetin.
     
     Geçici silme ve anlık görüntüleri gibi diğer tipik Blob özellikler şu anda kullanılamıyor. İzinleri yönetme de yalnızca oturum açarken kullanılabilir. Ayrıca, bir ADLS Gen2 depolama hesabında çalışırken, Depolama Gezgini AzCopy tüm karşıya ve karşıdan yüklemeler ve adını ve anahtar kimlik bilgileri tüm işlemler için kullanılabilir değilse varsayılan olarak kullanır.
 * Güçlü kullanıcı geri bildirim sonra kesme kira yine aynı anda birden çok bloblarda kiraları bölümlere ayırmak için kullanılabilir.

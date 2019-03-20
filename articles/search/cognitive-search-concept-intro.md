@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 01/18/2019
+ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4d2e1ac749c2985ada04e0de050c97f027a205af
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 3c2567564e015ef19adf9f8c776e1f377a9cdf30
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791860"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58133068"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>"Bilişsel arama" Azure Search nedir?
 
@@ -92,31 +92,9 @@ Dizinler, alanların özniteliklerini tanımlayan bir dizin şemasını oluştur
 
 ## <a name="where-do-i-start"></a>Nereden başlamalıyım?
 
-**1. adım: [Bir Azure Search kaynağı oluşturun](search-create-service-portal.md) API'leri sağlayan bir bölgede** 
+**1. adım: [Bir Azure Search kaynağı oluşturun](search-create-service-portal.md)** 
 
-+ Batı Orta ABD
-+ Orta Güney ABD
-+ Orta Kuzey ABD
-+ Doğu ABD
-+ Doğu ABD 2
-+ Batı ABD
-+ Batı ABD 2
-+ Orta ABD
-+ Orta Kanada
-+ Batı Avrupa
-+ Kuzey Avrupa
-+ Birleşik Krallık Güney
-+ Fransa Orta
-+ Güney Brezilya
-+ Doğu Asya
-+ Güneydoğu Asya
-+ Orta Hindistan
-+ Japonya Batı
-+ Japonya Doğu
-+ Kore Orta
-+ Avustralya Doğu
-
-**2. adım: İş Akışı Yöneticisi için uygulamalı deneyim**
+**2. adım: Bazı hızlı başlangıç kılavuzlarımız ve örnekler için uygulamalı deneyim deneyin**
 
 + [Hızlı Başlangıç (portal)](cognitive-search-quickstart-blob.md)
 + [Öğretici (HTTP istek)](cognitive-search-tutorial-blob.md)

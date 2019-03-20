@@ -16,18 +16,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 663da31985759f47fff77dc5ad0f985d44559385
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dd60c5d0210ffba373839fd0f194496c5dbcc20d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451589"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999411"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Veri bilimi sanal makinesi üzerinde geliştirme araçları
 
 Veri bilimi sanal makinesi (DSVM), çeşitli popüler Araçlar ve IDE paketleme tarafından üretken bir geliştirme ortamı sağlar. DSVM'nin sağlanan bazı araçları şunlardır. 
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017  
+
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | Genel amaçlı IDE      |
@@ -38,6 +39,7 @@ Veri bilimi sanal makinesi (DSVM), çeşitli popüler Araçlar ve IDE paketleme 
 | DSVM ilgili araçları      |     Visual Studio kodu, RStudio, Juno  |
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
+
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | Genel amaçlı IDE      |
@@ -47,6 +49,7 @@ Veri bilimi sanal makinesi (DSVM), çeşitli popüler Araçlar ve IDE paketleme 
 | DSVM ilgili araçları      |     RStudio, Visual Studio 2017 Juno  |
 
 ## <a name="rstudio--desktop"></a>RStudio Desktop 
+
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | İstemci için R IDE    |
@@ -56,6 +59,7 @@ Veri bilimi sanal makinesi (DSVM), çeşitli popüler Araçlar ve IDE paketleme 
 | DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodu, Juno      |
 
 ## <a name="rstudio--server"></a>RStudio  Server 
+
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | R için Web tabanlı IDE    |
@@ -65,6 +69,7 @@ Veri bilimi sanal makinesi (DSVM), çeşitli popüler Araçlar ve IDE paketleme 
 | DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodu, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
+
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | Julia diline için IDE istemcisi   |
@@ -74,6 +79,7 @@ Veri bilimi sanal makinesi (DSVM), çeşitli popüler Araçlar ve IDE paketleme 
 | DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodu, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
+
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | Python dil için IDE istemcisi    |
@@ -85,6 +91,7 @@ Veri bilimi sanal makinesi (DSVM), çeşitli popüler Araçlar ve IDE paketleme 
 
 
 ## <a name="powerbi-desktop"></a>PowerBI Masaüstü 
+
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | Etkileşimli veri görselleştirmesi ve BI aracı    |

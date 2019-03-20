@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: fc594a660efe1bf90daeffa79826057a8e66c60c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 512417a228ed99a2f5b516f14084a5785bc0c1dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245176"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096750"
 ---
 # <a name="how-to-find-endpoints-and-access-keys-for-the-text-analytics-cognitive-service"></a>Metin analizi Bilişsel hizmet için nasıl uç noktaları ve erişim anahtarları
 
@@ -33,7 +33,7 @@ Anahtarı bulma Yardım veya zaten aboneliğiniz metin analizi olup olmadığın
 
 4. Hizmet dikey penceresini açmak için bağlantıya tıklayın. Bir anahtar, artık alabilirsiniz **kaynaklar > anahtarlar** veya tıklayarak **erişim anahtarlarını gösterme** temel bileşenler bölmesinde. Uç nokta da temel bileşenler bölmesinde görünür.
 
- ![Uç nokta ve anahtarlar ile portal sayfası](../media/portal-keys-endpoint.png)
+   ![Uç nokta ve anahtarlar ile portal sayfası](../media/portal-keys-endpoint.png)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 

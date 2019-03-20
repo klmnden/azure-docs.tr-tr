@@ -1,7 +1,7 @@
 ---
-title: Otomatik-bir tahmin modeli eğitme
+title: Otomatik-zaman serisi tahmin modeli eğitme
 titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning hizmeti otomatik makine öğrenimini kullanarak tahmin bir regresyon modeli eğitmek için kullanmayı öğrenin.
+description: Azure Machine Learning hizmeti zaman serisi tahmin regresyon modeli kullanılarak otomatik olarak makine öğrenimi eğitmek için kullanmayı öğrenin.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -9,17 +9,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 03/08/2019
-ms.openlocfilehash: d61a90a19dbcaef4394b3d2844c14ca24b7e5d4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/19/2019
+ms.openlocfilehash: cc5aae0e46e181e8063a4e01a832e68eab0eae0e
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170267"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226626"
 ---
-# <a name="auto-train-a-forecast-model"></a>Otomatik-bir tahmin modeli eğitme
+# <a name="auto-train-a-time-series-forecast-model"></a>Otomatik-zaman serisi tahmin modeli eğitme
 
-Bu makalede, otomatik machine learning Azure Machine Learning hizmeti kullanarak tahmin bir regresyon modeli eğitimi öğrenin. Bir tahmin modelli yapılandırma ayarını otomatik makine öğrenimini kullanarak bir standart regresyon modelini benzer, ancak zaman serisi verileri ile çalışmak için bazı yapılandırma seçenekleri ve ön işleme adımları yok. Aşağıdaki örnekler, nasıl göstermek için:
+Bu makalede, otomatik machine learning Azure Machine Learning hizmeti kullanarak zaman serisi tahmin regresyon modelini eğitme öğrenin. Bir tahmin modelli yapılandırma ayarını otomatik makine öğrenimini kullanarak bir standart regresyon modelini benzer, ancak zaman serisi verileri ile çalışmak için bazı yapılandırma seçenekleri ve ön işleme adımları yok. Aşağıdaki örnekler, nasıl göstermek için:
 
 * Zaman serisi model için verileri hazırlama
 * Belirli bir zaman serisi parametrelerinde yapılandırma bir [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) nesnesi

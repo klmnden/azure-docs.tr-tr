@@ -8,16 +8,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: spelluru
-ms.openlocfilehash: ac43b85858451149ceabf87c77b42d40fbd4eac4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ad9c2d492f70a697ef0e7dc3b7ed03b9938f2468
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470996"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181699"
 ---
 # <a name="query-event-grid-subscriptions"></a>Event Grid aboneliklerini sorgulama 
 
 Bu makalede, Azure aboneliğinizdeki Event Grid abonelikleri listeleyin açıklar. Var olan, Event Grid aboneliklerini sorgulama sırasında abonelikler farklı türlerini anlamak önemlidir. Almak istediğiniz abonelik türüne göre farklı parametreler sağlamanız.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="resource-groups-and-azure-subscriptions"></a>Kaynak grupları ve Azure abonelikleri
 
@@ -35,8 +37,8 @@ az eventgrid event-subscription list
 PowerShell için şunu kullanın:
 
 ```azurepowershell-interactive
-Set-AzureRmContext -Subscription "My Azure Subscription"
-Get-AzureRmEventGridSubscription
+Set-AzContext -Subscription "My Azure Subscription"
+Get-AzEventGridSubscription
 ```
 
 Bir Azure aboneliği için Event grid abonelikleri almak için konu türü sağlamak **Microsoft.Resources.Subscriptions**.
@@ -50,7 +52,7 @@ az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.Subs
 PowerShell için şunu kullanın:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Resources.Subscriptions"
+Get-AzEventGridSubscription -TopicTypeName "Microsoft.Resources.Subscriptions"
 ```
 
 Event grid abonelikleri için bir Azure aboneliğinde tüm kaynak gruplarını almak için konu türü sağlamak **Microsoft.Resources.ResourceGroups**.
@@ -64,7 +66,7 @@ az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.Reso
 PowerShell için şunu kullanın:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Resources.ResourceGroups"
+Get-AzEventGridSubscription -TopicTypeName "Microsoft.Resources.ResourceGroups"
 ```
 
 Belirtilen kaynak grubu için Event grid abonelikleri almak için bir parametre olarak kaynak grubunun adını sağlayın.
@@ -78,7 +80,7 @@ az eventgrid event-subscription list --resource-group myResourceGroup
 PowerShell için şunu kullanın:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -ResourceGroupName myResourceGroup
+Get-AzEventGridSubscription -ResourceGroupName myResourceGroup
 ```
 
 ## <a name="custom-topics-and-azure-resources"></a>Özel konu ve Azure kaynakları
@@ -96,7 +98,7 @@ az eventgrid event-subscription list --location westus2
 PowerShell için şunu kullanın:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -Location westus2
+Get-AzEventGridSubscription -Location westus2
 ```
 
 Özel konu için abonelik almak için bir konum için konum ve konu türünü sağlamak **Microsoft.EventGrid.Topics**.
@@ -110,7 +112,7 @@ az eventgrid event-subscription list --topic-type-name "Microsoft.EventGrid.Topi
 PowerShell için şunu kullanın:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.EventGrid.Topics" -Location westus2
+Get-AzEventGridSubscription -TopicTypeName "Microsoft.EventGrid.Topics" -Location westus2
 ```
 
 Depolama hesapları için abonelikler için bir konum almak için konum ve konu türüne sağlayın **Microsoft.Storage.StorageAccounts**.
@@ -124,7 +126,7 @@ az eventgrid event-subscription list --topic-type "Microsoft.Storage.StorageAcco
 PowerShell için şunu kullanın:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicTypeName "Microsoft.Storage.StorageAccounts" -Location westus2
+Get-AzEventGridSubscription -TopicTypeName "Microsoft.Storage.StorageAccounts" -Location westus2
 ```
 
 Bir özel konu için Event grid abonelikleri almak için özel bir konu adı ve kaynak grubu adını sağlayın.
@@ -138,7 +140,7 @@ az eventgrid event-subscription list --topic-name myCustomTopic --resource-group
 PowerShell için şunu kullanın:
 
 ```azurepowershell-interactive
-Get-AzureRmEventGridSubscription -TopicName myCustomTopic -ResourceGroupName myResourceGroup
+Get-AzEventGridSubscription -TopicName myCustomTopic -ResourceGroupName myResourceGroup
 ```
 
 Belirli bir kaynak için Event grid abonelikleri almak için kaynak kimliği sağlayın.
@@ -153,8 +155,8 @@ az eventgrid event-subscription list --resource-id $resourceid
 PowerShell için şunu kullanın:
 
 ```azurepowershell-interactive
-$resourceid = (Get-AzureRmResource -Name mystorage -ResourceGroupName myResourceGroup).ResourceId
-Get-AzureRmEventGridSubscription -ResourceId $resourceid
+$resourceid = (Get-AzResource -Name mystorage -ResourceGroupName myResourceGroup).ResourceId
+Get-AzEventGridSubscription -ResourceId $resourceid
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
