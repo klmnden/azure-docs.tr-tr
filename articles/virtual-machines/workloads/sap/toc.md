@@ -78,6 +78,7 @@
 #### [(A)SCS Örneği için Paylaşılan Disk ile Windows’da Yüksek Kullanılabilirlik](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [(A)SCS Örneği için SOFS Dosya Paylaşımı ile Windows’da Yüksek Kullanılabilirlik](sap-high-availability-guide-wsfc-file-share.md)
 #### [(A)SCS Örneği için SUSE Linux’ta Yüksek Kullanılabilirlik](high-availability-guide-suse.md)
+#### [Azure NetApp Files ile (A)SCS Örneği için SUSE Linux üzerinde HA](high-availability-guide-suse-netapp-files.md)
 #### [(A)SCS Örneği için Red Hat Enterprise Linux üzerinde HA](high-availability-guide-rhel.md)
 ### Azure Altyapı Hazırlığı
 #### [(A)SCS Örneği için Paylaşılan Disk ile Windows](sap-high-availability-infrastructure-wsfc-shared-disk.md)
@@ -90,6 +91,7 @@
 #### [(A)SCS Örneği için Paylaşılan Disk ile Windows](sap-high-availability-installation-wsfc-shared-disk.md)
 #### [(A)SCS Örneği için SOFS Dosya Paylaşımı ile Windows](sap-high-availability-installation-wsfc-file-share.md)
 #### [(A)SCS Örneği için NFS ile SUSE Linux](high-availability-guide-suse.md)
+#### [Azure NetApp Files ile (A)SCS Örneği için NFS ile SUSE Linux](high-availability-guide-suse-netapp-files.md)
 #### [Red Hat Enterprise Linux üzerinde SAP NetWeaver için yüksek kullanılabilirlik](high-availability-guide-rhel.md)
 ### SAP Çoklu SID
 #### [(A)SCS Örneği için Paylaşılan Disk ile Windows](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)

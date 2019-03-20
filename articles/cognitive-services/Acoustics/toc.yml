@@ -6,27 +6,41 @@ items:
     href: what-is-acoustics.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: Başlarken
-    href: getting-started.md
-- name: Nasıl Yapılır Makaleleri
+  - name: Unity ile hızlı başlangıç
+    href: unity-quickstart.md
+  - name: Unreal ile hızlı başlangıç
+    href: unreal-quickstart.md
+- name: Öğreticiler
+  items:
+  - name: Unity Tasarım İş Akışı
+    href: unity-workflow.md
+  - name: Unreal/Wwise Tasarım İş Akışı
+    href: unreal-workflow.md
+  - name: Unity ile Akustik Simülasyon
+    href: unity-baking.md
+  - name: Unreal/Wwise ile Akustik Simülasyon
+    href: unreal-baking.md
+- name: Kavramlar
+  items:
+  - name: Akustik Simülasyon ile Tasarım Kavramları
+    href: design-process.md
+- name: Nasıl yapılır makaleleri
   items:
   - name: Azure Batch Hesabı Oluşturma
     href: create-azure-account.md
-  - name: Acoustics'i Hazırlama
-    href: bake-ui-walkthrough.md
-  - name: Acoustics'i Tasarlama
-    href: design-process.md
+  - name: Akustik Projesini Unity ile Tümleştirme
+    href: unity-integration.md
+  - name: Akustik Projesini Unreal/Wwise ile Tümleştirme
+    href: unreal-integration.md
 - name: Kaynaklar
   items:
-  - name: Acoustics Örnek Sahnesi
-    href: sample-walkthrough.md
   - name: Sık Sorulan Sorular
     href: faq.md
   - name: Bilinen Sorunlar
     href: known-issues.md
-ms.openlocfilehash: 225d620cddfd68f3d5fb6d6d841c8f33254f1309
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 37514a3f8c149c1e34b4e0faa8a7109290a80feb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181851"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58138228"

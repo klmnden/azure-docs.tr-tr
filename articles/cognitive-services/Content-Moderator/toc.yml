@@ -8,7 +8,7 @@ items:
     expanded: true
 - name: Hızlı Başlangıçlar
   items:
-  - name: Başlarken
+  - name: Web üzerinde Content Moderator'ı deneme
     href: quick-start.md
   - name: İstemci SDK’sini kullanma
     items:
@@ -26,6 +26,10 @@ items:
   items:
   - name: Orta e-ticaret görüntüleri
     href: ecommerce-retail-catalog-moderation.md
+  - name: Facebook içeriği moderasyonu
+    href: facebook-post-moderation.md
+  - name: Video ve transkript moderasyonu
+    href: video-transcript-moderation-review-tutorial-dotnet.md
 - name: Kavramlar
   items:
   - name: Görüntü denetimi
@@ -104,12 +108,6 @@ items:
       href: Review-Tool-User-Guide/Workflows.md
     - name: Panoyu görüntüleme
       href: Review-Tool-User-Guide/View-Dashboard.md
-  - name: Birinci Content Moderator uygulamaları
-    items:
-    - name: Facebook içerik moderasyonu
-      href: facebook-post-moderation.md
-    - name: Video ve transkript moderasyonu
-      href: video-transcript-moderation-review-tutorial-dotnet.md
   - name: Hesap verilerini dışarı aktarma veya silme
     href: ./export-delete-data.md
   - name: Azure web semineri serisi
@@ -160,9 +158,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure yol haritası
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: c9f43e8598afc6e9fa68c24313ef862072d48e75
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: cee9e6c585dfa65ccee5c0f4631b5efc81dde760
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215380"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900718"

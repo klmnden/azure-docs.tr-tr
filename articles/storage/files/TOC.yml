@@ -69,10 +69,12 @@ items:
     items:
     - name: Tanılama
       href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Depolama Analizi
-      href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure İzleyicisi'nde ölçümler
-      href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Yeni ölçümlere geçme
+      href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Depolama analizi ölçümleri (klasik)
+      href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Olağanüstü durum kurtarma ve yük devretme
     href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Sınırlar
@@ -181,17 +183,17 @@ items:
   - name: Node.js
     href: https://docs.microsoft.com/javascript/api/overview/azure/storage
   - name: Ruby
-    href: http://azure.github.io/azure-storage-ruby
+    href: https://azure.github.io/azure-storage-ruby
   - name: PHP
-    href: http://azure.github.io/azure-storage-php/
+    href: https://azure.github.io/azure-storage-php/
   - name: Python
     href: https://docs.microsoft.com/python/api/overview/azure/storage
   - name: C++
-    href: http://azure.github.io/azure-storage-cpp
+    href: https://azure.github.io/azure-storage-cpp
   - name: iOS
-    href: http://azure.github.io/azure-storage-ios/
+    href: https://azure.github.io/azure-storage-ios/
   - name: Android
-    href: http://azure.github.io/azure-storage-android
+    href: https://azure.github.io/azure-storage-android
   - name: REST
     items:
     - name: Bloblar, Kuyruklar, Tablolar ve Dosyalar
@@ -201,6 +203,7 @@ items:
     - name: İçeri/Dışarı Aktarma
       href: /rest/api/storageimportexport
   - name: Resource Manager şablonu
+    displayName: arm
     href: /azure/templates/microsoft.storage/allversions
   - name: Örnekler
     href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
@@ -213,7 +216,7 @@ items:
   - name: Azure Depolama istemci araçları
     href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/windows-azure-storage
+    href: https://stackoverflow.com/questions/tagged/windows-azure-storage
   - name: Forum
     href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
   - name: Fiyatlandırma
@@ -256,9 +259,9 @@ items:
       href: https://github.com/Azure/azure-storage-cpp
     - name: Python
       href: https://github.com/Azure/azure-storage-python
-ms.openlocfilehash: 425b1de6d94825c43994dbe883ce1e2464dfa260
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0dea31dd8e5a8886dfe658513818a0d1670b0c7d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176620"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892430"

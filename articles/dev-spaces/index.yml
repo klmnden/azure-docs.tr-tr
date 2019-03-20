@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4ad9de80a77d054ef723d9ed5bd53e410c653baa
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 5fc027e52d838a85e7b880e3dd0daf4438e850dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195090"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852007"
 documentType: LandingData
 title: Azure Dev Spaces
 metadata:
@@ -25,7 +25,7 @@ sections:
     text: >-
       > [!IMPORTANT]
 
-      > Azure Dev Spaces şu an için önizleme sürümündedir ve yalnızca **Doğu ABD**, **Doğu ABD 2**, **Orta ABD**, **Batı ABD 2**, **Batı Avrupa**, **Güneydoğu Asya**, **Kanada Orta** ve **Kanada Doğu** bölgelerindeki AKS kümelerinde desteklenir. Önizlemeler, [ek kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
+      > Azure Dev Spaces şu an için önizleme sürümündedir ve yalnızca **Doğu ABD**, **Doğu ABD 2**, **Orta ABD**, **Batı ABD 2**, **Kuzey Avrupa**, **Batı Avrupa**, **Güneydoğu Asya**, **Kanada Orta** ve **Kanada Doğu** bölgelerindeki AKS kümelerinde desteklenir. Önizlemeler, [ek kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
 - title: Azure Dev Spaces ile çalışmaya başlama
   items:
   - type: paragraph

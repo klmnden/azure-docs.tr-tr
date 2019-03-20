@@ -40,6 +40,9 @@ items:
   - name: Depolama seçeneklerini karşılaştırın
     href: ../hdinsight-hadoop-compare-storage-options.md
     maintainContext: true
+  - name: Yönetilen kimlikleri anlama
+    href: ../hdinsight-managed-identities.md
+    maintainContext: true
 - name: Nasıl yapılır
   items:
   - name: Apache Hadoop korumalı alanını kullanma
@@ -75,10 +78,6 @@ items:
         href: apache-hadoop-use-hive-powershell.md
       - name: .NET SDK kullanma
         href: apache-hadoop-use-hive-dotnet-sdk.md
-      - name: Uzak Masaüstü kullanma
-        href: apache-hadoop-use-hive-remote-desktop.md
-      - name: Sorgu Konsolu kullanma
-        href: apache-hadoop-use-hive-query-console.md
     - name: Hive ile Java UDF kullanma
       href: apache-hadoop-hive-java-udf.md
     - name: Apache Hadoop ile MapReduce kullanma
@@ -159,15 +158,11 @@ items:
       href: apache-hadoop-connect-excel-hive-odbc-driver.md
     - name: Apache Hive JDBC sürücüsü kullanarak bağlanma
       href: apache-hadoop-connect-hive-jdbc-driver.md
-    - name: Depolanan sensör verilerini çözümleme
-      href: apache-hive-analyze-sensor-data.md
     - name: Depolanan tweetleri çözümleme
       href: ../hdinsight-analyze-twitter-data-linux.md
       maintainContext: true
     - name: Apache Mahout ile öneriler oluşturma
       href: apache-hadoop-mahout-linux-mac.md
-    - name: Apache Hive ile web sitesi günlüklerini çözümleme
-      href: apache-hive-analyze-website-log.md
     - name: Application Insights telemetri günlüklerini çözümleme
       href: ../spark/apache-spark-analyze-application-insight-logs.md
       maintainContext: true
@@ -207,9 +202,6 @@ items:
       maintainContext: true
     - name: Hue kullanma
       href: ../hdinsight-hadoop-hue-linux.md
-      maintainContext: true
-    - name: Apache Solr kullanma
-      href: ../hdinsight-hadoop-solr-install-linux.md
       maintainContext: true
     - name: Apache Zeppelin kullanma
       href: ../hdinsight-apache-spark-zeppelin-notebook.md
@@ -321,8 +313,11 @@ items:
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
-    - name: HDInsight kümesini ölçeklendirme
+    - name: Kümeyi el ile ölçeklendirme
       href: ../hdinsight-scaling-best-practices.md
+      maintainContext: true
+    - name: Kümeleri otomatik ölçeklendirme
+      href: ../hdinsight-autoscale-clusters.md
       maintainContext: true
     - name: Dış meta veri depolarını kullanma
       href: ../hdinsight-use-external-metadata-stores.md
@@ -495,9 +490,6 @@ items:
     - name: Apache Hadoop MapReduce örneklerini çalıştırma
       href: ../hdinsight-run-samples.md
       maintainContext: true
-    - name: Kümeler üzerinde Apache Solr kullanma
-      href: ../hdinsight-hadoop-solr-install-linux.md
-      maintainContext: true
     - name: Büyük ölçekli grafikleri işlemek için Apache Giraph kullanma
       href: ../hdinsight-hadoop-giraph-install.md
       maintainContext: true
@@ -510,26 +502,14 @@ items:
     - name: Java uygulamaları oluşturmak için Apache Maven kullanma
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: Script Action kullanarak özelleştirme
-      href: ../hdinsight-hadoop-customize-cluster.md
-      maintainContext: true
     - name: Apache Hadoop’ta YARN uygulama günlüklerine erişme
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
     - name: Apache Mahout kullanarak film önerileri oluşturma
       href: ../hdinsight-mahout.md
       maintainContext: true
-    - name: Uçuş gecikme verilerini çözümleme
-      href: ../hdinsight-analyze-flight-delay-data.md
-      maintainContext: true
     - name: Betik eylemleri geliştirme
       href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: Twitter verilerini çözümleme
-      href: ../hdinsight-analyze-twitter-data.md
-      maintainContext: true
-    - name: Azure portalı ile küme yönetme
-      href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
     - name: Apache Ambari API’sini kullanarak kümeleri izleme
       href: ../hdinsight-monitor-use-ambari-api.md
@@ -556,9 +536,9 @@ items:
   - name: HDInsight için Windows araçları
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: c679970484666a6087b33276eb545304a3b2793c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: c2272c9ae3b5f26dc1c83b7af5850a44aed6abdc
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887038"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224405"

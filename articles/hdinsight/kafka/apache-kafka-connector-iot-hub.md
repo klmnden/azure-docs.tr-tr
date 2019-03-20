@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: bd7254a9ec1ce5671aa5271ca26c678b20ef48cb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e64490517603687684617ce915e0d3f3e35298e9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093397"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Azure IOT Hub ile HDInsight üzerinde Apache kafka'yı kullanma
 
@@ -168,32 +168,32 @@ Bağlayıcı tarafından kullanılan IOT hub'ı bilgileri almak için aşağıda
 
 1. IOT hub'ınızın Event Hub ile uyumlu uç nokta adı ve Event Hub ile uyumlu uç noktasını alın. Bu bilgileri almak için aşağıdaki yöntemlerden birini kullanın:
 
-    * __Gelen [Azure portalında](https://portal.azure.com/)__, aşağıdaki adımları kullanın:
+   * __Gelen [Azure portalında](https://portal.azure.com/)__, aşağıdaki adımları kullanın:
 
-        1. IOT Hub'ınıza gidin ve seçin __uç noktaları__.
-        2. Gelen __yerleşik uç noktaları__seçin __olayları__.
-        3. Gelen __özellikleri__, aşağıdaki alanları değerini kopyalayın:
+     1. IOT Hub'ınıza gidin ve seçin __uç noktaları__.
+     2. Gelen __yerleşik uç noktaları__seçin __olayları__.
+     3. Gelen __özellikleri__, aşağıdaki alanları değerini kopyalayın:
 
-            * __Event Hub ile uyumlu adı__
-            * __Event Hub ile uyumlu uç noktası__
-            * __Bölümler__
+         * __Event Hub ile uyumlu adı__
+         * __Event Hub ile uyumlu uç noktası__
+         * __Bölümler__
 
         > [!IMPORTANT]  
         > Bu örnekte gerekmeyen fazladan metin portaldan uç nokta değerini içerebilir. Bu desenle eşleşen metni Ayıkla `sb://<randomnamespace>.servicebus.windows.net/`.
 
-    * __Gelen [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, aşağıdaki komutu kullanın:
+   * __Gelen [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, aşağıdaki komutu kullanın:
 
-        ```azure-cli
-        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
-        ```
+       ```azure-cli
+       az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
+       ```
 
-        Değiştirin `myhubname` IOT hub'ınızın adıyla. Yanıt aşağıdaki metne benzer:
+       Değiştirin `myhubname` IOT hub'ınızın adıyla. Yanıt aşağıdaki metne benzer:
 
-        ```json
-        "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
-        "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
-        "Partitions": 2
-        ```
+       ```json
+       "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
+       "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
+       "Partitions": 2
+       ```
 
 2. Alma __paylaşılan erişim ilkesi__ ve __anahtar__. Bu örneğin __hizmet__ anahtarı. Bu bilgileri almak için aşağıdaki yöntemlerden birini kullanın:
 
@@ -239,16 +239,16 @@ IOT Hub ile çalışmaya kaynağını yapılandırmak için kenar düğümüne S
 
     Düzenleyicisi'ni bulun ve aşağıdaki girdileri değiştirin:
 
-    * `Kafka.Topic=PLACEHOLDER`:  yerine `iotin` yazın. IOT hub'ından alınan iletileri yerleştirildiğinde `iotin` konu.
-    * `IotHub.EventHubCompatibleName=PLACEHOLDER`: Değiştirin `PLACEHOLDER` Event Hub ile uyumlu ada sahip.
-    * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: Değiştirin `PLACEHOLDER` Event Hub ile uyumlu uç nokta ile.
-    * `IotHub.Partitions=PLACEHOLDER`: Değiştirin `PLACEHOLDER` ile önceki adımlarda geçen bölüm sayısı.
-    * `IotHub.AccessKeyName=PLACEHOLDER`:  yerine `service` yazın.
-    * `IotHub.AccessKeyValue=PLACEHOLDER`: Değiştirin `PLACEHOLDER` birincil anahtarı ile `service` ilkesi.
-    * `IotHub.StartType=PLACEHOLDER`: Değiştirin `PLACEHOLDER` UTC tarihi. Bağlayıcı iletileri denetleme başladığında bu tarihtir. Tarih biçimi `yyyy-mm-ddThh:mm:ssZ`.
-    * `BatchSize=100`:  yerine `5` yazın. Bu değişiklik, IOT hub'ında beş yeni iletileri sonra Kafka iletileri okumak bağlayıcıyı neden olur.
+   * `Kafka.Topic=PLACEHOLDER`:  yerine `iotin` yazın. IOT hub'ından alınan iletileri yerleştirildiğinde `iotin` konu.
+   * `IotHub.EventHubCompatibleName=PLACEHOLDER`: Değiştirin `PLACEHOLDER` Event Hub ile uyumlu ada sahip.
+   * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: Değiştirin `PLACEHOLDER` Event Hub ile uyumlu uç nokta ile.
+   * `IotHub.Partitions=PLACEHOLDER`: Değiştirin `PLACEHOLDER` ile önceki adımlarda geçen bölüm sayısı.
+   * `IotHub.AccessKeyName=PLACEHOLDER`:  yerine `service` yazın.
+   * `IotHub.AccessKeyValue=PLACEHOLDER`: Değiştirin `PLACEHOLDER` birincil anahtarı ile `service` ilkesi.
+   * `IotHub.StartType=PLACEHOLDER`: Değiştirin `PLACEHOLDER` UTC tarihi. Bağlayıcı iletileri denetleme başladığında bu tarihtir. Tarih biçimi `yyyy-mm-ddThh:mm:ssZ`.
+   * `BatchSize=100`:  yerine `5` yazın. Bu değişiklik, IOT hub'ında beş yeni iletileri sonra Kafka iletileri okumak bağlayıcıyı neden olur.
 
-    Örnek bir yapılandırma için bkz: [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
+     Örnek bir yapılandırma için bkz: [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
 3. Değişiklikleri kaydetmek için kullanın __Ctrl + X__, __Y__, ardından __Enter__.
 
@@ -272,10 +272,10 @@ IOT Hub'ınıza çalışmak için havuz bağlantı yapılandırmak için kenar d
 
     Düzenleyicisi'ni bulun ve aşağıdaki girdileri değiştirin:
 
-    * `topics=PLACEHOLDER`:  yerine `iotout` yazın. Yazılan iletileri `iotout` konu, IOT hub'ına iletilir.
-    * `IotHub.ConnectionString=PLACEHOLDER`: Değiştirin `PLACEHOLDER` bağlantı dizesiyle `service` ilkesi.
+   * `topics=PLACEHOLDER`:  yerine `iotout` yazın. Yazılan iletileri `iotout` konu, IOT hub'ına iletilir.
+   * `IotHub.ConnectionString=PLACEHOLDER`: Değiştirin `PLACEHOLDER` bağlantı dizesiyle `service` ilkesi.
 
-    Örnek bir yapılandırma için bkz: [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
+     Örnek bir yapılandırma için bkz: [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
 3. Değişiklikleri kaydetmek için kullanın __Ctrl + X__, __Y__, ardından __Enter__.
 

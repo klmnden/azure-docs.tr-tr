@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a8b9bde79e811805fc692628c2b9d718da8408c8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e9ec024387f635457f6d8f651cf3a8444ce50440
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547359"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226598"
 documentType: LandingData
-title: Azure Uygulama Yapılandırması (Önizleme) Belgeleri
+title: Azure Uygulama Yapılandırması Önizlemesi belgeleri
 metadata:
-  title: Azure Uygulama Yapılandırması Belgeleri - Öğreticiler, API Başvurusu
-  meta.description: Azure App Configuration is an Azure managed service that helps developers centralize their application configurations simply and securely.
+  title: Azure Uygulama Yapılandırması belgeleri - Öğreticiler, API başvurusu
+  meta.description: Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely.
   services: azure-app-configuration
   author: yegu-ms
   manager: balans
@@ -22,7 +22,7 @@ metadata:
 abstract:
   description: Azure Uygulama Yapılandırması, geliştiricilerin uygulama yapılandırmalarını basit ve güvenli bir biçimde merkezileştirmesine yardımcı olan, yönetilen bir hizmettir.
 sections:
-- title: 5 Dakikalık Hızlı Başlangıçlar
+- title: 5 Dakikalık hızlı başlangıçlar
   items:
   - type: paragraph
     text: 'Azure Uygulama Yapılandırmasını kullanarak ilk web uygulamanızı geliştirmeyi öğrenin:'
@@ -49,7 +49,7 @@ sections:
         src: https://docs.microsoft.com/java/docs-ref-conceptual/media/spring.svg
       text: Java Spring
       href: /azure/azure-app-configuration/quickstart-java-spring-app
-- title: Adım Adım Öğreticiler
+- title: Adım adım öğreticiler
   items:
   - type: paragraph
     text: Azure Uygulama Yapılandırması ile uygulama geliştirmeyi öğrenin

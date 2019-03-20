@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: 4c533921b0c88a4f61cd96896b72306adb9a23cf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 637ad62744affa37630df9c841f3c7529674e788
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175715"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122918"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Services'i etkinleştirme
 Bu makalede, Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri (Azure AD DS) etkinleştirmek gösterilmektedir.
@@ -62,14 +62,13 @@ Başlatmak için **etkinleştirin, Azure AD Domain Services** Sihirbazı, aşağ
    > [!NOTE]
    > **Bir DNS etki alanı adı seçmek için yönergeleri**
    > * **Yerleşik etki alanı adı:** Varsayılan olarak, sihirbaz dizinin varsayılan/dahili-içeren etki alanı adını belirtir. (ile bir **. onmicrosoft.com** soneki) sizin için. İnternet üzerinden güvenli LDAP erişimi için yönetilen etki alanı etkinleştirmeyi seçerseniz, bu etki alanı adı için bir ortak CA güvenli LDAP sertifika edinme veya bir genel DNS kaydı oluşturma sorunları bekler. Microsoft sahibi *. onmicrosoft.com* etki alanı ve CA'lar değil sertifika bu etki alanı için özgün olduğunu belgelemekten.
-   * **Özel etki alanı adları:** Ayrıca, bir özel etki alanı adı da yazabilirsiniz. Bu örnekte özel etki alanı adı *contoso100.com* şeklindedir.
-   * **Yönlendirilebilir olmayan etki alanı sonekleri:** Genellikle, yönlendirilemeyen etki alanı adı soneki önleme öneririz. Örneğin, bir etki alanı DNS etki alanı adı 'contoso.local' ile oluşturmaktan kaçınmak iyidir. '.Local' DNS soneki yönlendirilemez ve DNS çözümlemesi ile sorunlara neden olabilir.
-   * **Etki alanı ön eki kısıtlamaları:** Belirttiğiniz etki alanı adının ön eki (örneğin, *contoso100.com* etki alanı adında contoso100) 15 veya daha az karakter içermelidir. Yönetilen bir etki alanı ön eki 15 karakterden uzunsa oluşturulamıyor.
-   * **Ağ adı çakışıyor:** Yönetilen etki alanı için seçtiğiniz DNS etki alanı adının sanal ağda zaten bulunmadığından emin olun. Özellikle, kontrol olmadığını:
-       * Sanal ağda aynı DNS etki alanı adıyla bir Active Directory etki alanı zaten var.
-       * Yönetilen etki alanını etkinleştirmek planladığınız sanal ağ ile şirket içi ağınıza bir VPN bağlantısı vardır. Bu senaryoda, şirket içi ağınızda aynı DNS etki alanı adına sahip bir etki alanına sahip olun.
-       * Sanal ağda bu ada sahip bir bulut hizmetiniz zaten varsa.
-    >
+   > * **Özel etki alanı adları:** Ayrıca, bir özel etki alanı adı da yazabilirsiniz. Bu örnekte özel etki alanı adı *contoso100.com* şeklindedir.
+   > * **Yönlendirilebilir olmayan etki alanı sonekleri:** Genellikle, yönlendirilemeyen etki alanı adı soneki önleme öneririz. Örneğin, bir etki alanı DNS etki alanı adı 'contoso.local' ile oluşturmaktan kaçınmak iyidir. '.Local' DNS soneki yönlendirilemez ve DNS çözümlemesi ile sorunlara neden olabilir.
+   > * **Etki alanı ön eki kısıtlamaları:** Belirttiğiniz etki alanı adının ön eki (örneğin, *contoso100.com* etki alanı adında contoso100) 15 veya daha az karakter içermelidir. Yönetilen bir etki alanı ön eki 15 karakterden uzunsa oluşturulamıyor.
+   > * **Ağ adı çakışıyor:** Yönetilen etki alanı için seçtiğiniz DNS etki alanı adının sanal ağda zaten bulunmadığından emin olun. Özellikle, kontrol olmadığını:
+   >     * Sanal ağda aynı DNS etki alanı adıyla bir Active Directory etki alanı zaten var.
+   >     * Yönetilen etki alanını etkinleştirmek planladığınız sanal ağ ile şirket içi ağınıza bir VPN bağlantısı vardır. Bu senaryoda, şirket içi ağınızda aynı DNS etki alanı adına sahip bir etki alanına sahip olun.
+   >     * Sanal ağda bu ada sahip bir bulut hizmetiniz zaten varsa.
 
 2. Azure'ı seçin **abonelik** içinde yönetilen etki alanı oluşturmak istiyorsunuz.
 

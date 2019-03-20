@@ -32,15 +32,17 @@ items:
 - name: Kavramlar
   items:
   - name: İş için giriş türleri
-    href: stream-analytics-add-inputs.md
     items:
+    - name: Girişlere genel bakış
+      href: stream-analytics-add-inputs.md
     - name: Akış verisi girişleri
       href: stream-analytics-define-inputs.md
     - name: Başvuru verisi girişleri
       href: stream-analytics-use-reference-data.md
   - name: Bir iş için çıktı türleri
-    href: stream-analytics-define-outputs.md
     items:
+    - name: Çıkışlara genel bakış
+      href: stream-analytics-define-outputs.md
     - name: Cosmos DB çıkışı
       href: stream-analytics-documentdb-output.md
     - name: Azure SQL DB’ye çıkış
@@ -114,7 +116,7 @@ items:
       href: stream-analytics-monitoring.md
     - name: İşleri izleme - PowerShell
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
-    - name: İşleri izleme - Azure .Net SDK
+    - name: İşleri izleme - Azure .NET SDK
       href: stream-analytics-monitor-jobs.md
     - name: İşleri izleme - Visual Studio
       href: stream-analytics-monitor-jobs-use-vs.md
@@ -122,9 +124,10 @@ items:
     items:
     - name: Akış birimleri ile ölçeklendirme
       href: stream-analytics-streaming-unit-consumption.md
-    - name: Sorgu paralelleştirmesiyle ölçeklendirme
-      href: stream-analytics-parallelization.md
+    - name: Paralelleştirmesiyle ölçeklendirme
       items:
+      - name: Sorgu paralelleştirmesi
+        href: stream-analytics-parallelization.md
       - name: Aktarım hızını artırma
         href: stream-analytics-scale-jobs.md
     - name: ML işlevleriyle ölçeklendirme
@@ -428,16 +431,16 @@ items:
   - name: Hizmet güncelleştirmeleri
     href: https://azure.microsoft.com/updates/?product=stream-analytics
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-stream-analytics
+    href: https://stackoverflow.com/questions/tagged/azure-stream-analytics
   - name: Videolar
     href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
   - name: Müşteri örnek olay incelemeleri
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Teknik inceleme - Gerçek zamanlı olay işleme
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: 24c475fcbe1bda825693ee04f9381922c46633ad
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 127d7aa2588a47084dd43eb7f22adf9f73f90dce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539250"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853027"

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2179b212dbbc7891b003664f4bea3d47cbb3a34e
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: f03ece417ef5db891efe32a662a092ebf6072b33
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575401"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848170"
 documentType: LandingData
 title: Azure Data Factory Belgeleri
 metadata:
@@ -80,6 +80,7 @@ sections:
     - html: Sanal ağda verileri dönüştürme - <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal">Data Factory Kullanıcı Arabirimi (UI)</a> | <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
     - html: Dal oluşturma ve zincirleme - <a href="/azure/data-factory/tutorial-control-flow-portal">Data Factory Kullanıcı Arabirimi (UI)</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a>
     - html: Azure'da SSIS paketlerini çalıştırma - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Data Factory Kullanıcı Arabirimi (UI)</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
+    - html: Azure Data Factory’de sürekli tümleştirme ve teslim (CI/CD) - <a href="/azure/data-factory/continuous-integration-deployment">Data Factory Kullanıcı Arabirimi (UI)</a>
 - title: Örnekler
   items:
   - type: paragraph

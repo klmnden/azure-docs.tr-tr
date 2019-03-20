@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ba32f17ac596a21614c1e18a01f622defb069a8e
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: dad3d16ad6d630bd57e6e5d196d16d45692935d9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338425"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167975"
 documentType: LandingData
 title: Azure SQL Veritabanı Belgeleri
 metadata:
@@ -65,7 +65,7 @@ sections:
         src: media/index/i_elasticpool.svg
       title: Esnek havuzlar
     - href: /azure/sql-database/sql-database-managed-instance-index
-      html: <p>Şirket içi veritabanlarınızı, tam olarak yönetilen Azure PaaS veritabanı hizmeti üzerinde veritabanında neredeyse hiç kod değişikliği gerekmeden kolayca geçirmek için Yönetilen Örnek kullanın.</p>
+      html: <p>Azure bulutunda barındırılan, şirket içi veritabanlarından geçiş yaparken çok az veritabanı kod değişikliği gerektiren veya hiç gerektirmeyen ve tam olarak yönetilen bir SQL Server Veritabanı Altyapı Örneği elde etmek için Yönetilen Örnek kullanın.</p>
       image:
         src: media/index/i_mi.svg
       title: Yönetilen örnek
@@ -129,7 +129,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Hızlı başlangıç kılavuzlarımızı kullanarak <a href="/azure/sql-database/sql-database-single-database-quickstart-guide">tek bir veritabanı</a> ve bir <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">yönetilen örnek</a> ile çalışmaya başlayın.
+    - html: Hızlı başlangıç kılavuzlarımızı kullanarak <a href="/azure/sql-database/sql-database-single-database-quickstart-guide">tek veritabanı</a> ve bir <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">yönetilen örnek</a> ile çalışmaya başlayın.
     - html: <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> veya <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a> kullanarak yeni tek veritabanı için şema oluşturma ve tasarlama
     - html: <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Yerel SQL Server yedekleme dosyası</a> veya <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Veritabanı Geçiş Yardımcısı</a>'nı kullanarak ya da <a href="/azure/sql-database/sql-database-import">BACPAC dosyasını içeri aktararak</a> mevcut veritabanını Azure'a geçirme
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">SQL Veritabanınızın güvenliğini sağlama</a>

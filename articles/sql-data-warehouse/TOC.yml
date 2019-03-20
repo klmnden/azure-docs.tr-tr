@@ -64,6 +64,12 @@ items:
       href: quickstart-scale-compute-powershell.md
     - name: T-SQL
       href: quickstart-scale-compute-tsql.md
+  - name: İş Yükü Yönetimi
+    items:
+    - name: İş yükü sınıflandırıcısı oluşturma (Önizleme)
+      items:
+      - name: T-SQL
+        href: quickstart-create-a-workload-classifier-tsql.md
   expanded: true
 - name: Kavramlar
   items:
@@ -155,6 +161,10 @@ items:
     items:
     - name: Kaynak sınıfları ve iş yükü yönetimi
       href: resource-classes-for-workload-management.md
+    - name: İş Yükü Sınıflandırma (Önizleme)
+      href: sql-data-warehouse-workload-classification.md
+    - name: İş Yükü Önem Düzeyi (Önizleme)
+      href: sql-data-warehouse-workload-importance.md
     - name: Bellek ve eşzamanlılık sınırları
       href: memory-and-concurrency-limits.md
   - name: Yönetilebilirlik ve izleme
@@ -169,8 +179,6 @@ items:
       href: backup-and-restore.md
     - name: Öneriler
       href: sql-data-warehouse-concept-recommendations.md
-    - name: Bakım zamanlaması
-      href: service-maintenance.md
     - name: Sorun giderme
       href: sql-data-warehouse-troubleshoot.md
   - name: Bakım zamanlamaları
@@ -311,9 +319,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Veri yönetimi
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: fb1b3751d398af947eb6dad1a40699104280bc21
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 70ad58128b088a44f2e95626e6883645a947e629
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730662"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884702"

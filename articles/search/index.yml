@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8caeb6ad79f82ecb86da313cca901cb3a16b6d5c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8385fe5ecb9a6e17d872795ba4eff5c038e4df47
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004715"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199878"
 documentType: LandingData
 title: Azure Search Belgeleri
 metadata:
@@ -57,12 +57,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Bilişsel beceriler REST API’lerini öğrenme</a>
+    - html: <a href="/azure/search/cognitive-search-tutorial-blob">AI (Bilişsel Hizmetler) ile dizin</a>
     - html: <a href="/azure/search/search-howto-dotnet-sdk">.NET ile Azure Search kullanma</a>
     - html: <a href="/azure/search/search-indexer-tutorial">.NET ile Azure SQL Veritabanı içeriğini dizinleme</a>
     - html: <a href="/azure/search/search-semi-structured-data">REST ile Azure Blob depolama alanında yarı yapılandırılmış verileri dizinleme</a>
-    - html: <a href="/azure/search/search-synonyms-tutorial-sdk">Eşdeğer terimler için döndürme sonuçlarına eş anlamlı sözcükler ekleme</a>
-    - html: <a href="/azure/search/search-autocomplete-tutorial">.NET ile bir arama kutusuna otomatik tamamlama ekleme</a>
     - html: <a href="/azure/search/search-get-started-portal">Dizinleme ve sorgu testi için portalı kullanma</a>
 - title: Başvuru
   items:
