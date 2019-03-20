@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 2a2fafb5da50dbd26786284592cd330df7f5557a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 769e6b9936ad6d3cb963e208cec4c49813f2b6d3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113711"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188331"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>App Service Ortamları ile Coğrafi Olarak Dağıtılmış Ölçek
 ## <a name="overview"></a>Genel Bakış
@@ -46,7 +46,7 @@ Bu konunun geri kalanı için örnek uygulamayı birden fazla App Service ortaml
 ## <a name="planning-the-topology"></a>Topoloji planlama
 Bir dağıtılmış uygulama Ayak izi kullanıma yapılandırmadan önce önceden birkaç parça bilgi sağlamak için yardımcı olur.
 
-* **Uygulama için özel etki alanı:**  Müşteriler, uygulamaya erişmek için kullanacağı özel etki alanı adı nedir?  Örnek uygulama için özel etki alanı adıdır *www.scalableasedemo.com*
+* **Uygulama için özel etki alanı:**  Müşteriler, uygulamaya erişmek için kullanacağı özel etki alanı adı nedir?  Örnek uygulama için özel etki alanı adıdır `www.scalableasedemo.com`
 * **Traffic Manager etki alanı:**  Bir etki alanı adı oluşturulurken seçilmesi gerekir bir [Azure Traffic Manager profilini][AzureTrafficManagerProfile].  Bu ad ile birlikte *trafficmanager.net* soneki Traffic Manager tarafından yönetilen bir etki alanı girişi kaydetmek için kullanılır.  Örnek uygulama için adı seçilen olduğu *ase tanıtım ölçeklenebilir*.  Sonuç olarak, Traffic Manager tarafından yönetilen tam etki alanı adıdır *ase demo.trafficmanager.net ölçeklenebilir*.
 * **Uygulama Ayak izi ölçeklendirme stratejisi:**  Uygulama Ayak izi, tek bir bölgede birden fazla App Service ortamları arasında dağıtılır?  Birden çok bölgede?  Bir karışımı ve eşleştirme her iki yaklaşımın?  Karar ne kadar iyi bir uygulamanın arka uç altyapısı destekleme rest ölçeklendirebilirsiniz yanı sıra burada müşteri trafiğinden kaynaklanan beklentilerini bağlı olmalıdır.  Örneğin, durum bilgisi olmayan bir % 100 uygulama ile birlikte uygulama yüksek düzeyde Azure bölgelerinde dağıtılan App Service ortamları ile çarpılır Azure bölgesi başına birden fazla App Service ortamları oluşan birleşimlerin kullanıldığı ölçeklendirilebilir.  15 + ortak olan Azure bölgeleri seçim yapabileceğiniz, müşterilerin gerçek anlamda bir dünya çapında hiper ölçekli uygulama Ayak izi oluşturabilirsiniz.  Bu makalede kullanılan örnek uygulama için bir tek bir Azure bölgesinde (Güney Orta ABD) üç App Service ortamları oluşturuldu.
 * **App Service ortamları için adlandırma kuralı:**  Her App Service ortamı, benzersiz bir ad gerektirir.  Bir veya iki App Service ortamları, her bir App Service ortamı belirlemenize yardımcı olması için bir adlandırma kuralınızın bulunduğundan yardımcı olur.  Örnek uygulama için basit bir adlandırma kuralı kullanıldı.  Üç App Service ortamları adlarıdır *fe1ase*, *fe2ase*, ve *fe3ase*.
@@ -87,7 +87,7 @@ Nasıl bir çağrı fark *Ekle AzureTrafficManagerEndpointConfig* her tek tek uy
 Üç bitiş noktalarının tümü için aynı değeri (10) kullanması *ağırlık* parametresi.  Bu Traffic Manager arasına yayarak müşteri isteklerindeki tüm üç uygulama örnekleri arasında oldukça eşit bir şekilde sonuçlanır. 
 
 ## <a name="pointing-the-apps-custom-domain-at-the-traffic-manager-domain"></a>Traffic Manager etki alanına özel etki alanında uygulamanın işaret eden
-Özel etki alanını Traffic Manager etki alanındaki uygulamanın işaret edecek şekilde son adım gerekli olduğu.  Örnek uygulama için işaret eden başka bir deyişle *www.scalableasedemo.com* adresindeki *ase demo.trafficmanager.net ölçeklenebilir*.  Bu adım, özel etki alanını yöneten etki alanı kayıt şirketinde şunların tamamlanmış gerekir.  
+Özel etki alanını Traffic Manager etki alanındaki uygulamanın işaret edecek şekilde son adım gerekli olduğu.  Örnek uygulama için işaret eden başka bir deyişle `www.scalableasedemo.com` adresindeki `scalable-ase-demo.trafficmanager.net`.  Bu adım, özel etki alanını yöneten etki alanı kayıt şirketinde şunların tamamlanmış gerekir.  
 
 Kayıt şirketinizin etki alanı yönetim araçlarını kullanarak, özel etki alanını Traffic Manager etki alanına işaret ettiği oluşturulması gereken bir CNAME kaydeder.  Aşağıdaki resimde bu CNAME yapılandırma benzer bir örnek gösterilmektedir:
 
@@ -95,16 +95,16 @@ Kayıt şirketinizin etki alanı yönetim araçlarını kullanarak, özel etki a
 
 Bu konu başlığında ele alınmamaktadır olsa da, her bir tek tek uygulama örneği ile de kayıtlı özel etki alanınız olması gerektiğini unutmayın.  Aksi takdirde uygulama örneğine bir istek kolaylaştırır ve uygulama ile uygulamanın kayıtlı özel etki alanı yok ise isteği başarısız olur.  
 
-Bu örnekte özel etki alanı olan *www.scalableasedemo.com*, ve her uygulama örneği ile ilişkili özel etki alanı vardır.
+Bu örnekte özel etki alanı olan `www.scalableasedemo.com`, ve her uygulama örneği ile ilişkili özel etki alanı vardır.
 
 ![Özel Etki Alanı][CustomDomain] 
 
 Özel bir etki alanı ile Azure App Service uygulamaları kaydetme bir özeti için aşağıdaki makaleye bakın [özel etki alanlarını kaydetme][RegisterCustomDomain].
 
 ## <a name="trying-out-the-distributed-topology"></a>Dağıtılmış topoloji çalışıyor
-İstekleri için Traffic Manager ve DNS yapılandırmasını nihai sonucu olan *www.scalableasedemo.com* aşağıdakiler akar:
+İstekleri için Traffic Manager ve DNS yapılandırmasını nihai sonucu olan `www.scalableasedemo.com` aşağıdakiler akar:
 
-1. DNS arama yapmak tarayıcı veya cihaz *www.scalableasedemo.com*
+1. DNS arama yapmak tarayıcı veya cihaz `www.scalableasedemo.com`
 2. Etki alanı kayıt şirketinde CNAME girişi DNS araması için Azure Traffic Manager yönlendirilmesi neden olur.
 3. DNS arama yaptığınız *ase demo.trafficmanager.net ölçeklenebilir* karşı Azure Traffic Manager DNS sunucularından biri.
 4. Yük Dengeleme İlkesi tabanlı ( *TrafficRoutingMethod* Traffic Manager profili oluştururken daha önce kullanılan parametre), Traffic Manager yapılandırılmış uç noktalardan biri seçin ve döndürmek için bu endpoint FQDN'si Tarayıcı veya cihaz.

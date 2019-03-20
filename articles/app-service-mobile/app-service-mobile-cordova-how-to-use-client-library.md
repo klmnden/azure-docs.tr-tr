@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: cddb3769cfc5a2ba002e19036d986f4165670dc1
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 3c22aab20a9260bfd21869f0b327211e2f3d8894
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962460"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004214"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps için Apache Cordova istemci kitaplığını kullanma
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -106,7 +106,7 @@ Yerel ayarlarınızı yapılandırmaya eklemek için aşağıdaki yönergeleri i
              "https://localhost:3000"
          ],
 
-    URL'leri hizmetinizin URL ile değiştirin.  Örnekler "http://localhost:3000" (Node.js örnek hizmeti için) veya "http://localhost:4400" (Ripple hizmeti için).  Örnekleri - örneklerde sözü Hizmetleri dahil olmak üzere durumunuz farklı olabilir ancak, bu URL'ler uygulanır.
+    URL'leri hizmetinizin URL ile değiştirin.  Örnekler `http://localhost:3000` (Node.js örnek hizmeti için) veya `http://localhost:4400` (Ripple hizmeti için).  Örnekleri - örneklerde sözü Hizmetleri dahil olmak üzere durumunuz farklı olabilir ancak, bu URL'ler uygulanır.
 8. Tıklayın **okuma/yazma** ekranının sağ üst köşesindeki düğme.
 9. Yeşil tıklayın **PUT** düğmesi.
 
@@ -165,7 +165,7 @@ pushHandler.on('error', function (error) {
 
 Sunucudan anında iletme bildirimleri göndermek için Notification Hubs SDK'sı kullanın.  Hiçbir zaman doğrudan istemcilerden anında iletme bildirimleri gönderin. Bunun yapılması bir bildirim hub'ları veya PNS karşı hizmet saldırısı reddi tetiklemek için kullanılabilir.  PNS trafiğinizi bu tür saldırıları sonucunda yasaklamak.
 
-## <a name="more-information"></a>Daha fazla bilgi
+## <a name="more-information"></a>Daha fazlasını öğrenin
 
 Ayrıntılı API ayrıntıları bulabilirsiniz bizim [API belgeleri](https://azure.github.io/azure-mobile-apps-js-client/).
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 046d00eec9fd5a406a1e8bf78e48d4dd913b83fd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0785d0805027dd0bd621203ade7287e5a1840a9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437577"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57870155"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Tahmine dayalı bakım çözümleri için Azure yapay ZEKA Kılavuzu
 
@@ -401,13 +401,13 @@ Yukarıdaki işlem, akademik ve sektör belgeleri Birçok bakımdan belirtilir. 
 
 Daha önce belirtildiği gibi PdM için modeli kullanıma hazır hale getirme eşlerine farklıdır. Anomali algılama ve hata algılama genellikle ilgili senaryolarını uygulayan _çevrimiçi Puanlama_ (olarak da adlandırılan _gerçek zamanlı Puanlama_). Burada, modeli _puanları_ gelen her kaydı ve tahmin döndürür. Anomali algılama için tahmini bir anomali ortaya çıktığını göstergesidir (örnek: One-class SVM). Hata algılama için türü ya da hata sınıfı olacaktır.
 
-Buna karşılık, PdM içerir _toplu Puanlama_. Model imza uymak için yeni verileri özelliklerinde eğitim verilerini aynı şekilde mühendislik gerekir. Yeni veriler için tipik olan büyük veri kümeleri için özelliklerini zaman pencereleri toplanır ve toplu işlemde puanlanması. Toplu Puanlama tipik olarak yapıldığı gibi dağıtılmış sistemlerdeki [Spark](http://spark.apache.org/) veya [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Birkaç alternatifleri - yetersiz hem de vardır:
+Buna karşılık, PdM içerir _toplu Puanlama_. Model imza uymak için yeni verileri özelliklerinde eğitim verilerini aynı şekilde mühendislik gerekir. Yeni veriler için tipik olan büyük veri kümeleri için özelliklerini zaman pencereleri toplanır ve toplu işlemde puanlanması. Toplu Puanlama tipik olarak yapıldığı gibi dağıtılmış sistemlerdeki [Spark](https://spark.apache.org/) veya [Azure Batch](https://docs.microsoft.com/azure/batch/batch-api-basics). Birkaç alternatifleri - yetersiz hem de vardır:
 - Akış veri altyapıları, bellek içinde windows üzerinde toplama destekler. Bu nedenle çevrimiçi Puanlama destekledikleri tartışılabilir. Ancak bu sistemler üzerinde daha geniş windows için saat veya seyrek öğe dar Windows yoğun veri uygundur. Bunlar için de yoğun veri geniş zaman pencereleri PdM senaryolarında görülen ölçeği değil.
 - Toplu Puanlama kullanılabilir değilse, aynı anda küçük partiler halinde yeni verileri işlemek için çevrimiçi Puanlama uyum çözümüdür.
 
 ## <a name="solution-templates-for-predictive-maintenance"></a>Tahmine dayalı bakım çözüm şablonları
 
-Bu kılavuz son bölümü PdM çözüm şablonları, öğreticiler ve Azure'da gerçekleştirilen denemeleri listesini sağlar. Bazı durumlarda dakikalar içinde bir Azure aboneliğine bu PdM uygulamaları dağıtılabilir. Kavram kanıtı tanıtımlar sanal alternatifleri veya Hızlandırıcılar gerçek üretim uygulamaları için deneme amaçlı olarak kullanılabilir. Bu şablonlar bulunan [Azure AI Gallery](http://gallery.azure.ai) veya [Azure GitHub](https://github.com/Azure). Bu farklı örnekleri, zaman içinde bu çözüm şablonu alınacaktır.
+Bu kılavuz son bölümü PdM çözüm şablonları, öğreticiler ve Azure'da gerçekleştirilen denemeleri listesini sağlar. Bazı durumlarda dakikalar içinde bir Azure aboneliğine bu PdM uygulamaları dağıtılabilir. Kavram kanıtı tanıtımlar sanal alternatifleri veya Hızlandırıcılar gerçek üretim uygulamaları için deneme amaçlı olarak kullanılabilir. Bu şablonlar bulunan [Azure AI Gallery](https://gallery.azure.ai) veya [Azure GitHub](https://github.com/Azure). Bu farklı örnekleri, zaman içinde bu çözüm şablonu alınacaktır.
 
 | # | Unvan | Açıklama |
 |--:|:------|-------------|
@@ -431,9 +431,9 @@ Microsoft Azure, PdM teknikleri, içerik ve yapay ZEKA kavramları ve uygulama G
 | [Azure'da yapay ZEKA geliştiricisi](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Genel |
 | [Microsoft yapay ZEKA Okul](https://aischool.microsoft.com/learning-paths) | Genel |
 | [Github'dan Azure yapay ZEKA öğrenme](https://github.com/Azure/connectthedots/blob/master/readme.md) | Genel |
-| [LinkedIn Learning](http://www.linkedin.com/learning) | Genel |
+| [LinkedIn Learning](https://www.linkedin.com/learning) | Genel |
 | [Microsoft yapay ZEKA YouTube Web Seminerleri](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Genel |
-| [Microsoft yapay ZEKA Göster](http://channel9.msdn.com/Shows/AI-Show) | Genel |
+| [Microsoft yapay ZEKA Göster](https://channel9.msdn.com/Shows/AI-Show) | Genel |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | İş Ortakları |
 | [Microsoft iş ortağı ağı](https://learningportal.microsoft.com) | İş Ortakları |
 

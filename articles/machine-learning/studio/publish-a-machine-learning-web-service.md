@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: e56ab4d74b54e1da8b07de6081766c8669bfb68a
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576642"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895745"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Bir Azure Machine Learning Studio web hizmetini dağıtma
 
@@ -93,23 +93,23 @@ Girişler, çıkışlar ve deneme için tanımladığınız herhangi bir genel p
 
 RRS kullanarak test etmek için liste görünümü modundan girişleri için uygun değerleri girin ve **Test istek-yanıt**. Çıkış sütununu sola, tahmin sonuçlarını görüntüler.
 
-![Web hizmetini dağıtma](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
+![Web hizmetini test etmek için uygun değerleri girin](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
 BES, test etmek için **Batch**. Toplu test sayfasında girişinizi altında Gözat'a tıklayın ve uygun örnek değerleri içeren bir CSV dosyası seçin. Bir CSV dosyası yoksa ve Machine Learning Studio'yu kullanarak Tahmine dayalı denemenizi oluşturduğunuz, Tahmine dayalı denemeniz için veri kümesini indirin ve kullanın.
 
 Veri kümesi indirmek için Machine Learning Studio'da açın. Tahmine dayalı denemenizi açın ve denemeniz için giriş sağ tıklayın. Bağlam menüsünden seçin **veri kümesi** seçip **indirme**.
 
-![Web hizmetini dağıtma](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
+![Veri kümeniz Studio tuvalden indirin](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
 Tıklayın **Test**. Toplu iş yürütmeye ilişkin iş durumunu görüntüler altında sağındaki **Test toplu işleri**.
 
-![Web hizmetini dağıtma](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
+![Web hizmeti portalı ile toplu iş yürütme işinizi test etme](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
 <!--![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)-->
 
 Üzerinde **yapılandırma** sayfası, başlığı açıklamayı değiştirmek, depolama hesabı anahtarını güncelleştirmek ve web hizmetiniz için örnek verileri etkinleştirin.
 
-![Web hizmetini yapılandır](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
+![Web hizmetinizi yapılandırın](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
 
 ### <a name="access-your-new-web-service"></a>Yeni, web hizmetine erişme
 
@@ -161,7 +161,7 @@ Tahmine dayalı denemeye yeterince hazırlanan, Azure Klasik web hizmeti olarak 
 
 Tahmine dayalı denemenizi dağıtmak için **çalıştırma** denemeyi alt kısmındaki tuval ve ardından **Web hizmeti Dağıt**. Web hizmeti ayarlayın ve web hizmeti panosunda yer alır.
 
-![Web hizmetini dağıtma](./media/publish-a-machine-learning-web-service/figure-2.png)
+![Web hizmetinizi Studio'dan dağıtma](./media/publish-a-machine-learning-web-service/figure-2.png)
 
 ### <a name="test-your-classic-web-service"></a>Klasik web hizmetini test edin
 
@@ -181,7 +181,7 @@ Bir açıklama için girdi verilerini, çıktı verilerini ve web hizmeti parame
 
 Web hizmetinizi erişildiğinde sizin gördüğünüz tüm hataları tanılamak günlük kaydını etkinleştirebilirsiniz. Daha fazla bilgi için [Machine Learning Studio web hizmetleri için günlüğe kaydetmeyi etkinleştirme](web-services-logging.md).
 
-![Web hizmetini yapılandır](./media/publish-a-machine-learning-web-service/figure-4.png)
+![Web hizmetleri portalında oturum açmayı etkinleştir](./media/publish-a-machine-learning-web-service/figure-4.png)
 
 Azure Machine Learning Web Hizmetleri portalında benzer şekilde yeni web hizmeti bölümünde daha önce gösterilen yordam, web hizmeti uç noktaları da yapılandırabilirsiniz. Seçenekler farklıdır, ekleyebilir veya hizmet açıklaması, günlüğü kaydetmeyi etkinleştir ve test etmek için örnek verileri etkinleştir değiştirin.
 
@@ -218,7 +218,6 @@ Web hizmetini güncelleştirmek için bir model programlama yoluyla yeniden eği
 * Modelinizi dağıtmaya hazırlanma konusunda daha fazla ayrıntı için bkz. [modelinizin Azure Machine Learning Studio'da dağıtımına hazırlamak nasıl](convert-training-experiment-to-scoring-experiment.md).
 
 * REST API’sini kullanmanın ve web hizmetine erişmenin birkaç yolu vardır. Bkz: [bir Azure Machine Learning Studio web hizmetinin nasıl kullanılacağı hakkında](consume-web-services.md).
-
 
 <!-- internal links -->
 [Eğitim denemenizi oluşturma]: #create-a-training-experiment

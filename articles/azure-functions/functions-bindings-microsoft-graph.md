@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: eb05d1b28b80cb7bf48bc1160c251936423763e6
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100807"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997556"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure işlevleri için Microsoft Graph bağlamaları
 
@@ -352,7 +352,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**Kimlik**|**Kimlik**|Gereklidir - eylemi gerçekleştirmek için kullanılacak kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code> -Yalnızca geçerli [HTTP tetikleyicisi]. Çağrıyı yapan kullanıcının kimliğini kullanır.</li><li><code>userFromId</code> -Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code> -Belirtilen belirteci tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code> -İşlevi uygulamanın kimliğini kullanır.</li></ul>|
 |**userId**|**Kullanıcı Kimliği**  |Gerekli ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açmış bir kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**userToken**|Gerekli ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
-|**Yolu**|**Path**|Gereklidir - onedrive'daki Excel çalışma kitabı yolu.|
+|**Yolu**|**Yolu**|Gereklidir - onedrive'daki Excel çalışma kitabı yolu.|
 |**worksheetName**|**worksheetName**|Tablonun bulunduğu çalışma sayfası.|
 |**TableName**|**TableName**|Tablonun adı. Belirtilmezse çalışma kitabının içeriği kullanılır.|
 
@@ -360,6 +360,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 ### <a name="excel-input---usage"></a>Giriş - Excel kullanımı
 
 Bu bağlama, aşağıdaki Azure AD izinleri gerektirir:
+
 |Kaynak|İzin|
 |--------|--------|
 |Microsoft Graph|Kullanıcı dosyalarını okuyun|
@@ -513,7 +514,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**Kimlik**|**Kimlik**|Gereklidir - eylemi gerçekleştirmek için kullanılacak kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code> -Yalnızca geçerli [HTTP tetikleyicisi]. Çağrıyı yapan kullanıcının kimliğini kullanır.</li><li><code>userFromId</code> -Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code> -Belirtilen belirteci tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code> -İşlevi uygulamanın kimliğini kullanır.</li></ul>|
 |**Kullanıcı Kimliği** |**userId** |Gerekli ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açmış bir kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**userToken**|Gerekli ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
-|**Yolu**|**Path**|Gereklidir - onedrive'daki Excel çalışma kitabı yolu.|
+|**Yolu**|**Yolu**|Gereklidir - onedrive'daki Excel çalışma kitabı yolu.|
 |**worksheetName**|**worksheetName**|Tablonun bulunduğu çalışma sayfası.|
 |**TableName**|**TableName**|Tablonun adı. Belirtilmezse çalışma kitabının içeriği kullanılır.|
 |**güncelleştirme türü**|**güncelleştirme türü**|Gereklidir - tabloya yapılacak değişikliğin türü. Aşağıdaki değerlerden biri olabilir:<ul><li><code>update</code> -Onedrive tablonun içeriğini değiştirir.</li><li><code>append</code> -Yük sonuna kadar OneDrive tablosunda yeni satırlar oluşturarak ekler.</li></ul>|
@@ -522,6 +523,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 ### <a name="excel-output---usage"></a>Excel çıkışı - kullanım
 
 Bu bağlama, aşağıdaki Azure AD izinleri gerektirir:
+
 |Kaynak|İzin|
 |--------|--------|
 |Microsoft Graph|Kullanıcı dosyalarına tam erişim elde edin|
@@ -658,12 +660,13 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**Kimlik**|**Kimlik**|Gereklidir - eylemi gerçekleştirmek için kullanılacak kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code> -Yalnızca geçerli [HTTP tetikleyicisi]. Çağrıyı yapan kullanıcının kimliğini kullanır.</li><li><code>userFromId</code> -Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code> -Belirtilen belirteci tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code> -İşlevi uygulamanın kimliğini kullanır.</li></ul>|
 |**userId**|**Kullanıcı Kimliği**  |Gerekli ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açmış bir kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**userToken**|Gerekli ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
-|**Yolu**|**Path**|Gereklidir - onedrive'daki dosyanın yolu.|
+|**Yolu**|**Yolu**|Gereklidir - onedrive'daki dosyanın yolu.|
 
 <a name="onedrive-input-code"></a>
 ### <a name="file-input---usage"></a>Giriş - dosya kullanımı
 
 Bu bağlama, aşağıdaki Azure AD izinleri gerektirir:
+
 |Kaynak|İzin|
 |--------|--------|
 |Microsoft Graph|Kullanıcı dosyalarını okuyun|
@@ -805,12 +808,13 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**Kimlik**|**Kimlik**|Gereklidir - eylemi gerçekleştirmek için kullanılacak kimlik. Aşağıdaki değerlerden biri olabilir:<ul><li><code>userFromRequest</code> -Yalnızca geçerli [HTTP tetikleyicisi]. Çağrıyı yapan kullanıcının kimliğini kullanır.</li><li><code>userFromId</code> -Belirtilen kimliğe sahip bir daha önce oturum açma kullanıcı kimliğini kullanır. Bkz: <code>userId</code> özelliği.</li><li><code>userFromToken</code> -Belirtilen belirteci tarafından temsil edilen kimliğini kullanır. Bkz: <code>userToken</code> özelliği.</li><li><code>clientCredentials</code> -İşlevi uygulamanın kimliğini kullanır.</li></ul>|
 |**Kullanıcı Kimliği** |**userId** |Gerekli ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açmış bir kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**userToken**|Gerekli ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
-|**Yolu**|**Path**|Gereklidir - onedrive'daki dosyanın yolu.|
+|**Yolu**|**Yolu**|Gereklidir - onedrive'daki dosyanın yolu.|
 
 <a name="onedrive-output-code"></a>
 #### <a name="file-output---usage"></a>Dosya çıkışı - kullanım
 
 Bu bağlama, aşağıdaki Azure AD izinleri gerektirir:
+
 |Kaynak|İzin|
 |--------|--------|
 |Microsoft Graph|Kullanıcı dosyalarına tam erişim elde edin|
@@ -960,6 +964,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 ### <a name="outlook-output---usage"></a>Çıkış - outlook kullanımı
 
 Bu bağlama, aşağıdaki Azure AD izinleri gerektirir:
+
 |Kaynak|İzin|
 |--------|--------|
 |Microsoft Graph|Kullanıcı olarak posta gönderme|

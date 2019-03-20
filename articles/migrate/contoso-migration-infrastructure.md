@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
-ms.openlocfilehash: 6ee05af0391311b4782211807f41ce099a6c24a2
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5dfe768ddb3509f896b90f913ffecdf33907357a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889945"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876689"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - geçiş altyapısı dağıtma
 
@@ -25,7 +25,7 @@ Bu makalede, Contoso, şirket içi altyapı geçiş için hazırlar ve hazırlı
 Bu makalede, bir dizi Contoso adlı kurgusal şirketin şirket içi kaynaklarını Microsoft Azure bulutuna nasıl geçirdiğini belge makaleleri bir parçasıdır. Seri arka plan bilgileri içerir ve bir geçiş altyapısını kurma nasıl çalışılacağını dağıtım senaryolarında bir dizi geçiş için şirket içi kaynaklara uygunluğunu değerlendirmek ve farklı türde geçiş çalıştırın. Senaryoları, karmaşık hale gelmesi. Makaleler, zaman içinde serinin eklenir.
 
 
-**Makale** | **Ayrıntılar** | **Durum**
+**Makale** | **Ayrıntılar** | **Durumu**
 --- | --- | ---
 [1. makale: Genel bakış](contoso-migration-overview.md) | Makale serisi, Contoso'nun geçiş stratejisi ve dizisinde kullanılan örnek uygulamalar genel bakış. | Kullanılabilir
 2. makale: Azure altyapısını dağıtma | Contoso şirket içi altyapısını ve Azure altyapısını geçiş için hazırlar. Altyapıyı, serideki tüm geçiş makaleleri için kullanılır. | Bu makalede
@@ -81,7 +81,7 @@ Altyapısını bakarak başlamadan önce bu makalede ele Azure özellikleri hakk
 - Etki alanı denetleyicileri veri merkezindeki VMware VM'ler üzerinde çalıştırın. Yerel dalları etki alanı denetleyicilerde fiziksel sunucularda çalıştırın.
 
 
-## <a name="step-1-buy-and-subscribe-to-azure"></a>1. Adım: Satın alma ve Azure'a abone olma
+## <a name="step-1-buy-and-subscribe-to-azure"></a>1. adım: Satın alma ve Azure'a abone olma
 
 Azure satın alma, nasıl abonelikleri Mimar ve hizmetlerinizi ve kaynaklarınızı lisans nasıl bağlayacağınızı contoso gerekir.
 
@@ -94,17 +94,17 @@ Contoso çalışmaya bir [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pr
 - Herhangi bir nedenle Contoso taahhüdü aşıyor ve daha fazla geçirdiği, Microsoft bunların fark için fatura.
 - Taahhüt sonucunda herhangi bir maliyet aynı ücretleri ve bu Contoso sözleşmesindeki olacaktır. Giden hiçbir yaptırımlara vardır.
 
-### <a name="manage-subscriptions"></a>Abonelikleri yönetme
+### <a name="manage-subscriptions"></a>Abonelikleri yönet
 
 Azure için ödeme sonra Contoso Azure Aboneliklerini yönetmek nasıl gerekir. Contoso bir EA vardır ve bu nedenle Azure abonelik sayısı sınırı ayarlayabilirsiniz.
 
 - Bir Azure Kurumsal kayıt nasıl şirket şekilleri ve Azure hizmetlerini kullanır ve bir çekirdek idare yapısını tanımlayan tanımlar.
 - İlk adım, Contoso (Kurumsal kayıt için bir kurumsal iskelesi bilinir. bir yapı belirledi. Contoso kullanılan [bu makalede](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance) anlamak ve bir yapı iskelesi tasarlamanıza yardımcı olacak.
 - Şimdilik, Contoso Aboneliklerini yönetmek için bir işlevsel yaklaşım kullanmaya karar verdi.
-    - Kuruluş içinde Azure bütçe denetleyen tek bir BT departmanı kullanır. Bu tek Grup aboneliklerine sahip olacaktır.
-    - Kurumsal kayıt departmanlara olarak Kurumsal gruplara katılmasını Contoso bu modeli gelecekte genişletebilirsiniz.
-    - BT departmanı iki Abonelikleri, üretim ve geliştirme Contoso yapısal.
-    - Contoso ek abonelikler gelecekte gerektiriyorsa, bu erişim, ilkeleri ve bu Aboneliklerdeki uyumluluğunun yönetmesi gerekir. Contoso, sunarak konusunda yeterlidir [Azure Yönetim grupları](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), abonelik üzerinde bir ek katmanı olarak.
+  - Kuruluş içinde Azure bütçe denetleyen tek bir BT departmanı kullanır. Bu tek Grup aboneliklerine sahip olacaktır.
+  - Kurumsal kayıt departmanlara olarak Kurumsal gruplara katılmasını Contoso bu modeli gelecekte genişletebilirsiniz.
+  - BT departmanı iki Abonelikleri, üretim ve geliştirme Contoso yapısal.
+  - Contoso ek abonelikler gelecekte gerektiriyorsa, bu erişim, ilkeleri ve bu Aboneliklerdeki uyumluluğunun yönetmesi gerekir. Contoso, sunarak konusunda yeterlidir [Azure Yönetim grupları](https://docs.microsoft.com/azure/azure-resource-manager/management-groups-overview), abonelik üzerinde bir ek katmanı olarak.
 
     ![Kuruluş yapısı](./media/contoso-migration-infrastructure/enterprise-structure.png) 
 
@@ -132,7 +132,7 @@ SA aracılığıyla lisans taşınabilirliği Contoso gibi Microsoft Toplu Lisan
 Belirli sanal makine için ayrılmış örnekler kullanarak lisanslarınıza örnekleri gerekir saklanabilir süreyi büyük sürelerini konsolu bir indirim hem öncelikli kapasite alabilirsiniz. Kullanarak [Azure ayrılmış örnekleri](https://azure.microsoft.com/pricing/reserved-vm-instances/)birlikte Azure hibrit teklifi'nden Contoso kazandırabilir %82 varan normal Kullandıkça Öde fiyatlandırması (Nisan 2018).
 
 
-## <a name="step-2-manage-hybrid-identity"></a>2. Adım: Karma Kimlik Yönetimi
+## <a name="step-2-manage-hybrid-identity"></a>2. adım: Karma Kimlik Yönetimi
 
 Ayırabilir ve Azure kaynaklarıyla kimlik ve erişim yönetimi (IAM) kullanıcı erişimini denetleme Azure altyapısının bir araya getirmek, önemli bir adımdır.  
 
@@ -146,7 +146,7 @@ Ayırabilir ve Azure kaynaklarıyla kimlik ve erişim yönetimi (IAM) kullanıc�
 
 Contoso, bir Azure aboneliği ile eklenmiştir. Bu Azure AD ücretsiz sürümü kullanıyor. Contoso yöneticileri bir AD dizinini aşağıdaki gibi ayarlayın:
 
-1. İçinde [Azure portalında](http://portal.azure.com/), bunlar gidin **kaynak Oluştur** > **kimlik** > **Azure Active Directory**.
+1. İçinde [Azure portalında](https://portal.azure.com/), bunlar gidin **kaynak Oluştur** > **kimlik** > **Azure Active Directory**.
 2. İçinde **dizin oluştur**, dizin için bir ad, bir ilk etki alanı adı ve hangi Azure AD dizini oluşturulmalıdır bölge belirtin.
 
     ![Azure AD oluşturma](./media/contoso-migration-infrastructure/azure-ad-create.png) 
@@ -240,7 +240,7 @@ Tümleştirme kolaylaştırmak için Contoso kullanan [Azure AD Connect aracın�
 
 5. İçinde **yapılandırma için hazır**, simgeye **Yapılandırma tamamlandığında eşitleme işlemini başlatmak** eşitleme hemen başlatmak için. Ardından bunlar yükleyin.
 
-Şunlara dikkat edin:
+Aşağıdakilere dikkat edin:
 - Contoso Azure doğrudan bir bağlantı vardır. Şirket içi AD, bir proxy'nin arkasındayken, okuma bu [makale](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-connectivity).
 - İlk eşitleme sonrasında, Azure AD'de AD nesnelerini görülebilir şirket içi.
 
@@ -264,7 +264,7 @@ Contoso yöneticileri artık, şirket içi ad'nizden eşitlenmiş AD grupları r
     ![Şirket içinde Azure AD üyeleri](./media/contoso-migration-infrastructure/on-prem-ad-groups.png) 
 
 
-## <a name="step-3-design-for-resilience-and-disaster"></a>3. Adım: Esneklik ve olağanüstü durum tasarımı
+## <a name="step-3-design-for-resilience-and-disaster"></a>3. adım: Esneklik ve olağanüstü durum tasarımı
 
 ### <a name="set-up-regions"></a>Bölgeleri ayarlayın
 
@@ -518,7 +518,7 @@ VNET ASR cu VNet Doğu ABD 2, ancak etki alanı denetleyicisi olan bir alt ağ g
 
 #### <a name="configure-peered-connections"></a>Eşlenen bağlantıları yapılandırma
 
-Her bölgede hub hub bölge içindeki tüm sanal ağları ve başka bir bölgede hub'ına eşlenmesi. Bu hub'ları için iletişim kurmak ve tüm sanal ağları bir bölge içinde görüntülemek için sağlar. Şunlara dikkat edin:
+Her bölgede hub hub bölge içindeki tüm sanal ağları ve başka bir bölgede hub'ına eşlenmesi. Bu hub'ları için iletişim kurmak ve tüm sanal ağları bir bölge içinde görüntülemek için sağlar. Aşağıdakilere dikkat edin:
 
 - Eşleme, iki taraflı bir bağlantı oluşturur. İlk VNet üzerinde başlatma eşten bir ve ikinci VNet üzerinde başka bir.
 - Karma bir dağıtımda, eşler arasında geçen trafiği şirket içi veri merkeziniz ile Azure arasında VPN bağlantısı görülen gerekir. Bunu etkinleştirmek için eşlenen bağlantılarda ayarlanması gereken bazı özel ayarları vardır.
@@ -581,18 +581,18 @@ Ağ ayarlarını güncelleştirdikten sonra Contoso admins etki alanı denetleyi
 
 1. Azure portalında bunlar uygun sanal ağa yeni bir Windows Server sanal makine dağıtın.
 2. Bunlar, sanal makine için her bir konumdaki kullanılabilirlik kümeleri oluşturun. Kullanılabilirlik kümeleri, aşağıdakileri yapın:
-    - Azure dokusunu Azure bölgesindeki farklı altyapıları ile Vm'leri ayıran emin olun. 
-    -  Contoso, azure'da sanal makineler için % 99,95 oranında SLA'sı için uygun olmasını sağlar.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
+   - Azure dokusunu Azure bölgesindeki farklı altyapıları ile Vm'leri ayıran emin olun. 
+   - Contoso, azure'da sanal makineler için % 99,95 oranında SLA'sı için uygun olmasını sağlar.  [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
 
-    ![Kullanılabilirlik grubu](./media/contoso-migration-infrastructure/availability-group.png) 
+     ![Kullanılabilirlik grubu](./media/contoso-migration-infrastructure/availability-group.png) 
 3. VM dağıtıldıktan sonra VM ağ arabirimini açın. Bunlar, özel IP adresini statik olarak ayarlayın ve geçerli bir adres belirtin.
 
     ![VM NIC](./media/contoso-migration-infrastructure/vm-nic.png)
 
 4. Şimdi, yeni bir veri diski VM'e ekleyin. Bu disk, Active Directory veritabanını ve sysvol paylaşımının içerir. 
-    - Disk boyutu destekliyorsa IOPS sayısını belirler.
-    - Zaman içindeki disk boyutu, ortam büyüdükçe artırmanız gerekebilir.
-    - Sürücü okuma/yazma için konak önbelleği ayarlanmamalıdır. Active Directory veritabanları bu desteklemez.
+   - Disk boyutu destekliyorsa IOPS sayısını belirler.
+   - Zaman içindeki disk boyutu, ortam büyüdükçe artırmanız gerekebilir.
+   - Sürücü okuma/yazma için konak önbelleği ayarlanmamalıdır. Active Directory veritabanları bu desteklemez.
 
      ![Active Directory disk](./media/contoso-migration-infrastructure/ad-disk.png)
 
@@ -707,7 +707,7 @@ Bilgi kaynakları ve sahipleri hakkında sağlamaya ek olarak, etiketleri Contos
 
 **Etiket adı** | **Değer**
 --- | ---
-Maliyet merkezi | 12345: SAP geçerli maliyet merkezi olmalıdır.
+CostCenter | 12345: SAP geçerli maliyet merkezi olmalıdır.
 Departmanı | İş birimi (SAP'den) adı. CostCenter eşleşir.
 ApplicationTeam | Uygulama için destek sahibi olan takım e-posta diğer adı.
 Katalog adı | Kaynağın desteklediği hizmet Kataloğu başına ShareServices, ve uygulama adıdır.
@@ -783,10 +783,10 @@ Asg'ler ile ilişkili Nsg'ler paketler yalnızca izin verilen bir ağın parças
 
 **Eylem** | **Ad** | **Kaynak** | **Hedef** | **Bağlantı Noktası**
 --- | --- | --- | --- | --- 
-İzin Ver | AllowiInternetToFE | VNET-HUB-EUS1/IB-TrustZone | APP1-FE 80, 443
-İzin Ver | AllowWebToApp | APP1-FE | APP1-DB | 1433
-İzin Ver | AllowAppToDB | APP1 UYGULAMA | Herhangi biri | Herhangi biri
-Reddet | DenyAllInbound | Herhangi biri | Herhangi biri | Herhangi biri
+İzin ver | AllowiInternetToFE | VNET-HUB-EUS1/IB-TrustZone | APP1-FE 80, 443
+İzin ver | AllowWebToApp | APP1-FE | APP1-DB | 1433
+İzin ver | AllowAppToDB | APP1 UYGULAMA | Herhangi | Herhangi
+Engelle | DenyAllInbound | Herhangi | Herhangi | Herhangi
 
 ### <a name="encrypt-data"></a>Verileri şifreleme
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: d4293bf6a375f3e1a26c0c4fb50fcdc7bb5b8e8e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bf1ff4391e65fea68ac019be8fde8709fb4422b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243865"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181359"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes kavramları Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Yapı ve işlemlerini ve bu uygulama bileşenlerinin kullanılabilirliğini yön
 
 Açık bir platform Kubernetes tercih edilen bir programlama dili, işletim sistemi, kitaplıkları veya ileti veri yolu ile uygulamalarınızı oluşturmanıza olanak tanır. Mevcut bir sürekli tümleştirme ve sürekli teslim (CI/CD) araçları, zamanlama ve sürümleri dağıtmak için Kubernetes ile tümleştirebilirsiniz.
 
-Azure Kubernetes Service (AKS), yükseltme koordine dahil olmak üzere, dağıtım ve çekirdek yönetim görevleri için karmaşıklığı azaltan yönetilen bir Kubernetes hizmeti sağlar. AKS küme yöneticileri Azure platformu tarafından yönetilir ve yalnızca, uygulamalarınızı çalıştırmak AKS düğümleri için ücret ödersiniz. AKS, açık kaynaklı Azure Kubernetes Service altyapısı üzerine (altyapısı aks) oluşturulur.
+Azure Kubernetes Service (AKS), yükseltme koordine dahil olmak üzere, dağıtım ve çekirdek yönetim görevleri için karmaşıklığı azaltan yönetilen bir Kubernetes hizmeti sağlar. AKS küme yöneticileri Azure platformu tarafından yönetilir ve yalnızca, uygulamalarınızı çalıştırmak AKS düğümleri için ücret ödersiniz. AKS, açık kaynaklı Azure Kubernetes Service altyapısı üzerine kurulmuştur ([aks altyapısı][aks-engine]).
 
 ## <a name="kubernetes-cluster-architecture"></a>Kubernetes kümesi mimarisi
 

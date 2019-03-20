@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be953621dbadee74361b2170c2a532cfec6ef77a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477871"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840656"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive tabloları oluşturma ve Azure Blob depolamadan veri yükleme
 
@@ -36,7 +36,7 @@ Hive tablolarını verilerini olduğunu varsayıyoruz bir **sıkıştırılmamı
 
 Uygulama için isterseniz **NYC taksi seyahat verilerini**, gerekir:
 
-* **indirme** 24 [NYC taksi seyahat verilerini](http://www.andresmh.com/nyctaxitrips) (12 seyahat dosyalar ve 12 taksi dosyaları)
+* **indirme** 24 [NYC taksi seyahat verilerini](https://www.andresmh.com/nyctaxitrips) (12 seyahat dosyalar ve 12 taksi dosyaları)
 * **Unzip** .csv dosyalarına tüm dosyaları ve ardından
 * **karşıya yükleme** bunları varsayılan (veya uygun bir kapsayıcı) Azure depolama hesabı; bu tür bir hesabınız görünür seçenekleri [Azure HDInsight kümeleri ile Azure'daki depolama](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) konu. Bu işlem depolama hesabındaki varsayılan kapsayıcı .csv dosyalarını yüklemek için bulunabilir [sayfa](hive-walkthrough.md#upload).
 
