@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 93046fa8225d8c85172d113d3c7f9e979c336770
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331444"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096274"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(KULLANIM DIŞI) Azure DevOps Hizmetleri'ni kullanarak Docker Swarm ile Azure Container Service üzerinde çok kapsayıcılı bir uygulama dağıtmak için tam CI/CD işlem hattı
 
@@ -204,14 +204,14 @@ Yayın iş akışı, eklediğiniz iki görevlerini oluşur.
 
     Komutu, Docker CLI ve Docker-Compose CLI'yı aşağıdaki görevleri gerçekleştirmek için ana kullanım yürütüldü:
 
-    - Azure container Registry'de oturum açın (tanımlanan üç derleme variab'les kullanan **değişkenleri** sekmesinde)
-    - Tanımlama **DOCKER_HOST** Swarm uç nokta ile çalışmaya değişkeni (: 2375)
-    - Gidin *dağıtma* önceki güvenli kopyalama görevi tarafından oluşturulan ve docker-compose.yml dosyasını içeren klasör 
-    - Yürütme `docker-compose` yeni görüntüleri çekmek komutları hizmetleri durdurun, olan hizmetleri kaldırın ve kapsayıcı oluşturma.
+   - Azure container Registry'de oturum açın (tanımlanan üç derleme variab'les kullanan **değişkenleri** sekmesinde)
+   - Tanımlama **DOCKER_HOST** Swarm uç nokta ile çalışmaya değişkeni (: 2375)
+   - Gidin *dağıtma* önceki güvenli kopyalama görevi tarafından oluşturulan ve docker-compose.yml dosyasını içeren klasör 
+   - Yürütme `docker-compose` yeni görüntüleri çekmek komutları hizmetleri durdurun, olan hizmetleri kaldırın ve kapsayıcı oluşturma.
 
-    >[!IMPORTANT]
-    > Önceki ekranda göründüğü gibi bırakın **STDERR üzerinde başarısız** onay kutusunu işaretlemeden. Bunun nedeni bir önemli ayarı, `docker-compose` gibi durdurma veya standart hata çıktı silinmesini kapsayıcılardır birkaç tanılama iletilerini yazdırır. Onay kutusunu işaretlerseniz, tüm bile yapıldığında Azure DevOps Hizmetleri yayın sırasında hata oluştuğunu bildirir.
-    >
+     >[!IMPORTANT]
+     > Önceki ekranda göründüğü gibi bırakın **STDERR üzerinde başarısız** onay kutusunu işaretlemeden. Bunun nedeni bir önemli ayarı, `docker-compose` gibi durdurma veya standart hata çıktı silinmesini kapsayıcılardır birkaç tanılama iletilerini yazdırır. Onay kutusunu işaretlerseniz, tüm bile yapıldığında Azure DevOps Hizmetleri yayın sırasında hata oluştuğunu bildirir.
+     >
 1. Bu yeni yayın ardışık düzeni kaydedin.
 
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: ee3cbd1526c38a8b61a371f14e0f01ec926a2d5d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 90004c27463a61de1b36eaea6754215f911f7483
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543160"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095866"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box güvenliği ve veri koruması
 
@@ -75,16 +75,16 @@ Azure Data Box, hizmette şu anahtar örneklerinde kişisel bilgileri toplar ve 
 
 - **Sipariş ayrıntıları** – Sipariş oluşturulduktan sonra, kullanıcının teslimat adresi, e-postası, kişi bilgileri Azure portalında depolanır. Kaydedilen bilgiler:
 
-    - Kişi adı
-    - Telefon numarası
-    - Email
-    - Açık adres
-    - Şehir
-    - Posta kodu
-    - Durum
-    - Ülke/İl/Bölge
-    - Taşıyıcı hesap numarası
-    - Kargo takip numarası
+  - Kişi adı
+  - Telefon numarası
+  - Email
+  - Açık adres
+  - Şehir
+  - Posta kodu
+  - Durum
+  - Ülke/İl/Bölge
+  - Taşıyıcı hesap numarası
+  - Kargo takip numarası
 
     Sipariş ayrıntıları, iş tamamlandığında veya siz siparişi sildiğinizde Data Box hizmeti tarafından silinir.
 

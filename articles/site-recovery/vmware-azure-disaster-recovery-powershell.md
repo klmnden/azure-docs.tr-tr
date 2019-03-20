@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 8cf07c5213652ecedce7cd49a1de745c7fe8aa0f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa8292aac82f478422f9214c26d974825872eed6
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122276"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226344"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Azure PowerShell ile VMware vm'lerinin olağanüstü durum kurtarmayı ayarlama
 
@@ -26,7 +26,7 @@ Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 > - Çoğaltma, çoğaltma ilkesi dahil olmak üzere ayarlayın. VCenter server'ınızı ekleyin ve Vm'leri keşfedin. 
 > - Bir vCenter sunucusu eklemek ve keşfedin 
 > - Çoğaltılan verileri tutmak için depolama hesapları oluşturmanız ve sanal makinelerini çoğaltma.
-> - Yük devretme gerçekleştirin. Yük devretme ayarlarını yapılandırma, sanal makineleri çoğaltmak için aşağıdakiler e ayarları gerçekleştirin.
+> - Yük devretme gerçekleştirin. Yük devretme ayarlarını yapılandırma, sanal makineleri çoğaltmak için bir ayarı gerçekleştirin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

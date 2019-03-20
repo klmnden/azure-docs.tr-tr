@@ -10,18 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: cff3f526586eb52466883247d41a57dae919dd21
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a3990bfac9199fadeff0573d7547d7e5bc551ece
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867235"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838621"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Hızlı Başlangıç: .NET Framework (Windows) için Speech SDK'sı ile Konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Windows için .NET Framework ve Konuşma Tanıma SDK'sını kullanarak bir konuşmayı metne dönüştürme konsol uygulaması oluşturmak için bu kılavuzu kullanın. İşiniz bittiğinde konuşmayı metne gerçek zamanlı dönüştürmek için bilgisayarınızın mikrofonunu kullanabilirsiniz.
+
+Bir hızlı örnek için: (olmadan kendiniz aşağıda gösterildiği gibi Visual Studio projesi oluşturma)
+
+En son bilgileri edinin [Bilişsel hizmetler konuşma SDK'sı](https://github.com/Azure-Samples/cognitive-services-speech-sdk) github'dan.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -41,7 +45,7 @@ Bu projeyi tamamlamak için şunlar gerekir:
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. `YourSubscriptionKey` dizesini bulun ve Konuşma Tanıma Hizmeti abonelik anahtarınızla değiştirin.
+1. Bulun ve dize değiştirin `YourSubscriptionKey` konuşma Hizmetleri abonelik anahtarınız ile.
 
 1. `YourServiceRegion` dizesini bulun ve aboneliğinizle ilişkili [bölge](regions.md) ile değiştirin. Örneğin, ücretsiz denemeyi kullanıyorsanız bölge `westus` olur.
 
@@ -57,7 +61,7 @@ Bu projeyi tamamlamak için şunlar gerekir:
 
     ![Visual Studio uygulamasının, Hata Ayıklamayı Başlat seçeneği vurgulanmış olarak ekran görüntüsü](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Uygulamayı hata ayıklamada başlatma")
 
-1. Konuşmanızı isteyen bir konsol penceresi açılır. Şimdi, İngilizce bir şeyler söyleyin. Konuşmanız Konuşma Tanıma Hizmeti'ne iletilir ve gerçek zamanlı olarak metne dönüştürülür. Sonuç konsola yazdırılır.
+1. Konuşmanızı isteyen bir konsol penceresi açılır. Şimdi, İngilizce bir şeyler söyleyin. Konuşma konuşma hizmetlere iletilen ve gerçek zamanlı olarak metne transcribed. Sonuç konsola yazdırılır.
 
     ![Başarılı tanımadan sonra konsol çıktısının ekran görüntüsü](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Başarılı tanımadan sonra konsol çıktısı")
 

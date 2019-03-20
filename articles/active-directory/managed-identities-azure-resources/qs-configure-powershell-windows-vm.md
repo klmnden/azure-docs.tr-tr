@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/27/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d1ff4b44ff352742ee91b61c0c774cfe7c3f9d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 28f9c17e21db5a46ad01fd1b318c52a3a721f8b9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181363"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226972"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>PowerShell kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik Yapılandır
 
@@ -46,7 +46,7 @@ Bu bölümde, Azure PowerShell kullanarak sistem tarafından atanan yönetilen k
 
 Etkin sistem tarafından atanan yönetilen kimlik ile bir Azure VM oluşturmak için hesabınızın gerekli [sanal makine Katılımcısı](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) rol ataması.  Hiçbir ek Azure AD dizini rol atamaları gereklidir.
 
-1. Aşağıdaki Azure VM yalnızca gerekli bölümlerini Tamamlanıyor hızlı Başlangıçlar, birine bakın ("Azure'da oturum açma", "kaynak grubu oluşturma", "Ağ grubu oluşturma", "VM oluşturma").
+1. Aşağıdaki Azure VM yalnızca gerekli bölümlerini ("" Oluşturma kaynak grubu","Ağ Grup Oluştur","oluşturma"VM Azure'da oturum",) tamamlama hızlı Başlangıçlar, birine bakın.
     
     "VM oluşturma" bölümüne aldığınızda, küçük bir değişiklik yapmak [yeni AzVMConfig](/powershell/module/az.compute/new-azvm) cmdlet sözdizimi. Eklediğinizden emin olun bir `-AssignIdentity:$SystemAssigned` parametresi, sistem tarafından atanan kimliği etkinleştirildi, örneğin VM sağlamak için:
       
@@ -57,14 +57,8 @@ Etkin sistem tarafından atanan yönetilen kimlik ile bir Azure VM oluşturmak i
    - [PowerShell'i kullanarak bir Windows sanal makinesi oluşturma](../../virtual-machines/windows/quick-create-powershell.md)
    - [PowerShell kullanarak bir Linux sanal makinesi oluşturma](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (İsteğe bağlı) Azure kaynaklarını VM uzantısı (Ocak 2019'da kullanımdan kaldırma planlanan) kullanmak için yönetilen kimlikleri ekleyin `-Type` parametresi [kümesi AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet'i. "ManagedIdentityExtensionForWindows" veya "ManagedIdentityExtensionForLinux" VM, türüne bağlı olarak geçirin ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir:
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
-    > [!NOTE]
-    > Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır. VM uzantısı Ocak 2019'da kullanımdan kaldırma için planlanan Azure kaynakları için yönetilen kimlikleri. 
+> [!NOTE]
+> İsteğe bağlı olarak, VM uzantısını Azure kaynakları için yönetilen kimlik sağlama, ancak yakında kullanımdan kaldırılacak. Azure örnek meta veri kimlik uç nokta kimlik doğrulaması için kullanmanızı öneririz. Daha fazla bilgi için [Azure IMDS uç nokta kimlik doğrulaması için VM uzantısı'ten geçiş](howto-migrate-vm-extension.md).
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-vm"></a>Yönetilen kimlik sistemi atanmış mevcut bir Azure sanal makinesinde etkinleştirin
 
@@ -83,14 +77,8 @@ Sistem tarafından atanan yönetilen kimlik olmadan ilk olarak sağlanan bir VM 
    Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
    ```
 
-3. (İsteğe bağlı) Azure kaynaklarını VM uzantısı (Ocak 2019'da kullanımdan kaldırma planlanan) kullanmak için yönetilen kimlikleri ekleyin `-Type` parametresi [kümesi AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet'i. "ManagedIdentityExtensionForWindows" veya "ManagedIdentityExtensionForLinux" VM, türüne bağlı olarak geçirin ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir. Doğru belirttiğinizden emin olun `-Location` parametre, var olan VM konumunu eşleşen:
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
-    > [!NOTE]
-    > Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.
+> [!NOTE]
+> İsteğe bağlı olarak, VM uzantısını Azure kaynakları için yönetilen kimlik sağlama, ancak yakında kullanımdan kaldırılacak. Azure örnek meta veri kimlik uç nokta kimlik doğrulaması için kullanmanızı öneririz. Daha fazla bilgi için [Azure IMDS uç nokta kimlik doğrulaması için VM uzantısı'ten geçiş](howto-migrate-vm-extension.md).
 
 ### <a name="add-vm-system-assigned-identity-to-a-group"></a>VM sistem tarafından atanan kimliği gruba ekleme
 
@@ -146,11 +134,8 @@ $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
 
-Azure kaynaklarını VM uzantısı, yönetilen kimlik bilgilerini kaldırmak için kullanıcı adı anahtarıyla [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension) uzantı eklendiğinde kullandığınız aynı adı belirterek cmdlet'ini:
-
-   ```powershell
-   Remove-AzVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
-   ```
+> [!NOTE]
+> (Kullanım dışı için) VM uzantısını Azure kaynakları için yönetilen kimliği sağladıysa kullanarak kaldırmanız gereken [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension). Daha fazla bilgi için [Azure IMDS kimlik doğrulaması için VM uzantısı'ten geçiş](howto-migrate-vm-extension.md).
 
 ## <a name="user-assigned-managed-identity"></a>Kullanıcı tarafından atanan yönetilen kimlik
 
@@ -160,7 +145,7 @@ Bu bölümde, bir kullanıcı tarafından atanan bir yönetilen kimlik Azure Pow
 
 Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabınızın gerekir [sanal makine Katılımcısı](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) ve [yönetilen kimlik işleci](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol atamaları. Hiçbir ek Azure AD dizini rol atamaları gereklidir.
 
-1. Aşağıdaki Azure VM yalnızca gerekli bölümlerini Tamamlanıyor hızlı Başlangıçlar, birine bakın ("Azure'da oturum açma", "kaynak grubu oluşturma", "Ağ grubu oluşturma", "VM oluşturma"). 
+1. Aşağıdaki Azure VM yalnızca gerekli bölümlerini ("" Oluşturma kaynak grubu","Ağ Grup Oluştur","oluşturma"VM Azure'da oturum",) tamamlama hızlı Başlangıçlar, birine bakın. 
   
     "VM oluşturma" bölümüne aldığınızda, küçük bir değişiklik yapmak [ `New-AzVMConfig` ](/powershell/module/az.compute/new-azvm) cmdlet sözdizimi. Ekleme `-IdentityType UserAssigned` ve `-IdentityID ` kullanıcı tarafından atanan bir kimlikle VM sağlamak için parametreleri.  Değiştirin `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, ve `<USER ASSIGNED IDENTITY NAME>` kendi değerlerinizle.  Örneğin:
     
@@ -171,14 +156,8 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
     - [PowerShell'i kullanarak bir Windows sanal makinesi oluşturma](../../virtual-machines/windows/quick-create-powershell.md)
     - [PowerShell kullanarak bir Linux sanal makinesi oluşturma](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (İsteğe bağlı) VM uzantısıyla Azure kaynakları için yönetilen kimlik ekleme `-Type` parametresi [kümesi AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet'i. "ManagedIdentityExtensionForWindows" veya "ManagedIdentityExtensionForLinux" VM, türüne bağlı olarak geçirin ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir. Doğru belirttiğinizden emin olun `-Location` parametre, var olan VM konumunu eşleşen:
-      > [!NOTE]
-    > Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır. VM uzantısı Ocak 2019'da kullanımdan kaldırma için planlanan Azure kaynakları için yönetilen kimlikleri.
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
+> [!NOTE]
+> İsteğe bağlı olarak, VM uzantısını Azure kaynakları için yönetilen kimlik sağlama, ancak yakında kullanımdan kaldırılacak. Azure örnek meta veri kimlik uç nokta kimlik doğrulaması için kullanmanızı öneririz. Daha fazla bilgi için [Azure IMDS uç nokta kimlik doğrulaması için VM uzantısı'ten geçiş](howto-migrate-vm-extension.md).
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>Kullanıcı tarafından atanan bir yönetilen kimlik mevcut bir Azure VM'ye atayın
 
@@ -193,7 +172,7 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
 2. Bir kullanıcı tarafından atanan yönetilen kimlik kullanarak oluşturduğunuz [yeni AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) cmdlet'i.  Not `Id` çıktıda çünkü bu bir sonraki adımda gerekecektir.
 
    > [!IMPORTANT]
-   > Kullanıcı tarafından atanan yönetilen kimlikleri yalnızca destekler alfasayısal oluşturma ve kısa çizgi (0-9 veya a-z veya A-Z veya -) karakter. Ayrıca, ad atama düzgün çalışması için VM/VMSS için 24 karakter uzunluğu sınırlı olmalıdır. Güncelleştirmeler için sonra yeniden denetleyin. Daha fazla bilgi için [SSS ve bilinen sorunlar](known-issues.md)
+   > Kullanıcı tarafından atanan yönetilen kimlikleri yalnızca destekler alfasayısal oluşturma, alt çizgi ve tire (0-9 veya a-z veya A-Z, \_ veya -) karakter. Ayrıca, ad 3 ila 128 karakter uzunluğu atama düzgün çalışması için VM/VMSS için sınırlı olmalıdır. Daha fazla bilgi için [SSS ve bilinen sorunlar](known-issues.md)
 
    ```powershell
    New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
@@ -208,12 +187,8 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
    Update-AzVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
    ```
 
-4. Azure kaynaklarını VM uzantısı (Ocak 2019'da kullanımdan kaldırma planlanan) kullanmak için yönetilen kimlik ekleme `-Type` parametresi [kümesi AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet'i. "ManagedIdentityExtensionForWindows" veya "ManagedIdentityExtensionForLinux" VM, türüne bağlı olarak geçirin ve kullanarak adlandırın `-Name` parametresi. `-Settings` Parametresi, belirteç edinme için OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir. Doğru belirtin `-Location` parametre, var olan VM konumunu eşleşen.
-
-   ```powershell
-   $settings = @{ "port" = 50342 }
-   Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
-   ```
+> [!NOTE]
+> İsteğe bağlı olarak, VM uzantısını Azure kaynakları için yönetilen kimlik sağlama, ancak yakında kullanımdan kaldırılacak. Azure örnek meta veri kimlik uç nokta kimlik doğrulaması için kullanmanızı öneririz. Daha fazla bilgi için [Azure IMDS uç nokta kimlik doğrulaması için VM uzantısı'ten geçiş](howto-migrate-vm-extension.md).
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Kullanıcı tarafından atanan bir yönetilen kimlik bir Azure VM'den kaldırın.
 

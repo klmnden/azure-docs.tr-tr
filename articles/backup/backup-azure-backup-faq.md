@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 914dcd02f2d35d56b50169967ca1f5c251a6e6f3
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 420c81f6206c777efc303924d81763f5984aba4c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408624"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993404"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - sık sorulan sorular
 Bu makalede, Azure Backup hizmeti hakkında sık sorulan sorular yanıtlanmaktadır.
@@ -93,7 +93,7 @@ Evet.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Yedekleme için desteklenen işletim sistemleri?
 Azure Backup, dosyaları ve Azure Backup sunucusu ve DPM tarafından korunan uygulamalar ve klasörleri yedeklemek için bu işletim sistemlerini destekler.
 
-**OS**| **SKU** |**Ayrıntılar**
+**OS** | **SKU** | **Ayrıntılar**
 --- | --- | ---
 İş istasyonu | |
 Windows 10 64 bit | Enterprise, Pro, Home | Makineler en son hizmet paketleri ve güncelleştirmeler çalıştırıyor olmalıdır.
@@ -118,7 +118,7 @@ Azure VM Linux yedeklemeleri için Azure yedeklemeyi destekler [Azure tarafında
 Boyutları sınırlamaları aşağıdaki gibidir:
 
 İşletim sistemi/makine | Veri kaynağı boyutu sınırı
---- | --- | ---
+--- | --- 
 Windows 8 veya üzeri | 54.400 GB
 Windows 7 |1700 GB
 Windows Server 2012 veya üzeri | 54.400 GB

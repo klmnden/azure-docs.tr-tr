@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cab9750620d6d7c34de1d6e3404b4ea721f330ed
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3de8422efdbb7802e0532503e2733518e8050f6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203922"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842541"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Öğretici: Riskware ile Azure Active Directory Tümleştirme
 
@@ -110,6 +110,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve R
     ![Riskware etki alanı ve URL'ler tek oturum açma bilgileri](./media/riskware-tutorial/tutorial_riskware_url.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak:
+
     | Ortam| URL deseni|
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
@@ -118,6 +119,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve R
     |||
 
     b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna bir URL:
+    
     | Ortam| URL deseni|
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
@@ -247,7 +249,7 @@ Riskware için oturum açmak Azure AD kullanıcılarının etkinleştirmek için
 
     a. Altında **kimlik doğrulaması** bölümünden **kimlik doğrulaması** sahip Kurulum modunu SSO için AZURE yapılandırma ister.
 
-    b. Altında **oturum açma ayrıntıları** bölümünde **kullanıcı kimliği** metin gibi kullanıcının e-posta girin **brittasimon@contoso.com**.
+    b. Altında **oturum açma ayrıntıları** bölümünde **kullanıcı kimliği** metin gibi kullanıcının e-posta girin **brittasimon\@contoso.com**.
 
     c. İçinde **parola** metin kutusu, kullanıcının parolasını girin.
 

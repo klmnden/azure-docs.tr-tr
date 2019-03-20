@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 84c6a88449844d3a2f59b3b93dd95b102b653679
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f73f6a9cf274de207305cfd90e089a549088dd06
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817623"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088749"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux için Log Analytics Aracısı ile ilgili sorunları giderme 
 
@@ -55,27 +55,27 @@ Bu adımların hiçbiri işinize yaramazsa aşağıdaki Destek kanallarını da 
 
 ## <a name="installation-error-codes"></a>Yükleme hata kodları
 
-| Hata Kodu | Anlamı |
-| --- | --- |
+| Hata Kodu | Anlamı | |
+| --- | --- | --- |
 | NOT_DEFINED | Gerekli bağımlılıkları yüklü olmadığından auoms auditd eklentisi yüklü değil | Paket auditd auoms başarısız oldu, yüklemeyi. |
-| 2 | Kabuk pakete sağlanan seçeneği geçersiz. Çalıştırma `sudo sh ./omsagent-*.universal*.sh --help` kullanım için |
-| 3 | Kabuk pakete sağlanan seçeneği yoktur. Çalıştırma `sudo sh ./omsagent-*.universal*.sh --help` kullanım için. |
-| 4 | Geçersiz paket veya geçersiz proxy ayarları yazın. omsagent -*rpm*.sh paketler, yalnızca RPM tabanlı sistemler ve omsagent - yüklenebilir*deb*.sh paketleri Debian tabanlı sistemlerde yalnızca yüklenebilir. Bu Evrensel Yükleyicisi'nden kullanmanız önerilir [en son sürüm](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Ayrıca proxy ayarlarınızı doğrulamak için gözden geçirin. |
-| 5 | Kabuk paket kök olarak yürütülmelidir veya ekleme sırasında döndürülen 403 hatası oluştu. Komutunu kullanarak çalıştırmak `sudo`. |
-| 6 | Geçersiz paket mimari veya ekleme sırasında; döndürülen hata 200 hata oluştu omsagent -*x64.sh paketler, yalnızca 64-bit sistemler ve omsagent - yüklenebilir*x86.sh paketleri 32-bit sistemlerde yalnızca yüklenebilir. İndirme, mimariden için doğru paketi [en son sürüm](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
-| 17 | OMS paketi yüklemesi başarısız oldu. Komut çıktısı kök hatasına bakın. |
-| 19 | OMI paket yüklemesi başarısız oldu. Komut çıktısı kök hatasına bakın. |
-| 20 | SCX paket yüklemesi başarısız oldu. Komut çıktısı kök hatasına bakın. |
-| 21 | Sağlayıcı Setleri yüklemesi başarısız oldu. Komut çıktısı kök hatasına bakın. |
-| 22 | İle birlikte gelen paket yüklemesi başarısız oldu. Komut çıktısı kök hatasına bakın |
-| 23 | SCX veya OMI paket zaten yüklü. Kullanım `--upgrade` yerine `--install` Kabuk paket yüklemek için. |
-| 30 | Paket iç hata oluştu. Dosya bir [GitHub sorunu](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) çıktısından ayrıntılarla. |
-| 55 | Kilitli veya eksik curl desteklenmeyen bir openssl sürümü veya olamaz Log Analytics hizmetine bağlanın ya da dpkg program. |
-| 61 | Python ctypes kitaplığı eksik. Python ctypes kitaplığı veya paket (python ctypes) yükleyin. |
-| 62 | Eksik tar programı, yükleme hedefi. |
-| 63 | Yükleme sed. eksik sed programı |
-| 64 | Eksik curl programı, yükleme curl. |
-| 65 | Eksik gpg programı, yükleme gpg. |
+| 2 | Kabuk pakete sağlanan seçeneği geçersiz. Çalıştırma `sudo sh ./omsagent-*.universal*.sh --help` kullanım için | |
+| 3 | Kabuk pakete sağlanan seçeneği yoktur. Çalıştırma `sudo sh ./omsagent-*.universal*.sh --help` kullanım için. | |
+| 4 | Geçersiz paket veya geçersiz proxy ayarları yazın. omsagent -*rpm*.sh paketler, yalnızca RPM tabanlı sistemler ve omsagent - yüklenebilir*deb*.sh paketleri Debian tabanlı sistemlerde yalnızca yüklenebilir. Bu Evrensel Yükleyicisi'nden kullanmanız önerilir [en son sürüm](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Ayrıca proxy ayarlarınızı doğrulamak için gözden geçirin. | |
+| 5 | Kabuk paket kök olarak yürütülmelidir veya ekleme sırasında döndürülen 403 hatası oluştu. Komutunu kullanarak çalıştırmak `sudo`. | |
+| 6 | Geçersiz paket mimari veya ekleme sırasında; döndürülen hata 200 hata oluştu omsagent -\*x64.sh paketler, yalnızca 64-bit sistemler ve omsagent - yüklenebilir\*x86.sh paketleri 32-bit sistemlerde yalnızca yüklenebilir. İndirme, mimariden için doğru paketi [en son sürüm](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). | |
+| 17 | OMS paketi yüklemesi başarısız oldu. Komut çıktısı kök hatasına bakın. | |
+| 19 | OMI paket yüklemesi başarısız oldu. Komut çıktısı kök hatasına bakın. | |
+| 20 | SCX paket yüklemesi başarısız oldu. Komut çıktısı kök hatasına bakın. | |
+| 21 | Sağlayıcı Setleri yüklemesi başarısız oldu. Komut çıktısı kök hatasına bakın. | |
+| 22 | İle birlikte gelen paket yüklemesi başarısız oldu. Komut çıktısı kök hatasına bakın | |
+| 23 | SCX veya OMI paket zaten yüklü. Kullanım `--upgrade` yerine `--install` Kabuk paket yüklemek için. | |
+| 30 | Paket iç hata oluştu. Dosya bir [GitHub sorunu](https://github.com/Microsoft/OMS-Agent-for-Linux/issues) çıktısından ayrıntılarla. | |
+| 55 | Kilitli veya eksik curl desteklenmeyen bir openssl sürümü veya olamaz Log Analytics hizmetine bağlanın ya da dpkg program. | |
+| 61 | Python ctypes kitaplığı eksik. Python ctypes kitaplığı veya paket (python ctypes) yükleyin. | |
+| 62 | Eksik tar programı, yükleme hedefi. | |
+| 63 | Yükleme sed. eksik sed programı | |
+| 64 | Eksik curl programı, yükleme curl. | |
+| 65 | Eksik gpg programı, yükleme gpg. | |
 
 ## <a name="onboarding-error-codes"></a>Onboarding hata kodları
 
@@ -161,17 +161,17 @@ Log Analytics genel aracı yapılandırma dosyasında yer alan `/etc/opt/microso
 
 ### <a name="resolution"></a>Çözüm
 1. Seçeneği ile aşağıdaki komutu kullanarak Log Analytics hizmetine Log Analytics aracısını ile Linux için Reonboard `-v` etkin. Log Analytics hizmeti için proxy üzerinden bağlanma aracısının ayrıntılı çıkış sağlar. 
-`/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
+   `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
-2. Bölümü gözden geçirin [proxy ayarlarını güncelleştirme](agent-manage.md#update-proxy-settings) aracının bir proxy sunucu üzerinden iletişim kurmak için düzgün şekilde yapılandırdığınızdan doğrulayın.    
-* Çift aşağıdaki Log Analytics uç noktaların izin verilenler listesinde olup olmadığını denetleyin:
+1. Bölümü gözden geçirin [proxy ayarlarını güncelleştirme](agent-manage.md#update-proxy-settings) aracının bir proxy sunucu üzerinden iletişim kurmak için düzgün şekilde yapılandırdığınızdan doğrulayın.    
+1. Çift aşağıdaki Log Analytics uç noktaların izin verilenler listesinde olup olmadığını denetleyin:
 
-    |Aracı Kaynağı| Bağlantı Noktaları | Yön |
-    |------|---------|----------|  
-    |*.ods.opinsights.azure.com | Bağlantı noktası 443| Gelen ve giden |  
-    |*.oms.opinsights.azure.com | Bağlantı noktası 443| Gelen ve giden |  
-    |*.blob.core.windows.net | Bağlantı noktası 443| Gelen ve giden |  
-    |*.azure-automation.net | Bağlantı noktası 443| Gelen ve giden | 
+     |Aracı Kaynağı| Bağlantı Noktaları | Yön |
+     |------|---------|----------|  
+     |*.ods.opinsights.azure.com | Bağlantı noktası 443| Gelen ve giden |  
+     |*.oms.opinsights.azure.com | Bağlantı noktası 443| Gelen ve giden |  
+     |*.blob.core.windows.net | Bağlantı noktası 443| Gelen ve giden |  
+     |*.azure-automation.net | Bağlantı noktası 443| Gelen ve giden | 
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Sorun: Ekleme çalışırken bir 403 hatası alıyorsunuz
 
@@ -366,15 +366,15 @@ Linux tanılama uzantısı (LAD) Log Analytics Linux VM uzantısı ile yan yana 
 * Ayar **aşağıdaki yapılandırmayı Linux Sunucularıma uygulamak** seçilmemiş.
 * omsconfig en son özel günlük yapılandırması hizmetinden çekilen değil.
 * Linux kullanıcı için log Analytics aracısını `omsagent` izinleri veya bulunamamasından dolayı özel günlük erişemiyor.  Aşağıdaki iletileri görebilirsiniz:
- * `[DATETIME] [warn]: file not found. Continuing without tailing it.`
- * `[DATETIME] [error]: file not accessible by omsagent.`
+  * `[DATETIME] [warn]: file not found. Continuing without tailing it.`
+  * `[DATETIME] [error]: file not accessible by omsagent.`
 * Bilinen sorun ile Linux sürümü 1.1.0-217 için Log Analytics aracısını düzeltilen yarış durumu
 
 ### <a name="resolution"></a>Çözüm
 1. Log analytics'e ekleme başarılı oldu aşağıdaki dosya varsa denetleyerek doğrulayın: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`. Değilse, ya da varsa:  
 
-  1. Omsadmin.sh komut satırını kullanarak Reonboard [yönergeleri](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).
-  2. Altında **Gelişmiş ayarlar** ayar Azure portalında emin **aşağıdaki yapılandırmayı Linux Sunucularıma uygulamak** etkinleştirilir.  
+   1. Omsadmin.sh komut satırını kullanarak Reonboard [yönergeleri](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line).
+   2. Altında **Gelişmiş ayarlar** ayar Azure portalında emin **aşağıdaki yapılandırmayı Linux Sunucularıma uygulamak** etkinleştirilir.  
 
 2. Bu maddeyi `omsconfig` aracı, aşağıdaki komutu çalıştırarak Log Analytics hizmetiyle kurabilir `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/GetDscConfiguration.py'`.  Bu komut, bu aracı yapılandırmasını döndürür Syslog ayarları, Linux performans sayaçları ve özel günlükler de dahil olmak üzere hizmetinden alır. Bu komut başarısız olursa, aşağıdaki komutu çalıştırarak `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`. Bu komut, Log Analytics hizmetinizle iletişim kurmasına ve son yapılandırmayı almak için omsconfig aracı zorlar.
 
@@ -408,9 +408,9 @@ Reonboard sonra kullanmaya devam edebilirsiniz `--purge` seçeneği
 ### <a name="resolution"></a>Çözüm 
 Bu sorunu çözmek için aşağıdaki adımları gerçekleştirin.
 1. Azure Portalı'ndan uzantısını kaldırın.
-2. Ardından aracıyı yüklemek [yönergeleri](../../azure-monitor/learn/quick-collect-linux-computer.md).
-3. Aşağıdaki komutu çalıştırarak aracıyı yeniden başlatın: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-* Birkaç dakika bekleyin ve sağlama durumu değişikliklerini **sağlama başarılı**.
+1. Ardından aracıyı yüklemek [yönergeleri](../../azure-monitor/learn/quick-collect-linux-computer.md).
+1. Aşağıdaki komutu çalıştırarak aracıyı yeniden başlatın: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+1. Birkaç dakika bekleyin ve sağlama durumu değişikliklerini **sağlama başarılı**.
 
 
 ## <a name="issue-the-log-analytics-agent-upgrade-on-demand"></a>Sorun: Log Analytics aracısını yükseltme isteğe bağlı

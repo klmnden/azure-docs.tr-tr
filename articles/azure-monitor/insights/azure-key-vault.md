@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: c3148ebe11ba0e23cbded5965234ece9fb6082aa
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b2c43ff2ae45b4adccb8f19873070a4c3a9dbe99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317705"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078780"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Log analytics'te Azure Key Vault Analytics çözümü
 
@@ -138,13 +138,13 @@ Güncel çözümü kullanmak için:
 1. [Key Vault'tan doğrudan Log Analytics'e gönderilecek tanılama Yapılandır](#enable-key-vault-diagnostics-in-the-portal)  
 2. Açıklanan işlemi kullanarak Azure Key Vault çözümü etkinleştirme [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](../../azure-monitor/insights/solutions.md)
 3. Tüm kaydedilmiş sorgular, panolar veya yeni veri türü kullanılacağını uyarıları güncelleştirme
-  + Tür farklıdır: KeyVaults AzureDiagnostics için. Kaynak türü, anahtar kasası günlükleri için filtre uygulamak için kullanabilirsiniz.
-  - Yerine: `KeyVaults`, kullanın `AzureDiagnostics | where ResourceType'=="VAULTS"`
-  + Alanlar: (Alan adları büyük-küçük harf duyarlıdır)
-  - Bir son eki olan herhangi bir alan için \_s, \_d veya \_g adı küçük harflere ilk karakteri değiştirme
-  - Bir son eki olan herhangi bir alan için \_o adı, veriler iç içe geçmiş alanı adlarını temel alarak ayrı ayrı alanlara bölünür. Örneğin, arayanın UPN bir alanda depolanır `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
-   - Alan CallerIpAddress CallerIPAddress için değiştirildi.
-   - Alan RemoteIPCountry artık mevcut değil
+   + Tür farklıdır: KeyVaults AzureDiagnostics için. Kaynak türü, anahtar kasası günlükleri için filtre uygulamak için kullanabilirsiniz.
+   + Yerine: `KeyVaults`, kullanın `AzureDiagnostics | where ResourceType'=="VAULTS"`
+   + Alanlar: (Alan adları büyük-küçük harf duyarlıdır)
+   + Bir son eki olan herhangi bir alan için \_s, \_d veya \_g adı küçük harflere ilk karakteri değiştirme
+   + Bir son eki olan herhangi bir alan için \_o adı, veriler iç içe geçmiş alanı adlarını temel alarak ayrı ayrı alanlara bölünür. Örneğin, arayanın UPN bir alanda depolanır `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+   + Alan CallerIpAddress CallerIPAddress için değiştirildi.
+   + Alan RemoteIPCountry artık mevcut değil
 4. Kaldırma *Key Vault Analytics (kullanım dışı)* çözüm. PowerShell kullanıyorsanız, `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
 Değişiklik yeni çözümde görünür değil. önce toplanan veriler. Alan adları ve eski türünü kullanarak bu verileri sorgulamak devam edebilirsiniz.

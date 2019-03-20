@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 32a3ec7146e4dd43e0c5f522187856132745b539
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5f6e24dfa1b5c4ea4f0748af81104edfe88ceeae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307098"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099112"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Veri ambarı birimi (Dwu) ve işlem veri ambarı birimi (cDWUs)
 Veri ambarı birimi (dwu'ları, cDWUs) fiyat ve performans ve birim sayısını değiştirmek nasıl en iyi duruma getirmek için ideal sayısını seçme önerileri. 
@@ -186,7 +186,7 @@ FROM      sys.databases
 ;
 ```
 
-3. İşlem durumunu denetlemek için aşağıdaki sorguyu Gönder
+1. İşlem durumunu denetlemek için aşağıdaki sorguyu Gönder
 
 ```sql
 SELECT    *

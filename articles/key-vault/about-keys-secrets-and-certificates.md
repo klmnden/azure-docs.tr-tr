@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cb18b9063599520ccc6caec44053dc9780969f74
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 01d9f763983da2415aba0f9bae81414017bc2f02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532346"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842575"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarlar, parolalar ve sertifikalar hakkında
 
@@ -42,7 +42,7 @@ JavaScript nesne gösterimi (JSON) ve JavaScript nesne imzalama ve şifreleme (J
 -   [JSON Web anahtarı (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [JSON Web Encryption (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [JSON Web algoritmalar (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [JSON Web imza (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [JSON Web imza (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
 ### <a name="data-types"></a>Veri türleri
 
@@ -112,7 +112,7 @@ Anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya yazılı
 #### <a name="curve-types"></a>Eğri türleri
 
 -   **P-256** -p-256, tanımlanan NIST eğrisi [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
--   **P-256_K** -sn eğri SECP256K1, tanımlanan [sn 2: Eliptik Eğri Domain parametreleri önerilen](http://www.secg.org/sec2-v2.pdf).
+-   **P-256_K** -sn eğri SECP256K1, tanımlanan [sn 2: Eliptik Eğri Domain parametreleri önerilen](https://www.secg.org/sec2-v2.pdf).
 -   **P-384** -p-384 tanımlanan NIST eğrisi [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521** -p-521 tanımlanan NIST eğrisi [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
@@ -142,7 +142,7 @@ Anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya yazılı
 
 Key Vault anahtar nesneler üzerinde aşağıdaki işlemleri destekler:  
 
--   **Oluşturma**: Anahtar Kasası'nda bir anahtar oluşturmak bir istemci sağlar. Anahtar değerini Key Vault tarafından oluşturulan ve tutulan ve istemciye serbest değil. Asimetrik anahtarlar, anahtar Kasası'nda oluşturulabilir.  
+-   **oluşturma**: Anahtar Kasası'nda bir anahtar oluşturmak bir istemci sağlar. Anahtar değerini Key Vault tarafından oluşturulan ve tutulan ve istemciye serbest değil. Asimetrik anahtarlar, anahtar Kasası'nda oluşturulabilir.  
 -   **İçeri aktarma**: Mevcut bir anahtarı anahtar Kasası'na içeri aktarmak bir istemci sağlar. Asimetrik anahtarlar, farklı paketleme yöntemler JWK yapısı içinde bir dizi kullanarak Key Vault alınabilir. 
 -   **Güncelleştirme**: Key Vault içinde daha önce depolanan bir anahtar ile ilişkili meta verileri (anahtar öznitelikleri) değiştirmek için yeterli izinlere sahip bir istemci sağlar.  
 -   **Silme**: Key Vault'tan bir anahtar silmek için yeterli izinlere sahip bir istemci sağlar.  
@@ -409,10 +409,10 @@ Sertifika kişileri sertifika ömrü olaylar tarafından tetiklenen bildirimleri
 
 Ardından bir sertifika ilkesi için otomatik yenileme ayarlarsanız, aşağıdaki olaylar üzerinde bir bildirim gönderilir.  
 
--   Önce sertifika yenileme
--   Sertifika başarıyla yenilendi belirten veya bir hata varsa, sertifikanın el ile yenileme gerekliliği sertifika yenileme sonra.  
+- Önce sertifika yenileme
+- Sertifika başarıyla yenilendi belirten veya bir hata varsa, sertifikanın el ile yenileme gerekliliği sertifika yenileme sonra.  
 
- (E-posta yalnızca) el ile olarak ayarlanmış bir Sertifika İlkesi yenilendiğinde, sertifikayı yenilemek için saat olduğunda bir bildirim gönderilir.  
+  (E-posta yalnızca) el ile olarak ayarlanmış bir Sertifika İlkesi yenilendiğinde, sertifikayı yenilemek için saat olduğunda bir bildirim gönderilir.  
 
 ### <a name="certificate-access-control"></a>Sertifika erişim denetimi
 

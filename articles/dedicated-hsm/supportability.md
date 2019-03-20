@@ -2,7 +2,7 @@
 title: Desteklenebilirlik - Azure ayrılmış HSM | Microsoft Docs
 description: Destek seçenekleri ve farklı senaryolarda Azure ayrılmış HSM'ye sorumluluk alanları
 services: dedicated-hsm
-author: barclayn
+author: johndaw
 manager: barbkess
 ms.service: key-vault
 ms.workload: identity
@@ -10,24 +10,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 23c509f6f219b708fc259ee123d73948ebe50773
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8e4bbe3a5e2de8ba919cf0b641ee4e6776c5e8d4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114493"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225561"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Azure ayrılmış HSM Desteklenebilirliği
 
 Azure ayrılmış HSM hizmetini tek müşteri kullanmak için fiziksel bir cihaz ile tam yönetimsel denetim ve yönetim sorumluluk sağlar. Kullanılabilir cihaz bir [Gemalto SafeNet Luna 7 HSM modeli A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/). Microsoft bir kez fiziksel seri bağlantı noktası ek izleme rolü olarak ötesinde bir müşteri tarafından sağlanan yönetim erişimi olacaktır.  Microsoft, erişimi olmadan, hiçbir devam eden yazılım düzeyi bakım ya da sistem yönetim sorumlulukları olabilir. Sonuç olarak, müşteriler için tipik çalışma etkinliklerinin sorumludur.
 Müşteriler, HSM'ler kullanın ve Gemalto ile destek veya Yardım danışmanlık tabanlı iş uygulamaları için tam olarak sorumludur. İşletimsel sağlığı müşteri sahipliğini kapsamını nedeniyle, Microsoft bu hizmeti için yüksek kullanılabilirlik garantisi herhangi bir türden sunmak için mümkün değildir. Bu, müşteri sorumluluk uygulamalarını sağlamak için yüksek kullanılabilirlik elde etmek için doğru şekilde yapılandırıldığından olur. Microsoft, izleyin ve cihaz sistem durumu ve ağ bağlantısı sağlamak.
 
+## <a name="getting-support"></a>Destek alma
+
+Ayrılmış HSM müşteri desteği bir çabasıdır Microsoft ve Gemalto aşamasındadır. Microsoft tarafından bir donanım veya ağ yolu sorunları ele alınacağını ve yapılandırma, yazılım, üretici yazılımı ve uygulama geliştirme, gerçek HSM ile yapmak için herhangi bir şey tarafından Gemalto ele alınacaktır. Bu destek modeli en hızlı yolu en etkili destek sağlar. Bu konuda şüpheleriniz varsa, belirli bir sorunu Microsoft ile bir destek isteği oluşurun ve biz uygun şekilde yönlendirilmesini sağlar. Microsoft, tüm destek senaryolarına bağlı kalın ve müşterilerimiz için en iyi destek deneyimi çaba.
+
 ## <a name="gemalto-support"></a>Gemalto desteği
 
-Ayrılmış HSM hizmetini kullanan müşteriler, bir destek olmalıdır Gemalto ile yerinde sözleşme. Kendi destek sözleşmesi kapsamında, müşterileri, rehberlik ve Destek Hizmetleri doğrudan Gemalto alır. Gemalto destek almak için bir mekanizma aracılığıyla olan kendi [müşteri desteği portalı](https://supportportal.gemalto.com/csm/).
-Gemalto HSM (örneğin, istemci erişim yazılım ve SDK'ları) kullanmak için gerekli tüm yazılım bileşenlerini sağlar. Bunlar ayrıca yapılandırma desteği ve tasarım, geliştirme ve SafeNet Luna 7 HSM kullanarak uygulamaların dağıtımını danışmanlık hizmetleri sunar.
+Ayrılmış HSM hizmetini kullanan müşteriler, destek Gemalto uyarınca bunların yanı sıra destek planı için uygun. Bu, yalnızca Gemalto destek portalı kullanarak bir kayıt işlemi gerektirir. Ayrılmış HSM hizmetini erişim elde etmek için ilk engagement Microsoft ile bir parçası olarak bu müşteri kimliği ve yönergeler sağlanır. Gemalto destek almak için bir mekanizma aracılığıyla olan kendi [müşteri desteği portalı](https://supportportal.gemalto.com/csm/).
+Bir anahtar Not Gemalto tüm yazılım ve HSM (örneğin, istemci erişim yazılım ve SDK'ları) kullanmak için gereken belge sağlayacak indirme müşteri desteği Portalı aracılığıyla noktasıdır.
 
 ### <a name="software-components"></a>Yazılım bileşenleri
 
@@ -51,7 +55,7 @@ Tüm tasarım, geliştirme ve dağıtımı HSM kullanan özel uygulamalar, Gemal
 
 ## <a name="microsoft-support"></a>Microsoft Desteği
 
-Microsoft, fiziksel HSM sağlamaktan sorumlu cihazları erişilebilir olduğundan ve özel için işletimsel bir durumda tek bir müşteriye kullanın. Müşteriler, yönetim ve cihaz yönetim sorumludur. Microsoft sorumlulukları şunlardır:
+Microsoft, ağ, tek bir müşteriye özel kullanım için işletimsel bir durumda erişilebilir ve fiziksel HSM cihazlardır sağlayacaktır. Müşteriler, yapılandırma, yönetim ve cihaz yönetimi için sorumludur. Microsoft sorumlulukları şunlardır:
 
 * Cihazın güce sahip olduğundan emin ve soğutma yapma
 * HSM (örneğin, onarım senaryoları) bir işletimsel durumunu koruma
@@ -72,7 +76,7 @@ Ayrılmış HSM hizmeti için onaylanmış bir kaydı bir müşteri sahip oldukt
 
 ### <a name="hardware-issues"></a>Donanım sorunları
 
-HSM cihazını yedekli ve değiştirilebilen güç kaynakları ve fanı birimleri var. Fan birimini kaldırma işlemi, cihaz üzerinde çalıştırıldığında kaldırdıysanız kurcalamaya olay neden olur. Bir bileşeni hatası oluştuğunda, Microsoft, en az kesinti ve müşterilerin hizmeti kullanılabilirlik düşük riskle neden olan bir yolla bileşen düzeyinde sorunu gidermek için en uygun işlemi kullanır.
+HSM cihazını yedekli ve değiştirilebilen güç kaynakları ve fanı birimleri var.  Ancak, fan birimini kaldırma işlemi hala kurcalamaya olay neden olur. Bir bileşeni hatası oluştuğunda, Microsoft, en az kesinti ve müşterilerin hizmeti kullanılabilirlik düşük riskle neden olan bir yolla bileşen düzeyinde sorunu gidermek için en uygun işlemi kullanır.
 Cihazın herhangi daha ciddi bir hata ücretsiz havuzundan yeni bir tane değiştirilmekte olan cihazın neden olur. Müşteri yalnızca yeni cihaz eşitleme ve tam çalışır duruma döndürmek için de mevcut HA çifti içerir. Başarısız Aygıt kaldırıldı ve veri merkezinde sitesinde shredded cihazları pul verilerini olacaktır. Kasa için Gemalto geri dönüştürme için döndürülür.
 
 

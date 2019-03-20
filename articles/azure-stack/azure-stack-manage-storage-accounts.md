@@ -11,29 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 840445b2c1a28d294027c7fbfda9e6bf6e431f14
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.lastreviewed: 03/19/2019
+ms.openlocfilehash: 34e49060a28869015f067f058b81239ec13eff47
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990704"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226411"
 ---
-# <a name="manage-storage-accounts-in-azure-stack"></a>Azure stack'teki depolama hesapları yönetme
+# <a name="manage-azure-stack-storage-accounts"></a>Azure Stack depolama hesaplarını yönetme
 
-Bulma, kurtarma ve iş ihtiyaçlarına göre depolama kapasiteyi geri kazanmak için Azure stack'teki depolama hesapları'nı yönetmeyi öğrenin.
+Azure Stack depolama hesaplarını yönetmeyi öğrenin. Bulma, kurtarma ve iş ihtiyaçlarına göre depolama kapasiteyi geri kazanmak.
 
 ## <a name="find-a-storage-account"></a>Bir depolama hesabı bulunamadı
+
 Bölgede depolama hesaplarının listesi Azure yığını tarafından görüntülenebilir:
 
 1. Oturum [Yönetici portalı](https://adminportal.local.azurestack.external).
 
-2. Seçin **tüm hizmetleri** > **depolama hesapları**.
+2. Seçin **tüm hizmetleri** > **depolama** > **depolama hesapları**.
 
-   ![](media/azure-stack-manage-storage-accounts/image4.png)
+   ![Azure Stack depolama hesapları](media/azure-stack-manage-storage-accounts/image4.png)
 
 Varsayılan olarak, ilk 10 hesapları görüntülenir. Daha fazla bilgi almak seçebileceğiniz tıklayarak **daha fazla Yükle** listenin altındaki bağlantıyı.
 
@@ -46,16 +47,17 @@ Belirli bir depolama hesabında – ilgileniyorsanız yapabilecekleriniz **filtr
 
 1. Seçin **filtre** bölmenin üstünde.
 2. Filtre bölmesini üzerinde bu belirtmenizi sağlar **hesap adı**, **abonelik kimliği**, veya **durumu** görüntülenecek depolama hesaplarının listesi ince ayar yapmak için. Bunları uygun şekilde kullanın.
-3. Seçin **güncelleştirme**. Listeden uygun şekilde yenilemeniz gerekir.
+3. Siz yazarken liste otomatik olarak filtre uygulanır.  .
    
-    ![](media/azure-stack-manage-storage-accounts/image5.png)
+    ![Azure Stack depolama hesaplarının Filtrele](media/azure-stack-manage-storage-accounts/image5.png)
+
 4. Filtreyi sıfırlamak için: seçin **filtre**, seçimleri Temizle ve güncelleştirin.
 
 Arama metin kutusuna (üst kısmındaki depolama hesaplarının listesi bölmesinde) hesapları listesinde seçili metni vurgulayın olanak tanır. Tam adı veya kimliği kolayca kullanılabilir olmadığı durumlarda kullanabilirsiniz.
 
 İlgilendiğiniz hesap bulmak için serbest metin kullanabilirsiniz.
 
-![](media/azure-stack-manage-storage-accounts/image6.png)
+![Azure Stack depolama hesaplarını bulma](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Hesap ayrıntılarını inceleyin
 Görüntüleme ilgilendiğiniz hesaplarını bulduktan sonra belirli ayrıntılarını görüntülemek için belirli bir hesabı seçebilirsiniz. Yeni bir bölme hesabı ayrıntıları gibi açar: hesap, oluşturma zamanı, konum, vb. türü.
@@ -97,9 +99,8 @@ Saklama dönemi ayarı aşamasında olası tüm silinen hesabı kurtarılabilir 
 
 1. Oturum [Yönetici portalı](https://adminportal.local.azurestack.external).
 2. Seçin **tüm hizmetleri** > **bölge Yönetimi** altında **Yönetim**.
-3. Seçin **depolama** gelen **kaynak sağlayıcıları** listesi.
-4. Seçin **ayarları** ayarı bölmesini açmak için üstteki.
-5. Seçin **yapılandırma** Bekletme dönemi değerini düzenleyin.
+3. Seçin **kaynak sağlayıcıları** > **depolama** > **ayarları**. Giriş yoludur > *bölge* -kaynak sağlayıcıları > depolama.
+4. Seçin **yapılandırma** Bekletme dönemi değerini düzenleyin.
 
    Gün sayısını ayarlayın ve kaydedin.
    

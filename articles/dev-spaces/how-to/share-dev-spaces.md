@@ -9,12 +9,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: 3d48591dd4a20bad4fbb01b882d0693debb50638
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 62d4affa5ef49de7600f9ccc800ea6bf83e4bd49
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759432"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099585"
 ---
 # <a name="share-azure-dev-spaces"></a>Azure geliştirme alanları paylaşın
 
@@ -25,10 +25,10 @@ Azure geliştirme alanları ile takımınızdaki diğer kişilerle, geliştirme 
 1. Azure'da bir geliştirme alanı oluşturun. Seçin [.NET Core ve VS Code](../get-started-netcore.md), [.NET Core ve Visual Studio](../get-started-netcore-visualstudio.md), veya [Node.js ve VS Code](../get-started-nodejs.md). Seçilen Azure aboneliği sahibi veya katkıda bulunan erişiminiz olması gerekir.
 1. Azure geliştirme alanı'nın yapılandırma **kaynak grubu** için [katkıda bulunan erişimi](/azure/active-directory/role-based-access-control-configure) her ekip üyesi için. Geliştirme boşluk ait kaynak grubu, bu komutu çalıştırarak denetleyebilirsiniz: `azds list-up`
 1. Ekip üyelerine isteyin **geliştirme alanı seçin** içinde geliştirmek üzere.
-     * **Komut satırı veya VS Code**: Mevcut Azure geliştirme alanları görmek için erişiminiz: `azds space list`. Geliştirme alanı seçmek için: `azds space select`.
-     * **Visual Studio IDE**: Bir projeyi Visual Studio'da açık seçin **Azure geliştirme alanları** başlatma ayarları açılır listeden. Açılır iletişim kutusunda, var olan bir küme seçin.
+   * **Komut satırı veya VS Code**: Mevcut Azure geliştirme alanları görmek için erişiminiz: `azds space list`. Geliştirme alanı seçmek için: `azds space select`.
+   * **Visual Studio IDE**: Bir projeyi Visual Studio'da açık seçin **Azure geliştirme alanları** başlatma ayarları açılır listeden. Açılır iletişim kutusunda, var olan bir küme seçin.
 
-    ![Visual Studio başlatma ayarları açılır](../media/get-started-netcore-visualstudio/LaunchSettings.png)
+     ![Visual Studio başlatma ayarları açılır](../media/get-started-netcore-visualstudio/LaunchSettings.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

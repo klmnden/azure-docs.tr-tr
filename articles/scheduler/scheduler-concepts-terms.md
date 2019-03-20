@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: a58b247732125574a067deff1d5b03859cd036fc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 15770246f52e87b8fba4a9ec01e1583d194d002b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782301"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887060"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure Scheduler kavramları, terminolojisi ve varlıkları
 
@@ -77,7 +77,7 @@ Bir Scheduler işi genel olarak şu temel bölümlerden oluşur:
 
 | Öğe | Gerekli | Açıklama | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | Hayır | [ISO 8601 biçiminde](http://en.wikipedia.org/wiki/ISO_8601) saat dilimi farkına sahip olan işin başlangıç zamanı | 
+| [**startTime**](#start-time) | Hayır | [ISO 8601 biçiminde](https://en.wikipedia.org/wiki/ISO_8601) saat dilimi farkına sahip olan işin başlangıç zamanı | 
 | [**action**](#action) | Evet | **errorAction** nesnesi de içerebilecek birincil eylem ayrıntıları | 
 | [**errorAction**](#error-action) | Hayır | Birincil eylemin başarısız olması durumunda çalışan ikinci eylemin ayrıntıları |
 | [**recurrence**](#recurrence) | Hayır | Yinelenen bir işin sıklık ve aralık gibi ayrıntıları | 
@@ -137,7 +137,7 @@ Bu örnekte bir HTTP eyleminin kapsamlı iş tanımı gösterilmiştir ve öğel
 
 ## <a name="starttime"></a>startTime
 
-**startTime** nesnesinde başlangıç zamanını ve saat dilimi farkını [ISO 8601 biçiminde](http://en.wikipedia.org/wiki/ISO_8601) belirtebilirsiniz.
+**startTime** nesnesinde başlangıç zamanını ve saat dilimi farkını [ISO 8601 biçiminde](https://en.wikipedia.org/wiki/ISO_8601) belirtebilirsiniz.
 
 <a name="action"></a>
 

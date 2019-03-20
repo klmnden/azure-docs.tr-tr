@@ -10,12 +10,12 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 4436fc3c1bec4cdb8e301edd185f4416c931e24f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b7532dc910fae84733c04d4e16ac93a5cd0f11c8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456508"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097915"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET kullanarak Azure Key Vault hizmetten hizmete kimlik doğrulaması
 
@@ -153,7 +153,7 @@ Bu, yalnızca yerel geliştirme için geçerlidir. Çözümünüzü Azure'da da�
 
 Kodunuzu bir Azure App Service veya Azure VM yönetilen bir kimlikle etkin çalıştırdığınızda, kitaplık yönetilen kimlik otomatik olarak kullanır. Hiçbir kod değişikliği gerekli değildir. 
 
-Alternatif olarak, bir kullanıcı tarafından atanan kimliği ile kimlik doğrulaması yapabilir. Kullanıcı tarafından atanan kimlikleri hakkında daha fazla bilgi için bkz. [kimliklerini Azure kaynakları için yönetilen hakkında](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka). Bağlantı dizesi belirtilen [bağlantı dizesi desteği](#connection-string-support) bölümüne bakın.
+Alternatif olarak, bir kullanıcı tarafından atanan kimliği ile kimlik doğrulaması yapabilir. Kullanıcı tarafından atanan kimlikleri hakkında daha fazla bilgi için bkz. [kimliklerini Azure kaynakları için yönetilen hakkında](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). Bağlantı dizesi belirtilen [bağlantı dizesi desteği](#connection-string-support) bölümüne bakın.
 
 ## <a name="running-the-application-using-a-service-principal"></a>Bir hizmet sorumlusunu kullanarak uygulamayı çalıştırma 
 
@@ -212,7 +212,7 @@ Aşağıdaki seçenekler desteklenir:
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Yerel geliştirme | AzureServiceTokenProvider Visual Studio, belirteci almak için kullanır. |
 | `RunAs=CurrentUser` | Yerel geliştirme | AzureServiceTokenProvider, belirteci almak için Azure AD tümleşik kimlik doğrulaması kullanır. |
 | `RunAs=App` | [Azure kaynakları için yönetilen kimlikler](../active-directory/managed-identities-azure-resources/index.yml) | AzureServiceTokenProvider yönetilen bir kimlik belirteci almak için kullanır. |
-| `RunAs=App;AppId={ClientId of user-assigned identity}` | [Azure kaynakları için kullanıcı tarafından atanan kimlik](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka) | AzureServiceTokenProvider, belirteci almak için bir kullanıcı tarafından atanan kimliği kullanır. |
+| `RunAs=App;AppId={ClientId of user-assigned identity}` | [Azure kaynakları için kullanıcı tarafından atanan kimlik](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) | AzureServiceTokenProvider, belirteci almak için bir kullanıcı tarafından atanan kimliği kullanır. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`   | Hizmet sorumlusu | `AzureServiceTokenProvider` Azure AD'den belirteci almak için sertifikayı kullanır. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Hizmet sorumlusu | `AzureServiceTokenProvider` Azure AD'den belirteci almak için sertifikayı kullanır.|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Hizmet sorumlusu |`AzureServiceTokenProvider` Azure AD'den belirteci almak için gizli anahtarını kullanır. |

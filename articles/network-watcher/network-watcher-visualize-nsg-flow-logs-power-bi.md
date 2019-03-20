@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 6df49f9cd308f4bb9b1fef6e5860872526ce8bb7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913317"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079035"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Power BI ile visualizing ağ güvenlik grubu akış günlüklerini
 
@@ -56,10 +56,10 @@ Ayrıca, Power BI Desktop istemcisi makinenizde ve makinenize indirmek ve depola
 
 1. İndirin ve aşağıdaki Power BI şablonu Power BI Desktop uygulamasında açın [şablonu Ağ İzleyicisi Powerbı akış günlükleri](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
 1. Gerekli sorgu parametrelerini girin
-    1. **StorageAccountName** – yüklenemedi ve görselleştirmek istediğiniz NSG akış günlüklerini içeren depolama hesabı adını belirtir.
-    1. **NumberOfLogFiles** – indirip Power BI'da görselleştirin istediğiniz günlük dosyalarının sayısını belirtir. Örneğin, 50 belirtilirse, en son 50 günlük dosyaları. Biz bu hesap için NSG akış günlükleri göndermek için etkinleştirilmiş ve yapılandırılmış 2 Nsg'ler varsa, son 25 saat günlüklerinin görüntülenebilir.
+   1. **StorageAccountName** – yüklenemedi ve görselleştirmek istediğiniz NSG akış günlüklerini içeren depolama hesabı adını belirtir.
+   1. **NumberOfLogFiles** – indirip Power BI'da görselleştirin istediğiniz günlük dosyalarının sayısını belirtir. Örneğin, 50 belirtilirse, en son 50 günlük dosyaları. Biz bu hesap için NSG akış günlükleri göndermek için etkinleştirilmiş ve yapılandırılmış 2 Nsg'ler varsa, son 25 saat günlüklerinin görüntülenebilir.
 
-    ![Power BI ana][2]
+      ![Power BI ana][2]
 
 1. Depolama hesabınızın erişim anahtarını girin. Geçerli erişim tuşlarını seçerek portal ve Azure depolama hesabınıza giderek bulabilirsiniz **erişim anahtarlarını** Ayarlar menüsünden. Tıklayın **Connect** sonra değişiklikleri uygulayın.
 
@@ -67,7 +67,7 @@ Ayrıca, Power BI Desktop istemcisi makinenizde ve makinenize indirmek ve depola
 
     ![erişim anahtarı 2][4]
 
-4.  Günlüklerinizi indirmek durumda, ayrıştırılmış ve artık önceden oluşturulmuş görselleri kullanabilir.
+4. Günlüklerinizi indirmek durumda, ayrıştırılmış ve artık önceden oluşturulmuş görselleri kullanabilir.
 
 ## <a name="understanding-the-visuals"></a>Görsellerin anlama
 

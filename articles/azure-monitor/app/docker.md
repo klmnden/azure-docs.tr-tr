@@ -10,16 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0c31d895c453a8272c337b78f01dc8342a4d0765
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 115e2d6b041ecc3f38a2a6438d90777da9660221
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672517"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996478"
 ---
-# <a name="monitor-docker-applications-in-application-insights"></a>Application ınsights'ta Docker uygulamalarını izleme
+# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>(Kullanım dışı) Application ınsights'ta Docker uygulamalarını izleme
+
+> [!NOTE]
+> Bu çözümü kullanım dışıdır. Kapsayıcı izleme geçerli yaptığımız yatırımlardan hakkında daha fazla bilgi edinmek için kullanıma almasını öneririz [kapsayıcılar için Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 Yaşam döngüsü olayları ve performans sayaçları gelen [Docker](https://www.docker.com/) kapsayıcıları Application Insights grafiğinin. Yükleme [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) görüntü bir kapsayıcıda, konak ve diğer görüntüleri yanı sıra, ana bilgisayar için performans sayaçlarını görüntüler.
 
@@ -30,9 +33,6 @@ Docker ile uygulamalarınızı basit kapsayıcıların tüm bağımlılıklarla 
 * Yaşam döngüsü telemetri çalıştıran tüm kapsayıcıları hakkında konakta - başlatmak, durdurmak ve benzeri.
 * Tüm kapsayıcılar için performans sayaçları. CPU, bellek, ağ kullanımı ve daha fazlası.
 * Varsa, [Java için Application Insights SDK'sı yüklü](../../azure-monitor/app/java-get-started.md) kapsayıcılarda çalıştırılan uygulamalar, bu uygulamaların tüm telemetri kapsayıcı ve ana makine tanımlayan ek özelliklere sahip. Örneğin, birden fazla ana çalışan bir uygulamanın bir örneği varsa, uygulama telemetrinizi ana bilgisayarı tarafından kolayca filtre uygulayabilirsiniz.
-
-> [!NOTE]
-> Bu çözümü kullanım dışıdır. Kapsayıcı izleme geçerli yaptığımız yatırımlardan hakkında daha fazla bilgi edinmek için kullanıma almasını öneririz [kapsayıcılar için Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 ## <a name="set-up-your-application-insights-resource"></a>Kendi Application Insights kaynağını ayarlama
 

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 6e97001497ebdddebe9b5b726e0526a987b6c63c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f96b4bb75a22e51586820a2e7be08c09cf7b26dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873330"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104429"
 ---
 # <a name="how-to-improve-your-classifier"></a>Nasıl sınıflandırıcınızı geliştirme
 
@@ -102,4 +102,4 @@ Bazen görsel denetim sonra daha fazla eğitim verilerini ekleyerek veya mevcut 
 Bu kılavuzda, özel görüntü sınıflandırma modelini daha doğru hale getirmek amacıyla çeşitli teknikler hakkında bilgi edindiniz. Ardından, programlı olarak tahmin API'ye göndererek test görüntülerimizden öğrenin.
 
 > [!div class="nextstepaction"]
-[Tahmin API'sini kullanma](use-prediction-api.md)
+> [Tahmin API'sini kullanma](use-prediction-api.md)

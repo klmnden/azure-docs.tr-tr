@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 44f2c24f1fe53b6fadabf23f03a6feda75c87883
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 570f0a825f679ec5f0cc4c62b0608ec517148161
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738292"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894011"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio nedir?
 Microsoft Azure Machine Learning Studio, verilerinizde tahmine dayalı analiz çözümleri oluşturma, test etme ve dağıtma amacıyla kullanabileceğiniz bir işbirliğine dayalı sürükle ve bırak aracıdır. Machine Learning Studio, modelleri özel uygulamalar veya Excel gibi BI araçları tarafından kolayca kullanılabilen web hizmetleri olarak yayımlar.
@@ -40,7 +40,7 @@ Programlama gerekmez; tahmine dayalı analiz modelinizi oluşturmak için veri k
 ## <a name="download-the-machine-learning-studio-overview-diagram"></a>Machine Learning Studio'ya genel bakış diyagramını indirme
 **Microsoft Azure Machine Learning Studio İşlevlerine Genel Bakış** diyagramını indirin ve Machine Learning Studio işlevlerine üst düzey bir genel bakış elde edin. Diyagramı yakınınızda tutmak için tabloid boyutunda (11 x 17 inç) yazdırabilirsiniz.
 
-**Diyagramı buradan indirin: [Microsoft Azure Machine Learning Studio işlevlerine genel bakış](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+**Diyagramı buradan indirin: [Microsoft Azure Machine Learning Studio işlevlerine genel bakış](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
 ![Microsoft Azure Machine Learning Studio işlevlerine genel bakış](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>Machine Learning Studio ile çalışmaya başlama
@@ -61,7 +61,7 @@ Burada iki seçenek vardır: Başladığınız sayfa olan **Ana Sayfa** ve **Stu
 * **AYARLAR** - Hesabınızı ve kaynaklarınızı yapılandırmak için kullanabileceğiniz ayarlar koleksiyonu.
 
 ### <a name="gallery"></a>Galeri
-**Galeri** sekmesine tıkladığınızda **[Azure AI Gallery](http://gallery.azure.ai/)** açılır. Galeri, bir veri bilimcileri ve geliştiricileri topluluğunun Cortana Intelligence Suite bileşenleri kullanılarak oluşturduğu çözümleri paylaştığı yerdir.
+**Galeri** sekmesine tıkladığınızda **[Azure AI Gallery](https://gallery.azure.ai/)** açılır. Galeri, bir veri bilimcileri ve geliştiricileri topluluğunun Cortana Intelligence Suite bileşenleri kullanılarak oluşturduğu çözümleri paylaştığı yerdir.
 
 Galeri hakkında daha fazla bilgi için bkz. [Azure AI Gallery'de çözüm paylaşma ve keşfetme](gallery-how-to-use-contribute-publish.md).
 

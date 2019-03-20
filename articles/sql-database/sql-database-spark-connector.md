@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 927b887dbe9214867c0a694a611ca9fd9dc647a2
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8e531de34302ef8aee571c960955d33a4832aa11
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565301"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013704"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Azure SQL veritabanı ve SQL Server için Spark Bağlayıcısı ile gerçek zamanlı büyük veri analizi hızlandırın
 
@@ -219,5 +219,5 @@ Henüz yapmadıysanız, Azure SQL veritabanı ve SQL Server için Spark Bağlay�
 -   [Örnek Azure Databricks Not Defterleri](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Örnek betikler (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
-İncelemek isteyebilirsiniz [Apache Spark SQL ve DataFrames veri kümeleri Kılavuzu](http://spark.apache.org/docs/latest/sql-programming-guide.html) ve [Azure Databricks belgeleri](https://docs.microsoft.com/azure/azure-databricks/).
+İncelemek isteyebilirsiniz [Apache Spark SQL ve DataFrames veri kümeleri Kılavuzu](https://spark.apache.org/docs/latest/sql-programming-guide.html) ve [Azure Databricks belgeleri](https://docs.microsoft.com/azure/azure-databricks/).
 

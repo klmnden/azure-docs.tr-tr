@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: c79becfda84e1a7d65399c7211bdc3b98a28696f
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750574"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079120"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Azure izleyici günlüğü sorgularda birleştirir
 
@@ -101,7 +101,7 @@ En iyi performans için aşağıdaki noktaları göz önünde bulundurun:
 
 - Zaman filtresi her tabloda birleştirme için değerlendirilmesi gereken kayıtları azaltmak için kullanın.
 - Kullanım `where` ve `project` girdi tablolarında birleştirme önce içindeki satırları ve sütunları sayıda azaltmak için.
-* Bir tablodaki her zaman diğerinden daha küçükse, birleştirmenin sol tarafındaki kullanın.
+- Bir tablodaki her zaman diğerinden daha küçükse, birleştirmenin sol tarafındaki kullanın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

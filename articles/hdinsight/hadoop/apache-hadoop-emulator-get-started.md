@@ -10,14 +10,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: 074e2dd932cada5ae46ee0423dbc29fc8bc7495d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 1da676787eeee1eb75095a5e3a6b3f40056567ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016785"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005760"
 ---
-# <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Bir Apache Hadoop korumalı alanı, bir sanal makinede bir öykünücü ile çalışmaya başlama
+# <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Bir Apache Hadoop korumalı alanı, bir sanal makinede bir öykünücü ile çalışmaya başlama
 
 Apache Hadoop korumalı alanı Hortonworks Hadoop ekosistemi hakkında bilgi edinmek için bir sanal makineye yükleme konusunda bilgi edinin. Korumalı alan, Hadoop, Hadoop dağıtılmış dosya sistemi (HDFS) ve iş gönderme hakkında bilgi edinmek için bir yerel geliştirme ortamı sağlar. Hadoop ile ilgili bilgi sahibi olduktan sonra bir HDInsight kümesi oluşturarak Azure üzerinde Hadoop kullanmaya başlayabilirsiniz. Nasıl başlayacağınızı hakkında daha fazla bilgi için bkz. [HDInsight üzerinde Hadoop kullanmaya başlama](apache-hadoop-linux-tutorial-get-started.md).
 
@@ -30,7 +30,7 @@ Apache Hadoop korumalı alanı Hortonworks Hadoop ekosistemi hakkında bilgi edi
 1. Gözat [Hortonworks indirir](https://hortonworks.com/downloads/#sandbox).
 
 2. Tıklayın **İNDİRMEK için VIRTUALBOX** en son Hortonworks korumalı alanı bir VM'de indirilemedi. Hortonworks ile yükleme başlamadan önce kaydetmeniz istenir. Ağ hızınıza bağlı olarak indirmek için bir ila iki saat sürer.
-   
+
     ![Bağlantı resmi için Hortonworks korumalı alanı VirtualBox için indirin](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
 3. Aynı web sayfasından tıklayın **Virtual Box üzerinde içeri aktarma** sanal makine için yükleme yönergelerini içeren bir PDF indirmek için bağlantı.
 
@@ -44,36 +44,35 @@ Eski bir HDP sürüm korumalı alan indirmek için arşiv genişletin:
 1. Oracle VM VirtualBox açın.
 2. Gelen **dosya** menüsünde, tıklayın **alma Gereci**ve ardından Hortonworks korumalı alanı görüntüsünü belirtin.
 1. Hortonworks korumalı alanı seçip **Başlat**, ardından **Normal başlangıç**. Sanal makinenin önyükleme işlemi tamamlandıktan sonra oturum açma yönergeleri görüntüler.
-   
+
     ![Normal Başlat](./media/apache-hadoop-emulator-get-started/normal-start.png)
-2. Bir web tarayıcısı açın ve görüntülenen URL'ye gidin (genellikle http://127.0.0.1:8888).
+2. Bir web tarayıcısı açın ve görüntülenen URL'ye gidin (genellikle `http://127.0.0.1:8888`).
 
 ## <a name="set-sandbox-passwords"></a>Korumalı alan parola ayarlama
 
 1. Gelen **başlama** select Hortonworks Sandbox sayfası adımında **görünüm Gelişmiş Seçenekler**. Bilgiler, SSH kullanarak korumalı alan oturum açmak için bu sayfada kullanın. Sağlanan adını ve parolayı kullanın.
-   
+
    > [!NOTE]
    > Bir SSH istemcisi yüklü değilse, sanal makine tarafından verilen web tabanlı SSH kullanabilirsiniz **http://localhost:4200/**.
-   > 
-   
+
     SSH kullanarak bağlandığınız ilk kez kök hesabın parolasını değiştirmeniz istenir. SSH kullanarak oturum açışınızda kullanacağınız yeni bir parola girin.
 
 2. Oturum açtıktan sonra aşağıdaki komutu girin:
-   
+
         ambari-admin-password-reset
-   
+
     İstendiğinde, Ambari yönetici hesabı için bir parola sağlayın. Ambari Web kullanıcı arabirimini eriştiğinde kullanılır.
 
 ## <a name="use-hive-commands"></a>Hive komutlarını kullanma
 
 1. Korumalı bir SSH bağlantısından, Hive kabuğunu başlatmak için aşağıdaki komutu kullanın:
-   
+
         hive
 2. Kabuk başlatıldıktan sonra korumalı alan ile sağlanan tabloları görüntülemek için aşağıdakileri kullanın:
-   
+
         show tables;
 3. 10 satırlardan almak için aşağıdakini kullanın `sample_07` tablosu:
-   
+
         select * from sample_07 limit 10;
 
 ## <a name="next-steps"></a>Sonraki adımlar

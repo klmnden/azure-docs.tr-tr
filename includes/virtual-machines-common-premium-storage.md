@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: cd29fb968bd73e09c2e3b60e62a478b4e577146d
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 40ff2339ad34a72079109317bf0a89dfbc6458e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805493"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098126"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler
 
@@ -63,9 +63,9 @@ Premium depolama özelliklerinden bazıları şunlardır:
 
     Premium Storage'ı kullanmaya başlamak için yönetilmeyen diskler için premium depolama hesabı oluşturun. İçinde [Azure portalında](https://portal.azure.com), premium depolama hesabı oluşturma, seçin **Premium** performans katmanı. Seçin **yerel olarak yedekli depolama (LRS)** çoğaltma seçeneği. Performans katmanı ayarlayarak bir premium depolama hesabı oluşturabilirsiniz **Premium_LRS**. Performans katmanını değiştirmek için aşağıdaki yaklaşımlardan birini kullanın:
      
-    - [Azure depolama için PowerShell](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
-    - [Azure depolama için Azure CLI](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
-    - [Azure depolama kaynak sağlayıcısı REST API'si](https://docs.microsoft.com/rest/api/storagerp) (Azure Resource Manager dağıtımları için) veya bir Azure depolama kaynak sağlayıcısı istemci kitaplığı
+  - [Azure depolama için PowerShell](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+  - [Azure depolama için Azure CLI](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+  - [Azure depolama kaynak sağlayıcısı REST API'si](https://docs.microsoft.com/rest/api/storagerp) (Azure Resource Manager dağıtımları için) veya bir Azure depolama kaynak sağlayıcısı istemci kitaplığı
 
     Premium depolama hesabı sınırları hakkında bilgi edinmek için [ölçeklenebilirlik ve performans hedefleri](#scalability-and-performance-targets).
 

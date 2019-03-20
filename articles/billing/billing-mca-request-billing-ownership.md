@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 01d34ef722034ef5b56c842bab97a3415a02b0bb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341876"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890942"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>Faturalandırma sahipliğini diğer kullanıcıların Azure aboneliği edinin
 
@@ -96,7 +96,8 @@ Bu makale, bir faturalama hesabı için bir Microsoft Müşteri sözleşmesi iç
    |İptal edildi|Aktarım İsteği erişimi olan istek iptal edildi|
    |Reddedildi|Kullanıcı, aktarım isteğini reddetti.|
 
-6. Ayrıntılarını görüntülemek için bir aktarım isteği seçin. Aktarım Ayrıntıları sayfasında aşağıdaki bilgileri görüntüler: <!-- Todo - Add a screenshot -->
+6. Ayrıntılarını görüntülemek için bir aktarım isteği seçin. Aktarım Ayrıntıları sayfasında aşağıdaki bilgileri görüntüler:
+   <!-- Todo - Add a screenshot -->
 
    |Sütun  |Tanım|
    |---------|---------|
@@ -149,7 +150,7 @@ Herhangi bir türü veya CSP sunar dışında teklifler, abonelik aktarılabilir
 
 ### <a name="cancel-a-transfer-request"></a>Aktarım isteğini iptal et
 
-İstek Onaylandı veya reddedildi kadar aktarım isteğini iptal edebilirsiniz. Aktarım İsteği iptal etmek için [aktarım ayrıntıları sayfasına gidin](#check-status-of-your-transfer-request-in-the-Azure-portal) ve iptal sayfanın altından seçin.
+İstek Onaylandı veya reddedildi kadar aktarım isteğini iptal edebilirsiniz. Aktarım İsteği iptal etmek için İptal'i seçin ve aktarım Ayrıntıları sayfası için sayfanın alt gidin.
 
 ### <a name="software-as-a-service-saas-transfer"></a>Yazılım olarak hizmet (SaaS) aktarım
 

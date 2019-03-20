@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 197d7529a52b400cd078ead79bbb6db5f5849ee6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: cdffc339bee1f5456e4eeb619e566b1f9c34b143
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821379"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093186"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tek başına Azure Otomasyonu hesabı oluşturma
 
@@ -62,12 +62,12 @@ Azure portalında bir Azure Otomasyonu hesabını oluşturmak için aşağıdaki
 
 1. Sonraki ekranda seçin **Oluştur**.
 
-  ![Otomasyon hesabı Ekle](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+   ![Otomasyon hesabı Ekle](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
-  > [!NOTE]
-  > İçinde aşağıdaki iletiyi görürseniz **Otomasyon hesabı Ekle** bölmesinde, hesabınızın abonelik Yöneticileri rolünün üyesi ve bir Abonelikteki değil.
-  >
-  > ![Automation hesabı uyarısı ekleme](media/automation-create-standalone-account/create-account-without-perms.png)
+   > [!NOTE]
+   > İçinde aşağıdaki iletiyi görürseniz **Otomasyon hesabı Ekle** bölmesinde, hesabınızın abonelik Yöneticileri rolünün üyesi ve bir Abonelikteki değil.
+   >
+   > ![Automation hesabı uyarısı ekleme](media/automation-create-standalone-account/create-account-without-perms.png)
 
 1. İçinde **Otomasyon hesabı Ekle** bölmesinde, **adı** kutusuna, yeni Automation hesabınız için bir ad girin. Bu ad, seçildikten sonra değiştirilemez. *Bölge ve kaynak grubu başına Otomasyon hesabı adları benzersizdir. Silinen bir Otomasyon hesapları için adları hemen kullanılamayabilir.*
 1. İçinde birden fazla aboneliğiniz varsa **abonelik** kutusunda, yeni hesap için kullanmak istediğiniz aboneliği belirtin.
@@ -75,13 +75,13 @@ Azure portalında bir Azure Otomasyonu hesabını oluşturmak için aşağıdaki
 1. İçin **konumu**, bir Azure veri merkezi bölgesi seçin.
 1. İçin **oluşturma Azure farklı çalıştır hesabı** seçeneğinde, emin **Evet** seçili ve ardından **Oluştur**.
 
-  > [!NOTE]
-  > Seçerek farklı çalıştır hesabı oluşturmamayı seçerseniz **Hayır** için **oluşturma Azure farklı çalıştır hesabı**, bir ileti görünür **Otomasyon hesabı Ekle** bölmesi. Hesap Azure portalında oluşturulsa da, hesap, Klasik dağıtım modeli aboneliğinizdeki veya Azure Resource Manager abonelik dizininizde karşılık gelen bir kimlik doğrulama kimliği yoktur. Bu nedenle, Otomasyon hesabı, aboneliğinizde kaynaklara erişimi yok. Bu kimlik doğrulaması ve söz konusu dağıtım modellerindeki kaynaklara göre görevleri gerçekleştirmesini bu hesaba başvuran runbook'ları engeller.
-  >
-  > ![Automation hesabı uyarısı ekleme](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
-  >
-  > Hizmet sorumlusu oluşturulmaz, katkıda bulunan rolü atanmaz.
-  >
+   > [!NOTE]
+   > Seçerek farklı çalıştır hesabı oluşturmamayı seçerseniz **Hayır** için **oluşturma Azure farklı çalıştır hesabı**, bir ileti görünür **Otomasyon hesabı Ekle** bölmesi. Hesap Azure portalında oluşturulsa da, hesap, Klasik dağıtım modeli aboneliğinizdeki veya Azure Resource Manager abonelik dizininizde karşılık gelen bir kimlik doğrulama kimliği yoktur. Bu nedenle, Otomasyon hesabı, aboneliğinizde kaynaklara erişimi yok. Bu kimlik doğrulaması ve söz konusu dağıtım modellerindeki kaynaklara göre görevleri gerçekleştirmesini bu hesaba başvuran runbook'ları engeller.
+   >
+   > ![Automation hesabı uyarısı ekleme](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   >
+   > Hizmet sorumlusu oluşturulmaz, katkıda bulunan rolü atanmaz.
+   >
 
 1. Otomasyon hesabı oluşturma, menüde ilerlemesini izlemek için **bildirimleri**.
 

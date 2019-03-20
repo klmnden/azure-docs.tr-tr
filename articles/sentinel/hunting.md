@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 24792a0099d4e45e100fa6cf0b211c62fc8630de
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: adedc8bc1f574ae089f2a11033fab4f390c57a9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242335"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087034"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Azure Önizleme Gözcü ile tehditleri hunt
 
@@ -128,19 +128,19 @@ Yeni bir aramaya sorgu oluşturun:
 1. Tıklayın **yeni sorgu** seçip **Kaydet**.
 2. Tüm boş alanları doldurun ve seçin **Kaydet**.
 
- ![Yeni sorgu](./media/tutorial-hunting/new-query.png)
+   ![Yeni sorgu](./media/tutorial-hunting/new-query.png)
 
 Kopyalama ve avcılık sorguyu değiştirin:
 
 1. Değiştirmek istediğiniz tabloda avcılık sorguyu seçin.
 2. Üç nokta (...) satırı değiştirin ve istediğiniz sorguyu seçin **sorguyu Klonla**.
 
- ![Sorguyu Klonla](./media/tutorial-hunting/clone-query.png)
+   ![Sorguyu Klonla](./media/tutorial-hunting/clone-query.png)
  
 
-3.  Seçin ve sorguyu değiştirmek **Oluştur**.
+3. Seçin ve sorguyu değiştirmek **Oluştur**.
 
- ![Özel sorgu](./media/tutorial-hunting/custom-query.png)
+   ![Özel sorgu](./media/tutorial-hunting/custom-query.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, Azure Gözcü ile avcılık araştırma çalıştırma öğrendiniz. Azure Gözcü hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:

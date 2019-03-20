@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 36800071d5e0080ef5d1d791eed12587b114df78
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: dbfb559516177d496f5b16dc31f0ef8d0603cf68
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743642"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904023"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Rezervasyonlar Azure kaynaklarını yönetme
 
@@ -38,13 +38,13 @@ Rezervasyon kapsamı güncelleştirilemedi:
 4. **Ayarlar** > **Yapılandırma**'yı seçin.
 5. Kapsamını değiştirin.
 
-Gelen tek bir kapsam için paylaşılan değiştirirseniz, yalnızca sahibi olduğu abonelikleri seçebilirsiniz. Yalnızca abonelikleri ayırma olarak fatura aynı bağlam içinde seçilebilir.
+Gelen tek bir kapsam için paylaşılan değiştirirseniz, yalnızca sahibi olduğu abonelikleri seçebilirsiniz. Yalnızca rezervasyonla aynı fatura bağlamında bulunan abonelikleri seçebilirsiniz.
 
-Kapsamı yalnızca Kullandıkça Öde teklifine MS-AZR - 0017 P veya MS-AZR - 0148 P MS-AZR - 0003 P veya MS-AZR - 0023 P, Kurumsal teklif veya CSP aboneliği türleri için geçerlidir.
+Kapsam yalnızca MS-AZR-0003P veya MS-AZR-0023P kodlu Kullandıkça Öde teklifi, MS-AZR-0017P veya MS-AZR-0148P kodlu Kurumsal teklif ya da CSP abonelikleri için geçerlidir.
 
-## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Ekleme veya ayırma yönetebilen kullanıcılar değiştirme
+## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Rezervasyonu yönetebilecek kullanıcıları ekleme veya değiştirme
 
-Bir ayırmanın yönetim rollerine rezervasyonu kişiler ekleyerek devredebilirsiniz. Varsayılan olarak, kişi, rezervasyon satın ve Hesap Yöneticisi, üzerinde ayırma sahip rolüne sahip.
+Rezervasyona ait rollere kullanıcı ekleyerek bir rezervasyonun yönetimi için temsilciler belirleyebilirsiniz. Varsayılan olarak rezervasyonu satın alan kişi ve hesap yöneticisi, rezervasyonda Sahip rolüne atanır.
 
 Erişim ayırmaları bağımsız olarak ayırma indirimi alma aboneliklerden yönetebilirsiniz. Birisi bir ayırma yönetme izni verdiğinizde, bunları aboneliğinizi yönetmek için hakları verin değil. Ve birisi ayırma'nın kapsamı içinde bir aboneliği yönetme izni verirseniz, bunları ayırma yönetme hakkı vermez.
 
@@ -54,7 +54,7 @@ Erişim yönetimi için bir ayırma temsilci atamak için:
 2. Seçin **tüm hizmetleri** > **ayırma** erişiminiz listesi ayırmalar için.
 3. Diğer kullanıcılara erişim vermek istediğiniz ayırma seçin.
 4. Seçin **erişim denetimi (IAM)**.
-5. Seçin **rol ataması Ekle** > **rol** > **sahibi**. Veya sınırlı erişim vermek istiyorsanız, farklı bir rol seçin.
+5. Seçin **rol ataması Ekle** > **rol** > **sahibi**. Sınırlı erişim vermek istiyorsanız farklı bir rol seçebilirsiniz.
 6. Sahip olarak eklemek istediğiniz kullanıcının e-posta adresini yazın.
 7. Kullanıcıyı ve ardından **Kaydet**'i seçin.
 
@@ -133,4 +133,4 @@ Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalel
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

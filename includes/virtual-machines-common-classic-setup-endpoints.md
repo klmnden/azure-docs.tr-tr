@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7dfd7d2a0363a95acb76a5dc214dbd4036de11d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: ee5faedd4f59aa791424a1f178f0462922f21d28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735896"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094693"
 ---
 Her bir uç noktası olan bir *genel bağlantı noktası* ve *özel bağlantı noktası*:
 
@@ -76,7 +76,7 @@ Bir Azure sanal ağında sanal makine ise ACL'leri yerine ağ güvenlik gruplar�
 
 4. Satır eklemek, silmek veya bir ACL için kuralları düzenlemek ve sırayı değiştirmek için listede kullanın. **Uzak alt** izin vermek veya kaynak IP adresine göre trafiği reddetmeye yönelik Azure load balancer kullandığı internet'ten gelen trafiği için bir IP adresi aralığı değerdir. Classless Inter-Domain yönlendirme (CIDR) biçiminde adres ön eki biçimi olarak da bilinen IP adresi aralığı belirttiğinizden emin olun. Örneğin, `10.1.0.0/8`.
 
- ![Yeni ACL girişi](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
+   ![Yeni ACL girişi](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 
 
 İnternet üzerindeki bilgisayarlara karşılık gelen belirli bilgisayarlardan gelen yalnızca trafiğine izin verecek şekilde veya belirli, bilinen adres aralıklarını trafiği reddetmeye yönelik kurallar kullanabilirsiniz.

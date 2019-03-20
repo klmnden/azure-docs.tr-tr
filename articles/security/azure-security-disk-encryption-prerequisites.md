@@ -1,18 +1,18 @@
 ---
 title: Önkoşullar - Iaas Vm'leri için Azure Disk şifrelemesi | Microsoft Docs
 description: Bu makale, Iaas sanal makineleri için Microsoft Azure Disk şifrelemesi kullanılarak önkoşulları sağlar.
-author: mestew
+author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.author: mstewart
-ms.date: 03/04/2019
+ms.author: mbaldwin
+ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: d10a73eae3546ea0bbf7b6cad86838063ec48520
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 495095df65a03dca573f38c93eb5e77176c16359
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760263"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895915"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk şifrelemesi önkoşulları
 
@@ -30,7 +30,7 @@ Ele alınan desteklenen senaryolar için Azure Iaas sanal makinelerinde Azure Di
 Azure Disk şifrelemesi, aşağıdaki işletim sistemlerinde desteklenir:
 
 - Windows Server sürümleri: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 ve Windows Server 2016.
-    - Windows Server 2008 R2 için .NET Framework 4.5, azure'daki şifreleme etkinleştirmeden önce yüklü olması gerekir. Windows Update ile isteğe bağlı bir güncelleştirme Windows Server 2008 R2 x64 tabanlı sistemler için Microsoft .NET Framework 4.5.2'yi yükleme ([KB2901983](https://support.microsoft.com/kb/2901983)).    
+  - Windows Server 2008 R2 için .NET Framework 4.5, azure'daki şifreleme etkinleştirmeden önce yüklü olması gerekir. Windows Update ile isteğe bağlı bir güncelleştirme Windows Server 2008 R2 x64 tabanlı sistemler için Microsoft .NET Framework 4.5.2'yi yükleme ([KB2901983](https://support.microsoft.com/kb/2901983)).    
 - Windows istemci sürümleri: Windows 8 istemcisi ve Windows 10 istemcisi.
 - Azure Disk şifrelemesi yalnızca Windows'da desteklenmektedir belirli Azure Galerisi'nde Linux sunucusu dağıtımları ve sürümleri dayalıdır. Şu anda desteklenen sürümlerin listesi için başvurmak [Azure Disk şifrelemesi hakkında SSS](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 - Azure Disk şifrelemesi, anahtar kasası ve VM'lerin aynı Azure bölgesindeki ve abonelikte bulunmasını gerektirir. Kaynaklarını ayrı bölge içinde yapılandırma Azure Disk şifreleme özelliği etkinleştirilirken bir hata neden olur.
@@ -38,11 +38,12 @@ Azure Disk şifrelemesi, aşağıdaki işletim sistemlerinde desteklenir:
 ## <a name="bkmk_LinuxPrereq"></a> Linux Iaas sanal makineleri için ek Önkoşullar 
 
 - Linux için Azure Disk şifrelemesi, 7 GB işletim sistemi disk şifrelemeyi etkinleştirmek için VM üzerindeki RAM gerektirir [desteklenen resimler](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). İşletim sistemi disk şifreleme işlemi tamamlandıktan sonra VM ile daha az bellek çalıştırmak için yapılandırılabilir.
+- Azure Disk şifrelemesi vfat modülü sistemde mevcut olması gerekir.  Bu modül varsayılan görüntüden devre dışı bırakma veya kaldırma sistemi anahtar birimin okuma ve sonraki yeniden başlatmalar disklerde kilidini açmak için gerekli anahtarı almak için engeller. Sistemden vfat modülü kaldırmak sistem sağlamlaştırma adımlarının Azure Disk şifrelemesi ile uyumlu değildir. 
 - Şifreleme etkinleştirilmeden önce şifrelenmiş veri diskleri düzgün /etc/fstab içinde listelenmesi gerekir. Kalıcı blok cihaz adı bu giriş için "/ dev/sdX" biçimindeki adlarını sırasında özellikle şifreleme uygulandıktan sonra yeniden başlatmaları arasında aynı disk ile ilişkilendirilmesi dayanan olamaz cihazı olarak kullanın. Bu davranışı hakkında daha fazla ayrıntı için bkz: [Linux VM cihaz adı değişikliklerle ilgili sorunları giderme](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - /Etc/fstab ayarlarını, bağlama için düzgün şekilde yapılandırıldığından emin olun. Bu ayarları yapılandırmak için bağlama - bir komut çalıştırın veya VM'yi yeniden başlatın ve bu şekilde onarılmasının tetikleyin. Bu işlem tamamlandıktan sonra sürücüyü yine de bağlandığını doğrulamak için lsblk komutunun çıkışını kontrol edin. 
-    - Azure Disk şifrelemesi, /etc/fstab dosya sürücünün doğru şifreleme etkinleştirilmeden önce değil bağlarsanız, düzgün bir şekilde bağlamak mümkün olmayacaktır.
-    - Azure Disk şifreleme işlemi /etc/fstab dışında ve kendi yapılandırma dosyasına bağlama bilgilerini şifreleme işleminin bir parçası olarak taşınır. Tamamlandıktan sonra veri Sürücü Şifrelemesi /etc/fstab eksik giriş görmek için alarmed çekinmeyin.
-    -  Yeniden başlatıldıktan sonra yeni şifrelenmiş diskler bağlamak Azure Disk şifrelemesi işlemi için saat sürer. Bunlar yeniden başlatmanın ardından hemen kullanılabilir olmaz. İşlemi başlatmak, kilidini açmak ve ardından erişmek diğer işlemler için kullanılabilir olan önce şifrelenmiş sürücüleri bağlamak için zaman gerekir. Bu işlem, sistem özelliklerine bağlı olarak yeniden başlatma işleminden sonra birden fazla işlem birkaç dakika sürebilir.
+  - Azure Disk şifrelemesi, /etc/fstab dosya sürücünün doğru şifreleme etkinleştirilmeden önce değil bağlarsanız, düzgün bir şekilde bağlamak mümkün olmayacaktır.
+  - Azure Disk şifreleme işlemi /etc/fstab dışında ve kendi yapılandırma dosyasına bağlama bilgilerini şifreleme işleminin bir parçası olarak taşınır. Tamamlandıktan sonra veri Sürücü Şifrelemesi /etc/fstab eksik giriş görmek için alarmed çekinmeyin.
+  -  Yeniden başlatıldıktan sonra yeni şifrelenmiş diskler bağlamak Azure Disk şifrelemesi işlemi için saat sürer. Bunlar yeniden başlatmanın ardından hemen kullanılabilir olmaz. İşlemi başlatmak, kilidini açmak ve ardından erişmek diğer işlemler için kullanılabilir olan önce şifrelenmiş sürücüleri bağlamak için zaman gerekir. Bu işlem, sistem özelliklerine bağlı olarak yeniden başlatma işleminden sonra birden fazla işlem birkaç dakika sürebilir.
 
 Veri diskleri bağlayın ve gerekli/etc/fstab girişleri oluşturmak için kullanılan komutlar örneği bulunabilir [244 248 bu betik dosyasının satırları](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248). 
 
@@ -69,8 +70,8 @@ Veri diskleri bağlayın ve gerekli/etc/fstab girişleri oluşturmak için kulla
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Yerel makinenizde (isteğe bağlı) kullanmak için Azure PowerShell'i yükleyin: 
 1. İşletim sisteminiz için bağlantıları'ndaki yönergeleri izleyin sonra devam edebilirsiniz ancak geri kalan adımları.      
-    - [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/install-az-ps). 
-        - PowerShellGet, Azure PowerShell'i yükleme ve Az modül yükle. 
+   - [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/install-az-ps). 
+     - PowerShellGet, Azure PowerShell'i yükleme ve Az modül yükle. 
 
 2. Az modülünün yüklü sürümlerini doğrulayın. Gerekirse, [Azure PowerShell modülü güncelleştirme](/powershell/azure/install-az-ps#update-the-azure-powershell-module).
     En son Az Modül sürümü kullanılması önerilir.

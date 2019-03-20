@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/08/2018
 ms.author: mjbrown
-ms.openlocfilehash: 374bc040cf43f89899bbe1fc5b0835cff187ec9b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d3ab0f78cc59c94a95aac6c067ad185476502f6c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037608"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998607"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Kaydetme ve kullanma hakkında yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevleri Azure Cosmos DB'de depolanan
 
-Azure Cosmos DB SQL API kaydetme ve saklı yordamlar, tetikleyiciler ve JavaScript dilinde yazılmış kullanıcı tanımlı işlevler (UDF'ler) çağırma destekler. SQL API'si kullanabileceğiniz [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node.js](sql-api-sdk-node.md) veya [Python](sql-api-sdk-python.md) kaydetmek ve saklı yordamları çağırmak için SDK'ları. Bir veya daha fazla saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevleri tanımladıktan sonra yükleme ve görüntülemeye [Azure portalında](https://portal.azure.com/) Veri Gezgini'ni kullanarak.
+Azure Cosmos DB SQL API kaydetme ve saklı yordamlar, tetikleyiciler ve JavaScript dilinde yazılmış kullanıcı tanımlı işlevler (UDF'ler) çağırma destekler. SQL API'si kullanabileceğiniz [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node.js](sql-api-sdk-node.md), veya [Python](sql-api-sdk-python.md) kaydetmek ve saklı yordamları çağırmak için SDK'ları. Bir veya daha fazla saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevleri tanımladıktan sonra yükleme ve görüntülemeye [Azure portalında](https://portal.azure.com/) Veri Gezgini'ni kullanarak.
 
 ## <a id="stored-procedures"></a>Saklı yordamları çalıştırma
 
-Saklı yordamlar, JavaScript kullanarak yazılır. Bunlar oluşturabilir, güncelleştirme, okuma, sorgu ve Azure Cosmos kapsayıcı içindeki öğeleri silin. Azure Cosmos DB bakın, saklı yordamlar yazma hakkında daha fazla bilgi için [saklı yordamlar, Azure Cosmos DB'de yazma](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures) makalesi.
+Saklı yordamlar, JavaScript kullanarak yazılır. Bunlar oluşturabilir, güncelleştirme, okuma, sorgu ve Azure Cosmos kapsayıcı içindeki öğeleri silin. Azure Cosmos DB'de depolanan yordamları yazma hakkında daha fazla bilgi için bkz. [saklı yordamlar, Azure Cosmos DB'de yazma](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures) makalesi.
 
 Aşağıdaki örnekler, kaydetme ve Azure Cosmos DB SDK'larını kullanarak bir saklı yordamı çağırma gösterilmektedir. Başvurmak [belge oluşturma](how-to-write-stored-procedures-triggers-udfs.md#create-an-item) Bu saklı yordam için kaynak olarak kaydedildiğinde `spCreateToDoItem.js`.
 
@@ -423,7 +423,7 @@ Aşağıdaki örnekler, Azure Cosmos DB SDK'larını kullanarak bir kullanıcı 
 Aşağıdaki kod, .NET SDK'sını kullanarak bir kullanıcı tanımlı işlev kaydettirmek gösterilmektedir:
 
 ```csharp
-string udfId = "udfTax";
+string udfId = "Tax";
 var udfTax = new UserDefinedFunction
 {
     Id = udfId,
@@ -439,7 +439,7 @@ Aşağıdaki kod, .NET SDK kullanarak kullanıcı tanımlı bir işlevi çağır
 
 ```csharp
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
-var results = client.CreateDocumentQuery<dynamic>(containerUri, "SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000"));
+var results = client.CreateDocumentQuery<dynamic>(containerUri, "SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000"));
 
 foreach (var result in results)
 {
@@ -453,7 +453,7 @@ Aşağıdaki kod, Java SDK'sını kullanarak bir kullanıcı tanımlı işlev ka
 
 ```java
 String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
-String udfId = "udfTax";
+String udfId = "Tax";
 UserDefinedFunction udf = new UserDefinedFunction();
 udf.setId(udfId);
 udf.setBody(new String(Files.readAllBytes(Paths.get(String.format("..\\js\\%s.js", udfId)))));
@@ -465,7 +465,7 @@ Aşağıdaki kod, Java SDK'sını kullanarak bir kullanıcı tanımlı işlevi �
 
 ```java
 String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
-Observable<FeedResponse<Document>> queryObservable = client.queryDocuments(containerLink, "SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000", new FeedOptions());
+Observable<FeedResponse<Document>> queryObservable = client.queryDocuments(containerLink, "SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000", new FeedOptions());
 final CountDownLatch completionLatch = new CountDownLatch(1);
 queryObservable.subscribe(
         queryResultPage -> {
@@ -491,7 +491,7 @@ Aşağıdaki kod, JavaScript SDK'sını kullanarak bir kullanıcı tanımlı iş
 
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
-const udfId = "udfTax";
+const udfId = "Tax";
 await container.userDefinedFunctions.create({
     id: udfId,
     body: require(`../js/${udfId}`)
@@ -501,7 +501,7 @@ Aşağıdaki kod, JavaScript SDK'sını kullanarak bir kullanıcı tanımlı iş
 
 ```javascript
 const container = client.database("myDatabase").container("myContainer");
-const sql = "SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000";
+const sql = "SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000";
 const {result} = await container.items.query(sql).toArray();
 ```
 
@@ -514,7 +514,7 @@ with open('../js/udfTax.js') as file:
     file_contents = file.read()
 container_link = 'dbs/myDatabase/colls/myContainer'
 udf_definition = {
-            'id': 'trgPostUpdateMetadata',
+            'id': 'Tax',
             'serverScript': file_contents,
         }
 udf = client.CreateUserDefinedFunction(container_link, udf_definition)
@@ -524,7 +524,7 @@ Aşağıdaki kod, Python SDK'sını kullanarak bir kullanıcı tanımlı işlevi
 
 ```python
 container_link = 'dbs/myDatabase/colls/myContainer'
-results = list(client.QueryItems(container_link, 'SELECT * FROM Incomes t WHERE udf.tax(t.income) > 20000'))
+results = list(client.QueryItems(container_link, 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

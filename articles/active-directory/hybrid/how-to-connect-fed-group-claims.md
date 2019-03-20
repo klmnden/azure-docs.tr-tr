@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 12ccb4978a8cfbaa7dede8d0093c78da05295fec
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 622a3ce0f80bd09bd09fa7ff097f68155318142d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410018"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080365"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Azure Active Directory (genel Önizleme) ile uygulamalar için Grup talepleri yapılandırma
 
@@ -111,60 +111,60 @@ Bazı uygulamalar 'role' talebi görüntülenecek grup üyeliği bilgileri gerek
 
 Grup talepleri de yapılandırılabilir [isteğe bağlı bir talep](../../active-directory/develop/active-directory-optional-claims.md) bölümünü [uygulama bildirimi](../../active-directory/develop/reference-app-manifest.md).
 
- 1. Portalda Azure Active Directory -> -> Uygulama kayıtları seçin -> uygulama bildirimi ->
+1. Portalda Azure Active Directory -> -> Uygulama kayıtları seçin -> uygulama bildirimi ->
 
- 2. Grup üyeliğini talep groupMembershipClaim değiştirerek etkinleştir
+2. Grup üyeliğini talep groupMembershipClaim değiştirerek etkinleştir
 
-    Geçerli değerler şunlardır:
+   Geçerli değerler şunlardır:
 
-    - "Tüm"
-    - "IDAP"
-    - "DistributionList"
-    - "DirectoryRole"
+   - "Tüm"
+   - "IDAP"
+   - "DistributionList"
+   - "DirectoryRole"
 
-    Örneğin:
+   Örneğin:
 
-    ```json
-    "groupMembershipClaims": "SecurityGroup"
-    ```
+   ```json
+   "groupMembershipClaims": "SecurityGroup"
+   ```
 
-    Grup içinde grup ObjectIDs derleyicisindeki varsayılan talep değeri.  Şirket içi grup öznitelikleri içeren veya rol talep türünü değiştirmek için talep değerini değiştirmek için OptionalClaims yapılandırma şu şekilde kullanın:
+   Grup içinde grup ObjectIDs derleyicisindeki varsayılan talep değeri.  Şirket içi grup öznitelikleri içeren veya rol talep türünü değiştirmek için talep değerini değiştirmek için OptionalClaims yapılandırma şu şekilde kullanın:
 
- 3. Grup adı yapılandırması isteğe bağlı talepleri ayarlayın.
+3. Grup adı yapılandırması isteğe bağlı talepleri ayarlayın.
 
-    Belirteç grupları şirket içi AD grup öznitelikleri isteğe bağlı bir talep bölümünde hangi belirteç türü isteğe bağlı bir talep uygulanması gerektiğini belirtmek, istenen isteğe bağlı bir talep ve istenen herhangi bir ek özellik adını içerecek şekilde isterseniz.  Birden çok belirteç türleri listelenir:
+   Belirteç grupları şirket içi AD grup öznitelikleri isteğe bağlı bir talep bölümünde hangi belirteç türü isteğe bağlı bir talep uygulanması gerektiğini belirtmek, istenen isteğe bağlı bir talep ve istenen herhangi bir ek özellik adını içerecek şekilde isterseniz.  Birden çok belirteç türleri listelenir:
 
-    - OIDC kimlik belirteci için ilgili Idtoken
-    - OAuth/OIDC erişim belirteci için accessToken
-    - SAML belirteçleri Saml2Token.
+   - OIDC kimlik belirteci için ilgili Idtoken
+   - OAuth/OIDC erişim belirteci için accessToken
+   - SAML belirteçleri Saml2Token.
 
-    > [!NOTE]
-    > Biçim belirteçleri Saml2Token türü SAML1.1 hem SAML2.0 için geçerlidir
+   > [!NOTE]
+   > Biçim belirteçleri Saml2Token türü SAML1.1 hem SAML2.0 için geçerlidir
 
-    İlgili her belirteç türü için bildirim OptionalClaims bölümde kullanmak üzere gruplar talep değiştirin. OptionalClaims Şeması aşağıdaki gibidir:
+   İlgili her belirteç türü için bildirim OptionalClaims bölümde kullanmak üzere gruplar talep değiştirin. OptionalClaims Şeması aşağıdaki gibidir:
 
- ```json
- {
-    "name": "groups",
-    "source": null,
-    "essential": false,
-    "additionalProperties": []
- }
- ```
+   ```json
+   {
+   "name": "groups",
+   "source": null,
+   "essential": false,
+   "additionalProperties": []
+   }
+   ```
 
- | İsteğe bağlı bir talep şeması | Değer |
- |----------|-------------|
- | **Adı:** | "Grupları" olmalıdır |
- | **Kaynak:** | Kullanılmıyor. Atlayın veya null |
- | **gerekli:** | Kullanılmıyor. Atlarsanız veya false değerini belirtin |
- | **additionalProperties:** | Ek özellikler listesi.  Geçerli seçenekler: "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
+   | İsteğe bağlı bir talep şeması | Değer |
+   |----------|-------------|
+   | **Adı:** | "Grupları" olmalıdır |
+   | **Kaynak:** | Kullanılmıyor. Atlayın veya null |
+   | **gerekli:** | Kullanılmıyor. Atlarsanız veya false değerini belirtin |
+   | **additionalProperties:** | Ek özellikler listesi.  Geçerli seçenekler: "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
 
- AdditionalProperties içinde yalnızca bir "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" gereklidir.  Birden fazla varsa, ilk kullanılır ve diğerleri yoksayılır.
+   AdditionalProperties içinde yalnızca bir "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" gereklidir.  Birden fazla varsa, ilk kullanılır ve diğerleri yoksayılır.
 
- Bazı uygulamalar, rol talep kullanıcı grup bilgilerini gerektirir.  Bir gruptan bir rol talep için talep için talep türünü değiştirmek için "emit_as_roles" için ek özellikleri ekleyin.  Grubu değerlerini, rol talebi yayılan.
+   Bazı uygulamalar, rol talep kullanıcı grup bilgilerini gerektirir.  Bir gruptan bir rol talep için talep için talep türünü değiştirmek için "emit_as_roles" için ek özellikleri ekleyin.  Grubu değerlerini, rol talebi yayılan.
 
- > [!NOTE]
- > "Emit_as_roles" kullanılırsa, kullanıcının atandığı herhangi bir uygulama rolü yapılandırılmış rol talebi görünmüyor
+   > [!NOTE]
+   > "Emit_as_roles" kullanılırsa, kullanıcının atandığı herhangi bir uygulama rolü yapılandırılmış rol talebi görünmüyor
 
 ### <a name="examples"></a>Örnekler
 

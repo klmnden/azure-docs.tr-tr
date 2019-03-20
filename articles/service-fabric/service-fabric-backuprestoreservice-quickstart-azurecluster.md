@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 96911efb541fc861aa7dd5f735efca8309763428
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4cb73ea08060336710207e026bb5bcc5a251efc8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443105"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877930"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Düzenli yedekleme ve geri yükleme Azure Service fabric'te 
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Service Fabric, bir dizi API aşağıdaki işlevselliği ilgili düzenli yedekle
 ## <a name="prerequisites"></a>Önkoşullar
 * Service Fabric kümesi yapıyla 6.2 sürümü ve üzeri. Windows Server'da küme ayarlanması. Bu [makale](service-fabric-cluster-creation-via-arm.md) Service Fabric oluşturma adımları için Azure kaynak şablonu kullanarak küme.
 * Yedeklemeleri depolamak için depolama alanına bağlanmak için gereken gizli şifreleme için X.509 sertifikası. Başvuru [makale](service-fabric-cluster-creation-via-arm.md) alın veya bir X.509 sertifikası oluşturmak nasıl bilmek.
-* Service Fabric SDK'sı sürüm 3.0 kullanılarak oluşturulan Service Fabric durum bilgisi güvenilir olan uygulama veya üzeri. .Net Core hedefleyen uygulamalar için 2.0, uygulama kullanarak Service Fabric SDK'sı sürüm 3.1 oluşturulur veya üzeri.
+* Service Fabric SDK'sı sürüm 3.0 kullanılarak oluşturulan Service Fabric durum bilgisi güvenilir olan uygulama veya üzeri. .NET Core 2.0 hedefleyen uygulamalar için Service Fabric SDK'sı sürüm 3.1 kullanarak uygulama oluşturulmalıdır veya üzeri.
 * Uygulama yedeklemeleri depolamak için Azure depolama hesabı oluşturun.
 
 ## <a name="enabling-backup-and-restore-service"></a>Yedekleme ve geri yükleme Hizmeti'ni etkinleştirme

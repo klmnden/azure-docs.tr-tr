@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 488e1adb6d533dc88994e1dc08513870f56bd9c0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 34a63c8f283f24fa58b4e2a41d3a44ff0c8c3c17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433051"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003460"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Azure HDInsight - veri geçişi en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -34,9 +34,9 @@ Verileri şirket içinden Azure ortamına geçirmek için iki ana seçeneğiniz 
 
 Aşağıdaki tabloda veri birimi ve ağ bant genişliğine göre yaklaşık veri aktarım süresi vardır. Bir veri kutusu veri geçişi üç hafta daha uzun sürmesi beklendiğinde kullanın.
 
-|**Data Qty**|**Ağ bant genişliği**|||
-|---|---|---|---|
-|| **45 MB/sn (T3)**|**100 MB/sn**|**1 GB/sn**|**10 Gbps**
+|**Data Qty**|**Ağ bant genişliği**||||
+|---|---|---|---|---|
+|| **45 MB/sn (T3)**|**100 MB/sn**|**1 GB/sn**|**10 Gbps**|
 |1 TB|2 gün|1 gün| 2 saat|14 dakika|
 |10 TB|22 günü|10 gün|1 gün|2 saat|
 |35 TB|76 gün|34 gün|3 gün|8 saat|

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62d8236abb2b5f21bdb4111480d95376faa2e379
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 90d1d752481ada33c038ab563f6bd0d3bf5fad08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432609"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086811"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Bir depolama hesabında özelleştirilmiş bir VHD'den VM oluşturma
 
@@ -212,10 +212,10 @@ Sanal ağ oluşturup alt [sanal ağ](../../virtual-network/virtual-networks-over
     $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
-### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Ağ güvenlik grubu ve bir RDP kuralı oluşturma
-Sanal makinenizde RDP kullanarak oturum açmak 3389 numaralı bağlantı noktasında RDP erişimine izin veren bir güvenlik kuralı olması gerekir. Mevcut bir VHD için yeni bir VM oluşturulduğundan, VM oluşturulduktan sonra özel VM kaynak sanal makineden RDP kullanarak oturum açmasına izin olan mevcut bir hesap kullanabilirsiniz.
-Bu ağ arabirimi ile ilişkilendirilecektir oluşturmadan önce tamamlanması gerekir.  
-NSG adı Bu örnekte ayarlar **myNsg** ve RDP kuralının adını **myRdpRule**.
+   ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Ağ güvenlik grubu ve bir RDP kuralı oluşturma
+   Sanal makinenizde RDP kullanarak oturum açmak 3389 numaralı bağlantı noktasında RDP erişimine izin veren bir güvenlik kuralı olması gerekir. Mevcut bir VHD için yeni bir VM oluşturulduğundan, VM oluşturulduktan sonra özel VM kaynak sanal makineden RDP kullanarak oturum açmasına izin olan mevcut bir hesap kullanabilirsiniz.
+   Bu ağ arabirimi ile ilişkilendirilecektir oluşturmadan önce tamamlanması gerekir.  
+   NSG adı Bu örnekte ayarlar **myNsg** ve RDP kuralının adını **myRdpRule**.
 
 ```powershell
 $nsgName = "myNsg"

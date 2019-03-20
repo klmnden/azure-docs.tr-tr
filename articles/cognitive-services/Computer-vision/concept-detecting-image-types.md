@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6cd7b2a8a70a315b05c0824a863803bbc6ffabb2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 37cdac16a51a30bdaf1ba0266bab7fdd1f2990f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872144"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895456"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Görüntü işleme olan algılama resim türleri
 
-Görüntü işleme görüntüleri içerik türü tarafından bir görüntüyü küçük resim olup olmadığını belirten bir ölçeği veya çizim olasılığını derecelendirme çözümleyebilirsiniz.
+İle [analiz görüntü](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) APİ'si, görüntü işleme analiz görüntüleri, içerik türü bir görüntüyü küçük resim çizim olup olmadığını gösteren.
 
 ## <a name="detecting-clip-art"></a>Küçük resim algılama
 
@@ -115,4 +115,4 @@ Aşağıdaki JSON yanıtları gösterir görüntü işleme örnek görüntüleri
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kavramları hakkında bilgi edinin [görüntüleri etiketleme](concept-tagging-images.md) ve [görüntüleri kategorilendirme](concept-categorizing-images.md).
+Bkz: [analiz görüntü](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) başvuru görüntü türlerini algılamak hakkında bilgi edinmek için belgeleri.

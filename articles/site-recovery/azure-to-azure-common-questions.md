@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: c251a159ec28d7fb03009ebcdc84056da739f937
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: bf7a8ea00fe94e6896c097b8e27c22c0831f71da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587438"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008659"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Sık sorulan sorular: Azure'dan Azure'a çoğaltma
 
@@ -26,6 +26,7 @@ Bu makalede, Azure Vm'leri olağanüstü durum kurtarma (DR), Azure Site Recover
 1.  **[Çoklu VM tutarlılığı](#multi-vm-consistency)** 
 1.  **[Kurtarma planı](#recovery-plan)** 
 1.  **[Yeniden koruma ve yeniden çalışma](#reprotection-and-failback)** 
+2.  **[Kapasite](#capacity)**
 1.  **[Güvenlik](#security)** 
 
 
@@ -35,7 +36,7 @@ Bu makalede, Azure Vm'leri olağanüstü durum kurtarma (DR), Azure Site Recover
 Gözden geçirme [Azure Site Recovery fiyatlandırma](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) ayrıntıları.
 ### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Azure Site Recovery için ücretsiz katman nasıl çalışır?
 Azure Site Recovery ile korunan her örnek, ilk 31 gün boyunca ücretsiz olarak korunur. 32. günden itibaren örneğin korunması yukarıdaki fiyatlarla ücretlendirilir.
-###<a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>İlk 31 gün boyunca başka herhangi bir Azure hizmeti için ücretlendirilir miyim?
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>İlk 31 gün boyunca başka herhangi bir Azure hizmeti için ücretlendirilir miyim?
 Evet, Azure Site Recovery korunan bir örnek için ilk 31 gün boyunca ücretsiz olsa da Azure Depolama, depolama işlemleri ve veri aktarımı için ücretlendirilmeye devam edebilirsiniz. Korunan bir sanal makine için de Azure işlem ücretleri alınabilir. Fiyatlandırma hakkında tam bilgi almak [burada](https://azure.microsoft.com/pricing/details/site-recovery)
 
 ### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>Site Recovery, Azure Vm'lerinde yapılandırmak için en iyi uygulamalar nelerdir?
@@ -117,7 +118,7 @@ Aşağıdaki ekran görüntüsünde, örnek gösterir. Ekran görüntüsünde:
 1. Süre değerinden son 1 saat, 5 dakikalık bir sıklık ile kurtarma noktaları vardır.
 2. Son 1 saat ötesinde daha fazla süre için Site Recovery yalnızca 1 kurtarma noktası tutar.
 
-  ![Oluşturulan kurtarma noktalarının listesi](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+   ![Oluşturulan kurtarma noktalarının listesi](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
 
 
 ### <a name="how-far-back-can-i-recover"></a>Ne kadar geri kurtarma gerçekleştirebilir miyim?
@@ -220,7 +221,12 @@ Bu, durumunuza bağlıdır. Örneğin, VM Kaynak bölgesi varsa, kaynak ve hedef
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Ne kadar zaman mevcut yeniden çalışma için sınav zamanı?
 Yeniden koruma sonra yeniden çalışma için süreyi genellikle zaman yük devretme için birincil bölgeden ikincil bir bölgeye benzer. 
 
-## <a name="a-namesecuritysecurity"></a><a name="security">Güvenlik
+## <a name="capacity"></a>Kapasite
+### <a name="does-site-recovery-work-with-reserved-instance"></a>Site Recovery, ayrılmış örnek ile çalışır mı?
+Evet, satın [rezerve örnekleri](https://azure.microsoft.com/pricing/reserved-vm-instances/) DR bölge ve ASR yük devretme işlemlerini bunları kullanır. </br> Müşteriler, ek yapılandırma gereklidir.
+
+
+## <a name="security"></a>Güvenlik
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Çoğaltılan veriler Site Recovery hizmetine gönderilir mi?
 Hayır, Site Recovery çoğaltılan verilere müdahale etmez ve sanal makinelerinizde çalışan ne hakkında herhangi bir bilgi yoktur. Yalnızca çoğaltma ve yük devretme işlemlerini düzenlemek için gereken meta veriler Site Recovery hizmetine gönderilir.  
 Site Recovery, ISO 27001: 2013, 27018, HIPAA, DPA sertifikalı ve SOC2 ile FedRAMP JAB değerlendirmelerini sürecinde olduğundan.

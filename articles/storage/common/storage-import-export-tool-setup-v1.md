@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 6d8cf874032449e362a35d106bba3b430a80ea48
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: aafff208b9de2ae485fb84be428cf77f237e022e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467620"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087457"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Azure içeri/dışarı aktarma Aracı'nı ayarlama
 Microsoft Azure içeri/dışarı aktarma aracı Microsoft Azure içeri/dışarı aktarma hizmetiyle kullanabileceğiniz sürücü hazırlama ve onarım aracıdır. Aracı aşağıdaki işlevleri için kullanabilirsiniz:  
@@ -45,36 +45,36 @@ Sürücüleri içeri aktarma işine hazırlama, aşağıdaki önkoşulları kar�
   
 Kısmen başarısız olan bir içeri aktarma onarmak çalışıyorsanız, ihtiyacınız olacak:  
   
--   Kopyalama günlük dosyaları  
+- Kopyalama günlük dosyaları  
   
--   Depolama hesabı anahtarı  
+- Depolama hesabı anahtarı  
   
   Kısmen başarısız olan bir dışarı aktarma onarmak çalışıyorsanız, ihtiyacınız olacak:  
   
--   Kopyalama günlük dosyaları  
+- Kopyalama günlük dosyaları  
   
--   Bildirim dosyaları (isteğe bağlı)  
+- Bildirim dosyaları (isteğe bağlı)  
   
--   Depolama hesabı anahtarı  
+- Depolama hesabı anahtarı  
   
 ## <a name="installing-the-azure-importexport-tool"></a>Azure içeri/dışarı aktarma aracını yükleme  
  Azure içeri/dışarı aktarma aracı aşağıdaki dosyalardan oluşur:  
   
--   WAImportExport.exe  
+- WAImportExport.exe  
   
--   WAImportExport.exe.config  
+- WAImportExport.exe.config  
   
--   WAImportExportCore.dll  
+- WAImportExportCore.dll  
   
--   WAImportExportRepair.dll  
+- WAImportExportRepair.dll  
   
--   Microsoft.WindowsAzure.Storage.dll  
+- Microsoft.WindowsAzure.Storage.dll  
   
--   Hddid.dll  
+- Hddid.dll  
   
- Çalışan bir dizine, örneğin, bu dosyaları kopyalayın `c:\WAImportExport`. Ardından, Yönetici modunda bir komut satırı penceresi açın ve yukarıdaki dizini geçerli dizin olarak ayarlayın.  
+  Çalışan bir dizine, örneğin, bu dosyaları kopyalayın `c:\WAImportExport`. Ardından, Yönetici modunda bir komut satırı penceresi açın ve yukarıdaki dizini geçerli dizin olarak ayarlayın.  
   
- Komut için Yardım çıktısını almak için parametresiz aracı çalıştırın:  
+  Komut için Yardım çıktısını almak için parametresiz aracı çalıştırın:  
   
 ```  
 WAImportExport, a client tool for Microsoft Azure Import/Export service. Microsoft (c) 2013, 2014  

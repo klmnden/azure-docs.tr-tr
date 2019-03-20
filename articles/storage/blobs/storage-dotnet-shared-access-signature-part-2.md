@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9c5f32bb1b4f335fab11f0fd865421f2eec5eee9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5dcb9f16b589b8332d5fcf35c9d8b4cd914460f2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244921"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012555"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Paylaşılan erişim imzaları, bölüm 2: Oluşturma SAS ve Blob Depolama ile kullanma
 
@@ -33,7 +33,7 @@ Bu öğreticide, oluşturma ve kapsayıcılar ve bloblar için paylaşılan eri�
 **Uygulama 2**: İstemci uygulaması. İlk uygulama ile oluşturulan paylaşılan erişim imzalarını kullanma erişimleri kapsayıcı ve blob kaynakları. Erişim kapsayıcı ve blob kaynaklara--yalnızca paylaşılan erişim imzalarını kullanır, çalıştığı *değil* depolama hesabı erişim anahtarı içerir.
 
 ## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>1. Bölüm: Paylaşılan erişim imzaları üretmek için bir konsol uygulaması oluşturma
-İlk olarak, Azure depolama istemci kitaplığı için .NET yüklü olduğundan emin olun. Yükleyebileceğiniz [NuGet paketini](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet paketini") istemci kitaplığı için en güncel derlemeleri içeren. En son düzeltmeler olmasını sağlamak için önerilen yöntem budur. İstemci kitaplığının en son sürümünün bir parçası olarak indirebilirsiniz [.NET için Azure SDK'sı](https://azure.microsoft.com/downloads/).
+İlk olarak, Azure depolama istemci kitaplığı için .NET yüklü olduğundan emin olun. Yükleyebileceğiniz [NuGet paketini](https://nuget.org/packages/WindowsAzure.Storage/ "NuGet paketini") istemci kitaplığı için en güncel derlemeleri içeren. En son düzeltmeler olmasını sağlamak için önerilen yöntem budur. İstemci kitaplığının en son sürümünün bir parçası olarak indirebilirsiniz [.NET için Azure SDK'sı](https://azure.microsoft.com/downloads/).
 
 Visual Studio'da yeni bir Windows konsol uygulaması oluşturun ve adlandırın **GenerateSharedAccessSignatures**. Başvuruları Ekle [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) ve [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) aşağıdaki yaklaşımlardan birini kullanarak:
 

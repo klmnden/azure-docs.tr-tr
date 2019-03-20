@@ -16,12 +16,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: manayar
-ms.openlocfilehash: 5cd9593bba1e97f52bfa37467920959b1ef0f698
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 1ace0ddd3b29f844488eb7579934541fa8273fa0
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329626"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199911"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri nedir?
 Azure sanal makine ölçek kümeleri sayesinde bir grup özdeş, yük dengeli sanal makineler oluşturup yönetebilirsiniz. Tanımlı bir zamanlamaya veya talebe yanıt olarak sanal makine örneği sayısı otomatik olarak artabilir ya da azalabilir. Ölçek kümeleri, uygulamalarınıza yönelik yüksek düzeyde kullanılabilirlik sağlar ve çok sayıda sanal makineyi merkezi olarak yönetmenize, yapılandırmanıza ve güncelleştirmenize imkan tanır. Sanal makine ölçek kümeleri ile, işlem, büyük veri ve kapsayıcı iş yükleri gibi alanlar için büyük ölçekli hizmetler derleyebilirsiniz.
@@ -46,7 +46,7 @@ Azure sanal makine ölçek kümeleri, birçok sanal makinede çalıştırılan u
     - Bir yandan otomatik ölçeklendirme, talep düşükken uygulamanızı çalıştıran gereksiz sanal makine örneği sayısını en aza indirirken, diğer yandan da talep arttıkça müşteriler kabul edilebilir performans düzeyi elde etmeye devam eder ve otomatik olarak ek sanal makine örnekleri eklenir. Bu yetenek gerektiğinde maliyetlerin düşürülmesine ve etkili şekilde Azure kaynakları oluşturulmasına yardımcı olur.
 
 - **Büyük ölçekte çalışma**
-    - Ölçek kümeleri, 1000 adede kadar sanal makine örneğini destekler. Kendi özel sanal makine görüntülerinizi oluşturur ve karşıya yüklerseniz, sınır 300 sanal makine örneğidir.
+    - Ölçek kümeleri, 1000 adede kadar sanal makine örneğini destekler. Oluşturun ve kendi özel VM görüntülerini karşıya yükleme, 600 sanal makine örneği sınırını olur.
     - Üretim iş yükleri ile en iyi performans için kullanmak [Azure yönetilen diskler](../virtual-machines/windows/managed-disks-overview.md).
 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: b7710b081668bf07d40718baf1d84314246861f5
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ce5f7ab1e6751a9ce68aa2d9c466a112c9cac182
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412412"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004038"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Bağımlılıklar, yakalanan özel durumların ve yöntemi yürütme sürelerini Java web uygulamalarını izleme
 
@@ -73,7 +73,6 @@ Xml dosyasının içeriği ayarlayın. İstediğiniz dahil etmek veya özellikle
                reportCaughtExceptions="true"
                reportExecutionTime="true"
                />
-
            <!-- Report on the particular signature
                 void methodTwo(String, int) -->
            <Method name="methodTwo"
@@ -90,12 +89,26 @@ Raporlar özel durumu ve her bir yöntem yöntemi zamanlamasını etkinleştirme
 
 Varsayılan olarak, `reportExecutionTime` true'dur ve `reportCaughtExceptions` false'tur.
 
-### <a name="spring-boot-agent-additional-config"></a>Yay önyükleme aracı ek yapılandırma
+## <a name="additional-config-spring-boot"></a>Ek yapılandırma (Spring Boot)
 
 `java -javaagent:/path/to/agent.jar -jar path/to/TestApp.jar`
 
+Azure App Services aşağıdakileri yapmak için:
+
+* Ayarlar > Uygulama Ayarları'nı seçin.
+* Uygulama Ayarları'nın altında yeni bir anahtar değer çifti ekleyin:
+
+Anahtar: `JAVA_OPTS` Değer: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.3.1-SNAPSHOT.jar`
+
+Yayınları Java agent en son sürümünü kontrol [burada](https://github.com/Microsoft/ApplicationInsights-Java/releases
+). 
+
+D:/home/site/wwwroot sonlanır, aracı, projenizdeki bir kaynak olarak paketlenmesi gerekir/dizin. Giderek aracınızın doğru bir App Service dizininde olduğunu onaylayabilirsiniz **geliştirme araçları** > **Gelişmiş Araçlar** > **hata ayıklama konsolunu**ve site dizinin içeriklerini inceleniyor.    
+
+* Ayarları kaydetmek ve uygulamanızı yeniden başlatın. (Bu adımlar yalnızca uygulama Windows üzerinde çalışan hizmetler için geçerlidir.)
+
 > [!NOTE]
-> Yapay ZEKA Agent.xml ve aracı jar dosyasını aynı klasörde olmalıdır. Bunlar genellikle birlikte yerleştirilir `/resources` proje klasörü. 
+> Yapay ZEKA Agent.xml ve aracı jar dosyasını aynı klasörde olmalıdır. Bunlar genellikle birlikte yerleştirilir `/resources` proje klasörü.  
 
 ### <a name="spring-rest-template"></a>Spring Rest şablonu
 

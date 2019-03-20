@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 6db9a5b65fc2723af2eae006ad81716e23e52133
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860533"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57975500"
 ---
 # <a name="interpret-method"></a>Yöntem yorumlama
 
@@ -37,9 +37,11 @@ Ad     | Değer | Gerekli mi?  | Açıklama
 **count**    | Sayı | Hayır<br>Varsayılan: 10 | Yorum döndürülecek en fazla sayısı.         
 **uzaklık**   | Sayı | Hayır<br>Varsayılan: 0  | Döndürülecek ilk yorumu dizini. Örneğin, *sayısı = 2 & uzaklığı 0 =* ınterpretations 0 ve 1 döndürür. *sayısı 2 & uzaklığı = 2 =* ınterpretations 2 ve 3 döndürür.       
 **zaman aşımı**  | Sayı | Hayır<br>Varsayılan: 1000 | Milisaniye cinsinden zaman aşımı. Zaman aşımı dolmadan bulunan ınterpretations döndürülür.
+
 <br>
   
 ## <a name="response-json"></a>Yanıt (JSON)
+
 Ad     | Açıklama
 ---------|---------
 **Sorgu** |*Sorgu* istek parametresi.
@@ -54,6 +56,7 @@ Ad     | Açıklama
 **İptal edildi** | İstek zaman aşımına uğrarsa true.
 
 <br>
+
 #### <a name="example"></a>Örnek:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime&complete=1&count=2

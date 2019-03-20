@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: cbrooksmsft
 ms.subservice: queues
-ms.openlocfilehash: b1a566c4179e940b82790c69b3036e3be9e352cc
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 08c865e5383e4095a22aa6c10c8b181f916d1d30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564536"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999430"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Kuyruk Depolama'yı C++ kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,10 +23,10 @@ ms.locfileid: "55564536"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu kılavuzda Azure kuyruk depolama hizmetini kullanarak, yaygın senaryoları gerçekleştirmek nasıl gösterir. Örnekler C++ dilinde yazılmıştır ve [C++ için Azure Depolama İstemci Kitaplığı](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)’nı kullanır. Senaryoları ele alınmaktadır **ekleme**, **gözatma**, **alma**, ve **silme** kuyruk iletileri yanı  **oluşturma ve kuyrukları silme**.
+Bu kılavuzda Azure kuyruk depolama hizmetini kullanarak, yaygın senaryoları gerçekleştirmek nasıl gösterir. Örnekler C++ dilinde yazılmıştır ve [C++ için Azure Depolama İstemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)’nı kullanır. Senaryoları ele alınmaktadır **ekleme**, **gözatma**, **alma**, ve **silme** kuyruk iletileri yanı  **oluşturma ve kuyrukları silme**.
 
 > [!NOTE]
-> Bu kılavuz C++ için Azure Depolama İstemci Kitaplığı sürüm 1.0.0 ve üzerini hedefler. Önerilen sürüm, [NuGet](http://www.nuget.org/packages/wastorage) ya da [GitHub](http://github.com/Azure/azure-storage-cpp/) üzerinden ulaşılabilen Depolama İstemci Kitaplığı 2.2.0’dır.
+> Bu kılavuz C++ için Azure Depolama İstemci Kitaplığı sürüm 1.0.0 ve üzerini hedefler. Önerilen sürüm, [NuGet](https://www.nuget.org/packages/wastorage) ya da [GitHub](https://github.com/Azure/azure-storage-cpp/) üzerinden ulaşılabilen Depolama İstemci Kitaplığı 2.2.0’dır.
 > 
 > 
 
@@ -42,7 +42,7 @@ Bunu yapmak için, C++ için Azure Depolama İstemci Kitaplığı’nı yükleme
 C++ için Azure Depolama İstemci Kitaplığı’nı aşağıdaki yöntemleri kullanarak yükleyebilirsiniz:
 
 * **Linux:** Verilen yönergeleri izleyerek [C++ Benioku için Azure depolama istemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sayfası.
-* **Windows:** Visual Studio'da, **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**’na tıklayın. Aşağıdaki komutu yazın [NuGet Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) basın **ENTER**.
+* **Windows:** Visual Studio'da, **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**’na tıklayın. Aşağıdaki komutu yazın [NuGet Paket Yöneticisi Konsolu](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) basın **ENTER**.
 
 ```powershell
 Install-Package wastorage
@@ -266,5 +266,5 @@ Kuyruk depolamanın temellerini öğrendiğinize göre Azure depolama hakkında 
 * [BLOB depolama alanından C++ kullanma](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Tablo depolama'yı C++ kullanma](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Liste Azure depolama kaynaklarını C++ dilinde](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
-* [C++ başvurusu için depolama istemcisi kitaplığı](http://azure.github.io/azure-storage-cpp)
+* [C++ başvurusu için depolama istemcisi kitaplığı](https://azure.github.io/azure-storage-cpp)
 * [Azure Depolama Belgeleri](https://azure.microsoft.com/documentation/services/storage/)

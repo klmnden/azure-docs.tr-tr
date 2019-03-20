@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 478034d1c9f99f40a4827515433357c76235e9ee
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7d846f28e78959b6962add51070f04857f6463d7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428945"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852825"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Kimlik doğrulama ve yetkilendirme Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -64,7 +64,7 @@ rules:
   verbs: ["*"]
 ```
 
-Bir RoleBinding sonra Azure AD kullanıcı bağlayan oluşturulur *developer1@contoso.com* aşağıdaki YAML bildirimde gösterildiği RoleBinding için:
+Bir RoleBinding sonra Azure AD kullanıcı bağlayan oluşturulur *developer1\@contoso.com* aşağıdaki YAML bildirimde gösterildiği RoleBinding için:
 
 ```yaml
 ind: RoleBinding
@@ -82,7 +82,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-Zaman *developer1@contoso.com* kimlik doğrulaması kaynakları için tam izinlere sahiptirler AKS kümesi karşı *Finans uygulama* ad alanı. Bu şekilde, mantıksal olarak ayrı ve denetim kaynaklara erişin. Kubernetes RBAC, Azure ile birlikte kullanılmalıdır AD-tümleştirmesi, önceki bölümde anlatıldığı gibidir.
+Zaman *developer1\@contoso.com* kimlik doğrulaması kaynakları için tam izinlere sahiptirler AKS kümesi karşı *Finans uygulama* ad alanı. Bu şekilde, mantıksal olarak ayrı ve denetim kaynaklara erişin. Kubernetes RBAC, Azure ile birlikte kullanılmalıdır AD-tümleştirmesi, önceki bölümde anlatıldığı gibidir.
 
 ## <a name="use-pod-identities"></a>Pod kimlikler kullanın
 

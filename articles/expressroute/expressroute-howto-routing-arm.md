@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 1be362a3e829beb6c8bb0a55f5ab02852549fbc3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bb1e71c4a665a25fa9b936c8777cf8fa0d5cd3e6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537924"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091928"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>PowerShell kullanarak ExpressRoute devresi için eşlemesi oluşturma ve değiştirme
 
@@ -63,73 +63,73 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
 
 1. Oturum açın ve aboneliğinizi seçin.
 
-  PowerShell'i yerel olarak yüklü değilse, oturum açın. Azure Cloud Shell kullanıyorsanız bu adımı atlayabilirsiniz.
+   PowerShell'i yerel olarak yüklü değilse, oturum açın. Azure Cloud Shell kullanıyorsanız bu adımı atlayabilirsiniz.
 
-  ```azurepowershell
-  Connect-AzAccount
-  ```
+   ```azurepowershell
+   Connect-AzAccount
+   ```
 
-  ExpressRoute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
+   ExpressRoute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
 
-  ```azurepowershell-interactive
-Select-AzSubscription -SubscriptionId "<subscription ID>"
-  ```
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionId "<subscription ID>"
+   ```
 2. ExpressRoute bağlantı hattı oluşturun.
 
-  Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-arm.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. f bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunar, bağlantı sağlayıcınızdan sizin için eşlemeyi Microsoft etkinleştirmek isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra yönetmez, ancak sonraki adımları kullanarak yapılandırmanız devam edin. 
+   Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-arm.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. f bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunar, bağlantı sağlayıcınızdan sizin için eşlemeyi Microsoft etkinleştirmek isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra yönetmez, ancak sonraki adımları kullanarak yapılandırmanız devam edin. 
 
 3. ExpressRoute bağlantı hattının sağlanmış olduğundan ve ayrıca etkin olduğundan emin olmak için kontrol edin. Şu örneği kullanın:
 
-  ```azurepowershell-interactive
-  Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-  ```
+   ```azurepowershell-interactive
+   Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+   ```
 
-  Yanıt aşağıdaki örneğe benzer:
+   Yanıt aşağıdaki örneğe benzer:
 
-  ```
-  Name                             : ExpressRouteARMCircuit
-  ResourceGroupName                : ExpressRouteResourceGroup
-  Location                         : westus
-  Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-  Etag                             : W/"################################"
-  ProvisioningState                : Succeeded
-  Sku                              : {
+   ```
+   Name                             : ExpressRouteARMCircuit
+   ResourceGroupName                : ExpressRouteResourceGroup
+   Location                         : westus
+   Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+   Etag                             : W/"################################"
+   ProvisioningState                : Succeeded
+   Sku                              : {
                                        "Name": "Standard_MeteredData",
                                        "Tier": "Standard",
                                        "Family": "MeteredData"
                                      }
-  CircuitProvisioningState         : Enabled
-  ServiceProviderProvisioningState : Provisioned
-  ServiceProviderNotes             : 
-  ServiceProviderProperties        : {
+   CircuitProvisioningState         : Enabled
+   ServiceProviderProvisioningState : Provisioned
+   ServiceProviderNotes             : 
+   ServiceProviderProperties        : {
                                        "ServiceProviderName": "Equinix",
                                        "PeeringLocation": "Silicon Valley",
                                        "BandwidthInMbps": 200
                                      }
-  ServiceKey                       : **************************************
-  Peerings                         : []
-  ```
+   ServiceKey                       : **************************************
+   Peerings                         : []
+   ```
 4. Bağlantı hattı için Microsoft eşlemesini yapılandırın. Devam etmeden önce aşağıdaki bilgilere sahip olduğunuzdan emin olun.
 
-  * Bir/30 veya/126 alt ağı birincil bağlantı için. Bu size ait ve bir RIR kayıtlı bir geçerli ortak IPv4 veya IPv6 öneki olmalıdır / IRR.
-  * Bir/30 veya/126 alt ağı ikincil bağlantı için. Bu size ait ve bir RIR kayıtlı bir geçerli ortak IPv4 veya IPv6 öneki olmalıdır / IRR.
-  * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun.
-  * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
-  * Tanıtılan önekler: BGP oturumunda tanıtmayı planladığınız tüm ön eklerin listesini sağlamanız gerekir. Yalnızca ortak IP adresi ön ekleri kabul edilir. Ön ek kümesi göndermeyi planlıyorsanız, virgülle ayrılmış bir liste gönderebilirsiniz. Bu ön ekler size bir RIR / IRR içinde kaydedilmiş olmalıdır. IPv4, IPv6 önekleri tanıtılan ön ekler ve IPv6 BGP oturumları gerektiren tanıtılan IPv4 BGP oturumları gerektirir. 
-  * Yönlendirme kayıt defteri adı: Belirtebileceğiniz RIR / IRR'yi AS numarası ve öneklerinin kaydedildiği rır.
-  * İsteğe bağlı:
-    * Müşteri ASN'si: Eşleme AS numarasına kayıtlı olmayan önekler tanıtıyorsanız, kayıtlı oldukları AS numarasını belirtebilirsiniz.
-    * Kullanmayı seçerseniz bir MD5 karma değeri.
+   * Bir/30 veya/126 alt ağı birincil bağlantı için. Bu size ait ve bir RIR kayıtlı bir geçerli ortak IPv4 veya IPv6 öneki olmalıdır / IRR.
+   * Bir/30 veya/126 alt ağı ikincil bağlantı için. Bu size ait ve bir RIR kayıtlı bir geçerli ortak IPv4 veya IPv6 öneki olmalıdır / IRR.
+   * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun.
+   * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
+   * Tanıtılan önekler: BGP oturumunda tanıtmayı planladığınız tüm ön eklerin listesini sağlamanız gerekir. Yalnızca ortak IP adresi ön ekleri kabul edilir. Ön ek kümesi göndermeyi planlıyorsanız, virgülle ayrılmış bir liste gönderebilirsiniz. Bu ön ekler size bir RIR / IRR içinde kaydedilmiş olmalıdır. IPv4, IPv6 önekleri tanıtılan ön ekler ve IPv6 BGP oturumları gerektiren tanıtılan IPv4 BGP oturumları gerektirir. 
+   * Yönlendirme kayıt defteri adı: Belirtebileceğiniz RIR / IRR'yi AS numarası ve öneklerinin kaydedildiği rır.
+   * İsteğe bağlı:
+     * Müşteri ASN'si: Eşleme AS numarasına kayıtlı olmayan önekler tanıtıyorsanız, kayıtlı oldukları AS numarasını belirtebilirsiniz.
+     * Kullanmayı seçerseniz bir MD5 karma değeri.
 
-  Microsoft, bağlantı hattı için eşleme yapılandırmak için aşağıdaki örneği kullanın:
+   Microsoft, bağlantı hattı için eşleme yapılandırmak için aşağıdaki örneği kullanın:
 
-  ```azurepowershell-interactive
-  Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-  Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+   Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
 ### <a name="getmsft"></a>Microsoft eşlemesi ayrıntılarını almak için
 
@@ -171,97 +171,97 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
 
 1. ExpressRoute için PowerShell modülünü içeri aktarın.
 
-  ExpressRoute cmdlet’lerini kullanmaya başlamak için [PowerShell Galerisi](https://www.powershellgallery.com/)’nden en yeni PowerShell yükleyicisini yüklemeniz ve Azure Resource Manager modüllerini PowerShell oturumuna aktarmanız gerekir. PowerShell'i Yönetici olarak çalıştırmanız gerekir.
+   ExpressRoute cmdlet’lerini kullanmaya başlamak için [PowerShell Galerisi](https://www.powershellgallery.com/)’nden en yeni PowerShell yükleyicisini yüklemeniz ve Azure Resource Manager modüllerini PowerShell oturumuna aktarmanız gerekir. PowerShell'i Yönetici olarak çalıştırmanız gerekir.
 
-  ```azurepowershell-interactive
-  Install-Module Az
-  ```
+   ```azurepowershell-interactive
+   Install-Module Az
+   ```
 
-  Tüm Az. içeri\* modülleri bilinen semantik sürüm aralığı içinde.
+   Tüm Az. içeri\* modülleri bilinen semantik sürüm aralığı içinde.
 
-  ```azurepowershell-interactive
-  Import-Module Az
-  ```
+   ```azurepowershell-interactive
+   Import-Module Az
+   ```
 
-  Yalnızca bilinen semantik sürüm aralığı içinde seçili bir modülü içeri aktarabilirsiniz.
+   Yalnızca bilinen semantik sürüm aralığı içinde seçili bir modülü içeri aktarabilirsiniz.
 
-  ```azurepowershell-interactive
-  Import-Module Az.Network 
-  ```
+   ```azurepowershell-interactive
+   Import-Module Az.Network 
+   ```
 
-  Hesabınızda oturum açın.
+   Hesabınızda oturum açın.
 
-  ```azurepowershell-interactive
-  Connect-AzAccount
-  ```
+   ```azurepowershell-interactive
+   Connect-AzAccount
+   ```
 
-  ExpressRoute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
+   ExpressRoute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
 
-  ```azurepowershell-interactive
-  Select-AzSubscription -SubscriptionId "<subscription ID>"
-  ```
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionId "<subscription ID>"
+   ```
 2. ExpressRoute bağlantı hattı oluşturun.
 
-  Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-arm.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 Hizmetleri sunuyorsa, bağlantı sağlayıcınızdan Azure özel, eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra yönetmez, ancak sonraki adımları kullanarak yapılandırmanız devam edin.
+   Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-arm.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 Hizmetleri sunuyorsa, bağlantı sağlayıcınızdan Azure özel, eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra yönetmez, ancak sonraki adımları kullanarak yapılandırmanız devam edin.
 
 3. ExpressRoute bağlantı hattının sağlanmış olduğundan ve ayrıca etkin olduğundan emin olmak için kontrol edin. Şu örneği kullanın:
 
-  ```azurepowershell-interactive
-  Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-  ```
+   ```azurepowershell-interactive
+   Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+   ```
 
-  Yanıt aşağıdaki örneğe benzer:
+   Yanıt aşağıdaki örneğe benzer:
 
-  ```
-  Name                             : ExpressRouteARMCircuit
-  ResourceGroupName                : ExpressRouteResourceGroup
-  Location                         : westus
-  Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-  Etag                             : W/"################################"
-  ProvisioningState                : Succeeded
-  Sku                              : {
+   ```
+   Name                             : ExpressRouteARMCircuit
+   ResourceGroupName                : ExpressRouteResourceGroup
+   Location                         : westus
+   Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+   Etag                             : W/"################################"
+   ProvisioningState                : Succeeded
+   Sku                              : {
                                        "Name": "Standard_MeteredData",
                                        "Tier": "Standard",
                                        "Family": "MeteredData"
                                      }
-  CircuitProvisioningState         : Enabled
-  ServiceProviderProvisioningState : Provisioned
-  ServiceProviderNotes             : 
-  ServiceProviderProperties        : {
+   CircuitProvisioningState         : Enabled
+   ServiceProviderProvisioningState : Provisioned
+   ServiceProviderNotes             : 
+   ServiceProviderProperties        : {
                                        "ServiceProviderName": "Equinix",
                                        "PeeringLocation": "Silicon Valley",
                                        "BandwidthInMbps": 200
                                      }
-  ServiceKey                       : **************************************
-  Peerings                         : []
-  ```
+   ServiceKey                       : **************************************
+   Peerings                         : []
+   ```
 4. Bağlantı hattı için Azure özel eşlemesini yapılandırın. Sonraki adımlara devam etmeden önce aşağıdaki öğelerin bulunduğundan emin olun:
 
-  * Birincil bağlantı için bir /30 alt ağı. Alt ağ, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır.
-  * İkincil bağlantı için bir /30 alt ağı. Alt ağ, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır.
-  * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun.
-  * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz. Bu eşleme için özel bir AS numarası kullanabilirsiniz. 65515’i kullanmadığınızdan emin olun.
-  * İsteğe bağlı:
-    * Kullanmayı seçerseniz bir MD5 karma değeri.
+   * Birincil bağlantı için bir /30 alt ağı. Alt ağ, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır.
+   * İkincil bağlantı için bir /30 alt ağı. Alt ağ, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır.
+   * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun.
+   * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz. Bu eşleme için özel bir AS numarası kullanabilirsiniz. 65515’i kullanmadığınızdan emin olun.
+   * İsteğe bağlı:
+     * Kullanmayı seçerseniz bir MD5 karma değeri.
 
-  Bağlantı hattınız için Azure özel eşlemesini yapılandırmak üzere aşağıdaki örneği kullanın:
+   Bağlantı hattınız için Azure özel eşlemesini yapılandırmak üzere aşağıdaki örneği kullanın:
 
-  ```azurepowershell-interactive
-  Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
-  Bir MD5 karma değeri kullanmayı seçerseniz, aşağıdaki örneği kullanın:
+   Bir MD5 karma değeri kullanmayı seçerseniz, aşağıdaki örneği kullanın:
 
-  ```azurepowershell-interactive
-  Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
-  ```
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
+   ```
 
-  > [!IMPORTANT]
-  > AS numaranızı müşteri ASN’si değil eşleme ASN’si olarak belirttiğinizden emin olun.
-  > 
-  >
+   > [!IMPORTANT]
+   > AS numaranızı müşteri ASN’si değil eşleme ASN’si olarak belirttiğinizden emin olun.
+   > 
+   >
 
 ### <a name="getprivate"></a>Azure özel eşleme ayrıntılarını almak için
 
@@ -306,99 +306,99 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir ExpressRoute bağlantı 
 
 1. ExpressRoute için PowerShell modülünü içeri aktarın.
 
-  ExpressRoute cmdlet’lerini kullanmaya başlamak için [PowerShell Galerisi](https://www.powershellgallery.com/)’nden en yeni PowerShell yükleyicisini yüklemeniz ve Azure Resource Manager modüllerini PowerShell oturumuna aktarmanız gerekir. PowerShell'i Yönetici olarak çalıştırmanız gerekir.
+   ExpressRoute cmdlet’lerini kullanmaya başlamak için [PowerShell Galerisi](https://www.powershellgallery.com/)’nden en yeni PowerShell yükleyicisini yüklemeniz ve Azure Resource Manager modüllerini PowerShell oturumuna aktarmanız gerekir. PowerShell'i Yönetici olarak çalıştırmanız gerekir.
 
-  ```azurepowershell-interactive
-  Install-Module Az
-  ```
+   ```azurepowershell-interactive
+   Install-Module Az
+   ```
 
-  Tüm Az. içeri\* modülleri bilinen semantik sürüm aralığı içinde.
+   Tüm Az. içeri\* modülleri bilinen semantik sürüm aralığı içinde.
 
-  ```azurepowershell-interactive
-  Import-Module Az
-  ```
+   ```azurepowershell-interactive
+   Import-Module Az
+   ```
 
-  Yalnızca bilinen semantik sürüm aralığı içinde seçili bir modülü içeri aktarabilirsiniz.
+   Yalnızca bilinen semantik sürüm aralığı içinde seçili bir modülü içeri aktarabilirsiniz.
 
-  ```azurepowershell-interactive
-  Import-Module Az.Network
-```
+   ```azurepowershell-interactive
+   Import-Module Az.Network
+   ```
 
-  Hesabınızda oturum açın.
+   Hesabınızda oturum açın.
 
-  ```azurepowershell-interactive
-  Connect-AzAccount
-  ```
+   ```azurepowershell-interactive
+   Connect-AzAccount
+   ```
 
-  ExpressRoute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
+   ExpressRoute bağlantı hattı oluşturmak istediğiniz aboneliği seçin.
 
-  ```azurepowershell-interactive
-  Select-AzSubscription -SubscriptionId "<subscription ID>"
-  ```
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionId "<subscription ID>"
+   ```
 2. ExpressRoute bağlantı hattı oluşturun.
 
-  Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-arm.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 Hizmetleri sunuyorsa, bağlantı sağlayıcınızdan Azure genel, eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra yönetmez, ancak sonraki adımları kullanarak yapılandırmanız devam edin.
+   Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-arm.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 Hizmetleri sunuyorsa, bağlantı sağlayıcınızdan Azure genel, eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra yönetmez, ancak sonraki adımları kullanarak yapılandırmanız devam edin.
 
 3. ExpressRoute bağlantı hattının sağlanmış ve etkin da emin olmak için kontrol edin. Şu örneği kullanın:
 
-  ```azurepowershell-interactive
-  Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-  ```
+   ```azurepowershell-interactive
+   Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+   ```
 
-  Yanıt aşağıdaki örneğe benzer:
+   Yanıt aşağıdaki örneğe benzer:
 
-  ```
-  Name                             : ExpressRouteARMCircuit
-  ResourceGroupName                : ExpressRouteResourceGroup
-  Location                         : westus
-  Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-  Etag                             : W/"################################"
-  ProvisioningState                : Succeeded
-  Sku                              : {
+   ```
+   Name                             : ExpressRouteARMCircuit
+   ResourceGroupName                : ExpressRouteResourceGroup
+   Location                         : westus
+   Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+   Etag                             : W/"################################"
+   ProvisioningState                : Succeeded
+   Sku                              : {
                                       "Name": "Standard_MeteredData",
                                        "Tier": "Standard",
                                        "Family": "MeteredData"
                                      }
-  CircuitProvisioningState         : Enabled
-  ServiceProviderProvisioningState : Provisioned
-  ServiceProviderNotes             : 
-  ServiceProviderProperties        : {
+   CircuitProvisioningState         : Enabled
+   ServiceProviderProvisioningState : Provisioned
+   ServiceProviderNotes             : 
+   ServiceProviderProperties        : {
                                        "ServiceProviderName": "Equinix",
                                        "PeeringLocation": "Silicon Valley",
                                        "BandwidthInMbps": 200
                                      }
-  ServiceKey                       : **************************************
-  Peerings                         : []
-  ```
+   ServiceKey                       : **************************************
+   Peerings                         : []
+   ```
 4. Bağlantı hattı için Azure ortak eşlemesini yapılandırın. Devam etmeden önce aşağıdaki bilgilere sahip olduğundan emin olun.
 
-  * Birincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır.
-  * İkincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır.
-  * Bu eşlemenin kurulacak geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun.
-  * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
-  * İsteğe bağlı:
-    * Kullanmayı seçerseniz bir MD5 karma değeri.
+   * Birincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır.
+   * İkincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır.
+   * Bu eşlemenin kurulacak geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun.
+   * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
+   * İsteğe bağlı:
+     * Kullanmayı seçerseniz bir MD5 karma değeri.
 
-  Bağlantı hattınız için Azure ortak eşlemesini yapılandırmak üzere aşağıdaki örneği çalıştırın
+   Bağlantı hattınız için Azure ortak eşlemesini yapılandırmak üzere aşağıdaki örneği çalıştırın
 
-  ```azurepowershell-interactive
-  Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
 
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
-  Bir MD5 karma değeri kullanmayı seçerseniz, aşağıdaki örneği kullanın:
+   Bir MD5 karma değeri kullanmayı seçerseniz, aşağıdaki örneği kullanın:
 
-  ```azurepowershell-interactive
-  Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
 
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
-  > [!IMPORTANT]
-  > AS numaranızı müşteri ASN’si değil eşleme ASN’si olarak belirttiğinizden emin olun.
-  > 
-  >
+   > [!IMPORTANT]
+   > AS numaranızı müşteri ASN’si değil eşleme ASN’si olarak belirttiğinizden emin olun.
+   > 
+   >
 
 ### <a name="getpublic"></a>Azure ortak eşleme ayrıntılarını almak için
 

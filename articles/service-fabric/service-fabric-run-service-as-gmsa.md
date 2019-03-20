@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric hizmet gMSA hesabı altında çalıştırma | Microsoft Docs
+title: Bir Azure Service Fabric hizmet gMSA hesabı altında Çalıştır | Microsoft Docs
 description: Hizmet gMSA olarak tek başına Service Fabric Windows küme üzerinde çalıştırmayı öğrenin.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 56a7478ab7221a1ccb4394a245540d3181e4ad8e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8d14d9191e74cb59c6696568ead425fca61d6f7c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155587"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873912"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Grup tarafından Yönetilen Hizmet Hesabı olarak hizmet çalıştırma
 Windows Server tek başına küme üzerinde bir grup olarak yönetilen hizmet hesabı (gMSA) bir RunAs ilke kullanan bir hizmet çalıştırabilirsiniz.  Varsayılan olarak, Service Fabric uygulamaları Fabric.exe işlemin altında çalıştığı hesabın altına çalıştırın. Hatta bir paylaşılan barındırılan ortamda, farklı hesaplar altındaki uygulamaları çalıştıran bunları birbirinden daha güvenli kılacaktır. Active Directory şirket içi etki alanı ve değil Azure Active Directory (Azure AD) içinde kullandığına dikkat edin. Bir gmsa'yı kullanarak, parola veya yoktur uygulama bildiriminde depolanan şifrelenmiş parola.  Hizmet olarak da çalıştırabilirsiniz bir [Active Directory kullanıcı veya grup](service-fabric-run-service-as-ad-user-or-group.md).
@@ -48,7 +48,7 @@ Aşağıdaki örnekte adlı bir gMSA hesabının nasıl oluşturulacağını gö
     
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+    <ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
         <ServiceManifestImport>
           <ServiceManifestRef ServiceManifestName="MyServiceTypePkg" ServiceManifestVersion="1.0.0" />
           <ConfigOverrides />
@@ -68,7 +68,8 @@ Aşağıdaki örnekte adlı bir gMSA hesabının nasıl oluşturulacağını gö
 > Bir hizmete bir RunAs ilke uygulayın ve hizmet bildirimi uç noktası HTTP protokolü kaynaklarla bildirir, belirtmelisiniz bir **SecurityAccessPolicy**.  Daha fazla bilgi için [HTTP ve HTTPS Uç noktalara yönelik güvenlik erişim ilkesi atama](service-fabric-assign-policy-to-endpoint.md). 
 >
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged--> Sonraki adım olarak, bu makaleleri okuyun:
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+Sonraki adım olarak, bu makaleleri okuyun:
 * [Uygulama modelini anlama](service-fabric-application-model.md)
 * [Bir hizmet bildiriminde kaynakları belirtme](service-fabric-service-manifest-resources.md)
 * [Uygulama dağıtma](service-fabric-deploy-remove-applications.md)

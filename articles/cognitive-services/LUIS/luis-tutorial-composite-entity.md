@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 9f35f882d83db6708afe3c82ac43933bcbeaeeb8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c49090a5563a6d63c90b29cc7442c1e4ed9886e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733563"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091588"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Öğretici: İlişkili verileri gruplandırma ve ayıklama
 Bu öğreticide, bileşik bir varlık içeren tek bir varlığa çeşitli türlerde ayıklanan veri paketi ekleyin. İstemci uygulama, verileri paketleme tarafından farklı veri türlerinde ilgili verileri kolayca ayıklayabilirsiniz.
@@ -183,7 +183,7 @@ LUIS, ortak veri ayıklama işlemi için önceden oluşturulmuş birkaç varlık
     }
     ```
 
-  Bu utterance bir bileşik varlıkları dizisi döndürür. Her varlık türü ve değeri verilir. Her bir alt varlık için daha fazla duyarlık bulmak için karşılık gelen öğe varlıkları dizide bulmak için bileşik bir dizi öğesi türü ve bir kombinasyonu kullanın.  
+   Bu utterance bir bileşik varlıkları dizisi döndürür. Her varlık türü ve değeri verilir. Her bir alt varlık için daha fazla duyarlık bulmak için karşılık gelen öğe varlıkları dizide bulmak için bileşik bir dizi öğesi türü ve bir kombinasyonu kullanın.  
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

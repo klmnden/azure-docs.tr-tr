@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 40d16076a3d995ecccd06591278b330652d960d8
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9ff134b0747e78773c95fac7ceab4cddd61c601d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189022"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227023"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Cihazı Sağlama Hizmeti’ni kullanarak bir IoT hub’a cihazı sağlama
 
@@ -43,7 +43,7 @@ Bu adım, cihazın benzersiz güvenlik yapılarının Cihaz Sağlama Hizmeti’n
       [![Portalda TPM için kayıt bilgileri](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - X.509 tabanlı cihazlar için şunlar gerekir:
-    - *.pem* veya *.cer* dosyası şeklinde [X.509 yongasına ya da simülasyonuna düzenlenen sertifika](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx). Bireysel kayıt için, X.509 sisteminiz için cihaz başına *imzalayan sertifikayı* kullanmanız, kayıt grupları içinse *kök sertifika* kullanmanız gerekir. 
+    - *.pem* veya *.cer* dosyası şeklinde [X.509 yongasına ya da simülasyonuna düzenlenen sertifika](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx). Bireysel kayıt için cihaz başına kullanmanız gerekir. *otomatik olarak imzalanan sertifika* X.509 sisteminiz için kayıt grupları içinse, kullanmanız gereken *kök sertifika*. 
 
       [![Portalda X.509 kanıtı için tek kayıt ekleme](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 

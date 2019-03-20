@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2019
 ms.author: v-ant
-ms.openlocfilehash: ca9a569d28e42baafeabc15f49fb7f5206566730
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: ff6a111663df5d7e7f4f517446084ef75b009e59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57572685"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092710"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Öğretici: Atlassian bulut için otomatik kullanıcı hazırlama yapılandırın
 
@@ -28,7 +28,7 @@ Bu öğreticinin amacı otomatik olarak sağlamak ve kullanıcılara ve/veya gru
 
 > [!NOTE]
 > Bu öğreticide, Azure AD kullanıcı sağlama hizmeti üzerinde oluşturulmuş bir bağlayıcı açıklanmaktadır. Bu hizmet yapar, nasıl çalıştığını ve sık sorulan sorular önemli ayrıntılar için bkz. [otomatik kullanıcı hazırlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına](../manage-apps/user-provisioning.md).
-
+> 
 > Bu bağlayıcı, şu anda genel Önizleme aşamasındadır. Genel Microsoft Azure için kullanım koşulları Önizleme özellikleri hakkında daha fazla bilgi için bkz. [ek kullanım koşulları, Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -108,9 +108,9 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
 5. Altında **yönetici kimlik bilgileri** giriş bölümünde **Kiracı URL'si** ve **gizli belirteç** Atlassian bulutun hesabının. Bu değerleri örnekleri şunlardır:
 
-    *   İçinde **Kiracı URL'si** alanında, adım 6'da açıklandığı gibi Atlassian aldığınız özel Kiracı uç noktası doldurun. Örneğin: **https://api.atlassian.com/scim/directory/{directoryId}**
+   * İçinde **Kiracı URL'si** alanında, adım 6'da açıklandığı gibi Atlassian aldığınız özel Kiracı uç noktası doldurun. Örneğin: **https://api.atlassian.com/scim/directory/{directoryId}**
 
-    *   İçinde **gizli belirteç** alanında, adım 6'da açıklandığı gibi gizli belirteç doldurun.
+   * İçinde **gizli belirteç** alanında, adım 6'da açıklandığı gibi gizli belirteç doldurun.
 
 6. Gidin [Atlassian kuruluş yöneticisi](https://admin.atlassian.com) **> Kullanıcı sağlamayı** tıklayın **belirteç oluşturma**. Kopyalama **dizini temel URL'si** ve **taşıyıcı belirteci** için **Kiracı URL'si** ve **gizli belirteç** sırasıyla alanları.
 

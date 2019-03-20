@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 88d94492cb6ed3191e146f117a648293bc9e50f9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d4c64433089f14d845cea8be9adf0ef13675cfd1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243729"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892481"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Görüntüleyin ve indirin, kuruluşunuzun Azure fiyatlandırması
 
-Azure müşterileri bir Kurumsal Anlaşma'ile (EA) veya [Microsoft Müşteri sözleşmesi](#check-your-access-to-a-microsoft-customer-agreement) görüntüleyin ve fiyatlandırma, Azure portalından indirin. Bir Microsoft Müşteri Sözleşmemiz var olmadığını [görüntüleme ve yükleme için Microsoft Müşteri sözleşmenizi fiyatlandırma](#View-and-download-pricing-for-your-billing-profile).
+Azure müşterileri bir Kurumsal Anlaşma'ile (EA) veya [Microsoft Müşteri sözleşmesi](#check-your-access-to-a-microsoft-customer-agreement) görüntüleyin ve fiyatlandırma, Azure portalından indirin. Microsoft Müşteri sözleşmesi varsa, Görünüm ve yükleme için Microsoft Müşteri sözleşmenizi fiyatlandırma bakın.
 
 ## <a name="view-and-download-ea-pricing"></a>Görüntülemenize ve indirmenize EA fiyatlandırması
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: b5d1908201de803ae065403600fc3478e604eedd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: bf29fd8d9b707636fb5965669ad800517a6cf58f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959111"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075570"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Bir machine learning uygulama oluşturmak ve bir veri kümesini analiz etmek için Apache Spark MLlib kullanın
 
@@ -200,16 +200,16 @@ Hangi veri kümesini içeren bir fikir almak şimdi başlayın.
 
     Yemek İnceleme sonuçlarını tahmin etmek için üzerinde ihlalleri dayalı bir model geliştirmektir gerekir. Lojistik regresyon ikili sınıflandırma yöntemi olduğundan, sonuçta elde edilen veri iki kategoriler altında gruplandırmak için mantıklıdır: **Başarısız** ve **geçirmek**:
 
-    - Geçiş
-        - Geçiş
-        - Koşullar ile geçirin
-    - Başarısız
-        - Başarısız
-    - At
-        - İş bulunan değil
-        - İş dışında
+   - Geçiş
+       - Geçiş
+       - Koşullar ile geçirin
+   - Başarısız
+       - Başarısız
+   - At
+       - İş bulunan değil
+       - İş dışında
 
-    Diğer sonuçları ("İş değil bulunan" veya "İş dışı") ile veri kullanışlı değildir ve küçük bir bölümü sonuçları yine de olun.
+     Diğer sonuçları ("İş değil bulunan" veya "İş dışı") ile veri kullanışlı değildir ve küçük bir bölümü sonuçları yine de olun.
 
 4. Mevcut veri çerçevesi dönüştürmek için aşağıdaki kodu çalıştırın (`df`) içine her inceleme etiket ihlalleri çift olarak temsil burada yeni bir veri çerçevesi. Bu durumda, bir etiketi içinde `0.0` hata, bir etiketi temsil eder `1.0` başarı ve bir etiketi temsil eden `-1.0` bu iki yanı sıra bazı sonuçlarını temsil eder. 
 

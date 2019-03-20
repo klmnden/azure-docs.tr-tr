@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 4b305087c0c755254d72811fb9275c509343c87e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0e15f3dc448ba218ebdfe309c4308bbc789ef5be
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878406"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226275"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Apache Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?
 
@@ -75,7 +75,7 @@ HDInsight sürümleri aşağıdaki tablolarda listelenmiştir. HDInsight her sü
 
 ### <a name="available-versions"></a>Kullanılabilir sürümler
 
-Aşağıdaki tabloda, PowerShell ve .NET SDK'sı gibi diğer dağıtım yöntemleri yanı sıra Azure portalı içinde kullanılabilir olan HDInsight sürümleri listelenmiştir.
+Aşağıdaki tabloda, PowerShell ve .NET SDK'sı gibi diğer dağıtım yöntemleri yanı sıra, Azure portalında kullanılabilen HDInsight sürümleri listelenmiştir.
 
 | HDInsight sürümü | HDP sürümü | VM İŞLETİM SİSTEMİ | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek kullanılabilirlik |  Azure Portal kullanılabilirliği | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -91,7 +91,7 @@ Aşağıdaki tabloda, PowerShell ve .NET SDK'sı gibi diğer dağıtım yönteml
 
 ### <a name="retired-versions"></a>Devre dışı bırakılan sürümleri
 
-Aşağıdaki tabloda, HDInsight sürümleri listelenmiştir **değil** Azure Portalı'nda kullanılabilir.
+Aşağıdaki tabloda, HDInsight sürümleri listelenmiştir **değil** Azure portalında kullanılabilir.
 
 | HDInsight sürümü | HDP sürümü | VM İŞLETİM SİSTEMİ | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek kullanılabilirlik |  Azure Portal kullanılabilirliği | 
 | --- | --- | --- | --- | --- | --- | --- | --- |

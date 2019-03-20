@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 0377f192ea9bc6502065fa037704ec8461ce1447
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311127"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007469"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>SQL veritabanı bağlantı sorunlarını ve geçici hatalar ile çalışma
 
@@ -356,7 +356,7 @@ Bazı EntLib60 hakkındaki bilgilere bağlantılar aşağıda verilmiştir:
 
 - Ücretsiz kitap indirme: [Microsoft Enterprise Library, 2 sürümü için Geliştirici Kılavuzu](https://www.microsoft.com/download/details.aspx?id=41145).
 - En iyi uygulamalar: [Yeniden deneme genel Kılavuzu](../best-practices-retry-general.md) yeniden deneme mantığı mükemmel ilgili ayrıntılı bir tartışma sahiptir.
-- NuGet indirin: [Enterprise Library - geçici hata işleme uygulama bloğu 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
+- NuGet indirin: [Enterprise Library - geçici hata işleme uygulama bloğu 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 

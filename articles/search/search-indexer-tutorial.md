@@ -1,32 +1,31 @@
 ---
 title: Azure SQL veritabanları Azure portalı - Azure Search dizini oluşturma Öğreticisi
-description: Bu öğreticide, aranabilir verileri ayıklamak ve Azure Search dizinini doldurmak için Azure SQL veritabanında gezinin.
+description: Bu öğreticide, Azure SQL veritabanına bağlanma, aranabilir verileri ayıklamak ve bir Azure Search dizinine yükler.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e23c9e04d06e509cba32c728ae6f86e1328d88cc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4e94f4c1b5de47e36dd9a5be6b9e7f43d264de82
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111081"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201407"
 ---
 # <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Öğretici: Azure Search dizin oluşturucuyu kullanarak bir Azure SQL veritabanında gezinin
 
-Bu öğreticide, örnek bir Azure SQL veritabanında aranabilir verileri ayıklamak için dizin oluşturucunun nasıl yapılandırılacağı gösterilir. [Dizin Oluşturucular](search-indexer-overview.md), Azure Search'ün dış veri kaynaklarında gezinen ve [arama dizinini](search-what-is-an-index.md) içerikle dolduran bir bileşenidir. Tüm dizin oluşturucular arasında, en yaygın kullanılan Azure SQL veritabanının dizin oluşturucusudur. 
+Örnek bir Azure SQL veritabanında aranabilir verileri ayıklamak için dizin oluşturucu yapılandırmayı öğrenin. [Dizin Oluşturucular](search-indexer-overview.md), Azure Search'ün dış veri kaynaklarında gezinen ve [arama dizinini](search-what-is-an-index.md) içerikle dolduran bir bileşenidir. Tüm dizin oluşturucular Azure SQL veritabanı için dizin oluşturucu en yaygın olarak kullanılır. 
 
 Dizin oluşturucu yapılandırmasında yeterlilik kazanmak yararlı olur çünkü yazmanız ve korumanız gereken kod miktarını azaltır. Şemayla uyumlu bir JSON veri kümesi hazırlayıp göndermek yerine, veri kaynağına bir dizin oluşturucu ekleyebilir, bu dizin oluşturucunun verileri ayıklamasını ve dizine eklemesini sağlayabilir ve isteğe bağlı olarak temel kaynaktaki değişiklikleri almak için dizin oluşturucuyu yinelenen bir zamanlamada çalıştırabilirsiniz.
 
-Bu öğreticide, [Azure Search .NET istemci kitaplıklarını](https://aka.ms/search-sdk) ve .NET Core konsol uygulamasını kullanarak aşağıdaki görevleri yerine getireceksiniz:
+Bu öğreticide, [Azure Search .NET istemci kitaplıkları](https://aka.ms/search-sdk) ve aşağıdaki görevleri gerçekleştirmek için bir .NET Core konsol uygulaması:
 
 > [!div class="checklist"]
-> * Çözümü indirme ve yapılandırma
 > * Uygulama ayarlarına arama hizmeti bilgilerini ekleme
 > * Azure SQL veritabanında bir dış veri kümesi hazırlama 
 > * Örnek kodda dizinin ve dizin oluşturucunun tanımlarını gözden geçirme
@@ -38,16 +37,16 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Azure Search hizmeti. Hizmeti ayarlamaya yardımcı olması için bkz. [Arama hizmeti oluşturma](search-create-service-portal.md).
+[Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu öğretici için ücretsiz bir hizmet kullanabilirsiniz.
 
-* Dizin oluşturucunun kullandığı dış veri kaynağını sağlayan bir Azure SQL veritabanı. Örnek çözümde, tablo oluşturmak için bir SQL veri dosyası sağlanır.
+* Bir [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) bir dizin oluşturucu tarafından kullanılan dış veri kaynağı sağlar. Örnek çözümde, tablo oluşturmak için bir SQL veri dosyası sağlanır.
 
-* Visual Studio 2017. Ücretsiz [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)'ı kullanabilirsiniz. 
+* + [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), herhangi bir sürümü. Örnek kodu ve yönergeleri ücretsiz Community edition üzerinde test edilmiştir.
 
 > [!Note]
 > Ücretsiz Azure Search hizmetini kullanıyorsanız, üç dizin, üç dizin oluşturucu ve üç veri kaynağı sınırlandırmanız vardır. Bu öğreticide hepsinden birer tane oluşturulur. Hizmetinizde yeni kaynakları kabul edecek kadar yer olduğundan emin olun.
 
-## <a name="download-the-solution"></a>Çözümü indirme
+### <a name="download-the-solution"></a>Çözümü indirme
 
 Bu öğreticide kullanılan dizin oluşturucu çözümü, tek bir ana indirmeyle sunulan Azure Search örnekleri koleksiyonundan alınmıştır. Bu öğreticide kullanılan çözüm *DotNetHowToIndexers*'dır.
 
@@ -63,7 +62,7 @@ Bu öğreticide kullanılan dizin oluşturucu çözümü, tek bir ana indirmeyle
 
 6. **Çözüm Gezgini**'nde, en üst düğüm ana Çözüm'e sağ tıklayın ve **NuGet Paketlerini Geri Yükle**'ye tıklayın.
 
-## <a name="set-up-connections"></a>Bağlantıları ayarlama
+### <a name="set-up-connections"></a>Bağlantıları ayarlama
 Gerekli hizmetlere bağlantı bilgileri, çözümdeki **appsettings.json** dosyasında belirtilir. 
 
 Bu öğreticide sağlanan yönergeleri kullanarak tüm ayarları doldurabilmek için, Çözüm Gezgini'nde **appsettings.json** dosyasını açın.  
@@ -105,7 +104,7 @@ Arama hizmeti uç noktasını ve anahtarı portalda bulabilirsiniz. Anahtar, hiz
    }
    ```
 
-## <a name="prepare-an-external-data-source"></a>Dış veri kaynağını hazırlama
+## <a name="prepare-sample-data"></a>Örnek verileri hazırlama
 
 Bu adımda, dizin oluşturucunun gezinebileceği bir dış veri kaynağı oluşturun. Bu öğreticide veri dosyası *hotels.sql*'dir ve \DotNetHowToIndexers çözüm klasöründe sağlanır. 
 

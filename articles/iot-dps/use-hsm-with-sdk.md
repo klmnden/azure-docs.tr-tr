@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 4ab558b680a0d00d1b9bdfbcb1529219f6c37b37
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: af59ccc6d14dce49d06e178aac3ecafc29bd982c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728718"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990763"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Azure’da Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı kanıtlama mekanizmaları kullanma
 
-Bu makalede, C için Cihaz Sağlama Hizmeti İstemci SDK’sı ile farklı [kanıtlama mekanizmalarının](concepts-security.md#attestation-mechanism) nasıl kullanılacağı gösterilmektedir. Fiziksel bir cihaz veya simülatör kullanabilirsiniz. Sağlama hizmeti, iki tür kanıtlama mekanizması için kimlik doğrulamasını destekler: X **.** 509 ve Güvenilir Platform Modülü (TPM).
+Bu makalede, C için Cihaz Sağlama Hizmeti İstemci SDK’sı ile farklı [kanıtlama mekanizmalarının](concepts-security.md#attestation-mechanism) nasıl kullanılacağı gösterilmektedir. Fiziksel bir cihaz veya simülatör kullanabilirsiniz. Sağlama hizmeti, iki tür kanıtlama mekanizması için kimlik doğrulamasını destekler: X.509 ve Güvenilir Platform Modülü (TPM).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -98,14 +98,14 @@ Cihaz kaydını oluşturmadan önce SDK'yı derleyin.
 
 ### <a name="windows"></a>Windows
 - SDK'yı Windows'da derlemek için aşağıdaki adımları uygulayarak proje dosyalarını oluşturun:
-    - "VS2015 için Geliştirici Komut İstemi" açın
-    - Depo kök dizininde aşağıdaki CMake komutlarını çalıştırın:
-      ```
-      cd azure-iot-sdk-c
-      mkdir cmake
-      cd cmake
-      cmake -G "Visual Studio 14 2015" ..
-      ```
+  - "VS2015 için Geliştirici Komut İstemi" açın
+  - Depo kök dizininde aşağıdaki CMake komutlarını çalıştırın:
+    ```
+    cd azure-iot-sdk-c
+    mkdir cmake
+    cd cmake
+    cmake -G "Visual Studio 14 2015" ..
+    ```
     Bu komut x86 kitaplıklarını derler. x64 için derlemek istiyorsanız cmake oluşturucu bağımsız değişkenini değiştirin: 
     ```
     cmake .. -G "Visual Studio 14 2015 Win64"

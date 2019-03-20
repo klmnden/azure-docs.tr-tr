@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2017
-ms.openlocfilehash: bf16d963a83bc720cc39e47cc928c1926a92859d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a0358859d6f806a94c529bae2eb6fa9d1ab82963
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771472"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077845"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Terraform ve HCL ile VM kümesi oluşturma
 
@@ -46,30 +46,30 @@ Bu bölümde bir Azure hizmet sorumlusu ve hizmet sorumlusu kimlik bilgilerini i
 
 5. Aşağıdaki kodu değişken bildirim dosyanıza kopyalayın:
 
-  ```tf
-  variable subscription_id {}
-  variable tenant_id {}
-  variable client_id {}
-  variable client_secret {}
+   ```tf
+   variable subscription_id {}
+   variable tenant_id {}
+   variable client_id {}
+   variable client_secret {}
   
-  provider "azurerm" {
+   provider "azurerm" {
       subscription_id = "${var.subscription_id}"
       tenant_id = "${var.tenant_id}"
       client_id = "${var.client_id}"
       client_secret = "${var.client_secret}"
-  }
-  ```
+   }
+   ```
 
 6. Terraform değişkenlerinin değerlerini için yeni bir dosya oluşturun. Terraform değişken dosyaları genellikle `terraform.tfvars` olarak adlandırılır. Bunun nedeni Terraform'un geçerli dizinde bulunan `terraform.tfvars` adlı (veya `*.auto.tfvars` düzenine sahip) tüm dosyaları otomatik olarak yüklemesidir. 
 
 7. Aşağıdaki kodu değişken dosyanıza kopyalayın. Yer tutucuları gibi değiştirdiğinizden emin olun: İçin `subscription_id`, çalıştırıldığında, belirtilen Azure abonelik kimliği kullanan `az account set`. `tenant_id` için `az ad sp create-for-rbac` komutunun döndürdüğü `tenant` değerini kullanın. `client_id` için `az ad sp create-for-rbac` komutunun döndürdüğü `appId` değerini kullanın. `client_secret` için `az ad sp create-for-rbac` komutunun döndürdüğü `password` değerini kullanın.
 
-  ```tf
-  subscription_id = "<azure-subscription-id>"
-  tenant_id = "<tenant-returned-from-creating-a-service-principal>"
-  client_id = "<appId-returned-from-creating-a-service-principal>"
-  client_secret = "<password-returned-from-creating-a-service-principal>"
-  ```
+   ```tf
+   subscription_id = "<azure-subscription-id>"
+   tenant_id = "<tenant-returned-from-creating-a-service-principal>"
+   client_id = "<appId-returned-from-creating-a-service-principal>"
+   client_secret = "<password-returned-from-creating-a-service-principal>"
+   ```
 
 ## <a name="2-create-a-terraform-configuration-file"></a>2. Terraform yapılandırma dosyası oluşturma
 
@@ -79,34 +79,34 @@ Bu bölümde altyapınız için kaynak tanımlarını içeren dosyayı oluştura
 
 2. Aşağıdaki örnek kaynak tanımlarını yeni oluşturduğunuz `main.tf` dosyasına kopyalayın: 
 
-  ```tf
-  resource "azurerm_resource_group" "test" {
+   ```tf
+   resource "azurerm_resource_group" "test" {
     name     = "acctestrg"
     location = "West US 2"
-  }
+   }
 
-  resource "azurerm_virtual_network" "test" {
+   resource "azurerm_virtual_network" "test" {
     name                = "acctvn"
     address_space       = ["10.0.0.0/16"]
     location            = "${azurerm_resource_group.test.location}"
     resource_group_name = "${azurerm_resource_group.test.name}"
-  }
+   }
 
-  resource "azurerm_subnet" "test" {
+   resource "azurerm_subnet" "test" {
     name                 = "acctsub"
     resource_group_name  = "${azurerm_resource_group.test.name}"
     virtual_network_name = "${azurerm_virtual_network.test.name}"
     address_prefix       = "10.0.2.0/24"
-  }
+   }
 
-  resource "azurerm_public_ip" "test" {
+   resource "azurerm_public_ip" "test" {
     name                         = "publicIPForLB"
     location                     = "${azurerm_resource_group.test.location}"
     resource_group_name          = "${azurerm_resource_group.test.name}"
     public_ip_address_allocation = "static"
-  }
+   }
 
-  resource "azurerm_lb" "test" {
+   resource "azurerm_lb" "test" {
     name                = "loadBalancer"
     location            = "${azurerm_resource_group.test.location}"
     resource_group_name = "${azurerm_resource_group.test.name}"
@@ -115,15 +115,15 @@ Bu bölümde altyapınız için kaynak tanımlarını içeren dosyayı oluştura
       name                 = "publicIPAddress"
       public_ip_address_id = "${azurerm_public_ip.test.id}"
     }
-  }
+   }
 
-  resource "azurerm_lb_backend_address_pool" "test" {
+   resource "azurerm_lb_backend_address_pool" "test" {
     resource_group_name = "${azurerm_resource_group.test.name}"
     loadbalancer_id     = "${azurerm_lb.test.id}"
     name                = "BackEndAddressPool"
-  }
+   }
 
-  resource "azurerm_network_interface" "test" {
+   resource "azurerm_network_interface" "test" {
     count               = 2
     name                = "acctni${count.index}"
     location            = "${azurerm_resource_group.test.location}"
@@ -135,9 +135,9 @@ Bu bölümde altyapınız için kaynak tanımlarını içeren dosyayı oluştura
       private_ip_address_allocation = "dynamic"
       load_balancer_backend_address_pools_ids = ["${azurerm_lb_backend_address_pool.test.id}"]
     }
-  }
+   }
 
-  resource "azurerm_managed_disk" "test" {
+   resource "azurerm_managed_disk" "test" {
     count                = 2
     name                 = "datadisk_existing_${count.index}"
     location             = "${azurerm_resource_group.test.location}"
@@ -145,18 +145,18 @@ Bu bölümde altyapınız için kaynak tanımlarını içeren dosyayı oluştura
     storage_account_type = "Standard_LRS"
     create_option        = "Empty"
     disk_size_gb         = "1023"
-  }
+   }
 
-  resource "azurerm_availability_set" "avset" {
+   resource "azurerm_availability_set" "avset" {
     name                         = "avset"
     location                     = "${azurerm_resource_group.test.location}"
     resource_group_name          = "${azurerm_resource_group.test.name}"
     platform_fault_domain_count  = 2
     platform_update_domain_count = 2
     managed                      = true
-  }
+   }
 
-  resource "azurerm_virtual_machine" "test" {
+   resource "azurerm_virtual_machine" "test" {
     count                 = 2
     name                  = "acctvm${count.index}"
     location              = "${azurerm_resource_group.test.location}"
@@ -215,8 +215,8 @@ Bu bölümde altyapınız için kaynak tanımlarını içeren dosyayı oluştura
     tags {
       environment = "staging"
     }
-  }
-  ```
+   }
+   ```
 
 ## <a name="3-initialize-terraform"></a>3. Terraform'u başlatma 
 

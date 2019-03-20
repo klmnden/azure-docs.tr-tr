@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 386662a4e98b881228a82de3777632ed002bb5b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d1ecac243ee4cfd3385d0fc69c9ce7c9e2afd95c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989171"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898848"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Kullanım Azure Media Services .NET ile iş bildirimlerini izlemek için Web kancaları 
 
@@ -49,7 +49,7 @@ Bu makale hakkında
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 
-1. [Azure portalına](http://portal.azure.com) gidip Azure hesabınızla oturum açın.
+1. [Azure portalına](https://portal.azure.com) gidip Azure hesabınızla oturum açın.
 2. Açıklandığı bir işlev uygulaması oluşturma [burada](../../azure-functions/functions-create-function-app-portal.md).
 
 ## <a name="configure-function-app-settings"></a>İşlev uygulaması ayarlarını yapılandırma
@@ -379,22 +379,22 @@ Bu bölümde, bir Web kancası bildirim için bir görev ekler kod gösterilmekt
 2. Kullanım [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) Azure Media Services'ı yüklemek için.
 3. App.config dosyasını uygun değerlerle güncelleştirin: 
     
-    * Azure Media Services bağlantı bilgileri 
-    * bildirimleri almak için beklediği Web kancası URL'si 
-    * Web kancanız bekliyor anahtarla eşleşen imzalama anahtarı. İmzalama anahtarı korumak ve Azure Media Services, Web kancalarını geri çağırmaları güvenliğini sağlamak için kullanılan 64 baytlık Base64 kodlu değerdir. 
+   * Azure Media Services bağlantı bilgileri 
+   * bildirimleri almak için beklediği Web kancası URL'si 
+   * Web kancanız bekliyor anahtarla eşleşen imzalama anahtarı. İmzalama anahtarı korumak ve Azure Media Services, Web kancalarını geri çağırmaları güvenliğini sağlamak için kullanılan 64 baytlık Base64 kodlu değerdir. 
 
-    ```xml
-            <appSettings>
-                <add key="AMSAADTenantDomain" value="domain" />
-                <add key="AMSRESTAPIEndpoint" value="endpoint" />
+     ```xml
+           <appSettings>
+               <add key="AMSAADTenantDomain" value="domain" />
+               <add key="AMSRESTAPIEndpoint" value="endpoint" />
 
-                <add key="AMSClientId" value="clinet id" />
-                <add key="AMSClientSecret" value="client secret" />
+               <add key="AMSClientId" value="clinet id" />
+               <add key="AMSClientSecret" value="client secret" />
 
-                <add key="WebhookURL" value="https://yourapp.azurewebsites.net/api/functionname?code=ApiKey" />
-                <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
-            </appSettings>
-    ```
+               <add key="WebhookURL" value="https://yourapp.azurewebsites.net/api/functionname?code=ApiKey" />
+               <add key="WebhookSigningKey" value="j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt" />
+           </appSettings>
+     ```
 
 4. Program.cs dosyanız aşağıdaki kodla güncelleştirin:
 

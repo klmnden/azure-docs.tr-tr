@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
-ms.openlocfilehash: 3a487b56c3ce81f3a13add767a9bf7ad59cf79cd
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 15725989ef786f94421eddf647f101e3e73633fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315954"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890772"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Abonelik faturalama REST API'lerini kullanarak gözden geçirin
 
@@ -92,7 +92,7 @@ Her öğe **değer** hizmet kullanımına ilişkin bir ayrıntı temsil eder:
 |**meterDetails** | Kullanımı hakkında ayrıntılı bilgi sağlar. |
 |**nextLink**| Ne zaman ayarlama, sonraki "sayfasının" Ayrıntıları URL'sini belirtir. Sonuncu sayfanın olduğunda boş. |
 
-Bu örnekte kadar kısaltılmıştır; bkz: [listesinde kullanım ayrıntıları](https://docs.microsoft.com/rest/api/consumption/usagedetails/listbybillingperiod#usagedetailslistresult) her yanıt alan eksiksiz bir açıklaması.
+Bu örnekte kadar kısaltılmıştır; bkz: [listesinde kullanım ayrıntıları](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) her yanıt alan eksiksiz bir açıklaması.
 
 Diğer durum kodları hata koşulları belirtin. Bu gibi durumlarda, isteğin neden başarısız yanıt nesnesini açıklar.
 

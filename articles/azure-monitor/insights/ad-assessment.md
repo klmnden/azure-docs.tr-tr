@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 113408b49297a292967be9215291b3cecfa7384d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 949bf52a586603fc6a82c0da553cf70877a8f4be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431615"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085023"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Active Directory ortamınızı Azure İzleyici'de Active Directory sistem durumu denetimi çözümü ile en iyi duruma getirme
 
@@ -111,10 +111,10 @@ Altyapınız ve ardından-ayrıntıya önerileri için Özet uyumluluk değerlen
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Odak alanı için önerileri görüntüleme ve düzeltme eylemi
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-4. Üzerinde **genel bakış** sayfasında **Active Directory sistem durumu denetimi** Döşe.
-5. Üzerinde **sistem durumu denetimi** sayfasında odak alanı dikey pencereleri biriyle özet bilgilerini gözden geçirin ve ardından bu odak alanı için önerileri görmek için tıklatın.
-6. Herhangi bir odak alanı sayfalar üzerinde ortamınız için yapılan Önceliklendirilmiş öneriler görüntüleyebilirsiniz. Altında bir öneriye tıklayabilir **etkilenen nesneler** öneri neden yapılır hakkında ayrıntılı bilgi görüntülemek için.<br><br> ![Sistem durumu denetimi önerileri görüntüsü](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
-7. Önerilen düzeltici eylemleri gerçekleştirebilirsiniz **önerilen eylemleri**. Öğe ele alındığında, önerilen eylemler sonraki değerlendirmeler kayıtları alınan ve uyumluluk puanınız artacaktır. Düzeltilen öğeler görünür olarak **geçirilen nesneleri**.
+1. Üzerinde **genel bakış** sayfasında **Active Directory sistem durumu denetimi** Döşe.
+1. Üzerinde **sistem durumu denetimi** sayfasında odak alanı dikey pencereleri biriyle özet bilgilerini gözden geçirin ve ardından bu odak alanı için önerileri görmek için tıklatın.
+1. Herhangi bir odak alanı sayfalar üzerinde ortamınız için yapılan Önceliklendirilmiş öneriler görüntüleyebilirsiniz. Altında bir öneriye tıklayabilir **etkilenen nesneler** öneri neden yapılır hakkında ayrıntılı bilgi görüntülemek için.<br><br> ![Sistem durumu denetimi önerileri görüntüsü](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
+1. Önerilen düzeltici eylemleri gerçekleştirebilirsiniz **önerilen eylemleri**. Öğe ele alındığında, önerilen eylemler sonraki değerlendirmeler kayıtları alınan ve uyumluluk puanınız artacaktır. Düzeltilen öğeler görünür olarak **geçirilen nesneleri**.
 
 ## <a name="ignore-recommendations"></a>Öneriler yoksay
 Yok saymak için istediğiniz önerilerini varsa, Azure İzleyici, öneriler, değerlendirme sonuçlarında görüntülenmesini önlemek için kullanacağı bir metin dosyası oluşturabilirsiniz.

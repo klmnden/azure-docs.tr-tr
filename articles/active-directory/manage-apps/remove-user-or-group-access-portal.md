@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aac24072bcebb0095c12cee1cfa21cfb9868dc5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4b72ec628e048560fbfb9da63123bbb7461811b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548601"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074293"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atamasını kaldırma
 Erişim için Kurumsal uygulamalarınızı Azure Active Directory'de (Azure AD) birini atanmasını bir kullanıcıyı veya grubu kaldırmak kolay bir işlemdir. Kurumsal uygulamasını yönetmek için uygun izinlere sahip olmalıdır ve dizin için genel yönetici olması gerekir.
@@ -67,7 +67,7 @@ Erişim için Kurumsal uygulamalarınızı Azure Active Directory'de (Azure AD) 
     #To remove the App role assignment run the following command.
     Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
     ``` 
-## <a name="next-steps"></a>Sonraki adımlar
+   ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Tüm Gruplarım](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Kurumsal bir uygulamayı kullanıcı veya grup atama](assign-user-or-group-access-portal.md)

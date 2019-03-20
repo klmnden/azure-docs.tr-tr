@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: a9f6dfb0de2cf09b27d08eb6b7dc425c8cd1f17d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 825a6035a997eb27a3e8e5833a792bdd985997c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549230"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084632"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Konuşma cihaz SDK'sı Lisans Sözleşmesi
 
@@ -83,9 +83,9 @@ f), yazılımı yalnızca Microsoft Azure Bilişsel hizmetler, konuşma tanıma 
 (c) Almanya ve Avusturya.
 
 > (i) garantisi. Düzgün lisanslanmış yazılım önemli ölçüde yazılımla birlikte verilen Microsoft malzemelerinde açıklandığı şekilde gerçekleştirir. Ancak, hiçbir garanti vermemektedir lisanslı yazılımları Microsoft sunuyor.
-
+> 
 > (ii) SORUMLULUĞUN sınırlandırılması. Kasıtlı kuralları, ağır ihmal, ürün yükümlülük Yasası yanı, ayrıca ölüm ya da kişisel veya fiziksel yaralanma göre talepler durumunda Microsoft yasalar çerçevesinde sorumludur.
-
+> 
 > Microsoft önemli sözleşme yükümlülüklerini, Karşılama birinde İhlale yol hangi ihlalinin gerekir, bu sözleşmenin son performansını kolaylaştırmak hükümlerde yan tümcesi tabi (ii), Microsoft yalnızca hafif İHMALDEN olur işbu sözleşme ve uyumluluk ile bir taraf sürekli ("esas yükümlülükler") güveni amacı endanger. Diğer hafif ihlal durumlarında, Microsoft hafif İHMALDEN sorumlu değildir.
 
 **15\. SORUMLULUK REDDİ. YAZILIMIN LİSANSI "OLDUĞU GİBİ." BUNU KULLANARAK RİSKİ SİZE AİTTİR. MICROSOFT HİÇBİR TEMİNAT, GARANTİ VEYA KOŞUL SAĞLAR. İLGİLİ YASALARIN İZİN VERDİĞİ ÖLÇÜDE, MICROSOFT SATILABİLİRLİK, BELİRLİ BİR AMAÇ VE İHLAL ETMEME UYGUNLUK DAHİL OLMAK ÜZERE HİÇBİR KONUDA ZIMNİ GARANTİLER DAHİL DEĞİLDİR.**

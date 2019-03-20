@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: df69cb5cc2e369a5e1f372d49a821616bf624db9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 51f5355e365d0dcf7a103deab3356f015e75641e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237561"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897529"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS modeline ve anahtarlar için sınırlar
 LUIS, birden fazla sınır alanlara sahip değildir. İlk [modeli sınır](#model-boundaries), amacı, varlıkları ve LUIS özellikleri denetler. İkinci alanı [kota sınırları](#key-limits) anahtar türüne göre. Üçüncü bir sınırları alanıdır [klavye birleşimi](#keyboard-controls) LUIS Web sitesi denetleme. Dördüncü alan [dünya bölge eşleme](luis-reference-regions.md) LUIS ile Web sitesi geliştirme LUIS arasındaki [uç nokta](luis-glossary.md#endpoint) API'leri. 
@@ -27,7 +27,7 @@ LUIS, birden fazla sınır alanlara sahip değildir. İlk [modeli sınır](#mode
 Uygulamanızı LUIS modeline sınırları ve sınır aşarsa kullanmayı bir [LUIS gönderme](luis-concept-enterprise.md#dispatch-tool-and-model) uygulama ya da kullanarak bir [LUIS kapsayıcı](luis-container-howto.md). 
 
 |Alan|Sınır|
-|--|:--|--|
+|--|:--|
 | [Uygulama adı][luis-get-started-create-app] | * Max varsayılan karakter |
 | [Toplu test etme][batch-testing]| 10 veri kümeleri, veri kümesi başına 1000 konuşma|
 | Açık listesi | uygulama başına 50|
@@ -41,7 +41,7 @@ Uygulamanızı LUIS modeline sınırları ve sınır aşarsa kullanmayı bir [LU
 | [Normal ifade varlıkları](./luis-concept-entity-types.md)|20 varlıklar<br>Maksimum 500 karakter. Normal ifade varlık deseni|
 | [Roller](luis-concept-roles.md)|uygulama başına 300 roller. Varlık başına 10 rolü|
 | [Utterance][utterances] | 500 karakter|
-| [Konuşma][utterances] | uygulama başına 15.000|
+| [Konuşma][utterances] | 15.000 uygulama başına - konuşma amacı başına sayısına bir sınır yoktur|
 | [Sürümleri](luis-concept-version.md)| bir sınır yoktur |
 | [Sürüm adı][luis-how-to-manage-versions] | alfasayısal ve süre sınırlı 10 karakter (.) |
 

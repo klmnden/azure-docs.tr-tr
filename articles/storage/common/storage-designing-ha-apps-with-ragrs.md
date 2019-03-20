@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: MT
+ms.openlocfilehash: 256d709ac976736715f441ecde5eee22a6d86fa6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512253"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009077"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS'yi kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama
 
@@ -203,7 +203,7 @@ Aşağıdaki tabloda her bir üyesi yapmak için bir çalışan ayrıntıların�
 | T0       | İşlem y: <br> Çalışan Ekle <br> birincil varlık |                                   |                    | Birincil bölgeye eklenen bir işlem<br> henüz çoğaltılmamış. |
 | T1       |                                                            | Bir işlem <br> çoğaltılır<br> ikincil | T1 | İşlem bir ikincil siteden çoğaltılan. <br>Son eşitleme zamanı güncelleştirildi.    |
 | T2       | İşlem B:<br>Güncelleştirme<br> Çalışan varlık<br> birincil  |                                | T1                 | Birincil veritabanına yazılan B işlem<br> henüz çoğaltılmamış.  |
-| T3       | İşlem C:<br> Güncelleştirme <br>Yönetici<br>Rol varlık<br>birincil |                    | T1                 | C birincil veritabanına yazılan işlem<br> henüz çoğaltılmamış.  |
+| T3       | İşlem C:<br> Güncelleştirme <br>yönetici<br>Rol varlık<br>birincil |                    | T1                 | C birincil veritabanına yazılan işlem<br> henüz çoğaltılmamış.  |
 | *T4*     |                                                       | İşlem C <br>çoğaltılır<br> ikincil | T1         | İşlem için ikincil çoğaltılan C.<br>LastSyncTime olduğundan güncelleştirilmedi <br>işlem B henüz çoğaltılmamış.|
 | *T5*     | Varlıkları okuma <br>İkincil bölgeden                           |                                  | T1                 | Çalışana ait eski değeri Al <br> Varlık işlem B taşınmadığından çünkü <br> henüz çoğaltılır. Yeni değeri Al<br> yönetici rol varlığını C olduğundan<br> Çoğaltılmış. Son eşitleme zamanı hala henüz<br> Silinmiş olduğundan güncelleştirilmiş işlem B<br> Çoğaltılmış edilmemiş. Söyleyin<br>yönetici rol varlığını tutarsız. <br>Varlık tarih/saat sonra olduğu için <br>Son eşitleme zamanı. |
 | *T6*     |                                                      | İşlem B<br> çoğaltılır<br> ikincil | T6                 | *T6* – C aracılığıyla tüm işlemlerin <br>edilmiş çoğaltılan, son eşitleme zamanı<br> güncelleştirilir. |
@@ -216,7 +216,7 @@ Büyük olasılıkla tutarsız veri, değerinin istemcinin kullanabileceği tan�
 
 Uygulamanızı yeniden denenebilir bir hata ile karşılaştığında beklediğiniz gibi davrandığını test etmek önemlidir. Örneğin, birincil bölge tekrar kullanılabilir hale geldiğinde uygulama anahtarları ikincil ve bir sorun algılar ve anahtarları salt okunur moduna geri test etmek gerekir. Bunu yapmak için yeniden denenebilir hata ve ne sıklıkta ortaya denetim benzetimini yapmak için bir yol gerekir.
 
-Kullanabileceğiniz [Fiddler](http://www.telerik.com/fiddler) kesecek ve HTTP yanıtlarını betikteki değiştirin. Bu betik, birincil uç noktadan gelen yanıtları tanımlayabilir ve depolama istemci kitaplığı yeniden denenebilir bir hata olarak tanıdığı bir HTTP durum kodu değiştirin. Bu kod parçacığı istekler okumak için yanıtları başvurarak Fiddler komut dosyasının basit bir örnek göstermektedir **employeedata** 502 durumuna döndürmek için Tablo:
+Kullanabileceğiniz [Fiddler](https://www.telerik.com/fiddler) kesecek ve HTTP yanıtlarını betikteki değiştirin. Bu betik, birincil uç noktadan gelen yanıtları tanımlayabilir ve depolama istemci kitaplığı yeniden denenebilir bir hata olarak tanıdığı bir HTTP durum kodu değiştirin. Bu kod parçacığı istekler okumak için yanıtları başvurarak Fiddler komut dosyasının basit bir örnek göstermektedir **employeedata** 502 durumuna döndürmek için Tablo:
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
@@ -228,7 +228,7 @@ static function OnBeforeResponse(oSession: Session) {
 }
 ```
 
-Bu örnek, geniş bir istek kesecek ve sadece değişiklik genişletilebiliyordu **yanıt kodu** bazı bunları gerçek dünya senaryoları daha iyi benzetmek için. Fiddler betikleri özelleştirme hakkında daha fazla bilgi için bkz. [istek veya yanıtı değiştirerek](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) Fiddler belgelerinde.
+Bu örnek, geniş bir istek kesecek ve sadece değişiklik genişletilebiliyordu **yanıt kodu** bazı bunları gerçek dünya senaryoları daha iyi benzetmek için. Fiddler betikleri özelleştirme hakkında daha fazla bilgi için bkz. [istek veya yanıtı değiştirerek](https://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) Fiddler belgelerinde.
 
 Salt okunur moda yapılandırılabilir uygulamanızı geçişi için eşikler yaptıysanız, üretim dışı işlem birimleri ile davranışı test etmek daha kolay olacaktır.
 

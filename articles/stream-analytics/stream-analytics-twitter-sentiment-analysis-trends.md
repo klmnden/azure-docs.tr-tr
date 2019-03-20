@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: c34b3fa1597866e4f722fccee84f83f4caab6bfb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b5ad1a790f79b11b978c32c5751a6b9333f24c85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876305"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994938"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream analytics'te gerçek zamanlı Twitter yaklaşım analizi
 
@@ -119,10 +119,10 @@ Bu öğretici için kullanabileceğiniz bir Twitter uygulaması zaten yoksa, bir
 
 2. Yeni bir uygulama oluşturun. 
 
-    * Web sitesi URL'si için geçerli bir URL belirtin. Canlı site yok. (Yalnızca belirtemezsiniz `localhost`.)
-    * Geri çağırma alanı boş bırakın. Bu öğretici için kullandığınız istemci uygulamasına geri çağırmaları gerektirmez.
+   * Web sitesi URL'si için geçerli bir URL belirtin. Canlı site yok. (Yalnızca belirtemezsiniz `localhost`.)
+   * Geri çağırma alanı boş bırakın. Bu öğretici için kullandığınız istemci uygulamasına geri çağırmaları gerektirmez.
 
-    ![Twitter'da bir uygulama oluşturma](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
+     ![Twitter'da bir uygulama oluşturma](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
 
 3. İsteğe bağlı olarak, uygulamanın izinlerini salt okunur olarak değiştirin.
 
@@ -167,19 +167,19 @@ Aşağıdaki yordam, her iki yaklaşım belgeler.
 
 3. Değerleri kalıcı olarak ayarlamak için TwitterWpfClient.exe.config dosyayı açmak için bir metin düzenleyicisi kullanın. Ardından `<appSettings>` öğesi, bunu:
 
-    * Ayarlama `oauth_consumer_key` Twitter tüketici anahtarı (API anahtarı). 
-    * Ayarlama `oauth_consumer_secret` için Twitter tüketici gizli (API gizli anahtarı).
-    * Ayarlama `oauth_token` için Twitter erişim belirteci.
-    * Ayarlama `oauth_token_secret` için Twitter erişim belirteci gizli anahtarı.
+   * Ayarlama `oauth_consumer_key` Twitter tüketici anahtarı (API anahtarı). 
+   * Ayarlama `oauth_consumer_secret` için Twitter tüketici gizli (API gizli anahtarı).
+   * Ayarlama `oauth_token` için Twitter erişim belirteci.
+   * Ayarlama `oauth_token_secret` için Twitter erişim belirteci gizli anahtarı.
 
-    Daha sonra `<appSettings>` öğe, şu değişiklikleri yapın:
+     Daha sonra `<appSettings>` öğe, şu değişiklikleri yapın:
 
-    * Ayarlama `EventHubName` olay hub'ı adı için (diğer bir deyişle, varlık yolu değerine).
-    * Ayarlama `EventHubNameConnectionString` bağlantı dizesi. Kaldırdığınız bağlantı dizesini kullandığınızdan emin olun `EntityPath` dan anahtar-değer çifti.
+   * Ayarlama `EventHubName` olay hub'ı adı için (diğer bir deyişle, varlık yolu değerine).
+   * Ayarlama `EventHubNameConnectionString` bağlantı dizesi. Kaldırdığınız bağlantı dizesini kullandığınızdan emin olun `EntityPath` dan anahtar-değer çifti.
 
-    `<appSettings>` Bölümü aşağıdaki örnekteki gibi görünür. (Netlik ve güvenlik için biz bazı satırları sarmalanmış ve bazı karakterler kaldırıldı.)
+     `<appSettings>` Bölümü aşağıdaki örnekteki gibi görünür. (Netlik ve güvenlik için biz bazı satırları sarmalanmış ve bazı karakterler kaldırıldı.)
 
-    ![Twitter anahtarlar ve gizli dizileri ve olay hub'ı bağlantı dizesi bilgilerini gösteren bir metin düzenleyicisinde TwitterWpfClient uygulama yapılandırma dosyası](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
+     ![Twitter anahtarlar ve gizli dizileri ve olay hub'ı bağlantı dizesi bilgilerini gösteren bir metin düzenleyicisinde TwitterWpfClient uygulama yapılandırma dosyası](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
  
 4. Uygulama zaten başlatmadıysanız, TwitterWpfClient.exe Şimdi Çalıştır. 
 
@@ -214,15 +214,15 @@ Tweet olayları Twitter gerçek zamanlı akış, bu olaylar gerçek zamanlı ola
 
 2. İçinde **girişleri** dikey penceresinde tıklayın  **+ &nbsp;Ekle** ve sonra dikey penceresini aşağıdaki değerlerle doldurun:
 
-    * **Giriş diğer adı**: Adı `TwitterStream`. Farklı bir ad kullanırsanız, daha sonra ihtiyacınız olduğundan bunu not edin.
-    * **Kaynak türü**: Seçin **veri akışı**.
-    * **Kaynak**: Seçin **olay hub'ı**.
-    * **İçeri aktarma seçeneği**: Seçin **kullanımı olay hub'ından geçerli abonelik**. 
-    * **Service bus ad alanı**: Daha önce oluşturduğunuz olay hub'ı ad alanını seçin (`<yourname>-socialtwitter-eh-ns`).
-    * **Olay hub'ı**: Daha önce oluşturduğunuz olay hub'ı seçin (`socialtwitter-eh`).
-    * **Olay hub'ı ilke adı**: Daha önce oluşturduğunuz erişim ilkesi seçin (`socialtwitter-access`).
+   * **Giriş diğer adı**: Adı `TwitterStream`. Farklı bir ad kullanırsanız, daha sonra ihtiyacınız olduğundan bunu not edin.
+   * **Kaynak türü**: Seçin **veri akışı**.
+   * **Kaynak**: Seçin **olay hub'ı**.
+   * **İçeri aktarma seçeneği**: Seçin **kullanımı olay hub'ından geçerli abonelik**. 
+   * **Service bus ad alanı**: Daha önce oluşturduğunuz olay hub'ı ad alanını seçin (`<yourname>-socialtwitter-eh-ns`).
+   * **Olay hub'ı**: Daha önce oluşturduğunuz olay hub'ı seçin (`socialtwitter-eh`).
+   * **Olay hub'ı ilke adı**: Daha önce oluşturduğunuz erişim ilkesi seçin (`socialtwitter-access`).
 
-    ![Yeni giriş için akış analizi işi oluşturma](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
+     ![Yeni giriş için akış analizi işi oluşturma](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
 3. **Oluştur**’a tıklayın.
 
@@ -297,17 +297,17 @@ Bu öğreticide, toplanan tweet olayları Azure Blob depolama alanına işi sorg
 
 2. İçinde **çıkışları** dikey penceresinde tıklayın  **+ &nbsp;Ekle** ve sonra dikey penceresini aşağıdaki değerlerle doldurun:
 
-    * **Çıkış diğer adı**: Adı `TwitterStream-Output`. 
-    * **Havuz**: **Blob depolama**'yı seçin.
-    * **İçeri aktarma seçenekleri**: Seçin **geçerli abonelik kullanım blob depolamadan**.
-    * **Depolama hesabı**. Seçin **yeni bir depolama hesabı oluşturun.**
-    * **Depolama hesabı** (ikinci kutusu). Girin `YOURNAMEsa`burada `YOURNAME` adınızı veya başka bir benzersiz bir dize. Ad yalnızca küçük harflerden ve rakamlardan kullanabilirsiniz ve Azure genelinde benzersiz olmalıdır. 
-    * **Kapsayıcı**. `socialtwitter` yazın.
-    Depolama hesabı adı ve kapsayıcı adı bir URI böyle bir blob depolama sağlamak için birlikte kullanılır: 
+   * **Çıkış diğer adı**: Adı `TwitterStream-Output`. 
+   * **Havuz**: **Blob depolama**'yı seçin.
+   * **İçeri aktarma seçenekleri**: Seçin **geçerli abonelik kullanım blob depolamadan**.
+   * **Depolama hesabı**. Seçin **yeni bir depolama hesabı oluşturun.**
+   * **Depolama hesabı** (ikinci kutusu). Girin `YOURNAMEsa`burada `YOURNAME` adınızı veya başka bir benzersiz bir dize. Ad yalnızca küçük harflerden ve rakamlardan kullanabilirsiniz ve Azure genelinde benzersiz olmalıdır. 
+   * **Kapsayıcı**. `socialtwitter` yazın.
+     Depolama hesabı adı ve kapsayıcı adı bir URI böyle bir blob depolama sağlamak için birlikte kullanılır: 
 
-    `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
+     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
     
-    ![Stream Analytics işi dikey penceresini "Yeni çıktı."](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
+     ![Stream Analytics işi dikey penceresini "Yeni çıktı."](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
 4. **Oluştur**’a tıklayın. 
 
@@ -338,7 +338,7 @@ Bu öğreticide, toplanan tweet olayları Azure Blob depolama alanına işi sorg
 
 İş çalışmaya başladı ve gerçek zamanlı Twitter akışı işleme sonra yaklaşım analizi için çıktıyı görüntüleyebilirsiniz.
 
-Gibi bir araç kullanabilirsiniz [Azure Depolama Gezgini](https://storageexplorer.com/) veya [Azure Gezgini](http://www.cerebrata.com/products/azure-explorer/introduction) gerçek zamanlı olarak, işi çıktısını görüntülemek için. Burada kullandığınız [Power BI](https://powerbi.com/) uygulamanız aşağıdaki ekran görüntüsünde gösterildiği gibi özelleştirilmiş Pano içerecek şekilde genişletmek için:
+Gibi bir araç kullanabilirsiniz [Azure Depolama Gezgini](https://storageexplorer.com/) veya [Azure Gezgini](https://www.cerebrata.com/products/azure-explorer/introduction) gerçek zamanlı olarak, işi çıktısını görüntülemek için. Burada kullandığınız [Power BI](https://powerbi.com/) uygulamanız aşağıdaki ekran görüntüsünde gösterildiği gibi özelleştirilmiş Pano içerecek şekilde genişletmek için:
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 

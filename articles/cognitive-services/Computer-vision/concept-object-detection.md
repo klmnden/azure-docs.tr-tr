@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ee85e6bd171fc9415e5c7606d6e18a7a22fa6570
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cc5b40b6a800ff185c6c52652435b558fabe091f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866925"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873895"
 ---
 # <a name="object-detection"></a>Nesne algılama
 
 Nesne algılama benzer [etiketleme](concept-tagging-images.md), ancak API, bulunan her nesne için bir sınırlama kutusu koordinatları (piksel cinsinden) döndürür. Örneğin, bir görüntü köpek, cat ve kişi içeriyorsa, Algıla işlemi görüntüde onların koordinatları ile birlikte bu nesneleri listeler. Bir görüntü içindeki nesneler arasındaki ilişkileri işlemek için bu işlevi kullanabilirsiniz. Ayrıca birden çok örneğini görüntüdeki aynı etiketi olup olmadığını belirlemenizi sağlar.
 
-Algılama API'si nesneleri veya living şeyler görüntüde tanımlanmış temel alan etiketler uygulanır. Bu noktada unutmayın, Sınıflandırma, etiketleme ve nesne algılama için kullanılan sınıflandırma arasında biçimsel bir ilişki yoktur. Etiket API sınırlayıcı kutular yerelleştirilemez bağlamsal kullanım koşullarını "İç" gibi de içerebilir ancak kavramsal bir düzeyde algılama API'si yalnızca nesneleri ve living öğeleri bulur.
+Algılama API'si nesneleri veya living şeyler görüntüde tanımlanmış temel alan etiketler uygulanır. Bu noktada, nesne algılama sınıflandırma ile etiketleme sınıflandırma arasındaki biçimsel bir ilişki yoktur. Etiket API sınırlayıcı kutular yerelleştirilemez bağlamsal kullanım koşullarını "İç" gibi de içerebilir ancak kavramsal bir düzeyde algılama API'si yalnızca nesneleri ve living öğeleri bulur.
 
 ## <a name="object-detection-example"></a>Nesnesi algılama örneği
 
@@ -89,13 +89,15 @@ Görüntü işleme örnek görüntüde nesneleri tespit edilirken döndürür a�
 
 ## <a name="limitations"></a>Sınırlamalar
 
-Önlemek veya hatalı negatif (eksik nesneler) ve sınırlı ayrıntı etkilerini azaltmak için nesne algılama özelliği sınırlamaları unutmayın.
-* (Daha azını %5 görüntünün) çok küçük olmaları durumunda nesneler genellikle algılanmaz.
-* Nesneler genellikle algılanmayan birbirine çok yakın yerleştirilmişse (örneğin kalıplar yığını).
+Önlemek veya hatalı negatif (eksik nesneler) ve sınırlı ayrıntı etkilerini azaltmak için nesne algılama sınırlamaları unutmayın.
+
+* (Daha azını %5 görüntünün) küçük olursa nesneler genellikle algılanmaz.
+* Nesneler genellikle algılanmayan birbirine yakın dizilmişlerdir varsa (örneğin kalıplar yığını).
 * Nesneleri markaya göre ayırt edilen değil veya ürün adları (örneğin bir mağaza raf sodas farklı türde). Bir görüntüden kullanarak marka bilgilerini ancak alabilirsiniz [marka algılama](concept-brand-detection.md) özelliği.
 
 ## <a name="use-the-api"></a>API kullanın
-Nesne algılama özelliği parçasıdır [analiz görüntü](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Bu API'nin yerel SDK veya REST çağrılarını aracılığıyla çağırabilirsiniz. Yalnızca tam JSON yanıt aldığınızda içeriğini dizesi ayrıştırılamıyor. `"objects"` bölümü.
+
+Nesne algılama özelliği parçasıdır [analiz görüntü](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Bu API'nin yerel SDK veya REST çağrılarını aracılığıyla çağırabilirsiniz. Tam JSON yanıt aldığınızda ayrıştırılacağını içeriklerinin `"objects"` bölümü.
 
 * [Hızlı Başlangıç: (.NET SDK) bir resmi çözümleme](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [Hızlı Başlangıç: Bir resmi (REST API'si) çözümleme](./quickstarts/csharp-analyze.md)

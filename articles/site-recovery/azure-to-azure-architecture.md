@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 797838b077993ddcb4120bcf48b026063abbe1ab
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ef75ec40df50931f5a49c06184c61d2f78608dcf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105330"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015001"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure'dan Azure'a olağanüstü durum kurtarma mimarisi
 
@@ -102,9 +102,10 @@ Aşağıdaki tabloda, tutarlılık farklı türleri açıklanmaktadır.
 Kilitlenme ile tutarlı bir anlık görüntü anlık görüntü alındığında diskte olan verileri yakalar. Herhangi bir şey bellekte içermez.<br/><br/> Bu VM kilitlenmesi veya güç kablosunu anlık görüntünün alındığı anlık sunucudan çekilmiştir varsa var olacaktır diskteki verileri denk içerir.<br/><br/> Bir kilitlenme tutarlı işletim sistemi veya VM üzerindeki uygulamalar için veri tutarlılığı garanti etmez. | Site Recovery, varsayılan olarak her beş dakikada kilitlenmeyle tutarlı kurtarma noktalarını oluşturur. Bu ayar değiştirilemez.<br/><br/>  | Bugün, çoğu uygulama iyi kilitlenmeyle tutarlı noktalarından kurtarabilirsiniz.<br/><br/> Kilitlenmeyle tutarlı kurtarma noktalarını çoğaltma işletim sistemleri ve DHCP sunucuları ve yazdırma sunucuları gibi uygulamalar için genellikle yeterli.
 
 ### <a name="app-consistent"></a>Uygulamayla tutarlı
+
 **Açıklama** | **Ayrıntılar** | **Öneri**
 --- | --- | ---
-Uygulamayla tutarlı kurtarma noktaları, uygulamayla tutarlı anlık görüntülerden oluşturulur.<br/><br/> Uygulamayla tutarlı bir anlık görüntü, kilitlenmeyle tutarlı bir anlık görüntüdeki tüm bilgilerin yanı sıra bellekteki tüm verileri ve devam eden işlemler içeriyor. | Uygulamayla tutarlı anlık görüntüler Birim Gölge Kopyası Hizmeti (VSS) kullanın:<br/><br/>   (1) bir anlık görüntü başlatıldığında, VSS bir birimde yazarken kopyalama (İNEK) işlemi gerçekleştirin.<br/><br/>   2) VSS, İNEK gerçekleştirmeden önce her uygulama, bellekte verilerini diske Temizleme için gereken makinede bildirir.<br/><br/>   3) VSS (Bu durum Site Recovery'de) yedekleme/olağanüstü durum kurtarma uygulama anlık görüntü verilerini okuyun ve devam etmek için daha sonra sağlar. | Uygulamayla tutarlı anlık görüntüler, belirttiğiniz sıklığına uygun olarak alınır. Her zaman bu sıklığı kurtarma noktası tutma için ayarladığınız daha az olmalıdır. Örneğin, 24 saatlik varsayılan ayarı kullanarak kurtarma noktalarını tutuyorsanız 24 saatten az sıklığı ayarlamanız gerekir.<br/><br/>Bunlar, daha karmaşık ve kilitlenme ile tutarlı anlık görüntüleri tamamlanması uzun sürebilir.<br/><br/> Bunlar, çoğaltma için etkinleştirilmiş bir VM'de çalışan uygulamaların performansını etkiler. | <br/><br/>Veritabanı işletim sistemleri ve SQL gibi uygulamalar için uygulamayla tutarlı kurtarma noktalarını önerilir.<br/><br/> Uygulamayla tutarlı anlık görüntüler yalnızca Windows çalıştıran sanal makineler için desteklenir.
+Uygulamayla tutarlı kurtarma noktaları, uygulamayla tutarlı anlık görüntülerden oluşturulur.<br/><br/> Uygulamayla tutarlı bir anlık görüntü, kilitlenmeyle tutarlı bir anlık görüntüdeki tüm bilgilerin yanı sıra bellekteki tüm verileri ve devam eden işlemler içeriyor. | Uygulamayla tutarlı anlık görüntüler Birim Gölge Kopyası Hizmeti (VSS) kullanın:<br/><br/>   (1) bir anlık görüntü başlatıldığında, VSS bir birimde yazarken kopyalama (İNEK) işlemi gerçekleştirin.<br/><br/>   2) VSS, İNEK gerçekleştirmeden önce her uygulama, bellekte verilerini diske Temizleme için gereken makinede bildirir.<br/><br/>   3) VSS (Bu durum Site Recovery'de) yedekleme/olağanüstü durum kurtarma uygulama anlık görüntü verilerini okuyun ve devam etmek için daha sonra sağlar. | Uygulamayla tutarlı anlık görüntüler, belirttiğiniz sıklığına uygun olarak alınır. Her zaman bu sıklığı kurtarma noktası tutma için ayarladığınız daha az olmalıdır. Örneğin, 24 saatlik varsayılan ayarı kullanarak kurtarma noktalarını tutuyorsanız 24 saatten az sıklığı ayarlamanız gerekir.<br/><br/>Bunlar, daha karmaşık ve kilitlenme ile tutarlı anlık görüntüleri tamamlanması uzun sürebilir.<br/><br/> Bunlar, çoğaltma için etkinleştirilmiş bir VM'de çalışan uygulamaların performansını etkiler. 
 
 ## <a name="replication-process"></a>Çoğaltma işlemi
 
@@ -116,8 +117,7 @@ Bir Azure sanal makine için çoğaltmayı etkinleştirdiğinizde, şunlar olur:
 4. Site RECOVERY'yi önbelleğindeki verileri işler ve hedef depolama hesabına gönderir veya yönetilen diskleri çoğaltma için.
 5. Veriler işlendikten sonra beş dakikada kilitlenmeyle tutarlı kurtarma noktaları oluşturulur. Uygulamayla tutarlı kurtarma noktaları, çoğaltma ilkesinde belirtilen ayarına göre oluşturulur.
 
-
-   ![Çoğaltma işlemi, 2. Adım'ı etkinleştir](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+![Çoğaltma işlemi, 2. Adım'ı etkinleştir](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
 **Çoğaltma işlemi**
 

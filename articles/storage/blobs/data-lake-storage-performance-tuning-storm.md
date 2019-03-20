@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 5d7b798c66ec6512c8badcccbf36d6f2f0d50e3b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2401c74b55df78014a2f642b5166b4cf0017d87d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882956"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076216"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>HDInsight ve Azure Data Lake depolama Gen2 üzerinde Storm için performans ayarlama Kılavuzu
 
@@ -78,7 +78,7 @@ Spout ayarlamak için aşağıdaki ayarları değiştirebilirsiniz.
 
 - **En fazla spout bekleyen: topology.max.spout.pending**. Bu ayar, herhangi bir zamanda (henüz onaylanır topolojideki tüm düğümlerde) uçuş spout iş parçacığı başına de olabilir başlıkların sayısını belirler.
 
- Yapmak iyi bir hesaplama, tanımlama gruplarının her boyutunu tahmin etmektir. Sonra ne kadar bellek bir spout iş parçacığı olduğunu göstermektedir. Bu değer tarafından ayrılmış bir iş parçacığına ayrılan toplam bellek max spout bekleyen parametresi için üst sınır vermeniz gerekir.
+  Yapmak iyi bir hesaplama, tanımlama gruplarının her boyutunu tahmin etmektir. Sonra ne kadar bellek bir spout iş parçacığı olduğunu göstermektedir. Bu değer tarafından ayrılmış bir iş parçacığına ayrılan toplam bellek max spout bekleyen parametresi için üst sınır vermeniz gerekir.
 
 Varsayılan Data Lake depolama Gen2 Storm bolt Bu parametre ayarlamak için kullanılan boyutu eşitleme ilke parametresi (fileBufferSize) sahiptir.
 

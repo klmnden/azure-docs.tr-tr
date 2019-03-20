@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f974d446337b8c962d60be9aab964c6d2ebb535b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074752"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Değişiklik izleme ile izlenmekte olan bir dosyanın içeriği görüntüle
 
@@ -62,11 +62,11 @@ Aşağıdaki adımlar, değişiklik izleme için bir dosya çubuğunda kapatma y
 
 1. Üzerinde **değiştirme ayrıntıları** sayfasında sol üst bilgi, dosyasına sağ tıklayıp standart önce ve sonra görürsünüz **dosya içeriği değişikliklerini görüntüle** dosyasının içeriğini görmek için.
 
-  ![Değişiklik ayrıntıları](./media/change-tracking-file-contents/change-details.png)
+   ![Değişiklik ayrıntıları](./media/change-tracking-file-contents/change-details.png)
 
 1. Yeni sayfada dosya içeriğini bir yan yana görünümünde gösterilir. Belirleyebilirsiniz **satır içi** değişikliklerinin satıriçi görmek için.
 
-  ![Dosya değişikliklerini görüntüleme](./media/change-tracking-file-contents/view-file-changes.png)
+   ![Dosya değişikliklerini görüntüleme](./media/change-tracking-file-contents/view-file-changes.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

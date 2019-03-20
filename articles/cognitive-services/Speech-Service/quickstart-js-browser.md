@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 8e1f880c57b0db0a2f68fbe26e99679769fdee6c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 0a06293a648460694bbe222f36f81bea2d6acdac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448050"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841183"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak bir tarayıcıda JavaScript dilinde konuşma tanıma
 
@@ -26,7 +26,7 @@ Uygulama üzerindeki Microsoft Bilişsel hizmetler konuşma SDK bağlıdır ([in
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Konuşma tanıma hizmeti için bir abonelik anahtarı. Bkz. [Konuşma Tanıma Hizmetini ücretsiz olarak deneyin](get-started.md).
+* Konuşma tanıma hizmeti için bir abonelik anahtarı. Bkz: [konuşma Hizmetleri ücretsiz olarak deneyin](get-started.md).
 * Çalışan bir mikrofon ile bir PC veya Mac.
 * Bir metin düzenleyici.
 * Chrome ya da Microsoft Edge’in güncel bir sürümü.
@@ -49,12 +49,12 @@ Klasörde `index.html` adlı yeni bir dosya oluşturun ve bu dosyayı bir metin 
 
 1. Aşağıdaki HTML çatısını oluşturun:
 
-  ```html
-  <html>
-  <head>
+   ```html
+   <html>
+   <head>
       <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
-  </head>
-  <body>
+   </head>
+   <body>
     <!-- UI code goes here -->
 
     <!-- SDK reference goes here -->
@@ -62,21 +62,21 @@ Klasörde `index.html` adlı yeni bir dosya oluşturun ve bu dosyayı bir metin 
     <!-- Optional authorization token request goes here -->
 
     <!-- Sample code goes here -->
-  </body>
-  </html>
-  ```
+   </body>
+   </html>
+   ```
 
 1. Aşağıda kullanıcı arabirimi kodunu dosyanızda ilk açıklamanın altına ekleyin:
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#uidiv)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#uidiv)]
 
 1. Konuşma SDK’sına bir başvuru ekleme
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
 
 1. Yukarı düğme tanıma, tanıma işleminin sonucu ve UI kod tarafından tanımlanan abonelikle ilişkili alanları için işleyiciler bağlayabilirsiniz:
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
 
 ## <a name="create-the-token-source-optional"></a>Belirteç kaynağı oluşturma (isteğe bağlı)
 
@@ -85,11 +85,11 @@ Bu şekilde, abonelik anahtarınız hiçbir zaman sunucunuzdan çıkmaz ve kulla
 
 1. `token.php` adlı yeni bir dosya oluşturun. Bu örnekte web sunucunuzun PHP betik oluşturma dilini desteklediği varsayılmaktadır. Aşağıdaki kodu girin:
 
-  [!code-php[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/token.php)]
+   [!code-php[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/token.php)]
 
 1. `index.html` dosyasını düzenleyin ve aşağıdaki kodu dosyanıza ekleyin:
 
-  [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#authorizationfunction)]
+   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#authorizationfunction)]
 
 > [!NOTE]
 > Yetkilendirme belirteçlerinin sınırlı bir kullanım ömrü vardır.

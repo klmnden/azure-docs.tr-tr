@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: b7ad21bd3185e5e6ba4774cdc5780b0594033f14
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ba72f273724bb45418b104b1245648419ababbf0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028724"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903632"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Birleşik bileşenler arası işlem tanılamaları
 
@@ -50,7 +50,7 @@ Bu grafiği yatay bir çubuk olan bir zaman çizelgesi istekleri ve bağımlıl�
 * Görmek için herhangi bir satırı seçin, [ayrıntıları sağda](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
-Diğer bileşenleri çağrısına sahip iki satır: bir satır arayana bileşenin giden çağrısından (bağımlılık) temsil eder ve iki satırdan adlı bileşenin gelen isteğiyle karşılık gelir. Önde gelen simge ve süresi çubukları ayrı stilini bunları ayırt yardımcı olur.
+> Diğer bileşenleri çağrısına sahip iki satır: bir satır arayana bileşenin giden çağrısından (bağımlılık) temsil eder ve iki satırdan adlı bileşenin gelen isteğiyle karşılık gelir. Önde gelen simge ve süresi çubukları ayrı stilini bunları ayırt yardımcı olur.
 
 ## <a name="all-telemetry-with-this-operation-id"></a>Bu işlem kimliğine sahip tüm telemetri
 
@@ -74,9 +74,9 @@ Daraltılabilir bu bölme filtre ölçütlerini karşılayan diğer sonuçları 
 
 [Application Insights profiler](../../azure-monitor/app/profiler.md) veya [anlık görüntü hata ayıklayıcısı](snapshot-debugger.md) Yardım ile kod düzeyi tanılama performans ve başarısızlık sorunların. Bu deneyim ile anlık görüntülerden herhangi bir bileşeni tek bir'a tıklayın veya profil oluşturucu izlemeleri görebilirsiniz.
 
-Profiler çalışmaya alınamadı, lütfen iletişime geçin **serviceprofilerhelp@microsoft.com**
+Profiler çalışmaya alınamadı, lütfen başvurun **serviceprofilerhelp\@microsoft.com**
 
-Snapshot Debugger çalışma alınamadı, lütfen iletişime geçin **snapshothelp@microsoft.com**
+Snapshot Debugger çalışma alınamadı, lütfen başvurun **snapshothelp\@microsoft.com**
 
 ![Profiler tümleştirme](media/transaction-diagnostics/profilerTraces.png)
 

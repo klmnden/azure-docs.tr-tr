@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: absha
-ms.openlocfilehash: 515243cb043bac8e9f28a3c63808e4fbd9b8f525
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7bc3ea054056ac67cf0a116fb1538bc1483ab4d4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905044"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223538"
 ---
 # <a name="application-gateway-configuration-overview"></a>Uygulama ağ geçidi yapılandırmasına genel bakış
 
@@ -85,8 +85,7 @@ Arasından seçim yapabilirsiniz [temel veya çoklu site dinleyicisi](https://do
 
 - Tek bir sitede bir uygulama ağ geçidi arkasında barındırıyorsanız, temel dinleyici seçin. Bilgi [temel dinleyici ile bir uygulama ağ geçidi oluşturma](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- Ardından aynı uygulama ağ geçidi örneğinde birden çok alt etki alanlarını aynı üst etki alanının veya birden fazla web uygulaması yapılandırıyorsanız, çoklu site dinleyicisi seçin. Çoklu site dinleyicisi için ayrıca bir ana bilgisayar adı girmeniz gerekir. Application Gateway aynı genel IP adresi ve bağlantı noktası üzerinde birden fazla Web sitesi barındırmak için HTTP 1.1 barındırma bilgilerini kullanır olmasıdır.![1551057450710](C:/Users/absha/AppData/Roaming/Typora/typora-user-images/1551057450710.png)
-
+- Ardından aynı uygulama ağ geçidi örneğinde birden çok alt etki alanlarını aynı üst etki alanının veya birden fazla web uygulaması yapılandırıyorsanız, çoklu site dinleyicisi seçin. Çoklu site dinleyicisi için ayrıca bir ana bilgisayar adı girmeniz gerekir. Application Gateway aynı genel IP adresi ve bağlantı noktası üzerinde birden fazla Web sitesi barındırmak için HTTP 1.1 barındırma bilgilerini kullanır olmasıdır.
 
 > [!NOTE]
 > V1 SKU'ları durumunda dinleyicileri bunlar gösterilen sırada işlenir. Temel dinleyici gelen bir istekle eşleşiyorsa, bu nedenle ilk önce işler. Bu nedenle, çok siteli dinleyicileri, trafiğin doğru arka uca yönlendirilmesini sağlamak için temel bir dinleyici önce yapılandırılmalıdır.

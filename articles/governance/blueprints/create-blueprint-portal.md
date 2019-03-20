@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 845d200238c276be3f0d64afb3127864d8d9ae19
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729927"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004909"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Tanımlama ve portalda bir Azure şema Ata
 
@@ -249,9 +249,9 @@ Gerekli değilse şema atamasını abonelikten kaldırabilirsiniz. Şema, günce
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Şema yaşam döngüsü](./concepts/lifecycle.md) hakkında bilgi edinin
-- [Statik ve dinamik parametreleri](./concepts/parameters.md) kullanmayı anlayın
-- [Şema sıralamasını](./concepts/sequencing-order.md) özelleştirmeyi öğrenin
-- [Şema kaynak kilitleme](./concepts/resource-locking.md) özelliğini kullanmayı öğrenin
-- [Var olan atamaları güncelleştirmeyi](./how-to/update-existing-assignments.md) öğrenin
-- [Genel sorun giderme](./troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin
+- Hakkında bilgi edinin [blueprint yaşam döngüsü](./concepts/lifecycle.md).
+- Nasıl kullanılacağını anlamak [statik ve dinamik parametreleri](./concepts/parameters.md).
+- Özelleştirme öğrenin [blueprint sıralama sipariş](./concepts/sequencing-order.md).
+- Öğrenin yapmak kullanım [blueprint kaynak kilitleme](./concepts/resource-locking.md).
+- Bilgi edinmek için nasıl [mevcut Atamaları Güncelleştir](./how-to/update-existing-assignments.md).
+- İle bir blueprint ataması sırasında sorunları gidermek [genel sorun giderme](./troubleshoot/general.md).

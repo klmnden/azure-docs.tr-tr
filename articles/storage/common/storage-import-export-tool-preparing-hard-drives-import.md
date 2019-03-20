@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 7645694e9f2b90bfbe26ac3d0747791570f32d1b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 777e0aac46dbffb1e491874b5889667a888aadf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510145"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898695"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlama
 
@@ -25,7 +25,7 @@ ms.locfileid: "55510145"
 
 - **Makine Yapılandırması**
   - Windows 7, Windows Server 2008 R2 veya daha yeni bir Windows işletim sistemi
-  - .NET framework 4 yüklü olması gerekir. Bkz: [SSS](#faq) nasıl .net Framework olup olmadığını denetlemek makinede yüklü.
+  - .NET framework 4 yüklü olması gerekir. Bkz: [SSS](#faq) nasıl .NET Framework makinede yüklü olup olmadığını denetleyin.
 - **Depolama hesabı anahtarı** -depolama hesabı için hesap anahtarları en az biri gerekir.
 
 ### <a name="preparing-disk-for-import-job"></a>Disk içeri aktarma işine hazırlama
@@ -151,12 +151,12 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 Veri InitialDriveset içinde belirtilen sürücülere değil sığıyorsa, ek sürücüler aynı kopyasını oturumuna eklemek için bir araç kullanabilirsiniz. 
 
->[!NOTE] 
->Oturum kimliği, önceki bir oturum kimliği eşleşmesi gerekir. Günlük dosyası önceki oturumu belirtilen hesapla eşleşmelidir.
->
-```
-WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
-```
+> [!NOTE]
+> Oturum kimliği, önceki bir oturum kimliği eşleşmesi gerekir. Günlük dosyası önceki oturumu belirtilen hesapla eşleşmelidir.
+> 
+> ```
+> WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
+> ```
 
 **Örnek:**
 
@@ -364,7 +364,7 @@ BitLocker TPM'de devre dışı bırakmak için aşağıdaki adımları izleyerek
 
 Tüm Microsoft .NET Framework sürümleri aşağıdaki dizine yüklenir: %windir%\Microsoft.NET\Framework\
 
-Aracı çalıştırmak için gereken yere, hedef makinenizde yukarıda belirtilen bölümüne gidin. "V4" ile başlayan klasör adı arayın. Böyle bir dizin olmaması, .NET 4, makinenizde yüklü anlamına gelir. .Net 4 kullanarak makinenize indirebileceğiniz [Microsoft .NET Framework 4 (Web Yükleyicisi)](https://www.microsoft.com/download/details.aspx?id=17851).
+Aracı çalıştırmak için gereken yere, hedef makinenizde yukarıda belirtilen bölümüne gidin. "V4" ile başlayan klasör adı arayın. Böyle bir dizin olmaması, .NET 4, makinenizde yüklü anlamına gelir. .NET 4 kullanarak makinenize indirebileceğiniz [Microsoft .NET Framework 4 (Web Yükleyicisi)](https://www.microsoft.com/download/details.aspx?id=17851).
 
 ### <a name="limits"></a>Sınırlar
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c19d32f6c6f491a91ba6c2219be9fd016b5ec34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1defa08b0eb9ede2adec3b7ac12c873522dd6c37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243888"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011604"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Anlama ve Azure Linux Aracısı'nı kullanma
 
@@ -73,18 +73,18 @@ Aracı platformundan bilgi akışına iki kanalı gerçekleşir:
 Aşağıdaki sistemleri edilmiş ve Azure Linux Aracısı ile çalışmak için bilinmektedir:
 
 > [!NOTE]
-> Bu liste, resmi Microsoft Azure platformunda desteklenen sistemleri listesinden burada açıklandığı değişebilir: [http://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Bu liste, resmi Microsoft Azure platformunda desteklenen sistemleri listesinden burada açıklandığı değişebilir: [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
 * CoreOS
-* CentOS 6.3 +
-* Red Hat Enterprise Linux 6.7 +
+* CentOS 6.3+
+* Red Hat Enterprise Linux 6.7+
 * Debian 7.0 +
-* Ubuntu 12.04 +
+* Ubuntu 12.04+
 * openSUSE 12.3 +
-* SLES 11 SP3 +
-* Oracle Linux 6.4 +
+* SLES 11 SP3+
+* Oracle Linux 6.4+
 
 Desteklenen diğer sistemler:
 
@@ -93,8 +93,8 @@ Desteklenen diğer sistemler:
 Linux Aracısı düzgün çalışması için bazı sistem paketleri bağlıdır:
 
 * Python 2.6 +
-* OpenSSL 1.0 +
-* OpenSSH 5.3 +
+* OpenSSL 1.0+
+* OpenSSH 5.3+
 * Dosya sistemi yardımcı programları: sfdisk fdisk, mkfs, parted
 * Parola araçları: chpasswd, sudo
 * Metin araçları işleme: sed, grep
@@ -112,7 +112,7 @@ Belgeye başvurun [GitHub üzerindeki Azure Linux Aracısı depo](https://github
 * Zorla: Bazı komutlar için etkileşimli onayı atlayın
 
 ### <a name="commands"></a>Komutlar
-* Yardım: desteklenen komutlar ve bayrakları listeler.
+* Yardım: Desteklenen komutlar ve bayrakları listeler.
 * sağlamayı kaldırma: Sistem temizleyin ve çıkış için uygun hale getiren girişimi. Aşağıdaki işlem siler:
   
   * (Provisioning.regeneratesshhostkeypair değerini 'y' yapılandırma dosyası ise) tüm SSH ana bilgisayar anahtarları
@@ -126,11 +126,11 @@ Belgeye başvurun [GitHub üzerindeki Azure Linux Aracısı depo](https://github
 > 
 > 
 
-* sağlamayı kaldırma + kullanıcı: her şeyi sağlamayı kaldırma-(yukarıda) gerçekleştirir ve de (/var/lib/waagent alınan) son sağlanan kullanıcı hesabı siler ve ilişkili verileri. Bu parametre, yakalanan ve yeniden, daha önce Azure'da sağlama bir görüntü sağlamayı zaman olur.
-* Sürüm: waagent sürümünü görüntüler
-* serialconsole: ttyS0 işaretlemek için GRUB yapılandırır (ilk seri bağlantı noktası) Önyükleme Konsolu. Bu, çekirdek önyükleme günlüklerini seri bağlantı noktasına gönderilen ve hata ayıklama için kullanılabilir hale sağlar.
-* arka plan programı: waagent platformuyla etkileşim yönetmek için bir arka plan olarak çalıştırın. Bu bağımsız değişken waagent waagent init komut dosyasında belirtilir.
-* Başlat: waagent bir arka plan işlemi Çalıştır
+* sağlamayı kaldırma + kullanıcı: Her şeyi sağlamayı kaldırma-(yukarıda) gerçekleştirir ve de (/var/lib/waagent alınan) son sağlanan kullanıcı hesabı siler ve ilişkili verileri. Bu parametre, yakalanan ve yeniden, daha önce Azure'da sağlama bir görüntü sağlamayı zaman olur.
+* Sürüm: Waagent sürümünü görüntüler
+* serialconsole: GRUB ttyS0 işaretlemek için yapılandırır (ilk seri bağlantı noktası) Önyükleme Konsolu. Bu, çekirdek önyükleme günlüklerini seri bağlantı noktasına gönderilen ve hata ayıklama için kullanılabilir hale sağlar.
+* arka plan programı: Waagent platformuyla etkileşim yönetmek için bir arka plan olarak çalıştırın. Bu bağımsız değişken waagent waagent init komut dosyasında belirtilir.
+* Başlat: Waagent bir arka plan işlemi Çalıştır
 
 ## <a name="configuration"></a>Yapılandırma
 Bir yapılandırma dosyası (/ etc/waagent.conf) waagent eylemlerini denetler. Aşağıdaki örnek bir yapılandırma dosyası gösterir:
@@ -330,7 +330,7 @@ Etkinleştirmek veya hedef durumunu işleme için otomatik güncelleştirme devr
 
 
 
-## <a name="ubuntu-cloud-images"></a>Ubuntu bulut görüntüleri
+## <a name="ubuntu-cloud-images"></a>Ubuntu Cloud Images
 Ubuntu bulut görüntüleri kullanan [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) Azure Linux aracısı tarafından yönetilmesi çok sayıda yapılandırma görevlerini gerçekleştirmek için. Aşağıdaki farklar geçerlidir:
 
 * **Provisioning.Enabled** Ubuntu bulut görüntülerindeki, hazırlama görevleri gerçekleştirmek için cloud-init kullanma "n" varsayılan değeri.

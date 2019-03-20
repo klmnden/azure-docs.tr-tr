@@ -18,18 +18,18 @@ ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a90f530febccada5421323dd95461257e0fc5950
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: b77b5185056329113ee1fd17fa3ed3f364380ca2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194257"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095883"
 ---
 # <a name="app-registration-reference"></a>Uygulama kayıt başvurusu
 Bu belgede bağlam sağlar ve çeşitli özelliklerin açıklamaları bulunan [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
 
-> [!NOTE] 
-Artık kaydetme ve yönetme yakınsanmış ve Azure AD uygulamalarında destekleyeceğiz [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) Mayıs 2019 başlatılıyor. Mevcut uygulamalarınızı yönetmek ve kullanarak yeni uygulamalar kaydetme öneririz [uygulama kayıtları (Önizleme)](https://aka.ms/appregistrations) Azure portalında karşılaşırsınız.
+> [!NOTE]
+> Artık kaydetme ve yönetme yakınsanmış ve Azure AD uygulamalarında destekleyeceğiz [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) Mayıs 2019 başlatılıyor. Mevcut uygulamalarınızı yönetmek ve kullanarak yeni uygulamalar kaydetme öneririz [uygulama kayıtları (Önizleme)](https://aka.ms/appregistrations) Azure portalında karşılaşırsınız.
 
 ## <a name="my-applications-or-converged-applications"></a>Uygulamalarım veya hiper yakınsanmış uygulamalar
 Bu liste tüm uygulamalarınızı Azure AD v2.0 uç noktası ile kullanılması için kaydedilen içerir. Bu uygulamaların kullanıcıların hem kişisel Microsoft hesapları hem de iş/Okul hesapları Azure Active Directory ile oturum açma olanağı vardır. Azure AD v2.0 uç noktası hakkında daha fazla bilgi için bkz: [v2.0 genel bakış](active-directory-appmodel-v2-overview.md). Bu uygulamalar Microsoft hesabı kimlik doğrulaması uç nokta ile tümleştirmek için de kullanılabilir `https://login.live.com`.

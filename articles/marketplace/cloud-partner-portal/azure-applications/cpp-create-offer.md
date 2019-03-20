@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 4f6dbb52778893de0468dbab82351b9020af2927
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: cae657736d78958259c04dee48034f97ac9d3d1c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412818"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871237"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure uygulama teklif oluşturma
 
@@ -27,7 +27,7 @@ Bu makalede, oluşturma ve Azure uygulama teklife girdiyi Azure Market'te yayım
 
 ## <a name="new-offer-form"></a>Yeni Teklif formu
 
-Oturum [bulut iş ortağı portalı](http://cloudpartner.azure.com/)ve ardından **+ yeni teklif** sol menü çubuğundan. Menü yeni sunar, seçin **Azure uygulamaları** görüntülemek için **yeni teklif** oluşturmak ve yeni bir teklif için varlıklar tanımlayan işlemini başlatın.
+Oturum [bulut iş ortağı portalı](https://cloudpartner.azure.com/)ve ardından **+ yeni teklif** sol menü çubuğundan. Menü yeni sunar, seçin **Azure uygulamaları** görüntülemek için **yeni teklif** oluşturmak ve yeni bir teklif için varlıklar tanımlayan işlemini başlatın.
 
 ![Yeni Teklif formu](./media/azure-new-managedapp-offer.png)
 

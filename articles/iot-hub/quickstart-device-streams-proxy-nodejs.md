@@ -8,18 +8,20 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 0231b67ee56de5e1729c02ed3d87b2461f025b84
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: a737413f6692b4ee811d0590351a385552cc9a8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887436"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085584"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>Hızlı Başlangıç: SSH/RDP üzerinden Node.js Ara sunucu uygulamasını (Önizleme) kullanarak IOT Hub cihaz akışları
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
+
+Microsoft Azure IOT Hub cihaz akışları olarak şu anda destekleyen bir [önizleme özelliği](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [IOT Hub cihaz akışları](./iot-hub-device-streams-overview.md) güvenli ve güvenlik duvarı uyumlu bir şekilde iletişim kurmak hizmet ve cihaz uygulamalarınıza izin verin. Bu Hızlı Başlangıç Kılavuzu, bir cihaz akış üzerinden cihaza gönderilecek SSH ve RDP trafiğini etkinleştirmek için hizmet tarafında çalışan bir Node.js proxy uygulamanın yürütülmesini açıklar. Bkz: [burada](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) Kurulum genel bakış. Genel Önizleme süresince Node.js SDK'sı yalnızca hizmet tarafında cihaz akışlarını destekler. Sonuç olarak, bu Hızlı Başlangıç Kılavuzu, yalnızca hizmeti-yerel proxy çalıştırma yönergeleri kapsar. Kullanılabilir eşlik eden bir cihaz yerel proxy çalıştırmalısınız [C hızlı](./quickstart-device-streams-proxy-c.md) veya [ C# hızlı](./quickstart-device-streams-proxy-csharp.md) Kılavuzlar.
 
@@ -32,6 +34,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
+
+Cihaz akışları şu anda önizlemesidir yalnızca IOT hub'ları aşağıdaki bölgelerde oluşturulan için desteklenir:
+
+  - **Orta ABD**
+  - **Orta ABD EUAP**
 
 Bu hızlı başlangıçta hizmet yerel uygulamayı çalıştırmak için geliştirme makinenizi Node.js v4.x.x veya sonraki bir sürümü gerekir.
 
@@ -75,7 +82,7 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
     **YourIoTHubName**: Aşağıda bu yer tutucu IOT hub'ınız için seçtiğiniz adı ile değiştirin.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     Şuna benzer döndürülen değeri not edin:
@@ -95,7 +102,7 @@ Daha önce belirtildiği gibi IOT Hub Node.js SDK'sı hizmet tarafında yalnızc
 Varsayarak [cihaz yerel proxy](#run-the-device-local-proxy) olan çalışan, node.js'de yazılmış hizmeti-yerel proxy çalıştırmak için aşağıdaki adımları izleyin.
 
 - Ortam değişkenleri olarak cihaz üzerinde çalışan proxy için hizmet kimlik bilgilerinizi, SSH arka plan programı çalıştığı hedef cihaz kimliği ve bağlantı noktası numarasını sağlayın.
-```
+  ```
   # In Linux
   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
   export STREAMING_TARGET_DEVICE="MyDevice"
@@ -105,11 +112,11 @@ Varsayarak [cihaz yerel proxy](#run-the-device-local-proxy) olan çalışan, nod
   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
   SET STREAMING_TARGET_DEVICE=MyDevice
   SET PROXY_PORT=2222
-```
-Cihaz kimliği ve bağlantı dizenizle eşleşen yukarıdaki değerleri değiştirin.
+  ```
+  Cihaz kimliği ve bağlantı dizenizle eşleşen yukarıdaki değerleri değiştirin.
 
 - Gidin `Quickstarts/device-streams-service` sıkıştırması proje klasörü ve Çalıştır hizmeti-yerel proxy.
-```
+  ```
   cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
 
   # Install the preview service SDK, and other dependencies
@@ -118,7 +125,7 @@ Cihaz kimliği ve bağlantı dizenizle eşleşen yukarıdaki değerleri değişt
 
   # Run the service-local proxy application
   node proxy.js
-```
+  ```
 
 ### <a name="ssh-to-your-device-via-device-streams"></a>Cihazınıza cihaz akışları aracılığıyla SSH
 SSH kullanarak Linux içinde çalıştırma `ssh $USER@localhost -p 2222` bir terminal üzerinde. Windows sık kullanılan SSH istemciniz kullanın (örneğin, PuTTY).

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 52bdbd1f7fb02c33e9cd6eef862d5be299bf1dad
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: c18597fde157e0308138348432d63d56446931b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792353"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012564"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Öğretici: Azure SignalR hizmeti kimlik doğrulaması ile Azure işlevleri
 
@@ -74,12 +74,12 @@ Azure İşlevleri uygulamasını yerel ortamda derleyecek ve test edeceksiniz. U
 1. Yeni bir VS Code penceresinde menüden `File > Open Folder` seçeneğini kullanarak uygun konumda boş bir klasör oluşturun ve açın. Bu derleyeceğiniz uygulamanın ana proje klasörü olacaktır.
 
 1. VS Code Azure İşlevleri uzantısını kullanarak ana proje klasöründe bir İşlev uygulaması başlatın.
-    1. Menüden **Görünüm > Komut Paleti** yolunu izleyerek (kısayol `Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) VS Code'da Komut Paletini açın.
-    1. Arama **Azure işlevleri: Yeni proje oluşturma** komut ve bu seçeneği belirleyin.
-    1. Ana proje klasörü görünmelidir. Bu klasörü seçin (veya "Gözat" düğmesini kullanarak bulun).
-    1. Dil seçmeniz istendiğinde **JavaScript**'i seçin.
+   1. Menüden **Görünüm > Komut Paleti** yolunu izleyerek (kısayol `Ctrl-Shift-P`, macOS: `Cmd-Shift-P`) VS Code'da Komut Paletini açın.
+   1. Arama **Azure işlevleri: Yeni proje oluşturma** komut ve bu seçeneği belirleyin.
+   1. Ana proje klasörü görünmelidir. Bu klasörü seçin (veya "Gözat" düğmesini kullanarak bulun).
+   1. Dil seçmeniz istendiğinde **JavaScript**'i seçin.
 
-    ![İşlev uygulaması oluşturma](media/signalr-tutorial-authenticate-azure-functions/signalr-create-vscode-app.png)
+      ![İşlev uygulaması oluşturma](media/signalr-tutorial-authenticate-azure-functions/signalr-create-vscode-app.png)
 
 ### <a name="install-function-app-extensions"></a>İşlev uygulaması uzantılarını yükleme
 
@@ -119,14 +119,14 @@ Azure İşlevleri çalışma zamanını yerel ortamda çalıştırma ve hata ay�
     }
     ```
 
-    * Azure SignalR Hizmeti bağlantı dizesini `AzureSignalRConnectionString` adlı bir ayara girin. Azure portaldan Azure SignalR Hizmeti kaynağının **Anahtarlar** sayfasındaki değeri alın. Birincil veya ikincil bağlantı dizesini kullanabilirsiniz.
-    * `WEBSITE_NODE_DEFAULT_VERSION` ayarı yerel ortamda kullanılmaz ancak uygulama Azure'a dağıtıldığında kullanılması gerekir.
-    * `Host` bölümü yerel İşlevler ana bilgisayarı için bağlantı noktası ve CORS ayarlarını yapılandırır (Azure'da çalışırken bu ayarın bir etkisi yoktur).
+   * Azure SignalR Hizmeti bağlantı dizesini `AzureSignalRConnectionString` adlı bir ayara girin. Azure portaldan Azure SignalR Hizmeti kaynağının **Anahtarlar** sayfasındaki değeri alın. Birincil veya ikincil bağlantı dizesini kullanabilirsiniz.
+   * `WEBSITE_NODE_DEFAULT_VERSION` ayarı yerel ortamda kullanılmaz ancak uygulama Azure'a dağıtıldığında kullanılması gerekir.
+   * `Host` bölümü yerel İşlevler ana bilgisayarı için bağlantı noktası ve CORS ayarlarını yapılandırır (Azure'da çalışırken bu ayarın bir etkisi yoktur).
 
-        > [!NOTE]
-        > İçerik sunmak için genellikle Canlı sunucu yapılandırılmış http://127.0.0.1:5500. Farklı bir URL kullanıyor veya farklı bir HTTP sunucusu değişiklik kullandığınız bulursanız `CORS` doğru kaynağı yansıtacak şekilde ayarı.
+       > [!NOTE]
+       > İçerik sunmak için genellikle Canlı sunucu yapılandırılmış `http://127.0.0.1:5500`. Farklı bir URL kullanıyor veya farklı bir HTTP sunucusu değişiklik kullandığınız bulursanız `CORS` doğru kaynağı yansıtacak şekilde ayarı.
 
-    ![SignalR Hizmeti anahtarını alma](media/signalr-tutorial-authenticate-azure-functions/signalr-get-key.png)
+     ![SignalR Hizmeti anahtarını alma](media/signalr-tutorial-authenticate-azure-functions/signalr-get-key.png)
 
 1. Dosyayı kaydedin.
 

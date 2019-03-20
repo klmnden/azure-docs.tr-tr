@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: ca951c813554ae253cbd572e03c53b8687499af9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 94bdc0670fb63b1b4c306a5af3357f437784338c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000174"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007936"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Azure İzleyici'de toplama IIS Günlükler
 Internet Information Services (IIS), Azure İzleyici tarafından toplanan ve depolanan günlük dosyalarında kullanıcı etkinliğini depolar [günlük verilerini](data-collection.md).
@@ -72,7 +72,7 @@ Aşağıdaki tabloda IIS günlük kayıtları almak günlük sorguları farklı 
 | W3CIISLog |Tüm IIS günlük kaydı. |
 | W3cııslog &#124; burada scStatus 500 == |Tüm IIS günlük kayıtları 500 dönüş durumu. |
 | W3cııslog &#124; Count() işlevi tarafından CIP özetleme |İstemci IP adresine göre sayısı, IIS günlük girdilerinin. |
-| W3CIISLog &#124; where csHost=="www.contoso.com" &#124; summarize count() by csUriStem |URL'ye göre girişlerinde konak www.contoso.com oturum sayısı, IIS. |
+| W3cııslog &#124; burada csHost == "www\.contoso.com" &#124; Count() işlevi tarafından csUriStem özetleme |Konak www URL'sine göre sayısı, IIS günlük girişi\.contoso.com. |
 | W3cııslog &#124; sum(csBytes) bilgisayara göre özetlemek &#124; 500000 Al |Her IIS bilgisayarına göre alınan toplam bayt sayısı. |
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039478"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002376"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure Stack sanal makinelerini Azure'a çoğaltma
 
@@ -190,7 +190,7 @@ Artık yapılandırma sunucusunu yükleyin:
 
 > [!NOTE]
 > Yapılandırma sunucusu, ayrıca komut satırından yüklenebilir. [Daha fazla bilgi edinin](physical-manage-configuration-server.md#install-from-the-command-line).
-
+> 
 > Hesap adının portalda görünmesi 15 dakika veya daha fazla sürebilir. Hemen güncelleştirme yapmak için **Yapılandırma Sunucuları** > ***sunucu adı*** > **Sunucuyu Yenile** seçeneğini belirleyin.
 
 ## <a name="step-4-set-up-the-target-environment"></a>4. Adım: Hedef ortamı ayarlama
@@ -214,7 +214,7 @@ Hedef kaynaklarını seçin ve doğrulayın.
 4. İçinde **kurtarma noktası bekletme**, ne kadar süreyle saklanacağını her kurtarma noktası belirtin. Çoğaltılan VM'ler, belirtilen zaman penceresinde herhangi bir noktaya kurtarılabilir.
 5. İçinde **uygulamayla tutarlı anlık görüntü sıklığı**, ne sıklıkta belirtin uygulamayla tutarlı anlık görüntüler oluşturulur.
 
-    - Uygulamayla tutarlı anlık görüntü, VM'nin içindeki uygulama verilerinin zaman içinde nokta anlık görüntüsüdür.
+    - Uygulamayla tutarlı bir anlık görüntü, VM'nin içindeki uygulama verilerinin zaman içinde nokta anlık görüntüsüdür.
     - Birim Gölge Kopyası Hizmeti (VSS) anlık görüntü alınırken VM'deki uygulamalar tutarlı bir durumda olmasını sağlar.
 6. İlkeyi oluşturmak için **Tamam**’ı seçin.
 
@@ -249,9 +249,9 @@ Tüm görevleri tamamladığınızdan emin olun [1. adım: Makinesini hazırlama
 
 > [!NOTE]
 > Bir VM için çoğaltma etkinleştirildiğinde Site Recovery, Mobility Hizmeti’ni yükler.
-
+> 
 > Değişikliklerin geçerli olması ve portalda görüntülenmesi 15 dakika veya daha uzun sürebilir.
-
+> 
 > Eklediğiniz VM’leri izlemek için **Configuration Servers** > **Last Contact At** bölümünde VM’lerin son bulunma zamanını kontrol edin. Zamanlanan bulma işlemini beklemeden VM’leri eklemek için yapılandırma sunucusunu vurgulayın (seçmeyin) ve **Yenile**’yi seçin.
 
 

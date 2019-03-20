@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 84a2ef60c9f6aa4270c3fc4f83327070b298b8b2
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 535ba0049e91e09de3d1dcf05fc8ede80ef403ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697196"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088069"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso geçişi: Bir şirket içi uygulama Azure sanal makineleri ve SQL Server AlwaysOn Kullanılabilirlik grubu üzerinde yeniden barındırma
 
@@ -286,7 +286,7 @@ Bunlar gibi yük dengeleyici oluşturun:
 
 İç load balancer dağıtıldıktan sonra bunların ayarlamanız gerekir. Bunlar bir arka uç adres havuzu oluşturun, bir durum araştırması ayarlayın ve Yük Dengeleme kuralı yapılandırın.
 
-### <a name="add-a-backend-pool"></a>Arka uç havuzu Ekle
+### <a name="add-a-backend-pool"></a>Arka uç havuzu ekle
 
 Trafiği kümedeki Vm'leri dağıtmak için yük dengeleyiciden ağ trafiği alacak sanal makineler için NIC IP adreslerini içeren bir arka uç adres havuzu Contoso yöneticileri ayarlayın.
 
@@ -704,10 +704,10 @@ Contoso güvenlik ekibi, Azure Vm'leri WEBVM, SQLAOG1 ve SQLAOG2 güvenlik sorun
 ## <a name="bcdr"></a>BCDR
 
  Contoso, iş sürekliliği ve olağanüstü durum kurtarma (BCDR) için aşağıdaki işlemleri yapar:
- - Verileri güvende tutun: Contoso WEBVM, SQLAOG1 ve SQLAOG2 Vm'leri Azure Backup hizmetini kullanarak verileri yedekler. [Daha fazla bilgi].
-(https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-- Contoso, blob depolama alanına doğrudan SQL sunucusunu yedeklemek için Azure depolama kullanma hakkında da bilgi edineceksiniz. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore).
-- Uygulamalarınızı çalışır halde tutun: Contoso uygulama Azure sanal makinelerini Site Recovery kullanarak ikincil bir bölgeye çoğaltır. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
+- Verileri güvende tutun: Contoso WEBVM, SQLAOG1 ve SQLAOG2 Vm'leri Azure Backup hizmetini kullanarak verileri yedekler. [Daha fazla bilgi].
+  (https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+  - Contoso, blob depolama alanına doğrudan SQL sunucusunu yedeklemek için Azure depolama kullanma hakkında da bilgi edineceksiniz. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore).
+  - Uygulamalarınızı çalışır halde tutun: Contoso uygulama Azure sanal makinelerini Site Recovery kullanarak ikincil bir bölgeye çoğaltır. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
 
 
 ### <a name="licensing-and-cost-optimization"></a>Lisanslama ve maliyet iyileştirme

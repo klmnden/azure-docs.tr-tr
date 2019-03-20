@@ -3,23 +3,23 @@ title: include dosyası
 description: include dosyası
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: ios
 ms.workload: identity
-ms.date: 09/19/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 8c7f11d74d0a0b81f9f0c40871b2eaa3eb25f51f
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: ace6c36f1bc4582b3210c049a4ff8cb1f770bf88
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988284"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203542"
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>Bir iOS uygulamasından Microsoft Graph API çağırma
 
@@ -34,7 +34,7 @@ Bu kılavuz sonraki alıştırmalarda tamamladıktan sonra uygulamanızı herhan
 
 ## <a name="how-this-guide-works"></a>Bu kılavuz nasıl çalışır?
 
-![Bu kılavuz nasıl çalışır?](media/active-directory-develop-guidedsetup-ios-introduction/iosintro.png)
+![Örnek uygulama tarafından bu öğreticileri çalışır nasıl oluşturulacağını gösterir](media/active-directory-develop-guidedsetup-ios-introduction/iosintro-updated.png)
 
 Bu kılavuzda, örnek uygulamayı Microsoft Graph API veya web API'si Azure AD v2.0 uç noktasından belirteçleri kabul eden sorgulamak bir iOS uygulaması sağlar. Bu senaryo için kullanarak bir belirteç HTTP isteklerine eklenen **yetkilendirme** başlığı. Microsoft Authentication Library (MSAL tarafından) belirteç edinme ve yenileme işlenir.
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 372df0bc6ea540b4b2c030ec71acc6889e7c7d19
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3a1fd81f890e304c6bda75fad609cc8c98cd634d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874095"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880390"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure Otomasyonu sertifika varlıkları
 
@@ -28,11 +28,12 @@ AzureRM için aşağıdaki tabloda yer alan cmdlet'ler Windows PowerShell ile Ot
 
 |Cmdlet'ler|Açıklama|
 |:---|:---|
-|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Runbook'tan veya DSC yapılandırmasından içinde kullanmak üzere bir sertifika hakkındaki bilgileri alır. Bu gibi durumlarda, sertifika yalnızca Get-AutomationCertificate etkinliğinden alabilirsiniz.|
-|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Azure Automation'a yeni bir sertifika oluşturur.|
-[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Azure Otomasyonu sertifika kaldırır.|Azure Automation'a yeni bir sertifika oluşturur.
+|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate)|Runbook'tan veya DSC yapılandırmasından içinde kullanmak üzere bir sertifika hakkındaki bilgileri alır. Bu gibi durumlarda, sertifika yalnızca Get-AutomationCertificate etkinliğinden alabilirsiniz.| 
+|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Azure Automation'a yeni bir sertifika oluşturur.| 
+[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Azure Otomasyonu sertifika kaldırır.|
 |[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Sertifikayı karşıya yükleme ve bir .pfx için parolayı ayarlama da dahil olmak üzere mevcut bir sertifikayı özelliklerini ayarlar.|
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|Belirtilen bulut hizmeti için hizmet sertifikası yükler.|
+
 
 ## <a name="activities"></a>Etkinlikler
 Aşağıdaki tablodaki etkinlikler bir runbook ve DSC yapılandırmaları sertifikaları erişmek için kullanılır.
@@ -62,11 +63,11 @@ Yeni bir sertifika oluşturduğunuzda, Azure Otomasyonu'na ekleme bir .cer veya 
 ### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>Azure portalı ile yeni bir sertifika oluşturmak için
 
 1. Otomasyon hesabınızdan tıklayın **varlıklar** açmak için kutucuğa **varlıklar** dikey penceresi.
-1. Tıklayın **sertifikaları** açmak için kutucuğa **sertifikaları** dikey penceresi.
-1. Tıklayın **sertifika ekleme** dikey penceresinin üstünde.
-1. **Ad** kutusuna sertifika için bir ad yazın.
-1. Bir .cer veya .pfx dosyasına gözatmak için tıklayın **bir dosya seçin** altında **bir sertifika dosyası karşıya**. Bir .pfx dosyası seçerseniz, parola ve bunu dışarı aktarılmasına izin verilip verilmediğine belirtin.
-1. Tıklayın **Oluştur** yeni sertifika varlığı kaydetmek için.
+2. Tıklayın **sertifikaları** açmak için kutucuğa **sertifikaları** dikey penceresi.
+3. Tıklayın **sertifika ekleme** dikey penceresinin üstünde.
+4. **Ad** kutusuna sertifika için bir ad yazın.
+5. Bir .cer veya .pfx dosyasına gözatmak için tıklayın **bir dosya seçin** altında **bir sertifika dosyası karşıya**. Bir .pfx dosyası seçerseniz, parola ve bunu dışarı aktarılmasına izin verilip verilmediğine belirtin.
+6. Tıklayın **Oluştur** yeni sertifika varlığı kaydetmek için.
 
 ### <a name="to-create-a-new-certificate-with-windows-powershell"></a>Windows PowerShell ile yeni bir sertifika oluşturmak için
 

@@ -4,17 +4,17 @@ description: Bu hızlı başlangıçta bir IOT Edge cihazı oluşturma ve ardın
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/28/2019
+ms.date: 03/19/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: cb8d686b32aae295e47b127f0312ba6eba9f77e3
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 039ef05f7c0cbb9809a51efc3deef978e2970cf4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408556"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224575"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Hızlı Başlangıç: İlk IOT Edge modülü bir Linux cihazına dağıtma
 
@@ -109,7 +109,7 @@ IOT Edge cihazları sınıflardır ve tipik bir IOT cihazlarında farklı yönet
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Değerini kopyalayın `cs` JSON çıktısını anahtar ve kaydedin. Cihaz bağlantı dizesi değeridir. Sonraki bölümde IOT Edge çalışma zamanı yapılandırmak için bu bağlantı dizesi kullanırsınız.
+3. Değerini kopyalayın `connectionString` JSON çıktısını anahtar ve kaydedin. Cihaz bağlantı dizesi değeridir. Sonraki bölümde IOT Edge çalışma zamanı yapılandırmak için bu bağlantı dizesi kullanırsınız.
 
    ![CLI çıkışından bağlantı dizesi alma](./media/quickstart/retrieve-connection-string.png)
 

@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: 21a6734ab8af2e35643f6e9b25500dad2418a8c2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a32ebb3fc2448b189aa5970446e2ceb29aed51e2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772044"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838791"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve diğer hizmetler kapsayacak şekilde güncelleştirildi.
@@ -344,7 +344,7 @@ Belge boyutuna, sorgu başına saniye, anahtarları, istekleri ve yanıtları gi
 [!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>SQL veritabanı sınırları
-SQL veritabanı limitleri için bkz. [tek veritabanları için SQL veritabanı kaynak limitleri](sql-database/sql-database-vcore-resource-limits-single-databases.md) ve [elastik havuzlara ve havuza alınmış veritabanları için SQL veritabanı kaynak limitleri](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
+SQL veritabanı limitleri için bkz. [tek veritabanları için SQL veritabanı kaynak limitleri](sql-database/sql-database-vcore-resource-limits-single-databases.md), [elastik havuzlara ve havuza alınmış veritabanları için SQL veritabanı kaynak limitleri](sql-database/sql-database-vcore-resource-limits-elastic-pools.md), ve [SQL veritabanı kaynak limitleri Yönetilen örnek için](sql-database/sql-database-managed-instance-resource-limits.md).
 
 ### <a name="sql-data-warehouse-limits"></a>SQL veri ambarı sınırları
 SQL veri ambarı limitleri için bkz. [SQL veri ambarı kaynak sınırları](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).

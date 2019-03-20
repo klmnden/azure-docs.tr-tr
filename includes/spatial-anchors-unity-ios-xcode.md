@@ -4,16 +4,19 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: 8047ed27c732cabf92f53b4b70c22471ecb848aa
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 6768b1b8e0f5d7d3644779268025551c4e1aef9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57588184"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57964309"
 ---
 Seçin **derleme** bir iletişim kutusunu açın. Ardından, Xcode projesi dışarı aktarmak için bir klasör seçin.
 
 Dışarı aktarma tamamlandığında, dışarı aktarılan bir Xcode projesini içeren klasör görüntülenir.
+
+> [!NOTE]
+> Ayarlamak isteyip istemediğinizi soran bir iletişim kutusu açılır, **değiştirin** veya **ekleme**, **ekleme** daha hızlı olduğundan, önerilir. Yalnızca gerçekleştirmek gerekir bir **değiştirin** (ekleme, kaldırma, değiştirme üst/alt ilişkilerini, özellik ekleme/kaldırma/değiştirme, vb.), sahnede değiştiriyorsunuz varlıklar. Kaynak kodu değişiklikleri yalnızca yapıyorsanız **ekleme** yeterli olmalıdır.
 
 ### <a name="open-the-xcode-project"></a>Xcode projesi açın
 
@@ -34,7 +37,7 @@ open ./Unity-iPhone.xcworkspace
 
 Kök seçin **Unity iPhone** proje ayarlarını görüntülemek ve seçmek için düğüm **genel** sekmesi.
 
-Altında **imzalama**seçin **otomatik olarak imzalanmasını yönetmek**. Seçin **etkinleştirmek otomatik** sıfırlamak için görüntülenen iletişim kutusunda derleme ayarları.
+Altında **imzalama**, kontrol **otomatik olarak imzalanmasını yönetmek** etkinleştirilir. Yüklü değilse, etkinleştirmek ve seçin **etkinleştirmek otomatik** sıfırlamak için görüntülenen iletişim kutusunda derleme ayarları.
 
 Altında **dağıtım bilgisi**, emin **dağıtım hedefi** ayarlanır `11.0`.
 

@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81d0590215f92f7b3d1c2ad0bbbc509da31c2fd1
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 67393e19a72777d105f1f35a16986c52f52133be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011633"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079818"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulamasını indirip
 >[!Important]
@@ -34,13 +34,13 @@ Microsoft Authenticator uygulamasını birden çok yolla kullanabilirsiniz:
 
 - **Kod oluşturma.** Kimlik doğrulayıcısı uygulamalarını destekleyen herhangi bir hesabı için bir kod Oluşturucu.
 
->[!Important]
->Microsoft Authenticator uygulamasını iki Faktörlü doğrulama kullanır ve zamana bağlı bir kerelik parola (TOTP) standartlarını destekleyen herhangi bir hesabı ile çalışır.
-
->Kuruluşunuzun oturum açma ve kuruluş verilerini ve belgelerine erişmek için bir kimlik doğrulayıcı uygulama kullanmanızı gerektirebilir. Kullanıcı adınızı uygulamada gibi görünse de, hesap gerçekten kayıt işlemi tamamlanana kadar bir doğrulama yöntemi olarak davranacak şekilde ayarlanmamış. Daha fazla bilgi için [iş veya Okul hesabınızı eklemek](user-help-auth-app-add-work-school-account.md).
-
->[!NOTE]
->Hesabınızda oturum açarken sorun yaşıyorsanız, bkz. [olamaz oturum açtığınızda Microsoft hesabınızı](https://support.microsoft.com/help/12429) Yardım.  Aldığınız olduğunda yapılması gerekenler hakkında daha fazla bilgi alın ["Bu Microsoft hesabı mevcut değil"](https://support.microsoft.com/help/13811) iletisi, Microsoft hesabınızda oturum açın.
+> [!Important]
+> Microsoft Authenticator uygulamasını iki Faktörlü doğrulama kullanır ve zamana bağlı bir kerelik parola (TOTP) standartlarını destekleyen herhangi bir hesabı ile çalışır.
+> 
+> Kuruluşunuzun oturum açma ve kuruluş verilerini ve belgelerine erişmek için bir kimlik doğrulayıcı uygulama kullanmanızı gerektirebilir. Kullanıcı adınızı uygulamada gibi görünse de, hesap gerçekten kayıt işlemi tamamlanana kadar bir doğrulama yöntemi olarak davranacak şekilde ayarlanmamış. Daha fazla bilgi için [iş veya Okul hesabınızı eklemek](user-help-auth-app-add-work-school-account.md).
+> 
+> [!NOTE]
+> Hesabınızda oturum açarken sorun yaşıyorsanız, bkz. [olamaz oturum açtığınızda Microsoft hesabınızı](https://support.microsoft.com/help/12429) Yardım.  Aldığınız olduğunda yapılması gerekenler hakkında daha fazla bilgi alın ["Bu Microsoft hesabı mevcut değil"](https://support.microsoft.com/help/13811) iletisi, Microsoft hesabınızda oturum açın.
 
 ## <a name="download-and-install-the-app"></a>Uygulamayı indirme ve yükleme
 İşletim sisteminize Microsoft Authenticator uygulamasını en son sürümünü yükleyin:
@@ -49,7 +49,8 @@ Microsoft Authenticator uygulamasını birden çok yolla kullanabilirsiniz:
 
 - **Apple iOS.** App Store için yeni Apple iOS Cihazınızda Git [Microsoft Authenticator uygulamasını indirip](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
->[Önemli] Siz değil şu anda mobil Cihazınızda gibiyseniz, yine de Microsoft Authenticator uygulamasını kendiniz indirme bağlantı göndererek alabileceğiniz [Microsoft Authenticator sayfasına](https://www.microsoft.com/en-us/account/authenticator).
+>[!Important]
+>Siz değil şu anda mobil Cihazınızda gibiyseniz, yine de Microsoft Authenticator uygulamasını kendiniz indirme bağlantı göndererek alabileceğiniz [Microsoft Authenticator sayfasına](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

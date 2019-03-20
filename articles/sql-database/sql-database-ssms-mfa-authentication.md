@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/08/2018
-ms.openlocfilehash: 1f26fb101c9940a51ffb4fb7e1b48a51b943599a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 938d1b820bbc85824138d77b81b0f922fd494d0d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663749"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003384"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>Evrensel kimlik doğrulaması ile SQL veritabanı ve SQL veri ambarı'nı (MFA için SSMS desteği)
 Azure SQL veritabanı ve Azure SQL veri ambarı SQL Server Management Studio (SSMS) kullanarak bağlantılar Destek *Active Directory Evrensel kimlik doğrulaması*. 
@@ -46,7 +46,7 @@ Desteklenen konuk kullanıcıları Azure AD B2B senaryoları için azure AD kull
 - SSMS sürümü 17,2 dışarı aktarma/Extract/dağıtma veri veritabanı için DacFx sihirbaz desteği sağlar. Evrensel kimlik doğrulaması, diğer tüm kimlik doğrulama yöntemleri için yaptığı aynı şekilde DacFx Sihirbazı işlevleri kullanarak ilk kimlik doğrulaması iletişim kutusu üzerinden belirli bir kullanıcı kimlik doğrulaması gerçekleştikten sonra.
 - SSMS Tablo Tasarımcısı Evrensel kimlik doğrulaması desteklemez.
 - SSMS desteklenen bir sürümünü kullanmanız gerekir dışında Active Directory Evrensel kimlik doğrulaması için ek yazılım gereksinimi yoktur.  
-- Evrensel kimlik doğrulaması için Active Directory Authentication Library (ADAL) sürümü, en son ADAL.dll 3.13.9 mevcut yayımlanmış sürümüne güncelleştirildi. Bkz: [Active Directory kimlik doğrulama kitaplığı 3.14.1](http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
+- Evrensel kimlik doğrulaması için Active Directory Authentication Library (ADAL) sürümü, en son ADAL.dll 3.13.9 mevcut yayımlanmış sürümüne güncelleştirildi. Bkz: [Active Directory kimlik doğrulama kitaplığı 3.14.1](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

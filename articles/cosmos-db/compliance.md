@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: f1be314db7bfc4cbdfcc809eb3b1d985583739a4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c8a74df19c012613807d39fb3ee529173e82d5ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470153"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093271"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure cosmos DB'de uyumluluk 
 
@@ -35,7 +35,7 @@ Düzenlenen sektör ve dünya çapındaki pazarlara arasında kendi uyumluluk so
 Azure Cosmos DB, kendi sertifika kapsamı sürekli genişliyor. Şu anda, Azure Cosmos DB ile aşağıdaki sertifikaları sertifikalıdır:
 
 | **Genel olarak geçerli** | **ABD Devleti** | **Sektöre özgü** | **Belirli ülke veya bölgenizde** |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | CSA STAR sertifika<br/><br/>CSA STAR kanıtlama<br/><br/>ISO 20000-1:2011<br/><br/>ISO 22301:2012<br/><br/>ISO 27001: 2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3| DoD SRG düzeyi 2<br/><br/>FedRAMP Orta<br/><br/>GxP (FDA 21 CFR Kısım 11)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Avustralya IRAP Sınıflandırılmamış<br/><br/>Almanya C5<br/><br/>Singapur MTCS düzeyi 3<br/><br/>İspanya ENS yüksek|
 
 Her biri bu uyumluluk teklifleri ve size nasıl avantaj elde hakkında daha fazla bilgi için bkz: [Microsoft Azure genel bakış Uyumluluk](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) sayfası.
@@ -44,7 +44,7 @@ Aşağıdaki tabloda, Azure kamu'da Azure Cosmos DB tarafından desteklenen sert
 
 | **Genel olarak geçerli** | **ABD Devleti** | **Sektöre özgü** | **Belirli ülke veya bölgenizde** |
 | --- | --- | --- | --- |
-| CSA STAR sertifika<br/><br/>CSA STAR kanıtlama<br/><br/>ISO 20000-1:2011<br/><br/>ISO 9001:2015<br/><br/>ISO 27001: 2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3 | DoD SRG düzeyi 2<br/><br/>DoD SRG düzeyi 5<br/><br/>CJIS<br/><br/>FedRAMP Yüksek<br/><br/>IRS 1075<br/><br/>NIST CSF'DEN<br/><br/>NIST SP 800-171| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Avustralya IRAP Sınıflandırılmamış<br/><br/>Almanya C5<br/><br/>Singapur MTCS düzeyi 3<br/><br/>İspanya ENS yüksek|
+| CSA STAR sertifika<br/><br/>CSA STAR kanıtlama<br/><br/>ISO 20000-1:2011<br/><br/>ISO 9001:2015<br/><br/>ISO 27001: 2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3 | DoD SRG düzeyi 2<br/><br/>DoD SRG düzeyi 5<br/><br/>CJIS<br/><br/>FedRAMP Yüksek<br/><br/>IRS 1075<br/><br/>NIST CSF<br/><br/>NIST SP 800-171| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Avustralya IRAP Sınıflandırılmamış<br/><br/>Almanya C5<br/><br/>Singapur MTCS düzeyi 3<br/><br/>İspanya ENS yüksek|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
