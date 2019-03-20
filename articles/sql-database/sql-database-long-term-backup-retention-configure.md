@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/07/2019
-ms.openlocfilehash: 3594ff05e0f58671e8566b3b69972de32a58855a
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: ec0c3b7943db87e5c6fb31dc173a5c3b36377e6c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308457"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855478"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL veritabanı uzun vadeli yedekleme bekletmeyi yönetme
 
@@ -75,6 +75,8 @@ LTR İlkesi ve bu yedeklerden geri yükleme ile belirli bir veritabanı saklanı
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>Uzun vadeli bekletme ilkelerini yapılandırma ve yedeklemeleri geri yüklemek için PowerShell'i kullanma
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 Aşağıdaki bölümlerde, PowerShell'in uzun süreli yedek saklama yapılandırma, Azure SQL depolama ve Azure SQL depolama alanındaki bir yedekten geri yükleme yedekleri görüntülemek için nasıl kullanılacağı gösterilmektedir.
 

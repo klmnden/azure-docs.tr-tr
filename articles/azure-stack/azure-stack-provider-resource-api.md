@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 4392dc0ab53304c172bbf4c29a50a64757ec9b77
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 34159d059b976043fac415470421970056320acc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760452"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996483"
 ---
 # <a name="provider-resource-usage-api"></a>Sağlayıcı kaynak kullanım API’si
 
@@ -39,6 +39,7 @@ Bu kullanım API'si bir API sağlayıcısı olduğundan, çağıran bir sağlay�
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId {sub1.1} = & API-version = 2015-06-01-preview & continuationToken {belirteci-value} = |
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
+
 | **Bağımsız değişken** | **Açıklama** |
 | --- | --- |
 | *armendpoint* |Azure Stack ortamınıza Azure Resource Manager uç noktası. Azure Resource Manager uç nokta adı biçiminde olduğunu Azure Stack kuraldır `https://adminmanagement.{domain-name}`. Etki alanı adıdır, örneğin, Geliştirme Seti için *local.azurestack.external*, Resource Manager uç noktasını ise `https://adminmanagement.local.azurestack.external`. |
@@ -80,6 +81,7 @@ meterID1",
 ```
 
 ### <a name="response-details"></a>Yanıt Ayrıntıları
+
 | **Bağımsız değişken** | **Açıklama** |
 | --- | --- |
 | *id* |Kullanım toplama benzersiz kimliği. |
@@ -102,9 +104,10 @@ Kullanım verilerini oluşturmak için çalışan ve sistem örneğin etkin olar
 1. [Azure Stack için PowerShell yükleyin.](azure-stack-powershell-install.md)
 2. [Azure Stack kullanıcının yapılandırma](user/azure-stack-powershell-configure-user.md) veya [Azure Stack operatörü'nın](azure-stack-powershell-configure-admin.md) PowerShell ortamı 
 3. Kullanım verilerini almak için kullanın [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell cmdlet:
-```powershell
-Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
-```
+   ```powershell
+   Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+   ```
+
 ### <a name="rest-api"></a>REST API
 
 Microsoft.Commerce.Admin hizmet çağırarak silinen abonelikler için kullanım bilgilerini toplayabilirsiniz. 

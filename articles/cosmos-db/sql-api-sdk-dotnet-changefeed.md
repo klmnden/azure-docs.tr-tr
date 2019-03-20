@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 2af3ace68b46c4b6bbe53f8b2cf1c4b53d801f17
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439885"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090347"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>İşlemci SDK'sı .NET değişiklik akışı: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -44,8 +44,8 @@ ms.locfileid: "57439885"
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Gözlemci özel durumları işleme İyileştirildi.
 * Gözlemci hatalarıyla ilgili daha zengin bilgi:
- * Gözlemci gözlemci'nın ProcessChangesAsync tarafından oluşturulan bir özel durum nedeniyle kapalı olduğunda, CloseAsync artık ayarlamak için ChangeFeedObserverCloseReason.ObserverError neden parametresi alır.
- * Kullanıcı kodunda bir gözlemci içindeki hataları belirlemek için eklenen izler.
+  * Gözlemci gözlemci'nın ProcessChangesAsync tarafından oluşturulan bir özel durum nedeniyle kapalı olduğunda, CloseAsync artık ayarlamak için ChangeFeedObserverCloseReason.ObserverError neden parametresi alır.
+  * Kullanıcı kodunda bir gözlemci içindeki hataları belirlemek için eklenen izler.
 
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Paylaşılan veritabanı aktarım hızını kullanan koleksiyonlardaki bölünmüş işlemek için destek eklendi.

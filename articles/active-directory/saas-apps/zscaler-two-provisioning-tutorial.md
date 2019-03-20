@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2019
 ms.author: v-ant-msft
-ms.openlocfilehash: 190ffef14e2e9e5b40329e72b38c7682dd150f0a
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: 797804be2588fb5c04c052c6f14c5b2b51146c32
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57589439"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106517"
 ---
 # <a name="tutorial-configure-zscaler-two-for-automatic-user-provisioning"></a>Öğretici: Zscaler iki yapılandırma için otomatik kullanıcı hazırlama
 
@@ -27,7 +27,7 @@ Bu öğreticinin amacı Zscaler iki ve Azure Active Directory (Azure AD) Azure A
 
 > [!NOTE]
 > Bu öğreticide, Azure AD kullanıcı sağlama hizmeti üzerinde oluşturulmuş bir bağlayıcı açıklanmaktadır. Bu hizmet yapar, nasıl çalıştığını ve sık sorulan sorular önemli ayrıntılar için bkz. [otomatik kullanıcı hazırlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına](../active-directory-saas-app-provisioning.md).
-
+> 
 > Bu bağlayıcı, şu anda genel Önizleme aşamasındadır. Genel Microsoft Azure için kullanım koşulları Önizleme özellikleri hakkında daha fazla bilgi için bkz. [ek kullanım koşulları, Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Önkoşullar

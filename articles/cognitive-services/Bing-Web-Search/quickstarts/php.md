@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 63e4052a2bce6c620180d682d6713d2f1547c956
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ba132adc6b0fd2b8423a7bce30ad6d52fccc898e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536768"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858210"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Hızlı Başlangıç: Bing Web araması API'si çağırmak için PHP kullanma  
 
-Bu hızlı başlangıçta, Bing Web araması API'si, ilk çağrı yapmak ve JSON yanıtını almak için kullanın. Bu Node.js uygulaması, API için bir arama isteği gönderir ve yanıtını görüntüler. Bu uygulamanın, JavaScript'te yazılmış olsa da çoğu programlama dilleri ile uyumlu bir RESTful Web hizmeti API'dir.
+Bu hızlı başlangıçta, Bing Web araması API'si, ilk çağrı yapmak ve JSON yanıtını almak için kullanın. Bu Node.js uygulaması, API için bir arama isteği gönderir ve yanıtı gösterir. Bu uygulamanın, JavaScript'te yazılmış olsa da çoğu programlama dilleri ile uyumlu bir RESTful Web hizmeti API'dir.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Bu hızlı başlangıcı çalıştırmak için aşağıdakilere ihtiyacınız olacaktır:
 
 * [PHP 5.6.x](https://php.net/downloads.php) veya üzeri
@@ -34,11 +35,11 @@ Bu hızlı başlangıcı çalıştırmak için aşağıdakilere ihtiyacınız ol
 
 Başlamadan önce `php.ini` dosyasını bulun ve şu satırın açıklamasını kaldırın:
 
-```
-;extension=php_openssl.dll
+```php
+; extension=php_openssl.dll
 ```
 
-## <a name="create-a-project-and-define-variables"></a>Proje oluşturma ve değişkenleri tanımlama  
+## <a name="create-a-project-and-define-variables"></a>Proje oluşturma ve değişkenleri tanımlama
 
 Sık kullandığınız IDE veya düzenleyicide yeni bir PHP projesi oluşturun. `<?php` ve `?>` açılış ve kapanış etiketlerini eklemeyi unutmayın.
 

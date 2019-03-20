@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8897651c963b0036bc2ac3d8cdb06a52d6f52ba1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7e9795be75fe80d83104101a5a41f96c46269bbd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188045"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863653"
 ---
 # <a name="preview--azure-ad-password-protection-agent-version-history"></a>Önizleme:  Azure AD parola koruması Aracı sürüm geçmişi
 
@@ -24,6 +24,24 @@ ms.locfileid: "56188045"
 | --- |
 | Azure AD parola koruması, Azure Active Directory genel Önizleme özelliğidir. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## <a name="121160"></a>1.2.116.0
+
+Yayın Tarihi: 3/13/2019
+
+* Aşağıdaki kısıtlamalarla rapor yazılım sürümü ve geçerli Azure Kiracı artık Get-AzureADPasswordProtectionProxy ve Get-AzureADPasswordProtectionDCAgent cmdlet'leri:
+  * Yazılım sürümü ve Azure kiracısına ilişkin veriler yalnızca DC aracılar ve proxy'ler 1.2.116.0 sürümünü çalıştıran veya sonraki kullanılabilir.
+  * Azure Kiracı verilerini bir yeniden kayıt (veya yenileme) proxy kadar bildirilmeyebilir veya orman oluştu.
+* Proxy Hizmeti, artık .NET 4.7 yüklü olmasını gerektirir.
+  * .NET 4.7 zaten tamamen güncelleştirilmiş bir Windows sunucusuna yüklenmesi gerekir. Durum bu değilse, indirmek ve bulunan yükleyiciyi çalıştırın [Windows için .NET Framework 4.7 çevrimdışı yükleyici](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  * Sunucu Çekirdeği sistemlerine başarılı şekilde almak için .NET 4.7 yükleyici için /q bayrak geçirmek için gerekli olabilir.
+* Proxy Hizmeti, artık otomatik yükseltmeyi destekler. Otomatik yükseltme yüklü yan yana Proxy hizmeti olan Microsoft Azure AD Connect aracı Updater hizmeti kullanır. Otomatik yükseltme varsayılan olarak açıktır.
+* Otomatik yükseltme etkinleştirilebilir veya Set-AzureADPasswordProtectionProxyConfiguration cmdlet'i kullanılarak devre dışı. Geçerli ayarı, Get-AzureADPasswordProtectionProxyConfiguration cmdlet'ini kullanarak sorgulanabilir.
+* DC Aracı hizmeti için hizmet ikili AzureADPasswordProtectionDCAgent.exe için yeniden adlandırıldı.
+* Proxy Hizmeti için hizmet ikili AzureADPasswordProtectionProxy.exe için yeniden adlandırıldı. Güvenlik duvarı kuralları, bir üçüncü taraf güvenlik duvarı kullanımda olup olmadığını buna uygun olarak değiştirilmesi gerekebilir.
+  * Not: bir http proxy yapılandırma dosyası önceki Proxy kullanıldıysa yüklemek, yeniden adlandırılması gerekir (gelen *proxyservice.exe.config* için *AzureADPasswordProtectionProxy.exe.config*) bundan sonra yükseltin.
+* Tüm süre sınırlı işlevsellik denetimleri DC Aracısı'ndan kaldırıldı.
+* Küçük hata düzeltmeleri ve günlüğe kaydetme geliştirmeleri.
 
 ## <a name="12650"></a>1.2.65.0
 

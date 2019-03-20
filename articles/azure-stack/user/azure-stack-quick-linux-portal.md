@@ -12,12 +12,12 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: d9a17bdad0bfa4965d36fbe2a2cf3a7890060e98
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 39298d34a0d29eb1e5a4234ffe0e0fcca844226e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772577"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858193"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Hızlı Başlangıç: Azure Stack portal ile Linux server sanal makinesi oluşturma
 
@@ -43,7 +43,7 @@ Azure Stack portalını kullanarak bir Ubuntu Server 16.04 LTS sanal makine olu�
 
    Azure Stack geliştirme Seti'ni (ASDK) kullanıyorsanız, SSH istemcisi erişimi olmayabilir. Bir istemci gerekiyorsa, bir SSH istemcisi dahil çeşitli paketler vardır. Örneğin, bir SSH istemcisi ve SSH anahtarı Oluşturucu (puttygen.exe) PuTTY içerir. Kullanılabilir paketler hakkında daha fazla bilgi için aşağıdaki Azure makalesini okuyun: [Azure'da Windows ile SSH anahtarlarını kullanma nasıl](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
-   Bu hızlı başlangıçta, PuTTY SSH anahtarları oluşturun ve Linux sunucusu sanal makinesine bağlanmak için kullanılır. Putty'yi indirin ve yükleyin gidin [ https://www.putty.org/ ](http://www.putty.org).
+   Bu hızlı başlangıçta, PuTTY SSH anahtarları oluşturun ve Linux sunucusu sanal makinesine bağlanmak için kullanılır. Putty'yi indirin ve yükleyin gidin [ https://www.putty.org/ ](https://www.putty.org).
 
 ## <a name="create-an-ssh-key-pair"></a>SSH anahtar çifti oluşturma
 
@@ -77,8 +77,8 @@ Azure Stack portalında oturum açın. Azure Stack portal'ın adresi, Azure Stac
 
 4. Sanal makine bilgilerini yazın. **Kimlik doğrulama türü** için **SSH ortak anahtarı**’nı seçin. Yapıştırma seçeneğiyle, kaydedilen ve ardından SSH ortak anahtarını **Tamam**.
 
-   >[!NOTE]
- Bunlar anahtarında herhangi başında veya sonunda boşluk kaldırdığınızdan emin olun.
+   > [!NOTE]
+   > Bunlar anahtarında herhangi başında veya sonunda boşluk kaldırdığınızdan emin olun.
 
    ![Temel panelinde - sanal makine yapılandırma](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
@@ -88,10 +88,10 @@ Azure Stack portalında oturum açın. Azure Stack portal'ın adresi, Azure Stac
 
 6. Üzerinde **ayarları** sayfasında, varsayılan olarak istediğiniz değişiklikleri yapın.
    
-    - Yapılandırabileceğiniz 1808 Azure Stack sürümünden başlayarak **depolama** seçebileceğiniz kullanılacak *yönetilen diskler*. 1808 sürümünden önce yalnızca yönetilmeyen diskler kullanılabilir.    
-      ![Yönetilen diskler için depolama alanını yapılandırma](media/azure-stack-quick-linux-portal/linux-03.PNG)
+   - Yapılandırabileceğiniz 1808 Azure Stack sürümünden başlayarak **depolama** seçebileceğiniz kullanılacak *yönetilen diskler*. 1808 sürümünden önce yalnızca yönetilmeyen diskler kullanılabilir.    
+     ![Yönetilen diskler için depolama alanını yapılandırma](media/azure-stack-quick-linux-portal/linux-03.PNG)
     
-    Yapılandırmalarınızı hazır olduğunuzda seçin **Tamam** devam etmek için.
+     Yapılandırmalarınızı hazır olduğunuzda seçin **Tamam** devam etmek için.
 
 7. Üzerinde **özeti** sayfasında **Tamam** sanal makine dağıtımını başlatın.  
    ![Dağıtma](media/azure-stack-quick-linux-portal/deploy.png)

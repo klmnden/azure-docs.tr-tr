@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 3fa890b02c791f26f3f25bf2418b105d1116ca75
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: f66101d9847c57c5e078c3484a243e7b38823f53
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094435"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001794"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Bir Windows VM Amazon Web Services'dan (AWS) için bir Azure sanal makinesi taşıyın.
 
@@ -46,7 +46,7 @@ Azure için genelleştirilmiş ve özelleştirilmiş VHD yükleyebilirsiniz. Her
 
 ## <a name="export-and-download-the-vhd"></a>Dışarı aktarma ve VHD'yi indirin 
 
-EC2 örneği, bir Amazon S3 demetini VHD dışarı aktarın. Amazon belgeleri makaledeki adımları izleyin [örneği bir VM kullanarak VM'yi içeri/dışarı aktarma olarak dışarı aktarma](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) çalıştırıp [oluşturma-örnek-dışarı aktarma-görev](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) EC2 örneği için bir VHD dosyasını dışarı aktarmak için komutu. 
+EC2 örneği, bir Amazon S3 demetini VHD dışarı aktarın. Amazon belgeleri makaledeki adımları izleyin [örneği bir VM kullanarak VM'yi içeri/dışarı aktarma olarak dışarı aktarma](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) çalıştırıp [oluşturma-örnek-dışarı aktarma-görev](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) EC2 örneği için bir VHD dosyasını dışarı aktarmak için komutu. 
 
 Dışarı aktarılan VHD dosyasının belirttiğiniz Amazon S3 demetini kaydedilir. Temel sözdizimi aşağıda olan VHD dışarı aktarma için yalnızca değiştirmek yer tutucu metni <brackets> bilgilerinizle.
 
@@ -55,7 +55,7 @@ aws ec2 create-instance-export-task --instance-id <instanceID> --target-environm
   --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
 ```
 
-VHD dışarı sonra yönergeleri izleyin [nasıl indiririm bir nesne bir S3 Demetini?](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) S3 demetini VHD dosyasını indirmek için. 
+VHD dışarı sonra yönergeleri izleyin [nasıl indiririm bir nesne bir S3 Demetini?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) S3 demetini VHD dosyasını indirmek için. 
 
 > [!IMPORTANT]
 > VHD indirme ücretleri AWS ücretleri veri aktarımı. Bkz: [Amazon S3 fiyatlandırma](https://aws.amazon.com/s3/pricing/) daha fazla bilgi için.

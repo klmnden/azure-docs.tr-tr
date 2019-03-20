@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1d0540ccfb9b4aac03b750b5c0002055bdd536a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3bae4012f20d5f655dba014a0e71616101bc42a2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546747"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092064"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Öğretici: Azure Data Lake Store'a erişmek için Linux VM sistem tarafından atanan yönetilen kimliği kullanma
 
@@ -71,7 +71,7 @@ Bu adımları tamamlamak bir SSH istemciniz olmalıdır. Windows kullanıyorsan�
 
 1. Portalda Linux VM'nizi bulun. **Genel Bakış**'ta **Bağlan**'ı seçin.  
 2. Tercih ettiğiniz SSH istemcisini kullanarak VM'ye bağlanın. 
-3. Terminal penceresinde, Data Lake Store dosya sisteminin erişim belirtecini almak için cURL'yi kullanarak yerel Azure kaynakları için yönetilen kimlikler uç noktasına bir istek gönderin. Data Lake Store için kaynak tanımlayıcısı "https://datalake.azure.net/" değeridir.  Kaynak tanımlayıcısına sondaki eğik çizgiyi eklemek önemlidir.
+3. Terminal penceresinde, Data Lake Store dosya sisteminin erişim belirtecini almak için cURL'yi kullanarak yerel Azure kaynakları için yönetilen kimlikler uç noktasına bir istek gönderin. Data Lake Store için kaynak tanımlayıcı `https://datalake.azure.net/`.  Kaynak tanımlayıcısına sondaki eğik çizgiyi eklemek önemlidir.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   

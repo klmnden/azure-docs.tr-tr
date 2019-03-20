@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: cb2c548a94a91fe9126f684e382e9626adb93dd6
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "52319466"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853078"
 ---
-# <a name="enable-or-disable-a-firewall-rule-on-a-azure-vm-guest-os"></a>Etkinleştirmek veya bir Azure VM konuk işletim sisteminde bir güvenlik duvarı kuralı devre dışı bırak
+# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Etkinleştirmek veya bir Azure VM konuk işletim sisteminde bir güvenlik duvarı kuralı devre dışı bırak
 
 Bu makalede, konuk işletim sistemi Güvenlik Duvarı'nı bir sanal makine'de (VM) kısmi trafik filtreleme olduğunu düşündüğünüz bir durum sorun giderme için bir başvuru sağlar. Bu aşağıdaki nedenlerden dolayı yararlı olabilir:
 
@@ -103,19 +103,19 @@ Sanal makine çevrimiçi olduğundan ve aynı sanal ağdaki başka bir VM üzeri
 
     * Bir kuralı etkinleştirmek için aşağıdaki kayıt defteri değerini açın:
     
-        *Hedef makine*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+        *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
     
         Ardından **etkin = FALSE** için **etkin = TRUE** dizesinde:
 
-        **v2.22 | Eylem = izin | Etkin = TRUE | Dizini içinde = | Protokol 6 = | Profile = Domain | Profili özel = | Profil ortak = | LPort 3389 = | App=%SystemRoot%\System32\svchost.exe| SVC termservice = | Adı =@FirewallAPI.dll,-28775 | Desc =@FirewallAPI.dll,-28756 | EmbedCtxt =@FirewallAPI.dll,-28752 |**
+        **v2.22 | Eylem = izin | Etkin = TRUE | Dizini içinde = | Protokol 6 = | Profile = Domain | Profili özel = | Profil ortak = | LPort 3389 = | App=%SystemRoot%\System32\svchost.exe| SVC termservice = | Adı =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
     
     * Bir kural devre dışı bırakmak için aşağıdaki kayıt defteri değerini açın:
     
-        *Hedef makine*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
+        *TARGET MACHINE*\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
         Ardından **etkin = TRUE** için **etkin = FALSE**:
         
-        **v2.22 | Eylem = izin | Etkin = FALSE | Dizini içinde = | Protokol 6 = | Profile = Domain | Profili özel = | Profil ortak = | LPort 3389 = | App=%SystemRoot%\System32\svchost.exe| SVC termservice = | Adı =@FirewallAPI.dll,-28775 | Desc =@FirewallAPI.dll,-28756 | EmbedCtxt =@FirewallAPI.dll,-28752 |**
+        **v2.22 | Eylem = izin | Etkin = FALSE | Dizini içinde = | Protokol 6 = | Profile = Domain | Profili özel = | Profil ortak = | LPort 3389 = | App=%SystemRoot%\System32\svchost.exe| SVC termservice = | Adı =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
 
 3.  Değişiklikleri uygulamak için VM'yi yeniden başlatın.
 
@@ -150,19 +150,19 @@ Bu adımları gerçekleştirmeden önce sistem diski etkilenen sanal makinenin a
 
     2.  Bir kuralı etkinleştirmek için aşağıdaki kayıt defteri değerini açın:
     
-        TCP içinde HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop kullanıcı modu
+        HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
         
         Ardından **etkin = FALSE** için **etkin = True**.
         
-        **v2.22 | Eylem = izin | Etkin = TRUE | Dizini içinde = | Protokol 6 = | Profile = Domain | Profili özel = | Profil ortak = | LPort 3389 = | App=%SystemRoot%\System32\svchost.exe| SVC termservice = | Adı =@FirewallAPI.dll,-28775 | Desc =@FirewallAPI.dll,-28756 | EmbedCtxt =@FirewallAPI.dll,-28752 |**
+        **v2.22 | Eylem = izin | Etkin = TRUE | Dizini içinde = | Protokol 6 = | Profile = Domain | Profili özel = | Profil ortak = | LPort 3389 = | App=%SystemRoot%\System32\svchost.exe| SVC termservice = | Adı =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
 
     3.  Bir kural devre dışı bırakmak için aşağıdaki kayıt defteri anahtarı açın:
 
-        TCP içinde HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop kullanıcı modu
+        HKLM\BROKENSYSTEM\ControlSet00X\Services\SharedAccess\Parameters\FirewallPolicy\FirewallRules\RemoteDesktop-UserMode-In-TCP
 
         Ardından **etkin = True** için **etkin = FALSE**.
         
-        **v2.22 | Eylem = izin | Etkin = FALSE | Dizini içinde = | Protokol 6 = | Profile = Domain | Profili özel = | Profil ortak = | LPort 3389 = | App=%SystemRoot%\System32\svchost.exe| SVC termservice = | Adı =@FirewallAPI.dll,-28775 | Desc =@FirewallAPI.dll,-28756 | EmbedCtxt =@FirewallAPI.dll,-28752 |**
+        **v2.22 | Eylem = izin | Etkin = FALSE | Dizini içinde = | Protokol 6 = | Profile = Domain | Profili özel = | Profil ortak = | LPort 3389 = | App=%SystemRoot%\System32\svchost.exe| SVC termservice = | Adı =\@FirewallAPI.dll,-28775 | Desc =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
 
 9.  Vurgulama **BROKENSYSTEM**ve ardından **dosya** > **yığın** menüsünde.
 

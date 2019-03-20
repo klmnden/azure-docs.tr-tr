@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ea80824588980fdd6c580b6d77c2a5566159547
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b78cb45d83cd9bc9bc973ec7a09cb75a8b111744
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211096"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224157"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için G Suite'i yapılandırma
 
@@ -53,7 +53,7 @@ Yapılandırıp sağlama hizmetini etkinleştirmeden önce hangi kullanıcılar�
 
 > [!IMPORTANT]
 > Tek bir öneririz, Azure AD kullanıcı sağlama yapılandırmayı test etmek için G Suite atanabilir. Daha sonra ek kullanıcılar ve grupları atayabilirsiniz.
-
+> 
 > G Suite için bir kullanıcıya atadığınızda, seçin **kullanıcı** veya **grubu** rol ataması iletişim kutusunda. **Varsayılan erişim** rolü sağlama için çalışmaz.
 
 ## <a name="enable-automated-user-provisioning"></a>Otomatik kullanıcı sağlamayı etkinleştirin
@@ -80,8 +80,8 @@ Bu bölümde Azure AD'nize G Suite API'sini sağlama kullanıcı hesabı ile ba�
    
     ![API başvurusunu seçin.][16]
 
-    > [!IMPORTANT]
-    > G Suite için sağlamak istediğiniz her bir kullanıcı için kendi kullanıcı adı Azure Active Directory'de *gerekir* özel bir etki alanına bağlı. Örneğin, görünüm gibi kullanıcı adları bob@contoso.onmicrosoft.com G Suite tarafından kabul edilmez. Öte yandan, bob@contoso.com kabul edilir. Mevcut bir kullanıcının etki alanı, Azure AD'de özelliklerini düzenleyerek değiştirebilirsiniz. Aşağıdaki adımlarda Azure Active Directory ve G Suite için özel bir etki alanı ayarlama hakkında yönergeler ekledik.
+   > [!IMPORTANT]
+   > G Suite için sağlamak istediğiniz her bir kullanıcı için kendi kullanıcı adı Azure Active Directory'de *gerekir* özel bir etki alanına bağlı. Örneğin, görünüm gibi kullanıcı adları bob@contoso.onmicrosoft.com G Suite tarafından kabul edilmez. Öte yandan, bob@contoso.com kabul edilir. Mevcut bir kullanıcının etki alanı, Azure AD'de özelliklerini düzenleyerek değiştirebilirsiniz. Aşağıdaki adımlarda Azure Active Directory ve G Suite için özel bir etki alanı ayarlama hakkında yönergeler ekledik.
       
 1. Azure Active Directory'ye özel etki alanı henüz eklemediniz, ardından aşağıdaki adımları uygulayın:
   
@@ -105,8 +105,8 @@ Bu bölümde Azure AD'nize G Suite API'sini sağlama kullanıcı hesabı ile ba�
 
     e. Dizininize eklemek istediğiniz tüm etki alanları için önceki adımları yineleyin.
 
-    > [!NOTE]
-    Özel etki alanı için kullanıcı hazırlama, kaynak Azure AD etki alanı adı eşleşmelidir. Bunlar eşleşmiyorsa, öznitelik eşlemesi özelleştirme uygulayarak sorunu çözmenize yardımcı olabilir.
+   > [!NOTE]
+   >  Özel etki alanı için kullanıcı hazırlama, kaynak Azure AD etki alanı adı eşleşmelidir. Bunlar eşleşmiyorsa, öznitelik eşlemesi özelleştirme uygulayarak sorunu çözmenize yardımcı olabilir.
 
 
 1. Tüm etki alanlarınızı Azure AD ile doğruladıktan sonra bunları Google Apps ile yeniden doğrulamalısınız. Google ile zaten kayıtlı değilse her etki alanı için aşağıdaki adımları uygulayın:
@@ -149,13 +149,13 @@ Bu bölümde Azure AD'nize G Suite API'sini sağlama kullanıcı hesabı ile ba�
 
 1. Ayarlama **hazırlama modu** için **otomatik**. 
 
-     ![Sağlama](./media/google-apps-provisioning-tutorial/provisioning.png)
+       ![Provisioning](./media/google-apps-provisioning-tutorial/provisioning.png)
 
 1. Altında **yönetici kimlik bilgileri** bölümünden **Authorize**. Bu, yeni bir tarayıcı penceresinde bir Google yetkilendirme iletişim kutusu açılır.
 
 1. G Suite kiracınıza değişiklik yapmak için Azure Active Directory izin vermek istediğinizi onaylayın. **Kabul Et**’i seçin.
     
-     ![İzinleri doğrulayın.][28]
+       ![Confirm permissions.][28]
 
 1. Azure portalında **Test Bağlantısı** için uygulamanızı Azure AD'ye bağlanabildiğinden emin olun. Bağlantı başarısız olursa, G Suite hesabınız takım Yöneticisi izinlerine sahip olduğundan emin olun. Daha sonra deneyin **Authorize** adım yeniden uygulayın.
 

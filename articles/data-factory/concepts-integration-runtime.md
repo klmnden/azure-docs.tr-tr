@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 82885c00557c85fefcf221789263632e21bd77da
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ab6da597457fa94c171a1e2547c1d48cf35cd0f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344038"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893059"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory'deki tümleştirme çalışma zamanı
 Integration Runtime (IR), Azure Data Factory tarafından farklı ağ ortamlarında aşağıdaki veri tümleştirme özelliklerini sunmak için kullanılan işlem altyapısıdır:
@@ -51,7 +51,7 @@ Aşağıdaki şemada gelişmiş veri tümleştirme özellikleri ve ağ desteği 
 Azure tümleştirme çalışma zamanları şunları yapabilir:
 
 - Bulut veri depoları arasında kopyalama etkinliği gerçekleştirme
-- Ortak ağda şu dönüştürme etkinliklerini dağıtma: HDInsight Hive etkinliği, HDInsight Pig etkinliği, HDInsight MapReduce etkinliği, HDInsight Spark etkinliği, HDInsight Streaming etkinliği, Machine Learning Batch Execution etkinliği, Machine Learning Update Resource etkinlikleri, Stored Procedure etkinliği, Data Lake Analytics U-SQL etkinliği, .net özel etkinliği, Web etkinliği, Lookup etkinliği ve Get Metadata etkinliği.
+- Ortak ağda şu dönüştürme etkinliklerini dağıtma: HDInsight Hive etkinliği, HDInsight Pig etkinliği, HDInsight MapReduce etkinliği, HDInsight Spark etkinliği, HDInsight Streaming etkinliği, Machine Learning Batch Execution etkinliği, Machine Learning Update Resource etkinlikleri, Stored Procedure etkinliği, Data Lake Analytics U-SQL etkinliği, .NET özel etkinliği, Web etkinliği, Lookup etkinliği ve Get Metadata etkinliği.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR ağ ortamı
 Azure Integration Runtime, ortak ağda yer alan ve ortak erişime açık uç noktalara sahip olan veri depolarına ve işlem hizmetlerine bağlanmayı destekler. Azure Sanal Ağ ortamı için kendiliğinden konak tümleştirme çalışma zamanı kullanın.
@@ -69,7 +69,7 @@ Azure IR oluşturma ve yapılandırma hakkında bilgi almak için nasıl yapıl�
 Kendinden konak IR şu özelliklere sahiptir:
 
 - Bulut veri depoları ve özel ağdaki veri deposu arasında kopyalama etkinliği çalıştırma.
-- Şirket içi veya Azure sanal ağ bilgi işlem kaynaklarının karşı şu dönüştürme etkinliklerini dağıtma: HDInsight Hive etkinliği (BYOC Getir bilgisayarınızı kendi kümesi), HDInsight Pig etkinliği (BYOC), HDInsight MapReduce etkinliği (BYOC), HDInsight Spark etkinliği (BYOC), HDInsight Streaming etkinliği (BYOC), Machine Learning Batch Execution etkinliği, Machine Learning Kaynak etkinlikleri, Stored Procedure etkinliği, Data Lake Analytics U-SQL etkinliği, .net özel etkinliği, arama etkinliği ve Get Metadata etkinliği güncelleştirin.
+- Şirket içi veya Azure sanal ağ bilgi işlem kaynaklarının karşı şu dönüştürme etkinliklerini dağıtma: HDInsight Hive etkinliği (BYOC Getir bilgisayarınızı kendi kümesi), HDInsight Pig etkinliği (BYOC), HDInsight MapReduce etkinliği (BYOC), HDInsight Spark etkinliği (BYOC), HDInsight Streaming etkinliği (BYOC), Machine Learning Batch Execution etkinliği, Machine Learning Kaynak etkinlikleri, Stored Procedure etkinliği, Data Lake Analytics U-SQL etkinliği, .NET özel etkinliği, arama etkinliği ve Get Metadata etkinliği güncelleştirin.
 
 > [!NOTE] 
 > SAP Hana ve MySQL gibi kendi sürücünü getir düzenine sahip veri depolarını desteklemek için kendinden konak tümleştirme çalışma zamanını kullanın.  Daha fazla bilgi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

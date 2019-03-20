@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: dce345c39918e7471531710051797c848a3c7cde
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 474048bc9f31e4630110ea099f3e0b375ad74e51
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087593"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Azure HDInsight'ta ML Services ile çalışmaya başlama
 
@@ -79,16 +79,16 @@ HDInsight kümenizin parçası olarak RStudio Server Community Edition’ı yük
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
 * **2. seçenek** -Azure portalını kullanın.
-Portaldan:
+  Portaldan:
   1. Seçin **tüm hizmetleri** sol menüden.
   2. Altında **ANALYTICS**seçin **HDInsight kümeleri**.
   3. Küme adınızı seçin **HDInsight kümeleri** sayfası.
   4. Gelen **ML Hizmetleri panolar**seçin **R Studio server**. 
 
-    ![HDInsight depolama hesabı ayarlarını belirleme](./media/r-server-get-started/r-studio-server-dashboard.png)
+     ![HDInsight depolama hesabı ayarlarını belirleme](./media/r-server-get-started/r-studio-server-dashboard.png)
 
-   > [!IMPORTANT]  
-   > Kullanılan yöntem ne olursa olsun, ilk kez oturum açtığınızda iki kez kimlik doğrulaması yapmanız gerekir.  Birinci kimlik doğrulaması isteminde *kümenin Yönetici kullanıcı kimliğini* ve *parolasını* belirtin. İkinci kimlik doğrulaması isteminde *SSH kullanıcı kimliğini* ve *parolasını* belirtin. Sonraki oturum açma işlemleri yalnızca SSH kimlik bilgileri gerektirir.
+     > [!IMPORTANT]  
+     > Kullanılan yöntem ne olursa olsun, ilk kez oturum açtığınızda iki kez kimlik doğrulaması yapmanız gerekir.  Birinci kimlik doğrulaması isteminde *kümenin Yönetici kullanıcı kimliğini* ve *parolasını* belirtin. İkinci kimlik doğrulaması isteminde *SSH kullanıcı kimliğini* ve *parolasını* belirtin. Sonraki oturum açma işlemleri yalnızca SSH kimlik bilgileri gerektirir.
 
 Bağlandıktan sonra ekranınız aşağıdaki ekran görüntüsüne benzemelidir:
 

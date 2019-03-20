@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: ryanwi
-ms.openlocfilehash: 548c05963b0b99ba3434d600b19f80cef6a09d6a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1d0a0c2c6a965ac14002257484c5f840666e6fc1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813356"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885275"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Güvenilir hizmetler uygulaması ve hizmet bildirimi örnekleri
 Bir ASP.NET Core web ön ucu ve durum bilgisi olan bir arka uç Service Fabric uygulaması için uygulama ve hizmet bildirimleri örnekleri aşağıda verilmiştir. Bu örnekler amacı hangi ayarlar kullanılabilir ve bunların nasıl kullanılacağını göstermektir. Bu uygulama ve hizmet bildirimleri dayalı [Service Fabric .NET hızlı](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) bildirimleri.
 
 Aşağıdaki özellikleri gösterilmiştir:
+
 |Bildirim|Özellikler|
 |---|---|
 |[Uygulama bildirimi](#application-manifest)| [Kaynak İdaresi](service-fabric-resource-governance.md), [bir hizmeti bir yerel yönetici farklı çalıştır hesabı](service-fabric-application-runas-security.md), [varsayılan ilke, tüm hizmet kodu paketlere uygulamaları](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [kullanıcı ve grup ilkelerioluşturma](service-fabric-application-runas-security.md), bir veri paketi hizmet örnekleri arasında paylaşmak [hizmet uç noktaları geçersiz kıl](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
@@ -37,7 +38,7 @@ Bkz: [uygulama bildirim öğeleri](#application-manifest-elements), [VotingWeb h
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="VotingData_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="VotingData_PartitionCount" DefaultValue="1" />
@@ -174,8 +175,8 @@ Bkz: [uygulama bildirim öğeleri](#application-manifest-elements), [VotingWeb h
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType. 
          This name must match the string used in RegisterServiceType call in Program.cs. -->
@@ -238,8 +239,8 @@ Bkz: [uygulama bildirim öğeleri](#application-manifest-elements), [VotingWeb h
 <ServiceManifest Name="VotingDataPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType. 
          This name must match the string used in RegisterServiceType call in Program.cs. -->

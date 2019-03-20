@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 857aa71a4812534030ca638fd8bab11f60535ea0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3df5bd177dfd88e74a8dbc72dd1966a18a61d0f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536955"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860593"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile coğrafi olarak dağıtılmış bir uygulama çözümü oluşturma
 
@@ -135,7 +135,7 @@ Azure ve Azure Stack Web uygulamasına dağıtmak için karma CI/CD ayarlama ve 
 
 1. **Azure işlem hatları oturum** yapı tanımları oluşturma olanağı onaylamak için.
 
-2. Ekleme **- r win10-x64** kod. Bu.Net Core ile kendi içinde bir dağıtım tetiklemek gereklidir.
+2. Ekleme **- r win10-x64** kod. Bu, .NET Core ile kendi içinde bir dağıtımı tetiklemek gereklidir.
 
     ![Alternatif metin](media/azure-stack-solution-geo-distributed/image4.png)
 
@@ -154,9 +154,9 @@ Azure DevOps ve Azure DevOps sunucusu yüksek oranda yapılandırılabilir ve y�
 
 ![Alternatif metin](media/azure-stack-solution-geo-distributed/image5.png)
 
-1.  Seçin **yanı sıra** altında yeni bir yayın eklemek için Ekle düğmesine **sürümler sekmesinde** derleme ve yayın sayfasında, Visual Studio Online (VSO).
+1. Seçin **yanı sıra** altında yeni bir yayın eklemek için Ekle düğmesine **sürümler sekmesinde** derleme ve yayın sayfasında, Visual Studio Online (VSO).
 
-    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image6.png)
+   ![Alternatif metin](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. Uygulama **Azure uygulama hizmeti dağıtımının** şablonu.
 
@@ -210,7 +210,7 @@ Azure DevOps ve Azure DevOps sunucusu yüksek oranda yapılandırılabilir ve y�
 
 14. Seçin **abonelik** Azure Stack uç noktası için.
 
-  ![Alternatif metin](media/azure-stack-solution-geo-distributed/image20.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. Azure Stack web uygulaması adı olarak ayarlamak **uygulama hizmeti adı**.
 
@@ -299,11 +299,11 @@ DNS kayıtları sayfasının bir örneğini aşağıdaki ekran görüntüsünde 
 
 ![Örnek DNS kayıtları sayfası](media/azure-stack-solution-geo-distributed/image28.png)
 
-1.  Etki alanı adı kayıt şirketi içinde seçin **Ekle veya oluşturma** bir kayıt oluşturmak için. Bazı sağlayıcıların farklı kayıt türlerini eklemek için farklı bağlantıları vardır. Sağlayıcının belgelerine başvurun.
+1. Etki alanı adı kayıt şirketi içinde seçin **Ekle veya oluşturma** bir kayıt oluşturmak için. Bazı sağlayıcıların farklı kayıt türlerini eklemek için farklı bağlantıları vardır. Sağlayıcının belgelerine başvurun.
 
-2.  Uygulamanın varsayılan konak adıyla bir alt etki alanı eşlemek için bir CNAME kaydı ekleyin.
+2. Uygulamanın varsayılan konak adıyla bir alt etki alanı eşlemek için bir CNAME kaydı ekleyin.
 
-  Www.northwindcloud.com etki alanı örneğin adına eşleyen bir CNAME kaydı ekleyin < app\_adı >. azurewebsites.net.
+   Www.northwindcloud.com etki alanı örneğin adına eşleyen bir CNAME kaydı ekleyin < app\_adı >. azurewebsites.net.
 
 CNAME ekledikten sonra DNS kayıtları sayfası aşağıdaki örnekteki gibi görünür:
 
@@ -311,47 +311,47 @@ CNAME ekledikten sonra DNS kayıtları sayfası aşağıdaki örnekteki gibi gö
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>Azure'da CNAME kaydı eşlemesini etkinleştirme
 
-1.  Yeni bir sekmede, Azure portalında oturum açın
+1. Yeni bir sekmede, Azure portalında oturum açın
 
-2.  Uygulama Hizmetleri'ne gidin.
+2. Uygulama Hizmetleri'ne gidin.
 
-3.  Web uygulamasını seçin.
+3. Web uygulamasını seçin.
 
-4.  Azure Portal'daki uygulama sayfasının sol gezintisinde **Özel etki alanları**'nı seçin.
+4. Azure Portal'daki uygulama sayfasının sol gezintisinde **Özel etki alanları**'nı seçin.
 
-5.  **Konak adı ekle**'nin yanındaki **+** simgesini seçin.
+5. **Konak adı ekle**'nin yanındaki **+** simgesini seçin.
 
-1.  Tam etki alanı adı yazın `www.northwindcloud.com`.
+1. Tam etki alanı adı yazın `www.northwindcloud.com`.
 
-2.  **Doğrula**'yı seçin.
+2. **Doğrula**'yı seçin.
 
-3.  Bu seçenek belirtilmişse, diğer tür ek kayıt ekleme (`A` veya `TXT`) etki alanı adı kaydedicilerin DNS kayıtlarını. Azure, bu kayıt türlerini ve değerlerini sağlayacak:
+3. Bu seçenek belirtilmişse, diğer tür ek kayıt ekleme (`A` veya `TXT`) etki alanı adı kaydedicilerin DNS kayıtlarını. Azure, bu kayıt türlerini ve değerlerini sağlayacak:
 
-    a.  Uygulamanın IP adresini eşlemek için bir **A** kaydı.
+   a.  Uygulamanın IP adresini eşlemek için bir **A** kaydı.
 
-    b.  A **TXT** uygulamanın varsayılan konak < app_name > adına eşlemek için kaydı. azurewebsites.net. App Service özel etki alanı sahipliğini doğrulamak için yalnızca yapılandırma sırasında bu kaydı kullanır. Doğrulamadan sonra TXT kaydını silin.
+   b.  A **TXT** uygulamanın varsayılan konak < app_name > adına eşlemek için kaydı. azurewebsites.net. App Service özel etki alanı sahipliğini doğrulamak için yalnızca yapılandırma sırasında bu kaydı kullanır. Doğrulamadan sonra TXT kaydını silin.
 
-4.  Kadar düzeltin ve etki alanı kayıt şirketi sekmesinde bu görevi tamamlamak **konak adı Ekle** düğmesi etkinleştirilir.
+4. Kadar düzeltin ve etki alanı kayıt şirketi sekmesinde bu görevi tamamlamak **konak adı Ekle** düğmesi etkinleştirilir.
 
-5.  Emin olun ** konak adı kayıt türü ayarlandığında **CNAME (www.example.com veya herhangi bir alt etki alanı)**.
+5. Emin olun ** konak adı kayıt türü ayarlandığında **CNAME (www.example.com veya herhangi bir alt etki alanı)**.
 
-6.  **Konak adı ekle**'yi seçin.
+6. **Konak adı ekle**'yi seçin.
 
-7.  Tam etki alanı adı yazın `northwindcloud.com`.
+7. Tam etki alanı adı yazın `northwindcloud.com`.
 
-8.  **Doğrula**'yı seçin.
+8. **Doğrula**'yı seçin.
 
-9.  **Ekle** etkinleştirilir.
+9. **Ekle** etkinleştirilir.
 
 10. Emin olun ** konak adı kayıt türü ayarlandığında **kaydı (example.com)**.
 
 11. **Konak adı Ekle**.
 
-  Yeni konak adları uygulamanın yansıtılması biraz zaman alabilir **özel etki alanları** sayfası. Verileri güncelleştirmek için tarayıcıyı yenilemeyi deneyin.
+    Yeni konak adları uygulamanın yansıtılması biraz zaman alabilir **özel etki alanları** sayfası. Verileri güncelleştirmek için tarayıcıyı yenilemeyi deneyin.
   
-  ![Alternatif metin](media/azure-stack-solution-geo-distributed/image31.png) 
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  Bir hata olması durumunda, sayfanın en altında bir doğrulama hata bildirimine görünür. ![Doğrulama hatası](media/azure-stack-solution-geo-distributed/image32.png)
+    Bir hata olması durumunda, sayfanın en altında bir doğrulama hata bildirimine görünür. ![Doğrulama hatası](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  Yukarıdaki adımları bir joker karakter etki alanını eşlemek için yinelenebilir (\*. northwindcloud.com)... Bu, her biri için ayrı bir CNAME kaydı oluşturmak zorunda kalmadan bu app service için ek güncelleştirmemiz eklenmesini sağlar. Bu ayarı yapılandırmak için kayıt yönergeleri izleyin.
@@ -482,15 +482,15 @@ IIS veya **Certreq.exe** kullanılan sertifika isteği oluşturmak için sertifi
 
 #### <a name="upload-the-ssl-certificate"></a>SSL sertifikasını karşıya yükle
 
-1.  Seçin **SSL ayarları** web uygulamasının sol gezinti bölmesinde.
+1. Seçin **SSL ayarları** web uygulamasının sol gezinti bölmesinde.
 
-2.  Seçin **sertifikayı karşıya yükle**.
+2. Seçin **sertifikayı karşıya yükle**.
 
-3.  İçinde **PFX sertifika dosyası**seçin PFX dosyası.
+3. İçinde **PFX sertifika dosyası**seçin PFX dosyası.
 
-4.  4. İçinde **sertifika parolası**, PFX dosyasını dışarı aktarılırken oluşturulan parola yazın.
+4. 1. İçinde **sertifika parolası**, PFX dosyasını dışarı aktarılırken oluşturulan parola yazın.
 
-5.  **Karşıya Yükle**’yi seçin.
+5. **Karşıya Yükle**’yi seçin.
 
 ![Sertifikayı karşıya yükleme](media/azure-stack-solution-geo-distributed/image38.png)
 
@@ -588,23 +588,23 @@ Uygulamanın verir [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) ar
 
 ### <a name="add-traffic-manager-endpoints"></a>Traffic Manager uç noktalarını ekleme
 
-1.  Portalları arama çubuğunda arama ** Traffic Manager profili ** önceki bölümde seçip sonuçlarında traffic manager profili oluşturulan adı, görüntülenen.
+1. Portalları arama çubuğunda arama ** Traffic Manager profili ** önceki bölümde seçip sonuçlarında traffic manager profili oluşturulan adı, görüntülenen.
 
-2.  İçinde **Traffic Manager profili**, **ayarları** bölümünden **uç noktaları**.
+2. İçinde **Traffic Manager profili**, **ayarları** bölümünden **uç noktaları**.
 
-3.  **Add (Ekle)** seçeneğini belirleyin.
+3. **Add (Ekle)** seçeneğini belirleyin.
 
-4.  Azure Stack uç noktası ekleniyor.
+4. Azure Stack uç noktası ekleniyor.
 
-5.  İçin **türü**seçin **dış uç noktası**.
+5. İçin **türü**seçin **dış uç noktası**.
 
-6.  Sağlayan bir **adı** için bu endpoint, ideal olarak Azure Stack adını.
+6. Sağlayan bir **adı** için bu endpoint, ideal olarak Azure Stack adını.
 
-7.  Tam etki alanı adı (**FQDN**), Azure Stack Web uygulaması için kullanım dış URL.
+7. Tam etki alanı adı (**FQDN**), Azure Stack Web uygulaması için kullanım dış URL.
 
-8.  Kaynağın bulunduğu, örneğin, bir bölge/Kıta coğrafi eşleme altında seçin **Avrupa.**
+8. Kaynağın bulunduğu, örneğin, bir bölge/Kıta coğrafi eşleme altında seçin **Avrupa.**
 
-9.  Ülke/bölge görünen açılan altında Bu uç noktaya, örneğin, geçerli bir ülke seçin **Almanya**.
+9. Ülke/bölge görünen açılan altında Bu uç noktaya, örneğin, geçerli bir ülke seçin **Almanya**.
 
 10. **Devre dışı olarak ekle** seçeneğini işaretsiz bırakın.
 
@@ -628,12 +628,12 @@ Uygulamanın verir [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) ar
 
 16. **Tamam**’ı seçin
 
-  > [!Note]  
-  >  (Kaynak için varsayılan uç nokta olarak görev yapacak tüm dünya), coğrafi bir kapsamla en az bir uç noktası oluşturun.
+    > [!Note]  
+    >  (Kaynak için varsayılan uç nokta olarak görev yapacak tüm dünya), coğrafi bir kapsamla en az bir uç noktası oluşturun.
 
-1.  Her iki uç noktanın eklenmesi tamamlandığında, **Çevrimiçi** izleme durumuyla birlikte **Traffic Manager profili** bölümünde gösterilir.
+1. Her iki uç noktanın eklenmesi tamamlandığında, **Çevrimiçi** izleme durumuyla birlikte **Traffic Manager profili** bölümünde gösterilir.
 
-  ![Alternatif metin](media/azure-stack-solution-geo-distributed/image46.png)
+    ![Alternatif metin](media/azure-stack-solution-geo-distributed/image46.png)
 
 **Küresel kuruluşlar Azure coğrafi dağıtım yeteneklerini kullanır.**
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9edd243c47c7c0eeeff3b875fccede01806862a7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d89886e7cc5fe47013902b281c490b79a07e7641
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452686"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888119"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark'a yerleşik machine learning modelleri kullanıma hazır hale getirme
 
@@ -190,9 +190,9 @@ Bu bölümde, dizin, kodlama ve ölçeklendirmek için sınıflandırma ve regre
 ### <a name="feature-transformation-index-and-encode-categorical-features-for-input-into-models-for-scoring"></a>Özellik dönüşüm: dizin ve puanlama modelleri giriş için kategorik özellikleri kodlayın
 Bu bölüm sütunları ise kategorik veriler kullanılarak dizinleme gösterir bir `StringIndexer` ve özelliklerle kodlama `OneHotEncoder` modellerini giriş.
 
-[StringIndexer](http://spark.apache.org/docs/latest/ml-features.html#stringindexer) etiketlerin etiket dizinleri içeren bir sütun için bir dize sütunu kodlar. Dizinleri etiket frekans tarafından sıralanır. 
+[StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) etiketlerin etiket dizinleri içeren bir sütun için bir dize sütunu kodlar. Dizinleri etiket frekans tarafından sıralanır. 
 
-[OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) etiket dizinleri içeren bir sütun ikili vektörler, en fazla bir değerle tek bir-bir sütunu eşlenir. Bu kodlama beklediğiniz gibi kategorik özellikleri uygulanacak Lojistik regresyon, sürekli değerli özellikler algoritmalar sağlar.
+[OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) etiket dizinleri içeren bir sütun ikili vektörler, en fazla bir değerle tek bir-bir sütunu eşlenir. Bu kodlama beklediğiniz gibi kategorik özellikleri uygulanacak Lojistik regresyon, sürekli değerli özellikler algoritmalar sağlar.
 
     #INDEX AND ONE-HOT ENCODE CATEGORICAL FEATURES
 
@@ -257,7 +257,7 @@ Bu bölüm sütunları ise kategorik veriler kullanılarak dizinleme gösterir b
 Hücre yürütülmesi için geçen süre: 5.37 saniye
 
 ### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>Giriş modelleri için özellik dizilerle RDD nesneleri oluşturma
-Bu bölüm RDD nesne olarak kategorik metin verileri ve eğitme ve test MLlib Lojistik regresyon ve ağaç tabanlı modeller için kullanılabilmesi için bir anında kodlayamadığı gösteren kod içerir. Dizinlenmiş verileri depolanan [dayanıklı Dağıtılmış veri kümesi (RDD)](http://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) nesneleri. Bu, Spark temel soyutlama vardır. RDD nesne üzerinde Spark ile paralel işletilebilir öğelerinin sabit, bölümlenmiş bir koleksiyonunu temsil eder.
+Bu bölüm RDD nesne olarak kategorik metin verileri ve eğitme ve test MLlib Lojistik regresyon ve ağaç tabanlı modeller için kullanılabilmesi için bir anında kodlayamadığı gösteren kod içerir. Dizinlenmiş verileri depolanan [dayanıklı Dağıtılmış veri kümesi (RDD)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) nesneleri. Bu, Spark temel soyutlama vardır. RDD nesne üzerinde Spark ile paralel işletilebilir öğelerinin sabit, bölümlenmiş bir koleksiyonunu temsil eder.
 
 Ayrıca verilerle ölçeklendirme gösteren kod içeren `StandardScalar` kullanılmak üzere doğrusal regresyon ile Stokastik gradyan düşüşü (SGD), makine öğrenimi modelleri çok çeşitli eğitim için popüler bir algoritma MLlib tarafından sağlanan. [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) birim varyansı özellikleri ölçeklendirmek için kullanılır. Veri normalleştirme da bilinen özellik ölçeklendirme, yaygın olarak yapılan değerlerle özellikleri olan belirli bir aşırı ağırlık, hedef işlevi oluşturmasını sağlar. 
 
@@ -397,9 +397,9 @@ Hücre yürütülmesi için geçen süre: 16.63 saniye
 ## <a name="score-classification-and-regression-random-forest-models"></a>Sınıflandırma ve regresyon rastgele orman modellerini Puanlama
 Bu bölümdeki kod kaydedilmiş sınıflandırma yüklemeyi gösterir ve regresyon rastgele orman modelleri, Azure blob depolama alanında kaydedildi, standart sınıflandırıcı ve regresyon ölçülerle performanslarını ve sonuçları blob depolama alanına kaydedin.
 
-[Rastgele ormanları](http://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) karar ağaçları Kümelemeler olan.  Bunlar overfitting riskini azaltmak için birçok karar ağaçları birleştirin. Rastgele ormanları kategorik özellikleri işleyebilir sapmalar yakalamak ve etkileşimleri özellik sınıflı sınıflandırma ayarı genişletmek ve ölçeklendirme özelliğini gerektirmez. Rastgele ormanları en başarılı makine öğrenimi için sınıflandırma ve regresyon modellerini biridir.
+[Rastgele ormanları](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) karar ağaçları Kümelemeler olan.  Bunlar overfitting riskini azaltmak için birçok karar ağaçları birleştirin. Rastgele ormanları kategorik özellikleri işleyebilir sapmalar yakalamak ve etkileşimleri özellik sınıflı sınıflandırma ayarı genişletmek ve ölçeklendirme özelliğini gerektirmez. Rastgele ormanları en başarılı makine öğrenimi için sınıflandırma ve regresyon modellerini biridir.
 
-[Spark.mllib](http://spark.apache.org/mllib/) ikili ve çok sınıflı sınıflandırma ve regresyon, sürekli ve kategorik özelliklerini kullanarak rastgele ormanlar destekler. 
+[Spark.mllib](https://spark.apache.org/mllib/) ikili ve çok sınıflı sınıflandırma ve regresyon, sürekli ve kategorik özelliklerini kullanarak rastgele ormanlar destekler. 
 
     # SCORE RANDOM FOREST MODELS FOR CLASSIFICATION AND REGRESSION
 
@@ -445,7 +445,7 @@ Bu bölümdeki kod, Sınıflandırma ve regresyon gradyan artırma ağaç modell
 
 **Spark.mllib** GBTs ikili sınıflandırma ve regresyon, sürekli ve kategorik özelliklerini kullanarak destekler. 
 
-[Gradyan artırma ağaçları](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) olan Kümelemeler karar ağaçları (GBTs). GBTs çalıştırmalarınızı kaybı işlevi en aza indirmek için karar ağaçları eğitin. GBTs kategorik özellikleri işleyebilir, özellik ölçeklendirme gerektirmez ve sapmalar yakalamak ve etkileşimleri özellik olanağına sahip olursunuz. Bir sınıflandırma veya çoklu sınıflar ayarında de kullanılabilir.
+[Gradyan artırma ağaçları](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) olan Kümelemeler karar ağaçları (GBTs). GBTs çalıştırmalarınızı kaybı işlevi en aza indirmek için karar ağaçları eğitin. GBTs kategorik özellikleri işleyebilir, özellik ölçeklendirme gerektirmez ve sapmalar yakalamak ve etkileşimleri özellik olanağına sahip olursunuz. Bir sınıflandırma veya çoklu sınıflar ayarında de kullanılabilir.
 
     # SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 

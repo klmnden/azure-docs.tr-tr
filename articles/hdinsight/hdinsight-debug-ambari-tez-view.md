@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9b8b92b7a672a4d344b17d4ade497749766f8a91
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 7d8a654b6b2f429119323fa5d18eb0596f63e6f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719702"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105276"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>HDInsight üzerinde Apache Tez işlerinin hatalarını ayıklamak için Apache Ambari görünümlerini kullanma
 
@@ -90,14 +90,14 @@ Tez kullanan Hive sorgusu çalıştırmak için aşağıdaki adımları kullanı
 
 5. Bu sayfadaki sekmeleri, aşağıdaki bilgileri görüntülemek izin ver:
 
-    * **Sorgu ayrıntıları**: Hive sorgusu hakkında ayrıntıları.
-    * **Zaman Çizelgesi**: Ne kadar sürdüğünü her aşaması hakkında bilgiler.
-    * **Yapılandırmaları**: Bu sorgu için kullanılan yapılandırma.
+   * **Sorgu ayrıntıları**: Hive sorgusu hakkında ayrıntıları.
+   * **Zaman Çizelgesi**: Ne kadar sürdüğünü her aşaması hakkında bilgiler.
+   * **Yapılandırmaları**: Bu sorgu için kullanılan yapılandırma.
 
-    Gelen __sorgu ayrıntıları__ bağlantıları hakkında bilgi bulmak için kullanabileceğiniz __uygulama__ veya __DAG__ bu sorgu için.
+     Gelen __sorgu ayrıntıları__ bağlantıları hakkında bilgi bulmak için kullanabileceğiniz __uygulama__ veya __DAG__ bu sorgu için.
     
-    * __Uygulama__ bağlantı YARN uygulama bu sorgu için ilgili bilgileri görüntüler. Buradan, YARN uygulama günlüklerine erişebilirsiniz.
-    * __DAG__ bağlantı yönlendirilmiş Çevrimsiz grafik bu sorgu için ilgili bilgileri görüntüler. Buradan, DAG grafik gösterimi görüntüleyebilirsiniz. Ayrıca, DAG içindeki köşeler hakkında bilgi bulabilirsiniz.
+   * __Uygulama__ bağlantı YARN uygulama bu sorgu için ilgili bilgileri görüntüler. Buradan, YARN uygulama günlüklerine erişebilirsiniz.
+   * __DAG__ bağlantı yönlendirilmiş Çevrimsiz grafik bu sorgu için ilgili bilgileri görüntüler. Buradan, DAG grafik gösterimi görüntüleyebilirsiniz. Ayrıca, DAG içindeki köşeler hakkında bilgi bulabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

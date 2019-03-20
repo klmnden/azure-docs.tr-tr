@@ -15,12 +15,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d1af8d7e10bd62819909c87c8e54fcbce6b7fe6
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: c68e937c1c4e77a5b24b48f8b73271bf8ec9da66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890477"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170811"
 ---
 # <a name="risky-ip-report-public-preview"></a>Riskli IP raporu (genel Önizleme)
 AD FS müşterileri, son kullanıcıların Office 365 gibi SaaS uygulamalarına erişmelerini sağlamak için İnternet’te parola kimlik doğrulama uç noktalarını kullanıma sunabilir. Bu durumda kötü bir aktör, bir son kullanıcı parolasını tahmin etmek ve uygulama kaynaklarına erişmek amacıyla AD FS sisteminize karşı oturum açma girişimlerinde bulunabilir. AD FS, Windows Server 2012 R2'de AD FS’den itibaren bu tür saldırıları önlemek için extranet hesap kilitleme işlevselliği sağlamaktadır. Daha düşük bir sürüm kullanıyorsanız, AD FS sisteminizi Windows Server 2016’ya yükseltmeniz kesinlikle önerilir. <br />
@@ -44,7 +44,7 @@ Riskli IP raporundaki her bir öğe, belirlenmiş eşiği aşan başarısız AD 
 | ------- | ----------- |
 | Zaman Damgası | Algılama zaman penceresi başladığında Azure portalı yerel saatini temel alan zaman damgasını gösterir.<br /> Tüm günlük olaylar UTC saat diliminde gece yarısı oluşturulur. <br />Saatlik olayların zaman damgası saat başına yuvarlanır. Birinci etkinlik başlangıç saatini dışarı aktarılan dosyadaki "firstAuditTimestamp" içinde bulabilirsiniz. |
 | Tetikleyici Türü | Algılama zaman penceresinin türünü gösterir. Toplama tetikleyici türleri saat veya gün başınadır. Bu türler, yüksek sıklıktaki bir deneme yanılma saldırısı ile deneme sayısının gün geneline dağıtıldığı yavaş bir saldırı arasında karşılaştırmalı algılamaya yardımcı olur. |
-| IP Adresi | Hatalı parola veya extranet kilitleme oturum açma etkinlikleri olan tek riskli IP adresi. Bu bir IPv4 veya IPv6 adresi olabilir. |
+| IP Adresi | Hatalı parola veya extranet kilitleme oturum açma etkinlikleri olan tek riskli IP adresi. Bu, bir IPv4 veya IPv6 adresi olabilir. |
 | Hatalı Parola Hata Sayısı | Algılama zaman penceresi boyunca IP adresinden kaynaklanan Hatalı Parola hatalarının sayısı. Hatalı Parola hataları belirli kullanıcılar için birden çok kez gerçekleşebilir. Buna süresi dolan parolalar nedeniyle başarısız olan denemelerin dahil olmadığına dikkat edin. |
 | Extranet Kilitleme Hatası Sayısı | Algılama zaman penceresi boyunca IP adresinden kaynaklanan Extranet Kilitleme hatalarının sayısı. Extranet Kilitleme hataları belirli kullanıcılar için birden çok kez gerçekleşebilir. Bu durum yalnızca AD FS’de Extranet Kilitleme yapılandırılmışsa (sürüm 2012 R2 veya üstü) görülür. <b>Not</b> Parola kullanarak extranet oturumu açmaya izin veriyorsanız bu özelliği açmanız kesinlikle önerilir. |
 | Deneme Yapan Benzersiz Kullanıcı Sayısı | Algılama zaman penceresi boyunca IP adresinden deneme yapan benzersiz kullanıcı hesaplarının sayısı. Tek ullanıcı saldırı deseni ile çoklu kullanıcı saldırı desenini birbirinden ayırt etmeye yönelik bir mekanizma sağlar.  |

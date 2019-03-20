@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 89a97b583407b448f296b1a54f5aabbf825b8b65
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1857cd7c4fe6102f94487dbb2cc5ad5c43c18f99
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537754"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101185"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 V3 geçiş
 
 > [!NOTE]
 > V2 30 Nisan 2018'de kullanım dışı bırakıldı ve 30 Nisan 2019 üzerinde durdurulacaktır.
-
+> 
 > Microsoft Translator hub'ı 30 Nisan 2019 üzerinde kullanımdan kaldırılacaktır. [Önemli geçiş bilgilerini ve tarihleri görüntüleme](https://www.microsoft.com/translator/business/hub/).  
 
 Microsoft Translator takım Translator metin çevirisi API'si, sürüm 3 (V3) kullanıma sundu. Bu sürüm, yeni özellikler, kullanım dışı yöntemler ve gönderme ve Microsoft Translator hizmetten veri almak için yeni bir biçim içerir. Bu belge V3 kullanan uygulamaları değiştirmek için bilgi sağlar. 
@@ -108,8 +108,8 @@ Genel
 
 ## <a name="compatibility-and-customization"></a>Uyumluluk ve özelleştirme
 
-> [!NOTE] 
-
+> [!NOTE]
+> 
 > Microsoft Translator hub'ı 30 Nisan 2019 üzerinde kullanımdan kaldırılacaktır. [Önemli geçiş bilgilerini ve tarihleri görüntüleme](https://www.microsoft.com/translator/business/hub/).   
 
 Microsoft Translator V3 sinirsel makine çevirisi, varsayılan olarak kullanır. Bu nedenle, Microsoft Translator hub'ı ile kullanılamaz. Translator hub'ı yalnızca istatistiksel makine çevirisi eski destekler. Özelleştirme sinirsel çeviri için özel Translator'ı kullanarak kullanıma sunuldu. [Sinirsel makine çevirisi özelleştirme hakkında daha fazla bilgi edinin](custom-translator/overview.md)

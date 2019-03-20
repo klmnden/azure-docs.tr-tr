@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 822b36fd105618acdb0f6627cae694187335ca34
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0a2c66eba95f286dfa7a84c05c66c14768629312
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768852"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877913"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Öğretici: Fieldglass ile Azure Active Directory Tümleştirme
 
@@ -108,6 +108,7 @@ Azure AD çoklu oturum açma ile Fieldglass yapılandırmak için aşağıdaki a
     a. İçinde **tanımlayıcı** metin kutusuna bir URL `https://www.fieldglass.com` veya deseni izler: `https://<company name>.fgvms.com`
 
     b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+    
     | |
     |--|
     | `https://www.fieldglass.net/<company name>`|
@@ -152,7 +153,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

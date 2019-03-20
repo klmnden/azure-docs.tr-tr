@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b02facd19929c2d875ffc6266f4c0bfccc6eda52
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 985f1f73fbfc8c75df8393615fca32f5d1c08b9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781893"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078321"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Öğretici: Azure Machine Learning (Önizleme) IOT Edge modülü dağıtma
 
@@ -128,8 +128,8 @@ Bu bölümde, eğitilen makine öğrenme modeli dosyalarını dönüştürmek ve
 
 12. Hücreleri bunları seçerek ve not defteri çalıştırmak **çalıştırma** ya basarak `Shift + Enter`.
 
-   >[!TIP]
-   >Bazı kullanıcılar henüz bir IOT Hub gibi olmayabilir veya kaynakları'na oluşturduğundan anomali algılama öğretici not defterinde hücrelerin isteğe bağlı, bazılarıdır. Mevcut kaynak bilgilerinizi ilk hücreye yerleştirirseniz, Azure yinelenen kaynaklar oluşturmaz, çünkü yeni kaynaklar oluşturan hücreleri çalıştırırsanız, hataları alırsınız. Bu bir sakınca yoktur ve hataları yoksayma ya da tamamen isteğe bağlı Bu bölüm atlayın. 
+    >[!TIP]
+    >Bazı kullanıcılar henüz bir IOT Hub gibi olmayabilir veya kaynakları'na oluşturduğundan anomali algılama öğretici not defterinde hücrelerin isteğe bağlı, bazılarıdır. Mevcut kaynak bilgilerinizi ilk hücreye yerleştirirseniz, Azure yinelenen kaynaklar oluşturmaz, çünkü yeni kaynaklar oluşturan hücreleri çalıştırırsanız, hataları alırsınız. Bu bir sakınca yoktur ve hataları yoksayma ya da tamamen isteğe bağlı Bu bölüm atlayın. 
 
 Not Defteri yer alan tüm adımları tamamladıktan sonra bir Docker kapsayıcı görüntüsü yerleşik anomali algılama modeli eğitilir ve bu görüntüyü Azure Container Registry'ye gönderildi. Daha sonra modeli test ve son olarak IOT Edge cihazınıza dağıttınız. 
 

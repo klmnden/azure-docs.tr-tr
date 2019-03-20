@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 360caaec0033136ffa250d636864fbed8359b8ef
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: cbdbf7dcd6269991d23c61d316dcee68e6678171
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244256"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175675"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) uygulamaları için ağ kavramları
 
@@ -29,7 +29,7 @@ Bu makalede aks'deki uygulamalarınıza ağ sağlayan temel kavramlar açıklanm
 
 Uygulamalarınıza veya uygulama bileşenleri, birbirleriyle iletişim kurmak için erişime izin vermek için Kubernetes sanal ağ için bir özet düzeyi sağlar. Kubernetes düğümleri, bir sanal ağa bağlı ve pod'ları için gelen ve giden bağlantı sağlar. *Kube-proxy* bileşen bu ağ özellikleri sağlamak için her bir düğümde çalışır.
 
-Kubernetes, *Hizmetleri* pod'ları, bir IP adresi veya DNS adı aracılığıyla ve belirli bir bağlantı noktasında doğrudan erişim sağlamak amacıyla gruplandırıp. Trafik kullanarak dağıtabileceğiniz bir *yük dengeleyici*. Daha karmaşık uygulama trafiği yönlendirme de ile gerçekleştirilebilir *giriş denetleyicileri*. Güvenlik ve pod'ların ağ trafiğini filtreleme Kubernetes ile olası *ağ ilkelerini*.
+Kubernetes, *Hizmetleri* pod'ları, bir IP adresi veya DNS adı aracılığıyla ve belirli bir bağlantı noktasında doğrudan erişim sağlamak amacıyla gruplandırıp. Trafik kullanarak dağıtabileceğiniz bir *yük dengeleyici*. Daha karmaşık uygulama trafiği yönlendirme de ile gerçekleştirilebilir *giriş denetleyicileri*. Güvenlik ve pod'ların ağ trafiğini filtreleme Kubernetes ile olası *ağ ilkelerini* (önizlemede aks'deki).
 
 Azure platformu, AKS kümeleri için sanal ağ basitleştirmek için de yardımcı olur. Kubernetes yük dengeleyici oluşturduğunuzda, temel alınan Azure yük dengeleyici kaynağı oluşturulur ve yapılandırılır. Pod'ların ağ bağlantı noktalarını açın, ilgili Azure ağ güvenlik grubu kuralları yapılandırılır. HTTP uygulama yönlendirme için Azure da yapılandırabilirsiniz *dış DNS* yollar yeni giriş yapılandırılır.
 
@@ -108,7 +108,7 @@ Bir ağ güvenlik grubu, AKS düğümleri gibi VM'ler için trafiği filtreler. 
 
 Varsayılan olarak, bir AKS kümesindeki tüm pod'ların gönderebilir ve trafiği kısıtlama olmadan alabilirsiniz. Gelişmiş güvenlik için trafik akışını denetleyen kuralları tanımlamak isteyebilirsiniz. Arka uç uygulamaları genellikle yalnızca gerekli ön uç Hizmetleri için sunulan ve veritabanı bileşenlerini yalnızca bunlara uygulama katmanları tarafından erişilebilir.
 
-Ağ İlkesi pod'ları arasındaki trafik akışını denetlemenize olanak sağlayan bir Kubernetes özelliğidir. İzin verme veya reddetme ayarları gibi atanan etiketleri, ad alanı veya trafiği, bağlantı noktası trafiğini seçebilirsiniz. Ağ güvenlik grupları değil pod'ların AKS düğümleri için daha fazla. Ağ ilkeleri kullanımı, trafik akışını denetlemek için daha uygun, bulutta yerel bir yoludur. Pod'ların bir AKS kümesinde dinamik olarak oluşturulmuş gibi gerekli ağ ilkeleri otomatik olarak uygulanabilir.
+Ağ İlkesi şu anda önizlemede pod'ları arasındaki trafik akışını denetlemenizi sağlayan aks'deki Kubernetes özelliğidir. İzin verme veya reddetme ayarları gibi atanan etiketleri, ad alanı veya trafiği, bağlantı noktası trafiğini seçebilirsiniz. Ağ güvenlik grupları değil pod'ların AKS düğümleri için daha fazla. Ağ ilkeleri kullanımı, trafik akışını denetlemek için daha uygun, bulutta yerel bir yoludur. Pod'ların bir AKS kümesinde dinamik olarak oluşturulmuş gibi gerekli ağ ilkeleri otomatik olarak uygulanabilir.
 
 Daha fazla bilgi için [güvenli ağ ilkelerini Azure Kubernetes Service (AKS) kullanarak pod'ları arasındaki trafiği][use-network-policies].
 

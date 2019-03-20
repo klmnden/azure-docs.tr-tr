@@ -10,16 +10,30 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 2e51bdd24f33789a95017c9fe5df88b0bb55de26
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4d802b9f71edee1eec4b2c92881e2a8796db2865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870716"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005515"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Bilişsel hizmetler konuşma cihazları SDK sürüm notları
 
 Aşağıdaki bölümlerde listesi değişiklikleri en son sürümlerde.
+
+## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sı 1.3.1: 2019 Mart sürüm 
+
+* Güncelleştirilmiş [Speech SDK'sı](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) sürüm 1.3.1 bileşeni. Daha fazla bilgi için kendi [sürüm notları](https://aka.ms/csspeech/whatsnew). 
+*   Güncelleştirilmiş Uyandırma sözcük işleme, bozucu değişiklikleri bakın.
+*   Örnek uygulama, konuşma tanıma hem çeviri için dil seçimi ekler.
+
+**Bozucu değişiklikler** 
+
+*   [Uyandırma Word'ü yükleme](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg#run-a-sample-application) olmamıştı Basitleştirilmiş, şimdi uygulamanın parçası olduğundan ve cihazın ayrı yükleme gerektirmez.
+*   Uyandırma sözcük tanıma değişti ve iki olay desteklenir.
+    - RecognizingKeyword, gösterir (doğrulanmamış) anahtar sözcüğü metin konuşma sonucunu içerir.
+    - RecognizedKeyword, belirtilen anahtar sözcüğün algılamayı tamamlandı, anahtar sözcüğü tanıma gösterir.
+
 
 ## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sı 1.1.0: Kasım 2018 sürüm 
 

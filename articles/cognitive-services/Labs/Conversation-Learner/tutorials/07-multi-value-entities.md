@@ -10,22 +10,22 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8544d63f38f88a0e623dff343bf8b5133931b70b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 07550ed9c78aa584e55403d225eef4bcff33b057
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228313"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167431"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Konuşma Öğrenici modeli ile birden çok değerli varlıklar kullanma
 Bu öğreticide, varlıkların birden çok değerli özellik gösterilir.
 
 ## <a name="video"></a>Video
 
-[![Birden çok değer varlıkları öğretici Önizleme](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued)
+[![Birden çok değerli varlıkların öğretici Önizleme](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued)
 
 ## <a name="requirements"></a>Gereksinimler
-Bu öğreticide, genel öğretici bot çalışıyor olması gerekir
+Bu öğreticide, genel öğretici Bot çalışıyor olması gerekir
 
     npm run tutorial-general
 
@@ -36,65 +36,65 @@ Varlıklar birden çok değerli Botun bellekte bir listeye eklenen varlığın t
 
 ## <a name="steps"></a>Adımlar
 
+Giriş sayfasında Web kullanıcı arabiriminde başlatın.
+
 ### <a name="create-the-model"></a>Model oluşturma
 
-1. Web kullanıcı Arabiriminde "Yeni modeli."'a tıklayın.
-2. "MultiValueEntities" "Name" alanına yazın ve ENTER tuşuna basın.
-3. "Oluştur" düğmesine tıklayın.
+1. Seçin **yeni modeli**.
+2. Girin **MultiValueEntities** için **adı**.
+3. **Oluştur**’u seçin.
 
 ### <a name="entity-creation"></a>Varlık oluşturma
 
-1. Sol panelde, "Varlık" sonra "Yeni varlık" düğmesine tıklayın.
-2. "Özel olarak eğitilen" seçin "Varlık türü."
-3. "Varlık adı." "toppings" yazın
-4. "Birden çok değerli" onay kutusunu işaretleyin.
-    - Birden çok değerli varlıklar varlıktaki bir veya daha fazla değerleri toplar.
-5. "Negatable" onay kutusunu işaretleyin.
-    - "Negatable" özelliği, başka bir öğreticinin çalışmasındaki.
-6. "Oluştur" düğmesine tıklayın.
+1. Seçin **varlıkları** sol bölmesinde, ardından **yeni varlık**.
+2. Seçin **eğitilmiş özel** için **varlık türü**.
+3. Girin **toppings** için **varlık adı**.
+4. Denetleme **birden çok değerli** varlık etkinleştirmek için bir veya daha fazla değer accumulate.
+5. Denetleme **değişkeni yoksayılamaz**.
+6. **Oluştur**’u seçin.
 
-![](../media/tutorial6_entities.PNG)
+![](../media/T07_entity_create.png)
 
 ### <a name="create-the-first-action"></a>İlk Eylem oluştur
 
-1. Sol panelde, "Eylemler" sonra "Yeni Eylem" düğmesine tıklayın.
-2. "Botun yanıtta..." alanına ", toppings şunlardır: $toppings"
-    - Bir varlık başvurusu önde gelen dolar işareti gösterir
-3. "Oluştur" düğmesine tıklayın.
+1. Seçin **eylemleri** sol bölmesinde, ardından **yeni eylem**.
+2. Girin **, toppings şunlardır: $toppings** için **Botun yanıt...** . Önde gelen dolar işareti bir varlık başvurusu gösterir.
+3. **Oluştur**’u seçin.
+
+![](../media/T07_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>İkinci Eylem oluştur
 
-1. Sol panelde, "Eylemler" sonra "Yeni Eylem" düğmesine tıklayın.
-2. "Botun yanıt..." alanı, "hangi toppings ister misiniz?" yazın
-3. "Toppings." "Eleyerek sağlar" alanına yazın
-4. "Oluştur" düğmesine tıklayın.
+1. Seçin **eylemleri** sol bölmesinde, ardından **yeni eylem**.
+2. Girin **hangi toppings ister misiniz?** için **Botun yanıt...** .
+3. Girin **toppings** için **eleyerek sağlar**.
+4. **Oluştur**’u seçin.
 
 Artık iki eylem var.
 
-![](../media/tutorial6_actions.PNG)
+![](../media/T07_action_create_2.png)
 
 ### <a name="train-the-model"></a>Modeli eğitme
 
-1. Sol panelde, "İletişim kutuları eğitme" ve ardından "Yeni Train iletişim kutusu" düğmesine tıklayın.
-2. Burada yazacaktır "Yazın, iletinizi...", sohbet panelinde türü "hi."
-3. "Puan Eylemler" düğmesine tıklayın.
-4. "Hangi toppings istiyor musunuz?" yanıt seçin
-    - Kısıtlamalar yalnızca geçerli işlem tabanlı olarak yüzdelik dilim % 100 ' dir.
-5. Sohbet panelinde nerede yazacaktır "Yazın, iletinizi...", "peynirlerine ayırıyor ve mushrooms" yazın
-6. 'Peynirlerine ayırıyor' tıklayın ve etiketi seçin "+ toppings"
-7. 'Mushrooms' tıklayın ve etiketi seçin "+ toppings"
-8. "Puan Eylemler" düğmesine tıklayın.
-9. Yanıtı seçin ", toppings şunlardır: $toppings"
-10. Sohbet panelinde nerede yazacaktır "Yazın, iletinizi...", "Biber Ekle" türü
-11. 'Biber' tıklayın ve etiketi seçin "+ toppings"
-12. "Puan Eylemler" düğmesine tıklayın.
-13. Yanıtı seçin ", toppings şunlardır: $toppings"
-14. Sohbet panelinde nerede yazacaktır "Yazın, iletinizi...", "peynirlerine ayırıyor Kaldır" yazın
-15. "Peynirlerine ayırıyor' tıklayın ve etiketi seçin"-toppings "
-16. "Puan Eylemler" düğmesine tıklayın.
-17. Yanıtı seçin ", toppings şunlardır: $toppings"
+1. Seçin **eğitme iletişim kutuları** sol bölmesinde, ardından **yeni Train iletişim**.
+2. Girin **Merhaba** kullanıcının utterance sol sohbet panelinde için.
+3. Seçin **puan Eylemler**.
+4. Seçin **hangi toppings ister misiniz?** eylemler listesinden. % 100 olarak temel kısıtlamalar yalnızca geçerli eylem yüzdebirliktir.
+5. Girin **peynirlerine ayırıyor ve mushrooms** kullanıcının utterance sol sohbet panelinde için.
+6. Vurgulama **peynirlerine ayırıyor** seçip **+ toppings**.
+7. Vurgulama **mushrooms** seçip **+ toppings**.
+8. Seçin **puan Eylemler**.
+9. Seçin **, toppings şunlardır: $toppings** eylemler listesinden.
+10. Girin **Biber ekleme** kullanıcının sonraki utterance sol sohbet panelinde için.
+11. Vurgulama **Biber** seçip **+ toppings**.
+12. Seçin **puan Eylemler**.
+13. Seçin **, toppings şunlardır: $toppings** eylemler listesinden.
+14. Girin **peynirlerine ayırıyor kaldırmak** kullanıcının üçüncü utterance sol sohbet panelinde için.
+15. Vurgulama **peynirlerine ayırıyor** seçip **-toppings**.
+16. Seçin **puan Eylemler**.
+17. Seçin **, toppings şunlardır: $toppings** eylemler listesinden.
 
-![](../media/tutorial5_dialogs.PNG)
+![](../media/T07_training.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

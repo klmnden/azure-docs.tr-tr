@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d1e43924634e3c4543c244043cb06d965a4d14e0
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576846"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838808"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -61,7 +61,7 @@ Kendinden konak IR ile kopyalamak için adımların özeti için üst düzey ver
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Şirket içinde barındırılan IR kullanma konuları
 
 - Tek şirket içinde barındırılan tümleştirme çalışma zamanının birden çok şirket içi veri kaynakları için kullanılabilir. Tek şirket içinde barındırılan tümleştirme çalışma zamanı, aynı Azure Active Directory kiracısı içinde başka bir data factory ile paylaşılabilir. Daha fazla bilgi için [şirket içinde barındırılan tümleştirme çalışma zamanı paylaşımı](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- Tek bir makinede yüklü bir şirket içinde barındırılan tümleştirme çalışma zamanı yalnızca bir örneği olabilir. İki veri fabrikaları varsa erişmek için gereken şirket içi veri kaynakları, şirket içinde barındırılan tümleştirme çalışma zamanının iki şirket içi bilgisayarlara yüklemeniz gerekir. Diğer bir deyişle, şirket içinde barındırılan tümleştirme çalışma zamanı için belirli bir veri fabrikası bağlıdır.
+- Tek bir makinede yüklü bir şirket içinde barındırılan tümleştirme çalışma zamanı yalnızca bir örneği olabilir. Şirket içi veri kaynaklarına erişmesi gereken iki veri fabrikaları varsa, şirket içinde barındırılan tümleştirme çalışma zamanının iki şirket içi bilgisayarlardan her veri fabrikaları üzerinde yüklemeyi veya kullanmayı gerekir [şirket içinde barındırılan IR paylaşımı özelliğini](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)başka bir Data Factory ile şirket içinde barındırılan tümleştirme çalışma zamanı paylaşmak için.  
 - Şirket içinde barındırılan tümleştirme çalışma zamanı veri kaynağı ile aynı makinede olması gerekmez. Ancak, şirket içinde barındırılan tümleştirme çalışma zamanı sahip daha yakın veri kaynağına veri kaynağına bağlanmak şirket içinde barındırılan tümleştirme çalışma zamanı için süreyi azaltır. Şirket içinde barındırılan tümleştirme çalışma zamanı olandan farklı bir makinede ana şirket içi veri kaynağına yüklemenizi öneririz. Şirket içinde barındırılan tümleştirme çalışma zamanı ve veri kaynağını farklı makinelerde olduğunda, şirket içinde barındırılan tümleştirme çalışma zamanı veri kaynağı ile kaynaklar için rekabet edemez.
 - Aynı şirket içi veri kaynağına bağlanan farklı makinelerde birden çok şirket içinde barındırılan tümleştirme çalışma zamanları olabilir. Örneğin, iki veri fabrikaları hizmet iki şirket içinde barındırılan tümleştirme çalışma zamanları olabilir, ancak aynı şirket içi veri kaynağı ile veri fabrikaları hem kayıtlı.
 - Ayrı şirket içinde barındırılan tümleştirme çalışma zamanı, bir Power BI senaryo sunmak için bilgisayarınızda yüklü bir ağ geçidi zaten varsa, Azure Data Factory için başka bir makineye yükleyin.
@@ -145,7 +145,7 @@ Kullanılabilir bellek ve CPU iyi kullanılmaz, ancak / eşzamanlı iş yürütm
 - CNG anahtarları kullanan sertifikaları desteklenmez.  
 
 > [!NOTE]
-> Bu sertifika, bağlantı noktaları için kullanılan şirket içinde barındırılan IR düğümde şifrelemek için kullanılan **düğümden düğüme iletişim** (için durum eşitleme) ve while **cmdlet'i için bağlı hizmet kimlik bilgisi PowerShell kullanarak ayarı**gelen yerel ağ içinde. Özel ağ ortamınızı güvenli değilse veya kendi özel ağınızı de içindeki düğümler arasında iletişimi güvenli hale getirmek istiyorsanız, bu sertifika kullanmanızı öneririz. Veri taşıma diğer veri depoları şirket içinde barındırılan IR gelen geçiş her zaman şifreli bir kanal, bu sertifika ayarlanıp bağımsız olarak kullanarak gerçekleşir. 
+> Bu sertifika, bağlantı noktaları için kullanılan şirket içinde barındırılan IR düğümde şifrelemek için kullanılan **düğümden düğüme iletişim** (bağlı hizmetler içeren ve durum eşitleme eşitleme düğümleri arasında kimlik bilgilerini için) ve sırasında**cmdlet'i için bağlı hizmet kimlik bilgisi PowerShell kullanarak ayarı** gelen yerel ağ içinde. Özel ağ ortamınızı güvenli değilse veya kendi özel ağınızı de içindeki düğümler arasında iletişimi güvenli hale getirmek istiyorsanız, bu sertifika kullanmanızı öneririz. Veri taşıma diğer veri depoları şirket içinde barındırılan IR gelen geçiş her zaman şifreli bir kanal, bu sertifika ayarlanıp bağımsız olarak kullanarak gerçekleşir. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Şirket içinde barındırılan tümleştirme çalışma zamanının birden çok veri fabrikaları ile paylaşma
 

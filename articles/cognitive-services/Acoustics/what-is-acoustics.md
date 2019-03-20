@@ -1,7 +1,7 @@
 ---
-title: Project Acoustics nedir?
+title: Proje akustik genel bakış
 titlesuffix: Azure Cognitive Services
-description: Project Acoustics Unity eklentisi, VR ve geleneksel ekranları hedefleyen projeler için kapatma, yansıma ve mekansallaştırma sunar.
+description: Proje akustik etkileşimli bir tasarımı denetimleri ile bir akustik desteklenmiş altyapısı tümleştirme 3B etkileşimli deneyimleri için wave fizik benzetimi ' dir.
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,56 +10,48 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 8305eca478854eeff29268a86e4e49b697261ca2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3d99ea5767c7b2e62f7228440201b4a9b6593b02
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868268"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136609"
 ---
 # <a name="what-is-project-acoustics"></a>Project Acoustics nedir?
-Project Acoustics Unity eklentisi, VR ve geleneksel ekranları hedefleyen projeler için kapatma, yansıma ve mekansallaştırma sunar. Oyun akustiği tasarımı için tasarımcı amaçlarını fizik tabanlı dalga benzetimi üzerine bir katman olarak yerleştiren bir yöntem sunar.
+Proje akustik bir 3B etkileşimli deneyimleri için wave akustik altyapısıdır. Karmaşık sahneler diffraction portaling ve yankı efektleri gibi wave etkileri, el ile bölgeye biçimlendirme gerek kalmadan modelleri. Ayrıca, oyun altyapısı ve ses ara yazılım tümleştirme de içerir. Proje akustik felsefesi statik Aydınlatmanın benzerdir: fiziksel temel sağlamak için çevrimdışı ayrıntılı fizik hazırlama ve basit bir çalışma zamanı ifadesel tasarım denetimlerle Artistik hedeflerinize ulaşmak için kullanabilirsiniz.
 
-## <a name="why-use-acoustics-in-virtual-environments"></a>Sanal ortamlarda neden akustik kullanılması gerekir?
-İnsanlar etraflarında olan biteni anlamak için sesli ve görsel ipuçlarından faydalanır. Sanal dünyalarda uzamsal sesin akustikle birleştirilmesi sonucunda kullanıcı için derinliğin artırılması sağlanır. Burada anlatılan akustik aracı sanal dünyaları analiz ederek gerçekçi bir akustik benzetimi oluşturur ve benzetim sonrası tasarım işlemini destekler. Analiz, sanal dünyadaki tüm yüzeyler için hem geometri hem de malzeme bilgilerini içerir. Simülasyon varış yönü (portal oluşturma), yankı gücü, dağılma türleri, kapatma ve engelleme efektleri gibi parametreler içerir.
+![Tasarım Görünümü](media/gears-with-voxels.jpg)
 
-## <a name="how-does-this-approach-to-acoustics-work"></a>Bu akustik yaklaşımı nasıl çalışır?
-Sistem, sanal dünyada çevrimdışı hesaplama yaparak çalışma zamanında gerçekleştirilen analizden daha karmaşık bir benzetim sağlar. Çevrimdışı işlem, akustik parametrelerden oluşan bir arama tablosu üretir. Tasarımcı, parametrelere çalışma zamanında uygulanan kuralları belirtir. Bu kuralların ayarlanmasıyla yüksek duygusal yoğunluk için üstün gerçekçiliğe sahip efektler veya daha fazla arka plan sesi için üstün gerçekçiliğe sahip sahneler oluşturulabilir.
+## <a name="using-wave-physics-for-interactive-acoustics"></a>Etkileşimli akustik için Wave fizik kullanma
+Ray tabanlı akustik yöntemleri için tek kaynak dinleyici ray atama kullanarak kapatma denetleyin veya birkaç ışınlarındaki yerel Sahne birimle tahmin ederek Yankı sürücü. Ancak bir pebble bir boulder artacak occludes çünkü bu teknikler güvenilir olabilir. Işınlarındaki nesneleri, şekilde ses kıvrımla diffraction bilinen bir olguya hesabı yok. Proje akustik benzetimi wave tabanlı benzetimini kullanarak bu etkileri yakalar. , Daha öngörülebilir ve güvenilir sonucudur.
 
-## <a name="design-process-comparison"></a>Tasarım işlemi karşılaştırması
-Project Acoustics eklentisi, Unity sahnelerinde akustik için yeni bir tasarım sürecini destekler. Bu yeni tasarım sürecini açıklamak için günümüzün popüler akustik yaklaşımlarından biriyle karşılaştıralım.
+Geleneksel ses tasarım kavramları akustik benzetimi birkaç proje akustik anahtar yenilik sağlamaktır. Kapatma, portaling ve yankı için geleneksel ses DSP parametrelerine simülasyon sonuçlarını çevirir. Bu çeviri işlemi üzerinde denetimleri Tasarımcı kullanır. Proje akustik arkasında çekirdek teknolojiler hakkında daha fazla bilgi için ziyaret [araştırma proje sayfası](https://www.microsoft.com/en-us/research/project/project-triton/).
 
-### <a name="typical-approach-to-acoustics-today"></a>Günümüzün tipik akustik yaklaşımı
-Günümüzün tipik akustik yaklaşımında yankı düzeylerini çizersiniz:
+![Tasarım Görünümü](media/wave-simulation.gif)
 
-![Tasarım Görünümü](media/reverbZonesAltSPace2.png)
+## <a name="setup"></a>Kurulum
+[Proje akustik Unity tümleştirmesi](unity-integration.md) sürükle ve bırak ve Unity Ses altyapısı eklentisi içerir. Bir proje akustik ekleyerek Unity ses kaynağından denetimleri büyütmek C# ses her nesne için denetimleri bileşeni.
 
-Ardından her bölge için parametreleri ayarlarsınız:
+[Proje akustik Unreal tümleştirme](unreal-integration.md) Unreal ve Wwise mixer eklentisi için düzenleyici ve oyun eklentileri içerir. Özel bir ses bileşen tasarım denetimleri Canlı akustik ile Unreal içinde tanıdık Wwise işlevselliği genişletir. Tasarım denetimleri mixer eklentisine Wwise içinde kullanıma sunulur.
 
-![Tasarım Görünümü](media/TooManyReverbParameters.png)
+## <a name="workflow"></a>İş akışı
+* **Önceden hazırlama:** Hangi geometri seçerek hazırlama ayarı ile başlangıç akustik için örneğin ışık Miller yoksayılıyor yanıt verir. Ardından, otomatik malzeme atamaları ve gezinti alanları Kılavuzu dinleyicisine örnekleme seçerek düzenleyin. Yankı/portal/odası bölgeler için el ile biçimlendirme yok yoktur.
+* **Hazırlama:** Bir analiz adım voxelization ve yukarıdaki seçimlerine göre Sahne geometrik diğer çözümleme yapar, yerel olarak çalıştırılır. Sonuçları Sahne kurulumunu doğrulama düzenleyicisinde görselleştirilmiştir. Hazırlama gönderimi voxel verileri Azure'a gönderilen devre dışı ve akustik oyun varlık ulaşırsınız.
+* **Çalışma zamanı:** Varlık düzeyinizi yüklemek ve sizin düzeyinizde içinde akustik dinlemek hazırsınız. Kaynak başına ayrıntılı denetimlerini kullanarak düzenleyicide Canlı Tasarım akustik. Denetimleri de düzeyi komut temelli.
 
-Son olarak sahnede doğru kapatma ve engelleme filtrelemesine ulaşmak için ışın izleme mantığını, portal oluşturmak için de yol arama mantığı eklersiniz. Bu kod çalışma zamanında ek maliyet yaratabilir. Aynı zamanda köşelerde düzgünlük ve düzensiz şekle sahip sahnelerde kenar sorunlarına neden olur.
-
-### <a name="an-alternative-approach-with-physics-based-design"></a>Fizik tabanlı tasarımla alternatif yaklaşım
-Project Acoustics Unity eklentisi ile sunulan yaklaşım sayesinde statik sahnenin şeklini ve malzemelerini belirtirsiniz. Sahne voksalleştirildiğinden ve süreçte ışın izleme kullanılmadığından basitleştirilmiş veya sıkı bir akustik ağ sağlamanız gerekmez. Sahnede ses yankılama işaretlemeleri de yapmanız gerekmez. Eklenti sahneyi buluta yükler ve fizik tabanlı dalga benzetimi kullanır. Sonuç, projenize arama tablosu olarak tümleştirilir ve estetik veya oyun efekti amacıyla değiştirilebilir.
-
-![Tasarım Görünümü](media/GearsWithVoxels.jpg)
-
-## <a name="requirements"></a>Gereksinimler
-* Akustik işlemler için Unity 2018.2+, ses tasarım ve dağıtım için Unity 5.2+
-* Windows 64 bit Unity Düzenleyicisi
-* Akustik işlemleri için Azure Batch aboneliği
-* Unity betik çalışma zamanı '.NET 4.x eşdeğeri' olarak ayarlanmalıdır
-
-## <a name="platform-support"></a>Platform desteği
-* Windows masaüstü (x86 ve AMD64)
-* Windows UWP (x86, AMD64 ve ARM)
-* Android (x86 ve ARM64)
+## <a name="platforms"></a>Platformlar
+Proje akustik çalışma zamanı eklentileri, şu anda aşağıdaki platformlara dağıtılabilir:
+* Windows
+* Android
+* Xbox One
 
 ## <a name="download"></a>İndirme
-Akustik eklentisini değerlendirmek istiyorsanız [buraya](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) tıklayarak Tasarımcı Önizlemesine katılabilirsiniz.
+* [Proje akustik eklentileri ve örnekleri](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+  * Kaydolma formu aşağıdaki Xbox ikili dosyalar ve destek için bize ulaşın
+* [Proje akustik forumları](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
+* [Proje akustik güncelleştirmeleri almak için kaydolun](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Tasarım süreci](design-process.md) hakkında daha fazla bilgi edinin
-* [Unity projeniz için akustik tümleştirmesine](getting-started.md) başlayın
+* Deneyin bir [Unity proje akustik hızlı](unity-quickstart.md) veya [Unreal](unreal-quickstart.md)
+* Keşfedin [ses proje akustik, tasarımı felsefesi](design-process.md)
 

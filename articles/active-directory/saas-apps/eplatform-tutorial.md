@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/27/2019
+ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: fb606e914e0fb2b9721f3ca1e8927be500270795
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 75c65d9fe7cf884f1c76439fc2f8d5373fadd5ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730433"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880628"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-eplatform"></a>Öğretici: EPlatform ile Azure Active Directory Tümleştirme
 
@@ -109,15 +109,43 @@ Azure AD çoklu oturum açma ile ePlatform yapılandırmak için aşağıdaki ad
     > [!NOTE]
     > Değer, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [ePlatform istemci Destek ekibine](https://help.eplatform.co/hc/en-us) değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-4. İçinde **SAML imzalama sertifikası** bölümünde **Düzenle** açmak için düğmeyi **SAML imzalama sertifikası** iletişim.
+5. İçinde **SAML imzalama sertifikası** bölümünde **Düzenle** açmak için düğmeyi **SAML imzalama sertifikası** iletişim.
 
     ![SAML imzalama sertifikası Düzenle](common/edit-certificate.png)
 
-5. İçinde **SAML imzalama sertifikası** bölümünde, kopya **parmak izi** ve bilgisayarınıza kaydedin.
+6. İçinde **SAML imzalama sertifikası** bölümünde, kopya **parmak izi** ve bilgisayarınıza kaydedin.
 
     ![Parmak izi değerini kopyalayın](common/copy-thumbprint.png)
 
-6. Üzerinde **ePlatform kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+7. EPlatform uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
+
+    ![image](common/edit-attribute.png)
+
+8. Yukarıdaki için ayrıca ePlatform uygulama SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
+
+    | Ad | Kaynak özniteliği |
+    | ---------------| --------------- |
+    | UPN | User.userPrincipalName |
+
+    a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
+
+    b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
+
+    c. Bırakın **Namespace** boş.
+
+    d. Kaynağı olarak **özniteliği**.
+
+    e. Gelen **kaynak özniteliği** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+
+    f. Tıklayın **Tamam**
+
+    g. **Kaydet**’e tıklayın.
+
+9. Üzerinde **ePlatform kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
     ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
@@ -149,7 +177,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

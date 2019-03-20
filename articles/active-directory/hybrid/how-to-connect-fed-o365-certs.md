@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 037c5210f73899483bebf131efce0d5f61a847c2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fae036a0860ddb5ee2776f7ed4734492741907f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200369"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177730"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 ve Azure Active Directory için Federasyon sertifikalarını yenileme
 ## <a name="overview"></a>Genel Bakış
@@ -36,7 +36,7 @@ Bu makalede, belirteç imzalama sertifikalarını yönetmek ve aşağıdaki duru
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>AD FS belirteç imzalama sertifikaları için varsayılan yapılandırma
 Belirteç imzalama ve belirteç şifre çözme sertifikaları genellikle otomatik olarak imzalanan sertifikaları ve bir yıl için uygundur. Varsayılan olarak, AD FS adlı bir otomatik yenileme işlemi içerir. **AutoCertificateRollover**. Otomatik olarak AD FS 2.0 veya sonraki bir sürümü, Office 365 ve Azure AD kullanıyorsanız, sertifikanın süresi dolmadan önce güncelleştirin.
 
-### <a name="renewal-notification-from-the-office-365-portal-or-an-email"></a>Office 365 portalı ya da bir e-posta yenileme bildirimi
+### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>Microsoft 365 Yönetici merkezinden veya bir e-posta yenileme bildirimi
 > [!NOTE]
 > E-posta veya Office için sertifikanızı yenilemek için bkz: isteyen bir portal bildirimi aldıysanız [belirteç imzalama sertifikaları yapılan değişiklikleri yönetme](#managecerts) herhangi bir eylemde bulunmanız gerekiyorsa denetlemek için. Microsoft sertifika yenileme herhangi bir işlem gerekli olsa bile, gönderilen bildirimler için yol açabilecek olası bir sorunu farkındadır.
 >
@@ -44,8 +44,8 @@ Belirteç imzalama ve belirteç şifre çözme sertifikaları genellikle otomati
 
 Azure AD Federasyon meta verilerini izleme ve belirteç imzalama sertifikaları bu meta veriler tarafından belirtildiği şekilde güncelleştirmek çalışır. 30 gün önce sona erme tarihini belirteç imzalama sertifikaları, Azure AD Federasyon meta verileri yoklayarak yeni sertifikalar kullanılabilir olup olmadığını denetler.
 
-* Başarıyla Federasyon meta verileri yoklamak ve yeni sertifikalar almak, kullanıcıya e-posta bildirimi ya da Office 365 portalındaki uyarı verilir.
-* Yeni belirteç imzalama sertifikaları alınamıyor, ya da Federasyon meta verilerine erişilemiyor veya otomatik sertifika aktarma etkin değil, çünkü Azure AD bir e-posta bildirimi ve Office 365 portalında bir uyarı verir.
+* Başarıyla Federasyon meta verileri yoklamak ve yeni sertifikalar almak, kullanıcıya e-posta bildirimi ya da Microsoft 365 Yönetim merkezinde uyarı verilir.
+* Yeni belirteç imzalama sertifikaları alınamıyor, ya da Federasyon meta verilerine erişilemiyor veya otomatik sertifika aktarma etkin değil, çünkü Azure AD bir e-posta bildirimi ve Microsoft 365 Yönetim merkezinde bir uyarı verir.
 
 ![Office 365 portal bildirimi](./media/how-to-connect-fed-o365-certs/notification.png)
 

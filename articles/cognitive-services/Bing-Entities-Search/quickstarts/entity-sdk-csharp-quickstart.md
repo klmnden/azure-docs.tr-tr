@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 00a4f222e45bcb62db13e420c6b1829d8be8a14b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 99b7f05304b48b7d885a80705d05fbe24854150f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529334"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080650"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>Bing varlık arama SDK ile arama isteği gönderC#
 
@@ -52,13 +52,13 @@ Bing varlık arama SDK'sı, Visual Studio projenize eklemek için `Manage NuGet 
 
 ## <a name="create-a-client-and-send-a-search-request"></a>Bir istemci oluşturmanız ve arama isteği gönder
 
-2. Yeni bir arama istemci oluşturun. Yeni bir abonelik anahtarınızı ekleme `ApiKeyServiceClientCredentials`.
+1. Yeni bir arama istemci oluşturun. Yeni bir abonelik anahtarınızı ekleme `ApiKeyServiceClientCredentials`.
 
     ```csharp
     var client = new EntitySearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
     ```
 
-3. İstemcinin kullanmak `Entities.Search()` sorgunuz için aranacak işlev:
+1. İstemcinin kullanmak `Entities.Search()` sorgunuz için aranacak işlev:
     
     ```csharp
     var entityData = client.Entities.Search(query: "Satya Nadella");

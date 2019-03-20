@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 7f864c90b8279f315fc0dbe96f41bfd03be7cebc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8c9fba14bd3f7d3b55a245f8e647f0eae1f8ef83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883382"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118434"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler'ı Yapılandır
 
@@ -111,11 +111,11 @@ Yukarıdaki değerlerden herhangi birini ayarlanmazsa, en son site uzantısı a�
     ![App ınsights kaydedin ve değiştirme][change-and-save-appinsights]
 
 1. Geri Git **uygulama ayarları** bölmesinde aşağıdaki değerleri ayarlandığından emin olmak App Service için:
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Application ınsights için uygun bir izleme anahtarı ile değiştirin.
-    * **APPINSIGHTS_PORTALINFO**: ASP.NET 
-    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
+   * **APPINSIGHTS_INSTRUMENTATIONKEY**: Application ınsights için uygun bir izleme anahtarı ile değiştirin.
+   * **APPINSIGHTS_PORTALINFO**: ASP.NET 
+   * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
-    ![Profiler için uygulama ayarları][app-settings-for-profiler]
+     ![Profiler için uygulama ayarları][app-settings-for-profiler]
 
 1. İsteğe bağlı olarak **uzantıları**, uzantı sürümü kontrol edin ve ardından bir güncelleştirme kullanılabilir olup olmadığını belirlemek.
 

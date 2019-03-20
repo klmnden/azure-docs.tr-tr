@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: da03121f1ae077cfd0b2098c16727bc19a29220b
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: ade7f86bc5a00c079a7ccbe719ae46043d692047
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791979"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225153"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Öğretici: Windows çalıştıran bir Azure sanal ağına Service Fabric kümesine dağıtma
 
@@ -31,21 +31,24 @@ Bu öğreticide bir üretim senaryosu açıklanır. Sınama amacıyla daha küç
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir sanal ağ PowerShell kullanarak Azure içinde oluşturun.
-> * Key vault oluşturma ve sertifikayı karşıya yükleyin.
-> * Azure Active Directory kimlik doğrulamasını ayarlama.
-> * Azure PowerShell'de güvenli bir Service Fabric kümesi oluşturun.
-> * X.509 sertifikasıyla kümenin güvenliğini sağlama.
-> * PowerShell kullanarak kümeye bağlanın.
-> * Bir kümeyi kaldırın.
+> * PowerShell kullanarak Azure’da VNet oluşturma
+> * Anahtar kasası oluşturma ve karşıya sertifika yükleme
+> * Azure Active Directory kimlik doğrulaması kurulumu
+> * Tanı koleksiyonu yapılandırma
+> * Eventstore'a hizmetini ayarlama
+> * Azure İzleyici günlüklerini ayarlayın
+> * Azure PowerShell’de güvenli bir Service Fabric kümesi oluşturma
+> * X.509 sertifikasıyla kümenin güvenliğini sağlama
+> * PowerShell kullanarak kümeye bağlanma
+> * Bir kümeyi kaldırma
 
-Bu öğretici serisinde şunların nasıl yapıldığını öğrenirsiniz:
-
+Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
-> * Azure'da güvenli bir küme oluşturun.
-> * [Bir kümenin ölçeğini daraltma veya çıkış](service-fabric-tutorial-scale-cluster.md).
-> * [Bir kümenin çalışma zamanını yükseltme](service-fabric-tutorial-upgrade-cluster.md).
-> * [Küme silme](service-fabric-tutorial-delete-cluster.md).
+> * Azure’da güvenli bir küme oluşturma
+> * [Bir kümesini izleme](service-fabric-tutorial-monitor-cluster.md)
+> * [Bir kümenin ölçeğini daraltma veya genişletme](service-fabric-tutorial-scale-cluster.md)
+> * [Bir kümenin çalışma zamanını yükseltme](service-fabric-tutorial-upgrade-cluster.md)
+> * [Küme silme](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -215,7 +218,7 @@ PowerShell penceresini açık tutmak için iyi bir fikirdir, bu nedenle, kümeyi
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     ...
@@ -264,6 +267,336 @@ Parametre değerlerini eklemek [azuredeploy.parameters.json] [ parameters] param
 },
 "aadClientApplicationId": {
 "value": "7a8f3b37-cc40-45cc-9b8f-57b8919ea461"
+}
+```
+<a id="configurediagnostics" name="configurediagnostics_anchor"></a>
+
+## <a name="configure-diagnostics-collection-on-the-cluster"></a>Kümede tanılama koleksiyonunu yapılandırma
+Service Fabric kümesi çalıştırırken, merkezi bir konumda tüm düğümlerden günlükleri toplamak için iyi bir fikirdir. Günlükleri sahip merkezi bir konumda, kümenizdeki sorunları veya uygulamalar ve hizmetler, kümede çalışan sorunları gidermek ve çözümlemenize yardımcı olur.
+
+Karşıya yükleme ve günlükleri toplamak için bir yolu, günlükleri, Azure Depolama'ya yükler ve ayrıca Azure Application Insights veya olay hub'larına günlükleri gönderme seçeneği olan Azure tanılama (WAD) uzantısı kullanmaktır. Bir dış işlem, olayları depolamadan okuyun ve bunları Azure İzleyici günlükleri gibi bir analiz platformu ürün veya başka bir günlük ayrıştırma çözümde yerleştirmek için de kullanabilirsiniz.
+
+Bu öğreticide izliyorsanız, tanılama koleksiyonu zaten yapılandırılan [şablon][template].
+
+Dağıtılan tanılama sahip olmayan var olan bir kümeniz varsa ekleyin veya küme şablonu güncelleştirebilir. Portaldan şablonunu indirin veya var olan kümeyi oluşturmak için kullanılan Resource Manager şablonunu değiştirin. Aşağıdaki görevleri gerçekleştirerek template.json dosyasını değiştirin:
+
+Yeni bir depolama kaynağı, şablonu kaynaklar bölümüne ekleyin:
+```json
+"resources": [
+...
+{
+  "apiVersion": "2015-05-01-preview",
+  "type": "Microsoft.Storage/storageAccounts",
+  "name": "[parameters('applicationDiagnosticsStorageAccountName')]",
+  "location": "[parameters('computeLocation')]",
+  "sku": {
+    "accountType": "[parameters('applicationDiagnosticsStorageAccountType')]"
+  },
+  "tags": {
+    "resourceType": "Service Fabric",
+    "clusterName": "[parameters('clusterName')]"
+  }
+},
+...
+]
+```
+
+Ardından, depolama hesabı adı ve tür parametrelerini şablon parametreleri bölümünü ekleyin. Burada depolama ile hesap adı, yer tutucu metin depolama hesabı adı geçer Değiştir istersiniz.
+
+```json
+"parameters": {
+...
+"applicationDiagnosticsStorageAccountType": {
+    "type": "string",
+    "allowedValues": [
+    "Standard_LRS",
+    "Standard_GRS"
+    ],
+    "defaultValue": "Standard_LRS",
+    "metadata": {
+    "description": "Replication option for the application diagnostics storage account"
+    }
+},
+"applicationDiagnosticsStorageAccountName": {
+    "type": "string",
+    "defaultValue": "**STORAGE ACCOUNT NAME GOES HERE**",
+    "metadata": {
+    "description": "Name for the storage account that contains application diagnostics data from the cluster"
+    }
+},
+...
+}
+```
+
+Ardından, ekleme **IaaSDiagnostics** uzantılar dizisi uzantısı **VirtualMachineProfile** her özellik **Microsoft.Compute/virtualMachineScaleSets** Kümedeki kaynak.  Kullanıyorsanız [örnek şablonu][template], üç sanal makine ölçek kümeleri (kümedeki her düğüm türü için bir tane) vardır.
+
+```json
+"apiVersion": "2018-10-01",
+"type": "Microsoft.Compute/virtualMachineScaleSets",
+"name": "[variables('vmNodeType1Name')]",
+"properties": {
+    ...
+    "virtualMachineProfile": {
+        "extensionProfile": {
+            "extensions": [
+                {
+                    "name": "[concat(parameters('vmNodeType0Name'),'_Microsoft.Insights.VMDiagnosticsSettings')]",
+                    "properties": {
+                        "type": "IaaSDiagnostics",
+                        "autoUpgradeMinorVersion": true,
+                        "protectedSettings": {
+                        "storageAccountName": "[parameters('applicationDiagnosticsStorageAccountName')]",
+                        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName')),'2015-05-01-preview').key1]",
+                        "storageAccountEndPoint": "https://core.windows.net/"
+                        },
+                        "publisher": "Microsoft.Azure.Diagnostics",
+                        "settings": {
+                        "WadCfg": {
+                            "DiagnosticMonitorConfiguration": {
+                            "overallQuotaInMB": "50000",
+                            "EtwProviders": {
+                                "EtwEventSourceProviderConfiguration": [
+                                {
+                                    "provider": "Microsoft-ServiceFabric-Actors",
+                                    "scheduledTransferKeywordFilter": "1",
+                                    "scheduledTransferPeriod": "PT5M",
+                                    "DefaultEvents": {
+                                    "eventDestination": "ServiceFabricReliableActorEventTable"
+                                    }
+                                },
+                                {
+                                    "provider": "Microsoft-ServiceFabric-Services",
+                                    "scheduledTransferPeriod": "PT5M",
+                                    "DefaultEvents": {
+                                    "eventDestination": "ServiceFabricReliableServiceEventTable"
+                                    }
+                                }
+                                ],
+                                "EtwManifestProviderConfiguration": [
+                                {
+                                    "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+                                    "scheduledTransferLogLevelFilter": "Information",
+                                    "scheduledTransferKeywordFilter": "4611686018427387904",
+                                    "scheduledTransferPeriod": "PT5M",
+                                    "DefaultEvents": {
+                                    "eventDestination": "ServiceFabricSystemEventTable"
+                                    }
+                                }
+                                ]
+                            }
+                            }
+                        },
+                        "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountName')]"
+                        },
+                        "typeHandlerVersion": "1.5"
+                    }
+                }
+            ...
+            ]
+        }
+    }
+}
+```
+<a id="configureeventstore" name="configureeventstore_anchor"></a>
+
+## <a name="configure-the-eventstore-service"></a>Eventstore'a hizmetini yapılandırma
+Eventstore'a service, Service fabric'te izleme bir seçenektir. Eventstore'a zaman küme veya iş yüklerini belirli bir noktada durumunu anlamak için bir yol sağlar. Eventstore'a kümeden olayları tutar durum bilgisi olan bir Service Fabric hizmeti ' dir. Olayı Service Fabric Explorer, REST ve API'ler aracılığıyla sunulur. Eventstore'a doğrudan herhangi bir varlık, kümenizdeki ilgili tanılama verilerini almak için küme sorgular ve yardımcı olmak için kullanılmalıdır:
+
+* Geliştirme veya test sorunları tanılayın ve burada izleme bir işlem hattı kullanıyor olabilir
+* Yönetim eylemleri kümenizde sürüp işlenen doğru onaylayın
+* "Service Fabric belirli bir varlık ile nasıl etkileşim kurmanın anlık" Al
+
+
+
+Kümenizde Eventstore'a hizmetini etkinleştirmek için aşağıdaki ekleyin **fabricSettings** özelliği **Microsoft.ServiceFabric/clusters** kaynak:
+
+```json
+"apiVersion": "2018-02-01",
+"type": "Microsoft.ServiceFabric/clusters",
+"name": "[parameters('clusterName')]",
+"properties": {
+    ...
+    "fabricSettings": [
+        ...
+        {
+            "name": "EventStoreService",
+            "parameters": [
+                {
+                "name": "TargetReplicaSetSize",
+                "value": "3"
+                },
+                {
+                "name": "MinReplicaSetSize",
+                "value": "1"
+                }
+            ]
+        }
+    ]
+}
+```
+<a id="configureloganalytics" name="configureloganalytics_anchor"></a>
+
+## <a name="set-up-azure-monitor-logs-for-the-cluster"></a>Azure İzleyici günlüklerine kümesi için ayarlayın
+
+Azure İzleyici günlüklerine küme düzeyi olayları izlemek için Bizim önerimiz olur. Kümenizi izlemek için Azure İzleyici günlüklerini ayarlamak için ihtiyacınız [küme düzeyi olayları görüntülemek için tanılamayı](#configure-diagnostics-collection-on-the-cluster).  
+
+Çalışma alanı kümenizden gelen Tanılama verileri bağlanması gerekir.  Bu günlük veriler *applicationDiagnosticsStorageAccountName* depolama hesabında WADServiceFabric * EventTable WADWindowsEventLogsTable ve WADETWEventTable tablolar.
+
+Azure Log Analytics çalışma alanı ve çözüm çalışma alanına ekleyin:
+
+```json
+"resources": [
+    ...
+    {
+        "apiVersion": "2015-11-01-preview",
+        "location": "[parameters('omsRegion')]",
+        "name": "[parameters('omsWorkspacename')]",
+        "type": "Microsoft.OperationalInsights/workspaces",
+        "properties": {
+            "sku": {
+                "name": "Free"
+            }
+        },
+        "resources": [
+            {
+                "apiVersion": "2015-11-01-preview",
+                "name": "[concat(variables('applicationDiagnosticsStorageAccountName'),parameters('omsWorkspacename'))]",
+                "type": "storageinsightconfigs",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]",
+                    "[concat('Microsoft.Storage/storageAccounts/', variables('applicationDiagnosticsStorageAccountName'))]"
+                ],
+                "properties": {
+                    "containers": [],
+                    "tables": [
+                        "WADServiceFabric*EventTable",
+                        "WADWindowsEventLogsTable",
+                        "WADETWEventTable"
+                    ],
+                    "storageAccount": {
+                        "id": "[resourceId('Microsoft.Storage/storageaccounts/', variables('applicationDiagnosticsStorageAccountName'))]",
+                        "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('applicationDiagnosticsStorageAccountName')),'2015-06-15').key1]"
+                    }
+                }
+            },
+            {
+                "apiVersion": "2015-11-01-preview",
+                "type": "datasources",
+                "name": "sampleWindowsPerfCounter",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
+                ],
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "Memory",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Available MBytes"
+                }
+            },
+            {
+                "apiVersion": "2015-11-01-preview",
+                "type": "datasources",
+                "name": "sampleWindowsPerfCounter2",
+                "dependsOn": [
+                    "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
+                ],
+                "kind": "WindowsPerformanceCounter",
+                "properties": {
+                    "objectName": "Service Fabric Service",
+                    "instanceName": "*",
+                    "intervalSeconds": 10,
+                    "counterName": "Average milliseconds per request"
+                }
+            }
+        ]
+    },
+    {
+        "apiVersion": "2015-11-01-preview",
+        "location": "[parameters('omsRegion')]",
+        "name": "[variables('solution')]",
+        "type": "Microsoft.OperationsManagement/solutions",
+        "dependsOn": [
+            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
+        ],
+        "properties": {
+            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename'))]"
+        },
+        "plan": {
+            "name": "[variables('solution')]",
+            "publisher": "Microsoft",
+            "product": "[Concat('OMSGallery/', variables('solutionName'))]",
+            "promotionCode": ""
+        }
+    }
+]
+```
+
+Ardından, parametre ekleme
+```json
+"parameters": {
+    ...
+    "omsWorkspacename": {
+        "type": "string",
+        "defaultValue": "mysfomsworkspace",
+        "metadata": {
+            "description": "Name of your OMS Log Analytics Workspace"
+        }
+    },
+    "omsRegion": {
+        "type": "string",
+        "defaultValue": "West Europe",
+        "allowedValues": [
+            "West Europe",
+            "East US",
+            "Southeast Asia"
+        ],
+        "metadata": {
+            "description": "Specify the Azure Region for your OMS workspace"
+        }
+    }
+}
+```
+
+Ardından, değişkenleri ekleyin:
+```json
+"variables": {
+    ...
+    "solution": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
+    "solutionName": "ServiceFabric"
+}
+```
+
+Log Analytics Aracısı uzantısı her sanal makine ölçek kümesinde ve aracının Log Analytics çalışma alanına bağlamak ekleyin. Bu kapsayıcı, uygulamaları ve performans izleme hakkında tanılama veri toplama sağlar. Bu uzantı olarak sanal makine ölçek kümesi kaynağına ekleyerek, Azure Resource Manager her düğümde yükleneceğini bile kümenin ne zaman ölçeklendirme sağlar.
+
+```json
+"apiVersion": "2018-10-01",
+"type": "Microsoft.Compute/virtualMachineScaleSets",
+"name": "[variables('vmNodeType1Name')]",
+"properties": {
+    ...
+    "virtualMachineProfile": {
+        "extensionProfile": {
+            "extensions": [
+                {
+                    "name": "[concat(variables('vmNodeType0Name'),'OMS')]",
+                    "properties": {
+                        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                        "type": "MicrosoftMonitoringAgent",
+                        "typeHandlerVersion": "1.0",
+                        "autoUpgradeMinorVersion": true,
+                        "settings": {
+                            "workspaceId": "[reference(resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename')), '2015-11-01-preview').customerId]"
+                        },
+                        "protectedSettings": {
+                            "workspaceKey": "[listKeys(resourceId('Microsoft.OperationalInsights/workspaces/', parameters('omsWorkspacename')),'2015-11-01-preview').primarySharedKey]"
+                        }
+                    }
+                }
+            ...
+            ]
+        }
+    }
 }
 ```
 
@@ -383,8 +716,21 @@ Bu öğretici serisindeki diğer makalelerde, oluşturduğunuz küme kullanılı
 
 Kümenizi ölçeklendirme konusunda bilgi almak için aşağıdaki öğreticiye geçin.
 
+> [!div class="checklist"]
+> * PowerShell kullanarak Azure’da VNet oluşturma
+> * Anahtar kasası oluşturma ve karşıya sertifika yükleme
+> * Azure Active Directory kimlik doğrulaması kurulumu
+> * Tanı koleksiyonu yapılandırma
+> * Eventstore'a hizmetini ayarlama
+> * Azure İzleyici günlüklerini ayarlayın
+> * Azure PowerShell’de güvenli bir Service Fabric kümesi oluşturma
+> * X.509 sertifikasıyla kümenin güvenliğini sağlama
+> * PowerShell kullanarak kümeye bağlanma
+> * Bir kümeyi kaldırma
+
+Ardından, kümenizi izlemek hakkında bilgi edinmek için aşağıdaki öğreticiye geçin.
 > [!div class="nextstepaction"]
-> [Küme ölçeklendirme](service-fabric-tutorial-scale-cluster.md)
+> [Bir kümesini izleme](service-fabric-tutorial-monitor-cluster.md)
 
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

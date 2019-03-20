@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: be3e9b8003bc6eb585177b285255658c44c7fc36
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ce573ff8fe61f2e1d4c88963e0f21fc9402776e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808742"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083224"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Bir sanal makine için genel bir IP adresi ilişkilendirme
 
@@ -74,20 +74,20 @@ Yükleme [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network
      --public-ip-address myVMPublicIP
    ```
 
-  - Var olan bir genel IP adresi yoksa kullanın [az network public-IP oluşturma](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) oluşturmak için komutu. Örneğin, aşağıdaki komut adlı bir genel IP adresi oluşturur *myVMPublicIP* adlı bir kaynak grubu içinde *myResourceGroup*.
+   - Var olan bir genel IP adresi yoksa kullanın [az network public-IP oluşturma](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) oluşturmak için komutu. Örneğin, aşağıdaki komut adlı bir genel IP adresi oluşturur *myVMPublicIP* adlı bir kaynak grubu içinde *myResourceGroup*.
   
-    ```azurecli-interactive
-    az network public-ip create --name myVMPublicIP --resource-group myResourceGroup
-    ```
+     ```azurecli-interactive
+     az network public-ip create --name myVMPublicIP --resource-group myResourceGroup
+     ```
 
-    > [!NOTE]
-    > Önceki komut özelleştirmek için isteyebileceğiniz birkaç ayar için varsayılan değeri olan bir genel IP adresi oluşturur. Tüm genel IP adresi ayarları hakkında daha fazla bilgi için bkz: [genel IP adresi oluşturma](virtual-network-public-ip-address.md#create-a-public-ip-address). Adresi, her Azure bölgesi için kullanılan genel IP adresi havuzundan atanır. Her bölgede kullanılan adres havuzları listesini görmek için bkz: [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
+     > [!NOTE]
+     > Önceki komut özelleştirmek için isteyebileceğiniz birkaç ayar için varsayılan değeri olan bir genel IP adresi oluşturur. Tüm genel IP adresi ayarları hakkında daha fazla bilgi için bkz: [genel IP adresi oluşturma](virtual-network-public-ip-address.md#create-a-public-ip-address). Adresi, her Azure bölgesi için kullanılan genel IP adresi havuzundan atanır. Her bölgede kullanılan adres havuzları listesini görmek için bkz: [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
 
-  - VM'nize bağlanacak bir ağ arabirimi adını bilmiyorsanız, kullanın [az vm nic listesini](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-list) bunları görmek için komutu. Örneğin, aşağıdaki komut adlı bir sanal Makineye bağlı ağ arabirimleri adlarını listeler *myVM* adlı bir kaynak grubu içinde *myResourceGroup*:
+   - VM'nize bağlanacak bir ağ arabirimi adını bilmiyorsanız, kullanın [az vm nic listesini](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-list) bunları görmek için komutu. Örneğin, aşağıdaki komut adlı bir sanal Makineye bağlı ağ arabirimleri adlarını listeler *myVM* adlı bir kaynak grubu içinde *myResourceGroup*:
 
-    ```azurecli-interactive
-    az vm nic list --vm-name myVM --resource-group myResourceGroup
-    ```
+     ```azurecli-interactive
+     az vm nic list --vm-name myVM --resource-group myResourceGroup
+     ```
 
      Çıktı aşağıdaki örneğe benzer bir veya daha fazla satır içerir:
   
@@ -97,11 +97,11 @@ Yükleme [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network
 
      Önceki örnekte, *myVMVMNic* ağ arabirimini adıdır.
 
-  - Bir ağ arabirimi IP yapılandırması adını bilmiyorsanız, kullanın [az ağ NIC IP-config listesi](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) bunları almak için komutu. Örneğin, aşağıdaki komut adlı bir ağ arabirimi için IP yapılandırma adlarını listeler *myVMVMNic* adlı bir kaynak grubu içinde *myResourceGroup*:
+   - Bir ağ arabirimi IP yapılandırması adını bilmiyorsanız, kullanın [az ağ NIC IP-config listesi](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) bunları almak için komutu. Örneğin, aşağıdaki komut adlı bir ağ arabirimi için IP yapılandırma adlarını listeler *myVMVMNic* adlı bir kaynak grubu içinde *myResourceGroup*:
 
-    ```azurecli-interactive
-    az network nic ip-config list --nic-name myVMVMNic --resource-group myResourceGroup --out table
-    ```
+     ```azurecli-interactive
+     az network nic ip-config list --nic-name myVMVMNic --resource-group myResourceGroup --out table
+     ```
 
 3. IP yapılandırması ile atanan genel IP adresini görüntüleyin [az vm-IP-adreslerini](/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) komutu. Aşağıdaki örnek, mevcut bir VM'ye atanan IP adresleri adlı gösterir *myVM* adlı bir kaynak grubu içinde *myResourceGroup*.
 
@@ -132,35 +132,35 @@ Yükleme [PowerShell](/powershell/azure/install-az-ps), veya Azure Cloud Shell'i
    $nic | Set-AzNetworkInterface
    ```
 
-  - Var olan bir genel IP adresi yoksa kullanın [yeni AzPublicIpAddress](/powershell/module/Az.Network/New-AzPublicIpAddress) oluşturmak için komutu. Örneğin, aşağıdaki komut oluşturur bir *dinamik* adlı ortak IP adresi *myVMPublicIP* adlı bir kaynak grubu içinde *myResourceGroup* içinde  *eastus* bölge.
+   - Var olan bir genel IP adresi yoksa kullanın [yeni AzPublicIpAddress](/powershell/module/Az.Network/New-AzPublicIpAddress) oluşturmak için komutu. Örneğin, aşağıdaki komut oluşturur bir *dinamik* adlı ortak IP adresi *myVMPublicIP* adlı bir kaynak grubu içinde *myResourceGroup* içinde  *eastus* bölge.
   
-    ```azurepowershell-interactive
-    New-AzPublicIpAddress -Name myVMPublicIP -ResourceGroupName myResourceGroup -AllocationMethod Dynamic -Location eastus
-    ```
+     ```azurepowershell-interactive
+     New-AzPublicIpAddress -Name myVMPublicIP -ResourceGroupName myResourceGroup -AllocationMethod Dynamic -Location eastus
+     ```
 
-    > [!NOTE]
-    > Önceki komut özelleştirmek için isteyebileceğiniz birkaç ayar için varsayılan değeri olan bir genel IP adresi oluşturur. Tüm genel IP adresi ayarları hakkında daha fazla bilgi için bkz: [genel IP adresi oluşturma](virtual-network-public-ip-address.md#create-a-public-ip-address). Adresi, her Azure bölgesi için kullanılan genel IP adresi havuzundan atanır. Her bölgede kullanılan adres havuzları listesini görmek için bkz: [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
+     > [!NOTE]
+     > Önceki komut özelleştirmek için isteyebileceğiniz birkaç ayar için varsayılan değeri olan bir genel IP adresi oluşturur. Tüm genel IP adresi ayarları hakkında daha fazla bilgi için bkz: [genel IP adresi oluşturma](virtual-network-public-ip-address.md#create-a-public-ip-address). Adresi, her Azure bölgesi için kullanılan genel IP adresi havuzundan atanır. Her bölgede kullanılan adres havuzları listesini görmek için bkz: [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
 
-  - VM'nize bağlanacak bir ağ arabirimi adını bilmiyorsanız, kullanın [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) bunları görmek için komutu. Örneğin, aşağıdaki komut adlı bir sanal Makineye bağlı ağ arabirimleri adlarını listeler *myVM* adlı bir kaynak grubu içinde *myResourceGroup*:
+   - VM'nize bağlanacak bir ağ arabirimi adını bilmiyorsanız, kullanın [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) bunları görmek için komutu. Örneğin, aşağıdaki komut adlı bir sanal Makineye bağlı ağ arabirimleri adlarını listeler *myVM* adlı bir kaynak grubu içinde *myResourceGroup*:
 
-    ```azurepowershell-interactive
-    $vm = Get-AzVM -name myVM -ResourceGroupName myResourceGroup
-    $vm.NetworkProfile
-    ```
+     ```azurepowershell-interactive
+     $vm = Get-AzVM -name myVM -ResourceGroupName myResourceGroup
+     $vm.NetworkProfile
+     ```
 
-    Çıktı aşağıdaki örneğe benzer bir veya daha fazla satır içerir. Örnek çıktıda *myVMVMNic* ağ arabirimini adıdır.
+     Çıktı aşağıdaki örneğe benzer bir veya daha fazla satır içerir. Örnek çıktıda *myVMVMNic* ağ arabirimini adıdır.
   
-    ```
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic",
-    ```
+     ```
+     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic",
+     ```
 
-  - Sanal ağ veya ağ arabiriminin bulunduğu alt ağ adını bilmiyorsanız, kullanın `Get-AzNetworkInterface` bilgileri görmek için komutu. Örneğin, aşağıdaki komutu adlı bir ağ arabirimi için sanal ağ ve alt ağ bilgilerini alır *myVMVMNic* adlı bir kaynak grubu içinde *myResourceGroup*:
+   - Sanal ağ veya ağ arabiriminin bulunduğu alt ağ adını bilmiyorsanız, kullanın `Get-AzNetworkInterface` bilgileri görmek için komutu. Örneğin, aşağıdaki komutu adlı bir ağ arabirimi için sanal ağ ve alt ağ bilgilerini alır *myVMVMNic* adlı bir kaynak grubu içinde *myResourceGroup*:
 
-    ```azurepowershell-interactive
-    $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
-    $ipConfigs = $nic.IpConfigurations
-    $ipConfigs.Subnet | Select Id
-    ```
+     ```azurepowershell-interactive
+     $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
+     $ipConfigs = $nic.IpConfigurations
+     $ipConfigs.Subnet | Select Id
+     ```
 
      Çıktı aşağıdaki örneğe benzer bir veya daha fazla satır içerir. Örnek çıktıda *myVMVNET* sanal ağ adı ve *myVMSubnet* alt adıdır.
   
@@ -168,18 +168,18 @@ Yükleme [PowerShell](/powershell/azure/install-az-ps), veya Azure Cloud Shell'i
      "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVMVNET/subnets/myVMSubnet",
      ```
 
-  - Bir ağ arabirimi IP yapılandırması adını bilmiyorsanız, kullanın [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) bunları almak için komutu. Örneğin, aşağıdaki komut adlı bir ağ arabirimi için IP yapılandırma adlarını listeler *myVMVMNic* adlı bir kaynak grubu içinde *myResourceGroup*:
+   - Bir ağ arabirimi IP yapılandırması adını bilmiyorsanız, kullanın [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) bunları almak için komutu. Örneğin, aşağıdaki komut adlı bir ağ arabirimi için IP yapılandırma adlarını listeler *myVMVMNic* adlı bir kaynak grubu içinde *myResourceGroup*:
 
-    ```azurepowershell-interactive
-    $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
-    $nic.IPConfigurations
-    ```
+     ```azurepowershell-interactive
+     $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
+     $nic.IPConfigurations
+     ```
 
-    Çıktı aşağıdaki örneğe benzer bir veya daha fazla satır içerir. Örnek çıktıda *ipconfigmyVM* IP yapılandırmasının adı.
+     Çıktı aşağıdaki örneğe benzer bir veya daha fazla satır içerir. Örnek çıktıda *ipconfigmyVM* IP yapılandırmasının adı.
   
-    ```
-    Id     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM
-    ```
+     ```
+     Id     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM
+     ```
 
 3. IP yapılandırması ile atanan genel IP adresini görüntüleyin [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) komutu. Aşağıdaki örnekte adlı bir genel IP adresi için atanmış olan adresi *myVMPublicIP* adlı bir kaynak grubu içinde *myResourceGroup*.
 

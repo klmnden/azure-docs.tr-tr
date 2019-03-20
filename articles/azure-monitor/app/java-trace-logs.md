@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: d3f8e5ac1f85483d04da99744809f4bc72295024
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d8344177fc5895451cf876f5aa581baa1fed52e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266203"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001859"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Application Insights izleme günlükleri Java keşfedin
 Logback veya Log4J kullanıyorsanız (v1.2 veya v2.0) için izleme, otomatik olarak burada keşfedin ve bunlar üzerinde arama Application ınsights'a gönderilen izleme günlüklerinizi sahip olabilir.
@@ -158,7 +158,7 @@ Projenize Application Insights izlemelerini göndermek için yapılandırmış o
 
 Özel durum günlükçüleri gönderilen özel durum Telemetrisi portalda görüntülenir.
 
-![Application Insights portalında arama açın](./media/java-trace-logs/10-diagnostics.png)
+![Application Insights portalında arama açın](./media/java-trace-logs/01-diagnostics.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Tanılama araması][diagnostic]

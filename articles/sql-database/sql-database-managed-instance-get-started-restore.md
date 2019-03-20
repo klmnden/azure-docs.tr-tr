@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: 9459aa9df74efa500109d7c281daad28355bd0d0
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: e2aa9edcd53aa3881b07e31fcf2312d5173a3a6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895746"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903528"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Hızlı Başlangıç: Bir veritabanı yönetilen örneği'ne geri yükleme 
 
@@ -48,7 +48,7 @@ SSMS'de, yönetilen Örneğinize Wide World Importers veritabanını geri yükle
 
 1. SMSS açın ve yönetilen Örneğinize bağlanın.
 2. Sol taraftaki menüden, yönetilen Örneğinize sağ tıklayıp **yeni sorgu** yeni bir sorgu penceresi açın.
-3. Önceden yapılandırılmış depolama hesabı ve SAS anahtarı kullanan aşağıdaki SQL betiğini çalıştırın [bir kimlik bilgisi oluşturmak](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) yönetilen Örneğinize içinde.
+3. Önceden yapılandırılmış depolama hesabı ve SAS anahtarı kullanan aşağıdaki SQL betiğini çalıştırın [bir kimlik bilgisi oluşturmak](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) yönetilen Örneğinize içinde.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 

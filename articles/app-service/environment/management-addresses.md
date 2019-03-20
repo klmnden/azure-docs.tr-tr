@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 39ab31cd06707dbd488914da248941ab6d174c29
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 632fa14bd96eaee2ca58b59dd855584c1fd961e8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388766"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010098"
 ---
 # <a name="app-service-environment-management-addresses"></a>App Service ortamı yönetim adresleri
 
@@ -40,7 +40,7 @@ Aşağıda belirtildiği adresleri bir yol tablosu içinde yapılandırılabilir
 
 ## <a name="configuring-a-network-security-group"></a>Bir ağ güvenlik grubu yapılandırma
 
-Ağ güvenlik grupları ile tek tek adreslerini ya da kendi yapılandırma bakımını yapma konusunda endişelenmeniz gerekmez. Güncel tüm adreslerini tutulur AppServiceManagement adlı bir IP hizmet etiketi yoktur. Bu IP hizmet etiketi, NSG'de kullanmak için portala gidin ve ağ güvenlik grupları kullanıcı Arabirimi açın gelen güvenlik kuralları'nı seçin. Varsa gelen yönetim trafiği için önceden var olan bir kural bu düzenleyin. Bu NSG ile ASE'nizi oluşturulmamışsa ya da tüm yeni ise seçip **Ekle**. Kaynak açılan altında seçin **hizmet etiketi**.  Kaynak hizmet etiketi altında seçin ** AppServiceManagement **. Kaynak bağlantı noktası aralıkları kümesine \*, hedefe **herhangi**, hedef bağlantı noktası aralıkları için **454 455**, protokol **TCP**ve eyleme **izin ver** . Kural yapıyorsanız önceliğini ayarlamak gerekir. 
+Ağ güvenlik grupları ile tek tek adreslerini ya da kendi yapılandırma bakımını yapma konusunda endişelenmeniz gerekmez. Güncel tüm adreslerini tutulur AppServiceManagement adlı bir IP hizmet etiketi yoktur. Bu IP hizmet etiketi, NSG'de kullanmak için portala gidin ve ağ güvenlik grupları kullanıcı Arabirimi açın gelen güvenlik kuralları'nı seçin. Varsa gelen yönetim trafiği için önceden var olan bir kural bu düzenleyin. Bu NSG ile ASE'nizi oluşturulmamışsa ya da tüm yeni ise seçip **Ekle**. Kaynak açılan altında seçin **hizmet etiketi**.  Seçin ve kaynak hizmet etiketi altında **AppServiceManagement**. Kaynak bağlantı noktası aralıkları kümesine \*, hedefe **herhangi**, hedef bağlantı noktası aralıkları için **454 455**, protokol **TCP**ve eyleme **izin ver** . Kural yapıyorsanız önceliğini ayarlamak gerekir. 
 
 ![Hizmet etiketi ile bir NSG oluşturma][1]
 

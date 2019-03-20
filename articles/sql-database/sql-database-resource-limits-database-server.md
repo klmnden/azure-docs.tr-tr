@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 03/01/2019
-ms.openlocfilehash: 801b7de4b82c37503f2a14619112cbf46ca60a43
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447090"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093897"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL veritabanı sunucusu için SQL veritabanı kaynak limitleri
 
@@ -36,7 +36,7 @@ Bu makalede tek veritabanları ve elastik havuzlar yöneten SQL veritabanı sunu
 | DTU / sunucu başına eDTU kotası | 54,000 |  
 | Sunucu/örnek başına sanal çekirdek kotası | 540 |
 | Sunucu başına en fazla havuz | Dtu veya sanal çekirdek sayısı sınırlıdır. Örneğin, her bir havuzu 1000 Dtu'ya ise, bir sunucu 54 havuzları destekleyebilir.|
-||||
+|||
 
 > [!NOTE]
 > Daha fazla DTU /eDTU kotası, sanal çekirdek kota veya varsayılan tutarından daha fazla sunucu elde etmek için yeni bir destek isteği sorun türünü "Kota" aboneliği için Azure portalında gönderilebilir. DTU / sunucu başına eDTU kota ve veritabanı sınırı sunucu başına elastik havuzlar sayısını kısıtlar.
@@ -95,7 +95,7 @@ Aşağıdaki bekleme türleri günlük oran İdarecisi, trafik şekillendirme ya
 | INSTANCE_LOG_RATE_GOVERNOR | Örnek düzeyi sınırlama |  
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Geri bildirim denetimi, kullanılabilirlik grubu fiziksel Çoğaltmada Premium/iş kritik tutmaktan değil |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Günlük alanı koşulu dışı önlemek için oranları sınırlama, geri bildirim denetimi |
-||||
+|||
 
 İstenen ölçeklenebilirlik hampering günlük oran sınırı ile karşılaşıldığında, aşağıdaki seçenekleri göz önünde bulundurun:
 - Maksimum 48 MB/sn günlük oran alabilmek için daha büyük bir katmana ölçeği artırabilirsiniz. 

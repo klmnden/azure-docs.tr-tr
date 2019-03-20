@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/23/2018
-ms.openlocfilehash: 23530dbda06ba99a9c9b2e1665abb09afd8161b1
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 63472cf9c4b6b16f74ececfb6c6e61cf5f89ff9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791078"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095407"
 ---
 # <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible"></a>Oluşturma ve MySQL için Azure veritabanı, ansible ürününü kullanarak yapılandırma
 [MySQL için Azure Veritabanı](https://docs.microsoft.com/azure/mysql/), bulutta yüksek kullanılabilirlikte MySQL veritabanları çalıştırmak, yönetmek ve ölçeklendirmek için kullanılan yönetilen bir hizmettir. Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. 
@@ -134,14 +134,14 @@ ansible-playbook mysql_firewall.yml
 Aşağıdaki komutları girin: 
 
 1. **mysql** komut satırı aracını kullanarak sunucuya bağlanın:
-```azurecli-interactive
- mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
-```
+   ```azurecli-interactive
+   mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
+   ```
 
 2. Sunucu durumunu görüntüleyin:
-```sql
- mysql> status
-```
+   ```sql
+   mysql> status
+   ```
 
 Her şey yolunda giderse komut satırı aracı aşağıdaki metni oluşturmalıdır:
 

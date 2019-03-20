@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: df836d46f244822c8c3dd35be6de08b0c4f34038
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 681ee66ca165ece170dd2a2ce2736cf55a44f1f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760523"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104089"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Windows güvenliğini kullanarak Windows üzerinde tek başına küme güvenliğini sağlama
 Bir Service Fabric kümesine yetkisiz erişimi önlemek için küme güvenlik altına almanız gerekir. Üretim iş yükleri küme çalıştırdığında, güvenlik özellikle önemlidir. Bu makalede Windows güvenliği kullanarak düğümden düğüme ve düğümden istemci güvenlik yapılandırma *ClusterConfig.JSON* dosya.  İşleme için yapılandırma güvenlik adımı, karşılık gelen [Windows üzerinde çalışan tek başına küme oluşturma](service-fabric-cluster-creation-for-windows-server.md). Service Fabric Windows Güvenlik nasıl kullandığı hakkında daha fazla bilgi için bkz. [küme güvenliği senaryoları](service-fabric-cluster-security.md).
@@ -52,13 +52,13 @@ Bir Service Fabric kümesine yetkisiz erişimi önlemek için küme güvenlik al
 | **Yapılandırma ayarı** | **Açıklama** |
 | --- | --- |
 | ClusterCredentialType |Kümesine *Windows* düğümden düğüme iletişim için Windows Güvenlik seçeneğini etkinleştirmek için.  | 
-| ServerCredentialType |Kümesine *Windows* istemci-düğüm iletişimi için Windows Güvenlik seçeneğini etkinleştirmek için. |  
-| WindowsIdentities |Küme ve istemci kimliklerini içerir. |  
-| ClustergMSAIdentity |Düğümden düğüme güvenliğini yapılandırır. Bir grup yönetilen hizmet hesabı. |  
-| ClusterSPN |GMSA hesabı için kayıtlı SPN|  
-| ClientIdentities |İstemci düğümü güvenliğini yapılandırır. İstemci kullanıcı hesaplarını dizisi. | 
-| Kimlik |İstemci kimliği için etki alanı\kullanıcı adı bir etki alanı kullanıcısı ekleyin. |  
-| IsAdmin |Etki alanı kullanıcı istemci erişim yönetici veya kullanıcı istemci erişimi için yanlış olduğunu belirtmek için true olarak ayarlayın. |  
+| ServerCredentialType |Kümesine *Windows* istemci-düğüm iletişimi için Windows Güvenlik seçeneğini etkinleştirmek için. |
+| WindowsIdentities |Küme ve istemci kimliklerini içerir. |
+| ClustergMSAIdentity |Düğümden düğüme güvenliğini yapılandırır. Bir grup yönetilen hizmet hesabı. |
+| ClusterSPN |GMSA hesabı için kayıtlı SPN|
+| ClientIdentities |İstemci düğümü güvenliğini yapılandırır. İstemci kullanıcı hesaplarını dizisi. |
+| Kimlik |İstemci kimliği için etki alanı\kullanıcı adı bir etki alanı kullanıcısı ekleyin. |
+| IsAdmin |Etki alanı kullanıcı istemci erişim yönetici veya kullanıcı istemci erişimi için yanlış olduğunu belirtmek için true olarak ayarlayın. |
 
 > [!NOTE]
 > ClustergMSAIdentity değeri etki alanı adı içermemesi ve Grup yönetilen hizmet hesabı adı yalnızca olabilir. I.E. "mysfgmsa" doğru ve her ikisi de "mydomain / / mysfgmsa" veya "mysfgmsa@mydomain" etki alanı, konak makine tarafından örtük olarak; geçersizdir.
@@ -104,10 +104,10 @@ Bu model kullanımdan kaldırılıyor. Yukarıda açıklandığı biçimde gMSA 
 
 | **Yapılandırma ayarı** | **Açıklama** |
 | --- | --- |
-| ClusterCredentialType |Kümesine *Windows* düğümden düğüme iletişim için Windows Güvenlik seçeneğini etkinleştirmek için.  | 
-| ServerCredentialType |Kümesine *Windows* istemci-düğüm iletişimi için Windows Güvenlik seçeneğini etkinleştirmek için. |  
-| WindowsIdentities |Küme ve istemci kimliklerini içerir. |  
-| ClusterIdentity |Bir makine grubu adı domain\machinegroup, düğümden düğüme güvenliği yapılandırmak için kullanın. |  
+| ClusterCredentialType |Kümesine *Windows* düğümden düğüme iletişim için Windows Güvenlik seçeneğini etkinleştirmek için.  |
+| ServerCredentialType |Kümesine *Windows* istemci-düğüm iletişimi için Windows Güvenlik seçeneğini etkinleştirmek için. |
+| WindowsIdentities |Küme ve istemci kimliklerini içerir. |
+| ClusterIdentity |Bir makine grubu adı domain\machinegroup, düğümden düğüme güvenliği yapılandırmak için kullanın. |
 | ClientIdentities |İstemci düğümü güvenliğini yapılandırır. İstemci kullanıcı hesaplarını dizisi. |  
 | Kimlik |İstemci kimliği için etki alanı\kullanıcı adı bir etki alanı kullanıcısı ekleyin. |  
 | IsAdmin |Etki alanı kullanıcı istemci erişim yönetici veya kullanıcı istemci erişimi için yanlış olduğunu belirtmek için true olarak ayarlayın. |  

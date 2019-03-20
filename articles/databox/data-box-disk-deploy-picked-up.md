@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 4c723ade885474f07d025b10e075edab0383b82e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0dd0474ad1ad360fd82cfdf746d2e9837f74833a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439953"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108384"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Öğretici: Azure Data Box Disk geri dönün ve verileri karşıya yükleme azure'a doğrulayın
 
@@ -70,22 +70,22 @@ Kaynaktan silmeden önce verilerinizin depolama hesaplarında olduğundan emin o
 
 - Azure depolama hesabınızda veya hesaplarınızda. Data Box'a veri kopyaladığınızda, türlerine bağlı olarak bu veriler Azure Depolama hesabınızda aşağıdaki yollardan birine yüklenir.
 
-    - Blok blobları ve sayfa blobları için: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
-    - Azure Dosyaları için: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+  - Blok blobları ve sayfa blobları için: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+  - Azure Dosyaları için: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
     Alternatif olarak Azure portalda Azure depolama hesabınıza gidip oradan ilerleyebilirsiniz.
 
 - Yönetilen disk kaynak grupları. Yönetilen diskler oluştururken VHD'ler sayfa blobları karşıya ve sonra yönetilen disklere dönüştürülmüş. Yönetilen diskler, sipariş oluşturma sırasında belirtilen kaynak gruplarına eklenir.
 
-    - Azure'da yönetilen disklere kopyanızı başarılı olduysa, gidebilirsiniz **sipariş ayrıntıları** Azure portalı ve kaynak grubunu Not Yönetilen diskler için belirtilen olun.
+  - Azure'da yönetilen disklere kopyanızı başarılı olduysa, gidebilirsiniz **sipariş ayrıntıları** Azure portalı ve kaynak grubunu Not Yönetilen diskler için belirtilen olun.
 
-        ![Sipariş ayrıntılarını görüntüle](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
+      ![Sipariş ayrıntılarını görüntüle](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
 
     Belirtilen bir kaynak grubuna gidin ve yönetilen disklerinizi bulun.
 
-        ![Resource group for managed disks](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
+      ![Yönetilen diskler için kaynak grubu](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
-    - Kopyaladığınız bir VHDX veya dinamik ve fark VHD, VHDX/VHD hazırlama depolama hesabına bir blok blobu yüklenir. Git, hazırlama **depolama hesabı > Blobları** ve ardından uygun bir kapsayıcı - StandardSSD, StandardHDD veya PremiumSSD seçin. VHDX/VHD hazırlama depolama hesabındaki blok blobları olarak gösteriliyor olmalıdır.
+  - Kopyaladığınız bir VHDX veya dinamik ve fark VHD, VHDX/VHD hazırlama depolama hesabına bir blok blobu yüklenir. Git, hazırlama **depolama hesabı > Blobları** ve ardından uygun bir kapsayıcı - StandardSSD, StandardHDD veya PremiumSSD seçin. VHDX/VHD hazırlama depolama hesabındaki blok blobları olarak gösteriliyor olmalıdır.
 
 Verilerin Azure'a yüklendiğini doğrulamak için aşağıdaki adımları izleyin:
 

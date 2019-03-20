@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 49035bc94f0ed51abb5f7e7a4af8eb1a0b08cfe4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b474d3579a7c20c190a427f503d97ec7471a1b12
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091163"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Hızlı Başlangıç: Azure Application Gateway - Azure portalı ile doğrudan web trafiği
 
@@ -37,10 +37,10 @@ Oluşturduğunuz kaynaklar arasında iletişim kurmak Azure için sanal ağ gere
 
 1. Üzerinde **Temelleri** sayfasında, aşağıdaki uygulama ağ geçidi ayarları için şu değerleri girin:
 
-    - **Ad**: Girin *myAppGateway* uygulama ağ geçidinin adı.
-    - **Kaynak grubu**: Seçin **myResourceGroupAG** kaynak grubu için. Mevcut olmaması halinde seçin **Yeni Oluştur** oluşturun.
+   - **Ad**: Girin *myAppGateway* uygulama ağ geçidinin adı.
+   - **Kaynak grubu**: Seçin **myResourceGroupAG** kaynak grubu için. Mevcut olmaması halinde seçin **Yeni Oluştur** oluşturun.
 
-    ![Yeni uygulama ağ geçidi oluşturma](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
+     ![Yeni uygulama ağ geçidi oluşturma](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
 
 2. Diğer ayarlar için varsayılan değerleri kabul edin ve ardından **Tamam**.
 
@@ -50,15 +50,15 @@ Oluşturduğunuz kaynaklar arasında iletişim kurmak Azure için sanal ağ gere
 
 2. Üzerinde **sanal ağ Seç** sayfasında **Yeni Oluştur**ve ardından aşağıdaki sanal ağ ayarları için değerleri girin:
 
-    - **Ad**: Girin *myVNet* sanal ağının adı.
+   - **Ad**: Girin *myVNet* sanal ağının adı.
 
-    - **Adres alanı**: Girin *10.0.0.0/16* sanal ağ adres alanı için.
+   - **Adres alanı**: Girin *10.0.0.0/16* sanal ağ adres alanı için.
 
-    - **Alt ağ adı**: Girin *myAGSubnet* alt ağ adı için.<br>Uygulama ağ geçidi alt ağı, yalnızca uygulama ağ geçitleri içerebilir. Başka kaynaklar izin verilir.
+   - **Alt ağ adı**: Girin *myAGSubnet* alt ağ adı için.<br>Uygulama ağ geçidi alt ağı, yalnızca uygulama ağ geçitleri içerebilir. Başka kaynaklar izin verilir.
 
-    - **Alt ağ adres aralığı**: Girin *10.0.0.0/24* için alt ağ adres aralığı.
+   - **Alt ağ adres aralığı**: Girin *10.0.0.0/24* için alt ağ adres aralığı.
 
-    ![Sanal ağ oluşturma](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
+     ![Sanal ağ oluşturma](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
 
 3. Seçin **Tamam** dönmek için **ayarları** sayfası.
 

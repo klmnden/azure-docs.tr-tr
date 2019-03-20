@@ -14,12 +14,12 @@ ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d9a60544f01048cd90605306e64d750982bf7a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3b91e2c15e86cdda4daab27892fa7a2b6ed0c0e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200556"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008911"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Azure AD dizin rollerini PIM denetim geçmişini görüntüle
 Tüm ayrıcalıklı roller için belirli bir süre içinde tüm kullanıcı atama ve etkinleştirme görmek için Privileged Identity Management (PIM) denetim Geçmişi'ni kullanabilirsiniz. Etkinlik, kiracınızda yönetici ve son kullanıcı eşitleme etkinliği de dahil olmak üzere tam denetim geçmişini görmek istiyorsanız kullanabileceğiniz [Azure Active Directory erişim ve kullanım raporlarını.](../reports-monitoring/overview-reports.md)
@@ -27,10 +27,10 @@ Tüm ayrıcalıklı roller için belirli bir süre içinde tüm kullanıcı atam
 ## <a name="navigate-to-audit-history"></a>Denetim geçmişi gidin
 Gelen [Azure portalında](https://portal.azure.com) panoyu seçin **Azure AD Privileged Identity Management** uygulama. Tıklayarak denetim geçmişini buradan, erişim **ayrıcalıklı rollerimi Yönet** > **denetim geçmişi** PIM panosunda.
 
-![](media/azure-ad-pim-approval-workflow/image021.png)
+![Denetim geçmişi](media/azure-ad-pim-approval-workflow/image021.png)
 
->[!NOTE]
-Verileri eyleme göre sıralayın ve "Etkinleştirme onaylı" arayın
+> [!NOTE]
+> Verileri eyleme göre sıralayın ve "Etkinleştirme onaylı" arayın
 
 
 ## <a name="audit-history-graph"></a>Denetim Geçmişi grafiği

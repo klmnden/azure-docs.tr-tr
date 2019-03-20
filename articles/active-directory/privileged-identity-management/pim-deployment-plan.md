@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb675778d899d6f4cec22de8a1c81fdae76ba17e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 05bf125d629ffef01a645dc407c341a984805520
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879773"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227040"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD Privileged Identity Management (PIM) dağıtma
 
@@ -27,9 +27,9 @@ Bu adım adım kılavuzda, Azure AD Privileged Identity Management (PIM), kurulu
 
 > [!TIP]
 > Bu belge boyunca olarak işaretlenmiş olan öğeleri görürsünüz:
->
+> 
 > :heavy_check_mark: **Microsoft öneriyor**
->
+> 
 > Bunlar genel öneriler ve bunlar belirli Kurumsal ihtiyaçlarınızı uygularsanız, yalnızca uygulamalıdır.
 
 ## <a name="step-1-learn-about-pim"></a>1. Adım PIM hakkında bilgi edinin
@@ -177,16 +177,16 @@ PIM ile korumak için hangi rollerin zor olabilir ve her kuruluş için farklı 
 
 Azure AD rolleri, izinleri en çok sayıda koruma önceliğini belirlemek önemlidir. Kullanım desenlerini tüm PIM müşteriler arasında dayalı olarak, PIM tarafından yönetilen ilk 10 Azure AD rolleri açıklanmıştır:
 
-1. Genel Yönetici
-1. Güvenlik Yöneticisi
-1. Kullanıcı Hesabı Yöneticisi
-1. Exchange Yöneticisi
-1. SharePoint Yöneticisi
-1. Intune Hizmet Yöneticisi
-1. Güvenlik Okuyucu
-1. Hizmet Yöneticisi
-1. Faturalama Yöneticisi
-1. Skype Kurumsal Yöneticisi
+1. Genel yönetici
+1. Güvenlik yöneticisi
+1. Kullanıcı yöneticisi
+1. Exchange yöneticisi
+1. SharePoint yöneticisi
+1. Intune yöneticisi
+1. Güvenlik okuyucusu
+1. Hizmet yöneticisi
+1. Faturalama yöneticisi
+1. Skype Kurumsal yöneticisi
 
 > [!TIP]
 > :heavy_check_mark: **Microsoft öneriyor** tüm genel Yöneticiler ve güvenlik yöneticileri en tehlikeye olduğunda zarar yapabilirsiniz olanları oldukları gibi bir ilk adım olarak PIM kullanarak yönetin.
@@ -259,13 +259,13 @@ Aşağıdaki tabloda, ayarların her biri açıklanmaktadır.
 | Ayar | Açıklama |
 | --- | --- |
 | Rol | Ayarları için tanımladığınız rolün adı. |
-| MFA gerektirme | Olup uygun kullanıcı MFA rolünü etkinleştirmeden önce gerçekleştirmeniz gerekir.<br/><br/>:heavy_check_mark: **Microsoft öneriyor** özellikle rolleri Konuk kullanıcılar varsa, tüm yönetici rolleri için MFA zorlama. |
+| MFA gerektirme | Olup uygun kullanıcı MFA rolünü etkinleştirmeden önce gerçekleştirmeniz gerekir.<br/><br/> :heavy_check_mark: **Microsoft öneriyor** özellikle rolleri Konuk kullanıcılar varsa, tüm yönetici rolleri için MFA zorlama. |
 | Bildirim | Uygun bir kullanıcı rolünü etkinleştirirken genel yönetici, true olarak ayarlanmış ayrıcalıklı Rol Yöneticisi ve kuruluşun Güvenlik Yöneticisi bir e-posta bildirimi alıp almayacağını.<br/><br/>**Not:** Bazı kuruluşların yönetici hesaplarında bu e-posta bildirimleri almak için bağlı bir e-posta adresi yoksa, Yöneticiler bu e-postaları alacak şekilde bir alternatif e-posta adresi ayarlayın tamamlamalıdır. |
-| Olay bileti | Olup uygun kullanıcı rolünü etkinleştirirken bir olay bileti numarası kaydetmek gerekir. Bu ayar, istenmeyen etkinleştirmeleri azaltmak için iç bir olay numarasına sahip her etkinleştirme tanımlamak bir kuruluş yardımcı olur.<br/><br/>:heavy_check_mark: **Microsoft öneriyor** PIM ile iç sisteminize bağlamak için olay bileti sayıların yararlanma. Bu bağlam etkinleştirmesi için gereken onaylayanlar için özellikle yararlıdır. |
-| Onay iste | Olup uygun kullanıcı rolü etkinleştirmek için onay alması gerekiyor.<br/><br/>:heavy_check_mark: **Microsoft öneriyor** en izne sahip roller için onay ayarlamak için. Tüm PIM müşterilerin kullanım modellerini bağlı olarak, genel yönetici, yönetici kullanıcı, Exchange yönetici, Güvenlik Yöneticisi ve parola Yöneticisi en yaygın onay kurulumun rolleridir. |
-| Onaylayan | Onay isteği onaylaması gereken kişilerin listesini uygun rolü etkinleştirmek için gerekli olursa. Varsayılan olarak, PIM onaylayan kalıcı veya uygun olup olmadığını ayrıcalıklı rol yöneticisi olan tüm kullanıcılar olarak ayarlar.<br/><br/>**Not:** Bir kullanıcı hem de Azure AD rolüne ve onaylayan rolüne uygun ise, bunlar kendilerini onaylanacak mümkün olmayacaktır.<br/><br/>:heavy_check_mark: **Microsoft öneriyor** kullanıcıların belirli bir rolü ve sık sık kullanıcılar yerine hakkında bir genel yönetici en bilgili olması için onaylayanları seçin. |
+| Olay bileti | Olup uygun kullanıcı rolünü etkinleştirirken bir olay bileti numarası kaydetmek gerekir. Bu ayar, istenmeyen etkinleştirmeleri azaltmak için iç bir olay numarasına sahip her etkinleştirme tanımlamak bir kuruluş yardımcı olur.<br/><br/> :heavy_check_mark: **Microsoft öneriyor** PIM ile iç sisteminize bağlamak için olay bileti sayıların yararlanma. Bu bağlam etkinleştirmesi için gereken onaylayanlar için özellikle yararlıdır. |
+| Onay iste | Olup uygun kullanıcı rolü etkinleştirmek için onay alması gerekiyor.<br/><br/> :heavy_check_mark: **Microsoft öneriyor** en izne sahip roller için onay ayarlamak için. Tüm PIM müşterilerin kullanım modellerini bağlı olarak, genel yönetici, yönetici kullanıcı, Exchange yönetici, Güvenlik Yöneticisi ve parola Yöneticisi en yaygın onay kurulumun rolleridir. |
+| Onaylayan | Onay isteği onaylaması gereken kişilerin listesini uygun rolü etkinleştirmek için gerekli olursa. Varsayılan olarak, PIM onaylayan kalıcı veya uygun olup olmadığını ayrıcalıklı rol yöneticisi olan tüm kullanıcılar olarak ayarlar.<br/><br/>**Not:** Bir kullanıcı hem de Azure AD rolüne ve onaylayan rolüne uygun ise, bunlar kendilerini onaylanacak mümkün olmayacaktır.<br/><br/> :heavy_check_mark: **Microsoft öneriyor** kullanıcıların belirli bir rolü ve sık sık kullanıcılar yerine hakkında bir genel yönetici en bilgili olması için onaylayanları seçin. |
 | Etkinleştirme süresi | Bir kullanıcı rolü kendisinden önce etkin süre sona erecek. |
-| Kalıcı yönetici | Rolü için kalıcı bir yöneticisinin kullanıcıların listesini (etkinleştirmek hiçbir zaman sahip).<br/><br/>:heavy_check_mark: **Microsoft öneriyor** genel Yöneticiler hariç tüm roller için sıfır ayakta yönetici. Okuma daha içinde ilgili kim uygun yapılmalıdır ve kimin Bu plan kalıcı olarak etkin bölümünü olmalıdır. |
+| Kalıcı yönetici | Rolü için kalıcı bir yöneticisinin kullanıcıların listesini (etkinleştirmek hiçbir zaman sahip).<br/><br/> :heavy_check_mark: **Microsoft öneriyor** genel Yöneticiler hariç tüm roller için sıfır ayakta yönetici. Okuma daha içinde ilgili kim uygun yapılmalıdır ve kimin Bu plan kalıcı olarak etkin bölümünü olmalıdır. |
 | Etkin yönetici | Azure kaynakları için etkin, hiçbir zaman rolünü kullanmak için etkinleştirmeye sahip olacak kullanıcıların listesini yöneticisidir. Kullanıcı bu rolü zaman kaybedecek için sona erme süresini ayarlandığından bu gibi kalıcı yönetici Azure AD rolleri olarak adlandırılır değil. |
 | Etkin zaman aşımı | Azure kaynak rolleri için bir etkin bir rol ataması bu süre yapılandırılan sonra süresi dolar. 15 günden 1 ay, 3 ay, 6 aylık, 1 yıl seçebilirsiniz veya kalıcı olarak etkin. |
 | Uygun bir süre sonu | Bir Azure kaynak rolleri için uygun rol atamasını bu süre yapılandırılan sonra süresi dolar. 15 günden 1 ay, 3 ay, 6 aylık, 1 yıl seçebilirsiniz veya kalıcı olarak uygun. |

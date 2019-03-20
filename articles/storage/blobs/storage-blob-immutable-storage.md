@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/02/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: e9ef73bbed83587f635492553f3e467922481ede
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 86e28c3561968b1411a3baa9ec0daecfab6ac73f
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309681"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202896"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>İş açısından kritik verilerin Azure Blob Depolama alanında Store
 
@@ -86,7 +86,7 @@ Bu özelliği kullanmak için ek ücret yoktur. Sabit veri aynı şekilde normal
 
 ## <a name="getting-started"></a>Başlarken
 
-En son sürümleri [Azure portalında](http://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ve [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) sabit depolama Azure Blob Depolama için destek. [İstemci Kitaplığı desteğiyle](#client-libraries) de sağlanır.
+En son sürümleri [Azure portalında](https://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ve [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) sabit depolama Azure Blob Depolama için destek. [İstemci Kitaplığı desteğiyle](#client-libraries) de sağlanır.
 
 > [!NOTE]
 >

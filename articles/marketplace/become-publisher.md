@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2970ef58e177d10eac80d46825f3fb985b98af61
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734974"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842466"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bulut Market yayımcısı olur
 
@@ -49,14 +49,14 @@ Kaydolduktan sonra kuruluşunuz için Microsoft iş ortağı ağ Kimliğini kayd
 
 ## <a name="2-create-a-microsoft-account"></a>2. Bir Microsoft hesabı oluşturun  
 | 15 dakika |  
-Bir Microsoft hesabı, örneğin *@outlook.com veya @live.com*, birçok Microsoft cihazlara ve hizmetlere erişmek için kullanılır. Azure Marketi teklifleri transact ve tüm bulut yayımcılar için kullanılmasını öneririz gereklidir. Bir Microsoft hesabı'nın kullanır ve avantajları hakkında daha fazla bilgi için [bu sayfayı ziyaret](https://account.microsoft.com/account/). Bulut iş ortağı portalına erişmek için kişisel bir Microsoft hesabıyla kullanın, oluşturmak ve yönetmek, Market'ten için kullanacağınız yayımlama platformu sunar. 
+Bir Microsoft hesabı, örneğin  *\@outlook.com veya \@live.com*, birçok Microsoft cihazlara ve hizmetlere erişmek için kullanılır. Azure Marketi teklifleri transact ve tüm bulut yayımcılar için kullanılmasını öneririz gereklidir. Bir Microsoft hesabı'nın kullanır ve avantajları hakkında daha fazla bilgi için [bu sayfayı ziyaret](https://account.microsoft.com/account/). Bulut iş ortağı portalına erişmek için kişisel bir Microsoft hesabıyla kullanın, oluşturmak ve yönetmek, Market'ten için kullanacağınız yayımlama platformu sunar. 
 
 [! İş e-postanız ile ilişkili Microsoft hesabınız portalına erişmek izin vermez, önemli] lütfen unutmayın.
 
->[!Note]
->Zaten bir Microsoft hesabınız varsa gözden [marketplace hesabı yönetmek için a Microsoft ID oluşturma yönergeleri](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) Market yayımlama için kullanılabilir olmadığını belirlemek için. 
-
->Kullanıcılar Azure Active Directory Federasyon Kurumsal hesap ile kimler [bu makalede](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) oluşturmayı veya mevcut Microsoft Account kullanmayı denemeden önce.
+> [!Note]
+> Zaten bir Microsoft hesabınız varsa gözden [marketplace hesabı yönetmek için a Microsoft ID oluşturma yönergeleri](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) Market yayımlama için kullanılabilir olmadığını belirlemek için. 
+> 
+> Kullanıcılar Azure Active Directory Federasyon Kurumsal hesap ile kimler [bu makalede](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) oluşturmayı veya mevcut Microsoft Account kullanmayı denemeden önce.
 
 *   Oluşturma veya Microsoft hesabınızı yönetme konusunda yardım için ziyaret [Microsoft hesabı Yardım desteği sayfaları](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 

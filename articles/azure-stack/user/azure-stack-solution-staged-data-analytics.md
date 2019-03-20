@@ -15,12 +15,12 @@ ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 1115e11d6bf830afad3746eb41d6368cb89bdbf3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c3ea877e3271dcb5bea527d661e12827eb64fa0c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534387"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997409"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile hazırlanmış veri analizi çözümü oluşturma 
 
@@ -175,25 +175,25 @@ Verileri temizleme Azure yığını, Azure'a taşımak için yeni bir Azure Stac
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Blob depolama ile tetiklenen bir işlev oluşturma
 
-1.  İşlev uygulaması'nı genişletin ve seçin **+** düğmesinin yanındaki **işlevleri**.
+1. İşlev uygulaması'nı genişletin ve seçin **+** düğmesinin yanındaki **işlevleri**.
 
-2.  Arama alanına yazın `blob` için istediğiniz dili seçin **Blob tetikleyicisi** şablonu.
+2. Arama alanına yazın `blob` için istediğiniz dili seçin **Blob tetikleyicisi** şablonu.
 
-  ![Blob depolama tetikleyici şablonunu seçin.](media/azure-stack-solution-staged-data-analytics/image10.png)
+   ![Blob depolama tetikleyici şablonunu seçin.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
-3.  Aşağıdaki tabloda belirtilen ayarları kullanın:
+3. Aşağıdaki tabloda belirtilen ayarları kullanın:
 
-    | Ayar | Önerilen değer | Açıklama |
-    | ------- | ------- | ------- |
-    | Ad | İşlev uygulamanızda benzersiz olmalıdır | Blob ile tetiklenen bu işlevin adı. |
-    | Yol | \<depolama konumu yolu > | İzlenmekte olan Blob depolamanın konumu. Blob dosya adı bağlamaya name parametresi olarak geçirilir. |
-    | Depolama hesabı bağlantısı | İşlevi uygulama bağlantısı | İşlev uygulamanız tarafından zaten kullanılan depolama hesabı bağlantısı kullanın veya yeni bir tane oluşturun. |
+   | Ayar | Önerilen değer | Açıklama |
+   | ------- | ------- | ------- |
+   | Ad | İşlev uygulamanızda benzersiz olmalıdır | Blob ile tetiklenen bu işlevin adı. |
+   | Yol | \<depolama konumu yolu > | İzlenmekte olan Blob depolamanın konumu. Blob dosya adı bağlamaya name parametresi olarak geçirilir. |
+   | Depolama hesabı bağlantısı | İşlevi uygulama bağlantısı | İşlev uygulamanız tarafından zaten kullanılan depolama hesabı bağlantısı kullanın veya yeni bir tane oluşturun. |
 
-    **Örnek:**
+   **Örnek:**
 
-    ![Blob depolama ile tetiklenen bir işlev oluşturun.](media/azure-stack-solution-staged-data-analytics/image11.png)
+   ![Blob depolama ile tetiklenen bir işlev oluşturun.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
-4.  Seçin **Oluştur** işlevi oluşturmak için.
+4. Seçin **Oluştur** işlevi oluşturmak için.
 
 ### <a name="test-the-function"></a>İşlevi test etme
 
@@ -253,21 +253,21 @@ Arşiv depolama olarak başka bir depolama hesabı ve blob kapsayıcısı oluşt
 
 ## <a name="test-the-queue-triggered-function"></a>Test kuyruk ile tetiklenen işlev
 
-1.  Azure Stack portalında işlevine göz atın. Genişletin **günlükleri** sayfanın alt kısmındaki ve günlük akışını değil duraklatıldı emin olun.
+1. Azure Stack portalında işlevine göz atın. Genişletin **günlükleri** sayfanın alt kısmındaki ve günlük akışını değil duraklatıldı emin olun.
 
-2.  Depolama Gezgini'ni açın ve bu bölümün başında oluşturduğunuz depolama hesabına bağlanın.
+2. Depolama Gezgini'ni açın ve bu bölümün başında oluşturduğunuz depolama hesabına bağlanın.
 
-3.  Depolama hesabını genişletin **Blob kapsayıcıları**, ve daha önce oluşturduğunuz blob. Seçin **karşıya** ardından **dosyaları karşıya yükleme.**
+3. Depolama hesabını genişletin **Blob kapsayıcıları**, ve daha önce oluşturduğunuz blob. Seçin **karşıya** ardından **dosyaları karşıya yükleme.**
 
-    ![Dosyayı blob kapsayıcısına yükleyin.](media/azure-stack-solution-staged-data-analytics/image12.png)
+   ![Dosyayı blob kapsayıcısına yükleyin.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
-4.  Dosyaları karşıya yükleme iletişim kutusunda dosyaları alanı seçin. Bir görüntü dosyası gibi yerel bir bilgisayardaki bir dosyaya göz atın, onu seçin ve seçin **açık** ardından **karşıya**.
+4. Dosyaları karşıya yükleme iletişim kutusunda dosyaları alanı seçin. Bir görüntü dosyası gibi yerel bir bilgisayardaki bir dosyaya göz atın, onu seçin ve seçin **açık** ardından **karşıya**.
 
-5.  İşlev günlüklerini geri dönün ve blob'un okunduğunu doğrulayın.
+5. İşlev günlüklerini geri dönün ve blob'un okunduğunu doğrulayın.
 
-  **Örnek:**
+   **Örnek:**
 
-    ![Günlüklerde iletiyi görüntüleyin.](media/azure-stack-solution-staged-data-analytics/image13.png)
+   ![Günlüklerde iletiyi görüntüleyin.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>Güvenli bir şekilde depolanır ve erişilen uyumlu veri
 

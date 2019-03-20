@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bee2a715e9e9b163af342b70c4cdd63d24ccee3b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e9e78d3226f90ef780a1ed2114ba256c293463dc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450048"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001591"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Paylaşılan erişim imzaları (SAS) kullanma
 
@@ -40,11 +40,11 @@ Bir SAS kullanışlı olduğu bir yaygın senaryo burada kullanıcılar okuyup k
 
 1. İstemciler, indirin ve kimlik doğrulaması yapan bir ön uç proxy hizmeti aracılığıyla veri yükleyin. Bu ön uç proxy hizmeti için iş kuralları doğrulama sağlayan avantajı olsa da, büyük miktarlarda veri veya yüksek hacimli işlemler için isteğe bağlı şekilde bir hizmet oluşturma pahalı veya zor olabilir.
 
-  ![Senaryo diyagramı: Ön uç proxy hizmeti](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+   ![Senaryo diyagramı: Ön uç proxy hizmeti](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. Basit bir hizmet gerektiği gibi istemcinin kimliğini doğrular ve ardından bir SAS oluşturuyor. SAS istemci aldıktan sonra doğrudan SAS ve SAS tarafından izin verilen zaman aralığı için tanımlanan izinlere sahip depolama hesabı kaynaklarına erişebilirsiniz. SAS, ön uç proxy hizmeti aracılığıyla tüm verileri yönlendirme gereksinimini azaltır.
 
-  ![Senaryo diyagramı: SAS sağlayıcısı hizmeti](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+   ![Senaryo diyagramı: SAS sağlayıcısı hizmeti](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 Çok sayıda gerçek hizmetlerini iki bu yaklaşımların bir karma kullanabilir. Örneğin, bazı veriler işlenir ve diğer veriler olduğundan ve/veya kaydedilmiş doğrudan SAS kullanarak okuma sırasında ön uç Ara sunucusu üzerinden doğrulandı.
 
@@ -230,8 +230,8 @@ Aşağıda bazı örnekler paylaşılan erişim imzaları, hesap SAS her iki tü
 
 Bu C# örnekleri çalıştırmak için aşağıdaki NuGet paketlerini projenize başvuru gerekir:
 
-* [.NET için Azure depolama istemci Kitaplığı](http://www.nuget.org/packages/WindowsAzure.Storage), sürüm 6.x veya daha sonra (hesap SAS kullanmak üzere).
-* [Azure Configuration Manager](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [.NET için Azure depolama istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage), sürüm 6.x veya daha sonra (hesap SAS kullanmak üzere).
+* [Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 Oluşturma ve bir SAS test gösteren ek örnekler için bkz: [Azure depolama kod örnekleri](https://azure.microsoft.com/documentation/samples/?service=storage).
 

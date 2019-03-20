@@ -4,17 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: aa58890f74c7c667189fa10c009769de043227c4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f00da12519f21410f773afb96a5e9a83c56166d9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457893"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58051676"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Klasik modelden Azure Resource Manager’a geçiş sırasında sık karşılaşılan hatalar
 Bu makale, IaaS kaynakları Azure klasik dağıtım modelinden Azure Resource Manager yığınına geçirilirken en sık karşılaşılan hataları ve risk azaltma yollarını içerir.
 
 ## <a name="list-of-errors"></a>Hata listesi
+
 | Hata dizesi | Risk azaltma |
 | --- | --- |
 | İç sunucu hatası |Bazı durumlarda bu tekrar denendiğinde geçen, geçici bir hatadır. Karşılaşmaya devam ederseniz platform günlüklerinin araştırılması gerekeceğinden [Azure desteğine başvurun](../articles/azure-supportability/how-to-create-azure-support-request.md). <br><br> **NOT:** Olay destek ekibi tarafından izlenirken bu olabilir Lütfen tüm kendi kendine risk azaltma çalışmayın ortamınızda istenmeyen sonuçları. |

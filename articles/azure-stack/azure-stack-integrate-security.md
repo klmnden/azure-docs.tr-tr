@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: 7dff82538448b27f14dd81e2862cd63d4dd56a9b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a47b38acc372e6c1d215c7440657486b5babf3bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247111"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009484"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack veri merkezi tümleştirmesi - syslog iletme
 
@@ -61,10 +61,10 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 Parametreler için *kümesi SyslogServer* cmdlet:
 
-| Parametre | Açıklama | Type | Gereklidir |
+| Parametre | Açıklama | Type | Gerekli |
 |---------|---------|---------|---------|
-|*SunucuAdı* | Syslog sunucusunun FQDN veya IP adresi | Dize | evet|
-|*ServerPort* | Bağlantı noktası numarası syslog sunucusunun dinleme yaptığı | Dize | evet|
+|*SunucuAdı* | Syslog sunucusunun FQDN veya IP adresi | String | evet|
+|*ServerPort* | Bağlantı noktası numarası syslog sunucusunun dinleme yaptığı | String | evet|
 |*Şifreleme yok*| Düz metin olarak Syslog iletilerini göndermek için istemci zorla | Bayrağı | hayır|
 |*SkipCertificateCheck*| İlk TLS anlaşması sırasında syslog sunucusu tarafından sağlanan sertifika doğrulamasını atla | Bayrağı | hayır|
 |*SkipCNCheck*| Ortak ad değeri ilk TLS anlaşması sırasında syslog sunucusu tarafından sağlanan sertifika doğrulamasını atlayın | Bayrağı | hayır|
@@ -72,9 +72,10 @@ Parametreler için *kümesi SyslogServer* cmdlet:
 |*Kaldır*| İstemciden sunucusunun yapılandırmasını kaldırın ve syslog iletmeyi Durdur| Bayrağı | hayır|
 
 Parametreler için *kümesi SyslogClient* cmdlet:
+
 | Parametre | Açıklama | Type |
 |---------|---------| ---------|
-| *pfxBinary* | İstemci tarafından kimliği olarak syslog sunucusuna göre kimlik doğrulaması için kullanılacak sertifikayı içeren pfx dosyasını  | Bayt] |
+| *pfxBinary* | İstemci tarafından kimliği olarak syslog sunucusuna göre kimlik doğrulaması için kullanılacak sertifikayı içeren pfx dosyasını  | Byte[] |
 | *CertPassword* |  Pfx dosyası ile ilişkili özel anahtarı içeri aktarmak için parola | SecureString |
 |*RemoveCertificate* | İstemciden sertifikayı Kaldır | Bayrağı|
 
@@ -259,7 +260,7 @@ CESARETLENDİRİCİ önem derecesi tablosu:
 
 | Severity | Düzey | Sayısal değer |
 |----------|-------| ----------------|
-|0|Tanımlanmadı|Değer: 0. Tüm düzeylerde günlükleri gösterir|
+|0|Undefined|Değer: 0. Tüm düzeylerde günlükleri gösterir|
 |10|Kritik|Değer: 1. Kritik Uyarı için günlükleri gösterir|
 |8|Hata| Değer: 2. Hata günlüklerini gösterir|
 |5|Uyarı|Değer: 3. Günlükleri için bir uyarı gösterir|
@@ -287,9 +288,10 @@ Tablo olayların kurtarma uç noktası için:
 |RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
 
 Tablo Temsilcisi önem derecesi:
+
 | Severity | Düzey | Sayısal değer |
 |----------|-------| ----------------|
-|0|Tanımlanmadı|Değer: 0. Tüm düzeylerde günlükleri gösterir|
+|0|Undefined|Değer: 0. Tüm düzeylerde günlükleri gösterir|
 |10|Kritik|Değer: 1. Kritik Uyarı için günlükleri gösterir|
 |8|Hata| Değer: 2. Hata günlüklerini gösterir|
 |5|Uyarı|Değer: 3. Günlükleri için bir uyarı gösterir|
@@ -306,9 +308,10 @@ Tablo Temsilcisi önem derecesi:
 ```
 
 Windows olayları için tablo önem derecesi:
+
 | CEF önem derecesi değeri | Windows olay düzeyi | Sayısal değer |
 |--------------------|---------------------| ----------------|
-|0|Tanımlanmadı|Değer: 0. Tüm düzeylerde günlükleri gösterir|
+|0|Undefined|Değer: 0. Tüm düzeylerde günlükleri gösterir|
 |10|Kritik|Değer: 1. Kritik Uyarı için günlükleri gösterir|
 |8|Hata| Değer: 2. Hata günlüklerini gösterir|
 |5|Uyarı|Değer: 3. Günlükleri için bir uyarı gösterir|
@@ -316,6 +319,7 @@ Windows olayları için tablo önem derecesi:
 |0|Ayrıntılı|Değer: 5. Tüm düzeylerde günlükleri gösterir|
 
 Azure stack'teki Windows olayları için özel uzantı tablosu:
+
 | Özel uzantı adı | Windows olay örneği | 
 |-----------------------|---------|
 |MasChannel | Sistem|
@@ -352,13 +356,15 @@ Azure stack'teki Windows olayları için özel uzantı tablosu:
 ```
 
 Uyarı önem derecesi tablosu:
+
 | Severity | Düzey |
 |----------|-------|
-|0|Tanımlanmadı|
+|0|Undefined|
 |10|Kritik|
 |5|Uyarı|
 
 Azure Stack'te oluşturulan uyarılar için özel uzantı tablosu:
+
 | Özel uzantı adı | Örnek | 
 |-----------------------|---------|
 |MasEventDescription|AÇIKLAMA: Bir kullanıcı hesabı \<TestUser\> oluşturulduğu \<TestDomain\>. Bu, olası bir güvenlik riski oluşturur. --DÜZELTME: Desteğe başvurun. Bu sorunu çözmek için müşteri desteği gereklidir. Kendi yardımı olmadan bu sorunu çözmek çalışmayın. Bir destek talebi açmadan önce kılavuzdan kullanarak günlük dosya toplama işlemi Başlat https://aka.ms/azurestacklogfiles |

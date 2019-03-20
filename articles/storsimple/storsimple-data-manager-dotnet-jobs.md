@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure StorSimple veri Yöneticisi işleri .NET SDK'yı kullanma | Microsoft Docs
+title: Microsoft Azure StorSimple veri Yöneticisi işleri için .NET SDK'sını kullanma | Microsoft Docs
 description: StorSimple veri Yöneticisi işleri başlatmak için .NET SDK'sını kullanmayı öğrenin
 services: storsimple
 documentationcenter: NA
@@ -14,63 +14,63 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: d15a5cbda2f0c2a363b40e94c38fed6631aa81b5
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 80f01a926b94deebab59f8ef91bfc36a4600b5f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27928245"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885059"
 ---
-# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Veri dönüştürme başlatmak için .net SDK'sını kullanın
+# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Veri dönüştürme başlatmak için .NET SDK'sını kullanma
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu makalede, StorSimple cihaz verileri dönüştürmek için StorSimple veri Yöneticisi hizmeti içindeki veri dönüştürme özelliği nasıl kullanabileceğiniz açıklanır. Dönüştürülen veriler daha sonra diğer Azure hizmetleriyle bulutta tarafından mı tüketiliyor.
+Bu makalede, StorSimple cihaz verileri dönüştürmek için veri dönüştürme özelliği StorSimple veri Yöneticisi hizmeti içinde nasıl kullanabileceğiniz açıklanmaktadır. Dönüştürülen verileri, ardından bulutta diğer Azure Hizmetleri tarafından kullanılır.
 
-İki yolla veri dönüştürme işi başlatabilirsiniz:
+Bir veri dönüşüm işi iki yolla başlatabilirsiniz:
 
- - .NET SDK’yı kullanma
- - Azure Otomasyonu runbook kullanın
+- .NET SDK’yı kullanma
+- Azure Otomasyonu runbook'u kullanın
  
- Bu makalede, veri dönüştürme işi başlatmak ve tamamlanmasını izlemek için örnek bir .NET konsol uygulaması oluşturmak nasıl ayrıntıları verilmektedir. Veri dönüştürme Otomasyon aracılığıyla başlatmak hakkında daha fazla bilgi için şuraya gidin [tetikleyici veri dönüştürme işleri için kullanım Azure Otomasyonu runbook'unu](storsimple-data-manager-job-using-automation.md).
+  Bu makalede, bir veri dönüşüm işi başlatın ve ardından tamamlanmasını izlemek için bir .NET konsol uygulaması oluşturma işlemi açıklanmaktadır. Otomasyon aracılığıyla veri dönüştürme başlatma hakkında daha fazla bilgi için şuraya gidin [tetikleyici veri dönüştürme işleri kullanım Azure Otomasyonu runbook'una](storsimple-data-manager-job-using-automation.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce şunları yapın:
 *   Çalıştıran bir bilgisayar:
 
-    - Visual Studio 2012 2013, 2015 veya 2017.
+    - Visual Studio 2012, 2013, 2015 veya 2017.
 
     - Azure Powershell. [Azure Powershell indirme](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
 *   Bir kaynak grubu içinde doğru yapılandırılmış iş tanımı StorSimple veri Yöneticisi'nde.
-*   Tüm gerekli DLL'leri. Bu DLL'lerden karşıdan [GitHub deposunu](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
-*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1)GitHub depo betikten.
+*   Tüm gerekli DLL'lerin. Bu DLL'leri indirin [GitHub deposu](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
+*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) GitHub deposundan betiği.
 
 ## <a name="step-by-step-procedure"></a>Adım adım yordam
 
-Veri dönüştürme işi başlatmak için .NET kullanmak için aşağıdaki adımları gerçekleştirin.
+Bir veri dönüşüm işi başlatmak için .NET kullanmak için aşağıdaki adımları gerçekleştirin.
 
 1. Yapılandırma parametreleri almak için aşağıdaki adımları uygulayın:
-    1. Karşıdan `Get-ConfigurationParams.ps1` GitHub depo komut `C:\DataTransformation` konumu.
-    1. Çalıştırma `Get-ConfigurationParams.ps1` GitHub deposuna betikten. Aşağıdaki komutu yazın:
+    1. İndirme `Get-ConfigurationParams.ps1` içinde GitHub deposu betikten `C:\DataTransformation` konumu.
+    1. Çalıştırma `Get-ConfigurationParams.ps1` GitHub deposundan bir betik. Aşağıdaki komutu yazın:
 
         ```
         C:\DataTransformation\Get-ConfigurationParams.ps1 -SubscriptionName "AzureSubscriptionName" -ActiveDirectoryKey "AnyRandomPassword" -AppName "ApplicationName"
          ```
         AppName ve ActiveDirectoryKey için herhangi bir değer geçirebilirsiniz.
 
-2. Bu komut dosyasını aşağıdaki değerleri çıkarır:
+2. Bu betik, aşağıdaki değerleri çıkarır:
     * İstemci Kimliği
     * Kiracı Kimliği
-    * Active Directory anahtar (aynı Yukarıda girilen)
+    * Active Directory anahtarı (aynı Yukarıda girilen)
     * Abonelik Kimliği
 
         ![Yapılandırma parametreleri betik çıktısı](media/storsimple-data-manager-dotnet-jobs/get-config-parameters.png)
 
-3. Visual Studio 2012 kullanarak, 2013 veya 2015, C# .NET konsol uygulaması oluşturun.
+3. 2013 veya 2015, Visual Studio 2012 kullanarak, oluşturun bir C# .NET konsol uygulaması.
 
     1. Başlatma **Visual Studio 2012/2013/2015**.
-    1. Seçin **Dosya > Yeni > Proje**.
+    1. **Dosya > Yeni > Proje**'yi seçin.
 
         ![1 proje oluşturma](media/storsimple-data-manager-dotnet-jobs/create-new-project-7.png)        
     2. Seçin **yüklü > şablonları > Visual C# > konsol uygulaması**.
@@ -80,16 +80,16 @@ Veri dönüştürme işi başlatmak için .NET kullanmak için aşağıdaki adı
 
         ![2 proje oluşturma](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4.  Şimdi, mevcut tüm DLL'ler ekleyin [DLL'leri klasörü](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) olarak **başvuruları** oluşturduğunuz projesinde. Dll dosyaları eklemek için aşağıdakileri gerçekleştirin:
+4. Şimdi tüm DLL'leri mevcut ekleyin [DLL'leri klasör](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) olarak **başvuruları** oluşturduğunuz projede. Dll dosyaları eklemek için aşağıdakileri gerçekleştirin:
 
-    1. Visual Studio'da Git **Görünüm > Çözüm Gezgini**.
-    2. Veri dönüştürme uygulama projesi solundaki oka tıklayın. Tıklatın **başvuruları** ve ardından sağ tıklatarak **Başvuru Ekle**.
+   1. Visual Studio'da Git **Görüntüle > Çözüm Gezgini**.
+   2. Veri dönüştürme uygulama projesi solundaki oka tıklayın. Tıklayın **başvuruları** ve ardından sağ tıklatarak **Başvuru Ekle**.
     
-        ![DLL'leri 1 ekleme](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
+       ![DLL'leri 1 Ekle](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
 
-    3. Paketleri klasör konumuna göz atın, tüm DLL'ler seçin ve tıklatın **Ekle**ve ardından **Tamam**.
+   3. Paketleri klasör konumuna göz atın, tüm DLL'leri seçip tıklayın **Ekle**ve ardından **Tamam**.
 
-        ![DLL'leri 2 ekleme](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
+       ![DLL'leri 2 Ekle](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 
 5. Aşağıdaki **using** bildirimlerini projedeki kaynak dosyasına (Program.cs) ekleyin.
 
@@ -102,7 +102,7 @@ Veri dönüştürme işi başlatmak için .NET kullanmak için aşağıdaki adı
     using Microsoft.Internal.Dms.DmsWebJob.Contracts;
     ```
     
-6. Aşağıdaki kod, veri dönüştürme işi örneği başlatır. Bu konuda eklemek **Main yönteminin**. Yapılandırma parametrelerinin değerlerini daha önce edindiğiniz şekilde değiştirin. Değerlerini içinde takın **kaynak grubu adı** ve **ResourceName**. **ResourceGroupName** StorSimple veri iş tanımı yapılandırılmışsa Yöneticisi ile ilişkilidir. **ResourceName** , StorSimple veri Yöneticisi hizmetin adıdır.
+6. Aşağıdaki kod, veri dönüştürme işi örneği başlatır. Bu ekleme **Main yöntemi**. Daha önce elde edilen yapılandırma parametrelerinin değerlerini değiştirin. Değerlerine takın **kaynak grubu adı** ve **ResourceName**. **ResourceGroupName** StorSimple veri iş tanımı yapılandırılmışsa Yöneticisi ile ilişkilidir. **ResourceName** StorSimple veri Yöneticisi'ni hizmetinizi adıdır.
 
     ```
     // Setup the configuration parameters.
@@ -120,7 +120,7 @@ Veri dönüştürme işi başlatmak için .NET kullanmak için aşağıdaki adı
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
     ```
    
-7. Hangi iş tanımı çalıştırılması gerektiğini parametrelerini belirtin
+7. Parametreleri ile iş tanımı çalıştırılması gerektiğini belirtin
 
     ```
     string jobDefinitionName = "job-definition-name";
@@ -130,7 +130,7 @@ Veri dönüştürme işi başlatmak için .NET kullanmak için aşağıdaki adı
 
     (VEYA)
 
-    Çalışma zamanı sırasında iş tanımı parametrelerini değiştirmek istiyorsanız, aşağıdaki kodu ekleyin:
+    Çalışma zamanı sırasında iş tanımı parametrelerini değiştirmek istiyorsanız, ardından aşağıdaki kodu ekleyin:
 
     ```
     string jobDefinitionName = "job-definition-name";
@@ -157,7 +157,7 @@ Veri dönüştürme işi başlatmak için .NET kullanmak için aşağıdaki adı
     };
     ```
 
-8. Başlatma iş tanımı bir veri dönüştürme işi tetiklemek için aşağıdaki kodu ekleyin. Uygun takın **iş tanımı adını**.
+8. Başlatmadan sonra bir iş tanımı veri dönüşüm işi tetiklemesi için aşağıdaki kodu ekleyin. Uygun takın **iş tanımı adı**.
 
     ```
     // Trigger a job, retrieve the jobId and the retry interval for polling.
@@ -168,13 +168,13 @@ Veri dönüştürme işi başlatmak için .NET kullanmak için aşağıdaki adı
     Console.ReadLine();
 
     ```
-    Kod yapıştırıldıktan sonra çözümü oluşturun. Veri dönüştürme işi örneği başlatmak için kod parçacığını bir ekran görüntüsü aşağıda verilmiştir.
+    Kod yapıştırıldıktan sonra çözümü oluşturun. Veri dönüştürme işi örneği başlatmak için kod parçacığı bir ekran görüntüsü aşağıda verilmiştir.
 
-   ![Veri dönüştürme işlemini başlatmak için kod parçacığını](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
+   ![Veri dönüştürme işi başlatmak için kod parçacığı](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
 
-9. Bu proje kök dizini eşleşen verileri dönüştüren ve dosya StorSimple birim içinde filtreler ve belirtilen kapsayıcı/dosya paylaşım içine yerleştirir. Bir dosya dönüştürüldüğünde (aynı depolama hesabındaki kapsayıcı/dosya paylaşımı olarak) depolama kuyruğu iş tanımı aynı ada sahip bir ileti eklenir. Bu ileti her dosyanın işlenmesi başlatmak için bir tetikleyici olarak kullanılabilir.
+9. Bu proje kök dizininde eşleşen verileri dönüştürür ve dosya içinde bir StorSimple biriminin filtreler ve belirtilen kapsayıcısı/dosya paylaşımına koyar. Bir dosyaya dönüştürüldüğünde (aynı depolama hesabındaki kapsayıcısı/dosya paylaşımının) iş tanımı olarak aynı ada sahip bir depolama kuyruğuna bir ileti eklenir. Bu iletiyi bir daha fazla dosyanın işleme başlatmak için tetikleyici olarak kullanılabilir.
 
-10. İş tetiklendi sonra iş için tamamlanma izlemek için aşağıdaki kodu kullanabilirsiniz. İşi çalıştırma için bu kodu eklemek için zorunlu değildir.
+10. İş tetiklendikten sonra işin tamamlanmasını izlemek için aşağıdaki kodu kullanın. İş çalıştırma için bu kodu eklemek için zorunlu değildir.
 
     ```
     Job jobDetails = null;
@@ -196,9 +196,9 @@ Veri dönüştürme işi başlatmak için .NET kullanmak için aşağıdaki adı
     Console.Read();
 
     ```
- .NET kullanarak iş tetiklemek için kullanılır tüm kod örnek bir ekran görüntüsü aşağıda verilmiştir.
+    .NET kullanarak işini tetiklemek için kullanılan tüm kod örneği, bir ekran görüntüsü aşağıda verilmiştir.
 
- ![Tam bir .NET iş tetiklemek için kod parçacığını](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
+    ![Tam .NET işini tetiklemek için kod parçacığı](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

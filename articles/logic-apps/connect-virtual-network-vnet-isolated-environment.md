@@ -8,20 +8,20 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/11/2019
-ms.openlocfilehash: c31d260c99707f4231a6833479517b9b69575d55
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 03/12/2019
+ms.openlocfilehash: 8bbbe7a924c98c9628ce967892177599a1d13017
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778918"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855002"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Azure sanal ağlarına Azure Logic Apps'ten tümleştirme hizmeti ortamı (ISE) kullanarak bağlanma
 
 > [!NOTE]
 > Bu özellik bulunduğu [ *genel Önizleme*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Logic apps ve tümleştirme hesapları gereken yere erişimi senaryoları için bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md), oluşturun bir [ *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Bir işe atanmış depolama kullanan özel ve yalıtılmış bir ortam olduğu ve diğer kaynaklar genel veya "Genel" Logic Apps hizmetinden ayrı tutulur. Bu ayrım, diğer Azure kiracılarında, uygulamalarınızın performansını olabilir herhangi bir etkisi de azaltır. İŞE olan *eklenen* uygulamasına, Azure sanal ağına, daha sonra Logic Apps hizmetinin sanal ağınıza dağıtır. Bir mantıksal uygulama veya tümleştirme hesabı oluşturduğunuzda, bu işe kendi konum olarak seçin. Mantıksal uygulama veya tümleştirme hesabı, sanal makineleri (VM'ler), sunucular, sistemleri ve Hizmetleri, sanal ağınızda gibi kaynaklar doğrudan erişebilirsiniz.
+Logic apps ve tümleştirme hesapları gereken yere erişimi senaryoları için bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md), oluşturun bir [ *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Bir işe ayrılmış depolama ve genel veya "Genel" Logic Apps hizmetinden ayrı tutulmasını diğer kaynakları kullanan özel ve ayrı bir ortamdır. Bu ayrım, diğer Azure kiracılarında, uygulamalarınızın performansını olabilir herhangi bir etkisi de azaltır. İŞE olan *eklenen* uygulamasına, Azure sanal ağına, daha sonra Logic Apps hizmetinin sanal ağınıza dağıtır. Bir mantıksal uygulama veya tümleştirme hesabı oluşturduğunuzda, bu işe kendi konum olarak seçin. Mantıksal uygulama veya tümleştirme hesabı, sanal makineleri (VM'ler), sunucular, sistemleri ve Hizmetleri, sanal ağınızda gibi kaynaklar doğrudan erişebilirsiniz.
 
 ![Tümleştirme hizmeti ortamı seçin](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
 
@@ -50,7 +50,7 @@ Tümleştirme service ortamları hakkında daha fazla bilgi için bkz: [Azure Lo
 
   * Emin olun, sanal ağınızın [Bu bağlantı noktaları kullanılabilmesini](#ports) , işe düzgün şekilde çalışır ve erişilebilir kalır.
 
-* Bir veya daha fazla özel DNS sunucuları, Azure sanal ağı dağıtmak için kullanılacak [bu yönergeleri izleyerek bu sunucusu ayarlayabilir](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) sanal ağınıza, işe dağıtmadan önce. Aksi takdirde, DNS sunucunuzun değiştirdiğiniz her durumda, ayrıca, işe işe genel Önizleme sürümü ile kullanıma hazır bir özellik olan yeniden başlatmanız gerekir.
+* Özel DNS sunucuları, Azure sanal ağı için kullanmak istiyorsanız [aşağıdaki adımları izleyerek bu sunucusu ayarlayabilir](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) sanal ağınıza, işe dağıtmadan önce. Aksi takdirde, DNS sunucunuzun değiştirdiğiniz her durumda, ayrıca, işe işe genel Önizleme sürümü ile kullanıma hazır bir özellik olan yeniden başlatmanız gerekir.
 
 * Hakkında temel bilgilere [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -60,10 +60,10 @@ Tümleştirme service ortamları hakkında daha fazla bilgi için bkz: [Azure Lo
 
 Erişilebilir kalmasını ve düzgün çalışması için tümleştirme hizmeti ortamı (ISE) belirli bağlantı noktalarını sanal ağınızda kullanılabilir olması gerekir. Aksi takdirde, bu bağlantı noktalarından birini kullanılamıyorsa, çalışmayı durdurabilir, işe için erişimi kaybedebilir. Bir sanal ağda bir işe kullandığınızda, engellenen bir veya daha fazla bağlantı noktaları ortak bir kurulum sorunu yaşıyor. İŞE hedef sistem arasındaki bağlantılar için kullandığınız bağlayıcı da kendi bağlantı noktası gereksinimleri olabilir. FTP Bağlayıcısı'nı kullanarak bir FTP sistemiyle iletişim kurmak, örneğin, üzerinde kullandığınız bağlantı noktası komutları göndermek için bağlantı noktası 21 gibi FTP sistemin kullanılabilir emin olun.
 
-İŞE nerede dağıttığınız sanal ağın alt ağlar arasında gelen ve giden trafiği denetlemek için ayarlayabileceğiniz [ağ güvenlik grupları](../virtual-network/security-overview.md) bilgi edinerek bu alt ağlar için [arasında ağ trafiğini filtreleme alt ağlar](../virtual-network/tutorial-filter-network-traffic.md). Bu tablo, işe kullanır ve bu bağlantı noktalarının kullanıldığı, sanal ağ bağlantı noktaları açıklar. [Hizmet etiketi](../virtual-network/security-overview.md#service-tags) güvenlik kuralı oluştururken karmaşıklığını en aza indirmenize yardımcı IP adresi ön eki grubunu temsil eder. 
+İŞE nerede dağıttığınız sanal ağın alt ağlar arasında trafiği denetlemek için ayarlayabileceğiniz [ağ güvenlik grupları](../virtual-network/security-overview.md) için bu alt ağları tarafından [alt ağlar arasında ağ trafiğini filtreleme](../virtual-network/tutorial-filter-network-traffic.md). Bu tablo, işe kullanır ve bu bağlantı noktalarının kullanıldığı, sanal ağ bağlantı noktaları açıklar. [Hizmet etiketi](../virtual-network/security-overview.md#service-tags) güvenlik kuralı oluştururken karmaşıklığını en aza indirmenize yardımcı IP adresi ön eki grubunu temsil eder.
 
 > [!IMPORTANT]
-> Alt ağlarınızı içinde iç iletişimi için bu alt ağlardan içindeki tüm bağlantı noktaları açma ISE gerektirir. 
+> Alt ağlarınızı içinde iç iletişimi için bu alt ağlardan içindeki tüm bağlantı noktaları açma ISE gerektirir.
 
 | Amaç | Yön | Bağlantı Noktaları | Kaynak hizmeti etiketi | Hedef hizmet etiketi | Notlar |
 |---------|-----------|-------|--------------------|-------------------------|-------|
@@ -122,10 +122,10 @@ Sonuçlar listesinden **tümleştirme hizmeti ortamı (Önizleme)** ve ardından
 
    **Alt ağ oluşturma**
 
-   Dört, işe gerektirir *boş* alt ağlar, *temsilci olmayan* ortamınızda kaynakları oluşturmak için herhangi bir hizmete. 
-   *Değiştiremezsiniz* ortamınızı oluşturduktan sonra bu alt ağ adresi. Her alt ağ, şu ölçütleri karşılamalıdır:
+   Ortamınızda kaynakları oluşturmak için işe dört gereken *boş* herhangi bir hizmeti temsilci olmayan alt ağlar. 
+   *Olamaz* ortamınızı oluşturduktan sonra bu alt ağ adresleri değiştirin. Her alt ağ, şu ölçütleri karşılamalıdır:
 
-   * Bir sayı veya kısa çizgi ile başlamıyor bir ad kullanır.
+   * Alfabetik bir karakter veya alt çizgi ile başlar ve şu karakterleri yok bir ada sahip: `<`, `>`, `%`, `&`, `\\`, `?`, `/`
 
    * Kullanan [sınıfsız etki alanları arası yönlendirme (CIDR) biçimi](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) ve sınıf B adres alanı.
 
@@ -180,7 +180,7 @@ Sonuçlar listesinden **tümleştirme hizmeti ortamı (Önizleme)** ve ardından
 
 ### <a name="add-capacity"></a>Kapasite ekleyin
 
-ISE temel birim kapasitesi, sabit daha fazla performans gerekiyorsa daha fazla ölçek birimi ekleyebilirsiniz. Performans ölçümleri temelinde veya belirli bir işleme birimi sayısına göre otomatik ölçeklendirme ya da seçebilirsiniz. Ölçümlere göre otomatik ölçeklendirme seçerseniz, çeşitli ölçütler arasından seçim yapın ve bu ölçütlerine uyan eşiği koşulları belirtin.
+ISE temel birim kapasitesi, sabit daha fazla performans gerekiyorsa daha fazla ölçek birimi ekleyebilirsiniz. Performans ölçümleri temelinde veya bir işleme birimi sayısına göre otomatik ölçeklendirme yapabilirsiniz. Ölçümlere göre otomatik ölçeklendirme seçerseniz, çeşitli ölçütler arasından seçim yapın ve bu ölçütlerine uyan eşiği koşulları belirtin.
 
 1. Azure portalında, işe bulun.
 

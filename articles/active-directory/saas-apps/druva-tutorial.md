@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ede58f0ca86211888356df3e5c660a4951985b75
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: da134672224c5881a69f002d418c79af97036d8b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435754"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835574"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Öğretici: Druva ile Azure Active Directory Tümleştirme
 
@@ -205,7 +205,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -258,7 +258,7 @@ Azure AD kullanıcıları için Druva oturum açmayı etkinleştirmek için bunl
    
     ![NewUser oluşturma](./media/druva-tutorial/ic795099.png "NewUser oluşturma")
    
-    a. İçinde **e-posta adresi** metin gibi kullanıcının e-posta girin **brittasimon@contoso.com**.
+    a. İçinde **e-posta adresi** metin gibi kullanıcının e-posta girin **brittasimon\@contoso.com**.
    
     b. İçinde **adı** metin gibi kullanıcı adını girin **BrittaSimon**.
    

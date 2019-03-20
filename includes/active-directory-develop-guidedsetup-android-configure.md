@@ -3,8 +3,8 @@ title: include dosyası
 description: include dosyası
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,20 +12,20 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/13/2018
-ms.author: andret
+ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: da4944cc95750505e0099b7a987b78e132910460
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 2b30f95e050887130db1b2395f51e543a50e25d0
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58125000"
+ms.locfileid: "58203763"
 ---
 ## <a name="register-your-application"></a>Uygulamanızı kaydetme
 
 Uygulamanızı iki yoldan biriyle sonraki iki bölümde açıklandığı gibi kaydedebilirsiniz.
 
-### <a name="option-1-express"></a>1. seçenek: Hızlı
+### <a name="option-1-express"></a>1. seçenek: Express
 
 1. [Microsoft Uygulama Kayıt Portalı](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure)'na gidin.
 2. İçinde **uygulama adı**, uygulamanız için bir ad girin.

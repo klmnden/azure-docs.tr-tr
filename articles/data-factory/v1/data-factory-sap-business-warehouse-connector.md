@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9e972ee64d60f0fc9703e766c3ab45c3057c32a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1823c2ec28b342d41371eb6677e0330d7f885087
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019886"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893263"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Gelen SAP Business Azure Data Factory kullanarak Warehouse veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,15 +62,15 @@ Aşağıdaki bölümler, Data Factory varlıklarını belirli bir SAP BW veri de
 ## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 Aşağıdaki tabloda, SAP Business Warehouse (BW) bağlantılı hizmete özgü JSON öğeleri için bir açıklama sağlar.
 
-Özellik | Açıklama | İzin verilen değerler | Gereklidir
+Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-sunucu | SAP BW örneği yer aldığı sunucunun adı. | dize | Evet
+sunucu | SAP BW örneği yer aldığı sunucunun adı. | string | Evet
 systemNumber | SAP BW sisteminin sistem numarası. | İki basamaklı ondalık sayı bir dize olarak temsil edilir. | Evet
 ClientID | SAP W sisteminde istemcinin istemci kimliği. | Bir dize olarak temsil edilen üç basamaklı ondalık sayı. | Evet
-kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | dize | Evet
-password | Kullanıcının parolası. | dize | Evet
-gatewayName | Data Factory hizmetinin şirket içi SAP BW örneğine bağlanmak için kullanması gereken ağ geçidi adı. | dize | Evet
-encryptedCredential | Şifrelenmiş kimlik bilgisi dizesi. | dize | Hayır
+kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı | string | Evet
+password | Kullanıcının parolası. | string | Evet
+gatewayName | Data Factory hizmetinin şirket içi SAP BW örneğine bağlanmak için kullanması gereken ağ geçidi adı. | string | Evet
+encryptedCredential | Şifrelenmiş kimlik bilgisi dizesi. | string | Hayır
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 Bölümleri ve veri kümeleri tanımlamak için kullanılabilir özellikleri tam listesi için bkz [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler bir veri kümesi JSON İlkesi yapısı ve kullanılabilirlik gibi tüm veri kümesi türleri (Azure SQL, Azure blob, Azure tablo, vs.) için benzer.
@@ -85,7 +85,7 @@ Diğer yandan bulunan özelliklerin **typeProperties** etkinlik bölümünü her
 
 Kopya etkinlikteki kaynak türünde olduğunda **RelationalSource** (SAP BW içeren), typeProperties bölümünde aşağıdaki özellikler kullanılabilir:
 
-| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
+| Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | sorgu | SAP BW örneğinden verileri okumak için MDX Sorgusu belirtir. | MDX Sorgusu. | Evet |
 
@@ -292,27 +292,27 @@ Veri SAP BW taşırken, aşağıdaki eşlemeler SAP BW türlerinden .NET türler
 ABAP sözlükteki veri türü | .NET veri türü
 -------------------------------- | --------------
 ACCP |  Int
-CHAR | Dize
-CLNT | Dize
-PB | Onluk
-CUKY | Dize
-ARA | Onluk
-FLTP | çift
-INT1 | Bayt
+CHAR | String
+CLNT | String
+CURR | Decimal
+CUKY | String
+DEC | Decimal
+FLTP | Double
+INT1 | Byte
 INT2 | Int16
 INT4 | Int
-DİL | Dize
-LCHR | Dize
-LRAW | Bayt]
+DİL | String
+LCHR | String
+LRAW | Byte[]
 PREC | Int16
-QUAN | Onluk
-HAM | Bayt]
-RAWSTRING | Bayt]
-DİZE | Dize
-BİRİM | Dize
-DATS | Dize
-NUMC | Dize
-TIMS | Dize
+QUAN | Decimal
+HAM | Byte[]
+RAWSTRING | Byte[]
+DİZE | String
+BİRİM | String
+DATS | String
+NUMC | String
+TIMS | String
 
 > [!NOTE]
 > Kaynak veri kümesindeki sütunları havuz veri kümesi sütunlara eşlemek için bkz: [Azure Data factory'de veri kümesi sütunlarını eşleme](data-factory-map-columns.md).

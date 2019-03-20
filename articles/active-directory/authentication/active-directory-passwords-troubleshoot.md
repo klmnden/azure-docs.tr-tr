@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4af7c5721458e36a1efa27c9696feaa3dbf043e4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3621bbce0128fbd173120ae2a327065ee2e84e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187007"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878457"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Self Servis parola sıfırlama sorunlarını giderme
 
@@ -101,7 +101,7 @@ Parola geri yazma sorunlarını gidermenize, en iyi uygulama, Azure AD Connect m
 | Kod | Adı veya ileti | Açıklama |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0X80230619: "Bir kısıtlama parola belirtilen geçerli bir değişmesini önler." | Bu olay, parola geri yazma hizmetini parola geçerlilik süresi, geçmiş, karmaşıklığı ya da etki alanının filtreleme gereksinimleri karşılayacak değil, yerel dizin bir parola ayarlama girişiminde bulunduğunda oluşur. <br> <br> En az parola geçerlilik süresi olan ve bu zaman penceresi içinde parola kısa süre önce değiştirildi, etki alanınızda belirtilen yaş ulaşana kadar parola tekrar değiştiremezsiniz değilseniz. Test amacıyla en düşük yaş 0 olarak ayarlanması gerekir. <br> <br> Parola geçmişini gereksinimlerini etkin olması durumunda son kullanılmadığında bir parola seçmeniz gerekir *N* süreleri ve nerede *N* parola geçmişi ayardır. Son kullanılmış bir parolayı seçeneğini belirlerseniz *N* zaman sonra bu durumda bir hata görürsünüz. Test amacıyla, parola geçmişi 0 olarak ayarlanması gerekir. <br> <br> Parola karmaşıklık gereksinimleri varsa, kullanıcı parola sıfırlama veya değiştirme girişiminde bulunduğunda, bunların tümünün uygulanır. <br> <br> Parola filtreleri etkinleştirilmiş olması ve bir kullanıcı bir parola seçerse, sıfırlama filtreleme ölçütleri karşılamıyor veya değiştirme işlemi başarısız olur. |
-| 6329 | MMS(3040): admaexport.cpp(2837): Sunucunun, LDAP parola ilkesi denetimini içermiyor. | Etki alanı denetleyicilerine LDAP_SERVER_POLICY_HINTS_OID denetimi (1.2.840.113556.1.4.2066) etkinleştirilmediyse, bu sorun oluşur. Parola geri yazma özelliğini kullanmak için denetimi etkinleştirmeniz gerekir. Bunu yapmak için DC'ler (en son SP ile) Windows Server 2008 veya üzeri olması gerekir. 2008'de (pre-R2), DC'leri olan sonra düzeltmesini uygulamanız gerekir [KB2386717](https://support.microsoft.com/kb/2386717). |
+| 6329 | MMS(3040): admaexport.cpp(2837): Sunucunun, LDAP parola ilkesi denetimini içermiyor. | Etki alanı denetleyicilerine LDAP_SERVER_POLICY_HINTS_OID denetimi (1.2.840.113556.1.4.2066) etkinleştirilmediyse, bu sorun oluşur. Parola geri yazma özelliğini kullanmak için denetimi etkinleştirmeniz gerekir. Bunu yapmak için DC'ler, Windows Server 2008R2 veya üstü olmalıdır. |
 | HR 8023042 | Eşitleme altyapısı hata hr döndürülen = 80230402, ileti = aynı bağlantı yinelenen girişler olduğundan başarısız oldu. bir nesne alma denemesi. | Birden çok etki alanlarında aynı kullanıcı Kimliğini etkin olduğunda bu hata oluşur. Hesap ve kaynak orman eşitleniyor ve her ormanda aynı kullanıcı Kimliğini mevcut ve etkin olması, örnek verilebilir. <br> <br> Bir diğer adı veya UPN ve iki kullanıcı o aynı bağlantı özniteliği paylaşan gibi bir benzersiz olmayan bir bağlantı özniteliği kullanıyorsanız bu hata ayrıca oluşabilir. <br> <br> Bu sorunu çözmek için etki alanlarında bulunan herhangi bir yinelenen kullanıcı yok ve her kullanıcı için benzersiz bir bağlantı özniteliği kullanın emin olun. |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Olay kaynağını PasswordResetService ise
@@ -179,10 +179,10 @@ Daha fazla bilgi için bağlantı önkoşulları gözden geçirin [Azure AD Conn
 
 Bağlantı sorunları veya hizmeti ile geçici diğer sorunları gidermek için Azure AD Connect eşitleme hizmeti yeniden başlatın:
 
-   1. Bir yönetici olarak seçin **Başlat** Azure AD Connect'i çalıştıran sunucu üzerinde.
-   1. ENTER **services.msc** arama alanını seçip **Enter**.
-   1. Aranacak **Microsoft Azure AD eşitleme** girişi.
-   1. Servis girişine sağ tıklayın, **yeniden**ve işlemin tamamlanmasını bekleyin.
+1. Bir yönetici olarak seçin **Başlat** Azure AD Connect'i çalıştıran sunucu üzerinde.
+1. ENTER **services.msc** arama alanını seçip **Enter**.
+1. Aranacak **Microsoft Azure AD eşitleme** girişi.
+1. Servis girişine sağ tıklayın, **yeniden**ve işlemin tamamlanmasını bekleyin.
 
    ![Azure AD eşitleme hizmetini yeniden başlatın][Service restart]
 
@@ -272,13 +272,13 @@ Düzgün bir şekilde yardımcı olması için bir servis talebi açılırken m�
 * **Genel hata açıklamasını**: Hata nedir? Bildirildi davranışı neydi? Nasıl şu hatayı yeniden oluşturabilirsiniz? Mümkün olduğu kadar ayrıntı verin.
 * **Sayfa**: Hangi sayfa were, hatanın ne zaman fark Şunları kullanıyorsanız URL ve sayfasının ekran görüntüsü içerir.
 * **Destek kodu**: Kullanıcı hatası gördünüz zaman oluşturan destek kodunu neydi?
-    * Bu kodu bulmak için hatayı yeniden oluşturmaya ve ardından **destek kod** bağlantı ekranın alt kısmında ve sonuçları GUID destek mühendisine göndermek.
+  * Bu kodu bulmak için hatayı yeniden oluşturmaya ve ardından **destek kod** bağlantı ekranın alt kısmında ve sonuçları GUID destek mühendisine göndermek.
 
     ![Ekranın alt kısmındaki destek kod bulma][Support code]
 
-    * En altta bir destek kodu olmadan bir sayfa üzerinde kullanıyorsanız, F12 ve SID ve CID ara seçin ve bu iki sonucu destek mühendisine göndermek.
+  * En altta bir destek kodu olmadan bir sayfa üzerinde kullanıyorsanız, F12 ve SID ve CID ara seçin ve bu iki sonucu destek mühendisine göndermek.
 * **Tarih, saat ve saat dilimi**: Kesin tarih ve saat içeren *saat dilimi ile* , bir hata oluştu.
-* **Kullanıcı Kimliği**: Kimin hata gördüğünüz kullanıcı neydi? Bir örnek *user@contoso.com*.
+* **Kullanıcı Kimliği**: Kimin hata gördüğünüz kullanıcı neydi? Bir örnek *kullanıcı\@contoso.com*.
     * Bu, bir Federasyon kullanıcısı mı?
     * Bu, geçişli kimlik doğrulaması kullanıcı mı?
     * Bu, bir parola karması eşitlenmiş kullanıcı mı?

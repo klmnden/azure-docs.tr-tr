@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: eb924bcfe3e2545cf6666a19bbb3494c11bc3a48
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 28a7de1b43d793641237197aea841022996b07e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057741"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994043"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure kuyruk depolama ve Visual Studio ile çalışmaya başlama (bulut) bağlı Hizmetleri projeleri
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -32,7 +32,7 @@ Kodda bir kuyruk oluşturulacağını göstereceğiz. Ayrıca, ekleme, değişti
 * Bkz: [.NET kullanarak Azure kuyruk depolama ile çalışmaya başlama](../storage/queues/storage-dotnet-how-to-use-queues.md) kuyrukları kod düzenleme hakkında daha fazla bilgi.
 * Bkz: [depolama belgeleri](https://azure.microsoft.com/documentation/services/storage/) Azure depolama hakkında genel bilgiler.
 * Bkz: [bulut Hizmetleri belgeleri](https://azure.microsoft.com/documentation/services/cloud-services/) Azure bulut hizmetleri hakkında genel bilgiler.
-* Bkz: [ASP.NET](http://www.asp.net) ASP.NET uygulamalarını programlama hakkında daha fazla bilgi.
+* Bkz: [ASP.NET](https://www.asp.net) ASP.NET uygulamalarını programlama hakkında daha fazla bilgi.
 
 Azure Kuyruk depolama, HTTP veya HTTPS kullanan kimlik doğrulaması yapılmış çağrılar aracılığıyla dünyanın her yerinden erişilebilen çok sayıda iletinin depolanması için bir hizmettir. Tek bir kuyruk iletisinin boyutu 64 KB’ye kadar olabilir ve bir kuyrukta, depolama hesabının toplam kapasite sınırına kadar milyonlarca ileti bulunabilir.
 
@@ -57,7 +57,7 @@ Visual Studio Cloud Services projelerde kuyrukları erişmek için Azure kuyruk 
         // Get a reference to a queue named "messageQueue"
         CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
-**Not:** tüm kod önünde Yukarıdaki kod aşağıdaki örnekleri kullanın.
+**NOT:** Tüm kod önünde Yukarıdaki kod, aşağıdaki örnekleri kullanın.
 
 ## <a name="create-a-queue-in-code"></a>Kodda bir kuyruk oluşturun
 Sıra kodu oluşturmak için yalnızca bir çağrı ekleyin **Createıfnotexists**.

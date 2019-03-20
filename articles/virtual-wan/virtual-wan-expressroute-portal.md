@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 6ac9fce9a6903b95156f43f41cea7bffdb1a072d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57402859"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842954"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Öğretici: Azure sanal WAN (Önizleme) kullanarak ExpressRoute ilişkilendirme oluşturma
 
@@ -43,7 +43,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="register"></a>Bu özelliği kaydedin
 
-Sanal WAN yapılandırabilmeniz için önce aboneliğinizi Önizleme'ye kaydetmeniz gerekir. Aksi halde portalda Sanal WAN ile çalışamazsınız. Kaydolmak için **azurevirtualwan@microsoft.com** adresine abonelik kimliğinizin bulunduğu bir e-posta gönderin. Aboneliğiniz kaydedildiğinde siz de bir e-posta alırsınız.
+Sanal WAN yapılandırabilmeniz için önce aboneliğinizi Önizleme'ye kaydetmeniz gerekir. Aksi halde portalda Sanal WAN ile çalışamazsınız. Kaydetmek için bir e-posta Gönder **azurevirtualwan\@microsoft.com** abonelik kimliğinizi Aboneliğiniz kaydedildiğinde siz de bir e-posta alırsınız.
 
 **Önizlemede Dikkat Edilmesi Gerekenler:**
 
@@ -71,15 +71,15 @@ Bir tarayıcıdan [Azure portala (önizleme)](https://aka.ms/azurevirtualwanprev
 ## <a name="hub"></a>4. Bağlantı hattı bulun ve hub ile ilişkilendirin
 
 1. vWAN’ınızı seçin ve **Sanal WAN Mimarisi** altında **ExpressRoute Bağlantı Hatları**’nı seçin
-2. ExpressRoute bağlantı hattı, vWAN’ınız ile aynı abonelikte bulunuyorsa aboneliklerinizden **ExpressRoute bağlantı hattı seç** seçeneğine tıklayın 
-3. Aşağı açılır kullanarak hub'a ilişkilendirmek istiyorsanız, ExpressRoute'ı seçin.
-4. ExpressRoute bağlantı hattı, aynı abonelikte değilse veya size sağlanan [yetkilendirme anahtar ve Eş Kimliği](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)seçin **yetkilendirme anahtarını kullanırken bir devreyi Bul**
-5. Şu ayrıntıları girin:
-* **Yetkilendirme anahtarı** - Yukarıda açıklandığı gibi bağlantı hattı sahibinden tarafından oluşturulur
-* **Eş bağlantı hattı URI’si** - Bağlantı hattının sahibi tarafından oluşturulan ve hattın benzersiz tanımlayıcısı olan bağlantı hattı URI’si
-* **Yönlendirme ağırlığı** - [yönlendirme ağırlığı](../expressroute/expressroute-optimize-routing.md) eşleme farklı konumlardaki birden çok bağlantı hattına aynı hub'ına bağlandığında, belirli yollarını tercih etmesini sağlar
-6. **Bağlantı hattı bul**’a tıklayın ve bulmanız halinde bağlantı hattını seçin
-7. Açılır listeden 1 veya daha fazla hub seçerek **Kaydet**’e tıklayın
+1. ExpressRoute bağlantı hattı, vWAN’ınız ile aynı abonelikte bulunuyorsa aboneliklerinizden **ExpressRoute bağlantı hattı seç** seçeneğine tıklayın 
+1. Aşağı açılır kullanarak hub'a ilişkilendirmek istiyorsanız, ExpressRoute'ı seçin.
+1. ExpressRoute bağlantı hattı, aynı abonelikte değilse veya size sağlanan [yetkilendirme anahtar ve Eş Kimliği](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)seçin **yetkilendirme anahtarını kullanırken bir devreyi Bul**
+1. Şu ayrıntıları girin:
+1. **Yetkilendirme anahtarı** - Yukarıda açıklandığı gibi bağlantı hattı sahibinden tarafından oluşturulur
+1. **Eş bağlantı hattı URI’si** - Bağlantı hattının sahibi tarafından oluşturulan ve hattın benzersiz tanımlayıcısı olan bağlantı hattı URI’si
+1. **Yönlendirme ağırlığı** - [yönlendirme ağırlığı](../expressroute/expressroute-optimize-routing.md) eşleme farklı konumlardaki birden çok bağlantı hattına aynı hub'ına bağlandığında, belirli yollarını tercih etmesini sağlar
+1. **Bağlantı hattı bul**’a tıklayın ve bulmanız halinde bağlantı hattını seçin
+1. Açılır listeden 1 veya daha fazla hub seçerek **Kaydet**’e tıklayın
 
 ## <a name="vnet"></a>5. Sanal ağınızı bir hub'a bağlama
 

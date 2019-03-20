@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 605986a61ee6a09ccc3bfd6c58719a1d82604c8e
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 1eb41b7b027489e18900332ca0c20598ec8edfcc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792030"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093118"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Öğretici: Tek veritabanı veya havuza alınmış veritabanını Azure SQL veritabanı'nda SQL Server'ı geçirme çevrimiçi DMS kullanarak
 
@@ -130,10 +130,10 @@ Tek veritabanı veya havuza alınmış veritabanını Azure SQL veritabanı'nda 
 
     Kaynak SQL Server veritabanını tek bir veritabanına geçirme veya havuza alınmış veritabanını Azure SQL veritabanı'nda değerlendirdiğiniz, rapor türleri birini veya ikisini de aşağıdaki değerlendirmesi seçebilirsiniz:
 
-    - Veritabanı uyumluluğunu denetle
-    - Özellik eşliğini denetle
+   - Veritabanı uyumluluğunu denetle
+   - Özellik eşliğini denetle
 
-    İki rapor türü de varsayılan olarak seçilidir.
+     İki rapor türü de varsayılan olarak seçilidir.
 
 3. DMA'daki **Seçenekler** ekranında, **Sonraki** seçeneğini belirleyin.
 4. **Kaynak seçin** ekranının **Sunucuya bağlan** iletişim kutusunda SQL Server bağlantı bilgilerini girin ve **Bağlan**'ı seçin.

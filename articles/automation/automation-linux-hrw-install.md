@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3bdf642c37fe5f64b7d853da6a050ec8c2a7d44d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cc07aa9c1b2c540c33949a8c591bd98f91b04666
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834668"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225459"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Bir Linux karma Runbook çalışanı dağıtma
 
@@ -84,6 +84,9 @@ Devam etmeden önce bunları Otomasyon hesabınıza bağlı Log Analytics çalı
    ```
 
 1. Komut tamamlandıktan sonra **karma çalışan grupları** sayfası Azure portalında yeni bir grup ve üye sayısı gösterir. Bu, varolan bir grubu ise, üye sayısı artar. Grup listesinden seçebilirsiniz **karma çalışan grupları** sayfasından seçim yapıp **karma çalışanları** Döşe. Üzerinde **karma çalışanları** sayfasında listelenen bir grubun her üyesi görürsünüz.
+
+> [!NOTE]
+> Bir Azure VM için Linux için Azure İzleyici sanal makine uzantısı kullanıyorsanız ayarı öneririz `autoUpgradeMinorVersion` otomatik olarak false sürümlerini yükseltme sorunlarını karma Runbook çalışanı neden olabilir. Uzantıyı el ile yükseltme öğrenmek için bkz. [Azure CLI dağıtım ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
 
 ## <a name="turning-off-signature-validation"></a>İmza doğrulaması kapatma
 

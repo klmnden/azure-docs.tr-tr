@@ -14,22 +14,22 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: becd91b3539ef992289a4032283be64fbf9d123d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 551b884f032eaba3f052fcb7571ba907038152ff
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729351"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226853"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Hızlı Başlangıç: Oluşturma bir .NET Framework uygulaması ile Azure uygulama yapılandırması
 
-Azure uygulama yapılandırması, azure'da yönetilen yapılandırma hizmetidir. Kolayca depolayıp kodunuzdan tüm uygulama ayarlarınızı ayrılmış tek bir yerden yönetmenize olanak tanır. Bu hızlı başlangıçta bir .NET Framework tabanlı Windows Masaüstü konsol uygulamanıza hizmet gösterilmektedir.
+Azure uygulama yapılandırması, azure'da yönetilen yapılandırma hizmetidir. Kolayca depolayın ve kodunuzdan tüm uygulama ayarlarınızı ayrılmış tek bir yerden yönetmek için kullanabilirsiniz. Bu hızlı başlangıçta bir .NET Framework tabanlı Windows Masaüstü konsol uygulamanıza hizmet gösterilmektedir.
 
-![Hızlı Başlangıç Yerel tamamlama](./media/quickstarts/dotnet-fx-app-run.png)
+![Hızlı tam yerel](./media/quickstarts/dotnet-fx-app-run.png)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için yükleme [Visual Studio 2017](https://visualstudio.microsoft.com/vs) ve [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) veya henüz yapmadıysanız sonraki bir sürümü.
+Bu hızlı başlangıç yapmak için yükleme [Visual Studio 2017](https://visualstudio.microsoft.com/vs) ve [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) veya henüz yapmadıysanız sonraki bir sürümü.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,19 +39,19 @@ Bu hızlı başlangıcı tamamlamak için yükleme [Visual Studio 2017](https://
 
 ## <a name="create-a-net-console-app"></a>Bir .NET konsol uygulaması oluşturma
 
-1. Visual Studio'yu başlatın ve seçin **dosya** > **yeni** > **proje**.
+1. Visual Studio'yu başlatın ve **dosya** > **yeni** > **proje**.
 
-2. İçinde **yeni proje** iletişim kutusunda **yüklü**, genişletme **Visual C#**   >  **Windows Masaüstü**, seçin **Konsol uygulaması (.NET Framework)**, tür a **adı** projeniz için seçtiğiniz **.NET Framework 4.7.1** veya yukarı ve **Tamam**.
+2. İçinde **yeni proje**seçin **yüklü** > **Visual C#**   >  **Windows Masaüstü**. Seçin **konsol uygulaması (.NET Framework)**, projeniz için bir ad girin. Seçin **.NET Framework 4.7.1** veya yukarı ve select **Tamam**.
 
-## <a name="connect-to-app-configuration-store"></a>Uygulama yapılandırma deposuna bağlanın
+## <a name="connect-to-an-app-configuration-store"></a>Bir uygulama yapılandırma deposuna bağlanın
 
-1. Projenize sağ tıklayıp **NuGet paketlerini Yönet...** . İçinde **Gözat** sekmesinde, arayın ve NuGet paketlerini projenize ekleyin (denetleyin **ön sürümü dahil et** bunları bulamazsanız kutusunda).
+1. Projenize sağ tıklayıp seçin **NuGet paketlerini Yönet**. Üzerinde **Gözat** sekmesinde, arayın ve aşağıdaki NuGet paketlerini projenize ekleyin. Bunları bulamazsanız seçin **ön sürümü dahil et** onay kutusu.
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
     ```
 
-2. Güncelleştirme *App.config* dosya projenizin şu şekilde:
+2. Güncelleştirme *App.config* projenizin aşağıdaki gibi dosya:
 
     ```xml
     <configSections>
@@ -71,9 +71,9 @@ Bu hızlı başlangıcı tamamlamak için yükleme [Visual Studio 2017](https://
     </appSettings>
     ```
 
-   Biz, uygulama yapılandırma deposu bağlantı dizesi ortam değişkeninden okuma şekilde lütfen unutmayın `ConnectionString`, eklemek önemlidir `Environment` önce yapılandırma Oluşturucu `MyConfigStore` içinde `configBuilders` özelliği `appSettings` bölümü.
+   Ortam değişkenindeki bağlantı dizesini uygulama yapılandırma deposunun okunur `ConnectionString`. Ekleme `Environment` önce yapılandırma Oluşturucu `MyConfigStore` içinde `configBuilders` özelliği `appSettings` bölümü.
 
-3. Açık *Program.cs* ve güncelleştirme `Main` yöntemi çağırarak uygulama yapılandırmasını kullanma `ConfigurationManager`.
+3. Açık *Program.cs*ve güncelleştirme `Main` yöntemi çağırarak uygulama yapılandırmasını kullanma `ConfigurationManager`.
 
     ```csharp
     static void Main(string[] args)
@@ -86,15 +86,15 @@ Bu hızlı başlangıcı tamamlamak için yükleme [Visual Studio 2017](https://
 
 ## <a name="build-and-run-the-app-locally"></a>Derleme ve uygulamayı yerel olarak çalıştırma
 
-1. Adlı bir ortam değişkenini ayarlamak **ConnectionString** bağlantı dizesini uygulama yapılandırma deponuz için. Windows Komut İstemi'ni kullanıyorsanız, aşağıdaki komutu yürütün:
+1. Adlı bir ortam değişkenini ayarlamak **ConnectionString** bağlantı dizesini uygulama yapılandırma deponuz için. Windows Komut İstemi'ni kullanırsanız, aşağıdaki komutu çalıştırın:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
-    Windows PowerShell kullanıyorsanız, aşağıdaki komutu yürütün:
+    Windows PowerShell kullanıyorsanız, aşağıdaki komutu çalıştırın:
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-2. Değişikliğin etkili olması ve ENTER tuşuna basın, Visual Studio'yu yeniden başlatmanız **Ctrl + F5 tuşlarına basarak** klavyenizde konsol uygulaması derleyebilir ve çalıştırabilirsiniz.
+2. Değişikliğin etkili olması Visual Studio'yu yeniden başlatın. Konsol uygulaması derleyebilir ve için Ctrl + F5 tuşlarına basın.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -102,7 +102,7 @@ Bu hızlı başlangıcı tamamlamak için yükleme [Visual Studio 2017](https://
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, yeni bir uygulama yapılandırma deposu oluşturuldu ve bir .NET Framework konsol uygulaması ile kullanılan. Uygulama yapılandırmasını kullanma hakkında daha fazla bilgi edinmek için kimlik doğrulaması gösteren bir sonraki öğreticiye devam edin.
+Bu hızlı başlangıçta, yeni bir uygulama yapılandırma deposu oluşturuldu ve bir .NET Framework konsol uygulaması kullanılır. Uygulama yapılandırmasını kullanma hakkında daha fazla bilgi için kimlik doğrulaması gösteren bir sonraki öğreticiye devam edin.
 
 > [!div class="nextstepaction"]
 > [Azure kaynaklarını tümleştirme için yönetilen kimlik](./integrate-azure-managed-service-identity.md)

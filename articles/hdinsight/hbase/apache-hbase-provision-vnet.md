@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 31e4f4a8cfe9a82cf5320cd364905c7c91de0959
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 73ac2072a087f0931b6c9c776d3ad0bfedb4320b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653807"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199537"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure sanal ağdaki HDInsight üzerinde Apache HBase kümeleri oluşturma
 Azure HDInsight Apache HBase kümeleri oluşturmayı öğrenin bir [Azure sanal ağı][1].
@@ -64,7 +64,7 @@ Bu bölümde, bir Azure sanal ağı kullanarak bağımlı Azure depolama hesabı
    * **Hüküm ve yukarıdaki koşulları kabul ediyorum**: (Seç)
 3. **Satın al**’a tıklayın. Bir küme oluşturmak yaklaşık 20 dakika sürer. Küme oluşturulduktan sonra küme dikey penceresini açmak için portalda tıklayabilirsiniz.
 
-Öğreticiyi tamamladıktan sonra kümeyi silmek isteyebilirsiniz. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Küme ücretleri depolama ücretlerinin birkaç katı olduğundan, kullanılmadığında kümelerin silinmesi mantıklı olandır. Küme silme yönergeleri için bkz: [yönetme Apache Hadoop, Azure portalını kullanarak HDInsight kümeleri](../hdinsight-administer-use-management-portal.md#delete-clusters).
+Öğreticiyi tamamladıktan sonra kümeyi silmek isteyebilirsiniz. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Küme ücretleri depolama ücretlerinin birkaç katı olduğundan, kullanılmadığında kümelerin silinmesi mantıklı olandır. Küme silme yönergeleri için bkz: [yönetme Apache Hadoop, Azure portalını kullanarak HDInsight kümeleri](../hdinsight-administer-use-portal-linux.md#delete-clusters).
 
 Yeni bir HBase kümesi ile çalışmaya başlamak için bulunan yordamları kullanabilirsiniz [HDInsight, Apache Hadoop ile Apache HBase kullanmaya başlama](./apache-hbase-tutorial-get-started-linux.md).
 
@@ -90,9 +90,9 @@ Yeni bir HBase kümesi ile çalışmaya başlamak için bulunan yordamları kull
      2. Tıklayın **konakları** üstteki menüden.
    * REST çağrıları yapmak için Curl kullanın:
 
-    ```bash
+     ```bash
         curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
-    ```
+     ```
 
      Döndürülen JavaScript nesne gösterimi (JSON) veriler "host_name" girdisini bulun. Bu, kümedeki düğümler için FQDN'yi içerir. Örneğin:
 
@@ -105,7 +105,7 @@ Yeni bir HBase kümesi ile çalışmaya başlamak için bulunan yordamları kull
 
      Kaydetmek için aşağıdaki Azure PowerShell betiğini kullanın **Get-ClusterDetail** DNS son eki döndürmek için kullanılan işlev:
 
-    ```powershell
+     ```powershell
         function Get-ClusterDetail(
             [String]
             [Parameter( Position=0, Mandatory=$true )]
@@ -195,13 +195,13 @@ Yeni bir HBase kümesi ile çalışmaya başlamak için bulunan yordamları kull
                 Write-host $Suffix
             }
         }
-    ```
+     ```
 
      Azure PowerShell Betiği çalıştırdıktan sonra DNS son eki kullanarak döndürmek için aşağıdaki komutu kullanın **Get-ClusterDetail** işlevi. Bu komutu kullanırken, kendi HDInsight HBase küme adı, yönetici adı ve yönetici parolasını belirtin.
 
-    ```powershell
+     ```powershell
         Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
-    ```
+     ```
 
      Bu komut, DNS son eki döndürür. Örneğin, **yourclustername.b4.internal.cloudapp.net**.
 

@@ -7,18 +7,23 @@ manager: vijayts
 keywords: yedeklemeyi geri yükleme; geri yükleme; kurtarma noktası;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 03/19/2019
 ms.author: geg
-ms.openlocfilehash: 0140cbc440e6098290a81f7ae61aa99e36da7d80
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 44b8d57af83f53c73868a84104da7a7f72cb1e81
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312044"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202597"
 ---
 # <a name="restore-azure-vms"></a>Azure VM'lerini geri yükleme
 
 Bu makalede Azure VM veri depolanan kurtarma noktalarından geri yükleme [Azure Backup](backup-overview.md) kurtarma Hizmetleri kasaları.
+
+Geri yüklemek için bir VM gerekli sahip olduğundan emin olun [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) izni.
+
+> [!NOTE]
+> Yoksa [RABAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) gerçekleştirebileceğiniz izni [diski geri yükleme](backup-azure-arm-restore-vms.md#create-new-restore-disks) ve kullanarak VM oluşturma [şablonu Dağıt](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) özelliği.
 
 ### <a name="restore-options"></a>Geri yükleme seçenekleri
 
@@ -101,11 +106,11 @@ Disk geri yüklendikten sonra oluşturulan şablonu özelleştirme ve yeni bir V
     - [Daha fazla bilgi edinin](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) özel bir şablondan kaynakları dağıtma hakkında daha fazla.
     - [Daha fazla bilgi edinin](../azure-resource-manager/resource-group-authoring-templates.md) şablon yazma hakkında.
 
-  ![Şablon dağıtımı'nı yükleme](./media/backup-azure-arm-restore-vms/edit-template1.png)
+   ![Şablon dağıtımı'nı yükleme](./media/backup-azure-arm-restore-vms/edit-template1.png)
 
 4. VM için özel değerler girin; kabul **hüküm ve koşullar** tıklatıp **satın alma**.
 
-  ![Şablon dağıtımı gönderin](./media/backup-azure-arm-restore-vms/submitting-template1.png)
+   ![Şablon dağıtımı gönderin](./media/backup-azure-arm-restore-vms/submitting-template1.png)
 
 
 ## <a name="replace-existing-disks"></a>Var olan diskleri değiştirin

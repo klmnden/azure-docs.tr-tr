@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea658f18af7ae44d73f78cb5fe4f7ae1316ea901
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6e79b0fc0ef23287c8871b7a7634d28d129b900e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439136"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101151"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Alt düzey cihazları katılmış karma Azure Active Directory sorun giderme 
 
@@ -85,19 +85,19 @@ Cihaz hibrit Azure AD'ye katılmış başarısız olduysa, "Birleştirme" düğm
 
     ![Windows için çalışma alanına katılma](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
-    - Azure AD veya AD FS ile sessizce kimlik doğrulaması Autoworkplace.exe silemiyor. Bu, eksik neden olmuş olabilir veya AD FS (için Federasyon etki alanları) veya eksik veya yanlış yapılandırılmış Azure AD sorunsuz çoklu oturum açma (için yönetilen etki alanları) veya ağ sorunları yanlış yapılandırılmış. 
+  - Azure AD veya AD FS ile sessizce kimlik doğrulaması Autoworkplace.exe silemiyor. Bu, eksik neden olmuş olabilir veya AD FS (için Federasyon etki alanları) veya eksik veya yanlış yapılandırılmış Azure AD sorunsuz çoklu oturum açma (için yönetilen etki alanları) veya ağ sorunları yanlış yapılandırılmış. 
     
-     - Çok faktörlü kimlik doğrulaması (MFA) kullanıcı için etkin/yapılandırılan ve AD FS sunucusunda WIAORMUTLIAUTHN yapılandırılmamış olabilir. 
+    - Çok faktörlü kimlik doğrulaması (MFA) kullanıcı için etkin/yapılandırılan ve AD FS sunucusunda WIAORMUTLIAUTHN yapılandırılmamış olabilir. 
      
-     - Bu giriş bölgesi bulma (HRD) sayfasını engelleyen kullanıcı etkileşimi için bekleyen başka bir olasılıktır **autoworkplace.exe** sessiz bir belirteç isteyen öğesinden.
+    - Bu giriş bölgesi bulma (HRD) sayfasını engelleyen kullanıcı etkileşimi için bekleyen başka bir olasılıktır **autoworkplace.exe** sessiz bir belirteç isteyen öğesinden.
      
-     - AD FS ve Azure AD URL'leri IE'nin Intranet istemci üzerinde eksik olduğundan emin olabilir.
+    - AD FS ve Azure AD URL'leri IE'nin Intranet istemci üzerinde eksik olduğundan emin olabilir.
      
-     - Ağ bağlantı sorunları engelliyor **autoworkplace.exe** AD FS veya Azure AD URL'leri ulaşmasını. 
+    - Ağ bağlantı sorunları engelliyor **autoworkplace.exe** AD FS veya Azure AD URL'leri ulaşmasını. 
      
-     - **Autoworkplace.exe** gerektirir istemcinin doğrudan görebilmesi istemciden kuruluşun şirket içi AD etki alanı denetleyicisi, hibrit Azure AD'ye katılma başarılı yalnızca kuruluşunuzun intranet istemci bağlandığında anlamına gelir.
+    - **Autoworkplace.exe** gerektirir istemcinin doğrudan görebilmesi istemciden kuruluşun şirket içi AD etki alanı denetleyicisi, hibrit Azure AD'ye katılma başarılı yalnızca kuruluşunuzun intranet istemci bağlandığında anlamına gelir.
      
-     - Azure AD sorunsuz çoklu oturum açma, kuruluşunuzun kullandığı `https://autologon.microsoftazuread-sso.com` veya `https://aadg.windows.net.nsatc.net` cihazın IE intranet ayarlarını, mevcut olmayan ve **izin vermek için durum çubuğu komut dosyası aracılığıyla güncelleştirmeleri** Intranet bölgesi için etkin değil.
+    - Azure AD sorunsuz çoklu oturum açma, kuruluşunuzun kullandığı `https://autologon.microsoftazuread-sso.com` veya `https://aadg.windows.net.nsatc.net` cihazın IE intranet ayarlarını, mevcut olmayan ve **izin vermek için durum çubuğu komut dosyası aracılığıyla güncelleştirmeleri** Intranet bölgesi için etkin değil.
 
 - Bir etki alanı kullanıcısı olarak imzalı değil
 

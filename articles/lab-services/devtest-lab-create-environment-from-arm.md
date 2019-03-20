@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: f2bf811bfb0856b7ceb2fca2fd84c0d9830fb65d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ebe5c65f701c0a1c7c02182800a35bfbeed5b0be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255635"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181393"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile çoklu VM ortamları ve PaaS kaynakları oluşturma
 
@@ -109,10 +109,10 @@ Bir Azure Resource Manager şablon deposu laboratuvarda yapılandırıldıktan s
     > [!NOTE]
     > -Boş değerler olarak belirtilmiş olsa bile - görüntülenir birkaç parametre değeri vardır. Bu nedenle, kullanıcıların bir Azure Resource Manager şablonu parametreleri için değerler atarsanız, DevTest Labs değerlerini görüntülemez. Bunun yerine, boş giriş alanlarını burada Laboratuvar kullanıcıları bir değer ortam oluşturulurken girmelisiniz gösterilir.
     > 
-    > - GENEL BENZERSİZ
-    > - GENEL - BENZERSİZ-[N]
+    > - GEN-UNIQUE
+    > - GEN-UNIQUE-[N]
     > - GENEL-SSH-PUB-KEY
-    > - GENEL PAROLA 
+    > - GEN-PASSWORD 
  
 1. Seçin **Ekle** ortam oluşturma. Ortamı başlatır durumu görüntüleme ile hemen sağlama **sanal makinelerim** listesi. Yeni bir kaynak grubu, Azure Resource Manager şablonunda tanımlı tüm kaynakları sağlamak üzere Laboratuvar tarafından otomatik olarak oluşturulur.
 1. Ortam oluşturulduktan sonra ortam seçin **sanal makinelerim** listesi kaynak grubu bölmesini açın ve tüm ortamda sağlanmış olan kaynakları göz atın.
@@ -127,10 +127,119 @@ Bir Azure Resource Manager şablon deposu laboratuvarda yapılandırıldıktan s
 
     ![Ortam eylemleri](./media/devtest-lab-create-environment-from-arm/environment-actions.png)
 
-## <a name="deploy-a-resource-manager-template-to-create-a-vm"></a>Bir VM oluşturmak için Resource Manager şablonu dağıtma
-Resource Manager şablonu kaydedildi ve gereksinimlerinize göre özelleştirilmiş sonra VM oluşturmayı otomatikleştirmek için kullanabilirsiniz. 
-- [Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) kaynaklarınızı Azure'a dağıtmak için Resource Manager şablonları ile Azure PowerShell'i kullanmayı açıklar. 
-- [Kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) kaynaklarınızı Azure'a dağıtmak için Resource Manager şablonları ile Azure CLI'yı kullanmayı açıklar.
+## <a name="automate-deployment-of-environments"></a>Ortamların dağıtımını otomatikleştirme
+Azure DevTest Labs kullanma olanağı sağlayan bir [Azure kaynak yönetimi Yöneticisi şablonu](../azure-resource-manager/resource-group-authoring-templates.md) bir grup kaynakla Laboratuvardaki ortam oluşturma. Bu ortamların Resource Manager şablonları kullanılarak oluşturulabilir tüm Azure kaynakları içerebilir. DevTest Labs ortamları kolayca karmaşık altyapı kurmanız laboratuvarı sınırlar içinde tutarlı bir şekilde dağıtmak kullanıcılara izin verin. Şu anda bir ortam, Azure portalını kullanarak bir laboratuvara ekleme kez oluştururken uygun olsa da bir geliştirme veya birden çok oluşturma nerede meydana, bir test durumu otomatik bir dağıtım için geliştirilmiş bir deneyim sağlar.
+
+Aşağıdaki tüm adımları [kendi şablon depoları yapılandırma](#configure-your-own-template-repositories) bölümden devam etmeden önce: 
+
+1. Oluşturulan kaynakları tanımlayan Resource Manager şablonu oluşturun. 
+2. Resource Manager şablonu bir depo Git'te ayarlayın. 
+3. Git deposu laboratuvar'a Bağlan. 
+
+### <a name="powershell-script-to-deploy-the-resource-manager-template"></a>Resource Manager şablonu dağıtmak için PowerShell Betiği
+Sabit disk için sonraki bölümde PowerShell betiğini kaydetme (örneğin: deployenv.ps1) ve değerleri belirttikten sonra Subscriptionıd, ResourceGroupName, LabName, RepositoryName, komut dosyasını çalıştırmak Git deposunda EnvironmentName TemplateName (klasör).
+
+```powershell
+./deployenv.ps1 -SubscriptionId "000000000-0000-0000-0000-0000000000000" -LabName "mydevtestlab" -ResourceGroupName "mydevtestlabRG994248" -RepositoryName "SP Repository" -TemplateName "My Environment template name" -EnvironmentName "SPResourceGroupEnv"  
+```
+
+#### <a name="sample-script"></a>Örnek betik
+Örnek betik, bir laboratuar ortamında bir ortam oluşturmak için aşağıda verilmiştir. Komut dosyasındaki yorumlar komut dosyası daha iyi anlamanıza yardımcı olur. 
+
+```powershell
+#Requires -Version 3.0
+#Requires -Module AzureRM.Resources
+
+[CmdletBinding()]
+
+param (
+# ID of the Azure Subscription where the lab is created.
+[string] [Parameter(Mandatory=$true)] $SubscriptionId,
+
+# Name of the lab (existing) in which to create the environment.
+[string] [Parameter(Mandatory=$true)] $LabName,
+
+# Name of the connected repository in the lab. 
+[string] [Parameter(Mandatory=$true)] $RepositoryName,
+
+# Name of the template (folder name in the Git repository) based on which the environment will be created.
+[string] [Parameter(Mandatory=$true)] $TemplateName,
+
+# Name of the environment to be created in the lab.
+[string] [Parameter(Mandatory=$true)] $EnvironmentName,
+
+# The parameters to be passed to the template. Each parameter is prefixed with “-param_”. 
+# For example, if the template has a parameter named “TestVMName” with a value of “MyVMName”, the string in $Params will have the form: `-param_TestVMName MyVMName`. 
+# This convention allows the script to dynamically handle different templates.
+[Parameter(ValueFromRemainingArguments=$true)]
+    $Params
+)
+
+# Save this script as the deployenv.ps1 file
+# Run the script after you specify values for SubscriptionId, ResourceGroupName, LabName, RepositoryName, TemplateName (folder) in the Git repo, EnvironmentName
+# ./deployenv.ps1 -SubscriptionId "000000000-0000-0000-0000-0000000000000" -LabName "mydevtestlab" -ResourceGroupName "mydevtestlabRG994248" -RepositoryName "SP Repository" -TemplateName "My Environment template name" -EnvironmentName "SPResourceGroupEnv"    
+
+# Comment this statement to completely automate the environment creation.    
+# Sign in to Azure. 
+Connect-AzureRmAccount
+
+# Select the subscription that has the lab.  
+Set-AzureRmContext -SubscriptionId $SubscriptionId | Out-Null
+
+# Get information about the user, specifically the user ID, which is used later in the script.  
+$UserId = $((Get-AzureRmADUser -UserPrincipalName (Get-AzureRmContext).Account).Id.Guid)
+        
+# Get information about the lab such as lab location. 
+$lab = Get-AzureRmResource -ResourceType "Microsoft.DevTestLab/labs" -Name $LabName -ResourceGroupName $ResourceGroupName 
+if ($lab -eq $null) { throw "Unable to find lab $LabName in subscription $SubscriptionId." } 
+    
+# Get information about the repository in the lab. 
+$repository = Get-AzureRmResource -ResourceGroupName $lab.ResourceGroupName `
+    -ResourceType 'Microsoft.DevTestLab/labs/artifactsources' `
+    -ResourceName $LabName `
+    -ApiVersion 2016-05-15 `
+    | Where-Object { $RepositoryName -in ($_.Name, $_.Properties.displayName) } `
+    | Select-Object -First 1
+if ($repository -eq $null) { throw "Unable to find repository $RepositoryName in lab $LabName." } 
+
+# Get information about the Resource Manager template based on which the environment will be created. 
+$template = Get-AzureRmResource -ResourceGroupName $lab.ResourceGroupName `
+    -ResourceType "Microsoft.DevTestLab/labs/artifactSources/armTemplates" `
+    -ResourceName "$LabName/$($repository.Name)" `
+    -ApiVersion 2016-05-15 `
+    | Where-Object { $TemplateName -in ($_.Name, $_.Properties.displayName) } `
+    | Select-Object -First 1
+if ($template -eq $null) { throw "Unable to find template $TemplateName in lab $LabName." } 
+
+# Build the template parameters with parameter name and values.     
+$parameters = Get-Member -InputObject $template.Properties.contents.parameters -MemberType NoteProperty | Select-Object -ExpandProperty Name
+$templateParameters = @()
+
+# The custom parameters need to be extracted from $Params and formatted as name/value pairs.
+$Params | ForEach-Object {
+    if ($_ -match '^-param_(.*)' -and $Matches[1] -in $parameters) {
+        $name = $Matches[1]                
+    } elseif ( $name ) {
+        $templateParameters += @{ "name" = "$name"; "value" = "$_" }
+        $name = $null #reset name variable
+    }
+}
+
+# Once name/value pairs are isolated, create an object to hold the necessary template properties
+$templateProperties = @{ "deploymentProperties" = @{ "armTemplateId" = "$($template.ResourceId)"; "parameters" = $templateParameters }; } 
+
+# Now, create or deploy the environment in the lab by using the New-AzureRmResource command. 
+New-AzureRmResource -Location $Lab.Location `
+    -ResourceGroupName $lab.ResourceGroupName `
+    -Properties $templateProperties `
+    -ResourceType 'Microsoft.DevTestLab/labs/users/environments' `
+    -ResourceName "$LabName/$UserId/$EnvironmentName" `
+    -ApiVersion '2016-05-15' -Force 
+ 
+Write-Output "Environment $EnvironmentName completed."
+```
+
+Kaynakları Resource Manager şablonları ile dağıtmak için Azure CLI de kullanabilirsiniz. Daha fazla bilgi için [kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli).
 
 > [!NOTE]
 > Laboratuvar sahibi izinlere sahip bir kullanıcı Azure PowerShell kullanarak Resource Manager şablonundan Vm'leri oluşturabilirsiniz. Resource Manager şablonu kullanarak VM oluşturmayı otomatikleştirmek istediğiniz ve yalnızca kullanıcı izinlerine sahip, kullanabileceğiniz [ **az lab vm oluşturma** CLI komutunu](https://docs.microsoft.com/cli/azure/lab/vm#az-lab-vm-create).

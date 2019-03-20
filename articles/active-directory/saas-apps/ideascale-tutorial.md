@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b3f45d94cf3e240017c857a1092512353cd61c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 88d181c2e761679d7f52208b2086404411bc2012
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771557"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895057"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Öğretici: IdeaScale ile Azure Active Directory Tümleştirme
 
@@ -108,6 +108,7 @@ Azure AD çoklu oturum açma ile IdeaScale yapılandırmak için aşağıdaki ad
     a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<companyname>.ideascale.com`
 
     b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın:
+    
     | |
     |--|
     | `http://<companyname>.ideascale.com`  |
@@ -176,7 +177,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

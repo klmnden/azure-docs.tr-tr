@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 9a76ad219e538874af04a72c9aa64e87a35bc53d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7b6f9ca914e9fed48463d2134eeba1cd4c103690
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434894"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225333"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight kümesi için günlükleri yönetme
 
@@ -27,14 +27,14 @@ HDInsight günlük Yönetimi'ndeki tipik adımlar şunlardır:
 * 1. Adım: Günlük bekletme ilkeleri belirleme
 * 2. Adım: Küme hizmeti sürümleri yapılandırma günlüklerini yönetme
 * 3. Adım: Küme iş yürütme günlük dosyalarını yönetme
-* 4. adım: Günlük birim depolama boyutları ve maliyetleri tahmin edin
-* 5. adım: Günlük arşiv ilkeleri ve işlemlerini belirleyin
+* 4. Adım: Günlük birim depolama boyutları ve maliyetleri tahmin edin
+* 5. Adım: Günlük arşiv ilkeleri ve işlemlerini belirleyin
 
 ## <a name="step-1-determine-log-retention-policies"></a>1. Adım: Günlük bekletme ilkeleri belirleme
 
 Bir HDInsight kümesi günlük yönetimi stratejisi oluşturmanın ilk adımı, iş senaryoları ve iş yürütme geçmişi depolama alanı gereksinimleri hakkında bilgi toplamak sağlamaktır.
 
-### <a name="cluster-details"></a>Küme ayrıntıları
+### <a name="cluster-details"></a>Küme Ayrıntıları
 
 Aşağıdaki küme ayrıntıları, günlük yönetimi stratejinizin bilgileri toplamak için yardımcı kullanışlıdır. Bu bilgiler, belirli bir Azure hesabı oluşturduğunuz tüm HDInsight kümelerinin toplayın.
 
@@ -77,7 +77,7 @@ Tipik bir HDInsight kümesi, çeşitli hizmetler ve açık kaynak yazılım pake
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Görüntülemek Ambari UI ile küme yapılandırma ayarları
 
-Apache Ambari basitleştirir, yönetim, yapılandırma ve bir web sağlayarak bir HDInsight kümesini izleme kullanıcı Arabirimi ve REST API. Linux tabanlı HDInsight kümelerinde Ambari dahildir. Seçin **küme Panosu** bölmesini açmak için Azure portal HDInsight sayfasında **' küme panoları** bağlantı sayfası.  Ardından, **HDInsight küme Panosu** bölmesinde Ambari UI'ı açın.  Küme oturum açma kimlik bilgileriniz istenir.
+Apache Ambari basitleştirir, yönetim, yapılandırma ve bir web sağlayarak bir HDInsight kümesini izleme kullanıcı Arabirimi ve REST API. Linux tabanlı HDInsight kümelerinde Ambari dahildir. Seçin **küme Panosu** bölmesini açmak için Azure portal HDInsight sayfasında**küme panoları** bağlantı sayfası.  Ardından, **HDInsight küme Panosu** bölmesinde Ambari UI'ı açın.  Küme oturum açma kimlik bilgileriniz istenir.
 
 Hizmet görünümlerini listesini açmak için seçmeniz **Ambari görünümleri** HDInsight için Azure portal sayfasındaki bölmesi.  Bu liste, yüklediğiniz hangi kitaplıkların bağlı olarak değişir.  Örneğin, kuyruk Yöneticisi YARN, Hive görünümü ve Tez görünümü görebilirsiniz.  Yapılandırma ve hizmet bilgileri görmek için herhangi bir hizmeti bağlantıyı seçin.  Ambari UI **yığını ve sürüm** sayfa küme hizmetlerini yapılandırma ve hizmet sürüm geçmişi hakkında bilgi sağlar. Ambari UI kısmına gitmek için **yönetici** menüsünü ve ardından **yığınları ve sürümleri**.  Seçin **sürümleri** hizmeti sürüm bilgisini görmek için sekmesinde.
 
@@ -136,7 +136,7 @@ YARN ResourceManager kullanıcı Arabirimi, küme baş düğümü üzerinde çal
 2. YARN Hizmetleri soldaki listeden seçin.
 3. Hızlı bağlantılar açılan listeden, küme baş düğümleri seçin ve ardından **ResourceManager günlükleri**. YARN günlükleri yönelik bağlantıların bir listesi sunulur.
 
-## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>4. adım: Günlük birim depolama boyutları ve maliyetleri tahmin edin
+## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>4. Adım: Günlük birim depolama boyutları ve maliyetleri tahmin edin
 
 Önceki adımları tamamladıktan sonra türleri bir anlayış ve birimler, HDInsight kümesi oluşturmayı günlük dosyalarının vardır.
 
@@ -144,7 +144,7 @@ Bir süre sonra anahtar günlük depolama konumları, günlük veri hacmi analiz
 
 Artık bir günlük yönetimi stratejisi anahtar günlükleri için oluşturmak için yeterli bilgi vardır.  Her iki günlük boyut büyümesi tahmin ve bundan sonra depolama Azure hizmet maliyetlerini oturum, elektronik tabloyu (veya tercih ettiğiniz araç) kullanın.  Ayrıca günlük bekletme için tüm gereksinimleri İncelemekte olduğunuz günlükleri kümesini göz önünde bulundurun.  Artık hangi günlük dosyalarını (varsa) silinebilir ve hangi günlüklerin korunur verilecek ve daha az maliyetli bir Azure depolama alanına arşivlenmiş belirledikten sonra gelecek günlük depolama maliyetleri, reforecast.
 
-## <a name="step-5-determine-log-archive-policies-and-processes"></a>5. adım: Günlük arşiv ilkeleri ve işlemlerini belirleyin
+## <a name="step-5-determine-log-archive-policies-and-processes"></a>5. Adım: Günlük arşiv ilkeleri ve işlemlerini belirleyin
 
 Hangi günlük dosyalarının silinebilir belirledikten sonra birçok Hadoop Hizmetleri günlük dosyaları belirli bir süre sonra otomatik olarak silmek için günlük parametreleri ayarlayabilirsiniz.
 
@@ -177,5 +177,5 @@ Günlükler için tek bir merkezi konumda tüm düğümleri toplamak için tüm 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [İzleme ve HDInsight için uygulama günlüğe kaydetme](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Linux tabanlı HDInsight Apache Hadoop YARN uygulama günlüğüne erişimi](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Linux tabanlı HDInsight Apache Hadoop YARN uygulama oturum erişim](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Çeşitli Apache Hadoop bileşenleri için günlük dosyalarının boyutunu kontrol etme](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

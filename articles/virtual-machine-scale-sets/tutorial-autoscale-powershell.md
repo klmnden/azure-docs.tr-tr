@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 83c3db81b2836fca15c8cac1e9665a73a89ba06d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 5a87563e54e0d932acefc5bd5808ac49b3cbf30a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980270"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005244"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Öğretici: Azure PowerShell ile bir sanal makine ölçek kümesi otomatik olarak ölçeklendirme
 
@@ -188,7 +188,7 @@ IpAddress
 52.168.121.216
 ```
 
-İlk sanal makine örneğinize bir uzak bağlantı oluşturun. Önceki komutlarda gösterildiği gibi, gerekli sanal makine örneği için kendi genel IP adresinizi ve bağlantı noktası numaranızı belirtin. İstendiğinde, ölçek kümesini oluşturduğunuzda kullandığınız kimlik bilgilerini girin (örnek komutlarda varsayılan olarak *azureuser* ve *P@ssw0rd!* değerleridir). Azure Cloud Shell kullanıyorsanız, bu adımı yerel PowerShell isteminden veya Uzak Masaüstü İstemcisinden gerçekleştirin. Aşağıdaki örnek sanal makine örneği *0*'a bağlanır:
+İlk sanal makine örneğinize bir uzak bağlantı oluşturun. Önceki komutlarda gösterildiği gibi, gerekli sanal makine örneği için kendi genel IP adresinizi ve bağlantı noktası numaranızı belirtin. İstendiğinde ölçek kümesini oluşturduğunuzda kullandığınız kimlik bilgilerini girin (örnek komutlarda varsayılan olarak, oldukları *azureuser* ve *P\@ssw0rd!*). Azure Cloud Shell kullanıyorsanız, bu adımı yerel PowerShell isteminden veya Uzak Masaüstü İstemcisinden gerçekleştirin. Aşağıdaki örnek sanal makine örneği *0*'a bağlanır:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

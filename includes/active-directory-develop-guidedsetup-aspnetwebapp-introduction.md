@@ -3,23 +3,23 @@ title: include dosyası
 description: include dosyası
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: bc439cbe5e690077213b5d7953a4e74488988c3b
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 5a1ff10901d10fb274a6fa1418f04e1f20113cb7
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988557"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203641"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
 
@@ -31,7 +31,7 @@ Bu kılavuzun sonunda, uygulamanızın oturum açma işlemleri kişisel hesabı 
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Bu kılavuzda oluşturulan örnek uygulamasını nasıl çalışır?
 
-![Bu kılavuz nasıl çalışır?](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral.png)
+![Örnek uygulama tarafından bu öğreticileri çalışır nasıl oluşturulacağını gösterir](media/active-directory-develop-guidedsetup-aspnetwebapp-intro/aspnetbrowsergeneral-updated.png)
 
 Bu kılavuzda oluşturulan örnek uygulamayı nerede isteyen bir kullanıcı oturum açma düğmesi aracılığıyla kimlik doğrulaması için bir ASP.NET web sitesine erişmek için tarayıcıyı bir kullanıcının kullandığı senaryo temel alır. Bu senaryoda web sayfasını oluşturma işlemlerinin çoğu sunucu tarafında gerçekleştirilmektedir.
 

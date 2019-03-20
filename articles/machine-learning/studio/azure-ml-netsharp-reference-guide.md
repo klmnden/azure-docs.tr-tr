@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 13ec97a8356bb24fbbc2098f1249ae8fa5b6e3ce
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d667dadeb2e7c9d0005ab8d1a565017973038aaa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877104"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905163"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için NET # sinir ağı belirtim dili Kılavuzu
 
@@ -216,17 +216,16 @@ Evrişimsel paketleri aşağıdaki öznitelikleri destekler:
 + **UpperPad** ve **LowerPad**: (isteğe bağlı) sağlama daha fazla denetim sahibi kullanmak için doldurma miktarı. **Önemli:** Bu öznitelikler tanımlanan ve yalnızca olabilir **doldurma** özelliği yukarıdaki ***değil*** tanımlı. Değerleri tamsayı değerli demetleri ile paket kapsamalıdır olan olmalıdır. Bu öznitelikleri belirtildiğinde, "kukla" düğümlerinin her boyut giriş katmanın alt ve üst ucunun eklenir. Her boyuttaki alt ve üst sona eklenen düğüm sayısı tarafından belirlenir **LowerPad**[i] ve **UpperPad**[i] sırasıyla.
 
     Çekirdekleri yalnızca "gerçek" düğümleri ve "kukla" düğümleri karşılık geldiğinden emin olmak için aşağıdaki koşullar karşılanmalıdır:
-      - Her bir bileşeninin **LowerPad** olmalıdır değerinden kesinlikle küçük `KernelShape[d]/2`.
-      - Her bir bileşeninin **UpperPad** değerinden büyük olmalıdır `KernelShape[d]/2`.
-      - Tüm bileşenleri 0'a eşit olan bir tanımlama grubu bu özniteliklerin varsayılan değerdir.
+  - Her bir bileşeninin **LowerPad** olmalıdır değerinden kesinlikle küçük `KernelShape[d]/2`.
+  - Her bir bileşeninin **UpperPad** değerinden büyük olmalıdır `KernelShape[d]/2`.
+  - Tüm bileşenleri 0'a eşit olan bir tanımlama grubu bu özniteliklerin varsayılan değerdir.
 
     Ayar **doldurma** = true "Giriş" çekirdek "real" içinde tutmak için gerektiği kadar doldurma sağlar. Bu matematik biraz bilgi işlem boyutu için değiştirir. Genellikle, çıkış boyutu *D* olarak hesaplanır `D = (I - K) / S + 1`burada `I` giriş boyutu `K` çekirdek boyutu `S` ilerleme olan ve `/` tamsayı bölme (sıfıra doğru yuvarlar olduğu ). UpperPad ayarlarsanız = [1, 1], girdi boyutuna `I` 29 etkin olduğundan ve bu nedenle `D = (29 - 5) / 2 + 1 = 13`. Ancak, **doldurma** = true, temelde `I` tarafından indirgenmesine `K - 1`; bu nedenle `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. Değerlerini belirterek **UpperPad** ve **LowerPad** yalnızca ayarlarsanız daha çok daha fazla denetime doldurmayı alma **doldurma** = true.
 
 Karmaşık ağlar ve uygulamalarını hakkında daha fazla bilgi için şu makalelere bakın:
 
 + [http://deeplearning.net/tutorial/lenet.html](http://deeplearning.net/tutorial/lenet.html)
-+ [http://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
-+ [http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)
++ [https://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf)
 
 ## <a name="pooling-bundles"></a>Paketleri havuzu
 
@@ -252,13 +251,13 @@ hidden P1 [5, 12, 12]
 
 Havuzu oluşturma katmanları hakkında daha fazla bilgi için şu makalelere bakın:
 
-+ [http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Bölüm 3.4)
-+ [http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
-+ [http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
++ [https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Bölüm 3.4)
++ [https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
++ [https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 
 ## <a name="response-normalization-bundles"></a>Yanıt normalleştirme paketleri
 
-**Yanıt normalleştirme** ilk Geoffrey Hinton tarafından sunulan yerel normalleştirme düzenidir yazıda tarayıcılarınızda [derin Evrişimsel sinir ağları ile Imagenet sınıflandırma](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf).
+**Yanıt normalleştirme** ilk Geoffrey Hinton tarafından sunulan yerel normalleştirme düzenidir yazıda tarayıcılarınızda [derin Evrişimsel sinir ağları ile Imagenet sınıflandırma](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf).
 
 Yanıt normalleştirme sinir ağ içinde Genelleştirme yardımcı olmak için kullanılır. Çok yüksek etkinleştirme düzeyinde bir neuron tetiklenmekte olan, yerel yanıt normalleştirme katman çevreleyen neurons etkinleştirme düzeyini bastırır. Bu üç parametre kullanarak gerçekleştirilir (`α`, `β`, ve `k`) ve bir evrişimsel yapısını (veya Komşuları Şekil). Hedef katmanın her neuron **y** bir neuron için karşılık gelen **x** kaynak katmandaki. Etkinleştirme düzeyini **y** aşağıdaki formülle verilen burada `f` bir neuron etkinleştirme düzeyi ve `Nx` çekirdeğidir (veya Komşuları içinde neurons içeren kümesi **x**), aşağıdaki evrişimsel yapısı tarafından tanımlandığı şekilde:
 
@@ -463,4 +462,4 @@ output Digit [10] from Hid3 all;
 
 ## <a name="acknowledgements"></a>Bildirimler
 
-Sinir ağları mimarisi özelleştirmek için Net # dili, Microsoft'ta Shon Katzenberger (Mimarı, makine öğrenimi) ve Alexey Kamenev (yazılım mühendisi, Microsoft Research) tarafından geliştirilmiştir. Ayrıca, makine öğrenimi projeleri ve metin analizi için görüntü algılamadan kadar uygulamalarını için dahili olarak kullanılır. Daha fazla bilgi için [Azure Machine Learning Studio - giriş Net # sinir ağ](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
+Sinir ağları mimarisi özelleştirmek için Net # dili, Microsoft'ta Shon Katzenberger (Mimarı, makine öğrenimi) ve Alexey Kamenev (yazılım mühendisi, Microsoft Research) tarafından geliştirilmiştir. Ayrıca, makine öğrenimi projeleri ve metin analizi için görüntü algılamadan kadar uygulamalarını için dahili olarak kullanılır. Daha fazla bilgi için [Azure Machine Learning Studio - giriş Net # sinir ağ](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)

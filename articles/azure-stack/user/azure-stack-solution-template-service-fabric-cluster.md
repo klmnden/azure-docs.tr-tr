@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: a8897288e19a7628dbd1cc2c022de4db2a111393
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d0d725a57c27fe30215d77a596f6fb3b8c8720d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248053"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098017"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack'te bir Service Fabric kümesine dağıtma
 
@@ -37,17 +37,17 @@ Service Fabric kümesine dağıtmak için aşağıdakiler gereklidir:
    Anahtar kasası için Service Fabric dağıtırken ekleme X.509 sunucu sertifikasıdır. 
    - **CN** üzerinde bu sertifika, tam etki alanı adı (FQDN) oluşturduğunuz Service Fabric kümesinin eşleşmelidir. 
    - Ortak ve özel anahtarlar gerektiğinde, PFX sertifika biçimi olmalıdır. 
-   Bkz: [gereksinimleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) bu sunucu tarafı sertifika oluşturmak için.
+     Bkz: [gereksinimleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) bu sunucu tarafı sertifika oluşturmak için.
 
-    > [!NOTE]  
-    > Test amaçları için x.509 sunucu sertifikasının bir otomatik olarak imzalanan sertifika yerinde kullanabilirsiniz. Otomatik olarak imzalanan sertifikalar kümenin FQDN'sini eşleşmesi gerekmez.
+     > [!NOTE]  
+     > Test amaçları için x.509 sunucu sertifikasının bir otomatik olarak imzalanan sertifika yerinde kullanabilirsiniz. Otomatik olarak imzalanan sertifikalar kümenin FQDN'sini eşleşmesi gerekmez.
 
-1.  **Yönetici istemci sertifikası** bu istemci otomatik imzalı Service Fabric kümesi için kimlik doğrulaması için kullanacağı sertifikadır. Bkz: [gereksinimleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) bu istemci sertifikası oluşturmak için.
+1. **Yönetici istemci sertifikası** bu istemci otomatik imzalı Service Fabric kümesi için kimlik doğrulaması için kullanacağı sertifikadır. Bkz: [gereksinimleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) bu istemci sertifikası oluşturmak için.
 
-1.  **Aşağıdaki öğeler Azure Stack Market'te kullanılabilir olmalıdır:**
-     - **Windows Server 2016** – kümeyi oluşturmak için Windows Server 2016 görüntüsü şablonu kullanır.  
-     - **Müşteri betik uzantısını** -Microsoft gelen sanal makine uzantısı.  
-     - **PowerShell istenen aşama yapılandırma** -Microsoft gelen sanal makine uzantısı.
+1. **Aşağıdaki öğeler Azure Stack Market'te kullanılabilir olmalıdır:**
+    - **Windows Server 2016** – kümeyi oluşturmak için Windows Server 2016 görüntüsü şablonu kullanır.  
+    - **Müşteri betik uzantısını** -Microsoft gelen sanal makine uzantısı.  
+    - **PowerShell istenen aşama yapılandırma** -Microsoft gelen sanal makine uzantısı.
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault’a gizli dizi ekleme

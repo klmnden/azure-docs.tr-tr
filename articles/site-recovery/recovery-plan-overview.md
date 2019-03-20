@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c7d66c389958aa3b5274a3d81f27f416308acdee
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 053d400a9986d0997344b2be09140d8afb0e1faf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975670"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996372"
 ---
 # <a name="about-recovery-plans"></a>Kurtarma planları hakkında
 
@@ -29,7 +29,7 @@ Bir kurtarma planı yük devretme küçük bağımsız birimleri oluşturarak si
 
 * Bir uygulama etrafında bağımlılıklarını model.
 * RTO azaltmak için kurtarma görevlerini otomatikleştirin.
-- Uygulamalarınızı, Kurtarma planının bir parçası olduğunu sağlayarak geçiş veya olağanüstü durum kurtarma için hazır olmanız doğrulayın.
+* Uygulamalarınızı, Kurtarma planının bir parçası olduğunu sağlayarak geçiş veya olağanüstü durum kurtarma için hazır olmanız doğrulayın.
 * Olağanüstü durum kurtarma veya geçiş beklendiği gibi çalıştığından emin olmak için kurtarma planları üzerinde yük devretme testi çalıştırın.
 
 
@@ -42,10 +42,10 @@ Planlama ve uygulamaya özgü özellikleri yakalamak için bir kurtarma grubu ol
     - Bu sırada, ara yazılım başlar ve SQL Server katmanına bağlanmaya çalıştığında, SQL sunucusu katmanı zaten çalışıyor sağlar. 
     - Bu sırada, ön uç sunucusu son başlatır, son kullanıcılar, tüm bileşenleri hazır olduğunuzda önce uygulama URL'sini ve çalışan ve uygulama bağlamayın. böylece istek kabul etmeye hazır olun da yardımcı olur.
 
-Bu sıralamayı oluşturmak için kurtarma grubuna grup ekleme ve gruplara makineleri ekleyin. 
-    - Sipariş belirtilen yerlerde, sıralama kullanılır. Eylemler, uygun olduğunda, uygulama kurtarma RTO geliştirmek paralel olarak çalışır.
-    - Paralel olarak tek bir grupta makine devredin.
-    - Grup 1'deki tüm makineler yalnızca ve yük devretme başlatıldı sonra 2. Grup makineler, yük devretme başlatın. böylece farklı gruplardaki makine grubu sırayla devredin.
+Bu sıralamayı oluşturmak için kurtarma grubuna grup ekleme ve gruplara makineleri ekleyin.
+- Sipariş belirtilen yerlerde, sıralama kullanılır. Eylemler, uygun olduğunda, uygulama kurtarma RTO geliştirmek paralel olarak çalışır.
+- Paralel olarak tek bir grupta makine devredin.
+- Grup 1'deki tüm makineler yalnızca ve yük devretme başlatıldı sonra 2. Grup makineler, yük devretme başlatın. böylece farklı gruplardaki makine grubu sırayla devredin.
 
     ![Örnek kurtarma planı](./media/recovery-plan-overview/rp.png)
 
@@ -93,4 +93,4 @@ Bir kurtarma planı test yük devretmeyi tetiklemek için kullanabilirsiniz. Aş
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Oluşturma](site-recovery-create-recovery-plans.md) bir kurtarma planı.
-* Hakkında bilgi edinin [devretme testlerini çalıştırma](site-recovery-failover.md).  
+- Hakkında bilgi edinin [devretme testlerini çalıştırma](site-recovery-failover.md).  

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 5b749a85295e85ecde8d283ca02066a31be33666
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 259787a90b61b171f391dc02276214f17a57d0d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673078"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838825"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Öğretici: Azure hizmeti logo kameradan resim tanıma
 
@@ -101,7 +101,6 @@ Ardından, açık *Source\VisualProvision\AppSettings.cs* dosya ve doldurma `Com
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
 
-
 ## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
 
 Uygulama Hizmetleri Azure aboneliğinize dağıtmak için bir Azure hizmet sorumlusu hesabı gerektirir. Bir hizmet sorumlusu, rol tabanlı erişim denetimi kullanarak uygulama için belirli izinleri için temsilci seçme sağlar. Daha fazla bilgi için bkz. [hizmet sorumluları Kılavuzu](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
@@ -131,6 +130,7 @@ az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongP
   ...
 }
 ```
+
 Not `clientId` ve `tenantId` değerleri. Uygun alanları eklemek *Source\VisualProvision\AppSettings.cs* dosya.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
@@ -138,9 +138,10 @@ Not `clientId` ve `tenantId` değerleri. Uygun alanları eklemek *Source\VisualP
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
 Bu noktada, uygulama erişimini verdiniz:
-* eğitilen bir özel görüntü işleme modeli
-* Görüntü işleme hizmeti
-* bir hizmet sorumlusu hesabı 
+
+- eğitilen bir özel görüntü işleme modeli
+- Görüntü işleme hizmeti
+- bir hizmet sorumlusu hesabı
 
 Uygulamayı çalıştırmak için aşağıdaki adımları izleyin:
 
@@ -163,7 +164,6 @@ Uygulamayı çalıştırmak için aşağıdaki adımları izleyin:
 
     ![Hedef Azure aboneliğinin bir açılan alan gösteren uygulama ekranı](media/azure-logo-tutorial/app-az-subscription.png)
 
-    
 
 1. Cihazınızda kamerayı etkinleştirilir. Fotoğraf, eğitilmiş Azure hizmeti logoları birinin yararlanın. Dağıtım penceresi, yeni hizmetler için bir bölge ve kaynak grubu (Azure portalından dağıtımı yaptığınız şekilde) seçmek için isteyecektir. 
 
@@ -171,7 +171,7 @@ Uygulamayı çalıştırmak için aşağıdaki adımları izleyin:
 
     ![Dağıtım bölge ve kaynak grubu için alanları gösteren bir uygulama ekranı](media/azure-logo-tutorial/app-deployment-options.png)
 
-## <a name="clean-up-resources"></a>Kaynakları temizleme 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Tüm bu senaryonun adımları izleyen ve uygulama hesabınıza Azure hizmetlerini dağıtmak için kullanılan, Git [Azure portalında](https://ms.portal.azure.com/). Hizmetleri kullanmak istemiyorsanız, iptal.
 

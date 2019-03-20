@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 59f4dffb64b0e72e8847f0b1baf947ad1d732063
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1e67c22a55068ce42cb1eb6d9c0c9bdf8215f44e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766590"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167992"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-new-ui-design"></a>Azure IOT Central uygulamanızda (yeni kullanıcı Arabirimi tasarımı) cihazları yönetme
 
@@ -23,7 +23,6 @@ Bu makalede, Azure IOT Central uygulamanızdaki cihazları yönetmek için bir i
 - Cihazlarınızı güncel envanterini korur.
 - Cihaz meta verilerinizi güncel cihaz özelliklerinde depolanan değerleri değiştirerek tutun.
 - Belirli bir CİHAZDAN bir ayar güncelleştirerek cihazlarınızı davranışını denetleyen **ayarları** sayfası.
-
 
 ## <a name="view-your-devices"></a>Cihazlarınızı görüntüleme
 
@@ -104,7 +103,7 @@ Cihazları içeri aktarma altında başlatarak kaydederseniz **ilişkili değil,
 
 ## <a name="export-devices"></a>Cihazlar dışarı aktarma
 
-Gerçek bir cihaz IOT Central bağlanmak için bağlantı dizesi gerekir. Bağlantı dizelerini ve diğer özellikleri almak için toplu cihaz ayrıntıları dışarı aktarabilirsiniz. Dışarı aktarma işlemi, cihaz kimliği, cihaz adı ve tüm seçili cihazlar için birincil bağlantı dizesi ile bir CSV dosyası oluşturur.
+Gerçek bir cihaz IOT Central bağlanmak için bağlantı dizesi gerekir. Cihaz ayrıntıları toplu cihaz bağlantı dizesi oluşturmak ihtiyacınız olan bilgileri almak için dışarı aktarabilirsiniz. Dışarı aktarma işlemi, cihaz kimliği, cihaz adını ve anahtarlarını tüm seçili cihazlar için bir CSV dosyası oluşturur.
 
 Uygulamanızdan dışarı aktarma cihazları toplu olarak:
 
@@ -130,8 +129,10 @@ Uygulamanızdan dışarı aktarma cihazları toplu olarak:
     * IOTC_DEVICENAME
     * IOTC_SASKEY_PRIMARY
     * IOTC_SASKEY_SECONDARY
-    * IOTC_X509THUMBPRINT_PRIMARY   
+    * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
+
+Bkz: [Azure IOT Central, cihaz bağlantısı](concepts-connectivity.md), bağlantı dizeleri ve IOT Central uygulamanıza bağlanan gerçek cihazlar hakkında daha fazla bilgi için.
 
 ## <a name="delete-a-device"></a>Bir cihazı silme
 

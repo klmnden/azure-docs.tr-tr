@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a160bc0247d2f80dda620b67c946805926d78006
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f63851359a19455ab0f46f66a801a679ee2c3bfe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773972"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079699"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Hızlı Başlangıç: Yerel Jupyter not defterini geçirme
 
@@ -50,13 +50,13 @@ Bu hızlı başlangıçta bir not defteri yerel bilgisayarınıza veya başka bi
 
    (Not defterinizin bir GitHub deposunda ise, yeniden yönergeleri takip [hızlı başlangıç: Bir not defteri kopyalama](quickstart-clone-jupyter-notebook.md) yerine.)
 
-    - Kullanıyorsanız **bilgisayarı**, sürükle ve bırak, *.ipynb* seçin veya açılan dosyalarıyla **dosya seçin**, ardından gözatın ve içeri aktarmak istediğiniz dosyaları seçin. Ardından **karşıya**. Karşıya yüklenen dosyalar olan yerel dosyalarla aynı adı verilir. (Herhangi bir içeriği karşıya yükleme gerekmez *.ipynb_checkpoints* klasörleri.)
+   - Kullanıyorsanız **bilgisayarı**, sürükle ve bırak, *.ipynb* seçin veya açılan dosyalarıyla **dosya seçin**, ardından gözatın ve içeri aktarmak istediğiniz dosyaları seçin. Ardından **karşıya**. Karşıya yüklenen dosyalar olan yerel dosyalarla aynı adı verilir. (Herhangi bir içeriği karşıya yükleme gerekmez *.ipynb_checkpoints* klasörleri.)
 
-    ![Bilgisayar açılır penceresinden karşıya yükleme](media/quickstarts/upload-from-computer-popup.png)
+     ![Bilgisayar açılır penceresinden karşıya yükleme](media/quickstarts/upload-from-computer-popup.png)
 
-    - Kullanıyorsanız **URL'den**, kaynak adresi girerek **dosya URL'si** alan ve projenizde not defterine atamak için dosya adı **dosya adı** alan. Ardından **karşıya**. Ayrı URL'ler ile birden çok dosyanız varsa, kullanmak **+ Dosya Ekle** sonra ve açılan yeni alanlar için başka bir dosyaya sağlar, girdiğiniz ilk URL denetlemek için komutu.
+   - Kullanıyorsanız **URL'den**, kaynak adresi girerek **dosya URL'si** alan ve projenizde not defterine atamak için dosya adı **dosya adı** alan. Ardından **karşıya**. Ayrı URL'ler ile birden çok dosyanız varsa, kullanmak **+ Dosya Ekle** sonra ve açılan yeni alanlar için başka bir dosyaya sağlar, girdiğiniz ilk URL denetlemek için komutu.
 
-    ![URL açılır penceresinden karşıya yükleme](media/quickstarts/upload-from-url-popup.png)
+     ![URL açılır penceresinden karşıya yükleme](media/quickstarts/upload-from-url-popup.png)
 
 1. Açın ve içeriğini ve işlem doğrulamak için yeni yüklenen defterinizin çalıştırın. İşiniz bittiğinde **dosya** > **durdurmak ve Kapat** not defterini kapatmak için.
 

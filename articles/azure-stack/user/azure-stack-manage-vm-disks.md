@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: c6bba6a428e5ff339b1d269965fa1948bddc696e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4edaf782b193e99dfe4002eedb6f3a046fb7dcd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764447"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081466"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Azure Stack'te sanal makine disk depolama alanı oluşturma
 
@@ -68,56 +68,56 @@ Eklediğiniz her bir yönetilmeyen disk içinde ayrı bir kapsayıcıya koymanı
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Oluşturun ve yeni bir veri diski için portalı kullanma
 
-1.  Portalında, **tüm hizmetleri** > **sanal makineler**.    
-    ![Örnek: Sanal makine Panosu'ndan](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+1. Portalında, **tüm hizmetleri** > **sanal makineler**.    
+   ![Örnek: Sanal makine Panosu'ndan](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-2.  Daha önce oluşturduğunuz bir sanal makineyi seçin.   
-    ![Örnek: Panoda bir VM seçin](media/azure-stack-manage-vm-disks/select-a-vm.png)
+2. Daha önce oluşturduğunuz bir sanal makineyi seçin.   
+   ![Örnek: Panoda bir VM seçin](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  Sanal makine için seçin **diskleri** > **Ekle veri diski**.       
-    ![Örnek: VM'ye yeni bir disk ekleme](media/azure-stack-manage-vm-disks/Attach-disks.png)    
+3. Sanal makine için seçin **diskleri** > **Ekle veri diski**.       
+   ![Örnek: VM'ye yeni bir disk ekleme](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  Veri diski için:
-    -  Girin **LUN**. LUN, geçerli bir sayı olmalıdır.
-    -  Seçin **Oluştur disk**.
-    ![Örnek: VM'ye yeni bir disk ekleme](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
+4. Veri diski için:
+   -  Girin **LUN**. LUN, geçerli bir sayı olmalıdır.
+   -  Seçin **Oluştur disk**.
+   ![Örnek: VM'ye yeni bir disk ekleme](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
 
-5.  Oluştur, disk dikey yönetilen:
-    -  Girin **adı** diskin.
-    -  Mevcut bir seçin veya yeni bir **kaynak grubu**.
-    -  Seçin **konumu**. Varsayılan olarak, konum, işletim sistemi diskini barındıran aynı kapsayıcıya ayarlanır.
-    -  Seçin **hesap türü**. 
-        ![Örnek: VM'ye yeni bir disk ekleme](media/azure-stack-manage-vm-disks/create-manage-disk.png)
+5. Oluştur, disk dikey yönetilen:
+   - Girin **adı** diskin.
+   - Mevcut bir seçin veya yeni bir **kaynak grubu**.
+   - Seçin **konumu**. Varsayılan olarak, konum, işletim sistemi diskini barındıran aynı kapsayıcıya ayarlanır.
+   - Seçin **hesap türü**. 
+      ![Örnek: VM'ye yeni bir disk ekleme](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
-        **Premium SSD**  
-        Premium diskler (SSD) katı hal sürücüleriyle desteklenir ve tutarlı, düşük gecikme süreli performans sunar. Bunlar, fiyat ve performans arasında en iyi dengeyi sağlar ve g/Ç açısından yoğun uygulamalar ve üretim iş yükleri için idealdir.
+      **Premium SSD**  
+      Premium diskler (SSD) katı hal sürücüleriyle desteklenir ve tutarlı, düşük gecikme süreli performans sunar. Bunlar, fiyat ve performans arasında en iyi dengeyi sağlar ve g/Ç açısından yoğun uygulamalar ve üretim iş yükleri için idealdir.
        
-        **Standart HDD**  
-        Standart diskler (HDD) manyetik sürücüler tarafından desteklenir ve verilere sık erişilmeyen uygulamalar için tercih edilebilir. Bölge - yedekli diskler, verilerinizi birden çok alanda çoğaltan bölgesel olarak yedekli depolama (ZRS) tarafından desteklenir ve tek bir bölge çalışmıyor olsa bile kullanılabilir. 
+      **Standart HDD**  
+      Standart diskler (HDD) manyetik sürücüler tarafından desteklenir ve verilere sık erişilmeyen uygulamalar için tercih edilebilir. Bölge - yedekli diskler, verilerinizi birden çok alanda çoğaltan bölgesel olarak yedekli depolama (ZRS) tarafından desteklenir ve tek bir bölge çalışmıyor olsa bile kullanılabilir. 
 
-    -  Seçin **kaynak türünü**.
+   - Seçin **kaynak türünü**.
 
-       Farklı bir diskin anlık görüntüsünden ya da depolama hesabındaki bir blobdan bir disk oluşturun veya boş bir disk oluşturun.
+     Farklı bir diskin anlık görüntüsünden ya da depolama hesabındaki bir blobdan bir disk oluşturun veya boş bir disk oluşturun.
 
-        **Anlık görüntü**  
-        Varsa, bir anlık görüntü seçin. Anlık görüntü olmalıdır sanal makinenin abonelik ve konumdaki kullanılabilir.
+      **Anlık görüntü**  
+      Varsa, bir anlık görüntü seçin. Anlık görüntü olmalıdır sanal makinenin abonelik ve konumdaki kullanılabilir.
 
-        **Depolama blobu**  
-        - Disk görüntüsünü içeren bir depolama blobu URI'si ekleyin.  
-        - Seçin **Gözat** depolama hesapları dikey penceresini açın. Yönergeler için bkz [bir depolama hesabından bir veri diski ekleme](#add-a-data-disk-from-a-storage-account).
-        - Görüntü işletim sistemi türünü seçin **Windows**, **Linux**, veya **yok (veri diski)**.
+      **Depolama blobu**  
+     - Disk görüntüsünü içeren bir depolama blobu URI'si ekleyin.  
+     - Seçin **Gözat** depolama hesapları dikey penceresini açın. Yönergeler için bkz [bir depolama hesabından bir veri diski ekleme](#add-a-data-disk-from-a-storage-account).
+     - Görüntü işletim sistemi türünü seçin **Windows**, **Linux**, veya **yok (veri diski)**.
 
-        **Yok (boş disk)**
+       **Yok (boş disk)**
 
-    -  Seçin **boyutu (GiB)**.
+   - Seçin **boyutu (GiB)**.
 
-       Standart disk disk boyutuna göre artış maliyeti. Diskin boyutuna göre premium diskin maliyetleri ve performansı artar. Daha fazla bilgi için [yönetilen diskler fiyatlandırması](https://go.microsoft.com/fwlink/?linkid=843142).
+     Standart disk disk boyutuna göre artış maliyeti. Diskin boyutuna göre premium diskin maliyetleri ve performansı artar. Daha fazla bilgi için [yönetilen diskler fiyatlandırması](https://go.microsoft.com/fwlink/?linkid=843142).
 
-    -  **Oluştur**’u seçin. Azure Stack oluşturur ve yönetilen disk doğrular.
+   - **Oluştur**’u seçin. Azure Stack oluşturur ve yönetilen disk doğrular.
 
-5.  Azure Stack disk oluşturur ve sanal makineye iliştirir sonra yeni disk sanal makinenin disk ayarları altında listelenir **veri DİSKLERİ**.   
+5. Azure Stack disk oluşturur ve sanal makineye iliştirir sonra yeni disk sanal makinenin disk ayarları altında listelenir **veri DİSKLERİ**.   
 
-    ![Örnek: Diski görüntüleme](media/azure-stack-manage-vm-disks/view-data-disk.png)
+   ![Örnek: Diski görüntüleme](media/azure-stack-manage-vm-disks/view-data-disk.png)
 
 ### <a name="add-a-data-disk-from-a-storage-account"></a>Bir depolama hesabından bir veri diski ekleme
 

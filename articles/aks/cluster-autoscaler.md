@@ -7,21 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 841c9ae933dfa6d94eaf265549c7e697caf3dc02
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: dd66ac6392c0afb88d43a8814cef07ec590f6a55
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782522"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990745"
 ---
-# <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Azure Kubernetes Service'teki (AKS) uygulama taleplerini karşılamak üzere küme otomatik olarak ölçeklendirme
+# <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Önizleme - Azure Kubernetes Service'teki (AKS) uygulama taleplerini karşılamak üzere küme otomatik olarak ölçeklendirme
 
 Azure Kubernetes Service (AKS) uygulama taleplerini tutmak için iş yüklerinizi çalıştırmak düğüm sayısını ayarlamanız gerekebilir. Küme otomatik ölçeklendiricinin bileşeni için kaynak kısıtlamaları nedeniyle zamanlanamaz kümenizi pod'ların izleyebilirsiniz. Sorunlar tespit edildiğinde, uygulama talebi karşılamak için düğüm sayısı artar. Düğümler, daha sonra gerektiğinde azalan düğüm sayısını ile pod'ları, çalışan bir olmaması için de düzenli olarak denetlenir. Bu özelliği otomatik olarak ölçeği artırın veya azaltın, AKS kümenizdeki düğüm sayısını, verimli ve ekonomik bir küme çalıştırmanıza olanak tanır.
 
 Bu makalede etkinleştirin ve bir AKS kümesindeki Küme ölçeklendiriciyi yönetme gösterilmektedir.
 
 > [!IMPORTANT]
-> Bu özellik şu anda önizleme sürümündedir. Önizlemeler, [ek kullanım koşullarını][terms-of-use] kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
+> AKS Önizleme özellikleri, Self Servis ve kabul etme. Görüş ve hata topluluğumuza toplamak üzere önizlemeleri sağlanır. Ancak, Azure teknik destek birimi tarafından desteklenmez. Bir küme oluşturun veya var olan kümeleri için bu özellikleri ekleyin, bu özellik artık Önizleme aşamasındadır ve genel kullanılabilirlik (GA) mezunu kadar bu küme desteklenmiyor.
+>
+> Önizleme özellikleri sorunlarla karşılaşırsanız [AKS GitHub deposunda bir sorun açın] [ aks-github] hata başlığı önizleme özelliğini adı.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -36,7 +38,7 @@ az extension add --name aks-preview
 ```
 
 > [!NOTE]
-> Yüklediğinizde *aks önizlemesini* uzantısı, oluşturduğunuz her bir AKS kümesi, Ölçek kümesi Önizleme dağıtım modeli kullanır. Uzantısını kullanarak geri çevirmek ve düzenli tam olarak desteklenen kümeleri oluşturmak için kaldırma `az extension remove --name aks-preview`.
+> Daha önce yüklediyseniz *aks önizlemesini* uzantısını kullanarak güncelleştirmeleri yükle kullanılabilen `az extension update --name aks-preview` komutu.
 
 ### <a name="register-scale-set-feature-provider"></a>Ölçek kümesi özelliği sağlayıcısını Kaydet
 
@@ -87,7 +89,7 @@ Küme otomatik ölçeklendiricinin ölçek olayları ve kaynak eşikleri arasın
 Bir AKS kümesi oluşturmak ihtiyacınız varsa [az aks oluşturma] [ az-aks-create] komutu. Belirtin bir *--kubernetes sürümü* , karşıladığını veya önceki özetlendiği gibi gerekli en düşük sürüm numarası [başlamadan önce](#before-you-begin) bölümü. Etkinleştirmek ve küme ölçeklendiriciyi yapılandırmak için kullanın *--enable-kümesi-otomatik ölçeklendiricinin* parametresi ve bir düğüm belirtin *--min-count* ve *--sayısı üst sınırı*.
 
 > [!IMPORTANT]
-> Küme otomatik ölçeklendiricinin Kubernetes bileşendir. AKS kümesi bir sanal makine ölçek kümesi düğümleri kullansa da, yoksa el ile etkinleştirmeniz veya Azure portalında veya Azure CLI kullanarak ölçek kümesi ölçeklendirme ayarlarını düzenleyin. Kubernetes küme ölçeklendiriciyi gerekli ölçek ayarları yönetmenize olanak tanır. Daha fazla bilgi için [AKS kaynakları MC_ kaynak grubunda değişiklik yapabilirsiniz?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group)
+> Küme otomatik ölçeklendiricinin Kubernetes bileşendir. AKS kümesi bir sanal makine ölçek kümesi düğümleri kullansa da, yoksa el ile etkinleştirmeniz veya Azure portalında veya Azure CLI kullanarak ölçek kümesi ölçeklendirme ayarlarını düzenleyin. Kubernetes küme ölçeklendiriciyi gerekli ölçek ayarları yönetmenize olanak tanır. Daha fazla bilgi için [AKS kaynakları MC_ kaynak grubunda değişiklik yapabilirsiniz?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc_-resource-group)
 
 Aşağıdaki örnek sanal makine ölçek kümesi ve etkin küme ölçeklendiriciyi ile bir AKS kümesi oluşturur ve en az *1* ve en fazla *3* düğümleri:
 
@@ -174,6 +176,7 @@ Bu makalede otomatik olarak AKS düğümleri sayısının ölçeğini nasıl olu
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

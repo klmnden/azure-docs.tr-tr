@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1110ef9383798ddeb8a04a0e19deb441e3d207c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 93b59a108d5d87479c12174e97713d4c12d84f2e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081313"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200064"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Öğretici: Grup üyelerini otomatik olarak ekleyip
 
@@ -28,7 +28,7 @@ Azure Active Directory'de (Azure AD) sürekli el ile müdahale etmenize gerek ka
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
-> * Belirli bir iş ortağı şirketinin konuk kullanıcıları için otomatik olarak doldurulan bir grup oluşturma
+> * Bir iş ortağı şirkete ait bir otomatik olarak doldurulmuş Konuk kullanıcı grubu oluşturma
 > * Gruba konuk kullanıcıların erişmesi için iş ortağına özgü özelliklere yönelik lisans atama
 > * Bonus: Üye kullanıcılarınızın yalnızca içeriden erişilebilen sitelere erişimini yönetme gibi işlemler gerçekleştirmek için konuk kullanıcıları kaldırarak **Tüm kullanıcılar** grubunun güvenliğini sağlama
 
@@ -46,7 +46,7 @@ Dinamik gruplara üye olarak ekleyeceğiniz kullanıcılara lisans atamanıza ge
 
 1. Azure portalında oturum açın (https://portal.azure.com) kiracınız için genel yönetici olan bir hesapla.
 2. **Azure Active Directory** > **Gruplar** > **Yeni grup**'u seçin.
-   ![Yeni grup seçme komutu](./media/groups-dynamic-tutorial/new-group.png)
+   ![Yeni bir grup başlatmak için komut seçin](./media/groups-dynamic-tutorial/new-group.png)
 3. **Grup** dikey penceresinde:
   
    * **Güvenlik** grup türünü seçin

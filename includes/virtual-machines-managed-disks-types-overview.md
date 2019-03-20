@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cdfc858522c5b331c90259de0fb5ad84fa54bc5d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f36ce51a9f385933cbc21e27280828b0ff0e43e2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57251990"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58016693"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure'da hangi disk türleri mevcuttur?
 
@@ -72,59 +72,3 @@ Ultra yüksek SSD, bazı temel işlevler şunlardır:
 - Henüz diski anlık görüntüleri, VM görüntüleri, kullanılabilirlik kümeleri, sanal makine ölçek kümeleri ve Azure disk şifrelemesini desteklemiyor.
 - Henüz Azure Backup'ı veya Azure Site Recovery ile tümleştirmesini desteklemiyor.
 - Olduğu gibi [çoğu önizlemeler](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), bu özellik genel kullanılabilirlik (GA) kadar üretim iş yükleri için kullanılmamalıdır.
-
-## <a name="premium-ssd"></a>Premium SSD
-
-Azure premium SSD giriş/çıkış (GÇ) ile sanal makineleri (VM'ler) için yüksek performanslı ve düşük gecikme süreli disk desteği sunmak-yoğun iş yükleri. Hızı avantajından ve premium depolama disklerini performansını yararlanmak için var olan VM diskleri için Premium SSD geçirebilirsiniz. Premium SSD, görev açısından kritik üretim uygulamaları için uygundur.
-
-### <a name="disk-size"></a>Disk boyutu
-
-Yıldız ile işaretlenmiş boyutları şu anda Önizleme aşamasındadır.
-
-| Premium SSD boyutları  | P4               | P6               | P10             | P15 | P20              | P30              | P40              | P50              | P60 *              | P70 *              | P80 *              |
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Disk boyutu gib biriminde           | 32             | 64             | 128            | 256  | 512            | 1,024    | 2,048     | 4,095    | 8,192     | 16,384     | 32,767     |
-| Disk başına IOPS       | En fazla 120 | En fazla 240              | En fazla 500              | En fazla 1.100 | En fazla 2,300              | En fazla 5000              | En fazla 7.500             | En fazla 7.500              | En fazla 12.500              | En fazla 15000              | 20000              |
-| Disk başına aktarım hızı | En fazla 25 MiB/sn | En çok 50 MiB/sn | En fazla 100 MiB/sn | En fazla 125 MiB/sn | En fazla 150 MiB/sn | En fazla 200 MiB/sn | En fazla 250 MiB/sn | En fazla 250 MiB/sn| En fazla 480 MiB/sn | En fazla 750 MiB/sn | En fazla 750 MiB/sn |
-
-## <a name="standard-ssd"></a>Standart SSD
-
-Azure standart SSD'ler düşük IOPS düzeylerinde tutarlı bir performans gerektiren iş yükleri için en iyi duruma getirilmiş düşük maliyetli depolama bir seçenektir. Standart SSD, özellikle varyansını HDD çözümlerinizi şirket içinde çalışan iş yükleri ile ilgili sorun yaşıyorsanız kullanıcıların buluta taşımak istediğiniz iyi giriş düzeyi deneyimi sunar. Standart SSD daha iyi kullanılabilirlik, tutarlılık, güvenilirlik ve HDD disklere karşılaştırıldığında gecikme süresi sunar. Standart SSD, Web sunucuları, düşük IOPS uygulama sunucuları, az kullanılan kurumsal uygulamalar ve geliştirme/Test iş yükleri için uygundur.
-
-### <a name="disk-size"></a>Disk boyutu
-
-Yıldız ile işaretlenmiş boyutları şu anda Önizleme aşamasındadır.
-
-| Standart SSD boyutları  | E4                   | E6                   | E10               | E15               | E20             | E30 | E40              | E50              | E60*              | E70 *              | E80*              |
-|---------------------|---------------------|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Disk boyutu gib biriminde           | 32             | 64             | 128             | 256             | 512            | 1,024  | 2,048            | 4,095     | 8,192     | 16,384     | 32,767    |
-| Disk başına IOPS       | En fazla 120              | En fazla 240              | En fazla 500              | En fazla 500              | En fazla 500              | En fazla 500 | En fazla 500              | En fazla 500              | En fazla 500             | En fazla 500              | En fazla 1.300              | En fazla 2.000              | En fazla 2.000              |
-| Disk başına aktarım hızı |  En fazla 25 MiB/sn  |  En çok 50 MiB/sn  |  En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn| En fazla 300 MiB/sn |  En fazla 500 MiB/sn | En fazla 500 MiB/sn |
-
-## <a name="standard-hdd"></a>Standart HDD
-
-Azure standart HDD, gecikmeye duyarlı olmayan iş yükleri çalıştıran VM'ler için güvenilir, düşük maliyetli disk desteği sunar. Ayrıca, BLOB'ları, tabloları, kuyrukları ve dosyaları destekler. Standart depolama ile verileri sabit disk sürücülerinin (HDD'ler) depolanır. Vm'lerle çalışırken, geliştirme/test senaryoları için ve kritik iş yüklerini daha az SSD ve HDD standart diskleri kullanabilirsiniz. Standart depolama, tüm Azure bölgelerinde kullanılabilir.
-
-### <a name="disk-size"></a>Disk boyutu
-
-Yıldız ile işaretlenmiş boyutları şu anda Önizleme aşamasındadır.
-
-| Standart Disk Türü  | S4               | S6               | S10             | S15 | S20              | S30              | S40              | S50              | S60 *              | S70 *              | S80*              |
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Disk boyutu gib biriminde          | 32             | 64             | 128            | 256  | 512            | 1,024    | 2,048     | 4,095    | 8,192     | 16,384     | 32,767     |
-| Disk başına IOPS       | En fazla 500              | En fazla 500              | En fazla 500              | En fazla 500 | En fazla 500              | En fazla 500              | En fazla 500             | En fazla 500              | En fazla 1.300              | En fazla 2.000              | En fazla 2.000              |
-| Disk başına aktarım hızı | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn | En fazla 60 MiB/sn| En fazla 300 MiB/sn | En fazla 500 MiB/sn | En fazla 500 MiB/sn |
-
-## <a name="billing"></a>Faturalandırma
-
-Yönetilen diskleri kullanırken aşağıdaki fatura değerlendirmeleri geçerlidir:
-
-- Disk türü
-- Yönetilen disk boyutu
-- Anlık Görüntüler
-- Giden veri aktarımları
-- İşlem sayısı
-
-**Yönetilen disk boyutu**: yönetilen diskler ile sağlanan boyutu faturalandırılır. Azure (en yakın önerilen disk boyutuna yuvarlanır) sağlanan boyut eşler. Sağlanan disk boyutları Ayrıntılar için önceki tablolara bakın. Her disk, desteklenen sağlanan disk boyutu teklifine eşlenir ve buna göre faturalandırılır. Örneğin, bu E15 disk boyutu teklifine eşleyen bir 200 GiB standart SSD sağladıysanız, (256 GiB). Sağlanmış bir diski için faturalama, saatlere Premium depolama teklif için aylık fiyat kullanılarak eşit olarak dağıtılır. E10 bir disk sağlanır ve 20 saat sonra silindi, için E10 teklif 20 saat eşit olarak dağıtılır. Örneğin, faturalandırılırsınız. Diske yazılan gerçek veri miktarından bağımsız olarak budur.
-
-**Anlık görüntüleri**: Anlık görüntüler, kullanılan boyutuna göre faturalandırılır. Örneğin, anlık görüntü sağlanan kapasitesi 64 GiB ve gerçek kullanılan veri boyutu 10 GiB ile bir yönetilen diskin anlık görüntüsünü oluşturursanız, yalnızca kullanılan veri boyutu 10 GiB için faturalandırılır.

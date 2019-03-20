@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2019
+ms.date: 3/14/2019
 ms.author: monhaber
-ms.openlocfilehash: 7931caa985bc5dea98ca36bd15e0e634855ab2c5
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: d99ef6026f3605f4081393811d840ba3fe2892ba
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650640"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226122"
 ---
 # <a name="working-with-security-policies"></a>Güvenlik ilkeleriyle çalışma
 
@@ -36,7 +36,7 @@ Güvenlik ilkesi iş yüklerinizin istenen yapılandırmasını tanımlar ve şi
 
 Güvenlik ilkelerinizi size Azure Güvenlik Merkezi'nde güvenlik önerilerini. Uyumluluk, olası zayıflıkları belirlemek ve tehditleri önlemeye yardımcı olmak için onlarla izleyebilirsiniz. Listesini sizin için uygun seçeneği belirleme hakkında daha fazla bilgi için bkz. [yerleşik güvenlik ilkeleri](security-center-policy-definitions.md).
 
-Güvenlik Merkezi'ni etkinleştirdiğinizde, yerleşik Güvenlik Merkezi güvenlik ilkesi, yerleşik bir girişim kategorisi Güvenlik Merkezi altında olarak Azure İlkesi'nde yansıtılır. Yerleşik girişim, tüm Güvenlik Merkezi kayıtlı abonelikler (ücretsiz veya standart katmanları) otomatik olarak atanır. Yerleşik girişim yalnızca denetim ilkeleri içerir. 
+Güvenlik Merkezi'ni etkinleştirdiğinizde, yerleşik Güvenlik Merkezi güvenlik ilkesi, yerleşik bir girişim kategorisi Güvenlik Merkezi altında olarak Azure İlkesi'nde yansıtılır. Yerleşik girişim, tüm Güvenlik Merkezi kayıtlı abonelikler (ücretsiz veya standart katmanları) otomatik olarak atanır. Yerleşik girişim yalnızca denetim ilkeleri içerir.
 
 
 ### <a name="management-groups"></a>Yönetim grupları
@@ -68,25 +68,25 @@ Güvenlik Merkezi'nde güvenlik ilkelerinizi görüntüleme:
 
     ![İlke Yönetimi bölmesi](./media/security-center-policies/security-center-policy-mgt.png)
 
-  İçinde **İlkesi Yönetimi** ekran, Yönetim grupları, abonelikleri ve çalışma alanlarının yanı sıra, yönetim grubu yapısı sayısını görebilirsiniz.
+   İçinde **İlkesi Yönetimi** ekran, Yönetim grupları, abonelikleri ve çalışma alanlarının yanı sıra, yönetim grubu yapısı sayısını görebilirsiniz.
 
-  > [!NOTE]
-  > - Güvenlik Merkezi panosunu aboneliklerin daha yüksek bir sayı gösterebilir **abonelik kapsamı** altında gösterilen aboneliklerin sayısından **İlkesi Yönetimi**. Abonelik kapsamı Standart, Ücretsiz ve “kapsanmayan” aboneliklerin sayısını gösterir. "Kapsanmayan" abonelik, Güvenlik Merkezi'nin etkin olmayan ve altında görüntülenmez **İlkesi Yönetimi**.
-  >
+   > [!NOTE]
+   > - Güvenlik Merkezi panosunu aboneliklerin daha yüksek bir sayı gösterebilir **abonelik kapsamı** altında gösterilen aboneliklerin sayısından **İlkesi Yönetimi**. Abonelik kapsamı Standart, Ücretsiz ve “kapsanmayan” aboneliklerin sayısını gösterir. "Kapsanmayan" abonelik, Güvenlik Merkezi'nin etkin olmayan ve altında görüntülenmez **İlkesi Yönetimi**.
+   >
 
-  Tablodaki sütunlar şunları gösterir:
+   Tablodaki sütunlar şunları gösterir:
 
- - **İlke girişimi atama** – Güvenlik Merkezi [yerleşik ilkeleri](security-center-policy-definitions.md) ve bir abonelik veya yönetim grubuna atanmış olan girişim.
- - **Kapsamı** – boş veya yönetim grubu, abonelik veya çalışma çalıştığı standart fiyatlandırma katmanı tanımlar.  Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
- - **Ayarları** – aboneliğiniz bağlantıyı **ayarlarını Düzenle**. Seçme **ayarlarını Düzenle** güncelleştirmenize olanak tanır, [Güvenlik Merkezi Ayarları](security-center-policies-overview.md) her abonelik veya yönetim grubu için.
- - **Güvenli puanı** - [güvenli puanı](security-center-secure-score.md) nasıl güvenli bir iş yükü güvenlik duruşunu bir ölçü sağlar ve iyileştirme önerileri önceliğini belirlemeye yardımcı olur.
+   - **İlke girişimi atama** – Güvenlik Merkezi [yerleşik ilkeleri](security-center-policy-definitions.md) ve bir abonelik veya yönetim grubuna atanmış olan girişim.
+   - **Kapsamı** – boş veya yönetim grubu, abonelik veya çalışma çalıştığı standart fiyatlandırma katmanı tanımlar.  Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
+   - **Ayarları** – aboneliğiniz bağlantıyı **ayarlarını Düzenle**. Seçme **ayarlarını Düzenle** güncelleştirmenize olanak tanır, [Güvenlik Merkezi Ayarları](security-center-policies-overview.md) her abonelik veya yönetim grubu için.
+   - **Güvenli puanı** - [güvenli puanı](security-center-secure-score.md) nasıl güvenli bir iş yükü güvenlik duruşunu bir ölçü sağlar ve iyileştirme önerileri önceliğini belirlemeye yardımcı olur.
 
 2. İlkeleri görüntülemek istediğiniz abonelik veya yönetim grubunu seçin.
 
-  - **Güvenlik İlkesi** ekran seçtiğiniz abonelik veya yönetim grubunda atanan ilkeleri tarafından gerçekleştirilecek eylemi yansıtır.
-  - En üstünde, her İlkesi'ni açmak için sağlanan bağlantıları kullanabilirsiniz **atama** abonelik veya yönetim grubuna yöneliktir. Atama erişmek ve düzenlemek veya ilkeyi devre dışı bırakmak için bağlantıları kullanabilirsiniz. Örneğin, belirli bir ilke ataması etkin uç nokta koruma engelleme görürseniz, erişim ilkesi ve düzenleyebilir ya da devre dışı bırakmak için bağlantıyı kullanabilirsiniz.
-  - İlkeler listesinde, abonelik veya yönetim grubu üzerinde etkili uygulama ilkesi görebilirsiniz. Bu kapsama uygulanan her ilke ayarlarını dikkate alınır ve ilke tarafından hangi eylemlerin, toplu sonucu ile sağlanan anlamına gelir. Örneğin bir atama ilkesi devre dışıdır, ancak başka bir programda Auditıfnotexist için ayarlanmış toplu etkisi Auditıfnotexist geçerlidir. Etkin etkisi her zaman önceliklidir.
-  - İlkeleri etkisi olabilir: Append, Denetim, AuditIfNotExists, reddetme, Deployıfnotexists, devre dışı bırakıldı. Etkileri nasıl uygulanacağı hakkında daha fazla bilgi için bkz. [anlamak ilke etkileri](../governance/policy/concepts/effects.md).
+   - **Güvenlik İlkesi** ekran seçtiğiniz abonelik veya yönetim grubunda atanan ilkeleri tarafından gerçekleştirilecek eylemi yansıtır.
+   - En üstünde, her İlkesi'ni açmak için sağlanan bağlantıları kullanabilirsiniz **atama** abonelik veya yönetim grubuna yöneliktir. Atama erişmek ve düzenlemek veya ilkeyi devre dışı bırakmak için bağlantıları kullanabilirsiniz. Örneğin, belirli bir ilke ataması etkin uç nokta koruma engelleme görürseniz, erişim ilkesi ve düzenleyebilir ya da devre dışı bırakmak için bağlantıyı kullanabilirsiniz.
+   - İlkeler listesinde, abonelik veya yönetim grubu üzerinde etkili uygulama ilkesi görebilirsiniz. Bu kapsama uygulanan her ilke ayarlarını dikkate alınır ve ilke tarafından hangi eylemlerin, toplu sonucu ile sağlanan anlamına gelir. Örneğin bir atama ilkesi devre dışıdır, ancak başka bir programda Auditıfnotexist için ayarlanmış toplu etkisi Auditıfnotexist geçerlidir. Etkin etkisi her zaman önceliklidir.
+   - İlkeleri etkisi olabilir: Append, Denetim, AuditIfNotExists, reddetme, Deployıfnotexists, devre dışı bırakıldı. Etkileri nasıl uygulanacağı hakkında daha fazla bilgi için bkz. [anlamak ilke etkileri](../governance/policy/concepts/effects.md).
 
    ![İlkesi ekranı](./media/security-center-policies/policy-screen.png)
 
@@ -102,16 +102,25 @@ Azure İlkesi portalı, REST API veya Windows PowerShell'i kullanarak aracılı�
 
 
 ## <a name="disable-security-policies"></a>Güvenlik ilkelerini devre dışı bırak
-Varsayılan güvenlik ilkesini, ortamınız için uygun değilse bir öneri oluşturuyorsa, öneri gönderen bir ilke tanımı'nı devre dışı bırakma durdurabilirsiniz. Bu ilke Azure portalı (ve Güvenlik Merkezi portalında), burada açıklandığı gibi gerçekleştirilir.
-Öneriler hakkında daha fazla bilgi için bkz: [güvenlik önerilerini yönetme](security-center-recommendations.md). 
-1. Azure İlkesi'ne gidin ve tıklayın **atamaları**.
-2. İçinde **ASC varsayılan** satır, üç noktaya tıklayın ve tıklayın **görüntülemek tanımı**. **Girişim tanımı** sayfası açılır.
-   ![tanımı görüntüle](./media/tutorial-security-policy/view-definition.png)
-3. Tıklayın **Düzenle intitiative**. **Girişim tanımını Düzenle** sayfası açılır.
-   ![girişimi Düzenle](./media/tutorial-security-policy/edit-initiative.png)
-4. İçinde **ilkeler ve PARAMETRELER** bölümü, arama, ilkeyi devre dışı bırakmak istediğiniz öneri çağırır ve aşağı açılan listeden seçin **devre dışı bırakılmış**.
+Varsayılan güvenlik ilkesini, ortamınız için uygun değilse bir öneri oluşturuyorsa, öneri gönderen bir ilke tanımı'nı devre dışı bırakma durdurabilirsiniz.
+Öneriler hakkında daha fazla bilgi için bkz: [güvenlik önerilerini yönetme](security-center-recommendations.md).
+
+1. Güvenlik Merkezi'nde gelen **ilke ve Uyumluluk** bölümünde **Güvenlik İlkesi**.
+
+   ![İlke yönetimi](./media/tutorial-security-policy/policy-management.png)
+
+2. Öneri devre dışı bırakmak istediğiniz aboneliğe tıklayın.
+
+1. Atanan ilke'ye tıklayın.
+
+   ![İlkeyi devre dışı bırak](./media/tutorial-security-policy/security-policy.png)
+
+1. İçinde **parametreleri** bölümü, arama, ilkeyi devre dışı bırakmak istediğiniz öneri çağırır ve aşağı açılan listeden seçin **devre dışı**
+
    ![İlkeyi devre dışı bırak](./media/tutorial-security-policy/disable-policy.png)
-1. Tıklayın **Kaydet** (sayfanın alt kısmında bulunur).
+1. **Kaydet**’e tıklayın.
+   > [!Note]
+   > Devre dışı bırakma ilke değişikliklerin etkili olması için 12 saat sürebilir.
 
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>REST API kullanarak bir güvenlik ilkesi yapılandırma
@@ -173,38 +182,38 @@ Bu örnekte, yerleşik Güvenlik Merkezi girişimine aboneliği devre dışı a�
 
 - Uç nokta Koruması ("endpointProtectionMonitoringEffect") 
 
- 
-      PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
-      Request Body (JSON) 
-
-      { 
-
-        "properties":{ 
-
-      "displayName":"Enable Monitoring in Azure Security Center", 
-
-      "metadata":{ 
-
-      "assignedBy":"{Name}" 
-
-      }, 
-
-      "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
-
-      "parameters":{ 
-
-      "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
-
-      "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
-
-      "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
-
-      }, 
-
-       } 
-
-      } 
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+    
+    İstek gövdesi (JSON) 
+    
+    { 
+    
+      "properties":{ 
+    
+    "displayName": "İzlemeyi etkinleştir Azure Güvenlik Merkezi'nde", 
+    
+    "meta veri": { 
+    
+    "assignedBy": "{Name}" 
+    
+    }, 
+    
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+    
+    "parametre": { 
+    
+    "systemUpdatesMonitoringEffect": {"value": "Disabled"}, 
+    
+    "systemConfigurationsMonitoringEffect": {"value": "Disabled"}, 
+    
+    "endpointProtectionMonitoringEffect": {"value": "Disabled"}, 
+    
+    }, 
+    
+     } 
+    
+    } 
 
 Bu örnek, bir atamayı silmeyi işlemini göstermektedir:
 

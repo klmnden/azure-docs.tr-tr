@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/03/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d1eac8f79ea53643659f8780ee03f8ced13c7dcd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 411b43ec631c77246da1ee55f2532486f8b55ffc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452235"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006637"
 ---
 # <a name="azure-storage-samples"></a>Azure Depolama örnekleri
 
@@ -63,8 +63,8 @@ C++ örneklerini keşfetmeye devam etmeyi indirme [C++ depolama istemci Kitaplı
 |----------|---------------|-------------|
 | .NET | [.NET İstemci Kitaplığı Başvurusu](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [.NET depolama istemci kitaplığı kaynak kodunu](https://github.com/Azure/azure-storage-net) |
 | Java | [Java istemci Kitaplığı Başvurusu](https://docs.microsoft.com/java/api/overview/azure/storage) | [Java için depolama istemci kitaplığı kaynak kodunu](https://github.com/azure/azure-storage-java) |
-| Node.js | [Node.js istemci Kitaplığı Başvurusu](http://azure.github.io/azure-storage-node) | [Node.js için depolama istemci kitaplığı kaynak kodunu](https://github.com/Azure/azure-storage-node) |
-| C++ | [C++ istemci Kitaplığı Başvurusu](http://azure.github.io/azure-storage-cpp/) | [C++ depolama istemci kitaplığı kaynak kodunu](https://github.com/Azure/azure-storage-cpp)|
+| Node.js | [Node.js istemci Kitaplığı Başvurusu](https://azure.github.io/azure-storage-node) | [Node.js için depolama istemci kitaplığı kaynak kodunu](https://github.com/Azure/azure-storage-node) |
+| C++ | [C++ istemci Kitaplığı Başvurusu](https://azure.github.io/azure-storage-cpp/) | [C++ depolama istemci kitaplığı kaynak kodunu](https://github.com/Azure/azure-storage-cpp)|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

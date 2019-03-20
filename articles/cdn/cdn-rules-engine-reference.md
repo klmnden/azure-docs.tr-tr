@@ -1,6 +1,6 @@
 ---
-title: Azure CDN kuralları altyapısı başvurusu | Microsoft Docs
-description: Azure CDN başvuru belgelerine altyapısı eşleşme koşulları ve özellikleri kuralları.
+title: Azure CDN kural altyapısı başvurusu | Microsoft Docs
+description: Azure CDN için başvuru belgeleri altyapısı eşleştirme koşulları ve özellikleri kuralları.
 services: cdn
 documentationcenter: ''
 author: Lichard
@@ -14,70 +14,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 602b4303dd1940791c11b8b71ac6a27f0474a6d5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3163b33f69f4cc2d6cd4127253c7b6fadfddd6b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29733688"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994227"
 ---
-# <a name="azure-cdn-rules-engine-reference"></a>Azure CDN kuralları başvuru altyapısı
-Bu makalede ayrıntılı açıklamaları için Azure içerik teslim ağı (CDN) kullanılabilir eşleşme koşulları ve özellikleri listelenmektedir [kurallar altyapısı](cdn-rules-engine.md).
+# <a name="azure-cdn-rules-engine-reference"></a>Azure CDN kural altyapısı başvurusu
+Bu makalede ayrıntılı açıklamaları için Azure Content Delivery Network (CDN) kullanılabilir eşleştirme koşulları ve özellikleri listelenmektedir [kurallar altyapısı](cdn-rules-engine.md).
 
-Kurallar altyapısı nasıl belirli türde istekler son yetkilisinde CDN tarafından işlenen olacak şekilde tasarlanmıştır.
+Kural altyapısı, belirli türde istekler son yetkilisinde CDN tarafından işlenen olacak şekilde tasarlanmıştır.
 
-**Ortak kullanımlar**:
+**Yaygın kullanımları**:
 
-- Geçersiz kılma veya özel önbellek ilkesi tanımlayın.
+- Geçersiz kılabilir veya özel önbellek ilkesini tanımlayın.
 - Güvenli veya hassas içerik isteklerini reddedin.
 - Yeniden yönlendirme istekleri.
-- Özel günlük verilerini depolar.
+- Özel günlük verilerini Store.
 
 ## <a name="terminology"></a>Terminoloji
-Bir kural kullanılarak tanımlanan [ **koşullu ifadeler**](cdn-rules-engine-reference-conditional-expressions.md), [ **eşleşen koşullar**](cdn-rules-engine-reference-match-conditions.md), ve [ **özellikleri**](cdn-rules-engine-reference-features.md). Bu öğeleri aşağıdaki şekilde vurgulanmıştır:
+Bir kural tarafından tanımlanan [ **koşullu ifadeler**](cdn-rules-engine-reference-conditional-expressions.md), [ **koşullara uyan**](cdn-rules-engine-reference-match-conditions.md), ve [ **özellikleri**](cdn-rules-engine-reference-features.md). Bu öğeleri aşağıdaki şekilde vurgulanmıştır:
 
  ![CDN eşleşme koşulu](./media/cdn-rules-engine-reference/cdn-rules-engine-terminology.png)
 
 ## <a name="syntax"></a>Sözdizimi
 
-Özel karakterler kabul edilir şekilde nasıl bir eşleşme koşul veya özellik metin değerlerini işleme göre değişir. Bir eşleşme koşul veya özellik metin aşağıdaki yollardan biriyle yorumlayabilir:
+İçinde özel karakterler kabul edilir bir şekilde nasıl bir eşleşme koşulu veya özellik metin değerlerini işler göre değişir. Bir eşleşme koşulu veya özellik metin aşağıdaki yollardan biriyle yorumlayabilir:
 
 1. [**Değişmez değerler**](#literal-values) 
-2. [**Joker karakter değerleri**](#wildcard-values)
+2. [**Değerleri joker karakter**](#wildcard-values)
 3. [**Normal ifadeler**](#regular-expressions)
 
 ### <a name="literal-values"></a>Değişmez değerler
-Değişmez değer yorumlanır metin % simgenin hariç olmak üzere tüm özel karakterleri eşleşmesi gereken değerinin bir parçası değerlendirir. Diğer bir deyişle, bir hazır değer kümesine koşul eşleşen `\'*'\` değeri tam olduğunda yalnızca sağlanıyorsa (diğer bir deyişle, `\'*'\`) bulunur.
+Değişmez değer yorumlanır metin % sembol hariç tüm özel karakterler eşlenmesi gereken değer bir parçası olarak değerlendirir. Diğer bir deyişle, koşul kümesi eşleşen bir sabit değer `\'*'\` değer, tam zaman yalnızca uyulmuş olur (diğer bir deyişle, `\'*'\`) bulunur.
  
-Bir yüzde simge URL kodlaması göstermek için kullanılır (örneğin, `%20`).
+URL kodlaması belirtmek için kullanılan bir yüzde sembolü (örneğin, `%20`).
 
-### <a name="wildcard-values"></a>Joker karakter değerleri
-Bir joker karakter değeri olarak yorumlanır metin ek anlam özel karakterleri atar. Aşağıdaki tabloda şu karakter kümesini nasıl yorumlanacağını açıklanmaktadır:
+### <a name="wildcard-values"></a>Değerleri joker karakter
+Joker karakter değer olarak yorumlanır metin için özel karakterler ek anlamlar atar. Aşağıdaki tabloda, şu karakter kümesini nasıl yorumlanacağını açıklanmaktadır:
 
 Karakter | Açıklama
 ----------|------------
-\ | Ters eğik çizgi bu tabloda belirtilen karakterlerden herhangi birini kaçınmak için kullanılır. Ters eğik çizgi kaçış doğrudan özel karakter önce belirtilmiş olması gerekir.<br/>Örneğin, aşağıdaki söz dizimini yıldız çıkışları: `\*`
-% | Bir yüzde simge URL kodlaması göstermek için kullanılır (örneğin, `%20`).
-* | Bir yıldız işareti bir veya daha fazla karakter temsil eden bir joker karakterdir.
-Boşluk | Bir boşluk karakteri bir eşleşme koşul ya da belirtilen değerler veya desenleri tarafından karşılanması olduğunu gösterir.
-'value' | Tek bir tırnakla özel bir anlamı yoktur. Ancak, tek tırnak kümesi, bir değer değişmez değer ele alınması gerektiğini belirtmek için kullanılır. Aşağıdaki şekillerde kullanılabilir:<br><br/>-Bu bir eşleşme koşul herhangi bir kısmının karşılaştırma değeri belirtilen değerle eşleşen her memnun olmasını sağlar.  Örneğin, `'ma'` aşağıdaki dizelerden herhangi birinde eşleşir: <br/><br/>/business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/ İş/şablonu. **ma**p<br /><br />-Bu harf karakter olarak belirtilmesi için bir özel karakter sağlar. Örneğin, bir dizi tek tırnak içinde bir boşluk karakteri kapsayan tarafından bir değişmez değer boşluk karakteri belirtmiş olabilir (diğer bir deyişle, `' '` veya `'sample value'`).<br/>-Belirtilmesi boş bir değer verir. Tek tırnak kümesi belirterek boş bir değer belirtin (diğer bir deyişle, '').<br /><br/>**Önemli:**<br/>-Belirtilen değer bir joker karakter içermiyorsa, sonra onu otomatik olarak bir dizi tek tırnak belirtmeye gerek olmadığı anlamına gelir bir sabit değer olarak kabul edilir.<br/>-Bir ters eğik çizgi bu tablodaki başka bir karakteri kaçış değil, tek tırnak kümesinde belirtildiğinde yoksayılır.<br/>-Bir özel karakter bir harf karakter ters eğik çizgi kullanarak çıkış olarak belirtmek için başka bir yol (diğer bir deyişle, `\`).
+\ | Bu tabloda belirtilen karakterlerden herhangi birini kaçış ters eğik çizgi kullanılır. Ters eğik çizgi kaçış doğrudan özel karakter önce belirtilmelidir.<br/>Örneğin, aşağıdaki söz dizimini yıldız çıkışları: `\*`
+% | URL kodlaması belirtmek için kullanılan bir yüzde sembolü (örneğin, `%20`).
+\* | Bir yıldız işareti, bir veya daha fazla karakterleri temsil eden bir joker karakterdir.
+Uzay | Bir boşluk karakteri bir eşleşme koşulu ya da belirtilen değerleri veya desenleri tarafından karşılanması olduğunu gösterir.
+'value' | Tek tırnak, özel bir anlamı yok. Ancak, tek tırnak bir dizi, değer değişmez değer değerlendirilmesi gerektiğini belirtmek için kullanılır. Aşağıdaki şekillerde kullanılabilir:<br><br/>-Bir eşleşme koşulu herhangi bir bölümünü karşılaştırma değeri belirtilen değerle eşleşen her memnun olmasını sağlar.  Örneğin, `'ma'` aşağıdaki dizelerden birini eşleşir: <br/><br/>/business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/ İş/şablonu. **ma**p<br /><br />-Bu, bir değişmez değer olarak belirtilmesi için özel bir karakter sağlar. Örneğin, bir boşluk karakteri tek tırnak bir dizi kapsayan tarafından bir hazır bilgi boşluk karakteri belirtmek (diğer bir deyişle, `' '` veya `'sample value'`).<br/>-Boş bir değer belirtilmesini sağlar. Tek tırnak bir dizi belirterek boş bir değer belirtin (diğer bir deyişle, '').<br /><br/>**Önemli:**<br/>-Ardından belirtilen değer bir joker karakter içermiyorsa, tek tırnak kümesi belirtmek gerekli değildir, yani bir değişmez değer otomatik olarak değerlendirilir.<br/>-Bir ters eğik çizgi, bu tablodaki başka bir karakter kaçırmaz ise tek tırnak bir dizi içinde belirtildiğinde yoksayılır.<br/>-Değişmez bir karakter kaçış ters eğik çizgi kullanarak olarak özel bir karakter belirtmek için başka bir yol (diğer bir deyişle, `\`).
 
 ### <a name="regular-expressions"></a>Normal ifadeler
 
-Normal ifadeler için bir metin değerini, içinde arama deseni tanımlayın. Normal ifade gösterimi belirli anlamları çeşitli simgeler tanımlar. Aşağıdaki tabloda nasıl özel karakterleri belirten eşleşme koşullar ve normal ifadeler destek özellikleri tarafından kabul edilir.
+Normal ifadeler için bir metin değeri içinde aranır bir desen tanımlayın. Normal ifade gösterimi belirli anlamlara çeşitli sembolleri tanımlar. Aşağıdaki tabloda, nasıl özel karakterler gösteren eşleştirme koşulları ve normal ifadeler destekleyen özellikler tarafından kabul edilir.
 
 Özel karakter | Açıklama
 ------------------|------------
-\ | Ters eğik çizgi karakteri aşağıdaki çıkışları normal ifade anlamlarını almak yerine bir hazır değer olarak kabul edilmesi bu karakteri neden olan BT. Örneğin, aşağıdaki söz dizimini yıldız çıkışları: `\*`
-% | Bir yüzde simge anlamı üzerinde kullanım bağlıdır.<br/><br/> `%{HTTPVariable}`: Bu sözdizimi bir HTTP değişkeni tanımlar.<br/>`%{HTTPVariable%Pattern}`: Bu sözdizimi bir yüzde simge bir HTTP değişken ve ayırıcı olarak tanımlamak için kullanır.<br />`\%`: Bir yüzde simge kaçış sağlar URL kodlaması belirtmek için veya bir hazır değer kullanılmak üzere (örneğin, `\%20`).
-* | Bir yıldız işareti sıfır veya daha fazla kez eşleştirilmesini önceki karakteri sağlar. 
-Boşluk | Bir boşluk karakteri genellikle harf karakter olarak kabul edilir. 
-'value' | Tek tırnak değişmez değer karakter olarak kabul edilir. Tek tırnak birtakım özel bir anlamı yok.
+\ | Ters eğik çizgi karakteri aşağıdaki çıkışları BT, normal ifade anlamını almak yerine değişmez değer olarak değerlendirilmesi bu karakteri neden olur. Örneğin, aşağıdaki söz dizimini yıldız çıkışları: `\*`
+% | Bir yüzde sembolü anlamını kendi kullanıma bağlıdır.<br/><br/> `%{HTTPVariable}`: Bu sözdizimi, bir HTTP değişkenini tanımlar.<br/>`%{HTTPVariable%Pattern}`: Bu söz dizimi bir yüzde sembolü HTTP değişken ve ayırıcı olarak tanımlamak için kullanır.<br />`\%`: Bir yüzde sembolü kaçış, sağlayan bir değişmez değer kullanılacak ya da URL kodlaması belirtmek için (örneğin, `\%20`).
+\* | Sıfır veya daha fazla kez eşleştirilecek önceki karakteri bir yıldız işareti sağlar. 
+Uzay | Bir boşluk karakteri, genellikle bir değişmez değer olarak kabul edilir. 
+'value' | Tek tırnak işaretleri, sabit karakter olarak kabul edilir. Tek tırnak birtakım özel bir anlamı yok.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Kurallar altyapısı eşleşme koşulları](cdn-rules-engine-reference-match-conditions.md)
-* [Kurallar altyapısı koşullu ifadeler](cdn-rules-engine-reference-conditional-expressions.md)
-* [Kurallar altyapısı özellikleri](cdn-rules-engine-reference-features.md)
-* [Kurallar altyapısı kullanarak HTTP davranışı geçersiz kılma](cdn-rules-engine.md)
+* [Kural altyapısı eşleştirme koşulları](cdn-rules-engine-reference-match-conditions.md)
+* [Kural altyapısı koşullu ifadeleri](cdn-rules-engine-reference-conditional-expressions.md)
+* [Kural altyapısı özellikleri](cdn-rules-engine-reference-features.md)
+* [Kural altyapısı kullanarak HTTP davranışı geçersiz kılma](cdn-rules-engine.md)
 * [Azure CDN'ye genel bakış](cdn-overview.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: cc4860c43b6d1a1f5b89060a3d3045df804152c0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 01b1cfafab75acef918b001752837a4dc44ca909
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404425"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899052"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric kapsayıcı ağ modları
 
@@ -214,7 +214,7 @@ Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğ�
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ApplicationManifest ApplicationTypeName="NodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
       <Description>Calculator Application</Description>
       <Parameters>
         <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>

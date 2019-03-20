@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 3aa2803550c445e0b30ff998cf3adb779515e487
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235981"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105531"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Dağıtımlarla için bilgi
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -144,10 +144,10 @@ Bir değişken 6.0 için 6.3 Red Hat Enterprise Linux sürümleri çalıştırı
 Aşağıdaki düzeltme ekleri çekirdek eklenmesi gerekir. Bu liste tüm dağıtımları için tam olamaz.
 
 * [ata_piix: varsayılan olarak Hyper-V sürücüleri disklere ertele](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
-* [storvsc: hesap SIFIRLAMA yolunda aktarım sırasında paketler için](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
+* [storvsc: Hesabı için aktarım sırasında paketlerinde SIFIRLAMA yolu](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
 * [storvsc: WRITE_SAME kullanımını kaçının](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
-* [storvsc: devre dışı yazma aynı RAID ve sanal ana bilgisayar bağdaştırıcısı sürücüleri](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
-* [storvsc: NULL işaretçiye düzeltme](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
+* [storvsc: RAID ve sanal ana bilgisayar bağdaştırıcısı sürücüleri yazma aynı devre dışı](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+* [storvsc: NULL işaretçiye başvurma düzeltme](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 * [storvsc: halka arabelleği hataları g/ç dondurma neden olabilir](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 * [scsi_sysfs: __scsi_remove_device çift yürütülmesini karşı koruma](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
@@ -172,13 +172,13 @@ Aşağıdaki düzeltme ekleri çekirdek eklenmesi gerekir. Bu liste tüm dağıt
     ```
     Grafik ve sessiz önyükleme seri bağlantı noktasına gönderilen tüm günlükler istediğimiz bir bulut ortamında kullanışlı değildir. `crashkernel` Seçenek olabilir sol gerekirse yapılandırılmış, ancak Not Bu parametre sanal makinede en az 128 daha küçük VM boyutları için sorunlu olabilecek MB, kullanılabilir bellek miktarını azaltır.
 
-2. Azure Linux aracısını yükleyin.
+1. Azure Linux aracısını yükleyin.
   
     Azure Linux Aracısı, azure'da bir Linux görüntüsü sağlamak için gereklidir.  Birçok Dağıtım Aracısı'nı (paket genellikle WALinuxAgent veya walinuxagent olarak adlandırılır) bir RPM veya Deb paketini sağlayın.  Aracı da el ile adımları izleyerek yüklenebilir [Linux Aracısı Kılavuzu](../extensions/agent-linux.md).
 
-3. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış emin olun.  Bu yapılandırma, genellikle varsayılan değerdir.
+1. SSH sunucusu yüklü ve önyükleme sırasında başlatılacak şekilde yapılandırılmış emin olun.  Bu yapılandırma, genellikle varsayılan değerdir.
 
-4. İşletim sistemi diski üzerinde takas alanı oluşturmayın.
+1. İşletim sistemi diski üzerinde takas alanı oluşturmayın.
   
     Azure Linux Aracısı, Azure üzerinde sağladıktan sonra VM'ye bağlı yerel kaynak disk kullanılan takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak disk bir *geçici* disk ve sanal Makinenin sağlaması kaldırıldığında boşaltılabilir. Azure Linux Aracısı'nı (yukarıdaki adım 2) yükledikten sonra aşağıdaki parametrelerle /etc/waagent.conf gerektiği gibi değiştirin.
     ```  
@@ -188,15 +188,15 @@ Aşağıdaki düzeltme ekleri çekirdek eklenmesi gerekir. Bu liste tüm dağıt
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
     ```
-* Sanal makinenin sağlamasını kaldırmak için aşağıdaki komutları çalıştırın.
+1. Sanal makinenin sağlamasını kaldırmak için aşağıdaki komutları çalıştırın.
   
-    ```
-    sudo waagent -force -deprovision
-    export HISTSIZE=0
-    logout
-    ```  
-  > [!NOTE]
-  > Üzerinde VirtualBox çalıştırdıktan sonra aşağıdaki hatayı görebilirsiniz `waagent -force -deprovision` bildiren `[Errno 5] Input/output error`. Bu hata iletisini kritik değil ve yok sayılabilir.
+     ```
+     sudo waagent -force -deprovision
+     export HISTSIZE=0
+     logout
+     ```  
+   > [!NOTE]
+   > Üzerinde VirtualBox çalıştırdıktan sonra aşağıdaki hatayı görebilirsiniz `waagent -force -deprovision` bildiren `[Errno 5] Input/output error`. Bu hata iletisini kritik değil ve yok sayılabilir.
 
 * Sanal makineyi kapatır ve Azure'a VHD yükleme.
 

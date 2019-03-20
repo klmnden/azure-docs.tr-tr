@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f6718c13534e7f43b183400a1ccf25c3f8d1e1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5a4ed93bee091bf0a40718a47ffb7cd97a85147c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669020"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993500"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Öğretici: B2B Konuk kullanıcıları için multi-Factor authentication yürürlüğe
 
@@ -139,5 +139,6 @@ Artık gerekli değilse test kullanıcısını ve test koşullu erişim ilkesini
 5.  Sol bölmede **Azure Active Directory**’yi seçin.
 6.  **Güvenlik** bölümünde **Koşullu Erişim**’i seçin.
 7.  **İlke Adı** listesinde, test ilkeniz için bağlam menüsünü (…) seçin ve **Sil** seçeneğini belirleyin. Onaylamak için **Evet**’i seçin.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, konuk kullanıcıların bulut uygulamalarınızdan birinde oturum açarken MFA kullanmasını gerekli kılan bir koşullu erişim ilkesi oluşturdunuz. İşbirliği yapmak üzere konuk kullanıcılar ekleme hakkında daha fazla bilgi için bkz. [Azure portalda Azure Active Directory B2B işbirliği kullanıcıları ekleme](add-users-administrator.md).

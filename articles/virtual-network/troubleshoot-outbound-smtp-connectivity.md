@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 34d42f9987303c1381584ae4b2991a8f30a67ed5
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 385163d791bff0c02a05ee1b27afd82c3afd0ac3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618968"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997173"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Azure'da giden SMTP bağlantı sorunlarını giderme
 
@@ -26,7 +26,7 @@ ms.locfileid: "52618968"
 Bu davranış değişikliği yalnızca yeni abonelikler ve yeni dağıtımlar için 15 Kasım 2017'den itibaren geçerlidir.
 
 ## <a name="recommended-method-of-sending-email"></a>Önerilen yöntem, e-posta gönderme
-(Bu genellikle 587 veya 443 numaralı TCP bağlantı bağlanma ancak diğer bağlantı noktaları, çok destekler) kimliği doğrulanmış SMTP geçiş hizmetlerini Azure vm'lerinden veya Azure uygulama hizmetleri e-posta göndermesine izin kullanmanızı öneririz. Bu hizmetleri, üçüncü taraf e-posta sağlayıcıları ileti reddeder olasılığını en aza indirmek için IP veya etki alanı saygınlığı korumak için kullanılır. Bu tür SMTP geçiş hizmetleri dahil ancak bunlarla sınırlı olmayan [SendGrid](http://sendgrid.com/partners/azure/). Çalışan kullanabileceğiniz Şirket güvenli bir SMTP geçiş hizmetini olması mümkündür.
+(Bu genellikle 587 veya 443 numaralı TCP bağlantı bağlanma ancak diğer bağlantı noktaları, çok destekler) kimliği doğrulanmış SMTP geçiş hizmetlerini Azure vm'lerinden veya Azure uygulama hizmetleri e-posta göndermesine izin kullanmanızı öneririz. Bu hizmetleri, üçüncü taraf e-posta sağlayıcıları ileti reddeder olasılığını en aza indirmek için IP veya etki alanı saygınlığı korumak için kullanılır. Bu tür SMTP geçiş hizmetleri dahil ancak bunlarla sınırlı olmayan [SendGrid](https://sendgrid.com/partners/azure/). Çalışan kullanabileceğiniz Şirket güvenli bir SMTP geçiş hizmetini olması mümkündür.
 
 Bu e-posta teslimat hizmetlerini kullanarak, Azure'da abonelik türü ne olursa olsun sınırlı değildir.
 
@@ -36,7 +36,7 @@ Kurumsal Anlaşma Azure kullanıcıları için kimliği doğrulanmış geçişi 
 ## <a name="pay-as-you-go"></a>Kullandıkça Öde
 Kullandıkça Öde için 15 Kasım 2017'den önce kaydolan veya Microsoft iş ortağı ağı abonelik sunar, olacaktır giden e-posta teslimi deneyin olanağı teknik değişiklik olur. Giden e-posta teslimi Azure vm'lerinden içinde bu abonelikler Azure platformundan hiçbir kısıtlama olmadan dış e-posta sağlayıcıları için doğrudan denemeniz eklemeye devam edeceğiz. Yeniden, bu e-posta sağlayıcılarının belirli bir kullanıcıdan gelen e-postayı kabul edeceğini ve tüm ileti teslimi veya istenmeyen özel sağlayıcıları içeren filtreleme sorunlarını doğrudan e-posta sağlayıcıları ile çalışmaya kullanıcıları olacaktır garanti edilmez.
 
-15 Kasım 2017'den sonra oluşturulan Kullandıkça Öde veya Microsoft iş ortağı ağı abonelikleri için bu aboneliklerin içinde doğrudan vm'lerden gönderilen e-posta engelleyen teknik kısıtlamalar olacaktır. Özelliği Azure sanal makinelerinden (kimliği doğrulanmış SMTP geçişi kullanmadan) doğrudan dış e-posta sağlayıcılarına e-posta göndermek istiyorsanız, kısıtlamanın kaldırılması için istekte bulunabilirsiniz. İstekleri gözden geçirilebilir ve Microsoft'un kararımıza Onaylandı ve yalnızca dolandırıcılık önleme denetimleri yapıldıktan sonra onlara verilen. İstekte bulunmak için aşağıdaki sorun türü kullanarak destek talebinde bulunun: **teknik** > **sanal ağ** > **bağlantı**  >  **E-posta (SMTP/bağlantı noktası 25) gönderemez**. Neden kimliği doğrulanmış geçişi kullanmak yerine doğrudan posta sağlayıcılarına e-posta göndermek dağıtımınızın sahip hakkında ayrıntıları eklediğinizden emin olun.
+15 Kasım 2017'den sonra oluşturulan Kullandıkça Öde veya Microsoft iş ortağı ağı abonelikleri için bu aboneliklerin içinde doğrudan vm'lerden gönderilen e-posta engelleyen teknik kısıtlamalar olacaktır. Özelliği Azure sanal makinelerinden (kimliği doğrulanmış SMTP geçişi kullanmadan) doğrudan dış e-posta sağlayıcılarına e-posta göndermek istiyorsanız, kısıtlamanın kaldırılması için istekte bulunabilirsiniz. İstekleri gözden geçirilebilir ve Microsoft'un kararımıza Onaylandı ve yalnızca dolandırıcılık önleme denetimleri yapıldıktan sonra onlara verilen. İstekte bulunmak için aşağıdaki sorun türünü kullanarak bir destek talebi açın: **Teknik** > **sanal ağ** > **bağlantı** > **e-posta (SMTP/bağlantı noktası 25) gönderemez**. Neden kimliği doğrulanmış geçişi kullanmak yerine doğrudan posta sağlayıcılarına e-posta göndermek dağıtımınızın sahip hakkında ayrıntıları eklediğinizden emin olun.
 
 Bir Kullandıkça Öde veya Microsoft iş ortağı ağı aboneliğiniz muaf tutulan, bu Abonelikteki VM'lerin yalnızca ileride muaf.
 
@@ -52,6 +52,6 @@ Bu abonelik türleri kullanıyorsanız, bu makalenin önceki bölümlerinde aç�
 
 CSP'de Azure kaynaklarında kullanıyorsanız, kendi seçtiğiniz bir destek vakası CSP'nin oluşturabilir ve güvenli bir SMTP geçiş kullandıysanız, sizin adınıza bir engellemeyi kaldırma durumu oluşturmak için CSP talep edebilir.
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
+## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun
 
 Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

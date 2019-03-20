@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: d0a38defe41ea7c4e0da32cb73cf2bd73fd80950
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 04c1d69fc46b9a918038e93c4fc56681f225d365
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498216"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006217"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Klasik Azure CLI'de eksiksiz bir Linux ortamı oluşturma
 Bu makalede, bir yük dengeleyici ve bir çift geliştirme ve basit bilgi işlem için yararlı olan Vm'leri içeren basit bir ağ ekleriz. İki çalışma, güvenli, gelen herhangi bir Internet'te bağlanabileceği sanal makineleri bulunana kadar komutu komut sürecinde inceleyeceğiz. Ardından, daha karmaşık ağlar ve ortam geçebilirsiniz.
@@ -285,7 +285,7 @@ Azure kaynak gruplarını yapılandırma bilgilerini ve kaynak dağıtımların�
 azure group create --name myResourceGroup --location westeurope
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli                        
 info:    Executing command group create
@@ -314,7 +314,7 @@ azure storage account create \
   mystorageaccount
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli
 info:    Executing command storage account create
@@ -328,7 +328,7 @@ Kaynak grubumuz kullanarak incelemek için `azure group show` komutu, kullanalı
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Çıktı:
+Çıkış:
 
 ```json
 {
@@ -372,7 +372,7 @@ Ardından, depolama bilgilerini kolayca görüntüleyebilirsiniz:
 azure storage container list
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli
 info:    Executing command storage container list
@@ -391,7 +391,7 @@ azure network vnet create --resource-group myResourceGroup --location westeurope
   --name myVnet --address-prefixes 192.168.0.0/16
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli
 info:    Executing command network vnet create
@@ -414,7 +414,7 @@ Yeniden--json seçeneğini kullanalım `azure group show` ve `jq` nasıl kaynakl
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Çıktı:
+Çıkış:
 
 ```json
 {
@@ -460,7 +460,7 @@ azure network vnet subnet create --resource-group myResourceGroup \
   --vnet-name myVnet --name mySubnet --address-prefix 192.168.1.0/24
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli
 info:    Executing command network vnet subnet create
@@ -482,7 +482,7 @@ Alt ağ mantıksal olarak bir sanal ağ içinde olduğundan, biz biraz farklı b
 azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
-Çıktı:
+Çıkış:
 
 ```json
 {
@@ -521,7 +521,7 @@ azure network public-ip create --resource-group myResourceGroup \
   --location westeurope --name myPublicIP --domain-name-label mypublicdns
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli
 info:    Executing command network public-ip create
@@ -546,7 +546,7 @@ info:    network public-ip create command OK
 azure group show myResourceGroup --json | jq '.'
 ```
 
-Çıktı:
+Çıkış:
 
 ```json
 {
@@ -598,7 +598,7 @@ Tam kullanarak ve alt etki alanının tam etki alanı adını (FQDN) da dahil ol
 azure network public-ip show myResourceGroup myPublicIP --json | jq '.'
 ```
 
-Çıktı:
+Çıkış:
 
 ```json
 {
@@ -625,7 +625,7 @@ azure network lb create --resource-group myResourceGroup --location westeurope \
   --name myLoadBalancer
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli
 info:    Executing command network lb create
@@ -649,7 +649,7 @@ azure network lb frontend-ip create --resource-group myResourceGroup \
   --name myFrontEndPool
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli
 info:    Executing command network lb frontend-ip create
@@ -672,7 +672,7 @@ azure network lb address-pool create --resource-group myResourceGroup \
   --lb-name myLoadBalancer --name myBackEndPool
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli
 info:    Executing command network lb address-pool create
@@ -689,7 +689,7 @@ Bizim yük dengeleyici ile bakarak nasıl çalıştığını görebiliriz `azure
 azure network lb show myResourceGroup myLoadBalancer --json | jq '.'
 ```
 
-Çıktı:
+Çıkış:
 
 ```json
 {
@@ -737,7 +737,7 @@ azure network lb inbound-nat-rule create --resource-group myResourceGroup \
   --protocol tcp --frontend-port 4222 --backend-port 22
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli
 info:    Executing command network lb inbound-nat-rule create
@@ -774,7 +774,7 @@ azure network lb rule create --resource-group myResourceGroup \
   --backend-address-pool-name myBackEndPool
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli
 info:    Executing command network lb rule create
@@ -805,7 +805,7 @@ azure network lb probe create --resource-group myResourceGroup \
   --interval 15 --count 4
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli
 info:    Executing command network lb probe create
@@ -839,7 +839,7 @@ azure network lb show --resource-group myResourceGroup \
   --name myLoadBalancer --json | jq '.'
 ```
 
-Çıktı:
+Çıkış:
 
 ```json
 {
@@ -969,7 +969,7 @@ azure network nic create --resource-group myResourceGroup --location westeurope 
   --lb-inbound-nat-rule-ids /subscriptions/########-####-####-####-############/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/inboundNatRules/myLoadBalancerRuleSSH1
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli
 info:    Executing command network nic create
@@ -1002,7 +1002,7 @@ Kaynak doğrudan inceleyerek ayrıntılarını görebilirsiniz. Kullanarak kayna
 azure network nic show myResourceGroup myNic1 --json | jq '.'
 ```
 
-Çıktı:
+Çıkış:
 
 ```json
 {
@@ -1141,7 +1141,7 @@ azure vm create \
   --admin-username azureuser
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli
 info:    Executing command vm create
@@ -1166,7 +1166,7 @@ Varsayılan SSH anahtarlarınızı kullanarak sanal makinenizde hemen bağlanabi
 ssh ops@mypublicdns.westeurope.cloudapp.azure.com -p 4222
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 The authenticity of host '[mypublicdns.westeurope.cloudapp.azure.com]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
@@ -1180,7 +1180,7 @@ Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
  * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 0 packages can be updated.
 0 updates are security updates.
@@ -1212,7 +1212,7 @@ Ve artık `azure vm show myResourceGroup myVM1` oluşturduğunuz özellikleri in
 azure vm show --resource-group myResourceGroup --name myVM1
 ```
 
-Çıktı:
+Çıkış:
 
 ```azurecli
 info:    Executing command vm show

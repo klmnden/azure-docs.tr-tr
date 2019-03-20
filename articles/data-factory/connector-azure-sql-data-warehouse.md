@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: 6b7660610e18605ae1af57ec92d2e5d8ddcb40a8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c2257dac60ed92859e3df3360ce55558b176de91
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871386"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010196"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarı veri kopyalayın 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -191,13 +191,13 @@ Yönetilen kimlik doğrulaması kullanmak için aşağıdaki adımları izleyin:
 
 1. **Azure AD'de bir grup oluşturun.** Yönetilen kimlik grubunun bir üyesi olun.
 
-    1. Azure portalından data factory yönetilen kimlik bulun. Veri fabrikasının Git **özellikleri**. Hizmet kimlik kimliği kopyalayın.
+   1. Azure portalından data factory yönetilen kimlik bulun. Veri fabrikasının Git **özellikleri**. Hizmet kimlik kimliği kopyalayın.
 
-    1. Yükleme [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modülü. Kullanarak oturum `Connect-AzureAD` komutu. Grup oluşturma ve yönetilen kimlik üye olarak eklemek için aşağıdaki komutları çalıştırın.
-    ```powershell
-    $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-    Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
-    ```
+   1. Yükleme [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modülü. Kullanarak oturum `Connect-AzureAD` komutu. Grup oluşturma ve yönetilen kimlik üye olarak eklemek için aşağıdaki komutları çalıştırın.
+      ```powershell
+      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
+      ```
 
 1. **[Bir Azure Active Directory Yöneticisi sağlama](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  zaten yapmadıysanız Azure Portal'da Azure SQL sunucunuzun.
 
@@ -388,7 +388,7 @@ Azure SQL veri ambarı'na veri kopyalamak için kopyalama etkinliği Havuz tür�
 | useTypeDefault | PolyBase metin dosyasından veri aldığında sınırlandırılmış metin dosyaları eksik değerleri nasıl ele alınacağını belirtir.<br/><br/>Bağımsız değişkenler bölümünden bu özellik hakkında daha fazla bilgi [oluşturma EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>İzin verilen değerler **True** ve **False** (varsayılan). | Hayır |
 | writeBatchSize | Arabellek boyutu ulaştığında veri SQL tablosuna ekler **writeBatchSize**. Yalnızca PolyBase ne zaman kullanılmaz geçerlidir.<br/><br/>İzin verilen değer **tamsayı** (satır sayısı). | Hayır. Varsayılan 10000'dir. |
 | writeBatchTimeout | Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlanması için bir süre bekleyin. Yalnızca PolyBase ne zaman kullanılmaz geçerlidir.<br/><br/>İzin verilen değer **timespan**. Örnek: "00: 30:00" (30 dakika). | Hayır |
-| preCopyScript | Her bir çalıştırmada Azure SQL Data Warehouse'a veri yazılmadan önce çalıştırmak kopyalama etkinliği için bir SQL sorgusunu belirtin. Önceden yüklenmiş ve verileri temizlemek için bu özelliği kullanın. | Hayır | (#repeatability sırasında-kopyalama). | Bir sorgu deyimi. | Hayır |
+| preCopyScript | Her bir çalıştırmada Azure SQL Data Warehouse'a veri yazılmadan önce çalıştırmak kopyalama etkinliği için bir SQL sorgusunu belirtin. Önceden yüklenmiş ve verileri temizlemek için bu özelliği kullanın. | Hayır |
 
 #### <a name="sql-data-warehouse-sink-example"></a>SQL veri ambarı havuzu örnek
 
@@ -437,8 +437,8 @@ Gereksinimleri karşılanmadığı takdirde, Azure Data Factory ayarları denetl
    5. `escapeChar`, `quoteChar` ve `skipLineCount` belirtilmeyen. PolyBase destek Atla olarak yapılandırılan üst bilgi satırı `firstRowAsHeader` ADF içinde.
    6. `compression` olabilir **sıkıştırma**, **GZip**, veya **Deflate**.
 
-    ```json
-    "typeProperties": {
+      ```json
+      "typeProperties": {
         "folderPath": "<blobpath>",
         "format": {
             "type": "TextFormat",
@@ -452,8 +452,8 @@ Gereksinimleri karşılanmadığı takdirde, Azure Data Factory ayarları denetl
             "type": "GZip",
             "level": "Optimal"
         }
-    },
-    ```
+      },
+      ```
 
 ```json
 "activities":[

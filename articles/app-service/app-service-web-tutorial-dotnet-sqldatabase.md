@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ffa6e44a4be8813b74dc707f161bd5c17f72f350
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b472927f435cb86787c4580920250cb33438a07b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720061"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992253"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Öğretici: Azure'da SQL Veritabanı ile ASP.NET uygulaması oluşturma
 
-[Azure App Service](overview.md), yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğretici, App Service'te veri temelli bir ASP.NET uygulaması dağıtma ve buna bağlanmak nasıl gösterir [Azure SQL veritabanı](../sql-database/sql-database-technical-overview.md). Tamamladığınızda, Azure'da çalışan ve SQL Veritabanı'na bağlanan bir ASP.NET uygulamanız olur.
+[Azure App Service](overview.md), yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğretici, App Service'te veri temelli bir ASP.NET uygulaması dağıtma ve buna bağlanmak nasıl gösterir [Azure SQL veritabanı](../sql-database/sql-database-technical-overview.md). İşlemi tamamladığınızda, Azure'da çalışan bir ASP.NET uygulaması ve SQL veritabanı'na bağlı.
 
 ![Azure App Service'te yayımlanan ASP.NET uygulaması](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 

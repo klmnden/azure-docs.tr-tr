@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 7d45c11345312fe48312bd4e744433397a17a62d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 7d94834523e331ff048f787760561739765e7023
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359332"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842303"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Azure CLI kullanarak MariaDB için Azure Veritabanı sunucusu oluşturma
 
@@ -147,78 +147,78 @@ mysql komut satırı aracını kullanarak sunucuya bağlanmak için:
 
 1. Sunucuya bağlanın:
 
-  ```azurecli-interactive
-  mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
-  ```
+   ```azurecli-interactive
+   mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
+   ```
 
 2. `mysql>` isteminde sunucu durumun görüntüleyin:
 
-  ```sql
-  status
-  ```
-  Aşağıdaki metne benzer bir sonuç görmeniz gerekir:
+   ```sql
+   status
+   ```
+   Aşağıdaki metne benzer bir sonuç görmeniz gerekir:
 
-  ```bash
-  C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
-  Enter password: ***********
-  Welcome to the MySQL monitor.  Commands end with ; or \g.
-  Your MySQL connection id is 65512
-  Server version: 5.6.39.0 MariaDB Server
+   ```bash
+   C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
+   Enter password: ***********
+   Welcome to the MySQL monitor.  Commands end with ; or \g.
+   Your MySQL connection id is 65512
+   Server version: 5.6.39.0 MariaDB Server
 
-  Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+   Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
 
-  Oracle is a registered trademark of Oracle Corporation and/or its
-  affiliates. Other names may be trademarks of their respective
-  owners.
+   Oracle is a registered trademark of Oracle Corporation and/or its
+   affiliates. Other names may be trademarks of their respective
+   owners.
 
-  Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+   Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-  mysql> status
-  --------------
-  mysql  Ver 14.14 Distrib 5.7.23, for Linux (x86_64)
+   mysql> status
+   --------------
+   mysql  Ver 14.14 Distrib 5.7.23, for Linux (x86_64)
 
-  Connection id:          64681
-  Current database:
-  Current user:           myadmin@40.118.201.21
-  SSL:                    Cipher in use is AES256-SHA
-  Current pager:          stdout
-  Using outfile:          ''
-  Using delimiter:        ;
-  Server version:         5.6.39.0 MariaDB Server
-  Protocol version:       10
-  Connection:             mydemoserver.mariadb.database.azure.com via TCP/IP
-  Server characterset:    latin1
-  Db     characterset:    latin1
-  Client characterset:    utf8
-  Conn.  characterset:    utf8
-  TCP port:               3306
-  Uptime:                 1 day 3 hours 28 min 50 sec
+   Connection id:          64681
+   Current database:
+   Current user:           myadmin@40.118.201.21
+   SSL:                    Cipher in use is AES256-SHA
+   Current pager:          stdout
+   Using outfile:          ''
+   Using delimiter:        ;
+   Server version:         5.6.39.0 MariaDB Server
+   Protocol version:       10
+   Connection:             mydemoserver.mariadb.database.azure.com via TCP/IP
+   Server characterset:    latin1
+   Db     characterset:    latin1
+   Client characterset:    utf8
+   Conn.  characterset:    utf8
+   TCP port:               3306
+   Uptime:                 1 day 3 hours 28 min 50 sec
 
-  Threads: 10  Questions: 29002  Slow queries: 0  Opens: 33  Flush tables: 3  Open tables: 1  Queries per second avg: 0.293
-  --------------
+   Threads: 10  Questions: 29002  Slow queries: 0  Opens: 33  Flush tables: 3  Open tables: 1  Queries per second avg: 0.293
+   --------------
 
-  mysql>
-  ```
+   mysql>
+   ```
 
 > [!TIP]
 > Ek komutlar için bkz. [MySQL 5.7 Başvuru Kılavuzu - Bölüm 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>MySQL Workbench kullanarak sunucuya bağlanma
 
-1.  İstemci bilgisayarınızda MySQL Workbench uygulamasını açın. Uygulama yüklü değilse [indirin](https://dev.mysql.com/downloads/workbench/) ve yükleyin.
+1. İstemci bilgisayarınızda MySQL Workbench uygulamasını açın. Uygulama yüklü değilse [indirin](https://dev.mysql.com/downloads/workbench/) ve yükleyin.
 
-2.  **Setup New Connection** (Yeni Bağlantı Oluştur) iletişim kutusundaki **Parameters** (Parametreler) sekmesine aşağıdaki bilgileri girin:
+2. **Setup New Connection** (Yeni Bağlantı Oluştur) iletişim kutusundaki **Parameters** (Parametreler) sekmesine aşağıdaki bilgileri girin:
 
- ![Yeni bağlantı oluşturma](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
+   ![Yeni bağlantı oluşturma](./media/quickstart-create-mariadb-server-database-using-azure-cli/setup-new-connection.png)
 
-  | Ayar | Önerilen değer | Açıklama |
-  |---|---|---|
-  | Bağlantı Adı | **Tanıtım bağlantısı** | Bu bağlantı için bir etiket girin (bağlantı adı herhangi bir şey olabilir) |
-  | Bağlantı Yöntemi | **Standart (TCP/IP)** | MariaDB için Azure Veritabanı'na bağlanmak için TCP/IP protokolünü kullanın |
-  | Ana Bilgisayar Adı | **mydemoserver.mariadb.database.azure.com** | Daha önceden not aldığınız sunucu adı. |
-  | Bağlantı noktası | **3306** | MariaDB için Azure Veritabanı'nın varsayılan bağlantı noktası. |
-  | Kullanıcı adı | **myadmin@mydemoserver** | Daha önceden not aldığınız sunucu yöneticisi oturum açma bilgileri. |
-  | Parola | *parolanız* | Önceden belirlediğiniz yönetici parolasını kullanın. |
+   | Ayar | Önerilen değer | Açıklama |
+   |---|---|---|
+   | Bağlantı Adı | **Tanıtım bağlantısı** | Bu bağlantı için bir etiket girin (bağlantı adı herhangi bir şey olabilir) |
+   | Bağlantı Yöntemi | **Standart (TCP/IP)** | MariaDB için Azure Veritabanı'na bağlanmak için TCP/IP protokolünü kullanın |
+   | Ana Bilgisayar Adı | **mydemoserver.mariadb.database.azure.com** | Daha önceden not aldığınız sunucu adı. |
+   | Bağlantı noktası | **3306** | MariaDB için Azure Veritabanı'nın varsayılan bağlantı noktası. |
+   | Kullanıcı adı | **myadmin\@demosunucum** | Daha önceden not aldığınız sunucu yöneticisi oturum açma bilgileri. |
+   | Parola | *parolanız* | Önceden belirlediğiniz yönetici parolasını kullanın. |
 
 3. Tüm parametrelerin doğru yapılandırılıp yapılandırılmadığını denetlemek için **Test Connection** (Bağlantıyı Sına) öğesini seçin.
 

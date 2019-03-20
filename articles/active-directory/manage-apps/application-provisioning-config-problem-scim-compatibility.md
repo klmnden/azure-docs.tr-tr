@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a1e5643c9d5f6fc2492dd52ccd07606a47d21b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8fc326c1ba529bc394a5ce5a059e3fe91baa7a9a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190526"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124092"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Bilinen sorunlar ve çözümleri ile Azure AD kullanıcı sağlama hizmetinin SCIM 2.0 protokol uyumluluğu
 
@@ -59,36 +59,36 @@ Evet. Bu uygulama örneği için çoklu oturum açmayı zaten kullanıyorsunuz v
  
 1. Adresinden Azure portalında oturum https://portal.azure.com.
 2. İçinde **Azure Active Directory > Kurumsal uygulamalar** bölümü Azure Portalı'nın, bulun ve mevcut SCIM uygulamanızı seçin.
-3.  İçinde **özellikleri** mevcut SCIM uygulamanızı kopyalama bölümünü **nesne kimliği**.
-4.  Yeni bir web tarayıcısı penceresinde Git https://developer.microsoft.com/graph/graph-explorer ve uygulamanızı nerede eklendiğinde Azure AD kiracısı için yönetici olarak oturum açın.
+3. İçinde **özellikleri** mevcut SCIM uygulamanızı kopyalama bölümünü **nesne kimliği**.
+4. Yeni bir web tarayıcısı penceresinde Git https://developer.microsoft.com/graph/graph-explorer ve uygulamanızı nerede eklendiğinde Azure AD kiracısı için yönetici olarak oturum açın.
 5. Graph Explorer'da sağlama iş Kimliğini bulmak için aşağıdaki komutu çalıştırın. "[Object-id]" hizmet sorumlusu kimliği (nesne kimliği) Üçüncü adımda kopyaladığınız değiştirin.
  
- `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
+   `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
- ![İşleri Al](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "işleri Al") 
+   ![İşleri Al](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "işleri Al") 
 
 
 6. Sonuçlarda "customappsso" veya "scım" ile başlayan tam bir "ID" dizesini kopyalayın.
 7. Öznitelik eşlemesi yapılandırmasını almak için aşağıdaki komutu çalıştırın, bu nedenle, bir yedekleme yapabilirsiniz. Aynı [nesne kimliği] olarak önce kullanın ve son adımda kopyaladığınız sağlama iş kimliği [işlem id] değiştirin.
  
- `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
+   `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
- ![Şeması get](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "şema Al") 
+   ![Şeması get](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "şema Al") 
 
 8. Son adımda JSON çıktısını kopyalayın ve bir metin dosyasına kaydedin. Bu, tüm özel öznitelik-eski uygulamanıza eklenir ve yaklaşık birkaç bin satır JSON olmalıdır eşlemeleri içerir.
 9. Sağlama işi silmek için aşağıdaki komutu çalıştırın:
  
- `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
+   `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
 
 10. En son hizmet düzeltmeleri içeren yeni bir sağlama işi oluşturmak için aşağıdaki komutu çalıştırın.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
- `{   templateId: "scim"   } `
+    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
+    `{   templateId: "scim"   } `
    
 11. Son adım sonuçlarında "scım" ile başlayan tam bir "ID" dizesini kopyalayın. İsteğe bağlı olarak, eski bir öznitelik eşlemelerini altında az önce kopyaladığınız yeni iş kimliği ve JSON istek gövdesi olarak #7. adım çıktı girme [Yeni proje-kimliği] yerine komutunu çalıştırarak yeniden uygulayın.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
- `{   <your-schema-json-here>   }`
+    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
+    `{   <your-schema-json-here>   }`
 
 12. İlk web tarayıcı penceresine dönün ve seçin **sağlama** uygulamanız için sekmesinde.
 13. Yapılandırmanızı doğrulamak ve sağlama işlemini başlatın. 
@@ -97,15 +97,15 @@ Evet. Bu uygulama örneği için çoklu oturum açmayı zaten kullanıyorsunuz v
 
 Evet. Düzeltmeleri önce mevcut ve yeni bir örneğini dağıtmak ihtiyaç eski davranışı uygulamaya kodlanmış, aşağıdaki yordamı izleyin. Bu yordam, Microsoft Graph API'si ve Microsoft Graph API Gezgini eski davranışı sergiler SCIM sağlama işi oluşturmak için nasıl kullanılacağını açıklar.
  
-1.  Adresinden Azure portalında oturum https://portal.azure.com.
+1. Adresinden Azure portalında oturum https://portal.azure.com.
 2. içinde **Azure Active Directory > Kurumsal uygulamalar > uygulama oluşturma** bölümde Azure portalı, yeni bir oluşturma **galeri dışı** uygulama.
-3.  İçinde **özellikleri** yeni özel uygulamanızı, kopya bölümünü **nesne kimliği**.
-4.  Yeni bir web tarayıcısı penceresinde Git https://developer.microsoft.com/graph/graph-explorer ve uygulamanızı nerede eklendiğinde Azure AD kiracısı için yönetici olarak oturum açın.
+3. İçinde **özellikleri** yeni özel uygulamanızı, kopya bölümünü **nesne kimliği**.
+4. Yeni bir web tarayıcısı penceresinde Git https://developer.microsoft.com/graph/graph-explorer ve uygulamanızı nerede eklendiğinde Azure AD kiracısı için yönetici olarak oturum açın.
 5. Graph Explorer'da, uygulamanız için sağlama Yapılandırması'nı başlatmak için aşağıdaki komutu çalıştırın.
-"[Object-id]" hizmet sorumlusu kimliği (nesne kimliği) Üçüncü adımda kopyaladığınız değiştirin.
+   "[Object-id]" hizmet sorumlusu kimliği (nesne kimliği) Üçüncü adımda kopyaladığınız değiştirin.
 
- `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
- `{   templateId: "customappsso"   }`
+   `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
+   `{   templateId: "customappsso"   }`
  
 6. İlk web tarayıcı penceresine dönün ve seçin **sağlama** uygulamanız için sekmesinde.
 7. Kullanıcının normalde yaptığınız gibi sağlama yapılandırmasını tamamlayın.

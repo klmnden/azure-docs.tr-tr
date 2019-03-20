@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a50d65940ec12f9883f8991307c3cc5692d96f06
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6c15526169a984ffdaee826fec6ac21fc42647e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738088"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086794"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Service Fabric yük ile ölçümleri ve birleştirme
 Yükleme ölçümleri kümedeki yönetmek için Service Fabric Küme Kaynak Yöneticisi ait varsayılan yükünü dağıtmak için stratejisidir. Düğümleri eşit olarak kullanılan sağlama Çekişme ve israfı neden sıcak ve soğuk noktaları ortadan kaldırır. Küme iş yüklerini dağıtma de hata belirli bir iş yükünün büyük bir yüzdesini almaz sağlar beri hataları geri kalan bakımından en güvenli yoldur. 
@@ -41,6 +41,7 @@ Daha fazla hizmet başarısız düğümleri üzerinde çalışan bu yana birleş
 Aşağıdaki diyagramda iki küme görsel bir temsilini, bir birleştirilmiştir ve olmayan bir sağlar. 
 
 <center>
+
 ![Dengeli ve kümeleri birleştirilmiş karşılaştırma][Image1]
 </center>
 

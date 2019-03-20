@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 6b57c3a172f39c596250b05024ad954a5d065440
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: ee91c9f152d72fbcc58cb4707af9420a57a1517b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984826"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224216"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü kullanma
 
@@ -193,7 +193,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## <a name="deploy-app-to-azure"></a>Uygulamayı Azure’da dağıtma
 
-Oluşturmak için bir gönderdiğiniz görüntünün kullanan bir uygulamayı bir grubu ardından bir hizmet planına ve son olarak web uygulaması oluşturmayı ve Azure CLI komutlarını çalıştırın. 
+Gönderdiğiniz görüntünün kullanan bir uygulamayı oluşturmak için bir grubu ardından bir hizmet planına ve son olarak web uygulaması oluşturmayı ve Azure CLI komutlarını çalıştırın. 
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -526,6 +526,9 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 > [!NOTE]
 > *\<docker-registry-server-url>* değerinde `https://` gereklidir.
 >
+> [!NOTE]
+> Kayıt defteri dockerhub, dışındaki kullanırken `docker-custom-image-name` kayıt defterinizin tam etki alanı adı (FQDN) içermelidir.  
+> Azure Container Registry için, `<azure-container-registry>.azurecr.io/mydockerimage` benzeri bir değer olmalıdır.
 
 Komut aşağıdaki JSON dizesine benzer, yapılandırma değişikliğinin başarılı olduğunu gösteren bir çıkış döndürür:
 

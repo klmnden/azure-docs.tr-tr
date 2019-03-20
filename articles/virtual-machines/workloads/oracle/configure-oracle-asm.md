@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 8cf977f9c5bbf10c6a4d862a29fda98d3ce71844
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0af6e87d3e0b4b3b40b63db07384d4a33a9d43e1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755705"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998953"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Bir Azure Linux sanal makinesinde Oracle ASM ayarlayın  
 
@@ -90,7 +90,7 @@ ssh <publicIpAddress>
 
 Oracle ASM yüklemek için aşağıdaki adımları tamamlayın. 
 
-Oracle ASM yükleme hakkında daha fazla bilgi için bkz. [Oracle ASMLib indirmeleri için Oracle Linux 6](http://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html).  
+Oracle ASM yükleme hakkında daha fazla bilgi için bkz. [Oracle ASMLib indirmeleri için Oracle Linux 6](https://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html).  
 
 1. ASM yüklemeye devam etmek üzere kök olarak oturum açmanız gerekir:
 
@@ -104,7 +104,7 @@ Oracle ASM yükleme hakkında daha fazla bilgi için bkz. [Oracle ASMLib indirme
     yum list | grep oracleasm 
     yum -y install kmod-oracleasm.x86_64 
     yum -y install oracleasm-support.x86_64 
-    wget http://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm 
+    wget https://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm 
     yum -y install oracleasmlib-2.0.12-1.el6.x86_64.rpm 
     rm -f oracleasmlib-2.0.12-1.el6.x86_64.rpm
    ```
@@ -336,24 +336,24 @@ Bu öğretici için varsayılan kullanıcıdır *kılavuz* ve varsayılan grup *
 
 10. Klasör iznini değiştirin:
 
-   ```bash
-   chmod -R 775 /opt 
-   chown grid:oinstall /opt 
-   chown oracle:oinstall /dev/sdc1 
-   chown oracle:oinstall /dev/sdd1 
-   chown oracle:oinstall /dev/sde1 
-   chown oracle:oinstall /dev/sdf1 
-   chmod 600 /dev/sdc1 
-   chmod 600 /dev/sdd1 
-   chmod 600 /dev/sde1 
-   chmod 600 /dev/sdf1
-   ```
+    ```bash
+    chmod -R 775 /opt 
+    chown grid:oinstall /opt 
+    chown oracle:oinstall /dev/sdc1 
+    chown oracle:oinstall /dev/sdd1 
+    chown oracle:oinstall /dev/sde1 
+    chown oracle:oinstall /dev/sdf1 
+    chmod 600 /dev/sdc1 
+    chmod 600 /dev/sdd1 
+    chmod 600 /dev/sde1 
+    chmod 600 /dev/sdf1
+    ```
 
 ## <a name="download-and-prepare-oracle-grid-infrastructure"></a>İndirin ve Oracle kılavuz altyapıyı hazırlama
 
 İndirip kılavuz altyapı Oracle yazılımlarını hazırlamak için aşağıdaki adımları tamamlayın:
 
-1. Oracle kılavuz Altyapıdan indirme [Oracle ASM indirme sayfası](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
+1. Oracle kılavuz Altyapıdan indirme [Oracle ASM indirme sayfası](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
 
    Başlıklı indirme altında **Oracle Database 12c sürüm 1 kılavuz altyapısına (12.1.0.2.0) Linux x86-64**, iki .zip dosyasını indirin.
 
@@ -402,7 +402,7 @@ Bu öğretici için varsayılan kullanıcıdır *kılavuz* ve varsayılan grup *
 ## <a name="prepare-your-local-client-and-vm-to-run-x11"></a>VM ve yerel istemci x11 çalıştırmak için hazırlama
 Oracle ASM yapılandırılması, yükleme ve yapılandırmayı tamamlamak için bir grafik arabirim gerektirir. X11 kullanıyoruz bu yüklemeyi kolaylaştırmak için protokol. X11 zaten bir istemci sistemi (Mac veya Linux) kullanıyorsanız özellikleri etkinleştirilmiş ve yapılandırılmış - bu yapılandırma ve Kurulum özel Windows makineleri için atlayabilirsiniz. 
 
-1. [Putty'yi indirin](http://www.putty.org/) ve [Xming indirme](https://xming.en.softonic.com/) Windows bilgisayarınıza. Hem varsayılan değerlerle devam etmeden önce bu uygulamaların yüklenmesini tamamlamak için ihtiyacınız olacaktır.
+1. [Putty'yi indirin](https://www.putty.org/) ve [Xming indirme](https://xming.en.softonic.com/) Windows bilgisayarınıza. Hem varsayılan değerlerle devam etmeden önce bu uygulamaların yüklenmesini tamamlamak için ihtiyacınız olacaktır.
 
 2. PuTTY yükledikten sonra bir komut istemi açın, PuTTY klasöre (örneğin, C:\Program Files\PuTTY) değiştirin ve çalıştırın `puttygen.exe` bir anahtar oluşturmak için.
 

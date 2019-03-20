@@ -10,18 +10,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/22/2018
-ms.author: cephalin
+ms.date: 03/10/2019
+ms.author: cephalin;byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d89197fad8354b0bae41ab67b9bb1dfac0a179eb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: df874ab77c88f05b048b1f9d10873943b7bebf36
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820306"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884396"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service için dağıtım kimlik bilgilerini yapılandırma
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) iki tür kimlik bilgilerini destekler [yerel Git dağıtımı](deploy-local-git.md) ve [FTP/S dağıtım](deploy-ftp.md). Bunlar Azure Active Directory kimlik bilgilerinizi ile aynı değildir.
+[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) iki tür kimlik bilgilerini destekler [yerel Git dağıtımı](deploy-local-git.md) ve [FTP/S dağıtım](deploy-ftp.md). Bu kimlik bilgilerinin Azure Active Directory kimlik bilgilerinizi aynı değildir.
 
 * **Kullanıcı düzeyinde kimlik**: tek tüm Azure hesabı için kimlik bilgileri kümesi. Azure hesabı için erişim iznine sahip olduğu herhangi bir abonelikte, herhangi bir uygulama için App Service'e dağıtmak için kullanılabilir. GUI portalında ortaya varsayılan kümesi olan (gibi **genel bakış** ve **özellikleri** uygulamanın [kaynak sayfası](../azure-resource-manager/manage-resources-portal.md#manage-resources)). Bir kullanıcı rolü tabanlı erişim denetimi (RBAC) veya coadmin izinler aracılığıyla uygulama erişimi verildiğinde kullanıcı erişimi iptal kadar onun kendi kullanıcı düzeyi kimlik bilgilerini kullanabilirsiniz. Bu kimlik bilgileri, diğer Azure kullanıcıları ile paylaşmayın.
 
@@ -53,6 +53,12 @@ ve *FTP* uygulamanızın dağıtım kullanıcı adı **özellikleri**.
 > Azure kullanıcı düzeyinde dağıtım parolanızı göstermez. Parolanızı unutursanız, bu bölümdeki adımları izleyerek kimlik bilgilerinizi sıfırlayabilirsiniz.
 >
 >  
+
+## <a name="use-user-level-credentials-with-ftpftps"></a>FTP/FTPS ile kullanıcı düzeyi kimlik bilgilerini kullanın
+
+Kullanıcı düzeyinde kimlik requirers şu biçimde bir kullanıcı adı kullanarak bir FTP/FTPS uç nokta kimlik doğrulama işlemi: `<app-name>\<user-name>`
+
+Kullanıcı düzeyinde kimlik, kullanıcı ve belirli bir kaynağa bağlı olduğundan, kullanıcı adı oturum açma eylemi doğru uygulama uç noktasına yönlendirmek için şu biçimde olmalıdır.
 
 ## <a name="appscope"></a>Alma ve uygulama düzeyinde kimlik bilgilerini sıfırlama
 Uygulama düzeyinde kimlik bilgilerini almak için:

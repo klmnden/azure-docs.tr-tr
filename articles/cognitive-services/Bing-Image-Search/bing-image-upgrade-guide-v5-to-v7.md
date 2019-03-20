@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: b3675821cd5565df409fac209b6763845460df1c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 123c5556dc76b35cf4a6b4b34e0c3e2fe437cebe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163386"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996450"
 ---
 # <a name="bing-image-search-api-v7-upgrade-guide"></a>Bing resim arama API'si v7 sürümünü yükseltme Kılavuzu
 
@@ -26,7 +26,7 @@ Bu Yükseltme Kılavuzu, sürüm 5 ve Bing resim arama API'si 7 sürümü arası
 
 ### <a name="endpoints"></a>Uç Noktalar
 
-- Uç noktanın sürüm numarası için v7 v5 değiştirildi. Örneğin, https://api.cognitive.microsoft.com/bing/\ * \*v7.0**/images/search.
+- Uç noktanın sürüm numarası için v7 v5 değiştirildi. Örneğin, https:\//api.cognitive.microsoft.com/bing/\*\*v7.0**/images/search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Hata yanıtı nesneleri ve hata kodları
 

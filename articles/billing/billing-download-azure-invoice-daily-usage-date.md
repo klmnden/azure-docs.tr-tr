@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: b03b787e245129e5e51304a2bcc8740ebf3f6196
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 52e227b933533bf60a474d0417c57e4b75c7978f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406174"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224643"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>İndirme veya Azure fatura ve günlük kullanım verilerini görüntüleme
 
@@ -30,13 +30,13 @@ Bir Kurumsal Sözleşme müşterisi olduğunuz veya varsa bir [Microsoft Müşte
 
 Yalnızca bazı rollerde fatura hesap yöneticisi veya kuruluş yöneticisi gibi faturayı ve kullanım bilgilerini alma iznine sahip. Faturalama bilgilerine erişme hakkında daha fazla bilgi için bkz. [Rolleri kullanarak Azure faturalamasına erişimi yönetme](billing-manage-access.md).
 
-Varsa bir [Microsoft Müşteri sözleşmesi](#Check-your-access-to-a-Microsoft-Customer-Agreement), bir faturalandırma profili sahibi, katkıda bulunan, okuyucu veya faturalama yöneticisi, fatura ve kullanım bilgilerini görüntülemek için. Microsoft Müşteri sözleşmesi için fatura rolleri hakkında daha fazla bilgi edinmek için bkz. [faturalama profili rolleri ve görevleri](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Microsoft Müşteri sözleşmesi varsa, bir faturalandırma profili sahibi, katkıda bulunan, okuyucu, veya faturalama yöneticisi, fatura ve kullanım bilgilerini görüntülemek için. Microsoft Müşteri sözleşmesi için fatura rolleri hakkında daha fazla bilgi edinmek için bkz. [faturalama profili rolleri ve görevleri](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="download-your-azure-invoices-pdf"></a>Azure faturalarınızda (.pdf) indirin
 
-Çoğu abonelikler için Azure portalından faturanızı indirebilirsiniz. Bir Microsoft Müşteri Sözleşmemiz var olmadığını [faturalar için fatura profil indirme](#download-invoices-for-a-billing-profile).
+Çoğu abonelikler için Azure portalından faturanızı indirebilirsiniz. Microsoft Müşteri sözleşmesi varsa, bkz faturalar için fatura profili.
 
 ### <a name="download-invoices-for-an-individual-subscription"></a>Tek bir abonelik için fatura indir
 
@@ -56,7 +56,7 @@ Faturanızı hakkında daha fazla bilgi için bkz: [Microsoft Azure için fatura
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için fatura indir
 
-Faturalar her biri için oluşturulur [profili faturalama](billing-mca-overview.md#understand-billing-profiles) Microsoft Müşteri sözleşmesi. Bir faturalandırma profili sahibi, katkıda bulunan, okuyucu veya faturalama yöneticisi, Azure portalından faturaları indirmesine izin gerekir. 
+Faturalar her biri için oluşturulur [profili faturalama](billing-mca-overview.md#understand-billing-profiles) Microsoft Müşteri sözleşmesi. Bir faturalandırma profili sahibi, katkıda bulunan, okuyucu veya faturalama yöneticisi, Azure portalından faturaları indirmesine izin gerekir.
 
 1. Arama **maliyet Yönetimi + faturalandırma**.
 2. Faturalandırma profili seçin.
@@ -80,7 +80,7 @@ Bir faturayı görmemenizin birden fazla nedeni olabilir:
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Faturanızı (.pdf) e-posta ile alın
 
-Kabul et ve Azure'ı almak için ek alıcılar yapılandırma faturayı e. Bu özellik Destek teklifleri, Kurumsal Anlaşma ya da Open ile Azure gibi bazı abonelikler için kullanılamıyor olabilir. Bir Microsoft Customer sözleşmeniz varsa bkz [faturalandırma profili faturalarınızda e-posta ile alın](#get-your-billing-profile-invoices-in-email).
+Kabul et ve Azure'ı almak için ek alıcılar yapılandırma faturayı e. Bu özellik Destek teklifleri, Kurumsal Anlaşma ya da Open ile Azure gibi bazı abonelikler için kullanılamıyor olabilir. Bir Microsoft Customer sözleşme yaptıysanız, e-posta ile faturalandırma profilinizi faturalar Get bakın.
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>Aboneliğinizin faturaların e-posta ile alın
 
@@ -91,7 +91,7 @@ Kabul et ve Azure'ı almak için ek alıcılar yapılandırma faturayı e. Bu ö
 2. Tıklayın **katılım** ve koşullarını kabul edin.
 
     ![Katılım akışı adım 2 gösteren ekran görüntüsü](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
- 
+
 3. Anlaşmayı kabul ettiğiniz sonra ek alıcılar yapılandırabilirsiniz. E-posta adresi, artık bir alıcı kaldırıldığında depolanır. Fikrinizi değiştirirseniz, bunları yeniden eklemeniz gerekir.
 
     ![Katılım akışı adım 3 gösteren ekran görüntüsü](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
@@ -106,7 +106,7 @@ Yukarıdaki ve tıklayarak adımları izleyerek e-posta ile faturanızı alma d�
 
 ### <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Microsoft Müşteri sözleşmesi faturalarınızda e-posta ile alın
 
-Microsoft Müşteri sözleşmesi varsa, bir e-postada faturanızı almak için de seçebilirsiniz. Tüm faturalandırma profili sahipleri, Katkıda Bulunanlar, okuyucular ve fatura yöneticilerinin e-posta ile fatura alırsınız. Okuyucu, e-posta fatura tercih güncelleştirilemiyor. 
+Microsoft Müşteri sözleşmesi varsa, bir e-postada faturanızı almak için de seçebilirsiniz. Tüm faturalandırma profili sahipleri, Katkıda Bulunanlar, okuyucular ve fatura yöneticilerinin e-posta ile fatura alırsınız. Okuyucu, e-posta fatura tercih güncelleştirilemiyor.
 
 1. Arama **maliyet Yönetimi + faturalandırma**.
 1. Faturalandırma profili seçin.
@@ -121,7 +121,7 @@ Yukarıdaki ve tıklayarak adımları izleyerek e-posta ile faturanızı alma d�
 
 ## <a name="download-usage"></a>Kullanımı indir
 
- Çoğu abonelikler için günlük kullanım dosyanızda Bul [Azure hesap Merkezi](https://account.azure.com/Subscriptions). EA müşterisiyseniz veya bir Microsoft Müşteri Sözleşmemiz var, kullanımı indirebilirsiniz [Azure portalında](https://portal.azure.com/). <!--yapılacak: gelir, sonra PayG deneyimi için Ibiza güncelleştirme >
+ Çoğu abonelikler için günlük kullanım dosyanızda Bul [Azure hesap Merkezi](https://account.azure.com/Subscriptions). EA müşterisiyseniz veya bir Microsoft Müşteri Sözleşmemiz var, kullanımı indirebilirsiniz [Azure portalında](https://portal.azure.com/). <!-- TO DO: update PayG experience to Ibiza once it ships-->
 
 ### <a name="download-usage-from-the-account-center-csv"></a>Hesap Merkezi'nden (.csv) kullanımı indir
 
@@ -189,7 +189,7 @@ Ayrıca, ay başından bu yana kullanım ücretleri henüz faturalandırılmış
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
 
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

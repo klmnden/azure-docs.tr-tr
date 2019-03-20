@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: f6d5f2d7df483e0884779c3eac6a77f976e173c3
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8f1320db0af85f6c83a9daf8e17a691336c9b251
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567052"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58164468"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Kaynak güncelleştirme etkinliği'ni kullanarak Azure Machine Learning modellerini güncelleştirme
 Bu makalede, ana Azure Data Factory - Azure Machine Learning tümleştirme makale tamamlar: [Azure Machine Learning ve Azure Data Factory kullanarak öngörülebilir komut zincirleri oluşturma](transform-data-using-machine-learning.md). Zaten yapmadıysanız, bu makalede okumadan önce ana makalesini gözden geçirin.

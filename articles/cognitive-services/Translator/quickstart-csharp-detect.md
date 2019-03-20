@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: d27d385fa6fba93b7221d241f46894e9cfb9dea6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e2988260902b645237ad26420435441622127f8a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729467"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103426"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, metin dilini kullanarak algılamak için kullanınC#
 
@@ -131,9 +131,17 @@ request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
-// Print the response
-Console.WriteLine(jsonResponse);
+// Pretty print the response
+Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
+```
+
+"(Yanıt biçimlendirme) düzgün Yazdır" ile yanıt'ı yazdırmak için bu işlev, Program sınıfına ekleyin:
+```
+static string PrettyPrint(string s)
+{
+    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+}
 ```
 
 ## <a name="put-it-all-together"></a>Hepsini bir araya getirin

@@ -14,22 +14,22 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: cd4115aaeec15d14d48dcb71cbdc75212c6dc2db
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5501e92b9a9d977f74bf4ed028b3cd3de4e56133
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960691"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225391"
 ---
-# <a name="quickstart-create-an-net-core-app-with-app-configuration"></a>Hızlı Başlangıç: Oluşturma bir .NET Core uygulaması ile uygulama yapılandırması
+# <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Hızlı Başlangıç: Oluşturma bir .NET Core uygulaması ile uygulama yapılandırması
 
-Azure uygulama yapılandırması, azure'da yönetilen yapılandırma hizmetidir. Kolayca depolayıp kodunuzdan tüm uygulama ayarlarınızı ayrılmış tek bir yerden yönetmenize olanak tanır. Bu hızlı başlangıçta bir .NET Core konsol uygulamanıza hizmet gösterilmektedir.
+Azure uygulama yapılandırması, azure'da yönetilen yapılandırma hizmetidir. Kolayca depolayın ve kodunuzdan tüm uygulama ayarlarınızı ayrılmış tek bir yerden yönetmek için kullanabilirsiniz. Bu hızlı başlangıçta bir .NET Core konsol uygulamanıza hizmet gösterilmektedir.
 
-Bu hızlı başlangıçtaki adımları tamamlamak için herhangi bir kod düzenleyicisini kullanabilirsiniz. Ancak, Windows, macOS ve Linux platformlarında sağlanan [Visual Studio Code](https://code.visualstudio.com/) mükemmel bir seçenektir.
+Bu hızlı başlangıçtaki adımları uygulamak için herhangi bir kod Düzenleyicisi'ni kullanabilirsiniz. [Visual Studio Code](https://code.visualstudio.com/) Windows, macOS ve Linux platformlarını mükemmel bir seçenek kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için yükleme [.NET Core SDK'sı](https://dotnet.microsoft.com/download).
+Bu hızlı başlangıç yapmak için yükleme [.NET Core SDK'sı](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,25 +39,25 @@ Bu hızlı başlangıcı tamamlamak için yükleme [.NET Core SDK'sı](https://d
 
 ## <a name="create-a-net-core-console-app"></a>.NET Core konsol uygulaması oluşturma
 
-Kullanacağınız [.NET Core komut satırı arabirimi (CLI)](https://docs.microsoft.com/dotnet/core/tools/) yeni bir .NET Core konsol uygulaması projesi oluşturmak için. Visual Studio yerine .NET Core CLI kullanmanın avantajı Windows, macOS ve Linux platformlarında kullanılabilir olmasıdır.
+Kullandığınız [.NET Core komut satırı arabirimi (CLI)](https://docs.microsoft.com/dotnet/core/tools/) yeni bir .NET Core konsol uygulaması projesi oluşturmak için. Visual Studio üzerinde .NET Core CLI kullanmanın avantajı, Windows, macOS ve Linux platformlar arasında kullanılabilir olmasıdır.
 
 1. Projeniz için yeni bir klasör oluşturun.
 
-2. Yeni klasörde yeni bir ASP.NET Core MVC Web Uygulaması projesi oluşturmak için aşağıdaki komutu yürütün:
+2. Yeni klasörde yeni bir ASP.NET Core MVC web uygulaması projesi oluşturmak için aşağıdaki komutu çalıştırın:
 
         dotnet new console
 
-## <a name="connect-to-app-configuration-store"></a>Uygulama yapılandırma deposuna bağlanın
+## <a name="connect-to-an-app-configuration-store"></a>Bir uygulama yapılandırma deposuna bağlanın
 
-1. Aşağıdaki komutu yürüterek `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet paketine bir başvuru ekleyin:
+1. Bir başvuru ekleyin `Microsoft.Extensions.Configuration.AzureAppConfiguration` aşağıdaki komutu çalıştırarak NuGet paketi:
 
         dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
 
-2. Projeniz için paketleri geri yüklemek üzere aşağıdaki komutu yürütün.
+2. Projeniz için paketler geri yüklemek için aşağıdaki komutu çalıştırın:
 
         dotnet restore
 
-3. Açık *Program.cs* ve güncelleştirme `Main` yöntemi çağırarak uygulama yapılandırmasını kullanma `builder.AddAzureAppConfiguration()` yöntemi.
+3. Açık *Program.cs*ve güncelleştirme `Main` yöntemi çağırarak uygulama yapılandırmasını kullanma `builder.AddAzureAppConfiguration()` yöntemi.
 
     ```csharp
     static void Main(string[] args)
@@ -72,23 +72,23 @@ Kullanacağınız [.NET Core komut satırı arabirimi (CLI)](https://docs.micros
 
 ## <a name="build-and-run-the-app-locally"></a>Derleme ve uygulamayı yerel olarak çalıştırma
 
-1. Adlı bir ortam değişkenini ayarlamak **ConnectionString** ve uygulama yapılandırma deponuz için erişim anahtarı ayarlayın. Windows Komut İstemi'ni kullanıyorsanız, aşağıdaki komutu yürütün ve değişikliğin etkili olması için izin vermek için komut istemine yeniden başlatın:
+1. Adlı bir ortam değişkenini ayarlamak **ConnectionString**ve uygulama yapılandırma deponuz için erişim anahtarı ayarlayın. Windows Komut İstemi'ni kullanırsanız, aşağıdaki komutu çalıştırın ve değişikliğin etkili olması için izin vermek için komut istemine yeniden başlatın:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
-    Windows PowerShell kullanıyorsanız, aşağıdaki komutu yürütün:
+    Windows PowerShell kullanıyorsanız, aşağıdaki komutu çalıştırın:
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-    MacOS veya Linux'ı kullanıyorsanız, aşağıdaki komutu yürütün:
+    MacOS veya Linux kullanıyorsanız, aşağıdaki komutu çalıştırın:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Konsol uygulaması oluşturmak için aşağıdaki komutu yürütün:
+2. Konsol uygulaması oluşturmak için aşağıdaki komutu çalıştırın:
 
         dotnet build
 
-3. Yapılandırma başarıyla tamamlandıktan sonra uygulamayı yerel olarak çalıştırmak için aşağıdaki komutu yürütün:
+3. Yapılandırma başarıyla tamamlandıktan sonra uygulamayı yerel olarak çalıştırmak için aşağıdaki komutu çalıştırın:
 
         dotnet run
 
@@ -100,7 +100,7 @@ Kullanacağınız [.NET Core komut satırı arabirimi (CLI)](https://docs.micros
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, yeni bir uygulama yapılandırma deposu oluşturuldu ve bir .NET Core konsol uygulaması ile kullanılan. Uygulama yapılandırmasını kullanma hakkında daha fazla bilgi edinmek için kimlik doğrulaması gösteren bir sonraki öğreticiye devam edin.
+Bu hızlı başlangıçta, yeni bir uygulama yapılandırma deposu oluşturuldu ve bir .NET Core konsol uygulaması kullanılır. Uygulama yapılandırmasını kullanma hakkında daha fazla bilgi için kimlik doğrulaması gösteren bir sonraki öğreticiye devam edin.
 
 > [!div class="nextstepaction"]
 > [Azure kaynaklarını tümleştirme için yönetilen kimlik](./integrate-azure-managed-service-identity.md)

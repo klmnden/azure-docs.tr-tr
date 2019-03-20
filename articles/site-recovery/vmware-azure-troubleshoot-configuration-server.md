@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: a81bcf26234f3b7840a75e7134596cb777071e8f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432800"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107602"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Yapılandırma sunucusu sorunlarını giderme
 
@@ -25,9 +25,9 @@ Mobility Aracısı yüklediğinizde, kaynak makinenin yapılandırma sunucusuna 
 1. Open the C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log file. (ProgramData klasörü gizli bir klasör olabilir. ProgramData klasörü dosya Gezgini'nde, üzerinde görmezseniz **görünümü** sekmesinde **Göster/Gizle** bölümünden **öğelerin gizli** onay kutusunu.) Hataları, birden çok sorunlarından kaynaklanıyor olabilir.
 
 2. Arama dizesi için **Hayır geçerli IP adresi bulunamadı**. Dize bulunursa:
-    1. İstenen konak kimliği kaynak makinenin konak kimliği ile aynı olduğunu doğrulayın.
-    2. Kaynak makinenin fiziksel NIC'ye atanmış en az bir IP adresi olduğunu doğrulayın Başarılı olması için yapılandırma sunucusu ile aracı kaydı için kaynak makinenin fiziksel NIC'ye atanmış en az bir geçerli IP v4 adresi olmalıdır
-    3. Kaynak makinenin tüm IP adreslerini almak için kaynak makinede olarak aşağıdaki komutlardan birini çalıştırın:
+   1. İstenen konak kimliği kaynak makinenin konak kimliği ile aynı olduğunu doğrulayın.
+   2. Kaynak makinenin fiziksel NIC'ye atanmış en az bir IP adresi olduğunu doğrulayın Başarılı olması için yapılandırma sunucusu ile aracı kaydı için kaynak makinenin fiziksel NIC'ye atanmış en az bir geçerli IP v4 adresi olmalıdır
+   3. Kaynak makinenin tüm IP adreslerini almak için kaynak makinede olarak aşağıdaki komutlardan birini çalıştırın:
       - Windows için: `> ipconfig /all`
       - Linux için: `# ifconfig -a`
 

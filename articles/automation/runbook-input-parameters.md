@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ef0dfafce33837a80ec00ba58e6be99784e652a2
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 969e0c2582ce8f72592059fbf1d58e3ebe9faa5d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418617"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117209"
 ---
 # <a name="runbook-input-parameters"></a>Runbook giriş parametreleri
 
@@ -338,10 +338,10 @@ Aşağıdaki PowerShell komutlarını çalıştırın:
    Connect-AzureRmAccount
    ```
 
-  Azure kimlik bilgilerinizi girmeniz istenir.
+   Azure kimlik bilgilerinizi girmeniz istenir.
 
-  > [!IMPORTANT]
-  > **Add-AzureRmAccount** için bir diğer ad sunulmuştur **Connect-AzureRMAccount**. Ne zaman kitaplığınızı arama öğe görmüyorsanız, **Connect-AzureRMAccount**, kullanabileceğiniz **Add-AzureRmAccount**, veya Otomasyon hesabınızda modüllerinizi güncelleştirebilirsiniz.
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** için bir diğer ad sunulmuştur **Connect-AzureRMAccount**. Ne zaman kitaplığınızı arama öğe görmüyorsanız, **Connect-AzureRMAccount**, kullanabileceğiniz **Add-AzureRmAccount**, veya Otomasyon hesabınızda modüllerinizi güncelleştirebilirsiniz.
 
 1. JSON dosyasının içeriği almak ve bir dizeye dönüştürün:
 

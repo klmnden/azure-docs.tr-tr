@@ -11,22 +11,65 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/20/2019
+ms.date: 3/14/2019
 ms.author: raiye
-ms.openlocfilehash: 9a54a7676b874eee601ac2b673021bb7ff161ba8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ec50cff2a2d3323b988632fd7ee96b73f60117b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532959"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887298"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirmelerin Microsoft Güvenlik Yanıt Merkezi (MSRC) gösterilmektedir. Belirli bir güncelleştirmenin Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeler her zaman taşıyan İleri için belirli [ailesi] [ family-explain] sürümünde yapılan.
 
-## <a name="february-2019-guest-os"></a>Şubat 2019 konuk işletim sistemi
-
 >[!NOTE]
->Şubat konuk işletim sistemi, şu anda, otomatik güncelleştirmeler için yapılandırılmış olan bir bulut hizmeti vm'lerine da sunulacaktır. Piyasaya çıkış tamamlandığında, bu sürümü ile Azure portal ve yapılandırma dosyalarını el ile güncelleştirmeleri kullanılabilir hale getirilir. Aşağıdaki düzeltme ekleri, Şubat konuk işletim sisteminde dahil edilir. Bu liste değiştirilebilir ' dir.
+>Mart konuk işletim sistemi, şu anda, otomatik güncelleştirmeler için yapılandırılmış olan bir bulut hizmeti vm'lerine da sunulacaktır. Piyasaya çıkış tamamlandığında, bu sürümü ile Azure portal ve yapılandırma dosyalarını el ile güncelleştirmeleri kullanılabilir hale getirilir. Aşağıdaki düzeltme ekleri, Mart işletim sisteminde dahil edilir. Bu liste değiştirilebilir ' dir.
+
+
+## <a name="march-2019-guest-os"></a>Mart 2019 konuk işletim sistemi
+
+| Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
+| --- | --- | --- | --- | --- |
+| Rel 19-03 | [4489873] | Internet Explorer | 2.84, 3.71, 4.64 | 12 Mart 2019 |
+| Rel 19-03 | [4489907] | Flash | 3.71, 4.64, 5.29, 6.5 | 12 Mart 2019 |
+| Rel 19-03 | [4489885] | Windows Güvenlik | 2.84 | 12 Mart 2019 |
+| Rel 19-03 | [4489884] | Windows Güvenlik | 3.71 | 12 Mart 2019 |
+| Rel 19-03 | [4489883] | Windows Güvenlik | 4.64 | 12 Mart 2019 |
+| Rel 19-03 | [4489882] | Windows 10 Güvenlik | 5.29 | 12 Mart 2019 |
+| Rel 19-03 | [4489899] | Windows 10 Güvenlik | 6.5 | 12 Mart 2019 |
+| Rel 19-03 | [4486563] | Şubat güvenlikle dökümü | 2.84 | 12 Şubat 2019 |
+| Rel 19-03 | [4483458] | Şubat güvenlikle paketi .NET 3.x | 2.84 | 12 Şubat 2019 |
+| Rel 19-03 | [4483455] | Şubat güvenlikle paketi .NET 4.x | 2.84 | 12 Şubat 2019 |
+| Rel 19-03 | [4487025] | Şubat güvenlikle dökümü | 3.71 | 12 Şubat 2019 |
+| Rel 19-03 | [4483456] | Şubat güvenlikle paketi .NET 3.x | 3.71 | 12 Şubat 2019 |
+| Rel 19-03 | [4483454] | Şubat güvenlikle paketi .NET 4.x | 3.71 | 12 Şubat 2019 |
+| Rel 19-03 | [4487000] | Şubat güvenlikle dökümü | 4.64 | 12 Şubat 2019 |
+| Rel 19-03 | [4483459] | Şubat güvenlikle paketi .NET 3.x | 4.64 | 12 Şubat 2019 |
+| Rel 19-03 | [4483453] | Şubat güvenlikle paketi .NET 4.x | 4.64 | 12 Şubat 2019 |
+| Rel 19-03 | [4485447] | Şubat hizmet yığını güncelleştirmesi | 5.29 | 12 Şubat 2019 |
+| Rel 19-03 | [4486459] | Saat dilimi güncelleştirme | 2.84, 3.71, 4.64 | 12 Şubat 2019 |
+
+[4489873]: https://support.microsoft.com/kb/4489873
+[4489907]: https://support.microsoft.com/kb/4489907
+[4489885]: https://support.microsoft.com/kb/4489885
+[4489884]: https://support.microsoft.com/kb/4489884
+[4489883]: https://support.microsoft.com/kb/4489883
+[4489882]: https://support.microsoft.com/kb/4489882
+[4489899]: https://support.microsoft.com/kb/4489899
+[4486563]: https://support.microsoft.com/kb/4486563
+[4483458]: https://support.microsoft.com/kb/4483458
+[4483455]: https://support.microsoft.com/kb/4483455
+[4487025]: https://support.microsoft.com/kb/4487025
+[4483456]: https://support.microsoft.com/kb/4483456
+[4483454]: https://support.microsoft.com/kb/4483454
+[4487000]: https://support.microsoft.com/kb/4487000
+[4483459]: https://support.microsoft.com/kb/4483459
+[4483453]: https://support.microsoft.com/kb/4483453
+[4485447]: https://support.microsoft.com/kb/4485447
+[4486459]: https://support.microsoft.com/kb/4486459
+
+## <a name="february-2019-guest-os"></a>Şubat 2019 konuk işletim sistemi
 
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
@@ -520,7 +563,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Rel 17-05 | [4010323] |SHA1 danışmanlığı |2.62, 4.42, 5.7 | 9 Mayıs 2017 |
 | Rel 17-05 | [4022344] |Microsoft Güvenlik danışma belgesi |5.7 | 9 Mayıs 2017 |
 | Rel 17-05 | [4022345] |Microsoft Güvenlik danışma belgesi |5.7 | 9 Mayıs 2017 |
-| Rel 17-05 | [4021279] |.NET /ASP.Net çekirdek danışmanlığı |2.62, 3.49, 4.42, 5.7 | 9 Mayıs 2017 |
+| Rel 17-05 | [4021279] |.NET /ASP.NET çekirdek danışmanlığı |2.62, 3.49, 4.42, 5.7 | 9 Mayıs 2017 |
 | Yok | [4012864] |Saat dilimi güncelleştirme |2.62, 3.49, 4.42 | 9 Mayıs 2017 |
 | Yok | [4014565] |Nisan .NET olmayan güvenlik dökümü |2.62 | 11 Nisan 2017 |
 | Yok | [4014559] |Nisan .NET olmayan güvenlik dökümü |2.62 | 11 Nisan 2017 |

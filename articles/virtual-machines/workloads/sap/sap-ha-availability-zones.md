@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8e20d617da12aea857308f4020fbd0cfe711430
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 687f99fb6447eddb4ce10ce81bc349181ec5c48c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651320"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094761"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure kullanılabilirlik alanları ile SAP iş yükü yapılandırmaları
 [Azure kullanılabilirlik alanları](https://docs.microsoft.com/azure/availability-zones/az-overview) Azure sağlayan bir yüksek kullanılabilirlik özelliklerinden biridir. Kullanılabilirlik alanları kullanarak SAP iş yüklerinizi azure'da genel kullanılabilirliğini artırır. Bu özellik zaten bazı durumlarda kullanılabilir [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/regions/). Gelecekte daha fazla bölgede kullanılabilir olacaktır.
@@ -109,8 +109,8 @@ Bu yapılandırma için aşağıdaki maddeler geçerlidir:
 - Tüm sanal dağıttığınız makineler için kullanmanız gereken [Azure yönetilen diskler](https://azure.microsoft.com/services/managed-disks/). Yönetilmeyen diskler, bölgesel dağıtımları için desteklenmez.
 - Azure Premium depolama ve [Ultra SSD depolama](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) dilimlerinde herhangi bir türde depolama çoğaltmasını desteklemez. Uygulama (DBMS veya SAP Central Services'in) önemli verilerin çoğaltılması gerekir.
 - Aynı paylaşılan disk (Windows), CIFS Paylaşımı (Windows) veya bir NFS paylaşımına (Linux) paylaşılan sapmnt dizini için geçerlidir. Bu paylaşılan diskler veya paylaşımları bölgeleri arasında çoğaltılan bir teknoloji kullanmanız gerekir. Bu teknolojiler desteklenir:
-    - Windows için bir küme çözümü kullanan SIOS DataKeeper açıklandığı gibi [SAP ASCS/SCS örneği, Azure'da bir küme paylaşılan disk kullanarak bir Windows Yük devretme kümesinde Küme](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
-    - SUSE Linux için bir NFS paylaşım açıklandığı gibi yerleşik [SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde NFS için yüksek kullanılabilirlik](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
+  - Windows için bir küme çözümü kullanan SIOS DataKeeper açıklandığı gibi [SAP ASCS/SCS örneği, Azure'da bir küme paylaşılan disk kullanarak bir Windows Yük devretme kümesinde Küme](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk).
+  - SUSE Linux için bir NFS paylaşım açıklandığı gibi yerleşik [SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde NFS için yüksek kullanılabilirlik](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs).
     
     Şu anda açıklandığı gibi Microsoft genişleme dosya sunucusu kullanan çözüm [SAP ASCS/SCS örneği için bir Windows Yük devretme kümesi ve dosya paylaşımı kullanarak SAP yüksek kullanılabilirlik için Azure'u hazırlama altyapı](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), değil bölgeler arasında desteklenir.
 - Üçüncü bir bölge oluşturmanız durumunda SBD cihaz barındırmak için kullanılan bir [SUSE Linux Pacemaker küme](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) veya ek uygulama örnekleri.

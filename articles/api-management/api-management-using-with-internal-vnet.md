@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 04712b1ba1eccd71dcfcc9012ebcbdfcbdcd2404
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d8cea95fbfb76f1dd1891045309a35aa1d0a8ab0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773697"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099493"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Azure API Management hizmeti bir iç sanal ağ ile kullanma
 Azure sanal ağlar ile Azure API Management API'leri değil internet üzerinden erişilebilen yönetebilirsiniz. VPN'si teknolojileri birkaç bağlantı kurmak kullanılabilir. API Management, iki ana modda bir sanal ağ içinde dağıtılabilir:
@@ -108,11 +108,11 @@ Bir sanal ağda özel DNS sunucusu kullanıyorsanız, ayrıca bir DNS kayıtlar�
 
 ### <a name="access-on-custom-domain-names"></a>Özel etki alanı adları hakkında daha fazla erişim
 
-   1. API Management hizmeti ile varsayılan konak adları erişmek istemiyorsanız, aşağıdaki görüntüde gösterildiği gibi tüm hizmet uç noktalarınıza için özel etki alanı adlarını ayarlayabilirsiniz:
+1. API Management hizmeti ile varsayılan konak adları erişmek istemiyorsanız, aşağıdaki görüntüde gösterildiği gibi tüm hizmet uç noktalarınıza için özel etki alanı adlarını ayarlayabilirsiniz:
 
    ![API Management için özel bir etki alanı ayarlama][api-management-custom-domain-name]
 
-   2. Ardından, yalnızca sanal ağınızdaki erişilebilir uç noktalarına erişmek için DNS sunucunuzun kayıtlarını oluşturabilirsiniz.
+2. Ardından, yalnızca sanal ağınızdaki erişilebilir uç noktalarına erişmek için DNS sunucunuzun kayıtlarını oluşturabilirsiniz.
 
 ## <a name="routing"> </a> Yönlendirme
 + Yük dengeli özel bir sanal IP adresi alt ağı aralığından ayrılmış ve sanal ağ içindeki API Management hizmet uç noktalarından erişmek için kullanılır.

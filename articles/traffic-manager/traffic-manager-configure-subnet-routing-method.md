@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 3ce385149de58b185f296191bbed0f16b5331c1f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b3eb7995dac1adf3053d28b40cf322e78c69c55f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469823"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001320"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Traffic Manager'ı kullanarak trafiği kullanıcı alt ağına göre belirli uç noktalara yönlendirme
 
@@ -58,6 +58,7 @@ Bu bölümde, iki VM oluşturma *myEndpointVMEastUS* ve *myEndpointVMWEurope* i�
     |Kaynak grubu| **Yeni**'yi seçin ve *myResourceGroupTM1* yazın.|
     |Konum| **Doğu ABD**’yi seçin.|
     |||
+
 4. **Boyut seçin** bölümünden bir sanal makine boyutu seçin.
 5. **Ayarlar** için aşağıdaki değerleri seçin ve **Tamam**’a tıklayın:
     
@@ -67,6 +68,7 @@ Bu bölümde, iki VM oluşturma *myEndpointVMEastUS* ve *myEndpointVMWEurope* i�
     |Ağ Güvenliği Grubu|**Temel**'i seçin ve **Ortak gelen bağlantı noktası seçin** açılan menüsünde **HTTP** ve **RDP**'yi seçin. |
     |Önyükleme tanılamaları|**Devre dışı** girişini seçin.|
     |||
+
 6. **Özet**’in **Oluştur** bölümünde **Oluştur**’u seçerek sanal makine dağıtımını başlatın.
 
 7. Aşağıdaki değişikliklerle birlikte 1.-6. adımları tekrar tamamlayın:
@@ -78,6 +80,7 @@ Bu bölümde, iki VM oluşturma *myEndpointVMEastUS* ve *myEndpointVMWEurope* i�
     |VM Adı | myIISVMWEurope|
     |Sanal ağ | **Sanal ağ**'ı seçin ve **Sanal ağ oluştur** bölümündeki **Ad** alanına *myVNet2*, alt ağ alanına da *mySubnet* yazın.|
     |||
+
 8. Sanal makinelerin oluşturulması birkaç dakika sürebilir. Her iki sanal makine de oluşturulmadan kalan adımlara devam etmeyin.
 
    ![VM oluşturma](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -143,6 +146,7 @@ Bu bölümde, bir VM oluşturun (*mVMEastUS* ve *myVMWestEurope*) her bir Azure 
 
 4. **Boyut seçin** bölümünden bir sanal makine boyutu seçin.
 5. **Ayarlar** için aşağıdaki değerleri seçin ve **Tamam**’a tıklayın:
+
     |Ayar|Değer|
     |---|---|
     |Sanal ağ| **Sanal ağ**'ı seçin ve **Sanal ağ oluştur** bölümündeki **Ad** alanına *myVNet3*, alt ağ alanına da *mySubnet3* yazın.|
@@ -168,6 +172,7 @@ Bu bölümde, bir VM oluşturun (*mVMEastUS* ve *myVMWestEurope*) her bir Azure 
 
 1. Ekranın sol üst tarafından **Kaynak oluştur** > **Ağ** > **Traffic Manager profili** > **Oluştur**'u seçin.
 2. **Traffic Manager profili oluştur** ekranında aşağıdaki bilgileri girin veya seçin, kalan ayarlar için varsayılan değerleri kabul edin ve sonra **Oluştur**'u seçin:
+
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
     | Ad                   | Bu adın trafficmanager.net bölgesinde benzersiz olması ve Traffic Manager profilinize erişmek için kullanılan trafficmanager.net DNS adı ile sonuçlanması gerekir.                                   |
@@ -189,7 +194,7 @@ IIS çalıştıran iki sanal makine ekleme sunucuları - *myIISVMEastUS* & *myII
 
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
-    | Tür                    | Azure uç noktası                                   |
+    | Type                    | Azure uç noktası                                   |
     | Ad           | myTestWebSiteEndpoint                                        |
     | Hedef kaynak türü           | Genel IP Adresi                          |
     | Hedef kaynak          | Genel IP adresine sahip kaynakların aynı abonelik altında listelenmesi için **Genel IP adresi seçin**. **Kaynak** bölümünde *myIISVMEastUS-ip* adlı genel IP adresini seçin. Bu, Doğu ABD bölgesindeki IIS sunucusu VM'sinin IP adresidir.|

@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 075672fb6d132258b04936aa20129fa6f8c82572
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 2bed701f8948b27d4a242c6bb0af8ecf939db409
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819249"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223487"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Azure kaynakları için yönetilen kimlikleri bir şablonu kullanarak bir Azure sanal makine ölçek üzerinde yapılandırma
+# <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Azure kaynakları için yönetilen kimlikleri bir şablonu kullanarak bir Azure sanal makine ölçek üzerinde yapılandırma
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -71,29 +71,9 @@ Bu bölümde, etkinleştirin ve bir Azure Resource Manager şablonu kullanarak s
    }
    ```
 
-3. (İsteğe bağlı) Sanal makine ölçek kümesi uzantısı olarak Azure kaynakları için yönetilen kimlikleri ekleme bir `extensionsProfile` öğesi. Azure örnek meta veri hizmeti (IMDS) kimliğini de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.  Aşağıdaki sözdizimini kullanın:
+> [!NOTE]
+> Azure kaynaklarını sanal makine ölçek kümesi uzantısını içinde belirterek için isteğe bağlı olarak yönetilen kimlikleri sağlamanız `extensionProfile` şablonu öğesidir. Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.  Daha fazla bilgi için [Azure IMDS kimlik doğrulaması için VM uzantısı'ten geçiş](howto-migrate-vm-extension.md).
 
-   >[!NOTE] 
-   > Aşağıdaki örnekte, bir Windows sanal makine ölçek kümesi uzantısı varsayılır (`ManagedIdentityExtensionForWindows`) dağıtılıyor. Kullanarak Linux için yapılandırabilirsiniz `ManagedIdentityExtensionForLinux` için bunun yerine, `"name"` ve `"type"` öğeleri.
-   >
-
-   ```json
-   "extensionProfile": {
-        "extensions": [
-            {
-                "name": "ManagedIdentityWindowsExtension",
-                "properties": {
-                    "publisher": "Microsoft.ManagedIdentity",
-                    "type": "ManagedIdentityExtensionForWindows",
-                    "typeHandlerVersion": "1.0",
-                    "autoUpgradeMinorVersion": true,
-                    "settings": {
-                        "port": 50342
-                    },
-                    "protectedSettings": {}
-                }
-            }
-   ```
 
 4. İşiniz bittiğinde, aşağıdaki bölümlerde şablonunuzun kaynak bölümüne eklenen ve aşağıdakine benzemelidir:
 
@@ -112,6 +92,7 @@ Bu bölümde, etkinleştirin ve bir Azure Resource Manager şablonu kullanarak s
                 //other resource provider properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
                     "extensionProfile": {
                         "extensions": [
                             {
@@ -214,26 +195,8 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak sanal makine ölçek k�
 
    }
    ``` 
-
-2. (İsteğe bağlı) Altında şu girişi ekleyin `extensionProfile` , VMSS için Azure kaynaklarını uzantısı yönetilen kimlik bilgilerini atamak için öğesi. Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır. Aşağıdaki sözdizimini kullanın:
-   
-    ```JSON
-       "extensionProfile": {
-            "extensions": [
-                {
-                    "name": "ManagedIdentityWindowsExtension",
-                    "properties": {
-                        "publisher": "Microsoft.ManagedIdentity",
-                        "type": "ManagedIdentityExtensionForWindows",
-                        "typeHandlerVersion": "1.0",
-                        "autoUpgradeMinorVersion": true,
-                        "settings": {
-                            "port": 50342
-                        },
-                        "protectedSettings": {}
-                    }
-                }
-    ```
+> [!NOTE]
+> Azure kaynaklarını sanal makine ölçek kümesi uzantısını içinde belirterek için isteğe bağlı olarak yönetilen kimlikleri sağlamanız `extensionProfile` şablonu öğesidir. Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.  Daha fazla bilgi için [Azure IMDS kimlik doğrulaması için VM uzantısı'ten geçiş](howto-migrate-vm-extension.md).
 
 3. İşiniz bittiğinde, şablonunuzu aşağıdakine benzer görünmelidir:
    
@@ -257,6 +220,7 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak sanal makine ölçek k�
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)
                     "extensionProfile": {
                         "extensions": [
                             {
@@ -299,6 +263,7 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak sanal makine ölçek k�
                 //other virtual machine properties...
                 "virtualMachineProfile": {
                     //other virtual machine profile properties...
+                    //The following appears only if you provisioned the optional virtual machine scale set extension (to be deprecated)    
                     "extensionProfile": {
                         "extensions": [
                             {
@@ -320,7 +285,7 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak sanal makine ölçek k�
         }
     ]
    ```
-### <a name="remove-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Yönetilen kimlik kullanıcı tarafından atanan bir Azure sanal makine ölçek kümesinden Kaldır
+   ### <a name="remove-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Yönetilen kimlik kullanıcı tarafından atanan bir Azure sanal makine ölçek kümesinden Kaldır
 
 Artık bir kullanıcı tarafından atanan bir yönetilen kimlik gereken sanal makine ölçek kümesi varsa:
 

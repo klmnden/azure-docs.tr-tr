@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 875548b8277e50ccb813cf6b36541a053abdbb70
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c91fa2c269b507988d2bdefcd2882b2ab55fec35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222074"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094874"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Windows Server 2008 çalıştıran sunucuları Azure'a geçirme
 
@@ -51,6 +51,8 @@ Başlamadan önce [VMware ve Fiziksel sunucu geçişi](vmware-azure-architecture
 Windows Server 2008 veya Windows Server 2008 R2 çalıştıran Hyper-V sanal makinelerini geçirmek için [şirket içi makineleri Azure'a geçirme](migrate-tutorial-on-premises-azure.md) öğreticisindeki adımları izleyin.
 
 Bu öğreticinin geri kalan bölümünde Windows Server 2008 veya 2008 R2 çalıştıran şirket içi VMware sanal makinelerini ve Fiziksel sunucuları geçirme adımları gösterilmektedir.
+> [!TIP]
+> VMware Vm'lerini Azure'a geçirmek aracısız bir şekilde mi arıyorsunuz? [Buraya tıklayın](https://aka.ms/migrateVMs-signup)
 
 
 ## <a name="limitations-and-known-issues"></a>Sınırlamalar ve bilinen sorunlar

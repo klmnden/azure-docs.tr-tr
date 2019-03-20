@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 20e8fe96e403156cd0662b5c8abe4971e1d02866
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 11021562cd34f31564e6b4c22fcd64aac25d3469
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771591"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862072"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-cloud"></a>Öğretici: İki Web yöntemini tümleştirme bulut ile Azure Active Directory Tümleştirme
 
@@ -107,6 +107,7 @@ Azure AD çoklu oturum açma iki Web yöntemini tümleştirme bulut ile yapılan
     ![iki Web yöntemini tümleştirme bulut etki alanı ve URL'ler çoklu oturum açma bilgileri](common/idp-intiated.png)
 
     a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın:
+
     | |
     |--|
     | `<SUBDOMAIN>.webmethodscloud.com` |
@@ -114,6 +115,7 @@ Azure AD çoklu oturum açma iki Web yöntemini tümleştirme bulut ile yapılan
     | `<SUBDOMAIN>.webmethodscloud.de` |
 
     b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+
     | |
     |--|
     | `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoResponse` |
@@ -125,6 +127,7 @@ Azure AD çoklu oturum açma iki Web yöntemini tümleştirme bulut ile yapılan
     ![iki Web yöntemini tümleştirme bulut etki alanı ve URL'ler çoklu oturum açma bilgileri](common/metadata-upload-additional-signon.png)
 
     İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+    
     | |
     |--|
     | `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest` |
@@ -170,7 +173,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

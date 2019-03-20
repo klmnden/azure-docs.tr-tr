@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ffac91aef9a091f827c333605ab20c1cce7e258
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b7556e93e6e7b7e9bdb1f19f5a6e5b3c15c7b910
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446104"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894079"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Öğretici: Tuval ile Azure Active Directory Tümleştirme
 
@@ -180,7 +180,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -239,9 +239,9 @@ Tuvale oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunlar 
 
    a. İçinde **tam adı** metin gibi kullanıcı adını girin **BrittaSimon**.
 
-   b. İçinde **e-posta** metin gibi kullanıcının e-posta girin **brittasimon@contoso.com**.
+   b. İçinde **e-posta** metin gibi kullanıcının e-posta girin **brittasimon\@contoso.com**.
 
-   c. İçinde **oturum açma** metin kutusu, kullanıcının Azure AD e-posta adresi gibi girin **brittasimon@contoso.com**.
+   c. İçinde **oturum açma** metin kutusu, kullanıcının Azure AD e-posta adresi gibi girin **brittasimon\@contoso.com**.
 
    d. Seçin **bu hesap oluşturma hakkında kullanıcıya e-posta**.
 

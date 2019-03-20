@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: a12d3708cdb547cc036b249bebf901d2ec5121c3
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 4c2ed5fa65528a690d618e45c118d2433820ddc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729328"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871502"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service Linux SSS hakkında
 
@@ -35,9 +35,17 @@ Herhangi bir sorunuz varsa, bu makalede yorum.
 
 Tüm Docker dosyaları bulabilirsiniz [GitHub](https://github.com/azure-app-service). Tüm Docker kapsayıcılarını bulabilirsiniz [Docker Hub](https://hub.docker.com/u/appsvc/).
 
+<a id="#startup-file"></a>
+
 **Çalışma zamanı yığını yapılandırabilirim, başlangıç dosyasını bölümü için beklenen değerler nelerdir?**
 
-Node.js için PM2 yapılandırma dosyasının veya komut dosyanızı belirtin. .NET Core için derlenmiş DLL adınızı belirtin `dotnet <myapp>.dll`. Ruby için uygulamanızı başlatmak istediğiniz Ruby betiğini belirtebilirsiniz.
+| Yığın     | Beklenen değer                                                                |
+|-----------|-------------------------------------------------------------------------------|
+| Java SE   | başlatmak için bir komut, `.jar` uygulama                                    |
+| Tomcat    | Uygulamanız için gerekli tüm configruations gerçekleştirmek için bir komut dosyası konumu |
+| Node.js   | PM2 yapılandırma dosyasının veya komut dosyanızı                                |          
+| .Net Core | olarak derlenen DLL'nin adıdır `dotnet <myapp>.dll`                                 |
+| Ruby      | uygulamanızı başlatmak istediğiniz Ruby betiğini                     
 
 ## <a name="management"></a>Yönetim
 
@@ -92,7 +100,7 @@ Linux web uygulamanızı Git dağıtımı başarısız olursa uygulama kodunuzu 
 Evet, devre dışı `perMessageDeflate` sunucu tarafı Node.js kod. Örneğin, socket.io kullanıyorsanız, aşağıdaki kodu kullanın:
 
 ```nodejs
-var io = require('socket.io')(server,{
+const io = require('socket.io')(server,{
   perMessageDeflate :false
 });
 ```

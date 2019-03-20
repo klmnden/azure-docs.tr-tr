@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tylerfox
-ms.openlocfilehash: 36d169a4220cb1baacdaee072ed01101ef2e9437
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b8e9ad31c2ce7b001297012bca2aa7dd526f732a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815192"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201288"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell kullanarak HDInsight Apache Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -106,7 +106,7 @@ HDInsight tarafından desteklenen küme her tür veri düğümü sayısı deği�
 
     HDInsight kümesinde Storm web kullanıcı Arabirimi kullanılabilir:
 
-    ![HDInsight storm ölçek yeniden Dengeleme](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
+    ![HDInsight storm ölçek yeniden Dengeleme](./media/hdinsight-administer-use-powershell/hdinsight.portal.scale.cluster.png)
 
     Storm topolojiyi yeniden dengelemek için CLI komutunu kullanmak nasıl bir örnek aşağıdadır:
 
@@ -159,7 +159,7 @@ Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredenti
 > [!NOTE]  
 > Verme/erişimini iptal ederek, küme kullanıcı adını ve parolasını sıfırlayın.
 
-Ayrıca verme ve erişimi iptal ediliyor portalı üzerinden yapılabilir. Bkz: [Azure portalını kullanarak HDInsight yönetmek][hdinsight-admin-portal].
+Ayrıca verme ve erişimi iptal ediliyor portalı üzerinden yapılabilir. Bkz: [yönetme Apache Hadoop, Azure portalını kullanarak HDInsight kümeleri](hdinsight-administer-use-portal-linux.md).
 
 ## <a name="update-http-user-credentials"></a>HTTP kullanıcısı kimlik bilgilerini güncelleştirme
 Aynı Grant/revoke HTTP erişim yordam var. Kümenin HTTP erişim verilmişse, öncelikle iptal gerekir.  ' İ tıklatın ve ardından yeni HTTP kullanıcı kimlik bilgileriyle erişim verin.
@@ -228,7 +228,7 @@ Bkz. [HDInsight'a veri yükleme][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 * [HDInsight cmdlet başvurusu belgeleri](https://msdn.microsoft.com/library/azure/dn479228.aspx)
-* [HDInsight Azure portalını kullanarak yönetme][hdinsight-admin-portal]
+* [Azure portalını kullanarak HDInsight Apache Hadoop kümelerini yönetme](hdinsight-administer-use-portal-linux.md)
 * [Bir komut satırı arabirimi ile HDInsight'ı yönetme][hdinsight-admin-cli]
 * [HDInsight kümeleri oluşturma][hdinsight-provision]
 * [HDInsight'a veri yükleme][hdinsight-upload-data]
@@ -245,12 +245,10 @@ Bkz. [HDInsight'a veri yükleme][hdinsight-upload-data].
 [hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-mapreduce]:hadoop/hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
 [hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 08838ce0af16cc4ae768bd5d2ecf72c57f8fae97
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 03e519520d4a956a5c9690dc1327089505aafced
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858085"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120865"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Abonelik anahtarları edinme
 
@@ -24,8 +24,8 @@ Bilgisayar işleme Hizmetleri özel Abonelik anahtarları gerektirir. Görüntü
 
 Abonelik anahtarları için kaydolmak için bkz: [abonelikleri](https://azure.microsoft.com/try/cognitive-services/). Kaydolmak ücretsizdir. Bu hizmetler için fiyatlandırma tabi değişikliktir.
 
->[!NOTE]
-Abonelik anahtarlarınızın bunlardan yalnızca biri için geçerli olan [Microsoft Azure bölgeleri](https://azure.microsoft.com/regions/). 
+> [!NOTE]
+> Abonelik anahtarlarınızın bunlardan yalnızca biri için geçerli olan [Microsoft Azure bölgeleri](https://azure.microsoft.com/regions/). 
 
 | Bölge | Adres |
 |---|---|

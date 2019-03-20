@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 2ee5028e0766ec52c407bf0ef0e18885c11734d8
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: MT
+ms.openlocfilehash: 43ace5e56234ed01ca008050c0efdf17b9a5a081
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961066"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848873"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Speech SDK'sı kullanarak Android'de Java konuşma tanıma
 
@@ -30,7 +30,7 @@ Konuşma SDK’sı şu anda 32/64 bit ARM işlemcilerine sahip Android cihazlar�
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz alabilirsiniz. Ayrıntılar için bkz. [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
+Bu hızlı başlangıcı tamamlamak için bir konuşma Hizmetleri abonelik anahtarı ihtiyacınız vardır. Anahtarı ücretsiz alabilirsiniz. Bkz: [konuşma Hizmetleri ücretsiz olarak deneyin](get-started.md) Ayrıntılar için.
 
 ## <a name="create-and-configure-a-project"></a>Projeyi oluşturma ve yapılandırma
 
@@ -137,7 +137,7 @@ Metin ve grafik temsilini kullanıcı Arabirimi artık şöyle görünmelidir:
 
    ![Dağıtım Hedefi Seç penceresinin ekran görüntüsü](media/sdk/qs-java-android-12-deploy.png)
 
-Konuşma tanıma bölümünü başlatmak için uygulamada düğmeye basın. Bunu izleyen 15 saniyelik İngilizce konuşma Konuşma hizmetine gönderilir ve transkripsiyonu yapılır. Sonuç, Android uygulamasında ve Android Studio'daki logcat penceresinde gösterilir.
+Konuşma tanıma bölümünü başlatmak için uygulamada düğmeye basın. İngilizce konuşma sonraki 15 saniye Konuşma hizmetlerine gönderilen ve transcribed. Sonuç, Android uygulamasında ve Android Studio'daki logcat penceresinde gösterilir.
 
 ![Android uygulamasının ekran görüntüsü](media/sdk/qs-java-android-13-gui-on-device.png)
 

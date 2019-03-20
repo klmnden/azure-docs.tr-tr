@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: 9e232c5a8f1c2e38c04ea2236691554952f443e8
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: cee446e54a37ce47fc82d72724e831b8270f3769
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752335"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57908493"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Uzamsal bağlayıcılarını kaynak oluştur
 
@@ -21,7 +21,7 @@ ms.locfileid: "56752335"
 
    ![Uzamsal yer işaretleri arayın](./media/spatial-anchors-get-started-create-resource/portal-search.png)
 
-4. Seçin **uzamsal bağlayıcılarını (Önizleme)** bir iletişim kutusunu açın ve seçmek için **Oluştur**.
+4. Seçin **uzamsal bağlayıcılarını** bir iletişim kutusunu açın ve seçmek için **Oluştur**.
 
 5. İçinde **uzamsal bağlayıcılarını hesabı** formu:
 
@@ -34,10 +34,10 @@ ms.locfileid: "56752335"
 
    ![Kaynak oluşturma](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-6. Kaynak oluşturma başarıyla tamamlandıktan sonra kaynak özellikleri görüntülenebilir. Kaynağın Not **hesap kimliği** değer olarak, daha sonra gerekli olacaktır.
+6. Kaynak oluşturma başarıyla tamamlandıktan sonra kaynak özellikleri görüntülenebilir. Kaynağın kopyalama **hesap kimliği** değerini bir metin düzenleyicisine gibi daha sonra gerekli olacaktır.
 
    ![Kaynak özelliklerini görüntüleme](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 
-7. Altında **ayarları**seçin **anahtarı** ve Not **birincil anahtar** değeri. Bu değer `Account Key` ve daha sonra kullanılacaktır.
+7. Altında **ayarları**seçin **anahtarı**, bir metin düzenleyicisine kopyalayın **birincil anahtar** değeri. Bu değer `Account Key` ve daha sonra kullanılacaktır.
 
    ![Hesap anahtarını görüntüle](./media/spatial-anchors-get-started-create-resource/view-account-key.png)

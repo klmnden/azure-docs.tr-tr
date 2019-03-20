@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 934046ac4be6c0e85ee687cefb46b61ec8affca6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543380"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904261"
 ---
 # <a name="introduction-to-azure-security"></a>Azure güvenliğine giriş
 ## <a name="overview"></a>Genel Bakış
@@ -59,7 +59,7 @@ Aşağıdaki listelenen özellikleri olan özelliklerini Azure platformu güvenl
 | [Güvenli Platform](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Gizlilik ve denetimleri](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Uyumluluk](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Saydamlık](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
 | [Güvenlik geliştirme döngüsü](https://www.microsoft.com/en-us/sdl/)iç denetimleri | [Her zaman verilerinizi yönetin](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data) | [Güven Merkezi](https://www.microsoft.com/en-us/trustcenter/default.aspx) |[Microsoft Azure hizmetlerindeki müşteri verilerini nasıl korur](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
-| [Zorunlu güvenlik Eğitimi, arka plan denetimleri](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Veri konumu üzerinde denetimi](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Ortak Denetimler Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Microsoft, Azure hizmetlerindeki veri konumu yönetme](http://azuredatacentermap.azurewebsites.net/)|
+| [Zorunlu güvenlik Eğitimi, arka plan denetimleri](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Veri konumu üzerinde denetimi](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Ortak Denetimler Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Microsoft, Azure hizmetlerindeki veri konumu yönetme](https://azuredatacentermap.azurewebsites.net/)|
 | [Sızma testi](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [izinsiz giriş algılama, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [denetimleri ve günlüğe kaydetme](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Kendi koşullarınıza göre veri erişimi sağlar](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Bulut Hizmetleri son dikkatli olmanızı denetim listesi](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Microsoft, verilerinizi hangi koşullarda erişebilecek kişileri](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [Teknoloji veri merkezi](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), fiziksel güvenlik [ağ güvenliğini sağlama](https://docs.microsoft.com/azure/security/security-network-overview) | [Kanuni yaptırım yetkililerine yanıt](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Hizmet, konum ve sektöre göre uyumluluk](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Microsoft Azure hizmetlerindeki müşteri verilerini nasıl korur](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
 |  [Güvenlik olay yanıtı](https://aka.ms/SecurityResponsepaper), [paylaşılan sorumluluk](https://aka.ms/sharedresponsibility) |[Katı gizlilik standartları](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Azure Hizmetleri, saydamlık hub için sertifika gözden geçirin](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
@@ -94,7 +94,7 @@ Kilitlenmeler, hata veya performans sorunları varsa, nedenini tanılamak için 
 ### <a name="azure-monitor"></a>Azure İzleyici
 [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) görselleştirme, sorgu, yönlendirme, uyarı, Otomatik ölçek ve Otomasyon verileri iki Azure altyapısından sunar ([etkinlik günlüğü](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) ve tek tek her Azure kaynağı ([tanılama Günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). Azure İzleyici, Azure günlükleri üretilir, güvenlikle ilgili olaylar, sizi uyarmak için kullanabilirsiniz.
 
-### <a name="azure-monitor-logs"></a>Azure izleme günlükleri
+### <a name="azure-monitor-logs"></a>Azure İzleyici günlükleri
 [Azure İzleyici günlüklerine](https://azure.microsoft.com/documentation/services/log-analytics/) – hem şirket içi hem de üçüncü taraf bulut tabanlı altyapı (AWS gibi) ek Azure kaynakları için bir BT yönetimi çözümü sağlar. Ölçüm ve günlükleri görebilmeniz tek bir yerden, tüm ortamınız için Azure İzleyici verileri doğrudan Azure İzleyici günlüklerine yönlendirilebilir.
 
 Azure İzleyici günlüklerine araç aracılığıyla bir esnek sorgu yaklaşım girişler güvenlikle ilgili büyük miktarlarda kolayca aramanızı sağlar adli ve diğer güvenlik analizi, kullanışlı bir aracı olabilir. Ayrıca, şirket içi [güvenlik duvarınızdan ve Ara günlükleri dışarı Azure'a ve Azure İzleyici günlüklerine kullanarak analiz için kullanılabilir.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)

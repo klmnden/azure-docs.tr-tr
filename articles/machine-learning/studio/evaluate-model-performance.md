@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: f5e7a923ed5eb692f5fb05082c73b969081c739b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821003"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891595"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da model performansını değerlendirme
 
@@ -83,7 +83,7 @@ Denemeyi çalıştırdıktan sonra değerlendirme sonuçlarını doğru çıkı�
 Şekil 4. Çapraz doğrulama sonuçlarını bir regresyon modeli.
 
 ## <a name="evaluating-a-binary-classification-model"></a>İkili sınıflandırma modelinde değerlendiriliyor
-Örneğin yalnızca iki sonuçtan, ikili sınıflandırma senaryoda, hedef değişkeni sahiptir: {0, 1} veya {yanlış, doğru}, {negatif, pozitif}. Bazı yetişkinlere yönelik çalışan bir veri kümesi verilir varsayar demografik ve çalışma değişkenler ve değerlerle ikili bir değişken gelir düzeyinde tahmin istenir {"< 50 bin =", "> 50 K"}. Diğer bir deyişle, 50 bin yılda eşit veya daha az olmak çalışanları negatif sınıfı temsil eder ve tüm diğer çalışanlarla pozitif sınıfı temsil eder. Regresyon senaryo olduğu gibi biz bir model eğitip, bazı verileri puanlamak ve sonuçları değerlendirin. Burada temel fark, Azure Machine Learning Studio hesaplar ölçümleri ve çıktılar seçimdir. Gelir düzeyi tahmin senaryoyu göstermek üzere kullanacağız [yetişkinlere yönelik](http://archive.ics.uci.edu/ml/datasets/Adult) Studio deneme oluşturma ve iki sınıflı Lojistik regresyon modeli, yaygın olarak kullanılan bir ikili dosya sınıflandırıcı performansını değerlendirmek için veri kümesi.
+Örneğin yalnızca iki sonuçtan, ikili sınıflandırma senaryoda, hedef değişkeni sahiptir: {0, 1} veya {yanlış, doğru}, {negatif, pozitif}. Bazı yetişkinlere yönelik çalışan bir veri kümesi verilir varsayar demografik ve çalışma değişkenler ve değerlerle ikili bir değişken gelir düzeyinde tahmin istenir {"< 50 bin =", "> 50 K"}. Diğer bir deyişle, 50 bin yılda eşit veya daha az olmak çalışanları negatif sınıfı temsil eder ve tüm diğer çalışanlarla pozitif sınıfı temsil eder. Regresyon senaryo olduğu gibi biz bir model eğitip, bazı verileri puanlamak ve sonuçları değerlendirin. Burada temel fark, Azure Machine Learning Studio hesaplar ölçümleri ve çıktılar seçimdir. Gelir düzeyi tahmin senaryoyu göstermek üzere kullanacağız [yetişkinlere yönelik](https://archive.ics.uci.edu/ml/datasets/Adult) Studio deneme oluşturma ve iki sınıflı Lojistik regresyon modeli, yaygın olarak kullanılan bir ikili dosya sınıflandırıcı performansını değerlendirmek için veri kümesi.
 
 ### <a name="creating-the-experiment"></a>Deneme oluşturma
 Aşağıdaki modüller, Azure Machine Learning Studio çalışma alanınıza ekleyin:
@@ -133,7 +133,7 @@ Regresyon örnekte olduğu gibi çapraz doğrulama, tekrar tekrar eğitme, Puanl
 Şekil 9. Bir ikili dosya sınıflandırıcı çapraz doğrulama sonuçları.
 
 ## <a name="evaluating-a-multiclass-classification-model"></a>Bir çok sınıflı sınıflandırma modeli değerlendirme
-Bu deneyde popüler kullanacağız [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "Iris") 3 farklı türleri (sınıflar) Iris tesis örneklerini içeren bir veri kümesi. 4 özellik değerleri (sepal uzunluğu/genişlik ve petal uzunluğu/genişlik) her örneği için vardır. Önceki denemeleri, eğitim ve aynı veri kümeleri aracılığıyla modelleri test. Burada, kullanacağız [verileri bölme] [ split] 2 veri kümelerine oluşturmak, ilk gününde eğitmek ve puanlamak ve ikinci değerlendirmek için modülü. Iris veri kümesini üzerinde genel kullanıma açık [UCI Machine Learning depo](http://archive.ics.uci.edu/ml/index.html)ve kullanarak indirilebilir bir [verileri içeri aktarma] [ import-data] modülü.
+Bu deneyde popüler kullanacağız [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "Iris") 3 farklı türleri (sınıflar) Iris tesis örneklerini içeren bir veri kümesi. 4 özellik değerleri (sepal uzunluğu/genişlik ve petal uzunluğu/genişlik) her örneği için vardır. Önceki denemeleri, eğitim ve aynı veri kümeleri aracılığıyla modelleri test. Burada, kullanacağız [verileri bölme] [ split] 2 veri kümelerine oluşturmak, ilk gününde eğitmek ve puanlamak ve ikinci değerlendirmek için modülü. Iris veri kümesini üzerinde genel kullanıma açık [UCI Machine Learning depo](https://archive.ics.uci.edu/ml/index.html)ve kullanarak indirilebilir bir [verileri içeri aktarma] [ import-data] modülü.
 
 ### <a name="creating-the-experiment"></a>Deneme oluşturma
 Aşağıdaki modüller, Azure Machine Learning Studio çalışma alanınıza ekleyin:

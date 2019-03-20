@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 389a8ac729cf5f4f95aa37654434245d08ecc87e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533638"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894555"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft Müşteri sözleşmesi için fatura hesabınızı ayarlama
 
@@ -47,7 +47,7 @@ Kuruluma başlamadan önce şunları öneririz:
 - **Değişiklikler, faturalama yöneticileri erişimi anlama**
   - Kurumsal Anlaşma kaydınıza yöneticilerini yeni hesabın fatura kapsamlarda erişim elde edin. [Anlamak erişimleri değişiklikleri](#understand-changes-to-your-billing-administrators-access).
 - **Yeni hesap tarafından değiştirilir görünümü Kurumsal Anlaşma özellikleri**
-  - Kurumsal Anlaşma kaydı olan özellikleri görüntülemek [yeni hesap özellikleri değiştirilmiştir](#review-features-replaced-by-the-new-billing-account).
+  - Yeni hesap özellikleri yerine Kurumsal Anlaşma kaydınıza özelliklerini görüntüleyin.
 - **En sık sorulan soruların yanıtlarını görüntüle**
   - Görünüm [ek bilgi](#additional-information) kurulumu hakkında daha fazla bilgi için.
 

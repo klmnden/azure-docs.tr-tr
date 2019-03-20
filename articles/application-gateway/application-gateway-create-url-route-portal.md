@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 5d9f973926a46e61d83cba6fb52a543bddf26f99
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: 8810ebc2bea02cc9e2163fb27f1223240c0a8ce2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315869"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106619"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure portalını kullanarak yol tabanlı yönlendirme kurallarıyla bir uygulama ağ geçidi oluşturma
 
@@ -48,20 +48,20 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
 2. **Ağ** ve ardından Öne Çıkanlar listesinde **Application Gateway**’i seçin.
 3. Uygulama ağ geçidi için şu değerleri girin:
 
-    - *myAppGateway* - Uygulama ağ geçidinin adı.
-    - *myResourceGroupAG* - Yeni kaynak grubu.
+   - *myAppGateway* - Uygulama ağ geçidinin adı.
+   - *myResourceGroupAG* - Yeni kaynak grubu.
 
-    ![Yeni uygulama ağ geçidi oluşturma](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
+     ![Yeni uygulama ağ geçidi oluşturma](./media/application-gateway-create-url-route-portal/application-gateway-create.png)
 
 4. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
 5. Tıklayın **bir sanal ağ seçin**, tıklayın **Yeni Oluştur**ve ardından sanal ağ için şu değerleri girin:
 
-    - *myVNet* - Sanal ağın adı.
-    - *10.0.0.0/16* - Sanal ağın adres alanı.
-    - *myAGSubnet* - Alt ağın adı.
-    - *10.0.0.0/24* - Alt ağın adres alanı.
+   - *myVNet* - Sanal ağın adı.
+   - *10.0.0.0/16* - Sanal ağın adres alanı.
+   - *myAGSubnet* - Alt ağın adı.
+   - *10.0.0.0/24* - Alt ağın adres alanı.
 
-    ![Sanal ağ oluşturma](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
+     ![Sanal ağ oluşturma](./media/application-gateway-create-url-route-portal/application-gateway-vnet.png)
 
 6. Sanal ağı ve alt ağı oluşturmak için **Tamam**’a tıklayın.
 7. Tıklayın **genel bir IP adresi seçin**, tıklayın **Yeni Oluştur**ve ardından genel IP adresini adını girin. Bu örnekte genel IP adresinin adı *myAGPublicIPAddress* şeklindedir. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.

@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 7d93e5777e3456098e1282fd70da55e85e1f80d0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bb7c46548726b00c68c8e952a8e2956ad0511763
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438254"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201781"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Bağlanmak için Azure HDInsight ve Apache Hive sorguları çalıştırmak için Visual Studio için Data Lake Araçları'nı kullanın
 
@@ -93,7 +93,7 @@ Visual Studio'dan Azure portalına bağlanmak için:
 
 1. Sunucu Gezgini'nden gidin **Azure** > **HDInsight** ve kümenizi seçin.
 
-2. Bir HDInsight kümesine sağ tıklayın ve seçin **kümeyi Azure Portal'da Yönet**.
+2. Bir HDInsight kümesine sağ tıklayın ve seçin **kümeyi Azure portalında Yönet**.
 
 Soru sorun ve/veya Visual Studio geri bildirim sağlamak için:
 
@@ -246,12 +246,12 @@ Hive işlerini görüntülemek için:
 1. Bir HDInsight kümesine sağ tıklayın ve seçin **işleri görüntüle**. Küme üzerinde çalıştırılan Hive işlerinin listesi görüntülenir.  
 
 2. Bir iş seçin. **Hive İş Özeti** penceresinde aşağıdakilerden birini seçin:
-    - **İş Sorgusu**
-    - **İş Çıktısı**
-    - **İş Günlüğü**  
-    - **Yarn günlüğü**
+   - **İş Sorgusu**
+   - **İş Çıktısı**
+   - **İş Günlüğü**  
+   - **Yarn günlüğü**
 
-    ![HDInsight Visual Studio Araçları Hive İşlerini Görüntüle penceresinin ekran görüntüsü](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "Hive işlerini görüntüle")
+     ![HDInsight Visual Studio Araçları Hive İşlerini Görüntüle penceresinin ekran görüntüsü](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "Hive işlerini görüntüle")
 
 
 ## <a name="run-apache-pig-scripts"></a>Apache Pig betikleri çalıştırma
@@ -275,5 +275,5 @@ Bu makalede Visual Studio’dan HDInsight kümelerine bağlanmak üzere Visual S
 * [HDInsight'ta Hadoop Hive kullanma](hdinsight-use-hive.md)
 * [HDInsight Apache Hadoop kullanmaya başlama](apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight, Apache Hadoop işlerini gönderme](submit-apache-hadoop-jobs-programmatically.md)
-* [HDInsight, Apache Hadoop ile twitter verilerini çözümleme](../hdinsight-analyze-twitter-data.md)
+* [HDInsight, Apache Hadoop ile twitter verilerini çözümleme](../hdinsight-analyze-twitter-data-linux.md)
 

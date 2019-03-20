@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 196d08f47ddfdbb86b8e96ae0e5ca3d3e3e5917e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886773"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896237"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Sürekli tümleştirme ve sürekli dağıtım için Azure IOT Edge
 
@@ -47,7 +47,7 @@ Bu bölümde, yeni bir derleme işlem hattı oluşturun. IOT Edge çözüm örne
 >
 >Daha fazla bilgi için [derleme işlem hattı oluşturma](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-1. Azure DevOps kuruluşunuz oturum ( **https://dev.azure.com/{your kuruluş} /**) ve IOT Edge çözüm deponuzu içeren projeyi açın.
+1. Azure DevOps kuruluşunuz oturum (**https:\//dev.azure.com/{your kuruluş} /**) ve IOT Edge çözüm deponuzu içeren projeyi açın.
 
    Bu makale için oluşturduğumuz adlı bir depo **IoTEdgeRepo**. Bu depoyu içeren **IoTEdgeSolution** hangi bir modül için kod adlı **filtermodule**. 
 
@@ -69,13 +69,13 @@ Bu bölümde, yeni bir derleme işlem hattı oluşturun. IOT Edge çözüm örne
 
 4. İşlem hattınızı oluşturduktan sonra işlem hattı düzenleyicisine alınır. İşlem hattı Tanımınızda, hedef platforma göre doğru aracı havuzu seçin: 
     
-    * Linux kapsayıcıları için platform amd64, modülleri oluşturmak istiyorsanız seçin **barındırılan Ubuntu 1604**
+   * Linux kapsayıcıları için platform amd64, modülleri oluşturmak istiyorsanız seçin **barındırılan Ubuntu 1604**
 
-    * Windows 1809 kapsayıcılar için platform amd64, modülleri oluşturmak ister misiniz için gerekirse [şirket içinde barındırılan Windows aracısında ayarlama](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
+   * Windows 1809 kapsayıcılar için platform amd64, modülleri oluşturmak ister misiniz için gerekirse [şirket içinde barındırılan Windows aracısında ayarlama](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-    * Linux kapsayıcıları için platform arm32v7, modülleri oluşturmak ister misiniz için gerekirse [Linux üzerinde şirket içinde barındırılan aracı ayarlama](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
+   * Linux kapsayıcıları için platform arm32v7, modülleri oluşturmak ister misiniz için gerekirse [Linux üzerinde şirket içinde barındırılan aracı ayarlama](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
-    ![Derleme aracı havuzu yapılandırma](./media/how-to-ci-cd/configure-env.png)
+     ![Derleme aracı havuzu yapılandırma](./media/how-to-ci-cd/configure-env.png)
 
 5. İşlem hattınızı adında bir iş ile önceden yapılandırılmış olarak gelir **1 aracı işi**. Artı işaretini seçin (**+**) üç görev projeye eklemek için: **Azure IOT Edge** iki kez ve **derleme Yapıtları yayımlama** sonra. (Görmek için her görevin adının üzerine gelme **Ekle** düğmesi.)
 
@@ -158,11 +158,11 @@ Yeni işlem hattı oluşturma ve kalite güvencesi (kapsayan QA) dağıtımlar i
 
 10. Yeni Azure IOT Edge görevini seçin ve aşağıdaki değerleri yapılandırın:
 
-   * **Görünen ad**: Eylem alanını değiştirdiğinde görünen adı otomatik olarak güncelleştirilir. 
-   * **Eylem**: Seçmek için açılan listeyi kullanın **IOT Edge cihazına dağıtma**. Eylem değerini değiştirme görev görünen adı eşleşecek şekilde güncelleştirir.
-   * **Azure aboneliği**: IOT Hub'ınızı içeren aboneliği seçin.
-   * **IOT hub'ı adı**: IOT hub'ınızı seçin. 
-   * **Tek/birden çok cihazı seçin**: Bir veya birden çok cihazı için dağıtmak için sürüm ardışık isteyip istemediğinizi seçin. 
+    * **Görünen ad**: Eylem alanını değiştirdiğinde görünen adı otomatik olarak güncelleştirilir. 
+    * **Eylem**: Seçmek için açılan listeyi kullanın **IOT Edge cihazına dağıtma**. Eylem değerini değiştirme görev görünen adı eşleşecek şekilde güncelleştirir.
+    * **Azure aboneliği**: IOT Hub'ınızı içeren aboneliği seçin.
+    * **IOT hub'ı adı**: IOT hub'ınızı seçin. 
+    * **Tek/birden çok cihazı seçin**: Bir veya birden çok cihazı için dağıtmak için sürüm ardışık isteyip istemediğinizi seçin. 
       * Tek bir cihaza dağıtırsanız, girin **IOT Edge cihaz Kimliğine**. 
       * Birden çok aygıta dağıtıyorsanız, cihaz belirtin **hedef koşulu**. Hedef koşul, bir IOT hub uç cihazlarına eşleşecek şekilde bir filtredir. Cihaz etiketleri koşul olarak kullanmak istiyorsanız, karşılık gelen etiketleri cihazlarınızı IOT Hub ile cihaz ikizi güncelleştirmeniz gerekiyor. Güncelleştirme **IOT Edge dağıtımı kimliği** ve **IOT Edge dağıtımı öncelikli** Gelişmiş ayarları. Birden çok cihaz için bir dağıtım oluşturma hakkında daha fazla bilgi için bkz. [otomatik dağıtımlar anlayın IOT Edge](module-deployment-monitoring.md).
 

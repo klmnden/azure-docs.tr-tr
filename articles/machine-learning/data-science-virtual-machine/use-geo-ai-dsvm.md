@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 11026d642a5136ffcf0caa5815934115b6becf89
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6e6737e928ece820ea9119d8dfe1d7cf22477646
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238468"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880118"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Coğrafi yapay zeka veri bilimi sanal makinesi kullanma
 
@@ -30,7 +30,7 @@ Coğrafi AI veri bilimi sanal makinesi, Jeo-uzamsal bilgi kullanan yapay ZEKA uy
 
 ## <a name="configuration-details"></a>Yapılandırma ayrıntıları
 
-Python Kitaplığı [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm), alışkın olduğu Arcgıs arabirimiyle bulunduğu veri bilimi sanal makinesi genel kök conda ortamının yüklü ```c:\anaconda```. 
+Python Kitaplığı [arcpy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm), alışkın olduğu Arcgıs arabirimiyle bulunduğu veri bilimi sanal makinesi genel kök conda ortamının yüklü ```c:\anaconda```. 
 
 - Python'ı komut istemi'nde çalıştırıyorsanız, çalıştırma ```activate``` conda kök Python ortamına etkinleştirmek için. 
 - Bir IDE ya da Jupyter Not Defteri kullanıyorsanız, ortam veya doğru conda ortamında olduğundan emin olmak için çekirdek seçebilirsiniz. 
@@ -43,7 +43,7 @@ Arcgıs R köprüsüne adlı bir R kitaplık olarak yüklü [arcgisbinding](http
 ML ve derin öğrenme temel veri bilimi sanal makinesi örneklerini framework tabanlı ek olarak, Jeo-uzamsal örnekler kümesi de coğrafi AI veri bilimi sanal makinesi bir parçası olarak sağlanır. Bu örnekler, Jeo-uzamsal veri ile Arcgıs yazılım yapay ZEKA uygulamaları geliştirme hemen başlayabileceğiniz yardımcı olabilir. 
 
 
-1. [Python ile Jeo-uzamsal analiz ile belirtilen](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Tarafından sağlanan Arcgıs Python arabirimi kullanarak Jeo-uzamsal veri ile nasıl çalışılacağını gösteren bir tanıtıcı örnek [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) kitaplığı. Ayrıca, geleneksel makine öğrenimi Jeo-uzamsal verilerle birleştirmek ve içinde Arcgıs harita üzerinde sonucun görselleştirilmesi nasıl gösterir. 
+1. [Python ile Jeo-uzamsal analiz ile belirtilen](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Tarafından sağlanan Arcgıs Python arabirimi kullanarak Jeo-uzamsal veri ile nasıl çalışılacağını gösteren bir tanıtıcı örnek [arcpy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) kitaplığı. Ayrıca, geleneksel makine öğrenimi Jeo-uzamsal verilerle birleştirmek ve içinde Arcgıs harita üzerinde sonucun görselleştirilmesi nasıl gösterir. 
 
 2. [R ile Jeo-uzamsal analiz ile belirtilen](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): R tarafından sağlanan Arcgıs arabirimi kullanarak Jeo-uzamsal veri ile nasıl çalışılacağını gösteren bir tanıtım örnek [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) kitaplığı. 
 

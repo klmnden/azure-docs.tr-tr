@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: e8e9991f20481deee85a6d582582335eb98e3c24
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e1b4bf1f9fa956da7a7b0ca1521439002d1ce76b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815226"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993431"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql-server"></a>PostgreSQL sunucusu için Azure veritabanı üzerinde autovacuum en iyi duruma getirme 
 Bu makalede, PostgreSQL sunucusu için Azure veritabanı üzerinde autovacuum etkili bir şekilde iyileştirmek açıklar.
@@ -43,6 +43,7 @@ Aşağıdaki örnek sorguda, XYZ adlı bir tablodaki ölü ve canlı başlıklar
 - Ne kadar başladıktan sonra temizlemelidir?
 
 Bazı yönergeler yanı sıra önceki sorular güncelleştirebileceğiniz parametreleri dayalı bazı autovacuum yapılandırması aşağıda verilmiştir.
+
 Parametre|Açıklama|Varsayılan değer
 ---|---|---
 autovacuum_vacuum_threshold|Tek bir tabloda Süpür bir işlemi tetiklemek için gereken, güncellenen veya silinen tanımlama grubu sayısı alt sınırını belirtir. 50 diziler varsayılandır. Bu parametreyi yalnızca postgresql.conf dosyası veya sunucu komut satırında ayarlayın. Tek tek tablolar için ayarı geçersiz kılmak için Tablo depolama parametreleri değiştirin.|50
@@ -51,6 +52,7 @@ autovacuum_vacuum_cost_limit|Otomatik Süpür işlemlerde kullanılan maliyet s�
 autovacuum_vacuum_cost_delay|Otomatik Süpür işlemlerde kullanılan maliyet gecikme değeri belirtir. -1 belirtilirse, bu normal vacuum_cost_delay değeri kullanılır. Varsayılan değer 20 milisaniyedir. Bu parametreyi yalnızca postgresql.conf dosyası veya sunucu komut satırında ayarlayın. Tek tek tablolar için ayarı geçersiz kılmak için Tablo depolama parametreleri değiştirin.|20 ms
 autovacuum_nap_time|Autovacuum arasındaki en düşük gecikmeyi herhangi belirli bir veritabanı üzerinde çalışan belirtir. Her hepsini arka plan programı veritabanı inceler ve bu veritabanındaki tablolar için gerektiği şekilde ELEKTRİKLİ ve ANALİZ komutlar verir. Gecikme süresini saniye cinsinden ölçülür ve bir dakika (1 dak) varsayılandır. Bu parametreyi yalnızca postgresql.conf dosyası veya sunucu komut satırında ayarlayın.|15 s
 autovacuum_max_workers|Herhangi bir anda çalıştırabileceğiniz autovacuum Başlatıcısı dışındaki autovacuum işlemlerin en fazla sayısını belirtir. Varsayılan üçüncü bölümüdür. Bu parametreyi yalnızca sunucu başlangıcında ayarlayın.|3
+
 Tek tek tablolar için ayarları geçersiz kılmak için Tablo depolama parametreleri değiştirin. 
 
 ## <a name="autovacuum-cost"></a>Autovacuum maliyeti

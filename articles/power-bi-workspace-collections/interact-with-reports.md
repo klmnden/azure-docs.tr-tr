@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: bfc80318eb43992e292159a0cd99a9b2f4a3c041
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d5a411e227704eb80b0020f68fad072491576f18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233111"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883806"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>JavaScript API’sini kullanarak Power BI raporlarıyla etkileşim kurma
 
@@ -43,29 +43,29 @@ JavaScript API’si ile raporları yönetebilir, bir rapordaki sayfalarda gezine
 ### <a name="manage-reports"></a>Raporları yönetme
 Javascript API’si rapor ve sayfa düzeyindeki davranışı yönetmenizi sağlar:
 
-* Belirli bir Power BI Raporunu uygulamanıza güvenli bir şekilde katıştırma - [katıştırma demo uygulamasını](http://azure-samples.github.io/powerbi-angular-client/#/scenario1) deneyin
+* Belirli bir Power BI Raporunu uygulamanıza güvenli bir şekilde katıştırma - [katıştırma demo uygulamasını](https://azure-samples.github.io/powerbi-angular-client/#/scenario1) deneyin
   * Erişim belirteci ayarlama
 * Raporu yapılandırma
-  * Filtre bölmesini ve sayfa gezinti bölmesini etkinleştirme ve devre dışı bırakma - [ayar güncelleştirme demo uygulamasını](http://azure-samples.github.io/powerbi-angular-client/#/scenario6) deneyin
-  * Sayfalar ve filtreler için varsayılanları ayarlama - [varsayılanları ayarlama demosunu](http://azure-samples.github.io/powerbi-angular-client/#/scenario5) deneyin
+  * Filtre bölmesini ve sayfa gezinti bölmesini etkinleştirme ve devre dışı bırakma - [ayar güncelleştirme demo uygulamasını](https://azure-samples.github.io/powerbi-angular-client/#/scenario6) deneyin
+  * Sayfalar ve filtreler için varsayılanları ayarlama - [varsayılanları ayarlama demosunu](https://azure-samples.github.io/powerbi-angular-client/#/scenario5) deneyin
 * Tam ekran moduna giriş ve çıkış
 
 [Bir raporu ekleme hakkında daha fazla bilgi edinin](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
 ### <a name="navigate-to-pages-in-a-report"></a>Rapordaki sayfalarda gezinme
-JavaScript API'si bir rapordaki tüm sayfaları bulmanızı ve geçerli sayfayı ayarlamanızı sağlar. [Gezinti demo uygulamasını](http://azure-samples.github.io/powerbi-angular-client/#/scenario3) deneyin.
+JavaScript API'si bir rapordaki tüm sayfaları bulmanızı ve geçerli sayfayı ayarlamanızı sağlar. [Gezinti demo uygulamasını](https://azure-samples.github.io/powerbi-angular-client/#/scenario3) deneyin.
 
 [Sayfa gezintisi hakkında daha fazla bilgi edinin](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation)
 
 ### <a name="filter-a-report"></a>Bir raporu filtreleme
-JavaScript API’si katıştırılmış raporlar ve rapor sayfaları için temel ve gelişmiş filtreleme özellikleri sağlar. [Filtreleme demo uygulamasını](http://azure-samples.github.io/powerbi-angular-client/#/scenario4) deneyin ve giriş niteliğindeki bazı kodları burada gözden geçirin.
+JavaScript API’si katıştırılmış raporlar ve rapor sayfaları için temel ve gelişmiş filtreleme özellikleri sağlar. [Filtreleme demo uygulamasını](https://azure-samples.github.io/powerbi-angular-client/#/scenario4) deneyin ve giriş niteliğindeki bazı kodları burada gözden geçirin.
 
 #### <a name="basic-filters"></a>Temel filtreler
 Temel filtre bir sütuna veya hiyerarşi düzeyine yerleştirilir ve dahil edilecek ya da hariç tutulacak değerler listesini içerir.
 
 ```typescript
 const basicFilter: pbi.models.IBasicFilter = {
-  $schema: "http://powerbi.com/product/schema#basic",
+  $schema: "https://powerbi.com/product/schema#basic",
   target: {
     table: "Store",
     column: "Count"
@@ -94,7 +94,7 @@ Gelişmiş filtreler AND veya OR mantıksal işlecini kullanır ve her biri kend
 
 ```typescript
 const advancedFilter: pbi.models.IAdvancedFilter = {
-  $schema: "http://powerbi.com/product/schema#advanced",
+  $schema: "https://powerbi.com/product/schema#advanced",
   target: {
     table: "Store",
     column: "Name"

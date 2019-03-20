@@ -5,10 +5,12 @@ items:
   items:
   - name: Azure Stack nedir?
     href: azure-stack-poc.md
+  - name: Önemli özellikler ve kavramlar
+    href: azure-stack-key-features.md
   - name: Sürüm notları
     items:
     - name: Son güncelleştirmeler
-      href: azure-stack-servicing-policy.md#update-package-release-cadence
+      href: azure-stack-servicing-policy.md
     - name: 1902 güncelleştirme
       href: azure-stack-update-1902.md
     - name: 1901 güncelleştirme
@@ -113,10 +115,6 @@ items:
         href: azure-stack-integrate-security.md
       - name: Cihazı denetleme
         href: azure-stack-integrate-physical-device-auditing.md
-  - name: Hizmet ilkesi
-    href: azure-stack-servicing-policy.md
-  - name: Önemli özellikler ve kavramlar
-    href: azure-stack-key-features.md
   - name: Yönetim temel bilgileri
     href: azure-stack-manage-basics.md
 - name: Nasıl yapılır kılavuzları
@@ -401,9 +399,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Eğitim ve sertifika
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: fc0efe87aa0eea7f7c7ba5c6ca11d3e88e3d74df
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 4875ccf5b74151809788e024ae659756cf769e10
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838587"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223334"

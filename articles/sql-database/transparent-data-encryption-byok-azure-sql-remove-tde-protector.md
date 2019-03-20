@@ -11,19 +11,21 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: a5b544db713f671230e4a226b1e0bdcfa77fbb2b
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: a49c22a0597c34075de3e5fd7b9a324169e1da00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575248"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895192"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell kullanarak bir saydam veri şifrelemesi (TDE) koruyucusu Kaldır
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 - Bir Azure aboneliğiniz varsa ve bu abonelik bir yönetici olması gerekir
 - Azure PowerShell yüklenmiş ve çalışıyor olması gerekir. 
@@ -85,7 +87,7 @@ Bu nasıl yapılır kılavuzunda sonra olay yanıtı istenen sonuca bağlı olar
    -OutputFile <DesiredBackupFilePath>
    ```
  
-5. Key Vault kullanarak güvenliği aşılan anahtar Sil [Remove-AzKeyVaultKey](/powershell/module/az.keyvault/remove-azurekeyvaultkey) cmdlet'i. 
+5. Key Vault kullanarak güvenliği aşılan anahtar Sil [Remove-AzKeyVaultKey](/powershell/module/azurerm.keyvault/remove-azurekeyvaultkey) cmdlet'i. 
 
    ```powershell
    Remove-AzKeyVaultKey `

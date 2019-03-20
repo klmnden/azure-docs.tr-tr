@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 0c3f52c78bbfd3094324b74f3b66610fcebfa2f4
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 9eca22f5a594bf3d61b1d68882c4853f4bfc499d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099301"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100760"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Azure stack'teki güncelleştirmelerini uygulayın
 
@@ -30,7 +30,7 @@ Kullanabileceğiniz **güncelleştirme** kutucuğunda Azure Stack için Microsof
 
 Bir tümleşik sistemler sürümü 1807 kullandığınız ya da daha önce güncelleştirme paketini indirin Azure Stack'e paket dosyalarını içeri ve ardından güncelleştirme paketini yükleyin. Yönergeler için [paketini yükleyerek güncelleştirme Azure Stack](#update-azure-stack-by-downloading-the-package)
 
-Bu yönergeler iş ile Azure Stack tümleşik sistemleri yükseltin. Azure Stack geliştirme sistemi kullanıyorsanız, güncel sürümü için yükleme paketi indirmeniz gerekir. Yönergeler için [Azure Stack geliştirme Seti'ni yükleme](.\asdk\asdk-install.md)
+Bu yönergeler iş ile Azure Stack tümleşik sistemleri yükseltin. Azure Stack geliştirme sistemi kullanıyorsanız, güncel sürümü için yükleme paketi indirmeniz gerekir. Yönergeler için [Azure Stack geliştirme Seti'ni yükleme](./asdk/asdk-install.md)
 
 ## <a name="update-azure-stack"></a>Azure Stack güncelleştir
 

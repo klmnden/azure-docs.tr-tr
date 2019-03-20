@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: d3152eb4b2512e05cad60772f8c4c75dd929758a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3974be886b57fbf685b211369094edf844d96ab6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535603"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975568"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Batch havuzları, RDMA veya GPU örnekleri kullan
 
@@ -48,6 +48,7 @@ Batch'te işlem yoğunluklu boyutları RDMA veya GPU yeteneklerini, yalnızca be
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, veya<br/>CentOS tabanlı HPC<br/>(Azure Market) | Intel MPI 5<br/><br/>Linux RDMA sürücüleri | Düğümler arası iletişimi etkinleştirmek için eşzamanlı görev yürütme devre dışı bırak |
 | [NC, NCv2 NCv3, NDv2 serisi](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (seriyi göre değişiklik gösterir) | Ubuntu 16.04 LTS, veya<br/>CentOS 7.3 veya 7.4<br/>(Azure Market) | NVIDIA CUDA veya CUDA Araç Seti sürücüleri | Yok | 
 | [NV, NVv2 serisi](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS, veya<br/>CentOS 7.3<br/>(Azure Market) | NVIDIA GRID sürücüleri | Yok |
+
 <sup>*</sup>RDMA özellikli N serisi boyutları NVIDIA Tesla GPU'ları de içerir.
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Windows havuzu - sanal makine yapılandırması
@@ -57,6 +58,7 @@ Batch'te işlem yoğunluklu boyutları RDMA veya GPU yeteneklerini, yalnızca be
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2'de, veya<br/>2012 (azure Market) | Microsoft MPI 2012 R2 veya sonrası, veya<br/> Intel MPI 5<br/><br/>Windows RDMA sürücüleri | Düğümler arası iletişimi etkinleştirmek için eşzamanlı görev yürütme devre dışı bırak |
 | [NC, NCv2, NCv3, ND serisi NDv2](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (seriyi göre değişiklik gösterir) | Windows Server 2016 veya <br/>2012 R2 (Azure Market) | NVIDIA CUDA veya CUDA Araç Seti sürücüleri| Yok | 
 | [NV, NVv2 serisi](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 veya<br/>2012 R2 (Azure Market) | NVIDIA GRID sürücüleri | Yok |
+
 <sup>*</sup>RDMA özellikli N serisi boyutları NVIDIA Tesla GPU'ları de içerir.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Windows havuzu - Cloud services yapılandırması

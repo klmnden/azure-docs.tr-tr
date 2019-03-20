@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0a0f7cc8e3810a28fdbec914a9f37808c33ab878
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162231"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880604"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Öğretici: Service Fabric üzerinde bir Java uygulaması için CI/CD etkinleştirmek için Jenkins ortamını yapılandırma
 
@@ -72,15 +72,15 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
     * İlk kez oturum açtıktan sonra kendi kullanıcı hesabınızı oluşturabilir veya yönetici hesabını kullanabilirsiniz.
 
 1. [Yeni bir SSH anahtarı oluşturma ve SSH aracısına ekleme](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) bölümünde anlatılan adımları kullanarak, GitHub’ı Jenkins ile çalışacak şekilde ayarlayın. Komutlar Docker kapsayıcısından çalıştırıldığından, Linux ortamı için yönergeleri izleyin.
-    * SSH anahtarı oluşturmak için GitHub tarafından sağlanan yönergeleri kullanın. Ardından, depoyu barındıran GitHub hesabına SSH anahtarını ekleyin.
-    * Önceki bağlantıda belirtilen komutları Jenkins Docker kabuğunda (ana bilgisayarınızda değil) çalıştırın.
-    * Ana bilgisayarınızdan Jenkins kabuğunda oturum açmak için aşağıdaki komutları kullanın:
+   * SSH anahtarı oluşturmak için GitHub tarafından sağlanan yönergeleri kullanın. Ardından, depoyu barındıran GitHub hesabına SSH anahtarını ekleyin.
+   * Önceki bağlantıda belirtilen komutları Jenkins Docker kabuğunda (ana bilgisayarınızda değil) çalıştırın.
+   * Ana bilgisayarınızdan Jenkins kabuğunda oturum açmak için aşağıdaki komutları kullanın:
 
-    ```sh
-    docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
-    ```
+     ```sh
+     docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+     ```
 
-    Jenkins kapsayıcı görüntüsünün barındırıldığı küme veya makinede genel kullanıma yönelik bir IP bulunduğundan emin olun. Genel kullanıma yönelik IP olması, Jenkins örneğinin GitHub'dan bildirimler almasını sağlar.
+     Jenkins kapsayıcı görüntüsünün barındırıldığı küme veya makinede genel kullanıma yönelik bir IP bulunduğundan emin olun. Genel kullanıma yönelik IP olması, Jenkins örneğinin GitHub'dan bildirimler almasını sağlar.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Bir Jenkins işi oluşturma ve yapılandırma
 
@@ -146,7 +146,7 @@ Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirs
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
-    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
+    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
       <Description>Voting Application</Description>
       <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="VotingWebPkg" ServiceManifestVersion="2.0.0"/>

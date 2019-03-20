@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: ea13ae5bc649ae3a803fb8446fa009fac94874a8
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a5a3bb38f832d13a39a061453e6ef7910ba5cccf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673573"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094118"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>Hızlı Başlangıç: Java için Bing varlık arama SDK'sı ile arama isteği gönder
 
@@ -67,7 +67,7 @@ Bing Varlık Arama SDK'sı bağımlılık dosyalarını Maven, Gradle veya başk
 
 ## <a name="create-a-search-client"></a>Bir arama istemcisi oluşturma
 
-2. Uygulama `dominantEntityLookup` API uç noktanız ve bir örneğini gerektirir ve istemci `ServiceClientCredentials` sınıfı.
+1. Uygulama `dominantEntityLookup` API uç noktanız ve bir örneğini gerektirir ve istemci `ServiceClientCredentials` sınıfı.
 
     ```java
     public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
@@ -80,47 +80,47 @@ Bing Varlık Arama SDK'sı bağımlılık dosyalarını Maven, Gradle veya başk
 
     Uygulamak için `ServiceClientCredentials`, şu adımları izleyin:
 
-    1. geçersiz kılma `applyCredentialsFilter()` işlevi ile bir `OkHttpClient.Builder` bir parametre olarak nesne. 
+   1. geçersiz kılma `applyCredentialsFilter()` işlevi ile bir `OkHttpClient.Builder` bir parametre olarak nesne. 
         
-        ```java
-        //...
-        new ServiceClientCredentials() {
-                @Override
-                public void applyCredentialsFilter(OkHttpClient.Builder builder) {
-                //...
-                }
-        //...
-        ```
+       ```java
+       //...
+       new ServiceClientCredentials() {
+               @Override
+               public void applyCredentialsFilter(OkHttpClient.Builder builder) {
+               //...
+               }
+       //...
+       ```
     
-    2. İçinde `applyCredentialsFilter()`, çağrı `builder.addNetworkInterceptor()`. Yeni bir `Interceptor` nesne ve geçersiz kılma kendi `intercept()` gerçekleştirilecek yöntemi bir `Chain` dinleyiciyi nesne.
+   2. İçinde `applyCredentialsFilter()`, çağrı `builder.addNetworkInterceptor()`. Yeni bir `Interceptor` nesne ve geçersiz kılma kendi `intercept()` gerçekleştirilecek yöntemi bir `Chain` dinleyiciyi nesne.
 
-        ```java
-        //...
-        builder.addNetworkInterceptor(
-            new Interceptor() {
-                @Override
-                public Response intercept(Chain chain) throws IOException {
-                //...    
-                }
-            });
-        ///...
-        ```
+       ```java
+       //...
+       builder.addNetworkInterceptor(
+           new Interceptor() {
+               @Override
+               public Response intercept(Chain chain) throws IOException {
+               //...    
+               }
+           });
+       ///...
+       ```
 
-    3. İçinde `intercept` işlev, isteğiniz için değişkenler oluşturun. Kullanım `Request.Builder()` isteğinizi oluşturmak için. Abonelik anahtarınızı ekleme `Ocp-Apim-Subscription-Key` üst bilgi ve dönüş `chain.proceed()` istek nesnesi üzerinde.
+   3. İçinde `intercept` işlev, isteğiniz için değişkenler oluşturun. Kullanım `Request.Builder()` isteğinizi oluşturmak için. Abonelik anahtarınızı ekleme `Ocp-Apim-Subscription-Key` üst bilgi ve dönüş `chain.proceed()` istek nesnesi üzerinde.
             
-        ```java
-        //...
-        public Response intercept(Chain chain) throws IOException {
-            Request request = null;
-            Request original = chain.request();
-            Request.Builder requestBuilder = original.newBuilder()
-                    .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-            request = requestBuilder.build();
-            return chain.proceed(request);
-        }
-        //...
-        ```
-## <a name="send-a-request-and-receive-a-response"></a>Bir istek gönderir ve yanıt
+       ```java
+       //...
+       public Response intercept(Chain chain) throws IOException {
+           Request request = null;
+           Request original = chain.request();
+           Request.Builder requestBuilder = original.newBuilder()
+                   .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+           request = requestBuilder.build();
+           return chain.proceed(request);
+       }
+       //...
+       ```
+      ## <a name="send-a-request-and-receive-a-response"></a>Bir istek gönderir ve yanıt
 
 1. Abonelik anahtarınızla arama istemci yeni bir örneğini oluşturun. kullanma `client.entities().search()` arama sorgusu için bir arama talebi göndermek için `satya nadella`ve bir yanıt alın. 
     
@@ -130,7 +130,7 @@ Bing Varlık Arama SDK'sı bağımlılık dosyalarını Maven, Gradle veya başk
             "satya nadella", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
     ```
 
-2. Herhangi bir varlık döndürülmedi, bunları bir listeye dönüştürün. Bunlar içerisinde yineleme yapmanızı ve baskın varlık yazdırın.
+1. Herhangi bir varlık döndürülmedi, bunları bir listeye dönüştürün. Bunlar içerisinde yineleme yapmanızı ve baskın varlık yazdırın.
 
     ```java
     if (entityData.entities().value().size() > 0){

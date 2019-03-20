@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e71e4ea56bfe467e03be59d6a855272baafc4235
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 04da80cd5c30d0556dc681b7bff412391aa2bcda
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822740"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107738"
 ---
 # <a name="backup-and-restore"></a>Yedekleme ve geri yükleme
 
@@ -47,7 +47,7 @@ SAP HANA (büyük örnekler) azure'da iki yedekleme ve geri yükleme seçeneği 
 
 - Altyapısını yedekleme ve geri yükleme işlevselliğinin. Yedekleme ve geri yükleme işlevselliğinin, SAP hana (büyük örnekler) azure'da temel alınan altyapı sağlar. Bu seçenek, yedekleme ve hızlı geri yükleme gereksinimini karşılar. Bu bölümün geri kalanında, HANA büyük örnekleri ile sunulan yedekleme ve geri yükleme işlevselliği ele alır. Bu bölüm ayrıca ilişki yedekleme kapsar ve geri yükleme sahip için olağanüstü durum kurtarma işlevselliğin sunduğu HANA büyük örnekleri.
 
->   [!NOTE]
+> [!NOTE]
 >   Altyapının HANA büyük örnekleri tarafından kullanılan anlık görüntü teknoloji, SAP HANA anlık görüntüleri bağımlılığı vardır. Bu noktada, SAP HANA anlık görüntüleri SAP HANA çok kiracılı veritabanı kapsayıcıların birden fazla Kiracı ile birlikte çalışmaz. Yalnızca tek bir kiracı dağıtılır, bu yöntem kullanılabilir ve SAP HANA anlık görüntüleri çalışır.
 
 ## <a name="using-storage-snapshots-of-sap-hana-on-azure-large-instances"></a>(Büyük örnekler) Azure üzerinde SAP hana depolama anlık görüntüleri kullanma
@@ -641,44 +641,44 @@ Aşağıdaki, istek için hazırlama işlemini göstermektedir:
 
 1. HANA örneğini kapatın.
 
- ![HANA örneğini kapatma](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
+   ![HANA örneğini kapatma](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
 
 1. Veri birimleri üzerinde her HANA veritabanı düğümü çıkarın. Veri birimleri için işletim sistemi bağlıysa, anlık görüntü geri yükleme başarısız olur.
- ![Veri birimleri üzerinde her HANA veritabanı düğümü çıkarın](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
+   ![Veri birimleri üzerinde her HANA veritabanı düğümü çıkarın](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
 
 1. Azure destek isteği açın ve belirli bir anlık görüntü geri yükleme hakkında yönergeler içerir.
 
- - Geri yükleme işlemi sırasında: Azure hizmet yönetimi üzerinde SAP HANA koordinasyon, doğrulama ve doğru depolama anlık görüntünün geri yüklendiğini doğrulama sağlamak için bir konferans katılım için isteyebilir. 
+   - Geri yükleme işlemi sırasında: Azure hizmet yönetimi üzerinde SAP HANA koordinasyon, doğrulama ve doğru depolama anlık görüntünün geri yüklendiğini doğrulama sağlamak için bir konferans katılım için isteyebilir. 
 
- - Geri yükleme sonrasında: Azure hizmet yönetimi üzerinde SAP HANA depolama anlık görüntü geri olduğunda size bildirir.
+   - Geri yükleme sonrasında: Azure hizmet yönetimi üzerinde SAP HANA depolama anlık görüntü geri olduğunda size bildirir.
 
 1. Geri yükleme işlemi tamamlandıktan sonra tüm veri miktarları yeniden bağlayın.
 
- ![Tüm veri birimleri yeniden bağlayın](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
+   ![Tüm veri birimleri yeniden bağlayın](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
 
 1. SAP HANA Studio aracılığıyla HANA veritabanı yeniden bağlandığınızda otomatik olarak ortaya değil SAP HANA Studio içinde kurtarma seçeneklerini seçin. Aşağıdaki örnek, son HANA anlık görüntüye geri yüklemeyi gösterir. Depolama anlık bir HANA anlık görüntü katıştırır. En son depolama anlık görüntüye geri yüklerseniz, en son HANA anlık görüntü olmalıdır. (Daha eski bir depolama anlık görüntüye geri yüklerseniz, depolama anlık görüntünün alındığı zamana dayalı HANA anlık görüntü bulmak gerekir.)
 
- ![SAP HANA Studio içinde kurtarma seçeneklerini seçin](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
+   ![SAP HANA Studio içinde kurtarma seçeneklerini seçin](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
 
 1. Seçin **veritabanını belirli bir veri yedekleme veya depolama anlık görüntü kurtarma**.
 
- ![Kurtarma türünü belirtin penceresi](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
+   ![Kurtarma türünü belirtin penceresi](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
 
 1. Seçin **belirtin yedekleme kataloğu olmadan**.
 
- ![Yedekleme konumu belirtin penceresi](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
+   ![Yedekleme konumu belirtin penceresi](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
 
 1. İçinde **hedef türü** listesinden **anlık görüntü**.
 
- ![Yedekleme Kurtar penceresine belirtin](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
+   ![Yedekleme Kurtar penceresine belirtin](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
 
 1. Seçin **son** kurtarma işlemini başlatmak için.
 
- ![Kurtarma işlemini başlatmak için "son" düğmesini seçin](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
+    ![Kurtarma işlemini başlatmak için "son" düğmesini seçin](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
 
 1. HANA veritabanı geri ve depolama anlık görüntüsüne dahil HANA anlık görüntüye, kurtarılır.
 
- ![HANA veritabanı geri ve HANA anlık görüntüye kurtarıldı](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
+    ![HANA veritabanı geri ve HANA anlık görüntüye kurtarıldı](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
 
 ### <a name="recover-to-the-most-recent-state"></a>En son durumuna Kurtar
 
@@ -691,23 +691,23 @@ Aşağıdaki işlem, depolama anlık görüntüsüne dahil HANA anlık görünt�
 
 1. Seçin **en son durumuna veritabanını Kurtar**.
 
- !["En son durumuna veritabanını Kurtar" seçin](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
+   !["En son durumuna veritabanını Kurtar" seçin](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
 
 1. En son HANA günlük yedeklerinin konumunu belirtin. Konum tüm HANA işlem günlüğü yedeklemeleri HANA anlık görüntüden en son durumuna içermesi gerekir.
 
- ![En son HANA günlük yedeklerinin konumunu belirtin](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
+   ![En son HANA günlük yedeklerinin konumunu belirtin](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
 
 1. Veritabanını kurtarmak kendisinden temel olarak bir yedekleme seçin. Bu örnekte, ekran görüntüsünde HANA anlık görüntü depolama anlık dahil HANA anlık görüntüsüdür. 
 
- ![Veritabanını kurtarmak kendisinden temel olarak bir yedekleme seçin](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
+   ![Veritabanını kurtarmak kendisinden temel olarak bir yedekleme seçin](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
 
 1. NET **Delta yedeklemelerini kullanın** deltaları en son durumu ve HANA anlık görüntüsünün zaman arasında yoksa, kutuyu.
 
- ![Hiçbir deltaları varsa "Delta yedeklemelerini kullanın" onay kutusunu temizleyin.](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
+   ![Hiçbir deltaları varsa "Delta yedeklemelerini kullanın" onay kutusunu temizleyin.](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
 
 1. Özet ekranında, seçin **son** geri yükleme yordamı başlatmak için.
 
- ![Özet ekranında "Son" tıklayın](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
+   ![Özet ekranında "Son" tıklayın](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
 
 ### <a name="recover-to-another-point-in-time"></a>Başka bir noktasına geri
 (Depolama anlık görüntüsüne dahil) HANA anlık görüntü ve HANA anlık görüntü noktası-ın-time kurtarma sonraki bir arasında zaman içinde bir noktaya kurtarmak için aşağıdaki adımları gerçekleştirin:

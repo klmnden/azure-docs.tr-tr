@@ -9,17 +9,17 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: ce16e1fbc112c4bd807c42893685643dc0a13992
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d8438f5ddbbb3744811448aeb563be602b04516d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759758"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009102"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes Service ve Terraform ile bir Kubernetes kümesi oluşturma
 [Azure Kubernetes Service (AKS)](/azure/aks/), barındırılan Kubernetes ortamınızı yöneterek kapsayıcılı uygulamaları, kapsayıcı yönetimi uzmanlığı gerekmeden hızla ve kolayca dağıtma olanağı sunar. Ayrıca, kaynakları isteğe bağlı olarak sağlama, yükseltme ve ölçeklendirme işlemlerini uygulamalarınızı çevrimdışı duruma geçirmeden yaparak sürekliliği olan işlemlerin ve bakımların yükünü ortadan kaldırır.
 
-Bu öğreticide aşağıdaki [Terraform](http://terraform.io) ve AKS'yi kullanarak [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) kümesi oluşturma görevlerini gerçekleştirmeyi öğreneceksiniz:
+Bu öğreticide aşağıdaki [Terraform](https://terraform.io) ve AKS'yi kullanarak [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) kümesi oluşturma görevlerini gerçekleştirmeyi öğreneceksiniz:
 
 > [!div class="checklist"]
 > * HCL (HashiCorp Language) ile Kubernetes kümesi tanımlama
@@ -37,7 +37,7 @@ Bu öğreticide aşağıdaki [Terraform](http://terraform.io) ve AKS'yi kullanar
 ## <a name="create-the-directory-structure"></a>Dizin yapısını oluşturma
 İlk adım, bu alıştırmadaki Terraform yapılandırma dosyalarınızı barındıracak olan dizini oluşturmaktır.
 
-1. [Azure portala](http://portal.azure.com) gidin.
+1. [Azure portala](https://portal.azure.com) gidin.
 
 1. [Azure Cloud Shell](/azure/cloud-shell/overview)'i açın. Önceden bir ortam seçmediyseniz **Bash** ortamını seçin.
 

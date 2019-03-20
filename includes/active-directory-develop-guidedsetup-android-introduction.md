@@ -3,23 +3,23 @@ title: include dosyası
 description: include dosyası
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/13/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 9bc8f30d2bbf6a084ad680306da9b1e330d488e3
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 33e2ac136ae68ee0c0ce0109a6f6934727d3a6c5
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988368"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203743"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Bir Android uygulamasından Microsoft Graph'i çağırmaya ve kullanıcılarının oturumunu
 
@@ -29,7 +29,7 @@ Kılavuzu tamamladıktan sonra uygulamanızın oturum açma işlemleri kişisel 
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Bu kılavuzda oluşturulan örnek uygulamasını nasıl çalışır?
 
-![Bu örnek nasıl çalışır](media/active-directory-develop-guidedsetup-android-intro/android-intro.png)
+![Örnek uygulama tarafından bu öğreticileri çalışır nasıl oluşturulacağını gösterir](media/active-directory-develop-guidedsetup-android-intro/android-intro-updated.png)
 
 Bu örnek uygulamasında kullanıcılarının oturumunu ve onların adına veri alın.  Bu veriler, yetkilendirme gerektirir ve Microsoft kimlik platformu tarafından korunmuş bir uzak API'ye (Bu durumda Microsoft Graph API) aracılığıyla erişilir.
 

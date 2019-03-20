@@ -1,72 +1,80 @@
 ---
-title: Okuma-konuşma hizmeti hakkında
+title: Azure konuşma Hizmetleri ile metin okuma
 titleSuffix: Azure Cognitive Services
-description: 45'den fazla dil ve yerel ayar birden fazla 75 seslerle metin okuma API'si sunar. Standart ses tipi olarak kullanmak için yalnızca konuşma hizmeti çağırdığınızda, diğer birkaç parametrelerle ses adı belirtmeniz gerekir.
+description: Azure konuşma Services'dan metin okuma, uygulamalar, Araçlar veya cihazları doğal insan benzeri Sentezlenen konuşmaya metni dönüştürmek sağlayan bir REST tabanlı bir hizmettir. Standart ve sinir ses arasından seçin veya kendi özel sesli benzersiz ürün veya marka oluşturun. 75'ten fazla standart sesleri 45'den fazla dil ve yerel ayar kullanılabilir ve 5 sinir sesleri 4 dil ve yerel ayarlar kullanılabilir.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0836ae4a9041db27cfed35dd0f1fc0df6e541aff
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 05028704c08ebd06f9b9e4e3f45c5137eb1e6b58
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859343"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226921"
 ---
-# <a name="about-the-text-to-speech-api"></a>Metin okuma API'si hakkında
+# <a name="what-is-text-to-speech"></a>Metin okuma nedir?
 
-**Metin okuma** API (TTS) giriş metni doğal görünen konuşmaya dönüştürür (olarak da adlandırılan *konuşma sentezi*).
+Azure konuşma Services'dan metin okuma, uygulamalar, Araçlar veya cihazları doğal insan benzeri Sentezlenen konuşmaya metni dönüştürmek sağlayan bir REST tabanlı bir hizmettir. Standart ve sinir ses arasından seçin veya kendinizinkini oluşturun [özel sesli](#custom-voice-fonts) benzersiz ürün veya marka. 75'ten fazla standart sesleri 45'den fazla dil ve yerel ayar kullanılabilir ve 5 sinir sesleri 4 dil ve yerel ayarlar kullanılabilir. Tam bir listesi için bkz [desteklenen diller](language-support.md#text-to-speech).
 
-Konuşmanın oluşturulacağı uygulamanızı metin okuma API'si için HTTP POST isteği gönderir. Metni konuşmaya İnsan görünen, oluşturulan ve bir ses dosyası olarak döndürülür. Seslerle ve dilleri çeşitli desteklenir.
-
-İçinde hangi konuşma sentezi benimseniyor senaryolar şunlardır:
-
-* *Erişilebilirliği iyileştirme:* **metin okuma** teknolojisi, içerik sahiplerinin sağlar ve farklı şekillerde kişilere yanıt yayımcılar kendi içerikleriyle etkileşim. Görsel bozukluğu veya okuma zorluklarla kişilerle işitsel içeriği kullanamayabilir olması için teşekkür ederiz. Ayrıca çıktı ses gazete veya arasında işe gidip gelmek veya uygulama çalışırken, mobil cihazlarda blogları gibi metinsel içeriği yararlanabilmek kişi için kolaylaştırır.
-
-* *Çoklu senaryolarda yanıt:* **metin okuma** önemli bilgileri hızla ve rahat bir şekilde gidiş veya aksi halde kullanışlı dışında okuma ortam devralarak yapmasını sağlar. Gezinti, bu alandaki yaygın bir uygulamadır.
-
-* *Öğrenme birden çok modları ile geliştirme:* Farklı kişilere iyi farklı şekillerde öğrenin. Çevrimiçi öğrenme uzmanlar, ses ve metin birlikte sağlama bilgilerini öğrenin ve korumak daha kolay hale getirmek yardımcı olduğunu göstermiştir.
-
-* *Sezgisel robotlar veya Yardımcıları teslim:* Konuşma yeteneği bütünleyici bir akıllı sohbet Robotu ya da sanal bir yardımcı olabilir. Giderek daha çok şirketlerin müşterileri için ilgi çekici bir müşteri hizmeti deneyimleri sağlamak sohbet bot geliştirmeye. Ses, başka bir boyut (örneğin, telefon) işitsel alınacak botun yanıtlar vererek ekler.
-
-## <a name="voice-support"></a>Ses desteği
-
-Microsoft **metin okuma** hizmeti, birden fazla 75 seslerle 45'den fazla dil ve yerel ayar sunar. Bu standart "ses tipi" kullanmak için yalnızca hizmetin REST API çağrısı ile diğer bazı parametreler ses adı belirtmeniz gerekir. Desteklenen diller, yerel ayarlar ve sesler hakkında daha fazla bilgi için bkz. [desteklenen diller](language-support.md#text-to-speech).
-
-> [!IMPORTANT]
-> Maliyetleri için standart, özel ve sinir sesleri farklılık gösterir. Daha fazla bilgi için [fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+Metin okuma teknolojisi, içerik oluşturucuların kullanıcılarının ile farklı yöntemle etkileşim kurmasına imkan tanır. Metin okuma, kullanımı içeriklerle etkileşim için bir seçenek ile kullanıcılara sağlayarak erişilebilirlik artırabilir. Metin okuma, kullanıcı bir görsel engelliler, bir öğrenme engelli veya sürüş Gezinti bilgilerini gerektiriyor olsun, var olan bir deneyim artırabilir. Metin okuma da bir değerli ses robotlar ve sanal Yardımcıları eklentisidir.
 
 ### <a name="neural-voices"></a>Sinir sesleri
 
-Sinir metin okuma, sohbet robotları ve sanal Yardımcıları ile etkileşim daha doğal yapmak ve ilgi çekici, e-kitapları gibi dijital metinleri audiobooks dönüştürmek ve içi navigasyon sistemleri geliştirmek için kullanılabilir. Yapay ZEKA sistemlerle etkileşim kurduğunuzda İnsan benzeri doğal prosody ve sözcük Temizle articulation sinir TTS dinleme yorulma önemli ölçüde azalttı. Sinir sesleri hakkında daha fazla bilgi için bkz: [desteklenen diller](language-support.md#text-to-speech).
+Sinir sesleri etkileşimleri sohbet robotları ve sanal Yardımcıları ile daha doğal yapmasına ve ilgi çekici, e-kitapları gibi dijital metinleri audiobooks dönüştürmek ve içi navigasyon sistemleri geliştirir kullanılabilir. Yapay ZEKA sistemlerle etkileşim kurduğunuzda İnsan benzeri doğal prosody ve sözcük Temizle articulation sinir sesleri dinleme yorulma ciddi ölçüde düşürün. Sinir sesleri hakkında daha fazla bilgi için bkz: [desteklenen diller](language-support.md#text-to-speech).
 
 ### <a name="custom-voices"></a>Özel ses
 
-Metin okuma ses özelleştirme markanız için tanınan, tür, tek bir ses oluşturmanıza olanak sağlar: bir *ses tipi.* Ses tipi oluşturmak için studio kaydını yapabilir ve ilişkili betikler eğitim verileri olarak karşıya yükleyin. Hizmet, ardından kaydınız için ayarlanmış bir benzersiz ses modeli oluşturur. Kendi ses tipi konuşma sentezlemek için kullanabilirsiniz. Daha fazla bilgi için [özel ses tipi](how-to-customize-voice-font.md).
+Ses özelleştirme markanız için tanınan, tür, tek bir ses oluşturmanıza olanak sağlar. Özel ses tipi oluşturmak için studio kaydını yapabilir ve ilişkili betikler eğitim verileri olarak karşıya yükleyin. Hizmet, ardından kaydınız için ayarlanmış bir benzersiz ses modeli oluşturur. Bu özel ses tipi konuşma sentezlemek için kullanabilirsiniz. Daha fazla bilgi için [özel seslerle](how-to-customize-voice-font.md).
 
-## <a name="api-capabilities"></a>API özellikleri
+## <a name="core-features"></a>Temel özellikleri
 
-Çok sayıda yeteneklerini **metin okuma** API, özellikle özelleştirmesi, REST kullanılabilir. Aşağıdaki tabloda, her API erişimi yöntemi yeteneklerini özetler. Özellikler ve API ayrıntıları tam listesi için bkz: [Swagger başvuru](https://westus.cris.ai/swagger/ui/index).
+Bu tabloda metin okuma için temel özellikleri listelenmektedir:
 
-| Kullanım örneği | REST | SDK’lar |
-|-----|-----|-----|----|
-| Ses uyarlama için veri kümelerini karşıya yükleme | Evet | Hayır |
-| Ses yazı tipi modelleri Yönet & Oluştur | Evet | Hayır |
-| Ses yazı tipi dağıtımları yönetmek & Oluştur | Evet | Hayır |
-| Ses yazı tipi testleri yönetmek & Oluştur| Evet | Hayır |
-| Abonelikleri Yönetme | Evet | Hayır |
+| Kullanım örneği | SDK | REST |
+|----------|-----|------|
+| Metni konuşmaya dönüştürün. | Hayır | Evet |
+| Veri kümeleri için ses uyarlama karşıya yükleyin. | Hayır | Evet\* |
+| Oluşturun ve ses yazı tipi modelleri yönetin. | Hayır | Evet\* |
+| Oluşturun ve ses yazı tipi dağıtımları yönetin. | Hayır | Evet\* |
+| Oluşturun ve ses yazı tipi testleri yönetin. | Hayır | Evet\* |
+| Aboneliklerini yönetin. | Hayır | Evet\* |
+
+\* *Bu hizmetler cris.ai uç noktayı kullanarak kullanılabilir. Bkz: [Swagger başvuru](https://westus.cris.ai/swagger/ui/index).*
 
 > [!NOTE]
-> API, API isteklerinin 5 saniye başına 25 sınırlayan azaltma uygular. İleti üst sınırları bilgilendirecektir.
+> Metin okuma uç nokta istekleri 5 saniye başına 25 sınırlayan azaltma uygular. Azaltma ortaya çıktığında, ileti üstbilgileri bildirilir.
+
+## <a name="get-started-with-text-to-speech"></a>Metin okuma ile çalışmaya başlama
+
+Hızlı başlangıçlar, kodu 10 dakikadan kısa bir süre içinde çalıştırmak için tasarlanmış sunuyoruz. Bu tablo, metin okuma Hızlı başlangıçlar dile göre düzenlenmiş bir listesini içerir.
+
+| Hızlı Başlangıç | Platform | API başvurusu |
+|------------|----------|---------------|
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Göz atma](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Pencere, macOS, Linux | [Göz atma](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [Python](quickstart-python-text-to-speech.md) | Pencere, macOS, Linux | [Göz atma](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+
+## <a name="sample-code"></a>Örnek kod
+
+Metin okuma için örnek kod, Github'da kullanılabilir. Bu örnekler, en popüler programlama dillerinden metinden konuşmaya dönüştürme kapsar.
+
+* [Metin okuma örnekleri (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+
+## <a name="reference-docs"></a>Başvuru belgeleri
+
+* [Konuşma SDK'sı](speech-sdk-reference.md)
+* [Konuşma cihaz SDK'sı](speech-devices-sdk.md)
+* [REST API: Konuşma metin](rest-speech-to-text.md)
+* [REST API: Metin okuma](rest-text-to-speech.md)
+* [REST API: Batch tanıma ve özelleştirme](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Serbest konuşma Hizmetleri aboneliği edinin](https://azure.microsoft.com/try/cognitive-services/)
-* [Hızlı Başlangıç: Metin okuma, Python Dönüştür](quickstart-python-text-to-speech.md)
-* [Hızlı Başlangıç: Metin okuma, .NET Core Dönüştür](quickstart-dotnet-text-to-speech.md)
-* [REST API başvurusu](rest-apis.md)
+* [Serbest konuşma Hizmetleri aboneliği edinin](get-started.md)
+* [Özel ses tipi olarak oluşturma](how-to-customize-voice-font.md)

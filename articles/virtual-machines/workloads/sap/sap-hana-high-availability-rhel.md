@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/16/2018
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 0bed75090e82287e1239342884b5acea64e69bf0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b67a65bad06560a09d2ead88bd20f0568f749bb3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444013"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082186"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux Vm'lerinde Azure üzerinde SAP hana yüksek kullanılabilirlik
 
@@ -182,6 +182,10 @@ Github üzerindeki tüm gerekli kaynakları dağıtmak için hızlı başlangı�
    1. 3 bağlantı noktaları için bu adımları tekrarlayarak**03**41 ve 3**03**42.
 
 SAP HANA için gerekli bağlantı noktaları hakkında daha fazla bilgi için bu bölümde okuma [Kiracı veritabanlarına bağlantı](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) içinde [SAP HANA Kiracı veritabanlarını](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) kılavuzu veya [SAP notu 2388694][2388694].
+
+> [!IMPORTANT]
+> Azure vm'lerinde Azure yük dengeleyicinin arkasına yerleştirilen TCP zaman damgaları etkinleştirmeyin. TCP zaman damgaları etkinleştirme, sistem durumu araştırmaları başarısız olmasına neden olur. Parametre kümesi **net.ipv4.tcp_timestamps** için **0**. Ayrıntılar için bkz. [yük dengeleyici sistem durumu araştırmalarının](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+> SAP notu [2382421](https://launchpad.support.sap.com/#/notes/2382421) şu anda 1 net.ipv4.tcp_timestamps ayarlamanızı bildiren çakışan deyimi içeriyor. Azure yük dengeleyicinin arkasına yerleştirilen Azure Vm'leri için parametre **net.ipv4.tcp_timestamps** için **0**.
 
 ## <a name="install-sap-hana"></a>SAP HANA yükleme
 
@@ -357,21 +361,21 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
    HANA sistem çoğaltması ve istemci trafiğine izin vermek için güvenlik duvarı kuralları oluşturun. Gerekli bağlantı noktaları listelenir [TCP/IP bağlantı noktaları tüm SAP ürünleri](https://help.sap.com/viewer/ports). Aşağıdaki komutları veritabanı SYSTEMDB, HN1 ve NW1 Windows 2.0 HANA sistem çoğaltması ve istemci trafiğine izin vermek için yalnızca bir örnektir.
 
    <pre><code>sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40302/tcp
-sudo firewall-cmd --zone=public --add-port=40301/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40301/tcp
-sudo firewall-cmd --zone=public --add-port=40307/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40307/tcp
-sudo firewall-cmd --zone=public --add-port=40303/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40303/tcp
-sudo firewall-cmd --zone=public --add-port=40340/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=40340/tcp
-sudo firewall-cmd --zone=public --add-port=30340/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=30340/tcp
-sudo firewall-cmd --zone=public --add-port=30341/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=30341/tcp
-sudo firewall-cmd --zone=public --add-port=30342/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=30342/tcp
+   sudo firewall-cmd --zone=public --add-port=40302/tcp
+   sudo firewall-cmd --zone=public --add-port=40301/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=40301/tcp
+   sudo firewall-cmd --zone=public --add-port=40307/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=40307/tcp
+   sudo firewall-cmd --zone=public --add-port=40303/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=40303/tcp
+   sudo firewall-cmd --zone=public --add-port=40340/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=40340/tcp
+   sudo firewall-cmd --zone=public --add-port=30340/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=30340/tcp
+   sudo firewall-cmd --zone=public --add-port=30341/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=30341/tcp
+   sudo firewall-cmd --zone=public --add-port=30342/tcp --permanent
+   sudo firewall-cmd --zone=public --add-port=30342/tcp
    </code></pre>
 
 1. **[1]**  Kiracı veritabanı oluşturmak.

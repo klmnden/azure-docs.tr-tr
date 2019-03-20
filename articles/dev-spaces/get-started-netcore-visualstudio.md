@@ -11,12 +11,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
-ms.openlocfilehash: 1a4f1a5f8dac4f202f641111105da3cdfb70c823
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9b5f5d41a35b608ecec5e9ab2161a6c122e7aa82
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775416"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894164"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Azure geliştirme alanları .NET Core ve Visual Studio ile çalışmaya başlama
 
@@ -36,15 +36,14 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 1. https://portal.azure.com adresinden Azure portalında oturum açın.
 1. **Kaynak oluştur**’u seçin > **Kubernetes** ifadesini arayın > **Kubernetes Hizmeti** > **Oluştur** seçeneğini belirleyin.
 
-   AKS kümesi oluşturma formunun her bir başlığının altında aşağıdaki adımları tamamlayın.
+   Her başlığı altında aşağıdaki adımları tamamlayın *oluşturma Kubernetes kümesi* , seçtiğiniz doğrulayın ve form [bölge destekleyen Azure geliştirme alanları](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
 
-    - **PROJE AYRINTILARI**: Bir Azure aboneliği ve yeni veya mevcut bir Azure kaynak grubu seçin.
-    - **KÜME AYRINTILARI**: AKS kümesi için ad, bölge (şu an için EastUS, EastUS2, Central US, WestEurope, WestUS2, SoutheastAsia, CanadaCentral veya CanadaEast seçmeniz gerekir), sürüm ve DNS adı ön eki girin.
-    - **ÖLÇEK**: AKS aracısı düğümleri için bir VM boyutu ve düğüm sayısı seçin. Azure Dev Spaces kullanmaya yeni başlıyorsanız tüm özellikleri keşfetmek için bir düğüm yeterli olacaktır. Küme dağıtıldıktan sonra da dilediğiniz zaman düğüm sayısını kolayca ayarlayabilirsiniz. AKS kümesi oluşturulduktan sonra VM boyutunu değiştiremeyeceğinizi unutmayın. Ancak ölçeklendirmeniz gerekirse AKS kümesi dağıtıldıktan sonra kolayca daha büyük VM'lere sahip yeni bir AKS kümesi oluşturabilir ve Dev Spaces özelliğini kullanarak bu büyük kümeye yeniden dağıtabilirsiniz.
-
-   Kubernetes sürüm 1.9.6 veya üzerini seçtiğinizden emin olun.
+   - **PROJECT DETAILS**: bir Azure aboneliği ve yeni veya mevcut bir Azure kaynak grubu seçin.
+   - **KÜME AYRINTILARI**: AKS kümesi için bir ad, bölge, sürüm ve DNS adı öneki girin.
+   - **ÖLÇEK**: AKS aracısı düğümleri için bir VM boyutu ve düğüm sayısı seçin. Azure Dev Spaces kullanmaya yeni başlıyorsanız tüm özellikleri keşfetmek için bir düğüm yeterli olacaktır. Küme dağıtıldıktan sonra da dilediğiniz zaman düğüm sayısını kolayca ayarlayabilirsiniz. AKS kümesi oluşturulduktan sonra VM boyutunu değiştiremeyeceğinizi unutmayın. Ancak ölçeklendirmeniz gerekirse AKS kümesi dağıtıldıktan sonra kolayca daha büyük VM'lere sahip yeni bir AKS kümesi oluşturabilir ve Dev Spaces özelliğini kullanarak bu büyük kümeye yeniden dağıtabilirsiniz.
 
    ![Kubernetes yapılandırma ayarları](media/common/Kubernetes-Create-Cluster-2.PNG)
+
 
    Seçin **sonraki: Kimlik doğrulaması** tamamlandığında.
 
@@ -62,7 +61,7 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Kapsayıcıda çalışan bir web uygulaması oluşturma
 
-Bu bölümde bir ASP.NET Core web uygulaması oluşturacak ve Kubernetes’teki bir kapsayıcı içinde çalıştıracaksınız.
+Bu bölümde, bir ASP.NET Core web uygulaması oluşturma ve Kubernetes kapsayıcısında çalışan alın.
 
 ### <a name="create-an-aspnet-web-app"></a>ASP.NET web uygulaması oluşturma
 

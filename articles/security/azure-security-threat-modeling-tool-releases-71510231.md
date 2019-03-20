@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
 ms.author: jegeib
-ms.openlocfilehash: eb1b3c04d3714280c1d1ba6c91b3a4c728a3d1af
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 6f7699ece97be1941ef5235b92f2c76b3bed140e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360366"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883500"
 ---
-# <a name="threat-modeling-tool-update-release-71510231---1112018"></a>Tehdit modelleme aracı güncelleştirme sürümü 7.1.51023.1 - 11/1/2018
+# <a name="threat-modeling-tool-update-release-71510231---1112018"></a>Threat Modeling Tool güncelleştirme sürümü 7.1.51023.1 - 01.11.2018
 
 Özgün olarak belirtilmiş [GA sürüm notları](./azure-security-threat-modeling-tool-releases-71509112.md), kullanıcıların önizleme sürümünün (Önizleme sürümü < 7.1.50911.2 istemcilerle) yükseltmek için gerektirecektir Microsoft tehdit modelleme aracı için güncelleştirme (7.1.51023.1) yayımlandı desteklenen GA sürümü. Bu sürüm, herhangi bir yeni işlevleri veya düzeltmeleri içermiyor.
 
@@ -38,7 +38,7 @@ ms.locfileid: "54360366"
 - Desteklenen İşletim Sistemleri
   - Microsoft Windows 10
 - Gerekli .NET sürümü
-  - .Net 3.5.2
+  - .NET 3.5.2
 - Ek Gereksinimler
   - Şablonları yanı sıra aracı güncelleştirmeleri almak için Internet bağlantısı gerekir.
 

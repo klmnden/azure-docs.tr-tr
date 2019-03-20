@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 93beef5702df9b4cf0a51a01fb286a3f023f9839
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 27028903daeaf62a25584300944538341a861c80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876628"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905231"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Güvenlik çerçevesi: Hassas verileri | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
-| **Başvuruları**              | [MSDN: otomatik tamamlama özniteliği](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [kullanarak otomatik tamamlama HTML](https://msdn.microsoft.com/library/ms533032.aspx), [HTML temizleme Güvenlik Açığı](https://technet.microsoft.com/security/bulletin/MS10-071), [otomatik tamamlama. yeniden?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **Başvuruları**              | [MSDN: otomatik tamamlama özniteliği](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [kullanarak otomatik tamamlama HTML](https://msdn.microsoft.com/library/ms533032.aspx), [HTML temizleme Güvenlik Açığı](https://technet.microsoft.com/security/bulletin/MS10-071), [otomatik tamamlama. yeniden?!](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **Adımları** | Otomatik Tamamlama öznitelik, bir form otomatik tamamlama açıp olup olmayacağını belirtir. Otomatik Tamamlama açık olduğunda, tarayıcının otomatik tamamlanacak önce kullanıcının girdiği değerlerini temel alan değerleri. Örneğin, bir yeni adı ve parola bir formda girilir ve form gönderildiğinde, tarayıcı parola kaydedilen ister. Bundan sonra form görüntülendiğinde, adını ve parolasını adı girildiğinde tamamlanmış veya otomatik olarak doldurulur. Yerel erişimine sahip bir saldırgan, düz metin parolası tarayıcı önbelleğinden edinebilir. Otomatik Tamamlama varsayılan olarak etkindir ve onu açıkça devre dışı bırakılmalıdır. |
 
 ### <a name="example"></a>Örnek
@@ -182,7 +182,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
-| **Başvuruları**              | [Parola Hashing .NET Crypto API'ları kullanma](http://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
+| **Başvuruları**              | [Parola Hashing .NET Crypto API'ları kullanma](https://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
 | **Adımları** | Parolaları özel kullanıcı deposu veritabanlarında depolanması. Parola karmalarının salt değerlerle yerine depolanması gerekir. Kullanıcı için güvenlik değeri her zaman benzersizdir ve parola, deneme yanılma yapma olasılığını ortadan kaldırmak için 150.000 döngüler en düşük iş faktörü yineleme sayısı ile depolamadan önce b-crypt, s-crypt veya PBKDF2 uygulamak emin olun.| 
 
 ## <a id="db-encrypted"></a>Veritabanı sütunları hassas verilerin şifrelendiğinden emin olun
@@ -399,7 +399,7 @@ Uygulama, kuruluş uygulaması değil, ardından sağlanan platform keystore'u k
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
-| **Başvuruları**              | [.Net için şifreleme gizleme](http://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
+| **Başvuruları**              | [.Net için şifreleme gizleme](https://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
 | **Adımları** | Derlemelerin tersine mühendislik durdurmak için oluşturulan ikili dosyaları (apk içinde bütünleştirilmiş kodları) gizlenmiş. Gibi araçları `CryptoObfuscator` bu amaç için kullanılabilir. |
 
 ## <a id="cert"></a>Sertifika veya Windows clientCredentialType ayarlayın
@@ -429,7 +429,7 @@ Sertifika veya Windows clientCredentialType ayarlayın.
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Generic, .NET Framework 3 |
 | **Öznitelikler**              | Güvenlik modu - taşıma, güvenlik modu - ileti |
-| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [kod Magazine WCF güvenlik temel ilkeleri](http://www.codemag.com/article/0611051) |
+| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [kod Magazine WCF güvenlik temel ilkeleri](https://www.codemag.com/article/0611051) |
 | **Adımları** | Hiçbir taşıma veya ileti güvenlik tanımlandı. İletileri taşıma olmadan veya güvenlik bütünlüğünü veya iletilerin gizliliğini garanti edemez ileti iletme uygulamalar. WCF güvenlik bağlama None olarak ayarlandığında, hem aktarım hem de ileti güvenlik devre dışı bırakıldı. |
 
 ### <a name="example"></a>Örnek
@@ -453,8 +453,8 @@ Tüm hizmet bağlamaları arasında güvenlik modu beş olası güvenlik modlar�
 * Her ikisi de. Taşıma ve ileti düzeyi güvenlik (yalnızca MSMQ bu destekler) için ayarları sağlamanıza olanak tanır. 
 * TransportWithMessageCredential. Kimlik bilgileri iletisi ve ileti koruma ile geçirilir ve sunucu kimlik doğrulaması, Aktarım katmanı tarafından sağlanır. 
 * TransportCredentialOnly. İstemci kimlik bilgileri ile Aktarım katmanı geçirilir ve ileti koruma uygulanır. Aktarım iletisi güvenlik, bütünlük ve iletilerin gizliliğini korumak için kullanın. Aşağıdaki yapılandırmayı aktarım güvenliği ile ileti kimlik bilgilerini kullanmak için hizmet söyler.
-```
-<system.serviceModel>
+  ```
+  <system.serviceModel>
   <bindings>
     <wsHttpBinding>
     <binding name=""MyBinding""> 
@@ -462,5 +462,5 @@ Tüm hizmet bağlamaları arasında güvenlik modu beş olası güvenlik modlar�
     <message clientCredentialType=""Windows""/> 
     </binding> 
   </bindings> 
-</system.serviceModel> 
-```
+  </system.serviceModel> 
+  ```

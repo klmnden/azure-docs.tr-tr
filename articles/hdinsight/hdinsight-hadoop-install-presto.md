@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6fdeab56523d05232dd4e6a720de0be9866a4801
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fe3727c90819a96b7e1785362e557edd5cbbdf02
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084836"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199333"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Yükleme ve Hadoop tabanlı HDInsight kümelerinde Presto kullanma
 
@@ -155,7 +155,7 @@ Yüklemeyi özelleştirmek için aşağıdaki adımları uygulayın:
 
 3. Durdur ve Presto geçerli çalışan örneğini Kaldır:
 
-    `sudo slider stop presto1 --force``sudo slider destroy presto1 --force`
+    `sudo slider stop presto1 --force` `sudo slider destroy presto1 --force`
 
 4. Presto yeni bir örneğini özelleştirme ile başlayın:
 
@@ -175,8 +175,6 @@ TPC-DS büyük veri sistemlerini dahil olmak üzere birçok karar destek sisteml
 * [Yükleme ve HDInsight Hadoop kümeler üzerinde Hue kullanma](hdinsight-hadoop-hue-linux.md). Hue, oluşturma, çalıştırma ve Apache Pig ve Hive işlerini kaydetmek kolay kullanıcı Arabirimi bir web tarayıcısı uygulamasıdır.
 
 * [HDInsight Hadoop kümeleri üzerinde Apache giraph'ı yükleyin ve büyük ölçekli grafikleri işlemek için Giraph kullanma](hdinsight-hadoop-giraph-install-linux.md). Küme özelleştirmesi, Hadoop tabanlı HDInsight kümelerinde Giraph'ı yüklemek için kullanın. Giraph ile grafik işlemeyi Hadoop kullanarak gerçekleştirebilirsiniz. Azure HDInsight ile de kullanılabilir.
-
-* [Yükleme ve HDInsight Hadoop kümeleri üzerinde Apache Solr kullanma](hdinsight-hadoop-solr-install-linux.md). Küme özelleştirmesi, Hadoop tabanlı HDInsight kümelerinde Solr'ı yüklemek için kullanın. Solr'ı kullanarak, depolanan veriler üzerinde güçlü arama işlemleri gerçekleştirebilirsiniz.
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

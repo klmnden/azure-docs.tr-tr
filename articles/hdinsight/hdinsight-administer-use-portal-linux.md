@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8fccf82371225acd5839537f7629ffe7df138d43
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 3258f4d36d80c2a501e4ceba3b428128fc3f781b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888160"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201016"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak HDInsight Apache Hadoop kümelerini yönetme
 
@@ -56,7 +56,7 @@ Küme adınızı seçin [ **HDInsight kümeleri** sayfa](#showClusters).  Bu aç
     - **Araçlar**: HDInsight için bilgiler yardımcı ilgili araçlar.
 
 - **Ayarlar menüsü**  
-  - **Küme boyutu**: Denetleme, artırmak ve küme çalışan düğümü sayısını azaltın. Bkz: [ölçek kümeleri](hdinsight-administer-use-management-portal.md#scale-clusters).
+  - **Küme boyutu**: Denetleme, artırmak ve küme çalışan düğümü sayısını azaltın. Bkz: [ölçek kümeleri](hdinsight-administer-use-portal-linux.md#scale-clusters).
   - **Kota sınırları**: Aboneliğiniz için kullanılan ve kullanılabilir çekirdek görüntüler.
   - **SSH + küme girişi**: Güvenli Kabuk (SSH) bağlantısı kullanarak kümeye bağlanmak için yönergeleri gösterir. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
   - **Data Lake depolama Gen1**: Data Lake depolama Gen1 erişimi yapılandırın.  Bkz: [hızlı başlangıç: HDInsight kümelerinde ayarlama](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
@@ -186,7 +186,7 @@ Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. 
 İşlem programlama yapabileceğiniz birçok yolu vardır:
 
 * Kullanıcı Azure veri fabrikası. Bkz: [oluşturma isteğe bağlı Linux tabanlı Apache Hadoop Azure Data Factory kullanarak HDInsight kümelerinde](hdinsight-hadoop-create-linux-clusters-adf.md) isteğe bağlı HDInsight'ı oluşturmak için bağlı hizmetler.
-* Azure PowerShell kullanın.  Bkz: [uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data.md).
+* Azure PowerShell kullanın.  Bkz: [uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data-linux.md).
 * Klasik Azure CLI'yi kullanın. Bkz: [yönetme HDInsight kümeleri Klasik Azure CLI kullanarak](hdinsight-administer-use-command-line.md).
 * HDInsight .NET SDK'sını kullanın. Bkz: [gönderme Apache Hadoop işlerini](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 

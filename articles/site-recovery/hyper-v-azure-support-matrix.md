@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 325df38cfea0c87cda8b7fb5ab37dca4a6a529fd
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 84b1cfd54f5ff9e6a29c975622847e3ae6304bf8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315682"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107160"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Şirket içi Hyper-V Vm'lerini azure'a olağanüstü durum kurtarması için destek matrisi
 
@@ -91,7 +91,7 @@ Hızlandırılmış Ağ | Hayır | Hayır
 ## <a name="hyper-v-host-storage"></a>Hyper-V konağında depolama
 
 **Depolama** | **Hyper-V ile Virtual Machine Manager** | **Hyper-V olmadan Virtual Machine Manager**
---- | --- | --- | ---
+--- | --- | --- 
 NFS | NA | NA
 SMB 3.0 | Evet | Evet
 SAN (İSCSI) | Evet | Evet
@@ -180,7 +180,7 @@ Depolama, ağ, Azure Vm'leri kaynak grupları arasında taşıma<br/><br/> İçi
 Dağıtımınız bu makaledeki ayarlarla uyumlu olduğundan emin olmak için en son sağlayıcı ve Aracı sürümleri çalıştırdığınızdan emin olun.
 
 **Ad** | **Açıklama** | **Ayrıntılar**
---- | --- | --- | --- | ---
+--- | --- | --- 
 Azure Site Recovery sağlayıcısı | Şirket içi sunucular ile Azure arasındaki iletişimi düzenler <br/><br/> Hyper-V Virtual Machine Manager ile: Virtual Machine Manager sunucularında yüklü<br/><br/> Hyper-V Virtual Machine Manager olmadan: Hyper-V konaklarında yüklü| En son sürümü: 5.1.2700.1 (Azure portalından kullanılabilir)<br/><br/> [En son özellikler ve düzeltmeler](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure kurtarma Hizmetleri Aracısı | Hyper-V Vm'leri ve Azure arasında çoğaltma koordinatları<br/><br/> Şirket içi Hyper-V sunucuları (ile arama veya Virtual Machine Manager olmadan) yüklü | En son aracıyı portalından kullanılabilir
 

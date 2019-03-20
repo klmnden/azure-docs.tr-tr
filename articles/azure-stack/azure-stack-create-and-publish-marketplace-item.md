@@ -15,12 +15,12 @@ ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: ac4366a2e90ea239c650e611b7c4e8dddf5d5106
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 81f06e0f5d5201b902504d8275f356f9a1731065
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649671"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098908"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Market öğesi oluşturma ve yayımlama
 
@@ -69,19 +69,19 @@ ms.locfileid: "56649671"
 
 10. Değiştirin **My Market öğesi** , Market öğesi göründüğü kategori listesi ile:
 
-   ```json
-   "categories":[
-   "My Marketplace Items"
-   ],
-   ```
+    ```json
+    "categories":[
+    "My Marketplace Items"
+    ],
+    ```
 
 11. İçin diğer tüm düzenlemeleri Manifest.json için başvurmak [başvurusu: Market öğesi bazıları manifest.json](#reference-marketplace-item-manifestjson).
 
 12. Klasörleri bir .azpkg dosyasına paketlemek için bir komut istemi açın ve aşağıdaki komutu çalıştırın:
 
-   ```shell
-   AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
-   ```
+    ```shell
+    AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+    ```
 
     > [!NOTE]
     > Çıkış paketi tam yolu olmalıdır. Örneğin, çıkış yolunu C:\MarketPlaceItem\yourpackage.azpkg ise, ' % s'klasörü C:\MarketPlaceItem mevcut olması gerekir.
@@ -171,7 +171,7 @@ Her bir Market öğesi çeşitli ek içeriklere bağlantılar içerebilir. Bağl
 | DisplayName |X |String |En fazla 64 karakter | |
 | Uri |X |URI | | |
 
-### <a name="additional-properties"></a>Ek Özellikler
+### <a name="additional-properties"></a>Ek özellikler
 
 Önceki meta veriler ek olarak aşağıdaki biçimde özel bir anahtar/değer çifti verileri Market yazarlar sağlayabilirsiniz:
 

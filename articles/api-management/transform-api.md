@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: fc22babe6bc052ff2e746185d6ccec059aad7331
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: e50c5d942bdbafc60bf0e2b8c74b008ac12b3bc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992048"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084989"
 ---
 # <a name="transform-and-protect-your-api"></a>API’nizi dönüştürme ve koruma
 
@@ -72,23 +72,23 @@ Bu bölümde, kullanıcılarınıza göstermek istemediğiniz HTTP üst bilgiler
 
 ![Giden ilkesini ayarlama](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png)
 
-1.  **Tanıtım Konferansı API’si** seçeneğini belirleyin.
-2.  Ekranın üst kısmında **Tasarım** sekmesini seçin.
-3.  **Tüm işlemler**’i seçin.
-4.  **Giden işleme** bölümünde **</>** simgesine tıklayın.
-5.  İmleci **&lt;giden&gt;** öğesinin içine konumlandırın.
-6.  Sağ pencerede **Dönüştürme ilkeleri** bölümünde **+ HTTP üst bilgisini ayarla** seçeneğine iki defa tıklayın (iki ilke kod parçacığı eklemek için).
+1. **Tanıtım Konferansı API’si** seçeneğini belirleyin.
+2. Ekranın üst kısmında **Tasarım** sekmesini seçin.
+3. **Tüm işlemler**’i seçin.
+4. **Giden işleme** bölümünde **</>** simgesine tıklayın.
+5. İmleci **&lt;giden&gt;** öğesinin içine konumlandırın.
+6. Sağ pencerede **Dönüştürme ilkeleri** bölümünde **+ HTTP üst bilgisini ayarla** seçeneğine iki defa tıklayın (iki ilke kod parçacığı eklemek için).
 
-    ![İlkeler](./media/transform-api/transform-api.png)
+   ![İlkeler](./media/transform-api/transform-api.png)
 
-7.  **<outbound>** kodunuzu aşağıdaki gibi görünecek şekilde değiştirin:
+7. **<outbound>** kodunuzu aşağıdaki gibi görünecek şekilde değiştirin:
 
-        <set-header name="X-Powered-By" exists-action="delete" />
-        <set-header name="X-AspNet-Version" exists-action="delete" />
+       <set-header name="X-Powered-By" exists-action="delete" />
+       <set-header name="X-AspNet-Version" exists-action="delete" />
 
-    ![İlkeler](./media/transform-api/set-policy.png)
+   ![İlkeler](./media/transform-api/set-policy.png)
 
-8.  **Kaydet** düğmesine tıklayın.
+8. **Kaydet** düğmesine tıklayın.
 
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>API yanıt gövdesindeki özgün URL’leri, APIM ağ geçidi URL’leri ile değiştirme
 

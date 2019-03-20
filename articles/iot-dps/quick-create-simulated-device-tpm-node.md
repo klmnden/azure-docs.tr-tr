@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f6ae69c04d83e1ce1540267fb7932b80cca1013c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ef0a3d251679d7dd6760f1f928cbf0f0daf3db01
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087226"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099146"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için Node.js cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama
 
@@ -25,7 +25,7 @@ Bu adımlar, Windows işletim sistemi çalıştıran geliştirme makinenizde san
 Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](concepts-auto-provisioning.md) gözden geçirdiğinizden emin olun. Ayrıca devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun. 
 
 Azure IoT Cihaz Sağlama Hizmeti iki tür kaydı destekler:
-- [Kayıt grupları](concepts-service.md#enrollment-group): Birden fazla ilgili cihazı kaydetmek için kullanılır.
+- [Kayıt grupları](concepts-service.md#enrollment-group): Birden çok ilgili cihazları kaydetmek için kullanılır.
 - [Bireysel kayıtlar](concepts-service.md#individual-enrollment): Tek bir cihazı kaydetmek için kullanılır.
 
 Bu makalede bireysel kayıtlar gösterilmektedir.
@@ -72,25 +72,25 @@ Bu makalede bireysel kayıtlar gösterilmektedir.
 
 1. Kayıt sırasında kullandığınız bileşenleri içeren aşağıdaki paketleri yükleyin:
 
-    - TPM ile çalışan bir güvenlik istemcisi: `azure-iot-security-tpm`
-    - cihazın, Cihaz Sağlama Hizmeti’ne bağlanması için bir aktarım: `azure-iot-provisioning-device-http` veya `azure-iot-provisioning-device-amqp`
-    - aktarım veya güvenlik istemcisini kullanmak için bir istemci: `azure-iot-provisioning-device`
+   - TPM ile çalışan bir güvenlik istemcisi: `azure-iot-security-tpm`
+   - cihazın, Cihaz Sağlama Hizmeti’ne bağlanması için bir aktarım: `azure-iot-provisioning-device-http` veya `azure-iot-provisioning-device-amqp`
+   - aktarım veya güvenlik istemcisini kullanmak için bir istemci: `azure-iot-provisioning-device`
 
-    Cihaz kaydedildikten sonra, kayıt sırasında sağlanan kimlik bilgilerini kullanarak cihazınızı bağlamak için her zamanki IoT Hub Cihaz İstemcisi paketlerini kullanabilirsiniz. Şunlar gerekir:
+     Cihaz kaydedildikten sonra, kayıt sırasında sağlanan kimlik bilgilerini kullanarak cihazınızı bağlamak için her zamanki IoT Hub Cihaz İstemcisi paketlerini kullanabilirsiniz. Şunlar gerekir:
 
-    - cihaz istemcisi: `azure-iot-device`
-    - aktarım: `azure-iot-device-amqp`, `azure-iot-device-mqtt` veya `azure-iot-device-http` öğelerinden herhangi biri
-    - önceden yüklemiş olduğunuz güvenlik istemcisi: `azure-iot-security-tpm`
+   - cihaz istemcisi: `azure-iot-device`
+   - aktarım: `azure-iot-device-amqp`, `azure-iot-device-mqtt` veya `azure-iot-device-http` öğelerinden herhangi biri
+   - önceden yüklemiş olduğunuz güvenlik istemcisi: `azure-iot-security-tpm`
 
-    > [!NOTE]
-    > Aşağıdaki örneklerde `azure-iot-provisioning-device-http` ve `azure-iot-device-mqtt` aktarımları kullanılır.
-    > 
+     > [!NOTE]
+     > Aşağıdaki örneklerde `azure-iot-provisioning-device-http` ve `azure-iot-device-mqtt` aktarımları kullanılır.
+     > 
 
-    **registerdevice** klasöründe komut istemcinizde aşağıdaki komutları çalıştırarak bu paketlerin hepsini aynı anda yükleyebilirsiniz:
+     **registerdevice** klasöründe komut istemcinizde aşağıdaki komutları çalıştırarak bu paketlerin hepsini aynı anda yükleyebilirsiniz:
 
-        ```cmd/sh
-        npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
-        ```
+       ```cmd/sh
+       npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
+       ```
 
 1. Bir metin düzenleyicisi kullanarak **registerdevice** klasöründe yeni bir **ExtractDevice.js** dosyası oluşturun.
 
@@ -141,15 +141,15 @@ Bu makalede bireysel kayıtlar gösterilmektedir.
 1. Cihaz Sağlama Hizmeti özet dikey penceresinde, **Kayıtları yönet**’i seçin. **Bireysel Kayıtlar** sekmesini seçin ve en üstteki **Bireysel kayıt ekle** düğmesine tıklayın. 
 
 1. **Kayıt Ekle** altına aşağıdaki bilgileri girin:
-    - Kimlik onay *Mekanizması* olarak **TPM** seçeneğini belirleyin.
-    - TPM cihazınızın *Kayıt kimliği* ve *Onay anahtarı* bilgilerini girin.
-    - İsteğe bağlı olarak, aşağıdaki bilgileri sağlayabilirsiniz:
-        - Sağlama hizmetinizle bağlanacak IoT hub'ını seçin.
-        - Benzersiz bir cihaz kimliği girin. Cihazınızı adlandırırken gizli veriler kullanmaktan kaçının.
-        - **Başlangıç cihaz ikizi durumu** alanını cihaz için istenen başlangıç yapılandırmasına göre güncelleştirin.
-    - Tamamlandığında **Kaydet** düğmesine tıklayın. 
+   - Kimlik onay *Mekanizması* olarak **TPM** seçeneğini belirleyin.
+   - TPM cihazınızın *Kayıt kimliği* ve *Onay anahtarı* bilgilerini girin.
+   - İsteğe bağlı olarak, aşağıdaki bilgileri sağlayabilirsiniz:
+       - Sağlama hizmetinizle bağlanacak IoT hub'ını seçin.
+       - Benzersiz bir cihaz kimliği girin. Cihazınızı adlandırırken gizli veriler kullanmaktan kaçının.
+       - **Başlangıç cihaz ikizi durumu** alanını cihaz için istenen başlangıç yapılandırmasına göre güncelleştirin.
+   - Tamamlandığında **Kaydet** düğmesine tıklayın. 
 
-    ![Portal dikey penceresinde cihaz kayıt bilgilerini girme](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+     ![Portal dikey penceresinde cihaz kayıt bilgilerini girme](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
    Kayıt başarıyla tamamlanınca cihazınızın *Kayıt Kimliği* listenin altında *Bireysel Kayıtlar* sekmesinde görünür. 
 

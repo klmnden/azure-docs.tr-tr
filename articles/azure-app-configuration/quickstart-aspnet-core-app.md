@@ -14,22 +14,24 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 850bb044e5ab9e653bf343b4f222cf21b159bd5d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f9d21cb1b047fcc1043ca2d92f718bb5821879a3
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446768"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226071"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Hızlı Başlangıç: Azure uygulama yapılandırması ile bir ASP.NET Core uygulaması oluşturma
 
-Azure uygulama yapılandırması, azure'da yönetilen yapılandırma hizmetidir. Kolayca depolayıp kodunuzdan tüm uygulama ayarlarınızı ayrılmış tek bir yerden yönetmenize olanak tanır. Bu hızlı başlangıçta hizmeti bir ASP.NET Core web uygulamanıza dahil etmek gösterilmektedir. ASP.NET Core bilinen bir veya daha fazla veri kaynaklarından alınan ayarları kullanarak bir tek anahtar-değer tabanlı yapılandırma nesnesi oluşturur *yapılandırma sağlayıcıları*, bir uygulama tarafından belirtilen. İstemci uygulama Yapılandırması'nın .NET Core, bu nedenle bir sağlayıcı uygulanan olduğundan, yalnızca başka bir veri kaynağı gibi görünür.
+Azure uygulama yapılandırması, azure'da yönetilen yapılandırma hizmetidir. Kolayca depolayın ve kodunuzdan tüm uygulama ayarlarınızı ayrılmış tek bir yerden yönetmek için kullanabilirsiniz. Bu hızlı başlangıçta hizmeti bir ASP.NET Core web uygulamanıza dahil etmek gösterilmektedir. 
 
-Bu hızlı başlangıçtaki adımları tamamlamak için herhangi bir kod düzenleyicisini kullanabilirsiniz. Ancak, Windows, macOS ve Linux platformlarında sağlanan [Visual Studio Code](https://code.visualstudio.com/) mükemmel bir seçenektir.
+ASP.NET Core, bir uygulama tarafından belirtilen bir veya daha fazla veri kaynaklarından alınan ayarları kullanarak, bir anahtar-değer tabanlı tek bir yapılandırma nesnesi oluşturur. Bu veri kaynakları olarak bilinen *yapılandırma sağlayıcıları*. İstemci uygulama Yapılandırması'nın .NET Core, bu nedenle bir sağlayıcı uygulanan olduğundan hizmet başka bir veri kaynağı gibi görünür.
+
+Bu hızlı başlangıçtaki adımları uygulamak için herhangi bir kod Düzenleyicisi'ni kullanabilirsiniz. [Visual Studio Code](https://code.visualstudio.com/) Windows, macOS ve Linux platformlarını mükemmel bir seçenek kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için yükleme [.NET Core SDK'sı](https://dotnet.microsoft.com/download).
+Bu hızlı başlangıç yapmak için yükleme [.NET Core SDK'sı](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,19 +41,19 @@ Bu hızlı başlangıcı tamamlamak için yükleme [.NET Core SDK'sı](https://d
 
 ## <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core web uygulaması oluşturma
 
-Kullanacağınız [.NET Core komut satırı arabirimi (CLI)](https://docs.microsoft.com/dotnet/core/tools/) yeni bir ASP.NET Core MVC Web uygulaması projesi oluşturmak için. Visual Studio yerine .NET Core CLI kullanmanın avantajı Windows, macOS ve Linux platformlarında kullanılabilir olmasıdır.
+Kullandığınız [.NET Core komut satırı arabirimi (CLI)](https://docs.microsoft.com/dotnet/core/tools/) yeni bir ASP.NET Core MVC web uygulaması projesi oluşturmak için. Visual Studio üzerinde .NET Core CLI kullanmanın avantajı, Windows, macOS ve Linux platformlar arasında kullanılabilir olmasıdır.
 
-1. Projeniz için yeni bir klasör oluşturun. Bu hızlı başlangıçta biz bunu adlandıracaktır *TestAppConfig*.
+1. Projeniz için yeni bir klasör oluşturun. Bu hızlı başlangıçta adlandırın *TestAppConfig*.
 
-2. Yeni klasörde yeni bir ASP.NET Core MVC Web Uygulaması projesi oluşturmak için aşağıdaki komutu yürütün:
+2. Yeni klasörde yeni bir ASP.NET Core MVC web uygulaması projesi oluşturmak için aşağıdaki komutu çalıştırın:
 
         dotnet new mvc
 
 ## <a name="add-secret-manager"></a>Gizli dizi Yöneticisi ekleme
 
-Ekleyeceksiniz [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core/security/app-secrets) projenize. Gizli Dizi Yöneticisi aracı, geliştirme işine yönelik hassas verileri proje ağacınızın dışında depolar. Bu yaklaşım, uygulama gizli dizilerini kaynak kodunun içinde yanlışlıkla paylaşmayı önlemeye yardımcı olur.
+Ekleme [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/aspnet/core/security/app-secrets) projenize. Gizli Dizi Yöneticisi aracı, geliştirme işine yönelik hassas verileri proje ağacınızın dışında depolar. Bu yaklaşım, uygulama gizli dizilerini kaynak kodunun içinde yanlışlıkla paylaşmayı önlemeye yardımcı olur.
 
-- *.csproj* dosyanızı açın. Ekleme bir `UserSecretsId` aşağıda gösterildiği gibi öğesi, genellikle bir GUID olan değerini, kendi ile değiştirin. Dosyayı kaydedin.
+- *.csproj* dosyanızı açın. Ekleme bir `UserSecretsId` burada gösterildiği gibi öğesi, genellikle bir GUID olan değerini, kendi ile değiştirin. Dosyayı kaydedin.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -69,13 +71,13 @@ Ekleyeceksiniz [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/asp
     </Project>
     ```
 
-## <a name="connect-to-app-configuration-store"></a>Uygulama yapılandırma deposuna bağlanın
+## <a name="connect-to-an-app-configuration-store"></a>Bir uygulama yapılandırma deposuna bağlanın
 
-1. Aşağıdaki komutu yürüterek `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet paketine bir başvuru ekleyin:
+1. Bir başvuru ekleyin `Microsoft.Extensions.Configuration.AzureAppConfiguration` aşağıdaki komutu çalıştırarak NuGet paketi:
 
         dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
 
-2. Projeniz için paketleri geri yüklemek üzere aşağıdaki komutu yürütün.
+2. Projeniz için paketler geri yüklemek için aşağıdaki komutu çalıştırın:
 
         dotnet restore
 
@@ -87,11 +89,11 @@ Ekleyeceksiniz [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/asp
 
         dotnet user-secrets set ConnectionStrings:AppConfig "Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>"
 
-    Gizli dizi Yöneticisi, yalnızca web uygulamasını yerel olarak test etmek için kullanılır. Uygulama, dağıtıldığı (örneğin, [Azure App Service](https://azure.microsoft.com/services/app-service/web)), bir uygulama ayarı kullanır (örneğin, **bağlantı dizeleri** App Service'te) yerine gizli dizi ile bağlantı dizesi Yöneticisi.
+    Gizli dizi Yöneticisi, yalnızca web uygulamasını yerel olarak test etmek için kullanılır. Ne zaman uygulama dağıtılır, örneğin, çok [Azure App Service](https://azure.microsoft.com/services/app-service/web), bir uygulama ayarı, örneğin, kullandığınız **bağlantı dizeleri** App Service'te. Gizli dizi Yöneticisi'yle bağlantı dizesini depolamak yerine, bu ayarı kullanın.
 
-    Bu gizli diziye yapılandırma API'si ile erişilir. Desteklenen tüm platformlarda, yapılandırma API'lerinin yapılandırma adlarında iki nokta üst üste (:) işareti kullanılabilir [Ortama göre yapılandırma](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
+    Bu gizli dizi API configuration ile erişilir. İki nokta üst üste (:) Yapılandırma adı ' % s'yapılandırma API'si tüm desteklenen platformlarda ile çalışır. Bkz: [ortama göre yapılandırma](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Açık *Program.cs* ve güncelleştirme `CreateWebHostBuilder` yöntemi çağırarak uygulama yapılandırmasını kullanma `config.AddAzureAppConfiguration()` yöntemi.
+4. Program.cs dosyasını açın ve güncelleştirme `CreateWebHostBuilder` yöntemi çağırarak uygulama yapılandırmasını kullanma `config.AddAzureAppConfiguration()` yöntemi.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -104,7 +106,7 @@ Ekleyeceksiniz [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/asp
             .UseStartup<Startup>();
     ```
 
-5. Açık *Index.cshtml* içinde *görünümleri* > *giriş* dizini ve içeriğini aşağıdaki kodla değiştirin:
+5. Görünümlerde Index.cshtml açın > giriş dizini ve içeriğini aşağıdaki kodla değiştirin:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -130,7 +132,7 @@ Ekleyeceksiniz [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/asp
     </html>
     ```
 
-6. Açık *_Layout.cshtml* içinde *görünümleri* > *paylaşılan* dizini ve içeriğini aşağıdaki kodla değiştirin:
+6. Görünümlerde _Layout.cshtml açın > Dizin paylaşılan ve içeriğini aşağıdaki kodla değiştirin:
 
     ```html
     <!DOCTYPE html>
@@ -159,11 +161,11 @@ Ekleyeceksiniz [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/asp
 
 ## <a name="build-and-run-the-app-locally"></a>Derleme ve uygulamayı yerel olarak çalıştırma
 
-1. .NET Core CLI kullanarak uygulamayı derlemek için komut kabuğunda aşağıdaki komutu yürütün:
+1. .NET Core CLI'yı kullanarak uygulamayı oluşturmak için komut kabuğu'nda aşağıdaki komutu çalıştırın:
 
         dotnet build
 
-2. Derleme başarıyla tamamlandıktan sonra web uygulamasını yerel olarak çalıştırmak için aşağıdaki komutu yürütün:
+2. Yapılandırma başarıyla tamamlandıktan sonra web uygulamasını yerel olarak çalıştırmak için aşağıdaki komutu çalıştırın:
 
         dotnet run
 
@@ -177,7 +179,7 @@ Ekleyeceksiniz [gizli dizi Yöneticisi aracını](https://docs.microsoft.com/asp
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, yeni bir uygulama yapılandırma deposu oluşturuldu ve ASP.NET Core web uygulaması ile kullanılan. Uygulama yapılandırmasını kullanma hakkında daha fazla bilgi edinmek için kimlik doğrulaması gösteren bir sonraki öğreticiye devam edin.
+Bu hızlı başlangıçta, yeni bir uygulama yapılandırma deposu oluşturuldu ve ASP.NET Core web uygulaması ile kullanılır. Uygulama yapılandırmasını kullanma hakkında daha fazla bilgi için kimlik doğrulaması gösteren bir sonraki öğreticiye devam edin.
 
 > [!div class="nextstepaction"]
 > [Azure kaynaklarını tümleştirme için yönetilen kimlik](./integrate-azure-managed-service-identity.md)

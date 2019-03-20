@@ -5,29 +5,45 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 03/04/2019
+ms.date: 03/19/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 6a6fc9df2b102fd16bba03f26df4e24a1c946875
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 5c6e69e05eaa036e140d7275b4e66930a3e5be7a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410001"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225306"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Azure Sanal WAN nedir?
 
-Azure Sanal WAN, Azure aracılığıyla şubeden şubeye iyileştirilmiş ve otomatik bağlantı sağlayan bir ağ hizmetidir. Sanal WAN, Azure ile iletişim kurmak için dal cihazlarını bağlamanızı ve yapılandırmanızı sağlar. Bu, el ile veya bir sanal WAN iş ortağı aracılığıyla iş ortağı cihazları kullanarak yapılabilir. İş ortağı cihazları kullanarak, bağlantı ve yapılandırma yönetimini basitleştirme kullanımını kolaylaştırmak sağlar. Daha fazla bilgi için [konumlar ve iş ortakları](virtual-wan-locations-partners.md) makalesi. Ayrıca, Azure WAN yerleşik Panosu size zaman kazandırabilir yardımcı olabilir ve büyük ölçekli bağlantı görüntülemek için kolay bir yol sağlar, sorun giderme anlık Öngörüler sağlar.
+Azure sanal WAN en iyi duruma getirilmiş ve otomatik Dal bağlantısı için ve Azure üzerinden sağlayan bir ağ hizmetidir. Azure bölgeleri, dallarınız için bağlanmayı seçebilirsiniz hub'ları görür. Dalları bağlandıktan sonra dalı vnet'ten Vnet'e ve dal için dal bağlantısı kurmak için Azure omurgası yararlanabilirsiniz.
 
-![Sanal WAN diyagramı](./media/virtual-wan-about/virtualwan.png)
+Azure sanal WAN siteden siteye VPN (genel kullanıma sunuldu) ExpressRoute (Önizleme), tek bir işletimsel arabirim uygulamasına noktadan siteye kullanıcı (Önizleme) VPN gibi birçok Azure bulut Bağlantı Hizmetleri getirmektedir. Sanal ağ bağlantıları kullanarak Azure Sanal Ağları için bağlantı kurulur.
 
-Bu makalede, Azure ve Azure dışı iş yüklerinizin ağ bağlantısına hızlı bir bakış sağlanır. Sanal WAN şu avantajları sunar:
+![Sanal WAN diyagramı](./media/virtual-wan-about/vwangraphic.png)
+
+Bu makalede, Azure sanal WAN ağ bağlantısı hızlı bir görünüm sağlar. Sanal WAN şu avantajları sunar:
 
 * **Merkez ve uç çözümlerinde tümleşik bağlantısı:** Siteden siteye yapılandırması ve bir Azure hub'ı şirket içi siteler arasında bağlantısı otomatikleştirin.
 * **Otomatik uç kurulumu ve yapılandırması:** Sanal ağlarınız ve iş yüklerini Azure hub'ı sorunsuz bir şekilde bağlanın.
 * **Sezgisel sorunlarını giderme:** Azure'da uçtan uca akışını bakın ve gerekli eylemleri için bu bilgileri kullanın.
 
+## <a name="partner-region"></a>İş ortakları ve konumları
+
+Daha fazla bilgi için [sanal WAN iş ortakları ve konumları](virtual-wan-locations-partners.md) makalesi.
+
+### <a name="partner"></a>İş ortakları
+
+[!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
+
+### <a name="locations"></a>konumları
+
+[!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
+
 ## <a name="s2s"></a>Siteden siteye bağlantılar
+
+![Sanal WAN diyagramı](./media/virtual-wan-about/virtualwan.png)
 
 Sanal WAN kullanarak Siteden Siteye bağlantı oluşturmak için, [Sanal WAN iş ortağı](virtual-wan-locations-partners.md) üzerinden ilerleyebilir veya bağlantıyı el ile oluşturabilirsiniz.
 
@@ -67,20 +83,10 @@ Uçtan uca sanal WAN'yi yapılandırmak için şu kaynakları oluşturursunuz:
 
 * **Hub yol tablosu:**  Sanal hub rotasını oluşturabilir ve rota sanal hub yol tablosuna uygulayın. Sanal hub rota tablosuna birden fazla rota uygulayabilirsiniz.
 
-## <a name="partner-region"></a>İş ortakları ve konumları
-
-### <a name="partner"></a>İş ortakları
-
-[!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
-
-### <a name="locations"></a>konumları
-
-[!INCLUDE [regions](../../includes/virtual-wan-regions-include.md)]
-
 ## <a name="faq"></a>SSS
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Görünüm [sanal WAN iş ortakları ve konumları](virtual-wan-locations-partners.md) sayfası.
+Görünüm [sanal WAN iş ortakları ve konumları](virtual-wan-locations-partners.md) sanal WAN iş ortaklarımız ve konumları hakkında ek bilgiler sayfası.

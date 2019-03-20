@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: b7814ce2ae94216da691b9a54049d20a03aafdd9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: cbb144cc8aac6dc8e90d196147b0c154471b7239
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994825"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102069"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Application Insights verileri özel veri kaynakları ile ilişkilendirme
 
@@ -44,7 +44,7 @@ Azure İzleyici ile günlük veri göndermeye başlamak için. Çeşitli seçene
 
 - Zaman uyumlu bir mekanizma, ya da doğrudan çağırabilirsiniz [veri toplayıcı API'si](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) veya bizim mantıksal uygulama bağlayıcısı kullanın – yalnızca "Azure Log Analytics" bulun ve "Veri gönderme" seçeneğini seçin:
 
- ![Ekran görüntüsü seçin ve eylem](./media/custom-data-correlation/01-logic-app-connector.png)  
+  ![Ekran görüntüsü seçin ve eylem](./media/custom-data-correlation/01-logic-app-connector.png)  
 
 - Zaman uyumsuz bir seçenek için veri toplayıcı API'sini kullanarak bir işleme işlem hattı oluşturmak için kullanın. Bkz: [bu makalede](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) Ayrıntılar için.
 

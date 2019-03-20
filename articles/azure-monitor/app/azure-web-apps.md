@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 09084f71eda611c4b638a339d0d837e77e2639b9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 92a7c1a45655f8804aa1f81b1a77ebf7cd5197e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432320"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122174"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service performansını izleme
 İçinde [Azure portalında](https://portal.azure.com) web uygulamaları, mobil arka uçlar ve API apps için uygulama performans izleme özelliğini ayarlayabilirsiniz [Azure App Service](../../app-service/overview.md). [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), uygulamanızı izleyerek uygulama etkinlikleriyle ilgili telemetriyi Application Insights hizmetine gönderir ve telemetri burada depolanıp analiz edilir. Burada, sorunların tanılanmasına, performansın geliştirilmesine ve kullanımın değerlendirilmesine yardımcı olan ölçüm grafikleri ve arama araçları kullanılabilir.
@@ -38,25 +38,25 @@ Bir app service şu anda Azure'da çalıştırıyorsanız, zaten bazı izleme al
 
    * Yeni bir kaynak oluşturmak bu uygulama için bir Application Insights kaynağı zaten ayarlamadıysanız'ı seçin. 
 
-    > [!NOTE]
-    > Tıkladığınızda **Tamam** için istenir yeni kaynak oluşturmak için **izleme ayarlarını uygula**. Seçme **devam** app Service'e kadar olacak de yapmak, yeni Application Insights kaynağınıza bağlayacaksınız **app service'inizi yeniden tetikleyin**. 
+     > [!NOTE]
+     > Tıkladığınızda **Tamam** için istenir yeni kaynak oluşturmak için **izleme ayarlarını uygula**. Seçme **devam** app Service'e kadar olacak de yapmak, yeni Application Insights kaynağınıza bağlayacaksınız **app service'inizi yeniden tetikleyin**. 
 
-    ![Web uygulamanızı izleme](./media/azure-web-apps/create-resource.png)
+     ![Web uygulamanızı izleme](./media/azure-web-apps/create-resource.png)
 
 2. Hangi kaynağı kullanacağını belirlemesinde belirttikten sonra her platformun uygulamanız için veri toplamak için application ınsights'ı nasıl istediğinizi seçebilirsiniz. ASP.NET uygulamasını izleme üzerinde varsayılan olarak koleksiyon iki farklı düzeylerine sahip.
 
     ![Platform başına seçenekleri belirleyin](./media/azure-web-apps/choose-options-new.png)
 
-    * .NET **temel koleksiyonu** düzeyini temel Tek Örnekli APM özellikleri sunar.
+   * .NET **temel koleksiyonu** düzeyini temel Tek Örnekli APM özellikleri sunar.
     
-    * .NET **koleksiyon önerilen** düzeyi:
-        * CPU, bellek ve g/ç kullanım eğilimlerini ekler.
-        * Mikro hizmetler, istek/bağımlılık sınırlarında ilişkilendirir.
-        * Kullanım eğilimlerini toplar ve işlemler için kullanılabilirlik sonuçlarından bağıntı sağlar.
-        * Ana bilgisayar işlemi tarafından işlenmemiş özel durumlar toplar.
-        * Örnekleme kullanıldığında yük altında APM ölçümleri doğruluğu artırır.
+   * .NET **koleksiyon önerilen** düzeyi:
+       * CPU, bellek ve g/ç kullanım eğilimlerini ekler.
+       * Mikro hizmetler, istek/bağımlılık sınırlarında ilişkilendirir.
+       * Kullanım eğilimlerini toplar ve işlemler için kullanılabilirlik sonuçlarından bağıntı sağlar.
+       * Ana bilgisayar işlemi tarafından işlenmemiş özel durumlar toplar.
+       * Örnekleme kullanıldığında yük altında APM ölçümleri doğruluğu artırır.
     
-    .NET core sunar **koleksiyon önerilen** veya **devre dışı bırakılmış** .NET Core 2.0 ve 2.1 için.
+     .NET core sunar **koleksiyon önerilen** veya **devre dışı bırakılmış** .NET Core 2.0 ve 2.1 için.
 
 3. **App service'inizin izleme** Application Insights yüklendikten sonra.
 
@@ -67,9 +67,9 @@ Bir app service şu anda Azure'da çalıştırıyorsanız, zaten bazı izleme al
    * Ayarlar > Uygulama Ayarları'nı seçin.
    * Uygulama Ayarları'nın altında yeni bir anahtar değer çifti ekleyin:
 
-    Anahtar: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     Anahtar: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-    Değer:`true`
+     Değer:`true`
    * Ayarları **Kaydedin** ve uygulamanızı **Yeniden başlatın**.
 
 4. Seçerek uygulama izleme verilerini keşfedin **ayarları** > **Application Insights** > **içinde daha fazla Application Insights görüntülemek**.

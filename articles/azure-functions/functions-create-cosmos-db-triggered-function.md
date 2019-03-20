@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: e1616ae14603e86165acc6694f7c017d5049abe7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 941a35084ba811e3bf9224087336db9abbd5b5d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762815"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137853"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Azure Cosmos DB tarafından tetiklenen bir işlev oluşturma
 
@@ -60,7 +60,7 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
 
 1. Arama alanına `cosmos` yazıp **Azure Cosmos DB tetikleyicisi** şablonunu seçin.
 
-1. İstenirse **Yükle**'yi seçerek Azure Depolama uzantısını ve işlev uygulaması için gerekli diğer bağımlılıkları yükleyin. Yükleme başarılı olduktan sonra **Devam**'ı seçin.
+1. İstenirse, seçin **yükleme** işlev uygulamasına Azure Cosmos DB uzantıyı yüklemek için. Yükleme başarılı olduktan sonra **Devam**'ı seçin.
 
     ![Bağlama uzantılarını yükleme](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
 

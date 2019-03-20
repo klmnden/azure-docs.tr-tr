@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16763827c043d56ea9a3d461873dc78456cf678d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4df8f329a135683ea68896605a0a1c6f3ee45984
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164933"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084090"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Üst bilgi tabanlı kimlik doğrulaması için uygulama proxy'si ile PingAccess ile çoklu oturum açma
 
@@ -76,8 +76,8 @@ Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: adı
 5. Yeni uygulamanız hakkındaki bilgilerle gerekli alanları doldurun. Ayarları için aşağıdaki yönergeleri kullanın:
    - **İç URL**: Normalde şirket ağında olduğunuzda, sizi uygulamanın oturum açma sayfasına götürür URL'sini sağlayın. Bu senaryo için bağlayıcı PingAccess proxy uygulamanın ön sayfa olarak ele almanız gerekir. Bu biçimi kullanın: `https://<host name of your PA server>:<port>`. Varsayılan olarak 3000 bağlantı noktasıdır, ancak PingAccess yapılandırabilirsiniz.
 
-    > [!WARNING]
-    > SSO bu tür, iç URL, https kullanmalıdır ve http kullanamazsınız.
+     > [!WARNING]
+     > SSO bu tür, iç URL, https kullanmalıdır ve http kullanamazsınız.
 
    - **Ön kimlik doğrulama yöntemi**: Azure Active Directory
    - **Bilgilerde URL'yi çevir**: Hayır
@@ -91,49 +91,49 @@ Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: adı
 9. Uygulama Yönetimi dikey penceresinde seçin **çoklu oturum açma**.
 10. Seçin **üst bilgi tabanlı oturum açma** aşağı açılan menüden. **Kaydet**’i seçin.
 
-   >[!TIP]
-   >Bu üst bilgi tabanlı çoklu oturum açma kullanarak ilk kez ise, PingAccess yüklemeniz gerekir. Azure aboneliğinizi PingAccess yüklemenizle birlikte otomatik olarak ilişkilendirilir emin olmak için PingAccess indirmek için bu tek oturum açma sayfasında bağlantıyı kullanın. Şimdi indirme sitesi açmak veya bu sayfada daha sonra tekrar deneyin. 
+    >[!TIP]
+    >Bu üst bilgi tabanlı çoklu oturum açma kullanarak ilk kez ise, PingAccess yüklemeniz gerekir. Azure aboneliğinizi PingAccess yüklemenizle birlikte otomatik olarak ilişkilendirilir emin olmak için PingAccess indirmek için bu tek oturum açma sayfasında bağlantıyı kullanın. Şimdi indirme sitesi açmak veya bu sayfada daha sonra tekrar deneyin. 
 
-   ![Üst bilgi tabanlı oturum açma'yı seçin](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
+    ![Üst bilgi tabanlı oturum açma'yı seçin](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.PNG)
 
 11. Tüm Azure Active Directory menüye dönmek için sol kaydırma ve kurumsal uygulamalar dikey penceresini kapatın.
 12. **Uygulama kayıtları**'nı seçin.
 
-   ![Uygulama kayıtlarını seçme](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
+    ![Uygulama kayıtlarını seçme](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
 
 13. Yeni eklediğiniz, ardından uygulamayı seçin **yanıt URL'leri**.
 
-   ![Yanıt URL'si seçin](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
+    ![Yanıt URL'si seçin](./media/application-proxy-configure-single-sign-on-with-ping-access/reply-urls.png)
 
 14. Dış yanıt URL'leri listesinde uygulamanızı 5. adımda atadığınız URL olup olmadığını denetleyin. Yüklü değilse, şimdi ekleyin.
 15. Uygulama ayarları dikey penceresinde seçin **gerekli izinler**.
 
-  ![Gerekli izinleri seçme](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+    ![Gerekli izinleri seçme](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 
 16. **Add (Ekle)** seçeneğini belirleyin. API için seçin **Windows Azure Active Directory**, ardından **seçin**. İzinlerini seçin **okuma ve tüm uygulamalar yazma** ve **oturum açın ve kullanıcı profilini okuma**, ardından **seçin** ve **Bitti**.  
 
-  ![İzinleri seçin](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
+    ![İzinleri seçin](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
 
 17. İzinleri Ekranı kapatmadan önce izinleri verin. 
-![İzin ver](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
+    ![İzin ver](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)
 
 ### <a name="collect-information-for-the-pingaccess-steps"></a>PingAccess adımlar için bilgi toplama
 
 1. Uygulama ayarları dikey penceresinde seçin **özellikleri**. 
 
-  ![Özellikleri seçin](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
+   ![Özellikleri seçin](./media/application-proxy-configure-single-sign-on-with-ping-access/properties.png)
 
 2. Kaydet **uygulama kimliği** değeri. PingAccess yapılandırdığınızda bu istemci kimliği için kullanılır.
 3. Uygulama ayarları dikey penceresinde seçin **anahtarları**.
 
-  ![Anahtarları seçin](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
+   ![Anahtarları seçin](./media/application-proxy-configure-single-sign-on-with-ping-access/Keys.png)
 
 4. Anahtar açıklaması girme ve açılan menüden bir sona erme tarihi seçerek bir anahtar oluşturun.
 5. **Kaydet**’i seçin. Bir GUID görünür **değer** alan.
 
-  Bu değer, şimdi bu pencereyi kapattıktan sonra yeniden görmeniz mümkün olmayacaktır olarak kaydedin.
+   Bu değer, şimdi bu pencereyi kapattıktan sonra yeniden görmeniz mümkün olmayacaktır olarak kaydedin.
 
-  ![Yeni anahtar oluştur](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
+   ![Yeni anahtar oluştur](./media/application-proxy-configure-single-sign-on-with-ping-access/create-keys.png)
 
 6. Tüm Azure Active Directory menüye dönmek için sol kaydırma ve uygulama kayıtları dikey penceresini kapatın.
 7. Seçin **özellikleri**.

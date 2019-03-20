@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: fbe865a5d9ef6c44b80c811a023c86f6446c3bb8
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: af1e65cc7dfe1a0934056ad141f4c62a96627bbb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233889"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084141"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Barındırılan UI deneyiminizi yapılandırın
 
@@ -43,10 +43,10 @@ Web uygulamalarınız için barındırılan bir kullanıcı Arabirimi yapıland�
     
 5. Bir renk teması seçin. Renkleri tıklayarak uygulamanızı uyacak şekilde özelleştirebilirsiniz **Özelleştir tema**. Bir rengini değiştirmek için rengin RGB ONALTILI değer girin (örneğin, `#366eb8`), üzerinde renk Önizleme'yi tıklatın.
 
-  Portalın sağ taraftaki yaptığınız değişiklikleri önizleyebilirsiniz. Tıklayarak **Varsayılana Sıfırla** seçtiğiniz temanın için varsayılan renkleri yaptığınız değişiklikleri geri.
+   Portalın sağ taraftaki yaptığınız değişiklikleri önizleyebilirsiniz. Tıklayarak **Varsayılana Sıfırla** seçtiğiniz temanın için varsayılan renkleri yaptığınız değişiklikleri geri.
 
-  > [!NOTE]
-  > Erişilebilirlik renkleri seçerken göz önünde bulundurun.
+   > [!NOTE]
+   > Erişilebilirlik renkleri seçerken göz önünde bulundurun.
 
 6. Altında **ek yapılandırmalar**, uygulamanız için uygun değerleri sağlayın. Bu ayarlar isteğe bağlıdır. Uygulama veya bunları kaldırma etkisini görmek için sağda önizleme bölmesinde görebilirsiniz. Kullanılabilir yapılandırma seçenekleri şunlardır:  
 

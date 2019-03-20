@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b06ca287f03c62b3947e6c37712cf491396392e0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0ca3cee0c818bf9d5dda4a7ea8a1f356ed017973
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245842"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891095"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>İle bir Linux veri bilimi sanal makinesi Azure üzerinde veri bilimi
 Bu izlenecek yol, Linux veri bilimi sanal makinesi ile çeşitli genel veri bilimi görevlerini gerçekleştirmek nasıl gösterir. Linux veri bilimi sanal makinesi (DSVM) veri analizi ve makine öğrenimi için yaygın olarak kullanılan araçları koleksiyonu ile önceden yüklenmiş olan Azure üzerinde kullanılabilir bir sanal makine görüntüsüdür. Anahtar yazılım bileşenleri içinde listelenen [Linux veri bilimi sanal makinesi sağlama](linux-dsvm-intro.md) konu. VM görüntüsü, yüklemek ve araçların her biri ayrı ayrı yapılandırmak zorunda kalmadan, dakikalar içinde veri bilimi yapmaya başlayın kolaylaştırır. Kolayca VM'yi, gerekirse ölçeği ve kullanımda olmadığında durdurun. Bu nedenle bu kaynak, esnek ve maliyet açısından verimli içindir.
@@ -36,7 +36,7 @@ Linux veri bilimi sanal makinesi kullanabilmeniz için önce aşağıdakilere sa
 
 * Bir **Azure aboneliği**. Zaten bir yoksa, bkz. [ücretsiz Azure hesabınızı hemen oluşturun](https://azure.microsoft.com/free/).
 * A [ **Linux veri bilimi sanal makinesi**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Bu VM sağlama hakkında daha fazla bilgi için bkz: [Linux veri bilimi sanal makinesi sağlama](linux-dsvm-intro.md).
-* [X2Go](http://wiki.x2go.org/doku.php) bilgisayarınızda yüklü ve XFCE oturum açıldı. Yükleme ve yapılandırma hakkında bilgi için bir **X2Go istemci**, bkz: [yükleme ve yapılandırma X2Go istemci](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+* [X2Go](https://wiki.x2go.org/doku.php) bilgisayarınızda yüklü ve XFCE oturum açıldı. Yükleme ve yapılandırma hakkında bilgi için bir **X2Go istemci**, bkz: [yükleme ve yapılandırma X2Go istemci](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
 * Hakkında gfx.xrender.enabled bayrağı daha yumuşak kaydırma deneyimi için geçiş: sanal makineleri FireFox tarayıcısı yapılandırmada. [Buradan daha fazla bakın. ](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Ayrıca geçiş göz önünde bulundurun *mousewheel.enable_pixel_scrolling* false. [Buradaki yönergeleri.](https://support.mozilla.org/en-US/questions/981140)
 * Bir **AzureML hesabı**. Yeni hesap için kaydolun biri yoksa, [AzureML giriş sayfası](https://studio.azureml.net/). Başlamanıza yardımcı olmak için ücretsiz kullanım katman mevcuttur.
 
@@ -52,7 +52,7 @@ Daha fazla depolama alanı gerekiyorsa, ek diskler oluşturma ve bunları sanal 
 
 Verileri indirmek için bir terminal penceresi açın ve şu komutu çalıştırın:
 
-    wget http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
+    wget https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
 
 İndirilen dosyayı şimdi üst bilgi yok. başka bir dosya oluşturun bir başlık satırı yok. Uygun üst bilgilerle bir dosya oluşturmak için şu komutu çalıştırın:
 
@@ -263,7 +263,7 @@ XGBoost, python veya bir komut satırından de çağırabilirsiniz.
 Python kullanarak geliştirme için Anaconda Python 2.7 ve 3.5 dağıtımlar DSVM yüklenmiş.
 
 > [!NOTE]
-> Anaconda dağıtım içerir [Conda](http://conda.pydata.org/docs/index.html), özel ortamlarda farklı sürümleri ve/veya bunların yüklü paketleri olan Python oluşturmak için kullanılabilir.
+> Anaconda dağıtım içerir [Conda](https://conda.pydata.org/docs/index.html), özel ortamlarda farklı sürümleri ve/veya bunların yüklü paketleri olan Python oluşturmak için kullanılabilir.
 >
 >
 
@@ -318,21 +318,19 @@ Anaconda dağıtım DSVM bir Jupyter not defteri ile Python, R ya da Julia kod v
 
 > [!NOTE]
 > Python Paket Yöneticisi'ni (aracılığıyla `pip` komut) geçerli çekirdek Jupyter not defterinden aşağıdaki komutu kod hücresine örneğin kullanılabilir:
-  ```python
-   import sys
-   ! {sys.executable} -m pip install numpy -y
-  ```
->
->
-
+>   ```python
+>    import sys
+>    ! {sys.executable} -m pip install numpy -y
+>   ```
+> 
+> 
+> 
 > [!NOTE]
 > Conda yükleyici kullanılacak (aracılığıyla `conda` komut) geçerli çekirdek Jupyter not defterinden aşağıdaki komutu kod hücresine örneğin kullanılabilir:
-  ```python
-   import sys
-   ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-  ```
->
->
+>   ```python
+>    import sys
+>    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
+>   ```
 
 Birkaç örnek not defterleri VM üzerinde zaten yüklü:
 
@@ -515,7 +513,7 @@ Veya sık içeren e-posta özelliklerini nelerdir *3B*?
 
 Yüksek bir oluşumunu olan çoğu e-postaları *3B* olan görünüşe göre istenmeyen, böylece e-postaları sınıflandırmak için Tahmine dayalı bir model oluşturmaya yönelik kullanışlı bir özelliği olabilir.
 
-Bir PostgreSQL veritabanına depolanmış verilerle machine learning gerçekleştirmek istiyorsanız, kullanmayı [MADlib](http://madlib.incubator.apache.org/).
+Bir PostgreSQL veritabanına depolanmış verilerle machine learning gerçekleştirmek istiyorsanız, kullanmayı [MADlib](https://madlib.incubator.apache.org/).
 
 ## <a name="sql-server-data-warehouse"></a>SQL Server veri ambarı
 Azure SQL Veri Ambarı, hem ilişkisel hem de ilişkisel olmayan çok geniş hacimlerdeki verileri işleyebilen, bulut tabanlı bir genişletme veritabanıdır. Daha fazla bilgi için [Azure SQL veri ambarı nedir?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)

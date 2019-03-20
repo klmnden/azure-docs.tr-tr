@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/13/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 42c67d73ee776488fbe932676f61cb7166c2984b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: acf01788a1ac8ed8ca476941c402801abfbd8adf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599851"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011308"
 ---
 # <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>Öğretici: Bulut depolama alanında yapılandırılmamış verileri arama
 
@@ -32,14 +32,14 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 > * Bir arama hizmeti bir depolama hesabına bağlama
 > * Veri kaynağı oluşturma
 > * Dizini yapılandırma
-> * Bir dizin oluşturucu oluşturma
+> * Dizin oluşturucu oluşturma
 > * Arama hizmetini kullanarak kapsayıcınızda arama yapma
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Her depolama hesabı bir Azure kaynak grubuna ait olmalıdır. Kaynak grubu, Azure hizmetlerinizi gruplandırmaya yönelik mantıksal bir kapsayıcıdır. Bir depolama hesabı oluşturduğunuzda, yeni bir kaynak grubu oluşturabilir veya mevcut bir kaynak grubunu kullanmak için seçeneğiniz vardır. Bu öğreticide, yeni bir kaynak grubu oluşturur.
 
-[Azure Portal](http://portal.azure.com) oturum açın.
+[Azure Portal](https://portal.azure.com) oturum açın.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -63,7 +63,7 @@ Bu öğreticide clinicaltrials.gov adresinden alınan metin dosyalarını depola
 
 5. Kapsayıcıyı oluşturmak için **Tamam**'ı seçin.
 
-  ![Yapılandırılmamış arama](media/storage-unstructured-search/storageactinfo.png)
+   ![Yapılandırılmamış arama](media/storage-unstructured-search/storageactinfo.png)
 
 ## <a name="upload-the-example-data"></a>Örnek verileri karşıya yükleme
 
@@ -77,7 +77,7 @@ Artık bir kapsayıcıya sahip olduğunuza göre örnek verilerinizi içine yük
 
 4. **Yükle**'yi seçerek yükleme işlemini başlatın.
 
-  ![Yapılandırılmamış arama](media/storage-unstructured-search/upload.png)
+   ![Yapılandırılmamış arama](media/storage-unstructured-search/upload.png)
 
 Karşıya yükleme işlemi biraz zaman alabilir.
 
@@ -107,7 +107,7 @@ Bu öğreticide, bir arama hizmeti clinicaltrials.gov alınan metin dosyaları a
 
 8. Arama hizmetini oluşturmak için **Oluştur**'a tıklayın.
 
-  ![Yapılandırılmamış arama](media/storage-unstructured-search/createsearch2.png)
+   ![Yapılandırılmamış arama](media/storage-unstructured-search/createsearch2.png)
 
 ## <a name="connect-your-search-service-to-your-container"></a>Arama hizmetinizi, kapsayıcınıza bağlama
 
@@ -127,13 +127,13 @@ Artık bir arama hizmetiniz olduğuna göre bunu blob depolamanıza ekleyebilirs
 
 2. Kullanmakta olduğunuz blobları metin dosyaları olan çünkü **ayrıştırma modu** için **metin**.
 
-  ![Yapılandırılmamış arama](media/storage-unstructured-search/datasources.png)
+   ![Yapılandırılmamış arama](media/storage-unstructured-search/datasources.png)
 
 3. Kullanılabilir depolama hesaplarını listelemek için **Depolama Kapsayıcısı**'nı seçin.
 
 4. Depolama hesabınızı seçin ve ardından daha önce oluşturduğunuz kapsayıcıyı seçin.
 
-  ![Yapılandırılmamış arama](media/storage-unstructured-search/datacontainer.png)
+   ![Yapılandırılmamış arama](media/storage-unstructured-search/datacontainer.png)
 
 5. Tıklayın **seçin** dönmek için **yeni veri kaynağı**seçip **Tamam** devam etmek için.
 
@@ -147,7 +147,7 @@ Artık bir arama hizmetiniz olduğuna göre bunu blob depolamanıza ekleyebilirs
 
 3. Seçin **alınabilir** altındaki onay kutusunu özniteliğin **metadata_storage_name**.
 
-  ![Yapılandırılmamış arama](media/storage-unstructured-search/valuestoselect.png)
+   ![Yapılandırılmamış arama](media/storage-unstructured-search/valuestoselect.png)
 
 4. Seçin **Tamam**, hangi getirir **dizin oluşturucu oluşturma**.
 
@@ -172,7 +172,7 @@ Dizininizin parametreleri ve bu parametreler için belirlediğiniz öznitelikler
 
 1. **Ad** alanına bir ad girin ve **Tamam**'ı seçin.
 
-  ![Yapılandırılmamış arama](media/storage-unstructured-search/exindexer.png)
+   ![Yapılandırılmamış arama](media/storage-unstructured-search/exindexer.png)
 
 2. Size geri almadan **verileri içeri aktarma**. Seçin **Tamam** bağlantı işlemini tamamlayın.
 
@@ -186,19 +186,19 @@ Aşağıdaki adımlarda arama gezginini nerede bulabileceğiniz ve bazı örnek 
 
 1. Tüm kaynaklara gidin ve yeni oluşturulan arama hizmetinizi bulun.
 
-  ![Yapılandırılmamış arama](media/storage-unstructured-search/exampleurl.png)
+   ![Yapılandırılmamış arama](media/storage-unstructured-search/exampleurl.png)
 
 2. Açmak için dizininizi seçin.
 
-  ![Yapılandırılmamış arama](media/storage-unstructured-search/overview.png)
+   ![Yapılandırılmamış arama](media/storage-unstructured-search/overview.png)
 
 3. Seçin **arama Gezgini** yapabileceğiniz Canlı sorgular verileriniz üzerinde arama Gezgini'ni açın.
 
-  ![Yapılandırılmamış arama](media/storage-unstructured-search/indexespane.png)
+   ![Yapılandırılmamış arama](media/storage-unstructured-search/indexespane.png)
 
 4. Sorgu dizesi alanı boş durumdayken **Ara**'yı seçin. Boş sorgu, bloblarınızdaki *tüm* verileri döndürür.
 
-  ![Yapılandırılmamış arama](media/storage-unstructured-search/emptySearch.png)
+   ![Yapılandırılmamış arama](media/storage-unstructured-search/emptySearch.png)
 
 ### <a name="perform-a-full-text-search"></a>Tam metin araması
 

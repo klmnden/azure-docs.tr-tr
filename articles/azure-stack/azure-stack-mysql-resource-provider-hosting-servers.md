@@ -15,12 +15,12 @@ ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: eb5d1ca55efed7e83739f21a432b61b6aad25f70
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194019"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101899"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>MySQL kaynak sağlayıcı barındırma sunucuları ekleme
 
@@ -44,9 +44,9 @@ Sistem Yöneticisi ayrıcalıklarına sahip bir hesabın kimlik bilgilerini sağ
 4. MySQL Server örneğinizi bağlantı ayrıntılarını sağlayın.
 
    * İçin **MySQL barındırma sunucusunun adını**, tam etki alanı adı (FQDN) veya geçerli bir IPv4 adresi sağlayın. Kısa VM adını kullanmayın.
-   - Varsayılan yönetici **kullanıcıadı** Bitnami MySQL Azure Stack marketteki görüntüleri için *kök*. 
-   - Kök bilmiyorsanız **parola**, bkz: [Bitnami belgeleri](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) nasıl edinileceğini öğrenmek için. 
-   - Belirtmek zorunda müşteri varsayılan bir MySQL örneği sağlanmayan **boyut, barındırma sunucusunun GB cinsinden**. Veritabanı sunucusu kapasitesini yakın bir boyutu girin.
+   * Varsayılan yönetici **kullanıcıadı** Bitnami MySQL Azure Stack marketteki görüntüleri için *kök*. 
+   * Kök bilmiyorsanız **parola**, bkz: [Bitnami belgeleri](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) nasıl edinileceğini öğrenmek için. 
+   * Belirtmek zorunda müşteri varsayılan bir MySQL örneği sağlanmayan **boyut, barındırma sunucusunun GB cinsinden**. Veritabanı sunucusu kapasitesini yakın bir boyutu girin.
    * Varsayılan ayarı tutun **abonelik**.
    * İçin **kaynak grubu**, yeni bir tane oluşturun veya varolan bir grubu kullanın.
 
@@ -60,8 +60,8 @@ Sistem Yöneticisi ayrıcalıklarına sahip bir hesabın kimlik bilgilerini sağ
    SKU **adı** kullanıcıların veritabanlarını ve uygun SKU için ucunuzun sku'sunun özelliklerini yansıtmalıdır.
 
 6. Seçin **Tamam** SKU oluşturma.
-> [!NOTE]
-> SKU'ları portalda görünür olması için bir saat sürebilir. SKU dağıtılmış ve çalışır olana kadar bir veritabanı oluşturulamıyor.
+   > [!NOTE]
+   > SKU'ları portalda görünür olması için bir saat sürebilir. SKU dağıtılmış ve çalışır olana kadar bir veritabanı oluşturulamıyor.
 
 7. Altında **barındırma MySQL Server Ekle**seçin **Oluştur**.
 

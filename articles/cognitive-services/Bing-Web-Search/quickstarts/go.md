@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
 ms.custom: seodec2018
-ms.openlocfilehash: 3c64841656f81f2f78c02c54f08ca24cccd78586
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b7bf73c2948b302ec8294b7dc2ff2dc8f220c91b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186871"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843892"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-go"></a>Hızlı Başlangıç: Bing Web araması REST API'si ve Git kullanarak web araması
 
-Bu hızlı başlangıçta, Bing Web araması API'si, ilk çağrı yapmak ve JSON yanıtını almak için kullanın. Go uygulaması bu API için bir arama isteği gönderir ve yanıtı görüntüler. Bu uygulama, bir seferde yazılır, ancak çoğu programlama dilleri ile uyumlu bir RESTful Web hizmeti API'dir.
+Bu hızlı başlangıçta, Bing Web araması API'si, ilk çağrı yapmak ve JSON yanıtını almak için kullanın. Go uygulaması bu API için bir arama isteği gönderir ve yanıtı gösterir. Bu uygulama, bir seferde yazılır, ancak çoğu programlama dilleri ile uyumlu bir RESTful Web hizmeti API'dir.
 
 Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
@@ -309,7 +309,7 @@ func main() {
 
 ## <a name="sample-response"></a>Örnek yanıt  
 
-Bing Web Araması API'si yanıtları JSON biçiminde döndürülür. Bu örnek yanıt `BingAnswer` yapısı kullanılarak biçimlendirilmiştir ve `result.Name` ile `result.URL` değerlerini görüntüler.
+Bing Web Araması API'si yanıtları JSON biçiminde döndürülür. Bu örnek yanıt kullanmak biçimlendirilmiş `BingAnswer` yapısı ve gösterir `result.Name` ve `result.URL`.
 
 ```go
 Microsoft Cognitive Services || https://www.microsoft.com/cognitive-services

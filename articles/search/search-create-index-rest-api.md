@@ -1,63 +1,94 @@
 ---
-title: REST API - Azure Search kullanarak kod içinde bir dizin oluşturun
+title: PowerShell ve REST API - Azure Search kullanarak kod içinde bir dizin oluşturun
 description: HTTP isteklerini ve Azure Search REST API'sini kullanarak kod içinde tam metin arama yapılabilir bir dizin oluşturun.
-ms.date: 03/01/2019
-author: mgottein
+ms.date: 03/15/2019
+author: heidisteen
 manager: cgronlun
-ms.author: magottei
+ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 98749e0900920d0d3541c78c79598123e4f987df
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0524bd224e3da3e6a9b18a4225c88e9c43d07606
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313982"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223419"
 ---
-# <a name="create-an-azure-search-index-using-the-rest-api"></a>REST API'yi kullanarak Azure Search dizini oluşturma
+# <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Hızlı Başlangıç: PowerShell ve REST API kullanarak Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
->
-> * [Genel Bakış](search-what-is-an-index.md)
+> * [PowerShell (REST)](search-create-index-rest-api.md)
+> * [C#](search-create-index-dotnet.md)
+> * [Postman (REST)](search-fiddler.md)
 > * [Portal](search-create-index-portal.md)
-> * [.NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
->
->
+> 
 
-Bu makale, Azure Search REST API'sini kullanarak Azure Search [dizini](https://docs.microsoft.com/rest/api/searchservice/Create-Index) oluşturma işlemi konusunda size yol gösterecektir.
+Bu makalede size bir Azure Search sorgulama oluşturma ve yükleme işleminde size [dizin](search-what-is-an-index.md) PowerShell kullanarak ve [Azure arama hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice/). Dizin tanımını ve aranabilir içeriği sağlanan istek gövdesinde doğru biçimlendirilmiş JSON içeriği.
 
-Bu kılavuzu izlemeden ve dizin oluşturmadan önce, [Azure Search hizmeti oluşturmuş](search-create-service-portal.md) olmanız gerekir.
+## <a name="prerequisites"></a>Önkoşullar
 
-REST API'yi kullanan bir Azure Search dizini oluşturmak için, Azure Search hizmetinizin URL uç noktasına tek bir HTTP POST isteği göndereceksiniz. Dizin tanımınız, doğru biçimlendirilmiş JSON içeriği olarak istek gövdesinde yer alır.
+[Azure Search hizmeti oluşturma](search-create-service-portal.md) veya [mevcut bir hizmet bulma](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) geçerli aboneliğinizdeki. Bu Hızlı Başlangıç için ücretsiz bir hizmet kullanabilirsiniz. Diğer Önkoşullar aşağıdaki öğeleri ekleyin.
 
-## <a name="identify-your-azure-search-services-admin-api-key"></a>Azure Search hizmet yöneticinizin api anahtarını tanımlama
-Şimdi bir Azure Search hizmeti sağlamış olduğunuza göre, .REST API'yi kullanarak hizmetinizin URL uç noktasına HTTP istekleri gönderebilirsiniz. *Tüm* API isteklerinin sağladığınız Search hizmeti için oluşturulan API anahtarını içermesi gerekir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
+[PowerShell 5.1 veya üstü](https://github.com/PowerShell/PowerShell)kullanarak [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) sıralı ve etkileşimli adımlar.
 
-1. Hizmetinizin api anahtarlarını bulmak için [Azure portalında](https://portal.azure.com/) oturum açmanız gerekir.
-2. Azure Search hizmetinizin dikey penceresine gidin
-3. "Anahtarlar" simgesine tıklayın
+Bir URL uç noktasını ve yönetici, arama hizmetinizin api anahtarı. İkisini de içeren bir arama hizmeti oluşturulur. Bu nedenle aboneliğinize Azure Search hizmetini eklediyseniz gerekli bilgileri almak için aşağıdaki adımları izleyin:
 
-Hizmetiniz, *yönetici anahtarlarına* ve *sorgu anahtarlarına* sahiptir.
+1. Azure portalında arama hizmetinizin **genel bakış** sayfa olduğunda URL'yi alın. Örnek uç nokta https gibi görünebilir:\//my-service-name.search.windows.net.
 
-* Birincil ve ikincil *yönetici anahtarlarınız*; hizmeti yönetme, dizinler, dizin oluşturucular ve veri kaynakları ekleme ve silme de dahil olmak üzere her türlü işlem için tüm hakları verir. Birincil anahtarı yeniden oluşturmaya karar verirseniz ikincil anahtarı kullanmaya devam edebilmeniz ve tam tersini yapabilmeniz için iki anahtar vardır.
-* *Sorgu anahtarları*, dizinler ve belgeler için salt okunur erişim verir ve genellikle, arama istekleri gönderen istemci uygulamalarına dağıtılır.
+2. İçinde **ayarları** > **anahtarları**, hizmette tam haklarına yönelik bir yönetici anahtarını alın. Bir gece yarısında gerektiği durumlarda iş sürekliliği için sağlanan iki birbirinin yerine yönetici anahtarı mevcuttur. Ekleme, değiştirme ve silme nesneler için istekleri birincil veya ikincil anahtar kullanabilirsiniz.
 
-Dizin oluşturma amacıyla, birincil ya da ikincil yönetici anahtarınızı kullanabilirsiniz.
+   ![Bir HTTP uç noktası ve erişim anahtarını alma](media/search-fiddler/get-url-key.png "bir HTTP uç noktası ve erişim anahtarını alma")
 
-## <a name="define-your-azure-search-index-using-well-formed-json"></a>Doğru biçimlendirilmiş JSON kullanarak Azure Search dizininizi tanımlama
-Hizmetinize yönelik tek bir HTTP POST isteği dizininizi oluşturur. HTTP POST isteğinizin gövdesi, Azure Search dizininizi tanımlayan tek bir JSON nesnesi içerir.
+   Tüm istekleri hizmete gönderilen her istekte bir API anahtarı gerektirir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
-1. Bu JSON nesnesinin ilk özelliği dizininizin adıdır.
-2. Bu JSON nesnesinin ikinci özelliği, dizininizdeki her bir alan için ayrı bir JSON nesnesi içeren `fields` adlı bir JSON dizisidir. Bu JSON nesnelerinin her biri, her bir alan özniteliği için "ad", "tür" vb. de dahil olmak üzere birden çok ad/değer çifti içerir.
+## <a name="connect-to-azure-search"></a>Azure Search'e Bağlan
 
-Her bir alan için [uygun öznitelikler](https://docs.microsoft.com/rest/api/searchservice/Create-Index) atanması gerektiğinden, dizininizi tasarlarken arama kullanıcı deneyiminizi ve iş gereksinimlerinizi göz önünde bulundurmanız önemlidir. Bu öznitelikler, hangi alanlar için hangi arama özelliklerinin (filtreleme, modelleme, tam metin araması sıralama vb.) geçerli olduğunu denetler. Belirtmediğiniz her öznitelik için ilgili arama özelliği, özellikle devre dışı bırakmadığınız sürece varsayılan olarak etkinleştirilir.
+PowerShell'de, oluşturma bir **$headers** content-type ve API anahtarı depolamak için nesne. Yalnızca bu başlığı oturum süresi boyunca ayarlamalı gerekir, ancak her istek için ekleyeceksiniz. 
 
-Bizim örneğimizde, dizinimizi "oteller" olarak adlandırdık ve alanlarımızı aşağıdaki şekilde tanımladık:
+```powershell
+$headers = @{
+   'api-key' = '<your-admin-api-key>'
+   'Content-Type' = 'application/json' 
+   'Accept' = 'application/json' }
+```
 
-```JSON
+Oluşturma bir **$url** hizmetin belirten nesne dizinler koleksiyonu. `mydemo` Hizmet adı, bir yer tutucu olarak tasarlanmıştır. Bu örnekte boyunca geçerli bir abonelikte bir geçerli arama hizmeti ile değiştirin.
+
+```powershell
+$url = "https://mydemo.search.windows.net/indexes?api-version=2017-11-11"
+```
+
+Çalıştırma **Invoke-RestMethod** hizmetine bir GET isteği gönderir ve bağlantıyı doğrulamak için. Ekleme **ConvertTo-Json** böylece gönderilen geri hizmetinden yanıtları görüntüleyebilirsiniz.
+
+```powershell
+Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
+```
+
+Hizmet boştur ve dizin varsa sonuçları aşağıdaki örneğe benzerdir. Aksi takdirde, dizin tanımlarını JSON temsili görürsünüz.
+
+```
+{
+    "@odata.context":  "https://mydemo.search.windows.net/$metadata#indexes",
+    "value":  [
+
+              ]
+}
+```
+
+## <a name="1---create-an-index"></a>1 - dizin oluşturma
+
+Portal kullanmıyorsanız, verileri yüklemeden önce bir dizin hizmette mevcut olması gerekir. Bu adım, dizini tanımlayan ve hizmetine gönderir. [Dizin oluşturma (REST API'si)](https://docs.microsoft.com/rest/api/searchservice/create-index) Bu adım için kullanılır.
+
+Bir dizinin gerekli öğeler, bir ad ve bir alanlar koleksiyonu içerir. Alanlar koleksiyonu yapısını tanımlayan bir *belge*. Her alanın bir adı, türü ve nasıl kullanıldığını belirleyen özniteliklere sahip (örneğin, tam metin olup aranabilir, filtrelenebilir veya arama sonuçlarında alınabilir). Bir dizinin türü alanlardan biri içinde `Edm.String` olarak belirlenmesi gerekir *anahtar* belge kimliği.
+
+Bu dizin, "hotels" adlı ve aşağıda gördüğünüz alan tanımı yok. Dizin tanımını belirtir bir [dil Çözümleyicisi](index-add-language-analyzers.md) için `description_fr` bir sonraki örnekte ekleyeceğiz Fransızca metin depolamaya yönelik tasarlandığından alan.
+
+Bu örnek oluşturmak için PowerShell içinde yapıştırın bir **$body** dizin şemasını içeren nesne.
+
+```powershell
+$body = @"
 {
     "name": "hotels",  
     "fields": [
@@ -75,32 +106,275 @@ Bizim örneğimizde, dizinimizi "oteller" olarak adlandırdık ve alanlarımız�
         {"name": "location", "type": "Edm.GeographyPoint"}
     ]
 }
+"@
 ```
 
-Her bir alan için dizin özniteliklerini, bunların bir uygulamada nasıl kullanılacağını düşünerek dikkatle seçtik. Örneğin; `hotelId`, oteller için arama yapan kişilerin büyük olasılıkla bilmediği benzersiz bir anahtardır. Bu nedenle, `searchable` değerini `false` olarak ayarlayarak bu alan için tam metin aramasını devre dışı bırakırız. Bu, dizinde yer kazandırır.
+Hizmetinizde dizinler koleksiyonu için URI ayarlayın ve *hotels* dizini.
 
-Lütfen `Edm.String` türündeki dizininizde yalnızca bir alanın "anahtar" alanı olarak belirlenmesi gerektiğini unutmayın 
+```powershell
+$url = "https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11"
+```
 
-Yukarıdaki dizin tanımı Fransızca metin depolamaya yönelik tasarlandığından, `description_fr` alanı için bir dil çözümleyicisi kullanır. Dil çözümleyicileri hakkında daha fazla bilgi için ilgili [blog yazısının](https://azure.microsoft.com/blog/language-support-in-azure-search/) yanı sıra [Dil desteği konu başlığına](https://docs.microsoft.com/rest/api/searchservice/Language-support) bakın.
+Komutla çalıştırın **$url**, **$headers**, ve **$body** hizmette dizini oluşturmak için. 
 
-## <a name="issue-the-http-request"></a>HTTP isteği gönderme
-1. Dizin tanımınızı istek gövdesi olarak kullanarak Azure Search hizmeti uç nokta URL'nize HTTP POST isteği gönderin. URL'de hizmet adınızı ana bilgisayar adı olarak kullandığınızdan emin olun ve sorgu dizesi parametresi olarak uygun `api-version` öğesini kullanın (Bu belge yayımlandığı sırada, `2017-11-11` geçerli API sürümüdür).
-2. İstek üst bilgilerinde, `Content-Type` öğesini `application/json` olarak belirtin. Ayrıca `api-key` üst bilgisinde, 1. Adımda tanımladığınız hizmet yöneticisi anahtarınızı sağlamanız gerekir.
+```powershell
+Invoke-RestMethod -Uri $url -Headers $headers -Method Put -Body $body | ConvertTo-Json
+```
+Sonuçlar (ilk iki alanı kısaltma kesilmiş) şuna benzer görünmelidir:
 
-Aşağıdaki isteği göndermek için kendi hizmet adınızı ve API anahtarınızı sağlamanız gerekir:
+```
+{
+    "@odata.context":  "https://mydemo.search.windows.net/$metadata#indexes/$entity",
+    "@odata.etag":  "\"0x8D6A99E2DED96B0\"",
+    "name":  "hotels",
+    "defaultScoringProfile":  null,
+    "fields":  [
+                   {
+                       "name":  "hotelId",
+                       "type":  "Edm.String",
+                       "searchable":  false,
+                       "filterable":  true,
+                       "retrievable":  true,
+                       "sortable":  false,
+                       "facetable":  false,
+                       "key":  true,
+                       "indexAnalyzer":  null,
+                       "searchAnalyzer":  null,
+                       "analyzer":  null,
+                       "synonymMaps":  ""
+                   },
+                   {
+                       "name":  "baseRate",
+                       "type":  "Edm.Double",
+                       "searchable":  false,
+                       "filterable":  true,
+                       "retrievable":  true,
+                       "sortable":  true,
+                       "facetable":  true,
+                       "key":  false,
+                       "indexAnalyzer":  null,
+                       "searchAnalyzer":  null,
+                       "analyzer":  null,
+                       "synonymMaps":  ""
+                   },
+. . .
+```
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
-    Content-Type: application/json
-    api-key: [api-key]
+> [!Tip]
+> Doğrulama için ayrıca Portalı'nda dizinleri listeyi kontrol edin, veya görmek için hizmet bağlantı doğrulamak için kullanılan komutu yeniden çalıştırın *hotels* dizin dizinler koleksiyonu içinde listelenen.
 
+## <a name="2---load-documents"></a>2 - belge yükleme
 
-Başarılı bir istek için 201 durum kodunu (Oluşturuldu) görmeniz gerekir. REST API aracılığıyla dizin oluşturma hakkında daha fazla bilgi için lütfen [buradaki API başvurusuna](https://docs.microsoft.com/rest/api/searchservice/Create-Index) bakın. Hata durumunda döndürülebilen diğer HTTP durum kodları hakkında daha fazla bilgi için bkz. [HTTP durum kodları (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+Belgeleri göndermek için dizininizin URL uç noktasına bir HTTP POST isteği kullanın. Bu görev için REST API [ekleme, güncelleştirme veya silme belgeleri](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
-Dizin ile işiniz bittiğinde ve bunu silmek istediğinizde HTTP DELETE isteği gönderin. Örneğin, "oteller" dizinini aşağıdaki şekilde sileriz:
+Bu örnek oluşturmak için PowerShell içinde yapıştırın bir **$body** karşıya yüklemek istediğiniz belgeleri içeren nesne. 
 
-    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2017-11-11
-    api-key: [api-key]
+Bu istek, iki tam ve kısmi bir kayıt içerir. Eksik belgeler karşıya kısmi kaydı gösterir. `@search.action` Parametresi, dizin oluşturma nasıl yapıldığını belirtir. Geçerli değerler, karşıya yükleme, birleştirme, mergeOrUpload ve silmeyi içerir. MergeOrUpload davranışı hotelId için yeni bir belge ya da oluşturur = 3 veya zaten varsa, içeriği güncelleştirir.
 
+```powershell
+$body = @"
+{
+    "value": [
+        {
+            "@search.action": "upload",
+            "hotelId": "1",
+            "baseRate": 199.0,
+            "description": "Best hotel in town",
+            "hotelName": "Fancy Stay",
+            "category": "Luxury",
+            "tags": ["pool", "view", "wifi", "concierge"],
+            "parkingIncluded": false,
+            "smokingAllowed": false,
+            "lastRenovationDate": "2010-06-27T00:00:00Z",
+            "rating": 5,
+            "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
+        },
+        {
+            "@search.action": "upload",
+            "hotelId": "2",
+            "baseRate": 79.99,
+            "description": "Cheapest hotel in town",
+            "hotelName": "Roach Motel",
+            "category": "Budget",
+            "tags": ["motel", "budget"],
+            "parkingIncluded": true,
+            "smokingAllowed": true,
+            "lastRenovationDate": "1982-04-28T00:00:00Z",
+            "rating": 1,
+            "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
+        },
+        {
+            "@search.action": "mergeOrUpload",
+            "hotelId": "3",
+            "baseRate": 129.99,
+            "description": "Close to town hall and the river"
+        }
+    ]
+}
+"@
+```
+
+Uç nokta kümesine *hotels* docs koleksiyonu ve dizin işlemi (dizinleri/hotels/docs/dizin) içerir.
+
+```powershell
+$url = "https://mydemo.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11"
+```
+
+Komutla çalıştırın **$url**, **$headers**, ve **$body** belgeleri Oteller dizinine yüklenemiyor.
+
+```powershell
+Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
+```
+Sonuçları şu örneğe benzemelidir. Durum kodu 201 görmeniz gerekir. Tüm durum kodları açıklaması için bkz: [HTTP durum kodları (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+
+```
+{
+    "@odata.context":  "https://mydemo.search.windows.net/indexes(\u0027hotels\u0027)/$metadata#Collection(Microsoft.Azure.Search.V2017_11_11.IndexResult)",
+    "value":  [
+                  {
+                      "key":  "1",
+                      "status":  true,
+                      "errorMessage":  null,
+                      "statusCode":  201
+                  },
+                  {
+                      "key":  "2",
+                      "status":  true,
+                      "errorMessage":  null,
+                      "statusCode":  201
+                  },
+                  {
+                      "key":  "3",
+                      "status":  true,
+                      "errorMessage":  null,
+                      "statusCode":  201
+                  }
+              ]
+}
+```
+
+## <a name="3---search-an-index"></a>3 - dizin arama
+
+Bu adım bir dizin kullanarak nasıl sorgulanacağını gösterir [arama belgeleri API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+
+Uç nokta kümesine *hotels* docs koleksiyonu ve ekleme bir **arama** parametresini kullanarak sorgu dizelerini içerir. Bu dize boş bir aramadır ve tüm belgelerin unranked bir listesini döndürür.
+
+```powershell
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*'
+```
+
+Göndermek için kullanılan komut çalıştırma **$url** hizmeti.
+
+```powershell
+Invoke-RestMethod -Uri $url -Headers $headers | ConvertTo-Json
+```
+
+Sonuç aşağıdaki çıktıya benzer olmalıdır.
+
+```
+{
+    "@odata.context":  "https://mydemo.search.windows.net/indexes(\u0027hotels\u0027)/$metadata#docs(*)",
+    "value":  [
+                  {
+                      "@search.score":  1.0,
+                      "hotelId":  "1",
+                      "baseRate":  199.0,
+                      "description":  "Best hotel in town",
+                      "description_fr":  null,
+                      "hotelName":  "Fancy Stay",
+                      "category":  "Luxury",
+                      "tags":  "pool view wifi concierge",
+                      "parkingIncluded":  false,
+                      "smokingAllowed":  false,
+                      "lastRenovationDate":  "2010-06-27T00:00:00Z",
+                      "rating":  5,
+                      "location":  "@{type=Point; coordinates=System.Object[]; crs=}"
+                  },
+                  {
+                      "@search.score":  1.0,
+                      "hotelId":  "2",
+                      "baseRate":  79.99,
+                      "description":  "Cheapest hotel in town",
+                      "description_fr":  null,
+                      "hotelName":  "Roach Motel",
+                      "category":  "Budget",
+                      "tags":  "motel budget",
+                      "parkingIncluded":  true,
+                      "smokingAllowed":  true,
+                      "lastRenovationDate":  "1982-04-28T00:00:00Z",
+                      "rating":  1,
+                      "location":  "@{type=Point; coordinates=System.Object[]; crs=}"
+                  },
+                  {
+                      "@search.score":  1.0,
+                      "hotelId":  "3",
+                      "baseRate":  129.99,
+                      "description":  "Close to town hall and the river",
+                      "description_fr":  null,
+                      "hotelName":  null,
+                      "category":  null,
+                      "tags":  "",
+                      "parkingIncluded":  null,
+                      "smokingAllowed":  null,
+                      "lastRenovationDate":  null,
+                      "rating":  null,
+                      "location":  null
+                  }
+              ]
+}
+```
+
+Bir genel görünüm sözdizimi almak için birkaç diğer sorgu örnekleri deneyin. Verbatim $filter sorgular bir dize arama yapın, kapsam belirli alanları ve daha fazlası için arama sonuçları kümesini sınırlamak.
+
+```powershell
+# Query example 1
+# Search the entire index for the term 'budget'
+# Return only the `hotelName` field, "Roach hotel"
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=budget&$select=hotelName'
+
+# Query example 2 
+# Apply a filter to the index to find hotels cheaper than $150 per night
+# Returns the `hotelId` and `description`. Two documents match.
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*&$filter=baseRate lt 150&$select=hotelId,description'
+
+# Query example 3
+# Search the entire index, order by a specific field (`lastRenovationDate`) in descending order
+# Take the top two results, and show only `hotelName` and `lastRenovationDate`
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate'
+```
+## <a name="clean-up"></a>Temizleme 
+
+Artık ihtiyacınız kalmadığında, dizin silmeniz gerekir. Ücretsiz bir hizmet için üç dizin sınırlıdır. Diğer öğreticileri geçebilirsiniz, etkin olarak kullanmadığınız tüm dizinleri silmek isteyebilirsiniz.
+
+```powershell
+# Set the URI to the hotel index
+$url = 'https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11'
+
+# Delete the index
+Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Search dizini oluşturduktan sonra, [içeriğinizi dizine yüklemek](search-what-is-data-import.md) için hazır olursunuz. Böylece, verilerinizi aramaya başlayabilirsiniz.
+
+Fransız açıklamaları dizine eklemeyi deneyin. Aşağıdaki örnek, Fransızca dizeler içerir ve ek arama işlemleri gösterilmektedir. MergeOrUpload oluşturmak veya var olan alanları eklemek için kullanın. Aşağıdaki dizeleri UTF-8 olarak kodlanmış olması gerekir.
+
+```json
+{
+    "value": [
+        {
+            "@search.action": "mergeOrUpload",
+            "hotelId": "1",
+            "description_fr": "Meilleur hôtel en ville"
+        },
+        {
+            "@search.action": "merge",
+            "hotelId": "2",
+            "description_fr": "Hôtel le moins cher en ville",
+        },
+        {
+            "@search.action": "delete",
+            "hotelId": "6"
+        }
+    ]
+}
+```

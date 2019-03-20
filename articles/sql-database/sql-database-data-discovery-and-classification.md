@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 8417b849ad7589ce6a770eb805c38a13e3c672dd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448773"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202988"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL veritabanı veri bulma & sınıflandırma
 
@@ -145,6 +145,13 @@ Sınıflandırmaları programlı olarak yönetmek için REST API de kullanabilir
 - [Alma](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -belirli bir sütunun duyarlılık etiketi alır
 - [Liste tarafından geçerli veritabanı](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) -belirli bir veritabanı geçerli duyarlılık etiketlerini alır
 - [Veritabanı tarafından önerilen listesinde](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -belirli bir veritabanı önerilen duyarlılık etiketlerini alır
+
+## <a name="permissions"></a>İzinler
+Aşağıdaki yerleşik rolleri bir Azure SQL veritabanına veri sınıflandırmasını okuyabilirsiniz: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` ve `User Access Administrator`.
+
+Azure SQL veritabanına veri sınıflandırmasını aşağıdaki yerleşik rolleri değiştirebilirsiniz: `Owner`, `Contributor`, `SQL Security Manager`.
+
+Daha fazla bilgi edinin [Azure kaynakları için RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 ## <a id="subheading-5"></a>Sonraki adımlar
 

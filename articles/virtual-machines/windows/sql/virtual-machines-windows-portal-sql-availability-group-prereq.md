@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: abe211ad4745564cb2698aa1261a1aeb6dd63af7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781740"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995168"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure sanal makinelerinde Always On kullanılabilirlik grupları oluşturmak için önkoşulları tamamlayın
 
@@ -42,7 +42,7 @@ Bu öğreticide, SQL Server Always On kullanılabilirlik grupları hakkında bil
 Bir Azure hesabınız olmalıdır. Yapabilecekleriniz [ücretsiz bir Azure hesabı açın](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) veya [Visual Studio abone Avantajlarınızı etkinleştirebilir](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
-1. [Azure Portal](http://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Tıklayın **+** portalda yeni bir nesne oluşturmak için.
 
    ![Yeni nesne](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
@@ -292,14 +292,14 @@ Birincil etki alanı denetleyicisi yeniden başlatıldıktan sonra ikinci etki a
 15. Tıklayın **daha fazla** sarı uyarı çubuğundaki bağlantı.
 16. İçinde **eylem** sütununun **tüm sunucu görev ayrıntıları** iletişim kutusunda, tıklayın **bu sunucuyu bir etki alanı denetleyicisi yükseltme**.
 17. Altında **Dağıtım Yapılandırması**seçin **mevcut bir etki alanına bir etki alanı denetleyicisi eklemek**.
-   ![Dağıtım Yapılandırması](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
+    ![Dağıtım Yapılandırması](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/28-deploymentconfig.png)
 18. **Seç**'e tıklayın.
 19. Yönetici hesabını kullanarak bağlanın (**CORP. CONTOSO.COM\domainadmin**) ve parolayı (**Contoso! 0000**).
 20. İçinde **ormandan etki alanı seç**, etki alanına tıklayın ve ardından **Tamam**.
 21. İçinde **etki alanı denetleyicisi seçenekleri**, varsayılan değerleri kullanın ve DSRM parolasını ayarlayın.
 
-   >[!NOTE]
-   >**DNS seçenekleri** sayfası uyar, bu DNS sunucusu için bir temsilci oluşturulamıyor. Üretim dışı ortamlarda bu uyarıyı yoksayabilirsiniz.
+    >[!NOTE]
+    >**DNS seçenekleri** sayfası uyar, bu DNS sunucusu için bir temsilci oluşturulamıyor. Üretim dışı ortamlarda bu uyarıyı yoksayabilirsiniz.
 22. Tıklayın **sonraki** iletişim ulaşana kadar **önkoşulları** denetleyin. Ardından **Yükle**'ye tıklayın.
 
 Sunucu yapılandırma değişikliklerini tamamlandıktan sonra sunucuyu yeniden başlatın.

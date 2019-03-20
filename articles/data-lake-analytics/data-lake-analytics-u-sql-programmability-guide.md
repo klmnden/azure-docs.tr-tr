@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: eca1379c4f721a0201b01f149b581859c49c6540
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f0f5a4ee5206201cca20e705011126e6cf472a1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234382"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835461"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL Programlama Kılavuzu
 
@@ -133,7 +133,7 @@ U-SQL kodun bir 64-bit (x 64) biçiminde daha önce belirtildiği gibi. Bu neden
 
 Her derleme DLL karşıya ve farklı bir çalışma zamanı, yerel bir derleme veya bir yapılandırma dosyası gibi bir kaynak dosyası, en fazla 400 MB olabilir. Kaynak dağıtma yoluyla veya başvuru derlemeleri ve bunların ek dosyaları aracılığıyla dağıtılan kaynaklar toplam boyutu 3 GB aşamaz.
 
-Son olarak, her bir U-SQL veritabanı herhangi bir derleme bir sürümü yalnızca içerebileceğini unutmayın. Örneğin, sürüm 7 hem NewtonSoft Json.Net kitaplığın sürüm 8 ihtiyacınız varsa, bunları iki farklı veritabanlarında kaydetmeniz gerekir. Ayrıca, her komut dosyası yalnızca DLL verilen bir derlemeye bir sürümüne başvuruda bulunabilir. Bu bakımdan, U-SQL C# derleme yönetimi ve sürüm semantiği izler.
+Son olarak, her bir U-SQL veritabanı herhangi bir derleme bir sürümü yalnızca içerebileceğini unutmayın. Örneğin, sürüm 7 hem NewtonSoft Json.NET kitaplığın sürüm 8 ihtiyacınız varsa, bunları iki farklı veritabanlarında kaydetmeniz gerekir. Ayrıca, her komut dosyası yalnızca DLL verilen bir derlemeye bir sürümüne başvuruda bulunabilir. Bu bakımdan, U-SQL C# derleme yönetimi ve sürüm semantiği izler.
 
 ## <a name="use-user-defined-functions-udf"></a>Kullanıcı tanımlı işlevler kullanma: UDF
 U-SQL kullanıcı tanımlı işlevleri veya UDF, parametreleri kabul eder (örneğin, karmaşık bir hesaplama) bir eylem gerçekleştirmek ve bir değer olarak, eylem sonucu döndürür yordamlarını programlama. UDF dönüş değeri yalnızca tek bir skaler olabilir. U-SQL UDF diğer C# skaler bir işlev gibi temel U-SQL betiğindeki çağrılabilir.

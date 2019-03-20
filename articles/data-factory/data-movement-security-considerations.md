@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 03976d321a92f6049d06cea88604618d5a2dee67
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1a575a172e4ff567cc20442c7a9779e1d52dbbba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532279"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099993"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data factory'de veri taşımayı için güvenlik konuları
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,6 +34,7 @@ Data Factory yalnızca birkaç bölgelerinde kullanılabilir olsa da, veri taş�
 Azure Data Factory, bağlı hizmet kimlik bilgilerini sertifikalar kullanılarak şifrelenmiş bulut veri depoları için dışında herhangi bir veri depolamaz. Data Factory ile veri arasında taşımayı düzenlemek için veri odaklı iş akışları oluşturma [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats)ve kullanarak verilerin işlenmesini [işlem Hizmetleri](compute-linked-services.md) de başka bölgelerde veya bir Şirket içi ortamı. Ayrıca, izleme ve SDK'ları ve Azure İzleyicisi'ni kullanarak iş akışlarını yönetme.
 
 Veri Fabrikası için yetkilendirildi:
+
 | **[CSA STAR sertifika](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
 | :----------------------------------------------------------- |
 | **[ISO 20000-1:2011](https://www.microsoft.com/trustcenter/Compliance/ISO-20000-1)** |

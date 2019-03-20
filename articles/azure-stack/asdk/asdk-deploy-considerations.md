@@ -16,12 +16,12 @@ ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: f874be6081a1ea01ecf616c9b97db878554d441c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f3fdfcc6a2fbb527582d4bf242c039a778b84ed1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242425"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877998"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack dağıtım planlama konuları
 Azure Stack geliştirme Seti'ni (ASDK) dağıtmadan önce Geliştirme Seti ana bilgisayarınız bu makalede açıklanan gereksinimleri karşıladığından emin olun.
@@ -77,13 +77,13 @@ Genellikle, burada, Microsoft Azure'a bağlanabilirsiniz, internet bağlantısı
 
 Ortamınız internet'e bağlı değil veya Azure AD kullanmak istemiyorsanız, Azure Stack, Active Directory Federasyon Hizmetleri (AD FS) kullanarak dağıtabilirsiniz. Geliştirme Seti, kendi AD FS ve Active Directory Domain Services örneklerini içerir. Bu seçeneği kullanarak dağıtırsanız, önceden hesapları ayarlamanız gerekmez.
 
->[!NOTE]
-AD FS seçeneğini kullanarak dağıtırsanız, Azure Stack, Azure AD'ye geçiş yapmak için yeniden dağıtmanız gerekir.
+> [!NOTE]
+> AD FS seçeneğini kullanarak dağıtırsanız, Azure Stack, Azure AD'ye geçiş yapmak için yeniden dağıtmanız gerekir.
 
 ### <a name="azure-active-directory-accounts"></a>Azure Active Directory hesapları
 Azure Stack, Azure AD hesabı kullanarak dağıtmak için dağıtım PowerShell Betiği çalıştırmadan önce bir Azure AD hesap hazırlamanız gerekir. Bu hesap, Azure AD kiracınız için genel yönetici olur. Bu, sağlamak ve uygulama ve hizmet sorumluları için Azure Active Directory Graph API'si ile etkileşimde bulunan tüm Azure Stack Hizmetleri temsilci seçmek için kullanılır. (Daha sonra değiştirebilirsiniz) varsayılan sağlayıcı aboneliği sahibi olarak da kullanılır. Azure Stack sisteminizin Yönetici portalına bu hesabı kullanarak oturum.
 
-1. İçin en az bir Azure AD dizin yöneticisi olan bir Azure AD hesabı oluşturun. Zaten bir hesabınız varsa bu hesabı kullanabilirsiniz. Aksi takdirde, ücretsiz, oluşturabilirsiniz [ https://azure.microsoft.com/free/ ](https://azure.microsoft.com/pricing/free/) (Çin'de ziyaret <https://go.microsoft.com/fwlink/?LinkID=717821> yerine). Daha sonra planlıyorsanız [Azure Stack Azure ile kaydedin](asdk-register.md), ayrıca bir aboneliği bu hesabı yeni oluşturulmuş olması gerekir.
+1. İçin en az bir Azure AD dizin yöneticisi olan bir Azure AD hesabı oluşturun. Zaten bir hesabınız varsa bu hesabı kullanabilirsiniz. Aksi takdirde, ücretsiz, oluşturabilirsiniz [ https://azure.microsoft.com/free/ ](https://azure.microsoft.com/free/) (Çin'de ziyaret <https://go.microsoft.com/fwlink/?LinkID=717821> yerine). Daha sonra planlıyorsanız [Azure Stack Azure ile kaydedin](asdk-register.md), ayrıca bir aboneliği bu hesabı yeni oluşturulmuş olması gerekir.
    
     Bu kimlik bilgilerini kullanmak için Hizmet Yöneticisi olarak kaydedin. Bu hesap, yapılandırma ve kaynak bulutlarını, kullanıcı hesaplarını, Kiracı planlarını, kotalar ve fiyatlandırma yönetin. Portalda web sitesi bulutları, sanal makine özel bulutları ve planlar oluşturup kullanıcı aboneliklerini yönetebilir.
 1. Böylece, Geliştirme Seti Kiracı olarak oturum açarak Azure AD'NİZDE en az bir test kullanıcı hesabı oluşturun.

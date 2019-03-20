@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 58fca4cfc4217c67be1a4e679d1a95f34ff5726f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: ccb408a427680cffc339797bd3421ed9f53af640
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108180"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200693"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Betik eylemlerini kullanarak Linux tabanlı HDInsight kümeleri özelleştirme
 
@@ -157,7 +157,6 @@ HDInsight, HDInsight kümelerinde aşağıdaki bileşenleri yüklemek için komu
 | Azure Depolama hesabı ekleme |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Bkz: [HDInsight için ek depolama hesapları ekleme](hdinsight-hadoop-add-storage.md). |
 | Hue yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Bkz: [yükleme ve kullanma, HDInsight, Hadoop üzerinde Hue kümeleri](hdinsight-hadoop-hue-linux.md). |
 | Presto yükleme |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Bkz: [yüklemeden ve kullanmadan Presto üzerinde Hadoop tabanlı HDInsight kümeleri](hdinsight-hadoop-install-presto.md). |
-| Solr Yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh`. Bkz: [yüklemeden ve kullanmadan Apache Solr üzerinde HDInsight Hadoop kümeleri](hdinsight-hadoop-solr-install-linux.md). |
 | Giraph Yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Bkz: [HDInsight Hadoop üzerinde Apache Giraph'ı yükleme kümeleri](hdinsight-hadoop-giraph-install-linux.md). |
 | Hive kitaplıklarını önceden yükleme |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Bkz: [HDInsight kümenizi oluştururken özel Apache Hive kitaplıkları ekleme](hdinsight-hadoop-add-hive-libraries.md). |
 | Mono’yu yükleme veya güncelleştirme | `https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash`. Bkz: [yükleme veya güncelleştirme HDInsight üzerinde Mono](hdinsight-hadoop-install-mono.md). |
@@ -524,7 +523,6 @@ Kümenize 15 Mart 2016'dan önce oluşturulduysa bir betik eylemi geçmişi giri
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [HDInsight için betik eylemi betikleri geliştirme](hdinsight-hadoop-script-actions-linux.md)
-* [Yükleme ve HDInsight kümeleri üzerinde Apache Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
 * [Yükleme ve HDInsight kümeleri üzerinde Apache giraph'ı kullanma](hdinsight-hadoop-giraph-install-linux.md)
 * [Bir HDInsight kümesine ek depolama alanı ekleme](hdinsight-hadoop-add-storage.md)
 

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/18/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: a5131449b5aa66e3075cbf67cc055286dbc4ccb9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c862de2eec4e6c116218457a20b567dc02778685
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957768"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190031"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard Biçimleri ve Kodlayıcılar
 
@@ -30,7 +30,7 @@ Bu belge, en yaygın alma ve Medya Kodlayıcısı standart ile kullanabileceğin
 
 ## <a name="input-containerfile-formats"></a>Giriş kapsayıcısı/dosya biçimleri
 | Dosya biçimleri (dosya uzantıları) | Desteklenen |
-| --- | --- | --- | --- |
+| --- | --- |
 | FLV (H.264 ve AAC codec) (.flv) |Evet |
 | MXF    (.mxf) |Evet |
 | GXF    (.gxf) |Evet |
@@ -59,7 +59,7 @@ or
 
 ## <a name="input-video-codecs"></a>Giriş video codec bileşenleri
 | Giriş video codec bileşenleri | Desteklenen |
-| --- | --- | --- | --- |
+| --- | --- |
 | AVC 8 bit/10-en fazla 4 bit: 2:2, avcıntra |8 bit 4:2:0. ve 4:2:2 |
 | Avid DNxHD (mxf biçiminde) |Evet |
 | DVCPro/DVCProHD (in MXF) |Evet |
@@ -82,7 +82,7 @@ or
 
 ## <a name="input-audio-codecs"></a>Giriş ses codec bileşenleri
 | Giriş ses codec bileşenleri | Desteklenen |
-| --- | --- | --- | --- |
+| --- | --- |
 | AAC (AAC-LC, AAC-HE ve AAC-HEv2; en fazla 5.1) |Evet |
 | MPEG Katman 2 |Evet |
 | MP3 (MPEG-1 Ses Katmanı 3) |Evet |

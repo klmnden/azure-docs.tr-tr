@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: ec147355d6f61a282a0e6b0950fe03ba0e2341f5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e291072f7eb075adeff9efb37f1f7dffc72d714c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530391"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093533"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler’de SQL Server için Yedekleme ve Geri Yükleme
 
@@ -33,7 +33,7 @@ Bu makalenin ilk bölümünü kullanılabilir yedekleme ve geri yükleme seçene
 Aşağıdaki tabloda Azure Vm'lerinde çalışan SQL Server için çeşitli yedekleme ve geri yükleme seçenekleri hakkında bilgi sağlar:
 
 | Stratejisi | SQL sürümleri | Açıklama |
-|---|---|---|---|
+|---|---|---|
 | [Otomatik Yedekleme](#automated) | 2014<br/> 2016<br/> 2017 | Otomatik yedekleme, SQL Server VM üzerindeki tüm veritabanları için normal yedeklemelerinin zamanlamasını olanak tanır. Yedeklemeler, 30 gün boyunca Azure depolama alanında depolanır. Otomatik yedekleme v2, SQL Server 2016 ile başlayarak, el ile zamanlama ve tam sıklığını ve günlük yedekleri yapılandırma gibi ek seçenekleri sunar. |
 | [SQL Vm'leri için Azure yedekleme](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup, Azure Vm'lerinde çalışan SQL Server için kurumsal sınıf yedekleme özelliği sağlar. Bu hizmet ile birden çok sunucu ve binlerce veritabanının yedeklerini merkezi olarak yönetebilir. Veritabanları, portalında zaman içinde belirli bir noktaya geri yüklenebilir. Yedeklemeleri yıllarca saklayabilirsiniz bir özelleştirilebilir bekletme ilkesi sunar. Bu özellik şu anda genel Önizleme aşamasındadır. |
 | [El ile yedekleme](#manual) | Tümü | SQL Server sürümüne bağlı olarak, el ile yedekleme ve bir Azure sanal makinesinde çalışan SQL Server'a geri yüklemek için çeşitli teknikler vardır. Bu senaryoda, veritabanlarınızı nasıl yedeklenir ve depolama konumu ve bu yedeklemeler yönetimini sorumludur. |

@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/27/2019
-ms.openlocfilehash: 173bf84306523a2c049201bf755b2b7f451b3d9d
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 8c297c973a8d6a03b6d5990164bbde1485e36023
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194903"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170913"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Hızlı Başlangıç: Bir IOT hub'ına (Node.js) bağlı cihazı denetleme
 
@@ -94,7 +94,7 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 
     ```azurecli-interactive
     az iot hub show-connection-string \
-      --hub-name YourIoTHubName --output table
+      --name YourIoTHubName --output table
     ```
 
     Şu ifadeye benzer şekilde görünen hizmet bağlantı dizesini not edin:

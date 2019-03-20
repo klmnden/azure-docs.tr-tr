@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: fe38ffd5e9e57c0357417144e733311f3b14ea83
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0b84f02d11e278950e4e44874e7b1af9da58f83f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448348"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092455"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Nasıl bir zamanlamaya göre Azure-SSIS tümleştirme çalışma zamanını durdurmak ve başlatmak
 Bu makalede, Azure Data Factory (ADF) kullanarak zamanlama başlatma ve durdurma Azure-SSIS Integration Runtime (IR) açıklar. Azure-SSIS IR, ADF kaynak SQL Server Integration Services (SSIS) paketlerini yürütmek için adanmış işlem ' dir. Azure-SSIS IR çalıştıran, kendisiyle ilişkili bir maliyeti vardır. Bu nedenle, genellikle, IR, SSIS paketlerini Azure'da yürütmek ve artık ihtiyacınız olmayan olduğunda, IR durdurmak yalnızca ihtiyacınız olduğunda çalıştırmak istediğiniz. Kullanabileceğiniz ADF kullanıcı arabirimi (UI) / uygulama veya Azure PowerShell ile [el ile başlatın veya durdurun, IR](manage-azure-ssis-integration-runtime.md)).
@@ -72,11 +72,11 @@ Gece yarısı her gün çalışacak şekilde zamanlanırsa üçüncü bir tetikl
 9. **Oluştur**’a tıklayın.
 10. Azure panosunda durumuna sahip aşağıdaki kutucuğu görürsünüz: **Data Factory dağıtılıyor**. 
 
-   ![veri fabrikası dağıtılıyor kutucuğu](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
+    ![veri fabrikası dağıtılıyor kutucuğu](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
    
 11. Oluşturma işlemi tamamlandıktan sonra aşağıda gösterildiği gibi ADF sayfasında görebilirsiniz.
    
-   ![Data factory giriş sayfası](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
+    ![Data factory giriş sayfası](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
    
 12. Tıklayın **yazar ve İzleyici** ADF UI/uygulaması ayrı bir sekmede başlatmak için.
 
@@ -189,21 +189,21 @@ Gece yarısı her gün çalışacak şekilde zamanlanırsa üçüncü bir tetikl
 
 1. Bir işlem hattı çalıştırma durumunu alın.
 
-  ```powershell
-  Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
-  ```
+   ```powershell
+   Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
+   ```
 
 2. Bir tetikleyici hakkında bilgi alın.
 
-  ```powershell
-  Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
-  ```
+   ```powershell
+   Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
+   ```
 
 3. Bir tetikleyici çalıştırma durumunu alın.
 
-  ```powershell
-  Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
-  ```
+   ```powershell
+   Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
+   ```
 
 ## <a name="create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir"></a>Oluşturma ve Azure-SSIS IR başlatır/durdurur, Azure Otomasyonu runbook zamanlama
 

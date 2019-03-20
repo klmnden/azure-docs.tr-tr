@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: 0d9de6e5cfa8ffa0c5f67607a60d930b623413cf
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5452a1adb419a2f57e2124d5aac49f9cdcff615a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247282"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111676"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-pci-dss"></a>Azure güvenlik ve uyumluluk planı: PaaS Web uygulaması için PCI DSS
 
@@ -228,10 +228,10 @@ Azure güvenlik ve uyumluluk şema Otomasyon JSON yapılandırma dosyaları ve k
 2. 0 Kurulum AdministrativeAccountAndPermission.md gözden geçirin ve sağlanan komutları çalıştırın.
 
 3. Bir test çözümüyle Contoso örnek verileri veya pilot bir ilk üretim ortamına dağıtın.
-  - 1A-ContosoWebStoreDemoAzureResources.ps1
-    - Bu betik, Azure kaynakları için Contoso örnek verileri kullanarak bir webstore Tanıtımı dağıtır.
-  - 1-DeployAndConfigureAzureResources.ps1
-    - Bu betik müşteriye ait web uygulaması için bir üretim ortamı desteklemek için gereken Azure kaynakları dağıtır. Bu ortam, daha fazla kuruluş gereksinimlerine göre müşteri tarafından özelleştirilmelidir.
+   - 1A-ContosoWebStoreDemoAzureResources.ps1
+     - Bu betik, Azure kaynakları için Contoso örnek verileri kullanarak bir webstore Tanıtımı dağıtır.
+   - 1-DeployAndConfigureAzureResources.ps1
+     - Bu betik müşteriye ait web uygulaması için bir üretim ortamı desteklemek için gereken Azure kaynakları dağıtır. Bu ortam, daha fazla kuruluş gereksinimlerine göre müşteri tarafından özelleştirilmelidir.
 
 ## <a name="guidance-and-recommendations"></a>Yönerge ve öneriler
 

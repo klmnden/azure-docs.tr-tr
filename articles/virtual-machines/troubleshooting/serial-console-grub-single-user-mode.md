@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 135741a8bf385388fa1b3ac75a45e4c4678bf196
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ca2523a1101a21740a318a304f9bec491d4de2f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106245"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>GRUB ve tek kullanıcı modu erişmek için seri Konsolu
 GRUB genel birleşik, büyük olasılıkla ilk şey bir VM'yi önyüklemeden olduğunda görürsünüz Şifresizdir, ' dir. İşletim sistemi başlatılmadan önce bu görüntülediğinden, SSH erişilebilir değil. GRUB ' diğer özelliklerin yanı sıra tek kullanıcı moduna önyükleme, önyükleme yapılandırması üzerinde değişiklik yapabilirsiniz.
@@ -187,7 +187,7 @@ SLES normal şekilde önyükleme işlemi yapamıyorsanız Acil shell'e otomatik 
 1. İle başlar çekirdek satırı arayın `linux`
 1. Append `systemd.unit=emergency.target` satırın sonuna
 1. Bu ayarlarla yeniden başlatın ve Acil Durum Kabuk girmek için Ctrl + X tuşlarına basın.
-> Unutmayın, Acil Durum kabuğunda oturum bırakılacak bir _salt okunur_ dosya sistemi. Tüm dosyalara düzenlemeler yapmak istiyorsanız, okuma-yazma izinlerine sahip bir dosya sistemi yeniden bağlamak gerekir. Bunu yapmak için girin `mount -o remount,rw /` Kabuk içine
+   > Unutmayın, Acil Durum kabuğunda oturum bırakılacak bir _salt okunur_ dosya sistemi. Tüm dosyalara düzenlemeler yapmak istiyorsanız, okuma-yazma izinlerine sahip bir dosya sistemi yeniden bağlamak gerekir. Bunu yapmak için girin `mount -o remount,rw /` Kabuk içine
 
 ## <a name="access-for-oracle-linux"></a>Oracle Linux için erişim
 Çok gibi Red Hat Enterprise Linux, Oracle Linux tek kullanıcı modunda GRUB ve kök kullanıcı etkinleştirilmesini gerektirir.

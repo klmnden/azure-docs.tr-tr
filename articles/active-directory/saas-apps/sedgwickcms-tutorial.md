@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7783da2e3e5fe2ee79942b246e452ad7998e278
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4c42b7010a6586e4845d3a58b9a47b01143f5b1d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193331"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904840"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Sedgwick CMS
 
@@ -112,12 +112,14 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     ![Sedgwick CMS etki alanı ve URL'ler tek oturum açma bilgileri](./media/sedgwickcms-tutorial/tutorial_sedgwickcms_url.png)
 
     a. İçinde **tanımlayıcı** metin kutusuna URL'yi yazın: 
+
     | |
     |--|
     | `expresspreview.sedgwickcms.net/voe/sso` |
     | `claimlookup.com/Voe/sso` |
 
     b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak:
+    
     | |
     |--|
     | `https://<subdomain>.sedgwickcms.net/voe/sso` |

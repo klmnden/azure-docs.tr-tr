@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: bd2b28a7f8d0a765e10ffa58b5a72b4bd5bc47b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 543135db8df69db7e0e6182c9d52b9c956ee80b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228190"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996989"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>Ayrılmış IP adresleri (Klasik dağıtım)
 
@@ -28,7 +28,7 @@ ms.locfileid: "51228190"
 IP adresleri değiştirmesini önlemek için bir IP adresi ayırabilirsiniz. Ayrılmış IP'ler, kaynakları kapatın veya durduruldu (serbest bırakıldı) bile gibi bulut hizmeti için IP adresi aynı kalmasını sağlayarak yalnızca bir VIP, kullanılabilir. Ayrıca, ayrılmış bir IP adresi için bir VIP olarak kullanılan mevcut dinamik IP'ler dönüştürebilirsiniz.
 
 > [!IMPORTANT]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Bir statik genel IP adresi kullanmak ayırabilir öğrenin [Resource Manager dağıtım modeli](virtual-network-ip-addresses-overview-arm.md).
+> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Bir statik genel IP adresi kullanmak ayırabilir öğrenin [Resource Manager dağıtım modeli](virtual-network-ip-addresses-overview-arm.md).
 
 Azure'da IP adresleri hakkında daha fazla bilgi edinmek için [IP adresleri](virtual-network-ip-addresses-overview-classic.md) makalesi.
 
@@ -83,7 +83,7 @@ Beklenen çıktı:
     OperationStatus      : Succeeded
 
 >[!NOTE]
->PowerShell ile ayrılmış bir IP adresi oluşturduğunuzda, ayrılmış IP ile oluşturmak için bir kaynak grubu belirtemezsiniz. Bir kaynak grubu içine adlı azure yerler *varsayılan ağ* otomatik olarak. Ayrılmış IP kullanarak oluşturursanız [Azure portalında](http://portal.azure.com), seçtiğiniz herhangi bir kaynak grubunu belirtebilirsiniz. Ayrılmış İP'si bir kaynak grubunda dışında oluşturursanız *varsayılan ağ* ancak, her başvuru ayrılmış IP ile komutları gibi `Get-AzureReservedIP` ve `Remove-AzureReservedIP`, adı başvurmalıdır  *Kaynak grubu adı ayrılmış-IP-name grup*.  Adlı bir ayrılmış IP oluşturursanız, örneğin, *myReservedIP* adlı bir kaynak grubu içinde *myResourceGroup*, ayrılmış IP adı başvurmalıdır *grubu myResourceGroup myReservedIP*.   
+>PowerShell ile ayrılmış bir IP adresi oluşturduğunuzda, ayrılmış IP ile oluşturmak için bir kaynak grubu belirtemezsiniz. Bir kaynak grubu içine adlı azure yerler *varsayılan ağ* otomatik olarak. Ayrılmış IP kullanarak oluşturursanız [Azure portalında](https://portal.azure.com), seçtiğiniz herhangi bir kaynak grubunu belirtebilirsiniz. Ayrılmış İP'si bir kaynak grubunda dışında oluşturursanız *varsayılan ağ* ancak, her başvuru ayrılmış IP ile komutları gibi `Get-AzureReservedIP` ve `Remove-AzureReservedIP`, adı başvurmalıdır  *Kaynak grubu adı ayrılmış-IP-name grup*.  Adlı bir ayrılmış IP oluşturursanız, örneğin, *myReservedIP* adlı bir kaynak grubu içinde *myResourceGroup*, ayrılmış IP adı başvurmalıdır *grubu myResourceGroup myReservedIP*.   
 
 
 Bir IP ayrılmış sonra siz silene kadar aboneliğinize ilişkili kalır. Ayrılmış IP aşağıda belirtildiği gibi silin:

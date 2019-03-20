@@ -6,16 +6,16 @@ author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: security
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c3844d378b44d292b9a7eb631fa896d5f6e61dbe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 179925fc7411a1ccf3de02d7b6298cc66f93bc66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472193"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175726"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>SQL veri ambarı veritabanını koruma
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ SQL veri ambarı sunucu düzeyinde güvenlik duvarı kurallarını kullanır. Ve
 
 SQL veri ambarınıza bağlantıları varsayılan olarak şifrelenir.  Şifreleme devre dışı bırakmak için bağlantı ayarlarını değiştirme göz ardı edilir.
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 Kimlik doğrulaması, veritabanına bağlanırken kimliğinizi nasıl kanıtlayacağınızı belirtir. SQL veri ambarı, SQL Server kimlik doğrulamasını bir kullanıcı adı ve parola ile ve Azure Active Directory ile şu anda destekler. 
 
 Veritabanınıza ait mantıksal sunucuyu oluşturduktan sonra kullanıcı adı ve parola belirleyerek "sunucu yöneticisi" oturum açma bilgisi oluşturdunuz. Bu kimlik bilgilerini kullanarak veritabanı sahibi veya SQL Server kimlik doğrulaması aracılığıyla "dbo" olarak sunucudaki tüm veritabanları için doğrulayabilir.

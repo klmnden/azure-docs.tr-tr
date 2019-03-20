@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 6254a32349a0f7c743c3fb4993080ca3437c8276
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810279"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121358"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Log Analytics ve Application Insights depolanan kişisel verilere yönelik kılavuz
 
@@ -53,7 +53,7 @@ Log Analytics'in, verilerinizin bir şemaya prescribing çalışırken her alan�
     ```
     search "[username goes here]"
     ```
-Yalnızca kullanıcı tarafından okunabilen kullanıcı adları aynı zamanda doğrudan geri belirli bir kullanıcıya izlenebilir GUID'leri için aranacak unutmayın!
+  Yalnızca kullanıcı tarafından okunabilen kullanıcı adları aynı zamanda doğrudan geri belirli bir kullanıcıya izlenebilir GUID'leri için aranacak unutmayın!
 * *Cihaz kimlikleri*: "Kullanıcı kimlikleri gibi cihaz kimlikleri bazen özel" olarak kabul edilir. Tabloları tanımlamak için kullanıcı kimlikleri için yukarıda listelenen bölgelere aynı yaklaşımı kullanmak olduğunda bu bir sorun olabilir. 
 * *Özel veri*: Log Analytics'e sağlayan çeşitli yöntemler koleksiyonda: özel günlükleri ve özel alanları [HTTP veri toplayıcı API'sini](../../azure-monitor/platform/data-collector-api.md) , ve özel veri, sistem olay günlüklerini bir parçası olarak toplanır. Bunların tümü, özel veri içeren açıktır ve herhangi bir veri var olup olmadığını doğrulamak için incelenmelidir.
 * *Çözüm Yakalanan veriler*: Çözüm mekanizması açık uçlu bir tane olduğundan, uyumluluk sağlamak için çözümler tarafından oluşturulan tüm tabloları incelemeniz önerilir.

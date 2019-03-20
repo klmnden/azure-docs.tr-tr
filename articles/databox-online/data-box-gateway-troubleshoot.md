@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 02/26/2019
 ms.author: alkohli
-ms.openlocfilehash: e6042d9a1d6dc0e737fb4cf7e55d2c6938f9b0f4
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c07293971c4cadd8b7bccc608f69faa3baa19ba7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961062"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100862"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Azure Data Box Gateway sorunlarınızı giderme 
 
@@ -67,16 +67,16 @@ Yükleme ve yenileme işlemlerinde karşılaşılan hatalar ilgili hata dosyalar
 
 2. _Microsoft Data Box Gateway klasörü_'ne tıklayın. Bu klasör iki alt klasör içerir:
 
-    - Karşıya yükleme hatalarının bulunduğu Upload klasörü.
-    - Yenileme sırasında karşılaşılan hataların bulunduğu Refresh klasörü.
+   - Karşıya yükleme hatalarının bulunduğu Upload klasörü.
+   - Yenileme sırasında karşılaşılan hataların bulunduğu Refresh klasörü.
 
-    Yenileme günlük dosyası örneği burada gösterilmiştir.
+     Yenileme günlük dosyası örneği burada gösterilmiştir.
 
-    ```
-    <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
-    <file item="test.txt" local="False" remote="True" error="16001" />
-    <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
-    ``` 
+     ```
+     <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
+     <file item="test.txt" local="False" remote="True" error="16001" />
+     <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
+     ``` 
 
 3. Bu dosyada bir hata gördüğünüzde (örnekte vurgulanmıştır) hata kodunu yazın (burada 16001). Hata kodunun açıklamasını aşağıdaki hata başvurusu bölümünde bulabilirsiniz.
 

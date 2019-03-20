@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 26f60a6f1796b080df3294737ce93bfb43029bf1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c5f92d564a93823fd9c0f932fa95f20d4e827761
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439135"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108840"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer sorunlarını giderme
 
@@ -128,7 +128,7 @@ Flow kaynak VM eşlendiğinde bir iç Load Balancer bir sanal ağ içinde yapıl
 Bir destek olayı açmaya karar verirseniz, daha hızlı bir çözüm için aşağıdaki bilgileri toplayın. Tek bir arka uç VM'den aşağıdaki testleri gerçekleştirmek için seçin:
 - Araştırma bağlantı noktası yanıtını test etmek için bir arka uç sanal makineler VNet içinde Psping kullanın (örnek: psping 10.0.0.4:3389) ve sonuçları kaydedin. 
 - Bu ping testlerinde yanıt alınmazsa, PsPing çalıştırın, ardından Netsh izleme durdurma sırasında eşzamanlı bir Netsh trace arka uç VM'den ve VNet test VM'SİNDE çalıştırın. 
-  
+  
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Yukarıdaki adımlar sorunu çözmezse, açık bir [destek bileti](https://azure.microsoft.com/support/options/).
