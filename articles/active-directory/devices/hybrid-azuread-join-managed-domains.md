@@ -17,12 +17,12 @@ ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8a22b2fe7da22365c6414da9babe73488a499fb
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: ce91fc5418de2e93027a8cb3abf1dcc670be64a3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651864"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58166989"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Öğretici: Yönetilen etki alanları için hibrit Azure Active Directory katılımını Yapılandır
 
@@ -40,7 +40,7 @@ Bu öğreticide, yönetilen etki alanlarındaki cihazlar için hibrit Azure AD'y
 > * Hibrit Azure AD'ye katılımı yapılandırma
 > * Windows alt düzey cihazlarını etkinleştirme
 > * Katılmış cihazları doğrulama 
-> * Sorun giderme 
+> * Sorunları giderin 
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -148,7 +148,7 @@ Bazı etki alanına katılmış cihazlar Windows alt düzey cihazlarıysa şunla
 - Windows alt düzey cihazlarını denetleme 
 
 
-### <a name="update-device-settings"></a>Cihaz ayarlarını güncelleştirme 
+### <a name="update-device-settings"></a>Cihaz ayarlarını güncelleştir 
 
 Windows alt düzey cihazlarını kaydetmek için, cihaz ayarlarının kullanıcıların Azure AD'de cihazları kaydedebilmesini sağlayacak şekilde ayarlandığından emin olmanız gerekir. Azure portal'da bu ayarı şu bölümde bulabilirsiniz:
 
@@ -200,7 +200,7 @@ Hizmet ayrıntılarını kontrol etmek için **Get-MSolDevice** cmdlet kullanır
 
 2. Azure kiracınıza bağlanmak için `Connect-MsolService` yazın.  
 
-3. `get-msoldevice -deviceId <deviceId>` yazın.
+3. Türü `get-msoldevice -deviceId <deviceId>`
 
 6. **Enabled** değerinin **True** olarak ayarlandığını doğrulayın.
 

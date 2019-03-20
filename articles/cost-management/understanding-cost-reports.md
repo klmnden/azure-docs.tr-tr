@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 10a8d434df376749b76e2cf90212d872f705b209
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 92ce35e88cc73c16e3d3670e07ff8b996192b825
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103430"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109823"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Maliyet Yönetimi raporlarını anlama Cloudyn
 
@@ -41,7 +41,7 @@ Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açı
       - Varlık Yönetimi
       - İyileştirme
 
-  Bir filtre adı yazıp ardından **Kaydet**.
+   Bir filtre adı yazıp ardından **Kaydet**.
 
 3. **Etiketler**
 
@@ -71,55 +71,55 @@ Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açı
       - Cloudyn varlık etiketleri maliyeti
       - Maliyet ayırmayı amaçlar için abonelik etiketi kategorileri
 
-  Örnek verilebilir:
-     - Maliyet merkezi
-     - Bölüm
-     - Uygulama
-     - Ortam
-     - Maliyet kodu
+   Örnek verilebilir:
+   - Maliyet merkezi
+   - Bölüm
+   - Uygulama
+   - Ortam
+   - Maliyet kodu
 
-    Raporlarda kullanılabilir yerleşik gruplar listesi aşağıdadır:
+     Raporlarda kullanılabilir yerleşik gruplar listesi aşağıdadır:
 
-    - **Maliyet türü**
-      - Maliyet türü veya birden çok maliyet türü seçin veya tümünü seçin. Maliyet türleri şunlardır:
-        - Tek seferlik bir ücret
-        - Destek
-        - Kullanım ücreti
-    - **Müşteri**
-        - Belirli bir müşteri, birden çok müşteriyi veya tüm müşterileri seçin.
-    - **Hesap adı**
-        - Hesabı veya aboneliği adı. Azure'da, Azure aboneliğinin adıdır.
-    - **Hesap yok**
-        - Bir hesap, birden çok hesabı veya tüm hesapları seçin. Azure'da, bu Azure aboneliğinin GUID değeridir.
-    - **Ana hesap**
-        - Ana hesap, birden çok hesabı veya Seç'i seçin.
-    - **Hizmet**
-        - Bir hizmet birden çok hizmeti seçin veya tüm hizmetleri seçin.
-    - **Sağlayıcı**
-        - Varlıklar ve masrafları ilişkili olduğu bulut sağlayıcısı.
-    - **Bölge**
-        - Kaynak barındırıldığı bölge.
-    - **Kullanılabilirlik alanı**
-        - Bir bölge içinde yalıtılmış AWS konumları.
-    - **Kaynak Türü**
-        - Kaynak Kullanım türü.
-    - **Alt türü**
-        - Alt türü seçin.
-    - **İşlem**
-        - İşlem seçin veya **Tümünü Göster**.
-    - **Fiyat modeli**
-        - Tüm ön maliyet
-        - Ön maliyet yok
-        - Kısmi ön maliyet
-        - İsteğe Bağlı
-        - Ayırma
-        - Nokta
-    - **Ücret türü**
-        - Negatif veya pozitif farkı türü veya her ikisini de seçin.
-    - **Kiralama**
-        - Olup bir makine adanmış bir makinede çalışıyorsa.
-    -   **Kullanım türü**
-          - Kullanım türü, tek seferlik ücretler veya yinelenen ücretlerini olabilir.
+     - **Maliyet türü**
+     - Maliyet türü veya birden çok maliyet türü seçin veya tümünü seçin. Maliyet türleri şunlardır:
+       - Tek seferlik bir ücret
+       - Destek
+       - Kullanım ücreti
+     - **Müşteri**
+       - Belirli bir müşteri, birden çok müşteriyi veya tüm müşterileri seçin.
+     - **Hesap adı**
+       - Hesabı veya aboneliği adı. Azure'da, Azure aboneliğinin adıdır.
+     - **Hesap yok**
+       - Bir hesap, birden çok hesabı veya tüm hesapları seçin. Azure'da, bu Azure aboneliğinin GUID değeridir.
+     - **Ana hesap**
+       - Ana hesap, birden çok hesabı veya Seç'i seçin.
+     - **Hizmet**
+       - Bir hizmet birden çok hizmeti seçin veya tüm hizmetleri seçin.
+     - **Sağlayıcı**
+       - Varlıklar ve masrafları ilişkili olduğu bulut sağlayıcısı.
+     - **Bölge**
+       - Kaynak barındırıldığı bölge.
+     - **Kullanılabilirlik alanı**
+       - Bir bölge içinde yalıtılmış AWS konumları.
+     - **Kaynak Türü**
+       - Kaynak Kullanım türü.
+     - **Alt türü**
+       - Alt türü seçin.
+     - **İşlem**
+       - İşlem seçin veya **Tümünü Göster**.
+     - **Fiyat modeli**
+       - Tüm ön maliyet
+       - Ön maliyet yok
+       - Kısmi ön maliyet
+       - İsteğe Bağlı
+       - Ayırma
+       - Nokta
+     - **Ücret türü**
+       - Negatif veya pozitif farkı türü veya her ikisini de seçin.
+     - **Kiralama**
+       - Olup bir makine adanmış bir makinede çalışıyorsa.
+     - **Kullanım türü**
+       - Kullanım türü, tek seferlik ücretler veya yinelenen ücretlerini olabilir.
 
 5. **Filtreleri**
 
@@ -139,7 +139,7 @@ Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açı
     - Ayrılmış örnekler satın alma ücreti
     - Bazı Azure Market öğesi.
 
-  İtfa altında seçin **amorti edilmiş maliyet** veya **gerçek maliyet**.
+   İtfa altında seçin **amorti edilmiş maliyet** veya **gerçek maliyet**.
 
 8. **Çözümleme**
 
@@ -162,7 +162,7 @@ Bir önceki resimde her numaralı alan aşağıdaki bilgileri ayrıntılı açı
 
     Gösterme/gizleme seçeneğini raporlarında hiçbir etkisi yok.
 
-12.   **Görüntü biçimleri**
+12. **Görüntü biçimleri**
 
     Görüntü biçimlerini çeşitli graph'i ya da tablo görünümleri seçmek için kullanın.
 

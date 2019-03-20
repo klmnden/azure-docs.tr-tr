@@ -15,23 +15,23 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: 584fca3df4fee24a4f1c7b93d5371c48be059f7b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a6d8326afa3bcf13234ab072a2cd2909a864738b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257944"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002857"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Azure VM'de PowerShell ile Always On kullanılabilirlik grubu yapılandırma
 > [!div class="op_single_selector"]
-> * [Klasik: kullanıcı Arabirimi](../classic/portal-sql-alwayson-availability-groups.md)
+> * [Klasik: KULLANICI ARABİRİMİ](../classic/portal-sql-alwayson-availability-groups.md)
 > * [Klasik: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 Başlamadan önce artık Azure resource manager modelinde bu görevi tamamlayabilirsiniz göz önünde bulundurun. Yeni dağıtımlar için Azure resource manager modelini öneririz. Bkz: [SQL Server Always On kullanılabilirlik grupları'Azure sanal makinelerinde](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 > [!IMPORTANT]
-> En yeni dağıtımların Resource Manager modelini kullanmasını öneririz. Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki dağıtım modeli kullanır: [Resource Manager ve klasik](../../../azure-resource-manager/resource-manager-deployment-model.md). Bu makale klasik dağıtım modelini incelemektedir.
+> En yeni dağıtımların Resource Manager modelini kullanmasını öneririz. Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../azure-resource-manager/resource-manager-deployment-model.md). Bu makale klasik dağıtım modelini incelemektedir.
 
 Azure sanal makineleri (VM'ler), Veritabanı yöneticileri, yüksek oranda kullanılabilir SQL Server Sistem maliyetlerini düşürmeye yardımcı olabilir. Bu öğreticide SQL Server Always On için uçtan uca bir Azure ortamı içinde bir kullanılabilirlik grubuna uygulamak gösterilmektedir. Öğreticinin sonunda, SQL Server Always On azure'da çözümünüzü aşağıdaki öğelerden oluşur:
 
@@ -103,7 +103,7 @@ Bu öğretici her adımın ayrıntıları elaborating olmadan, yukarıda açıkl
 
     Yapılandırma dosyası, aşağıdaki XML belgesi içeriyor. Kısaca, bu adlı bir sanal ağ belirtir **ContosoNET** adlı benzeşim grubunda **ContosoAG**. Adres alanı sahip **10.10.0.0/16** ve iki alt ağa sahip **10.10.1.0/24** ve **10.10.2.0/24**, olan ön alt ağı ve geri alt ağ, sırasıyla. Burada, Microsoft SharePoint gibi istemci uygulamalarını yerleştirebilirsiniz ön alt yer. Geri alt ağ, SQL Server Vm'leri yerleştirdiğiniz ' dir. Değiştirirseniz **$affinityGroupName** ve **$virtualNetworkName** değişkenleri daha önce de aşağıdaki karşılık gelen adlarını değiştirmeniz gerekir.
 
-        <NetworkConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+        <NetworkConfiguration xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
             <Dns />
             <VirtualNetworkSites>
@@ -380,10 +380,10 @@ Bu öğretici her adımın ayrıntıları elaborating olmadan, yukarıda açıkl
 ## <a name="initialize-the-failover-cluster-vms"></a>Yük devretme kümesi sanal makineleri başlatma
 Bu bölümde, yük devretme kümesi ve SQL Server yüklemesi kullanacağınız üç sunucu değiştirmeniz gerekir. Bu avantajlar şunlardır:
 
-* Tüm sunucular: yüklemeniz gerekir **Yük Devretme Kümelemesi** özelliği.
-* Tüm sunucular: eklemenize gerek **CORP\Install** makineyle **yönetici**.
-* ContosoSQL1 ve yalnızca ContosoSQL2: eklemenize gerek **CORP\Install** olarak bir **sysadmin** varsayılan veritabanı rolü.
-* ContosoSQL1 ve yalnızca ContosoSQL2: eklemenize gerek **NT AUTHORITY\SYSTEM** bir oturum açma aşağıdaki izinlere sahip olarak:
+* Tüm sunucular için: Yüklemeniz gereken **Yük Devretme Kümelemesi** özelliği.
+* Tüm sunucular için: Eklemenize gerek **CORP\Install** makineyle **yönetici**.
+* ContosoSQL1 ve yalnızca ContosoSQL2: Eklemenize gerek **CORP\Install** olarak bir **sysadmin** varsayılan veritabanı rolü.
+* ContosoSQL1 ve yalnızca ContosoSQL2: Eklemenize gerek **NT AUTHORITY\SYSTEM** bir oturum açma aşağıdaki izinlere sahip olarak:
 
   * Herhangi bir kullanılabilirlik grubu Değiştir
   * SQL bağlanma

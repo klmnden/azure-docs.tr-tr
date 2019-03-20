@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4b8cd07e50697139f68084f47c847ef8728c429
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 00357641f51be703d2e5c52c5b9cc6187ce05ff6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888970"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002677"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Linux VM'ler için örnek Azure altyapı Kılavuzu
 Bu makalede örnek uygulama altyapısı oluşturmaya gösterilmektedir. Biz, yönergeleri ve adlandırma kuralları, kullanılabilirlik kümeleri, sanal ağlar ve yük Dengeleyiciler kararları bir araya basit bir çevrimiçi mağaza için bir altyapı tasarımı ve gerçekte sanal makinelerinizi (VM) dağıtma açıklamaktadır.
@@ -45,7 +45,7 @@ Sonuçta elde edilen tasarım eklemeniz gerekir:
 
 * Bir Azure aboneliği ve hesabı
 * Tek bir kaynak grubu
-* Azure Yönetilen Diskleri
+* Azure Yönetilen Diskler
 * İki alt ağa sahip bir sanal ağ
 * Benzer bir role sahip VM'ler için kullanılabilirlik kümeleri
 * Sanal makineler
@@ -54,14 +54,14 @@ Tüm adlandırma kurallarına yukarıda izleyin:
 
 * Adventure Works Cycles kullandığı **[BT iş yükü]-[konumu]-[Azure resource]** öneki olarak
   * Bu örnekte, "**azos**" (Azure çevrimiçi Store), BT iş yükü adıdır ve "**kullanın**" (Doğu ABD 2) konumdur
-* Sanal ağları kullanın AZOS kullanım VN **[sayı]**
+* Sanal ağları kullanın AZOS kullanım VN<strong>[sayı]</strong>
 * Kullanılabilirlik kümelerini kullanın azos-kullanın-olarak-**[rol]**
 * Sanal makine adları azos kullanın-kullanın-vm -**[vmname]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Azure aboneliklerini ve hesaplarını
 Adventure Works Cycles, bu BT iş yükü için fatura bilgilerini sağlamak için Adventure Works Enterprise aboneliğinizin adlı Enterprise aboneliğini kullanıyor.
 
-## <a name="storage"></a>Depolama
+## <a name="storage"></a>Depolama alanı
 Adventure Works Cycles, Azure yönetilen diskler kullanması gerektiğini belirledi. Vm'leri oluştururken, her iki depolama alanı kullanılabilir depolama katmanları kullanılır:
 
 * **Standart depolama** web sunucuları, uygulama sunucuları ve etki alanı denetleyicileri ve veri diskleriyle.

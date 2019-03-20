@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: c1426ebb5a64a1e0552cc35a736186fda60a5af1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: a83f027cbfcf84beb43ceeb79971807366f22626
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415160"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102307"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Cihazı Sağlama Hizmeti için Java cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama
 
@@ -26,7 +26,7 @@ Bu adımlar, Windows işletim sistemi çalıştıran geliştirme makinenizde san
 Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](concepts-auto-provisioning.md) gözden geçirdiğinizden emin olun. Ayrıca devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun. 
 
 Azure IoT Cihaz Sağlama Hizmeti iki tür kaydı destekler:
-- [Kayıt grupları](concepts-service.md#enrollment-group): Birden fazla ilgili cihazı kaydetmek için kullanılır.
+- [Kayıt grupları](concepts-service.md#enrollment-group): Birden çok ilgili cihazları kaydetmek için kullanılır.
 - [Bireysel kayıtlar](concepts-service.md#individual-enrollment): Tek bir cihazı kaydetmek için kullanılır.
 
 Bu makalede bireysel kayıtlar gösterilmektedir.
@@ -80,7 +80,7 @@ Bu makalede bireysel kayıtlar gösterilmektedir.
     private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
     ```
 
-1. Projeyi derleyin. Hedef klasöre gidin ve oluşturulan jar dosyasını ayıklayın.
+1. Projeyi oluşturun. Hedef klasöre gidin ve oluşturulan jar dosyasını ayıklayın.
 
     ```cmd/sh
     mvn clean install
@@ -100,14 +100,14 @@ Bu makalede bireysel kayıtlar gösterilmektedir.
 1. Cihaz Sağlama Hizmeti özet dikey penceresinde, **Kayıtları yönet**’i seçin. **Bireysel Kayıtlar** sekmesini seçin ve en üstteki **Bireysel kayıt ekle** düğmesine tıklayın. 
 
 1. **Kayıt Ekle** altına aşağıdaki bilgileri girin:
-    - Kimlik onay *Mekanizması* olarak **TPM** seçeneğini belirleyin.
-    - TPM cihazınızın önceden not ettiğiniz *Kayıt kimliği* ve *Onay anahtarı* bilgilerini girin. 
-    - Sağlama hizmetinizle bağlanacak IoT hub'ını seçin.
-    - Benzersiz bir cihaz kimliği girin. Cihazınızı adlandırırken gizli veriler kullanmaktan kaçının.
-    - **Başlangıç cihaz ikizi durumu** alanını cihaz için istenen başlangıç yapılandırmasına göre güncelleştirin.
-    - Tamamlandığında **Kaydet** düğmesine tıklayın. 
+   - Kimlik onay *Mekanizması* olarak **TPM** seçeneğini belirleyin.
+   - TPM cihazınızın önceden not ettiğiniz *Kayıt kimliği* ve *Onay anahtarı* bilgilerini girin. 
+   - Sağlama hizmetinizle bağlanacak IoT hub'ını seçin.
+   - Benzersiz bir cihaz kimliği girin. Cihazınızı adlandırırken gizli veriler kullanmaktan kaçının.
+   - **Başlangıç cihaz ikizi durumu** alanını cihaz için istenen başlangıç yapılandırmasına göre güncelleştirin.
+   - Tamamlandığında **Kaydet** düğmesine tıklayın. 
 
-    ![Portal dikey penceresinde cihaz kayıt bilgilerini girme](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
+     ![Portal dikey penceresinde cihaz kayıt bilgilerini girme](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    Kayıt başarıyla tamamlanınca cihazınızın *Kayıt Kimliği* listenin altında *Bireysel Kayıtlar* sekmesinde görünür. 
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 408d8ec1c14174fe0536681afcb8f646481b851b
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: b16502528818e67e1377f47fa51504a2a7863e28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193917"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123530"
 ---
 # <a name="back-up-sql-server-databases-on-azure-vms"></a>Azure VM’lerindeki SQL Server veritabanlarını yedekleme 
 
@@ -83,7 +83,7 @@ Tüm işlemler için SQL Server sanal makinesi sanal makine Azure genel IP adres
 
 Her seçenek avantajları ve dezavantajları vardır
 
-**Seçenek** | **Avantajları** | **Dezavantajları**
+**Seçeneği** | **Avantajları** | **Dezavantajları**
 --- | --- | ---
 IP aralıklarına izin verin | Ek maliyet olmadan. | IP adresi aralıklarını zamanla değişir olduğundan yönetmek için karmaşık. <br/><br/> Azure, yalnızca Azure Storage'nın tam erişim sağlar.
 Bir HTTP Ara sunucusunu kullanacak   | Depolama üzerinde ayrıntılı denetim proxy'sinde URL'leri izin verilir. <br/><br/> Vm'leri tek noktası internet erişimi. <br/><br/> Azure IP adresi değişiklikleri tabi değildir. | Bir VM ile Ara yazılım çalıştırmak için ek ücretler. 
@@ -228,13 +228,13 @@ Bir yedekleme ilkesi oluşturmak için:
 3. İçinde **ilke adı**, yeni ilke için bir ad girin. 
 4. İçinde **tam yedekleme İlkesi**seçin bir **yedekleme sıklığı**, seçin **günlük** veya **haftalık**.
 
-    - İçin **günlük**yedekleme işi başladığında saat dilimini ve saat seçin.
-    - Tam yedekleme çalıştırmanız gerekir, devre dışı bırakamazlar **tam yedekleme** seçeneği.
-    - Tıklayın **tam yedekleme** ilkesini görüntülemek için. 
-    - Günlük tam yedekleme için fark yedeklemelerinin oluşturulamıyor.
-    - İçin **haftalık**, yedekleme işi başladığında günü, haftanın günü, saat ve saat dilimi seçin.
+   - İçin **günlük**yedekleme işi başladığında saat dilimini ve saat seçin.
+   - Tam yedekleme çalıştırmanız gerekir, devre dışı bırakamazlar **tam yedekleme** seçeneği.
+   - Tıklayın **tam yedekleme** ilkesini görüntülemek için. 
+   - Günlük tam yedekleme için fark yedeklemelerinin oluşturulamıyor.
+   - İçin **haftalık**, yedekleme işi başladığında günü, haftanın günü, saat ve saat dilimi seçin.
 
-    ![Yeni bir yedekleme İlkesi alanlar](./media/backup-azure-sql-database/full-backup-policy.png)  
+     ![Yeni bir yedekleme İlkesi alanlar](./media/backup-azure-sql-database/full-backup-policy.png)  
 
 5. İçin **bekletme aralığı**, tüm seçenekleri varsayılan olarak seçilidir. Ve belirli aralıklarda kullanmak istemediğiniz herhangi bir istenmeyen bekletme aralığı sınırları temizleyin. 
 
@@ -263,7 +263,7 @@ Bir yedekleme ilkesi oluşturmak için:
 11. İçinde **günlük yedeği**seçin **etkinleştirme**ve ardından sıklığı ve bekletme denetimleri ayarlayın. Günlük yedeklemeleri 15 dakikada bir sıklıkta meydana gelebilir ve 35 güne kadar saklanabilir.
 12. Seçin **Tamam** ilkeyi kaydedin ve ana menüye dön **yedekleme İlkesi** menüsü.
 
-   ![Günlük yedekleme ilkesini Düzenle](./media/backup-azure-sql-database/log-backup-policy-editor.png)
+    ![Günlük yedekleme ilkesini Düzenle](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
 13. Üzerinde **yedekleme İlkesi** menüsünde etkinleştirilip etkinleştirilmeyeceğini seçin **SQL yedekleme sıkıştırması**.
     - Sıkıştırma, varsayılan olarak devre dışıdır.
@@ -308,12 +308,12 @@ Otomatik korumayı devre dışı bırakmanız gerekirse, örnek adı altında t�
 
     ![Oturum Aç - yeni iletişim kutusu, Ara'yı seçin](./media/backup-azure-sql-database/new-login-search.png)
 
-3. Windows sanal hizmet hesabı **NT SERVICE\AzureWLBackupPluginSvc** SQL bulma aşamasından ve sanal makine kaydı sırasında oluşturuldu. Gösterildiği gibi hesap adını girin **Seçilecek nesne adını girin**. Seçin **Adları Denetle** adı çözümlenemedi. **Tamam** düğmesine tıklayın.
+3. Windows sanal hizmet hesabı **NT SERVICE\AzureWLBackupPluginSvc** SQL bulma aşamasından ve sanal makine kaydı sırasında oluşturuldu. Gösterildiği gibi hesap adını girin **Seçilecek nesne adını girin**. Seçin **Adları Denetle** adı çözümlenemedi. **Tamam**'ı tıklatın.
 
     ![Bilinmeyen hizmet adını çözümlemek için adları denetle seçin](./media/backup-azure-sql-database/check-name.png)
 
 
-4. İçinde **sunucu rolleri**, emin **sysadmin** rolü seçilir. **Tamam** düğmesine tıklayın. Gerekli izinleri olması gerekir.
+4. İçinde **sunucu rolleri**, emin **sysadmin** rolü seçilir. **Tamam**'ı tıklatın. Gerekli izinleri olması gerekir.
 
     ![Sysadmin sunucu rolünün seçili olduğundan emin olun](./media/backup-azure-sql-database/sysadmin-server-role.png)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 898f2eca0b6cc115f56bcae195c58c6eef190694
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 69b142cd46c006e562218c949fb450864589a661
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884877"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838097"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Web kancası kullanarak mevcut sorun yönetim sistemleri için sistem durumu bildirimlerini yapılandırma
 
@@ -59,7 +59,7 @@ En düşük önem derecesi en yüksek önem derecesi, gelen `level` özelliği y
 
 ## <a name="parsing-the-impacted-services-to-understand-the-full-scope-of-the-incident"></a>Tam olay anlamak için etkilenen hizmetler ayrıştırma
 Hizmet sistem durumu uyarılarını birden çok bölgede ve hizmetlerinizde sorunları hakkında bildirebilirsiniz. Tam bilgi almak için değeri ayrıştırılamıyor ihtiyacınız `impactedServices`.
-İçerik içinde bir [JSON kaçan](http://json.org/) dize, atlanmamış, düzenli olarak ayrıştırılabilir başka bir JSON nesnesi içerir.
+İçerik içinde bir [JSON kaçan](https://json.org/) dize, atlanmamış, düzenli olarak ayrıştırılabilir başka bir JSON nesnesi içerir.
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}

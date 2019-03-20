@@ -17,12 +17,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: b52ac4ae2a02208e61aafebe883d33ed27309134
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 77942e24af847f7c8f9680ca793dacf8ba0be55f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194351"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112594"
 ---
 # <a name="redeploy-the-asdk"></a>ASDK yeniden dağıtma
 Bu makalede, Azure Stack geliştirme Seti'ni (ASDK) bir üretim dışı ortamda yeniden öğrenin. ASDK yükseltme desteklenmediğinden, tamamen yeni bir sürüme taşımak için yeniden dağıtmanız gerekir. Ayrıca, yalnızca sıfırdan başlamak istiyorsanız dilediğiniz zaman ASDK yeniden dağıtabilirsiniz.
@@ -39,29 +39,29 @@ Kayıt kaynak kaldırmak için **Remove-AzsRegistration** Azure Stack kaydını 
 
 2. ASDK yüklemenizi kaydını silin ve silmek için aşağıdaki PowerShell komutlarını çalıştırın **azurestack** Azure aboneliğinizde bir kaynak grubu:
 
-  ```Powershell    
-  #Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+   ```Powershell    
+   #Import the registration module that was downloaded with the GitHub tools
+   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
-  # Provide Azure subscription admin credentials
-  Add-AzureRmAccount
+   # Provide Azure subscription admin credentials
+   Add-AzureRmAccount
 
-  # Provide ASDK admin credentials
-  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+   # Provide ASDK admin credentials
+   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
 
-  # Unregister Azure Stack
-  Remove-AzsRegistration `
+   # Unregister Azure Stack
+   Remove-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01
 
-  # Remove the Azure Stack resource group
-  Remove-AzureRmResourceGroup -Name azurestack -Force
-  ```
+   # Remove the Azure Stack resource group
+   Remove-AzureRmResourceGroup -Name azurestack -Force
+   ```
 
 3. Komut dosyası çalıştığında, Azure aboneliğinizin ve yerel ASDK yükleme için oturum istenir.
 4. Betik tamamlandığında aşağıdaki örneklere benzer bir ileti görmeniz gerekir:
 
-    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).` ` Your environment is now unable to syndicate items and is no longer reporting usage data.`
+    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).`` Your environment is now unable to syndicate items and is no longer reporting usage data.`
     ` Remove registration resource from Azure...`
     ` "Deleting the resource..." on target "/subscriptions/<subscription information>"`
     ` ********** End Log: Remove-AzsRegistration ********* `

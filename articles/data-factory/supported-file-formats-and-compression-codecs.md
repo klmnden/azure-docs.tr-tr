@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: bb701a33d4ebb1ffca19896f3b4ac0419f27d54f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e21223bf3c50a98e039d0f19c51116c4a3cfbcc0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539046"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875149"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Desteklenen dosya biçimleri ve Azure Data factory'de sıkıştırma codec bileşenleri
 
@@ -458,7 +458,7 @@ Parquet dosyası serileştirme/seri kaldırma ile şirket içinde barındırıla
 | ByteArray | İkili | Yok | Yok |
 | Guid | İkili | Utf8 | Utf8 |
 | Char | İkili | Utf8 | Utf8 |
-| CharArray | Desteklenmiyor | Yok | Yok |
+| CharArray | Desteklenmiyor | Yok | YOK |
 
 ## <a name="orc-format"></a>ORC biçimi
 
@@ -573,6 +573,14 @@ Bir veri kümesi sıkıştırma belirtmek için kullanın **sıkıştırma** aş
 
 > [!NOTE]
 > Veri sıkıştırma ayarları desteklenmez **AvroFormat**, **OrcFormat**, veya **ParquetFormat**. Bu biçimler dosyalarında okurken, Data Factory algılar ve sıkıştırma codec meta verilerde kullanır. Bu biçimler dosyalarında yazarken, Data Factory bu biçimi için varsayılan sıkıştırma codec seçer. Örneğin, ZLIB OrcFormat ve ParquetFormat için SNAPPY.
+
+## <a name="unsupported-file-types-and-compression-formats"></a>Desteklenmeyen dosya türleri ve sıkıştırma biçimleri
+
+Desteklenmeyen dosyalarını dönüştürmek için Azure Data Factory genişletilebilirlik özelliklerini kullanabilirsiniz. İki seçenek, Azure Batch kullanarak Azure işlevleri ve özel görevleri içerir.
+
+Bir Azure işlevini kullanan bir örnek gördüğünüz [tar dosyasının içeriğini ayıklayın](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Daha fazla bilgi için [Azure işlevleri etkinlik](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
+
+Ayrıca, bu işlev bir özel dotnet etkinliği kullanarak da oluşturabilirsiniz. Daha fazla bilgi edinilebilir [burada](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

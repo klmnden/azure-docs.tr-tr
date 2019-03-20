@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 423399c93fca222dad2db3175036719a0cd5fdb9
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: MT
+ms.openlocfilehash: 6473b8d15d09251d22386036285019c3b55e4cb1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986167"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084124"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Azure Active Directory'de Grup üyeliği kullanıcıları için lisans atama
 
@@ -30,10 +30,10 @@ Bu örnekte, Kiracı adlı bir güvenlik grubu içeren **ik departmanı**. Bu gr
 
 > [!NOTE]
 > Bazı Microsoft hizmetleri tüm konumlarda kullanılamaz. Bir kullanıcıya lisans atanabilmesi için önce yönetici kullanıcı kullanım konum özelliği belirtmesi gerekir.
-
+> 
 > Grup lisansı atama için kullanım konumu belirtilmemiş olmadan herhangi bir kullanıcı dizin konumunu devralır. Birden fazla konumda kullanıcılar varsa, her zaman kullanım konumu lisans ataması sonucu sağlar (örneğin aracılığıyla yapılandırması) AAD Connect - Azure AD'de kullanıcı oluşturma akışınızı parçası her zaman doğru olduğundan ve kullanıcıların almadığınız olarak ayarlamanızı öneririz izin verilmeyen bir konumda Hizmetleri.
 
-## <a name="step-1-assign-the-required-licenses"></a>1. Adım: Gerekli lisansları atama
+## <a name="step-1-assign-the-required-licenses"></a>1. adım: Gerekli lisansları atama
 
 1. Oturum [ **Azure AD yönetim merkezini** ](https://aad.portal.azure.com) lisans yönetici hesabıyla. Lisansları yönetmek için bir Lisans Yöneticisi, Kullanıcı Yöneticisi veya genel yönetici hesabı olmalıdır.
 
@@ -57,7 +57,7 @@ Bu örnekte, Kiracı adlı bir güvenlik grubu içeren **ik departmanı**. Bu gr
 
 Bir gruba lisans atadığınızda, Azure AD, bu grubun tüm mevcut üyelerin işler. Bu işlem ile grup boyutunu değişen biraz zaman alabilir. Sonraki adım, işlemin tamamlandığını doğrulayın ve daha fazla dikkat sorunlarını gidermek için gerekip gerekmediğini belirlemek açıklar.
 
-## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>2. Adım: İlk atama tamamlandığını doğrulama
+## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>2. adım: İlk atama tamamlandığını doğrulama
 
 1. Git **Azure Active Directory** > **grupları**. Lisans atanmış olan grubu seçin.
 

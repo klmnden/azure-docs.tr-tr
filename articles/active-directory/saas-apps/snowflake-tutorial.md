@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69b68e5e29d972f95742a28250e07ba69e6a681f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 617a01fdce71e76cf4783ee6a274ee428b0b3b57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766487"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903579"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Öğretici: Snowflake ile Azure Active Directory Tümleştirme
 
@@ -134,29 +134,29 @@ Azure AD çoklu oturum açma ile Snowflake yapılandırmak için aşağıdaki ad
 
 ### <a name="configure-snowflake-single-sign-on"></a>Snowflake çoklu oturum açmayı yapılandırın
 
-8. Bir başka web tarayıcı penceresinde Snowflake bir güvenlik yöneticisi olarak oturum açın.
+1. Bir başka web tarayıcı penceresinde Snowflake bir güvenlik yöneticisi olarak oturum açın.
 
-9. **Geçiş rol** için **ACCOUNTADMIN**, tıklayarak **profili** sayfanın üst sağ taraftaki.
+1. **Geçiş rol** için **ACCOUNTADMIN**, tıklayarak **profili** sayfanın üst sağ taraftaki.
 
     > [!NOTE]
     > Bu sağ üst köşedeki kullanıcı adınızın altındaki seçtiğiniz bağlamdan ayrı
     
     ![Snowflake yönetici](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
-10. Açık **Base 64 sertifika indirilen** Defteri'nde. "---BEGIN CERTIFICATE---" arasında bir değer kopyalayın ve "---END CERTIFICATE---" Bu yanındaki tırnak işaretleri yapıştırın **sertifika** aşağıda. İçinde **ssoUrl**, Yapıştır **oturum açma URL'si** Azure portaldan kopyaladığınız değeri. Seçin **tüm sorguları** tıklatıp **çalıştırma**.
+1. Açık **Base 64 sertifika indirilen** Defteri'nde. "---BEGIN CERTIFICATE---" arasında bir değer kopyalayın ve "---END CERTIFICATE---" Bu yanındaki tırnak işaretleri yapıştırın **sertifika** aşağıda. İçinde **ssoUrl**, Yapıştır **oturum açma URL'si** Azure portaldan kopyaladığınız değeri. Seçin **tüm sorguları** tıklatıp **çalıştırma**.
 
-    ![Snowflake sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png)
+   ![Snowflake sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png)
 
-    ```
-    use role accountadmin;
-    alter account set saml_identity_provider = '{
-    "certificate": "<Paste the content of downloaded certificate from Azure portal>",
-    "ssoUrl":"<Login URL value which you have copied from the Azure portal>",
-    "type":"custom",
-    "label":"AzureAD"
-    }';
-    alter account set sso_login_page = TRUE;
-    ```
+   ```
+   use role accountadmin;
+   alter account set saml_identity_provider = '{
+   "certificate": "<Paste the content of downloaded certificate from Azure portal>",
+   "ssoUrl":"<Login URL value which you have copied from the Azure portal>",
+   "type":"custom",
+   "label":"AzureAD"
+   }';
+   alter account set sso_login_page = TRUE;
+   ```
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -176,7 +176,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

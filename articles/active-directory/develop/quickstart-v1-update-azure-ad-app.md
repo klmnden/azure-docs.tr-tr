@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e705bbbd08882f56020192a3b42c311e05bfa399
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bee16ed8205453546702946628c98c73b0f34b15
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191744"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103817"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'de bir uygulamayı güncelleştirme
 
@@ -60,24 +60,24 @@ Bir web/gizli istemci uygulamasının kimlik doğrulaması gerektiren bir yetkil
    ![Uygulama kaydını güncelleştirme](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
 4. Uygulamanın **Ayarlar** sayfasının bulunduğu uygulama ana kayıt sayfası açılır. Web uygulamanıza kimlik bilgileri eklemek için:
-  1. **Ayarlar** sayfasının **Anahtarlar** bölümünü seçin.
-  2. Sertifika eklemek için:
-    - **Ortak Anahtarı Karşıya Yükle**'yi seçin.
-    - Yüklemek istediğiniz dosyayı seçin. Şu dosya türlerinden biri olmalıdır: .cer, .pem, .crt.
-  - Parola eklemek için:
-    - Anahtarınız için bir açıklama ekleyin.
-    - Bir süre seçin.
-    - **Kaydet**’i seçin. Yapılandırmada yaptığınız değişiklikleri kaydettikten sonra en sağdaki sütunda anahtar değeriniz gösterilir. İstemci uygulamanızın kodunda kullanmak üzere **anahtarı kopyalamayı unutmayın**. Bu sayfadan çıktıktan sonra anahtara erişemezsiniz.
+   1. **Ayarlar** sayfasının **Anahtarlar** bölümünü seçin.
+   1. Sertifika eklemek için:
+      - **Ortak Anahtarı Karşıya Yükle**'yi seçin.
+      - Yüklemek istediğiniz dosyayı seçin. Şu dosya türlerinden biri olmalıdır: .cer, .pem, .crt.
+   1. Parola eklemek için:
+      - Anahtarınız için bir açıklama ekleyin.
+      - Bir süre seçin.
+      - **Kaydet**’i seçin. Yapılandırmada yaptığınız değişiklikleri kaydettikten sonra en sağdaki sütunda anahtar değeriniz gösterilir. İstemci uygulamanızın kodunda kullanmak üzere **anahtarı kopyalamayı unutmayın**. Bu sayfadan çıktıktan sonra anahtara erişemezsiniz.
 
 5. İstemcinizden kaynak API'lerine erişim izni eklemek için
-  1. **Ayarlar** sayfasında **Gerekli izinler** bölümünü ve ardından **Ekle**'yi seçin.
-  1. Seçim yapmak istediğiniz kaynak türünü belirlemek için **Bir API seçin**'e tıklayın.
-  1. Kullanabileceğiniz farklı API'lerin yer aldığı listeye göz atın veya arama kutusunu kullanarak dizininizde bulunan ve web API'si sunan kaynak uygulamalarından seçim yapın. İstediğiniz kaynağı seçin ve **Seç**'e tıklayın.
-  1. **Erişimi Etkinleştir** sayfasında uygulamanızın API'ye erişmek için kullanacağı uygulama izinlerini ve/veya temsilcili izinleri seçin.
+   1. **Ayarlar** sayfasında **Gerekli izinler** bölümünü ve ardından **Ekle**'yi seçin.
+   1. Seçim yapmak istediğiniz kaynak türünü belirlemek için **Bir API seçin**'e tıklayın.
+   1. Kullanabileceğiniz farklı API'lerin yer aldığı listeye göz atın veya arama kutusunu kullanarak dizininizde bulunan ve web API'si sunan kaynak uygulamalarından seçim yapın. İstediğiniz kaynağı seçin ve **Seç**'e tıklayın.
+   1. **Erişimi Etkinleştir** sayfasında uygulamanızın API'ye erişmek için kullanacağı uygulama izinlerini ve/veya temsilcili izinleri seçin.
    
-  ![Uygulama kaydını güncelleştirme - permissions api](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
+   ![Uygulama kaydını güncelleştirme - permissions api](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
 
-  ![Uygulama kaydını güncelleştirme - permissions perms](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
+   ![Uygulama kaydını güncelleştirme - permissions perms](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. İşlemi tamamladığınızda **Erişimi Etkinleştir** sayfasındaki **Seç** düğmesini ve ardından **API erişimi ekle** sayfasındaki **Bitti** düğmesini seçin. Yeniden **Gerekli izinler** sayfası açılır ve yeni kaynak API listesine eklenmiş olur.
 
@@ -98,8 +98,8 @@ Aşağıdaki bölümde kaynak uygulamasının bildirimini değiştirerek erişim
 4. Uygulamanın **Ayarlar** sayfasının açık olduğu uygulama ana kayıt sayfası görüntülenir. Uygulama kayıt sayfasında **Bildirim**'e tıklayarak **Bildirimi düzenle** sayfasına geçin. Bildirimi portalda **Düzenleme** seçeneği sunana web tabanlı bir bildirim düzenleyici açılır. İsteğe bağlı olarak **İndir**'e tıklayıp düzenlemelerinizi yerel ortamda yaptıktan sonra **Yükle** seçeneğiyle uygulamanıza yeniden uygulayabilirsiniz.
 5. Bu örnekte `oauth2Permissions` koleksiyonuna aşağıdaki JSON öğesini ekleyerek kaynak/API öğesinde `Employees.Read.All` adlı yeni bir kapsamı kullanıma sunacağız. Var olan `user_impersonation` kapsamı kayıt sırasında varsayılan olarak sağlanmıştır. `user_impersonation`, bir istemci uygulamasının oturum açmış olan kullanıcının kimliğiyle kaynağa erişme izni istemesini sağlar. Var olan `user_impersonation` kapsam öğesinden sonra virgül eklemeyi ve özellik değerlerini kaynağınıza göre değiştirmeyi unutmayın. 
 
-  ```json
-  {
+   ```json
+   {
     "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
     "adminConsentDisplayName": "Read-only access to Employee records",
     "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
@@ -108,17 +108,17 @@ Aşağıdaki bölümde kaynak uygulamasının bildirimini değiştirerek erişim
     "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
     "userConsentDisplayName": "Read-only access to your Employee records",
     "value": "Employees.Read.All"
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE]
-  > `id` Değeri programlı olarak oluşturulmalıdır veya bir GUID kullanarak oluşturma aracı gibi [GUIDgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id`, web API'si tarafından kullanıma sunulan kapsam için benzersiz tanıtıcıyı temsil eder. Bir istemci web API'nize erişmek için gerekli izinlerle uygun şekilde yapılandırıldıktan sonra Azure AD tarafından bir OAuth2.0 erişim belirteci düzenlenir. İstemci web API'sini çağırdığında uygulama kaydında istenen izinlere göre ayarlanan kapsam (scp) talebine sahip olan erişim belirtecini sunar.
-  >
-  > Gerekirse daha sonra ek kapsamları kullanıma sunabilirsiniz. Web API'niz farklı işlevlerle ilişkilendirilmiş birden fazla kapsamı kullanıma sunabilir. Kaynağınız alınan OAuth 2.0 erişim belirtecindeki kapsam (`scp`) taleplerini değerlendirerek web API'si erişimini çalışma zamanında denetleyebilir.
+   > [!NOTE]
+   > `id` Değeri programlı olarak oluşturulmalıdır veya bir GUID kullanarak oluşturma aracı gibi [GUIDgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id`, web API'si tarafından kullanıma sunulan kapsam için benzersiz tanıtıcıyı temsil eder. Bir istemci web API'nize erişmek için gerekli izinlerle uygun şekilde yapılandırıldıktan sonra Azure AD tarafından bir OAuth2.0 erişim belirteci düzenlenir. İstemci web API'sini çağırdığında uygulama kaydında istenen izinlere göre ayarlanan kapsam (scp) talebine sahip olan erişim belirtecini sunar.
+   >
+   > Gerekirse daha sonra ek kapsamları kullanıma sunabilirsiniz. Web API'niz farklı işlevlerle ilişkilendirilmiş birden fazla kapsamı kullanıma sunabilir. Kaynağınız alınan OAuth 2.0 erişim belirtecindeki kapsam (`scp`) taleplerini değerlendirerek web API'si erişimini çalışma zamanında denetleyebilir.
 
 6. İşlemi tamamladıktan sonra **Kaydet**’e tıklayın. Web API'nizi dizininizdeki diğer uygulamalar tarafından kullanılacak şekilde yapılandırmış oldunuz.
 
-  ![Uygulama kaydını güncelleştirme](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
+   ![Uygulama kaydını güncelleştirme](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
 
 ### <a name="verify-the-web-api-is-exposed-to-other-applications-in-your-tenant"></a>Web API'sinin kiracınızdaki diğer uygulamaların kullanımına sunulduğunu doğrulama
 
@@ -130,7 +130,7 @@ Aşağıdaki bölümde kaynak uygulamasının bildirimini değiştirerek erişim
 
 3. **Erişimi Etkinleştir** sayfasında istemci izin istekleri için kullanılabilir durumdaki yeni kapsamı görmeniz gerekir.
 
-  ![Yeni izinler gösterilir](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
+   ![Yeni izinler gösterilir](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
 
 ### <a name="more-on-the-application-manifest"></a>Uygulama bildirimi hakkında daha fazla bilgi
 
@@ -211,9 +211,9 @@ OAuth 2.0 Örtük Onay özelliği uygulamalar için varsayılan olarak devre dı
 3. Sol taraftaki gezinti bölmesinden **Azure Active Directory** hizmetine tıklayın, **Uygulama kayıtları**'na tıklayın ve ardından yapılandırmak istediğiniz uygulamayı bulun/tıklayın. Uygulamanın **Ayarlar** sayfasının açık olduğu uygulama ana kayıt sayfası görüntülenir.
 4. Uygulama kayıt sayfasında **Bildirim**'e tıklayarak **Bildirimi düzenle** sayfasına geçin. Bildirimi portalda **Düzenleme** seçeneği sunana web tabanlı bir bildirim düzenleyici açılır. "oauth2AllowImplicitFlow" değerini bulun ve "true" olarak ayarlayın. Varsayılan olarak "false" değerine sahiptir.
    
-  ```json
-  "oauth2AllowImplicitFlow": true,
-  ```
+   ```json
+   "oauth2AllowImplicitFlow": true,
+   ```
 5. Güncelleştirilen bildirimi kaydedin. Kaydetme işleminin ardından web API'niz kullanıcıların kimliğini doğrulamak için OAuth 2.0 Örtük Onay özelliğini kullanacak şekilde yapılandırılmış olur.
 
 ## <a name="next-steps"></a>Sonraki adımlar

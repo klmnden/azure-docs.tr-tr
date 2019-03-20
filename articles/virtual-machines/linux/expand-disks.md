@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 231c6bbdb3ab1766cfccf19806e64c5dbe4d7b5d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 737c72e6225cdfc9fdeec59810ffd9100c48d1ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339939"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181767"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI ile Linux sanal makinesinde sanal sabit diskleri genişletme
 
@@ -141,7 +141,7 @@ Genişletilmiş bir disk kullanmak için temel alınan bölüm ve dosya sistemi 
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. İşletim sistemi diskini yeniden doğrulamak için `df -h`. Aşağıdaki örnek çıktı gösterilmektedir veri sürücüsü */dev/sdc1* 200 GB sunulmuştur:
+1. Veri diskini yeniden doğrulamak için `df -h`. Aşağıdaki örnek çıktı gösterilmektedir veri sürücüsü */dev/sdc1* 200 GB sunulmuştur:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

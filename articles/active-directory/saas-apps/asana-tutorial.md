@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ed414d47da2d7ce243de7a1de09964904502bbe
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 73f6126d6bf172a35a284e92b65b1c3ef449949e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407534"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904142"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Öğretici: Asana ile Azure Active Directory Tümleştirme
 
@@ -159,7 +159,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -204,7 +204,7 @@ Bu bölümde, Britta Simon Asana'da adlı bir kullanıcı oluşturun.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/asana-tutorial/tutorial_asana_12.png)
 
-2. Gibi kullanıcının e-postasını yazmalı **britta.simon@contoso.com** metin kutusuna ve ardından **davet**.
+2. Gibi kullanıcının e-postasını yazmalı **britta.simon\@contoso.com** metin kutusuna ve ardından **davet**.
 
 3. Tıklayın **Davet Gönder**. Yeni kullanıcının e-posta hesaplarına e-posta alırsınız. Kullanıcı oluşturma ve Hesap doğrulama gerekecektir.
 
@@ -222,4 +222,4 @@ Erişim paneli Asana kutucuğa tıkladığınızda, size otomatik olarak SSO'yu 
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-* [Kullanıcı sağlamayı yapılandırma](asana-provisioning-tutorial.md)
+- [Kullanıcı sağlamayı yapılandırma](asana-provisioning-tutorial.md)

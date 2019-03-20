@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: d6504b97bbc6c1ba4bcd02da54a29501c164439f
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: a3fe14436a569a8354e4bfd58a9ba164881d8fe2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447999"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878690"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak Windows üzerinde c++ konuşma tanıma
 
@@ -25,13 +25,13 @@ Bu makalede Windows için bir C++ konsol uygulaması oluşturacaksınız. Bilgis
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz alabilirsiniz. Ayrıntılar için bkz. [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
+Bu hızlı başlangıcı tamamlamak için bir konuşma Hizmetleri abonelik anahtarı ihtiyacınız vardır. Anahtarı ücretsiz alabilirsiniz. Bkz: [konuşma Hizmetleri ücretsiz olarak deneyin](get-started.md) Ayrıntılar için.
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio projesi oluşturma
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
-## <a name="add-sample-code"></a>Örnek kod ekleme
+## <a name="add-sample-code"></a>Örnek kodu ekleme
 
 1. *helloworld.cpp* kaynak dosyasını açın. İlk dahil etme deyiminin (`#include "stdafx.h"` veya `#include "pch.h"`) altındaki tüm kodu aşağıdakiyle değiştirin:
 
@@ -53,9 +53,9 @@ Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtar�
 
    ![Visual Studio uygulamasının, Hata Ayıklamayı Başlat seçeneğinin vurgulandığı ekran görüntüsü](media/sdk/qs-cpp-windows-07-start-debugging.png)
 
-1. Bir şey söylemenizi isteyen bir konsol penceresi görünür. İngilizce bir deyim ya da cümle söyleyin. Söyledikleriniz Konuşma hizmetine aktarılır ve metne dönüştürülür; metin aynı pencerede görünür.
+1. Bir şey söylemenizi isteyen bir konsol penceresi görünür. İngilizce bir deyim ya da cümle söyleyin. Konuşma konuşma hizmetlere iletilen ve transcribed aynı pencerede görünen metin.
 
-   ![Başarılı tanıma sonrasında konsol çıktısının ekran görüntüsü](media/sdk/qs-cpp-windows-08-console-output-release.png)
+   ![Başarılı tanıma sonrası konsol çıktısının ekran görüntüsü](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

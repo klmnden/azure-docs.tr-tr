@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 840c9f4115c13052c65e5975ed22aab7737ea2fe
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 5d725cdac93ebdb39437c0b9bcb619488fade0f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543924"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090670"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Sanal ağ içinde bir Azure Batch havuzu oluşturma
 
@@ -48,7 +48,7 @@ Sanal ağınızdaki bir kez oluşturdunuz ve bir alt ağ atanmış, bu sanal ağ
 6. Gerekli ayarları dahil olmak üzere, kalan belirtin **düğüm boyutu**, **hedef adanmış düğümler**, ve **düşük öncelikli düğümler**, yanı sıra tüm istenen isteğe bağlı ayarlar.
 7. İçinde **sanal ağ**, kullanmak istediğiniz alt ağ ve sanal ağ seçin.
   
-  ![Sanal ağ ile havuz Ekle](./media/batch-virtual-network/add-vnet-pool.png)
+   ![Sanal ağ ile havuz Ekle](./media/batch-virtual-network/add-vnet-pool.png)
 
 ## <a name="user-defined-routes-for-forced-tunneling"></a>Kullanıcı tanımlı yollar, zorlamalı tünel
 

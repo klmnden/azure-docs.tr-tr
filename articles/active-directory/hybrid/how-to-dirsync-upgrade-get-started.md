@@ -16,19 +16,19 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce4ad48a81d5f3b3b8574237b8d8685ad9b141ec
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 2f2d9a7c8cfbfc4fb56ff8fba3c65ae9a7925830
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194216"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852981"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: DirSync'ten yükseltme
 Azure AD Connect, DirSync'in yerini almıştır. Bu konu başlığı altında DirSync'ten yükseltme yöntemlerini bulabilirsiniz. Bu adımlar, Azure AD Connect'in başka bir sürümünden veya Azure AD Eşitleme'den yapılacak yükseltmeler için geçerli değildir.
 
 Azure AD Connect'i yüklemeye başlamadan önce emin olun [Azure AD Connect'i indirdiğinizden](https://go.microsoft.com/fwlink/?LinkId=615771) ve adımları tamamlayın önkoşul [Azure AD Connect: Donanım ve Önkoşullar](how-to-connect-install-prerequisites.md). Bu alanlar DirSync’ten farklı olduğu için özellikle aşağıdakiler hakkında bilgi edinmek isteyebilirsiniz:
 
-* Gerekli .Net ve PowerShell sürümü. Sunucuda, DirSync’in gerektirdiğinden daha yeni sürümlerin bulunması gerekir.
+* Gerekli .NET ve PowerShell sürümü. Sunucuda, DirSync’in gerektirdiğinden daha yeni sürümlerin bulunması gerekir.
 * Ara sunucu yapılandırması. İnternet’e erişmek için bir ara sunucu kullanıyorsanız yükseltmeden önce bu ayarın yapılandırılması gerekir. DirSync her zaman programı yükleyen kullanıcı için yapılandırılan ara sunucuyu kullanıyordu, ancak Azure AD Connect bunun yerine makine ayarlarını kullanır.
 * URL’lerin ara sunucuda açılması gerekir. DirSync tarafından da desteklenen temel senaryolar için gereksinimler aynıdır. Azure AD Connect’in içerdiği yeni özelliklerden herhangi birini kullanmak istiyorsanız bazı yeni URL’lerin açılması gerekir.
 
@@ -41,7 +41,7 @@ Dirsync'ten yükseltmiyorsanız diğer senaryolar için ilgili belgelere bakın.
 Geçerli DirSync dağıtımınıza bağlı olarak farklı yükseltme seçenekleri mevcuttur. Tahmini yükseltme süresi üç saatten azsa yerinde yükseltme yapılması önerilir. Tahmini yükseltme süresi üç saatten fazlaysa başka bir sunucu üzerinde paralel dağıtım yapılması önerilir. 50.000'den fazla nesneniz varsa yükseltmenin üç saatten fazla süreceği tahmin edilir.
 
 | Senaryo |
-| --- | --- |
+| --- |
 | [Yerinde yükseltme](#in-place-upgrade) |
 | [Paralel dağıtım](#parallel-deployment) |
 
@@ -162,7 +162,7 @@ Azure AD Connect'i yeni bir sunucuya yüklediğinizde, Azure AD Connect’i temi
      ![Azure AD kimlik bilgilerinizi girin](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
 7. **İleri**’ye tıklayın.
 8. **Yapılandırma için hazır** sayfasında, **Start the synchronization process as soon as configuration completes (Yapılandırma tamamlanınca eşitlemeyi başlat)** seçeneğini işaretli olarak bırakın. Sunucu şu an [hazırlama modunda](how-to-connect-sync-staging-server.md) olduğundan değişiklikler Azure AD’ye dışarı aktarılmaz.
-9. **Yükle**'ye tıklayın.
+9. **Yükle**'ye tıklatın.
 10. Yükleme tamamlandıktan sonra Synchronization Service Manager'ı ve Synchronization Rule Editor'ı kullanmadan veya başka bir yapılandırma değişikliği yapmadan önce Windows oturumunuzu kapatıp tekrar açın.
 
 > [!NOTE]

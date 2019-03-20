@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: ed2792c3bb599a0e5654be836d440b61fc803012
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9bcc74e395746ae82867d915ea37962bf8880a3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780312"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857190"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Öğretici: Workday ile Azure Active Directory Tümleştirme
 
@@ -104,7 +104,7 @@ Azure AD çoklu oturum açma Workday ile yapılandırmak için aşağıdaki adı
 
     ![Çoklu oturum açma bilgileri workday etki alanı ve URL'ler](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://impl.workday.com/<tenant>/login-saml2.flex`
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https:\//impl.workday.com/<tenant>/login-saml2.flex`
 
     b. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://www.workday.com`
 
@@ -112,15 +112,15 @@ Azure AD çoklu oturum açma Workday ile yapılandırmak için aşağıdaki adı
 
     ![Çoklu oturum açma bilgileri workday etki alanı ve URL'ler](./media/workday-tutorial/reply.png)
 
-    İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://impl.workday.com/<tenant>/login-saml.htmld`
+    İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https:\//impl.workday.com/<tenant>/login-saml.htmld`
 
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve yanıt URL'si ile güncelleştirin. Yanıt URL'si, örneğin bir alt etki alanı olmalıdır: www, wd2, wd3, wd3 Impl, wd5 wd5 Impl).
-    > Aşağıdaki gibi kullanarak "*http://www.myworkday.com*" çalışır, ancak "*http://myworkday.com*" yok. İlgili kişi [Workday istemci Destek ekibine](https://www.workday.com/en-us/partners-services/services/support.html) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Aşağıdaki gibi kullanarak `http://www.myworkday.com` çalışır ancak `http://myworkday.com` desteklemez. İlgili kişi [Workday istemci Destek ekibine](https://www.workday.com/en-us/partners-services/services/support.html) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 6. Workday uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**. Workday uygulama bekliyor **NameIdentifier** ile eşlenecek **user.mail**, **UPN** vb. tıklayarak özellik eşlemesi düzenlemek gereken şekilde **Düzenle**  simgesi ve değişiklik öznitelik eşlemesi.
 
-    ![image](common/edit-attribute.png)
+    ![görüntü](common/edit-attribute.png)
 
     > [!NOTE]
     > Burada şu varsayılan UPN (user.userprincipalname) ile ad kimliği eşlediğiniz. SSO, başarılı çalışma için gerçek kullanıcı kimliği, Workday hesabınızdaki (e-postanıza, UPN vb.) ad kimliği eşlemeniz gerekir.
@@ -159,10 +159,10 @@ Azure AD çoklu oturum açma Workday ile yapılandırmak için aşağıdaki adı
 
     d. İçinde **ortamlar için kullanılan** metin ortam adı seçin.  
 
-    >[!NOTE]
-    > Ortam özniteliğinin değeri, Kiracı URL'si değerine bağlıdır:  
-    >-Workday kiracısı URL'si etki alanı adı ile Impl örneğin başlayıp başlamadığını: *https://impl.workday.com/\<tenant\>/login-saml2.flex*), **ortam** özniteliği, uygulama için ayarlanmış olması gerekir.  
-    >-Etki alanı adı başka bir şey ile başlar, iletişime geçmeniz [Workday istemci Destek ekibine](https://www.workday.com/en-us/partners-services/services/support.html) eşleşen almak için **ortam** değeri.
+   > [!NOTE]
+   > Ortam özniteliğinin değeri, Kiracı URL'si değerine bağlıdır:  
+   > -Workday kiracısı URL'si etki alanı adı ile Impl örneğin başlayıp başlamadığını: *https:\//impl.workday.com/\<Kiracı\>/login-saml2.flex*), **ortam**özniteliği, uygulama için ayarlanmış olması gerekir.  
+   > -Etki alanı adı başka bir şey ile başlar, iletişime geçmeniz [Workday istemci Destek ekibine](https://www.workday.com/en-us/partners-services/services/support.html) eşleşen almak için **ortam** değeri.
 
 4. İçinde **SAML Kurulumu** bölümünde, aşağıdaki adımları gerçekleştirin:
 
@@ -215,7 +215,7 @@ Azure AD çoklu oturum açma Workday ile yapılandırmak için aşağıdaki adı
 
     e.  İçinde **sertifika** metin kutusu, panonuzun içeriğini yapıştırın.
 
-    f.  **Tamam** düğmesine tıklayın.
+    f.  **Tamam**'ı tıklatın.
 
 7. Aşağıdaki adımları gerçekleştirin:
 
@@ -229,7 +229,7 @@ Azure AD çoklu oturum açma Workday ile yapılandırmak için aşağıdaki adı
 
     ![Kimlik doğrulaması istek imzası yöntemi](./media/workday-tutorial/WorkdaySSOConfiguration.png "kimlik doğrulaması istek imzası yöntemi") 
 
-    d. **Tamam** düğmesine tıklayın.
+    d. **Tamam**'ı tıklatın.
 
     ![TAMAM](./media/workday-tutorial/IC782933.png "TAMAM")
 
@@ -254,7 +254,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

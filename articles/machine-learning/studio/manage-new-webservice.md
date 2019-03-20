@@ -1,21 +1,21 @@
 ---
-title: Azure Machine Learning Studio Web Hizmetleri portalını kullanma
+title: Web hizmetlerini yönetme
 titleSuffix: Azure Machine Learning Studio
-description: Machine Learning yeni ve Klasik Web Hizmetleri Microsoft Azure Machine Learning Web Hizmetleri portalını kullanarak yönetebilirsiniz. Klasik Web Hizmetleri ve yeni Web hizmetleri üzerinde farklı temel teknolojileri aldığından, biraz farklı yönetim özellikleri bunların her biri için sizde.
+description: Microsoft Azure Machine Learning Web Hizmetleri portalını kullanarak, Machine Learning yeni ve Klasik Web Hizmetleri yönetin. Klasik Web Hizmetleri ve yeni Web hizmetleri üzerinde farklı temel teknolojileri aldığından, biraz farklı yönetim özellikleri bunların her biri için sizde.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 2d62b5a140fc4614e26d40f153f5e13d4a3b70f4
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 711cb674cb00a880eadda11b03da87631df90b0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817159"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838383"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Azure Machine Learning Studio Web Hizmetleri portalını kullanarak bir web hizmetini yönetme
 Machine Learning yeni ve Klasik Web Hizmetleri Microsoft Azure Machine Learning Web Hizmetleri portalını kullanarak yönetebilirsiniz. Klasik Web Hizmetleri ve yeni Web hizmetleri üzerinde farklı temel teknolojileri aldığından, biraz farklı yönetim özellikleri bunların her biri için sizde.
@@ -29,7 +29,7 @@ Machine Learning Web Hizmetleri portalında şunları yapabilirsiniz:
 * Ekleme ve silme uç noktaları (yalnızca klasik)
 
 >[!NOTE]
->Klasik web Hizmetleri içinde de yönetebilirsiniz [Machine Learning Studio](http://studio.azureml.net) üzerinde **Web Hizmetleri** sekmesi.
+>Klasik web Hizmetleri içinde de yönetebilirsiniz [Machine Learning Studio](https://studio.azureml.net) üzerinde **Web Hizmetleri** sekmesi.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Yeni Kaynak Yöneticisi'ni yönetmek için izinleri tabanlı web Hizmetleri
 

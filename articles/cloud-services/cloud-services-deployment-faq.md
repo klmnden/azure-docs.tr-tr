@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c961238d1fbce1ff590e0b0843ae1390aa7f1cd9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: adaed4c7af1d325f85d6fc349ac9a4faf73c1169
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534829"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078831"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services dağıtım sorunları: Sık sorulan sorular (SSS)
 
@@ -67,10 +67,11 @@ Daha fazla bilgi için [bir bulut hizmeti güncelleştirme](cloud-services-updat
 ## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Neden Azure Resource Manager depolama hesabı kullanılırken Hizmet Yönetim API'leri veya PowerShell aracılığıyla bulut hizmetlerini dağıtımında gönderemiyorum? 
 
 Bulut hizmeti Azure Resource Manager modeliyle doğrudan uyumlu olmayan bir Klasik kaynak olduğundan, Azure Resource Manager depolama hesapları ile ilişkilendiremezsiniz. Bazı seçenekler şunlardır: 
- 
+ 
 - REST API aracılığıyla dağıtma.
 
-    Hizmet Yönetimi REST API'si dağıttığınızda, blob depolama, hem Klasik hem de Azure Resource Manager depolama hesabı ile çalışması için bir SAS URL'sini belirterek sınırlamayı alabilir. 'PackageUrl' özelliği hakkında daha fazla bilgiyi [burada](https://msdn.microsoft.com/library/azure/ee460813.aspx).  
+    Hizmet Yönetimi REST API'si dağıttığınızda, blob depolama, hem Klasik hem de Azure Resource Manager depolama hesabı ile çalışması için bir SAS URL'sini belirterek sınırlamayı alabilir. 'PackageUrl' özelliği hakkında daha fazla bilgiyi [burada](https://msdn.microsoft.com/library/azure/ee460813.aspx).
+  
 - Aracılığıyla dağıtma [Azure portalında](https://portal.azure.com).
 
     Bu çalışır [Azure portalında](https://portal.azure.com) çağrı proxy/Azure Resource Manager ve klasik kaynaklar arasında iletişime izin veren dolgu üzerinden geçtikçe. 

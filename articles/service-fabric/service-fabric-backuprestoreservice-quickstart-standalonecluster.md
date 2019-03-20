@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 84403729d6d31ef9dea82b228a1c21bfb847b0ce
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f3a0651d3641a547722528fb33f688cce1913e6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453448"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886652"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Düzenli yedekleme ve geri yükleme Azure Service fabric'te
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Düzenli aralıklarla uygulama verilerinin yedeği, dağıtılmış bir uygulama
 Service Fabric, bir dizi API aşağıdaki işlevselliği ilgili düzenli yedekleme ve geri yükleme özelliği sağlar:
 
 - Yedekleme (harici) için depolama konumları yüklenecek düzenli yedekleme güvenilir durum bilgisi olan hizmetler ve Reliable Actors desteğiyle zamanlayın. Desteklenen depolama konumları
-    - Azure Storage
+    - Azure Depolama
     - Dosya Paylaşımı (şirket içi)
 - Yedeklemeleri listeleme
 - Bir bölümün geçici bir yedeklemeyi tetikleyin
@@ -56,7 +56,7 @@ Service Fabric, bir dizi API aşağıdaki işlevselliği ilgili düzenli yedekle
 ## <a name="prerequisites"></a>Önkoşullar
 * Service Fabric kümesi yapıyla 6.2 sürümü ve üzeri. Windows Server'da küme ayarlanması. Bu [makale](service-fabric-cluster-creation-for-windows-server.md) gerekli paketi indirmek adımlar.
 * Yedeklemeleri depolamak için depolama alanına bağlanmak için gereken gizli şifreleme için X.509 sertifikası. Başvuru [makale](service-fabric-windows-cluster-x509-security.md) nasıl almaya veya bir otomatik olarak imzalanan X.509 sertifikası oluşturmak için bilmeniz gereken.
-* Service Fabric SDK'sı sürüm 3.0 kullanılarak oluşturulan Service Fabric durum bilgisi güvenilir olan uygulama veya üzeri. .Net Core hedefleyen uygulamalar için 2.0, uygulama kullanarak Service Fabric SDK'sı sürüm 3.1 oluşturulur veya üzeri.
+* Service Fabric SDK'sı sürüm 3.0 kullanılarak oluşturulan Service Fabric durum bilgisi güvenilir olan uygulama veya üzeri. .NET Core 2.0 hedefleyen uygulamalar için Service Fabric SDK'sı sürüm 3.1 kullanarak uygulama oluşturulmalıdır veya üzeri.
 
 ## <a name="enabling-backup-and-restore-service"></a>Yedekleme ve geri yükleme Hizmeti'ni etkinleştirme
 Etkinleştirmek gereken ilk _yedekleme ve geri yükleme hizmeti_ kümenizdeki. Şablonu dağıtmak istediğiniz küme için alın. Kullanabileceğiniz [örnek şablonlarından](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples). Etkinleştirme _yedekleme ve geri yükleme hizmeti_ aşağıdaki adımları:

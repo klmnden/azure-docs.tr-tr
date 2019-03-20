@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: cb959bd74322534573f83c2b3258ff28d4c324ff
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c40e00d55af49b1b040d3fe706f08af719b2238
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584165"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112798"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Öğretici: Apache Kafka akışlar API'si
 
@@ -199,13 +199,13 @@ Projeyi derlemek ve HDInsight kümesi üzerinde Kafka’nıza dağıtmak için a
 
     Konular aşağıdaki amaçlar için kullanılır:
 
-    * `test`: Bu konu, burada kayıtları alınan yöneliktir. Akış uygulaması buradan okur.
-    * `wordcounts`: Bu konu, akış uygulaması çıktısını depoladığı yöneliktir.
-    * `RekeyedIntermediateTopic`: Bu konu sayısı tarafından güncelleştirildiğinden verileri bölümlemek için kullanılan `countByKey` işleci.
-    * `wordcount-example-Counts-changelog`: Bu konu tarafından kullanılan bir durumu deposudur `countByKey` işlemi
+   * `test`: Bu konu, burada kayıtları alınan yöneliktir. Akış uygulaması buradan okur.
+   * `wordcounts`: Bu konu, akış uygulaması çıktısını depoladığı yöneliktir.
+   * `RekeyedIntermediateTopic`: Bu konu sayısı tarafından güncelleştirildiğinden verileri bölümlemek için kullanılan `countByKey` işleci.
+   * `wordcount-example-Counts-changelog`: Bu konu tarafından kullanılan bir durumu deposudur `countByKey` işlemi
 
-    > [!IMPORTANT]  
-    > HDInsight üzerinde Kafka otomatik olarak konular oluşturmak için de yapılandırılabilir. Daha fazla bilgi için [Otomatik konu oluşturmayı yapılandırma](apache-kafka-auto-create-topics.md) belgesine bakın.
+     > [!IMPORTANT]  
+     > HDInsight üzerinde Kafka otomatik olarak konular oluşturmak için de yapılandırılabilir. Daha fazla bilgi için [Otomatik konu oluşturmayı yapılandırma](apache-kafka-auto-create-topics.md) belgesine bakın.
 
 ## <a name="run-the-code"></a>Kodu çalıştırma
 

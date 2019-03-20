@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: e24ed3921872a4c754967841634ebab23b972e59
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9c7c6d31b9443ee09539d4882a9e8f4c4332763b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736163"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124645"
 ---
 Kullanılabilirlik grubu dinleyicisi SQL Server kullanılabilirlik grubu dinlediği bir IP adresi ve ağ adı değil. Kullanılabilirlik grubu dinleyicisi oluşturmak için aşağıdakileri yapın:
 
@@ -76,7 +76,7 @@ Kullanılabilirlik grubu dinleyicisi SQL Server kullanılabilirlik grubu dinledi
 
    ![Kaynak IP](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. Tıklayın **bağımlılıkları** sekmesi. IP adresi bir bağımlılığı olduğundan emin olun. Yüklü değilse, IP adresi üzerinde bir bağımlılık ayarlayın. Listelenen birden çok kaynaklar varsa, IP adresleri veya değil olduğunu doğrulayın ve bağımlılıkları. **Tamam** düğmesine tıklayın. 
+    c. Tıklayın **bağımlılıkları** sekmesi. IP adresi bir bağımlılığı olduğundan emin olun. Yüklü değilse, IP adresi üzerinde bir bağımlılık ayarlayın. Listelenen birden çok kaynaklar varsa, IP adresleri veya değil olduğunu doğrulayın ve bağımlılıkları. **Tamam**'ı tıklatın. 
 
    ![Kaynak IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
@@ -86,27 +86,27 @@ Kullanılabilirlik grubu dinleyicisi SQL Server kullanılabilirlik grubu dinledi
 
 1. <a name="setparam"></a>PowerShell'de küme parametrelerini ayarlayın.
 
-  a. SQL Server örneklerinden birinde aşağıdaki PowerShell betiğini kopyalayın. Benzeri değişkenleri ortamınız için güncelleştirin.
+   a. SQL Server örneklerinden birinde aşağıdaki PowerShell betiğini kopyalayın. Benzeri değişkenleri ortamınız için güncelleştirin.
 
-  - `$ListenerILBIP` Azure yük dengeleyicide kullanılabilirlik grubu dinleyicisi için oluşturduğunuz IP adresidir.
+   - `$ListenerILBIP` Azure yük dengeleyicide kullanılabilirlik grubu dinleyicisi için oluşturduğunuz IP adresidir.
     
-  - `$ListenerProbePort` Azure yük dengeleyicide kullanılabilirlik grubu dinleyicisi için yapılandırılan bağlantı noktasıdır.
+   - `$ListenerProbePort` Azure yük dengeleyicide kullanılabilirlik grubu dinleyicisi için yapılandırılan bağlantı noktasıdır.
 
-  ```PowerShell
-  $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-  $IPResourceName = "<IPResourceName>" # the IP Address resource name
-  $ListenerILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-  [int]$ListenerProbePort = <nnnnn>
+   ```PowerShell
+   $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+   $IPResourceName = "<IPResourceName>" # the IP Address resource name
+   $ListenerILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
+   [int]$ListenerProbePort = <nnnnn>
   
-  Import-Module FailoverClusters
+   Import-Module FailoverClusters
 
-  Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ListenerILBIP";"ProbePort"=$ListenerProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-  ```
+   Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ListenerILBIP";"ProbePort"=$ListenerProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+   ```
 
-  b. Küme düğümlerinden biri üzerinde PowerShell betiğini çalıştırarak küme parametrelerini ayarlayın.  
+   b. Küme düğümlerinden biri üzerinde PowerShell betiğini çalıştırarak küme parametrelerini ayarlayın.  
 
-  > [!NOTE]
-  > SQL Server örneklerinizin farklı bölgelerde bulunuyorsa, iki kez PowerShell betiğini çalıştırmanız gerekir. İlk kez kullanmak `$ListenerILBIP` ve `$ListenerProbePort` ilk bölgeden. İkinci kez kullanın `$ListenerILBIP` ve `$ListenerProbePort` ikinci bölgeden. Küme ağ adı ve küme IP kaynak adı her bölge için farklıdır.
+   > [!NOTE]
+   > SQL Server örneklerinizin farklı bölgelerde bulunuyorsa, iki kez PowerShell betiğini çalıştırmanız gerekir. İlk kez kullanmak `$ListenerILBIP` ve `$ListenerProbePort` ilk bölgeden. İkinci kez kullanın `$ListenerILBIP` ve `$ListenerProbePort` ikinci bölgeden. Küme ağ adı ve küme IP kaynak adı her bölge için farklıdır.
 
 1. Kullanılabilirlik grubu küme rolünü çevrimiçi duruma getirin. İçinde **yük devretme kümesi Yöneticisi** altında **rolleri**, role sağ tıklayın ve seçin **rol Başlat**.
 
@@ -120,24 +120,24 @@ Gerekirse, WSFC küme IP adresi kümesi parametrelerini ayarlamak için yukarıd
 
 1. <a name="setwsfcparam"></a>PowerShell'de küme parametrelerini ayarlayın.
   
-  a. SQL Server örneklerinden birinde aşağıdaki PowerShell betiğini kopyalayın. Benzeri değişkenleri ortamınız için güncelleştirin.
+   a. SQL Server örneklerinden birinde aşağıdaki PowerShell betiğini kopyalayın. Benzeri değişkenleri ortamınız için güncelleştirin.
 
-  - `$ClusterCoreIP` Azure load balancer WSFC çekirdek küme kaynağı için oluşturduğunuz IP adresidir. Kullanılabilirlik grubu dinleyicisi için IP adresi farklıdır.
+   - `$ClusterCoreIP` Azure load balancer WSFC çekirdek küme kaynağı için oluşturduğunuz IP adresidir. Kullanılabilirlik grubu dinleyicisi için IP adresi farklıdır.
 
-  - `$ClusterProbePort` WSFC durum araştırması için Azure yük dengeleyici üzerinde yapılandırılan bağlantı noktasıdır. Kullanılabilirlik grubu dinleyicisinin araştırma farklıdır.
+   - `$ClusterProbePort` WSFC durum araştırması için Azure yük dengeleyici üzerinde yapılandırılan bağlantı noktasıdır. Kullanılabilirlik grubu dinleyicisinin araştırma farklıdır.
 
-  ```PowerShell
-  $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-  $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
-  $ClusterCoreIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
-  [int]$ClusterProbePort = <nnnnn> # The probe port from the WSFCEndPointprobe in the Azure portal. This port must be different from the probe port for the availability group listener probe port.
+   ```PowerShell
+   $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+   $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
+   $ClusterCoreIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
+   [int]$ClusterProbePort = <nnnnn> # The probe port from the WSFCEndPointprobe in the Azure portal. This port must be different from the probe port for the availability group listener probe port.
   
-  Import-Module FailoverClusters
+   Import-Module FailoverClusters
   
-  Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ClusterCoreIP";"ProbePort"=$ClusterProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-  ```
+   Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ClusterCoreIP";"ProbePort"=$ClusterProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+   ```
 
-  b. Küme düğümlerinden biri üzerinde PowerShell betiğini çalıştırarak küme parametrelerini ayarlayın.  
+   b. Küme düğümlerinden biri üzerinde PowerShell betiğini çalıştırarak küme parametrelerini ayarlayın.  
 
 >[!WARNING]
 >Kullanılabilirlik grubu dinleyicisi sistem durumu araştırma bağlantı noktası, küme çekirdeği IP adresi sistem durumu araştırma bağlantı noktasından farklı olmak zorundadır. Bu örneklerde dinleyicisi bağlantı noktası 59999 ve küme çekirdek IP adresi 58888 şeklindedir. Her iki bağlantı noktası izin verme gelen güvenlik duvarı kuralı gerektirir.

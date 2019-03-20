@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: e4fd8d226ebe1cb993e11fb5c9617df3eef08bdc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532585"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116835"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>DevTest Labs sanal makineniz için özel yapıtlar oluşturma
 
@@ -79,7 +79,7 @@ Parametreler tanımlamak için aşağıdaki yapısını kullanın:
 | Öğe adı | Gerekli mi? | Açıklama |
 | --- | --- | --- |
 | type |Evet |Parametre değerinin türü. İzin verilen türler için aşağıdaki listeye bakın. |
-| displayName |Evet |Laboratuvardaki kullanıcıya görüntülenen parametrenin adı. | |
+| displayName |Evet |Laboratuvardaki kullanıcıya görüntülenen parametrenin adı. |
 | açıklama |Evet |Laboratuar ortamında görüntülenen parametre açıklaması. |
 
 İzin verilen türleri şunlardır:

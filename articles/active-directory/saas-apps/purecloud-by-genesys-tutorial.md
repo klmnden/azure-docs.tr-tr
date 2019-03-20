@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c97a24be4b8ee88f76b46af8136445740c2906de
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d1cc7735b8caa952a5ab7695d3e1f35b03fec1bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781247"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890687"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>Öğretici: Azure Active Directory tarafından Genesys PureCloud ile tümleştirmesi
 
@@ -105,6 +105,7 @@ Azure AD çoklu oturum açma PureCloud Genesys tarafından ile yapılandırmak i
     ![PureCloud bilgileriyle Genesys etki alanı ve URL'ler tek oturum açma](common/idp-intiated.png)
 
     a. İçinde **tanımlayıcı** metin kutusuna, bölgenize göre bir URL yazın:
+
     | |
     |--|
     | `https://login.mypurecloud.com/saml` |
@@ -114,6 +115,7 @@ Azure AD çoklu oturum açma PureCloud Genesys tarafından ile yapılandırmak i
     | `https://login.mypurecloud.au/saml` |
 
     b. İçinde **yanıt URL'si** metin kutusuna, bölgenize göre bir URL yazın:
+
     | |
     |--|
     | `https://login.mypurecloud.com/saml` |
@@ -127,6 +129,7 @@ Azure AD çoklu oturum açma PureCloud Genesys tarafından ile yapılandırmak i
     ![PureCloud bilgileriyle Genesys etki alanı ve URL'ler tek oturum açma](common/metadata-upload-additional-signon.png)
 
     İçinde **oturum açma URL'si** metin kutusuna, bölgenize göre bir URL yazın:
+    
     | |
     |--|
     | `https://login.mypurecloud.com` |
@@ -137,20 +140,20 @@ Azure AD çoklu oturum açma PureCloud Genesys tarafından ile yapılandırmak i
 
 6. PureCloud Genesys uygulama tarafından özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekliyor. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
 
-    ![image](common/edit-attribute.png)
+    ![görüntü](common/edit-attribute.png)
 
 7. Yukarıdaki için ayrıca PureCloud Genesys uygulama tarafından SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
 
     | Ad | Kaynak özniteliği|
     | ---------------| --------------- |
-    | Email | User.userprinicipalname |
+    | E-posta | User.userprinicipalname |
     | OrganizationName | `Your organization name` |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![image](common/new-save-attribute.png)
+    ![görüntü](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![görüntü](common/new-attribute-details.png)
 
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
@@ -200,7 +203,7 @@ Azure AD çoklu oturum açma PureCloud Genesys tarafından ile yapılandırmak i
 
     ![Çoklu oturum açmayı yapılandırın](./media/purecloud-by-genesys-tutorial/configure06.png)
 
-    e. **Kaydet**’e tıklayın   
+    e. **Kaydet**'e tıklayın.   
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -220,7 +223,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -275,7 +278,7 @@ PureCloud Genesys tarafından oturum açmak Azure AD kullanıcılarının etkinl
 
     a. İçinde **tam adı** metin kutusunda, gibi kullanıcı adını girin **Brittasimon**.
 
-    b. İçinde **e-posta** metin kutusuna, kullanıcının gibi e-posta girin **brittasimon@contoso.com**.
+    b. İçinde **e-posta** metin kutusuna, kullanıcının gibi e-posta girin **brittasimon\@contoso.com**.
     
     c. **Oluştur**’a tıklayın.
 

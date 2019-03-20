@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 88ea0fee73441f98734058391e0599cf8e1142a3
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403881"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118093"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Öğretici: SMB üzerinden Azure Data Box için veri kopyalama
 
@@ -60,7 +60,7 @@ Bir Windows Server ana bilgisayar kullanıyorsanız, Kutusu'na veri bağlamak i�
 
     ![Paylaşım kimlik bilgilerini alma 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. Paylaşıma erişme ve veri kopyalama iletişim kutusunda paylaşıma karşılık gelen **Kullanıcı adı** ve **Parola** değerlerini kopyalayın. **Tamam** düğmesine tıklayın.
+2. Paylaşıma erişme ve veri kopyalama iletişim kutusunda paylaşıma karşılık gelen **Kullanıcı adı** ve **Parola** değerlerini kopyalayın. **Tamam**'ı tıklatın.
     
     ![Paylaşım kimlik bilgilerini alma 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
@@ -196,8 +196,8 @@ Aşağıdaki örnekte dosyaları Data Box'a kopyalamak için kullanılan Robocop
 Performansı iyileştirmek için veri kopyalama sırasında aşağıdaki Robocopy parametrelerini kullanın.
 
 |    Platform    |    Çoğunlukla küçük dosyalar, 512 KB altı                           |    Çoğunlukla orta büyüklükteki dosyalar, 512 KB-1 MB arası                      |    Çoğunlukla büyük dosyalar, 1 MB üzeri                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-|    Data Box         |    2 Robocopy oturumu <br> Oturum başına 16 iş parçacığı    |    3 Robocopy oturumu <br> Oturum başına 16 iş parçacığı    |    2 Robocopy oturumu <br> Oturum başına 24 iş parçacığı    |  |
+|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+|    Data Box         |    2 Robocopy oturumu <br> Oturum başına 16 iş parçacığı    |    3 Robocopy oturumu <br> Oturum başına 16 iş parçacığı    |    2 Robocopy oturumu <br> Oturum başına 24 iş parçacığı    |
 
 
 Robocopy komutu hakkında daha fazla bilgi için bkz. [Robocopy ve birkaç örnek](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).

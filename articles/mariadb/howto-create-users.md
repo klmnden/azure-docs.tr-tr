@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 189e122e04d56d28c1e1e94d328569647614a124
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 019c4eca564c503913a488a1d1ee5e4046ff320a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542136"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089888"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı'nda kullanıcıları oluşturun 
 Bu makalede nasıl kullanıcılar Azure veritabanı'nda MariaDB için oluşturabileceğiniz açıklanır.
@@ -80,7 +80,7 @@ MariaDB için Azure veritabanı oluşturulduktan sonra ek kullanıcılar oluştu
    ```bash
    mysql --host mydemoserver.mariadb.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
-MariaDB belgeleri için kullanıcı hesabı yönetimi hakkında daha fazla bilgi için bkz. [kullanıcı hesabı Yönetimi](https://mariadb.com/kb/en/library/user-account-management/), [verme söz dizimi](https://mariadb.com/kb/en/library/grant/), ve [ayrıcalıkları](https://mariadb.com/kb/en/library/grant/#privilege-levels).
+   MariaDB belgeleri için kullanıcı hesabı yönetimi hakkında daha fazla bilgi için bkz. [kullanıcı hesabı Yönetimi](https://mariadb.com/kb/en/library/user-account-management/), [verme söz dizimi](https://mariadb.com/kb/en/library/grant/), ve [ayrıcalıkları](https://mariadb.com/kb/en/library/grant/#privilege-levels).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bunların bağlanmasına imkan yeni kullanıcılar Makine IP adresleri için Güvenlik Duvarı'nı açın: [Oluşturma ve Azure portalını kullanarak Azure veritabanı MariaDB için güvenlik duvarı kurallarını yönetme](howto-manage-firewall-portal.md)  

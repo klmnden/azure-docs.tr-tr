@@ -15,12 +15,12 @@ ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 42336205726823dd04e0412f29c3e7a23d134d39
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 59c69477e120facec1fbf132ce7017ca21aa8748
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764002"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092625"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Azure Stack'te teklif oluşturma
 
@@ -48,18 +48,18 @@ ms.locfileid: "57764002"
 
 6. Seçin **Oluştur** teklifi oluşturmak için.
 
-   ![Gözden geçirme ve oluşturma](media/azure-stack-create-offer/review-offer.png)
+   ![Gözden geçirin ve oluşturun](media/azure-stack-create-offer/review-offer.png)
 
 ### <a name="change-the-state-of-an-offer"></a>Bir teklif durumunu değiştirme
 
 Teklif oluşturduktan sonra kendi durumunu değiştirebilirsiniz. Teklifler yapılacak **genel** kullanıcıların abone tam bir görünüm elde edin. Teklifler olabilir:
 
-   - **Genel**: Kullanıcılara görünür.
-   - **Özel**: Yalnızca Yöneticiler buluta görünür. Bu ayar yararlıdır plan veya teklif taslağı oluşturma sırasında veya Bulut Yöneticisi istiyorsa, [kullanıcılar için her bir abonelik oluşturmak](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
-   - **Kullanımdan**: Yeni abonelere kapalıdır. Bulut yöneticisine sonraki abonelikleri engellemek, ancak mevcut aboneler etkilenmeyen bırakmak için teklifleri yetkisini alabilir.
+- **Genel**: Kullanıcılara görünür.
+- **Özel**: Yalnızca Yöneticiler buluta görünür. Bu ayar yararlıdır plan veya teklif taslağı oluşturma sırasında veya Bulut Yöneticisi istiyorsa, [kullanıcılar için her bir abonelik oluşturmak](azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator).
+- **Kullanımdan**: Yeni abonelere kapalıdır. Bulut yöneticisine sonraki abonelikleri engellemek, ancak mevcut aboneler etkilenmeyen bırakmak için teklifleri yetkisini alabilir.
 
-   > [!TIP]  
-   > Kullanıcı için teklif değişiklikler hemen görünmez. Değişiklikleri görmek için kullanıcıların oturumu kapatın ve Kullanıcı Portalı'na yeni teklif görmek için tekrar oturum açmanızın gerekebilir.
+  > [!TIP]  
+  > Kullanıcı için teklif değişiklikler hemen görünmez. Değişiklikleri görmek için kullanıcıların oturumu kapatın ve Kullanıcı Portalı'na yeni teklif görmek için tekrar oturum açmanızın gerekebilir.
 
 Teklif Durumu değiştirmek için iki yolu vardır:
 

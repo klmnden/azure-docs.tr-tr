@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: 3e5fa15bbd6890bc6f36c97aadf3aeaa980b5031
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 65064707374ba76701566e061b77bfd6cdf520ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310327"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833394"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Klasik ölçüm uyarılarını yönetme
 
@@ -35,7 +35,7 @@ Azure İzleyici'de klasik ölçüm uyarılarını bildirim almak için bir yol s
 
 6. Seçin **e-posta sahipleri...**  yöneticileri ve ortak yöneticilerin uyarı tetiklendiğinde e-posta bildirimleri almak istiyorsanız.
 
-7. Uyarı tetiklendiğinde ek e-posta adreslerine bildirim gönder istiyorsanız, bunları eklemek **ek yönetici email(s)** alan. Birden çok e-postalar aşağıdaki biçimde bir noktalı virgül ile ayırın:  *email@contoso.com;email2@contoso.com*
+7. Uyarı tetiklendiğinde ek e-posta adreslerine bildirim gönder istiyorsanız, bunları eklemek **ek yönetici email(s)** alan. Birden çok e-postalar aşağıdaki biçimde bir noktalı virgül ile ayırın: *e-posta\@contoso.com;email2\@contoso.com*
 
 8. Geçerli bir URI koymak **Web kancası** uyarı tetiklendiğinde çağrılacak istiyorsanız alan.
 
@@ -127,7 +127,7 @@ Bu bölüm, komutları oluşturun, görüntüleyin ve klasik ölçüm uyarılar�
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Klasik bir uyarı kuralları artık PowerShell oluşturulabilir. Yeni kullanması gereken bir uyarı kuralı oluşturmak için ['AzMetricAlertRule Ekle'](https://docs.microsoft.com/powershell/module/az.insights/add-azmetricalertrule?view=azurermps-6.13.0) komutu.
+8. Klasik bir uyarı kuralları artık PowerShell oluşturulabilir. Yeni kullanması gereken bir uyarı kuralı oluşturmak için ['AzMetricAlertRule Ekle'](/powershell/module/az.monitor/add-azmetricalertrule) komutu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

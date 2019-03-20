@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7841ba5a23e00092571b845250c16ec6ed3e9578
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9faf82918619301335f191d39453d317dcf5988b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730163"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856155"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Öğretici: GoToMeeting ile Azure Active Directory Tümleştirme
 
@@ -115,16 +115,16 @@ Azure AD çoklu oturum açma ile GoToMeeting yapılandırmak için aşağıdaki 
 
     e. İçinde **RelayState** metin kutusuna şu biçimi kullanarak bir URL yazın:
 
-    - Bir uygulama için GoToMeeting kullanın `https://global.gotomeeting.com`
+   - Bir uygulama için GoToMeeting kullanın `https://global.gotomeeting.com`
 
-    - Gototraining'e için kullanın `https://global.gototraining.com`
+   - Gototraining'e için kullanın `https://global.gototraining.com`
 
-    - GoToWebinar için kullanın `https://global.gotowebinar.com` 
+   - GoToWebinar için kullanın `https://global.gotowebinar.com` 
 
-    - GoToAssist için kullanın `https://app.gotoassist.com`
+   - GoToAssist için kullanın `https://app.gotoassist.com`
 
-    > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [GoToMeeting istemci Destek ekibine](https://go.microsoft.com/fwlink/?linkid=845985) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+     > [!NOTE]
+     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. İlgili kişi [GoToMeeting istemci Destek ekibine](https://go.microsoft.com/fwlink/?linkid=845985) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
@@ -164,7 +164,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

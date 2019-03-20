@@ -3,23 +3,23 @@ title: Dosya bütünlüğünü izleme Azure Güvenlik Merkezi'nde | Microsoft Do
 description: " Dosya bütünlüğünü izleme Azure Güvenlik Merkezi'nde etkinleştirmeyi öğrenin. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
-editor: ''
+editor: monhaber
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
-ms.author: rkarlin
-ms.openlocfilehash: bb987bcc38dee1f3d4ea2fce19e5e546ebfc8f7c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.date: 03/13/2019
+ms.author: monhaber
+ms.openlocfilehash: f8bc10edcdc31dd2ae3995dcb8321a5523e1e51c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240244"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901601"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Dosya bütünlüğünü Azure Güvenlik Merkezi'nde izleme
 Dosya bütünlüğünü izleme (FIM), Azure Güvenlik Merkezi'nde bu kılavuzu kullanarak yapılandırmayı öğrenin.
@@ -36,15 +36,12 @@ Güvenlik Merkezi'nin dosya bütünlüğünü izleme için Linux dosyaları Wind
 Güvenlik Merkezi üzerinde FIM kolayca etkinleştirebilirsiniz izlemek için varlıklar önerir. Ayrıca, kendi FIM ilkeleri veya varlıkları izlemek için de tanımlayabilirsiniz. Bu izlenecek yol size nasıl gösterir.
 
 > [!NOTE]
-> Dosya bütünlüğünü izleme (FIM) özelliği, Windows ve Linux bilgisayarlar ve Vm'leri için çalışır ve Güvenlik Merkezi'nin standart katmanında kullanılabilir. Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
-FIM, verilerini Log Analytics çalışma alanına yükler. Karşıya yüklediğiniz veri miktarına göre veri ücretleri uygulanır. Bkz: [log analytics fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/) daha fazla bilgi için.
->
->
+> Dosya bütünlüğünü izleme (FIM) özelliği, Windows ve Linux bilgisayarlar ve Vm'leri için çalışır ve Güvenlik Merkezi'nin standart katmanında kullanılabilir. Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md). FIM, verilerini Log Analytics çalışma alanına yükler. Karşıya yüklediğiniz veri miktarına göre veri ücretleri uygulanır. Bkz: [Log Analytics fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/) daha fazla bilgi için.
+
+FIM Azure değişiklik izleme çözümü, ortamınızdaki değişiklikleri tanımlamak ve izlemek için kullanır. Dosya bütünlüğünü izleme etkin olduğunda, sahip olduğunuz bir **değişiklik izleme** kaynak türünün **çözüm**. Veri toplama sıklığı Ayrıntılar için bkz [değişiklik izleme veri koleksiyonu ayrıntıları](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) Azure değişiklik izleme için.
 
 > [!NOTE]
-> FIM Azure değişiklik izleme çözümü, ortamınızdaki değişiklikleri tanımlamak ve izlemek için kullanır. Dosya bütünlüğünü izleme etkin olduğunda, sahip olduğunuz bir **değişiklik izleme** çözüm türü. Kaldırırsanız **değişiklik izleme** kaynak, devre dışı dosya bütünlüğünü izleme Güvenlik Merkezi'nde özelliğini.
->
->
+> Kaldırırsanız **değişiklik izleme** kaynak de devre dışı dosya bütünlüğünü izleme Güvenlik Merkezi'nde özelliğini.
 
 ## <a name="which-files-should-i-monitor"></a>Hangi dosyaların izleyebilirim?
 Hangi dosyaların izleyin seçerken sistemi ve uygulamalar için kritik olan dosyaları hakkında almalısınız. Plan olmadan değiştirme duymayacağınızı dosyaları seçmeyi düşünün. Uygulama veya işletim sistemi (örneğin, günlük dosyaları ve metin dosyaları) sık değiştirilenlerin seçme dosyaları çok fazla olduğu belirlenmesine zorlaştıran gürültü oluşturun.
@@ -115,7 +112,7 @@ Panonun üst kısmındaki filtre seçmek, değişiklikler için görmek istediğ
 
 **Günlük arama** aramaya makine adını girin, açılır alan veya bilgisayarlar sekmesinde listelenen bir makine seçin. Günlük araması makine için seçilen süre boyunca yapılan tüm değişiklikleri görüntüler. Daha fazla bilgi için bir değişiklik genişletebilirsiniz.
 
-![Günlük araması][8]
+![Günlük Araması][8]
 
 **Değişiklikleri** sekmesinde (aşağıda gösterilmiştir), seçilen süre içinde çalışma alanı için tüm değişiklikleri listeler. Pano listesi değiştirildi her varlık için:
 
@@ -134,15 +131,15 @@ Panonun üst kısmındaki filtre seçmek, değişiklikler için görmek istediğ
 
 1. Geri dönüp **dosya bütünlüğünü izleme panosunu** seçip **ayarları**.
 
-  ![Ayarlar][11]
+   ![Ayarlar][11]
 
-  **Çalışma alanı yapılandırması** üç sekme görüntüleyen açılır: **Windows kayıt defteri**, **Windows dosyaları**, ve **Linux dosyaları**. Her sekme, bu kategorideki düzenleyebileceğiniz varlıkları listeler. FIM ise, listelenen her varlık için güvenlik merkezini tanımlar. (true) etkin veya etkin değil (false).  Varlığı düzenlemeyi etkinleştirmek veya devre dışı FIM sağlar.
+   **Çalışma alanı yapılandırması** üç sekme görüntüleyen açılır: **Windows kayıt defteri**, **Windows dosyaları**, ve **Linux dosyaları**. Her sekme, bu kategorideki düzenleyebileceğiniz varlıkları listeler. FIM ise, listelenen her varlık için güvenlik merkezini tanımlar. (true) etkin veya etkin değil (false).  Varlığı düzenlemeyi etkinleştirmek veya devre dışı FIM sağlar.
 
-  ![Çalışma alanı yapılandırması][12]
+   ![Çalışma alanı yapılandırması][12]
 
-2. Bir identityprotection seçin. Bu örnekte, Windows kayıt defteri altında bir öğe seçtik. **Değişiklik izleme için düzenleme** açılır.
+2. Kimlik Koruması'nı seçin. Bu örnekte, Windows kayıt defteri altında bir öğe seçtik. **Değişiklik izleme için düzenleme** açılır.
 
-  ![Düzenlemek veya değişiklik izleme][13]
+   ![Düzenlemek veya değişiklik izleme][13]
 
 Altında **değişiklik izleme için düzenleme** şunları yapabilirsiniz:
 
@@ -155,11 +152,11 @@ Altında **değişiklik izleme için düzenleme** şunları yapabilirsiniz:
 1. Geri dönüp **dosya bütünlüğünü izleme panosunu** seçip **ayarları** en üstünde. **Çalışma alanı yapılandırması** açılır.
 2. Altında **çalışma alanı yapılandırması**, eklemek istediğiniz varlık türü için sekmesinde seçin: Windows kayıt defteri, Windows dosyalarını veya Linux dosyaları. Biz bu örnekte, seçili **Linux dosyaları**.
 
-  ![İzlemek için yeni bir öğe ekleyin][14]
+   ![İzlemek için yeni bir öğe ekleyin][14]
 
 3. **Add (Ekle)** seçeneğini belirleyin. **Değişiklik izleme için ekleme** açılır.
 
-  ![İstenen bilgileri girin][15]
+   ![İstenen bilgileri girin][15]
 
 4. Üzerinde **Ekle** sayfasında istenen bilgileri girin ve seçin **Kaydet**.
 
@@ -167,19 +164,19 @@ Altında **değişiklik izleme için düzenleme** şunları yapabilirsiniz:
 1. Geri dönüp **dosya bütünlüğünü izleme** Pano.
 2. FIM şu anda etkin olduğu bir çalışma alanı seçin. Etkinleştirme veya planı Yükselt düğmesini eksikse bir çalışma alanı için FIM etkinleştirilir.
 
-  ![FIM etkinleştirdiğiniz bir çalışma alanı seçin][16]
+   ![FIM etkinleştirdiğiniz bir çalışma alanı seçin][16]
 
 3. Dosya bütünlüğünü izleme altında seçin **ayarları**.
 
-  ![ayarları seçin][17]
+   ![ayarları seçin][17]
 
 4. Altında **çalışma alanı yapılandırması**, bir grup seçin burada **etkin** ayarlanır true.
 
-  ![Çalışma Alanı Yapılandırması][18]
+   ![Çalışma Alanı Yapılandırması][18]
 
 5. Altında **değişiklik izleme için düzenleme** penceresi kümesi **etkin** false.
 
-  ![False kümesi etkin][19]
+   ![False kümesi etkin][19]
 
 6. **Kaydet**’i seçin.
 
@@ -198,7 +195,7 @@ FIM devre dışı bırakabilirsiniz. FIM Azure değişiklik izleme çözümü, o
 2. Bir çalışma alanı seçin.
 3. Altında **dosya bütünlüğünü izleme**seçin **devre dışı**.
 
-  ![FIM devre dışı bırak][20]
+   ![FIM devre dışı bırak][20]
 
 4. Seçin **Kaldır** devre dışı bırakmak için.
 

@@ -10,22 +10,22 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 4768e96b9f29983e07edd4449bc24131cc3206ad
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 51f057a1dd0da866a50a0219574c70c3c805882e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008467"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999996"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Otomatik öneri API'si Yükseltme Kılavuzu
 
 Bu Yükseltme Kılavuzu, sürüm 5 ve Bing otomatik öneri API'si 7 sürümü arasındaki değişiklikleri tanımlar. Uygulamanızı sürüm 7 kullanacak şekilde güncelleştirmenize yardımcı olması için bu kılavuzu kullanın.
 
-## <a name="breaking-changes"></a>Yeni değişiklikler
+## <a name="breaking-changes"></a>Hataya neden olan değişiklikler
 
-### <a name="endpoints"></a>Uç Noktalar
+### <a name="endpoints"></a>Uç nokta
 
-- Uç noktanın sürüm numarası için v7 v5 değiştirildi. Örneğin, https://api.cognitive.microsoft.com/bing/\ * \*v7.0 ** / öneriler.
+- Uç noktanın sürüm numarası için v7 v5 değiştirildi. Örneğin, https:\//api.cognitive.microsoft.com/bing/\*\*v7.0 ** / öneriler.
 
 ### <a name="error-response-objects-and-error-codes"></a>Hata yanıtı nesneleri ve hata kodları
 
@@ -40,7 +40,7 @@ Bu Yükseltme Kılavuzu, sürüm 5 ve Bing otomatik öneri API'si 7 sürümü ar
 |Kod|Alt|Açıklama
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>Uygulanmadı|Alt kod koşullardan herhangi biri gerçekleştiğinde Bing ServerError döndürür. HTTP durum kodunu 500 ise yanıt bu hataları içeriyor.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Engellendi|Her isteğin herhangi bir bölümü geçerli değil Bing InvalidRequest döndürür. Örneğin, bir gerekli parametre eksik veya bir parametre değeri geçerli değil.<br/><br/>Hata ParameterMissing veya ParameterInvalidValue ise, HTTP durum kodu 400 ' dir.<br/><br/>Hata HttpNotAllowed, HTTP durum kodu 410 ise.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Engellenmiş|Her isteğin herhangi bir bölümü geçerli değil Bing InvalidRequest döndürür. Örneğin, bir gerekli parametre eksik veya bir parametre değeri geçerli değil.<br/><br/>Hata ParameterMissing veya ParameterInvalidValue ise, HTTP durum kodu 400 ' dir.<br/><br/>Hata HttpNotAllowed, HTTP durum kodu 410 ise.
 |RateLimitExceeded||/ Saniye (QPS) sorguları veya sorgu başına aylık (QPM) kota aştığında Bing RateLimitExceeded döndürür.<br/><br/>Bing QPM aşılırsa QPS ve 403 aşıldı HTTP durum kodu 429 döndürür.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing çağıran doğrulandığında Bing InvalidAuthorization döndürür. Örneğin, `Ocp-Apim-Subscription-Key` üstbilgisi eksik veya abonelik anahtarı geçerli değil.<br/><br/>Birden fazla kimlik doğrulama yöntemi belirtmek, yedeklilik meydana gelir.<br/><br/>Hata InvalidAuthorization ise, HTTP durum kodunu 401 ' dir.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Çağıran kaynağa erişmek için izinlere sahip olmadığı durumlarda Bing InsufficientAuthorization döndürür. Bu abonelik anahtarını devre dışı bırakıldı veya süresi ortaya çıkabilir. <br/><br/>Hata InsufficientAuthorization, HTTP durum kodu 403 ise.
@@ -66,7 +66,7 @@ InvalidAuthorizationMethod|InvalidAuthorization
 MultipleAuthorizationMethod|InvalidAuthorization.AuthorizationRedundancy
 ExpiredAuthorizationToken|InsufficientAuthorization.AuthorizationExpired
 InsufficientScope|InsufficientAuthorization
-Engellendi|InvalidRequest.Blocked
+Engellenmiş|InvalidRequest.Blocked
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

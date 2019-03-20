@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fd3fd396333c00f8f1983250b732e69531d5d1d
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3bed8a5d20b50fd90922730c958cb1a36933776f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737562"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881053"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD erişim gözden geçirmeleriyle konuk erişimini yönetme
 
@@ -44,7 +44,7 @@ Ayrıca kendi erişimini gözden geçirmek için konuk kullanıcıları sorabili
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Oluşturma ve konuklar için erişim gözden geçirmesi gerçekleştirme
 
-İlk olarak genel yönetici veya kullanıcı hesabı yöneticisi olarak Git [erişim gözden geçirmeleri sayfasına](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) erişim gözden geçirmeleri, kuruluşunuz için hazır olduğundan emin olun. 
+İlk olarak genel yönetici veya Kullanıcı Yöneticisi Git [erişim gözden geçirmeleri sayfasına](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) erişim gözden geçirmeleri, kuruluşunuz için hazır olduğundan emin olun.
 
 Azure AD, Konuk kullanıcıları gözden geçirme için çeşitli senaryolara olanak sağlar.
 

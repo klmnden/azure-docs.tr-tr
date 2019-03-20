@@ -2,25 +2,25 @@
 title: Kapsayıcı günlüklerini ve olayları Azure Container Instances ile alın
 description: Kapsayıcı günlüklerini ve olayları Azure Container Instances ile hata ayıklama hakkında bilgi edinin
 services: container-instances
-author: jluk
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: juluk
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 21e75beffbf592f25257b0dca7ba48b0ffe560a8
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ae6a0f311366245d9b64aa9379ffad043ec7ba33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669780"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835688"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Kapsayıcı günlüklerini ve olayları Azure Container ınstances'da alma
 
 İle onun günlüklerini görüntüleyerek davranan bir kapsayıcıya sahip olduğunuzda, Başlat [az kapsayıcı günlüklerini][az-container-logs]ve kendi standart çıkış ve standart hata akışı [az kapsayıcı ekleme] [az-container-attach].
 
-## <a name="view-logs"></a>Günlükleri görüntüleme
+## <a name="view-logs"></a>Günlükleri görüntüle
 
 Bir kapsayıcıdaki uygulama kodunuzdan günlükleri görüntülemek için kullanabileceğiniz [az kapsayıcı günlüklerini] [ az-container-logs] komutu.
 

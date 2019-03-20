@@ -10,12 +10,12 @@ ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, açık hizmet Aracısı, Azure için açık hizmet Aracısı
-ms.openlocfilehash: 0655176a044da6b4dd6b7327aedf5eb17d79f04a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 46fa5564e5dd3429f812b263295044d867a8511c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432813"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991975"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Mevcut MongoDB uygulamasını Azure Cosmos DB API ile MongoDB ile açık hizmet Aracısı (OSBA) Azure için tümleştirme
 
@@ -81,7 +81,7 @@ Uygulamanızı başlatmak ve kullanmak üzere bilgi *mongodb* profili:
 java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 ```
 
-Gidin http://localhost:8080 tarayıcınızda.
+Gidin `http://localhost:8080` tarayıcınızda.
 
 ![Varsayılan verilerle Spring Music uygulaması](media/music-app.png)
 
@@ -184,7 +184,7 @@ java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 
 Hala uygulamanızın kullandığı fark *mongodb* profili ve ile başlayan URI *mongodb: / /* Cosmos DB veritabanına bağlanmak için. [Azure Cosmos DB MongoDB API'si](../cosmos-db/mongodb-introduction.md) Bu uyumluluk sağlar. Bu bir MongoDB veritabanını kullanıyor, ancak gerçekte Cosmos DB kullanarak yokmuş gibi çalışmaya devam etmesini sağlar.
 
-Gidin http://localhost:8080 tarayıcınızda. Varsayılan veri geri dikkat edin. Silerek onunla etkileşim kurabilir birkaç mevcut Albümler ve birkaç yenilerini oluşturma. Uygulamanızı durdurma, yeniden başlatmayı ve tarayıcınızda sayfasına dönüp değişikliklerinizi kalıcı doğrulayabilirsiniz. Yaptığınız değişiklikleri yine de olduğuna dikkat edin. Azure için açık hizmet aracısı kullanarak oluşturduğunuz Cosmos DB'ye değişiklikleri kalıcı.
+Gidin `http://localhost:8080` tarayıcınızda. Varsayılan veri geri dikkat edin. Silerek onunla etkileşim kurabilir birkaç mevcut Albümler ve birkaç yenilerini oluşturma. Uygulamanızı durdurma, yeniden başlatmayı ve tarayıcınızda sayfasına dönüp değişikliklerinizi kalıcı doğrulayabilirsiniz. Yaptığınız değişiklikleri yine de olduğuna dikkat edin. Azure için açık hizmet aracısı kullanarak oluşturduğunuz Cosmos DB'ye değişiklikleri kalıcı.
 
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>AKS kümenizde uygulamanızı çalıştırın

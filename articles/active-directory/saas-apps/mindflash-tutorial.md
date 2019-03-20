@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 592628cb036972cdae2ab14501fc09fa8ddcb7cc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5d802bbf9766e7b85a739d9a14e8c790fee1b9fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761728"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855810"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Öğretici: Mindflash ile Azure Active Directory Tümleştirme
 
@@ -147,7 +147,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -202,9 +202,9 @@ Mindflash açarken Azure AD kullanıcılarının etkinleştirmek için bunların
 
     b. İçinde **Soyadı** metin kutusuna **Soyadı** olarak kullanıcı **Simon**.
     
-    c. İçinde **e-posta** metin kutusuna **e-posta adresi** olarak kullanıcı **BrittaSimon@contoso.com**.
+    c. İçinde **e-posta** metin kutusuna **e-posta adresi** olarak kullanıcı **BrittaSimon\@contoso.com**.
 
-    b. **Ekle**'ye tıklayın.
+    b. **Ekle**'yi tıklatın.
 
 >[!NOTE]
 >Herhangi diğer Mindflash kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri için AAD kullanıcı hesapları sağlamak Mindflash tarafından sağlanan. 

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d4204d4937b8eca2dcb3f656659f185f30c8bddf
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: af5d8e4146b7cf7b0b9c474b25b3ad48c9cb3902
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755054"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890041"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows bilgisayarları Azure Log Analytics hizmetine bağlayın
 
@@ -32,6 +32,10 @@ Aracı, aşağıdaki yöntemlerden birini kullanarak yüklenebilir. Çoğu yükl
 * Azure Otomasyonu (DSC) Desired State Configuration. DSC ortamınızda dağıtılmış Windows bilgisayarlar için bir komut dosyası ile Azure Otomasyonu'nda kullanma.  
 * PowerShell Betiği.
 * Windows Şirket içi Azure Stack'te çalışan sanal makineler için Resource Manager şablonu.  
+
+>[!NOTE]
+>Azure Güvenlik Merkezi (ASC) Microsoft Monitoring Agent (Log Analytics Windows aracısı olarak da bilinir) bağlıdır ve yükleyecek ve kendi dağıtımının bir parçası bir Log Analytics çalışma alanına raporlama yapacak yapılandırın. ASC, Log Analytics Windows Aracısı, aboneliğinizdeki tüm sanal makineler otomatik olarak yüklenmesini sağlar ve belirli bir çalışma alanına raporlama yapacak yapılandırır otomatik sağlama seçeneği de sunar. Bu seçenek hakkında daha fazla bilgi için bkz. [Log Analytics aracısını otomatik sağlamayı etkinleştirme](../../security-center/security-center-enable-data-collection.md#enable-automatic-provisioning-of-log-analytics-agent-).
+>
 
 Desteklenen yapılandırmayı anlamak için [desteklenen Windows işletim sistemlerini](log-analytics-agent.md#supported-windows-operating-systems) ve [ağ güvenlik duvarı yapılandırmasını](log-analytics-agent.md#network-firewall-requirements) inceleyin.
 
@@ -89,7 +93,7 @@ Aracı için indirilen dosyayı kendi içinde yükleme paketidir.  Destekleyici 
 
 Aşağıdaki tabloda, Automation DSC kullanılarak dağıtıldığında dahil olmak üzere aracı için kurulum tarafından desteklenen belirli parametreleri vurgulanmaktadır.
 
-|MMA özgü seçenekleri                   |Notlar         |
+|MMA özgü seçenekleri                   |Notes         |
 |---------------------------------------|--------------|
 | NOAPM = 1                               | İsteğe bağlı parametre. Olmadan .NET uygulama performansı izleme Aracısı'nı yükler.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = çalışma alanına raporlama yapacak aracısını yapılandırma                |

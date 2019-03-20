@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: 15b7bae6116d05e7bf4cd76a1ba1b93bb127fef8
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: d4b8fd6ccb3fc7cb2627d4bd3e103239181e4d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313101"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994380"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Sanal ağ desteği için bir Premium Azure önbelleği için Redis yapılandırma
 Azure önbelleği için Redis önbellek boyutunu ve özelliklerini, kümeleme, Kalıcılık ve sanal ağ desteği gibi Premium katman özellikleri dahil olmak üzere tercih ettiğiniz esneklik sağlayan farklı bir önbellek teklifleri sahiptir. Bir sanal ağ, bulutta özel bir ağdır. Bir Azure önbelleği için Redis örneği bir VNet ile yapılandırıldığında, genel olarak adreslenebilir değildir ve yalnızca sanal makineler ve sanal ağ içindeki uygulamalardan erişilebilir. Bu makalede, Redis örneği için bir premium Azure Cache için sanal ağ desteğini yapılandırma açıklanır.
@@ -106,7 +106,7 @@ Azure önbelleği için Redis sanal ağ içinde barındırıldığında, bağlan
 
 Yedi giden bağlantı noktası gereksinimleri vardır.
 
-- İstenen, tüm giden bağlantılar internet üzerinden yapılan, istemcinin denetim cihaz şirket içi.
+- Tüm giden internet bağlantıları üzerinden bir istemciye yapılabilmesi için kullanıcının şirket içi denetim cihaz.
 - Üç bağlantı noktalarının Azure depolama ve Azure DNS hizmeti Azure uç noktaları için trafiği yönlendirme.
 - Kalan bağlantı noktası aralıkları ve dahili Redis alt ağ iletişimi için. Hiçbir alt ağda NSG kuralları iç Redis alt ağ iletişimleri için gerekli değildir.
 

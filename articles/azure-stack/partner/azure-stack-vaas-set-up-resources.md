@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad97381d983446dfcc32dd1ba82af587a500b9da
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 55c9120547472bb9a9a74533fe532d346844e89c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762152"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081772"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Öğretici: Hizmet olarak doğrulama için kaynaklarını ayarlama
 
@@ -32,7 +32,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Azure Active Directory (AD) ayarlama ayarlayarak VaaS kullanmaya hazır olun.
-> * Depolama hesabı oluşturma.
+> * Bir depolama hesabı oluşturun.
 
 ## <a name="configure-an-azure-ad-tenant"></a>Azure AD kiracısı yapılandırın
 
@@ -56,13 +56,13 @@ Kuruluşunuz VaaS hizmetlerine erişmek için kullanacağı bir kiracı oluştur
 
     Rolleri atamak için **Azure Stack doğrulama hizmeti** uygulama:
 
-    1. [Azure Portal](https://portal.azure.com) oturum açın.
-    2. Seçin **tüm hizmetleri** > **Azure Active Directory** altında **kimlik** bölümü.
-    3. Seçin **kurumsal uygulamalar** > **Azure Stack doğrulama hizmeti** uygulama.
-    4. **Kullanıcı ve gruplar**'ı seçin. **Azure Stack doğrulama hizmeti - kullanıcı ve grup** dikey penceresinde uygulamayı kullanmak için izne sahip kullanıcılar listelenir.
-    5. Seçin **+ Ekle kullanıcı** kiracınızdan bir kullanıcı ekleyin ve bir rol atayın.
+   1. [Azure Portal](https://portal.azure.com) oturum açın.
+   2. Seçin **tüm hizmetleri** > **Azure Active Directory** altında **kimlik** bölümü.
+   3. Seçin **kurumsal uygulamalar** > **Azure Stack doğrulama hizmeti** uygulama.
+   4. **Kullanıcı ve gruplar**'ı seçin. **Azure Stack doğrulama hizmeti - kullanıcı ve grup** dikey penceresinde uygulamayı kullanmak için izne sahip kullanıcılar listelenir.
+   5. Seçin **+ Ekle kullanıcı** kiracınızdan bir kullanıcı ekleyin ve bir rol atayın.
 
-    VaaS kaynaklara ve işlemlere bir kuruluştaki farklı gruplar arasında yalıtmak istiyorsanız, birden çok Azure AD Kiracı dizin oluşturabilirsiniz.
+      VaaS kaynaklara ve işlemlere bir kuruluştaki farklı gruplar arasında yalıtmak istiyorsanız, birden çok Azure AD Kiracı dizin oluşturabilirsiniz.
 
 ### <a name="register-your-tenant"></a>Kiracınızı kaydetme
 
@@ -70,7 +70,7 @@ Bu işlem, kiracınız ile yetkilendirir **Azure Stack doğrulama hizmeti** Azur
 
 1. Microsoft'ta Kiracı hakkında aşağıdaki bilgileri gönderin [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
 
-    | Veriler | Açıklama |
+    | Veri | Açıklama |
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Kuruluş Adı | Resmi kuruluş adı. |
     | Azure AD Kiracısı dizin adı | Kayıtlı Azure AD Kiracısı dizin adı. |

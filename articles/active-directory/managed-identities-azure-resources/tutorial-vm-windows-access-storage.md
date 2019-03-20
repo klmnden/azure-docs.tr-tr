@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 999d4de1b63884d86fa646ca6cd0d4683678990c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7308d5715b1ac8abc62bb26ad3636423bbd727ba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312231"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889769"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Öğretici: Azure Depolama’ya erişmek için Windows VM sistem tarafından atanan yönetilen kimliği kullanma
 
@@ -51,7 +51,7 @@ Bu bölümde bir depolama hesabı oluşturursunuz.
 5. **Abonelik** ve **Kaynak Grubu** değerlerinin, önceki adımda VM'nizi oluştururken belirttiklerinizle eşleştiğinden emin olun.
 6. **Oluştur**’a tıklayın.
 
-    ![Yeni depolama hesabı oluşturma](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Yeni depolama hesabı oluştur](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Bir blob kapsayıcı oluşturma ve depolama hesabına dosya yükleme
 
@@ -87,7 +87,7 @@ Azure depolama blobundaki verileri almak için VM’nin sistem tarafından atana
 
 Azure Depolama, Azure AD kimlik doğrulamasını yerel olarak desteklediğinden yönetilen kimlik kullanılarak alınan erişim belirteçlerini doğrudan kabul eder. Bu, Azure Depolama’nın Azure AD tümleştirmesi kapsamındadır ve bağlantı dizesinde kimlik bilgileri sağlama işleminden farklıdır.
 
-Bir erişim belirteci kullanarak Azure Depolama’ya bağlantı açma ve ardından daha önce oluşturduğunuz dosyanın içeriklerini okumaya yönelik .Net kod örneği aşağıda verilmiştir. Bu kodun, VM’nin yönetilen kimlik uç noktasına erişebilmesi için VM üzerinde çalıştırılması gerekir. .NET framework 4.6 veya üzerini, erişim belirteci yöntemini kullanmak için gereklidir. `<URI to blob file>` değerini uygun şekilde değiştirin. Blob depolama alanına oluşturup yüklediğiniz dosyaya giderek ve **Özellikler**’in altındaki **URL**’yi **Genel bakış** sayfasına kopyalayarak bu değeri alabilirsiniz.
+Bir bağlantı açmak, bir .NET kod örneği İşte Azure erişim belirteci kullanarak ve ardından daha önce oluşturduğunuz dosyanın içeriğini okumak depolama alanı. Bu kodun, VM’nin yönetilen kimlik uç noktasına erişebilmesi için VM üzerinde çalıştırılması gerekir. .NET framework 4.6 veya üzerini, erişim belirteci yöntemini kullanmak için gereklidir. `<URI to blob file>` değerini uygun şekilde değiştirin. Blob depolama alanına oluşturup yüklediğiniz dosyaya giderek ve **Özellikler**’in altındaki **URL**’yi **Genel bakış** sayfasına kopyalayarak bu değeri alabilirsiniz.
 
 ```csharp
 using System;

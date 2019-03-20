@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 16c37f5ccaed7c161ecaae65a07c5da7400aad3c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 776523bb001848e6ecc153f670a96e3143e2ac0d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815090"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006339"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure'a Hyper-V olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısını çalıştırın
 
@@ -34,6 +34,7 @@ Aşağıdaki tabloda, aracın GetVMList modunda çalışması için gereken zoru
 ```
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
+
 | Parametre adı | Açıklama |
 |---|---|
 | -Operation | GetVMList |
@@ -83,6 +84,7 @@ Aşağıdaki tabloda, aracın profil oluşturma modunda çalışması için gere
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
+
 | Parametre adı | Açıklama |
 |---|---|
 | -Operation | StartProfiling |
@@ -164,6 +166,7 @@ Aşağıdaki tabloda, rapor oluşturma modunda çalışmaya yönelik zorunlu ve 
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
+
 | Parametre adı | Açıklama |
 |---|---|
 | -Operation | GenerateReport |
@@ -271,6 +274,7 @@ Bir komut satırı konsolu açın ve Azure Site Recovery dağıtım planlama ara
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
+
  Parametre adı | Açıklama |
 |---|---|
 | -Operation | GetThroughput |

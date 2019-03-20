@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/15/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6457a04419012ef80432d8603caae21bbacde59b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 34cd03ad6640ac809ce8ac2e8f4fc1070246df27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170967"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886873"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Azure CLI kullanarak sanal makine ölçek kümesi üzerinde Azure kaynakları için yönetilen kimlik Yapılandır
 
@@ -168,13 +168,10 @@ Bu bölümde, bir VMSS oluşturulmasını ve kullanıcı tarafından atanan bir 
 
 1. Kullanıcı tarafından atanan yönetilen kimliği oluşturmak için [az identity create](/cli/azure/identity#az-identity-create) kullanın.  `-g` parametresi kullanıcı tarafından atanan yönetilen kimliğin oluşturulduğu kaynak grubunu belirtirken, `-n` parametresi de bunun adını belirtir. `<RESOURCE GROUP>` ve `<USER ASSIGNED IDENTITY NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın:
 
-    > [!IMPORTANT]
-    > Adında özel karakterler (örneğin, alt çizgi) ile kullanıcı tarafından atanan yönetilen kimlikleri oluşturma şu anda desteklenmiyor. Lütfen alfasayısal karakterler kullanın. Güncelleştirmeler için sonra yeniden denetleyin.  Daha fazla bilgi için [SSS ve bilinen sorunlar](known-issues.md)
-
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
     ```
-Yanıt, aşağıdakine benzer şekilde oluşturulmuş kullanıcı tarafından atanan yönetilen kimlik ayrıntılarını içerir.
+   Yanıt, aşağıdakine benzer şekilde oluşturulmuş kullanıcı tarafından atanan yönetilen kimlik ayrıntılarını içerir.
 
    ```json
    {

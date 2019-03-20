@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 3d9106fb682a370e18fc78d35ca31662bae44524
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310650"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080074"
 ---
 # <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
@@ -85,22 +85,22 @@ Toplayıcı sağlamak için Azure geçişi hizmetini internet üzerinden bağlan
 - Proxy sunucusunun IP adresini/FQDN'yi olarak belirtilen *http://IPaddress* veya *http://FQDN*.
 - Yalnızca HTTP proxy’si desteklenir. HTTPS tabanlı Ara sunucuları toplayıcı tarafından desteklenmiyor.
 - Araya giren bir proxy Web sunucusunda ise Toplayıcı VM proxy sertifikasını içeri aktarmanız gerekir.
-    1. Toplayıcı sanal makinesi, Git **Başlat menüsü** > **bilgisayar sertifikalarını yönetme**.
-    2. Sertifika Aracı'nda altında **sertifikalar - yerel bilgisayar**, bulma **Güvenilen Yayımcılar** > **sertifikaları**.
+  1. Toplayıcı sanal makinesi, Git **Başlat menüsü** > **bilgisayar sertifikalarını yönetme**.
+  2. Sertifika Aracı'nda altında **sertifikalar - yerel bilgisayar**, bulma **Güvenilen Yayımcılar** > **sertifikaları**.
 
-        ![Sertifika aracı](./media/concepts-intercepting-proxy/certificates-tool.png)
+      ![Sertifika aracı](./media/concepts-intercepting-proxy/certificates-tool.png)
 
-    3. Proxy sertifikası, Toplayıcı VM'yi kopyalayın. Ağ yöneticinizden alması gerekebilir
-    4. Sertifika açmak için çift tıklatın ve **sertifikayı yükle**.
-    5. Sertifika İçeri Aktarma Sihirbazı'nda > Store konumu seçin **yerel makine**.
+  3. Proxy sertifikası, Toplayıcı VM'yi kopyalayın. Ağ yöneticinizden alması gerekebilir
+  4. Sertifika açmak için çift tıklatın ve **sertifikayı yükle**.
+  5. Sertifika İçeri Aktarma Sihirbazı'nda > Store konumu seçin **yerel makine**.
 
-    ![Sertifika depolama konumu](./media/concepts-intercepting-proxy/certificate-store-location.png)
+     ![Sertifika depolama konumu](./media/concepts-intercepting-proxy/certificate-store-location.png)
 
-    6. Seçin **tüm sertifikaları aşağıdaki depolama alanına yerleştir** > **Gözat** > **Güvenilen Yayımcılar**. Tıklayın **son** sertifikayı içeri aktarmak için.
+  6. Seçin **tüm sertifikaları aşağıdaki depolama alanına yerleştir** > **Gözat** > **Güvenilen Yayımcılar**. Tıklayın **son** sertifikayı içeri aktarmak için.
 
-    ![Sertifika deposu](./media/concepts-intercepting-proxy/certificate-store.png)
+     ![Sertifika deposu](./media/concepts-intercepting-proxy/certificate-store.png)
 
-    7. Sertifika beklendiği gibi alınır ve internet bağlantısı Önkoşul denetimi works olarak beklenen denetleyin.
+  7. Sertifika beklendiği gibi alınır ve internet bağlantısı Önkoşul denetimi works olarak beklenen denetleyin.
 
 
 ### <a name="urls-for-connectivity"></a>Bağlantı için URL'leri
@@ -155,7 +155,7 @@ Toplayıcı gerecini her VM için aşağıdaki yapılandırma meta verileri bulu
 
 - VM görünen adı (temel, vCenter sunucusu)
 - Sanal makinenin envanteri yolu (konak/klasörü vCenter Server)
-- IP adresi
+- IP Adresi
 - MAC adresi
 - İşletim sistemi
 - Çekirdek, disk, NIC sayısı

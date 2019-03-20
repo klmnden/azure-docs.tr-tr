@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb752a6b598c9fe7f146cd6ce96182405fc0dc6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 86148d428bc526e071f095233b0692a6f3775a7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167686"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Öğretici: Jitbit Yardım Masası ile Azure Active Directory Tümleştirme
 
@@ -114,6 +114,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve J
     ![Çoklu oturum açmayı yapılandırın](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_url.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: 
+    
     | |     
     | ----------------------------------------|
     | `https://<hostname>/helpdesk/User/Login`|
@@ -224,7 +225,7 @@ Azure AD kullanıcılarının Jitbit Yardım Masası oturum etkinleştirmek içi
    
    a. İçinde **kullanıcıadı** metin kutusuna **BrittaSimon**, Azure portalında olduğu gibi kullanıcı adı.
 
-   b. İçinde **e-posta** metin kutusu, kullanıcının e-posta ister **BrittaSimon@contoso.com**.
+   b. İçinde **e-posta** metin kutusu, kullanıcının e-posta ister **BrittaSimon\@contoso.com**.
 
    c. İçinde **ad** metin adı gibi kullanıcı türü **Britta**.
 

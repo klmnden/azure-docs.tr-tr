@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 13042a25a0bf106dd579e7d5e8cf8553a79c8f00
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: bf2f2db57f33645389fd751c8c00f9f135416c50
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002115"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864142"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Android için akış çevrimdışı Widevine  
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Sürüm 3](../latest/offline-widevine-for-android.md)
+> * [Sürüm 2](offline-widevine-for-android.md)
 
 Çevrimiçi akış içeriği korumaya ek olarak, abonelik ve internet'e bağlı olmadıkları sırada çalışır kiralama Hizmetleri teklif indirilebilir içeriği medya içerik. Telefonunuzu üzerine içerik indirmek ihtiyacınız olabilecek veya tablet çıkış, uçak modu, kayıttan yürütme için ağdan bağlantısı kesilebilir. İçerik indirmek isteyebileceğiniz ek senaryolar:
 

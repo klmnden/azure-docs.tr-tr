@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: aa55dce4b06eb895ef0b8745978d644e4e2f52b5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 4b1c829a417d050b4d931611d9f2952e01582f04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408862"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089480"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Azure Resource Manager şablon bulut tutarlılık için geliştirme
 
@@ -63,13 +63,13 @@ Azure Resource Manager özellikleri her zaman genel Azure'a ilk sunulacaktır. Y
 
 1. Psm1 modülünü içeri aktarın ve Test AzureRmureRmTemplateFunctions cmdlet'ini yürütün:
 
-  ```powershell
-  # Import the module
-  Import-module <path to local clone>\AzTemplateFunctions.psm1
+   ```powershell
+   # Import the module
+   Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzureRmTemplateFunctions cmdlet
-  Test-AzureRmTemplateFunctions -path <path to local clone>
-  ```
+   # Execute the Test-AzureRmTemplateFunctions cmdlet
+   Test-AzureRmTemplateFunctions -path <path to local clone>
+   ```
 
 Birden çok betik dağıtır şablonları, her biri yalnızca benzersiz şablon işlevlerini içeren simge. Komut çıktısı, desteklenen ve kullanılabilir şablon işlevleri bildirir.
 

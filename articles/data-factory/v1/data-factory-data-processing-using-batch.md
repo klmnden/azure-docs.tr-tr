@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6ffed81390419898847ce1b1b9e6b2b48a749cdf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548481"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124159"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory ve Batch kullanarak işlem büyük ölçekli veri kümeleri
 > [!NOTE]
@@ -192,7 +192,7 @@ Yöntemi anlamanız gereken birkaç önemli bileşenden oluşur:
 
    f. Seçin **C:\\ADF** için **konumu**. Klasör Oluştur **ADF** yoksa.
 
-   g. Projeyi oluşturmak için **Tamam**'ı seçin.
+   g. Seçin **Tamam** projeyi oluşturmak için.
 
 1. Seçin **Araçları** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**.
 
@@ -525,7 +525,7 @@ Her etkinlik için bir görev oluşturulur. Bu örnekte, işlem hattında yalnı
 
 Aşağıdaki örneklerde, ek ayrıntılar sağlar.
 
-#### <a name="step-1-create-the-data-factory"></a>1. Adım: Veri Fabrikası oluşturma
+#### <a name="step-1-create-the-data-factory"></a>1. adım: Veri Fabrikası oluşturma
 1. İçin oturum açtıktan sonra [Azure portalında](https://portal.azure.com/), aşağıdaki adımları uygulayın:
 
    a. Seçin **yeni** sol menüsünde.
@@ -548,7 +548,7 @@ Aşağıdaki örneklerde, ek ayrıntılar sağlar.
 
    ![Veri Fabrikası sayfası](./media/data-factory-data-processing-using-batch/image6.png)
 
-#### <a name="step-2-create-linked-services"></a>2. Adım: Bağlı hizmetler oluşturma
+#### <a name="step-2-create-linked-services"></a>2. adım: Bağlı hizmetler oluşturma
 Bağlı hizmetler veri depolarını veya işlem Hizmetleri data factory'ye. Bu adımda, depolama hesabınızın ve Batch hesabı veri fabrikanıza bağlarsınız.
 
 #### <a name="create-an-azure-storage-linked-service"></a>Azure Depolama bağlı hizmeti oluşturma
@@ -562,7 +562,7 @@ Bağlı hizmetler veri depolarını veya işlem Hizmetleri data factory'ye. Bu a
 
 1. Bağlı hizmeti dağıtmak için komut çubuğunda **Dağıt**’ı seçin.
 
-   ![Dağıtma](./media/data-factory-data-processing-using-batch/image8.png)
+   ![Dağıt](./media/data-factory-data-processing-using-batch/image8.png)
 
 #### <a name="create-an-azure-batch-linked-service"></a>Bir Azure Batch bağlı hizmeti oluşturma
 Bu adımda, data factory özel etkinliği çalıştırmak için kullanılan Batch hesabınız için bağlı hizmet oluşturun.
@@ -597,7 +597,7 @@ Bu adımda, data factory özel etkinliği çalıştırmak için kullanılan Batc
 
 1. Bağlı hizmeti dağıtmak için komut çubuğunda **Dağıt**’ı seçin.
 
-#### <a name="step-3-create-datasets"></a>3. Adım: Veri kümeleri oluşturma
+#### <a name="step-3-create-datasets"></a>3. adım: Veri kümeleri oluşturma
 Bu adımda, girdi ve çıktı verilerini temsil eden veri kümeleri oluşturun.
 
 #### <a name="create-the-input-dataset"></a>Girdi veri kümesini oluşturma
@@ -802,8 +802,8 @@ Bu adımda, bir etkinlik, daha önce oluşturduğunuz özel etkinliği ile işle
    * **LinkedServiceName** özel etkinlik özelliğini işaret **AzureBatchLinkedService**, Data Factory, toplu olarak çalıştırmak için özel etkinlik gereken söyler.
    * **Eşzamanlılık** ayar önemlidir. İki veya daha fazla işlem düğümleri Batch havuzundaki bile 1 ' dir, varsayılan değeri kullanırsanız dilim işlenir birbiri ardına. Bu nedenle, batch'in yeteneği paralel yararlanarak değildir. Ayarlarsanız **eşzamanlılık** daha yüksek bir değer 2 varsayalım, bu iki dilimler anlamına gelir (iki görevleri karşılık gelir) aynı anda işlenebilir. Bu durumda, hem Batch havuzu Vm'leri kullanılır. Eşzamanlılık özelliği uygun şekilde ayarlayın.
    * Yalnızca bir görev (dilim), varsayılan olarak herhangi bir noktada bir VM'de çalıştırılır. Varsayılan olarak, **VM başına en fazla görev** bir Batch havuzu için 1 olarak ayarlanır. Önkoşulların bir parçası, bu özelliği 2 olarak ayarlanmış bir havuz oluşturmuş. Bu nedenle, iki veri fabrikası dilimleri bir VM'de aynı anda çalıştırabilirsiniz.
-    - **İsPaused** özelliği varsayılan olarak false olarak ayarlanır. Geçmiş dilimler başlatmak için işlem hattı hemen bu örnekte çalışır. Bu özelliği ayarlamak **true** bunu döner ve işlem hattı duraklatmak için **false** yeniden başlatmak için.
-    -   **Başlat** ve **son** süreleri, beş saat artırırız. Dilimleri, işlem hattı tarafından beş dilimlerinin şekilde saatlik olarak oluşturulur.
+     - **İsPaused** özelliği varsayılan olarak false olarak ayarlanır. Geçmiş dilimler başlatmak için işlem hattı hemen bu örnekte çalışır. Bu özelliği ayarlamak **true** bunu döner ve işlem hattı duraklatmak için **false** yeniden başlatmak için.
+     -   **Başlat** ve **son** süreleri, beş saat artırırız. Dilimleri, işlem hattı tarafından beş dilimlerinin şekilde saatlik olarak oluşturulur.
 
 1. İşlem hattını dağıtmak için komut çubuğundan **Dağıt**’ı seçin.
 
@@ -849,7 +849,7 @@ Bu adımda, işlem hattının giriş klasörler halinde dosyaları bırakarak s�
 
 1. Üzerinde **OutputDataset** dikey penceresinde dilimle sağ **DİLİM başlangıç saati** kümesine **16/11/2015 01:00:00 AM'den**. Seçin **çalıştırma** dilimi yeniden çalıştırma/yeniden işleme için. Dilim beş dosya yerine bir dosya artık sahiptir.
 
-    ![Çalıştırın](./media/data-factory-data-processing-using-batch/image17.png)
+    ![Çalıştır](./media/data-factory-data-processing-using-batch/image17.png)
 
 1. Dilim çalıştırır ve durumunun sonra **hazır**, bu dilim için çıkış dosyasının içeriğini doğrulayın (**2015-11-16-01.txt**). Çıkış dosyası altında görünür `mycontainer` içinde `outputfolder` blob depolama alanınızda. Dilimin her dosya için bir satır olması gerekir.
 

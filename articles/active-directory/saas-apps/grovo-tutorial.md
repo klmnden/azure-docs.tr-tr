@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: e5ef2df3fb9cd329bc3052e0fc2874ed7c9ba934
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 37ba3b8082591f5eab97a7544a13c3279160a0ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774549"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861970"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Öğretici: Grovo ile Azure Active Directory Tümleştirme
 
@@ -125,7 +125,7 @@ Azure AD çoklu oturum açma ile Grovo yapılandırmak için aşağıdaki adıml
 
 6. Grovo uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**. Grovo uygulama bekliyor **NameIdentifier** ile eşlenecek **user.mail**tıklayarak özellik eşlemesi düzenlemeniz gerekir böylece **Düzenle** simgesi ve değişiklik öznitelik eşleme.
 
-    ![image](common/edit-attribute.png)
+    ![görüntü](common/edit-attribute.png)
 
 7. Yukarıdaki için ayrıca Grovo uygulama SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
 
@@ -133,14 +133,14 @@ Azure AD çoklu oturum açma ile Grovo yapılandırmak için aşağıdaki adıml
     | ------------------- | -------------------- |    
     | Ad          | User.givenName |
     | Soyadı           | User.surname |
-    | E-posta adresi       | User.Mail    |
+    | E-posta Adresi       | User.Mail    |
     | EmployeeID          | User.employeeid |
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![image](common/new-save-attribute.png)
+    ![görüntü](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![görüntü](common/new-attribute-details.png)
 
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
@@ -212,7 +212,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

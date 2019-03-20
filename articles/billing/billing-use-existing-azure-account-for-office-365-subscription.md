@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: 0b5e7a36c89c594dd0a7ec681b112ea523884461
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 5ac05991bc79dcfd24a527a13084b3a9383b4839
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904170"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904006"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Azure hesabınızı kullanarak Office 365 aboneliği için kaydolun
 Azure abonesi iseniz, bir Office 365 aboneliğine kaydolmak için Azure hesabınızı kullanabilirsiniz. Bir Azure aboneliğine sahip bir kuruluş bir parçası kullanıyorsanız, var olan Azure Active Directory'de (Azure AD) kullanıcıları için Office 365 abonelikleri oluşturabilirsiniz. Azure Active Directory kiracınızda genel yönetici veya faturalama yöneticisi izinlerine sahip bir hesap kullanarak Office 365 için kaydolun. Daha fazla bilgi için [hesabı İzinlerim Azure AD'de denetleyin](#RoleInAzureAD) ve [Azure Active Directory'de yönetici rolleri atama](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
@@ -71,4 +71,4 @@ Kaydolduktan sonra Office 365 aboneliğine Azure aboneliğinize ait aynı Azure 
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458). 

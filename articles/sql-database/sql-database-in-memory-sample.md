@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 9551f07efa9d388da69b6474f6a2dd5af947ff2c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2aa98c3958f1dffeb8adbad5e91a11f397d4a9fd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767660"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005732"
 ---
 # <a name="in-memory-sample"></a>Bellek içi örnek
 
@@ -190,11 +190,11 @@ Daha fazla bilgi için bkz.
 <!--
 dn511655.aspx is for SQL 2014,
 [Extensions to AdventureWorks to Demonstrate In-Memory OLTP]
-(http://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
+(https://msdn.microsoft.com/library/dn511655&#x28;v=sql.120&#x29;.aspx)
 
 whereas for SQL 2016+
 [Sample Database for In-Memory OLTP]
-(http://msdn.microsoft.com/library/mt465764.aspx)
+(https://msdn.microsoft.com/library/mt465764.aspx)
 -->
 
 
@@ -244,9 +244,9 @@ Sonuçtan sonra *_inmem* çalıştırın, için aşağıdaki adımları gerçekl
 
 
 1. Ssms'de önceki çalışması tarafından eklenen tüm verileri silmek için aşağıdaki komutu çalıştırarak veritabanını sıfırlama:
-```sql
-EXECUTE Demo.usp_DemoReset;
-```
+   ```sql
+   EXECUTE Demo.usp_DemoReset;
+   ```
 
 2. Tüm değiştirmek için ostress.exe komut satırı Düzenle *_inmem* ile *_ondisk*.
 
@@ -277,13 +277,13 @@ Bir OLTP iş yükü, gerçek zamanlı analizler için kümelenmemiş bir columns
 
 
 1. Örnekten yeni bir AdventureWorksLT veritabanı oluşturmak için Azure portalını kullanın.
- - Bu tam adını kullanın.
- - Her Premium Hizmet katmanını seçin.
+   - Bu tam adını kullanın.
+   - Her Premium Hizmet katmanını seçin.
 
 2. Kopyalama [sql_in memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) panonuza.
- - T-SQL betiği, 1. adımda oluşturduğunuz AdventureWorksLT örnek veritabanını gerekli bellek içi nesneleri oluşturur.
- - Betik, Boyut tablosuna ve iki olgu tabloları oluşturur. Olgu tabloları 3,5 milyon satır ile doldurulur.
- - Komut dosyasının tamamlanması 15 dakika sürebilir.
+   - T-SQL betiği, 1. adımda oluşturduğunuz AdventureWorksLT örnek veritabanını gerekli bellek içi nesneleri oluşturur.
+   - Betik, Boyut tablosuna ve iki olgu tabloları oluşturur. Olgu tabloları 3,5 milyon satır ile doldurulur.
+   - Komut dosyasının tamamlanması 15 dakika sürebilir.
 
 3. SSMS ile T-SQL betiğini yapıştırın ve ardından betiği yürütün. **COLUMNSTORE** anahtar sözcüğünü **CREATE INDEX** deyimi, önemli olarak:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 

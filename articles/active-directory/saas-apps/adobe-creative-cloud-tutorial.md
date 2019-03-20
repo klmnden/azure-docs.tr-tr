@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6b2c2345612727ca2b71adcf1a5e505abe3efe
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 35bd52904ab081e41cb43a346288234c18a7f43b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731395"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904057"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Öğretici: Adobe Creative Cloud ile Azure Active Directory Tümleştirme
 
@@ -114,7 +114,7 @@ Azure AD çoklu oturum açma Adobe Creative Cloud ile yapılandırmak için aşa
 
 5. Adobe Creative Cloud'a uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
 
-    ![image](common/edit-attribute.png)
+    ![görüntü](common/edit-attribute.png)
 
 6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
@@ -122,13 +122,13 @@ Azure AD çoklu oturum açma Adobe Creative Cloud ile yapılandırmak için aşa
     |----- | --------- |
     | FirstName | User.givenName |
     | LastName | User.surname |
-    | Email | User.Mail
+    | E-posta | User.Mail
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![image](common/new-save-attribute.png)
+    ![görüntü](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![görüntü](common/new-attribute-details.png)
 
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
@@ -205,7 +205,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -249,9 +249,9 @@ Azure AD kullanıcılarının Adobe Creative Cloud oturum etkinleştirmek için 
 2. Adobe Konsolu içinden kullanıcı Federasyon kimliği ekleyin ve bunları bir ürün profiline atayın. Kullanıcı ekleme ile ilgili ayrıntılı bilgi için bkz [Adobe Yönetici konsolunda kullanıcı ekleme](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. Bu noktada, e-posta adresi/upn Adobe signın forma SEKME tuşuna basın, yazın ve Azure AD ile federasyona eklenmesi:
-    * Web erişimi: www.adobe.com > oturum açma
-    * Masaüstü uygulaması yardımcı program içinde > oturum açma
-    * Uygulama içinde > Yardım > oturum açma
+   * Web erişimi: www\.adobe.com > oturum açma
+   * Masaüstü uygulaması yardımcı program içinde > oturum açma
+   * Uygulama içinde > Yardım > oturum açma
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 

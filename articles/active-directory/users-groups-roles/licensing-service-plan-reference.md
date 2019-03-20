@@ -1,6 +1,6 @@
 ---
 title: Ürün adları ve tanımlayıcıları lisans - planı hizmeti Azure AD | Microsoft Docs
-description: Azure portalı, Office 365 portalı, PowerShell veya Microsoft Graph, Azure Active Directory lisansı yönetmek için tanımlayıcı eşlemesi
+description: Azure portalı, Microsoft 365 Yönetim Merkezi, PowerShell veya Microsoft Graph Azure Active Directory lisansı yönetmek için tanımlayıcı eşlemesi
 services: active-directory
 keywords: Hizmet planları lisanslama Azure Active Directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.author: curtand
 ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77f0308905ab33cd18160389dfe50a0ed8bb5152
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: fc4580b4f600b06fc89e3fc8760679028765e03e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247537"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176438"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Ürün adları ve lisans için hizmet planı tanımlayıcıları
 
-Lisansları yönetirken [Azure portalında](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) veya Office 365 portalı, aşağıdakine benzer ürün adlarını görmenizi *Office 365 Kurumsal E3*. PowerShell v1.0 cmdlet'leri kullanırken, aynı ürün belirli ancak daha kolay bir adla tanımlanır: *ENTERPRISEPACK*. PowerShell v2.0 cmdlet'lerini veya Microsoft Graph kullanırken, aynı ürün bir GUID değeri kullanılarak tanımlanır: *6fd2c87f-b296-42f0-b197-1e91e994b900*. Aşağıdaki tabloda, en yaygın olarak kullanılan Microsoft çevrimiçi hizmet ürünleri listeler ve çeşitli kimliği değerlerine sağlar. Bu tablolar başvuru amaçlıdır ve bu makalenin son güncelleştirildiği tarih itibariyle doğru. Microsoft onları yeni eklenen Hizmetleri düzenli olarak güncelleştirmek plan değil.
+Lisansları yönetirken [Azure portalında](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) veya [Microsoft 365 Yönetim merkezini](https://admin.microsoft.com), şunun gibi görünen ürün adlarını görmenizi *Office 365 Kurumsal E3*. PowerShell v1.0 cmdlet'leri kullanırken, aynı ürün belirli ancak daha kolay bir adla tanımlanır: *ENTERPRISEPACK*. PowerShell v2.0 cmdlet'lerini veya Microsoft Graph kullanırken, aynı ürün bir GUID değeri kullanılarak tanımlanır: *6fd2c87f-b296-42f0-b197-1e91e994b900*. Aşağıdaki tabloda, en yaygın olarak kullanılan Microsoft çevrimiçi hizmet ürünleri listeler ve çeşitli kimliği değerlerine sağlar. Bu tablolar başvuru amaçlıdır ve bu makalenin son güncelleştirildiği tarih itibariyle doğru. Microsoft onları yeni eklenen Hizmetleri düzenli olarak güncelleştirmek plan değil.
 
 - **Ürün adı**: Yönetim portallarında kullanılan
 - **Dize kimliği**: Lisans işlemlerini gerçekleştirirken PowerShell v1.0 cmdlet'leri tarafından kullanılan

@@ -2,24 +2,24 @@
 title: Columnstore dizini performansını - Azure SQL veri ambarı | Microsoft Docs
 description: Bellek gereksinimlerini azaltın veya columnstore dizininin her satır sıkıştırır satır sayısını en üst düzeye çıkarmak için kullanılabilir belleğini artırma.
 services: sql-data-warehouse
-author: ckarst
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 03/18/2019
+ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: d956322233cb6b4f8502775dcf2f89d96fd5cafe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 859f0d168dcf1cc999f79ef22b5ba6669da79593
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463370"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189573"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Satır grubu kaliteli columnstore için en üst düzeye çıkarma
 
-Satır grubu kalite bir satır satır sayısı tarafından belirlenir. Bellek gereksinimlerini azaltın veya columnstore dizininin her satır sıkıştırır satır sayısını en üst düzeye çıkarmak için kullanılabilir belleğini artırma.  Sıkıştırma oranları artırmak ve performans columnstore dizinleri için sorgulamak için bu yöntemleri kullanın.
+Satır grubu kalite bir satır satır sayısı tarafından belirlenir. Kullanılabilir belleğin artırılması, columnstore dizininin her satır sıkıştırır satır sayısını en üst düzeye çıkarabilirsiniz.  Sıkıştırma oranları artırmak ve performans columnstore dizinleri için sorgulamak için bu yöntemleri kullanın.
 
 ## <a name="why-the-rowgroup-size-matters"></a>Satır grubu boyutu neden önemlidir
 Tek tek rowgroups olan sütun segmentleri tarayarak bir tabloda bir columnstore dizini tarar olduğundan, her satır satır sayısı en üst düzeye sorgu performansını geliştirir. RowGroups çok sayıda satır varsa, veri sıkıştırma diskten okunan için daha az veri yani artırır.
@@ -35,11 +35,11 @@ Toplu yük veya columnstore dizini yeniden oluşturma sırasında bazen hiç her
 
 10. 000'en az bir satır her satır sıkıştırmak için bellek yetersiz olduğunda, SQL veri ambarı, bir hata oluşturur.
 
-Toplu yükleme hakkında daha fazla bilgi için bkz. [toplu yükleme kümelenmiş columnstore dizinine](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+Toplu yükleme hakkında daha fazla bilgi için bkz. [toplu yükleme kümelenmiş columnstore dizinine](https://msdn.microsoft.com/library/dn935008.aspx#Bulk ).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Satır grubu kalitesini izleme
 
-Rowgroups ve kırpma vardır, kırpma nedenini satır sayısı gibi yararlı bilgiler sunan bir DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) yoktur. Satır grubu kırpmayı hakkında bilgi edinmek için bu DMV sorgulamak için kullanışlı bir yöntem olarak, aşağıdaki görünümü oluşturabilirsiniz.
+DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) SQL veri ambarı SQL DB eşleşen görünüm tanımını içeren), yararlı bilgiler de kullanıma sunar. rowgroups ve kırpma vardır, kırpma nedenini satır sayısı gibi. Satır grubu kırpmayı hakkında bilgi edinmek için bu DMV sorgulamak için kullanışlı bir yöntem olarak, aşağıdaki görünümü oluşturabilirsiniz.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -137,14 +137,6 @@ DWU boyutu ve birlikte kullanıcı kaynak sınıfı için bir kullanıcı sorgu 
 
 - Dwu'lar artırmak için bkz: [nasıl ı ölçeklendirme performans?](quickstart-scale-compute-portal.md)
 - Kaynak sınıfı için bir sorgu değiştirmek için bkz [kullanıcı kaynak sınıfı örneğini değiştirmek](resource-classes-for-workload-management.md#change-a-users-resource-class).
-
-Örneğin, üzerinde 100 DWU smallrc kaynak sınıfındaki kullanıcı 100 MB bellek her dağıtım için kullanabilirsiniz. Ayrıntılar için bkz. [eşzamanlılık SQL veri ambarı'nda](resource-classes-for-workload-management.md).
-
-Yüksek kaliteli satır grubu boyutları almak için 700 MB bellek gerektiğini belirlemek varsayalım. Bu örnekler yük sorgu yeterli belleğe sahip nasıl çalıştırabileceğiniz gösterir.
-
-- DWU 1000 ve mediumrc kullanarak, bellek ataması 800 MB olan
-- DWU 600 ve largerc kullanarak, bellek ataması 800 MB'tır.
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

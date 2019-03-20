@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168252"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894096"
 ---
 <a name="create-a-microsoft-developer-account"></a>Microsoft Developer hesabı oluşturma
 ====================================
@@ -90,7 +90,7 @@ Microsoft Developer Center şirket bilgilerinin bir kere kaydetmek için kullan�
 
 1. Yeni bir InPrivate Internet Explorer veya Chrome gizli gözatma oturumunda, kişisel bir hesapla oturum açmadıysanız emin olmak için açın.
 
-2. Git [Windows Dev Center](http://dev.windows.com/registration?accountprogram=azure) kendiniz bir satıcı kaydedilecek. Devam etmeden önce lütfen aşağıdaki önemli nota okuyun.
+2. Git [Windows Dev Center](https://dev.windows.com/registration?accountprogram=azure) kendiniz bir satıcı kaydedilecek. Devam etmeden önce lütfen aşağıdaki önemli nota okuyun.
 
    ![Microsoft hesabı doğrulama](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-verify.jpg)
 
@@ -157,7 +157,7 @@ Ticari teklifleri satın alma için yayımlamak için ödeme ve vergi bilgilerin
 
 **Banka bilgi sağlamak için**
 
-1.  Oturum [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) Microsoft hesabınızla.
+1.  Oturum [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) Microsoft hesabınızla.
 2.  Seçin **ödeme hesap** soldaki menüde altında **ödeme yöntemi seçin**seçin **banka hesabı** veya **PayPal**.
 
     >[!NOTE]
@@ -173,7 +173,7 @@ Ticari teklifleri satın alma için yayımlamak için ödeme ve vergi bilgilerin
 
 **Vergi bilgileri sağlamak için**
 
-1.  Oturum [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) Microsoft hesabınıza (gerekirse).
+1.  Oturum [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) Microsoft hesabınıza (gerekirse).
 2.  Sol menüden **vergi profili**.
 3.  Üzerinde **, vergi formunu'kurmak** sayfası:
     - Ülke veya kalıcı yerleşimi bulunduğu bölgeyi seçin.

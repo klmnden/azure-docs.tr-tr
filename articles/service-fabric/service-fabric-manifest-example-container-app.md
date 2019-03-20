@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: ryanwi
-ms.openlocfilehash: bdff930e00bfebe1d702e397a9dfc7de15aa3225
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f358080b3bcada5515f578ad2215fa2b135c2f2d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156233"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878338"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Birden çok kapsayıcılı uygulama ve hizmet bildirimi örnekleri
 Çok kapsayıcılı bir Service Fabric uygulaması için uygulama ve hizmet bildirimleri örnekleri aşağıda verilmiştir. Bu örnekler amacı hangi ayarlar kullanılabilir ve bunların nasıl kullanılacağını göstermektir. Bu uygulama ve hizmet bildirimleri dayalı [Windows Server 2016 kapsayıcı örnek](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) bildirimleri.
 
 Aşağıdaki özellikleri gösterilmiştir:
+
 |Bildirim|Özellikler|
 |---|---|
 |[Uygulama bildirimi](#application-manifest)| [ortam değişkenlerini geçersiz kılmak](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [kapsayıcı bağlantı noktasından konak eşlemeyi yapılandırma](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [kapsayıcı kayıt defteri kimlik doğrulamasını yapılandırma](service-fabric-get-started-containers.md#configure-container-registry-authentication), [kaynak İdaresi](service-fabric-resource-governance.md), [yalıtım modunu](service-fabric-get-started-containers.md#configure-isolation-mode), [işletim sistemi derleme özgü kapsayıcı görüntüleri belirtme](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
@@ -40,8 +41,8 @@ Bkz: [uygulama bildirim öğeleri](#application-manifest-elements), [FrontEndSer
 <ApplicationManifest ApplicationTypeName="Container.ApplicationType"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
     <Parameter Name="BackEndService_InstanceCount" DefaultValue="-1" />
     <Parameter Name="FrontEndService_InstanceCount" DefaultValue="-1" />
@@ -171,8 +172,8 @@ Bkz: [uygulama bildirim öğeleri](#application-manifest-elements), [FrontEndSer
 <ServiceManifest Name="FrontEndServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -221,8 +222,8 @@ Bkz: [uygulama bildirim öğeleri](#application-manifest-elements), [FrontEndSer
 <ServiceManifest Name="BackEndServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->

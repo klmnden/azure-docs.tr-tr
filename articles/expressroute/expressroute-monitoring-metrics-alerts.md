@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 115b1185575232800e060f67317e4973eea9ea53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d78c110f3317f4dd9f16cbe243aeca437e9890a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091773"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108806"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute izleme, ölçümler ve uyarılar
 
@@ -43,18 +43,18 @@ Gidilecek **ölçümleri**, izlemek istediğiniz bağlantı hattı için Express
 
 1. Uyarıları yapılandırmak için gidin **Azure İzleyici**, ardından **uyarılar**.
 
-  ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
+   ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
 2. Tıklayın **+ seçin hedef** ve ExpressRoute ağ geçidi bağlantı kaynağı seçin.
 
-  ![hedef]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![hedef]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Uyarı ayrıntılarını tanımlayın.
 
-  ![eylem grubu](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
+   ![eylem grubu](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
 4. Tanımlamak ve eylem grubunu ekleyin.
 
-  ![eylem grubu Ekle](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
+   ![eylem grubu Ekle](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
 
 ## <a name="alerts-based-on-each-peering"></a>Her eşleme bağlı uyarılar
 

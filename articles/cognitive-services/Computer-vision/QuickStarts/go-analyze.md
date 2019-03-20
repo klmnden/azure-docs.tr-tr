@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4e44bce29b1a9ca83cae009df5b10484d0b2739d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e783181e737a235a83149b1f22d699fe0aef0bfb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543721"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848669"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-go-in-computer-vision"></a>Hızlı Başlangıç: REST API kullanarak uzak bir resmi çözümleme ve görüntü işleme Git
 
@@ -33,7 +33,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Örneği oluşturup çalıştırmak için aşağıdaki adımları uygulayın:
 
-1. Aşağıdaki kodu bir metin düzenleyicisine kopyalayın.
+1. Kopyalama kodu bir metin düzenleyicisine aşağıda.
 1. Gerektiğinde kodda aşağıdaki değişiklikleri yapın:
     1. `subscriptionKey` değerini abonelik anahtarınızla değiştirin.
     1. Gerekirse `uriBase` değerini [Görüntü Analizi](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) yönteminin abonelik anahtarlarınızı aldığınız Azure bölgesinden uç nokta URL'si ile değiştirin.
@@ -177,10 +177,6 @@ Başarılı bir yanıt JSON biçiminde döndürülür. Örnek uygulama, aşağı
   "requestId": "a92f89ab-51f8-4735-a58d-507da2213fc2"
 }
 ```
-
-## <a name="clean-up-resources"></a>Kaynakları temizleme
-
-Artık gerekli değilse derlenmiş paketi ve içinden paketin derlenmiş olduğu dosyayı silin, ardından komut istemi penceresini ve metin düzenleyicisini kapatın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

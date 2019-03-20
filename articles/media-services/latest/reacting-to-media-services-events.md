@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 3541a5b33aa0bb98d9381b51caefc63b6aa677ad
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: cb5d6474a0c830933c712e1008015b5220617c96
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377558"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850913"
 ---
 # <a name="handling-event-grid-events"></a>Event Grid olaylarını işleme
 
@@ -24,26 +24,9 @@ Media Services olaylarını uygulamaları modern sunucusuz mimarileri kullanarak
 
 Kullanılabilirlik için Media Services olayları Event Grid'e bağlı [kullanılabilirlik](../../event-grid/overview.md) ve Event Grid gibi diğer bölgelerde kullanıma sunulacaktır.  
 
-## <a name="available-media-services-events"></a>Kullanılabilir Media Services olayları
+## <a name="media-services-events-and-schemas"></a>Media Services olaylarını ve şemalar
 
-Event grid'i kullanır [olay abonelikleri](../../event-grid/concepts.md#event-subscriptions) abonelere olay iletileri yönlendirmek için.  Şu anda, Media Services olay abonelikleri aşağıdaki olaylar içerebilir:  
-
-|Olay Adı|Açıklama|
-|----------|-----------|
-| Microsoft.Media.JobStateChange| Bir işin değişiklikleri durumu değiştiğinde harekete geçirilen. |
-| Microsoft.Media.LiveEventConnectionRejected | Kodlayıcı'nın bağlantı girişimini reddetti. |
-| Microsoft.Media.LiveEventEncoderConnected | Kodlayıcı Canlı etkinlik ile bağlantı kurar. |
-| Microsoft.Media.LiveEventEncoderDisconnected | Kodlayıcı bağlantısını keser. |
-| Microsoft.Media.LiveEventIncomingDataChunkDropped | Medya sunucusu çok geç veya çakışan bir zaman damgası olduğundan veri öbeği düşene (yeni veri öbeğin zaman damgası olan önceki verileri öbek, son saatten daha az). |
-| Microsoft.Media.LiveEventIncomingStreamReceived | Medya sunucusu, her parça için ilk veri öbeği stream ya da bağlantı alır. |
-| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Ses medya sunucusu algılar ve video akışları eşitlenmiş halde değil. Kullanıcı deneyimi olmayan etkilenebilir, çünkü bir uyarı olarak kullanın. |
-| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Medya sunucusu herhangi bir dış kodlayıcıdan gelen iki video akışları eşitlenmemiş algılar. Kullanıcı deneyimi olmayan etkilenebilir, çünkü bir uyarı olarak kullanın. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Canlı etkinlik çalıştırıldığında, her parça için her 20 saniyede yayımladı. Sağlar sistem durumu özetini alın. |
-| Microsoft.Media.LiveEventTrackDiscontinuityDetected | Medya sunucusu süreksizlik gelen izde algılar. |
-
-## <a name="event-schema"></a>Olay Şeması
-
-Media Services olaylarını verilerinizdeki değişiklikleri yanıtlamak için gereken tüm bilgileri içerir.  EventType özelliği "Microsoft.Media" ile başladığından bir Media Services olayı belirleyebilirsiniz.
+Event grid'i kullanır [olay abonelikleri](../../event-grid/concepts.md#event-subscriptions) abonelere olay iletileri yönlendirmek için. Media Services olaylarını verilerinizdeki değişiklikleri yanıtlamak için gereken tüm bilgileri içerir. EventType özelliği "Microsoft.Media" ile başladığından bir Media Services olayı belirleyebilirsiniz.
 
 Daha fazla bilgi için [Media Services olay şemaları](media-services-event-schemas.md).
 

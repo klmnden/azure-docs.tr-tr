@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 94ba673f7617d3df5ca51254b3d4ab9695dab0fb
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b962f0e7d571828fb3a1180b3d77a3368ef6c665
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769259"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852636"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Öğretici: ExcelityGlobal ile Azure Active Directory Tümleştirme
 
@@ -117,8 +117,8 @@ Azure AD çoklu oturum açma ile ExcelityGlobal yapılandırmak için aşağıda
     **Sanal ortam için** : `https://s6.excelityglobal.com/ACS`
 
 5. ExcelityGlobal uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Varsayılan öznitelikler listesinde aşağıdaki ekran görüntüsünde gösterilmektedir oysa **NameIdentifier** ile eşlenmiş **user.userprincipalname**. ExcelityGlobal uygulama bekliyor **NameIdentifier** ile eşlenecek **user.mail**tıklayarak özellik eşlemesi düzenlemeniz gerekir böylece **Düzenle** simgesi ve değişiklik öznitelik eşlemesi.
- 
-    ![Görüntü](common/edit-attribute.png)
+ 
+    ![görüntü](common/edit-attribute.png)
 
 6. İçinde **SAML imzalama sertifikası** bölümünde **Düzenle** açmak için düğmeyi **SAML imzalama sertifikası** iletişim.
 
@@ -160,7 +160,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

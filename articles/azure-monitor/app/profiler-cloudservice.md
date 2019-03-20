@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 32604c06c6a4325f7ae6cb45930de902a1366480
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 2e13f1f09fcdfb68a99e705511e3659f1632132e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750336"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895490"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profil Canlı Application ınsights'la Azure Cloud Services
 
 Ayrıca, bu hizmetler Application Insights Profiler dağıtabilirsiniz:
-* [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure uygulama hizmeti](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric uygulamaları](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Sanal Makineler](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure sanal makineleri](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler Azure tanılama uzantısı ile yüklenir. Profiler'ı yükleyin ve Application Insights kaynağınıza profilleri göndermek için Azure Tanılama'yı yapılandırmak yeterlidir.
 
@@ -33,7 +33,7 @@ Application Insights Profiler Azure tanılama uzantısı ile yüklenir. Profiler
 
 1. Ekleme [Application Insights SDK'sı Azure bulut Hizmetleri](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
-  >**Bulut Hizmetleri için en son sürümünü WAD sevk profil oluşturucu bir hata yoktur.** Profil Oluşturucu bir bulut hizmeti ile kullanmak için yalnızca AI SDK'sı sürüm 2.7.2 kadar destekler. AI SDK'sının daha yeni bir sürümü kullanıyorsanız, 2.7.2 için profil oluşturucuyu kullanmak için dönmeniz gerekir.
+   >**Bulut Hizmetleri için en son sürümünü WAD sevk profil oluşturucu bir hata yoktur.** Profil Oluşturucu bir bulut hizmeti ile kullanmak için yalnızca AI SDK'sı sürüm 2.7.2 kadar destekler. AI SDK'sının daha yeni bir sürümü kullanıyorsanız, 2.7.2 için profil oluşturucuyu kullanmak için dönmeniz gerekir. App Insights SDK'sı sürümünü düşürmek için Visual Studio kullanıyorsanız, çalışma zamanında bir bağlama yeniden yönlendirme hatası alabilirsiniz. Bu durum, yapay ZEKA SDK'sı, ancak eski sürüme düşürme otomatik olarak güncelleştirilmesini değil sonra "2.7.2.0" için "Newversıon" Microsoft.applicationınsights web.config dosyasında ayarlamanız gerekir çünkü.
 
 1. Application Insights ile izleme istekleri:
 

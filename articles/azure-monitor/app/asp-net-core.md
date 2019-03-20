@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24132fdb23ff89045f2b497327997d95e4ceecac
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7f3b8101b633c977201b6c413ad12e4bbe55e9a7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054852"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011788"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core için Application Insights
 
@@ -45,7 +45,7 @@ Bu makalede örnek bir ASP.NET Core oluşturma adımlarında size kılavuzluk ed
 
     ![Visual Studio'nun ekran yeni proje şablonu seçimi](./media/asp-net-core/003-web-application.png)
 
-## <a name="application-insights-search"></a>Application Insights araması
+## <a name="application-insights-search"></a>Application Insights Search
 
 Visual Studio 2015 güncelleştirme 2 veya sonraki bir ASP.NET Core 2 + tabanlı proje ile avantajlarından yararlanabilirsiniz [Application Insights arama](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio), hatta açıkça Application ınsights'ı projenize eklemeden önce.
 
@@ -88,21 +88,21 @@ Seçin **görünümü** > **Takım Gezgini** (Ctrl +\, Ctrl + M) > **proje** > *
 
 - Yeni bir dosya oluşturulur:
 
-  -  _ConnectedService.json_
+  - _ConnectedService.json_
 
     ```json
     {
-      "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
-      "Version": "8.12.10405.1",
-      "GettingStartedDocument": {
-        "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
-      }
+     "ProviderId": "Microsoft.ApplicationInsights.ConnectedService.ConnectedServiceProvider",
+     "Version": "8.12.10405.1",
+     "GettingStartedDocument": {
+       "Uri": "https://go.microsoft.com/fwlink/?LinkID=798432"
+     }
     }
     ```
 
 - Üç dosyayı (değişiklikleri vurgulamak için eklenen ek açıklamalar) değiştirilir:
 
-  - _appSettings.JSON_:
+  - _appsettings.json_:
 
     ```json
     {
@@ -180,6 +180,10 @@ Seçin **görünümü** > **Takım Gezgini** (Ctrl +\, Ctrl + M) > **proje** > *
           }
       }
       ```
+
+## <a name="send-ilogger-logs-to-application-insights"></a>Application Insights'a ILogger günlükleri gönderme
+
+Application Insights ILogger gönderilen yakalama günlükleri destekler. Kod örnekleri günlük kullanıma alma kurmaya [burada](https://docs.microsoft.com/azure/azure-monitor/app/ilogger).
 
 ## <a name="synthetic-transactions-with-powershell"></a>PowerShell ile yapay işlemler
 

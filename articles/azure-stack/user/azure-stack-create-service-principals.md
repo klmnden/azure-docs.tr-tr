@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 9f0ccb85fa4b42ef3ca90c6d4ca2d80113b93a0c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3a6fa631fdf3436dc3a76817d2c0043b0407b2ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733708"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121562"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Hizmet sorumluları oluşturma tarafından Azure Stack kaynaklara uygulamaları erişimi verin
 
@@ -56,10 +56,10 @@ Hizmet sorumlusuna bir rol aynı Azure için atama adımlarını AD ve AD FS. Hi
 
 Azure Stack, Azure AD kimlik deposu olarak kullanıyorsa, bir hizmet sorumlusu Azure, Azure portalını kullanarak olduğu gibi aynı adımları kullanarak oluşturabilirsiniz.
 
->[!NOTE]
-Sahip olduğunuzu denetleyin [Azure AD izinleri gerekli](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) bir hizmet sorumlusu oluşturma işlemi başlamadan önce.
+> [!NOTE]
+> Sahip olduğunuzu denetleyin [Azure AD izinleri gerekli](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) bir hizmet sorumlusu oluşturma işlemi başlamadan önce.
 
-### <a name="create-service-principal"></a>Hizmet sorumlusu oluşturma
+### <a name="create-service-principal"></a>Hizmet sorumlusu oluştur
 
 Uygulamanız için hizmet sorumlusu oluşturmak için:
 
@@ -80,8 +80,8 @@ Programlamayla oturum açılırken, uygulamanızın ve bir kimlik doğrulama ana
 
 4. Anahtar için bir açıklama ve süre sağlayın. İşiniz bittiğinde **Kaydet**’i seçin.
 
->[!IMPORTANT]
-Anahtar, anahtar kaydettikten sonra **değer** görüntülenir. Daha sonra anahtarı alınamıyor çünkü bu değeri yazın. Anahtarı, uygulamanızın alabileceği bir konumda depolayın.
+> [!IMPORTANT]
+> Anahtar, anahtar kaydettikten sonra **değer** görüntülenir. Daha sonra anahtarı alınamıyor çünkü bu değeri yazın. Anahtarı, uygulamanızın alabileceği bir konumda depolayın.
 
 ![Anahtar değeri uyarısı için kaydedilen anahtarı.](./media/azure-stack-create-service-principals/image15.png)
 
@@ -101,8 +101,8 @@ Hizmet sorumlusu oluşturma hakkında daha fazla ayrıntı için bkz. [AD FS iç
 
 Aboneliğinizdeki kaynaklara erişmek için uygulamaya bir rol atamanız gerekir. Uygulama için doğru izinlere rolünü karar verin. Kullanılabilir roller hakkında bilgi edinmek için [RBAC: Yerleşik roller](../../role-based-access-control/built-in-roles.md).
 
->[!NOTE]
-Bir abonelik, kaynak grubu veya bir kaynak düzeyinde bir rolün kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam için izinler devralınmıştır. Örneğin, bir kaynak grubu için okuyucu rolüne sahip bir uygulama, uygulama kaynak grubundaki kaynakların okuyabilirsiniz anlamına gelir.
+> [!NOTE]
+> Bir abonelik, kaynak grubu veya bir kaynak düzeyinde bir rolün kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam için izinler devralınmıştır. Örneğin, bir kaynak grubu için okuyucu rolüne sahip bir uygulama, uygulama kaynak grubundaki kaynakların okuyabilirsiniz anlamına gelir.
 
 Aşağıdaki adımlar, bir hizmet sorumlusuna bir rol atamak için bir kılavuz olarak kullanın.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56918db207e9a2b0675d5409d2608ed40f28e59c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 126d5b501b9c4239fbdbe06318604bcfaf861150
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782624"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838367"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kronos"></a>Öğretici: Kronos ile Azure Active Directory Tümleştirme
 
@@ -68,7 +68,7 @@ Azure AD'de Kronos tümleştirmesini yapılandırmak için Kronos Galeriden yön
 4. Arama kutusuna **Kronos**seçin **Kronos** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
      ![Sonuç listesinde Kronos](common/search-new-app.png)
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
+   ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Kronos adlı bir test kullanıcı tabanlı test **Britta Simon**.
 Tek iş için oturum açma için bir Azure AD kullanıcısının Kronos ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
@@ -113,15 +113,15 @@ Azure AD çoklu oturum açma ile Kronos yapılandırmak için aşağıdaki adım
 
 5. Kronos uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
 
-    ![image](common/edit-attribute.png)
+    ![görüntü](common/edit-attribute.png)
 
 6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
     a. Tıklayın **düzenleme simgesi** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![image](./media/kronos-tutorial/tutorial_usermail.png)
+    ![görüntü](./media/kronos-tutorial/tutorial_usermail.png)
 
-    ![image](./media/kronos-tutorial/tutorial_usermailedit.png)
+    ![görüntü](./media/kronos-tutorial/tutorial_usermailedit.png)
 
     b. Gelen **dönüştürme** listesinden **ExtractMailPrefix()**.
 
@@ -155,7 +155,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

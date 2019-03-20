@@ -14,25 +14,25 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 7ff04789a4ba5e5a689b3d3815852bc0fbcdc6a7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: MT
+ms.openlocfilehash: da4944cc95750505e0099b7a987b78e132910460
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988376"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125000"
 ---
 ## <a name="register-your-application"></a>Uygulamanızı kaydetme
 
 Uygulamanızı iki yoldan biriyle sonraki iki bölümde açıklandığı gibi kaydedebilirsiniz.
 
-### <a name="option-1-express"></a>Seçenek 1: Express
+### <a name="option-1-express"></a>1. seçenek: Hızlı
 
 1. [Microsoft Uygulama Kayıt Portalı](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure)'na gidin.
 2. İçinde **uygulama adı**, uygulamanız için bir ad girin.
 3. Emin **destekli Kurulum** onay kutusunu seçili ve ardından **Oluştur**.
 4. Uygulama Kimliği alma yönergeleri izleyin ve kodunuzun yapıştırın.
 
-### <a name="option-2-advanced"></a>Seçenek 2: Gelişmiş
+### <a name="option-2-advanced"></a>2. seçenek: Gelişmiş
 
 1. [Microsoft Uygulama Kayıt Portalı](https://apps.dev.microsoft.com/portal/register-app)'na gidin.
 2. **Uygulama Adı** kutusuna uygulamanız için bir ad girin.
@@ -44,7 +44,7 @@ Uygulamanızı iki yoldan biriyle sonraki iki bölümde açıklandığı gibi ka
     ```java
     final static String CLIENT_ID = "[Enter the application Id here]";
     ```
-<!-- Workaround for Docs conversion bug -->
+   <!-- Workaround for Docs conversion bug -->
 7. Altında **uygulama** > **bildirimlerini**açın *AndroidManifest.xml* dosya.
 8. İçinde `manifest\application`, aşağıdaki etkinliği ekleyin. `BrowserTabActivity` Microsoft kimlik doğrulaması tamamlandıktan sonra uygulamanıza geri çağırmaya izin veren etkinlik:
 
@@ -64,5 +64,5 @@ Uygulamanızı iki yoldan biriyle sonraki iki bölümde açıklandığı gibi ka
         </intent-filter>
     </activity>
     ```
-<!-- Workaround for Docs conversion bug -->
+   <!-- Workaround for Docs conversion bug -->
 9. İçinde `BrowserTabActivity`, değiştirin `[Enter the application Id here]` uygulamayla / istemci kimliği

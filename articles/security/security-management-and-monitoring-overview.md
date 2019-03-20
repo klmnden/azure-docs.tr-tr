@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: 7dfc4329b338a65169c81521360264753bafa9d6
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: f79f94c277b02a9f377b90bf74763ac617f65c16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239925"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892907"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure güvenlik yönetimi ve izlemeye genel bakış
 
@@ -39,22 +39,22 @@ Güvenlik yönetimi hakkında daha fazla bilgi için bkz. [azure'da güvenlik y�
 
 Rol tabanlı erişim denetimi (RBAC), Azure kaynakları için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, kişiler yalnızca kullanıcıların işlerini gerçekleştirmek için ihtiyaç duydukları erişim miktarını verebilirsiniz. RBAC da kişi kuruluştan ayrıldıktan sonra bunlar bulut kaynaklarına erişimlerini emin olmanıza yardımcı olabilir.
 
-Daha fazla bilgi edinin:
+Daha fazla bilgi:
 
 * [RBAC üzerinde Active Directory ekibi blogu](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md)
 
-## <a name="antimalware"></a>Kötü Amaçlı Yazılımdan Koruma
+## <a name="antimalware"></a>Kötü Amaçlı Yazılımdan Koruma Yazılımı
 
 Azure ile Microsoft, Symantec, Trend Micro, McAfee ve Kaspersky gibi önde gelen güvenlik satıcılardan kötü amaçlı yazılımdan koruma yazılımı kullanabilirsiniz. Bu yazılımı, sanal makinelerinizi kötü amaçlı dosyalardan, reklam yazılımlarından ve diğer tehditlerden korunmasına yardımcı olur.
 
 Azure Cloud Services ve sanal makineler için Microsoft Antimalware hem PaaS rollerini hem de sanal makineler için bir kötü amaçlı yazılımdan koruma Aracısı yükleme olanağı sunar. System Center Endpoint Protection'ı bağlı olarak, bu özellik şirket kendini kanıtlamış bir güvenlik teknolojisidir buluta getirir.
 
-Ayrıca, eğilim'ın için derin tümleştirme sunuyoruz [Deep Security](http://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) ve [SecureCloud](http://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) ürünleri, Azure platformunda. Bir şifreleme SecureCloud çözümüdür ve DEEP Security'yi bir virüsten koruma çözümüdür. DEEP Security'yi VM'ler içinde bir uzantı modeli aracılığıyla dağıtılır. Azure portalı kullanıcı Arabirimi ve PowerShell kullanarak çalışmaya başlar yeni VM'ler veya zaten dağıtılmış olan mevcut Vm'lere içinde Deep Security kullanmayı da tercih edebilirsiniz.
+Ayrıca, eğilim'ın için derin tümleştirme sunuyoruz [Deep Security](https://www.trendmicro.com/us/enterprise/cloud-solutions/deep-security/) ve [SecureCloud](https://www.trendmicro.com/us/enterprise/cloud-solutions/secure-cloud/) ürünleri, Azure platformunda. Bir şifreleme SecureCloud çözümüdür ve DEEP Security'yi bir virüsten koruma çözümüdür. DEEP Security'yi VM'ler içinde bir uzantı modeli aracılığıyla dağıtılır. Azure portalı kullanıcı Arabirimi ve PowerShell kullanarak çalışmaya başlar yeni VM'ler veya zaten dağıtılmış olan mevcut Vm'lere içinde Deep Security kullanmayı da tercih edebilirsiniz.
 
 Symantec Endpoint Protection (SEP), Azure üzerinde de desteklenir. Portal tümleştirmesi, bir VM'de SEP kullanmayı düşündüğünüz belirtebilirsiniz. SEP yeni bir VM Azure portal aracılığıyla yüklenebilir veya mevcut bir VM'yi PowerShell aracılığıyla yüklenebilir.
 
-Daha fazla bilgi edinin:
+Daha fazla bilgi:
 
 * [Azure Sanal Makinelerinde Kötü Amaçlı Yazılıma Karşı Koruma Çözümleri Dağıtma](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Azure bulut Hizmetleri ve sanal makineler için Microsoft kötü amaçlı yazılımdan koruma](azure-security-antimalware.md)
@@ -68,7 +68,7 @@ Azure multi-Factor Authentication, birden fazla doğrulama yöntemi kullanılmas
 
 Çok faktörlü kimlik doğrulaması erişimi korumaya yardımcı olur ve uygulamalarınıza karşılarken basit bir oturum açma işlemi. Doğrulama seçenekleri (telefon araması, SMS mesajı veya mobil uygulama bildirimi ya da doğrulama kodu) ve üçüncü taraf OATH belirteçleri bir aralık aracılığıyla güçlü kimlik doğrulama sağlar.
 
-Daha fazla bilgi edinin:
+Daha fazla bilgi:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 * [Azure Multi-Factor Authentication nedir?](../active-directory/authentication/multi-factor-authentication.md)
@@ -84,7 +84,7 @@ Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan adanm
 
 ExpressRoute bağlantıları ortak internet üzerinden kurulmaz. Bunlar daha fazla güvenilirlik, daha yüksek hız, daha düşük gecikme süreleri ve daha yüksek güvenlik tipik internet üzerinden sunabilir.
 
-Daha fazla bilgi edinin:
+Daha fazla bilgi:
 
 * [Expressroute'a teknik genel bakış](../expressroute/expressroute-introduction.md)
 
@@ -92,7 +92,7 @@ Daha fazla bilgi edinin:
 
 VPN ağ geçitleri, Azure sanal ağ geçitlerine olarak da bilinir, sanal ağlar ve şirket içi konumlara arasında ağ trafiği göndermek için kullanılır. Bunlar, ayrıca Azure'da (ağ için ağ) birden çok sanal ağ arasında trafik göndermek için kullanılır. VPN ağ geçitleri, Azure ile altyapınız arasında şirketler arası güvenli bağlantı sağlar.
 
-Daha fazla bilgi edinin:
+Daha fazla bilgi:
 
 * [VPN ağ geçitleri hakkında](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 * [Azure ağ güvenliğine genel bakış](security-network-overview.md)
@@ -105,12 +105,12 @@ Kuruluşlar, yeteri kadar ayrıcalıklı erişim ile bu kullanıcıların ne yap
 
 Privileged Identity Management, geçici bir yönetici rolü veya yönetici erişimi "yalnızca zamanında" kavramını sunar. Bu tür bir yönetici rolü atanmış olan için etkinleştirme işlemini tamamlamak için gereken bir kullanıcıdır. Etkinleştirme işlemi etkin, belirli bir süredir etkin olmayan dönemden Azure AD'de rol atama kullanıcının değiştirir.
 
-Daha fazla bilgi edinin:
+Daha fazla bilgi:
 
 * [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
 * [Azure AD Privileged Identity Management ile çalışmaya başlama](../active-directory/privileged-identity-management/pim-getting-started.md)
 
-## <a name="identity-protection"></a>Kimlik Koruması
+## <a name="identity-protection"></a>Identity Protection
 
 Azure AD kimlik koruması, şüpheli oturum açma etkinlikleri ve işletmenizin korunmasına yardımcı olmak için olası güvenlik açıklarını birleştirilmiş bir görünümünü sağlar. Kimlik koruması, kullanıcılar ve gibi işaretlere dayalı (Yönetici) ayrıcalıklı kimlikleri için şüpheli etkinlikleri algılar:
 
@@ -120,10 +120,10 @@ Azure AD kimlik koruması, şüpheli oturum açma etkinlikleri ve işletmenizin 
 
 Bildirimler ve önerilen düzeltmeyi sağlayarak gerçek zamanlı olarak riskleri azaltmak için kimlik koruması yardımcı olur. Bu kullanıcı risk önem derecesi hesaplar. Otomatik olarak erişim gelecekteki tehditlerden koruyun uygulama yardımcı olmak için risk tabanlı ilkeler yapılandırabilirsiniz.
 
-Daha fazla bilgi edinin:
+Daha fazla bilgi:
 
 * [Azure Active Directory kimlik koruması](../active-directory/active-directory-identityprotection.md)
-* [Kanal 9: Azure AD kimlik gösterin: kimlik koruması önizlemesi](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [Kanal 9: Azure AD kimlik gösterin: Kimlik koruması önizlemesi](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="security-center"></a>Güvenlik Merkezi
 
@@ -137,14 +137,14 @@ Güvenlik Merkezi, Azure kaynaklarınızı izleyin ve en iyi duruma yardımcı o
 * Azure sanal makinelerinizin durumunu izleme, ağ ve uygulama.
 * Tümleşik iş ortağı çözümlerinden gelen uyarılar dahil olmak üzere öncelikli güvenlik uyarıları listesi sağlama. Ayrıca, bir saldırı ve sorunu nasıl çözebileceğiyle ilgili öneriler hızla araştırmak ihtiyacınız olan bilgileri sağlar.
 
-Daha fazla bilgi edinin:
+Daha fazla bilgi:
 
 * [Azure Güvenlik Merkezi'ne Giriş](../security-center/security-center-intro.md)
 * [Azure Güvenlik Merkezi'nde güvenli puanınız geliştirin](../security-center/security-center-secure-score.md)
 
-## <a name="intelligent-security-graph"></a>Akıllı güvenlik grafiği
+## <a name="intelligent-security-graph"></a>Intelligent Security Graph
 
-Intelligent Security Graph, Microsoft ürünleri ve Hizmetleri gerçek zamanlı tehdit koruması sağlar. Kuruluş güvenliğini güçlendirebilirsiniz bilgiler sağlamak için tehdit zekası ve güvenlik verilerini büyük miktarda bağlantı Gelişmiş analiz kullanır. Microsoft, İleri düzey analizlerden — ayda 450 milyardan fazla kimlik doğrulamaları işlemeye, kötü amaçlı yazılım ve kimlik avı için 400 milyar e-posta tarama ve bir milyar cihazı güncelleştiren — daha zengin içgörüler sunmak için. Bu Öngörüler algılayın ve saldırıları hızla yanıt verin, kuruluşunuzun yardımcı olabilir.
+Intelligent Security Graph, Microsoft ürünleri ve Hizmetleri gerçek zamanlı tehdit koruması sağlar. Kuruluş güvenliğini güçlendirebilirsiniz bilgiler sağlamak için tehdit zekası ve güvenlik verilerini büyük miktarda bağlantı Gelişmiş analiz kullanır. Microsoft, İleri düzey analizlerden — ayda 450 milyardan fazla kimlik doğrulamaları işlemeye, kötü amaçlı yazılım ve kimlik avı için 400 milyar e-posta tarama ve bir milyar cihazı güncelleştiren — daha zengin içgörüler sunmak için. Bu bilgiler, sizin kurumunuzun da saldırıları fark ederek hızlı bir şekilde karşılık vermesine yardımcı olabilir.
 
 * [Akıllı güvenlik grafiği](https://www.microsoft.com/security/intelligence)
 

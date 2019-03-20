@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 23a94f7b2054692feedb3b7755dad1e840809be7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5417c1c008b5abaada158530c7c29c67e0dc1ca0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734127"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119675"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Öğretici: Bir utterance tam metni eşleştirilen veri alma
 
@@ -134,7 +134,7 @@ Birincil _kurallı_, her öğe için bölüm adı adı. Eş Anlamlılar her kura
 
 1. Adres çubuğundaki URL'nin sonuna gidip `shift Joe Smith to IT` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `TransferEmployeeToDepartment` amacını `Department` ayıklanmış şekilde döndürmelidir.
 
-  ```json
+   ```json
     {
       "query": "shift Joe Smith to IT",
       "topScoringIntent": {
@@ -165,7 +165,7 @@ Birincil _kurallı_, her öğe için bölüm adı adı. Eş Anlamlılar her kura
         }
       ]
     }
-  ```
+   ```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

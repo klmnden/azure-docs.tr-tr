@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 60ff63a049f225886d69c1a89a2930671e533d78
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: MT
+ms.openlocfilehash: 6fdeab56523d05232dd4e6a720de0be9866a4801
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910922"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084836"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Yükleme ve Hadoop tabanlı HDInsight kümelerinde Presto kullanma
 
@@ -42,11 +42,11 @@ Bu bölümde, Azure portalını kullanarak yeni bir küme oluşturduğunuzda ör
 
 1. Adımları alarak küme sağlama başlamak [Azure portalını kullanarak HDInsight kümelerini oluşturmak Linux tabanlı](hdinsight-hadoop-create-linux-clusters-portal.md). Kullanarak küme oluşturduğunuzdan emin olun **özel** küme oluşturma akış. Küme, aşağıdaki gereksinimleri karşılaması gerekir:
 
-    * HDInsight sürümü 3.6 ile bir Hadoop kümesini olmalıdır.
+   * HDInsight sürümü 3.6 ile bir Hadoop kümesini olmalıdır.
 
-    * Azure depolama veri deposu olarak kullanmanız gerekir. Presto depolama seçeneği olarak Azure Data Lake depolama kullanan bir kümesi kullanarak, henüz bir seçenek değildir.
+   * Azure depolama veri deposu olarak kullanmanız gerekir. Presto depolama seçeneği olarak Azure Data Lake depolama kullanan bir kümesi kullanarak, henüz bir seçenek değildir.
 
-    ![HDInsight, özel (boyut, ayarları, uygulamalar)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
+     ![HDInsight, özel (boyut, ayarları, uygulamalar)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
 2. İçinde **Gelişmiş ayarlar** alanında **betik eylemleri**. Aşağıdaki bilgileri sağlayın. Ayrıca seçebilirsiniz **Presto yükleme** seçeneği için betik türü:
    
@@ -155,14 +155,13 @@ Yüklemeyi özelleştirmek için aşağıdaki adımları uygulayın:
 
 3. Durdur ve Presto geçerli çalışan örneğini Kaldır:
 
-    `sudo slider stop presto1 --force` `sudo slider destroy presto1 --force`
+    `sudo slider stop presto1 --force``sudo slider destroy presto1 --force`
 
 4. Presto yeni bir örneğini özelleştirme ile başlayın:
 
     `sudo slider create presto1 --template /var/lib/presto/presto-hdinsight-master/appConfig-default.json --resources /var/lib/presto/presto-hdinsight-master/resources-default.json`
 
 5. Yeni bir örneğinin hazır olmasını bekleyin. Presto Düzenleyicisi adresini not alın:
-
 
     `sudo slider registry --name presto1 --getexp presto`
 

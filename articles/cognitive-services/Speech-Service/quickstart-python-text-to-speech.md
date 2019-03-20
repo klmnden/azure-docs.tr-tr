@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 36ff3f4b73db8889349e977aaf80a754894d75ae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 534473ccde52af69b6dad1e84ef77da326d29d5c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857352"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872593"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Hızlı Başlangıç: Dönüştürme metin okuma Python kullanma
 
 Bu hızlı başlangıçta nasıl dönüştürme yapılacağını öğreneceksiniz metin okuma Python ve metin okuma REST API'sini kullanarak. Bu kılavuzdaki istek gövdesi olarak yapılandırılmış [konuşma sentezi işaretleme dili (SSML'yi)](speech-synthesis-markup.md), ses ve yanıtın dili seçmenize olanak tanıyan.
 
-Bu hızlı başlangıç bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) konuşma hizmeti kaynağı olan. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](get-started.md) kullanabilirsiniz.
+Bu hızlı başlangıç bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) konuşma Hizmetleri kaynağa sahip. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](get-started.md) kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -30,7 +30,7 @@ Bu hızlı başlangıç şunları gerektirir:
 
 * Python 2.7.x veya 3.x
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), veya en sevdiğiniz metin düzenleyiciyi
-* Konuşma hizmeti için bir Azure aboneliği anahtarı
+* Konuşma Hizmetleri için bir Azure aboneliği anahtarı
 
 ## <a name="create-a-project-and-import-required-modules"></a>Bir proje oluşturun ve gerekli modülleri içeri aktarın
 
@@ -70,9 +70,9 @@ class TextToSpeech(object):
 
 ## <a name="get-an-access-token"></a>Bir erişim belirteci alma
 
-Metin okuma REST API, kimlik doğrulaması için bir erişim belirteci gerektirir. Erişim belirteci almak için bir exchange gereklidir. Bu örnek için bir erişim belirteci kullanarak konuşma tanıma hizmeti abonelik anahtarınızı birbiriyle değiştirir `issueToken` uç noktası.
+Metin okuma REST API, kimlik doğrulaması için bir erişim belirteci gerektirir. Erişim belirteci almak için bir exchange gereklidir. Bu örnek konuşma Hizmetleri abonelik anahtarınızı kullanarak bir erişim belirteci için birbiriyle değiştirir `issueToken` uç noktası.
 
-Bu örnek, Batı ABD bölgesinde konuşma hizmeti aboneliğiniz olduğunu varsayar. Farklı bir bölgeye kullanıyorsanız, değerini güncelleştirin `fetch_token_url`. Tam bir listesi için bkz [bölgeleri](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Bu örnek, konuşma Hizmetleri aboneliğinize Batı ABD bölgesinde olduğunu varsayar. Farklı bir bölgeye kullanıyorsanız, değerini güncelleştirin `fetch_token_url`. Tam bir listesi için bkz [bölgeleri](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Bu kodu kopyalayın `TextToSpeech` sınıfı:
 
@@ -91,7 +91,7 @@ def get_token(self):
 
 ## <a name="make-a-request-and-save-the-response"></a>Bir istekte bulunmak ve yanıt Kaydet
 
-Burada, derleme isteği ve konuşma yanıt kaydetmek için yedekleyeceksiniz. İlk olarak, ayarlanacak ihtiyacınız `base_url` ve `path`. Bu örnek, Batı ABD uç nokta kullanmakta olduğunuz varsayılır. Kaynağınız için farklı bir bölgede kayıtlı değilse, güncelleştirdiğinizden emin olun `base_url`. Daha fazla bilgi için [konuşma hizmet bölgeleri](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Burada, derleme isteği ve konuşma yanıt kaydetmek için yedekleyeceksiniz. İlk olarak, ayarlanacak ihtiyacınız `base_url` ve `path`. Bu örnek, Batı ABD uç nokta kullanmakta olduğunuz varsayılır. Kaynağınız için farklı bir bölgede kayıtlı değilse, güncelleştirdiğinizden emin olun `base_url`. Daha fazla bilgi için [konuşma Hizmetleri bölgeleri](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Ardından, istek için gerekli üst bilgileri eklemeniz gerekir. Güncelleştirdiğinizden emin olun `User-Agent` kaynak (Azure Portalı'nda bulunur) ve küme adıyla `X-Microsoft-OutputFormat` tercih edilen ses çıkış için. Çıkış biçimleri tam bir listesi için bkz. [ses çıkarır](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-outputs).
 

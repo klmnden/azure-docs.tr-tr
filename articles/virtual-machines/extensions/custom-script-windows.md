@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2018
 ms.author: roiyz
-ms.openlocfilehash: f29c995c4fb4a1e87c95295779ff83dd133ac61c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 520ff1dfeefc8cca66710745012ee54b550a19a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984401"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097932"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows için özel betik uzantısı
 
@@ -109,11 +109,11 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | tarih |
 | Yayımcı | Microsoft.Compute | dize |
 | type | CustomScriptExtension | dize |
 | typeHandlerVersion | 1.9 | int |
-| fileUris (örn.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| fileUris (örn.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | dizi |
 | zaman damgası (örn.) | 123456789 | 32 bit tamsayı |
 | commandToExecute (örn.) | PowerShell - ExecutionPolicy sınırsız - dosya yapılandırma-müzik-app.ps1 | dize |
 | storageAccountName (örn.) | examplestorageacct | dize |
@@ -123,11 +123,11 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 >Bu özellik adları büyük/küçük harfe duyarlıdır. Dağıtım sorunları önlemek için burada gösterildiği gibi adları kullanın.
 
 #### <a name="property-value-details"></a>Özellik değeri ayrıntıları
- * `commandToExecute`: (**gerekli**, string) yürütmek için giriş noktası betiği. Bu alan, bunun yerine komutunuz parolalar gibi gizli dizileri içeren ya da kendi fileUris büyük/küçük harfe duyarlıdır kullanın.
-* `fileUris`: (isteğe bağlı, dize dizisi) dosyaların indirilmesi için URL.
-* `timestamp` Bu alan yalnızca bu alanın değerini değiştirerek bir yeniden betiğin tetiklemek için (isteğe bağlı, 32 bit tamsayı) kullanın.  Kabul edilebilir tamsayı değerdeki; yalnızca önceki değerinden farklı olmalıdır.
-* `storageAccountName`: (isteğe bağlı, dize) depolama hesabı adı. Depolama kimlik bilgileri, belirtirseniz, tüm `fileUris` URL'leri, Azure BLOB'ları için olmalıdır.
-* `storageAccountKey`: (isteğe bağlı, dize) depolama hesabı erişim anahtarı
+* `commandToExecute`: (**gerekli**, string) yürütmek için giriş noktası betiği. Bu alan, bunun yerine komutunuz parolalar gibi gizli dizileri içeren ya da kendi fileUris büyük/küçük harfe duyarlıdır kullanın.
+  * `fileUris`: (isteğe bağlı, dize dizisi) dosyaların indirilmesi için URL.
+  * `timestamp` Bu alan yalnızca bu alanın değerini değiştirerek bir yeniden betiğin tetiklemek için (isteğe bağlı, 32 bit tamsayı) kullanın.  Kabul edilebilir tamsayı değerdeki; yalnızca önceki değerinden farklı olmalıdır.
+  * `storageAccountName`: (isteğe bağlı, dize) depolama hesabı adı. Depolama kimlik bilgileri, belirtirseniz, tüm `fileUris` URL'leri, Azure BLOB'ları için olmalıdır.
+  * `storageAccountKey`: (isteğe bağlı, dize) depolama hesabı erişim anahtarı
 
 Ortak veya korumalı ayarlarında aşağıdaki değerleri ayarlayabilirsiniz Bu, uzantı hem genel hem de korumalı ayarlarında aşağıdaki değerleri ayarlandığı herhangi bir yapılandırma reddeder.
 * `commandToExecute`
@@ -208,7 +208,7 @@ Set-AzVMExtension -ResourceGroupName myRG
 
 ## <a name="troubleshoot-and-support"></a>Sorun giderme ve Destek
 
-### <a name="troubleshoot"></a>Sorun giderme
+### <a name="troubleshoot"></a>Sorunları giderin
 
 Uzantı dağıtım durumuyla ilgili veriler, Azure portalından ve Azure PowerShell modülü kullanılarak alınabilir. Belirli bir VM'nin için uzantıları dağıtım durumunu görmek için aşağıdaki komutu çalıştırın:
 

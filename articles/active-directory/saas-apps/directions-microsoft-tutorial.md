@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 436d40bc2e83244f5624286c43dab6a63f8c6a47
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5ca35e1c6966365fab1a53fe9674a8f361422eea
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454179"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Öğretici: Microsoft yönergeleri ile Azure Active Directory Tümleştirme
 
@@ -106,12 +106,14 @@ Azure AD çoklu oturum açma yönergeleri Microsoft ile yapılandırmak için a�
     ![Microsoft Domain ve URL'ler hakkında yönergeleri çoklu oturum açma bilgileri](common/sp-identifier.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+
     |  |
     | --- |
     | `https://www.directionsonmicrosoft.com/user/login` |
     | `https://<subdomain>.devcloud.acquia-sites.com/<companyname>` |
 
     b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın:
+    
     |  |
     | --- |
     | `https://rhelmdirectionsonmicrosoftcomtest.devcloud.acquia-sites.com/simplesaml/<companyname>` |
@@ -159,7 +161,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

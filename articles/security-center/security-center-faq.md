@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2019
 ms.author: monhaber
-ms.openlocfilehash: e42deed992496cc28bdf92c01934d74361f2de6f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ad676070bb684e459c0dae648443318199f77b6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444030"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091537"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, artırılmış görünürlük ve Microsoft Azure kaynaklarınızın güvenliğini denetim ile tehditleri önleyin, algılayın ve yardımcı olan bir hizmet hakkında sorular yanıtlanmaktadır.
@@ -184,18 +184,18 @@ Microsoft Monitoring Agent el ile kaldırabilirsiniz. Güvenlik Merkezi önerile
 
 Aracıyı el ile kaldırmak için:
 
-1.  Portalda açın **Log Analytics**.
-2.  Log Analytics dikey penceresinde, bir çalışma alanı seçin:
-3.  İzleme ve seçmek için istemediğiniz her bir VM seçin **Bağlantıyı Kes**.
+1. Portalda açın **Log Analytics**.
+2. Log Analytics dikey penceresinde, bir çalışma alanı seçin:
+3. İzleme ve seçmek için istemediğiniz her bir VM seçin **Bağlantıyı Kes**.
 
    ![Aracıyı kaldır][3]
 
 > [!NOTE]
 > Bir Linux VM uzantısı olmayan bir OMS Aracısı zaten varsa, uzantıyı kaldırma da aracıyı kaldırır ve müşterinin yeniden yüklemeniz gerekir.
->
->
-### <a name="how-do-i-disable-data-collection"></a>Veri toplama nasıl devre dışı bırakabilirim?
-Otomatik sağlama varsayılan olarak kapalıdır. Otomatik kaynaklardan herhangi bir zamanda bu güvenlik ilkesi ayarı devre dışı bırakarak sağlama devre dışı bırakabilirsiniz. Otomatik sağlama güvenlik uyarıları ve sistem güncelleştirmeleri, işletim sistemi güvenlik açıkları ve uç nokta koruma hakkında öneriler almak için kesinlikle önerilir.
+> 
+> 
+> ### <a name="how-do-i-disable-data-collection"></a>Veri toplama nasıl devre dışı bırakabilirim?
+> Otomatik sağlama varsayılan olarak kapalıdır. Otomatik kaynaklardan herhangi bir zamanda bu güvenlik ilkesi ayarı devre dışı bırakarak sağlama devre dışı bırakabilirsiniz. Otomatik sağlama güvenlik uyarıları ve sistem güncelleştirmeleri, işletim sistemi güvenlik açıkları ve uç nokta koruma hakkında öneriler almak için kesinlikle önerilir.
 
 Veri toplamayı devre dışı bırakmak için [Azure portalında oturum açın](https://portal.azure.com)seçin **Gözat**seçin **Güvenlik Merkezi**seçip **seçin, ilke**. Otomatik sağlamayı hangi abonelik için devre dışı bırakmak istediğinizi belirtin. Bir aboneliği seçtiğinizde **güvenlik ilkesi - veri toplama** açılır. Altında **otomatik sağlama**seçin **kapalı**.
 

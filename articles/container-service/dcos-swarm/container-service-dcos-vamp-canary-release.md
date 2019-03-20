@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: cd2eb3ba1d3207f4f210aa259e938bb42b44d37a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 647923ce87e66314d7a95beb88cc842230f28774
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535459"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077080"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(KULLANIM DIŞI) Azure Container Service DC/OS kümesinde vamp mikro hizmetler ile canary sürümü
 
@@ -62,12 +62,12 @@ Canary sürümü ölçümleri toplama ve toplama için elasticsearch'ü gerektir
 
 2. Seçin **JSON modu** gelen **yeni hizmeti Dağıt** açılır.
 
-  ![JSON modunu seçin](./media/container-service-dcos-vamp-canary-release/02_deploy_service_json_mode.png)
+   ![JSON modunu seçin](./media/container-service-dcos-vamp-canary-release/02_deploy_service_json_mode.png)
 
 3. Aşağıdaki JSON öğesini yapıştırın. Bu yapılandırma kapsayıcıya 1 GB RAM ve temel sistem durumu denetimi Elasticsearch bağlantı noktası ile çalışır.
   
-  ```JSON
-  {
+   ```JSON
+   {
     "id": "elasticsearch",
     "instances": 1,
     "cpus": 0.2,
@@ -89,40 +89,40 @@ Canary sürümü ölçümleri toplama ve toplama için elasticsearch'ü gerektir
         "maxConsecutiveFailures": 0
       }
     ]
-  }
-  ```
+   }
+   ```
   
 
 3. Tıklayın **dağıtma**.
 
-  DC/OS Elasticsearch kapsayıcı dağıtır. İlerleme durumunu izleyebilirsiniz **Hizmetleri** sayfası.  
+   DC/OS Elasticsearch kapsayıcı dağıtır. İlerleme durumunu izleyebilirsiniz **Hizmetleri** sayfası.  
 
-  ![deploy e?Elasticsearch](./media/container-service-dcos-vamp-canary-release/03_deply_elasticsearch.png)
+   ![deploy e?Elasticsearch](./media/container-service-dcos-vamp-canary-release/03_deply_elasticsearch.png)
 
 ### <a name="deploy-vamp"></a>Canary sürümü dağıtma
 
 Elasticsearch olarak raporlar sonra **çalıştıran**, DC/OS Evreni Vamp paket ekleyebilirsiniz. 
 
 1. Git **Evreni** araması **vamp**. 
-  ![Vamp üzerinde DC/OS evreni](./media/container-service-dcos-vamp-canary-release/04_universe_deploy_vamp.png)
+   ![Vamp üzerinde DC/OS evreni](./media/container-service-dcos-vamp-canary-release/04_universe_deploy_vamp.png)
 
 2. Tıklayın **yükleme** canary sürümü yanındaki paketini ve seçin **gelişmiş yükleme**.
 
 3. Ekranı aşağı kaydırın ve aşağıdaki elasticsearch-URL'yi girin: `http://elasticsearch.marathon.mesos:9200`. 
 
-  ![Elasticsearch URL'sini girin](./media/container-service-dcos-vamp-canary-release/05_universe_elasticsearch_url.png)
+   ![Elasticsearch URL'sini girin](./media/container-service-dcos-vamp-canary-release/05_universe_elasticsearch_url.png)
 
 4. Tıklayın **gözden geçirmek ve yüklemek**, ardından **yükleme** dağıtımı başlatmak için.  
 
-  DC/OS canary sürümü gerekli tüm bileşenleri dağıtır. İlerleme durumunu izleyebilirsiniz **Hizmetleri** sayfası.
+   DC/OS canary sürümü gerekli tüm bileşenleri dağıtır. İlerleme durumunu izleyebilirsiniz **Hizmetleri** sayfası.
   
-  ![Canary sürümü evreni paket olarak dağıtmaya](./media/container-service-dcos-vamp-canary-release/06_deploy_vamp.png)
+   ![Canary sürümü evreni paket olarak dağıtmaya](./media/container-service-dcos-vamp-canary-release/06_deploy_vamp.png)
   
 5. Dağıtım tamamlandıktan sonra Vamp UI erişebilirsiniz:
 
-  ![DC/OS hizmette canary sürümü](./media/container-service-dcos-vamp-canary-release/07_deploy_vamp_complete.png)
+   ![DC/OS hizmette canary sürümü](./media/container-service-dcos-vamp-canary-release/07_deploy_vamp_complete.png)
   
-  ![Vamp kullanıcı Arabirimi](./media/container-service-dcos-vamp-canary-release/08_vamp_ui.png)
+   ![Vamp kullanıcı Arabirimi](./media/container-service-dcos-vamp-canary-release/08_vamp_ui.png)
 
 
 ## <a name="deploy-your-first-service"></a>İlk hizmetinizi dağıtma
@@ -135,15 +135,15 @@ Bu senaryo olarak adlandırılan bir örnek tek parça bir uygulamayı kullanan 
 
 1. Git **dağıtımları**.
 
-2. **Ekle**'ye tıklayın.
+2. **Ekle**'yi tıklatın.
 
 3. Aşağıdaki şema YAML içinde yapıştırın. Bu şema daha sonraki bir adımda değiştirmemizi yalnızca bir hizmet değişken, bir küme içerir:
 
-  ```YAML
-  name: sava                        # deployment name
-  gateways:
+   ```YAML
+   name: sava                        # deployment name
+   gateways:
     9050: sava_cluster/webport      # stable endpoint
-  clusters:
+   clusters:
     sava_cluster:               # cluster to create
      services:
         -
@@ -152,7 +152,7 @@ Bu senaryo olarak adlandırılan bir örnek tek parça bir uygulamayı kullanan 
             deployable: magneticio/sava:1.0.0
             ports:
               webport: 8080/http # cluster endpoint, used for canary releasing
-  ```
+   ```
 
 4. **Kaydet**’e tıklayın. Canary sürümü dağıtımı başlatır.
 
@@ -202,9 +202,9 @@ Yeni sava 1.1 hizmeti çalışan dağıtım ile birleştirmek için:
 
 2. Tıklayın **Ekle** aşağıdaki blueprint'te YAML yapıştırın: Bu şema (sava_cluster) mevcut küme içinde dağıtmak için bir yeni hizmet değişken (sava: 1.1.0) açıklar.
 
-  ```YAML
-  name: sava:1.1.0      # blueprint name
-  clusters:
+   ```YAML
+   name: sava:1.1.0      # blueprint name
+   clusters:
     sava_cluster:       # cluster to update
       services:
         -
@@ -213,17 +213,17 @@ Yeni sava 1.1 hizmeti çalışan dağıtım ile birleştirmek için:
             deployable: magneticio/sava:1.1.0    
             ports:
               webport: 8080/http # cluster endpoint to update
-  ```
+   ```
   
 3. **Kaydet**’e tıklayın. Blueprint depolanır ve listelenen **şemaları** sayfası.
 
 4. Sava: 1.1 şema Eylem menüsünü açın ve tıklayın **birleştirilecek**.
 
-  ![Vamp UI - şemaları](./media/container-service-dcos-vamp-canary-release/20_sava110_mergeto.png)
+   ![Vamp UI - şemaları](./media/container-service-dcos-vamp-canary-release/20_sava110_mergeto.png)
 
 5. Seçin **sava** dağıtım ve tıklatın **birleştirme**.
 
-  ![Vamp UI - birleştirme şema dağıtımı](./media/container-service-dcos-vamp-canary-release/21_sava110_merge.png)
+   ![Vamp UI - birleştirme şema dağıtımı](./media/container-service-dcos-vamp-canary-release/21_sava110_merge.png)
 
 Blueprint sava: 1.0.0 yanı sıra açıklanan yeni sava: 1.1.0 hizmet değişken canary sürümü dağıtır **sava_cluster** çalışan dağıtım. 
 
@@ -241,11 +241,11 @@ Her iki sava aynı kümede dağıtılan sürümleri ile taşıyarak aralarındak
 
 2. % 50/50 %'e tıklayın ekibindeki ağırlık dağıtımı ayarlamak **Kaydet**.
 
-  ![UI - ağ geçidi ağırlık kaydırıcı vamp](./media/container-service-dcos-vamp-canary-release/24_sava_cluster_webport_weight.png)
+   ![UI - ağ geçidi ağırlık kaydırıcı vamp](./media/container-service-dcos-vamp-canary-release/24_sava_cluster_webport_weight.png)
 
 3. Tarayıcınıza dönün ve birkaç kez daha sava sayfayı yenileyin. Sava uygulamayı şimdi sava: 1.0 sayfa sava: 1.1 sayfası arasında geçiş yapar.
 
-  ![değişen sava1.0 ve sava1.1 Hizmetleri](./media/container-service-dcos-vamp-canary-release/25_sava_100_101.png)
+   ![değişen sava1.0 ve sava1.1 Hizmetleri](./media/container-service-dcos-vamp-canary-release/25_sava_100_101.png)
 
 
   > [!NOTE]
@@ -264,23 +264,23 @@ Tüm Firefox kullanıcıları filtrelemek ve bunları eski sava: 1.0.0 yönlendi
 
 2. Bir koşul girin **Kullanıcı aracısını Firefox ==** tıklatıp ![Vamp UI - Kaydet](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png).
 
-  % 0 koşulunu varsayılan gücü ile canary sürümü ekler. Trafiği filtrelemeye başlamak için koşul gücü ayarlamanız gerekir.
+   % 0 koşulunu varsayılan gücü ile canary sürümü ekler. Trafiği filtrelemeye başlamak için koşul gücü ayarlamanız gerekir.
 
 3. Tıklayın ![Vamp UI - Düzenle](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) değiştirmek için **gücü** durumuna uygulanır.
  
 4. Ayarlama **gücü** % 100 ve tıklatın ![Vamp UI - Kaydet](./media/container-service-dcos-vamp-canary-release/vamp_ui_save.png) kaydetmek için.
 
-  Canary sürümü artık sava: 1.0.0 durumuna (tüm Firefox kullanıcılar) ile eşleşen tüm trafik gönderir.
+   Canary sürümü artık sava: 1.0.0 durumuna (tüm Firefox kullanıcılar) ile eşleşen tüm trafik gönderir.
 
-  ![UI vamp - ağ geçidi için koşul Uygula](./media/container-service-dcos-vamp-canary-release/26_apply_condition.png)
+   ![UI vamp - ağ geçidi için koşul Uygula](./media/container-service-dcos-vamp-canary-release/26_apply_condition.png)
 
 5. Son olarak, tüm kalan trafik (tüm Firefox olmayan kullanıcılar) yeni sava: 1.1.0 göndermek için ağ geçidi ağırlık ayarlayın. Tıklayın ![Vamp UI - Düzenle](./media/container-service-dcos-vamp-canary-release/vamp_ui_edit.png) yanındaki **ağırlık** ve ekibindeki ağırlık dağıtımı % 100 için rota sava/sava_cluster/sava:1.1.0/webport yönergelerine uygun olacak şekilde ayarladınız.
 
-  Koşul filtrelenmediğinden tüm trafiği, artık yeni sava: 1.1.0 yönlendirilir.
+   Koşul filtrelenmediğinden tüm trafiği, artık yeni sava: 1.1.0 yönlendirilir.
 
 6. Eylem filtresinde görmek için iki farklı tarayıcılar (bir Firefox ve başka bir tarayıcı) açın ve hem de sava hizmete erişim. Diğer tüm tarayıcılar sava: 1.1.0 yönlendirilmiş sırada tüm Firefox istekleri sava: 1.0.0 gönderilir.
 
-  ![UI - giden trafiği filtrelemek vamp](./media/container-service-dcos-vamp-canary-release/27_filter_traffic.png)
+   ![UI - giden trafiği filtrelemek vamp](./media/container-service-dcos-vamp-canary-release/27_filter_traffic.png)
 
 ## <a name="summing-up"></a>Özetle
 

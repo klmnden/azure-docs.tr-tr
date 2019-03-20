@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 53ddea5426d2adfa7b0ddfcbda3375efae8d0859
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250815"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845197"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Derin azure'da sanal makine öğrenme vm'si sağlama 
 
@@ -49,10 +49,10 @@ Bir örneği, ayrıntılı öğrenme sanal makinesi oluşturmak için adımlar �
 > [!NOTE]
 > DLVM tüm NC ve ND serisi GPU sanal makine örneğini destekler. DLVM sağlanırken GPU'ları olan Azure'da konumlardan birini seçmeniz gerekir. Denetleme [bölge sayfasına göre Azure ürünleri](https://azure.microsoft.com/regions/services/) sayfa için kullanılabilir konumların ve Ara **NC serisi**, **NCv2 serisi**, **NCv3 serisi** , veya **ND serisi** altında **işlem**. 
 
-   2. **Ayarları**: NC serisi (NC NCv2, NCv3) veya maliyet kısıtlamaları ve işlevsel bir gereksinimi karşılayan, ND serisi GPU sanal makine boyutları birini seçin. Sanal Makineniz için bir depolama hesabı oluşturun.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+1. **Ayarları**: NC serisi (NC NCv2, NCv3) veya maliyet kısıtlamaları ve işlevsel bir gereksinimi karşılayan, ND serisi GPU sanal makine boyutları birini seçin. Sanal Makineniz için bir depolama hesabı oluşturun.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-   3. **Özet**: Girdiğiniz tüm bilgilerin doğru olduğunu doğrulayın.
-   5. **Satın alma**: Tıklayın **satın** sağlamaya başlamak için. İşlemin koşullarının bağlantısı sunulur. VM, seçtiğiniz sunucu boyutu için işlem ötesinde herhangi bir ek ücreti yok **boyutu** adım. 
+1. **Özet**: Girdiğiniz tüm bilgilerin doğru olduğunu doğrulayın.
+1. **Satın alma**: Tıklayın **satın** sağlamaya başlamak için. İşlemin koşullarının bağlantısı sunulur. VM, seçtiğiniz sunucu boyutu için işlem ötesinde herhangi bir ek ücreti yok **boyutu** adım. 
 
 > [!NOTE]
 > Sağlama yaklaşık 10-20 dakika sürer. Sağlama durumunu Azure portalında görüntülenir.
@@ -66,7 +66,7 @@ VM oluşturulduktan sonra Uzak Masaüstü uygulamasına önceki yapılandırdı�
 
 ### <a name="linux-edition"></a>Linux sürümü
 
-VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesabı kimlik bilgilerini kullan **Temelleri** bölümünde metin kabuk arabirimi için adım 3. Gibi bir SSH istemcisi aracı indirebileceğiniz aWindows istemcide [Putty](http://www.putty.org). Bir grafik desktop (X Windows sistemi) tercih ederseniz, Putty üzerinde iletme X11 kullanın veya X2Go istemciyi yükleyin.
+VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesabı kimlik bilgilerini kullan **Temelleri** bölümünde metin kabuk arabirimi için adım 3. Gibi bir SSH istemcisi aracı indirebileceğiniz aWindows istemcide [Putty](https://www.putty.org). Bir grafik desktop (X Windows sistemi) tercih ederseniz, Putty üzerinde iletme X11 kullanın veya X2Go istemciyi yükleyin.
 
 > [!NOTE]
 > Bizim testimizde iletme X11 daha iyi X2Go istemci gerçekleştirdi. X2Go istemci masaüstü bir grafik arabirim için kullanmanızı öneririz.
@@ -76,7 +76,7 @@ VM oluşturulduktan sonra ona SSH kullanarak oturum açabilirsiniz. Oluşturduğ
 #### <a name="installing-and-configuring-x2go-client"></a>Yükleme ve X2Go istemci yapılandırma
 Linux DLVM zaten X2Go sunucusu ile sağlanan ve istemci bağlantılarını kabul etmeye hazır. Linux VM grafik masaüstüne bağlanmak için istemcinizi aşağıdaki yordamı tamamlayın:
 
-1. İstemci platformunuza yönelik X2Go istemcisini indirme ve yükleme [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. İstemci platformunuza yönelik X2Go istemcisini indirme ve yükleme [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. X2Go istemci çalıştırıp seçeneğini **yeni oturumu**. Bu, birden fazla sekme ile bir yapılandırma penceresi açılır. Aşağıdaki yapılandırma parametrelerini girin:
    * **Oturum sekmesini**:
      * **Konak**: Ana bilgisayar adı veya IP adresini Linux veri bilimi sanal makinesi.

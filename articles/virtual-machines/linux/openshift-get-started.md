@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: haroldw
-ms.openlocfilehash: 826377f7ae4803818fab22e333f7b9b89caf67cb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 826085df8d928cab0a05527be8c464af5f4e9180
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444897"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002506"
 ---
 # <a name="openshift-in-azure"></a>Azure'da OpenShift
 
@@ -50,7 +50,7 @@ Tüm platform müşteriler "sahip"olduğundan, bunlar kendi şirket içi veri me
 
 ## <a name="openshift-on-azure"></a>Azure üzerinde OpenShift
 
-Azure'da OpenShift, Azure'da çalıştırılan OpenShift tam olarak yönetilen bir tekliftir. Bu hizmet tüm dünyada yönetilen ve Microsoft ve Red Hat tarafından desteklenir. Küme, müşterinin Azure aboneliğinize dağıtırsınız. Hizmet şu anda özel Önizleme aşamasındadır ve S1 CY2019 sonuna etrafında GA sunulması planlanmaktadır. Özel önizlemeye katılmak isteyen müşteriler için lütfen doldurun [ADAYLIK formu](http://aka.ms/openshiftazureinterest).  Teklif tarife için daha yakından ettiği daha fazla bilgi sağlanacaktır
+Azure'da OpenShift, Azure'da çalıştırılan OpenShift tam olarak yönetilen bir tekliftir. Bu hizmet tüm dünyada yönetilen ve Microsoft ve Red Hat tarafından desteklenir. Küme, müşterinin Azure aboneliğinize dağıtırsınız. Hizmet şu anda özel Önizleme aşamasındadır ve S1 CY2019 sonuna etrafında GA sunulması planlanmaktadır. Özel önizlemeye katılmak isteyen müşteriler için lütfen doldurun [ADAYLIK formu](https://aka.ms/openshiftazureinterest).  Teklif tarife için daha yakından ettiği daha fazla bilgi sağlanacaktır
 
 ## <a name="okd-formerly-openshift-origin"></a>OKD (eski adıyla OpenShift Origin)
 

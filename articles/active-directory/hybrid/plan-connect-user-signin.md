@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3b503c7f0693a90d438fcec3ecae335fd349b3d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188010"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996326"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect kullanıcı oturum açma seçenekleri
 Azure Active Directory (Azure AD) Connect, kullanıcılarınızın hem bulut hem de şirket içi kaynaklara aynı parolayı kullanarak oturum açmasını sağlar. Bu makalede, Azure AD'de oturum açmak için kullanmak istediğiniz kimlik seçmenize yardımcı olmak her bir kimlik modeli için temel kavramları açıklar.
@@ -60,7 +60,7 @@ Ayrıca, etkinleştirebilirsiniz [sorunsuz çoklu oturum açma](how-to-connect-s
 
 Daha fazla bilgi için [parola karması eşitleme](how-to-connect-password-hash-synchronization.md) makalesi.
 
-### <a name="pass-through-authentication"></a>Doğrudan kimlik doğrulama
+### <a name="pass-through-authentication"></a>Geçişli kimlik doğrulama
 Geçişli kimlik doğrulaması ile şirket içi Active Directory denetleyicisine karşı kullanıcının parolasını doğrulanır. Parola, herhangi bir biçimde Azure AD'de mevcut olması gerekmez. Bu şirket içi ilkeleri, saat, oturum açma kısıtlamaları gibi bulut kimlik doğrulaması sırasında değerlendirilecek hizmetleri sağlar.
 
 Geçişli kimlik doğrulaması, şirket içi ortamındaki etki alanı ile birleşik Windows Server 2012 R2 makinesine basit bir aracı kullanır. Bu aracı, parola doğrulama isteklerini dinler. Bu, Internet'e açık olmasını gelen bağlantı noktalarının gerektirmez.
@@ -75,7 +75,9 @@ Daha fazla bilgi için bkz.
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>Windows Server 2012 R2'de AD FS ile yeni veya mevcut bir grubu kullanan Federasyon
 Federasyon ile oturum açma, kullanıcılarınızın şirket içi parolalarını ile Azure AD tabanlı hizmetlere oturum açabilirsiniz. Bunlar şirket ağında olduğunuzda bunların bile parolalarını girmeniz gerekmez. AD FS ile Federasyon seçeneğini kullanarak Windows Server 2012 R2'de AD FS ile yeni veya mevcut bir grubu dağıtabilirsiniz. Mevcut bir grubu belirtmek isterseniz, Azure AD Connect, kullanıcılar oturum açabilir, grubu ve Azure AD arasında güven yapılandırır.
 
-<center>![Windows Server 2012 R2'de AD FS ile Federasyon](./media/plan-connect-user-signin/federatedsignin.png)</center>
+<center>
+
+![Windows Server 2012 R2'de AD FS ile Federasyon](./media/plan-connect-user-signin/federatedsignin.png)</center>
 
 #### <a name="deploy-federation-with-ad-fs-in-windows-server-2012-r2"></a>Windows Server 2012 R2'de AD FS ile Federasyon dağıtma
 
@@ -152,6 +154,7 @@ Azure AD dizininize özel etki alanı durumlarda arasındaki ilişkiyi anlamak �
 Biz şirket içi dizin örneğin UPN--bir parçası olarak kullanılan UPN soneki contoso.com ile ilgili aşağıdaki bilgileri için varsayalım user@contoso.com.
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Hızlı ayarlar/parola karması eşitleme
+
 | Durum | Azure oturum açma kullanıcı deneyimine etkisi |
 |:---:|:--- |
 | Ekli değil |Bu durumda, herhangi bir özel etki alanı contoso.com için Azure AD dizininde eklendi. UPN ile şirket içi son ekine sahip kullanıcılar @contoso.com şirket içi UPN Azure'da oturum açarken kullandığınız mümkün olmayacaktır. Bunlar bunun yerine varsayılan Azure AD dizini için son eki ekleyerek bunları Azure AD tarafından sağlanır yeni bir UPN kullanmanız gerekir. Örneğin, Azure AD directory azurecontoso.onmicrosoft.com kullanıcılara, sonra şirket içi kullanıcı eşitleme user@contoso.com bir UPN ile verilen user@azurecontoso.onmicrosoft.com. |

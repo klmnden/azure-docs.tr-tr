@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dffcfe7c4c892976a61272a2217226f512b70ed
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 1cb15f3e786313fca4ae9f0c224c68c96bac7836
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542565"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077726"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Azure Active Directory kiracısı Sil
 Bir kiracı silindiğinde, kiracıda bulunan tüm kaynaklar da silinir. Kiracı, silmeden önce ilişkili kaynakları en aza indirerek hazırlamanız gerekir. Yalnızca Azure Active Directory (Azure AD) genel yönetici portalından Azure AD kiracısı silebilirsiniz.
@@ -41,11 +41,11 @@ Bazı denetimleri geçinceye kadar Azure AD'de bir kiracı silinemiyor. Bu denet
 
 3. Anahtarı silmek istediğiniz kiracıya.
   
-  ![Dizin düğmesini Sil](./media/directory-delete-howto/delete-directory-command.png)
+   ![Dizin düğmesini Sil](./media/directory-delete-howto/delete-directory-command.png)
 
 4. Seçin **silme directory**.
   
-  ![Dizin düğmesini Sil](./media/directory-delete-howto/delete-directory-list.png)
+   ![Dizin düğmesini Sil](./media/directory-delete-howto/delete-directory-list.png)
 
 5. Kiracınızda bir veya daha fazla denetimi geçemezse geçirmek hakkında daha fazla bilgi için bir bağlantı edinirsiniz. Tüm denetimlerden başarıyla sonra seçin **Sil** tıklayarak işlemi tamamlar.
 
@@ -55,12 +55,12 @@ Azure AD kiracınıza yapılandırıldığında, ayrıca lisans tabanlı aboneli
 
 Beklenecekler için deneme Office 365 aboneliği (Ücretli iş ortağı/CSP, Kurumsal Anlaşma veya Toplu Lisanslama dahil değil) süresi dolduğunda, aşağıdaki tabloya bakın. Office 365 veri saklama ve abonelik yaşam döngüsü hakkında daha fazla bilgi için bkz. [Office 365 işletme Aboneliğim sona erdiğinde verilerime ve erişim için ne olur?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
-Abonelik durumu | Veriler | Veri erişimi
+Abonelik durumu | Veri | Veri erişimi
 ----- | ----- | -----
-Etkin (deneme sürümü için 30 gün)  | Tüm erişilebilir veri    | <li>Kullanıcıların Office 365 dosyalar veya uygulamalar için normal erişimi<li>Yöneticilerin Office 365 Yönetim merkezine ve kaynaklara normal erişimi 
-Süresi dolan (30 gün)   | Tüm erişilebilir veri    | <li>Kullanıcıların Office 365 dosyalar veya uygulamalar için normal erişimi<li>Yöneticilerin Office 365 Yönetim merkezine ve kaynaklara normal erişimi
-Devre dışı (30 gün) | Verileri yalnızca Yöneticisi için erişilebilir  | <li>Kullanıcılar Office 365 dosyalar veya uygulamalar erişemez.<li>Yöneticileri Office 365 Yönetim Merkezine erişim ancak olamaz lisansları atayabilir veya güncelleştirme
-Sağlaması (30 gün sonra devre dışı) | Silinen verileri (otomatik olarak silinmesini başka bir hizmetler kullanılıyorsa) | <li>Kullanıcılar Office 365 dosyalar veya uygulamalar erişemez.<li>Yöneticiler satın alın ve diğer Aboneliklerini yönetmek için Office 365 Yönetim merkezine erişebilirsiniz 
+Etkin (deneme sürümü için 30 gün)  | Tüm erişilebilir veri    | <li>Kullanıcıların Office 365 dosyalar veya uygulamalar için normal erişimi<li>Yöneticiler normal Microsoft 365 Yönetim Merkezi ve kaynaklara erişimi 
+Süresi dolan (30 gün)   | Tüm erişilebilir veri    | <li>Kullanıcıların Office 365 dosyalar veya uygulamalar için normal erişimi<li>Yöneticiler normal Microsoft 365 Yönetim Merkezi ve kaynaklara erişimi
+Devre dışı (30 gün) | Verileri yalnızca Yöneticisi için erişilebilir  | <li>Kullanıcılar Office 365 dosyalar veya uygulamalar erişemez.<li>Yöneticiler Microsoft 365 Yönetim Merkezine erişim ancak olamaz için lisans atama veya güncelleştirme
+Sağlaması (30 gün sonra devre dışı) | Silinen verileri (otomatik olarak silinmesini başka bir hizmetler kullanılıyorsa) | <li>Kullanıcılar Office 365 dosyalar veya uygulamalar erişemez.<li>Yöneticiler satın alın ve diğer Aboneliklerini yönetmek için Microsoft 365 Yönetim merkezine erişebilirsiniz 
 
 ## <a name="delete-a-subscription-in-the-microsoft-365-admin-center"></a>Microsoft 365 Yönetim merkezinde aboneliği silme
 
@@ -70,17 +70,17 @@ Bir aboneliğe koyabilirsiniz bir **Deprovisoned** durumu Microsoft 365 Yönetim
 
 2. Git **faturalama** sekmenize **ürünleri ve Hizmetleri**, iptal etmek istediğiniz aboneliği seçin. Tıkladıktan sonra **iptal**, sayfayı yenileyin.
   
-  ![Aboneliği silmek için bağlantısını Sil](./media/directory-delete-howto/delete-command.png)
+   ![Aboneliği silmek için bağlantısını Sil](./media/directory-delete-howto/delete-command.png)
   
 3. Seçin **Sil** abonelik silip hüküm ve koşulları kabul edin. Tüm verileri kalıcı olarak üç gün içinde silinir. Fikrinizi değiştirirseniz üç gün boyunca abonelik yeniden etkinleştirebilir.
   
-  ![hüküm ve koşullar](./media/directory-delete-howto/delete-terms.png)
+   ![hüküm ve koşullar](./media/directory-delete-howto/delete-terms.png)
 
 4. Abonelik durumu değiştirildiğinde artık abonelik silinmek üzere işaretlendi. Abonelik girer **yetki kaldırıldı** 72 saat belirtin.
 
 5. Kiracınızda, bir aboneliğin silinmesinden ve 72 saat tetiklenirse, oturum sonra tekrar içine Azure AD yönetim merkezini yeniden ve orada gerekli bir eylem ve, Kiracı silinmesini engelleyen herhangi bir abonelik olması gerekir. Başarılı bir şekilde, Azure AD kiracısını silmek mümkün olması gerekir.
   
-  ![silme ekranında abonelik denetimi başarılı](./media/directory-delete-howto/delete-checks-passed.png)
+   ![silme ekranında abonelik denetimi başarılı](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure Active Directory belgeleri](https://docs.microsoft.com/azure/active-directory/)

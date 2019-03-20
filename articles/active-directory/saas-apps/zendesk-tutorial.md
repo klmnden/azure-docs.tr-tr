@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecba9db19c4ef2cfb42d16f70475d5ad1aeef11e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 11370e651c338de3d139a4bb70c9658090052469
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762220"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901789"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Öğretici: Zendesk ile Azure Active Directory Tümleştirme
 
@@ -109,22 +109,22 @@ Azure AD çoklu oturum açma Zendesk ile yapılandırmak için aşağıdaki adı
 
     a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<subdomain>.zendesk.com`
 
-  b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<subdomain>.zendesk.com`
+   b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<subdomain>.zendesk.com`
 
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [Zendesk istemci Destek ekibine](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
 5. Zendesk uygulama belirli bir biçimde SAML onaylamalarını bekler. Zorunlu SAML öznitelikleri vardır, ancak isteğe bağlı olarak yönetebileceğiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
 
-    ![image](common/edit-attribute.png)
+    ![görüntü](common/edit-attribute.png)
 
 6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![image](common/new-save-attribute.png)
+    ![görüntü](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![görüntü](common/new-attribute-details.png)
 
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
@@ -159,11 +159,11 @@ Azure AD çoklu oturum açma Zendesk ile yapılandırmak için aşağıdaki adı
   
 10. Zendesk içinde yapılandırmasını otomatik hale getirmenizi yüklemeniz gerekir **My Apps güvenli oturum açma tarayıcı uzantısı** tıklayarak **uzantıyı yükleme**.
 
-    ![image](./media/zendesk-tutorial/install_extension.png)
+    ![görüntü](./media/zendesk-tutorial/install_extension.png)
 
 11. Uzantı tarayıcıya ekledikten sonra tıklayarak **Kurulum Zendesk** Zendesk uygulamaya yönlendirir. Burada, Zendesk oturum açmak için yönetici kimlik bilgilerini sağlayın. Tarayıcı uzantısı otomatik olarak sizin için uygulamayı yapılandırma ve bölüm otomatikleştirmek **yapılandırma Zendesk çoklu oturum açma**.
 
-    ![image](./media/zendesk-tutorial/d2_saml.png)
+    ![görüntü](./media/zendesk-tutorial/d2_saml.png)
 
 ### <a name="configure-zendesk-single-sign-on"></a>Zendesk tek oturum açmayı yapılandırın
 
@@ -209,7 +209,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

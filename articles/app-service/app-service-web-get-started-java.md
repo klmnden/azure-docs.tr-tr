@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: 9044890c1bb4a662adecec0e94a220897af54557
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6bf0562d222bce07f74ef5355ad0e3d6b8844c33
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115122"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096631"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Azure’da ilk Java web uygulamanızı oluşturma
 
@@ -118,14 +118,14 @@ Azure hesabınızda oturum açtıktan sonra, **Web Uygulaması Dağıtma** ileti
 
 * Web uygulamanız için benzersiz bir ad girin veya oluşturulan adı değiştirmeyin. Bu ad Azure genelinde benzersiz olmalıdır. Ad, web uygulamasının URL adresinin bir parçasıdır. Örneğin, web uygulamasının adı **MyJavaWebApp** ise URL şu şekildedir: *myjavawebapp.azurewebsites.net*.
 * Bu hızlı başlangıç için, varsayılan web kapsayıcısını değiştirmeyin.
-* Bir Azure aboneliği seçin.
+* Azure aboneliği seçin.
 * **App Service planı** sekmesinde:
 
   * **Yeni Oluştur**: App Service planının adı olan varsayılan değeri değiştirmeyin.
   * **Konum**: Seçin **Batı Avrupa** veya size yakın bir konum.
   * **Fiyatlandırma katmanı**: Ücretsiz seçeneğini belirleyin. Özellikler için bkz. [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-   ![App Service Oluşturma iletişim kutusu](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
+    ![App Service Oluşturma iletişim kutusu](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
@@ -203,7 +203,7 @@ Soldaki menüden **Kaynak Grupları**'nı seçin.
 
 Kaynak grubunu seçin. Sayfada bu hızlı başlangıçta oluşturduğunuz kaynaklar gösterilir.
 
-![Kaynak grubu](media/app-service-web-get-started-java/rg2.png)
+![Kaynak grup](media/app-service-web-get-started-java/rg2.png)
 
 Web uygulamasını (önceki resimde **webapp-170602193915**) seçin.
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4c431b149edb0677585da3c84e37d64873478ccf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 905d084b46919ad945cf44f5517b95d5321ee3de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432745"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116207"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veri ambarı gelen ve giden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -146,7 +146,7 @@ GO
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | sqlWriterCleanupScript |Belirli bir dilimin veri Temizlenen şekilde yürütmek kopyalama etkinliği için bir sorgu belirtin. Ayrıntılar için bkz [yinelenebilirliği bölümü](#repeatability-during-copy). |Bir sorgu deyimi. |Hayır |
-| Bulunan'allowpolybase |PolyBase, (uygunsa) yerine BULKINSERT mekanizması kullanılıp kullanılmayacağını belirtir. <br/><br/> **PolyBase kullanarak SQL Data Warehouse'a veri yükleme için önerilen yoldur.** Bkz: [Azure SQL veri ambarı'na veri yüklemek için PolyBase kullanma](#use-polybase-to-load-data-into-azure-sql-data-warehouse) kısıtlamaları ve ayrıntıları bölümü. |True <br/>False (varsayılan) |Hayır |
+| Bulunan'allowpolybase |PolyBase, (uygunsa) yerine BULKINSERT mekanizması kullanılıp kullanılmayacağını belirtir. <br/><br/> **PolyBase kullanarak SQL Data Warehouse'a veri yükleme için önerilen yoldur.** Bkz: [Azure SQL veri ambarı'na veri yüklemek için PolyBase kullanma](#use-polybase-to-load-data-into-azure-sql-data-warehouse) kısıtlamaları ve ayrıntıları bölümü. |Doğru <br/>False (varsayılan) |Hayır |
 | polyBaseSettings |Bir grup olabilir özellik belirtilen **Bulunan'allowpolybase** özelliği **true**. |&nbsp; |Hayır |
 | rejectValue |Sayı veya sorgu başarısız olmadan önce reddedilemiyor satırları yüzdesini belirtir. <br/><br/>PolyBase'nın içinde reddetme seçeneklerini hakkında daha fazla bilgi **bağımsız değişkenleri** bölümünü [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) konu. |0 (varsayılan), 1, 2... |Hayır |
 | rejectType |RejectValue seçeneği değişmez değer veya bir yüzdesi olarak belirtilen belirtir. |Değer (varsayılan), yüzde |Hayır |
@@ -197,28 +197,28 @@ Gereksinimler karşılanmazsa, Azure Data Factory ayarları denetler ve veri ta�
 1. **Kaynak bağlı hizmet** türü: **AzureStorage** veya **hizmet sorumlusu kimlik doğrulaması ile birlikte AzureDataLakeStore**.
 2. **Girdi veri kümesi** türü: **AzureBlob** veya **birlikte AzureDataLakeStore**ve altında türü biçimi `type` özellikleri **OrcFormat**, **ParquetFormat**, veya **TextFormat** aşağıdaki yapılandırmalarla:
 
-    1. `rowDelimiter` olmalıdır **\n**.
-    2. `nullValue` ayarlanır **boş dize** (""), veya `treatEmptyAsNull` ayarlanır **true**.
-    3. `encodingName` ayarlanır **utf-8**, olduğu **varsayılan** değeri.
-    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, ve `skipLineCount` belirtilmedi.
-    5. `compression` olabilir **sıkıştırma**, **GZip**, veya **Deflate**.
+   1. `rowDelimiter` olmalıdır **\n**.
+   2. `nullValue` ayarlanır **boş dize** (""), veya `treatEmptyAsNull` ayarlanır **true**.
+   3. `encodingName` ayarlanır **utf-8**, olduğu **varsayılan** değeri.
+   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, ve `skipLineCount` belirtilmedi.
+   5. `compression` olabilir **sıkıştırma**, **GZip**, veya **Deflate**.
 
-    ```JSON
-    "typeProperties": {
-        "folderPath": "<blobpath>",
-        "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "<any delimiter>",
-            "rowDelimiter": "\n",
-            "nullValue": "",
-            "encodingName": "utf-8"
-        },
-        "compression": {
-            "type": "GZip",
-            "level": "Optimal"
-        }
-    },
-    ```
+      ```JSON
+      "typeProperties": {
+       "folderPath": "<blobpath>",
+       "format": {
+           "type": "TextFormat",
+           "columnDelimiter": "<any delimiter>",
+           "rowDelimiter": "\n",
+           "nullValue": "",
+           "encodingName": "utf-8"
+       },
+       "compression": {
+           "type": "GZip",
+           "level": "Optimal"
+       }
+      },
+      ```
 
 3. Var olan hiçbir `skipHeaderLineCount` altında ayarlama **BlobSource** veya **birlikte AzureDataLakeStore** işlem hattındaki kopyalama etkinliği için.
 4. Var olan hiçbir `sliceIdentifierColumnName` bölümündeki **SqlDWSink** işlem hattındaki kopyalama etkinliği için. (Tüm veriler güncelleştirildiğinde veya hiçbir şey tek bir çalıştırmada güncelleştirildiğinde PolyBase garanti eder. Elde etmek için **yinelenebilirliği**, kullanabileceğinizi `sqlWriterCleanupScript`).
@@ -311,7 +311,7 @@ Data Factory, kaynak veri deposundaki aynı tablo adı ile hedef depolama tablos
 | Sayısal | Decimal |
 | Kayan | Kayan |
 | para | para |
-| Real | Real |
+| Gerçek | Gerçek |
 | Küçük para | Küçük para |
 | İkili | İkili |
 | varbinary | Varbinary (en fazla 8000) |
@@ -323,7 +323,7 @@ Data Factory, kaynak veri deposundaki aynı tablo adı ile hedef depolama tablos
 | SmallDateTime | SmallDateTime |
 | Metin | VARCHAR (en fazla 8000) |
 | NText | NVarChar (en fazla 4000) |
-| Görüntü | VarBinary (en fazla 8000) |
+| Resim | VarBinary (en fazla 8000) |
 | Benzersiz tanımlayıcı | Benzersiz tanımlayıcı |
 | Char | Char |
 | nChar | nChar |

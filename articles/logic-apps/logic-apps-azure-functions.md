@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bb00ef0f76b71d0a4748a319c9f2a5d64dffa251
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233319"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861596"
 ---
 # <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Ekleme ve Azure işlevleri ile Azure Logic apps'te özel kod parçacıkları çalıştırma
 
-Logic apps içinde belirli bir işi yapan yeterli kodu çalıştırmak istediğinizde, kendi işlevleri ile oluşturabileceğiniz [Azure işlevleri](../azure-functions/functions-overview.md). Bu hizmet bütün bir uygulama veya kodunuzu çalıştırmak için altyapı oluşturmak zorunda kalmamak için Node.js, C# ve F # kod parçacıkları oluşturmanıza yardımcı olur. Azure işlevleri, sunucusuz bilgi işlem bulutta sağlar ve aşağıdaki örnekte olduğu gibi görevleri gerçekleştirmek için yararlıdır:
+Logic apps içinde belirli bir işi yapan yeterli kodu çalıştırmak istediğinizde, kendi işlevleri ile oluşturabileceğiniz [Azure işlevleri](../azure-functions/functions-overview.md). Bu hizmet, Node.js, oluşturmanıza yardımcı olur. C#, ve F# bütün bir uygulama veya kodunuzu çalıştırmak için altyapı oluşturmak zorunda kalmamak için kod parçacıkları. Azure işlevleri, sunucusuz bilgi işlem bulutta sağlar ve aşağıdaki örnekte olduğu gibi görevleri gerçekleştirmek için yararlıdır:
 
 * Node.js veya C# işlevleri ile mantıksal uygulamanızın davranışını genişletin.
 * Mantıksal uygulama iş akışınızı hesaplamalar gerçekleştirin.
@@ -44,7 +44,7 @@ Bu makalede takip etmek için bu öğeler gerekir:
     HTTP tetikleyici şablonu olan içeriği kabul edebilir `application/json` mantıksal uygulamanızdan türü. 
     Bir Azure işlevi mantıksal uygulamanıza eklediğinizde, mantıksal Uygulama Tasarımcısı, Azure aboneliğinizde bu şablondan oluşturulan özel işlevler gösterir. 
 
-  * İşlevinizi tanımladınız sürece özel yollar kullanmayan bir [Openapı tanımı](../azure-functions/functions-openapi-definition.md), eski adıyla bir [Swagger dosyası](http://swagger.io/). 
+  * İşlevinizi tanımladınız sürece özel yollar kullanmayan bir [Openapı tanımı](../azure-functions/functions-openapi-definition.md), eski adıyla bir [Swagger dosyası](https://swagger.io/). 
   
   * İşleviniz için bir Openapı tanımı tanımladıysanız, Logic Apps Tasarımcısı'nda, işlev parametreleri ile çalışmak için daha zengin bir deneyim sunar. Mantıksal uygulamanızı bulun ve erişim Openapı tanımlarıyla sahip işlevlerin önce [aşağıdaki adımları izleyerek işlev uygulamanızı ayarlama](#function-swagger).
 
@@ -52,7 +52,7 @@ Bu makalede takip etmek için bu öğeler gerekir:
 
   İşlevleri çalıştırmak üzere eylemleri eklemeden önce mantıksal uygulamanızın bir tetikleyici ile başlamalıdır.
 
-  Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: ilk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: İlk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="create-function-external"></a>
 
@@ -67,7 +67,7 @@ Azure işlevleri'ni oluşturmaya yeni başlıyorsanız öğrenin nasıl [Azure p
 
 <a name="function-swagger"></a>
 
-* İsteğe bağlı olarak, varsa, [bir API tanımı oluşturmayı](../azure-functions/functions-openapi-definition.md), eski adıyla bir [Swagger dosyası](http://swagger.io/), işleviniz için Logic Apps Tasarımcısı'nda işlev parametreleri ile çalışırken daha zengin bir deneyim elde edebilirsiniz. Mantıksal uygulamanızı bulun ve Swagger açıklamaları işlevleri kullanmak için işlev uygulamanızı ayarlamak için aşağıdaki adımları izleyin:
+* İsteğe bağlı olarak, varsa, [bir API tanımı oluşturmayı](../azure-functions/functions-openapi-definition.md), eski adıyla bir [Swagger dosyası](https://swagger.io/), işleviniz için Logic Apps Tasarımcısı'nda işlev parametreleri ile çalışırken daha zengin bir deneyim elde edebilirsiniz. Mantıksal uygulamanızı bulun ve Swagger açıklamaları işlevleri kullanmak için işlev uygulamanızı ayarlamak için aşağıdaki adımları izleyin:
 
   1. İşlev uygulamanızı etkin bir şekilde çalıştığından emin olun.
 
@@ -129,7 +129,7 @@ Eylem listesinden şu eylemi seçin: **Azure işlevleri - Azure işlevi seçin**
 
    !["Azure işlevleri" bulun](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
-4. İşlev uygulamaları listesinden işlevi uygulamanızı seçin. Eylemleri açılır liste sonra şu eylemi seçin: **Azure işlevleri - yeni işlev oluşturma**
+4. İşlev uygulamaları listesinden işlevi uygulamanızı seçin. Eylem listesini açıldıktan sonra şu eylemi seçin: **Azure işlevleri - yeni bir işlev oluşturma**
 
    ![İşlev uygulamanızı seçin](./media/logic-apps-azure-functions/select-function-app-create-function.png)
 

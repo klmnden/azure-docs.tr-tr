@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4fd3bd635cd45b3358d47cb1cfc6e88f3fafbe0d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: be36f9ab881f2375b14ba0ea36038f9e840d199f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453363"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997496"
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Azure Data Factory kullanarak verileri ve SQL Server şirket içi veya ıaas (Azure VM) taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -553,17 +553,15 @@ Veri alındığından yeni blobundan her saat (Sıklık: saat, interval: 1). Blo
 
     Bkz: [etkinleştirmek veya sunucu ağ protokolünü devre dışı](https://msdn.microsoft.com/library/ms191294.aspx) Ayrıntılar ve TCP/IP protokolünü etkinleştirme alternatif yolu.
 3. Aynı pencerede çift **TCP/IP'yi** başlatmak için **TCP/IP özelliklerini** penceresi.
-4. Geçiş **IP adresleri** sekmesi. Görmek için aşağı kaydırın **IPAll** bölümü. Not ** TCP bağlantı noktası ** (varsayılan değer **1433**).
+4. Geçiş **IP adresleri** sekmesi. Görmek için aşağı kaydırın **IPAll** bölümü. Not **TCP bağlantı noktası**(varsayılan değer **1433**).
 5. Oluşturma bir **Windows Güvenlik Duvarı Kuralı** Bu bağlantı noktası üzerinden gelen trafiğe izin vermek için makinede.
 6. **Bağlantıyı doğrulama**: Tam adı kullanılarak SQL Server'a bağlanmak için farklı bir makinede SQL Server Management Studio'yu kullanın. Örneğin: "\<makine\>.\< etki alanı\>. corp.\<şirket\>.com, 1433. "
 
    > [!IMPORTANT]
-
+   > 
    > Bkz: [şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) ayrıntılı bilgi için.
-   >
+   > 
    > Bkz: [ağ geçidiyle ilgili sorunları giderme](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) bağlantı/ağ geçidi sorunlarını giderme ipuçları için ilgili sorunlar.
-   >
-   >
 
 
 ## <a name="identity-columns-in-the-target-database"></a>Hedef veritabanındaki Kimlik sütunları

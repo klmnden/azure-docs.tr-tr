@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f574c85252614fd24734657affe3264d72130dd3
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 9ec8f8f1c6e1d1b806c5d965d3c2287027885c44
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996997"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901602"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için C# cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama
 
@@ -27,7 +27,7 @@ Bu adımlar nasıl kullanılacağını göstermektedir [için Azure IOT örnekle
 Otomatik sağlama işlemini bilmiyorsanız, [Otomatik sağlama kavramlarını](concepts-auto-provisioning.md) gözden geçirdiğinizden emin olun. Ayrıca devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarlama](./quick-setup-auto-provision.md) bölümünde bulunan adımları tamamladığınızdan emin olun. 
 
 Azure IoT Cihaz Sağlama Hizmeti iki tür kaydı destekler:
-- [Kayıt grupları](concepts-service.md#enrollment-group): Birden fazla ilgili cihazı kaydetmek için kullanılır.
+- [Kayıt grupları](concepts-service.md#enrollment-group): Birden çok ilgili cihazları kaydetmek için kullanılır.
 - [Bireysel kayıtlar](concepts-service.md#individual-enrollment): Tek bir cihazı kaydetmek için kullanılır.
 
 Bu makalede bireysel kayıtlar gösterilmektedir.
@@ -37,7 +37,7 @@ Bu makalede bireysel kayıtlar gösterilmektedir.
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>Geliştirme ortamını hazırlama 
 
-1. Olduğundan emin olun [.Net Core SDK'sını 2.1 veya üzeri](https://www.microsoft.com/net/download/windows) makinenizde yüklü. 
+1. Olduğundan emin olun [.NET Core 2.1 SDK veya üzeri](https://www.microsoft.com/net/download/windows) makinenizde yüklü. 
 
 1. `git` uygulamasının makinenizde yüklü olduğundan ve komut penceresinden erişilebilir ortam değişkenlerine eklendiğinden emin olun. Yüklenecek `git` araçlarının son sürümleri için [Software Freedom Conservancy’nin Git istemci araçlarına](https://git-scm.com/download/) bakın. Bunlara yerel Git deponuzla etkileşim kurmak için kullanabileceğiniz bir komut satırı uygulaması olan **Git Bash** dahildir. 
 
@@ -78,14 +78,14 @@ Bu makalede bireysel kayıtlar gösterilmektedir.
 4. Azure portalının Cihaz Sağlama Hizmeti özet dikey penceresinde, **Kayıtları yönetme**'yi seçin. **Bireysel Kayıtlar** sekmesini seçin ve en üstteki **Bireysel kayıt ekle** düğmesine tıklayın. 
 
 5. **Kayıt Ekle** altına aşağıdaki bilgileri girin:
-    - Kimlik onay *Mekanizması* olarak **TPM** seçeneğini belirleyin.
-    - Girin *kayıt kimliği* ve *onay anahtarını* TPM cihazınızın önceden not ettiğiniz için.
-    - İsteğe bağlı olarak sağlama hizmetinizle bağlanacak IoT hub'ını seçin.
-    - Benzersiz bir cihaz kimliği girin. Örnek çıktıda önerilen cihaz kimliğini girebilir veya kendiniz bir değer belirtebilirsiniz. Kendi belirttiğiniz değeri kullanıyorsanız cihazınızı adlandırırken gizli veriler kullanmaktan kaçının. 
-    - İsteğe bağlı olarak güncelleştir **ilk cihaz ikizi durumu** cihaz için istenen başlangıç yapılandırmasına sahip.
-    - Tamamlandığında **Kaydet** düğmesine tıklayın. 
+   - Kimlik onay *Mekanizması* olarak **TPM** seçeneğini belirleyin.
+   - Girin *kayıt kimliği* ve *onay anahtarını* TPM cihazınızın önceden not ettiğiniz için.
+   - İsteğe bağlı olarak sağlama hizmetinizle bağlanacak IoT hub'ını seçin.
+   - Benzersiz bir cihaz kimliği girin. Örnek çıktıda önerilen cihaz kimliğini girebilir veya kendiniz bir değer belirtebilirsiniz. Kendi belirttiğiniz değeri kullanıyorsanız cihazınızı adlandırırken gizli veriler kullanmaktan kaçının. 
+   - İsteğe bağlı olarak güncelleştir **ilk cihaz ikizi durumu** cihaz için istenen başlangıç yapılandırmasına sahip.
+   - Tamamlandığında **Kaydet** düğmesine tıklayın. 
 
-    ![Portal dikey penceresinde cihaz kayıt bilgilerini girme](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
+     ![Portal dikey penceresinde cihaz kayıt bilgilerini girme](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
 
    Kayıt başarıyla tamamlanınca cihazınızın *Kayıt Kimliği* listenin altında *Tek Tek Kayıtlar* sekmesinde görünür. 
 

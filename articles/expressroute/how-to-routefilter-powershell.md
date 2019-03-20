@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 680bd80261e1f8b026f6e885156b2ef090b0764d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c67d4979709fc8e72c560c9071b17f48b309e07d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404493"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110843"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Microsoft eşlemesi için rota filtreleri yapılandırma: PowerShell
 > [!div class="op_single_selector"]
@@ -162,15 +162,15 @@ Bir rota filtresinde özelliklerini almak için aşağıdaki adımları kullanı
 
 1. Rota filtresi kaynak almak için aşağıdaki komutu çalıştırın:
 
-  ```azurepowershell-interactive
-  $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
-  ```
+   ```azurepowershell-interactive
+   $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+   ```
 2. Yol, aşağıdaki komutu çalıştırarak, rota filtresi kaynak filtre kuralları alma:
 
-  ```azurepowershell-interactive
-  $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
-  $rule = $routefilter.Rules[0]
-  ```
+   ```azurepowershell-interactive
+   $routefilter = Get-AzRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
+   $rule = $routefilter.Rules[0]
+   ```
 
 ### <a name="updateproperties"></a>Bir rota filtresinde özelliklerini güncelleştirmek için
 

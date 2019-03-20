@@ -1,111 +1,115 @@
 ---
-title: 'Öğretici: Facebook içerik denetleme - Azure Content Moderator'
+title: 'Öğretici: Facebook içerik - Content Moderator Orta'
 titlesuffix: Azure Cognitive Services
 description: Bu öğreticide, Orta Facebook gönderilerinizi ve açıklamalar yardımcı olması için makine öğrenme tabanlı Content Moderator kullanmayı öğreneceksiniz.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 751878f668ff24b1656ab504d6c120714269fab7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 01/18/2019
+ms.author: pafarley
+ms.openlocfilehash: 662eca2a727f3112f169ab8d669bf18c81700275
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534882"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871037"
 ---
-# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Öğretici: Content Moderator ile Facebook içerik denetleme
+# <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Öğretici: Orta Facebook gönderilerinizi ve Azure Content Moderator ile komutları
 
-Bu öğreticide, Orta Facebook gönderilerinizi ve açıklamalar yardımcı olması için makine öğrenme tabanlı Content Moderator kullanmayı öğreneceksiniz.
+Bu öğreticide, Azure Content Moderator bir Facebook sayfasında yorumları ve gönderileri Orta yardımcı olmak için nasıl kullanılacağını öğreneceksiniz. Facebook Content Moderator hizmet yayımlanacağını ve Ziyaretçiler tarafından gönderilen içerik gönderir. Ardından Content Moderator iş akışlarınızı içerik yayımlama veya içerik puanları ve eşiklere göre gözden geçirme aracı içinde gözden geçirmeleri oluşturabilirsiniz. Bkz: [Build 2017 tanıtım videosu](https://channel9.msdn.com/Events/Build/2017/T6033) bu senaryonun çalışan bir örnek için.
 
-Öğretici, şu adımlarda size yol gösterir:
+Bu öğretici şunların nasıl yapıldığını gösterir:
 
-1. Content Moderator takımı oluşturma.
-2. Content Moderator'dan ve Facebook'tan HTTP olaylarını dinleyen Azure İşlevleri oluşturma.
-3. Facebook Sayfası ve Uygulaması oluşturma, bunu Content Moderator'a bağlama.
+> [!div class="checklist"]
+> * Content Moderator takımı oluşturma.
+> * Content Moderator'dan ve Facebook'tan HTTP olaylarını dinleyen Azure İşlevleri oluşturma.
+> * Bir Facebook sayfasında bir Facebook uygulaması kullanarak Content Moderator bağlayın.
 
-İşimiz bittiğinde, Facebook ziyaretçiler tarafından gönderilen içeriği Content Moderator'a gönderecek. Eşleştirme eşikleri temelinde, Content Moderator iş akışlarınız içeriği yayımlayacak veya inceleme aracı içinde incelemeler oluşturacak. 
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-Aşağıdaki şekilde, çözümün yapı taşları gösterilir.
+Bu diyagramda bu senaryonun her bileşenin gösterilir:
 
-![Facebook gönderilerini denetleme](images/tutorial-facebook-moderation.png)
+![Content Moderator facebook'taki "FBListener" üzerinden bilgi almak ve "CMListener" üzerinden bilgi gönderme diyagramı](images/tutorial-facebook-moderation.png)
 
-## <a name="create-a-content-moderator-team"></a>Content Moderator takımı oluşturma
+## <a name="prerequisites"></a>Önkoşullar
 
-Başvurmak [deneyin Content Moderator Web'de](quick-start.md) Content Moderator için kaydolun ve bir takım oluşturmak için hızlı başlangıç.
+- Content Moderator abonelik anahtarı. Bölümündeki yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) Content Moderator hizmete abone olmak ve anahtarınızı alın.
+- A [Facebook hesabıyla](https://www.facebook.com/).
 
-## <a name="configure-image-moderation-workflow-threshold"></a>Görüntü moderasyonu iş akışını (eşik) yapılandırma
+## <a name="create-a-review-team"></a>Bir gözden geçirme takım oluştur
 
-Özel bir görüntü iş akışı (eşik) yapılandırmak için [İş Akışları](review-tool-user-guide/workflows.md) sayfasına bakın. İş akışının **adını** not alın.
+Başvurmak [deneyin Content Moderator Web'de](quick-start.md) kaydolmak yönergeler için Hızlı Başlangıç [Content Moderator gözden geçirme aracı](https://contentmoderator.cognitive.microsoft.com/) ve bir gözden geçirme ekibi oluşturun. Not **Takım Kimliği** değerini **kimlik bilgilerini** sayfası.
 
-## <a name="3-configure-text-moderation-workflow-threshold"></a>3. Metin moderasyonu iş akışını (eşik) yapılandırma
+## <a name="configure-image-moderation-workflow"></a>Görüntü denetimi iş akışını yapılandırın
 
-Özel bir metin eşiği ve iş akışı yapılandırmak için [İş Akışları](review-tool-user-guide/workflows.md) sayfasındakilere benzer adımlar kullanın. İş akışının **adını** not alın.
+Başvurmak [tanımlayın ve test kullanım iş akışları](review-tool-user-guide/workflows.md) özel görüntü iş akışı oluşturma kılavuzu. Bu, otomatik olarak Facebook görüntülerinde denetleyip bazıları gözden geçirme aracı olarak göndermek Content Moderator olanak tanır. İş akışı Not **adı**.
+
+## <a name="configure-text-moderation-workflow"></a>Metin denetimi iş akışını yapılandırın
+
+Yeniden bakın [tanımlayın ve test kullanım iş akışları](review-tool-user-guide/workflows.md) Kılavuzu; bu kez, bir özel metin iş akışı oluşturun. Bu, Content Moderator'ı metin içeriği otomatik olarak denetlemek izin verir. İş akışı Not **adı**.
 
 ![Metin İş Akışını Yapılandırma](images/text-workflow-configure.PNG)
 
-"İş Akışını Yürüt" düğmesini kullanarak iş akışınızı test edin.
+İş akışı kullanarak test **iş akışı yürütme** düğmesi.
 
 ![Metin İş Akışını Test Etme](images/text-workflow-test.PNG)
 
 ## <a name="create-azure-functions"></a>Azure İşlevleri oluşturma
 
-Azure İşlevlerinizi oluşturmak için [Azure Yönetim Portalı](https://portal.azure.com/)'nda oturum açın. Şu adımları uygulayın:
+Oturum [Azure portalı](https://portal.azure.com/) ve aşağıdaki adımları izleyin:
 
 1. [Azure İşlevleri](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) sayfasında gösterildiği gibi bir Azure İşlev Uygulaması oluşturun.
-2. Yeni oluşturulan İşlev Uygulamasını açın.
-3. Uygulamanın içinde, **Platform özellikleri -> Uygulama Ayarları**'na gidin
-4. Aşağıdaki [uygulama ayarlarını](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings) tanımlayın:
+2. Yeni oluşturulan işlev uygulamasına gidin.
+3. Uygulamanın içinde Git **Platform özellikleri** sekmenize **uygulama ayarları**. İçinde **uygulama ayarları** bölümü, bir sonraki sayfada, listenin sonuna kaydırın ve **yeni ayar Ekle**. Aşağıdaki anahtar/değer çifti Ekle
+    
+    | Uygulama ayarı adı | değer   | 
+    | -------------------- |-------------|
+    | cm:TeamId   | Content Moderator Takım Kimliğiniz  | 
+    | cm:SubscriptionKey | Content Moderator abonelik anahtarınız. Bkz. [Kimlik Bilgileri](review-tool-user-guide/credentials.md) | 
+    | cm:Region | Content Moderator bölge adınız (boşluk içermez). Önceki nota bakın. |
+    | cm:ImageWorkflow | Görüntüler üzerinde çalıştırılacak iş akışının adı |
+    | cm:TextWorkflow | Metinler üzerinde çalıştırılacak iş akışının adı |
+    | cm:CallbackEndpoint | Bu kılavuzda daha sonra oluşturacağınız CMListener İşlev Uygulamasının Url'si |
+    | fb:VerificationToken | Facebook akış olaylarına abone olmak için de kullanılan gizli dizi belirteci |
+    | fb:PageAccessToken | Facebook graph api'si erişim belirtecinin süresi dolmaz ve işlevin sizin adınıza gönderileri Gizlemesini/Silmesini sağlar. |
 
-> [!NOTE]
-> **Cm: Bölge** (tüm boşluksuz) bölge adı olmalıdır.
-> Örneğin Batı Avrupa değil **westeurope**, Orta Batı ABD değil **westcentralus** kullanılır.
->
+    Tıklayın **Kaydet** sayfanın üstünde düğme.
 
-| Uygulama Ayarı | Açıklama   | 
-| -------------------- |-------------|
-| cm:TeamId   | Content Moderator Takım Kimliğiniz  | 
-| cm:SubscriptionKey | Content Moderator abonelik anahtarınız. Bkz. [Kimlik Bilgileri](review-tool-user-guide/credentials.md) | 
-| cm:Region | Content Moderator bölge adınız (boşluk içermez). Önceki nota bakın. |
-| cm:ImageWorkflow | Görüntüler üzerinde çalıştırılacak iş akışının adı |
-| cm:TextWorkflow | Metinler üzerinde çalıştırılacak iş akışının adı |
-| cm:CallbackEndpoint | Bu kılavuzda daha sonra oluşturacağınız CMListener İşlev Uygulamasının Url'si |
-| fb:VerificationToken | Facebook akış olaylarına abone olmak için de kullanılan gizli dizi belirteci |
-| fb:PageAccessToken | Facebook graph api'si erişim belirtecinin süresi dolmaz ve işlevin sizin adınıza gönderileri Gizlemesini/Silmesini sağlar. |
+1. Kullanarak **+** yeni işlev bölmesini açmak için sol bölmedeki düğmesi.
 
-5. **FBListener** adlı yeni bir **HttpTrigger-CSharp** işlevi oluşturun. Bu işlev Facebook'tan olayları alır. Bu işlevi oluşturmak için aşağıdaki adımları izleyin:
+    ![İşlev Ekle düğmesi ile Azure işlevleri bölmesi.](images/new-function.png)
 
-    1. Başvuru amacıyla [Azure İşlevleri Oluşturma](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) sayfasını açık bırakın.
-    2. Yeni işlev oluşturmak için **+** ekle'ye tıklayın.
-    3. Yerleşik şablonlar yerine, **Kendi/özel işlevinizi başlatma** seçeneğini kullanın.
-    4. **HttpTrigger-CSharp** etiketli kutucuğa tıklayın.
-    5. **FBListener** adını girin. **Yetkilendirme Düzeyi** alanı **İşlev** olarak ayarlanmalıdır.
-    6. **Oluştur**’a tıklayın.
-    7. **run.csx**'in içeriğini [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx)'ten alınan içerikle değiştirin.
+    Ardından **+ yeni işlev** sayfanın üstünde. Bu işlev Facebook'tan olayları alır. Bu işlevi oluşturmak için aşağıdaki adımları izleyin:
 
-6. **CMListener** adlı yeni bir **HttpTrigger-CSharp** işlevi oluşturun. Bu işlev Content Moderator'dan olayları alır. Bu işlevi oluşturmak için şu adımları izleyin.
+    1. İfadesini içeren kutucuğa tıklayın **Http tetikleyicisi**.
+    1. **FBListener** adını girin. **Yetkilendirme Düzeyi** alanı **İşlev** olarak ayarlanmalıdır.
+    1. **Oluştur**’a tıklayın.
+    1. Öğesinin içeriğini değiştirin **run.csx** içeriğiyle **FbListener/run.csx**
 
-    1. Başvuru amacıyla [Azure İşlevleri Oluşturma](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) sayfasını açık bırakın.
-    2. Yeni işlev oluşturmak için **+** ekle'ye tıklayın.
-    3. Yerleşik şablonlar yerine, **Kendi/özel işlevinizi başlatma** seçeneğini kullanın.
-    4. **HttpTrigger-CSharp** etiketli kutucuğa tıklayın
-    5. **CMListener** adını girin. **Yetkilendirme Düzeyi** alanı **İşlev** olarak ayarlanmalıdır.
-    6. **Oluştur**’a tıklayın.
-    7. **run.csx**'in içeriğini [**CMListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/CmListener/run.csx)'ten alınan içerikle değiştirin.
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-160)]
+
+1. Yeni bir **Http tetikleyicisi** adlı işlev **CMListener**. Bu işlev Content Moderator'dan olayları alır. Öğesinin içeriğini değiştirin **run.csx** içeriğiyle **CMListener/run.csx**
+
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-106)]
+
+---
 
 ## <a name="configure-the-facebook-page-and-app"></a>Facebook sayfasını ve Uygulamasını yapılandırma
 1. Facebook Uygulaması oluşturun.
 
+    ![facebook Geliştirici sayfası](images/facebook-developer-app.png)
+
     1. [Facebook geliştirici sitesine](https://developers.facebook.com/) gidin
     2. **My Apps** (Uygulamalarım) öğesine tıklayın.
     3. Yeni Uygulama ekleyin.
-    4. **Webhooks -> Get Started** (Web Kancaları -> Başlarken) seçeneğini kullanın
-    5. **Page -> Subscribe to this topic** (Sayfa -> Bu konuya abone ol) öğesini seçin
-    6. Geri Arama URL'si olarak **FBListener Url'sini** sağlayın ve **İşlevi Uygulaması Ayarları** altında yapılandırdığınız **Belirteci Doğrulayın**
-    7. Abone olduktan sonra, akışı aşağı kaydırıp **subscribe** (abone ol) öğesini seçin.
+    1. bir ad
+    1. Seçin **Web kancaları -> kümesi ayarlama**
+    1. Seçin **sayfa** açılır menüsünü seçip **bu nesne için abone olun**
+    1. Geri Arama URL'si olarak **FBListener Url'sini** sağlayın ve **İşlevi Uygulaması Ayarları** altında yapılandırdığınız **Belirteci Doğrulayın**
+    1. Abone olduktan sonra, akışı aşağı kaydırıp **subscribe** (abone ol) öğesini seçin.
 
 2. Facebook Sayfası oluşturun.
 
@@ -134,29 +138,22 @@ Azure İşlevlerinizi oluşturmak için [Azure Yönetim Portalı](https://portal
         2. [Postman Environment](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FB%20Page%20Access%20Token%20Environment.postman_environment.json)       
     3. Şu ortam değişkenlerini güncelleştirin:
     
-    | Anahtar | Değer   | 
-    | -------------------- |-------------|
-    | appId   | Buraya Facebook Uygulama Tanımlayıcınızı ekleyin  | 
-    | appSecret | Buraya Facebook Uygulamanızın gizli dizisini ekleyin | 
-    | short_lived_token | Önceki adımda oluşturduğunuz kısa ömürlü kullanıcı erişim belirtecini ekleyin |
+        | Anahtar | Değer   | 
+        | -------------------- |-------------|
+        | appId   | Buraya Facebook Uygulama Tanımlayıcınızı ekleyin  | 
+        | appSecret | Buraya Facebook Uygulamanızın gizli dizisini ekleyin | 
+        | short_lived_token | Önceki adımda oluşturduğunuz kısa ömürlü kullanıcı erişim belirtecini ekleyin |
     4. Şimdi koleksiyonda listelenen 3 API'yi çalıştırın: 
         1. **Uzun Ömürlü Erişim Belirteci Oluştur**'u seçin ve **Gönder**'e tıklayın.
         2. **Kullanıcı Kimliğini Al**'ı seçin ve **Gönder**'e tıklayın.
         3. **Kalıcı Sayfa Erişim Belirtecini Al**'ı seçin ve **Gönder**'e tıklayın.
     5. Yanıttan **access_token** değerini kopyalayın ve bunu **fb:PageAccessToken** Uygulama ayarına atayın.
 
-İşte bu kadar!
-
-Çözüm, Facebook sayfanıza gönderilen tüm resimleri ve metinleri Content Moderator'a gönderir. Daha önce yapılandırdığınız iş akışları çağrılır. İş akışlarında tanımlanan ölçütlerinizi geçemeyen içerikler sonuçta inceleme aracında incelemeye alınır. İçeriğin kalan bölümü yayımlanır.
-
-## <a name="license"></a>Lisans
-
-Tüm Microsoft Bilişsel Hizmetler SDK'ları ve örnekler, MIT Lisansı ile lisanslanmıştır. Diğer ayrıntılar için bkz. [LİSANS](https://microsoft.mit-license.org/).
+Çözüm, Facebook sayfanıza gönderilen tüm resimleri ve metinleri Content Moderator'a gönderir. Ardından, daha önce yapılandırdığınız iş akışları çağrılır. İş akışlarında tanımlanan ölçütlerinizle geçirmez içerik İnceleme aracını içinde incelemelere geçirilir. İçeriği geri kalanını otomatik olarak yayımlanan.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-1. Microsoft Build 2017'den bu çözümün [tanıtımını izleyin (video)](https://channel9.msdn.com/Events/Build/2017/T6033).
-1. [Github'da Facebook örneği](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
-1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
-2. https://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
-3. https://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token
+Bu öğreticide, ürün görüntüleri bunları ürün türüne göre etiketleme ve bir gözden geçirme takım, içerik denetleme hakkında bilinçli kararlar verme amacıyla analiz etmek için program ayarlama. Ardından, görüntü denetimi ile ilgili ayrıntıları hakkında daha fazla bilgi edinin.
+
+> [!div class="nextstepaction"]
+> [Görüntü denetimi](./image-moderation-api.md)

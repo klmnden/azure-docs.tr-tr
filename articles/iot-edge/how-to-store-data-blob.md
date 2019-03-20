@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 6f82f50ebaa7ad4440078d1fd4658109cf0e19b6
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 0fc34c913453abd174009213233a54e30b9346d3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571295"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881393"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IOT Edge (Önizleme) Azure Blob Depolama ile uçta veri Store
 
@@ -78,7 +78,7 @@ Bulut kaynakları:
 
 Modüller IOT Edge cihazına dağıtmak için birkaç yolu vardır ve bunların tümünü IOT Edge modülleri Azure Blob Depolama için çalışır. Visual Studio kod şablonları ve Azure Portalı'nı kullanmak için iki basit yöntemler şunlardır. 
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure portalı
 
 Azure marketi, IOT Edge, IOT Edge üzerinde Azure Blob Depolama da dahil olmak üzere doğrudan IOT Edge cihazlarınıza, dağıtılan modülleri sağlar. Azure portalından modülü dağıtmak için aşağıdaki adımları izleyin.
 
@@ -230,6 +230,7 @@ Otomatik katmanlama ve otomatik süre sonu özellikleri ayarlamak için istenen 
 
 ### <a name="auto-tiering-properties"></a>Otomatik katmanlama özellikleri 
 Bu ayar adı `tieringSettings`
+
 | Alan | Olası Değerler | Açıklama |
 | ----- | ----- | ---- |
 | tieringOn | TRUE, false | Varsayılan olarak ayarlanmış `false`etkinleştirmek istiyorsanız üzerinde kümesine `true`|
@@ -239,6 +240,7 @@ Bu ayar adı `tieringSettings`
 
 ### <a name="auto-expiration-properties"></a>Otomatik süre sonu özellikleri
 Bu ayar adı `ttlSettings`
+
 | Alan | Olası Değerler | Açıklama |
 | ----- | ----- | ---- |
 | ttlOn | TRUE, false | Varsayılan olarak ayarlanmış `false`etkinleştirmek istiyorsanız üzerinde kümesine `true`|
@@ -272,7 +274,7 @@ Otomatik katmanlama etkinleştirmek için istediğiniz özellikleri ayarlayın v
 
    ```
 
- ![Otomatik katmanlama ve otomatik sona erme özelliklerini ayarlama](./media/how-to-store-data-blob/iotedge_custom_module.png)
+  ![Otomatik katmanlama ve otomatik sona erme özelliklerini ayarlama](./media/how-to-store-data-blob/iotedge_custom_module.png)
 
 - **Modül, "Modül İkizi kimlik" özelliği aracılığıyla dağıtıldıktan sonra**: "Modülü kimlik İkizine" Bu modülün gidin, istenen Özellikler altında JSON dosyasını kopyalayın, her bir özellik uygun değerle yapılandırın ve kaydedin. "Modül İkizi kimlik" Json özelliği ekleyin veya güncelleştirin her zaman emin olun istenen `reported configuration` bölümü, değişiklikleri yansıtır ve `configurationValidation` bölümünde her bir özellik için bildirmektedir.
 
@@ -343,6 +345,9 @@ Bu modül için istenen özellikler örneği aşağıdadır: ![azureblobstorageo
     }
 
    ```
+  ## <a name="logs"></a>Günlükler
+
+Lütfen için yönergeleri izleyin [IOT Edge modülleri, docker günlüklerini Yapılandır](production-checklist.md#set-up-logs-and-diagnostics)
 
 ## <a name="connect-to-your-blob-storage-module"></a>Blob depolama modülüne bağlayın
 
@@ -378,7 +383,7 @@ Ek blob depolama modüllerini bağladığınızda, uç nokta güncel ana bilgisa
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
 ### <a name="azure-storage-explorer"></a>Azure Depolama Gezgini
-Ayrıca deneyebilirsiniz [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) yerel depolama hesabınıza bağlanmak için. İle çalıştınız [önceki sürümü 1.5.0](https://go.microsoft.com/fwlink/?LinkId=809306&clcid=0x409) Azure Gezgini.
+Ayrıca deneyebilirsiniz [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) yerel depolama hesabınıza bağlanmak için. İle çalıştınız [önceki sürümü 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0) Azure Gezgini.
 > [!NOTE]
 > Aşağıdaki adımları gerçekleştirirken hatalarla, yoksay ve yenileme. 
 
@@ -388,8 +393,8 @@ Ayrıca deneyebilirsiniz [Azure Depolama Gezgini](https://azure.microsoft.com/fe
 4. Bağlanmak için adımlara geçin.
 5. Kapsayıcı içinde yerel depolama hesabınızı oluşturun
 6. Blok blobları olarak dosyalarını yüklemeye başlayın.
-> [!NOTE]
-> Sayfa blobları yüklemek için onay kutusunun işaretini kaldırın. Bu modül, sayfa bloblarını desteklemez. Bu .iso, .vhd, .vhdx veya büyük dosyaları gibi dosyalar karşıya yüklenirken komut istemi alırsınız.
+   > [!NOTE]
+   > Sayfa blobları yüklemek için onay kutusunun işaretini kaldırın. Bu modül, sayfa bloblarını desteklemez. Bu .iso, .vhd, .vhdx veya büyük dosyaları gibi dosyalar karşıya yüklenirken komut istemi alırsınız.
 
 7. Verileri karşıya yüklemekte olduğunuz Burada, Azure depolama hesaplarınıza bağlanmak seçebilirsiniz. Bu, tek bir görünümde, yerel depolama hesabı ve Azure depolama hesabı için sağlar
 
@@ -415,7 +420,7 @@ Desteklenmeyen:
 Desteklenen: 
 * Oluşturma ve kapsayıcı silme
 * Kapsayıcı özellikleri ve meta verileri alma
-* Blobları listeleme
+* Blobları listele
 * Alma ve kapsayıcı ACL ayarlama
 * Kümesi kapsayıcı meta verileri
 
@@ -445,7 +450,7 @@ Desteklenen:
 Desteklenmeyen:
 * URL'den blok yerleştirme
 
-##<a name="feedback"></a>Geri bildirim:
+## <a name="feedback"></a>Geri bildirim:
 Geri bildiriminiz bizim için bu modülü ve özelliklerini kullanışlı ve kullanımı kolay hale getirmek için çok önemlidir. Lütfen görüşlerinizi paylaşın ve nasıl geliştirebileceğimizi bize bildirin.
 
 Adresinden bize ulaşın absiotfeedback@microsoft.com 

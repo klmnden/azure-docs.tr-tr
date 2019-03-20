@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 25b33242b9f7bddf0497067f111ca3fb4a1ea570
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600734"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895864"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Azure mantıksal uygulamalardan arayabileceğiniz özel API'ler oluşturma
 
@@ -25,7 +25,7 @@ Azure Logic Apps sunmasına karşın [100'den fazla yerleşik bağlayıcı](../c
 * Müşterilerin kişisel veya profesyonel görevlerini yönetmek için hizmetinizi kullanmak yardımcı olur.
 * Erişim, bulunabilirlik ve kullanım hizmetiniz için genişletin.
 
-Temel olarak, web takılabilir arabirimleri için REST kullanma API bağlayıcıları olan [Swagger meta veri biçimi](http://swagger.io/specification/) belgeleri ve kendi veri takas biçimi olarak JSON. Bağlayıcıları bir HTTP uç noktaları iletişim kuran bir REST API'leri olduğundan, .NET, Java ve Node.js gibi herhangi bir dilde bağlayıcılar oluşturmak için kullanabilirsiniz. Apı'leriniz üzerinde barındırabilirsiniz [Azure App Service](../app-service/overview.md), bir platform-a sağlayan en iyi, kolay ve en iyi yollarından biri, API barındırmak için sunan hizmet olarak (PaaS). 
+Temel olarak, web takılabilir arabirimleri için REST kullanma API bağlayıcıları olan [Swagger meta veri biçimi](https://swagger.io/specification/) belgeleri ve kendi veri takas biçimi olarak JSON. Bağlayıcıları bir HTTP uç noktaları iletişim kuran bir REST API'leri olduğundan, .NET, Java ve Node.js gibi herhangi bir dilde bağlayıcılar oluşturmak için kullanabilirsiniz. Apı'leriniz üzerinde barındırabilirsiniz [Azure App Service](../app-service/overview.md), bir platform-a sağlayan en iyi, kolay ve en iyi yollarından biri, API barındırmak için sunan hizmet olarak (PaaS). 
 
 Logic apps ile çalışmak özel API'ler için API'nizi sağlayabilir [ *eylemleri* ](./logic-apps-overview.md#logic-app-concepts) mantıksal uygulama iş akışlarınızla belirli görevler gerçekleştirir. API'nizi gibi de davranabilir bir [ *tetikleyici* ](./logic-apps-overview.md#logic-app-concepts) yeni veriler veya bir olay belirtilen bir koşulu karşıladığında bir mantıksal uygulama iş akışı başlar. Bu konuda, eylemleri ve Tetikleyicileri sağlamak için API'nizi istediğiniz davranışına göre API'nizi oluşturmak için izlemeniz gereken ortak deseni açıklar.
 
@@ -41,11 +41,11 @@ Apı'lerinizi barındırmak [Azure App Service](../app-service/overview.md), bir
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> Logic apps için oluşturulan API uygulaması örnekleri için ziyaret [Azure Logic Apps GitHub deposu](http://github.com/logicappsio) veya [blog](https://aka.ms/logicappsblog).
+> Logic apps için oluşturulan API uygulaması örnekleri için ziyaret [Azure Logic Apps GitHub deposu](https://github.com/logicappsio) veya [blog](https://aka.ms/logicappsblog).
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Özel API'leri nasıl özel bağlayıcılar arasından farklıdır?
 
-Özel API'ler ve [özel Bağlayıcılar](../logic-apps/custom-connector-overview.md) olan web takılabilir arabirimleri için REST kullanma API'lerini [Swagger meta veri biçimi](http://swagger.io/specification/) belgeleri ve kendi veri takas biçimi olarak JSON. Ve bu API'ler ve Bağlayıcılarla HTTP uç noktaları iletişim kuran bir REST API'leri olduğundan, özel API'ler ve Bağlayıcılarla oluşturmak için .NET, Java ve Node.js gibi herhangi bir dil kullanabilirsiniz.
+Özel API'ler ve [özel Bağlayıcılar](../logic-apps/custom-connector-overview.md) olan web takılabilir arabirimleri için REST kullanma API'lerini [Swagger meta veri biçimi](https://swagger.io/specification/) belgeleri ve kendi veri takas biçimi olarak JSON. Ve bu API'ler ve Bağlayıcılarla HTTP uç noktaları iletişim kuran bir REST API'leri olduğundan, özel API'ler ve Bağlayıcılarla oluşturmak için .NET, Java ve Node.js gibi herhangi bir dil kullanabilirsiniz.
 
 Özel API'ler, bağlayıcılar olmayan API'leri çağırmak ve HTTP + Swagger, Azure API yönetimi ve uygulama hizmetleri ile çağırabileceğiniz uç noktaları sağlar olanak tanır. Özel bağlayıcılar, özel API'ler gibi çalışır ancak bu öznitelikler de:
 
@@ -63,7 +63,7 @@ Ayrıca, Microsoft sertifikası için kayıtlı bağlayıcılar belirleyebilirsi
 
 ## <a name="helpful-tools"></a>Yararlı araçları
 
-Ayrıca API sahip olduğunda özel bir API logic apps ile en iyi şekilde çalışır. bir [Swagger belgesinin](http://swagger.io/specification/) API'nin işlemlerini ve parametrelerini açıklar.
+Ayrıca API sahip olduğunda özel bir API logic apps ile en iyi şekilde çalışır. bir [Swagger belgesinin](https://swagger.io/specification/) API'nin işlemlerini ve parametrelerini açıklar.
 Birçok kitaplıkları ister [Swashbuckle](https://github.com/domaindrivendev/Swashbuckle), Swagger dosyası sizin için otomatik olarak oluşturur. Swagger dosyası görünen adları, özellik türleri ve benzeri için açıklama eklemek için de kullanabilirsiniz [TRex](https://github.com/nihaue/TRex) böylece Swagger dosyanızı logic apps ile de çalışır.
 
 <a name="actions"></a>
@@ -167,7 +167,7 @@ API'nin açısından açıklanan yoklama tetikleyici, belirli adımlar şunlard�
 
 | Yeni verileri veya olay bulundu?  | API yanıtı | 
 | ------------------------- | ------------ |
-| Bulunamadı | Bir HTTP dönüş `200 OK` durumu ile yanıt yükünde (sonraki adım için giriş). <br/>Bu yanıt, bir mantıksal uygulama örneği oluşturur ve iş akışı başlatır. | 
+| Bulundu | Bir HTTP dönüş `200 OK` durumu ile yanıt yükünde (sonraki adım için giriş). <br/>Bu yanıt, bir mantıksal uygulama örneği oluşturur ve iş akışı başlatır. | 
 | Bulunamadı | Bir HTTP dönüş `202 ACCEPTED` durumu ile bir `location` başlığı ve bir `retry-after` başlığı. <br/>Tetikleyici, `location` üstbilgi de içermelidir bir `triggerState` , genellikle bir "zaman damgası." sorgu parametresi API'nizi bu tanımlayıcı, mantıksal uygulama tetiklendi son süreyi izlemek için kullanabilirsiniz. | 
 ||| 
 

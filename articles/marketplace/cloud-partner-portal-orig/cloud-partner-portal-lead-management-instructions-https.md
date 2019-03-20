@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8898149e6858c5a1cdb2d4510ad2764ffe25fda5
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 905ce1eca9996140da5f9d33aa7f9749a4ef7034
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964262"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894130"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Bir HTTPS uç noktası kullanarak müşteri adayı yönetimini yapılandırma
 
@@ -88,7 +88,7 @@ AppSource müşteri adayları ve Azure Marketi'nde işlemek için bir HTTPS uç 
    - **İçin** -en az bir geçerli e-posta adresi girin.
    - **Konu** -Flow size gibi dinamik içerik ekleme seçeneğiniz **LeadSource** aşağıdaki ekran görüntüsünde.
 
-    ![Dinamik içerik kullanarak bir e-posta eylemi ekleme](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-dynamic-content.png)
+     ![Dinamik içerik kullanarak bir e-posta eylemi ekleme](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-dynamic-content.png)
 
    - **Gövde** - dinamik içerik listesinden, e-postanın gövdesinde istediğiniz bilgileri ekleyin. Örneğin, LastName, FirstName, e-posta, ve şirket.
 
@@ -117,7 +117,7 @@ JSON test örneği aşağıdaki şemayı kullanır:
 
 ``` json
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "https://json-schema.org/draft-04/schema#",
   "definitions": {},
   "id": "http://example.com/example.json",
   "properties": {

@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ab067d09d1e161e463922eeae90fe3b46e887150
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e96abfbdbd9394d27fbffbcb64aa9cbfabbbcb69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544299"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835444"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Azure Event hubs Programlama Kılavuzu
 Bu makalede, Azure Event Hubs'ı kullanarak kod yazma bazı yaygın senaryolar açıklanmaktadır. Burada Event Hubs’ın önceden bilindiği varsayılır. Event Hubs’a kavramsal genel bakış için bkz. [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md).
@@ -26,7 +26,6 @@ Olaylar, olay hub'ına ya da HTTP POST kullanılarak veya bir AMQP 1.0 bağlant�
 .NET ile yönetilen API’ler kullanılırken Event Hubs’a veri yayımlamaya yönelik birincil yapılar [EventHubClient][] ve [EventData][] sınıflarıdır. [EventHubClient][] üzerinde olayları olay hub'ına gönderildiği AMQP iletişim kanalını sağlar. [EventData][] sınıfı bir olayı temsil eder ve olay hub'ına iletileri yayımlamak için kullanılır. Bu sınıf, olayla ilgili gövde bilgileri, bazı meta verileri ve üst bilgileri içerir. Diğer özellikler eklenir [EventData][] bir olay hub'ından geçtikçe nesne.
 
 ## <a name="get-started"></a>başlarken
-
 Event Hubs sunulmaktadır destekleyen .NET sınıfları [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet paketi. Visual Studio Çözüm Gezgini'ni kullanarak yükleyebilirsiniz veya [Paket Yöneticisi Konsolu](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) Visual Studio'da. Bunu yapmak için [Paket Yöneticisi Konsolu](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) penceresinde aşağıdaki komutu yürütün:
 
 ```shell
@@ -99,7 +98,6 @@ Tek bir toplu iş olayın 1 MB sınırını aşmamalıdır. Ayrıca, toplu işte
 Zaman uyumsuz olarak bir olay hub'ına olayları gönderirsiniz. Zaman uyumsuz gönderme bir istemcinin olayları gönderebildiği olduğu hızı artar. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) döndürür bir [görev](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) nesne. Kullanabileceğiniz [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) Denetim İstemcisi için istemci üzerindeki sınıf seçenekleri yeniden deneyin.
 
 ## <a name="event-consumers"></a>Olay tüketicileri
-
 [EventProcessorHost][] sınıfı Event Hubs verilerini işler. .NET platformu üzerinde olay okuyucuları oluştururken bu uygulamayı kullanmanız gerekir. [EventProcessorHost][] aynı zamanda denetim noktası oluşturma ve bölüm kiralama yönetimi sağlayan olay işlemcisi uygulamaları için iş parçacığı güvenli, çok işlemli, güvenli bir çalışma zamanı ortamı sağlar.
 
 [EventProcessorHost][] sınıfını kullanmak için [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) uygulayabilirsiniz. Bu arabirim, dört yöntemleri içerir:
@@ -110,6 +108,9 @@ Zaman uyumsuz olarak bir olay hub'ına olayları gönderirsiniz. Zaman uyumsuz g
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
 Olay işlemeyi başlatmak için örneği [EventProcessorHost][], event hub'ınıza uygun parametreleri sağlayarak. Örneğin:
+
+> [!NOTE]
+> EventProcessorHost ve ilişkili sınıflarının sağlanan **Microsoft.Azure.EventHubs.Processor** paket. Paket konusundaki yönergeleri izleyerek Visual Studio projenize ekleyin. [bu makalede](event-hubs-dotnet-framework-getstarted-receive-eph.md#add-the-event-hubs-nuget-package) veya aşağıdaki komutu göndererek [Paket Yöneticisi Konsolu](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) penceresi:`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

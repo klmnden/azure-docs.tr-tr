@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: 69523a76406cc32212a064ec222f0276d03eb1fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 87f608163e20d98179eb6c666158386a99858eeb
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898525"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188399"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Eclipse Java uygulama geliştirmesi için Service Fabric eklentisi
 Eclipse, Java geliştiricileri için en yaygın kullanılan tümleşik geliştirme ortamlarından (IDE’ler) biridir. Bu makalede, Azure Service Fabric ile çalışmak için Eclipse geliştirme ortamınızı ayarlama işlemi ele alınmaktadır. Service Fabric eklentisini yükleme, Service fabric uygulaması oluşturma ve Service Fabric uygulamanızı Eclipse’teki yerel veya uzak bir Service Fabric kümesine dağıtma hakkında bilgi edinin. 
@@ -41,8 +41,8 @@ Eclipse'te Service Fabric eklentisi yükleyebilirsiniz. Eklenti, Java hizmetleri
 -   Eclipse güncelleştirmelerini denetleyip yüklemek için **Yardım** > **Güncelleştirmeleri Denetle** seçeneğine gidin.
 
 Service Fabric eklentisini yüklemek için **Yardım** > **Yeni Yazılım Yükle** seçeneğine gidin.
-1. **Birlikte çalış** kutusuna **https://dl.microsoft.com/eclipse** girin.
-2. **Ekle**'ye tıklayın.
+1. İçinde **çalışmak** kutusuna, https girin:\//dl.microsoft.com/eclipse.
+2. **Ekle**'yi tıklatın.
 
    ![Eclipse için Service Fabric eklentisi][sf-eclipse-plugin-install]
 3. Service Fabric eklentisini seçip **İleri**’ye tıklayın.

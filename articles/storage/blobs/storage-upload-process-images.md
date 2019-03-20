@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 01404c89665ebfea62e7bda0e7566289bb15f2ae
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 7d06d23af8d4d4f0282f6eb743c0f47dba80e3f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300967"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58015315"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Öğretici: Azure Depolama ile buluta görüntü verileri yükleme
 
@@ -258,7 +258,7 @@ Seçin **Dosya Seç** bir dosya seçmek için ardından **karşıya resim**. **O
 Örnek kodda `post` yolu, görüntüyü blob kapsayıcısına yüklemeden sorumludur. Yol, modülleri karşıya yükleme işlemine yardımcı olması için kullanır:
 
 - [multer](https://github.com/expressjs/multer) rota işleyiciye için karşıya yükleme stratejisi uygular.
-- [Akış içine](https://github.com/sindresorhus/into-stream) arabellek [Createblockblobfromlocalfile] gerektirdiği gibi bir akışa dönüştürür. ()http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)
+- [Akış içine](https://github.com/sindresorhus/into-stream) arabellek [Createblockblobfromlocalfile] gerektirdiği gibi bir akışa dönüştürür. ()https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)
 
 Dosya yolu gönderilir gibi dosyanın içeriğini dosyayı blob kapsayıcısına yüklenir kadar bellekte kalır.
 
@@ -322,7 +322,7 @@ Seçin **Dosya Seç** bir dosya seçmek için ardından **karşıya resim**. **O
 Örnek kodda `post` yolu, görüntüyü blob kapsayıcısına yüklemeden sorumludur. Yol, modülleri karşıya yükleme işlemine yardımcı olması için kullanır:
 
 - [multer](https://github.com/expressjs/multer) rota işleyiciye için karşıya yükleme stratejisi uygular.
-- [Akış içine](https://github.com/sindresorhus/into-stream) arabellek gerektirdiği gibi bir akışa dönüştürür [Createblockblobfromlocalfile](http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html).
+- [Akış içine](https://github.com/sindresorhus/into-stream) arabellek gerektirdiği gibi bir akışa dönüştürür [Createblockblobfromlocalfile](https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html).
 
 Dosya yolu gönderilir gibi dosyanın içeriğini dosyayı blob kapsayıcısına yüklenir kadar bellekte kalır.
 

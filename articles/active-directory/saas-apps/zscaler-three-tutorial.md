@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5739c878812c09a8f2646320df4b1069dfa8810e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: eced1b92aba24c8083cbdc2ece099fab95567db7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189064"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877964"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Öğretici: Zscaler üç ile Azure Active Directory Tümleştirme
 
@@ -130,9 +130,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Z
 
     a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![image](./common/new_save_attribute.png)
+    ![görüntü](./common/new_save_attribute.png)
     
-    ![image](./common/new_attribute_details.png)
+    ![görüntü](./common/new_attribute_details.png)
 
     b. Gelen **kaynak özniteliği** selelct öznitelik değeri listesi.
 
@@ -159,43 +159,43 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Z
 
 ### <a name="configure-zscaler-three-single-sign-on"></a>Zscaler üç çoklu oturum açmayı yapılandırın
 
-9. Farklı bir web tarayıcı penceresinde Zscaler üç şirketinizin sitesi için bir yönetici olarak oturum açın.
+1. Farklı bir web tarayıcı penceresinde Zscaler üç şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-10. Git **Yönetim > kimlik doğrulama > kimlik doğrulama ayarları** ve aşağıdaki adımları gerçekleştirin:
+1. Git **Yönetim > kimlik doğrulama > kimlik doğrulama ayarları** ve aşağıdaki adımları gerçekleştirin:
    
-    ![Yönetim](./media/zscaler-three-tutorial/ic800206.png "Yönetim")
+   ![Yönetim](./media/zscaler-three-tutorial/ic800206.png "Yönetim")
 
-    a. Kimlik doğrulaması türü'nün altında seçin **SAML**.
+   a. Kimlik doğrulaması türü'nün altında seçin **SAML**.
 
-    b. Tıklayın **SAML'yi yapılandırmak**.
+   b. Tıklayın **SAML'yi yapılandırmak**.
 
-11. Üzerinde **Düzenle SAML** penceresinde aşağıdaki adımları gerçekleştirin: ve Kaydet'e tıklayın.  
+1. Üzerinde **Düzenle SAML** penceresinde aşağıdaki adımları gerçekleştirin: ve Kaydet'e tıklayın.  
             
-    ![Kullanıcı ve kimlik doğrulaması yönetmek](./media/zscaler-three-tutorial/ic800208.png "kullanıcı ve kimlik doğrulaması'nı yönetme")
+   ![Kullanıcı ve kimlik doğrulaması yönetmek](./media/zscaler-three-tutorial/ic800208.png "kullanıcı ve kimlik doğrulaması'nı yönetme")
     
-    a. İçinde **SAML portalı URL'si** metin kutusu, yapıştırma **oturum açma URL'si** , Azure Portalı'ndan kopyaladığınız.
+   a. İçinde **SAML portalı URL'si** metin kutusu, yapıştırma **oturum açma URL'si** , Azure Portalı'ndan kopyaladığınız.
 
-    b. İçinde **oturum açma adı özniteliği** metin girin **Nameıd**.
+   b. İçinde **oturum açma adı özniteliği** metin girin **Nameıd**.
 
-    c. Tıklayın **karşıya**, içinde Azure portalından indirilen Azure SAML imzalama sertifikasını karşıya yüklemek için **ortak SSL sertifikası**.
+   c. Tıklayın **karşıya**, içinde Azure portalından indirilen Azure SAML imzalama sertifikasını karşıya yüklemek için **ortak SSL sertifikası**.
 
-    d. İki durumlu **SAML otomatik sağlamayı etkinleştirme**.
+   d. İki durumlu **SAML otomatik sağlamayı etkinleştirme**.
 
-    e. İçinde **kullanıcı görünen adı özniteliği** metin girin **displayName** SAML otomatik sağlama displayName öznitelikler için etkinleştirmek istiyorsanız.
+   e. İçinde **kullanıcı görünen adı özniteliği** metin girin **displayName** SAML otomatik sağlama displayName öznitelikler için etkinleştirmek istiyorsanız.
 
-    f. İçinde **grubu adı özniteliği** metin girin **memberOf** SAML otomatik sağlama memberOf öznitelikler için etkinleştirmek istiyorsanız.
+   f. İçinde **grubu adı özniteliği** metin girin **memberOf** SAML otomatik sağlama memberOf öznitelikler için etkinleştirmek istiyorsanız.
 
-    g. İçinde **departmanı Name özniteliği** Enter **departmanı** SAML otomatik sağlama için bölüm özniteliklerini etkinleştirmek istiyorsanız.
+   g. İçinde **departmanı Name özniteliği** Enter **departmanı** SAML otomatik sağlama için bölüm özniteliklerini etkinleştirmek istiyorsanız.
 
-    i. **Kaydet**’e tıklayın.
+   i. **Kaydet**’e tıklayın.
 
-12. Üzerinde **kullanıcı kimlik doğrulamasını yapılandırma** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **kullanıcı kimlik doğrulamasını yapılandırma** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
 
-    ![Yönetim](./media/zscaler-three-tutorial/ic800207.png)
+   ![Yönetim](./media/zscaler-three-tutorial/ic800207.png)
 
-    a. Üzerine **etkinleştirme** ekranın sol menü.
+   a. Üzerine **etkinleştirme** ekranın sol menü.
 
-    b. Tıklayın **etkinleştirme**.
+   b. Tıklayın **etkinleştirme**.
 
 ## <a name="configuring-proxy-settings"></a>Ara sunucu ayarlarını yapılandırma
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Internet Explorer'ın proxy ayarlarını yapılandırmak için
@@ -246,7 +246,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -281,15 +281,15 @@ Bu bölümde, erişim için üç Zscaler vererek, Azure çoklu oturum açma kull
 
 5. İçinde **kullanıcılar ve gruplar** kullanıcı gibi iletişim kutusunda **Britta Simon** listeden ardından **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
+    ![görüntü](./media/zscaler-three-tutorial/tutorial_zscalerthree_users.png)
 
 6. Gelen **rolü Seç** iletişim listede uygun kullanıcı rolünü seçin ve ardından tıklayın **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
+    ![görüntü](./media/zscaler-three-tutorial/tutorial_zscalerthree_roles.png)
 
 7. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
 
-    ![image](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
+    ![görüntü](./media/zscaler-three-tutorial/tutorial_zscalerthree_assign.png)
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 

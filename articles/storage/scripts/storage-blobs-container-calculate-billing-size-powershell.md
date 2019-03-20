@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: f1e905b0b67048a10f6eb455d77275375a99dbd0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 805abec84b26a6b2b9af3dfe318f877f4edb9547
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245414"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080905"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Bir blob kapsayıcısı toplam fatura boyutunu Hesapla
 
@@ -101,17 +101,17 @@ Dökümü aşağıda verilmiştir:
 * Her depolanmış meta veri bloğu için dize değeri uzunluğu (ASCII saklanır), adının uzunluğu ekleyin.
 
 * Blok blobları için:
-    * engelleme listesi için 8 bayt.
-    * Blok kimliği boyutu bayt cinsinden zaman blokların sayısı.
-    * Kaydedilen ve kaydedilmeyen bloğu tüm verilerin boyutu.
+  * engelleme listesi için 8 bayt.
+  * Blok kimliği boyutu bayt cinsinden zaman blokların sayısı.
+  * Kaydedilen ve kaydedilmeyen bloğu tüm verilerin boyutu.
 
     >[!NOTE]
     >Bu boyut, anlık görüntüler kullanıldığında, bu temel ya da anlık görüntü blob yalnızca benzersiz verilerini içerir. İşlenmemiş blokları bir hafta sonra kullanılmıyorsa, atık olarak toplanmış değildirler. Bundan sonra bunların doğru faturalama sayılmaz.
 
 * Sayfa blobları için:
-    * Veri ardışık olmayan sayfa aralıklarını 12 bayt sayısı çarpı. Bu benzersiz sayfa aralıklarını çağırırken gördüğünüz sayısıdır **GetPageRanges** API.
+  * Veri ardışık olmayan sayfa aralıklarını 12 bayt sayısı çarpı. Bu benzersiz sayfa aralıklarını çağırırken gördüğünüz sayısıdır **GetPageRanges** API.
 
-    * Verilerin tüm saklı sayfalarının bayt cinsinden boyutu.
+  * Verilerin tüm saklı sayfalarının bayt cinsinden boyutu.
 
     >[!NOTE]
     >Anlık görüntüler kullanıldığında, bu boyutun yalnızca temel blob veya sayılmakta anlık görüntü blob için benzersiz sayfalar içerir.

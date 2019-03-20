@@ -13,16 +13,16 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 9d72bc885bdaaed521042df236dd722b80533186
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 89896fab7b1c359007ed23d4f9d9771e366ca68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867010"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013352"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Azure Sanal Makineler’de SAP HANA için yedekleme kılavuzu
 
-## <a name="getting-started"></a>Başlarken
+## <a name="getting-started"></a>Başlangıç
 
 Azure sanal Makineler'de çalışan SAP HANA için yedekleme Kılavuzu yalnızca Azure özel konular açıklanmaktadır. Genel SAP HANA yedekleme ilgili öğeleri, SAP HANA belgeleri denetleyin (bkz _SAP HANA backup belgeleri_ bu makalenin ilerleyen bölümlerinde).
 
@@ -63,8 +63,8 @@ _Hayır, şu anda yalnızca verilerin ve günlük yedeklemelerine birincil taraf
 
 - [SAP HANA yönetimine giriş](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US)
 - [Yedekleme ve kurtarma stratejisini planlama](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ef/085cd5949c40b788bba8fd3c65743e/content.htm)
-- [HANA ABAP DBACOCKPIT kullanarak yedeklemeyi zamanlayın](http://www.hanatutorials.com/p/schedule-hana-backup-using-abap.html)
-- [Zamanlama veri yedekleri (SAP HANA Kokpit)](http://help.sap.com/saphelp_hanaplatform/helpdata/en/6d/385fa14ef64a6bab2c97a3d3e40292/frameset.htm)
+- [HANA ABAP DBACOCKPIT kullanarak yedeklemeyi zamanlayın](https://www.hanatutorials.com/p/schedule-hana-backup-using-abap.html)
+- [Zamanlama veri yedekleri (SAP HANA Kokpit)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/6d/385fa14ef64a6bab2c97a3d3e40292/frameset.htm)
 - SAP HANA hakkında SSS yedekleme içinde [SAP notu 1642148](https://launchpad.support.sap.com/#/notes/1642148)
 - SAP HANA veritabanı ve depolama anlık görüntüleri hakkında SSS [SAP notu 2039883](https://launchpad.support.sap.com/#/notes/2039883)
 - Yedekleme ve kurtarma için uygun ağ dosya sistemleri [SAP notu 1820529](https://launchpad.support.sap.com/#/notes/1820529)
@@ -80,7 +80,7 @@ Depolama anlık görüntüleri kullanarak, bir test geri yükleme farklı bir si
 
 Unutmayın, bir basit geri yükleme yapmaya devam ve HANA yukarı olup olmadığı denetlenirken ve çalıştıran yeterli değildir. İdeal olarak, bir geri yüklenen veritabanı iyi olduğundan emin olmak için tablo tutarlılık denetimini çalıştırmanız gerekir. SAP HANA sunar tutarlılık denetimleri açıklanan çeşitli türlerde [SAP notu 1977584](https://launchpad.support.sap.com/#/notes/1977584).
 
-Tablo tutarlılık denetimi hakkında bilgi de bulunabilir SAP Web sitesinde [tablo ve Katalog tutarlılık denetimleri](http://help.sap.com/saphelp_hanaplatform/helpdata/en/25/84ec2e324d44529edc8221956359ea/content.htm#loio9357bf52c7324bee9567dca417ad9f8b).
+Tablo tutarlılık denetimi hakkında bilgi de bulunabilir SAP Web sitesinde [tablo ve Katalog tutarlılık denetimleri](https://help.sap.com/saphelp_hanaplatform/helpdata/en/25/84ec2e324d44529edc8221956359ea/content.htm#loio9357bf52c7324bee9567dca417ad9f8b).
 
 Standart dosya yedeklemeler için bir test geri gerekli değildir. Hangi yedekleme geri yükleme için kullanılabilir denetlemek için yardımcı olan iki SAP HANA araçlar vardır: hdbbackupdiag ve hdbbackupcheck. Bkz: [el ile denetimi olup olmadığını bir kurtarma mümkün olduğu](https://help.sap.com/saphelp_hanaplatform/helpdata/en/77/522ef1e3cb4d799bab33e0aeb9c93b/content.htm) Bu araçlar hakkında daha fazla bilgi için.
 
@@ -90,7 +90,7 @@ SAP eklenmemişse&#39;t ya da HANA yedekleme depolama anlık görüntüleri ve �
 
 Azure'da, Azure blob özelliği eklenmemişse anlık görüntü olgusu dikkat&#39;t garantisi dosya sistemi tutarlılığı (bkz [PowerShell kullanarak blob anlık görüntüleri](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)). Sonraki bölümde _depolama anlık görüntülerini çekerken SAP HANA veri tutarlılığı_, bu özellikle ilgili bazı hususlar anlatılmaktadır.
 
-Ayrıca, bu makalede açıklandığı gibi blob anlık görüntüleri ile sık çalışırken fatura etkilerini anlamak varsa: [anlama nasıl anlık görüntüleri tahakkuk ücretleri](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— bunu yüklenmez&#39;belirgin olarak kullanarak Azure sanal olarak t diskler.
+Ayrıca, sık bu makalede açıklandığı gibi blob anlık görüntüleri ile çalışırken fatura etkilerini anlamak varsa: [Anlama nasıl anlık görüntüleri tahakkuk ücretleri](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)— bunu birincile&#39;t kullanarak Azure sanal diskler olarak gibi belirgin.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>Depolama anlık görüntülerini çekerken SAP HANA veri tutarlılığı
 
@@ -129,7 +129,7 @@ SAP HANA makaleyi [planlama Backup ve kurtarma stratejisini](https://help.sap.co
 HANA Yönetim Kılavuzu, bir örnek listesi sağlar. Bu, bir SAP HANA belirli bir noktaya yedekleme aşağıdaki dizi kullanılarak geri olmasını önerir:
 
 1. Tam yedekleme
-2. Fark yedekleme
+2. Değişiklik yedeği
 3. Artımlı Yedekleme 1
 4. Artımlı yedekleme 2
 5. Günlük yedekleme
@@ -137,7 +137,7 @@ HANA Yönetim Kılavuzu, bir örnek listesi sağlar. Bu, bir SAP HANA belirli bi
 Ne zaman ve ne sıklıkta belirli bir yedekleme türü olması gerektiğini bir tam zamanlama ile ilgili genel bir kılavuz vermek mümkün değildir — çok müşteriye özgü ve kaç tane veri sistemde değişiklikler üzerinde bağlıdır. Genel rehberlik sağlaması görülebilir, SAP taraftan bir temel öneri yapma bir tam HANA için haftada bir yedeklemedir.
 İlgili günlüğü yedeklemeleri, SAP HANA belgelerine bakın [günlük yedeklerinin](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/bb7e33bb571014a03eeabba4e37541/content.htm).
 
-Ayrıca SAP önerir sonsuz büyüyen korumak için yedekleme Kataloğu'nun bazı temizlik yapmak (bkz [yedekleme kataloğunu ve yedekleme depolama alanı için Housekeeping](http://help.sap.com/saphelp_hanaplatform/helpdata/en/ca/c903c28b0e4301b39814ef41dbf568/content.htm)).
+Ayrıca SAP önerir sonsuz büyüyen korumak için yedekleme Kataloğu'nun bazı temizlik yapmak (bkz [yedekleme kataloğunu ve yedekleme depolama alanı için Housekeeping](https://help.sap.com/saphelp_hanaplatform/helpdata/en/ca/c903c28b0e4301b39814ef41dbf568/content.htm)).
 
 ### <a name="sap-hana-configuration-files"></a>SAP HANA yapılandırma dosyaları
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49a311b74fbc48f414f530e962af39d17a346353
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 59e60f4b89bb1d579c9a3e11ddb65b33af81b0e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175549"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848856"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Öğretici: Phraseanet ile Azure Active Directory Tümleştirme
 
@@ -62,19 +62,19 @@ Azure AD'de Phraseanet tümleştirmesini yapılandırmak için Phraseanet Galeri
 
 1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
-    ![image](./media/phraseanet-tutorial/selectazuread.png)
+    ![görüntü](./media/phraseanet-tutorial/selectazuread.png)
 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![image](./media/phraseanet-tutorial/a_select_app.png)
+    ![görüntü](./media/phraseanet-tutorial/a_select_app.png)
     
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![image](./media/phraseanet-tutorial/a_new_app.png)
+    ![görüntü](./media/phraseanet-tutorial/a_new_app.png)
 
 4. Arama kutusuna **Phraseanet**seçin **Phraseanet** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-     ![image](./media/phraseanet-tutorial/tutorial_phraseanet_addfromgallery.png)
+     ![görüntü](./media/phraseanet-tutorial/tutorial_phraseanet_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
@@ -98,28 +98,28 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve P
 
 1. İçinde [Azure portalında](https://portal.azure.com/), **Phraseanet** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![image](./media/phraseanet-tutorial/b1_b2_select_sso.png)
+    ![görüntü](./media/phraseanet-tutorial/b1_b2_select_sso.png)
 
 2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunu tıklatın **seçin** için **SAML** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![image](./media/phraseanet-tutorial/b1_b2_saml_sso.png)
+    ![görüntü](./media/phraseanet-tutorial/b1_b2_saml_sso.png)
 
 3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **temel SAML yapılandırma** iletişim.
 
-    ![image](./media/phraseanet-tutorial/b1-domains_and_urlsedit.png)
+    ![görüntü](./media/phraseanet-tutorial/b1-domains_and_urlsedit.png)
 
 4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     İçinde **oturum açma URL'si** metin kutusuna bir URL yazın:  `https://<SUBDOMAIN>.alchemyasp.com`
 
-    ![image](./media/phraseanet-tutorial/tutorial_phraseanet_url.png)
+    ![görüntü](./media/phraseanet-tutorial/tutorial_phraseanet_url.png)
 
     > [!NOTE] 
     > Oturum açma URL değeri, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Phraseanet Destek ekibine](mailto:support@alchemy.fr) değeri alınamıyor.
  
 5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  ve bilgisayarınıza kaydedin.
 
-    ![image](./media/phraseanet-tutorial/tutorial_phraseanet_certificate.png) 
+    ![görüntü](./media/phraseanet-tutorial/tutorial_phraseanet_certificate.png) 
 
 6. Çoklu oturum açmayı yapılandırma **Phraseanet** tarafı, indirilen göndermek için ihtiyacınız **Federasyon meta verileri XML** için [Phraseanet Destek ekibine](mailto:support@alchemy.fr). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
@@ -129,19 +129,19 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-    ![image](./media/phraseanet-tutorial/d_users_and_groups.png)
+    ![görüntü](./media/phraseanet-tutorial/d_users_and_groups.png)
 
 2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![image](./media/phraseanet-tutorial/d_adduser.png)
+    ![görüntü](./media/phraseanet-tutorial/d_adduser.png)
 
 3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    ![image](./media/phraseanet-tutorial/d_userproperties.png)
+    ![görüntü](./media/phraseanet-tutorial/d_userproperties.png)
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -158,19 +158,19 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Phraseanet erişim verer
 
 1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**.
 
-    ![image](./media/phraseanet-tutorial/d_all_applications.png)
+    ![görüntü](./media/phraseanet-tutorial/d_all_applications.png)
 
 2. Uygulamalar listesinde **Phraseanet**.
 
-    ![image](./media/phraseanet-tutorial/tutorial_phraseanet_app.png)
+    ![görüntü](./media/phraseanet-tutorial/tutorial_phraseanet_app.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![image](./media/phraseanet-tutorial/d_leftpaneusers.png)
+    ![görüntü](./media/phraseanet-tutorial/d_leftpaneusers.png)
 
 4. Seçin **Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    ![image](./media/phraseanet-tutorial/d_assign_user.png)
+    ![görüntü](./media/phraseanet-tutorial/d_assign_user.png)
 
 4. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 

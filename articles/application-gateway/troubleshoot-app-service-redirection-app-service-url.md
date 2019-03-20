@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: cd15e139b2bcd0046d2cfbd7603809936adf1cfc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 359d75f10f95b0e41ccd9a869d49247355f0d5d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548141"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123190"
 ---
 # <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>App Service ile Application Gateway’de sorun giderme: App Service’in URL’sine yeniden yönlendirme
 
@@ -32,7 +32,7 @@ Bu sorun, aşağıdaki ana nedenlerden ötürü oluşabilir:
 ## <a name="sample-configuration"></a>Örnek yapılandırma
 
 - HTTP dinleyicisi: Temel veya çok siteli
-- Arka uç adres havuzu: App Service
+- Arka uç adres havuzu: Uygulama Hizmeti
 - HTTP ayarları: "Ana bilgisayar adı arka uç adresi etkin seçin"
 - Araştırması: "Ana bilgisayar adını HTTP ayarlarından etkin seçin"
 
@@ -42,7 +42,7 @@ Bir App Service yalnızca özel etki alanı ayarlarını, yapılandırılmış k
 
 Application Gateway ile bunun için "Arka uç Kimden ana bilgisayar adı adresi Seç" anahtar HTTP ayarlarında ve araştırma için çalışmaya kullanıyoruz, araştırma yapılandırmasında "Arka uç HTTP ayarları gelen konak adı seçin" kullanırız.
 
-![appservice-1](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-1.png)
+![appservice-1](./media/troubleshoot-app-service-redirection-app-service-url/appservice-1.png)
 
 App Service bir yeniden yönlendirme yaptığında bu nedenle, konum üst bilgisi "example.azurewebsites.net" ana bilgisayar adı yerine özgün ana bilgisayar adı aksi şekilde yapılandırılmadıkça kullanır. Örnek istek ve yanıt üst bilgileri aşağıdaki kontrol edebilirsiniz.
 ```
@@ -78,7 +78,7 @@ Bunu başarmak için özel bir etki alanına sahip ve Aşağıda sözü edilen s
 
 - App Service özel etki alanı listesi etki alanına kaydedin. App Service'nın FQDN'sine işaret eden özel etki alanınızda bunun için bir CNAME olmalıdır. Daha fazla bilgi için [mevcut bir özel DNS adını Azure App Service'e eşlemek](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
 
-![appservice-2](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-2.png)
+![appservice-2](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
 - Bu yapıldıktan sonra App Service ana bilgisayar adı "www.contoso.com" kabul etmeye hazırdır. Şimdi uygulama ağ geçidinin FQDN'sine işaret etmek için bir DNS CNAME girişiniz değiştirin. Örneğin, "appgw.eastus.cloudapp.azure.com".
 
@@ -94,7 +94,7 @@ Bunu başarmak için özel bir etki alanına sahip ve Aşağıda sözü edilen s
 - Özel araştırma arka uç HTTP ayarları için yeniden ilişkilendirin ve arka uç sistem durumu sağlıklı olup olmadığını doğrulayın.
 
 - Bunu yaptıktan sonra artık aynı ana bilgisayar adı "www.contoso.com" uygulama ağ geçidi için App Service İleri ve aynı ana bilgisayar adına yeniden yönlendirme gerçekleşir. Örnek istek ve yanıt üst bilgileri aşağıdaki kontrol edebilirsiniz.
-```
+  ```
   ## Request headers to Application Gateway:
 
   Request URL: http://www.contoso.com/path
@@ -114,7 +114,7 @@ Bunu başarmak için özel bir etki alanına sahip ve Aşağıda sözü edilen s
   Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=www.contoso.com
 
   X-Powered-By: ASP.NET
-```
-## <a name="next-steps"></a>Sonraki adımlar
+  ```
+  ## <a name="next-steps"></a>Sonraki adımlar
 
 Yukarıdaki adımlar sorunu çözmezse, açık bir [destek bileti](https://azure.microsoft.com/support/options/).

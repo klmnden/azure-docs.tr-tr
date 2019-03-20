@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2f47a145f00748a3366ea5bd1aa961f4b556a08f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cc37109eda2690b4407f9cd0c92851b7c0e3f915
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474675"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835254"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake ile ölçeklenebilir veri bilimi: Uçtan uca kılavuz
 Bu yönerge, Azure Data Lake veri keşfi ve NYC taksi seyahat örneği ikili sınıflandırma görevleri ve masrafları ipucu tarafından bir taksi Ücretli olup olmadığını tahmin etmek için veri kümesi için nasıl kullanılacağını gösterir. Bu adımlarında size kılavuzluk eder [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), uçtan uca, eğitim modeli için veri alma ve sonra model yayımlayan bir web hizmeti dağıtımı için.
@@ -72,17 +72,17 @@ Bu bölümde, bu kaynakların her biri oluşturma hakkında yönergeler sağlar.
 ### <a name="create-an-azure-data-lake-store"></a>Bir Azure Data Lake Store oluşturun
 
 
-Gelen bir ADLS oluşturma [Azure portalında](http://portal.azure.com). Ayrıntılar için bkz [Azure portalını kullanarak Data Lake Store ile HDInsight kümesi oluşturma](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Küme AAD kimlik ayarlamak mutlaka **DataSource** dikey **isteğe bağlı yapılandırma** dikey açıklanan vardır.
+Gelen bir ADLS oluşturma [Azure portalında](https://portal.azure.com). Ayrıntılar için bkz [Azure portalını kullanarak Data Lake Store ile HDInsight kümesi oluşturma](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Küme AAD kimlik ayarlamak mutlaka **DataSource** dikey **isteğe bağlı yapılandırma** dikey açıklanan vardır.
 
  ![3](./media/data-lake-walkthrough/3-create-ADLS.PNG)
 
 ### <a name="create-an-azure-data-lake-analytics-account"></a>Bir Azure Data Lake Analytics hesabı oluşturma
-Bir ADLA hesabı oluşturma [Azure portalında](http://portal.azure.com). Ayrıntılar için bkz [öğretici: Azure Data Lake Azure portalını kullanarak Analytics ile çalışmaya başlama](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+Bir ADLA hesabı oluşturma [Azure portalında](https://portal.azure.com). Ayrıntılar için bkz [öğretici: Azure Data Lake Azure portalını kullanarak Analytics ile çalışmaya başlama](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
 ### <a name="create-an-azure-blob-storage-account"></a>Bir Azure Blob Depolama hesabı oluşturma
-Bir Azure Blob Depolama hesabındaki oluşturma [Azure portalında](http://portal.azure.com). Ayrıntılar için bkz: bir depolama hesabı bölümünde oluşturma [Azure depolama hesapları hakkında](../../storage/common/storage-create-storage-account.md).
+Bir Azure Blob Depolama hesabındaki oluşturma [Azure portalında](https://portal.azure.com). Ayrıntılar için bkz: bir depolama hesabı bölümünde oluşturma [Azure depolama hesapları hakkında](../../storage/common/storage-create-storage-account.md).
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
@@ -99,7 +99,7 @@ Yükleme başarıyla tamamlandıktan sonra Visual Studio'yu açın. Data Lake me
  ![7](./media/data-lake-walkthrough/7-install-ADL-tools-VS-done.PNG)
 
 ## <a name="the-nyc-taxi-trips-dataset"></a>NYC taksi Gelişlerin veri kümesi
-Burada kullanılan veri kümesi genel kullanıma açık bir veri kümesi--olan [NYC taksi Gelişlerin dataset](http://www.andresmh.com/nyctaxitrips/). Yaklaşık 20 GB sıkıştırılmış CSV dosyalar (sıkıştırmadan ~ 48 GB), NYC taksi seyahat verilerini oluşuyorsa, 173 milyondan fazla bireysel gelişlerin ve fares kaydetmek için her bir seyahat Ücretli. Her bir seyahat kayıt, toplama ve dropoff konumları ve süreleri, anonim hack (sürücü) lisans numarası ve medallion (taksi'nın benzersiz Tanımlayıcı) numarası içerir. Veriler tüm dönüş 2013 yılında kapsar ve aşağıdaki iki veri kümesi için her ay sağlanır:
+Burada kullanılan veri kümesi genel kullanıma açık bir veri kümesi--olan [NYC taksi Gelişlerin dataset](https://www.andresmh.com/nyctaxitrips/). Yaklaşık 20 GB sıkıştırılmış CSV dosyalar (sıkıştırmadan ~ 48 GB), NYC taksi seyahat verilerini oluşuyorsa, 173 milyondan fazla bireysel gelişlerin ve fares kaydetmek için her bir seyahat Ücretli. Her bir seyahat kayıt, toplama ve dropoff konumları ve süreleri, anonim hack (sürücü) lisans numarası ve medallion (taksi'nın benzersiz Tanımlayıcı) numarası içerir. Veriler tüm dönüş 2013 yılında kapsar ve aşağıdaki iki veri kümesi için her ay sağlanır:
 
 'trip_data' CSV Yolcuların, toplama ve dropoff noktaları, seyahat süresini ve seyahat uzunluğu sayısı gibi seyahat ayrıntıları içerir. Birkaç örnek kayıt şunlardır:
 
@@ -147,7 +147,8 @@ U-SQL, Visual Studio'yu Aç çalıştırabileceği **Dosya--> Yeni Proje-->**, s
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>Veri alımı: Genel blobdan veri okuma
-Azure BLOB verilerin konumu olarak başvurulan **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** ve alınabilir **Extractors.Csv()**. Yerine kendi kapsayıcı adı ve depolama hesabı adı için aşağıdaki komut container_name@blob_storage_account_name wasb adres. Dosya adları aynı biçimde olduğundan kullanmak mümkün mü **seyahat\_veri_ {\*\}.csv** tüm 12 seyahat dosyaları okumak için.
+
+Azure BLOB verilerin konumu olarak başvurulan **wasb://container\_adı\@blob\_depolama\_hesabı\_name.blob.core.windows.net/blob_name**ve alınabilir **Extractors.Csv()**. Yerine kendi kapsayıcı adı ve depolama hesabı adı kapsayıcısı için aşağıdaki komut\_adı\@blob\_depolama\_hesabı\_wasb adres adı. Dosya adları aynı biçimde olduğundan kullanmak mümkün mü **seyahat\_veri\_\{\*\}.csv** tüm 12 seyahat dosyaları okumak için.
 
     ///Read in Trip data
     @trip0 =
@@ -170,7 +171,7 @@ Azure BLOB verilerin konumu olarak başvurulan **wasb://container_name@blob_stor
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-İlk satırı üst bilgileri olduğundan, üst bilgileri kaldırın ve uygun parçalara sütun türleri değiştirmek gerekir. Yapabilirsiniz veya Azure Data Lake depolamanın kullanılması için işlenen verileri kaydetme **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ veya Azure Blob Depolama hesabı kullanarak  **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**.
+İlk satırı üst bilgileri olduğundan, üst bilgileri kaldırın ve uygun parçalara sütun türleri değiştirmek gerekir. Yapabilirsiniz veya Azure Data Lake depolamanın kullanılması için işlenen verileri kaydetme **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ veya Azure Blob Depolama hesabı kullanarak **wasb: / / container_name\@blob_storage_account_name.blob.core.windows.net/blob_name**.
 
     // change data types
     @trip =
@@ -596,7 +597,7 @@ Makine öğrenimi modelinde, oluşturulduktan sonra kullanıma hazır hale getir
 Azure Machine Learning Studio, doğrudan Azure Data Lake Store verileri okuyabilir ve modelleri oluşturup sonra kullanılabilir. Bu yaklaşım Azure Data Lake Store işaret eden bir Hive tablosu kullanır. Bu ayrı bir Azure HDInsight kümesi, sağlanması, gerektirir üzerinde Hive tablosu oluşturulur. Aşağıdaki bölümlerde bunun nasıl yapılacağı gösterilmektedir.
 
 ### <a name="create-an-hdinsight-linux-cluster"></a>Bir HDInsight Linux kümesi oluşturma
-Bir HDInsight kümesi (Linux) oluşturma [Azure portalında](http://portal.azure.com). Ayrıntılar için bkz **Azure Data Lake Store erişimi olan bir HDInsight kümesi oluşturma** konusundaki [Azure portalını kullanarak Data Lake Store ile HDInsight kümesi oluşturma](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Bir HDInsight kümesi (Linux) oluşturma [Azure portalında](https://portal.azure.com). Ayrıntılar için bkz **Azure Data Lake Store erişimi olan bir HDInsight kümesi oluşturma** konusundaki [Azure portalını kullanarak Data Lake Store ile HDInsight kümesi oluşturma](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 

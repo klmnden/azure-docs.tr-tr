@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db5e309bc077b29740b0d6e597164bcbcc5448f9
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 4156ef264069b5f926f28f766a201dceb29a512b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730902"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834804"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Öğretici: Coupa ile Azure Active Directory Tümleştirme
 
@@ -111,14 +111,16 @@ Azure AD çoklu oturum açma ile Coupa yapılandırmak için aşağıdaki adıml
     > Oturum açma URL değeri, gerçek değil. Bu değer, gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Coupa istemci Destek ekibine](https://success.coupa.com/Support/Contact_Us?) bu değeri alınamıyor.
 
     b. İçinde **tanımlayıcı** kutusuna bir URL yazın:
-    | Ortam  | URL'si |
+
+    | Ortam  | URL |
     |:-------------|----|
     | Korumalı Alan | `devsso35.coupahost.com`|
     | Üretim | `prdsso40.coupahost.com`|
     | | |
 
     c. İçinde **yanıt URL'si** metin kutusuna bir URL yazın:
-    | Ortam | URL'si |
+
+    | Ortam | URL |
     |------------- |----|
     | Korumalı Alan | `https://devsso35.coupahost.com/sp/ACS.saml2`|
     | Üretim | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
@@ -174,7 +176,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

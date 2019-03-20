@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a72a4244e3cae081fe9a962bbb80d3ce19822d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 608965160f4abb57ccdfe8b8256fef971754b4d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113231"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000315"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -39,7 +39,7 @@ ms.locfileid: "39113231"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [ha-guide]:sap-high-availability-guide.md
@@ -210,9 +210,9 @@ Azure Load Balancer hizmeti sağlayan bir *iç yük dengeleyici* Azure için. İ
 
 İç yük dengeleyici küme düğümlerini içeren kaynak grubunun içinde dağıtın. Ardından, tüm gerekli bağlantı noktası kuralları araştırma kullanarak iç yük dengeleyici bağlantı noktası iletme yapılandırın. İstemciler, sanal ana bilgisayar adı bağlanabilir. DNS sunucusu, küme IP adresini ve iletme kümesinin etkin düğümü için iç yük dengeleyici tanıtıcıları bağlantı noktası çözümler.
 
-![Şekil 1: azure'da bir yapılandırma olmadan bir paylaşılan disk Windows Yük Devretme Kümelemesi][sap-ha-guide-figure-1001]
+![Şekil 1: Azure'da bir yapılandırma olmadan bir paylaşılan disk Windows Yük devretme][sap-ha-guide-figure-1001]
 
-_**Şekil 1:** azure'da bir yapılandırma olmadan bir paylaşılan disk Windows Server Yük devretme_
+_**Şekil 1:** Azure'da bir yapılandırma olmadan bir paylaşılan disk Windows Server Yük devretme_
 
 ### <a name="sap-ascsscs-ha-with-cluster-shared-disks"></a>SAP ASCS/SCS HA Küme Paylaşılan diskler
 Windows SAP central Services'in, SAP ileti sunucusu, sunucu işlemlerini kuyruğa ve SAP genel ana bilgisayar dosyaları SAP ASCS/SCS örneği içerir. SAP genel ana bilgisayar dosyaları SAP sistemlerini merkezi dosyalarını depolar.
@@ -225,21 +225,21 @@ SAP ASCS/SCS örneği aşağıdaki bileşenlere sahiptir:
 
 
 * SAP genel ana bilgisayar dosyaları:
-    * Dosya yapısı: S:\usr\sap\\&lt;SID&gt;\SYS\....
-    * Bu genel S:\usr\sap erişim sağlayan sapmnt dosya paylaşımı\\&lt;SID&gt;\SYS\... aşağıdaki UNC yolunu kullanarak dosya:
+  * Dosya yapısı: S:\usr\sap\\&lt;SID&gt;\SYS\....
+  * Bu genel S:\usr\sap erişim sağlayan sapmnt dosya paylaşımı\\&lt;SID&gt;\SYS\... aşağıdaki UNC yolunu kullanarak dosya:
 
-     \\\\< ASCS/SCS sanal ana bilgisayar adı > \sapmnt\\&lt;SID&gt;\SYS\....
+    \\\\< ASCS/SCS sanal ana bilgisayar adı > \sapmnt\\&lt;SID&gt;\SYS\....
 
 
 ![Şekil 2: İşlemler, dosya yapısı ve genel konak sapmnt dosya paylaşımı SAP ASCS/SCS örneği][sap-ha-guide-figure-8001]
 
-_**Şekil 2:** işlemleri, dosya yapısı ve genel konak sapmnt dosya paylaşımı SAP ASCS/SCS örneği_
+_**Şekil 2:** İşlemler, dosya yapısı ve genel konak sapmnt dosya paylaşımı SAP ASCS/SCS örneği_
 
 Bir yüksek kullanılabilirlik ayarında SAP ASCS/SCS örnekleri kümesi. Kullandığımız *kümelenmiş paylaşılan diskler* (SAP ASCS/SCS yerleştirin ve genel SAP S sürücüsü, örneğimizde), ana bilgisayar dosyaları.
 
-![Şekil 3: SAP ASCS/SCS yüksek kullanılabilirlik mimarisi ile paylaşılan disk][sap-ha-guide-figure-8002]
+![Şekil 3: Paylaşılan disk ile SAP ASCS/SCS HA mimarisi][sap-ha-guide-figure-8002]
 
-_**Şekil 3:** paylaşılan disk ile SAP ASCS/SCS HA mimarisi_
+_**Şekil 3:** Paylaşılan disk ile SAP ASCS/SCS HA mimarisi_
 
 > [!IMPORTANT]
 > Bu iki bileşenin aynı SAP ASCS/SCS örneği çalıştırın:
@@ -248,9 +248,9 @@ _**Şekil 3:** paylaşılan disk ile SAP ASCS/SCS HA mimarisi_
 >
 
 
-![Şekil 4: SAP ASCS/SCS yüksek kullanılabilirlik mimarisi ile paylaşılan disk][sap-ha-guide-figure-8003]
+![Şekil 4: Paylaşılan disk ile SAP ASCS/SCS HA mimarisi][sap-ha-guide-figure-8003]
 
-_**Şekil 4:** paylaşılan disk ile SAP ASCS/SCS HA mimarisi_
+_**Şekil 4:** Paylaşılan disk ile SAP ASCS/SCS HA mimarisi_
 
 ### <a name="shared-disks-in-azure-with-sios-datakeeper"></a>SIOS DataKeeper ile paylaşılan diskleri azure'da
 
@@ -266,9 +266,9 @@ Bir küme için paylaşılan disk kaynağı oluşturmak için:
 
 Hakkında daha fazla bilgi edinin [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
 
-![Şekil 5: yapılandırma SIOS DataKeeper ile azure'da Windows Server Yük Devretme Kümelemesi][sap-ha-guide-figure-1002]
+![Şekil 5: Windows Server Yük Devretme Kümelemesi ile SIOS DataKeeper azure'da yapılandırma][sap-ha-guide-figure-1002]
 
-_**Şekil 5:** yapılandırma SIOS DataKeeper ile azure'da Windows Yük devretme_
+_**Şekil 5:** Yapılandırma SIOS DataKeeper ile azure'da Windows Yük devretme_
 
 > [!NOTE]
 > SQL Server gibi bazı DBMS ürünleri ile yüksek kullanılabilirlik için paylaşılan diskler gerekmez. SQL Server AlwaysOn, başka bir küme düğümünün yerel diskteki bir küme düğümünde yerel diskten DBMS veri ve günlük dosyalarını çoğaltır. Bu durumda, Windows Küme yapılandırması, paylaşılan bir disk gerekli değildir.

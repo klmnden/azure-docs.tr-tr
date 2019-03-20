@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 43276aad26bc06400c1bc4b5feaace0d5646c213
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 41220ccdca945610d7d8ca87af0857114e2cef85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849250"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57866301"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Hedef (Vmware'den azure'a) hazırlama
 
@@ -21,17 +21,17 @@ Bu makalede, Azure'da Windows veya Linux çalıştıran fiziksel sunucuları (x 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Varsayılır:
-- Fiziksel sunucularınızı koruma için kurtarma Hizmetleri kasası oluşturdunuz. Bir kurtarma Hizmetleri Kasasından oluşturabilirsiniz [Azure portalında](http://portal.azure.com "Azure portalında").
+- Fiziksel sunucularınızı koruma için kurtarma Hizmetleri kasası oluşturdunuz. Bir kurtarma Hizmetleri Kasasından oluşturabilirsiniz [Azure portalında](https://portal.azure.com "Azure portalında").
 - Sahip olduğunuz [şirket içi ortamınızı kurma](physical-azure-disaster-recovery.md) fiziksel sunucuları Azure'a çoğaltmak için.
 
 ## <a name="prepare-target"></a>Hedefi hazırla
 
-Tamamladıktan sonra **adım 1:Select koruma hedefi** ve **2. adım: kaynak hazırlama**, yönlendirilirsiniz **3. adım: hedef**
+Tamamladıktan sonra **adım 1:Select koruma hedefi** ve **2. adım: kaynak hazırlama**, yönlendirilirsiniz **3. adım: Hedef**
 
 ![Hedefi hazırla](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
 
-1. **Abonelik:** aşağı açılan menüden, fiziksel sunucuları çoğaltmak istediğiniz aboneliği seçin.
-2. **Dağıtım modeli:** (Klasik veya Resource Manager) dağıtım modeli seçin
+1. **Abonelik:** Aşağı açılan menüden, fiziksel sunucuları çoğaltmak istediğiniz aboneliği seçin.
+2. **Dağıtım modeli:** Dağıtım modelini (Klasik veya Resource Manager) seçin
 
 Seçilen dağıtım modeline bağlı olarak, fiziksel sunucularınızın en az bir uyumlu depolama hesabı ve sanal ağı hedef abonelikte çoğaltmak ve yük devretme olmasını sağlamak için bir doğrulama çalıştırılır.
 

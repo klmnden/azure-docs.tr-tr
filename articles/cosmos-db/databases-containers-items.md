@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c7288b112ce2fd062a67cb673a1efa6028ec7d57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468147"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888528"
 ---
-# <a name="work-with-databases-containers-and-items"></a>Veritabanları, kapsayıcılar ve öğeleri ile çalışma
+# <a name="work-with-databases-containers-and-items"></a>Veritabanları, kapsayıcılar ve öğelerle çalışma
 
 Oluşturduktan sonra bir [Azure Cosmos DB hesabı](account-overview.md) Azure aboneliğiniz kapsamındaki verileri hesabınızdaki veritabanları, kapsayıcılar ve öğeleri oluşturarak yönetebilirsiniz. Bu makalede bu varlıkların açıklar: veritabanları, kapsayıcılar ve öğeleri. Aşağıdaki resimde, bir Azure Cosmos hesabında farklı varlık hiyerarşisi gösterilmektedir:
 
@@ -26,7 +26,7 @@ Bir veya daha fazla Azure Cosmos veritabanı hesabınız kapsamında oluşturabi
 
 | **Azure Cosmos varlığı** | **SQL API'Sİ** | **Cassandra API'si** | **Azure Cosmos DB'nin MongoDB API'si** | **Gremlin API** | **Tablo API’si** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos veritabanı | Database | Keyspace | Database | Database | NA |
+|Azure Cosmos veritabanı | Database | Keyspace | Veritabanı | Veritabanı | Yok |
 
 > [!NOTE]
 > Tablo API hesaplarıyla, varsayılan veritabanı tablonuzun ilk oluşturduğunuzda, Azure Cosmos hesabınızdaki otomatik olarak oluşturulur.
@@ -92,7 +92,7 @@ Bir Azure Cosmos kapsayıcısı, sistem tarafından tanımlanan özellikler küm
 Bir Azure Cosmos kapsayıcı herhangi bir Azure Cosmos API'lerini kullanarak şu işlemleri destekler.
 
 | **İşlem** | **Azure CLI** | **SQL API'Sİ** | **Cassandra API'si** | **Azure Cosmos DB'nin MongoDB API'si** | **Gremlin API** | **Tablo API’si** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | Bir veritabanı kapsayıcılarda listeleme | Evet* | Evet | Evet | Evet | NA | NA |
 | Bir kapsayıcı okuyun | Evet | Evet | Evet | Evet | NA | NA |
 | Yeni bir kapsayıcı oluşturma | Evet | Evet | Evet | Evet | NA | NA |
@@ -125,7 +125,7 @@ Her Azure Cosmos öğesi aşağıdaki sistem tanımlı özelliklerine sahiptir. 
 Azure Cosmos öğesi herhangi bir Azure Cosmos API'leri kullanılarak gerçekleştirilebilir aşağıdaki işlemleri destekler.
 
 | **İşlem** | **Azure CLI** | **SQL API'Sİ** | **Cassandra API'si** | **Azure Cosmos DB'nin MongoDB API'si** | **Gremlin API** | **Tablo API’si** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | Ekleme, değiştirme, silme, Upsert, okuma | Hayır | Evet | Evet | Evet | Evet | Evet |
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -133,7 +133,7 @@ Azure Cosmos öğesi herhangi bir Azure Cosmos API'leri kullanılarak gerçekle�
 Şimdi Azure Cosmos hesabındaki aktarım hızına veya diğer kavramlar hakkında bilgi edinmek için geçebilirsiniz:
 
 * [Bir Azure Cosmos veritabanı üzerinde sağlanan aktarım hızı yapılandırma](how-to-provision-database-throughput.md)
-* [Sağlanan aktarım hızı bir Azure Cosmos kapsayıcı yapılandırma](how-to-provision-container-throughput.md)
+* [Sağlanan aktarım hızı bir Azure Cosmos kapsayıcısını yapılandırma](how-to-provision-container-throughput.md)
 * [Mantıksal bölümleri](partition-data.md)
 * [Azure Cosmos kapsayıcısını TTL yapılandırma](how-to-time-to-live.md)
 * [Değişiklik akışı kullanan reaktif uygulamalar oluşturma](change-feed.md)

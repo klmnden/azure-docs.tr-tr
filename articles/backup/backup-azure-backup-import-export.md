@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 94931546f3b8ddb18a5381de3baa31d66376badb
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810729"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107466"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup’ta çevrimdışı yedekleme iş akışı
 Azure Backup, azure'a veri ilk tam yedekleme sırasında ağ ve depolama maliyetlerinden tasarruf birkaç yerleşik verimliliği sahiptir. Genellikle ilk tam yedeklemeler büyük miktarlarda veri aktarmanıza ve yalnızca deltaları/incrementals aktarmak sonraki yedeklemelerle karşılaştırıldığında daha fazla ağ bant genişliği gerektirecektir. Çevrimdışı dengeli dağıtım işlemi boyunca, Azure Backup diskler Çevrimdışı Yedekleme verileri Azure'a karşıya yüklemek için kullanabilirsiniz.
@@ -73,7 +73,7 @@ Bu bölümde, böylece verilerinizi Azure veri merkezi için sunulan ve Azure de
 
     ![İçeri aktarma ekran](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
-  Girişleri açıklaması aşağıdaki gibidir:
+   Girişleri açıklaması aşağıdaki gibidir:
 
     * **Hazırlama konumu**: İlk yedek kopyanın yazıldığı geçici depolama konumu. Hazırlama konumu, bir ağ paylaşımına veya yerel bilgisayar üzerinde olabilir. Kopya bilgisayar ve kaynak bilgisayara farklıysa, hazırlama konumunun tam ağ yolu belirtmeniz önerilir.
     * **Azure Resource Manager depolama hesabı**: Herhangi bir Azure aboneliğinde depolama hesabı Resource Manager türü adı.
@@ -81,7 +81,7 @@ Bu bölümde, böylece verilerinizi Azure veri merkezi için sunulan ve Azure de
     * **Azure abonelik kimliği**: Azure depolama hesabının oluşturulduğu Azure abonelik kimliği.
     * **Azure içeri aktarma işinin adını**: Tarafından hangi Azure içeri aktarma hizmeti ve Azure Backup gönderilen veri aktarımını disklerde Azure'a izlemek benzersiz adı. 
   
-  ' A tıklayın ve giriş ekranındaki **sonraki**. Sağlanan kaydetme *hazırlama konumu* ve *Azure içeri aktarma işinin adını*gibi diskleri hazırlamak için bu bilgiler gereklidir.
+   ' A tıklayın ve giriş ekranındaki **sonraki**. Sağlanan kaydetme *hazırlama konumu* ve *Azure içeri aktarma işinin adını*gibi diskleri hazırlamak için bu bilgiler gereklidir.
 
 2. İstendiğinde, Azure aboneliğinizde oturum açın. Azure Backup Azure Active Directory uygulaması oluşturma ve Azure içeri aktarma hizmeti erişmek için gerekli izinleri sağlayan oturum açmalısınız.
 
@@ -106,14 +106,14 @@ Bu bölümde, böylece verilerinizi Azure veri merkezi için sunulan ve Azure de
 
 1. Dizin ve kopya Git **AzureOfflineBackupDiskPrep** SATA disklerin bağlı olduğu başka bir bilgisayara dizin. Bağlı SATA sürücüsü olan bir bilgisayarda emin olun:
 
-    * Kopya bilgisayar hazırlama konumu çevrimdışı dengeli dağıtım iş akışı için sunulan aynı ağ yolunu kullanarak erişebilirsiniz **çevrimdışı yedekleme başlatmak** iş akışı.
-    * Kopyalama bilgisayarda BitLocker etkin.
-    * Azure PowerShell 3.7.0 yüklenir.
-    * En son uyumlu tarayıcıları (Microsoft Edge veya Internet Explorer 11) yüklü ve JavaScript'in etkinleştirilmiş. 
-    * Kopya bilgisayar Azure portala erişebilirsiniz. Gerekirse, kopya bilgisayar kaynak bilgisayarla aynı olabilir.
+   * Kopya bilgisayar hazırlama konumu çevrimdışı dengeli dağıtım iş akışı için sunulan aynı ağ yolunu kullanarak erişebilirsiniz **çevrimdışı yedekleme başlatmak** iş akışı.
+   * Kopyalama bilgisayarda BitLocker etkin.
+   * Azure PowerShell 3.7.0 yüklenir.
+   * En son uyumlu tarayıcıları (Microsoft Edge veya Internet Explorer 11) yüklü ve JavaScript'in etkinleştirilmiş. 
+   * Kopya bilgisayar Azure portala erişebilirsiniz. Gerekirse, kopya bilgisayar kaynak bilgisayarla aynı olabilir.
     
-    > [!IMPORTANT] 
-    > Kaynak bilgisayar bir sanal makine ise, kopya bilgisayar farklı bir fiziksel sunucu veya istemci makinesinden kaynak bilgisayar olmalıdır.
+     > [!IMPORTANT] 
+     > Kaynak bilgisayar bir sanal makine ise, kopya bilgisayar farklı bir fiziksel sunucu veya istemci makinesinden kaynak bilgisayar olmalıdır.
 
 2. Kopyalama bilgisayarda yükseltilmiş bir komut istemi açın *AzureOfflineBackupDiskPrep* yardımcı programı dizini olarak geçerli dizin ve şu komutu çalıştırın:
 
@@ -137,11 +137,11 @@ Bu bölümde, böylece verilerinizi Azure veri merkezi için sunulan ve Azure de
     Araç, disk ve yedekleme veri kopyalama hazırlamak sonra başlar. Sağlanan disk yedekleme verileri için yeterli alan yok durumunda araç tarafından istendiğinde ek diskler ekleme gerekebilir. <br/>
 
     Aracı başarılı yürütme sonunda, komut istemini üç parça bilgi sağlar:
-    1. Sağladığınız bir veya daha fazla diski azure'a sevk için hazırlanır. 
-    2. Onay, içeri aktarma işi oluşturulduktan alırsınız. İçeri aktarma işi, sağlanan adını kullanır.
-    3. Araç, Azure veri merkezi için teslimat adresini görüntüler.
+   1. Sağladığınız bir veya daha fazla diski azure'a sevk için hazırlanır. 
+   2. Onay, içeri aktarma işi oluşturulduktan alırsınız. İçeri aktarma işi, sağlanan adını kullanır.
+   3. Araç, Azure veri merkezi için teslimat adresini görüntüler.
 
-    ![Azure disk hazırlığı tamamlandı](./media/backup-azure-backup-import-export/console2.png)<br/>
+      ![Azure disk hazırlığı tamamlandı](./media/backup-azure-backup-import-export/console2.png)<br/>
 
 6. Komut yürütme sonunda gönderim bilgilerinizi güncelleştirebilirsiniz.
 

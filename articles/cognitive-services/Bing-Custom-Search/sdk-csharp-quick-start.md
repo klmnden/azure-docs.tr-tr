@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: afc1622f0cb202056cd41d088c6706fba6932694
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 100f1d4ed96f04f8208fd544d410f227561343e6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544946"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871594"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>Hızlı Başlangıç: Bing özel arama kullanan uç noktasını çağırmak C# SDK'sı 
 
@@ -24,7 +24,7 @@ Bing özel arama örneğinizin, arama sonuçlarını talep başlamak için bu h�
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Bing özel arama örneği için. Bkz: [hızlı başlangıç: İlk Bing özel arama örneğinizin oluşturma](quick-start.md) daha fazla bilgi için.
-- Microsoft [.Net Core](https://www.microsoft.com/net/download/core)
+- Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
 - Herhangi bir sürümünü [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 - Linux/MacOS kullanıyorsanız bu uygulama, [Mono](https://www.mono-project.com/) kullanılarak çalıştırılabilir.
 - [NuGet Özel Arama](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) paketinin yüklenmiş olması. 

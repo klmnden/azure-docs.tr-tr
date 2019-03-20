@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c4537709181398e401ade67b831bc2d26a99221f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 31a800e851eb8a2f533cc8170856b16cd43c21cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193595"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850726"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Azure tablosu için yönetim yönergeleri sağlama
 
@@ -38,7 +38,7 @@ Bu makalede, Azure tablo satışa depolamak için yapılandırma açıklanır. A
     
     ![Azure depolama anahtarı](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
-Kullanabileceğiniz [Azure Depolama Gezgini](http://azurestorageexplorer.codeplex.com/) veya depolama Tablonuzdaki verileri görmek için başka bir araç. Ayrıca, Azure tablo verileri dışarı aktarabilirsiniz.
+Kullanabileceğiniz [Azure Depolama Gezgini](https://azurestorageexplorer.codeplex.com/) veya depolama Tablonuzdaki verileri görmek için başka bir araç. Ayrıca, Azure tablo verileri dışarı aktarabilirsiniz.
 veriler.
 
 ## <a name="optional-use-microsoft-flow-with-an-azure-table"></a>**(İsteğe bağlı)**  Microsoft Flow kullanımı ile bir Azure tablosu

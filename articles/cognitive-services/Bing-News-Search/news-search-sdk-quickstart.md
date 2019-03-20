@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 90883b136a1c77f12dc4aa81bc18bc43c1e9ca0b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 51de0397e246d3b9e7d4878fd2c8050af1f0ce6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538587"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090058"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Hızlı Başlangıç: Bing haber arama için SDK'sı ile bir haber arama yapınC#
 
@@ -91,4 +91,4 @@ Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https:/
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-[Tek sayfalı web uygulaması oluşturma](tutorial-bing-news-search-single-page-app.md)
+> [Tek sayfalı web uygulaması oluşturma](tutorial-bing-news-search-single-page-app.md)

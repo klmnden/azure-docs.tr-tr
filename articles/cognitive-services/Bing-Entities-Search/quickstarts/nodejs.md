@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: eff9375919fa946bc74fa6db15cddbebff348717
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8007d576a6b896f12423087cfd4a483d9171abc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541171"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104378"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak Bing varlık arama REST API'si için bir arama isteği gönder
 
@@ -87,24 +87,24 @@ Bu uygulamanın, JavaScript'te yazılmış olsa da çoğu programlama dilleri il
 
 1. Çağrılan bir işlev oluşturma `Search` arama isteği göndermek için. İçinde aşağıdaki adımları gerçekleştirin.
 
-    1. İstek parametrelerinizi içeren bir JSON nesnesi oluşturun: kullanın `Get` yöntemi ve konak ve yol bilgilerinizi ekleyin. Abonelik anahtarınızı ekleme `Ocp-Apim-Subscription-Key` başlığı. 
-    2. Kullanım `https.request()` daha önce oluşturduğunuz yanıt işleyicisi ve arama parametrelerinizi isteği göndermek için.
+   1. İstek parametrelerinizi içeren bir JSON nesnesi oluşturun: kullanın `Get` yöntemi ve konak ve yol bilgilerinizi ekleyin. Abonelik anahtarınızı ekleme `Ocp-Apim-Subscription-Key` başlığı. 
+   2. Kullanım `https.request()` daha önce oluşturduğunuz yanıt işleyicisi ve arama parametrelerinizi isteği göndermek için.
     
-    ```javascript
-    let Search = function () {
-        let request_params = {
-            method : 'GET',
-            hostname : host,
-            path : path + query,
-            headers : {
-                'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            }
-        };
+      ```javascript
+      let Search = function () {
+       let request_params = {
+           method : 'GET',
+           hostname : host,
+           path : path + query,
+           headers : {
+               'Ocp-Apim-Subscription-Key' : subscriptionKey,
+           }
+       };
     
-        let req = https.request (request_params, response_handler);
-        req.end ();
-    }
-    ```
+       let req = https.request (request_params, response_handler);
+       req.end ();
+      }
+      ```
 
 2. Çağrı `Search()` işlevi.
 

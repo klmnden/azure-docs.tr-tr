@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: efd450edb87316e75fc240cac80eda93151a22b3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765093"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084319"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Azure Stream Analytics işi (Önizleme) için bir SQL veritabanı başvuru verilerini kullanma
 
 Azure Stream Analytics, Azure SQL veritabanı kaynağı başvuru verileri için giriş olarak destekler. SQL veritabanı, Stream Analytics işiniz için Visual Studio ve Azure portalında Stream Analytics araçları ile başvuru veri kullanabilirsiniz. Bu makalede, iki yöntem de bunu nasıl yapacağınızı gösterir.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure portalı
 
 Azure portalını kullanarak bir başvuru giriş kaynağı Azure SQL veritabanı eklemek için aşağıdaki adımları kullanın:
 
@@ -68,7 +68,7 @@ Visual Studio kullanarak bir başvuru giriş kaynağı Azure SQL veritabanı ekl
 
 3. Sahibi [Visual Studio için Stream Analytics Araçları](stream-analytics-quick-create-vs.md) hızlı başlangıç.
 
-4. Depolama hesabı oluşturma.
+4. Bir depolama hesabı oluşturun.
 
 ### <a name="create-a-sql-database-table"></a>SQL veritabanı tablosu oluşturma
 
@@ -173,7 +173,7 @@ Delta sorgu kullanarak [zamana bağlı tablolarda Azure SQL veritabanı'nda](../
       WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
    ```
  
-  Stream Analytics çalışma zamanı düzenli aralıklarla kontrol noktalarını depolamak için delta sorgu yanı sıra anlık görüntü sorgu çalışabilir unutmayın.
+   Stream Analytics çalışma zamanı düzenli aralıklarla kontrol noktalarını depolamak için delta sorgu yanı sıra anlık görüntü sorgu çalışabilir unutmayın.
 
 ## <a name="faqs"></a>SSS
 

@@ -10,12 +10,12 @@ ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: jowargo
-ms.openlocfilehash: 6d0076f2ddaee0a1a0daa4c1bf6b0c8bec2ff3e8
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 8d2b54e65c1409c01a4c38ca8fcdfeca5f031277
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010183"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113342"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>Azure portalında bir bildirim hub'ı anında iletme bildirimleri ayarlayın
 
@@ -34,18 +34,18 @@ Apple anında iletilen bildirim servisi (APNS ayarlama) ayarlamak için:
 1. İçin **kimlik doğrulama modu**, şunlardan birini seçin **sertifika** veya **belirteci**.
 
    a. Seçerseniz **sertifika**:
-      * Dosya simgesini seçin ve ardından *.p12* karşıya yüklemek istediğiniz dosya.
-      * Parola girin.
-      * **Korumalı alan** modunu seçin. Uygulama Mağazası'ndan satın almış kullanıcılara anında iletme bildirimleri göndermek için seçin **üretim** modu.
+   * Dosya simgesini seçin ve ardından *.p12* karşıya yüklemek istediğiniz dosya.
+   * Bir parola girin.
+   * **Korumalı alan** modunu seçin. Uygulama Mağazası'ndan satın almış kullanıcılara anında iletme bildirimleri göndermek için seçin **üretim** modu.
 
-      ![Ekran görüntüsü bir APNS sertifikası yapılandırma Azure portalında](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+     ![Ekran görüntüsü bir APNS sertifikası yapılandırma Azure portalında](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
    b. Seçerseniz **belirteci**:
 
-      * İçin değerler girin **anahtarı kimliği**, **paket kimliği**, **Takım Kimliği**, ve **belirteci**.
-      * **Korumalı alan** modunu seçin. Uygulama Mağazası'ndan satın almış kullanıcılara anında iletme bildirimleri göndermek için seçin **üretim** modu.
+   * İçin değerler girin **anahtarı kimliği**, **paket kimliği**, **Takım Kimliği**, ve **belirteci**.
+   * **Korumalı alan** modunu seçin. Uygulama Mağazası'ndan satın almış kullanıcılara anında iletme bildirimleri göndermek için seçin **üretim** modu.
 
-      ![Belirteç yapılandırma Azure portalında bir APNS ekran görüntüsü](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+     ![Belirteç yapılandırma Azure portalında bir APNS ekran görüntüsü](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
 
 Daha fazla bilgi için bkz [Azure Notification Hubs'ı kullanarak anında iletme bildirimlerini iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md).
 

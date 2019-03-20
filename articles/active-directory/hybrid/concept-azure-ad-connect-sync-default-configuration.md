@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06f51f56de29d5e598ea74b39352d3c15bf7b375
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880640"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891146"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect eşitleme: Varsayılan yapılandırmayı anlama
 Bu makalede, out-of-box Yapılandırması kuralları açıklanır. Bu belgeleri, kuralları ve bu kurallar yapılandırmanın nasıl etkiler. Ayrıca, Azure AD Connect eşitleme yapılandırmasını varsayılan rehberlik sağlar. Okuyucu adlı bildirim temelli sağlama, yapılandırma modeli, gerçek hayatta kullanılan örnekte nasıl çalıştığını anladığını hedeftir. Bu makalede, zaten yüklediyseniz ve Azure AD Connect eşitlemeyi Yükleme Sihirbazı'nı kullanarak yapılandırma varsayılır.
@@ -201,7 +201,7 @@ Bir dönüştürme farklı türlere sahip olabilen: Sabit, doğrudan ve ifade.
 IIF(
 // (The evaluation for IIF) Is the attribute pwdLastSet present in AD?
 IsPresent([pwdLastSet]),
-// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .Net datetime, change it to the time format used by Azure AD, and finally convert it to a string.
+// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .NET datetime, change it to the time format used by Azure AD, and finally convert it to a string.
 CStr(FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")),
 // (The False part of IIF) Nothing to contribute
 NULL
@@ -220,7 +220,7 @@ Eşitleme kuralları için öncelik gruplarında Yükleme Sihirbazı tarafından
 ### <a name="putting-it-all-together"></a>Hepsini bir araya getirme
 Artık yapılandırma farklı eşitleme kuralları ile nasıl çalıştığını anlamak için eşitleme kuralları hakkında yeterli biliyoruz. Bir kullanıcı ve meta veri deposu için katkıda öznitelikleri bakarsanız, kuralları aşağıdaki sırayla uygulanır:
 
-| Ad | Açıklama |
+| Ad | Yorum |
 |:--- |:--- |
 | İçinde ad – kullanıcı birleştirme |Bağlayıcı alanı nesne meta veri deposu ile katılmak için kural'ı tıklatın. |
 | İçinde UserAccount AD'den – etkin |Oturum açma için Azure AD için gerekli öznitelikler ve Office 365. Bu öznitelikler etkin hesabından istiyoruz. |

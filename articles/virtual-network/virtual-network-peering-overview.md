@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: 5687075b8b63755b8b04f8c8fd0d0706ec8e27bc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 5141cd083469d51a067bbc993f598393768fe99f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774532"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000196"
 ---
 # <a name="virtual-network-peering"></a>Sanal ağ eşleme
 
@@ -59,15 +59,16 @@ Her sanal ağ başka bir sanal ağ ile eşlenip eşlenmediğine bakılmaksızın
 
 Sanal ağlar arası bağlantı için her iki seçenek de yapılandırıldığında, sanal ağlar arasındaki trafik, eşleme yapılandırması (Azure omurgası) üzerinden akış gerçekleştirir.
 
-Aynı bölgedeki sanal ağlar eşlendiğinde, eşlenmiş sanal ağdaki ağ geçidini şirket içi bir ağa geçiş noktası olarak da yapılandırabilirsiniz. Bu durumda, uzak ağ geçidi kullanan sanal ağın kendi ağ geçidi olamaz. Bir sanal ağın yalnızca bir ağ geçidi olabilir. Ağ geçidi, aşağıdaki resimde gösterildiği gibi yerel veya uzak bir ağ geçidi (eşlenen sanal ağda) olabilir:
+Sanal ağlar eşlendiğinde, eşlenmiş sanal ağdaki ağ geçidini şirket içi bir ağa geçiş noktası olarak da yapılandırabilirsiniz. Bu durumda, uzak ağ geçidi kullanan sanal ağın kendi ağ geçidi olamaz. Bir sanal ağın yalnızca bir ağ geçidi olabilir. Ağ geçidi, aşağıdaki resimde gösterildiği gibi yerel veya uzak bir ağ geçidi (eşlenen sanal ağda) olabilir:
 
 ![Sanal ağ eşleme geçişi](./media/virtual-networks-peering-overview/figure04.png)
 
-Farklı bölgelerde oluşturulmuş sanal ağlar arasındaki eşleme ilişkisinde ağ geçidi geçişi desteklenmez. Bir ağ geçidi geçişinin çalışması için eşleme ilişkisindeki her iki sanal ağ da aynı bölgede olmalıdır. Yalnızca ağ geçidi (VPN veya ExpressRoute) sanal ağ (Resource Manager) varsa (Resource Manager ve klasik), farklı dağıtım modelleriyle oluşturulmuş sanal ağlar arasındaki ağ geçidi geçişi desteklenir. Geçiş için bir ağ geçidi kullanma hakkında daha fazla bilgi için bkz. [Sanal ağ eşlemesinde geçiş için bir VPN ağ geçidi yapılandırma](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+VNet eşlemesi hem genel sanal ağ eşleme (Önizleme) için ağ geçidi geçişi desteklenir. Önizleme'de genel olarak eşlenmiş sanal ağlardaki ağ geçidi aktarımına izin ver ya da uzak ağ geçitlerini kullan. Önizleme, tüm Azure bölgeleri, Çin bulut bölgeleri ve kamu bulut bölgelerinde kullanılabilir. Hiçbir beyaz listeye ekleme gereklidir. CLI, PowerShell, şablonları veya API üzerinden önizlemede test edebilirsiniz. Portal Önizleme sürümünde desteklenmiyor.
+Yalnızca ağ geçidi sanal ağ (Resource Manager) varsa (Resource Manager ve klasik) farklı dağıtım modelleriyle oluşturulmuş sanal ağlar arasındaki ağ geçidi geçişi desteklenir. Geçiş için bir ağ geçidi kullanma hakkında daha fazla bilgi için bkz. [Sanal ağ eşlemesinde geçiş için bir VPN ağ geçidi yapılandırma](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Tek bir Azure ExpressRoute bağlantısını kullanan sanal ağlar eşlendiğinde, bu iki sanal ağ arasındaki trafik, eşleme ilişkisi (Azure omurga ağı) üzerinden akış gerçekleştirir. Şirket içi devreye bağlanmak için her bir sanal ağ üzerindeki yerel ağ geçitlerini kullanmaya devam edebilirsiniz. Alternatif olarak, paylaşılan bir ağ geçidini kullanıp şirket içi bağlantı için bir geçiş yapılandırabilirsiniz.
 
-## <a name="troubleshoot"></a>Sorun giderme
+## <a name="troubleshoot"></a>Sorunları giderin
 
 Bir sanal ağ eşlemesini onaylamak için, bir sanal ağdaki herhangi bir alt ağın ağ arabirimine yönelik [etkili yolları denetleyebilirsiniz](diagnose-network-routing-problem.md). Bir sanal ağ eşlemesi zaten varsa, sanal ağ içindeki tüm alt ağlar, eşlenen her bir sanal ağdaki her bir adres alanı için sonraki atlama türü *VNet eşlemesi* olan yollara sahip olur.
 
@@ -78,8 +79,8 @@ Ayrıca deneyebilirsiniz [sanal ağ eşleme sorunları için sorun giderici](htt
 ## <a name="requirements-and-constraints"></a>Gereksinimler ve kısıtlamalar
 
 Yalnızca, sanal ağlar genel olarak eşlenmiş aşağıdaki kısıtlamalar uygulanır:
-- Bir sanal ağ içindeki kaynaklarla genel olarak eşlenmiş sanal ağdaki bir iç temel yük dengeleyicinin ön uç IP adresi ile iletişim kuramıyor. Temel yük dengeleyici desteği yalnızca aynı bölge içinde bulunmaktadır. Standard Load Balancer için destek her ikisi için de genel sanal ağ eşleme ve VNet eşlemesi yok. 
-- Uzak ağ geçitlerini kullanamaz veya ağ geçidi geçişine izin veremezsiniz. Uzak ağ geçitlerini kullanmak veya ağ geçidi geçişine izin vermek için eşlenen sanal ağların aynı bölgede olması gerekir.
+- Bir sanal ağ içindeki kaynaklarla genel olarak eşlenmiş sanal ağdaki bir iç temel yük dengeleyicinin ön uç IP adresi ile iletişim kuramıyor. Temel yük dengeleyici desteği yalnızca aynı bölge içinde bulunmaktadır. Küresel VNet eşlemesi için standart yük dengeleyici desteği yok.  -Bir sanal ağ içindeki kaynaklarla genel olarak eşlenmiş sanal ağdaki bir iç temel yük dengeleyicinin ön uç IP adresi ile iletişim kuramıyor. Temel yük dengeleyici desteği yalnızca aynı bölge içinde bulunmaktadır. Standart yük dengeleyici desteği, VNet eşlemesi hem de genel sanal ağ eşleme için var.
+- Önizleme'de genel olarak eşlenmiş sanal ağlardaki ağ geçidi aktarımına izin ver ya da uzak ağ geçitlerini kullan. Önizleme, tüm Azure bölgeleri, Çin bulut bölgeleri ve kamu bulut bölgelerinde kullanılabilir. Hiçbir beyaz listeye ekleme gereklidir. CLI, PowerShell, şablonları veya API üzerinden önizlemede test edebilirsiniz. Portal Önizleme sürümünde desteklenmiyor.
 
 Gereksinimler ve kısıtlamalar hakkında daha fazla bilgi edinmek için bkz. [Sanal ağ eşleme gereksinimleri ve kısıtlamaları](virtual-network-manage-peering.md#requirements-and-constraints). Bir sanal ağ için oluşturabileceğiniz eşleme sayısı sınırları hakkında bilgi edinmek için bkz. [Azure ağ sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 

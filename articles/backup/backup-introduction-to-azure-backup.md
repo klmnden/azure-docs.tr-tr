@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2888f291980b83b0c917e88f65d06ebaa6c8348e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ca50c7cbbcccadf96641c28e43f7da48421c8f3b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544112"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994429"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup özelliklerine genel bakış
 Azure Backup, verilerinizi Microsoft bulutunda yedeklemek (veya korumak) ve geri yüklemek için kullanabileceğiniz Azure tabanlı bir hizmettir. Azure Backup, var olan şirket içi veya şirket dışı yedekleme çözümünüzün yerine, güvenilir, güvenli ve maliyet açısından rekabetçi bir bulut tabanlı çözüm sunar. Azure Backup, indirdikten sonra uygun bilgisayar, sunucu veya buluta dağıtabileceğiniz birden fazla bileşene sahiptir. Dağıtacağınız bileşen veya aracı, korumak istediğiniz nesnelere göre değişiklik gösterir. Tüm Azure Backup bileşenleri (koruduğunuz veriler şirket içi veya bulut verileri olabilir), verileri Azure’daki bir Kurtarma Hizmetleri kasasına yedeklemek için kullanılabilir. Belirli verileri, uygulamaları veya iş yüklerini korumak için kullanılacak bileşenler hakkında bilgi almak için [Azure Backup bileşen tablosuna](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (bu makalenin ilerleyen bölümlerinde) bakın.
@@ -54,6 +54,7 @@ Azure Backup bileşeniyle neleri koruyabileceğiniz hakkında bilgi edinmek içi
 | Azure IaaS VM Backup |<li>Uygulama kullanan anlık görüntüler (VSS)<li>Windows/Linux için yerel yedeklemeler<li>Belirli bir aracı yüklemesi gerekmez<li>Yedekleme altyapısı gerekmeden yapı düzeyinde yedekleme |<li>VM’leri günde bir kez yedekleme <li>VM’leri yalnızca disk düzeyinde geri yükleme<li>Şirket içi yedekleme gerçekleştirilemez |<li>VM’ler, <li>Tüm diskler (PowerShell kullanarak) |<p>Kurtarma Hizmetleri kasası</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>Her bileşen için dağıtım senaryoları nelerdir?
+
 | Bileşen | Azure'da dağıtılabilir mi? | Şirket içinde dağıtılabilir mi? | Hedef depolama desteklenir |
 | --- | --- | --- | --- |
 | Azure Backup (MARS) aracısı |<p>**Evet**</p> <p>Azure Backup aracısı, Azure'da çalışan herhangi bir Windows Server VM üzerinde dağıtılabilir.</p> |<p>**Evet**</p> <p>Azure Backup aracısı, herhangi bir Windows Server VM veya fiziksel makinesi üzerinde dağıtılabilir.</p> |<p>Kurtarma Hizmetleri kasası</p> |
@@ -113,7 +114,8 @@ Azure Backup, yönetilen disklerle tüm VM'yi geri yüklemenize veya yönetilen 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Her bir Azure Backup bileşeninin özellikleri nelerdir?
 Aşağıdaki bölümlerde her bir Azure Backup bileşeninin kullanılabilirliğini veya desteklediği özellikleri özetleyen tablolar yer almaktadır. Ek destek bilgileri veya ayrıntılar için her tablonun altındaki bilgileri inceleyin.
 
-### <a name="storage"></a>Depolama
+### <a name="storage"></a>Depolama alanı
+
 | Özellik | Azure Backup aracısı | System Center DPM | Azure Backup Sunucusu | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
 | Kurtarma Hizmetleri kasası |![Evet][green] |![Evet][green] |![Evet][green] |![Evet][green] |
@@ -121,7 +123,7 @@ Aşağıdaki bölümlerde her bir Azure Backup bileşeninin kullanılabilirliği
 | Bant depolama | |![Evet][green] | | |
 | Sıkıştırma <br/>(Kurtarma hizmetleri kasasında) |![Evet][green] |![Evet][green] |![Evet][green] | |
 | Artımlı yedekleme |![Evet][green] |![Evet][green] |![Evet][green] |![Evet][green] |
-| Disk için yinelenenleri kaldırma | |![Kısmi][yellow] |![Kısmi][yellow] | | |
+| Disk için yinelenenleri kaldırma | |![Kısmi][yellow] |![Kısmi][yellow] | |
 
 ![tablo anahtarı](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -155,6 +157,7 @@ Her yedekleme yönteminin depolama alanı tüketimi, kurtarma süresi hedefi (RT
 **Artımlı Yedekleme** yalnızca önceki yedekleme sonrasında değiştirilen veri bloklarını depolayarak depolama alanı ve ağ konusunda yüksek verimlilik sunar. Artımlı yedekleme ile düzenli tam yedeklemeler yapmaya gerek yoktur. Bu örnekte ilk ay tam yedekleme yapıldıktan sonra A2, A3, A4 ve A9 blokları değiştirilmiş olarak işaretlenir ve ikinci aya aktarılır. Üçüncü ayda yalnızca değiştirilen A5 bloku işaretlenir ve aktarılır. Daha az verinin taşınması depolama ve ağ kaynaklarından tasarruf edilmesini ve TCO'nun düşürülmesini sağlar.
 
 ### <a name="security"></a>Güvenlik
+
 | Özellik | Azure Backup aracısı | System Center DPM | Azure Backup Sunucusu | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
 | Ağ güvenliği<br/> (Azure’a) |![Evet][green] |![Evet][green] |![Evet][green] |![Evet][green] |
@@ -174,6 +177,7 @@ Sunucularınızdan Kurtarma Hizmetleri kasasına giden tüm yedekleme trafiği, 
 Azure VM'lerin yedeklenmesi için şifrelemenin sanal makine *içinde* ayarlanması gerekir. Azure Backup, Windows sanal makinelerde BitLocker, Linux sanal makinelerde ise **dm-crypt** kullanan Azure Disk Şifrelemesi özelliğini destekler. Azure Backup arka uçta bekleyen verileri koruyan [Azure Depolama Hizmeti şifrelemesini](../storage/common/storage-service-encryption.md) kullanır.
 
 ### <a name="network"></a>Ağ
+
 | Özellik | Azure Backup aracısı | System Center DPM | Azure Backup Sunucusu | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
 | Ağ sıkıştırma <br/>(**backup sunucusuna**) | |![Evet][green] |![Evet][green] | |
@@ -197,12 +201,12 @@ Azure Backup’ta, *korumalı örnek* başına 9999 kurtarma noktası (yedekleme
 |  | Azure Backup aracısı | System Center DPM | Azure Backup Sunucusu | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
 | Yedekleme sıklığı<br/> (Kurtarma hizmetleri kasasına) |Günde üç yedekleme |Günde iki yedekleme |Günde iki yedekleme |Günde bir yedekleme |
-| Yedekleme sıklığı<br/> (diske) |Uygulanamaz |<li>SQL Server için 15 dakikada bir <li>Diğer iş yükleri için saatte bir |<li>SQL Server için 15 dakikada bir <li>Diğer iş yükleri için saatte bir</p> |Uygulanamaz |
+| Yedekleme sıklığı<br/> (diske) |Uygulanamaz |<li>SQL Server için 15 dakikada bir <li>Diğer iş yükleri için saatte bir |<li>SQL Server için 15 dakikada bir <li>Diğer iş yükleri için saatte bir</p> |Geçerli değil |
 | Bekletme seçenekleri |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |
 | Korumalı örnek başına en fazla kurtarma noktası |9999|9999|9999|9999|
 | En uzun bekletme süresi |Yedekleme sıklığına bağlıdır |Yedekleme sıklığına bağlıdır |Yedekleme sıklığına bağlıdır |Yedekleme sıklığına bağlıdır |
-| Yerel diskteki kurtarma noktaları |Uygulanamaz |<li>Dosya Sunucuları için 64<li>Uygulama Sunucuları için 448 |<li>Dosya Sunucuları için 64<li>Uygulama Sunucuları için 448 |Uygulanamaz |
-| Banttaki kurtarma noktaları |Uygulanamaz |Sınırsız |Uygulanamaz |Uygulanamaz |
+| Yerel diskteki kurtarma noktaları |Geçerli değil |<li>Dosya Sunucuları için 64<li>Uygulama Sunucuları için 448 |<li>Dosya Sunucuları için 64<li>Uygulama Sunucuları için 448 |Geçerli değil |
+| Banttaki kurtarma noktaları |Geçerli değil |Sınırsız |Geçerli değil |Geçerli değil |
 
 ## <a name="what-is-a-protected-instance"></a>Korumalı örnek nedir?
 Korumalı örnek, Azure’a yedeklemek için yapılandırılmış bir Windows bilgisayar, sunucu (fiziksel veya sanal) veya SQL veritabanı için genel bir başvurudur. Bilgisayar, sunucu veya veritabanı için bir yedekleme ilkesi yapılandırdığınızda ve verilerin yedek kopyasını oluşturduğunuzda örnek, korumalı hale gelir. Bu korumalı örnek için yedek verilerin sonraki kopyaları (kurtarma noktası olarak adlandırılır), kullanılan depolama alanı miktarını artırır. Korumalı bir örnek için en çok 9999 kurtarma noktası oluşturabilirsiniz. Bir kurtarma noktasını depolamadan silerseniz, 9999 kurtarma noktası toplamı içinde sayılmaz.
@@ -225,7 +229,7 @@ Azure Backup, şirket içinde ve bulutta yer alan verileri korur. Azure Site Rec
 
 Aşağıdaki kavramlar, yedekleme ve olağanüstü durum kurtarma ile ilgili önemli kararları almanıza yardımcı olabilir.
 
-| Kavram | Ayrıntılar | Backup | Olağanüstü durum kurtarma (DR) |
+| Kavram | Ayrıntılar | Yedekle | Olağanüstü durum kurtarma (DR) |
 | --- | --- | --- | --- |
 | Kurtarma noktası hedefi (RPO) |Kurtarma işleminin gerekli olduğu durumlarda kabul edilebilir veri kaybı miktarı. |Backup çözümleri, kabul edilebilir RPO değerlerinde büyük bir değişkenliğe sahiptir. Sanal makine yedeklemeleri genellikle bir günlük bir RPO'ya sahipken, veritabanı yedeklemelerinin RPO değerleri 15 dakika kadar düşük olabilir. |Olağanüstü durum kurtarma çözümleri düşük RPO'lara sahiptir. DR kopyalama, birkaç saniye veya birkaç dakika geride olabilir. |
 | Kurtarma süresi hedefi (RTO) |Bir geri yükleme veya kurtarma işlemini tamamlamak için geçen süre. |Daha büyük RPO nedeniyle, bir yedekleme çözümünün işlemesi gereken veri miktarı genellikle çok daha yüksektir; bu da daha uzun RTO'lara yol açar. Örneğin, bandın şirket dışı bir konumdan taşınması için harcanan süreye bağlı olarak, bantlardan veri geri yükleme işlemi birkaç gün sürebilir. |Olağanüstü durum kurtarma çözümleri, kaynakla aralarındaki eşitlemenin daha yüksek olması nedeniyle daha küçük RTO'lara sahiptir. Daha az değişikliğin işlenmesi gerekir. |

@@ -11,16 +11,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
-ms.openlocfilehash: 16f964c6f881777e0217979a329610902b29a87b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: f6243bbc21466361aed7cbb7193f3a7b7c7e539f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612638"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885025"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Oluşturma ve Azure CLI kullanarak Event Grid ile Media Services olaylarını izleme
 
-Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Azure Media Services hesabınız için olaylara abone için Azure CLI'yı kullanın. Ardından, sonucu görüntülemek için olayları tetikleyin. Normalde olayları, olay verilerini işleyen ve eylemler gerçekleştiren bir uç noktaya gönderirsiniz. Bu makalede, toplar ve iletileri görüntüleyen bir web uygulaması için olayları gönderirsiniz.
+Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu hizmetin kullandığı [olay abonelikleri](../../event-grid/concepts.md#event-subscriptions) abonelere olay iletileri yönlendirmek için. Media Services olaylarını verilerinizdeki değişiklikleri yanıtlamak için gereken tüm bilgileri içerir. EventType özelliği "Microsoft.Media" ile başladığından bir Media Services olayı belirleyebilirsiniz. Daha fazla bilgi için [Media Services olay şemaları](media-services-event-schemas.md).
+
+Bu makalede, Azure Media Services hesabınız için olaylara abone için Azure CLI'yı kullanın. Ardından, sonucu görüntülemek için olayları tetikleyin. Normalde olayları, olay verilerini işleyen ve eylemler gerçekleştiren bir uç noktaya gönderirsiniz. Bu makalede, toplar ve iletileri görüntüleyen bir web uygulaması için olayları gönderirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -39,7 +41,7 @@ Media Services hesabı için olaylara abone olmadan önce olay iletisi için uç
 
 1. Çözümü aboneliğinize dağıtmak için **Azure'a Dağıt**'ı seçin. Azure portalında parametre değerlerini girin.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. Dağıtımın tamamlanması birkaç dakika sürebilir. Dağıtım başarıyla gerçekleştirildikten sonra, web uygulamanızı görüntüleyip çalıştığından emin olun. Web tarayıcısında şu adrese gidin: `https://<your-site-name>.azurewebsites.net`
 

@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7a1d0dab08c4beb93d323bcd1a5f5b00a190daa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 018281406bb810f6357ad00948060cedae57fc6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868298"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003804"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Nasıl Yapılır: Hibrit Azure Active Directory join uygulamanızı planlama
 
@@ -41,6 +41,8 @@ Cihazlarınızı Azure AD'ye taşıyarak, çoklu oturum açma (SSO) özelliği s
 
 Bu makalede, aşina olduğunuzu varsayar [Azure Active Directory'de cihaz yönetimine giriş](../device-management-introduction.md).
 
+>[!NOTE]
+>  Windows 10 hibrit Azure AD'ye katılma Windows Server 2008 R2 için gereken en düşük etki alanı işlevsel orman işlev düzeyleri. Daha düşük sürümlerde, kullanıcı bir birincil yenileme belirteci LSA sorunları nedeniyle Windows oturum açma sırasında alabilir değil 
 
 ## <a name="plan-your-implementation"></a>Uygulamanızı planlama
 
@@ -48,10 +50,10 @@ Karma Azure AD uygulamanız planlamak için ile kendinizi alıştırın:
 
 |   |   |
 |---|---|
-|![İşaretli][1]|Cihazları gözden geçir desteklenir|
-|![İşaretli][1]|Gözden geçirme bilmeniz gerekenler|
-|![İşaretli][1]|Cihazlarınızı hibrit Azure AD'ye katılma denetlemek nasıl gözden geçirin|
-|![İşaretli][1]|Senaryonuzu seçin|
+|![Onay işareti][1]|Cihazları gözden geçir desteklenir|
+|![Onay işareti][1]|Gözden geçirme bilmeniz gerekenler|
+|![Onay işareti][1]|Cihazlarınızı hibrit Azure AD'ye katılma denetlemek nasıl gözden geçirin|
+|![Onay işareti][1]|Senaryonuzu seçin|
 
 
  

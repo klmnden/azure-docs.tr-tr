@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 679284783ac93662c1c96e813f9f028fffb434f0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f0bffdf439a192fb10fe695fbfa18e8c7abf8077
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173666"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846693"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Öğretici: Spotinst ile Azure Active Directory Tümleştirme
 
@@ -123,9 +123,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
 5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
-    | Öznitelik Adı | Öznitelik Değeri |
+    | Öznitelik adı | Öznitelik Değeri |
     | ---------------| --------------- |
-    | Email | User.Mail |
+    | E-posta | User.Mail |
     | FirstName | User.givenName |
     | LastName | User.surname |
     
@@ -221,7 +221,7 @@ Bu bölümün amacı Spotinst Britta Simon adlı bir kullanıcı oluşturmaktır
 
     * İçinde **tam adı** metin gibi kullanıcının tam adını girin **BrittaSimon**.
 
-    * İçinde **e-posta** metin gibi kullanıcı e-posta adresini girin **brittasimon@contoso.com**.
+    * İçinde **e-posta** metin gibi kullanıcı e-posta adresini girin **brittasimon\@contoso.com**.
 
     * Kuruluşa özgü ayrıntılar için **kuruluş rolü, hesabı rolü ve hesapları**.
 

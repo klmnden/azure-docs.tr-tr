@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1133bdb3c5d708710a556f68e4ac5c57d2dc3dc9
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a6ec4c7d239754fe3211b528dd0ac64ee150ad3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153258"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089378"
 ---
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C: Günlükleri toplama
 
@@ -44,31 +44,31 @@ Azure AD B2C'yi, Application Insights'a veri göndermek için bir özelliği des
 1. RP dosyasını (örneğin, SignUpOrSignin.xml) açın.
 1. Aşağıdaki öznitelikleri eklemek `<TrustFrameworkPolicy>` öğesi:
 
-  ```XML
-  DeploymentMode="Development"
-  UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
-  ```
+   ```XML
+   DeploymentMode="Development"
+   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
+   ```
 
 1. Zaten yoksa, bir alt düğüm ekleyin `<UserJourneyBehaviors>` için `<RelyingParty>` düğümü. Hemen sonra yer almalıdır `<DefaultUserJourney ReferenceId="UserJourney Id from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`
 2. Bir alt öğesi olarak aşağıdaki düğüm ekleme `<UserJourneyBehaviors>` öğesi. Değiştirdiğinizden emin olun `{Your Application Insights Key}` ile **izleme anahtarını** Application ınsights'ı önceki bölümde edindiğiniz.
 
-  ```XML
-  <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
-  ```
+   ```XML
+   <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+   ```
 
-  * `DeveloperMode="true"` en yüksek miktarlarda kısıtlanmış ancak geliştirme için telemetri işleme ardışık düzeninden iyi hızlandırmak için Applicationınsights söyler.
-  * `ClientEnabled="true"` Sayfa görünümü ve istemci tarafı hataları (gerekli) izleme Applicationınsights istemci tarafı komut gönderir.
-  * `ServerEnabled="true"` Mevcut UserJourneyRecorder JSON özel olay Application Insights'a gönderir.
-Örnek:
+   * `DeveloperMode="true"` en yüksek miktarlarda kısıtlanmış ancak geliştirme için telemetri işleme ardışık düzeninden iyi hızlandırmak için Applicationınsights söyler.
+   * `ClientEnabled="true"` Sayfa görünümü ve istemci tarafı hataları (gerekli) izleme Applicationınsights istemci tarafı komut gönderir.
+   * `ServerEnabled="true"` Mevcut UserJourneyRecorder JSON özel olay Application Insights'a gönderir.
+   Örnek:
 
-  ```XML
-  <TrustFrameworkPolicy
+   ```XML
+   <TrustFrameworkPolicy
     ...
     TenantId="fabrikamb2c.onmicrosoft.com"
     PolicyId="SignUpOrSignInWithAAD"
     DeploymentMode="Development"
     UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
-  >
+   >
     ...
     <RelyingParty>
       <DefaultUserJourney ReferenceId="UserJourney ID from your extensions policy, or equivalent (for example: SignUpOrSigninWithAzureAD)" />
@@ -76,8 +76,8 @@ Azure AD B2C'yi, Application Insights'a veri göndermek için bir özelliği des
         <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       </UserJourneyBehaviors>
       ...
-  </TrustFrameworkPolicy>
-  ```
+   </TrustFrameworkPolicy>
+   ```
 
 3. İlke karşıya yükleyin.
 

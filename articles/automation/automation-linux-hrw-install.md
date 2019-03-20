@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 29ca8c4114d48fa0d3756930354660712b1b35b3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 3bdf642c37fe5f64b7d853da6a050ec8c2a7d44d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820425"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834668"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Bir Linux karma Runbook çalışanı dağıtma
 
@@ -71,7 +71,7 @@ Devam etmeden önce bunları Otomasyon hesabınıza bağlı Log Analytics çalı
 
 1. Aşağıdaki komutu çalıştırarak Linux için Log Analytics aracısını yükleyin. Değiştirin \<Workspaceıd\> ve \<WorkspaceKey\> çalışma alanınızdan uygun değerlerle.
 
-  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+   [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
    ```bash
    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -111,12 +111,8 @@ Aşağıdaki runbook türleri, bir Linux karma çalışanı üzerinde çalışm�
 * Grafik
 * Grafik PowerShell iş akışı
 
-## <a name="troubleshoot"></a>Sorun giderme
-
-Sorun giderme, karma Runbook çalışanları öğrenmek için bkz [Linux karma Runbook çalışanları sorunlarını giderme](troubleshoot/hybrid-runbook-worker.md#linux)
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Şirket içi veri merkezinizde veya diğer bulut ortamı işlemlerini otomatikleştirmek için runbook'larınızı yapılandırma konusunda bilgi için bkz: [bir karma Runbook çalışanı üzerinde runbook çalıştırma](automation-hrw-run-runbooks.md).
 * Karma Runbook çalışanlarını kaldırma yönergeleri için bkz: [Azure Otomasyon karma Runbook çalışanlarını kaldırma](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
-
+* Sorun giderme, karma Runbook çalışanları öğrenmek için bkz [Linux karma Runbook çalışanları sorunlarını giderme](troubleshoot/hybrid-runbook-worker.md#linux)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: cdaa151f0603cddc9ca1bf17b0ff304f646cfdde
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e826c7a3fc12e819fd6f145d42b7381087d5970c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462843"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000233"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Blob depolama alanına veri aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
 
@@ -29,7 +29,7 @@ Azure Blob depolama alanına veri aktarmak için içeri aktarma işine oluşturm
     - Depolama kapsayıcısı üzerinde daha fazla bilgi için Git [bir depolama kapsayıcısı oluşturma](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Diskleri yeterli sayıda [desteklenen türleri](storage-import-export-requirements.md#supported-disks). 
 - Çalıştıran bir Windows sistemine sahip bir [desteklenen işletim sistemi sürümü](storage-import-export-requirements.md#supported-operating-systems). 
-- BitLocker Windows sisteminde etkinleştirin. Bkz: [BitLocker'ı etkinleştirme](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
+- BitLocker Windows sisteminde etkinleştirin. Bkz: [BitLocker'ı etkinleştirme](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [' % S'WAImportExport sürüm 1 indirme](https://aka.ms/waiev1) Windows sistem üzerinde. Varsayılan klasöre çıkartın `waimportexportv1`. Örneğin, `C:\WaImportExportV1`.
 - Bir FedEx/DHL hesabınız vardır.  
     - Hesabın geçerli olmalıdır, Bakiye olmalıdır ve iade sevkiyat özelliklerine sahip olmalı.
@@ -39,7 +39,7 @@ Azure Blob depolama alanına veri aktarmak için içeri aktarma işine oluşturm
         - [FedEX hesabı oluşturma](https://www.fedex.com/en-us/create-account.html), veya 
         - [DHL hesabı oluşturma](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
-## <a name="step-1-prepare-the-drives"></a>1. Adım: Sürücüleri hazırlama
+## <a name="step-1-prepare-the-drives"></a>1. adım: Sürücüleri hazırlama
 
 Bu adım, bir günlük dosyası oluşturur. Günlük dosyası sürücü seri numarası, şifreleme anahtarını ve depolama hesabı ayrıntıları gibi temel bilgileri depolar. 
 
@@ -47,7 +47,7 @@ Sürücüleri hazırlamak için aşağıdaki adımları gerçekleştirin.
 
 1.  Disk sürücülerine SATA bağlayıcılar üzerinden Windows sisteme bağlanın.
 1.  Her sürücüde tek bir NTFS birimi oluşturun. Birime bir sürücü harfi atayabilirsiniz. Bağlama kullanmayın.
-2.  NTFS birimi BitLocker şifrelemesini sağlar. Windows Server sistemi kullanıyorsanız, yönergeleri kullanın [BitLocker'ı Windows Server 2012 R2'de etkinleştirme](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
+2.  NTFS birimi BitLocker şifrelemesini sağlar. Windows Server sistemi kullanıyorsanız, yönergeleri kullanın [BitLocker'ı Windows Server 2012 R2'de etkinleştirme](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 3.  Şifrelenmiş birime veri kopyalayın. Sürükle bırak veya Robocopy veya böyle bir kopyalama aracını kullanın.
 4.  Yönetici ayrıcalıklarıyla bir PowerShell veya komut satırı penceresi açın. Sıkıştırması açılmış klasöre dizini değiştirmek için aşağıdaki komutu çalıştırın:
     
@@ -79,7 +79,7 @@ Sürücüleri hazırlamak için aşağıdaki adımları gerçekleştirin.
     > [!IMPORTANT]
     > - Günlük dosyası ile birlikte bir `<Journal file name>_DriveInfo_<Drive serial ID>.xml` dosyası ayrıca araç bulunduğu aynı klasörde oluşturulur. Günlük dosyası çok büyük ise bir proje oluştururken, .xml dosyasını günlük dosyası yerine kullanılır. 
 
-## <a name="step-2-create-an-import-job"></a>2. Adım: İçeri aktarma işi oluşturma
+## <a name="step-2-create-an-import-job"></a>2. adım: İçeri aktarma işi oluşturma
 
 Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları gerçekleştirin.
 
@@ -94,14 +94,14 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
 
 4. İçinde **Temelleri**:
 
-    - Seçin **azure'a aktar**.
-    - İçeri aktarma işi için açıklayıcı bir ad girin. İşlerinizi ilerlemesini izlemek için bir ad kullanın.
-        - Ad yalnızca küçük harf, sayı ve kısa çizgi içerebilir.
-        - Ad bir harf ile başlamalı ve boşluk içeremez.
-    - Bir abonelik seçin.
-    - Bir kaynak grubu seçin veya girin.  
+   - Seçin **azure'a aktar**.
+   - İçeri aktarma işi için açıklayıcı bir ad girin. İşlerinizi ilerlemesini izlemek için bir ad kullanın.
+       - Ad yalnızca küçük harf, sayı ve kısa çizgi içerebilir.
+       - Ad bir harf ile başlamalı ve boşluk içeremez.
+   - Abonelik seçin.
+   - Bir kaynak grubu seçin veya girin.  
 
-    ![1. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![1. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
 3. İçinde **iş ayrıntıları**:
 
@@ -113,23 +113,23 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
 
 4. İçinde **iade sevkiyat bilgilerini**:
 
-    - Taşıyıcı açılır listeden seçin.
-    - Bu operatör ile oluşturduğunuz bir geçerli taşıyıcı hesap numarası girin. Microsoft, içeri aktarma işi tamamlandıktan sonra geri için sürücüleri göndermeye bu hesabı kullanır. Bir hesabı yoksa, oluşturun bir [FedEx](http://www.fedex.com/us/oadr/) veya [DHL](http://www.dhl.com/) taşıyıcı hesap.
-    - Bir tam ve geçerli ilgili kişi adı, telefon, e-posta, posta adresi, şehir, posta, eyalet/il ve ülke/bölge belirtin. 
+   - Taşıyıcı açılır listeden seçin.
+   - Bu operatör ile oluşturduğunuz bir geçerli taşıyıcı hesap numarası girin. Microsoft, içeri aktarma işi tamamlandıktan sonra geri için sürücüleri göndermeye bu hesabı kullanır. Bir hesabı yoksa, oluşturun bir [FedEx](https://www.fedex.com/us/oadr/) veya [DHL](http://www.dhl.com/) taşıyıcı hesap.
+   - Bir tam ve geçerli ilgili kişi adı, telefon, e-posta, posta adresi, şehir, posta, eyalet/il ve ülke/bölge belirtin. 
         
-        > [!TIP] 
-        > Tek bir kullanıcı için bir e-posta adresi belirtmek yerine, Grup e-posta sağlayın. Bu, bir yönetici ayrılsa bile bildirimleri almak sağlar.
+       > [!TIP] 
+       > Tek bir kullanıcı için bir e-posta adresi belirtmek yerine, Grup e-posta sağlayın. Bu, bir yönetici ayrılsa bile bildirimleri almak sağlar.
 
-    ![3. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![3. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
 5. İçinde **özeti**:
 
-    - Özet olarak sağlanan proje bilgileri gözden geçirin. İş adı ve teslimat adresi diskleri azure'a geri gönderin için Azure veri merkezi not edin. Bu bilgiler daha sonra sevkiyat etiketi kullanılır.
-    - Tıklayın **Tamam** içeri aktarma işi oluşturma.
+   - Özet olarak sağlanan proje bilgileri gözden geçirin. İş adı ve teslimat adresi diskleri azure'a geri gönderin için Azure veri merkezi not edin. Bu bilgiler daha sonra sevkiyat etiketi kullanılır.
+   - Tıklayın **Tamam** içeri aktarma işi oluşturma.
 
-    ![4. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+     ![4. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives"></a>3. Adım: Sürücüleri gönderin 
+## <a name="step-3-ship-the-drives"></a>3. adım: Sürücüleri gönderin 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 

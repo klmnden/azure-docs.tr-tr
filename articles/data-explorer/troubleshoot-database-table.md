@@ -8,14 +8,14 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ec66066fe51af97f6355b78dd7af3480a39a5a03
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0bd9f5ed00193aa9f872287b6afaf9e2b28c24dc
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215098"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188348"
 ---
-# <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Sorunlarını giderme: hata oluşturma veya bir veritabanı veya Azure veri Gezgini'nde tablo silme
+# <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Sorun giderme: Oluşturma veya bir veritabanı veya Azure veri Gezgini'nde tablo silme hatası
 
 Azure veri Gezgini'nde düzenli olarak veritabanları ve tablolar ile çalışırsınız. Bu makalede, bulmalı sorunları için sorun giderme adımları sağlar.
 
@@ -37,7 +37,7 @@ Yeterli izinlere sahip olun. Bir veritabanını yeniden adlandırın ya da silme
 
     İzinler hakkında daha fazla bilgi için bkz. [veritabanı izinlerini yönetmek](manage-database-permissions.md).
 
-1. Aynı ada sahip bir tablo zaten yoksa emin olun. Mevcut sonra şunları yapabilirsiniz: farklı bir adla; tablosu oluşturma Varolan bir tabloyu yeniden adlandır (gerektirir *tablo yönetici* rol); veya var olan tablo bırakma (gerektirir *veritabanında ADMIN* rol). Aşağıdaki komutları kullanın.
+1. Aynı ada sahip bir tablo zaten yoksa emin olun. Varsa, şunları yapabilirsiniz: Farklı ada sahip bir tablo oluşturun; Varolan bir tabloyu yeniden adlandır (gerektirir *tablo yönetici* rol); veya var olan tablo bırakma (gerektirir *veritabanında ADMIN* rol). Aşağıdaki komutları kullanın.
 
     ```Kusto
     .drop table <TableName>
@@ -51,9 +51,9 @@ Yeterli izinlere sahip olun. Bir tabloyu yeniden adlandırma ya da silmek için 
 
 İzinler hakkında daha fazla bilgi için bkz. [veritabanı izinlerini yönetmek](manage-database-permissions.md).
 
-## <a name="general-guidance"></a>Genel kılavuz
+## <a name="general-guidance"></a>Genel rehberlik
 
-1. Denetleme [Azure hizmet durumu Panosu](https://azure.microsoft.com/status/>). Azure veri Gezgini'nde bir veritabanı veya tablo ile çalışmak için burada çalıştığınız bölge durumunu arayın.
+1. Denetleme [Azure hizmet durumu Panosu](https://azure.microsoft.com/status/). Azure veri Gezgini'nde bir veritabanı veya tablo ile çalışmak için burada çalıştığınız bölge durumunu arayın.
 
     Durum yoksa **iyi** (yeşil onay işareti) durumu iyileştirildikten sonra yeniden deneyin.
 

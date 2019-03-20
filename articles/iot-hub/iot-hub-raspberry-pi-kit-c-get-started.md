@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: rangv
-ms.openlocfilehash: 562dc32f6dd40e6b0103fcc255ceafe829e2265d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4f092f2d290138e48068141113b184d8e856bee7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529659"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103222"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi için Azure IoT Hub (C) bağlanma
 
@@ -156,8 +156,8 @@ Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak etkinleştirin. Pi,
    **Mac ve Ubuntu kullanıcıları**
    
    Yerleşik bir SSH istemcisi, Ubuntu veya Macos'ta kullanın. Çalıştırmanız gerekebilir `ssh pi@<ip address of pi>` Pi SSH aracılığıyla bağlanmak için.
-   > [!NOTE] 
-   Varsayılan kullanıcı adı `pi` , ve parola `raspberry`.
+   > [!NOTE]
+   > Varsayılan kullanıcı adı `pi` , ve parola `raspberry`.
 
 
 ### <a name="configure-the-sample-application"></a>Örnek uygulamayı yapılandırma

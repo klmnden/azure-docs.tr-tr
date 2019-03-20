@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3aba118354c51285d714bb127e6f5984f8a50057
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: aeb97d661d330ed6afb3ca5e5e1eb924dacc4024
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329761"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096308"
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Azure sanal makineler (Klasik) SQL Server için otomatik yedekleme
 > [!div class="op_single_selector"]
@@ -73,7 +73,8 @@ Aşağıdaki tabloda, otomatik yedekleme için yapılandırılmış seçenekler 
 | **Saklama dönemi** |1-30 gün (30 gün) |Bir yedekleme saklanacağı gün sayısı. |
 | **Depolama Hesabı** |Azure depolama hesabı (belirtilen VM'si için oluşturulan depolama hesabı) |Otomatik yedekleme dosyalarını blob storage'da depolamak için kullanılacak bir Azure depolama hesabı. Tüm yedekleme dosyalarını depolamak için bu konumda bir kapsayıcı oluşturulur. Yedekleme dosyası adlandırma kuralı, tarih, saat ve makine adı içerir. |
 | **Şifreleme** |Etkinleştir/devre dışı bırak (devre dışı) |Etkinleştirir veya şifreleme devre dışı bırakır. Şifreleme etkin olduğunda, bir yedeklemeyi geri yüklemek için kullanılan sertifikaları aynı automaticbackup kapsayıcı adlandırma kuralını kullanarak belirtilen depolama hesabında yer alır. Parola değişirse, bu parolayla yeni bir sertifika oluşturulur, ancak önceki yedeklemeleri geri yüklemek için eski sertifika kalır. |
-| **Parola** |Parola metin (hiçbiri) |Şifreleme anahtarları parolası. Bu sadece, şifreleme etkinse gereken. Şifrelenmiş bir yedeklemeyi geri yüklemek için doğru parolayı ve yedeğin alındığı anda kullanıldı ilgili sertifika olmalıdır. | **Yedekleme sistemi veritabanları** | Etkinleştir/devre dışı bırak (devre dışı) | Tam Master, Model ve MSDB yedekleri alın |
+| **Parola** |Parola metin (hiçbiri) |Şifreleme anahtarları parolası. Bu sadece, şifreleme etkinse gereken. Şifrelenmiş bir yedeklemeyi geri yüklemek için doğru parolayı ve yedeğin alındığı anda kullanıldı ilgili sertifika olmalıdır. |
+| **Yedekleme sistemi veritabanları** | Etkinleştir/devre dışı bırak (devre dışı) | Tam Master, Model ve MSDB yedekleri alın |
 | **Yedekleme zamanlamasını yapılandırma** | El ile otomatik / (otomatik) | Seçin **otomatik** otomatik olarak tam olarak yararlanın ve günlük yedeklemelerine Günlük büyüme üzerinde temel. Seçin **el ile** tam zamanlama belirtmek için ve günlük yedeklemeler. |
 
 ## <a name="configuration-with-powershell"></a>PowerShell ile yapılandırma

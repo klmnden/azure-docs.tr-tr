@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: e71999e9c5b118fbf31d0d735d03cddb321b0065
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 74940f3b89237233acd575aa5df441163e00d178
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773427"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000929"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Sertifika kimlik doğrulaması (Klasik) kullanarak noktadan siteye bağlantı yapılandırma
 
@@ -69,9 +69,9 @@ Bir test ortamı oluşturabilir veya bu değerlere bu makaledeki örnekleri daha
    - **Kaynak grubu**: Girin *TestRG*. Seçin **Yeni Oluştur**, kaynak grubu yok.
    - **Konum**: Seçin **Doğu ABD** listeden.
 
- - **VPN bağlantısı ayarları**
-   - **Bağlantı türü**: Seçin **noktadan siteye**.
-   - **İstemci adres alanı**: Girin *172.16.201.0/24*. Vnet'e bu noktadan siteye bağlantıyı kullanarak bağlanan VPN istemcileri belirtilen havuzdan bir IP adresi alır.
+  - **VPN bağlantısı ayarları**
+    - **Bağlantı türü**: Seçin **noktadan siteye**.
+    - **İstemci adres alanı**: Girin *172.16.201.0/24*. Vnet'e bu noktadan siteye bağlantıyı kullanarak bağlanan VPN istemcileri belirtilen havuzdan bir IP adresi alır.
 
 - **Ağ geçidi yapılandırması alt ağ ayarları**
    - **Ad**: İle Autofilled *GatewaySubnet*.
@@ -85,11 +85,11 @@ Bir test ortamı oluşturabilir veya bu değerlere bu makaledeki örnekleri daha
 
 Başlamadan önce bir Azure aboneliğine sahip olduğunuzu doğrulayın. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial) için kaydolabilirsiniz.
 
-### <a name="part-1-create-a-virtual-network"></a>1. Bölüm: Sanal ağ oluşturma
+### <a name="part-1-create-a-virtual-network"></a>1. Bölüm: Sanal ağ oluştur
 
 Bir sanal ağın (VNet) yoksa bir tane oluşturun. Ekran görüntüleri örnek olarak verilmiştir. Değerlerin kendinizinkilerle değiştirildiğinden emin olun. Azure portalını kullanarak sanal ağ oluşturmak için şu adımları uygulayın:
 
-1. Oturum [Azure portalında](http://portal.azure.com) seçip **kaynak Oluştur**. **Yeni** sayfası açılır. 
+1. Oturum [Azure portalında](https://portal.azure.com) seçip **kaynak Oluştur**. **Yeni** sayfası açılır. 
 
 2. İçinde **markette Ara** alanına *sanal ağ* seçip **sanal ağ** döndürülen listeden. **Sanal ağ** sayfası açılır.
 
@@ -121,26 +121,26 @@ Bu adımda, bir ağ geçidi alt ağı ve dinamik yönlendirme ağ geçidi oluşt
 
 2. Sanal ağınızın sayfasında **genel bakış**hem de **VPN bağlantıları** bölümünden **ağ geçidi**.
 
-  ![Bir ağ geçidi oluşturmak için işaretleyin](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
+   ![Bir ağ geçidi oluşturmak için işaretleyin](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
 3. **Yeni VPN Bağlantısı** sayfasında **Noktadan siteye** öğesini seçin.
 
-  ![Noktadan Siteye bağlantı türü](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
+   ![Noktadan Siteye bağlantı türü](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
 4. İçin **istemci adres alanı**, VPN istemcilerin alacağı IP adresi bağlanırken bir IP adresi aralığını ekleyin. Bağlandığınız şirket içi konum veya bağlandığınız sanal ağ ile çakışmayacak bir özel IP adresi aralığı kullanın. Kullanmak istediğiniz özel IP adresi aralığı ile autofilled aralığı üzerine yazabilirsiniz. Bu örnek autofilled aralığı gösterir. 
 
-  ![İstemci adres alanı](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
+   ![İstemci adres alanı](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
 5. Seçin **ağ geçidini hemen Oluştur**ve ardından **isteğe bağlı ağ geçidi Yapılandırması** açmak için **ağ geçidi Yapılandırması** sayfası.
 
-  ![İsteğe bağlı ağ geçidi yapılandırması](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
+   ![İsteğe bağlı ağ geçidi yapılandırması](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
 
 6. Gelen **ağ geçidi Yapılandırması** sayfasında **alt** ağ geçidi alt ağı eklemek için. Bir ağ geçidi alt ağı/29 kadar küçük oluşturmak mümkündür. Ancak, en az/28 veya/27'i seçerek daha fazla adres içeren büyük bir alt ağ oluşturmanızı öneririz. Bunun yapılması, gelecekte isteyebileceğiniz ek yapılandırmaları barındırmak için yeterli adresi bulunmasını sağlar. Ağ geçidi alt ağlarıyla çalışırken, ağ güvenlik grubunu (NSG) ağ geçidi alt ağıyla ilişkilendirmekten kaçının. Bu alt ağ için ağ güvenlik grubu ilişkilendirilmesi, VPN ağ geçidinize beklendiği gibi çalışmamasına neden olabilir. Seçin **Tamam** bu ayarı kaydedilemiyor.
 
-  ![GatewaySubnet ekleme](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
+   ![GatewaySubnet ekleme](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
 7. Ağ geçidi **Boyutu** seçin. Boyut, sanal ağ geçidinizin ağ geçidi SKU’sudur. Azure portalda varsayılan SKU, **varsayılan**. Ağ geçidi SKU'ları hakkında daha fazla bilgi için bkz. [hakkında VPN gateway ayarları](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-  ![Ağ geçidi boyutu](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
+   ![Ağ geçidi boyutu](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
 8. Ağ geçidiniz için **Yönlendirme Türü** seçin. P2S yapılandırmaları bir **Dinamik** yönlendirme türü gerektirir. Seçin **Tamam** bittiğinde bu sayfa yapılandırır.
 
-  ![Yönlendirme türünü yapılandırma](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
+   ![Yönlendirme türünü yapılandırma](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
 
 9. Üzerinde **yeni VPN bağlantısı** sayfasında **Tamam** sanal ağ geçidinizi oluşturmaya başlamak için sayfanın alt kısmındaki. Bir VPN ağ geçidi SKU'su ağ geçidine göre tamamlanması 45 dakika sürebilir.
  
@@ -164,11 +164,11 @@ Ağ geçidi oluşturulduktan sonra Azure sunucusu için bir güvenilen kök sert
 
 1. Üzerinde **VPN bağlantıları** bölümünde sanal ağınıza ait sayfanın açmak için istemcileri grafiği seçin **noktadan siteye VPN bağlantısı** sayfası.
 
-  ![İstemciler](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
+   ![İstemciler](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
 
 2. Üzerinde **noktadan siteye VPN bağlantısı** sayfasında **sertifikayı Yönet** açmak için **sertifikaları** sayfası.
 
-  ![Sertifikalar sayfası](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)
+   ![Sertifikalar sayfası](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)
 
 1. Üzerinde **sertifikaları** sayfasında **karşıya** açmak için **sertifikayı karşıya yükle** sayfası.
 
@@ -176,7 +176,7 @@ Ağ geçidi oluşturulduktan sonra Azure sunucusu için bir güvenilen kök sert
 
 4. .cer dosyasına gözatmak için klasör grafiğine seçin. Dosyayı seçin ve ardından **Tamam**. Yüklenen sertifikayı görünür **sertifikaları** sayfası.
 
-  ![Sertifikayı karşıya yükleme](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)
+   ![Sertifikayı karşıya yükleme](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)
 
 
 ## <a name="configure-the-client"></a>İstemciyi yapılandırma
@@ -191,10 +191,10 @@ Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayar
 
 2. Gelen **noktadan siteye VPN bağlantısı** sayfasında, yüklü olduğu istemci işletim sistemine karşılık gelen indirme paketini seçin:
 
-  * 64 bit istemciler için **VPN İstemcisi (64 bit)** seçeneğini belirleyin.
-  * 32 bit istemciler için **VPN İstemcisi (32 bit)** seçeneğini belirleyin.
+   * 64 bit istemciler için **VPN İstemcisi (64 bit)** seçeneğini belirleyin.
+   * 32 bit istemciler için **VPN İstemcisi (32 bit)** seçeneğini belirleyin.
 
-  ![VPN istemcisi yapılandırma paketini indirme](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)
+   ![VPN istemcisi yapılandırma paketini indirme](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)
 
 3. Paketini oluşturduktan sonra indirin ve ardından istemci bilgisayarınıza yükleyin. Bir SmartScreen açılır penceresi görürseniz seçin **daha fazla bilgi**, ardından **yine de Çalıştır**. Paketi ayrıca diğer istemci bilgisayarlara yüklemek üzere kaydedebilirsiniz.
 
@@ -226,7 +226,7 @@ Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayar
 1. VPN bağlantınızın etkin olduğunu doğrulayın. İstemci bilgisayarınızda yükseltilmiş bir komut istemi açın ve çalıştırın **ipconfig/all**.
 2. Sonuçlara bakın. Aldığınız IP adresinin, sanal ağınızı oluştururken belirlediğiniz Noktadan Siteye bağlantı adres aralığı içerisinden bir adres olduğuna dikkat edin. Sonuçlar şu örneğe benzer olmalıdır:
 
-  ```
+   ```
     PPP adapter VNet1:
         Connection-specific DNS Suffix .:
         Description.....................: VNet1
@@ -237,7 +237,7 @@ Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayar
         Subnet Mask.....................: 255.255.255.255
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
-  ```
+   ```
 
 ## <a name="connect-to-a-virtual-machine"></a>Sanal makineye bağlanma
 

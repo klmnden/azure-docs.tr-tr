@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4f1c4e7695e0c260b6486b3c3d4d0bd8b3f951f6
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a5ddc17f6200ba2d43d67fcd2e4bcc35c224e6cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342624"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004063"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile PyTorch modellerini eğitin
 
@@ -42,6 +42,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 ```
 
 Burada, PyTorch oluşturucuya aşağıdaki parametreleri belirtin:
+
 Parametre | Açıklama
 --|--
 `source_directory` |  Eğitim işine yönelik gerekli kodunuzun tamamını içeren yerel dizin. Bu klasörü yerel makinenizden uzak bilgisayarda kopyalanır
@@ -82,6 +83,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
 ```
 
 Bu kod, aşağıdaki yeni parametreleri PyTorch oluşturucuya kullanıma sunar:
+
 Parametre | Açıklama | Varsayılan
 --|--|--
 `node_count` |  Eğitim işine yönelik kullanmak için düğüm sayısı. | `1`

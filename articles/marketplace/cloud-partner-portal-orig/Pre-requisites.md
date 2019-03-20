@@ -12,17 +12,16 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 46a12307a70125973d36cf0a09b44b32d3279a97
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a4596b711cd90610051faee0d09501c075548062
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811696"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57991894"
 ---
-<a name="prerequisites-for-application-curation"></a>Uygulama Seçki için Önkoşullar
-===============================
+# <a name="prerequisites-for-application-curation"></a>Uygulama Seçki için Önkoşullar
 
 Microsoft, aşağıdaki gereksinimleri karşıladığını doğrulamak için belirli gözden geçirmeleri gerektirir:
 
@@ -43,4 +42,5 @@ Microsoft, aşağıdaki gereksinimleri karşıladığını doğrulamak için bel
 - Modelleri (kod ve testler)
 - Pazarlama içeriği
 
-Bkz: [uygulama seçki için ön koşullar](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions) daha fazla bilgi için.
+Teknik ve işlem gereksinimleri hakkında daha fazla bilgi için bkz. [Finans ve operasyon için uygulamaları doğrula](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions).  Ayrıca, zaten yapmadıysanız, gözden [Office 365, Dynamics 365, PowerApps ve Power BI teklifi yayımlama Kılavuzu](../appsource-offer-publishing-guide.md).
+

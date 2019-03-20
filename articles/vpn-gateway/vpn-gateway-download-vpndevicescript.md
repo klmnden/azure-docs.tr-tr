@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
-ms.openlocfilehash: d13e0ea365b25bc17ff2d23dfaf86bc057774744
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: f7ee53c10c6597dbf98f8f85fc31fe789137471e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415502"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996312"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>S2S VPN bağlantıları için VPN cihazı yapılandırma betiklerini indirme
 
@@ -53,7 +53,7 @@ Bir Azure VPN ağ geçidi, yerel ağ geçidi ve iki bağlanan bir bağlantı kay
 
 Bağlantı kaynağı oluşturulduktan sonra VPN cihazı yapılandırma betiklerini indirmek için aşağıdaki yönergeleri izleyin:
 
-1. Bir tarayıcıdan gidin [Azure portalında](http://portal.azure.com) ve gerekiyorsa Azure hesabınızla oturum açın
+1. Bir tarayıcıdan gidin [Azure portalında](https://portal.azure.com) ve gerekiyorsa Azure hesabınızla oturum açın
 2. Oluşturduğunuz bağlantı kaynağa gidin. Tüm bağlantı kaynakların listesini tıklayarak "Tüm hizmetler", ardından "Ağ" ve "Bağlantıları" tarafından bulabilirsiniz
 
     ![bağlantı listesi](./media/vpn-gateway-download-vpndevicescript/connectionlist.png)

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 514915d68ef79c3f6db2ff1da2b5ea6e348de150
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f123a443d9a00aa7f1b35bd8ed540f90d66de97f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633819"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891833"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Öğretici: Node.js ve azure'da MongoDB uygulaması oluşturma
 
@@ -37,7 +37,7 @@ Azure App Service, yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki 
 > [!div class="checklist"]
 > * Azure’da MongoDB veritabanı oluşturma
 > * Node.js uygulamasını MongoDB’ye bağlama
-> * Uygulamayı Azure’da dağıtma
+> * Uygulamayı Azure'a dağıtma
 > * Veri modelini güncelleştirme ve uygulamayı yeniden dağıtma
 > * Azure’daki tanılama günlüklerinin akışını sağlama
 > * Uygulamayı Azure portalında yönetme
@@ -129,7 +129,7 @@ Bu adımda, Azure’da bir MongoDB veritabanı oluşturursunuz. Uygulamanız Azu
 
 MongoDB için bu öğreticide [Azure Cosmos DB](/azure/documentdb/) kullanılır. Cosmos DB, MongoDB istemci bağlantılarını destekler.
 
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+### <a name="create-a-resource-group"></a>Kaynak grubu oluşturun
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)] 
 
@@ -262,7 +262,7 @@ Bu adımda, MongoDB’ye bağlı Node.js uygulamanızı Azure App Service’e da
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
 <a name="create"></a>
-### <a name="create-a-web-app"></a>Web uygulaması oluşturma
+### <a name="create-a-web-app"></a>Web uygulaması oluşturun
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
@@ -349,7 +349,7 @@ _modules/articles/server/models/article.server.model.js_ öğesini açın.
 `ArticleSchema` içinde, bir `String` type called `comment` ekleyin. İşiniz bittiğinde, şema kodunuz şu şekilde görünür:
 
 ```javascript
-var ArticleSchema = new Schema({
+const ArticleSchema = new Schema({
   ...,
   user: {
     type: Schema.ObjectId,
@@ -375,7 +375,7 @@ _modules/articles/server/controllers/articles.server.controller.js_ dosyasını 
 
 ```javascript
 exports.update = function (req, res) {
-  var article = req.article;
+  let article = req.article;
 
   article.title = req.body.title;
   article.content = req.body.content;
@@ -506,7 +506,7 @@ Varsayılan olarak, uygulamanızın portal gösterir **genel bakış** sayfası.
 > [!div class="checklist"]
 > * Azure’da MongoDB veritabanı oluşturma
 > * Node.js uygulamasını MongoDB’ye bağlama
-> * Uygulamayı Azure’da dağıtma
+> * Uygulamayı Azure'a dağıtma
 > * Veri modelini güncelleştirme ve uygulamayı yeniden dağıtma
 > * Azure’daki günlüklerin terminalinize akışını sağlama
 > * Uygulamayı Azure portalında yönetme

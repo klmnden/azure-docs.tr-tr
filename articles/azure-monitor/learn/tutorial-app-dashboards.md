@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 5ce99e06ea1a8e72a8767367ddfd7bbb845c8400
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 3abe0511200bf5828b485b15a4b8a512731c4ffa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318432"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082135"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Azure Application Insights’ı kullanarak özel KPI panoları oluşturma
 
@@ -42,18 +42,18 @@ Bu öğreticiyi tamamlamak için:
 ## <a name="create-a-new-dashboard"></a>Yeni pano oluşturma
 Tek bir pano çeşitli uygulamalardan, kaynak gruplarından ve aboneliklerden gelen kaynakları içerebilir.  Uygulamanız için yeni bir pano oluşturarak öğreticiyi kullanamaya başlayın.  
 
-2.  Pano bölmeden **yeni Pano**.
+1. Pano bölmeden **yeni Pano**.
 
-    ![Yeni pano](media/tutorial-app-dashboards/1newdashboard.png)
+   ![Yeni pano](media/tutorial-app-dashboards/1newdashboard.png)
 
-3. Pano için bir ad yazın.
-4. Panonuza ekleyebileceğiniz kutucuk çeşitleri için **Kutucuk Galerisi**’ne göz atın.  Galeriden kutucuk eklemenin yanı sıra Application Insights’taki grafikleri ve diğer görünümleri panoya doğrudan sabitleyebilirsiniz.
-5. **Markdown** kutucuğunu bulun ve panonuza sürükleyin.  Bu kutucuk, panonuza açıklayıcı metinler eklemek için ideal olan markdown biçiminde metin eklemenize izin verir.
-6. Metni kutucuğun özelliklerine ekleyin ve pano tuvalinizde yeniden boyutlandırın.
+1. Pano için bir ad yazın.
+1. Panonuza ekleyebileceğiniz kutucuk çeşitleri için **Kutucuk Galerisi**’ne göz atın.  Galeriden kutucuk eklemenin yanı sıra Application Insights’taki grafikleri ve diğer görünümleri panoya doğrudan sabitleyebilirsiniz.
+1. **Markdown** kutucuğunu bulun ve panonuza sürükleyin.  Bu kutucuk, panonuza açıklayıcı metinler eklemek için ideal olan markdown biçiminde metin eklemenize izin verir.
+1. Metni kutucuğun özelliklerine ekleyin ve pano tuvalinizde yeniden boyutlandırın.
     
     ![Markdown kutucuğunu düzenleme](media/tutorial-app-dashboards/2dashboard-text.png)
 
-6. Tıklayın **özelleştirme Bitti** kutucuğu özelleştirme modundan çıkmak için ekranın üst kısmındaki.
+1. Tıklayın **özelleştirme Bitti** kutucuğu özelleştirme modundan çıkmak için ekranın üst kısmındaki.
 
 ## <a name="add-health-overview"></a>Sistem durumuna genel bakış ekleme
 Yalnızca statik metin içeren bir pano ilgi çekici olmadığından, uygulamanızla ilgili bilgileri göstermesi için Application Insights’tan bir kutucuk ekleyebilirsiniz.  Kutucuk Galerisi’nden Application Insights kutucukları ekleyebilir veya bunları Application Insights ekranlarından doğrudan sabitleyebilirsiniz.  Bu, bildiğiniz grafikleri ve görünümleri panonuza sabitlemeden önce yapılandırmanıza olanak tanır.  İlk olarak uygulamanız için sistem durumuna standart genel bakışı ekleyin.  Bu işlem yapılandırma gerektirmez ve panoda çok az özelleştirme yapmaya izin verir.
@@ -78,7 +78,7 @@ Yalnızca statik metin içeren bir pano ilgi çekici olmadığından, uygulaman�
 1. **Ölçümler**’i seçin.  
 2. Boş bir grafik oluşturulur ve bir ölçüm eklemeniz istenir.  Grafiğe bir ölçüm ve isteğe bağlı olarak bir filtre ve gruplandırma ekleyin.  Aşağıdaki örnekte başarı ölçütüne göre gruplandırılmış sunucu isteklerinin sayısı gösterilmektedir.  Bu, başarılı ve başarısız isteklerin sürekli bir görünümünü sunar.
 
-    ![Ölçüm ekleme](media/tutorial-app-dashboards/5sumserverrequests.png)
+    ![Ölçüm ekle](media/tutorial-app-dashboards/5sumserverrequests.png)
 
 4. Seçin **panoya Sabitle** sağ. Bu, görünümü üzerinde çalıştığınız en son panoya ekler.
 
@@ -99,7 +99,7 @@ Azure Applications Insights Analytics, ayrı bir hizmet olduğundan Analytics so
 
     ![Panoyu yayımlama](media/tutorial-app-dashboards/8dashboard-share.png)
 
-2. Panoyu paylaşmak için **Pano adını** aynı tutun ve **Abonelik Adı**’nı.  **Yayımla**’ta tıklayın.  Pano artık diğer hizmetler ve abonelikler tarafından kullanılabilir.  İsteğe bağlı olarak panoya erişebilecek belirli kullanıcıları tanımlayabilirsiniz.
+2. Panoyu paylaşmak için **Pano adını** aynı tutun ve **Abonelik Adı**’nı.  Tıklayın **yayımlama**.  Pano artık diğer hizmetler ve abonelikler tarafından kullanılabilir.  İsteğe bağlı olarak panoya erişebilecek belirli kullanıcıları tanımlayabilirsiniz.
 1. Seçin, **Application Insights** giriş ekranına kaynakta.
 2. Analytics portalını açmak için ekranın üst kısmındaki **Analytics** seçeneğine tıklayın.
 

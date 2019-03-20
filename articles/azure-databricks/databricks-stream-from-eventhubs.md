@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: 006286b492b7431ca15b8a2dc9ac5b4116f7d1b1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: bc712885169730aa9cbbd8de35b96e645ff1cea2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876287"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087134"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Öğretici: Event Hubs kullanarak Azure Databricks’e veri akışı sağlama
 
@@ -40,7 +40,11 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Ön koşullar
+> [!Note]
+> Kullanarak bu öğreticiyi gerçekleştirilmesi **Azure ücretsiz deneme aboneliği**.
+> Azure Databricks kümesini oluşturmak için ücretsiz hesap oluşturmak istiyorsanız kümeyi oluşturmadan önce profilinize gidin ve aboneliğini **kullandıkça öde** modeline geçirin. Daha fazla bilgi için bkz. [Ücretsiz Azure hesabı](https://azure.microsoft.com/free/).
+
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce aşağıdaki gereksinimlerin karşılandığından emin olun:
 - Azure Event Hubs ad alanı.
@@ -96,11 +100,11 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
 
     Aşağıdakiler dışında diğer tüm varsayılan değerleri kabul edin:
 
-    * Küme için bir ad girin.
-    * Bu makale için **4.0** çalışma zamanıyla bir küme oluşturun.
-    * **\_\_ dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiğinizden emin olun. Küme kullanılmazsa kümenin sonlandırılması için biz süre (dakika cinsinden) belirtin.
+   * Küme için bir ad girin.
+   * Bu makale için **4.0** çalışma zamanıyla bir küme oluşturun.
+   * **\_\_ dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiğinizden emin olun. Küme kullanılmazsa kümenin sonlandırılması için biz süre (dakika cinsinden) belirtin.
 
-    **Küme oluştur**’u seçin. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleyebilir ve Spark işleri çalıştırabilirsiniz.
+     **Küme oluştur**’u seçin. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleyebilir ve Spark işleri çalıştırabilirsiniz.
 
 ## <a name="create-a-twitter-application"></a>Twitter uygulaması oluşturma
 
@@ -124,16 +128,16 @@ Twitter uygulaması için aldığınız değerleri kaydedin. Öğreticinin sonra
 
 Bu öğreticide, Event Hubs’a tweet’ler göndermek için Twitter API’lerini kullanırsınız. Azure Event Hubs’a verileri okuyup yazmak için de [Apache Spark Event Hubs bağlayıcısını](https://github.com/Azure/azure-event-hubs-spark) kullanırsınız. Kümenizin parçası olarak bu API’leri kullanmak için, Azure Databricks’e bunları kitaplıklar olarak ekler ve sonra Spark kümenizle ilişkilendirirsiniz. Aşağıdaki yönergeler, çalışma alanınızda **Paylaşılan** klasörüne kitaplığın nasıl ekleneceğini göstermektedir.
 
-1.  Azure Databricks çalışma alanında **Çalışma Alanı**’nı seçin ve sonra **Paylaşılan**’a sağ tıklayın. Bağlam menüsünden **Oluştur** > **Kitaplık** seçeneklerini belirleyin.
+1. Azure Databricks çalışma alanında **Çalışma Alanı**’nı seçin ve sonra **Paylaşılan**’a sağ tıklayın. Bağlam menüsünden **Oluştur** > **Kitaplık** seçeneklerini belirleyin.
 
-    ![Kitaplık ekle iletişim kutusu](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "Kitaplık ekle iletişim kutusu")
+   ![Kitaplık ekle iletişim kutusu](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "Kitaplık ekle iletişim kutusu")
 
 2. Yeni Kitaplık sayfasında **Kaynak** için **Maven Koordinatı**’nı seçin. **Koordinat** için, eklemek istediğiniz paketin koordinatını girin. Bu öğreticide kullanılan kitaplıklar için Maven koordinatları aşağıdaki gibidir:
 
-    * Spark Event Hubs bağlayıcısı - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
-    * Twitter API’si - `org.twitter4j:twitter4j-core:4.0.6`
+   * Spark Event Hubs bağlayıcısı - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
+   * Twitter API’si - `org.twitter4j:twitter4j-core:4.0.6`
 
-    ![Maven koordinatları sağlama](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Maven koordinatları sağlama")
+     ![Maven koordinatları sağlama](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Maven koordinatları sağlama")
 
 3. **Kitaplık Oluştur**’u seçin.
 

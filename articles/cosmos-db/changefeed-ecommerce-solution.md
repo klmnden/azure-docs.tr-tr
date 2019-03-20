@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 90f9a13882e370d6d0c67826750b3edd27603ede
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 50ae4de8c9c1d10b0b17a9744ffa2340059fc298
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862301"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120525"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Kullanım Azure Cosmos DB değişiklik akışı, gerçek zamanlı veri analizi görselleştirmek için
 
@@ -105,7 +105,7 @@ Azure kaynakları - Azure Cosmos DB, depolama hesabı, olay hub'ı Stream Analyt
 
 3. Ardından adlı başka bir koleksiyon oluşturun **kiraları** değişiklik akışı işleme için. Değişiklik arasında birden fazla çalışana akışı işleme kiralamalar koleksiyonunu düzenler. Ayrı bir koleksiyon ile bir kira bölüm başına kiraları depolamak için kullanılır.  
 
-4.  Geri dönüp **Veri Gezgini** bölmesi ve select **yeni koleksiyon** ve aşağıdaki ayrıntılarla formu doldurun:
+4. Geri dönüp **Veri Gezgini** bölmesi ve select **yeni koleksiyon** ve aşağıdaki ayrıntılarla formu doldurun:
 
    * İçin **veritabanı kimliği** alanın, Seç **var olanı kullan**, enter **changefeedlabdatabase**.  
    * İçin **koleksiyon kimliği** alanına **kiraları**.  

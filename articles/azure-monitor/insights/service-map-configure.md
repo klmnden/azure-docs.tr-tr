@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 65aa561b01fc4950eb007077ba3613e96ccdcacc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 26da504188a9060dbbb35330dbd8604bf5fe5e1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763875"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995138"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -29,8 +29,8 @@ Bu makalede hizmet eşlemesi ve onboarding aracıları yapılandırma ayrıntıl
 Hizmet eşlemesi aşağıdaki Azure bölgeleri şu anda kullanılabilir:
 - Doğu ABD
 - Batı Orta ABD
-- Orta Kanada
-- Birleşik Krallık Güney
+- Kanada Orta
+- BK Güney
 - Batı Avrupa
 - Güneydoğu Asya
 
@@ -42,6 +42,7 @@ Aşağıdaki bölümde, Windows üzerinde bağımlılık aracısını için dest
 >
 
 ### <a name="windows-server"></a>Windows Server
+- Windows Server 2019
 - Windows Server 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
@@ -89,7 +90,7 @@ Aşağıdaki bölümde, Red Hat Enterprise Linux, CentOS Linux ve Oracle Linux (
 
 | İşletim sistemi sürümü | Çekirdek sürümü |
 |:--|:--|
-| Ubuntu 18.04 | Çekirdek 4.15. * |
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | Çekirdek 4.15. * |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |

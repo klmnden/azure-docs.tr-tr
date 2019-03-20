@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 76cc22f614b7877db54fb5af0e58ff90105a8194
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d921d0907d7481b842fd98db2c0d7cb5f402f24f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961780"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835986"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Panda ile Azure blob depolamadaki verileri keşfedin
 
-Bu makalede, Azure blob kapsayıcısı kullanarak içinde depolanan verileri araştırmak nasıl ele alınmaktadır [pandas](http://pandas.pydata.org/) Python paket.
+Bu makalede, Azure blob kapsayıcısı kullanarak içinde depolanan verileri araştırmak nasıl ele alınmaktadır [pandas](https://pandas.pydata.org/) Python paket.
 
 Bu görev bir adımdır [Team Data Science Process](overview.md).
 
@@ -53,7 +53,7 @@ t2=time.time()
 print(("It takes %s seconds to download "+blobname) % (t2 - t1))
 ```
 
-2. İçine bir pandas DataFrame indirilen dosyasından verileri okur.
+1. İçine bir pandas DataFrame indirilen dosyasından verileri okur.
 
 ```python
 #LOCALFILE is the file path
@@ -71,7 +71,7 @@ Panda kullanarak verileri araştırmak için gösteren bazı örnekleri şunlard
 print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 ```
 
-2. **İnceleme** ilk veya son birkaç **satırları** aşağıdaki kümesindeki:
+1. **İnceleme** ilk veya son birkaç **satırları** aşağıdaki kümesindeki:
 
 ```python
 dataframe_blobdata.head(10)
@@ -79,33 +79,33 @@ dataframe_blobdata.head(10)
 dataframe_blobdata.tail(10)
 ```
 
-3. Denetleme **veri türü** her sütun, aşağıdaki örnek kodu kullanarak olarak içeri aktarıldı
+1. Denetleme **veri türü** her sütun, aşağıdaki örnek kodu kullanarak olarak içeri aktarıldı
 
 ```python
 for col in dataframe_blobdata.columns:
     print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
 ```
 
-4. Denetleme **temel istatistikleri** sütunların veri şu şekilde ayarlayın
+1. Denetleme **temel istatistikleri** sütunların veri şu şekilde ayarlayın
 
 ```python
 dataframe_blobdata.describe()
 ```
 
-5. Girdi sayısı bu değeri için her bir sütun değeri şu şekilde bakın
+1. Girdi sayısı bu değeri için her bir sütun değeri şu şekilde bakın
 
 ```python
 dataframe_blobdata['<column_name>'].value_counts()
 ```
 
-6. **Eksik değerleri saymak** girdileri aşağıdaki örnek kodu kullanarak her sütunda gerçek sayısı
+1. **Eksik değerleri saymak** girdileri aşağıdaki örnek kodu kullanarak her sütunda gerçek sayısı
 
 ```python
 miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
 print miss_num
 ```
 
-7. Varsa **eksik değerleri** için belirli bir sütuna veri, bunları aşağıdaki gibi silebilirsiniz:
+1. Varsa **eksik değerleri** için belirli bir sütuna veri, bunları aşağıdaki gibi silebilirsiniz:
 
 ```python
 dataframe_blobdata_noNA = dataframe_blobdata.dropna()
@@ -118,7 +118,7 @@ Eksik değerleri değiştirmek için başka bir yol ile modu işlevdir:
 dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})
 ```
 
-8. Oluşturma bir **histogram** bir değişkenin dağıtım çizmek için değişken sayıda depo kullanarak Çiz
+1. Oluşturma bir **histogram** bir değişkenin dağıtım çizmek için değişken sayıda depo kullanarak Çiz
 
 ```python
 dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
@@ -126,7 +126,7 @@ dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
 np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
 ```
 
-9. Bakmak **bağıntılar** arasında bir dağılım grafiği veya yerleşik bağıntı işlevi kullanarak değişkenleri
+1. Bakmak **bağıntılar** arasında bir dağılım grafiği veya yerleşik bağıntı işlevi kullanarak değişkenleri
 
 ```python
 #relationship between column_a and column_b using scatter plot

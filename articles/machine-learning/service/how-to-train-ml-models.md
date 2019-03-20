@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 2/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 58dd96b079dda50faa17a52782a79db83a0141bd
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 818b6e5994a4f5b9d21d511f0a31eab6e00033f7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330078"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012484"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Azure Machine Learning kullanarak tahmin modellerini eğitin
 
@@ -63,6 +63,7 @@ Parametre | Açıklama
 `compute_target`| Eğitim betiğinizi, bu örnekte, bir Azure Machine Learning işlem çalıştıracak uzak işlem hedefine ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) kümesi. (Lütfen unutmayın AmlCompute küme yaygın olarak kullanılan hedef olsa da hedef türleri Azure Vm'leri ya da yerel bilgisayar gibi diğer işlem seçmek mümkündür.)
 `entry_script`| FilePath (göreli `source_directory`) eğitim betiğin uzak işlem üzerinde çalıştırılacak. Bu dosya ve, bağımlı herhangi bir ek dosyaları bu klasörde bulunmalıdır
 `conda_packages`| Eğitim betiğinizi gerekli conda aracılığıyla yüklenecek Python paketleri listesi.  
+
 Oluşturucu adlı başka bir parametreye sahip `pip_packages` , gerekli herhangi bir pip paketleri kullanın
 
 Oluşturduğunuza göre `Estimator` nesne, bir çağrı ile uzak işlem üzerinde çalıştırılacak eğitim işini gönderme `submit` işlevini, [deneme](concept-azure-machine-learning-architecture.md#experiment) nesne `experiment`. 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 8e527d4f580acbff55c07d90c564d443780fce2b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dc9acae1e4d31e1456cd971fdab2745e7c58e910
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005038"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892685"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST kullanarak bir Media Services hesabına dosya yükleme  
 > [!div class="op_single_selector"]
@@ -52,7 +52,7 @@ Bu öğreticide, bir dosya ve onunla ilişkili başka bir işlem karşıya yükl
 Media Services REST API kullanırken aşağıdaki maddeler geçerlidir:
  
 * Media Services REST API'si kullanarak varlıkları erişirken, HTTP isteklerini özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md). <br/>Bu öğreticide Postman koleksiyonunun tüm gerekli üst bilgileri ayarını üstlenir.
-* Media Services IAssetFile.Name özelliğinin değeri, URL'leri akış içeriği için (örneğin, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) oluştururken kullanır. Bu nedenle, yüzde kodlama izin verilmez. Değerini **adı** özelliği aşağıdakilerden herhangi birini içeremez [yüzde kodlama-ayrılmış karakterleri](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir '.' dosya adı uzantısı için.
+* Media Services IAssetFile.Name özelliğinin değeri, URL'leri akış içeriği için (örneğin, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) oluştururken kullanır. Bu nedenle, yüzde kodlama izin verilmez. Değerini **adı** özelliği aşağıdakilerden herhangi birini içeremez [yüzde kodlama-ayrılmış karakterleri](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir '.' dosya adı uzantısı için.
 * Adının uzunluğu 260 karakterden uzun olmamalıdır.
 * Media Services ile işleme için desteklenen dosya boyutlarına yönelik üst sınır uygulanır. Dosya boyutu sınırlaması hakkında ayrıntılı bilgi için [bu](media-services-quotas-and-limitations.md) makaleye bakın.
 
@@ -68,7 +68,7 @@ Bu öğretici için Postman'ı ayarlama adımları için bkz: [Postman yapıland
 
     İlk beş değişkenleri değerleri almak için bkz: [Azure AD kimlik doğrulamasıyla Azure Media Services API'sine erişim](media-services-use-aad-auth-to-access-ams-api.md). 
 
-    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-import-env.png)
+    ![Karşıya dosya yükle](./media/media-services-rest-upload-files/postman-import-env.png)
 2. Değer için **MediaFileName** ortam değişkeni.
 
     Karşıya yüklemek için planlama medya dosyası adını belirtin. Bu örnekte, BigBuckBunny.mp4 karşıya yüklemek için kullanacağız. 
@@ -90,7 +90,7 @@ Bu öğretici için Postman'ı ayarlama adımları için bkz: [Postman yapıland
 
     URL bölümü ile doldurulan **AzureADSTSEndpoint** ortam değişkeni (öğreticide daha önce koleksiyonu destekleyen ortam değişkenlerinin değerlerini ayarladığınız).
 
-    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postment-get-token.png)
+    ![Karşıya dosya yükle](./media/media-services-rest-upload-files/postment-get-token.png)
 
 5. **Gönder**’e basın.
 
@@ -112,7 +112,7 @@ Tüm dosyaları blob depolama alanına karşıya yüklemeden önce erişim yazma
 1. Seçin **AccessPolicy** -> **AccessPolicy oluşturmak için karşıya yükleme**.
 2. **Gönder**’e basın.
 
-    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-access-policy.png)
+    ![Karşıya dosya yükle](./media/media-services-rest-upload-files/postman-access-policy.png)
 
     "Test" betik AccessPolicy kimliğini alır ve uygun bir ortam değişkenini ayarlar.
 
@@ -133,7 +133,7 @@ Bu örnekte, şifrelenmemiş bir varlık oluşturuyoruz.
 1. Seçin **varlıklar** -> **varlık oluşturma**.
 2. **Gönder**’e basın.
 
-    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-create-asset.png)
+    ![Karşıya dosya yükle](./media/media-services-rest-upload-files/postman-create-asset.png)
 
     "Test" betik varlık kimliği alır ve uygun bir ortam değişkenini ayarlar.
 
@@ -166,7 +166,7 @@ Bazı dikkate alınması gereken noktalar vardır:
 
     "Test" betik "Belirttiğiniz medya dosyasının adına dayalı URL karşıya yükle" ve SAS Bulucu bilgileri oluşturur ve uygun bir ortam değişkenini ayarlar.
 
-    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
+    ![Karşıya dosya yükle](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Bir dosya karşıya yükleme URL'yi kullanarak blob depolamaya yükleme
 
@@ -193,7 +193,7 @@ Oluşturun ve yeni bir isteği ayarlayın:
 4. Belirtilen ada sahip dosyayı seçin **MediaFileName** ortam değişkeni.
 5. **Gönder**’e basın.
 
-    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-upload-file.png)
+    ![Karşıya dosya yükle](./media/media-services-rest-upload-files/postman-upload-file.png)
 
 ##  <a name="create-a-metadata-in-the-asset"></a>Bir meta veri varlığı oluşturma
 
@@ -202,11 +202,11 @@ Dosya yüklendikten sonra varlık, varlıkla ilişkili blob depolamaya yükledi�
 1. Seçin **AssetFiles** -> **CreateFileInfos**.
 2. **Gönder**’e basın.
 
-    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-create-file-info.png)
+    ![Karşıya dosya yükle](./media/media-services-rest-upload-files/postman-create-file-info.png)
 
 Dosya karşıya yüklenmelidir ve meta verileri ayarlayın.
 
-## <a name="validate"></a>Doğrulama
+## <a name="validate"></a>Doğrula
 
 Dosya başarıyla karşıya yüklendi, sorgu isteyebileceğiniz doğrulamak için [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) ve karşılaştırma **ContentFileSize** (veya diğer ayrıntıları) içinde yeni varlık görmeyi beklediğiniz için. 
 

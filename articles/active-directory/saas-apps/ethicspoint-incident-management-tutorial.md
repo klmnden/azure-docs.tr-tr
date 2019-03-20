@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 498ecdf7c3b42ca4a088054ffd1fb7cbaea1fca9
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 2e50cdd19510f0bf160c075c763e645120622674
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731078"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835705"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Öğretici: Azure Active Directory Tümleştirmesi ile EthicsPoint Olay yönetimi (EPIM)
 
@@ -106,6 +106,7 @@ Azure AD çoklu oturum açma EthicsPoint Olay yönetimi (EPIM) yapılandırmak i
     ![EthicsPoint Olay yönetimi (EPIM) etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier-reply.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+    
     | |
     |--|
     | `https://<companyname>.navexglobal.com`|
@@ -154,7 +155,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

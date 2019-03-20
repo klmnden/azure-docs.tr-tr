@@ -1,102 +1,133 @@
 ---
-title: Azure depolama (Önizleme) erişmek için Azure CLI veya PowerShell komutları bir Azure AD kimlik altında çalıştırma | Microsoft Docs
+title: Azure depolamaya erişmek için Azure CLI veya PowerShell komutları bir Azure AD kimlik altında çalıştırma | Microsoft Docs
 description: Azure CLI ve PowerShell, Azure depolama kapsayıcıları ve Kuyruklar ve verileri komutlarını çalıştırmak için bir Azure AD kimlik oturum destekler. Bir erişim belirteci oturum için sağlanan ve arama işlemleri yetkilendirmek için kullanılır. İzinler için Azure AD kimlik atanan role göre değişir.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6369c9c2c3c517012018063883b04487f86ddfd9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f8fd3cdcf73749d787fc6f1c2222946961091f80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460497"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849848"
 ---
-# <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>CLI veya PowerShell (Önizleme) ile Azure depolamaya erişmek için bir Azure AD kimliğini kullanın.
+# <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell"></a>CLI veya PowerShell ile Azure depolamaya erişmek için bir Azure AD kimliğini kullanın.
 
-Azure depolama, Azure CLI ve PowerShell oturum açın ve Azure Active Directory (Azure AD) kimlik altında betik komutlarını çalıştırmak etkinleştirdiğiniz için Önizleme uzantıları sağlar. Azure AD kimlik, bir kullanıcı, Grup veya uygulama hizmet sorumlusu olabilir veya olabilir bir [yönetilen Azure kaynakları için kimliği](../../active-directory/managed-identities-azure-resources/overview.md). Rol tabanlı erişim denetimi (RBAC) aracılığıyla Azure AD kimlik depolama kaynaklarına erişim izinleri atayabilirsiniz. Azure Depolama'daki RBAC rolleri hakkında daha fazla bilgi için bkz. [RBAC (Önizleme) Azure depolama verileriyle Yönet erişim hakları](storage-auth-aad-rbac.md).
+Azure depolama, Azure CLI ve PowerShell oturum açın ve Azure Active Directory (Azure AD) kimlik altında betik komutlarını çalıştırmak etkinleştirdiğiniz için uzantılar sağlar. Azure AD kimlik, bir kullanıcı, Grup veya uygulama hizmet sorumlusu olabilir veya olabilir bir [yönetilen Azure kaynakları için kimliği](../../active-directory/managed-identities-azure-resources/overview.md). Rol tabanlı erişim denetimi (RBAC) aracılığıyla Azure AD kimlik depolama kaynaklarına erişim izinleri atayabilirsiniz. Azure Depolama'daki RBAC rolleri hakkında daha fazla bilgi için bkz. [RBAC (Önizleme) Azure depolama verileriyle Yönet erişim hakları](storage-auth-aad-rbac.md).
 
 Azure CLI veya PowerShell ile bir Azure AD kimlik oturum açtığınızda, bu kimliği altında Azure depolama erişimi için bir erişim belirteci döndürülür. Bu belirteci daha sonra otomatik olarak CLI veya PowerShell ile Azure depolama üzerinde işlemler yetkilendirmek için kullanılır. Desteklenen işlemler için artık bir hesap anahtarı veya SAS belirteci komutu geçmesi gerekir.
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
-
 ## <a name="supported-operations"></a>Desteklenen işlemler
 
-Önizleme uzantıları, kapsayıcılar ve kuyrukları işlemleri için desteklenir. Çağrı işlemleri ile Azure CLI veya PowerShell oturum Azure AD kimlik için verilen izinler bağlıdır. Rol tabanlı erişim denetimi (RBAC) Azure depolama kapsayıcıları veya sıralara izinleri atanır. Örneğin, bir veri okuyucu rolü kimliği atanır, bir kapsayıcı veya kuyruktan veri okuma betik komutları çalıştırabilirsiniz. Ardından verileri katkıda bulunan rolü kimliği atanır, okuma, yazma veya bir kapsayıcı veya kuyruk veya içerdikleri veriler silme betik komutlarını çalıştırabilirsiniz. 
+Uzantıları, kapsayıcılar ve kuyrukları işlemleri için desteklenir. Çağrı işlemleri ile Azure CLI veya PowerShell oturum Azure AD kimlik için verilen izinler bağlıdır. Rol tabanlı erişim denetimi (RBAC) Azure depolama kapsayıcıları veya sıralara izinleri atanır. Örneğin, bir veri okuyucu rolü kimliği atanır, bir kapsayıcı veya kuyruktan veri okuma betik komutları çalıştırabilirsiniz. Ardından verileri katkıda bulunan rolü kimliği atanır, okuma, yazma veya bir kapsayıcı veya kuyruk veya içerdikleri veriler silme betik komutlarını çalıştırabilirsiniz. 
 
 Bir kapsayıcı veya sıra her bir Azure depolama işlemi için gereken izinler hakkında daha fazla ayrıntı için bkz: [REST işlemlerini çağırmak için izinleri](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
 
-## <a name="call-cli-commands-with-an-azure-ad-identity"></a>CLI komutları ile bir Azure AD kimliğini arayın
+## <a name="call-cli-commands-using-azure-ad-credentials"></a>Azure AD kimlik bilgilerini kullanarak CLI komutları çağırın
 
-Azure CLI için Önizleme uzantıyı yüklemek için:
+Azure CLI'yı destekleyen `--auth-mode` parametresi Azure Storage'a karşı veri işlemleri için:
 
-1. Sonraki veya Azure CLI sürümünü 2.0.32 yüklediğinizden emin olun. Çalıştırma `az --version` yüklü sürümünüzü denetlemek için.
-2. Önizleme uzantıyı yüklemek için aşağıdaki komutu çalıştırın: 
-
-    ```azurecli
-    az extension add -n storage-preview
-    ```
-
-Yeni bir önizleme uzantısı ekler `--auth-mode` parametresi desteklenen komutlar:
-
-- Ayarlama `--auth-mode` parametresi `login` için bir Azure AD kimliğini kullanarak oturum açın.
+- Ayarlama `--auth-mode` parametresi `login` bir Azure AD güvenlik sorumlusu ile oturum açması.
 - Ayarlama `--auth-mode` parametresi eski `key` hesabı için hiçbir kimlik doğrulama parametreleri için bir hesap anahtarı if sorgulama girişimi için değer sağlanır. 
 
-Örneğin, Azure CLI kullanarak bir Azure AD kimlik bir blobu indirmek için ilk çalıştırma `az login`, ardından komut ile çağrı `--auth-mode` kümesine `login`:
+Aşağıdaki örnek, Azure AD kimlik bilgilerinizi kullanarak Azure clı'dan yeni bir depolama hesabında bir kapsayıcı oluşturulacağını gösterir. Açılı ayraçlar içindeki yer tutucu değerlerini kendi değerlerinizle değiştirmeyi unutmayın: 
 
-```azurecli
-az login
-az storage blob download --account-name storagesamples --container sample-container --name myblob.txt --file myfile.txt --auth-mode login 
-```
+1. Sonraki veya Azure CLI sürümünü 2.0.46 yüklediğinizden emin olun. Çalıştırma `az --version` yüklü sürümünüzü denetlemek için.
 
-İle ilişkili ortam değişkeni `--auth-mode` parametresi `AZURE_STORAGE_AUTH_MODE`.
+1. Çalıştırma `az login` ve tarayıcı penceresi içinde kimlik doğrulaması: 
 
-## <a name="call-powershell-commands-with-an-azure-ad-identity"></a>PowerShell komutları ile bir Azure AD kimliğini arayın
+    ```azurecli
+    az login
+    ```
+    
+1. İstenen aboneliğinizi belirtin. [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) ile bir kaynak grubu oluşturun. Bu kaynak grubunu kullanarak içinde depolama hesabı oluşturma [az depolama hesabı oluşturma](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create): 
+
+    ```azurecli
+    az account set --subscription <subscription-id>
+
+    az group create \
+        --name sample-resource-group-cli \
+        --location eastus
+
+    az storage account create \
+        --name <storage-account> \
+        --resource-group sample-resource-group-cli \
+        --location eastus \
+        --sku Standard_LRS \
+        --encryption-services blob
+    ```
+    
+1. Kapsayıcı oluşturmadan önce Ata [depolama Blob verileri katkıda bulunan (Önizleme)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) kendiniz rol. Hesap sahibi olmasına karşın, veri depolama hesabına yönelik açık izinler gerekir. RBAC rollerini atama hakkında daha fazla bilgi için bkz. [Azure kapsayıcıları ve RBAC ile kuyrukları (Önizleme) Azure portalında erişim ver](storage-auth-aad-rbac.md).
+
+    > [!IMPORTANT]
+    > Azure AD desteğini BLOB'lar ve Kuyruklar için Önizleme sırasında RBAC rolü atamalarını yayılması için 5 dakika sürebilir.
+    
+1. Çağrı [az depolama kapsayıcısı oluşturma](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) komutunu `--auth-mode` parametresini `login` Azure AD kimlik bilgilerinizi kullanarak kapsayıcıyı oluşturmak için:
+
+    ```azurecli
+    az storage container create \ 
+        --account-name <storage-account> \ 
+        --name sample-container \
+        --auth-mode login
+    ```
+
+İle ilişkili ortam değişkeni `--auth-mode` parametresi `AZURE_STORAGE_AUTH_MODE`. Bir Azure depolama veri işleme her çağrıda eklenmesini önlemek için ortam değişkenine uygun değeri belirtebilirsiniz.
+
+## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Azure AD kimlik kullanarak PowerShell komutlarını çağıran
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Bir Azure AD kimlik bilgilerinizle oturum açmak için Azure PowerShell kullanmak için:
+Azure PowerShell oturum açın ve Azure AD kimlik bilgilerini kullanarak Azure Depolama'ya sonraki işlemleri çalıştırmak için kullanılacak depolama hesabı başvurmak için bir depolama bağlamı oluşturur ve dahil olmak üzere `-UseConnectedAccount` parametresi.
 
-1. Azure PowerShell'in önceki yüklemeleri kaldırın:
+Aşağıdaki örnek, Azure AD kimlik bilgilerinizi kullanarak Azure powershell'den yeni bir depolama hesabında bir kapsayıcı oluşturulacağını gösterir. Açılı ayraçlar içindeki yer tutucu değerlerini kendi değerlerinizle değiştirmeyi unutmayın:
 
-    - Windows Azure PowerShell'in önceki yüklemeleri kaldırmaya **uygulamalar ve Özellikler** bölümündeki **ayarları**.
-    - Tümünü Kaldır **Azure*** modüllerden `%Program Files%\WindowsPowerShell\Modules`.
-
-1. PowerShellGet yüklü en son sürümüne sahip olduğunuzdan emin olun. Bir Windows PowerShell penceresi açın ve en son sürümünü yüklemek için aşağıdaki komutu çalıştırın:
- 
-    ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
-    ```
-1. Kapatın ve PowerShellGet yükledikten sonra PowerShell penceresi açın. 
-
-1. Azure PowerShell'in en son sürümünü yükleyin:
+1. Azure aboneliğinizde oturum açın `Connect-AzAccount` izleyin ve komut ekrandaki yönergeleri, Azure AD kimlik bilgilerinizi girmek için: 
 
     ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
+    Connect-AzAccount
+    ```
+    
+1. Çağırarak bir Azure kaynak grubu oluşturma [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
+
+    ```powershell
+    $resourceGroup = "sample-resource-group-ps"
+    $location = "eastus"
+    New-AzResourceGroup -Name $resourceGroup -Location $location
     ```
 
-1. Azure AD destekleyen bir Azure depolama Önizleme modülünü yükleyin:
-   
-   ```powershell
-   Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
-   ```
-1. PowerShell penceresini kapatıp yeniden açın.
-1. Çağrı [yeni AzStorageContext](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontext) bir bağlam oluşturur ve eklemek için cmdlet `-UseConnectedAccount` parametresi. 
-1. Cmdlet ile bir Azure AD kimlik çağırmak için yeni oluşturulan bağlamı cmdlet'e geçirin.
+1. Çağırarak bir depolama hesabı oluşturma [yeni AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
 
-Aşağıdaki örnek, bir Azure AD kimliğini kullanarak Azure powershell'den bir kapsayıcıdaki blobları listelemek nasıl gösterir. Yer tutucu hesabı ve kapsayıcı adları kendi değerlerinizle değiştirdiğinizden emin olun: 
+    ```powershell
+    $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
+      -Name "<storage-account>" `
+      -SkuName Standard_LRS `
+      -Location $location `
+    ```
 
-```powershell
-$ctx = New-AzStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
-Get-AzStorageBlob -Container sample-container -Context $ctx 
-```
+1. Çağırarak yeni depolama hesabını belirtir. depolama hesabı bağlamını alın [yeni AzStorageContext](/powershell/module/az.storage/new-azstoragecontext). Bir depolama hesabı üzerinde hareket ederken, kimlik bilgilerini tekrar tekrar geçirmek yerine bağlam başvurabilirsiniz. Dahil `-UseConnectedAccount` Azure AD kimlik bilgilerinizi kullanarak herhangi bir sonraki veri işlemi çağırmak için parametre:
+
+    ```powershell
+    $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
+    ```
+
+1. Kapsayıcı oluşturmadan önce Ata [depolama Blob verileri katkıda bulunan (Önizleme)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) kendiniz rol. Hesap sahibi olmasına karşın, veri depolama hesabına yönelik açık izinler gerekir. RBAC rollerini atama hakkında daha fazla bilgi için bkz. [Azure kapsayıcıları ve RBAC ile kuyrukları (Önizleme) Azure portalında erişim ver](storage-auth-aad-rbac.md).
+
+    > [!IMPORTANT]
+    > Azure AD desteğini BLOB'lar ve Kuyruklar için Önizleme sırasında RBAC rolü atamalarını yayılması için 5 dakika sürebilir.
+
+1. Çağırarak bir kapsayıcı oluşturma [yeni AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Bu çağrı önceki adımlarda oluşturulan bağlamı kullandığından, Azure AD kimlik bilgilerinizi kullanarak kapsayıcı oluşturulur. 
+
+    ```powershell
+    $containerName = "sample-container"
+    New-AzStorageContainer -Name $containerName -Context $ctx
+    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - RBAC rolleri için Azure depolama hakkında daha fazla bilgi için bkz: [Yönet RBAC (Önizleme) ile depolama verilere erişim hakları](storage-auth-aad-rbac.md).
 - Azure depolama ile Azure kaynakları için yönetilen kimlikleri kullanma hakkında bilgi edinmek için [BLOB'lar ve Kuyruklar Azure ile kimlik doğrulama erişim kimlikleri (Önizleme) Azure kaynakları için yönetilen](storage-auth-aad-msi.md).
 - Kapsayıcılar ve kuyruklardaki depolama uygulamalarınızda erişim yetkisi verme konusunda bilgi almak için bkz: [depolama uygulamaları ile kullanmak üzere Azure AD](storage-auth-aad-app.md).
-- Azure AD tümleştirmesi için Azure BLOB'ları ve kuyrukları hakkında ek bilgi için bkz: gönderin, Azure depolama ekibi blogu [Önizleme, Azure AD kimlik doğrulaması için Azure depolama ile tanışın](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

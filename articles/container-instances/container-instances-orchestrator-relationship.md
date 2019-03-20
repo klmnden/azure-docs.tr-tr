@@ -2,18 +2,18 @@
 title: Azure Container Instances ve kapsayıcı düzenleme
 description: Azure kapsayıcı örnekleri etkileşim ile kapsayıcı düzenleyicileri anlayın.
 services: container-instances
-author: seanmck
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 11/30/2018
-ms.author: seanmck
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 08bc344a20ade3d8bb0f7dd23a854fd03ddac006
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0a1e3c2facc10b68fe4b33d4cd0531f181b1e813
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845816"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838162"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances ve kapsayıcı düzenleyicileri
 
@@ -25,16 +25,16 @@ Azure Container Instances, bazı düzenleme platformlarını temel zamanlama öz
 
 Standart düzenleme tanımını aşağıdaki görevleri içerir:
 
-- **Zamanlama**: bir kapsayıcı görüntüsü ve bir kaynak isteğiyle kapsayıcı çalıştırmak için uygun bir makinede bulun.
-- **Benzeşim/Anti-affinity**: kapsayıcı bir dizi diğer (performans için) yakın veya yeterince ucundaki ayırmak (kullanılabilirlik için) çalışması gerektiğini belirtmek.
-- **Sistem durumu izleme**: kapsayıcı hatalarının ve otomatik olarak yeniden zamanlayabilirsiniz.
-- **Yük devretme**: her bir makinede çalışan izler ve sağlam düğümleri kapsayıcılara başarısız makinelerden yeniden zamanlayın.
-- **Ölçeklendirme**: ekleme veya isteğe bağlı olarak el ile veya otomatik olarak eşleşecek şekilde kapsayıcı örneklerini kaldırın.
-- **Ağ**: birden çok konak makineler arasında iletişim kurmak için kapsayıcılar koordine için bir katman ağ sağlayın.
-- **Hizmet bulma**: konak makineleri arasında taşımak ve IP adreslerini değiştirmek gibi bile birbirlerine otomatik olarak bulmak kapsayıcılar etkinleştirin.
-- **Eşgüdümlü uygulama yükseltmeleri**: uygulama kapalı kalma süresini önlemek için kapsayıcı yükseltmelerini yönetme ve bir sorun yaşanırsa, geri alma etkinleştirin.
+- **Zamanlama**: Bir kapsayıcı görüntüsü ve bir kaynak isteğiyle kapsayıcı çalıştırılacağı uygun bir makine bulun.
+- **Benzeşim/Anti-affinity**: Bir dizi kapsayıcıları diğer (performans için) yakın veya yeterince ucundaki ayırmak (kullanılabilirlik için) çalışması gerektiğini belirtmek.
+- **Sistem durumu izleme**: Kapsayıcı hataları için izleyin ve bunları otomatik olarak yeniden zamanlayın.
+- **Yük devretme**: Her bir makinede çalışan ne izlemek ve sağlam düğümleri kapsayıcılara başarısız makinelerden yeniden zamanlayın.
+- **Ölçeklendirme**: Container Instances, isteğe bağlı olarak el ile veya otomatik olarak eşleşecek şekilde ekleyip yeniden açın.
+- **Ağ**: Birden çok konak makineler arasında iletişim kurmak denetleyici kapsayıcılar için bir katman ağ sağlayın.
+- **Hizmet bulma**: Konak makineleri arasında taşımak ve IP adreslerini değiştirmek gibi bile birbirlerine otomatik olarak bulmak kapsayıcılar sağlar.
+- **Eşgüdümlü uygulama yükseltmeleri**: Uygulama kapalı kalma süresini önlemek için kapsayıcı yükseltmelerini yönetme ve bir sorun yaşanırsa, geri alma etkinleştirin.
 
-## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Azure Container Instances ile düzenleme: katmanlı bir yaklaşım
+## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Azure Container Instances ile düzenleme: Katmanlı bir yaklaşım
 
 Azure Container Instances, tüm orchestrator platformlar, üzerinde çok kapsayıcılı görevleri yönetmek izin verirken tek bir kapsayıcıyı çalıştırmak için gerekli planlama ve yönetim özellikleri sağlayarak düzenlemesi için katmanlı bir yaklaşım sağlar.
 

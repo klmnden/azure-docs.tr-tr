@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: dech
-ms.openlocfilehash: d758d36602e48f882a0c6c78bf8c36fd28209a7b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e23b65904d16fbd2d8ffe0412603699a9e36aa7e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533944"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099534"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Verilerinizi Azure Cosmos DB'ye geçirmek için Veri geçişi aracını kullanma
 
@@ -63,7 +63,7 @@ Geçiş aracı kaynak koduna GitHub’da [bu depodan](https://github.com/azure/a
 * **Dtui.exe**: Aracı'nın grafik arabirimi sürümü
 * **Dt.exe**: Komut satırı aracı sürümü
 
-## <a name="select-data-source"></a>Veri kaynağı seçme
+## <a name="select-data-source"></a>Veri kaynağı seç
 
 Aracı yükledikten sonra verilerinizin içeri aktarılmasına sıra gelir. Ne tür verileri içeri aktarmak istiyorsunuz?
 
@@ -195,7 +195,7 @@ SQL kaynağına benzer şekilde, içeri aktarma sırasında hiyerarşik ilişkil
 
 DomainInfo.Domain_Name ve RedirectInfo.Redirecting gibi diğer adlara dikkat edin. İç içe geçirme ayırıcısı olarak '.' öğesi belirtildiğinde içeri aktarma aracı içeri aktarma sırasında DomainInfo ve RedirectInfo alt belgelerini oluşturur. Aşağıda, Azure Cosmos DB’de elde edilen bir belge örneği verilmiştir:
 
-*{"DomainInfo": {"Etki_alanı_adı": "ACUS.GOV", "Domain_Name_Address": "https://www.ACUS.GOV"}, "Federal kuruluş": "Amerika Birleşik Devletleri yönetim konferansı", "RedirectInfo": {"Yönlendirme": "0", "Redirect_Destination": ""}, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{"DomainInfo": {"Etki_alanı_adı": "ACUS.GOV", "Domain_Name_Address": "<https://www.ACUS.GOV>"}, "Federal kuruluş": "Amerika Birleşik Devletleri yönetim konferansı", "RedirectInfo": {"Yönlendirme": "0", "Redirect_Destination": ""}, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 İçeri aktarma Aracı (tırnak içine alınmış değerler her zaman dize olarak kabul edilir), tırnak işareti olmayan değerleri CSV dosyaları için tür bilgilerini çıkarmasına dener.  Türler şu sırayla tanımlanır: sayı, tarih saat, boole.  
 

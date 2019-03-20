@@ -17,12 +17,12 @@ ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5693a89bbe6f906fe5f6421830e0030a0586c008
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4265f82048f41b032644994683a71f596b8db1d4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200250"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167125"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Azure AD'de yerel Yöneticiler grubuna yönetme alanına katılmış cihazları
 
@@ -31,7 +31,7 @@ Bir Windows cihazı yönetmek için yerel Yöneticiler grubunun bir üyesi olman
 Bu makalede, üyeliği güncelleştirilmesinin nasıl çalıştığını ve nasıl bir Azure AD katılımı sırasında özelleştirebilirsiniz açıklanmaktadır. Bu makalenin içeriğini uygulanmaz bir **karma** Azure AD'ye katılım.
 
 
-## <a name="how-it-works"></a>Nasıl çalışır?
+## <a name="how-it-works"></a>Nasıl çalışır
 
 Bir Azure AD'ye katılım'ı kullanarak Azure AD ile bir Windows cihazı bağladığınızda, Azure AD aşağıdaki güvenlik ilkelerinin cihazda yerel Yöneticiler grubuna ekler:
 

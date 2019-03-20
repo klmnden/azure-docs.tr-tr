@@ -1,6 +1,6 @@
 ---
 title: Sanal ağ hizmet uç noktaları - Azure Event Hubs | Microsoft Docs
-description: Bu makalede, olan Microsoft.EventHub hizmet uç noktasına bir sanal ağ hakkında bilgi sağlar.
+description: Bu makalede, bir sanal ağa Microsoft.EventHub hizmet uç noktası ekleme hakkında bilgi sağlar.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -9,22 +9,23 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 03/12/2019
 ms.author: shvija
-ms.openlocfilehash: 077202e65c9e63c8ca5ea1a555ccd70bf27028c6
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7b5a62f81238d1ae2b627c395613066350b36efe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232612"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887604"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Azure Event Hubs ile sanal ağ hizmet uç noktaları kullanma
 
 Event Hubs ile tümleştirilmesi [(VNet) sanal ağ hizmet uç noktaları] [ vnet-sep] sanal olana bağlanmış sanal makineleri gibi iş yükleri için Mesajlaşma işlevlerini güvenli erişim sağlar Her iki End'i korunan ağ trafiği yoluyla ağ.
 
-En az bir sanal ağ alt ağı için hizmet uç noktasını bağlanacak yapılandırıldıktan sonra ilgili Event Hubs ad alanı artık her yerde trafiği kabul eder, ancak sanal ağlardaki alt ağlara yetkili. Sanal ağ açısından bakıldığında, sanal ağ alt ağından bir yalıtılmış ağ tüneli Mesajlaşma hizmeti için hizmet uç noktası bir Event Hubs ad alanı bağlama yapılandırır.
+En az bir sanal ağ alt ağı için hizmet uç noktasını bağlı yapılandırıldıktan sonra ilgili Event Hubs ad alanı artık her yerde trafiği kabul eder, ancak sanal ağlardaki alt ağlara yetkili. Sanal ağ açısından bakıldığında, sanal ağ alt ağından bir yalıtılmış ağ tüneli Mesajlaşma hizmeti için hizmet uç noktası bir Event Hubs ad alanı bağlama yapılandırır. 
 
-Sonuç, alt ağ ve ilgili Event Hubs ad alanı, Mesajlaşma Hizmeti uç noktası bir genel IP aralığında olma gözlemlenebilir ağ adresi artma bağlı iş yükleri arasındaki özel ve yalıtılmış bir ilişkidir.
+Sonuç, alt ağ ve ilgili Event Hubs ad alanı, Mesajlaşma Hizmeti uç noktası bir genel IP aralığında olma gözlemlenebilir ağ adresi artma bağlı iş yükleri arasındaki özel ve yalıtılmış bir ilişkidir. Bu davranış bir istisna vardır. Varsayılan olarak, bir hizmet uç noktası etkinleştirildiğinde, sanal ağ ile ilişkili IP Güvenlik Duvarı'nda denyall kuralı etkinleştirilir. Olay hub'ı genel uç noktaya erişimi etkinleştirmek üzere IP Güvenlik Duvarı'nda, belirli IP adresleri ekleyebilirsiniz. 
+
 
 >[!WARNING]
 > Sanal ağlar tümleştirme uygulama diğer Azure Hizmetleri, Event Hubs ile etkileşim engelleyebilirsiniz.
@@ -48,7 +49,7 @@ Sonuç, alt ağ ve ilgili Event Hubs ad alanı, Mesajlaşma Hizmeti uç noktası
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet tümleştirmesi etkin Gelişmiş Güvenlik senaryoları 
 
-Sıkı ve compartmentalized güvenlik gerektiren ve sanal ağ alt ağları compartmentalized hizmetler arasında ayrılmasını sağlarsınız çözümleri genellikle yine de bu bölmeleri içinde bulunan hizmetler arasındaki iletişim yolları gerekir.
+Sıkı ve compartmentalized güvenlik gerektiren ve sanal ağ alt ağları compartmentalized hizmetler arasında ayrılmasını sağlarsınız çözümleri, söz konusu bölmelerden içinde bulunan hizmetler arasındaki iletişim yolları yine de gerekir.
 
 TCP/IP üzerinden HTTPS taşıyan dahil olmak üzere bölmeler arasında anında herhangi IP yönlendirme, güvenlik açıklarına karşı ağ katmanı kötüye kullanılma riskini taşır üzerinde yukarı. Burada iletileri bile, taraflar arasında geçiş olarak diske yazılır, tamamen yalıtılmış iletişim yolları Mesajlaşma hizmetleri sağlar. İlgili ağ yalıtım sınırı bütünlüğü korunur ancak her ikisi de aynı Event Hubs örneğine bağlı olan iki farklı sanal ağlarda bulunan iş yüklerini verimli bir şekilde ve güvenilir bir şekilde aracılığıyla iletileri, iletişim kurabilir.
  
@@ -76,11 +77,11 @@ Aşağıdaki Resource Manager şablonu var olan bir Event Hubs ad alanı için b
 > Olası hiçbir Reddet kural varken, Azure Resource Manager şablonu ayarlanmış varsayılan eylem sahip **"İzin ver"** hangi bağlantıları kısıtlama yoktur.
 > Sanal ağ veya güvenlik duvarı kuralları yaparken, ki değiştirmeli ***"Defaultactıon"***
 > 
-> başlangıç
+> kaynak
 > ```json
 > "defaultAction": "Allow"
 > ```
-> -
+> Bitiş
 > ```json
 > "defaultAction": "Deny"
 > ```

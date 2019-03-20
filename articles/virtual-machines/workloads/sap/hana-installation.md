@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bdf23d1a2142e5c83ceeb72a79ca4fbea65d09c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5b6c636366d494901a34078100290084298de686
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534285"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999830"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Yükleme ve Azure üzerinde SAP HANA (büyük örnekler) yapılandırın
 
@@ -96,11 +96,11 @@ Ek ve kullanışlı SAP SUSE ilgili bağlantıları aşağıda verilmiştir:
 
 - [SUSE Linux site üzerinde SAP HANA](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
 - [SAP için en iyi uygulamalar: Sıraya alma çoğaltma – SAP NetWeaver'ı SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)
-- [ClamSAP – SAP için SLES virüs koruması](http://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (SAP uygulamaları için SLES 12 dahil)
+- [ClamSAP – SAP için SLES virüs koruması](https://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (SAP uygulamaları için SLES 12 dahil)
 
 SAP HANA SLES 12 uygulama için geçerli olan SAP destek notları şunlardır:
 
-- [SAP destek Not #1944799 – SLES işletim sistemi yüklemesi için SAP HANA Kılavuzu](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
+- [SAP destek Not #1944799 – SLES işletim sistemi yüklemesi için SAP HANA Kılavuzu](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
 - [İşletim sistemi için SLES 12 SAP uygulamaları için önerilen ayarları SAP destek Not #2205917 – SAP HANA veritabanı](https://launchpad.support.sap.com/#/notes/2205917/E)
 - [SAP destek Not #1984787 – SUSE Linux Enterprise Server 12: yükleme notları](https://launchpad.support.sap.com/#/notes/1984787)
 - [Destek Not #171356 – SAP yazılım Linux üzerinde SAP:  Genel bilgiler](https://launchpad.support.sap.com/#/notes/1984787)
@@ -131,7 +131,7 @@ SAP NetWeaver mimarisine oluşturulan SAP uygulamalarını, SAP sistemi oluştur
 Sonuç olarak, kullanılabilir ayrı saat sunucusu HANA büyük örnekler üzerinde çalışan SAP HANA veritabanı örnekleri ve Azure Vm'lerinde çalışan SAP uygulama sunucuları tarafından ayarlamanız gerekir. Bir depolama altyapısı büyük örnek damgaları NTP sunucuları ile saatin eşitlenmiş.
 
 
-## <a name="networking"></a>Ağ
+## <a name="networking"></a>Ağ İletişimi
 Biz, Azure sanal ağlarınıza tasarlama ve HANA büyük örnekler için bu sanal ağları bağlama önerileri aşağıdaki belgelerde açıklandığı uyguladığınız varsayılmaktadır:
 
 - [SAP HANA (büyük örnek) genel bakış ve azure'da mimarisi](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
@@ -141,9 +141,9 @@ Bazı ayrıntılar tek birimlerinin ağı hakkında bahseden değer vardır. Her
 
 Mimarinizi için Ethernet ayrıntıları hakkında daha fazla bilgi için bkz. [HLI desteklenen senaryoları](hana-supported-scenario.md).
 
-## <a name="storage"></a>Depolama
+## <a name="storage"></a>Depolama alanı
 
-Depolama alanı düzenini (büyük örnekler) Azure üzerinde SAP HANA için SAP HANA tarafından önerilen yönergeleri SAP aracılığıyla Azure Hizmet Yönetimi yapılandırılır. Bu yönergeleri bölümünde belgelendirilen [SAP HANA depolama gereksinimlerini](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) teknik incelemesi. 
+Depolama alanı düzenini (büyük örnekler) Azure üzerinde SAP HANA için SAP HANA tarafından önerilen yönergeleri SAP aracılığıyla Azure Hizmet Yönetimi yapılandırılır. Bu yönergeleri bölümünde belgelendirilen [SAP HANA depolama gereksinimlerini](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) teknik incelemesi. 
 
 Kaba boyutları farklı HANA büyük örnekleri SKU'ları ile farklı birimler belirtilmiştir [SAP HANA (büyük örnekler) genel bakışı ve mimarisi azure'da](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -207,10 +207,10 @@ HANA büyük örnekleri kullanılan depolama alanı dosya boyutu sınırlaması 
 > [!IMPORTANT]
 > Veri büyür ve HANA büyük Örnek Depolama 16 TB dosya boyutu sınırını aşan çalışılırken HANA önlemek için aşağıdaki parametreleri SAP HANA global.ini yapılandırma dosyasında ayarlamanız gerekir
 > 
-- datavolume_striping = true
-- datavolume_striping_size_gb 15000 =
-- Ayrıca SAP bkz Not [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
-- SAP Not unutmayın [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+> - datavolume_striping = true
+> - datavolume_striping_size_gb 15000 =
+> - Ayrıca SAP bkz Not [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - SAP Not unutmayın [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 SAP HANA 2.0 ile hdbparam framework kullanım dışıdır. Sonuç olarak, SQL komutlarını kullanarak parametreler ayarlanmalıdır. Daha fazla bilgi için [#2399079 SAP notuna göz atın: HANA 2 hdbparam saydamlığından](https://launchpad.support.sap.com/#/notes/2399079).

@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 0d20d147bc77698e97630ad3bd5e58348db45f5b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8282838f778516e31080960400e5b1435f0b5673
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187483"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57866335"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>Hızlı Başlangıç: Bing Web araması REST API'si ve Java kullanarak web araması
 
-Bu hızlı başlangıçta, Bing Web araması API'si, ilk çağrı yapmak ve JSON yanıtını almak için kullanın. Bu Java uygulaması API'sine arama isteği gönderir ve yanıtını görüntüler. Bu uygulama Java ile yazılmış olmakla birlikte API, çoğu programlama diliyle uyumlu bir RESTful Web hizmetidir.
+Bu hızlı başlangıçta, Bing Web araması API'si, ilk çağrı yapmak ve JSON yanıtını almak için kullanın. Bu Java uygulaması, API için bir arama isteği gönderir ve yanıtı gösterir. Bu uygulama Java ile yazılmış olmakla birlikte API, çoğu programlama diliyle uyumlu bir RESTful Web hizmetidir.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Bu hızlı başlangıcı çalıştırmak için aşağıdakilere ihtiyacınız olacaktır:
 
 * [JDK 7 veya 8](https://aka.ms/azure-jdks)
@@ -54,7 +55,7 @@ Maven kullanıyorsanız `POM.xml` içinde Gson öğesini tanımlayın. Gson içi
 <dependency>
     <groupId>com.google.code.gson</groupId>
     <artifactId>gson</artifactId>
-    <version>2.8.1</version>
+    <version>2.8.5</version>
 </dependency>
 ```
 
@@ -72,7 +73,7 @@ public class BingWebSearch {
 
 ## <a name="define-variables"></a>Değişkenleri tanımlama
 
-Bu kod `subscriptionKey`, `host`, `path` ve `searchTerm` tanımlaması yapar. Uç noktasının geçerli olduğunu doğrulayın ve `subscriptionKey` değerini Azure hesabınızdan geçerli bir abonelik anahtarı ile değiştirin. `searchTerm` için değeri değiştirerek arama sorgusunu değiştirebilirsiniz.
+Bu kod `subscriptionKey`, `host`, `path` ve `searchTerm` tanımlaması yapar. Uç noktasının geçerli olduğunu doğrulayın ve `subscriptionKey` değerini Azure hesabınızdan geçerli bir abonelik anahtarı ile değiştirin. `searchTerm` için değeri değiştirerek arama sorgusunu değiştirebilirsiniz. Bu kodu eklemeyi unutmayın `BingWebSearch` yukarıda da belirtildiği gibi sınıf.
 
 ```java
 // Enter a valid subscription key.
@@ -184,8 +185,8 @@ class SearchResults{
 Son adım kodunuzu derleyip çalıştırmaktır! Komutlar şunlardır:
 
 ```powershell
-javac BingWebSearch.java -classpath ./gson-2.8.1.jar -encoding UTF-8
-java -cp ./gson-2.8.1.jar BingWebSearch
+javac BingWebSearch.java -classpath ./gson-2.8.5.jar -encoding UTF-8
+java -cp ./gson-2.8.5.jar BingWebSearch
 ```
 
 Kodunuzu bizimkiyle karşılaştırmak isterseniz [GitHub'daki örnek kodu inceleyebilirsiniz](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingWebSearchv7.java).

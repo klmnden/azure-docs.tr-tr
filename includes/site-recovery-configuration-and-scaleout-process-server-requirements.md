@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 4346b347994f49774584caf31a96ff2f81fdc0e1
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 371cbcc50b574f95e8d9ba4efe79058b2b25a8ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701225"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58016673"
 ---
 **Yapılandırma/işlem sunucusu gereksinimleri**
 
@@ -31,12 +31,12 @@ Boş disk alanı (bekletme diski) | 600 GB
 İşletim sistemi | Windows Server 2012 R2 <br> Windows Server 2016
 İşletim sistemi yerel ayarı | İngilizce (en-us)
 Windows Server rolleri | Bu rolleri etkinleştirmeyin: <br> - Active Directory Domain Services <br>- İnternet Bilgi Hizmetleri <br> - Hyper-V 
-Grup İlkeleri | Bu grup ilkeleri etkinleştirme: <br> -Komut istemine erişimi engelleyin. <br> -Kayıt defteri düzenleme araçlarına erişimi engelleyin. <br> -Mantıksal dosya ekleri için güven. <br> -Betik yürütmeyi açma. <br> [Daha fazla bilgi](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+Grup İlkeleri | Bu grup ilkeleri etkinleştirme: <br> -Komut istemine erişimi engelleyin. <br> -Kayıt defteri düzenleme araçlarına erişimi engelleyin. <br> -Mantıksal dosya ekleri için güven. <br> -Betik yürütmeyi açma. <br> [Daha fazla bilgi edinin](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | -Önceden mevcut olan varsayılan Web sitesi <br> -Önceden var olan Web sitesi/443 numaralı bağlantı noktasını dinlemeye uygulama <br>-Etkinleştir [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Etkinleştir [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı 
 | 
 **AĞ AYARLARI** | 
 IP adresi türü | Statik 
-Bağlantı Noktaları | 443 (Denetim kanalı düzenleme)<br>9443 (Veri aktarımı) 
+Bağlantı noktaları | 443 (Denetim kanalı düzenleme)<br>9443 (Veri aktarımı) 
 NIC türü | VMXNET3 (yapılandırma sunucusu VMware VM ise)
  |
 **Internet erişimi** (sunucunun aşağıdaki URL'lere - doğrudan veya proxy üzerinden erişmesi):|
@@ -48,7 +48,7 @@ https:\//management.azure.com | Çoğaltma yönetimi işlemleri ve düzenleme i�
 *.services.visualstudio.com | (İsteğe bağlı) telemetri amaçlar için kullanılır
 time.nist.gov | Sistem ile genel saat arasındaki saat eşitlemesini denetlemek için kullanılır.
 time.windows.com | Sistem ile genel saat arasındaki saat eşitlemesini denetlemek için kullanılır.
-- https:\//login.microsoftonline.com <br> -https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> -https:\//graph.windows.net <br> -https:\//login.windows.net <br> - https:\//www.live.com <br> -https:\//www.microsoft.com | OVF ayarlamak bu URL'lere erişimi olmalıdır. Erişim denetimi ve kimlik yönetimi için Azure Active Directory tarafından kullanılır
+| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF ayarlamak bu URL'lere erişimi olmalıdır. Erişim denetimi ve kimlik yönetimi için Azure Active Directory tarafından kullanılır
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | MySQL indirmeyi tamamlamak için
 |
 **YÜKLENECEK YAZILIM** | 

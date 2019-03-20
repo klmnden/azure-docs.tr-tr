@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 7b99dcf621eac90d4b75d6827102b656f95aafbb
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 8d369800bdc9817856eeb7039fe47e5b870735ba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958890"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107381"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Küme değişen talepleri karşılamak için genişleme yönetme
 
@@ -42,7 +42,7 @@ Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha fa
     **Ölçütler**
 
     | Ayar | Açıklama ve değer |
-    | --- | --- | --- |
+    | --- | --- |
     | **Zaman toplama** | Gibi bir toplama ölçütü seçin **ortalama**. |
     | **Ölçüm adı** | Ölçeklendirme işlemi, aşağıdakiler gibi temel alınmasını istediğiniz ölçümü seçin **önbellek kullanımı**. |
     | **Zaman dilimi İstatistiği** | Arasında seçim **ortalama**, **Minimum**, **maksimum**, ve **toplam**. |
@@ -54,7 +54,7 @@ Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha fa
     **Eylem**
 
     | Ayar | Açıklama ve değer |
-    | --- | --- | --- |
+    | --- | --- |
     | **İşlem** | Ölçeklendirme veya ölçeği genişletmek için uygun seçeneği belirleyin. |
     | **Örnek sayısı** | Düğümleri veya örneklerini eklemek veya bir ölçüm koşul karşılandığında kaldırmak istiyorsanız sayısını seçin. |
     | **Seyrek erişimli (dakika)** | Ölçek işlemleri arasında beklenecek bir uygun zaman aralığı seçin. Varsayılan beş dakika ile başlayın. |
@@ -65,7 +65,7 @@ Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha fa
 1. İçinde **örnek limitleri** bölümünde sol tarafta, her ayar için değerler sağlayın.
 
     | Ayar | Açıklama ve değer |
-    | --- | --- | --- |
+    | --- | --- |
     | **En az** | Kümenizi aşağıdaki bağımsız olarak kullanımı Ölçekle örnek sayısı. |
     | **En fazla** | Kümenizi yukarıdaki kullanımı bağımsız olarak ölçeklendirme olmaz örnek sayısı. |
     | **Varsayılan** | Varsayılan örnek sayısı. Kaynak ölçümlerin okunmasıyla ile ilgili sorun varsa, bu ayar kullanılır. |

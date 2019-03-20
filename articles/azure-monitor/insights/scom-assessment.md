@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 596bc86033fdeaf872f1facfebbf47780893b7d2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5b4da39d56b86f79727590076ac60b87541643e1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455952"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082849"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ortamınızı System Center Operations Manager sistem durumunu denetleyin (Önizleme) çözümü ile en iyi duruma getirme
 
@@ -44,11 +44,11 @@ Yapılan öneriler bilgi ve müşteri binlerce Microsoft mühendisinin göre kaz
 
 Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın.
 
- - Sistem durumu denetimi çözümü Log Analytics'te kullanabilmeniz için önce çözümü yüklenmiş olması gerekir. Çözüm yükleme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
+- Sistem durumu denetimi çözümü Log Analytics'te kullanabilmeniz için önce çözümü yüklenmiş olması gerekir. Çözüm yükleme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
- - Çözüm çalışma alanına ekledikten sonra **sistem Center Operations Manager sistem durumu denetimi** Panodaki kutucuk bir ek yapılandırma gerekli iletisi görüntüler. Kutucuğuna ve sayfasında belirtilen yapılandırma adımlarını izleyin
+- Çözüm çalışma alanına ekledikten sonra **sistem Center Operations Manager sistem durumu denetimi** Panodaki kutucuk bir ek yapılandırma gerekli iletisi görüntüler. Kutucuğuna ve sayfasında belirtilen yapılandırma adımlarını izleyin
 
- ![System Center Operations Manager Pano kutucuğu](./media/scom-assessment/scom-configrequired-tile.png)
+  ![System Center Operations Manager Pano kutucuğu](./media/scom-assessment/scom-configrequired-tile.png)
 
 > [!NOTE]
 > System Center Operations Manager yapılandırma yapılabilir Log analytics'te çözüm yapılandırma sayfasında belirtilen adımları izleyerek bir komut dosyası kullanma.

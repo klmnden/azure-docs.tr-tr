@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/3/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52b347aef240f2338aedff2c2a1a3cd53743dc27
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 5a25ba889ebde750937f88e447123263a82d5627
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114272"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896832"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki tümleşik güvenlik çözümleri
 Bu belge Azure Güvenlik Merkezi'ne bağlanmış olan güvenlik çözümlerini yönetmenize ve yenilerini eklemenize yardımcı olur.
@@ -34,7 +34,7 @@ Güvenlik Merkezi, Azure'daki tümleşik güvenlik çözümlerini etkinleştirme
 Tümleşik güvenlik çözümleri şu anda aşağıdakileri içermektedir:
 
 - Web uygulaması güvenlik duvarı ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html) ve [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
-- Yeni nesil güvenlik duvarı ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) ve [Palo Alto Networks](https://www.paloaltonetworks.com/products))
+- Yeni nesil güvenlik duvarı ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](https://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](https://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) ve [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - Güvenlik açığı değerlendirmesi ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) ve [Rapid7](https://www.rapid7.com/products/insightvm/))
 
 > [!NOTE]
@@ -45,7 +45,7 @@ Tümleşik güvenlik çözümleri şu anda aşağıdakileri içermektedir:
 ## <a name="how-security-solutions-are-integrated"></a>Güvenlik çözümlerinin tümleştirilme şekli
 Güvenlik Merkezinden dağıtılan Azure güvenlik çözümleri otomatik olarak bağlanır. Aşağıdakiler dahil olmak üzere diğer güvenlik verisi kaynaklarına da bağlanabilirsiniz:
 
-- Azure AD Kimlik Koruması
+- Azure AD Identity Protection
 - Şirket içinde veya diğer bulutlarda çalışan bilgisayarlar
 - Common Event Format (CEF) destekli güvenlik çözümü
 - Microsoft Advanced Threat Analytics
@@ -60,7 +60,7 @@ Güvenlik Merkezinden dağıtılan Azure güvenlik çözümleri otomatik olarak 
 
 3. Güvenlik Merkezi menüsünde **Güvenlik çözümleri**’ni seçin.
 
-  ![Güvenlik Merkezine Genel Bakış](./media/security-center-partner-integration/overview.png)
+   ![Güvenlik Merkezine Genel Bakış](./media/security-center-partner-integration/overview.png)
 
 **Güvenlik çözümleri** altında tümleşik Azure güvenlik çözümlerinin sistem durumu hakkındaki bilgileri görüntüleyebilir ve temel yönetim görevlerini gerçekleştirebilirsiniz. Ayrıca Common Event Format (CEF) biçimindeki Azure Active Directory Kimlik Koruması uyarılarını ve güvenlik duvarı günlükleri gibi diğer güvenlik veri kaynağı türlerini de bağlayabilirsiniz.
 
@@ -82,12 +82,12 @@ Bir iş ortağı çözümünün durumunu olabilir:
 >
 >
 
-2. Seçin **görünümü** ek bilgileri veya seçenekleri için içerir:
+1. Seçin **görünümü** ek bilgileri veya seçenekleri için içerir:
 
-  - **Çözüm Konsolu**. Bu çözüm için yönetim deneyimi açar.
-  - **Bağlantı VM**. Bağlantı uygulamalar dikey penceresi açılır. Burada, kaynakları iş ortağı çözümüne bağlayabilirsiniz.
-  - **Çözümü Sil**.
-  - **Yapılandırma**.
+   - **Çözüm Konsolu**. Bu çözüm için yönetim deneyimi açar.
+   - **Bağlantı VM**. Bağlantı uygulamalar dikey penceresi açılır. Burada, kaynakları iş ortağı çözümüne bağlayabilirsiniz.
+   - **Çözümü Sil**.
+   - **Yapılandırma**.
 
    ![İş ortağı çözümü ayrıntısı](./media/security-center-partner-solutions/partner-solutions-detail.png)
 
@@ -137,7 +137,7 @@ Ayrıca, Güvenlik Merkezi’ne zaten bağlı bir Syslog hizmeti ile birlikte bi
 3. Güvenlik Merkezi ana menüsünde **Güvenlik Çözümleri**’ni seçin.
 4. Güvenlik Çözümleri sayfasındaki **Veri kaynakları ekle (3)** altında, **Common Event Format** içindeki **Ekle**’ye tıklayın.
 
-    ![Veri kaynağı ekleme](./media/quick-security-solutions/quick-security-solutions-fig2.png)
+    ![Veri kaynağı ekle](./media/quick-security-solutions/quick-security-solutions-fig2.png)
 
 5. Common Event Format Günlükleri sayfasında ikinci adım olan **Gerekli günlükleri UDP bağlantı noktası 25226'daki aracıya göndermek için Syslog iletmeyi yapılandırın**’ı genişletin ve Linux bilgisayarınızda aşağıdaki yönergeleri izleyin:
 

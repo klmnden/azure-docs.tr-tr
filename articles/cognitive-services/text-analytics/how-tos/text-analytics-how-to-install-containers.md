@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/21/2019
 ms.author: diberry
-ms.openlocfilehash: 9e4935c9aea87faa07481652ed70032c226e11d5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 6ad48bb6e7d9c2fd0365b26999b67ad8c62fc42c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675271"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000250"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Yükleme ve metin analizi kapsayıcıları çalıştırma
 
@@ -62,7 +62,7 @@ Microsoft kapsayıcı kayıt defterinden kapsayıcı görüntülerini metin anal
 |-----------|------------|
 |Anahtar İfade Ayıklama | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 |Dil Algılama | `mcr.microsoft.com/azure-cognitive-services/language` |
-|Duygu Analizi | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+|Yaklaşım Analizi | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
 Kullanım [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) Microsoft kapsayıcı kayıt defterinden bir kapsayıcı görüntüsü indirilemedi komut...
 
@@ -140,13 +140,13 @@ Daha fazla [örnekler](../text-analytics-resource-container-config.md#example-do
 
 Kapsayıcı, REST tabanlı sorgu tahmin uç nokta API'leri sağlar. 
 
-Ana bilgisayarını kullanmak https://localhost:5000, kapsayıcı API'leri için.
+Ana bilgisayarını kullanmak `https://localhost:5000`, kapsayıcı API'leri için.
 
 ## <a name="stop-the-container"></a>Kapsayıcı Durdur
 
 [!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Sorun giderme
+## <a name="troubleshooting"></a>Sorun Giderme
 
 Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](../text-analytics-resource-container-config.md#mount-settings) ve günlüğe kaydetme etkin, kapsayıcı başlatma veya kapsayıcı çalıştırma sırasında gerçekleşen sorunları gidermek yararlı olan günlük dosyalarını oluşturur. 
 
@@ -154,7 +154,7 @@ Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](../text-analyt
 
 [!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="billing"></a>Faturalandırma
+## <a name="billing"></a>Faturalama
 
 Azure için fatura, kullanarak metin analizi kapsayıcıları Gönder bir _metin analizi_ Azure hesabınız kaynaktaki. 
 

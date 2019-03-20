@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: aa4d42a53e6fb8ea236a9d544102aab3dff19013
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129242"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084819"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight ve Azure Data Lake depolama Gen1 üzerinde Storm için performans ayarlama Kılavuzu
 
@@ -82,7 +82,7 @@ Spout ayarlamak için aşağıdaki ayarları değiştirebilirsiniz.
 
 - **En fazla spout bekleyen: topology.max.spout.pending**. Bu ayar, herhangi bir zamanda (henüz onaylanır topolojideki tüm düğümlerde) uçuş spout iş parçacığı başına de olabilir başlıkların sayısını belirler.
 
- Yapmak iyi bir hesaplama, tanımlama gruplarının her boyutunu tahmin etmektir. Sonra ne kadar bellek bir spout iş parçacığı olduğunu göstermektedir. Bu değer tarafından ayrılmış bir iş parçacığına ayrılan toplam bellek max spout bekleyen parametresi için üst sınır vermeniz gerekir.
+  Yapmak iyi bir hesaplama, tanımlama gruplarının her boyutunu tahmin etmektir. Sonra ne kadar bellek bir spout iş parçacığı olduğunu göstermektedir. Bu değer tarafından ayrılmış bir iş parçacığına ayrılan toplam bellek max spout bekleyen parametresi için üst sınır vermeniz gerekir.
 
 ## <a name="tune-the-bolt"></a>Bolt ayarlama
 Data Lake depolama Gen1 için yazarken boyutu eşitleme ilkesi (istemci tarafı arabelleği) 4 MB olarak ayarlayın. Arabellek boyutu olduğunda bir temizlemeye veya hsync() sonra gerçekleştirilen bu değerde. Data Lake depolama Gen1 sürücü çalışan VM üzerinde açıkça bir hsync() gerçekleştirmediğiniz sürece bu arabelleğe otomatik olarak yapar.
@@ -98,7 +98,7 @@ Bolt tarafından açıkça kabul edilen kadar içerisindeki Storm, bir spout iç
 Data Lake depolama Gen1 ile ilgili en iyi performans için bolt sahip tanımlama grubu veri 4 MB arabellek. Ardından bir Data Lake depolama Gen1 bir 4 MB'lık yazma olarak son geri yazma. Veri deposuna başarıyla yazıldıktan sonra (arama hflush()) tarafından bolt veri spout kabul. Burada verilen örnek bolt yaptığı budur. Çok sayıda hflush() çağrı yapılmadan önce diziler ve kabul edilen tanımlama grubu tutmak için kullanılabilir. Ancak, bu tutacak spout gerekir ve bu nedenle bellek miktarı arttıkça JVM gerekli uçuştaki başlıkların sayısını artırır.
 
 > [!NOTE]
-Uygulamalar, diziler daha sık (en veri boyutu 4 MB'den küçük) diğer olmayan performansla ilgili nedenlerle onaylamak için bir gereksinim olabilir. Ancak, depolama arka ucu için g/ç aktarım hızını etkileyebilir. Bu bir tradeoff bolt'un g/ç performansı karşı dikkatlice değerlendirin.
+> Uygulamalar, diziler daha sık (en veri boyutu 4 MB'den küçük) diğer olmayan performansla ilgili nedenlerle onaylamak için bir gereksinim olabilir. Ancak, depolama arka ucu için g/ç aktarım hızını etkileyebilir. Bu bir tradeoff bolt'un g/ç performansı karşı dikkatlice değerlendirin.
 
 4 MB'lık arabellek dolduracak şekilde uzun sürer diziler hızı yüksek olmayan ise bu azaltıcı göz önünde bulundurun:
 * Boltlar sayısının azaltılması, bu nedenle vardır doldurmak için daha az arabellek.

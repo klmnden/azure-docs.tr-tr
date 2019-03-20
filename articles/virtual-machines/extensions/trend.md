@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: roiyz
-ms.openlocfilehash: ddb999c252f0802ef57942de694340ae29f2d8ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0bb49d3d75b88f197a42e02f03f89480563537ef
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240367"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005484"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Bir Windows VM’de Hizmet Olarak Trend Micro Deep Security yükleme ve yapılandırma
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -34,7 +34,7 @@ Trend Micro geçerli bir abonelik için bir şirket içi çözüm varsa, Azure s
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>Yeni bir sanal makine üzerinde Deep Security Agent'ı yükleyin
 
-[Azure portalında](http://portal.azure.com) , Trend Micro güvenlik uzantıyı görüntüden kullandığınızda yüklemenize imkan tanır **Market** sanal makine oluşturmak için. Tek bir sanal makine oluşturuyorsanız, portalı kullanarak koruma için Trend Micro eklemek için kolay bir yoludur.
+[Azure portalında](https://portal.azure.com) , Trend Micro güvenlik uzantıyı görüntüden kullandığınızda yüklemenize imkan tanır **Market** sanal makine oluşturmak için. Tek bir sanal makine oluşturuyorsanız, portalı kullanarak koruma için Trend Micro eklemek için kolay bir yoludur.
 
 Bir giriş kullanarak **Market** açılır yardımcı olacak bir sihirbaz sanal Makine'yi ayarlayın. Kullandığınız **ayarları** dikey penceresinde, Trend Micro güvenlik uzantıyı yüklemek için sihirbazın üçüncü Pano.  Genel yönergeler için bkz: [Azure Portal'da Windows çalıştıran bir sanal makine oluşturma](../windows/classic/tutorial.md).
 
@@ -94,4 +94,4 @@ Aracı yüklendiğinde çalıştırmaya başlamak birkaç dakika sürer. Bundan 
 
 <!-- Link references -->
 [Windows Server çalıştıran bir sanal makine için oturum açma]:../windows/classic/connect-logon.md
-[Azure VM uzantıları ve özellikleri]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Azure VM uzantıları ve özellikleri]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

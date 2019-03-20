@@ -1,21 +1,21 @@
 ---
-title: API Management'ı kullanarak Machine Learning Studio web hizmetlerini yönetme
+title: API Yönetimi'ni kullanarak web hizmetlerini yönetme
 titleSuffix: Azure Machine Learning Studio
 description: API Management kullanarak AzureML web hizmetlerini yönetmek nasıl gösteren bir kılavuz. Kullanıcı erişimi, kullanımı azaltma ve izleme Panosu tanımlayarak, REST API uç noktalarını yönetin.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: d4029d7f15918ea75ebcb10bfa8f8f7657eb11ca
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342590"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852901"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>API Yönetimi'ni kullanarak Azure Machine Learning Studio web hizmetlerini yönetme
 ## <a name="overview"></a>Genel Bakış
@@ -182,11 +182,11 @@ Yeniden adlandırın **SimpleFeatureHashingExperiment**. Genişletin **kaydedilm
 
 Genişletin **veri dönüştürme** ve **işleme** sürükleyin **kümesindeki sütunları seçme** sürükleyip denemenize. Connect **incelemeleri Amazon'dan kitap** için **veri kümesinde sütun seçme**.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![Kitap incelemeleri veri kümesi modülü bir proje sütunları modülüne bağlayın](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 Tıklayın **kümesindeki sütunları seçme** ve ardından **Sütun seçiciyi Başlat** seçip **Sütun2**. Bu değişiklikleri uygulamak için onay işaretine tıklayın.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![Sütun adları kullanarak sütunları seçin](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 Genişletin **metin analizi** sürükleyin **özellik karma** denemeyi sürükleyin. Connect **veri kümesinde sütun seçme** için **özellik karma**.
 

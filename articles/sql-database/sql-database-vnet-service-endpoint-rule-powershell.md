@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: 5cb1f04d5b7d6470fc5ab6920b2edd84c946fbf8
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 6713182003a280c1d53e904209159b55b4ad01c6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309998"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855580"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell:  SQL sanal hizmet uç noktası ve sanal ağ kuralı oluşturma
 
@@ -37,6 +37,8 @@ Bir kural oluşturmak için motivasyonlardan açıklanmıştır: [Azure SQL veri
 > Değerlendirme veya sanal hizmet uç noktası eklemek için tek ihtiyacınız olan, *tür adı* alt ağınız için SQL veritabanı için daha önceden atlayabilirsiniz [PowerShell Betiği doğrudan](#a-verify-subnet-is-endpoint-ps-100).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 ## <a name="major-cmdlets"></a>Ana cmdlet'leri
 

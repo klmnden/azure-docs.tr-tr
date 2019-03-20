@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14957a94dbe8330553a4090e22d80d6cc2ee06eb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 70513675d09a663c65c6f5b3e18059467a8ba388
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217335"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109333"
 ---
 # <a name="managing-access-to-apps"></a>Uygulamalara erişimi yönetme
 Devam eden erişim yönetimi, kullanım değerlendirme ve raporlama bir uygulama, kuruluşunuzun kimlik sistemine tümleştirildikten sonra bir mücadele haline devam edin. Çoğu durumda, BT yöneticileri veya Yardım Masası sahip devam eden etkin bir rol, uygulamalara erişimi yönetme gerçekleştirilecek. Bazı durumlarda, atama, genel veya bölümsel BT ekibi tarafından gerçekleştirilir. Atama karar BT kolaylaştırır önce onay gerektiren iş karar mercii Devredilmiş olması sık yöneliktir atama.  Tümleştirme mevcut otomatik kimlik ve erişim yönetimi sistemi kullanarak, rol tabanlı erişim denetimi (RBAC) veya öznitelik tabanlı erişim denetimi (ABAC) gibi diğer kuruluşlar yaparlar. Tümleştirme ve kural geliştirme özelleştirilmiş ve pahalı olma eğilimindedir. İzleme veya her iki Yönetim yaklaşımını üzerinde raporlama kendi ayrı, yüksek maliyetli ve karmaşık bir yatırımdır.
@@ -29,7 +29,7 @@ Devam eden erişim yönetimi, kullanım değerlendirme ve raporlama bir uygulama
 
 * [Yeni veya var olan uygulamaları](configure-single-sign-on-portal.md)
 
- Azure AD'nin uygulama ataması iki birincil atama modlarını odaklanır:
+  Azure AD'nin uygulama ataması iki birincil atama modlarını odaklanır:
 
 * **Tek atama** directory genel yönetici izinlerine sahip bir BT yöneticisi, bireysel kullanıcı hesapları'yi seçin ve bunları uygulamaya erişim verin.
 * **Grup tabanlı atama (yalnızca Azure AD Ücretli)** directory genel yönetici izinlerine sahip bir BT yöneticisi uygulamaya bir grup atayabilir. Belirli kullanıcıların erişimini mi grubunun üyeleri, uygulamaya erişmeye çalıştıklarında zaman oldukları tarafından belirlenir. Diğer bir deyişle, bir yönetici, "herhangi bir geçerli atanan grubun üyesi uygulama erişimi olan" belirten bir atama kuralı etkili bir şekilde oluşturabilirsiniz. Bu atama seçeneğini kullanarak, yöneticiler Azure AD Grup Yönetim seçenekleri dahil olmak üzere, birini yararlanabilir [öznitelik tabanlı dinamik gruplar](../fundamentals/active-directory-groups-create-azure-portal.md), dış sistem gruplarına (örneğin, şirket içi Active Directory veya Workday), veya yönetici tarafından yönetilen veya self-servis yönetilen grubu. Tek bir grup, genel yönetim karmaşıklığı azaltır, uygulamaları atama benzeşimi ataması kuralları paylaşabilirsiniz emin olmak için birden fazla uygulama kolayca atanabilir. İç içe geçmiş grup üyelikleri grup tabanlı atama uygulamalar için şu anda desteklenmeyen unutmayın.

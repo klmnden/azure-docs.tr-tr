@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89e4d1993e24eeee512dd4866d3c8f9705b8b17f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: cce100c4e8aa33a9180f5657756b11d6c6e34920
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407689"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838876"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Öğretici: AuditBoard ile Azure Active Directory Tümleştirme
 
@@ -144,7 +144,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

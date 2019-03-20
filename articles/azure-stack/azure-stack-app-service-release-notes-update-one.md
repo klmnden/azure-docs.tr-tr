@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: 9288ffa406b0e5765b35fa9b23aa13dee5754e9a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 99b4134f8f2d6ed2f521a7f488c33e06c0f436bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240038"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58165837"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Güncelleştirme 1 sürüm notları Azure Stack üzerinde App Service'e
 
@@ -58,7 +58,7 @@ Azure Stack güncelleştirme 1 üzerinde Azure App Service, aşağıdaki gelişt
 - Güncelleştirmeleri **App Service Kiracı, yönetici, İşlevler portalları ve Kudu Araçları**. Azure Stack portalı SDK sürümü ile tutarlı.
 
 - **Aşağıdaki uygulama çerçeveleri ve araçları güncelleştirmeleri**:
-    - Eklenen **.Net Core 2.0** desteği
+    - Eklenen **.NET Core 2.0** desteği
     - Eklenen **Node.JS** sürümleri:
         - 6.11.2
         - 6.11.5
@@ -203,13 +203,13 @@ Bu sürümde site yuvası takas ayrılır. İşlevselliğini geri yüklemek içi
 
 Mevcut bir sanal ağ ve dosya sunucunuza bağlanmak için bir dahili IP adresine dağıtmayı seçerseniz, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği etkinleştirme bir giden güvenlik kuralı eklemeniz gerekir. Bunu yapmak için Yönetim Portalı'nda WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
 
-- Kaynak: Herhangi biri
+- Kaynak: Herhangi
 - Kaynak bağlantı noktası aralığı: *
 - Hedef: IP Adresleri
 - Hedef IP adresi aralığı: Dosya sunucusu için IP aralığı
 - Hedef bağlantı noktası aralığı: 445
 - Protokol: TCP
-- Eylem: İzin Ver
+- Eylem: İzin ver
 - Önceliği: 700
 - Ad: Outbound_Allow_SMB445
 

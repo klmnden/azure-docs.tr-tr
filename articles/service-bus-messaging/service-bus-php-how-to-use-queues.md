@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: aschhab
-ms.openlocfilehash: 996fcbe350f14bb22b8927d9d19f63636b1d7894
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 9915392f7bb12b31dce6e141383a48b69c6f70a9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585518"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842779"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>PHP ile Service Bus kuyruklarını kullanma
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -34,7 +34,7 @@ Bu kılavuzda, Service Bus kuyruklarını kullanma işlemini göstermektedir. PH
 Sınıflarda başvuran Azure Blob hizmete erişen bir PHP uygulaması oluşturmak için tek gereksinim olmasıdır [PHP için Azure SDK'sı](../php-download-sdk.md) gelen kod içinde. Herhangi bir geliştirme aracı, uygulama veya not defteri oluşturmak için kullanabilirsiniz.
 
 > [!NOTE]
-> PHP yüklemenizi de olmalıdır [OpenSSL uzantısı](http://php.net/openssl) yüklenir ve etkinleştirilir.
+> PHP yüklemenizi de olmalıdır [OpenSSL uzantısı](https://php.net/openssl) yüklenir ve etkinleştirilir.
 > 
 > 
 
@@ -91,7 +91,7 @@ $connectionString = "Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageShare
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 ```
 
-## <a name="create-a-queue"></a>Bir kuyruk oluşturma
+## <a name="create-a-queue"></a>Kuyruk oluştur
 Service Bus kuyruklarına yönelik yönetim işlemlerini gerçekleştirebilirsiniz `ServiceBusRestProxy` sınıfı. A `ServiceBusRestProxy` nesnesi aracılığıyla oluşturulduğunda `ServicesBuilder::createServiceBusService` belirteci yönetme izni kapsülleyen bir uygun bir bağlantı dizesi ile fabrika yöntemi.
 
 Aşağıdaki örnek, örneği gösterilmiştir bir `ServiceBusRestProxy` ve çağrı `ServiceBusRestProxy->createQueue` adında bir kuyruk oluşturmak için `myqueue` içinde bir `MySBNamespace` hizmet ad alanı:
@@ -225,6 +225,6 @@ Ayrıca daha fazla bilgi için ziyaret [PHP Geliştirici Merkezi](https://azure.
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[require_once]: http://php.net/require_once
+[require_once]: https://php.net/require_once
 
 

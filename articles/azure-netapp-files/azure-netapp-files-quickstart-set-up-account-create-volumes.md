@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstarts
 ms.date: 2/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 76c1543f5d9979d46b303f12c495dcaa403cef1d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 363589116cc7b936358ce0b16cbaba9a42c66234
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589126"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078083"
 ---
 # <a name="set-up-azure-netapp-files-and-create-a-volume"></a>Azure NetApp Files’ı ayarlama ve birim oluşturma 
 
@@ -56,14 +56,14 @@ Genel Önizleme programına ve Microsoft.NetApp kaynak sağlayıcısına erişme
      ![Yeni NetApp hesabı oluşturma](../media/azure-netapp-files/azure-netapp-files-create-new-netapp-account.png)
 
 3. Yeni NetApp hesabı penceresinde aşağıdaki bilgileri sağlayın: 
-    1. Girin **myaccount1** hesap adı için. 
-    2. Aboneliğinizi seçin.
-    3. Seçin **Yeni Oluştur** yeni kaynak grubu oluşturun. Girin **myRG1** için kaynak grubu adı. **Tamam** düğmesine tıklayın. 
-    4. Hesap konumunuzu seçin.  
+   1. Girin **myaccount1** hesap adı için. 
+   2. Aboneliğinizi seçin.
+   3. Seçin **Yeni Oluştur** yeni kaynak grubu oluşturun. Girin **myRG1** için kaynak grubu adı. **Tamam**'ı tıklatın. 
+   4. Hesap konumunuzu seçin.  
 
-    ![Yeni NetApp hesabı penceresi](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
+      ![Yeni NetApp hesabı penceresi](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)  
 
-    ![Kaynak grubu penceresi](../media/azure-netapp-files/azure-netapp-files-resource-group-window.png)
+      ![Kaynak grubu penceresi](../media/azure-netapp-files/azure-netapp-files-resource-group-window.png)
 
 4. Tıklayın **Oluştur** yeni NetApp hesabınızı oluşturmak için.
 
@@ -86,7 +86,7 @@ Genel Önizleme programına ve Microsoft.NetApp kaynak sağlayıcısına erişme
     2. Seçin **Premium** hizmet düzeyi için. 
     3. Belirtin **4 (TiB)** havuz boyutunu olarak. 
 
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**'ı tıklatın.
 
 ## <a name="create-a-volume-for-azure-netapp-files"></a>Azure NetApp Files için birim oluşturma
 
@@ -99,22 +99,22 @@ Genel Önizleme programına ve Microsoft.NetApp kaynak sağlayıcısına erişme
     ![Ekle birimler'e tıklayın](../media/azure-netapp-files/azure-netapp-files-click-add-volumes.png)  
 
 3. Oluşturma bir birim penceresi, birim için bilgileri sağlayın: 
-    1. Girin **myvol1** birim adı. 
-    2. Girin **myfilepath1** birimi için dışarı aktarma yolu oluşturmak için kullanılan dosya yolu.
-    3. Kapasite havuzunuzu seçin (**mypool1**).
-    4. Kota için varsayılan değeri kullanın. 
-    5. Sanal ağı altında **Yeni Oluştur** yeni bir Azure sanal ağı (Vnet) oluşturmak için.  Ardından aşağıdaki bilgileri doldurun:
-        * Girin **myvnet1** Vnet adı.
-        * Örneğin, 10.7.0.0/16 bir adres alanı belirtin.
-        * Girin **myANFsubnet** alt ağ adı olarak.
-        * Örneğin, 10.7.0.0/24 alt ağ adres aralığı belirtin.
-        * Seçin **Microsoft.NetApp/volumes** alt temsilci.
-        * Tıklayın **Tamam** Vnet oluşturmak için.
-    6. Yeni oluşturulan sanal ağ alt ağında seçin (**myvnet1**) temsilci alt ağ.
+   1. Girin **myvol1** birim adı. 
+   2. Girin **myfilepath1** birimi için dışarı aktarma yolu oluşturmak için kullanılan dosya yolu.
+   3. Kapasite havuzunuzu seçin (**mypool1**).
+   4. Kota için varsayılan değeri kullanın. 
+   5. Sanal ağı altında **Yeni Oluştur** yeni bir Azure sanal ağı (Vnet) oluşturmak için.  Ardından aşağıdaki bilgileri doldurun:
+       * Girin **myvnet1** Vnet adı.
+       * Örneğin, 10.7.0.0/16 bir adres alanı belirtin.
+       * Girin **myANFsubnet** alt ağ adı olarak.
+       * Örneğin, 10.7.0.0/24 alt ağ adres aralığı belirtin.
+       * Seçin **Microsoft.NetApp/volumes** alt temsilci.
+       * Tıklayın **Tamam** Vnet oluşturmak için.
+   6. Yeni oluşturulan sanal ağ alt ağında seçin (**myvnet1**) temsilci alt ağ.
 
-    ![Bir birim penceresi oluştur](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)  
+      ![Bir birim penceresi oluştur](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)  
 
-    ![Sanal ağ penceresi oluştur](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
+      ![Sanal ağ penceresi oluştur](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
 4. **Gözden geçir ve oluştur**’a tıklayın.
 

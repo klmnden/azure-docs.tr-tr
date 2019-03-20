@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: f405fe1c93ad17476ac47bc23951c65a5ea5db73
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2ed4432aec9b833efe6b521b4452177088d21d70
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091372"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119420"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Azure Event Hubs'a Apache Kafka Connect desteğiyle tümleştirme (Önizleme)
 İş gereksinimleri için alma işlemleri arttıkça, çeşitli dış kaynaklar ve havuzlar için alma gereksinimi de artıyor. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect), Kafka kümesi aracılığıyla MySQL, HDFS ve dosya sistemi gibi herhangi bir dış sistemden/sisteme bağlanmak ve verileri içeri/dışarı aktarmak için böyle bir çerçeve sağlar. Bu öğretici Kafka özellikli Event Hubs ile Kafka Connect çerçevesini kullanırken size yol gösterir.
@@ -23,7 +23,7 @@ ms.locfileid: "53091372"
 Bu öğretici Kafka Connect ile Kafka özellikli Azure olay hub'ını tümleştirme ve temel FileStreamSource ile FileStreamSink bağlayıcılarını dağıtma işlemlerinde size yol gösterir. Bu özellik şu anda önizleme sürümündedir. Bu bağlayıcılar üretimde kullanıma yönelik olmasa da, Azure Event Hubs'ın bir Kafa aracısı işlevi üstlendiği uçtan uca bir Kafka Connect senaryosunu gösterirler.
 
 > [!NOTE]
-Bu örnek [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect)'da sağlanır.
+> Bu örnek [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect)'da sağlanır.
 
 Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 
