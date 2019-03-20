@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: da7556b909ec4eb544a6b4e4fab7af4a0919a158
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308185"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090823"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Etkinlik günlüğü Uyarıları yönetme  
 
@@ -27,13 +27,13 @@ Bu uyarılar Azure kaynakları için bir Azure Resource Manager şablonu kullan�
 ## <a name="azure-portal"></a>Azure portal
 
 > [!NOTE]
-
+> 
 >  Uyarı kuralları oluştururken aşağıdakilerden emin olun:
-
+> 
 > - Uyarının oluşturulduğu özelliği abonelik kapsamdaki abonelikten farklı değil.
-- Ölçüt düzeyi/status olmalıdır/çağıran / kaynak grubu / kaynak kimliği / kaynak türü / olay kategorisi uyarı yapılandırılır.
-- "Herhangi" koşulu veya uyarı yapılandırmasında JSON iç içe geçmiş koşullar yoktur (temel olarak, yalnızca bir tümü, başka hiçbir tümü/herhangi kullanılabilir).
-- Kategori "Yönetici" olduğunda olmadığı. Yukarıdaki ölçütlerden en az bir uyarıyı belirtmeniz gerekir. Etkinlik günlüğünde her bir olay oluşturulduğunda etkinleştiren bir uyarı oluşturabilirsiniz.
+> - Ölçüt düzeyi/status olmalıdır/çağıran / kaynak grubu / kaynak kimliği / kaynak türü / olay kategorisi uyarı yapılandırılır.
+> - "Herhangi" koşulu veya uyarı yapılandırmasında JSON iç içe geçmiş koşullar yoktur (temel olarak, yalnızca bir tümü, başka hiçbir tümü/herhangi kullanılabilir).
+> - Kategori "Yönetici" olduğunda olmadığı. Yukarıdaki ölçütlerden en az bir uyarıyı belirtmeniz gerekir. Etkinlik günlüğünde her bir olay oluşturulduğunda etkinleştiren bir uyarı oluşturabilirsiniz.
 
 ### <a name="create-with-azure-portal"></a>Azure portalı ile oluşturma
 
@@ -50,35 +50,36 @@ Aşağıdaki yordamı kullanın:
 
 3. **Tanımlama Uyarı koşulu altında** aşağıdaki bilgileri belirtin ve tıklayın **Bitti**.
 
-    - **Uyarı hedefi:** Yeni uyarı için bir hedef seçin ve görüntülemek için kullanın **aboneliğe göre filtrele** / **kaynak türüne göre filtre** ve görüntülenen listeden kaynak veya kaynak grubu seçin.
+   - **Uyarı hedefi:** Yeni uyarı için bir hedef seçin ve görüntülemek için kullanın **aboneliğe göre filtrele** / **kaynak türüne göre filtre** ve görüntülenen listeden kaynak veya kaynak grubu seçin.
 
-    > [!NOTE]
+     > [!NOTE]
+     > 
+     > bir kaynak, kaynak grubuna ya da aboneliğin tümü için etkinlik günlüğü sinyali seçebilirsiniz.
 
-    > bir kaynak, kaynak grubuna ya da aboneliğin tümü için etkinlik günlüğü sinyali seçebilirsiniz.
+     **Uyarı hedef örnek görünümü**
+     ![hedef seçin](media/alerts-activity-log/select-target.png)
 
-    **Uyarı hedef örnek görünümü** ![hedef seçin](media/alerts-activity-log/select-target.png)
+   - Altında **hedef ölçütleri**, tıklayın **Ölçüt Ekle** ve çeşitli kategorileri ait olanlar da dahil olmak üzere tüm kullanılabilir sinyaller hedefi için görüntülenen **etkinlik günlüğü**; Kategori adı eklenmiş olarak **İzleyicisi hizmeti** adı.
 
-    - Altında **hedef ölçütleri**, tıklayın **Ölçüt Ekle** ve çeşitli kategorileri ait olanlar da dahil olmak üzere tüm kullanılabilir sinyaller hedefi için görüntülenen **etkinlik günlüğü**; Kategori adı eklenmiş olarak **İzleyicisi hizmeti** adı.
+   - Sinyal çeşitli işlemlerin olası türü için görüntülenen listeden seçin **etkinlik günlüğü**.
 
-    - Sinyal çeşitli işlemlerin olası türü için görüntülenen listeden seçin **etkinlik günlüğü**.
+     Günlük geçmişi zaman çizelgesi ve karşılık gelen bir uyarı mantık bu hedef sinyal seçebilirsiniz:
 
-    Günlük geçmişi zaman çizelgesi ve karşılık gelen bir uyarı mantık bu hedef sinyal seçebilirsiniz:
+     **Ölçüt ekranı ekleme**
 
-    **Ölçüt ekranı ekleme**
+     ![Ölçüt Ekle](media/alerts-activity-log/add-criteria.png)
 
-    ![Ölçüt Ekle](media/alerts-activity-log/add-criteria.png)
+     **Geçmiş zaman**: Seçilen işlem için kullanılabilir olayları, saatler (veya) geçen hafta boyunca son 6/12/24 gösterilebilir.
 
-    **Geçmiş zaman**: Seçilen işlem için kullanılabilir olayları, saatler (veya) geçen hafta boyunca son 6/12/24 gösterilebilir.
-
-    **Uyarı mantığı**:
+     **Uyarı mantığı**:
 
      - **Olay düzeyi**-olay önem derecesi. _Ayrıntılı_, _bilgilendirici_, _uyarı_, _hata_, veya _kritik_.
      - **Durum**: Olay durumu. _Başlatılan_, _başarısız_, veya _başarılı_.
      - **Olayı başlatan tarafından**: Arayan olarak da bilinir; E-posta adresi veya işlemi gerçekleştiren kullanıcının Azure Active Directory tanımlayıcısı.
 
-        Uyarı mantığı uygulanan örnek sinyal grafiği:
+       Uyarı mantığı uygulanan örnek sinyal grafiği:
 
-        ![ seçilen ölçütlere](media/alerts-activity-log/criteria-selected.png)
+       ![ seçilen ölçütlere](media/alerts-activity-log/criteria-selected.png)
 
 4. Altında **uyarı kuralları ayrıntılarını tanımlayın**, şu bilgileri sağlayın:
 
@@ -115,15 +116,15 @@ Alternatif olarak, bir basit benzerleme, uyarı kuralları oluşturulabilir, etk
 
     Kullanılabilir filtreleri - kullanabileceğiniz _abonelik_, _kaynak grubu_, _kaynak_, _sinyal türü_, veya _durumu_  düzenlemek istediğiniz etkinliği kural bulunamadı.
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > Yalnızca düzenlemek **açıklama** , **hedef ölçütleri** ve **Eylem grupları**.
 
-    > Yalnızca düzenlemek **açıklama** , **hedef ölçütleri** ve **Eylem grupları**.
+3. Kuralı seçin ve kuralı seçeneklerini düzenlemek için çift tıklayın. Gerekli değişiklikleri yapın ve ardından **Kaydet**.
 
-3.  Kuralı seçin ve kuralı seçeneklerini düzenlemek için çift tıklayın. Gerekli değişiklikleri yapın ve ardından **Kaydet**.
+   ![ Uyarı kurallarını yönet](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
-    ![ Uyarı kurallarını yönet](media/alerts-activity-log/activity-log-rule-edit-page.png)
-
-4.  Devre dışı bırakma, etkinleştirme veya kural silme. Kural 2. adımda açıklandığı seçtikten sonra pencerenin üst kısmındaki uygun seçeneği belirleyin.
+4. Devre dışı bırakma, etkinleştirme veya kural silme. Kural 2. adımda açıklandığı seçtikten sonra pencerenin üst kısmındaki uygun seçeneği belirleyin.
 
 
 ## <a name="azure-resource-template"></a>Azure kaynak şablonu

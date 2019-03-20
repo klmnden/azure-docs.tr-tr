@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ed5ad2ec8d2250de52283e42b316a17f74901c7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 93ac6009e593fa5eaefd14b09ce8eecd513688e5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764635"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864856"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>Öğretici: Flock ile Azure Active Directory Tümleştirme
 
@@ -163,7 +163,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -212,7 +212,7 @@ Flock için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bu
 
     ![Çalışan Ekle](./media/flock-tutorial/user2.png)
 
-4. Bir kullanıcı gibi e-posta adresini girin **Brittasimon@contoso.com** seçip **Add Users**.
+4. Bir kullanıcı gibi e-posta adresini girin **Brittasimon\@contoso.com** seçip **Add Users**.
 
     ![Çalışan Ekle](./media/flock-tutorial/user3.png)
 

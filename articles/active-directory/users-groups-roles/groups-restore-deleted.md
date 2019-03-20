@@ -8,19 +8,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fee8604bece0ae7249b0735f6952bfa35a4590fb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 81bf41dd183944a43d9558d0aec0c416d30620b2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443173"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202580"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Azure Active Directory’de silinmiş bir Office 365 grubunu geri yükleme
+
 Azure Active Directory’de (Azure AD) bir Office 365 grubunu sildiğinizde, silinen grup görüntülenmez ancak silindiği tarihten itibaren 30 gün boyunca tutulur. Bu davranış sayesinde, gerekirse grup ve içeriği geri yüklenebilir. Bu işlev yalnızca Azure AD’deki Office 365 gruplarına özgüdür. Güvenlik grupları ve dağıtım grupları için kullanılamaz.
 
 > [!NOTE]
@@ -30,22 +31,22 @@ Grubu geri yüklemek için gerekli izinler aşağıdakilerden herhangi biri olab
 
 Rol | İzinler
 --------- | ---------
-Intune'daki hizmet yöneticilerinin şirket Yöneticisi ve Partner Tier2 desteği | Silinen herhangi bir Office 365 grubunu geri yükleyebilir
-Kullanıcı Hesabı Yöneticisi ve Partner Tier1 desteği | Silinen herhangi bir Office 365 grubu şirket yöneticisi rolüne atanan bu grupları hariç geri yükleyebilirsiniz
-Kullanıcı | Sahip olduğu tüm silinmiş Office 365 gruplarını geri yükleyebilir
+Genel yönetici, Partner Tier2 desteği ve Intune Yöneticisi | Silinen herhangi bir Office 365 grubunu geri yükleyebilir
+Kullanıcı Yöneticisi ve Partner Tier1 desteği | Silinen herhangi bir Office 365 grubu şirket yöneticisi rolüne atanan bu grupları hariç geri yükleyebilirsiniz
+Kullanıcı | Oldukları herhangi silinen bir Office 365 grubunu geri yükleyebilirsiniz
 
 ## <a name="view-and-manage-the-deleted-office-365-groups-that-are-available-to-restore"></a>Görüntüleme ve geri yüklemek kullanılabilir olan silinen bir Office 365 grupları yönetme
 
-1. Oturum [Azure AD yönetim merkezini](https://aad.portal.azure.com) yönetici hesabı.
+1. Oturum [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanıcı yönetici hesabıyla.
 
 2. Seçin **grupları**, ardından **grupları silinmiş** , geri yüklenecek silinmiş gruplarını görüntülemek için.
 
-    ![Silinen grupları dikey penceresi](media/groups-lifecycle/deleted-groups3.png)
+    ![geri yüklemek kullanılabilir grupları görüntüleyin](media/groups-lifecycle/deleted-groups3.png)
 
 3. Üzerinde **grupları silinmiş** dikey penceresinde şunları yapabilirsiniz:
 
-  - Silinen grubun ve içeriği seçerek geri **grubu geri yükleme**.
-  - Kalıcı olarak silinen grubun seçerek kaldırmak **kalıcı olarak silmek**. Bir grubu kalıcı olarak kaldırmak için yönetici olmanız gerekir.
+   - Silinen grubun ve içeriği seçerek geri **grubu geri yükleme**.
+   - Kalıcı olarak silinen grubun seçerek kaldırmak **kalıcı olarak silmek**. Bir grubu kalıcı olarak kaldırmak için yönetici olmanız gerekir.
 
 ## <a name="view-the-deleted-office-365-groups-that-are-available-to-restore-using-powershell"></a>Powershell kullanarak geri yüklemek kullanılabilir olan silinen bir Office 365 grupları görüntüleme
 İlgilendiğiniz bir veya birden çok silinmiş grubun henüz kalıcı olarak temizlenmediğini doğrulamak için, aşağıdaki cmdlet'ler kullanılarak silinmiş gruplar görüntülenebilir. Bu cmdlet’ler [Azure AD PowerShell modülünün](https://www.powershellgallery.com/packages/AzureAD/) parçasıdır. Bu modülle ilgili daha fazla bilgi [Azure Active Directory PowerShell Sürüm 2](/powershell/azure/install-adv2?view=azureadps-2.0) makalesinde bulunabilir.

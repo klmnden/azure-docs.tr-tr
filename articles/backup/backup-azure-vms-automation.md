@@ -1,61 +1,73 @@
 ---
-title: PowerShell kullanılarak Resource Manager ile dağıtılmış VM’ler için yedekleme dağıtma ve yönetme
-description: Resource Manager ile dağıtılmış VM'ler için azure'da yedeklemelerini yönetme ve dağıtma için PowerShell kullanma
-services: backup
+title: Yedekleme ve kurtarma PowerShell ile Azure Backup'ı kullanarak Azure Vm'leri
+description: Yedekleme ve PowerShell ile Azure Backup'ı kullanarak Azure Vm'leri kurtarma açıklar
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/04/2019
 ms.author: raynew
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2898a86aaa86f8f0f5681e10a806cbca700404df
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: b50dcfc21ce6b8d4fc1becd178bf8469870740b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309647"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839687"
 ---
-# <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Yedekleme ve sanal makineleri geri yükleme için PowerShell kullanma
+# <a name="back-up-and-restore-azure-vms-with-powershell"></a>Yedekleme ve PowerShell ile Azure Vm'lerini geri yükleme
 
-Bu makalede, Azure PowerShell cmdlet'leri yedekleme ve kurtarma Hizmetleri kasasından Azure sanal makine'de (VM) kurtarma için nasıl kullanılacağını gösterir. Kurtarma Hizmetleri kasası, verilere ve varlıklara Azure Backup ve Azure Site Recovery hizmetlerinde korumak için kullanılan bir Azure Resource Manager kaynağıdır.
+Bu makalede bir Azure sanal Makinesinde geri açıklanmaktadır bir [Azure Backup](backup-overview.md) kurtarma Hizmetleri kasası PowerShell cmdlet'lerini kullanarak. 
 
-> [!NOTE]
-> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki dağıtım modeli vardır: [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede Resource Manager modeli kullanılarak oluşturulan sanal makineler ile kullanımı içindir.
->
->
+Bu makalede şunları öğreneceksiniz:
 
-Bu makalede, bir sanal Makineyi korumak ve veri bir kurtarma noktasından geri yükleme için PowerShell kullanarak adımları gösterilmektedir.
+> [!div class="checklist"]
+> * Bir kurtarma Hizmetleri kasası oluşturun ve kasa bağlamını ayarlayın.
+> * Yedekleme ilkesi tanımlama
+> * Birden çok sanal makineyi korumak için yedekleme ilkesini uygulama
+> * Tetikleyici, önce korumalı sanal makineler için bir isteğe bağlı yedekleme işi yedekleyebilir (veya korumak) bir sanal makine, tamamlamalısınız [önkoşulları](backup-azure-arm-vms-prepare.md) sanal makinelerinizi korumak için ortamınızı hazırlamak için. 
 
-## <a name="concepts"></a>Kavramlar
 
-Hizmetine genel bakış için Azure Backup hizmeti ile aşina değilseniz bkz [Azure Backup nedir?](backup-introduction-to-azure-backup.md) Başlamadan önce Azure Backup ve geçerli sanal makine yedekleme çözümü sınırlamaları ile gereken önkoşulları karşılamak emin olun.
 
-PowerShell etkili bir şekilde kullanmak için nesnelerin ve nereden başlayacağınızı hiyerarşi anlamak gereklidir.
+
+## <a name="before-you-start"></a>Başlamadan önce
+
+- [Daha fazla bilgi edinin](backup-azure-recovery-services-vault-overview.md) kurtarma Hizmetleri kasası hakkında.
+- [Gözden geçirme](backup-architecture.md#architecture-direct-backup-of-azure-vms) mimari Azure VM yedeklemesi için [hakkında bilgi edinin](backup-azure-vms-introduction.md) yedekleme işlemi ve [gözden](backup-support-matrix-iaas.md) desteği, sınırlamalar ve önkoşullar.
+- Kurtarma Hizmetleri için PowerShell nesne hiyerarşisi gözden geçirin.
+
+
+## <a name="recovery-services-object-hierarchy"></a>Kurtarma Hizmetleri nesne hiyerarşisi
+
+Nesne hiyerarşisi aşağıdaki diyagramda özetlenir.
 
 ![Kurtarma Hizmetleri nesne hiyerarşisi](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-AzureRm.RecoveryServices.Backup PowerShell cmdlet başvurusu görüntülemek için bkz: [Azure Backup - kurtarma Hizmetleri cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup) Azure Kitaplığı'nda.
+Gözden geçirme **Az.RecoveryServices** [cmdlet başvurusu](https://docs.microsoft.com/powershell/module/Az.RecoveryServices/?view=azps-1.4.0) Azure Kitaplığı Başvurusu.
 
-## <a name="setup-and-registration"></a>Kurulumu ve kaydı
+
+
+## <a name="set-up-and-register"></a>Ayarlama ve kaydetme
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Başlamak için:
 
-1. [PowerShell'in en son sürümünü indirin](https://docs.microsoft.com/powershell/azure/install-az-ps) (Az 1.3.0 gerekli en düşük sürüm olan)
+1. [PowerShell'in en son sürümünü indirin](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
 2. Kullanılabilir Azure Backup PowerShell cmdlet'lerini, aşağıdaki komutu yazarak bulabilirsiniz:
 
     ```powershell
-    Get-Command *Azrecoveryservices*
-    ```    
+    Get-Command *azrecoveryservices*
+    ```   
+ 
     Azure Backup, Azure Site Recovery ve kurtarma Hizmetleri kasası için cmdlet'leri ve diğer adları görüntülenir. Aşağıdaki görüntüde, görürsünüz, bir örnektir. Cmdlet öğelerinin tam listesi değil.
 
     ![Kurtarma Hizmetleri listesi](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)
 
-3. Azure oturum açma hesabı kullanarak **Connect-AzureRmAccount**. Bu cmdlet getirir, bir web sayfası için hesap kimlik bilgilerinizi ister:
+3. Azure oturum açma hesabı kullanarak **Connect AzAccount**. Bu cmdlet getirir, bir web sayfası için hesap kimlik bilgilerinizi ister:
 
-    * Alternatif olarak, bir parametre olarak bir hesap kimlik bilgilerinizi içerebilir **Connect-AzureRmAccount** cmdlet'ini kullanarak **-Credential** parametresi.
-    * Müşteri, Kiracı adına çalışma CSP iş ortağıysanız, Kiracı kimliği veya Kiracı birincil etki alanı adlarını kullanarak Kiracı olarak belirtin. Örneğin: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
+    * Alternatif olarak, bir parametre olarak bir hesap kimlik bilgilerinizi içerebilir **Connect AzAccount** cmdlet'ini kullanarak **-Credential** parametresi.
+    * Müşteri, Kiracı adına çalışma CSP iş ortağıysanız, Kiracı kimliği veya Kiracı birincil etki alanı adlarını kullanarak Kiracı olarak belirtin. Örneğin: **Connect AzAccount-Kiracı "fabrikam.com"**
 
 4. Hesabınız birden fazla abonelik olabilir bu yana hesabı ile kullanmak istediğiniz aboneliği ilişkilendirin:
 
@@ -63,7 +75,7 @@ Başlamak için:
     Select-AzSubscription -SubscriptionName $SubscriptionName
     ```
 
-5. Azure Backup'ı ilk kez kullanıyorsanız, kullanmalısınız **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** Azure kurtarma Hizmetleri sağlayıcısını aboneliğinize kaydetmeniz için cmdlet'i.
+5. Azure Backup'ı ilk kez kullanıyorsanız, kullanmalısınız **[Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)** Azure kurtarma Hizmetleri sağlayıcısını aboneliğinize kaydetmeniz için cmdlet'i.
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -73,26 +85,19 @@ Başlamak için:
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-    Komut çıktısında **RegistrationState** değiştirilmelidir **kayıtlı**. Değil, yalnızca çalıştırırsanız **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet'ini yeniden.
+    Komut çıktısında **RegistrationState** değiştirilmelidir **kayıtlı**. Değil, yalnızca çalıştırırsanız **[Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)** cmdlet'ini yeniden.
 
-PowerShell ile aşağıdaki görevleri otomatik hale getirilebilir:
-
-* [Kurtarma Hizmetleri kasası oluşturma](backup-azure-vms-automation.md#create-a-recovery-services-vault)
-* [Azure VM'lerini yedekleme](backup-azure-vms-automation.md#back-up-azure-vms)
-* [Bir yedekleme işi tetikleme](backup-azure-vms-automation.md#trigger-a-backup)
-* [Bir yedekleme işini izleme](backup-azure-vms-automation.md#monitoring-a-backup-job)
-* [Azure VM geri yükleme](backup-azure-vms-automation.md#restore-an-azure-vm)
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 
 Aşağıdaki adımlar bir kurtarma Hizmetleri kasası oluşturma işleminde yol. Bir Backup kasasının kurtarma Hizmetleri kasası farklıdır.
 
-1. Kurtarma Hizmetleri kasası bir Resource Manager kaynağı olduğundan, bir kaynak grubu içinde yerleştirmeniz gerekir. Mevcut bir kaynak grubunu kullanın veya bir kaynak grubu oluşturun **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)** cmdlet'i. Bir kaynak grubu oluştururken, kaynak grubunun konumunu ve adını belirtin.  
+1. Kurtarma Hizmetleri kasası bir Resource Manager kaynağı olduğundan, bir kaynak grubu içinde yerleştirmeniz gerekir. Mevcut bir kaynak grubunu kullanın veya bir kaynak grubu oluşturun **[yeni AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)** cmdlet'i. Bir kaynak grubu oluştururken, kaynak grubunun konumunu ve adını belirtin.  
 
     ```powershell
     New-AzResourceGroup -Name "test-rg" -Location "West US"
     ```
-2. Kullanım **[New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)** cmdlet'ini kurtarma Hizmetleri kasası oluşturun. Kasayla aynı konumda kaynak grubu için kullanılan belirttiğinizden emin olun.
+2. Kullanım [yeni AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/new-azrecoveryservicesvault?view=azps-1.4.0) cmdlet'ini kurtarma Hizmetleri kasası oluşturun. Kasayla aynı konumda kaynak grubu için kullanılan belirttiğinizden emin olun.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
@@ -111,7 +116,7 @@ Aşağıdaki adımlar bir kurtarma Hizmetleri kasası oluşturma işleminde yol.
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Bir abonelikte kasalarını görüntüle
 
-Tüm kasaları abonelikte görüntülemek için kullanın  **[Get-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault)**:
+Tüm kasaları abonelikte görüntülemek için kullanın [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault?view=azps-1.4.0):
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -136,7 +141,7 @@ Sanal makinelerinizi korumak için bir kurtarma Hizmetleri kasası kullanın. Ko
 
 ### <a name="set-vault-context"></a>Kasa bağlamı Ayarla
 
-Bir sanal makine üzerindeki korumayı etkinleştirmeden önce kullanmak **[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** kasa bağlamını ayarlamak için. Kasa bağlamı ayarlandıktan sonra, sonraki tüm cmdlet’ler için geçerli olur. Aşağıdaki örnek, kasa için kasa bağlamını ayarlar *testvault*.
+Bir sanal makine üzerindeki korumayı etkinleştirmeden önce kullanmak [kümesi AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext?view=azps-1.4.0) kasa bağlamını ayarlamak için. Kasa bağlamı ayarlandıktan sonra, sonraki tüm cmdlet’ler için geçerli olur. Aşağıdaki örnek, kasa için kasa bağlamını ayarlar *testvault*.
 
 ```powershell
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
@@ -146,7 +151,7 @@ Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultConte
 
 Bir Kurtarma Hizmetleri kasası oluşturduğunuzda bu, varsayılan koruma ve saklama ilkeleri ile birlikte gelir. Varsayılan koruma ilkesi, her gün belirtilen saatte bir yedekleme işini tetikler. Varsayılan saklama ilkesi, 30 gün boyunca günlük kurtarma noktasını korur. Farklı ayrıntılarla daha sonra ilkeyi düzenleyebilir ve hızla, sanal Makineyi korumak için varsayılan ilke kullanabilirsiniz.
 
-Kullanım **[Get-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupprotectionpolicy)** kasaya kullanılabilir koruma ilkeleri görüntülemek için. Belirli bir ilke alma ya da bir iş yükü türü ile ilişkili ilkeleri görüntülemek için bu cmdlet'i kullanabilirsiniz. Aşağıdaki örnek, iş yükü türü için AzureVM ilkeleri alır.
+Kullanım **[Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) kasaya kullanılabilir koruma ilkeleri görüntülemek için. Belirli bir ilke alma ya da bir iş yükü türü ile ilişkili ilkeleri görüntülemek için bu cmdlet'i kullanabilirsiniz. Aşağıdaki örnek, iş yükü türü için AzureVM ilkeleri alır.
 
 ```powershell
 Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
@@ -165,7 +170,14 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 >
 >
 
-Bir yedekleme koruma İlkesi, en az bir bekletme ilkesi ile ilişkilidir. Bekletme İlkesi, silinmeden önce ne kadar bir kurtarma noktası tutulur tanımlar. Kullanım **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)** varsayılan saklama ilkesini görüntülemek için. Benzer şekilde kullanabileceğiniz **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)** varsayılan zamanlama ilkesini elde edilir. **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)** cmdlet'i, yedekleme ilkesi bilgilerini tutan bir PowerShell nesnesi oluşturur. Zamanlama ve Bekletme İlkesi nesneleri girdi olarak kullanılan **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)** cmdlet'i. Aşağıdaki örnek zamanlama ilkesini ve bekletme ilkesi değişkenlerinde depolar. Örnek, bir koruma ilkesi oluşturulurken parametreler tanımlamak için bu değişkenleri kullanır. *NewPolicy*.
+Bir yedekleme koruma İlkesi, en az bir bekletme ilkesi ile ilişkilidir. Bir bekletme ilkesi, silinmeden önce ne kadar bir kurtarma noktası tutulur tanımlar.
+
+- Kullanım [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject) varsayılan saklama ilkesini görüntülemek için.
+- Benzer şekilde kullanabileceğiniz [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject) varsayılan zamanlama ilkesini elde edilir.
+- [Yeni AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) cmdlet'i, yedekleme ilkesi bilgilerini tutan bir PowerShell nesnesi oluşturur.
+- Zamanlama ve Bekletme İlkesi nesneleri yeni AzRecoveryServicesBackupProtectionPolicy cmdlet'e girdi olarak kullanılır.
+
+Aşağıdaki örnek zamanlama ilkesini ve bekletme ilkesi değişkenlerinde depolar. Örnek, bir koruma ilkesi oluşturulurken parametreler tanımlamak için bu değişkenleri kullanır. *NewPolicy*.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
@@ -183,7 +195,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 
 ### <a name="enable-protection"></a>Korumayı etkinleştir
 
-Koruma İlkesi tanımladınız sonra hala bir öğe için ilkeyi etkinleştirmeniz gerekir. Kullanım **[Enable-AzureRmRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/enable-azurermrecoveryservicesbackupprotection)** korumasını etkinleştirmek için. Koruma etkinleştirme, iki nesne - öğesini ve ilke gerektirir. İlke kasa ile ilişkilendirildikten sonra yedekleme iş akışı içinde ilke zamanlaması tanımlı zaman tetiklenir.
+Koruma İlkesi tanımladınız sonra hala bir öğe için ilkeyi etkinleştirmeniz gerekir. Kullanım [etkinleştir AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) korumasını etkinleştirmek için. Koruma etkinleştirme, iki nesne - öğesini ve ilke gerektirir. İlke kasa ile ilişkilendirildikten sonra yedekleme iş akışı içinde ilke zamanlaması tanımlı zaman tetiklenir.
 
 Aşağıdaki örnekler NewPolicy ilke kullanılarak koruma V2VM, öğe için etkinleştirin. Örneklerde VM şifreli bağlı olarak farklılık gösterir ve ne şifrelenmesi yazın.
 
@@ -194,7 +206,7 @@ $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
-Korumayı etkinleştirmek için **(şifrelenmiş BEK ve KEK kullanarak) VM'ler şifreli**, anahtarları ve gizli dizileri anahtar kasasından okumak için Azure Backup hizmeti izin vermeniz gerekir.
+Şifrelenmiş Vm'leri (BEK ve KEK kullanarak şifrelenir) üzerindeki korumayı etkinleştirmek için anahtar kasasından anahtarlar ve gizli anahtarları okumak için Azure Backup hizmeti izin vermeniz gerekir.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToKeys backup,get,list -PermissionsToSecrets get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
@@ -211,20 +223,13 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 ```
 
 > [!NOTE]
-> Azure kamu Bulutu kullanıyorsanız, parametre için değer ff281ffe-705c-4f53-9f37-a40e6f2c68f3 kullanmak **- ServicePrincipalName** içinde [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet'i.
->
+> Azure kamu Bulutu kullanıyorsanız ServicePrincipalName parametresi için değer ff281ffe-705c-4f53-9f37-a40e6f2c68f3 kullanın, [kümesi AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet'i.
 >
 
-Klasik bir sanal makine korumasını etkinleştirmek için:
-
-```powershell
-$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V1VM" -ServiceName "ServiceName1"
-```
 
 ### <a name="modify-a-protection-policy"></a>Bir koruma ilkesini değiştirme
 
-Koruma ilkesini değiştirmek için kullanın [Set-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/set-azurermrecoveryservicesbackupprotectionpolicy) SchedulePolicy veya RetentionPolicy nesneleri değiştirmek için.
+Koruma ilkesini değiştirmek için kullanın [kümesi AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) SchedulePolicy veya RetentionPolicy nesneleri değiştirmek için.
 
 Aşağıdaki örnek, kurtarma noktası bekletme 365 gün olarak değiştirir.
 
@@ -237,7 +242,7 @@ Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $Ret
 
 ## <a name="trigger-a-backup"></a>Bir yedeklemeyi tetikleyin
 
-Kullanım **[Backup-Azurermrecoveryservicesbackupıtem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)** bir yedekleme işini tetiklemek için. İlk yedekleme ise, tam bir yedeklemedir. Sonraki yedeklemeler, artımlı bir kopya yararlanın. Kullandığınızdan emin olun **[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** yedekleme işini tetiklemeden önce kasa bağlamını ayarlamak için. Aşağıdaki örnek, zaten kasa bağlamını ayarlamanız varsayar.
+Kullanım [yedekleme AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) bir yedekleme işini tetiklemek için. İlk yedekleme ise, tam bir yedeklemedir. Sonraki yedeklemeler, artımlı bir kopya yararlanın. Kullandığınızdan emin olun **[kümesi AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext)** yedekleme işini tetiklemeden önce kasa bağlamını ayarlamak için. Aşağıdaki örnek, zaten kasa bağlamını ayarlamanız varsayar.
 
 ```powershell
 $namedContainer = Get-AzRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
@@ -260,7 +265,7 @@ V2VM              Backup              InProgress          4/23/2016             
 
 ## <a name="monitoring-a-backup-job"></a>Yedekleme işini izleme
 
-Azure portalını kullanarak olmadan yedekleme işleri gibi uzun süre çalışan işlemleri izleyebilirsiniz. Süren işin durumunu almak için kullanın **[Get-AzureRmRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjob)** cmdlet'i. Bu cmdlet, belirli bir kasa için yedekleme işlerinin alır ve bu Kasa Kasa bağlamını içinde belirtilir. Aşağıdaki örnek, bir dizi olarak bir Süren işin durumunu alır ve durum $joblist değişkeninde depolar.
+Azure portalını kullanarak olmadan yedekleme işleri gibi uzun süre çalışan işlemleri izleyebilirsiniz. Süren işin durumunu almak için kullanın [Get-AzRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) cmdlet'i. Bu cmdlet, belirli bir kasa için yedekleme işlerinin alır ve bu Kasa Kasa bağlamını içinde belirtilir. Aşağıdaki örnek, bir dizi olarak bir Süren işin durumunu alır ve durum $joblist değişkeninde depolar.
 
 ```powershell
 $joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress"
@@ -275,7 +280,7 @@ WorkloadName     Operation            Status               StartTime            
 V2VM             Backup               InProgress            4/23/2016                5:00:30 PM                cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-Bu işlerin - gereksiz ek kodu olan - tamamlanması için yoklama yerine kullanmak **[bekleme-AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)** cmdlet'i. Bu cmdlet, işi tamamlar veya belirtilen zaman aşımı değerine ulaşılana kadar yürütmeyi duraklatır.
+Bu işlerin - gereksiz ek kodu olan - tamamlanması için yoklama yerine kullanmak [bekleme AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) cmdlet'i. Bu cmdlet, işi tamamlar veya belirtilen zaman aşımı değerine ulaşılana kadar yürütmeyi duraklatır.
 
 ```powershell
 Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
@@ -294,7 +299,7 @@ Aşağıdaki grafikte, BackupRecoveryPoint aşağı RecoveryServicesVault gelen 
 
 ![Kurtarma Hizmetleri nesne hiyerarşisi BackupContainer gösteriliyor](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
-Yedekleme verilerini geri yüklemek için yedekleme öğesi ve zaman içinde nokta verileri tutan bir kurtarma noktası belirleyin. Kullanım **[Restore-Azurermrecoveryservicesbackupıtem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)** verileri kasadan hesabınıza geri yüklemek için.
+Yedekleme verilerini geri yüklemek için yedekleme öğesi ve zaman içinde nokta verileri tutan bir kurtarma noktası belirleyin. Kullanım [geri yükleme-AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) verileri kasadan hesabınıza geri yüklemek için.
 
 Bir Azure VM'yi geri yüklemek için temel adımlar şunlardır:
 
@@ -305,7 +310,7 @@ Bir Azure VM'yi geri yüklemek için temel adımlar şunlardır:
 
 ### <a name="select-the-vm"></a>Sanal Makineyi seçin
 
-Doğru yedekleme öğeyi tanımlayan PowerShell nesnesini almak için kasadaki kapsayıcısından başlatın ve nesne hiyerarşide aşağı doğru şekilde çalışır. VM'yi temsil eden kapsayıcı seçmek için kullanın **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** cmdlet'i ve için kanal **[ Get-Azurermrecoveryservicesbackupıtem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)** cmdlet'i.
+Doğru yedekleme öğeyi tanımlayan PowerShell nesnesini almak için kasadaki kapsayıcısından başlatın ve nesne hiyerarşide aşağı doğru şekilde çalışır. VM'yi temsil eden kapsayıcı seçmek için kullanın [Get-AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) cmdlet'i ve için kanal [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) cmdlet'i.
 
 ```powershell
 $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
@@ -314,7 +319,7 @@ $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -Work
 
 ### <a name="choose-a-recovery-point"></a>Bir kurtarma noktası seçin
 
-Kullanım **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)** yedekleme öğesi için tüm kurtarma noktalarını listelemek için kullanın. Geri yüklemek için kurtarma noktası seçin. Kullanmak için hangi kurtarma noktasının konusunda emin değilseniz, en son RecoveryPointType seçmek için iyi bir uygulamadır = AppConsistent nokta listesinde.
+Kullanım [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) yedekleme öğesi için tüm kurtarma noktalarını listelemek için kullanın. Geri yüklemek için kurtarma noktası seçin. Kullanmak için hangi kurtarma noktasının konusunda emin değilseniz, en son RecoveryPointType seçmek için iyi bir uygulamadır = AppConsistent nokta listesinde.
 
 Aşağıdaki komut, değişken **$rp**, son yedi güne ilişkin seçili yedekleme öğesi için kurtarma noktalarını dizisidir. Dizi dizin 0 konumunda en son kurtarma noktası ile zaman ters sırada sıralanır. Kurtarma noktasını seçmek için standart PowerShell dizi dizini'oluşturma ' yı kullanın. Örnekte, en son kurtarma noktası $rp [0] seçer.
 
@@ -343,7 +348,7 @@ BackupManagementType        : AzureVM
 
 ### <a name="restore-the-disks"></a>Diskleri geri yükle
 
-Kullanım **[Restore-Azurermrecoveryservicesbackupıtem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/restore-azurermrecoveryservicesbackupitem)** bir yedekleme öğesinin verileri ve yapılandırma, bir kurtarma noktasına geri yüklemek için cmdlet'i. Bir kurtarma noktası tanımladıktan sonra değeri olarak kullanın **- RecoveryPoint** parametresi. Yukarıdaki örnekte, **$rp [0]** kurtarma noktasını kullanmak üzere oluştu. Aşağıdaki örnek kodda **$rp [0]** disk geri yüklemek için kullanılacak kurtarma noktası.
+Kullanım **[geri yükleme-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) bir yedekleme öğesinin verileri ve yapılandırma, bir kurtarma noktasına geri yüklemek için cmdlet'i. Bir kurtarma noktası tanımladıktan sonra değeri olarak kullanın **- RecoveryPoint** parametresi. Yukarıdaki örnekte, **$rp [0]** kurtarma noktasını kullanmak üzere oluştu. Aşağıdaki örnek kodda **$rp [0]** disk geri yüklemek için kullanılacak kurtarma noktası.
 
 Diskleri ve yapılandırma bilgilerini geri yüklemek için:
 
@@ -359,7 +364,7 @@ $restorejob
 >
 >
 
-Ek bir parametre sağlayın **TargetResourceGroupName** için yönetilen diskleri geri yükleneceği RG belirtmek için.
+Ek bir parametre sağlayın **TargetResourceGroupName** için yönetilen diskleri geri yükleneceği RG belirtmek için. 
 
 > [!NOTE]
 > Kullanılacak önemle tavsiye edilir **TargetResourceGroupName** önemli performans geliştirmeleri sonuçları olduğundan geri yükleme parametresi yönetilen diskler. Ayrıca, Azure Powershell Az modülünden 1.0 veya sonraki sürümleri, bu parametre yönetilen disklere sahip bir geri yükleme durumunda zorunludur
@@ -381,13 +386,13 @@ WorkloadName     Operation          Status               StartTime              
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
 ```
 
-Kullanım **[bekleme-AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)** cmdlet'ini geri yükleme işinin tamamlanmasını bekleyin.
+Kullanım [bekleme AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) cmdlet'ini geri yükleme işinin tamamlanmasını bekleyin.
 
 ```powershell
 Wait-AzRecoveryServicesBackupJob -Job $restorejob -Timeout 43200
 ```
 
-Geri yükleme işi tamamlandıktan sonra kullanın **[Get-AzureRmRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjobdetails)** geri yükleme işleminin ayrıntılarını almak için cmdlet. VM yeniden oluşturmak için gereken bilgileri JobDetails özelliği vardır.
+Geri yükleme işi tamamlandıktan sonra kullanın [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) geri yükleme işleminin ayrıntılarını almak için cmdlet. VM yeniden oluşturmak için gereken bilgileri JobDetails özelliği vardır.
 
 ```powershell
 $restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob
@@ -415,7 +420,7 @@ Sonuç iş ayrıntılarını sorgulanabilir ve dağıtılan URI şablonu sağlar
    $templateBlobURI = $properties["Template Blob Uri"]
 ```
 
-Yalnızca açıklandığı gibi yeni bir VM oluşturmak için şablon dağıtma [burada](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+Yalnızca açıklandığı gibi yeni bir VM oluşturmak için şablon dağıtma [burada](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source).
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS
@@ -440,7 +445,7 @@ Aşağıdaki bölümde "VMConfig" dosyasını kullanarak bir VM oluşturmak içi
    ```powershell
    Set-AzCurrentStorageAccount -Name $storageaccountname -ResourceGroupName "testvault"
    $destination_path = "C:\vmconfig.json"
-   Get-AzureStorageBlobContent -Container $containerName -Blob $configBlobName -Destination $destination_path
+   Get-AzStorageBlobContent -Container $containerName -Blob $configBlobName -Destination $destination_path
    $obj = ((Get-Content -Path $destination_path -Raw -Encoding Unicode)).TrimEnd([char]0x00) | ConvertFrom-Json
    ```
 
@@ -499,7 +504,7 @@ Aşağıdaki bölümde "VMConfig" dosyasını kullanarak bir VM oluşturmak içi
       $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
       $encSetting = "{""encryptionEnabled"":true,""encryptionSettings"":[{""diskEncryptionKey"":{""sourceVault"":{""id"":""$keyVaultId""},""secretUrl"":""$dekUrl""}}]}"
       $osBlobName = $obj.'properties.StorageProfile'.osDisk.name + ".vhd"
-      $osBlob = Get-AzureStorageBlob -Container $containerName -Blob $osBlobName
+      $osBlob = Get-AzStorageBlob -Container $containerName -Blob $osBlobName
       $osBlob.ICloudBlob.Metadata["DiskEncryptionSettings"] = $encSetting
       $osBlob.ICloudBlob.SetMetadata()
       ```
@@ -527,7 +532,7 @@ Aşağıdaki bölümde "VMConfig" dosyasını kullanarak bir VM oluşturmak içi
       $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
       $encSetting = "{""encryptionEnabled"":true,""encryptionSettings"":[{""diskEncryptionKey"":{""sourceVault"":{""id"":""$keyVaultId""},""secretUrl"":""$dekUrl""},""keyEncryptionKey"":{""sourceVault"":{""id"":""$keyVaultId""},""keyUrl"":""$kekUrl""}}]}"
       $osBlobName = $obj.'properties.StorageProfile'.osDisk.name + ".vhd"
-      $osBlob = Get-AzureStorageBlob -Container $containerName -Blob $osBlobName
+      $osBlob = Get-AzStorageBlob -Container $containerName -Blob $osBlobName
       $osBlob.ICloudBlob.Metadata["DiskEncryptionSettings"] = $encSetting
       $osBlob.ICloudBlob.SetMetadata()
       ```
@@ -544,17 +549,17 @@ Aşağıdaki bölümde "VMConfig" dosyasını kullanarak bir VM oluşturmak içi
       }
       ```
 
-  * **Yönetilen ve şifreli olmayan Vm'leri** - şifrelenmemiş yönetilen sanal makineler için geri yüklenen yönetilen diskleri bağlayın. Ayrıntılı bilgi için bkz: [Windows PowerShell kullanarak bir VM'ye veri diski](../virtual-machines/windows/attach-disk-ps.md).
+   * **Yönetilen ve şifreli olmayan Vm'leri** - şifrelenmemiş yönetilen sanal makineler için geri yüklenen yönetilen diskleri bağlayın. Ayrıntılı bilgi için bkz: [Windows PowerShell kullanarak bir VM'ye veri diski](../virtual-machines/windows/attach-disk-ps.md).
 
-  * **Yönetilen ve Azure AD (yalnızca BEK) ile VM'ler şifreli** : (yalnızca BEK kullanarak şifrelenir), Azure AD ile yönetilen şifrelenmiş Vm'leri eklemek için geri yüklenen yönetilen diskler. Ayrıntılı bilgi için bkz: [Windows PowerShell kullanarak bir VM'ye veri diski](../virtual-machines/windows/attach-disk-ps.md).
+   * **Yönetilen ve Azure AD (yalnızca BEK) ile VM'ler şifreli** : (yalnızca BEK kullanarak şifrelenir), Azure AD ile yönetilen şifrelenmiş Vm'leri eklemek için geri yüklenen yönetilen diskler. Ayrıntılı bilgi için bkz: [Windows PowerShell kullanarak bir VM'ye veri diski](../virtual-machines/windows/attach-disk-ps.md).
 
-  * **Yönetilen ve şifrelenmiş Vm'leri (BEK ve KEK) Azure AD ile** : (şifrelenmiş BEK ve KEK kullanarak), Azure AD ile yönetilen şifrelenmiş Vm'leri eklemek için geri yüklenen yönetilen diskler. Ayrıntılı bilgi için bkz: [Windows PowerShell kullanarak bir VM'ye veri diski](../virtual-machines/windows/attach-disk-ps.md).
+   * **Yönetilen ve şifrelenmiş Vm'leri (BEK ve KEK) Azure AD ile** : (şifrelenmiş BEK ve KEK kullanarak), Azure AD ile yönetilen şifrelenmiş Vm'leri eklemek için geri yüklenen yönetilen diskler. Ayrıntılı bilgi için bkz: [Windows PowerShell kullanarak bir VM'ye veri diski](../virtual-machines/windows/attach-disk-ps.md).
 
-  * **Yönetilen ve Azure AD (yalnızca BEK) olmayan VM'ler şifreli** -yönetilen için şifrelenmiş Vm'leri (BEK yalnızca kullanılarak şifrelenmiş), Azure AD, kaynak **keyVault/parola kullanılamaz** gizli dizileri anahtar kasasını kullanarak geri yordamda [bir şifrelenmemiş sanal makine bir Azure Backup kurtarma noktasından geri yükleme](backup-azure-restore-key-secret.md). Sonra (Bu adım veri diski için gerekli değildir), geri yüklenen işletim sistemi disk şifreleme ayrıntıları ayarlamak için aşağıdaki komut yürütün. Geri yüklenen anahtar kasası $dekurl getirilebilir.
+   * **Yönetilen ve Azure AD (yalnızca BEK) olmayan VM'ler şifreli** -yönetilen için şifrelenmiş Vm'leri (BEK yalnızca kullanılarak şifrelenmiş), Azure AD, kaynak **keyVault/parola kullanılamaz** gizli dizileri anahtar kasasını kullanarak geri yordamda [bir şifrelenmemiş sanal makine bir Azure Backup kurtarma noktasından geri yükleme](backup-azure-restore-key-secret.md). Sonra (Bu adım veri diski için gerekli değildir), geri yüklenen işletim sistemi disk şifreleme ayrıntıları ayarlamak için aşağıdaki komut yürütün. Geri yüklenen anahtar kasası $dekurl getirilebilir.
 
-    Aşağıdaki komut dosyası yalnızca kaynak keyVault/parola kullanılabilir olmadığında yürütülen gerekiyor.  
+     Aşağıdaki komut dosyası yalnızca kaynak keyVault/parola kullanılabilir olmadığında yürütülen gerekiyor.  
 
-    ```powershell
+     ```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
       $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
       $diskupdateconfig = New-AzDiskUpdateConfig -EncryptionSettingsEnabled $true
@@ -562,13 +567,13 @@ Aşağıdaki bölümde "VMConfig" dosyasını kullanarak bir VM oluşturmak içi
       Update-AzDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageProfile'.osDisk.name -DiskUpdate $diskupdateconfig
       ```
 
-    Gizli dizileri kullanılabilir ve işletim sistemi diskinde kümesi şifreleme ayrıntıları sonra geri yüklenen yönetilen diskleri eklemek için bkz: [Windows PowerShell kullanarak bir VM'ye veri diski](../virtual-machines/windows/attach-disk-ps.md).
+     Gizli dizileri kullanılabilir ve işletim sistemi diskinde kümesi şifreleme ayrıntıları sonra geri yüklenen yönetilen diskleri eklemek için bkz: [Windows PowerShell kullanarak bir VM'ye veri diski](../virtual-machines/windows/attach-disk-ps.md).
 
-  * **Yönetilen ve Azure AD (BEK ve KEK) olmayan VM'ler şifreli** - yönetilen için şifrelenmiş VM'ler (şifrelenmiş BEK ve KEK kullanarak), Azure AD olmadan, kaynak **keyVault/anahtar/parola kullanılamaz** anahtar ve gizli anahtarı geri yükleme yordamı kullanarak kasa [bir şifrelenmemiş sanal makine bir Azure Backup kurtarma noktasından geri yükleme](backup-azure-restore-key-secret.md). Sonra (Bu adım veri diski için gerekli değildir), geri yüklenen işletim sistemi disk şifreleme ayrıntıları ayarlamak için aşağıdaki komut yürütün. Geri yüklenen anahtar kasası $dekurl ve $kekurl getirilebilir.
+   * **Yönetilen ve Azure AD (BEK ve KEK) olmayan VM'ler şifreli** - yönetilen için şifrelenmiş VM'ler (şifrelenmiş BEK ve KEK kullanarak), Azure AD olmadan, kaynak **keyVault/anahtar/parola kullanılamaz** anahtar ve gizli anahtarı geri yükleme yordamı kullanarak kasa [bir şifrelenmemiş sanal makine bir Azure Backup kurtarma noktasından geri yükleme](backup-azure-restore-key-secret.md). Sonra (Bu adım veri diski için gerekli değildir), geri yüklenen işletim sistemi disk şifreleme ayrıntıları ayarlamak için aşağıdaki komut yürütün. Geri yüklenen anahtar kasası $dekurl ve $kekurl getirilebilir.
 
-  Aşağıdaki komut dosyası yalnızca keyVault/anahtar/parola kaynak kullanılabilir olmadığında yürütülen gerekiyor.
+   Aşağıdaki komut dosyası yalnızca keyVault/anahtar/parola kaynak kullanılabilir olmadığında yürütülen gerekiyor.
 
-  ```powershell
+   ```powershell
      $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
      $kekUrl = "https://ContosoKeyVault.vault.azure.net/keys/ContosoKey007/x9xxx00000x0000x9b9949999xx0x006"
      $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
@@ -601,25 +606,25 @@ Aşağıdaki bölümde "VMConfig" dosyasını kullanarak bir VM oluşturmak içi
 
 7. ADE uzantı gönderin.
 
-  * **Azure AD ile bir VM için** -el ile veri diskleri için şifrelemeyi etkinleştirmek için aşağıdaki komutu kullanın.  
+   * **Azure AD ile bir VM için** -el ile veri diskleri için şifrelemeyi etkinleştirmek için aşağıdaki komutu kullanın.  
 
-    **BEK yalnızca**
+     **BEK yalnızca**
 
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
       ```
 
-    **BEK ve KEK**
+     **BEK ve KEK**
 
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId  -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
       ```
 
-  * **Azure AD olmayan VM için** -el ile veri diskleri için şifrelemeyi etkinleştirmek için aşağıdaki komutu kullanın.
+   * **Azure AD olmayan VM için** -el ile veri diskleri için şifrelemeyi etkinleştirmek için aşağıdaki komutu kullanın.
 
-    Varsa, Azure PowerShell güncelleştirmeye gerek duyduğunuz sonra Aadclientıd için ister komut yürütme sırasında halinde.
+     Varsa, Azure PowerShell güncelleştirmeye gerek duyduğunuz sonra Aadclientıd için ister komut yürütme sırasında halinde.
 
-    **BEK yalnızca**
+     **BEK yalnızca**
 
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
@@ -645,7 +650,7 @@ Bir dosyayı bir Azure sanal makine yedeklemesini geri yükleme için temel adı
 
 ### <a name="select-the-vm"></a>Sanal Makineyi seçin
 
-Doğru yedekleme öğeyi tanımlayan PowerShell nesnesini almak için kasadaki kapsayıcısından başlatın ve nesne hiyerarşide aşağı doğru şekilde çalışır. VM'yi temsil eden kapsayıcı seçmek için kullanın **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** cmdlet'i ve için kanal **[ Get-Azurermrecoveryservicesbackupıtem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)** cmdlet'i.
+Doğru yedekleme öğeyi tanımlayan PowerShell nesnesini almak için kasadaki kapsayıcısından başlatın ve nesne hiyerarşide aşağı doğru şekilde çalışır. VM'yi temsil eden kapsayıcı seçmek için kullanın [Get-AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer) cmdlet'i ve için kanal [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) cmdlet'i.
 
 ```powershell
 $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
@@ -654,7 +659,7 @@ $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -Work
 
 ### <a name="choose-a-recovery-point"></a>Bir kurtarma noktası seçin
 
-Kullanım **[Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprecoverypoint)** yedekleme öğesi için tüm kurtarma noktalarını listelemek için kullanın. Geri yüklemek için kurtarma noktası seçin. Kullanmak için hangi kurtarma noktasının konusunda emin değilseniz, en son RecoveryPointType seçmek için iyi bir uygulamadır = AppConsistent nokta listesinde.
+Kullanım [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) yedekleme öğesi için tüm kurtarma noktalarını listelemek için kullanın. Geri yüklemek için kurtarma noktası seçin. Kullanmak için hangi kurtarma noktasının konusunda emin değilseniz, en son RecoveryPointType seçmek için iyi bir uygulamadır = AppConsistent nokta listesinde.
 
 Aşağıdaki komut, değişken **$rp**, son yedi güne ilişkin seçili yedekleme öğesi için kurtarma noktalarını dizisidir. Dizi dizin 0 konumunda en son kurtarma noktası ile zaman ters sırada sıralanır. Kurtarma noktasını seçmek için standart PowerShell dizi dizini'oluşturma ' yı kullanın. Örnekte, en son kurtarma noktası $rp [0] seçer.
 
@@ -683,7 +688,7 @@ BackupManagementType        : AzureVM
 
 ### <a name="mount-the-disks-of-recovery-point"></a>Disk kurtarma noktası takma
 
-Kullanım **[Get-AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackuprpmountscript)** kurtarma noktasının tüm diskleri takmak için betiği almak için cmdlet.
+Kullanım [Get-AzRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprpmountscript) kurtarma noktasının tüm diskleri takmak için betiği almak için cmdlet.
 
 > [!NOTE]
 > Diskler, betiğin çalıştırıldığı makinede iSCSI bağlı diskleri olarak bağlanır. Herhangi bir ücret oluşmaması ve bağlama hemen oluşur.
@@ -706,7 +711,7 @@ Betik dosyaları kurtarmak istediğiniz makinede çalıştırın. Betiği çalı
 
 ### <a name="unmount-the-disks"></a>Diskleri çıkarın
 
-Gerekli dosyaları kopyaladıktan sonra kullanın **[devre dışı bırak AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/disable-azurermrecoveryservicesbackuprpmountscript?view=azurermps-5.0.0)** diskleri çıkarma için. Kurtarma noktasının dosyalara erişimi kaldırılır diskleri çıkarma emin olun.
+Gerekli dosyaları kopyaladıktan sonra kullanın [devre dışı bırak AzRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackuprpmountscript) diskleri çıkarma için. Kurtarma noktasının dosyalara erişimi kaldırılır diskleri çıkarma emin olun.
 
 ```powershell
 Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
@@ -714,4 +719,4 @@ Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure kaynaklarıyla etkileşim kurmak amacıyla PowerShell kullanmayı tercih ederseniz, PowerShell bkz [dağıtma ve yönetme Windows Server için Yedekleme'yi](backup-client-automation.md). DPM yedeklemelerini yönetiyorsanız bkz [dağıtma ve yönetme yedekleme için DPM](backup-dpm-automation.md). Bu makale her ikisi de Resource Manager dağıtımları ve klasik dağıtımlar için bir sürüm var.  
+Azure kaynaklarıyla etkileşim kurmak amacıyla PowerShell kullanmayı tercih ederseniz, PowerShell bkz [dağıtma ve yönetme Windows Server için Yedekleme'yi](backup-client-automation.md). DPM yedeklemelerini yönetiyorsanız bkz [dağıtma ve yönetme yedekleme için DPM](backup-dpm-automation.md). 

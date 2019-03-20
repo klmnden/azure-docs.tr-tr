@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: tulasim
-ms.openlocfilehash: 61bec775fc8be963ee6fd0768a297420e6eb7ab2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b948835b1a15eee391c6902d18229ec4926b66ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761591"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095220"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Öğretici: Azure ile soru-cevap Robotu oluşturun Bot hizmeti v3
 
@@ -90,12 +90,12 @@ Bot yanıt veren "Lütfen QnAKnowledgebaseId ve QnASubscriptionKey uygulama ayar
 
 1. Soru-cevap Oluşturucu Portalı'nda, Bilgi Bankası Ayarlar sekmesinde, Bilgi Bankası kimliği, ana bilgisayar URL'si ve uç noktası anahtarı alın.
 
-    - Oturum [soru-cevap Oluşturucu](https://qnamaker.ai)
-    - Bilgi Bankası'na gidin
-    - Seçin **ayarları** sekmesi
-    - **Yayımlama** bunu yapmadıysanız bilgi bankanızı,
+   - Oturum [soru-cevap Oluşturucu](https://qnamaker.ai)
+   - Bilgi Bankası'na gidin
+   - Seçin **ayarları** sekmesi
+   - **Yayımlama** bunu yapmadıysanız bilgi bankanızı,
 
-    ![Soru-cevap Oluşturucu değerleri](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+     ![Soru-cevap Oluşturucu değerleri](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
 ## <a name="test-the-bot"></a>Bot test
 

@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 576d3d4b9c793c564410335ce35ddd4c40697e4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 291b3d506993cfea89be072684835c0d4efe75f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197411"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095458"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Sonraki adımlar ve Azure AD Connect'i yönetme
 İşletimsel yordamları bu makalede, Azure Active Directory (Azure AD) Connect kuruluşunuzun ihtiyaçları ve gereksinimleri karşılayacak şekilde özelleştirmek için kullanın.  
@@ -51,12 +51,16 @@ Bir eşitleme durumunu denetlemek için Azure portalını kullanın.
 4. Dizin sayfasının en üstünde seçin **dizin tümleştirme**.
 5. Altında **yerel active directory ile tümleştirme**, son eşitleme zamanı unutmayın.
 
-<center>![Dizin eşitleme zamanı](./media/how-to-connect-post-installation/verify.png)</center>
+<center>
+
+![Dizin eşitleme zamanı](./media/how-to-connect-post-installation/verify.png)</center>
 
 ## <a name="start-a-scheduled-synchronization-task"></a>Zamanlanan eşitleme görevi Başlat
 Bir eşitleme görevi çalıştırmanız gerekiyorsa, Azure AD Connect Sihirbazı yeniden çalıştırarak bunu yapabilirsiniz.  Azure AD kimlik bilgilerinizi sağlamanız gerekir.  Sihirbazda **eşitleme seçeneklerini özelleştirme** görev ve tıklayın **sonraki** sihirbazda taşımak için. Sonunda, emin **ilk yapılandırma tamamlandıktan hemen sonra eşitleme işlemini başlatmak** kutusu seçilidir.
 
-<center>![Eşitlemeyi başlatma](./media/how-to-connect-post-installation/startsynch.png)</center>
+<center>
+
+![Eşitlemeyi başlatma](./media/how-to-connect-post-installation/startsynch.png)</center>
 
 Azure AD Connect Eşitleme Zamanlayıcısı hakkında daha fazla bilgi için bkz. [Azure AD Connect Zamanlayıcı](how-to-connect-sync-feature-scheduler.md).
 

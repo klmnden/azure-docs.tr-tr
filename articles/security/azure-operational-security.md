@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 5a407db97803d3c3be898893b7da6c1cb4aa94bb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ab5b50433b85416ff471546171998e992293b0ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901517"
 ---
 # <a name="azure-operational-security"></a>Azure çalışma güvenliği
 ## <a name="introduction"></a>Giriş
@@ -57,7 +57,7 @@ Bu teknik incelemeyi Microsoft'un Azure işletimsel güvenlik için Microsoft Az
 
 Hibrit bulut BT yönetim çözümü olan Microsoft Azure İzleyici günlüklerine. Tek başına kullanılan veya mevcut System Center dağıtım, Azure İzleyici günlüklerine genişletmek için size maksimum esneklik ve denetim için bulut tabanlı yönetim altyapınızın sağlar.
 
-![Azure izleme günlükleri](./media/azure-operational-security/azure-operational-security-fig1.png)
+![Azure İzleyici günlükleri](./media/azure-operational-security/azure-operational-security-fig1.png)
 
 Azure İzleyici günlüklerine ile rekabet çözümlerine göre daha düşük bir maliyetle, şirket içi, Azure, AWS, Windows Server, Linux, VMware ve OpenStack, dahil, herhangi bir buluttaki herhangi bir örneğine yönetebilirsiniz. Bulut öncelikli dünyada için tasarlanan Azure İzleyici günlüklerine yeni iş sorunlarını karşılamak ve uygulamaları ve bulut ortamları yeni iş yüklerine uyum sağlamak için en hızlı ve en ekonomik yolu olan Kurumsal yönetmek için yeni bir yaklaşım sunar.
 
@@ -67,12 +67,12 @@ Azure İzleyici günlüklerine temel işlevlerini, Azure'da çalışan hizmetler
 
 | Hizmet  | Açıklama|
 | :------------- | :-------------|
-| Azure izleme günlükleri | Fiziksel ve sanal makineler dahil olmak üzere çeşitli kaynakların kullanılabilirliğini ve performansını izleyin ve analiz edin. |
+| Azure İzleyici günlükleri | Fiziksel ve sanal makineler dahil olmak üzere çeşitli kaynakların kullanılabilirliğini ve performansını izleyin ve analiz edin. |
 |Otomasyon | El ile gerçekleştirilen işlemleri otomatikleştirin; fiziksel ve sanal makinelere yapılandırma uygulayın. |
 | Backup | Yedekleme ve kritik veri geri yükleme. |
 | Site Recovery | Kritik uygulamalar için yüksek kullanılabilirlik sağlayın. |
 
-### <a name="azure-monitor-logs"></a>Azure izleme günlükleri
+### <a name="azure-monitor-logs"></a>Azure İzleyici günlükleri
 
 [Azure İzleyici günlüklerine](https://azure.microsoft.com/documentation/services/log-analytics) yönetilen kaynaklardan toplanan verileri merkezi bir depoya toplayarak izleme hizmetleri sağlar. Bu verilere olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler dahil olabilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir.
 
@@ -80,7 +80,7 @@ Azure İzleyici günlüklerine temel işlevlerini, Azure'da çalışan hizmetler
 Bu yöntem, çeşitli kaynaklardan gelen verileri birleştirmenize olanak tanır, birleştirebildiğiniz şekilde Azure hizmetlerinizi mevcut olan verileri şirket içi ortamınızdaki. Ayrıca, veri toplama işlemini veriler üzerinde gerçekleştirilen eylemden ayırarak tüm eylemlerin her tür veri üzerinde kullanılabilmesini mümkün kılar.
 
 
-![Azure izleme günlükleri](./media/azure-operational-security/azure-operational-security-fig2.png)
+![Azure İzleyici günlükleri](./media/azure-operational-security/azure-operational-security-fig2.png)
 
 Azure İzleyici hizmeti aşağıdaki yöntemleri kullanarak buluttaki verilerinizi güvenli bir şekilde yönetir:
 -   veriler arasında ayrım yapma
@@ -149,7 +149,7 @@ Müşterilerin tehditleri önlemesine, algılamasına ve yanıt vermesine yardı
 
 -   **Veriler arasında ayrım yapma**: Veriler hizmet boyunca her bir bileşende mantıksal olarak ayrı tutulur. Tüm veriler kuruluşa göre etiketlenir. Bu etiketleme, veri yaşam döngüsü boyunca devam eder ve her bir hizmet katmanında uygulanır.
 
--   **Veri erişimi**: Güvenlik önerileri sağlamak ve olası güvenlik tehditlerini araştırmak üzere Microsoft personeli erişebileceği toplanan bilgiler veya göre Azure Hizmetleri, analiz kilitlenme dökümü dosyaları gibi oluşturma olayları, VM diski anlık görüntüleri ve yapıtları, işlem, yanlışlıkla müşteri verilerini ya da sanal makinelerinizdeki kişisel verileri içerebilir. Türetmeyeceğini [Microsoft çevrimiçi hizmet koşulları ve gizlilik bildirimini](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), Microsoft olmayan hangi durum müşteri verilerini veya reklam ya da benzeri ticari amaçlarla bundan bilgi.
+-   **Veri erişimi**: Güvenlik önerileri sağlamak ve olası güvenlik tehditlerini araştırmak üzere Microsoft personeli erişebileceği toplanan bilgiler veya göre Azure Hizmetleri, analiz kilitlenme dökümü dosyaları gibi oluşturma olayları, VM diski anlık görüntüleri ve yapıtları, işlem, yanlışlıkla müşteri verilerini ya da sanal makinelerinizdeki kişisel verileri içerebilir. Türetmeyeceğini [Microsoft çevrimiçi hizmet koşulları ve gizlilik bildirimini](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), Microsoft olmayan hangi durum müşteri verilerini veya reklam ya da benzeri ticari amaçlarla bundan bilgi.
 
 -   **Veri kullanımı**: Microsoft desenleri ve birden fazla kiracıda görülen tehdit önleme ve algılama özelliklerimizi geliştirmek için kullanır; Bunu açıklanan gizlilik taahhütlerine uygun şekilde yaptığımız bizim [gizlilik bildirimi](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
@@ -271,6 +271,7 @@ Aşağıdaki türde kimliği doğrulanmış ve anonim istekler kaydedilir.
 | Başarılı ve başarısız istekleri dahil olmak üzere paylaşılan erişim imzası (SAS), kullanarak istekleri |İstemci ve sunucu zaman aşımı hataları |
 |   Analiz veri istekleri |    304 (değiştirilmedi) hata koduyla başarısız GET istekleri |
 | Depolama analizi kendisini günlük oluşturma veya silme gibi tarafından yapılan istekleri günlüğe kaydedilmez. Günlüğe kaydedilen verilerin tam bir listesi belgelenen [depolama analizi günlüğe yazılan işlemler ve durum iletileri](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) ve [depolama analizi günlük biçimi](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format) konuları. | Diğer tüm başarısız anonim istekler günlüğe kaydedilmez. Günlüğe kaydedilen verilerin tam bir listesi belgelenen [depolama analizi günlüğe yazılan işlemler ve durum iletileri](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) ve [depolama analizi günlük biçimi](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
+
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
 Azure AD eksiksiz çok faktörlü kimlik doğrulaması, cihaz kaydı, Self Servis parola yönetimi, Self Servis Grup Yönetimi, ayrıcalıklı hesap yönetimi, rol tabanlı erişim gibi kimlik yönetimi özelliklerini de içerir. Denetim, uygulama kullanımını izleme, zengin denetim ve güvenlik izleme ve uyarı verme.
@@ -293,7 +294,7 @@ Raporları, olay adı, değişiklik ve tarih ve saat (UTC) tarafından etkilenen
 |Muhtemelen virüs bulaşmış cihazlardan gerçekleştirilen oturum açma işlemleri |Bireysel kullanıcı Etkinliği |   |
 |Anormal oturum açma etkinliği gösteren kullanıcılar |Grup etkinlik raporu |   |
 | |Parola Sıfırlama Kayıt Etkinlik Raporu |   |
-| |Parola sıfırlama etkinliği |   | |
+| |Parola sıfırlama etkinliği |   |
 
 
 

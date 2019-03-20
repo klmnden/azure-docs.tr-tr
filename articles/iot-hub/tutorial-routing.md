@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: df98be4dbb65088951968a16198b41d3d6d0bb67
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 87d0339de117330bf6d586cd653b0d4d16a8cbca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410222"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087712"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Öğretici: IOT Hub ile ileti yönlendirmeyi yapılandırma
 
@@ -144,7 +144,7 @@ echo "Service Bus namespace = " $sbNameSpace
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
-    
+
 # The Service Bus queue name must be globally unique, so add a random number to the end.
 sbQueueName=ContosoSBQueue$RANDOM
 echo "Service Bus queue name = " $sbQueueName
@@ -301,10 +301,9 @@ Veriler varsayılan olarak, varsayılan olarak BLOB depolamaya Avro biçiminde y
    > 
    > Örneğin varsayılan blob dosya adı biçimini kullandığınızda hub adı ContosoTestHub ve tarih/saat 30 Ekim 2018 10:56 ise blob adı şu şekilde olacaktır: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > Blobları, varsayılan olarak Avro biçiminde yazılır. JSON biçiminde dosyalarını yazmak seçebilirsiniz. IOT hub'ı Doğu ABD, Batı ABD ve Batı Avrupa, kullanılabilir tüm bölgelerde önizleme özelliği JSON biçiminde kodlamak için kullanılabilir. [Blob depolama alanına Yönlendirme Kılavuzu] konusuna bakın (iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+   > Blobları, varsayılan olarak Avro biçiminde yazılır. JSON biçiminde dosyalarını yazmak seçebilirsiniz. IOT hub'ı Doğu ABD, Batı ABD ve Batı Avrupa, kullanılabilir tüm bölgelerde önizleme özelliği JSON biçiminde kodlamak için kullanılabilir. Bkz: [blob depolama için yönlendirme yönergeleri](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
    > 
    > BLOB depolamaya yönlendirme, BLOB'ları kaydetme ve ardından tüm kapsayıcıları bölümünün varsayımlar yapmadan okunur emin olmak için bunları üzerinde yineleme öneririz. Bölüm aralığı sırasında olası değişebilir bir [Microsoft tarafından başlatılan bir yük devretme](iot-hub-ha-dr.md#microsoft-initiated-failover) veya IOT hub'ı [el ile yük devretme](iot-hub-ha-dr.md#manual-failover-preview). Blobları bakın listesini numaralandırır öğrenmek için [blob depolama alanına yönlendirme](iot-hub-devguide-messages-d2c.md#azure-blob-storage)
-   >
 
 8. Depolama uç noktasını oluşturmak ve yola eklemek için **Oluştur**'a tıklayın. **Yol ekle** bölmesine dönersiniz.
 
@@ -313,15 +312,15 @@ Veriler varsayılan olarak, varsayılan olarak BLOB depolamaya Avro biçiminde y
    **Ad**: Yönlendirme sorgunuz için bir ad girin. Bu öğreticide **StorageRoute** kullanılır.
 
    **Uç nokta**: Bu yeni ayarladığınız uç nokta gösterir. 
-   
+
    **Veri kaynağı**: Seçin **cihaz Telemetri iletilerini** aşağı açılan listeden.
 
    **Rota etkinleştirme**: Bu etkin olduğundan emin olun.
-   
+
    **Yönlendirme sorgusu**: Girin `level="storage"` sorgu dizesi olarak. 
 
    ![Depolama hesabı için yönlendirme sorgusu oluşturmayı gösteren ekran görüntüsü.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
-   
+
    **Kaydet**’e tıklayın. İşlem bittiğinde İleti Yönlendirme bölmesine döner ve burada depolama için yeni yönlendirme sorgunuzu görebilirsiniz. Yollar bölmesini kapatın; Kaynak grubu sayfasına dönersiniz.
 
 ### <a name="routing-to-a-service-bus-queue"></a>Service Bus kuyruğuna yönlendirme 
@@ -339,14 +338,14 @@ Veriler varsayılan olarak, varsayılan olarak BLOB depolamaya Avro biçiminde y
 4. Şu alanları doldurun:
 
    **Uç nokta adı**: Uç nokta için bir ad girin. Bu öğreticide **CriticalQueue** kullanılır.
-   
+
    **Service Bus Namespace**: Açılan listede gösterilmesi için bu alan; tıklayın. Hazırlama adımları sizin ayarladığınız service bus ad alanı seçin. Bu öğreticide **ContosoSBNamespace** kullanılır.
 
    **Service Bus kuyruğu**: Açılan listede gösterilmesi için bu alan; tıklayın. Service Bus kuyruğu, açılır listeden seçin. Bu öğreticide **contososbqueue** kullanılır.
 
 5. Service Bus kuyruğu uç noktasını eklemek için **Oluştur**'a tıklayın. **Yol ekle** bölmesine dönersiniz. 
 
-6.  Şimdi yönlendirme sorgusu bilgilerinin kalan kısmını tamamlarsınız. Bu sorgu, az önce uç nokta olarak eklediğiniz Service Bus kuyruğuna ileti gönderme ölçütlerini belirtir. Ekrandaki alanları doldurun. 
+6. Şimdi yönlendirme sorgusu bilgilerinin kalan kısmını tamamlarsınız. Bu sorgu, az önce uç nokta olarak eklediğiniz Service Bus kuyruğuna ileti gönderme ölçütlerini belirtir. Ekrandaki alanları doldurun. 
 
    **Ad**: Yönlendirme sorgunuz için bir ad girin. Bu öğreticide **SBQueueRoute** kullanılır. 
 
@@ -403,7 +402,7 @@ Service Bus kuyruğu kritik olarak belirlenmiş iletileri almak için kullanıla
    ![Service Bus kuyruğu için bağlantının ayarlanmasını gösteren ekran görüntüsü.](./media/tutorial-routing/logic-app-define-connection.png)
 
    Service Bus ad alanına tıklayın. Bu öğreticide **ContosoSBNamespace** kullanılır. Ad alanını seçtiğinizde, portal anahtarları almak için Service Bus ad alanını sorgular. **RootManageSharedAccessKey** öğesini seçin ve **Oluştur**'a tıklayın. 
-   
+
    ![Bağlantı ayarlama işleminin bitirilmesini gösteren ekran görüntüsü.](./media/tutorial-routing/logic-app-finish-connection.png)
 
 6. Sonraki ekranda, açılan listeden kuyruğun adını seçin (bu öğreticide **contososbqueue** kullanılır). Kalan alanlar için varsayılan değerleri kullanabilirsiniz. 
@@ -444,9 +443,9 @@ Verileri Power BI görselleştirmesinde görmek için, önce bir Stream Analytic
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Stream Analytics işine giriş ekleme
 
-4. **İş Topolojisi**'nin altında **Girişler**'e tıklayın.
+1. **İş Topolojisi**'nin altında **Girişler**'e tıklayın.
 
-5. **Girişler** bölmesinde **Akış girişi ekle**'ye tıklayın ve IoT Hub'ını seçin. Görüntülenen ekranda aşağıdaki alanları doldurun:
+1. **Girişler** bölmesinde **Akış girişi ekle**'ye tıklayın ve IoT Hub'ını seçin. Görüntülenen ekranda aşağıdaki alanları doldurun:
 
    **Giriş diğer adı**: Bu öğreticide **contosoinputs** kullanılır.
 
@@ -459,12 +458,12 @@ Verileri Power BI görselleştirmesinde görmek için, önce bir Stream Analytic
    **Paylaşılan erişim ilkesi adı**: Seçin **iothubowner**. Paylaşılan Erişim İlkesi Anahtarı'nı portal sizin için doldurur.
 
    **Tüketici grubu**: Daha önce oluşturduğunuz tüketici grubu seçin. Bu öğreticide **contosoconsumers** kullanılır.
-   
+
    Kalan alanlar için varsayılan değerleri kabul edin. 
 
    ![Stream Analytics işi için girişlerin ayarlanmasını gösteren ekran görüntüsü.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-6. **Kaydet**’e tıklayın.
+1. **Kaydet**’e tıklayın.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Stream Analytics işine çıkış ekleme
 
@@ -633,4 +632,4 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştirerek IoT Hub'ı iletileri
 IoT cihazı durumunun nasıl yönetileceğini öğrenmek için sonraki öğreticiye geçin. 
 
 > [!div class="nextstepaction"]
-[Ayarlama ve ölçümleri ve Tanılama ile IOT hub'ı kullanma](tutorial-use-metrics-and-diags.md)
+> [Ayarlama ve ölçümleri ve Tanılama ile IOT hub'ı kullanma](tutorial-use-metrics-and-diags.md)

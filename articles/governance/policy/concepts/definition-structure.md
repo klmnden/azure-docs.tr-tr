@@ -4,17 +4,17 @@ description: Kaynak ilke tanımı hangi etkili olması için zaman ilkelerin hi�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e3f2b60af574bc1d4e6633ce47b6cdf51e8e6d3e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 35cb5c286b9c9657c37dcede7f51082b5c48ef99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308423"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894436"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -101,7 +101,7 @@ Bir parametre ilke tanımında kullanılan aşağıdaki özelliklere sahiptir:
   - `displayName`: Parametre için Portalı'nda gösterilen kolay adı.
   - `strongType`: (İsteğe bağlı) Portal üzerinden ilke tanımlarının atamasını yaparken kullanılır. Bağlam kullanan listesini sağlar. Daha fazla bilgi için [strongType](#strongtype).
 - `defaultValue`: (İsteğe bağlı) Hiçbir değer sağlanmışsa atamadaki parametresinin değerini ayarlar. Atanan var olan bir ilke tanımı güncelleştirilirken gereklidir.
-- `allowedValues`: (İsteğe bağlı) Atama sırasında parametre kabul eden bir değer listesi sağlar.
+- `allowedValues`: (İsteğe bağlı) Atama sırasında parametre kabul eden bir değer dizisi sağlar.
 
 Örneğin, kaynakların dağıtıldığı konumları sınırlamak için bir ilke tanımı tanımlayabilirsiniz. Bu ilke tanımı için bir parametre olabilir **allowedLocations**. Bu parametre her ilke tanımı atama tarafından kabul edilen değerler sınırlamak için kullanılacak. Kullanımını **strongType** Portalı aracılığıyla atanabilecek tamamlarken Gelişmiş bir deneyim sağlar:
 
@@ -289,6 +289,9 @@ Aşağıdaki örnekte, `concat` değerini adlı etiket için etiket alanı arama
 Koşullar de biçimlendirilmiş kullanarak **değer**. **değer** koşullar karşı denetler [parametreleri](#parameters), [şablon işlevleri desteklenen](#policy-functions), ya da değişmez.
 **değer** desteklenen herhangi biri ile eşleştirilmiş [koşul](#conditions).
 
+> [!WARNING]
+> Sonucu bir _şablon işlevi_ bir hata ilkesi değerlendirmesi başarısız olur. Başarısız bir değerlendirme bir örtük olarak **Reddet**. Daha fazla bilgi için [şablon hatalarını önleme](#avoiding-template-failures).
+
 #### <a name="value-examples"></a>Değer örnekleri
 
 Bu ilke kuralı örnekte **değer** sonucunu karşılaştırmak için `resourceGroup()` işlevi ve döndürülen **adı** özelliğini bir **gibi** koşulu`*netrg`. Kural olmayan herhangi bir kaynağa engellediği `Microsoft.Network/*` **türü** adı biten içinde herhangi bir kaynak grubunda `*netrg`.
@@ -328,6 +331,44 @@ Bu ilke kuralı örnekte **değer** birden çok sonuç, iç içe geçmiş denetl
     }
 }
 ```
+
+#### <a name="avoiding-template-failures"></a>Şablon hatalarını önleme
+
+Kullanımını _şablon işlevleri_ içinde **değer** için birçok karmaşık iç içe geçmiş işlevler sağlar. Sonucu bir _şablon işlevi_ bir hata ilkesi değerlendirmesi başarısız olur. Başarısız bir değerlendirme bir örtük olarak **Reddet**. Örneği bir **değer** belirli senaryolarda başarısız olur:
+
+```json
+{
+    "policyRule": {
+        "if": {
+            "value": "[substring(field('name'), 0, 3)]",
+            "equals": "abc"
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
+}
+```
+
+Örnek ilke kuralı kullanımlar yukarıda [substring()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) ilk üç karakterine Karşılaştırılacak **adı** için **abc**. Varsa **adı** üç karakterden daha kısa `substring()` işlevi hatayla sonuçlanır. İlke olacak bu hataya neden olur bir **Reddet** efekt.
+
+Bunun yerine, [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) işlevi olmadığını denetlemek için ilk üç karakterine **adı** eşit **abc** izin olmadan bir **adı** kısa hataya neden olan üç karakter:
+
+```json
+{
+    "policyRule": {
+        "if": {
+            "value": "[if(greaterOrEquals(length(field('name')), 3), substring(field('name'), 0, 3), 'not starting with abc')]",
+            "equals": "abc"
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
+}
+```
+
+Düzeltilmiş ilke kuralı ile `if()` denetler **adı** alınmaya çalışılırken önce bir `substring()` Üçten az karakter içeren bir değeri. Varsa **adı** "abc ile başlamıyor" değeri yerine döndürdü ve karşılaştırıldığında çok kısa **abc**. İle başlamaz kısa bir ada sahip bir kaynak **abc** hala ilke kuralı başarısız olur, ancak artık değerlendirmesi sırasında bir hataya neden olur.
 
 ### <a name="effect"></a>Etki
 
@@ -443,70 +484,60 @@ Birkaç kullanılabilir diğer adlarına sahip bir 'normal' bir ad ve başka gö
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-İlk örnek tüm dizinin değerlendirmek için kullanılan burada **[\*]** diğer dizinin her öğesi değerlendirir.
-
-Örneğin bir ilke kuralı bakalım. Bu ilke olacak **Reddet** ipRules yapılandırılmış olan bir depolama hesabı ve **hiçbiri** ipRules "127.0.0.1" değerine sahiptir.
+'Normal' diğer adı alanı, tek bir değer temsil eder. Bu alan tüm değerler kümesini tam olarak tanımlandığı gibi artık ve az olmalıdır tam eşleşme karşılaştırma senaryoları için kullanılır. Kullanarak **ipRules**, örnek bir kural kümesinin kuralların sayısını ve her bir kuralın düzenini de dahil olmak üzere var olduğunu doğrulama. Bu örnek kural için tam olarak hem de denetler **192.168.1.1** ve **10.0.4.1** ile _eylem_ , **izin** içinde **ipRules** uygulanacak **effectType**:
 
 ```json
 "policyRule": {
     "if": {
-        "allOf": [{
+        "allOf": [
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "exists": "true"
+            },
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "Equals": [
+                    {
+                        "action": "Allow",
+                        "value": "192.168.1.1"
+                    },
+                    {
+                        "action": "Allow",
+                        "value": "10.0.4.1"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effectType')]"
+    }
+}
+```
+
+**[\*]** Diğer adı dizideki her öğenin değerini ve her öğenin belirli özelliklerini karşı Karşılaştırılacak mümkün kılar. Bu yaklaşım, öğe özelliklerini karşılaştırma mümkün kılar 'Hiçbiri ' ise 'varsa' veya ' tüm'ın ' senaryoları. Kullanarak **ipRules [\*]**, örnek, doğrulamak her _eylem_ olduğu _Reddet_, ancak kaç kuralları var veya hangi IP hakkındaendişelenmenizegerekyok_değer_ olduğu. Bu örnek kural eşleşme için denetler **ipRules [\*] .value** için **10.0.4.1** ve uygular **effectType** yalnızca en az bir eşleşme bulamazsa:
+
+```json
+"policyRule": {
+    "if": {
+        "allOf": [
+            {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
                 "exists": "true"
             },
             {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-                "notEquals": "127.0.0.1"
+                "notEquals": "10.0.4.1"
             }
         ]
     },
     "then": {
-        "effect": "deny",
+        "effect": "[parameters('effectType')]"
     }
 }
 ```
 
-**İpRules** dizi şu şekildedir örneğin:
-
-```json
-"ipRules": [{
-        "value": "127.0.0.1",
-        "action": "Allow"
-    },
-    {
-        "value": "192.168.1.1",
-        "action": "Allow"
-    }
-]
-```
-
-Bu örnek nasıl işleneceğini aşağıda verilmiştir:
-
-- `networkAcls.ipRules` -Dizisi null olmayan olup olmadığını denetleyin. Değerlendirme devam eder, true olarak değerlendirilir.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-    "exists": "true"
-  }
-  ```
-
-- `networkAcls.ipRules[*].value` -Her denetler _değer_ özelliğinde **ipRules** dizisi.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-    "notEquals": "127.0.0.1"
-  }
-  ```
-
-  - Her öğe bir dizi olarak işlenir.
-
-    - "127.0.0.1"! = "127.0.0.1" false değerlendirir.
-    - "127.0.0.1"! = "192.168.1.1", true değerlendirilir.
-    - En az bir _değer_ özelliğinde **ipRules** dizi değerlendirme sona erecek yanlış değerlendirilir.
-
-Koşul false olarak değerlendirildi **Reddet** etkisi olmayan tetiklendi.
+Daha fazla bilgi için [değerlendirme [\*] diğer adı](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Girişimler
 

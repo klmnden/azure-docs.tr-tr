@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 6e0339808d65cd5b4acd7b77284ccedf7cdf1989
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: bbdcbdc7ef288eeeb279c7e5e59baee492e1f292
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902134"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835286"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Azure Kullandıkça Öde aboneliğinizi farklı bir teklif için değiştirin
 
@@ -55,7 +55,7 @@ Olarak bir [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/
 1. **Başka bir teklife geç** seçeneğine tıklayın. Bu düğme, yalnızca Kullandıkça Öde aboneliğine sahipseniz ve ilk fatura döneminiz sona erdiyse kullanılabilir.
 
    ![Sayfanın sağ tarafında anahtar teklif düğmesinde dikkat edin.](./media/billing-how-to-switch-azure-offer/switchbutton.png)
-1. **İstediğiniz teklif seçin** tekliflerin listeden aboneliğinizi olarak değiştirilebilir. Bu liste, hesabınız ile ilişkili üyeliklerini göre değişir. Hiçbir şey olup olmadığını denetleyin [kullanılabilir teklifleri için geçiş listesi](#whats-supported) ve üyeliklerini doğru olduğundan emin olun. 
+1. **İstediğiniz teklif seçin** tekliflerin listeden aboneliğinizi olarak değiştirilebilir. Bu liste, hesabınızın ilişkilendirildiği üyeliklere göre değişir. Hiçbir şey olup olmadığını denetleyin [kullanılabilir teklifleri için geçiş listesi](#whats-supported) ve üyeliklerini doğru olduğundan emin olun. 
 
    ![Geçiş yapmak istediğiniz bir teklif seçin](./media/billing-how-to-switch-azure-offer/selectoffer.png)
 1. Geçiş yapıyorsanız, teklif bağlı olarak, geçiş etkisi hakkında bir not görebilirsiniz. Bu listede dikkatle gidin ve devam etmeden önce yönergeleri izleyin.
@@ -78,7 +78,7 @@ Bir Azure teklif *türü* , sahip olduğunuz Azure abonelik. Örneğin, [Kulland
 
 Görmeyebilirsiniz **başka bir teklife geç** düğmesi:
 
-* Açık değil [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/). Şu anda yalnızca Kullandıkça Öde Abonelikleri, başka bir teklife dönüştürülebilir.
+* Açık değil [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/). Şu an için yalnızca Kullandıkça Öde abonelikleri diğer tekliflere dönüştürülebilir.
   * Üzerinde kullanıyorsanız [ücretsiz deneme](https://azure.microsoft.com/free/), bilgi nasıl [Kullandıkça Öde aboneliğine yükseltme](billing-upgrade-azure-subscription.md).
   * Farklı bir abonelikten teklif geçmek [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 * Yine de ilk fatura döneminiz üzerinde olduğunuz; Teklifler, değiştirmeden önce sonlandırmak ilk fatura döneminiz için beklemeniz gerekir.
@@ -116,4 +116,4 @@ Gün, geçiş, fatura için ödenmemiş tüm oluşturulur. Sonra aboneliğinizi 
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

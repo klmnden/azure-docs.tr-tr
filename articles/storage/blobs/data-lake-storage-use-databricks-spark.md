@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Databricks Spark'ı kullanarak Azure Data Lake depolama Gen2'ye veri erişim | Microsoft Docs"
-description: Bu öğreticide, Spark, Azure Data Lake depolama Gen2'ye depolama hesabınız verilere erişmek için bir Azure Databricks kümesinde sorguları çalıştırma işlemi gösterilmektedir.
+description: Bu öğreticide, Spark, Azure Data Lake depolama Gen2'ye depolama hesabınız verilere erişmek için Azure Databricks kümesinde sorguları çalıştırma işlemi gösterilmektedir.
 services: storage
 author: dineshmurthy
 ms.subservice: data-lake-storage-gen2
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: dineshm
-ms.openlocfilehash: 422bf9a3fb4e3168857a78f4f50ac771ef80c6a6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7f712bcf3e82005480d4960484cb0ea3ad51fbff
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766470"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226768"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Öğretici: Spark'ı kullanarak Azure Databricks ile Data Lake depolama Gen2 verilere erişme
 
@@ -32,22 +32,22 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 * Bir Azure Data Lake depolama Gen2 hesabı oluşturun.
 
-  Bkz: [bir Azure Data Lake depolama Gen2 hesabı oluşturma](data-lake-storage-quickstart-create-account.md).
+  Bkz: [Azure Data Lake depolama Gen2 hesap oluşturma](data-lake-storage-quickstart-create-account.md).
 
 * Kullanıcı hesabınız olduğundan emin olun [depolama Blob verileri katkıda bulunan rolü](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) atanmış.
 
 * AzCopy v10 yükleyin. Bkz: [v10 AzCopy ile veri aktarma](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-*  Bir hizmet sorumlusu oluşturun. Bkz: [nasıl yapılır: Azure AD'yi kaynaklara erişebilen uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Bir hizmet sorumlusu oluşturun. Bkz: [nasıl yapılır: Azure AD'yi kaynaklara erişebilen uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-   Birkaç, bu makaledeki adımları gerçekleştirmek olarak gerçekleştirmeniz yeterli belirli bir şey yoktur.
+  Birkaç, bu makaledeki adımları gerçekleştirmek olarak gerçekleştirmeniz yeterli belirli bir şey yoktur.
 
-   :heavy_check_mark: Adımları gerçekleştirirken [uygulamanızı bir role atama](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) bölümü makalenin atadığınızdan emin olun **depolama Blob verileri katkıda bulunan** rolüne hizmet sorumlusu.
+  :heavy_check_mark: Adımları gerçekleştirirken [uygulamanızı bir role atama](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) bölümü makalenin atadığınızdan emin olun **depolama Blob verileri katkıda bulunan** rolüne hizmet sorumlusu.
 
-   > [!IMPORTANT]
-   > Data Lake depolama Gen2'ye depolama hesabı kapsamında bir rol atamak emin olun. Üst kaynak grubuna veya aboneliğe rol atayabilir, ancak bu rol atamaları depolama hesabına dolmaya başladığını kadar izinleri ile ilgili hataları alırsınız.
+  > [!IMPORTANT]
+  > Data Lake depolama Gen2'ye depolama hesabı kapsamında bir rol atamak emin olun. Üst kaynak grubuna veya aboneliğe rol atayabilir, ancak bu rol atamaları depolama hesabına dolmaya başladığını kadar izinleri ile ilgili hataları alırsınız.
 
-   :heavy_check_mark: Adımları gerçekleştirirken [oturum açma için değerleri alma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) makalesi, Yapıştır Kiracı kimliği, uygulama kimliği ve kimlik doğrulama anahtarı değerleri bir metin dosyasına bölümü. Bu kısa süre içinde olması gerekir.
+  :heavy_check_mark: Adımları gerçekleştirirken [oturum açma için değerleri alma](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) makalesi, Yapıştır Kiracı kimliği, uygulama kimliği ve kimlik doğrulama anahtarı değerleri bir metin dosyasına bölümü. Bu kısa süre içinde olması gerekir.
 
 ### <a name="download-the-flight-data"></a>Uçuş verilerini indirme
 
@@ -147,12 +147,12 @@ Bu bölümde, depolama hesabınızdaki bir dosya sistemi ve klasör oluşturacak
 
    * `storage-account-name` Azure Data Lake depolama Gen2'ye depolama hesabınızın adıdır.
 
-    > [!NOTE]
-    > Bir üretim ayarında, Azure Databricks'te, kimlik doğrulama anahtarı depolamayı düşünün. Ardından, kimlik doğrulama anahtarı yerine, kod bloğu için bir arama anahtarı ekleyin. Bu hızlı başlangıcı tamamladıktan sonra bkz [Azure Data Lake depolama Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) makalede bu yaklaşım örneklerini görmek için Azure Databricks Web sitesinde.
+   > [!NOTE]
+   > Bir üretim ayarında, Azure Databricks'te, kimlik doğrulama anahtarı depolamayı düşünün. Ardından, kimlik doğrulama anahtarı yerine, kod bloğu için bir arama anahtarı ekleyin. Bu hızlı başlangıcı tamamladıktan sonra bkz [Azure Data Lake depolama Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) makalede bu yaklaşım örneklerini görmek için Azure Databricks Web sitesinde.
 
 19. Tuşuna **SHIFT + ENTER** bu blok kodu çalıştırmak için anahtarları.
 
-    Buna daha sonra komutları ekleyeceksiniz gibi bu not defteri, açık tutun.
+   Buna daha sonra komutları ekleyeceksiniz gibi bu not defteri, açık tutun.
 
 ## <a name="ingest-data"></a>Veriyi çekme
 
@@ -182,7 +182,7 @@ Veri kopyalamak için AzCopy kullanın, *.csv* Data Lake depolama Gen2 hesabın�
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Databricks Not Defteri'ni kullanarak CSV'yi Parquet biçimine dönüştürme
 
-Daha önce oluşturduğunuz not defterine yeni bir hücresi ekleyin ve bu hücreye aşağıdaki kodu yapıştırın. Değiştirin `storage-account-name` Bu kod parçacığı için csv dosyasını kaydettiğiniz klasörü adı ile yer tutucu değeri.
+Daha önce oluşturduğunuz not defterine yeni bir hücresi ekleyin ve bu hücreye aşağıdaki kodu yapıştırın. 
 
 ```python
 # Use the previously established DBFS mount point to read the data.
@@ -284,5 +284,5 @@ Artık ihtiyaç duyulan olmadığında kaynak grubunu ve tüm ilgili kaynakları
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[!div class="nextstepaction"] 
+> [!div class="nextstepaction"] 
 > [Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme](data-lake-storage-tutorial-extract-transform-load-hive.md)

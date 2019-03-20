@@ -15,12 +15,12 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6bf5ae22fe8bf06d29c8c812a18cffcef14865c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b574e538c407040518f3905f8fbd9fa91d5dd067
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550813"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002043"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Azure kaynağı rollerim PIM etkinleştir
 
@@ -36,9 +36,13 @@ Bir Azure Kaynak rolü gerektiğinde kullanarak etkinleştirme isteyebilir **rol
 
 1. Açık **Azure AD Privileged Identity Management**. PIM kutucuk, panonuza ekleme hakkında daha fazla bilgi için bkz: [PIM kullanmaya başlamak](pim-getting-started.md).
 
-1. Tıklayın **rollerim** , uygun bir listesini görmek için Azure AD Dizin rolleri ve Azure kaynağı rolleri.
+1. Tıklayın **rollerim**.
 
     ![Azure AD Dizin rolleri ve Azure kaynak rolleri - rollerim](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+
+1. Tıklayın **Azure kaynağı rolleri** , uygun bir Azure kaynağı rolleri listesini görmek için.
+
+   ![Azure kaynağı rolleri](./media/pim-resource-roles-activate-your-roles/resources-my-roles-azure-resources.png) 
 
 1. İçinde **Azure kaynağı rolleri** listesinde, etkinleştirmek istediğiniz rol bulur.
 

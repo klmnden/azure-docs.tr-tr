@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 771f910fce44724250ff79e770e0d1ca56e8765c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 647d40db87f76a9e1a13a108c5f55fac40524017
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768425"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012784"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Azure Depolama REST API’sini kullanma
 
@@ -46,7 +46,7 @@ Bu komut, depoyu yerel Git klasörünüze kopyalar. Visual Studio çözümünü 
 
 ## <a name="what-is-rest"></a>REST nedir?
 
-REST anlamına gelir *temsili durum aktarımı*. Belirli bir tanımı için kullanıma [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer).
+REST anlamına gelir *temsili durum aktarımı*. Belirli bir tanımı için kullanıma [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
 Temel olarak, REST ne zaman kullanabileceğiniz bir mimaridir API'leri çağırma veya API'leri çağrılacak kullanılabilir hale getirme. Her iki tarafında neler olduğunu bağımsızdır ve diğer yazılımları gönderme veya geri alma sırasında kullanılan çağırır. Mac, Windows, Linux, Android telefon veya tablet, iPhone, iPod veya web sitesi üzerinde çalışan bir uygulama yazma ve tüm bu platformlar için aynı REST API'yi kullanın. REST API çağrıldığında, ve/veya dışarı veri geçirilebilir. REST API adlandırılır – hangi önemli istekte geçirilen bilgileri ve yanıt olarak sunulan veri platformudur önemli değildir.
 
@@ -80,7 +80,7 @@ Ek parametreler kullanmak için şu örnekteki gibi bir değeri ile kaynak dizes
 
 [İstek gövdesi](/rest/api/storageservices/List-Containers2#request-body)**:** Hiçbir istek gövdesi için ListContainers yoktur. İstek gövdesi tüm PUT işlemleri uygulamak için bir XML saklı erişim ilkeleri listesinde göndermenize olanak tanıyan SetContainerAccessPolicy yanı sıra, BLOB'ları karşıya yüklenirken kullanılır. Saklı erişim ilkeleri makalesinde açıklanan [paylaşılan erişim imzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md).
 
-[Yanıt durum kodu](/rest/api/storageservices/List-Containers2#status-code)**:** Bilmeniz gereken herhangi bir durum kodları söyler. Bu örnekte, bir HTTP durum kodu 200 Tamam. HTTP durum kodlarının tam bir listesi için kullanıma [durum kodu tanımları](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Depolama REST API'leri için belirli hata kodlarını görmek için bkz: [ortak REST API hata kodları](/rest/api/storageservices/common-rest-api-error-codes)
+[Yanıt durum kodu](/rest/api/storageservices/List-Containers2#status-code)**:** Bilmeniz gereken herhangi bir durum kodları söyler. Bu örnekte, bir HTTP durum kodu 200 Tamam. HTTP durum kodlarının tam bir listesi için kullanıma [durum kodu tanımları](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Depolama REST API'leri için belirli hata kodlarını görmek için bkz: [ortak REST API hata kodları](/rest/api/storageservices/common-rest-api-error-codes)
 
 [Yanıt üstbilgileri](/rest/api/storageservices/List-Containers2#response-headers)**:** Bunlar *içerik türü*; *x-ms-request-id* (istek kimliği, varsa geçirilen); *x-ms-version* (kullanılan Blob hizmetinin sürümü gösterir) ve *tarih* (UTC, isteğin ne zaman yapıldığını belirtir).
 
@@ -88,7 +88,7 @@ Ek parametreler kullanmak için şu örnekteki gibi bir değeri ile kaynak dizes
 
 ## <a name="creating-the-rest-request"></a>REST isteği oluşturma
 
-Birkaç başlatmadan – notları üretimde çalışırken güvenlik için her zaman kullanın HTTP yerine HTTPS. Bu alıştırmanın amacı doğrultusunda, istek ve yanıt verilerini görüntülemek için HTTP kullanmanız gerekir. Gerçek REST çağrılarını İstek ve yanıt bilgileri görüntülemek için indirebileceğiniz [Fiddler](http://www.telerik.com/fiddler) ya da benzer bir uygulama. Visual Studio çözümünde depolama hesabı adını ve anahtarını sınıfında sabittir ve REST isteği çeşitli bileşenleri oluşturmak için kullanılan yöntemleri için depolama hesabı adı ve depolama hesabı anahtarı ListContainersAsyncREST yöntemi geçirir . Gerçek dünya uygulamada, depolama hesabı adını ve anahtarını ortam değişkenleri, bir yapılandırma dosyasında bulunabilir veya bir Azure Key Vault'tan alınabilir.
+Birkaç başlatmadan – notları üretimde çalışırken güvenlik için her zaman kullanın HTTP yerine HTTPS. Bu alıştırmanın amacı doğrultusunda, istek ve yanıt verilerini görüntülemek için HTTP kullanmanız gerekir. Gerçek REST çağrılarını İstek ve yanıt bilgileri görüntülemek için indirebileceğiniz [Fiddler](https://www.telerik.com/fiddler) ya da benzer bir uygulama. Visual Studio çözümünde depolama hesabı adını ve anahtarını sınıfında sabittir ve REST isteği çeşitli bileşenleri oluşturmak için kullanılan yöntemleri için depolama hesabı adı ve depolama hesabı anahtarı ListContainersAsyncREST yöntemi geçirir . Gerçek dünya uygulamada, depolama hesabı adını ve anahtarını ortam değişkenleri, bir yapılandırma dosyasında bulunabilir veya bir Azure Key Vault'tan alınabilir.
 
 Bizim örnek projesinde yetkilendirme üst bilgisi oluşturmak için, tüm sınıf katılın ve kendi çözümünüze ekleyin ve "olduğu gibi." kullanmanızı fikir ile ayrı bir sınıf kodudur Yetkilendirme üst bilgisi kod, çoğu Azure depolama REST API çağrıları için çalışır.
 
@@ -300,7 +300,7 @@ StringToSign = VERB + "\n" +
 
 Bu alanların çoğu nadiren kullanılır. BLOB Depolama için FİİLİ, md5, içerik uzunluğu, kurallı üst bilgileri ve kurallı bir kaynak belirtin. Diğerleri boş bırakabilirsiniz (ancak, put `\n` boş oldukları bilmesi için).
 
-CanonicalizedHeaders ve CanonicalizedResource nedir? İyi soru. Aslında, ne yaptığını ortalama kurallı? Microsoft Word bile, bir sözcük tanımaz. İşte [Wikipedia belirten standart hale getirme hakkında](http://en.wikipedia.org/wiki/Canonicalization): *Bilgisayar biliminde standart hale getirme (bazen Standardizasyon veya normalleştirme), "standart", "normal" veya kurallı bir form birden fazla olası gösterimine sahip verileri dönüştürmek için bir işlemdir.* Buna normal konuşurken, (örneğin, üstbilgiler kurallı üst bilgileri söz konusu olduğunda) öğelerinin listesini alabilir ve bunları gerekli bir biçime standart hale getirmek bu anlamına gelir. Temel olarak, Microsoft karar biçimi ve onunla eşleşecek şekilde gerekir.
+CanonicalizedHeaders ve CanonicalizedResource nedir? İyi soru. Aslında, ne yaptığını ortalama kurallı? Microsoft Word bile, bir sözcük tanımaz. İşte [Wikipedia belirten standart hale getirme hakkında](https://en.wikipedia.org/wiki/Canonicalization): *Bilgisayar biliminde standart hale getirme (bazen Standardizasyon veya normalleştirme), "standart", "normal" veya kurallı bir form birden fazla olası gösterimine sahip verileri dönüştürmek için bir işlemdir.* Buna normal konuşurken, (örneğin, üstbilgiler kurallı üst bilgileri söz konusu olduğunda) öğelerinin listesini alabilir ve bunları gerekli bir biçime standart hale getirmek bu anlamına gelir. Temel olarak, Microsoft karar biçimi ve onunla eşleşecek şekilde gerekir.
 
 Yetkilendirme üst bilgisi oluşturmak için gerekli olduğundan bu iki Kurallaştırılan alanları ile başlayalım.
 
@@ -325,7 +325,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
     StringBuilder sb = new StringBuilder();
 
     // Create the string in the right format; this is what makes the headers "canonicalized" --
-    //   it means put in a standard format. http://en.wikipedia.org/wiki/Canonicalization
+    //   it means put in a standard format. https://en.wikipedia.org/wiki/Canonicalization
     foreach (var kvp in headers)
     {
         StringBuilder headerBuilder = new StringBuilder(kvp.Key);
@@ -482,7 +482,7 @@ GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
 SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 ```
 
-Aşağıdaki değerleri arasındadır [Fiddler](http://www.telerik.com/fiddler):
+Aşağıdaki değerleri arasındadır [Fiddler](https://www.telerik.com/fiddler):
 
 **İstek:**
 

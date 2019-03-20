@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: 2b9426043619887d99003677fd6e8488cb56cce2
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 01f6da4f5ad6b618c444949fce8d2b7aa3367e17
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075774"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>İzleme ve Azure Güvenlik Merkezi'nde güvenlik olaylarını işleme
 Olaylar Panosu, zaman ve ilgilenmenizi gerektiren önemli olayların bir listesi üzerinden toplanan güvenlik olay sayısı için genel bir bakış sağlar.  
@@ -57,30 +57,30 @@ Size erişim **olayları** Güvenlik Merkezi ana menüsünde veya Güvenlik Merk
 1. Altında **Güvenlik Merkezi** ana menüsünde, select **olayları**.
 2. **Olaylar Panosu** çalışma alanı seçicisini açın. Yalnızca bir çalışma alanı varsa, bu çalışma alanı Seçici görüntülenmez. Birden fazla çalışma alanı varsa, işlenen olay ayrıntılarını görüntülemek için bir çalışma alanı seçmeniz gerekir. Birden fazla çalışma alanı varsa, listeden bir çalışma alanı seçin.
 
-  ![Çalışma alanı listesi][3]
+   ![Çalışma alanı listesi][3]
 
 3. **Olaylar Panosu** açılarak, seçilen çalışma alanı için olay ayrıntılarını gösterir. Önemli olayları ve türe göre tüm olaylar görüntüleyebilirsiniz.  Biz bu örnekte, seçili **önemli olayları**.
 
-  ![Önemli etkinlik][4]
+   ![Önemli etkinlik][4]
 
 4. Bir olay türü seçerek çalışma alanı altında daha fazla veri sorgulayabilirsiniz. Biz bu örnekte, seçili **SecurityEvent**.
 
-  ![Bir olay türü seçme][5]
+   ![Bir olay türü seçme][5]
 
 5. **Günlük arama** olayın türüne ek ayrıntı ile açılır.
 
-  ![Günlük araması][6]
+   ![Günlük araması][6]
 
 ## <a name="add-a-notable-event"></a>Önemli olay Ekle
 Güvenlik Merkezi, Giden kutusu önemli olayları sağlar. Kendi sorgu kullanımına dayalı önemli olayları ekleyebilirsiniz [Kusto sorgu dili](../log-analytics/log-analytics-search-reference.md). İçin getireceğiz **olaylar Panosu** önemli bir olay eklemek için.
 
 1. Seçin **önemli olay Ekle**.
 
-  ![Önemli olay Ekle][7]
+   ![Önemli olay Ekle][7]
 
 2. **Özel önemli olay Ekle** açılır.  Altında **görünen ad**, önemli olay için bir ad girin. Altında **arama sorgusu**, olay için sorgunuzu girin.
 
-  ![Sorgunuzu girin][8]
+   ![Sorgunuzu girin][8]
 
 4. **Tamam**’ı seçin.
 
@@ -104,19 +104,19 @@ Güvenlik Merkezi, Giden kutusu önemli olayları sağlar. Kendi sorgu kullanım
 1. Bir çalışma alanı seçin, **için güncelleştirme gerekiyor**.
 2. **Arama yükseltmesi** açılır. Seçin **şimdi yükseltin**.
 
-  ![Şimdi yükseltin][10]
+   ![Şimdi yükseltin][10]
 
 ## <a name="upgrade-to-security-centers-standard-tier"></a>Güvenlik Merkezi'nin standart katmana yükseltme
 1. Bir çalışma alanı ile **planı YÜKSELT**.
 2. **Olaylar Panosu** açılır. Seçin **deneyin olaylar Panosu**.
 
-  ![Panosunu deneyin][11]
+   ![Panosunu deneyin][11]
 
 3. Altında **Gelişmiş güvenliğe ekleme**, Yükseltmekte olduğunuz çalışma alanını seçin.
 4. Altında **fiyatlandırma**seçin **standart**.
 5. **Kaydet**’i seçin.
 
-  ![Standart katmana yükseltme][12]
+   ![Standart katmana yükseltme][12]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede Güvenlik Merkezi'nin olay panonun nasıl kullanılacağı hakkında bilgi edindiniz. Pano nasıl çalıştığı hakkında daha fazla bilgi edinin ve kendi olay sorguları yazma bakın:

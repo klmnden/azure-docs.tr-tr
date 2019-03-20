@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8bf61e6506e0d109b83fa323439348c3803bd5ce
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 5cad83c6b8ca11fe45a2b29dc115c340d6e16361
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731021"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014634"
 ---
 # <a name="write-and-configure-data-using-azure-machine-learning"></a>Yazma ve Azure Machine Learning kullanarak verileri yapılandırma
 
@@ -58,6 +58,7 @@ t.head(5)
 ```
 
 Örnek çıktı:
+
 | | Column1 | Column2 | Sütun3 | Sütun4 | Sütun5 | Sütun6 | Column7 | Column8 | Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 |0| 10000.0 | 99999.0 | None | NO | NO | ENRS | NaN | NaN | NaN |   
@@ -82,6 +83,7 @@ written_files.head(5)
 ```
 
 Örnek çıktı:
+
 | | Column1 | Column2 | Sütun3 | Sütun4 | Sütun5 | Sütun6 | Column7 | Column8 | Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 |0| 10000.0 | 99999.0 | HATA | NO | NO | ENRS | NaN    | NaN | NaN |   
@@ -104,6 +106,7 @@ written_files.head(5)
 ```
 
 Yukarıdaki kod, bu çıktıyı üretir:
+
 | | Column1 | Column2 | Sütun3 | Sütun4 | Sütun5 | Sütun6 | Column7 | Column8 | Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 |0| 10000.0 | 99999.0 | BadData | NO | NO | ENRS | NaN  | NaN | NaN |   
@@ -131,6 +134,7 @@ written_parquet_files.head(5)
 ```
 
 Yukarıdaki kod, bu çıktıyı üretir:
+
 |   | Column1 | Column2 | Sütun3 | Sütun4 | Sütun5 | Sütun6 | Column7 | Column8 | Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |-------- |
 |0| 10000.0 | 99999.0 | MiscreantData | NO | NO | ENRS | MiscreantData | MiscreantData | MiscreantData |

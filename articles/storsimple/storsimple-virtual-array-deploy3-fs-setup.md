@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f699e40a4a31b6d57b12a43ae307806d3f010015
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a931b303e40e41bc23e8b586e1d37e600625b1a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267190"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881070"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>StorSimple sanal dizisi - kümesi oluşturan Azure portal aracılığıyla dosya sunucusu dağıtma
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -129,15 +129,15 @@ Aşağıdaki adımlarda gerçekleştirmek [Azure portalında](https://portal.azu
     ![Dosya sunucusu yapılandırın](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. Tıklayın **yapılandırma** komut çubuğunda. Bu açılır **yapılandırma** dikey penceresi. İçinde **yapılandırma** dikey penceresinde aşağıdakileri yapın:
    
-    1. Dosya sunucusu adı otomatik olarak doldurulur.
+   1. Dosya sunucusu adı otomatik olarak doldurulur.
     
-    2. Bulut depolama şifrelemesi emin olun kümesine **etkin**. Bu buluta gönderilen tüm verileri şifreler. 
+   2. Bulut depolama şifrelemesi emin olun kümesine **etkin**. Bu buluta gönderilen tüm verileri şifreler. 
     
-    3. 256 bit AES anahtar şifreleme için kullanıcı tanımlı anahtar ile kullanılır. Bir 32 karakter anahtarı belirtin ve sonra da onaylamak için anahtarı girin. Gelecek başvurular için bir anahtar yönetimi uygulamasında kayıt anahtarı.
+   3. 256 bit AES anahtar şifreleme için kullanıcı tanımlı anahtar ile kullanılır. Bir 32 karakter anahtarı belirtin ve sonra da onaylamak için anahtarı girin. Gelecek başvurular için bir anahtar yönetimi uygulamasında kayıt anahtarı.
     
-    4. Tıklayın **gerekli ayarları Yapılandır** cihazınızla kullanılacak depolama hesabı kimlik bilgilerini belirtmek için. Tıklayın **yeni Ekle** yapılandırılan depolama hesabı kimlik bilgilerine olup olmadığını. **Blok bloblarını destekler kullandığınız depolama hesabını emin olun. Sayfa blobları desteklenmez.** Hakkında daha fazla bilgi [engeller blobları ve sayfa blobları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Tıklayın **gerekli ayarları Yapılandır** cihazınızla kullanılacak depolama hesabı kimlik bilgilerini belirtmek için. Tıklayın **yeni Ekle** yapılandırılan depolama hesabı kimlik bilgilerine olup olmadığını. **Blok bloblarını destekler kullandığınız depolama hesabını emin olun. Sayfa blobları desteklenmez.** Hakkında daha fazla bilgi [engeller blobları ve sayfa blobları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
-    ![Dosya sunucusu yapılandırın](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![Dosya sunucusu yapılandırın](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. İçinde **bir depolama hesabı kimlik bilgileri ekleme** dikey penceresinde aşağıdakileri yapın: 
 
     1. Hizmet ile aynı abonelikte depolama hesabı ise, geçerli aboneliği seçin. Diğer depolama belirtmek dışında hizmet aboneliği hesabıdır. 
@@ -175,26 +175,26 @@ Paylaşım oluşturmak için [Azure portalında](https://portal.azure.com/) aşa
    ![Paylaşım ekleme](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. Aşağıdaki paylaşım ayarları belirtin:
 
-    1. Paylaşımınız için benzersiz bir ad. Ad 3 ile 127 karakter içeren bir dize olmalıdır.
+   1. Paylaşımınız için benzersiz bir ad. Ad 3 ile 127 karakter içeren bir dize olmalıdır.
     
-    2. İsteğe bağlı **açıklama** paylaşım için. Açıklama, paylaşım sahiplerini belirlemeye yardımcı olur.
+   2. İsteğe bağlı **açıklama** paylaşım için. Açıklama, paylaşım sahiplerini belirlemeye yardımcı olur.
     
-    3. A **türü** paylaşım için. Türü olabilir **katmanlı** veya **yerel olarak sabitlenmiş**, varsayılan olan katmanlı. Yerel GARANTİLERİN, düşük gecikme süreleri ve daha yüksek performans gerektiren iş yükleri için seçin bir **yerel olarak sabitlenmiş** paylaşın. Diğer tüm veriler için seçin bir **katmanlı** paylaşın.
-    Yerel olarak sabitlenmiş bir paylaşımı hazırlanmıştır ve birincil veri paylaşımında cihazda yerel kalmasını ve buluta dağıtılmamasını sağlar. Öte yandan, katmanlı bir paylaşım sıkı hazırlanmıştır. Katmanlı bir paylaşım oluşturduğunuzda, %10 alan yerel katmanında sağlanır ve bulutta % 90 ' alanı sağlanır. Örneğin, 1 TB'lik bir birimi sağladıysanız, 100 GB yerel alanı bulunması ve 900 GB bulutta kullanılabilir olduğunda veri katmanları. Bu sırayla cihazda yerel alanın tümünü dışında çalıştırırsanız, katmanlı bir paylaşım sağlayamazsınız anlamına gelir.
+   3. A **türü** paylaşım için. Türü olabilir **katmanlı** veya **yerel olarak sabitlenmiş**, varsayılan olan katmanlı. Yerel GARANTİLERİN, düşük gecikme süreleri ve daha yüksek performans gerektiren iş yükleri için seçin bir **yerel olarak sabitlenmiş** paylaşın. Diğer tüm veriler için seçin bir **katmanlı** paylaşın.
+      Yerel olarak sabitlenmiş bir paylaşımı hazırlanmıştır ve birincil veri paylaşımında cihazda yerel kalmasını ve buluta dağıtılmamasını sağlar. Öte yandan, katmanlı bir paylaşım sıkı hazırlanmıştır. Katmanlı bir paylaşım oluşturduğunuzda, %10 alan yerel katmanında sağlanır ve bulutta % 90 ' alanı sağlanır. Örneğin, 1 TB'lik bir birimi sağladıysanız, 100 GB yerel alanı bulunması ve 900 GB bulutta kullanılabilir olduğunda veri katmanları. Bu sırayla cihazda yerel alanın tümünü dışında çalıştırırsanız, katmanlı bir paylaşım sağlayamazsınız anlamına gelir.
    
-    4. İçinde **ayarlanmış varsayılan tam izinleri** alanında, kullanıcının veya grubun bu paylaşıma erişim izinleri atayın. Kullanıcı veya kullanıcı grubunun adını *john@contoso.com* biçimi. Bu paylaşımlara erişmek yönetici ayrıcalıkları izin vermek için bir kullanıcı grubuna (yerine tek bir kullanıcı) kullanmanızı öneririz. Burada izinleri atadıktan sonra, Dosya Gezgini'ni kullanarak bu izinlerde değişiklik yapabilirsiniz.
+   4. İçinde **ayarlanmış varsayılan tam izinleri** alanında, kullanıcının veya grubun bu paylaşıma erişim izinleri atayın. Kullanıcı veya kullanıcı grubunun adını *john\@contoso.com* biçimi. Bu paylaşımlara erişmek yönetici ayrıcalıkları izin vermek için bir kullanıcı grubuna (yerine tek bir kullanıcı) kullanmanızı öneririz. Burada izinleri atadıktan sonra, Dosya Gezgini'ni kullanarak bu izinlerde değişiklik yapabilirsiniz.
    
-    5. Tıklayın **Ekle** paylaşımı oluşturmak için. 
+   5. Tıklayın **Ekle** paylaşımı oluşturmak için. 
     
-        ![Paylaşım ekleme](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![Paylaşım ekleme](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
-        Paylaşım oluşturma işleminin devam ettiği size bildirilir.
+       Paylaşım oluşturma işleminin devam ettiği size bildirilir.
    
-        ![Paylaşım ekleme](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![Paylaşım ekleme](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
-    Belirtilen ayarlarla paylaşım oluşturulduktan sonra **paylaşımları** dikey penceresinde, yeni bir paylaşım yansıtacak şekilde güncelleştirilir. Varsayılan olarak, izleme ve yedekleme paylaşımı için etkinleştirilir.
+      Belirtilen ayarlarla paylaşım oluşturulduktan sonra **paylaşımları** dikey penceresinde, yeni bir paylaşım yansıtacak şekilde güncelleştirilir. Varsayılan olarak, izleme ve yedekleme paylaşımı için etkinleştirilir.
    
-    ![Paylaşım ekleme](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![Paylaşım ekleme](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>4. Adım: Paylaşıma bağlanma
 Şimdi, önceki adımda oluşturduğunuz bir veya daha fazla paylaşımı bağlanmak gerekir. StorSimple Virtual Array'iniz için bağlı bir Windows Server ana bilgisayarınızda aşağıdaki adımları gerçekleştirin.

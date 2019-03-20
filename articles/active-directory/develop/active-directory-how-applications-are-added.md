@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82ccfe6a8d77926d2b908f84db600b0665565d51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 257f7b66163b72141ceb6405768e912a263fb14b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173900"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124227"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Uygulamaları Azure AD'ye neden ve nasıl eklenir
 
@@ -133,8 +133,9 @@ Dizininizdeki kullanıcılar uygulamaları kaydetme ve yönetici onayı olmadan 
 * Kullanıcılar uygulamalara kendi adınıza verme konusunda çekince engellemek için:
   1. Azure portalında Git [kullanıcı ayarları](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) kurumsal uygulamalar bölümünde.
   2. Değişiklik **kullanıcılar uygulamalara kendileri adına şirket verilerine erişme izni verebilir** için **Hayır**. 
-      > [!NOTE]
-      > Kullanıcı onayı devre dışı dönüştürmeye karar verirseniz, bir yönetici bir kullanıcı kullanmak için gereken tüm yeni uygulama onayı gerekli olacaktır.    
+     
+     > [!NOTE]
+     > Kullanıcı onayı devre dışı dönüştürmeye karar verirseniz, bir yönetici bir kullanıcı kullanmak için gereken tüm yeni uygulama onayı gerekli olacaktır.    
 * Kullanıcıların kendi uygulamalarını kaydetmesini engellemek için:
   1. Azure portalında Git [kullanıcı ayarları](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) bölümü altında Azure Active Directory
   2. Değişiklik **kullanıcılar uygulamaları kaydedebilir** için **Hayır**.

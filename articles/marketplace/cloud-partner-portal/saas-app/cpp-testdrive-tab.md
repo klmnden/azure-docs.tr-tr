@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0fa3638ef47fb8cb1d0237a2ab9530ab76d316dc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e97e79ef3077431d8fc627cd634a67b0a01b6f8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449277"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993104"
 ---
 # <a name="saas-application-test-drive-tab"></a>SaaS uygulama Test Sürüşü sekmesi
 
@@ -47,6 +47,7 @@ Bir test sürücü eklemek için ana yayımlama adımlar şunlardır:
 ## <a name="setting-up-a-test-drive"></a>Bir test sürüşüne ayarlama
 
 Her ürün, senaryo ve Market üzeresiniz türüne göre kullanılabilir Test Sürüşleri, dört farklı türleri vardır.
+
 |  **Tür**          |  **Açıklama**  |  **Kurulum yönergeleri**  |
 |  ---------------   |  ---------------  |  ---------------  |
 |     Azure Resource Manager               |    Bir Azure Resource Manager Test Sürüşü yayımcı tarafından oluşturulan bir çözümünü oluşturan tüm Azure kaynaklarını içeren bir dağıtım şablonudur. Bu tür bir Test Sürüşü uygun ürünler, yalnızca Azure kaynakları şunlardır.               |       [Azure Resource Manager Test Sürüşü](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |

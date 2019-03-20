@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 4b6c4af37211ede2cb2153afdd071c219178f2ba
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b323836ff804d9e4af3765a2d4ea713a34bcf284
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882850"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226530"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup sunucusu ile VMware sanal makinelerini yedekleme
 
@@ -65,10 +65,10 @@ Güvenli bir kanalı aşağıdaki gibi ayarlayın:
 4. Azure Backup sunucusu makinesindeki dosyayı bir .zip uzantısı ile kaydedin.
 
 5. Sağ **download.zip** > **tümünü Ayıkla**. .Zip dosyasının içeriğini ayıklar **sertifikaları** içeren klasörü:
-    - Kök sertifika dosyasını.0 ve.1 gibi numaralı bir dizi ile başlayan bir uzantıya sahip.
-    - CRL dosyasını .r0 veya .r1 gibi bir dizi ile başlayan uzantısına sahiptir. CRL dosyasını bir sertifika ile ilişkilidir.
+   - Kök sertifika dosyasını.0 ve.1 gibi numaralı bir dizi ile başlayan bir uzantıya sahip.
+   - CRL dosyasını .r0 veya .r1 gibi bir dizi ile başlayan uzantısına sahiptir. CRL dosyasını bir sertifika ile ilişkilidir.
 
-    ![İndirilen sertifika](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
+     ![İndirilen sertifika](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
 
 5. İçinde **sertifikaları** klasörü, kök sertifika dosyasını sağ tıklayın > **Yeniden Adlandır**.
 
@@ -85,7 +85,7 @@ Güvenli bir kanalı aşağıdaki gibi ayarlayın:
 
 9. Üzerinde **sertifika Store** sayfasında **tüm sertifikaları aşağıdaki depolama alanına yerleştir**ve ardından **Gözat** sertifika deposunu seçme.
 
-    ![Sertifika depolama](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
+     ![Sertifika depolama](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
 10. İçinde **seçin sertifika Store**seçin **güvenilen kök sertifika yetkilileri** sertifikaları ve ardından için hedef klasör olarak **Tamam**.
 
@@ -134,11 +134,11 @@ V-Center sunucusu erişim izinleri olan bir kullanıcı hesabı Azure yedekleme 
 4. İçinde **Rol Oluştur** > **rol adı**, girin *BackupAdminRole*. Rol adı dilediğiniz olabilir ancak rolün amaçla tanınabilir olmalıdır.
 
 5. Aşağıdaki tabloda özetlenen ayrıcalıklarıyla seçin ve ardından **Tamam**.  Yeni rol listede görünür **rolleri** paneli.
-    - Üst genişletmek ve alt ayrıcalıkları görüntülemek için üst etiket yanındaki simgeye tıklayın.
-    - VirtualMachine ayrıcalıkları seçmek için üst alt hiyerarşide birden fazla düzeyi gitmeniz gerekiyor.
-    - Üst ayrıcalık içindeki tüm alt ayrıcalıklarını seçin gerek yoktur.
+   - Üst genişletmek ve alt ayrıcalıkları görüntülemek için üst etiket yanındaki simgeye tıklayın.
+   - VirtualMachine ayrıcalıkları seçmek için üst alt hiyerarşide birden fazla düzeyi gitmeniz gerekiyor.
+   - Üst ayrıcalık içindeki tüm alt ayrıcalıklarını seçin gerek yoktur.
 
-    ![Üst alt ayrıcalık hiyerarşisi](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
+     ![Üst alt ayrıcalık hiyerarşisi](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
 ### <a name="role-permissions"></a>Rol izinleri
 **6.5/6.0** | **5.5**
@@ -265,7 +265,7 @@ VCenter Server için Azure Backup sunucusu ekleyin.
 
 8. Ayarları doğrulayın **son** sayfası.
 
-  ![Son sayfa](./media/backup-azure-backup-server-vmware/summary-screen.png)
+   ![Son sayfa](./media/backup-azure-backup-server-vmware/summary-screen.png)
 
 VCenter sunucusu tarafından yönetilmeyen birden çok ESXi ana bilgisayarları varsa, veya vCenter Server'ın birden çok örneğe sahip sunucuları eklemek için sihirbazı yeniden çalıştırmanız gerekir.
 
@@ -281,77 +281,77 @@ VMware Vm'leri için yedekleme ekleyin. Koruma grupları, birden çok VM toplay�
 
     ![Yeni koruma grubu oluşturma Sihirbazı'nı açın](./media/backup-azure-backup-server-vmware/open-protection-wizard.png)
 
-2. İçinde **yeni koruma grubu oluşturma** Sihirbazı Karşılama sayfasını tıklatın **sonraki**.
+1. İçinde **yeni koruma grubu oluşturma** Sihirbazı Karşılama sayfasını tıklatın **sonraki**.
 
     ![Yeni koruma grubu oluşturma Sihirbazı iletişim kutusu](./media/backup-azure-backup-server-vmware/protection-wizard.png)
 
-3. Üzerinde **seçin koruma grubu türünü** sayfasında **sunucuları** ve ardından **sonraki**. **Grup üyelerini seçin** sayfası görüntülenir.
+1. Üzerinde **seçin koruma grubu türünü** sayfasında **sunucuları** ve ardından **sonraki**. **Grup üyelerini seçin** sayfası görüntülenir.
 
-3. İçinde **grup üyelerini seçin** > Vm'leri seçin (veya VM klasörler), yedeklemek istediğiniz. Ardından **İleri**'ye tıklayın.
+1. İçinde **grup üyelerini seçin** > Vm'leri seçin (veya VM klasörler), yedeklemek istediğiniz. Ardından **İleri**'ye tıklayın.
 
     - Ne zaman bir klasör seçin veya sanal makineleri veya klasör bu klasörün içinde yedekleme için seçilir. Klasörleri veya yedekleme istemediğiniz Vm'leri işaretini kaldırabilirsiniz.
-- Bir VM veya klasör zaten yedeklenen, seçemezsiniz. Bu garanti yinelenen kurtarma noktaları bir VM'nin oluşturulmayacak. .
+1. Bir VM veya klasör zaten yedeklenen, seçemezsiniz. Bu garanti yinelenen kurtarma noktaları bir VM'nin oluşturulmayacak. .
 
-    ![Grup üyelerini seçin](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
+     ![Grup üyelerini seçin](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
 
-4. İçinde **veri koruma yöntemini seçin** sayfasında, koruma grubunun ve koruma ayarları için bir ad girin. Azure'a, kısa vadeli koruma döndürülmek için **Disk** ve çevrimiçi korumayı etkinleştirin. Ardından **İleri**'ye tıklayın.
+1. İçinde **veri koruma yöntemini seçin** sayfasında, koruma grubunun ve koruma ayarları için bir ad girin. Azure'a, kısa vadeli koruma döndürülmek için **Disk** ve çevrimiçi korumayı etkinleştirin. Ardından **İleri**'ye tıklayın.
 
     ![Veri koruma yöntemini seçin](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
-5. İçinde **kısa vadeli hedefleri belirtin**, diske yedeklenen veri saklamak istediğiniz süreyi belirtin.
-    - İçinde **bekletme aralığı**, disk kurtarma noktaları saklanır geçmesi gereken gün sayısını belirtin.
-    - İçinde **eşitleme sıklığı**, ne sıklıkta belirtin disk kurtarma noktaları alınır.
-        - Bir yedekleme aralığı ayarlamak istemiyorsanız denetleyebilirsiniz **bir kurtarma noktasından hemen önce** böylece yalnızca her kurtarma noktası zamanlanmadan önce bir yedekleme çalıştırır.
-        - Kısa dönem yedeklemeler olan tam yedekleme ve artımlı değil.
-        - Tıklayın **Değiştir** değiştirmek için kısa vadeli yedekleme gerçekleştiğinde kez/tarihler.
+1. İçinde **kısa vadeli hedefleri belirtin**, diske yedeklenen veri saklamak istediğiniz süreyi belirtin.
+   - İçinde **bekletme aralığı**, disk kurtarma noktaları saklanır geçmesi gereken gün sayısını belirtin.
+   - İçinde **eşitleme sıklığı**, ne sıklıkta belirtin disk kurtarma noktaları alınır.
+       - Bir yedekleme aralığı ayarlamak istemiyorsanız denetleyebilirsiniz **bir kurtarma noktasından hemen önce** böylece yalnızca her kurtarma noktası zamanlanmadan önce bir yedekleme çalıştırır.
+       - Kısa dönem yedeklemeler olan tam yedekleme ve artımlı değil.
+       - Tıklayın **Değiştir** değiştirmek için kısa vadeli yedekleme gerçekleştiğinde kez/tarihler.
 
-    ![Kısa vadeli hedefleri belirtin](./media/backup-azure-backup-server-vmware/short-term-goals.png)
+     ![Kısa vadeli hedefleri belirtin](./media/backup-azure-backup-server-vmware/short-term-goals.png)
 
-6. İçinde **Disk ayırmayı gözden**, VM yedeklemeleri için sağlanan disk alanını inceleyin. VM'ler için.
+1. İçinde **Disk ayırmayı gözden**, VM yedeklemeleri için sağlanan disk alanını inceleyin. VM'ler için.
 
-    - Önerilen disk ayırmaları, belirttiğiniz bekletme aralığı, iş yükü türüne ve korunan verilerin boyutunu temel alır. Gerekli değişiklikleri yapın ve ardından **sonraki**.
-    -  **Veri boyutu:** Koruma grubundaki verilerin boyutu.
-    - **Disk alanı:** Önerilen koruma grubu için disk alanı miktarı. Bu ayarı değiştirmek istiyorsanız, her veri kaynağı büyüdükçe tahmin miktardan biraz daha büyük toplam alan ayırın.
-    - **Verileri ortak Konumlandır:** Üzerinde birlikte bulundurmayı etkinleştirirseniz, koruma veri kaynaklarında tek bir çoğaltma ve kurtarma noktası birimi için eşleyebilirsiniz. Birlikte bulundurma, tüm iş yükleri için desteklenmiyor.
-    - **Otomatik olarak Büyüt:** Korumalı gruptaki veriler ilk ayırma boyutunu aşarsa bu ayarı etkinleştirirseniz, Azure Backup sunucusu, disk boyutunu yüzde 25 artırmayı dener.
-    - **Depolama havuzu ayrıntıları:** Kalan disk boyutu ve toplam dahil olmak üzere depolama havuzunun durumunu gösterir.
+   - Önerilen disk ayırmaları, belirttiğiniz bekletme aralığı, iş yükü türüne ve korunan verilerin boyutunu temel alır. Gerekli değişiklikleri yapın ve ardından **sonraki**.
+   - **Veri boyutu:** Koruma grubundaki verilerin boyutu.
+   - **Disk alanı:** Önerilen koruma grubu için disk alanı miktarı. Bu ayarı değiştirmek istiyorsanız, her veri kaynağı büyüdükçe tahmin miktardan biraz daha büyük toplam alan ayırın.
+   - **Verileri ortak Konumlandır:** Üzerinde birlikte bulundurmayı etkinleştirirseniz, koruma veri kaynaklarında tek bir çoğaltma ve kurtarma noktası birimi için eşleyebilirsiniz. Birlikte bulundurma, tüm iş yükleri için desteklenmiyor.
+   - **Otomatik olarak Büyüt:** Korumalı gruptaki veriler ilk ayırma boyutunu aşarsa bu ayarı etkinleştirirseniz, Azure Backup sunucusu, disk boyutunu yüzde 25 artırmayı dener.
+   - **Depolama havuzu ayrıntıları:** Kalan disk boyutu ve toplam dahil olmak üzere depolama havuzunun durumunu gösterir.
 
-    ![Disk ayırmayı İncele](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
+     ![Disk ayırmayı İncele](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
 
-7. İçinde **çoğaltma oluşturma yöntemini seçin** sayfasında, ilk yedekleme yapın ve ardından istediğiniz belirtin **sonraki**.
-    - Varsayılan değer **ağ üzerinden otomatik olarak** ve **artık**.
-    - Varsayılan kullanırsanız, yoğun olmayan bir zamanı belirtmenizi öneririz. Seçin **sonra** ve gün ve saati belirtin.
-    - Büyük miktarlarda veri ya da daha az-en iyi ağ koşulları için Çıkarılabilir medya kullanarak çevrimdışı veri çoğaltmayı göz önünde bulundurun.
+1. İçinde **çoğaltma oluşturma yöntemini seçin** sayfasında, ilk yedekleme yapın ve ardından istediğiniz belirtin **sonraki**.
+   - Varsayılan değer **ağ üzerinden otomatik olarak** ve **artık**.
+   - Varsayılan kullanırsanız, yoğun olmayan bir zamanı belirtmenizi öneririz. Seçin **sonra** ve gün ve saati belirtin.
+   - Büyük miktarlarda veri ya da daha az-en iyi ağ koşulları için Çıkarılabilir medya kullanarak çevrimdışı veri çoğaltmayı göz önünde bulundurun.
 
-    ![Çoğaltma oluşturma yöntemini seçin](./media/backup-azure-backup-server-vmware/replica-creation.png)
+     ![Çoğaltma oluşturma yöntemini seçin](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-8. İçinde **tutarlılık denetimi seçenekleri**, nasıl alacağınızı seçin ve tutarlılık denetimleri otomatik hale getirmek ne zaman. Ardından **İleri**'ye tıklayın.
-    - Çoğaltma verileri tutarsız hale geldiğinde veya bir programa, tutarlılık denetimlerinin çalıştırabilirsiniz.
-    - Otomatik tutarlılık denetimlerinin yapılandırmak istemiyorsanız, bir el ile denetim gerçekleştirebilirsiniz. Bunu yapmak için koruma grubuna sağ tıklayın > **tutarlılık denetimi gerçekleştir**.
+1. İçinde **tutarlılık denetimi seçenekleri**, nasıl alacağınızı seçin ve tutarlılık denetimleri otomatik hale getirmek ne zaman. Ardından **İleri**'ye tıklayın.
+      - Çoğaltma verileri tutarsız hale geldiğinde veya bir programa, tutarlılık denetimlerinin çalıştırabilirsiniz.
+      - Otomatik tutarlılık denetimlerinin yapılandırmak istemiyorsanız, bir el ile denetim gerçekleştirebilirsiniz. Bunu yapmak için koruma grubuna sağ tıklayın > **tutarlılık denetimi gerçekleştir**.
 
-9. İçinde **çevrimiçi koruma verilerini belirtin** sayfasında, VM'ler veya VM seçin, yedeklemek istediğiniz klasörleri. Tek tek üyeleri seçin veya tıklatın **Tümünü Seç** için tüm üyeleri seçin. Ardından **İleri**'ye tıklayın.
+1. İçinde **çevrimiçi koruma verilerini belirtin** sayfasında, VM'ler veya VM seçin, yedeklemek istediğiniz klasörleri. Tek tek üyeleri seçin veya tıklatın **Tümünü Seç** için tüm üyeleri seçin. Ardından **İleri**'ye tıklayın.
 
-    ![Çevrimiçi koruma verilerini belirtin](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
+      ![Çevrimiçi koruma verilerini belirtin](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
-10. Üzerinde **çevrimiçi yedekleme zamanlamasını belirtin** sayfasında, verileri yerel depolama alanından Azure'a yedeklemek istediğiniz sıklığı belirtin.
+1. Üzerinde **çevrimiçi yedekleme zamanlamasını belirtin** sayfasında, verileri yerel depolama alanından Azure'a yedeklemek istediğiniz sıklığı belirtin.
 
     - Bulut verileri için kurtarma noktaları zamanlamaya göre oluşturulur. Ardından **İleri**'ye tıklayın.
     - Kurtarma noktası oluşturulduktan sonra Azure kurtarma Hizmetleri kasasına aktarılır.
 
-    ![Çevrimiçi Yedekleme zamanlamasını belirtin](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
+      ![Çevrimiçi Yedekleme zamanlamasını belirtin](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
-11. Üzerinde **çevrimiçi saklama ilkesini belirtin** sayfasında, Azure Günlük/Haftalık/Aylık/yıllık yedeklerden oluşturulan kurtarma noktalarını saklamak istediğiniz süreyi belirtin. Ardından **sonraki**.
+1. Üzerinde **çevrimiçi saklama ilkesini belirtin** sayfasında, Azure Günlük/Haftalık/Aylık/yıllık yedeklerden oluşturulan kurtarma noktalarını saklamak istediğiniz süreyi belirtin. Ardından **sonraki**.
 
     - Azure'da verileri ne kadar süreyle kalmasını sağlayabilirsiniz için zaman sınırı yoktur.
     - Korumalı örnek başına birden fazla 9999 kurtarma noktası olamaz yalnızca sınırdır. Bu örnekte, korumalı örnek VMware sunucusudur.
 
-    ![Çevrimiçi bekletme ilkesini belirtin](./media/backup-azure-backup-server-vmware/retention-policy.png)
+      ![Çevrimiçi bekletme ilkesini belirtin](./media/backup-azure-backup-server-vmware/retention-policy.png)
 
 
-12. Üzerinde **özeti** sayfasında, ayarları gözden geçirin ve ardından **Grup Oluştur**.
+1. Üzerinde **özeti** sayfasında, ayarları gözden geçirin ve ardından **Grup Oluştur**.
 
-    ![Koruma grubu üyesi ve ayar özeti](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+     ![Koruma grubu üyesi ve ayar özeti](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
 ## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 332382282c2b55b52bb23f278a25868c09360619
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d8640881e83084dac7f4725115f48dcf7d29e787
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729362"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007598"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Oluşturma ve Azure'a OpenBSD disk görüntü yükleme
 Bu makalede oluşturma ve sanal sabit OpenBSD işletim sistemi içeren bir disk (VHD) yükleme gösterilmektedir. Karşıya yüklediğiniz sonra bunu kendi görüntünüzü Azure CLI ile azure'daki bir sanal makine (VM) oluşturmak için kullanabilirsiniz.
@@ -56,7 +56,7 @@ OpenBSD işletim Hyper-V eklenen sistemi 6.1, yüklediğiniz VM'de desteği, aş
     echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
     ```
    
-4. Varsayılan olarak, `root` kullanıcı Azure içindeki sanal makinelerde devre dışıdır. Kullanıcılar çalışma zamanı komutları yükseltilmiş ayrıcalıklarla kullanarak `doas` OpenBSD VM'de komutu. Doas varsayılan olarak etkindir. Daha fazla bilgi için [doas.conf](http://man.openbsd.org/doas.conf.5). 
+4. Varsayılan olarak, `root` kullanıcı Azure içindeki sanal makinelerde devre dışıdır. Kullanıcılar çalışma zamanı komutları yükseltilmiş ayrıcalıklarla kullanarak `doas` OpenBSD VM'de komutu. Doas varsayılan olarak etkindir. Daha fazla bilgi için [doas.conf](https://man.openbsd.org/doas.conf.5). 
 
 5. Yükleme ve Azure Aracısı önkoşulları aşağıdaki gibi yapılandırın:
 
@@ -175,6 +175,6 @@ ssh azureuser@<ip address>
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-OpenBSD6.1 Hyper-V desteği hakkında daha fazla bilgi edinmek istiyorsanız, okuma [OpenBSD 6.1](https://www.openbsd.org/61.html) ve [hyperv.4](http://man.openbsd.org/hyperv.4).
+OpenBSD6.1 Hyper-V desteği hakkında daha fazla bilgi edinmek istiyorsanız, okuma [OpenBSD 6.1](https://www.openbsd.org/61.html) ve [hyperv.4](https://man.openbsd.org/hyperv.4).
 
 Yönetilen diskten bir VM oluşturmak istiyorsanız, okuma [az disk](/cli/azure/disk). 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 9ea236718b7fd9b808a5092dddec9574f6b93b48
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6d78e310ffd5b473c3d7e44b4edbf9caaff7655f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167164"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077675"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>CentOS Linux sanal makinesi için yönetilen etki alanına Katıl
 Bu makalede Azure'da CentOS Linux sanal makinesi için bir Azure AD Domain Services yönetilen etki alanı nasıl gösterir.
@@ -86,12 +86,11 @@ Gerekli paketleri, Linux sanal makinesinde yüklü olan, sonraki görev sanal ma
     sudo realm discover CONTOSO100.COM
     ```
 
-    > [!NOTE]
-    > **Sorun giderme:** Varsa *bölge bulma* yönetilen etki alanınıza bulamıyor:  
-      * Etki alanı (try ping) sanal makineden erişilebilir olduğundan emin olun.  
-      * Sanal makinenin yönetilen etki alanında kullanılabilir olduğu aynı sanal ağa gerçekten dağıtılmış olduğunu kontrol edin.
-      * Sanal ağın DNS sunucusu ayarlarını yönetilen etki alanının etki alanı denetleyicilerine işaret edecek şekilde güncelleştirdiyseniz denetleyin.  
-      >
+   > [!NOTE]
+   > **Sorun giderme:** Varsa *bölge bulma* yönetilen etki alanınıza bulamıyor:  
+   >    * Etki alanı (try ping) sanal makineden erişilebilir olduğundan emin olun.  
+   >    * Sanal makinenin yönetilen etki alanında kullanılabilir olduğu aynı sanal ağa gerçekten dağıtılmış olduğunu kontrol edin.
+   >    * Sanal ağın DNS sunucusu ayarlarını yönetilen etki alanının etki alanı denetleyicilerine işaret edecek şekilde güncelleştirdiyseniz denetleyin.  
 
 2. Kerberos başlatın. SSH terminalinizde şu komutu yazın:
 

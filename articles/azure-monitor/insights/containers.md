@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 58f16b0aa068c8b333ef4e7986bb49327b002fbb
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: e8afdfece258986f5dc4cc6f1c7e66aed24e0500
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195430"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092557"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure İzleyici'de kapsayıcı izleme çözümü
 
@@ -100,19 +100,19 @@ Aşağıdaki tabloda, Azure İzleyici ile izleme desteği kapsayıcı envanteri,
 1. Log Analytics çalışma alanınızdan kapsayıcı izleme çözümünü ekleyin [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) veya açıklanan işlemi kullanarak [çözüm galeri'sinden izleme Ekle](../../azure-monitor/insights/solutions.md).
 
 2. Yükleyin ve Docker ile bir Log Analytics aracısını kullanın. İşletim sistemi ve Docker orchestrator bağlı olarak, aracınızı yapılandırmak için aşağıdaki yöntemleri kullanabilirsiniz.
-  - Tek başına konakları için:
-    - Desteklenen Linux işletim sistemlerinde yüklemek ve Docker'ı çalıştırın ve ardından yükleme ve yapılandırma [Linux için Log Analytics aracısını](../../azure-monitor/learn/quick-collect-linux-computer.md).  
-    - CoreOS üzerinde Linux için Log Analytics aracısını çalıştıramazsınız. Bunun yerine, Linux için Log Analytics aracısını kapsayıcı bir sürümünü çalıştırın. CoreOS dahil olmak üzere Linux kapsayıcı konağında veya Azure kamu bulutunda kapsayıcılar ile çalışıyorsanız, CoreOS dahil olmak üzere Azure kamu Linux kapsayıcı konağında gözden geçirin.
-    - Windows Server 2016 ve Windows 10, Docker altyapısı ve istemci yükleme ardından bilgi toplamak ve Azure İzleyici göndermek için bir aracı bağlayın. Gözden geçirme [yüklemek ve Windows kapsayıcı konakları yapılandırma](#install-and-configure-windows-container-hosts) bir Windows ortamınız varsa.
-  - Docker birden çok konak düzenleme için:
-    - Bir Red Hat OpenShift ortamınız varsa, Red Hat OpenShift için bir Log Analytics aracısını Yapılandır gözden geçirin.
-    - Azure Container Service kullanan bir Kubernetes kümesi varsa:
+   - Tek başına konakları için:
+     - Desteklenen Linux işletim sistemlerinde yüklemek ve Docker'ı çalıştırın ve ardından yükleme ve yapılandırma [Linux için Log Analytics aracısını](../../azure-monitor/learn/quick-collect-linux-computer.md).  
+     - CoreOS üzerinde Linux için Log Analytics aracısını çalıştıramazsınız. Bunun yerine, Linux için Log Analytics aracısını kapsayıcı bir sürümünü çalıştırın. CoreOS dahil olmak üzere Linux kapsayıcı konağında veya Azure kamu bulutunda kapsayıcılar ile çalışıyorsanız, CoreOS dahil olmak üzere Azure kamu Linux kapsayıcı konağında gözden geçirin.
+     - Windows Server 2016 ve Windows 10, Docker altyapısı ve istemci yükleme ardından bilgi toplamak ve Azure İzleyici göndermek için bir aracı bağlayın. Gözden geçirme [yüklemek ve Windows kapsayıcı konakları yapılandırma](#install-and-configure-windows-container-hosts) bir Windows ortamınız varsa.
+   - Docker birden çok konak düzenleme için:
+     - Bir Red Hat OpenShift ortamınız varsa, Red Hat OpenShift için bir Log Analytics aracısını Yapılandır gözden geçirin.
+     - Azure Container Service kullanan bir Kubernetes kümesi varsa:
        - Gözden geçirme [Kubernetes için bir Log Analytics Linux Aracısı'nı yapılandırma](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Gözden geçirme [Kubernetes için bir Log Analytics Windows aracı yapılandırma](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Kullanım Linux Kubernetes Log Analytics aracısını dağıtmak için Helm gözden geçirin.
-    - Bir Azure Container Service DC/OS kümeniz varsa, daha fazla bilgi [Azure İzleyici ile bir Azure Container Service DC/OS kümesini izleme](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
-    - Bir Docker Swarm modu ortamı varsa, yapılandırma Docker Swarm için bir Log Analytics aracısını edinin.
-    - Bir Service Fabric kümeniz varsa, daha fazla bilgi [Azure İzleyici ile kapsayıcıları izlemek](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
+     - Bir Azure Container Service DC/OS kümeniz varsa, daha fazla bilgi [Azure İzleyici ile bir Azure Container Service DC/OS kümesini izleme](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
+     - Bir Docker Swarm modu ortamı varsa, yapılandırma Docker Swarm için bir Log Analytics aracısını edinin.
+     - Bir Service Fabric kümeniz varsa, daha fazla bilgi [Azure İzleyici ile kapsayıcıları izlemek](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Gözden geçirme [Windows üzerinden Docker altyapısının](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) makale yüklemek ve Windows çalıştıran bilgisayarlarda, Docker altyapısı yapılandırma hakkında ek bilgi için.
 
@@ -476,17 +476,17 @@ Linux Kubernetes ortamınızı Log Analytics aracısını dağıtmak için Helm 
     LAST DEPLOYED: Tue Sep 19 20:37:46 2017
     NAMESPACE: default
     STATUS: DEPLOYED
- 
+ 
     RESOURCES:
     ==> v1/Secret
     NAME            TYPE    DATA  AGE
     omsagent-msoms  Opaque  3     17m
- 
+ 
     ==> v1beta1/DaemonSet
     NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
     omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
-Daha fazla bilgi için lütfen [kapsayıcı çözümü Helm grafiği](https://aka.ms/omscontainerhelm).
+   Daha fazla bilgi için lütfen [kapsayıcı çözümü Helm grafiği](https://aka.ms/omscontainerhelm).
 
 ### <a name="install-and-configure-windows-container-hosts"></a>Yükleme ve Windows kapsayıcı konakları yapılandırma
 

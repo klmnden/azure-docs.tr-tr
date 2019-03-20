@@ -5,17 +5,16 @@ services: logic-apps
 ms.service: logic-apps
 author: divyaswarnkar
 ms.author: divswa
-manager: jeconnoc
 ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: d607c75bc451774e6bf269eb658236d93a85021f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 3441350a07047676ac43de23262be6c54912162c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854386"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104174"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Azure Logic Apps'te Liquid şablonları ile Gelişmiş JSON dönüştürmeleri gerçekleştirebilirsiniz
 
@@ -35,8 +34,7 @@ Mantıksal uygulamanızda Liquid dönüştürme gerçekleştirmek için önce bu
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Liquid şablonu veya tümleştirme hesabı için harita oluşturma
 
-1. Bu örnekte, bu adımda açıklandığı gibi örnek Liquid şablonu oluşturun.
-Liquid şablonunuzda herhangi bir filtre kullanmak istiyorsanız, bu filtreleri ile büyük Başlat emin olun. Daha fazla bilgi edinin [sıvı filtreler](https://shopify.github.io/liquid/basics/introduction/#filters), kullanım [DotLiquid](https://dotliquidmarkup.org/) ve C# adlandırma kuralları.
+1. Bu örnekte, bu adımda açıklandığı gibi örnek Liquid şablonu oluşturun. Liquid şablonunuzda kullanabilirsiniz [sıvı filtreler](https://shopify.github.io/liquid/basics/introduction/#filters), kullanım [DotLiquid](https://dotliquidmarkup.org/) ve C# adlandırma kuralları. Ancak emin *filtre adları büyük harf karakteri ile başlayan*, küçük harf karakter değil. 
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -82,7 +80,8 @@ Liquid şablonunuzda herhangi bir filtre kullanmak istiyorsanız, bu filtreleri 
 
 2. Logic Apps Tasarımcısı'nda ekleme [istek tetikleyicisi](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) mantıksal uygulamanız için.
 
-3. Tetikleyici altında seçin **yeni adım**. Arama kutusuna filtreniz olarak "Sıvı" girin ve şu eylemi seçin: **Sıvı olan JSON - JSON dönüştürmesi Uygula**
+3. Tetikleyici altında seçin **yeni adım**. 
+   Arama kutusuna filtreniz olarak "Sıvı" girin ve şu eylemi seçin: **Sıvı olan JSON - JSON dönüştürmesi Uygula**
 
    ![Bulma ve Liquid eylemini seçin](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -101,7 +100,7 @@ Liquid şablonunuzda herhangi bir filtre kullanmak istiyorsanız, bu filtreleri 
 
    2. Gelen **tümleştirme hesabı seçin** listesinde, tümleştirme hesabınızı seçin ve seçin **Kaydet**.
 
-     ![Tümleştirme hesabı için mantıksal uygulamayı Bağla](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+      ![Tümleştirme hesabı için mantıksal uygulamayı Bağla](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 ## <a name="test-your-logic-app"></a>Mantıksal uygulamanızı test edin
 

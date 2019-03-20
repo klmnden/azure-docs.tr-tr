@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 2a1785b9c749a8c413987974446190aafc08ed3a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237136"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105599"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Ayrılmış Event Hubs'a genel bakış
 
@@ -29,7 +29,7 @@ ms.locfileid: "56237136"
 Aşağıdaki tablo, Event Hubs kullanılabilir hizmet katmanlarını karşılaştırır. Event Hubs Dedicated çoğu standart özellikler için kullanım fiyatlarıyla karşılaştırıldığında sabit bir aylık fiyatla teklifidir. Adanmış katmanı, tüm özellikleri standart plan, ancak zorlu iş yüklerine sahip müşteriler için Kurumsal ölçekte kapasiteyle sunar. 
 
 | Özellik | Standart | Adanmış |
-| --- |:---:|:---:|:---:|
+| --- |:---:|:---:|
 | Giriş olayları | Milyon olay başına ödeme yapın | Dahil |
 | Üretilen iş birimi (1 MB/sn giriş, 2 MB/sn çıkış) | Saat başına ödeme yapın | Dahil |
 | İleti Boyutu | 1 MB | 1 MB |

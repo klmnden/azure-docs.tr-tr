@@ -8,28 +8,29 @@ services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 300b42c9452fc58c857d075a7fd8c42fd6a1c409
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 59a84190386b554716472b4cb46c94030a66a4cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731742"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077114"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>Hızlı Başlangıç: SSH/C Ara sunucu uygulamasını (Önizleme) kullanarak IOT Hub cihaz akışları üzerinden RDP
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
+
+Microsoft Azure IOT Hub cihaz akışları olarak şu anda destekleyen bir [önizleme özelliği](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [IOT Hub cihaz akışları](./iot-hub-device-streams-overview.md) güvenli ve güvenlik duvarı uyumlu bir şekilde iletişim kurmak hizmet ve cihaz uygulamalarınıza izin verin. Bkz: [bu sayfayı](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) Kurulum genel bakış.
 
 Bu belgede, cihaz akışları aracılığıyla SSH trafiği (22 numaralı bağlantı noktasını kullanarak) tünel Kurulumu açıklanmaktadır. RDP trafiği için Kurulum benzer ve basit bir yapılandırma değişikliği gerektiriyor. Cihaz akışlar, uygulama ve protokolü belirsiz olduğundan, mevcut Hızlı Başlangıç (iletişim bağlantı noktalarını değiştirerek) değiştirilebilir uygulama trafiği diğer türleri uyum sağlamak için.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
-Aşağıdaki şekilde, cihaz ve hizmet yerel proxy programları SSH istemcisi SSH arka plan işlemleri arasında uçtan uca bağlantısı nasıl etkinleştirir, Kurulum gösterilmektedir. Genel Önizleme süresince C SDK'sı cihaz tarafında yalnızca cihaz akışlarını destekler. Sonuç olarak, bu hızlı başlangıçta, yalnızca cihaz yerel ara sunucu uygulamasını çalıştırmak için yönergeleri kapsar. İçinde kullanılabilir olan eşlik eden bir hizmet yerel ara sunucu uygulamasını çalıştırmalısınız [ C# hızlı](./quickstart-device-streams-proxy-csharp.md) veya [Node.js Hızlı Başlangıç](./quickstart-device-streams-proxy-nodejs.md) Kılavuzlar.
+Aşağıdaki şekilde, cihaz ve hizmet yerel proxy programları SSH istemcisi ve SSH arka plan işlemleri arasında uçtan uca bağlantı nasıl etkinleştirir, Kurulum gösterilmektedir. Genel Önizleme süresince C SDK'sı cihaz tarafında yalnızca cihaz akışlarını destekler. Sonuç olarak, bu hızlı başlangıçta, yalnızca cihaz yerel ara sunucu uygulamasını çalıştırmak için yönergeleri kapsar. İçinde kullanılabilir olan eşlik eden bir hizmet yerel ara sunucu uygulamasını çalıştırmalısınız [ C# hızlı](./quickstart-device-streams-proxy-csharp.md) veya [Node.js Hızlı Başlangıç](./quickstart-device-streams-proxy-nodejs.md) Kılavuzlar.
 
 ![Alternatif metin](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg "yerel ara Kurulumu")
-
 
 1. Hizmet yerel proxy, IOT hub'ına bağlanır ve bir cihaz akışını hedef cihaza başlatır.
 
@@ -48,6 +49,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
+* Cihaz akışları şu anda önizlemesidir yalnızca IOT hub'ları aşağıdaki bölgelerde oluşturulan için desteklenir:
+
+  * **Orta ABD**
+  * **Orta ABD EUAP**
+
 * [Visual Studio 2017](https://www.visualstudio.com/vs/)’yi ['C++ ile masaüstü geliştirme'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) iş yükü etkinleştirilmiş şekilde yükleyin.
 * En son [Git](https://git-scm.com/download/) sürümünü yükleyin.
 
@@ -55,24 +61,23 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu hızlı başlangıçta, [C için Azure IoT cihaz SDK](iot-hub-device-sdk-c-intro.md)’sını kullanacaksınız. Kopyalama ve oluşturmak için kullanılan bir geliştirme ortamı hazırlar [Azure IOT C SDK'sı](https://github.com/Azure/azure-iot-sdk-c) github'dan. GitHub üzerindeki SDK, bu hızlı başlangıçta yer alan örnek kodu içerir. 
 
-
-1. ' % S'sürümü 3.11.4 olan [CMake derleme sistemini](https://cmake.org/download/) gelen [GitHub](https://github.com/Kitware/CMake/releases/tag/v3.11.4). İlgili şifreleme karması değerini kullanarak indirilen ikili dağıtımı doğrulayın. Aşağıdaki örnekte, x64 MSI dağıtımı 3.11.4 sürümünün şifreleme karmasını doğrulamak için Windows PowerShell kullanılır:
+1. 3.13.4 sürümünü indirin [CMake derleme sistemini](https://cmake.org/download/). İlgili şifreleme karması değerini kullanarak indirilen ikili dağıtımı doğrulayın. Aşağıdaki örnek, şifreleme karması x64 3.13.4 sürümü için doğrulamak için Windows PowerShell kullanılan MSI dağıtım:
 
     ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
-    
-    Bu metnin yazıldığı tarihte CMake sitesinde 3.11.4 sürümü için şu karma değerleri listeleniyordu:
+
+    Aşağıdaki sürüm 3.13.4 karma değerlerini bu makalenin yazıldığı sırada CMake sitesinde listelenen:
 
     ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
+    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
+    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
+    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
-    `CMake` yüklemesine başlamadan **önce** makinenizde Visual Studio önkoşullarının (Visual Studio ve "C++ ile masaüstü geliştirme" iş yükü) yüklenmiş olması önemlidir. Önkoşullar sağlandıktan ve indirme doğrulandıktan sonra, CMake derleme sistemini yükleyin.
+    Visual Studio önkoşulları (Visual Studio ve "C++ ile masaüstü geliştirme" iş yükü), makinenizde yüklü olan önemlidir **önce** başlangıç `CMake` yükleme. Önkoşulların yerinde olduğundan ve yüklemeyi doğruladıktan sonra CMake derleme sistemini yükleyin.
 
 2. Komut istemini veya Git Bash kabuğunu açın. Aşağıdaki komutu yürüterek [Azure IoT C SDK'sı](https://github.com/Azure/azure-iot-sdk-c) GitHub deposunu kopyalayın:
     
@@ -80,7 +85,6 @@ Bu hızlı başlangıçta, [C için Azure IoT cihaz SDK](iot-hub-device-sdk-c-in
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
     Bu deponun boyutu şu anda 220 MB kadardır. Bu işlemin tamamlanması için birkaç dakika beklemeniz gerekebilir.
-
 
 3. Git deposunun kök dizininde bir `cmake` alt dizini oluşturun ve o klasöre gidin. 
 
@@ -90,28 +94,27 @@ Bu hızlı başlangıçta, [C için Azure IoT cihaz SDK](iot-hub-device-sdk-c-in
     cd cmake
     ```
 
-4. SDK’nın geliştirme istemci platformunuza ve özgü bir sürümünü derleyen aşağıdaki komutu çalıştırın. Windows sanal cihaz için bir Visual Studio çözümü içinde oluşturulacağı `cmake` dizin. 
+4. Aşağıdaki komutları çalıştırın `cmake` SDK geliştirme istemci platformunuza belirli bir sürümünü oluşturmak için dizin.
 
-```
-    # In Linux
-    cmake ..
-    make -j
-```
+   * Linux'ta:
 
-Windows içinde Visual Studio 2015 veya 2017 istemi için geliştirici Komut İstemi'nde aşağıdaki komutları çalıştırın:
+      ```bash
+      cmake ..
+      make -j
+      ```
 
-```
-    rem In Windows
-    rem For VS2015
-    cmake .. -G "Visual Studio 15 2015"
+   * Windows Visual Studio 2015 veya 2017 için geliştirici Komut İstemi'nde aşağıdaki komutları çalıştırın. `cmake` dizininde simülasyon cihazı için bir Visual Studio çözümü de oluşturulur.
 
-    rem Or for VS2017
-    cmake .. -G "Visual Studio 15 2017"
+      ```cmd
+      rem For VS2015
+      cmake .. -G "Visual Studio 14 2015"
 
-    rem Then build the project
-    cmake --build . -- /m /p:Configuration=Release
-```
-    
+      rem Or for VS2017
+      cmake .. -G "Visual Studio 15 2017"
+
+      rem Then build the project
+      cmake --build . -- /m /p:Configuration=Release
+      ```
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
@@ -146,65 +149,64 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu b�
 
     Bu değeri hızlı başlangıcın ilerleyen bölümlerinde kullanacaksınız.
 
-
 ## <a name="ssh-to-a-device-via-device-streams"></a>Bir cihazın cihaz akışları yoluyla SSH
 
 ### <a name="run-the-device-local-proxy-application"></a>Cihaz yerel ara sunucu uygulamasını çalıştırın
 
-- Kaynak dosyayı düzenlemek `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample/iothub_client_c2d_streaming_proxy_sample.c` ve RDP yanı sıra cihaz bağlantısı dizeniz, hedef cihaz IP/hostname bağlantı noktası 22 sağlayın:
-```C
-  /* Paste in the your iothub connection string  */
-  static const char* connectionString = "[Connection string of IoT Hub]";
-  static const char* localHost = "[IP/Host of your target machine]"; // Address of the local server to connect to.
-  static const size_t localPort = 22; // Port of the local server to connect to.
-```
+1. Kaynak dosyayı düzenlemek `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample/iothub_client_c2d_streaming_proxy_sample.c` cihaz bağlantısı dizeniz, hedef cihaz IP/ana bilgisayar adı ve SSH bağlantı noktası 22 girin:
 
-- Örnek gibi derleme:
+   ```C
+   /* Paste in the your iothub connection string  */
+   static const char* connectionString = "[Connection string of IoT Hub]";
+   static const char* localHost = "[IP/Host of your target machine]"; // Address of the local server to connect to.
+   static const size_t localPort = 22; // Port of the local server to connect to.
+   ```
 
-```
+2. Örnek derleme:
+
+   ```bash
     # In Linux
     # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
     make -j
-```
+   ```
 
-```
+   ```cmd
     rem In Windows
     rem Go to cmake at root of repository
     cmake --build . -- /m /p:Configuration=Release
-```
+   ```
 
-- Derlenmiş programın cihazda çalıştırın:
-```
+3. Derlenmiş programın cihazda çalıştırın:
+
+   ```bash
     # In Linux
-    # Go to sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
+    # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
     ./iothub_client_c2d_streaming_proxy_sample
-```
+   ```
 
-```
+   ```cmd
     rem In Windows
-    rem Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
+    rem Go to the sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
     iothub_client_c2d_streaming_proxy_sample.exe
-```
+   ```
 
 ### <a name="run-the-service-local-proxy-application"></a>Hizmet yerel ara sunucu uygulamasını çalıştırın
 
-Açıklandığı gibi [yukarıda](#how-it-works) SSH trafiği tünel oluşturmak için bir uçtan uca stream oluşturulması için her iki ucunda (yani, hizmet ve cihaz) yerel bir ara sunucu gerekir. Genel Önizleme sırasında IOT Hub C SDK'sı yalnızca cihaz akışlarını cihaz tarafında ancak destekler. Yerel Hizmet proxy'si için eşlik eden kılavuzları kullanın [ C# hızlı](./quickstart-device-streams-proxy-csharp.md) veya [Node.js Hızlı Başlangıç](./quickstart-device-streams-proxy-nodejs.md) yerine.
-
+Açıklandığı gibi [önceden](#how-it-works), SSH trafiği tünel oluşturmak için bir uçtan uca stream oluşturulması için bir yerel ara her uçtaki (hem de hizmet ve cihaz) gerekir. Genel Önizleme sırasında IOT Hub C SDK'sı cihaz tarafında yalnızca cihaz akışlarını destekler. Derleme ve hizmet yerel proxy çalıştırmak için bulunan adımları [ C# hızlı](./quickstart-device-streams-proxy-csharp.md) veya [Node.js Hızlı Başlangıç](./quickstart-device-streams-proxy-nodejs.md).
 
 ### <a name="establish-an-ssh-session"></a>Bir SSH oturumu oluşturur
 
-Cihaz ve hizmet yerel Proxy çalıştıran varsayılarak, artık SSH istemcisi programınız kullanın ve yerel hizmet proxy'si (yerine SSH arka plan programı doğrudan) 2222 numaralı bağlantı noktasında bağlanın. 
+Cihaz ve hizmet yerel proxy'leri çalıştırıldıktan sonra SSH istemcisi programınız kullanın ve (yerine SSH arka plan programı doğrudan) 2222 numaralı bağlantı noktasında service-yerel ara sunucuya bağlanın.
 
-```
+```cmd/sh
 ssh <username>@localhost -p 2222
 ```
 
 Bu noktada kimlik bilgilerinizi girmeniz için SSH oturum açma istemi ile sunulur.
 
-
 Konsol çıktısı SSH arka plan programı bağlanan cihazın yerel proxy'de `IP_address:22`: ![Alternatif metin](./media/quickstart-device-streams-proxy-c/device-console-output.PNG "cihaz yerel proxy çıkış")
 
-Konsol çıktısı SSH istemcisi programının (SSH istemcisi iletişim kuran SSH arka plan programı için burada hizmeti-yerel proxy üzerinde dinleme bağlantı noktası 22 bağlanarak): ![Alternatif metin](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "SSH istemcisi çıkış")
+Konsol çıktısı SSH istemcisi programının (SSH istemcisi iletişim kurar, yerel hizmet proxy dinlediği bağlantı noktası 22'yi bağlanarak SSH arka plan programı için): ![Alternatif metin](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "SSH istemcisi çıkış")
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: b748e203e3bf769eef8ce728bbb9471b8d13fb9a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822315"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093339"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Birimler (güncelleştirme 3 veya üzeri) yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma
 
@@ -235,7 +235,7 @@ Diğer birimleri sağlamak için ek alana ihtiyacınız olursa, yerel olarak sab
    * Türüne değiştiriyorsanız **katmanlı** ve bu birimi arşiv verileri için seçim kullanılacak **bu birimi daha az sıklıkta erişilen arşiv verileri için kullanın** onay kutusu.
    * Yerel olarak sabitlenmiş bir birim katmanlı olarak yapılandırıyorsanız veya _tersi_, aşağıdaki ileti görüntülenir.
    
-    ![Değişiklik birim türü iletisi](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
+     ![Değişiklik birim türü iletisi](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
 
 7. Değişiklikleri kaydetmek için **Kaydet**’e tıklayın. Onayınız istendiğinde tıklayın **Evet** dönüştürme işlemini başlatmak için. 
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: ae9a8873be3fbd3cead23e27e80931f78ea57eb4
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6714beae690e23c686fc08b88e93044ae3901c89
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992547"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839500"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Azure Media Services’ta Widevine lisansları vermek için Axinom kullanma 
 > [!div class="op_single_selector"]
@@ -29,9 +29,9 @@ ms.locfileid: "55992547"
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Azure Media Services (AMS), Google Widevine dinamik koruma ekledi (bkz [Mingfei'nın blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) Ayrıntılar için). Ayrıca, Azure Media Player'ı (AMP) Widevine desteği de ekledi (bkz [AMP belge](http://amp.azure.net/libs/amp/latest/docs/) Ayrıntılar için). EME MSE ile donatılmış modern tarayıcılarda akış DASH içerik CENC tarafından çok-native-DRM (PlayReady ve Widevine) korumalı bir ana başarıyı budur.
+Azure Media Services (AMS), Google Widevine dinamik koruma ekledi (bkz [Mingfei'nın blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) Ayrıntılar için). Ayrıca, Azure Media Player'ı (AMP) Widevine desteği de ekledi (bkz [AMP belge](https://amp.azure.net/libs/amp/latest/docs/) Ayrıntılar için). EME MSE ile donatılmış modern tarayıcılarda akış DASH içerik CENC tarafından çok-native-DRM (PlayReady ve Widevine) korumalı bir ana başarıyı budur.
 
-Media Services .NET SDK sürüm 3.5.2 ile başlayarak, Media Services, Widevine lisans şablonu yapılandırma ve Widevine lisansları almak sağlar. Ayrıca, Widevine lisansları teslim etmenize yardımcı olmak için şu AMS ortaklarını da kullanabilirsiniz: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Media Services .NET SDK sürüm 3.5.2 ile başlayarak, Media Services, Widevine lisans şablonu yapılandırma ve Widevine lisansları almak sağlar. Ayrıca, Widevine lisansları teslim etmenize yardımcı olmak için şu AMS ortaklarını da kullanabilirsiniz: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
 
 Bu makalede, tümleştirme ve Widevine lisans sunucusu Axinom tarafından yönetilen test açıklar. Özellikle de kapsar:  
 
@@ -44,7 +44,7 @@ Anahtar tam sistem ve içerik anahtarı akışını kimliği, temel çekirdek, J
 ![ÇİZGİ ve CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
 ## <a name="content-protection"></a>Content Protection
-Dinamik koruma ve anahtar teslim ilkesini yapılandırmak için lütfen Mingfei'nın bloguna bakın: [Azure Media Services ile Widevine paketlemeyi yapılandırma](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
+Dinamik koruma ve anahtar teslim ilkesini yapılandırmak için lütfen Mingfei'nın bloguna bakın: [Azure Media Services ile Widevine paketlemeyi yapılandırma](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
 
 Birden çok DRM ile DASH şunların ikisini de sahip akış için dinamik CENC korumayı yapılandırabilirsiniz:
 
@@ -64,7 +64,7 @@ Widevine lisans sunucusunu Axinom tarafından sağlanan JWT belirteci kimlik do�
 
     <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
 
-AMP belge olduğu gibi standart AMP API'si AMP kodu geri kalanı, [burada](http://amp.azure.net/libs/amp/latest/docs/).
+AMP belge olduğu gibi standart AMP API'si AMP kodu geri kalanı, [burada](https://amp.azure.net/libs/amp/latest/docs/).
 
 AMP resmi uzun vadeli yaklaşımda yayımlanmadan önce ayarı özel yetkilendirme üst bilgisi için yukarıdaki javascript hala bir kısa süreli bir yaklaşımdır.
 
@@ -130,7 +130,7 @@ Test etmek için Axinom Widevine lisans sunucusu gerektirdiği gerekli talep olu
 
 Axinom Widevine lisans sunucusu
 
-    <add key="ax:laurl" value="http://drm-widevine-licensing.axtest.net/AcquireLicense" />
+    <add key="ax:laurl" value="https://drm-widevine-licensing.axtest.net/AcquireLicense" />
     <add key="ax:com_key_id" value="69e54088-e9e0-4530-8c1a-1eb6dcd0d14e" />
     <add key="ax:com_key" value="4861292d027e269791093327e62ceefdbea489a4c7e5a4974cc904b840fd7c0f" />
     <add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
@@ -160,7 +160,7 @@ Elbette, anahtarın askıya almak için birden çok yolu vardır kimliği Örne�
         objXmlNamespaceManager.AddNamespace("cenc", "urn:mpeg:cenc:2013");
         objXmlNamespaceManager.AddNamespace("ms",   "urn:microsoft");
         objXmlNamespaceManager.AddNamespace("mspr", "urn:microsoft:playready");
-        objXmlNamespaceManager.AddNamespace("xsi",  "http://www.w3.org/2001/XMLSchema-instance");
+        objXmlNamespaceManager.AddNamespace("xsi",  "https://www.w3.org/2001/XMLSchema-instance");
         objXmlNamespaceManager.PushScope();
 
         XPathNodeIterator objXPathNodeIterator;

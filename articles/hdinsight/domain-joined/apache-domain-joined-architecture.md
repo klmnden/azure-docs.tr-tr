@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 5c5615dcfc9d43016bdf995a22ae29a5c5dd2c6f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7e71f27ab8d577602dd4b02f83d57ff84a92858a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185392"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088103"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>HDInsight Kurumsal güvenlik paketi kullanma
 
@@ -64,33 +64,33 @@ Kullanarak Active Directory veya Active Directory tek başına, Iaas vm'lerinde 
 
 Federasyon kullanılır ve parola karmalarının eşitlenmesini doğru ancak kimlik doğrulama hataları alıyorsanız, PowerShell hizmet sorumlusu için bulut parola kimlik doğrulamasının etkin olup olmadığını denetleyin. Değilse, ayarlamanız gerekir, bir [giriş bölgesi bulma (HRD) İlkesi](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) Azure AD kiracınız için. Denetleyin ve HRD İlkesi ayarlamak için:
 
- 1. Azure AD PowerShell modülünü yükleyin.
+1. Azure AD PowerShell modülünü yükleyin.
 
- ```
-    Install-Module AzureAD
- ```
+   ```
+   Install-Module AzureAD
+   ```
 
- 2. Girin `Connect-AzureAD` genel yönetici (Kiracı Yöneticisi) kimlik bilgilerini kullanarak.
+2. Girin `Connect-AzureAD` genel yönetici (Kiracı Yöneticisi) kimlik bilgilerini kullanarak.
 
- 3. Microsoft Azure PowerShell hizmet sorumlusu zaten oluşturulmuş olmadığını kontrol edin.
+3. Microsoft Azure PowerShell hizmet sorumlusu zaten oluşturulmuş olmadığını kontrol edin.
 
- ```
-    $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
- ```
+   ```
+   $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+   ```
 
- 4. Mevcut olmaması halinde (diğer bir deyişle, `($powershellSPN -eq $null)`), ardından hizmet sorumlusu oluşturun.
+4. Mevcut olmaması halinde (diğer bir deyişle, `($powershellSPN -eq $null)`), ardından hizmet sorumlusu oluşturun.
 
- ```
-    $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
- ```
+   ```
+   $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+   ```
 
- 5. Oluşturma ve bu hizmet sorumlusuna ilke ekleme.
+5. Oluşturma ve bu hizmet sorumlusuna ilke ekleme.
 
- ```
-    $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+   ```
+   $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
 
-    Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
- ```
+   Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

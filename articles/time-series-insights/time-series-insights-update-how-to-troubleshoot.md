@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e44a02e2126e7b25f69999de34fe5cf42499a90c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: eb1c302bf1954492ba2a7a78d16fc697fdf4b687
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556841"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080446"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Tanılama ve sorun giderme
 
@@ -43,16 +43,16 @@ Neden olmayan görebileceğiniz verilerinizi birkaç genel nedeni vardır [Azure
 
 - Olay kaynağı anahtarınızı gerekli izni yok.
 
-    * Bir IOT hub için anahtar sağlamanız gereken **hizmetini bağlama** izni.
+  * Bir IOT hub için anahtar sağlamanız gereken **hizmetini bağlama** izni.
 
     ![Yapılandırma][3]
 
-    * Yukarıdaki görüntüde, iki ilke gösterildiği **iothubowner** ve **hizmet** sahip oldukları çalışma **hizmetine bağlanın** izni.
-    * Bir event hub için anahtar sağlamanız gereken **dinleme** izni.
+  * Yukarıdaki görüntüde, iki ilke gösterildiği **iothubowner** ve **hizmet** sahip oldukları çalışma **hizmetine bağlanın** izni.
+  * Bir event hub için anahtar sağlamanız gereken **dinleme** izni.
   
     ![İzinler][4]
 
-    * Yukarıdaki görüntüde, her ikisi de gösterildiği gibi **okuma** ve **yönetme** ilkeleri, sahip oldukları çalışma **dinleme** izni.
+  * Yukarıdaki görüntüde, her ikisi de gösterildiği gibi **okuma** ve **yönetme** ilkeleri, sahip oldukları çalışma **dinleme** izni.
 
 - Sağlanan tüketici grubunuz için Time Series Insights özel değildir.
 

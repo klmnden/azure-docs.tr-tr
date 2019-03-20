@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 ms.date: 04/05/2018
-ms.openlocfilehash: 3ec91b564647e4eda4696a249c77739daff2ece3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: aac6755ed90c795b8fff09d9ffde33878ad21a32
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044238"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111506"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>PHP’den Azure Depolama Tablo hizmeti veya Azure Cosmos DB Tablo API'sini kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -44,19 +44,19 @@ Bu kılavuzda, PHP uygulamanızda yerel olarak veya bir Azure web rolü, çalı�
 ## <a name="get-the-client-library"></a>İstemci kitaplığını alma
 
 1. Projenizin kökünde Composer.JSON adlı bir dosya oluşturun ve aşağıdaki kodu ekleyin:
-```json
-{
-  "require": {
+   ```json
+   {
+   "require": {
     "microsoft/azure-storage-table": "*"
-  }
-}
-```
+   }
+   }
+   ```
 2. Kökünüzde [composer.phar](https://getcomposer.org/composer.phar) dosyasını indirin. 
 3. Bir komut istemi açın ve proje kök dizininde aşağıdaki komutu yürütün:
-```
-php composer.phar install
-```
-Alternatif olarak, GitHub'da kaynak kodunu kopyalamak için [Azure Depolama Tablo PHP İstemci Kitaplığına](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table) gidin.
+   ```
+   php composer.phar install
+   ```
+   Alternatif olarak, GitHub'da kaynak kodunu kopyalamak için [Azure Depolama Tablo PHP İstemci Kitaplığına](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table) gidin.
 
 
 ## <a name="add-required-references"></a>Gerekli referansları ekleme

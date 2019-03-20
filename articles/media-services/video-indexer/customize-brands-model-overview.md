@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 48255614291086fe85666bec407ea62f7a365410
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 15f4b8b6d4a27e721dfcaed8b9dd700e87e3a257
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237374"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872888"
 ---
 # <a name="customize-a-brands-model-in-video-indexer"></a>Video Indexer markaları modelinde özelleştirme
 
@@ -28,7 +28,7 @@ Marka algılama çok çeşitli içeriği Arşiv ve bulma, bağlamsal reklam, sos
 
 ![Markaları genel bakış](./media/content-model-customization/brands-overview.png)
 
-Yapı bağlamında windows hakkında konuşmak bağlamından belirsizliğinin ortadan kaldırılmasını ne yapılacağını bildiğiniz Gelişmiş Machine Learning algoritmaları temel kutu, Apple, Fox, vs. için bir marka ve aynı olarak "Windows" sözcüğü algılamaz. Marka algılaması bizim desteklenen tüm dillerde çalışır. İçin burayı tıklatın [tam Microsoft Build 2017 2. gün açılış konuşması videosu ve dizin](http://www.videoindexer.ai/media/ed6ede78ad/).
+Yapı bağlamında windows hakkında konuşmak bağlamından belirsizliğinin ortadan kaldırılmasını ne yapılacağını bildiğiniz Gelişmiş Machine Learning algoritmaları temel kutu, Apple, Fox, vs. için bir marka ve aynı olarak "Windows" sözcüğü algılamaz. Marka algılaması bizim desteklenen tüm dillerde çalışır. İçin burayı tıklatın [tam Microsoft Build 2017 2. gün açılış konuşması videosu ve dizin](https://www.videoindexer.ai/media/ed6ede78ad/).
 
 Kendi markaları getirmek için sonraki adımları denetleyin.
 

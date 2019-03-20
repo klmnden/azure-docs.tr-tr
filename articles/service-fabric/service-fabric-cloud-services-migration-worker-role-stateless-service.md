@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4eed3825d52fe52025077980e21f3763cc5751ac
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f23f29d15c4c8f05551b20d42b92dda5632cde08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049958"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078746"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Web ve çalışan rolleri için Service Fabric durum bilgisi olmayan hizmetler dönüştürme Kılavuzu
 Bu makalede, Cloud Services Web ve çalışan rolleri için Service Fabric durum bilgisi olmayan hizmetler geçirmeyi açıklar. Bu en basit geçiş bulut hizmetlerinden Service fabric'e genel, mimarisi, yaklaşık aynı kalmasını geçiyor uygulamalar için yoludur.
@@ -110,8 +110,8 @@ Her ikisi de, işleme başlamak bir birincil "Çalıştır" geçersiz kılma sah
 
 Yaşam döngüsü ve çalışan rolleri ve Service Fabric Hizmetleri ömrünü arasında bazı önemli farklılıklar vardır:
 
-* **Yaşam döngüsü:** bir çalışan rolü bir vm'dir ve bu nedenle yaşam döngüsü bağlı VM'yi başlatır ve durdurur, olayları içeren VM en büyük fark vardır. Bir Service Fabric hizmeti, ilgili olmayan konak VM veya makine ne zaman başlar ve durdurmak için olayları içermez, VM yaşam döngüsü ' ayrı bir yaşam döngüsüne sahiptir.
-* **Yaşam süresi:** bir çalışan rolü örneği, dönüşüm `Run` yöntemi çıkar. `RunAsync` Yöntemi bir Service Fabric hizmetinde ancak tamamlanana kadar çalışması ve hizmet örneği oluşturan kalır. 
+* **Yaşam döngüsü:** En büyük fark, bir çalışan rolü bir vm'dir ve bu nedenle yaşam döngüsü için VM'yi başlatır ve durdurur, olayları içeren VM bağlıdır ' dir. Bir Service Fabric hizmeti, ilgili olmayan konak VM veya makine ne zaman başlar ve durdurmak için olayları içermez, VM yaşam döngüsü ' ayrı bir yaşam döngüsüne sahiptir.
+* **Yaşam süresi:** Bir çalışan rolü örneği, dönüşüm `Run` yöntemi çıkar. `RunAsync` Yöntemi bir Service Fabric hizmetinde ancak tamamlanana kadar çalışması ve hizmet örneği oluşturan kalır. 
 
 Service Fabric Hizmetleri için istemci isteklerini dinlemek için bir isteğe bağlı iletişim Kurulumu giriş noktası sağlar. RunAsync ve iletişimi giriş noktası olan RunAsync yönteminde başlatmadan çıkmak için izin verilir neden olan Service Fabric Hizmetleri - hizmetinizi yalnızca istemci isteklerini dinleyecek veya yalnızca bir işleme döngüsü veya her ikisini de çalıştırın seçebilir - isteğe bağlı bir geçersiz kılma Hizmet örneği, çünkü istemci isteklerini dinlemek devam edebilir.
 
@@ -209,9 +209,9 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 Başlangıç, bir uygulama başlatılmadan önce gerçekleştirilen eylemler görevlerdir. Başlangıç görevi, genellikle yükseltilmiş ayrıcalıklar kullanarak kurulum komut dosyalarını çalıştırmak için kullanılır. Hem bulut hizmetlerini hem de Service Fabric başlangıç görevleri destekler. İkisi arasındaki temel fark, bir rol örneğinin parçası olduğu için Service Fabric başlangıç görevi belirli bir sanal Makineye bağlı değildir bir hizmete bağlıdır ancak bulut Hizmetleri'nde bir başlangıç görevi bir VM'ye bağlı olduğunu ' dir.
 
 | Service Fabric | Cloud Services |
-| --- | --- | --- |
+| --- | --- |
 | Yapılandırma konumu |ServiceDefinition.csdef |
-| Ayrıcalıkları |"kısıtlı" veya "yükseltilmiş" |
+| Ayrıcalıklar |"kısıtlı" veya "yükseltilmiş" |
 | Sıralama |"Basit", "arka plan", "ön" |
 
 ### <a name="cloud-services"></a>Cloud Services

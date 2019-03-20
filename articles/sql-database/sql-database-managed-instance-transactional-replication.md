@@ -12,16 +12,23 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 08ec654ecdfe9764aefdde287c5a4c78022c108c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 409c1abd7e9f532bb243ecab00228b402215c77e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551705"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852784"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>İşlem çoğaltma, tek bir havuzda ve Azure SQL veritabanı'nda veritabanları örnek
 
 İşlem çoğaltması, Azure SQL veritabanı ve SQL Server, Azure SQL veritabanındaki bir tablodan veri çoğaltmanıza olanak sağlar veya uzak veritabanlarında yerleştirilmiş tablolar için SQL Server özelliğidir. Bu özellik, birden fazla tablo farklı veritabanlarındaki eşitlemenize olanak tanır.
+
+## <a name="when-to-use-transactional-replication"></a>Ne zaman işlem çoğaltma kullanma
+
+İşlem çoğaltma, aşağıdaki senaryolarda kullanışlıdır:
+- Bir veya daha fazla veritabanı tablolarında yapılan değişiklikleri Yayımla ve abone değişikliklerini bir veya daha çok SQL Server veya Azure SQL veritabanlarına dağıtın.
+- Birden fazla dağıtılmış veritabanı eşitlenmiş durumda tutun.
+- Veritabanlarını bir SQL Server veya yönetilen örneği için başka bir veritabanına değişiklikleri sürekli olarak yayımlayarak geçirme.
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -54,7 +61,7 @@ ms.locfileid: "57551705"
   >[!NOTE]
   > Dağıtıcı bir örnek veritabanı ve abone değil bir istek temelli aboneliğe desteklenmez. 
 
-Vardır farklı [çoğaltma türleri](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
+Vardır farklı [çoğaltma türleri](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
 
 
 | Çoğaltma | Tek ve havuza alınmış veritabanları | Örnek veritabanları|
@@ -70,7 +77,7 @@ Vardır farklı [çoğaltma türleri](https://docs.microsoft.com/sql/relational-
 
   >[!NOTE]
   > - Eski bir sürümü kullanılarak çoğaltma yapılandırmaya çalışmadan sonuçlanabilir hata numarası (işlem abone. bağlanamadı) MSSQL_REPL20084 ve MSSQ_REPL40532 (sunucu açamıyor \<adı > oturum açma tarafından istenen. Oturum açma başarısız.)
-  > - Azure SQL veritabanı'nın tüm özelliklerini kullanabilmek için en son sürümlerini kullanarak [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) ve [SQL Server veri Araçları (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).
+  > - Azure SQL veritabanı'nın tüm özelliklerini kullanabilmek için en son sürümlerini kullanarak [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ve [SQL Server veri Araçları (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
   
   ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>Örnek veritabanları ve şirket içi sistemler için Supportabilty Matrisi
   Çoğaltma desteklenebilirliği matris örneği için veritabanları aynı olup şirket içi SQL Server için. 
@@ -93,14 +100,6 @@ Vardır farklı [çoğaltma türleri](https://docs.microsoft.com/sql/relational-
 
   >[!NOTE]
   > Bir Azure depolama dosyasına giden ağ güvenlik grubu (NSG) bağlantı noktası 445 dağıtıcı bir örnek veritabanı ve şirket içi abone olduğunda engellenirse bağlanırken hata 53 karşılaşabilirsiniz. [VNet NSG update](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) bu sorunu çözmek için. 
-
-## <a name="when-to-use-transactional-replication"></a>Ne zaman işlem çoğaltma kullanma
-
-İşlem çoğaltma, aşağıdaki senaryolarda kullanışlıdır:
-
-- Bir veya daha fazla veritabanı tablolarında yapılan değişiklikleri Yayımla ve abone değişikliklerini bir veya daha çok SQL Server veya Azure SQL veritabanlarına dağıtın.
-- Birden fazla dağıtılmış veritabanı eşitlenmiş durumda tutun.
-- Veritabanlarını bir SQL Server veya yönetilen örneği için başka bir veritabanına değişiklikleri sürekli olarak yayımlayarak geçirme.
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>İşlem çoğaltma ile veri eşitleme karşılaştırın
 

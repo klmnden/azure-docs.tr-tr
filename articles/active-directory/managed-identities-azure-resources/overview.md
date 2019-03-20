@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dc56384d550854c05a813157b32ac36f5ebfb76
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: df2c4e447ff41e56c4d8b9862282b6fcb452a8c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211929"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224303"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Azure kaynakları için yönetilen kimlikler nedir?
 
@@ -64,13 +64,12 @@ Aşağıdaki diyagramda yönetilen hizmet kimliklerinin Azure sanal makineleriyl
     1. Azure Instance Metadata Service kimliği uç noktasını hizmet sorumlusu istemci kimliği ve sertifikasıyla güncelleştirir.
     1. VM uzantısını (Ocak 2019'da kullanımdan kaldırılması planlanan) sağlar ve hizmet sorumlusu istemci kimliğini ve sertifikayı ekler. (Bu adımın kullanımdan kaldırılması planlanmaktadır.)
 4. VM bir kimliğe sahip olduktan sonra hizmet sorumlusunu kullanarak Azure kaynaklarına VM erişimi sağlayabilirsiniz. Azure Resource Manager'ı çağırmak için Azure AD'de rol tabanlı erişim denetimini (RBAC) kullanarak VM hizmet sorumlusuna uygun rolü atayabilirsiniz. Key Vault'u çağırmak için kodunuza Key Vault'ta belirli bir gizli diziye veya anahtara erişim verebilirsiniz.
-5. Sanal makine üzerinde çalıştırılan kodunuz, yalnızca sanal makinenin içinden erişilebilen iki uç noktadan belirteç isteyebilir:
+5. Sanal makinede çalışan kod, yalnızca VM içinden erişilebilir Azure örnek meta veri Hizmeti uç noktasından bir belirteç isteyebilirsiniz: `http://169.254.169.254/metadata/identity/oauth2/token`
+    - Resource parametresi belirtecin gönderildiği hizmeti belirtir. Azure Resource Manager ile kimlik doğrulaması için `resource=https://management.azure.com/` kullanın.
+    - API version parametresi IMDS sürümünü belirtir; api-version=2018-02-01 veya üstünü kullanın.
 
-    - Azure Instance Metadata Service kimliği uç noktası (önerilir): `http://169.254.169.254/metadata/identity/oauth2/token`
-        - Resource parametresi belirtecin gönderildiği hizmeti belirtir. Azure Resource Manager ile kimlik doğrulaması için `resource=https://management.azure.com/` kullanın.
-        - API version parametresi IMDS sürümünü belirtir; api-version=2018-02-01 veya üstünü kullanın.
-    - VM uzantısı uç noktası (Ocak 2019'da kullanımdan kaldırılması planlanmaktadır): `http://localhost:50342/oauth2/token` 
-        - Resource parametresi belirtecin gönderildiği hizmeti belirtir. Azure Resource Manager ile kimlik doğrulaması için `resource=https://management.azure.com/` kullanın.
+> [!NOTE]
+> Kodunuzu VM uzantısı uç noktasından bir belirteç de isteyebilir, ancak bu yakında kullanımdan planlanmaktadır. VM uzantısı hakkında daha fazla bilgi için bkz: [Azure IMDS kimlik doğrulaması için VM uzantısı'ten geçiş](howto-migrate-vm-extension.md).
 
 6. Azure AD'ye erişim belirteci isteyen bir çağrı yapılır (5. adımda belirtildiği gibi) ve bu çağrıda 3. adımda yapılandırılan istemci kimliği ve sertifikası kullanılır. Azure AD bir JSON Web Token (JWT) erişim belirteci döndürür.
 7. Kodunuz erişim belirtecini bir çağrıda Azure AD kimlik doğrulamasını destekleyen hizmete gönderir.
@@ -87,16 +86,14 @@ Aşağıdaki diyagramda yönetilen hizmet kimliklerinin Azure sanal makineleriyl
    > [!Note]
    > Bu adımı 3. adımdan önce de gerçekleştirebilirsiniz.
 
-5. Sanal makine üzerinde çalıştırılan kodunuz, yalnızca sanal makinenin içinden erişilebilen iki uç noktadan belirteç isteyebilir:
+5. Sanal makinede çalışan kod, yalnızca VM içinden erişilebilir Azure örnek meta veri hizmeti kimlik uç noktasından bir belirteç isteyebilirsiniz: `http://169.254.169.254/metadata/identity/oauth2/token`
+    - Resource parametresi belirtecin gönderildiği hizmeti belirtir. Azure Resource Manager ile kimlik doğrulaması için `resource=https://management.azure.com/` kullanın.
+    - Client ID parametresi belirtecin hangi kimlik için istendiğini belirtir. Tek bir sanal makinede birden çok kullanıcı tarafından atanan kimlik olduğunda, belirsizliği ortadan kaldırmak için bu değer gereklidir.
+    - API version parametresi, Azure Instance Metadata Service sürümünü belirtir. `api-version=2018-02-01` veya daha yüksek bir değer kullanın.
 
-    - Azure Instance Metadata Service kimliği uç noktası (önerilir): `http://169.254.169.254/metadata/identity/oauth2/token`
-        - Resource parametresi belirtecin gönderildiği hizmeti belirtir. Azure Resource Manager ile kimlik doğrulaması için `resource=https://management.azure.com/` kullanın.
-        - Client ID parametresi belirtecin hangi kimlik için istendiğini belirtir. Tek bir sanal makinede birden çok kullanıcı tarafından atanan kimlik olduğunda, belirsizliği ortadan kaldırmak için bu değer gereklidir.
-        - API version parametresi, Azure Instance Metadata Service sürümünü belirtir. `api-version=2018-02-01` veya daha yüksek bir değer kullanın.
+> [!NOTE]
+> Kodunuzu VM uzantısı uç noktasından bir belirteç de isteyebilir, ancak bu yakında kullanımdan planlanmaktadır. VM uzantısı hakkında daha fazla bilgi için bkz: [Azure IMDS kimlik doğrulaması için VM uzantısı'ten geçiş](howto-migrate-vm-extension.md).
 
-    - VM uzantısı uç noktası (Ocak 2019'da kullanımdan kaldırılması planlanmaktadır): `http://localhost:50342/oauth2/token`
-        - Resource parametresi belirtecin gönderildiği hizmeti belirtir. Azure Resource Manager ile kimlik doğrulaması için `resource=https://management.azure.com/` kullanın.
-        - Client ID parametresi belirtecin hangi kimlik için istendiğini belirtir. Tek bir sanal makinede birden çok kullanıcı tarafından atanan kimlik olduğunda, belirsizliği ortadan kaldırmak için bu değer gereklidir.
 6. Azure AD'ye erişim belirteci isteyen bir çağrı yapılır (5. adımda belirtildiği gibi) ve bu çağrıda 3. adımda yapılandırılan istemci kimliği ve sertifikası kullanılır. Azure AD bir JSON Web Token (JWT) erişim belirteci döndürür.
 7. Kodunuz erişim belirtecini bir çağrıda Azure AD kimlik doğrulamasını destekleyen hizmete gönderir.
 

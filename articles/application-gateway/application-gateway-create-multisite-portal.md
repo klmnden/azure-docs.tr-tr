@@ -10,16 +10,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 53c816ee8fa670c8a4dde3212325524a17d25aab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 85113a5007a171459b831684f584773ba4328b94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314441"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079955"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Bir uygulama ağ geçidi ile birden çok site barındırma Azure portalını kullanarak oluşturma
 
-Azure portalında yapılandırmak için kullanabileceğiniz [birden çok web sitesi barındırma](application-gateway-multi-site-overview.md) oluşturduğunuzda bir [uygulama ağ geçidi](application-gateway-introduction.md). Bu öğreticide, sanal makine ölçek kümeleri kullanarak arka uç havuzları oluşturun. Ardından sahip olduğunuz dinleyicileri ve kuralları, web trafiğinin havuzlardaki uygun sunuculara ulaşması için yapılandırırsınız. Bu öğreticide birden çok etki alanına sahip olduğunuz varsayılır ve *www.contoso.com* ve *www.fabrikam.com* örnekleri kullanılır.
+Azure portalında yapılandırmak için kullanabileceğiniz [birden çok web sitesi barındırma](application-gateway-multi-site-overview.md) oluşturduğunuzda bir [uygulama ağ geçidi](application-gateway-introduction.md). Bu öğreticide, sanal makine ölçek kümeleri kullanarak arka uç havuzları oluşturun. Ardından sahip olduğunuz dinleyicileri ve kuralları, web trafiğinin havuzlardaki uygun sunuculara ulaşması için yapılandırırsınız. Bu öğreticide, birden çok etki alanları ve kullandığı örnekleri olduğunuz varsayılır *www\.contoso.com* ve *www\.fabrikam.com*.
 
 Bu makalede şunları öğreneceksiniz:
 
@@ -46,20 +46,20 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
 2. **Ağ** ve ardından Öne Çıkanlar listesinde **Application Gateway**’i seçin.
 3. Uygulama ağ geçidi için şu değerleri girin:
 
-    - *myAppGateway* - Uygulama ağ geçidinin adı.
-    - *myResourceGroupAG* - Yeni kaynak grubu.
+   - *myAppGateway* - Uygulama ağ geçidinin adı.
+   - *myResourceGroupAG* - Yeni kaynak grubu.
 
-    ![Yeni uygulama ağ geçidi oluşturma](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
+     ![Yeni uygulama ağ geçidi oluşturma](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
 
 4. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
 5. Tıklayın **bir sanal ağ seçin**, tıklayın **Yeni Oluştur**ve ardından sanal ağ için şu değerleri girin:
 
-    - *myVNet* - Sanal ağın adı.
-    - *10.0.0.0/16* - Sanal ağın adres alanı.
-    - *myAGSubnet* - Alt ağın adı.
-    - *10.0.0.0/24* - Alt ağın adres alanı.
+   - *myVNet* - Sanal ağın adı.
+   - *10.0.0.0/16* - Sanal ağın adres alanı.
+   - *myAGSubnet* - Alt ağın adı.
+   - *10.0.0.0/24* - Alt ağın adres alanı.
 
-    ![Sanal ağ oluşturma](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
+     ![Sanal ağ oluşturma](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
 
 6. Sanal ağı ve alt ağı oluşturmak için **Tamam**’a tıklayın.
 7. Tıklayın **genel bir IP adresi seçin**, tıklayın **Yeni Oluştur**ve ardından genel IP adresini adını girin. Bu örnekte genel IP adresinin adı *myAGPublicIPAddress* şeklindedir. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
@@ -136,11 +136,11 @@ Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak 
 1. Tıklayın **dinleyicileri** ve ardından **çok siteli**.
 2. Dinleyici için şu değerleri girin:
     
-    - *contosoListener* - dinleyicisinin adını.
-    - *www.contoso.com* -bu konak adı örneği, etki alanı adıyla değiştirin.
+   - *contosoListener* - dinleyicisinin adını.
+   - *www\.contoso.com* -bu konak adı örneği, etki alanı adıyla değiştirin.
 
 3. **Tamam** düğmesine tıklayın.
-4. Adını kullanarak ikinci bir dinleyici oluşturun *fabrikamListener* ve ikinci etki alanı adınızı kullanın. Bu örnekte, *www.fabrikam.com* kullanılır.
+4. Adını kullanarak ikinci bir dinleyici oluşturun *fabrikamListener* ve ikinci etki alanı adınızı kullanın. Bu örnekte, *www\.fabrikam.com* kullanılır.
 
 Kurallar listelendikleri sırayla işlenir ve trafik belirginlikten bağımsız olarak eşleşen ilk kural kullanarak yönlendirilir. Örneğin, aynı bağlantı noktasında temel bir dinleyici kullanan bir kuralınız ve çok siteli dinleyici kullanan bir kuralınız varsa çok siteli kuralın beklendiği gibi çalışması için çok siteli dinleyicinin kuralı temel dinleyici kuralından önce listelenmelidir. 
 

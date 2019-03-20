@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8cbe391f756dab35abda411c3a6c943a51eae302
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: fcec410df631a58b76878a4cb327ca2fb04a2105
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115989"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117865"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde kullanıcı verilerini yönetme
 Bu makalede, Azure Güvenlik Merkezi kullanıcı verilerini nasıl yönetebileceğiniz hakkında bilgi sağlar. Kullanıcı verilerini yönetme erişimi, silmek veya verileri dışarı aktarma özelliğini içerir.
@@ -68,25 +68,25 @@ Güvenlik Merkezi kullanıcı Okuyucu, sahibi, katkıda bulunan rolü atanmış 
 
 - Azure portalından bir kopyasını gerçekleştirme
 - Azure REST API çağrısı, GET HTTP yürütülüyor:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
+  ```
 
 Hesap Yöneticisi, rolü atanmış bir güvenlik merkezi kullanıcı verebilirsiniz [yalnızca zaman ilkelerinde](security-center-just-in-time.md) içeren IP adresleri tarafından:
 
 - Azure portalından bir kopyasını gerçekleştirme
 - Azure REST API çağrısı, GET HTTP yürütülüyor:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
+  ```
 
 Bir hesap yöneticisi tarafından uyarı ayrıntılarını dışarı aktarabilirsiniz:
 
 - Azure portalından bir kopyasını gerçekleştirme
 - Azure REST API çağrısı, GET HTTP yürütülüyor:
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
+  ```
 
 Bkz: [güvenlik uyarıları alın (alma koleksiyonu)](https://msdn.microsoft.com/library/mt704050.aspx) daha fazla bilgi için.
 

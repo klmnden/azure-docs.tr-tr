@@ -7,14 +7,14 @@ manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 02/12/2019
+ms.date: 03/13/2019
 ms.author: harelbr
-ms.openlocfilehash: 4bcbed82a78caff62a9459ecb44c6513f367f6b7
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: f984a34be1c5d5fdd18a00812107318df8f5d9bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457996"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889293"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Akıllı algılama e-posta bildirimi değiştirme
 
@@ -22,19 +22,19 @@ ms.locfileid: "56457996"
 
 ## <a name="what-is-changing"></a>Değişen nedir?
 
-Akıllı algılama e-posta bildirimleri varsayılan olarak şu anda, gönderilen _abonelik sahibi_, _abonelik katkıda bulunanı_, ve _abonelik okuyucusu_ rolleri. Bu roller genellikle birçok gereksiz yere bildirimleri almak için bu kullanıcıların neden olan izleme, aktif olmayan kullanıcılar içerir. Böylece e-posta bildirimleri yalnızca Git bu deneyimi geliştirmek için bir değişiklik yapıyoruz [izleme okuyucusu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) ve [izleme katılımcı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) varsayılan roller.
+Akıllı algılama e-posta bildirimleri varsayılan olarak şu anda, gönderilen _abonelik sahibi_, _abonelik katkıda bulunanı_, ve _abonelik okuyucusu_ rolleri. Bu roller genellikle izlemeyle aktif olarak ilgilenmeyen kullanıcıları içerdiğinden bu durum, bu kullanıcıların gereksiz bildirimler almasına neden olur. Böylece e-posta bildirimleri yalnızca Git bu deneyimi geliştirmek için bir değişiklik yapıyoruz [izleme okuyucusu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) ve [izleme katılımcı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) varsayılan roller.
 
 ## <a name="scope-of-this-change"></a>Bu değişiklik kapsamı
 
-Bu değişiklik aşağıdaki sorguyu hariç tüm akıllı algılama kuralları etkiler:
+Bu değişiklik aşağıdakiler dışında tüm Akıllı Algılama kurallarını etkileyecek:
 
-* Akıllı algılama kuralları önizleme olarak işaretlenmiş. Bu akıllı algılama kuralları e-posta bildirimleri bugün desteklemez.
+* Önizleme olarak işaretlenen Akıllı Algılama kuralları. Bu akıllı algılama kuralları e-posta bildirimleri bugün desteklemez.
 
 * Hata Anomalileri kuralı. Bu kural, birleştirilmiş uyarılar platformu için Klasik bir uyarıdan geçirildikten sonra yeni varsayılan rolleri hedefleyen başlar (daha fazla bilgi edinilebilir [burada](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).)
 
 ## <a name="how-to-prepare-for-this-change"></a>Bu değişikliğe hazırlanmak nasıl?
 
-Akıllı algılama e-posta bildirimleri için ilgili kullanıcıları gönderildiğinden emin olmak için söz konusu kullanıcıların atanmalıdır [izleme okuyucusu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) ve [izleme katılımcı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) rolleri. Atama (Abonelikteki tüm Application Insights kaynaklarını etkileyen) abonelik düzeyinde veya (yalnızca bu belirli kaynak etkileyen) Application Insights kaynak düzeyinde yapılması gerekir.
+Akıllı algılama e-posta bildirimleri ilgili kullanıcılara gönderildiğinden emin olmak için söz konusu kullanıcıların atanmalıdır [izleme okuyucusu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) veya [izleme katılımcı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) aboneliğin rolleri.
 
 Azure portal aracılığıyla izleme okuyucusu veya izleme katkıda bulunan rollerine kullanıcıları atamak için açıklanan adımları izleyin. [bir rol ataması Ekle](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment) makalesi. Seçtiğinizden emin olun _izleme okuyucusu_ veya _izleme katılımcı_ kullanıcılar atanan rol olarak.
 

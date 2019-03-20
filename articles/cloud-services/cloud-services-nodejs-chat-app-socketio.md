@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6a45d6366ef3c581c00b084b7ea2e4095eaaba3f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: cd0bceae770182e778410d8065d34dfeed055acc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538128"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993248"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Bir Azure bulut hizmeti Socket.IO ile Node.js sohbet uygulaması oluşturma
 
@@ -62,7 +62,7 @@ Bu proje için Sohbet örnekten kullanacağız [Socket.IO GitHub deposu]. Örne�
 
 1. Kullanarak depo yerel kopyasını oluşturma **kopya** düğmesi. Ayrıca **ZIP** projeyi indirmek için düğmeye.
    
-   ![Bir tarayıcı penceresinde görüntüleme https://github.com/LearnBoost/socket.io/tree/master/examples/chat, vurgulanan ZIP indirme simgesi][chat-example-view]
+   ![Bir tarayıcı penceresinde görüntüleme https://github.com/LearnBoost/socket.io/tree/master/examples/chat, vurgulanan ZIP indirme simgesi](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
 2. Ulaşırsınız kadar dizin yapısı, yerel depoya gidin **örnekler\\sohbet** dizin. Bu dizine içeriğini kopyalayın **C:\\düğüm\\chatapp\\WorkerRole1** daha önce oluşturduğunuz dizin.
    
    ![Örnekler içeriğini görüntüleme Gezgini\\arşivden ayıklanan sohbet dizini][chat-contents]
@@ -84,7 +84,11 @@ Uygulamayı Azure öykünücüsü'nde test etmeden önce biz bazı küçük değ
          var port = process.env.PORT || 3000;         //Updated
 3. Doğru bağlantı noktası üzerinde dinleyen uygulama sağlamak için Not Defteri'ni veya tercih ettiğiniz düzenleyiciyi server.js açın ve ardından değiştirerek şu satırı değiştirin **3000** ile **process.env.port** aşağıda gösterildiği gibi:
    
-       app.Listen (3000, () işlevini {//Original       app.listen (process.env.port, işlevi (') {//Updated var addr app.address(); =       Console.log (' http:// üzerinde dinleme uygulama ' + addr.address + ':' + addr.port);     });
+       //app.listen(3000, function () {            //Original
+       app.listen(process.env.port, function () {  //Updated
+         var addr = app.address();
+         console.log('   app listening on http://' + addr.address + ':' + addr.port);
+       });
 
 Değişiklikler kaydedildikten sonra **server.js**gerekli modülleri yüklemek için aşağıdaki adımları kullanın ve ardından Azure öykünücüsünde uygulamayı test edin:
 
@@ -105,12 +109,9 @@ Değişiklikler kaydedildikten sonra **server.js**gerekli modülleri yüklemek i
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    
    > [!NOTE]
-   > Öykünücü, örneğin uygulamasını başlatma sorunları yaşarsanız.:      Start-AzureEmulator: Beklenmeyen bir hata oluştu.  Ayrıntılar: Karşılaşılan beklenmeyen bir hata iletişim nesnesi System.ServiceModel.Channels.ServiceChannel Faulted durumunda olduğundan iletişim için kullanılamaz.
-   
-      AzureAuthoringTools v 2.7.1 ve AzureComputeEmulator v 2.7 yeniden - bu sürümü ile eşleştiğinden emin olun.
-   >
-   >
-
+   > Öykünücü, örneğin uygulamasını başlatma sorunları yaşarsanız.: Start-AzureEmulator: Beklenmeyen bir hata oluştu.  Ayrıntılar: Karşılaşılan beklenmeyen bir hata iletişim nesnesi System.ServiceModel.Channels.ServiceChannel Faulted durumunda olduğundan iletişim için kullanılamaz.
+   > 
+   > AzureAuthoringTools v 2.7.1 ve AzureComputeEmulator v 2.7 yeniden - bu sürümü ile eşleştiğinden emin olun.
 
 2. Bir tarayıcı açın ve gidin **http://127.0.0.1**.
 3. Tarayıcı penceresi açıldığında bir takma ad girin ve ardından ENTER tuşuna basın.

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d8ef70088d904720a81ac558206a3140d7bbecd6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 1894fc1823772c27f37829b9b27ec515dcb841b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861069"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Vm'leri başlatma/durdurma sırasında saat çözümü kapatmak sorun giderme
 
@@ -141,7 +141,7 @@ Sorun veya aramak için yerler olası çözümler için aşağıdaki listeyi gö
 
 * Başlatmak ve durdurmak için Otomasyon hesabı için RunAs hesabı VM'ye uygun izinlere sahip olmalıdır. Kaynak izinlerini denetlemek nasıl öğrenmek için bkz: [hızlı başlangıç: Azure portalını kullanarak bir kullanıcıya atanmış olan rolleri görüntülemek](../../role-based-access-control/check-access.md). Farklı Çalıştır hesabı tarafından kullanılan hizmet sorumlusunun uygulama kimliğini sağlamanız gerekir. Azure portalında Otomasyon hesabınıza giderek bu değeri alabilirsiniz seçerek **farklı çalıştır hesapları** altında **hesap ayarları** ve uygun farklı çalıştır hesabı'nı tıklatın.
 
-* VM serbest bırakılıyor veya başlatma bir sorun vardır, bu davranışı VM üzerinde bir sorun neden olabilir. Bazı örnekler veya olası sorunları olan bir hizmet kapanması için çalışırken bir güncelleştirme uygulanan askıda kalır ve daha fazlası). Sanal makine kaynağınıza gidin ve kontrol **etkinlik günlüklerini** günlüklerde hataları olup olmadığını görmek için. Olay günlüklerinde hata olup olmadığını görmek için VM'de oturum açmak deneyebilir.
+* VM serbest bırakılıyor veya başlatma bir sorun vardır, bu davranışı VM üzerinde bir sorun neden olabilir. Bazı örnekler veya olası sorunları olan bir hizmet kapanması için çalışırken bir güncelleştirme uygulanan askıda kalır ve daha fazlası). Sanal makine kaynağınıza gidin ve kontrol **etkinlik günlüklerini** günlüklerde hataları olup olmadığını görmek için. Olay günlüklerinde hata olup olmadığını görmek için VM'de oturum açmak deneyebilir. Sanal makinenizin sorun giderme hakkında daha fazla bilgi için bkz [sorun giderme Azure sanal makineler](../../virtual-machines/troubleshooting/index.md)
 
 ## <a name="custom-runbook"></a>Senaryo: Başlatma veya durdurma Vm'lerimi özel runbook'um başarısız
 

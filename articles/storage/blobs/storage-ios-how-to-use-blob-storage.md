@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: 65ecaaea09c28c31d76f31dc447108273b379f9e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1ab799ef7eb9d7c591e76ab9180d4e3f4ba6ba59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811673"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007270"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>BLOB depolama alanından iOS kullanma
 
@@ -124,7 +124,7 @@ Azure storage'da her blob bir kapsayıcıda yer almalıdır. Aşağıdaki örnek
 }
 ```
 
-Bu durum bakarak çalıştığını doğrulayabilirsiniz [Microsoft Azure Depolama Gezgini](http://storageexplorer.com) ve doğrulanıyor *newcontainer* depolama hesabınız için kapsayıcıları listesi bulunmaktadır.
+Bu durum bakarak çalıştığını doğrulayabilirsiniz [Microsoft Azure Depolama Gezgini](https://storageexplorer.com) ve doğrulanıyor *newcontainer* depolama hesabınız için kapsayıcıları listesi bulunmaktadır.
 
 ## <a name="set-container-permissions"></a>Kapsayıcı izinleri ayarlama
 Bir kapsayıcının izinleri için yapılandırılmış olan **özel** varsayılan olarak erişim. Ancak, kapsayıcılar, kapsayıcı erişim için birkaç farklı seçenekler sunar:
@@ -203,7 +203,7 @@ Aşağıdaki örnek, bir NSString blok blobu karşıya yükleme işlemini göste
 }
 ```
 
-Bu durum bakarak çalıştığını doğrulayabilirsiniz [Microsoft Azure Depolama Gezgini](http://storageexplorer.com) ve doğrulanıyor kapsayıcı *containerpublic*, blob içeren *sampleblob*. Bu örnekte, bu uygulama bir BLOB URI'si giderek çalıştığını doğrulayabilmeniz için bir ortak kapsayıcı kullandık:
+Bu durum bakarak çalıştığını doğrulayabilirsiniz [Microsoft Azure Depolama Gezgini](https://storageexplorer.com) ve doğrulanıyor kapsayıcı *containerpublic*, blob içeren *sampleblob*. Bu örnekte, bu uygulama bir BLOB URI'si giderek çalıştığını doğrulayabilmeniz için bir ortak kapsayıcı kullandık:
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -378,10 +378,10 @@ Aşağıdaki örnek, bir kapsayıcıyı silme gösterilmektedir.
 Blob Depolama iOS kullanma öğrendiniz, iOS kitaplığı ve depolama hizmeti hakkında daha fazla bilgi için bu bağlantıları izleyin.
 
 * [İOS için Azure depolama istemci kitaplığı](https://github.com/azure/azure-storage-ios)
-* [Azure depolama iOS başvuru belgeleri](http://azure.github.io/azure-storage-ios/)
+* [Azure depolama iOS başvuru belgeleri](https://azure.github.io/azure-storage-ios/)
 * [Azure Depolama Hizmetleri REST API'si](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Depolama Ekibi Blog’u](https://blogs.msdn.com/b/windowsazurestorage)
 
-Bu kitaplığı ile ilgili sorularınız varsa şuraya gönder: çekinmeyin bizim [Azure MSDN Forumu](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) veya [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Bu kitaplığı ile ilgili sorularınız varsa şuraya gönder: çekinmeyin bizim [Azure MSDN Forumu](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) veya [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Azure depolama için özellik önerileriniz varsa, lütfen deftere [Azure depolama geri bildirim](https://feedback.azure.com/forums/217298-storage/).
 

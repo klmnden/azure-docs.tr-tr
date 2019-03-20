@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 6ebf1abe6f3b115a254201184f47e6aad2febb2a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 2f70a180afcc8eda5d43356c3f4f96b25292c6d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208185"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088936"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware Vm'lerini ve fiziksel sunucuları ikincil bir siteye olağanüstü durum kurtarma için destek matrisi
 
@@ -110,10 +110,10 @@ Depolama, ağ, Azure Vm'leri (içinde veya abonelikler arasında) kaynak gruplar
 
 Mobility hizmeti, şirket içi VMware sunucularını veya fiziksel sunucuları ve ikincil site arasında çoğaltma düzenler. Çoğaltma ayarlamadan, Mobility hizmetinin ve diğer bileşenlerin en son sürümü kullandığınızdan emin olmanız gerekir.
 
-**Güncelleştirme** | **Ayrıntılar** 
---- | --- 
-Scout güncelleştirmeleri | [Öğrenin ve indirin](vmware-physical-secondary-disaster-recovery.md#updates) Scout Haberleri | Scout güncelleştirmeleri birikmeli özelliktedir.
-Bileşen güncelleştirmeleri | Scout güncelleştirmeleri RX sunucu, yapılandırma sunucusu, işlem ve ana hedef sunucular, vContinuum sunucuları ve korumak istediğiniz kaynak sunucular da dahil olmak üzere tüm bileşenler için güncelleştirmeleri içerir.<br/><br/> [Daha fazla bilgi edinin](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
+| **Güncelleştirme** | **Ayrıntılar** |
+| --- | --- |
+|Scout güncelleştirmeleri | Scout güncelleştirmeleri birikmeli özelliktedir. <br/><br/> [Öğrenin ve indirin](vmware-physical-secondary-disaster-recovery.md#updates) Scout Haberleri |
+|Bileşen güncelleştirmeleri | Scout güncelleştirmeleri RX sunucu, yapılandırma sunucusu, işlem ve ana hedef sunucular, vContinuum sunucuları ve korumak istediğiniz kaynak sunucular da dahil olmak üzere tüm bileşenler için güncelleştirmeleri içerir.<br/><br/> [Daha fazla bilgi edinin](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

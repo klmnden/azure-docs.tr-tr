@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1a3204e70fdde162d953c9c2241e9d71877cf78
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 26178066b2f5353cba99c5965bb2f3055556784c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428933"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894283"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Varsayılan kullanıcı izinleri Azure Active Directory nelerdir?
 Azure Active Directory'de (Azure AD) tüm kullanıcılara varsayılan olarak belirli izinler verilir. Bir kullanıcının erişim kullanıcı türünü oluşur, [rol atamaları](active-directory-users-assign-role-azure-portal.md)ve bunların tek tek nesnelerin sahipliğini. Bu makalede bu varsayılan izinler ve açıklanmakta ve üye ile konuk varsayılan değerleri karşılaştırılmaktadır. Varsayılan kullanıcı izinleri yalnızca kullanıcı ayarları, Azure AD'de değiştirilebilir.
@@ -49,8 +49,8 @@ Abonelikler | Tüm abonelikleri okuma<br>Hizmet Planı Üyesini etkinleştirme |
 
 İzin | Ayar açıklaması
 ---------- | ------------
-Güvenlik grubu oluşturma olanağı | Bu seçenek Hayır olarak ayarlanırsa kullanıcılar güvenlik grubu oluşturamaz. Genel Yöneticiler ve Kullanıcı Hesabı Yöneticileri, güvenlik grubu oluşturmaya devam edebilir. Nasıl yapılacağını öğrenmek için bkz. [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-cmdlets.md).
-Office 365 grubu oluşturma olanağı | Bu seçenek Hayır olarak ayarlanırsa kullanıcılar Office 365 grubu oluşturamaz. Bu seçeneğin Bazı olarak ayarlanması belirli bir kullanıcı kümesinin Office 365 grubu oluşturmasını sağlar. Genel Yöneticiler ve Kullanıcı Hesabı Yöneticileri, Office 365 grubu oluşturma iznine sahip olmaya devam eder. Nasıl yapılacağını öğrenmek için bkz. [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-cmdlets.md).
+Güvenlik grubu oluşturma olanağı | Bu seçenek Hayır olarak ayarlanırsa kullanıcılar güvenlik grubu oluşturamaz. Hala genel Yöneticiler ve kullanıcı yöneticileri güvenlik grupları oluşturabilirsiniz. Nasıl yapılacağını öğrenmek için bkz. [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-cmdlets.md).
+Office 365 grubu oluşturma olanağı | Bu seçenek Hayır olarak ayarlanırsa kullanıcılar Office 365 grubu oluşturamaz. Bu seçeneğin Bazı olarak ayarlanması belirli bir kullanıcı kümesinin Office 365 grubu oluşturmasını sağlar. Genel Yöneticiler ve kullanıcı yine de Office 365 grupları oluşturmak oluşturabileceksiniz. Nasıl yapılacağını öğrenmek için bkz. [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-cmdlets.md).
 Azure AD yönetim portalına erişimi sınırlayın | Bu seçenek Hayır olarak ayarlanırsa, kullanıcılar Azure Active Directory erişmesini engeller.
 Diğer kullanıcıları okuma olanağı | Bu ayar yalnızca PowerShell ile kullanılabilir. Bu seçenek $false olarak ayarlanırsa yönetici olmayan kullanıcıların dizindeki kullanıcı bilgilerini okuması engellenir. Bu ayar Exchange Online gibi diğer Microsoft hizmetlerindeki kullanıcı bilgilerinin okunmasını önlemez. Bu ayar özel durumlar için tasarlanmıştır ve $false olarak ayarlanması önerilmez.
 
@@ -65,7 +65,7 @@ When a user adds a new enterprise application, they are automatically added as a
 
 ### <a name="group-owner-permissions"></a>Grup sahibi izinleri
 
-Grup oluşturan kullanıcılar otomatik olarak o grubun sahibi olur. Sahip olarak, bunlar grubunun adı gibi özellikleri yönetmenize, yapabilir grup üyeliğini yönetme. Sahipler başka kullanıcıları sahip olarak ekleyebilir veya kaldırabilir. Genel Yöneticiler ve Kullanıcı Hesabı Yöneticilerinden farklı olarak sahipler yalnızca kendilerine ait grupları yönetebilir. Grup sahibi atamak için bkz. [Grup sahiplerini yönetme](active-directory-accessmanagement-managing-group-owners.md).
+Grup oluşturan kullanıcılar otomatik olarak o grubun sahibi olur. Sahip olarak, bunlar grubunun adı gibi özellikleri yönetmenize, yapabilir grup üyeliğini yönetme. Sahipler başka kullanıcıları sahip olarak ekleyebilir veya kaldırabilir. Sahipleri, yalnızca genel Yöneticiler ve kullanıcı yöneticileri aksine, sahip olduğu grupları yönetebilirsiniz. Grup sahibi atamak için bkz. [Grup sahiplerini yönetme](active-directory-accessmanagement-managing-group-owners.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

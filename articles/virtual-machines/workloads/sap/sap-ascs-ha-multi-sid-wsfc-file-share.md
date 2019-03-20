@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486044656b1c288b1658d10a162e1f9fa071172a
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: eac9f80e4b57c725de3bc05f55e09d49fb8e2ee5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817125"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004614"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -48,7 +48,7 @@ ms.locfileid: "56817125"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -403,26 +403,31 @@ Sağ **saoglobal2** SOFS küme grubu ve ardından **dosya paylaşımı Ekle**.
 _**Şekil 6:** "Dosya paylaşımı Ekle" sihirbazını başlatın_
 
 <br>
+
 ![Şekil 7: "SMB paylaşımı – hızlı seçin"][sap-ha-guide-figure-8018]
 
 _**Şekil 7:** "SMB paylaşımı – hızlı" seçin_
 
 <br>
+
 ![Şekil 8: "Sapglobalhost2" seçin ve üzerinde birim2 yolunu belirtin][sap-ha-guide-figure-8019]
 
 _**Şekil 8:** "Sapglobalhost2" seçin ve üzerinde birim2 yolunu belirtin_
 
 <br>
+
 ![Şekil 9: "Sapmnt" Dosya Paylaşımı adı ayarlayın][sap-ha-guide-figure-8020]
 
 _**Şekil 9:** "Sapmnt" Dosya Paylaşımı adı ayarlayın_
 
 <br>
+
 ![Şekil 10: Tüm ayarları devre dışı bırak][sap-ha-guide-figure-8021]
 
 _**Şekil 10:** Tüm ayarları devre dışı bırak_
 
 <br>
+
 Ata *tam denetim* dosyalara ve sapmnt izinleri paylaşması için:
 * **SAP_\<SID > _GlobalAdmin** etki alanı kullanıcı grubu
 * ASCS/SCS küme düğümlerinin bilgisayar nesnesi **ascs 1$** ve **ascs 2$**
@@ -432,16 +437,19 @@ Ata *tam denetim* dosyalara ve sapmnt izinleri paylaşması için:
 _**Şekil 11:** Kullanıcı grubu ve bilgisayar hesapları için "Tam Denetim" atama_
 
 <br>
+
 ![Şekil 12: "Oluştur" seçeneğini belirleyin][sap-ha-guide-figure-8023]
 
 _**Şekil 12:** "Oluştur" seçeneğini belirleyin_
 
 <br>
+
 ![Şekil 13: İkinci sapmnt sapglobal2 ana bilgisayara bağlı ve birim2 oluşturulur][sap-ha-guide-figure-8024]
 
 _**Şekil 13:** İkinci sapmnt sapglobal2 ana bilgisayara bağlı ve birim2 oluşturulur_
 
 <br>
+
 ## <a name="install-sap-netweaver-multi-sid"></a>SAP NetWeaver çoklu SID yükleyin
 
 ### <a name="install-sap-sid2-ascsscs-and-ers-instances"></a>SAP yükleme \<SID2 > ASCS/SCS ve Ağıranlar örnekleri

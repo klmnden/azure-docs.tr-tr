@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e6e25424981118363070d42b2fb057b18fdb91a9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0d743d89c344ce9cb6eec116ed9c3e0cbe56f86e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48812092"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878656"
 ---
 <a name="api-prerequisites"></a>API önkoşulları
 ================
@@ -55,7 +55,7 @@ Hizmet sorumlusu eklemek için aşağıdaki adımları kullanın:
 
      ![Portalda yönetilen bir uygulama ekleyin](./media/cloud-partner-portal-api-prerequisites/managedapp.png)
 
-4. Tıklayın **Ekle** hizmet sorumlusu hesabınıza eklemek için.
+1. Tıklayın **Ekle** hizmet sorumlusu hesabınıza eklemek için.
 
    ![Bir hizmet sorumlusu ekleme](./media/cloud-partner-portal-api-prerequisites/add-service-principal.jpg)
 
@@ -66,7 +66,7 @@ Hizmet sorumlusu eklemek için aşağıdaki adımları kullanın:
 Bulut iş ortağı portalı API'ler, kimlik doğrulaması sırasında aşağıdaki varlıkları ve protokolleri kullanın:
 
 - Kaynaklara erişimi istemek için JSON Web Token (JWT) taşıyıcı belirteç
-- [Openıd Connect](http://openid.net/connect/) (OIDC) protokolü, kimlik doğrulamak için
+- [Openıd Connect](https://openid.net/connect/) (OIDC) protokolü, kimlik doğrulamak için
 - [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) kimlik yetkilisi olarak
 
 Program aracılığıyla bir JWT belirteci alınırken İlkesi iki yaklaşım vardır:

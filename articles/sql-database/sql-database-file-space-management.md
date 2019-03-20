@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: a6fccb087d8a2c78bb1ad47758952b76b245dbde
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: 043ceb6c46155ed169c080d08f37688b47e3e4b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576217"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881172"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Azure SQL veritabanı'nda tek ve havuza alınmış veritabanları için dosya alanı yönetme
 
@@ -29,6 +29,8 @@ Bu makalede Azure SQL veritabanı ve dosya alanı veritabanları için ayrılan 
 ## <a name="overview"></a>Genel Bakış
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 Azure SQL veritabanı'nda tek ve havuza alınmış veritabanları ile vardır iş yükü düzenleri ayırma veritabanları için temel alınan veri dosyaları burada kullanılan veri sayfaları tutardan daha büyük olabilir. Bu durum kullanılan alanın artması ve sonrasında verilerin silinmesi durumunda ortaya çıkabilir. Bunun nedeni, veri silindiğinde ayrılmış dosya alanı otomatik olarak alınmaz olmasıdır.
 
@@ -239,7 +241,7 @@ Otomatik küçültme etkinleştirmek için aşağıdaki komutta veritabanı adı
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Bu komut hakkında daha fazla bilgi için bkz. [veritabanı](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) seçenekleri. 
+Bu komut hakkında daha fazla bilgi için bkz. [veritabanı](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) seçenekleri. 
 
 ### <a name="rebuild-indexes"></a>Dizinleri yeniden oluştur
 

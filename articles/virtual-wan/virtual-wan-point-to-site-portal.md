@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alzam
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: baf1da0f669643f576067643d4d318a87b9bbc5a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9fe0c7f7ae0c19833421b647449f0e4100904f5b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097141"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226241"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Öğretici: Azure sanal WAN (Önizleme) kullanarak noktadan siteye bağlantı oluşturma
 
@@ -69,13 +69,13 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2S
 Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
-Özellik kayıtlı olarak göründükten sonra aboneliği Microsoft.Network ad alanına yeniden kaydedin.
+Özellik kayıtlı gösterir sonra aboneliği Microsoft.Network ad alanına kaydedin.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
-## <a name="vnet"></a>1. Sanal ağ oluştur
+## <a name="vnet"></a>1. Sanal ağ oluşturma
 
 [!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
 

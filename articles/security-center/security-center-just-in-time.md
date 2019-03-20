@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/18/2019
 ms.author: monhaber
-ms.openlocfilehash: 9cdcfbc6074f8e343e2571063cc5dafe54072753
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c7cc5784caf8a83a50536a8edc69ea76ea8589d8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314781"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199843"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Tam zamanında kullanarak sanal makine erişimini yönetme
 
@@ -82,26 +82,26 @@ Etkinleştirmek istediğiniz Vm'leri seçmek için:
 
 1. Altında **tam zamanında VM erişimi**seçin **önerilen** sekmesi.
 
-  ![Tam zamanında erişim etkinleştir](./media/security-center-just-in-time/enable-just-in-time-access.png)
+   ![Tam zamanında erişim etkinleştir](./media/security-center-just-in-time/enable-just-in-time-access.png)
 
 2. Altında **sanal makine**, etkinleştirmek istediğiniz Vm'leri seçin. Bu, bir VM yanında bir onay işareti koyar.
 3. Seçin **etkinleştirme vm'lerde JIT**.
-  1. Bu dikey pencere, Azure Güvenlik Merkezi tarafından önerilen varsayılan bağlantı noktalarını görüntüler:
-     - 22 - SSH
-     - 3389 - RDP
-     - 5985 - WinRM 
-     - 5986 - WinRM
-  2. Özel bağlantı noktalarını da yapılandırabilirsiniz. Bunu yapmak için **Ekle**. 
-  3. İçinde **bağlantı noktası yapılandırması Ekle**, seçtiğiniz yapılandırmak için her bağlantı noktası için her ikisi de varsayılan ve özel, aşağıdaki ayarları özelleştirebilirsiniz:
-    - **Protokol türü**-bir istek onaylandığında, bu bağlantı noktasına izin protokolü.
-    - **İzin verilen kaynak IP adresleri**-bir istek onaylandığında, bu bağlantı noktasına izin verilen IP aralıkları.
-    - **En fazla istek süresi**-en fazla zaman penceresi boyunca belirli bir bağlantı noktası açılabilir.
+   1. Bu dikey pencere, Azure Güvenlik Merkezi tarafından önerilen varsayılan bağlantı noktalarını görüntüler:
+      - 22 - SSH
+      - 3389 - RDP
+      - 5985 - WinRM 
+      - 5986 - WinRM
+   2. Özel bağlantı noktalarını da yapılandırabilirsiniz. Bunu yapmak için **Ekle**. 
+   3. İçinde **bağlantı noktası yapılandırması Ekle**, seçtiğiniz yapılandırmak için her bağlantı noktası için her ikisi de varsayılan ve özel, aşağıdaki ayarları özelleştirebilirsiniz:
+      - **Protokol türü**-bir istek onaylandığında, bu bağlantı noktasına izin protokolü.
+      - **İzin verilen kaynak IP adresleri**-bir istek onaylandığında, bu bağlantı noktasına izin verilen IP aralıkları.
+      - **En fazla istek süresi**-en fazla zaman penceresi boyunca belirli bir bağlantı noktası açılabilir.
 
 4. **Kaydet**’i seçin.
 
 
 > [!NOTE]
->Seçili bağlantı noktaları ile ilişkilendirilmiş ağ güvenlik grupları için tüm gelen trafik kuralları, bir VM, Azure Güvenlik Merkezi oluşturur için JIT VM erişimi etkinleştirildiğinde reddedin. Kuralları ya da ağ güvenlik Gruplarınızda üst önceliğini ya da var olduğu mevcut kurallardan daha düşük öncelikli olur. Bu, Azure Güvenlik Merkezi tarafından bir kural güvenli olup olmadığını belirleyen gerçekleştirilen analiz bağlıdır.
+>Bir VM için JIT VM erişimi etkinleştirildiğinde, Azure Güvenlik Merkezi seçilen bağlantı noktası için "tüm gelen trafiği engelle" kuralları ile ilişkilendirilmiş ağ güvenlik grupları oluşturur. Seçili bağlantı noktaları için oluşturulmuş olan diğer kuralları, mevcut kurallar önceliği yeni "tüm gelen trafiği engelle" kurallardan yararlanın. Seçili bağlantı noktalarına hiçbir mevcut kurallar varsa, yeni "tüm gelen trafiği engelle" kuralları en yüksek önceliğiniz ağ güvenlik gruplarında yararlanın.
 >
 
 ### <a name="request-jit-access-to-a-vm"></a>İstek JIT VM erişimi
@@ -174,9 +174,9 @@ Günlük araması'nı kullanarak VM etkinlikleri hakkında Öngörüler elde ede
 2. Altında **Vm'leri**, o sanal makine için satır içinde üç noktaya tıklayarak ilgili bilgileri görüntülemek için bir sanal Makineyi seçin. Bu, bir menü açılır.
 3. Seçin **etkinlik günlüğü** menüsünde. Bu açılır **etkinlik günlüğü**.
 
-  ![Etkinlik günlüğü seçin](./media/security-center-just-in-time/select-activity-log.png)
+   ![Etkinlik günlüğü seçin](./media/security-center-just-in-time/select-activity-log.png)
 
-  **Etkinlik günlüğü** önceki işlem saati, tarih ve abonelik yanı sıra bu VM için filtrelenmiş bir görünüm sağlar.
+   **Etkinlik günlüğü** önceki işlem saati, tarih ve abonelik yanı sıra bu VM için filtrelenmiş bir görünüm sağlar.
 
 Günlük bilgilerini seçerek indirebilirsiniz **tüm öğeleri CSV olarak indirmek için buraya tıklayın**.
 
@@ -188,16 +188,16 @@ Seç ve filtreleri değiştirmek **Uygula** arama ve günlük oluşturmak için.
 Yapılandırma veya bir VM için bir JIT ilkesi düzenlemek bir kullanıcı etkinleştirmek için bu gerekli ayrıcalıkların ayarlayın.
 
 Bu atama *eylemleri* rolü: 
--   VM ile ilişkili bir abonelik veya kaynak grubunun kapsamına:
-   - Microsoft.Security/locations/jitNetworkAccessPolicies/write
--    Bir abonelik veya kaynak grubu veya VM üzerinde kapsamı:
-   - Microsoft.Compute/virtualMachines/write 
+- VM ile ilişkili bir abonelik veya kaynak grubunun kapsamına:
+  - Microsoft.Security/locations/jitNetworkAccessPolicies/write
+- Bir abonelik veya kaynak grubu veya VM üzerinde kapsamı:
+  - Microsoft.Compute/virtualMachines/write 
 
 Bir kullanıcının başarıyla JIT VM erişimi istemek üzere etkinleştirmek için bu ayrıcalıkların ayarlayın: Bu atama *eylemleri* kullanıcı:
--   VM ile ilişkili bir abonelik veya kaynak grubunun kapsamına:
-   - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ Başlat/eylem
--    Bir abonelik veya kaynak grubu veya VM üzerinde kapsamı:
-   - Microsoft.Compute/virtualMachines/read
+- VM ile ilişkili bir abonelik veya kaynak grubunun kapsamına:
+  - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ Başlat/eylem
+- Bir abonelik veya kaynak grubu veya VM üzerinde kapsamı:
+  - Microsoft.Compute/virtualMachines/read
 
 
 

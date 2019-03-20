@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ae162c6e0ced1021272f08e3e645596586d847d4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d0eda93855c3be66d4c733774a6cc1d5875a8394
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535768"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998309"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Öğretici: Azure Resource Manager şablonu kullanarak ilk Azure data factory'nizi derleme
 > [!div class="op_single_selector"]
@@ -52,6 +52,7 @@ Bu öğreticideki işlem hattı bir etkinlik içerir: **HDInsight Hive etkinliğ
 * Azure Resource Manager şablonları hakkında bilgi için bkz. [Azure Resource Manager Şablonları Yazma](../../azure-resource-manager/resource-group-authoring-templates.md). 
 
 ## <a name="in-this-tutorial"></a>Bu öğreticide
+
 | Varlık | Açıklama |
 | --- | --- |
 | Azure Storage bağlı hizmeti |Azure Storage hesabınızı veri fabrikasına bağlar. Azure Depolama hesabı, bu örnekteki işlem hattı için girdi ve çıktı verilerini tutar. |
@@ -317,17 +318,17 @@ Azure Resource Manager şablonuna yönelik parametreleri içeren **ADFTutorialAR
 ## <a name="create-data-factory"></a>Veri fabrikası oluşturma
 1. **Azure PowerShell**’i başlatın ve aşağıdaki komutu çalıştırın: 
    * Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.
-    ```PowerShell
-    Connect-AzAccount
-    ```  
+     ```PowerShell
+     Connect-AzAccount
+     ```  
    * Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın.
-    ```PowerShell
-    Get-AzSubscription
-    ``` 
+     ```PowerShell
+     Get-AzSubscription
+     ``` 
    * Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. Bu abonelik Azure portalında kullanılanla aynı olmalıdır.
-    ```
-    Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-    ```   
+     ```
+     Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+     ```   
 2. 1 Adımda oluşturduğunuz Resource Manager şablonunu kullanarak Data Factory varlıklarını dağıtmak için aşağıdaki komutu çalıştırın. 
 
     ```PowerShell
@@ -621,6 +622,7 @@ Arka planda mantıksal bir ağ geçidi oluşturmaya yönelik örnek bir Resource
 Bu şablon GatewayUsingArmDF adlı bir ağ geçidiyle adlı bir data factory oluşturur: Oluşturur. 
 
 ## <a name="see-also"></a>Ayrıca Bkz.
+
 | Konu | Açıklama |
 |:--- |:--- |
 | [İşlem hatları](data-factory-create-pipelines.md) |Bu makale, Azure Data Factory’de işlem hatlarının ve etkinliklerini anlamanıza ve senaryonuz ya da işletmeniz için uçtan uca veri odaklı iş akışları oluşturmak amacıyla bunları nasıl kullanacağınızı anlamanıza yardımcı olur. |

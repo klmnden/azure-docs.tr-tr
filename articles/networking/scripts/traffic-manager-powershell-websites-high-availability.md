@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.openlocfilehash: 9ab5697a5cee18a148df578588da639c4d52d6af
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 1086fe6d656db9450d84fd6971a271775f54687d
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651388"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202835"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>Uygulamaları yüksek kullanılabilirlik için trafiği yönlendirme
 
@@ -56,7 +56,7 @@ Bu betik bir kaynak grubu, web uygulaması, traffic manager profili ve tüm ilgi
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | App Service planı içinde bir Azure web uygulaması oluşturur. |
 | [Set-AzResource](/powershell/module/az.resources/new-azresource) | App Service planı içinde bir Azure web uygulaması oluşturur. |
 | [Yeni AzTrafficManagerProfile](/powershell/module/az.trafficmanager/new-aztrafficmanagerprofile) | Bir Azure Traffic Manager profili oluşturur. |
-| [Yeni AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Bir Azure Traffic Manager profiline bir uç nokta ekler. |
+| [Yeni AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) | Azure Traffic Manager profiline bir uç nokta ekler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

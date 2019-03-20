@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 5ff0a70d8b370655df1eef55dac68804a1db406b
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: f83ee40c97e49add539a44a6ba764024a8e47bfa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082155"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081500"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Azure DevTest labs'deki talep edilebilir VM'ler oluşturma ve yönetme
 Benzer şekilde nasıl bir laboratuvara talep edilebilir VM ekleme, [standart VM ekleme](devtest-lab-add-vm.md) – bir *temel* ya da diğer bir deyişle bir [özel görüntü](devtest-lab-create-template.md), [formül](devtest-lab-manage-formulas.md) , veya [Market görüntüsü](devtest-lab-configure-marketplace-images.md). Bu öğreticide, Azure portalını kullanarak bir talep edilebilir VM DevTest labs'deki bir laboratuvara ekleme adımları gösterilmektedir ve bir kullanıcı talebi ve VM etmesini takip işlemlerini gösterir.
@@ -64,12 +64,12 @@ Bir kullanıcı, "Talep edilebilir sanal makineler" listesinden herhangi bir VM,
 
 * "Talep edilebilir sanal makineler" Laboratuvar'ın "Genel bakış" bölmesinin alt kısmındaki listesinden listedeki Vm'lerden birinin sağ tıklayın ve seçin **talep makine**.
 
- ![Belirli bir talep edilebilir VM isteyin.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
+  ![Belirli bir talep edilebilir VM isteyin.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
 
 
 * "Genel bakış" bölmesinin en üstünde **herhangi talep**. Talep edilebilir VM'ler listesinden rastgele bir sanal makineye atanır.
 
- ![Herhangi bir talep edilebilir VM isteyin.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
+  ![Herhangi bir talep edilebilir VM isteyin.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
 Bir sanal makine bir kullanıcı talepleri, sonra "Sanal makinelerim" kendi listesine taşınır ve artık herhangi bir kullanıcı tarafından talep edilebilir değil.

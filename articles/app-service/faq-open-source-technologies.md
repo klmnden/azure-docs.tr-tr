@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 07912dab52cb0569428d070282551eebbdb1c7bc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7831e5e989835b2c9432dbd61a242584a7b6244d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082951"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Açık kaynak teknolojilerini azure'daki Web uygulamaları için SSS
 
@@ -44,10 +44,10 @@ PHP günlüğü etkinleştirmek için:
 9. **Kaydet**’i seçin.
 10. Kalem simgesini seçin **wp-config.php**.
 11. Metin, aşağıdaki kodla değiştirin:
-   ```php
-   //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
-   ```
+    ```php
+    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
+    //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Suppress PHP errors to screenini_set('display_errors', 0);
+    ```
 12. Azure portalında web uygulama menüsünde, web uygulamanızı yeniden başlatın.
 
 Daha fazla bilgi için [etkinleştirme WordPress Hata günlüklerini](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
@@ -59,31 +59,31 @@ Daha fazla bilgi için [etkinleştirme WordPress Hata günlüklerini](https://bl
 
 Node.js uygulaması sürümünü değiştirmek için aşağıdaki seçeneklerden birini kullanabilirsiniz:
 
-*   Azure Portalı'nda **uygulama ayarları**.
-    1. Azure portalında web uygulamanıza gidin.
-    2. Üzerinde **ayarları** dikey penceresinde **uygulama ayarları**.
-    3. İçinde **uygulama ayarları**, anahtar ve değer olarak istediğiniz Node.js sürümünü WEBSITE_NODE_DEFAULT_VERSION içerebilir.
-    4. Git, [Kudu konsolunu](https://*yourwebsitename*.scm.azurewebsites.net).
-    5. Node.js sürümü denetlemek için aşağıdaki komutu girin:  
-   ```
-   node -v
-   ```
-*   İisnode.yml dosyasını değiştirin. Node.js sürümü iisnode.yml dosyasını değiştirerek yalnızca ayarlar çalışma zamanı ortamı bu iisnode kullanır. Uygulamanızın Kudu cmd ve diğerleri tarafından ayarlanmış olan Node.js sürümünü kullanmaya devam **uygulama ayarları** Azure portalında.
+* Azure Portalı'nda **uygulama ayarları**.
+  1. Azure portalında web uygulamanıza gidin.
+  2. Üzerinde **ayarları** dikey penceresinde **uygulama ayarları**.
+  3. İçinde **uygulama ayarları**, anahtar ve değer olarak istediğiniz Node.js sürümünü WEBSITE_NODE_DEFAULT_VERSION içerebilir.
+  4. Git, [Kudu konsolunu](https://*yourwebsitename*.scm.azurewebsites.net).
+  5. Node.js sürümü denetlemek için aşağıdaki komutu girin:  
+     ```
+     node -v
+     ```
+* İisnode.yml dosyasını değiştirin. Node.js sürümü iisnode.yml dosyasını değiştirerek yalnızca ayarlar çalışma zamanı ortamı bu iisnode kullanır. Uygulamanızın Kudu cmd ve diğerleri tarafından ayarlanmış olan Node.js sürümünü kullanmaya devam **uygulama ayarları** Azure portalında.
 
-    İisnode.yml el ile ayarlamak için uygulama kök klasöründe bir iisnode.yml dosyası oluşturun. Dosyasında aşağıdaki satırı ekleyin:
-   ```yml
-   nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-   ```
+  İisnode.yml el ile ayarlamak için uygulama kök klasöründe bir iisnode.yml dosyası oluşturun. Dosyasında aşağıdaki satırı ekleyin:
+  ```yml
+  nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+  ```
    
-*   Kaynak denetimi dağıtım sırasında package.json kullanarak iisnode.yml dosyasını ayarlayın.
-    Azure kaynak denetimi dağıtım işlemi aşağıdaki adımları içerir:
-    1. Azure web uygulamasına içerik taşınır.
-    2. Hiç yoksa (deploy.cmd, .deployment dosyaları) web uygulaması kök klasöründe varsayılan dağıtım betiğini oluşturur.
-    3. Hangi oluşturduğu bir iisnode.yml dosyası Node.js sürümünü package.json dosyasına bahsetmeniz durumunda bir dağıtım betiği çalıştıran > altyapısı `"engines": {"node": "5.9.1","npm": "3.7.3"}`
-    4. Aşağıdaki kod satırını iisnode.yml dosyasını sahiptir:
-        ```yml
-        nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
-        ```
+* Kaynak denetimi dağıtım sırasında package.json kullanarak iisnode.yml dosyasını ayarlayın.
+  Azure kaynak denetimi dağıtım işlemi aşağıdaki adımları içerir:
+  1. Azure web uygulamasına içerik taşınır.
+  2. Hiç yoksa (deploy.cmd, .deployment dosyaları) web uygulaması kök klasöründe varsayılan dağıtım betiğini oluşturur.
+  3. Hangi oluşturduğu bir iisnode.yml dosyası Node.js sürümünü package.json dosyasına bahsetmeniz durumunda bir dağıtım betiği çalıştıran > altyapısı `"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  4. Aşağıdaki kod satırını iisnode.yml dosyasını sahiptir:
+      ```yml
+      nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
+      ```
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>App Service'te barındırılan WordPress uygulamamı de "veritabanı bağlantısı kurulurken hata" iletisini görüyorum. Bu nasıl giderebilirim?
 

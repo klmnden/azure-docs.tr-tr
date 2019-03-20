@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: d3a6b8389d44d3ad92f9305124884d97fa293429
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 1464d1ca8fcf1ad5a955d69aa76caec9aa568dad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447126"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886126"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Hızlı Başlangıç: Python için Speech SDK'sı ile Konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Bu makalede, Python için Speech SDK'sı aracılığıyla konuşma hizmeti kullanmayı gösterir. Bu, mikrofon girişinin konuşma tanıma nasıl oluşturulduğunu gösterir.
+Bu makalede, Python için konuşma Hizmetleri Speech SDK'sı aracılığıyla kullanmayı gösterir. Bu, mikrofon girişinin konuşma tanıma nasıl oluşturulduğunu gösterir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Konuşma hizmeti için bir Azure aboneliği anahtarı. [Ücretsiz edinin](get-started.md).
+* Konuşma Hizmetleri için bir Azure aboneliği anahtarı. [Ücretsiz edinin](get-started.md).
 * [Python 3.5 veya sonraki sürümler](https://www.python.org/downloads/).
-* Bu işletim sistemleri için Python Speech SDK'sı paket kullanılabilir: 
+* Bu işletim sistemleri için Python Speech SDK'sı paket kullanılabilir:
     * Windows: x64 ve x86.
     * Mac: X macOS sürüm 10.12 veya üzeri.
     * Linux: Ubuntu 16.04 veya x64 18.04.
@@ -50,11 +50,11 @@ Bu komut Python paketinden yükler [Pypı](https://pypi.org/) Speech SDK'sı iç
 pip install azure-cognitiveservices-speech
 ```
 
-## <a name="support-and-updates"></a>Destek ve güncelleştirmeler 
+## <a name="support-and-updates"></a>Destek ve güncelleştirmeler
 
 Konuşma SDK'sı Python paket güncelleştirmeleri Pypı dağıtılan ve içinde bildirilen [sürüm notları](./releasenotes.md).
 Yeni bir sürüm varsa, kendisine komutuyla güncelleştirebilirsiniz `pip install --upgrade azure-cognitiveservices-speech`.
-Hangi sürümünün inceleyerek şu anda yüklü olduğunu denetleyin `azure.cognitiveservices.speech.__version__` değişkeni. 
+Hangi sürümünün inceleyerek şu anda yüklü olduğunu denetleyin `azure.cognitiveservices.speech.__version__` değişkeni.
 
 Bir sorununuz veya, bir özellik eksik bkz [destek ve Yardım seçeneklerini](./support.md).
 
@@ -68,7 +68,7 @@ Kopyalayabilirsiniz [örnek kod](#sample-code) bir kaynak dosyası için bu hız
 python quickstart.py
 ```
 
-Bu hızlı başlangıç öğreticisinde olarak indirebilirsiniz bir [Jupyter](https://jupyter.org) not defterinden [Speech SDK'sı örnek depoyu](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) ve not defteri olarak çalıştırın. 
+Bu hızlı başlangıç öğreticisinde olarak indirebilirsiniz bir [Jupyter](https://jupyter.org) not defterinden [Speech SDK'sı örnek depoyu](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) ve not defteri olarak çalıştırın.
 
 ### <a name="sample-code"></a>Örnek kod
 
@@ -86,13 +86,13 @@ Bu hızlı başlangıç öğreticisinde olarak indirebilirsiniz bir [Jupyter](ht
 1. Visual Studio Code'da seçin **dosya** simgesi. Ardından, oluşturduğunuz klasörü açın.
 
    ![Klasör Aç](media/sdk/qs-python-vscode-python-open-folder.png)
-   
+
 1. Yeni bir Python kaynak dosyası oluşturma `speechsdk.py`, yeni dosya simgesini seçerek.
 
    ![Dosya oluşturma](media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Kopyalama, yapıştırma ve Kaydet [Python kodu](#sample-code) için yeni oluşturulan dosya.
-1. Konuşma hizmeti abonelik bilgilerinizi ekleyin.
+1. Konuşma Hizmetleri abonelik bilgilerinizi ekleyin.
 1. Seçili olduğunda, pencerenin alt kısmındaki durum çubuğunun sol tarafındaki bir Python yorumlayıcısı görüntüler.
    Aksi takdirde, mevcut Python yorumlayıcılarını listesini taşıyın. (Ctrl + Shift + P) komut paletini açın ve girin **Python: Yorumlayıcıyı seçme**. Bir uygun olanı seçin.
 1. Visual Studio Code içinde konuşma SDK'sı Python paketi yükleyebilirsiniz. Bunun için Python yorumlayıcısı seçtiğiniz henüz yüklü değil.

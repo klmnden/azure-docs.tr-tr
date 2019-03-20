@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: d9d2b58ff249e765620e2fbae5c9677e9412f1ea
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cf90f7231362d147914e22419c9008d2628a483f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432065"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861902"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB ile .NET için performans ipuçları
 
@@ -38,37 +38,37 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 
    * Doğrudan modu
 
-     TCP ve HTTPS protokolleri üzerinden bağlantı doğrudan modu destekler. .Net SDK'sı en son sürümünü kullanıyorsanız, .net framework ve .NET Standard 2.0 ile doğrudan bağlantı modu desteklenir. Doğrudan modunu kullanırken, kullanılabilir iki protokol seçenek vardır:
+     TCP ve HTTPS protokolleri üzerinden bağlantı doğrudan modu destekler. .NET SDK'sının en son sürümü kullanıyorsanız, .NET framework ve .NET Standard 2.0 ile doğrudan bağlantı modu desteklenir. Doğrudan modunu kullanırken, kullanılabilir iki protokol seçenek vardır:
 
-    * TCP
-    * HTTPS
+     * TCP
+     * HTTPS
 
-    Ağ geçidi modunu kullanırken, Cosmos DB bağlantı noktası 443 ve bağlantı noktaları 10250 10255 olarak ve 10256 Azure Cosmos DB'nin MongoDB kullanarak kullanır. Coğrafi çoğaltma ve coğrafi çoğaltma işlevselliği ile bir MongoDB örneğine 10255 olarak/10256 bağlantı noktalarını eşleme olmadan varsayılan bir MongoDB örneğine 10250 bağlantı noktası eşlenir. Bağlantı noktası emin olmanız TCP doğrudan modda, ağ geçidi bağlantı noktalarına ek olarak kullanırken, Azure Cosmos DB dinamik TCP bağlantı noktaları kullandığından 10000 ve 20000 aralığında açın. Bu bağlantı noktalarını açık değildir ve TCP kullanmaya çalışırsanız, 503 Hizmet kullanılamıyor hatası alırsınız. Aşağıdaki tabloda her bir API için farklı API'ler ve hizmet bağlantı noktası kullanıcı için kullanılabilir bağlantı modları gösterilmektedir:
+     Ağ geçidi modunu kullanırken, Cosmos DB bağlantı noktası 443 ve bağlantı noktaları 10250 10255 olarak ve 10256 Azure Cosmos DB'nin MongoDB kullanarak kullanır. Coğrafi çoğaltma ve coğrafi çoğaltma işlevselliği ile bir MongoDB örneğine 10255 olarak/10256 bağlantı noktalarını eşleme olmadan varsayılan bir MongoDB örneğine 10250 bağlantı noktası eşlenir. Bağlantı noktası emin olmanız TCP doğrudan modda, ağ geçidi bağlantı noktalarına ek olarak kullanırken, Azure Cosmos DB dinamik TCP bağlantı noktaları kullandığından 10000 ve 20000 aralığında açın. Bu bağlantı noktalarını açık değildir ve TCP kullanmaya çalışırsanız, 503 Hizmet kullanılamıyor hatası alırsınız. Aşağıdaki tabloda her bir API için farklı API'ler ve hizmet bağlantı noktası kullanıcı için kullanılabilir bağlantı modları gösterilmektedir:
 
-    |Bağlantı modu  |Desteklenen protokol  |Desteklenen SDK'ları  |API/hizmet bağlantı noktası  |
-    |---------|---------|---------|---------|
-    |Ağ geçidi  |   HTTPS    |  Tüm SDK'lar    |   Mongo (10250, 10255 olarak, 10256), Table(443), Cassandra(10350), Graph(443) SQL(443)    |
-    |Doğrudan    |    HTTPS     |  .NET ve Java SDK'sı    |   10.000 20.000 aralıkta bağlantı noktaları    |
-    |Doğrudan    |     TCP    |  .Net SDK    | 10.000 20.000 aralıkta bağlantı noktaları |
+     |Bağlantı modu  |Desteklenen protokol  |Desteklenen SDK'ları  |API/hizmet bağlantı noktası  |
+     |---------|---------|---------|---------|
+     |Ağ geçidi  |   HTTPS    |  Tüm SDK'lar    |   Mongo (10250, 10255 olarak, 10256), Table(443), Cassandra(10350), Graph(443) SQL(443)    |
+     |Doğrudan    |    HTTPS     |  .NET ve Java SDK'sı    |   10.000 20.000 aralıkta bağlantı noktaları    |
+     |Doğrudan    |     TCP    |  .NET SDK    | 10.000 20.000 aralıkta bağlantı noktaları |
 
-    Azure Cosmos DB, HTTPS üzerinden bir basit ve açık RESTful programlama modeli sunar. Ayrıca, aynı zamanda RESTful kendi iletişim modelinde yer alır ve .NET İstemci SDK'sı kullanılabilen verimli bir TCP protokolü sunar. Hem doğrudan TCP hem de HTTPS, SSL ilk kimlik doğrulaması ve şifreleme trafiği için kullanın. En iyi performans için mümkün olduğunda'de TCP protokolünü kullanır.
+     Azure Cosmos DB, HTTPS üzerinden bir basit ve açık RESTful programlama modeli sunar. Ayrıca, aynı zamanda RESTful kendi iletişim modelinde yer alır ve .NET İstemci SDK'sı kullanılabilen verimli bir TCP protokolü sunar. Hem doğrudan TCP hem de HTTPS, SSL ilk kimlik doğrulaması ve şifreleme trafiği için kullanın. En iyi performans için mümkün olduğunda'de TCP protokolünü kullanır.
 
-    Bağlantı modunu ConnectionPolicy parametresi ile DocumentClient örneği oluşturma sırasında yapılandırılır. Doğrudan modunda kullanılırsa, Protokolü içinde ConnectionPolicy parametresi de ayarlayabilirsiniz.
+     Bağlantı modunu ConnectionPolicy parametresi ile DocumentClient örneği oluşturma sırasında yapılandırılır. Doğrudan modunda kullanılırsa, Protokolü içinde ConnectionPolicy parametresi de ayarlayabilirsiniz.
 
-    ```csharp
-    var serviceEndpoint = new Uri("https://contoso.documents.net");
-    var authKey = new "your authKey from the Azure portal";
-    DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
-    new ConnectionPolicy
-    {
+     ```csharp
+     var serviceEndpoint = new Uri("https://contoso.documents.net");
+     var authKey = new "your authKey from the Azure portal";
+     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
+     new ConnectionPolicy
+     {
         ConnectionMode = ConnectionMode.Direct,
         ConnectionProtocol = Protocol.Tcp
-    });
-    ```
+     });
+     ```
 
-    Ağ geçidi modunda kullanılırsa, TCP doğrudan modda, yalnızca desteklenmediği için HTTPS protokolünü her zaman ağ geçidi ile iletişim kurmak için kullanılır ve ConnectionPolicy Protokolü değeri yoksayılır.
+     Ağ geçidi modunda kullanılırsa, TCP doğrudan modda, yalnızca desteklenmediği için HTTPS protokolünü her zaman ağ geçidi ile iletişim kurmak için kullanılır ve ConnectionPolicy Protokolü değeri yoksayılır.
 
-    ![Azure Cosmos DB bağlantı İlkesi gösterimi](./media/performance-tips/connection-policy.png)
+     ![Azure Cosmos DB bağlantı İlkesi gösterimi](./media/performance-tips/connection-policy.png)
 
 2. **İlk istek üzerine başlangıç gecikmeyi önlemek için OpenAsync çağırın**
 

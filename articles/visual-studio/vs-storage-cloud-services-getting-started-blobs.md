@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: d7f832164a41c2107a2cb9fdca3530b1f5d785cb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f1ef06e0275954343c548d0f6937b9c6fbcfd18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253610"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012126"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure Blob Depolama ve Visual Studio ile çalışmaya başlama bağlı hizmetler (bulut hizmeti projeleri)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -32,7 +32,7 @@ Dosyaları klasörler halinde yalnızca canlı olarak kapsayıcılarda depolama 
 * Program aracılığıyla BLOB'ları düzenleme hakkında daha fazla bilgi için bkz: [.NET kullanarak Azure Blob depolamayı kullanmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 * Azure depolama hakkında genel bilgi için bkz. [depolama belgeleri](https://azure.microsoft.com/documentation/services/storage/).
 * Azure bulut hizmetleri hakkında genel bilgi için bkz. [bulut Hizmetleri belgeleri](https://azure.microsoft.com/documentation/services/cloud-services/).
-* ASP.NET uygulamalarını programlama hakkında daha fazla bilgi için bkz. [ASP.NET](http://www.asp.net).
+* ASP.NET uygulamalarını programlama hakkında daha fazla bilgi için bkz. [ASP.NET](https://www.asp.net).
 
 ## <a name="access-blob-containers-in-code"></a>Kod erişim blob kapsayıcıları
 Zaten mevcut değilse bulut hizmeti projeleri blob'larda programlı olarak erişmek için aşağıdaki öğeler eklemeniz gerekir.

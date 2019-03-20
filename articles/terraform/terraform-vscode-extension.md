@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: df8260cc0d8ddd8521aa5bf683402c62bc2608f4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b1102649e48af8cb36a64f1142c078bf9ebc0d99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766742"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006196"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Azure Terraform Visual Studio Code uzantısını yükleme ve kullanma
 
@@ -59,7 +59,7 @@ Terraform'u Cloud Shell'de kullanabilmek için [Node.js](https://nodejs.org/) 6.
 
 ### <a name="install-graphviz"></a>GraphViz'i yükleme
 
-Terraform'un görselleştirme işlevini kullanmak için [GraphViz'i yüklemeniz gerekir](http://graphviz.org/).
+Terraform'un görselleştirme işlevini kullanmak için [GraphViz'i yüklemeniz gerekir](https://graphviz.org/).
 
 >[!NOTE]
 >GraphViz uygulamasının yüklü olup olmadığını belirlemek için bir terminal penceresi açıp `dot -V` yazın.
@@ -128,7 +128,7 @@ Bu alıştırmada yeni bir Azure kaynak grubu sağlayan basit bir Terraform yap�
     ![main.tf olarak kaydedin](media/terraform-vscode-extension/tf-save-as-main.png)
 
 1. **Kaydet**’i seçin.
-- Menü çubuğundan **Dosya > Klasör Aç**'ı seçin. Yeni oluşturduğunuz klasöre gidin ve seçin.
+1. Menü çubuğundan **Dosya > Klasör Aç**'ı seçin. Yeni oluşturduğunuz klasöre gidin ve seçin.
 
 ### <a name="run-terraform-init-command"></a>Terraform *init* komutunu çalıştırma
 

@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ea17db9af92887ff775e580224b66fed22c65d41
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 1d6e233509b50f0b03678f2e62267169d02133a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963871"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990776"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service yerel önbelleğe genel bakış
 
@@ -35,7 +35,7 @@ Azure App Service içeriği, Azure depolama alanında depolanır ve yukarı daya
 * İçeriği, uygulama birden çok sanal makine (VM) örneklerinde paylaşılır.
 * İçerik dayanıklı ve çalışan uygulamalar tarafından değiştirilebilir.
 * Günlük dosyaları ve tanılama verilerinin dosyaları, aynı paylaşılan içerik klasörü altında kullanılabilir.
-* Yeni içerik doğrudan yayımlama içerik klasörünü güncelleştirir. SCM Web ve çalışan aynı içeriğinden hemen görüntüleyebilirsiniz (genellikle ASP.NET gibi bazı teknolojiler başlatan son içeriğini almak için bazı dosya değişiklikler uygulama yeniden başlatma) uygulama.
+* Yeni içerik doğrudan yayımlama içerik klasörünü güncelleştirir. SCM Web ve çalışan aynı içeriğinden hemen görüntüleyebilirsiniz (genellikle ASP.NET gibi bazı teknolojiler başlatan son içeriğini almak için bazı dosya değişiklikleri uygulamanın yeniden) uygulama.
 
 Birçok uygulama, bir ya da bu özelliklerin tümü, kullanırken, bazı uygulamalar, yüksek kullanılabilirlik ile çalıştırılabilir bir yüksek performanslı, salt okunur içerik deposu yeterlidir. Bu uygulamalar, belirli bir yerel önbellek VM örneğinden yararlanabilirsiniz.
 

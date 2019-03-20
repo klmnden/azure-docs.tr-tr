@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08aab209d4772435c8b349026f036ce15ff73ced
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 7bc40c5043cefad7892eaead8fe8058ac3707865
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731610"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904720"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Öğretici: Envi MMIS ile Azure Active Directory Tümleştirme
 
@@ -184,7 +184,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -237,7 +237,7 @@ Envi MMIS için oturum açmak Azure AD kullanıcılarının etkinleştirmek içi
 
     ![Çalışan Ekle](./media/envimmis-tutorial/user3.png)
 
-    a. İçinde **kullanıcı adı** Britta Simon hesap kullanıcı adı türü metin ister **brittasimon@contoso.com**.
+    a. İçinde **kullanıcı adı** Britta Simon hesap kullanıcı adı türü metin ister **brittasimon\@contoso.com**.
     
     b. İçinde **ad** metin türü adı BrittaSimon ister **Britta**.
 
@@ -245,9 +245,9 @@ Envi MMIS için oturum açmak Azure AD kullanıcılarının etkinleştirmek içi
 
     d. Kullanıcının bir başlık girin **başlık** TextBox.
     
-    e. İçinde **e-posta adresi** metin Britta Simon hesap türü e-posta adresi ister **brittasimon@contoso.com**.
+    e. İçinde **e-posta adresi** metin Britta Simon hesap türü e-posta adresi ister **brittasimon\@contoso.com**.
 
-    f. İçinde **SSO kullanıcı adı** Britta Simon hesap kullanıcı adı türü metin ister **brittasimon@contoso.com**.
+    f. İçinde **SSO kullanıcı adı** Britta Simon hesap kullanıcı adı türü metin ister **brittasimon\@contoso.com**.
 
     g. **Kaydet**’e tıklayın.
 

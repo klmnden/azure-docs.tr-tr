@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.openlocfilehash: 6dfc1c0f9dcf29d9cf24df19fbd043c71852aeac
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 78fe5211f135b4a4c7d0fd21c66340025ad2d05d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790968"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104225"
 ---
 # <a name="deploy-the-ansible-solution-template-for-azure-to-centos"></a>Azure'da CentOS for Ansible çözüm şablonu dağıtma
 Azure için Ansible çözüm şablonu, ansible'ı ve Azure ile çalışacak şekilde yapılandırılmış Araçları Paketi ile birlikte bir CentOS sanal makinede Ansible örneği yapılandırmak için tasarlanmıştır. Araçlar şunları içerir:
@@ -37,30 +37,30 @@ Azure için Ansible çözüm şablonu, ansible'ı ve Azure ile çalışacak şek
 
 1. İçinde **oluşturma Ansible** sayfasında, birden çok sekme görürsünüz. Üzerinde **Temelleri** sekmesinde, gerekli bilgileri girin:
 
-    - **Ad** -Ansible örneğinizin adını belirtin. Tanıtım amaçlı olarak adı `ansiblehost` kullanılır.
-    - **Kullanıcı adı:** -Ansible örneğine erişimi olan kullanıcı adını belirtin. Tanıtım amaçlı olarak adı `ansibleuser` kullanılır.
-    - **Kimlik doğrulaması türü:** -seçin **parola** veya **SSH ortak anahtarı**. Tanıtım amaçlı olarak **SSH ortak anahtarı** seçilir.
-    - **Parola** ve **parolayı onayla** - seçerseniz **parola** için **kimlik doğrulama türü**, bu değerler için parolanızı girin.
-    - **SSH ortak anahtarı** - seçerseniz **SSH ortak anahtarı** için **kimlik doğrulama türü**, RSA ortak anahtarını tek satırlı biçimde başlayarak - girin `ssh-rsa`.
-    - **Abonelik** -açılan listeden Azure aboneliğinizi seçin.
-    - **Kaynak grubu** - açılan listeden mevcut bir kaynak grubunu seçin ya da seçin **Yeni Oluştur** ve yeni bir kaynak grubu için bir ad belirtin. Tanıtım amacıyla, yeni bir kaynak grubu adında `ansiblerg` kullanılır.
-    - **Konum** -senaryonuz için uygun olan aşağı açılan listeden konumu seçin.
+   - **Ad** -Ansible örneğinizin adını belirtin. Tanıtım amaçlı olarak adı `ansiblehost` kullanılır.
+   - **Kullanıcı adı:** -Ansible örneğine erişimi olan kullanıcı adını belirtin. Tanıtım amaçlı olarak adı `ansibleuser` kullanılır.
+   - **Kimlik doğrulaması türü:** -seçin **parola** veya **SSH ortak anahtarı**. Tanıtım amaçlı olarak **SSH ortak anahtarı** seçilir.
+   - **Parola** ve **parolayı onayla** - seçerseniz **parola** için **kimlik doğrulama türü**, bu değerler için parolanızı girin.
+   - **SSH ortak anahtarı** - seçerseniz **SSH ortak anahtarı** için **kimlik doğrulama türü**, RSA ortak anahtarını tek satırlı biçimde başlayarak - girin `ssh-rsa`.
+   - **Abonelik** -açılan listeden Azure aboneliğinizi seçin.
+   - **Kaynak grubu** - açılan listeden mevcut bir kaynak grubunu seçin ya da seçin **Yeni Oluştur** ve yeni bir kaynak grubu için bir ad belirtin. Tanıtım amacıyla, yeni bir kaynak grubu adında `ansiblerg` kullanılır.
+   - **Konum** -senaryonuz için uygun olan aşağı açılan listeden konumu seçin.
 
-    ![Azure portal Ansible temel ayarları sekmesi](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-1.png)
+     ![Azure portal Ansible temel ayarları sekmesi](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-1.png)
 
 1. **Tamam**’ı seçin.
 
 1. İçinde **ek ayarlar** sekmesinde, gerekli bilgileri girin:
 
-    - **Boyutu** -Azure portal varsayılan olarak standart boyutu. Kendi senaryonuza karşılar farklı bir boyut belirlemek için farklı boyutlarının listesini görüntülemek için oku seçin.
-    - **VM disk türü** -seçin **SSD** (Premium Solid-State sürücü) veya **HDD** (Sabit Disk sürücüsü). Tanıtım amaçlı olarak **SSD** performans avantajlarından için seçilir. Disk depolama türlerinin her biri hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
-        - [VM’ler için yüksek performanslı Premium Depolama ve yönetilen diskler](/azure/virtual-machines/windows/premium-storage)
-        - [Standart SSD yönetilen diskler için Azure sanal makine iş yükleri](/azure/virtual-machines/windows/disks-standard-ssd)
-    - **Genel IP adresi** -sanal makine dışında sanal makine ile iletişim kurmak istiyorsanız bu ayarı belirtin. Varsayılan ada sahip yeni bir ortak IP adresi olan `ansible-pip`. Farklı bir IP adresi belirtmek için bu IP adresi atamasının adı ve SKU gibi öznitelikleri - oku seçip belirtin. 
-    - **Etki alanı adı etiketi** -genel kullanıma yönelik sanal makine etki alanı adını girin. Ad benzersiz ve karşılayan adlandırma gereksinimlerini olmalıdır. Sanal makine için ad belirtme hakkında daha fazla bilgi için bkz. [Azure kaynakları için adlandırma kuralları](/azure/architecture/best-practices/naming-conventions).
-    - **Ansible sürüm** -bir sürüm numarası ya da değer belirtmeniz `latest` en son sürümünü dağıtmak için. Bilgi simgesi seçin **Ansible sürüm** kullanılabilir sürümler hakkında daha fazla bilgi için.
+   - **Boyutu** -Azure portal varsayılan olarak standart boyutu. Kendi senaryonuza karşılar farklı bir boyut belirlemek için farklı boyutlarının listesini görüntülemek için oku seçin.
+   - **VM disk türü** -seçin **SSD** (Premium Solid-State sürücü) veya **HDD** (Sabit Disk sürücüsü). Tanıtım amaçlı olarak **SSD** performans avantajlarından için seçilir. Disk depolama türlerinin her biri hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+       - [VM’ler için yüksek performanslı Premium Depolama ve yönetilen diskler](/azure/virtual-machines/windows/premium-storage)
+       - [Standart SSD yönetilen diskler için Azure sanal makine iş yükleri](/azure/virtual-machines/windows/disks-standard-ssd)
+   - **Genel IP adresi** -sanal makine dışında sanal makine ile iletişim kurmak istiyorsanız bu ayarı belirtin. Varsayılan ada sahip yeni bir ortak IP adresi olan `ansible-pip`. Farklı bir IP adresi belirtmek için bu IP adresi atamasının adı ve SKU gibi öznitelikleri - oku seçip belirtin. 
+   - **Etki alanı adı etiketi** -genel kullanıma yönelik sanal makine etki alanı adını girin. Ad benzersiz ve karşılayan adlandırma gereksinimlerini olmalıdır. Sanal makine için ad belirtme hakkında daha fazla bilgi için bkz. [Azure kaynakları için adlandırma kuralları](/azure/architecture/best-practices/naming-conventions).
+   - **Ansible sürüm** -bir sürüm numarası ya da değer belirtmeniz `latest` en son sürümünü dağıtmak için. Bilgi simgesi seçin **Ansible sürüm** kullanılabilir sürümler hakkında daha fazla bilgi için.
 
-    ![Azure portal Ansible ek ayarlar sekmesi](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-2.png)
+     ![Azure portal Ansible ek ayarlar sekmesi](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-2.png)
 
 1. **Tamam**’ı seçin.
 
@@ -72,7 +72,7 @@ Azure için Ansible çözüm şablonu, ansible'ı ve Azure ile çalışacak şek
 
 1. **Özeti** doğrulama işlemini gösteren ve Ansible dağıtımı için belirtilen ölçütleri listeleme sayfasını görüntüler. Sekmesinin altındaki bir bağlantısını sağlar **şablon ve parametreleri indir** Azure desteklenen diller ve platformlar ile kullanmak için. 
 
-    ![Azure portal sekmesini Ansible Özet sekmesi](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-4.png)
+     ![Azure portal sekmesini Ansible Özet sekmesi](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-4.png)
 
 1. **Tamam**’ı seçin.
 
@@ -80,7 +80,7 @@ Azure için Ansible çözüm şablonu, ansible'ı ve Azure ile çalışacak şek
 
 1. Seçin **bildirimleri** Ansible dağıtımını izlemek için portal sayfasının üst simge. Dağıtım tamamlandıktan sonra seçin **kaynak grubuna gidin**. 
 
-    ![Azure portal sekmesini Ansible Özet sekmesi](./media/ansible-deploy-solution-template/portal-ansible-setup-complete.png)
+     ![Azure portal sekmesini Ansible Özet sekmesi](./media/ansible-deploy-solution-template/portal-ansible-setup-complete.png)
 
 1. Kaynak grubu sayfasındaki Ansible ana bilgisayarınızın IP adresini alın ve ansible'ı kullanarak Azure kaynaklarınızı yönetmek oturum açın.
 

@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/27/2019
-ms.openlocfilehash: e429504cb6df2ba4f871fa0c9ca780ac5d906356
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 09ab154494ad3e1276239e36068255c2042358c5
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958983"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223827"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL veritabanı yönetilen örneği'nın kaynak sınırları genel bakış
 
@@ -55,8 +55,8 @@ Azure SQL veritabanı yönetilen örneği, iki donanım oluşturma (4. nesil ve 
 | Veritabanı başına maks. depolama | Örnek başına en fazla depolama boyutu tarafından belirlenir. | Örnek başına en fazla depolama boyutu tarafından belirlenir. |
 | En fazla örnek başına veritabanı sayısı | 100 | 100 |
 | Örnek başına en fazla veritabanı dosyaları | En fazla 280 | Veritabanı başına 32.767 dosyaları |
-| Veri/günlük IOPS (yaklaşık) | 500 - 7.500 dosya başına<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines)| 11 K - 110 K (1,375 sanal çekirdek başına) |
-|Günlük aktarım hızı | Örnek başına 22 MB/sn | Sanal çekirdek başına 3 MB/sn<br/>Örnek başına en fazla 48 MB/sn|
+| Veri/günlük IOPS (yaklaşık) | 500 - 7.500 dosya başına<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1,375 sanal çekirdek başına) |
+| Günlük aktarım hızı | Örnek başına 22 MB/sn | Sanal çekirdek başına 3 MB/sn<br/>Örnek başına en fazla 48 MB/sn|
 | Veri aktarım hızı (yaklaşık) | 100 - dosya başına 250 MB/sn<br/>\*[Dosya boyutuna bağlıdır](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 - 48 MB/sn başına sanal çekirdek |
 | GÇ gecikmesi (yaklaşık) | 5-10 ms | 1-2 ms |
 | En fazla tempDB boyutu | 192 - 1,920 GB (24 GB sanal çekirdek başına) | Maksimum örnek depolama boyutuyla sınırlı hiçbir kısıtlama- |
@@ -90,6 +90,9 @@ Kaynak bölge başına sınırlı sayıda desteklenen abonelik türlerini içere
 - **Alt ağı sınırına**: Tek bir bölgede yönetilen örnekleri dağıtıldığı alt ağlar maksimum sayısı.
 - **Örnek sayısı sınırı**: Tek bir bölgede dağıtılan örnekleri sayısı.
 
+> [!Note]
+> Bu, varsayılan ayarları ve değil teknik sınırlamalar limitlerdir. Özel oluşturarak artan talebi sınırları olabilir [Azure portalında bir destek isteği](#obtaining-a-larger-quota-for-sql-managed-instance) geçerli bölgede daha fazla yönetilen örnek gerekiyorsa. Alternatif olarak, destek istekleri göndermeden yeni yönetilen örnekler başka bir Azure bölgesinde oluşturabilirsiniz.
+
 Aşağıdaki tabloda desteklenen abonelikler için varsayılan bölgesel sınırlar gösterilmektedir:
 
 |Abonelik türü| Yönetilen örnek alt sınırı | En fazla örnek sayısı |GP sayısı üst sınırı yönetilen örnekleri *|BC sayısı üst sınırı yönetilen örnekleri *|
@@ -104,7 +107,7 @@ Aşağıdaki tabloda desteklenen abonelikler için varsayılan bölgesel sınır
 
 ** Başka bir hizmet katmanındaki hiçbir örneği varsa Maksimum sayıda örnek bir hizmet katmanında uygulanır. GP ve BC örnekleri aynı alt ağ içinde karışık planladığınız durumlarda aşağıdaki bölümde izin verilen birleşimleri için referans olarak kullanın. Basit bir kural olarak 3 alt toplam sayısını aşamaz ve 12 örneği birimlerin toplam sayısını aşamaz.
 
-Bu sınırlar, özel oluşturarak artırılabilir [Azure portalında bir destek isteği](#obtaining-a-larger-quota-for-sql-managed-instance) geçerli bölgede daha fazla yönetilen örnek gerekiyorsa. Alternatif olarak, destek istekleri göndermeden yeni yönetilen örnekler başka bir Azure bölgesinde oluşturabilirsiniz.
+
 
 > [!IMPORTANT]
 > Dağıtımlarınızı planlarken (nedeniyle ek artıklık için) bir iş kritik (BC) örneği genellikle bir genel amaçlı (GP) örneği daha fazla kapasite x 4 tükettiğini göz önünde bulundurun. Böylece, hesaplamalarınızda 1 GP örneği için = 1 örnek birim ve 1 BC örneği = 4 örneği birimi. Varsayılan limitleri karşı tüketimini analiz kolaylaştırmak için yönetilen örnekler dağıtıldığı bölgede tüm alt ağlar arasındaki örneği birimleri özetlemek ve abonelik türünüz için örneği birim sınırlarıyla sonuçlarını karşılaştırın.

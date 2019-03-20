@@ -1,6 +1,6 @@
 ---
 title: Azure İzleyici günlük sorguları App() ifadesinde | Microsoft Docs
-description: Uygulama ifadesi, Azure izleyici günlüğü sorguda aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir Application Insights uygulamasından veri almak için kullanılır.
+description: Uygulama ifadesi, bir Azure İzleyici günlük sorgusu aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir Application Insights uygulamasından veri almak için kullanılır.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: 0abe2c869a05d359f692db105eb647f9e6a69df8
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: a1a605bc733597430f64dceeb6c485db0abf657b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266433"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889463"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Azure İzleyici sorgu ifadesinde App()
 

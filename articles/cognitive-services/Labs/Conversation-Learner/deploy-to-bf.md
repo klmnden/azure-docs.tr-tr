@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bc04afead8742c9f384287ecb8d33c54770456b6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ae984cc2e0f43b81b8aa2f08b3944886733c9054
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447396"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994635"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Konuşma Öğrenici bot dağıtma
 
@@ -45,7 +45,7 @@ Model kimliği almak nasıl aşağıda verilmiştir:
     npm run ui
     ```
 
-2. Tarayıcıyı Aç http://localhost:5050 
+2. Tarayıcıyı Aç `http://localhost:5050` 
 
 3. Konuşma Öğrenici model Kimliğini almak istediğiniz tıklayın
 
@@ -109,20 +109,20 @@ Konuşma Öğrenici Bot Azure'a dağıtmak için adım adım yönergeler aşağ�
 
 3. Azure portalında yeni oluşturduğunuz Web App Botu kaynak düzenleyin.
 
-    1. Sol taraftaki gezinti öğesi "Uygulama ayarları" tıklayın
-    1. "Uygulama ayarları" bölümüne inin
-    2. Bu ayarları ekleyin:
+   1. Sol taraftaki gezinti öğesi "Uygulama ayarları" tıklayın
+   1. "Uygulama ayarları" bölümüne inin
+   2. Bu ayarları ekleyin:
 
-        Ortam değişkeni | değer
-        --- | --- 
-        CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_MODEL_ID      | Uygulama kimliği GUID, elde edilen modeli için "ayarlar" altında konuşma Öğrenici arabiriminden >
-        LUIS_AUTHORING_KEY               | Bu model için anahtar yazma LUIS
-        LUIS_SUBSCRIPTION_KEY            | Yazma kotanızı kullanmaktan kaçınmak yayımlanan botlar önerilir ancak gerekli değildir.
+       Ortam değişkeni | değer
+       --- | --- 
+       CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
+       CONVERSATION_LEARNER_MODEL_ID      | Uygulama kimliği GUID, elde edilen modeli için "ayarlar" altında konuşma Öğrenici arabiriminden >
+       LUIS_AUTHORING_KEY               | Bu model için anahtar yazma LUIS
+       LUIS_SUBSCRIPTION_KEY            | Yazma kotanızı kullanmaktan kaçınmak yayımlanan botlar önerilir ancak gerekli değildir.
     
-    4. Sayfanın üst kısımda "Kaydet"'a tıklayın
-    5. Sol taraftaki gezinti öğesi "Derleme" açın
-    6. "Üzerinde sürekli dağıtımı Yapılandır" tıklayın 
-    7. Dağıtımlar altında "Kurulum" simgesine tıklayın
-    8. "Ayarları gerekli" tıklayın
-    9. Bot kodunuzu nerede kullanılabilir kaynağını seçin ve kaynak yapılandırın.
+   4. Sayfanın üst kısımda "Kaydet"'a tıklayın
+   5. Sol taraftaki gezinti öğesi "Derleme" açın
+   6. "Üzerinde sürekli dağıtımı Yapılandır" tıklayın 
+   7. Dağıtımlar altında "Kurulum" simgesine tıklayın
+   8. "Ayarları gerekli" tıklayın
+   9. Bot kodunuzu nerede kullanılabilir kaynağını seçin ve kaynak yapılandırın.

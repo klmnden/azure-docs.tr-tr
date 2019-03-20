@@ -14,12 +14,12 @@ ms.date: 09/17/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54bc5f0a155db5460b3422d03650211175eef89a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 45379f8f955c50e2598ebcebd34e971c29b2c81c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534183"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103239"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Öğretici:  Parola karması eşitleme (PHS) kullanarak tek bir AD ormanında tümleştirme
 
@@ -77,7 +77,7 @@ Sanal makine oluşturma işlemini tamamlamak için işletim sistemi yüklemesini
 
 1. Hyper-V Yöneticisi, sanal makinede çift tıklatın
 2. Başlat düğmesine tıklayın.
-3.  'CD veya DVD'den önyükleme için bir tuşa basın için ' istenir. Devam edin ve bunu yapın.
+3. 'CD veya DVD'den önyükleme için bir tuşa basın için ' istenir. Devam edin ve bunu yapın.
 4. Windows Server başlangıç ekranı dilinizi seçin ve tıklayın **sonraki**.
 5. Tıklayın **Şimdi Yükle**.
 6. Lisans anahtarınızı girip __iade **sonraki**.
@@ -226,9 +226,9 @@ Artık, şirket içi dizininde vardı kullanıcıları eşitlenmiştir ve artık
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Kullanıcılarımızın biriyle oturum açma testi
 
-1.  Göz atın [https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Göz atın [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Sunduğumuz yeni kiracıda oluşturduğunuz kullanıcı hesabı ile oturum.  Aşağıdaki biçimi kullanarak oturum açmanız gerekir: (user@domain.onmicrosoft.com). Kullanıcının oturum açmak için kullandığı aynı parolayı kullanan şirket içi.</br>
-![Doğrulayın](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Doğrulayın](media/tutorial-password-hash-sync/verify1.png)</br>
 
 Şimdi başarıyla test edin ve hangi Azure sunduğu ile kendinizi alıştırın için kullanabileceğiniz bir karma kimlik ortamı vardır.
 

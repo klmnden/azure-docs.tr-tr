@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 1a7f58960111b3fba6283830b262a9b901b8e2fd
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a78167e9b143a4c8d424947b489043dd45dfe2db
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546246"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886431"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı bağlantı sorunlarını giderme
 
@@ -48,7 +48,7 @@ PostgreSQL için Azure veritabanı'na bağlanmak uygulamayı kalıcı olarak ba�
 
 * Sunucu güvenlik duvarı yapılandırması: PostgreSQL sunucusu güvenlik duvarı için Azure veritabanı, proxy sunucuları ve ağ geçitleri dahil istemcinizden bağlantılarına izin verecek şekilde yapılandırıldığından emin olun.
 * İstemci güvenlik duvarı yapılandırması: İstemci üzerindeki güvenlik duvarı, veritabanı sunucunuza bağlantılar izin vermeniz gerekir. IP adresleri ve bağlantı noktaları için olamaz sunucunun PostgreSQL gibi bazı güvenlik duvarları uygulama adları hem de izin verilmelidir.
-* Kullanıcı hatası: Bağlantı dizesi veya eksik bir sunucu adı gibi bağlantı parametrelerini yazdığınızı *@servername* kullanıcı adı soneki.
+* Kullanıcı hatası: Bağlantı dizesi veya eksik bir sunucu adı gibi bağlantı parametrelerini yazdığınızı  *\@servername* kullanıcı adı soneki.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Kalıcı bağlantı sorunlarını giderme adımları
 

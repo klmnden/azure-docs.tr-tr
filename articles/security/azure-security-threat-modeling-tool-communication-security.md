@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3f4e87e5602b3c77178ab5bc842705cfedf64af2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8534f30c17208e77adfa47ea41506a3a61d3548d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448382"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897308"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Güvenlik çerçevesi: İletişim güvenliği | Risk azaltma işlemleri 
 | Ürün/hizmet | Makale |
@@ -146,7 +146,7 @@ Bu kural, bir HTTP durum kodu 301 (kalıcı yeniden yönlendirme) döndürerek �
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [OWASP HTTP katı aktarım güvenliği kural sayfası](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Adımları** | <p>HTTP katı taşıma güvenliği (HSTS) bir özel yanıt üst bilgisi kullanarak bir web uygulaması tarafından belirtilen bir güvenlik katılımı geliştirmedir. Desteklenen bir tarayıcı bu üst bilgi aldıktan sonra bu tarayıcı her türlü iletişimi, HTTP üzerinden belirtilen etki alanına gönderilmesini engeller ve bunun yerine, tüm iletişimler HTTPS üzerinden gönderir. Ayrıca, HTTPS tıklayarak tarayıcılarında istekleri engeller.</p><p>HSTS uygulamak için aşağıdaki yanıt üst bilgisi için bir Web sitesi, genel olarak, kod veya yapılandırma yapılandırılması gerekir. Strict-aktarma-Security:, max-age = 300; Aşağıdaki tehditleri includeSubDomains HSTS ele alır:</p><ul><li>Kullanıcı işaretleri veya el ile türleri http://example.com ve bir adam-de-adam saldırgan tabidir: HSTS HTTP isteklerini otomatik olarak hedef etki alanı için HTTPS için yönlendiren</li><li>Yalnızca HTTPS yanlışlıkla olmaya yönelik bir web uygulaması, HTTP bağlantılarını içerir veya HTTP üzerinden içerik sunar: HSTS HTTP isteklerini otomatik olarak hedef etki alanı için HTTPS için yönlendiren</li><li>ADAM-de-adam saldırganın victim kullanıcıdan geçersiz bir sertifika kullanarak trafiği ıntercept dener ve kullanıcı hatalı sertifikayı kabul planlamaktadır: HSTS sertifika geçersiz ileti geçersiz kılmak bir kullanıcı izin vermiyor</li></ul>|
+| **Adımları** | <p>HTTP katı taşıma güvenliği (HSTS) bir özel yanıt üst bilgisi kullanarak bir web uygulaması tarafından belirtilen bir güvenlik katılımı geliştirmedir. Desteklenen bir tarayıcı bu üst bilgi aldıktan sonra bu tarayıcı her türlü iletişimi, HTTP üzerinden belirtilen etki alanına gönderilmesini engeller ve bunun yerine, tüm iletişimler HTTPS üzerinden gönderir. Ayrıca, HTTPS tıklayarak tarayıcılarında istekleri engeller.</p><p>HSTS uygulamak için aşağıdaki yanıt üst bilgisi için bir Web sitesi, genel olarak, kod veya yapılandırma yapılandırılması gerekir. Strict-aktarma-Security:, max-age = 300; Aşağıdaki tehditleri includeSubDomains HSTS ele alır:</p><ul><li>Kullanıcı işaretleri veya el ile türleri https://example.com ve bir adam-de-adam saldırgan tabidir: HSTS HTTP isteklerini otomatik olarak hedef etki alanı için HTTPS için yönlendiren</li><li>Yalnızca HTTPS yanlışlıkla olmaya yönelik bir web uygulaması, HTTP bağlantılarını içerir veya HTTP üzerinden içerik sunar: HSTS HTTP isteklerini otomatik olarak hedef etki alanı için HTTPS için yönlendiren</li><li>ADAM-de-adam saldırganın victim kullanıcıdan geçersiz bir sertifika kullanarak trafiği ıntercept dener ve kullanıcı hatalı sertifikayı kabul planlamaktadır: HSTS sertifika geçersiz ileti geçersiz kılmak bir kullanıcı izin vermiyor</li></ul>|
 
 ## <a id="sqlserver-validation"></a>SQL server bağlantı şifreleme ve sertifika doğrulama emin olun
 
@@ -339,7 +339,7 @@ string GetData(int value);
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | MVC5, MVC6 |
 | **Öznitelikler**              | Yok  |
-| **Başvuruları**              | [Bir Web API denetleyicisi, SSL'yi zorunlu tutma](http://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
+| **Başvuruları**              | [Bir Web API denetleyicisi, SSL'yi zorunlu tutma](https://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) |
 | **Adımları** | Bir uygulamanın bir HTTPS hem bir HTTP bağlaması varsa, istemciler siteye erişmek için HTTP yine de kullanabilirsiniz. Bunu önlemek için korumalı API'leri için istekleri her zaman HTTPS üzerinden olmasını sağlamak için bir eyleme eylem filtresi kullanın.|
 
 ### <a name="example"></a>Örnek 

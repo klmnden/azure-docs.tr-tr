@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 6a22600f7d6653da64256d7ec63ba26f272b2184
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 323de505bc1bfa9747f372033392a9fd6e08462c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888279"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898865"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>En iyi uygulamalar ve Azure App Service Windows üzerinde node.js uygulamaları için sorun giderme kılavuzu
 
@@ -118,7 +118,7 @@ Varsayılan değer false'tur. Ne zaman true iisnode kümesine HTTP durum kodu ve
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (Canlı üretim sitesini üzerinde etkinleştirmeyin)
 
-Bu ayar, hata ayıklama özelliğini denetler. Iisnode node-Inspector ile tümleşiktir. Bu ayarın etkinleştirilmesi, düğüm uygulamanızı hata ayıklama etkinleştirin. Bu ayarın etkinleştirilmesi üzerine iisnode ilk node.js uygulamanızı hata ayıklama isteği 'debuggerVirtualDir' dizininde node-Inspector dosyaları oluşturur. Bir istek göndererek node-Inspector'ı yükleyebilir http://yoursite/server.js/debug. Hata ayıklama URL kesimi 'debuggerPathSegment' ayarıyla denetleyebilirsiniz. Varsayılan olarak, debuggerPathSegment = 'debug'. Ayarlayabileceğiniz `debuggerPathSegment` bir GUID, örneğin, bu nedenle olduğundan başkaları tarafından bulunması daha zor.
+Bu ayar, hata ayıklama özelliğini denetler. Iisnode node-Inspector ile tümleşiktir. Bu ayarın etkinleştirilmesi, düğüm uygulamanızı hata ayıklama etkinleştirin. Bu ayarın etkinleştirilmesi üzerine iisnode ilk node.js uygulamanızı hata ayıklama isteği 'debuggerVirtualDir' dizininde node-Inspector dosyaları oluşturur. Bir istek göndererek node-Inspector'ı yükleyebilir `http://yoursite/server.js/debug`. Hata ayıklama URL kesimi 'debuggerPathSegment' ayarıyla denetleyebilirsiniz. Varsayılan olarak, debuggerPathSegment = 'debug'. Ayarlayabileceğiniz `debuggerPathSegment` bir GUID, örneğin, bu nedenle olduğundan başkaları tarafından bulunması daha zor.
 
 Okuma [Windows üzerinde node.js uygulamalarında hata ayıklama](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html) hata ayıklama hakkında daha fazla bilgi.
 
@@ -133,7 +133,7 @@ Yuvalar, Azure webapp VM yeniden kullanılan agentkeepalive modülü sağlar. He
 Örnek [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) yapılandırma:
 
 ```nodejs
-var keepaliveAgent = new Agent({
+let keepaliveAgent = new Agent({
     maxSockets: 40,
     maxFreeSockets: 10,
     timeout: 60000,
@@ -155,9 +155,9 @@ Uygulamanız çok fazla CPU kullanan ve neden açıklayamadığınız düşünü
 Örneğin, aşağıdaki gibi profilini oluşturmak istediğiniz bir Merhaba Dünya uygulaması sahip varsayalım:
 
 ```nodejs
-var http = require('http');
+const http = require('http');
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }
@@ -173,7 +173,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Hata ayıklama konsolunu sitesine gidin https://yoursite.scm.azurewebsites.net/DebugConsole
+Hata ayıklama konsolunu sitesine gidin `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 Site/wwwroot dizinine gidin. Aşağıdaki örnekte gösterildiği gibi bir komut istemi görürsünüz:
 
@@ -185,12 +185,12 @@ Bu komut düğümü altında v8 profil oluşturucu yükler\_modülleri dizini ve
 Şimdi, uygulamanızın profilini oluşturmak, server.js düzenleyin.
 
 ```nodejs
-var http = require('http');
-var profiler = require('v8-profiler');
-var fs = require('fs');
+const http = require('http');
+const profiler = require('v8-profiler');
+const fs = require('fs');
 
 function WriteConsoleLog() {
-    for(var i=0;i<99999;++i) {
+    for(let i=0;i<99999;++i) {
         console.log('hello world');
     }
 }

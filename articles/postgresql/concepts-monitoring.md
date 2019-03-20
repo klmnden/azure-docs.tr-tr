@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: bdfeb41c7881bfbd577cdf1a9190617e09979a7f
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 0d5508fe6b07bd5664bd0708960559537d8f6be1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961032"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098500"
 ---
 # <a name="monitor-and-tune"></a>İzleme ve ayarlama
 İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. PostgreSQL için Azure veritabanı sunucunuzu davranışını bir anlayış sağlamak için çeşitli izleme seçenekleri sağlar.
@@ -23,7 +23,7 @@ PostgreSQL için Azure veritabanı, PostgreSQL sunucusu destekleyen kaynaklarda 
 Bu ölçümler, PostgreSQL için Azure veritabanı için kullanılabilir:
 
 |Ölçüm|Ölçüm görünen adı|Birim|Açıklama|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|CPU yüzdesi|Yüzde|CPU yüzdesi kullanılıyor.|
 |memory_percent|Bellek yüzdesi|Yüzde|Kullanılan bellek yüzdesi.|
 |io_consumption_percent|G/ç yüzdesi|Yüzde|G/ç yüzdesi kullanılıyor.|

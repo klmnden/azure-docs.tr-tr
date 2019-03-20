@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 8714c91079d087b16a62af4af8b381edf6871f8b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 3d32b180f7d841c36f8ae03aa94956c6da00c6fe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065741"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883449"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Mantıksal uygulamalar dağıtmak için Azure Resource Manager şablonları oluşturma
 
@@ -63,7 +63,7 @@ PowerShell modülünü el ile de yükleyebilirsiniz:
 1. En son sürümünü indirin [mantıksal uygulama şablonu Oluşturucu](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
 2. PowerShell modülü klasörünüzde klasörünü ayıklayın (genellikle `%UserProfile%\Documents\WindowsPowerShell\Modules`).
 
-Herhangi bir kiracı ve abonelik erişimi ile çalışmak modülü için belirteç ile kullanmanızı öneririz [ARMClient](https://github.com/projectkudu/ARMClient) komut satırı aracı.  Bu [blog gönderisi](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) ARMClient daha ayrıntılı olarak ele alınmaktadır.
+Herhangi bir kiracı ve abonelik erişimi ile çalışmak modülü için belirteç ile kullanmanızı öneririz [ARMClient](https://github.com/projectkudu/ARMClient) komut satırı aracı.  Bu [blog gönderisi](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) ARMClient daha ayrıntılı olarak ele alınmaktadır.
 
 ### <a name="generate-a-logic-app-template-by-using-powershell"></a>PowerShell kullanarak bir mantıksal uygulama şablonunu oluşturma
 PowerShell'i yükledikten sonra aşağıdaki komutu kullanarak bir şablon oluşturabilirsiniz:

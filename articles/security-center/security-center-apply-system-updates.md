@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9c2d6c48b9bf51062181886c8a9ef789b1c2b359
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240839"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099010"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde sistem güncelleştirmelerini uygulayın
 Azure Güvenlik Merkezi günlük Windows ve Linux sanal makineleri (VM'ler) ve işletim sistemi güncelleştirmeleri eksik bilgisayarlar izler. Güvenlik Merkezi bir Windows bilgisayarda yapılandırılmış hizmet bağlı olarak Windows Update veya Windows Server Update Services (WSUS) kullanılabilir güvenlik güncelleştirmeleri ve kritik güncelleştirmeler listesini alır. Güvenlik Merkezi, ayrıca Linux sistemlerinde en son güncelleştirmeleri denetler. Sistem Güncelleştirmesi VM'de veya bilgisayarda bulunmuyorsa, Güvenlik Merkezi sistem güncelleştirmelerini uygulayın önerir.
@@ -43,7 +43,7 @@ Bu örnekte, kullanacağız **işlem**.
     - Kullanarak Vm'lerinizdeki ve bilgisayarlarınızdaki eksik olan kritik güncelleştirme sayısı.
     - Kullanarak Vm'lerinizdeki ve bilgisayarlarınızdaki arasında eksik güvenlik güncelleştirmeleri toplam sayısı.
 
-  Pano altındaki tüm eksik güncelleştirmeler Vm'lerinizi ve bilgisayarlar ve eksik güncelleştirmenin önem arasında listelenir.  Liste aşağıdakileri içerir:
+   Pano altındaki tüm eksik güncelleştirmeler Vm'lerinizi ve bilgisayarlar ve eksik güncelleştirmenin önem arasında listelenir.  Liste aşağıdakileri içerir:
 
     - ADI: Eksik güncelleştirmenin adıdır.
     - HAYIR VM ve bilgisayarlar: VM'ler ve bu güncelleştirmenin eksik olduğu bilgisayarların toplam sayısı.

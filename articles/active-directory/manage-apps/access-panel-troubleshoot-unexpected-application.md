@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a488c30f5b9438a91d2eae429cf65689af992dcb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fccf671edbc121501a17975be303453a798837e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167091"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122208"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Uygulama erişim panelinde nasıl görünür?
 
@@ -46,41 +46,41 @@ Erişim paneli için bir kullanıcı Azure Active Directory (görüntüleyin ve 
 
 Bir kullanıcı uygulamaya atanıp atanmadığını kontrol etmek için şu adımları izleyin:
 
-1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
+1. Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+2. Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4. tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5. tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-6.  **Arama** söz konusu uygulamanın adı.
+6. **Arama** söz konusu uygulamanın adı.
 
-7.  tıklayın **kullanıcılar ve gruplar**.
+7. tıklayın **kullanıcılar ve gruplar**.
 
-8.  Kullanıcı uygulamaya atanıp atanmadığını görmek için kontrol edin.
+8. Kullanıcı uygulamaya atanıp atanmadığını görmek için kontrol edin.
 
-  * Kullanıcı, uygulamayı kaldırmak istiyorsanız **satıra tıklayın** seçin ve kullanıcı **Sil**.
+   * Kullanıcı, uygulamayı kaldırmak istiyorsanız **satıra tıklayın** seçin ve kullanıcı **Sil**.
 
 ### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Bir kullanıcının uygulamayla ilgili bir lisans olup olmadığını denetleyin
 
 Bir kullanıcının lisans atanmış denetlemek için şu adımları izleyin:
 
-1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
+1. Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+2. Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4. tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
-5.  tıklayın **tüm kullanıcılar**.
+5. tıklayın **tüm kullanıcılar**.
 
-6.  **Arama** ilgilendiğiniz kullanıcı ve **satıra tıklayın** seçin.
+6. **Arama** ilgilendiğiniz kullanıcı ve **satıra tıklayın** seçin.
 
-7.  tıklayın **lisansları** , şu anda kullanıcı lisansları görmek üzere atanır.
+7. tıklayın **lisansları** , şu anda kullanıcı lisansları görmek üzere atanır.
 
    * Bu, kullanıcı bir Office lisansı atanmamışsa, birinci taraf Office uygulamaları, kullanıcının erişim panelinde görünmesini sağlar.
 
@@ -96,45 +96,45 @@ Atanan uygulama bir grubun parçası olduklarından bir kullanıcı bir uygulama
 
 Bir grubun üyeliğini denetlemek için şu adımları izleyin:
 
-1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
+1. Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+2. Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4. tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
-5.  tıklayın **tüm kullanıcılar**.
+5. tıklayın **tüm kullanıcılar**.
 
-6.  **Arama** ilgilendiğiniz kullanıcı ve **satıra tıklayın** seçin.
+6. **Arama** ilgilendiğiniz kullanıcı ve **satıra tıklayın** seçin.
 
-7.  tıklayın **grupları.**
+7. tıklayın **grupları.**
 
-8.  Kullanıcı uygulamaya atanmış bir gruba ait olup olmadığını denetleyin.
+8. Kullanıcı uygulamaya atanmış bir gruba ait olup olmadığını denetleyin.
 
    * Kullanıcıyı gruptan kaldırmak istiyorsanız **satıra tıklayın** seçin ve Grup DELETE.
 
 ### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>Bir kullanıcı için bir lisans atanmış bir grubunun bir üyesi olup olmadığını denetleyin
 
-1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
+1. Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+2. Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4. tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
-5.  tıklayın **tüm kullanıcılar**.
+5. tıklayın **tüm kullanıcılar**.
 
-6.  **Arama** ilgilendiğiniz kullanıcı ve **satıra tıklayın** seçin.
+6. **Arama** ilgilendiğiniz kullanıcı ve **satıra tıklayın** seçin.
 
-7.  tıklayın **grupları.**
+7. tıklayın **grupları.**
 
-8.  belirli bir grubun satıra tıklayın.
+8. belirli bir grubun satıra tıklayın.
 
-9.  tıklayın **lisansları** hangi Grup lisansları görmek için atanmış durumda.
+9. tıklayın **lisansları** hangi Grup lisansları görmek için atanmış durumda.
 
-  * Grup için bir Office lisansı atanmışsa, bu belirli birinci taraf Office uygulamaları, kullanıcının erişim panelinde görünmesini sağlayabilir.
+   * Grup için bir Office lisansı atanmışsa, bu belirli birinci taraf Office uygulamaları, kullanıcının erişim panelinde görünmesini sağlayabilir.
 
 
 ## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Bu sorun giderme adımlarını sorunu çözümleme durumunda
