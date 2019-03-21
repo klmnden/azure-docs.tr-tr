@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 192ecf0cf4f97a709808fa04f676035e8a672b79
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 74087a6d1ce00293c968837e72c636847081e39e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976955"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285997"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Öğretici: Azure PowerShell ile Azure VM'deki özel görüntüsünü oluşturma
 
@@ -65,7 +65,7 @@ Sysprep diğer öğelerin yanı sıra tüm kişisel hesap bilgilerinizi kaldır�
 
 Görüntü oluşturmak için, VM'nin serbest bırakılması ve Azure'da genelleştirilmiş olarak işaretlenmesi gerekir.
 
-Kullanarak VM'yi serbest [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
+Kullanarak VM'yi [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -162,7 +162,7 @@ Bu öğreticide, özel bir VM görüntüsü oluşturdunuz. Şunları öğrendini
 > * Aboneliğinizdeki tüm görüntüleri listeleme
 > * Görüntü silme
 
-Yüksek oranda kullanılabilir sanal makineler hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
+Yüksek oranda kullanılabilir sanal makineleri oluşturma hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
 > [Yüksek oranda kullanılabilir VM’ler oluşturma](tutorial-availability-sets.md)

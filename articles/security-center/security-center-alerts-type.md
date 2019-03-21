@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi'nde türe göre güvenlik uyarıları | Microsoft
 description: Bu makalede, Azure Güvenlik Merkezi’nde bulunan farklı güvenlik uyarısı türleri ele alınmaktadır.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -12,22 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
-ms.author: rkarlin
-ms.openlocfilehash: 6bd05a417bfb011dd86b61d654be836ef76099b7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 3/20/2018
+ms.author: monhaber
+ms.openlocfilehash: 407d0610f919b1145a91e8678f57f8d344c9c187
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439692"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286372"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama
 Bu makale Azure Güvenlik Merkezi'nde bulunan farklı güvenlik uyarısı türlerini ve ilgili öngörüleri anlamanıza yardımcı olur. Uyarıların ve olayların nasıl yönetileceği hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](security-center-managing-and-responding-alerts.md).
 
 Gelişmiş algılamaları ayarlamak için Azure Güvenlik Merkezi Standart sürümüne yükseltme yapın. Ücretsiz bir deneme sürümü mevcuttur. Yükseltmek için [güvenlik ilkesinde](tutorial-security-policy.md) **Fiyatlandırma Katmanı**’nı seçin. Daha fazla bilgi için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
-
-> [!NOTE]
-> Güvenlik Merkezi Linux makinelerdeki kötü amaçlı davranışlarını algılamak için denetim kayıtlarını kullanan yeni bir algılama kümesi ve ortak denetim çerçevesi içeren sınırlı bir önizleme sürümüyle yayımlanmıştır. Önizlemeye katılmak için abonelik kimliklerinizi [bize](mailto:ASC_linuxdetections@microsoft.com) e-posta ile gönderin.
 
 ## <a name="what-type-of-alerts-are-available"></a>Hangi tür uyarılar mevcuttur?
 Azure Güvenlik Merkezi, ortamlarını hedefleyen potansiyel saldırılar konusunda müşterileri uyarmak için çeşitli [algılama özelliklerini](security-center-detection-capabilities.md) kullanır. Bu uyarılar uyarıyı neyin tetiklediği, hedeflenen kaynaklar ve saldırının kaynağı hakkındaki değerli bilgileri içerir. Uyarılarda bulunan bilgiler, tehdidi algılamak için kullanılan analiz türüne göre çeşitlilik gösterir. Tehdit inceleme sırasında yararlı olabilecek ek bağlamsal bilgiler olaylarda da bulunabilir.  Bu makalede aşağıdaki uyarı türleri hakkında bilgi sağlanmıştır:

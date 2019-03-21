@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5cb3a029795dd69c80cfa580aa1bd135c67e609e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451961"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850052"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process'in çalışması - 1 TB veri kümesinde bir Azure HDInsight Hadoop kümesi kullanarak
 
-Bu izlenecek yol bir uçtan uca senaryo ile Team Data Science Process kullanma gösterir bir [Azure HDInsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfetmek, özellik mühendisi ve aşağı herkese birindenörnekveriler[ Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) veri kümeleri. Azure Machine Learning, bu veriler üzerinde bir ikili sınıflandırma modeli oluşturmak için kullanır. Ayrıca bu modellerden biri, bir Web hizmeti olarak yayımlama işlemini de gösterir.
+Bu izlenecek yol bir uçtan uca senaryo ile Team Data Science Process kullanma gösterir bir [Azure HDInsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfetmek, özellik mühendisi ve aşağı herkese birindenörnekveriler[ Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) veri kümeleri. Azure Machine Learning, bu veriler üzerinde bir ikili sınıflandırma modeli oluşturmak için kullanır. Ayrıca bu modellerden biri, bir Web hizmeti olarak yayımlama işlemini de gösterir.
 
 Bu izlenecek yolda gösterilen görevler gerçekleştirmek için Ipython notebook kullanmak da mümkündür. Bu yaklaşım denemek ister misiniz kullanıcılar [Criteo izlenecek bir Hive ODBC bağlantısı kullanarak](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) konu.
 
 ## <a name="dataset"></a>Criteo veri kümesi açıklaması
-Gzip sıkıştırılmış TSV dosyaları (sıkıştırılmamış ~1.3TB), yaklaşık 370 GB olan bir tıklatın tahmin veri kümesi verilerdir Criteo 4.3 milyardan fazla kayıtları oluşturan. 24 gün alınmış tarafından kullanıma sunulan veri tıklayın [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). Veri bilimcileri kolaylık sağlamak için bize deneme amaçlı kullanılabilen veri sıkıştırması kaldırıldı.
+Gzip sıkıştırılmış TSV dosyaları (sıkıştırılmamış ~1.3TB), yaklaşık 370 GB olan bir tıklatın tahmin veri kümesi verilerdir Criteo 4.3 milyardan fazla kayıtları oluşturan. 24 gün alınmış tarafından kullanıma sunulan veri tıklayın [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/). Veri bilimcileri kolaylık sağlamak için bize deneme amaçlı kullanılabilen veri sıkıştırması kaldırıldı.
 
 Bu veri kümesi her kayıt, 40 sütunları içerir:
 
@@ -68,7 +68,7 @@ Bu veri kümesinde içinde hem bir sayısal ve kategorik sütunlar eksik değerl
 3. [Bir Azure Machine Learning studio çalışma alanı oluşturma](../studio/create-workspace.md): Bu Azure Machine Learning çalışma alanı, sonra ilk veri inceleme ve HDInsight kümesi üzerinde örnekleme aşağı makine öğrenimi modelleri oluşturmak için kullanılır.
 
 ## <a name="getdata"></a>Alma ve bir genel kaynaktan alınan verileri kullanma
-[Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) bağlantısına tıklayarak, kullanım koşullarını kabul ederek ve bir ad sağlayarak, veri kümesi erişilebilir. Göründüğüne, bir anlık görüntüsünü aşağıda gösterilmiştir:
+[Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) bağlantısına tıklayarak, kullanım koşullarını kabul ederek ve bir ad sağlayarak, veri kümesi erişilebilir. Göründüğüne, bir anlık görüntüsünü aşağıda gösterilmiştir:
 
 ![Criteo koşullarını kabul edin](./media/hive-criteo-walkthrough/hLxfI2E.png)
 
@@ -306,7 +306,7 @@ Bu verir:
         19011825
         Time taken: 448.116 seconds, Fetched: 1 row(s)
 
-Col15 19 M benzersiz değerler olduğunu unutmayın! "Sık erişimli bir kodlama" gibi naïve teknikleri kullanarak bu yüksek boyutlu kategorik değişkenleri kodlamak için uygun değildir. Özellikle, güçlü, sağlam bir teknik olarak adlandırılan [ile öğrenme sayar](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) verimli bir şekilde bu sorun giderme açıklanan kanıtlandı ve.
+Col15 19 M benzersiz değerler olduğunu unutmayın! "Sık erişimli bir kodlama" gibi naïve teknikleri kullanarak bu yüksek boyutlu kategorik değişkenleri kodlamak için uygun değildir. Özellikle, güçlü, sağlam bir teknik olarak adlandırılan [ile öğrenme sayar](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) verimli bir şekilde bu sorun giderme açıklanan kanıtlandı ve.
 
 Son olarak bazı diğer kategorik sütunlar için de benzersiz değerlerin sayısını bakın. İçeriğini [örnek&#95;hive&#95;criteo&#95;benzersiz&#95;değerleri&#95;birden çok&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) şunlardır:
 
@@ -405,10 +405,10 @@ Bu, bizim aşağı örneklenen eğitme ve Azure Machine learning'de oluşturmaya
 Azure Machine sayısı tablo ilgiliyse Learning için geçmeden önce son bir önemli bileşeni yoktur. Sonraki alt bölümde, sayısı tablo bazı ayrıntılı olarak ele alınmıştır.
 
 ## <a name="count"></a> Kısa bir açıklama sayısı tablosunda
-Gördüğünüz gibi çeşitli kategorik değişkenleri çok yüksek işlenemez vardır. İzlenecek yolda, güçlü bir yöntem olarak adlandırılan [ile öğrenme sayar](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) Bu değişkenlere yapılan bir verimli kodlamak için sağlam bir şekilde sunulur. Bu yöntem hakkında daha fazla bilgi, sağlanan bağlantıdır.
+Gördüğünüz gibi çeşitli kategorik değişkenleri çok yüksek işlenemez vardır. İzlenecek yolda, güçlü bir yöntem olarak adlandırılan [ile öğrenme sayar](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) Bu değişkenlere yapılan bir verimli kodlamak için sağlam bir şekilde sunulur. Bu yöntem hakkında daha fazla bilgi, sağlanan bağlantıdır.
 
 [!NOTE]
->Bu kılavuzda, yüksek boyutlu kategorik özellikleri compact temsillerini oluşturmak için sayısı tabloları kullanarak biridir. Bu kategorik özellikleri kodlamak için tek yolu değildir; ilgilenen kullanıcılar diğer teknikleri hakkında daha fazla bilgi için kullanıma [bir-sık erişimli-encoding](http://en.wikipedia.org/wiki/One-hot) ve [özellik karma](http://en.wikipedia.org/wiki/Feature_hashing).
+>Bu kılavuzda, yüksek boyutlu kategorik özellikleri compact temsillerini oluşturmak için sayısı tabloları kullanarak biridir. Bu kategorik özellikleri kodlamak için tek yolu değildir; ilgilenen kullanıcılar diğer teknikleri hakkında daha fazla bilgi için kullanıma [bir-sık erişimli-encoding](https://en.wikipedia.org/wiki/One-hot) ve [özellik karma](https://en.wikipedia.org/wiki/Feature_hashing).
 >
 
 Derleme sayısı veri sayısı tabloları için klasör ham/sayı verileri kullanın. Modelleme bölümde, bu, sıfırdan kategorik özellikleri sayısı tabloları oluşturmak nasıl kullanıcılarına gösterilir veya alternatif olarak kendi araştırmaları için önceden oluşturulmuş sayısı tablosu kullanılacak. Aşağıda içinde olduğunda "sayısı tabloları önceden oluşturulmuş" adlandırılır için sağlanmış olan sayısı tabloları kullanarak anlama. Sonraki bölümde bu tablolara erişen konusunda ayrıntılı yönergeler sağlanır.

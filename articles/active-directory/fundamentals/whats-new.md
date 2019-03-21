@@ -16,16 +16,16 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c34cd59a5f4636eeca395fde49e45beb1a49752
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: eda145f43c9268e5f6b291a767ed51249804f87d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408896"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286457"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
->Ne zaman kopyalayıp yapıştırarak bu URL'yi güncelleştirmeler için bu sayfayı yeniden ziyaret etmeniz hakkında bilgi edinin: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` içine, ![RSS simgesi](./media/whats-new/feed-icon-16x16.png) okuyucu akış.
+>Ne zaman kopyalayıp yapıştırarak bu URL'yi güncelleştirmeler için bu sayfayı yeniden ziyaret etmeniz hakkında bilgi edinin: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` içine, ![bir RSS Okuyucu simgesi](./media/whats-new/feed-icon-16x16.png) okuyucu akış.
 
 Azure AD iyileştirmeleri düzenli olarak alır. İle en son gelişmeleri güncel kalmak için bu makalede, ile hakkında bilgi sağlar:
 
@@ -40,7 +40,7 @@ Bu sayfaya ay güncelleştirilir, böylece bunu düzenli olarak tekrar ziyaret. 
 ---
 ## <a name="february-2019"></a>Şubat 2019
 
-### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>Yapılandırılabilir Azure AD SAML belirteci şifreleme (genel Önizleme) 
+### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>Yapılandırılabilir Azure AD SAML belirteci şifreleme (Genel önizleme) 
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Kurumsal Uygulamalar  
@@ -52,7 +52,7 @@ SAML belirteci şifreleme yapılandırma hakkında daha fazla bilgi için bkz. [
 
 ---
 
-### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>Grup veya Azure AD erişim gözden geçirmelerini kullanarak uygulamaları için erişim gözden geçirmesi oluştur
+### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>Azure AD Erişim Gözden Geçirmelerini kullanarak gruplar veya uygulamalar için erişim incelemesi oluşturma
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Erişim Gözden Geçirmeleri  
@@ -64,7 +64,7 @@ Hakkında daha fazla bilgi için Azure AD erişim gözden geçirmelerini kullana
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Yeni Federasyon uygulamaları kullanılabilir Azure AD uygulama galerisinde - Şubat 2019
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Azure AD uygulama galerisinde yeni Federasyon Uygulamaları kullanıma sunuldu - Şubat 2019
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Kurumsal Uygulamalar  
@@ -106,7 +106,7 @@ Geliştirilmiş kayıt deneyimi hakkında daha fazla bilgi için bkz. [seyrek er
 
 ---
 
-### <a name="updated-policy-management-experience-for-user-flows"></a>Kullanıcı akışları için güncelleştirilmiş ilke yönetim deneyimi
+### <a name="updated-policy-management-experience-for-user-flows"></a>Kullanıcı akışları için güncelleştirilmiş ilke yönetimi deneyimi
 
 **Türü:** Değişen özellik  
 **Hizmet kategorisi:** B2C - Tüketici Kimlik Yönetimi  
@@ -120,7 +120,7 @@ Yeni ilke yönetimi deneyimi hakkında daha fazla bilgi için bkz. [Azure AD B2C
 
 ---
 
-### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>Azure AD B2C tarafından sağlanan belirli sayfa öğesi sürümlerini seçin
+### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>Azure AD B2C tarafından sağlanan belirli sayfa öğesi sürümlerini seçme
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** B2C - Tüketici Kimlik Yönetimi  
@@ -132,7 +132,7 @@ Sayfa öğelerinin belirli sürümler seçme hakkında daha fazla bilgi için bk
 
 ---
 
-### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>Yapılandırılabilir son kullanıcı parola gereksinimleri için B2C (GA)
+### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>B2C için yapılandırılabilir son kullanıcı parola gereksinimleri (GA)
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** B2C - Tüketici Kimlik Yönetimi  
@@ -144,7 +144,7 @@ Parola karmaşıklık gereksinimini yapılandırması hakkında daha fazla bilgi
 
 ---
 
-### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>Özel markalı kimlik doğrulama deneyimleri için yeni bir varsayılan şablonları
+### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>Özel markalı kimlik doğrulaması deneyimleri için yeni varsayılan şablonlar
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** B2C - Tüketici Kimlik Yönetimi  
@@ -158,7 +158,7 @@ Bulunan yeni varsayılan şablonlarımız, kullanabileceğiniz **sayfa düzenler
 
 ## <a name="january-2019"></a>Ocak 2019
 
-### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>Bir kerelik geçiş kodu kimlik doğrulaması (genel Önizleme) kullanarak active Directory B2B işbirliği
+### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>Bir kerelik geçiş kodu kimlik doğrulaması kullanarak Active Directory B2B işbirliği (Genel önizleme)
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** B2B  
@@ -168,7 +168,7 @@ Azure AD gibi başka bir yolla, bir Microsoft hesabı (MSA) veya Google Federasy
 
 Daha fazla bilgi için [e-posta bir kerelik geçiş kodu kimlik doğrulama (Önizleme)](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) ve blog [Azure AD'ye yapar paylaşım ve işbirliği sorunsuz herhangi bir kullanıcı herhangi bir hesap için](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-makes-sharing-and-collaboration-seamless-for-any-user/ba-p/325949).
 
-### <a name="new-azure-ad-application-proxy-cookie-settings"></a>Yeni Azure AD Uygulama Ara Sunucusu tanımlama bilgisi ayarları
+### <a name="new-azure-ad-application-proxy-cookie-settings"></a>Yeni Azure AD uygulama ara sunucusu tanımlama bilgisi ayarları
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Uygulama Proxy'si  
@@ -516,11 +516,11 @@ Daha fazla bilgi için [bir özel etki alanı adını silme](https://docs.micros
 
 Rolü şunlardır:
 
-- Genel yönetici veya şirket yazıcısı
+- Genel yönetici
 
-- Intune Hizmet Yöneticisi
+- Intune yöneticisi
 
-- Kullanıcı Hesabı Yöneticisi
+- Kullanıcı yöneticisi
 
 Daha fazla bilgi için [dinamik bir grup oluşturun ve durumunu denetle](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)
 
@@ -577,7 +577,7 @@ Daha fazla bilgi için [uygulamalarım portalı nedir?](https://docs.microsoft.c
 
 Yeni **sorun giderme ve Destek** sekmesinde **oturum açma işlemleri** sayfasında Azure portalı, yöneticilerin yardımcı olmak için tasarlanmıştır ve destek mühendisleri, Azure AD oturum açma işlemleri için ilgili sorun giderme. Bu yeni sekme hata kodu, hata iletisi ve düzeltme önerileri (varsa) sorunun çözümüne yardımcı olmak için sağlar. Sorunu çözmek yapamıyorsanız, ayrıca, kullanarak bir destek bileti oluşturmak için yeni bir yolunu sunuyoruz **Panoya Kopyala** deneyimi, hangi doldurur **istek kimliği** ve **Tarih(UTC)** destek biletiniz günlük dosyasında alanları.  
 
-![Oturum açma günlükleri yeni sekmesi](media/whats-new/troubleshooting-and-support.png)
+![Yeni sekmesini gösteren oturum açma günlükleri](media/whats-new/troubleshooting-and-support.png)
 
 ---
 

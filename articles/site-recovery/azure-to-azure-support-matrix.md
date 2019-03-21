@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/21/2019
+ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: dbee223e6c8e878d017026531dd06301fe6aaf84
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 0dac046c359bb8affd69145c73a66cf4ac079012
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093880"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287205"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -220,7 +220,7 @@ Premium P10 veya P15 disk | 8 KB  | 2 MB/sn | Disk başına 168 GB
 Premium P10 veya P15 disk | 16 KB | 4 MB/sn |  Disk başına 336 GB
 Premium P10 veya P15 disk | 32 KB veya daha büyük | 8 MB/sn | Disk başına 672 GB
 Premium P20 veya P30 veya P40 veya P50 disk | 8 KB    | 5 MB/sn | Disk başına 421 GB
-Premium P20 veya P30 veya P40 veya P50 disk | 16 KB veya daha büyük |10 MB/sn | Disk başına 842 GB
+Premium P20 veya P30 veya P40 veya P50 disk | 16 KB veya daha büyük |20 MB/sn | Disk başına 1684 GB
 ## <a name="replicated-machines---networking"></a>Çoğaltılan makineler - ağ
 **Yapılandırma** | **Destek** | **Ayrıntılar**
 --- | --- | ---

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7dd056042b841e54c18ee1a667c44cfa11d77a61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b046ce5a8647abe601a6327667241d98445ce1e4
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164609"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259899"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Bir içerik anahtarı yetkilendirme ilkesini yapılandırma
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -66,7 +66,7 @@ Belirteç kısıtlamalı ilkenin yapılandırdığınızda, birincil doğrulama 
 ### <a name="playready"></a>PlayReady
 PlayReady ile içeriğinizi korumanıza, yetkilendirme ilkenizde belirtmeniz gereken şeylerden biri PlayReady lisans şablonu tanımlayan bir XML dizedir. Varsayılan olarak, şu ilkeyi ayarlanır:
 
-    <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
+    <PlayReadyLicenseResponseTemplate xmlns:i="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
           <LicenseTemplates>
             <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices>
               <ContentKey i:type="ContentEncryptionKeyFromHeader" />

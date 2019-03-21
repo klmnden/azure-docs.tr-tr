@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 0ba61dc266add48577c3a382465ecb2cec9d2a05
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 200691f7af16e82d554d0e1e019b6a4e5c75949f
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188042"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260147"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Apache HBase verilerini okuyup yazmak için Apache Spark kullanma
 
@@ -25,7 +25,7 @@ Apache HBase, genellikle düşük düzey API'si (taramaları, alır ve puts) vey
 * İki ayrı HDInsight kümeleri, bir HBase ve bir Spark ile en az Spark 2.1 yüklü (HDInsight 3.6).
 * Önerilen yapılandırma, aynı sanal ağdaki her iki küme dağıtımı için en düşük gecikme süresiyle HBase kümesi ile doğrudan iletişim kurmak Spark kümesi gerekir. Daha fazla bilgi için [Azure portalını kullanarak HDInsight oluşturma Linux tabanlı kümelerde](hdinsight-hadoop-create-linux-clusters-portal.md).
 * Bir SSH istemcisi. Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md).
-* [URI şeması](/hdinsight-hadoop-linux-information#URI-and-scheme.md) kümeleri birincil depolama alanı için. Bu wasb olacaktır: / / abfs olan Azure Blob Depolama için: / / Azure Data Lake depolama Gen2'ye veya adl: / / Azure Data Lake depolama Gen1. Güvenli aktarım için Blob Depolama veya Data Lake depolama Gen2 etkinse, URI wasbs olacaktır: / / ya da abfss: / /, sırasıyla ayrıca bakın [güvenli aktarım](../storage/common/storage-require-secure-transfer.md).
+* [URI şeması](hdinsight-hadoop-linux-information.md#URI-and-scheme) kümeleri birincil depolama alanı için. Bu wasb olacaktır: / / abfs olan Azure Blob Depolama için: / / Azure Data Lake depolama Gen2'ye veya adl: / / Azure Data Lake depolama Gen1. Güvenli aktarım için Blob Depolama veya Data Lake depolama Gen2 etkinse, URI wasbs olacaktır: / / ya da abfss: / /, sırasıyla ayrıca bakın [güvenli aktarım](../storage/common/storage-require-secure-transfer.md).
 
 
 ## <a name="overall-process"></a>Genel işlem

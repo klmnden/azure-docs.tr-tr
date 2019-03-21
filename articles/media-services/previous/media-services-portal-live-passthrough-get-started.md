@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 4609c9d49cd2ed9aeb8d07c7fb27d290b6bd7771
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d86151b436ec3cc5ea3d4b687f5c8692b2ca4efa
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765858"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258719"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Azure portalı kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Bu öğretici, Azure portal kullanarak doğrudan teslimat için yapılandırılm
 
 * Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
 * Bir Media Services hesabı. Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
-* Bir Web kamerası. Örneğin, [Telestream Wirecast kodlayıcı](http://www.telestream.net/wirecast/overview.htm).
+* Bir Web kamerası. Örneğin, [Telestream Wirecast kodlayıcı](https://www.telestream.net/wirecast/overview.htm).
 
 Aşağıdaki makaleleri gözden geçirmeniz için önerilir:
 

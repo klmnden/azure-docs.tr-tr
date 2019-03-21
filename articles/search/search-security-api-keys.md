@@ -8,15 +8,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 03/19/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a59451c659effb55a2e16236b359b7601eb31cd4
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316943"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286610"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>API anahtarları için Azure Search hizmeti oluşturma ve yönetme
 
@@ -42,19 +41,35 @@ Anahtarları iki tür arama hizmetinize erişmek için kullanılır: Yönetici (
 > [!NOTE]  
 >  Gibi hassas verileri geçirmek için zayıf güvenlik uygulaması olarak kabul edilir bir `api-key` istek URI'SİNDEKİ. Bu nedenle, Azure Search yalnızca bir sorgu anahtarı olarak kabul eden bir `api-key` sorgu dizesi ve dizininizin içeriğini herkese sürece bunu kaçınmanız gerekir. Genel bir kural olarak geçirme öneririz, `api-key` isteği başlığı.  
 
-## <a name="find-api-keys-for-your-service"></a>Hizmetinizin api anahtarlarını bulmak
+## <a name="find-existing-keys"></a>Mevcut anahtarları bulma
 
 Erişim anahtarlarını portalında veya aracılığıyla edinebilirsiniz [Yönetimi REST API'si](https://docs.microsoft.com/rest/api/searchmanagement/). Daha fazla bilgi için [yönetici ve sorgu api anahtarlarını yönetme](search-security-api-keys.md).
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Liste [arama hizmetleri](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) aboneliğiniz için.
-3. hizmeti seçin ve hizmet sayfasında bulma **ayarları** >**anahtarları** yönetici ve sorgu anahtarları görüntülemek için.
+3. Hizmeti seçin ve genel bakış sayfasında tıklayın **ayarları** >**anahtarları** yönetici ve sorgu anahtarları görüntülemek için.
 
-![Portal sayfasında, ayarları, anahtarları bölümüne](media/search-security-overview/settings-keys.png)
+   ![Portal sayfasında, ayarları, anahtarları bölümüne](media/search-security-overview/settings-keys.png)
+
+## <a name="create-query-keys"></a>Sorgu anahtarları oluşturma
+
+Sorgu anahtarları, dizin içindeki belgeler için salt okunur erişim için kullanılır. Erişim ve istemci uygulamaları işlemlerinde kısıtlama hizmetinizde arama varlıklarını koruma için gereklidir. Her zaman bir istemci uygulamadan kaynaklanan herhangi bir sorgu için bir yönetici anahtarı yerine sorgu anahtarını kullanın.
+
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Liste [arama hizmetleri](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) aboneliğiniz için.
+3. Hizmeti seçin ve genel bakış sayfasında tıklayın **ayarları** >**anahtarları**.
+4. Tıklayın **sorgu anahtarlarını Yönet**.
+5. Zaten hizmetiniz için oluşturulan sorgu kullanın veya en çok 50 yeni sorgu anahtarları oluşturabilir. Varsayılan sorgu anahtarı değil olarak adlandırılır, ancak ek sorgu anahtarları için yönetilebilirlik adlandırılabilir.
+
+   ![Oluşturma veya bir sorgu anahtarı kullanma](media/search-security-overview/create-query-key.png) 
+
+
+> [!Note]
+> Sorgu anahtar kullanımını gösteren bir kod örneği bulunabilir [içinde bir Azure Search dizinini sorgulama C# ](search-query-dotnet.md).
 
 ## <a name="regenerate-admin-keys"></a>Yönetici anahtarları yeniden oluştur
 
-Böylece sürekli erişim için ikincil anahtar kullanımı bir birincil anahtar geçişi için her hizmet için iki yönetici anahtarı oluşturulur.
+Böylece sürekli erişim için ikincil anahtar kullanımı bir birincil anahtar döndürebilirsiniz her hizmet için iki yönetici anahtarı oluşturulur.
 
 Aynı zamanda birincil ve ikincil anahtarları yeniden oluştur, hizmet işlemleri erişim için iki anahtarı kullanan tüm uygulamaları artık hizmete erişebilir.
 

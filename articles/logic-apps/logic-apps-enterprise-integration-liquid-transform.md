@@ -9,18 +9,18 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 3441350a07047676ac43de23262be6c54912162c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5472a8ce2670a34174d6d39f0d90faca8a7002ad
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104174"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292895"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Azure Logic Apps'te Liquid şablonları ile Gelişmiş JSON dönüştürmeleri gerçekleştirebilirsiniz
 
-Temel JSON dönüştürmeleri mantıksal uygulamalarınızda yerel veri işlem eylemlerle gibi gerçekleştirebileceğiniz **Compose** veya **JSON Ayrıştır**. Gelişmiş JSON dönüştürmeleri gerçekleştirmek için şablonları veya eşlemeleriyle oluşturabilirsiniz [Liquid](https://shopify.github.io/liquid/), esnek web apps için bir açık kaynak şablonu dil olduğu. Liquid şablonları, JSON çıkışını ve daha karmaşık destekler dönüştürme hakkında tanımlamanıza izin yineleme gibi JSON dönüştürmeleri denetlemek akışlar, değişkenler ve benzeri. 
+Temel JSON dönüştürmeleri mantıksal uygulamalarınızda yerel veri işlem eylemlerle gibi gerçekleştirebileceğiniz **Compose** veya **JSON Ayrıştır**. Gelişmiş JSON dönüştürmeleri gerçekleştirmek için şablonları veya eşlemeleriyle oluşturabilirsiniz [Liquid](https://shopify.github.io/liquid/), esnek web apps için bir açık kaynak şablonu dil olduğu. Liquid şablon JSON çıkışını dönüştürme hakkında tanımlar ve yinelemeler, denetim akışı, değişkenler vb. gibi daha karmaşık JSON dönüştürmeleri destekler. 
 
-Mantıksal uygulamanızda Liquid dönüştürme gerçekleştirmek için önce bu nedenle, ilk JSON JSON eşlemesi bir harita Liquid şablonu ve depolama ile tümleştirme hesabınızdaki tanımlayın. Bu makalede oluşturma ve bu Liquid şablon ya da harita kullanma gösterilmektedir. 
+Mantıksal uygulamanızda Liquid dönüştürme gerçekleştirmek için önce önce JSON JSON eşlemesi bir harita Liquid şablonu ve depolama ile tümleştirme hesabınızdaki tanımlamanız gerekir. Bu makalede oluşturma ve bu Liquid şablon ya da harita kullanma gösterilmektedir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -34,7 +34,10 @@ Mantıksal uygulamanızda Liquid dönüştürme gerçekleştirmek için önce bu
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Liquid şablonu veya tümleştirme hesabı için harita oluşturma
 
-1. Bu örnekte, bu adımda açıklandığı gibi örnek Liquid şablonu oluşturun. Liquid şablonunuzda kullanabilirsiniz [sıvı filtreler](https://shopify.github.io/liquid/basics/introduction/#filters), kullanım [DotLiquid](https://dotliquidmarkup.org/) ve C# adlandırma kuralları. Ancak emin *filtre adları büyük harf karakteri ile başlayan*, küçük harf karakter değil. 
+1. Bu örnekte, bu adımda açıklandığı gibi örnek Liquid şablonu oluşturun. Liquid şablonunuzda kullanabilirsiniz [sıvı filtreler](https://shopify.github.io/liquid/basics/introduction/#filters), kullanım [DotLiquid](https://dotliquidmarkup.org/) ve C# adlandırma kuralları. 
+
+   > [!NOTE]
+   > Kullandığınız filtre adlar emin *cümle* şablonunuzdaki. Aksi takdirde, filtreleri çalışmaz.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}

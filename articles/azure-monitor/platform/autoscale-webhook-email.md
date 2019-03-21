@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 94d49edb93e4c7b2daff3c58c02b349612f1ee92
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998287"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259304"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>E-posta ve Web kancası, Azure İzleyici'de uyarı bildirimleri göndermek için otomatik ölçeklendirme eylemleri kullanın
 Bu makalede, böylece belirli web URL'lerini çağırma veya Azure otomatik ölçeklendirme eylemleri göre e-posta Gönder Tetikleyiciler nasıl kümesi gösterilmektedir.  
@@ -62,7 +62,7 @@ REST API veya Resource Manager şablonu kullanarak, aşağıdaki seçeneklerle b
 
 | Alan | Zorunlu? | Açıklama |
 | --- | --- | --- |
-| İşlemi |evet |"Ölçek" değeri olmalıdır |
+| işlem |evet |"Ölçek" değeri olmalıdır |
 | sendToSubscriptionAdministrator |evet |değer "true" veya "false" olmalıdır. |
 | sendToSubscriptionCoAdministrators |evet |değer "true" veya "false" olmalıdır. |
 | customEmails |evet |değer null [] veya e-postaları dize dizisi olabilir |
@@ -71,7 +71,7 @@ REST API veya Resource Manager şablonu kullanarak, aşağıdaki seçeneklerle b
 | properties |evet |Değer boş olmalıdır {} veya anahtar-değer çiftleri içerebilir |
 
 ## <a name="authentication-in-webhooks"></a>Web kancaları kimlik doğrulaması
-Web kancası belirteci kimliği ile bir sorgu parametresi olarak Web kancası URI kaydetmek belirteç tabanlı kimlik doğrulamasını kullanarak kimlik doğrulaması yapabilir. Örneğin, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+Web kancası belirteci kimliği ile bir sorgu parametresi olarak Web kancası URI kaydetmek belirteç tabanlı kimlik doğrulamasını kullanarak kimlik doğrulaması yapabilir. Örneğin, https: \/ /mysamplealert/webcallback? tokenıd = sometokenid & someparameter in değeri birdeğer =
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Otomatik ölçeklendirme bildirim Web kancası yükü şeması
 Otomatik ölçeklendirme bildirim oluşturulduğunda, aşağıdaki meta verileri Web kancası yükteki dahildir:
@@ -106,7 +106,7 @@ Otomatik ölçeklendirme bildirim oluşturulduğunda, aşağıdaki meta verileri
 | Alan | Zorunlu? | Açıklama |
 | --- | --- | --- |
 | durum |evet |Otomatik ölçeklendirme eylemi oluşturulduğunu gösteren durum |
-| İşlemi |evet |Bir artış örnekleri için "Ölçeği genişletme" olacaktır ve durumlarda bir azaltmak için "ölçek" olacaktır |
+| işlem |evet |Bir artış örnekleri için "Ölçeği genişletme" olacaktır ve durumlarda bir azaltmak için "ölçek" olacaktır |
 | Bağlam |evet |Otomatik ölçeklendirme eylem bağlamı |
 | timestamp |evet |Otomatik ölçeklendirme eylemi tetiklendiğinde zaman damgası |
 | id |Evet |Resource Manager Kimliğini otomatik ölçeklendirme ayarı |

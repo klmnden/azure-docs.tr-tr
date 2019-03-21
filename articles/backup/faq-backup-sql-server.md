@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: f9020cd6d35c59e9293e6e8a96b09319f9f8bb00
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
+ms.openlocfilehash: 48a0400a471e06f65c1d548b7c1c419a1cb198bd
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225696"
+ms.locfileid: "58284587"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Bir Azure VM yedeklemesi üzerinde çalışan SQL Server veritabanları hakkında SSS
 
@@ -66,7 +66,7 @@ Hayır. Başarılı yedekleme işleri uyarıları oluşturma. Uyarılar, başar�
 **Yedekleme işi** menü geçici yalnızca yedekleme işleri gösterilir. Zamanlanmış iş için kullanmak [Azure İzleyicisi'ni kullanarak izleme](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>Gelecekteki veritabanları için Yedekleme otomatik olarak eklenir?
-Evet, bu özellik ile elde edebileceğiniz [otomatik korumayı](backup-azure-sql-database.md#enable-auto-protection).  
+Evet, bu özellik ile elde edebileceğiniz [otomatik korumayı](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Bir veritabanı bir autoprotected örneğinden silerseniz, yedekleri gerçekleştirilecek?
 Bir veritabanı bir autoprotected örneğinden kesilirse, veritabanı yedeklemeleri hala denenir. Bu, silinen veritabanını altında sağlıksız görünmesini başlar gelir **yedekleme öğeleri** ve yine de korunur.
@@ -84,7 +84,7 @@ Yeniden adlandırılmış bir veritabanını yeni bir veritabanı olarak kabul e
 Şimdi yeniden adlandırıldı ve koruma üzerinde yapılandırma veritabanını seçebilirsiniz. Örnek üzerinde otomatik koruma etkin durumda değiştirilen veritabanını otomatik olarak algılanan korumalı ve başlatılır.
 
 ##  <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Eklenen bir veritabanı autoprotected örneği için neden göremiyorum?
-Bir veritabanı [autoprotected örneğine ekleme](backup-azure-sql-database.md#enable-auto-protection) hemen altındaki korumalı öğelerin görünmeyebilir. Bulma, genellikle her 8 saatte bir çalışır olmasıdır. Ancak, bulmak ve seçerek el ile bir bulma çalıştırırsanız yeni veritabanlarını hemen korumak **veritabanlarını kurtarmak**, aşağıdaki görüntüde gösterildiği gibi.
+Bir veritabanı [autoprotected örneğine ekleme](backup-sql-server-database-azure-vms.md#enable-auto-protection) hemen altındaki korumalı öğelerin görünmeyebilir. Bulma, genellikle her 8 saatte bir çalışır olmasıdır. Ancak, bulmak ve seçerek el ile bir bulma çalıştırırsanız yeni veritabanlarını hemen korumak **veritabanlarını kurtarmak**, aşağıdaki görüntüde gösterildiği gibi.
 
   ![El ile yeni eklenen bir veritabanı keşfedin](./media/backup-azure-sql-database/view-newly-added-database.png)
 

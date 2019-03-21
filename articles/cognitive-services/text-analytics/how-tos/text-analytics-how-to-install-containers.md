@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 6ad48bb6e7d9c2fd0365b26999b67ad8c62fc42c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f757218d29317f82339967a327f34438c62ab96
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000250"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294153"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Yükleme ve metin analizi kapsayıcıları çalıştırma
 
@@ -26,7 +26,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Herhangi bir metin analizi kapsayıcıları çalıştırmak için aşağıdakilere sahip olmanız gerekir:
+Herhangi bir metin analizi kapsayıcıları çalıştırmak için ana bilgisayar ve kapsayıcı ortamlarını olması gerekir.
 
 ## <a name="preparation"></a>Hazırlık
 
@@ -46,11 +46,14 @@ Metin analizi kapsayıcıları kullanmadan önce aşağıdaki gereksinimleri kar
 
 Aşağıdaki tabloda açıklanmıştır en düşük ve önerilen CPU çekirdekleri, en az 2.6 gigahertz (GHz) veya daha hızlı ve her bir metin analizi kapsayıcısı için ayrılacak gigabayt (GB) bellek.
 
-| Kapsayıcı | Minimum | Önerilen |
-|-----------|---------|-------------|
-|Anahtar İfade Ayıklama | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |
-|Dil Algılama | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |
-|Duygu Analizi | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |
+| Kapsayıcı | Minimum | Önerilen | TPS<br>(Minimum, maksimum)|
+|-----------|---------|-------------|--|
+|Anahtar İfade Ayıklama | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |15, 30|
+|Dil Algılama | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |15, 30|
+|Duygu Analizi | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |15, 30|
+
+* Her çekirdeğe en az 2.6 gigahertz (GHz) olması ya da daha hızlı.
+* TPS - saniye başına işlem
 
 Çekirdek ve bellek karşılık `--cpus` ve `--memory` parçası olarak kullanılan ayarları `docker run` komutu.
 
@@ -62,9 +65,9 @@ Microsoft kapsayıcı kayıt defterinden kapsayıcı görüntülerini metin anal
 |-----------|------------|
 |Anahtar İfade Ayıklama | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 |Dil Algılama | `mcr.microsoft.com/azure-cognitive-services/language` |
-|Yaklaşım Analizi | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+|Duygu Analizi | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Kullanım [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) Microsoft kapsayıcı kayıt defterinden bir kapsayıcı görüntüsü indirilemedi komut...
+Kullanım [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) Microsoft kapsayıcı kayıt defterinden bir kapsayıcı görüntüsü indirilemedi komutu.
 
 Metin analizi kapsayıcılar için kullanılabilir etiketler tam bir açıklaması için aşağıdaki kapsayıcıların Docker Hub bakın:
 
@@ -125,7 +128,7 @@ ApiKey={BILLING_KEY}
 Bu komut:
 
 * Bir anahtar tümcecik kapsayıcı kapsayıcı görüntüsünü çalıştırır.
-* Bir CPU çekirdek ve 4 gigabayt (GB) bellek ayırır.
+* Bir CPU Çekirdeği ve 4 gigabayt (GB) bellek ayırır.
 * 5000 numaralı TCP bağlantı noktasını kullanıma sunar ve sahte TTY için kapsayıcı ayırır.
 * Bunu çıktıktan sonra kapsayıcı otomatik olarak kaldırır. Kapsayıcı görüntüsü ana bilgisayarda kullanılabilir durumda kalır. 
 
@@ -146,7 +149,7 @@ Ana bilgisayarını kullanmak `https://localhost:5000`, kapsayıcı API'leri iç
 
 [!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Sorun Giderme
+## <a name="troubleshooting"></a>Sorun giderme
 
 Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](../text-analytics-resource-container-config.md#mount-settings) ve günlüğe kaydetme etkin, kapsayıcı başlatma veya kapsayıcı çalıştırma sırasında gerçekleşen sorunları gidermek yararlı olan günlük dosyalarını oluşturur. 
 
@@ -154,7 +157,7 @@ Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](../text-analyt
 
 [!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="billing"></a>Faturalama
+## <a name="billing"></a>Faturalandırma
 
 Azure için fatura, kullanarak metin analizi kapsayıcıları Gönder bir _metin analizi_ Azure hesabınız kaynaktaki. 
 

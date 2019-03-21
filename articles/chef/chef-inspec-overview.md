@@ -6,31 +6,40 @@ ms.service: virtual-machines-linux
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 05/15/2018
+ms.date: 03/19/2019
 ms.topic: article
-ms.openlocfilehash: a5de2ca04a193f97a2a65a043f744abb8e0ea758
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: bdfa30b48c79a8910d503bb9e54a42c30e5adba6
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359230"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293932"
 ---
 # <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>Otomasyon için Uyumluluk, Azure altyapısının Inspec kullanın
+
 [İnSpec](https://www.chef.io/inspec/) yazılım mühendisleri, işlemler ve güvenlik mühendisi arasında paylaşılabilir güvenlik ve uyumluluk kurallarını tanımlamak için Chef'ın açık kaynak bir dildir. Kolay okuma ve yazma kolay InSpec kod içinde ifade belirttiğiniz istenen duruma gerçek durumuyla altyapınızın karşılaştırarak Inspec çalışır. Inspec ihlalleri algılar ve bir rapor biçiminde bulguları gösterir, ancak düzeltme denetiminde koyar.
 
-Inspec kaynaklarını ve kaynak gruplarını içinde sanal makineler, ağ yapılandırmaları, Azure Active Directory ayarları ve daha fazlası dahil olmak üzere, bir abonelik durumunu doğrulamak için kullanabilirsiniz.
+Inspec, kaynakların ve sanal makineler, ağ yapılandırmaları, Azure Active Directory ayarları ve daha fazlası dahil olmak üzere, bir Abonelikteki kaynak gruplarının durumunu doğrulamak için kullanabilirsiniz.
 
 Bu makalede, Azure'da güvenlik ve uyumluluk kolaylaştırmak için Inspec kullanmanın avantajları anlatılmaktadır.
 
 ## <a name="make-compliance-easy-to-understand-and-assess"></a>Uyumluluk anlamak ve değerlendirmek kolay hale getirir
-Elektronik tablolar veya Word belgelerini yazılmış uyumluluk belgeleri bırakın gereksinimleri açık yorumlamak için. Inspec ile gereksinimlerinizi tutulan, yürütülebilir, okunabilir koda dönüştürün. Kod ne Temizle amacıyla somut testleri ile değiştiriliyor değerlendirilmesi ilgili konuşmaları değiştirir.
+
+Elektronik tablolar veya Word belgelerini yazılmış uyumluluk belgeleri gereksinimleri yorumlamak için açık kalır. Inspec ile gereksinimlerinizi tutulan, yürütülebilir, okunabilir koda dönüştürün. Kod ne Temizle amacıyla somut testleri ile değiştiriliyor değerlendirilmesi ilgili konuşmaları değiştirir.
 
 ## <a name="detect-fleet-wide-issues-and-prioritize-their-remediation"></a>Filo genelindeki sorunları algılayın ve bunların düzeltme öncelik
+
 Inspec aracısız algılama modu - ölçekte - Etkilenme düzeyinizi hızlı bir şekilde değerlendirmek için etkinleştirin. Puanlama etkisi/önem derecesi için yerleşik meta verileri, özel olarak hangi alanlarda odaklanmak için düzeltme üzerinde belirlenmesine yardımcı olur. Ayrıca, kuralları hızla yanıt olarak yeni güvenlik açıkları ve yönetmelikleri yazın ve hemen kullanıma.
 
+## <a name="audit-azure-virtual-machines-with-policy-guest-configuration"></a>Azure sanal makineler Konuk yapılandırma ilke ile denetleme
+
+Azure, doğrudan aracılığıyla Azure sanal makineleri denetlemek için Chef InSpec tanımları kullanımını destekleyen [Azure İlkesi Konuk Yapılandırması](/azure/governance/policy/concepts/guest-configuration). Konuk yapılandırma Linux sanal makinesi belirtilen Chef InSpec tanım ve Azure İlkesi aracılığıyla geri rapor uyumluluk için değerlendirilir. Bu denetimleri sonuçlarını da Azure İzleyici günlüklerine bildirilir; Uyarılar ve diğer Otomasyon senaryoları etkinleştiriliyor.
+
 ## <a name="satisfy-audits"></a>Denetimleri karşılamak
+
 Inspec ile yalnızca aralıklarla belirlenmiş üç aylık veya yıllık gibi herhangi bir zamanda - soruları denetim yanıt verebilirsiniz. Sürekli olarak InSpec testleri çalıştırarak geçmişi ve tam uyumluluk duruşunu bilmek bir denetim döngüsü girmek yerine bir denetçi'nın bulgular tarafından Şaşırmış.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Azure Cloud Shell'de InSpec deneyin [ ![Cloud Shell'i Başlat](https://shell.azure.com/images/launchcloudshell.png "Cloud Shell'i Başlat")](https://shell.azure.com)
+> [!div class="nextstepaction"] 
+> [Azure Cloud Shell'de InSpec deneyin](https://shell.azure.com)

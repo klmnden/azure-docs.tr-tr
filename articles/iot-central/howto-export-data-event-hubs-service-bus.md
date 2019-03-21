@@ -8,18 +8,18 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 14b51f109ca76661ac10c99d42002dda45bc0500
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 700e8e9fe0dac182d71df8ca66800fa03cf25a2e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318714"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295802"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Azure IOT Central verilerinizi dışarı aktarma
 
 *Bu konu, Yöneticiler için geçerlidir.*
 
-Bu makalede daha ayrıntılı sürekli veri dışarı aktarma özelliği verilerinizi kendi değerlerinizle dışarı aktarmak için Azure IOT Central içinde kullanmak nasıl türlerine geçiyor **Azure Event Hubs**, ve **Azure Service Bus** örnekleri. Dışarı aktarabilirsiniz **ölçümleri**, **cihazları**, ve **cihaz şablonları** Orta Gecikmeli kanaldan öngörü ve analizler için kendi hedef. Bu, Azure Stream analytics'te özel kurallar tetikleme, Azure Logic apps'te özel iş akışları tetikleyen veya veri dönüştürme ve Azure işlevleri aracılığıyla iletmeden içerir. 
+Bu makalede sürekli veri dışa aktarma Özelliği Azure IOT Central verilerinizi kendi değerlerinizle dışarı aktarmak için nasıl kullanılacağını açıklar **Azure Event Hubs**, ve **Azure Service Bus** örnekleri. Dışarı aktarabilirsiniz **ölçümleri**, **cihazları**, ve **cihaz şablonları** Orta Gecikmeli kanaldan öngörü ve analizler için kendi hedef. Bu, Azure Stream analytics'te özel kurallar tetikleme, Azure Logic apps'te özel iş akışları tetikleyen veya veri dönüştürme ve Azure işlevleri aracılığıyla iletmeden içerir. 
 
 > [!Note]
 > Bir kez daha, verileri sürekli dışarı aktarma üzerinde etkinleştirdiğinizde, ileriye doğru o andan itibaren yalnızca verileri alın. Şu anda, verileri sürekli dışarı aktarma kapalıydı ne zaman bir kez verileri alınamıyor. Daha fazla geçmiş verileri korumak için verileri sürekli dışarı aktarma üzerinde erken açın.
@@ -28,6 +28,77 @@ Bu makalede daha ayrıntılı sürekli veri dışarı aktarma özelliği veriler
 ## <a name="prerequisites"></a>Önkoşullar
 
 - IOT Central uygulamanızda yönetici olmanız gerekir
+
+## <a name="set-up-export-destination"></a>Dışarı aktarma hedef ayarlayın
+
+Vermek için mevcut bir olay hub'ları / Service Bus sahip değilseniz, şu adımları izleyin:
+
+## <a name="create-event-hubs-namespace"></a>Event Hubs ad alanı oluşturma
+
+1. Oluşturma bir [Azure portalında yeni Event Hubs ad alanı](https://ms.portal.azure.com/#create/Microsoft.EventHub). Daha fazla bilgi [Azure Event Hubs belgeleri](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+2. Bir abonelik seçin. 
+
+    > [!Note] 
+    > Artık olan diğer abonelikler için verileri dışarı aktarabilirsiniz **aynı** bir Kullandıkça Öde IOT Central uygulamanız için. Bu durumda bir bağlantı dizesi kullanarak bağlanır.
+3. Event Hubs ad alanınız içinde bir olay hub'ı oluşturun. Ad alanınıza gidin ve seçin **+ olay hub'ı** en üstünde bir olay hub'ı örneği oluşturulamadı.
+
+## <a name="create-service-bus-namespace"></a>Service Bus ad alanı oluşturma
+
+1. Oluşturma bir [Azure portalında yeni hizmet veri yolu ad alanı](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5) . Daha fazla bilgi [Azure Service Bus belgeleri](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
+2. Bir abonelik seçin. 
+
+    > [!Note] 
+    > Artık olan diğer abonelikler için verileri dışarı aktarabilirsiniz **aynı** bir Kullandıkça Öde IOT Central uygulamanız için. Bu durumda bir bağlantı dizesi kullanarak bağlanır.
+
+3. Service Bus ad alanınıza gidin ve seçin **+ kuyruk** veya **+ konu** en üstünde bir kuyruk veya konuda vermek için oluşturulacak.
+
+
+## <a name="set-up-continuous-data-export"></a>Verileri sürekli dışarı aktarma ayarlayın
+
+Verileri dışarı aktarmak için bir olay hub'ları / Service Bus hedef olduğuna göre verileri sürekli dışarı aktarma ' için bu adımları izleyin. 
+
+1. IOT Central uygulamanız için oturum açın.
+
+2. Sol menüde **verileri sürekli dışarı aktarma**.
+
+    > [!Note]
+    > Verileri sürekli dışarı aktarma sol taraftaki menüde görmüyorsanız, yöneticinin uygulamanızda değildir. Verileri dışarı aktarma ' için yöneticinin konuşun.
+
+    ![Yeni değerinde olay hub'ı oluşturma](media/howto-export-data/export_menu.PNG)
+
+3. Seçin **+ yeni** sağ üst köşesindeki düğme. Birini **Azure Event Hubs** veya **Azure Service Bus** dışarı aktarma hedefi olarak. 
+
+    > [!NOTE] 
+    > Dışarı aktarmalar uygulama başına en fazla sayısı beştir. 
+
+    ![Yeni verileri sürekli dışarı aktarma oluştur](media/howto-export-data/export_new.PNG)
+
+4. Aşağı açılan liste kutusunda, **Event Hubs ad alanı/Service Bus ad alanı**. Son seçenek, listeden seçebilirsiniz **bir bağlantı dizesi girin**. 
+
+    > [!NOTE] 
+    > Depolama hesapları/Event Hubs ad alanlarını/hizmet veri yolu ad alanları yalnızca göreceksiniz **IOT Central uygulamanız ile aynı abonelikte**. Bu abonelik dışında bir hedefe dışarı aktarmak istiyorsanız seçin **bir bağlantı dizesi girin** ve 5. adıma bakın.
+
+    > [!NOTE] 
+    > 7 günlük deneme uygulamaları, verileri sürekli yapılandırmak için tek yolu dışarı aktarmak için bir bağlantı dizesidir. 7 günlük deneme uygulamalar, ilişkili Azure aboneliği olmadığı için budur.
+
+    ![Yeni değerinde olay hub'ı oluşturma](media/howto-export-data/export_create.PNG)
+
+5. (İsteğe bağlı) Seçerseniz, **bir bağlantı dizesi girin**, bağlantı dizenizi yapıştırmak için yeni kutusu görünür. Bağlantı dizesini almak için:
+    - Olay hub'ları veya Service Bus, Azure portalında ad alanına gidin.
+        - Altında **ayarları**seçin **paylaşılan erişim ilkeleri**
+        - Varsayılan seçin **RootManageSharedAccessKey** veya yeni bir tane oluşturun
+        - Birincil veya ikincil bağlantı dizesini kopyalayın
+ 
+6. Bir olay hub'ı / kuyruk veya konuda aşağı açılan liste kutusundan seçin.
+
+7. Altında **dışarı aktarmak için veri**, her tür ayarlayarak dışarı aktarmak için veri türü belirtin **üzerinde**.
+
+6. Verileri sürekli dışarı aktarma üzerinde etkinleştirmek için emin **verileri dışarı aktarma** olduğu **üzerinde**. **Kaydet**’i seçin.
+
+  ![Yapılandırma verileri sürekli dışarı aktarma](media/howto-export-data/export_list.PNG)
+
+7. Birkaç dakika sonra verilerinizi, seçtiğiniz hedef olarak görünür.
+
 
 ## <a name="export-to-azure-event-hubs-and-azure-service-bus"></a>Azure Event Hubs'a ve Azure hizmet veri yolu dışarı aktarma
 

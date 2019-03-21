@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 7bc3ea054056ac67cf0a116fb1538bc1483ab4d4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223538"
+ms.locfileid: "58285847"
 ---
 # <a name="application-gateway-configuration-overview"></a>Uygulama ağ geçidi yapılandırmasına genel bakış
 
@@ -33,7 +33,9 @@ Uygulama ağ geçidi, sanal ağınızda ayrılmış bir dağıtımıdır. Sanal 
 
 #### <a name="size-of-the-subnet"></a>Alt ağ boyutu
 
-Özel ön uç IP yapılandırması yapılandırılmışsa v1 SKU olması durumunda, uygulama ağ geçidi örneği başına bir özel IP adresi yanı sıra, başka bir özel IP adresini kullanır. Ayrıca, Azure ilk dört ayırır ve son her alt ağda iç kullanım için IP adresi. Örneğin, bir uygulama ağ geçidi üç örnekleri ve ardından bir/29 hiçbir özel ön uç IP ayarlanmışsa, alt ağ boyutu veya üzeri gereklidir. Bu durumda, uygulama ağ geçidi üç IP adresini kullanır. Üç örnekleri ve ardından/28 özel ön uç IP yapılandırması için bir IP adresi varsa dört IP adresleri gerekli olduğu gibi alt ağı veya büyük boyut gereklidir.
+Özel ön uç IP yapılandırması yapılandırılmışsa, uygulama ağ geçidi örneği başına bir özel IP adresi yanı sıra, başka bir özel IP adresini kullanır. Ayrıca, Azure ilk dört ayırır ve son her alt ağda iç kullanım için IP adresi. Bir uygulama ağ geçidi üç örnekleri ve hiçbir özel ön uç IP olarak ayarlanırsa, örneğin, ardından en az sekiz IP adresleri - iç kullanım için beş IP adresleri ve üç uygulama ağ geçidi örneği için üç IP adresini alt gerekli olacaktır. Bu nedenle, bu bir/29 durumda alt ağ boyutu veya üzeri gereklidir. Üç örneği varsa ve bir IP adresi için özel ön uç IP yapılandırması, dokuz IP adresleri - gerekir sonra üç uygulama ağ geçidi örneği için üç IP adresini özel ön uç IP ve beş IP için bir IP adresi için yöneliktir. iç kullanım için. Bu nedenle, / 28 durumda alt ağ boyutu veya üzeri gereklidir.
+
+En iyi uygulama, en az/28'i kullanın. alt ağ boyutu. Bu, 11 kullanılabilir adresleri tükeniyor sağlar. Uygulama yükünüz 10'dan fazla örnekleri gerektiriyorsa, / 27 veya /26 dikkate almanız gereken alt ağ boyutu.
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Desteklenen uygulama ağ geçidi alt ağı üzerinde ağ güvenlik grupları
 
@@ -41,7 +43,7 @@ Ağ güvenlik grupları (Nsg'ler), uygulama ağ geçidi alt ağı aşağıdaki k
 
 - Özel durumlar için gelen trafiği 65503 65534 noktalarına v1 SKU ve bağlantı noktaları 65200-65535 Application Gateway için v2 SKU için yerleştirilmesi gereken. Bu bağlantı noktası aralığı, Azure altyapı iletişimi için gereklidir. Bunlar Azure sertifikaları tarafından korunur (kilitlenir). Uygun sertifikaları olmadan, bu ağ geçitlerinin müşterileri dahil dış varlıklar, bu uç noktalarında herhangi bir değişiklik başlatmak mümkün değildir.
 
-- Giden internet bağlantısı engellenemez.
+- Giden internet bağlantısı engellenemez. Giden kuralları NSG varsayılan internet bağlantısı zaten izin verin. Giden varsayılan kuralları kaldırmayın ve giden internet bağlantısı Reddet diğer giden kuralları oluşturmayın öneririz.
 
 - AzureLoadBalancer etiketini gelen trafiğe izin verilmesi gerekir.
 
@@ -57,11 +59,12 @@ Bu senaryo yapılabilir Nsg'leri kullanarak uygulama ağ geçidi alt ağı üzer
 
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>Uygulama ağ geçidi alt ağı üzerinde desteklenen kullanıcı tanımlı yollar
 
-Uçtan uca istek/yanıt iletişim değiştirmeyin sürece v1 SKU olması durumunda, uygulama ağ geçidi alt ağı üzerinde kullanıcı tanımlı yollar (Udr) desteklenir.
-
-Örneğin, uygulama ağ geçidi alt ağındaki UDR paket incelemesi için bir güvenlik duvarı Gereci işaret edecek şekilde ayarlayabilirsiniz ancak paket, istenen hedef posta İnceleme ulaşabildiğimizden emin olmanız gerekir. Bunun yapılmaması, yanlış sistem durumu araştırma ya da trafiği yönlendirme davranışını neden olabilir. Bu öğrenilen rotalar veya sanal ağ, ExpressRoute veya VPN ağ geçitleri tarafından yayılan varsayılan 0.0.0.0/0 yolları içerir.
+Uçtan uca istek/yanıt iletişim değiştirmeyin sürece v1 SKU olması durumunda, uygulama ağ geçidi alt ağı üzerinde kullanıcı tanımlı yollar (Udr) desteklenir. Örneğin, uygulama ağ geçidi alt ağındaki UDR paket incelemesi için bir güvenlik duvarı Gereci işaret edecek şekilde ayarlayabilirsiniz ancak paket, istenen hedef posta İnceleme ulaşabildiğimizden emin olmanız gerekir. Bunun yapılmaması, yanlış sistem durumu araştırma ya da trafiği yönlendirme davranışını neden olabilir. Bu öğrenilen rotalar veya sanal ağ, ExpressRoute veya VPN ağ geçitleri tarafından yayılan varsayılan 0.0.0.0/0 yolları içerir.
 
 Durumunda v2 SKU, uygulama ağ geçidi alt ağı üzerinde Udr'ler desteklenmez. Daha fazla bilgi için [otomatik ölçeklendirme ve bölgesel olarak yedekli (genel Önizleme) Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+
+> [!NOTE]
+> Sistem durumu Udr'ler kullanarak uygulama ağ geçidi alt ağı üzerinde neden olacak [arka uç sistem durumu görünümü](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) olarak gösterilecek **bilinmeyen** ve ayrıca uygulama ağ geçidi günlükleri oluşturma failue neden olur ve Ölçümleri. Udr uygulama ağ geçidi alt ağı üzerinde bir arka uç sistem durumu, günlükleri ve ölçümleri görüntülemek için kullanmamanız önerilir.
 
 ## <a name="frontend-ip"></a>Ön uç IP
 
@@ -87,10 +90,11 @@ Arasından seçim yapabilirsiniz [temel veya çoklu site dinleyicisi](https://do
 
 - Ardından aynı uygulama ağ geçidi örneğinde birden çok alt etki alanlarını aynı üst etki alanının veya birden fazla web uygulaması yapılandırıyorsanız, çoklu site dinleyicisi seçin. Çoklu site dinleyicisi için ayrıca bir ana bilgisayar adı girmeniz gerekir. Application Gateway aynı genel IP adresi ve bağlantı noktası üzerinde birden fazla Web sitesi barındırmak için HTTP 1.1 barındırma bilgilerini kullanır olmasıdır.
 
-> [!NOTE]
-> V1 SKU'ları durumunda dinleyicileri bunlar gösterilen sırada işlenir. Temel dinleyici gelen bir istekle eşleşiyorsa, bu nedenle ilk önce işler. Bu nedenle, çok siteli dinleyicileri, trafiğin doğru arka uca yönlendirilmesini sağlamak için temel bir dinleyici önce yapılandırılmalıdır.
->
-> V2 SKU'ları olması durumunda, çok siteli dinleyicileri temel dinleyicileri önce işlenir.
+#### <a name="order-of-processing-listeners"></a>Dinleyicileri işleme sırası
+
+V1 SKU'ları durumunda dinleyicileri bunlar gösterilen sırada işlenir. Temel dinleyici gelen bir istekle eşleşiyorsa, bu nedenle ilk önce işler. Bu nedenle, çok siteli dinleyicileri, trafiğin doğru arka uca yönlendirilmesini sağlamak için temel bir dinleyici önce yapılandırılmalıdır.
+
+V2 SKU'ları olması durumunda, çok siteli dinleyicileri temel dinleyicileri önce işlenir.
 
 ### <a name="frontend-ip"></a>Ön uç IP
 
@@ -110,9 +114,9 @@ HTTP ve HTTPS protokolü arasında seçmeniz gerekebilir.
 
   Güvenli Yuva Katmanı (SSL) sonlandırma ve uçtan uca SSL şifrelemesini yapılandırmak için bir simetrik anahtar SSL protokolü belirtimi uyarınca türetmek Application Gateway etkinleştirmek için dinleyici eklenecek bir sertifika gereklidir. Simetrik anahtar, ardından şifrelemek ve şifresini çözmek için ağ geçidi gönderilen trafiği için kullanılır. Ağ geçidi sertifikası kişisel bilgi değişimi (PFX) biçiminde olması gerekir. Bu dosya biçimi, uygulama ağ geçidi tarafından şifreleme ve şifre çözme trafik gerçekleştirmek için gerekli olan özel anahtarı dışarı olanak tanır. 
 
-#### <a name="supported-certs"></a>Desteklenen sertifikaları
+#### <a name="supported-certificates"></a>Desteklenen sertifika
 
-Otomatik olarak imzalanan sertifikaları, CA sertifikaları, joker kart sertifikaları ve EV sertifikaları desteklenir.
+Bkz: [SSL sonlandırma için desteklenen sertifika](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-ssl-termination).
 
 ### <a name="additional-protocol-support"></a>Ek protokol desteği
 
@@ -160,11 +164,11 @@ Arasından seçim yapabilirsiniz [temel veya yol tabanlı kural](https://docs.mi
 - Belirli bir URL yoluna belirli arka uç havuzları ile yönlendirmek istiyorsanız yol tabanlı dinleyiciyi istekleri seçin. Yol deseni yalnızca için sorgu parametrelerini URL'nin yol uygulanır.
 
 
-> [!NOTE]
->
-> V1 SKU'ları olması durumunda, gelen isteğin deseniyle eşleşen yolların bir yola dayalı kural URL yol haritasını listelendikleri sırada işlenir. Bu nedenle istek URL yolu eşlem içindeki iki veya daha fazla yollarda desenle eşleşiyorsa, ardından listelenen yolun ilk eşleştirilir ve isteği arka uca bu yol ile ilişkili iletilir.
->
-> V2 SKU'ları olması durumunda, tam bir eşleşme yolları URL yolu eşlemesinde listelendiği sıra üzerinde daha yüksek öncelikli tutar. İçin bir istek isteği arka uca yönlendirilir sonra iki veya daha fazla yollarda desenle eşleşiyorsa nedeni, istekle birlikte tam olarak eşleşen söz konusu yoldaki ilişkili. Gelen istek yolunda URL Yol Haritası'nda herhangi bir yol tam olarak eşleşmezse, ardından gelen isteğin deseniyle eşleşen yolların bir yola dayalı kural URL yol haritasını listelendikleri sırada işlenir.
+#### <a name="order-of-processing-rules"></a>Kuralları işleme sırası
+
+V1 SKU'ları olması durumunda, gelen isteğin deseniyle eşleşen yolların bir yola dayalı kural URL yol haritasını listelendikleri sırada işlenir. Bu nedenle istek URL yolu eşlem içindeki iki veya daha fazla yollarda desenle eşleşiyorsa, ardından listelenen yolun ilk eşleştirilir ve isteği arka uca bu yol ile ilişkili iletilir.
+
+V2 SKU'ları olması durumunda, tam bir eşleşme yolları URL yolu eşlemesinde listelendiği sıra üzerinde daha yüksek öncelikli tutar. İçin bir istek isteği arka uca yönlendirilir sonra iki veya daha fazla yollarda desenle eşleşiyorsa nedeni, istekle birlikte tam olarak eşleşen söz konusu yoldaki ilişkili. Gelen istek yolunda URL Yol Haritası'nda herhangi bir yol tam olarak eşleşmezse, ardından gelen isteğin deseniyle eşleşen yolların bir yola dayalı kural URL yol haritasını listelendikleri sırada işlenir.
 
 ### <a name="associated-listener"></a>İlişkili dinleyicisi
 
@@ -176,7 +180,7 @@ Dinleyici tarafından alınan isteklere hizmet arka uç hedefleri içeren arka u
 
 ### <a name="associated-backend-http-setting"></a>İlişkilendirilmiş arka uç HTTP ayarı
 
-Her kural için bir arka uç HTTP ayarı ekleyin. İstek bağlantı noktası, protokol ve bu ayarında belirtilen diğer ayarları'nı kullanarak arka uç hedeflerini için uygulama ağ geçidinden yönlendirilir. İlişkili dinleyici üzerindeki tüm istekleri bu HTTP ayarıyla ilgili arka uç hedefe iletilir beri temel kural olması durumunda, yalnızca bir arka uç HTTP ayarı izin verilir. Yola dayalı kural olması durumunda, her URL yoluna karşılık gelen birden fazla arka uç HTTP ayarları ekleyin. Burada girilen URL yolu eşleşen istekler, her URL yoluna karşılık gelen HTTP ayarları kullanarak karşılık gelen arka uç hedeflere iletilir. Ayrıca, bu kuralda girilen herhangi bir URL yolu eşleşmeyen isteklerin varsayılan HTTP ayarları kullanarak varsayılan arka uç havuzuna iletilir olduğundan varsayılan HTTP ayarları ekleyin.
+Her kural için bir arka uç HTTP ayarı ekleyin. İstek bağlantı noktası, protokol ve bu ayarında belirtilen diğer ayarları'nı kullanarak arka uç hedeflerini için uygulama ağ geçidinden yönlendirilir. İlişkili dinleyici üzerindeki tüm istekleri bu HTTP ayarıyla ilgili arka uç hedefe iletilir beri temel kural olması durumunda, yalnızca bir arka uç HTTP ayarı izin verilir. Yola dayalı kural olması durumunda, her URL yoluna karşılık gelen birden fazla arka uç HTTP ayarları ekleyin. Burada girilen URL yolu eşleşen istekler, her URL yoluna karşılık gelen HTTP ayarları kullanarak karşılık gelen arka uç hedeflere iletilir. Ayrıca, bu kuralda girilen herhangi bir URL yolu eşleşmeyen isteklerin varsayılan HTTP ayarı kullanarak varsayılan arka uç havuzuna iletilir olduğundan varsayılan HTTP ayarı ekleyin.
 
 ### <a name="redirection-setting"></a>Yeniden yönlendirme ayarı
 
@@ -186,7 +190,7 @@ Yeniden yönlendirme özelliği hakkında daha fazla bilgi için bkz: [yeniden y
 
 - #### <a name="redirection-type"></a>Yeniden yönlendirme türü
 
-  Öğesinden gerekli yeniden yönlendirme türünü seçin: Kalıcı geçici, bulunamadı veya diğer bakın.
+  Öğesinden gerekli yeniden yönlendirme türünü seçin: Other(303) PERMANENT(301), Temporary(307), Found(302) veya bakın.
 
 - #### <a name="redirection-target"></a>Yeniden yönlendirme hedefi
 
@@ -236,14 +240,14 @@ Application gateway arka uç havuzundan "Bağlantı zaman aşımına uğradı" b
 
 Bu ayar isteği arka uca iletildiğinde kullanmak için bir isteğe bağlı özel iletme yolu yapılandırmanıza olanak sağlar. Belirtilen özel yol için eşleşen gelen yolunun herhangi bir bölümü bu kopyalayacak **arka uç yolu geçersiz kılma** yönlendirilmiş yol alanı. Özelliği nasıl çalıştığını anlamak için aşağıdaki tabloya bakın.
 
-- Ne zaman HTTP ayarları temel istek yönlendirme kuralı için eklenir:
+- Ne zaman HTTP ayarı için bir temel istek yönlendirme kuralı eklenir:
 
   | Özgün istek  | Arka uç yolunu geçersiz kıl | Arka uca iletilen istek |
   | ----------------- | --------------------- | ---------------------------- |
   | /Home/            | /override/            | / / home/geçersiz kıl              |
   | / home/secondhome / | /override/            | / override/home/secondhome /   |
 
-- Ne zaman HTTP ayarları için istek yolu tabanlı yönlendirme kural eklenir:
+- Ne zaman HTTP ayarı için bir yol tabanlı bir istek yönlendirme kuralı eklenir:
 
   | Özgün istek           | Yol kuralı       | Arka uç yolunu geçersiz kıl | Arka uca iletilen istek |
   | -------------------------- | --------------- | --------------------- | ---------------------------- |

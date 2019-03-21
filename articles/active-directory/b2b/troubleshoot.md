@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec05c513d89dc8a590cbd0f586f382d699edc5e3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: af106650f6e1d139ec7af2c8d243dc50f2e963fc
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454130"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293967"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Azure Active Directory B2B işbirliği sorunlarını giderme
 
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) B2B işbirliği ile karşılaşılan sorunlara
 Burada dış kullanıcılar listede doldurulmaz durumlarda, nesne çoğaltmak için birkaç dakika sürebilir.
 
 ## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>B2B Konuk kullanıcı SharePoint Online/OneDrive Kişi Seçici gösterilmiyor 
- 
+ 
 SharePoint Online (SPO) Kişi Seçici var olan konuk kullanıcılar için arama özelliğini eski davranışı eşleştirmek için varsayılan olarak kapalı'dır.
 
 'ShowPeoplePickerSuggestionsForGuestUsers' ayarı Kiracı ve site koleksiyonu düzeyinde kullanarak bu özelliği etkinleştirebilirsiniz. Üyelerinin dizindeki tüm mevcut Konuk kullanıcıları aramak Set-SPOTenant ve Set-SPOSite cmdlet'lerini kullanarak özelliğini ayarlayabilirsiniz. Değişiklikler Kiracı kapsamında zaten sağlanan SPO site etkilemez.
@@ -38,7 +38,7 @@ SharePoint Online (SPO) Kişi Seçici var olan konuk kullanıcılar için arama 
 
 Kullanıcıları davet için izinlere sahip değilsiniz bildirilir, kullanıcı hesabınızın kullanıcı ayarları altında dış kullanıcıları davet yetkisi olduğunu doğrulayın:
 
-![Dış kullanıcı ayarları](media/troubleshoot/external-user-settings.png)
+![Dış kullanıcılar ayarları gösteren ekran görüntüsü](media/troubleshoot/external-user-settings.png)
 
 Size kısa süre önce bu ayarları değiştiren veya konuk davet edici rolüne atanmış bir kullanıcıya, değişiklikler etkili olmadan önce 15-60 dakika gecikme olabilir.
 
@@ -50,7 +50,7 @@ Sık karşılaşılan hatalar şunlardır:
 
 Kullanıcılar, kuruluşunuzun Azure Active Directory kullanıyor, ancak burada belirli bir kullanıcının hesabı yok davet ettiğinizde (örneğin, kullanıcının Azure AD contoso.com yok). Contoso.com yönetici, kullanıcıların oluşturulmasını önleyen bir yerde bir ilkesi olabilir. Kullanıcı, dış kullanıcılar izin verilmediğini belirlemek için yönetici ile iade etmeniz gerekir. Dış kullanıcının yönetici e-posta ile doğrulanmış kullanıcıların kendi etki alanlarındaki gerekebilir (bkz. Bu [makale](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) e-posta doğrulanmış kullanıcıların üzerinde).
 
-![Bu Kiracı için e-posta izin vermeyecek belirten hata doğrulanmış kullanıcıların eklenmesi](media/troubleshoot/allow-email-verified-users.png)
+![Kullanıcılar Kiracı e-posta izin vermiyor belirten hata doğrulandı](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>Dış kullanıcı zaten bir Federasyon etki alanında yok.
 

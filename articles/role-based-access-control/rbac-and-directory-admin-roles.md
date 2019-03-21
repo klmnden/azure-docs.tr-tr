@@ -15,12 +15,12 @@ ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 8ce5460a7a2f29250ad8ef346f35914a0363a921
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1b7183da84b994da8694440183e367f143722002
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847238"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295190"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Klasik abonelik yönetici rolleri, Azure RBAC rolleri ve Azure AD yönetici rolleri
 

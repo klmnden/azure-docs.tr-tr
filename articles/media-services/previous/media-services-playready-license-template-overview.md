@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: ef7a4ce26e9117e28a00f417a1368e1edca6851e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d2831472bcddf3480a87e69661b39e4ec715c786
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863228"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257704"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady lisans şablonuna genel bakış
 Azure Media Services PlayReady lisans sunma için bir hizmet artık sağlar. Oyuncu (örneğin, Silverlight) PlayReady korumalı içeriğinizi oynatma çalıştığında, bir lisans almak için bir istek için lisans teslimat hizmetinin gönderilir. Lisans hizmeti isteği onaylarsa, istemciye gönderilen ve şifresini çözmek ve belirtilen içeriğin yürütmek için kullanılan lisans verir.

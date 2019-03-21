@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2887badb9a72cc94321263196d02dfab47229b7c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 78e83f4a1aea04bbaea12181419de6c5c06034f2
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078304"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287086"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Temel bir grup oluşturma ve Azure Active Directory'yi kullanarak üye ekleme
 Azure Active Directory (Azure AD) portalını kullanarak temel bir grup oluşturabilirsiniz. Bu makalenin amaçları doğrultusunda, kaynak sahibi (yönetici) tarafından tek bir kaynağa temel bir grup eklenir ve bu grup, o kaynağa erişmesi gereken belirli üyeleri (çalışanlar) içerir. Dinamik üyelikler ve kural oluşturma da dahil olmak üzere daha karmaşık senaryolar için bkz. [Azure Active Directory kullanıcı yönetimi belgeleri](../users-groups-roles/index.yml).
@@ -31,7 +31,7 @@ Temel bir grup oluşturabilir ve aynı anda üyelerinizi ekleyebilirsiniz.
 
 2. **Azure Active Directory**’yi, **Gruplar**’ı ve ardından **Yeni grup**’u seçin.
 
-    ![Gruplar ile birlikte gösterilen Azure AD](media/active-directory-groups-create-azure-portal/group-full-screen.png)
+    ![Gruplarla gösteren Azure AD sayfası](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
 3. **Grup** sayfasında gerekli bilgileri doldurun.
 

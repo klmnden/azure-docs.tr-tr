@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: e4bba685ed49e72d00255f386061a0a8f9ec9078
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 565e1bf7a4972e230b3cf56232ebd24519fcab5c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535527"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007891"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı sunucusu kavramları
 
@@ -37,6 +37,7 @@ MySQL sunucusu için Azure Veritabanı içinde bir veya birden fazla veritabanı
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Nasıl bağlanmak ve MySQL için Azure veritabanı kimlik doğrulaması?
 
 Aşağıdaki öğeleri veritabanınıza güvenli erişim sağlayın.
+
 |     |     |
 | :-- | :-- |
 | **Kimlik doğrulama ve yetkilendirme** | MySQL sunucusu için Azure veritabanı, yerel MySQL kimlik doğrulamasını destekler. Bağlanın ve Sunucu Yöneticisi oturum açma sunucusuyla kimlik doğrulaması. |

@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 01/29/2019
+ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 81b2db2da7c1efe0d09c065270c3493f297e49ad
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 551b1d4924c354eb6fd501c1b82ed306a7ea4822
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55236016"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305165"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>ExpressRoute Global erişim nedir?
 
@@ -49,7 +49,7 @@ Hayır. Her iki şirket içi ağlarınız arasında bağlantıyı etkinleştirme
 
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>ExpressRoute Global erişim etkinleştirdiğinizde my şirket içi ağlar arasında bekleyebilirim ağ aktarım hızı nedir?
 
-Ağ aktarım hızını ExpressRoute Global erişim tarafından etkin şirket içi ağlarınız arasında küçük iki ExpressRoute devrelerinin göre ücret alınır.
+Ağ aktarım hızını ExpressRoute Global erişim tarafından etkin şirket içi ağlarınız arasında küçük iki ExpressRoute devrelerinin göre ücret alınır. Şirket içinden Azure'a hem de şirket içi ve şirket içi trafiği aynı bağlantı hattına paylaşabilir ve aynı bant genişliği sınırına tabi olan. 
 
 ### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>ExpressRoute Global erişim ile tanıtabilir miyim yolların sayısını ve yolları alma sınırları nelerdir?
 

@@ -16,12 +16,12 @@ ms.date: 03/13/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: 50e5272d92ad333e70f65173cf024d165dc7501c
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: db95be94028fcf16871a9dcfee5f0d87eb5d2cdc
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58102052"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285675"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>App Service'ı yüksek oranda kullanılabilir bir yapılandırmada dağıtın
 
@@ -207,7 +207,7 @@ App Service kaynak sağlayıcısı dağıtmak için aşağıdaki adımları izle
     ![Altyapı rol örneği değerleri](media/app-service-deploy-ha/12.png)
 
     > [!NOTE]
-    > Bu varsylan değerleri değiştirerek bu tutoral artışlar App Service'ı yüklemeye yönelik donanım gereksinimleri önerilir. Toplam 26 çekirdek ve 46,592 MB RAM 15 VM'ler için önerilen 21 VM'lerin varsylan 18 çekirdek ve 32.256 MB RAM yerine desteklemek için gereklidir.
+    > Bu varsayılan değerlerinin değiştirilmesi bu tutoral artışlar App Service'ı yüklemeye yönelik donanım gereksinimleri önerilir. Toplam 26 çekirdek ve 46,592 MB RAM 15 VM'ler için varsayılan 18 çekirdek ve 32.256 MB RAM yerine önerilen 21 Vm'leri desteklemek için gereklidir.
 
 14. App Service altyapısı Vm'leri yüklemek için kullanılacak platform görüntüsünü seçin ve tıklayın **sonraki**:
 

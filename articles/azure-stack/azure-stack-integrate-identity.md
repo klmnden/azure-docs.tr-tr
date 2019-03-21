@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 5174723e7c9566fe90eb8bf49a1f353a5d9ae9ab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 5f34991dca4dbb4275033c764981c44492b9920e
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58083980"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257817"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack veri merkezi tümleştirmesi - kimlik
 Kimlik sağlayıcısı Azure Stack, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak dağıtabilirsiniz. Azure Stack dağıtmadan önce seçim yapmanız gerekir. Azure seçebileceğiniz bağlantılı bir senaryoda, AD veya AD FS. Bağlantısı kesilmiş bir senaryo için yalnızca AD FS desteklenir.
@@ -122,7 +122,7 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
 |Parametre|Açıklama|Örnek|
 |---------|---------|---------|
 |CustomAdfsName|Talep sağlayıcı adı.<br>AD FS giriş sayfasında bu şekilde görünür.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Federasyon meta veri bağlantısı| https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|CustomAD<br>FSFederationMetadataEndpointUri|Federasyon meta veri bağlantısı| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Azure stack'teki Talep sağlayıcı güveni yapılandırmak için tetikleyici Otomasyon

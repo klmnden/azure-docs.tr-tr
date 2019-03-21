@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 3/19/2019
 ms.author: barclayn
-ms.openlocfilehash: cd3228b66dbbf19b574c390733340c0ea2fb5a78
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b28d9607bf35d37e252d7d0bc59d1ce808e38665
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57846897"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260001"
 ---
 # <a name="frequently-asked-questions-faq"></a>Sık sorulan sorular (SSS)
 
@@ -164,7 +164,7 @@ Evet. Bir syslog sunucusuna HSM Gereci günlüklerini gönderebilirsiniz
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>S: Aynı bölgedeki veya birden çok bölgede yüksek kullanılabilirlik yapılandırmak mümkündür?
 
-Evet. Yüksek kullanılabilirlik yapılandırma ve Kurulum Gemalto tarafından sağlanan HSM istemci yazılımının gerçekleştirilir. Aynı sanal AĞDA veya diğer sanal ağlar aynı bölgedeki veya farklı bölgelerdeki veya şirket içi HSM'ler HSM'ler kullanarak siteden siteye bir sanal ağa bağlı veya aynı yüksek kullanılabilirlik yapılandırması için noktadan noktaya VPN eklenebilir.
+Evet. Yüksek kullanılabilirlik yapılandırma ve Kurulum Gemalto tarafından sağlanan HSM istemci yazılımının gerçekleştirilir. Aynı sanal AĞDA veya diğer sanal ağlar aynı bölgedeki veya farklı bölgelerdeki veya şirket içi HSM'ler HSM'ler kullanarak siteden siteye bir sanal ağa bağlı veya aynı yüksek kullanılabilirlik yapılandırması için noktadan noktaya VPN eklenebilir. Bu yalnızca anahtar malzemesi ve roller gibi özel olmayan yapılandırma öğelerini eşitler unutulmamalıdır.
 
 ### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>S: HSM'ler my şirket içi ağdan Azure ayrılmış HSM ile yüksek kullanılabilirlik grubuna ekleyebilirim?
 
@@ -176,13 +176,13 @@ Hayır.
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>S: Kaç tane HSM'ler tek bir uygulamadan diğerine aynı yüksek kullanılabilirlik yapılandırması için ekleyebilirim?
 
-16\.
+16 bir yüksek kullanılabilirlik grubunda üye var. altında gitti, tam kısıtlama mükemmel sonuçları ile test etme
 
 ## <a name="support"></a>Destek
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>S: Ayrılmış HSM hizmeti için SLA'sı nedir?
 
-Şu anda sağlanan ayrılmış HSM hizmeti için SLA yoktur. Microsoft ağ aygıtına düzeyi erişim sağlayacak ve bu nedenle standart Azure ağ SLA'lar uygulayın.
+Ayrılmış HSM hizmet için sağlanan hiçbir belirli çalışma süresi guarentee yoktur. Microsoft ağ aygıtına düzeyi erişim sağlayacak ve bu nedenle standart Azure ağ SLA'lar uygulayın.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>S: HSM'ler, Azure ayrılmış HSM korumalı içinde nasıl kullanılır?
 
@@ -198,15 +198,19 @@ HSM'ler normal düzenli yedeklemesi için olağanüstü durum kurtarma gerçekle
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>S: Ayrılmış HSM için destek ne elde ederim?
 
-Tıpkı diğer Azure Hizmetleri için destek alın. Azure destek ekibinin Gemalto destek servis talebi bağlı olarak gereken şekilde ilerletir.
+Destek, hem Microsoft hem de Gemalto tarafından sağlanır.  Donanım ile ilgili bir sorun varsa veya ağ erişimi, Microsoft ile bir destek isteği oluşturun ve rasie HSM yapılandırma, yazılım ve uygulama geliştirme ile ilgili bir sorun varsa lütfen destek ile Gemalto isteyin. Bir destek isteği withg Microsoft yükseltmek, belirsiz bir sorun varsa ve ardından Gemalto olarak bağlı gereklidir. 
 
-### <a name="q-how-do-i-get-access-to-dedicated-hsm-client-software-documentation-firmware-images"></a>S: Ayrılmış HSM istemci yazılımı, belgeler, bellenim görüntüleri erişimi nasıl alır?
+### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>S: Yazılım, belgelere ve tümleştirme yönergeleri için SafeNet Luna 7 HSM erişim istemci nasıl alabilirim?
 
-Müşteri, doğrudan erişmek için HSM istemci yazılımı, belgeler, işletim sistemi/bellenim görüntülerinin Gemalto birlikte çalışmalıdır.
+Gemalto müşteri desteği Portalı'nda kaydı sağlayan sağlanan hizmet için kaydolduktan sonra Gemalto Müşteri Kimliği olur. Bu, tüm yazılım ve belgeleri yanı sıra etkinleştirme destek istekleri Gemalto ile doğrudan erişmesine olanak sağlar.
 
 ### <a name="q-if-there-is-a-security-vulnerability-found-and-a-patch-is-released-by-gemalto-who-is-responsible-for-upgradingpatching-osfirmware"></a>S: Varsa yükseltme/düzeltme eki uygulama işletim sistemi/üretici yazılımı için sorumlu Gemalto tarafından bulunan bir güvenlik açığı ve bir düzeltme eki yayımlanır?
 
 Microsoft, müşterilere ayrılmış HSM'ler için bağlantı özelliği yok. Müşteriler, yükseltme ve bunların HSM'ler düzeltme eki gerekir.
+
+### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>S: Peki my HSM yeniden başlatma gerekecek?
+
+ Bir komut satırı yeniden başlatma seçeneğini HSM vardır ve "donanımdan önyükleme" seçeneği kullanılmalıdır unutulmamalıdır. Bu herhangi bir nedenle başarısız olursa, Microsoft ile bir destek isteği oluşurun ve fiziksel olarak yeniden cihaz sahibiz. 
 
 ## <a name="cryptography-and-standards"></a>Şifreleme ve standartları
 
@@ -262,15 +266,13 @@ Ayrılmış HSM hükümlerine SafeNet ağ HSM 7 cihazları (model A790). Bazı i
 
 ### <a name="q-how-many-partitions-can-be-created-in-dedicated-hsm"></a>S: Ayrılmış HSM içinde kaç bölüm oluşturulabilir?
 
-Belirli kullanılan HSM modelini temel alan kullanılabilir 10 bölümler vardır.
+A790 kullanılan SafeNet Luna HSM 7 modeli, hizmetin maliyeti 10 bölümler için bir lisans içerir. Cihaz 100 bölüm sınırı vardır ve bu sınıra kadar bölümleri ekleme Lisans ek ücrete neden ve cihaz üzerinde yeni bir lisans dosyası'nün yüklenmesi gerekir.
 
 ### <a name="q-how-many-keys-can-be-supported-in-dedicated-hsm"></a>S: Ayrılmış HSM içinde kaç anahtarları desteklenir?
 
-Maksimum anahtar sayısı. Bu numaraları da asimetrik anahtarları kullanıyorsanız anahtar çiftleri için geçerlidir.
+Maksimum anahtar sayısı, kullanılabilir belleğin bir işlevdir. SafeNet Luna 7 modeli A790 32 MB bellek var. Aşağıdaki numaralarını da asimetrik anahtarları kullanıyorsanız anahtar çiftleri için geçerlidir.
 
 * RSA 2048 - 19,000
 * ECC P256 - 91,000
-* AES-256 - 218,000
 
 Kapasite, şablon anahtar oluşturma ve bölüm sayısı belirli bir anahtar özniteliklere bağlı olarak değişir.
-

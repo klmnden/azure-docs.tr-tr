@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: f658b8a0530b0031f0ad22ce3c09ea7cc212430b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 72d6ce58a986ddd0d0976d99de5ca3426d78f0b9
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107078"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287171"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Öğretici: Azure Data Box dönün ve verileri karşıya yükleme azure'a doğrulayın
 
@@ -43,7 +43,13 @@ Başlamadan önce emin olun:
 
 1. Cihazın kapalı olduğundan ve kabloların çıkartılmış olduğundan emin olun. Cihaz ile beraber sağlanan güç kablosunu sararak emniyetli şekilde cihazın arkasına yerleştirin.
 2. E-ink ekranda gönderi etiketinin görüntülendiğinden emin olun ve taşıyıcınızdan bir teslim alma randevusu alın. Etiketin zarar görmüş veya kayıp veya E-mürekkep ekranda görüntülenen değil, Microsoft Support başvurun. Destek önerir sonra gidebilirsiniz **genel bakış > Sevkiyat Etiketi indirin** Azure portalında. Sevkiyat Etiketi indirin ve cihaza eklemesi. 
-3. UPS ile bir toplama cihaz döndüren, zamanlayın. Bir toplama zamanlamak için yerel UPS (ücretsiz ülkelere özgü arama numarası) çağrı yapma veya en yakın bırakma konumu Data Box'devre dışı bırakın.
+3. UPS ile bir toplama cihaz döndüren, zamanlayın. Bir toplama zamanlamak için:
+
+    - Yerel UPS (ücretsiz ülkelere özgü arama numarası) çağırın.
+    - Çağrınızda, izleme E-mürekkep görüntülenmesini veya yazdırılan etiketinizin gösterildiği numarası ters sevkiyat teklif.
+    - İzleme numarası tırnak içinde değil, UPS alımı sırasında ek bir ücret ödeme yapmanızı gerektirir.
+
+    Toplama zamanlama yerine, ayrıca Data Box'yakın bırakma konumu devre dışı bırakabilir.
 4. Data Box nakliyeciniz tarafından toplandıktan ve tarandıktan sonra, portaldaki sipariş durumu **Toplandı** olarak güncelleştirilir. Ayrıca bir takip numarası da görüntülenir.
 
 ## <a name="verify-data-upload-to-azure"></a>Azure'a verilerin yüklendiğini doğrulama

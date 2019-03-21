@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 23fa146b7bdaef0451984d0fbc638c57691cf259
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba9746566f0f69ea2131b8f77a14939ea561638a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201729"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200490"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive ile Apache Beeline istemcisini kullanma
 
@@ -148,10 +148,10 @@ Beeline HDInsight kümenizin baş düğümlerine dahil edilmiş bir Hive istemci
 
     * `INPUT__FILE__NAME LIKE '%.log'` -Hive, dizindeki tüm dosyaları şema uygulamak çalışır. Bu durumda, dizin şemasını eşleşmeyen dosyalarını içerir. Çöp veri sonuçları engellemek için bu bildirimi Hive, yalnızca veri sonu dosyalarından dönmesi gerektiğini söyler. günlük.
 
-  > [!NOTE]  
-  > Dış tablolar, temel alınan veriler dış bir kaynak tarafından güncelleştirilmesi beklediğiniz kullanılmalıdır. Örneğin, bir otomatik veri karşıya yükleme işlemi veya MapReduce işlemi.
-  >
-  > Bir dış tablo bırakılırken mu **değil** verileri, yalnızca tablo tanımını silin.
+   > [!NOTE]  
+   > Dış tablolar, temel alınan veriler dış bir kaynak tarafından güncelleştirilmesi beklediğiniz kullanılmalıdır. Örneğin, bir otomatik veri karşıya yükleme işlemi veya MapReduce işlemi.
+   >
+   > Bir dış tablo bırakılırken mu **değil** verileri, yalnızca tablo tanımını silin.
 
     Bu komutun çıktısı şu metne benzer:
 
@@ -198,12 +198,12 @@ Bir dosya oluşturun ve ardından Beeline kullanarak çalıştırmak için aşa�
 
     Bu deyimler, aşağıdaki eylemleri gerçekleştirin:
 
-    * **OLUŞTURMA IF NOT TABLOSUNUN VAROLDUĞUNU** -tablo zaten mevcut değilse oluşturulur. Bu yana **dış** anahtar sözcüğü kullanılmazsa, bu deyimi iç tablo oluşturur. İç tablolar Hive veri ambarı'nda depolanır ve yığın tarafından tamamen yönetilir.
-    * **DEPOLANAN AS ORC** -en iyi duruma getirilmiş satır sütunlu (ORC) biçiminde veri depolar. ORC biçimi, Hive verilerini depolamak için yüksek oranda en iyi duruma getirilmiş ve verimli bir biçimidir.
-    * **INSERT ÜZERİNE... SEÇİN** -satırları seçer **log4jLogs** içeren tablo **[Hata]**, ardından verileri ekler **günlüklerini** tablo.
+   * **OLUŞTURMA IF NOT TABLOSUNUN VAROLDUĞUNU** -tablo zaten mevcut değilse oluşturulur. Bu yana **dış** anahtar sözcüğü kullanılmazsa, bu deyimi iç tablo oluşturur. İç tablolar Hive veri ambarı'nda depolanır ve yığın tarafından tamamen yönetilir.
+   * **DEPOLANAN AS ORC** -en iyi duruma getirilmiş satır sütunlu (ORC) biçiminde veri depolar. ORC biçimi, Hive verilerini depolamak için yüksek oranda en iyi duruma getirilmiş ve verimli bir biçimidir.
+   * **INSERT ÜZERİNE... SEÇİN** -satırları seçer **log4jLogs** içeren tablo **[Hata]**, ardından verileri ekler **günlüklerini** tablo.
 
-    > [!NOTE]  
-    > Dış tablolar, iç tablo bırakılırken, temel alınan verileri de siler.
+     > [!NOTE]  
+     > Dış tablolar, iç tablo bırakılırken, temel alınan verileri de siler.
 
 3. Dosyayı kaydetmek için kullanın **Ctrl**+**_X**, enter **Y**ve son olarak **Enter**.
 
@@ -294,7 +294,6 @@ Tez Hive'ı kullanıyorsanız aşağıdaki belgelere bakın: [Linux tabanlı HDI
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 

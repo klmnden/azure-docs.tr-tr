@@ -1,49 +1,77 @@
 ---
-title: Konuşma çevirisi - konuşma hizmetleri hakkında
+title: Konuşma çevirisi ile Azure konuşma Hizmetleri
 titlesuffix: Azure Cognitive Services
-description: Konuşma hizmeti API'sini uygulamaları, araçları ve cihazlar için uçtan uca, gerçek zamanlı, çok dilli konuşma çevirisi eklemenize olanak tanır. Aynı API hem konuşma okuma ve konuşma metin çevirisi için kullanılabilir.
+description: Konuşma Hizmetleri, uygulamaları, araçları ve cihazlar için uçtan uca, gerçek zamanlı, çok dilli konuşma çevirisi eklemenize olanak sağlar. Aynı API hem konuşma okuma ve konuşma metin çevirisi için kullanılabilir.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: e77bfcdf2e037c7f6221b6761df708dac01924dd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 95682612b4b0fdb1baa5038039630e74abddb1a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879250"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890485"
 ---
-# <a name="about-the-speech-translation-api"></a>Konuşma çevirisi API'si hakkında
+# <a name="what-is-speech-translation"></a>Konuşma çevirisi nedir?
 
-Konuşma hizmeti API'sini uygulamaları, araçları ve cihazlar için uçtan uca, gerçek zamanlı, çok dilli konuşma çevirisi eklemenize olanak tanır. Aynı API hem konuşma okuma ve konuşma metin çevirisi için kullanılabilir.
+Konuşma çevirisi Azure konuşma Hizmetleri, gerçek zamanlı, çok dilli konuşma okuma ve konuşma metin çevirisi ses akışları sağlar. Konuşma SDK ile uygulamalarınızı, araçları ve cihazlarınızı kaynak döküm ve çeviri çıkışları sağlanan ses erişiminiz. Geçici transkripsiyonu ve çeviri sonuçları konuşma algılanır ve Sentezlenen konuşmaya finaller sonuçları dönüştürülebilir olarak döndürülür.
 
-Translator konuşma tanıma API'si ile istemci uygulamaları, hizmet konuşma sesine akışla aktarma ve geri sonuçları bir akışını alın. Bu sonuçları tanınan metin kaynak dili ve çevirisini hedef dil ekleyin. Bir utterance işlemi tamamlanana kadar aynı zamanda son çeviri sağlanan sağlanan geçici çevirileri olabilir.
+Microsoft'un çeviri altyapısı tarafından iki farklı yaklaşım desteklenir: istatistiksel makine çevirisi (SMT) ve sinirsel makine çevirisi (NMT). SMT verilen birkaç sözcük bağlamında en iyi olası çevirileri tahmin etmek için Gelişmiş istatistiksel çözümlemesini kullanır. NMT ile sinir ağları daha doğru doğal görünen çevirileri kelimeleri için tam cümlelerden bağlamında kullanarak sağlamak için kullanılır.
 
-İsteğe bağlı olarak doğru konuşma konuşma çevirisi etkinleştirme son çeviri Sentezlenen ses sürümünü hazırlanabilir.
+Bugün, Microsoft çeviri için en popüler diller NMT kullanır. Tüm [konuşma konuşma çevirisi için kullanılabilen dilleri](language-support.md#speech-translation) NMT tarafından desteklenir. Konuşma metin çeviri dili çifti bağlı olarak SMT veya NMT kullanabilir. Hedef Dil NMT tarafından desteklenen tüm çeviri NMT destekli olur. Hedef Dil NMT tarafından desteklenmiyor, çeviri NMT ve SMT İngilizce olarak bir "Özet" arasında iki dilleri kullanarak, bir karma değildir.
 
-Konuşma çevirisi API'si, istemci ve sunucu arasında bir tam çift yönlü iletişim kanalı sağlamak için WebSockets protokolü kullanır. Ancak WebSockets ile işlem gerekmez; Speech SDK'sı, sizin yerinize çözer.
+## <a name="core-features"></a>Temel özellikleri
 
-Konuşma çevirisi API'si, çeşitli Microsoft ürünleri ve Hizmetleri güç teknolojiye kullanır. Bu hizmet, zaten binlerce işletme tarafından uygulamalarını ve iş akışları, dünya çapında kullanılır.
+REST API'leri ve Speech SDK'sı kullanılabilen özellikleri şunlardır:
 
-## <a name="about-the-technology"></a>Teknoloji hakkında
+| Kullanım örneği | SDK | REST |
+|----------|-----|------|
+| Tanıma sonuçları konuşma metin çevirisi. | Evet | Hayır |
+| Konuşma konuşma çevirisi. | Evet | Hayır |
+| Geçici algılama ve çeviri sonuçları. | Evet | Hayır |
 
-Microsoft'un çeviri altyapısı temel olan iki farklı yaklaşım: istatistiksel makine çevirisi (SMT) ve sinirsel makine çevirisi (NMT). İkincisi, sinir ağları kullanan bir yapay zeka yaklaşım makine çevirisi için daha modern bir yaklaşımdır. Daha iyi Çeviriler NMT sağlar — değil yalnızca daha doğru ancak aynı zamanda daha fluent ve doğal. Bu akıcılığın temel nedeni, NMT'nin sözcükleri çevirmek için cümlenin bağlamından bütünüyle yararlanmasıdır.
+## <a name="get-started-with-speech-translation"></a>Konuşma çevirisi ile çalışmaya başlama
 
-Bugün Microsoft NMT için en popüler diller için yalnızca daha az sık kullanılan dillerde SMT kullanan geçiş yaptı. Tüm [konuşma konuşma çevirisi için kullanılabilen dilleri](language-support.md#speech-translation) NMT tarafından desteklenir. Konuşma metin çeviri dili çifti bağlı olarak SMT veya NMT kullanabilir. Hedef dil NMT tarafından destekleniyorsa, çevirinin tamamı NMT destekli olur. Hedef Dil NMT tarafından desteklenmiyorsa, çeviri NMT ve İngilizce olarak bir "Özet" arasında iki dilleri kullanarak, SMT karmadır.
+Hızlı başlangıçlar, kodu 10 dakikadan kısa bir süre içinde çalıştırmak için tasarlanmış sunuyoruz. Bu tablo, konuşma çevirisi hızlı başlangıçlar dile göre düzenlenmiş bir listesini içerir.
 
-Modelleri arasındaki farkları çeviri Altyapısı'na iç. Son kullanıcılar yalnızca geliştirilmiş çeviri kalitesi, özellikle Çince, Japonca ve Arapça dikkat edin.
+| Hızlı Başlangıç | Platform | API başvurusu |
+|------------|----------|---------------|
+| [C#, .NET Core](quickstart-translate-speech-dotnetcore-windows.md) | Windows | [Göz atma](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET Framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Göz atma](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [Göz atma](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Göz atma](https://aka.ms/csspeech/cppref)|
+| [Java](quickstart-translate-speech-java-jre.md) | Windows | [Göz atma](https://aka.ms/csspeech/javaref) |
 
-> [!NOTE]
-> Microsoft'un çeviri altyapısı teknoloji hakkında daha fazla ilginizi çekiyor mu? Bkz: [makine çevirisi](https://www.microsoft.com/en-us/translator/mt.aspx).
+## <a name="sample-code"></a>Örnek kod
+
+Speech SDK'sı için örnek kod, Github'da kullanılabilir. Bu örnekler bir dosya veya akıştan, sürekli ve tek tanıma/çevirisi, ses okuma ve özel modelleriyle çalışma gibi yaygın senaryoları kapsar.
+
+* [Konuşmayı metne ve çeviri örnekleri (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+
+## <a name="migration-guides"></a>Geçiş kılavuzları
+
+> [!WARNING]
+> Translator konuşma çevirisi, 15 Ekim 2019 üzerinde kullanımdan.
+
+Translator konuşma çevirisi, uygulamalar, Araçlar veya ürünleri kullanıyorsa kılavuzları konuşma Hizmetleri'ne geçirmenize yardımcı olması için oluşturduk.
+
+* [Translator konuşma API'sini konuşma Services'a geçme](how-to-migrate-from-translator-speech-api.md)
+
+## <a name="reference-docs"></a>Başvuru belgeleri
+
+* [Konuşma SDK'sı](speech-sdk-reference.md)
+* [Konuşma cihaz SDK'sı](speech-devices-sdk.md)
+* [REST API: Konuşma metin](rest-speech-to-text.md)
+* [REST API: Metin okuma](rest-text-to-speech.md)
+* [REST API: Batch tanıma ve özelleştirme](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
-* [C# ' de Konuşma Çevir öğrenin](how-to-translate-speech-csharp.md)
-* [C++'ta konuşma Çevir öğrenin](how-to-translate-speech-cpp.md)
-* [Java'da konuşma Çevir öğrenin](how-to-translate-speech-java.md)
+* [Bir konuşma Hizmetleri abonelik anahtarı ücretsiz olarak edinin](get-started.md)
+* [Konuşma SDK'sı Al](speech-sdk.md)

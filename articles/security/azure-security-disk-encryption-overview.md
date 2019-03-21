@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/12/2019
+ms.date: 03/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: a7dd061d84167b172aff52e8a62ed6d43fddc108
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 66d788aec83e3e57a49b063f2ca80484360f639d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862021"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295292"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Iaas VM'ler için Azure Disk şifrelemesi
 
@@ -81,6 +81,7 @@ Microsoft Azure'da etkin çözüm Iaas Vm'leri için aşağıdaki senaryoları d
 * Temel katman Iaas Vm'leri.
 * Linux Iaas Vm'leri için şifreleme bir işletim sistemi sürücüsünde devre dışı bırakın.
 * Linux Iaas sanal makineleri için işletim sistemi sürücüsünü şifreli olduğunda bir veri sürücüsü üzerinde şifrelemeyi devre dışı bırakın.
+* Linux sanal makine ölçek kümesi için işletim sistemi Sürücü Şifrelemesi ayarlar.
 * Klasik sanal makine oluşturma yöntemini kullanarak oluşturulan Iaas VM'ler.
 * Müşteri özel görüntüleri Linux Iaas sanal makineleri üzerinde şifrelemeyi etkinleştirir.
 * Şirket içi anahtar yönetimi sistemi ile tümleştirme.

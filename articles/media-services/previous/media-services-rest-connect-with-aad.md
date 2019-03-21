@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: ef81e0c4d04d57edbffa16b817b34af5f3bf8c26
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4b6bd97d7e87832f774f7a09f7e0deeb4047e695
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995638"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294476"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>REST ile Media Services API'sine erişmek için Azure AD kimlik doğrulaması kullanın.
 
@@ -60,8 +60,8 @@ Media Services API'sine erişmek için aşağıdaki veri noktaları toplamak ger
 
 |Ayar|Örnek|Açıklama|
 |---|-------|-----|
-|Azure Active Directory kiracı etki alanı|Microsoft.onmicrosoft.com|Azure AD'yi bir güvenli belirteç hizmeti (STS) uç noktası olarak, aşağıdaki biçimi kullanarak oluşturulur: https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD, bir JWT (bir erişim belirteci) kaynaklara erişmek için verir.|
-|REST API uç noktası|https://amshelloworld.restv2.westus.media.azure.net/api/|Bu, tüm medya Hizmetleri REST API çağrıları, uygulamanızda yapılan uç noktadır.|
+|Azure Active Directory kiracı etki alanı|microsoft.onmicrosoft.com|Azure AD'yi bir güvenli belirteç hizmeti (STS) uç noktası olarak, aşağıdaki biçimi kullanarak oluşturulur: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. Azure AD, bir JWT (bir erişim belirteci) kaynaklara erişmek için verir.|
+|REST API uç noktası|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Bu, tüm medya Hizmetleri REST API çağrıları, uygulamanızda yapılan uç noktadır.|
 |İstemci kimliği (uygulama kimliği)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD uygulama (istemci) kimliği. Erişim belirteci almak için istemci kimliği gereklidir. |
 |İstemci Gizli Anahtarı|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD uygulama anahtarları (gizli). Erişim belirteci almak için istemci gizli anahtarı gereklidir.|
 
@@ -69,7 +69,7 @@ Media Services API'sine erişmek için aşağıdaki veri noktaları toplamak ger
 
 Bilgi edinmek için şu adımları izleyin:
 
-1. [Azure Portal](http://portal.azure.com)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com)’da oturum açın.
 2. AMS Örneğinize gidin.
 3. Seçin **API erişimi**.
 4. Tıklayarak **hizmet sorumlusu ile Azure Media Services API'sine bağlanma**.
@@ -83,33 +83,33 @@ Bilgi edinmek için şu adımları izleyin:
 
     Yeni bir AD uygulaması oluşturmanız gerekiyorsa, aşağıdaki adımları izleyin:
     
-    1. Tuşuna **Yeni Oluştur**.
-    2. Bir ad girin.
-    3. Tuşuna **Yeni Oluştur** yeniden.
-    4. **Kaydet**’e basın.
+   1. Tuşuna **Yeni Oluştur**.
+   2. Bir ad girin.
+   3. Tuşuna **Yeni Oluştur** yeniden.
+   4. **Kaydet**’e basın.
 
-    ![API erişimi](./media/connect-with-rest/new-app.png)
+      ![API erişimi](./media/connect-with-rest/new-app.png)
 
-    Yeni uygulama sayfasında gösterilir.
+      Yeni uygulama sayfasında gösterilir.
 
 6. Alma **istemci kimliği** (uygulama kimliği).
     
-    1. Uygulamayı seçin.
-    2. Alma **istemci kimliği** sağdaki penceresinden. 
+   1. Uygulamayı seçin.
+   2. Alma **istemci kimliği** sağdaki penceresinden. 
 
-    ![API erişimi](./media/connect-with-rest/existing-client-id.png)
+      ![API erişimi](./media/connect-with-rest/existing-client-id.png)
 
-7.  Uygulama alma **anahtarı** (gizli). 
+7. Uygulama alma **anahtarı** (gizli). 
 
-    1. Tıklayın **uygulamasını Yönet** düğmesine (istemci kimlik bilgileri altında olduğuna dikkat edin **uygulama kimliği**). 
-    2. Tuşuna **anahtarları**.
+   1. Tıklayın **uygulamasını Yönet** düğmesine (istemci kimlik bilgileri altında olduğuna dikkat edin **uygulama kimliği**). 
+   2. Tuşuna **anahtarları**.
     
-        ![API erişimi](./media/connect-with-rest/manage-app.png)
-    3. Uygulama anahtarı (gizli) doldurarak oluşturmak **açıklama** ve **EXPIRES** tuşuna basarak **Kaydet**.
+       ![API erişimi](./media/connect-with-rest/manage-app.png)
+   3. Uygulama anahtarı (gizli) doldurarak oluşturmak **açıklama** ve **EXPIRES** tuşuna basarak **Kaydet**.
     
-        Bir kez **Kaydet** düğmesine basıldığında, anahtar değeri görüntülenir. Dikey ayrılmadan önce anahtar değerini kopyalayın.
+       Bir kez **Kaydet** düğmesine basıldığında, anahtar değeri görüntülenir. Dikey ayrılmadan önce anahtar değerini kopyalayın.
 
-    ![API erişimi](./media/connect-with-rest/connect-with-rest03.png)
+   ![API erişimi](./media/connect-with-rest/connect-with-rest03.png)
 
 Kodunuzu daha sonra kullanmak için web.config veya app.config dosyanıza AD bağlantı parametreleri için değerler ekleyebilirsiniz.
 
