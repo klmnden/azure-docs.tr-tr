@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: da6be839f5e7c1bfd885015c9b0206945feb77d1
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: d90f23f52ca4c0cce3d853114acf673aa085d3c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452794"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889799"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Azure Notification Hubs ve Node.js ile anında iletme bildirimleri gönderme
 
@@ -31,7 +31,7 @@ ms.locfileid: "54452794"
 > [!IMPORTANT]
 > Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika ücretsiz bir deneme hesabı oluşturma [Azure ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs).
 
-Bu kılavuz doğrudan Azure Notification Hubs'ın yardımıyla anında iletme bildirimleri göndermek nasıl gösterir bir [Node.js](http://nodejs.org) uygulama.
+Bu kılavuz doğrudan Azure Notification Hubs'ın yardımıyla anında iletme bildirimleri göndermek nasıl gösterir bir [Node.js](https://nodejs.org) uygulama.
 
 Aşağıdaki platformlarda uygulamalarına anında iletme bildirimleri gönderme senaryoları ele alınmaktadır:
 
@@ -60,7 +60,7 @@ Azure Notification hubs'ı kullanmak için indirme ve Node.js kullanma için iht
 4. Bu klasörün içinde Bul **azure** bildirim hub'ı erişmek için ihtiyacınız olan kitaplıkları içeren paket.
 
 > [!NOTE]
-> Resmi üzerinde NPM yükleme hakkında daha fazla bilgi [NPM blog](http://blog.npmjs.org/post/85484771375/how-to-install-npm).
+> Resmi üzerinde NPM yükleme hakkında daha fazla bilgi [NPM blog](https://blog.npmjs.org/post/85484771375/how-to-install-npm).
 
 ### <a name="import-the-module"></a>Modülü içeri aktarın
 
@@ -107,7 +107,7 @@ Bağlantı elde `connectionstring` değerini [Azure Portal] aşağıdaki adımla
 - **Yükü** -ileti JSON veya ham dize yükü.
 - **Geri çağırma** -geri çağırma işlevi.
 
-Yük biçimi hakkında daha fazla bilgi için bkz. **yükü** bölümünü [uygulama GCM Server](http://developer.android.com/google/gcm/server.html#payload) belge.
+Yük biçimi hakkında daha fazla bilgi için bkz. **yükü** bölümünü [uygulama GCM Server](https://developer.android.com/google/gcm/server.html#payload) belge.
 
 Aşağıdaki kod `GcmService` örneği tarafından açığa çıkarılan `NotificationHubService` tüm kayıtlı istemcilere anında iletme bildirimi göndermek için.
 
@@ -132,7 +132,7 @@ Yukarıda Android uygulamaları ile aynı `ApnsService` nesnesi sağlayan bir `s
 - **Yükü** -ileti JSON ya da dize yükü.
 - **Geri çağırma** -geri çağırma işlevi.
 
-Yük biçimi daha fazla bilgi için **bildirim yükü** bölümünü [yerel ve anında iletilen bildirim Programlama Kılavuzu](http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) belge.
+Yük biçimi daha fazla bilgi için **bildirim yükü** bölümünü [yerel ve anında iletilen bildirim Programlama Kılavuzu](https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) belge.
 
 Aşağıdaki kod `ApnsService` örneği tarafından açığa çıkarılan `NotificationHubService` tüm istemcilere bir uyarı iletisi göndermek için:
 
@@ -221,9 +221,9 @@ Yukarıdaki örnek kod, hizmet altyapısı, çok çeşitli cihazlara anında ile
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
 [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
 [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
-[SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
-[SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+[SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+[Azure Service Bus Notification Hubs]: https://msdn.microsoft.com/library/windowsazure/jj927170.aspx
+[SqlFilter]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
 [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png

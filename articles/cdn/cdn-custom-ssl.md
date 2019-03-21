@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c9fb24cd6bcfae273c5430eee8d1fa8df58c6202
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1ebac5476c90b3cb49fccbb95ef8dedf413a6127
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236320"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200302"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Öğretici: Bir Azure CDN özel etki alanı üzerinde HTTPS yapılandırma
 
@@ -172,7 +172,7 @@ CNAME kaydınız, *Ad*’ın özel etki alanınız, *Değer*’in ise CDN uç no
 
 | Ad            | Tür  | Değer                 |
 |-----------------|-------|-----------------------|
-| www.contoso.com | CNAME | contoso.azureedge.net |
+| < www.contoso.com> | CNAME | contoso.azureedge.net |
 
 CNAME kayıtları hakkında daha fazla bilgi için bkz. [CNAME DNS kaydı oluşturma](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
@@ -190,7 +190,7 @@ Uç noktanız için CNAME kaydı girişi artık mevcut değilse veya cdnverify a
 >[!NOTE]
 >Özel etki alanı sahipliğini doğrulama e-posta şu an için kullanılamıyor **akamai'den Azure CDN** profilleri. Bu özellik şu anda üzerinde çalışıyoruz. 
 
-Özel etki alanınızda HTTPS'yi etkinleştirdikten sonra, DigiCert CA etki alanının [WHOIS](http://whois.domaintools.com/) kayıt yetkilisi bilgisine göre kayıt yetkilisiyle iletişim kurarak etki alanınızın sahipliğini doğrular. İletişim, WHOIS kaydında belirtilen e-posta adresi (varsayılan) veya telefon numarası aracılığıyla kurulur. HTTPS, özel etki alanınızda etkin hale gelmeden önce etki alanı doğrulamasını tamamlamanız gerekir. Etki alanını onaylamak için altı iş gününüz vardır. Altı iş günü içinde onaylanmamış istekler otomatik olarak iptal edilir. 
+Özel etki alanınızda HTTPS'yi etkinleştirmek için bir istek gönderdikten sonra DigiCert CA'ın etki alanınızın sahipliğini kayıt yetkilisiyle iletişim kurarak etki alanının göre doğrular [WHOIS](http://whois.domaintools.com/) kayıt yetkilisi bilgileri. İletişim, WHOIS kaydında belirtilen e-posta adresi (varsayılan) veya telefon numarası aracılığıyla kurulur. HTTPS, özel etki alanınızda etkin hale gelmeden önce etki alanı doğrulamasını tamamlamanız gerekir. Etki alanını onaylamak için altı iş gününüz vardır. Altı iş günü içinde onaylanmamış istekler otomatik olarak iptal edilir. 
 
 ![WHOIS kaydı](./media/cdn-custom-ssl/whois-record.png)
 

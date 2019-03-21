@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 392c3a919f588e8e957222f36e1b0e059bf5adc4
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
-ms.translationtype: MT
+ms.openlocfilehash: 8cdf8022f87c8fa3e81e2544a6678751726b2b3b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726660"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889837"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti
 
@@ -39,25 +39,46 @@ Hizmet genel kullanıma sunulan Azure bölgelerinde kullanılabilir. Tüm API s�
 
 Bölgeler                                        | Kullanılabilirlik?                                 | Desteklenen Sürümler
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Tüm genel kullanıma sunulan Global Azure bölgeleri](https://azure.microsoft.com/regions/)     | Genel Kullanıma Sunuldu   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02
-[Azure Devlet Kurumları](https://azure.microsoft.com/overview/clouds/government/)              | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Azure Çin](https://www.azure.cn/)                                                           | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Azure Almanya](https://azure.microsoft.com/overview/clouds/germany/)                    | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Genel Batı Orta ABD](https://azure.microsoft.com/regions/)     | Genel Kullanıma Sunuldu   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Tüm genel kullanıma sunulan Global Azure bölgeleri](https://azure.microsoft.com/regions/)     | Genel Kullanıma Sunuldu   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure Devlet Kurumları](https://azure.microsoft.com/overview/clouds/government/)              | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure Çin](https://www.azure.cn/)                                                           | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure Almanya](https://azure.microsoft.com/overview/clouds/germany/)                    | Genel Kullanıma Sunuldu | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+
 Bu tablo, hizmet güncelleştirmeleri vardır ve ne zaman veya yeni desteklenen sürümler kullanılabilir güncelleştirilir.
 
-> [!NOTE]
-> 2018-10-01, şu anda kullanıma ve kısa süre içinde diğer kullanılabilir olacak. 
-
-Örnek meta veri hizmeti deneyebilmesi için bir VM oluşturma [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) veya [Azure portalında](http://portal.azure.com) yukarıdaki bölgelerde ve aşağıdaki örneklerde izleyin.
+Örnek meta veri hizmeti deneyebilmesi için bir VM oluşturma [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) veya [Azure portalında](https://portal.azure.com) yukarıdaki bölgelerde ve aşağıdaki örneklerde izleyin.
 
 ## <a name="usage"></a>Kullanım
 
 ### <a name="versioning"></a>Sürüm oluşturma
 
-Örnek meta veri hizmeti sürümü. Sürümleri zorunludur ve genel Azure üzerinde geçerli sürümü `2018-04-02`. (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01) geçerli desteklenen sürümler:
+Örnek meta veri hizmeti sürümü. Sürümleri zorunludur ve genel Azure üzerinde geçerli sürümü `2018-10-01`. (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01) geçerli desteklenen sürümler:
 
 Daha yeni sürümler eklendikçe betiklerinizi özgü veri biçimleri üzerinde bağımlılıkları varsa, eski sürümleri yine de uyumluluk için erişilebilir.
+
+Hiçbir sürüm belirtildiğinde, bir hata yeni Desteklenen sürümlerin bir listesi döndürülür.
+
+> [!NOTE]
+> Yanıt, bir JSON dizesi. Aşağıdaki örnek yanıt okunabilirlik açısından pretty yazdırılır.
+
+**İstek**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance"
+```
+
+**Yanıt**
+
+```json
+{
+    "error": "Bad request. api-version was not specified in the request. For more information refer to aka.ms/azureimds",
+    "newest-versions": [
+        "2018-10-01",
+        "2018-04-02",
+        "2018-02-01"
+    ]
+}
+```
 
 ### <a name="using-headers"></a>Üst bilgileri kullanma
 
@@ -165,7 +186,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **İstek**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-12-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"
 ```
 
 **Yanıt**
@@ -176,19 +197,27 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 ```json
 {
   "compute": {
+    "azEnvironment": "AZUREPUBLICCLOUD",
     "location": "westus",
-    "name": "avset2",
-    "offer": "UbuntuServer",
-    "osType": "Linux",
+    "name": "jubilee",
+    "offer": "Windows-10",
+    "osType": "Windows",
     "placementGroupId": "",
+    "plan": {
+        "name": "",
+        "product": "",
+        "publisher": ""
+    },
     "platformFaultDomain": "1",
     "platformUpdateDomain": "1",
-    "publisher": "Canonical",
+    "provider": "Microsoft.Compute",
+    "publicKeys": [],
+    "publisher": "MicrosoftWindowsDesktop",
     "resourceGroupName": "myrg",
-    "sku": "16.04-LTS",
+    "sku": "rs4-pro",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "",
-    "version": "16.04.201708030",
+    "version": "17134.345.59",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
     "vmScaleSetName": "",
     "vmSize": "Standard_D1",
@@ -228,14 +257,14 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 Örnek meta veri Windows alınabilir `curl` programı:
 
 ```bash
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2017-08-01 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2018-10-01 | select -ExpandProperty Content
 ```
 
 Aracılığıyla veya `Invoke-RestMethod` PowerShell cmdlet:
 
 ```powershell
 
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2017-08-01 -Method get
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2018-10-01 -Method get
 ```
 
 **Yanıt**
@@ -246,17 +275,31 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```json
 {
   "compute": {
+    "azEnvironment": "AZUREPUBLICCLOUD",
     "location": "westus",
     "name": "SQLTest",
     "offer": "SQL2016SP1-WS2016",
     "osType": "Windows",
+    "placementGroupId": "",
+    "plan": {
+        "name": "",
+        "product": "",
+        "publisher": ""
+    },
     "platformFaultDomain": "0",
     "platformUpdateDomain": "0",
+    "provider": "Microsoft.Compute",
+    "publicKeys": [],
     "publisher": "MicrosoftSQLServer",
+    "resourceGroupName": "myrg",
     "sku": "Enterprise",
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "tags": "",
     "version": "13.0.400110",
     "vmId": "453945c8-3923-4366-b2d3-ea4c80e9b70e",
-    "vmSize": "Standard_DS2"
+    "vmScaleSetName": "",
+    "vmSize": "Standard_DS2",
+    "zone": ""
   },
   "network": {
     "interface": [
@@ -291,6 +334,7 @@ Aşağıdaki veri kategorileri, örnek meta veri hizmeti kullanılabilir:
 
 Veriler | Açıklama | Kullanıma sunulan sürümü
 -----|-------------|-----------------------
+azEnvironment | Azure ortamı burada VM çalışıyor | 2018-10-01
 location | Azure bölgesi VM çalışıyor | 2017-04-02
 ad | VM adı | 2017-04-02
 Teklif | VM görüntüsü için bilgi sağlar. Bu değer, yalnızca Azure görüntü Galerisi'nden dağıtılan görüntülerin bulunur. | 2017-04-02
@@ -306,8 +350,9 @@ subscriptionId | Sanal makine için Azure aboneliği | 2017-08-01
 etiketler | [Etiketleri](../../azure-resource-manager/resource-group-using-tags.md) sanal makineniz için  | 2017-08-01
 resourceGroupName | [Kaynak grubu](../../azure-resource-manager/resource-group-overview.md) sanal makineniz için | 2017-08-01
 placementGroupId | [Yerleştirme grubu](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) , sanal makine ölçek kümesi | 2017-08-01
-planı | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) Azure Market görüntüsü içindeki bir VM için adı, ürün ve yayımcı içerir. | 2018-04-02
-publicKeys | Ortak anahtarlar koleksiyonunu [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] VM ve yolları atanan | 2018-04-02
+planı | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) bir VM için bir Azure Market görüntüsü adı, ürün ve yayımcı içerir | 2018-04-02
+sağlayıcı | Sanal makinenin sağlayıcısı | 2018-10-01
+publicKeys | Ortak anahtarlar koleksiyonunu [<https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey>] VM ve yolları atanan | 2018-04-02
 vmScaleSetName | [Sanal makine ölçek kümesi adı](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) , sanal makine ölçek kümesi | 2017-12-01
 bölge | [Kullanılabilirlik alanı](../../availability-zones/az-overview.md) sanal makinenizin | 2017-12-01
 ipv4/privateIpAddress | Sanal makinenin yerel IPv4 adresi | 2017-04-02
@@ -332,7 +377,7 @@ TPM'de | Bkz: [TPM'de veri](#attested-data) | 2018-10-01
  **İstek**
 
  ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2010-10-01&nonce=1234567890"
+curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
 
 ```
 
@@ -340,6 +385,7 @@ API Sürüm zorunlu bir alan ve TPM'de verileri desteklenen sürümü 2018-10-01
 Nonce sağlanan bir isteğe bağlı 10 basamaklı dizedir. Nonce isteğin izlenmesi için kullanılabilir ve sağlanmazsa encoded yanıtı dize geçerli UTC zaman damgası döndürülür.
 
  **Yanıt**
+
 > [!NOTE]
 > Yanıt, bir JSON dizesi. Aşağıdaki örnek yanıt okunabilirlik açısından pretty yazdırılır.
 
@@ -353,7 +399,9 @@ Nonce sağlanan bir isteğe bağlı 10 basamaklı dizedir. Nonce isteğin izlenm
 
 #### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>TPM'de meta verileri içinde Windows sanal makinesi alınıyor
 
- **İstek** örnek meta veri alınabilir Windows PowerShell yardımcı programı `curl`:
+ **İstek**
+
+Örnek meta veri alınabilir Windows PowerShell yardımcı programı `curl`:
 
  ```bash
 curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" | select -ExpandProperty Content
@@ -369,6 +417,7 @@ API Sürüm zorunlu bir alan ve TPM'de verileri desteklenen sürümü 2018-10-01
 Nonce sağlanan bir isteğe bağlı 10 basamaklı dizedir. Nonce isteğin izlenmesi için kullanılabilir ve sağlanmazsa encoded yanıtı dize geçerli UTC zaman damgası döndürülür.
 
  **Yanıt**
+
 > [!NOTE]
 > Yanıt, bir JSON dizesi. Aşağıdaki örnek yanıt okunabilirlik açısından pretty yazdırılır.
 
@@ -454,38 +503,20 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure, çeşitli bağımsız bulutlarda gibi sahiptir [Azure kamu](https://azure.microsoft.com/overview/clouds/government/). Bazı durumlarda, bazı çalışma zamanı kararlar almak için Azure ortamı gerekir. Aşağıdaki örnek, bu davranışı nasıl elde edebileceğiniz gösterir.
 
 **İstek**
+``` bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
+```
 
-```PowerShell
-  $metadataResponse = Invoke-WebRequest "http://169.254.169.254/metadata/instance/compute?api-version=2018-02-01" -H @{"Metadata"="true"} -UseBasicParsing
-  $metadata = ConvertFrom-Json ($metadataResponse.Content)
- 
-  $endpointsResponse = Invoke-WebRequest "https://management.azure.com/metadata/endpoints?api-version=2017-12-01" -UseBasicParsing
-  $endpoints = ConvertFrom-Json ($endpointsResponse.Content)
- 
-  foreach ($cloud in $endpoints.cloudEndpoint.PSObject.Properties) {
-    $matchingLocation = $cloud.Value.locations | Where-Object {$_ -match $metadata.location}
-    if ($matchingLocation) {
-      $cloudName = $cloud.name
-      break
-    }
-  }
-
-  $environment = "Unknown"
-  switch ($cloudName) {
-    "public" { $environment = "AzureCloud"}
-    "usGovCloud" { $environment = "AzureUSGovernment"}
-    "chinaCloud" { $environment = "AzureChinaCloud"}
-    "germanCloud" { $environment = "AzureGermanCloud"}
-  }
-
-  Write-Host $environment
+**Yanıt**
+```
+AZUREPUBLICCLOUD
 ```
 
 ### <a name="validating-that-the-vm-is-running-in-azure"></a>VM Azure'da çalışıyor doğrulanıyor
 
  Market satıcı, yazılım'ın yalnızca Azure'da çalıştırılmak üzere lisanslanır sağlamak istiyorsunuz. Birisi VHD'yi kopyalayan, şirket içi, ardından bunların olan algılama özelliğine sahip olmalıdır. Örnek meta veri hizmeti Market çağırarak satıcılar yalnızca azure'dan yanıt garanti eden imzalı veri alabilirsiniz.
- **İstek**
- > [!NOTE]
+**İstek**
+> [!NOTE]
 > Jq yüklü olmasını gerektirir.
 
  ```bash
@@ -495,6 +526,8 @@ Azure, çeşitli bağımsız bulutlarda gibi sahiptir [Azure kamu](https://azure
   base64 -d signature > decodedsignature
   #Get PKCS7 format
   openssl pkcs7 -in decodedsignature -inform DER -out sign.pk7
+  # Get Public key out of pkc7
+  openssl pkcs7 -in decodedsignature -inform DER  -print_certs -out signer.pem
   #Get the intermediate certificate
   wget -q -O intermediate.cer "$(openssl x509 -in signer.pem -text -noout | grep " CA Issuers -" | awk -FURI: '{print $2}')"
   openssl x509 -inform der -in intermediate.cer -out intermediate.pem
@@ -597,7 +630,7 @@ Network Destination        Netmask          Gateway       Interface  Metric
   255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
 ```
 
-3. Aşağıdaki komutu çalıştırın ve için hedef ağ arabiriminin adresini kullanın (`0.0.0.0`) olduğu (`10.0.1.10`) Bu örnekte.
+1. Aşağıdaki komutu çalıştırın ve için hedef ağ arabiriminin adresini kullanın (`0.0.0.0`) olduğu (`10.0.1.10`) Bu örnekte.
 
 ```bat
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
@@ -633,7 +666,7 @@ Puppet | https://github.com/keirans/azuremetadata
 5. Neden iletisi alıyorum hata `500 Internal Server Error`?
    * Üstel geri alma sistemi göre isteğinizi yeniden deneyin. Sorun devam ederse Azure desteğine başvurun.
 6. Ek sorular/açıklamalar paylaşacağı?
-   * Yorumlarınızı gönderme http://feedback.azure.com.
+   * Yorumlarınızı gönderme https://feedback.azure.com.
 7. Bu sanal makine ölçek kümesi örneği için işe yarar?
    * Evet meta veri hizmetine ölçek kümesi örnekleri için kullanılabilir.
 8. Hizmet için nasıl destek alabilirim?
@@ -641,9 +674,9 @@ Puppet | https://github.com/keirans/azuremetadata
 9. My hizmet çağrısı zaman aşımına uğradı isteği alabilirim?
    * Meta veri çağrıları VM'nin ağ kartına birincil IP adresinden yapılması gerekir, ayrıca, değişmesi durumunda yollarınızı var. ağ kartınıza dışında 169.254.0.0/16 adresi için bir yol olmalıdır.
 10. Ben Etiketlerim sanal makine ölçek kümesindeki güncelleştirildi ancak Vm'leri farklı örneklerinde görünmüyor?
-   * Şu anda ScaleSets için etiketleri yalnızca VM yeniden başlatma/yeniden görüntü oluşturma/bir disk örneği değiştirin ya da gösterilir.
+    * Şu anda ScaleSets için etiketleri yalnızca VM yeniden başlatma/yeniden görüntü oluşturma/bir disk örneği değiştirin ya da gösterilir.
 
-   ![Örnek meta veri desteği](./media/instance-metadata-service/InstanceMetadata-support.png)
+    ![Örnek meta veri desteği](./media/instance-metadata-service/InstanceMetadata-support.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

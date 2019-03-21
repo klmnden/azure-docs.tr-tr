@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 6bb37008b6a8b37e575dcf83dffcf57ab08996fd
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9008c98a086ed2d45b7339fa3f76b33240789db8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540003"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102460"
 ---
 # <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
 > [!NOTE]
@@ -93,7 +93,7 @@ Veri Yönetimi ağ geçidi, aşağıdaki yollarla yüklenebilir:
 
 ### <a name="install-the-gateway-from-download-center"></a>Ağ geçidi İndirme Merkezi'nden yükleyin
 1. Gidin [Microsoft Veri Yönetimi ağ geçidi indirme sayfasına](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Tıklayın **indirme**, uygun sürümünü seçin (**32-bit** vs. **64-bit**), tıklatıp **sonraki**.
+2. Tıklayın **indirme**seçin **64-bit** sürüm (32-bit artık desteklenir), tıklatıp **sonraki**.
 3. Çalıştırma **MSI** doğrudan veya sabit disk ve çalışma kaydedin.
 4. Üzerinde **Hoş Geldiniz** sayfasında, bir **dil** tıklayın **sonraki**.
 5. **Kabul** tıklayın ve son kullanıcı lisans sözleşmesi **sonraki**.
@@ -291,7 +291,7 @@ Devre dışı bırak/otomatik güncelleştirme özelliği aşağıdaki adımlar�
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on
     ```
-[Yüksek oranda kullanılabilir ve ölçeklenebilir çok düğümlü gateway için](data-factory-data-management-gateway-high-availability-scalability.md)
+   [Yüksek oranda kullanılabilir ve ölçeklenebilir çok düğümlü gateway için](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Ağ geçidi makinesinde Windows PowerShell'i başlatın.
 2. C:\Program Files\Microsoft tümleştirme Runtime\3.0\PowerShellScript\ klasöre geçin.
 3. Özellik (devre dışı bırakın) otomatik güncelleştirmesini etkinleştirmek için aşağıdaki komutu çalıştırın.
@@ -467,7 +467,7 @@ Data Factory Düzenleyicisi'nde kimlik bilgilerini şifrelemek için aşağıdak
         }
     }
     ```
-Ağ geçidi makineden farklı bir makineden portalı erişirseniz, kimlik bilgileri Yöneticisi uygulama ağ geçidi makineye bağlanabildiğinizi emin olmanız gerekir. Uygulama ağ geçidi makinesine bağlanamazsa, bu veri kaynağı için kimlik bilgilerini ayarlama ve veri kaynağı bağlantısını test etmek için izin vermez.
+   Ağ geçidi makineden farklı bir makineden portalı erişirseniz, kimlik bilgileri Yöneticisi uygulama ağ geçidi makineye bağlanabildiğinizi emin olmanız gerekir. Uygulama ağ geçidi makinesine bağlanamazsa, bu veri kaynağı için kimlik bilgilerini ayarlama ve veri kaynağı bağlantısını test etmek için izin vermez.
 
 Kullanırken **kimlik bilgilerini ayarlama** uygulama portalı şifreler kimlik bilgileri ile belirtilen sertifika **sertifika** sekmesinde **ağ geçidi Yapılandırma Yöneticisi**  ağ geçidi makinesinde.
 
@@ -511,7 +511,7 @@ Bu bölümde, oluşturma ve Azure PowerShell cmdlet'lerini kullanarak bir ağ ge
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Azure PowerShell'de klasöre geçin: **C:\Program Files\Microsoft veri yönetimi Gateway\2.0\PowerShellScript\**. Çalıştırma **RegisterGateway.ps1** yerel değişkeni ile ilişkili **$Key** aşağıdaki komutta gösterildiği gibi. Bu betik, daha önce oluşturduğunuz mantıksal ağ geçidi kurulu istemci Aracısı kaydeder.
+1. Azure PowerShell'de klasöre geçin: **C:\Program Files\Microsoft veri yönetimi Gateway\2.0\PowerShellScript\\**. Çalıştırma **RegisterGateway.ps1** yerel değişkeni ile ilişkili **$Key** aşağıdaki komutta gösterildiği gibi. Bu betik, daha önce oluşturduğunuz mantıksal ağ geçidi kurulu istemci Aracısı kaydeder.
 
     ```PowerShell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
@@ -529,7 +529,7 @@ Bu bölümde, oluşturma ve Azure PowerShell cmdlet'lerini kullanarak bir ağ ge
     ```PowerShell        
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
-Bir ağ geçidi kullanarak kaldırabilirsiniz **Remove-AzDataFactoryGateway** kullanarak bir ağ geçidi için cmdlet ve güncelleştirme açıklaması **kümesi AzDataFactoryGateway** cmdlet'leri. Data Factory Cmdlet başvurusu söz dizimi ve bu cmdlet'ler hakkında diğer ayrıntılar için bkz.  
+   Bir ağ geçidi kullanarak kaldırabilirsiniz **Remove-AzDataFactoryGateway** kullanarak bir ağ geçidi için cmdlet ve güncelleştirme açıklaması **kümesi AzDataFactoryGateway** cmdlet'leri. Data Factory Cmdlet başvurusu söz dizimi ve bu cmdlet'ler hakkında diğer ayrıntılar için bkz.  
 
 ### <a name="list-gateways-using-powershell"></a>PowerShell kullanarak listesi ağ geçitleri
 

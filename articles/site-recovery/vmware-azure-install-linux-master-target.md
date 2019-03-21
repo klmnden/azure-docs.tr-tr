@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 28b28dc15809aa5d37eb9347ff3bc7eecccc9a20
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452717"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099061"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Bir Linux ana hedef sunucusu yeniden çalışma için yükleyin
 Sanal makinelerinizi azure'a yük devretme sonra sanal makineleri şirket içi siteye geri dönebilirsiniz. Yeniden çalışma için sanal makine azure'dan şirket içi siteye yeniden korumanız gerekir. Bu işlem için trafiği almak için bir şirket içi ana hedef sunucusu gerekir. 
@@ -168,15 +168,15 @@ KODU SCSI sabit disklerin bir Linux sanal makinesinde almak için **disk. Enable
 
 5. Bir satır olup olmadığını görmek **disk. EnableUUID** zaten mevcut.
 
-    - Değer varsa ve ayarlanmış **False**, değere değiştirin **True**. (Değerler büyük küçük harfe duyarlı değildir.)
+   - Değer varsa ve ayarlanmış **False**, değere değiştirin **True**. (Değerler büyük küçük harfe duyarlı değildir.)
 
-    - Değer varsa ve ayarlanmış **True**seçin **iptal**.
+   - Değer varsa ve ayarlanmış **True**seçin **iptal**.
 
-    - Değer yoksa seçin **Satır Ekle**.
+   - Değer yoksa seçin **Satır Ekle**.
 
-    - Ad sütununda ekleme **disk. EnableUUID**ve ardından değerine **TRUE**.
+   - Ad sütununda ekleme **disk. EnableUUID**ve ardından değerine **TRUE**.
 
-    ![Olup olmadığını denetleme disk. EnableUUID zaten var.](./media/vmware-azure-install-linux-master-target/image25.png)
+     ![Olup olmadığını denetleme disk. EnableUUID zaten var.](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### <a name="disable-kernel-upgrades"></a>Çekirdek yükseltmeleri devre dışı bırak
 

@@ -74,7 +74,8 @@ items:
         href: filters-concept.md
     - name: İçerik koruma
       items:
-      - name: Genel Bakış
+      - name: Akış protokolleri ve şifreleme türleri
+        displayName: Dynamic encryption
         href: content-protection-overview.md
       - name: Erişim denetimiyle çoklu DRM sistemi
         href: design-multi-drm-system-with-access-control.md
@@ -105,6 +106,7 @@ items:
     - name: Önerilen gerçek zamanlı kodlayıcılar
       href: recommended-on-premises-live-encoders.md
     - name: Bulut DVR kullanma
+      displayName: archive
       href: live-event-cloud-dvr.md
     - name: Özellik karşılaştırması
       href: live-event-types-comparison.md
@@ -255,9 +257,9 @@ items:
     href: frequently-asked-questions.md
   - name: Azure bulutları ve bölgeleri
     href: azure-clouds-regions.md
-ms.openlocfilehash: d0c44938110ebb6f823ee61fc8969638fa31b648
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f67429869b07eba8deafec29189b6784a0eae9db
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57893127"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187719"
