@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fc6b9ad5227bc5bffd1f44f664351843896aec
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8017049218bed5a1b1bd86b68dc4342b4044723
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181629"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109789"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si kullanarak yayımlanmış uygulamalar için özel bir ana sayfa ayarlayın
 
@@ -30,10 +30,10 @@ Bu makalede, özel bir ana sayfa kullanıcılara yönlendirmek için uygulamalar
 Kullanıcı uygulamayı başlattığında, varsayılan olarak yayımlanan uygulama için kök etki alanı URL'si yönlendirilirsiniz. Giriş sayfası, genellikle giriş sayfası URL'si ayarlanır. Uygulama kullanıcıları uygulama içinde belirli bir sayfada yerleşmesi istediğinizde özel ana sayfa URL'lerini tanımlamak için Azure AD PowerShell modülünü kullanın. 
 
 Bir şirket özel bir ana sayfa ayarlamalı neden bir örneği aşağıdadır:
-- Kurumsal ağınızda kullanıcılar Git *https://ExpenseApp/login/login.aspx* oturum açmak ve uygulamanıza erişmek için.
-- Uygulama proxy'si Klasör yapısındaki en üst düzeyinde erişmesi gereken görüntüleri gibi diğer varlıklar olduğundan ile uygulamayı yayımlama *https://ExpenseApp* İç URL.
-- Varsayılan dış URL *https://ExpenseApp-contoso.msappproxy.net*, hangi kullanıcılarınıza oturum açma sayfası olması değil.  
-- Ayarlama *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* olarak giriş sayfası URL'si. 
+- Kurumsal ağınızda kullanıcılar Git `https://ExpenseApp/login/login.aspx` oturum açmak ve uygulamanıza erişmek için.
+- Uygulama proxy'si Klasör yapısındaki en üst düzeyinde erişmesi gereken görüntüleri gibi diğer varlıklar olduğundan ile uygulamayı yayımlama `https://ExpenseApp` İç URL.
+- Varsayılan dış URL `https://ExpenseApp-contoso.msappproxy.net`, hangi kullanıcılarınıza oturum açma sayfası olması değil.  
+- Ayarlama `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` olarak giriş sayfası URL'si. 
 
 >[!NOTE]
 >Kullanıcıların yayımlanan uygulamalara erişmesini sağlamak, uygulamalar görüntülenecek [Azure AD erişim paneli](../user-help/active-directory-saas-access-panel-introduction.md) ve [Office 365 uygulama başlatıcısında](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
@@ -113,7 +113,7 @@ Giriş sayfası URL'si oluşturun ve bu değeri ile uygulamanızı güncelleşti
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
- Uygulama onayladıktan sonra giriş sayfası, şu şekilde güncelleştirmek hazırsınız.
+   Uygulama onayladıktan sonra giriş sayfası, şu şekilde güncelleştirmek hazırsınız.
 
 2. Yapmak istediğiniz değişiklikleri tutmak için bir boş uygulama nesnesi oluşturun. Bu değişken, güncelleştirmek istediğiniz değerleri tutar. Hiçbir şey bu adımda oluşturulur.
 

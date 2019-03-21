@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 44252274cc3c0050ba138c3115deeceb2f06f8d8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782777"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121545"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service için bir özel etki alanı adı satın alma
 
@@ -146,7 +146,7 @@ Seçili konak adı aynı zamanda gördüğünüz **özel etki alanları** sayfas
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
-Ana bilgisayar adları test etmek için tarayıcıda listelenen ana bilgisayar adları gidin. Önceki ekran görüntüsünde örnekte giderek deneyin _kontoso.net_ ve _www.kontoso.net_.
+Ana bilgisayar adları test etmek için tarayıcıda listelenen ana bilgisayar adları gidin. Önceki ekran görüntüsünde örnekte giderek deneyin _kontoso.net_ ve _www\.kontoso.net_.
 
 ## <a name="assign-hostnames-to-app"></a>Uygulama için konak adları atayın
 
@@ -177,7 +177,7 @@ Satın alınan etki alanınızı listelendiğinden emin olun **App Service etki 
 İçinde **konak adı Ekle** iletişim kutusunda, App Service etki alanı veya tüm alt etki alanının tam etki alanı adını yazın. Örneğin:
 
 - kontoso.net
-- www.kontoso.net
+- www\.kontoso.net
 - abc.kontoso.net
 
 İşiniz bittiğinde seçin **doğrulama**. Konak adı kayıt türü sizin için otomatik olarak seçilir.

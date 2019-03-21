@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0a8680fbc8a3a051906f223d8b2476891c92d110
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: e3b4da1c1d835e9d630c000055af058aa7b45968
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888211"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109197"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme
 Bu belge, Azure kaynaklarınızı korumanıza yardımcı olması için Azure Güvenlik Merkezi'nde öneriler kullanma hakkında bilgi vermektedir.
@@ -68,10 +68,10 @@ Her önerinin ayrıntıları görmek için seçin **önerileri kutucuğuna** alt
 
 > [!NOTE]
 > Öğrenmek istediğiniz [Klasik ve Resource Manager dağıtım modellerinde](../azure-classic-rm.md) Azure kaynakları için.
->
->
-### <a name="apply-recommendations"></a>Önerileri uygulama
-Tüm önerileri gözden geçirdikten sonra bir önce uygulamanız karar verebilirsiniz. Hangi önerileri değerlendirmek için ana parametresi ilk uygulanması gereken şekilde önem derecesi kullanmanızı öneririz.
+> 
+> 
+> ### <a name="apply-recommendations"></a>Önerileri uygulama
+> Tüm önerileri gözden geçirdikten sonra bir önce uygulamanız karar verebilirsiniz. Hangi önerileri değerlendirmek için ana parametresi ilk uygulanması gereken şekilde önem derecesi kullanmanızı öneririz.
 
 
 

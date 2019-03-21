@@ -8,18 +8,18 @@ ms.service: security
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
-ms.openlocfilehash: 4dd425b827f5518ff4809f4878a5f3c752b9f50e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5f7f9641e8fc7cd4c0e8dd153b350b9dd876b004
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244562"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168699"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-uk-nhs"></a>Azure güvenlik ve uyumluluk planı: UK NHS için Iaas Web uygulaması
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure güvenlik ve uyumluluk planı, bir başvuru mimarisi ve toplama, depolama ve sağlık verilerinin alınması için uygun bir hizmet (Iaas) web uygulaması altyapısı için yönergeler sağlar. Bu çözüm, müşteriler uyumlu, sağlanan yönergeler ile yolları gösterir [bulut güvenlik iyi uygulama Kılavuzu](https://digital.nhs.uk/data-and-information/looking-after-information/data-security-and-information-governance/nhs-and-social-care-data-off-shoring-and-the-use-of-public-cloud-services/health-and-social-care-cloud-security-good-practice-guide) tarafından yayımlanan [NHS dijital](https://digital.nhs.uk/), Birleşik Krallık'ın (UK Bölgesinde) iş ortağı Departman, sağlık ve sosyal Bakım (DHSC). Bulut güvenliği iyi uygulama Kılavuzu 14 üzerinde alan [bulut güvenliği prensipleri](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) yayımlanan Birleşik Krallık Ulusal siber Güvenlik Merkezi (NCSC tarafından).
+Azure güvenlik ve uyumluluk planı, bir başvuru mimarisi ve toplama, depolama ve sağlık verilerinin alınması için uygun bir hizmet (Iaas) web uygulaması olarak altyapı için yönergeler sağlar. Bu çözüm, müşteriler uyumlu, sağlanan yönergeler ile yolları gösterir [bulut güvenlik iyi uygulama Kılavuzu](https://digital.nhs.uk/data-and-information/looking-after-information/data-security-and-information-governance/nhs-and-social-care-data-off-shoring-and-the-use-of-public-cloud-services/health-and-social-care-cloud-security-good-practice-guide) tarafından yayımlanan [NHS dijital](https://digital.nhs.uk/), Birleşik Krallık'ın (UK Bölgesinde) iş ortağı Departman, sağlık ve sosyal Bakım (DHSC). Bulut güvenliği iyi uygulama Kılavuzu 14 üzerinde alan [bulut güvenliği prensipleri](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) yayımlanan Birleşik Krallık Ulusal siber Güvenlik Merkezi (NCSC tarafından).
 
 Bu başvuru mimarisi, Uygulama Kılavuzu ve tehdit modeli, müşterilerin kendi belirli gereksinimlerine ayarlamak bir temel olarak hizmet vermek için tasarlanmıştır ve olarak kullanılmamalıdır-ek yapılandırma olmadan bir üretim ortamında olduğundan. Müşteriler, uygun güvenlik yürütmek için sorumludur ve her bir müşterinin uygulama ayrıntılarına bağlı uyumluluk değerlendirme gereksinimleri değişebilir, bu mimariyi kullanarak oluşturulan bir çözümün temel.
 

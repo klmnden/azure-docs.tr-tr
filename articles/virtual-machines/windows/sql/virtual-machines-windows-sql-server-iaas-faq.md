@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: f308b814da06598b95337708f7a8c84d506eed78
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6f064bb875786fc50073ab4216bc1c52ace294bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113274"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makineler üzerinde çalışan SQL Server için sık sorulan sorular
 
@@ -75,65 +75,65 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
 ## <a name="licensing"></a>Lisanslama
 
-1. **Bir Azure sanal makinesinde SQL Server lisanslı kopyamı nasıl yükleyebilirim?**
+1. **Lisanslı SQL Server kopyamı bir Azure sanal makinesine nasıl yükleyebilirim?**
 
-   Bunu yapmanın iki yolu vardır. Birini sağlayabileceğiniz [lisansları destekleyen bir sanal makine görüntüleri](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), getirin-kendi lisansını (KLG) da bilinir. Başka bir seçenek, Windows Server VM için SQL Server yükleme medyası kopyalayın ve ardından sanal makinede SQL Server'ı yükleyin oluşturmaktır. Ancak, SQL Server'ı el ile yükleyin, portal bir tümleştirme yoktur ve SQL Server Iaas Aracısı uzantısı desteklenmiyor, bu nedenle otomatik yedekleme ve otomatik düzeltme eki uygulama gibi özellikleri bu senaryoda çalışmaz. Bu nedenle, KLG galeri görüntülerden birini kullanmanızı öneririz. KLG veya kendi SQL Server medya, bir Azure sanal makinesinde kullanmak için olmalıdır [azure'de Yazılım Güvencesiyle lisans taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility/). Daha fazla bilgi için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
+   Bunu yapmanın iki yolu vardır. [Lisansları destekleyen sanal makine görüntülerinden](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) birini (kendi lisansını getir (KLG) olarak da bilinir) sağlayabilirsiniz. Diğer seçenek SQL Server yükleme medyasını bir Windows Server sanal makinesine kopyalamak ve sonra sanal makineye SQL Server'ı yüklemektir. Öte yandan SQL Server'ı kendiniz yüklerseniz portal tümleştirmesi olmaz ve SQL Server IaaS Aracı Uzantısı desteklenmez; dolayısıyla Otomatik Yedekleme ve Otomatik Yama Uygulama gibi özellikler bu senaryoda çalışmaz. Bu nedenle KLG galeri görüntülerinden birini kullanmanızı öneririz. KLG veya kendi SQL Server medya, bir Azure sanal makinesinde kullanmak için olmalıdır [azure'de Yazılım Güvencesiyle lisans taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility/). Daha fazla bilgi için bkz. [SQL Server Azure VM’leri için fiyatlandırma kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 
-1. **Yalnızca bekleme/yük devretme için kullanılıyorsa, Azure VM'deki SQL Server lisansı için ödeme gerekir mi?**
+1. **Yalnızca bekleme/yük devretme için kullanılıyorsa Azure sanal makinesindeki SQL Server'ı lisanslamak için ödeme yapmam gerekir mi?**
 
-   Yazılım Güvencesi ve lisans taşınabilirliği açıklandığı kullanın [sanal makine lisanslama SSS](https://azure.microsoft.com/pricing/licensing-faq/), HA dağıtımında pasif ikincil bir çoğaltma olarak katılan tek bir SQL Server Lisansı ödeme yapmam gerekir mi sonra. Aksi takdirde, lisans için ücret ödemem gerekir.
+   Yazılım Güvencesi ve lisans taşınabilirliği açıklandığı kullanın [sanal makine lisanslama SSS](https://azure.microsoft.com/pricing/licensing-faq/), HA dağıtımında pasif ikincil bir çoğaltma olarak katılan tek bir SQL Server Lisansı ödeme yapmam gerekir mi sonra. Aksi takdirde, lisanslamak için ödeme yapmalısınız.
 
-1. **Kullandıkça Öde galeri görüntülerden birini oluşturulmuşsa, kendi SQL Server Lisansımı kullanmak için bir VM değiştirebilirim?**
+1. **Kullandıkça ödeme galeri görüntülerinden biri kullanılarak oluşturulan sanal makineyi kendi SQL Server lisansımı kullanmak için değiştirebilir miyim?**
 
-   Evet. Kolayca taşıyabilirsiniz ilk olarak bir Kullandıkça Öde galeri görüntüsü ile başladıysanız iki lisanslama modelleri arasında taşıyın. Ancak, başlangıçta bir KLG görüntüsü ile başladıysanız PAYG için kendi lisansınızı geçmek mümkün olmayacaktır. Daha fazla bilgi için [SQL Server sanal makinesi için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md).
+   Evet. Kolayca taşıyabilirsiniz ilk olarak bir Kullandıkça Öde galeri görüntüsü ile başladıysanız iki lisanslama modelleri arasında taşıyın. Öte yandan bir KLG görüntüsüyle başladıysanız, lisansınızı PAYG'ye geçiremezsiniz. Daha fazla bilgi için [SQL Server sanal makinesi için lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md).
 
    > [!Note]
    > Şu anda bu özellik yalnızca genel bulut müşterileri için kullanılabilir.
 
-1. **Yeni SQL VM oluşturmak için KLG görüntüleri ya da SQL VM RP kullanmalı mıyım?**
+1. **Yeni SQL VM oluşturmak için KLG görüntülerini mi yoksa SQL VM RP'yi mi kullanmalıyım?**
 
-   -Kendi-lisansını getir (KLG) görüntüleri, yalnızca EA müşterileri tarafından kullanılabilir. Diğer Yazılım Güvencesine sahip müşteriler SQL VM kaynak sağlayıcısı ile bir SQL VM oluşturmak için kullanması gereken [Azure hibrit Avantajı'nı (AHB)](https://azure.microsoft.com/pricing/licensing-faq/). 
+   Kendi lisansını getir (KLG) görüntüleri yalnızca EA müşterilerine sağlanır. Diğer Yazılım Güvencesine sahip müşteriler SQL VM kaynak sağlayıcısı ile bir SQL VM oluşturmak için kullanması gereken [Azure hibrit Avantajı'nı (AHB)](https://azure.microsoft.com/pricing/licensing-faq/). 
 
-1. **Geçiş lisanslama modelleri, SQL Server için kapalı kalma süresi gerekiyor mu?**
+1. **Lisanslama modellerini değiştirmek için SQL Server'ın kapalı kalması gerekir mi?**
 
-   Hayır. [Lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md) kapalı kalma süresi için SQL Server gerektirmez, bu değişiklik hemen etkili olur ve VM yeniden başlatma gerektirmez. Ancak, SQL Server VM'nize SQL VM kaynak sağlayıcısı ile kaydolmak için [SQL Iaas uzantısı](virtual-machines-windows-sql-server-agent-extension.md) önkoşuldur ve SQL Iaas uzantısı yükleme SQL Server hizmetini yeniden başlatır. SQL Iaas uzantısı yüklü olması gerekir, bu nedenle, ardından da bir bakım penceresi sırasında yapılması gerekir. 
+   Hayır. [Lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md) kapalı kalma süresi için SQL Server gerektirmez, bu değişiklik hemen etkili olur ve VM yeniden başlatma gerektirmez. Ancak, SQL Server VM'nize SQL VM kaynak sağlayıcısı ile kaydolmak için [SQL Iaas uzantısı](virtual-machines-windows-sql-server-agent-extension.md) önkoşuldur ve SQL Iaas uzantısı yükleme SQL Server hizmetini yeniden başlatır. Dolayısıyla SQL IaaS uzantısının yüklenmesi gerekiyorsa, bu yüklemenin bakım penceresi sırasında yapılması gerekir. 
 
 1. **CSP aboneliklerinde Azure hibrit avantajı etkinleştirebilir miyim?**
 
    Evet, Azure hibrit avantajı için CSP aboneliklerinde kullanılabilir. CSP müşterileri bir Kullandıkça Öde görüntüsü önce dağıtmanız ve ardından [lisanslama modelini değiştirme](virtual-machines-windows-sql-ahb.md) getirin-kendi lisansını için.  
 
-1. **Sanal Makinem ile yeni SQL VM kaynak sağlayıcısı kaydetme ek maliyet getirir?**
+1. **Sanal makinemi yeni SQL VM kaynak sağlayıcıyla kaydetmek ek maliyet getirir mi?**
 
-   Hayır. SQL VM kaynak sağlayıcısı yalnızca ek yönetilebilirlik Azure vm'lerde SQL Server için herhangi bir ek ücret ile sağlar. 
+   Hayır. SQL VM kaynak sağlayıcısı ek ücret ödemeye gerek kalmadan Azure VM'de SQL Server için ek yönetilebilirliğe olanak tanır. 
 
-1. **SQL VM kaynak sağlayıcısı, tüm müşteriler için kullanılabilir mi?**
+1. **SQL VM kaynak sağlayıcısını tüm müşteriler kullanabilir mi?**
  
-   Evet. Tüm müşteriler yeni SQL VM kaynak sağlayıcısı ile kaydolmak olanağına sahip olursunuz. Ancak, yalnızca Müşteriler Yazılım Güvencesi avantajı ile etkinleştirebilir [Azure hibrit Avantajı'nı (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (veya KLG) SQL Server VM üzerinde. 
+   Evet. Tüm müşteriler yeni SQL VM kaynak sağlayıcısıyla kaydedebilir. Ancak, yalnızca Müşteriler Yazılım Güvencesi avantajı ile etkinleştirebilir [Azure hibrit Avantajı'nı (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (veya KLG) SQL Server VM üzerinde. 
 
-1. **_ İçin ne*VM kaynağı taşıdıysanız veya bırakılan Microsoft.SqlVirtualMachine_* kaynak?** 
+1. **Ne olacağını _Microsoft.SqlVirtualMachine_ VM kaynağı taşıdıysanız veya bırakılan kaynak?** 
 
    Ne zaman Microsoft.Compute/VirtualMachine kaynak bırakılmış veya ilişkili Microsoft.SqlVirtualMachine kaynak işlemi zaman uyumsuz olarak çoğaltmak için bildirim sonra taşındı.
 
-1. **VM, ne _* Microsoft.SqlVirtualMachine_* kaynak bırakıldı?**
+1. **VM, ne _Microsoft.SqlVirtualMachine_ kaynak bırakıldı?**
 
-   Microsoft.SqlVirtualMachine kaynak bırakıldığında Microsoft.Compute/VirtualMachine kaynak etkilenmez. Ancak, lisans değişikliklerinin özgün görüntü kaynağı için varsayılan olarak kullanılır. 
+    Microsoft.SqlVirtualMachine kaynak bırakıldığında Microsoft.Compute/VirtualMachine kaynak etkilenmez. Ancak, lisans değişikliklerinin özgün görüntü kaynağı için varsayılan olarak kullanılır. 
 
-1. **SQL VM kaynak sağlayıcısı ile şirket içinde dağıtılmış SQL Server Vm'leri kaydetmek mümkündür?**
+1. **Kendi kendine dağıtılan SQL Server VM'lerini SQL VM kaynak sağlayıcısıyla kaydetmek mümkün mü?**
 
-   Evet. SQL Server'ı kendi medyadan dağıtılan ve SQL Iaas uzantısı yüklü değilse, SQL Server VM'nize SQL Iaas uzantısı tarafından sağlanan yönetilebilirlik avantajlarından yararlanabilmek için kaynak sağlayıcısı ile kaydedebilirsiniz. Ancak, şirket içinde dağıtılan bir SQL VM Kullandıkça Öde aboneliğine dönüştürülemiyor.
+    Evet. SQL Server'ı kendi medyadan dağıtılan ve SQL Iaas uzantısı yüklü değilse, SQL Server VM'nize SQL Iaas uzantısı tarafından sağlanan yönetilebilirlik avantajlarından yararlanabilmek için kaynak sağlayıcısı ile kaydedebilirsiniz. Öte yandan kendi kendine dağıtılan SQL VM'yi kullandıkça öde modeline dönüştüremezsiniz.
 
 ## <a name="administration"></a>Yönetim
 
-1. **Aynı VM'de SQL Server'ın ikinci bir örneğini yükleyebilir miyim? Varsayılan örneği yüklü özelliklerini değiştirebilir miyim?**
+1. **Aynı VM'ye SQL Server'ın ikinci örneğini yükleyebilir miyim? Varsayılan örneğin yüklü özelliklerini değiştirebilir miyim?**
 
    Evet. SQL Server yükleme medyası üzerinde bir klasörde bulunan **C** sürücü. Çalıştırma **Setup.exe** yeni SQL Server örneklerini eklemek için bu konuma veya makine üzerinde SQL Server'ın yüklü değişiklik diğer özellikleri. Otomatik yedekleme, otomatik düzeltme eki uygulama ve Azure anahtar kasası tümleştirmeyi, gibi bazı özellikler, yalnızca varsayılan örneğine karşı çalışan veya adlandırılmış bir örnek Not düzgün şekilde yapılandırıldı (soru 3 bakın). 
 
-1. **SQL Server varsayılan örneğini kaldırabilirim?**
+1. **SQL Server'ın varsayılan örneğini kaldırabilir miyim?**
 
-   Evet, ancak burada noktalardır. Önceki yanıt belirtildiği gibi kullanan özellikler vardır [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).  Varsayılan örnek Iaas uzantısı da kaldırmadan kaldırırsanız, uzantı için görünür olmaya devam eder ve olay günlüğünü hatalara neden. Bu hatalar, aşağıdaki iki kaynaktan kaynaklanır: **Microsoft SQL Server kimlik bilgileri yönetimi** ve **Microsoft SQL Server Iaas Aracısı**. Hatalardan biri, aşağıdakine benzer olabilir:
+   Evet, ama bazı noktaları dikkate almalısınız. Önceki yanıt belirtildiği gibi kullanan özellikler vardır [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).  Varsayılan örnek Iaas uzantısı da kaldırmadan kaldırırsanız, uzantı için görünür olmaya devam eder ve olay günlüğünü hatalara neden. Bu hatalar şu iki kaynaktan gelir: **Microsoft SQL Server kimlik bilgileri yönetimi** ve **Microsoft SQL Server Iaas Aracısı**. Hatalardan biri aşağıdakine benzer olabilir:
 
-      Bir SQL Server bağlantısı kurulurken ağla ilgili veya örneğe özel bir hata oluştu. Sunucu bulunamadı veya erişilebilir durumda değildi.
+      SQL Server ile bağlantı kurulmaya çalışılırken ağ ile ilişkili veya örneğe özgü bir hata oluştu. Sunucu bulunamadı veya erişilebilir değildi.
 
    Varsayılan örnek kaldırmaya karar verirseniz, ayrıca kaldırma [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md) de.
 
@@ -146,9 +146,9 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
     1. SQL Server adlandırılmış bir örnekle yükleyin. 
     1. Iaas uzantıyı yükleyin. 
 
-1. **Bir SQL VM üzerindeki SQL Server tamamen kaldırabilirim?**
+1. **SQL Server'ı SQL VM'sinden tamamen kaldırabilir miyim?**
 
-   Evet, ancak bölümünde anlatıldığı gibi SQL sanal Makineniz için ödeme yapmaya devam edecek [SQL Server Azure Vm'leri için fiyatlandırma Kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md). SQL Server artık ihtiyacınız yoksa, yeni bir sanal makine dağıtma ve veri ve uygulamaları yeni sanal makineye geçirin. Ardından, SQL Server sanal makineyi kaldırabilirsiniz.
+   Evet, ancak bölümünde anlatıldığı gibi SQL sanal Makineniz için ödeme yapmaya devam edecek [SQL Server Azure Vm'leri için fiyatlandırma Kılavuzu](virtual-machines-windows-sql-server-pricing-guidance.md). Artık SQL Server'a ihtiyacınız kalmadıysa yeni bir sanal makine dağıtabilir ve verilerle uygulamaları yeni sanal makineye geçirebilirsiniz. Ardından SQL Server sanal makinesini kaldırabilirsiniz.
    
 ## <a name="updating-and-patching"></a>Güncelleştirme ve düzeltme eki uygulama
 

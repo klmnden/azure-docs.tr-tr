@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 2f16a8fdb124cd2ee69fbdef74f3999800b55157
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a35f4d8c1d5bf5943ecba02ff262fbc7fc0730fe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108237"
 ---
 # <a name="start-monitoring-your-website"></a>Web sitenizi izlemeye başlama
 
@@ -87,7 +87,7 @@ Application Insights, şirket içinde veya bulutta çalışan İnternet’e bağ
         });
         
         window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
-</script>
+   </script>
    ```
 
 3. ``hello_world.html`` dosyasını düzenleyerek izleme anahtarınızı ekleyin.
@@ -127,7 +127,7 @@ Application Insights, şirket içinde veya bulutta çalışan İnternet’e bağ
 
 5. Birden fazla sayfaya sahip olan daha karmaşık bir web sitesini izliyor olsaydık [**Kullanıcı Akışları**](../../azure-monitor/app/usage-flows.md) aracından da faydalanabilirdik. **Kullanıcı Akışları** aracıyla ziyaretçilerin web sitenizin farklı bölümlerinde gerçekleştirdiği işlemleri görebilirsiniz.
 
-  ![Kullanıcı Akışları görselleştirmesi](./media/website-monitoring/user-flows.png)
+   ![Kullanıcı Akışları görselleştirmesi](./media/website-monitoring/user-flows.png)
 
 Web sitelerini izlemek için kullanabileceğiniz daha gelişmiş yapılandırmalar hakkında bilgi edinmek için [JavaScript SDK API başvurusunu](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md) inceleyin.
 

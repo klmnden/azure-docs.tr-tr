@@ -1,6 +1,6 @@
 ---
-title: Azure Uygulama Yapılandırması'nı kullanarak sürekli tümleştirme ve teslim işlem hattı ile tümleştirin. | Microsoft Docs
-description: Azure uygulama yapılandırmasında, sürekli tümleştirme ve teslim sırasında verileri kullanarak bir yapılandırma dosyası oluşturmayı öğrenin
+title: Azure Uygulama Yapılandırması'ı kullanarak sürekli tümleştirme ve teslim ardışık ile tümleştirme | Microsoft Docs
+description: Sürekli tümleştirme ve teslim sırasında Azure uygulama yapılandırmasında verileri kullanarak bir yapılandırma dosyası oluşturma hakkında bilgi edinin
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -12,32 +12,32 @@ ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7b2e919bc46810e8478956675ffeb1cb0542da85
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: cb9fe6dc234c317daa5eabec01812324e7c81663
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957377"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224337"
 ---
-# <a name="integrate-with-a-cicd-pipeline"></a>Bir CI/CD işlem hattı ile tümleştirin
+# <a name="integrate-with-a-cicd-pipeline"></a>CI/CD işlem hattıyla tümleştirme
 
-Uygulamanızı Azure uygulama yapılandırması ile erişmek boyutlandırılmamışsa uzak olasılığını karşı dayanıklılığı artırmak için geçerli yapılandırma verilerini, başlatma sırasında dağıtılan uygulamayla ve yerel olarak yüklenen bir dosyaya paketi . Bu yaklaşım, uygulamanızın varsayılan ayar değerleri en az olacağını garanti eder. Kullanılabilir olduğunda bu değerleri bir uygulama yapılandırma deposu yeni değişiklikler yazılır.
+Uygulamanızı Azure uygulama yapılandırması ile erişmek boyutlandırılmamışsa uzak olasılığını karşı dayanıklılığı artırabilir. Bunu yapmak için başlatma sırasında yerel olarak dağıtılan uygulamayla ve yüklenen bir dosyaya geçerli yapılandırma verilerini paketi. Bu yaklaşım, uygulamanızın en az varsayılan ayarı değerlerine sahip olacağını garanti eder. Kullanılabilir olduğunda bu değerler daha yeni bir uygulama yapılandırma deposu değişiklikler tarafından üzerine yazılır.
 
-Kullanarak [ **dışarı** ](./howto-import-export-data.md#export-data) işlevi Azure uygulama yapılandırmasına, geçerli yapılandırma verilerini tek bir dosya olarak alma işlemini otomatik hale getirebilirsiniz. Bu dosya, sürekli tümleştirme ve sürekli dağıtım işlem hattı bir derleme veya dağıtım adımda sonra ekleyebilirsiniz.
+Kullanarak [dışarı](./howto-import-export-data.md#export-data) işlevi Azure uygulama yapılandırmasına, geçerli yapılandırma verilerini tek bir dosya olarak alma işlemini otomatik hale getirebilirsiniz. Ardından bu dosya, sürekli tümleştirme ve sürekli dağıtım (CI/CD) işlem hattı bir derleme veya dağıtım adımı ekleyin.
 
-Aşağıdaki örnek, uygulama yapılandırmalarını dahil edecek şekilde gösterilmektedir yapı olarak verileri adımı hızlı başlangıçlar, sunulan web uygulaması için. Tam [uygulama yapılandırması ile bir ASP.NET Core uygulaması oluşturma](./quickstart-aspnet-core-app.md) devam etmeden önce ilk.
+Aşağıdaki örnek, uygulama yapılandırmalarını dahil edecek şekilde gösterilmektedir yapı olarak verileri adımı hızlı başlangıçlar, sunulan web uygulaması için. Devam etmeden önce [uygulama yapılandırması ile bir ASP.NET Core uygulaması oluşturma](./quickstart-aspnet-core-app.md) ilk.
 
-Bu hızlı başlangıçtaki adımları tamamlamak için herhangi bir kod düzenleyicisini kullanabilirsiniz. Ancak, Windows, macOS ve Linux platformlarında sağlanan [Visual Studio Code](https://code.visualstudio.com/) mükemmel bir seçenektir.
+Bu hızlı başlangıçtaki adımları uygulamak için herhangi bir kod Düzenleyicisi'ni kullanabilirsiniz. [Visual Studio Code](https://code.visualstudio.com/) Windows, macOS ve Linux platformlarını mükemmel bir seçenek kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Yerel olarak derleme yaparsanız, indirme ve yükleme [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) henüz yapmadıysanız.
 
-Azure DevOps ile bulut derleme yapmak istiyorsanız, emin olun. [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) yapı sisteminizde yüklü.
+Bulut derleme yapmak için Azure ile DevOps gibi emin [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) yapı sisteminizde yüklü.
 
-## <a name="export-app-configuration-store"></a>Uygulama yapılandırma deposu dışarı aktarma
+## <a name="export-an-app-configuration-store"></a>Bir uygulama yapılandırma deposu dışarı aktarma
 
-1. Açık, *.csproj* dosya ve aşağıdakileri ekleyin:
+1. Açık, *.csproj* dosyasını bulun ve aşağıdaki betiği ekleyin:
 
     ```xml
     <Target Name="Export file" AfterTargets="Build">
@@ -46,9 +46,9 @@ Azure DevOps ile bulut derleme yapmak istiyorsanız, emin olun. [Azure CLI](http
     </Target>
     ```
 
-    *ConnectionString* ilişkili ile uygulama yapılandırmanız bir ortam değişkeni deposuna eklenmelidir.
+    Ekleme *ConnectionString* uygulama yapılandırma deponuz olarak bir ortam değişkeni ile ilişkili.
 
-2. Açık *Program.cs* ve güncelleştirme `CreateWebHostBuilder` yöntemi çağırarak dışarı aktarılan json dosyasını kullanacak biçimde `config.AddJsonFile()` yöntemi.
+2. Program.cs dosyasını açın ve güncelleştirme `CreateWebHostBuilder` yöntemi çağırarak ve dışarı aktarılan JSON dosyasında kullanılacak `config.AddJsonFile()` yöntemi.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -66,23 +66,23 @@ Azure DevOps ile bulut derleme yapmak istiyorsanız, emin olun. [Azure CLI](http
 
 ## <a name="build-and-run-the-app-locally"></a>Derleme ve uygulamayı yerel olarak çalıştırma
 
-1. Adlı bir ortam değişkenini ayarlamak **ConnectionString** ve uygulama yapılandırma deponuz için erişim anahtarı ayarlayın. Windows Komut İstemi'ni kullanıyorsanız, aşağıdaki komutu yürütün ve değişikliğin etkili olması için izin vermek için komut istemine yeniden başlatın:
+1. Adlı bir ortam değişkenini ayarlamak **ConnectionString**ve uygulama yapılandırma deponuz için erişim anahtarı ayarlayın. Windows Komut İstemi'ni kullanırsanız, aşağıdaki komutu çalıştırın ve değişikliğin etkili olması için izin vermek için komut istemine yeniden başlatın:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
-    Windows PowerShell kullanıyorsanız, aşağıdaki komutu yürütün:
+    Windows PowerShell kullanıyorsanız, aşağıdaki komutu çalıştırın:
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-    MacOS veya Linux'ı kullanıyorsanız, aşağıdaki komutu yürütün:
+    MacOS veya Linux kullanıyorsanız, aşağıdaki komutu çalıştırın:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. .NET Core CLI kullanarak uygulamayı derlemek için komut kabuğunda aşağıdaki komutu yürütün:
+2. .NET Core CLI'yı kullanarak uygulamayı oluşturmak için komut kabuğu'nda aşağıdaki komutu çalıştırın:
 
         dotnet build
 
-3. Derleme başarıyla tamamlandıktan sonra web uygulamasını yerel olarak çalıştırmak için aşağıdaki komutu yürütün:
+3. Yapılandırma başarıyla tamamlandıktan sonra web uygulamasını yerel olarak çalıştırmak için aşağıdaki komutu çalıştırın:
 
         dotnet run
 

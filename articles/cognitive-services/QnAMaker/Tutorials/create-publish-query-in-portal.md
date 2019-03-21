@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: a3800881cb310fa9484545467c0b0a9c5fe17c1c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 5635e0f669cec64bdbbf947099f980066a4aebc1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406321"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121426"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Öğretici: Bilgi Bankası sonra soruyu yanıtlama soru-cevap Oluşturucu portalı üzerinden oluşturma
 
@@ -25,12 +25,12 @@ Bu öğretici, bilgi bankası oluşturup yayımlama ve bunu kullanarak soruları
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz: 
 
 > [!div class="checklist"]
-* Soru-Cevap Oluşturma portalında bilgi bankası oluşturma
-* Bilgi bankasını gözden geçirme, kaydetme ve eğitme
-* Bilgi bankasını yayımlama
-* Curl kullanarak bilgi bankasını sorgulama
-
-> [!NOTE] 
+> * Soru-Cevap Oluşturma portalında bilgi bankası oluşturma
+> * Bilgi bankasını gözden geçirme, kaydetme ve eğitme
+> * Bilgi bankasını yayımlama
+> * Curl kullanarak bilgi bankasını sorgulama
+> 
+> [!NOTE]
 > Bu öğreticide programlı sürümü eksiksiz bir çözüm ile kullanıma hazır [ **Azure-Samples/bilişsel-services-qnamaker-csharp** GitHub deposu](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## <a name="prerequisites"></a>Önkoşullar

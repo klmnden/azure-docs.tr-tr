@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 5fab6c6d6af7b0f7c61fcff269a214aff96c7a1e
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2e33454ac0ee97385386043706f4b8b73090f57a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407332"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112560"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute ilişkili sanal ağları Klasikten Resource Manager'a geçiş
 
@@ -63,24 +63,24 @@ Bu bölümde, bir sanal ağ, ağ geçidi ve ExpressRoute bağlantı hattı ile a
 2. Sanal ağı geçiş için uygun şekilde hazırlıklarını emin olun.
 3. Kaynağın geçiş için aboneliğinizi kaydedin. Aboneliğiniz için kaynak geçişi kaydetmek için aşağıdaki PowerShell kod parçacığını kullanın:
 
-  ```powershell 
-  Select-AzSubscription -SubscriptionName <Your Subscription Name>
-  Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  ```
+   ```powershell 
+   Select-AzSubscription -SubscriptionName <Your Subscription Name>
+   Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+   Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+   ```
 4. Doğrulama, hazırlama ve geçirme. Sanal ağ taşımak için aşağıdaki PowerShell kod parçacığını kullanın:
 
-  ```powershell
-  Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
-  Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
-  Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
-  ```
+   ```powershell
+   Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+   Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
+   Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
+   ```
 
-  Ayrıca aşağıdaki PowerShell cmdlet'ini çalıştırarak geçişi iptal edebilirsiniz:
+   Ayrıca aşağıdaki PowerShell cmdlet'ini çalıştırarak geçişi iptal edebilirsiniz:
 
-  ```powershell
-  Move-AzureVirtualNetwork -Abort $vnetName
-  ```
+   ```powershell
+   Move-AzureVirtualNetwork -Abort $vnetName
+   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Iaas kaynaklarının Klasik modelden Azure Resource Manager'a Platform destekli geçiş](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)

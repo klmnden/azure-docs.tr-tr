@@ -1,5 +1,5 @@
 ---
-title: "Hızlı başlangıç: Azure Veri Gezgini'ndeki verileri sorgulama"
+title: "Hızlı Başlangıç: Azure veri Gezgini'nde verileri Sorgulama"
 description: Bu hızlı başlangıçta Azure Veri Gezgini'ndeki verileri sorgulamayı ve paylaşmayı öğreneceksiniz.
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7ce66d3f6117a5e395920dc2232efb0e43f4cd18
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9dade2ccebfb96cd54bdb9c8ef70c14fdeadad76
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106456"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225782"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer"></a>Hızlı başlangıç: Azure Veri Gezgini'ndeki verileri sorgulama
+# <a name="quickstart-query-data-in-azure-data-explorer"></a>Hızlı Başlangıç: Azure veri Gezgini'nde verileri Sorgulama
 
 Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Azure Veri Gezgini, sorgu çalıştırmanızı ve paylaşmanızı sağlayan bir web uygulaması sunar. Bu uygulama Azure portalda ve tek başına bir web uygulaması olarak sağlanır. Bu makalede uygulamanın birden fazla kümeye bağlanmanızı ve sorgularınızın ayrıntılı bağlantılarını paylaşmanızı sağlayan tek başına sürümünde çalışacaksınız.
 
@@ -39,7 +39,11 @@ Sorgu çalıştırmaya başlamak için en az bir küme bağlantısı eklemeniz g
 
 1. Uygulamanın sol üst köşesinden **Küme ekle**'yi seçin.
 
-1. **Küme ekle** iletişim kutusuna `https://help.kusto.windows.net` yazın ve **Ekle**'yi seçin.
+1. İçinde **Ekle küme** iletişim kutusu, URI girin ve ardından **Ekle**.
+
+   Yardım küme URI'si, kullanabilir `https://help.kusto.windows.net`. Kendi kümenizi varsa, kümenizin bir URI sağlayın. Örneğin, `https://mydataexplorercluster.westus.kusto.windows.net` aşağıdaki görüntüde gösterildiği gibi:
+
+    ![Sunucu Portal URI](media/web-query-data/server-uri.png)
 
 1. Sol taraftaki bölmede **help** kümesini görmeniz gerekir. Erişebileceğiniz örnek tabloları görmek için **Samples** veritabanını genişletin.
 
@@ -148,7 +152,7 @@ Temel sorguların nasıl çalıştığını gördünüz. Şimdi sonuçları öze
 
     Bu panel Excel'deki özet tablo alan listesine benzerdir ve doğrudan kılavuzda daha ayrıntılı analiz gerçekleştirmenizi sağlar.
 
-1. **Özet Modu**'nu seçip sütunları şu şekilde sürükleyin. **State**: **Satır grupları**; **DamageProperty**: **Değerler** ve **EventType**: **Sütun etiketleri**.  
+1. Seçin **Pivot modu**, sütunları'ı şu şekilde sürükleyin: **Durum** için **satır grupları**; **DamageProperty** için **değerleri**; ve **EventType** için **sütun etiketleri**.  
 
     ![Özet modu](media/web-query-data/pivot-mode.png)
 

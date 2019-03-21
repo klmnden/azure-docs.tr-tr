@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 28c2d65e1b1858b653775b4b298c9ab3e1d31e6e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d8256f96a79969103b17047c4ebb55fb140eb0bc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991421"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121120"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Azure haritalar'ı kullanarak bir depolama Bulucu
 
 Bu öğreticide Azure haritalar'ı kullanarak bir basit deposu Bulucu oluşturma işleminde size kılavuzluk eder. Store bulucular yaygındır. Bu tür bir uygulama içinde kullanılan kavramlardan bir çoğunu diğer türlerde uygulamalar için geçerlidir. Müşterilere deposu Bulucunun sunan tüketicilere doğrudan satış çoğu işletmenin için bir zorunluluktur. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
     
 > [!div class="checklist"]
-* Azure harita denetimi API'sini kullanarak yeni bir Web sayfası oluşturun.
-* Bir dosyadan özel veri yüklemek ve bir haritada görüntüler.
-* Azure haritalar arama hizmeti bir sorgu girin ya da bir adresini bulmak için kullanın.
-* Kullanıcının konumuna bir tarayıcıdan alın ve haritayı göster.
-* Harita üzerinde özel semboller oluşturmak için birden çok katmanları birleştirin.  
-* Veri noktaları kümesi.  
-* Haritaya yakınlaştırma denetimleri ekleyin.
+> * Azure harita denetimi API'sini kullanarak yeni bir Web sayfası oluşturun.
+> * Bir dosyadan özel veri yüklemek ve bir haritada görüntüler.
+> * Azure haritalar arama hizmeti bir sorgu girin ya da bir adresini bulmak için kullanın.
+> * Kullanıcının konumuna bir tarayıcıdan alın ve haritayı göster.
+> * Harita üzerinde özel semboller oluşturmak için birden çok katmanları birleştirin.  
+> * Veri noktaları kümesi.  
+> * Haritaya yakınlaştırma denetimleri ekleyin.
 
 <a id="Intro"></a>
 
@@ -42,12 +42,16 @@ Bu öğreticideki adımları tamamlamak için önce yapmanız [Azure haritalar h
 Kodun içine kullanmaya başlamadan önce bir tasarım ile başlamak için iyi bir fikirdir. Depolama Bulucu olmasını istediğiniz kadar basit veya karmaşık olabilir. Bu öğreticide, bir basit deposu Bulucu oluştururuz. Süreç boyunca isterseniz bazı işlevlerini genişletin yardımcı olması için bazı ipuçları ekliyoruz. Kahve Contoso adlı kurgusal bir şirkete yönelik bir depo Bulucu oluştururuz. Bu öğreticide ekleriz deposu Bulucu genel düzeninin bir Tel Çerçeve aşağıdaki şekilde gösterilmiştir:
 
 <br/>
-<center>![Contoso kahve kahve Dükkanı konumları için depolama Bulucunun Tel Çerçeve](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+<center>
+
+![Contoso kahve kahve Dükkanı konumları için depolama Bulucunun Tel Çerçeve](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 Bu depolama Bulucu kullanışlılığını en üst düzeye çıkarmak için bir kullanıcının ekran genişliği geniş 700 pikselden küçük olduğunda ayarlayan esnek bir düzene ekliyoruz. Esnek bir düzene deposu Bulucu görüntüleyerek küçük ekranda, mobil cihazda gibi kullanmayı kolaylaştırır. Küçük ekran düzeninin bir Tel Çerçeve şu şekildedir:  
 
 <br/>
-<center>![Mobil cihazda Tel Çerçeve Contoso kahve depolamak Bulucu](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+<center>
+
+![Mobil cihazda Tel Çerçeve Contoso kahve depolamak Bulucu](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 Tel Çerçeve oldukça basit bir uygulama gösterir. Uygulama, bir arama kutusu, yakındaki depolarının bir listesi, bazı işaretçiler (simge) sahip bir eşlem ve kullanıcı bir işaret seçtiğinde, ek bilgileri görüntüleyen bir pencere vardır. Daha ayrıntılı olarak, bu Öğreticide bu depolama Bulucu ekleriz özellikleri şunlardır:
 
@@ -70,7 +74,9 @@ Tel Çerçeve oldukça basit bir uygulama gösterir. Uygulama, bir arama kutusu,
 Depolama Bulucu uygulaması ekibiyiz önce biz haritada görüntülemek istiyoruz depolarının bir veri kümesi oluşturmanız gerekir. Bu öğreticide, bir kurgusal Contoso kahve adlı kafeterya için bir veri kümesi kullanıyoruz. Bu basit deposu Bulucu için veri kümesi, bir Excel çalışma kitabında yönetilir. Veri kümesini içeren Contoso kahve kahve Dükkanı konumları arasında dokuz farklı ülkede yayılan 10,213: Amerika Birleşik Devletleri, Kanada, Birleşik Krallık, Fransa, Almanya, İtalya, Hollanda, Danimarka ve İspanya. Verileri şuna benzer bir ekran görüntüsü aşağıda verilmiştir:
 
 <br/>
-<center>![Bir Excel çalışma kitabındaki verileri depola Bulucu ekran görüntüsü](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
+<center>
+
+![Bir Excel çalışma kitabındaki verileri depola Bulucu ekran görüntüsü](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
 
 Yapabilecekleriniz [Excel çalışma kitabını indirin](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). 
 
@@ -90,12 +96,16 @@ Bu veri kümesi tarayıcı kolayca ayrıştırabilen bir düz metin dosyasına d
 Çalışma kitabı bir düz metin dosyasına dönüştürmek için çalışma kitabını sekmeyle ayrılmış bir dosya kaydedin. Her sütun, sütunlar bizim kodda kolay ayrıştırılır olmasını sağlayan bir sekme karakteri tarafından sınırlandırılmıştır. Virgülle ayrılmış değer (CSV) biçimini kullanabilirsiniz, ancak bu seçenek daha fazla ayrıştırma mantık gerektirir. Çevresinde virgül olan herhangi bir alan, tırnak işaretleri ile sarmalanmış. Sekmeyle ayrılmış bir Excel dosyasında bu verileri dışarı aktarmak için seçin **Kaydet**. İçinde **farklı kaydetme türü** aşağı açılan listesinden **metin (delimited)(*.txt) sekmesinde**. Dosya adı *ContosoCoffee.txt*. 
 
 <br/>
-<center>![Ekran görüntüsü türü iletişim kutusu olarak Kaydet](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
+<center>
+
+![Ekran görüntüsü türü iletişim kutusu olarak Kaydet](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 Metin dosyasını Not Defteri'nde açın, aşağıdaki şekilde için benzer:
 
 <br/>
-<center>![Sekmeyle ayrılmış bir veri kümesi gösteren bir not defteri dosyası ekran görüntüsü](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
+<center>
+
+![Sekmeyle ayrılmış bir veri kümesi gösteren bir not defteri dosyası ekran görüntüsü](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
 
 
 ## <a name="set-up-the-project"></a>Projesi kurun
@@ -103,7 +113,9 @@ Metin dosyasını Not Defteri'nde açın, aşağıdaki şekilde için benzer:
 Projeyi oluşturmak için kullanabileceğiniz [Visual Studio](https://visualstudio.microsoft.com) veya tercih ettiğiniz Kod Düzenleyicisi. Proje klasörünüzdeki üç dosyayı oluşturma: *index.html*, *index.css*, ve *index.js*. Düzen, stil ve mantıksal uygulama için bu dosyaları tanımlayın. Adlı bir klasör oluşturun *veri* ve ekleme *ContosoCoffee.txt* klasörüne. Adlı başka bir klasör oluşturun *görüntüleri*. On görüntüleri bu uygulamada simgeler, düğmeler ve harita üzerinde işaretçileri için kullanırız. Yapabilecekleriniz [bu görüntüleri indirin](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Proje klasörünüzdeki, aşağıdaki şekilde gibi görünmelidir:
 
 <br/>
-<center>![Basit Store Bulucu proje klasörünün ekran görüntüsü](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
+<center>
+
+![Basit Store Bulucu proje klasörünün ekran görüntüsü](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
 
 ## <a name="create-the-user-interface"></a>Kullanıcı arabirimi oluşturma
 
@@ -395,12 +407,12 @@ Bu noktada, her şeyi kullanıcı arabiriminin ayarlanır. Şimdi, yüklemek ve 
 
 1. Kodu *index.js*. Aşağıdaki kod Haritası'nı başlatır, ekler bir [olay dinleyicisi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) sayfa işlemi tamamlanana kadar bekler yüklemeyi bağlayan eşleme yüklenmesini izlemek için olayları ve arama ve konum My düğmesi güçlendirir. 
 
-  Kullanıcının sorgu karşı bir belirsiz arama, kullanıcı, arama düğmesini seçtiğinde veya kullanıcı arama kutusuna bir konuma girdikten sonra ENTER'a bastığında başlatılır. Geçirmek için Ülke ISO 2 değerlerinin bir dizideki `countrySet` Bu ülkeler arama sonuçlarını sınırlamak için seçeneği. Aranacak ülkeleri sınırlama, döndürülen sonuçları doğruluğunu artırmak yardımcı olur. 
+   Kullanıcının sorgu karşı bir belirsiz arama, kullanıcı, arama düğmesini seçtiğinde veya kullanıcı arama kutusuna bir konuma girdikten sonra ENTER'a bastığında başlatılır. Geçirmek için Ülke ISO 2 değerlerinin bir dizideki `countrySet` Bu ülkeler arama sonuçlarını sınırlamak için seçeneği. Aranacak ülkeleri sınırlama, döndürülen sonuçları doğruluğunu artırmak yardımcı olur. 
   
-  Arama tamamlandığında ilk sonucu alın ve bu alan üzerinde eşleme kamera ayarlayın. Kullanıcının, My konumu düğmeyi seçtiğinde, kullanıcının konumunu alma ve eşleme konumları merkezi tarayıcı yerleşik HTML5 coğrafi konum API kullanın.  
+   Arama tamamlandığında ilk sonucu alın ve bu alan üzerinde eşleme kamera ayarlayın. Kullanıcının, My konumu düğmeyi seçtiğinde, kullanıcının konumunu alma ve eşleme konumları merkezi tarayıcı yerleşik HTML5 coğrafi konum API kullanın.  
 
-  > [!Tip]
-  > Açılan pencereler kullandığınızda, tek bir oluşturmak en iyi `Popup` örneği ve onun içeriğini ve konumunu güncelleştirerek örneği yeniden. İçin her `Popup`örneği birden çok DOM öğeleri sayfasına eklenir, kodunuza ekleyin. Daha fazla DOM öğeleri bir sayfaya izlemek için tarayıcıyı sahip daha fazla şey var. Çok fazla öğe varsa, tarayıcı yavaş olabilir.
+   > [!Tip]
+   > Açılan pencereler kullandığınızda, tek bir oluşturmak en iyi `Popup` örneği ve onun içeriğini ve konumunu güncelleştirerek örneği yeniden. İçin her `Popup`örneği birden çok DOM öğeleri sayfasına eklenir, kodunuza ekleyin. Daha fazla DOM öğeleri bir sayfaya izlemek için tarayıcıyı sahip daha fazla şey var. Çok fazla öğe varsa, tarayıcı yavaş olabilir.
 
     ```Javascript
     function initialize() { 
@@ -542,7 +554,7 @@ Bu noktada, her şeyi kullanıcı arabiriminin ayarlanır. Şimdi, yüklemek ve 
 
 1. Haritanın kümesinde yükledikten sonra `load` katmanları verileri işlemek için bir dizi olay dinleyicisi tanımlayın. Kabarcık katman, kümelenmiş veri noktaları işlemek için kullanılır. Bir sembol katman, her kümede Kabarcık katmanının noktalarının sayısını işlemek için kullanılır. İkinci bir sembol katmanı harita üzerinde tek tek konumları için özel bir simge oluşturur. 
 
-  Ekleme `mouseover` ve `mouseout` kullanıcı bir küme veya harita üzerinde simge üzerine geldiğinde fare imlecini değiştirmek için Kabarcık ve simge katmanlarını olayları. Ekleme bir `click` küme Kabarcık katmana olay. Bu `click` olay iki düzeyi haritada yakınlaştırıldığını ve kullanıcı herhangi bir küme seçtiğinde harita üzerinde bir küme ortalar. Ekleme bir `click` simgesi katmana olay. Bu `click` olay, bir kullanıcı bir tek konum simgeyi seçtiğinde bir kahve Dükkanı ayrıntılarını gösteren bir açılır pencere görüntüler. Haritaya harita Taşıma tamamlandığında izlemek için bir olay ekleyin. Bu olayı tetikler, liste bölmesi öğeleri güncelleştirin.  
+   Ekleme `mouseover` ve `mouseout` kullanıcı bir küme veya harita üzerinde simge üzerine geldiğinde fare imlecini değiştirmek için Kabarcık ve simge katmanlarını olayları. Ekleme bir `click` küme Kabarcık katmana olay. Bu `click` olay iki düzeyi haritada yakınlaştırıldığını ve kullanıcı herhangi bir küme seçtiğinde harita üzerinde bir küme ortalar. Ekleme bir `click` simgesi katmana olay. Bu `click` olay, bir kullanıcı bir tek konum simgeyi seçtiğinde bir kahve Dükkanı ayrıntılarını gösteren bir açılır pencere görüntüler. Haritaya harita Taşıma tamamlandığında izlemek için bir olay ekleyin. Bu olayı tetikler, liste bölmesi öğeleri güncelleştirin.  
 
     ```Javascript
     //Create a bubble layer to render clustered data points. 
@@ -916,30 +928,36 @@ Artık, tam olarak işlevsel deposu Bulucunun var. Bir web tarayıcısında aç�
 İlk kez bir kullanıcı konum My düğmesini seçtiğinde, tarayıcı kullanıcının konuma erişmek için izin isteyen bir güvenlik uyarısı görüntüler. Kullanıcı konumlarını paylaşmak uygunsa, kullanıcının bulunduğu konum eşlemesi yakınlaştırır ve yakında kahve dükkanları gösterilir. 
 
 <br/>
-<center>![Kullanıcının ekran görüntüsü tarayıcı istek kullanıcının konuma erişmek için](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
+<center>
+
+![Kullanıcının ekran görüntüsü tarayıcı istek kullanıcının konuma erişmek için](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
 Yakınlaştırdığınızda yeterli kahve Dükkanı konumlarını içeren bir alanda kapatmak için ayrı ayrı konumlara kümeler. Harita üzerinde simgelerden birini seçin veya bu konuma bilgilerini gösteren bir açılır pencere görmek için yan panelinde bir öğe seçin.
 
 <br/>
-<center>![Tamamlanan depolama Bulucu ekran görüntüsü](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
+<center>
+
+![Tamamlanan depolama Bulucu ekran görüntüsü](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 700'den az piksel genişliğinde için tarayıcı penceresini yeniden boyutlandırdığınızda veya mobil bir cihazda uygulamayı açmak, daha iyi olmasını düzen değişiklikleri daha küçük ekranlar için uygundur. 
 
 <br/>
-<center>![Küçük ekranlı sürüm deposu Bulucu ekran görüntüsü](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
+<center>
+
+![Küçük ekranlı sürüm deposu Bulucu ekran görüntüsü](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, Azure haritalar'ı kullanarak bir temel deposu Bulucu oluşturma konusunda bilgi edinin. Bu öğreticide oluşturduğunuz depolama Bulucu ihtiyacınız olan tüm işlevlere sahip olabilir. Depolama Bulucu için özellikleri ekleyebilir veya daha fazla Gelişmiş özelliği için daha özel bir kullanıcı deneyimi kullanın: 
 
 > [!div class="checklist"]
-* Etkinleştirme [önerileri yazarken](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) arama kutusuna.  
-* Ekleme [desteklemek için birden çok dil](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
-* Kullanıcıya izin [filtre bir yol boyunca konumları](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
-* Ekleme yeteneği [filtreleri ayarlayın](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
-* Bir sorgu dizesi kullanarak bir ilk arama değeri belirtmek için destek eklendi. Bu seçenek, depolama Konumlandırıcı, eklediğinizde, kullanıcıların yer işareti ekleyebilirsiniz ve aramalar paylaşın. Ayrıca, başka bir sayfadan aramaları bu sayfaya geçirilecek için kolay bir yöntemini sağlar.  
-* Depolama Bulucu olarak dağıtma bir [Azure App Service Web uygulaması](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
-* Bir veritabanı ve yakında konumları için arama verilerinizi Store. Daha fazla bilgi için bkz. [SQL Server uzamsal veri türleri özeti](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) ve [en yakın komşu için uzamsal veri sorgulama](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
+> * Etkinleştirme [önerileri yazarken](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) arama kutusuna.  
+> * Ekleme [desteklemek için birden çok dil](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
+> * Kullanıcıya izin [filtre bir yol boyunca konumları](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
+> * Ekleme yeteneği [filtreleri ayarlayın](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
+> * Bir sorgu dizesi kullanarak bir ilk arama değeri belirtmek için destek eklendi. Bu seçenek, depolama Konumlandırıcı, eklediğinizde, kullanıcıların yer işareti ekleyebilirsiniz ve aramalar paylaşın. Ayrıca, başka bir sayfadan aramaları bu sayfaya geçirilecek için kolay bir yöntemini sağlar.  
+> * Depolama Bulucu olarak dağıtma bir [Azure App Service Web uygulaması](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
+> * Bir veritabanı ve yakında konumları için arama verilerinizi Store. Daha fazla bilgi için bkz. [SQL Server uzamsal veri türleri özeti](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) ve [en yakın komşu için uzamsal veri sorgulama](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
 
 Bu öğreticiye ait kod örneğine şuradan erişebilirsiniz:
 

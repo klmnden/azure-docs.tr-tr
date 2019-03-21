@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8b2e42759ba2bffef28e1bf74e07bc149027ab7a
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651783"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107483"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'nde Olayları ve Uyarıları Araştırma (Önizleme)
 Bu belge Azure Güvenlik Merkezi'ndeki araştırma özelliğini kullanarak güvenlik olaylarını ve uyarılarını araştırmanıza yardımcı olur.
@@ -31,10 +31,8 @@ Bu özelliğin amacı, araştırmakta olduğunuz olayla ilgili bulunan tüm varl
 
 
 > [!NOTE]
-    > * [Özel uyarılar](security-center-custom-alert.md) Güvenlik Merkezi'nin araştırma özelliği desteklenmez.
-    > * Araştırma, yalnızca Windows sunuculardan toplanan verilere bağlı uyarılar için desteklenir.
->
->
+> * [Özel uyarılar](security-center-custom-alert.md) Güvenlik Merkezi'nin araştırma özelliği desteklenmez.
+> * Araştırma, yalnızca Windows sunuculardan toplanan verilere bağlı uyarılar için desteklenir.
 
 
 ## <a name="how-investigation-works"></a>Araştırma özelliği nasıl çalışır?

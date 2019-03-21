@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: fb9ee97726632b7eeccc923596c1f5527a7c95bd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961627"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118638"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute için Ağ Performansı İzleyicisi’ni Yapılandırma
 
@@ -62,17 +62,17 @@ Bir ExpressRoute devreden sanal ağ bağlantısı olan aboneliği bir çalışma
 2. Ana sayfanın alt kısmında **Ağ Performansı İzleyicisi** sayfasında **Oluştur** açmak için **Ağ Performansı İzleyicisi - yeni çözüm Oluştur** sayfası. Tıklayın **Log Analytics çalışma alanı - çalışma alanı seçin** çalışma sayfasını açın. Tıklayın **+ oluştur yeni çalışma alanı** çalışma sayfasını açın.
 3. Üzerinde **Log Analytics çalışma alanı** sayfasında **Yeni Oluştur**, aşağıdaki ayarları yapılandırın:
 
-  * Log Analytics çalışma alanı - çalışma alanınız için bir ad yazın.
-  * Abonelik - yeni çalışma alanı ile ilişkilendirmek istediğiniz seçin, birden fazla aboneliğiniz varsa.
-  * Kaynak grubu - kaynak grubu oluşturun veya var olanı kullanın.
-  * Konumu - bu konum, aracı bağlantı günlükleri için kullanılan depolama hesabı konumu belirtmek için kullanılır.
-  * Fiyatlandırma katmanı - fiyatlandırma katmanını seçin.
+   * Log Analytics çalışma alanı - çalışma alanınız için bir ad yazın.
+   * Abonelik - yeni çalışma alanı ile ilişkilendirmek istediğiniz seçin, birden fazla aboneliğiniz varsa.
+   * Kaynak grubu - kaynak grubu oluşturun veya var olanı kullanın.
+   * Konumu - bu konum, aracı bağlantı günlükleri için kullanılan depolama hesabı konumu belirtmek için kullanılır.
+   * Fiyatlandırma katmanı - fiyatlandırma katmanını seçin.
   
-    >[!NOTE]
-    >ExpressRoute bağlantı hattı, dünyanın herhangi bir yerde olabilir. Çalışma alanı ile aynı bölgede olması gerekmez.
-    >
+     >[!NOTE]
+     >ExpressRoute bağlantı hattı, dünyanın herhangi bir yerde olabilir. Çalışma alanı ile aynı bölgede olması gerekmez.
+     >
   
-    ![çalışma alanı](./media/how-to-npm/4.png)<br><br>
+     ![çalışma alanı](./media/how-to-npm/4.png)<br><br>
 4. Tıklayın **Tamam** kaydedip ayarları şablonu dağıtmak için. Şablon doğrulama bitince **Oluştur** çalışma dağıtılacak.
 5. Çalışma alanı dağıtıldıktan sonra gidin **NetworkMonitoring(name)** oluşturduğunuz kaynak. Ayarları doğrulayın ve ardından tıklayın **çözüm ek yapılandırma gerektirir**.
 
@@ -86,7 +86,7 @@ Bir ExpressRoute devreden sanal ağ bağlantısı olan aboneliği bir çalışma
 2. Ardından, kopyalama **çalışma alanı kimliği** ve **birincil anahtar** not defteri için.
 3. Gelen **yapılandırma Log Analytics aracılarını TCP protokolünü kullanılarak izleme için** bölümünde, Powershell betiği indirin. PowerShell betiğini TCP işlemler için ilgili güvenlik duvarı bağlantı noktası açmanıza yardımcı olur.
 
-  ![PowerShell betiği](./media/how-to-npm/7.png)
+   ![PowerShell betiği](./media/how-to-npm/7.png)
 
 ### <a name="installagent"></a>2.2: Her izleme sunucusuna (izlemek istediğiniz her VNET) bir izleme aracısını yükleyin
 
@@ -102,15 +102,15 @@ ExpressRoute bağlantı yedeklilik (örneğin, şirket içi, Azure sanal ağlar�
 4. Üzerinde **hedef klasör** sayfasında, değiştirin veya varsayılan yükleme klasörünü tutun ve ardından **sonraki**.
 5. Üzerinde **Aracı Kurulum Seçenekleri** sayfasında seçebileceğiniz Azure İzleyici günlüklerine ya da Operations Manager aracısını bağlamak. Veya aracıyı daha sonra yapılandırmak istiyorsanız seçimleri boş bırakabilirsiniz. Seçiminizi yaptıktan sonra tıklayın **sonraki**.
 
-  * Bağlanmak seçerseniz, **Azure Log Analytics**, Yapıştır **çalışma alanı kimliği** ve **çalışma alanı anahtarı** (birincil anahtar, önceki bölümde Defteri'ne kopyaladığınız). Ardından **İleri**'ye tıklayın.
+   * Bağlanmak seçerseniz, **Azure Log Analytics**, Yapıştır **çalışma alanı kimliği** ve **çalışma alanı anahtarı** (birincil anahtar, önceki bölümde Defteri'ne kopyaladığınız). Ardından **İleri**'ye tıklayın.
 
-    ![Kimliği ve anahtarı](./media/how-to-npm/8.png)
-  * Bağlanmak seçerseniz, **Operations Manager**, **yönetim grubu Yapılandırması** sayfasında **yönetim grubu adı**, **yönetim sunucusu** ve **yönetim sunucusu bağlantı noktası**. Ardından **İleri**'ye tıklayın.
+     ![Kimliği ve anahtarı](./media/how-to-npm/8.png)
+   * Bağlanmak seçerseniz, **Operations Manager**, **yönetim grubu Yapılandırması** sayfasında **yönetim grubu adı**, **yönetim sunucusu** ve **yönetim sunucusu bağlantı noktası**. Ardından **İleri**'ye tıklayın.
 
-    ![Operations Manager](./media/how-to-npm/9.png)
-  * Üzerinde **aracı eylem hesabı** sayfasında **yerel sistem** hesabı veya **etki alanı veya yerel bilgisayar hesabı**. Ardından **İleri**'ye tıklayın.
+     ![Operations Manager](./media/how-to-npm/9.png)
+   * Üzerinde **aracı eylem hesabı** sayfasında **yerel sistem** hesabı veya **etki alanı veya yerel bilgisayar hesabı**. Ardından **İleri**'ye tıklayın.
 
-    ![Hesap](./media/how-to-npm/10.png)
+     ![Hesap](./media/how-to-npm/10.png)
 6. Üzerinde **yüklemeye hazır** sayfasında, seçimlerinizi gözden geçirin ve ardından **yükleme**.
 7. **Yapılandırma başarıyla tamamlandı** sayfasında **Son**'a tıklayın.
 8. Tamamlandığında, Microsoft Monitoring Agent Denetim Masası'nda görünür. Burada yapılandırmanızı gözden geçirin ve aracı Azure İzleyici günlüklerine bağlı olduğunu doğrulayın. Bağlandığınızda, aracıyı belirten bir ileti görüntüler: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı**.
@@ -128,7 +128,7 @@ Denetim Masası'nı kullanarak Microsoft İzleme Aracısı için Ara sunucu ayar
 3. **Ara Sunucu Ayarları** sekmesine tıklayın.
 4. Seçin **proxy sunucusu kullan** URL'sini yazın ve bağlantı noktası numarası, gerektiğinde. Ara sunucunuz kimlik doğrulaması gerektiriyorsa ara sunucuya erişmek için kullanıcı adını ve parolayı yazın.
 
-  ![Proxy](./media/how-to-npm/11.png)
+   ![Proxy](./media/how-to-npm/11.png)
 
 ### <a name="verifyagent"></a>2.4: Aracı bağlantısını doğrulama
 
@@ -139,7 +139,7 @@ Kolayca aracılarınızı iletişim kurduğunu doğrulayabilirsiniz.
 3. Tıklayın **Azure Log Analytics** sekmesi.
 4. İçinde **durumu** sütun, aracıyı Azure İzleyici günlüklerine başarıyla bağlandı görmelisiniz.
 
-  ![durum](./media/how-to-npm/12.png)
+   ![durum](./media/how-to-npm/12.png)
 
 ### <a name="firewall"></a>2.5: İzleme Aracısı sunucu güvenlik duvarı bağlantı noktalarını açmanız
 
@@ -172,16 +172,16 @@ NSG hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-n
 
 1. Ağ Performansı İzleyicisi'ne genel bakış kutucuğu gidebilirsiniz **tüm kaynakları** sayfasında ve beyaz listeye NPM çalışma'ı tıklatın.
 
-  ![npm çalışma](./media/how-to-npm/npm.png)
+   ![npm çalışma](./media/how-to-npm/npm.png)
 2. Tıklayın **Ağ Performansı İzleyicisi** Pano görüntülemek için genel bakış kutucuğu. ExpressRoute 'yapılandırılmamış bir durumda' olduğunu gösterir ve ExpressRoute sayfasında, Pano içerir. Tıklayın **özellik kurulumu** Ağ Performansı İzleyicisi'ni yapılandırma sayfasını açın.
 
-  ![özellik kurulumu](./media/how-to-npm/npm2.png)
+   ![özellik kurulumu](./media/how-to-npm/npm2.png)
 3. Yapılandırma sayfasında, sol tarafta panelde bulunan 'ExpressRoute eşlemeleri' sekmesine gidin. Ardından, **Şimdi Bul**.
 
-  ![bul](./media/how-to-npm/13.png)
+   ![bul](./media/how-to-npm/13.png)
 4. Bulma tamamlandıktan sonra aşağıdaki öğeleri içeren bir liste görürsünüz:
-  * Tüm bu abonelikle ilişkili bir ExpressRoute devreden Microsoft eşleme bağlantıları.
-  * Tüm sanal ağlara bağlanan özel eşleme bağlantıları, bu abonelikle ilişkili.
+   * Tüm bu abonelikle ilişkili bir ExpressRoute devreden Microsoft eşleme bağlantıları.
+   * Tüm sanal ağlara bağlanan özel eşleme bağlantıları, bu abonelikle ilişkili.
             
 ## <a name="configmonitor"></a>5. adım: İzleyici yapılandırma
 

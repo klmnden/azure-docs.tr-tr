@@ -14,36 +14,38 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 44ae922b182874eef378d4868fb278c3c76252db
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d5e1e5989f9902d9ab8dcc3e6c2b9d2a71f12df9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884793"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224388"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Öğretici: ASP.NET Core uygulaması dinamik yapılandırması kullan
 
-ASP.NET Core, çeşitli kaynaklardan yapılandırma verilerini okurken olarak yeniden başlatmak bir uygulama neden olmadan hareket halindeyken değişiklikleri işleme yeteneğine sahip bir takılabilir yapılandırma sistemi vardır. Kesin türü belirtilmiş .NET sınıfları yapılandırma ayarlarını, bağlama ve bunları kullanarak çeşitli kodunuza ekleme destekler `IOptions<T>` desenleri. Özellikle bunlardan birini desenleri `IOptionsSnapshot<T>`, temel alınan verileri değiştirdiğinizde uygulama yapılandırmasını otomatik yeniden yüklemeyi sağlar. Ekleme `IOptionsSnapshot<T>` denetleyicilere uygulamanızda Azure uygulama yapılandırmasında depolanan en son yapılandırma erişin. Ayrıca, sürekli olarak izlemek ve tanımladığınız düzenli aralıklarla yoklama aracılığıyla bir uygulama yapılandırma deposundaki herhangi bir değişiklik almak için uygulama yapılandırma ASP.NET Core istemci kitaplığı ayarlayabilirsiniz.
+ASP.NET Core, çeşitli kaynaklardan yapılandırma verilerini okuyan bir takılabilir yapılandırma sistemi vardır. Bu değişiklikler hareket halindeyken yeniden başlatmak bir uygulama neden olmadan işleyebilir. ASP.NET Core, bağlama türü kesin belirlenmiş .NET sınıfları yapılandırma ayarlarını destekler. Bunları kodunuza çeşitli kullanarak eklediği `IOptions<T>` desenleri. Özellikle bunlardan birini desenleri `IOptionsSnapshot<T>`otomatik olarak uygulamanın yapılandırması, temel alınan veriler değiştiğinde yeniden yükler. 
 
-Bu öğretici, kodunuzda dinamik yapılandırma güncelleştirmeleri nasıl uygulayacağınıza dair gösterir. Bu hızlı başlangıçlar, sunulan web uygulaması oluşturur. Tam [uygulama yapılandırması ile bir ASP.NET Core uygulaması oluşturma](./quickstart-aspnet-core-app.md) devam etmeden önce ilk.
+Ekleme `IOptionsSnapshot<T>` denetleyicilere uygulamanızda Azure uygulama yapılandırmasında depolanan en son yapılandırma erişin. Ayrıca, sürekli olarak izlemek ve bir uygulama yapılandırma deposundaki herhangi bir değişiklik almak için uygulama yapılandırma ASP.NET Core istemci kitaplığı da ayarlayabilirsiniz. Düzenli aralıklarla yoklama aralığını tanımlarsınız.
 
-Bu hızlı başlangıçtaki adımları tamamlamak için herhangi bir kod düzenleyicisini kullanabilirsiniz. Ancak, Windows, macOS ve Linux platformlarında sağlanan [Visual Studio Code](https://code.visualstudio.com/) mükemmel bir seçenektir.
+Bu öğretici, kodunuzda dinamik yapılandırma güncelleştirmeleri nasıl uygulayacağınıza dair gösterir. Bu hızlı başlangıçlar, sunulan web uygulaması oluşturur. Devam etmeden önce [uygulama yapılandırması ile bir ASP.NET Core uygulaması oluşturma](./quickstart-aspnet-core-app.md) ilk.
+
+Bu hızlı başlangıçtaki adımları uygulamak için herhangi bir kod Düzenleyicisi'ni kullanabilirsiniz. [Visual Studio Code](https://code.visualstudio.com/) Windows, macOS ve Linux platformlarını kullanılabilir mükemmel bir seçenektir.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir uygulama yapılandırma deposu değişikliklere yanıt yapılandırmasını güncelleştirmek için uygulamanızı ayarlayın
-> * En son yapılandırmayı, uygulamanızın denetleyicileri ekleme
+> * Bir uygulama yapılandırma deposu değişikliklere yanıt yapılandırmasını güncelleştirmek için uygulamanızı ayarlayın.
+> * Uygulamanızın denetleyicileri en son yapılandırmayı yerleştirir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için yükleme [.NET Core SDK'sı](https://dotnet.microsoft.com/download).
+Bu hızlı başlangıç yapmak için yükleme [.NET Core SDK'sı](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="reload-data-from-app-configuration"></a>Uygulama yapılandırma verileri yeniden yükleyin
 
-1. Açık *Program.cs* ve güncelleştirme `CreateWebHostBuilder` ekleyerek yöntemi `config.AddAzureAppConfiguration()` yöntemi.
+1. Program.cs dosyasını açın ve güncelleştirme `CreateWebHostBuilder` ekleyerek yöntemi `config.AddAzureAppConfiguration()` yöntemi.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -59,9 +61,9 @@ Bu hızlı başlangıcı tamamlamak için yükleme [.NET Core SDK'sı](https://d
             .UseStartup<Startup>();
     ```
 
-    İkinci parametre `.Watch` yöntemidir yoklama aralığı için ASP.NET istemci kitaplığı oluştu, belirli bir yapılandırma ayarı için herhangi bir değişiklik görmek için bir uygulama yapılandırma deposu sorgular.
+    İkinci parametre `.Watch` yöntemidir yoklama aralığı için ASP.NET istemci kitaplığı bir uygulama yapılandırma deposu sorgular. İstemci Kitaplığı herhangi bir değişiklik oluşup olmadığını görmek için belirli yapılandırma ayarı denetler.
 
-2. Ekleme bir *Staticcontenthosting.Web* tanımlayan ve uygulayan yeni bir dosya `Settings` sınıfı.
+2. Tanımlar ve yeni bir uygulayan bir Staticcontenthosting.Web dosyası ekleyin `Settings` sınıfı.
 
     ```csharp
     namespace TestAppConfig
@@ -76,7 +78,7 @@ Bu hızlı başlangıcı tamamlamak için yükleme [.NET Core SDK'sı](https://d
     }
     ```
 
-3. Açık *Startup.cs* ve güncelleştirme `ConfigureServices` yapılandırma verilerini bağlamak için yöntemi `Settings` sınıfı.
+3. Startup.cs dosyasını açın ve güncelleştirme `ConfigureServices` yapılandırma verilerini bağlamak için yöntemi `Settings` sınıfı.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -95,7 +97,7 @@ Bu hızlı başlangıcı tamamlamak için yükleme [.NET Core SDK'sı](https://d
 
 ## <a name="use-the-latest-configuration-data"></a>En son yapılandırma verilerini kullanma
 
-1. Açık *HomeController.cs* içinde *denetleyicileri* dizini, güncelleştirme `HomeController` almak için sınıf `Settings` yapma ve bağımlılık ekleme ile kendi değerlerini kullanın.
+1. HomeController.cs denetleyicileri dizininde açın. Güncelleştirme `HomeController` almak için sınıf `Settings` bağımlılık ekleme ve oluşturma kendi değerlerini kullanın.
 
     ```csharp
     public class HomeController : Controller
@@ -118,7 +120,7 @@ Bu hızlı başlangıcı tamamlamak için yükleme [.NET Core SDK'sı](https://d
     }
     ```
 
-2. Açık *Index.cshtml* içinde *görünümleri* > *giriş* dizini ve içeriğini aşağıdakilerle değiştirin:
+2. Görünümlerde Index.cshtml açın > giriş dizini ve içeriğini aşağıdaki betikle değiştirin:
 
     ```html
     <!DOCTYPE html>
@@ -143,11 +145,11 @@ Bu hızlı başlangıcı tamamlamak için yükleme [.NET Core SDK'sı](https://d
 
 ## <a name="build-and-run-the-app-locally"></a>Derleme ve uygulamayı yerel olarak çalıştırma
 
-1. .NET Core CLI kullanarak uygulamayı derlemek için komut kabuğunda aşağıdaki komutu yürütün:
+1. .NET Core CLI'yı kullanarak uygulamayı oluşturmak için komut kabuğu'nda aşağıdaki komutu çalıştırın:
 
         dotnet build
 
-2. Derleme başarıyla tamamlandıktan sonra web uygulamasını yerel olarak çalıştırmak için aşağıdaki komutu yürütün:
+2. Yapılandırma başarıyla tamamlandıktan sonra web uygulamasını yerel olarak çalıştırmak için aşağıdaki komutu çalıştırın:
 
         dotnet run
 
@@ -155,9 +157,9 @@ Bu hızlı başlangıcı tamamlamak için yükleme [.NET Core SDK'sı](https://d
 
     ![Yerel hızlı uygulama başlatma](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Oturum [Azure portalında](https://aka.ms/azconfig/portal), tıklayın **tüm kaynakları** ve hızlı başlangıçta oluşturduğunuz uygulama yapılandırma deposu örneği.
+4. [Azure Portal](https://aka.ms/azconfig/portal) oturum açın. Seçin **tüm kaynakları**, hızlı başlangıç bölümünde oluşturduğunuz uygulama yapılandırma deposu örneği seçin.
 
-5. Tıklayın **anahtar/değer Gezgini** ve aşağıdaki anahtarlarını güncelleştirin:
+5. Seçin **anahtar/değer Gezgini**ve aşağıdaki anahtarlarını güncelleştirin:
 
     | Anahtar | Değer |
     |---|---|
@@ -175,7 +177,7 @@ Bu hızlı başlangıcı tamamlamak için yükleme [.NET Core SDK'sı](https://d
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, eklediğiniz Azure yönetilen hizmet kimliği erişim uygulama yapılandırmasını kolaylaştırmaya ve uygulamanız için kimlik bilgileri yönetimi iyileştirmek için. Uygulama yapılandırmasını kullanma hakkında daha fazla bilgi edinmek için Azure CLI örnekleri için devam edin.
+Bu öğreticide, eklediğiniz Azure yönetilen hizmet kimliği erişim uygulama yapılandırmasını kolaylaştırmaya ve uygulamanız için kimlik bilgileri yönetimi iyileştirmek için. Uygulama yapılandırmasını kullanma hakkında daha fazla bilgi için Azure CLI örnekleri için devam edin.
 
 > [!div class="nextstepaction"]
 > [CLI örnekleri](./cli-samples.md)

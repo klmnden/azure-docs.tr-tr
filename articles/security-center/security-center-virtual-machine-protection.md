@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 73a88ec0280728b4a485bd095096e90bbc43ef40
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: dd7dad51f29b4b5034c72085cd789077747faa0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990960"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106568"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Makineleri ve Azure Güvenlik Merkezi'nde uygulamalarınızı koruma
 Azure Güvenlik Merkezi, Azure kaynaklarınızın güvenlik durumunu analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur. Öneriler, Azure kaynak türleri için geçerlidir: sanal makineleri (VM'ler) ve bilgisayarlar, uygulamalar, ağ, SQL ve kimlik ve erişim.
@@ -144,21 +144,21 @@ Altında **uygulama hizmetleri**, App service ortamları listesini bulmak ve Gü
 
 1. Bir web uygulaması'nı seçin. Özet görünümü ile üç sekme açar:
 
-  - **Öneriler**: Değerlendirme başarısız oldu Güvenlik Merkezi tarafından gerçekleştirilen göre.
-  - **Değerlendirmeler geçirilen**: Güvenlik Merkezi tarafından geçirilen gerçekleştirdiği değerlendirmeler listesi.
-  - **Kullanılamayan iç değerlendirmeler**: bir hata veya öneri nedeniyle çalıştırılamadı değerlendirmelerinin listesini belirli bir App service için uygun değil
+   - **Öneriler**: Değerlendirme başarısız oldu Güvenlik Merkezi tarafından gerçekleştirilen göre.
+   - **Değerlendirmeler geçirilen**: Güvenlik Merkezi tarafından geçirilen gerçekleştirdiği değerlendirmeler listesi.
+   - **Kullanılamayan iç değerlendirmeler**: bir hata veya öneri nedeniyle çalıştırılamadı değerlendirmelerinin listesini belirli bir App service için uygun değil
 
-  Altında **önerileri** Seçili web uygulaması için önerilerin bir listesi ve önerilerin önem derecesi.
+   Altında **önerileri** Seçili web uygulaması için önerilerin bir listesi ve önerilerin önem derecesi.
 
-  ![App Services önerileri](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
+   ![App Services önerileri](./media/security-center-virtual-machine-recommendations/app-services-rec.png)
 
 2. Öneri açıklaması ve iyi durumda olmayan kaynaklar ve iyi durumdaki kaynaklar Taranmayan kaynaklar listesini görmek için bir öneri seçin.
 
- - Altında **değerlendirmeleri geçirilen** sütun geçilen iç değerlendirmeler listesi verilmiştir.  Bu değerlendirmeler önemini her zaman büyük/küçük harf yeşildir.
+   - Altında **değerlendirmeleri geçirilen** sütun geçilen iç değerlendirmeler listesi verilmiştir.  Bu değerlendirmeler önemini her zaman büyük/küçük harf yeşildir.
 
- -  Geçirilen bir değerlendirme, listenin değerlendirme açıklaması için sağlıksız ve iyi durumda kaynakların bir listesini ve Taranmayan kaynaklar listesini seçin. İyi durumda olmayan kaynaklar için bir sekme yoktur ancak değerlendirmede başarılı olduğundan bu liste her zaman boştur.
+   - Geçirilen bir değerlendirme, listenin değerlendirme açıklaması için sağlıksız ve iyi durumda kaynakların bir listesini ve Taranmayan kaynaklar listesini seçin. İyi durumda olmayan kaynaklar için bir sekme yoktur ancak değerlendirmede başarılı olduğundan bu liste her zaman boştur.
 
-    ![App Service düzeltme](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+     ![App Service düzeltme](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
 ## <a name="virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri
 Güvenlik Merkezi, Ölçek kümesine sahiptir ve bu ölçek kümeleri Microsoft Monitoring Agent yüklemenizi önerir olup olmadığını otomatik olarak bulur. 
@@ -168,7 +168,7 @@ Microsoft Monitoring Agent'ı yüklemek için:
 1. Bir öneri seçin **sanal makine ölçek kümesi üzerinde izleme Aracısı yükleme**. İzlenmeyen ölçek kümeleri listesini al
 2. Sağlıksız bir ölçek kümesi seçin. Mevcut bir doldurulmuş çalışma kullanarak izleme aracısını yüklemek için yönergeleri izleyin veya yeni bir tane oluşturun. Çalışma alanı ayarladığınızdan emin olun [fiyatlandırma katmanı](security-center-pricing.md) ayarlı değil ise.
 
- ![MMS yükleyin](./media/security-center-virtual-machine-recommendations/install-mms.png)
+   ![MMS yükleyin](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
 Ayarlamak istiyorsanız Yeni ölçeği otomatik olarak Microsoft Monitoring Agent'ı yüklemek için ayarlar:
 1. Azure İlkesi'ne gidin ve tıklayın **tanımları**.

@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 12/27/2018
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 1f65d7711c57930886ac9826bb105b6bc4931268
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 158f22ec2ab07bfc2f893d4b0c55d862e0b19de0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238916"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106670"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Önemli noktalar yer: Hizmetleri kullanarak veya Azure Stack için uygulamalar oluşturma
 
@@ -76,8 +76,8 @@ Azure Stack, Azure PowerShell ve Azure hizmet API'lerini belirli sürümlerini d
 
 Azure PowerShell doğru sürümünü kullandığınızdan emin olmak için [API sürümü profillerini](azure-stack-version-profiles.md). Kullanabileceğiniz en son API Sürüm profili belirlemek için kullanmakta olduğunuz Azure Stack yapımı bulun. Azure Stack yöneticinizden bu bilgi edinebilirsiniz.
 
->[!NOTE]
- Azure Stack geliştirme Seti'ni kullanıyorsanız ve yönetici erişiminiz varsa bkz [geçerli sürümünü](../azure-stack-updates.md#determine-the-current-version) Azure Stack derleme belirlemek için bölüm.
+> [!NOTE]
+>  Azure Stack geliştirme Seti'ni kullanıyorsanız ve yönetici erişiminiz varsa bkz [geçerli sürümünü](../azure-stack-updates.md#determine-the-current-version) Azure Stack derleme belirlemek için bölüm.
 
 Diğer API'ler için ad alanları, kaynak türleri ve Azure Stack aboneliğinizde desteklenen API sürümlerini çıktısını almak için aşağıdaki PowerShell komutunu çalıştırın. Not hala bir özellik düzeyinde farklar olabilir. Bu komutun çalışması için önceden olmalıdır [yüklü](azure-stack-powershell-install.md) ve [yapılandırılmış](azure-stack-powershell-configure-user.md) PowerShell için Azure Stack ortamı. Ayrıca Azure Stack'te teklif aboneliği olması gerekir.
 
@@ -94,4 +94,4 @@ Bir hizmet düzeyinde farklılıklar hakkında daha ayrıntılı bilgi için bkz
 
 * [Azure Stack'te sanal makineler için dikkat edilmesi gerekenler](azure-stack-vm-considerations.md)
 * [Azure stack'teki depolama için dikkat edilmesi gerekenler](azure-stack-acs-differences.md)
-* [Azure Stack ağ iletişimi için dikkat edilmesi gerekenler](azure-stack-network-differences.md)
+* [Azure Stack ağ iletişiminde dikkat edilmesi gerekenler](azure-stack-network-differences.md)

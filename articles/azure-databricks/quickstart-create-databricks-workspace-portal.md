@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 1c8f280d58d12df33b687fa9c09712176987cdd1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1e0e5deea8602b3da16074155e69c952227b8609
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259554"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117685"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Azure Databricks'te Spark işini çalıştırma
 
@@ -74,11 +74,11 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
 
     Aşağıdakiler dışında diğer tüm varsayılan değerleri kabul edin:
 
-    * Küme için bir ad girin.
-    * Bu makale için **4.0** çalışma zamanıyla bir küme oluşturun.
-    * **\_\_ dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiğinizden emin olun. Küme kullanılmazsa kümenin sonlandırılması için biz süre (dakika cinsinden) belirtin.
+   * Küme için bir ad girin.
+   * Bu makale için **4.0** çalışma zamanıyla bir küme oluşturun.
+   * **\_\_ dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiğinizden emin olun. Küme kullanılmazsa kümenin sonlandırılması için biz süre (dakika cinsinden) belirtin.
     
-    **Küme oluştur**’u seçin. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleyebilir ve Spark işleri çalıştırabilirsiniz.
+     **Küme oluştur**’u seçin. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleyebilir ve Spark işleri çalıştırabilirsiniz.
 
 Küme oluşturma hakkında daha fazla bilgi için bkz. [Azure Databricks üzerinde Spark kümesi oluşturma](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
@@ -89,12 +89,12 @@ Küme oluşturma hakkında daha fazla bilgi için bkz. [Azure Databricks üzerin
 1. Bu örnek JSON veri dosyasını indirme [github'dan](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) yerel bilgisayarınıza. Ham dosyayı yerel ortama kaydetmek için sağ tıklayın ve kaydedin.
 
 2. Depolama hesabınız yoksa oluşturabilirsiniz.
-    - Azure portalda **Kaynak oluştur**’u seçin. **Depolama** kategorisini ve ardından **Depolama Hesapları**'nı seçin
-    - Depolama hesabına benzersiz bir ad verin.
-    - Seçin **hesap türü**: **Blob Depolama**
-    - **Kaynak Grubu** adı belirleyin. Databricks çalışma alanını oluşturduğunuz aynı kaynak grubunu kullanın.
+   - Azure portalda **Kaynak oluştur**’u seçin. **Depolama** kategorisini ve ardından **Depolama Hesapları**'nı seçin
+   - Depolama hesabına benzersiz bir ad verin.
+   - Seçin **hesap türü**: **Blob Depolama**
+   - **Kaynak Grubu** adı belirleyin. Databricks çalışma alanını oluşturduğunuz aynı kaynak grubunu kullanın.
     
-    Daha fazla bilgi için bkz. [Azure Blob depolama hesabını oluşturma](../storage/common/storage-quickstart-create-account.md).
+     Daha fazla bilgi için bkz. [Azure Blob depolama hesabını oluşturma](../storage/common/storage-quickstart-create-account.md).
 
 3. Blob Depolama hesabında bir depolama Kapsayıcısı oluşturun ve örnek json dosyasını kapsayıcıya yükleyin. Dosyayı yüklemek için Azure portalı veya [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md)'ni kullanabilirsiniz.
 
@@ -130,21 +130,21 @@ Databricks içinde bir not defteri oluşturmak, not defterini bir Azure Blob dep
 
     Aşağıdaki kod parçacığında `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` ve`{YOUR STORAGE ACCOUNT ACCESS KEY}` değerlerini Azure Depolama hesabınız için uygun değerlerle değiştirin. Kod parçacığını not defterindeki boş bir hücreye yapıştırın ve sonra kod hücresini çalıştırmak için SHIFT + ENTER tuşlarına basın.
 
-    * **Depolama hesabını DBFS'ye bağlayın (önerilen)**. Kod parçacığında Azure Depolama hesabı yolu `/mnt/mypath` yoluna bağlanır. Böylece ilerde Azure Depolama hesabına eriştiğiniz her durumda tam yolu vermenize gerek kalmaz. Yalnızca `/mnt/mypath` yolunu kullanabilirsiniz.
+   * **Depolama hesabını DBFS'ye bağlayın (önerilen)**. Kod parçacığında Azure Depolama hesabı yolu `/mnt/mypath` yoluna bağlanır. Böylece ilerde Azure Depolama hesabına eriştiğiniz her durumda tam yolu vermenize gerek kalmaz. Yalnızca `/mnt/mypath` yolunu kullanabilirsiniz.
 
-          dbutils.fs.mount(
-            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
-            mountPoint = "/mnt/mypath",
-            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
+         dbutils.fs.mount(
+           source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
+           mountPoint = "/mnt/mypath",
+           extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
 
-    * **Depolama hesabına doğrudan erişme**
+   * **Depolama hesabına doğrudan erişme**
 
-          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+         spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-    Depolama hesabı anahtarınızı alma yönergeleri için bkz. [Depolama erişim anahtarlarınızı yönetme](../storage/common/storage-account-manage.md#access-keys).
+     Depolama hesabı anahtarınızı alma yönergeleri için bkz. [Depolama erişim anahtarlarınızı yönetme](../storage/common/storage-account-manage.md#access-keys).
 
-    > [!NOTE]
-    > Azure Data Lake Store’u Azure Databricks üzerine bir Spark kümesi ile de kullanabilirsiniz. Yönergeler için bkz. [Data Lake Store’u Azure Databricks ile Kullanma](https://go.microsoft.com/fwlink/?linkid=864084).
+     > [!NOTE]
+     > Azure Data Lake Store’u Azure Databricks üzerine bir Spark kümesi ile de kullanabilirsiniz. Yönergeler için bkz. [Data Lake Store’u Azure Databricks ile Kullanma](https://go.microsoft.com/fwlink/?linkid=864084).
 
 4. **small_radio_json.json** adlı örnek JSON veri dosyasındaki verileri kullanarak geçici tablo oluşturmak için bir SQL deyimi çalıştırın. Aşağıdaki kod parçacığında yer tutucu değerlerini kapsayıcınızın adı ve depolama hesabı adı ile değiştirin. Kod parçacığını not defterindeki bir kod hücresine yapıştırın ve sonra SHIFT + ENTER tuşlarına basın. Kod parçacığında `path` değeri, Azure Depolama hesabınıza yüklediğiniz örnek JSON dosyasının konumunu gösterir.
 
@@ -183,12 +183,12 @@ Databricks içinde bir not defteri oluşturmak, not defterini bir Azure Blob dep
 
     ![Çubuk grafiği özelleştirme](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Customize bar chart")
 
-    * **Anahtarlar**’ı **cinsiyet** olarak ayarlayın.
-    * **Seri gruplandırmalar**’ı **düzey** olarak ayarlayın.
-    * **Değerler**’ı **düzey** olarak ayarlayın.
-    * **Toplama**’yı **SAYI** olarak ayarlayın.
+   * **Anahtarlar**’ı **cinsiyet** olarak ayarlayın.
+   * **Seri gruplandırmalar**’ı **düzey** olarak ayarlayın.
+   * **Değerler**’ı **düzey** olarak ayarlayın.
+   * **Toplama**’yı **SAYI** olarak ayarlayın.
 
-    **Uygula**'ya tıklayın.
+     **Uygula**'ya tıklayın.
 
 9. Çıktı aşağıdaki ekran görüntüsünde gösterildiği gibi görsel açıklamayı gösterir:
 

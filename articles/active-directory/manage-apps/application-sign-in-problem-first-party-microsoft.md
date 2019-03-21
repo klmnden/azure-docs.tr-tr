@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09f1ef137bbad50e72771c4368346716336c4faf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0522311c12da8416504a6d502e1e2247ff8ce15b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447107"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104157"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Bir Microsoft uygulamasında oturum açma sorunları
 
@@ -53,7 +53,7 @@ Nereden başlayacağınızı hakkında bir fikir varsa, ayrıntılarına ulaşab
 
 Kullanıcılarının bir Microsoft uygulamasında oturum açamıyorum istemeyenler içine çalışmadığında bazı yaygın sorunlar aşağıda verilmiştir.
 
--   İlk denetlenecek genel sorunlar
+- İlk denetlenecek genel sorunlar
 
   * Emin kullanıcının oturum açmak için **URL'yi düzeltin** ve yerel uygulama URL'si değil.
 
@@ -65,31 +65,31 @@ Kullanıcılarının bir Microsoft uygulamasında oturum açamıyorum istemeyenl
 
   * Kullanıcının emin **parola süresi değil veya unutulursa.** [Bir kullanıcının parolasını sıfırlama](#reset-a-users-password) veya [Self Servis parola sıfırlamayı etkinleştirin](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
-   * Emin **multi-Factor Authentication** kullanıcı erişimi engellemediğini. [Bir kullanıcının çok faktörlü kimlik doğrulama durumu kontrol](#check-a-users-multi-factor-authentication-status) veya [bir kullanıcının kimlik doğrulaması iletişim bilgileri kontrol edin](#check-a-users-authentication-contact-info)
+  * Emin **multi-Factor Authentication** kullanıcı erişimi engellemediğini. [Bir kullanıcının çok faktörlü kimlik doğrulama durumu kontrol](#check-a-users-multi-factor-authentication-status) veya [bir kullanıcının kimlik doğrulaması iletişim bilgileri kontrol edin](#check-a-users-authentication-contact-info)
 
-   * Emin bir **koşullu erişim ilkesi** veya **kimlik koruması** İlkesi, kullanıcı erişimini engellemediğinden. [Belirli bir koşullu erişim ilkesi denetleyin](#problems-with-conditional-access-policies) veya [belirli bir uygulamanın koşullu erişim ilkesini denetleme](#check-a-specific-applications-conditional-access-policy) veya [özel koşullu erişim ilkesi devre dışı bırak](#disable-a-specific-conditional-access-policy)
+  * Emin bir **koşullu erişim ilkesi** veya **kimlik koruması** İlkesi, kullanıcı erişimini engellemediğinden. [Belirli bir koşullu erişim ilkesi denetleyin](#problems-with-conditional-access-policies) veya [belirli bir uygulamanın koşullu erişim ilkesini denetleme](#check-a-specific-applications-conditional-access-policy) veya [özel koşullu erişim ilkesi devre dışı bırak](#disable-a-specific-conditional-access-policy)
 
-   * Emin olun kullanıcının **kimlik doğrulaması iletişim bilgileri** yürütülebilmesi çok faktörlü kimlik doğrulaması veya koşullu erişim ilkelerinin izin güncel olduğundan. [Bir kullanıcının çok faktörlü kimlik doğrulama durumu kontrol](#check-a-users-multi-factor-authentication-status) veya [bir kullanıcının kimlik doğrulaması iletişim bilgileri kontrol edin](#check-a-users-authentication-contact-info)
+  * Emin olun kullanıcının **kimlik doğrulaması iletişim bilgileri** yürütülebilmesi çok faktörlü kimlik doğrulaması veya koşullu erişim ilkelerinin izin güncel olduğundan. [Bir kullanıcının çok faktörlü kimlik doğrulama durumu kontrol](#check-a-users-multi-factor-authentication-status) veya [bir kullanıcının kimlik doğrulaması iletişim bilgileri kontrol edin](#check-a-users-authentication-contact-info)
 
--   İçin **Microsoft** **Lisansı gerektiren uygulamalar** (Office 365 gibi), yukarıdaki genel sorunlardan çizgili sonra denetlemek için belirli bazı sorunlar şunlardır:
+- İçin **Microsoft** **Lisansı gerektiren uygulamalar** (Office 365 gibi), yukarıdaki genel sorunlardan çizgili sonra denetlemek için belirli bazı sorunlar şunlardır:
 
-   * Bir kullanıcı sağlayın ya da sahip bir **lisansı atandı.** [Bir kullanıcının lisans atanmış denetleyin](#check-a-users-assigned-licenses) veya [lisans atanmış Grup denetleyin](#check-a-groups-assigned-licenses)
+  * Bir kullanıcı sağlayın ya da sahip bir **lisansı atandı.** [Bir kullanıcının lisans atanmış denetleyin](#check-a-users-assigned-licenses) veya [lisans atanmış Grup denetleyin](#check-a-groups-assigned-licenses)
 
-   * Lisans ise **atanan bir** **statik grup**, emin **kullanıcının üye olduğu** o grubun. [Bir kullanıcının grup üyeliklerini denetle](#check-a-users-group-memberships)
+  * Lisans ise **atanan bir** **statik grup**, emin **kullanıcının üye olduğu** o grubun. [Bir kullanıcının grup üyeliklerini denetle](#check-a-users-group-memberships)
 
-   * Lisans ise **atanan bir** **dinamik grup**, emin **dinamik Grup Kuralı düzgün şekilde ayarlandığını**. [Dinamik grup üyeliği ölçütlerini denetleyin](#check-a-dynamic-groups-membership-criteria)
+  * Lisans ise **atanan bir** **dinamik grup**, emin **dinamik Grup Kuralı düzgün şekilde ayarlandığını**. [Dinamik grup üyeliği ölçütlerini denetleyin](#check-a-dynamic-groups-membership-criteria)
 
-   * Lisans ise **atanan bir** **dinamik grup**, dinamik Grup olduğundan emin olun **işleme tamamlandı** üyeliğini ve bu **kullanıcının üye olduğu**  (Bu işlem biraz zaman alabilir). [Bir kullanıcının grup üyeliklerini denetle](#check-a-users-group-memberships)
+  * Lisans ise **atanan bir** **dinamik grup**, dinamik Grup olduğundan emin olun **işleme tamamlandı** üyeliğini ve bu **kullanıcının üye olduğu**  (Bu işlem biraz zaman alabilir). [Bir kullanıcının grup üyeliklerini denetle](#check-a-users-group-memberships)
 
-   *  Lisans atanmış olduğundan emin olun, sonra lisans olduğundan emin olun **süresinin dolmadığını**.
+  *  Lisans atanmış olduğundan emin olun, sonra lisans olduğundan emin olun **süresinin dolmadığını**.
 
-   *  Lisans olduğundan emin olun **uygulamanın** eriştikleri.
+  *  Lisans olduğundan emin olun **uygulamanın** eriştikleri.
 
--   İçin **Microsoft** **lisans gerektirmeyen uygulamalar**, kontrol etmek için diğer işlemlerden bazıları aşağıda verilmiştir:
+- İçin **Microsoft** **lisans gerektirmeyen uygulamalar**, kontrol etmek için diğer işlemlerden bazıları aşağıda verilmiştir:
 
-   * Uygulamanın istediği, **kullanıcı düzeyi izinleri** (örneğin "Bu kullanıcıların posta kutularına erişim"), kullanıcı uygulamada oturum açtığını emin olun ve gerçekleştirdiği bir **kullanıcıdüzeyionayıişlemi** kendi veri erişim izin vermek için.
+  * Uygulamanın istediği, **kullanıcı düzeyi izinleri** (örneğin "Bu kullanıcıların posta kutularına erişim"), kullanıcı uygulamada oturum açtığını emin olun ve gerçekleştirdiği bir **kullanıcıdüzeyionayıişlemi** kendi veri erişim izin vermek için.
 
-   * Uygulamanın istediği, **yönetici düzeyi izinlerini** (örneğin "tüm kullanıcıların posta kutularına erişim"), genel yönetici yürüttü emin olun bir **yönetici düzeyi onayı işlemi tüm kullanıcılar adına** kuruluştaki.
+  * Uygulamanın istediği, **yönetici düzeyi izinlerini** (örneğin "tüm kullanıcıların posta kutularına erişim"), genel yönetici yürüttü emin olun bir **yönetici düzeyi onayı işlemi tüm kullanıcılar adına** kuruluştaki.
 
 ## <a name="problems-with-the-users-account"></a>Kullanıcı hesabı ile ilgili sorunlar
 
@@ -187,25 +187,25 @@ Self Servis parola sıfırlamayı etkinleştirmek için aşağıdaki dağıtım 
 
 Bir kullanıcının çok faktörlü kimlik doğrulaması durumunu denetlemek için şu adımları izleyin:
 
-1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
+1. Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+2. Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4. tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
-5.  tıklayın **tüm kullanıcılar**.
+5. tıklayın **tüm kullanıcılar**.
 
-6.  tıklayın **multi-Factor Authentication** bölmenin üstünde düğme.
+6. tıklayın **multi-Factor Authentication** bölmenin üstünde düğme.
 
-7.  Bir kez **multi-Factor Authentication Yönetim Portalı** yüklendiğinde olun, bulunduğunuz **kullanıcılar** sekmesi.
+7. Bir kez **multi-Factor Authentication Yönetim Portalı** yüklendiğinde olun, bulunduğunuz **kullanıcılar** sekmesi.
 
-8.  Kullanıcı, arama, filtreleme veya sıralama kullanıcılar listesinde bulun.
+8. Kullanıcı, arama, filtreleme veya sıralama kullanıcılar listesinde bulun.
 
-9.  Kullanıcı listesinden kullanıcıyı seçin ve **etkinleştirme**, **devre dışı**, veya **zorla** istediğiniz gibi çok faktörlü kimlik doğrulaması.
+9. Kullanıcı listesinden kullanıcıyı seçin ve **etkinleştirme**, **devre dışı**, veya **zorla** istediğiniz gibi çok faktörlü kimlik doğrulaması.
 
-  * **Not**: Bir kullanıcı olarak bulunuyorsa bir **zorlanan** durumunda ayarlayın bunları **devre dışı bırakılmış** geçici olarak geri hesaba izin vermek için. Daha sonra geri içinde bulundukları sonra durumlarına değiştirebilirsiniz **etkin** kişi bilgileri, sonraki oturum açma sırasında yeniden kaydolmak için bunları yeniden istemek için. Alternatif olarak, adımları izleyebilirsiniz [bir kullanıcının kimlik doğrulaması iletişim bilgileri kontrol](#check-a-users-authentication-contact-info) doğrulamak veya bunlar için bu veri kümesi için.
+   * **Not**: Bir kullanıcı olarak bulunuyorsa bir **zorlanan** durumunda ayarlayın bunları **devre dışı bırakılmış** geçici olarak geri hesaba izin vermek için. Daha sonra geri içinde bulundukları sonra durumlarına değiştirebilirsiniz **etkin** kişi bilgileri, sonraki oturum açma sırasında yeniden kaydolmak için bunları yeniden istemek için. Alternatif olarak, adımları izleyebilirsiniz [bir kullanıcının kimlik doğrulaması iletişim bilgileri kontrol](#check-a-users-authentication-contact-info) doğrulamak veya bunlar için bu veri kümesi için.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Bir kullanıcının kimlik doğrulaması iletişim bilgileri kontrol edin
 
@@ -365,21 +365,21 @@ Lisans atanmış Grup denetlemek için şu adımları izleyin:
 
 Bir grubun atanmış lisansları yeniden işle için bu adımları izleyin:
 
-1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
+1. Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+2. Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4. tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
-5.  tıklayın **tüm grupları**.
+5. tıklayın **tüm grupları**.
 
-6.  **Arama** ilgilendiğiniz grubunun ve **satıra tıklayın** seçin.
+6. **Arama** ilgilendiğiniz grubunun ve **satıra tıklayın** seçin.
 
-7.  tıklayın **lisansları** , şu anda Grup lisansları görmek üzere atanır.
+7. tıklayın **lisansları** , şu anda Grup lisansları görmek üzere atanır.
 
-8.  tıklayın **suretiyle** düğmesini bu grubun üyelerine atanan lisansları'nın güncel olduğundan emin olun. Bu, boyutu ve karmaşıklığı grubunun bağlı olarak uzun zaman alabilir.
+8. tıklayın **suretiyle** düğmesini bu grubun üyelerine atanan lisansları'nın güncel olduğundan emin olun. Bu, boyutu ve karmaşıklığı grubunun bağlı olarak uzun zaman alabilir.
 
    >[!NOTE]
    >Daha hızlı bir şekilde bunun için geçici olarak bir lisans kullanıcıya doğrudan atamayı göz önünde bulundurun. [Bir kullanıcıya bir lisans atamanız](#problems-with-application-consent).
@@ -390,32 +390,32 @@ Bir grubun atanmış lisansları yeniden işle için bu adımları izleyin:
 
 Bir gruba lisans atamak için bu adımları izleyin:
 
-1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
+1. Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+2. Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4. tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
-5.  tıklayın **tüm grupları**.
+5. tıklayın **tüm grupları**.
 
-6.  **Arama** ilgilendiğiniz grubunun ve **satıra tıklayın** seçin.
+6. **Arama** ilgilendiğiniz grubunun ve **satıra tıklayın** seçin.
 
-7.  tıklayın **lisansları** , şu anda Grup lisansları görmek üzere atanır.
+7. tıklayın **lisansları** , şu anda Grup lisansları görmek üzere atanır.
 
-8.  Tıklayın **atama** düğmesi.
+8. Tıklayın **atama** düğmesi.
 
-9.  Seçin **bir veya daha çok ürünlerin** kullanılabilir ürünler listesinden.
+9. Seçin **bir veya daha çok ürünlerin** kullanılabilir ürünler listesinden.
 
 10. **İsteğe bağlı** tıklayın **atama seçenekleri** hedefle ürünleri atamak için öğesi. Tıklayın **Tamam** bu ne zaman tamamlanır.
 
 11. Tıklayın **atama** bu gruba bu lisansları atamak için düğme. Bu, boyutu ve karmaşıklığı grubunun bağlı olarak uzun zaman alabilir.
 
-   >[!NOTE]
-   >Daha hızlı bir şekilde bunun için geçici olarak bir lisans kullanıcıya doğrudan atamayı göz önünde bulundurun. [Bir kullanıcıya bir lisans atamanız](#problems-with-application-consent).
-   > 
-   >
+    >[!NOTE]
+    >Daha hızlı bir şekilde bunun için geçici olarak bir lisans kullanıcıya doğrudan atamayı göz önünde bulundurun. [Bir kullanıcıya bir lisans atamanız](#problems-with-application-consent).
+    > 
+    >
 
 ## <a name="problems-with-conditional-access-policies"></a>Koşullu erişim ilkeleri ile ilgili sorunlar
 
@@ -423,19 +423,19 @@ Bir gruba lisans atamak için bu adımları izleyin:
 
 Denetleyin ya da tek bir koşullu erişim ilkesi doğrulamak için:
 
-1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
+1. Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+2. Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kurumsal uygulamalar** Gezinti menüsünde.
+4. tıklayın **kurumsal uygulamalar** Gezinti menüsünde.
 
-5.  tıklayın **koşullu erişim** Gezinti öğesi.
+5. tıklayın **koşullu erişim** Gezinti öğesi.
 
-6.  İnceleme ilgilendiğiniz ilkeye tıklayın.
+6. İnceleme ilgilendiğiniz ilkeye tıklayın.
 
-7.  Hiç belirli bir koşul, atamaları veya kullanıcı erişimini engelliyor olabilecek diğer ayarları gözden geçirin.
+7. Hiç belirli bir koşul, atamaları veya kullanıcı erişimini engelliyor olabilecek diğer ayarları gözden geçirin.
 
    >[!NOTE]
    >Geçici olarak, olmayan etkileyen emin olmak için bu ilkeyi devre dışı bırakmak isteyebilirsiniz oturum açmalar. Bunu yapmak için ayarlanmış **ilkesini etkinleştir** geç **yok** tıklatıp **Kaydet** düğmesi.

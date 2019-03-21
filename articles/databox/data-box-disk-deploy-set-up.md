@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f2e18db7bd1766901ffb36cc74172f4c8414135c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 4c2f2ebca40ee3e4b5a9a32767783694af52944b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232903"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106653"
 ---
-# <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Öğretici: Azure Data Box Disk'i paketinden çıkarma, bağlama ve kilidini açma
+# <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Öğretici: Cihazınızı kutusundan çıkarma, bağlama ve Azure Data Box Disk kilidini aç
 
 Bu öğreticide, Azure Data Box Disk'inizi paketinden çıkarma, bağlama ve kilidini açma işlemleri açıklanır.
 
@@ -28,11 +28,11 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Windows istemcide disklerin kilidini açma
 > * Linux istemcide disklerin kilidini açma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce aşağıdakilerden emin olun:
 
-1. [Öğretici: Azure Data Box Disk sipariş etme](data-box-disk-deploy-ordered.md) konusunu tamamladınız.
+1. Tamamladığınızda [Öğreticisi: Azure Data Box Disk sipariş](data-box-disk-deploy-ordered.md).
 2. Disklerinizi aldınız ve portaldaki iş durumu **Teslim Edildi** olarak güncelleştirildi.
 3. Data Box Disk kilidi açma aracını yükleyebileceğiniz bir istemci bilgisayarınız var. İstemci bilgisayarınızda:
     - [Desteklenen bir işletim sistemi](data-box-disk-system-requirements.md#supported-operating-systems-for-clients) çalıştırılmalıdır.
@@ -70,7 +70,7 @@ Bir Windows veya Linux istemciye bağlı olup olmadığınıza bağlı olarak, d
 Disklerinizi bağlamak ve kilitlerini açmak için aşağıdaki adımları gerçekleştirin.
      
 1. Azure portalda **Genel > Cihaz ayrıntıları**'na gidin. 
-2. Windows istemciye karşılık gelen Data Box Disk araç takımını indirin. Bu araç takımında 3 araç bulunur: Data Box Disk kilit açma aracı, Data Box Disk doğrulama aracı ve Data Box Disk bölerek kopyalama aracı. 
+2. Windows istemciye karşılık gelen Data Box Disk araç takımını indirin. Bu araç takımı 3 araçları içerir: Veri kutusu Disk kilidini aracı, veri kutusu Disk doğrulama aracı ve veri kutusu Disk bölünmüş kopyalama aracı. 
 
     Bu yordamda yalnızca Data Box Disk kilit açma aracını kullanacaksınız. Diğer iki araç sonraki bölümlerde kullanılacaktır.
 
@@ -170,39 +170,39 @@ Disklerinizi bağlamak ve kilitlerini açmak için aşağıdaki adımları gerç
     
  
 5. Yüklemeye devam etmek için `y` yazın. Betiğin yüklediği paketler şunlardır: 
-    - **epel-release** - Aşağıdaki üç paketi içeren depo. 
-    - **dislocker ve fuse-dislocker** - Bu yardımcı program, BitLocker şifreli disklerin şifresinin çözülmesine yardımcı olabilir. 
-    - **ntfs-3g** - NTFS birimlerinin takılmasına yardımcı olan paket. 
+   - **epel-release** - Aşağıdaki üç paketi içeren depo. 
+   - **dislocker ve fuse-dislocker** - Bu yardımcı program, BitLocker şifreli disklerin şifresinin çözülmesine yardımcı olabilir. 
+   - **ntfs-3g** - NTFS birimlerinin takılmasına yardımcı olan paket. 
  
-    Paketler başarıyla yüklendikten sonra terminal, bu etkiye yönelik bir bildirim görüntüler.     
-    ```
-    Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
-    ruby-libs.x86 64 0:1.8.7.374-5.el6 
-    Complete! 
-    Loaded plugins: fastestmirror, refresh-packagekit, security 
-    Setting up Remove Process 
-    Resolving Dependencies 
-    --> Running transaction check 
-    ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
-    Dependencies Resolved 
-    Package        Architecture        Version        Repository        Size 
-    Removing:  epel-release        noarch         6-8        @extras        22 k 
-    Transaction Summary                                 
-    Remove        1 Package(s) 
-    Installed size: 22 k 
-    Downloading Packages: 
-    Running rpmcheckdebug 
-    Running Transaction Test 
-    Transaction Test Succeeded 
-    Running Transaction 
-    Erasing : epel-release-6-8.noarch 
-    Verifying : epel-release-6-8.noarch 
-    Removed: 
-    epel-release.noarch 0:6-8 
-    Complete! 
-    Dislocker is installed by the script. 
-    OpenSSL is already installed.
-    ```
+     Paketler başarıyla yüklendikten sonra terminal, bu etkiye yönelik bir bildirim görüntüler.     
+     ```
+     Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
+     ruby-libs.x86 64 0:1.8.7.374-5.el6 
+     Complete! 
+     Loaded plugins: fastestmirror, refresh-packagekit, security 
+     Setting up Remove Process 
+     Resolving Dependencies 
+     --> Running transaction check 
+     ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
+     Dependencies Resolved 
+     Package        Architecture        Version        Repository        Size 
+     Removing:  epel-release        noarch         6-8        @extras        22 k 
+     Transaction Summary                                 
+     Remove        1 Package(s) 
+     Installed size: 22 k 
+     Downloading Packages: 
+     Running rpmcheckdebug 
+     Running Transaction Test 
+     Transaction Test Succeeded 
+     Running Transaction 
+     Erasing : epel-release-6-8.noarch 
+     Verifying : epel-release-6-8.noarch 
+     Removed: 
+     epel-release.noarch 0:6-8 
+     Complete! 
+     Dislocker is installed by the script. 
+     OpenSSL is already installed.
+     ```
 
 6. Data Box Disk Kilidi Açma aracını çalıştırın. [Disklere bağlanma ve destek anahtarı alma](#Connect-to-disks-and-get-the-passkey) bölümünde edindiğiniz Azure portaldan destek anahtarını girin. İsteğe bağlı olarak, kilidi açılacak BitLocker şifreli birimlerin listesini belirtin. Destek anahtarı ve birim listesi tek tırnak içinde belirtilmelidir. 
 

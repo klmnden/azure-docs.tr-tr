@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 803a52994536d2d6f39a064f97af7831af0cebb6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 0819c232412e1619f82a25476a8318d26c8087da
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453180"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105735"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Hızlı Başlangıç: Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma
 
@@ -95,21 +95,21 @@ Genellikle bir veri kümesi analiz edilmeden önce biraz ön işleme gerekir. Ç
 
 1. [Select Columns in Dataset (Veri Kümesinde Sütun Seçme)][select-columns] modülüne tıklayın ve **Özellikler** bölmesinde **Sütun seçiciyi başlat** seçeneğine tıklayın.
 
-    - Sol tarafta **Kurallar ile**’ye tıklayın
-    - **Şununla Başla** altında **Tüm sütunlar**’a tıklayın. Bu kurallar doğrudan [kümesindeki sütunları seçme] [ select-columns] (dışarıda bu sütunlar hariç) tüm sütunlardan geçmeye.
-    - Açılan menülerden **Hariç Tut** ve **sütun adlarını** seçerek metin kutusuna tıklayın. Sütun listesi görüntülenir. **Normalleştirilmiş kayıplar**’ı seçin; böylece metin kutusuna eklenir.
-    - (Sağ alt köşede üzerinde) sütun seçiciyi kapatmak için onay işareti (Tamam) düğmesine tıklayın.
+   - Sol tarafta **Kurallar ile**’ye tıklayın
+   - **Şununla Başla** altında **Tüm sütunlar**’a tıklayın. Bu kurallar doğrudan [kümesindeki sütunları seçme] [ select-columns] (dışarıda bu sütunlar hariç) tüm sütunlardan geçmeye.
+   - Açılan menülerden **Hariç Tut** ve **sütun adlarını** seçerek metin kutusuna tıklayın. Sütun listesi görüntülenir. **Normalleştirilmiş kayıplar**’ı seçin; böylece metin kutusuna eklenir.
+   - (Sağ alt köşede üzerinde) sütun seçiciyi kapatmak için onay işareti (Tamam) düğmesine tıklayın.
 
-    ![Sütun seçiciyi başlatın ve "normalized-losses" sütununu hariç tutun](./media/create-experiment/launch-column-selector.png)
+     ![Sütun seçiciyi başlatın ve "normalized-losses" sütununu hariç tutun](./media/create-experiment/launch-column-selector.png)
 
-    Artık **Select Columns in Dataset (Veri Kümesinde Sütun Seçme)** için özellikler bölmesi, **normalleştirilmiş kayıplar** dışındaki tüm veri kümelerindeki tüm sütunlardan geçeceğini belirtir.
+     Artık **Select Columns in Dataset (Veri Kümesinde Sütun Seçme)** için özellikler bölmesi, **normalleştirilmiş kayıplar** dışındaki tüm veri kümelerindeki tüm sütunlardan geçeceğini belirtir.
 
-    ![Özellikler bölmesinde "normalized-losses" sütununun hariç tutulduğu gösterilir](./media/create-experiment/showing-excluded-column.png)
+     ![Özellikler bölmesinde "normalized-losses" sütununun hariç tutulduğu gösterilir](./media/create-experiment/showing-excluded-column.png)
 
-    > [!TIP] 
-    > Modüle çift tıklayıp metin girerek bir modüle yorum ekleyebilirsiniz. Bu, modülün denemenizde ne işe yaradığını bir bakışta görmenize yardımcı olabilir. Bu durumda, [Veri Kümesindeki Sütunları Seçme][select-columns] modülüne çift tıklayın ve "Normalleştirilmiş kayıpları dışarıda bırak" yorumunu yazın.
+     > [!TIP] 
+     > Modüle çift tıklayıp metin girerek bir modüle yorum ekleyebilirsiniz. Bu, modülün denemenizde ne işe yaradığını bir bakışta görmenize yardımcı olabilir. Bu durumda, [Veri Kümesindeki Sütunları Seçme][select-columns] modülüne çift tıklayın ve "Normalleştirilmiş kayıpları dışarıda bırak" yorumunu yazın.
 
-    ![Açıklama eklemek için bir modüle çift tıklayın](./media/create-experiment/add-comment.png)
+     ![Açıklama eklemek için bir modüle çift tıklayın](./media/create-experiment/add-comment.png)
 
 1. [Eksik Verileri Temizleme][clean-missing-data] modülünü deneme tuvaline sürükleyin ve bunu [Veri Kümesindeki Sütunları Seçme][select-columns] modülüne bağlayın. **Özellikler** bölmesinde, **Temizleme modu** altında **Tüm satırı kaldır**’ı seçin. Bu seçenekleri doğrudan [eksik verileri temizleme] [ clean-missing-data] değer içeren satırları kaldırarak verileri temizlemesi için. Modüle çift tıklayın ve "Eksik değerli satırları kaldır" yorumunu yazın.
 

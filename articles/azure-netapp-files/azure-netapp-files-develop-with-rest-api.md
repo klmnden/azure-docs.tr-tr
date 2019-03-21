@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: b-juche
-ms.openlocfilehash: b67f7a613cd72e7a69b40741d971382276a38334
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 56667b9a47411b2abae30ff159fa6bc555fec070
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768068"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104633"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>REST API'si ile Azure NetApp dosyaları için geliştirme 
 
@@ -29,23 +29,23 @@ NetApp hesabı, kapasitesi havuzu, birimleri ve anlık görüntüleri gibi kayna
 
 1. [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) , zaten yapmadıysanız.
 2. Azure Active Directory'de (Azure AD) bir hizmet sorumlusu oluşturun:
-    1. Sahip olduğunuzu doğrulayın [yeterli izinlere](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+   1. Sahip olduğunuzu doğrulayın [yeterli izinlere](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-    1. Azure CLI içinde aşağıdaki komutu girin:  
+   1. Azure CLI içinde aşağıdaki komutu girin:  
 
-            az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
+           az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
 
-    Komut çıktısı, aşağıdaki örneğe benzer:  
+      Komut çıktısı, aşağıdaki örneğe benzer:  
 
-            { 
-                "appId": "appIDgoeshere", 
-                "displayName": "APPNAME", 
-                "name": "http://APPNAME", 
-                "password": "supersecretpassword", 
-                "tenant": "tenantIDgoeshere" 
-            } 
+           { 
+               "appId": "appIDgoeshere", 
+               "displayName": "APPNAME", 
+               "name": "http://APPNAME", 
+               "password": "supersecretpassword", 
+               "tenant": "tenantIDgoeshere" 
+           } 
 
-    Komut çıktısı tutun.  İhtiyacınız olacak `appId`, `password`, ve `tenant` değerleri. 
+      Komut çıktısı tutun.  İhtiyacınız olacak `appId`, `password`, ve `tenant` değerleri. 
 
 3. Bir OAuth erişim belirteci isteği:
 

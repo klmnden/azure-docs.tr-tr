@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: d5ed8da4ea527e350b1ff73d0bd188cdad2caf71
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ad58b8f1034a0e2818d3aca53c023736da9370cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189227"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119930"
 ---
 # <a name="azure-stack-datacenter-integration"></a>Azure Stack veri merkezi tümleştirmesi
 
@@ -116,32 +116,32 @@ Yerinde destek mühendisinden dağıtım deneyimi sırasında beklediğiniz veri
 
 OEM iş ortağı tarafından gerçekleştirilen eylemler şunlardır:
 
--   [Test-azurestack çalıştırın](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
+- [Test-azurestack çalıştırın](azure-stack-diagnostic-test.md#run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix)
 
--   [Azure ile kayıt](azure-stack-registration.md)
+- [Azure ile kayıt](azure-stack-registration.md)
 
--   [Market Sendikasyonu](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
+- [Market Sendikasyonu](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   Yedek anahtar yapılandırması ve HLH yapılandırma dosyaları
+- Yedek anahtar yapılandırması ve HLH yapılandırma dosyaları
 
--   DVM Kaldır
+- DVM Kaldır
 
--   Özet bir müşteri dağıtımı için hazırlama
+- Özet bir müşteri dağıtımı için hazırlama
 
--   [Çözüm yazılımın en son sürüme güncelleştirildiğinden emin olmak için Güncelleştirmeleri denetle](.\azure-stack-updates.md)
+- [Çözüm yazılımın en son sürüme güncelleştirildiğinden emin olmak için Güncelleştirmeleri denetle](./azure-stack-updates.md)
 
 Gerekli veya isteğe bağlı yükleme türüne bağlı olarak birkaç adım vardır.
 
--   Dağıtım kullanarak tamamladıysanız [AD FS](azure-stack-integrate-identity.md), ardından kendi AD FS kullanıcının Azure Stack damga müşteri ile tümleşik gerekir.
+- Dağıtım kullanarak tamamladıysanız [AD FS](azure-stack-integrate-identity.md), ardından kendi AD FS kullanıcının Azure Stack damga müşteri ile tümleşik gerekir.
 
   > [!NOTE]
   > Bunu yapmak için hizmet sunmak iş ortağı isteğe bağlı olarak tercih edebilirsiniz ancak bu adım, müşterinin sorumluluğundadır.
 
--   İlgili iş ortağı var olan izleme sisteminden ile tümleştirme.
+- İlgili iş ortağı var olan izleme sisteminden ile tümleştirme.
 
-    -   [System Center Operations Manager tümleştirmesini](azure-stack-integrate-monitor.md) Filo yönetimi özelliklerini de destekler.
+  -   [System Center Operations Manager tümleştirmesini](azure-stack-integrate-monitor.md) Filo yönetimi özelliklerini de destekler.
 
-    -   [Nagios tümleştirme](azure-stack-integrate-monitor.md#integrate-with-nagios)
+  -   [Nagios tümleştirme](azure-stack-integrate-monitor.md#integrate-with-nagios)
 
 ## <a name="overall-timeline"></a>Genel zaman çizelgesi
 
