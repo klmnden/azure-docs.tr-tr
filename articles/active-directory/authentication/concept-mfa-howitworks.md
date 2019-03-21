@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dabb47d4c4f39d30d8e19e8d8f41b5b84c57fd42
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c7c05c9a7db7f8e8c6e84232009780988d77aa14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217607"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088341"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Nasıl çalışır? Azure Multi-Factor Authentication
 
@@ -26,7 +26,9 @@ ms.locfileid: "56217607"
 * (Kolayca, bir telefon gibi kopyalaması değil güvenilir bir cihaz) sahip olduğunuz şey
 * Bir şey (Biyometri) olan
 
-<center>![Kavramsal kimlik doğrulama yöntemleri görüntüsü](./media/concept-mfa-howitworks/methods.png)</center>
+<center>
+
+![Kavramsal kimlik doğrulama yöntemleri görüntüsü](./media/concept-mfa-howitworks/methods.png)</center>
 
 Azure multi-Factor Authentication (MFA) erişimi korumaya yardımcı olur ve kolaylık olması için kullanıcıların sürdürürken uygulamalarınıza. İkinci bir form kimlik doğrulaması gerektirerek ek güvenlik sağlar ve kullanımı kolay bir dizi aracılığıyla güçlü kimlik doğrulaması sağladığını [kimlik doğrulama yöntemleri](concept-authentication-methods.md). Kullanıcılar olabilir veya yönetici sağlayan yapılandırma kararları dayalı mfa beden değil.
 

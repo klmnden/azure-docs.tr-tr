@@ -12,15 +12,15 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 02cec7f3696a43e8effe9d551c1f3e3fddc25ec8
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 77f6125980c43817230b8a8d4beb32757f23e6c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317212"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995495"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL veritabanı'nda JSON özelliklerini kullanmaya başlama
-Azure SQL veritabanı sağlar ayrıştırma ve JavaScript nesne gösterimi ' gösterilen veri sorgulama [(JSON)](http://www.json.org/) biçimlendirmek ve JSON metni olarak, ilişkisel verilerinizi dışarı aktarın. Azure SQL veritabanı'nda aşağıdaki JSON senaryolarda kullanılabilir:
+Azure SQL veritabanı sağlar ayrıştırma ve JavaScript nesne gösterimi ' gösterilen veri sorgulama [(JSON)](https://www.json.org/) biçimlendirmek ve JSON metni olarak, ilişkisel verilerinizi dışarı aktarın. Azure SQL veritabanı'nda aşağıdaki JSON senaryolarda kullanılabilir:
 - [İlişkisel verileri JSON biçiminde biçimlendirme](#formatting-relational-data-in-json-format) kullanarak `FOR JSON` yan tümcesi.
 - [JSON verileri ile çalışma](#working-with-json-data)
 - [JSON verilerini sorgulama](#querying-json-data) JSON skaler işlevlerini kullanma.

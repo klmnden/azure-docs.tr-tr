@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 23582215654ff2d5003fe611c7149ad760d72bc5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957049"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111846"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Ön kapısı istek yönlendirme kuralı için nasıl eşleşir?
 
@@ -29,7 +29,7 @@ Bir ön kapısı yönlendirme kuralı yapılandırması, iki ana bölümden olu�
 Aşağıdaki özellikler, gelen istek yönlendirme kuralı (veya sol tarafı) ile eşleşip eşleşmediğini belirler:
 
 * **HTTP protokolleri** (HTTP/HTTPS)
-* **Konaklar** (örneğin, www.foo.com \*. bar.com)
+* **Konaklar** (örneğin, www\.foo.com, \*. bar.com)
 * **Yolları** (örneğin, /\*, /users/\*, /file.gif)
 
 Bu özellikler böylece her bir birleşimi Protokolü/konak/yol olası eşleşme kümesi kullanıma dahili olarak genişletilir.
@@ -48,64 +48,64 @@ Frontend ana eşleştirirken mantığı aşağıdaki gibi kullanırız:
 
 Bu işlem daha da açıklamak için örnek bir yapılandırma (yalnızca sol tarafı) ön kapısı yolların göz atalım:
 
-| Yönlendirme kuralı | Frontend ana bilgisayar | Yol |
+| Yönlendirme kuralı | Ön uç konaklar | Yol |
 |-------|--------------------|-------|
 | A | foo.contoso.com | /\* |
 | B | foo.contoso.com | /Users/\* |
-| C | www.fabrikam.com, foo.adventure works.com'u  | /\*, /images/\* |
+| C | www\.fabrikam.com, foo.adventure works.com'u  | /\*, /images/\* |
 
 Aşağıdaki gelen istekler için ön kapı göndermediyse aşağıdaki Yönlendirme kuralları yukarıdaki karşı eşleşir:
 
 | Gelen frontend ana bilgisayar | Yönlendirme kuralları eşleşmesi |
 |---------------------|---------------|
 | foo.contoso.com | A, B |
-| www.fabrikam.com | C |
-| images.fabrikam.com | 400. hata: Hatalı istek |
+| www\.fabrikam.com | C |
+| images.fabrikam.com | 400. hata: Bozuk İstek |
 | foo.Adventure Works.com'u | C |
-| contoso.com | 400. hata: Hatalı istek |
-| www.Adventure-Works.com | 400. hata: Hatalı istek |
-| www.northwindtraders.com | 400. hata: Hatalı istek |
+| contoso.com | 400. hata: Bozuk İstek |
+| www\.adventure works.com'u | 400. hata: Bozuk İstek |
+| www\.adının | 400. hata: Bozuk İstek |
 
 ### <a name="path-matching"></a>Yol ile eşleşen
 Belirli bir ön uç konak belirleme ve filtreleme için yalnızca ön uç barındıran rotalarla olası yönlendirme kuralları sonra ön kapısı sonra isteği yola göre yönlendirme kurallarını filtreler. Ön uç ana bilgisayarları olarak benzer bir mantık kullanırız:
 
 1. Yol üzerindeki bir tam eşleşme ile herhangi bir yönlendirme kural arayın
 2. Tam eşleşme yol, sözcük joker karakterle eşleşen yolu yönlendirme kurallarını arayın
-3. Hiçbir yönlendirme kuralları ile eşleşen bir yol bulunmazsa, ardından isteği reddetmek ve bir 400 geri: Hatalı istek Hatası HTTP yanıtı.
+3. Yönlendirme kuralı yok ile eşleşen bir yol bulunmazsa, isteği reddetmek ve bir 400 döndürür: Hatalı istek Hatası HTTP yanıtı.
 
 >[!NOTE]
 > Yollar joker karakteri olmadan tam eşleşme yollar kabul edilir. Yol eğik çizgiyle sona ererse bile, yine de tam eşleşme değerlendirilir.
 
 Daha fazla açıklamak için başka bir örnekler kümesini göz atalım:
 
-| Yönlendirme kuralı | Frontend ana bilgisayar    | Yol     |
+| Yönlendirme kuralı | Ön uç konak    | Yol     |
 |-------|---------|----------|
-| A     | www.contoso.com | /        |
-| B     | www.contoso.com | /\*      |
-| C     | www.contoso.com | /AB      |
-| D     | www.contoso.com | /ABC     |
-| E     | www.contoso.com | /ABC/    |
-| F     | www.contoso.com | /ABC/\*  |
-| G     | www.contoso.com | / abc/def |
-| H     | www.contoso.com | /Path/   |
+| A     | www\.contoso.com | /        |
+| B     | www\.contoso.com | /\*      |
+| C     | www\.contoso.com | /AB      |
+| D     | www\.contoso.com | /abc     |
+| E     | www\.contoso.com | /abc/    |
+| F     | www\.contoso.com | /ABC/\*  |
+| G     | www\.contoso.com | / abc/def |
+| H     | www\.contoso.com | /Path/   |
 
 Bu yapılandırmayı göz önünde bulundurulduğunda, aşağıdaki örnek eşleşen tablo neden olur:
 
 | Gelen istek    | Eşleşen bir rota |
 |---------------------|---------------|
-| www.contoso.com/            | A             |
-| www.contoso.com/a           | B             |
-| www.contoso.com/AB          | C             |
-| www.contoso.com/ABC         | D             |
-| www.contoso.com/abzzz       | B             |
-| www.contoso.com/ABC/        | E             |
-| www.contoso.com/ABC/d       | F             |
-| www.contoso.com/ABC/DEF     | G             |
-| www.contoso.com/ABC/defzzz  | F             |
-| www.contoso.com/ABC/DEF/ghi | F             |
-| www.contoso.com/Path        | B             |
-| www.contoso.com/Path/       | H             |
-| www.contoso.com/Path/zzz    | B             |
+| www\.contoso.com/            | A             |
+| www\.contoso.com/a           | B             |
+| www\.contoso.com/ab          | C             |
+| www\.contoso.com/abc         | D             |
+| www\.contoso.com/abzzz       | B             |
+| www\.contoso.com/abc/        | E             |
+| www\.contoso.com/abc/d       | F             |
+| www\.contoso.com/abc/def     | G             |
+| www\.contoso.com/abc/defzzz  | F             |
+| www\.contoso.com/abc/def/ghi | F             |
+| www\.contoso.com/path        | B             |
+| www\.contoso.com/path/       | H             |
+| www\.contoso.com/path/zzz    | B             |
 
 >[!WARNING]
 > </br> Catch tüm bir tam eşleşme frontend ana bilgisayar için yönlendirme kuralı yok ise yolu rota (`/*`), daha sonra herhangi bir yönlendirme kuralı bir eşleşme olmayacaktır.
@@ -120,12 +120,12 @@ Bu yapılandırmayı göz önünde bulundurulduğunda, aşağıdaki örnek eşle
 >
 > | Gelen istek       | Eşleşen bir rota |
 > |------------------------|---------------|
-> | Profile.domain.com/Other | Yok. 400. hata: Hatalı istek |
+> | Profile.domain.com/Other | Yok. 400. hata: Bozuk İstek |
 
 ### <a name="routing-decision"></a>Yönlendirme karar
 Biz tek bir ön kapısı yönlendirme kural eşleşen sonra biz sonra isteği işlemek nasıl seçmeniz gerekir. Ardından, eşleşen yönlendirme kuralı için bir önbelleğe alınan yanıt kullanılabilir ön kapısı varsa aynı istemciye hizmet. Aksi takdirde, değerlendirilen bir sonraki şey mi yapılandırdığınıza olan [URL yeniden yazma (özel yönlendirme yolunu)](front-door-url-rewrite.md) eşleşen yönlendirme için kural ya da değil. Ardından tanımlanan özel iletme yol değilse, istek uygun arka uca olarak yapılandırılmış bir arka uç havuzundaki iletilen. Aksi takdirde istek yolu olarak başına güncelleştirilir [özel iletme yolu](front-door-url-rewrite.md) tanımlı ve ardından arka uç için iletme.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bilgi edinmek için nasıl [ön kapı oluşturmak](quickstart-create-front-door.md).
-- Bilgi [ön kapısı işleyişi](front-door-routing-architecture.md).
+- [Front Door oluşturmayı](quickstart-create-front-door.md) öğrenin.
+- [Front Door’un nasıl çalıştığını](front-door-routing-architecture.md) öğrenin.

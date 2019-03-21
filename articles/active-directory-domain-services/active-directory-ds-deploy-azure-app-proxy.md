@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: e787d946aa62f0bcb6615d89192e7d9e4d91ffe4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 867d061e46494e5ef65340ce325a71638acc8dfa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197057"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099636"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services yönetilen etki alanı üzerinde Azure AD uygulama ara sunucusu dağıtma
 Azure Active Directory (AD) uygulama proxy'si internet üzerinden erişilecek şirket içi uygulamalar yayımlayarak uzak çalışanları desteklemenize yardımcı olur. Azure AD Domain Services ile artık lift-and-shift ile taşıma eski uygulamaları şirket içinde çalışan Azure altyapı hizmetleri için kullanabilirsiniz. Ardından, kuruluşunuzdaki kullanıcılar için güvenli uzaktan erişim sağlamak için Azure AD uygulama proxy'si kullanarak bu uygulamaları yayımlayabilirsiniz.
@@ -75,12 +75,12 @@ Daha önce bir Windows Server sanal makinesi sağlanan ve yönetilen etki alanı
 
     ![Yüklemesi için koşulları kabul edin](./media/app-proxy/app-proxy-install-connector-terms.png)
 3. Yükleme sırasında bağlayıcıyı Azure AD directory uygulama Proxy ile kaydetmeniz istenir.
-    * Sağlayın, **Azure AD genel yönetici kimlik bilgilerini**. Genel yönetici kiracınız, Microsoft Azure kimlik bilgilerinizden farklı olabilir.
-    * Bağlayıcıyı kaydetmek için kullanılan yönetici hesabının uygulama Proxy hizmetini etkinleştirdiğiniz aynı dizine ait olmalıdır. Örneğin, Kiracı etki alanı contoso.com ise yönetici olmalıdır admin@contoso.com ya da bu etki alanındaki tüm geçerli diğer ad.
-    * IE Artırılmış güvenlik yapılandırması için sunucunun bağlayıcıyı yüklediğiniz etkinse, kayıt ekranı engellenebilir. Erişime izin vermek için hata iletisindeki yönergeleri uygulayın. Internet Explorer Artırılmış Güvenlik seçeneğinin devre dışı olduğundan emin olun.
-    * Bağlayıcı kaydı başarısız olursa bkz. [Uygulama Proxy’si Sorunlarını Giderme](../active-directory/manage-apps/application-proxy-troubleshoot.md).
+   * Sağlayın, **Azure AD genel yönetici kimlik bilgilerini**. Genel yönetici kiracınız, Microsoft Azure kimlik bilgilerinizden farklı olabilir.
+   * Bağlayıcıyı kaydetmek için kullanılan yönetici hesabının uygulama Proxy hizmetini etkinleştirdiğiniz aynı dizine ait olmalıdır. Örneğin, Kiracı etki alanı contoso.com ise yönetici olmalıdır admin@contoso.com ya da bu etki alanındaki tüm geçerli diğer ad.
+   * IE Artırılmış güvenlik yapılandırması için sunucunun bağlayıcıyı yüklediğiniz etkinse, kayıt ekranı engellenebilir. Erişime izin vermek için hata iletisindeki yönergeleri uygulayın. Internet Explorer Artırılmış Güvenlik seçeneğinin devre dışı olduğundan emin olun.
+   * Bağlayıcı kaydı başarısız olursa bkz. [Uygulama Proxy’si Sorunlarını Giderme](../active-directory/manage-apps/application-proxy-troubleshoot.md).
 
-    ![Yüklü bağlayıcı](./media/app-proxy/app-proxy-connector-installed.png)
+     ![Yüklü bağlayıcı](./media/app-proxy/app-proxy-connector-installed.png)
 4. Bağlayıcı sağlamak için Azure AD uygulama ara sunucusu Bağlayıcısı giderici works düzgün bir şekilde çalıştırın. Sorun Giderici'yi çalıştırdıktan sonra başarılı bir rapor görmeniz gerekir.
 
     ![Sorun giderici başarılı](./media/app-proxy/app-proxy-connector-troubleshooter.png)

@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop-msft
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: 416a989f672aadcec2f1871bcea635500d1d0a93
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: 33a0e90f1a0b63138168c44b87385c05aac39c69
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575707"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57869770"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Azure SQL veritabanı'nda bir yönetilen örnek oluşturmak için Azure Resource Manager şablonu ile PowerShell kullanma
 
@@ -54,7 +54,7 @@ Aşağıdaki içeriğe örneği oluşturmak için kullanılacak şablonu temsil 
 
 ```
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.1",
     "parameters": {
         "instance": {

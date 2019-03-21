@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6d190e4c5d283b9f803cf7287445d7591b5465db
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 8d63d5f6281de022e8f7e5c9e0a208866fef3f4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753121"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889565"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Visual Studio Code eğitmek ve makine öğrenimi modelleri dağıtmak için kullanın
 
@@ -27,7 +27,7 @@ Ve bu modeli, test ve üretim gereksinimlerine göre dağıtabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-+ Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
++ Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 
 + Sahip [VS Code için Azure Machine Learning](how-to-vscode-tools.md) uzantısı ayarlayın.
 
