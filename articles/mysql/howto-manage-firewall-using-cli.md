@@ -7,12 +7,12 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: e4aabaf2673f6211523653f9d0a0ecf1769f83a3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 870910654101b4d6689b51464f8a29aef41bf9cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549012"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103137"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Oluşturma ve Azure veritabanı Azure CLI kullanarak MySQL için güvenlik duvarı kurallarını yönetme
 Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi veya bir IP adresi aralığı MySQL Server için Azure veritabanı'na yönetme olanağı sağlar. Uygun Azure CLI'si komutlarını kullanarak, oluşturabilir, güncelleştirin, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kurallarını gösterir. Bir Azure veritabanı için MySQL güvenlik duvarları için bkz: genel bakış [MySQL sunucusu güvenlik duvarı kuralları için Azure veritabanı](./concepts-firewall-rules.md)
@@ -25,7 +25,7 @@ Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi ve
 **Az mysql server güvenlik duvarı kuralı** oluştur, Sil, listesinde, görüntülemek ve güvenlik duvarı kurallarını güncelleştirmek için Azure CLI üzerinden komutu kullanılır.
 
 Komutlar:
-- **oluşturma**: Bir Azure MySQL sunucusu güvenlik duvarı kuralı oluşturun.
+- **Oluşturma**: Bir Azure MySQL sunucusu güvenlik duvarı kuralı oluşturun.
 - **Silme**: Bir Azure MySQL sunucusu güvenlik duvarı kuralını silin.
 - **Liste**: Azure MySQL sunucusu güvenlik duvarı kuralları listesi.
 - **Göster**: Azure MySQL sunucusu güvenlik duvarı kuralı ayrıntılarının.
@@ -38,7 +38,7 @@ Azure CLI kullanarak güvenli bir şekilde Azure hesabınızla bağlanmanız **a
     ```azurecli
     az login
     ```
-Bu komut, sonraki adımda kullanmak üzere bir kod çıkarır.
+   Bu komut, sonraki adımda kullanmak üzere bir kod çıkarır.
 
 2. Bir web tarayıcısı kullanarak [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin)ve ardından kodu girin.
 

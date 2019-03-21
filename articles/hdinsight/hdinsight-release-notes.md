@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/02/2019
-ms.openlocfilehash: 8441f6793140bcb565b97776a0cd86c7319db9c1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e6a528ae7eda7e10ab06c6f338fd05d20332a9fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448924"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089021"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight için sürüm notları
 
@@ -1309,116 +1309,116 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 
--   **ADLS Gen 2 HDInsight tümleştirmesiyle** kullanıcı dizinleri ve izinleri ile Azure Data Lake depolama Gen 2 kullanarak HDInsight ESP kümelerinde iki sorun vardır:
+- **ADLS Gen 2 HDInsight tümleştirmesiyle** kullanıcı dizinleri ve izinleri ile Azure Data Lake depolama Gen 2 kullanarak HDInsight ESP kümelerinde iki sorun vardır:
    
-   1. Kullanıcılar için giriş dizini baş düğüm 1'de oluşturulmaz. Geçici bir çözüm olarak dizinleri el ile oluşturup sahipliğini değiştirmek için ilgili kullanıcının UPN'si.
+  1. Kullanıcılar için giriş dizini baş düğüm 1'de oluşturulmaz. Geçici bir çözüm olarak dizinleri el ile oluşturup sahipliğini değiştirmek için ilgili kullanıcının UPN'si.
    
-   2. /Hdp dizin izinlerini şu anda ayarlanmadı 751 için. Bu ayarlanması gerekir 
-      ```bash
-      chmod 751 /hdp 
-      chmod –R 755 /hdp/apps
-      ```
+  2. /Hdp dizin izinlerini şu anda ayarlanmadı 751 için. Bu ayarlanması gerekir 
+     ```bash
+     chmod 751 /hdp 
+     chmod –R 755 /hdp/apps
+     ```
 
--   **Spark 2.3**
+- **Spark 2.3**
 
-    -   \[[*SPARK 23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] OptimizeMetadataOnlyQuery kuraldan kaynaklanan hatalı bir sonuç
+  -   \[[*SPARK 23523*](https://issues.apache.org/jira/browse/SPARK-23523)\]\[SQL\] OptimizeMetadataOnlyQuery kuraldan kaynaklanan hatalı bir sonuç
 
-    -   \[[*SPARK 23406* ](https://issues.apache.org/jira/browse/SPARK-23406) \] stream stream'de hataları kendinden birleştirmeler
+  -   \[[*SPARK 23406* ](https://issues.apache.org/jira/browse/SPARK-23406) \] stream stream'de hataları kendinden birleştirmeler
 
-    -   Azure Data Lake Storage (Gen2) kümenin varsayılan depolama alanı olduğunda Spark örnek not defterleri kullanılamaz.
+  -   Azure Data Lake Storage (Gen2) kümenin varsayılan depolama alanı olduğunda Spark örnek not defterleri kullanılamaz.
 
--   **Kurumsal güvenlik paketi**
+- **Kurumsal güvenlik paketi**
 
-    - Spark Thrift sunucusu ODBC istemci bağlantılarını kabul etmiyor.
-      Geçici çözüm adımları:
-      1. Küme oluşturulduktan sonra yaklaşık 15 dakika bekleyin.
-      2. Ranger UI hivesampletable_policy bulunup bulunmadığını denetleyin.
-      3. Bir Spark hizmeti yeniden başlatın.
-         STS bağlantı çalışması gerekir.
+  - Spark Thrift sunucusu ODBC istemci bağlantılarını kabul etmiyor.
+    Geçici çözüm adımları:
+    1. Küme oluşturulduktan sonra yaklaşık 15 dakika bekleyin.
+    2. Ranger UI hivesampletable_policy bulunup bulunmadığını denetleyin.
+    3. Bir Spark hizmeti yeniden başlatın.
+       STS bağlantı çalışması gerekir.
 
--   **Geçici çözüm için Ranger hizmet denetimi hatası**
+- **Geçici çözüm için Ranger hizmet denetimi hatası**
 
-    -   [RANGER 1607](https://issues.apache.org/jira/browse/RANGER-1607): Geçici çözüm için Ranger 2.6.2 HDP için önceki HDP sürümlerinden yükseltme sırasında hizmet denetimi hatası.
+  -   [RANGER 1607](https://issues.apache.org/jira/browse/RANGER-1607): Geçici çözüm için Ranger 2.6.2 HDP için önceki HDP sürümlerinden yükseltme sırasında hizmet denetimi hatası.
 
-        > [!NOTE]  
-        > SSL etkin yalnızca Ranger olduğunda. 
+      > [!NOTE]  
+      > SSL etkin yalnızca Ranger olduğunda. 
      
-    Bu sorun, Ambari aracılığıyla önceki HDP sürümlerden HDP-2.6.1 yükseltmeye çalışırken ortaya çıkar. Ambari curl çağrı Ambari Ranger hizmetine bir hizmet denetimi yapmak için kullanır. Curl çağrı başarısız olur Ambari tarafından kullanılan JDK sürüm JDK 1.7 ise, aşağıdaki hatayı:
+  Bu sorun, Ambari aracılığıyla önceki HDP sürümlerden HDP-2.6.1 yükseltmeye çalışırken ortaya çıkar. Ambari curl çağrı Ambari Ranger hizmetine bir hizmet denetimi yapmak için kullanır. Curl çağrı başarısız olur Ambari tarafından kullanılan JDK sürüm JDK 1.7 ise, aşağıdaki hatayı:
     
-    `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
+  `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
     
-    Ranger içinde kullanılan tomcat sürümü, Tomcat 7.0.7 bu hatanın sebebi\*. JDK 1.7 kullanarak çakışmaları ile Tomcat-7.0.7 sağlanan varsayılan şifrelemeleri\*.
+  Ranger içinde kullanılan tomcat sürümü, Tomcat 7.0.7 bu hatanın sebebi\*. JDK 1.7 kullanarak çakışmaları ile Tomcat-7.0.7 sağlanan varsayılan şifrelemeleri\*.
     
-    İki yolla bu sorunu çözebilirsiniz:
+  İki yolla bu sorunu çözebilirsiniz:
     
-    -   JDK 1.7 Ambari'den JDK 1.8 için kullanılan JDK güncelleştirin (bakın [JDK sürüm değiştirin](https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_ambari_reference_guide/content/ch_changing_the_jdk_version_on_an_existing_cluster.html) Ambari Başvuru Kılavuzu'nda).
+  -   JDK 1.7 Ambari'den JDK 1.8 için kullanılan JDK güncelleştirin (bakın [JDK sürüm değiştirin](https://docs.hortonworks.com/HDPDocuments/Ambari-2.2.0.0/bk_ambari_reference_guide/content/ch_changing_the_jdk_version_on_an_existing_cluster.html) Ambari Başvuru Kılavuzu'nda).
     
-    -   JDK 1.7 ortamı desteklemeye devam etmek istiyorsanız:
+  -   JDK 1.7 ortamı desteklemeye devam etmek istiyorsanız:
     
-        1.  Ambari Ranger yapılandırmanızı ranger yönetici sitesi bölümünde özelliği ranger.tomcat.ciphers ekleme değerin altında:
+      1.  Ambari Ranger yapılandırmanızı ranger yönetici sitesi bölümünde özelliği ranger.tomcat.ciphers ekleme değerin altında:
             
-            SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+          SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
         
-        2.  Ambari Ranger yapılandırmanızı theranger kms site bölümünde ekleme özelliği ranger.tomcat.ciphers ortamınızı Ranger KMS için yapılandırılmışsa, değerin altında:
+      2.  Ambari Ranger yapılandırmanızı theranger kms site bölümünde ekleme özelliği ranger.tomcat.ciphers ortamınızı Ranger KMS için yapılandırılmışsa, değerin altında:
             
-            SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
+          SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
     
-    >[!NOTE]  
-    >Not ettiğiniz değerleri ortamınız göstergesi olmayabilir ve örnekler çalışıyoruz. Bu özellikleri ayarlama şekilde ortamınızı nasıl yapılandırıldığını eşleştiğinden emin olun.   
+  >[!NOTE]  
+  >Not ettiğiniz değerleri ortamınız göstergesi olmayabilir ve örnekler çalışıyoruz. Bu özellikleri ayarlama şekilde ortamınızı nasıl yapılandırıldığını eşleştiğinden emin olun.   
 
--   **RangerUI: İlke formunda girilen ilke koşulu metin kaçış**
+- **RangerUI: İlke formunda girilen ilke koşulu metin kaçış**
     
-    **Etkilenen bileşeni:** Ranger
+  **Etkilenen bileşeni:** Ranger
     
-    **Sorun açıklaması**
+  **Sorun açıklaması**
     
-    Özel ilke koşullar ilkesi oluşturmak bir kullanıcının istediği ve ifade veya metin özel karakterler içeriyorsa ilke zorlaması çalışmaz. Özel karakterler, veritabanına ilkeyi kaydetmeden önce ASCII biçimine dönüştürülür.
+  Özel ilke koşullar ilkesi oluşturmak bir kullanıcının istediği ve ifade veya metin özel karakterler içeriyorsa ilke zorlaması çalışmaz. Özel karakterler, veritabanına ilkeyi kaydetmeden önce ASCII biçimine dönüştürülür.
     
-    **Özel karakterler:**   &  &lt; &gt; " \` '
+  **Özel karakterler:**  &  &lt; &gt; " \` '
     
-    Örneğin, koşul tags.attributes\['type'\]= 'abc' dönüştürülür aşağıdaki ilke kaydedildikten sonra.
+  Örneğin, koşul tags.attributes\['type'\]= 'abc' dönüştürülür aşağıdaki ilke kaydedildikten sonra.
     
-    tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
+  tags.attds\[&\#x27;dsds&\#x27;\]=&\#x27;cssdfs&\#x27;
     
-    Bu karakterler içeren ilke koşulu, ilkeyi düzenleme modunda açarak görebilirsiniz.
+  Bu karakterler içeren ilke koşulu, ilkeyi düzenleme modunda açarak görebilirsiniz.
     
-    **Geçici çözüm**
+  **Geçici çözüm**
     
-    - **Seçenek \#1: Ranger Rest API aracılığıyla ilkesi oluştur/güncelleştir**
+  - **Seçenek \#1: Ranger Rest API aracılığıyla ilkesi oluştur/güncelleştir**
         
-        REST URL: http://&lt;konak&gt;: 6080/service/plugins/ilkeler
+      REST URL: http://&lt;konak&gt;: 6080/service/plugins/ilkeler
         
-        **İlke ile ilke koşulu oluşturma:**
+      **İlke ile ilke koşulu oluşturma:**
         
-        Aşağıdaki örnek etiketlerle İlkesi oluşturacak \`etiketleri test\` atayabilirsiniz \`genel\` ilke koşulu astags.attr grubu\['type'\]tüm seçerek 'abc' == Hive bileşen izinleri ister seçin, güncelleştirme, oluşturma, bırakma, alter, dizin, kilitleme, tüm.
+      Aşağıdaki örnek etiketlerle İlkesi oluşturacak \`etiketleri test\` atayabilirsiniz \`genel\` ilke koşulu astags.attr grubu\['type'\]tüm seçerek 'abc' == Hive bileşen izinleri ister seçin, güncelleştirme, oluşturma, bırakma, alter, dizin, kilitleme, tüm.
         
-        **Örnek:**
+      **Örnek:**
         
-        `curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'`
+      `curl -H "Content-Type: application/json" -X POST http://localhost:6080/service/plugins/policies -u admin:admin -d '{"policyType":"0","name":"P100","isEnabled":true,"isAuditEnabled":true,"description":"","resources":{"tag":{"values":["tags-test"],"isRecursive":"","isExcludes":false}},"policyItems":[{"groups":["public"],"conditions":[{"type":"accessed-after-expiry","values":[]},{"type":"tag-expression","values":["tags.attr['type']=='abc'"]}],"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}]}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"service":"tagdev"}'`
         
-        **Var olan bir ilkeyi ilke koşulu güncelleştirin:**
+      **Var olan bir ilkeyi ilke koşulu güncelleştirin:**
         
-        Aşağıdaki örnekte, ilke etiketlerle güncelleştirir \`etiketleri test\` atayabilirsiniz \`genel\` ilke koşulu astags.attr grubu\['type'\]tüm seçerek 'abc' == Hive bileşen izinleri ister seçin, güncelleştirme, oluşturma, bırakma, alter, dizin, kilitleme, tüm.
+      Aşağıdaki örnekte, ilke etiketlerle güncelleştirir \`etiketleri test\` atayabilirsiniz \`genel\` ilke koşulu astags.attr grubu\['type'\]tüm seçerek 'abc' == Hive bileşen izinleri ister seçin, güncelleştirme, oluşturma, bırakma, alter, dizin, kilitleme, tüm.
         
-        REST URL: http://&lt;ana bilgisayar adı&gt;:6080/service/plugins/ilkeler/&lt;ilke kimliği&gt;
+      REST URL: http://&lt;ana bilgisayar adı&gt;:6080/service/plugins/ilkeler/&lt;ilke kimliği&gt;
         
-        **Örnek:**
+      **Örnek:**
         
-        `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
+      `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
         
-    - **Seçenek \#2: JavaScript Değişiklikleri Uygula**
+  - **Seçenek \#2: JavaScript Değişiklikleri Uygula**
         
-        JS dosyasını güncelleştirmek için adımlar:
+      JS dosyasını güncelleştirmek için adımlar:
         
-        1.  /Usr/hdp/current/ranger-admin altında PermissionList.js dosya öğrenin
+      1.  /Usr/hdp/current/ranger-admin altında PermissionList.js dosya öğrenin
         
-        2.  Out (satır yok: 404) renderPolicyCondtion işlevinin tanımı bulun.
+      2.  Out (satır yok: 404) renderPolicyCondtion işlevinin tanımı bulun.
         
-        3.  Bu işlev yani satırından aşağıdaki Kaldır Görüntü işlevi (satır yok: 434) altında
+      3.  Bu işlev yani satırından aşağıdaki Kaldır Görüntü işlevi (satır yok: 434) altında
             
-            VAL = \_.escape(val);//Line Hayır: 460
+          VAL = \_.escape(val);//Line Hayır: 460
             
-            Yukarıdaki satırı kaldırdıktan sonra Ranger arabirimini ilkeleri oluşturmanızı sağlayacak özel karakterler ve ilkeyi içeren ilke koşulu ile değerlendirme için aynı ilke başarılı olur.
+          Yukarıdaki satırı kaldırdıktan sonra Ranger arabirimini ilkeleri oluşturmanızı sağlayacak özel karakterler ve ilkeyi içeren ilke koşulu ile değerlendirme için aynı ilke başarılı olur.
 
 **HDInsight tümleştirmesiyle ADLS Gen 2: ESP kümeleriyle kullanıcı dizinleri ve izinleri sorunu**
     1.  Kullanıcılar için giriş dizini baş düğüm 1'de oluşturulmaz. Bu el ile oluşturmak ve ilgili kullanıcının UPN'sini sahipliğini değiştirmek için çözüm olabilir.

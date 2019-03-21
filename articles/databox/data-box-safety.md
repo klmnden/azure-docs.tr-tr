@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 65b111d74121b6a679883d480b9e1f19d41e334e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093570"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905146"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Güvenli bir şekilde yüklemek ve Azure Data Box'ı çalıştırmak
 ![Uyarı simgesi](./media/data-box-safety/warning_icon.png)
@@ -77,14 +77,14 @@ Ne zaman ayarlamak ve Data Box'ınızı çalıştırırken gözlenecek güvenlik
 * Kalıcı olarak birim taşımadan önce ya da herhangi bir yolla zarar görmüş olması düşünüyorsanız çıkarın.
 * Uygun bir güç kaynağına aşağıdaki güç belirtimlere ile elektrik aşırı yükleme koruması sağlar:
 
-    - Voltaj: 100 V AC 240 V AC için
-    - Şu anki: 6, en fazla
-    - Sıklığı: 60 Hz için 50 Hz
+    - Voltaj: 240 V AC V AC 100
+    - Geçerli: 6, en fazla
+    - Sıklığı: 50 Hz ila 60 Hz
 
 ![Uyarı simgesi](./media/data-box-safety/warning_icon.png) **dikkatli olun:**
 
 * Bu cihaz, para hücre pil içerir. Cihazın hizmet çalışmayın. Bu cihaz pilleri kullanıcı tarafından bakımı yapılabilen değildir. 
-* **Yalnızca hizmet personel için**: Risk, pil hatalı bir tür tarafından değiştirilirse açılımı. Kullanılan pil yönergelerine göre Dispose.
+* **Yalnızca hizmet personel için**: Pil hatalı bir tür tarafından değiştirilirse açılımı riskini. Kullanılan pil yönergelerine göre Dispose.
 
 ![Fark simgesi](./media/data-box-safety/notice_icon.png) **dikkat edin:**
 
@@ -103,7 +103,7 @@ Bu cihaz şöyledir:
 - Aşağıdaki ortamda çalışmak üzere tasarlanmıştır. 
     - Sıcaklığı: 50° ila 95° F (10° ila 35° C)
     - Depolama Sıcaklık:-4 ° 122 ° f (-20 ° ° c 50)
-    - Bağıl nem: %15 85 (yoğuşmasız) 
+    - Bağıl nem oranı: %15 85 (yoğuşmasız) 
     - Çalışma yüksekliği: Test 6500 ayak (2000 metre 0 metre)
 
 Elektrik tedarik dereceleri birim ile sağlanan cihaz derecelendirme etiketi bakın. 
@@ -118,7 +118,7 @@ Değişiklikleri veya açıkça Microsoft tarafından onaylanan cihaz yapılan d
 
 Bu donanım, test ve 15 parçası FCC kuralları uyarınca bir sınıfı dijital cihaz sınırları uymak için bulunamadı. Bu sınırlar, ekipman ticari bir ortamda çalıştırılır zaman zararlı bir kesintiye karşı makul koruma sağlamak için tasarlanmıştır. Bu donanım oluşturur, kullanır ve radyo sıklığı enerji yayılır ve, yüklediyseniz ve yönerge el ile uygun şekilde kullanılan zararlı girişim radyo iletişimler neden olabilir. İşlemi, konut alanında bu donanım çalışması kullanıcı kendi karşılığında girişim düzeltmek için gerekli olacak zararlı girişim neden olabilir.
 
-Bu cihaz standard(s) FCC kuralları ve sektör Kanada lisans muaf RSS 15 bölümü ile uyumludur. İşlem, aşağıdaki iki koşul tabidir: (1) bu cihaz zararlı kesintiye neden olmaz ve (2) bu cihaz, cihazın istenmeyen işlem neden olabilecek girişim dahil olmak üzere alınan tüm girişim kabul etmeniz gerekir.
+Bu cihaz standard(s) FCC kuralları ve sektör Kanada lisans muaf RSS 15 bölümü ile uyumludur. Aşağıdaki iki koşul tabi işlemdir: (1) bu cihaz zararlı kesintiye neden olmaz ve (2) bu cihaz, cihazın istenmeyen işlem neden olabilecek girişim dahil olmak üzere alınan tüm girişim kabul etmeniz gerekir.
 
 ![Kanada](./media/data-box-safety/canada.png)
 
@@ -142,7 +142,7 @@ Bu sınıf bir üründür. Bir yurt dışı bir ortamda, bu ürün, kullanıcı 
 
 ![Pil elden simgesi](./media/data-box-safety/battery_disposal_icon.png)
 
-Bu simge, ürün veya kendi pil veya kendi paketleme, bu ürün ve içerdiği tüm piller, ev, israfı atılması gerekir değil, anlamına gelir. Bunun yerine, bu pil ve elektrik ve elektronik donanım geri dönüştürme için geçerli koleksiyon noktasına teslim sizin sorumluluğunuzdur. Bu ayrı koleksiyon ve işlem geri dönüştürme doğal kaynaklarını korumak ve İnsan sistem durumu ve pil ve elektrik ve elektronik tehlikeli sınırlanması ortamının olası varlığıyla nedeniyle olası olumsuz sonuçları engellemek için Yardım donanım tarafından uygunsuz elden neden olmuş olabilir. Nereye elektrik ve elektronik israfı ve pil devre dışı bırakma hakkında daha fazla bilgi için lütfen yerel Şehir/belediye ofisiniz, ev atık elden hizmetiniz veya burada, bu ürünü satın Atölye başvurun. İlgili kişi *erecycle@microsoft.com* WEEE hakkında daha fazla bilgi için.
+Bu simge, ürün veya kendi pil veya kendi paketleme, bu ürün ve içerdiği tüm piller, ev, israfı atılması gerekir değil, anlamına gelir. Bunun yerine, bu pil ve elektrik ve elektronik donanım geri dönüştürme için geçerli koleksiyon noktasına teslim sizin sorumluluğunuzdur. Bu ayrı koleksiyon ve işlem geri dönüştürme doğal kaynaklarını korumak ve İnsan sistem durumu ve pil ve elektrik ve elektronik tehlikeli sınırlanması ortamının olası varlığıyla nedeniyle olası olumsuz sonuçları engellemek için Yardım donanım tarafından uygunsuz elden neden olmuş olabilir. Nereye elektrik ve elektronik israfı ve pil devre dışı bırakma hakkında daha fazla bilgi için lütfen yerel Şehir/belediye ofisiniz, ev atık elden hizmetiniz veya burada, bu ürünü satın Atölye başvurun. İlgili kişi *erecycle\@microsoft.com* WEEE hakkında daha fazla bilgi için.
 
 Bu ürün para hücre battery(ies) içerir.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0dac2bee3c7aff77e782cc167898534ae40cfd3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 27173c8beeecf2be43e80f59df8907952734c06b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772407"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900888"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Öğretici: Facebook ile çalışma alanı ile Azure Active Directory Tümleştirme
 
@@ -162,9 +162,9 @@ Facebook ile çalışma alanı ile Azure AD çoklu oturum açmayı yapılandırm
 
     d. Açık, **base-64 kodlamalı sertifika** Azure portalından indirdiğiniz Not Defteri'nde, içeriğini, panoya kopyalayın ve yapıştırın kendisine **SAML sertifikası** metin.
 
-    e. Kopyalama **İzleyici URL** örneğinizin yapıştırın **tanımlayıcı (varlık kimliği)** metin kutusunda **temel SAML yapılandırma** bölümü Azure portalı.
+    e. Kopyalama **İzleyici URL** örneğinizin yapıştırın **tanımlayıcı (varlık kimliği)** metin kutusunda **temel SAML yapılandırma** bölümü Azure portalı.
 
-    f. Kopyalama **alıcı URL** örneğinizin yapıştırın **oturum açma URL'si** metin kutusunda **temel SAML yapılandırma** bölümü Azure portalı.
+    f. Kopyalama **alıcı URL** örneğinizin yapıştırın **oturum açma URL'si** metin kutusunda **temel SAML yapılandırma** bölümü Azure portalı.
 
     g. Bölümünün altına ilerleyecek ve **Test SSO** düğmesi. Bu sonuçlar ile Azure AD oturum açma sayfasının görünen açılan pencerede gösterilir. Kimlik bilgilerinizi doğrulamak için normal olarak girin.
 
@@ -205,7 +205,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

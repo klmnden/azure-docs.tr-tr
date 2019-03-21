@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: df54f9dd4047fffb578a1a95a2edc47cba711ba1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433527"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100437"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Azure SQL veritabanlarının ve havuzların bir çok kiracılı SaaS uygulaması performansını izleme ve yönetme
 
@@ -28,7 +28,7 @@ Wingtip bilet SaaS her Kiracı veritabanı uygulama, her mekanın (kiracının) 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-
+> 
 > * Sağlanan bir yük oluşturucuyu çalıştırarak kiracı veritabanlarındaki kullanımın benzetimini gerçekleştirme
 > * Yükteki artışa yanıt veren kiracı veritabanlarını izleme
 > * Artan veritabanı yüküne yanıt olarak Elastik havuzun ölçeğini artırma
@@ -171,17 +171,17 @@ Havuz ölçeğini artırmanın alternatif bir yolu, ikinci bir havuz oluşturup 
 1. Tıklayın **+ yeni havuz** geçerli sunucu üzerinde havuz oluşturmak için.
 1. Üzerinde **elastik havuz** şablonu:
 
-    1. Ayarlama **adı** için *Pool2*.
-    1. Fiyatlandırma katmanını **Standart Havuz** olarak bırakın.
-    1. **Havuzu yapılandır**'a tıklayın,
-    1. Ayarlama **havuz eDTU** için *50 eDTU*.
-    1. Tıklayın **veritabanı Ekle** eklenebilir sunucuda veritabanlarının listesini görmek için *Pool2*.
-    1. Bu yeni havuza taşımak ve ardından 10 tüm veritabanlarını seçin **seçin**. Yük Oluşturucu çalıştırıyorsunuz ise hizmet, performans profili varsayılan 50 eDTU boyutundan daha büyük bir havuzu gerektirir ve bir 100 eDTU ayarı ile başlayan önerir zaten bilir.
+   1. Ayarlama **adı** için *Pool2*.
+   1. Fiyatlandırma katmanını **Standart Havuz** olarak bırakın.
+   1. **Havuzu yapılandır**'a tıklayın,
+   1. Ayarlama **havuz eDTU** için *50 eDTU*.
+   1. Tıklayın **veritabanı Ekle** eklenebilir sunucuda veritabanlarının listesini görmek için *Pool2*.
+   1. Bu yeni havuza taşımak ve ardından 10 tüm veritabanlarını seçin **seçin**. Yük Oluşturucu çalıştırıyorsunuz ise hizmet, performans profili varsayılan 50 eDTU boyutundan daha büyük bir havuzu gerektirir ve bir 100 eDTU ayarı ile başlayan önerir zaten bilir.
 
-    ![öneri](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![öneri](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
-    1. Bu öğretici için varsayılan değeri bırakın 50 Edtu ve tıklayın **seçin** yeniden.
-    1. Seçin **Tamam** yeni havuz oluşturun ve içine seçili veritabanlarını taşımak için.
+   1. Bu öğretici için varsayılan değeri bırakın 50 Edtu ve tıklayın **seçin** yeniden.
+   1. Seçin **Tamam** yeni havuz oluşturun ve içine seçili veritabanlarını taşımak için.
 
 Havuzun oluşturulması ve veritabanlarının taşınması birkaç dakika sürer. Veritabanları, çok son şu kadar çevrimiçi ve tam olarak erişilebilir kalmasını taşırken bu noktada tüm açık bağlantılar kapatılır. Bazı yeniden deneme mantığı olduğu sürece, istemciler yeni havuzdaki veritabanına bağlanır.
 

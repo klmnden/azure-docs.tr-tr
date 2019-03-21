@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b82c2261e949c724b1310ee43c6f3fe29766945
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8b5eb46b845bebbb81dce6aadb9d97af08955df3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531020"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096954"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Çoklu oturum açma için SAML 2.0 kimlik sağlayıcısı (IDP) kullanın
 
@@ -30,16 +30,16 @@ Bu belgede bir SAML 2.0 uyumlu SP Lite profili tabanlı kimlik sağlayıcısı, 
 
 Microsoft tümleştirmesini düzgün bir şekilde yapılandırılmış, SAML 2.0 Idp'yi profili tabanlı ile Office 365 gibi bir Microsoft bulut hizmeti olarak bu oturum açma deneyimini destekler. SAML 2.0 kimlik sağlayıcısı olan üçüncü taraf ürünler ve bu nedenle Microsoft destek dağıtımı için yapılandırma, bunları ilgili en iyi sorun giderme sağlamaz. Bir kez düzgün bir şekilde yapılandırılmış, SAML 2.0 kimlik sağlayıcısı için uygun yapılandırma aşağıda daha ayrıntılı olarak açıklandığı Microsoft bağlantı Çözümleyicisi aracını kullanarak test edilebilir ile tümleştirme. SAML 2.0 SP-Lite profili tabanlı kimlik sağlayıcınız hakkında daha fazla bilgi için sağlanan kuruluş isteyin.
 
->[!IMPORTANT]
->Sınırlı sayıda istemciyle yalnızca bu senaryoda oturum açma SAML 2.0 kimlik sağlayıcılarıyla birlikte kullanılabilir, bu içerir:
-
->- Outlook Web Access ve SharePoint Online gibi Web tabanlı istemciler
-- E-posta zengin istemciler, temel kimlik doğrulaması ve IMAP, POP, Active Sync, MAPI, (dağıtılması için Gelişmiş istemci protokol uç noktası gereklidir) vb. gibi desteklenen bir Exchange erişim yöntemi de dahil olmak üzere kullanır:
-    - Outlook 2013/Microsoft Outlook 2010/Outlook 2016'ın, Apple iPhone (iOS sürümleri çeşitli)
-    - Çeşitli Google Android cihazlar
-    - Windows Phone 7, Windows Phone 7.8 ve Windows Phone 8.0
-    - Posta istemcisi Windows 8 ve Windows 8.1 posta istemcisi
-    - Windows 10 posta istemcisi
+> [!IMPORTANT]
+> Sınırlı sayıda istemciyle yalnızca bu senaryoda oturum açma SAML 2.0 kimlik sağlayıcılarıyla birlikte kullanılabilir, bu içerir:
+> 
+> - Outlook Web Access ve SharePoint Online gibi Web tabanlı istemciler
+> - E-posta zengin istemciler, temel kimlik doğrulaması ve IMAP, POP, Active Sync, MAPI, (dağıtılması için Gelişmiş istemci protokol uç noktası gereklidir) vb. gibi desteklenen bir Exchange erişim yöntemi de dahil olmak üzere kullanır:
+>     - Outlook 2013/Microsoft Outlook 2010/Outlook 2016'ın, Apple iPhone (iOS sürümleri çeşitli)
+>     - Çeşitli Google Android cihazlar
+>     - Windows Phone 7, Windows Phone 7.8 ve Windows Phone 8.0
+>     - Posta istemcisi Windows 8 ve Windows 8.1 posta istemcisi
+>     - Windows 10 posta istemcisi
 
 Diğer tüm istemciler, bu senaryoda oturum açma, SAML 2.0 kimlik sağlayıcısı ile kullanılamaz. Örneğin, Lync 2010 masaüstü istemcisi ile çoklu oturum açma için yapılandırılmış, SAML 2.0 kimlik sağlayıcısı hizmette oturum açamaz değil.
 
@@ -194,7 +194,7 @@ Aşağıdaki yordam, SAML 2.0 SP-Lite'ı kullanarak bir Federasyon etki alanına
 "Set-MsolDomainAuthentication" hakkında daha fazla bilgi için bkz: [ https://technet.microsoft.com/library/dn194112.aspx ](https://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->Kullanım çalıştırmanız gerekir "$ecpUrl ="https://WS2012R2-0.contoso.com/PAOS"" için kimlik sağlayıcınıza ECP uzantı ayarlarsanız. Outlook Web uygulaması (OWA) hariç olmak üzere, Exchange Online istemcilerin güvendiği bir GÖNDERİ etkin uç noktasına bağlı. Shibboleth'ın ECP uygulamasına yönelik etkin bir uç noktayı benzer bir etkin uç noktası, SAML 2.0 STS uyguluyorsa Exchange Online hizmetiyle etkileşim kurmak bu zengin istemciler mümkün olabilir.
+>Kullanım çalıştırmalısınız `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` kimlik sağlayıcınız ECP uzantı ayarlarsanız. Outlook Web uygulaması (OWA) hariç olmak üzere, Exchange Online istemcilerin güvendiği bir GÖNDERİ etkin uç noktasına bağlı. Shibboleth'ın ECP uygulamasına yönelik etkin bir uç noktayı benzer bir etkin uç noktası, SAML 2.0 STS uyguluyorsa Exchange Online hizmetiyle etkileşim kurmak bu zengin istemciler mümkün olabilir.
 
 Federasyon yapılandırıldıktan sonra geri "Federasyon olmayan" (veya "yönetilen"), ancak bu değişikliğin tamamlanması iki saat sürer geçebilir ve her kullanıcı için bulut tabanlı oturum açma için yeni rastgele parolalar atama gerektirir. Geri "yönetilen" geçiş hatayla ayarlarınızı sıfırlamak için bazı senaryolarda gerekebilir. Etki alanı dönüştürme hakkında daha fazla bilgi için bkz: [ https://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 

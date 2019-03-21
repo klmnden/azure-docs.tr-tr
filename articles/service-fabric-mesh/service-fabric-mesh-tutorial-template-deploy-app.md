@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 906efa00243cc622c374d442a7982d87d106079b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 773a466f9619f162fe3f7cbeeab0b766d3ca32ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158851"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864873"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Öğretici: Şablon kullanarak Service Fabric Mesh’e uygulama dağıtma
 
@@ -211,7 +211,7 @@ Parametreler bölümü dağıtım şablonunuzun en üstünde, *resources* bölü
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
       ...
@@ -229,7 +229,7 @@ Hizmetler, şablonda uygulama kaynağının özellikleri olarak belirtilir.  Uyg
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     ...
@@ -344,6 +344,7 @@ Yapılacaklar Listesi uygulamasına özgü değerler için [mesh_rp.windows.json
 Aşağıdaki komutu kullanarak uygulamayı ve ilgili kaynakları oluşturabilirsiniz. [Kayıt defteri kimlik bilgilerini alma](#retrieve-credentials-for-the-registry) adımındaki kimlik bilgilerini kullanın.
 
 Parametreler dosyasında şu parametre değerlerini güncelleştirin:
+
 |Parametre|Değer|
 |---|---|
 |location|Uygulamanın dağıtılacağı bölge.  Örneğin: "eastus".|

@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: e175f603e97ccf51e1e13d9c2fc42ba7ed1a475f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c28441b6fe25b3480a55b79682d5067b19e3023a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247209"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58051895"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Azure Cloud Shell, dosyaların kalıcı olması
 Cloud Shell'i dosyaları oturumlarda kalıcı hale getirilmesi için Azure dosya depolama kullanır. İlk Başlat, Cloud Shell'i dosyaları oturumlarda kalıcı hale getirmek için yeni veya varolan bir dosya paylaşımını ilişkilendirmek isteyip istemediğinizi sorar.
@@ -48,6 +48,7 @@ Depolama Kurulum istemi göründüğünde seçin **Gelişmiş ayarları göster*
 Azure depolama hesapları için bağlama Cloud Shell makine ile aynı bölgede bulunmalıdır ilişkili. Çalışabilir, geçerli bölge bulmayı `env` bash değişkeni bulun `ACC_LOCATION`. Dosya paylaşımları, kalıcı hale getirmek oluşturduğunuz bir 5 GB'lık görüntüsü almak, `$Home` dizin.
 
 Cloud Shell makineler aşağıdaki bölgelerde mevcuttur:
+
 |Alan|Bölge|
 |---|---|
 |Kuzey ve Güney Amerika|Doğu ABD, Güney Orta ABD, Batı ABD|

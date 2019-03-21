@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: fcba3aef29e1566f9dfb2b151c15fe683be94fdb
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7fead05e7404e042d923631f4ba745553085943a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266596"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098119"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench'i dağıtma
 
@@ -108,20 +108,20 @@ Azure Blockchain Workbench, Azure AD, yapılandırma ve uygulama kayıtlarını 
 
     *Var olanı kullan* seçeneği, bir Ethereum kavram yetki başlangıcı (PoA) blok zinciri ağ belirtmenize olanak sağlar. Uç noktaları aşağıdaki gereksinimlere sahiptir.
 
-    * Uç nokta bir Ethereum kavram yetki başlangıcı (PoA) blok zinciri ağ olması gerekir.
-    * Uç noktası, ağ üzerinden genel olarak erişilebilir olması gerekir.
-    * PoA blockchain ağ sıfır olarak ayarlanmış gaz fiyat için yapılandırılmalıdır.
+   * Uç nokta bir Ethereum kavram yetki başlangıcı (PoA) blok zinciri ağ olması gerekir.
+   * Uç noktası, ağ üzerinden genel olarak erişilebilir olması gerekir.
+   * PoA blockchain ağ sıfır olarak ayarlanmış gaz fiyat için yapılandırılmalıdır.
 
-    > [!NOTE]
-    > Blockchain Workbench'i hesapları finanse değil. Fon gerekiyorsa, işlem başarısız.
+     > [!NOTE]
+     > Blockchain Workbench'i hesapları finanse değil. Fon gerekiyorsa, işlem başarısız.
 
-    ![Blok zinciri ağınız için Gelişmiş ayarları](media/deploy/advanced-blockchain-settings-existing.png)
+     ![Blok zinciri ağınız için Gelişmiş ayarları](media/deploy/advanced-blockchain-settings-existing.png)
 
-    | Ayar | Açıklama  |
-    |---------|--------------|
-    | Ethereum RPC Endpoint | Var olan PoA blok zinciri ağı RPC uç noktası sağlar. Uç nokta https:// veya http:// ile başlayan ve bir bağlantı noktası numarası ile sona erer. Örneğin, `http<s>://<network-url>:<port>` |
-    | Azure Active Directory ayarları | Seçin **ekleyebilirsiniz**.</br>Not: İçin seçerseniz, [önceden Azure AD'yi yapılandırma](#azure-ad-configuration) veya tercih yeniden dağıtmaya gerek, *artık ekleme*. |
-    | Sanal makine seçimi | Blok zinciri ağınız için tercih edilen VM boyutunu seçin. |
+     | Ayar | Açıklama  |
+     |---------|--------------|
+     | Ethereum RPC Endpoint | Var olan PoA blok zinciri ağı RPC uç noktası sağlar. Uç nokta https:// veya http:// ile başlayan ve bir bağlantı noktası numarası ile sona erer. Örneğin, `http<s>://<network-url>:<port>` |
+     | Azure Active Directory ayarları | Seçin **ekleyebilirsiniz**.</br>Not: İçin seçerseniz, [önceden Azure AD'yi yapılandırma](#azure-ad-configuration) veya tercih yeniden dağıtmaya gerek, *artık ekleme*. |
+     | Sanal makine seçimi | Blok zinciri ağınız için tercih edilen VM boyutunu seçin. |
 
 9. Seçin **Tamam** Gelişmiş ayarlar tamamlanması.
 
@@ -223,18 +223,18 @@ Ardından, uygulama rolleri Blockchain Workbench'i yöneticileri belirlemek içi
 
     ``` json
     "appRoles": [
-         {
-           "allowedMemberTypes": [
-             "User",
-             "Application"
-           ],
-           "displayName": "Administrator",
-           "id": "<A unique GUID>",
-           "isEnabled": true,
-           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
-           "value": "Administrator"
-         }
-       ],
+         {
+           "allowedMemberTypes": [
+             "User",
+             "Application"
+           ],
+           "displayName": "Administrator",
+           "id": "<A unique GUID>",
+           "isEnabled": true,
+           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
+           "value": "Administrator"
+         }
+       ],
     ```
 
     > [!IMPORTANT]

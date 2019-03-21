@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 1d25e9c5abce36665827c87e1a05908e61d6338b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 09eed87dce65325a5b3466346b073a0d786bfb89
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549298"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861460"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Hızlı Başlangıç: Bing varlık arama REST API'si kullanarak bir arama isteği gönderC#
 
@@ -28,6 +28,11 @@ Bu uygulama C# ile yazılmış olmakla birlikte API, çoğu programlama diliyle 
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)’nin herhangi bir sürümü.
 * NuGet paketi olarak kullanılabilen [Json.NET](https://www.newtonsoft.com/json) çerçevesi.
+    * Visual Studio'da NuGet paketini yüklemek için:
+        1. Çözüm Yöneticisi'nde sağ tıklayın
+        2. Tıklayın **NuGet paketlerini Yönet...**
+        3. Arama **newtonsoft.json** paketini ve yükleme
+
 * Linux/MacOS kullanıyorsanız bu uygulama, [Mono](https://www.mono-project.com/) kullanılarak çalıştırılabilir.
 
 
@@ -38,6 +43,7 @@ Bu uygulama C# ile yazılmış olmakla birlikte API, çoğu programlama diliyle 
 1. Yeni bir C# çözümünü Visual Studio'da konsol. Ardından ana kod dosyasına aşağıdaki ad alanlarını ekleyin.
     
     ```csharp
+    using Newtonsoft.Json;
     using System;
     using System.Net.Http;
     using System.Text;
@@ -68,25 +74,26 @@ Bu uygulama C# ile yazılmış olmakla birlikte API, çoğu programlama diliyle 
 
 1. Bir sınıf içinde çağrılan bir işlev oluşturun `Search()`. Yeni bir `HttpClient` nesne ve abonelik anahtarınızı ekleme `Ocp-Apim-Subscription-Key` başlığı.
 
-    1. Konak ve yol birleştirerek isteğiniz URI'sini oluşturur. Ardından, Pazar ve URL kodlaması sorgunuzu ekleyin.
-    2. Await `client.GetAsync()` bir HTTP yanıtı almanız ve ardından json yanıtı bekleyen tarafından depolamak `ReadAsStringAsync()`.
-    3. Konsola yazdırmak.
+   1. Konak ve yol birleştirerek isteğiniz URI'sini oluşturur. Ardından, Pazar ve URL kodlaması sorgunuzu ekleyin.
+   2. Await `client.GetAsync()` bir HTTP yanıtı almanız ve ardından json yanıtı bekleyen tarafından depolamak `ReadAsStringAsync()`.
+   3. Biçim ile JSON dizesi `JsonConvert.DeserializeObject()` ve konsola yazdırır.
 
-    ```csharp
-    async static void Search()
-    {
-        //...
-        HttpClient client = new HttpClient();
-        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+      ```csharp
+      async static void Search()
+      {
+       //...
+       HttpClient client = new HttpClient();
+       client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
-        string uri = host + path + "?mkt=" + market + "&q=" + System.Net.WebUtility.UrlEncode(query);
+       string uri = host + path + "?mkt=" + market + "&q=" + System.Net.WebUtility.UrlEncode(query);
 
-        HttpResponseMessage response = await client.GetAsync(uri);
+       HttpResponseMessage response = await client.GetAsync(uri);
 
-        string contentString = await response.Content.ReadAsStringAsync();
-        Console.WriteLine(JsonPrettyPrint(contentString));
-    }
-    ```
+       string contentString = await response.Content.ReadAsStringAsync();
+       dynamic parsedJson = JsonConvert.DeserializeObject(contentString);
+       Console.WriteLine(parsedJson);
+      }
+      ```
 
 2. Uygulamanızın ana yöntemi çağırın `Search()` işlevi.
     

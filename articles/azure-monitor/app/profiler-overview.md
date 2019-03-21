@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 2a2c2667ae3180fd4f7b114ce6cef05ac7a1080c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c42de8cf189c0ebaf5f13ef5971ad91d14d862fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859734"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850284"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Azure Application Insights ile profil üretim uygulamaları
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Uygulamanız için Application Insights Profiler ' ı etkinleştir
@@ -30,6 +30,7 @@ Profiler aşağıdaki Azure hizmetleri üzerinde dağıtılan .NET uygulamaları
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure sanal makineler ve sanal makine ölçek kümeleri](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [**Önizleme** ASP.NET Core Azure Linux Web uygulamaları](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
 Profiler etkinleştirildi, ancak izlemeleri görmüyorsanız, kontrol bizim [sorun giderme kılavuzu](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
@@ -93,6 +94,10 @@ Yöntemler gibi **SqlCommand.Execute** kod veritabanı işlemin tamamlanmasını
 ### <a id="block"></a>Engellenme süresi
 
 **BLOCKED_TIME** kullanılabilir olması başka bir kaynak kodu beklediğini belirtir. Örneğin, bir eşitleme nesnesi, kullanılabilir olması için bir iş parçacığı veya son isteği bekliyor olabilir.
+
+### <a name="unmanaged-async"></a>Yönetilmeyen Asenkron
+
+.NET framework ETW olayları yayar ve böylece iş parçacıkları arasında zaman uyumsuz çağrılar izlenebilir etkinlik kimlikleri iş parçacıkları arasında geçirir. Profil Oluşturucu hangi iş parçacığı ve iş parçacığında hangi işlevleriniz gerektirdikçe bildiremez şekilde yönetilmeyen kod (yerel kod için) ve bazı eski stil zaman uyumsuz kod bu olayları ve etkinlik kimliği eksik. Bu, çağrı yığınında 'Yönetilmeyen Async' etiketlenir. ETW dosyayı karşıdan yükleyin, kullanmanız mümkün olabilir [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) neler olduğunu daha fazla bilgiler alın.
 
 ### <a id="cpu"></a>CPU süresi
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: f36d9eed11685d1bb35a46a97eb58fe870970075
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019444"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998713"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı Etkinlik yürütme
 İşlem hattı yürütme etkinliği bir Data Factory işlem hattının başka bir işlem hattını çağırmasını sağlar.
@@ -59,13 +59,14 @@ ms.locfileid: "54019444"
 ```
 
 ## <a name="type-properties"></a>Tür özellikleri
-Özellik | Açıklama | İzin verilen değerler | Gereklidir
+
+Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-ad | İşlem hattı yürütme etkinliğinin adı. | Dize | Evet
-type | Ayarlamanız gerekir: **ExecutePipeline**. | Dize | Evet
+ad | İşlem hattı yürütme etkinliğinin adı. | String | Evet
+type | Ayarlamanız gerekir: **ExecutePipeline**. | String | Evet
 ardışık düzen | Bu işlem hattını çağıran bağımlı işlem hattının işlem hattı başvuru. Bir işlem hattı başvuru nesnesi iki özelliğe sahiptir: **başvuru adını** ve **türü**. Başvuru adını Özellik Başvurusu işlem hattının adını belirtir. PipelineReference için type özelliği ayarlanmalıdır. | PipelineReference | Evet
 parametreler | Çağrılan işlem hattına geçirilen parametreleri | Parametre adları ve bağımsız değişken değerleri eşleyen bir JSON nesnesi | Hayır
-waitOnCompletion | Etkinlik yürütme tamamlanması için bağımlı bir işlem hattı yürütme beklemediğini tanımlar. | Varsayılan değer false’tur. | Boole | Hayır
+waitOnCompletion | Etkinlik yürütme tamamlanması için bağımlı bir işlem hattı yürütme beklemediğini tanımlar. Varsayılan değer false’tur. | Boole | Hayır
 
 ## <a name="sample"></a>Örnek
 Bu senaryo, iki işlem hattı sahiptir:

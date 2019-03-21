@@ -1,5 +1,5 @@
 ---
-title: 'Oluşturma ve noktadan siteye için sertifika dışarı aktarma: MakeCert: Azure | Microsoft Docs'
+title: 'Oluşturma ve noktadan siteye için sertifikalar verme: MakeCert : Azure | Microsoft Docs'
 description: Otomatik olarak imzalanan kök sertifika oluşturma, ortak anahtarını dışarı aktarmak ve MakeCert kullanarak istemci sertifikalarını oluşturmak.
 services: vpn-gateway
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3ff7e754a55e15a8fa8a32f846efbbbe5025e46e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 973c0aa3bd187e963f15adbe34955d6bc9fa612d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297868"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102086"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Oluşturma ve MakeCert kullanarak noktadan siteye bağlantılar için sertifikaları dışarı aktarma
 
@@ -28,16 +28,16 @@ Kullanmanızı öneririz ancak [Windows 10 PowerShell adımları](vpn-gateway-ce
 Aşağıdaki adımlar MakeCert kullanarak otomatik olarak imzalanan bir sertifika oluşturma işlemini gösterir. Bu adımlar, dağıtım modeli özel değildir. Bunlar, Resource Manager ve klasik için geçerli olur.
 
 1. İndirme ve yükleme [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
-2. Yüklemeden sonra bu yol altındaki makecert.exe yardımcı programını genelde bulabilirsiniz: ' C:\Program Files (x86) \Windows Kits\10\bin\<arch >'. Ancak başka bir konuma yüklendiğini mümkündür. Yönetici olarak bir komut istemi açın ve MakeCert yardımcı programının konumuna gidin. Aşağıdaki örnekte, doğru konumu ayarlama kullanabilirsiniz:
+2. Yüklemeden sonra bu yol altındaki makecert.exe yardımcı programını genellikle bulabilirsiniz: ' C:\Program dosyaları (x86) \Windows Kits\10\bin\<arch >'. Ancak başka bir konuma yüklendiğini mümkündür. Yönetici olarak bir komut istemi açın ve MakeCert yardımcı programının konumuna gidin. Aşağıdaki örnekte, doğru konumu ayarlama kullanabilirsiniz:
 
-  ```cmd
-  cd C:\Program Files (x86)\Windows Kits\10\bin\x64
-  ```
+   ```cmd
+   cd C:\Program Files (x86)\Windows Kits\10\bin\x64
+   ```
 3. Oluşturun ve bilgisayarınızın kişisel sertifika deposunda bir sertifika yükleyin. Aşağıdaki örnek, karşılık gelen oluşturur *.cer* P2S yapılandırırken Azure'a yükleme dosyası. 'P2SRootCert' ve 'p2srootcert.cer'olarak adlandırıp sertifika için kullanmak istediğiniz adla değiştirin. Sertifika, 'Sertifikalar - Geçerli kullanıcı\kişisel\sertifikalar' bulunur.
 
-  ```cmd
-  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
-  ```
+   ```cmd
+   makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
+   ```
 
 ## <a name="cer"></a>Ortak anahtarı (.cer) dışarı aktarma
 
@@ -61,14 +61,14 @@ Aşağıdaki adımlarda bir otomatik olarak imzalanan kök sertifikadan bir iste
  
 1. Otomatik olarak imzalanan sertifika oluşturmak için kullanılan aynı bilgisayarda yönetici olarak bir komut istemi açın.
 2. Değiştirebilir ve bir istemci sertifikası oluşturmak için örneği çalıştırın.
-  * Değişiklik *"P2SRootCert"* istemci sertifikası ürettiğini otomatik olarak imzalanan kök adı. Ne olursa olsun kök sertifikasının adı kullandığınızdan emin olun ' CN =' değerindeydi otomatik olarak imzalanan kök oluştururken belirttiğiniz.
-  * Değişiklik *P2SChildCert* bir istemci sertifikası oluşturmak istediğiniz adı.
+   * Değişiklik *"P2SRootCert"* istemci sertifikası ürettiğini otomatik olarak imzalanan kök adı. Ne olursa olsun kök sertifikasının adı kullandığınızdan emin olun ' CN =' değerindeydi otomatik olarak imzalanan kök oluştururken belirttiğiniz.
+   * Değişiklik *P2SChildCert* bir istemci sertifikası oluşturmak istediğiniz adı.
 
-  Değişiklik yapmadan aşağıdaki örneği çalıştırırsanız, sonuç P2SChildcert P2SRootCert'kök sertifikadan oluşturulmuş, kişisel sertifika deposunda adlı bir istemci sertifikası olur.
+   Değişiklik yapmadan aşağıdaki örneği çalıştırırsanız, sonuç P2SChildcert P2SRootCert'kök sertifikadan oluşturulmuş, kişisel sertifika deposunda adlı bir istemci sertifikası olur.
 
-  ```cmd
-  makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
-  ```
+   ```cmd
+   makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
+   ```
 
 ### <a name="clientexport"></a>Bir istemci sertifikasını dışarı aktarma
 

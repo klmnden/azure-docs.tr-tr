@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7b0ae144cce1213b5476ba1cccc94d994ebeda60
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7b3b4e0886f561cc66e2c02e4ea354c86b34453c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464135"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904193"
 ---
 # <a name="heading"></a>Azure'da SQL Server sanal makinesi verilerini işleme
 Bu belge verileri araştırmak ve bir SQL Server VM'si, azure'da depolanan verilerin özelliklerini oluşturma konusunu kapsar. Bu SQL kullanarak veri denetimi veya Python gibi bir programlama dili kullanılarak yapılabilir.
@@ -36,7 +36,7 @@ Biz, SQL kullanarak bu bölümdeki aşağıdaki veri wrangling görevler açıkl
 SQL Server veri depolarında keşfetmek için kullanılan SQL betiklerini birkaç örnek aşağıda verilmiştir.
 
 > [!NOTE]
-> Pratik bir örnek için kullandığınız [NYC taksi dataset](http://www.andresmh.com/nyctaxitrips/) ve başlıklı IPNB [Ipython Notebook ve SQL Server'ı kullanarak NYC veri denetimi](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) uçtan uca bir kılavuz için.
+> Pratik bir örnek için kullandığınız [NYC taksi dataset](https://www.andresmh.com/nyctaxitrips/) ve başlıklı IPNB [Ipython Notebook ve SQL Server'ı kullanarak NYC veri denetimi](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) uçtan uca bir kılavuz için.
 > 
 > 
 
@@ -82,7 +82,7 @@ Aşağıdaki örnek, bunun yerine bir özelliği olarak kullanılabilir bir say�
 ### <a name="sql-featurerollout"></a>Tek bir sütundan özellikleri alınıyor
 Bu bölümde ek özellikler oluşturmak için bir tablodaki tek bir sütun kullanıma sunma gösterilmektedir. Örnek özellikleri oluşturmak çalıştığınız tablosunda bir enlem veya boylam sütunu olduğunu varsayar.
 
-Enlem/boylam konumu veri kısa öncü İşte (stackoverflow kaynak var [enlem ve boylam doğruluğunu ölçmek nasıl?](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Konum alanı featurizing önce anlamak kullanışlıdır:
+Enlem/boylam konumu veri kısa öncü İşte (stackoverflow kaynak var [enlem ve boylam doğruluğunu ölçmek nasıl?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). Konum alanı featurizing önce anlamak kullanışlıdır:
 
 * Oturum bize biz Kuzey olup veya Güney, Doğu veya Batı dünyayı gösterir.
 * Sıfır olmayan bir yüz basamağın yuvarlanacağını belirtir bize boylam, enlem değil kullandığımız!
@@ -129,7 +129,7 @@ Aşağıdaki bağlantı dizesi biçimi python'dan pyodbc (Değiştir servername,
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-[Pandas Kitaplığı](http://pandas.pydata.org/) Python'da Python programlama için veri işleme için zengin bir veri yapıları ve verileri analiz araçları sağlar. Aşağıdaki kod, sonuçları bir SQL Server veritabanından bir Pandas veri çerçevesine döndürülen okur:
+[Pandas Kitaplığı](https://pandas.pydata.org/) Python'da Python programlama için veri işleme için zengin bir veri yapıları ve verileri analiz araçları sağlar. Aşağıdaki kod, sonuçları bir SQL Server veritabanından bir Pandas veri çerçevesine döndürülen okur:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)

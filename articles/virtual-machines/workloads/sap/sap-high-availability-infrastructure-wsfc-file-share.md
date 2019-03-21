@@ -1,6 +1,6 @@
 ---
-title: SAP ASCS/SCS örnekleri için bir Windows Yük devretme kümesi ve dosya paylaşımı kullanarak SAP yüksek kullanılabilirlik için Azure altyapı Hazırlık | Microsoft Docs
-description: SAP ASCS/SCS örnekleri için bir Windows Yük devretme kümesi ve dosya paylaşımı kullanarak SAP yüksek kullanılabilirlik için Azure altyapı Hazırlık
+title: SAP ASCS/SCS örneği için bir Windows Yük devretme kümesi ve dosya paylaşımı kullanarak SAP yüksek kullanılabilirlik için Azure altyapı hazırlığı | Microsoft Docs
+description: SAP ASCS/SCS örneği için bir Windows Yük devretme kümesi ve dosya paylaşımı kullanarak SAP yüksek kullanılabilirlik için Azure altyapı hazırlığı
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf0f06528b3571ce8307a2fed2fb9c43f608d15d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 064daa7ed8fb5be34524d9ea27cfa6c22b9c3e66
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656722"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008362"
 ---
-# <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>SAP ASCS/SCS örnekleri için bir Windows Yük devretme kümesi ve dosya paylaşımı kullanarak SAP yüksek kullanılabilirlik için Azure altyapıyı hazırlama
+# <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>SAP ASCS/SCS örneği için bir Windows Yük devretme kümesi ve dosya paylaşımı kullanarak SAP yüksek kullanılabilirlik için Azure altyapısını hazırlama
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -46,7 +46,7 @@ ms.locfileid: "34656722"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -207,28 +207,28 @@ ms.locfileid: "34656722"
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-Bu makalede SAP ASCS/SCS kümeleme için bir seçenek olarak genişleme dosya paylaşımı kullanarak yüksek kullanılabilirlik SAP sistemleri (WSFC), Windows Server Yük Devretme Kümelemesi kümede yüklemek ve yapılandırmak için gerekli olan Azure altyapı hazırlık adımları örnekleri.
+Bu makalede bir Windows Server Yük Devretme Kümelemesi kümesi (WSFC) üzerinde SAP ASCS/SCS kümeleme için isteğe bağlı olarak ölçek genişletme dosya paylaşımı kullanarak yüksek kullanılabilirlik SAP sistemlerini yüklemek ve yapılandırmak için gereken Azure altyapı hazırlık adımları örnekleri.
 
 ## <a name="prerequisite"></a>Önkoşul
 
-Yüklemeye başlamadan önce aşağıdaki makaleyi gözden geçirin:
+Yükleme başlamadan önce aşağıdaki makaleyi gözden geçirin:
 
-* [Mimari Kılavuzu: Windows Yük devretme kümesi SAP ASCS/SCS örneklerinde küme dosya paylaşımı kullanarak][sap-high-availability-guide-wsfc-file-share]
+* [Mimari Kılavuzu: Dosya paylaşımı kullanarak bir Windows Yük devretme kümesi SAP ASCS/SCS örnekleri][sap-high-availability-guide-wsfc-file-share]
 
 
 ## <a name="host-names-and-ip-addresses"></a>Ana bilgisayar adları ve IP adresleri
 
 | Sanal ana bilgisayar adı rolü | Sanal ana bilgisayar adı | Statik IP adresi | Kullanılabilirlik kümesi |
 | --- | --- | --- | --- |
-| İlk küme düğüm ASCS/SCS kümesi | ascs-1 | 10.0.6.4 | ascs-olarak |
-| Küme düğümü ASCS/SCS kümesi ikinci | ascs 2 | 10.0.6.5 | ascs-olarak |
-| Küme ağ adı |cl ascs | 10.0.6.6 | yok |
+| İlk küme düğümüne ASCS/SCS küme | ascs-1 | 10.0.6.4 | ascs-olarak |
+| İkinci küme düğümü ASCS/SCS küme | ascs 2 | 10.0.6.5 | ascs-olarak |
+| Küme ağ adı |ascs Temizle | 10.0.6.6 | yok |
 | SAP PR1 ASCS küme ağ adı |pr1 ascs | 10.0.6.7 | yok |
 
 
 **Tablo 1**: ASCS/SCS küme
 
-| SAP \<SID &GT; | SAP ASCS/SCS örnek sayısı |
+| SAP \<SID &GT; | SAP ASCS/SCS örneği sayısı |
 | --- | --- |
 | PR1 | 0 |
 
@@ -239,41 +239,41 @@ Yüklemeye başlamadan önce aşağıdaki makaleyi gözden geçirin:
 | --- | --- | --- | --- |
 | İlk küme düğümü | sofs-1 | 10.0.6.10 | sofs-olarak |
 | İkinci küme düğümü | sofs 2 | 10.0.6.11 | sofs-olarak |
-| Üçüncü küme düğümü | sofs-3 | 10.0.6.12 | sofs-olarak |
+| Üçüncü küme düğümü | sofs 3 | 10.0.6.12 | sofs-olarak |
 | Küme ağ adı | sofs Temizle | 10.0.6.13 | yok |
-| SAP genel ana bilgisayar adı | sapglobal | Tüm küme düğümlerinin IP'leri kullanın | yok |
+| SAP genel ana bilgisayar adı | sapglobal | Tüm küme düğümlerinin IP'ler kullanın | yok |
 
-**Tablo 3**: genişleme dosya sunucusu kümesi
+**Tablo 3**: Genişleme dosya sunucusu kümesi
 
 
-## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>Bir SAP ASCS/SCS kümesi, bir veritabanı yönetim sistemi (DBMS) küme ve SAP uygulama sunucusu örnekleri için sanal makineleri dağıtma
+## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>SAP ASCS/SCS kümesi, bir veritabanı Yönetim Sistemi'nin (DBMS) kümesi ve SAP uygulama sunucusu örneklerinin Vm'leri dağıtma
 
 Azure altyapı hazırlamak için aşağıdaki adımları tamamlayın:
 
 * [Mimari şablonları için 1, 2 ve 3 altyapıyı hazırlama][sap-high-availability-infrastructure-wsfc-shared-disk].
 
-* [Bir Azure sanal ağı oluşturmak][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network].
+* [Bir Azure sanal ağı oluşturma][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network].
 
-* [Gerekli DNS IP adreslerini ayarlamak][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip].
+* [Gerekli DNS IP adreslerini ayarlayın][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip].
 
-* [SAP sanal makineler için statik IP adresi ayarlamak][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip].
+* [SAP sanal makineleri için statik IP adresleri kümesi][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip].
 
-* [Azure iç yük dengeleyici için statik bir IP adresi kümesi][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb].
+* [Azure iç yük dengeleyici için statik bir IP adresi ayarlamak][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb].
 
-* [ASCS/SCS Yük Dengeleme kümesi varsayılan kuralları için Azure iç yük dengeleyici][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
+* [Varsayılanı Ayarla ASCS/SCS Yük Dengeleme kuralları Azure iç yük dengeleyici için][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
 
 * [ASCS/SCS varsayılan Yük Dengeleme kuralları Azure iç yük dengeleyici için değiştirme][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules].
 
-* [Windows sanal makine etki alanına ekleyin][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
+* [Windows sanal makineleri etki alanına eklemek][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
-* [SAP ASCS/SCS örneği her iki küme düğümleri üzerinde kayıt defteri girdisini eklemeniz][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
+* [SAP ASCS/SCS örneği her iki küme düğümlerinde kayıt defteri girdisini eklemeniz][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
-* Windows Server 2016 kullanırken, yapılandırdığınız öneririz [Azure bulut Tanık][deploy-cloud-witness].
+* Windows Server 2016 kullanırken, yapılandırdığınız öneririz [Azure bulut tanığı][deploy-cloud-witness].
 
 
-## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Genişleme dosya sunucusu kümesini el ile dağıtma 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Genişleme dosya sunucusu kümesini el ile dağıtma 
 
-Microsoft genişleme dosya sunucusu kümesi blog açıklandığı şekilde el ile dağıtabilirsiniz [depolama alanları doğrudan Azure][ms-blog-s2d-in-azure], aşağıdaki kod çalıştırarak:  
+Microsoft genişleme dosya sunucusu kümesi blogdaki açıklandığı şekilde el ile dağıtabilirsiniz [depolama alanları doğrudan azure'da][ms-blog-s2d-in-azure], aşağıdaki kodu yürüterek:  
 
 
 ```PowerShell
@@ -308,40 +308,40 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 
 ## <a name="deploy-scale-out-file-server-automatically"></a>Genişleme dosya sunucusu otomatik olarak Dağıt
 
-Ayrıca, bir var olan sanal ağ ve Active Directory ortamında Azure Resource Manager şablonlarını kullanarak genişleme dosya sunucusu dağıtımını otomatik hale getirebilirsiniz.
+Ayrıca, mevcut bir sanal ağ ve Active Directory ortamında Azure Resource Manager şablonlarını kullanarak genişleme dosya sunucusu dağıtımı otomatik hale getirebilirsiniz.
 
 > [!IMPORTANT]
-> Üç yönlü yansıtma ile genişleme dosya sunucusu için üç veya daha fazla küme düğümleri bulunmasını öneririz.
+> Üç yönlü yansıtma ile genişleme dosya sunucusu için üç veya daha fazla küme düğümlerine sahip öneririz.
 >
-> Genişleme dosya sunucusu kaynak yöneticisi şablonu UI'da, VM sayısını belirtmelisiniz.
+> Genişleme dosya sunucusu kaynak yöneticisi şablonu kullanıcı Arabirimi, VM sayısını belirtmeniz gerekir.
 >
 
-### <a name="use-managed-disks"></a>Yönetilen diskleri kullanın
+### <a name="use-managed-disks"></a>Yönetilen diskleri kullanma
 
-Depolama alanları doğrudan ve Azure yönetilen diskleri ile genişleme dosya sunucusu dağıtmak için Azure Resource Manager şablonu kullanılabilir [GitHub][arm-sofs-s2d-managed-disks].
+Depolama alanları doğrudan'ı ve Azure yönetilen diskler ile ölçek genişletme dosya sunucusu dağıtmak için Azure Resource Manager şablonu edinilebilir [GitHub][arm-sofs-s2d-managed-disks].
 
-Yönetilen diskleri kullanmanızı öneririz.
+Yönetilen diskler kullanmanızı öneririz.
 
-![Şekil 1: Genişleme dosya sunucusu kaynak yöneticisi şablonu yönetilen diskleri için kullanıcı Arabirimi ekran][sap-ha-guide-figure-8010]
+![Şekil 1: Kullanıcı Arabirimi ekranı için yönetilen diskler ile ölçek genişletme dosya sunucusu kaynak yöneticisi şablonu][sap-ha-guide-figure-8010]
 
-_**Şekil 1**: genişleme dosya sunucusu kaynak yöneticisi şablonu yönetilen diskleri için kullanıcı Arabirimi ekran_
+_**Şekil 1**: Kullanıcı Arabirimi ekranı için yönetilen diskler ile ölçek genişletme dosya sunucusu kaynak yöneticisi şablonu_
 
 Şablonda, aşağıdakileri yapın:
-1. İçinde **Vm sayısı** kutusuna, minimum sayısını girin **2**.
-2. İçinde **Vm Disk sayısı** kutusunda, az disk sayısını girin **3** (2 diskleri + 1 yedek disk 3 disk =).
-3. İçinde **Sofs adı** kutusuna, SAP genel ana bilgisayar ağ adı girin **sapglobalhost**.
-4. İçinde **paylaşım adı** kutusuna, dosya paylaşımı adı girin **sapmnt**.
+1. İçinde **Vm sayısı** kutusuna, en az sayısını girin **2**.
+2. İçinde **Vm Disk sayısı** kutusuna, en az disk sayısını girin **3** (2 diskleri + 1 yedek diski = 3 diske).
+3. İçinde **Sofs adı** kutusuna, SAP genel konak ağ adı girin **sapglobalhost**.
+4. İçinde **paylaşım adı** kutusuna, dosya paylaşımı adını girin **sapmnt**.
 
-### <a name="use-unmanaged-disks"></a>Yönetilmeyen diskleri kullanın
+### <a name="use-unmanaged-disks"></a>Yönetilmeyen diskleri kullanma
 
-Depolama alanları doğrudan ve Azure yönetilmeyen diskler ile genişleme dosya sunucusu dağıtmak için Azure Resource Manager şablonu kullanılabilir [GitHub][arm-sofs-s2d-non-managed-disks].
+Depolama alanları doğrudan'ı ve Azure yönetilmeyen diskler ile ölçek genişletme dosya sunucusu dağıtmak için Azure Resource Manager şablonu edinilebilir [GitHub][arm-sofs-s2d-non-managed-disks].
 
-![Şekil 2: Kullanıcı Arabirimi ekran yönetilen diskleri olmadan genişleme dosya sunucusu Azure Resource Manager şablonu için][sap-ha-guide-figure-8011]
+![Şekil 2: Kullanıcı Arabirimi ekranı için yönetilen diskleri olmayan genişleme dosya sunucusu Azure Resource Manager şablonu][sap-ha-guide-figure-8011]
 
-_**Şekil 2**: yönetilen diskleri olmadan genişleme dosya sunucusu Azure Resource Manager şablonu için kullanıcı Arabirimi ekran_
+_**Şekil 2**: Kullanıcı Arabirimi ekranı için yönetilen diskleri olmayan genişleme dosya sunucusu Azure Resource Manager şablonu_
 
-İçinde **depolama hesabı türü** kutusunda **Premium depolama**. Tüm diğer ayarlar yönetilen disklerle ilgili ayarlar ile aynıdır.
+İçinde **depolama hesabı türü** kutusunda **Premium depolama**. Diğer tüm ayarlar yönetilen disk ayarları ile aynıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [SAP NetWeaver yüksek kullanılabilirlik SAP ASCS/SCS örnekleri için bir Windows Yük devretme kümesi ve dosya paylaşımı yükleyin.][sap-high-availability-installation-wsfc-file-share]
+* [Yüksek kullanılabilirlik SAP NetWeaver SAP ASCS/SCS örneği için bir Windows Yük devretme kümesi ve dosya paylaşım yükleyin.][sap-high-availability-installation-wsfc-file-share]

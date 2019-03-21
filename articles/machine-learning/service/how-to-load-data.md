@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 2/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: a056f5df12deb50ad64f90c19201942204e774f1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: fe676cbba89a99a3dbd29609f181274062b37d86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779377"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000274"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Yükleme ve Azure Machine Learning ile veri okuma
 
@@ -89,7 +89,7 @@ dflow.head(5)
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
-|0||stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
+|0|stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |1|ALABAMA|1|101710|Hale ilçe|10171002158| |
 |2|ALABAMA|1|101710|Hale ilçe|10171002162| |
 
@@ -103,7 +103,7 @@ dflow.head(5)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
-|-----|-------|---------| -------|------|-----|------|-----|
+|-----|-------|---------| -------|------|-----|------|
 |0|ALABAMA|1|101710|Hale ilçe|10171002158|29|
 |1|ALABAMA|1|101710|Hale ilçe|10171002162|40 |
 
@@ -154,12 +154,12 @@ dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
 dflow.head(5)
 ```
 
-||Column1|Column2|Sütun3|Sütun4|Sütun5|Sütun6|Column7|Column8|
-|------|------|------|-----|------|-----|-------|----|-----|
-|0|None|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|None|
-|1|None|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|None|
-|2|None|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|None|
-|3|boyut sayısı|Unvan|Studio|Dünya çapında|Yerel / %|Column1|Deniz aşırı / %|Column2|Yıl ^|
+| |Column1|Column2|Sütun3|Sütun4|Sütun5|Sütun6|Column7|Column8| | |
+|-|-------|-------|-------|-------|-------|-------|-------|-------|-|-|
+|0|None|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|None| |
+|1|None|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|None| |
+|2|None|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|Yok.|None| |
+|3|boyut sayısı|Unvan|Studio|Dünya çapında|Yerel / %|Column1|Deniz aşırı / %|Column2|Yıl ^| |
 |4|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009 ^|5|
 
 Çıktı, ikinci sayfa verileri üç boş satır üstbilgileri önce olduğunu gösterir. `read_excel()` İşlevi satırları ve üst bilgileri kullanmak için isteğe bağlı parametreler içeriyor. İlk üç satırı atlamak için aşağıdaki kodu çalıştırın ve dördüncü satırı başlık olarak kullanma.
@@ -225,8 +225,8 @@ dflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dflow.head(5)
 ```
 
-||ProductID|Ad|ProductNumber|Renk|StandardCost|ListPrice|Boyut|Ağırlık|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|ROWGUID|ModifiedDate|
-|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| |ProductID|Ad|ProductNumber|Renk|StandardCost|ListPrice|Boyut|Ağırlık|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|ROWGUID|ModifiedDate| |
+|-|---------|----|-------------|-----|------------|---------|----|------|-----------------|--------------|-------------|-----------|----------------|--------------|----------------------|-------|------------|-|
 |0|680|HL yol kadrosu - siyah, 58|FR R92B 58|Siyah|1059.3100|1431.50|58|1016.04|18|6|2002-06-01: 00:00:00 + 00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000 + 00:00|
 |1|706|HL yol kadrosu - kırmızı, 58|FR R92R 58|Kırmızı|1059.3100|1431.50|58|1016.04|18|6|2002-06-01: 00:00:00 + 00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000 + 00:00|
 |2|707|Spor-100 Kask, kırmızı|HL U509 R|Kırmızı|13.0863|34.99 Dolar|None|None|35|33|2005-07-01: 00:00:00 + 00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|2e1ef41a-c08a-4ff6-8ada-bde58b64a712|2008-03-11 |10:01:36.827000 + 00:00|
@@ -307,7 +307,7 @@ dflow.to_pandas_dataframe().head()
 |----|------|-----|----|----|----|----|
 |0|1012063|İlişkilendirme - Danville Kaledonya Çiftçilerden pazarlayın|https://sites.google.com/site/caledoniafarmers... ||Danville|Kaledonya|
 |1|1011871|Stearns yerimizle Çiftçilerden'Pazar|http://Stearnshomestead.com |6975 ridge yol|Parma|Cuyahoga|
-|2|1011878|100 mil Pazar|http://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
+|2|1011878|100 mil Pazar|https://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
 |3|1009364|106 S. ana Sokak Çiftçilerden Pazar|http://thetownofsixmile.wordpress.com/ |106 S. ana Sokak|Altı mil|||
 |4|1010691|10 Sokak topluluk Çiftçilerden Pazar|https://agrimissouri.com/... |10 Sokak ve Poplar|Lamar|Barton|
 

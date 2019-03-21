@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 0664134e29f1b5a6ea6c4e100db925e9055d836d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f5cfa3de962c51ac7ff43d9b83bdea9f408f5bcf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547937"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097432"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Windows Server’ı Azure’da Yedekleme
 
@@ -88,11 +88,11 @@ Microsoft Azure Kurtarma Hizmetleri (MARS) aracısı, Windows Server ile Kurtarm
 
 1. İndirilen **MARSagentinstaller.exe** dosyasını bulup üzerine çift tıklayın.
 2. **Microsoft Azure Kurtarma Hizmetleri Aracısı Kurulum Sihirbazı** görüntülenir. Sihirbazda ilerledikçe, istendiğinde aşağıdaki bilgileri sağlayın ve **Kaydol**’a tıklayın.
-    - Yükleme ve önbellek klasörü için konum.
-    - İnternet'e bağlanmak için bir ara sunucu kullanıyorsanız ara sunucu bilgileri.
-    - Kimliği doğrulanmış bir ara sunucu kullanıyorsanız kullanıcı adı ve parola bilgileriniz.
+   - Yükleme ve önbellek klasörü için konum.
+   - İnternet'e bağlanmak için bir ara sunucu kullanıyorsanız ara sunucu bilgileri.
+   - Kimliği doğrulanmış bir ara sunucu kullanıyorsanız kullanıcı adı ve parola bilgileriniz.
 
-    ![altyapıyı hazırlama](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
+     ![altyapıyı hazırlama](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
 
 3. Sihirbazın sonunda, **Kayıt İşlemine Geç**’e tıklayın ve önceki yordamda indirdiğiniz **Kasa Kimlik Bilgileri** dosyasını sağlayın.
  

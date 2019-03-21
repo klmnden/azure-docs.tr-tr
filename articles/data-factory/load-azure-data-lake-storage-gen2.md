@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: c4f32113c0750b825f217330f94b45484dc3be29
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: ad6fd4a75ca139c4943ca0d079a2d041ccb46d09
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313475"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101100"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Azure Data Lake depolama Gen2 Azure Data Factory ile veri yükleme
 
@@ -77,12 +77,12 @@ Bu makalede Data Factory-veri kopyalama aracını kullanarak verileri gösterilm
     
 4. İçinde **belirtin Amazon S3 bağlantı** sayfasında, aşağıdaki adımları uygulayın:
 
-    1. Belirtin **erişim anahtarı kimliği** değeri.
-    2. Belirtin **gizli erişim anahtarı** değeri.
-    3. Tıklayın **Bağlantıyı Sına** ayarlarını doğrulamak için seçip **son**.
-    4. Yeni bir bağlantı oluşturulduğunu görürsünüz. **İleri**’yi seçin.
+   1. Belirtin **erişim anahtarı kimliği** değeri.
+   2. Belirtin **gizli erişim anahtarı** değeri.
+   3. Tıklayın **Bağlantıyı Sına** ayarlarını doğrulamak için seçip **son**.
+   4. Yeni bir bağlantı oluşturulduğunu görürsünüz. **İleri**’yi seçin.
    
-    ![Amazon S3 hesabı belirtin](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+      ![Amazon S3 hesabı belirtin](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
       
 5. İçinde **girdi dosyasını veya klasörünü seçin** sayfasında, üzerinden kopyalamak istediğiniz dosya ve klasör gözatın. Klasör/dosya seçin, **Seç**:
 

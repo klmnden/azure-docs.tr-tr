@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 78370b004d18f70ae4d485f3ad7cfd910e6dd70a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7a261d65a7bd3eea150dd764c65b94ddd47466b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048316"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100318"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Genel yönlendirme sorunlarını giderme
 Bu makalede bazı Azure ön kapısı hizmet yapılandırmanızı karşılaşabilecekleri yönlendirme yaygın sorunların nasıl giderileceği açıklanmaktadır. 
@@ -28,7 +28,7 @@ Bu makalede bazı Azure ön kapısı hizmet yapılandırmanızı karşılaşabil
 ### <a name="symptom"></a>Belirti
 - Bir ön kapısı oluşturduysanız ancak ön uç barındırmak için bir istek bir HTTP 400 durum kodu döndürüyor.
 
- - Bir DNS oluşturduğunuz yapılandırdığınız özel bir etki alanından ön uç ana bilgisayara eşleme. Ancak, özel etki alanı konak adı için bir istek, bir HTTP 400 durum kodu döndürür ve sizin için backend(s) yönlendirmek için görünmez gönderme yapılandırdığınızdan.
+  - Bir DNS oluşturduğunuz yapılandırdığınız özel bir etki alanından ön uç ana bilgisayara eşleme. Ancak, özel etki alanı konak adı için bir istek, bir HTTP 400 durum kodu döndürür ve sizin için backend(s) yönlendirmek için görünmez gönderme yapılandırdığınızdan.
 
 ### <a name="cause"></a>Nedeni
 - Frontend ana bilgisayar olarak eklemiş olduğunuz özel bir etki alanı için bir yönlendirme kuralı yapılandırmadıysanız Bu belirti oluşabilir. Yönlendirme kuralı bir ön kapısı alt etki alanı altında frontend ana bilgisayar için zaten yapılandırılmış olsa bile, frontend ana bilgisayar için açıkça eklenmesi gerekir (*. azurefd.net) özel etki alanınız için bir DNS eşlemesi sahiptir.
@@ -54,11 +54,11 @@ Bu belirti birkaç olası nedeni vardır:
     - Dağıtılacak yapılandırma için yaklaşık 10 dakika süre bekledi olun.
 
 2. Arka uç ayarlarını kontrol edin
-     - (Bağlıdır için yapılandırılmış bir yönlendirme kuralını nasıl olan) istek yönlendirme arka uç havuzu gidin ve doğrulayın _arka uç ana bilgisayar türü_ ve arka uç ana bilgisayar adı doğru. Arka uç, özel bir ana bilgisayar ise, doğru yazdığınızdan emin olun. 
+   - (Bağlıdır için yapılandırılmış bir yönlendirme kuralını nasıl olan) istek yönlendirme arka uç havuzu gidin ve doğrulayın _arka uç ana bilgisayar türü_ ve arka uç ana bilgisayar adı doğru. Arka uç, özel bir ana bilgisayar ise, doğru yazdığınızdan emin olun. 
 
-     - HTTP ve HTTPS bağlantı noktaları kontrol edin. Çoğu durumda, 80 ve 443 (sırasıyla) doğru olduğundan ve hiçbir değişiklik gerekli olacaktır. Ancak, arka ucunuza bu şekilde yapılandırılmamış ve farklı bir bağlantı noktasında dinleme imkanı yoktur.
+   - HTTP ve HTTPS bağlantı noktaları kontrol edin. Çoğu durumda, 80 ve 443 (sırasıyla) doğru olduğundan ve hiçbir değişiklik gerekli olacaktır. Ancak, arka ucunuza bu şekilde yapılandırılmamış ve farklı bir bağlantı noktasında dinleme imkanı yoktur.
 
-    - Denetleme _arka uç ana bilgisayar üstbilgisi_ Frontend ana bilgisayar yönlendirme arka uçları için yapılandırılmış. Çoğu durumda, bu üst bilgisi ile aynı olmalıdır _arka uç ana bilgisayar adı_. Ancak, arka uç farklı bir şey bekliyorsa yanlış bir değere çeşitli HTTP 4xx durum kodları neden olabilir. Arka uç IP adresini girin, ayarlamanız gerekebilir _arka uç ana bilgisayar üstbilgisi_ arka uç ana bilgisayar adı için.
+     - Denetleme _arka uç ana bilgisayar üstbilgisi_ Frontend ana bilgisayar yönlendirme arka uçları için yapılandırılmış. Çoğu durumda, bu üst bilgisi ile aynı olmalıdır _arka uç ana bilgisayar adı_. Ancak, arka uç farklı bir şey bekliyorsa yanlış bir değere çeşitli HTTP 4xx durum kodları neden olabilir. Arka uç IP adresini girin, ayarlamanız gerekebilir _arka uç ana bilgisayar üstbilgisi_ arka uç ana bilgisayar adı için.
 
 
 3. Yönlendirme kuralı ayarlarını kontrol edin

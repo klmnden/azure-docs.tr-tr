@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: 9aa6b9dc26b53315957b7ddbb113d1d129dcc1da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: da7750198f76bc9e17c23b1347e9fc78262aa06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109172"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086964"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>VMware VM'LERİNDE olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 
@@ -93,25 +93,25 @@ Open Virtualization Format (OVF) şablonu, tek bir ağ bağdaştırıcısı ile 
 Gerekirse yapılandırma sunucusunu aynı kasaya yeniden kaydettirin. Varsayılan işlem sunucusunun yapılandırma sunucusu makinesinde çalışan yanı sıra bir ek işlem sunucusu makinesi varsa, her iki makine yeniden kaydettirin.
 
 
-  1. Kasası'nda açın **Yönet** > **Site Recovery altyapısı** > **Configuration Servers**.
-  2. İçinde **sunucuları**seçin **indirme kayıt anahtarı** kasa kimlik bilgileri dosyası indirilemedi.
-  3. Configuration server makinesinde oturum açın.
-  4. İçinde **%ProgramData%\ASR\home\svsystems\bin**açın **cspsconfigtool.exe**.
-  5. Üzerinde **kasa kaydı** sekmesinde **Gözat**, indirdiğiniz kasa kimlik bilgileri dosyası bulun.
-  6. Gerekiyorsa, proxy sunucusu ayrıntıları sağlayın. Ardından **Kaydet**’i seçin.
-  7. Bir yönetici PowerShell komut penceresi açın ve aşağıdaki komutu çalıştırın:
+1. Kasası'nda açın **Yönet** > **Site Recovery altyapısı** > **Configuration Servers**.
+2. İçinde **sunucuları**seçin **indirme kayıt anahtarı** kasa kimlik bilgileri dosyası indirilemedi.
+3. Configuration server makinesinde oturum açın.
+4. İçinde **%ProgramData%\ASR\home\svsystems\bin**açın **cspsconfigtool.exe**.
+5. Üzerinde **kasa kaydı** sekmesinde **Gözat**, indirdiğiniz kasa kimlik bilgileri dosyası bulun.
+6. Gerekiyorsa, proxy sunucusu ayrıntıları sağlayın. Ardından **Kaydet**’i seçin.
+7. Bir yönetici PowerShell komut penceresi açın ve aşağıdaki komutu çalıştırın:
    ```
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
    ```
 
-      >[!NOTE]
-      >Şunları **son sertifikaları çekme** genişleme işlem sunucusu yapılandırma sunucusundan komutu yürütün *"< yükleme Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe >"--registermt'yi*
+    >[!NOTE]
+    >Şunları **son sertifikaları çekme** genişleme işlem sunucusu yapılandırma sunucusundan komutu yürütün *"< yükleme Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe >"--registermt'yi*
 
-  8. Son olarak, aşağıdaki komutu yürüterek obengine yeniden başlatın.
-  ```
-          net stop obengine
-          net start obengine
+8. Son olarak, aşağıdaki komutu yürüterek obengine yeniden başlatın.
+   ```
+        net stop obengine
+        net start obengine
    ```
 
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5fb263819a5bb96175f636f53a16c28649a3f39
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b006a4fbb8d1059f5096f5c1585853953b69042f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339558"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082152"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory ile esnek erişim denetimi yönetim stratejisi oluşturma
 
@@ -94,18 +94,18 @@ Alternatif olarak, kuruluşunuz yedek ilkeleri de oluşturabilirsiniz. Yedek ilk
 Bir kesinti sırasında maruz kalma riskinizi anlama riskini azaltmaya yardımcı olur ve planlama sürecinizi önemli bir parçasıdır. Yedek planınızı oluşturmak için önce kuruluşunuzun aşağıdaki iş gereksinimlerini belirleyin:
 
 1. Görev açısından kritik uygulamalarınızı önceden belirler: Daha düşük bir risk/güvenlik duruşunu olsa da erişimi vermeniz gerekir apps nedir? Bu uygulamaların bir listesini oluşturun ve tüm kaybolduktan tüm erişim denetimi, bu uygulamalar yine de çalışmaya devam etmesi gerektiğini kabul ediyorum, diğer proje katılımcıları (iş, güvenlik, hukuk liderlik) emin olun. Büyük olasılıkla sonuna kategorileri ile oluşturacağınız:
-  * **Kategori 1 görev açısından kritik uygulamalarını** , olamaz kullanılabilir birden fazla işlem birkaç dakika, örneğin kuruluşun gelir doğrudan etkileyen uygulamaları.
-  * **Kategori 2 önemli uygulamaları** iş birkaç saat içinde erişilebilir olması gerekir.
-  * **Düşük öncelikli uygulama kategorisi 3** birkaç gün kesintiye dayanacak.
+   * **Kategori 1 görev açısından kritik uygulamalarını** , olamaz kullanılabilir birden fazla işlem birkaç dakika, örneğin kuruluşun gelir doğrudan etkileyen uygulamaları.
+   * **Kategori 2 önemli uygulamaları** iş birkaç saat içinde erişilebilir olması gerekir.
+   * **Düşük öncelikli uygulama kategorisi 3** birkaç gün kesintiye dayanacak.
 2. 1. ve 2 kategoriye giren uygulamalar için önceden planlama izin vermek istediğiniz erişim düzeyini hangi türde Microsoft önerir:
-  * Tam erişim veya indirmeleri sınırlama gibi kısıtlı oturum izin vermek istiyor musunuz?
-  * Uygulama, ancak tüm uygulama parçası erişmesine izin vermek istiyor musunuz?
-  * Bilgi çalışanı erişmesine ve erişim denetimi geri yüklenene kadar yönetici erişimi engellemek istiyor musunuz?
+   * Tam erişim veya indirmeleri sınırlama gibi kısıtlı oturum izin vermek istiyor musunuz?
+   * Uygulama, ancak tüm uygulama parçası erişmesine izin vermek istiyor musunuz?
+   * Bilgi çalışanı erişmesine ve erişim denetimi geri yüklenene kadar yönetici erişimi engellemek istiyor musunuz?
 3. Bu uygulamalar için erişim hangi girebilecek alanlar, kasıtlı olarak açılır ve hangilerinin, kapatılacak planladığınız Microsoft de önerir:
-  * Çevrimdışı veri kaydedebileceğiniz yalnızca erişim ve blok zengin istemcileri tarayıcı izin vermek istiyor musunuz?
-  * Yalnızca kurumsal ağ içinde kullanıcılar için erişime izin ver ve engellenen kullanıcılar dışında tutmak istiyor musunuz?
-  * Kesinti sırasında yalnızca belirli ülke veya bölgelerde erişim izin vermek istiyor musunuz?
-  * İlkeleri bir alternatif erişim denetimi kullanılabilir değilse, başarılı veya başarısız için özellikle görev açısından kritik uygulamalar için yedek ilkeleri istiyor musunuz?
+   * Çevrimdışı veri kaydedebileceğiniz yalnızca erişim ve blok zengin istemcileri tarayıcı izin vermek istiyor musunuz?
+   * Yalnızca kurumsal ağ içinde kullanıcılar için erişime izin ver ve engellenen kullanıcılar dışında tutmak istiyor musunuz?
+   * Kesinti sırasında yalnızca belirli ülke veya bölgelerde erişim izin vermek istiyor musunuz?
+   * İlkeleri bir alternatif erişim denetimi kullanılabilir değilse, başarılı veya başarısız için özellikle görev açısından kritik uygulamalar için yedek ilkeleri istiyor musunuz?
 
 #### <a name="microsoft-recommendations"></a>Microsoft önerileri
 
@@ -251,7 +251,7 @@ Kesinti nedeniyle hizmet geri yüklendikten sonra etkin Yedek planı bir parças
 Kuruluşunuzun kullanıcı başına MFA eski ilkeleri kullanıyorsanız, aşağıdaki alternatif göz atabilirsiniz:
 
 1. Şirket ağına giden IP adresi varsa, Kurumsal ağa yalnızca kimlik doğrulamasını etkinleştirmek için güvenilen IP'ler olarak ekleyebilirsiniz.
- 2. Envanteri giden IP adresi yoksa veya içindeki ve dışındaki şirket ağına erişimi etkinleştirmek için gereken tüm IPv4 adres alanına 0.0.0.0/1 ve 128.0.0.0/1 belirterek güvenilen IP'ler ekleyebilirsiniz.
+   1. Envanteri giden IP adresi yoksa veya içindeki ve dışındaki şirket ağına erişimi etkinleştirmek için gereken tüm IPv4 adres alanına 0.0.0.0/1 ve 128.0.0.0/1 belirterek güvenilen IP'ler ekleyebilirsiniz.
 
 >[!IMPORTANT]
  > Erişim engelini kaldırmak için güvenilen IP adresleri genişletmek, IP adresleri (örneğin, mümkün olmayan seyahat veya tanınmayan konumlardan) ile ilişkili risk olayları oluşturulmaz.
@@ -264,9 +264,9 @@ Kuruluşunuzun kullanıcı başına MFA eski ilkeleri kullanıyorsanız, aşağ�
 * [Azure AD Authentication belgeleri](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Azure AD'de Acil Durum erişimi yönetici hesaplarını yönetme](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [Azure Active Directory'de adlandırılmış konumları yapılandırma](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
- * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Hibrit Azure Active Directory'ye katılmış cihazları yapılandırma](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [İş İçin Windows Hello Dağıtım Kılavuzu](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
- * [Parola Kılavuzu - Microsoft Research'ün](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
+  * [Parola Kılavuzu - Microsoft Research'ün](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [Azure Active Directory koşullu erişim koşulları nelerdir?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [Azure Active Directory koşullu erişim erişim denetimleri nelerdir?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2e281896d45ada8010f24a1f18265a8cdd523d31
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697002"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855422"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Kaynak Azure şemaları kilitleme anlama
 
-Uygun ölçekte tutarlı ortamların oluşturulması yalnızca o tutarlılık sağlamak için bir mekanizma ise gerçekten değerlidir. Bu makalede, Azure planlar içinde kaynak kilitleme nasıl çalıştığı açıklanmaktadır.
+Uygun ölçekte tutarlı ortamların oluşturulması yalnızca o tutarlılık sağlamak için bir mekanizma ise gerçekten değerlidir. Bu makalede, Azure planlar içinde kaynak kilitleme nasıl çalıştığı açıklanmaktadır. Kaynak kilitleme ve uygulamanın bir örneğini görmek için _atamaları Reddet_, bkz: [yeni kaynakları koruma](../tutorials/protect-new-resources.md) öğretici.
 
 ## <a name="locking-modes-and-states"></a>Kilitleme modları ve durumlar
 
@@ -58,8 +58,9 @@ Bir RBAC [atamaları Reddet](../../../role-based-access-control/deny-assignments
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Şema yaşam döngüsü](lifecycle.md) hakkında bilgi edinin
-- [Statik ve dinamik parametreleri](parameters.md) kullanmayı anlayın
-- [Şema sıralamasını](sequencing-order.md) özelleştirmeyi öğrenin
-- [Var olan atamaları güncelleştirmeyi](../how-to/update-existing-assignments.md) öğrenin
-- [Genel sorun giderme](../troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin
+- İzleyin [yeni kaynakları korumak](../tutorials/protect-new-resources.md) öğretici.
+- [Şema yaşam döngüsü](lifecycle.md) hakkında bilgi edinin.
+- [Statik ve dinamik parametrelerin](parameters.md) kullanımını anlayın.
+- [Şema sıralama düzenini](sequencing-order.md) özelleştirmeyi öğrenin.
+- [Mevcut atamaları güncelleştirmeyi](../how-to/update-existing-assignments.md) öğrenin.
+- [Genel sorun giderme](../troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin.

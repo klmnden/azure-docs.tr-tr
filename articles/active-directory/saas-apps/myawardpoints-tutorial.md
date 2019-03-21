@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 6b2561f480f12936892428fe21b65d24a17e9356
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a828f7c53345292e986e8eba5027ada5629e1185
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768216"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855063"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Öğretici: My ödül noktaları üst alt/üst ekibi ile Azure Active Directory Tümleştirme
 
@@ -76,10 +76,10 @@ Tek iş için oturum açma için bir Azure AD kullanıcısının ödül noktalar
 Yapılandırma ve Azure AD çoklu oturum açma My ödül noktaları üst alt/üst ekibi ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[My ödül noktaları üst alt/üst takım çoklu oturum açmayı yapılandırma](#configure-my-award-points-top-sub/top-team-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+2. **My ödül noktaları üst alt/üst takım çoklu oturum açmayı yapılandırma** - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[My ödül noktaları üst alt/üst takım test kullanıcısı oluşturma](#create-my-award-points-top-sub/top-team-test-user)**  - ödül noktaları üst alt/üst kullanıcı Azure AD gösterimini bağlı Ekibim Britta simon'un bir karşılığı vardır.
+5. **My ödül noktaları üst alt/üst takım test kullanıcısı oluşturma** - ödül noktaları üst alt/üst kullanıcı Azure AD gösterimini bağlı Ekibim Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
@@ -148,7 +148,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -198,4 +198,3 @@ Erişim paneli ödül noktaları üst alt/üst Ekibim kutucuğa tıkladığını
 - [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

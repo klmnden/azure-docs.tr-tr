@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 336b30a8e8687b3a2bdd05a17e558f44905f135e
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a4757be00a3633f56aed52dd7af22923e49b0b62
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102392"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Authenticator uygulamasını kullanmak için güvenlik bilgileri (Önizleme) ayarlama
 İki aşamalı doğrulamayı eklemek için aşağıdaki adımları uygulayabilirsiniz ve yöntemleri sıfırlama. Bu ilk kez ayarladıktan sonra dönebilirsiniz **güvenlik bilgisi** sayfasına ekleme, güncelleştirme veya güvenlik bilgilerinizi silin.
@@ -52,10 +52,10 @@ Kuruluşunuzun ayarlara bağlı olarak, bir kimlik doğrulama uygulaması, güve
 
     ![Uygulama sayfası alarak başlayın](media/security-info/securityinfo-myprofile-getauthapp.png)
 
-    >[!Note]
-    >Microsoft Authenticator uygulaması dışında bir authenticator uygulamasını kullanmak isteyip istemediğinizi seçin **farklı authenticator uygulamasını kullanmak istiyorum** bağlantı.
-    
-    >Kuruluşunuz kimlik doğrulayıcı uygulamasını yanı sıra farklı bir yöntemi seçmenize izin veriyorsa, seçebileceğiniz **farklı yöntem bağlantıyı oluşturan ayarlamak istediğiniz**.
+   > [!Note]
+   > Microsoft Authenticator uygulaması dışında bir authenticator uygulamasını kullanmak isteyip istemediğinizi seçin **farklı authenticator uygulamasını kullanmak istiyorum** bağlantı.
+   > 
+   > Kuruluşunuz kimlik doğrulayıcı uygulamasını yanı sıra farklı bir yöntemi seçmenize izin veriyorsa, seçebileceğiniz **farklı yöntem bağlantıyı oluşturan ayarlamak istediğiniz**.
 
 5. Kalır **hesabınızı ayarlarken** mobil Cihazınızda Microsoft Authenticator uygulamasını ayarlama sırasında sayfa.
 
@@ -81,9 +81,9 @@ Kuruluşunuzun ayarlara bağlı olarak, bir kimlik doğrulama uygulaması, güve
 
 8. Microsoft Authenticator uygulamasını bildirimi onaylayın ve ardından **sonraki**.
 
-    ![Başarı bildirimini, uygulama ve hesabınıza bağlanma](media/security-info/securityinfo-myprofile-successauthapp.png)
+     ![Başarı bildirimini, uygulama ve hesabınıza bağlanma](media/security-info/securityinfo-myprofile-successauthapp.png)
 
-    Güvenlik bilgilerinizi Microsoft Authenticator uygulamasını kullanmak için iki aşamalı doğrulama veya parola sıfırlaması kullanırken, kimliğinizi doğrulamak için varsayılan olarak güncelleştirilir.
+     Güvenlik bilgilerinizi Microsoft Authenticator uygulamasını kullanmak için iki aşamalı doğrulama veya parola sıfırlaması kullanırken, kimliğinizi doğrulamak için varsayılan olarak güncelleştirilir.
 
 ## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>Güvenlik bilgileri yöntemlerinizi cihazınızdaki kimlik doğrulayıcı uygulamasında Sil
 Artık bir güvenlik bilgisi yöntemi olarak cihazınızdaki kimlik doğrulayıcı uygulamasında kullanmak istiyorsanız, buradan kaldırabilirsiniz **güvenlik bilgisi** sayfası. Bu, yalnızca Microsoft Authenticator uygulamasını tüm authenticator uygulamaları için çalışır. Uygulama sildikten sonra mobil Cihazınızda kimlik doğrulayıcı uygulamasına gidin ve hesap silme gerekecektir.

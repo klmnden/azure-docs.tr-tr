@@ -16,12 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: 7920fee1bacf569ac41c36142fc68080b4de5780
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: c58b39f8e2d49eeb3e64c7ffce1d34d7a7b7b780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230497"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904380"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Çağrı, tetikleyici veya iç içe iş akışları ile HTTP uç noktalarını logic apps'teki
 
@@ -71,7 +71,7 @@ Bir HTTP uç noktası oluşturmak için gelen istekleri alabilecek bir tetikleyi
 
     > [!TIP]
     > 
-    > Gibi bir araçla gelen bir örnek JSON yükü için bir şema oluşturmak [jsonschema.net](http://jsonschema.net/), veya **istek** seçerek tetikleyici **şema oluşturmak için örnek yük kullanma**. 
+    > Gibi bir araçla gelen bir örnek JSON yükü için bir şema oluşturmak [jsonschema.net](https://jsonschema.net/), veya **istek** seçerek tetikleyici **şema oluşturmak için örnek yük kullanma**. 
     > Örnek yükünüzü girin ve **Bitti**.
 
     Örneğin, bu örnek yük:
@@ -158,7 +158,7 @@ Parametreler kabul etmek için HTTP uç nokta URL'nizi istediğinizde, tetikleyi
 
     HTTP uç nokta URL'nizi artık göreli yol, örneğin içerir: 
 
-    HTTPS&#58;/ / prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
+    https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
 
 7. HTTP uç noktanızı test etmek için kopyalayın ve başka bir tarayıcı penceresine güncelleştirilmiş URL'yi yapıştırın, ancak değiştirin `{customerID}` ile `123456`, ve Enter tuşuna basın.
 
@@ -275,9 +275,9 @@ Yanıt şu özelliklere sahiptir:
 
 ## <a name="q--a"></a>Soru-Cevap
 
-#### <a name="q-what-about-url-security"></a>S: URL güvenlik?
+#### <a name="q-what-about-url-security"></a>S: URL güvenlik hakkında neler diyeceksiniz?
 
-Y: azure paylaşılan erişim imzası (SAS) kullanarak mantıksal uygulama geri çağırma URL'leri güvenli bir şekilde oluşturur. Bu imza aracılığıyla bir sorgu parametresi olarak geçirir ve mantıksal uygulamanızı tetikleyebilir önce doğrulanması gerekir. Azure eşsiz bir bileşimiyle mantıksal uygulama, tetikleyici adını ve gerçekleştirilen işlem başına gizli bir anahtar kullanarak imzayı oluşturur. Bu nedenle birisi gizli mantıksal uygulama anahtarına erişime sahip olmadığı sürece, geçerli bir imzaya oluşturulamıyor.
+C: Azure paylaşılan erişim imzası (SAS) kullanarak mantıksal uygulama geri çağırma URL'leri güvenli bir şekilde oluşturur. Bu imza aracılığıyla bir sorgu parametresi olarak geçirir ve mantıksal uygulamanızı tetikleyebilir önce doğrulanması gerekir. Azure eşsiz bir bileşimiyle mantıksal uygulama, tetikleyici adını ve gerçekleştirilen işlem başına gizli bir anahtar kullanarak imzayı oluşturur. Bu nedenle birisi gizli mantıksal uygulama anahtarına erişime sahip olmadığı sürece, geçerli bir imzaya oluşturulamıyor.
 
    > [!IMPORTANT]
    > Üretim ve güvenlik sistemleri için mantıksal uygulamanızı doğrudan tarayıcıdan çünkü çağırma karşı öneririz:
@@ -285,7 +285,7 @@ Y: azure paylaşılan erişim imzası (SAS) kullanarak mantıksal uygulama geri 
    > * Paylaşılan erişim anahtarı URL'SİNDE görünür.
    > * Mantıksal uygulama müşteriler arasında paylaşılan etki alanları nedeniyle güvenli içerik ilkelerini yönetemez.
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>Daha fazla HTTP uç noktalarını yapılandırabilirim miyim?
+#### <a name="q-can-i-configure-http-endpoints-further"></a>S: Daha fazla HTTP uç noktalarını yapılandırabilirim?
 
 C: Evet, HTTP uç noktaları aracılığıyla daha gelişmiş yapılandırma desteği [ **API Management**](../api-management/api-management-key-concepts.md). Bu hizmet, tutarlı bir şekilde mantıksal uygulamalar da dahil olmak üzere tüm API'leri, yönetme, özel etki alanı adlarını ayarlama, daha fazla kimlik doğrulama yöntemleri ve diğer örneğin kullanmak özelliği de sunar:
 
@@ -294,9 +294,9 @@ C: Evet, HTTP uç noktaları aracılığıyla daha gelişmiş yapılandırma des
 * API Management etki alanlarınızı ayarlama [Azure portalında](https://portal.azure.com/ "Azure portalı")
 * Temel kimlik doğrulaması için denetlenecek İlkesi ayarlama
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>Hatırlayamazsam 1 Aralık 2014'ten Önizleme şema geçişi olduğunda ne değişti?
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>S: 1 Aralık 2014'ten Önizleme şema geçişi olduğunda ne değişti?
 
-Y: Burada, bu değişiklikler ile ilgili bir özeti verilmiştir:
+C: Bu değişiklikler ile ilgili bir özeti aşağıda verilmiştir:
 
 | 1 Aralık 2014'ten preview | 1 Haziran 2016 |
 | --- | --- |

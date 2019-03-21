@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: japere
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e35cc4d5500cdfda0af4e130928434af34b1497f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cad68afd02694ec471d032a554ed468691ff914b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449793"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105480"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Erişme ve MyApps portalında kullanarak sorunlarını giderme
 
@@ -96,8 +96,8 @@ Uzantıyı yükledikten ve sorunları yaşamaya aşağıdakileri deneyin:
 
 ## <a name="how-do-i-add-a-new-app"></a>Yeni bir uygulama nasıl ekleyebilirim?
 
-1.  Üzerinde **uygulamaları** sayfasında **uygulama Ekle**.
-2.  Ekleyin ve ardından istediğiniz uygulamayı arayın **Ekle**.
+1. Üzerinde **uygulamaları** sayfasında **uygulama Ekle**.
+2. Ekleyin ve ardından istediğiniz uygulamayı arayın **Ekle**.
 
    > [!NOTE]
    > * Bu seçenek yalnızca yöneticiniz, hesabınız için etkinleştirilmiş erişebilirsiniz.

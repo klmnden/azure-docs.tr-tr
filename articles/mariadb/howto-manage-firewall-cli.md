@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: a2f0d775f061ab221092c9354d9d04b9241c9430
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f457246b429062625e6542cfdaf00f3526a85209
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543895"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083241"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Oluşturma ve Azure veritabanı Azure CLI kullanarak MariaDB için güvenlik duvarı kurallarını yönetme
 Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi veya bir IP adresi aralığı MariaDB sunucusu için Azure veritabanı'na yönetme olanağı sağlar. Uygun Azure CLI'si komutlarını kullanarak, oluşturabilir, güncelleştirin, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kurallarını gösterir. Bir Azure veritabanı'nın için MariaDB güvenlik duvarları için bkz: genel bakış [MariaDB sunucu güvenlik duvarı kuralları için Azure veritabanı](./concepts-firewall-rules.md)
@@ -25,7 +25,7 @@ Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi ve
 **Az mariadb sunucu güvenlik duvarı kuralı** oluştur, Sil, listesinde, görüntülemek ve güvenlik duvarı kurallarını güncelleştirmek için Azure CLI üzerinden komutu kullanılır.
 
 Komutlar:
-- **oluşturma**: Bir Azure MariaDB sunucu güvenlik duvarı kuralı oluşturun.
+- **Oluşturma**: Bir Azure MariaDB sunucu güvenlik duvarı kuralı oluşturun.
 - **Silme**: Bir Azure MariaDB sunucu güvenlik duvarı kuralını silin.
 - **Liste**: Azure MariaDB sunucu güvenlik duvarı kuralları listesi.
 - **Göster**: Güvenlik duvarı kuralı Azure MariaDB sunucusunun ayrıntılarını göster.
@@ -35,10 +35,10 @@ Komutlar:
 Azure CLI kullanarak güvenli bir şekilde Azure hesabınızla bağlanmanız **az login** komutu.
 
 1. Komut satırından aşağıdaki komutu çalıştırın:
-```azurecli
-az login
-```
-Bu komut, sonraki adımda kullanmak üzere bir kod çıkarır.
+   ```azurecli
+   az login
+   ```
+   Bu komut, sonraki adımda kullanmak üzere bir kod çıkarır.
 
 2. Bir web tarayıcısı kullanarak [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin)ve ardından kodu girin.
 

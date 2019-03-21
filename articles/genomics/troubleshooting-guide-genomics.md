@@ -11,12 +11,12 @@ ms.service: genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
-ms.openlocfilehash: 01f4cca8e177d8f9c9325a7920eb7e72c005bbd6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760952"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078066"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -73,8 +73,8 @@ msgen status -u URL -k KEY -w ID
                 Bases Processed : 1,348,613,600 (1 GBase)
         ```
 
- > [!NOTE]
- >  Alternatif olarak, doğrudan URL'sini ve ANAHTARINI girmek yerine yapılandırma dosyasının yolu ekleyebilirsiniz. Yapılandırma dosyası yanı sıra komut satırında bu bağımsız değişkenler dahil ederseniz, komut satırı bağımsız değişkenleri öncelikli olur.  
+  > [!NOTE]
+  >  Alternatif olarak, doğrudan URL'sini ve ANAHTARINI girmek yerine yapılandırma dosyasının yolu ekleyebilirsiniz. Yapılandırma dosyası yanı sıra komut satırında bu bağımsız değişkenler dahil ederseniz, komut satırı bağımsız değişkenleri öncelikli olur.  
 
 İş akışı kimliği 1001 ve config.txt dosyasına msgen'i aynı yol yürütülebilir yerleştirilir, komut şöyle görünür:
 
@@ -116,7 +116,7 @@ Bu eyleme dönüştürülebilir kullanıcı hatalardır. Dosya ve hata kodu tür
 
 | Dosya türü | Hata kodu | Hata iletisi                                                                           | Önerilen sorun giderme adımları                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Herhangi biri          | 701        | Okuma [readId] [numberOfBases] tabanları var, ancak sınırı [maxReadLength]           | Bu hatanın en yaygın nedeni, iki okuma bir birleşimi için önde gelen dosyasının bozuk olmasıdır. Giriş dosyalarınızı denetleyin. |                                |
+| Herhangi biri          | 701        | Okuma [readId] [numberOfBases] tabanları var, ancak sınırı [maxReadLength]           | Bu hatanın en yaygın nedeni, iki okuma bir birleşimi için önde gelen dosyasının bozuk olmasıdır. Giriş dosyalarınızı denetleyin. |
 | BAM          | 200        |   '[YourFileName]' dosyası okunamıyor.                                                                                       | BAM dosyası biçimini denetleyin. İş akışı düzgün şekilde biçimlendirilmiş bir dosyayla yeniden gönderin.                                                                           |
 | BAM          | 201        |  [File_name] BAM dosyası okunamıyor.                                                                                      |BAM dosyası biçimini denetleyin.  İş akışı, doğru biçimlendirilmiş bir dosya ile gönderin.                                                                            |
 | BAM          | 202        | [File_name] BAM dosyası okunamıyor. Çok küçük ve eksik dosya üstbilgisi.                                                                                        | BAM dosyası biçimini denetleyin.  İş akışı, doğru biçimlendirilmiş bir dosya ile gönderin.                                                                            |

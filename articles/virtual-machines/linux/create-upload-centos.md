@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: a46f2b4ed1bb3fc5fff65a627bd3d808ed85ffce
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4e32d2357636cb488d3a58b78b025860da3f74c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967291"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091367"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Azure’da CentOS tabanlı bir sanal makine hazırlama
 
@@ -196,7 +196,7 @@ Bu makalede, bir CentOS zaten yüklü olduğunu varsayar (veya benzer bir türev
 
 - - -
 
-## <a name="centos-70"></a>CentOS 7.0 +
+## <a name="centos-70"></a>CentOS 7.0+
 
 **CentOS 7 (ve benzer türevleri) değişiklikleri**
 
@@ -299,13 +299,13 @@ Azure için bir CentOS 7 sanal makinesini hazırlama çok benzeyen CentOS 6, anc
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-10. Bir görüntüden oluşturuyorsanız **VMware, VirtualBox veya KVM:** initramfs içinde olduğundan emin olun Hyper-V sürücüleri dahil edilir:
+10. Bir görüntüden oluşturuyorsanız **VMware, VirtualBox veya KVM:** Hyper-V sürücüleri içinde initramfs dahil olduklarından emin olun:
 
-   Düzen `/etc/dracut.conf`, içeriği ekleyin:
+    Düzen `/etc/dracut.conf`, içeriği ekleyin:
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
-   İnitramfs yeniden oluşturun:
+    İnitramfs yeniden oluşturun:
 
         # sudo dracut -f -v
 
@@ -316,7 +316,7 @@ Azure için bir CentOS 7 sanal makinesini hazırlama çok benzeyen CentOS 6, anc
 
 12. İşletim sistemi diski üzerinde takas alanı oluşturabilirsiniz.
 
-   Azure Linux Aracısı, Azure üzerinde sağladıktan sonra VM'ye bağlı yerel kaynak disk kullanılan takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak olduğuna dikkat edin bir *geçici* disk ve sanal Makinenin sağlaması kaldırıldığında boşaltılabilir. Azure Linux Aracısı'nı yükledikten sonra (önceki adıma bakın), aşağıdaki parametrelerle değiştirin `/etc/waagent.conf` uygun şekilde:
+    Azure Linux Aracısı, Azure üzerinde sağladıktan sonra VM'ye bağlı yerel kaynak disk kullanılan takas alanı otomatik olarak yapılandırabilirsiniz. Yerel kaynak olduğuna dikkat edin bir *geçici* disk ve sanal Makinenin sağlaması kaldırıldığında boşaltılabilir. Azure Linux Aracısı'nı yükledikten sonra (önceki adıma bakın), aşağıdaki parametrelerle değiştirin `/etc/waagent.conf` uygun şekilde:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4

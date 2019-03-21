@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
-ms.openlocfilehash: f0f45e50fba4587e604add937ed45fc78228d44f
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 82f9d7090d7283e0b00b36e0928fffb3395ca4c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960256"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102644"
 ---
 # <a name="classroom-labs-concepts"></a>Sınıf Laboratuvarları kavramları
 Aşağıdaki liste, temel Lab Services kavramları ve tanımları içerir:
@@ -26,7 +26,7 @@ Aşağıdaki liste, temel Lab Services kavramları ve tanımları içerir:
 ## <a name="quota"></a>Kota
 Kota olduğu zaman, bir Öğretmen ayarlayabilirsiniz sınır (saat) için bir öğrenci bir laboratuvar sanal makinesi kullanın. 0, sınırsız veya belirli bir saat sayısı olarak ayarlanabilir. Kotası 0 olarak ayarlarsanız, bir öğrenci bir zamanlama çalıştırırken veya bir Öğretmen Öğrenci için sanal makinede el ile açtığında yalnızca sanal makine kullanabilirsiniz.
  
-##<a name="schedules"></a>Zamanlamalar
+## <a name="schedules"></a>Zamanlamalar
 Sınıf için bir Öğretmen oluşturabilmeniz için zaman dilimini (bir kez veya yinelenen) zamanlamaları var. Zamanlamanın başında Laboratuvardaki tüm sanal makineleri otomatik olarak başlatılır ve zamanlama sonunda durdurulsa. Bir zamanlama çalışırken kota saat kullanılmaz.
 
 ## <a name="template-virtual-machine"></a>Sanal makine şablonu
