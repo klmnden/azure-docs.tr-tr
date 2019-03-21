@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fd01fdd3f7f8803dc7221bd0bd6c993120a83d44
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ee6c05b2da4347ed034ae6e7318d6f5d90ea7884
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330900"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099653"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure portalında bir Windows SQL Server sanal makinesi sağlama
 
@@ -178,7 +178,7 @@ Yapılandırma ayarlarını tamamladığınızda, **Tamam**’a tıklayın.
 
 Genel olarak, senaryonuzun izin verdiği en kısıtlayıcı bağlantıyı seçerek güvenliği geliştirin. Ancak tüm seçenekler Ağ Güvenlik Grubu kuralları ve SQL/Windows Kimlik Doğrulaması üzerinden korumaya alınabilir. VM oluşturulduktan sonra Ağ Güvenlik Grubu’nu düzenleyebilirsiniz. Daha fazla bilgi için bkz. [Azure Sanal Makineler'de SQL Server için Güvenlikle İlgili Dikkat Edilmesi Gerekenler](virtual-machines-windows-sql-security.md).
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Authentication
 
 SQL Server Kimlik Doğrulaması gerekiyorsa, **SQL kimlik doğrulaması** altında **Etkinleştir**’e tıklayın.
 
@@ -247,7 +247,7 @@ Aşağıdaki tabloda Azure Anahtar Kasası Tümleştirmeyi yapılandırmak için
 
 | PARAMETRE | AÇIKLAMA | ÖRNEK |
 | --- | --- | --- |
-| **Anahtar Kasası URL'si** |Anahtar kasası konumu. |https://contosokeyvault.vault.azure.net/ |
+| **Anahtar Kasası URL'si** |Anahtar kasası konumu. |<https://contosokeyvault.vault.azure.net/> |
 | **Asıl ad** |Azure Active Directory hizmet asıl adı. Bu ad İstemci Kimliği olarak da bilinir. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Asıl parola** |Azure Active Directory hizmet asıl gizli anahtarı. Bu gizli anahtar İstemci Gizli Anahtarı olarak da bilinir. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **Kimlik bilgisi adı** |**Kimlik bilgisi adı**: AKV tümleştirme VM'nin anahtar kasasına erişim sağlayan, SQL Server içinde bir kimlik bilgisi oluşturur. Bu kimlik bilgisi için bir ad seçin. |mycred1 |

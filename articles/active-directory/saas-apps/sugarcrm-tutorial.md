@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a00c9cb0ce1bd8a6f36070e81df1185ef23a307
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 450fcbcdfab8e90728fbbbd0068123768f3cef4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201780"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993312"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>Öğretici: Sugar CRM ile Azure Active Directory Tümleştirme
 
@@ -114,6 +114,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     ![Çoklu oturum açmayı yapılandırın](./media/sugarcrm-tutorial/tutorial_sugarcrm_url.png)
 
     İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak:
+    
     | |
     |--|
     | `https://<companyname>.sugarondemand.com` |

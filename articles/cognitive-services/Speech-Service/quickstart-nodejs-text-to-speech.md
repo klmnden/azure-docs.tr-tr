@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5e25de83ddec2884d4bd10ea85f4708d534b8e3f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: eff79b31e926d382d98416b585ca2af54b3e87d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403252"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872655"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Hızlı Başlangıç: Dönüştürme metin okuma Node.js kullanma
 
 Bu hızlı başlangıçta nasıl dönüştürme yapılacağını öğreneceksiniz metin okuma Node.js ve metin okuma REST API'sini kullanarak. Bu kılavuzdaki istek gövdesi olarak yapılandırılmış [konuşma sentezi işaretleme dili (SSML'yi)](speech-synthesis-markup.md), ses ve yanıtın dili seçmenize olanak tanıyan.
 
-Bu hızlı başlangıç bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) konuşma hizmeti kaynağı olan. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](get-started.md) kullanabilirsiniz.
+Bu hızlı başlangıç bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) konuşma Hizmetleri kaynağa sahip. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](get-started.md) kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -30,7 +30,7 @@ Bu hızlı başlangıç şunları gerektirir:
 
 * [Node 8.12.x veya üzeri](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), veya en sevdiğiniz metin düzenleyiciyi
-* Konuşma hizmeti için bir Azure aboneliği anahtarı. [Ücretsiz edinin! ](get-started.md).
+* Konuşma Hizmetleri için bir Azure aboneliği anahtarı. [Ücretsiz edinin! ](get-started.md).
 
 ## <a name="create-a-project-and-require-dependencies"></a>Proje oluşturma ve bağımlılıklar gerektirir
 
@@ -53,9 +53,9 @@ const xmlbuilder = require('xmlbuilder');
 
 ## <a name="get-an-access-token"></a>Bir erişim belirteci alma
 
-Metin okuma REST API, kimlik doğrulaması için bir erişim belirteci gerektirir. Erişim belirteci almak için bir exchange gereklidir. Bu işlevi kullanarak bir erişim belirteci için konuşma tanıma hizmeti abonelik anahtarınızı birbiriyle değiştirir `issueToken` uç noktası.
+Metin okuma REST API, kimlik doğrulaması için bir erişim belirteci gerektirir. Erişim belirteci almak için bir exchange gereklidir. Bu işlevi kullanarak bir erişim belirteci için konuşma Hizmetleri abonelik anahtarınızı birbiriyle değiştirir `issueToken` uç noktası.
 
-Bu örnek, Batı ABD bölgesinde konuşma hizmeti aboneliğiniz olduğunu varsayar. Farklı bir bölgeye kullanıyorsanız, değerini güncelleştirin `uri`. Tam bir listesi için bkz [bölgeleri](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Bu örnek, konuşma Hizmetleri aboneliğinize Batı ABD bölgesinde olduğunu varsayar. Farklı bir bölgeye kullanıyorsanız, değerini güncelleştirin `uri`. Tam bir listesi için bkz [bölgeleri](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Bu kodu projenize kopyalayın:
 
@@ -80,7 +80,7 @@ Metin okuma API'si çağrısı ve Sentezlenen konuşma yanıt kaydetmek için i�
 
 ## <a name="make-a-request-and-save-the-response"></a>Bir istekte bulunmak ve yanıt Kaydet
 
-Burada, metin okuma API'si isteği oluşturun ve konuşma yanıt kaydetmek için yedekleyeceksiniz. Bu örnek, Batı ABD uç nokta kullanmakta olduğunuz varsayılır. Kaynağınız için farklı bir bölgede kayıtlı değilse, güncelleştirdiğinizden emin olun `uri`. Daha fazla bilgi için [konuşma hizmet bölgeleri](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Burada, metin okuma API'si isteği oluşturun ve konuşma yanıt kaydetmek için yedekleyeceksiniz. Bu örnek, Batı ABD uç nokta kullanmakta olduğunuz varsayılır. Kaynağınız için farklı bir bölgede kayıtlı değilse, güncelleştirdiğinizden emin olun `uri`. Daha fazla bilgi için [konuşma Hizmetleri bölgeleri](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Ardından, istek için gerekli üst bilgileri eklemeniz gerekir. Güncelleştirdiğinizden emin olun `User-Agent` kaynak (Azure Portalı'nda bulunur) ve küme adıyla `X-Microsoft-OutputFormat` tercih edilen ses çıkış için. Çıkış biçimleri tam bir listesi için bkz. [ses çıkarır](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-outputs).
 

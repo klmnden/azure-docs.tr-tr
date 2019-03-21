@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: mayg
-ms.openlocfilehash: 05a60ff2b2995642f797897d0e1f4db46c5b6741
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8f76d4e54133e4e899e707e666703a67310e8702
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215852"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082101"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Vm'leri ve fiziksel sunucuları başarısız 
 
@@ -39,17 +39,17 @@ Bu yordam, bir yük devretme için çalıştırma işlemi açıklanır bir [kurt
 
 1. Seçin **kurtarma planları** > *recoveryplan_name*. Tıklayın **yük devretme**
 2. Üzerinde **yük devretme** ekranındayken bir **kurtarma noktası** Yük Devretmesini. Şu seçeneklerden birini kullanabilirsiniz:
-    1.  **En son**: Bu seçenek, Site Recovery hizmetine gönderilen tüm verileri işleyerek işi başlatır. Veri işleme, her sanal makine için bir kurtarma noktası oluşturur. Bu kurtarma noktasını sanal makine için yük devretme sırasında kullanılır. Bu seçenek en düşük RPO (kurtarma noktası hedefi) sanal yük devretme tüm verilere sahip sonra oluşturulan yük devretme tetiklendiğinde Site Recovery hizmetine çoğaltılan makineyi sağlar.
-    1.  **En son işlenen**: Bu seçenek tüm sanal makineler kurtarma planının Site Recovery hizmeti tarafından zaten işlenmiş en son kurtarma noktasına devreder. Bir sanal makinenin yük devretme Testi gerçekleştirirken, en son işlenen kurtarma noktasının zaman damgası da gösterilir. Bir kurtarma planı yük devretme yapıyorsanız, tek tek sanal makineye gidin ve bakmak **en son kurtarma noktaları** bu bilgileri almak için bir kutucuk. İşlenmemiş verileri işlemek için zaman harcanmadığından gibi bu seçenek, düşük bir RTO (Kurtarma süresi hedefi) yük devretme seçeneği sağlar.
-    1.  **Uygulamayla tutarlı olan sonuncu**: Bu seçenek tüm sanal makineler kurtarma planının Site Recovery hizmeti tarafından zaten işlenmiş en son uygulamayla tutarlı kurtarma noktasına devreder. Bir sanal makinenin yük devretme Testi gerçekleştirirken, en son uygulamayla tutarlı kurtarma noktası zaman damgasını da gösterilir. Bir kurtarma planı yük devretme yapıyorsanız, tek tek sanal makineye gidin ve bakmak **en son kurtarma noktaları** bu bilgileri almak için bir kutucuk.
-    1.  **En son işlenen VM'li**: Bu seçenek yalnızca, çoklu VM tutarlılığı üzerinde en az bir sanal makineyle olan kurtarma planları için kullanılabilir. Çoğaltma grubu yük devretme için en son genel çoklu VM tutarlı kurtarma parçası olan sanal makineleri işaret edin. Diğer sanal makinelerin yük devretme, işlenen en son kurtarma noktasına.  
-    1.  **En son çoklu VM uygulamayla tutarlı**: Bu seçenek yalnızca, çoklu VM tutarlılığı üzerinde en az bir sanal makineyle olan kurtarma planları için kullanılabilir. Çoğaltma grubu yük devretme için en son genel çoklu VM uygulamayla tutarlı kurtarma parçası olan sanal makineleri işaret edin. Diğer sanal makinelerin yük devretme, en son uygulamayla tutarlı kurtarma noktası.
-    1.  **Özel**: Bir sanal makine test yük devretmesi yapıyorsanız, belirli bir kurtarma noktasına yük devretme için bu seçeneği kullanabilirsiniz.
+   1. **En son**: Bu seçenek, Site Recovery hizmetine gönderilen tüm verileri işleyerek işi başlatır. Veri işleme, her sanal makine için bir kurtarma noktası oluşturur. Bu kurtarma noktasını sanal makine için yük devretme sırasında kullanılır. Bu seçenek en düşük RPO (kurtarma noktası hedefi) sanal yük devretme tüm verilere sahip sonra oluşturulan yük devretme tetiklendiğinde Site Recovery hizmetine çoğaltılan makineyi sağlar.
+   1. **En son işlenen**: Bu seçenek tüm sanal makineler kurtarma planının Site Recovery hizmeti tarafından zaten işlenmiş en son kurtarma noktasına devreder. Bir sanal makinenin yük devretme Testi gerçekleştirirken, en son işlenen kurtarma noktasının zaman damgası da gösterilir. Bir kurtarma planı yük devretme yapıyorsanız, tek tek sanal makineye gidin ve bakmak **en son kurtarma noktaları** bu bilgileri almak için bir kutucuk. İşlenmemiş verileri işlemek için zaman harcanmadığından gibi bu seçenek, düşük bir RTO (Kurtarma süresi hedefi) yük devretme seçeneği sağlar.
+   1. **Uygulamayla tutarlı olan sonuncu**: Bu seçenek tüm sanal makineler kurtarma planının Site Recovery hizmeti tarafından zaten işlenmiş en son uygulamayla tutarlı kurtarma noktasına devreder. Bir sanal makinenin yük devretme Testi gerçekleştirirken, en son uygulamayla tutarlı kurtarma noktası zaman damgasını da gösterilir. Bir kurtarma planı yük devretme yapıyorsanız, tek tek sanal makineye gidin ve bakmak **en son kurtarma noktaları** bu bilgileri almak için bir kutucuk.
+   1. **En son işlenen VM'li**: Bu seçenek yalnızca, çoklu VM tutarlılığı üzerinde en az bir sanal makineyle olan kurtarma planları için kullanılabilir. Çoğaltma grubu yük devretme için en son genel çoklu VM tutarlı kurtarma parçası olan sanal makineleri işaret edin. Diğer sanal makinelerin yük devretme, işlenen en son kurtarma noktasına.  
+   1. **En son çoklu VM uygulamayla tutarlı**: Bu seçenek yalnızca, çoklu VM tutarlılığı üzerinde en az bir sanal makineyle olan kurtarma planları için kullanılabilir. Çoğaltma grubu yük devretme için en son genel çoklu VM uygulamayla tutarlı kurtarma parçası olan sanal makineleri işaret edin. Diğer sanal makinelerin yük devretme, en son uygulamayla tutarlı kurtarma noktası.
+   1. **Özel**: Bir sanal makine test yük devretmesi yapıyorsanız, belirli bir kurtarma noktasına yük devretme için bu seçeneği kullanabilirsiniz.
 
-    > [!NOTE]
-    > Bir kurtarma noktası seçim yapma olanağı, yalnızca Azure'a üzerinden başarısız olduğu halde kullanılabilir.
-    >
-    >
+      > [!NOTE]
+      > Bir kurtarma noktası seçim yapma olanağı, yalnızca Azure'a üzerinden başarısız olduğu halde kullanılabilir.
+      >
+      >
 
 
 1. Bazı sanal makineler kurtarma planında üzerinden önceki bir çalıştırmada başarısız ve sanal makineler hem kaynak hem de hedef konumunda etkin olan artık kullanabileceğiniz **yönünü değiştirme** hangi yönde karar vermek için seçeneği Yük devretme gerçekleşmelidir.
@@ -70,9 +70,9 @@ Site Recovery ayrıca desteği kullanılarak korunan sanal makineler/fiziksel su
 
 > [!NOTE]
 > Bir şirket içi siteden başka bir şirket içi siteye Hyper-v sanal makinelerin yük devretme sırasında birincil şirket içi siteye geri dönmeniz için ilk sahip olduğunuz **ters çoğaltma** sanal makine yedekleme için birincil site ve ardından bir yük devretme tetikleyin. Birincil sanal makine için önce başlangıç kullanılabilir değilse, **ters çoğaltma** sanal makine bir yedekten geri yüklemek zorunda.   
->
->
-## <a name="failover-job"></a>Yük devretme işi
+> 
+> 
+> ## <a name="failover-job"></a>Yük devretme işi
 
 ![Yük devretme](./media/site-recovery-failover/FailoverJob.png)
 

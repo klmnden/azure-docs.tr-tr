@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: bb88bf7ddaa93336c812b1ddc9794dad8daa64b7
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 5f2052576d0c6a1e663e3b84534fa0784a26e175
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330588"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006518"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>(Yönetilmeyen diskler) Azure Premium depolamaya geçiş
 
@@ -138,7 +138,7 @@ Birden çok genel Azure VM örnekleri oluşturmak için kullanılan VHD yüklüy
 
     ![][1]
 
-Bir Ubuntu sanal makinesi için sysprep vırt aynı şeyi elde etmek için kullanın. Bkz: [vırt sysprep](http://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) daha fazla ayrıntı için. Açık kaynak bazıları için Ayrıca bkz: [Linux sunucu sağlama yazılım](http://www.cyberciti.biz/tips/server-provisioning-software.html) diğer Linux işletim sistemleri için.
+Bir Ubuntu sanal makinesi için sysprep vırt aynı şeyi elde etmek için kullanın. Bkz: [vırt sysprep](https://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) daha fazla ayrıntı için. Açık kaynak bazıları için Ayrıca bkz: [Linux sunucu sağlama yazılım](https://www.cyberciti.biz/tips/server-provisioning-software.html) diğer Linux işletim sistemleri için.
 
 ##### <a name="use-a-unique-operating-system-vhd-to-create-a-single-vm-instance"></a>Tek bir VM örneği oluşturmak için benzersiz bir işletim sistemi VHD'si kullanın
 Makine belirli veri gerektiren bir VM üzerinde çalışan bir uygulama varsa, VHD'yi generalize değil. Olmayan genelleştirilmiş VHD, benzersiz bir Azure sanal makine örneği oluşturmak için kullanılabilir. VHD'nizi etki alanı denetleyicisi varsa, örneğin, sysprep yürütülürken, bir etki alanı denetleyicisi olarak etkisiz bulabilmesini sağlar. VM'nizi ve VHD genelleme yapmadan önce aşağıdaki sysprep çalışan etkisini üzerinde çalışan uygulamalar gözden geçirin.
@@ -467,9 +467,9 @@ Otomasyon betiği aşağıda verilmiştir. Metin kendi bilgilerinizle değiştir
 
     .Link
     To find more information about how to set up Azure PowerShell, refer to the following links.
-    http://azure.microsoft.com/documentation/articles/powershell-install-configure/
-    http://azure.microsoft.com/documentation/articles/storage-powershell-guide-full/
-    http://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/
+    https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+    https://azure.microsoft.com/documentation/articles/storage-powershell-guide-full/
+    https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/
 
     #>
 
@@ -558,7 +558,7 @@ Otomasyon betiği aşağıda verilmiştir. Metin kendi bilgilerinizle değiştir
     }
     else
     {
-        Write-Host "[ERROR] - There is no valid Azure subscription found in PowerShell. Please refer to this article http://azure.microsoft.com/documentation/articles/powershell-install-configure/ to connect an Azure subscription. Exiting." -ForegroundColor Red
+        Write-Host "[ERROR] - There is no valid Azure subscription found in PowerShell. Please refer to this article https://azure.microsoft.com/documentation/articles/powershell-install-configure/ to connect an Azure subscription. Exiting." -ForegroundColor Red
         Exit
     }
 
@@ -759,7 +759,7 @@ Sanal makineleri geçirmek için belirli senaryolar için aşağıdaki kaynaklar
 * [Azure sanal makineleri depolama hesapları arasında geçirme](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Oluşturun ve Azure'a bir Windows Server VHD'si yükleyin.](../../virtual-machines/windows/upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Oluşturma ve Azure'a bir Linux VHD karşıya yükleme](../../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Amazon AWS geçirme sanal makineleri için Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+* [Amazon AWS geçirme sanal makineleri için Microsoft Azure](https://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Ayrıca, Azure depolama ve Azure sanal makineler hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
@@ -770,4 +770,4 @@ Ayrıca, Azure depolama ve Azure sanal makineler hakkında daha fazla bilgi içi
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
-[4]: http://technet.microsoft.com/library/hh831739.aspx
+[4]: https://technet.microsoft.com/library/hh831739.aspx

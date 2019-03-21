@@ -17,12 +17,12 @@ ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68593087c1fbb912cafb9c886f43f947744c5651
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 07466e40834b8bfaf4a452cf728bae517b8c7b00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189387"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122732"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Hızlı Başlangıç: Azure Active Directory koşullu erişimiyle belirli uygulamalar için MFA gerektirme 
 
@@ -164,7 +164,7 @@ Koşullu erişim ilkenizi yapılandırdığınıza göre şimdi beklenen şekild
 - **Isabella Simonsen** kullanıcı olarak 
 - **Microsoft Azure Management** bulut uygulaması olarak
 
- Tıklayarak **ne** gösteren bir simülasyon raporu oluşturur:
+  Tıklayarak **ne** gösteren bir simülasyon raporu oluşturur:
 
 - **Azure portala erişim için mfa'yı gerekli** altında **uygulanacak ilkeler** 
 - **Çok faktörlü kimlik doğrulaması gerektiren** olarak **denetimleri ver**.

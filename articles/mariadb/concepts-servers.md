@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: c2497fef359d4a519c6d4927dfc0c38ee3d80d88
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f61f8740c9514f6276afb2ee84bcdccdc54c0710
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544575"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997902"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı sunucusu kavramları
 Bu makalede, MariaDB sunucuları için Azure veritabanı ile çalışmaya yönelik kurallar ve dikkat edilecek noktalar sunulmaktadır.
@@ -36,6 +36,7 @@ MariaDB için Azure Veritabanı sunucusunda bir veya birden fazla veritabanı ol
 ## <a name="how-do-i-secure-an-azure-database-for-mariadb-server"></a>MariaDB server için Azure veritabanı güvenliğini nasıl sağlayabilirim?
 
 Aşağıdaki öğeleri veritabanınıza güvenli erişim sağlayın.
+
 |||
 | :--| :--|
 | **Kimlik doğrulama ve yetkilendirme** | MariaDB için Azure veritabanı, yerel MySQL kimlik doğrulamasını destekler. Bağlanın ve Sunucu Yöneticisi oturum açma sunucusuyla kimlik doğrulaması. |

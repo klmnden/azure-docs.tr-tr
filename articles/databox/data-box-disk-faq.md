@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 02/26/2019
 ms.author: alkohli
-ms.openlocfilehash: eeac05ec86161e60ed9f34b94802c24004de0d4e
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 97794675f3d489e1154d9c327c18d40708dd5b53
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407627"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877862"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Azure Data Box Disk nedir?
 
@@ -51,7 +51,7 @@ A.  Azure veri kutusu diskleri edinmek için Azure portalında oturum açın ve 
 A. Her biri 8 TB boyutunda (7 TB kullanılabilir kapasite) 5 disk için kullanabileceğiniz maksimum kapasite 35 TB olacaktır. Dolayısıyla tek seferde en fazla 35 TB veri aktarabilirsiniz. Daha fazla veri aktarmak için daha fazla disk sipariş etmeniz gerekir.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>S. Data Box Disklerinin bulunduğum bölgede kullanılabilir durumda olup olmadığını nasıl kontrol edebilirim? 
-A.  Veri kutusu disk şu anda kullanılabilir olduğu görmek için Git [bölge kullanılabilirliği](data-box-disk-overview.md#).  
+A.  Veri kutusu disk şu anda kullanılabilir olduğu görmek için Git [bölge kullanılabilirliği](data-box-disk-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>S. Data Box Diskleri ile hangi bölgelerde veri depolayabilirim?
 A. Data Box Disk ABD, Kanada, Avustralya ve Batı Avrupa ve Kuzey Avrupa içindeki tüm bölgeler için desteklenir. Yalnızca Azure genel bulut bölgeleri desteklenir. Azure Kamu veya diğer bağımsız bulutlar desteklenmez.
@@ -129,11 +129,11 @@ A. Data Box Disk ile kullanılabilir araç takımı üç araçları içerir:
  - **Veri kutusu Disk bölünmüş kopyalama aracı**: Birden çok disk kullanırken, bu aracı kullanın ve bölünmesi ve tüm disklerde kopyalanan gereken büyük bir veri kümeniz mevcut. Bu araç şu anda Windows için kullanılabilir. Bu araç, yönetilen disklerle desteklenmiyor. Bu araç ayrıca veri kopyalar doğrular, bu nedenle bu aracı kullanırken doğrulama adımını atlayabilirsiniz.
 
 Araç takımını hem de Windows ve Linux için kullanılabilir. Araç takımı buradan indirebilirsiniz:
- - [Windows için Data Box Disk araç takımını indirin](https://aka.ms/databoxdisktoolswin) 
- - [Linux için Data Box Disk araç takımını indirin](https://aka.ms/databoxdisktoolslinux)
+- [Windows için Data Box Disk araç takımını indirin](https://aka.ms/databoxdisktoolswin) 
+- [Linux için Data Box Disk araç takımını indirin](https://aka.ms/databoxdisktoolslinux)
  
- ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>S. Azure dosyaları'na verileri aktarmak ve ardından verileri Azure dosya eşitleme ile kullanmak için Data Box Disk kullanabilir miyim? 
- A. Azure dosyaları Data Box Disk ile desteklenir ancak Azure dosya eşitleme ile iyi çalışmaz. Azure dosya eşitleme ile dosya verilerini kullanılıyorsa, meta veriler korunmaz.
+  ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>S. Azure dosyaları'na verileri aktarmak ve ardından verileri Azure dosya eşitleme ile kullanmak için Data Box Disk kullanabilir miyim? 
+  A. Azure dosyaları Data Box Disk ile desteklenir ancak Azure dosya eşitleme ile iyi çalışmaz. Azure dosya eşitleme ile dosya verilerini kullanılıyorsa, meta veriler korunmaz.
 
 
 ## <a name="verify-and-upload"></a>Doğrulama ve yükleme

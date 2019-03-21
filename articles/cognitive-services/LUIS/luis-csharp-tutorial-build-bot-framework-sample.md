@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 1fd472c452b476820414d51b8d13bce8a72dfb3d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ca4cd1aa074353914f5187e353c233f8b45140eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874945"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091690"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS bot içinde C# ile Bot Framework 3.x ve Azure Web app botu
 
@@ -46,16 +46,16 @@ C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşturun. Bu
 3. Web App Botu pencerede **Oluştur**.
 
 4. İçinde **Bot hizmeti**, gerekli bilgileri sağlayın ve tıklayın **Oluştur**. Bu, oluşturur ve Azure bot hizmeti ve LUIS uygulaması dağıtır. Kullanmak istiyorsanız [konuşma Hazırlama işlemi](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), gözden [bölge gereksinimleri](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming) botunuzun oluşturmadan önce. 
-    * Ayarlama **uygulama adı** botunuzun kişinin adı. Botunuzun (örneğin, mynotesbot.azurewebsites.net) buluta dağıtıldığında alt etki alanı adı kullanılır. <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * Aboneliği seçin [kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service planı ve [konumu](https://azure.microsoft.com/regions/).
-    * İçin **Bot şablon**seçin:
-        * **SDK'sı v3**
-        * **C#**
-        * **Dil anlama**
-    * Seçin **LUIS uygulama konumu**. Bu yazma, [bölge](luis-reference-regions.md) uygulama oluşturulur.
-    * Yasal bildirimi için onay kutusunu seçin. Yasal bildirimin koşullarını onay kutusunu ' dir.
+   * Ayarlama **uygulama adı** botunuzun kişinin adı. Botunuzun (örneğin, mynotesbot.azurewebsites.net) buluta dağıtıldığında alt etki alanı adı kullanılır. <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+   * Aboneliği seçin [kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service planı ve [konumu](https://azure.microsoft.com/regions/).
+   * İçin **Bot şablon**seçin:
+       * **SDK'sı v3**
+       * **C#**
+       * **Dil anlama**
+   * Seçin **LUIS uygulama konumu**. Bu yazma, [bölge](luis-reference-regions.md) uygulama oluşturulur.
+   * Yasal bildirimi için onay kutusunu seçin. Yasal bildirimin koşullarını onay kutusunu ' dir.
 
-    ![Bot Hizmeti](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
+     ![Bot Hizmeti](./media/luis-tutorial-cscharp-web-bot/bot-service-setting-callout-template.png)
 
 
 5. Bot hizmeti dağıtıldığını doğrulayın.
@@ -86,9 +86,9 @@ Açık **uygulama ayarları** ve düzenleme **LuisAppId** LUIS uygulamanızı uy
 > 1. Tıklayarak **uygulamalarım**. 
 > 2. Amaç ve varlıkları HomeAutomation etki alanından içeren daha önce oluşturduğunuz, LUIS uygulaması bulun.
 > 3. İçinde **ayarları** LUIS uygulaması için sayfasında, bulmak ve uygulama kimliği kopyalayın. Olduğundan emin olmak [eğitilen](luis-interactive-test.md) ve [yayımlanan](luis-how-to-publish-app.md). 
-
-    > [!WARNING]
-    > If you delete your app ID or LUIS key, the bot will stop working.
+> 
+> [!WARNING]
+> Uygulama kimliği veya LUIS anahtarınızı silerseniz, robot çalışmayı durdurur.
 
 ## <a name="modify-the-bot-code"></a>Bot kodu değiştirin
 

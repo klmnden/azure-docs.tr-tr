@@ -1,7 +1,7 @@
 ---
-title: Konuşma hizmeti eğitim transkripsiyonu yönergeleri
+title: Konuşma Hizmetleri modellerin eğitimi transkripsiyonu yönergeleri
 titleSuffix: Azure Cognitive Services
-description: Akustik ve dil modellerini ve ses tiplerini yönelik Konuşma hizmeti özelleştirmek için metin hazırlamayı öğrenin.
+description: Akustik ve dil modellerini ve sesler konuşma Hizmetleri özelleştirmek için metin hazırlamayı öğrenin.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: 31813cbbe4bdb647d43e99e7585d1eb3bb6e8a5c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0d7508ed9cf1807fa05c57a1d60c804af7d2244f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857184"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897223"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Konuşma hizmeti kullanarak transkripsiyonu yönergeleri
 
 Özelleştirme için **Konuşmayı metne dönüştürme** veya **metin okuma**, konuşma yanı sıra metin sağlamanız gerekir. Metnin her satır için tek bir utterance karşılık gelir. Metni konuşma mümkün olduğunca eşleşmelidir. Metin adlı bir *döküm*, belirli bir biçimde oluşturmanız gerekir.
 
-Konuşma hizmeti, girdi metin tutarlı tutmak normalleştirir. 
+Konuşma Hizmetleri metin tutarlı tutmak için giriş Normalleştir.
 
 Bu makalede her iki türdeki normalizations açıklanır. Yönergeler, çeşitli diller için biraz farklılık gösterir.
 
@@ -39,7 +39,7 @@ Genişletilmiş (Latin-1) veya Unicode noktalama karakterleri kullanmaktan kaç�
 
 ### <a name="text-normalization-rules-for-english"></a>İngilizce için metin normalleştirme kuralları
 
-Konuşma hizmeti aşağıdaki normalleştirme kurallarını taşır:
+Konuşma Hizmetleri aşağıdaki normalleştirme kurallarını izleyin:
 
 * Küçük harfler kullanarak tüm metni
 * Tüm noktalama dışında sözcük iç kesme kaldırılıyor
@@ -64,7 +64,7 @@ Aşağıdaki normalleştirme, metin dökümleri için geçerlidir:
 * Standart sayısal dizeler (örneğin, bazı tarih veya hesap formlar) sözcük yazılır.
 * -Alfabetik olmayan karakterler veya karma alfasayısal karakterler ile sözcükleri belirgin olarak transcribed.
 * Sözcükler olarak tanınmıyor telaffuz kısaltmalar bırakın (örneğin, "radar" "Lazer," "RAM" veya "NATO").
-* Boşluklarla ayırarak harf ile ayrı olarak telaffuz kısaltmalar harflerini yazın (örneğin, "IBM" "CPU," "FBI," "TBD" veya "NaN"). 
+* Boşluklarla ayırarak harf ile ayrı olarak telaffuz kısaltmalar harflerini yazın (örneğin, "IBM" "CPU," "FBI," "TBD" veya "NaN").
 
 İşte bazı örnekler:
 
@@ -83,7 +83,7 @@ Aşağıdaki normalleştirme, metin dökümleri için geçerlidir:
 
 ## <a name="chinese-zh-cn"></a>Çince (zh-cn)
 
-Özel konuşma hizmeti için karşıya yüklenen metin verileri, bir bayt sırası işareti UTF-8 kodlamasını kullanmanız gerekir. Dosya her satırda bir utterance yazılması gerekir.
+Özel Konuşma hizmetlerine yüklenen metin verileri, bir bayt sırası işareti ile UTF-8 kodlamasını kullanmanız gerekir. Dosya her satırda bir utterance yazılması gerekir.
 
 Yarım genişlikteki noktalama karakterleri kullanmaktan kaçının. Bir sözcük program uygulamasında veri hazırlama ya da veri sayfalarından scrape şu karakterleri yanlışlıkla dahil edilebilir. Bunları uygun tam genişlikli değişimler ile değiştirin. Örneğin:
 
@@ -94,7 +94,7 @@ Yarım genişlikteki noktalama karakterleri kullanmaktan kaçının. Bir sözcü
 
 ### <a name="text-normalization-rules-for-chinese"></a>Çince için metin normalleştirme kuralları
 
-Konuşma hizmeti aşağıdaki normalleştirme kurallarını taşır:
+Konuşma Hizmetleri aşağıdaki normalleştirme kurallarını izleyin:
 
 * Tüm noktalama işaretleri kaldırılıyor
 * Konuşulan forma sayı genişletme
@@ -134,7 +134,7 @@ Metin veri tabanına **Konuşmayı metne dönüştürme** hizmeti bir bayt sıra
 
 ### <a name="text-normalization-rules-for-german"></a>Almanca için metin normalleştirme kuralları
 
-Konuşma hizmeti aşağıdaki normalleştirme kurallarını taşır:
+Konuşma Hizmetleri aşağıdaki normalleştirme kurallarını izleyin:
 
 * Küçük harfler kullanarak tüm metni
 * Çeşitli tırnak işaretleri dahil olmak üzere tüm noktalama kaldırma ("test", 'test', "test" ve «test» edilir)
@@ -162,13 +162,13 @@ Metninizi içeri aktarmadan önce aşağıdaki normalleştirme uygulayabilir:
 
 İşte bazı örnekler:
 
-| Orijinal metni | Kullanıcının normalleştirme sonra | Sistem normalleştirme sonra
+| Orijinal metni | Kullanıcının normalleştirme sonra | Sistem normalleştirme sonra |
 |--------  | ----- | -------- |
 | ES ist 12.23 Uhr | ES ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
-| {12.45} | {12,45} | zwölf komma vier fünf ||
+| {12.45} | {12,45} | zwölf komma vier fünf |
 | 2 + 3 - 4 | 2 ve 3 4 eksi | zwei plus drei minus vier|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Konuşma Tanıma Hizmeti deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
+- [Konuşma Tanıma Hizmetleri deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
 - [C# dilinde konuşma tanıma](quickstart-csharp-dotnet-windows.md)

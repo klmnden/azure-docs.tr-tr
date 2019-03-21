@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9456f2bf314e827b27940515891e441433c1a88
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 6e6655c1f67b5655dbde8c04f09a664f64350e3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57402861"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856014"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Öğretici: Ariba ile Azure Active Directory Tümleştirme
 
@@ -106,6 +106,7 @@ Azure AD çoklu oturum açma ile Ariba yapılandırmak için aşağıdaki adıml
     ![Ariba etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+    
     | |
     |--|
     | `https://<subdomain>.sourcing.ariba.com` |
@@ -142,7 +143,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

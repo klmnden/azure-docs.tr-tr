@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 1ee3b3cccd01e4a767a8d1212967b57ff29bea62
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 092a346d8303bb9e88a53b6fa529bb820635c554
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548107"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099551"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory işlem hattında dallanma ve zincirleme etkinlikleri
 Bu öğreticide, bazı denetim akışı özelliklerini gösteren bir Data Factory işlem hattı oluşturacaksınız. Bu işlem hattı, Azure Blob Depolama içindeki kapsayıcıdan aynı depolama hesabındaki başka bir kapsayıcıya basit bir kopyalama işlemi yapar. Kopyalama etkinliği başarılı olursa, işlem hattı başarılı kopyalama işleminin ayrıntılarını (örneğin, yazılan veri miktarı) bir başarı e-postası ile gönderir. Kopyalama etkinliği başarısız olursa, işlem hattı kopyalama hatasının ayrıntılarını (örneğin, hata iletisi) bir hata e-postası ile gönderir. Öğretici boyunca parametreleri nasıl geçireceğinizi göreceksiniz.
@@ -199,10 +199,10 @@ Bu adımda, bir Kopyalama etkinliği ve iki Web etkinliği ile bir işlem hattı
    ![Yeni Azure Depolama bağlı hizmeti](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Klasör için `@pipeline().parameters.sourceBlobContainer`, klasör adı için `emp.txt` adını girin. Veri kümesinin klasör yolunu ayarlamak için sourceBlobContainer işlem hattı parametresini kullanırsınız. 
 
-    ![Kaynak veri kümesi ayarları](./media/tutorial-control-flow-portal/source-dataset-settings.png)
+   ![Kaynak veri kümesi ayarları](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 13. **İşlem hattı** sekmesine geçin (veya) ağaç görünümünde işlem hattına tıklayın. **Kaynak Veri Kümesi** için **SourceBlobDataset**’in seçili olduğundan emin olun. 
 
-   ![Kaynak veri kümesi](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+    ![Kaynak veri kümesi](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 13. Özellikler penceresinde **Havuz** sekmesine geçin ve **Havuz Veri Kümesi** için **+ Yeni**’ye tıklayın. Bu adımda, kaynak veri kümesi oluştururken olduğu gibi kopyalama etkinliği için bir havuz veri kümesi oluşturursunuz. 
 
     ![Yeni havuz veri kümesi düğmesi](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)
@@ -217,7 +217,7 @@ Bu adımda, bir Kopyalama etkinliği ve iki Web etkinliği ile bir işlem hattı
         ![Havuz veri kümesi ayarları](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
 17. Üst taraftan **işlem hattı** sekmesine geçin. **Etkinlikler** araç kutusunda **Genel**’i genişletin ve bir **Web** etkinliğini sürükleyerek işlem hattı tasarımcısının yüzeyine bırakın. Etkinliğin adını **SendSuccessEmailActivity** olarak ayarlayın. Web Etkinliği herhangi bir REST uç noktasına çağrı yapmaya olanak tanır. Etkinlik hakkında daha fazla bilgi için bkz. [Web Etkinliği](control-flow-web-activity.md). Bu işlem hattı, Logic Apps e-posta iş akışını çağırmak için bir Web Etkinliği kullanır. 
 
-   ![İlk Web etkinliğini sürükleyip bırakın](./media/tutorial-control-flow-portal/success-web-activity-general.png)
+    ![İlk Web etkinliğini sürükleyip bırakın](./media/tutorial-control-flow-portal/success-web-activity-general.png)
 18. **Genel** sekmesinden **Ayarlar** sekmesine geçin ve aşağıdaki adımları uygulayın: 
     1. **URL** için başarı e-postasını gönderen Logic Apps iş akışının URL’sini belirtin.  
     2. **Metot** için **POST**’u seçin. 
@@ -235,12 +235,12 @@ Bu adımda, bir Kopyalama etkinliği ve iki Web etkinliği ile bir işlem hattı
         ```
         İleti gövdesi aşağıdaki özellikleri içerir:
 
-        - İleti – `@{activity('Copy1').output.dataWritten` değerini geçirme. Önceki kopyalama etkinliğinin bir özelliğine erişir ve dataWritten değerini geçirir. Hata durumunda `@{activity('CopyBlobtoBlob').error.message` yerine hata çıktısını geçirir.
-        - Veri Fabrikası Adı – `@{pipeline().DataFactory}` değerini geçiren ve ilgili veri fabrikası adına erişmenize olanak tanıyan bir sistem değişkenidir. Sistem değişkenlerinin listesi için [Sistem Değişkenleri](control-flow-system-variables.md) makalesine bakın.
-        - İşlem Hattı Adı – `@{pipeline().Pipeline}` değerini geçirme. Bu da ilgili işlem hattı adına erişmenize olanak tanıyan bir sistem değişkenidir. 
-        - Alıcı – "\@pipeline().parameters.receiver") değerini geçirme. İşlem hattı parametrelerine erişim.
+       - İleti – `@{activity('Copy1').output.dataWritten` değerini geçirme. Önceki kopyalama etkinliğinin bir özelliğine erişir ve dataWritten değerini geçirir. Hata durumunda `@{activity('CopyBlobtoBlob').error.message` yerine hata çıktısını geçirir.
+       - Veri Fabrikası Adı – `@{pipeline().DataFactory}` değerini geçiren ve ilgili veri fabrikası adına erişmenize olanak tanıyan bir sistem değişkenidir. Sistem değişkenlerinin listesi için [Sistem Değişkenleri](control-flow-system-variables.md) makalesine bakın.
+       - İşlem Hattı Adı – `@{pipeline().Pipeline}` değerini geçirme. Bu da ilgili işlem hattı adına erişmenize olanak tanıyan bir sistem değişkenidir. 
+       - Alıcı – "\@pipeline().parameters.receiver") değerini geçirme. İşlem hattı parametrelerine erişim.
     
-        ![İlk Web etkinliği için ayarlar](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
+         ![İlk Web etkinliği için ayarlar](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Kopyalama etkinliğinin yanındaki yeşil düğmeyi sürükleyip Web etkinliğinin üzerine bırakarak **Kopyala** etkinliğini **Web** etkinliğine bağlayın. 
 
     ![Kopyalama etkinliğini ilk Web etkinliğine bağlama](./media/tutorial-control-flow-portal/connect-copy-web-activity1.png)

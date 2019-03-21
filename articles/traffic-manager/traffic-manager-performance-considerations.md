@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 454d06912c34a07b0b2617936769888e92adaba1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 85dd3cca081d492bfeefa3e8ea0d143c9c37af8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453669"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007953"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager için performans konuları
 
@@ -42,11 +42,11 @@ Bu siteler ölçü DNS gecikme süreleri ve görüntüleme araçları, istemci k
 
 ## <a name="sample-tools-to-measure-dns-performance"></a>DNS performansını ölçmek için örnek araçları
 
-* [SolveDNS](http://www.solvedns.com/dns-comparison/)
+* [SolveDNS](https://www.solvedns.com/dns-comparison/)
 
     SolveDNS birçok performans araçları sunar. DNS karşılaştırma aracı, DNS adını çözümlemek için ne kadar sürer ve nasıl, diğer DNS hizmeti sağlayıcıları için karşılaştırır gösterebilirsiniz.
 
-* [WebSitePulse](http://www.websitepulse.com/help/tools.php)
+* [WebSitePulse](https://www.websitepulse.com/help/tools.php)
 
     En basit Araçlar WebSitePulse biridir. DNS çözümleme süresi, ilk baytı, son bayt ve diğer performans istatistikleri görmek için URL'yi girin. Üç farklı test konumundan seçebilirsiniz. Bu örnekte, ilk yürütme DNS araması 0.204 sn aldığını gösterir bakın.
 
@@ -62,15 +62,15 @@ Bu siteler ölçü DNS gecikme süreleri ve görüntüleme araçları, istemci k
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 
-* [Pingdom](http://tools.pingdom.com/)
+* [Pingdom](https://tools.pingdom.com/)
 
     Bu araç, bir web sayfasının her öğe için performans istatistiklerini sağlar. Analiz sayfası sekmesi DNS Arama harcadığı zaman yüzdesini gösterir.
 
-* [My DNS nedir?](http://www.whatsmydns.net/)
+* [My DNS nedir?](https://www.whatsmydns.net/)
 
     Bu site, 20 farklı konumlardan DNS arama yapar ve sonuçları bir haritada görüntüler.
 
-* [Web arabirimi inin](http://www.digwebinterface.com)
+* [Web arabirimi inin](https://www.digwebinterface.com)
 
     Bu site, daha ayrıntılı CNAME ve A kayıtları dahil olmak üzere DNS bilgi gösterir. 'Renklendir'i output' ve 'İstatistikler' seçenekleri altında denetleyin ve 'All' altında bir ad seçin emin olun.
 

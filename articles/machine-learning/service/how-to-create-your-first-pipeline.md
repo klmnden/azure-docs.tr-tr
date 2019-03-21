@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: b1544d73478f30c7501e76a8e20975f975f9708d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 8fe8b365974086ef530b83988c63eda338a6079f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215056"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014588"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Oluşturma ve Azure Machine Learning SDK'sını kullanarak bir makine öğrenimi işlem hattı çalıştırma
 
@@ -26,7 +26,7 @@ Oluşturduğunuz işlem hattı, Azure Machine Learning hizmeti üyelerine görü
 
 İşlem hatları, hesaplama ve bu işlem hattı çalıştırmasıyla ilişkili Ara ve son veri depolama için uzak işlem hedefleri kullanın. İşlem hatları okuyabilir ve yazma veri ve desteklenen [Azure depolama](https://docs.microsoft.com/azure/storage/) konumları.
 
-Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree).
+Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -34,14 +34,14 @@ Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Dene
 
 * Oluşturma bir [Azure Machine Learning çalışma alanı](how-to-configure-environment.md#workspace) tüm işlem hattı kaynakları tutmak için. 
 
- ```python
- ws = Workspace.create(
+  ```python
+  ws = Workspace.create(
      name = '<workspace-name>',
      subscription_id = '<subscription-id>',
      resource_group = '<resource-group>',
      location = '<workspace_region>',
      exist_ok = True)
- ```
+  ```
 
 ## <a name="set-up-machine-learning-resources"></a>Machine learning kaynaklarını ayarlama
 
@@ -313,23 +313,23 @@ Bir işlem hattı çalıştırma için farklı girişlerle daha sonra yeniden ya
 
 1. Bir işlem hattı parametresi oluşturmak için bir [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) varsayılan değeri olan nesne.
 
- ```python
- pipeline_param = PipelineParameter(
+   ```python
+   pipeline_param = PipelineParameter(
      name="pipeline_arg", 
      default_value=10)
- ```
+   ```
 
 2. Bu ekleme `PipelineParameter` gibi herhangi bir işlem hattı'ndaki adımları bir parametre olarak nesne:
 
- ```python
- compareStep = PythonScriptStep(
+   ```python
+   compareStep = PythonScriptStep(
      script_name="compare.py",
      arguments=["--comp_data1", comp_data1, "--comp_data2", comp_data2, "--output_data", out_data3, "--param1", pipeline_param],
      inputs=[ comp_data1, comp_data2],
      outputs=[out_data3],    
      target=compute_target, 
      source_directory=project_folder)
- ```
+   ```
 
 3. Çağrıldığında bir parametre kabul eder Bu işlem hattı yayımlayın.
 

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 7609f3b0c04bdf74c87123f1125973219e6dda17
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4dbf53df4d3f34e80757f9575981b4b053587d97
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567222"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012677"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL veritabanı kullanan bir tek başına tek kiracılı uygulamasını dağıtma ve keşfetme
 
@@ -76,11 +76,11 @@ Uygulama olayları barındıran venues gösterir.  Mekanlar, uygulama kiracılar
 
 1. Her üç ayrı tarayıcı sekmeleri kiracılar için olayları sayfayı açın:
 
-    - http://events.contosoconcerthall.&lt; Kullanıcı&gt;. trafficmanager.net
-    - http://events.dogwooddojo.&lt; Kullanıcı&gt;. trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt; Kullanıcı&gt;. trafficmanager.net
+   - http://events.contosoconcerthall.&lt; Kullanıcı&gt;. trafficmanager.net
+   - http://events.dogwooddojo.&lt; Kullanıcı&gt;. trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt; Kullanıcı&gt;. trafficmanager.net
 
-    (Her URL'de değiştirin &lt;kullanıcı&gt; dağıtımınızın kullanıcı değerine sahip.)
+     (Her URL'de değiştirin &lt;kullanıcı&gt; dağıtımınızın kullanıcı değerine sahip.)
 
    ![Olaylar](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
@@ -96,7 +96,7 @@ Bir üretim ortamında, genellikle bir CNAME DNS kaydı için oluşturduğunuz [
 
 Dağıtılan kaynakların bazılarına bakalım:
 
-1. İçinde [Azure portalında](http://portal.azure.com), kaynak grupları, listeye göz atın.
+1. İçinde [Azure portalında](https://portal.azure.com), kaynak grupları, listeye göz atın.
 2. Üç Kiracı kaynak gruplarını görmeniz gerekir.
 3. Açık **wingtip-sa-fabrikam -&lt;kullanıcı&gt;**  Fabrikam Caz kulübü dağıtımı için kaynakları içeren kaynak grubu.  **Fabrikamjazzclub -&lt;kullanıcı&gt;**  sunucusunu içeren **fabrikamjazzclub** veritabanı.
 

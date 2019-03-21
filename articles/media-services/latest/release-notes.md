@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8f549c20480e3866725717aa054af6653ab5a913
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 236e4e7079da792d055a8de148d03852ca1012ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344004"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877369"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 sürüm notları
 
@@ -180,9 +180,9 @@ Varlıklar veya hesap filtreleri 09/28 ile 10 arasında oluşturduğunuz, / 12 i
 
 ## <a name="may-2018---preview"></a>Mayıs 2018 - Önizleme
 
-### <a name="net-sdk"></a>.Net SDK
+### <a name="net-sdk"></a>.NET SDK
 
-.Net SDK'sı aşağıdaki özellikler mevcuttur:
+.NET SDK'yı aşağıdaki özellikler mevcuttur:
 
 * **Dönüşümler** ve **işleri** kodlayın veya medya içeriği çözümlemek için. Örnekler için bkz [Stream dosyaları](stream-files-tutorial-with-api.md) ve [Çözümle](analyze-videos-tutorial-with-api.md).
 * **Akış bulucuları** yayımlama ve son kullanıcı cihazlarına içerik akışı yapmak için

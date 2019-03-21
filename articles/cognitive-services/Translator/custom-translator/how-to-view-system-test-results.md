@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: d06b4a0a9823871ffc14d7cfa7148f6e335835d6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 67ddc7a8e9d79d0eef9c017b315385df62c18e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762679"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997707"
 ---
 # <a name="view-system-test-results"></a>Sistem test sonuçlarını görüntüleme
 
@@ -26,7 +26,7 @@ Bir proje seçin ve ardından bu projenin modelleri sekmesini seçin, son olarak
 
 Test sekmesi, gösterir:
 
-1.  **Sistem Test sonuçları:** eğitimleri test işleminin sonucu. Test işleminin BLEU puanı üretir.
+1.  **Sistem Test sonuçları:** Eğitimleri test işleminin sonucu. Test işleminin BLEU puanı üretir.
 
     **Tümce sayısı:** Kaç paralel cümleler test kümesi kullanıldı.
 

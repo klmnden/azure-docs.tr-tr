@@ -16,12 +16,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: a58f5a3794d352fa8671321f5a30d74d2598df75
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 509dafb02d456e3f612e1de8a5bc1cf4b010a05a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977737"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113865"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Azure Stack geliştirme Seti'ni (ASDK) yükleyin
 Sonra [ASDK ana bilgisayar hazırlama](asdk-prepare-host.md), bu makalede aşağıdaki adımları kullanarak CloudBuilder.vhdx görüntüye ASDK dağıtılabilir.
@@ -44,8 +44,8 @@ Bu makaledeki adımlarda, indirme ve çalıştırma tarafından sağlanan bir gr
   
    Bir Azure aboneliği kimlik sağlayıcısı seçin, bir Azure AD alanının tam adı bir internet bağlantısı gerekir dizin Kiracı biçiminde *domainname*. onmicrosoft.com veya Azure AD'yi özel etki alanı adını ve genel doğrulandı Belirtilen dizin için yönetici kimlik bilgileri.<br><br>Dağıtımdan sonra Azure Active Directory genel yönetici izni gerekli değildir. Ancak, bazı işlemler, genel yönetici kimlik bilgileri gerektirebilir. Örneğin, bir kaynak sağlayıcısı yükleyicisi betiği veya izin verilecek gerektiren yeni bir özelliktir. Geçici olarak hesap genel yönetici izinleri yeniden geri veya sahiplerinden biri olan ayrı bir genel yönetici hesabı kullanın *varsayılan sağlayıcı aboneliği*.<br><br>AD FS kimlik sağlayıcısı olarak kullanırken, varsayılan damga dizin hizmeti kullanılır. Oturum açmak için varsayılan hesap azurestackadmin@azurestack.local, ve kullanılacak kurulumunun bir parçası sağlanan bir paroladır.
 
-  > [!NOTE]
-  > Kimlik sağlayıcısı olarak, AD FS kullanarak, bağlantısı kesilmiş bir Azure Stack ortam kullanmak istediğiniz bile en iyi sonuçlar için internet'e bağlıyken ASDK yüklemek en iyisidir. Böylece, Geliştirme Seti yükleme işlemine dahil Windows Server 2016 Değerlendirme sürümü, dağıtım sırasında etkinleştirilebilir.
+   > [!NOTE]
+   > Kimlik sağlayıcısı olarak, AD FS kullanarak, bağlantısı kesilmiş bir Azure Stack ortam kullanmak istediğiniz bile en iyi sonuçlar için internet'e bağlıyken ASDK yüklemek en iyisidir. Böylece, Geliştirme Seti yükleme işlemine dahil Windows Server 2016 Değerlendirme sürümü, dağıtım sırasında etkinleştirilebilir.
 
 4. Geliştirme Seti kullanın ve ardından bir ağ bağdaştırıcısını seçin **sonraki**.
 

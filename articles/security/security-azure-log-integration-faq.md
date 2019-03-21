@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: fc94208ef01e52207b6efbf88223119cf58ddb7f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4f6a724fe6c1e8668084f1c1cefbaa01cffba181
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727171"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005857"
 ---
 # <a name="azure-log-integration-faq"></a>Azure günlük tümleştirmesi hakkında SSS
 
@@ -99,7 +99,7 @@ Hata:
 
 Hata:
 
-  *Uyarı: rol ataması - AuthorizationFailed oluşturuluyor İstemci janedo@microsoft.com' sahip nesne, '/ subscriptions/70 95299 d689 4 c d 97-b971-0d8ff0000000' kapsamı üzerinde 'Microsoft.Authorization/roleAssignments/write' işlemini gerçekleştirme yetkisi 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' kimliği yok.*
+  *Uyarı: rol ataması - AuthorizationFailed oluşturuluyor İstemci janedo\@microsoft.com' nesne kimliği 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' kapsamı üzerinde 'Microsoft.Authorization/roleAssignments/write' işlemini gerçekleştirme yetkisi yok. ' /subscriptions/ 70d 95299 d689 4c 97 b971 0d8ff0000000'.*
 
 **Azlog yetkilendirmek** komutu için Azure AD hizmet sorumlusu okuyucu rolüne atar (ile oluşturulan **azlog createazureid**) sağlanan abonelikler. Azure oturum açma, bir ortak yönetici veya abonelik sahibi değil, bir "Yetkilendirme başarısız oldu" hata iletisiyle başarısız olur. Azure rol tabanlı erişim denetimi (RBAC) ortak yönetici veya sahibi bu eylemi tamamlamak için gereklidir.
 

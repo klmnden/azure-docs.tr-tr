@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/13/2018
-ms.openlocfilehash: 1c6a83626f86724bcaa61de03a49b5327af19d88
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: b463946402eee40d0de0942eeaf37a6f9ea59990
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706543"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083071"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -23,16 +23,16 @@ Azure Data Lake ve Stream Analytics araçları iki Azure hizmetlerine ilişkin A
 
 Bu makalede, Azure Data Lake Analytics hesapları oluşturmak, içinde işler tanımlamak için Visual Studio kullanmayı açıklar [U-SQL](data-lake-analytics-u-sql-get-started.md)ve Data Lake Analytics hizmetine iş göndermek. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > Microsoft, Visual Studio için Azure Data Lake Araçları 2.3.3000.4 veya sonraki bir sürümüne yükseltmenizi önerir. Önceki sürümler artık indirilemiyor ve kullanım dışı. 
->
->**Ne yapmam gerekiyor?**
->
->1. Visual Studio için Azure Data Lake Araçları’nın 2.3.3000.4’ten önceki bir sürümünü kullanıp kullanmadığınızı denetleyin. 
->   
->   ![Araç sürümünü denetleyin](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-about-data-lake.png)
 > 
->2. Sürümünüz 2.3.3000.4 sürümünden eskiyse, indirme merkezini ziyaret ederek Visual Studio için Azure Data Lake Araçları sürümünüzü güncelleştirin: 
+> **Ne yapmam gerekiyor?**
+> 
+> 1. Visual Studio için Azure Data Lake Araçları’nın 2.3.3000.4’ten önceki bir sürümünü kullanıp kullanmadığınızı denetleyin. 
+> 
+>    ![Araç sürümünü denetleyin](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-about-data-lake.png)
+> 
+> 2. Sürümünüz 2.3.3000.4 sürümünden eskiyse, indirme merkezini ziyaret ederek Visual Studio için Azure Data Lake Araçları sürümünüzü güncelleştirin: 
 >    - [Visual Studio 2017 için](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
 >    - [Visual Studio 2013 ve 2015 için](https://www.microsoft.com/en-us/download/details.aspx?id=49504)
 

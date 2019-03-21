@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/18/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5266ca3f50a2d8163dbab95109cb967fb5a63ed8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ebe23c606d95baa6c79c668fc929177c8bc37e44
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474590"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862956"
 ---
 # <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
@@ -55,6 +55,10 @@ Düğme bu hızlı başlangıçtaki adımları uygulamak için kullanabileceğin
 
 Ayrıca, Azure CLI’yi yerel olarak yükleyip kullanabilirsiniz. Bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
 
+# <a name="templatetabtemplate"></a>[Şablon](#tab/template)
+
+Yok.
+
 ---
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
@@ -80,6 +84,10 @@ CLI yerel yüklemesinde oturum açmak için oturum açma komutunu çalıştırı
 ```cli
 az login
 ```
+
+# <a name="templatetabtemplate"></a>[Şablon](#tab/template)
+
+Yok
 
 ---
 
@@ -170,6 +178,33 @@ Bölgesel olarak yedekli depolama (ZRS Önizlemesi), coğrafi olarak yedekli dep
 |Coğrafi olarak yedekli depolama (GRS)     |Standard_GRS         |
 |Okuma erişimli coğrafi olarak yedekli depolama (GRS)     |Standard_RAGRS         |
 
+# <a name="templatetabtemplate"></a>[Şablon](#tab/template)
+
+Bir depolama hesabı oluşturmak için Resource Manager şablonu dağıtmak için Azure Powershell veya Azure CLI'yı kullanabilirsiniz. Bu hızlı başlangıçta kullanılan şablon dandır [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Komut dosyalarını çalıştırmak için seçin **deneyin** Azure Cloud Shell'i açmak için. Betik yapıştırmak için kabuk sağ tıklayın ve ardından **yapıştırın**.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. centralus):" &&
+read location &&
+az group create --name $resourceGroupName --location "$location" &&
+az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+```
+
+Şablon oluşturma hakkında bilgi edinmek için bkz:
+
+- [Azure Resource Manager belgeleri](/azure/azure-resource-manager/).
+- [Depolama hesabı şablon başvurusu](/azure/templates/microsoft.storage/allversions).
+- [Ek depolama hesabı şablon örnekleri](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
+
 ---
 
 Kullanılabilir çoğaltma seçenekleri hakkında daha fazla bilgi için bkz. [Depolama çoğaltma seçenekleri](storage-redundancy.md).
@@ -202,6 +237,21 @@ Kaynak grubunu ve yeni depolama hesabı dahil olmak üzere ilişkili kaynakları
 az group delete --name storage-quickstart-resource-group
 ```
 
+# <a name="templatetabtemplate"></a>[Şablon](#tab/template)
+
+Kaynak grubunu ve yeni depolama hesabı dahil olmak üzere ilişkili kaynakları kaldırmak için Azure PowerShell veya Azure CLI'yı kullanın.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName
+```
+
 ---
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -222,5 +272,10 @@ Bu hızlı başlangıçta, genel amaçlı v2 standart depolama hesabı oluşturd
 
 > [!div class="nextstepaction"]
 > [Azure CLI kullanarak blobları ile çalışma](../blobs/storage-quickstart-blobs-cli.md)
+
+# <a name="templatetabtemplate"></a>[Şablon](#tab/template)
+
+> [!div class="nextstepaction"]
+> [Azure portalını kullanarak bloblarla çalışma](../blobs/storage-quickstart-blobs-portal.md)
 
 ---

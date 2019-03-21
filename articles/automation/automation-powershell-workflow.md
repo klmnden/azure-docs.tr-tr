@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7ab6b387a28df06758e5e0c1ce197781fc4be3c5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c5764c36a646b9639c0eb6463c39b9f014c4272d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436816"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168094"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Otomasyon runbook'ları için temel Windows PowerShell iş akışı kavramları öğrenme
 
@@ -226,7 +226,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>Kontrol noktaları
 
-A *denetim noktası* değişkenlerin geçerli değerlerini ve bu noktaya kadar üretilen herhangi bir çıktı içeren iş akışının geçerli durumu anlık görüntüsüdür. Bir iş akışı hata sona erer veya askıya alındı, ardından sonraki çalıştırıldığında, iş akışının başlangıç yerine en son denetim noktasından başlayacaktır.  **Checkpoint-Workflow** etkinliğini kullanarak bir iş akışında denetim noktası ayarlayabilirsiniz.
+A *denetim noktası* değişkenlerin geçerli değerlerini ve bu noktaya kadar üretilen herhangi bir çıktı içeren iş akışının geçerli durumu anlık görüntüsüdür. Bir iş akışı hata sona erer veya askıya alındı, ardından sonraki çalıştırıldığında, iş akışının başlangıç yerine en son denetim noktasından başlayacaktır.  **Checkpoint-Workflow** etkinliğini kullanarak bir iş akışında denetim noktası ayarlayabilirsiniz. Azure Otomasyonu denilen bir özelliği olan [adil paylaşımı](automation-runbook-execution.md#fair-share), diğer runbook'ların çalışmasına izin vermek için 3 saatte bir çalışan herhangi bir runbook burada kaldırıldı. Sonuç olarak, kaldırılan runbook yeniden yüklenmesi ve olduğunda, bir runbook'ta yapılan en son kontrol noktasından yürütmeyi devam ettirir. Runbook eninde sonunda tamamlanır garantisi için kontrol noktaları 3 saatten kısa bir süre için çalışan aralıklarla eklemeniz gerekir. Her çalıştırma sırasında yeni bir kontrol noktası eklenir ve bir hata nedeniyle 3 saat sonra runbook çıkarılacak, ardından runbook süresiz olarak devam edecek.
 
 Aşağıdaki örnek kodda Activity2 bir özel durum oluşur. sonlandırmak iş akışı neden olur. İş akışını yeniden çalıştırdığınızda, yalnızca son denetim noktasından ayarladıktan sonra bu yana Activity2 çalıştırarak başlatır.
 

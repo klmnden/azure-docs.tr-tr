@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5588d2bd6cf2098d8744479c2bf2d308c9bf8f0d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b275f23209979e1a8068ecd99465f7b52392bc6c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460456"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082917"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>SQL veri ambarı önerileri
 
@@ -63,4 +63,3 @@ Boyutu ve yüksek kaliteli önerileri oluşturulan emin olmak için etkinlik eş
 
 > [!IMPORTANT]
 > Çoğaltılmış tablo öneri tam kavram değil ve hesabı veri taşıma işlemleri almaz. Bu bir buluşsal yöntem eklemek için çalışıyoruz ancak bu sırada, her zaman iş yükünüz öneri uygulandıktan sonra doğrulamalıdır. Lütfen başvurun sqldwadvisor@service.microsoft.com ilerletmek için İş yükünüzün neden çoğaltılmış tablo önerileri fark ederseniz. Aşağıdaki çoğaltılmış tablolar hakkında daha fazla bilgi için ziyaret [belgeleri](https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables#what-is-a-replicated-table).
->

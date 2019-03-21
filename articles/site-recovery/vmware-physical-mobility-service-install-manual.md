@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 06430bf476c2e9f3af2102272fb54d201a3f1066
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 862846c8ec544cf082d45cea650269b6518a016f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790818"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003536"
 ---
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>VMware Vm'leri ve fiziksel sunucuları üzerinde Mobility hizmetini el ile yükleme
 
@@ -65,29 +65,30 @@ Yüklemeden önce yükleme sırasında kullanılacak bir parola oluşturun.
 
 1. Yükleyiciyi, korumak istediğiniz sunucuda yerel bir klasöre (örneğin, C:\Temp) kopyalayın. 
 
-  ```
-  cd C:\Temp
-  ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
-  MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
-  cd C:\Temp\Extracted.
-  ```
+   ```
+   cd C:\Temp
+   ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
+   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
+   cd C:\Temp\Extracted.
+   ```
 2. Aşağıda gösterildiği gibi yükleyin:
 
-  ```
-  UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
-  ```
+   ```
+   UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+   ```
 
 3. Aracı yapılandırma sunucusuna kaydedin.
 
-  ```
-  cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
-  ```
+   ```
+   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
+   UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+   ```
 
 #### <a name="installation-settings"></a>Yükleme ayarları
+
 **Ayar** | **Ayrıntılar**
 --- | ---
-Kullanım | UnifiedAgent.exe/role < MS|MT > /InstallLocation  <Install Location> /Platform "VmWare" / silent
+Kullanım | UnifiedAgent.exe/role < MS\|MT > /InstallLocation  <Install Location> /Platform "VmWare" / silent
 Kurulum günlükleri | % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log altında.
 / Rol | Zorunlu yükleme parametresi. Mobility hizmetinin (MS) veya ana hedef (MT) yüklü olup olmadığını belirtir.
 /InstallLocation| İsteğe bağlı parametre. Mobility hizmeti yükleme konumuna (herhangi bir klasör) belirtir.
@@ -95,6 +96,7 @@ Kurulum günlükleri | % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log 
 / Silent| İsteğe bağlı. Yükleyici sessiz modda çalıştırılıp çalıştırılmayacağını belirtir.
 
 #### <a name="registration-settings"></a>Kayıt ayarları
+
 **Ayar** | **Ayrıntılar**
 --- | ---
 Kullanım | UnifiedAgentConfigurator.exe/csendpoint  <CSIP> /passphrasefilepath <PassphraseFilePath>
@@ -106,33 +108,35 @@ Aracı yapılandırma günlükleri | % ProgramData%\ASRSetupLogs\ASRUnifiedAgent
 ### <a name="on-a-linux-machine"></a>Bir Linux makinesinde
 
 1. Yükleyiciyi, korumak istediğiniz sunucuda yerel bir klasöre (örneğin, / tmp) kopyalayın. Bir terminal penceresinde aşağıdaki komutları çalıştırın:
-  ```
-  cd /tmp ;
+   ```
+   cd /tmp ;
 
-  tar -xvzf Microsoft-ASR_UA*release.tar.gz
-  ```
+   tar -xvzf Microsoft-ASR_UA*release.tar.gz
+   ```
 2. Aşağıda gösterildiği gibi yükleyin:
 
-  ```
-  sudo ./install -d <Install Location> -r MS -v VmWare -q
-  ```
+   ```
+   sudo ./install -d <Install Location> -r MS -v VmWare -q
+   ```
 3. Mobility hizmeti yüklemesi tamamlandıktan sonra yapılandırma sunucusuna kaydedilmesi gerekir. Mobility hizmeti ile yapılandırma sunucusunu kaydetmek için aşağıdaki komutu çalıştırın:
 
-  ```
-  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
-  ```
+   ```
+   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
+   ```
 
 
 #### <a name="installation-settings"></a>Yükleme ayarları
+
 **Ayar** | **Ayrıntılar**
 --- | ---
-Kullanım | . / install -d <Install Location> - r < MS|MT > - v, VmWare - q
+Kullanım | . / install -d <Install Location> - r < MS\|MT > - v, VmWare - q
 -r | Zorunlu yükleme parametresi. Mobility hizmetinin (MS) veya ana hedef (MT) yüklü olup olmadığını belirtir.
 -d | İsteğe bağlı parametre. Mobility hizmeti yükleme konumunu belirtir: /usr/local/ASR.
 -v | Zorunlu. Mobility hizmetinin yüklendiği platformunu belirtir. **VMware** VMware Vm'lerini/fiziksel sunucuları için; **Azure** Azure sanal makineler için. 
 -q | İsteğe bağlı. Yükleyici sessiz modda çalıştırılıp çalıştırılmayacağını belirtir.
 
 #### <a name="registration-settings"></a>Kayıt ayarları
+
 **Ayar** | **Ayrıntılar**
 --- | ---
 Kullanım | CD /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> - P <PassphraseFilePath>
@@ -140,5 +144,6 @@ Kullanım | CD /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <C
 -P |  Zorunlu. Parola kaydedildiği dosyasının tam dosya yolu. Herhangi bir geçerli klasörü kullanın
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 - [VMware Vm'leri için olağanüstü durum kurtarmayı ayarlama](vmware-azure-tutorial.md)
 - [Fiziksel sunucular için olağanüstü durum kurtarmayı ayarlama](physical-azure-disaster-recovery.md)

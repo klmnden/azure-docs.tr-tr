@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 347ee8389677e507e299490d86ae9b51ba4f59a6
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731588"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994856"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>REST API ile Azure Blueprint Tanımlama ve Atama
 
@@ -70,6 +70,9 @@ Her bir REST API URI'sinde kendi değerlerinizle değiştirmeniz gereken değiş
 
 - `{YourMG}` -Yönetim grubunuzun kimliği ile değiştirin.
 - `{subscriptionId}` - Abonelik kimliğinizle değiştirin
+
+> [!NOTE]
+> Şemalar, abonelik düzeyinde de oluşturulabilir. Bir örnek için bkz [abonelik örneğe blueprint oluşturma](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
 
 1. İlk _şema_ nesnesini oluşturun. **İstek Gövdesi** şemayla ilgili özellikleri, oluşturulacak kaynak gruplarını ve tüm şema düzeyi parametreleri içerir. Parametreler atama sırasında ayarlanır ve sonraki adımlarda eklenecek yapıtlar tarafından kullanılır.
 
@@ -435,9 +438,9 @@ Bir şemanın kendisini kaldırmak için aşağıdaki REST API işlemini kullan�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Şema yaşam döngüsü](./concepts/lifecycle.md) hakkında bilgi edinin
-- [Statik ve dinamik parametreleri](./concepts/parameters.md) kullanmayı anlayın
-- [Şema sıralamasını](./concepts/sequencing-order.md) özelleştirmeyi öğrenin
-- [Şema kaynak kilitleme](./concepts/resource-locking.md) özelliğini kullanmayı öğrenin
-- [Var olan atamaları güncelleştirmeyi](./how-to/update-existing-assignments.md) öğrenin
-- [Genel sorun giderme](./troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin
+- [Şema yaşam döngüsü](./concepts/lifecycle.md) hakkında bilgi edinin.
+- [Statik ve dinamik parametrelerin](./concepts/parameters.md) kullanımını anlayın.
+- [Şema sıralama düzenini](./concepts/sequencing-order.md) özelleştirmeyi öğrenin.
+- [Şema kaynak kilitleme](./concepts/resource-locking.md) özelliğini kullanmayı öğrenin.
+- [Mevcut atamaları güncelleştirmeyi](./how-to/update-existing-assignments.md) öğrenin.
+- [Genel sorun giderme](./troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin.

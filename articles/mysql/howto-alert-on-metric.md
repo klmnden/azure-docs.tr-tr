@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.openlocfilehash: 1287df97f10033472c9717309688cf89887a66ed
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 387877efea4df30685fcf443a4d114c4feb66401
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54242974"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098279"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Ölçümler ile ilgili uyarılar için Azure veritabanı için MySQL ayarlamak için Azure portalını kullanma 
 
@@ -60,21 +60,21 @@ Yapılandırın ve uyarı kuralları kullanma hakkında bilgi edinin:
 
 10. Yapılandırma bir **e-posta/SMS/anında iletme/ses** eylem türü.
     
-   "E-posta Azure Resource Manager abonelik sahipleri, Katkıda Bulunanlar ve okuyucular bildirimleri almak için seçmek için rolü" seçin.
+    "E-posta Azure Resource Manager abonelik sahipleri, Katkıda Bulunanlar ve okuyucular bildirimleri almak için seçmek için rolü" seçin.
    
-   İsteğe bağlı olarak, geçerli bir URI sağlayın **Web kancası** adlı bir uyarı tetiklendiğinde istiyorsanız alan.
+    İsteğe bağlı olarak, geçerli bir URI sağlayın **Web kancası** adlı bir uyarı tetiklendiğinde istiyorsanız alan.
 
-   Seçin **Tamam** tamamlandığında.
+    Seçin **Tamam** tamamlandığında.
 
-   ![Eylem grubu](./media/howto-alert-on-metric/10-action-group-type.png)
+    ![Eylem grubu](./media/howto-alert-on-metric/10-action-group-type.png)
 
 11. Bir uyarı kuralı adını, açıklamasını ve önem derecesini belirtin.
 
-   ![Eylem grubu](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    ![Eylem grubu](./media/howto-alert-on-metric/11-name-description-severity.png) 
 
 12. Seçin **uyarı kuralı oluştur** uyarı oluşturmak için.
 
-   Birkaç dakika içinde uyarı etkin ve daha önce açıklandığı gibi tetikler.
+    Birkaç dakika içinde uyarı etkin ve daha önce açıklandığı gibi tetikler.
 
 ## <a name="manage-your-alerts"></a>Uyarılarınızı yönetme
 Bir uyarı oluşturulduktan sonra seçin ve aşağıdaki eylemleri gerçekleştirebilirsiniz:

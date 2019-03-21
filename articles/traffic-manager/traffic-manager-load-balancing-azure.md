@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: 8c4d890633a8d588b51f876a361a77e6533b5db4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 906e1840f35ab14997c727551b893a0219eb78d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533162"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099027"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Azure'da Yük Dengeleme hizmetlerini kullanma
 
@@ -68,26 +68,26 @@ Aşağıdaki diyagramda bu senaryonun mimarisi gösterilmektedir:
 1. Azure portalında **kaynak Oluştur** > **ağ** > **Traffic Manager profili**  >   **Oluşturma**.
 2. Aşağıdaki temel bilgileri girin:
 
-  * **Ad**: Traffic Manager profilinizin vermek bir DNS ön ek adı.
-  * **Yönlendirme yöntemi**: Trafik yönlendirme yöntemini ilkeyi seçin. Yöntemleri hakkında daha fazla bilgi için bkz. [hakkında Traffic Manager trafik yönlendirme yöntemleri](traffic-manager-routing-methods.md).
-  * **Abonelik**: Profili içeren aboneliği seçin.
-  * **Kaynak grubu**: Profili içeren kaynak grubunu seçin. Bu, yeni veya mevcut bir kaynak grubu olabilir.
-  * **Kaynak grubu konumu**: Traffic Manager hizmeti, genel ve bir konuma bağlı değildir. Ancak Traffic Manager profili ile ilişkili meta verilerin bulunduğu grubu için bir bölge belirtmeniz gerekir. Bu konum profili çalışma zamanı kullanılabilirliğini etkilemez.
+   * **Ad**: Traffic Manager profilinizin vermek bir DNS ön ek adı.
+   * **Yönlendirme yöntemi**: Trafik yönlendirme yöntemini ilkeyi seçin. Yöntemleri hakkında daha fazla bilgi için bkz. [hakkında Traffic Manager trafik yönlendirme yöntemleri](traffic-manager-routing-methods.md).
+   * **Abonelik**: Profili içeren aboneliği seçin.
+   * **Kaynak grubu**: Profili içeren kaynak grubunu seçin. Bu, yeni veya mevcut bir kaynak grubu olabilir.
+   * **Kaynak grubu konumu**: Traffic Manager hizmeti, genel ve bir konuma bağlı değildir. Ancak Traffic Manager profili ile ilişkili meta verilerin bulunduğu grubu için bir bölge belirtmeniz gerekir. Bu konum profili çalışma zamanı kullanılabilirliğini etkilemez.
 
 3. Tıklayın **Oluştur** Traffic Manager profili oluşturmak için.
 
-  !["Traffic Manager'ı Oluştur" dikey penceresi](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
+   !["Traffic Manager'ı Oluştur" dikey penceresi](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
 ### <a name="step-2-create-the-application-gateways"></a>2. Adım: Uygulama ağ geçitleri oluşturma
 
 1. Azure portalında, sol bölmede, tıklayın **kaynak Oluştur** > **ağ** > **Application Gateway**.
 2. Application gateway hakkında aşağıdaki temel bilgileri girin:
 
-  * **Ad**: Uygulama ağ geçidi adı.
-  * **SKU boyutunu**: Küçük, Orta veya büyük kullanılabilir application gateway boyutu.
-  * **Örnek sayısı**: Örnek sayısı, 2 ile 10 arasında bir değer.
-  * **Kaynak grubu**: Uygulama ağ geçidinin bulunduğu kaynak grubu. Mevcut bir kaynak grubu veya yeni bir tane olabilir.
-  * **Konum**: Kaynak grubu ile aynı konumda olan uygulama ağ geçidi için bölge. Sanal ağ ve genel IP ağ geçidi ile aynı konumda olması gerektiğinden önemli bir konumdur.
+   * **Ad**: Uygulama ağ geçidi adı.
+   * **SKU boyutunu**: Küçük, Orta veya büyük kullanılabilir application gateway boyutu.
+   * **Örnek sayısı**: Örnek sayısı, 2 ile 10 arasında bir değer.
+   * **Kaynak grubu**: Uygulama ağ geçidinin bulunduğu kaynak grubu. Mevcut bir kaynak grubu veya yeni bir tane olabilir.
+   * **Konum**: Kaynak grubu ile aynı konumda olan uygulama ağ geçidi için bölge. Sanal ağ ve genel IP ağ geçidi ile aynı konumda olması gerektiğinden önemli bir konumdur.
 3. **Tamam** düğmesine tıklayın.
 4. Sanal ağ, alt ağ, ön uç IP ve application gateway için dinleyici yapılandırmaları tanımlar. Bu senaryoda, ön uç IP adresidir **genel**, Traffic Manager profiline bir uç nokta daha sonra eklenmesi için sağlar.
 5. Dinleyici aşağıdaki seçeneklerden birini yapılandırın:
@@ -104,11 +104,11 @@ Arka uç havuzu seçtiğinizde, bir yol tabanlı kural ile yapılandırılmış 
 2. Altında **ayarları**seçin **arka uç havuzları**ve ardından **Ekle** web katmanı arka uç havuzları ile ilişkilendirmek istediğiniz Vm'leri eklemek için.
 3. Arka uç havuzunun adı ve Havuzda bulunan makineler tüm IP adreslerini girin. Bu senaryoda, şu iki arka uç sunucu havuzuna sanal makinelerin bağlanırsınız.
 
-  ![Uygulama ağ geçidi "Arka uç havuzu Ekle"](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
+   ![Uygulama ağ geçidi "Arka uç havuzu Ekle"](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
 4. Altında **ayarları** uygulama ağ geçidi için seçin **kuralları**ve ardından **yol tabanlı** düğmesini bir kural ekleyin.
 
-  ![Uygulama ağ geçidi kuralları "Yol tabanlı" düğmesi](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
+   ![Uygulama ağ geçidi kuralları "Yol tabanlı" düğmesi](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
 5. Aşağıdaki bilgileri sağlayarak kuralını yapılandırın.
 
@@ -138,13 +138,13 @@ Bu senaryoda, Traffic Manager, farklı bölgelerde bulunan (önceki adımlarda y
 1. Traffic Manager profilinizin açın. Bunu yapmak için kaynak grubu veya Traffic Manager profili adını arayın Ara **tüm kaynakları**.
 2. Sol bölmede seçin **uç noktaları**ve ardından **Ekle** uç nokta ekleme.
 
-  ![Traffic Manager uç noktaları "Ekle" düğmesi](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
+   ![Traffic Manager uç noktaları "Ekle" düğmesi](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
 3. Aşağıdaki bilgileri girerek bir uç nokta oluşturun:
 
-  * **Tür**: Yük Dengeleme uç noktasına türünü seçin. Bu senaryoda seçin **Azure uç noktası** biz, önceden yapılandırılmış uygulama ağ geçidi örnekleri bağlandığınız.
-  * **Ad**: Uç nokta adı girin.
-  * **Hedef kaynak türü**: Seçin **genel IP adresi** ve sonra **hedef kaynak**, önceden yapılandırılmış uygulama ağ geçidinin genel IP adresini seçin.
+   * **Tür**: Yük Dengeleme uç noktasına türünü seçin. Bu senaryoda seçin **Azure uç noktası** biz, önceden yapılandırılmış uygulama ağ geçidi örnekleri bağlandığınız.
+   * **Ad**: Uç nokta adı girin.
+   * **Hedef kaynak türü**: Seçin **genel IP adresi** ve sonra **hedef kaynak**, önceden yapılandırılmış uygulama ağ geçidinin genel IP adresini seçin.
 
    ![Traffic Manager "Uç Ekle"](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
@@ -171,7 +171,7 @@ SQL Server AlwaysOn, yüksek kullanılabilirlik veritabanı kümesi kullanıyors
 1. Önceki adımlarda oluşturulan yük dengeleyici, kaynak grubunuzdan bulun.
 2. Altında **ayarları**, tıklayın **arka uç havuzları**ve ardından **Ekle** bir arka uç havuzuna eklenecek.
 
-  ![Yük Dengeleyici "Arka uç havuzu Ekle"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
+   ![Yük Dengeleyici "Arka uç havuzu Ekle"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
 3. Arka uç havuzunun adı girin.
 4. Makineleri tek tek veya bir kullanılabilirlik kümesi arka uç havuzuna ekleyin.
@@ -180,7 +180,7 @@ SQL Server AlwaysOn, yüksek kullanılabilirlik veritabanı kümesi kullanıyors
 
 1. Load balancer'ınız içinde altında **ayarları**seçin **araştırmaları**ve ardından **Ekle** bir araştırma eklemek için.
 
- ![Yük Dengeleyici "Araştırma Ekle"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
+   ![Yük Dengeleyici "Araştırma Ekle"](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
 2. Araştırma için bir ad girin.
 3. Seçin **Protokolü** yoklaması için. Bir veritabanı için bir HTTP araştırması yerine bir TCP araştırması isteyebilirsiniz. Yük Dengeleyici araştırmalarını hakkında daha fazla bilgi için bkz [yük dengeleyici araştırmalarını anlama](../load-balancer/load-balancer-custom-probe-overview.md).

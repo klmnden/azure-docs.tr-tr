@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: ade09c7527e62112ac7225df21e25d4139d99e58
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0cfc4ff58cfeb65f80f9ac5ce2dd532defde5ef8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879012"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119097"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Ortak veri türleri tanımak için önceden oluşturulmuş varlıklar
 

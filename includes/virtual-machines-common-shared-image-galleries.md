@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/09/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: f8122f35ac6d604908fc31dcece7dfb53dd50286
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 8c7da8d04b456642b158dda77d9c745891aa18e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985525"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58052155"
 ---
 Paylaşılan görüntü Galerisi yapısı ve kendi özel VM görüntülerinizi yönetilen etrafında kuruluş oluşturmanıza yardımcı olan bir hizmettir. Paylaşılan görüntü Galerisi kullanarak görüntülerinizi farklı kullanıcılar, hizmet sorumluları veya AD grupları kuruluşunuzun içinde paylaşabilirsiniz. Paylaşılan görüntüleri, dağıtımlarınıza daha hızlı ölçeklendirme için birden fazla bölgeyi çoğaltılabilir.
 
@@ -128,18 +128,18 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
  
  A. Azure portalında erişimi olmasını Aboneliklerdeki tüm paylaşılan görüntü Galerisi kaynakları listelemek için aşağıdaki adımları izleyin:
 
- 1. [Azure portalı](https://portal.azure.com) açın.
- 1. Git **tüm kaynakları**.
- 1. Tüm kaynakları listelemek altında istediğiniz abonelikleri seçin.
- 1. Kaynak türü için konum **özel galeri**.
+1. [Azure portalı](https://portal.azure.com) açın.
+1. Git **tüm kaynakları**.
+1. Tüm kaynakları listelemek altında istediğiniz abonelikleri seçin.
+1. Kaynak türü için konum **özel galeri**.
  
- Görüntü tanımları ve yansıma sürümü görmek için de seçmeniz **gizli türleri Göster**.
+   Görüntü tanımları ve yansıma sürümü görmek için de seçmeniz **gizli türleri Göster**.
  
- İzniniz Aboneliklerdeki tüm paylaşılan görüntü Galerisi kaynakları listelemek için Azure CLI içinde aşağıdaki komutu kullanın:
+   İzniniz Aboneliklerdeki tüm paylaşılan görüntü Galerisi kaynakları listelemek için Azure CLI içinde aşağıdaki komutu kullanın:
 
- ```bash
- az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
- ```
+   ```bash
+   az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
+   ```
 
 
 **S.** Görüntülerim abonelikler arasında nasıl paylaşırım?
@@ -155,9 +155,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 
  Senaryo 2: Yönetilmeyen genelleştirilmiş görüntü varsa, yönetilen bir görüntü oluşturun ve ondan sonra bir görüntü tanımı ve görüntü sürümü oluşturun. 
 
- Senaryo 3: Yerel dosya sisteminizde bir VHD varsa, ardından VHD'yi karşıya yükleme, oluşturma ve resim tanımı ve görüntü sürümünden sonra yönetilen bir görüntü oluşturmak için ihtiyacınız. 
-    - Windows sanal Makinesini VHD ise bkz [genelleştirilmiş VHD yükleme](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
-    - Bir Linux VM için VHD'yi ise bkz [bir VHD'yi karşıya yükleme](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
+ Senaryo 3: Yerel dosya sisteminizde bir VHD varsa, ardından VHD'yi karşıya yükleme, oluşturma ve resim tanımı ve görüntü sürümünden sonra yönetilen bir görüntü oluşturmak için ihtiyacınız.
+- Windows sanal Makinesini VHD ise bkz [genelleştirilmiş VHD yükleme](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
+- Bir Linux VM için VHD'yi ise bkz [bir VHD'yi karşıya yükleme](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
 
 **S.** Özelleştirilmiş diskten bir görüntü sürümü oluşturabilir miyim?

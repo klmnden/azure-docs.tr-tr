@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 7039df6dde25fd4ba9a8b9cb7670e72df7e68797
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f175360586428b57d1ff10e3529ae9e3283399e8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245825"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117071"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Azure Data Lake depolama Gen2 için performans ayarlama
 
@@ -43,7 +43,7 @@ Veri kaynağı ile Data Lake depolama 2. nesil arasında ağ bağlantısı sorun
 
 Kaynak donanım giderdik ve ağ bağlantısı sorunları yukarıdaki sonra alımı araçlarınızı yapılandırmaya hazır olursunuz. Aşağıdaki tabloda, çeşitli popüler alma araçları için anahtar ayarları özetlenmekte ve ayrıntılı performans makaleler için bunları ayarlama sağlar.  Senaryonuz için kullanmak için hangi aracı hakkında daha fazla bilgi edinmek için bu ziyaret [makale](data-lake-storage-data-scenarios.md).
 
-| Aracı               | Ayarlar     | Diğer Ayrıntılar                                                                 |
+| Tool               | Ayarlar     | Diğer Ayrıntılar                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (Eşleyici)   | [Bağlantı](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Bağlantı](../../data-factory/copy-activity-performance.md)                          |
@@ -131,12 +131,12 @@ Kapsayıcıları sayısını artırmak ve tüm kullanılabilir işleme kullanmak
 
 Yukarıdaki genel yönergeleri ek olarak, her uygulama, belirli bir uygulama için ayarlanacak farklı parametre sunar. Aşağıdaki tabloda bazı performans için her bir uygulama ayarı kullanmaya başlamak için bağlantıları ve parametreleri listeler.
 
-| İş yükü               | Parametre görevleri ayarlamak için                                                         |
-|--------------------|-------------------------------------------------------------------------------------|
-| [HDInsight üzerinde Spark](data-lake-storage-performance-tuning-spark.md)       | <ul><li>Yürütücü sayısı</li><li>Bellek içi Yürütücü</li><li>Yürütücü çekirdek sayısı</li></ul> |
-| [HDInsight üzerinde hive](data-lake-storage-performance-tuning-hive.md)    | <ul><li>Hive.tez.Container.size</li></ul>         |
-| [HDInsight MapReduce](data-lake-storage-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.Map.Memory</li><li>Mapreduce.job.Maps</li><li>Mapreduce.reduce.Memory</li><li>Mapreduce.job.reduces</li></ul> |
-| [HDInsight üzerinde Storm](data-lake-storage-performance-tuning-storm.md)|  | <ul><li>Çalışan işlemi sayısı</li><li>Spout Yürütücü örneği sayısı</li><li>Bolt Yürütücü örneği sayısı </li><li>Spout görev sayısı</li><li>Bolt görev sayısı</li></ul>|
+| İş yükü | Parametre görevleri ayarlamak için |
+|----------|------------------------|
+| [HDInsight üzerinde Spark](data-lake-storage-performance-tuning-spark.md) | <ul><li>Yürütücü sayısı</li><li>Bellek içi Yürütücü</li><li>Yürütücü çekirdek sayısı</li></ul> |
+| [HDInsight üzerinde hive](data-lake-storage-performance-tuning-hive.md) | <ul><li>Hive.tez.Container.size</li></ul> |
+| [HDInsight MapReduce](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.Map.Memory</li><li>Mapreduce.job.Maps</li><li>Mapreduce.reduce.Memory</li><li>Mapreduce.job.reduces</li></ul> |
+| [HDInsight üzerinde Storm](data-lake-storage-performance-tuning-storm.md)| <ul><li>Çalışan işlemi sayısı</li><li>Spout Yürütücü örneği sayısı</li><li>Bolt Yürütücü örneği sayısı </li><li>Spout görev sayısı</li><li>Bolt görev sayısı</li></ul>|
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Azure Data Lake depolama Gen2'ye genel bakış](data-lake-storage-introduction.md)

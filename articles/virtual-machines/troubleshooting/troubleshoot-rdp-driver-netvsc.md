@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: c6918126c36e1940daf564ee7eae562e31b280c3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449113"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994623"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Uzaktan Windows 10 veya Windows Server 2016 VM azure'da netvsc.sys nedeniyle bağlanılamıyor
 
@@ -28,7 +28,7 @@ Bu makalede olduğu ağ bağlantısı bir Windows 10 veya Windows Server 2016 Da
 
 Uzak Masaüstü Protokolü (RDP) kullanarak bir Azure Windows 10 veya Windows Server 2016 VM bağlanamıyor. İçinde [önyükleme tanılaması](boot-diagnostics.md), ekran, ağ arabirim kartı (NIC) üzerinde kırmızı çarpı işareti gösterir. Bu, işletim sistemini tam olarak yüklendikten sonra VM bağlantısı olduğunu gösterir.
 
-Genellikle, Windows bu sorun oluşur [derleme 14393](http://support.microsoft.com/help/4093120/) ve [derleme 15063](http://support.microsoft.com/help/4015583/). Bu makalede, işletim sistemi sürümü bu sürümlerden daha sonraysa, senaryonuz için geçerli değildir. Sistem sürümü denetlemek için bir CMD oturumda açın [seri erişim Konsolu özelliği](serial-console-windows.md)ve ardından çalıştırın **Ver**.
+Genellikle, Windows bu sorun oluşur [derleme 14393](https://support.microsoft.com/help/4093120/) ve [derleme 15063](https://support.microsoft.com/help/4015583/). Bu makalede, işletim sistemi sürümü bu sürümlerden daha sonraysa, senaryonuz için geçerli değildir. Sistem sürümü denetlemek için bir CMD oturumda açın [seri erişim Konsolu özelliği](serial-console-windows.md)ve ardından çalıştırın **Ver**.
 
 ## <a name="cause"></a>Nedeni
 
@@ -55,8 +55,8 @@ Bağlanma [seri konsolu, PowerShell örneği açın](serial-console-windows.md)v
 
 2. Aynı bölgeden çalışan VM bağlı yeni veya var olan veri diski için uygun güncelleştirmeyi indirin:
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562) ya da daha yeni bir güncelleştirme
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) ya da daha yeni bir güncelleştirme
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) ya da daha yeni bir güncelleştirme
+   - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) ya da daha yeni bir güncelleştirme
 
 3. VM çalışmasını yardımcı diski çıkarın ve ardından bozuk VM'e ekleyin.
 
@@ -98,22 +98,22 @@ Bağlanma [seri konsolu, PowerShell örneği açın](serial-console-windows.md)v
 
 12. Uygun güncelleştirmeyi indirin:
 
-   - **10.0.14393.594**: [KB4073562](http://support.microsoft.com/help/4073562) ya da daha yeni bir güncelleştirme
-   - **10.0.15063.0**: [KB4016240](http://support.microsoft.com/help/4016240) ya da daha yeni bir güncelleştirme
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) ya da daha yeni bir güncelleştirme
+    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) ya da daha yeni bir güncelleştirme
 
 13. Sistem diski, güncelleştirmeyi indirin bir kurtarma sanal makinesinde veri diski olarak ekleyin.
 
 14. Sanal makinede güncelleştirmeyi yüklemek için aşağıdaki komutu çalıştırın:
 
-   ```
-   dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
-   ```
+    ```
+    dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
+    ```
 
 15. Yığınlar kaldırmak için aşağıdaki komutu çalıştırın:
 
-   ```
-   reg unload HKLM\BROKENSYSTEM
-   ```
+    ```
+    reg unload HKLM\BROKENSYSTEM
+    ```
 
 16. [VM yeniden oluşturma ve sistem diskini](../windows/troubleshoot-recovery-disks-portal.md).
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 08c3511b3efc7ee2e21ef5847976357292bf95bb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 59f8b8b253fc914e5723a9c41475ec78bc3f376e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446869"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888408"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory ile SQL Azure için bir şirket içi SQL Server'dan veri taşıma
 
@@ -61,7 +61,7 @@ Bu öğreticide, sahip olduğunuz varsayılır:
 >
 
 ## <a name="upload-data"></a> Şirket içi SQL Server'ınıza veri yükleme
-Kullandığımız [NYC taksi dataset](http://chriswhong.com/open-data/foil_nyc_taxi/) geçiş işlemini göstermek için. Bu gönderi, Azure blob depolama içinde belirtildiği gibi NYC taksi veri kümesi kullanılabilir [NYC taksi verileri](http://www.andresmh.com/nyctaxitrips/). Verileri iki dosya, seyahat ayrıntıları içeren trip_data.csv dosyasının ve her seyahat için ücretli taksi ayrıntılarını içeren trip_far.csv dosyası vardır. Bir örnek ve açıklama bu dosyaların sağlanan [NYC taksi Gelişlerin veri kümesi tanımı](sql-walkthrough.md#dataset).
+Kullandığımız [NYC taksi dataset](https://chriswhong.com/open-data/foil_nyc_taxi/) geçiş işlemini göstermek için. Bu gönderi, Azure blob depolama içinde belirtildiği gibi NYC taksi veri kümesi kullanılabilir [NYC taksi verileri](https://www.andresmh.com/nyctaxitrips/). Verileri iki dosya, seyahat ayrıntıları içeren trip_data.csv dosyasının ve her seyahat için ücretli taksi ayrıntılarını içeren trip_far.csv dosyası vardır. Bir örnek ve açıklama bu dosyaların sağlanan [NYC taksi Gelişlerin veri kümesi tanımı](sql-walkthrough.md#dataset).
 
 Burada kendi veri kümesi için sağlanan yordamı uyarlamak veya NYC taksi veri kümesini kullanarak açıklanan adımları izleyin. Şirket içi SQL Server veritabanınıza NYC taksi veri kümesini yüklemek için bölümünde açıklanan yordamı izleyin [toplu içeri aktarma verileri SQL Server veritabanına](sql-walkthrough.md#dbload). SQL Server üzerinde bir Azure sanal makine için bu yönergeleri yöneliktir, ancak şirket içi SQL Server'a yükleme yordamı aynıdır.
 

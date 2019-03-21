@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: adigan
-ms.openlocfilehash: b617ccee1826dfcc05ca7131d1eb04fd98b6b627
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a52f42fb194d2f39861a57c95a664ad57b4f91d1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811163"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895881"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Azure Stack üzerinde bir SharePoint grubunu yedekleme
 Bir SharePoint grubunu Azure Stack üzerinde Microsoft Azure'a çok diğer veri kaynaklarını yedekleme aynı şekilde, Microsoft Azure Backup sunucusu (MABS) kullanarak yedekleyebilirsiniz. Azure Backup, yedekleme zamanlaması günlük oluşturmak için esneklik sağlar, haftalık, aylık veya yıllık yedekleme işaret ve çeşitli yedekleme noktaları için bekletme ilkesi seçenekleri sunar. Ayrıca, Hızlı Kurtarma süresi hedeflerini (RTO) için yerel disk kopyaları depolamak ve ekonomik, uzun süreli saklama için azure'a kopyaları depolamak için yeteneği sağlar.
@@ -23,7 +23,7 @@ Azure Backup MABS için aşağıdaki senaryoları destekler:
 
 | İş yükü | Sürüm | SharePoint dağıtımı | Koruma ve kurtarma |
 | --- | --- | --- | --- |
-| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |Azure Stack sanal makinesi olarak dağıtılan SharePoint <br> -------------- <br> SQL AlwaysOn | Kurtarma seçeneklerini SharePoint grubunu koruma: Kurtarma grubu, veritabanı ve disk kurtarma noktalarından dosya veya liste öğesi.  Azure kurtarma noktalarından kurtarma grubu ve veritabanı. |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |Bir Azure Stack sanal makinesi olarak dağıtılan SharePoint <br> -------------- <br> SQL AlwaysOn | Kurtarma seçeneklerini SharePoint grubunu koruma: Kurtarma grubu, veritabanı ve disk kurtarma noktalarından dosya veya liste öğesi.  Azure kurtarma noktalarından kurtarma grubu ve veritabanı. |
 
 ## <a name="before-you-start"></a>Başlamadan önce
 Bir SharePoint grubunu Azure'da yedekleme önce onaylamak için gereken birkaç nokta vardır.

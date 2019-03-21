@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2019
 ms.author: cynthn
-ms.openlocfilehash: 3aa3b29ef44d3efb21237dc0d82a1ee6e99e729b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 03501ea774cf58a4be88ed9155e5cfdfb99f0379
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328954"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007196"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Tanımlamak ve Azure'da çok kapsayıcılı bir uygulama çalıştırmak için Docker ve Compose kullanmaya başlama
-İle [Compose](http://github.com/docker/compose), birden fazla Docker kapsayıcılarını oluşan bir uygulamanın tanımlamak için basit bir metin dosyası kullanın. Ardından, uygulamanızda tanımlanmış ortamınıza dağıtmak için her şeyi yapan tek bir komut, hızla çalıştırın. Bu makalede örnek olarak, arka uç bir Ubuntu sanal MariaDB SQL veritabanı ile WordPress blogu hızlı bir şekilde ayarlama işlemini gösterir. Oluştur, daha karmaşık uygulamalar ayarlamak için de kullanabilirsiniz.
+İle [Compose](https://github.com/docker/compose), birden fazla Docker kapsayıcılarını oluşan bir uygulamanın tanımlamak için basit bir metin dosyası kullanın. Ardından, uygulamanızda tanımlanmış ortamınıza dağıtmak için her şeyi yapan tek bir komut, hızla çalıştırın. Bu makalede örnek olarak, arka uç bir Ubuntu sanal MariaDB SQL veritabanı ile WordPress blogu hızlı bir şekilde ayarlama işlemini gösterir. Oluştur, daha karmaşık uygulamalar ayarlamak için de kullanabilirsiniz.
 
 Bu makalede son 14/2/2019 kullanarak test [Azure Cloud Shell](https://shell.azure.com/bash) ve [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 2.0.58 sürümü.
 
@@ -132,7 +132,7 @@ azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/
 ![WordPress başlangıç ekranı](./media/docker-compose-quickstart/wordpressstart.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanıma [komut satırı başvurusu Compose](http://docs.docker.com/compose/reference/) ve [Kullanıcı Kılavuzu](http://docs.docker.com/compose/) oluşturmaya ve çok kapsayıcılı uygulamalar dağıtmaya ilişkin daha fazla örnek için.
+* Kullanıma [komut satırı başvurusu Compose](https://docs.docker.com/compose/reference/) ve [Kullanıcı Kılavuzu](https://docs.docker.com/compose/) oluşturmaya ve çok kapsayıcılı uygulamalar dağıtmaya ilişkin daha fazla örnek için.
 * Bir Azure Resource Manager şablonu kullanın ya da, kendi ya da bir katkıda bulunan [topluluk](https://azure.microsoft.com/documentation/templates/), Docker ve Compose ile ayarlanmış bir uygulama ile bir Azure VM dağıtmak için. Örneğin, [WordPress blogu ile Docker dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) hızla bir MySQL arka ucuna bir Ubuntu sanal ile WordPress dağıtmak için şablonu kullanan Docker ve Compose.
 * Docker Compose, Docker Swarm kümesi ile tümleştirme deneyin. Bkz: [kullanarak Compose Swarm ile](https://docs.docker.com/compose/swarm/) senaryolar için.
 

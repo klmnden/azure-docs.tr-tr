@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 6a73ef058a76152678099eca3f1bd15590b0b03d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238803"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089973"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Çalıştırma ve U-SQL Azure Data Lake U-SQL SDK'sı ile test etme
 
@@ -32,11 +32,11 @@ Data Lake U-SQL SDK'sı, aşağıdaki bağımlılıkları gerektirir:
 - [Microsoft .NET Framework 4.6 veya daha yeni](https://www.microsoft.com/download/details.aspx?id=17851).
 - Microsoft Visual C++ 14 ve Windows SDK'sı 10.0.10240.0 veya daha yeni (adlandırılan CppSDK bu makalede). CppSDK almanın iki yolu vardır:
 
-    - Yükleme [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Program dosyaları klasörü altında--örneğin C:\Program Files (x86) \Windows Kits\10\ \Windows Kits\10 klasörüne sahip olacaksınız. Ayrıca Windows 10 SDK sürüm \Windows Kits\10\Lib altında bulabilirsiniz. Bu klasörleri görmüyorsanız, Visual Studio'yu yeniden yükleyin ve yükleme sırasında Windows 10 SDK'yı seçtiğinizden emin olun. Visual Studio ile yüklenir bu varsa, U-SQL yerel Derleyici bunu otomatik olarak bulur.
+  - Yükleme [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Program dosyaları klasörü altında--örneğin C:\Program Files (x86) \Windows Kits\10\ \Windows Kits\10 klasörüne sahip olacaksınız. Ayrıca Windows 10 SDK sürüm \Windows Kits\10\Lib altında bulabilirsiniz. Bu klasörleri görmüyorsanız, Visual Studio'yu yeniden yükleyin ve yükleme sırasında Windows 10 SDK'yı seçtiğinizden emin olun. Visual Studio ile yüklenir bu varsa, U-SQL yerel Derleyici bunu otomatik olarak bulur.
 
     ![Visual Studio için Data Lake araçları yerel Windows 10 SDK'yı çalıştırma](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Yükleme [Visual Studio için Data Lake Araçları](https://aka.ms/adltoolsvs). Önceden paketlenmiş Visual C++ ve Windows SDK'sı dosyaları C:\Program Files (x86) \Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK bulabilirsiniz. Bu durumda, U-SQL yerel derleyici bağımlılıkları otomatik olarak bulunamıyor. İçin CppSDK yolunu belirtmeniz gerekir. Dosyaları başka bir konuma kopyalayın veya olduğu gibi kullanabilirsiniz.
+  - Yükleme [Visual Studio için Data Lake Araçları](https://aka.ms/adltoolsvs). Önceden paketlenmiş Visual C++ ve Windows SDK'sı dosyaları C:\Program Files (x86) \Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK bulabilirsiniz. Bu durumda, U-SQL yerel derleyici bağımlılıkları otomatik olarak bulunamıyor. İçin CppSDK yolunu belirtmeniz gerekir. Dosyaları başka bir konuma kopyalayın veya olduğu gibi kullanabilirsiniz.
 
 ## <a name="understand-basic-concepts"></a>Temel kavramlarını anlama
 
@@ -55,9 +55,9 @@ U-SQL betiklerini, hem göreli bir yol hem de yerel bir mutlak yol kullanabilirs
 
 |Göreli yol|Mutlak yol|
 |-------------|-------------|
-|/ABC/DEF/input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
-|ABC/DEF/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
-|D:/ABC/DEF/input.csv |D:\abc\def\input.csv|
+|/abc/def/input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
+|abc/def/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
+|D:/abc/def/input.csv |D:\abc\def\input.csv|
 
 ### <a name="working-directory"></a>Çalışma dizini
 
@@ -72,7 +72,7 @@ U-SQL betiğini yerel olarak çalışırken, bir çalışma dizini geçerli çal
 | | |\_ScopeCodeGenEngine\_. *|Derleyici çıkışı|Üretilen yerel kod|
 | | |Başvurulan derlemeler|Bütünleştirilmiş kod başvurusu|Başvurulan bütünleştirilmiş kod dosyaları|
 | | |deployed_resources|Kaynak dağıtımı|Kaynak dağıtım dosyaları|
-| | |xxxxxxxx.xxx[1..n]\_\*. *|Yürütme günlüğü|Günlük yürütme adımları|
+| | |xxxxxxxx.xxx[1..n]\_\*.*|Yürütme günlüğü|Günlük yürütme adımları|
 
 
 ## <a name="use-the-sdk-from-the-command-line"></a>Komut satırından SDK'sını kullanma
@@ -148,7 +148,7 @@ U-SQL yerel ihtiyaçlarını bağımlılıklar için belirtilen CppSDK yolu yan�
 |-UdoRedirect|False|Udo derleme yeniden yönlendirme yapılandırması oluşturma|
 |-UseDatabase|ana|Geçici bir bütünleştirilmiş kod kaydı arka plan kod için kullanılacak veritabanı|
 |-Verbose|False|Ayrıntılı çalışma zamanı çıkışları gösterme|
-|-Dockerfile'da kendisinden sonra gelen|Geçerli dizin|Derleyici kullanımı ve çıkış dizini|
+|-WorkDir|Geçerli dizin|Derleyici kullanımı ve çıkış dizini|
 |-RunScopeCEP|0|Kullanılacak ScopeCEP modu|
 |-ScopeCEPTempPath|Temp|Akış verileri için kullanılacak geçici yol.|
 |-OptFlags| |İyileştirici bayrakları virgülle ayrılmış listesi|
@@ -223,7 +223,7 @@ Kullanım örneği aşağıda verilmiştir:
 
 Programlama arabirimleri tüm LocalRunHelper.exe içinde yer alır. U-SQL betiğini yerel test ölçeklendirmek için U-SQL SDK'sı ve C# test çerçevesi işlevselliğini tümleştirmek için bunları kullanabilirsiniz. Bu makalede, bu arabirimler, U-SQL betiğini sınamak için nasıl kullanılacağını göstermek için standart C# birim testi projesi kullanacağım.
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>1. adım: C# birim testi projesi ve yapılandırması oluşturma
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>1. Adım: Oluşturma C# birim testi projesi ve yapılandırma
 
 - Bir C# birim testi projesi dosyası aracılığıyla oluşturma > Yeni > Proje > Visual C# > Test > birim testi projesi.
 - Proje için bir başvuru olarak LocalRunHelper.exe ekleyin. Nuget paketinde \build\runtime\LocalRunHelper.exe LocalRunHelper.exe bulunur.
@@ -240,7 +240,7 @@ Programlama arabirimleri tüm LocalRunHelper.exe içinde yer alır. U-SQL betiğ
 
 - Çalışma dizini, genellikle ProjectFolder\bin\x64\Debug altında olan proje NugetPackage\build\runtime\ altındaki tüm bağımlılık dosyaları kopyalamak emin olun.
 
-### <a name="step-2-create-u-sql-script-test-case"></a>2. adım: U-SQL betiği test çalışması oluşturma
+### <a name="step-2-create-u-sql-script-test-case"></a>2. Adım: U-SQL betiği test çalışması oluştur
 
 U-SQL betiği test için örnek kod aşağıda verilmiştir. Test etmek için betikleri, girdi dosyalarını ve beklenen Çıkış dosyalarını hazırlamanız gerekir.
 
@@ -332,7 +332,7 @@ LocalRunHelper.exe programlama arabirimleri U-SQL yerel derleme çalıştırın,
 
 Genel LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 
-|Parametre|Tür|Açıklama|
+|Parametre|Type|Açıklama|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|Çıkış iletileri için konsolunu kullanmak için null olarak|
 
@@ -340,35 +340,35 @@ Genel LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 
 |Özellik|Tür|Açıklama|
 |--------|----|-----------|
-|AlgebraPath|dize|Cebir dosyası yolu (Cebir dosyası olan bir derleme sonuçları)|
-|CodeBehindReferences|dize|Komut dosyası başvuruları arkasında ek kodu varsa, ile ayrılmış yolları belirtin. ';'|
-|CppSdkDir|dize|CppSDK dizini|
-|CurrentDir|dize|Geçerli dizin|
-|DataRoot|dize|Veri kök yolu|
-|DebuggerMailPath|dize|Hata ayıklayıcı yuvası yolu|
+|AlgebraPath|string|Cebir dosyası yolu (Cebir dosyası olan bir derleme sonuçları)|
+|CodeBehindReferences|string|Komut dosyası başvuruları arkasında ek kodu varsa, ile ayrılmış yolları belirtin. ';'|
+|CppSdkDir|string|CppSDK dizini|
+|CurrentDir|string|Geçerli dizin|
+|DataRoot|string|Veri kök yolu|
+|DebuggerMailPath|string|Hata ayıklayıcı yuvası yolu|
 |GenerateUdoRedirect|bool|Derleme yükleme oluşturmak isterseniz yeniden yönlendirme geçersiz yapılandırma|
 |HasCodeBehind|bool|Betik arkasındaki kodu varsa|
-|InputDir|dize|Giriş verileri için dizin|
-|MessagePath|dize|İleti döküm dosyasının yolu|
-|OutputDir|dize|Çıktı verileri için dizin|
+|InputDir|string|Giriş verileri için dizin|
+|MessagePath|string|İleti döküm dosyasının yolu|
+|OutputDir|string|Çıktı verileri için dizin|
 |Paralellik|int|Cebir çalıştırmak için paralellik|
 |ParentPid|int|Hizmet çıkmak için izleyen üst PID 0 olarak ayarlayın veya yok saymak için negatif|
-|ResultPath|dize|Sonuç döküm dosyası yolu|
-|RuntimeDir|dize|Çalışma Zamanı Modülü dizini|
-|ScriptPath|dize|Betik nerede bulacağını|
+|ResultPath|string|Sonuç döküm dosyası yolu|
+|RuntimeDir|string|Çalışma Zamanı Modülü dizini|
+|ScriptPath|string|Betik nerede bulacağını|
 |Yüzeysel|bool|Derleme veya basit|
-|TempDir ayarını|dize|Geçici dizin|
-|UseDataBase|dize|Geçici bir bütünleştirilmiş kod kaydı, varsayılan olarak ana arka plan kod için kullanmak istediğiniz veritabanını belirtin|
-|Workdır|dize|Tercih edilen çalışma dizini|
+|TempDir ayarını|string|Geçici dizin|
+|UseDataBase|string|Geçici bir bütünleştirilmiş kod kaydı, varsayılan olarak ana arka plan kod için kullanmak istediğiniz veritabanını belirtin|
+|Workdır|string|Tercih edilen çalışma dizini|
 
 
 **Yöntem**
 
-|Yöntem|Açıklama|Dönüş|Parametre|
+|Yöntem|Açıklama|Geri Dön|Parametre|
 |------|-----------|------|---------|
-|Genel bool DoCompile()|U-SQL betiği derleme|Başarılı olma durumunda true| |
+|public bool DoCompile()|U-SQL betiği derleme|Başarılı olma durumunda true| |
 |Genel bool DoExec()|Derlenen sonuçtaki yürütün|Başarılı olma durumunda true| |
-|Genel bool DoRun()|U-SQL betiği (derleme + yürütme) çalıştırın|Başarılı olma durumunda true| |
+|public bool DoRun()|U-SQL betiği (derleme + yürütme) çalıştırın|Başarılı olma durumunda true| |
 |Genel bool IsValidRuntimeDir (dize yolu)|Belirtilen yol geçerli çalışma zamanı yolu olup olmadığını denetleyin|TRUE geçerli|Çalışma zamanı dizinin yolu|
 
 
@@ -379,7 +379,7 @@ E_CSC_SYSTEM_INTERNAL: İç hata! Dosya veya derleme 'ScopeEngineManaged.dll' ve
 
 Lütfen aşağıdakileri denetleyin:
 
-- X64 sahip olduğunuzdan emin olun. ortam. Derleme hedef platform ve test ortamı x64 olması, sorun **1. adım: oluşturma C# birim testi projesi ve yapılandırma** yukarıda.
+- X64 sahip olduğunuzdan emin olun. ortam. Derleme hedef platform ve test ortamı x64 olması, sorun **1. adım: Oluşturma C# birim testi projesi ve yapılandırma** yukarıda.
 - Çalışma dizini proje NugetPackage\build\runtime\ altındaki tüm bağımlılık dosyaları kopyaladığınızdan emin olun.
 
 

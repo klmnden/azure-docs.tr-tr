@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05fda1b4f71f67714b4723e15533d3555d497249
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e5d8357d17f8a6b463546789dd4627b74924a763
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321679"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081007"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Bir SAP NetWeaver çoklu SID yapılandırması oluştur
 
@@ -114,7 +114,7 @@ Ek SAP ASCS/SCS örnekleri, mevcut WSFC kümesinde iki düğüm ile yükleyebili
 Aşağıdaki parametreleri kullanarak sanal ana bilgisayar adı ASCS/SCS örneği için bir DNS girişi oluşturabilirsiniz:
 
 | Yeni SAP ASCS/SCS sanal ana bilgisayar adı | İlişkili IP adresi |
-| --- | --- | --- |
+| --- | --- |
 |pr5 sap Temizle |10.0.0.50 |
 
 Yeni ana bilgisayar adı ve IP adresi DNS Yöneticisi'nde, aşağıdaki ekran görüntüsünde gösterildiği gibi görüntülenir:

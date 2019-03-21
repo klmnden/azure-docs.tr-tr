@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0885671d777d79c6f8a9fc993aa1224312705bce
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 5d6a7d77b442383817179fadc5878f02dfe86628
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650912"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089531"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Öğretici: Mevcut bir özel DNS adını Azure App Service'e eşlemek
 
@@ -145,7 +145,7 @@ CNAME kaydı eklediğiniz tam etki alanı adını (örneğin, `www.contoso.com`)
 
 **Ana bilgisayar adı ekle** sayfası gösterilir. 
 
-**Konak adı kayıt türü**'nün **CNAME (www.example.com veya herhangi bir alt etki alanı)** olarak ayarlandığından emin olun.
+Emin olun **konak adı kayıt türü** ayarlanır **CNAME (www\.example.com veya herhangi bir alt etki alanı)**.
 
 **Konak adı ekle**'yi seçin.
 
@@ -282,7 +282,7 @@ Joker karakter etki alanıyla (örneğin, `sub1.contoso.com`) eşleşen bir tam 
 
 **Konak adı ekle** düğmesi etkinleştirilir. 
 
-**Konak adı kayıt türü**'nün **CNAME kaydı (www.example.com veya herhangi bir alt etki alanı)** olarak ayarlandığından emin olun.
+Emin olun **konak adı kayıt türü** ayarlanır **CNAME kaydı (www\.example.com veya herhangi bir alt etki alanı)**.
 
 **Konak adı ekle**'yi seçin.
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 3dac469c2932276a903a516b71caa860f8870fa6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: bb827b80f79a53f30074b9230efe3e2049471051
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989347"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880781"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Azure üzerinde isteğe bağlı medya kodlayıcılarına karşılaştırması  
 
@@ -33,7 +33,7 @@ Aşağıdaki tabloda, Media Encoder Premium iş akışı (MEPW) ile Medya Kodlay
 |---|---|---|
 |Kodlama sırasında koşullu mantığı uygulama<br/>(giriş HD ise, örneğin, ardından 5.1 ses kodlama)|Hayır|Evet|
 |Kapalı Açıklamalı Altyazı|Hayır|[Evet](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
-|[Dolby® profesyonel ses yüksekliği düzeltme](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> iletişim kutusu Intelligence™ ile|Hayır|Evet|
+|[Dolby® profesyonel ses yüksekliği düzeltme](https://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> iletişim kutusu Intelligence™ ile|Hayır|Evet|
 |Titreşim, ters telesine|Temel|Yayın kalitesinde|
 |Algılama ve siyah kenarlıklar kaldırma <br/>(pillarboxes letterboxes)|Hayır|Evet|
 |Küçük resim oluşturma|[Evet](media-services-dotnet-generate-thumbnail-with-mes.md)|[Evet](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
@@ -153,4 +153,4 @@ Aşağıdaki tabloda, Media Encoder Premium iş akışı (MEPW) ile Medya Kodlay
 * [Kotalar ve sınırlamalar](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
-[1]: http://azure.microsoft.com/pricing/details/media-services/
+[1]: https://azure.microsoft.com/pricing/details/media-services/

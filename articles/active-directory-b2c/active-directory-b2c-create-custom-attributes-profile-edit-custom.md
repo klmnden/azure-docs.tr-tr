@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1f79330f12117c6ade8884165d1538623e19c7ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6be2a2d6febfe927cadbdeb12dc91b0e103d6ac4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175273"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094635"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Özel bir profilde özel öznitelikler kullanın ilkesini Düzenle
 
@@ -260,20 +260,20 @@ Uygulamanıza geri yeni uzantı özelliğinin önünde bir özel talep olarak i�
 
 1. Aşağıdaki değiştirerek sosyal hesapları için oturum açmak için akışlar için yeni talep ekleyin **TechnicalProfiles**. Sosyal ve Federasyon hesaplarını kullanan bu iki **TechnicalProfiles** oturum açmak için. Yazma ve kullanıcı verilerini okumak **alternativeSecurityId** Bulucu kullanıcı nesnesinin olarak.
 
-  ```xml
+   ```xml
     <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
     <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-  ```
+   ```
 
 2. Aynı uzantı öznitelikleri arasında yerleşik ve özel ilkeleri kullanın. Uzantısı ya da özel, öznitelikleri portal deneyimi eklediğinizde, bu öznitelikleri kullanarak kayıtlı **b2c-extensions-app** her B2C kiracısında mevcut. Uzantı öznitelikleri, özel ilkeniz kullanmak için aşağıdaki adımları uygulayın:
 
-  a. B2C kiracınızda Portal.Azure.com gidin **Azure Active Directory** seçip **uygulama kayıtları**.  
-  b. Bulma, **b2c-extensions-app** ve bu seçeneği belirleyin.  
-  c. Altında **Essentials**, girin **uygulama kimliği** ve **nesne kimliği**.  
-  d. İçine dahil, **AAD yaygın** TechnicalProfile meta verileri:  
+   a. B2C kiracınızda Portal.Azure.com gidin **Azure Active Directory** seçip **uygulama kayıtları**.  
+   b. Bulma, **b2c-extensions-app** ve bu seçeneği belirleyin.  
+   c. Altında **Essentials**, girin **uygulama kimliği** ve **nesne kimliği**.  
+   d. İçine dahil, **AAD yaygın** TechnicalProfile meta verileri:  
 
-  ```xml
+   ```xml
       <ClaimsProviders>
         <ClaimsProvider>
           <DisplayName>Azure Active Directory</DisplayName>
@@ -285,14 +285,14 @@ Uygulamanıza geri yeni uzantı özelliğinin önünde bir özel talep olarak i�
               <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
               <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
             </Metadata>
-  ```
+   ```
 
 3. Portal deneyimiyle tutarlı kalır. Bu öznitelikler, özel ilkelerinizi kullanmadan önce portal kullanıcı arabirimini kullanarak oluşturun. Bir öznitelik oluşturduğunuzda **ActivationStatus** portalında, kendisine şu şekilde başvurması gerekir:
 
-  ```
-  extension_ActivationStatus in the custom policy.
-  extension_<app-guid>_ActivationStatus via Graph API.
-  ```
+   ```
+   extension_ActivationStatus in the custom policy.
+   extension_<app-guid>_ActivationStatus via Graph API.
+   ```
 
 ## <a name="reference"></a>Başvuru
 

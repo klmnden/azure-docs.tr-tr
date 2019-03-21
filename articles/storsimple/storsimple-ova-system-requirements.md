@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 7e5cf79613bdbd62427e99a0d1f2aa29ed8f85be
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: becf48320b346feea82944ed2f7e752125795d40
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245200"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999512"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple Sanal Dizini sistem gereksinimleri
 ## <a name="overview"></a>Genel Bakış
@@ -52,7 +52,7 @@ Yazılım gereksinimleri, desteklenen web tarayıcıları, SMB sürümleri, sana
 | --- | --- |
 | En az kaç sanal işlemci (çekirdek) |4 |
 | Minimum bellek (RAM) |8 GB <br> Dosya sunucusu, 8 GB 2 milyondan az dosyaları ve 2-4 milyon dosyaları için 16 GB için|
-| Disk alanı<sup>1</sup> |İşletim sistemi diski - 80 GB <br></br>Veri diski - 500 GB ile 8 TB |
+| Disk alanı<sup>1</sup> |OS disk - 80 GB <br></br>Veri diski - 500 GB ile 8 TB |
 | En düşük ağ arabirimleri sayısı |1 |
 | Internet bant genişliği<sup>2</sup> |Gereken en düşük bant genişliği: 5 MB/sn <br> Önerilen bant genişliği: 100 Mbps <br> Veri aktarımı ölçekler Internet bant genişliği hızı. Örneğin, 100 GB veri günlük yedeklemeler, bir gün içinde tamamlamak değil çünkü hangi yedekleme hatalarına neden 5 MB/sn hızında aktarmak için 2 gün sürer. 100 MB/sn bant genişliği ile 2.5 saat içinde 100 GB veri aktarılabilir.   |
 
@@ -72,7 +72,7 @@ Aşağıdaki yazılım gereksinimleri, StorSimple sanal (bir iSCSI sunucusu olar
 
 | **Desteklenen işletim sistemleri** | **Gerekli sürümü** | **Ek gereksinimler/Notlar** |
 | --- | --- | --- |
-| Windows Server |2008R2 SP1, 2012, 2012 R2 |StorSimple, ölçülü kaynak kullanan ve tam olarak sağlanan oluşturabilir birimleri. Bu kısmen sağlanan birimler oluşturamazsınız. StorSimple iSCSI birimlerini yalnızca desteklenir: <ul><li>Windows temel disklerde birimleri basit.</li><li>Bir birimi biçimlendirmek için Windows NTFS.</li> |
+| Windows Server |2008R2 SP1, 2012, 2012R2 |StorSimple, ölçülü kaynak kullanan ve tam olarak sağlanan oluşturabilir birimleri. Bu kısmen sağlanan birimler oluşturamazsınız. StorSimple iSCSI birimlerini yalnızca desteklenir: <ul><li>Windows temel disklerde birimleri basit.</li><li>Bir birimi biçimlendirmek için Windows NTFS.</li> |
 
 Aşağıdaki yazılım gereksinimleri, StorSimple sanal (dosya sunucusu olarak yapılandırılmış) dizininiz erişen SMB istemcileri içindir.
 
@@ -94,10 +94,10 @@ Aşağıdaki tablo, iSCSI, SMB, Bulut veya yönetim trafiği için izin vermek i
 
 | **Bağlantı noktası No<sup>1</sup>** | **Daraltma veya genişletme** | **Bağlantı noktası kapsamı** | **Gerekli** | **Notlar** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |Çıkan |WAN |Hayır |Giden bağlantı noktası, güncelleştirmeleri almak için Internet erişimi için kullanılır. <br></br>Kullanıcı tarafından yapılandırılabilir bir giden web Ara sunucudur. |
-| TCP 443 (HTTPS) |Çıkan |WAN |Evet |Giden bağlantı noktası, bulut veri erişimi için kullanılır. <br></br>Kullanıcı tarafından yapılandırılabilir bir giden web Ara sunucudur. |
-| UDP 53 (DNS) |Çıkan |WAN |Bazı durumlarda; notlara bakın. |Yalnızca bir Internet tabanlı bir DNS sunucusu kullanıyorsanız bu bağlantı noktası gereklidir. <br></br> Bir dosya sunucusunu dağıtma, yerel DNS sunucusunu kullanmanızı öneririz olduğunu unutmayın. |
-| UDP 123 (NTP) |Çıkan |WAN |Bazı durumlarda; notlara bakın. |Yalnızca bir Internet tabanlı bir NTP sunucusu kullanıyorsanız bu bağlantı noktası gereklidir.<br></br> Bir dosya sunucusu dağıtıyorsanız, Active Directory etki alanı denetleyicileriyle saati eşitleme öneririz olduğunu unutmayın. |
+| TCP 80 (HTTP) |Çıkış |WAN |Hayır |Giden bağlantı noktası, güncelleştirmeleri almak için Internet erişimi için kullanılır. <br></br>Kullanıcı tarafından yapılandırılabilir bir giden web Ara sunucudur. |
+| TCP 443 (HTTPS) |Çıkış |WAN |Evet |Giden bağlantı noktası, bulut veri erişimi için kullanılır. <br></br>Kullanıcı tarafından yapılandırılabilir bir giden web Ara sunucudur. |
+| UDP 53 (DNS) |Çıkış |WAN |Bazı durumlarda; notlara bakın. |Yalnızca bir Internet tabanlı bir DNS sunucusu kullanıyorsanız bu bağlantı noktası gereklidir. <br></br> Bir dosya sunucusunu dağıtma, yerel DNS sunucusunu kullanmanızı öneririz olduğunu unutmayın. |
+| UDP 123 (NTP) |Çıkış |WAN |Bazı durumlarda; notlara bakın. |Yalnızca bir Internet tabanlı bir NTP sunucusu kullanıyorsanız bu bağlantı noktası gereklidir.<br></br> Bir dosya sunucusu dağıtıyorsanız, Active Directory etki alanı denetleyicileriyle saati eşitleme öneririz olduğunu unutmayın. |
 | TCP 80 (HTTP) |İçinde |LAN |Evet |Bu, yerel yönetim için StorSimple cihazında yerel kullanıcı Arabirimi için gelen bağlantı noktasıdır. <br></br> HTTP üzerinden yerel UI erişme HTTPS için otomatik olarak yeniden olduğunu unutmayın. |
 | TCP 443 (HTTPS) |İçinde |LAN |Evet |Bu, yerel yönetim için StorSimple cihazında yerel kullanıcı Arabirimi için gelen bağlantı noktasıdır. |
 | TCP 3260'ın (iSCSI) |İçinde |LAN |Hayır |Bu bağlantı noktası üzerinde iSCSI verilere erişmek için kullanılır. |
@@ -125,12 +125,12 @@ StorSimple liberally çoğu zaman sabit IP adreslerinin, temel giden trafik içi
 | --- | --- |
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*` <br>`https://login.windows.net`|StorSimple Cihaz Yöneticisi hizmeti<br>Access Control Service<br>Azure Service Bus<br>Kimlik Doğrulama Hizmeti|
 | `http://*.backup.windowsazure.com` |Cihaz kaydı |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Sertifika iptal etme |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Sertifika iptal etme |
 | `https://*.core.windows.net/*`<br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Azure depolama hesapları ve izleme |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Microsoft Update sunucularına<br> |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Microsoft Update sunucularına<br> |
 | `http://*.deploy.akamaitechnologies.com` |Akamai CDN |
 | `https://*.partners.extranet.microsoft.com/*` |Destek paketi |
-| `http://*.data.microsoft.com ` |Telemetri hizmeti, Windows bkz [müşteri deneyimini ve tanılama telemetrisi güncelleştirmesi](https://support.microsoft.com/en-us/kb/3068708) |
+| `https://*.data.microsoft.com ` |Telemetri hizmeti, Windows bkz [müşteri deneyimini ve tanılama telemetrisi güncelleştirmesi](https://support.microsoft.com/en-us/kb/3068708) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [StorSimple Virtual Array'iniz dağıtmak için portalı hazırlama](storsimple-virtual-array-deploy1-portal-prep.md)

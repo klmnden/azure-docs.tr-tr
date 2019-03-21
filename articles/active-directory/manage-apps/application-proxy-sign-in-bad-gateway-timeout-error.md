@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 995f9d2bc0ad0a6b985790d75a63866a3a2d55bc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f8db5552ad81a1a47db72a5372e643a6fc167888
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445373"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091214"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Uygulama proxy'si uygulaması kullanılırken "Şirket bu uygulamaya erişemezsiniz" hatası
 
@@ -75,19 +75,19 @@ Azure'daki uygulama için kullanıcının atandığı onaylayın, arka uç uygul
 
 Uygulamayı doğrulamak için bağlayıcı grubunda çalışan atanır:
 
-1.  Uygulama giderek portalda açın **Azure Active Directory**, öğesine tıklayarak **kurumsal uygulamalar**, ardından **tüm uygulamalar.** Uygulamayı açın ve sonra seçin **uygulama proxy'si** sol menüden.
+1. Uygulama giderek portalda açın **Azure Active Directory**, öğesine tıklayarak **kurumsal uygulamalar**, ardından **tüm uygulamalar.** Uygulamayı açın ve sonra seçin **uygulama proxy'si** sol menüden.
 
-2.  Bağlayıcı grubu alanına bakın. Grup içinde etkin bağlayıcı yok varsa, bir uyarı görürsünüz. Tüm uyarılar görmüyorsanız, "tüm bağlantı noktaları güvenilir listededir doğrula" geçin.
+2. Bağlayıcı grubu alanına bakın. Grup içinde etkin bağlayıcı yok varsa, bir uyarı görürsünüz. Tüm uyarılar görmüyorsanız, "tüm bağlantı noktaları güvenilir listededir doğrula" geçin.
 
-3.  Bağlayıcı grubu yanlış gösteriliyorsa, doğru grubunu seçin ve tüm uyarılar artık bkz onaylamak için açılan listeyi kullanın. Hedeflenen bir bağlayıcı grubu gösteriliyorsa, uyarı iletisi Bağlayıcısı Yönetim sayfasını açmak için tıklayın.
+3. Bağlayıcı grubu yanlış gösteriliyorsa, doğru grubunu seçin ve tüm uyarılar artık bkz onaylamak için açılan listeyi kullanın. Hedeflenen bir bağlayıcı grubu gösteriliyorsa, uyarı iletisi Bağlayıcısı Yönetim sayfasını açmak için tıklayın.
 
-4.  Buradan daha fazla ayrıntıya birkaç yolu vardır:
+4. Buradan daha fazla ayrıntıya birkaç yolu vardır:
 
-  * Etkin bir bağlayıcı grubuna taşıyın: Bu gruba ait olmalıdır ve görebilmesi hedef arka uç uygulaması için olan bir etkin bağlayıcı varsa, bağlayıcı atanan grubuna taşıyabilirsiniz. Bunu yapmak için bağlayıcı'yı tıklayın. "Bağlayıcı grubu" alanında doğru grubunu seçin ve Kaydet'e tıklayın için açılan listeyi kullanın.
+   * Etkin bir bağlayıcı grubuna taşıyın: Bu gruba ait olmalıdır ve görebilmesi hedef arka uç uygulaması için olan bir etkin bağlayıcı varsa, bağlayıcı atanan grubuna taşıyabilirsiniz. Bunu yapmak için bağlayıcı'yı tıklayın. "Bağlayıcı grubu" alanında doğru grubunu seçin ve Kaydet'e tıklayın için açılan listeyi kullanın.
 
-  * Bu grup için yeni bir bağlayıcı indirin: Bu sayfadan bağlantısını alın [yeni bir bağlayıcı indirmek](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Bağlayıcıyı doğrudan görebilmesi için arka uç uygulaması ile bir makineye yükleyin. Genellikle, bağlayıcı uygulama ile aynı sunucuya yüklenir. Bağlayıcı bağlantısını indirin, hedef makineye bir bağlayıcı indirmek için kullanın. Ardından, Bağlayıcısı'nı tıklatın ve "Bağlayıcı grubu" açılan doğru gruba ait emin olmak için kullanın.
+   * Bu grup için yeni bir bağlayıcı indirin: Bu sayfadan bağlantısını alın [yeni bir bağlayıcı indirmek](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Bağlayıcıyı doğrudan görebilmesi için arka uç uygulaması ile bir makineye yükleyin. Genellikle, bağlayıcı uygulama ile aynı sunucuya yüklenir. Bağlayıcı bağlantısını indirin, hedef makineye bir bağlayıcı indirmek için kullanın. Ardından, Bağlayıcısı'nı tıklatın ve "Bağlayıcı grubu" açılan doğru gruba ait emin olmak için kullanın.
 
-  * Etkin olmayan bir bağlayıcı araştırın: Bağlayıcıyı devre dışı olarak gösteriyorsa, hizmete bağlanamıyoruz. Bu hata genellikle engellenme bazı gerekli bağlantı noktaları nedeniyle kaynaklanır. Bu sorunu çözmek için "Beyaz listeye tüm bağlantı noktaları olduğundan emin olun." geçin
+   * Etkin olmayan bir bağlayıcı araştırın: Bağlayıcıyı devre dışı olarak gösteriyorsa, hizmete bağlanamıyoruz. Bu hata genellikle engellenme bazı gerekli bağlantı noktaları nedeniyle kaynaklanır. Bu sorunu çözmek için "Beyaz listeye tüm bağlantı noktaları olduğundan emin olun." geçin
 
 Kullandıktan sonra uygulama bağlayıcıları, çalışma ile bir gruba atanmış emin olmak için aşağıdaki adımları uygulamayı yeniden sınayın. Yine de çalışmazsa sonraki bölüme devam edin.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d1f1ec45e1d4fc2fc6091a2f946caf6bc59441a9
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: a516f99af05ba3f3bb7ab98d3def123a488e0d9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417066"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075910"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API’sini kullanma
 
@@ -45,7 +45,7 @@ Bir B2C kiracısına sahip sonra kullanarak uygulamanızı kaydetmek gereken [Az
 3. Sol gezinti bölmesinde **tüm hizmetleri**, tıklayın **uygulama kayıtları**, tıklatıp **Ekle**.
 4. Komut istemlerini izleyin ve yeni bir uygulama oluşturun. 
     1. Seçin **Web uygulaması / API** uygulama türü olarak.    
-    2. Sağlamak **tüm oturum açma URL'si** (örneğin https://B2CGraphAPI) Bu örnek için uygun olmadığından.  
+    2. Sağlamak **tüm oturum açma URL'si** (örneğin `https://B2CGraphAPI`) Bu örnek için uygun olmadığından.  
 5. Uygulama olacak şimdi oluşturan uygulamalar listesinde göster elde etmek için **uygulama kimliği** (istemci kimliği olarak da bilinir). Bir sonraki bölümde ihtiyacınız olacak şekilde kopyalayın.
 6. Ayarlar menüsünde tıklatın **anahtarları**.
 7. İçinde **parolaları** bölüm anahtarı için bir açıklama girin ve bir süre seçin ve ardından **Kaydet**. Bir sonraki bölümde kullanmak için (istemci gizli anahtarı olarak da bilinir) anahtar değerini kopyalayın.

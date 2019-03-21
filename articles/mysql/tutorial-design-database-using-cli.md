@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: d4ef9d42b90eef69d99d1c45398e0d69520dff8f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 951cf377c7e33dd3dd5e13a7b42fa05bec06245d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552121"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012378"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Öğretici: Azure CLI kullanarak MySQL için Azure veritabanı tasarlama
 
@@ -184,6 +184,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 `az mysql server restore` komutu için aşağıdaki parametreler gerekir:
+
 | Ayar | Önerilen değer | Açıklama  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Kaynak sunucunun bulunduğu kaynak grubu.  |

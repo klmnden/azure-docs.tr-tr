@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 34f1b023b2ea2451f3308666d156278e92afb4aa
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d1cff1011e190e5fbb2874657cbdfbdc68bde0c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565981"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084404"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uygulama durumunu uzantısı ile sanal makine ölçek kümeleri
 Uygulamanızın sistem durumu izleme, yönetme ve yükseltme dağıtımınız için önemli bir sinyaldir. Azure sanal makine ölçek kümeleri için destek sağlar [toplu yükseltmeler](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) dahil olmak üzere [otomatik işletim sistemi görüntüsü yükseltme](virtual-machine-scale-sets-automatic-upgrade.md), dağıtımınızı yükseltmek için tek tek örneklerini sistem durumu izlemeye güvenin .
@@ -64,19 +64,19 @@ Uygulama durumunu Uzantı Şeması aşağıdaki JSON'u göstermektedir. Uzantı 
 ### <a name="property-values"></a>Özellik değerleri
 
 | Ad | Değer / örnek | Veri Türü
-| ---- | ---- | ---- | ----
+| ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
-| Yayımcı | `Microsoft.ManagedServices` | dize |
-| type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | dize |
+| Yayımcı | `Microsoft.ManagedServices` | string |
+| type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
 | typeHandlerVersion | `1.0` | int |
 
 ### <a name="settings"></a>Ayarlar
 
 | Ad | Değer / örnek | Veri Türü
 | ---- | ---- | ----
-| protokol | `http` veya `tcp` | dize |
+| protokol | `http` veya `tcp` | string |
 | port | Protokol olduğunda isteğe bağlı `http`zorunlu Protokolü `tcp` | int |
-| requestPath | Protokol olduğunda zorunlu `http`, protokol olduğunda izin verilmiyor `tcp` | dize |
+| requestPath | Protokol olduğunda zorunlu `http`, protokol olduğunda izin verilmiyor `tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Uygulama durumunu uzantısı dağıtma
 Ölçek kümenizi uzantısı, aşağıdaki örneklerde açıklandığı ayarlar uygulama durumunu dağıtma birden çok yolu vardır.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 8b46839d26130f37f4f4ba5559f5699498b0e60f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 2cb70c67bc4719eb43c4fcb70edf574c57362f26
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599408"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013278"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Sorun giderme durumu Azure Traffic Manager'da düşürülmüş
 
@@ -41,7 +41,7 @@ Traffic Manager'ın sistem durumunu görüntüler, bir **Inactive** durumu ve ar
 
 Bir araştırma hatası sorunlarını gidermek için HTTP durum kodu araştırma URL'den dönüş gösteren bir aracı gerekir. Ham HTTP yanıtı gösteren birçok araç vardır.
 
-* [Fiddler](http://www.telerik.com/fiddler)
+* [Fiddler](https://www.telerik.com/fiddler)
 * [Curl](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 

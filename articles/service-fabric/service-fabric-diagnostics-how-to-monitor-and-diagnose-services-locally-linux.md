@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 33ada343738e113e8f14e1e5ac4a0e8aee481670
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 144b3f8ae210d515695c2184c2c3193084755746
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185474"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841030"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>İçinde bir yerel makine dağıtım kurulumunda Hizmetleri izleme ve tanılama
 
@@ -35,7 +35,7 @@ ms.locfileid: "55185474"
 
 ## <a name="debugging-service-fabric-java-applications"></a>Service Fabric Java uygulamalarında hata ayıklama
 
-Java uygulamaları için [birden çok günlük altyapılarına](http://en.wikipedia.org/wiki/Java_logging_framework) kullanılabilir. Bu yana `java.util.logging` varsayılan seçenek JRE ile de için kullanıldığı [kodu github'da örnekleri](http://github.com/Azure-Samples/service-fabric-java-getting-started). Aşağıdaki tartışma nasıl yapılandırılacağını açıklar `java.util.logging` framework.
+Java uygulamaları için [birden çok günlük altyapılarına](https://en.wikipedia.org/wiki/Java_logging_framework) kullanılabilir. Bu yana `java.util.logging` varsayılan seçenek JRE ile de için kullanıldığı [kodu github'da örnekleri](https://github.com/Azure-Samples/service-fabric-java-getting-started). Aşağıdaki tartışma nasıl yapılandırılacağını açıklar `java.util.logging` framework.
 
 Java.Util.Logging kullanarak uygulama günlüklerinizi bellek, çıkış akışları, konsol dosyaları ya da yuva yönlendirebilirsiniz. Bu seçeneklerin her biri için zaten çerçevesinde sağlanan varsayılan işleyicileri vardır. Oluşturabileceğiniz bir `app.properties` dosya işleyicisi için tüm günlükleri yerel bir dosyaya yeniden yönlendirmek uygulamanızın yapılandırma dosyası.
 
@@ -64,7 +64,7 @@ Bu yapılandırma günlüklerinde yenilenen bir biçimde toplanan sonuçları `/
 
 Herhangi işleyici açıkça yapılandırdıysanız, varsayılan olarak konsol işleyici kayıtlı. Bir syslog /var/log/syslog altında günlükleri görüntüleyebilirsiniz.
 
-Daha fazla bilgi için [kodu github'da örnekleri](http://github.com/Azure-Samples/service-fabric-java-getting-started).
+Daha fazla bilgi için [kodu github'da örnekleri](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 
 ## <a name="debugging-service-fabric-c-applications"></a>Service Fabric C# uygulamalarında hata ayıklama

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: d5ca9e602416e6e575be8b79942cd6dba2a2fd69
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: eb7f368100269c4e47076bb6b78bafc23e7a6089
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889163"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845612"
 ---
 # <a name="streaming-endpoints"></a>Akış Uç Noktaları
 
@@ -39,7 +39,7 @@ Tablo türleri açıklanmaktadır:
 
 |Type|Ölçek birimleri|Açıklama|
 |--------|--------|--------|  
-|**Standart akış uç noktası** (önerilir)|0|**Standart** türü neredeyse tüm akış senaryoları ve hedef kitle boyutları için önerilen seçenektir. **Standart** türü giden bant genişliğini otomatik olarak ölçeklendirir. <br/>Media Services ile son derece gereksinimleri yoğunlukta olan çeşitli müşteriler için teklif **Premium** akış uç noktaları kullanılabilir ölçek artırma kapasitesi en büyük internet izleyiciler için. Geniş kitlelere ve eş zamanlı görüntüleyiciler düşünüyorsanız bizimle iletişime geçin amsstreaming@microsoft.com taşımak gereken yönergeler **Premium** türü. |
+|**Standart akış uç noktası** (önerilir)|0|**Standart** türü neredeyse tüm akış senaryoları ve hedef kitle boyutları için önerilen seçenektir. **Standart** türü giden bant genişliğini otomatik olarak ölçeklendirir. <br/>Media Services ile son derece gereksinimleri yoğunlukta olan çeşitli müşteriler için teklif **Premium** akış uç noktaları kullanılabilir ölçek artırma kapasitesi en büyük internet izleyiciler için. Geniş kitlelere ve eş zamanlı görüntüleyiciler bekliyorsanız, bizimle iletişim kurun amsstreaming\@microsoft.com taşımak gereken yönergeler **Premium** türü. |
 |**Premium akış uç noktası**|>0|**Premium** akış uç noktaları, adanmış ve ölçeklenebilir bant genişliği kapasitesi sağlar; dolayısıyla gelişmiş iş yükleri için uygundur. Geçmeden bir **Premium** ayarlayarak türü `scaleUnits`. `scaleUnits` 200 MB/sn'lik artışlarla satın alınabilir adanmış çıkış kapasitesi sağlar. Kullanırken **Premium** türü, her etkin birim, uygulamaya ek bant genişliği kapasitesi sağlar. |
 
 ## <a name="working-with-cdn"></a>CDN ile çalışma
@@ -64,34 +64,34 @@ Bu bölüm, akış uç noktasının özelliklerini bazıları hakkında ayrınt�
   
     Tüm veri merkezlerini, Azure CDN tümleştirmesini desteklemiyor. Veri merkezinizde Azure CDN tümleştirmesi kullanılabilir sahip olup olmadığını denetlemek için aşağıdakileri yapın:
  
-   - Ayarlamaya `cdnEnabled` true.
-   - Denetlemek için döndürülen sonuç bir `HTTP Error Code 412` (PreconditionFailed), "Akış uç noktası CdnEnabled özellik CDN özelliği geçerli bölgede kullanılamıyor gibi true olarak ayarlanamaz." iletisi ile 
+  - Ayarlamaya `cdnEnabled` true.
+  - Denetlemek için döndürülen sonuç bir `HTTP Error Code 412` (PreconditionFailed), "Akış uç noktası CdnEnabled özellik CDN özelliği geçerli bölgede kullanılamıyor gibi true olarak ayarlanamaz." iletisi ile 
 
     Bu hatayı alırsanız veri merkezi bunu desteklemez. Başka bir veri merkezinde çalışmanız gerekir.
 - `cdnProfile` - `cdnEnabled` Ayarlandığında true de geçirebilirsiniz `cdnProfile` değerleri. `cdnProfile` CDN profil adı, CDN uç noktası oluşturulacağı ' dir. Mevcut bir cdnProfile sağlamak veya yeni bir tane kullanın. Değer NULL ise ve `cdnEnabled` true, "AzureMediaStreamingPlatformCdnProfile" kullanılan varsayılan değer olan. Varsa sağlanan `cdnProfile` zaten varolan bir uç nokta altında oluşturulur. Profil mevcut değilse yeni bir profil otomatik olarak oluşturulur.
 - `cdnProvider` -CDN etkinleştirildiğinde de geçirebilirsiniz `cdnProvider` değerleri. `cdnProvider` hangi sağlayıcısı kullanılacak denetler. Şu anda üç değerleri desteklenir: "StandardVerizon", "PremiumVerizon" ve "StandardAkamai". Hiçbir değer sağlanmışsa ve `cdnEnabled` true ise "StandardVerizon" (varsayılan değer olan) kullanılır.
-- `crossSiteAccessPolicies` -Çeşitli istemciler için erişim ilkeleri siteler arası belirtmek için kullanılır. Daha fazla bilgi için [etki alanları arası ilke dosyası belirtimi](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) ve [bir hizmet üzerinden etki alanı sınırlarında kullanılabilir hale getirme](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).
+- `crossSiteAccessPolicies` -Çeşitli istemciler için erişim ilkeleri siteler arası belirtmek için kullanılır. Daha fazla bilgi için [etki alanları arası ilke dosyası belirtimi](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) ve [bir hizmet üzerinden etki alanı sınırlarında kullanılabilir hale getirme](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).
 - `customHostNames` -Bir akış için bir özel konak adı yönlendirilmiş trafiğini kabul edecek şekilde uç noktası yapılandırmak için kullanılır.  Bu özellik standart ve Premium akış uç noktaları için geçerlidir ve ne zaman ayarlanabilir `cdnEnabled`: false.
     
     Etki alanı sahipliğini, Media Services tarafından onaylanmalıdır. Media Services gerektirerek etki alanı adı sahipliğini doğrulayan bir `CName` Media Services hesabı kimliği olarak kullanılan etki alanına eklenmesi için bir bileşen içeren kayıt. Örneğin, "bir kayıt için akış uç noktası için bir özel konak adı olarak kullanılacak sports.contoso.com" için `<accountId>.contoso.com` Media Services doğrulama ana bilgisayar adlarından birini işaret edecek şekilde yapılandırılması gerekir. Doğrulama ana bilgisayar adı verifydns oluşur. \<mediaservices dns bölgesi >. 
 
     Farklı Azure bölgelerine için doğrulama kaydında kullanılacak beklenen DNS bölgeleri şunlardır:
   
-    - Kuzey Amerika, Avrupa, Singapur, Hong Kong, Japonya:
+  - Kuzey Amerika, Avrupa, Singapur, Hong Kong, Japonya:
       
-      - `media.azure.net`
-      - `verifydns.media.azure.net`
+    - `media.azure.net`
+    - `verifydns.media.azure.net`
       
-    - Çin'de:
+  - Çin'de:
         
-      - `mediaservices.chinacloudapi.cn`
-      - `verifydns.mediaservices.chinacloudapi.cn`
+    - `mediaservices.chinacloudapi.cn`
+    - `verifydns.mediaservices.chinacloudapi.cn`
         
     Örneğin, bir `CName` "945a4c4e-28ea-45 cd-8ccb-a519f6b700ad.contoso.com" için "verifydns.media.azure.net" eşleyen kaydı kanıtlar medya Hizmetleri kimliği 945a4c4e-28ea-45cd-8ccb-a519f6b700ad bu nedenle contoso.com etki alanının sahipliğini sahip Bu hesap altında bir akış uç noktası için bir özel konak adı olarak kullanılacak contoso.com altındaki herhangi bir ad etkinleştiriliyor. Medya hizmeti kimlik değerini bulmak için Git [Azure portalında](https://portal.azure.com/) ve medya hizmeti hesabınızı seçin. **Hesap kimliği** üstte görünür sayfanın sağ.
         
     Uygun bir doğrulaması olmadan bir özel konak adı ayarlama girişimi varsa `CName` kaydı, DNS yanıtının başarısız olur ve bir süre sonra önbelleğe alınabilir. Uygun bir kayıt yerleştirildikten sonra önbelleğe alınan yanıtın yeniden doğrulanır kadar biraz sürebilir. Özel etki alanı için DNS sağlayıcıya bağlı olarak, herhangi bir yere birkaç dakika veya saat kaydı düzeltin için ele geçirebilir.
         
-     Ek olarak `CName` eşleyen `<accountId>.<parent domain>` için `verifydns.<mediaservices-dns-zone>`, başka oluşturmalısınız `CName` özel ana bilgisayar adı eşleyen (örneğin, `sports.contoso.com`), medya Hizmetleri akış uç noktanın ana bilgisayar adı (örneğin, `amstest-usea.streaming.media.azure.net`).
+    Ek olarak `CName` eşleyen `<accountId>.<parent domain>` için `verifydns.<mediaservices-dns-zone>`, başka oluşturmalısınız `CName` özel ana bilgisayar adı eşleyen (örneğin, `sports.contoso.com`), medya Hizmetleri akış uç noktanın ana bilgisayar adı (örneğin, `amstest-usea.streaming.media.azure.net`).
  
     > [!NOTE]
     > Akış uç noktaları aynı veri merkezinde bulunan paylaşamaz aynı özel ana bilgisayar adı.

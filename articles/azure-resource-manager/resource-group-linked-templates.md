@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2019
+ms.date: 03/18/2019
 ms.author: tomfitz
-ms.openlocfilehash: 92e5fb782eed3344a55178d6ba74dfd6d7b8cafd
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d4ecccf8787e369b9a3270eab2d01a01ce7ae0c7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235923"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58174316"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Bağlı, şablonları Azure kaynakları dağıtılırken iç içe kullanma
 
@@ -42,13 +42,13 @@ Başka bir şablona bağlamak için ekleme bir **dağıtımları** ana şablon k
 ```json
 "resources": [
   {
-      "apiVersion": "2017-05-10",
-      "name": "linkedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-          "mode": "Incremental",
-          <nested-template-or-external-template>
-      }
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2018-05-01",
+    "name": "linkedTemplate",
+    "properties": {
+        "mode": "Incremental",
+        <nested-template-or-external-template>
+    }
   }
 ]
 ```
@@ -62,9 +62,9 @@ Ana şablon içinde şablonun içine yerleştirmek için kullanmanız **şablon*
 ```json
 "resources": [
   {
-    "apiVersion": "2017-05-10",
-    "name": "nestedTemplate",
     "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2018-05-01",
+    "name": "nestedTemplate",
     "properties": {
       "mode": "Incremental",
       "template": {
@@ -73,8 +73,8 @@ Ana şablon içinde şablonun içine yerleştirmek için kullanmanız **şablon*
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2018-07-01",
             "name": "[variables('storageName')]",
-            "apiVersion": "2015-06-15",
             "location": "West US",
             "properties": {
               "accountType": "Standard_LRS"
@@ -90,6 +90,13 @@ Ana şablon içinde şablonun içine yerleştirmek için kullanmanız **şablon*
 > [!NOTE]
 > İç içe geçmiş şablonlar için parametreleri veya iç içe geçmiş şablon içinde tanımlanan değişkenler kullanamazsınız. Parametreler ve değişkenler ana kullanabilirsiniz. Önceki örnekte `[variables('storageName')]` ana şablonu, iç içe geçmiş şablon değil bir değer alır. Bu kısıtlama, dış şablonları için geçerli değildir.
 >
+> İki kaynak içinde tanımlanan bir iç içe şablonu ve bir kaynak birbirine bağlıdır, kullanıcıda kaynak adını yalnızca bağımlılık değeridir:
+> ```json
+> "dependsOn": [
+>   "[variables('storageAccountName')]"
+> ],
+> ```
+>
 > Kullanamazsınız `reference` çıktılar bölümünü iç içe geçmiş şablon işlevinde. Dönüş değerleri dağıtılan kaynağın içinde iç içe geçmiş bir şablon için iç içe geçmiş şablon bağlantılı şablona dönüştürebilirsiniz.
 
 İç içe geçmiş şablon için gerekli [aynı özellikleri](resource-group-authoring-templates.md) standart şablon olarak.
@@ -101,20 +108,20 @@ Bir dış şablonu ve parametre dosyası bağlanmak için kullanmak **templateLi
 ```json
 "resources": [
   {
-     "apiVersion": "2017-05-10",
-     "name": "linkedTemplate",
-     "type": "Microsoft.Resources/deployments",
-     "properties": {
-       "mode": "Incremental",
-       "templateLink": {
-          "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-          "contentVersion":"1.0.0.0"
-       },
-       "parametersLink": {
-          "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
-          "contentVersion":"1.0.0.0"
-       }
-     }
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2018-05-01",
+    "name": "linkedTemplate",
+    "properties": {
+    "mode": "Incremental",
+    "templateLink": {
+        "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+        "contentVersion":"1.0.0.0"
+    },
+    "parametersLink": {
+        "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
+        "contentVersion":"1.0.0.0"
+    }
+    }
   }
 ]
 ```
@@ -130,9 +137,9 @@ Bir değer, bağlı şablonun ana şablonu geçirmek için kullanın **parametre
 ```json
 "resources": [
   {
-     "apiVersion": "2017-05-10",
-     "name": "linkedTemplate",
      "type": "Microsoft.Resources/deployments",
+     "apiVersion": "2018-05-01",
+     "name": "linkedTemplate",
      "properties": {
        "mode": "Incremental",
        "templateLink": {
@@ -203,9 +210,9 @@ Ana Şablon dağıtır bağlı şablonun ve döndürülen değer alır. Ada gör
     "variables": {},
     "resources": [
         {
-            "apiVersion": "2017-05-10",
-            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "linkedTemplate",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -241,8 +248,8 @@ Aşağıdaki örnek, bir genel IP adresi dağıtır ve kaynak Kimliğini döndü
     "resources": [
         {
             "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2018-11-01",
             "name": "[parameters('publicIPAddresses_name')]",
-            "apiVersion": "2017-06-01",
             "location": "eastus",
             "properties": {
                 "publicIPAddressVersion": "IPv4",
@@ -281,8 +288,8 @@ Aşağıdaki örnek, bir genel IP adresi dağıtır ve kaynak Kimliğini döndü
     "resources": [
         {
             "type": "Microsoft.Network/loadBalancers",
+            "apiVersion": "2018-11-01",
             "name": "[parameters('loadBalancers_name')]",
-            "apiVersion": "2017-06-01",
             "location": "eastus",
             "properties": {
                 "frontendIPConfigurations": [
@@ -308,9 +315,9 @@ Aşağıdaki örnek, bir genel IP adresi dağıtır ve kaynak Kimliğini döndü
             ]
         },
         {
-            "apiVersion": "2017-05-10",
-            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "linkedTemplate",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
@@ -347,8 +354,8 @@ Dağıtımdan sonra çıkış değerleri almak için bu ayrı girişleri geçmi�
     "resources": [
         {
             "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2018-11-01",
             "name": "[parameters('publicIPAddresses_name')]",
-            "apiVersion": "2017-06-01",
             "location": "southcentralus",
             "properties": {
                 "publicIPAddressVersion": "IPv4",
@@ -381,9 +388,13 @@ Dağıtımdan sonra çıkış değerleri almak için bu ayrı girişleri geçmi�
     "variables": {},
     "resources": [
         {
-            "apiVersion": "2017-05-10",
-            "name": "[concat('linkedTemplate', copyIndex())]",
             "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "[concat('linkedTemplate', copyIndex())]",
+            "copy": {
+                "count": 3,
+                "name": "ip-loop"
+            },
             "properties": {
               "mode": "Incremental",
               "templateLink": {
@@ -393,10 +404,6 @@ Dağıtımdan sonra çıkış değerleri almak için bu ayrı girişleri geçmi�
               "parameters":{
                   "publicIPAddresses_name":{"value": "[concat('myip-', copyIndex())]"}
               }
-            },
-            "copy": {
-                "count": 3,
-                "name": "ip-loop"
             }
         }
     ]
@@ -446,9 +453,9 @@ Aşağıdaki örnek, bir şablona bağlanırken bir SAS belirteci geçirilecek g
   },
   "resources": [
     {
-      "apiVersion": "2017-05-10",
-      "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-05-01",
+      "name": "linkedTemplate",
       "properties": {
         "mode": "Incremental",
         "templateLink": {

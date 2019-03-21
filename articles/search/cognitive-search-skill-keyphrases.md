@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f3c8fd3043f20ab34dda1f4e3762e3ebc4bb6ae1
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 422b97414142c36669ed449a21c6045fd774581a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749894"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902663"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Anahtar ifade ayıklama bilişsel beceri
 
@@ -38,12 +38,14 @@ Bir kaydın en büyük boyutu tarafından ölçülen 50.000 karakter arasında o
 ## <a name="skill-parameters"></a>Yetenek parametreleri
 
 Parametreler büyük/küçük harfe duyarlıdır.
+
 | Girişler                | Açıklama |
 |---------------------|-------------|
 | defaultLanguageCode | (İsteğe bağlı) Dil açıkça belirtmeyin belgelerine uygulamak için dil kodu.  Varsayılan dil kodu değil ise, belirtilen, İngilizce (TR) varsayılan dil kodu olarak kullanılır. <br/> Bkz: [desteklenen dillerin tam listesini](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
 | maxKeyPhraseCount   | (İsteğe bağlı) Anahtar ifadeler üretmek için maksimum sayısı. |
 
 ## <a name="skill-inputs"></a>Beceri girişleri
+
 | Girişler     | Açıklama |
 |--------------------|-------------|
 | metin | Analiz edilecek metin.|

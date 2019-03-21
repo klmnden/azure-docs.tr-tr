@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: 5141cd083469d51a067bbc993f598393768fe99f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: e32bc2f4697b5ac32993a5da66e5c38cb7add03f
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000196"
+ms.locfileid: "58200591"
 ---
 # <a name="virtual-network-peering"></a>Sanal ağ eşleme
 
@@ -68,7 +68,7 @@ Yalnızca ağ geçidi sanal ağ (Resource Manager) varsa (Resource Manager ve kl
 
 Tek bir Azure ExpressRoute bağlantısını kullanan sanal ağlar eşlendiğinde, bu iki sanal ağ arasındaki trafik, eşleme ilişkisi (Azure omurga ağı) üzerinden akış gerçekleştirir. Şirket içi devreye bağlanmak için her bir sanal ağ üzerindeki yerel ağ geçitlerini kullanmaya devam edebilirsiniz. Alternatif olarak, paylaşılan bir ağ geçidini kullanıp şirket içi bağlantı için bir geçiş yapılandırabilirsiniz.
 
-## <a name="troubleshoot"></a>Sorunları giderin
+## <a name="troubleshoot"></a>Sorun giderme
 
 Bir sanal ağ eşlemesini onaylamak için, bir sanal ağdaki herhangi bir alt ağın ağ arabirimine yönelik [etkili yolları denetleyebilirsiniz](diagnose-network-routing-problem.md). Bir sanal ağ eşlemesi zaten varsa, sanal ağ içindeki tüm alt ağlar, eşlenen her bir sanal ağdaki her bir adres alanı için sonraki atlama türü *VNet eşlemesi* olan yollara sahip olur.
 
@@ -79,7 +79,7 @@ Ayrıca deneyebilirsiniz [sanal ağ eşleme sorunları için sorun giderici](htt
 ## <a name="requirements-and-constraints"></a>Gereksinimler ve kısıtlamalar
 
 Yalnızca, sanal ağlar genel olarak eşlenmiş aşağıdaki kısıtlamalar uygulanır:
-- Bir sanal ağ içindeki kaynaklarla genel olarak eşlenmiş sanal ağdaki bir iç temel yük dengeleyicinin ön uç IP adresi ile iletişim kuramıyor. Temel yük dengeleyici desteği yalnızca aynı bölge içinde bulunmaktadır. Küresel VNet eşlemesi için standart yük dengeleyici desteği yok.  -Bir sanal ağ içindeki kaynaklarla genel olarak eşlenmiş sanal ağdaki bir iç temel yük dengeleyicinin ön uç IP adresi ile iletişim kuramıyor. Temel yük dengeleyici desteği yalnızca aynı bölge içinde bulunmaktadır. Standart yük dengeleyici desteği, VNet eşlemesi hem de genel sanal ağ eşleme için var.
+- Bir sanal ağ içindeki kaynaklarla genel olarak eşlenmiş sanal ağdaki bir iç temel yük dengeleyicinin ön uç IP adresi ile iletişim kuramıyor. Temel yük dengeleyici desteği yalnızca aynı bölge içinde bulunmaktadır. Küresel VNet eşlemesi için standart yük dengeleyici desteği yok.
 - Önizleme'de genel olarak eşlenmiş sanal ağlardaki ağ geçidi aktarımına izin ver ya da uzak ağ geçitlerini kullan. Önizleme, tüm Azure bölgeleri, Çin bulut bölgeleri ve kamu bulut bölgelerinde kullanılabilir. Hiçbir beyaz listeye ekleme gereklidir. CLI, PowerShell, şablonları veya API üzerinden önizlemede test edebilirsiniz. Portal Önizleme sürümünde desteklenmiyor.
 
 Gereksinimler ve kısıtlamalar hakkında daha fazla bilgi edinmek için bkz. [Sanal ağ eşleme gereksinimleri ve kısıtlamaları](virtual-network-manage-peering.md#requirements-and-constraints). Bir sanal ağ için oluşturabileceğiniz eşleme sayısı sınırları hakkında bilgi edinmek için bkz. [Azure ağ sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 

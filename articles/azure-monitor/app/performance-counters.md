@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: d5c7e1815fe27d9b851407a8e6f17d04d7bc1cad
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: d38a575af54f044d64efc67b5483a67ffcd2fcd6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54003784"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837618"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application ınsights'ta sistem performans sayaçları
 
-Windows sağlayan çok çeşitli [performans sayaçları](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) CPU doluluğu, bellek, disk ve ağ kullanımı gibi. Ayrıca, kendi performans Sayaçlarınızı tanımlayabilirsiniz. Uygulamanız IIS altında çalışıyor, bir şirket içi konak veya sanal makine için yönetici erişimine sahip olduğu sürece.
+Windows tarafından CPU doluluğu, bellek, disk ve ağ kullanımı gibi şeylere yönelik birçok çeşit [performans sayacı](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) sunulur. Ayrıca, kendi performans Sayaçlarınızı tanımlayabilirsiniz. Uygulamanız IIS altında çalışıyor, bir şirket içi konak veya sanal makine için yönetici erişimine sahip olduğu sürece.
 
 ## <a name="view-counters"></a>Sayaçları görüntüleyin
 
@@ -122,8 +122,8 @@ Gibi diğer telemetri **performanceCounters** bir sütunda da `cloud_RoleInstanc
 
 * *Özel durumlar* grafiğin örnekleme aralığı portalda tarafından alınan TrackException raporlarının sayısı. Burada yazdığınız TrackException kodunuzda çağırır ve tüm içermez yalnızca işlenen özel durumları içerir [işlenmeyen özel durumları](../../azure-monitor/app/asp-net-exceptions.md). 
 
-## <a name="performance-counters-in-aspnet-core-applications"></a>ASP.Net Core uygulamalarında performans sayaçları
-Performans sayaçları, uygulamanın tam .NET Framework yalnızca hedeflediği ise desteklenir. .Net Core için performans sayaçlarını toplama yeteneği yoktur uygulamalar.
+## <a name="performance-counters-in-aspnet-core-applications"></a>ASP.NET Core uygulamalarında performans sayaçları
+Performans sayaçları, uygulamanın tam .NET Framework yalnızca hedeflediği ise desteklenir. .NET Core uygulamaları için performans sayaçlarını toplama yeteneği yoktur.
 
 ## <a name="alerts"></a>Uyarılar
 Diğer ölçümler gibi yapabilecekleriniz [uyarı ayarlama](../../azure-monitor/app/alerts.md) bir performans sayacı belirttiğiniz sınırı dışında aşması durumunda sizi uyarır. Uyarılar bölmesini açın ve eklemek uyarı tıklayın.

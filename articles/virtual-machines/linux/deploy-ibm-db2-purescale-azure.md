@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
-ms.openlocfilehash: 104730d94134d935f56fb95fd55d05b515e9f501
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: fba6b5308b380b374611c09747302dbf8305dd9b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245574"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014985"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale azure'da dağıtma
 
 Bu makalede nasıl dağıtılacağı bir [örnek mimarisi](ibm-db2-purescale-azure.md) Kurumsal müşteri z/OS üzerinde IBM DB2 pureScale Azure üzerinde çalışan, IBM DB2 ortamdan geçiş yapmak için kısa bir süre önce kullanılan.
 
-Geçiş için kullanılan adımları için yükleme komut bkz [DB2onAzure](http://aka.ms/db2onazure) github deposu. Bu komut dosyalarını normal, orta ölçekli çevrimiçi işlem gerçekleştirme (OLTP) iş yükü mimarisini temel alır.
+Geçiş için kullanılan adımları için yükleme komut bkz [DB2onAzure](https://aka.ms/db2onazure) github deposu. Bu komut dosyalarını normal, orta ölçekli çevrimiçi işlem gerçekleştirme (OLTP) iş yükü mimarisini temel alır.
 
 ## <a name="get-started"></a>başlarken
 
-Bu mimariyi dağıtmak için bulunan deploy.sh betik indirip çalıştırmak [DB2onAzure](http://aka.ms/db2onazure) github deposu.
+Bu mimariyi dağıtmak için bulunan deploy.sh betik indirip çalıştırmak [DB2onAzure](https://aka.ms/db2onazure) github deposu.
 
 Depo bir Grafana Pano ayarlamak için komut dosyalarını da vardır. Pano Prometheus, açık kaynaklı izleme ve uyarı sistemi ile DB2 dahil sorgulamak için kullanabilirsiniz.
 
@@ -76,7 +76,7 @@ Betikleri iSCSI cihazı oluşturmanızın ardından son adım DB2 pureScale yük
 GitHub deposunu DB2server.rsp, DB2 pureScale yükleme için otomatik bir betik oluşturmanıza olanak sağlayan bir yanıt (.rsp) dosyasını içerir. Aşağıdaki tabloda kurulum için yanıt dosyasını kullanan DB2 pureScale seçenekleri listeler. Yanıt dosyası, ortamınız için gerektiği şekilde özelleştirebilirsiniz.
 
 > [!NOTE]
-> DB2server.rsp, örnek bir yanıt dosyası dahil [DB2onAzure](http://aka.ms/db2onazure) github deposu. Bu dosya kullanmak istiyorsanız, ortamınızda çalışmadan önce onu düzenlemeniz gerekir.
+> DB2server.rsp, örnek bir yanıt dosyası dahil [DB2onAzure](https://aka.ms/db2onazure) github deposu. Bu dosya kullanmak istiyorsanız, ortamınızda çalışmadan önce onu düzenlemeniz gerekir.
 
 | Ekran adı               | Alan                                        | Değer                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -88,7 +88,7 @@ GitHub deposunu DB2server.rsp, DB2 pureScale yükleme için otomatik bir betik o
 | Örnek sahibi            | Mevcut kullanıcı için örneği, kullanıcı adı        | DB2sdin1                                                                                              |
 | Çevrelenmiş kullanıcı               | Varolan bir kullanıcı, kullanıcı adı                     | DB2sdfe1                                                                                              |
 | Küme dosya sistemi       | Paylaşılan disk bölümü cihaz yolu            | /dev/DM-2                                                                                             |
-|                           | Bağlama noktası                                  | / DB2sd\_1804a                                                                                         |
+|                           | Bağlama noktası                                  | /DB2sd\_1804a                                                                                         |
 |                           | Veri diski paylaşılan                         | /dev/DM-1                                                                                             |
 |                           | Bağlama noktası (veriler)                           | / DB2fs/datafs1                                                                                        |
 |                           | Paylaşılan disk günlüğü                          | /dev/DM-0                                                                                             |
@@ -138,7 +138,7 @@ GitHub deposunu yazarlar bakımını yapan bir Bilgi Bankası içerir. Bu, sahip
 
 -   DB2 pureScale ve IBM Spektrumun ölçek kaldırırsınız.
 
-Bu ve diğer bilinen sorunlar hakkında daha fazla bilgi için bkz: kb.md dosyasında [DB2onAzure](http://aka.ms/DB2onAzure) depo.
+Bu ve diğer bilinen sorunlar hakkında daha fazla bilgi için bkz: kb.md dosyasında [DB2onAzure](https://aka.ms/DB2onAzure) depo.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -148,7 +148,7 @@ Bu ve diğer bilinen sorunlar hakkında daha fazla bilgi için bkz: kb.md dosyas
 
 -   [DB2icrt - örnek bir komut oluşturun](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
 
--   [DB2 pureScale kümeleri veri çözümü](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+-   [DB2 pureScale kümeleri veri çözümü](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 
 -   [IBM veri Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 

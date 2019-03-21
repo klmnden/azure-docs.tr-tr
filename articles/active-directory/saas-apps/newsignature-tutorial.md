@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e2a06e848e136b4707fddfd1f355c2baa93b1b6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 81351fc13ddf36d8aeb4fa5cecab10daf152406f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764473"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875932"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Öğretici: Microsoft Azure için bulut Yönetim Portalı ile Azure Active Directory Tümleştirme
 
@@ -106,18 +106,21 @@ Microsoft Azure için bulut Yönetim Portalı ile Azure AD çoklu oturum açmay�
     ![Microsoft Azure etki alanı ve URL'ler tek oturum açma bilgileri için bulut Yönetim Portalı](common/sp-identifier-reply.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+
     | |
     |--|
     | `https://portal.newsignature.com/<instancename>` |   
     | `https://portal.igcm.com/<instancename>` |
 
     b. İçinde **tanımlayıcı** kutusuna şu biçimi kullanarak bir URL yazın:
+
     | |
     |--|
     | `https://<subdomain>.igcm.com` |
     | `https://<subdomain>.newsignature.com` |
 
     c. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+
     | |
     |--|
     | `https://<subdomain>.igcm.com/<instancename>` |
@@ -163,7 +166,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

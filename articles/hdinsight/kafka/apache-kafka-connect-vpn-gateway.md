@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: a37e67f299262a7e0b353564c24c789859dcec7c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 0b1ba5c6d342fb0bf6f888af4bc3a4e1c8ef939e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605016"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074732"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Bir Azure sanal ağı üzerinden HDInsight üzerinde Apache kafka'ya bağlanma
 
@@ -31,29 +31,29 @@ HDInsight Kafka için doğrudan bağlantı genel internet üzerinden izin vermez
 
 * Şirket içi ağınız gibi özel bir ağ sanal ağa bağlayın. Bu yapılandırma, istemcilerin doğrudan Kafka ile çalışmak için şirket içi ağınızda sağlar. Bu yapılandırmayı etkinleştirmek için aşağıdaki görevleri gerçekleştirin:
 
-    1. Sanal ağ oluşturun.
-    2. Bir siteden siteye yapılandırması kullanan bir VPN ağ geçidi oluşturun. Bu belgede kullanılan yapılandırma bir VPN ağ geçidi cihazı şirket içi ağınıza bağlanır.
-    3. Bir DNS sunucusu, sanal ağ oluşturun.
-    4. Her bir ağın DNS sunucusu arasında iletim yapılandırın.
-    5. Sanal ağda HDInsight kümesinde Kafka oluşturmak.
+  1. Sanal ağ oluşturun.
+  2. Bir siteden siteye yapılandırması kullanan bir VPN ağ geçidi oluşturun. Bu belgede kullanılan yapılandırma bir VPN ağ geçidi cihazı şirket içi ağınıza bağlanır.
+  3. Bir DNS sunucusu, sanal ağ oluşturun.
+  4. Her bir ağın DNS sunucusu arasında iletim yapılandırın.
+  5. Sanal ağda HDInsight kümesinde Kafka oluşturmak.
 
-    Daha fazla bilgi için [Apache Kafka Bağlan bir şirket içi ağdan](#on-premises) bölümü. 
+     Daha fazla bilgi için [Apache Kafka Bağlan bir şirket içi ağdan](#on-premises) bölümü. 
 
 * Tek tek makineler bir VPN ağ geçidi ile VPN istemcisini sanal ağa bağlanır. Bu yapılandırmayı etkinleştirmek için aşağıdaki görevleri gerçekleştirin:
 
-    1. Sanal ağ oluşturun.
-    2. Noktadan siteye yapılandırması kullanan bir VPN ağ geçidi oluşturun. Bu yapılandırma, hem Windows hem de MacOS istemcileri ile kullanılabilir.
-    3. Sanal ağda HDInsight kümesinde Kafka oluşturmak.
-    4. Kafka IP reklam için yapılandırın. Bu yapılandırma aracı kullanarak bağlanmak için istemcinin etki alanı adları yerine IP adreslerini sağlar.
-    5. İndirin ve geliştirme sisteminde VPN istemcisini kullanır.
+  1. Sanal ağ oluşturun.
+  2. Noktadan siteye yapılandırması kullanan bir VPN ağ geçidi oluşturun. Bu yapılandırma, hem Windows hem de MacOS istemcileri ile kullanılabilir.
+  3. Sanal ağda HDInsight kümesinde Kafka oluşturmak.
+  4. Kafka IP reklam için yapılandırın. Bu yapılandırma aracı kullanarak bağlanmak için istemcinin etki alanı adları yerine IP adreslerini sağlar.
+  5. İndirin ve geliştirme sisteminde VPN istemcisini kullanır.
 
-    Daha fazla bilgi için [bir VPN istemcisi ile Apache Kafka Bağlan](#vpnclient) bölümü.
+     Daha fazla bilgi için [bir VPN istemcisi ile Apache Kafka Bağlan](#vpnclient) bölümü.
 
-    > [!WARNING]  
-    > Bu yapılandırma, yalnızca geliştirme amacıyla aşağıdaki sınırlamalar nedeniyle önerilir:
-    >
-    > * Her bir istemci, yazılım VPN istemcisi kullanarak bağlanmanız gerekir.
-    > * IP adresleme Kafka ile iletişim kurmak için kullanmalısınız VPN istemcisini sanal ağa, ad çözümleme isteklerinin geçmez. IP iletişimi için Kafka kümesinin ek yapılandırma gerektirir.
+     > [!WARNING]  
+     > Bu yapılandırma, yalnızca geliştirme amacıyla aşağıdaki sınırlamalar nedeniyle önerilir:
+     >
+     > * Her bir istemci, yazılım VPN istemcisi kullanarak bağlanmanız gerekir.
+     > * IP adresleme Kafka ile iletişim kurmak için kullanmalısınız VPN istemcisini sanal ağa, ad çözümleme isteklerinin geçmez. IP iletişimi için Kafka kümesinin ek yapılandırma gerektirir.
 
 Bir sanal ağda HDInsight kullanma hakkında daha fazla bilgi için bkz. [Azure sanal ağlarını kullanarak HDInsight genişletmek](../hdinsight-extend-hadoop-virtual-network.md).
 
@@ -232,8 +232,8 @@ Aşağıdaki yapılandırmayı oluşturmak için bu bölümdeki adımları kulla
         -SubnetName $defaultSubnet.Id
     ```
 
-  > [!WARNING]  
-  > Bu işlemin tamamlanması yaklaşık 15 dakika sürer.
+   > [!WARNING]  
+   > Bu işlemin tamamlanması yaklaşık 15 dakika sürer.
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Kafka IP reklam için yapılandırma
 
@@ -323,23 +323,23 @@ Kafka bağlanabilirliği doğrulamak için oluşturup bir Python üretici ve tü
 
 3. Kafka için veri göndermek için aşağıdaki Python kodu kullanın:
 
-  ```python
-  from kafka import KafkaProducer
-  # Replace the `ip_address` entries with the IP address of your worker nodes
-  # NOTE: you don't need the full list of worker nodes, just one or two.
-  producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'])
-  for _ in range(50):
+   ```python
+   from kafka import KafkaProducer
+   # Replace the `ip_address` entries with the IP address of your worker nodes
+   # NOTE: you don't need the full list of worker nodes, just one or two.
+   producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'])
+   for _ in range(50):
       producer.send('testtopic', b'test message')
-  ```
+   ```
 
     Değiştirin `'kafka_broker'` döndürüldüğü adresleriyle girişleri bu bölümdeki 1. adım:
 
-    * Kullanıyorsanız bir __yazılım VPN istemcisi__, değiştirin `kafka_broker` girişleri, çalışan düğümlerinin IP adresine sahip.
+   * Kullanıyorsanız bir __yazılım VPN istemcisi__, değiştirin `kafka_broker` girişleri, çalışan düğümlerinin IP adresine sahip.
 
-    * Varsa __ad çözümlemesi ile özel bir DNS sunucusu etkin__, değiştirin `kafka_broker` girişleri ile çalışan düğümü FQDN'si.
+   * Varsa __ad çözümlemesi ile özel bir DNS sunucusu etkin__, değiştirin `kafka_broker` girişleri ile çalışan düğümü FQDN'si.
 
-    > [!NOTE]
-    > Bu kod, dize gönderir `test message` konuya `testtopic`. HDInsight üzerinde Kafka'nın varsayılan yapılandırma, mevcut değilse konu oluşturmaktır.
+     > [!NOTE]
+     > Bu kod, dize gönderir `test message` konuya `testtopic`. HDInsight üzerinde Kafka'nın varsayılan yapılandırma, mevcut değilse konu oluşturmaktır.
 
 4. Kafka'dan iletileri almak için aşağıdaki Python kodu kullanın:
 

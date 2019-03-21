@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: 7eecd7f5da2b20cb80d8a04d105460baaf9ed4a2
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 38236cba6af46df2701bb0128fe9d78e95aa6ec7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984722"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076828"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile Azure sanal makinelerinizin durumunu anlama
 Azure İzleme alanı ayrı ayrı bir spesifik rol ya da görev gerçekleştiren birden çok hizmet içerir, ancak bir Azure sanal makinelerinde barındırılan işletim sistemi ayrıntılı sistem durumu açısından sağlama kullanılabilir değildi.  Azure İzleyicisi'ni kullanarak için farklı koşullar izleyebilir olsa da model ve sistem durumunu temel bileşenler veya genel sanal makine durumunu temsil eden için tasarlanmış değildi.  VM sistem durumu özelliği için Azure İzleyici ile proaktif olarak Windows veya Linux konuk işletim sistemi ile anahtar bileşenleri ve bu durumunu ölçmek nasıl belirten ölçütleri ilişkilerini temsil eden bir model performansını ve kullanılabilirliğini izler bileşenleri ve iyi durumda olmayan bir koşul algılandığında sizi uyarır.  
@@ -29,22 +29,22 @@ Bu makalede hızlı bir şekilde değerlendirmek, araştırmanıza ve algılanan
 
 VM'ler için Azure İzleyici yapılandırma hakkında daha fazla bilgi için bkz: [VM'ler için Azure İzleyici'ı etkinleştirme](vminsights-onboard.md).
 
->[!NOTE]
->Başlangıç tarihi: 11 Şubat 2019 sistem tanılama deneyimi yeni bir sistem durumu modeli sürümüne bugün olduğunuzda, görünür olan Vm'leri sistem durumu özelliği için geçerli sistem durumu modeli Azure İzleyici'de geçiş başlayacağız. Bu güncelleştirme, sistem durumu toplaması işleme performansını geliştirir ve sistem durumu tanılama Görünümü'nde sunulan daraltılmış sistem durumu modeli içerir. 
->
->Yeni sistem durumu modeli ile daha hızlı ve sonuç olarak, sistem durumunu daha az gecikme süresiyle istenen veya hedeflenen durumuna üst güncelleştirmeleri varlık başına üst düzey durumu ölçütlerini için alt sistem durumu ölçütlerin toplaması olacaktır. Sistem durumu ölçütleri altında hala filtreleyebilirsiniz **performans** ve **kullanılabilirlik** ya da kategori görünümünde seçmek için önceki sekme tabanlı yöntemi farklı kategorileri.
->
->Sistem durumu tanılama deneyimi hakkında daha fazla ayrıntı için lütfen sistem tanılama bakın [bölümü](#health-diagnostics) bu makaledeki. 
->
->Bu güncelleştirme aşağıdaki iyileştirir: 
->
->- Düşük gecikme süresiyle işleme sistem durumu toplaması  
->- Daha hızlı sağlık durumu değişikliklerinde üzerinde uyarı 
->- Sistem durumu toplu sanal makine görünümünde tüm sanal makineler için daha hızlı güncelleştirme 
->
->Bugün Azure İzleyici sistem durumu özelliği ile sanal makineleri için sunulan tüm işlevlerin gerileme vardır.
-
->Bu değişikliğin sonucu olarak iki sistem tanılama deneyimlerinde etkilenen - durum değişikliği geçmişi sıfırlanır ve durumu ölçütlerini için önceki durum değişikliklerini gözden geçirme için sistem durumu tanılama sayfası durum değişikliği sütununda kullanılabilir olmaz. Herhangi bir geçmiş verilerin ilgileniyorsanız, sistem durumu ölçütlerini verileri ve karşılık gelen durum değişikliklerini görüntüsü başvuru için uygulayabileceğiniz sonra kritik VM görev. 
+> [!NOTE]
+> Başlangıç tarihi: 11 Şubat 2019 sistem tanılama deneyimi yeni bir sistem durumu modeli sürümüne bugün olduğunuzda, görünür olan Vm'leri sistem durumu özelliği için geçerli sistem durumu modeli Azure İzleyici'de geçiş başlayacağız. Bu güncelleştirme, sistem durumu toplaması işleme performansını geliştirir ve sistem durumu tanılama Görünümü'nde sunulan daraltılmış sistem durumu modeli içerir. 
+> 
+> Yeni sistem durumu modeli ile daha hızlı ve sonuç olarak, sistem durumunu daha az gecikme süresiyle istenen veya hedeflenen durumuna üst güncelleştirmeleri varlık başına üst düzey durumu ölçütlerini için alt sistem durumu ölçütlerin toplaması olacaktır. Sistem durumu ölçütleri altında hala filtreleyebilirsiniz **performans** ve **kullanılabilirlik** ya da kategori görünümünde seçmek için önceki sekme tabanlı yöntemi farklı kategorileri.
+> 
+> Sistem durumu tanılama deneyimi hakkında daha fazla ayrıntı için lütfen sistem tanılama bakın [bölümü](#health-diagnostics) bu makaledeki. 
+> 
+> Bu güncelleştirme aşağıdaki iyileştirir: 
+> 
+> - Düşük gecikme süresiyle işleme sistem durumu toplaması  
+> - Daha hızlı sağlık durumu değişikliklerinde üzerinde uyarı 
+> - Sistem durumu toplu sanal makine görünümünde tüm sanal makineler için daha hızlı güncelleştirme 
+> 
+> Bugün Azure İzleyici sistem durumu özelliği ile sanal makineleri için sunulan tüm işlevlerin gerileme vardır.
+> 
+> Bu değişikliğin sonucu olarak iki sistem tanılama deneyimlerinde etkilenen - durum değişikliği geçmişi sıfırlanır ve durumu ölçütlerini için önceki durum değişikliklerini gözden geçirme için sistem durumu tanılama sayfası durum değişikliği sütununda kullanılabilir olmaz. Herhangi bir geçmiş verilerin ilgileniyorsanız, sistem durumu ölçütlerini verileri ve karşılık gelen durum değişikliklerini görüntüsü başvuru için uygulayabileceğiniz sonra kritik VM görev. 
 
 ## <a name="monitoring-configuration-details"></a>İzleme Yapılandırma Ayrıntıları
 Bu bölümde, Azure Windows ve Linux sanal makinelerini izlemek için tanımlanan varsayılan sistem durumu ölçütlerini özetlenmektedir. Tüm sistem durumu ölçütlerini, sağlıksız koşul karşılandığında uyarı önceden yapılandırılmış. 
@@ -110,7 +110,7 @@ Bir Azure VM durumunu görüntülemek için seçin **Insights (Önizleme)** sol 
 
 Bir VM için tanımlanan sistem durumları aşağıdaki tabloda açıklanmıştır: 
 
-|Simge |Sistem durumu |Anlamı |
+|Simge |Sağlık durumu |Anlamı |
 |-----|-------------|------------|
 | |Sorunsuz |VM için algılanan bir sorun olmadığını gösteren tanımlanan sistem durumu koşulları içinde ve gerektiği gibi çalıştığını sistem durumunu iyi durumda. Üst döküm İzleyicisi söz konusu olduğunda, sistem durumu dökümü yapar artırma ve alt best-case veya iki katına durumunu yansıtır.|
 | |Kritik |Sistem durumu, bir veya daha fazla kritik sorunlar, normal işlevlerin geri yüklenmesi için ele alınması gereken göstergelerinin algılandığını belirten tanımlanan sistem durumu koşulu içinde değilse önemlidir. Üst döküm İzleyicisi söz konusu olduğunda, sistem durumu dökümü yapar artırma ve alt best-case veya iki katına durumunu yansıtır.|

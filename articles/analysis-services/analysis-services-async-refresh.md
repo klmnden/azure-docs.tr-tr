@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f10bae780ebb05d3450f4dab7e53fa87fe25b022
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189562"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168026"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API ile zaman uyumsuz yenileme
 
@@ -57,7 +57,7 @@ Temel URL'ı kullanarak, kaynak ve işlem aşağıdaki parametreleri temel alara
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 
 Tüm çağrıları ile geçerli bir Azure Active Directory (OAuth 2) belirteci yetkilendirme üst bilgisinde kimliğinin doğrulanması gerekir ve aşağıdaki gereksinimleri karşılaması gerekir:
 
@@ -98,13 +98,13 @@ Gövde aşağıdakine benzeyebilir:
 
 Parametreleri belirterek, gerekli değildir. Varsayılan olarak uygulanır.
 
-|Ad  |Tür  |Açıklama  |Varsayılan  |
-|---------|---------|---------|---------|
-|Tür     |  Sabit listesi       |  İşlem türü. Türleri ile TMSL hizalanır [Yenile komut](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) türleri: tam, clearValues, dataOnly, otomatik, hesaplama ve birleştirin. Ekleme türü desteklenmiyor.      |   Otomatik      |
-|CommitMode     |  Sabit listesi       |  Nesneleri yalnızca tamamlandığında veya toplu kaydedilmiş olup olmayacağını belirler. Modları içerir: varsayılan, işlem partialBatch.  |  işlem       |
-|MaxParallelism     |   Int      |  Bu değer, iş parçacıkları, paralel olarak işleme komutları çalıştırmak en fazla sayısını belirler. Bu değer hizalı TMSL ayarlanabilir MaxParallelism özelliği ile [Sequence komutu](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) veya diğer yöntemleri kullanarak.       | 10        |
-|RetryCount    |    Int     |   İşlem başarısız olmadan önce yeniden denenme sayısını gösterir.      |     0    |
-|Nesneler     |   Dizi      |   İşlenecek nesne dizisi. Her bir nesne içerir: "Tablo" tüm tablo ya da "Tablo" ve "Bölüm" bölümü işlenirken işlerken. Nesne yok belirtilirse, modelin tamamını yenilenir. |   İşlem tüm modeli      |
+| Ad             | Tür  | Açıklama  |Varsayılan  |
+|------------------|-------|--------------|---------|
+| `Type`           | Sabit listesi  | İşlem türü. Türleri ile TMSL hizalanır [Yenile komut](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) türleri: tam, clearValues, dataOnly, otomatik, hesaplama ve birleştirin. Ekleme türü desteklenmiyor.      |   Otomatik      |
+| `CommitMode`     | Sabit listesi  | Nesneleri yalnızca tamamlandığında veya toplu kaydedilmiş olup olmayacağını belirler. Modları içerir: varsayılan, işlem partialBatch.  |  işlem       |
+| `MaxParallelism` | Int   | Bu değer, iş parçacıkları, paralel olarak işleme komutları çalıştırmak en fazla sayısını belirler. Bu değer hizalı TMSL ayarlanabilir MaxParallelism özelliği ile [Sequence komutu](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) veya diğer yöntemleri kullanarak.       | 10        |
+| `RetryCount`     | Int   | İşlem başarısız olmadan önce yeniden denenme sayısını gösterir.      |     0    |
+| `Objects`        | Dizi | İşlenecek nesne dizisi. Her bir nesne içerir: "Tablo" tüm tablo ya da "Tablo" ve "Bölüm" bölümü işlenirken işlerken. Nesne yok belirtilirse, modelin tamamını yenilenir. |   İşlem tüm modeli      |
 
 CommitMode partialBatch için eşittir. Büyük veri kümelerinin ilk bir yük, bunu saat kadar sürebilir olduğunda kullanılır. Bir veya daha fazla toplu uyguladıktan sonra yenileme işlemi başarısız olursa, başarılı bir şekilde kaydedilmiş toplu kaydedilmiş kalır (bunu başarıyla kaydedilmiş toplu geri döner değil).
 

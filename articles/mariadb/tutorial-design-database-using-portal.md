@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 2bbe69d114df61f6ca01add0b3459220d59d83e0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 29ad35b30e7f75259b9c4d0174c16c6c9c40a917
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880524"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852565"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak MariaDB veritabanı için Azure veritabanı tasarlama
 
@@ -90,7 +90,7 @@ Azure portalından MariaDB için Azure Veritabanı sunucunuz için tam **Sunucu 
 
    ![Sunucu özellikleri](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-Örneğimizde sunucu adı **mydemoserver.mariadb.database.azure.com**, sunucu yöneticisi oturum açma adı ise **myadmin@mydemoserver** şeklindedir.
+Bu örnekte sunucu adı şöyledir **mydemoserver.mariadb.database.azure.com** ve Sunucu Yöneticisi oturum açma adını **myadmin\@demosunucum**.
 
 ## <a name="connect-to-the-server-by-using-mysql"></a>mysql kullanarak sunucuya bağlanma
 

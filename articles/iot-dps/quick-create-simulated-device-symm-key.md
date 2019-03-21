@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5899b2b667df4800bf98aa6ed7b70f2f8ba4f931
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 7d56f01aabe77680ed78927848668457344a0f2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337113"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080304"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Hızlı Başlangıç: Simetrik anahtarlar ile bir sanal cihaz sağlama
 
@@ -114,15 +114,15 @@ SDK bir simülasyon cihazı için örnek kod içerir. Simülasyon cihazı, cihaz
 
 3. **Kayıt ekle** altında aşağıdaki bilgileri girin ve **Kaydet** düğmesine tıklayın.
 
-    - **Mekanizması**: Seçin **simetrik anahtar** kimlik kanıtlama *mekanizması*.
+   - **Mekanizması**: Seçin **simetrik anahtar** kimlik kanıtlama *mekanizması*.
 
-    - **Anahtarları otomatik olarak oluştur**: Bu kutuyu işaretleyin.
+   - **Anahtarları otomatik olarak oluştur**: Bu kutuyu işaretleyin.
 
-    - **Kayıt Kimliği**: Kayıt tanımlamak için bir kayıt kimliği girin. Yalnızca küçük alfasayısal karakterler ile kısa çizgi ('-') karakterlerini kullanın. Örneğin, `symm-key-device-007`.
+   - **Kayıt Kimliği**: Kayıt tanımlamak için bir kayıt kimliği girin. Yalnızca küçük alfasayısal karakterler ile kısa çizgi ('-') karakterlerini kullanın. Örneğin, `symm-key-device-007`.
 
-    - **IOT Hub cihaz kimliği:** Cihaz tanımlayıcısı girin. Örneğin, **device-007**.
+   - **IOT Hub cihaz kimliği:** Cihaz tanımlayıcısı girin. Örneğin, **device-007**.
 
-    ![Portalda simetrik anahtar kanıtı için bireysel kayıt ekleme](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
+     ![Portalda simetrik anahtar kanıtı için bireysel kayıt ekleme](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
 4. Ortamınızı kaydettikten sonra, **Birincil Anahtar** ve **İkincil Anahtar** oluşturularak kayıt girişine eklenir. Simetrik anahtar cihaz kaydınız *Bireysel Kayıtlar* sekmesindeki *Kayıt Kimliği* sütununun altında **symm-key-device-007** olarak gösterilir. 
 

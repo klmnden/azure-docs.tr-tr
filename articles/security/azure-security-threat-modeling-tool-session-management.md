@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 182a0232b5317b1a375a20bdd4c6467578dc775b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 18dfc6badf640afb418e661e6c464442fbb41945
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232751"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875178"
 ---
 # <a name="security-frame-session-management"></a>Güvenlik çerçevesi: Oturum yönetimi
 | Ürün/hizmet | Makale |
@@ -39,7 +39,7 @@ ms.locfileid: "51232751"
 | **Bileşen**               | Azure AD | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
 | **Adımları** | Uygulamanın Azure AD tarafından verilen erişim belirteci dayanıyorsa, oturum kapatma olay işleyicisi çağırmalıdır |
 
@@ -74,7 +74,7 @@ Session.Abandon() yöntemini çağırarak, kullanıcının oturumunu yok. Yönte
 | **Bileşen**               | IOT cihaz | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
 | **Adımları** | Azure IOT Hub'ına kimlik doğrulaması için oluşturulan SaS belirteçleri sınırlı bir süre sonu dönemi olması gerekir. SaS belirteci ömrü belirteçleri tehlikeye durumunda, çalınabilir süre miktarını sınırlamak için bir en az tutun.|
 
@@ -85,7 +85,7 @@ Session.Abandon() yöntemini çağırarak, kullanıcının oturumunu yok. Yönte
 | **Bileşen**               | Azure belge veritabanı | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
 | **Adımları** | Gerekli en düşük bir değere kaynak belirtecini süreyi azaltın. Kaynak belirteçleri 1 saatlik varsayılan geçerli zaman vardır.|
 
@@ -96,7 +96,7 @@ Session.Abandon() yöntemini çağırarak, kullanıcının oturumunu yok. Yönte
 | **Bileşen**               | ADFS | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
 | **Adımları** | Oturum kapatma olay işleyicisi, STS belirteci ADFS'si tarafından verilen uygulama dayanıyorsa, kullanıcının oturumunu açmak için WSFederationAuthenticationModule.FederatedSignOut() yöntemini çağırmalıdır. Geçerli oturumda ayrıca yok ve oturum belirteci değeri sıfırlamak ve nullified.|
 
@@ -145,7 +145,7 @@ Session.Abandon() yöntemini çağırarak, kullanıcının oturumunu yok. Yönte
 | **Bileşen**               | Kimlik sunucusu | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [IdentityServer3 Federasyon Oturumu Kapat](https://identityserver.github.io/Documentation/docsv2/advanced/federated-signout.html) |
 | **Adımları** | IdentityServer Dış kimlik sağlayıcıları ile federasyona eklemek için özelliğini destekler. Bir Yukarı Akış kimlik sağlayıcısı dışında bir kullanıcı oturum açtığında, kullanılan protokolü bağlı olarak, kullanıcı oturumu kapattığında bir bildirim almak mümkün olabilir. Bunlar aynı zamanda kullanıcı oturum açamaz dolayısıyla istemcilerine bildirmek IdentityServer sağlar. Uygulama ayrıntıları için başvurular bölümdeki belgelere bakın.|
 
@@ -156,7 +156,7 @@ Session.Abandon() yöntemini çağırarak, kullanıcının oturumunu yok. Yönte
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | EnvironmentType - OnPrem |
+| **Öznitelikler**              | EnvironmentType - OnPrem |
 | **Başvuruları**              | [Öğesi (ASP.NET Settings Schema) httpCookies](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure özelliği](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
 | **Adımları** | Tanımlama bilgileri normal yalnızca kendisi için bunlar kapsamlı etki alanı için erişilebilir. Ne yazık ki, HTTPS üzerinden oluşturulan tanımlama bilgileri, HTTP üzerinden erişilebilir olacak şekilde "etki alanı" tanımını Protokolü içermez. "Güvenli" özniteliği için tarayıcı tanımlama bilgisinin yalnızca HTTPS üzerinden kullanılabilir olması gerektiğini gösterir. Tüm tanımlama bilgilerini üzerinden HTTPS kullanımı ayarlandığından emin olun **güvenli** özniteliği. Gereksinim requireSSL özniteliği true olarak ayarlayarak web.config dosyasında zorunlu tutulabilir. Zorunlu kılacak tercih edilen yaklaşım olmasıdır **güvenli** öznitelik herhangi bir ek kod değişikliği yapmaya gerek kalmadan tüm mevcut ve gelecekteki tanımlama.|
 
@@ -175,7 +175,7 @@ Uygulamaya erişmek için kullanılan HTTP bile ayarı zorunlu kılınır. Uygul
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Web Forms, MVC5 |
-| **Öznitelikleri**              | EnvironmentType - OnPrem |
+| **Öznitelikler**              | EnvironmentType - OnPrem |
 | **Başvuruları**              | Yok  |
 | **Adımları** | Bağlı olan taraf web uygulamasıdır ve IDP ADFS sunucusu olduğunda FedAuth belirtecinin güvenli özniteliği içindeki requireSSL öğesini true olarak ayarlanarak yapılandırılabilir `system.identityModel.services` web.config bölümünü:|
 
@@ -197,7 +197,7 @@ Uygulamaya erişmek için kullanılan HTTP bile ayarı zorunlu kılınır. Uygul
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Güvenli bir tanımlama bilgisi özniteliği](https://en.wikipedia.org/wiki/HTTP_cookie#Secure_cookie) |
 | **Adımları** | Siteler arası betik (XSS) bir saldırı ile bilgi ifşaatı riskini azaltmak için yeni bir öznitelik - httpOnly - tanımlama bilgilerini kullanıma sunulmuştur ve tüm bilinen tarayıcılar tarafından desteklenir. Öznitelik, bir tanımlama bilgisi betiği aracılığıyla erişilebilir olmadığını belirtir. Bir web uygulaması HttpOnly tanımlama bilgilerini kullanarak tanımlama bilgisine dahil hassas bilgileri betiği aracılığıyla çalınması ve bir saldırganın Web sitesine gönderilen, olasılığını azaltır. |
 
@@ -218,7 +218,7 @@ Tanımlama bilgileri kullanan tüm HTTP tabanlı uygulamalar HttpOnly yapıland�
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Web formları |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [FormsAuthentication.RequireSSL özelliği](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
 | **Adımları** | İçindeki requireSSL öğesini özellik değeri, yapılandırma öğesi içindeki requireSSL öğesini özniteliğini kullanarak bir ASP.NET uygulaması için yapılandırma dosyasında ayarlanır. ASP.NET uygulamanız için SSL (Güvenli Yuva Katmanı) içindeki requireSSL öğesini özniteliğini ayarlayarak form kimlik doğrulaması tanımlama bilgisinin sunucuya döndürülmesi gerekip gerekmediğini, Web.config dosyasında belirtebilirsiniz.|
 
@@ -235,7 +235,7 @@ Aşağıdaki kod örneği, Web.config dosyasında requireSSL özniteliğini ayar
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | MVC5 |
-| **Öznitelikleri**              | EnvironmentType - OnPrem |
+| **Öznitelikler**              | EnvironmentType - OnPrem |
 | **Başvuruları**              | [Windows Identity Foundation (WIF) yapılandırma – Bölüm II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
 | **Adımları** | HttpOnly özniteliğini FedAuth tanımlama bilgilerini ayarlamak için hideFromCsript öznitelik değeri True olarak ayarlanması gerekir. |
 
@@ -260,7 +260,7 @@ Aşağıdaki yapılandırmayı doğru yapılandırması gösterilmektedir:
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
 | **Adımları** | Siteler arası istek sahteciliği (CSRF veya XSRF), bir saldırganın güvenlik bağlamında farklı bir kullanıcının bir web sitesi kurulan oturum eylemlerini gerçekleştirebilirsiniz saldırı türüdür. Hedeflenen web sitesi alınan istek kimliğini doğrulamak için yalnızca oturum tanımlama dayanıyorsa değiştirin veya içeriği silme olmaktır. Bir saldırgan, üzerinde kullanıcı zaten oturum savunmasız bir siteden bir URL ile bir komut yüklemek için farklı bir kullanıcının tarayıcı alarak bu güvenlik açığından yararlanabilir. Bir bağlantıya tıklayabilecekleri gibi güvenlik açığı sunucudan kaynak yükler farklı bir web sitesi barındırma veya kullanıcı alınıyor bunun, bir saldırganın birçok yolu vardır. Sunucu istemciye bir ek belirteç gönderir, bu belirteci içindeki tüm gelecek istekleri dahil etmek istemcinin ihtiyaç duyduğu ve gelecekteki tüm istekleri ASP.NET'i kullanarak gibi geçerli oturum için ilgili bir belirteç içerdiğini doğrular, saldırı engellenebilir AntiForgeryToken veya Görünüm durumu. |
 
@@ -269,8 +269,8 @@ Aşağıdaki yapılandırmayı doğru yapılandırması gösterilmektedir:
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | MVC5, MVC6 |
-| **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [ASP.NET MVC ve Web sayfalarında XSRF/CSRF önleme](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
+| **Öznitelikler**              | Yok  |
+| **Başvuruları**              | [ASP.NET MVC ve Web sayfalarında XSRF/CSRF önleme](https://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
 | **Adımları** | Anti-CSRF ve ASP.NET MVC formları - kullanma `AntiForgeryToken` yardımcı yöntem görünümleri; put bir `Html.AntiForgeryToken()` forma, örneğin,|
 
 ### <a name="example"></a>Örnek
@@ -304,7 +304,7 @@ Denetleyen yetkilendirme Filtresi:
 * Bu tanımlama bilgisi ve `Request.Form` varsayarak tüm değerleri Eşleştir iyi, istek geçtiği normal olarak. Ancak Aksi takdirde, ardından bir Yetkilendirme hatası iletisi "gerekli bir sahteciliğe karşı koruma belirteci sağlanmadı ya da geçersiz". 
 
 ### <a name="example"></a>Örnek
-Anti-CSRF ve AJAX: bir AJAX isteği JSON verilerini, HTML form verileri gönderme çünkü form simgesi AJAX istekleri için bir sorun olabilir. Tek bir çözüm, özel bir HTTP üst bilgisinde belirteçleri göndermektir. Aşağıdaki kod, belirteçleri oluşturmak için Razor sözdizimini kullanır ve ardından belirteçleri için bir AJAX isteği ekler. 
+Ve AJAX CSRF önleme: Form simgesi HTML form verileri JSON verilerini bir AJAX isteği gönderebilir AJAX istekleri için bir sorun olabilir. Tek bir çözüm, özel bir HTTP üst bilgisinde belirteçleri göndermektir. Aşağıdaki kod, belirteçleri oluşturmak için Razor sözdizimini kullanır ve ardından belirteçleri için bir AJAX isteği ekler. 
 ```csharp
 <script>
     @functions{
@@ -355,7 +355,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Web formları |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [Web saldırılarına Fend için ASP.NET yerleşik özelliklerinden yararlanmak](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
 | **Adımları** | WebForm tabanlı uygulamaları CSRF saldırılarında ViewStateUserKey değişen rastgele bir dize için - her kullanıcı için kullanıcı kimliği ayarlayarak azaltılabilir veya henüz, daha iyi bir oturum kimliği ID öngörülemeyen, oturum zaman aşımına uğrar ve kullanıcı başına esasına göre değişir olduğundan bir dizi teknik ve sosyal nedenden ötürü oturum çok daha iyi uyum kimliğidir.|
 
@@ -375,7 +375,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | [HttpSessionState.Timeout özelliği](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
 | **Adımları** | Oturum zaman aşımı, kullanıcı herhangi bir işlem bir web sitesinde (web sunucusu tarafından tanımlanan) bir aralık boyunca gerçekleştirmez sırasında oluşan olayı temsil eder. Sunucu tarafında olay kullanıcı oturumunun durumunu (örneğin "artık kullanılmıyor") 'için geçersiz' değiştirmek ve web sunucusu (içine yer alan tüm verileri silme) edilecek isteyin. Aşağıdaki kod örneği, Web.config dosyasında 15 dakika ile oturum zaman aşımı özniteliğini ayarlar.|
 
@@ -411,7 +411,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Web Forms, MVC5 |
-| **Öznitelikleri**              | EnvironmentType - OnPrem |
+| **Öznitelikler**              | EnvironmentType - OnPrem |
 | **Başvuruları**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
 | **Adımları** | Bağlı olan taraf web uygulamasıdır ve AD FS STS olduğunda web.config dosyasında aşağıdaki yapılandırma ile kimlik doğrulama tanımlama bilgisi - FedAuth belirteçleri - ömrünü ayarlayabilirsiniz:|
 
@@ -446,7 +446,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
 | **Adımları** | Doğru oturum kapatma düğmesi basarsa kullanıcı oturum açtığında uygulamadan gerçekleştirin. Oturum kapatma uygulama kullanıcının oturumu yok ve ayrıca sıfırlamak ve oturum tanımlama bilgisi değeri sıfırlamak ve kimlik doğrulama tanımlama bilgisi değeri nullifying birlikte silinmez. Birden çok oturumu tek kullanıcı kimliğine bağlıdır, ayrıca, bunlar topluca sunucu tarafında zaman aşımı veya oturum kapatma ile bitmelidir. Son olarak, oturum kapatma işlevi her sayfada kullanılabilir olduğundan emin olun. |
 
@@ -457,7 +457,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **Bileşen**               | Web API | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
-| **Öznitelikleri**              | Yok  |
+| **Öznitelikler**              | Yok  |
 | **Başvuruları**              | Yok  |
 | **Adımları** | Siteler arası istek sahteciliği (CSRF veya XSRF), bir saldırganın güvenlik bağlamında farklı bir kullanıcının bir web sitesi kurulan oturum eylemlerini gerçekleştirebilirsiniz saldırı türüdür. Hedeflenen web sitesi alınan istek kimliğini doğrulamak için yalnızca oturum tanımlama dayanıyorsa değiştirin veya içeriği silme olmaktır. Bir saldırgan, üzerinde kullanıcı zaten oturum savunmasız bir siteden bir URL ile bir komut yüklemek için farklı bir kullanıcının tarayıcı alarak bu güvenlik açığından yararlanabilir. Bir bağlantıya tıklayabilecekleri gibi güvenlik açığı sunucudan kaynak yükler farklı bir web sitesi barındırma veya kullanıcı alınıyor bunun, bir saldırganın birçok yolu vardır. Sunucu istemciye bir ek belirteç gönderir, bu belirteci içindeki tüm gelecek istekleri dahil etmek istemcinin ihtiyaç duyduğu ve gelecekteki tüm istekleri ASP.NET'i kullanarak gibi geçerli oturum için ilgili bir belirteç içerdiğini doğrular, saldırı engellenebilir AntiForgeryToken veya Görünüm durumu. |
 
@@ -466,9 +466,9 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **Bileşen**               | Web API | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | MVC5, MVC6 |
-| **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [ASP.NET Web API'de siteler arası istek sahteciliği (CSRF) saldırılarını önleme](http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
-| **Adımları** | Anti-CSRF ve AJAX: bir AJAX isteği JSON verilerini, HTML form verileri gönderme çünkü form simgesi AJAX istekleri için bir sorun olabilir. Tek bir çözüm, özel bir HTTP üst bilgisinde belirteçleri göndermektir. Aşağıdaki kod, belirteçleri oluşturmak için Razor sözdizimini kullanır ve ardından belirteçleri için bir AJAX isteği ekler. |
+| **Öznitelikler**              | Yok  |
+| **Başvuruları**              | [ASP.NET Web API'de siteler arası istek sahteciliği (CSRF) saldırılarını önleme](https://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
+| **Adımları** | Ve AJAX CSRF önleme: Form simgesi HTML form verileri JSON verilerini bir AJAX isteği gönderebilir AJAX istekleri için bir sorun olabilir. Tek bir çözüm, özel bir HTTP üst bilgisinde belirteçleri göndermektir. Aşağıdaki kod, belirteçleri oluşturmak için Razor sözdizimini kullanır ve ardından belirteçleri için bir AJAX isteği ekler. |
 
 ### <a name="example"></a>Örnek
 ```Javascript
@@ -553,8 +553,8 @@ Denetleyen yetkilendirme Filtresi:
 | **Bileşen**               | Web API | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | MVC5, MVC6 |
-| **Öznitelikleri**              | Kimlik sağlayıcısı - AD FS, kimlik sağlayıcısı - Azure AD |
-| **Başvuruları**              | [Bireysel hesaplar ve ASP.NET Web API 2.2 sürümünde yerel oturum açma ile bir Web API'SİNİN güvenliğini sağlama](http://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |
+| **Öznitelikler**              | Kimlik sağlayıcısı - AD FS, kimlik sağlayıcısı - Azure AD |
+| **Başvuruları**              | [Bireysel hesaplar ve ASP.NET Web API 2.2 sürümünde yerel oturum açma ile bir Web API'SİNİN güvenliğini sağlama](https://www.asp.net/web-api/overview/security/individual-accounts-in-web-api) |
 | **Adımları** | Web API'si ise OAuth 2.0 kullanarak güvenli sonra yetkilendirme istek üst bilgisinde taşıyıcı belirteç bekliyor ve yalnızca belirteç geçerliyse, istek erişim verir. Tanımlama bilgisi tabanlı kimlik doğrulamasının aksine, tarayıcılar isteklerine taşıyıcı belirteçleri eklemeyin. İstekte bulunan istemciye istek üstbilgisinde taşıyıcı belirteç açıkça eklemeniz gerekir. Bu nedenle, OAuth 2.0 kullanarak korumalı ASP.NET Web API'leri için savunma CSRF saldırılarına karşı olarak taşıyıcı belirteçleri kabul edilir. Lütfen uygulamanın MVC kısmı, form kimlik doğrulaması (yani, tanımlama bilgileri kullanır) kullanıyorsa, sahteciliğe karşı koruma belirteçleri MVC web uygulaması tarafından kullanılması gerektiğini unutmayın. |
 
 ### <a name="example"></a>Örnek

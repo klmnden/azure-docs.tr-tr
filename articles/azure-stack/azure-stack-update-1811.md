@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 0e14e7eb20e87f5555fa6b494c0d09ccde08d2dd
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: ddcf3428f32698c9825f13975929bc4677139acf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731641"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081058"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 güncelleştirme
 
@@ -122,13 +122,13 @@ Bu güncelleştirme, aşağıdaki yeni özellikleri ve Azure Stack için gelişt
 - Bu sürüm uyarı tanıtır **onarım** Azure Stack operatörü eylemleri. 1811 içinde bazı uyarılarda sağlayan bir **onarım** sorunu çözmek için seçebileceğiniz uyarı düğmesi. Daha fazla bilgi için [izleme sistem durumu ve Uyarıları Azure Stack'te](azure-stack-monitor-health.md).
 
 - Azure Stack'te güncelleştirme deneyimini güncelleştirmeleri. Güncelleştirme geliştirmeler şunları içerir: 
-    - Güncelleştirme geçmişini daha iyi izleme güncelleştirme işlemleri sürüyor güncelleştirmeleri bölün ve güncelleştirmeleri tamamlandı sekmeler.
-    - Temel Parçalar bölümünde yeni simgeler ve son yanı sıra geçerli ve OEM sürümleri için Düzen ile geliştirilmiş durum görselleştirmeler tarih güncelleştirildi.
-    - **Görünüm** için sürüm notları sütun kullanıcıyı doğrudan belgeler genel güncelleştirme sayfası yerine bu güncelleştirmeyi belirli götürür bağlayın.
-    - **Güncelleştirme geçmişi** sekmesini her güncelleştirmelerin çalıştırma zamanlarını belirlemek için kullanılan yanı sıra gelişmiş filtreleme yetenekleri.  
-    - Bağlı azure Stack ölçek birimleri otomatik olarak hala alacağı **güncelleştirme kullanılabilir** kullanılabilir oldukça.
-    - Bağlı olmadığınız azure Stack ölçek birimleri güncelleştirmeleri önce olduğu gibi aktarabilirsiniz. 
-    - Portaldan JSON günlükleri indirmek için işlemindeki bir değişiklik bulunmamaktadır. Azure Stack operatörleri, ilerleme ifade adımları genişletme görürsünüz.
+  - Güncelleştirme geçmişini daha iyi izleme güncelleştirme işlemleri sürüyor güncelleştirmeleri bölün ve güncelleştirmeleri tamamlandı sekmeler.
+  - Temel Parçalar bölümünde yeni simgeler ve son yanı sıra geçerli ve OEM sürümleri için Düzen ile geliştirilmiş durum görselleştirmeler tarih güncelleştirildi.
+  - **Görünüm** için sürüm notları sütun kullanıcıyı doğrudan belgeler genel güncelleştirme sayfası yerine bu güncelleştirmeyi belirli götürür bağlayın.
+  - **Güncelleştirme geçmişi** sekmesini her güncelleştirmelerin çalıştırma zamanlarını belirlemek için kullanılan yanı sıra gelişmiş filtreleme yetenekleri.  
+  - Bağlı azure Stack ölçek birimleri otomatik olarak hala alacağı **güncelleştirme kullanılabilir** kullanılabilir oldukça.
+  - Bağlı olmadığınız azure Stack ölçek birimleri güncelleştirmeleri önce olduğu gibi aktarabilirsiniz. 
+  - Portaldan JSON günlükleri indirmek için işlemindeki bir değişiklik bulunmamaktadır. Azure Stack operatörleri, ilerleme ifade adımları genişletme görürsünüz.
 
     Daha fazla bilgi için [güncelleştirmelerini Azure Stack'te](azure-stack-apply-updates.md).
 
@@ -256,17 +256,17 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 <!-- 1264761 - IS ASDK -->  
 - Uyarıları görebilirsiniz **sistem durumu denetleyicisi** aşağıdaki ayrıntıları olan bir bileşeni:  
 
-    - Uyarı #1:
-       - ADI:  Sağlıksız altyapı rolü
-       - ÖNEM DERECESİ: Uyarı
-       - BİLEŞEN: Denetleyici sistem durumu
-       - AÇIKLAMA: Sistem durumu denetleyici sinyal tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.  
+  - Uyarı #1:
+     - ADI:  Sağlıksız altyapı rolü
+     - ÖNEM DERECESİ: Uyarı
+     - BİLEŞEN: Denetleyici sistem durumu
+     - AÇIKLAMA: Sistem durumu denetleyici sinyal tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.  
 
-    - Uyarı #2:
-       - ADI:  Sağlıksız altyapı rolü
-       - ÖNEM DERECESİ: Uyarı
-       - BİLEŞEN: Denetleyici sistem durumu
-       - AÇIKLAMA: Sistem durumu denetleyicisi hata tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.
+  - Uyarı #2:
+     - ADI:  Sağlıksız altyapı rolü
+     - ÖNEM DERECESİ: Uyarı
+     - BİLEŞEN: Denetleyici sistem durumu
+     - AÇIKLAMA: Sistem durumu denetleyicisi hata tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.
 
     Her iki uyarılar güvenle yoksayılabilir. Bunlar, zaman içinde otomatik olarak kapatılacak.  
 
@@ -346,7 +346,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 - Azure Stack sırasında *gizli dönüş*, bir süre içinde genel IP adresleri olan erişilemeyen iki ila beş dakikalığına yoktur.
 
 <!-- 2664148 - IS ASDK --> 
--   Bir S2S VPN tüneli aracılığıyla Kiracı sanal makineleri burada erişiyor senaryolarda, şirket içi alt ağ yerel ağ geçidi için ağ geçidi zaten oluşturulduktan sonra eklenmişse nerede bağlantı girişimleri başarısız bir senaryo hatalarla karşılaşabilirsiniz. 
+- Bir S2S VPN tüneli aracılığıyla Kiracı sanal makineleri burada erişiyor senaryolarda, şirket içi alt ağ yerel ağ geçidi için ağ geçidi zaten oluşturulduktan sonra eklenmişse nerede bağlantı girişimleri başarısız bir senaryo hatalarla karşılaşabilirsiniz. 
 
 - Azure Stack portalında bir VM örneğine iliştirilmiş bir ağ bağdaştırıcısına bağlı bir IP yapılandırması için statik bir IP adresi değiştirdiğinizde bildiren bir uyarı iletisi görürsünüz 
 
@@ -358,9 +358,9 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 - Portalda, bir gelen güvenlik kuralı ekleyin ve seçerseniz, **hizmet etiketi** çeşitli seçenekler görüntülenir, kaynak olarak **kaynak etiketi** Azure Stack için kullanılabilir değil bir listesi. Azure Stack'te geçerli yalnızca seçenekleri aşağıdaki gibidir:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     Diğer seçenekler olarak Azure Stack'te kaynak etiketleri desteklenmez. Benzer şekilde, bir giden güvenlik kuralı ekleyin ve seçin, **hizmet etiketi** hedef aynı seçeneklerinin listesi olarak **kaynak etiketi** görüntülenir. Aynı yalnızca geçerli seçenekler şunlardır **kaynak etiketi**önceki listede açıklandığı gibi.
 

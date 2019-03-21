@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 1015e6774dac1258820e3ca4b3d06786046a8554
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: dea8547905cb558cb0be7dc23f89099773e84ff0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980865"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074787"
 ---
 # <a name="create-a-snapshot"></a>Anlık görüntü oluşturma
 
@@ -48,41 +48,41 @@ Aşağıdaki adımları kullanarak disk anlık VHD diski kopyalayın ve anlık g
 
 1. Bazı parametrelerini ayarla: 
 
- ```azurepowershell-interactive
-$resourceGroupName = 'myResourceGroup' 
-$location = 'eastus' 
-$vmName = 'myVM'
-$snapshotName = 'mySnapshot'  
-```
+   ```azurepowershell-interactive
+   $resourceGroupName = 'myResourceGroup' 
+   $location = 'eastus' 
+   $vmName = 'myVM'
+   $snapshotName = 'mySnapshot'  
+   ```
 
 2. VM Al:
 
- ```azurepowershell-interactive
-$vm = get-azvm `
+   ```azurepowershell-interactive
+   $vm = get-azvm `
    -ResourceGroupName $resourceGroupName 
    -Name $vmName
-```
+   ```
 
 3. Anlık görüntü yapılandırmasını oluşturun. Bu örnekte, işletim sistemi diskinin anlık görüntüsüdür:
 
- ```azurepowershell-interactive
-$snapshot =  New-AzSnapshotConfig 
+   ```azurepowershell-interactive
+   $snapshot =  New-AzSnapshotConfig 
    -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
    -Location $location 
    -CreateOption copy
-```
+   ```
    
    > [!NOTE]
    > Bölge dayanıklı depolama, anlık görüntü depolamak istiyorsanız, desteklediği bir bölgede oluşturun [kullanılabilirlik](../../availability-zones/az-overview.md) ve `-SkuName Standard_ZRS` parametresi.   
    
 4. Anlık görüntü alın:
 
- ```azurepowershell-interactive
-New-AzSnapshot 
+   ```azurepowershell-interactive
+   New-AzSnapshot 
    -Snapshot $snapshot 
    -SnapshotName $snapshotName 
    -ResourceGroupName $resourceGroupName 
-```
+   ```
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

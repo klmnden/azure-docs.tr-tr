@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: d409d451385ba1f88189b12cf372845e70a87429
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 5d4d591c465cae91c59e8f86ea9d3e421db0f952
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726379"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112118"
 ---
 # <a name="monitoring-metrics-for-front-door"></a>Ön kapısı ölçümlerini izleme
 
@@ -31,7 +31,7 @@ Azure ön kapısı hizmetini kullanarak, aşağıdaki yollarla kaynaklarını iz
 
 | Ölçüm | Ölçüm görünen adı | Birim | Boyutlar | Açıklama |
 | --- | --- | --- | --- | --- |
-| RequestCount | İstek sayısı | Sayı | Httpstatus'a</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Ön kapısı tarafından sunulan istemci isteklerinin sayısı.  |
+| RequestCount | İstek Sayısı | Sayı | Httpstatus'a</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Ön kapısı tarafından sunulan istemci isteklerinin sayısı.  |
 | RequestSize | İstek boyutu | Bayt | Httpstatus'a</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | İstekleri olarak ön kapısı istemcilerden gönderilen bayt sayısı. |
 | ResponseSize | Yanıt boyutu | Bayt | Httpstatus'a</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | İstemcilere ön kapısı yanıt gönderilen bayt sayısı. |
 | TotalLatency | Toplam gecikme süresi | Milisaniye | Httpstatus'a</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | İstemci ön kapısı son yanıt bayttan onaylanır kadar ön kapısı tarafından istemci isteği alındı, hesaplanan saat. |
@@ -59,7 +59,7 @@ Etkinlik günlüklerini görüntülemek için:
 3. İstenen filtre kapsamını seçin ve **Uygula**’ya tıklayın.
 
 ## <a name="diagnostic-logging"></a>Tanılama günlükleri
-Tanılama günlükleri, denetim ve sorun giderme konularında önemli işlem ve hatalar hakkında zengin bilgiler sağlar. Tanılama günlükleri, etkinlik günlüklerinden farklıdır. Etkinlik günlükleri, Azure kaynaklarınız üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Tanılama günlükleri, kaynağınızın kendisi tarafından gerçekleştirilen işlemler hakkında bilgi sağlar. Daha fazla bilgi edinin [Azure İzleyici tanılama günlükleri](..\azure-monitor\platform\diagnostic-logs-overview.md). 
+Tanılama günlükleri, denetim ve sorun giderme konularında önemli işlem ve hatalar hakkında zengin bilgiler sağlar. Tanılama günlükleri, etkinlik günlüklerinden farklıdır. Etkinlik günlükleri, Azure kaynaklarınız üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Tanılama günlükleri, kaynağınızın kendisi tarafından gerçekleştirilen işlemler hakkında bilgi sağlar. Daha fazla bilgi edinin [Azure İzleyici tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
 Tanılama günlükleri, ön kapısı yapılandırmak için:
 

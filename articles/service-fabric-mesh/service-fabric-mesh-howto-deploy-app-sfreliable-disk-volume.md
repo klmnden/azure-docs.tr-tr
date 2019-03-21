@@ -1,5 +1,5 @@
 ---
-title: Yüksek oranda kullanılabilir Service Fabric güvenilir Disk birimi içinde bir Azure Service Fabric Mesh uygulaması kullanın. | Microsoft Docs
+title: Azure Service Fabric Mesh uygulamada yüksek oranda kullanılabilir Service Fabric güvenilir Disk birimi kullanın | Microsoft Docs
 description: Azure CLI kullanarak kapsayıcı içinde Service Fabric güvenilir temel alan Disk birimi bağlayarak durumu bir Azure Service Fabric Mesh uygulamada depolamayı öğrenin.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2ed64bbf0da252285184e2ca6fef0555a85ce149
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955330"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850862"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Yüksek oranda kullanılabilir bir Service Fabric Mesh uygulaması Service Fabric güvenilir temel alan Disk biriminde bağlama 
 Azure dosya depolama gibi uzak depolama veya Azure Cosmos DB gibi veritabanı kapsayıcı uygulamalar ile kalıcı durumunu genel yöntemini kullanmaktır. Bu önemli okuma ve yazma ağ gecikmesi uzak deposuna artmasına neden olur.

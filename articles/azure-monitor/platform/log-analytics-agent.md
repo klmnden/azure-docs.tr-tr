@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 0140cb4fd1721e1d13840fe27db223c0ebec7d8a
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: e9df83ef81c2656bf94002feb79d7e4d99ed7954
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301902"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841115"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Azure Log Analytics aracısını log verileri toplama
 
@@ -83,6 +83,7 @@ Linux ve Windows Aracısı Log Analytics ile iletişim kurmak gerekli proxy ve g
 |*.blob.core.windows.net |Bağlantı noktası 443 |Giden|Evet |  
 |*.azure-automation.net |Bağlantı noktası 443 |Giden|Evet |  
 
+Azure kamu için gerekli güvenlik duvarı için bilgi [Azure kamu Yönetimi](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 
 Bağlanmak ve ortamınızda runbook'ları kullanmak için Otomasyon hizmetine kaydetmek için Azure Otomasyon karma Runbook çalışanı'nı kullanmayı planlıyorsanız, bağlantı noktası numarası ve bölümünde açıklanan URL'lere erişimi olmalıdır [ağınız için yapılandırma Karma Runbook çalışanı](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 

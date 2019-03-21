@@ -4,14 +4,14 @@ description: Bu makalede nasıl ekleme ve Azure'da Azure Site Recovery ile VMwar
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 6c00ed6f3bec1e16b2a3cb8588335c1741a92883
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: efbcc0143570b3d379cf392c170f599fcc0176d4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849046"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855138"
 ---
 # <a name="manage-vmware-vcenter-server"></a>VMware vCenter server'ı yönetme
 
@@ -26,7 +26,7 @@ Site Recovery, yük devretme ve yeniden çalışma sanal makinelerin ve işlem s
 2. Başlatma masaüstü kısayolunu kullanarak cspsconfigtool.exe açın.
 3. Tıklayın **hesabı Ekle** üzerinde **hesabı Yönet** sekmesi.
 
-  ![Hesap Ekle](./media/vmware-azure-manage-vcenter/addaccount.png)
+   ![Hesap Ekle](./media/vmware-azure-manage-vcenter/addaccount.png)
 1. Hesabı ayrıntılarını girin ve tıklatın **Tamam** ekleyin.  Hesabınız aşağıdaki tabloda özetlenen ayrıcalıkları olmalıdır. 
 
 Yedekleme Site Recovery hizmeti ile eşitlenmesi hesap bilgileri için yaklaşık 15 dakika sürer.
@@ -42,7 +42,7 @@ Yedekleme Site Recovery hizmeti ile eşitlenmesi hesap bilgileri için yaklaşı
 
 ## <a name="add-vmware-server-to-the-vault"></a>Kasaya VMware sunucusunu ekleme
 
-1. Kasanız Azure portalında açın > **Site Recovery altyapısı** > **yapılandırma sunucularından**, yapılandırma sunucusunu açın.
+1. Kasanızın Azure portalında açın > **Site Recovery altyapısı** > **yapılandırma sunucularından**, yapılandırma sunucusunu açın.
 2. Üzerinde **ayrıntıları** sayfasında **+ vCenter**.
 
 [!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
@@ -54,14 +54,14 @@ Aşağıdaki gibi vCenter sunucusu veya ESXi ana bilgisayarına bağlanmak için
 1. Yapılandırma sunucuya oturum açın ve masaüstünden cspsconfigtool.exe'yi başlatın.
 2. Tıklayın **hesabı Ekle** üzerinde **hesabı Yönet** sekmesi.
 
-  ![Hesap Ekle](./media/vmware-azure-manage-vcenter/addaccount.png)
+   ![Hesap Ekle](./media/vmware-azure-manage-vcenter/addaccount.png)
 3. Yeni hesap ayrıntılarını belirtin ve tıklayın **Tamam** ekleyin. Hesabınız listelenen ayrıcalıkları olmalıdır [yukarıda](#account-permissions).
 4. Kasa Azure portalında açın > **Site Recovery altyapısı** > **yapılandırma sunucularından**, yapılandırma sunucusunu açın.
 5. İçinde **ayrıntıları** sayfasında **sunucusunu Yenile eylemi**.
 6. Sunucuyu Yenile işi tamamlandıktan sonra ' % s'vCenter sunucusu ile vCenter'ı açmak için seçin **özeti** sayfası.
 7. Yeni eklenen hesaptaki **vCenter sunucusu/vSphere ana bilgisayar hesabı** alan ve tıklayın **Kaydet**.
 
-    ![Hesap Değiştir](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
+   ![Hesap Değiştir](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
 
 ## <a name="delete-a-vcenter-server"></a>VCenter sunucusu silme
 
@@ -69,7 +69,53 @@ Aşağıdaki gibi vCenter sunucusu veya ESXi ana bilgisayarına bağlanmak için
 2. Üzerinde **ayrıntıları** sayfasında, vCenter server'ı seçin.
 3. Tıklayarak **Sil** düğmesi.
 
-  ![hesabı Sil](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
+   ![hesabı Sil](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
+
+## <a name="modify-the-vcenter-ip-address-and-port"></a>VCenter IP adresi ve bağlantı noktası değiştirme
+
+1. Azure Portal’da oturum açın.
+2. Gidin **kurtarma Hizmetleri kasası** > **Site Recovery altyapısı** > **Configuration Servers**.
+3. Atanan yapılandırma sunucusundaki vCenter'ı tıklatın.
+4. İçinde **vCenter sunucuları** bölümünde, değiştirmek istediğiniz vCenter'ı tıklatın.
+5. VCenter Özet sayfasında, ilgili alanları vCenter'ın bağlantı noktası ve IP adresi güncelleştirin ve ardından değişikliklerinizi kaydedin.
+
+   ![add_ip_new_vcenter](media/vmware-azure-manage-vcenter/add-ip.png)
+
+6. Değişikliklerinin etkinleşmesi için 15 dakika bekleyin ya da [yapılandırma sunucusunu Yenile](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
+
+## <a name="migrate-all-protected-virtual-machines-to-a-new-vcenter"></a>Yeni bir vCenter tüm korumalı sanal makineleri geçirme
+
+Yeni vCenter tüm sanal makineleri geçirmek için başka bir vCenter hesabı eklemeyin. Bu, yinelenen girişler için açabilir. Yalnızca yeni vCenter'ın IP adresini güncelleştirin:
+
+1. Azure Portal’da oturum açın.
+2. Gidin **kurtarma Hizmetleri kasası** > **Site Recovery altyapısı** > **Configuration Servers**.
+3. Atanan yapılandırma sunucusundaki eski vCenter'ı tıklatın.
+4. İçinde **vCenter sunucuları** bölümünde, geçiş planlıyorsanız vcenter'ı tıklatın.
+5. IP adresi alanına yeni vCenter'ın vCenter Özet sayfasında, güncelleştirme **vCenter sunucusu/vSphere konak adı veya IP adresi**. Yaptığınız değişiklikleri kaydedin.
+
+IP adresi güncelleştirildikten hemen sonra Site Recovery bileşenlerini yeni vCenter sanal makinelerin bulma bilgileri almaya başlar. Bu, devam eden çoğaltma etkinlikleri etkilemez.
+
+## <a name="migrate-few-protected-virtual-machines-to-a-new-vcenter"></a>Yeni bir vCenter birkaç korumalı sanal makineleri geçirme
 
 > [!NOTE]
-VCenter IP adresi, FQDN veya bağlantı noktasını değiştirmeniz gerekiyorsa, vCenter sunucusu silme ve portala geri ekleme gerekir.
+> Bu bölüm, yalnızca zaman birkaç korumalı sanal makineleriniz için yeni bir vCenter geçirdiğiniz geçerlidir. Yeni bir vCenter Server'dan yeni bir sanal makine kümesi korumak istiyorsanız [yapılandırma sunucusuna yeni vCenter ayrıntılarını Ekle](#add-vmware-server-to-the-vault) ve başlayın  **[korumayı etkinleştir](vmware-azure-tutorial.md#enable-replication)**.
+
+Yeni bir vCenter birkaç sanal makineleri taşımak için:
+
+1. [Yapılandırma sunucusuna yeni vCenter ayrıntılarını ekleme](#add-vmware-server-to-the-vault).
+2. [Sanal makinelerin çoğaltmasını devre dışı bırakın](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) geçirilmesi için planlama.
+3. Yeni vcenter seçili sanal makinelerin geçişini tamamlayın.
+4. Şimdi, geçirilen sanal makineler tarafından korumak [korumayı etkinleştirdiğinizde yeni vCenter'ı seçerek](vmware-azure-tutorial.md#enable-replication).
+
+> [!TIP]
+> Geçirilmekte olan sanal makinelerin sayı **yüksek** verilen yönergeleri kullanarak yeni vCenter'ın IP adresi güncelleştirme eski vCenter korunan sanal makine sayısı [burada](#modify-vcenter-ip-address-port). Eski vCenter korunur birkaç sanal makineler için [çoğaltmayı devre dışı bırak](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [yapılandırma sunucusuna yeni vCenter ayrıntılarını Ekle](#add-vmware-server-to-the-vault)ve başlangıç  **[korumayı etkinleştir](vmware-azure-tutorial.md#enable-replication)**.
+
+## <a name="frequently-asked-questions"></a>Sık sorulan sorular
+
+1. Korunan sanal makinelerin bir ESXi konağından diğerine taşınırsa, çoğaltma etkileyecek?
+
+    Hayır, bu devam eden çoğaltma etkilemez. Ancak, [yeterli ayrıcalıklara sahip ana hedef sunucusu dağıttığınızdan emin olun](vmware-azure-reprotect.md#deploy-a-separate-master-target-server)
+
+2. Bağlantı noktası numaralarıdır için vCenter ve diğer Site Recovery arasındaki iletişim için bileşenleri kullanılıyor?
+
+    Varsayılan bağlantı noktası 443 ' dir. Yapılandırma Sunucusu'na vCenter/vSphere konak bilgilerini Bu bağlantı noktası üzerinden erişir. Bu bilgileri güncelleştirmek isterseniz, tıklayın [burada](#modify-the-vcenter-ip-address-and-port).

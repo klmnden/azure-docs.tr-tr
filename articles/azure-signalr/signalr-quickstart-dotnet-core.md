@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 680036dff856eccb85e600128119b5c0cafc5711
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 248861848aa905f9cbff01ab60affd7cf21aae78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543687"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004803"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Hızlı Başlangıç: Sohbet odası ile SignalR hizmeti oluşturma
 
@@ -97,7 +97,7 @@ Bu bölümde, projenize [Gizli Dizi Yöneticisi aracını](https://docs.microsof
 
     Gizli Dizi Yöneticisi yalnızca yerel olarak barındırıldığı sırada web uygulamasını test etmek için kullanılır. Sonraki bir öğreticide, sohbet uygulamasını Azure’a dağıtacaksınız. Web uygulaması dağıtıldıktan sonra bağlantı dizesini Gizli Dizi Yöneticisi ile depolamak yerine bir uygulama ayarını kullanacaksınız.
 
-    Bu gizli diziye yapılandırma API'si ile erişilir. Desteklenen tüm platformlarda, yapılandırma API'lerinin yapılandırma adlarında iki nokta üst üste (:) işareti kullanılabilir [Ortama göre yapılandırma](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
+    Bu gizli dizi API configuration ile erişilir. Desteklenen tüm platformlarda, yapılandırma API'lerinin yapılandırma adlarında iki nokta üst üste (:) işareti kullanılabilir [Ortama göre yapılandırma](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
 
 
 4. *Startup.cs* dosyasını açın ve `services.AddSignalR().AddAzureSignalR()` yöntemini çağırarak `ConfigureServices` yöntemini Azure SignalR Hizmeti’ni kullanacak şekilde güncelleştirin:
