@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fb22594ba240f9e7b790dbef0bd1e091c30c82b9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: b400af524d303fe4fbcbc8e34a394b286a048cc4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456559"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008800"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
@@ -4153,15 +4153,15 @@ Var olan bir kişi grubun adı ve userData güncelleştirin. İstek gövdesinde 
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
-> | Eylem | Microsoft.Portal/consoles/delete | Cloud Shell örneğini kaldırır. |
-> | Eylem | Microsoft.Portal/consoles/write | Bir Cloud Shell örneği oluşturun veya güncelleştirin. |
+> | Eylem | Microsoft.Portal/consoles/delete | Cloud shell örneğini kaldırır. |
+> | Eylem | Microsoft.Portal/consoles/write | Veya bir cloud shell örneği güncelleştirilemiyor. |
 > | Eylem | Microsoft.Portal/dashboards/delete | Panoyu abonelikten kaldırır. |
 > | Eylem | Microsoft.Portal/dashboards/read | Abonelik için panoları okur. |
 > | Eylem | Microsoft.Portal/dashboards/write | Bir aboneliğe pano ekleyin veya panoyu değiştirin. |
 > | Eylem | Microsoft.Portal/register/action | Portala Kaydet |
-> | Eylem | Microsoft.Portal/usersettings/delete | Cloud Shell kullanıcı ayarlarını kaldırır. |
-> | Eylem | Microsoft.Portal/usersettings/read | Cloud Shell kullanıcı ayarlarını okur. |
-> | Eylem | Microsoft.Portal/usersettings/write | Cloud Shell kullanıcı ayarı oluşturun veya güncelleştirin. |
+> | Eylem | Microsoft.Portal/usersettings/delete | Cloud shell kullanıcı ayarlarını kaldırır. |
+> | Eylem | Microsoft.Portal/usersettings/read | Cloud shell kullanıcı ayarlarını okur. |
+> | Eylem | Microsoft.Portal/usersettings/write | Veya cloud shell kullanıcı ayarı güncelleştirilemiyor. |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 

@@ -12,18 +12,29 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 69ca51776a61b43768ce7cb1565451c4f118de6e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: f3bb6fa93a96adcd2c1995b6874aa0b36b2ce320
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316532"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884532"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL veritabanı çok modelli özellikleri
 
 Çok modelli veritabanları depolamak ve ilişkisel veri, grafikler, JSON/XML belgeleri, anahtar-değer çiftleri, vb. gibi birden çok veri biçimini temsil verilerle çalışmanıza olanak sağlar.
 
-Azure SQL veritabanı, çeşitli genel amaçlı uygulamalar için en iyi durumda en iyi performans sağlayan ilişkisel modeli ile çalışmak üzere tasarlanmıştır. Ancak, Azure SQL veritabanı, ilişkisel veri için yalnızca sınırlı değildir. Azure SQL veritabanı, ilişkisel model tümleştirildiği ilişkisel olmayan biçimleri çeşitli kullanmanıza olanak sağlar. Azure SQL, çok modelli aşağıdaki özellikleri sağlar:
+## <a name="when-to-use-multi-model-capabilities"></a>Çok modelli özellikleri kullanmak ne zaman
+
+Azure SQL veritabanı, çeşitli genel amaçlı uygulamalar için en iyi durumda en iyi performans sağlayan ilişkisel modeli ile çalışmak üzere tasarlanmıştır. Ancak, Azure SQL veritabanı, ilişkisel veri için yalnızca sınırlı değildir. Azure SQL veritabanı, ilişkisel model tümleştirildiği ilişkisel olmayan biçimleri çeşitli kullanmanıza olanak sağlar.
+Azure SQL veritabanı çok modelli özellikleri aşağıdaki durumlarda kullanmayı düşünmeniz gerekir:
+- Bazı bilgiler varsa veya NoSQL modelleri ve sizin için daha iyi uyacak yapıları ayrı bir NoSQL veritabanı kullanmak istemiyorsanız.
+- Verilerinizi çoğunu ilişkisel modeli için uygundur ve bazı bölümlerini bir NoSQL verilerinizi modellemek gerekir.
+- Zengin Transact-SQL dili de sorgulanması ve çözümlenmesi ilişkisel ve NoSQL veri yararlanın ve çeşitli araçları ve SQL dilini kullanabilir uygulamalara ile tümleştirmek istediğiniz.
+- Veritabanı özellikleri gibi uygulamak istediğiniz [bellek içi teknolojileri](sql-database-in-memory.md) , analiz performansını artırmak veya NoSQL veri strucutres işleme [işlemsel çoğaltma](sql-database-managed-instance-transactional-replication.md) veya [okunabilir çoğaltma](sql-database-read-scale-out.md) üzerinde başka bir yerde verilerinizi bir kopyasını oluşturun ve birincil veritabanından analitik bazı iş yüklerini boşaltma.
+
+## <a name="overview"></a>Genel Bakış
+
+Azure SQL, çok modelli aşağıdaki özellikleri sağlar:
 - [Grafik özellikleri](#graph-features) grafik ile Gelişmiş standart Transact-SQL sorguları kullanın ve verilerinizi temsil eden düğümler ve kenarlar kümesi olarak tanır `MATCH` grafik verilerini sorgulamak için işleci.
 - [JSON özellikleri](#json-features) , JSON belgelerini tablolarında yerleştirme, JSON belgeleri ve ilişkili verileri dönüştürme sağlar. JSON belgelerini ayrıştırma işlevleri ile Gelişmiş standart Transact-SQL dili kullanın ve olmayan Kümelenmiş dizinler, columnstore dizinleri veya bellek için iyileştirilmiş tablolar, sorgularınızı iyileştirmeniz için kullanın.
 - [Uzamsal Özellikler](#spatial-features) coğrafi ve geometrik verilerini depolamak, uzamsal dizinler kullanarak bunları dizin ve uzamsal sorgular kullanarak verileri almak sağlar.
@@ -56,7 +67,7 @@ Bir şey yok bir grafik veritabanı ulaşabilir, hangi ilişkisel veritabanı ku
 
 ## <a name="json-features"></a>JSON özellikleri
 
-Azure SQL veritabanı sağlar ayrıştırma ve JavaScript nesne gösterimi ' gösterilen veri sorgulama [(JSON)](http://www.json.org/) biçimlendirmek ve JSON metni olarak, ilişkisel verilerinizi dışarı aktarın.
+Azure SQL veritabanı sağlar ayrıştırma ve JavaScript nesne gösterimi ' gösterilen veri sorgulama [(JSON)](https://www.json.org/) biçimlendirmek ve JSON metni olarak, ilişkisel verilerinizi dışarı aktarın.
 
 JSON, modern web ve mobil uygulamalarda veri değişimi için kullanılan popüler veri biçimidir. JSON, yarı yapılandırılmış verileri gibi NoSQL veritabanları veya günlük dosyalarını depolamak için de kullanılır [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Sonuçlar JSON metni olarak biçimlendirilmiş veya verileri kabul birçok REST web hizmetleri JSON tarafından biçimlendirilmiş. Çoğu Azure Hizmetleri gibi [Azure Search](https://azure.microsoft.com/services/search/), [Azure depolama](https://azure.microsoft.com/services/storage/), ve [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) döndürür veya JSON tüketen bir REST uç noktaları vardır.
 

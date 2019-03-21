@@ -4,7 +4,7 @@ description: Microsoft oturum açma ASP.NET Core Web Openıd Connect'i kullanara
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2018
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1d6c13dd5f345840c77f54fada3dded9d75cb81
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fed62dfc3f7e7dc974fb709261e363f26ce97c51
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013374"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200999"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Hızlı Başlangıç: Oturum açma Microsoft ile bir ASP.NET Core web uygulamasına ekleme
 
@@ -30,8 +30,7 @@ ms.locfileid: "58013374"
 
 Bu hızlı başlangıçta, ASP.NET Core web uygulaması kişisel hesapların nasıl kaydolabilirsiniz öğreneceksiniz (hotmail.com, outlook.com, diğerleri) ve iş ve Okul hesapları herhangi bir Azure Active Directory (Azure AD) örneğinden.
 
-![Bu hızlı başlangıcın oluşturduğu örnek uygulama nasıl çalışır](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.png)
-
+![Bu Hızlı Başlangıç ile oluşturulan örnek uygulamasını nasıl çalıştığını gösterir](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Hızlı başlangıç uygulamanızı kaydetme ve indirme
