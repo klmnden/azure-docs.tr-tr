@@ -1,18 +1,18 @@
 ---
 title: Linux Iaas sanal makineleri için Azure Disk şifrelemesini etkinleştirme
 description: Bu makalede, Linux Iaas sanal makineleri için Microsoft Azure Disk şifrelemesi etkinleştirme hakkında yönergeler sağlar.
-author: mestew
+author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.author: mstewart
-ms.date: 03/04/2019
+ms.author: mbaldwin
+ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 501cbc136d6a1f2d3af59d937ce72a1fb9b6da3e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 2ccf2573b719bab8aab3c89f75d4d343fe45d1f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773350"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855912"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Linux Iaas sanal makineleri için Azure Disk şifrelemesini etkinleştirme 
 
@@ -42,7 +42,7 @@ Disk şifrelemesi yüklenerek ve kullanılarak şifrelenmiş VHD'nizi etkinleşt
 
 Kullanım [az vm şifrelemeyi etkinleştirme](/cli/azure/vm/encryption#az-vm-encryption-enable) azure'da çalıştırılan Iaas sanal makine üzerinde şifrelemeyi etkinleştirmek için komutu.
 
--  **Çalışan bir VM şifrele:**
+- **Çalışan bir VM şifrele:**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type [All|OS|Data]
@@ -133,7 +133,7 @@ Resource Manager şablonu parametreleri, mevcut veya sanal makineleri çalışt�
 | Parametre | Açıklama |
 | --- | --- |
 | vmName | Şifreleme işlemi çalıştırmak için sanal makinenin adı. |
-| keyVaultName | BitLocker anahtarı karşıya yüklenmelidir anahtar kasasının adı. Cmdlet'ini kullanarak elde edeceğinizi `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` veya Azure CLI komutunu ' az keyvault list--resource-group "MyKeyVaultResourceGroupName" |ConvertFrom-JSON'|
+| keyVaultName | BitLocker anahtarı karşıya yüklenmelidir anahtar kasasının adı. Cmdlet'ini kullanarak elde edeceğinizi `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` veya Azure CLI komutu `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`|
 | keyVaultResourceGroup | Anahtar kasasını içeren kaynak grubunun adı|
 |  KeyEncryptionKeyURL | Oluşturulan BitLocker anahtarı şifrelemek için kullanılan anahtar şifreleme anahtarı URL'si. Bu seçerseniz isteğe bağlı bir parametredir **nokek** UseExistingKek aşağı açılan listesinde. Seçerseniz **kek** UseExistingKek aşağı açılan listeden girmelisiniz _keyEncryptionKeyURL_ değeri. |
 | VolumeType | Şifreleme işlemi gerçekleştirilir birim türü. Geçerli değerler _işletim sistemi_, _veri_, ve _tüm_. 
@@ -148,21 +148,8 @@ Resource Manager şablonu parametreleri, mevcut veya sanal makineleri çalışt�
 
 Linux ölçek kümesi veri disk şifreleme için bir toplu iş dosyası örneği bulunabilir [burada](https://github.com/Azure-Samples/azure-cli-samples/tree/master/disk-encryption/vmss). Bu örnek, bir kaynak grubu, Linux ölçek kümesi oluşturur, 5 GB'lık veri diskini bağlar ve sanal makine ölçek kümesi şifreler.
 
-### <a name="register-for-disk-encryption-preview-using-azure-cli"></a>Azure CLI kullanarak disk şifreleme Önizleme için kaydolun
+### <a name="encrypt-virtual-machine-scale-sets-with-azure-cli"></a>Azure CLI ile sanal makine ölçek kümeleri şifrele
 
-Önizleme sanal makine ölçek kümeleri için Azure disk şifrelemesi, kendi aboneliğinize kaydetmeniz gerektirir [az özelliği kayıt](/cli/azure/feature#az-feature-register). Yalnızca ilk kez disk şifreleme önizleme özelliğini kullandığınızda aşağıdaki adımları gerekir:
-
-```azurecli-interactive
-az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
-```
-
-Bu, kayıt isteği yaymak için 10 dakikaya kadar sürebilir. Kayıt durumunu denetleyebilirsiniz [az özelliği show](/cli/azure/feature#az-feature-show). Zaman `State` raporları *kayıtlı*, yeniden kaydetmeniz *Microsoft.Compute* sağlayıcısıyla [az provider register](/cli/azure/provider#az-provider-register):
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
-
-###  <a name="encrypt-virtual-machine-scale-sets-with-azure-cli"></a>Azure CLI ile sanal makine ölçek kümeleri şifrele
 Kullanım [az vmss şifrelemeyi etkinleştirme](/cli/azure/vmss/encryption#az-vmss-encryption-enable) bir Windows sanal makine ölçek kümesi şifrelemesini etkinleştirmek için. Yükseltme İlkesi el ile ölçek kümesi, şifreleme ile Başlat [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances). Kaynak grubunu, VM'yi ve anahtar kasası zaten önkoşul olarak oluşturulmuş olmalıdır. 
 
 -  **Çalışan bir sanal makine ölçek kümesi şifrele**
@@ -188,21 +175,6 @@ Kullanım [az vmss şifrelemeyi etkinleştirme](/cli/azure/vmss/encryption#az-vm
     ```azurecli-interactive
     az vmss encryption disable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss"
     ```
-
-### <a name="register-for-disk-encryption-preview-using-azure-powershell"></a>Azure Powershell kullanarak disk şifreleme Önizleme için kaydolun
-
-Önizleme sanal makine ölçek kümeleri için Azure disk şifrelemesi, kendi aboneliğinize kaydetmeniz gerektirir [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature). Yalnızca ilk kez disk şifreleme önizleme özelliğini kullandığınızda aşağıdaki adımları gerekir:
-
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
-```
-
-Bu, kayıt isteği yaymak için 10 dakikaya kadar sürebilir. Kayıt durumunu denetleyebilirsiniz [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature). Zaman `RegistrationState` raporları *kayıtlı*, yeniden kaydetmeniz *Microsoft.Compute* sağlayıcısıyla [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider):
-
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
 
 ### <a name="encrypt-virtual-machine-scale-sets-with-azure-powershell"></a>Azure PowerShell ile sanal makine ölçek kümeleri şifrele
 
@@ -262,6 +234,7 @@ Kullanım [kümesi AzVmssDiskEncryptionExtension](/powershell/module/az.compute/
      3. Tıklayın **satın alma** kullanarak şablonu dağıtabilirsiniz.
 
 ## <a name="bkmk_EFA"> </a>Linux Iaas sanal makinesi, veri diskleri için EncryptFormatAll özelliğini kullanın
+
 **EncryptFormatAll** parametresi şifrelenmesini Linux veri diskleri için zaman azaltır. Belirli bir ölçüte uyan bölümleri (kendi geçerli dosya sistemi ile) biçimlendirilir. Ardından bunlar geri bu komutu yürütmeden önce olduğu için yeniden bağlanması. Ölçütleri karşılayan bir veri diski dışlamak istiyorsanız, komutu çalıştırmadan önce çıkarma.
 
  Bu komutu çalıştırdıktan sonra bağlı herhangi bir sürücü önceden biçimlendirilir. Ardından üzerine artık boş sürücü şifreleme katmanı başlatılacak. Bu seçenek belirlendiğinde VM'ye bağlı kısa ömürlü kaynak diski de şifrelenir. Kısa ömürlü sürücü sıfırlarsanız, yeniden biçimlendirildi ve sanal makine için Azure Disk şifrelemesi çözümü sonraki fırsatta yeniden şifrelenir.

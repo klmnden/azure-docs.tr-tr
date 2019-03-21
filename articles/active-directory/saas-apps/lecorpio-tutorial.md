@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10afe8473a283698b0e2468e5afbb538e8c32b33
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e8eaa3abdaecd3c4a8d5b8ba3932f6bc1e561baf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782573"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858932"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>Öğretici: Lecorpio ile Azure Active Directory Tümleştirme
 
@@ -148,7 +148,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

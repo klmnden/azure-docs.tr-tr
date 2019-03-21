@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d39ec71315bec98c35ac7fb76ed9a88a094817ca
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117155"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884129"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>İstek telemetrisi: Application Insights veri modeli
 
@@ -29,7 +29,7 @@ Bir istek telemetri öğesinin (içinde [Application Insights](../../azure-monit
 
 İstek adının isteği işlemek için geçen kod yolu temsil eder. Daha iyi isteklerinin gruplandırma izin vermek için düşük kardinalite değeri. HTTP istekleri için HTTP yöntemi ve gibi URL yolu şablonunu temsil eden `GET /values/{id}` gerçek olmadan `id` değeri.
 
-Application Insights web SDK "olduğu gibi" istek adı harf bakımından gönderir. Kullanıcı arabiriminde gruplandırma küçük harfe duyarlı şekilde `GET /Home/Index` alanından ayrı olarak sayılır `GET /home/INDEX` genellikle bunlar aynı denetleyici ve eylem yürütülmesine neden olsa bile. Bu URL'leri genel olduğunu sebebi [büyük/küçük harfe](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Tüm görmek isteyebilirsiniz `404` harfle yazılmış URL'ler için oldu. ASP.Net Web SDK'sı tarafından üzerinde daha fazla istek adı koleksiyonunu edinebilirsiniz [blog gönderisi](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Application Insights web SDK "olduğu gibi" istek adı harf bakımından gönderir. Kullanıcı arabiriminde gruplandırma küçük harfe duyarlı şekilde `GET /Home/Index` alanından ayrı olarak sayılır `GET /home/INDEX` genellikle bunlar aynı denetleyici ve eylem yürütülmesine neden olsa bile. Bu URL'leri genel olduğunu sebebi [büyük/küçük harfe](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Tüm görmek isteyebilirsiniz `404` harfle yazılmış URL'ler için oldu. ASP.NET Web SDK'sı tarafından üzerinde daha fazla istek adı koleksiyonunu edinebilirsiniz [blog gönderisi](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
 En fazla uzunluk: 1024 karakter
 

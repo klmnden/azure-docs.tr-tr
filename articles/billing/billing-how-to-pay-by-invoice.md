@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 4cac603b0d575a4cf70cf4c5df6924be19bdfa2e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 1fb5ad056c1b8a331034cab12fa3420ba310bb95
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100287"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852347"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Azure aboneliği faturayla ödeme talebinizi
 
@@ -52,4 +52,4 @@ Size gereken kredi miktarı nedeniyle bir kredi kontrolü çalıştırmanız ger
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

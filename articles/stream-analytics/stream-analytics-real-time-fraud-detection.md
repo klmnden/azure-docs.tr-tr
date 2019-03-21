@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5317eb83552b5ea15b2d709f61b456a7a508e9ba
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 84f74392b93212558851f89dab924ae3db5620ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876186"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995120"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics'i kullanmaya başlama: Gerçek zamanlı sahtekarlık algılama
 
@@ -114,20 +114,20 @@ TelcoGenerator uygulamasını başlatmadan önce böylece araması kayıtları o
 
 ### <a name="configure-the-telcogenerator-app"></a>TelcoGenerator uygulamasını yapılandırma
 
-1.  Düzenleyiciye kopyaladığınız bağlantı dizesini Not `EntityPath` değeri ve Kaldır'ı `EntityPath` çifti (unutmayın kendisinden noktalı virgülü kaldırma). 
+1. Düzenleyiciye kopyaladığınız bağlantı dizesini Not `EntityPath` değeri ve Kaldır'ı `EntityPath` çifti (unutmayın kendisinden noktalı virgülü kaldırma). 
 
-2.  Burada TelcoGenerator.zip dosyasının sıkıştırması açılan klasöründe telcodatagen.exe.config dosyayı bir düzenleyicide açın. (Birden fazla .config dosyası varsa, bu nedenle doğru olanı açtığınızdan emin olun.)
+2. Burada TelcoGenerator.zip dosyasının sıkıştırması açılan klasöründe telcodatagen.exe.config dosyayı bir düzenleyicide açın. (Birden fazla .config dosyası varsa, bu nedenle doğru olanı açtığınızdan emin olun.)
 
-3.  İçinde `<appSettings>` öğesi:
+3. İçinde `<appSettings>` öğesi:
 
-    * Değerini `EventHubName` olay hub'ı adı anahtarını (diğer bir deyişle, varlık yolu değerine).
-    * Değerini `Microsoft.ServiceBus.ConnectionString` anahtar bağlantı dizesi. 
+   * Değerini `EventHubName` olay hub'ı adı anahtarını (diğer bir deyişle, varlık yolu değerine).
+   * Değerini `Microsoft.ServiceBus.ConnectionString` anahtar bağlantı dizesi. 
 
-    `<appSettings>` Bölümü, aşağıdaki örnekteki gibi görünür. (Netlik, satırları sarmalanır ve yetkilendirme belirteçten bazı karakterler kaldırıldı.)
+   `<appSettings>` Bölümü, aşağıdaki örnekteki gibi görünür. (Netlik, satırları sarmalanır ve yetkilendirme belirteçten bazı karakterler kaldırıldı.)
 
    ![Olay hub'ı adı ve bağlantı dizesini TelcoGenerator yapılandırma dosyasını gösterir](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
  
-4.  Dosyayı kaydedin. 
+4. Dosyayı kaydedin. 
 
 ### <a name="start-the-app"></a>Uygulamayı başlatın
 1.  Bir komut penceresi açın ve TelcoGenerator uygulamasının sıkıştırması olduğu klasöre gidin.
@@ -191,6 +191,7 @@ Arama olaylarından oluşan bir akışa sahip olduğunuza göre bir Stream Analy
    |Olay hub'ı ad alanı  |  asa-eh-ns-demo |  Olay hub'ı ad alanı adını girin.   |
    |Olay Hub'ı adı  | asa-eh-frauddetection-demo | Olay Hub'ınızın adını seçin.   |
    |Olay Hub'ı ilke adı  | asa-ilkeyi-yönetme-demo | Daha önce oluşturduğunuz erişim ilkesi seçin.   |
+
     </br>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
@@ -359,6 +360,7 @@ Blob depolama hesabınız varsa, kullanabilirsiniz. Bu öğretici için yeni bir
    |Abonelik   |  \<Aboneliğiniz\> |  Oluşturduğunuz depolama hesabını içeren Azure aboneliğini seçin. Depolama hesabı, aynı veya farklı bir abonelikte olabilir. Bu örnekte, aynı abonelikte depolama hesabı oluşturduğunuz varsayılır. |
    |Depolama hesabı  |  asaehstorage |  Oluşturduğunuz depolama hesabının adını girin. |
    |Kapsayıcı  | asa-fraudulentcalls-demo | Yeni Oluştur'ı seçin ve bir kapsayıcı adı girin. |
+
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 14cc87e8691c859274495a13cc0b73fa29ad22df
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 228ed5c54a382db7b47d19adacf9e5db398c53ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726898"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123700"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Azure ön kapısı hizmetinde arka uçlar ve arka uç havuzları
 Bu makalede, uygulama dağıtımınızı ön kapısı ile nasıl eşleştiği ilgili farklı kavramlar açıklanır. Biz de etrafında bir uygulama arka kapı yapılandırma önde farklı koşullar anlamı açıklanmaktadır.
@@ -62,7 +62,7 @@ Bir arka uç, ön kapısı, bir arka uç havuzuna eklediğinizde, aşağıdaki a
 Arka uca ön kapısı tarafından iletilen istekler hedef kaynak almak için arka uç kullanan bir konak üstbilgisi alanı var. Bu alan için değer, genellikle arka uç URI gelir ve konak ve bağlantı noktası vardır. Örneğin, bir istek için yapılan `www.contoso.com` barındırma üst bilgisi gerekir `www.contoso.com`. Azure portalını kullanarak arka uç yapılandırıyorsanız, bu alan için doldurulur varsayılan değer arka uç ana bilgisayar adı olan. Örneğin, arka uç ise `contoso-westus.azurewebsites.net`, sonra Azure portalında arka uç ana bilgisayar üstbilgisi otomatik olarak doldurulan değeri `contoso-westus.azurewebsites.net`. 
 </br>Ancak, Resource Manager şablonları kullanıyorsanız veya başka bir mekanizma ve bu alan açıkça ayarlıyorsanız değil, ardından ön kapısı gelen ana bilgisayar adı olarak ana bilgisayar üstbilgisi değeri gönderir. Örneğin, istek yapıldıysa `www.contoso.com`, ve arka uç `contoso-westus.azurewebsites.net` boş olarak arka uç ana üstbilgi alanı içeren ön kapısı barındırma üst bilgisi olarak ayarlayacak `www.contoso.com`.
 
-Çoğu uygulama arka uçları (örneğin, Web Apps, Blob Depolama ve Cloud Services) arka uç etki alanını eşleştirmek için ana bilgisayar üst bilgisi gerektirir. Ancak, arka ucunuza yönlendiren frontend ana bilgisayar www.contoso.azurefd.net gibi farklı bir ana bilgisayar adı olacaktır. Ayarladığınız arka uç, arka uç ana bilgisayar adını eşleştirmek için ana bilgisayar üstbilgisi gerektiriyorsa, 'arka uç ana bilgisayar üstbilgisi' da arka uç ana bilgisayar adı olduğundan emin olmalısınız.
+Çoğu uygulama arka uçları (örneğin, Web Apps, Blob Depolama ve Cloud Services) arka uç etki alanını eşleştirmek için ana bilgisayar üst bilgisi gerektirir. Ancak arka ucunuza yönlendiren frontend ana bilgisayar www gibi farklı bir ana bilgisayar adı olacaktır\.contoso.azurefd.net. Ayarladığınız arka uç, arka uç ana bilgisayar adını eşleştirmek için ana bilgisayar üstbilgisi gerektiriyorsa, 'arka uç ana bilgisayar üstbilgisi' da arka uç ana bilgisayar adı olduğundan emin olmalısınız.
 
 #### <a name="configuring-the-backend-host-header-for-the-backend"></a>Arka uç ana bilgisayar üstbilgisi arka uç için yapılandırma
 'Arka uç ana bilgisayar üstbilgisi' alanı, bir arka uç, arka uç havuzu için yapılandırılabilir.

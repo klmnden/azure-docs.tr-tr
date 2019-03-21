@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 4dac40e9fad8361c0e6c8a8758028743f2506f56
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 95d7fc55accb163e07dcb7d103cc896794720cf4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428100"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845471"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X’te geliştirme ortamınızı ayarlama
 > [!div class="op_single_selector"]
@@ -152,7 +152,7 @@ Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden Service Fabric
     node -v
     npm -v
     ```
-2. NPM’den makinenize [Yeoman](http://yeoman.io/) şablon oluşturucuyu yükleyin:
+2. NPM’den makinenize [Yeoman](https://yeoman.io/) şablon oluşturucuyu yükleyin:
 
     ```bash
     npm install -g yo

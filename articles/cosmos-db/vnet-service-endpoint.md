@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: d0bb9ad5c3a39f4065a81fb218a4b167f6fde9b1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4e609bf6d96fa9cc3f2dc179157ecd27178608f9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447566"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860372"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Azure Cosmos DB'den sanal ağları (VNet) erişim
 
@@ -44,7 +44,7 @@ Bir alt ağ üzerindeki Azure Cosmos DB için hizmet uç noktası etkinleştiril
 Yalnızca sanal ağ ve Azure Cosmos hesaba eklenen ağlarından erişime sahiptir. Eşlenen sanal ağ içindeki alt ağların hesabınıza eklenene kadar eşlenmiş Vnet'ler hesabına erişemiyor.
 
 ### <a name="what-is-the-maximum-number-of-subnets-allowed-to-access-a-single-cosmos-account"></a>Hangi alt ağların sayısı tek bir Cosmos hesap erişmesine izin verilir? 
-Şu anda, Azure Cosmos hesabı için izin verilen en fazla 64 alt ağlara sahip olabilir.
+Şu anda, Azure Cosmos hesabınız için izin verilen en fazla 64 alt ağlara sahip olabilir.
 
 ### <a name="can-i-enable-access-from-vpn-and-express-route"></a>VPN ve Expressroute üzerinden erişimi etkinleştirebilirim? 
 Azure Cosmos hesabı şirket içi Express route'tan üzerinden erişmek için Microsoft eşdüzey hizmet sağlama etkinleştirmek gerekir. IP Güvenlik Duvarı'nı veya sanal ağ erişim kuralları koymak sonra Azure Cosmos hesabı şirket içi Hizmetleri erişimine izin vermek için Azure Cosmos hesabı IP Güvenlik Duvarı'nı Microsoft eşlemesi için kullanılan genel IP adreslerini ekleyebilirsiniz. 

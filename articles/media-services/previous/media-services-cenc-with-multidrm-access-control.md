@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 94baa1235388ce99d013f8267f8410dcc206a51d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 336552c142e504ae7296314512f00688e30d032e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998357"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894368"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Azure Media Services kullanarak erişim denetimini içeren bir içerik koruma sistemi tasarımı 
 
@@ -28,7 +28,7 @@ Tasarlama ve dijital hak yönetimi (DRM) alt sistemi bir üzerinden-üst düzey 
 
 Bu belge için hedeflenen okuyucular OTT veya çevrimiçi akış/çoklu ekranı çözümler isteyen DRM alt sistemler okuyucuları DRM alt sistemlerde çalışan mühendisleri ' dir. Okuyucular DRM teknolojileri PlayReady, Widevine, FairPlay veya Adobe erişim gibi piyasadaki en az biri ile bilgi sahibi olduğunuz varsayılır.
 
-DRM Bu tartışmaya biz de ile çoklu DRM genel şifreleme (CENC) içerir. Çevrimiçi akış ve OTT sektör önemli bir eğilim çeşitli istemci platformlarında yerel birden çok DRM ile CENC kullanmaktır. Bu eğilim, çoklu DRM ve kendi İstemci SDK'sı çeşitli istemci platformları için kullanılan önceki bir kaydırmadır. Yerel birden çok DRM ile CENC kullandığınızda, PlayReady ve Widevine başına şifrelenir [genel şifreleme (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) belirtimi.
+DRM Bu tartışmaya biz de ile çoklu DRM genel şifreleme (CENC) içerir. Çevrimiçi akış ve OTT sektör önemli bir eğilim çeşitli istemci platformlarında yerel birden çok DRM ile CENC kullanmaktır. Bu eğilim, çoklu DRM ve kendi İstemci SDK'sı çeşitli istemci platformları için kullanılan önceki bir kaydırmadır. Yerel birden çok DRM ile CENC kullandığınızda, PlayReady ve Widevine başına şifrelenir [genel şifreleme (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) belirtimi.
 
 BT'nin birden çok DRM ile CENC avantajları şunlardır:
 
@@ -156,7 +156,7 @@ Aşağıdaki tablo, eşlemeyi gösterir.
 | **Anahtar yönetimi** |Başvuru uygulaması için gerekli değildir |
 | **İçerik yönetimi** |Bir C# konsol uygulaması |
 
-Diğer bir deyişle, IDP ve STS'nin hem Azure AD ile kullanılır. [Azure Media Player API'sine](http://amp.azure.net/libs/amp/latest/docs/) oyuncu için kullanılır. Media Services hem Media Player, birden çok DRM ile DASH ve CENC destekler.
+Diğer bir deyişle, IDP ve STS'nin hem Azure AD ile kullanılır. [Azure Media Player API'sine](https://amp.azure.net/libs/amp/latest/docs/) oyuncu için kullanılır. Media Services hem Media Player, birden çok DRM ile DASH ve CENC destekler.
 
 Genel yapısı ve önceki teknoloji eşleme ile akışı aşağıdaki diyagramda gösterilmiştir:
 
@@ -208,7 +208,7 @@ Uygulama, aşağıdaki adımları içerir:
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.activedirectory
 
-8. Bir oynatıcı kullanarak oluşturma [Azure Media Player API'sine](http://amp.azure.net/libs/amp/latest/docs/). Kullanma [Azure Media Player ProtectionInfo API'sine](http://amp.azure.net/libs/amp/latest/docs/) farklı DRM platformlarda kullanılacak DRM teknolojileri belirtmek için.
+8. Bir oynatıcı kullanarak oluşturma [Azure Media Player API'sine](https://amp.azure.net/libs/amp/latest/docs/). Kullanma [Azure Media Player ProtectionInfo API'sine](https://amp.azure.net/libs/amp/latest/docs/) farklı DRM platformlarda kullanılacak DRM teknolojileri belirtmek için.
 
 9. Aşağıdaki tablo, testi matris gösterir.
 

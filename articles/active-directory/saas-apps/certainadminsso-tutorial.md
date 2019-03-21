@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce3ef6803ace7b1eedef67b2f1dbbca1eb13f66c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: d45b52ac6d51560f2a07de9f629d3b2ccfccb5e3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447328"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860967"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Öğretici: Belirli yönetim SSO ile Azure Active Directory Tümleştirme
 
@@ -148,7 +148,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 003d5da137c88097d9555a9884286251af92d6f0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 6a13988af7a46ff6fafe352e850ee238cda79c08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311010"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996703"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
@@ -71,7 +71,7 @@ Office 365 aboneliğinize:
 1. **Yeni uygulama kaydı**’na tıklayın.
 
     ![Uygulama kaydı ekleme](media/solution-office-365/add-app-registration.png)
-1. Bir uygulama girin **adı** ve **oturum açma URL'si**.  Adı açıklayıcı olmalıdır.  Kullanım _http://localhost_ URL'si ve canlı _Web uygulaması / API_ için **uygulama türü**
+1. Bir uygulama girin **adı** ve **oturum açma URL'si**.  Adı açıklayıcı olmalıdır.  Kullanım `http://localhost` URL'si ve canlı _Web uygulaması / API_ için **uygulama türü**
     
     ![Uygulama oluştur](media/solution-office-365/create-application.png)
 1. Tıklayın **Oluştur** ve uygulama bilgilerini doğrulayın.
@@ -91,11 +91,11 @@ Office 365 aboneliğinize:
     ![API seçin](media/solution-office-365/select-api.png)
 
 1. Altında **izinleri seçin** hem de aşağıdaki seçenekleri belirleyin **uygulama izinleri** ve **temsilci izinleri**:
-    - Kuruluşunuza ilişkin hizmet durumu bilgilerini okur
-    - Kuruluşunuz için etkinlik verilerini okuyun
-    - Kuruluşunuza ilişkin etkinlik raporlarını okur
+   - Kuruluşunuza ilişkin hizmet durumu bilgilerini okur
+   - Kuruluşunuz için etkinlik verilerini okuyun
+   - Kuruluşunuza ilişkin etkinlik raporlarını okur
 
-    ![API seçin](media/solution-office-365/select-permissions.png)
+     ![API seçin](media/solution-office-365/select-permissions.png)
 
 1. Tıklayın **seçin** ardından **Bitti**.
 1. Tıklayın **izinleri verin** ve ardından **Evet** doğrulama için sorulduğunda.
@@ -705,7 +705,7 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtla
 | Sorgu | Açıklama |
 | --- | --- |
 |Office 365 aboneliğinizde tüm işlemlerin sayısı |OfficeActivity &#124; Count() işlevi işlemi tarafından özetleme |
-|SharePoint siteleri kullanımı|OfficeActivity &#124; burada OfficeWorkload = ~ "sharepoint" &#124; count() by SiteUrl özetleme | Sayısı asc tarafından sıralama|
+|SharePoint siteleri kullanımı|OfficeActivity &#124; burada OfficeWorkload = ~ "sharepoint" &#124; count() by SiteUrl özetlemek \| sayısı asc göre sırala|
 |Dosya erişimi işlemlerini kullanıcı türüne göre|Arama (OfficeActivity) OfficeWorkload = ~ "azureactivedirectory" ve "MyTest"|
 |Belirli bir anahtar sözcükle arama yapın|Tür OfficeActivity OfficeWorkload = "MyTest" azureactivedirectory =|
 |Exchange şirket dış eylemlerini izleme|OfficeActivity &#124; burada OfficeWorkload = ~ "exchange" ve ExternalAccess == true|

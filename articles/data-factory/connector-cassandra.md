@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1347012971d53728d978f378e30684311c88828b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 743dad6032547f8f535543413adff416efb56ac0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022294"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998385"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Cassanra'dan Azure Data Factory kullanarak veri kopyalama
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-onprem-cassandra-connector.md)
 > * [Geçerli sürüm](connector-cassandra.md)
 
@@ -132,7 +132,7 @@ Cassandra verileri kopyalamak için kopyalama etkinliği için kaynak türünü 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **CassandraSource** | Evet |
-| sorgu |Verileri okumak için özel sorgu kullanın. |92 SQL sorgusu veya CQL sorgusu. Bkz: [CQL başvuru](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>SQL sorgu kullanarak belirtmeniz **anahtar alanı name.table adı** sorgulamak istediğiniz tablosunu temsil edecek. |("TableName" ve "anahtar" alanı kümesindeki belirtilirse) yok. |
+| sorgu |Verileri okumak için özel sorgu kullanın. 92 SQL sorgusu veya CQL sorgusu. Bkz: [CQL başvuru](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>SQL sorgu kullanarak belirtmeniz **anahtar alanı name.table adı** sorgulamak istediğiniz tablosunu temsil edecek. |("TableName" ve "anahtar" alanı kümesindeki belirtilirse) yok. |
 | consistencyLevel |Tutarlılık düzeyi, istemci uygulamasına veri döndürmeden önce kaç çoğaltmalar için Okuma isteği yanıtlamalıdır belirtir. Cassandra Okuma isteği karşılamak veriler için çoğaltmaları belirtilen sayısını denetler. Bkz: [veri tutarlılığını yapılandırma](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) Ayrıntılar için.<br/><br/>İzin verilen değerler şunlardır: **BİR**, **iki**, **üç**, **çekirdek**, **tüm**, **LOCAL_QUORUM**, **EACH_QUORUM**, ve **LOCAL_ONE**. |Hayır (varsayılan değer `ONE`) |
 
 **Örnek:**
@@ -173,21 +173,21 @@ Cassandra veri kopyalama işlemi sırasında aşağıdaki eşlemeler Cassandra v
 
 | Cassandra veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
-| ASCII |Dize |
+| ASCII |String |
 | BIGINT |Int64 |
-| BLOB |Bayt] |
+| BLOB |Byte[] |
 | BOOLE DEĞERİ |Boole |
-| ONDALIK |Onluk |
-| ÇİFT |çift |
-| KAYAN NOKTA |Tek |
-| INET |Dize |
+| DECIMAL |Decimal |
+| ÇİFT |Double |
+| KAYAN NOKTA |Single |
+| INET |String |
 | INT |Int32 |
-| METİN |Dize |
+| METİN |String |
 | ZAMAN DAMGASI |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |Dize |
-| VARINT |Onluk |
+| VARCHAR |String |
+| VARINT |Decimal |
 
 > [!NOTE]
 > Türler (harita, set, list, vb.), başvurmak için koleksiyon [iş Cassandra koleksiyon türlerini kullanarak sanal bir tablo](#work-with-collections-using-virtual-table) bölümü.

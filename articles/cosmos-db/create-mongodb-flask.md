@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 24c47acd028aa767d1f02dd7c4119692eeac479a
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 35159a1630c7f1268119cd55cc6e0ac99dfd7b5f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587030"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119216"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Hızlı Başlangıç: Azure Cosmos DB'nin MongoDB kullanarak bir Python uygulaması derleme
 
@@ -37,10 +37,10 @@ Bu Hızlı Başlangıç Kılavuzu aşağıdaki kullanan [Flask örnek](https://g
 - Visual Studio Code henüz yüklü değilse, platformunuza yönelik [VS Code](https://code.visualstudio.com/Download)’u (Windows, Mac, Linux) hızlıca yükleyebilirsiniz.
 
 - Popüler Python uzantılardan birini yükleyerek Python Dil Desteğini eklediğinizden emin olun.
-    1. Bir uzantı seçin.
-    2. `Ctrl+Shift+P` Komut Paletine `ext install` yazarak uzantıyı yükleyin.
+  1. Bir uzantı seçin.
+  2. `Ctrl+Shift+P` Komut Paletine `ext install` yazarak uzantıyı yükleyin.
 
-    Bu belgedeki örnekler Don Jayamanne’ın popüler ve tam özellikli [Python Uzantısını](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) kullanır.
+     Bu belgedeki örnekler Don Jayamanne’ın popüler ve tam özellikli [Python Uzantısını](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) kullanır.
 
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 

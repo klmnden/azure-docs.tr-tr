@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: a95b781d0d08cdca96cf4e98ac9dce43da535d13
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a3ccf76b2722c04a9353fcc7020ff1387bc454c6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888836"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125193"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Azure portalından bir güncelleştirmeyi yüklemek için
 
@@ -35,7 +35,7 @@ ms.locfileid: "55888836"
    * StorSimple cihazınızdaki tüm donanım bileşenlerinin sağlıklı olduğunu doğrulamaya yönelik **donanım bileşeni durum denetimleri**.
    * DATA 0’ın cihazınızda etkin olduğunu doğrulamaya yönelik **DATA 0 denetimleri**. Bu arabirim etkin değilse etkinleştirmeniz ve sonra yeniden denemeniz gerekir.
 
-    Güncelleştirme indirildi ve yalnızca tüm denetimler başarıyla tamamlanırsa yüklü. Denetimler devam ederken size bildirilir. Ardından ön denetimler başarısız olursa hatanın nedenlerini ile sağlanır. Sorunları gidermek ve ardından işlemi yeniden deneyin. Bu sorunları kendi başınıza çözemiyorsanız Microsoft Desteği’ne başvurmanız gerekebilir.
+     Güncelleştirme indirildi ve yalnızca tüm denetimler başarıyla tamamlanırsa yüklü. Denetimler devam ederken size bildirilir. Ardından ön denetimler başarısız olursa hatanın nedenlerini ile sağlanır. Sorunları gidermek ve ardından işlemi yeniden deneyin. Bu sorunları kendi başınıza çözemiyorsanız Microsoft Desteği’ne başvurmanız gerekebilir.
 
 7. Ön denetimler başarıyla tamamlandıktan sonra bir güncelleştirme işi oluşturulur. Güncelleştirme işi başarıyla oluşturulduğunda size bildirilir.
    
@@ -53,5 +53,5 @@ ms.locfileid: "55888836"
 
 10. İş tamamlandıktan sonra gidin **cihaz Ayarları > cihaz güncelleştirmeleri**. Yazılım sürümü artık güncelleştirilmelidir.
 
-    ![Güncelleştirme işi oluşturma](./media/storsimple-8000-install-update4-via-portal/update9.png)
+   ![Güncelleştirme işi oluşturma](./media/storsimple-8000-install-update4-via-portal/update9.png)
 

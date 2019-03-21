@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c50e2b082c3181c37e9d129766d4bf400075d5a8
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 03a56951b68163a9160cc4a57f15354b5f210eb7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410683"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125157"
 ---
 Bu görev için adımları aşağıdaki yapılandırma başvuru listesinde değerlere göre sanal ağ kullanın. Ayrıca ek ayarların ve adların bu listede özetlenmiştir. Bu listedeki değerlere göre değişkenler ekleyeceğiz ancak Biz bu liste adımları, doğrudan hiçbirini kullanmayın. Bir başvuru olarak kullanmak için listedeki değerleri kendi değerlerinizle değiştirerek kopyalayabilirsiniz.
 
@@ -34,52 +34,52 @@ Bu görev için adımları aşağıdaki yapılandırma başvuru listesinde değe
 ## <a name="add-a-gateway"></a>Ağ geçidi ekleme
 1. Azure aboneliğinize bağlayın.
 
-  [!INCLUDE [Sign in](expressroute-cloud-shell-connect.md)]
+   [!INCLUDE [Sign in](expressroute-cloud-shell-connect.md)]
 2. Bu alıştırma için değişkenlerinizi bildirin. Kullanmak istediğiniz ayarları yansıtacak şekilde örneği düzenlemek emin olun.
 
-  ```azurepowershell-interactive 
-  $RG = "TestRG"
-  $Location = "East US"
-  $GWName = "GW"
-  $GWIPName = "GWIP"
-  $GWIPconfName = "gwipconf"
-  $VNetName = "TestVNet"
-  ```
+   ```azurepowershell-interactive 
+   $RG = "TestRG"
+   $Location = "East US"
+   $GWName = "GW"
+   $GWIPName = "GWIP"
+   $GWIPconfName = "gwipconf"
+   $VNetName = "TestVNet"
+   ```
 3. Sanal ağ nesnesini bir değişken olarak Store.
 
-  ```azurepowershell-interactive
-  $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
-  ```
+   ```azurepowershell-interactive
+   $vnet = Get-AzVirtualNetwork -Name $VNetName -ResourceGroupName $RG
+   ```
 4. Bir ağ geçidi alt ağı, sanal ağınıza ekleyin. Ağ geçidi alt ağı "GatewaySubnet" olarak adlandırılmalıdır. / 27 bir ağ geçidi alt ağı oluşturmanız gerekir ya da daha büyük (/ 26, / 25 vb..).
 
-  ```azurepowershell-interactive
-  Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
-  ```
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
+   ```
 5. Yapılandırmayı ayarlayın.
 
-  ```azurepowershell-interactive
-  $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
+   ```
 6. Ağ geçidi alt ağı, bir değişken olarak Store.
 
-  ```azurepowershell-interactive
-  $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   $subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+   ```
 7. Genel bir IP adresi isteyin. IP adresi, ağ geçidini oluşturmadan önce istenir. Kullanmak istediğiniz IP adresi belirtilemez; dinamik olarak ayrılır. Sonraki yapılandırma bölümünde bu IP adresini kullanacaksınız. AllocationMethod dinamik olması gerekir.
 
-  ```azurepowershell-interactive
-  $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
-  ```
+   ```azurepowershell-interactive
+   $pip = New-AzPublicIpAddress -Name $GWIPName  -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
+   ```
 8. Ağ geçidi yapılandırmasını oluşturun. Ağ geçidi yapılandırması, kullanılacak alt ağı ve genel IP adresini tanımlar. Bu adımda, ağ geçidi oluşturduğunuzda, kullanılacak yapılandırma belirtiyorsunuz. Bu adım ağ geçidi nesnesinin oluşturmaz. Aşağıdaki örneği kullanarak kendi ağ geçidi yapılandırmanızı oluşturun.
 
-  ```azurepowershell-interactive
-  $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
-  ```
+   ```azurepowershell-interactive
+   $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
+   ```
 9. Ağ geçidi oluşturun. Bu adımda, **- GatewayType** özellikle önemlidir. Değer kullanmalısınız **ExpressRoute**. Bu cmdlet'leri çalıştırdıktan sonra ağ geçidinin 45 dakika veya oluşturmak için daha fazla sürebilir.
 
-  ```azurepowershell-interactive
-  New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
+   ```
 
 ## <a name="verify-the-gateway-was-created"></a>Ağ geçidinin oluşturulduğunu doğrulayın.
 Ağ geçidinin oluşturulduğunu doğrulamak için aşağıdaki komutları kullanın:

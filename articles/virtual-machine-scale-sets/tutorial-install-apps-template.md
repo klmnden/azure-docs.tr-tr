@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 262d7a6a4399a72e762c4ad3c87a878c54e22af4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 176cf31d7a87b08755ee2acb94aea23684647213
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750401"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996576"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Öğretici: Azure şablonu ile sanal makine ölçek kümeleri, uygulamaları yükleme
 Bir ölçek kümesindeki sanal makine (VM) örneklerinde uygulamaları çalıştırmak için önce uygulama bileşenlerini ve gerekli dosyaları yüklemeniz gerekir. Önceki bir öğreticide, sanal makine örneklerinizi dağıtmak için nasıl özel sanal makine görüntüsü oluşturulacağını ve kullanılacağını öğrendiniz. Bu özel görüntüde, el ile uygulama yüklemeleri ve yapılandırmaları yer alıyordu. Her sanal makine örneği dağıtıldıktan sonra bir ölçek kümesine uygulamaların yüklenmesini otomatikleştirebilir veya önceden ölçek kümesinde çalıştırılan bir uygulamayı güncelleştirebilirsiniz. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -115,7 +115,7 @@ Sonraki adımda güncelleştirilmiş bir sürümü görebilmeniz için web taray
 
 
 ## <a name="update-app-deployment"></a>Uygulama dağıtımını güncelleştirme
-Bir ölçek kümesinin yaşam döngüsü boyunca, uygulamanızın güncelleştirilmiş bir sürümünü dağıtmanız gerekebilir. Özel Betik Uzantısı ile, güncelleştirilmiş bir dağıtım betiğine başvurabilir ve sonra uzantıyı ölçek kümenize yeniden uygulayabilirsiniz. Önceki bir adımda ölçek kümesi oluşturulduğunda *upgradePolicy`, *Automatic* olarak ayarlandı. Bu ayar, ölçek kümesindeki sanal makine örneklerinin otomatik olarak güncelleştirilmesini ve uygulamanızın en son sürümünü uygulamasını sağlar.
+Bir ölçek kümesinin yaşam döngüsü boyunca, uygulamanızın güncelleştirilmiş bir sürümünü dağıtmanız gerekebilir. Özel Betik Uzantısı ile, güncelleştirilmiş bir dağıtım betiğine başvurabilir ve sonra uzantıyı ölçek kümenize yeniden uygulayabilirsiniz. Bir önceki adımda ölçek kümesi oluşturulduğunda *upgradePolicy* ayarlandı *otomatik*. Bu ayar, ölçek kümesindeki sanal makine örneklerinin otomatik olarak güncelleştirilmesini ve uygulamanızın en son sürümünü uygulamasını sağlar.
 
 Özel Betik Uzantısı tanımını güncelleştirmek için şablonunuzu yeni bir yükleme betiğine başvuracak şekilde düzenleyin. Özel Betik Uzantısı’nın değişikliği tanıması için yeni bir dosya adı kullanılmalıdır. Özel Betik Uzantısı, değişiklikleri belirlemek için betiğin içeriklerini incelemez. Aşağıdaki tanım, güncelleştirilmiş yükleme betiğini, adının sonuna *_v2* eklenmiş şekilde kullanır:
 

@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbac6fe421864f9479c9a4ee7eecde97c13f6052
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0200aa917894f4b7f1a45a9d3bd15b128aaf27a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200539"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124193"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory onay çerçevesine
 
@@ -58,14 +58,14 @@ Aşağıdaki adımlar nasıl onayı deneyimi çalıştığı uygulama geliştiri
 
     **Bir uygulamaya onay için temsilci izinleri**
 
-    1. Git **ayarları** uygulamanız için sayfa
-    1. Seçin **gerekli izinler**.
-    1. Tıklayarak **izinleri verin** düğmesi.
+   1. Git **ayarları** uygulamanız için sayfa
+   1. Seçin **gerekli izinler**.
+   1. Tıklayarak **izinleri verin** düğmesi.
 
-    ![Açık yönetici onayı için izin ver](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![Açık yönetici onayı için izin ver](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
-  > [!IMPORTANT]
-  > Açık verme onay kullanarak **izinleri verin** düğmesidir ADAL.js kullanan tek sayfalı uygulamalar için (SPA) şu anda gerekli. Erişim belirteci istendiğinde, aksi takdirde uygulama başarısız olur.
+   > [!IMPORTANT]
+   > Açık verme onay kullanarak **izinleri verin** düğmesidir ADAL.js kullanan tek sayfalı uygulamalar için (SPA) şu anda gerekli. Erişim belirteci istendiğinde, aksi takdirde uygulama başarısız olur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

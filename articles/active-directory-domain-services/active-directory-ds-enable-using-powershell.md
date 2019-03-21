@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: ergreenl
-ms.openlocfilehash: 758183efd6a6a2c2b8d172c52ad3bd5c5e12d969
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f2c4f73af00e0093ce98f2de37e9c3a0ba381eda
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169153"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119913"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Azure Active Directory etki alanı PowerShell kullanarak Services'i etkinleştirme
 Bu makalede, PowerShell kullanarak Azure Active Directory (AD) etki alanı Hizmetleri'ni etkinleştirme işlemini göstermektedir.
@@ -141,8 +141,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > **Ek yapılandırma adımları, yönetilen etki alanınıza sağladıktan sonra unutmayın.**
 > Yönetilen etki alanınıza sağlandıktan sonra hala aşağıdaki görevleri tamamlamanız gerekir:
 > * **[DNS ayarlarını güncelleştirme](active-directory-ds-getting-started-dns.md)**  sanal makinelerin etki alanına katılma veya kimlik doğrulaması için yönetilen etki alanı bulabilmesi için sanal ağ için.
-* **[Azure AD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)**, son kullanıcılar şirket kimlik bilgilerini kullanarak yönetilen etki alanına oturum açın.
->
+> * **[Azure AD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)**, son kullanıcılar şirket kimlik bilgilerini kullanarak yönetilen etki alanına oturum açın.
 
 
 ## <a name="powershell-script"></a>PowerShell betiği
@@ -226,8 +225,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > **Ek yapılandırma adımları, yönetilen etki alanınıza sağladıktan sonra unutmayın.**
 > Yönetilen etki alanınıza sağlandıktan sonra hala aşağıdaki görevleri tamamlamanız gerekir:
 > * Sanal makinelerin etki alanına katılma veya kimlik doğrulaması için yönetilen etki alanı bulabilmesi için sanal ağ için DNS ayarlarını güncelleştirin.
-* Son kullanıcılar şirket kimlik bilgilerini kullanarak yönetilen etki alanına oturum açabilmeniz için Azure AD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirin.
->
+> * Son kullanıcılar şirket kimlik bilgilerini kullanarak yönetilen etki alanına oturum açabilmeniz için Azure AD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Yönetilen etki alanınız oluşturulduktan sonra yönetilen etki alanı kullanabilmeniz için aşağıdaki yapılandırma görevlerinden gerçekleştirin:

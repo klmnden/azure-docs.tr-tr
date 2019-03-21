@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a1210360690384b07e6d88007ccd118731ecce0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0594d99874ea9bb83673013a9a03272edcd8ce0b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405445"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897682"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Sorun giderme ve çözümleme ilgili sorunları gruplandırır
 
@@ -28,15 +28,15 @@ ms.locfileid: "57405445"
 Grup oluşturma Powershell yönetici olmayan kullanıcılar için devre dışı bırakmak için:
 1. Yönetici olmayan kullanıcılar grupları oluşturmak için izin verildiğini doğrulayın:
    
-  ```
-  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ```
+   ```
+   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+   ```
   
 2. Döndürürse `UsersPermissionToCreateGroupsEnabled : True`, sonra da yönetici olmayan kullanıcılar, gruplar oluşturabilirsiniz. Bu özellik devre dışı bırakmak için:
   
-  ``` 
-  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ```
+   ``` 
+   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+   ```
 
 <br/>**PowerShell'de bir dinamik grup oluşturmaya çalışırken hata izin verilen en fazla grupları aldım**<br/>
 İçinde Powershell belirten bir ileti alırsanız _grupların sayısı üst sınırına en büyük izin verilen dinamik grup ilkeleri_, bu, döşemedeki sınırını dinamik gruplar için kiracınızda anlamına gelir. En fazla dinamik gruplar Kiracı başına 5.000 sayısıdır.
@@ -47,7 +47,7 @@ Tüm yeni dinamik gruplar oluşturmak için öncelikle var olan bazı dinamik gr
 
 **Bir grubu üzerinde bir kural yapılandırdım ancak hiçbir üyeliklerini grubunda güncelleştirilir**<br/>
 1. Kullanıcı veya cihaz özniteliklerine kuralında değerleri doğrulayın. Kural karşılayan kullanıcılar emin olun. Cihazlar için cihaz özellikleri, eşitlenen tüm öznitelikleri beklenen değerleri içeren emin olmak için kontrol edin.<br/>
-2. Tam olup olmadığını onaylamak için işleme durumu üyeliğini denetleyin. Denetleyebilirsiniz [işleme durumu üyelik](\groups-create-rule.md#check-processing-status-for-a-rule) ve son güncelleştirme tarihi üzerinde **genel bakış** grup için sayfa.
+2. Tam olup olmadığını onaylamak için işleme durumu üyeliğini denetleyin. Denetleyebilirsiniz [işleme durumu üyelik](groups-create-rule.md#check-processing-status-for-a-rule) ve son güncelleştirme tarihi üzerinde **genel bakış** grup için sayfa.
 
 Her şey iyi görünüyor, lütfen grubun doldurulması için bir süre bekleyin. Kiracınızın boyutuna bağlı olarak, ilk seferinde veya kural değişikliğinden sonra grubun doldurulması 24 saat kadar sürebilir.
 

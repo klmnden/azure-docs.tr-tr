@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a2c416df849f59040985524394d2caa3399d910
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bc45c63d3168a15b4701dcaff7bb531f759d47ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439709"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888715"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Öğretici: Brightidea ile Azure Active Directory Tümleştirme
 
@@ -163,18 +163,18 @@ Azure AD çoklu oturum açma ile Brightidea yapılandırmak için aşağıdaki a
     
     ![Brightidea yapılandırma](./media/brightidea-tutorial/configure4.png)
     
-     * Girin **SAML profil adı** gibi ör. `Azure Ad SSO`
+   * Girin **SAML profil adı** gibi ör. `Azure Ad SSO`
     
-     * İçin **meta verilerini karşıya yükleme**, dosya ve Azure portalından indirilen meta veri dosyası karşıya seçin'i tıklatın.
+   * İçin **meta verilerini karşıya yükleme**, dosya ve Azure portalından indirilen meta veri dosyası karşıya seçin'i tıklatın.
 
      > [!NOTE]
      > Kalan alanları meta veri dosyası karşıya yükledikten sonra **tek oturum açma hizmeti, kimlik sağlayıcısını veren karşıya ortak anahtar** otomatik olarak doldurulur.
 
-     * İçinde **e-posta** metin değeri olarak girin `mail`.
+   * İçinde **e-posta** metin değeri olarak girin `mail`.
      
-     * İçinde **ekran adı** metin değeri olarak girin `givenName`.
+   * İçinde **ekran adı** metin değeri olarak girin `givenName`.
      
-     * Tıklayın **değişiklikleri kaydetmek**.  
+   * Tıklayın **değişiklikleri kaydetmek**.  
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -194,7 +194,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

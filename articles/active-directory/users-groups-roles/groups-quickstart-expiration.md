@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab72c78f66a324159d802369aa1dea545b77549c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e0573448c753c763e818d641216033dbeacb9e9a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904125"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199316"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Hızlı Başlangıç: Office 365 grupları Azure Active Directory'de dolmak üzere
 
@@ -43,7 +43,7 @@ Bir genel yönetici veya Kullanıcı Yöneticisi grubu süre sonlarını ayarlam
 
 2. **Gruplar**'ı ve ardından **Genel**'i seçin.
   
-   ![Self servis grup ayarları](./media/groups-quickstart-expiration/self-service-settings.png)
+   ![Self Servis grup ayarları sayfası](./media/groups-quickstart-expiration/self-service-settings.png)
 
 3. **Kullanıcılar Office 365 grupları oluşturabilir** ayarını **Evet** olarak belirleyin.
 
@@ -51,9 +51,9 @@ Bir genel yönetici veya Kullanıcı Yöneticisi grubu süre sonlarını ayarlam
 
 ## <a name="set-group-expiration"></a>Grup süre sonunu ayarlama
 
-1. [Azure portalda](https://portal.azure.com), **Azure Active Directory** > **Gruplar** > **Süre Sonu**'nu açarak süre sonu ayarlarını açın.
+1. Oturum [Azure portalında](https://portal.azure.com)seçin **Azure Active Directory** > **grupları** > **sona erme** için sona erme Ayarları'nı açın.
   
-   ![Süre sonu ayarları](./media/groups-quickstart-expiration/expiration-settings.png)
+   ![Grubun sona erme Ayarları sayfası](./media/groups-quickstart-expiration/expiration-settings.png)
 
 2. Süre sonu aralığını ayarlayın. Önceden belirlenmiş değerlerden birini seçin veya 31 günden yüksek bir değer girin. 
 
@@ -67,13 +67,13 @@ Bir genel yönetici veya Kullanıcı Yöneticisi grubu süre sonlarını ayarlam
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-**Süre sonu ilkesi kaldırmak için**
+### <a name="to-remove-the-expiration-policy"></a>Süre sonu ilkesi kaldırmak için
 
 1. Kiracınızın Genel Yöneticisi olan bir hesapla [Azure portalda](https://portal.azure.com) oturum açtığınızdan emin olun.
 2. **Azure Active Directory** > **Gruplar** > **Süre Sonu**'nu seçin.
 3. **Bu Office 365 grupları için sona ermeyi etkinleştir** ayarını **Yok** olarak değiştirin.
 
-**Kullanıcılar için grup oluşturma özelliğini kapatmak için**
+### <a name="to-turn-off-user-creation-for-groups"></a>Grupları için kullanıcı oluşturma devre dışı bırakmak için
 
 1. **Azure Active Directory** > **Gruplar** > **Genel**'i seçin. 
 2. **Kullanıcılar, Azure portallarında Office 365 grupları oluşturabilir** ayarını **Hayır** olarak değiştirin.

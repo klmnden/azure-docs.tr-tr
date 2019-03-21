@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 610ac10e757ef422ce130c0cfe8253af6ba4b7b9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 994612f390cb6c6dcb3b4c2acaaec839ef461d2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542480"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999552"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek kümeleri hakkında SSS
 
@@ -234,7 +234,7 @@ Bir Linux VM oluşturma sırasında SSH ortak anahtarlarını düz metin sağlay
 ```
 
 linuxConfiguration öğe adı | Gerekli | Tür | Açıklama
---- | --- | --- | --- |  ---
+--- | --- | --- | --- 
 SSH | Hayır | Koleksiyon | Bir Linux işletim sistemi için SSH anahtar yapılandırmasını belirtir
 yol | Evet | Dize | Burada SSH anahtarlarını veya sertifika klasöründe bulunmalıdır Linux dosya yolunu belirtir
 anahtar verileri | Evet | Dize | Bir base64 kodlamalı SSH ortak anahtarını belirtir.
@@ -309,7 +309,7 @@ Azure Key Vault belgelerindeki sürüm belirtilmezse, gizli dizi en son sürüm�
 
 Yöntem | URL'si
 --- | ---
-GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
+GET | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
 
 Yerine {*gizli dizi adı*} adı ile değiştirin {*gizli dizi sürümü*} almak istediğiniz gizli dizi sürümü ile. Gizli dizi sürümü hariç tutulması. Bu durumda, geçerli sürümü alınır.
 
@@ -535,7 +535,7 @@ Sanal makine ölçek kümesi için mevcut bir Azure sanal ağı dağıtmak için
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>İlk VM IP adresini bir şablon çıktısı için bir sanal makine ölçek nasıl ekleyebilirim?
 
-Şablon çıktısı için bir sanal makine ölçek ilk VM IP adresini eklemek için bkz [Azure Resource Manager: Alma sanal makine ölçek kümeleri özel IP'ler](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+Şablon çıktısı için bir sanal makine ölçek ilk VM IP adresini eklemek için bkz [Azure Resource Manager: Alma sanal makine ölçek kümeleri özel IP'ler](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Ölçek kümeleri hızlandırılmış ağ ile kullanabilir miyim?
 
@@ -721,3 +721,26 @@ Bir sanal makine ölçek kümesindeki sanal Makineyi silme ve VM serbest bırak�
 - Bir VM kümesi bir sanal makine ölçek kümesini ölçeklendirme daha hızlı başlamak istiyorsanız.
   - Bu senaryo ile ilgili olarak, kendi otomatik ölçeklendirme altyapısı ve daha hızlı uçtan uca ölçek istediğiniz oluşturmuş olabileceğiniz.
 - Hata etki alanları veya güncelleştirme etki alanları arasında eşit olmayan şekilde dağıtılan bir sanal makine ölçek kümesi var. Bu, seçmeli olarak Vm'leri silindi veya bulunmadığından, Vm'leri açıdan sonra silinen olabilir. Çalışan `stop deallocate` ardından `start` sanal makinede hata etki alanları veya güncelleştirme etki alanları arasında eşit olacak şekilde ölçek Vm'leri dağıtır.
+
+### <a name="how-do-i-take-a-snapshot-of-a-vmss-instance"></a>VMSS örneğinin nasıl anlık?
+Bir VMSS bir örnekten bir anlık görüntüsünü oluşturun.
+
+```azurepowershell-interactive
+$rgname = "myResourceGroup"
+$vmssname = "myVMScaleSet"
+$Id = 0
+$location = "East US"
+ 
+$vmss1 = Get-AzVmssVM -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $Id     
+$snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard_LRS -OsType Windows -CreateOption Copy -SourceUri $vmss1.StorageProfile.OsDisk.ManagedDisk.id
+New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
+``` 
+ 
+Anlık görüntüden yönetilen disk oluşturun.
+
+```azurepowershell-interactive
+$snapshotName = "myShapshot"
+$snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
+$diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk') 
+```

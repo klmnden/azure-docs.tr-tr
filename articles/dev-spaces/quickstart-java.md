@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
 manager: mmontwil
-ms.openlocfilehash: e46abee3c3f21fd18f47190c1b298a380429dd50
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 98f7669a34d65d42e2437b440446b3a3066853d9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770571"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904074"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-java-and-vs-code"></a>Hızlı Başlangıç: Azure geliştirme alanları (Java ve VS Code) ile Kubernetes geliştirme alanı oluşturma
 
@@ -37,7 +37,7 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 
     ```cmd
     az group create --name MyResourceGroup --location <region>
-    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.10.13 --generate-ssh-keys
+    az aks create -g MyResourceGroup -n myAKS --location <region> --generate-ssh-keys
     ```
 
 ## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces'i ayarlama
@@ -56,13 +56,13 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 
    ```output
     (pending registration) Service 'webfrontend' port 'http' will be available at <url>
-    Service 'webfrontend' port 80 (TCP) is available at http://localhost:<port>
+    Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
    ```
 
    Tarayıcı penceresinde bu URL'yi açın; web uygulaması yükünü görmelisiniz.
 
    > [!Note]
-   > İlk çalıştırmada genel DNS hizmetinin hazır duruma gelmesi birkaç dakika sürebilir. Genel URL çözümlenmezse konsol çıktısında görüntülenen alternatif http://localhost:<portnumber> URL'sini kullanabilirsiniz. Localhost URL'sini kullanırsanız kapsayıcı yerel olarak çalışıyor gibi görünebilir, ancak gerçekte AKS'de çalışıyordur. Size rahatlık sağlamak ve yerel makinenizden hizmetle etkileşimi kolaylaştırmak için, Azure Dev Spaces Azure'da çalıştırılan kapsayıcıya geçici bir SSH tüneli oluşturur. DNS kaydı hazır olduğunda geri gelip genel URL'yi deneyebilirsiniz.
+   > İlk çalıştırmada genel DNS hizmetinin hazır duruma gelmesi birkaç dakika sürebilir. Genel URL çözmezse alternatif kullanabileceğiniz `http://localhost:<portnumber>` konsol çıkışında görüntülenen URL. Localhost URL'sini kullanırsanız kapsayıcı yerel olarak çalışıyor gibi görünebilir, ancak gerçekte AKS'de çalışıyordur. Size rahatlık sağlamak ve yerel makinenizden hizmetle etkileşimi kolaylaştırmak için, Azure Dev Spaces Azure'da çalıştırılan kapsayıcıya geçici bir SSH tüneli oluşturur. DNS kaydı hazır olduğunda geri gelip genel URL'yi deneyebilirsiniz.
 
 ### <a name="update-a-code-file"></a>Kod dosyasını güncelleştirme
 

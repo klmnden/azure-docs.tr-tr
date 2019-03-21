@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0ea0c00924c41216232522cf62d8f33dd38cec9e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7619b8831d75ce639c6f6c773c7c7d491abc93e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551798"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122038"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Azure VM’lerini başka bir bölgeye taşıma
 
@@ -24,13 +24,13 @@ Kullanabileceğiniz [Azure Site Recovery](site-recovery-overview.md) iş sürekl
 Bu öğreticide şunları yapacaksınız:
 
 > [!div class="checklist"]
-
+> 
 > * Taşıma için önkoşulları doğrulayın
 > * Kaynak VM'lerin ve hedef bölge hazırlama
 > * Verileri kopyalayın ve çoğaltmayı etkinleştirin
 > * Taşımayı gerçekleştirmek ve test yapılandırması
 > * Kaynak bölgedeki kaynakları silme
-
+> 
 > [!NOTE]
 > Bu öğreticide, Azure Vm'leri bir bölgeden diğerine olduğundan taşıma işlemini göstermektedir. Bir kullanılabilirlik kümesine sanal makinelerin taşınmasında kullanılabilirliği geliştirmek ihtiyacınız varsa, bölgeye sabitlenmiş farklı bir bölgedeki Vm'leri, bkz: [kullanılabilirlik öğretici Azure Vm'leri taşıma](move-azure-vms-avset-azone.md).
 
@@ -72,9 +72,9 @@ Bu öğreticide şunları yapacaksınız:
 
      Kaynak VM yapılandırmasına bağlı olarak, ilgili ağ kaynakları en yaygın olarak oluşturmak için kullanılan, aşağıdaki belgelere bakın:
 
-    - [Ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Yük dengeleyiciler](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [Genel IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Ağ güvenlik grupları](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
+   - [Yük dengeleyiciler](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Genel IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
      Tüm diğer ağ bileşenleri için bkz: [belgeleri ağ](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 

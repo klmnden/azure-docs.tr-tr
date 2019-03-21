@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 94c464733d731505cde0327ce9a295d3b4ab68de
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 72e93b99783441bda97c52ff295a89b0fcf4e629
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538706"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995892"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma
 > [!NOTE]
@@ -359,7 +359,7 @@ Bu adımda, oluşturduğunuz bir **işlem hattı** biriyle **kopyalama etkinliğ
 
    * Etkinlikler bölümünde, yalnızca bir etkinlik olduğundan, **türü** ayarlanır **kopyalama**.
    * **Giriş** etkinlik için **EmpOnPremSQLTable** ve **çıkış** etkinlik için **OutputBlobTable**.
-   * İçinde **typeProperties** bölümünde **SqlSource** olarak belirtilen **kaynak türünü** ve ** BlobSink ** olarak belirtilen **Havuz türü**.
+   * İçinde **typeProperties** bölümünde **SqlSource** olarak belirtilen **kaynak türünü** ve **BlobSink** belirtilen**Havuz türü**.
    * SQL sorgusu `select * from emp` için belirtilen **sqlReaderQuery** özelliği **SqlSource**.
 
    Başlangıç ve bitiş tarih saatleri [ISO biçiminde](https://en.wikipedia.org/wiki/ISO_8601) olmalıdır. Örneğin: 2014-10-14T16:32:41Z. **End** zamanı isteğe bağlıdır; ancak bu öğreticide bunu kullanacağız.

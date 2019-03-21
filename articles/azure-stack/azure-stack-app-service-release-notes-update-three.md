@@ -16,12 +16,12 @@ ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 2432c30ca98904c2e6789f4b15468f905096bbf7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 765701188de6375a5dfe0c9a6c04afe1ee9f6740
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962800"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886448"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Güncelleştirme 3 sürüm notları Azure Stack üzerinde App Service'e
 
@@ -59,7 +59,7 @@ Azure Stack güncelleştirme 3'te Azure App Service, aşağıdaki geliştirmeler
 - Güvenilirlik ve sık karşılaşılan sorunları daha kolay tanılanması etkinleştirme hata geliştirmek için çekirdek hizmet güncelleştirmeleri.
 
 - **Aşağıdaki uygulama çerçeveleri ve araçları güncelleştirmeleri**:
-  - ASP.Net Core 2.1.2'yi eklendi
+  - ASP.NET Core 2.1.2'yi eklendi
   - Eklenen NodeJS 10.0.0
   - Zulu OpenJDK 8.30.0.1 eklendi
   - Eklenen Tomcat 8.5.31 ve 9.0.8

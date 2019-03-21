@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: diberry
-ms.openlocfilehash: 39e942b3694ebc59d3cf7d9f4b6a02c4f025e0d0
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b9304e151bbce691b752f12aeec8a5376e517a8d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737306"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120780"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding'i sık sorulan sorular (SSS)
 
@@ -147,7 +147,7 @@ Bkz: [toplu test](luis-tutorial-batch-testing.md) öğretici.
 
 ### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>Bir uygulamayı dışarı sonra (yeni bir uygulama kimliği ile) yeni bir uygulamaya yeniden içe tıkladığınızda LUIS tahmin puanları farklıdır. Bu neden gerçekleşir?
 
-Bkz: [aynı uygulamanın bir kopyasını tahmin farklılıklardan](luis-concept-prediction-score.md#differences-with-predictions).
+Bkz: [aynı uygulamanın bir kopyasını tahmin farklılıklardan](luis-concept-prediction-score.md#review-intents-with-similar-scores).
 
 ### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Uygulamama yaptığım değişiklikleri sonra bazı konuşma yanlış ıntent'e gidin. Rastgele olarak kaybolması sorunu görünüyor. Bunu nasıl düzeltirim? 
 

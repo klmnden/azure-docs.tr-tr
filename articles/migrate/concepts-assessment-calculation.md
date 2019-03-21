@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: 62683aaf7dda048b5828e9494ba8cafe6c8b8f9f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 012a352b00de2e2d1bf64fd18125ddd10faba5cd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417948"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122816"
 ---
 # <a name="assessment-calculations"></a>Değerlendirme hesaplamaları
 
@@ -118,14 +118,14 @@ Performansa dayalı boyutlandırma için Azure Geçişi, CPU ile VM'nin belleği
 
    Değerlendirme, düşük güvenilirlik derecelendirmesi alabilir neden aşağıdaki nedenlerle ilgili:
 
-   - Değerlendirmeyi oluşturduğunuz süre boyunca ortamınızın profilini oluşturmadınız. Örneğin, değerlendirmeyi, 1 gün olarak ayarlanmış performans süresiyle oluşturuyorsanız, toplanacak tüm veri noktalarının keşfini başlattıktan sonra en az bir gün beklemeniz gerekir.
+- Değerlendirmeyi oluşturduğunuz süre boyunca ortamınızın profilini oluşturmadınız. Örneğin, değerlendirmeyi, 1 gün olarak ayarlanmış performans süresiyle oluşturuyorsanız, toplanacak tüm veri noktalarının keşfini başlattıktan sonra en az bir gün beklemeniz gerekir.
 
-   - Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine kapatılmıştır. Herhangi bir VM, belirli bir süre boyunca kapatıldıysa o süreye ait performans verilerine sahip olamayız.
+- Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine kapatılmıştır. Herhangi bir VM, belirli bir süre boyunca kapatıldıysa o süreye ait performans verilerine sahip olamayız.
 
-   - Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine oluşturulmuştur. Örneğin, son bir ayın performans geçmişi için değerlendirme oluşturuyorsanız, ancak yalnızca bir hafta önce ortamda birkaç sanal makine oluşturulduysa. Bu tür durumlarda yeni sanal makinelerin performans geçmişi, sürenin tamamı boyunca mevcut olmaz.
+- Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine oluşturulmuştur. Örneğin, son bir ayın performans geçmişi için değerlendirme oluşturuyorsanız, ancak yalnızca bir hafta önce ortamda birkaç sanal makine oluşturulduysa. Bu tür durumlarda yeni sanal makinelerin performans geçmişi, sürenin tamamı boyunca mevcut olmaz.
 
-   > [!NOTE]
-   > Herhangi bir değerlendirmenin güvenilirlik derecesi 5 yıldızdan düşükse, gereç ortamı profilini oluşturmak için en az bir gün beklemeniz önerilir ve ardından *yeniden hesapla* değerlendirme. Bu yapılamazsa, performansa dayalı boyutlandırma güvenilir olmayabilir ve değerlendirme özellikleri değiştirilerek *şirket içi olarak boyutlandırmaya* geçiş yapılması önerilir.
+  > [!NOTE]
+  > Herhangi bir değerlendirmenin güvenilirlik derecesi 5 yıldızdan düşükse, gereç ortamı profilini oluşturmak için en az bir gün beklemeniz önerilir ve ardından *yeniden hesapla* değerlendirme. Bu yapılamazsa, performansa dayalı boyutlandırma güvenilir olmayabilir ve değerlendirme özellikleri değiştirilerek *şirket içi olarak boyutlandırmaya* geçiş yapılması önerilir.
 
 ## <a name="monthly-cost-estimation"></a>Aylık maliyet tahmini
 

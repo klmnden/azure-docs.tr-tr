@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: f3764e5f4a5d6bbc3d6988321a2d7648012825ae
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f4558c6fdb1e5e4f0ffb7a4b4fdb1ab62eb4cfa9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242250"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121290"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik yapılandırmalarını düzeltme
 Azure Güvenlik Merkezi, sanal makineleri (VM'ler) ve Vm'leri hale getirebilecek yapılandırması için ve saldırı karşısında daha savunmasız bilgisayarları işletim sistemi (OS) günlük analiz eder. Güvenlik Merkezi, işletim sistemi yapılandırması önerilen güvenlik yapılandırması kurallarını eşleşmiyor ve bu güvenlik açıklarına değinen yapılandırma değişiklikleri önerir, güvenlik açıklarını gidermek önerir.
@@ -31,34 +31,34 @@ Azure Güvenlik Merkezi, sanal makineleri (VM'ler) ve Vm'leri hale getirebilecek
 
 Bu örnekte, "güvenlik yapılandırmalarını düzeltme" önerinin altında ele alınmaktadır **işlem ve uygulamalar**.
 1. Güvenlik Merkezi'nde, sol bölmede seçin **işlem ve uygulamalar**.  
-  **İşlem ve uygulamalar** penceresi açılır.
+   **İşlem ve uygulamalar** penceresi açılır.
 
    ![Güvenlik yapılandırmalarını düzeltme][1]
 
 2. Seçin **güvenlik yapılandırmalarını düzeltme**.  
-  **Güvenlik yapılandırmalarını** penceresi açılır.
+   **Güvenlik yapılandırmalarını** penceresi açılır.
 
    !["Güvenlik yapılandırmalarını" penceresi][2]
 
-  Üst kısmında Pano görüntüler:
+   Üst kısmında Pano görüntüler:
 
-  - **Önem derecesine göre başarısız olan kurallar**: İşletim sistemi yapılandırması kullanarak Vm'lerinizdeki ve bilgisayarlarınızdaki, önem derecesine göre ayrıştırılmış arasında başarısız kuralları toplam sayısı.
-  - **Başarısız olan kurallar türüne göre**: İşletim sistemi yapılandırması kullanarak Vm'lerinizdeki ve bilgisayarlarınızdaki, türüne göre ayrıştırılmış arasında başarısız kuralları toplam sayısı.
-  - **Başarısız olan Windows kurallar**: Windows işletim sistemi yapılandırmalarınızı başarısız kuralları toplam sayısı.
-  - **Başarısız olan Linux kurallar**: Linux işletim sistemi yapılandırmalarınızı başarısız kuralları toplam sayısı.
+   - **Önem derecesine göre başarısız olan kurallar**: İşletim sistemi yapılandırması kullanarak Vm'lerinizdeki ve bilgisayarlarınızdaki, önem derecesine göre ayrıştırılmış arasında başarısız kuralları toplam sayısı.
+   - **Başarısız olan kurallar türüne göre**: İşletim sistemi yapılandırması kullanarak Vm'lerinizdeki ve bilgisayarlarınızdaki, türüne göre ayrıştırılmış arasında başarısız kuralları toplam sayısı.
+   - **Başarısız olan Windows kurallar**: Windows işletim sistemi yapılandırmalarınızı başarısız kuralları toplam sayısı.
+   - **Başarısız olan Linux kurallar**: Linux işletim sistemi yapılandırmalarınızı başarısız kuralları toplam sayısı.
 
-  Panonun alt bölümünde başarısız olan tüm kurallar, VM'ler ve bilgisayarlar ve eksik güncelleştirmenin önem derecesi için listeler. Listeye aşağıdaki öğeleri içerir:
+   Panonun alt bölümünde başarısız olan tüm kurallar, VM'ler ve bilgisayarlar ve eksik güncelleştirmenin önem derecesi için listeler. Listeye aşağıdaki öğeleri içerir:
 
-  - **CCEID**: Kural CCE benzersiz tanımlayıcısı. Güvenlik Merkezi, benzersiz tanımlayıcıları için yapılandırma kuralları atamak üzere Common Configuration Enumeration (CCE) kullanır.
-  - **Ad**: Başarısız kural adı.
-  - **Kural türü**: *Kayıt defteri anahtarı*, *Güvenlik İlkesi*, *Denetim İlkesi*, veya *IIS* kural türü.
-  - **Hayır VM'ler ve bilgisayarların**: VM'ler ve başarısız olan kuralın uygulanacağı bilgisayarların toplam sayısı.
-  - **Kural önem derecesi**: CCE değeri *kritik*, *önemli*, veya *uyarı*.
-  - **Durum**: Önerinin geçerli durumu:
+   - **CCEID**: Kural CCE benzersiz tanımlayıcısı. Güvenlik Merkezi, benzersiz tanımlayıcıları için yapılandırma kuralları atamak üzere Common Configuration Enumeration (CCE) kullanır.
+   - **Ad**: Başarısız kural adı.
+   - **Kural türü**: *Kayıt defteri anahtarı*, *Güvenlik İlkesi*, *Denetim İlkesi*, veya *IIS* kural türü.
+   - **Hayır VM'ler ve bilgisayarların**: VM'ler ve başarısız olan kuralın uygulanacağı bilgisayarların toplam sayısı.
+   - **Kural önem derecesi**: CCE değeri *kritik*, *önemli*, veya *uyarı*.
+   - **Durum**: Önerinin geçerli durumu:
 
-    - **Açık**: Öneri henüz ele alınmadı.
-    - **Devam eden**: Kaynakları şu anda öneri uygulanıyor ve herhangi bir işlem yapmanıza gerek yoktur.
-    - **Çözümlenen**: Öneri uygulandı. Sorun çözüldüğünde girdi soluklaşır.
+     - **Açık**: Öneri henüz ele alınmadı.
+     - **Devam eden**: Kaynakları şu anda öneri uygulanıyor ve herhangi bir işlem yapmanıza gerek yoktur.
+     - **Çözümlenen**: Öneri uygulandı. Sorun çözüldüğünde girdi soluklaşır.
 
 3. Başarısız bir kurala ayrıntılarını görüntülemek için listeden seçin.
 
@@ -79,17 +79,17 @@ Bu örnekte, "güvenlik yapılandırmalarını düzeltme" önerinin altında ele
    - **Kural işlemi**: VM işletim sistemi yapılandırma kuralı karşı analiz sırasında Güvenlik Merkezi tarafından kullanılan kural işlemi.
 
 4. Ayrıntılı Görünüm penceresinin en üstünde seçin **arama**.  
-  Arama, Vm'leri ve seçili güvenlik yapılandırmalarını uyumsuzluğu bilgisayarlarla olan çalışma alanlarının bir listesini açar. Çalışma alanı seçimi yalnızca seçilen kuralı farklı çalışma alanına bağlı olan birden çok VM için geçerli olup olmadığını gösterilir.
+   Arama, Vm'leri ve seçili güvenlik yapılandırmalarını uyumsuzluğu bilgisayarlarla olan çalışma alanlarının bir listesini açar. Çalışma alanı seçimi yalnızca seçilen kuralı farklı çalışma alanına bağlı olan birden çok VM için geçerli olup olmadığını gösterilir.
 
    ![Listelenen çalışma alanları][4]
 
 5. Bir çalışma alanı seçin.  
-  Azure İzleyici günlüklerine arama sorgusuyla filtrelenmiş çalışma alanına güvenlik yapılandırmalarını uyumsuzluğu ile açılır.
+   Azure İzleyici günlüklerine arama sorgusuyla filtrelenmiş çalışma alanına güvenlik yapılandırmalarını uyumsuzluğu ile açılır.
 
    ![İşletim sistemi güvenlik açığı ile çalışma][5]
 
 6. Listeden bir bilgisayar seçin.  
-  Filtre yalnızca bu bilgisayar için bilgi içeren yeni bir arama sonucu açılır.
+   Filtre yalnızca bu bilgisayar için bilgi içeren yeni bir arama sonucu açılır.
 
    ![Seçilen bilgisayarla ilgili ayrıntılı bilgiler][6]
 

@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 24a957260e3e3f161ce9e2e61b746f9b052e784d
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 82310857276c53c85af033ae32a3aeef4f33c8da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264378"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109384"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-projects"></a>Azure DevOps projeleri ile PHP için CI/CD işlem hattı oluşturma
 
@@ -65,7 +65,7 @@ Azure aboneliğiniz yoksa, ücretsiz aracılığıyla edinebilirsiniz [Visual St
 
     ![Pano görünümü](_img/azure-devops-project-php/dashboardnopreview.png) 
     
- DevOps projeleri otomatik olarak yapılandırılmış bir CI derleme ve yayın tetikleyicisi.  Artık en son çalışmanızı otomatik olarak web sitenize dağıtan bir CI/CD işlemiyle PHP uygulaması üzerinde bir ekiple birlikte çalışmaya hazırsınız.
+   DevOps projeleri otomatik olarak yapılandırılmış bir CI derleme ve yayın tetikleyicisi.  Artık en son çalışmanızı otomatik olarak web sitenize dağıtan bir CI/CD işlemiyle PHP uygulaması üzerinde bir ekiple birlikte çalışmaya hazırsınız.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Kod değişikliklerini işleme ve CI/CD’yi yürütme
 

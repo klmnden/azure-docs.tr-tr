@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 55e414a35574f8437a30ffb75aebd82eded14fa9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447935"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878083"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Parçalı çok kiracılı SQL veritabanlarını kullanan bir SaaS uygulamasında Şemayı yönetme
 
@@ -53,7 +53,7 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 - Azure PowerShell yüklü olması gerekir. Ayrıntılar için bkz [Azure PowerShell'i kullanmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Bu öğreticide Azure SQL veritabanı hizmetinin sınırlı Önizleme özellikleri ([elastik veritabanı işleri](sql-database-elastic-database-client-library.md)). Bu öğreticiyi uygulamak istiyorsanız, abonelik Kimliğinizi sağlamanız *SaaSFeedback@microsoft.com* konuyla esnek işler önizlemesi yazarak. Aboneliğinizin etkinleştirildiğini belirten onayı aldıktan sonra, [en son ön sürüm işleri cmdlet’lerini indirip yükleyin](https://github.com/jaredmoo/azure-powershell/releases). Bu önizleme sınırlıdır, bu nedenle başvurun *SaaSFeedback@microsoft.com* ilgili sorular veya destek için.
+> Bu öğreticide Azure SQL veritabanı hizmetinin sınırlı Önizleme özellikleri ([elastik veritabanı işleri](sql-database-elastic-database-client-library.md)). Bu öğreticiyi uygulamak istiyorsanız, abonelik Kimliğinizi sağlamanız *SaaSFeedback\@microsoft.com* konuyla esnek işler önizlemesi yazarak. Aboneliğinizin etkinleştirildiğini belirten onayı aldıktan sonra, [en son ön sürüm işleri cmdlet’lerini indirip yükleyin](https://github.com/jaredmoo/azure-powershell/releases). Bu önizleme sınırlıdır, bu nedenle başvurun *SaaSFeedback\@microsoft.com* ilgili sorular veya destek için.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS şema yönetimi düzenlerine giriş
 

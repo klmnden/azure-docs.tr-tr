@@ -1,6 +1,6 @@
 ---
-title: Media Services v3 - Azure'ı kullanarak özel dönüştürme kodlama | Microsoft Docs
-description: Bu konuda, Azure Media Services v3 özel dönüşüm kodlamak için nasıl kullanılacağı gösterilmektedir.
+title: Media Services v3 .NET - Azure ile özel dönüştürme kodlama | Microsoft Docs
+description: Bu konuda, .NET kullanarak özel bir dönüştürme kodlamak için Azure Media Services v3 kullanmayı gösterir.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,21 +10,29 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 02/26/2019
+ms.date: 03/11/2019
 ms.author: juliako
-ms.openlocfilehash: a0843e6c641ded75ded01da4c8a54cd4c0f48ee1
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 848da2996b71b137c6112225c9bef7e93b457c7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957479"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57837244"
 ---
-# <a name="how-to-encode-with-a-custom-transform"></a>Özel bir dönüşüm ile kodlama
+# <a name="how-to-encode-with-a-custom-transform-by-using-net"></a>.NET kullanarak özel bir dönüşüm ile kodlama
 
-Azure Media Services ile kodlama, hızlı bir şekilde gösterildiği şekilde sektör en iyi yöntemlerine göre önerilen yerleşik hazır biriyle oluşturabileceğinize dair [akış dosyalarını](stream-files-tutorial-with-api.md) öğretici veya özel bir yapı seçebilirsiniz Senaryonuz ya da cihaz belirli gereksinimlerinizi hedeflemek için hazır. 
+Azure Media Services ile kodlama, hızlı bir şekilde gösterildiği şekilde sektör en iyi yöntemlerine göre önerilen yerleşik hazır biriyle oluşturabileceğinize dair [akış dosyalarını](stream-files-tutorial-with-api.md) öğretici. Ayrıca, özel bir senaryonuz ya da cihaz belirli gereksinimlerinizi hedeflemek için önceden de oluşturabilirsiniz.
 
-> [!Note]
-> Azure Media Services v3 sürümünde, tüm kodlama hızları bit / saniye arasındadır. Bu, Media Encoder Standard hazır ayarları REST v2 farklıdır. Örneğin, bit hızı v2'de 128 belirtilmesi, ancak v3 sürümünde 128000 olacaktır.
+## <a name="considerations"></a>Dikkat edilmesi gerekenler
+
+Özel önayarların kullanılmasına oluştururken, aşağıdaki maddeler geçerlidir:
+
+* Yükseklik ve genişlik AVC içeriğin tüm değerleri 4'ün katı olmalıdır.
+* Azure Media Services v3 sürümünde, tüm kodlama bit hızlarına dönüştürme bit / saniye cinsindendir. Bu Önayarı kilobit/saniye birimi olarak kullanılan v2 Apı'lerimiz ile farklıdır. V2'de hızı (kilobit/saniye) 128 belirtilmemişse, örneğin, v3 sürümünde, 128000 için (bit/saniye) ayarlanır.
+
+## <a name="prerequisites"></a>Önkoşullar 
+
+[Bir Media Services hesabı oluşturma](create-account-cli-how-to.md). <br/>Kaynak grubu adı ve Media Services hesap adını hatırlamak emin olun. 
 
 ## <a name="download-the-sample"></a>Örneği indirme
 
@@ -40,7 +48,11 @@ Aşağıdaki komutu kullanarak makinenize tam .NET Core örnek içeren GitHub de
 
 Yeni bir oluştururken [dönüştürme](https://docs.microsoft.com/rest/api/media/transforms), çıkış olarak üretmek için istediğinizi belirtmeniz gerekir. Gerekli parametre, aşağıdaki kodda gösterildiği gibi bir [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput) nesnesidir. Her **TransformOutput** bir **Ön ayar** içerir. **Ön ayar**, video ve/veya ses işleme işlemlerinin istenen **TransformOutput** nesnesini oluşturmak üzere kullanılacak adım adım yönergelerini açıklar. Aşağıdaki **TransformOutput** özel codec ve katman çıkış ayarları oluşturur.
 
-Bir [Dönüşüm](https://docs.microsoft.com/rest/api/media/transforms) oluştururken ilk olarak aşağıdaki kodda gösterildiği gibi **Get** yöntemi ile bir dönüşümün zaten var olup olmadığını denetlemeniz gerekir.  Media Services v3 içinde **alma** varlıklar üzerinde yöntemleri dönüş **null** varlık (büyük/küçük harfe adına bir denetimi) yoksa.
+Bir [Dönüşüm](https://docs.microsoft.com/rest/api/media/transforms) oluştururken ilk olarak aşağıdaki kodda gösterildiği gibi **Get** yöntemi ile bir dönüşümün zaten var olup olmadığını denetlemeniz gerekir. Media Services v3 içinde **alma** varlıklar üzerinde yöntemleri dönüş **null** varlık (büyük/küçük harfe adına bir denetimi) yoksa.
+
+### <a name="example"></a>Örnek
+
+Aşağıdaki örnek, bu dönüşüm kullanıldığında oluşturulan istiyoruz çıkışları kümesini tanımlar. İlk ses kodlama için bir AacAudio katmanı ve video kodlama için iki H264Video katmanları ekleriz. Böylece çıkış dosya adlarında kullanılabilir video katmanlar, biz etiketleri atayın. Ardından, küçük resimler de içerecek şekilde çıkış istiyoruz. Aşağıdaki örnekte biz görüntüleri giriş videosunun çözünürlüğünün % 50 ve üç zaman damgalarının - {% 25, % 50, 75} giriş videosunun uzunluğunu oluşturulan PNG biçiminde belirtin. Son olarak, biz çıkış dosyaları - bir video ve ses biçimi belirtin ve başka küçük resimleri için. Birden çok H264Layers sahibiz olduğundan, katman başına benzersiz adlar oluşturmak makroları gerekir. Biz kullanabilir bir `{Label}` veya `{Bitrate}` makrosu, bu örnek önceki gösterir.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/EncodeCustomTransform/MediaV3ConsoleApp/Program.cs#EnsureTransformExists)]
 

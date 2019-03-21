@@ -1,5 +1,5 @@
 ---
-title: LinkedIn tümleştirme veri paylaşımı ve onay - Azure Active Directory | Microsoft Docs
+title: LinkedIn hesabı bağlantıları veri paylaşımı ve onay - Azure Active Directory | Microsoft Docs
 description: LinkedIn ile tümleştirmeyi Azure Active Directory'de Microsoft uygulamaları ile verileri nasıl paylaşır açıklar
 services: active-directory
 author: curtand
@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71eeed62c6de2a3771909e8489ca816930993435
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4e6e24f4e726e25ae65ecceaeb161f8e16d61721
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442231"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200455"
 ---
-# <a name="linkedin-integration-data-sharing-and-consent"></a>LinkedIn tümleştirme, veri paylaşımı ve onay
+# <a name="linkedin-account-connections-data-sharing-and-consent"></a>LinkedIn hesabı bağlantıları veri paylaşımı ve onay
 
-Azure Active Directory (Azure AD) yönetici olarak, Microsoft iş veya Okul hesabı LinkedIn hesabıyla onay verme, kuruluşunuzdaki kullanıcıların etkinleştirebilirsiniz. Kullanıcıların hesaplarını bağlandığınızda, bilgi ve LinkedIn Öne çıkanlar bazı Microsoft uygulamaları ve Hizmetleri kullanılabilir. Kullanıcılar, geliştirilmiş ve Microsoft gelen bilgilerle zenginleştirilmiş LinkedIn'de ağ deneyimlerini de bekleyebilirsiniz.
+Kullanıcılar, Microsoft iş veya Okul hesabı LinkedIn hesabıyla onayı için Active Directory (Azure AD) kuruluşunuzda etkinleştirebilirsiniz. Bir kullanıcı hesaplarına bağlandıktan sonra bilgi ve LinkedIn Öne çıkanlar bazı Microsoft uygulamaları ve Hizmetleri kullanılabilir. Kullanıcılar, geliştirilmiş ve Microsoft gelen bilgilerle zenginleştirilmiş LinkedIn'de ağ deneyimlerini de bekleyebilirsiniz.
 
 Microsoft uygulamaları ve Hizmetleri içinde LinkedIn bilgilerini görmek için kullanıcılar kendi Microsoft ve LinkedIn hesaplarınızı bağlamanıza olanak onaylaması gerekir. Kullanıcılar, Outlook, OneDrive veya SharePoint Online bir profil kartında birinin LinkedIn bilgilerini görmek için tıklayın ilk kez kullanıcıların hesaplarını bağlamaları istenir. Deneyimi ve hesaplarına bağlanmak için onay kadar LinkedIn hesabı bağlantıları kullanıcılarınız için tam olarak etkinleştirilmedi.
 
@@ -32,13 +32,13 @@ Microsoft uygulamaları ve Hizmetleri içinde LinkedIn bilgilerini görmek için
 
 Microsoft uygulamaları ve Hizmetleri içinde LinkedIn bilgilerine erişim, kullanıcılarınızın bağlanmak, etkileşim kurun ve iş arkadaşlarınız, müşteriler ve iş ortakları içinden ve kuruluşunuz dışından ile profesyonel ilişkileri oluşturmak kolaylaştırır. Yeni kullanıcılar daha hızlı iş arkadaşlarınızla bağlanma, bunları hakkında daha fazla bilgi ve daha fazla bilgi kolayca erişmesini hız elde edebilirsiniz. Profil Kartı Microsoft uygulamalarında LinkedIn bilgilerini nasıl görünür bir örnek aşağıda verilmiştir:
 
-![LinkedIn ile tümleştirmeyi etkinleştirme](./media/linkedin-user-consent/display-example.png)
+![Kuruluşunuzda LinkedIn ile tümleştirmeyi etkinleştirme](./media/linkedin-user-consent/display-example.png)
 
 ## <a name="enable-and-announce-linkedin-integration"></a>Etkinleştirme ve LinkedIn ile tümleştirmeyi Duyurusu
 
 Azure Active Directory ayarını kuruluşunuz için yönetmek için yönetici olmanız gerekir. Tüm kullanıcılar için veya belirli bir kullanıcı kümesi için etkinleştirebilirsiniz.
 
-1. Etkinleştirmek veya tümleştirmesini devre dışı bırakmak için adımları izleyin. [LinkedIn ile tümleştirmeyi](linkedin-integration.md).
+1. Etkinleştirmek veya tümleştirmesini devre dışı bırakmak için adımları izleyin. [onayı için Azure AD kuruluşunuz için LinkedIn ile tümleştirmeyi](linkedin-integration.md).
 2. Kuruluşunuzda LinkedIn ile tümleştirmeyi duyurmaktan, kullanıcılarınız hakkında SSS noktası [Microsoft uygulamaları ve Hizmetleri içinde LinkedIn bilgi](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). Makale nerede hakkında bilgi sağlar ve hesapları bağlanma, LinkedIn bilgilerini gösterir.
 
 ## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>Kullanıcı onay için Microsoft ve LinkedIn veri erişimi

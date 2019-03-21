@@ -11,12 +11,12 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d68910c32c53128704004d356062aca2c328e7d5
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 849f944235cf1ab4408aeab336310028d6e754f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576710"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855878"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -324,9 +324,9 @@ Türü özelliklerine erişmek için *SecureString* özel bir etkinlikten okuma 
 
 ## <a name="compare-v2-v1"></a> V2 özel etkinlik ve sürüm 1 (özel) karşılaştırma DotNet etkinliği
 
-Azure Data Factory sürüm 1, (özel) DotNet etkinliği bir .net oluşturarak uygulamanız uygulayan bir sınıf olan sınıf kitaplığı projesi `Execute` yöntemi `IDotNetActivity` arabirimi. Bağlı hizmetler, veri kümeleri ve genişletilmiş özellikler (özel) DotNet etkinliği JSON yükündeki yürütme yöntemin türü kesin olarak belirtilmiş nesneler olarak geçirilir. Sürüm 1 davranışı hakkında daha fazla ayrıntı için bkz: [sürüm 1 (özel) DotNet](v1/data-factory-use-custom-activities.md). Bu uygulama nedeniyle, sürüm 1 DotNet etkinliği kodu .NET Framework 4.5.2'yi hedefleyen var. Sürüm 1 DotNet etkinliği de Windows tabanlı Azure Batch havuzu düğümlerinde yürütülmesi gerekir.
+Azure Data Factory sürüm 1, (özel) DotNet etkinliği uygulayan bir sınıf ile bir .NET Class Library projesi oluşturarak uygulamanız `Execute` yöntemi `IDotNetActivity` arabirimi. Bağlı hizmetler, veri kümeleri ve genişletilmiş özellikler (özel) DotNet etkinliği JSON yükündeki yürütme yöntemin türü kesin olarak belirtilmiş nesneler olarak geçirilir. Sürüm 1 davranışı hakkında daha fazla ayrıntı için bkz: [sürüm 1 (özel) DotNet](v1/data-factory-use-custom-activities.md). Bu uygulama nedeniyle, sürüm 1 DotNet etkinliği kodu .NET Framework 4.5.2'yi hedefleyen var. Sürüm 1 DotNet etkinliği de Windows tabanlı Azure Batch havuzu düğümlerinde yürütülmesi gerekir.
 
-Azure Data Factory V2 özel etkinliğinde .net arabirimi uygulamanız gerekmez. Artık doğrudan komutları ve komut yürütülmeye kendi özel kodunuzu çalıştırabilirsiniz. Bu uygulama yapılandırmak için belirttiğiniz `Command` özelliği ile birlikte `folderPath` özelliği. Yürütülebilir dosya ve bağımlılıkları için özel etkinlik yükler `folderpath` ve sizin için komutu çalıştırır.
+Azure Data Factory V2 özel etkinliğinde .NET arabirimi uygulamanız gerekmez. Artık doğrudan komutları ve komut yürütülmeye kendi özel kodunuzu çalıştırabilirsiniz. Bu uygulama yapılandırmak için belirttiğiniz `Command` özelliği ile birlikte `folderPath` özelliği. Yürütülebilir dosya ve bağımlılıkları için özel etkinlik yükler `folderpath` ve sizin için komutu çalıştırır.
 
 Bağlı hizmetler, veri kümeleri (referenceObjects içinde tanımlanmıştır) ve JSON dosyaları olarak özel etkinlik, yürütülebilir dosya tarafından erişilebilen bir Data Factory v2 JSON yükü içinde tanımlanan özellikler genişletilmiş. Yukarıdaki SampleApp.exe kod örneğinde gösterildiği gibi bir JSON serileştirici kullanarak gerekli özelliklere erişebilirsiniz.
 
@@ -337,18 +337,18 @@ Data Factory V2 özel etkinliği ve Data Factory sürüm 1 arasındaki farklar (
 
 |Farkları      | Özel Etkinlik      | Sürüm 1 (özel) DotNet etkinliği      |
 | ---- | ---- | ---- |
-|Nasıl özel mantığı tanımlanır      |Bir yürütülebilir dosya sağlayarak      |Bir .net DLL uygulayarak      |
+|Nasıl özel mantığı tanımlanır      |Bir yürütülebilir dosya sağlayarak      |Bir .NET DLL uygulayarak      |
 |Yürütme Ortamı özel mantığı      |Windows veya Linux      |Windows (.NET Framework 4.5.2)      |
-|Betikleri çalıştırma      |Doğrudan komut dosyaları (örneğin "cmd /c Yankı hello world" Windows VM'de) yürütme destekler      |DLL .net uygulamasında gerektirir      |
+|Betikleri çalıştırma      |Doğrudan komut dosyaları (örneğin "cmd /c Yankı hello world" Windows VM'de) yürütme destekler      |.NET DLL uygulamasını gerektirir      |
 |Veri kümesi gerekiyor      |İsteğe bağlı      |Etkinliği zincirleyebilir, yani ve bilgi geçirmek için gerekli      |
 |Özel mantığı etkinlikten geçiş bilgileri      |ReferenceObjects (LinkedServices ve veri kümeleri) ile ExtendedProperties (Özel Özellikler)      |ExtendedProperties (Özel Özellikler), giriş ve çıkış veri kümeleri      |
-|Özel mantığı bilgilerini alma      |Activity.JSON linkedServices.json ve yürütülebilir dosya aynı klasörde depolanan datasets.json ayrıştırır.      |.NET SDK'sı (.Net çerçevesi 4.5.2)      |
-|Günlüğe kaydetme      |Doğrudan STDOUT Yazar      |Günlükçü DLL .net ile uygulama      |
+|Özel mantığı bilgilerini alma      |Activity.JSON linkedServices.json ve yürütülebilir dosya aynı klasörde depolanan datasets.json ayrıştırır.      |.NET SDK'sı (.NET çerçevesi 4.5.2)      |
+|Günlüğe kaydetme      |Doğrudan STDOUT Yazar      |Günlükçü .NET DLL içinde uygulama      |
 
 
-Mevcut .net kodu için bir sürüm 1 (özel) DotNet etkinliği yazılan varsa, özel etkinliğin geçerli sürümüyle çalışabilmesi için kodunuzu değiştirmeniz gerekir. Bu üst düzey yönergeleri izleyerek kodunuzu güncelleştirin:
+Mevcut .NET kodu için bir sürüm 1 (özel) DotNet etkinliği yazılan varsa, özel etkinliğin geçerli sürümüyle çalışabilmesi için kodunuzu değiştirmeniz gerekir. Bu üst düzey yönergeleri izleyerek kodunuzu güncelleştirin:
 
-  - Bir .net projesi değiştirmek için bir konsol uygulaması sınıf kitaplığı.
+  - Proje bir konsol uygulaması için bir .NET sınıf kitaplığı'ndan değiştirin.
   - Uygulamanız ile başlayın `Main` yöntemi. `Execute` Yöntemi `IDotNetActivity` arabirimidir artık gerekli.
   - Okuma ve bağlı hizmetler, veri kümeleri ve etkinliği, JSON seri hale getirici ve kesin tür belirtilmiş nesneler olarak değil ayrıştırılamıyor. Ana özel kod mantığınızı gerekli özelliklerin değerlerini geçirirsiniz. Örneğin önceki SampleApp.exe koda bakın.
   - Günlükçü nesne artık desteklenmiyor. Konsola çıkışı, yürütülebilir dosya yazdırılabilir ve stdout.txt için kaydedilir.

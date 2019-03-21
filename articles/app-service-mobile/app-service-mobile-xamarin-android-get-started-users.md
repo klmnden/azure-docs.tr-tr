@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: d496801894560310a4225eae8a32fced52bcc428
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0a2d964d60d13f0e71de5776112a4edbe3cdcc45
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063549"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993921"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Xamarin.Android uygulamanıza kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -57,7 +57,7 @@ Uygulama, kullanıcıların dokunarak gerektirecek şekilde güncelleştirilir *
 
 1. Aşağıdaki kodu ekleyin **TodoActivity** sınıfı:
    
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
         private async Task<bool> Authenticate()
         {
@@ -96,7 +96,7 @@ Uygulama, kullanıcıların dokunarak gerektirecek şekilde güncelleştirilir *
     Bu, bir kullanıcı ve bir yöntemin işleyicisi için yeni bir kimlik doğrulaması için yeni bir yöntem oluşturur **oturum** düğmesi. Yukarıdaki örnek kod kullanıcı bir Facebook oturum açma kullanılarak doğrulanır. Bir iletişim kutusu, bir kez kimliği doğrulanmış kullanıcı kimliği görüntülemek için kullanılır.
    
    > [!NOTE]
-   > Facebook dışında bir kimlik sağlayıcısı kullanıyorsanız, geçirilen değeri değiştirmek **LoginAsync** yukarıda aşağıdakilerden birine: *MicrosoftAccount*, *Twitter*,  *Google*, veya *WindowsAzureActiveDirectory*.
+   > Facebook dışında bir kimlik sağlayıcısı kullanıyorsanız, geçirilen değeri değiştirmek **LoginAsync** yukarıda için aşağıdakilerden biri: *MicrosoftAccount*, *Twitter*, *Google*, veya *WindowsAzureActiveDirectory*.
    > 
    > 
 2. İçinde **OnCreate** yöntemi, silin veya açıklama çıkış aşağıdaki kod satırını:
@@ -130,7 +130,7 @@ Uygulama, kullanıcıların dokunarak gerektirecek şekilde güncelleştirilir *
 
 **Uygulama ile kilitlendi `Java.Lang.NoSuchMethodError: No static method startActivity`**
 
-Bazı durumlarda, Visual studio, ancak çalışma zamanında özel durum uygulama kilitlenmesi yalnızca bir uyarı olarak görüntülenen Destek paketlerinde çakışıyor. Bu durumda, projenizde başvurulan tüm destek paketleri aynı sürümü kullandığınızdan emin olmanız gerekir. [Azure Mobile Apps NuGet paketini](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) sahip `Xamarin.Android.Support.CustomTabs` projenize yeni kullanıyorsa, destek, paketler için Android platformu için bağımlılık doğrudan çakışmalarını önlemek için gerekli sürümü bu paketi yüklemeniz gerekir.
+Bazı durumlarda, Visual studio, ancak çalışma zamanında özel durum uygulama kilitlenmesi yalnızca bir uyarı olarak görüntülenen Destek paketlerinde çakışıyor. Bu durumda, projenizde başvurulan tüm destek paketleri aynı sürümü kullandığınızdan emin olmanız gerekir. [Azure Mobile Apps NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/), Android platformu için `Xamarin.Android.Support.CustomTabs` bağımlılığına sahiptir, yani projeniz daha yeni destek paketleri kullanıyorsa, çakışmaları önlemek için doğrudan gerekli sürüme sahip bu paketi yüklemeniz gerekir.
 
 <!-- URLs. -->
 [Bir Xamarin.Android uygulaması oluşturma]: app-service-mobile-xamarin-android-get-started.md

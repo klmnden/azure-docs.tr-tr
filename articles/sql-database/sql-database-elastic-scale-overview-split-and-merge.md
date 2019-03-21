@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 195b513d7cc878045449ed137a2ea72f291a9f6e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308168"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901942"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Ölçeği genişletilen bulut veritabanları arasında veri taşıma
 
@@ -29,7 +29,7 @@ Ayırma-Birleştirme aracı, bir Azure web hizmeti olarak çalışır. Bir yöne
 
 ## <a name="download"></a>İndirme
 
-[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
+[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 ## <a name="documentation"></a>Belgeler
 
@@ -136,7 +136,7 @@ Ayırma-birleştirme hizmeti paketi, bir çalışan rolü ve bir web rolü içer
 
 - **Parça eşlemesi**
 
- İstek parametreleri, bir sonraki bölümüne parça eşlemesi ve veritabanı, parça eşlemesi barındırma yönelik bilgiler ele alınmaktadır. Özellikle, parça eşleme veritabanını ve parça eşlemesi adı için son bağlanmak için kimlik bilgilerini shardmap barındırma veritabanı ve Azure SQL veritabanı sunucusu adını vermeniz gerekir. Şu anda, işlemi yalnızca tek bir kimlik bilgileri kümesi kabul eder. Kullanıcı verileri için de parça eşlemesine değişiklikleri parçalar üzerinde gerçekleştirmek için yeterli izinlere sahip bu kimlik bilgileri gerekir.
+  İstek parametreleri, bir sonraki bölümüne parça eşlemesi ve veritabanı, parça eşlemesi barındırma yönelik bilgiler ele alınmaktadır. Özellikle, parça eşleme veritabanını ve parça eşlemesi adı için son bağlanmak için kimlik bilgilerini shardmap barındırma veritabanı ve Azure SQL veritabanı sunucusu adını vermeniz gerekir. Şu anda, işlemi yalnızca tek bir kimlik bilgileri kümesi kabul eder. Kullanıcı verileri için de parça eşlemesine değişiklikleri parçalar üzerinde gerçekleştirmek için yeterli izinlere sahip bu kimlik bilgileri gerekir.
 
 - **Kaynak (bölme ve birleştirme) aralığı**
 
@@ -217,6 +217,8 @@ Ayırma-birleştirme hizmetini izleme ve tanılama için Azure SDK 2.5 üzerinde
 ## <a name="deploy-diagnostics"></a>Tanılama dağıtma
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 İzleme ve tanılama yapılandırması için NuGet paketi tarafından sağlanan web ve çalışan rollerini kullanarak tanılamayı etkinleştirmek için Azure PowerShell kullanarak aşağıdaki komutları çalıştırın:
 

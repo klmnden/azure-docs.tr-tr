@@ -14,12 +14,12 @@ ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a7dc5152bb1ede5f7311e74815a6d58782d32a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 27e5ae48a8194c05a19e5164ee2cc6be68967a62
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199332"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112764"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Kullanıcı gizliliği ve Azure AD Connect Health 
 
@@ -62,17 +62,17 @@ Bkz: [Azure AD Connect Health bir sunucuyu kaldırmak nasıl](how-to-connect-hea
 Azure AD Connect Health veri koleksiyonunu durdurmak için bir seçenek de sağlar **tüm** Hizmetleri kiracıda kayıtlı. Dikkatli ve eyleme girişmeden önce tüm genel yöneticilere tam onaylanmasını öneririz. İşlemi başladıktan sonra Connect Health hizmeti almak, işlenmesi ve tüm hizmetlerinizin herhangi bir veri raporlama durdurur. Connect Health hizmetine mevcut veriler en fazla 30 gün boyunca saklanır.
 Belirli sunucu veri koleksiyonunu durdurmak istiyorsanız, Lütfen belirli sunuculara silinmesini adımları izleyin. Tenant-Wise veri toplamayı durdurmak için veri toplama işlemini durdurun ve kiracının tüm hizmetleri silmek için aşağıdaki adımları izleyin.
 
-1.  Tıklayarak **genel ayarlar** ana dikey yapılandırmasında altında. 
-2.  Tıklayarak **veri toplamayı Durdur** dikey pencerenin üst kısmındaki düğmesi. İşlem başladıktan sonra Kiracı yapılandırma ayarlarının diğer seçenekleri devre dışı bırakılır.  
+1. Tıklayarak **genel ayarlar** ana dikey yapılandırmasında altında. 
+2. Tıklayarak **veri toplamayı Durdur** dikey pencerenin üst kısmındaki düğmesi. İşlem başladıktan sonra Kiracı yapılandırma ayarlarının diğer seçenekleri devre dışı bırakılır.  
  
- ![Veri toplamayı Durdur](./media/reference-connect-health-user-privacy/gdpr4.png)
+   ![Veri toplamayı Durdur](./media/reference-connect-health-user-privacy/gdpr4.png)
   
-3.  Veri koleksiyonları durdurarak etkilenen eklenen hizmet listesini sağlayın. 
-4.  Etkinleştirmek için tam Kiracı adını girin **Sil** eylem düğmesi
-5.  Tıklayarak **Sil** tüm hizmetleri silinmesini tetiklemek için. Connect Health alma, işleme, eklenen hizmetlerinizden gönderilen tüm verileri raporlama durdurur. Tüm işlemi 24 saate kadar sürebilir. Bu adım, ters çevrilebilir olmadığına dikkat edin. 
-6.  İşlem tamamlandıktan sonra kayıtlı tüm Connect Health Hizmetleri artık tarafından görülmez. 
+3. Veri koleksiyonları durdurarak etkilenen eklenen hizmet listesini sağlayın. 
+4. Etkinleştirmek için tam Kiracı adını girin **Sil** eylem düğmesi
+5. Tıklayarak **Sil** tüm hizmetleri silinmesini tetiklemek için. Connect Health alma, işleme, eklenen hizmetlerinizden gönderilen tüm verileri raporlama durdurur. Tüm işlemi 24 saate kadar sürebilir. Bu adım, ters çevrilebilir olmadığına dikkat edin. 
+6. İşlem tamamlandıktan sonra kayıtlı tüm Connect Health Hizmetleri artık tarafından görülmez. 
 
- ![Sonra veri toplama durduruldu](./media/reference-connect-health-user-privacy/gdpr5.png)
+   ![Sonra veri toplama durduruldu](./media/reference-connect-health-user-privacy/gdpr5.png)
 
 ## <a name="re-enable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Veri toplama ve Azure AD Connect Health izlemeyi yeniden etkinleştirin
 Azure AD Connect Health daha önce silinmiş izlenen bir hizmet için izleme yeniden etkinleştirmek için öncelikle kaldırmanız ve [health aracısını yeniden](how-to-connect-health-agent-install.md) tüm sunucularda.
@@ -85,14 +85,14 @@ Azure AD Connect Health uygulamasındaki tenant-Wise veri koleksiyonu devam etti
 > Eylem 24 saate kadar devre dışı bıraktıktan sonra aşağıdaki adımları kullanılabilir.
 > Veri toplama etkinleştirildikten sonra sunulan içgörü ve Connect Health veri izleme önce toplanan herhangi bir eski veri gösterilmez. 
 
-1.  Tıklayarak **genel ayarlar** ana dikey yapılandırmasında altında. 
-2.  Tıklayarak **veri toplamayı etkinleştir** dikey pencerenin üst kısmındaki düğmesi. 
+1. Tıklayarak **genel ayarlar** ana dikey yapılandırmasında altında. 
+2. Tıklayarak **veri toplamayı etkinleştir** dikey pencerenin üst kısmındaki düğmesi. 
  
- ![Veri toplamayı etkinleştirme](./media/reference-connect-health-user-privacy/gdpr6.png)
+   ![Veri toplamayı etkinleştirme](./media/reference-connect-health-user-privacy/gdpr6.png)
  
-3.  Etkinleştirmek için tam Kiracı adını girin **etkinleştirme** düğmesi.
-4.  Tıklayarak **etkinleştirme** Connect Health hizmetine veri koleksiyonunun izni düğmesi. Değişiklik kısa bir süre içinde uygulanır. 
-5.  İzleyin [yükleme işlemi](how-to-connect-health-agent-install.md) aracıyı izlenecek sunucuları ve hizmetleri yeniden yüklemek için portalda mevcut olacaktır.  
+3. Etkinleştirmek için tam Kiracı adını girin **etkinleştirme** düğmesi.
+4. Tıklayarak **etkinleştirme** Connect Health hizmetine veri koleksiyonunun izni düğmesi. Değişiklik kısa bir süre içinde uygulanır. 
+5. İzleyin [yükleme işlemi](how-to-connect-health-agent-install.md) aracıyı izlenecek sunucuları ve hizmetleri yeniden yüklemek için portalda mevcut olacaktır.  
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

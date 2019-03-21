@@ -3,20 +3,20 @@ title: SQL Server Integration Services paketlerini Azure'a geçirme | Microsoft 
 description: SQL Server Integration Services paketlerini Azure'a geçirmeyi öğrenin.
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 1113e203f92c2362d0a7a5da002179a8c3ebb793
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 884af4624c1e92ee765353c90fd189220664381d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791843"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183433"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-azure"></a>SQL Server Integration Services paketlerini Azure'a geçirme
 SQL Server Integration Services (SSIS) kullanın ve Azure SQL veritabanı sunucusu veya Azure SQL veritabanı yönetilen örneği tarafından barındırılan SSISDB hedef SQL Server tarafından barındırılan SSISDB kaynağından SSIS projelerini/paketlerini geçiş yapmak istiyorsanız, bunları yeniden dağıtabilirsiniz Tümleştirme hizmetleri Dağıtım Sihirbazı'nı kullanarak. SQL Server Management Studio (SSMS) içinde sihirbazından başlatabilirsiniz.

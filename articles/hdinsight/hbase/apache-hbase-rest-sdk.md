@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 89c74b0c2144776d3bbc8a87f660b546ad40987f
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 27a013bee98447de591d373917c2cbaae7ca08b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495403"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857666"
 ---
-# <a name="use-the-net-sdk-for-apache-hbase"></a>Apache HBase için .net SDK'sını kullanma
+# <a name="use-the-net-sdk-for-apache-hbase"></a>Apache HBase için .NET SDK'sını kullanma
 
-[Apache HBase](apache-hbase-overview.md) , verilerle çalışmak için iki birincil seçenek sağlar: [sorguları Apache Hive ve HBase'nın RESTful API çağrıları](apache-hbase-tutorial-get-started-linux.md). REST API kullanarak doğrudan ile çalışabilir `curl` komut veya benzer bir yardımcı program.
+[Apache HBase](apache-hbase-overview.md) , verilerle çalışmak için iki birincil seçenek sağlar: [Apache Hive sorguları ve HBase'nın RESTful API çağrıları](apache-hbase-tutorial-get-started-linux.md). REST API kullanarak doğrudan ile çalışabilir `curl` komut veya benzer bir yardımcı program.
 
 C# ve .NET uygulamaları için [.NET için Microsoft HBase REST istemci Kitaplığı](https://www.nuget.org/packages/Microsoft.HBase.Client/) HBase REST API'SİNİN üstünde bir istemci kitaplığı sağlar.
 

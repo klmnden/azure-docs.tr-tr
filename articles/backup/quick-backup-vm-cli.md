@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 961f231f9d8ab339d06e9521830c58d175c4a9e3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 8a7c722944aacaca9780939a1726c6e47be79be1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492921"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112050"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>CLI ile Azure'daki bir sanal makineyi yedekleme
 Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Düzenli aralıklarla yedekleme yaparak verilerinizi koruyabilirsiniz. Azure Backup, coğrafi olarak yedekli kurtarma kasalarında saklanabilecek kurtarma noktaları oluşturur. Bu makalede Azure CLI ile Azure'daki bir sanal makinenin nasıl yedekleneceği anlatılmaktadır. Bu adımları [Azure PowerShell](quick-backup-vm-powershell.md) veya [Azure portalı](quick-backup-vm-portal.md) ile de gerçekleştirebilirsiniz.
@@ -58,7 +58,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!NOTE]
-VM, kasayla aynı kaynak grubunda değilse, myResourceGroup kasanın oluşturulduğu kaynak grubuna başvurur. VM adı yerine, aşağıda gösterildiği gibi VM kimliğini girin.
+> VM, kasayla aynı kaynak grubunda değilse, myResourceGroup kasanın oluşturulduğu kaynak grubuna başvurur. VM adı yerine, aşağıda gösterildiği gibi VM kimliğini girin.
 
 ```azurecli-interactive 
 az backup protection enable-for-vm \

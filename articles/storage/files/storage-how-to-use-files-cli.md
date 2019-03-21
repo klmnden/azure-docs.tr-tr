@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ee8dcf1488cfb407793bdb35cdbbee18b2ef15ab
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f18b2cbf31b50b27c1ae8a6d4fa4a6510781cb12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750979"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886507"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Hızlı Başlangıç: Oluşturma ve Azure CLI kullanarak Azure dosya paylaşımlarını yönetme
 Bu kılavuzda, Azure CLI kullanarak [Azure dosya paylaşımları](storage-files-introduction.md) ile çalışmanın temel kuralları gösterilmektedir. Azure dosya paylaşımları diğer dosya paylaşımları gibidir, ancak bulutta depolanır ve Azure platformu tarafından desteklenir. Azure dosya paylaşımları endüstri standardı SMB protokolünü destekler ve birden çok makine, uygulama ve örnek arasında dosya paylaşmayı olanaklı kılar. 
@@ -45,12 +45,12 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 Depolama hesabı, Azure dosya paylaşımlarını veya bloblar veya sorgular gibi diğer depolama kaynaklarını dağıtabileceğiniz, paylaşılan bir depolama havuzudur. Bir depolama hesabında sınırsız sayıda dosya paylaşımı olabilir. Bir paylaşım, depolama hesabının kapasite limitlerine kadar sınırsız sayıda dosyayı depolayabilir.
 
-Aşağıdaki örnekte, [az storage account create](/cli/azure/storage/account) komutu kullanılarak *mystorageaccount\<random number\>* adlı bir depolama hesabı oluşturulur ve bu depolama hesabının adı `$STORAGEACCT` değişkenine yerleştirilir. Depolama hesabı adları benzersiz olmalıdır. `$RANDOM` kullanıldığında depolama hesabı adına bir sayı eklenerek benzer hale getirilir. 
+Aşağıdaki örnekte, [az storage account create](/cli/azure/storage/account) komutu kullanılarak *mystorageaccount\<random number\>* adlı bir depolama hesabı oluşturulur ve bu depolama hesabının adı `$STORAGEACCT` değişkenine yerleştirilir. Depolama hesabı adları benzersiz olmalıdır; bu nedenle "mystorageacct" benzersiz bir ad ile değiştirdiğinizden emin olun.
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
-    --name "mystorageacct$RANDOM" \
+    --name "mystorageacct" \
     --location eastus \
     --sku Standard_LRS \
     --query "name" | tr -d '"')
@@ -87,12 +87,12 @@ Bir dosya paylaşımını SMB ile bağlayabilmeniz için işletim sisteminize g�
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Dosya REST protokolü ile bir Azure dosya paylaşımını kullanma 
-Dosya REST protokolü ile doğrudan olası çalışma doğrudan olduğu (yani REST HTTP handcrafting çağrıları kendiniz), ancak dosya REST protokolü kullanmak için en yaygın yolu Azure CLI aracını [Azure PowerShell Modülü](storage-how-to-use-files-powershell.md), veya bir Azure Depolama SDK'sı, her biri kendi tercih ettiğiniz betik programlama dilinde dosya REST Protokolü çevresinde güzel bir sarmalayıcı sağlar.  
+Olası çalışma (HTTP REST çağrılarını kendiniz handcrafting) doğrudan dosya REST protokolü ile doğrudan, ancak dosya REST protokolü kullanmak için en yaygın yolu Azure CLI aracını [Azure PowerShell Modülü](storage-how-to-use-files-powershell.md), veya bir Azure depolama SDK'sı , her biri kendi tercih ettiğiniz betik programlama dilinde dosya REST Protokolü çevresinde güzel bir sarmalayıcı sağlar.  
 
 Kullanabilmeyi umdukları mevcut uygulama ve araçlarını kullanmalarına izin vereceği için Azure Dosyaları kullanıcılarının çoğunluğunun Azure dosya paylaşımları ile SMP protokolü üzerinden çalışmasını bekliyoruz, ancak SMB yerine Dosya REST API'si kullanmanın aşağıdaki gibi bazı avantajları bulunmaktadır:
 
 - Dosya paylaşımınıza (SMB üzerinden dosya paylaşımı bağlayamayan) Azure Bash Cloud Shell'den göz atıyorsanız.
-- SMB paylaşımlarını bağlayamayan istemcilerden; örneğin 445 numaralı bağlantı noktası engeli kaldırılmamış şirket içi bir istemciden bir betik veya uygulama yürütmeniz gerekiyorsa.
+- Engeli kaldırılmış 445 numaralı bağlantı noktası olmayan şirket içi istemcileri gibi bir SMB paylaşımına bağlayamayan bir istemciden bir betik veya uygulama yürütme gerekir.
 - [Azure İşlevleri](../../azure-functions/functions-overview.md) gibi sunucusuz kaynaklardan yararlanıyorsanız. 
 
 Aşağıdaki örnekler Azure dosya paylaşımınıza dosya REST protokolü ile yönetmek için Azure CLI'yı kullanmayı gösterir. 

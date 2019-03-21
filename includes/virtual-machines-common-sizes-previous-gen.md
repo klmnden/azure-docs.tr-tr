@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: bf272262d8279dea034440c9ffcf8c49f9fd75ab
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c16483f4b8ef160c78ff95582faf54c9a9d24a04
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57458006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57964315"
 ---
 Bu makalede, önceki nesil sanal makine boyutları hakkında bilgi sağlar. Bu boyutları hala kullanılabilir, ancak yeni nesli vardır.
 
 
 ## <a name="ds-series"></a>DS serisi
 
-ACU: 160
+ACU: 160-250 <sup>1</sup>
 
 Premium Depolama:  Desteklenen
 
@@ -33,11 +33,12 @@ Premium depolama önbelleğe alma:  Desteklenen
 | Standard_DS3 |4 |14 |28 |16 |16.000/128 (172) |12.800/128 |4 / 2000 |
 | Standard_DS4 |8 |28 |56 |32 |32.000/256 (344) |25.600/256 |8 / 4000 |
 
+<sup>1</sup> VM ailesi aşağıdaki CPU'lar birinde çalıştırabilirsiniz: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) veya XEON® 2,3 GHz Intel E5-2673 v4 (Broadwell)
 <br>
 
 ## <a name="ds-series---memory-optimized"></a>DS serisi - bellek için iyileştirilmiş
 
-ACU: 160 <sup>1</sup>
+ACU: 160-250 <sup>1,2</sup>
 
 Premium Depolama:  Desteklenen
 
@@ -52,11 +53,11 @@ Premium depolama önbelleğe alma:  Desteklenen
 
 <sup>1</sup> maksimum disk aktarım hızı (IOPS veya MB/sn) DS serisi VM ile sınırlı olabilir sayısı, boyutu ve bölümleme türüyle ekli disklerin.  Ayrıntılar için bkz [yüksek performans için tasarlama](../articles/virtual-machines/windows/premium-storage-performance.md).
 
-
+<sup>2</sup> VM ailesi aşağıdaki CPU'lar birinde çalıştırabilirsiniz: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) veya XEON® 2,3 GHz Intel E5-2673 v4 (Broadwell)
 
 ## <a name="d-series"></a>D Serisi 
 
-ACU: 160
+ACU: 160-250 <sup>1</sup>
 
 Premium Depolama:  Desteklenmiyor
 
@@ -69,11 +70,12 @@ Premium depolama önbelleğe alma:  Desteklenmiyor
 | Standard_D3  | 4         | 14          | 200            | 12000/187/93                                         | 16/16x500                         | 4 / 2000                     |
 | Standard_D4  | 8         | 28          | 400            | 24000/375/187                                        | 32/32x500                       | 8 / 4000                     |
 
+<sup>1</sup> VM ailesi aşağıdaki CPU'lar birinde çalıştırabilirsiniz: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) veya XEON® 2,3 GHz Intel E5-2673 v4 (Broadwell)
 <br>
 
 ## <a name="d-series---memory-optimized"></a>D serisi - bellek için iyileştirilmiş
 
-ACU: 160
+ACU: 160-250 <sup>1</sup>
 
 Premium Depolama:  Desteklenmiyor
 
@@ -86,6 +88,7 @@ Premium depolama önbelleğe alma:  Desteklenmiyor
 | Standard_D13 | 8         | 56          | 400            | 24000/375/187                                        | 32/32x500                       | 8 / 4000                     |
 | Standard_D14 | 16        | 112         | 800            | 48000/750/375                                        | 64 / 64 x 500                       | 8 / 8000                |
 
+<sup>1</sup> VM ailesi aşağıdaki CPU'lar birinde çalıştırabilirsiniz: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) veya XEON® 2,3 GHz Intel E5-2673 v4 (Broadwell)
 <br>
 
 ## <a name="a-series---compute-intensive-instances"></a>A Serisi - Yoğun işlem gücü kullanımlı örnekler
@@ -127,6 +130,7 @@ Premium depolama önbelleğe alma:  Desteklenmiyor
 | Standard_A5 |2 |14 |135 |4 |4x500 |2 / 500 |
 | Standard_A6 |4 |28 |285 |8 |8x500 |2 / 1000 |
 | Standard_A7 |8 |56 |605 |16 |16x500 |4 / 2000 |
+
 <br>
 
 <sup>1</sup> A0 boyutunun fiziksel donanım üzerindeki abone sayısı planlanandan fazladır. Yalnızca bu boyutta diğer müşteri dağıtımları, çalışan iş yükünüzün performansını etkileyebilir. Göreli performans aşağıda beklenen temel düzey olarak belirtilmiştir ve %15 oranında değişiklik gösterebilir.

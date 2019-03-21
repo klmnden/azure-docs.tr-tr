@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 810ccae08b540c417a0e7dfecb6ad5a8b110cd7b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54046034"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108534"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights kohortlar
 
@@ -105,16 +105,16 @@ Olayların kohortlar de yapabilirsiniz. Bu bölümde, tanımladığınız bir ko
     ![Boş kullanıcılar kohortu](./media/usage-cohorts/001.png)
 
     Üç bölüm bulunur:
-    * Burada, daha ayrıntılı bir kohort başkaları için ekibiniz açıklayan bir Markdown metin bölümü.
+   * Burada, daha ayrıntılı bir kohort başkaları için ekibiniz açıklayan bir Markdown metin bölümü.
 
-    * Burada yaptığınız kendi parametreleri gibi bir parametreler bölümü **etkinlikleri** ve diğer açılır kutuları önceki iki örnekte yer.
+   * Burada yaptığınız kendi parametreleri gibi bir parametreler bölümü **etkinlikleri** ve diğer açılır kutuları önceki iki örnekte yer.
 
-    * Kohort bir analytics sorgusunu kullanarak tanımladığınız bir sorgu bölümü.
+   * Kohort bir analytics sorgusunu kullanarak tanımladığınız bir sorgu bölümü.
 
-    Sorgu bölümünde, [bir analytics sorgusunu yazmak](/azure/kusto/query). Sorgu, belirli bir kümesini tanımlamak istediğiniz kohort açıklayan satırları seçer. Kohortlar aracı ekler ardından örtük olarak bir "| user_Id değerini tanımlayarak özetleme"yan tümcesi için sorgu. Sorgunuzu sonuçlar döndürüyor emin olabilmeniz bu verileri bir tablo, sorguda aşağıdaki önizlemesini görebilirsiniz.
+     Sorgu bölümünde, [bir analytics sorgusunu yazmak](/azure/kusto/query). Sorgu, belirli bir kümesini tanımlamak istediğiniz kohort açıklayan satırları seçer. Kohortlar aracı ekler ardından örtük olarak bir "| user_Id değerini tanımlayarak özetleme"yan tümcesi için sorgu. Sorgunuzu sonuçlar döndürüyor emin olabilmeniz bu verileri bir tablo, sorguda aşağıdaki önizlemesini görebilirsiniz.
 
-    > [!NOTE]
-    > Sorgu görmüyorsanız, uzun yapın ve sorgu ortaya çıkarmak için bölüm yeniden boyutlandırmayı deneyin. Bu bölümün başında animasyonlu .gif, yeniden boyutlandırma davranışını gösterir.
+     > [!NOTE]
+     > Sorgu görmüyorsanız, uzun yapın ve sorgu ortaya çıkarmak için bölüm yeniden boyutlandırmayı deneyin. Bu bölümün başında animasyonlu .gif, yeniden boyutlandırma davranışını gösterir.
 
 2. Kopyalayın ve sorgu Düzenleyicisi'ne aşağıdaki metni yapıştırın:
 

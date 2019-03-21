@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: ec7221837145db73386f146aa839b83ee23c1510
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 273922c8cf48c24ff3b1b55fa44b36b69e061057
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865115"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863908"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Hızlı Başlangıç: Python için Bing Web araması SDK'sını kullanma
 
@@ -81,7 +81,9 @@ Sanal ortamınızı ayarladığınıza ve bağımlılıkları yüklediğinizde g
 Yanıtta web sayfaları, görüntüler, haberler veya videolar varsa hepsinin ilk sonuçları yazdırılır.
 
 1. Favori IDE ortamınızda veya düzenleyicide yeni bir Python projesi oluşturun.
-2. Şu örnek kodu projenize kopyalayın:  
+
+1. Şu örnek kodu projenize kopyalayın:  
+
     ```python
     # Import required modules.
     from azure.cognitiveservices.search.websearch import WebSearchAPI
@@ -161,19 +163,22 @@ Yanıtta web sayfaları, görüntüler, haberler veya videolar varsa hepsinin il
     else:
         print("Didn't find any videos...")
     ```
-3. `subscription_key` değerini geçerli bir abonelik anahtarıyla değiştirin.
-4. Programı çalıştırın. Örneğin: `python your_program.py`.
+
+1. `subscription_key` değerini geçerli bir abonelik anahtarıyla değiştirin.
+
+1. Programı çalıştırın. Örneğin: `python your_program.py`.
 
 ## <a name="define-functions-and-filter-results"></a>İşlevleri tanımlama ve sonuçları filtreleme
 
-Bing Web Araması API'sine ilk çağrınızı gönderdiniz. Şimdi sorguları daha ayrıntılı hale getirmek ve sonuçları filtrelemek için kullanabileceğiniz SDK işlevlerine göz atalım. Tüm işlevleri önceki bölümde oluşturulan Python programınıza ekleyebilirsiniz.
+Bing Web araması API'si için ilk çağrınızı yaptığınız, bazı işlevler bakalım. Aşağıdaki bölümlerde, sorgular verilerin iyileştirilmesi ve sonuçları filtrelemek için SDK işlevselliğini vurgulayın. Her işlev, önceki bölümde oluşturduğunuz Python programa eklenebilir.
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Bing tarafından döndürülen sonuç sayısını sınırlama
 
-Bu örnekte SDK'nın [`search` metodu](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) kullanılarak döndürülen sonuçları sınırlandırmak için `count` ve `offset` parametreleri kullanılmıştır. İlk sonucun `name` ve `URL` değerleri yazdırılır.
+Bu örnekte SDK'nın [`search` metodu](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) kullanılarak döndürülen sonuçları sınırlandırmak için `count` ve `offset` parametreleri kullanılmıştır. İlk sonucun `name` ve `url` değerleri yazdırılır.
 
 1. Python projenize şu kodu ekleyin:
-    ```python
+
+   ```python
     # Declare the function.
     def web_results_with_count_and_offset(subscription_key):
         client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
@@ -203,13 +208,15 @@ Bu örnekte SDK'nın [`search` metodu](https://docs.microsoft.com/python/api/azu
         except Exception as err:
             print("Encountered exception. {}".format(err))
     ```
-2. Programı çalıştırın.
+
+1. Programı çalıştırın.
 
 ### <a name="filter-for-news-and-freshness"></a>Haberler ve güncellik filtresi
 
-Bu örnekte SDK'nın [`search` metodu](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations) ile arama sonuçlarını filtrelemek için `response_filter` ve `freshness` parametreleri kullanılmıştır. Döndürülen arama sonuçları Bing'in son 24 saat içinde keşfettiği haberler ve sayfalarla sınırlıdır. İlk sonucun `name` ve `URL` değerleri yazdırılır.
+Bu örnekte SDK'nın [`search` metodu](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations) ile arama sonuçlarını filtrelemek için `response_filter` ve `freshness` parametreleri kullanılmıştır. Döndürülen arama sonuçları Bing'in son 24 saat içinde keşfettiği haberler ve sayfalarla sınırlıdır. İlk sonucun `name` ve `url` değerleri yazdırılır.
 
 1. Python projenize şu kodu ekleyin:
+
     ```python
     # Declare the function.
     def web_search_with_response_filter(subscription_key):
@@ -251,13 +258,15 @@ Bu örnekte SDK'nın [`search` metodu](/python/api/azure-cognitiveservices-searc
     # Call the function.
     web_search_with_response_filter(subscription_key)
     ```
-2. Programı çalıştırın.
+
+1. Programı çalıştırın.
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Güvenli arama, yanıt sayısı ve yükseltme filtresini kullanma
 
-Bu örnekte SDK'nın [`search` metodu](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) ile arama sonuçlarını filtrelemek için `answer_count`, `promote` ve `safe_search` parametreleri kullanılmıştır. İlk sonucun `name` ve `URL` değerleri görüntülenir.
+Bu örnekte SDK'nın [`search` metodu](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python) ile arama sonuçlarını filtrelemek için `answer_count`, `promote` ve `safe_search` parametreleri kullanılmıştır. İlk sonucun `name` ve `url` değerleri görüntülenir.
 
 1. Python projenize şu kodu ekleyin:
+
     ```python
     # Declare the function.
     def web_search_with_answer_count_promote_and_safe_search(subscription_key):
@@ -294,7 +303,8 @@ Bu örnekte SDK'nın [`search` metodu](https://docs.microsoft.com/python/api/azu
         except Exception as err:
             print("Encountered exception. {}".format(err))
     ```
-2. Programı çalıştırın.
+
+1. Programı çalıştırın.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 20416a4b761496ec65c6911f3e4de18111b663a1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 871cca9fe2b3ff50202feb4925a267b93d432700
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551289"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842082"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Hızlı Başlangıç: Bing Web arama REST API'sini kullanarak Web'de arama veC#
 
-
-Bu hızlı başlangıçta, Bing Web araması API'si, ilk çağrı yapmak ve JSON yanıtını almak için kullanın. Bu C# uygulama API'sine arama isteği gönderir ve yanıtını görüntüler. Bu uygulama C# ile yazılmış olmakla birlikte API, çoğu programlama diliyle uyumlu bir RESTful Web hizmetidir.
+Bu hızlı başlangıçta, Bing Web araması API'si, ilk çağrı yapmak ve JSON yanıtını almak için kullanın. Bu C# uygulama API'sine arama isteği gönderir ve yanıtı gösterir. Bu uygulama C# ile yazılmış olmakla birlikte API, çoğu programlama diliyle uyumlu bir RESTful Web hizmetidir.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Bu hızlı başlangıcı çalıştırmak için aşağıdakilere ihtiyacınız olacaktır:
 
 * Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
@@ -31,7 +31,6 @@ Bu hızlı başlangıcı çalıştırmak için aşağıdakilere ihtiyacınız ol
 * Abonelik anahtarı
 
 Bu örnek programda yalnızca .NET Core sınıfları kullanılır.
-
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
@@ -63,7 +62,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>Değişkenleri tanımlama
 
-Devam etmeden önce birkaç değişkeni ayarlamamız gerekir. `uriBase` öğesinin geçerli olduğunu doğrulayın ve `accessKey` değerini Azure hesabınızdan geçerli bir abonelik anahtarı ile değiştirin. `searchTerm` için değeri değiştirerek arama sorgusunu değiştirebilirsiniz.
+Devam etmeden önce birkaç değişkeni ayarlamamız gerekir. `uriBase` öğesinin geçerli olduğunu doğrulayın ve `accessKey` değerini Azure hesabınızdan geçerli bir abonelik anahtarı ile değiştirin. `searchTerm` için değeri değiştirerek arama sorgusunu değiştirebilirsiniz. Bu kodu eklemeyi unutmayın `Program` yukarıda da belirtildiği gibi sınıf.
 
 ```csharp
 // Enter a valid subscription key.
@@ -79,7 +78,7 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 ## <a name="declare-the-main-method"></a>Main metodunu tanımlama
 
-`Main()` gereklidir ve program başlatıldığında ilk çağrılan metottur. Bu uygulamada main metodu `accessKey` öğesini doğrular, istekte bulunur ve yanıtı yazdırır.
+`Main()` Yöntemi gereklidir ve programı başlatıldığında çağrılan ilk yöntem ise. Bu uygulamada main metodu `accessKey` öğesini doğrular, istekte bulunur ve yanıtı yazdırır.
 
 `main()` öğesinin sonraki bölümlerde oluşturulan metotlara bağlı olduğunu unutmayın.
 
@@ -110,7 +109,7 @@ static void Main()
 
 ## <a name="create-a-struct-for-search-results"></a>Arama sonuçları için bir yapı oluşturma
 
-Bu yapı arama sonuçlarını ve ilgili üst bilgileri döndürür. Sonuç nesnesi oluşturmak için Bing Web Araması API'sine istek gönderilirken çağrılır.
+Bu yapı arama sonuçlarını ve ilgili üst bilgileri döndürür. Bir sonuç nesnesi oluşturmak için Bing Web araması API'si için bir istek yaparken çağrılır.
 
 ```csharp
 // Returns search results with headers.

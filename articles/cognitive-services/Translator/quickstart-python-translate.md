@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 4518f5a6bd232bce3cf973c21944ef3aa722d1f7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 573c45eb9c48d7b6663b518d4830577f951ec70d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727154"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899409"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Hızlı Başlangıç: Python kullanarak bir dizeye çevirmek için Translator Text API kullanın
 
@@ -32,7 +32,7 @@ Bu hızlı başlangıç şunları gerektirir:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Bir proje oluşturun ve gerekli modülleri içeri aktarın
 
-Favori IDE ortamınızda veya düzenleyicide yeni bir Python projesi oluşturun. Ardından bu kod parçacığını projenizde `translate-text.py` adlı bir dosyaya kopyalayın.
+Favori IDE ortamınızda veya düzenleyicide yeni bir Python projesi oluşturun. Ardından bu kod parçacığını projenizde `translate-text.py` adlı bir dosyaya kopyalayın. Python kitaplıkları değil tanınan önlemek için doğru sürümü, IDE'nin yorumlayıcı başvurduğundan emin olun.
 
 ```python
 # -*- coding: utf-8 -*-

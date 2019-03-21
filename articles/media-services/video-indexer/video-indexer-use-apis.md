@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: dc3e654e741fd1a326c83e51c72284f41ad74798
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6a7d79d8a9328eaf0808c79ed359299e1ec37d1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988060"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862735"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Öğretici: Video Indexer API'sini kullanma
 
@@ -23,7 +23,7 @@ ms.locfileid: "55988060"
 
 Video Indexer, Microsoft tarafından sunulan ses ve videoya yönelik çeşitli yapay zeka (AI) teknolojilerini tümleşik tek bir hizmette birleştirerek geliştirme faaliyetlerini kolaylaştırır. API'ler, geliştiricilerin bulut platformunun ölçek, küresel erişim, kullanılabilirlik veya güvenilirliği üzerinde düşünmeye gerek kalmadan Medya yapay zeka teknolojilerini kullanmaya odaklanmasına olanak sağlayacak şekilde tasarlanmıştır. API'yi kullanarak dosyalarınızı karşıya yükleyebilir, ayrıntılı video içgörüleri edinebilir, uygulamanıza eklemek amacıyla içgörü ve yürütücü pencere öğelerinin URL'lerini alabilir ve başka görevleri yerine getirebilirsiniz.
 
-Video Indexer hesabınızı oluştururken ücretsiz bir deneme hesabı (belirli sayıda ücretsiz dizin oluşturma dakikası elde edersiniz) veya ücretli bir seçenek (kota sınırlaması olmaz) arasından seçim yapabilirsiniz. Ücretsiz deneme kullanıldığında Video Indexer, web sitesi kullanıcılarına 600 dakikaya kadar ve API kullanıcılarına ise 2400 dakikaya kadar ücretsiz dizin oluşturma olanağı sunar. Ücretli seçenek kullanıldığında [Azure aboneliğinize ve bir Azure Media Services hesabına bağlı](connect-to-azure.md) bir Video Indexer hesabı oluşturulur. Dizin oluşturma faaliyeti yapılan dakika sayısının yanı sıra Azure Media Services hesabıyla ilgili ücretler için ödeme yaparsınız. 
+Video Indexer hesabınızı oluştururken ücretsiz bir deneme hesabı (belirli sayıda ücretsiz dizin oluşturma dakikası elde edersiniz) veya ücretli bir seçenek (kota sınırlaması olmaz) arasından seçim yapabilirsiniz. Ücretsiz deneme kullanıldığında Video Indexer, web sitesi kullanıcılarına 600 dakikaya kadar ve API kullanıcılarına ise 2400 dakikaya kadar ücretsiz dizin oluşturma olanağı sunar. Bir Video Indexer hesabı oluşturduğunuz Ücretli seçeneğiyle [Azure aboneliğinizi ve Azure Media Services hesabı için bağlı](connect-to-azure.md). Dizin oluşturma faaliyeti yapılan dakika sayısının yanı sıra Azure Media Services hesabıyla ilgili ücretler için ödeme yaparsınız. 
 
 Bu makalede geliştiricilerin [Video Indexer API’sinden](https://api-portal.videoindexer.ai/) nasıl yararlanabileceği açıklanmaktadır.
 
@@ -33,10 +33,10 @@ Bu makalede geliştiricilerin [Video Indexer API’sinden](https://api-portal.vi
     
     ![Oturum aç](./media/video-indexer-use-apis/video-indexer-api01.png)
 
-    > [!Important]
-    > * Video Indexer için kaydolurken kullandığınız sağlayıcıyı kullanmanız gerekir.
-    > * Kişisel Google ve Microsoft (Outlook/Live) hesapları yalnızca deneme hesapları için kullanılabilir. Azure'a bağlı hesaplar için Azure Active Directory gerekir.
-    > * E-posta başına yalnızca bir etkin hesap olabilir. Kullanıcı LinkedIn için user@gmail.com ile oturum açar ve sonra Google için user@gmail.com ile oturum açmaya çalışırsa bu ikinci denemede kullanıcının zaten mevcut olduğunu belirten bir hata sayfası görüntülenir.
+   > [!Important]
+   > * Video Indexer için kaydolurken kullandığınız sağlayıcıyı kullanmanız gerekir.
+   > * Kişisel Google ve Microsoft (Outlook/Live) hesapları yalnızca deneme hesapları için kullanılabilir. Azure'a bağlı hesaplar için Azure Active Directory gerekir.
+   > * E-posta başına yalnızca bir etkin hesap olabilir. Kullanıcı LinkedIn için user@gmail.com ile oturum açar ve sonra Google için user@gmail.com ile oturum açmaya çalışırsa bu ikinci denemede kullanıcının zaten mevcut olduğunu belirten bir hata sayfası görüntülenir.
 
 2. Abone olun.
 
@@ -72,7 +72,7 @@ Sunucudan sunucuya senaryoların çoğunda büyük bir olasılıkla aynı **hesa
 
 Erişim belirteçlerinin süresi 1 saatte dolar. İşlemler API'sini kullanmadan önce erişim belirtecinizin geçerli olduğundan emin olun. Belirtecin süresi dolarsa yeni bir erişim belirteci almak için Yetkilendirme API'sini tekrar çağırın.
  
-API ile tümleştirmeye hazırsınız. [Her bir Video Indexer REST API’nin ayrıntılı açıklamasına](http://api-portal.videoindexer.ai/) bakabilirsiniz.
+API ile tümleştirmeye hazırsınız. [Her bir Video Indexer REST API’nin ayrıntılı açıklamasına](https://api-portal.videoindexer.ai/) bakabilirsiniz.
 
 ## <a name="location"></a>Konum
 

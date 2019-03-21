@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/07/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: e418cf8d619b55fde56a4d6d7d7cd9a8b36a112e
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 40c08f87a1711ae57ceb8b288851686d1e2ad391
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339241"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993959"
 ---
 # <a name="understand-cost-management-data"></a>Maliyet Yönetimi verilerini anlama
 
@@ -34,7 +34,7 @@ Aşağıdaki bilgiler, şu anda desteklenen gösterir [Microsoft Azure'un sundu�
 | **Microsoft Geliştirici Ağı (MSDN)** | [MSDN platformları](https://azure.microsoft.com/offers/ms-azr-0062p/) | MS-AZR-0062P |
 | **Kullandıkça Öde** | [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
 | **Kullandıkça Öde** | [Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
-| **Kullandıkça Öde** | [Microsoft iş ortağı ağı](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
+| **Kullandıkça Öde** | [Microsoft İş Ortağı Ağı](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
 | **Kullandıkça Öde** | [Ücretsiz deneme](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
 | **Kullandıkça Öde** | [Açık lisansta Azure](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
 | **Kullandıkça Öde** | [Öğrenciler için Azure](https://azure.microsoft.com/offers/ms-azr-0170p/) | MS-AZR-0170P |
@@ -95,7 +95,7 @@ Aşağıdaki tablolarda, maliyet Yönetimi'nde değil ya da eklenmiştir. Bu ver
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Derecelendirilmiş kullanım Veri Yenileme zamanlaması
 
-Maliyet ve kullanım verileri Azure portalında maliyet Yönetimi + faturalandırma içinde kullanılabilir ve [API'leri destekleme](https://aka.ms/costmgmt/docs). Maliyetleri gözden geçirirken, aşağıdaki noktaları göz önünde bulundurun:
+Maliyet ve kullanım verileri Azure portalında maliyet Yönetimi + faturalandırma içinde kullanılabilir ve [API'leri destekleme](index.yml). Maliyetleri gözden geçirirken, aşağıdaki noktaları göz önünde bulundurun:
 
 - Geçerli fatura dönemi için tahmini ücretleri altı kat gün güncelleştirilir.
 - Daha fazla kullanım tabi olarak, geçerli fatura dönemi için tahmini ücretleri değiştirebilirsiniz.

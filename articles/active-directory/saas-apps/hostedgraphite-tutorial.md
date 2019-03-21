@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c116acdc5768f10d8e5ab4047a724796c8beca2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 49e70eab0b9824742a67e4446c5ff6f0a9a366ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776130"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894674"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Öğretici: Barındırılan Grafit ile Azure Active Directory Tümleştirme
 
@@ -177,7 +177,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

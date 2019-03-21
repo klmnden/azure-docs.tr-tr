@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: d50f25fbe10fc5ac4e834141fe7ac45fbed918ab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 26144b7eb53f5c0d4ebecbc9e6eece741f466719
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309035"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997800"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Application Gateway'de hatalı ağ geçidi hatalarını giderme
 
@@ -83,7 +83,7 @@ Varsa, DNS sunucusu arka uç havuzu ÜYESİNİN doğru çözümleyemiyorsa oldu�
 
 | Araştırma özelliği | Değer | Açıklama |
 | --- | --- | --- |
-| Yoklama URL'si |http://127.0.0.1/ |URL yolu |
+| Yoklama URL'si |`http://127.0.0.1/` |URL yolu |
 | Interval |30 |Saniye cinsinden yoklama aralığı |
 | Zaman aşımı |30 |Saniye cinsinden yoklama zaman aşımı |
 | İyi durumda olmayan eşik |3 |Yeniden deneme sayısı araştırma. Sağlıksız durum eşiği ardışık araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenir. |
@@ -92,7 +92,7 @@ Varsa, DNS sunucusu arka uç havuzu ÜYESİNİN doğru çözümleyemiyorsa oldu�
 
 * Varsayılan site yapılandırılır ve 127.0.0.1 dinliyor emin olun.
 * 80 dışında bir bağlantı noktası Backendhttpsetting'de belirtiyorsa, varsayılan site Bu bağlantı noktasını dinlemek üzere yapılandırılması gerekir.
-* Çağrı http://127.0.0.1:port 200 bir HTTP sonuç kodunu döndürmelidir. Bu 30 sn zaman aşımı süresi içinde yönlendirileceksiniz.
+* Çağrı `http://127.0.0.1:port` 200 bir HTTP sonuç kodunu döndürmelidir. Bu 30 sn zaman aşımı süresi içinde yönlendirileceksiniz.
 * Yapılandırılan bağlantı noktası açık olduğunu ve hiçbir güvenlik duvarı kuralları veya yapılandırılmış bağlantı noktasında gelen veya giden trafiği engellemeye Azure ağ güvenlik grupları olduğundan emin olun.
 * Azure Klasik sanal makineleri veya Bulut hizmeti FQDN veya genel IP ile kullanılıyorsa, karşılık gelen emin [uç nokta](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) açılır.
 * VM'nin Azure Resource Manager aracılığıyla yapılandırılır ve Application Gateway dağıtıldığı, VNet dışından [ağ güvenlik grubu](../virtual-network/security-overview.md) istediğiniz bağlantı noktasını erişimine izin verecek şekilde yapılandırılması gerekir.
@@ -118,7 +118,7 @@ Varsa, DNS sunucusu arka uç havuzu ÜYESİNİN doğru çözümleyemiyorsa oldu�
 Özel durum yoklaması önceki tabloda olarak doğru şekilde yapılandırıldığını doğrulayın. Önceki sorun giderme adımları yanı sıra, ayrıca aşağıdakilerden emin olun:
 
 * Araştırma olarak başına doğru belirtildiğinden emin olun [Kılavuzu](application-gateway-create-probe-ps.md).
-* Application Gateway için tek bir site yapılandırdıysanız, varsayılan olarak ana bilgisayar adı '127.0.0.1' özel araştırma aksi şekilde yapılandırılmadıkça belirtilmelidir.
+* Application Gateway için tek bir site yapılandırdıysanız, varsayılan olarak ana bilgisayar adı olarak belirtilmelidir `127.0.0.1`, içinde özel araştırma aksi şekilde yapılandırılmadıkça.
 * Http:// çağrısı emin\<konak\>:\<bağlantı noktası\>\<yolu\> 200 bir HTTP sonuç kodunu döndürür.
 * Aralığını, zaman aşımı ve UnhealtyThreshold kabul edilebilir aralıkta olduğundan emin olun.
 * Bir HTTPS kullanarak araştırma, arka uç sunucusunda kendisi bir geri dönüş sertifikası yapılandırarak arka uç sunucusuna SNI gerektirmeyen emin olun.

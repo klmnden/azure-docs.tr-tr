@@ -4,15 +4,15 @@ description: Azure geçiş toplayıcısı adlı Gereci için yükseltme hakkınd
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: f29556c8f2a5aa727ce80632eaccf5e1ed6d7c1a
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: d7a9a6cb8683116b9e0c432c2aede2b8df3ddc68
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415553"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895643"
 ---
 # <a name="collector-update-release-history"></a>Toplayıcı güncelleştirme sürüm geçmişi
 
@@ -22,7 +22,17 @@ Azure geçişi toplayıcısı bir şirket içi vCenter ortam azure'a geçiş iş
 
 ## <a name="continuous-discovery-upgrade-versions"></a>Sürekli bulma: Sürüm yükseltme
 
-Henüz hiç yükseltme sürekli bulma Gereci için kullanılabilir.
+### <a name="version-101012-released-on-03132019"></a>Sürüm 1.0.10.12 (03/13/2019'da yayımlanan)
+
+Sorunlar için düzeltmeler içerir Azure seçme içinde bulut Gereci.
+
+Karma değerleri yükseltme [paketini 1.0.10.12](https://aka.ms/migrate/col/upgrade_10_12)
+
+**Algoritma** | **Karma değeri**
+--- | ---
+MD5 | 27704154082344c058238000dff9ae44
+SHA1 | 41e9e2fb71a8dac14d64f91f0fd780e0d606785e
+SHA256 | c6e7504fcda46908b636bfe25b8c73f067e3465b748f77e50027e66f2727c2a9
 
 ## <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>Tek seferlik bulma (artık kullanım dışı): Önceki yükseltme sürümleri
 

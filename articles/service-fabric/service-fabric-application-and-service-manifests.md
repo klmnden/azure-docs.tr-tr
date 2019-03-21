@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 9e8ca50970ff4a845174d7061b60a88a8f5ce578
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0cd8131a0e5168ba8cfb6045c3be238162668995
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465632"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864584"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric uygulama ve hizmet bildirimleri
 Bu makalede tanımlanan ve tutulan ApplicationManifest.xml ve ServiceManifest.xml dosyalarını kullanarak Service Fabric uygulamaları ve hizmetleri nasıl açıklar.  Daha ayrıntılı örnekler için bkz: [uygulama ve hizmet bildirimi örnekleri](service-fabric-manifest-examples.md).  Bu bildirim dosyaları için XML Şeması belgelenen [ServiceFabricServiceModel.xsd şema belgeleri](service-fabric-service-model-schema.md).
@@ -35,8 +35,8 @@ Hizmet bildirimi, hizmet türü ve sürümü bildirimli olarak tanımlar. Bu hiz
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType. 
          This name must match the string used in RegisterServiceType call in Program.cs. -->
@@ -88,7 +88,7 @@ SetupEntryPoint yapılandırma hakkında daha fazla bilgi için bkz. [Hizmet Kur
 **ConfigPackage** tarafından adlandırılan bir klasöre bildirir **adı** içeren öznitelik, bir *Settings.xml* dosya. Ayarlar dosyası, çalışma zamanında işlem okuyan kullanıcı tanımlı, anahtar-değer çifti ayarları bölümlerini içerir. Yalnızca yükseltme sırasında **ConfigPackage** **sürüm** değişti, çalışan işlem yeniden sonra. Bunun yerine, bunlar dinamik olarak yeniden yüklenebilir, böylece yapılandırma ayarları değişti işlemi bir geri çağırma bildirir. İşte bir örnek *Settings.xml* dosyası:
 
 ```xml
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MyConfigurationSection">
     <Parameter Name="MySettingA" Value="Example1" />
     <Parameter Name="MySettingB" Value="Example2" />
@@ -115,7 +115,7 @@ Bu nedenle, bir uygulama bildirimi, uygulama düzeyinde öğeleri açıklar ve u
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="VotingData_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="VotingData_PartitionCount" DefaultValue="1" />

@@ -4,17 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: SSS sayfaları veya ürün kılavuzları gibi sahip olduğunuz içerikleri kullanarak bir Soru-Cevap Oluşturma bilgi bankası (KB) oluşturabilirsiniz. Bu örnekteki Soru-Cevap Oluşturma KB BitLocker anahtarı kurtarma sorularının yer aldığı basit bir SSS web sayfasından oluşturulmuştur.
 author: diberry
 manager: nitinme
+services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 2ac6e6fcd73abddcee668b8f73184b923aeab5d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3f7b24af3d48075150ae7c192ccf421b928a7aa3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877006"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113708"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Soru-Cevap Oluşturma bilgi bankanızı oluşturma, eğitme ve yayımlama
 
@@ -53,7 +54,7 @@ SSS sayfaları veya ürün kılavuzları gibi sahip olduğunuz içerikleri kulla
 
 10. Sağ üst köşeden **Add QnA pair** (Soru-Cevap çifti ekle) öğesine tıklayarak KB'nin **Editorial** (Düzenleme) bölümüne yeni bir satır ekleyin. **Question** (Soru) bölümüne **Hi** (Merhaba) yazın. **Answer** (Cevap) bölümüne **Hello. Ask me bitlocker questions.** (Merhaba. Bana BitLocker ile ilgili sorular sor.) yazın.
 
-   ![Soru-Cevap çifti ekleme](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+    ![Soru-Cevap çifti ekleme](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
 11. Sağ üst köşeden **Save and train** (Kaydet ve eğit) öğesine tıklayarak yaptığınız düzenlemeleri kaydedin ve Soru-Cevap Oluşturma modelinizi eğitin. Kaydedilmeyen düzenlemeler silinir.
 
@@ -61,7 +62,7 @@ SSS sayfaları veya ürün kılavuzları gibi sahip olduğunuz içerikleri kulla
 
 13. Yanıtı daha ayrıntılı bir şekilde incelemek için **Inspect** (Denetle) öğesini seçin. Test penceresini kullanarak KB'yi yayımlamadan önce yaptığınız değişiklikleri test edebilirsiniz.
 
-   ![Test Paneli](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![Test Paneli](../media/qnamaker-quickstart-kb/inspect-panel.png)
 
 14. **Test**'i tekrar seçerek **Test** penceresini kapatın.
 
@@ -69,7 +70,7 @@ SSS sayfaları veya ürün kılavuzları gibi sahip olduğunuz içerikleri kulla
 
 16. Soru-Cevap Oluşturma hizmeti başarıyla yayımlandı. Uç noktayı uygulamanızda veya bot kodunuzda kullanabilirsiniz.
 
-   ![Yayımlama](../media/qnamaker-quickstart-kb/publish-sucess.png)
+    ![Yayımlama](../media/qnamaker-quickstart-kb/publish-sucess.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

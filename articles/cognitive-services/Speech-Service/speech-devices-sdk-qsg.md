@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b008293e06f476109abde5be519489b2e3d4c1e9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 114e0b951b2bfe83e8b989646bd07a5fd75b3ee6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531394"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894419"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Konuşma cihaz SDK'sı ile çalışmaya başlama
 
@@ -39,18 +39,18 @@ Konuşma cihaz SDK'sı ile geliştirmeye başlamadan önce ihtiyacınız olan ya
 
 * Yükleme [Android Studio](https://developer.android.com/studio/) ve [Vysor](https://vysor.io/download/) PC'nizde.
 
-* Alma bir [konuşma hizmeti abonelik anahtarı](get-started.md). Bir anahtarı, Azure panosundan alma ya da 30 günlük ücretsiz deneme sürümü edinin.
+* Alma bir [konuşma Hizmetleri abonelik anahtarı](get-started.md). Bir anahtarı, Azure panosundan alma ya da 30 günlük ücretsiz deneme sürümü edinin.
 
-* Amaç tanıma konuşma hizmetin kullanmak istiyorsanız, abone [Language Understanding hizmeti](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) ve [bir abonelik anahtarı edinirler](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription).
+* Konuşma Hizmetleri niyeti tanıma kullanmak istiyorsanız, abone [Language Understanding hizmeti](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) ve [bir abonelik anahtarı edinirler](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription).
 
     Yapabilecekleriniz [basit LUIS modeline oluşturma](https://docs.microsoft.com/azure/cognitive-services/luis/) veya LUIS modeline LUIS example.json örneği kullanın. LUIS modeline kullanılabilir örnek [konuşma cihazları SDK indirme sitesi](https://shares.datatransfer.microsoft.com/). Modelinizin JSON dosyasını karşıya yüklemek için [LUIS portalı](https://www.luis.ai/home)seçin **alma yeni uygulama**ve ardından JSON dosyasını seçin.
 
 ## <a name="set-up-the-development-kit"></a>Geliştirme Seti ' ayarlayın
-    
+
 1. Geliştirme Seti iki mikro USB bağlayıcı vardır. Sol bağlayıcının Geliştirme Seti desteklemek için ve güç aşağıdaki resimde vurgulanmıştır. Bunu kontrol edecek ve işaretlenmiş sağ görüntüde hata ayıklayın.
 
     ![dev Seti bağlanma](media/speech-devices-sdk/qsg-1.png)
-       
+
 1. Bir bilgisayar için güç bağlantı bağlanın veya bağdaştırıcısı güç mikro USB kablosu kullanarak Geliştirme Seti güçlendirin. Yeşil power göstergesi üst panonun altında görüntülenir.
 
 1. Denetim Geliştirme Seti bağlanın hata ayıklama bağlantı bir bilgisayara ikinci bir mikro USB kablosu kullanarak. Güvenli iletişimler sağlamak için yüksek kaliteli kablo kullanmak için gereklidir.
@@ -114,92 +114,68 @@ Konuşma cihaz SDK'sı ile geliştirmeye başlamadan önce ihtiyacınız olan ya
 
 ROOBO testleri çalıştırmak ve Geliştirme Seti kurulumunuzu doğrulama, derleme ve örnek uygulamayı yüklemek için:
 
-1.  Android Studio'yu başlatın.
+1. Android Studio'yu başlatın.
 
-1.  **Var olan Android Studio projesini aç**'ı seçin.
+1. **Var olan Android Studio projesini aç**'ı seçin.
 
-    ![Android Studio - mevcut bir projeyi Aç](media/speech-devices-sdk/qsg-5.png)
+   ![Android Studio - mevcut bir projeyi Aç](media/speech-devices-sdk/qsg-5.png)
 
-1.  İçin C:\SDSDK\Android-Sample-Release\example gidin. Seçin **Tamam** örnek projesini açın.
+1. İçin C:\SDSDK\Android-Sample-Release\example gidin. Seçin **Tamam** örnek projesini açın.
 
-1.  Konuşma abonelik anahtarınız için kaynak kodu ekleyin. Amaç tanıma denemek istiyorsanız, ayrıca ekleyin, [Language Understanding hizmeti](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) abonelik anahtarı ve uygulama kimliği
+1. Konuşma abonelik anahtarınız için kaynak kodu ekleyin. Amaç tanıma denemek istiyorsanız, ayrıca ekleyin, [Language Understanding hizmeti](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) abonelik anahtarı ve uygulama kimliği
 
-    Uygulama bilgilerini ve anahtarları MainActivity.java kaynak dosyası aşağıdaki satırları gidin:
+   Uygulama bilgilerini ve anahtarları MainActivity.java kaynak dosyası aşağıdaki satırları gidin:
 
-    ```java
-    // Subscription
-    private static final String SpeechSubscriptionKey = "[your speech key]";
-    private static final String SpeechRegion = "westus";
-    private static final String LuisSubscriptionKey = "[your LUIS key]";
-    private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
-    private static final String LuisAppId = "[your LUIS app ID]"
-    ```
+   ```java
+   // Subscription
+   private static final String SpeechSubscriptionKey = "[your speech key]";
+   private static final String SpeechRegion = "westus";
+   private static final String LuisSubscriptionKey = "[your LUIS key]";
+   private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
+   private static final String LuisAppId = "[your LUIS app ID]"
+   ```
 
 1. Varsayılan Uyandırma sözcüğünü (anahtar) "Bilgisayar" dir. Sağlanan diğer birini de deneyebilirsiniz "Machine" veya "Yardımcısı" gibi sözcükleri Uyandırma. Bu alternatif Uyandırma sözcükler için kaynak dosyaları konuşma cihazları SDK'da anahtar sözcüğü klasörü arasındadır. Örneğin, C:\SDSDK\Android-Sample-Release\keyword\Computer Uyandırma için "Bilgisayar" word kullanılan dosyaları içerir.
 
     Ayrıca [özel Uyandırma word oluşturmak](speech-devices-sdk-create-kws.md).
 
-    Kullanmak istediğiniz Uyandırma word yüklemek için:
+    Yeni bir Uyanma sözcük kullanmak için MainActivity.java aşağıdaki iki satırlarını güncelleştirin ve uygulamanıza Uyandırma word paketi kopyalayın. Örneğin Uyandırma kullanmak için 'Machine' Uyandırma word paket kws word-machine.zip:
 
-    * Cihazda veri klasöründeki bir komut istemi penceresinde aşağıdaki komutları çalıştırarak bir anahtar sözcüğü klasör oluşturun:
+   * Uyandırma word paketi "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\" klasörüne kopyalayın.
+   * MainActivity.java paket adı ve anahtar sözcüğü ile güncelleştirin: 
+    
+     ```java
+     private static final String Keyword = "Machine";
+     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
+     ```
 
-        ```
-        adb shell
-        cd /data
-        mkdir keyword
-        exit
-        ```
+1. Mikrofon dizi geometri ayarları içeren aşağıdaki satırları güncelleştirin:
 
-    * Dosyaları kws.table kws_k.fst ve words_kw.txt cihazın \data\keyword klasörüne kopyalayın. Bir komut istemi penceresinde aşağıdaki komutları çalıştırın. Oluşturduysanız bir [özel Uyandırma word](speech-devices-sdk-create-kws.md), Web'den oluşturulan kws.table kws.table kws_k.fst ve words_kw.txt dosyaları ile aynı dizinde dosyasıdır. Bir özel Uyandırma sözcük için kullanmak `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` komutu için dev Seti kws.table dosya göndermek için:
+   ```java
+   private static final String DeviceGeometry = "Circular6+1";
+   private static final String SelectedGeometry = "Circular6+1";
+   ```
+   Aşağıdaki tabloda kullanılabilir değerleri açıklanmaktadır:
 
-        ```
-        adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
-        adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
-        ```
-
-    * Bu örnek uygulama dosyalarında başvuru. Aşağıdaki satırları MainActivity.java içinde bulun. Belirtilen anahtar sözcüğü bir kullanmakta olduğunuz olduğunu ve yolunu işaret eden emin `kws.table` cihaza gönderilen dosya.
-
-        ```java
-        private static final String Keyword = "Computer";
-        private static final String KeywordModel = "/data/keyword/kws.table";
-        ```
-
-        > [!NOTE]
-        > Kendi kodunuzda kws.table dosyanın bir anahtar sözcüğü model örneği oluşturun ve tanıma başlatmak için kullanabilirsiniz:
-        >
-        > ```java
-        > KeywordRecognitionModel km = KeywordRecognitionModel.fromFile(KeywordModel);
-        > final Task<?> task = reco.startKeywordRecognitionAsync(km);
-        > ```
-
-1.  Mikrofon dizi geometri ayarları içeren aşağıdaki satırları güncelleştirin:
-
-    ```java
-    private static final String DeviceGeometry = "Circular6+1";
-    private static final String SelectedGeometry = "Circular6+1";
-    ```
-    Aşağıdaki tabloda kullanılabilir değerleri açıklanmaktadır:
-
-    |Değişken|Anlamı|Kullanılabilir değerler|
-    |--------|-------|----------------|
-    |`DeviceGeometry`|Fiziksel MIC yapılandırma|Döngüsel Geliştirme Seti için: `Circular6+1` |
-    |||Doğrusal Geliştirme Seti için: `Linear4`|
-    |`SelectedGeometry`|Yazılım MIC yapılandırması|Tüm mikrofonlardan kullanan bir döngüsel Geliştirme Seti için: `Circular6+1`|
-    |||Dört mikrofonlardan kullanan bir döngüsel Geliştirme Seti için: `Circular3+1`|
-    |||Tüm mikrofonlardan kullanan bir doğrusal Geliştirme Seti için: `Linear4`|
-    |||İki mikrofonlardan kullanan bir doğrusal Geliştirme Seti için: `Linear2`|
+   |Değişken|Anlamı|Kullanılabilir değerler|
+   |--------|-------|----------------|
+   |`DeviceGeometry`|Fiziksel MIC yapılandırma|Döngüsel Geliştirme Seti için: `Circular6+1` |
+   |||Doğrusal Geliştirme Seti için: `Linear4`|
+   |`SelectedGeometry`|Yazılım MIC yapılandırması|Tüm mikrofonlardan kullanan bir döngüsel Geliştirme Seti için: `Circular6+1`|
+   |||Dört mikrofonlardan kullanan bir döngüsel Geliştirme Seti için: `Circular3+1`|
+   |||Tüm mikrofonlardan kullanan bir doğrusal Geliştirme Seti için: `Linear4`|
+   |||İki mikrofonlardan kullanan bir doğrusal Geliştirme Seti için: `Linear2`|
 
 
-1.  Uygulamayı derlemek için **çalıştırma** menüsünde **'uygulamayı' Çalıştır**. **Dağıtım hedefini seçin** iletişim kutusu görüntülenir.
+1. Uygulamayı derlemek için **çalıştırma** menüsünde **'uygulamayı' Çalıştır**. **Dağıtım hedefini seçin** iletişim kutusu görüntülenir.
 
 1. Cihazınızı seçin ve ardından **Tamam** cihaza uygulamayı dağıtmak için.
 
     ![Dağıtım hedefi iletişim kutusunu seçin](media/speech-devices-sdk/qsg-7.png)
 
-1.  Konuşma cihaz SDK'sı örnek bir uygulama başlar ve şu seçeneklerini gösterir:
+1. Konuşma cihaz SDK'sı örnek bir uygulama başlar ve şu seçeneklerini gösterir:
 
-    ![Örnek konuşma cihaz SDK'sı örnek uygulama ve seçenekleri](media/speech-devices-sdk/qsg-8.png)
+   ![Örnek konuşma cihaz SDK'sı örnek uygulama ve seçenekleri](media/speech-devices-sdk/qsg-8.png)
 
 1. Deneyin!
 
@@ -207,7 +183,7 @@ ROOBO testleri çalıştırmak ve Geliştirme Seti kurulumunuzu doğrulama, derl
 
 ### <a name="certificate-failures"></a>Sertifika hataları
 
-Konuşma hizmeti kullandığınızda, sertifika hataları alırsanız, cihazınız doğru tarih ve saat olduğundan emin olun:
+Konuşma hizmetlerini kullanırken sertifika hataları alırsanız, cihazınız doğru tarih ve saat olduğundan emin olun:
 
 1. Git **ayarları**. Altında **sistem**seçin **tarih ve saat**.
 

@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 564a0948d09e4726800d19858b4c23924fc56973
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187347"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839177"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect eşitleme hizmeti gölge öznitelikleri
 Şirket içi Active Directory'nizde oldukları gibi çoğu öznitelikler Azure AD'de aynı şekilde temsil edilir. Ancak bazı özel işlem bazı özniteliklere sahip ve öznitelik değeri Azure AD'de, Azure AD Connect eşitler daha farklı olabilir.
@@ -58,7 +58,7 @@ Bir posta kutusu kullanıcısının, şirket içinde veya Exchange Online'da yal
 | Şirket içi proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-Bu durumda **smtp:abbie.spencer@fabrikam.com** olduğundan bu etki alanı doğrulanmadı kaldırıldı. Ancak aynı zamanda eklenen Exchange **SIP:abbie.spencer@fabrikamonline.com**. Fabrikam, Lync/Skype Kurumsal şirket içi, ancak Azure AD'ye kullanmamış ve Exchange Online hazırlamak için.
+Bu durumda **smtp:abbie.spencer\@fabrikam.com** olduğundan bu etki alanı doğrulanmadı kaldırıldı. Ancak aynı zamanda eklenen Exchange **SIP:abbie.spencer\@fabrikamonline.com**. Fabrikam, Lync/Skype Kurumsal şirket içi, ancak Azure AD'ye kullanmamış ve Exchange Online hazırlamak için.
 
 ProxyAddresses için bu mantıksal olarak adlandırılır **ProxyCalc**. ProxyCalc çağrıldığı bir kullanıcının her değişiklik olduğunda:
 

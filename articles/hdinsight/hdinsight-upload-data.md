@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.openlocfilehash: 513cc1f0155c5e5499d0bf076d21aff46756d769
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 820bb22fee75e5c1159ba90f23b478339f6345b5
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312183"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201934"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>HDInsight, Apache Hadoop işleri için veri yükleme
 
@@ -37,7 +37,7 @@ Başlamadan önce aşağıdaki gereksinimleri dikkate alın:
 ## <a name="utilities"></a>Altyapı Hizmetleri
 Microsoft Azure depolama ile çalışmak için aşağıdaki yardımcı programlarını sağlar:
 
-| Aracı | Linux | OS X | Windows |
+| Tool | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
@@ -53,10 +53,7 @@ Microsoft Azure depolama ile çalışmak için aşağıdaki yardımcı programla
 ## <a id="commandline"></a>Hadoop komut satırı
 Hadoop komut satırı, yalnızca veri kümesi baş düğümünde mevcut olduğunda, verileri Azure depolama blobu depolamak için yararlıdır.
 
-Hadoop komutu kullanmak için aşağıdaki yöntemlerden birini kullanarak bir baş düğüm için önce bağlanmanız gerekir:
-
-* **Windows tabanlı HDInsight**: [Uzak Masaüstü kullanarak bağlan](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **Linux tabanlı HDInsight**: Bağlanırken [SSH veya PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
+Hadoop komutu kullanabilmek için önce baş kullanarak bağlanmalısınız [SSH veya PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Bağlantı kurulduktan sonra dosya depolama alanına yüklemek için aşağıdaki söz dizimini kullanabilirsiniz.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 40062cfb2e646fd6befef1e746f9493f3e4b20f9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f2f4fb04ac483f7716c0b7a0fb1f87843d8b817f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821379"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995312"
 ---
 # <a name="table-design-patterns"></a>Tablo tasarımı desenleri
 Bu makalede, tablo hizmeti çözümleri ile kullanım için uygun olan bazı desenleri açıklar. Ayrıca, nasıl, pratikte bazı sorunlar ve dezavantajlarına diğer tablo depolama tasarım makalelerinde açıklanan ele görürsünüz. Aşağıdaki diyagramda, farklı düzenlerinin arasındaki ilişkileri özetlenmektedir:  
@@ -588,7 +588,7 @@ var employees = query.Execute();
 
 Sorgu her ikisi de nasıl belirtiyor fark bir **RowKey** ve **PartitionKey** daha iyi performans sağlamak için.  
 
-Aşağıdaki kod örneği fluent API'sini kullanarak eşdeğer bir işlevselliği gösterir (genel olarak, fluent API'ler hakkında daha fazla bilgi için bkz [Fluent bir API tasarlamaya ilişkin en iyi yöntemler](http://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
+Aşağıdaki kod örneği fluent API'sini kullanarak eşdeğer bir işlevselliği gösterir (genel olarak, fluent API'ler hakkında daha fazla bilgi için bkz [Fluent bir API tasarlamaya ilişkin en iyi yöntemler](https://visualstudiomagazine.com/articles/2013/12/01/best-practices-for-designing-a-fluent-api.aspx)):  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = new TableQuery<EmployeeEntity>().Where(

@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 1c99c680371d9d9601637ebeb52d9299de71b0ec
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 8217eddd6f31a30b9113b178d74b59afb94f42af
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338824"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900871"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus nedir?
 
-Microsoft Azure Service Bus, tam olarak yönetilen bir kuruluş olan [tümleştirme](http://azure.com/integration) ileti Aracısı. Service Bus, en sık olarak uygulamaları ve hizmetleri birbirinden ayırmak için kullanılır ve zaman uyumsuz veri ve durum aktarımı için güvenilir ve güvenli bir platformdur. Veriler, farklı uygulamalar ve hizmetler arasında *iletiler* kullanılarak aktarılır. JSON, XML veya yalnızca metin içerebilir, ikili biçimde bir iletidir. 
+Microsoft Azure Service Bus, tam olarak yönetilen bir kuruluş olan [tümleştirme](https://azure.com/integration) ileti Aracısı. Service Bus, en sık olarak uygulamaları ve hizmetleri birbirinden ayırmak için kullanılır ve zaman uyumsuz veri ve durum aktarımı için güvenilir ve güvenli bir platformdur. Veriler, farklı uygulamalar ve hizmetler arasında *iletiler* kullanılarak aktarılır. JSON, XML veya yalnızca metin içerebilir, ikili biçimde bir iletidir. 
 
 Yaygın olarak kullanılan bazı mesajlaşma senaryoları:
 

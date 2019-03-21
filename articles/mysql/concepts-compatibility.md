@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.openlocfilehash: 7bb5f861676517d709f59c1bf50d77c4d9cc49a4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: MT
+ms.openlocfilehash: 46f2ac9114ac1191ea85b428711cb25d8557a61a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548060"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837584"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>MySQL sürücüleri ve MySQL için Azure veritabanı ile uyumlu yönetim araçları
 Bu makalede, MySQL için Azure veritabanı ile uyumlu olan Yönetim Araçları ve sürücüleri açıklanır.

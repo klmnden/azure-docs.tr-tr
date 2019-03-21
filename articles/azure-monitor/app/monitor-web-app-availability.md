@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: b5bca3b4c9f5fbe4c9d7dd917b4e2f0767abf145
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9b04ca359a0c71a04e762452fa33345201f37e84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341026"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124329"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
 Web uygulamanızı veya web sitenizi herhangi bir sunucuya dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemeye yönelik testler ayarlayabilirsiniz. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
@@ -92,7 +92,7 @@ Web oturumu kaydetmek için Visual Studio Enterprise kullanın.
 
     ![Visual Studio Enterprise sürümünde, Web Performansı ve Yük Testi şablonundan bir proje oluşturun.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
- * *Web Performansı ve Yük Testi şablonunu görmüyor musunuz?* - Visual Studio Enterprise’ı kapatın. **Visual Studio Yükleyicisi**’ni açarak Visual Studio Enterprise yüklemesini değiştirin. **Tek Bileşenler** altında **Web Performansı ve yük testi araçları**’nı seçin.
+   * *Web Performansı ve Yük Testi şablonunu görmüyor musunuz?* - Visual Studio Enterprise’ı kapatın. **Visual Studio Yükleyicisi**’ni açarak Visual Studio Enterprise yüklemesini değiştirin. **Tek Bileşenler** altında **Web Performansı ve yük testi araçları**’nı seçin.
 
 2. .webtest dosyasını açın ve kaydı başlatın.
 
