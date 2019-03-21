@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: cac889b83bb0e7a7aab12ff4097556abf60663b6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b9c707dcc1628f685661f88aaed29612465a5469
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449130"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010065"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>BLOB depolama alanından Xamarin kullanma
 
@@ -168,7 +168,7 @@ namespace XamarinApp.iOS
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=391641
 
 namespace XamarinApp.WinPhone
 {
@@ -231,7 +231,7 @@ namespace XamarinApp.WinPhone
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
 Bir Android veya Windows Phone öykünücüsü'nde artık bu uygulamayı çalıştırabilirsiniz. Bu uygulamayı bir iOS öykünücüde de çalıştırabilirsiniz, ancak bu bir Mac bilgisayar gerektirir Bunu yapmak özel yönergeler Lütfen okumak için belgelerine [Visual Studio'yu bir Mac bilgisayara bağlayarak](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
-Uygulamanızı çalıştırdıktan sonra kapsayıcı oluşturacak `mycontainer` depolama hesabınızda. Blob içermelidir `myblob`, metin olduğu `Hello, world!`. Kullanarak bunu doğrulayabilirsiniz [Microsoft Azure Depolama Gezgini](http://storageexplorer.com/).
+Uygulamanızı çalıştırdıktan sonra kapsayıcı oluşturacak `mycontainer` depolama hesabınızda. Blob içermelidir `myblob`, metin olduğu `Hello, world!`. Kullanarak bunu doğrulayabilirsiniz [Microsoft Azure Depolama Gezgini](https://storageexplorer.com/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, Azure depolama, Blob depolama alanındaki bir senaryo özel olarak odaklanan kullanan Xamarin platformlar arası uygulama oluşturma öğrendiniz. Ancak, çok fazla değil yalnızca Blob Depolama ile ancak tablo, dosya ve kuyruk depolama ile yapabilirsiniz. Lütfen daha fazla bilgi için aşağıdaki makalelere göz atın:

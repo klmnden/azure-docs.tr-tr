@@ -8,18 +8,18 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: ae1e71170952a2f05e371de68b519eba522e3298
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: f6e44b21a2a2e174ffa49073fdeb8cc96910a69e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318722"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295088"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Verilerinizi Azure Blob depolama alanına dışarı aktarma
 
 *Bu konu, Yöneticiler için geçerlidir.*
 
-Bu makalede daha ayrıntılı sürekli veri dışarı aktarma özelliği düzenli aralıklarla verileri dışarı aktarmak için Azure IOT Central içinde kullanmak nasıl türlerine geçiyor, **Azure Blob Depolama hesabı**. Dışarı aktarabilirsiniz **ölçümleri**, **cihazları**, ve **cihaz şablonları** dosyalara Apache Avro biçimi. Dışarı aktarılan verileri eğitim modeller Azure Machine Learning veya Microsoft Power BI uzun vadeli eğilim analizi gibi Durgun yoldaki analiz için kullanılabilir.
+Bu makalede sürekli veri dışa aktarma Özelliği Azure IOT Central düzenli aralıklarla verileri dışarı aktarmak için nasıl kullanılacağını açıklar, **Azure Blob Depolama hesabı**. Dışarı aktarabilirsiniz **ölçümleri**, **cihazları**, ve **cihaz şablonları** dosyalara Apache Avro biçimi. Dışarı aktarılan verileri eğitim modeller Azure Machine Learning veya Microsoft Power BI uzun vadeli eğilim analizi gibi Durgun yoldaki analiz için kullanılabilir.
 
 > [!Note]
 > Bir kez daha, verileri sürekli dışarı aktarma üzerinde etkinleştirdiğinizde, ileriye doğru o andan itibaren yalnızca verileri alın. Şu anda, verileri sürekli dışarı aktarma kapalıydı ne zaman bir kez verileri alınamıyor. Daha fazla geçmiş verileri korumak için verileri sürekli dışarı aktarma üzerinde erken açın.
@@ -29,12 +29,75 @@ Bu makalede daha ayrıntılı sürekli veri dışarı aktarma özelliği düzenl
 
 - IOT Central uygulamanızda yönetici olmanız gerekir
 
+
+## <a name="set-up-export-destination"></a>Dışarı aktarma hedef ayarlayın
+
+Vermek için mevcut bir depolama yoksa, şu adımları izleyin:
+
+## <a name="create-storage-account"></a>Depolama hesabı oluşturma
+
+1. Oluşturma bir [Azure portalında yeni depolama hesabı](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Daha fazla bilgi [Azure depolama belgeleri](https://aka.ms/blobdocscreatestorageaccount).
+2. Hesap türü seçin **genel amaçlı** veya **Blob Depolama**.
+3. Bir abonelik seçin. 
+
+    > [!Note] 
+    > Artık olan diğer abonelikler için verileri dışarı aktarabilirsiniz **aynı** bir Kullandıkça Öde IOT Central uygulamanız için. Bu durumda bir bağlantı dizesi kullanarak bağlanır.
+
+4. Depolama hesabınızdaki bir kapsayıcı oluşturun. Depolama hesabınıza gidin. Altında **Blob hizmeti**seçin **Blob'lara göz at**. Seçin **+ kapsayıcı** üst yeni bir kapsayıcı oluşturmak için
+
+
+## <a name="set-up-continuous-data-export"></a>Verileri sürekli dışarı aktarma ayarlayın
+
+Verileri dışarı aktarmak için bir depolama hedefi olduğuna göre verileri sürekli dışarı aktarma ' için bu adımları izleyin. 
+
+1. IOT Central uygulamanız için oturum açın.
+
+2. Sol menüde **verileri sürekli dışarı aktarma**.
+
+    > [!Note]
+    > Verileri sürekli dışarı aktarma sol taraftaki menüde görmüyorsanız, yöneticinin uygulamanızda değildir. Verileri dışarı aktarma ' için yöneticinin konuşun.
+
+    ![Yeni değerinde olay hub'ı oluşturma](media/howto-export-data/export_menu.PNG)
+
+3. Seçin **+ yeni** sağ üst köşesindeki düğme. Seçin **Azure Blob Depolama** dışarı aktarma hedefi olarak. 
+
+    > [!NOTE] 
+    > Dışarı aktarmalar uygulama başına en fazla sayısı beştir. 
+
+    ![Yeni verileri sürekli dışarı aktarma oluştur](media/howto-export-data/export_new.PNG)
+
+4. Aşağı açılan liste kutusunda, **depolama hesabı ad alanı**. Son seçenek, listeden seçebilirsiniz **bir bağlantı dizesi girin**. 
+
+    > [!NOTE] 
+    > Depolama hesapları ad alanlarında yalnızca göreceksiniz **IOT Central uygulamanız ile aynı abonelikte**. Bu abonelik dışında bir hedefe dışarı aktarmak istiyorsanız seçin **bir bağlantı dizesi girin** ve 5. adıma bakın.
+
+    > [!NOTE] 
+    > 7 günlük deneme uygulamaları, verileri sürekli yapılandırmak için tek yolu dışarı aktarmak için bir bağlantı dizesidir. 7 günlük deneme uygulamalar, ilişkili Azure aboneliği olmadığı için budur.
+
+    ![Yeni değerinde olay hub'ı oluşturma](media/howto-export-data/export-create-blob.png)
+
+5. (İsteğe bağlı) Seçerseniz, **bir bağlantı dizesi girin**, bağlantı dizenizi yapıştırmak için yeni kutusu görünür. Bağlantı dizesini almak için:
+    - Depolama hesabı, Azure portalında depolama hesabı'na gidin.
+        - Altında **ayarları**seçin **erişim anahtarları**
+        - Key1 bağlantı dizesini veya key2 bağlantı dizesini kopyalayın.
+ 
+6. Aşağı açılan liste kutusundan bir kapsayıcı seçin.
+
+7. Altında **dışarı aktarmak için veri**, her tür ayarlayarak dışarı aktarmak için veri türü belirtin **üzerinde**.
+
+6. Verileri sürekli dışarı aktarma üzerinde etkinleştirmek için emin **verileri dışarı aktarma** olduğu **üzerinde**. **Kaydet**’i seçin.
+
+  ![Yapılandırma verileri sürekli dışarı aktarma](media/howto-export-data/export-list-blob.png)
+
+7. Birkaç dakika sonra verilerinizi, seçtiğiniz hedef olarak görünür.
+
+
 ## <a name="export-to-azure-blob-storage"></a>Azure Blob depolamaya Aktar
 
 Depolama hesabınıza bir kez dakikada ölçümleri, cihazları ve cihaz şablonları verileri son dosyasına dışarı aktardığınız beri toplu değişiklikler içeren her bir dosya ile aktarılır. Dışarı aktarılan veriler [Apache Avro](https://avro.apache.org/docs/current/index.html) biçimlendirmek ve içinde üç klasöre aktarılır. Depolama hesabınızdaki varsayılan yollar şunlardır:
-    - İleti: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - Aygıtlar: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - Cihaz şablonları: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- İleti: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- Aygıtlar: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- Cihaz şablonları: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ### <a name="measurements"></a>Ölçümler
 

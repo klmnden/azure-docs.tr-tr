@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3afbbfdcacb932deb688c31d513c134f52137d7d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0bc1ff022b1639c11ca244b5ea97118a0f06e7cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771727"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858125"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Öğretici: Firstbird ile Azure Active Directory Tümleştirme
 
@@ -180,7 +180,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

@@ -1,21 +1,21 @@
 ---
-title: Studio tek bir deneyden birden çok model oluşturma
+title: Bir model için birden fazla uç nokta oluşturma
 titleSuffix: Azure Machine Learning Studio
 description: Birden çok makine öğrenimi modelleri ve web hizmeti uç noktaları aynı algoritmayı ancak farklı bir eğitim veri kümeleri oluşturmak için PowerShell kullanın.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 442acb88a7a758517b8007b85dd6a58520a0caa4
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a191a7adc2c43337b663fc44a8ef40df9d8ffef4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817516"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848934"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Tek bir deneyden Studio modelleri ve web hizmeti uç noktaları oluşturmak için PowerShell kullanma
 
@@ -35,7 +35,7 @@ Neyse ki, bunu kullanarak gerçekleştirebilirsiniz [Azure Machine Learning Stud
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Eğitim deneme ayarlama
-Örnek [eğitim denemesini](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) alanında [Cortana Intelligence Galerisi](http://gallery.azure.ai). Bu deneme açın, [Azure Machine Learning Studio](https://studio.azureml.net) çalışma.
+Örnek [eğitim denemesini](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) alanında [Cortana Intelligence Galerisi](https://gallery.azure.ai). Bu deneme açın, [Azure Machine Learning Studio](https://studio.azureml.net) çalışma.
 
 > [!NOTE]
 > Bu örnek ile birlikte izlemek için ücretsiz bir çalışma alanı yerine standart çalışma kullanmak isteyebilirsiniz. Toplam 10 uç noktalar - için - her müşteri için bir uç nokta oluşturun ve ücretsiz bir çalışma alanı 3 uç noktalar ile sınırlı olduğundan, standart bir çalışma alanı gerektirir. Yalnızca bir ücretsiz çalışma alanı varsa, komut yalnızca th konumlar için izin verecek şekilde değiştirmeniz yeterlidir.
@@ -44,7 +44,7 @@ Neyse ki, bunu kullanarak gerçekleştirebilirsiniz [Azure Machine Learning Stud
 
 Denemeyi kullanan bir **Veri Al** eğitim veri kümesi içeri aktarmak için modül *customer001.csv* bir Azure depolama hesabından. Tüm bisiklet kiralama konumlardan toplanan eğitim veri kümeleri ve bunların arasında değişen dosya adlarına sahip aynı blob depolama konumunda depolanan varsayalım *rentalloc001.csv* için *rentalloc10.csv*.
 
-![image](./media/create-models-and-endpoints-with-powershell/reader-module.png)
+![Azure blobundan verileri okuyucu modülü alır](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
 Unutmayın bir **Web hizmeti çıkış** modülü eklendi **modeli eğitme** modülü.
 Bu deneyde, bir web hizmeti olarak dağıtıldığında, uç nokta çıkış eğitilen model .ilearner dosya biçiminde döndürür ilişkili.
@@ -52,7 +52,7 @@ Bu deneyde, bir web hizmeti olarak dağıtıldığında, uç nokta çıkış eğ
 Ayrıca URL tanımlayan bir web hizmeti parametresini ayarlamak unutmayın, **verileri içeri aktarma** modülü kullanır. Bu, her konum için modeli eğitmek için tek bir eğitim veri kümesi belirtmek için parametreyi kullanmanıza olanak sağlar.
 Bu tamamlayabilirdik farklı yöntemleri vardır. Bir SQL Azure veritabanı'ndan veri almak için bir web hizmeti parametresi ile bir SQL sorgusu kullanabilirsiniz. Ya da bir **Web hizmeti girişini** modülü bir veri kümesinde web hizmetine geçirilecek.
 
-![image](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
+![Bir Web hizmeti çıkış modülü için eğitilen Model modülünün çıkarır](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
 Şimdi, şimdi varsayılan değerini kullanarak bu eğitim denemesini çalıştırma *rental001.csv* eğitim veri kümesi olarak. Çıkışı görüntülerseniz **değerlendir** Modülü (çıkış ve Seç'e tıklayın **Görselleştir**), iyi bir performans elde etmenize gördüğünüz *AUC* 0.91 =. Bu noktada, bu eğitim denemesini dışında bir web hizmeti dağıtmaya hazır olursunuz.
 
@@ -89,7 +89,7 @@ Ardından, aşağıdaki PowerShell komutunu çalıştırın:
 
 Artık 10 uç noktası oluşturuldu ve bunların tümü aynı eğitilmiş içeren üzerinde modeli eğitilir *customer001.csv*. Bunları Azure portalında görüntüleyebilirsiniz.
 
-![image](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
+![Portalda eğitilen modellerin listesi görüntüleme](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>PowerShell kullanarak bir eğitim veri kümeleri kullanılacak uç noktalarını güncelleştir
 Sonraki adım her müşterinin tek tek veri benzersiz olarak eğitilen modelleri ile uç noktaları güncelleştirmektir. Ancak bu modellerinden üretmek gereken ilk **bisiklet kiralama eğitim** web hizmeti. Geri dönelim **bisiklet kiralama eğitim** web hizmeti. BES bitim 10 kez 10 farklı bir eğitim veri kümeleri ile 10 farklı modelleri oluşturmak için çağırmanız gerekir. Kullanım **InovkeAmlWebServiceBESEndpoint** Bunu yapmak için PowerShell cmdlet'i.

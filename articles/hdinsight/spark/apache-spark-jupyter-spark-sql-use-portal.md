@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.custom: mvc
-ms.openlocfilehash: 5833571bc1c1ac2674723abf286437c3e5e0a5ae
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 6f96195197daf026cddee10785e0cadae8096031
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791878"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111778"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak HDInsight Apache Spark kümesi oluşturma
 Azure HDInsight’ta Apache Spark kümesinin nasıl oluşturulacağını ve Spark SQL sorgularının Hive tablolarına karşı nasıl çalıştırılacağını öğrenin. Apache Spark, bellek içi işleme kullanarak hızlı veri analizi ve küme hesaplama sağlar. HDInsight üzerinde Spark hakkında daha fazla bilgi için bkz: [genel bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md).
@@ -49,16 +49,16 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
     **İleri**’yi seçerek **Depolama** sayfasından devam edin.
 3. **Depolama** bölümünde aşağıdaki değerleri sağlayın:
 
-    - **Depolama hesabı seçin**: **Yeni oluştur**’u seçin ve sonra yeni depolama hesabına bir ad verin. Bu hızlı başlangıç için kullanılan depolama hesabı adı, **myspark20180403store** şeklindedir.
+   - **Depolama hesabı seçin**: **Yeni oluştur**’u seçin ve sonra yeni depolama hesabına bir ad verin. Bu hızlı başlangıç için kullanılan depolama hesabı adı, **myspark20180403store** şeklindedir.
 
-    ![HDInsight Spark kümesi depolama yapılandırmaları oluşturma](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "HDInsight’ta Spark kümesi oluşturma - Depolama yapılandırmaları")
+     ![HDInsight Spark kümesi depolama yapılandırmaları oluşturma](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "HDInsight’ta Spark kümesi oluşturma - Depolama yapılandırmaları")
 
-    > [!NOTE]  
-    > Ekran görüntüsünde **Mevcut olanı seç** seçeneği gösterilir. Bağlantı, **Yeni oluştur** ile **Mevcut olanı seç** arasında geçiş yapar.
+     > [!NOTE]  
+     > Ekran görüntüsünde **Mevcut olanı seç** seçeneği gösterilir. Bağlantı, **Yeni oluştur** ile **Mevcut olanı seç** arasında geçiş yapar.
 
-    **Varsayılan kapsayıcı**, varsayılan bir ada sahiptir.  İsterseniz adı değiştirebilirsiniz.
+     **Varsayılan kapsayıcı**, varsayılan bir ada sahiptir.  İsterseniz adı değiştirebilirsiniz.
 
-    **İleri**’yi seçerek **Özet** sayfasından devam edin. 
+     **İleri**’yi seçerek **Özet** sayfasından devam edin. 
 
 
 3. **Özet** bölümünde **Oluştur**’u seçin. Kümenin oluşturulması yaklaşık 20 dakika sürer. Sonraki oturumuna devam etmeden önce küme oluşturulması gerekir.

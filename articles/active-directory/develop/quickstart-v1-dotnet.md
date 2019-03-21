@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 292fa61ae87d87f27b988d250b694e05f6fa1d3d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2b55f7e615f2c2edb604d5b9433db6cc48d9f36f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119437"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223402"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir .NET Masaüstü (WPF) uygulamasından Microsoft Graph API çağırma
 
@@ -172,7 +172,7 @@ Uygulamanızı bir erişim belirteci gerektiğinde uygulamanızı yalnızca ça�
                 MessageBox.Show(ex.Message);
             }
 
-            // If user interaction is required, proceed to main page without singing the user in.
+            // If user interaction is required, proceed to main page without signing the user in.
             return;
         }
 

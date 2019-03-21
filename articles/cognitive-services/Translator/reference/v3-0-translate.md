@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 47496be907726ca8cd0e235775cdb1a8493310d0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4f6c420ab76462818fb17308d062cc9d881af7df
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879114"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091044"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator metin çevirisi API'si 3.0: Translate
 
@@ -38,55 +38,55 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   <th>Açıklama</th>
   <tr>
     <td>API sürümü</td>
-    <td>*Gerekli parametre*.<br/>İstemci tarafından istenen API sürümü. Değer olmalıdır `3.0`.</td>
+    <td><em>Gerekli parametre</em>.<br/>İstemci tarafından istenen API sürümü. Değer olmalıdır <code>3.0</code>.</td>
   </tr>
   <tr>
     <td>başlangıç</td>
-    <td>*İsteğe bağlı parametre*.<br/>Giriş metninin dilini belirtir. Hangi dillerin bakarak gelen çevirmek kullanılabilir olduğunu bulmak [desteklenen diller](./v3-0-languages.md) kullanarak `translation` kapsam. Varsa `from` parametresi belirtilmezse, otomatik dil algılama kaynak dili belirlemek için uygulanır.</td>
+    <td><em>İsteğe bağlı parametre</em>.<br/>Giriş metninin dilini belirtir. Hangi dillerin bakarak gelen çevirmek kullanılabilir olduğunu bulmak [desteklenen diller](./v3-0-languages.md) kullanarak <code>translation</code> kapsam. Varsa <code>from</code> parametresi belirtilmezse, otomatik dil algılama kaynak dili belirlemek için uygulanır.</td>
   </tr>
   <tr>
     <td>-</td>
-    <td>*Gerekli parametre*.<br/>Çıkış metnini dilini belirtir. Hedef Dil olmalıdır [desteklenen diller](./v3-0-languages.md) dahil `translation` kapsam. Örneğin, `to=de` Almanca çevrilemedi.<br/>Sorgu dizesinde parametresini tekrarlayarak birden fazla dili için aynı anda çevirmek mümkündür. Örneğin, `to=de&to=it` Almanca ve İtalyanca çevrilemedi.</td>
+    <td><em>Gerekli parametre</em>.<br/>Çıkış metnini dilini belirtir. Hedef Dil olmalıdır [desteklenen diller](./v3-0-languages.md) dahil <code>translation</code> kapsam. Örneğin, <code>to=de</code> Almanca çevrilemedi.<br/>Sorgu dizesinde parametresini tekrarlayarak birden fazla dili için aynı anda çevirmek mümkündür. Örneğin, <code>to=de&to=it</code> Almanca ve İtalyanca çevrilemedi.</td>
   </tr>
   <tr>
     <td>textType</td>
-    <td>*İsteğe bağlı parametre*.<br/>Çevrildikten metin düz metin veya HTML metin olup olmadığını tanımlar. Herhangi bir HTML doğru biçimlendirilmeli, tam bir öğe olması gerekir. Olası değerler şunlardır: `plain` (varsayılan) veya `html`.</td>
+    <td><em>İsteğe bağlı parametre</em>.<br/>Çevrildikten metin düz metin veya HTML metin olup olmadığını tanımlar. Herhangi bir HTML doğru biçimlendirilmeli, tam bir öğe olması gerekir. Olası değerler şunlardır: <code>plain</code> (varsayılan) veya <code>html</code>.</td>
   </tr>
   <tr>
     <td>category</td>
-    <td>*İsteğe bağlı parametre*.<br/>Çeviri kategorisi (etki alanı) belirten bir dize. Bu parametre ile oluşturulan, özelleştirilmiş bir sistemden çevirileri almak için kullanılan [özel Translator](../customization.md). Kategori Kimliği özel Translator projenizden dağıtılan özelleştirilmiş sisteminizi kullanabilmek için bu parametreyi ekleyin. Varsayılan değer: `general`.</td>
+    <td><em>İsteğe bağlı parametre</em>.<br/>Çeviri kategorisi (etki alanı) belirten bir dize. Bu parametre ile oluşturulan, özelleştirilmiş bir sistemden çevirileri almak için kullanılan [özel Translator](../customization.md). Kategori Kimliği özel Translator projenizden dağıtılan özelleştirilmiş sisteminizi kullanabilmek için bu parametreyi ekleyin. Varsayılan değer: <code>general</code>.</td>
   </tr>
   <tr>
     <td>ProfanityAction</td>
-    <td>*İsteğe bağlı parametre*.<br/>Profanities çevirileri nasıl değerlendirilmesi gerektiğini belirtir. Olası değerler şunlardır: `NoAction` (varsayılan), `Marked` veya `Deleted`. Küfür değerlendirilecek şekilde anlamak için bkz: [küfür işleme](#handle-profanity).</td>
+    <td><em>İsteğe bağlı parametre</em>.<br/>Profanities çevirileri nasıl değerlendirilmesi gerektiğini belirtir. Olası değerler şunlardır: <code>NoAction</code> (varsayılan), <code>Marked</code> veya <code>Deleted</code>. Küfür değerlendirilecek şekilde anlamak için bkz: [küfür işleme](#handle-profanity).</td>
   </tr>
   <tr>
     <td>ProfanityMarker</td>
-    <td>*İsteğe bağlı parametre*.<br/>Çevirileri profanities nasıl işaretlenmelidir belirtir. Olası değerler şunlardır: `Asterisk` (varsayılan) veya `Tag`. Küfür değerlendirilecek şekilde anlamak için bkz: [küfür işleme](#handle-profanity).</td>
+    <td><em>İsteğe bağlı parametre</em>.<br/>Çevirileri profanities nasıl işaretlenmelidir belirtir. Olası değerler şunlardır: <code>Asterisk</code> (varsayılan) veya <code>Tag</code>. Küfür değerlendirilecek şekilde anlamak için bkz: [küfür işleme](#handle-profanity).</td>
   </tr>
   <tr>
     <td>includeAlignment</td>
-    <td>*İsteğe bağlı parametre*.<br/>Çevrilmiş metin kaynak metin hizalama yansıtma eklenip eklenmeyeceğini belirtir. Olası değerler şunlardır: `true` veya `false` (varsayılan). </td>
+    <td><em>İsteğe bağlı parametre</em>.<br/>Çevrilmiş metin kaynak metin hizalama yansıtma eklenip eklenmeyeceğini belirtir. Olası değerler şunlardır: <code>true</code> veya <code>false</code> (varsayılan). </td>
   </tr>
   <tr>
     <td>includeSentenceLength</td>
-    <td>*İsteğe bağlı parametre*.<br/>Giriş metni ve çevrilen metni tümce sınırları eklenip eklenmeyeceğini belirtir. Olası değerler şunlardır: `true` veya `false` (varsayılan).</td>
+    <td><em>İsteğe bağlı parametre</em>.<br/>Giriş metni ve çevrilen metni tümce sınırları eklenip eklenmeyeceğini belirtir. Olası değerler şunlardır: <code>true</code> veya <code>false</code> (varsayılan).</td>
   </tr>
   <tr>
     <td>suggestedFrom</td>
-    <td>*İsteğe bağlı parametre*.<br/>Giriş metni dili tanımladıysanız, bir geri dönüş dil belirtir. Otomatik dil algılama uygulandığı zaman `from` parametresi atlanırsa. Algılama başarısız olursa `suggestedFrom` dil kabul edilir.</td>
+    <td><em>İsteğe bağlı parametre</em>.<br/>Giriş metni dili tanımladıysanız, bir geri dönüş dil belirtir. Otomatik dil algılama uygulandığı zaman <code>from</code> parametresi atlanırsa. Algılama başarısız olursa <code>suggestedFrom</code> dil kabul edilir.</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*İsteğe bağlı parametre*.<br/>Giriş metninin betiği belirtir.</td>
+    <td><em>İsteğe bağlı parametre</em>.<br/>Giriş metninin betiği belirtir.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*İsteğe bağlı parametre*.<br/>Çevrilen metnin betiği belirtir.</td>
+    <td><em>İsteğe bağlı parametre</em>.<br/>Çevrilen metnin betiği belirtir.</td>
   </tr>
   <tr>
     <td>AllowFallback</td>
-    <td>*İsteğe bağlı parametre*.<br/>Özel bir sistemde mevcut değil, hizmet genel sistem geri izin verildiğini belirtir. Olası değerler şunlardır: `true` (varsayılan) veya `false`.<br/><br/>`allowFallback=false` Çeviri sistemleri için eğitim yalnızca kullanması gerektiğini belirtir `category` istek tarafından belirtilen. Dil Y X diline yönelik bir çeviri pivot diliyle E, ardından tüm sistemler zincirindeki zincir gerektiriyorsa (X -> E ve E -> Y) özel ve aynı kategoride olması gerekir. Belirli bir kategoriye sahip hiçbir sistemi bulunursa istek bir 400 durum kodu döndürür. `allowFallback=true` Özel bir sistemde mevcut değil, hizmet genel sistem geri izin verildiğini belirtir.
+    <td><em>İsteğe bağlı parametre</em>.<br/>Özel bir sistemde mevcut değil, hizmet genel sistem geri izin verildiğini belirtir. Olası değerler şunlardır: <code>true</code> (varsayılan) veya <code>false</code>.<br/><br/><code>allowFallback=false</code> Çeviri sistemleri için eğitim yalnızca kullanması gerektiğini belirtir <code>category</code> istek tarafından belirtilen. Dil Y X diline yönelik bir çeviri pivot diliyle E, ardından tüm sistemler zincirindeki zincir gerektiriyorsa (X -> E ve E -> Y) özel ve aynı kategoride olması gerekir. Belirli bir kategoriye sahip hiçbir sistemi bulunursa istek bir 400 durum kodu döndürür. <code>allowFallback=true</code> Özel bir sistemde mevcut değil, hizmet genel sistem geri izin verildiğini belirtir.
 </td>
   </tr>
 </table> 
@@ -98,19 +98,19 @@ Sorgu dizesinde geçirilen istek Parametreler şunlardır:
   <th>Açıklama</th>
   <tr>
     <td>_Bir yetkilendirme_<br/>_Üst bilgi_</td>
-    <td>*Gerekli istek üst bilgisi*.<br/>Bkz: [kimlik doğrulaması için kullanılabilir seçenekler](./v3-0-reference.md#authentication).</td>
+    <td><em>Gerekli istek üst bilgisi</em>.<br/>Bkz: [kimlik doğrulaması için kullanılabilir seçenekler](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*Gerekli istek üst bilgisi*.<br/>Akıştaki içerik türünü belirtir. Olası değerler şunlardır: `application/json`.</td>
+    <td><em>Gerekli istek üst bilgisi</em>.<br/>Akıştaki içerik türünü belirtir. Olası değerler şunlardır: <code>application/json</code>.</td>
   </tr>
   <tr>
     <td>İçerik uzunluğu</td>
-    <td>*Gerekli istek üst bilgisi*.<br/>İstek gövdesi uzunluğu.</td>
+    <td><em>Gerekli istek üst bilgisi</em>.<br/>İstek gövdesi uzunluğu.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*İsteğe bağlı*.<br/>İstek benzersiz olarak tanımlanabilmesi için bir istemci tarafından oluşturulan GUID. İzleme kimliği adlı bir sorgu parametresi kullanarak sorgu dizesinde eklerseniz bu başlığı atlayabilirsiniz `ClientTraceId`.</td>
+    <td><em>İsteğe bağlı</em>.<br/>İstek benzersiz olarak tanımlanabilmesi için bir istemci tarafından oluşturulan GUID. İzleme kimliği adlı bir sorgu parametresi kullanarak sorgu dizesinde eklerseniz bu başlığı atlayabilirsiniz <code>ClientTraceId</code>.</td>
   </tr>
 </table> 
 
@@ -209,7 +209,7 @@ Bir isteği döndüren olası HTTP durum kodları şunlardır:
   </tr>
   <tr>
     <td>408</td>
-    <td>Bir kaynak eksik olduğu için istek yerine getirilemedi. Ayrıntıları hata iletisine bakın. Özel bir kullanırken `category`, bu da genellikle özel çeviri sistemi henüz isteklere hizmet kullanılabilir olmadığını gösterir. Bekleme süresi (örneğin, 1 dakika) sonra isteği yeniden denenmesi gerekiyor.</td>
+    <td>Bir kaynak eksik olduğu için istek yerine getirilemedi. Ayrıntıları hata iletisine bakın. Özel bir kullanırken <code>category</code>, bu da genellikle özel çeviri sistemi henüz isteklere hizmet kullanılabilir olmadığını gösterir. Bekleme süresi (örneğin, 1 dakika) sonra isteği yeniden denenmesi gerekiyor.</td>
   </tr>
   <tr>
     <td>429</td>
@@ -217,11 +217,11 @@ Bir isteği döndüren olası HTTP durum kodları şunlardır:
   </tr>
   <tr>
     <td>500</td>
-    <td>Beklenmeyen bir hata oluştu. Sorun devam ederse, raporu ile: tarih ve saat hatanın yanıt üst bilgisinden istek tanımlayıcısı `X-RequestId`ve istemci tanımlayıcısı istek üst bilgisinden `X-ClientTraceId`.</td>
+    <td>Beklenmeyen bir hata oluştu. Sorun devam ederse, raporu ile: tarih ve saat hatanın yanıt üst bilgisinden istek tanımlayıcısı <code>X-RequestId</code>ve istemci tanımlayıcısı istek üst bilgisinden <code>X-ClientTraceId</code>.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Sunucu geçici olarak kullanılamıyor. İsteği yeniden deneyin. Sorun devam ederse, raporu ile: tarih ve saat hatanın yanıt üst bilgisinden istek tanımlayıcısı `X-RequestId`ve istemci tanımlayıcısı istek üst bilgisinden `X-ClientTraceId`.</td>
+    <td>Sunucu geçici olarak kullanılamıyor. İsteği yeniden deneyin. Sorun devam ederse, raporu ile: tarih ve saat hatanın yanıt üst bilgisinden istek tanımlayıcısı <code>X-RequestId</code>ve istemci tanımlayıcısı istek üst bilgisinden <code>X-ClientTraceId</code>.</td>
   </tr>
 </table> 
 
@@ -376,28 +376,28 @@ Kaynak metin küfür varlığını bakılmaksızın çevirisini küfür girmeyi 
   <th width="20%">ProfanityAction</th>
   <th>Eylem</th>
   <tr>
-    <td>`NoAction`</td>
+    <td><code>NoAction</code></td>
     <td>Bu varsayılan davranıştır. Küfür kaynaktan hedefe geçer.<br/><br/>
-    **Örnek kaynak (Japonca)**: 彼はジャッカスです。<br/>
-    **Örnek çeviri (İngilizce)**: He bir jackass olur.
+    <strong>Örnek kaynak (Japonca)</strong>: 彼はジャッカスです。<br/>
+    <strong>Örnek çeviri (İngilizce)</strong>: He bir jackass olur.
     </td>
   </tr>
   <tr>
-    <td>`Deleted`</td>
+    <td><code>Deleted</code></td>
     <td>Küfürlü sözcükleri değiştirme yapmadan çıktı CİHAZDAN kaldırılır.<br/><br/>
-    **Örnek kaynak (Japonca)**: 彼はジャッカスです。<br/>
-    **Örnek çeviri (İngilizce)**: He's bir.
+    <strong>Örnek kaynak (Japonca)</strong>: 彼はジャッカスです。<br/>
+    <strong>Örnek çeviri (İngilizce)</strong>: He's bir.
     </td>
   </tr>
   <tr>
-    <td>`Marked`</td>
-    <td>Küfürlü sözcükleri çıktıda bir işaretçi tarafından değiştirilir. İşaretin bağımlı `ProfanityMarker` parametresi.<br/><br/>
-İçin `ProfanityMarker=Asterisk`, Küfürlü sözcükleri yerine `***`:<br/>
-    **Örnek kaynak (Japonca)**: 彼はジャッカスです。<br/>
-    **Örnek çeviri (İngilizce)**: He's bir \* \* \*.<br/><br/>
-İçin `ProfanityMarker=Tag`, Küfürlü sözcükleri tarafından XML etiketleri arasına &lt;küfür&gt; ve &lt;/profanity&gt;:<br/>
-    **Örnek kaynak (Japonca)**: 彼はジャッカスです。<br/>
-    **Örnek çeviri (İngilizce)**: He's bir &lt;küfür&gt;jackass&lt;/profanity&gt;.
+    <td><code>Marked</code></td>
+    <td>Küfürlü sözcükleri çıktıda bir işaretçi tarafından değiştirilir. İşaretin bağımlı <code>ProfanityMarker</code> parametresi.<br/><br/>
+İçin <code>ProfanityMarker=Asterisk</code>, Küfürlü sözcükleri yerine <code>***</code>:<br/>
+    <strong>Örnek kaynak (Japonca)</strong>: 彼はジャッカスです。<br/>
+    <strong>Örnek çeviri (İngilizce)</strong>: He's bir \* \* \*.<br/><br/>
+İçin <code>ProfanityMarker=Tag</code>, Küfürlü sözcükleri tarafından XML etiketleri arasına &lt;küfür&gt; ve &lt;/profanity&gt;:<br/>
+    <strong>Örnek kaynak (Japonca)</strong>: 彼はジャッカスです。<br/>
+    <strong>Örnek çeviri (İngilizce)</strong>: He's bir &lt;küfür&gt;jackass&lt;/profanity&gt;.
   </tr>
 </table> 
 

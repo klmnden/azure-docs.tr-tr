@@ -1,6 +1,6 @@
 ---
-title: Etkin bağlantı deneyimlerinde Azure uzamsal yer işaretleri için yönergeler | Microsoft Docs
-description: Yönergeler ve konuları oluşturma ve etkili bir şekilde Azure uzamsal yer işaretleri ile bağlayıcılarını bulma.
+title: Azure uzamsal bağlayıcılarını kullanın etkin bağlantı deneyimleri için yönergeler | Microsoft Docs
+description: Yönergeler ve konuları oluşturun ve Azure uzamsal bağlayıcılarını kullanarak yer işaretleri etkili bir şekilde bulun.
 author: mattwojo
 manager: jken
 services: azure-spatial-anchors
@@ -8,113 +8,108 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 196958e4818251bd7f2ee78ca472e6f28292d908
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 4714ea7aa4bf55f7cbd4500977b09505788233dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753268"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895813"
 ---
-# <a name="guidelines-for-an-effective-anchor-experience-with-azure-spatial-anchors"></a>Azure uzamsal bağlayıcılarını bir etkin bağlantı deneyimi için yönergeler
+# <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Azure uzamsal bağlayıcılarını kullanarak bir etkin bağlantı deneyimi oluşturun
 
-Bu makalede, yönergeleri ve oluşturma ve etkili bir şekilde Azure uzamsal yer işaretleri ile bağlayıcılarını bulma ile ilgili konuları sağlar.
+Bu makalede yönergeleri sağlar ve etkili bir şekilde yardımcı olacak hususlar oluşturup uzamsal bağlayıcılarını kullanarak yer işaretleri bulun.
 
-## <a name="creating-anchors"></a>Bağlayıcıları oluşturuluyor
+## <a name="good-anchors"></a>İyi yer işaretleri
 
-İyi bağlantıları oluşturma Azure uzamsal Çıpasıyla çalışmanın en önemli özelliklerinden biridir. Bilgilendirme veya kullanıcılar, UX iyi yer işaretleri oluşturmanız hakkında rehberlik sağlayan zaman ayırmanız önemlidir. Önden bağlantı oluşturmaya yatırım tarafından bağlayıcılarını güvenilir bir şekilde bulmak son kullanıcıların etkinleştir:
+Uzamsal bağlayıcılarını iyi bağlayıcılarını oluşturmanıza yardımcı olur. Bilgilendirme ya da kılavuzluk kullanıcılar, kullanıcı deneyimi (UX) iyi yer işaretleri oluşturmanız için zaman ayırmanız önemlidir. Önden iyi bağlayıcılarını oluştururken yatırım tarafından bağlayıcılarını güvenilir bir şekilde bulmak için son kullanıcıların Yardım:
 
-- Farklı cihazlarda
-- Çeşitli zamanlarda
-- Farklı ışık koşullara
-- İstenen perspektiften alanı içinde
-- Etc.
-
-Önemli noktalar ve bağlantı oluşturma ve konum deneyiminizi tasarlamanıza yardımcı olacak yönergeler aşağıda verilmiştir.
+- Farklı cihazlar arasında.
+- Çeşitli zamanlarda.
+- Farklı ışık koşullarında.
+- İstenen perspektiften alanı içinde.
 
 ## <a name="static-and-dynamic-locations"></a>Statik ve dinamik konumları
 
-Bağlantı deneyimi tasarlama parçası katılan konumları seçme. Konumları, statik ve tanımlanmış bir yönetici alanı olacak mı? Veya dinamik ve kullanıcı tanımlı olacak?
+Bağlantı deneyimi tasarlamanın bölümü, konumları seçmektir. Konumları, statik ve tanımlanmış bir yönetici alanı olacak mı? Veya dinamik ve kullanıcı tarafından tanımlanan olur?
 
-Bir perakende mağaza yöneticisi, kullanıcıların ziyaret etmesi ikna statik bir mağaza içi deneyimi isteyebilirsiniz. Kullanıcıların yürütmek hedef konumu seçin, büyük olasılıkla bir karma gerçeklik masa oyunu Geliştirici istediği ise.
+Bir perakende mağaza yöneticisi, kullanıcıların ziyaret etmesi ikna statik bir mağaza içi deneyimi isteyebilirsiniz. Ancak, bir karma gerçeklik masa oyunu geliştiricisi büyük olasılıkla yürütmek hedef konumu seçin kullanıcıların istersiniz.
 
-Statik konumları için iyi bağlayıcılarını alanıyla puanlamalar vakit geçirmeyi Yöneticiler eğitebilirsiniz.
+Statik konumları için iyi bağlayıcılarını alanıyla puanlamalar vakit geçirmeyi Yöneticiler öğretebiliriz.
 
-Dinamik konumları için nasıl eğitmeniz veya iyi yer işaretleri oluşturmanız için UX ile Kullanıcı Kılavuzu hakkında almalısınız.
+Dinamik konumları için nasıl öğrenebilir veya iyi yer işaretleri oluşturmanız için UX ile Kullanıcı Kılavuzu hakkında almalısınız.
 
 ## <a name="stable-visual-features"></a>Kararlı görsel özellikler
 
-Görsel izleme sistemleri tarafından kullanılan karma gerçeklik ve genişletilmiş gerçeklik cihazları ortamın görsel özelliklerini kullanır. En güvenilir deneyimi almak için:  
+Karma gerçeklik üzerinde Visual izleme sistemlerinin kullanılacağını ve genişletilmiş gerçeklik cihazları ortamın görsel özelliklerini kullanır. En güvenilir deneyimi almak için:  
 
-- Yer işaretleri konumlarda kararlı görsel özellikler (diğer bir deyişle, sıklıkla değişmeyen Özellikler) ile oluşturun.
+- *Yapmak* kararlı görsel özellikler (diğer bir deyişle, sıklıkla değişmeyen Özellikler) konumlarda yer işaretleri oluşturmanız.
 
-- Yer işaretleri, yok edici özelliklere sahip boş yüzeyler üzerinde oluşturmayın.
+- *Yoksa* yok edici özelliklere sahip boş yüzeyler üzerinde yer işaretleri oluşturmanız.
 
-- Yer işaretleri, yüksek oranda yansıtıcı malzeme oluşturmayın.
+- *Yoksa* yüksek oranda yansıtıcı malzeme yer işaretleri oluşturmanız.
 
-- Yer işaretleri, burada yalnızca desen, Halı duvar kağıdı gibi yinelenen veya yüzeylere üzerinde oluşturmayın.
+- *Yoksa* bağlantıları burada deseni yinelenen carpet veya duvar kağıdı gibi yüzeyleri oluşturmak.
 
-![İyi hem kötü yanları ortamı gösteren örnek görüntüleri](./media/stable-visual.png)
+![Yer işaretleri için iyi bir ortam ve yer işaretleri için hatalı bir ortamı örnekleri](./media/stable-visual.png)
 
-## <a name="consider-various-viewing-perspectives"></a>Çeşitli görüntüleme Perspektifler göz önünde bulundurun.
+## <a name="various-viewing-perspectives"></a>Çeşitli görüntüleme Perspektifleri
 
-Bir bağlantı oluştururken, daha sonra yer işareti bulunacak ziyaret kişileri düşünün.
+Bir bağlantı oluştururken, bağlayıcı bulmak için daha sonra deneyecek kişiler hakkında düşünün.
 
-, Örneğin, iki kapılar sahip bir oda ortasında bir yer işareti düşünün. Büyük olasılıkla yer girin ya da kapı bağlantı bulmak için kullanıcılar izin vermek istediğiniz. Bağlantı oluştururken, her iki açılan kapılar konumundan tarama gerekecektir. Kullanıcılar ya da kapı bağlayıcısından bulabilmesi için bu iki perspektiften bağlantı etrafında ortam verilerini yakalar.
+, Örneğin, bir yer işaretine sahip iki kapılar oda ortasında göz önünde bulundurun. Büyük olasılıkla ya da kapı odaya girmek kullanıcılara izin vermek istediğiniz. Bağlantı oluştururken, her iki açılan kapılar konumundan tarama gerekecektir. Kullanıcılar ya da kapı bağlayıcısından bulabilmesi için yer işareti etrafında ortam verilerini yakalamak için Perspektifler değiştirin.
 
-Genel olarak, bir bağlantı oluştururken, farklı yerlerde ya da onu bulmaya çalışırken duran kişilere beklediğiniz Perspektifler taranmalıdır.  
-
-Sanal içerik üzerinde dış bir mimariyle yerleştiriyorsanız, bağlantı oluştururken hatayla göz atabilirsiniz mimariyle geçici yol mantıklıdır.  
-
-Öte yandan, bir oda üst köşesinde bulunan, yer işareti ise buradan yaklaşım yalnızca tek yönlü yoktur. Bağlantı oluştururken, yalnızca bu açısından taranacak gerekir.
+Genel olarak, bir bağlantı oluştururken bulması dener kişilerin perspektiften tarama. Sanal içerik üzerinde dış bir mimariyle yerleştiriyorsanız, bu nedenle bağlantı oluştururken, tarama sırasında mimariyle geçici yol mantıklıdır. Oda üst köşesinde bulunan, yer işareti ise buradan yaklaşım yalnızca tek yönlü yoktur. Bu bağlantı oluştururken, yalnızca bu açısından tarayabilirsiniz.
 
 ## <a name="multiple-anchors"></a>Birden çok tutturucular
 
-Aydınlatma algılanan görsel özellikleri bir fark yaratabilir. Güçlü doğal ışığı oluşturulan bağlayıcılarını yapay aydınlatma altında koyu sonrasında bulmak zor olabilir ve bunun tersi de geçerlidir.  
+Aydınlatma uygulama algılar görsel özellikleri bir fark yaratabilir. Güçlü doğal ışığı oluşturulan bağlayıcılarını yapay açık ve tam tersi bulmak zor olabilir.  
 
-Bu sorunla karşılaşırsanız, aynı nokta iki çıpasının – bir gün ışığından yararlanma ve diğer yapay aydınlatma altında – oluşturmak için yardımcı olabilir. Uygulamanızı, ardından her iki yer işaretleri için sorgulayabilirsiniz. Ya da bulunuyorsa, uygulama bağlayıcı için bir poz olacaktır. 
+Bu sorunu varsa, iki yer işaretleri oluşturmanız yardımcı olabilir. Aynı bölgeden yapay ışığı gün ışığından yararlanma ve başka bir bağlantı oluşturun. Uygulamanızı, ardından her iki yer işaretleri için sorgulayabilirsiniz. Her iki bağlantı bulunduğunda, uygulama bağlayıcı için bir poz olacaktır. 
 
-Benzer şekilde, çoğu nesneyi taşımak için burada görsel özellikleri değiştirin ortamlarda birden çok bağlayıcılarını yardımcı olabilir. Bir bağlayıcı ortamındaki önemli değişiklikler nedeniyle bulmak çok zor hale geldiğinde, yenisiyle değiştirin. Bu durumda, örneğin, burada düzenini birkaç her ay yenilenir bir perakende satış mağazasındaki içinde olabilir.
+Benzer şekilde, çoğu nesneyi taşımak için burada görsel özellikleri değiştirin ortamlarda birden çok bağlayıcılarını yardımcı olabilir. Bir bağlayıcı ortamındaki önemli değişiklikler nedeniyle bulmak çok zor hale geldiğinde, yeni bir bağlantı değiştirebilirsiniz. Örneğin, burada düzenini birkaç her ay yenilenir bir perakende satış mağazasındaki içinde bunu.
 
 ## <a name="targets-and-rooms"></a>Hedefleri ve odaları
 
-Çoğu durumda, bir yer işareti bulma, uygulamanızın benzersiz deneyimi için giriş noktasını temsil eder. Bu adım adım ilerleyin hızlıca isteyebilirsiniz ve güvenilir bir şekilde böylece kullanıcılar deneyiminizi girebilirsiniz. Kullanıcılar, yer işaretleri nasıl bulabilirsiniz harcadığınız zamanı bir önemli tasarım adımdır. Bu konuda açısından iki geniş senaryoları düşünmek faydalıdır: **Hedefleri** ve **odaları**.
+Çoğu durumda, bir yer işareti, uygulamanızın deneyimi için bir giriş noktasıdır. Bu adım adım ilerleyin hızlıca isteyebilirsiniz ve güvenilir bir şekilde böylece kullanıcılar deneyiminizi girebilirsiniz. Kullanıcılar, yer işaretleri nasıl bulabilirsiniz harcadığınız zamanı bir önemli tasarım adımdır. İki geniş senaryolar açısından bağlayıcılarını bulma hakkında düşünmek faydalıdır: *hedefleri* ve *odaları*.
 
 ### <a name="targets"></a>Hedefler
 
-![Düzenleme buradan başlayın](./media/start-here-edit.png)
+Hedef senaryoda, bir yer işareti bilinen konumudur. Örneğin, bir kurgusal karma gerçeklik boyama uygulamasında, bir kullanıcı sanal tuval nu duvara yansıtabilir yerleştirir. Filiz, cihazlarını bağlantı bulup deneyiminize başlayın duvarında aynı yerde işaret edecek şekilde diğer kullanıcılar odadaki bildirir.  
 
-Hedef senaryoda, bir yer işareti bilinen konumudur. Örneğin, bir kurgusal MR boyama uygulamasında, bir kullanıcı sanal tuval nu duvara yansıtabilir yerleştirir. Filiz, cihazlarını bağlantı bulup deneyiminize başlayın duvarında aynı yerde işaret edecek şekilde diğer kullanıcılar odadaki bildirir.  
+Başka bir senaryoya örnek olarak bir hedef bir oturum açma, "Anlaşmaları tarayın." okuyan bir kahve Dükkanı olabilir Kahve Dükkanı Buraya bir yer işareti yerleştirdi. Kullanıcılar oturum tarama gibi bağlantı bulun ve anlaşmalar hakkında daha fazla kahve bulmak için genişletilmiş gerçeklik deneyimini girin.
 
-Başka bir senaryoya örnek olarak bir hedef "bir kafede satırında beklenirken anlaşmalar için Tara" belirten bir göstergesi olabilir. Kahve Dükkanı daha önce Buraya bir yer işareti yerleştirdi. Kullanıcılar oturum tarama gibi bağlantı bulun ve AR deneyimi üzerinde kahve anlaşmalar için girin.
+Hedef senaryosunda, fotoğraflar yardımcı olabilir. Kullanıcıların cihazlarında hedef fotoğrafını gösterirse, bunlar hızlı bir şekilde gerçek dünyada tarama gerekenler tanımlayabilirsiniz. Örneğin, kullanıcılarınız GPS'ini kullanarak genel bir hedef alanı içinde geldiğinde yardımcı olabilir. Kullanıcı geldiğinde, uygulamanızı hedef bir fotoğraf gösterir. Kullanıcı boşluk görünüyor, hedef bulur ve bağlayıcısını tarar.
 
-Hedef senaryosunda, fotoğraflar yardımcı olabilir. Kullanıcı bir fotoğraf hedef cihazlarında gösterebilir, bunlar hızlı bir şekilde gerçek dünyada tarama gerekenler tanımlayabilirsiniz. Örneğin, GPS kullanarak bir hedef genel yakın çevre içinde geldiğinde, kullanıcılarınızın yardımcı olabilir. Kullanıcı geldikten sonra uygulamanızı hedef bir fotoğraf gösterir. Kullanıcı görünen alanın etrafındaki boşluğu hedef bulur ve bağlayıcısını tarama devam eder.
+![Bir kullanıcının mobil cihazında hedef fotoğrafını gösteren bir yer işareti gösterimi](./media/start-here-edit.png)
 
 ### <a name="rooms"></a>odaları
 
-![Oda tarama](./media/scan-room.png)
+Oda senaryoda, kullanıcılar yalnızca var olan Buraya bir yer işareti yere bilmek bir boşluk girin. Kullanıcı, cihazını alanı tarama ve hızlı bir şekilde bağlantı bulun.
 
-Oda senaryoda, kullanıcılar yalnızca var olan Buraya bir yer işareti yere bilmek bir boşluk girin. Kullanıcılar, cihazını alanı tarama ve yer işaretine hızlıca bulun.
+Bu deneyim genellikle iyi seçkin yer işaretleri oluşturmanız konusunda değinildiği gibi gerektiren [çeşitli görüntüleme Perspektifler](#consider-various-viewing-perspectives). Yer işareti oluşturduğunuzda, birden çok perspektif odasından taradığınız ise bulmak çalıştıklarında kullanıcıların neredeyse her yerden tarayabilirsiniz.
 
-Genellikle bu deneyim elde gerektirir anlatıldığı gibi iyi seçkin bağlantıları oluşturma [çeşitli görüntüleme Perspektifler göz önünde bulundurun](#consider-various-viewing-perspectives) daha önce. Oda bağlantı oluştururken çok perspektiften tarandı, kullanıcıların neredeyse her yerden, onu bulmaya çalışırken tarayabilirsiniz.
+![Bir kullanıcı bir bağlayıcı bulmayı oda nasıl tarayabilir çizimi](./media/scan-room.png)
 
-Esas olarak, bağlantı oluşturan kişi hızla alanı daha sonra gelen kişiler tarayabilir ve yer işaretine bulmak için tarama daha fazla zaman harcadığını. Bu, deneyiminiz için göz önünde bulundurmanız gerekecektir önemli bir dengedir.
+Aslında, daha sonra kullanıcıların tarama ve yer işaretine hızlıca bulun, yer işareti oluşturduğunuzda alanı tarama daha fazla zaman ayırıyor. Deneyiminizi oluşturmak gibi bu önemli dengelemeyi göz önünde bulundurmanız gerekir.
 
-Daha önce açıklanan MR Boyama uygulama odası senaryosu olarak uygun olmayan bir örnektir. Burada yer işaretine yerleştirme kullanıcı deneyimini hızla katılmak için diğer istiyor. Kullanıcıların deneyimini başlatmak için iyi taranmış bir yer kadar beklemek istiyor musunuz. Tüm kullanıcıların cihazlarını bağlantıları bulmak için işaret edecek şekilde tam olarak nerede olduğunu bildiğimizden bu senaryoyu daha iyi bir hedef senaryosu olarak ele alınır.
+Daha önce ele almıştık karma gerçeklik boyama uygulaması örneği, iyi bir oda senaryosu olarak çalışmaz. Burada tutturucusu yerleştirir kullanıcının diğerlerinin deneyimini hızla katılmak istiyor. Kullanıcıların deneyimini oda iyi taranıncaya kadar başlatmak için beklenecek istemezsiniz. Bu örnek, tüm kullanıcıların cihazlarını bağlantıları bulmak için işaret edecek şekilde tam olarak nerede bildiğiniz olduğundan, bir hedef senaryo olarak daha iyi çalışır.
 
-## <a name="effectively-locating-anchors"></a>Etkili bir şekilde bağlayıcılarını bulma
+## <a name="anchor-location"></a>Bağlantı konumu
 
-Görsel izleme sistemleri işlevi için bir ortamın görsel özellikleri kullanır. Daha fazla görsel özellikleri bir tarama kapsamındaki bir yer işareti bulma olasılığı daha.
+Görsel izleme sistemleri bir ortamdaki görsel özellikleri kullanır. Bir tarama içeren daha görsel özellikleri, bir yer işareti bulma olasılığı daha.
 
-Ortamın kullanışlı bir tarama teşvik eden bir kullanıcı deneyimi oluşturmak için izlemeniz gereken bazı genel yönergeleri vardır.
+Ortamın kullanışlı bir tarama teşvik eden bir UX oluşturmak için bu bölümdeki yönergeleri izleyin.
 
-İlk olarak, kullanıcı bir yer işareti birkaç saniye içinde yerini değil, uygulama kullanıcıların cihaz daha fazla perspektif yakalanan şekilde taşımak için teşvik etmelidir.  Uygulama ayrıca Perspektifler daha fazla bağlayıcısından taranırken bir ortam taşımak için kullanıcıların kendilerini teşvik edebilir. Daha fazla perspektif, aynı noktaları daha iyi cihaz görür.
+İlk olarak, kullanıcı, birkaç saniye içinde bir yer işareti yerini değil, uygulama daha fazla perspektif yakalamak için cihaz taşımak için kullanıcıların teşvik. Uygulamayı, ayrıca kullanıcıların kendilerini Perspektifler daha fazla bağlayıcısından taramak için ortamı etrafında taşımak için teşvik edebilir. Cihaz gördüğü daha fazla özellik Perspektifler, daha iyi.
 
-Hedef senaryoları, tüm farklı perspektiften görüntülerken hedef taşımak için kullanıcı isteyin. Diğer bir deyişle, bağlayıcı bulunana kadar yeni açılardan hedef yakalamak için kendi ayak taşımak için kullanıcıya sor.
+Hedef senaryoları, farklı perspektiften görüntülemek için hedef taşımak için kullanıcı isteyin. Diğer bir deyişle, bağlayıcı bulunana kadar yeni açılardan hedef yakalamak için kullanıcıya sor.
 
-Oda senaryoları için yavaş oda tarama kullanıcıdan. Örneğin, 180 veya hatta 360 derece yer yakalamak için döndürmek için kullanıcıya sor. Veya yeni bir perspektif odadaki taşımak için kullanıcıya sor. Tarama en anlamlı arasında yer taramak için bir yöntemdir. Bu, yakındaki bir duvar tarama say ortamın daha fazla görsel özelliği yakalar. Yakındaki bir duvar tarama ortam çok yararlı görsel özelliklerini yakalamaz.
+Oda senaryoları için yavaş oda tarama kullanıcıdan. Örneğin, 180 derece veya hatta 360 derece yer yakalamak için açmak için kullanıcıya sor. Veya yeni bir perspektif odasından görüntülemesini isteyin. 
 
-Cihaz için yan tekrar tekrar için bir yer işareti ararken taşımak yararlı değildir. Bu, yalnızca aynı açısından aynı noktalarını saptayacaktır.
+En anlamlı arasında yer tarama yöntemdir. Odanın bir tarama, yakındaki bir duvar taranmasını ortamın daha fazla görsel özelliği örneğin yakalar. Yakındaki bir duvar taranmasını ortamın visual gibi birçok yararlı özellik yakalama olmaz.
 
-## <a name="testing-the-experience"></a>Deneyimi test etme
+Sürekli cihaz için bir yer işareti ararken yan yana taşımak yararlı değildir. Bu, yalnızca aynı açısından aynı noktalarını yakalar.
 
-Yukarıdaki genel yönergelerdir. Azure uzamsal Çıpasıyla gerçek dünyayla etkileşimde bulunan uygulamaları yazıyorsunuz. Bu nedenle, uygulamanızın bağlantı senaryoları gerçek ortamlarda test etme için zaman ayırmak önemlidir. Bu ortamlar için özellikle doğrudur, uygulamayı kullanmak için kullanıcılarınızın nerede beklediğiniz temsili.
+## <a name="experience-tests"></a>Testleri deneyimi
+
+Bu makalede, genel yönergeleri ele almıştık. Uzamsal Çıpasıyla gerçek dünyayla etkileşimde bulunan uygulamaları yazıyorsanız. Bu nedenle, zaman, uygulamanızın bağlantı senaryoları gerçek ortamlarda test etme için ayırmak. Bu uygulamayı kullanmak için kullanıcılarınızın nerede beklediğiniz temsil eden ortamlar için özellikle doğrudur.

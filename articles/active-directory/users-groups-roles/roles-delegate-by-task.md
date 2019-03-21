@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ea25510596903e4020e8237bc5bd389c584ead9
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 8e81d5513f43882093883256cf9eab4a22e9ca01
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268450"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875283"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Yönetim görevi Azure Active Directory'de yönetici rolleri
 
@@ -144,18 +144,18 @@ Kurumsal uygulama Self Servis update | Kurumsal uygulama sahibi ([belgelerine ba
 
 Görev | En az ayrıcalıklı rol | Ek roller
 ---- | --------------------- | ----------------
-Lisans ata | Kullanıcı hesabı yöneticisi | 
-Grup oluştur | Kullanıcı hesabı yöneticisi | 
-Oluşturmak, güncelleştirmek veya bir grubun veya bir uygulamanın erişim gözden geçirmesini silme | Kullanıcı hesabı yöneticisi | 
-Grup kullanım süresini yönetme | Kullanıcı hesabı yöneticisi | 
+Lisans ata | Kullanıcı yöneticisi | 
+Grup oluştur | Kullanıcı yöneticisi | 
+Oluşturmak, güncelleştirmek veya bir grubun veya bir uygulamanın erişim gözden geçirmesini silme | Kullanıcı yöneticisi | 
+Grup kullanım süresini yönetme | Kullanıcı yöneticisi | 
 Grup ayarlarını yönetme | Genel Yönetici | 
 Tüm yapılandırma (dışında gizli üyeliği) okuyun | Dizin okuyucular | Varsayılan kullanıcı rolü ([belgelerine bakın](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Gizli okuma üyelik | Grup üyesi | Grup sahibi, parola Yöneticisi, Exchange Yöneticisi, SharePoint Yöneticisi, takımlar yönetici, kullanıcı hesabı yöneticisi
-Gizli üyelikle gruplarının üyeliklerini okuyun | Yardım Masası Yöneticisi | Kullanıcı hesabı yöneticisi, takımlar yönetici
-Lisans iptal et | Lisans yöneticisi | Kullanıcı hesabı yöneticisi
-Grup üyeliği güncelleştir | Grup sahibi ([belgelerine bakın](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Kullanıcı hesabı yöneticisi
-Güncelleştirme Grup sahipleri | Grup sahibi ([belgelerine bakın](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Kullanıcı hesabı yöneticisi
-Güncelleştirme grubu özellikleri | Grup sahibi ([belgelerine bakın](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Kullanıcı hesabı yöneticisi
+Gizli okuma üyelik | Grup üyesi | Grup sahibi, parola Yöneticisi, Exchange Yöneticisi, SharePoint Yöneticisi, takımlar yönetici, Kullanıcı Yöneticisi
+Gizli üyelikle gruplarının üyeliklerini okuyun | Yardım Masası Yöneticisi | Kullanıcı Yöneticisi, takımlar yönetici
+Lisans iptal et | Lisans yöneticisi | Kullanıcı yöneticisi
+Grup üyeliği güncelleştir | Grup sahibi ([belgelerine bakın](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Kullanıcı yöneticisi
+Güncelleştirme Grup sahipleri | Grup sahibi ([belgelerine bakın](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Kullanıcı yöneticisi
+Güncelleştirme grubu özellikleri | Grup sahibi ([belgelerine bakın](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Kullanıcı yöneticisi
 
 ## <a name="identity-protection"></a>Kimlik Koruması
 
@@ -176,9 +176,9 @@ Güvenlik açıklarını okuyun | Güvenlik Okuyucu |
 
 Görev | En az ayrıcalıklı rol | Ek roller
 ---- | --------------------- | ----------------
-Lisans ata | Lisans yöneticisi | Kullanıcı hesabı yöneticisi
+Lisans ata | Lisans yöneticisi | Kullanıcı yöneticisi
 Tüm yapılandırması okuma | Dizin okuyucular | Varsayılan kullanıcı rolü ([belgelerine bakın](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Lisans iptal et | Lisans yöneticisi | Kullanıcı hesabı yöneticisi
+Lisans iptal et | Lisans yöneticisi | Kullanıcı yöneticisi
 Deneyin veya abonelik satın alın | Faturalama yöneticisi | 
 
 
@@ -315,21 +315,21 @@ Riskli olduğu belirlenen kullanıcıların okuma | Güvenlik Okuyucu |
 Görev | En az ayrıcalıklı rol | Ek roller
 ---- | --------------------- | ----------------
 Dizin rolü için kullanıcı ekleme | Ayrıcalıklı rol yöneticisi | 
-Kullanıcıyı gruba ekleyin | Kullanıcı hesabı yöneticisi | 
-Lisans ata | Lisans yöneticisi | Kullanıcı hesabı yöneticisi
-Konuk kullanıcı oluşturma | Konuk davet eden | Kullanıcı hesabı yöneticisi
-Kullanıcı oluştur | Kullanıcı hesabı yöneticisi | 
-Kullanıcıları Sil | Kullanıcı hesabı yöneticisi | 
-Sınırlı yöneticilerin (belgelerine bakın), yenileme belirteçleri geçersiz kıl | Kullanıcı hesabı yöneticisi | 
-Yenileme belirteçleri (belgelerine göz atın) yönetici olmayan biri geçersiz | Parola yöneticisi | Kullanıcı hesabı yöneticisi
+Kullanıcıyı gruba ekleyin | Kullanıcı yöneticisi | 
+Lisans ata | Lisans yöneticisi | Kullanıcı yöneticisi
+Konuk kullanıcı oluşturma | Konuk davet eden | Kullanıcı yöneticisi
+Kullanıcı oluştur | Kullanıcı yöneticisi | 
+Kullanıcıları Sil | Kullanıcı yöneticisi | 
+Sınırlı yöneticilerin (belgelerine bakın), yenileme belirteçleri geçersiz kıl | Kullanıcı yöneticisi | 
+Yenileme belirteçleri (belgelerine göz atın) yönetici olmayan biri geçersiz | Parola yöneticisi | Kullanıcı yöneticisi
 Ayrıcalıklı yöneticilerin (belgelerine bakın), yenileme belirteçleri geçersiz kıl | Genel Yönetici | 
 Okuma temel yapılandırma | Varsayılan kullanıcı rolü ([belgelerine bakın](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
-Sınırlı yöneticilerin (belgelerine göz atın) parola sıfırlama | Kullanıcı hesabı yöneticisi | 
-(Belgelerine göz atın) yönetici olmayanlar parolasını sıfırlama | Parola yöneticisi | Kullanıcı hesabı yöneticisi
+Sınırlı yöneticilerin (belgelerine göz atın) parola sıfırlama | Kullanıcı yöneticisi | 
+(Belgelerine göz atın) yönetici olmayanlar parolasını sıfırlama | Parola yöneticisi | Kullanıcı yöneticisi
 Ayrıcalıklı yöneticilerin, parola sıfırlama | Genel Yönetici | 
-Lisans iptal et | Lisans yöneticisi | Kullanıcı hesabı yöneticisi
-Kullanıcı asıl adı dışındaki tüm özelliklerini güncelleştir | Kullanıcı hesabı yöneticisi | 
-Kullanıcı asıl adı (belgelerine göz atın) sınırlı yöneticilerin güncelleştir | Kullanıcı hesabı yöneticisi | 
+Lisans iptal et | Lisans yöneticisi | Kullanıcı yöneticisi
+Kullanıcı asıl adı dışındaki tüm özelliklerini güncelleştir | Kullanıcı yöneticisi | 
+Kullanıcı asıl adı (belgelerine göz atın) sınırlı yöneticilerin güncelleştir | Kullanıcı yöneticisi | 
 Kullanıcı asıl adı (belgelerine göz atın) ayrıcalıklı yöneticilerin özellikte güncelleştir | Genel Yönetici | 
 Kullanıcı ayarlarını güncelleştirme | Genel Yönetici | 
 

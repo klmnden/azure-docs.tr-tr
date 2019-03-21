@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 05f9c0e68dfbc70f3a73d5b5cb0e166f0289c20c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f7c5ce2ce4725277fc08634a021d2b38d11abc1c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538145"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074804"
 ---
 # <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Hızlı Başlangıç: Kullanarak haber arama C# ve Bing haber arama REST API'si
 
@@ -53,7 +53,7 @@ Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https:/
     const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/news/search";
     const string searchTerm = "Microsoft";
     ```
-## <a name="create-a-struct-to-format-the-bing-news-search-response"></a>Bing haber arama yanıt biçimlendirmek için bir yapı oluşturma
+   ## <a name="create-a-struct-to-format-the-bing-news-search-response"></a>Bing haber arama yanıt biçimlendirmek için bir yapı oluşturma
 
 1. Görüntü arama sonuçlarını ve JSON üst bilgi bilgilerini içerecek bir `SearchResult` yapısı tanımlayın.
 

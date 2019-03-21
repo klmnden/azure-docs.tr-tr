@@ -3,7 +3,7 @@ title: Web hizmeti parametreleri - Azure Machine Learning Studio | Microsoft Doc
 description: Web hizmeti erişim sağlandığında modelinizi davranışını değiştirmek için Azure Machine Learning Web hizmeti parametrelerini kullanma
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 editor: cgronlun
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.openlocfilehash: 07115b893c27c013e31614c0625c4bc87a400ffb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a236043d5622e5a2e1ffd572c887fb5ffac2174a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821124"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838009"
 ---
 # <a name="use-azure-machine-learning-studio-web-service-parameters"></a>Azure Machine Learning Studio web hizmeti parametrelerini kullanma
 Bir Azure Machine Learning web hizmeti modülleri ile yapılandırılabilir parametreler içeren bir denemeyi yayımlayarak oluşturulur. Bazı durumlarda, web hizmetinin çalıştığı sırada modülü davranışını değiştirmek isteyebilirsiniz. *Web hizmeti parametreleri* bu işi yapmanıza olanak sağlar. 
@@ -75,7 +75,7 @@ Web hizmeti için API belgeleri, web hizmeti kullanıcı için Web hizmeti param
 Web hizmeti kullanıcı için yeni bir hedef artık belirtebilirsiniz [verileri dışarı aktarma] [ writer] web hizmetine erişirken modülü.
 
 ## <a name="more-information"></a>Daha fazla bilgi
-Daha ayrıntılı bir örnek için bkz. [Web hizmeti parametrelerini](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) girişi [Machine Learning Web günlüğü](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
+Daha ayrıntılı bir örnek için bkz. [Web hizmeti parametrelerini](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) girişi [Machine Learning Web günlüğü](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
 Machine Learning web hizmetine erişim ile ilgili daha fazla bilgi için bkz: [bir Azure Machine Learning Web hizmetini kullanma](consume-web-services.md).
 

@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70584415d3e0d40219c9a208b7afd73170efc8cc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7d9935b5605bc09f000a81e7616e807a0e194e12
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120593"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295547"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Microsoft Graph ve Azure Active Directory kimlik koruması ile çalışmaya başlama
 
@@ -246,7 +246,7 @@ https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>
 
 
 
-# <a name="next-steps"></a>Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Tebrikler, ilk çağrınızı Microsoft Graph için yaptığınız!  
 Artık kimlik risk olayları sorgulamak ve gördüğünüz ancak verileri kullanın.

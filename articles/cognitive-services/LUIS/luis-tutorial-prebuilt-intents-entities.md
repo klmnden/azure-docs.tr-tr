@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: cf16f27a8d39871491b7cf46a509b9714a669667
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 87e006cc5d56e0c7eb5455147c5ce9eb40afc162
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873823"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086624"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Öğretici: Ortak hedefleri ve varlıkları tanımlama
 
@@ -55,13 +55,13 @@ LUIS, ortak kullanıcı amaçları konusunda yardımcı olmak için önceden olu
 
 1. Aşağıdaki amaçları ve **Done** (Bitti) öğesini seçin: 
 
-    * Utilities.Cancel
-    * Utilities.Confirm
-    * Utilities.Help
-    * Utilities.StartOver
-    * Utilities.Stop
+   * Utilities.Cancel
+   * Utilities.Confirm
+   * Utilities.Help
+   * Utilities.StartOver
+   * Utilities.Stop
 
-    Bu ıntents kullanıcı, konuşma, nerede ve ne bunlar yapmak kaydolmasını belirlemek yararlıdır. 
+     Bu ıntents kullanıcı, konuşma, nerede ve ne bunlar yapmak kaydolmasını belirlemek yararlıdır. 
 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Ortak veri türü ayıklama yardımcı olmak için önceden oluşturulmuş varlıklar ekleme
@@ -74,12 +74,12 @@ LUIS, ortak veri ayıklama işlemi için önceden oluşturulmuş birkaç varlık
 
 1. Aşağıdaki varlıkların önceden oluşturulmuş varlıklarla listesinden ardından seçin **Bitti**:
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
-    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-    ![Önceden oluşturulmuş varlıklar iletişim kutusunda sayının seçildiğini gösteren ekran görüntüsü](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+     ![Önceden oluşturulmuş varlıklar iletişim kutusunda sayının seçildiğini gösteren ekran görüntüsü](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-    Bu varlıkların adı ve yer tanıma istemci uygulamanıza eklemenize yardımcı olur.
+     Bu varlıkların adı ve yer tanıma istemci uygulamanıza eklemenize yardımcı olur.
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Örnek konuşma hiçbiri hedefi ekleme 
 

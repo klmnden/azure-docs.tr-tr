@@ -9,14 +9,15 @@ ms.date: 10/29/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa6f0aeaa39114efbf3bd5587eac5744db386672
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 860a059f57578965045ff8e7f404c3b072df03a1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105242"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293830"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B işbirliği hakkında SSS
 
@@ -59,9 +60,9 @@ B2B işbirliği kullanıcıları, sınırlı yönetici veya genel Yönetici rol�
 Evet! Bu ilkeyi yapılandırırken, üyeleri ve Yöneticiler için erişimi yanlışlıkla engelleyen kaçınmak dikkatli olun.
 Konuk kullanıcı erişimini engellemek için [Azure portalında](https://portal.azure.com), Windows Azure Klasik dağıtım modeli API'SİNDE bir koşullu erişim ilkesi kullanın:
 1. Değiştirme **tüm kullanıcılar** yalnızca üyeleri içeren grup.
-   ![değiştirme grubu ekran görüntüsü](media/faq/modify-all-users-group.png)
+   ![UserType eşit Konuk olduğu tüm kullanıcılar grubunu gösteren ekran görüntüsü ](media/faq/modify-all-users-group.png)
 2. Konuk kullanıcıları içeren dinamik bir grup oluşturun.
-   ![Grup ekran oluşturma](media/faq/group-with-guest-users.png)
+   ![Yeni bir tüm Konuk kullanıcılar grubu gösteren ekran görüntüsü](media/faq/group-with-guest-users.png)
 3. Bir koşullu erişim ilkesi için konuk kullanıcıları engelle portal erişimini aşağıdaki videoda gösterildiği gibi ayarlayın:
   
    > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 

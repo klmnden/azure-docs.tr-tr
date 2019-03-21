@@ -9,14 +9,15 @@ ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dad4872f9bc32a1978de47a52cea23d6bb2742a1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5763a7e5f122702ddaf86246fbfbd18326878146
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673622"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294204"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>B2B işbirliği kullanıcısı raporlama ve denetleme
 Konuk kullanıcılar, denetim özelliklerine benzer şekilde üye kullanıcılarla sahip. 
@@ -28,11 +29,11 @@ Erişim gözden geçirmeleri, konuk kullanıcıların kaynaklarınıza erişmek 
 
 Azure AD denetim günlükleri Konuk kullanıcılar tarafından başlatılan etkinlikler dahil olmak üzere, sistem ve kullanıcı etkinliklerinin kayıtlarını sağlar. Denetim günlüklerine erişmek için **Azure Active Directory**altında **izleme**seçin **denetim günlükleri**. Davetli Sam Oogle daveti ve kullanım geçmişini örneği aşağıda verilmiştir:
 
-![denetleme günlüğü](./media/auditing-and-reporting/audit-log.png)
+![Çıkış oturum gösteren ekran görüntüsü ve denetim örneği](./media/auditing-and-reporting/audit-log.png)
 
 Ayrıntılı bilgi edinmek için bu olayların her biri içinde kullanmaya başlayabilirsiniz. Örneğin, kabul ayrıntıları bakalım.
 
-![Etkinlik ayrıntıları](./media/auditing-and-reporting/activity-details.png)
+![Gösteren ekran görüntüsü ve etkinlik ayrıntıları çıktının örneği](./media/auditing-and-reporting/activity-details.png)
 
 Ayrıca, Azure AD'den Bu günlükleri dışarı aktarmak ve özelleştirilmiş raporlar almak için raporlama aracını kullanabilirsiniz.
 

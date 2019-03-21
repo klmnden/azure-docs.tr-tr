@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: e851f6f5433a832aa30a0d87a917b64d1bc721f2
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 76f1ddeebb173bf19b15753d12e4374e6365bf8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888286"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998995"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Azure’da PostgreSQL yükleme ve yapılandırma
 PostgreSQL için Oracle ve DB2 benzer bir Gelişmiş açık kaynak veritabanı ' dir. Bu, tam ACID uyumluluk ve güvenilir bir işlem tabanlı işleme çok sürümlü eşzamanlılık denetimi gibi Kurumsal kullanıma hazır özellikler içerir. Ayrıca, ANSI SQL ve SQL/MED (Oracle, MySQL, MongoDB ve diğer birçok için yabancı veri sarmalayıcıları dahil) gibi standartları destekler. 12'den yordam diller, GIN ve GiST dizinleri, uzamsal veri desteği ve birden çok NoSQL benzeri özellikler için destek JSON veya anahtar-değer tabanlı uygulamalar için yüksek oranda genişletilebilir.
@@ -238,5 +238,5 @@ Bir tablodaki verileri güncelleştirmek için aşağıdaki komutu kullanın. "Y
 
 
 ## <a name="get-more-information-about-postgresql"></a>PostgreSQL hakkında daha fazla bilgi edinin
-Azure Linux VM'de PostgreSQL yüklemesini tamamladığınızda, Azure'da kullanmaya keyfini çıkarabilirsiniz. PostgreSQL hakkında daha fazla bilgi edinmek için [PostgreSQL Web sitesi](http://www.postgresql.org/).
+Azure Linux VM'de PostgreSQL yüklemesini tamamladığınızda, Azure'da kullanmaya keyfini çıkarabilirsiniz. PostgreSQL hakkında daha fazla bilgi edinmek için [PostgreSQL Web sitesi](https://www.postgresql.org/).
 

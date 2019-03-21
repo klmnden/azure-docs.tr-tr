@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2275d1ef3534e6d8e984595a816315b7b74a760
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: db9ac671b616e2b5af59c033d08768c9e572876f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439851"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105378"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Bir uygulama için kullanıcı erişimi kaldırma
 
@@ -38,21 +38,21 @@ Bir uygulama için tüm kullanıcı oturum açma işlemleri devre dışı bırak
 
 İçin **bir uygulamayı silmek**, bu yönergeleri izleyin:
 
-1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
+1. Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+2. Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4. tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5. tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
    * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
-6.  Silmek istediğiniz uygulamayı seçin.
+6. Silmek istediğiniz uygulamayı seçin.
 
-7.  Uygulama yüklendikten sonra tıklayın **Sil** üst uygulamanın simgesinden **genel bakış** bölmesi.
+7. Uygulama yüklendikten sonra tıklayın **Sil** üst uygulamanın simgesinden **genel bakış** bölmesi.
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Herhangi bir uygulama için tüm gelecek kullanıcı onayı işlemleri devre dışı bırakmak istiyorum
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 343ffb8daf19711d6c2a61b819ece92448146446
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c97c94492417dcc87d34751908f1766393ad37ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735525"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102559"
 ---
 Sanal makineye bağlı bir veri diskine ihtiyacınız olmadığında bunu kolayca ayırabilirsiniz. Ayırdığınız disk sanal makineden kaldırılır ancak Azure depolama hesabından silinmez.
 
@@ -28,7 +28,7 @@ Diskin adını bilmiyorsanız veya ayırma işleminden önce doğrulamak istiyor
 
 3. Sanal makine panosunun sol kenarındaki **Ayarlar**'ın altından **Diskler**'e tıklayın.
 
- Sanal makine panosunda tüm ekli disklerin adı ve türü listelenir. Örneğin, bu ekran bir işletim sistemi (OS) diskine ve bir veri diskine sahip bir sanal makineyi göstermektedir:
+   Sanal makine panosunda tüm ekli disklerin adı ve türü listelenir. Örneğin, bu ekran bir işletim sistemi (OS) diskine ve bir veri diskine sahip bir sanal makineyi göstermektedir:
 
     ![Veri diskini bulma](./media/howto-detach-disk-windows-linux/vmwithdisklist.png)
 
@@ -39,14 +39,14 @@ Diskin adını bilmiyorsanız veya ayırma işleminden önce doğrulamak istiyor
 
 3. Ayırmak istediğiniz diske tıklayın.
 
-  ![Ayrılacak diski tanımlayın](./media/howto-detach-disk-windows-linux/disklist.png)
+   ![Ayrılacak diski tanımlayın](./media/howto-detach-disk-windows-linux/disklist.png)
 
 4. Komut çubuğundan **Ayır**'a tıklayın.
 
-  ![Ayırma komutunu bulun](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
+   ![Ayırma komutunu bulun](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
 
 5. Diski ayırmak için onay penceresinde **Evet**'e tıklayın.
 
-  ![Diski ayırmayı onaylayın](./media/howto-detach-disk-windows-linux/confirmdetach.png)
+   ![Diski ayırmayı onaylayın](./media/howto-detach-disk-windows-linux/confirmdetach.png)
 
 Disk depolama alanında kalır, ancak artık bir sanal makineye bağlı değildir.

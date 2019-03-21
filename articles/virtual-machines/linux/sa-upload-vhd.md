@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 01d3a20022972b0e18de02bd2730ca31e57cd77a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 368fec658dd1f063c45f3d00d42a4549ca9dfd83
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755051"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996752"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Azure CLI ile bir özel diskten Linux VM oluşturma ve karşıya yükleme
 
@@ -85,7 +85,7 @@ Hedef depolama hesabını, sanal diskinizin yüklediğiniz aynı olması gerekir
 Aşağıdaki adımları tamamlamak için gerekir:
 
 * **Linux işletim sistemi yüklü bir .vhd dosyasına** -yüklemek bir [Azure destekli Linux dağıtım](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (veya [bilgi dağıtımlarla için](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) VHD biçiminde bir sanal diske . VM ve VHD oluşturmak için birden çok araçlar mevcuttur:
-  * Yükleme ve yapılandırma [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) veya [KVM](http://www.linux-kvm.org/page/RunningKVM), alma, görüntü biçimi olarak VHD kullanmak için dikkat edin. Gerekirse, [görüntüyü dönüştürme](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) kullanarak `qemu-img convert`.
+  * Yükleme ve yapılandırma [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) veya [KVM](https://www.linux-kvm.org/page/RunningKVM), alma, görüntü biçimi olarak VHD kullanmak için dikkat edin. Gerekirse, [görüntüyü dönüştürme](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) kullanarak `qemu-img convert`.
   * Hyper-V ayrıca kullanabileceğiniz [Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) veya [Windows Server 2012/2012 R2'deki](https://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]

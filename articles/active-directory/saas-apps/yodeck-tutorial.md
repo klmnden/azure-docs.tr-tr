@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 071054e2ec5fead3ce6181925b3c5f4e99a26736
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7564710b282c7e2ac586980896a28c00bcb2fe80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164235"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872611"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Öğretici: Yodeck ile Azure Active Directory Tümleştirme
 
@@ -200,7 +200,7 @@ Yodeck söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görev
 
     b. İçinde **Soyadı** metin kullanıcı adının türünü ister **Simon**.
 
-    c. İçinde **e-posta** metin kutusuna kullanıcı e-posta adresi türünü ister **brittasimon@contoso.com**.
+    c. İçinde **e-posta** metin kutusuna kullanıcı e-posta adresi türünü ister **brittasimon\@contoso.com**.
 
     d. Select uygun **hesap izinleri** kuruluş ihtiyacınıza göre seçeneği.
     

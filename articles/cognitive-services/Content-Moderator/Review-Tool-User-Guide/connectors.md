@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5e56579a856f7b6259acddcbe34f2e5361505cb5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 3ee582e2541e4eb55e5ea1424782df132ecf3575
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217620"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116563"
 ---
 # <a name="connect-to-other-cognitive-services"></a>Bilişsel diğer hizmetlere bağlanma
 
@@ -33,27 +33,27 @@ Content Moderator, bu varsayılan bağlayıcıları içerir:
 
 Bir iş akışı tanımlamadan önce kullanmak istediğiniz API Bağlayıcısı için geçerli kimlik bilgilerine sahip olduğunuzdan emin olun:
 
-1.  Gözden geçirme aracı üzerinde Pano seçin **ayarları** > **Bağlayıcılar**.
+1. Gözden geçirme aracı üzerinde Pano seçin **ayarları** > **Bağlayıcılar**.
 
-  ![Content Moderator select bağlayıcılar](images/connectors-2.png)
+   ![Content Moderator select bağlayıcılar](images/connectors-2.png)
 
-2.  Seçin **Düzenle** kimlik bilgilerini doğrulamak istediğiniz bağlayıcıyı yanındaki simge.
+2. Seçin **Düzenle** kimlik bilgilerini doğrulamak istediğiniz bağlayıcıyı yanındaki simge.
 
-  ![Content Moderator düzenleme simgesini seçin](images/connectors-3.png)
+   ![Content Moderator düzenleme simgesini seçin](images/connectors-3.png)
 
-3.  Abonelik anahtarı görüntülenir. Tüm düzenlemeleri yapın, seçin **Kaydet** işiniz bittiğinde.
+3. Abonelik anahtarı görüntülenir. Tüm düzenlemeleri yapın, seçin **Kaydet** işiniz bittiğinde.
 
-  ![Content Moderator Düzenle bağlayıcılar sayfasında](images/connectors-4-1.png)
+   ![Content Moderator Düzenle bağlayıcılar sayfasında](images/connectors-4-1.png)
  
 ## <a name="add-a-connector"></a>Bağlayıcı Ekle
 
-1.  Bir bağlayıcı eklemeden önce bir abonelik anahtarı gerekir. Gözden geçirme aracı üzerinde Pano seçin **ayarları** > **kimlik bilgilerini**. Seçin ve içinde değerini kopyalayın **Ocp-Admin-Subscription-Key** kutusu.
+1. Bir bağlayıcı eklemeden önce bir abonelik anahtarı gerekir. Gözden geçirme aracı üzerinde Pano seçin **ayarları** > **kimlik bilgilerini**. Seçin ve içinde değerini kopyalayın **Ocp-Admin-Subscription-Key** kutusu.
 
-2.  Seçin **Bağlayıcılar**. İnceleme aracını Panosu üzerinde görüntülenen bağlayıcıları birini seçin. Ardından, **Connect**. 
+2. Seçin **Bağlayıcılar**. İnceleme aracını Panosu üzerinde görüntülenen bağlayıcıları birini seçin. Ardından, **Connect**. 
 
-  ![Content Moderator Ekle bağlayıcı sayfası](images/connectors-5.png)
+   ![Content Moderator Ekle bağlayıcı sayfası](images/connectors-5.png)
 
-3.  İçinde **Ocp-Admin-Subscription-Key** kutusunda, kopyaladığınız anahtarını yapıştırın. Ardından **Kaydet**’i seçin.
+3. İçinde **Ocp-Admin-Subscription-Key** kutusunda, kopyaladığınız anahtarını yapıştırın. Ardından **Kaydet**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

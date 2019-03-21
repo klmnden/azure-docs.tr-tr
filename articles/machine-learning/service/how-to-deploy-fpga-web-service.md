@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a82c3b3aef59ef53e5054f2beb2880e8a01dc8fa
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7aa0e11ed47219829830369d17b300270d3fbffb
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448669"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259423"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile bir FPGA üzerinde bir web hizmeti olarak model dağıtma
 
@@ -28,7 +28,7 @@ Bir model üzerinde bir web hizmeti olarak dağıtabilirsiniz [alan programlanab
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
+- Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 
 - Bir Azure Machine Learning hizmeti çalışma alanında ve yüklü Python için Azure Machine Learning SDK'sı. Kullanarak şu önkoşul olarak gerekenleri edinin öğrenin [bir geliştirme ortamı yapılandırma](how-to-configure-environment.md) belge.
  
@@ -45,10 +45,6 @@ Bir model üzerinde bir web hizmeti olarak dağıtabilirsiniz [alan programlanab
     ```shell
     pip install "tensorflow==1.10"
     ```
-
-### <a name="get-the-notebook"></a>Not defterini alma
-
-Kolaylık olması için, bu öğretici bir Jupyter notebook olarak sağlanır. Burada veya çalışma kodu izler [Hızlı not defteri](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb).
 
 ## <a name="create-and-deploy-your-model"></a>Modelinizi oluşturup
 Girdi görüntüsünün önceden işlenir, ResNet-50 üzerinde bir FPGA kullanarak bir özelliği yapmak için bir işlem hattı oluşturma ve Imagenet veri kümesinde eğitim almış bir sınıflandırıcı aracılığıyla Özellikler'i çalıştırın.

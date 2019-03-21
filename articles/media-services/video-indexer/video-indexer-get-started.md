@@ -9,18 +9,18 @@ ms.service: media-services
 ms.topic: tutorial
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: e3bba18e9b391807a154ff959e1ce59dabe04ece
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c0c1f9e4b8ed854c562ad7af16222e726b3b4293
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998246"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893314"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Hızlı Başlangıç: Kaydolun ve ilk videonuzu karşıya yükleyin
 
 Bu kullanmaya başlama öğreticisinde, Video Indexer web sitesinde oturum açma ve ilk videonuzu karşıya yükleme açıklanmaktadır.
 
-Video Indexer hesabınızı oluştururken ücretsiz bir deneme hesabı (belirli sayıda ücretsiz dizin oluşturma dakikası elde edersiniz) veya ücretli bir seçenek (kota sınırlaması olmaz) arasından seçim yapabilirsiniz. Ücretsiz deneme kullanıldığında Video Indexer, web sitesi kullanıcılarına 600 dakikaya kadar ve API kullanıcılarına ise 2400 dakikaya kadar ücretsiz dizin oluşturma olanağı sunar. Ücretli seçenek kullanıldığında [Azure aboneliğinize ve bir Azure Media Services hesabına bağlı](connect-to-azure.md) bir Video Indexer hesabı oluşturulur. Dizin oluşturma faaliyeti yapılan dakika sayısının yanı sıra Azure Media Services hesabıyla ilgili ücretler için ödeme yaparsınız. 
+Video Indexer hesabınızı oluştururken ücretsiz bir deneme hesabı (belirli sayıda ücretsiz dizin oluşturma dakikası elde edersiniz) veya ücretli bir seçenek (kota sınırlaması olmaz) arasından seçim yapabilirsiniz. Ücretsiz deneme kullanıldığında Video Indexer, web sitesi kullanıcılarına 600 dakikaya kadar ve API kullanıcılarına ise 2400 dakikaya kadar ücretsiz dizin oluşturma olanağı sunar. Bir Video Indexer hesabı oluşturduğunuz Ücretli seçeneğiyle [Azure aboneliğinizi ve Azure Media Services hesabı için bağlı](connect-to-azure.md). Dizin oluşturma faaliyeti yapılan dakika sayısının yanı sıra Azure Media Services hesabıyla ilgili ücretler için ödeme yaparsınız. 
 
 ## <a name="sign-up-for-video-indexer"></a>Video Indexer’a kaydolma
 

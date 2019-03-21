@@ -1,21 +1,21 @@
 ---
-title: Analytics, Azure Machine Learning Studio'da Excel'den geçirme
+title: Excel'den geçirme analizi
 titleSuffix: Azure Machine Learning Studio
 description: Excel ve Azure Machine Learning Studio'da doğrusal regresyon modeli karşılaştırması
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 706fe0afb004109ee591eab0efe99cadf9045d33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447663"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864839"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Analytics, Azure Machine Learning Studio'da Excel'den geçirme
 
@@ -102,11 +102,11 @@ Machine Learning regresyon modelimizi eğitilmiş modelden bir web hizmeti oluş
 
 *Web Hizmetleri Pano* indirilebilir bir Excel çalışma kitabı bölüm içerir. Çalışma kitabı katıştırılmış web hizmeti API ve şema bilgilerini ile önceden biçimlendirilmiş gelir. Tıkladığınızda *Excel çalışma kitabını indirin*, çalışma kitabı açılır ve yerel bilgisayarınıza kaydedin. 
 
-![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png)
+![Web Hizmetleri panodan Excel çalışma kitabını indirin](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png)
 
 Aşağıda gösterildiği gibi çalışma açık mavi parametresi bölüme önceden tanımlanmış parametrelerinizi kopyalayın. Parametreler girildikten sonra Excel için Machine Learning web hizmetini çağıran ve tahmin edilen puanlanmış etiketler yeşil tahmin edilen değerler bölümünde görüntülenir. Çalışma kitabı, eğitilen model parametreleri altında girilen tüm satır öğeleri için temel parametreleri için Öngörüler oluşturmak devam eder. Bu özelliğin nasıl kullanılacağı hakkında daha fazla bilgi için bkz. [bir Azure Machine Learning Web hizmetini Excel'den kullanma](consuming-from-excel.md). 
 
-![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
+![Şablon Excel çalışma kitabı dağıtılan web hizmetine bağlanma](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### <a name="optimization-and-further-experiments"></a>En iyi duruma getirme ve denemeler daha fazla
 Excel modelimizi temel vardı, önceden sunduğumuz Machine Learning doğrusal regresyon modelinin en iyi duruma getirme geçtiğimizi. Modül kullandık [özellik seçimi süzgeç tabanlı] [ filter-based-feature-selection] bizim ilk veri seçimine göre iyileştirmek için öğeleri ve bunu bize bir performans geliştirmesinden %4.6 iyi Yardım Mean Absolute Error. İleride gerçekleştirilecek projeler için bize hafta doğru ortaklık model için kullanılacak özellikler kümesi bulmak için veri öznitelikleri üzerinden yineleme tasarruf bu özelliğini kullanacağız. 
@@ -132,13 +132,9 @@ Tahmine dayalı analiz Studio'dan Excel'e systemically tahmin taşıma imkanı �
 ## <a name="resources"></a>Kaynaklar
 Regresyon ile çalışmanıza yardımcı olacak bazı kaynaklar aşağıda verilmiştir: 
 
-* Excel'de regresyon. Excel'de regresyon hiçbir zaman denediyseniz, Bu öğretici, kolaylaştırır: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
+* Excel'de regresyon. Excel'de regresyon hiçbir zaman denediyseniz, Bu öğretici, kolaylaştırır: [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
 * Tahmin regresyon vs. Tyler Chessman serisi iyi bir başlangıç doğrusal regresyon açıklamasını içeren Excel'de tahmini süreyi açıklayan bir blog makalesi yazıldı. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Sıradan az doğrusal regresyon Squares: Açıkları, sorunları ve zorlukları belirlemenizin. Bir giriş ve regresyon hakkında ayrıntılı bilgi için: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
-
-[1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
-[2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png
-
+* Sıradan az doğrusal regresyon Squares: Açıkları, sorunları ve zorlukları belirlemenizin. Bir giriş ve regresyon hakkında ayrıntılı bilgi için: [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->
 [bayesian-linear-regression]: https://msdn.microsoft.com/library/azure/ee12de50-2b34-4145-aec0-23e0485da308/

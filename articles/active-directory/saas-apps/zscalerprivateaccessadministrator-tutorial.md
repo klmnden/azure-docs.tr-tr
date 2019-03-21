@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ba2bde039cec65a1afe33efac58752d26f22c2b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d9cdb842c4cebe48f2f6534417a7fe6aa4686d1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171902"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894691"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Zscaler özel erişim Yöneticisi
 
@@ -217,7 +217,7 @@ Zscaler özel erişim Yöneticisi için oturum açmak Azure AD kullanıcıların
 
     ![Zscaler özel erişim Yönetici Kullanıcı Yöneticisi](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-    a. İçinde **kullanıcıadı** metin gibi kullanıcının e-posta girin **BrittaSimon@contoso.com**.
+    a. İçinde **kullanıcıadı** metin gibi kullanıcının e-posta girin **BrittaSimon\@contoso.com**.
 
     b. İçinde **parola** metin kutusuna parolayı yazın.
 
@@ -225,7 +225,7 @@ Zscaler özel erişim Yöneticisi için oturum açmak Azure AD kullanıcıların
 
     d. Seçin **rol** olarak **Zscaler özel erişim Yöneticisi**.
 
-    e. İçinde **e-posta** metin gibi kullanıcının e-posta girin **BrittaSimon@contoso.com**.
+    e. İçinde **e-posta** metin gibi kullanıcının e-posta girin **BrittaSimon\@contoso.com**.
 
     f. İçinde **telefon** metin telefon numarasını yazın.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: c3a5cb540843c5ec4ceaf8522e9148cc7171149c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9632bd339956aff7558461ed391cdd21c92f06ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456474"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995179"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Örnek 3: ağları bir güvenlik duvarı, UDR ve NSG ile korunacak bir DMZ oluşturma
 [Güvenlik sınırı en iyi yöntemler sayfasına geri dönün][HOME]
@@ -486,7 +486,7 @@ Ayrıca, ağ güvenlik grupları yerinde geri çağırma ön uç ve arka uç alt
 11. AppVM01 kullanıcı adı ve parolasını ister.
 
 #### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(İzin verilir) DNS sunucusu üzerinde Web sunucusu DNS araması
-1. Sunucu, IIS01 www.data.gov bir veri akışı gereksinimlerini, ancak adresini çözümlemek için gereksinimleri web.
+1. Bir veri akışı www sunucusu IIS01, gereksinimlerini web\.data.gov ancak adresini çözümlemek gerekiyor.
 2. Ağ yapılandırma için VNet listeleri DNS01 (arka uç alt ağında 10.0.2.4) birincil DNS sunucusu olarak IIS01 DNS01 için DNS isteği gönderir
 3. UDR güvenlik duvarı giden trafiği, sonraki atlama olarak yönlendirir.
 4. Giden hiçbir NSG kuralları ön uç alt ağına bağlı olan, trafiğe izin verilir
@@ -945,7 +945,7 @@ Bu PowerShell Betiği, bilgisayar veya sunucu bir İnternet'e bağlı yerel olar
 Güncelleştirilmiş konumu ile bu xml dosyasını kaydedin ve bağlantıyı yukarıdaki betik $NetworkConfigFile değişkeninde bu dosyaya ekleyin.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

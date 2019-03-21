@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 4b4706baa5148bba955a980b6184e0747f023066
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1d6f4bb2bda550c72566243b2d2d98b1685e9147
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875102"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119811"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Hızlı Başlangıç: Python için Bing haber arama SDK'sı ile haber araması
 
@@ -86,4 +86,4 @@ else:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-[Tek sayfalı web uygulaması oluşturma](tutorial-bing-news-search-single-page-app.md)
+> [Tek sayfalı web uygulaması oluşturma](tutorial-bing-news-search-single-page-app.md)

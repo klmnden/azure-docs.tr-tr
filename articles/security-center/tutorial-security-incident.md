@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: d3154e137aec8dcedcb066e2c9aab046b5a7b6e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d726006d3ecce69f129b1576c7c6d12833582873
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081999"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Öğretici: Güvenlik olaylarına yanıt verme
 Güvenlik Merkezi, kötü amaçlı etkinlikler konusunda sizi uyarmak için gelişmiş analiz ve tehdit zekasından yararlanarak hibrit bulut iş yüklerinizi sürekli olarak analiz eder. Buna ek olarak, diğer güvenlik ürünleri ve hizmetleri tarafından sağlanan uyarıları Güvenlik Merkezi ile tümleştirebilir ve kendi göstergelerinizi ya da zeka kaynaklarınızı temel alan özel uyarılar oluşturabilirsiniz. Bir uyarı oluşturulduktan sonra sorunun incelenip düzeltilmesi için hemen harekete geçilmesi gerekir. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -45,28 +45,28 @@ Güvenlik Merkezi, tüm güvenlik uyarılarının birleşik bir görünümünü 
 
 1. Güvenlik Merkezi’nin ana menüsündeki **ALGILAMA** bölümünden **Güvenlik uyarıları**’nı seçin:
 
-  ![Güvenlik uyarıları](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![Güvenlik uyarıları](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
 
 2. Çeşitli uyarıların birleşiminden oluşan bir güvenlik olayı hakkında daha fazla bilgi edinmek için uyarı listesinden ilgili olaya tıklayın. **Güvenlik olayı algılandı** ekranı açılır.
 
-  ![Güvenlik olayı](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Güvenlik olayı](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. Bu ekranın üst kısmında güvenlik olayının açıklaması, geri kalanında da bu olayın birer parçası olan uyarıların listesi yer alır. Daha fazla bilgi edinmek için daha iyi araştırmak istediğiniz uyarıya tıklayın.
 
-  ![Güvenlik olayı](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Güvenlik olayı](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
-  Uyarı türü değişkenlik gösterebilir, uyarı türü ve olası düzeltme adımları hakkında daha ayrıntılı bilgi için bkz. [Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Güvenli bir şekilde kapatılabilen uyarılar için uyarıya sağ tıklayıp **Kapat**’ı seçebilirsiniz:
+   Uyarı türü değişkenlik gösterebilir, uyarı türü ve olası düzeltme adımları hakkında daha ayrıntılı bilgi için bkz. [Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Güvenli bir şekilde kapatılabilen uyarılar için uyarıya sağ tıklayıp **Kapat**’ı seçebilirsiniz:
 
-  ![Uyarı](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
+   ![Uyarı](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 
 4. Kötü amaçlı etkinliğin kök nedeni ve kapsamı bilinmiyorsa araştırmaya devam etmek üzere bir sonraki adıma geçin.
 
 ## <a name="investigate-an-alert-or-incident"></a>Bir uyarıyı veya olayı araştırma
 1. **Güvenlik uyarısı** sayfasında **Araştırma başlat** düğmesine tıklayın (zaten araştırma başlattıysanız düğme adı **Araştırmaya devam et** olarak değişir).
 
-  ![Araştırma](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
+   ![Araştırma](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
 
-  Araştırma haritası, bu güvenlik uyarısı veya olayı ile bağlantılı varlıkların grafik tabanlı temsilidir. Haritadaki bir varlığa tıklandığında bu varlıkla ilgili bilgiler tarafından yeni varlıklar görüntülenir ve harita genişler. Haritada seçilen varlığın özellikleri sayfanın sağ tarafındaki bölmede vurgulanır. Her sekmede sunulan bilgiler seçili varlığa göre değişkenlik gösterir. Araştırma sırasında saldırganın davranışlarını daha iyi anlamak için tüm ilgili bilgileri gözden geçirin.
+   Araştırma haritası, bu güvenlik uyarısı veya olayı ile bağlantılı varlıkların grafik tabanlı temsilidir. Haritadaki bir varlığa tıklandığında bu varlıkla ilgili bilgiler tarafından yeni varlıklar görüntülenir ve harita genişler. Haritada seçilen varlığın özellikleri sayfanın sağ tarafındaki bölmede vurgulanır. Her sekmede sunulan bilgiler seçili varlığa göre değişkenlik gösterir. Araştırma sırasında saldırganın davranışlarını daha iyi anlamak için tüm ilgili bilgileri gözden geçirin.
 
 2. Daha fazla kanıt bulmanız veya araştırma sırasında bulunan varlıkları daha iyi araştırmanız gerekiyorsa bir sonraki adıma geçin.
 

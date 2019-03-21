@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7f09db1f37617519926955daf0c29c13993dbf80
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3282afb87672ba25294e65ea1474a9e06df03362
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728463"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871071"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Güvenlik Merkezi, Kiracı genelinde görünürlük elde edin
 Bu makale Azure Güvenlik Merkezi sağladığı en üst düzeye çeşitli eylemler yaparak başlamanıza yardımcı olur. Bu eylemler gerçekleştirme birden çok güvenlik ilkeleri uygulayarak, kuruluşunuzun güvenlik duruşunu uygun ölçekte tüm Azure Active Directory kiracınız ve etkili bir şekilde bağlanan Azure aboneliklerini yönetme hakkında daha fazla görünürlük elde etmenizi sağlar Abonelikler aggregative bir biçimde.
@@ -38,7 +38,7 @@ Yönetim gruplarına ayrıntılı bir genel bakış için bkz: [kaynaklarınız�
 Yönetim gruplarına abonelikleri düzenleyebilir ve idare ilkelerini uygulamak yönetim gruplarına. Bir yönetim grubu içindeki aboneliklerin tümü otomatik olarak yönetim grubuna uygulanmış olan ilkeleri devralır. Yönetim grupları için yerleşik Güvenlik Merkezi gerekli değildir, ancak kök yönetim grubu oluşmasını en az bir yönetim grubu oluşturmanız önerilir. Grup oluşturulduktan sonra Azure AD kiracınıza altındaki tüm abonelikler için bağlanır. Yönergeler için PowerShell ve daha fazla bilgi için bkz. [kaynak ve Kuruluş Yönetimi yönetim grupları oluşturma](../azure-resource-manager/management-groups-create.md).
 
  
-1. [Azure Portal](http://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Seçin **tüm hizmetleri** > **Yönetim grupları**.
 3. Ana sayfasında göze seçin **yeni yönetim grubu.** 
 
@@ -51,7 +51,7 @@ Yönetim gruplarına abonelikleri düzenleyebilir ve idare ilkelerini uygulamak 
 5.  Seçin **Kaydet**
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Azure portalında Yönetim grupları görüntüleyin
-1. Oturum [Azure portalında](http://portal.azure.com).
+1. Oturum [Azure portalında](https://portal.azure.com).
 2. Yönetim gruplarını görüntülemek için seçin **tüm hizmetleri** Azure ana menüsünden altında.
 3. Altında **genel**seçin **Yönetim grupları**.
 
@@ -77,7 +77,7 @@ Bir Azure Active Directory Kiracı Yöneticisi, Azure abonelikleri doğrudan eri
 
    - Anahtar Evet olarak ayarlarsanız, Azure RBAC (/) kök kapsamda kullanıcı erişimi yöneticisi rolü atanır. Bu, tüm Azure abonelikleri ve bu Azure AD dizini ile ilişkili yönetim gruplarını rol atama izni verir. Bu anahtar yalnızca, Azure AD'de genel Yönetici rolüne atanan kullanıcılar için kullanılabilir.
 
-  - Anahtar Hayır olarak ayarlanırsa, kullanıcı erişimi yöneticisi rolü Azure RBAC kullanıcı hesabınızdan kaldırıldı. Artık tüm Azure abonelikleri ve bu Azure AD dizini ile ilişkili olan Yönetim grupları roller atayabilirsiniz. Görüntüleyebilir ve yalnızca Azure aboneliklerini ve yönetim gruplarına erişim için verilmiş yönetin.
+   - Anahtar Hayır olarak ayarlanırsa, kullanıcı erişimi yöneticisi rolü Azure RBAC kullanıcı hesabınızdan kaldırıldı. Artık tüm Azure abonelikleri ve bu Azure AD dizini ile ilişkili olan Yönetim grupları roller atayabilirsiniz. Görüntüleyebilir ve yalnızca Azure aboneliklerini ve yönetim gruplarına erişim için verilmiş yönetin.
 
 4. Tıklayın **Kaydet** ayarlarınızı kaydetmek için.
 
@@ -181,8 +181,8 @@ Abonelikler, oluşturduğunuz yönetim grubuna ekleyebilirsiniz. Bu adımlar, Ki
 
 4. Kapsamı içinde tüm abonelikleri ekleyene kadar 1 ile 3 arasındaki adımları yineleyin.
 
- > [!NOTE]
- > Yönetim grupları hem abonelik hem de alt Yönetim grupları içerebilir. Üst yönetim grubuna RBAC rolü bir kullanıcıya atadığınızda, erişim alt yönetim grubunun abonelik tarafından devralınır. Üst yönetim grubu ayarlama ilkeleri de alt gruplar tarafından devralınır. 
+   > [!NOTE]
+   > Yönetim grupları hem abonelik hem de alt Yönetim grupları içerebilir. Üst yönetim grubuna RBAC rolü bir kullanıcıya atadığınızda, erişim alt yönetim grubunun abonelik tarafından devralınır. Üst yönetim grubu ayarlama ilkeleri de alt gruplar tarafından devralınır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, Azure Güvenlik Merkezi için bir kiracı genelinde görünürlük elde öğrendiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 957dd6faf1ca2c445b09300382796ad07186714c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bc0941175538c36190999e8c6d191fb8c3701c2b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884231"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839636"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-ruby-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme Ruby ve REST API kullanarak küçük resim oluşturma
 
@@ -77,10 +77,6 @@ end
 ## <a name="examine-the-response"></a>Yanıtı inceleme
 
 Küçük resmin görüntü verilerini temsil eden ikili veri halinde başarılı bir yanıt döndürülür. İstek başarısız olursa, yanıt konsol penceresinde görüntülenir. Başarısız isteğin yanıtı, neyin yanlış gittiğini belirlemeye yardımcı olması için bir hata kodu ve bir ileti içerir.
-
-## <a name="clean-up-resources"></a>Kaynakları temizleme
-
-Artık gerekli değilse dosyayı silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

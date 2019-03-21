@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7ad5f22b0604cb9de38f7990c88d760df97098d9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: MT
+ms.openlocfilehash: dc2fb3faddc8af30edd66b926259c05580d9872a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235844"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104531"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure’a geçiş için şirket içi VMware VM’lerini bulma ve değerlendirme
 
@@ -179,16 +179,16 @@ Bu model kullanım dışı bırakıldı, var olan cihazları sağlanan için des
 3. Masaüstünde **Toplayıcı çalıştır** kısayoluna tıklayın.
 4. Toplayıcı kullanıcı arabiriminin üst çubuğundaki **Güncelleştirmeleri denetle**'ye tıklayın ve toplayıcının en son sürümde çalıştırıldığını doğrulayın. Aksi takdirde, bağlantıdan en son yükseltme paketini indirmeyi seçebilir ve toplayıcıyı güncelleştirebilirsiniz.
 5. Azure Geçişi Toplayıcısı’nda **Önkoşulları ayarla** seçeneğini açın.
-    - (Azure Global veya Azure kamu) geçirmeyi planladığınız Azure Bulutu seçin.
-    - Lisans koşullarını kabul edin ve üçüncü taraf bilgilerini okuyun.
-    - Toplayıcı, VM’nin İnternet erişimine sahip olup olmadığını denetler.
-    - VM, proxy üzerinden İnternet erişimine sahipse **Proxy ayarları**’na tıklayın ve proxy adresini ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) internet bağlantı gereksinimleri hakkında ve [URL'lerin listesini](https://docs.microsoft.com/azure/migrate/concepts-collector) Toplayıcı erişen.
+   - (Azure Global veya Azure kamu) geçirmeyi planladığınız Azure Bulutu seçin.
+   - Lisans koşullarını kabul edin ve üçüncü taraf bilgilerini okuyun.
+   - Toplayıcı, VM’nin İnternet erişimine sahip olup olmadığını denetler.
+   - VM, proxy üzerinden İnternet erişimine sahipse **Proxy ayarları**’na tıklayın ve proxy adresini ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) internet bağlantı gereksinimleri hakkında ve [URL'lerin listesini](https://docs.microsoft.com/azure/migrate/concepts-collector) Toplayıcı erişen.
 
-      > [!NOTE]
-      > Proxy adresinin, http://ProxyIPAddress veya http://ProxyFQDN biçiminde girilmesi gerekir. Yalnızca HTTP proxy’si desteklenir. Araya giren bir proxy varsa, proxy sertifikası aktardıysanız değil, internet bağlantısı başlangıçta başarısız olabilir; [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector) üzerinde nasıl, bu toplayıcı VM üzerinde güvenilen bir sertifika olarak proxy sertifikasını alarak düzeltebilirsiniz.
+     > [!NOTE]
+     > Proxy adresinin, <http://ProxyIPAddress> veya <http://ProxyFQDN> biçiminde girilmesi gerekir. Yalnızca HTTP proxy’si desteklenir. Araya giren bir proxy varsa, proxy sertifikası aktardıysanız değil, internet bağlantısı başlangıçta başarısız olabilir; [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector) üzerinde nasıl, bu toplayıcı VM üzerinde güvenilen bir sertifika olarak proxy sertifikasını alarak düzeltebilirsiniz.
 
-    - Toplayıcı, toplayıcı hizmetinin çalışıp çalışmadığını denetler. Hizmet, toplayıcı VM’ye varsayılan olarak yüklenir.
-    - VMware PowerCLI’yı indirin ve yükleyin.
+   - Toplayıcı, toplayıcı hizmetinin çalışıp çalışmadığını denetler. Hizmet, toplayıcı VM’ye varsayılan olarak yüklenir.
+   - VMware PowerCLI’yı indirin ve yükleyin.
 
 6. **vCenter Server bilgilerini belirtin** bölümünde şunları yapın:
     - vCenter sunucusunun adını (FQDN) veya IP adresini belirtin.

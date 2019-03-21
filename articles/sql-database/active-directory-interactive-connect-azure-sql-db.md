@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.date: 01/25/2019
+ms.date: 03/12/2019
 manager: craigg
-ms.openlocfilehash: cb892ddf6414b270d891042c9849137f1e2fdb35
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5f089148bafbab21721c83c0d4b6977a7db86320
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307777"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834627"
 ---
 # <a name="connect-to-azure-sql-database-with-active-directory-mfa"></a>Active Directory MFA ile Azure SQL Database'e bağlanma
 
@@ -99,7 +99,7 @@ Ekran görüntülerinde de Azure SQL veritabanı için Azure AD yöneticileri ve
 
 SQL veritabanı sunucusu için bir Azure AD Yöneticisi çalıştırabilirsiniz C# örnek program. Veritabanında olmaları durumunda bir Azure AD kullanıcısının program çalışabilir. Azure AD SQL yönetici veya veritabanında zaten varsa ve bir Azure AD kullanıcı `ALTER ANY USER` izni veritabanında bir kullanıcı ekleyebilirsiniz.
 
-Bir kullanıcı SQL veritabanıyla ekleyebilir [ `Create User` ](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=sql-server-2017) komutu. Örneğin, `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
+Bir kullanıcı SQL veritabanıyla ekleyebilir [ `Create User` ](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) komutu. Örneğin, `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
 Daha fazla bilgi için [kullanımı Azure SQL veritabanı, yönetilen örneği veya SQL veri ambarı ile kimlik doğrulaması için Active Directory kimlik](sql-database-aad-authentication.md).
 
@@ -126,7 +126,7 @@ C# Örnek dayanır [ `System.Data.SqlClient` ](https://docs.microsoft.com/dotnet
 | Statik alan adı | Örnek değer | Azure portalında nerede |
 | :---------------- | :------------ | :-------------------- |
 | Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | **SQL sunucuları** > **ada göre filtrele** |
-| AzureAD_UserID | "auser@abc.onmicrosoft.com" | **Azure Active Directory** > **kullanıcı** > **yeni Konuk kullanıcı** |
+| AzureAD_UserID | "erişilebileceği\@abc.onmicrosoft.com" | **Azure Active Directory** > **kullanıcı** > **yeni Konuk kullanıcı** |
 | Initial_DatabaseName | "Veritabanım" | **SQL sunucuları** > **SQL veritabanları** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **uygulama kayıtları** > **adına göre Ara** > **uygulama kimliği** |
 | RedirectUri | Yeni bir Urı'ya ("https://mywebserver.com/") | **Azure Active Directory** > **uygulama kayıtları** > **adına göre Ara** > *[Your-App-regis zaman]*  >  **Ayarları** > **RedirectURIs**<br /><br />Bu makale için geçerli bir değer burada kullanılan değil, RedirectUri için uygundur. |
@@ -342,5 +342,7 @@ In method 'AcquireTokenAsync', case_0 == '.ActiveDirectoryInteractive'.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 - [Get-AzSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator)

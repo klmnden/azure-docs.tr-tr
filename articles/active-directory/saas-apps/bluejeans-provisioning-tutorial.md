@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c2006b025c4bcf54ee2ab131e0d6a105f9f4e9f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fa740a558015b28e6d3fa7245c9041dc4167f832
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178184"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110367"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı hazırlama için BlueJeans yapılandırın
 
@@ -107,9 +107,9 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
 5. Altında **yönetici kimlik bilgileri** giriş bölümünde **yönetici kullanıcı adı**, ve **yönetici parolası** BlueJeans hesabınızın. Bu değerleri örnekleri şunlardır:
 
-    *   İçinde **yönetici kullanıcı adı** alan, BlueJeans kiracınıza yönetici hesabının kullanıcı adını doldurun. Örnek: admin@contoso.com.
+   * İçinde **yönetici kullanıcı adı** alan, BlueJeans kiracınıza yönetici hesabının kullanıcı adını doldurun. Örnek: admin@contoso.com.
 
-    *   İçinde **yönetici parolası** alan, yönetici kullanıcı adı için karşılık gelen parola doldurun.
+   * İçinde **yönetici parolası** alan, yönetici kullanıcı adı için karşılık gelen parola doldurun.
 
 6. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD için BlueJeans bağlanabilirsiniz. Bağlantı başarısız olursa BlueJeans hesabınız yönetici izinlerine sahip olduğundan emin olun ve yeniden deneyin.
 

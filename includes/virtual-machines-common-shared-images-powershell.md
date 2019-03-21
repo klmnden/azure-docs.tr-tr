@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: c74a96e3dcce1394e0af5447c07ad38c54b960fa
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 91889971e1ab8a9ea8341f6bc57735d973ea0e89
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825408"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125103"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell'i başlatma
 
@@ -95,7 +95,7 @@ $vmConfig = Set-AzVMSourceImage `
 
 Bu nasıl şu anda kullanım yayımcı, teklif ve SKU için belirtebileceğiniz için benzer [Azure Market görüntüleri](../articles/virtual-machines/windows/cli-ps-findimage.md) Market görüntüsü en son sürümünü almak için. Bunu aklınızda her görüntü tanımı bu değerler benzersiz bir dizi olmalıdır.  
 
-##<a name="create-an-image-version"></a>Görüntü sürümü oluşturma
+## <a name="create-an-image-version"></a>Görüntü sürümü oluşturma
 
 Görüntü sürümü kullanarak bir yönetilen görüntüsünü oluşturma [yeni AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) . Bu örnekte, görüntü sürümü olan *1.0.0* ve her ikisi de çoğaltılır *Batı Orta ABD* ve *Orta Güney ABD* veri merkezleri.
 

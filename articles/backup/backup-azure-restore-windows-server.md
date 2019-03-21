@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: 1e8e9365567c19400b86dc60d966eb965b83591d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281763"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110826"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager dağıtım modelini kullanarak Windows için dosyaları geri yükleme
 
@@ -51,11 +51,11 @@ Yanlışlıkla silinen bir dosya ve (yedeğin alındığı) aynı makinede geri 
 4. Üzerinde **kurtarma modunu Seç** sayfasında **dosyalara ve klasörlere** > **sonraki**.
 
     ![Ekran görüntüsü, kurtarma verileri Sihirbazı kurtarma modunu Seç sayfası](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
-  > [!IMPORTANT]
-  > Tek tek dosya ve klasörleri geri yükleme seçeneğini .NET Framework 4.5.2 gerektirir veya üzeri. Görmüyorsanız, **dosyalara ve klasörlere** seçeneği, .NET Framework sürüm 4.5.2 yükseltmelisiniz veya sonraki bir sürümü ve yeniden deneyin.
+   > [!IMPORTANT]
+   > Tek tek dosya ve klasörleri geri yükleme seçeneğini .NET Framework 4.5.2 gerektirir veya üzeri. Görmüyorsanız, **dosyalara ve klasörlere** seçeneği, .NET Framework sürüm 4.5.2 yükseltmelisiniz veya sonraki bir sürümü ve yeniden deneyin.
 
-  > [!TIP]
-  > **Dosyalara ve klasörlere** seçeneği kurtarma noktası verilere hızlı erişim sağlar. 80 GB'den fazla Örneğimiz boyutları ile tek tek dosyaların kurtarılması için uygundur ve aktarım sunar veya kopyalama, Kurtarma sırasında en fazla 6 MB/sn hızlandırır. **Birim** seçeneği, belirtilen bir birimdeki tüm yedeklenen verileri kurtarır. Bu seçenek, daha hızlı bir aktarım hızı (en fazla 60 MB/sn), büyük boyutlu veri veya tüm birimleri kurtarmak için ideal olan sağlar.
+   > [!TIP]
+   > **Dosyalara ve klasörlere** seçeneği kurtarma noktası verilere hızlı erişim sağlar. 80 GB'den fazla Örneğimiz boyutları ile tek tek dosyaların kurtarılması için uygundur ve aktarım sunar veya kopyalama, Kurtarma sırasında en fazla 6 MB/sn hızlandırır. **Birim** seçeneği, belirtilen bir birimdeki tüm yedeklenen verileri kurtarır. Bu seçenek, daha hızlı bir aktarım hızı (en fazla 60 MB/sn), büyük boyutlu veri veya tüm birimleri kurtarmak için ideal olan sağlar.
 
 5. Üzerinde **birim ve tarih seçin** sayfasında, geri yüklemek istediğiniz klasörleri ve dosyaları içeren birimi seçin.
 

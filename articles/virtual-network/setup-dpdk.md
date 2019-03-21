@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: b50f7c9b76e9309a1ee08257dd8b13ec289397a5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c5cb840035c5d0d5694982324c7237c58001e689
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775926"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993860"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Bir Linux sanal makinesinde DPDK ayarlayın
 
@@ -126,12 +126,12 @@ Yeniden başlattıktan sonra aşağıdaki komutları bir kez çalıştırın:
      /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
      ```
 
-   *  İle bağlama için bir dizin oluşturma `mkdir /mnt/huge`.
-   *  Bağlama hugepages ile `mount -t hugetlbfs nodev /mnt/huge`.
-   *  Hugepages ile ayrılmıştır işaretleyin `grep Huge /proc/meminfo`.
+   * İle bağlama için bir dizin oluşturma `mkdir /mnt/huge`.
+   * Bağlama hugepages ile `mount -t hugetlbfs nodev /mnt/huge`.
+   * Hugepages ile ayrılmıştır işaretleyin `grep Huge /proc/meminfo`.
 
      > [!NOTE]
-     > Bir yolu takip ederek önyükleme ayrılmış hugepages grub dosya değiştirin [yönergeleri](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) DPDK için. Sayfanın altındaki yönergeleri verilmiştir. Bir Azure Linux sanal makinesi kullanırken, dosyaları altındaki değiştirme **/etc/config/grub.d** bunun yerine, yeniden başlatmalar arasında hugepages ayırmak için.
+     > Bir yolu takip ederek önyükleme ayrılmış hugepages grub dosya değiştirin [yönergeleri](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) DPDK için. Sayfanın altındaki yönergeleri verilmiştir. Bir Azure Linux sanal makinesi kullanırken, dosyaları altındaki değiştirme **/etc/config/grub.d** bunun yerine, yeniden başlatmalar arasında hugepages ayırmak için.
 
 2. MAC ve IP adresleri: Kullanım `ifconfig –a` MAC ve IP adresi ağ arabirimlerinin görüntüleyebilirsiniz. *VF* ağ arabirimi ve *NETVSC* ağ arabirimine sahip olmalı, ancak aynı MAC adresini *NETVSC* ağ arabirimi bir IP adresi vardır. VF arabirimleri NETVSC arabirimleri bağımlı arabirimleri olarak çalışıyor.
 
@@ -146,7 +146,7 @@ Yeniden başlattıktan sonra aşağıdaki komutları bir kez çalıştırın:
 
 Azure'da kullanıma sunulan PMD hatasız üzerinden DPDK uygulamaları çalıştırmanız gerekir. Uygulamayı doğrudan VF PMD üzerinde çalışıyorsa, almaz **tüm** yapay arabirimi üzerinde bazı paketler görünmesini olduğundan VM gidecek paketler. 
 
-DPDK uygulama hatasız PMD çalıştırırsanız, uygulama için hedeflenen tüm paketleri alır garanti eder. Ana bilgisayarın bakımda olduğu zaman VF iptal edilir olsa da uygulama DPDK modunda çalışmaya devam eder emin olur. Hatasız PMD hakkında daha fazla bilgi için bkz: [emniyet yoklama modu sürücüsü kitaplığı](http://doc.dpdk.org/guides/nics/fail_safe.html).
+DPDK uygulama hatasız PMD çalıştırırsanız, uygulama için hedeflenen tüm paketleri alır garanti eder. Ana bilgisayarın bakımda olduğu zaman VF iptal edilir olsa da uygulama DPDK modunda çalışmaya devam eder emin olur. Hatasız PMD hakkında daha fazla bilgi için bkz: [emniyet yoklama modu sürücüsü kitaplığı](https://doc.dpdk.org/guides/nics/fail_safe.html).
 
 ## <a name="run-testpmd"></a>Testpmd çalıştırın
 
@@ -244,7 +244,7 @@ Aşağıdaki komutları düzenli aralıklarla paket başına ikinci istatistikle
      -w <pci address NIC2> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      --vdev="net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>" (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
-     -- --nb-cores <number of cores to use for test pmd> \
+     -- --nb-cores <number of cores to use for test pmd> \
      --forward-mode=io \
      --eth-peer=<recv port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>

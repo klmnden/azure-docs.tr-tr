@@ -9,12 +9,12 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 description: Hızlı bir şekilde Azure geliştirme alanları için doğrudan tarayıcınızdan herhangi bir şey yüklemeden etkin bir Kubernetes kümesi oluşturmayı öğrenin.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
-ms.openlocfilehash: 7d55261c3b5461e6986c1c194da7afd37587ff55
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: bfde055c99a1109a8f71c838b44ed1742e3f06aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781536"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895575"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Azure Cloud Shell kullanarak bir Kubernetes kümesi oluşturma
 
@@ -22,7 +22,7 @@ Kullanabileceğiniz [Azure Cloud Shell](/azure/cloud-shell) kullanarak Azure gel
 
 ## <a name="create-the-cluster"></a>Kümeyi oluşturma
 
-İlk olarak, kaynak grubu oluşturun. Şu an için desteklenen bölgelerden birini (EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral veya CanadaEast) kullanın.
+İlk olarak, kaynak grubunu oluşturma bir [Azure geliştirme alanları destekleyen bir bölge](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -31,7 +31,7 @@ az group create --name MyResourceGroup --location <region>
 Şu komutu kullanarak bir Kubernetes kümesi oluşturun:
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.13
+az aks create -g MyResourceGroup -n MyAKS --location <region>
 ```
 
 Kümenin oluşturulması birkaç dakika sürer.  Tamamlandığında, çıkış JSON biçiminde gösterilir. Aranacak `provisioningState` ve bunu doğrulayın `Succeeded`.

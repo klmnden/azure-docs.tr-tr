@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: c067b0e6a85e0b5c4bd4cbb582de13bb1bc87774
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: f69b3f2c8de4cf137583ad7a33e8edfe31373096
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453622"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904516"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>1. Öğretici: Kredi riskini - Azure Machine Learning Studio tahmin
 
@@ -70,7 +70,7 @@ Machine Learning Studio çalışma alanınızı oluşturduktan sonra açın ([ht
 ## <a name="upload"></a>Mevcut verileri yükleme
 
 Kredi riski için Tahmine dayalı bir model geliştirmektir eğitmek ve sonra da modeli test etmek için kullanabileceğiniz veri gerekir. Bu öğreticide, "UCI Statlog (Alman kredi veri) veri kümesi" UC Irvine Machine Learning depodan kullanacaksınız. Burada bulabilirsiniz:  
-<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
+<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 Adlı dosyayı kullanacaksınız **german.data**. Bu dosya yerel sabit sürücünüze indirin.  
 
@@ -212,18 +212,18 @@ Kullanılacak [meta verileri Düzenle][edit-metadata], hangi sütunların (Bu du
 
 1. Geri **özellikleri** bölmesinde Ara **yeni sütun adları** parametresi. Bu alanda 21 sütunlar ve sütun sırasını virgülle ayrılmış veri kümesi için adlarının listesini girin. Sütun adları UCI Web sitesinde veri kümesi belgelerinden elde edebilirsiniz veya kolaylık sağlamak için kopyalama ve yapıştırma aşağıdaki listede:  
 
-  ```   
-  Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
-  ```
+   ```   
+   Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+   ```
 
-  Özellikler bölmesi şöyle görünür:
+   Özellikler bölmesi şöyle görünür:
 
-  ![Özellikleri Düzenle meta veriler için](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
+   ![Özellikleri Düzenle meta veriler için](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
-  > [!TIP]
-  > Sütun başlıkları doğrulamak istiyorsanız, denemeyi çalıştırma (tıklayın **ÇALIŞTIRMA** deneme tuvalinin altında). Çalıştırma tamamlandığında (yeşil bir onay işareti görünür [meta verileri Düzenle][edit-metadata]), çıkış bağlantı noktasına tıklayın [meta verileri Düzenle] [ edit-metadata] Modülü seçip **Görselleştir**. Herhangi bir modülün çıkışına denemeyi verilerine ilerlemesini görüntülemek için aynı şekilde görüntüleyebilirsiniz.
-  > 
-  > 
+   > [!TIP]
+   > Sütun başlıkları doğrulamak istiyorsanız, denemeyi çalıştırma (tıklayın **ÇALIŞTIRMA** deneme tuvalinin altında). Çalıştırma tamamlandığında (yeşil bir onay işareti görünür [meta verileri Düzenle][edit-metadata]), çıkış bağlantı noktasına tıklayın [meta verileri Düzenle] [ edit-metadata] Modülü seçip **Görselleştir**. Herhangi bir modülün çıkışına denemeyi verilerine ilerlemesini görüntülemek için aynı şekilde görüntüleyebilirsiniz.
+   > 
+   > 
 
 ### <a name="create-training-and-test-datasets"></a>Eğitim oluşturun ve veri kümeleri test
 

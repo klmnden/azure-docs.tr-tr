@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 62a3169257001f64e3103cc079e544449ac59663
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 27ebe827e97c8361c7f93a125f09aa9e339a6a14
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328393"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087117"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot Framework Node.js içindeki robotla LUIS 3.x ve Azure Web app botu
 
@@ -45,16 +45,16 @@ Bot LUIS uygulaması içinde bulunan HomeAutomation etki alanından hedefleri i�
     ![Kaynak oluşturma işlemini başlatmak için web app botu seçin](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
 3. İçinde **Bot hizmeti** dikey penceresinde gerekli bilgileri sağlayın ve seçin **Oluştur**. Bu, oluşturur ve Azure bot hizmeti ve LUIS uygulaması dağıtır. Kullanmak istiyorsanız [konuşma Hazırlama işlemi](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), gözden [bölge gereksinimleri](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming) botunuzun oluşturmadan önce. 
-    * Ayarlama **uygulama adı** botunuzun kişinin adı. Botunuzun (örneğin, mynotesbot.azurewebsites.net) buluta dağıtıldığında alt etki alanı adı kullanılır. <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
-    * Aboneliği seçin [kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service planı ve [konumu](https://azure.microsoft.com/regions/).
-    * İçin **Bot şablon**seçin:
-        * **SDK'sı v3**
-        * **Node.js**
-        * **Dil anlama**
-    * Seçin **LUIS uygulama konumu**. Bu yazma, [bölge] [ LUIS] uygulama oluşturulur.
-    * Yasal bildirimi için onay kutusunu seçin. Yasal bildirimin koşullarını onay kutusunu ' dir.
+   * Ayarlama **uygulama adı** botunuzun kişinin adı. Botunuzun (örneğin, mynotesbot.azurewebsites.net) buluta dağıtıldığında alt etki alanı adı kullanılır. <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+   * Aboneliği seçin [kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), App service planı ve [konumu](https://azure.microsoft.com/regions/).
+   * İçin **Bot şablon**seçin:
+       * **SDK'sı v3**
+       * **Node.js**
+       * **Dil anlama**
+   * Seçin **LUIS uygulama konumu**. Bu yazma, [bölge] [ LUIS] uygulama oluşturulur.
+   * Yasal bildirimi için onay kutusunu seçin. Yasal bildirimin koşullarını onay kutusunu ' dir.
 
-    ![Bot hizmeti dikey](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
+     ![Bot hizmeti dikey](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
 
 
 4. Bot hizmeti dağıtıldığını doğrulayın.
@@ -247,7 +247,8 @@ Daha fazla bilgi edinin [Bot Framework](https://dev.botframework.com/) ve [3.x](
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.--> Karşılama, Yardım ve iptal etme gibi diğer amaçlar için LUIS uygulaması eklemek deneyebilirsiniz. Ardından yeni hedefleri için iletişim kutularını ekleyin ve bunları botunu kullanarak test edin. 
+<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.-->
+Karşılama, Yardım ve iptal etme gibi diğer amaçlar için LUIS uygulaması eklemek deneyebilirsiniz. Ardından yeni hedefleri için iletişim kutularını ekleyin ve bunları botunu kullanarak test edin. 
 
 <!-- 
 > [!NOTE] 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff9d025980f80cb77246ea12dbf2e9bcedd73f86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e5efe0516d1b2dd387532d31a0a6654e6651fe41
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38705893"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011727"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Azure portalını kullanarak bir sanal makine için özel IP adreslerini yapılandırın
 
@@ -49,7 +49,7 @@ Statik özel IP adresi, Azure portalını kullanarak Resource Manager dağıtım
 
 Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt ağı *TestVNet*, şu adımları izleyin:
 
-1. Tarayıcıdan http://portal.azure.com adresine gidin ve gerekiyorsa Azure hesabınızla oturum açın.
+1. Tarayıcıdan https://portal.azure.com adresine gidin ve gerekiyorsa Azure hesabınızla oturum açın.
 2. Tıklayın **kaynak Oluştur** > **işlem** > **Windows Server 2012 R2 Datacenter**, dikkat **bir dağıtım seçin Model** listesinde zaten gösterir **Resource Manager**ve ardından **Oluştur**, aşağıdaki resimde görüldüğü gibi.
    
     ![Azure portalını kullanarak VM oluşturma](./media/virtual-networks-static-ip-arm-pportal/figure01.png)
@@ -67,7 +67,7 @@ Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt
     -**Depolama hesabı**: *vnetstorage*
    
    * **Ağ**: *TestVNet*
-   * **Alt ağ**: *ön uç*
+   * **Alt ağ**: *Ön uç*
      
      ![Bir boyut bölmesinde seçin](./media/virtual-networks-static-ip-arm-pportal/figure05.png)     
 7. İçinde **özeti** bölmesinde tıklayın **Tamam**. Panonuzda görüntülenen aşağıdaki kutucuğa dikkat edin.

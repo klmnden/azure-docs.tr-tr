@@ -1,6 +1,6 @@
 ---
-title: Azure AD parola koruması önizlemesi
-description: Azure AD parola koruması Önizlemesi'ni kullanarak şirket içi Active Directory zayıf parolalarda yasakla
+title: Azure AD parola koruması
+description: Azure AD parola koruması kullanarak şirket içi Active Directory zayıf parolalarda yasakla
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,21 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fdf308ff6178dcb51ec73e46d43b853f62e7777
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: f1b3660d256e4beda948f723035aa75ca8a9ed2e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840962"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284877"
 ---
-# <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Önizleme: Windows Server Active Directory için Azure AD parola koruması zorlama
+# <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Windows Server Active Directory için Azure AD parola koruması zorlama
 
-|     |
-| --- |
-| Azure Active Directory (Azure AD) parola koruması ve özel yasaklı parola listesi Azure ad genel Önizleme özellikleridir. Önizlemeler hakkında daha fazla bilgi için bkz. [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
-Azure AD parola koruması bir kuruluşta parola ilkelerini geliştirir genel önizlemede olan yeni bir özellik var. Şirket içi dağıtım parola koruması, Azure AD'de depolanan her iki genel ve özel yasaklanmış parola listelerini kullanır. Bunu, aynı denetimleri şirket içi olarak Azure AD için bulut tabanlı değişiklikler yapar.
+Azure AD parola koruması parola ilkeleri bir kuruluşta geliştiren bir özelliktir. Şirket içi dağıtım parola koruması, Azure AD'de depolanan her iki genel ve özel yasaklanmış parola listelerini kullanır. Bunu, aynı denetimleri şirket içi olarak Azure AD için bulut tabanlı değişiklikler yapar.
 
 ## <a name="design-principles"></a>Tasarım ilkeleri
 

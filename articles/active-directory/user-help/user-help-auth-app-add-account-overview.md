@@ -12,21 +12,21 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e53afdfc4d2d8288a612cfb461751e6f78ebb2fa
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 34455cac61dd3b1f1251d4bc2003bd8b029de031
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179272"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014961"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulamasına hesapları ekleme hakkında genel bakış
 
 Microsoft Authenticator uygulamasını hesaplarınıza iki aşamalı doğrulama kullanırsanız oturum yardımcı olur. İki Faktörlü doğrulama özellikle hassas bilgileri görüntülerken hesaplarınızı daha güvenli bir şekilde erişmenize yardımcı olur. Parolaları bu nedenle Unutulan, çalınması veya ele geçirilen, iki Faktörlü doğrulama kesmek diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır.
 
->[!Important]
->Microsoft Authenticator uygulamasını iki aşamalı doğrulama kullanan tüm uygulamalarda ve zamana bağlı bir kerelik parola (TOTP) standartlarını destekleyen herhangi bir hesabı ile çalışır.
-
->Bu içerik kullanıcılara yöneliktir. Yöneticiyseniz, Azure Active Directory (Azure AD) ortamınızı ayarlama ve yönetme hakkında daha fazla bilgi için [Azure Active Directory Belgelerine](https://docs.microsoft.com/azure/active-directory) bakabilirsiniz.
+> [!Important]
+> Microsoft Authenticator uygulamasını iki aşamalı doğrulama kullanan tüm uygulamalarda ve zamana bağlı bir kerelik parola (TOTP) standartlarını destekleyen herhangi bir hesabı ile çalışır.
+> 
+> Bu içerik kullanıcılara yöneliktir. Yöneticiyseniz, Azure Active Directory (Azure AD) ortamınızı ayarlama ve yönetme hakkında daha fazla bilgi için [Azure Active Directory Belgelerine](https://docs.microsoft.com/azure/active-directory) bakabilirsiniz.
 
 Microsoft Authenticator uygulamasını birden çok yolla kullanabilirsiniz:
 
@@ -43,6 +43,7 @@ Her gün kullandığınız birçok hesap için iki aşamalı doğrulamayı etkin
 |Kişisel hesaplar|Microsoft ve Microsoft olmayan hesapların, kişisel açılır, Outlook.com, Xbox LIVE, Google, Facebook ve daha fazlası gibi.|
 
 ## <a name="in-this-section"></a>Bu bölümde
+
 |Makale |Açıklama |
 |------|------------|
 |[İş veya Okul hesabınızı ekleyin](user-help-auth-app-add-work-school-account.md)|İki aşamalı doğrulama için Microsoft Authenticator uygulaması için iş veya Okul hesabınızı eklemek açıklar.|

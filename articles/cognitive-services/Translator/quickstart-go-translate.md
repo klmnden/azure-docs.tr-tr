@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: a1218442aedf94028fe1e08f02f13ce1c0d05008
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f0690d2e95084712c4260ade9df493ee078979a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738122"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863738"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-go"></a>Hızlı Başlangıç: Go kullanarak bir dize çevirmek için Translator Text API kullanın
 
@@ -60,7 +60,7 @@ func main() {
      * Read your subscription key from an env variable.
      * Please note: You can replace this code block with
      * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
+     * want to use env variables. If so, be sure to delete the "os" import.
      */
     subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
     if subscriptionKey == "" {
@@ -191,10 +191,10 @@ Başarılı bir yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçimind
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bilişsel Hizmetler API'leri için GitHub’da [Go için Azure SDK](https://github.com/Azure/azure-sdk-for-go)’dan Go paketlerini keşfedin.
+Bilişsel hizmetler API'leri için go örnekleri keşfedin [Go için Azure SDK](https://github.com/Azure/azure-sdk-for-go) GitHub üzerinde.
 
 > [!div class="nextstepaction"]
-> [GitHub’da Go paketlerini keşfedin](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [Github'da go örnekleri keşfedin](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: b35d3d22ce154420c9099143894688389e8af420
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 9b4bceba53658cb8ac3c73e75e0d19faf3fe3f0b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58078049"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259763"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Azure Storage analytics ölçümleri (Klasik)
 
@@ -23,10 +23,10 @@ Depolama analizi, bir depolama hizmetine istekleriyle ilgili toplu işlem istati
 
 > [!NOTE]
 > Storage Analytics ölçümleri Blob, kuyruk, tablo ve Dosya Hizmetleri için kullanılabilir.
-> Storage Analytics ölçümleri artık Klasik ölçümleridir. Microsoft, kullanılmasını önerir [Azure İzleyici'de depolama ölçümleri](/azure/storage/common/storage-metrics-in-azure-monitor.md) Storage Analytics ölçümleri yerine.
+> Storage Analytics ölçümleri artık Klasik ölçümleridir. Microsoft, kullanılmasını önerir [Azure İzleyici'de depolama ölçümleri](storage-metrics-in-azure-monitor.md) Storage Analytics ölçümleri yerine.
 
 ## <a name="transaction-metrics"></a>İşlem ölçümleri  
- Sağlam bir veri kümesini giriş/çıkış, kullanılabilirlik, hataları, dahil olmak üzere API işlemi, istenen her depolama hizmeti için saat veya dakika aralıklarla kaydedilir ve isteği yüzdeleri kategorilere ayrılmıştır. İşlem ayrıntıları tam listesini görebilirsiniz [Storage Analytics Ölçüm tablosu şeması](/rest/api/storageservices/storage-analytics-metrics-table-schema.md) konu.  
+ Sağlam bir veri kümesini giriş/çıkış, kullanılabilirlik, hataları, dahil olmak üzere API işlemi, istenen her depolama hizmeti için saat veya dakika aralıklarla kaydedilir ve isteği yüzdeleri kategorilere ayrılmıştır. İşlem ayrıntıları tam listesini görebilirsiniz [Storage Analytics Ölçüm tablosu şeması](/rest/api/storageservices/storage-analytics-metrics-table-schema) konu.  
 
  İşlem verileri, iki düzeyde – hizmet düzeyi ve API işlemi düzeyi kaydedilir. Hizmet düzeyinde bile hiçbir istek hizmetine yapılan API işlemleri saatte bir tablo varlığına yazılan tüm özetleme istatistikleri istedi. API işlem düzeyinde istatistikleri o saat içinde istenen işlem, bir varlığa yalnızca yazılır.  
 
@@ -45,7 +45,7 @@ Depolama analizi, bir depolama hizmetine istekleriyle ilgili toplu işlem istati
 - **ContainerCount**: Depolama hesabının Blob hizmetindeki blob kapsayıcı sayısı.  
 - **ObjectCount**: İşlenmiş ve kaydedilmemiş blok veya sayfa blobları depolama hesabının Blob hizmetindeki sayısı.  
 
-  Kapasite ölçümleri hakkında daha fazla bilgi için bkz: [Storage Analytics Ölçüm tablosu şeması](/rest/api/storageservices/storage-analytics-metrics-table-schema.md).  
+  Kapasite ölçümleri hakkında daha fazla bilgi için bkz: [Storage Analytics Ölçüm tablosu şeması](/rest/api/storageservices/storage-analytics-metrics-table-schema).  
 
 ## <a name="how-metrics-are-stored"></a>Ölçümleri nasıl depolanır  
 
@@ -123,7 +123,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 Depolama ölçümleri yapılandırmak için bir .NET dili kullanma hakkında daha fazla bilgi için bkz. [.NET için depolama istemci Kitaplığı](https://msdn.microsoft.com/library/azure/mt347887.aspx).  
 
-Depolama REST API kullanarak ölçümlerini yapılandırma hakkında genel bilgi için bkz. [etkinleştirme ve yapılandırma depolama analizi](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics.md).  
+Depolama REST API kullanarak ölçümlerini yapılandırma hakkında genel bilgi için bkz. [etkinleştirme ve yapılandırma depolama analizi](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
 
 ##  <a name="viewing-storage-metrics"></a>Depolama ölçümlerini görüntüleme  
 Depolama hesabınız izlemek için Storage Analytics ölçümleri yapılandırdıktan sonra depolama analizi ölçümleri bir dizi depolama hesabındaki iyi bilinen tablolara kaydeder. Saatlik ölçümlerini görüntülemek için grafik yapılandırabileceğiniz [Azure portalında](https://portal.azure.com):
@@ -144,7 +144,7 @@ Uzun vadeli depolama için ölçümleri indirmek için veya yerel olarak analiz 
 |Dakika ölçümleri|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|PowerShell kullanarak yalnızca etkinleştirilebilir veya programlama yoluyla.<br /><br /> Dosya hizmeti için ölçümleri, 2015-04-05 sürümüyle kullanılabilir başlıyoruz.|  
 |Kapasite|$MetricsCapacityBlob|Yalnızca BLOB hizmeti.|  
 
-Bu tablolar için şemalar tam ayrıntılarını bulabilirsiniz [Storage Analytics Ölçüm tablosu şeması](/rest/api/storageservices/storage-analytics-metrics-table-schema.md). Aşağıdaki örnek satırlar yalnızca bir sütun alt kümesi kullanılabilir gösterir, ancak bu ölçümler depolama ölçümleri kaydeder şekilde önemli özelliklerinden bazıları gösterilmektedir:  
+Bu tablolar için şemalar tam ayrıntılarını bulabilirsiniz [Storage Analytics Ölçüm tablosu şeması](/rest/api/storageservices/storage-analytics-metrics-table-schema). Aşağıdaki örnek satırlar yalnızca bir sütun alt kümesi kullanılabilir gösterir, ancak bu ölçümler depolama ölçümleri kaydeder şekilde önemli özelliklerinden bazıları gösterilmektedir:  
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
@@ -227,6 +227,6 @@ Tabulky Metrik tarafından kullanılan kapasiteyi, ayrıca Faturalanabilir olur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Bir depolama hesabı izleme](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
-* [Storage Analytics Ölçüm tablosu şeması](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)   
-* [Depolama analizi işlemleri ve durum iletileri günlüğe kaydedilir.](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)   
+* [Storage Analytics Ölçüm tablosu şeması](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
+* [Depolama analizi işlemleri ve durum iletileri günlüğe kaydedilir.](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
 * [Depolama analizi günlük kaydı](storage-analytics-logging.md)

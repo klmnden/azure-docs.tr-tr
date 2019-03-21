@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 0e1232391ddf4b57b5dad5ade9776e9c7cfea9b4
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 44c8b331ebb258c39a003c91e0711e6dfb87cb12
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727340"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076312"
 ---
 # <a name="application-gateway-components"></a>Uygulama ağ geçidi bileşenleri
 
  Bir uygulama ağ geçidi tek istemcilerin iletişim noktası işlevi görür. Gelen uygulama trafiğini Azure Vm'leri, sanal makine ölçek kümeleri, uygulama hizmetleri veya şirket içi/dış sunucuları gibi birden fazla arka uç havuzu arasında dağıtır. Bunu yapmak için bu makalede açıklanan çeşitli bileşenleri kullanır.
 
-![Uygulama ağ geçidi bileşenleri](.\media\application-gateway-components\application-gateway-components.png)
+![Uygulama ağ geçidi bileşenleri](./media/application-gateway-components/application-gateway-components.png)
 
 ## <a name="frontend-ip-address"></a>Ön uç IP adresi
 

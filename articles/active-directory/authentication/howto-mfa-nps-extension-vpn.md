@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfe77602d138224c848cc915bbba5a7084c29650
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: c22b035b325582cf4a12ff10a9abbedb8837229b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170067"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117889"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure için ağ ilkesi sunucusu uzantısı kullanarak VPN altyapınız ile Azure mfa'yı tümleştirme
 
@@ -30,20 +30,20 @@ Ağ İlkesi ve Erişim Hizmetleri kuruluşlar yeteneği sağlar:
 
 * Denetim belirtmek için ağ isteklerinin ve Yönetim için merkezi bir konum atayın:
 
-    * Kimin bağlanabilir miyim 
+  * Kimin bağlanabilir miyim 
     
-    * Gün bağlantıların ne zaman izin verilir 
+  * Gün bağlantıların ne zaman izin verilir 
     
-    * Bağlantı süresi
+  * Bağlantı süresi
     
-    * İstemciler bağlanmak için kullanması gereken güvenlik düzeyi
+  * İstemciler bağlanmak için kullanması gereken güvenlik düzeyi
 
     Merkezi bir konumda olduklarını sonra her VPN ya da Uzak Masaüstü Ağ Geçidi sunucusuna ilkeleri belirtme yerine bunu yapın. RADIUS protokolü, merkezi kimlik doğrulaması, yetkilendirme ve hesap işlemleri (AAA) sağlamak için kullanılır. 
 
 * Kurmak ve cihazları Kısıtlanmamış veya kısıtlanmış ağ kaynaklarına erişim izni olup olmadığını belirleyen Ağ Erişim Koruması (NAP) istemci sistem durumu ilkeleri uygular.
 
 * Kimlik doğrulama ve yetkilendirme için 802.1 erişim uygulanmasına yönelik bir yöntem sağlayan x özellikli kablosuz erişim noktaları ve Ethernet anahtarları.   
-Daha fazla bilgi için [ağ ilkesi sunucusu](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
+  Daha fazla bilgi için [ağ ilkesi sunucusu](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
 
 Güvenliği artırmak ve yüksek düzeyde uyumluluk sağlamak için kuruluşlar NPS kullanıcıların VPN sunucusunda sanal bağlantı noktasına bağlanmak için iki aşamalı doğrulama kullandığınızdan emin olmak için Azure multi-Factor Authentication ile tümleştirebilirsiniz. Kullanıcıların erişim verilmesi için kullanıcı adı ve parola birleşimi ve bunların denetledikleri diğer bilgileri sağlamaları gerekir. Bu bilgileri güvenilir ve kolayca çoğaltılması gerekir. Cep telefonu numarası, bir telefona sayı veya bir uygulamayı mobil cihazda içerebilir.
 

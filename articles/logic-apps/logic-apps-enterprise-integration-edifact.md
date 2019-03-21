@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
-ms.openlocfilehash: 2da672e1f55af1e38ae0a3fa90b7ecb10d2f17c7
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bbcdad7c5496cd08994a613b07e1bc7c611e4572
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128386"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876859"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Enterprise Integration Pack ile Azure Logic apps'teki B2B Kurumsal tümleştirme için EDIFACT iletilerini paylaşma
 
@@ -38,7 +38,7 @@ Gereksinim duyduğunuz öğeleri şu şekildedir:
 
 ## <a name="create-an-edifact-agreement"></a>EDIFACT sözleşmesi oluşturun 
 
-1. [Azure portalı](http://portal.azure.com "Azure portalı") oturumunu açın. 
+1. [Azure portalı](https://portal.azure.com "Azure portalı") oturumunu açın. 
 
 2. Ana Azure menüsünde **tüm hizmetleri**. Arama kutusuna "tümleştirme" girin ve ardından **tümleştirme hesapları**.
 
@@ -82,7 +82,7 @@ Sözleşme özelliklerini ayarladıysanız, işbu sözleşme nasıl tanımlar ve
 1. Altında **Ekle**seçin **alma ayarı**.
 Sizinle iletiler birbiriyle değiştirir iş ortaklarıyla sözleşmenize göre bu özelliklerini yapılandırın. Bu bölümdeki tablolarda, özellik açıklamalarına bakın.
 
-   **Alma ayarlarını** bu bölümler halinde düzenlenmiştir: tanımlayıcılar, bildirim, şemalar, denetim numaraları, doğrulama ve iç ayarlar.
+   **Alma ayarlarını** bu bölümler halinde düzenlenmiştir: Tanımlayıcılar, bildirim, şemalar, denetim numaraları, doğrulama ve iç ayarlar.
 
    !["Alma ayarlarını" yapılandırma](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
@@ -131,7 +131,7 @@ Her doğrulama satır tamamladığınızda, başka bir otomatik olarak eklenir. 
 
 | Özellik | Açıklama |
 | --- | --- |
-| İleti Türü |EDI ileti türü seçin. |
+| Mesaj Türü |EDI ileti türü seçin. |
 | EDI Doğrulaması |EDI doğrulaması şema EDI özellikleri, uzunluk kısıtlamaları, boş veri öğeleri ve sondaki ayırıcılara tarafından tanımlanan veri türleri üzerinde gerçekleştirin. |
 | Genişletilmiş Doğrulama |Veri türü değilse EDI, doğrulama veri öğesi gereksinimdir ve yineleme, numaralandırmalar ve veri öğesi uzunluğu doğrulama (min/maks) izin verilir. |
 | Başta/Sonda Sıfırlara İzin Ver |Başta veya sonda sıfır ek korumak ve boşluk karakterleri. Bu karakterleri kaldırın. |
@@ -155,7 +155,7 @@ Her doğrulama satır tamamladığınızda, başka bir otomatik olarak eklenir. 
 1.  Altında **Ekle**seçin **gönderme ayarları**.
 Sizinle iletiler değiştirir ortağınızla birlikte sözleşmenize göre bu özelliklerini yapılandırın. Bu bölümdeki tablolarda, özellik açıklamalarına bakın.
 
-    **Gönderme ayarları** bu bölümler halinde düzenlenmiştir: tanımlayıcılar, bildirim, şemalar, zarflar, karakter kümeleri ve ayırıcılar, denetim numaraları ve doğrulamaları.
+    **Gönderme ayarları** bu bölümler halinde düzenlenmiştir: Tanımlayıcılar, bildirim, şemalar, zarflar, karakter kümeleri ve ayırıcılar, denetim numaraları ve doğrulamaları.
 
     !["Ayarları Gönder" yapılandırma](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
 
@@ -225,7 +225,7 @@ Her doğrulama satır tamamladığınızda, başka bir otomatik olarak eklenir. 
 
 | Özellik | Açıklama |
 | --- | --- |
-| İleti Türü |EDI ileti türü seçin. |
+| Mesaj Türü |EDI ileti türü seçin. |
 | EDI Doğrulaması |EDI doğrulaması şema, uzunluk kısıtlamaları, boş veri öğeleri ve sondaki ayırıcılara EDI özellikleri tarafından tanımlanan veri türleri üzerinde gerçekleştirin. |
 | Genişletilmiş Doğrulama |Veri türü değilse EDI, doğrulama veri öğesi gereksinimdir ve yineleme, numaralandırmalar ve veri öğesi uzunluğu doğrulama (min/maks) izin verilir. |
 | Başta/Sonda Sıfırlara İzin Ver |Başta veya sonda sıfır ek korumak ve boşluk karakterleri. Bu karakterleri kaldırın. |

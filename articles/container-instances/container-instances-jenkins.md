@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: 85b67fb4fa474bb00b5b7ca66580273671081cdf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2687a64bfd952888086862d929a3e5869aee5a4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478205"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003427"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Kullanım Azure Container Instances olarak bir Jenkins derleme aracısı
 
@@ -73,7 +73,7 @@ Azure Container Instances hakkında daha fazla bilgi için bkz. [Azure Container
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
-5. Tüneli çalıştıran ve SSH oturumu bırakın ve Git http://localhost:8080 bir tarayıcıda. İlk Yönetici parolasının kutuya yapıştırın ve ardından **devam**.
+5. Tüneli çalıştıran ve SSH oturumu bırakın ve Git `http://localhost:8080` bir tarayıcıda. İlk Yönetici parolasının kutuya yapıştırın ve ardından **devam**.
 
    !["Jenkins'in kilidini açma" Ekran kutusu yönetici parolası](./media/container-instances-jenkins/jenkins-portal-05.png)
 

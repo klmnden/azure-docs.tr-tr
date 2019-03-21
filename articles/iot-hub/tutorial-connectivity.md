@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 19f46392232ade83f0f111494f2b7f80e40fb14c
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: cd60129e2da0b0c2130b300159953bd81c4aeb82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008211"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077573"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Öğretici: IOT hub'ınızla bağlantıyı test etmek için sanal cihaz kullanma
 
@@ -135,7 +135,7 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 Oluşturulan SAS belirteci tam metnini not edin. Bir SAS belirteci aşağıdaki gibi görünür: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
-Geliştirme makinenizdeki terminal penceresinde, indirdiğiniz örnek Node.js projesinin kök klasörüne gidin. Daha sonra **iot-hub\Tutorials\ConnectivityTests\simulated-device** klasörüne gidin.
+Geliştirme makinenizdeki terminal penceresinde, indirdiğiniz örnek Node.js projesinin kök klasörüne gidin. Ardından gidin **IOT hub\Tutorials\ConnectivityTests** klasör.
 
 Terminal penceresinde, aşağıdaki komutları çalıştırarak gerekli kitaplıkları yükleyin ve simülasyon cihazı uygulamasını çalıştırın:
 
@@ -176,7 +176,7 @@ Bir cihaz bağlandıktan sonra genellikle IoT hub'ınıza telemetri göndermeye 
 az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
-İleti gönderen bir simülasyon cihazı çalıştırmak için, indirdiğiniz kodda **IoT hub\Tutorials\ConnectivityTests\simulated cihaz** klasörüne gidin.
+İletiler gönderen bir simülasyon cihazını çalıştırma için gidin **IOT hub\Tutorials\ConnectivityTests** indirdiğiniz kod klasörü.
 
 Terminal penceresinde, aşağıdaki komutları çalıştırarak gerekli kitaplıkları yükleyin ve simülasyon cihazı uygulamasını çalıştırın:
 

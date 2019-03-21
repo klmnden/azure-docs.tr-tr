@@ -1,5 +1,5 @@
 ---
-title: Bir davet bağlantısı veya e-posta - Azure Active Directory B2B işbirliği kullanıcıları ekleme | Microsoft Docs
+title: B2B Konukları davet bağlantısı veya e-posta - Azure Active Directory olmayan Ekle | Microsoft Docs
 description: Diğer Konuk kullanıcıları davet Azure Active Directory B2B işbirliği içinde çalışan kuponumu kullanmakta olmadan Azure AD'nize ekleyin. Konuk kullanıcı izin verebilirsiniz.
 services: active-directory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c33d9a3755f2fb5397dd013c88ab542e727e125
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1dca03f84b821d20ee6fecbaec24a1aa840836b5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337677"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294986"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>B2B işbirliği Konuk kullanıcıları davet bağlantısı veya e-posta olmayan Ekle
 
@@ -33,7 +33,7 @@ Bu özgün yöntem çalışır. Bununla birlikte, küçük bir davranışı fark
 
 Dizine kullanıcı davet et varsa Konuk kullanıcı kaynak kiracıya özgü Azure portalına erişmek gerekir doğrudan URL (gibi https://portal.azure.com/ *resourcetenant*. onmicrosoft.com) görüntüleyebilir ve gizlilik koşullarını kabul etmiş olursunuz.
 
-### <a name="next-steps"></a>Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure AD B2B işbirliği nedir?](what-is-b2b.md)
 - [B2B işbirliği Davetiyesi kullanımı](redemption-experience.md)

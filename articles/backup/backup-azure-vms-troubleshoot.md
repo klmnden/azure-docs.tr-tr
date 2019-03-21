@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: srinathv
-ms.openlocfilehash: f79a9048e50901424330224066cb84929d9126dc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 906c0ef3db530ecb4aeade449e41a866a4b09a74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530935"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005720"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure sanal makine yedekleme sorunlarını giderme
 Aşağıdaki tabloda listelenen bilgilerle Azure Backup kullanarak sırasında karşılaşılan hataları giderebilirsiniz:
@@ -41,12 +41,13 @@ Aşağıdaki tabloda listelenen bilgilerle Azure Backup kullanarak sırasında k
 | Azure Backup hizmeti için yeterli izinlerin Azure anahtar kasası için yedekleme şifrelenmiş sanal makinelerin sahip değil. |Yedekleme hizmeti adımları kullanarak bu izinleri PowerShell'de sağlamak [geri yüklenen diskten VM oluşturma](backup-azure-vms-automation.md). |
 |Anlık görüntü uzantısını yükleme işlemi başarısız oldu, hata **COM + Microsoft Dağıtılmış İşlem Düzenleyicisi ile iletişim kuramıyor**. | Windows hizmeti yükseltilmiş bir komut isteminden başlatmak **COM + System Application**. Bir örnek **net Başlat COMSysApp**. Başlatmak hizmet başarısız olursa, ardından aşağıdaki adımları uygulayın:<ol><li> Hizmetin oturum açma hesabı olduğundan emin olun **Dağıtılmış İşlem Düzenleyicisi** olduğu **ağ hizmeti**. Yüklü değilse, oturum açma hesabına geçemeyeceğinizi **ağ hizmeti** ve hizmeti yeniden başlatın. Başlatmayı denerseniz **COM + System Application**.<li>Varsa **COM + System Application** olmaz başlatın, kaldırma ve hizmeti yüklemek için aşağıdaki adımları **Dağıtılmış İşlem Düzenleyicisi**: <ol><li>MSDTC hizmetini durdurun. <li>Bir komut istemi açın **cmd**. <li>Komutunu çalıştırın ```msdtc -uninstall```. <li>Komutunu çalıştırın ```msdtc -install```. <li>MSDTC hizmetini başlatın. </ol> <li>Windows hizmeti başlatın **COM + System Application**. Sonra **COM + System Application** başladığında, Azure portalında yedekleme işini tetikler.</ol> |
 |  Anlık görüntü işlemi, bir COM + hatası nedeniyle başarısız oldu. | Windows hizmetini yeniden başlatmanızı öneririz **COM + System Application** yükseltilmiş bir komut isteminden **net Başlat COMSysApp**. Sorun devam ederse, VM'yi yeniden başlatın. VM'nin yeniden başlatılmasının yaramazsa deneyin [VMSnapshot uzantısını kaldırma](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout) ve el ile yedekleme tetikleyin. |
-| Yedekleme, bir veya daha fazla bağlama noktaları sanal dosya sistemi tutarlı bir anlık görüntüsünü almak için dondurulamadı. | Aşağıdaki adımları izleyin: <ul><li>Kullanarak tüm bağlı cihazları dosya sistem durumunu kontrol **'tune2fs'** komutu. Bir örnek **tune2fs -l/dev/sdb1 \** .| GREP **dosya sistemi durumu**. <li>Kendisi için dosya sistemi durumu olmayan temiz kullanarak cihazları çıkarın **'umount'** komutu. <li> Bu cihazlarda dosya sistemi tutarlılık denetimi çalıştırmak **'fsck'** komutu. <li> Cihazları yeniden bağlayın ve yedeklemeyi deneyin.</ol> |
+| Yedekleme, bir veya daha fazla bağlama noktaları sanal dosya sistemi tutarlı bir anlık görüntüsünü almak için dondurulamadı. | Aşağıdaki adımları izleyin: <ul><li>Kullanarak tüm bağlı cihazları dosya sistem durumunu kontrol **'tune2fs'** komutu. Bir örnek **tune2fs -l/dev/sdb1 \\** .\| grep **dosya sistemi durumu**. <li>Kendisi için dosya sistemi durumu olmayan temiz kullanarak cihazları çıkarın **'umount'** komutu. <li> Bu cihazlarda dosya sistemi tutarlılık denetimi çalıştırmak **'fsck'** komutu. <li> Cihazları yeniden bağlayın ve yedeklemeyi deneyin.</ol> |
 | Anlık görüntü işlemi, bir güvenli ağ iletişim kanalı oluşturma hatası nedeniyle başarısız oldu. | <ol><li> Kayıt Defteri Düzenleyicisi'ni çalıştırarak açmak **regedit.exe** yükseltilmiş modda. <li> Sisteminizde mevcut .NET Framework'ün tüm sürümler tanımlayın. Kayıt defteri anahtarının hiyerarşisi altında mevcut oldukları **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Kayıt defteri anahtarı mevcut her .NET Framework için aşağıdaki anahtarını ekleyin: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | Visual Studio 2012 için Visual C++ yeniden dağıtılabilir yükleme hatası nedeniyle anlık görüntü işlemi başarısız. | İçin C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion gidin ve vcredist2012_x64 yükleyin. Bu hizmeti yüklemesi sağlayan kayıt defteri anahtar değeri doğru değerine ayarlanmış olduğundan emin olun. Diğer bir deyişle, kayıt defteri anahtarı değerini **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\MSIServer** ayarlanır **3** değil **4**. <br><br>Yükleme sorunlarını hala varsa, yükleme hizmeti çalıştırarak yeniden **MSIEXEC/unregister** ardından **MSIEXEC /REGISTER** yükseltilmiş bir komut isteminden.  |
 
 
 ## <a name="jobs"></a>İşler
+
 | Hata Ayrıntıları | Geçici çözüm |
 | --- | --- |
 | İptal, bu proje türü için desteklenmez: <br>İş tamamlanana kadar bekleyin. |None |

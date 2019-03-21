@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: d333eb6baa41321fdf7daca3c545d5d5e3ed5fe4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b9ddd82d18b7f67f61e5c1589511ea6db4fa18a3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732713"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100301"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Öğretici: Varlığın ve deyim listesi ile adlarını Ayıkla
 
@@ -127,7 +127,7 @@ Basit varlıklar, tahmin, bir yüksek güvenilirliğe sahip olmak için birçok 
     |Apply for tile work. (Döşeme işleri için başvuruyorum.)|tile (döşeme)|
     |Attached resume for landscape architect. (Peyzaj mimarı ilanı için özgeçmişimi ekte gönderiyorum.)|landscape architect (peyzaj mimarı)|
     |My curriculum vitae for professor of biology is enclosed. (Biyoloji öğretmenliği için özgeçmişimi ekte bulabilirsiniz.)|professor of biology (biyoloji öğretmenliği)|
-    |I would like to apply for the position in photography. (Fotoğrafçılık alanındaki pozisyon için başvuruda bulunmak istiyorum.)|photography (fotoğrafçılık)|git 
+    |I would like to apply for the position in photography. (Fotoğrafçılık alanındaki pozisyon için başvuruda bulunmak istiyorum.)|photography (fotoğrafçılık)|
 
 ## <a name="mark-job-entity-in-other-intents"></a>Diğer ıntents iş varlığında işaretle
 

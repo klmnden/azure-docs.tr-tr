@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 71ffcc420372215a393f560d01d6c08dee03dfbd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0d055b1a78622665137a6abad18681a728ae2b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433680"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010554"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Azure'da bir Java uygulamasında Twilio kullanarak telefon görüşmesi yapma
 Aşağıdaki örnek, Azure'da barındırılan bir web sayfasından çağrı yapmak için Twilio nasıl kullanabileceğinizi gösterir. Elde edilen uygulama, aşağıdaki ekran görüntüsünde gösterildiği gibi kullanıcıdan telefon araması değerlerini ister.
@@ -173,7 +173,7 @@ Uygulamanızı çalıştırmak için üst düzey adımlar aşağıda verilmişti
 2. Değiştirme **startup.cmd** , TwilioCloud WAR sıkıştırmasını.
 3. İşlem öykünücüsü için uygulamanızı derleyin.
 4. Dağıtım işlem öykünücüsünde başlatın.
-5. Bir tarayıcı açın ve çalıştırın **http://localhost:8080/TwilioCloud/callform.jsp**.
+5. Bir tarayıcı açın ve çalıştırın `http://localhost:8080/TwilioCloud/callform.jsp`.
 6. Değerleri girin, tıklayın **bu çağrı yapmak**ve ardından makecall.jsp sonuçları görebilirsiniz.
 
 Azure, bulut dağıtımını yeniden derleyin dağıtmak hazır olduğunuzda, Azure'a dağıtma ve http:// çalıştırma*your_hosted_name*tarayıcıda.cloudapp.net/TwilioCloud/callform.jsp (, değeri  *your_hosted_name*).

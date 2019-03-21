@@ -16,19 +16,19 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 770a5e61f549a10c8b313ed4d137f56dda45769e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343869"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012015"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>RBAC kullanarak dış kullanıcılar için Azure kaynaklarına erişimi yönetme
 
 Rol tabanlı erişim denetimi (RBAC) dış ortak çalışanlar, satıcılar, ortamınızda belirli kaynakların ancak mutlaka tüm erişmesi gereken freelancers ile çalışırken büyük kuruluşlar için ve SMB'ler için daha iyi güvenlik yönetimi sağlar. Altyapı veya herhangi bir faturalandırma ile ilgili kapsam. Bir Azure aboneliğine sahip olan esnekliği yönetici hesabı (Hizmet Yöneticisi rolü abonelik düzeyinde) tarafından yönetilen ve birden çok kullanıcı aynı abonelik altında ancak tüm yönetim haklarına sahip olmayan için çalışmaya davet RBAC sağlar .
 
 > [!NOTE]
-> Office 365 aboneliği veya Azure Active Directory lisansları (örneğin: Azure Active Directory erişim) Office 365 Yönetim Merkezi için RBAC kullanarak uygun olmayan sağlandı.
+> Office 365 aboneliği veya Azure Active Directory lisansları (örneğin: Yönetim Merkezi için RBAC kullanarak uygun olmayan Microsoft 365'ten erişimi Azure Active Directory) sağlandı.
 
 ## <a name="assign-rbac-roles-at-the-subscription-scope"></a>Abonelik kapsamında RBAC Rolleri Ata
 

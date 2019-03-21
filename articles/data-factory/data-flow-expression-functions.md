@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: a3e08da062614184ff943feca669d7b46ae13c4f
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 793624b34c718abccaeeff5b0fe3b83f446d0809
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243967"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58171015"
 ---
 # <a name="mapping-data-flow-data-transformation-expressions"></a>Veri akışı veri dönüştürme ifadeleri eşleme
 
@@ -864,7 +864,7 @@ Herhangi bir sayısal veya dize bir kayan nokta değerine dönüştürür. Java 
 <code>toInteger</code>
 ==============================
 <code><b>toInteger(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string]) => integer</b></code><br/><br/>
-Herhangi bir sayısal veya dize bir tamsayı değerine dönüştürür. Java için isteğe bağlı bir ondalık biçim dönüştürme için kullanılabilir. Herhangi bir uzun, float, double keser * ``toInteger(123) -> 123``
+Herhangi bir sayısal veya dize, tamsayı değerine dönüştürür. Java için isteğe bağlı bir ondalık biçim dönüştürme için kullanılabilir. Herhangi bir uzun, float, double keser * ``toInteger(123) -> 123``
 * ``toInteger('123') -> 123``
 * ``toInteger('$123', '$###') -> 123``
 *********************************

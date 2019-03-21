@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: acbd41b7203e458a5ed60382354c862748863053
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: ce1afbd5499e798888e77f52d7b652e7e1f548fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328036"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005821"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger Fabric Konsorsiyum ağı
 
@@ -78,11 +78,11 @@ Abonelik aldıktan sonra Git [Azure portalında](https://portal.azure.com). Seç
 
 | Parametre Adı | Açıklama | İzin verilen değerler |
 |---|---|---|
-**Kaynak ön eki**| Dağıtımın bir parçası sağlanan kaynakları için adı ön eki |6 karakter veya daha az |
-**Kullanıcı Adı**| Bu üye için dağıtılan sanal makinelerin her biri için bir yönetici kullanıcı adı |1 - 64 karakter |
-**Kimlik doğrulaması türü**| Sanal makinenin kimliğini doğrulamak için yöntemi |Parola veya SSH ortak anahtarı|
-**Parola (kimlik doğrulaması türü = parola)**|Dağıtılan sanal makinelerin her biri için yönetici hesabının parolası. Parola şu karakter türlerinin üç içermelidir: 1 büyük harf karakter, 1 küçük harf, 1 sayı ve 1 özel karakter<br /><br />Tüm VM'lerin aynı parolayı başlangıçta olsa da, sağladıktan sonra parolayı değiştirebilirsiniz|12 - 72 karakter|
-**SSH anahtarı (kimlik doğrulaması türü SSH ortak anahtarı =)**|Uzaktan oturum açma için kullanılan güvenli Kabuk anahtarı ||
+**Kaynak ön eki** | Dağıtımın bir parçası sağlanan kaynakları için adı ön eki |6 karakter veya daha az |
+**Kullanıcı Adı** | Bu üye için dağıtılan sanal makinelerin her biri için bir yönetici kullanıcı adı |1 - 64 karakter |
+**Kimlik doğrulaması türü** | Sanal makinenin kimliğini doğrulamak için yöntemi |Parola veya SSH ortak anahtarı|
+**Parola (kimlik doğrulaması türü = parola)** |Dağıtılan sanal makinelerin her biri için yönetici hesabının parolası. Parola şu karakter türlerinin üç içermelidir: 1 büyük harf karakter, 1 küçük harf, 1 sayı ve 1 özel karakter<br /><br />Tüm VM'lerin aynı parolayı başlangıçta olsa da, sağladıktan sonra parolayı değiştirebilirsiniz|12 - 72 karakter|
+**SSH anahtarı (kimlik doğrulaması türü SSH ortak anahtarı =)** |Uzaktan oturum açma için kullanılan güvenli Kabuk anahtarı ||
 **Abonelik** |Dağıtmak istediğiniz abonelik ||
 **Kaynak grubu** |Bir kaynak grubuna Konsorsiyum ağı dağıtmak için ||
 **Konum** |İlk üye dağıtılacağı Azure bölgesi ||
@@ -97,10 +97,10 @@ Abonelik aldıktan sonra Git [Azure portalında](https://portal.azure.com). Seç
 
 | Parametre Adı | Açıklama | İzin verilen değerler |
 |---|---|---|
-**Ağ yapılandırması**|Yeni ağ oluşturma veya mevcut bir katılmak seçebilirsiniz. Seçerseniz *varolan katılın*, ek değerler sağlamanız gerekir. |Yeni ağ <br/> Varolan katılın |
-**HLF CA parola**|Dağıtımın bir parçası oluşturulan sertifika yetkilisi tarafından oluşturulan sertifikaları için kullanılan parola. Parola şu karakter türlerinin üç içermelidir: 1 büyük harf karakter, 1 küçük harf, 1 sayı ve 1 özel karakter.<br /><br />Tüm sanal makineler aynı parolayı başlangıçta olsa da, parola sağladıktan sonra değiştirebilirsiniz.|1 - 25 karakter |
+**Ağ yapılandırması** |Yeni ağ oluşturma veya mevcut bir katılmak seçebilirsiniz. Seçerseniz *varolan katılın*, ek değerler sağlamanız gerekir. |Yeni ağ <br/> Varolan katılın |
+**HLF CA parola** |Dağıtımın bir parçası oluşturulan sertifika yetkilisi tarafından oluşturulan sertifikaları için kullanılan parola. Parola şu karakter türlerinin üç içermelidir: 1 büyük harf karakter, 1 küçük harf, 1 sayı ve 1 özel karakter.<br /><br />Tüm sanal makineler aynı parolayı başlangıçta olsa da, parola sağladıktan sonra değiştirebilirsiniz.|1 - 25 karakter |
 **Kuruluş Kurulumu** |Kuruluşunuzun adı ve sertifika özelleştirebilir ya da kullanılacak varsayılan değerlere sahip.|Varsayılan <br/> Gelişmiş |
-**VPN ağ ayarları**| Sanal makinelere erişmek için VPN tünel ağ geçidi sağlama | Evet <br/> Hayır |
+**VPN ağ ayarları** | Sanal makinelere erişmek için VPN tünel ağ geçidi sağlama | Evet <br/> Hayır |
 
 **Tamam**’ı seçin.
 
@@ -112,8 +112,8 @@ Abonelik aldıktan sonra Git [Azure portalında](https://portal.azure.com). Seç
 
 | Parametre Adı | Açıklama | İzin verilen değerler |
 |---|---|---|
-**Ölçek türü**|Tek bir sanal makine ile birden çok kapsayıcı ya da birden çok sanal makine ölçek genişletme modeli dağıtım türü.|Tek bir VM veya çoklu VM |
-**VM Disk türü**|Dağıtılan düğümler yedekleme depolama türü. <br/> Kullanılabilir disk türleri hakkında daha fazla bilgi edinmek için [bir disk türü seçin](../../virtual-machines/windows/disks-types.md).|Standart SSD <br/> Premium SSD |
+**Ölçek türü** |Tek bir sanal makine ile birden çok kapsayıcı ya da birden çok sanal makine ölçek genişletme modeli dağıtım türü.|Tek bir VM veya çoklu VM |
+**VM Disk türü** |Dağıtılan düğümler yedekleme depolama türü. <br/> Kullanılabilir disk türleri hakkında daha fazla bilgi edinmek için [bir disk türü seçin](../../virtual-machines/windows/disks-types.md).|Standart SSD <br/> Premium SSD |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Birden çok VM dağıtımı (ek ayarları)
 
@@ -123,8 +123,8 @@ Abonelik aldıktan sonra Git [Azure portalında](https://portal.azure.com). Seç
 |---|---|---|
 **Sipariş eden düğüm sayısı** |Sipariş düğüm sayısını (düzenleme) bir blok işlemleri. <br />Sıralama hizmeti hakkında ek ayrıntılar için Hyperledger ziyaret [belgeleri](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) |1-4 |
 **Sipariş eden düğüm sanal makine boyutu** |Ağ sipariş eden düğümler için kullanılan sanal makine boyutu|Standart Bs<br />Standart Ds<br />Standart FS |
-**Eş düğüm sayısı**| İşlemleri ve Bakım durumu ve muhasebe bir kopyasını consortium üyeleri tarafından sahip olunan düğümleri.<br />Sıralama hizmeti hakkında ek ayrıntılar için Hyperledger ziyaret [belgeleri](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|1-4 |
-**Düğüm durumu kalıcılığını** |Eş düğümleri tarafından kullanılan Kalıcılık altyapısı. Bu altyapı Eş düğüm başına yapılandırabilirsiniz. Birden çok eş düğümleri için aşağıdaki ayrıntıları bakın.|CouchDB </br>LevelDB |
+**Eş düğüm sayısı** | İşlemleri ve Bakım durumu ve muhasebe bir kopyasını consortium üyeleri tarafından sahip olunan düğümleri.<br />Sıralama hizmeti hakkında ek ayrıntılar için Hyperledger ziyaret [belgeleri](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|1-4 |
+**Düğüm durumu kalıcılığını** |Eş düğümleri tarafından kullanılan Kalıcılık altyapısı. Bu altyapı Eş düğüm başına yapılandırabilirsiniz. Birden çok eş düğümleri için aşağıdaki ayrıntıları bakın.|CouchDB <br />LevelDB |
 **Eş düğüm sanal makine boyutu** |Ağdaki tüm düğümler için kullanılan sanal makine boyutu|Standart Bs<br />Standart Ds<br />Standart FS |
 
 ### <a name="multiple-peer-node-configuration"></a>Birden çok eş düğüm yapılandırması

@@ -14,12 +14,12 @@ ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: ffcb6d6d7955a2b276850d6db9d08a2cc5c16adb
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0188de6d3a29034ec00999b2e07cab6ddb911631
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565029"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176268"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack'te desteklenen sanal makine boyutları
 
@@ -135,14 +135,14 @@ Dengeli CPU / bellek oranı genel amaçlı bir VM boyutları sunar. Test ve geli
 ### <a name="fsv2-series"></a>Fsv2-serisi
 *Azure Stack 1804 veya sonraki bir sürümü gerektirir* 
 
-|Boyut     |Sanal işlemci     |Bellek (GiB) | Geçici depolama alanı (GiB)  | En yüksek işletim sistemi disk aktarım hızı (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski / aktarım hızı (IOPS) |
-|---------------------|----|----|-----|-----|-------|--------------|
-|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4 x 2300    |
-|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8 x 2300    |
-|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16 x 2300  |
-|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32 x 2300  |
-|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32 x 2300  |
-|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32 x 2300  |
+|Boyut     |Sanal işlemci     |Bellek (GiB) | Geçici depolama alanı (GiB)  | En yüksek işletim sistemi disk aktarım hızı (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski / aktarım hızı (IOPS) | En fazla NIC |
+|---------------------|----|----|-----|-----|-------|--------------|---------|
+|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4 x 2300    |2 |
+|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8 x 2300    |4 |
+|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16 x 2300  |8 |
+|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32 x 2300  |8 |
+|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32 x 2300  |8 |
+|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32 x 2300  |8 |
 
 
 ## <a name="memory-optimized"></a>Bellek için iyileştirilmiş

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/03/2019
 ms.author: mayg
-ms.openlocfilehash: 238e7a26be67fcfd2a0b79a87409e5c0d57e0cbf
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e75d4b1701944e206fcf6ded2dcb6d1e1fbc77cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338374"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900565"
 ---
 # <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Fiziksel sunucuları azure'a VMware vm'lerinin olağanüstü durum kurtarma için hedef ortamı hazırlama
 
@@ -22,7 +22,7 @@ Bu makalede, hedef VMware sanal makineleri veya fiziksel sunucuları Azure'a ço
 ## <a name="prerequisites"></a>Önkoşullar
 
 Varsayılır:
-- Kurtarma Hizmetleri kasası üzerinde oluşturduğunuz [Azure portalında](http://portal.azure.com "Azure portalında") kaynak makinelerinizi korumak için
+- Kurtarma Hizmetleri kasası üzerinde oluşturduğunuz [Azure portalında](https://portal.azure.com "Azure portalında") kaynak makinelerinizi korumak için
 - Kaynak çoğaltmak için şirket içi ortamınızı kurulumun [VMware sanal makinelerini](vmware-azure-set-up-source.md) veya [fiziksel sunucuları](physical-azure-set-up-source.md) azure'a.
 
 ## <a name="prepare-target"></a>Hedefi hazırla

@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e548188f1fc44ec32b90d0eaaa4154602e3e51c4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 665f8ac9a8b0738ed23649673c548bc6b1774d2d
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764090"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259967"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack için kimlik genel bakış
 
@@ -60,12 +60,12 @@ Kullandığınız kimlik çözümü nasıl oluşturabileceğinizi ve kullanıcı
 
 Azure Stack kullanıcı hesapları:
 
-- Oluşturulan *username@domain* biçimi. AD FS bir Active Directory örneğine kullanıcı hesaplarını eşler olsa da, AD FS kullanımını desteklemiyor  *\\ \<etki alanı >\\\<diğer adı >* biçimi.
+- Oluşturulan *kullanıcıadı\@etki alanı* biçimi. AD FS bir Active Directory örneğine kullanıcı hesaplarını eşler olsa da, AD FS kullanımını desteklemiyor  *\\ \<etki alanı >\\\<diğer adı >* biçimi.
 - Çok faktörlü kimlik doğrulaması kullanacak şekilde ayarlanabilir.
 - Kuruluşun dizin nerede bunlar önce kaydetmeniz, dizini için kısıtlanır.
 - Şirket içi dizinlerinizi içeri aktarılabilir. Daha fazla bilgi için [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](/azure/active-directory/connect/active-directory-aadconnect).
 
-Kuruluşunuzun Kiracı portalında oturum açtığınızda, kullandığınız *https://portal.local.azurestack.external* URL'si. Azure Stack kaydetmek için kullanılan bir başka etki alanlarından Azure Stack portalında oturum açtığınızda, Azure Stack kaydetmek için kullanılan etki alanı adı portala eklenmesi gereken url. Örneğin, Azure Stack ile Fabrikam.onmicrosoft.com adresli kayıtlı olup olmadığını ve oturum açma kullanıcı hesabı olan admin@contoso.com, kullanıcı portalında oturum açmak için kullanılacak url şu şekilde olacaktır: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Kuruluşunuzun Kiracı portalında oturum açtığınızda, kullandığınız *https:\//portal.local.azurestack.external* URL'si. Azure Stack kaydetmek için kullanılan bir başka etki alanlarından Azure Stack portalında oturum açtığınızda, Azure Stack kaydetmek için kullanılan etki alanı adı portala eklenmesi gereken url. Örneğin, Azure Stack ile Fabrikam.onmicrosoft.com adresli kayıtlı olup olmadığını ve oturum açma kullanıcı hesabı olan admin@contoso.com, kullanıcı portalında oturum açmak için kullanılacak url şu şekilde olacaktır: https:\//portal.local.azurestack.external/ Fabrikam.onmicrosoft.com adresli.
 
 ### <a name="guest-users"></a>Konuk kullanıcılar
 
@@ -73,7 +73,7 @@ Konuk kullanıcıları, dizininizdeki kaynaklara erişim izni verilen diğer dir
 
 Konuk kullanıcıları davet etmek için bulut operatörleri ve kullanıcıları kullanabilirsiniz [Azure AD B2B işbirliği](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Davet edilen kullanıcıları dizininizden belgelerin, kaynakları ve uygulamalara erişim elde ve kendi kaynakları ve veri üzerinde denetim sağlayın. 
 
-Bir Konuk kullanıcı olarak, başka bir kuruluşun directory kiracısı ile oturum açabilir. Bunu yapmak için dizin adı, bir kuruluşun portala ekleme URL'si. Örneğin, Contoso kuruluşa ait ve Fabrikam dizine oturum açmasını istiyorsanız kullanmanız https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Bir Konuk kullanıcı olarak, başka bir kuruluşun directory kiracısı ile oturum açabilir. Bunu yapmak için dizin adı, bir kuruluşun portala ekleme URL'si. Örneğin, Contoso kuruluşa ait ve Fabrikam dizine oturum açmasını istiyorsanız https kullanın:\//portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ### <a name="applications"></a>Uygulamalar
 
@@ -156,10 +156,10 @@ Uygulamalar ve kullanıcılar için Azure Stack mimarisinin dört katmanı taraf
 
 Kimlik sağlayıcı ile kimlik doğrulaması ve bir JSON Web belirteci almak için aşağıdaki bilgilere sahip olmalıdır:
 
-1. **Kimlik sistemi (yetkili) URL'sini**: Kimlik sağlayıcınız ulaşılabilir URL'si. Örneğin, *https://login.windows.net*.
+1. **Kimlik sistemi (yetkili) URL'sini**: Kimlik sağlayıcınız ulaşılabilir URL'si. Örneğin, *https:\//login.windows.net*.
 2. **Uygulama Kimliği URI'si için Azure Resource Manager**: Azure kaynak kimliği sağlayıcınızdan kayıtlı Yöneticisi için benzersiz tanımlayıcısı. Ayrıca, her Azure Stack yüklemesine de benzersizdir.
 3. **kimlik bilgileri**: Kimlik bilgisi, kimlik sağlayıcısı ile kimlik doğrulaması yapmak için kullanın.
-4. **Azure Resource Manager için URL**: Azure Resource Manager hizmet konumu URL'dir. Örneğin, *https://management.azure.com* veya *https://management.local.azurestack.external*.
+4. **Azure Resource Manager için URL**: Azure Resource Manager hizmet konumu URL'dir. Örneğin, *https:\//management.azure.com* veya *https:\//management.local.azurestack.external*.
 
 (Bir istemci, uygulama veya kullanıcı) sorumlu bir kaynağa erişmek için kimlik doğrulama isteği yaptığında, istek şunları içermelidir:
 

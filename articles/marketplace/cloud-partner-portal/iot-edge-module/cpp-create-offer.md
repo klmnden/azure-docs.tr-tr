@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d7943119ed29e03afb6b089a913d4ba2baddc166
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 69ee0c0add2895b30a60db577cc11c83a0e00bb8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431754"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854781"
 ---
 # <a name="create-a-new-iot-edge-module-offer-with-the-cloud-partner-portal"></a>Bulut iş ortağı portalı ile yeni bir IOT Edge modülü teklif oluşturma
 
@@ -34,7 +34,7 @@ Bu makalede, oluşturun ve IOT Edge modülü teklife girdiyi Azure Market'te yay
 
 ## <a name="new-offer-form"></a>Yeni Teklif formu 
 
-Oturum [bulut iş ortağı portalı](http://cloudpartner.azure.com/)ve ardından **+ yeni teklif** sol menü çubuğundan. Yeni Teklif menüsünde **IOT Edge modülleri** görüntülenecek **yeni teklif** oluşturmak ve yeni bir IOT Edge modülü teklif için varlıklar tanımlayan işlemini başlatın. 
+Oturum [bulut iş ortağı portalı](https://cloudpartner.azure.com/)ve ardından **+ yeni teklif** sol menü çubuğundan. Yeni Teklif menüsünde **IOT Edge modülleri** görüntülenecek **yeni teklif** oluşturmak ve yeni bir IOT Edge modülü teklif için varlıklar tanımlayan işlemini başlatın. 
 
 ![Yeni IOT Edge modülü kullanıcı arabirimi seçimi sunar](./media/new-iot-edge-module-offer.png)
 
@@ -42,7 +42,7 @@ Oturum [bulut iş ortağı portalı](http://cloudpartner.azure.com/)ve ardından
 
 **Yeni teklif** sayfası IOT Edge modülü Teklif türü sekme ve yeni bir teklif oluşturmak için kullanacağınız form alanlarını sunmaktadır. Aşağıdaki makalelerdeki her yeni IOT Edge modülü teklifiniz için Destek Hizmetleri ve varlık gruplarını tanımlamak için sekmesinde kullanmayı açıklar.
 
-- [Teklif ayarları sekmesi](./cpp-offer-settings-tab.md)
-- [SKU'ları sekmesi](./cpp-skus-tab.md)
+- [Teklif Ayarları sekmesi](./cpp-offer-settings-tab.md)
+- [SKU'lar sekmesi](./cpp-skus-tab.md)
 - [Market sekmesi](./cpp-marketplace-tab.md)
-- [Destek sekmesine](./cpp-support-tab.md)
+- [Destek sekmesi](./cpp-support-tab.md)

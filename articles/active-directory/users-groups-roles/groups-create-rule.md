@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79b40af914cd55ae37205123df595ab177c87752
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098211"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199690"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Dinamik bir grup oluşturun ve durumunu denetle
 
@@ -34,11 +34,11 @@ Söz dizimi, desteklenen özellikler, işleçler ve değerleri için bir üyelik
 2. Seçin **grupları**.
 3. Seçin **tüm grupları**seçip **yeni grup**.
 
-   ![Yeni grubu eklemek](./media/groups-create-rule/new-group-creation.png)
+   ![Yeni grubu eklemek için komutu seçin](./media/groups-create-rule/new-group-creation.png)
 
 4. Üzerinde **grubu** sayfasında, bir ad ve yeni grup için bir açıklama girin. Seçin bir **üyelik türü** için kullanıcılara veya cihazlara tıklayın ve ardından **dinamik sorgu Ekle**. Basit bir kural oluşturmak için kural Oluşturucu'yu kullanabilirsiniz veya [kendiniz bir üyelik kuralı yazma](groups-dynamic-membership.md).
 
-   ![Dinamik üyelik kuralı ekle](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Dinamik Grup Üyeliği Kuralı Ekle](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 5. Üyelik sorgunuz için kullanılabilen özel uzantı özellikleri görmek için
    1. Seçin **özel uzantı özelliklerini alma**
@@ -74,7 +74,7 @@ Aşağıdaki durum iletileri için gösterilen **son güncelleştirme üyelik** 
 
 Belirli bir grup üyeliği kuralı işlenirken bir hata meydana gelirse, üzerindeki bir uyarı gösterilir **genel bakış sayfasında** grubu için. Hayır dinamik üyelik güncelleştirmeleri Kiracı içindeki tüm gruplar için daha sonra 24 saat için işlenebilir varsa bir uyarı üzerindeki gösterilir **tüm grupları**.
 
-![işleme hata iletisi](./media/groups-create-rule/processing-error.png)
+![hata iletisi uyarıları işleme](./media/groups-create-rule/processing-error.png)
 
 Bu makaleler, Azure Active Directory içinde grupları hakkında ek bilgi sağlar.
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 68bcddeee2cec1a77f20f8f470669f170fa50743
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 85757ace20501bea1db22ecfdd2fdb63284038d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992492"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108755"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL veritabanı yedeklemeleri için 10 yıla kadar Store
 
@@ -56,22 +56,20 @@ W = 12 Hafta (84 gün), M = 12 ay (365 gün), Y = 10 yıl (3650 gün) WeekOfYear
    ![LTR örneği](./media/sql-database-long-term-retention/ltr-example.png)
 
 
- 
+
 Yukarıdaki ilkesini değiştirmek için açtığınız ve yedek kopyaların W = 0 (hiçbir haftalık yedeklemeler), temposu kümesi olarak değiştirir, yukarıdaki tabloda vurgulanmış tarihlere göre gösterilir. Buna göre bu yedeklemeler tutmak için gerekli depolama miktarını azaltır. 
 
 > [!NOTE]
-1. Kopyalama işlemi, mevcut bir veritabanının üzerine herhangi bir performans etkisi yoktur dolayısıyla LTR kopyalarını Azure depolama hizmeti tarafından oluşturulur.
-2. İlke, gelecekteki yedeklemeler için geçerlidir. Örneğin Belirtilen WeekOfYear zaman İlkesi yapılandırılır geçmişte ise, sonraki yılın ilk LTR yedekleme oluşturulur. 
-3. LTR depolamadan bir veritabanını geri yüklemek için zaman damgası üzerinde dayalı belirli bir yedekleme seçebilirsiniz.   Veritabanını özgün veritabanıyla aynı abonelik altında var olan herhangi bir sunucuya geri yüklenebilir. 
-> 
+> 1. Kopyalama işlemi, mevcut bir veritabanının üzerine herhangi bir performans etkisi yoktur dolayısıyla LTR kopyalarını Azure depolama hizmeti tarafından oluşturulur.
+> 2. İlke, gelecekteki yedeklemeler için geçerlidir. Örneğin Belirtilen WeekOfYear zaman İlkesi yapılandırılır geçmişte ise, sonraki yılın ilk LTR yedekleme oluşturulur. 
+> 3. LTR depolamadan bir veritabanını geri yüklemek için zaman damgası üzerinde dayalı belirli bir yedekleme seçebilirsiniz.   Veritabanını özgün veritabanıyla aynı abonelik altında var olan herhangi bir sunucuya geri yüklenebilir. 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>Coğrafi çoğaltma ve uzun süreli yedek saklama
 
 Son yük devretme işlemleri için hazırlamak ve coğrafi-ikincil veritabanı'nda aynı LTR ilkesi yapılandırma, iş sürekliliği çözümünüz olarak etkin coğrafi çoğaltma veya yük devretme grubu kullanıyorsanız. Yedeklemeler, ikincil veritabanı ' oluşturulmaz gibi LTR depolama maliyetlerinizi artırmaz. İkincil birincil olduğunda yalnızca yedekleme oluşturulur. Böylece yük devretme tetiklendiğinde LTR yedekleme kesintiye nesil garanti eder ve birincil, ikincil bölgeye taşır. 
 
 > [!NOTE]
-Özgün birincil veritabanını yük devretme için neden olabilir kesinti kurtarıldığında, yeni ikincil olur. Bu nedenle, yedekleme oluşturma değil sürdürür ve birincil yeniden olana kadar mevcut LTR ilke etkili olmaz. 
-> 
+> Özgün birincil veritabanını yük devretme için neden olabilir kesinti kurtarıldığında, yeni ikincil olur. Bu nedenle, yedekleme oluşturma değil sürdürür ve birincil yeniden olana kadar mevcut LTR ilke etkili olmaz. 
 
 ## <a name="configure-long-term-backup-retention"></a>Uzun süreli yedek saklama yapılandırma
 

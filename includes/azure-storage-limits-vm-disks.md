@@ -2,30 +2,32 @@
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: 09b4f94db3464943a8367bfb3ca89f9a88446193
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2936fd318f08c74675f7e8b382c861f4a28319fc
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554182"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58261460"
 ---
 Bir Azure sanal makinesine veri diski sayısı ekleyebilirsiniz. Bir sanal makinenin veri diskleri için ölçeklenebilirlik ve performans hedefleri bağlı olarak, performans ve kapasite gereksinimlerini karşılamak için gereken disk türü ve numarası belirleyebilirsiniz.
 
 > [!IMPORTANT]
 > En iyi performans için olası azalmayı önlemek için sanal makineye bağlı, yüksek oranda kullanılan disk sayısını sınırlayın. Eklenen tüm diskler aynı anda yüksek oranda kullanılan değil, sanal makine diskleri daha fazla sayıda destekleyebilir.
 
-* **İçin Azure yönetilen diskler:** 
+**İçin Azure yönetilen diskler:**
 
-> | Kaynak | Varsayılan limit | Üst sınır |
+Aşağıdaki tabloda, varsayılan ve maksimum sınırları her Abonelikteki bölge başına kaynak sayısı gösterilmektedir.
+
+> | Kaynak | Varsayılan limit  | Üst sınır |
 > | --- | --- | --- |
-> | Standart yönetilen diskler | 10,000 | 50,000 |
-> | Standart SSD yönetilen diskler | 10,000 | 50,000 |
-> | Premium yönetilen diskler | 10,000 | 50,000 |
-> | Standard_LRS anlık görüntüleri | 10,000 | 50,000 |
-> | Standard_ZRS anlık görüntüleri | 10,000 | 50,000 |
-> | Yönetilen bir görüntü | 10,000 | 50,000 |
+> | Standart yönetilen diskler | 25,000 | 50,000 |
+> | Standart SSD yönetilen diskler | 25,000 | 50,000 |
+> | Premium yönetilen diskler | 25,000 | 50,000 |
+> | Standard_LRS anlık görüntüleri | 25,000 | 50,000 |
+> | Standard_ZRS anlık görüntüleri | 25,000 | 50,000 |
+> | Yönetilen bir görüntü | 25,000 | 50,000 |
 
 * **Standart depolama hesapları için:** Bir standart depolama hesabı, 20.000 IOPS toplam en fazla istek oranını sahiptir. Tüm standart depolama hesabı, sanal makine disklerinizde toplam IOPS bu sınırı aşmamalıdır.
   

@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights ile Hızlı Başlangıç | Microsoft Docs
-description: Application Insights ile izleme için ASP.NET Core Web Uygulamasını hızlıca ayarlamaya ilişkin yönergeler sağlar
+description: Application Insights ile izleme için bir ASP.NET Core Web uygulaması hızlı bir şekilde ayarlamak için yönergeler sağlar
 services: application-insights
 keywords: ''
 author: mrbullwinkle
@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 14295bca12e64174d03cfd1c2bd8d214d801e8e5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fe986d24df8dce6a390d21a262056f7ab857070c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261069"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886737"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core Web Uygulamanızı İzlemeye Başlama
 
 Azure Application Insights ile web uygulamanızı kullanılabilirlik, performans ve kullanım bakımından kolayca izleyebilirsiniz. Ayrıca, bir kullanıcının bildirmesini beklemeden uygulamanızdaki hataları hızlıca tanımlayıp tespit edebilirsiniz. 
 
-Bu hızlı başlangıç, Application Insights SDK'sını var olan bir ASP.NET Core web uygulamasına eklerken size kılavuzluk eder. 
+Bu hızlı başlangıçta, Application Insights SDK'sını var olan bir ASP.NET Core web uygulamasına eklerken size kılavuzluk eder. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -33,7 +33,7 @@ Bu hızlı başlangıcı tamamlamak için:
 - [.NET Core 2.0 SDK yükleme](https://www.microsoft.com/net/core)
 - Bir Azure Aboneliği ve var olan bir .NET Core web uygulaması gerekir.
 
-ASP.NET Core web uygulamanız yoksa, adım adım kılavuzumuzu kullanarak [ASP.NET Core uygulaması oluşturabilir ve Application Insights ekleyebilirsiniz.](../../azure-monitor/app/asp-net-core.md)
+Bir ASP.NET Core web uygulaması yoksa, adım adım kılavuzunu kullanabilirsiniz [bir ASP.NET Core uygulaması oluşturma ve Application Insights ekleyin.](../../azure-monitor/app/asp-net-core.md)
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 

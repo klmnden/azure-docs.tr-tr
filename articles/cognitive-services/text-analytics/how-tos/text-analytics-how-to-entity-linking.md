@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 1ea34d69c867d2d14496320f497df2ece5280e0c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 78cc200a7bbaa2673cf6fea71d9be123fc96a75f
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009349"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258080"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Adlandırılmış varlık tanıma, metin analizi (Önizleme) kullanma
 
@@ -62,7 +62,7 @@ Varlık bağlama çeşitli dillerde kullanarak, karşılık gelen Bilgi Bankası
 | DateTime      | Süre      | "1 dakika ve 45 saniye"   | 
 | DateTime      | Ayarla           | "her Salı"     | 
 | DateTime      | TimeZone      |    | 
-| URL'si           | YOK\*         | "<https://www.bing.com>"    |
+| URL'si           | YOK\*         | "https:\//www.bing.com"    |
 | Email         | YOK\*         | "support@contoso.com" |
 
 \* Giriş ve ayıklanan varlıklar bağlı olarak, bazı varlıklar atlasa `SubType`.

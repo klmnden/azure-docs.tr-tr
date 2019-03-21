@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 653d3e357e3a02659a225b4e26c386ca54b6288f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 52ad40a2521f21efee3b9f98b46c2e2e6343b656
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715435"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098313"
 ---
 # <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Apache Pig işleri, REST kullanarak HDInsight üzerinde Apache Hadoop ile çalıştırın
 
@@ -58,8 +58,8 @@ Bir Azure HDInsight kümesi için REST istekleri yaparak Apache Pig Latin işler
 
     Bu komutta kullanılan parametreler aşağıdaki gibidir:
 
-    * **-u**: Kullanıcı adı ve istek kimliğini doğrulamak için kullanılan parola
-    * **-G**: Bu isteği bir GET isteği olduğunu belirtir
+   * **-u**: Kullanıcı adı ve istek kimliğini doğrulamak için kullanılan parola
+   * **-G**: Bu isteği bir GET isteği olduğunu belirtir
 
      URL'nin başına **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, tüm istekler için aynıdır. Yol **/status**, sunucu için istek WebHCat (Ayrıca templeton olarak da bilinir) durumunu döndürmek üzere olduğunu gösterir.
 
@@ -71,18 +71,18 @@ Bir Azure HDInsight kümesi için REST istekleri yaparak Apache Pig Latin işler
 
     Bu komutta kullanılan parametreler aşağıdaki gibidir:
 
-    * **-d**: Çünkü `-G` kullanılmıyorsa, varsayılan POST yöntemine istek. `-d` istekle beraber gönderilen veri değerleri belirtir.
+   * **-d**: Çünkü `-G` kullanılmıyorsa, varsayılan POST yöntemine istek. `-d` istekle beraber gönderilen veri değerleri belirtir.
 
-    * **User.Name**: Komutu çalıştıran kullanıcının
-    * **yürütme**: Yürütmek için Pig Latin açıklamaları
-    * **statusdir**: Bu görev için durum yazılan dizini
+   * **User.Name**: Komutu çalıştıran kullanıcının
+   * **yürütme**: Yürütmek için Pig Latin açıklamaları
+   * **statusdir**: Bu görev için durum yazılan dizini
 
-    > [!NOTE]  
-    > Pig Latin açıklamaları boşluk tarafından değiştirilen uyarı `+` Curl ile kullanılan karakter.
+     > [!NOTE]  
+     > Pig Latin açıklamaları boşluk tarafından değiştirilen uyarı `+` Curl ile kullanılan karakter.
 
-    Bu komut, örneğin, iş durumunu denetlemek için kullanılan bir iş kimliği döndürülmesi gerekir:
+     Bu komut, örneğin, iş durumunu denetlemek için kullanılan bir iş kimliği döndürülmesi gerekir:
 
-        {"id":"job_1415651640909_0026"}
+       {"id": "job_1415651640909_0026"}
 
 3. İşin durumunu denetlemek için aşağıdaki komutu kullanın.
 

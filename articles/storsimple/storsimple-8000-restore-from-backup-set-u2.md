@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 57290971185d1fd64b3b5ca6ac37535070ddab9e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 6a2e022697ced90d968075b7a4abe4163be7a539
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496491"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082815"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Bir yedekleme kümesinden StorSimple birimini geri yükleme
 
@@ -110,9 +110,9 @@ Kullanabileceğiniz **yedekleme kataloğunu** StorSimple toplu belirli bir yedek
    3. Aşağı açılan listeden, birim veya yedekleme ilkesi seçmek için istediğiniz yedekleme için seçin.
    4. Tıklayın **Uygula** bu sorguyu yürütmek için.
 
-    Yedeklemeleri seçili birimle ilişkilendirilen veya yedekleme İlkesi yedekleme ayarları listesinde görüntülenmelidir.
+      Yedeklemeleri seçili birimle ilişkilendirilen veya yedekleme İlkesi yedekleme ayarları listesinde görüntülenmelidir.
    
-    ![Yedekleme kümesi listesi](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
+      ![Yedekleme kümesi listesi](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
      
 3. İlişkili birimleri görüntülemek için yedekleme kümesini genişletin. Geri yüklemeden önce bu birimleri ana bilgisayar ve cihaz çevrimdışına alınması gerekir. Birimleri erişim **birimleri** dikey penceresinde, cihazınızın ve sonra adımları [bir birimi çevrimdışı duruma](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) çevrimdışı duruma getirmek için.
    
@@ -127,9 +127,9 @@ Kullanabileceğiniz **yedekleme kataloğunu** StorSimple toplu belirli bir yedek
    
     ![Onay sayfası](./media/storsimple-8000-restore-from-backup-set-u2/restorebu2.png)
 
-7.  Tıklayın **geri**. Bu erişerek görüntüleyebileceğiniz bir geri yükleme işi başlatan **işleri** sayfası.
+7. Tıklayın **geri**. Bu erişerek görüntüleyebileceğiniz bir geri yükleme işi başlatan **işleri** sayfası.
 
-    ![Onay sayfası](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Onay sayfası](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. Geri yükleme tamamlandıktan sonra birimlerinizi içeriğini yedekleme birimlerden tarafından değiştirilmiş olduğunu doğrulayın.
 

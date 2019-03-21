@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: caca931806aed7e1868c126d4629073bcea4b900
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 3ae43f7427996f8be15b22fec4406bbdfe8aa4fe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098621"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838451"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Yerel kullanıcı veya sistem hesabı olarak bir hizmet başlangıcı komut dosyası çalıştırma
 Yürütülebilir bir Service Fabric hizmeti başlatıldığında önce bazı yapılandırma ve kurulum için bir iş çalıştırmak gerekli olabilir.  Örneğin, ortam değişkenlerini yapılandırma. Hizmeti için hizmet bildiriminde yürütülebilir hizmeti başlatıldığında önce çalıştırılacak bir betik belirtebilirsiniz. Hangi hesabı değiştirebilirsiniz Hizmet Kurulumu giriş noktası için bir RunAs ilkesini yapılandırarak yürütülebilir Kurulum altında çalışır.  Ayrı bir Kurulum giriş noktası yürütülebilir hizmet konağı uzun sürelerle yüksek ayrıcalıklarla çalıştırmanız gerekmez, kısa bir süre için yüksek ayrıcalıklı yapılandırması çalıştırmanıza olanak tanır.
@@ -34,8 +34,8 @@ Kurulum betiği belirten bir durum bilgisi olmayan hizmet için bir basit hizmet
 <ServiceManifest Name="MyStatelessServicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Description>An example service manifest.</Description>
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="MyStatelessServiceType" />
@@ -74,7 +74,7 @@ Aşağıdaki uygulama bildirim örnek (SetupAdminUser) kullanıcı yönetici hes
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="MyStatelessService_InstanceCount" DefaultValue="-1" />
   </Parameters>
@@ -113,7 +113,7 @@ Genellikle, bir yönetici hesabı yerine yerel sistem hesabı kullanarak başlan
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyApplicationType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="MyStatelessService_InstanceCount" DefaultValue="-1" />
   </Parameters>

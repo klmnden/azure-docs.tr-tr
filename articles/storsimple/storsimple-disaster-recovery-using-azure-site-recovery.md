@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: f5b128306389a87c432b869b4756a6d232dc903c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f5eefd1d3fa26738729d98e60d8a56cd8d33d86c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566049"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084887"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>StorSimple üzerinde barındırılan dosya paylaşımları için Azure Site Recovery kullanarak otomatik olağanüstü durum kurtarma çözümü
 ## <a name="overview"></a>Genel Bakış
@@ -179,7 +179,7 @@ Dosya paylaşımlarının yük devretme işlemini otomatikleştirmek ASR'deki bi
    - * RecoveryPlanName ***- StorageAccountKey**: Yukarıdaki depolama hesabı için erişim anahtarı.
    - * RecoveryPlanName ***- VMGUIDS**: Bir VM koruma sırasında Azure Site Recovery VM üzerinde başarısız ayrıntılarını sağlayan benzersiz bir kimliği her VM atar. VMGUID elde etmek için seçin **kurtarma Hizmetleri** sekmesine **korumalı öğesi** &gt; **koruma grupları** &gt;  **Makineleri** &gt; **özellikleri**. Birden fazla VM varsa, GUID'leri virgülle ayrılmış bir dize olarak ekleyin.
 
-    Kurtarma planı fileServerpredayRP, adıdır, örneğin, ardından, **değişkenleri**, **bağlantıları** ve **sertifikaları** sekmesi, ekledikten sonra aşağıdaki gibi görünmelidir Tüm varlıklar için.
+     Kurtarma planı fileServerpredayRP, adıdır, örneğin, ardından, **değişkenleri**, **bağlantıları** ve **sertifikaları** sekmesi, ekledikten sonra aşağıdaki gibi görünmelidir Tüm varlıklar için.
 
       ![Varlıklar](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
@@ -332,30 +332,30 @@ Kapasite planlama en az iki önemli işlemden oluşur:
    - Gerekli Internet bant genişliği belirleniyor.
 
 ## <a name="limitations"></a>Sınırlamalar
-   - Şu anda yalnızca 1 StorSimple cihazı yerine (tek StorSimple Cloud Appliance için) çalışılabilir. Senaryo birden çok StorSimple cihazını yayılan bir dosya sunucusu henüz desteklenmiyor.
-   - Bir sanal makine için koruma etkinleştirilirken bir hata alırsanız, iSCSI hedefleri kesildikten emin olun.
-   - Birim kapsayıcıları yayılan yedekleme ilkeleri nedeniyle birlikte gruplandırılmış tüm birim kapsayıcıları üzerinden araya getirilir.
-   - Seçtiğiniz birim kapsayıcılarından tüm birimler yük devretme.
-   - Tek bir StorSimple Cloud Appliance en fazla kapasitesi 64 TB'a kadar çünkü 64 TB'a kadar fazla birimleri üzerinden devredilemez.
-   - Planlanan/planlanmamış yük devretme başarısız olur ve Azure Vm'leri oluşturulur, ardından VM'ler temizlemeyin. Bunun yerine, bir yeniden çalışma yapın. Vm'leri silerseniz daha sonra şirket içi Vm'leri yeniden açılamaz.
-   - Bir yük devretme sonrasında birimleri görmek mümkün değilse, Vm'lere gidin, Disk Yönetimi'ni açın, diskleri yeniden tarayın ve ardından bunları çevrimiçi duruma getirmeden.
-   - Bazı durumlarda, DR sitesi sürücü harflerini harf şirket içi farklı olabilir. Bu meydana gelirse, yük devretme işlemi tamamlandıktan sonra sorun el ile düzeltmeniz gerekir.
-   - Yük devretme işi zaman aşımı: StorSimple betik zaman aşımı birim kapsayıcıları için yük devretme betiği (şu anda 120 dakika) başına Azure Site Recovery sınırından daha uzun sürerse olur.
-   - Yedekleme işi zaman aşımı: Birimlerin yedeğini betik (şu anda 120 dakika) başına Azure Site Recovery sınırından daha uzun sürerse StorSimple betik zaman aşımına uğradı.
+- Şu anda yalnızca 1 StorSimple cihazı yerine (tek StorSimple Cloud Appliance için) çalışılabilir. Senaryo birden çok StorSimple cihazını yayılan bir dosya sunucusu henüz desteklenmiyor.
+- Bir sanal makine için koruma etkinleştirilirken bir hata alırsanız, iSCSI hedefleri kesildikten emin olun.
+- Birim kapsayıcıları yayılan yedekleme ilkeleri nedeniyle birlikte gruplandırılmış tüm birim kapsayıcıları üzerinden araya getirilir.
+- Seçtiğiniz birim kapsayıcılarından tüm birimler yük devretme.
+- Tek bir StorSimple Cloud Appliance en fazla kapasitesi 64 TB'a kadar çünkü 64 TB'a kadar fazla birimleri üzerinden devredilemez.
+- Planlanan/planlanmamış yük devretme başarısız olur ve Azure Vm'leri oluşturulur, ardından VM'ler temizlemeyin. Bunun yerine, bir yeniden çalışma yapın. Vm'leri silerseniz daha sonra şirket içi Vm'leri yeniden açılamaz.
+- Bir yük devretme sonrasında birimleri görmek mümkün değilse, Vm'lere gidin, Disk Yönetimi'ni açın, diskleri yeniden tarayın ve ardından bunları çevrimiçi duruma getirmeden.
+- Bazı durumlarda, DR sitesi sürücü harflerini harf şirket içi farklı olabilir. Bu meydana gelirse, yük devretme işlemi tamamlandıktan sonra sorun el ile düzeltmeniz gerekir.
+- Yük devretme işi zaman aşımı: StorSimple betik zaman aşımı birim kapsayıcıları için yük devretme betiği (şu anda 120 dakika) başına Azure Site Recovery sınırından daha uzun sürerse olur.
+- Yedekleme işi zaman aşımı: Birimlerin yedeğini betik (şu anda 120 dakika) başına Azure Site Recovery sınırından daha uzun sürerse StorSimple betik zaman aşımına uğradı.
    
-   > [!IMPORTANT]
-   > Yedekleme Azure portalından el ile çalıştırın ve ardından kurtarma planını yeniden çalıştırın.
+  > [!IMPORTANT]
+  > Yedekleme Azure portalından el ile çalıştırın ve ardından kurtarma planını yeniden çalıştırın.
    
-   - Kopyalama işi zaman aşımı: Birimleri kopyalama komut dosyası (şu anda 120 dakika) başına Azure Site Recovery sınırından daha uzun sürerse StorSimple betik zaman aşımına uğradı.
-   - Zaman eşitleme hatası: StorSimple yedekleme portalda başarılı olsa bile, yedeklemeler başarısız belirten kullanıma hataları komutlar. Bunun olası bir nedeni, StorSimple gereç saat saat dilimindeki geçerli saati ile eşitlenmemiş olabilir olabilir.
+- Kopyalama işi zaman aşımı: Birimleri kopyalama komut dosyası (şu anda 120 dakika) başına Azure Site Recovery sınırından daha uzun sürerse StorSimple betik zaman aşımına uğradı.
+- Zaman eşitleme hatası: StorSimple yedekleme portalda başarılı olsa bile, yedeklemeler başarısız belirten kullanıma hataları komutlar. Bunun olası bir nedeni, StorSimple gereç saat saat dilimindeki geçerli saati ile eşitlenmemiş olabilir olabilir.
    
-   > [!IMPORTANT]
-   > Gereç saat saat dilimindeki geçerli saati ile eşitleyin.
+  > [!IMPORTANT]
+  > Gereç saat saat dilimindeki geçerli saati ile eşitleyin.
    
-   - Gereç yük devretme hatası: Varsa bir gereç yük devretme kurtarma planı çalışırken StorSimple betiği başarısız olabilir.
+- Gereç yük devretme hatası: Varsa bir gereç yük devretme kurtarma planı çalışırken StorSimple betiği başarısız olabilir.
    
-   > [!IMPORTANT]
-   > Kurtarma planı, gereç yük devretme işlemi tamamlandıktan sonra yeniden çalıştırın.
+  > [!IMPORTANT]
+  > Kurtarma planı, gereç yük devretme işlemi tamamlandıktan sonra yeniden çalıştırın.
 
 
 ## <a name="summary"></a>Özet

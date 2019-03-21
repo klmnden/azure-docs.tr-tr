@@ -11,16 +11,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/18/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: c993322bdf4266939eab854e217cae6e90326d29
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 1ea079373edc9b9f1dde6038f1e02e3d7036e052
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991572"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890500"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Azure Stack'te Azure uygulama hizmeti güncelleştirmesi
 
@@ -52,7 +52,7 @@ Bu işlem sırasında yükseltme yapar:
 
 Azure Stack üzerinde App Service'te dağıtımınızın yükseltmek için aşağıdaki adımları izleyin:
 
-1. İndirme [uygulama hizmeti yükleyicisi](https://aka.ms/appsvcupdate4installer)
+1. İndirme [uygulama hizmeti yükleyicisi](https://aka.ms/appsvcupdate5installer)
 
 2. Appservice.exe bir yönetici olarak çalıştır
 
@@ -72,13 +72,13 @@ Azure Stack üzerinde App Service'te dağıtımınızın yükseltmek için aşa�
 
    1. Tıklayın **Connect** düğmesinin yanındaki **Azure Stack aboneliklerini** kutusu.
         * Azure Active Directory (Azure AD) kullanıyorsanız, Azure AD yönetici hesabı ve Azure Stack dağıttığınızda sağladığınız parolayı girin. Tıklayın **oturum**.
-        * Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsanız, yönetici hesabı sağlayın. Örneğin, *cloudadmin@azurestack.local*. Parolanızı girin ve tıklayın **oturum**.
+        * Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsanız, yönetici hesabı sağlayın. Örneğin, *cloudadmin\@azurestack.local*. Parolanızı girin ve tıklayın **oturum**.
    2. İçinde **Azure Stack aboneliklerini** kutusunda **varsayılan sağlayıcı aboneliği**.
    3. İçinde **Azure Stack konumları** kutusunda, için dağıtmakta bölgeyi karşılık gelen konum seçin. Örneğin, **yerel** , Azure Stack Geliştirme Seti için dağıtma.
    4. Mevcut bir App Service dağıtımı algılanırsa, kaynak grubu ve depolama hesabı doldurulur ve devre dışı.
    5. Tıklayın **sonraki** yükseltme özetini gözden geçirmek için.
 
-    ![Uygulama Hizmeti yüklemesi algılandı][3]
+      ![Uygulama Hizmeti yüklemesi algılandı][3]
 
 8. Özet sayfasında:
    1. Yaptığınız seçimleri doğrulayın. Değişiklik yapmak için kullanmanız **önceki** düğmelerini önceki sayfalarını ziyaret edin.

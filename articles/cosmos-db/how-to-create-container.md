@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: a509710b5d67aefc599b7e7250754aadd7ad9587
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8ce890500c31c1966254e5bca9d23c8fcdd7bb67
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113172"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258301"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Bir Azure Cosmos kapsayıcısı oluşturma
 
@@ -23,7 +23,7 @@ Bu makalede, bir kapsayıcı (koleksiyon, tablo veya grafik) oluşturmanın fark
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-1. [Yeni bir Azure Cosmos DB hesabı oluşturmayı](create-sql-api-dotnet.md#create-a-database-account), ya da mevcut bir hesabı seçin.
+1. [Yeni bir Azure Cosmos DB hesabı oluşturmayı](create-sql-api-dotnet.md#create-account), ya da mevcut bir hesabı seçin.
 
 1. Açık **Veri Gezgini** bölmesi ve select **yeni koleksiyon**. Ardından, şu bilgileri sağlayın:
 

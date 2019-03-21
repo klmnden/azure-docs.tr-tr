@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 937e261405634e88ab234d2fe43ee660a3acc417
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: b6c5df1ef0c93508595e27cbda315281aa3461b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233668"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124295"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics için bir CI/CD işlem hattı ayarlama  
 
@@ -328,17 +328,17 @@ Komut satırında ek olarak, Azure işlem hatları, U-SQL veritabanı projeleri 
    ![U-SQL projesi için CI/CD MSBuild görevi](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
 
-1.  İçeren çözüm başvurulan NuGet paketini almak için NuGet geri yükleme görev eklemek `Azure.DataLake.USQL.SDK`, böylece MSBuild U-SQL dil hedefleri bulabilirsiniz. Ayarlama **Gelişmiş** > **hedef dizin** için `$(Build.SourcesDirectory)/packages` MSBuild bağımsız değişkenleri örnek 2. adımda doğrudan kullanmak istiyorsanız.
+1. İçeren çözüm başvurulan NuGet paketini almak için NuGet geri yükleme görev eklemek `Azure.DataLake.USQL.SDK`, böylece MSBuild U-SQL dil hedefleri bulabilirsiniz. Ayarlama **Gelişmiş** > **hedef dizin** için `$(Build.SourcesDirectory)/packages` MSBuild bağımsız değişkenleri örnek 2. adımda doğrudan kullanmak istiyorsanız.
 
-    ![U-SQL projesi için CI/CD NuGet görevi](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
+   ![U-SQL projesi için CI/CD NuGet görevi](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.  MSBuild bağımsız değişkenleri aşağıdaki örnekte gösterildiği gibi Visual Studio derleme araçları ya da bir MSBuild görevi ayarlayın. Veya Azure işlem hatları derleme işlem hattı, bu bağımsız değişkenleri tanımlayabilirsiniz.
+2. MSBuild bağımsız değişkenleri aşağıdaki örnekte gösterildiği gibi Visual Studio derleme araçları ya da bir MSBuild görevi ayarlayın. Veya Azure işlem hatları derleme işlem hattı, bu bağımsız değişkenleri tanımlayabilirsiniz.
 
    ![U-SQL veritabanı projesi için CI/CD MSBuild değişkenleri tanımlayın](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
 
-    ```
-    /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
-    ```
+   ```
+   /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
+   ```
  
 ### <a name="u-sql-database-project-build-output"></a>U-SQL veritabanı projesi derleme çıkışı
 

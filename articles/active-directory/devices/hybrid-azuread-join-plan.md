@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 018281406bb810f6357ad00948060cedae57fc6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: de80825ccdd331f57dcd31d307196dc0b45b9cc9
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003804"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294595"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Nasıl Yapılır: Hibrit Azure Active Directory join uygulamanızı planlama
 
@@ -50,10 +50,10 @@ Karma Azure AD uygulamanız planlamak için ile kendinizi alıştırın:
 
 |   |   |
 |---|---|
-|![Onay işareti][1]|Cihazları gözden geçir desteklenir|
-|![Onay işareti][1]|Gözden geçirme bilmeniz gerekenler|
-|![Onay işareti][1]|Cihazlarınızı hibrit Azure AD'ye katılma denetlemek nasıl gözden geçirin|
-|![Onay işareti][1]|Senaryonuzu seçin|
+|![İşaretli][1]|Cihazları gözden geçir desteklenir|
+|![İşaretli][1]|Gözden geçirme bilmeniz gerekenler|
+|![İşaretli][1]|Cihazlarınızı hibrit Azure AD'ye katılma denetlemek nasıl gözden geçirin|
+|![İşaretli][1]|Senaryonuzu seçin|
 
 
  
@@ -116,7 +116,8 @@ Hibrit Azure AD'ye katılma, Azure AD ile şirket içi etki alanına katılmış
 
 Windows 10 etki alanına katılmış ise zaten cihazlardır [kayıtlı Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) kiracınız için hibrit Azure AD'ye katılma etkinleştirmeden önce bu duruma kaldırılması önerilir. Windows 10 1809 yayından çift bu durumu önlemek için aşağıdaki değişiklikler yapılmıştır: 
  - Hibrit Azure AD'ye katılmış cihaz olduktan sonra herhangi bir mevcut Azure AD kayıtlı durumu otomatik olarak kaldırılması. 
- - Etki alanına katılmış cihaz Azure AD'ye bu kayıt defteri anahtarı - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" ekleyerek kayıtlı olmasını engelleyebilir = DWORD: 00000001
+ - Etki alanına katılmış cihaz Azure AD'ye bu kayıt defteri anahtarı - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" ekleyerek kayıtlı olmasını engelleyebilir = DWORD: 00000001.
+ - Bu değişiklik, artık Windows 10, 1803 KB4489894 sürümüyle kullanılabilir.
 
 FIPS uyumlu TPM'ler için hibrit Azure AD'ye katılma desteklenmez. FIPS uyumlu TPM'ler cihazlarınız varsa, bunları hibrit Azure AD'ye katılma devam etmeden önce devre dışı bırakmanız gerekir. Microsoft, TPM üreticisine bağımlı olduğu FIPS modundayken TPM'ler için devre dışı bırakmak için herhangi bir aracı sağlamaz. Lütfen OEM donanımınız için desteğe başvurun.
 

@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 14bbb77678a70b51c7f640b501827c5618cce606
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 07a8195969df7ad7afd2bfe2e9124b07144d48cb
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978976"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284791"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Nasıl bağlanın ve bir Azure Windows çalıştıran sanal makine için oturum açın
 Bir Windows masaüstü bilgisayarından Uzak Masaüstü (RDP) oturumu başlatmak için Azure portalında **Bağlan** düğmesini kullanırsınız. Önce sanal makineye bağlanın ve ardından oturum açın.
 
-Bir Mac bilgisayardan bir Windows VM'ye bağlanmak için gibi Mac için bir RDP istemcisi yüklemeniz gerekecektir [Microsoft Uzak Masaüstü](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
+Bir Mac bilgisayardan bir Windows VM'ye bağlanmak için gibi Mac için bir RDP istemcisi yüklemeniz gerekecektir [Microsoft Uzak Masaüstü](https://aka.ms/rdmac).
 
 ## <a name="connect-to-the-virtual-machine"></a>Sanal makineye bağlanma
 1. Önceden yapmadıysanız, [Azure portal](https://portal.azure.com/)da oturum açın
 2. Sol menüden **sanal makineler**.
 3. Listeden sanal makineyi seçin.
 4. Sanal makine için sayfanın üst kısmındaki seçin **Connect**.
-2. Üzerinde **sanal makineye bağlanma** sayfasında, uygun IP adresi ve bağlantı noktası seçin. Çoğu durumda, varsayılan IP adresini ve bağlantı noktası kullanılmalıdır. Seçin **indirme RDP dosyası**indirme RDP dosyası **. Just-ın-time ilke kümesini VM varsa, ilk seçmeniz gerekir **erişim isteği** RDP dosyasını yüklemeden önce erişim istemek için düğme. Tam zamanında İlkesi hakkında daha fazla bilgi için bkz: [yalnızca kullanarak sanal makine erişimini yönetme zamanında İlkesi](../../security-center/security-center-just-in-time.md).
+2. Üzerinde **sanal makineye bağlanma** sayfasında, uygun IP adresi ve bağlantı noktası seçin. Çoğu durumda, varsayılan IP adresini ve bağlantı noktası kullanılmalıdır. **RDP dosyasını indir**'i seçin. Just-ın-time ilke kümesini VM varsa, ilk seçmeniz gerekir **erişim isteği** RDP dosyasını yüklemeden önce erişim istemek için düğme. Tam zamanında İlkesi hakkında daha fazla bilgi için bkz: [yalnızca kullanarak sanal makine erişimini yönetme zamanında İlkesi](../../security-center/security-center-just-in-time.md).
 2. İndirilen RDP dosyasını açın ve seçin **Connect** istendiğinde. 
 2. Bir uyarı alırsınız, `.rdp` bilinmeyen bir yayımcıdan dosyasıdır. Bu beklenen bir durumdur. İçinde **Uzak Masaüstü Bağlantısı** penceresinde **Connect** devam etmek için.
    

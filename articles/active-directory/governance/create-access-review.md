@@ -15,12 +15,12 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ca27e89ad67b0f0755a7dda50572f3dcd857189
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c17078ea14a254f64a41751f2efffc16e2a1e821
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57847391"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Azure AD erişim gözden geçirmeleri grupları ve uygulamaları, erişim gözden geçirmesi oluşturma
 
@@ -31,7 +31,7 @@ Bu makalede, grubu üyeleri veya uygulama erişimi için bir veya daha fazla eri
 ## <a name="prerequisites"></a>Önkoşullar
 
 - [Erişim gözden geçirmeleri etkin](access-reviews-overview.md)
-- Genel yönetici veya kullanıcı hesabı yöneticisi
+- Genel yönetici veya Kullanıcı Yöneticisi
 
 ## <a name="create-one-or-more-access-reviews"></a>Bir veya daha fazla erişim gözden geçirmesi oluşturma
 
@@ -53,7 +53,7 @@ Bu makalede, grubu üyeleri veya uygulama erişimi için bir veya daha fazla eri
 
 1. Erişim gözden geçirme yineleme yapmak için değiştirme **sıklığı** ayarını **bir kez** için **haftalık**, **aylık**,  **Üç aylık** veya **yıllık**ve **süresi** kaç gün yinelenen serisinin her incelenmesi gereken gözden geçirenler girişten açık tanımlamak için kaydırıcı veya metin kutusu. Örneğin, bir aylık gözden geçirilmek üzere ayarlayabileceğiniz en uzun süre 27 incelemeleri çakışan önlemek için gündür.
 
-1. Kullanım **son** yinelenen erişim sonlandırma belirtmek için ayarı serisini gözden geçirin. Serinin üç şekilde sonlandırabilirsiniz: süresiz olarak, belirli bir tarihe kadar veya tanımlanan sayıda yineleme tamamlandıktan sonra incelemeleri başlatmak için sürekli olarak çalışmasını. Size, başka bir kullanıcı hesabı yöneticisi veya başka bir genel yönetici serisi oluşturulduktan sonra tarih değiştirerek durdurabilirsiniz **ayarları**, böylece bu tarihte sonlandırır.
+1. Kullanım **son** yinelenen erişim sonlandırma belirtmek için ayarı serisini gözden geçirin. Serinin üç şekilde sonlandırabilirsiniz: süresiz olarak, belirli bir tarihe kadar veya tanımlanan sayıda yineleme tamamlandıktan sonra incelemeleri başlatmak için sürekli olarak çalışmasını. Size, başka bir kullanıcının yönetici veya başka bir genel yönetici serisi oluşturulduktan sonra tarih değiştirerek durdurabilirsiniz **ayarları**, böylece bu tarihte sonlandırır.
 
 1. İçinde **kullanıcılar** bölümünde, gözden geçirme erişen kullanıcıların uygulayacağını belirtin. Erişim gözden geçirmeleri, bir grubun üyesi veya bir uygulamaya atanmış kullanıcılar olabilir. Daha fazla kimin üyeleri (veya uygulamaya atanan), gözden geçirme üyeleri olan tüm kullanıcılar yerine veya uygulamaya olan erişimi gözden geçirme gözden yalnızca konuk kullanıcılar erişim kapsamını belirleyebilirsiniz.
 

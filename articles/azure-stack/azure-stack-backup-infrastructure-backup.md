@@ -13,26 +13,26 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 005a9e3903ffa16882f8d07529bf5c4924837db5
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.lastreviewed: 03/19/2019
+ms.openlocfilehash: 080129ca1520dc2b1b085c69f6389508f11c7ba2
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790857"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285930"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Azure Stack altyapısını yedekleme hizmetiyle için yedekleme ve veri kurtarma
 
 *Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Yedekleme ve yapılandırma ve hizmet veri altyapısını Yedekleme hizmetini kullanarak geri yükleyebilirsiniz. Her Azure Stack yükleme Hizmeti'nin bir örneğini içerir. Azure Stack Bulutu, yeniden dağıtım için hizmeti tarafından oluşturulan yedekleri, kimlik, güvenlik ve Azure Resource Manager verileri geri yüklemek için kullanabilirsiniz.
+Yedekleme ve yapılandırma ve hizmet veri altyapısını Yedekleme hizmetini kullanarak geri yükleyebilirsiniz. Her Azure Stack yükleme Hizmeti'nin bir örneğini içerir. Azure Stack Bulutu, yeniden dağıtım için hizmeti tarafından oluşturulan yedekleri, kimlik, güvenlik ve Azure Resource Manager verileri geri yüklemek için kullanabilirsiniz. 
 
 Bulut üretime koymak hazır olduğunuzda yedeklemeyi etkinleştirebilirsiniz. Test gerçekleştirmek planlıyorsanız, yedekleme ve uzun bir süre için doğrulama etkinleştirmeyin.
 
 Yedekleme hizmetinizi etkinleştirmeden önce olduğundan emin olun [gereksinimleri yerinde](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
-> Yedekleme hizmet olarak altyapı, kullanıcı verileri ve uygulamaları içermez. <!-- See the following articles for instructions on backing up and restore [App Services](https://aka.ms/azure-stack-app-service), [SQL](https://aka.ms/azure-stack-ms-sql), and [MySQL](https://aka.ms/azure-stack-mysql) resource providers and associated user data. -->
+> Yedekleme hizmet olarak altyapı, kullanıcı verileri ve uygulamaları içermez. Başvurmak [Azure Stack üzerinde dağıtılan sanal makinelerini koruma](user/azure-stack-manage-vm-protect.md) Iaas VM tabanlı uygulamaları nasıl Koruyabileceğiniz hakkında daha fazla bilgi için. Azure Stack'te uygulamaları korumak nasıl kapsamlı anlamak için başvurmak [iş sürekliliği ve olağanüstü durum kurtarma teknik incelemesi için Azure Stack onsiderations](http://aka.ms/azurestackbcdrconsiderationswp).
 
 ## <a name="the-infrastructure-backup-service"></a>Altyapı yedekleme hizmeti
 

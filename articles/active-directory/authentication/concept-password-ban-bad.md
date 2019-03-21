@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca079fa2ec41f85c365102fbd81ffde23e97e2c4
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: b7dcac665dadef7f3f192e7f0e359b6b7c244bde
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990501"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287035"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Hatalı parola kuruluşunuzdaki ortadan kaldırın
-
-|     |
-| --- |
-| Azure AD parola koruması ve özel yasaklı parola listesi Azure Active Directory genel Önizleme özellikleri şunlardır. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 Endüstri liderlerinden aynı parolayı birden fazla yerde karmaşık hale ve/Password123 gibi basit yapmamaya kullanmayı söyleyin. Kuruluşların kullanıcıları kılavuzu takip ettiğiniz nasıl garanti edebilir? Nasıl bunlar kullanıcıların yaygın parolaları veya son veri ihlalleriyle dahil edilecek bilinen parolaları kullanmadığı emin olabilirim?
 
@@ -31,7 +26,7 @@ Endüstri liderlerinden aynı parolayı birden fazla yerde karmaşık hale ve/Pa
 
 Microsoft, siber suçluların her zaman bir adım önünde olmak için çalışmaktadır. Bu nedenle Azure AD kimlik koruması ekibi için yaygın olarak kullanılan ve güvenliği aşılan parolaları sürekli olarak arayın. Bunlar ardından genel yasaklı parola listesi çağrılma yeri çok yaygın olarak kabul edilen bu parolaları engelleyin. Siber suçlular kendi saldırılarında de benzer stratejiler kullanır, bu nedenle Microsoft, bu listenin içeriği herkese açık şekilde yayımlamaz. Bu güvenlik açığı olan parolaların Microsoft müşterileri için gerçek bir tehdit haline gelmeden önce engellenir. Geçerli güvenlik çalışmaları hakkında daha fazla bilgi için bkz: [Microsoft Güvenlik zekası raporu](https://www.microsoft.com/security/operations/security-intelligence-report).
 
-## <a name="preview-custom-banned-password-list"></a>Önizleme: Özel yasaklanan parola listesi
+## <a name="custom-banned-password-list"></a>Özel yasaklanan parola listesi
 
 Bazı kuruluşlar kendi özelleştirmeleri genel yasaklı parola listesi üzerinde hangi Microsoft özel yasaklı parola listesi çağrıları ekleyerek güvenlik bir adım daha ileri almak isteyebilirsiniz. Kurumsal müşteriler gibi contoso marka adları, şirketinize özgü koşulları veya diğer öğeleri türevleri engellemek seçebilirsiniz.
 
@@ -41,7 +36,7 @@ Bazı kuruluşlar kendi özelleştirmeleri genel yasaklı parola listesi üzerin
 
 ## <a name="on-premises-hybrid-scenarios"></a>Şirket içi karma senaryolar
 
-Yalnızca bulut hesapları korumaya yardımcı olur, ancak çoğu kuruluş şirket içi Windows Server Active Directory de dahil olmak üzere karma senaryoları korur. Windows Server Active Directory (Önizleme) aracıları var olan altyapınızla yasaklı parola listelerini genişletmek şirket için Azure AD parola koruması yüklemek mümkündür. Kullanıcıların ve değiştirmek, yöneticilerin ayarlayın veya sıfırlanmış artık şirket içi yalnızca bulut kullanıcı olarak aynı parola ilkesiyle uyumlu gereklidir.
+Yalnızca bulut hesapları korumaya yardımcı olur, ancak çoğu kuruluş şirket içi Windows Server Active Directory de dahil olmak üzere karma senaryoları korur. Windows Server Active Directory aracıları var olan altyapınızla yasaklı parola listelerini genişletmek şirket için Azure AD parola koruması yüklemek mümkündür. Kullanıcıların ve değiştirmek, yöneticilerin ayarlayın veya sıfırlanmış artık şirket içi yalnızca bulut kullanıcı olarak aynı parola ilkesiyle uyumlu gereklidir.
 
 ## <a name="how-are-passwords-evaluated"></a>Parolaları nasıl değerlendirilir
 
@@ -60,7 +55,7 @@ Normalleştirme iki bölümden oluşur.  İlk, tüm büyük harfleri küçük ha
 | '0'  | ' |
 | '1'  | 'l' |
 | '$'  | 's' |
-| '@'  | 'bir' |
+| '\@'  | 'bir' |
 
 Örnek: "boş" parola yasaklanmış ve bir kullanıcı için parola değiştirmesini dener varsayılır "Bl@nK". Olsa da "Bl@nk" olan özel olarak yasaklanmış bir yasaklı parola olan bu parola için "blank" normalleştirme işlemi dönüştürür.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 0978db31f4aa8caa273c63c2f55d5146b19dea26
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cdde9f0ec69bec48ae0fb747db0cc49e81920817
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878022"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57872592"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Hızlı Başlangıç: Konuşma SDK'sı (Beta) Unity için konuşma tanıma
 
@@ -63,12 +63,12 @@ Bu projeyi tamamlamak için şunlar gerekir:
 En az bir kullanıcı Arabirimi bizim sahneye, konuşma tanıma ve sonucu görüntülemek için bir metin alanı tetiklemek için bir düğmeye oluşan ekleriz.
 
 * İçinde [hiyerarşi penceresinde](https://docs.unity3d.com/Manual/Hierarchy.html) (varsayılan olarak sol taraftaki), Unity yeni proje ile oluşturulan bir örnek Sahne gösterilir.
-* Tıklayın **Oluştur** düğmesini hiyerarşisini penceresinin en üstünde ve **UI** > **düğmesi**.
+* Tıklayın **Oluştur** düğmesini hiyerarşi penceresinin en üstünde ve **UI** > **düğmesi**.
 * Bu hiyerarşi penceresinde görebilirsiniz üç oyun nesneleri oluşturur: bir **düğmesi** iç içe nesne içinde bir **tuval** nesnesi ve bir **olay sistemi** nesne.
-* [Sahne görünüme gidin](https://docs.unity3d.com/Manual/SceneViewNavigation.html) iyi bir tuval ve düğmesini görüntülemek için [Sahne görünümünde](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
+* [Sahne görünüme gidin](https://docs.unity3d.com/Manual/SceneViewNavigation.html) tuval ve düğmeye iyi bir açıyla alacak şekilde [Sahne görünümünde](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
 * Tıklayın **düğmesi** ayarlarını görüntülemek için hiyerarşi penceresinde nesne [denetçisi penceresi](https://docs.unity3d.com/Manual/UsingTheInspector.html) (varsayılan sağ).
 * Ayarlama **Pos X** ve **Pos Y** özelliklerine **0**, düğmeyi ortasında tuval ortalanacak şekilde.
-* Tıklayın **Oluştur** hiyerarşisini penceresinin en üstünde düğmesini tekrar ve **UI** > **metin** bir metin alanı oluşturmak için.
+* Tıklayın **Oluştur** hiyerarşi penceresinin en üstünde düğmesini tekrar ve **UI** > **metin** bir metin alanı oluşturmak için.
 * Tıklayın **metin** ayarlarını görüntülemek için hiyerarşi penceresinde nesne [denetçisi penceresi](https://docs.unity3d.com/Manual/UsingTheInspector.html) (varsayılan sağ).
 * Ayarlama **Pos X** ve **Pos Y** özelliklerine **0** ve **120**, ayarlayıp **genişliği** ve **Yükseklik** özelliklerine **240** ve **120** metin alanı ve düğme çakışmadığından emin olmak için.
 
@@ -82,14 +82,14 @@ En az bir kullanıcı Arabirimi bizim sahneye, konuşma tanıma ve sonucu görü
 
 1. Çift tıklayarak betiğini düzenleyin.
 
-  > [!NOTE]
-  > Hangi Kod Düzenleyicisi altında başlatılacak yapılandırabileceğiniz **Düzenle** > **tercihleri**, bakın [Unity kullanıcı kılavuzuna](https://docs.unity3d.com/Manual/Preferences.html).
+   > [!NOTE]
+   > Hangi Kod Düzenleyicisi altında başlatılacak yapılandırabileceğiniz **Düzenle** > **tercihleri**, bakın [Unity kullanıcı kılavuzuna](https://docs.unity3d.com/Manual/Preferences.html).
 
 1. Tüm kodu aşağıdakiyle değiştirin:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
 
-1. `YourSubscriptionKey` dizesini bulun ve Konuşma Tanıma Hizmeti abonelik anahtarınızla değiştirin.
+1. Bulun ve dize değiştirin `YourSubscriptionKey` konuşma Hizmetleri abonelik anahtarınız ile.
 
 1. `YourServiceRegion` dizesini bulun ve aboneliğinizle ilişkili [bölge](regions.md) ile değiştirin. Örneğin, ücretsiz denemeyi kullanıyorsanız bölge `westus` olur.
 
@@ -97,19 +97,19 @@ En az bir kullanıcı Arabirimi bizim sahneye, konuşma tanıma ve sonucu görü
 
 1. Unity Editor geri, betiği bir bileşen olarak oyun nesnelerinizi biri olarak eklenmesi gerekir.
 
-  * Tıklayarak **tuval** hiyerarşi penceresinde nesne. Bu ayarı'kurmak açar [denetçisi penceresi](https://docs.unity3d.com/Manual/UsingTheInspector.html) (varsayılan sağ).
-  * Tıklayın **Bileşen Ekle** düğmesini Inspector penceresini ve ardından arama HelloWorld komut yukarıda oluşturun ve bunu ekleyin.
-  * Hello World bileşen iki başlatılmamış özelliklere sahip olduğuna dikkat edin **çıkış metnini** ve **Başlat düğmesini tanıma**, genel özelliklerini eşleşen `HelloWorld` sınıfı.
-    Bunları ayarlamak wire için Nesne Seçicisi (özellik sağındaki küçük daire simgesi) tıklayın ve daha önce oluşturduğunuz metin ve düğme nesneleri seçin.
+   * Tıklayarak **tuval** hiyerarşi penceresinde nesne. Bu ayar, Yukarı açar [denetçisi penceresi](https://docs.unity3d.com/Manual/UsingTheInspector.html) (varsayılan sağ).
+   * Tıklayın **Bileşen Ekle** düğmesini Inspector penceresini ve ardından arama HelloWorld komut yukarıda oluşturun ve bunu ekleyin.
+   * Hello World bileşen iki başlatılmamış özelliklere sahip olduğuna dikkat edin **çıkış metnini** ve **Başlat düğmesini tanıma**, genel özelliklerini eşleşen `HelloWorld` sınıfı.
+     Bunları ayarlamak wire için Nesne Seçicisi (özellik sağındaki küçük daire simgesi) tıklayın ve daha önce oluşturduğunuz metin ve düğme nesneleri seçin.
 
-    > [!NOTE]
-    > Düğme, ayrıca iç içe geçmiş metin nesnesine sahiptir. Yanlışlıkla bu metin çıktısı (veya ad alanı, Karışıklığı önlemek için Inspector penceresinde kullanarak metin nesnelerinin birini yeniden adlandırın) seçtiğinizden değil emin olun.
+     > [!NOTE]
+     > Düğme, ayrıca iç içe geçmiş metin nesnesine sahiptir. Yanlışlıkla bu metin çıktısı (veya ad alanı, Karışıklığı önlemek için Inspector penceresinde kullanarak metin nesnelerinin birini yeniden adlandırın) seçtiğinizden değil emin olun.
 
 ## <a name="run-the-application-in-the-unity-editor"></a>Unity Düzenleyicisi'nde uygulamayı çalıştırın
 
 * Tuşuna **Play** (Aşağıda, menü çubuğu) Unity Düzenleyicisi araç çubuğu düğmesini.
 
-* Uygulamayı başlattıktan sonra düğmesine tıklayın ve bir İngilizce deyim ya da cümle bilgisayarınızın mikrofona. Söyledikleriniz Konuşma hizmetine aktarılır ve metne dönüştürülür; metin pencerede görünür.
+* Uygulamayı başlattıktan sonra düğmesine tıklayın ve bir İngilizce deyim ya da cümle bilgisayarınızın mikrofona. Konuşma konuşma hizmetlere iletilen ve transcribed pencerede görünen metin.
 
   [![Unity oyun penceresinde çalışan Hızlı Başlangıç ekran görüntüsü](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 

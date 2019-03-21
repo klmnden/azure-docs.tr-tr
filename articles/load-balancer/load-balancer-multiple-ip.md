@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0fd865a6890721d3889fc5cef39d9888fe1fb689
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191824"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856144"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Birden fazla IP yapılandırması üzerinde Azure portalını kullanarak yük dengelemenin
 
@@ -62,7 +62,7 @@ Bu makalede açıklanan senaryo elde etmek için aşağıdaki adımları tamamla
 
 Sanal ağınızda bulunan her VM için ikincil NIC IP yapılandırmasını ekleyin:  
 
-1. Azure portalına gidin: http://portal.azure.com. Azure hesabınızla oturum açın.
+1. Azure portalına gidin: https://portal.azure.com. Azure hesabınızla oturum açın.
 
 2. Ekranın üst sol seçin **kaynak grubu** simgesi. Ardından, Vm'lerinizin yerleştirildiği kaynak grubunu seçin (örneğin, **contosofabrikam**). **Kaynak grupları** bölmesi tüm kaynakları ve NIC VM'ler için görüntüler.
 
@@ -86,7 +86,7 @@ Sanal ağınızda bulunan her VM için ikincil NIC IP yapılandırmasını ekley
 
 Load balancer'ınız için yapılandırmayı oluşturun:
 
-1. Azure portalına gidin: http://portal.azure.com. Azure hesabınızla oturum açın.
+1. Azure portalına gidin: https://portal.azure.com. Azure hesabınızla oturum açın.
 
 2. Ekranın üst sol seçin **kaynak Oluştur** > **ağ** > **yük dengeleyici**. Ardından, **Oluştur**.
 
@@ -106,15 +106,15 @@ Her Web sitesi için (contoso.com ve fabrikam.com), ön uç IP havuzu, yük deng
 
 2. İki ortak IP adreslerini yapılandırın (**PublicIP1** ve **PublicIP2**) her iki Web siteleri (contoso.com ve fabrikam.com) için:
 
-    1. Ön uç IP adresiniz için bir ad yazın.
+   1. Ön uç IP adresiniz için bir ad yazın.
 
-    2. İçin **kaynak grubu**, sanal makineleriniz için mevcut kaynak grubunu seçin (örneğin, **contosofabrikam**).
+   2. İçin **kaynak grubu**, sanal makineleriniz için mevcut kaynak grubunu seçin (örneğin, **contosofabrikam**).
 
-    3. İçin **konumu**, Vm'leri olarak aynı konumu seçin.
+   3. İçin **konumu**, Vm'leri olarak aynı konumu seçin.
 
-    4. **Tamam**’ı seçin.
+   4. **Tamam**’ı seçin.
 
-    Genel IP adreslerini oluşturulduktan sonra bunların altında görüntülenen **genel IP** adresleri.
+      Genel IP adreslerini oluşturulduktan sonra bunların altında görüntülenen **genel IP** adresleri.
 
 3. <a name="step3-3"></a>Portalında **diğer hizmetler**. Filtre kutusuna **yük dengeleyici** seçip **Load Balancer**. 
 

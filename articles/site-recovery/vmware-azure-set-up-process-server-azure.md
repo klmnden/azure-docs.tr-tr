@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 099576b1a4c5c28aab7672aaeb9274bc0beb96bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842331"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105650"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Azure'da yeniden çalışma için bir işlem sunucusu ayarlama
 
@@ -33,7 +33,7 @@ Daha fazla bilgi edinin [yeniden koruma](vmware-azure-reprotect.md) ve [geri dö
 3. İçinde **işlem Sunucu Ekle** sayfası ve azure'da işlem sunucusu dağıtmak için seçin.
 4. Yük devretme, bir kaynak grubunu, yük devretme ve Azure Vm'leri bulunan sanal ağ için kullanılan Azure bölgesi için kullanılan abonelik dahil olmak üzere Azure ayarlarını belirtin. Birden fazla Azure ağını kullandıysanız, her biri bir işlem sunucusu gerekir.
 
-  ![İşlem sunucusu galeri öğesi Ekle](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
+   ![İşlem sunucusu galeri öğesi Ekle](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 
 4. İçinde **sunucu adı**, **kullanıcı adı**, ve **parola**, işlem sunucusu ve sunucuda yönetici izinleri atanacak kimlik bilgileri için bir ad belirtin.
 5. Server VM disklerini, işlem sunucusu VM'nin yerleştirileceği alt ağ ve VM başladığında atanacak olan sunucu IP adresi için kullanılacak bir depolama hesabı belirtin.

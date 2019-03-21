@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: scottwhi
-ms.openlocfilehash: b7da1782491c4317713aafe54c4fd01c2c7110a9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 612a3961d901f53147ab2f3cfeea20f9c11d96b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880780"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087865"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Bing haber arama API'si ile haberler için arama
 
@@ -264,4 +264,4 @@ Bir haber makalesiyle ilgili başka makaleler varsa, haber makalesi [clusteredAr
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-[Bing haber arama sonuçları sayfasını nasıl](../paging-news.md)
+> [Bing haber arama sonuçları sayfasını nasıl](../paging-news.md)

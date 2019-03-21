@@ -11,12 +11,12 @@ ms.date: 01/04/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 9c20c141f640ae5f868b350951e132d3a6479af9
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 9cea3e7494ee81638923cbcaff9f1b82d08a1ad1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576256"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085040"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory’de Hive etkinliğini kullanarak Azure Sanal Ağ’daki verileri dönüştürme
 Bu öğreticide, Azure portalını kullanarak Azure Sanal Ağ’daki bir HDInsight kümesinde Hive Etkinliği ile verileri dönüştüren bir Data Factory işlem hattı oluşturursunuz. Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
@@ -85,24 +85,24 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 3. Veri fabrikasını oluşturmak istediğiniz Azure **aboneliğini** seçin. 
 4. **Kaynak Grubu** için aşağıdaki adımlardan birini uygulayın:
      
-      - **Var olanı kullan**’ı seçin ve ardından açılır listeden var olan bir kaynak grubu belirleyin. 
-      - **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin.   
+   - **Var olanı kullan**’ı seçin ve ardından açılır listeden var olan bir kaynak grubu belirleyin. 
+   - **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin.   
          
-      Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
+     Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
 4. **Sürüm** için **V2**'yi seçin.
 5. Data factory için **konum** seçin. Listede yalnızca veri fabrikası oluşturma için desteklenen konumlar gösterilir.
 6. **Panoya sabitle**’yi seçin.     
 7. **Oluştur**’a tıklayın.
 8. Panoda durumuna sahip aşağıdaki kutucuğu görürsünüz: **Veri Fabrikası dağıtılıyor**. 
 
-    ![veri fabrikası dağıtılıyor kutucuğu](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
+     ![veri fabrikası dağıtılıyor kutucuğu](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
 9. Oluşturma işlemi tamamlandıktan sonra, resimde gösterildiği gibi **Data Factory** sayfasını görürsünüz.
    
-   ![Data factory giriş sayfası](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
+    ![Data factory giriş sayfası](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
 10. Azure Data Factory Kullanıcı Arabirimini (UI) ayrı bir sekmede açmak için **Geliştir ve İzle**’ye tıklayın.
 11. **Başlarken** sayfasında, aşağıdaki resimde gösterildiği gibi sol bölmede bulunan **Düzenle** sekmesine geçin: 
 
-   ![Düzenle sekmesi](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
+    ![Düzenle sekmesi](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Şirket içinde barındırılan tümleştirme çalışma zamanı oluşturma
 Hadoop kümesi bir sanal ağın içinde olduğundan, aynı sanal ağa şirket içinde barındırılan bir tümleştirme çalışma zamanı (IR) yüklemeniz gerekir. Bu bölümde yeni bir VM oluşturur, bu VM’yi aynı sana ağa katar ve VM’ye şirket içinde barındırılan IR yüklersiniz. Şirket içinde barındırılan IR, Data Factory hizmetinin bir sanal ağ içindeki HDInsight gibi bir işlem hizmetine işleme istekleri göndermesine imkan tanır. Ayrıca, bir sanal ağ içindeki veri depoları ile Azure arasında veri taşımanıza imkan sağlar. Veri deposu veya işlem de şirket içi bir ortamda olduğunda, şirket içinde barındırılan IR kullanırsınız. 

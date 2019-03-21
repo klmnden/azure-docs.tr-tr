@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: a7c29d1bfcc0737f76afc43cb8997d6a1d16c82b
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: e6e1b304b90b37c93bed22bcb720a646680ee083
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731365"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223623"
 ---
 # <a name="access-data-from-your-datastores"></a>Verilere erişmek, veri depoları
 
@@ -146,13 +146,16 @@ ds.download(target_path='your target path',
 
 <a name="train"></a>
 ## <a name="access-datastores-during-training"></a>Eğitim sırasında erişim veri depoları
-Bir veri deposu (örneğin, eğitim veya doğrulama veri) üzerinde uzak işlem hedefi Python SDK'sını kullanarak üzerinden çalıştırın eğitim sırasında erişebileceğiniz [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) sınıfı.
 
-Veri deposu bağlı uzak işlem kullanılabilir hale getirmek için birkaç yol vardır.
+Veri deposu, kullanıma bağlı uzak işlem yaptığınızda, yalnızca yolun eğitim komut dosyanızdaki bir parametre olarak geçirerek eğitim çalıştırmaları sırasında (örneğin, eğitim veya doğrulama verileri) erişebilir.
+
+Aşağıdaki tabloda ortak [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) veri depoları bağlı uzak işlem tarafından kullanılabilmesini yöntemleri.
+
+# #
 
 Way|Yöntem|Açıklama
 ----|-----|--------
-Bağlama| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Uzak işlem üzerinde bir veri deposuna bağlamak için kullanın.
+Bağlama| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Uzak işlem üzerinde bir veri deposuna bağlamak için kullanın. Veri depoları için varsayılan modu.
 İndirme|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Tarafından belirtilen konumdan veri indirin `path_on_compute` , veri deposu için uzak işlem üzerinde.
 Karşıya Yükle|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Tarafından belirtilen konumdan veri deposu, kök dizinine veri yüklemek için kullandığınız `path_on_compute`.
 
@@ -165,20 +168,22 @@ ds.as_download(path_on_compute='your path on compute')
 ds.as_upload(path_on_compute='yourfilename')
 ```  
 
-### <a name="reference-filesfolders"></a>Başvuru dosyaları/klasörleri
 Belirli bir klasörü veya kendi veri deposu dosyasına başvurmak için veri deposu'nın kullanın [ `path()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) işlevi.
 
 ```Python
-#download the contents of the `./bar` directory from the datastore 
+#download the contents of the `./bar` directory from the datastore to the remote compute
 ds.path('./bar').as_download()
 ```
 
 
+
+> [!NOTE]
+> Tüm `ds` veya `ds.path` nesnesi bir ortam değişkeni adı biçimi için çözer `"$AZUREML_DATAREFERENCE_XXXX"` uzak işlem bağlama/yükleme yolunda değerini temsil eder. Uzak işlem veri deposu yolunda eğitim betiğin yürütme yolunu aynı olmayabilir.
+
 ### <a name="examples"></a>Örnekler 
 
-Tüm `ds` veya `ds.path` nesnesi bir ortam değişkeni adı biçimi için çözer `"$AZUREML_DATAREFERENCE_XXXX"` uzak işlem bağlama/yükleme yolunda değerini temsil eder. Uzak işlem veri deposu yolunda betik için yürütme yolu ile aynı olmayabilir.
+Aşağıdaki örnekler özel gösterir [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) eğitim sırasında veri deposuna erişmek için sınıf.
 
-Eğitim sırasında veri deposuna erişmek için eğitim betiğinizi komut satırı bağımsız değişken olarak geçirin `script_params` gelen [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) sınıfı.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -192,12 +197,13 @@ est = Estimator(source_directory='your code directory',
                 compute_target=compute_target,
                 entry_script='train.py')
 ```
-`as_mount()` Ayrıca doğrudan geçirebiliriz şekilde bir veri deposu için varsayılan moddur `ds` için `'--data_dir'` bağımsız değişken.
+
+Bu yana `as_mount()` varsayılan mod bir veri deposu için doğrudan çağrılsaydı `ds` için `'--data_dir'` bağımsız değişken.
 
 Veya veri depoları listesinde Estimator oluşturucuya `inputs` veya kopyalamak için buralardan, datastore(s) çıkarmaya parametresi. Bu kod örneği:
 * Veri deposu tüm içeriğini indirir `ds1` eğitim betiğinizi önce uzak işlem için `train.py` çalıştırılır
 * İndirmeler klasörü `'./foo'` veri deposu olarak `ds2` önce uzak işlem için `train.py` çalıştırılır
-* Dosya yüklemeleri `'./bar.pkl'` veri deposu kadar uzak işlemden `d3` betiğinizi çalıştırıldıktan sonra
+* Dosya yüklemeleri `'./bar.pkl'` veri deposu kadar uzak işlemden `ds3` betiğinizi çalıştırıldıktan sonra
 
 ```Python
 est = Estimator(source_directory='your code directory',

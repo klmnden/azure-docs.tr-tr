@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 60617261e14b77e9ef3a2968dc37159e961bb947
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735392"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57861919"
 ---
-# <a name="azure-data-factory-mapping-data-flow-window-transformation"></a>Azure veri fabrikası veri akışı penceresi dönüştürme eşlemesi
+# <a name="azure-data-factory-window-transformation"></a>Azure veri fabrikası penceresi dönüştürme
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -46,3 +46,6 @@ Son olarak, verilerle windows boyut, sayısı, MIN, MAX kullanmak istediğiniz t
 
 Toplama ve ADF veri akışı ifade dili ifade Oluşturucu ile kullanmak için analitik işlevler tam listesini burada listelenir: https://aka.ms/dataflowexpressions.
 
+## <a name="next-steps"></a>Sonraki adımlar
+
+Basit grup olarak bir toplama için arıyorsanız kullanın [toplama dönüşümü](data-flow-aggregate.md)

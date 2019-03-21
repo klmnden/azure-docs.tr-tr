@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c1e596516136240b1d1d08b4e8386e9cf5ef48e5
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 71a5233c6d5af21d7bc5430cda14e156e16d5cd4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819131"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001561"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Bir Azure blueprint'in yaşam döngüsünü anlama
 
@@ -103,8 +103,8 @@ Bilgi edinmek için bkz [mevcut Atamaları Güncelleştir](../how-to/update-exis
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Statik ve dinamik parametreleri](parameters.md) kullanmayı anlayın
-- [Şema sıralamasını](sequencing-order.md) özelleştirmeyi öğrenin
-- [Şema kaynak kilitleme](resource-locking.md) özelliğini kullanmayı öğrenin
-- [Var olan atamaları güncelleştirmeyi](../how-to/update-existing-assignments.md) öğrenin
-- [Genel sorun giderme](../troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin
+- [Statik ve dinamik parametrelerin](parameters.md) kullanımını anlayın.
+- [Şema sıralama düzenini](sequencing-order.md) özelleştirmeyi öğrenin.
+- [Şema kaynak kilitleme](resource-locking.md) özelliğini kullanmayı öğrenin.
+- [Mevcut atamaları güncelleştirmeyi](../how-to/update-existing-assignments.md) öğrenin.
+- [Genel sorun giderme](../troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin.

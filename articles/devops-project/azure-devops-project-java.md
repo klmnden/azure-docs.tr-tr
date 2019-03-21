@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Azure DevOps projeleri ile bir Java CI/CD işlem hattı oluşturma'
+title: 'Hızlı Başlangıç: Azure DevOps projeleri ile Java için CI/CD işlem hattı oluşturma'
 description: DevOps projeleri, Azure'da kullanmaya başlamak kolaylaştırır. Birkaç hızlı adımda, tercih ettiğiniz bir Azure hizmetinde uygulama başlatmanıza yardımcı olur.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4f3f82f329e3ac8774978f6116629a4928c142ad
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 38be92a006ae6dbb7a550d2d91d886df820fb883
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261335"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093574"
 ---
 # <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>Azure DevOps projeleri ile Java için CI/CD işlem hattı oluşturma
 
@@ -65,7 +65,7 @@ Java örnekleri birkaç uygulama çerçevesi seçeneği içerir.
 
     ![Pano görünümü](_img/azure-devops-project-java/dashboardnopreview.png) 
     
- DevOps projeleri otomatik olarak yapılandırılmış bir CI derleme ve yayın tetikleyicisi.  Artık en son çalışmanızı otomatik olarak web sitenize dağıtan bir CI/CD işlemiyle Java uygulaması üzerinde bir ekiple birlikte çalışmaya hazırsınız.
+   DevOps projeleri otomatik olarak yapılandırılmış bir CI derleme ve yayın tetikleyicisi.  Artık en son çalışmanızı otomatik olarak web sitenize dağıtan bir CI/CD işlemiyle Java uygulaması üzerinde bir ekiple birlikte çalışmaya hazırsınız.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Kod değişikliklerini işleme ve CI/CD’yi yürütme
 

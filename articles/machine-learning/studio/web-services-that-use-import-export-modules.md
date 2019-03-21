@@ -3,7 +3,7 @@ title: İçeri/dışarı aktarma veri web hizmetleri - Azure Machine Learning St
 description: Bir web hizmetinden veri alıp göndermek için verileri içeri aktar ve dışarı veri modülleri'ni kullanmayı öğrenin.
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 editor: cgronlun
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 0d6c27afb30bae9ea64f32009864aa6c63e5eb92
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 28d16bce6dbb5063c085e8c4393777ee9d152768
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821516"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092047"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Veri içeri aktarma ve veri dışarı aktarma modüllerini kullanan Azure Machine Learning Studio web hizmetlerini dağıtma
 

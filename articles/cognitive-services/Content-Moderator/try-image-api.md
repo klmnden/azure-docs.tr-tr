@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 07b709b965cf34a687e0cb39f490f62d05919b5c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1e4efa5e06525194bfdc7d1932fcfec5ec9f8c6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883126"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093829"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Orta görüntülerden API Konsolu
 
@@ -24,55 +24,55 @@ Kullanım [görüntü denetim API'si](https://westus.dev.cognitive.microsoft.com
 ## <a name="use-the-api-console"></a>API Konsolu
 Çevrimiçi konsolunda API'yi test sürüşü önce abonelik anahtarınızı gerekir. Bu dosya çubuğunda bulunur **ayarları** sekmesinde **Ocp-Apim-Subscription-Key** kutusu. Daha fazla bilgi için bkz. [Genel Bakış](overview.md).
 
-1.  Git [görüntü denetim API'si başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
+1. Git [görüntü denetim API'si başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 
-  **Görüntü - değerlendirme** görüntü denetimi sayfası açılır.
+   **Görüntü - değerlendirme** görüntü denetimi sayfası açılır.
 
 2. İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin. 
 
-  ![Görüntü deneyin - sayfası kayıt seçimi değerlendir](images/test-drive-region.png)
+   ![Görüntü deneyin - sayfası kayıt seçimi değerlendir](images/test-drive-region.png)
   
-  **Görüntü - değerlendirme** API konsolu açılır.
+   **Görüntü - değerlendirme** API konsolu açılır.
 
 3. İçinde **Ocp-Apim-Subscription-Key** kutusuna, abonelik anahtarınızı girin.
 
-  ![Görüntü deneyin - konsol abonelik anahtarı değerlendir](images/try-image-api-1.PNG)
+   ![Görüntü deneyin - konsol abonelik anahtarı değerlendir](images/try-image-api-1.PNG)
 
 4. İçinde **istek gövdesi** kutusunda, varsayılan örnek görüntüsünü kullanabilir veya taramak için bir görüntü belirtirsiniz. İkili görüntünün kendisi gönderdiğiniz veri bit ya da bir görüntü için genel olarak erişilebilir bir URL belirtin. 
 
-  Bu örnekte, sağlanan yolu kullanmak **istek gövdesi** kutusuna ve ardından **Gönder**. 
+   Bu örnekte, sağlanan yolu kullanmak **istek gövdesi** kutusuna ve ardından **Gönder**. 
 
    ![Görüntü deneyin - konsol istek gövdesi değerlendirme](images/try-image-api-2.PNG)
 
-  Bu URL'de bir görüntü.
+   Bu URL'de bir görüntü.
 
-  ![Görüntü deneyin - Konsolu örnek resmi değerlendir](images/sample-image.jpg) 
+   ![Görüntü deneyin - Konsolu örnek resmi değerlendir](images/sample-image.jpg) 
 
 5. **Gönder**’i seçin.
 
 6. API, her sınıflandırma için bir olasılık puanı döndürür. Ayrıca, görüntünün koşulları karşılayıp bir belirleme döndürür (**true** veya **false**). 
 
-  ![Görüntü deneyin - konsol olasılık puanı değerlendirmek ve koşul belirleme](images/try-image-api-3.PNG)
+   ![Görüntü deneyin - konsol olasılık puanı değerlendirmek ve koşul belirleme](images/try-image-api-3.PNG)
 
 ## <a name="face-detection"></a>Yüz algılama
 
 Görüntü Denetim API'si bir resimdeki yüz bulmak için kullanabilirsiniz. Gizlilik sorunları olan ve belirli bir yüzün platformunuzdaki gönderilen engellemek istiyorsunuz, bu seçenek yararlı olabilir. 
 
-1.  İçinde [görüntü denetim API'si başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), soldaki menüde altında **görüntü**seçin **yüzleri bulun**. 
+1. İçinde [görüntü denetim API'si başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), soldaki menüde altında **görüntü**seçin **yüzleri bulun**. 
 
-  **Image - bulma yüzler** sayfası açılır.
+   **Image - bulma yüzler** sayfası açılır.
 
-2.  İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin. 
+2. İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin. 
 
-  ![Görüntü deneyin - yüzleri sayfa bölge seçimi Bul](images/test-drive-region.png)
+   ![Görüntü deneyin - yüzleri sayfa bölge seçimi Bul](images/test-drive-region.png)
 
-  **Image - bulma yüzler** API konsolu açılır.
+   **Image - bulma yüzler** API konsolu açılır.
 
 3. Taramak için bir görüntü belirtirsiniz. İkili görüntünün kendisi gönderdiğiniz veri bit ya da bir görüntü için genel olarak erişilebilir bir URL belirtin. Bu örnek bağlantıları görüntüye CNN yazıdaki kullanılır.
 
-  ![Görüntü deneyin - yüzleri örnek görüntüsü bulunamadı](images/try-image-api-face-image.jpg)
+   ![Görüntü deneyin - yüzleri örnek görüntüsü bulunamadı](images/try-image-api-face-image.jpg)
 
-  ![Görüntü deneyin - örnek istek yüzleri bulun](images/try-image-api-face-request.png)
+   ![Görüntü deneyin - örnek istek yüzleri bulun](images/try-image-api-face-request.png)
 
 4. **Gönder**’i seçin. Bu örnekte, API iki yüzün bulur ve görüntüde onların koordinatlarını döndürür.
 
@@ -84,13 +84,13 @@ Resimlerde metin algılamak için Content Moderator OCR özelliği'ni kullanabil
 
 1. İçinde [görüntü denetim API'si başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), soldaki menüde altında **görüntü**seçin **OCR**. 
 
-  **Image - OCR** sayfası açılır.
+   **Image - OCR** sayfası açılır.
 
 2. İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin. 
 
-  ![Görüntü - OCR sayfası kayıt seçimi](images/test-drive-region.png)
+   ![Görüntü - OCR sayfası kayıt seçimi](images/test-drive-region.png)
 
-  **Image - OCR** API konsolu açılır.
+   **Image - OCR** API konsolu açılır.
 
 3. İçinde **Ocp-Apim-Subscription-Key** kutusuna, abonelik anahtarınızı girin.
 
@@ -98,7 +98,7 @@ Resimlerde metin algılamak için Content Moderator OCR özelliği'ni kullanabil
 
 5. **Gönder**’i seçin. Ayıklanan metin, JSON biçiminde görüntülenir:
 
-  ![Görüntü - OCR örnek yanıt içerik kutusu](images/try-image-api-ocr.PNG)
+   ![Görüntü - OCR örnek yanıt içerik kutusu](images/try-image-api-ocr.PNG)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

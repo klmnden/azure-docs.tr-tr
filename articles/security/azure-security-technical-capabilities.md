@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: aa003d5c56e374c99b26beb884fce27b9b16298e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76944d98d6a5fe7c3f83ce12bb2fdf1a34d5e234
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440072"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839109"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure güvenlik Teknik Özellikler
 
@@ -75,7 +75,7 @@ Azure Active Directory (Azure AD) güvenlik avantajlarından yeteneği şunlard�
 
 - Azure AD uygulama proxy'si aracılığıyla şirket içi web uygulamalarına güvenli uzaktan erişim sağlayın.
 
-[Azure Active Directory portalında](http://aad.portal.azure.com/) kullanılabilir Azure portal'ın bir parçası. Bu panodan kuruluşunuz durumunun genel bir bakış edinin ve dizini, kullanıcılar ya da uygulama erişimini yönetme içine kolayca öğrenebilirsiniz.
+[Azure Active Directory portalında](https://aad.portal.azure.com/) kullanılabilir Azure portal'ın bir parçası. Bu panodan kuruluşunuz durumunun genel bir bakış edinin ve dizini, kullanıcılar ya da uygulama erişimini yönetme içine kolayca öğrenebilirsiniz.
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
@@ -113,7 +113,7 @@ Yalnızca kullanıcılar birden fazla kullanıcı adları ve parolaları yönetm
 
 Güvenlik İzleme, uyarılar ve tutarsız erişim düzenlerini belirleyen makine öğrenmesi tabanlı raporlarla işletmenizi korumanıza yardımcı olabilir. Azure Active Directory erişim ve kullanım raporları, bütünlük ve güvenliğini işlemlerini kuruluş dizininizle görünürlük elde etmek için kullanabilirsiniz. Bu bilgileri kullanarak bir dizin Yöneticisi, bu riskleri azaltmak yeterince planlayabilirsiniz böylece olası güvenlik risklerini olduğu şekilde daha iyi belirleyebilirsiniz.
 
-Azure portalında veya aracılığıyla [Azure Active Directory portalında](http://aad.portal.azure.com/), [raporları](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) aşağıdaki yollarla kategorilere ayrılır:
+Azure portalında veya aracılığıyla [Azure Active Directory portalında](https://aad.portal.azure.com/), [raporları](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) aşağıdaki yollarla kategorilere ayrılır:
 
 - Anomali raporları – oturum açma anormal olarak bulduk olayları içerir. Hedefimiz, tür etkinlik haberdar olun ve bir olay şüpheli olup hakkında karar olanak sağlamaktır.
 
@@ -274,7 +274,7 @@ Makaleyi okuyarak Azure VPN seçeneği hakkında daha fazla bilgi edinebilirsini
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) dosyalarınızın ve e-posta güvenliğini sağlamaya yardımcı olmak için şifreleme, kimlik ve yetkilendirme ilkelerini kullanır. Azure RMS'nin çalışmasını birden çok cihazda — telefonlar, tabletler ve bilgisayarlar tarafından hem kuruluşunuz içinde hem de kuruluşunuz dışında koruma. Bu özellik, Azure RMS veriler kuruluşunuzun sınırları dışına çıktığında bile, verilerle kalan bir koruma düzeyi eklediğinden mümkündür.
 
-Dosyalarınızı korumak için Azure RMS kullandığınızda tam destek sayesinde sektör standardı şifreleme kullanmakta olduğunuz [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). Azure RMS veri koruma için yararlanın, denetimi altında olmayan depolama alanına kopyalansa bile dosyanın koruması devam eder Güvencesine sahip bir bulut depolama hizmeti gibi BT'nin. Aynı oluştuğunda e-posta ile paylaşılan dosyaları yönergeler içeren bir e-posta iletisi ek olarak dosyayı koruyan nasıl korumalı eki açın.
+Dosyalarınızı korumak için Azure RMS kullandığınızda tam destek sayesinde sektör standardı şifreleme kullanmakta olduğunuz [FIPS 140-2](https://csrc.nist.gov/groups/STM/cmvp/standards.html). Azure RMS veri koruma için yararlanın, denetimi altında olmayan depolama alanına kopyalansa bile dosyanın koruması devam eder Güvencesine sahip bir bulut depolama hizmeti gibi BT'nin. Aynı oluştuğunda e-posta ile paylaşılan dosyaları yönergeler içeren bir e-posta iletisi ek olarak dosyayı koruyan nasıl korumalı eki açın.
 Azure RMS benimseme için planlama yaparken aşağıdakileri öneririz:
 
 - Yükleme [RMS sharing uygulamasını](https://technet.microsoft.com/library/dn339006.aspx). Bu uygulama bir Office yükleyerek-kullanıcıların kolayca dosyaları doğrudan koruyabilmesi Office uygulamalarıyla ile tümleştirilir.
@@ -406,11 +406,11 @@ Azure çalışma Güvenliği aracılığıyla edinilen Microsoft Security Develo
 
 Azure İzleyici ile rekabet çözümlerine göre daha düşük bir maliyetle, şirket içi, Azure, AWS, Windows Server, Linux, VMware ve OpenStack, dahil, herhangi bir buluttaki herhangi bir örneğine yönetebilirsiniz. Azure İzleyici, bulut öncelikli dünyada için oluşturulmuş, yeni iş sorunlarını karşılamak ve uygulamaları ve bulut ortamları yeni iş yüklerine uyum sağlamak için en hızlı ve en ekonomik yolu olan Kurumsal yönetmek için yeni bir yaklaşım sunar.
 
-### <a name="azure-monitor-logs"></a>Azure izleme günlükleri
+### <a name="azure-monitor-logs"></a>Azure İzleyici günlükleri
 
 [Azure İzleyici günlüklerine](https://azure.microsoft.com/documentation/services/log-analytics) yönetilen kaynaklardan toplanan verileri merkezi bir depoya toplayarak izleme hizmetleri sağlar. Bu verilere olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler dahil olabilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir.
 
-![Azure izleme günlükleri](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
+![Azure İzleyici günlükleri](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
 Bu yöntem, çeşitli kaynaklardan gelen verileri birleştirmenize olanak tanır, böylece birleştirebilirsiniz Azure hizmetlerinizi mevcut olan verileri şirket içi ortamınızdaki. Ayrıca, veri toplama işlemini veriler üzerinde gerçekleştirilen eylemden ayırarak tüm eylemlerin her tür veri üzerinde kullanılabilmesini mümkün kılar.
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: c5ae3523da6da3286a65328cf302c5b211987d6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c8f7e3cd6a2b4b6105547d7a4429803a00f6999f
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895244"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285522"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure DevOps'ta Azure Cosmos DB öykünücüsü derleme göreviyle CI/CD işlem hattı oluşturma
 
@@ -39,7 +39,7 @@ Ardından uzantının yükleneceği kuruluşu seçin.
 
 Artık uzantı yüklendiğine göre Azure DevOps hesabınızda oturum açın ve projeler panosundan projenizi bulun. Projenize bir [derleme işlem hattı](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) ekleyebilir veya var olan derleme işlem hattını değiştirebilirsiniz. Bir derleme işlem hattınız varsa [Derleme tanımına Öykünücü derlemesi ekleme](#addEmulatorBuildTaskToBuildDefinition) bölümüne geçebilirsiniz.
 
-1. Yeni bir derleme tanımı oluşturmak için Azure DevOps uygulamasının **Derlemeler** sekmesine gidin. **+Yeni**'yi seçin. > **Yeni derleme işlem hattı**
+1. Yeni bir derleme tanımı oluşturmak için Azure DevOps uygulamasının **Derlemeler** sekmesine gidin. **+Yeni**'yi seçin. \> **Yeni işlem hattı oluşturma**
 
    ![Yeni derleme işlem hattı oluşturma](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 

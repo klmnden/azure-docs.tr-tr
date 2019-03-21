@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7eb18b5560e849796770ce9d24574d7a3d0db262
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b35c5073f2b19523010528800c2a989d5de5b448
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716149"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848022"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapasite için HDInsight kümeleri planlama
 
@@ -109,11 +109,11 @@ Hedef küme VM boyutu, ölçek ve türünü belirledikten sonra aboneliğinizi g
 1. Tıklayarak **Yardım ve Destek** sayfanın sol alt tarafında.
 1. Tıklayarak **yeni destek isteği**.
 1. Üzerinde **yeni destek isteği** sayfasındaki **Temelleri** sekmesinde, aşağıdaki seçenekleri belirleyin:
-    - **Sorun türü**: **Hizmet ve abonelik sınırlarını (kotalar)**
-    - **Abonelik**: değiştirmek istediğiniz abonelik
-    - **Kota türü**: **HDInsight**
+   - **Sorun türü**: **Hizmet ve abonelik sınırlarını (kotalar)**
+   - **Abonelik**: değiştirmek istediğiniz abonelik
+   - **Kota türü**: **HDInsight**
     
-    ![HDInsight çekirdek kotasını artırmak için bir destek isteği oluşturun](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+     ![HDInsight çekirdek kotasını artırmak için bir destek isteği oluşturun](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. **İleri**’ye tıklayın.
 1. Üzerinde **ayrıntıları** sayfasında, sorunun bir açıklama girin, sorunun önem derecesini seçin ve tercih ettiğiniz iletişim yöntemi seçin.
@@ -125,7 +125,7 @@ Hedef küme VM boyutu, ölçek ve türünü belirledikten sonra aboneliğinizi g
 
 Yapabilecekleriniz [bir kota artırım talebinde bulunmak Destek ekibiyle iletişime geçin](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-Ancak, bazı sabit kota sınırları vardır, örneğin, tek bir Azure aboneliği en fazla 10.000 çekirdek olabilir. Bu sınırlar hakkında daha fazla bilgi için bkz: [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
+Ancak, bazı sabit kota sınırları vardır, örneğin, tek bir Azure aboneliği en fazla 10.000 çekirdek olabilir. Bu sınırlar hakkında daha fazla bilgi için bkz: [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

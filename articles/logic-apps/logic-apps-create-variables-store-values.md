@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: e525e5584e4835b0f2b73203c818c3f799b77cf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063225"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075723"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Kaydetme ve Azure Logic Apps değerleri yönetmek için değişkenleri oluşturma
 
@@ -414,10 +414,11 @@ Dizeler veya diziler depolamak için değişkenleri, eklediğiniz veya *ekleme* 
 
 1. Bulup, değişkeni bir dize veya bir dizi olduğuna bağlı olarak aşağıdaki eylemlerden birini seçin: 
 
-  * **Değişkenler - dize değişkenine Ekle**
-  * **Değişkenler - dizi değişkenine Ekle** 
+   * **Değişkenler - dize değişkenine Ekle**
+   * **Değişkenler - dizi değişkenine Ekle** 
 
-2. Son öğe dizisi veya dize olarak eklenecek değeri belirtin. Bu değer gereklidir. 
+2. Son öğe dizisi veya dize olarak eklenecek değeri belirtin. 
+   Bu değer gereklidir. 
 
 Özellikleri şunlardır **ekleyin...**  eylemler:
 

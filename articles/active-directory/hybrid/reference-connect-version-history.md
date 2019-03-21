@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd90cd18be1fdbac5948fb076a3358b070bad8eb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 840ea818c7c2e197f1ab65f4bd61067bf5e51283
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455081"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57836989"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayınlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -180,12 +180,12 @@ Yeni özellikler ve geliştirmeler
 - Cihaz geri yazma yapılandırması, artık yalnızca Azure AD Connect Sihirbazı içinde yönetilir.
 - Yeni bir PowerShell çağrılan ADSyncTools.psm1 eklediğiniz SQL bağlantı sorunları ve diğer sorun giderme çeşitli yardımcı programları sorun giderme için kullanılan modül. ADSyncTools modülü hakkında daha fazla bilgiyi [burada](tshoot-connect-tshoot-sql-connectivity.md). 
 - Yeni bir ek görev "Cihaz seçeneklerini Yapılandır" eklendi. Aşağıdaki iki işlem yapılandırma görevini kullanabilirsiniz: 
-    -   **Hibrit Azure AD'ye katılma**: Ortamınızda şirket içi AD ayak izi varsa ve Azure Active Directory ile sağlanan özelliklerden yararlanmak istiyorsanız hibrit Azure AD’ye katılmış cihazları uygulayabilirsiniz. Bunlar hem şirket içi Active Directory alanınıza hem de Azure Active Directory alanınıza katılmış cihazlardır.
-    -   **Cihaz geri yazmayı**: Cihaz geri yazma, AD FS cihazlara dayalı koşullu erişimi etkinleştirmek için kullanılır (2012 R2 veya üzeri) korunan cihazlar
+  - **Hibrit Azure AD'ye katılma**: Ortamınızda şirket içi AD ayak izi varsa ve Azure Active Directory ile sağlanan özelliklerden yararlanmak istiyorsanız hibrit Azure AD’ye katılmış cihazları uygulayabilirsiniz. Bunlar hem şirket içi Active Directory alanınıza hem de Azure Active Directory alanınıza katılmış cihazlardır.
+  - **Cihaz geri yazmayı**: Cihaz geri yazma, AD FS cihazlara dayalı koşullu erişimi etkinleştirmek için kullanılır (2012 R2 veya üzeri) korunan cihazlar
 
-   >[!NOTE] 
-   > - Cihaz geri yazma eşitleme seçeneklerini özelleştirme etkinleştirme seçeneği gri görünür. 
-   > -  ADPrep için PowerShell modülü, bu sürümle birlikte kullanım dışı bırakılmıştır.
+    >[!NOTE] 
+    > - Cihaz geri yazma eşitleme seçeneklerini özelleştirme etkinleştirme seçeneği gri görünür. 
+    > -  ADPrep için PowerShell modülü, bu sürümle birlikte kullanım dışı bırakılmıştır.
 
 
 
@@ -415,7 +415,7 @@ Durum: 19 Ekim 2017
 
 * İle ilgili bir sorun düzeltildi *değiştirme kullanıcı oturum açma* görev Azure AD Connect Sihirbazı'nda:
 
-   * Parola Eşitleme ile mevcut bir Azure AD Connect dağıtımının varsa sorun **devre dışı**, ve kullanıcı oturum açma yöntemi olarak ayarlamaya çalıştığınız *geçişli kimlik doğrulaması*. Sihirbaz, değişiklik uygulandığında, geçişli kimlik doğrulaması hem parola eşitleme sağlar. Bu düzeltmeyle, sihirbaz, artık parola eşitleme sağlar.
+  * Parola Eşitleme ile mevcut bir Azure AD Connect dağıtımının varsa sorun **devre dışı**, ve kullanıcı oturum açma yöntemi olarak ayarlamaya çalıştığınız *geçişli kimlik doğrulaması*. Sihirbaz, değişiklik uygulandığında, geçişli kimlik doğrulaması hem parola eşitleme sağlar. Bu düzeltmeyle, sihirbaz, artık parola eşitleme sağlar.
 
   * Daha önce parola eşitleme, geçişli kimlik doğrulamasını etkinleştirmek için bir önkoşul oluştu. Kullanıcı oturum açma yöntemi olarak ayarlandığında *geçişli kimlik doğrulaması*, sihirbaz, geçişli kimlik doğrulaması hem parola eşitleme etkinleştirmez. Kısa bir süre önce parola eşitleme, bir önkoşul kaldırıldı. Azure AD Connect sürümü 1.1.557.0 bir parçası olarak, kullanıcı oturum açma yöntemi olarak ayarladığınızda parola eşitlemeyi etkinleştirmek için Azure AD Connect'e bir değişiklik yapılmıştır *geçişli kimlik doğrulaması*. Ancak, değişiklik, yalnızca Azure AD Connect yüklemenize uygulandı. Bu düzeltmeyle, aynı değişikliği de uygulanır *değiştirme kullanıcı oturum açma* görev.
   
@@ -436,7 +436,7 @@ Durum: 19 Ekim 2017
 * Azure AD Connect Microsoft Almanya Bulutu ile ayarlamak için gerekli adımları basitleştirmek için mantıksal eklendi. Daha önce bu makalede açıklandığı gibi Microsoft Almanya Bulutu ile doğru çalışması için Azure AD Connect sunucusunda belirli kayıt defteri anahtarlarını güncelleştirmek için gereklidir. Şimdi, Azure AD Connect otomatik olarak kiracınızda Kurulum sırasında sağlanan genel yönetici kimlik bilgileri Microsoft Almanya bulutunda temel alır, algılayabilir.
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
->[!NOTE]
+> [!NOTE]
 > Not: Eşitleme hizmeti kendi özel Zamanlayıcı geliştirmenize olanak sağlayan bir WMI arabirimine sahiptir. Bu arabirim artık kullanım dışıdır ve gelecekteki kaldırılır, Azure AD Connect'in sürümlerinde sevk 30 Haziran 2018'den sonra. Eşitleme zamanlaması özelleştirmek isteyen müşteriler kullanması gereken [yerleşik Zamanlayıcı (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### <a name="fixed-issues"></a>Düzeltilen sorunlar
@@ -642,7 +642,7 @@ Ortaya sorunu olan **tüm etki alanlarını ve OU'ları seçeneği Eşitle** Sih
 
 * Azure AD Connect artık desteklediği için geri yazma Exchange Online **cloudPublicDelegates** özniteliğini şirket içi AD **publicDelegates** özniteliği. Bu, burada bir Exchange Online posta kutusu kullanıcılara şirket içi Exchange posta kutusu ile SendOnBehalfTo haklar verilebilir senaryosu sağlar. Bu özellik, yeni bir out-of-box eşitleme kuralı "AD – kullanıcı Exchange karma PublicDelegates geri yazma için çıkış" desteklemek için eklendi. Exchange karma özelliği etkinleştirilmişse bu eşitleme kuralı yalnızca Azure AD Connect'e eklenir.
 
-*   Azure AD Connect artık destekliyor eşitleme **altRecipient** Azure ad özniteliği. Bu değişiklik desteklemek için aşağıdaki hazır olan eşitleme kuralları gerekli öznitelik akışı içerecek şekilde güncelleştirildi:
+* Azure AD Connect artık destekliyor eşitleme **altRecipient** Azure ad özniteliği. Bu değişiklik desteklemek için aşağıdaki hazır olan eşitleme kuralları gerekli öznitelik akışı içerecek şekilde güncelleştirildi:
   * İçinde ad – kullanıcı Exchange
   * AAD – kullanıcı ExchangeOnline kullanıma al
   
@@ -1186,9 +1186,9 @@ Yayımlanma tarihi: Ekim 2014
 
 Azure AD eşitleme'nın yüklü zaten varsa, kullanıma hazır eşitleme kurallardan herhangi birinin değişmesi durumunda yapmanız gereken ek bir adım yoktur. İçin 1.0.470.1023 yükselttikten sonra değiştirilmiş kuralları yinelenen eşitleme bırakın. Her değiştirilen eşitleme kuralı için aşağıdakileri yapın:
 
-1.  Eşitleme kuralı değiştirdiniz ve değişiklikleri Not bulun.
-* Eşitleme kuralını silin.
-* Azure AD Sync tarafından oluşturulan yeni bir eşitleme kuralı bulun ve ardından değişiklikleri yeniden uygulayın.
+1. Eşitleme kuralı değiştirdiniz ve değişiklikleri Not bulun.
+1. Eşitleme kuralını silin.
+1. Azure AD Sync tarafından oluşturulan yeni bir eşitleme kuralı bulun ve ardından değişiklikleri yeniden uygulayın.
 
 **Active Directory hesabı için izinler**
 

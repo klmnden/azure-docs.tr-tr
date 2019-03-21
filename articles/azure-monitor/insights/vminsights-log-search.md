@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/06/2019
+ms.date: 03/15/2019
 ms.author: magoedte
-ms.openlocfilehash: f33b87fa2c90eda7e4fa135e55565781e8491418
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 12f8b3d9dd461dc5d09d76245aa02f0e1cefc343
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983787"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188977"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Azure İzleyici günlüklerinden VM'ler (Önizleme) için sorgulama
 VM'ler için Azure İzleyici, performans ve bağlantı ölçümü, bilgisayar ve envanter verileri işlemek ve sistem durumu bilgilerini toplar ve Log Analytics çalışma alanına Azure İzleyici'de iletir.  Bu veriler için kullanılabilir [sorgu](../../azure-monitor/log-query/log-query-overview.md) Azure İzleyici'de. Geçiş planlaması kapasite analizi, bulma ve isteğe bağlı performans sorunlarını giderme senaryoları için bu verileri uygulayabilirsiniz.
@@ -33,10 +33,20 @@ Benzersiz işlemleri ve bilgisayarları tanımlamak için kullanabileceğiniz da
 
 Sorgular, birden fazla kayıt aynı bilgisayarda veya işlem için belirtilen işlem ve belirtilen zaman aralığında bilgisayar için birden çok kayıt var olabileceğinden döndürebilir. Yalnızca en son kayıt eklemek için Ekle "| Yinelenenleri kaldırma ResourceId"sorgulanamıyor.
 
-### <a name="connections"></a>Bağlantılar
-Bağlantı ölçümü, Azure İzleyici günlüklerine - VMConnection yeni bir tabloya yazılır. Bu tablo, bir makine (gelen ve giden) için bağlantıları hakkında bilgi sağlar. Bağlantı ölçümü, ayrıca bir zaman penceresi boyunca belirli bir ölçüyü elde bulunmasını sağlayan API'ler ile sunulur.  TCP bağlantıları kaynaklanan "*kabul*dinleme yuva ing - tarafından oluşturulanlar çalışırken gelen *bağlanmak*ing - belirli bir IP ve bağlantı noktası için giden. Bir bağlantı yönünü olarak ayarlanabilir Direction özelliği tarafından temsil edilen **gelen** veya **giden**. 
+### <a name="connections-and-ports"></a>Bağlantılar ve bağlantı noktaları
+Azure İzleyici günlüklerine - VMConnection ve VMBoundPort iki yeni tablolar bağlantı ölçümleri özelliği sunar. Bu tablolar üzerinde Aç/etkin bağlantı noktalarını sunucu yanı sıra, bir makine (gelen ve giden) için bağlantıları hakkında bilgi sağlar. Ayrıca, ConnectionMetrics zaman penceresi boyunca belirli bir ölçüyü elde bulunmasını sağlayan API'ler aracılığıyla kullanıma sunulur. TCP bağlantıları kaynaklanan *kabul* dinleme bir yuvada tarafından oluşturulanlar çalışırken gelen olan *bağlanma* giden olan, belirli bir IP ve bağlantı noktası. Bir bağlantı yönünü olarak ayarlanabilir Direction özelliği tarafından temsil edilen **gelen** veya **giden**. 
 
-Bu tablolarındaki kayıtlara bağımlılık aracısı tarafından bildirilen verilerden oluşturulur. Tüm kayıtların bir dakikalık zaman aralığında gözlemi temsil eder. TimeGenerated özelliği zaman aralığını başlangıcını gösterir. Her kayıt, diğer bir deyişle ilgili varlığı tanımlayan bilgiler, bağlantı veya bağlantı noktası yanı sıra söz konusu varlıkla ilişkili ölçümleri içerir. Şu anda, TCP IPv4 kullanarak oluşan ağ etkinliği bildirilir.
+Bu tablolarındaki kayıtlara bağımlılık aracısı tarafından bildirilen verilerden oluşturulur. Tüm kayıtların gözlemi 1 dakikalık zaman aralığında temsil eder. TimeGenerated özelliği zaman aralığını başlangıcını gösterir. Her kayıt, diğer bir deyişle ilgili varlığı tanımlayan bilgiler, bağlantı veya bağlantı noktası yanı sıra söz konusu varlıkla ilişkili ölçümleri içerir. Şu anda, TCP IPv4 kullanarak oluşan ağ etkinliği bildirilir. 
+
+#### <a name="common-fields-and-conventions"></a>Ortak alanları ve kuralları 
+Aşağıdaki alanlar ve kuralları VMConnection hem VMBoundPort için geçerlidir: 
+
+- Bilgisayar: Makine raporlama tam etki alanı adı 
+- Agentıd: Log Analytics aracısını sahip bir makine için benzersiz tanımlayıcı  
+- Makine: ServiceMap tarafından sunulan makine için Azure Resource Manager kaynak adı. Formu şöyledir *m-{GUID}* burada *GUID* Agentıd olarak aynı GUID  
+- İşlem: ServiceMap tarafından kullanıma sunulan işlem için Azure Resource Manager kaynak adı. Formu şöyledir *p-{onaltılık dize}*. Eşsiz işlem kimliği makinelerde üretmek için makine ve işlem alanları birleştirmek ve makine kapsamında benzersiz işlemidir. 
+- ProcessName: Raporlama işlemi yürütülebilir adı.
+- Tüm IP adresleri IPv4 kurallı biçimde örneğin dizelerdir *13.107.3.160* 
 
 Maliyetini ve karmaşıklığını yönetmek için tek bir fiziksel ağ bağlantıları bağlantısı kayıtlarını göstermez. Birden fazla fiziksel ağ bağlantıları, ardından ilgili tablodaki yansıtılır mantıksal bir bağlantı içinde gruplandırılır.  Yani kayıt içinde *VMConnection* mantıksal bir gruplandırmasını ve uyulması gereken değil ayrı ayrı fiziksel bağlantılar tablosunu temsil eder. Aşağıdaki öznitelikler için aynı değeri belirli bir dakikalık aralık sırasında paylaşımı fiziksel ağ bağlantısı tek bir mantıksal kayıt içine toplanan *VMConnection*. 
 
@@ -81,7 +91,7 @@ Dikkate alınması gereken bazı önemli noktalar şunlardır:
 1. Her arabirim için ayrı bir kayıt işlemi aynı IP adresinde ancak birden çok ağ arabirimi üzerinden bağlantı kabul ederse bildirilir. 
 2. Joker karakter IP kayıtlarla hiçbir etkinlik içerir. Bunlar, makinede bir bağlantı noktası açık gelen trafiği olduğunu göstermek için dahil edilir.
 3. Eşleşen bir kayıt (için aynı işlem, bağlantı noktası ve protokol) olduğunda ayrıntı ve veri hacmini azaltmak için joker karakter IP kayıtlarla belirli bir IP adresi ile atlanacak. Bir joker karakter IP kaydı atlandığında, belirli bir IP adresi IsWildcardBind kayıt özelliğiyle ayarlanır "True" bağlantı noktası raporlama makinenin her bir arabirim üzerinden kullanıma sunulduğunu belirtir.
-4. Yalnızca belirli arabirime bağlı bağlantı noktaları, "False" olarak IsWildcardBind vardır.
+4. Yalnızca belirli arabirime bağlı bağlantı noktaları IsWildcardBind kümesine sahip *False*.
 
 #### <a name="naming-and-classification"></a>Adlandırma ve sınıflandırma
 Kolaylık olması için bir bağlantı uzak bitiş IP adresi RemoteIp özelliği eklenmiştir. Gelen bağlantılar için RemoteIp aynıdır Sourceıp giden bağlantılara karşın, bu DestinationIp aynıdır. RemoteDnsCanonicalNames özelliği RemoteIp için makine tarafından bildirilen DNS kurallı adlarını temsil eder. RemoteDnsQuestions ve RemoteClassification özellikler gelecekte kullanılmak üzere ayrılmıştır. 
@@ -111,6 +121,36 @@ Her RemoteIp özelliğinde *VMConnection* tablo bilinen kötü amaçlı etkinli�
 |Isactive |Göstergeleri ile devre dışı gösteren *True* veya *False* değeri. |
 |ReportReferenceLink |Belirli bir observable için ilgili raporları bağlar. |
 |AdditionalInformation |Uygunsa, gözlemlenen tehdit hakkında ek bilgi sağlar. |
+
+### <a name="ports"></a>Bağlantı Noktaları 
+Etkin olarak gelen trafiği kabul veya potansiyel olarak trafiği kabul edebilecek, ancak Raporlama zaman penceresi boyunca boşta bağlantı noktaları bir makinede VMBoundPort tabloya yazılır.  
+
+Varsayılan olarak, bu tablo veri yazılmaz. Bu tabloya yazılan veriler için bir e-posta Gönder vminsights@microsoft.com yanı sıra çalışma alanı kimliği ve çalışma alanı bölgesi.   
+
+Her kayıtta VMBoundPort aşağıdaki alanlara göre tanımlanır: 
+
+| Özellik | Açıklama |
+|:--|:--|
+|İşlem | Bağlantı noktası ile ilişkili olduğu işlem (veya gruplar işlemlerin) kimliği.|
+|IP | Bağlantı noktası, IP adresi (joker karakter IP olabilir *0.0.0.0*) |
+|Bağlantı noktası |Bağlantı noktası numarası |
+|Protokol | Protokol.  Örneğin, *tcp* veya *udp* (yalnızca *tcp* desteklenmektedir).|
+ 
+Kimlik bir bağlantı noktası yukarıdaki beş alanları türetilir ve Portıd özelliğinde depolanıyor. Bu özellik, kayıtları için belirli bir bağlantı noktası zaman hızlı bir şekilde bulmak için kullanılabilir. 
+
+#### <a name="metrics"></a>Ölçümler 
+Bağlantı noktası kayıtları temsil eden ilişkili bağlantılar ölçümlerini dahil et. Şu anda aşağıdaki ölçümleri raporlanır (her ölçüm ayrıntılarını önceki bölümde açıklanmıştır): 
+
+- BytesSent ve BytesReceived 
+- LinksEstablished, LinksTerminated, LinksLive 
+- ResposeTime, ResponseTimeMin, ResponseTimeMax, ResponseTimeSum 
+
+Dikkate alınması gereken bazı önemli noktalar şunlardır:
+
+- Her arabirim için ayrı bir kayıt işlemi aynı IP adresinde ancak birden çok ağ arabirimi üzerinden bağlantı kabul ederse bildirilir.  
+- Joker karakter IP kayıtlarla hiçbir etkinlik içerir. Bunlar, makinede bir bağlantı noktası açık gelen trafiği olduğunu göstermek için dahil edilir. 
+- Eşleşen bir kayıt (için aynı işlem, bağlantı noktası ve protokol) olduğunda ayrıntı ve veri hacmini azaltmak için joker karakter IP kayıtlarla belirli bir IP adresi ile atlanacak. Joker karakter IP kaydını atlandığında *IsWildcardBind* kaydın belirli bir IP adresine sahip özellik ayarlanacak *True*.  Bu bağlantı noktası raporlama makinenin her bir arabirim üzerinden Internet'e gösterir. 
+- Yalnızca belirli arabirime bağlı bağlantı noktaları IsWildcardBind kümesine sahip *False*. 
 
 ### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL kayıtları
 Kayıt türü ile *ServiceMapComputer_CL* Envanter verileri için bağımlılık Aracısı'nı sunucularıyla sahip. Bu kayıtlar aşağıdaki tabloda özelliklere sahiptir:
@@ -165,55 +205,124 @@ Kayıt türü ile *ServiceMapProcess_CL* Envanter verileri TCP bağlantılı iş
 ## <a name="sample-log-searches"></a>Örnek günlük aramaları
 
 ### <a name="list-all-known-machines"></a>Bilinen tüm makinelerin listesi
-`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
+```kusto
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
+```
 
 ### <a name="when-was-the-vm-last-rebooted"></a>Ne zaman VM son yeniden başlatıldı
-`let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc`
+```kusto
+let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc`
+```
 
 ### <a name="summary-of-azure-vms-by-image-location-and-sku"></a>Azure Vm'leri bir özetini resim, konum ve SKU
-`ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s`
+```kusto
+ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s`
+```
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Tüm yönetilen bilgisayarların fiziksel bellek kapasitesi listeleyin.
-`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
+```kusto
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
+```
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Liste bilgisayar adı, DNS, IP ve işletim sistemi.
-`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
+```kusto
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
+```
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Komut satırında "sql" ile tüm işlemler bulun
-`ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```kusto
+ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Bir makine (en son kayıt) kaynak adına göre bulma
-`search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```kusto
+search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>(En son kayıt) bir makine IP adresine göre Bul
-`search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```kusto
+search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Belirtilen bir makinedeki tüm bilinen işlemlere listesi
-`ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```kusto
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
+```
 
 ### <a name="list-all-computers-running-sql-server"></a>SQL Server çalıştıran tüm bilgisayarları listeleyin
-`ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
+```kusto
+ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
+```
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Curl my veri merkezinde tüm benzersiz ürün sürümlerini listeleme
-`ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
+```kusto
+ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
+```
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>CentOS çalıştıran tüm bilgisayarların bir bilgisayar grubu oluşturun
-`ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
+```kusto
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
+```
 
 ### <a name="bytes-sent-and-received-trends"></a>Bayt gönderilen ve alınan eğilimleri
-`VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart`
+```kusto
+VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart`
+```
 
 ### <a name="which-azure-vms-are-transmitting-the-most-bytes"></a>Azure Vm'lerinin en fazla bayt iletmesini durdurabilirsiniz
-`VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc`
+```kusto
+VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc`
+```
 
 ### <a name="link-status-trends"></a>Bağlantı durumu eğilimleri
-`VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart`
+```kusto
+VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart`
+```
 
 ### <a name="connection-failures-trend"></a>Bağlantı hataları eğilimi
-`VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart`
+```kusto
+VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart`
+```
+
+### <a name="bound-ports"></a>Bağlı bağlantı noktaları
+```kusto
+VMBoundPort
+| where TimeGenerated >= ago(24hr)
+| where Computer == 'admdemo-appsvr'
+| distinct Port, ProcessName
+```
+
+### <a name="number-of-open-ports-across-machines"></a>Makineler arasında bağlantı noktalarını açma sayısı
+```kusto
+VMBoundPort
+| where Ip != "127.0.0.1"
+| summarize by Computer, Machine, Port, Protocol
+| summarize OpenPorts=count() by Computer, Machine
+| order by OpenPorts desc
+```
+
+### <a name="score-processes-in-your-workspace-by-the-number-of-ports-they-have-open"></a>Çalışma alanınızdaki işlemleri sahip oldukları bağlantı noktalarının sayısı tarafından açık Puanlama
+```kusto
+VMBoundPort
+| where Ip != "127.0.0.1"
+| summarize by ProcessName, Port, Protocol
+| summarize OpenPorts=count() by ProcessName
+| order by OpenPorts desc
+```
+
+### <a name="aggregate-behavior-for-each-port"></a>Her bağlantı noktası için toplama davranışı
+Bu sorgu daha sonra bağlantı noktaları puanlamak için etkinlik, örneğin, en fazla gelen/giden trafiğe sahip bağlantı noktalarını, çoğu bağlantısı ile bağlantı noktalarına tarafından kullanılabilir
+```kusto
+// 
+VMBoundPort
+| where Ip != "127.0.0.1"
+| summarize BytesSent=sum(BytesSent), BytesReceived=sum(BytesReceived), LinksEstablished=sum(LinksEstablished), LinksTerminated=sum(LinksTerminated), arg_max(TimeGenerated, LinksLive) by Machine, Computer, ProcessName, Ip, Port, IsWildcardBind
+| project-away TimeGenerated
+| order by Machine, Computer, Port, Ip, ProcessName
+```
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Bir gruptaki makinelerin giden bağlantılar özetleme
-```
+```kusto
 // the machines of interest
 let machines = datatable(m: string) ["m-82412a7a-6a32-45a9-a8d6-538354224a25"];
 // map of ip to monitored machine in the environment

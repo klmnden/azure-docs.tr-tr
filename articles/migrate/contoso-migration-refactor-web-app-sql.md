@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 8e8b9536c96b1f5ed899695a3715021b9f9875cf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 271e18d370068e0445f183af0c694b19f0da22f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440378"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102763"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso geçişi: Bir Azure Web uygulaması ve Azure SQL veritabanı için bir şirket içi uygulamayı yeniden düzenleme
 
@@ -244,9 +244,9 @@ Veritabanı geçişi, Contoso yöneticileri artık iki web uygulaması sağlayab
 
 Contoso uygulaması için işlem hatları ve DevOps altyapı oluşturmak gerekir.  Bunu yapmak için Contoso yöneticileri yeni bir DevOps projesi oluşturma, kod alın ve ardından derlemeyi Ayarla ve yayın işlem hatları.
 
-1.   Bunlar Contoso Azure DevOps hesabında yeni bir proje oluşturun (**ContosoSmartHotelRefactor**) seçip **Git** sürüm denetimi.
+1. Bunlar Contoso Azure DevOps hesabında yeni bir proje oluşturun (**ContosoSmartHotelRefactor**) seçip **Git** sürüm denetimi.
 
-    ![Yeni proje](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
+   ![Yeni proje](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
 2. Bunlar, şu anda uygulama kodlarını tutan Git deposunu içeri aktarma. İçinde bir [genel deponun](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) ve indirebilirsiniz.
 
     ![Uygulama kodu indirin](./media/contoso-migration-refactor-web-app-sql/vsts2.png)
@@ -306,8 +306,8 @@ Contoso yöneticileri artık Azure DevOps, derleme ve yayın işlem yapılandır
 
 6. Klasör **bırak** yapı sonuçlarını içerir.
 
-    - İki zip dosyaları uygulamaları içeren paketlerdir.
-    - Bu dosyalar, yayın işlem hattı, Azure Web Apps'e dağıtım için kullanılır
+   - İki zip dosyaları uygulamaları içeren paketlerdir.
+   - Bu dosyalar, yayın işlem hattı, Azure Web Apps'e dağıtım için kullanılır
 
      ![Yapay Nesne](./media/contoso-migration-refactor-web-app-sql/pipeline6.png)
 
@@ -341,7 +341,7 @@ Contoso yöneticileri artık Azure DevOps, derleme ve yayın işlem yapılandır
 
 16. Sürekli dağıtım tetikleyicisi ayarlanmalıdır **etkin**.
 
-   ![Sürekli dağıtım etkin](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
+    ![Sürekli dağıtım etkin](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
 
 17. Şimdi, aşama 1 işe geri taşınabilecek miyim görevleri ve tıklayın **Azure App Service'e dağıtma**.
 

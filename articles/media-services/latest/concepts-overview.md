@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b346ac0ac456b7f6af078496e8dd1cb738caab67
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: d3cea9f3bc5645aeaefc5bb376557d365681df56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530203"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994100"
 ---
 # <a name="media-services-concepts"></a>Media Services kavramları
 
@@ -82,7 +82,7 @@ Media Services kullanabileceğiniz **dinamik bildirimlerini** yalnızca belirli 
 
 ## <a name="live-streaming"></a>Canlı akış
 
-Azure Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağıtmanıza olanak sağlar. **Canlı etkinlikler** almak ve canlı video akışları işlenmesinden sorumludur. Oluştururken bir **canlı olay**, uzak bir kodlayıcıdan canlı bir sinyal göndermek için kullanabileceğiniz bir giriş uç noktası oluşturulur. İçine giden akış oluşturduktan sonra **canlı olay**, oluşturarak akış olayını başlayabilirsiniz bir **varlık**, **Canlı çıkış**, ve **akış Bulucu** . **Çıkış canlı** akışa arşiv **varlık** ve aracılığıyla izleyiciler kullanabilmesi **akış Endpoid**. A **canlı olay** iki türden biri olabilir: **doğrudan** ve **live encoding**.
+Azure Media Services Canlı etkinlikler müşterilerinizin Azure bulutunda dağıtmanıza olanak sağlar. **Canlı etkinlikler** almak ve canlı video akışları işlenmesinden sorumludur. Oluştururken bir **canlı olay**, uzak bir kodlayıcıdan canlı bir sinyal göndermek için kullanabileceğiniz bir giriş uç noktası oluşturulur. İçine giden akış oluşturduktan sonra **canlı olay**, oluşturarak akış olayını başlayabilirsiniz bir **varlık**, **Canlı çıkış**, ve **akış Bulucu** . **Çıkış canlı** akışa arşiv **varlık** ve aracılığıyla izleyiciler kullanabilmesi **akış uç noktası**. A **canlı olay** iki türden biri olabilir: **doğrudan** ve **live encoding**.
 
 Aşağıdaki görüntüde, doğrudan türü iş akışı gösterilmektedir:
 

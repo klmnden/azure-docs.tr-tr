@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 23618b545814e89a7343d2db4664405855051c1b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 6da653bc94c8b549282ab9124dba23b08771c5f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415451"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080786"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>VM ölçek kümeleri için Resource Manager şablonlarını kullanarak gelişmiş otomatik ölçeklendirme yapılandırması
 Ölçek daraltma ve sanal makine ölçek kümelerinde yinelenen bir zamanlamaya göre veya belirli bir tarihe göre performans ölçüm eşiklere dayanarak genişleme kullanabilirsiniz. Ölçek eylemleri için e-posta ve Web kancası bildirimleri de yapılandırabilirsiniz. Bu kılavuzda, bir VM ölçek kümesi'nde bir Resource Manager şablonu kullanarak bu nesneleri yapılandırma örneği gösterilir.
@@ -47,14 +47,14 @@ Bu kılavuzda kullandığımız [Azure kaynak Gezgini](https://resources.azure.c
 
 4. Bu kılavuz için kullandığımız kuramsal bir ölçeklendirme senaryo aşağıda verilmiştir.
 
-    * **Temel yük** - veya ölçeklendirme my ölçek set.* üzerinde barındırılan Uygulamam yükü göre istiyorum
-    * **İleti sırası boyutu** -Service Bus kuyruğuna gelen iletiler için uygulamama kullanabilirim. Ben sıranın ileti sayısı ve CPU % kullanın ve ileti sayısı ya da CPU değerse eşiği bir ölçeklendirme eylemi tetiklemek için bir varsayılan profili yapılandırın.\*
-    * **Haftanın günü ve günün saati** -'Haftanın günü sabah saat' adlı bir haftalık yineleme 'zaman günün' temel profil istiyorum. Geçmiş verilerini temel alarak belirli sayıda sanal makine örneğini bu süre boyunca my uygulamanın yükü işlemek daha iyi biliyorum.\*
-    * **Özel tarih** -'Başlat ürün Day' profili ekledim. Uygulamamın son pazarlama duyuruları ve sizi yeni ürün uygulamada yerleştirdiğinizde yükü işlemek hazır olması için miyim belirli tarihleri için önceden planlayın.\*
-    * *Son iki profilleri diğer performans ölçümü tabanlı kuralların bunları da olabilir. Bu durumda, bir yok karar ve bunun yerine varsayılan performans ölçümü üzerinde yararlanmayı kurallarına göre. Kurallar yinelenen ve tarih temelli profilleri için isteğe bağlıdır.*
+   * **Temel yük** - veya ölçeklendirme my ölçek set.* üzerinde barındırılan Uygulamam yükü göre istiyorum
+   * **İleti sırası boyutu** -Service Bus kuyruğuna gelen iletiler için uygulamama kullanabilirim. Ben sıranın ileti sayısı ve CPU % kullanın ve ileti sayısı ya da CPU değerse eşiği bir ölçeklendirme eylemi tetiklemek için bir varsayılan profili yapılandırın.\*
+   * **Haftanın günü ve günün saati** -'Haftanın günü sabah saat' adlı bir haftalık yineleme 'zaman günün' temel profil istiyorum. Geçmiş verilerini temel alarak belirli sayıda sanal makine örneğini bu süre boyunca my uygulamanın yükü işlemek daha iyi biliyorum.\*
+   * **Özel tarih** -'Başlat ürün Day' profili ekledim. Uygulamamın son pazarlama duyuruları ve sizi yeni ürün uygulamada yerleştirdiğinizde yükü işlemek hazır olması için miyim belirli tarihleri için önceden planlayın.\*
+   * *Son iki profilleri diğer performans ölçümü tabanlı kuralların bunları da olabilir. Bu durumda, bir yok karar ve bunun yerine varsayılan performans ölçümü üzerinde yararlanmayı kurallarına göre. Kurallar yinelenen ve tarih temelli profilleri için isteğe bağlıdır.*
 
-    Otomatik ölçeklendirme altyapısı önceliklendirilmesi profilleri ve kuralları yakalanan ayrıca [otomatik ölçeklendirme en iyi](autoscale-best-practices.md) makalesi.
-    Otomatik ölçeklendirme için genel ölçümler bir listesi için bakın [otomatik ölçeklendirme için genel ölçümler](autoscale-common-metrics.md)
+     Otomatik ölçeklendirme altyapısı önceliklendirilmesi profilleri ve kuralları yakalanan ayrıca [otomatik ölçeklendirme en iyi](autoscale-best-practices.md) makalesi.
+     Otomatik ölçeklendirme için genel ölçümler bir listesi için bakın [otomatik ölçeklendirme için genel ölçümler](autoscale-common-metrics.md)
 
 5. Emin olun, bulunduğunuz **okuma/yazma** modunda kaynak Gezgini
 

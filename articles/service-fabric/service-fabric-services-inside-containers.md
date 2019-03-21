@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: aljo, anmola
-ms.openlocfilehash: f5e31c6cf08ab455b835231f54b564a3e4ed8dad
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806207"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079835"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Service Fabric güvenilir hizmetler ve Windows üzerinde Reliable Actors kapsayıcılı hale getirme
 
@@ -38,9 +38,9 @@ Bu belgede, bir Windows kapsayıcısının içinde çalışan hizmetinizi almak 
 
 3. Kapsayıcılı hale getirme, yükleyici programı girişi sırasında başlatmak istediğiniz her kod paketi için bu seçeneği işaretleyin. Programın giriş noktası dosyanıza aşağıdaki kod parçacığında gösterilen statik oluşturucuyu ekleyin.
 
-  ```csharp
-  namespace MyApplication
-  {
+   ```csharp
+   namespace MyApplication
+   {
       internal static class Program
       {
           static Program()
@@ -53,7 +53,7 @@ Bu belgede, bir Windows kapsayıcısının içinde çalışan hizmetinizi almak 
           /// </summary>
           private static void Main()
           {
-  ```
+   ```
 
 4. Derleme ve [paket](service-fabric-package-apps.md#Package-App) projenizi. Derlemek ve bir paket oluşturmak için Çözüm Gezgini'nde uygulama projesine sağ tıklayın ve seçin **paket** komutu.
 
@@ -79,49 +79,49 @@ Bu belgede, bir Windows kapsayıcısının içinde çalışan hizmetinizi almak 
 
 7. ServiceManifest.xml ve ApplicationManifest.xml kapsayıcı görüntüsü, depo bilgilerini, kayıt defteri kimlik doğrulaması ve bağlantı noktası ana bilgisayar eşlemesi eklemek için değiştirin. Bildirimleri değiştirmek için bkz: [bir Azure Service Fabric kapsayıcı uygulaması oluşturma](service-fabric-get-started-containers.md). Hizmet bildirimindeki kod paket tanımı, karşılık gelen kapsayıcı görüntüsü ile değiştirilmesi gerekir. EntryPoint ContainerHost türüne değiştirdiğinizden emin olun.
 
-  ```xml
-<!-- Code package is your service executable. -->
-<CodePackage Name="Code" Version="1.0.0">
-  <EntryPoint>
+   ```xml
+   <!-- Code package is your service executable. -->
+   <CodePackage Name="Code" Version="1.0.0">
+   <EntryPoint>
     <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
     <ContainerHost>
       <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
     </ContainerHost>
-  </EntryPoint>
-  <!-- Pass environment variables to your container: -->
-</CodePackage>
-  ```
+   </EntryPoint>
+   <!-- Pass environment variables to your container: -->
+   </CodePackage>
+   ```
 
 8. Yineleyici ve hizmet uç noktası için bağlantı noktası ana bilgisayar eşlemesi ekleyin. Bu her iki bağlantı noktası, Service Fabric tarafından çalışma zamanında atanmış olduğundan ContainerPort eşleme için atanan bağlantı noktasını kullanmak için sıfır olarak ayarlanır.
 
- ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code">
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code">
     <PortBinding ContainerPort="0" EndpointRef="ServiceEndpoint"/>
     <PortBinding ContainerPort="0" EndpointRef="ReplicatorEndpoint"/>
-  </ContainerHostPolicies>
-</Policies>
- ```
+   </ContainerHostPolicies>
+   </Policies>
+   ```
 
 9. Kapsayıcı yalıtım modunu yapılandırmak için bkz: [yapılandırma yalıtım modu]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows, kapsayıcılar için iki yalıtım modunu destekler: İşlem ve Hyper-V. Aşağıdaki kod parçacıkları, uygulama bildirimi dosyasında yalıtım modunun nasıl belirtildiğine gösterir.
 
- ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
-  ...
-  </ContainerHostPolicies>
-</Policies>
- ```
-  ```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
-  ...
-  </ContainerHostPolicies>
-</Policies>
- ```
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code" Isolation="process">
+   ...
+   </ContainerHostPolicies>
+   </Policies>
+   ```
+   ```xml
+   <Policies>
+   <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
+   ...
+   </ContainerHostPolicies>
+   </Policies>
+   ```
 
 10. Bu uygulamayı test etmek için 5.7 veya üzeri sürümü çalıştıran bir kümeye dağıtmak gerekir. Çalışma zamanı sürüm 6.1 veya daha düşük, düzenleyin ve bu önizleme özelliğini etkinleştirmek için küme ayarları güncelleştirmeniz gerekir. Bu adımları izleyerek [makale](service-fabric-cluster-fabric-settings.md) sonraki gösterilen ayarı eklemek için.
-```
+    ```
       {
         "name": "Hosting",
         "parameters": [
@@ -131,7 +131,7 @@ Bu belgede, bir Windows kapsayıcısının içinde çalışan hizmetinizi almak 
           }
         ]
       }
-```
+    ```
 
 11. Sonraki [dağıtma](service-fabric-deploy-remove-applications.md) bu kümeye düzenlenen uygulama paketi.
 

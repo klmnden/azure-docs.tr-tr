@@ -16,12 +16,12 @@ ms.date: 09/20/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b683abbba2013fef47f648c11a52d7767d7cdf08
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5a68a4caf3d32aa88a61a8e1639bdd08d67599d4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206336"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083309"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Yanlış kullanıcı kümesi için Azure AD galeri uygulaması hazırlanıyor
 
@@ -33,25 +33,25 @@ Hangi kullanıcıların ve grupların Azure Active Directory içinde bir uygulam
 
 Bir veya daha fazla kullanıcıları uygulamaya doğrudan atamak için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
+1. Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+2. Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4. tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5. tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
+   * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
-6.  Listeden bir kullanıcıya atamak istediğiniz uygulamayı seçin.
+6. Listeden bir kullanıcıya atamak istediğiniz uygulamayı seçin.
 
-7.  Uygulama yüklendikten sonra tıklayın **kullanıcılar ve gruplar** uygulamanın sol taraftaki gezinti menüsünde.
+7. Uygulama yüklendikten sonra tıklayın **kullanıcılar ve gruplar** uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  Açmak için **atama Ekle** bölmesinde tıklayın **Ekle** üstünde düğme **kullanıcılar ve gruplar** listesi.
+8. Açmak için **atama Ekle** bölmesinde tıklayın **Ekle** üstünde düğme **kullanıcılar ve gruplar** listesi.
 
-9.  tıklayın **kullanıcılar ve gruplar** seçiciden **atama Ekle** bölmesi.
+9. tıklayın **kullanıcılar ve gruplar** seçiciden **atama Ekle** bölmesi.
 
 10. Yazın **tam adı** veya **e-posta adresi** içine atama isteyen kullanıcının **adına veya e-posta adresine göre arama** arama kutusu.
 
@@ -71,25 +71,25 @@ Sağlama, yapılandırılmış ve bir uygulama zaten çalışıyor olması durum
 
 Bir veya daha fazla grup, doğrudan uygulamaya atamak için aşağıdaki adımları izleyin:
 
-1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
+1. Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+2. Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4. tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5. tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
+   * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
-6.  Listeden bir kullanıcıya atamak istediğiniz uygulamayı seçin.
+6. Listeden bir kullanıcıya atamak istediğiniz uygulamayı seçin.
 
-7.  Uygulama yüklendikten sonra tıklayın **kullanıcılar ve gruplar** uygulamanın sol taraftaki gezinti menüsünde.
+7. Uygulama yüklendikten sonra tıklayın **kullanıcılar ve gruplar** uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  Açmak için **atama Ekle** bölmesinde tıklayın **Ekle** üstünde düğme **kullanıcılar ve gruplar** listesi.
+8. Açmak için **atama Ekle** bölmesinde tıklayın **Ekle** üstünde düğme **kullanıcılar ve gruplar** listesi.
 
-9.  tıklayın **kullanıcılar ve gruplar** seçiciden **atama Ekle** bölmesi.
+9. tıklayın **kullanıcılar ve gruplar** seçiciden **atama Ekle** bölmesi.
 
 10. Yazın **tam grup adı** içine atama ilgilenen grubunun **adına veya e-posta adresine göre arama** arama kutusu.
 

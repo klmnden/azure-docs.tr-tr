@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5895325aa929e44128c331db847252835f563796
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 32d218e057fa040eded07f0adc813485ddaa52fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437560"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080108"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Uygulama proxy'si sorunlarını ve hata iletileri sorunlarını giderme
 Yayımlanan bir uygulamaya erişen veya yayımlama uygulamalarda hata oluşursa, Microsoft Azure AD uygulama ara sunucusu doğru şekilde çalışıp çalışmadığını görmek için aşağıdaki seçeneklerden denetleyin:
@@ -36,7 +36,7 @@ Azure AD sorun giderme aracı hakkında daha fazla bilgi için bkz. [bağlayıc�
 ## <a name="the-page-is-not-rendered-correctly"></a>Sayfa doğru işlenmez
 İşleme veya belirli hata iletileri almadan hatalı işlev uygulamanız ile ilgili sorunlar olabilir. Bu makalede yolu yayımlanan ancak uygulama dışında yolun var olduğundan içerik gerektiriyor ortaya çıkabilir.
 
-Örneğin, yol yayımlarsanız https://yourapp/app ancak uygulama görüntüleri çağrıları https://yourapp/media, bunlar işlenmez. Tüm ilgili içerik dahil etmek için gereken en yüksek düzey yolu kullanarak uygulama yayımlama emin olun. Bu örnekte, bu olacaktır http://yourapp/.
+Örneğin, yol yayımlarsanız `https://yourapp/app` ancak uygulama görüntüleri çağrıları `https://yourapp/media`, bunlar işlenmez. Tüm ilgili içerik dahil etmek için gereken en yüksek düzey yolu kullanarak uygulama yayımlama emin olun. Bu örnekte, bu olacaktır `http://yourapp/`.
 
 Başvurulan içerik, ancak daha ayrıntılı bir bağlantıyı yolunda yerleşmesi kullanıcılar yine yolunuzu değiştirirseniz, blog gönderisine bakın [panelinde ve Office 365 uygulama başlatıcısındaAzureADuygulamaproxy'siuygulamalarıerişmekiçindoğrubağlantıayarını](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/).
 

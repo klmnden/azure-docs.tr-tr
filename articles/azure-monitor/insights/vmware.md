@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 7d02f5b592600cf7efd0980c1284e8c724cd1f5b
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ece6c7048100a8204bfc067d9d57854b1d83c9b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195165"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074922"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Azure İzleyici çözümde VMware izleme (kullanım dışı)
 
@@ -195,13 +195,13 @@ Birden çok nedeni olabilir:
   1. Log Analytics'e 1514 bağlantı noktasını dinler. Açık olduğunu doğrulamak için aşağıdaki komutu çalıştırın: `netstat -a | grep 1514`
   1. Bağlantı noktası görmelisiniz `1514/tcp` açın. Bunu yapmazsanız, omsagent doğru yüklendiğini doğrulayın. Bağlantı noktası bilgileri görmüyorsanız, syslog bağlantı noktasını VM açık değil.
 
-    a. Log Analytics aracısını kullanarak çalıştığını doğrulamak `ps -ef | grep oms`. Komutunu çalıştırarak işlemi çalışmıyorsa, başlatmak ` sudo /opt/microsoft/omsagent/bin/service_control start`
+     a. Log Analytics aracısını kullanarak çalıştığını doğrulamak `ps -ef | grep oms`. Komutunu çalıştırarak işlemi çalışmıyorsa, başlatmak ` sudo /opt/microsoft/omsagent/bin/service_control start`
 
-    b. `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` dosyasını açın.
+     b. `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` dosyasını açın.
 
-    c. Uygun kullanıcı ve grup ayarı geçerli ve benzer şekilde doğrulayın: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+     c. Uygun kullanıcı ve grup ayarı geçerli ve benzer şekilde doğrulayın: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
-    d. Dosya yok veya kullanıcı ve grup ayarı yanlış tarafından düzeltici varsa [bir Linux sunucusu hazırlama](#prepare-a-linux-server).
+     d. Dosya yok veya kullanıcı ve grup ayarı yanlış tarafından düzeltici varsa [bir Linux sunucusu hazırlama](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Kullanım [oturum sorguları](../log-query/log-query-overview.md) ayrıntılı VMware görüntülemek için Log Analytics'te veri barındırın.

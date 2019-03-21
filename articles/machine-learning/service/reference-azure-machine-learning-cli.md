@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c860aca538fcb2fbcff65aebecf062c4c428c84c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 4b7cd15b1746bac6f61ef46108ade6cf1fb3b7ff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415796"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894657"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için CLI uzantısını kullanma
 
@@ -43,7 +43,7 @@ CLI, Azure Machine Learning SDK'sı yerine değil. Yüksek oranda parametreli g�
 ## <a name="prerequisites"></a>Önkoşullar
 
 
-* CLI kullanmak için Azure aboneliğiniz olmalıdır. Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
+* CLI kullanmak için Azure aboneliğiniz olmalıdır. Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -91,7 +91,7 @@ Aşağıdaki komutları, Azure Machine Learning tarafından kullanılan kaynakla
     az configure --defaults aml_workspace=myworkspace group=myresourcegroup
     ```
     
-* Bir AKS kümesi ekleme
++ Bir AKS kümesi ekleme
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace

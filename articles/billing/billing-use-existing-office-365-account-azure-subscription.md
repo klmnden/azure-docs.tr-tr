@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: 202739e9898b871af8ae478192d015671b807b7b
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 44ff08c84b3e95a5b598ebf4279fc2ffc46313e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904480"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863449"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Office 365 hesabınızı kullanarak bir Azure aboneliği için kaydolun
 Bir Office 365 aboneliğiniz varsa, bir Azure aboneliği oluşturmak için Office 365 hesabınızı kullanabilirsiniz. Oturum [Azure portalında](https://portal.azure.com/) Office 365 kullanıcı adınızı ve parolanızı kullanarak. Sanal makine oluşturmak veya diğer Azure hizmetlerini kullanmak istiyorsanız, bir Azure aboneliği için kaydolmalısınız. Azure aboneliğinizi başkalarıyla paylaşabilir ve [, Azure aboneliğinize ve kaynaklarınıza erişimi yönetmek için rol tabanlı erişim denetimi kullanma](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
@@ -57,4 +57,4 @@ Daha fazla bilgi için [Azure aboneliklerinin Azure Active Directory ile ilişki
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -16,12 +16,12 @@ ms.date: 02/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a282ef88a5112593d4d8b9e304ec6ad03f44787c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 51fc93f9508bada40885e41b39e8a87cf4e0bf3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415876"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101015"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory geçişli kimlik doğrulaması: Hızlı başlangıç
 
@@ -68,7 +68,7 @@ Aşağıdaki önkoşulların yerinde olduğundan emin olun.
      Güvenlik duvarınızı kurallara göre kaynak kullanıcılar zorunlu kılarsa ağ hizmeti olarak çalışan Windows hizmetlerinden trafik için bu bağlantı noktalarını açın.
    - Güvenlik Duvarı veya proxy DNS beyaz listeye ekleme, beyaz liste bağlanmasını sağlar,  **\*. msappproxy.net** ve  **\*. servicebus.windows.net**. Aksi takdirde, erişim izni [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653), hangi haftalık güncelleştirildi.
    - Kimlik doğrulama aracılarının erişmesi **login.windows.net** ve **login.microsoftonline.com** ilk kayıt için. Bu URL'ler için Güvenlik Duvarı'nı açın.
-   - Sertifika doğrulaması için aşağıdaki URL'ler engellemesini: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, ve  **www.microsoft.com:80**. Bu URL'ler, diğer Microsoft ürünleri ile sertifika doğrulama için kullanıldığından bu zaten URL'leri engeli kaldırılmış olabilir.
+   - Sertifika doğrulaması için aşağıdaki URL'ler engellemesini: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**, ve **www \.microsoft.com:80**. Bu URL'ler, diğer Microsoft ürünleri ile sertifika doğrulama için kullanıldığından bu zaten URL'leri engeli kaldırılmış olabilir.
 
 ## <a name="step-2-enable-the-feature"></a>2. Adım: Özellik etkinleştirme
 

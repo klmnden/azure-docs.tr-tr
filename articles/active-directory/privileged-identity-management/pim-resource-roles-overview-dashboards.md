@@ -1,5 +1,5 @@
 ---
-title: Erişim gözden geçirmesi - Azure gerçekleştirmek için bir kaynak Panosu'nu kullanın | Microsoft Docs
+title: Kaynak Pano PIM - Azure erişim gözden geçirmesi gerçekleştirme | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM) erişim gözden geçirmesi gerçekleştirmek için bir kaynak Pano kullanmayı açıklar.
 services: active-directory
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30cfafec770aec72faf01563018fbd478e73ab2f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 89abf15731bd125737e7c18ab45782820a856b38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202613"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012688"
 ---
-# <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>Erişim gözden geçirmesi gerçekleştirmek için bir kaynak Panosu'nu kullanın
+# <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>PIM'de erişim gözden geçirmesi gerçekleştirmek için bir kaynak Panosu'nu kullanın
 
 Erişim gözden geçirmesi Azure kaynakları için Privileged Identity Management (PIM) gerçekleştirmek için bir kaynak panoyu kullanabilirsiniz. Yönetici görünümü Pano üç birincil bileşenden oluşur:
 

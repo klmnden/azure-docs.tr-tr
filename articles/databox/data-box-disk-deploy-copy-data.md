@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 6a008072fc88b9dc800b792c13a6c77c31b31e51
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 47c14379a01da86f547ac917472260a041b67f99
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410035"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106908"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Öğretici: Veri için Azure Data Box Disk kopyalama ve doğrulayın
 
@@ -169,8 +169,8 @@ Bilgisayarınızla Data Box Disk arasında bağlantı kurmak ve veri kopyalamak 
     Performansı iyileştirmek için veri kopyalama sırasında aşağıdaki Robocopy parametrelerini kullanın.
 
     |    Platform    |    Çoğunlukla küçük dosyalar, 512 KB altı                           |    Çoğunlukla orta büyüklükteki dosyalar, 512 KB-1 MB arası                      |    Çoğunlukla büyük dosyalar, 1 MB üzeri                             |   
-    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-    |    Data Box Disk        |    4 Robocopy oturumları * <br> Oturum başına 16 iş parçacığı    |    2 Robocopy oturumları * <br> Oturum başına 16 iş parçacığı    |    2 Robocopy oturumları * <br> Oturum başına 16 iş parçacığı    |  |
+    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+    |    Data Box Disk        |    4 Robocopy oturumları * <br> Oturum başına 16 iş parçacığı    |    2 Robocopy oturumları * <br> Oturum başına 16 iş parçacığı    |    2 Robocopy oturumları * <br> Oturum başına 16 iş parçacığı    |
     
     **Her Robocopy oturum 7000 dizinleri ve dosyaları 150 milyon en fazla olabilir.*
     
@@ -209,10 +209,10 @@ Birden fazla disk kullanıyorsanız ve bölünerek tüm disklere kopyalanması g
  
 5. Değiştirme `SampleConfig.json` dosya.
  
-    - İş adı girin. Bunu yaptığınızda Data Box Disk'te bir klasör oluşturulur ve aynı ad Azure depolama hesabında bu disklerle ilişkilendirilmiş olan kapsayıcı için de kullanılır. İş adının Azure kapsayıcı adlandırma kurallarına uygun olması gerekir. 
-    - Yol biçiminde Not yaparak kaynak yolunu sağlamanız `SampleConfigFile.json`. 
-    - Hedef disklere karşılık gelen sürücü harflerini girin. Veriler kaynak yoldan alınarak birden fazla diske kopyalanır.
-    - Günlük dosyaları için bir yol belirtin. Varsayılan olarak, bunu geçerli dizine gönderilen burada `.exe` bulunur.
+   - İş adı girin. Bunu yaptığınızda Data Box Disk'te bir klasör oluşturulur ve aynı ad Azure depolama hesabında bu disklerle ilişkilendirilmiş olan kapsayıcı için de kullanılır. İş adının Azure kapsayıcı adlandırma kurallarına uygun olması gerekir. 
+   - Yol biçiminde Not yaparak kaynak yolunu sağlamanız `SampleConfigFile.json`. 
+   - Hedef disklere karşılık gelen sürücü harflerini girin. Veriler kaynak yoldan alınarak birden fazla diske kopyalanır.
+   - Günlük dosyaları için bir yol belirtin. Varsayılan olarak, bunu geçerli dizine gönderilen burada `.exe` bulunur.
 
      ![Verileri bölme ve kopyalama](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 

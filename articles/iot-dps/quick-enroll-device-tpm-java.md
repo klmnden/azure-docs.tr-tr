@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 4c494eda7126a21223f65a7e52c220fca93b2e39
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ae1fbd93b26838b262dc6f07081f20b63e853d5c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184670"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104752"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Java hizmeti SDK'sını kullanarak TPM cihazını IoT Hub Cihaz Sağlama Hizmeti'ne kaydetme
 
@@ -65,53 +65,53 @@ Bu bölümde örnek koda TPM cihazınızın sağlama ayrıntılarını nasıl ek
 
 2. İndirilen kaynak kodunda örnek klasörüne gidin: **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_**. **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_** adlı dosyayı istediğiniz düzenleyicide açıp aşağıdaki ayrıntıları ekleyin:
 
-    1. Portaldan sağlama hizmetinize ait `[Provisioning Connection String]` bilgisini aşağıdaki şekilde ekleyin:
-        1. [Azure portalında](https://portal.azure.com) sağlama hizmetinize gidin. 
-        2. **Paylaşılan erişim ilkeleri**'ni açıp *EnrollmentWrite* iznine sahip bir ilke seçin.
-        3. **Birincil anahtar bağlantı dizesini** kopyalayın. 
+   1. Portaldan sağlama hizmetinize ait `[Provisioning Connection String]` bilgisini aşağıdaki şekilde ekleyin:
+       1. [Azure portalında](https://portal.azure.com) sağlama hizmetinize gidin. 
+       2. **Paylaşılan erişim ilkeleri**'ni açıp *EnrollmentWrite* iznine sahip bir ilke seçin.
+       3. **Birincil anahtar bağlantı dizesini** kopyalayın. 
 
-            ![Sağlama bağlantısı dizesini portaldan alma](./media/quick-enroll-device-tpm-java/provisioning-string.png)  
+           ![Sağlama bağlantısı dizesini portaldan alma](./media/quick-enroll-device-tpm-java/provisioning-string.png)  
 
-        4. **_ServiceEnrollmentSample.java_** adlı örnek kod dosyasında `[Provisioning Connection String]` yerine **Birincil anahtar bağlantı dizesini** yazın.
+       4. **_ServiceEnrollmentSample.java_** adlı örnek kod dosyasında `[Provisioning Connection String]` yerine **Birincil anahtar bağlantı dizesini** yazın.
     
-            ```Java
-            private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
-            ```
+           ```Java
+           private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
+           ```
 
-    2. TPM cihazı ayrıntıları ekleyin:
-        1. [TPM cihazını benzetme](quick-create-simulated-device.md#simulatetpm) bölümündeki adımları izleyerek TPM cihazı benzetmesinin *Kayıt Kimliği* ve *TPM onay anahtarı* değerlerini alın.
-        2. Önceki adımda aldığınız **_Kayıt Kimliği_** ve **_Onay Anahtarı_** değerlerini **_ServiceEnrollmentSample.java_** örnek kod dosyasındaki `[RegistrationId]` ve `[TPM Endorsement Key]` değerlerinin yerine yazın:
+   2. TPM cihazı ayrıntıları ekleyin:
+       1. [TPM cihazını benzetme](quick-create-simulated-device.md#simulatetpm) bölümündeki adımları izleyerek TPM cihazı benzetmesinin *Kayıt Kimliği* ve *TPM onay anahtarı* değerlerini alın.
+       2. Önceki adımda aldığınız **_Kayıt Kimliği_** ve **_Onay Anahtarı_** değerlerini **_ServiceEnrollmentSample.java_** örnek kod dosyasındaki `[RegistrationId]` ve `[TPM Endorsement Key]` değerlerinin yerine yazın:
         
+           ```Java
+           private static final String REGISTRATION_ID = "[RegistrationId]";
+           private static final String TPM_ENDORSEMENT_KEY = "[TPM Endorsement Key]";
+           ```
+
+   3. İsteğe bağlı olarak örnek kod aracılığıyla sağlama hizmetinizi de yapılandırabilirsiniz:
+      - Örneğe bu yapılandırmayı eklemek için aşağıdaki adımları izleyin:
+        1. [Azure portalında](https://portal.azure.com) sağlama hizmetinizle bağlantılı IoT hub sayfasına gidin. Hub'ın **Özet** sayfasını açıp **Ana bilgisayar adı**'nı kopyalayın. Bu **Ana bilgisayar adı** değerini *IOTHUB_HOST_NAME* parametresine atayın.
             ```Java
-            private static final String REGISTRATION_ID = "[RegistrationId]";
-            private static final String TPM_ENDORSEMENT_KEY = "[TPM Endorsement Key]";
+            private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
             ```
-
-    3. İsteğe bağlı olarak örnek kod aracılığıyla sağlama hizmetinizi de yapılandırabilirsiniz:
-        - Örneğe bu yapılandırmayı eklemek için aşağıdaki adımları izleyin:
-            1. [Azure portalında](https://portal.azure.com) sağlama hizmetinizle bağlantılı IoT hub sayfasına gidin. Hub'ın **Özet** sayfasını açıp **Ana bilgisayar adı**'nı kopyalayın. Bu **Ana bilgisayar adı** değerini *IOTHUB_HOST_NAME* parametresine atayın.
-                ```Java
-                private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
-                ```
-            2. *DEVICE_ID* parametresine kolay ad atayıp *PROVISIONING_STATUS* parametresinin varsayılan *ENABLED* değerini tutun. 
+        2. *DEVICE_ID* parametresine kolay ad atayıp *PROVISIONING_STATUS* parametresinin varsayılan *ENABLED* değerini tutun. 
     
-        - VEYA, sağlama hizmetinizi yapılandırmak istemezseniz _ServiceEnrollmentSample.java_ dosyasında bulunan aşağıdaki bölümleri açıklama satırı yapmayı veya silmeyi unutmayın:
-            ```Java
-            // The following parameters are optional. Remove it if you don't need.
-            individualEnrollment.setDeviceId(DEVICE_ID);
-            individualEnrollment.setIotHubHostName(IOTHUB_HOST_NAME);
-            individualEnrollment.setProvisioningStatus(PROVISIONING_STATUS);
-            ```
+      - VEYA, sağlama hizmetinizi yapılandırmak istemezseniz _ServiceEnrollmentSample.java_ dosyasında bulunan aşağıdaki bölümleri açıklama satırı yapmayı veya silmeyi unutmayın:
+          ```Java
+          // The following parameters are optional. Remove it if you don't need.
+          individualEnrollment.setDeviceId(DEVICE_ID);
+          individualEnrollment.setIotHubHostName(IOTHUB_HOST_NAME);
+          individualEnrollment.setProvisioningStatus(PROVISIONING_STATUS);
+          ```
 
-    4. Örnek kodu inceleyin. Bu kod bireysel TPM cihazı kaydı oluşturup bu kaydı güncelleştirir, sorgular ve siler. Portal kaydının başarılı olduğundan emin olmak için _ServiceEnrollmentSample.java_ dosyasının en sonunda bulunan aşağıdaki kod satırlarını geçici olarak açıklama satırı yapın:
+   4. Örnek kodu inceleyin. Bu kod bireysel TPM cihazı kaydı oluşturup bu kaydı güncelleştirir, sorgular ve siler. Portal kaydının başarılı olduğundan emin olmak için _ServiceEnrollmentSample.java_ dosyasının en sonunda bulunan aşağıdaki kod satırlarını geçici olarak açıklama satırı yapın:
     
-        ```Java
-        // *********************************** Delete info of individualEnrollment ************************************
-        System.out.println("\nDelete the individualEnrollment...");
-        provisioningServiceClient.deleteIndividualEnrollment(REGISTRATION_ID);
-        ```
+       ```Java
+       // *********************************** Delete info of individualEnrollment ************************************
+       System.out.println("\nDelete the individualEnrollment...");
+       provisioningServiceClient.deleteIndividualEnrollment(REGISTRATION_ID);
+       ```
 
-    5. _ServiceEnrollmentSample.java_ adlı dosyayı kaydedin.
+   5. _ServiceEnrollmentSample.java_ adlı dosyayı kaydedin.
 
 <a id="runjavasample"></a>
 

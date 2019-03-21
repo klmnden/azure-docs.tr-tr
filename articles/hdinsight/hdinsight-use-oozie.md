@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5048a4ab4db6d4cb168d2a643a412f89273658b4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: ece621b18c15061ccb559baf9583677dcc848ca4
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984265"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201764"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Tanımlamak ve iş akışı çalıştırma HDInsight için Apache Hadoop ile Apache Oozie kullanma
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -126,7 +126,7 @@ RunHiveScript birkaç değişkeni yok. Azure PowerShell kullanarak Oozie iş ist
 |İş akışı değişkenleri|Açıklama|
 |---|---|
 |${jobTracker}|Hadoop işi İzleyicisi URL'sini belirtir. Kullanım **jobtrackerhost:9010** HDInsight sürüm 3.0 ve 2.1 içinde.|
-|${nameNode}|Hadoop adı düğüm URL'sini belirtir. Örneğin, varsayılan dosya sistemi adresi kullanın *wasb: / /&lt;containerName&gt;@&lt;storageAccountName&gt;. blob.core.windows.net*.|
+|${nameNode}|Hadoop adı düğüm URL'sini belirtir. Örneğin, varsayılan dosya sistemi adresi kullanın *wasb: / /&lt;containerName&gt;\@&lt;storageAccountName&gt;. blob.core.windows.net*.|
 |${queueName}|İşin gönderildiği kuyruk adı belirtir. Kullanım **varsayılan**.|
 
 |Hive eylem değişkeni|Açıklama|
@@ -631,7 +631,6 @@ Bu öğreticide, bir Apache Oozie iş akışının tanımlayın ve PowerShell ku
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md

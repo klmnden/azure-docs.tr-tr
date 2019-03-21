@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 3d5962ec097c5cd72693530328b710af915054d0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 72348085a69746306e40029bc7473df271b60221
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768921"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105293"
 ---
 # <a name="api-management-transformation-policies"></a>API Management dönüştürme ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -289,13 +289,13 @@ Bu örnekte, ilke UserID sorgu dizesi bölüm anahtarı olarak ve birincil çoğ
 
 > [!IMPORTANT]
 >  Varsayılan olarak, ileti eriştiğinizde kullanarak gövde unutmayın `context.Request.Body` veya `context.Response.Body`, özgün ileti gövdesi kaybolur ve gövdesine ifadede geri döndürerek ayarlamanız gerekir. Gövde içeriği korumak için ayarlanmış `preserveContent` parametresi `true` ileti erişirken. Varsa `preserveContent` ayarlanır `true` ve farklı bir gövde döndürülen ifade tarafından döndürülen gövde kullanılır.
->
+> 
 >  Lütfen kullanılırken aşağıdaki önemli noktalar unutmayın `set-body` ilkesi.
->
->  -   Kullanıyorsanız `set-body` İlkesi ayarlamak için gerekmez yeni veya güncelleştirilmiş bir gövde dönüş `preserveContent` için `true` çünkü yeni gövde içeriğini açıkça sağlamış olursunuz.
-> -   Olduğundan yanıt henüz gelen işlem hattındaki bir yanıt içeriği koruma mantıklı değildir.
-> -   Giden işlem hattındaki bir isteğin içerik koruma, çünkü istek zaten arka ucuna bu noktada gönderildi doesn't make Sense.
-> -   İleti gövdesi yok ise bu ilkeyi kullandıysanız, bir gelen alın, örneğin bir özel durum oluşturulur.
+> 
+> - Kullanıyorsanız `set-body` İlkesi ayarlamak için gerekmez yeni veya güncelleştirilmiş bir gövde dönüş `preserveContent` için `true` çünkü yeni gövde içeriğini açıkça sağlamış olursunuz.
+>   -   Olduğundan yanıt henüz gelen işlem hattındaki bir yanıt içeriği koruma mantıklı değildir.
+>   -   Giden işlem hattındaki bir isteğin içerik koruma, çünkü istek zaten arka ucuna bu noktada gönderildi doesn't make Sense.
+>   -   İleti gövdesi yok ise bu ilkeyi kullandıysanız, bir gelen alın, örneğin bir özel durum oluşturulur.
 
  Daha fazla bilgi için `context.Request.Body`, `context.Response.Body`ve `IMessage` bölümlerine [bağlam değişkeni](api-management-policy-expressions.md#ContextVariables) tablo.
 
@@ -586,11 +586,11 @@ OriginalUrl.
 ##  <a name="RewriteURL"></a> URL yeniden yazma
  `rewrite-uri` İlkeyi dönüştürür istek URL'si, genel formu web hizmeti tarafından beklenen biçime aşağıdaki örnekte gösterildiği gibi.
 
--   Genel URL- `http://api.example.com/storenumber/ordernumber`
+- Genel URL- `http://api.example.com/storenumber/ordernumber`
 
--   İstek URL'si- `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
+- İstek URL'si- `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
 
- Bu ilke, bir insan ve/veya tarayıcı kullanımı kolay URL web hizmeti tarafından beklenen URL biçimine dönüştürülmesi gereken olduğunda kullanılabilir. Bu ilke yalnızca temiz URL'leri, RESTful URL'leri, kullanımı kolay URL'ler veya bir sorgu dizesi içermemelidir ve bunun yerine yalnızca kaynak (yolunu içeren zamanıyla ilgili yapısal URL'ler SEO dostu URL'leri gibi alternatif bir URL biçimi gösterme zaman uygulanması gerekiyor Şema ve yetkilisi sonra). Bu genellikle estetik, kullanılabilirlik veya arama motoru iyileştirmesi (SEO) amacıyla yapılır.
+  Bu ilke, bir insan ve/veya tarayıcı kullanımı kolay URL web hizmeti tarafından beklenen URL biçimine dönüştürülmesi gereken olduğunda kullanılabilir. Bu ilke yalnızca temiz URL'leri, RESTful URL'leri, kullanımı kolay URL'ler veya bir sorgu dizesi içermemelidir ve bunun yerine yalnızca kaynak (yolunu içeren zamanıyla ilgili yapısal URL'ler SEO dostu URL'leri gibi alternatif bir URL biçimi gösterme zaman uygulanması gerekiyor Şema ve yetkilisi sonra). Bu genellikle estetik, kullanılabilirlik veya arama motoru iyileştirmesi (SEO) amacıyla yapılır.
 
 > [!NOTE]
 >  İlkeyi kullanan bir sorgu dizesi parametreleri yalnızca ekleyebilirsiniz. Ek şablon yol parametreleri yeniden yazma URL ekleyemezsiniz.

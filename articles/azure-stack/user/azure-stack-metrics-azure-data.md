@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: fd4c1220d0652139c247ffed80e995a90a93c5b1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 469213ae67f1f2bcece6afa5d9b7873bfdfe8d6c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780856"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095747"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Stack'te Azure İzleyici
 
@@ -33,8 +33,8 @@ Giriş, Azure İzleyici ile çalışmaya başlama hakkında genel Azure makaleye
 
 Azure İzleyici, Azure kaynaklarını izlemeye yönelik tek bir kaynak sağlayan platform hizmetidir. Azure İzleyici ile görselleştirin, sorgulama yapabilir, yönlendirme, arşivleme ve azure'daki kaynaklardan gelen günlükler ve ölçümler üzerinde işlem Aksi takdirde. Azure Stack Yönetici portalını İzleyici PowerShell cmdlet'leri, platformlar arası CLI veya Azure İzleyici REST API'leri kullanarak bu verilerle çalışabilirsiniz. Azure yığını tarafından desteklenen belirli bağlantı için bkz: [Azure Stack izleme verilerini kullanma](azure-stack-metrics-monitor.md)
 
-> [!Note]  
-Ölçümleri ve tanılama günlükleri, Azure Stack Geliştirme Seti için kullanılamaz.
+> [!Note]
+> Ölçümleri ve tanılama günlükleri, Azure Stack Geliştirme Seti için kullanılamaz.
 
 ## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Azure Stack'te Azure İzleyici için Önkoşullar
 

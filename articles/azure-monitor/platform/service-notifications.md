@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9bd5ec3471fc3447d1e29d875c154793daf8e9e5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ab4aa2f37d5a883c83b8ee09b5de6551ebf13d2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474039"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995144"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Azure portalını kullanarak hizmet durumu bildirimlerini görüntüleme
 
@@ -60,24 +60,24 @@ Properties.communicationId | Bu olay ile ilişkili olduğu iletişimi.
 ### <a name="details-on-service-health-level-information"></a>Hizmet durumu düzeyi bilgileri hakkında ayrıntılı bilgi
 
 **Eylem gerekiyor** (properties.incidentType == eylem gereklidir)
-    - Bilgilendirici - mevcut hizmetlere etkiyi önlemek için gereken yönetici eylemi
+- Bilgilendirici - mevcut hizmetlere etkiyi önlemek için gereken yönetici eylemi
     
 **Bakım** (properties.incidentType bakım ==)
-    - Uyarı - Acil bakım
-    - Bilgilendirici - standart planlı bakım
+- Uyarı - Acil bakım
+- Bilgilendirici - standart planlı bakım
 
 **Information** (properties.incidentType == Information)
-    - Bilgi - yönetici, mevcut hizmetlere etkiyi önlemek için gerekebilir
+- Bilgi - yönetici, mevcut hizmetlere etkiyi önlemek için gerekebilir
 
 **Güvenlik** (properties.incidentType güvenlik ==)
-    - Hata - yaygın sorunları birden çok bölgede birden fazla hizmetlere erişen müşteriler çok geniş bir yelpazedeki etkileyen.
-    - Uyarı - sorunları erişimi belirli hizmetlere ve/veya müşteri alt kümesini etkileyen özel bölgeler.
-    - Hizmet kullanılabilirliği etkileyen değil bilgilendirici - yönetim işlemleri ve/veya gecikme süresi, etkileyen sorunları.
+- Hata - yaygın sorunları birden çok bölgede birden fazla hizmetlere erişen müşteriler çok geniş bir yelpazedeki etkileyen.
+- Uyarı - sorunları erişimi belirli hizmetlere ve/veya müşteri alt kümesini etkileyen özel bölgeler.
+- Hizmet kullanılabilirliği etkileyen değil bilgilendirici - yönetim işlemleri ve/veya gecikme süresi, etkileyen sorunları.
 
 **Hizmet sorunları** (properties.incidentType olay ==)
-    - Hata - yaygın sorunları birden çok bölgede birden fazla hizmetlere erişen müşteriler çok geniş bir yelpazedeki etkileyen.
-    - Uyarı - sorunları erişimi belirli hizmetlere ve/veya müşteri alt kümesini etkileyen özel bölgeler.
-    - Hizmet kullanılabilirliği etkileyen değil bilgilendirici - yönetim işlemleri ve/veya gecikme süresi, etkileyen sorunları.
+- Hata - yaygın sorunları birden çok bölgede birden fazla hizmetlere erişen müşteriler çok geniş bir yelpazedeki etkileyen.
+- Uyarı - sorunları erişimi belirli hizmetlere ve/veya müşteri alt kümesini etkileyen özel bölgeler.
+- Hizmet kullanılabilirliği etkileyen değil bilgilendirici - yönetim işlemleri ve/veya gecikme süresi, etkileyen sorunları.
 
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Azure portalında, hizmet durumu bildirimlerini görüntüleme

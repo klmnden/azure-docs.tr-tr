@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: d3cabbcc04766d4a209ecf96db3f842902b465a5
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 1a332dd46cac196c8185ddb12c0d900f5c36e1b3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792404"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894062"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Eşleme veri akışı hata ayıklama modu
 
@@ -46,7 +46,7 @@ Hata ayıklama zaman Kapat ve böylece, Azure Databricks kümeyi sonlandırabili
 <img src="media/data-flow/datapreview.png" width="400">
 
 ## <a name="data-preview"></a>Veri önizlemesi
-İle hata ayıklama üzerinde veri Önizleme sekmesini açık alt panelde yukarı. Hata ayıklama modunu, veri akışı, yalnızca geçerli meta verilerin her Bağlantılarınızdaki içine ve dışına inceleyin sekmede gösterilmektedir. Veri önizleme yalnızca kaynak ayarlarınızda sınırınızı ayarladığınız satır sayısını sorgular. "Verileri getirmek" tıklaymanız gerekebilir yenilemek veri önizlemesi için.
+İle hata ayıklama üzerinde veri Önizleme sekmesini açık alt panelde yukarı. Hata ayıklama modunu, veri akışı, yalnızca geçerli meta verilerin her Bağlantılarınızdaki içine ve dışına inceleyin sekmede gösterilmektedir. Veri önizleme yalnızca hata ayıklama ayarlarınızda sınırınızı ayarladığınız satır sayısını sorgular. "Verileri getirmek" tıklaymanız gerekebilir yenilemek veri önizlemesi için.
 
 <img src="media/data-flow/stats.png" width="400">
 

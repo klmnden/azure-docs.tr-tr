@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 6cc5e3f8f188c60a129f6ad6575b348616bdad9b
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: c6ca7637c8e251fa29781503ffc18227c51bb4da
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569765"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002287"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Dapper ile esnek veritabanı istemci kitaplığı kullanma
 Bu belge uygulamalar üzerinde Dapper kullanır ancak ayrıca Kucak isteyen geliştiricilere yöneliktir [esnek veritabanı araçları](sql-database-elastic-scale-introduction.md) kendi veri katmanı genişletmek için bu uygulama parçalama uygulamalar oluşturmak için.  Bu belge Dapper tabanlı uygulamalar, elastik veritabanı araçları ile tümleştirme gereken değişiklikler gösterilmektedir. Elastik veritabanı parça yönetimi ve Dapper ile verilere bağımlı yönlendirme buradaki kazanmasının olur. 
@@ -35,7 +35,7 @@ DapperExtensions kullanırken, artık SQL deyimlerini sağlamanız gerekir. Uzan
 
 Dapper hem de DapperExtensions başka bir avantajı, uygulama veritabanı bağlantısı oluşturulmasını denetleyen içindir. Bu aracıları veritabanı bağlantıları parçacıklara veritabanlarına eşleme temel esnek veritabanı istemci kitaplığı ile etkileşime yardımcı olur.
 
-Dapper derlemeleri almak için bkz. [Dapper dot net](http://www.nuget.org/packages/Dapper/). Dapper uzantıları için bkz: [DapperExtensions](http://www.nuget.org/packages/DapperExtensions).
+Dapper derlemeleri almak için bkz. [Dapper dot net](https://www.nuget.org/packages/Dapper/). Dapper uzantıları için bkz: [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
 
 ## <a name="a-quick-look-at-the-elastic-database-client-library"></a>Elastik veritabanı istemci kitaplığı hızlı bir bakış
 Elastik veritabanı istemci kitaplığı ile uygulama verilerinizi adlı bölümlerini tanımladığınız *parçacıklara*, bunları veritabanlarıyla eşleyin ve onlar tarafından belirleme *parçalama anahtarları*. Gerekir ve bu veritabanları arasında parçacıklara dağıtmak kadar veritabanı olabilir. Parçalama anahtarı değerleri veritabanlarına eşleme kitaplığın API'leri tarafından sağlanan bir parça eşlemesi tarafından depolanır. Bu özellik adında **parça eşleme Yönetimi**. Parça eşlemesi, ayrıca bir parçalama anahtarı taşıma istekler için veritabanı bağlantı aracısı olarak işlev görür. Bu özellik olarak adlandırılır **verilere bağımlı yönlendirme**.

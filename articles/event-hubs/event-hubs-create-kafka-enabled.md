@@ -1,6 +1,6 @@
 ---
 title: Apache Kafka etkin olay hub'ı - Azure Event Hubs oluşturma | Microsoft Docs
-description: Bu makalede, Azure portalını kullanarak Azure Event Hubs ad alanı Apache Kafka oluşturmak için bir kılavuz etkin sağlar.
+description: Bu makalede, Azure portalını kullanarak Azure Event Hubs ad alanı bir Apache Kafka oluşturmak için bir kılavuz etkin sağlar.
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: bf78ac6bce23b739ed661929f6fe90eddc9b4d94
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 125da95349fce0e75b44b5619baba28d34a74be1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090791"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000499"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>Apache Kafka etkin event hubs'ı oluşturma
 

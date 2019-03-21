@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: fa433f55839db66bcf8245fe058ac56702af3d6e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888644"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125176"
 ---
 #### <a name="to-create-a-volume"></a>Birim oluşturmak için
 1. **Cihazlar** dikey penceresindeki tablosal cihaz listesinden cihazınızı seçin. **+ Birim ekle**’ye tıklayın.
@@ -22,7 +22,7 @@ ms.locfileid: "55888644"
 
    2. Açılan listeden, birim eklemeniz gereken birim kapsayıcısını seçin. 
 
-   3.  Biriminiz için bir **Ad** yazın. Birimi bir kez oluşturduktan sonra yeniden adlandıramazsınız.
+   3. Biriminiz için bir **Ad** yazın. Birimi bir kez oluşturduktan sonra yeniden adlandıramazsınız.
 
    4. Açılan listede biriminizin **Tür**’ünü seçin. Yerel garantilerin, düşük gecikme sürelerinin ve yüksek performansın gerektiği iş yükleri için **Yerel olarak sabitlenmiş** bir birim seçin. Diğer tüm veriler için **Katmanlı** bir birim seçin. Bu birimi arşiv verileri için kullanıyorsanız **Bu birimi daha az sıklıkta erişilen arşiv verileri için kullanın**’ı işaretleyin.
       
@@ -36,19 +36,19 @@ ms.locfileid: "55888644"
       
        8100 cihazınızda 8,5 TB boyutunda (izin verilen en yüksek boyut) yerel olarak sabitlenmiş bir birim sağlarsanız, cihazdaki kullanılabilir yerel alanın tümünü kullanmış olursunuz. Katmanlı birimin çalışan kümesinin barındıracak cihazda yerel alan olmadığından, bu noktadan sonra herhangi bir katmanlı birim oluşturamazsınız. Var olan katmanlı birimler kullanılabilir alanı de etkiler. Örneğin, zaten 106 TB boyutunda katmanlı birimlerin bulunduğu bir 8100 cihazınız varsa, yerel olarak sabitlenmiş birimlerin kullanabileceği yalnızca 4 TB’lık alan kalır.
 
-    6. **Bağlı konaklar** alanında oka tıklayın. 
+      1. **Bağlı konaklar** alanında oka tıklayın. 
 
-        ![Bağlı konaklar](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
+         ![Bağlı konaklar](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
 
-    7. **Bağlı konaklar** dikey penceresinde mevcut bir ACR’yi seçin veya aşağıdaki adımları gerçekleştirerek yeni ACR ekleyin:
+      1. **Bağlı konaklar** dikey penceresinde mevcut bir ACR’yi seçin veya aşağıdaki adımları gerçekleştirerek yeni ACR ekleyin:
 
-       1. ACR’nize bir **Ad** verin.
-       2. **iSCSI Başlatıcısı Adı** altında, Windows konağınızın iSCSI Tam Adını (IQN) girin. IQN’niz yoksa [Windows Server konağının IQN’sini al](#get-the-iqn-of-a-windows-server-host)’a gidin.
+         1. ACR’nize bir **Ad** verin.
+         2. **iSCSI Başlatıcısı Adı** altında, Windows konağınızın iSCSI Tam Adını (IQN) girin. IQN’niz yoksa [Windows Server konağının IQN’sini al](#get-the-iqn-of-a-windows-server-host)’a gidin.
 
-    9. **Oluştur**’a tıklayın. Belirtilen ayarlarla bir birim oluşturulur.
+      1. **Oluştur**’a tıklayın. Belirtilen ayarlarla bir birim oluşturulur.
 
-        ![Oluştur’a tıklayın](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![Oluştur’a tıklayın](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 
-        > [!NOTE]
-        > Burada oluşturduğunuz birimin korunmadığını unutmayın. Zamanlanan yedeklemeler almak için yedekleme ilkeleri oluşturmanız ve ilkeleri bu birimle ilişkilendirmeniz gerekir. 
+         > [!NOTE]
+         > Burada oluşturduğunuz birimin korunmadığını unutmayın. Zamanlanan yedeklemeler almak için yedekleme ilkeleri oluşturmanız ve ilkeleri bu birimle ilişkilendirmeniz gerekir. 
 

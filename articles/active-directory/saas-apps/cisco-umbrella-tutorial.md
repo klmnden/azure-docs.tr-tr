@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06bfc29b1efdd9263ca4a568dda700ed100731c4
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9a1b0763e33607367939476ca155040295de864c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732507"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57837992"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Öğretici: Cisco terimdir ile Azure Active Directory Tümleştirme
 
@@ -173,7 +173,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -229,7 +229,7 @@ Cisco terimdir söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bi
 
     c. Gelen **temsilci yönetici rolünü seçin**, rolünüzü seçin.
   
-    d. İçinde **e-posta adresi** alanına, kullanıcının gibi emailaddress **brittasimon@contoso.com**.
+    d. İçinde **e-posta adresi** alanına, kullanıcının gibi emailaddress **brittasimon\@contoso.com**.
 
     e. İçinde **parola** parolanızı girin.
 

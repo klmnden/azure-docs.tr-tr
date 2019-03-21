@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 03/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: d2766416c84233281e55ff6f8be8519b7aadfb8c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d35ab3f477f327cb85cd8dfebd255542489debdc
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763563"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286151"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Azure Stack VPN kullanarak Azure'a bağlanma
 
@@ -92,8 +92,7 @@ Ağ Yapılandırma örnekleri tablo, bu makaledeki örnekler için kullanılan d
 5. Bir sanal ağ seçmek için Seç **sanal ağ**. Ardından **AzureVnet** listeden.
 6. **Genel IP adresi**'ni seçin. Zaman **genel IP adresi seçin** bölümü açılır, select **Yeni Oluştur**.
 7. İçinde **adı**, türü **Azure GW PiP**ve ardından **Tamam**.
-8. Varsayılan olarak, için **VPN türü**, **rota tabanlı** seçilir. Tutun **rota tabanlı** VPN türü.
-9. **Abonelik** ve **Konum** seçeneklerinin doğruluğunu onaylayın. Kaynağı panoya sabitleyebilirsiniz. **Oluştur**’u seçin.
+8. **Abonelik** ve **Konum** seçeneklerinin doğruluğunu onaylayın. Kaynağı panoya sabitleyebilirsiniz. **Oluştur**’u seçin.
 
 ### <a name="create-the-local-network-gateway-resource"></a>Yerel ağ geçidi kaynağı oluşturma
 

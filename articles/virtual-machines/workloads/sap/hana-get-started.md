@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 561eff75ef4268acd3f737f7aaa92ccaacfda7f3
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 635f519239ad00df8672472bcb6c54e6b8a59927
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328733"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001713"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Hızlı Başlangıç: Tek örnek SAP hana Azure vm'lerde el ile yükleme
 ## <a name="introduction"></a>Giriş
@@ -49,7 +49,7 @@ Bu kılavuz, ayrıca aşina olduğunuzu varsayar:
 VM üzerinde daha fazla ayrıntı için yapılandırma ve işlemleri belge başvurun [SAP HANA altyapısı yapılandırmaları ve işlemleri Azure üzerinde](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
 SAP HANA yüksek kullanılabilirlik için bkz: [Azure sanal makineler için SAP HANA yüksek kullanılabilirlik](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
 
-Bir SAP HANA örneği veya S/4HANA veya BW/4hana'yı sistem çok hızlı bir sürede dağıtılan almak arıyorsanız kullanımını dikkate almanız gereken [SAP Cloud Appliance Library](http://cal.sap.com). Örneğin, bir S/4hana'yı sistemi içinde Azure üzerinde SAP CAL aracılığıyla dağıtma hakkında belgeler bulabilirsiniz [bu kılavuzda](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). Tek ihtiyacınız olan bir Azure aboneliği ve SAP Cloud Appliance Library ile kayıtlı bir SAP kullanıcısı.
+Bir SAP HANA örneği veya S/4HANA veya BW/4hana'yı sistem çok hızlı bir sürede dağıtılan almak arıyorsanız kullanımını dikkate almanız gereken [SAP Cloud Appliance Library](https://cal.sap.com). Örneğin, bir S/4hana'yı sistemi içinde Azure üzerinde SAP CAL aracılığıyla dağıtma hakkında belgeler bulabilirsiniz [bu kılavuzda](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). Tek ihtiyacınız olan bir Azure aboneliği ve SAP Cloud Appliance Library ile kayıtlı bir SAP kullanıcısı.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 ### <a name="sap-hana-backup"></a>SAP HANA yedeklemesi
@@ -70,7 +70,7 @@ SAP HANA desteklenen işletim sistemleri hakkında daha fazla bilgi için bkz: [
 SAP HANA ve farklı Linux işletim sistemleri hakkında ek SAP belgeleri için bkz:
 
 * [Destek Not #171356 - SAP yazılım Linux üzerinde SAP:  Genel bilgiler](https://launchpad.support.sap.com/#/notes/1984787)
-* [SAP destek Not #1944799 - SLES işletim sistemi yüklemesi için SAP HANA Kılavuzu](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
+* [SAP destek Not #1944799 - SLES işletim sistemi yüklemesi için SAP HANA Kılavuzu](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
 * [SAP destek Not #2205917 - SAP HANA veritabanı işletim sistemi için SLES 12 SAP uygulamaları için önerilen ayarları](https://launchpad.support.sap.com/#/notes/2205917/E)
 * [SAP destek Not #1984787 - SUSE Linux Enterprise Server 12:  Yükleme notları](https://launchpad.support.sap.com/#/notes/1984787)
 * [SAP destek Not #1391070 - Linux UUID çözümleri](https://launchpad.support.sap.com/#/notes/1391070)
@@ -195,7 +195,7 @@ Temel [SAP HANA TDI depolama gereksinimlerini](https://www.sap.com/documents/201
 | --- | --- | --- | --- | --- | --- |
 | GS5 | 448 GB | 2 x P30 | 1 x P20 | 1 x P10 | 1 x P10 | 
 
-Önerilen disk yapılandırması, HANA veri hacmi ve günlük birimi LVM veya MDADM şeritli Azure premium depolama diskleri aynı kümesine yerleştirilir. Azure Premium depolama disk artıklık için üç görüntü tuttuğundan, herhangi bir RAID yedeklilik düzeyi tanımlamak gerekli değildir. Yeterli depolama alanı yapılandırma emin olmak için başvurun [SAP HANA TDI depolama gereksinimlerini](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) ve [SAP HANA sunucusu yükleme ve güncelleştirme Kılavuzu](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Ayrıca farklı Azure premium depolama diskleri farklı sanal sabit disk (VHD) aktarım hızı birimlerini açıklandığı gibi göz önünde bulundurun [yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler](../../windows/disks-types.md). 
+Önerilen disk yapılandırması, HANA veri hacmi ve günlük birimi LVM veya MDADM şeritli Azure premium depolama diskleri aynı kümesine yerleştirilir. Azure Premium depolama disk artıklık için üç görüntü tuttuğundan, herhangi bir RAID yedeklilik düzeyi tanımlamak gerekli değildir. Yeterli depolama alanı yapılandırma emin olmak için başvurun [SAP HANA TDI depolama gereksinimlerini](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) ve [SAP HANA sunucusu yükleme ve güncelleştirme Kılavuzu](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm). Ayrıca farklı Azure premium depolama diskleri farklı sanal sabit disk (VHD) aktarım hızı birimlerini açıklandığı gibi göz önünde bulundurun [yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler](../../windows/disks-types.md). 
 
 Veritabanı veya işlem günlüğü yedeklemeleri depolamak için HANA DBMS VM'ler için daha fazla premium depolama diski ekleyebilirsiniz.
 
@@ -251,7 +251,7 @@ Bu şekilde, dosya sistemleri yapısı için zorunlu değildir. Disk alanı yap�
 
 SAPinst (SWPM) kullandığınızda, SAP HANA DB VM veritabanı yüklemesi sırasında ilgili ve **tipik** yükleme seçeneği, her şeyi /hana ve /usr/sap altında yüklenir. Altında /usr/sap SAP HANA günlük yedekleme için varsayılan konumdur. Yeniden emin olun, kök dosya sistemi depolama alanınızın bitmesi önlemek önemlidir çünkü yeterli boş alan olduğundan /hana ve /usr/sap altında SWPM kullanarak SAP HANA yüklemeden önce.
 
-SAP hana standart dosya sistemi Düzen açıklaması için bkz: [SAP HANA sunucusu yükleme ve güncelleştirme Kılavuzu](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm).
+SAP hana standart dosya sistemi Düzen açıklaması için bkz: [SAP HANA sunucusu yükleme ve güncelleştirme Kılavuzu](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm).
 
 ![SAP uygulama sunucusu VM üzerinde oluşturulan ek dosya sistemleri](./media/hana-get-started/image009.jpg)
 
@@ -403,7 +403,7 @@ HANA HDBLCM aracı hakkında daha fazla bilgi için bkz:
 
 * [Göreviniz için doğru SAP HANA HDBLCM seçme](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
 * [SAP HANA yaşam döngüsü Yönetim Araçları](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm)
-* [SAP HANA sunucusu yükleme ve güncelleştirme Kılavuzu](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
+* [SAP HANA sunucusu yükleme ve güncelleştirme Kılavuzu](https://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 İçin varsayılan grup kimliği ayarı sorunlarını önlemek için `\<HANA SID\>adm user` (HDBLCM araç tarafından oluşturulan) adlı yeni bir grup tanımlayın `sapsys` grup kimliği kullanarak `1001` SAP HANA HDBLCM aracılığıyla yüklemeden önce:
 

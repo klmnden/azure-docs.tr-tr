@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.custom: seodec18
-ms.openlocfilehash: a14f568e2485e59cb3e567eb9ee5c5eb20b02afc
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f5cc06ba1a326d262c1437a941306b4d4a648260
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198431"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101236"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure portalını kullanarak zaman serisi görüşleri ortamınıza başvuru veri kümesi oluşturma
 
@@ -82,19 +82,19 @@ Başvuru verileri geriye dönük olarak birleştirilmedi. Bu, yalnızca mevcut v
  
 13. Veri kümesi doldurarak ad **veri kümesi adı** veri kılavuzu yukarıda alan.
 
-   ![Veri kümesi adı.](media/add-reference-data-set/name_reference_dataset.png)
+    ![Veri kümesi adı.](media/add-reference-data-set/name_reference_dataset.png)
 
 14. Sağlamak **birincil anahtar** veri kılavuzu Yukarıdaki açılan seçerek veri kümesinde sütun.
 
-   ![Anahtar sütunları seçin.](media/add-reference-data-set/set_primary_key.png)
+    ![Anahtar sütunları seçin.](media/add-reference-data-set/set_primary_key.png)
 
-   İsteğe bağlı olarak **+** düğmesini bileşik bir birincil anahtar olarak ikincil bir anahtar sütunu ekleyin. Seçimi geri almanız gerekiyorsa, boş değer ikincil anahtarı'nı kaldırmak için açılan listeden seçin.
+    İsteğe bağlı olarak **+** düğmesini bileşik bir birincil anahtar olarak ikincil bir anahtar sütunu ekleyin. Seçimi geri almanız gerekiyorsa, boş değer ikincil anahtarı'nı kaldırmak için açılan listeden seçin.
 
-15.  Verileri yüklemek için seçin **karşıya satırları** düğmesi.
+15. Verileri yüklemek için seçin **karşıya satırları** düğmesi.
 
-   ![Karşıya Yükle](media/add-reference-data-set/upload_rows.png)
+    ![Karşıya Yükle](media/add-reference-data-set/upload_rows.png)
 
-   Tamamlanan bir karşıya yükleme ve iletisini görüntüler sayfa onaylar **başarıyla veri kümesi'ni karşıya**.
+    Tamamlanan bir karşıya yükleme ve iletisini görüntüler sayfa onaylar **başarıyla veri kümesi'ni karşıya**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Başvuru verilerini programlamayla yönetin](time-series-insights-manage-reference-data-csharp.md).

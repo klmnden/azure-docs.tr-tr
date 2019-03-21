@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0fb2103b982d5b2fc1a04455b451459ede12166e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1363dd3c620789b9f3c8ce1dbe0892ee61d66051
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336944"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108214"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Olağanüstü durum kurtarma ve coğrafi dağıtım
 
@@ -24,7 +24,7 @@ ms.locfileid: "53336944"
 Dayanıklı işlevler içinde tüm durumu, Azure Depolama'da kalıcı hale getirilir. A [görev hub](durable-functions-task-hubs.md) düzenlemeleri için kullanılan Azure Storage kaynakları için mantıksal bir kapsayıcıdır. Aynı görev hub'ına ait oldukları zaman orchestrator ve etkinlik işlevleri yalnızca birbiriyle etkileşim kurabilir.
 Açıklanan senaryoları kullanılabilirliğini artırmak ve olağanüstü durum kurtarma etkinlikleri sırasında kapalı kalma süresini en aza indirmek için dağıtım seçenekleri önerin.
 
-Azure Depolama'nın kullanımı kılavuzluk edilir olduğundan bu senaryolar Aktif-Pasif yapılandırmada, temel dikkat edin önemlidir. Bu düzen, bir yedekleme (pasif) işlev uygulaması farklı bir bölgeye dağıtmaya dayalıdır. Traffic Manager birincil (etkin) işlev uygulaması için kullanılabilirlik izleyeceksiniz. Birincil başarısız olursa üzerinde yedekleme işlev uygulaması ile başarısız olur. Daha fazla bilgi için [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)'s [öncelik trafik yönlendirme yöntemi.](../../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method)
+Azure Depolama'nın kullanımı kılavuzluk edilir olduğundan bu senaryolar Aktif-Pasif yapılandırmada, temel dikkat edin önemlidir. Bu düzen, bir yedekleme (pasif) işlev uygulaması farklı bir bölgeye dağıtmaya dayalıdır. Traffic Manager birincil (etkin) işlev uygulaması için kullanılabilirlik izleyeceksiniz. Birincil başarısız olursa üzerinde yedekleme işlev uygulaması ile başarısız olur. Daha fazla bilgi için [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)'s [öncelik trafik yönlendirme yöntemi.](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)
 
 >[!NOTE]
 >

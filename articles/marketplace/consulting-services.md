@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 53281af4cf3ce49272ffe9fc48ab0f85cea276b2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213630"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078779"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Market ve Appsource'ta yönelik Danışmanlık Hizmetleri
 Danışmanlık Hizmetleri Azure Market ve AppSource Microsoft iş ortakları, iş hedefleri ve Hizmetleri ile bağlantı müşterilerin Azure kullanımını genişleten ve desteklemek için hedef sağlar. 
@@ -41,12 +41,12 @@ Market vitrininin birleşiminden, müşterilerin ihtiyaç duydukları bulmasına
 
 Appsource'ta listelenmesi Microsoft Dynamics 365, Office 365 ve Power BI dayalı hizmet teklifleri uygundur. Daha fazla bilgi için [Microsoft AppSource danışmanlık hizmetleri listeleme yönergeleri](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
->[!Note]
->Danışmanlık Hizmetleri Azure marketi'ndeki teklifler doğru olarak yararlanır bir ** odaklanır teknik hedef kitleyle *Azure teknik çözümleri ve Hizmetleri.* ** Danışmanlık Hizmetleri appsource'ta teklifleri, danışmanlık hizmetleri teklifleri appsource'ta listelemek Dynamics 365, Power BI veya PowerApps için kaliteli çözümler sunan uzmanlara yönelik olarak faydalanın
-
-
->[!TIP]
->İçin Azure Marketi vitrini yayımlamak için "Azure" bulut iş ortağı Portalı'nda "Birincil Product" açılan menüsünden seçim yaparak bu seçim yapın. Appsource'ta yayımlama için bu seçimi "Dynamics 365" seçerek yapacağınız "Power BI" veya "Power Apps'ten" "Birincil Product" açılan menüsünün bulut iş ortağı Portalı'nda.
+> [!Note]
+> Danışmanlık Hizmetleri Azure marketi'ndeki teklifler doğru olarak yararlanır bir ** odaklanır teknik hedef kitleyle *Azure teknik çözümleri ve Hizmetleri.* ** Danışmanlık Hizmetleri appsource'ta teklifleri, danışmanlık hizmetleri teklifleri appsource'ta listelemek Dynamics 365, Power BI veya PowerApps için kaliteli çözümler sunan uzmanlara yönelik olarak faydalanın
+> 
+> 
+> [!TIP]
+> İçin Azure Marketi vitrini yayımlamak için "Azure" bulut iş ortağı Portalı'nda "Birincil Product" açılan menüsünden seçim yaparak bu seçim yapın. Appsource'ta yayımlama için bu seçimi "Dynamics 365" seçerek yapacağınız "Power BI" veya "Power Apps'ten" "Birincil Product" açılan menüsünün bulut iş ortağı Portalı'nda.
 
 ## <a name="eligible-partners-and-supported-countries"></a>Uygun iş ortaklarına ve desteklenen ülkeler
 
@@ -112,7 +112,7 @@ Kayıt, öncesinde toplamaya başlamak ve ortaya çıkaran hizmet ve çözüm he
 |Engagement'ın süresi     |
 |Geçerli sektörlerde, kategoriler ve arama anahtar sözcükleri     |
 |Ürün genel bakış videosu    |
-|Ekran görüntüleri (en fazla 5, 1280 &#215; 720)     |
+|Screenshots (maximum of 5, 1280 &#215; 720)     |
 |Pazarlama belgeleri (en fazla 3)     |
 
 
@@ -156,7 +156,7 @@ Başlık alanı 50 karakterlik bir sınırı vardır ve arama motoru iyileştirm
 
 Teklif açıklamaları ve teklif özetleri gözden geçirirken, takım aşağıdaki ölçütleri uygulanır:
 
-|Teklif Türü  |Gereklidir |Önerilen  |
+|Teklif Türü  |Gerekli |Önerilen  |
 |---------|---------|---------|
 |**Değerlendirme**    |   Birden çok gün veya hafta çok değerlendirmeler için ayrıntılı bir gündem içerir ve hangi mesajında müşteri teslim edilebilir bekleyebileceğiniz      |    Teklifiniz, üst arama motoru iyileştirme sözcüklerle Özet en iyi duruma getirme     |
 |**Bilgilendirme**    |   Ne mesajında müşteri teslim edilebilir bekleyebilirsiniz. Bilgilendirme kişi sunulacak unutmayın. Sanal hizmet sağlıyorsanız Lütfen farklı bir teklif türü seçin    |  Teklifiniz, üst arama motoru iyileştirme sözcüklerle Özet en iyi duruma getirme       |

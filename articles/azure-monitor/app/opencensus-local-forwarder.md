@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights OpenCensus dağıtılmış yerel ileticisi izleme | Microsoft docs
+title: Azure Application Insights OpenCensus dağıtılmış izleme yerel ileticisi'ni (Önizleme) | Microsoft docs
 description: Dağıtılmış OpenCensus izlemeleri ve yayılma Python ve Go gibi diller için Azure Application Insights ilet
 services: application-insights
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54003764"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002812"
 ---
-# <a name="local-forwarder"></a>Yerel iletici
+# <a name="local-forwarder-preview"></a>Yerel ileticisi'ni (Önizleme)
 
 Yerel ileticisi olan Application Insights tarafından toplanan bir aracı veya [OpenCensus](https://opencensus.io/) çeşitli SDK'lar alınan telemetri ve uygulama anlayışları'na yönlendirir. Bu, Windows ve Linux altında çalıştırma yeteneğine sahiptir. Ayrıca macOS altında çalıştırmak mümkün olabilir, ancak resmi olarak şu anda desteklenmiyor.
 
@@ -79,14 +79,14 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 Belirli kullanım örnekleri için yerel iletici bir konsol uygulaması olarak çalıştırmak yararlı olabilir. Sürüm, konsol konağı yürütülebilir aşağıdaki sürümleriyle birlikte gelir:
 * framework bağımlı .NET Core ikili */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. Bu ikili çalışan bir .NET Core çalışma zamanı yüklü olmasını gerektirir; Bu indirme sayfasına başvuruda [sayfa](https://www.microsoft.com/net/download/dotnet-core/2.1) Ayrıntılar için.
-```batchfile
-E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
-```
-* ikili dosyaları x86 ve x64 platformları için kendi içinde .NET Core kümesi. Bu işlem, çalıştırmak için .NET Core çalışma zamanı gerektirmez. */ConsoleHost/Win-x86/Publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
-```batchfile
-E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-```
+  ```batchfile
+  E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
+  ```
+* ikili dosyaları x86 ve x64 platformları için kendi içinde .NET Core kümesi. Bu işlem, çalıştırmak için .NET Core çalışma zamanı gerektirmez. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
+  ```batchfile
+  E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  ```
 
 ### <a name="linux"></a>Linux
 
@@ -97,7 +97,7 @@ Windows gibi yayın konsol konağı yürütülebilir aşağıdaki sürümleriyle
 dotnet Microsoft.LocalForwarder.ConsoleHost.dll
 ```
 
-* linux-64 ikili dosyalarını kendi başına bir .NET Core kümesi. Bunu çalıştırmak için .NET Core çalışma zamanı gerektirmez. */ConsoleHost/Linux-x64/Publish/Microsoft.LocalForwarder.ConsoleHost*.
+* linux-64 ikili dosyalarını kendi başına bir .NET Core kümesi. Bunu çalıştırmak için .NET Core çalışma zamanı gerektirmez. */ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost*.
 
 ```batchfile
 user@machine:~/ConsoleHost/linux-x64/publish$ sudo chmod +x Microsoft.LocalForwarder.ConsoleHost

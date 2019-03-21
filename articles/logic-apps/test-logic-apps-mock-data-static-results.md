@@ -8,13 +8,13 @@ author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 23cce4d846cdf183f41b25663ba21d3bf1d27013
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 03/18/2019
+ms.openlocfilehash: 0fbe56ceeeba71bcbb5ef358cd66de15e36508fc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165105"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Logic apps ile sahte veri statik sonuçlarını ayarlayarak test edin.
 
@@ -67,9 +67,7 @@ Mantıksal uygulamanızı test ederken gerçekten arayın veya çeşitli nedenle
 
    ![Statik sonuçları simgesini gösteren etkin](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
 
-   Mantıksal uygulamanızı, mantıksal uygulamanızın çalıştırma geçmişinde çalıştıktan sonra **statik sonuçları** sütun, belirli bir çalıştırma statik sonuçları, örneğin etkin olan eylemler içerip içermediğini gösterir:
-
-   ![Çalıştırma geçmişi - statik sonuçları sütun](./media/test-logic-apps-mock-data-static-results/run-history.png)
+   Sahte verileri kullanan önceki çalıştırmaları bulmak için bkz: [statik sonuçları kullanan çalıştırmaları bulma](#find-runs-mock-data) bu konunun devamındaki.
 
 <a name="reuse-sample-outputs"></a>
 
@@ -79,7 +77,7 @@ Mantıksal uygulamanızı önceki bir varsa çıkışları sahte çıkış yenid
 
 1. Henüz kaydolmadıysanız, [Azure portalında](https://portal.azure.com), Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın.
 
-1. Mantıksal uygulamanızın ana menüden **genel bakış**. 
+1. Mantıksal uygulamanızın ana menüden **genel bakış**.
 
 1. İçinde **çalıştırma geçmişi** çalıştırdığınız mantıksal uygulama istediğiniz bölümü, seçin.
 
@@ -106,6 +104,26 @@ Mantıksal uygulamanızı önceki bir varsa çıkışları sahte çıkış yenid
    ![JSON modu](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
 1. İşiniz bittiğinde **Bitti**'yi seçin. Veya, tasarımcıya geri dönmek için seçin **Düzenleyicisi anahtar modu** (![Seç "Anahtar Düzenleyicisi modu"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
+
+<a name="find-runs-mock-data"></a>
+
+## <a name="find-runs-that-use-static-results"></a>Statik sonuçları kullanan çalıştırmaları bulma
+
+Mantıksal uygulamanızın çalıştırma geçmişi, burada statik sonuçları eylemleri kullanın çalıştırmalar tanımlar. Bu çalıştırmaları bulmak için aşağıdaki adımları izleyin:
+
+1. Mantıksal uygulamanızın ana menüden **genel bakış**. 
+
+1. Sağ bölmede altında **çalıştırma geçmişi**, bulma **statik sonuçları** sütun. 
+
+   Sonuçlarla eylemleri içeren tüm run sahip **statik sonuçları** sütun kümesine **etkin**, örneğin:
+
+   ![Çalıştırma geçmişi - statik sonuçları sütun](./media/test-logic-apps-mock-data-static-results/run-history.png)
+
+1. Statik sonuçları kullanan eylemlerini görüntülemek için istediğiniz yeri Çalıştır'ı seçin **statik sonuçları** sütun ayarlanmış **etkin**.
+
+   Statik sonuçları kullanan eylemleri göster test beaker (![statik sonuçları simgesi](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)) simgesi, örneğin:
+
+   ![Çalıştırma geçmişi - statik sonuçları kullanan eylemleri](./media/test-logic-apps-mock-data-static-results/static-results-enabled-run-details.png)
 
 ## <a name="disable-static-results"></a>Statik sonuçları devre dışı bırak
 

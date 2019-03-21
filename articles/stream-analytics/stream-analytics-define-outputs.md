@@ -9,19 +9,19 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 01aa3d45d3b168c67603861a0a947026d4f2e08c
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 0a3fd2cc66a066d2790d2e12822e3246dc3db382
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650895"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898882"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 Bu makalede, Azure Stream Analytics işi için çıktıların farklı türde açıklanır. Çıkış, depolamak ve Stream Analytics işi sonuçlarını kaydetmek olanak tanır. Yapabileceğiniz çıktı verilerini kullanarak, İş analizi ve veri depolama verilerinizi daha fazla.
 
 Stream Analytics sorgunuz tasarlarken, çıkış kullanarak adına başvurmak [yan tümcesi içinde](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). İş başına tek bir çıkış veya birden çok INTO yan tümceleri sorguda sağlayarak ihtiyacınız varsa, iş akışı başına birden çok çıkış kullanabilirsiniz.
 
-Test Stream Analytics işi oluşturmak ve düzenlemek için çıkışları kullanabileceğiniz [Azure portalında](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), ve [Visual Studio](stream-analytics-quick-create-vs.md).
+Test Stream Analytics işi oluşturmak ve düzenlemek için çıkışları kullanabileceğiniz [Azure portalında](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), ve [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Bazı çıkış türleri desteği [bölümleme](#partitioning), ve [çıktı toplu iş boyutu](#output-batch-size) aktarım hızını iyileştirmek için farklılık gösterir.
 
@@ -169,7 +169,7 @@ Azure Stream Analytics, Power BI veri kümesine ve tablo kullanıcı adına bir 
 Bu tablo veri türü dönüştürme gelen kapsayan [Stream Analytics veri türleri](https://msdn.microsoft.com/library/azure/dn835065.aspx) yayımlamasını güç için [varlık veri modeli (EDM) türleri](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) bir POWER BI veri kümesine ve tablo yoksa.
 
 Stream Analytics'ten | Power BI
------|-----|------------
+-----|-----
 bigint | Int64
 nvarchar(max) | Dize
 datetime | Tarih saat
@@ -186,7 +186,7 @@ Stream Analytics, olay çıktıdaki ilk kümesini göre veri modeli şemayı alg
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | Dize | Dize | çift
 çift | çift | Dize | Dize | çift
-Dize | Dize | Dize | Dize |  | Dize |
+Dize | Dize | Dize | Dize | Dize 
 Tarih saat | Dize | Dize |  Tarih saat | Dize
 
 
@@ -261,6 +261,7 @@ Stream analytics'ten Azure Cosmos DB çıkışı şu anda Azure Çin (21Vianet) 
 > Diğer Azure Cosmos DB API henüz desteklenmiyor. Noktası Azure Stream Analytics Azure Cosmos DB hesaplarına diğer API'lerle oluşturduysanız, verileri düzgün bir şekilde depolanabilir değil.
 
 Aşağıdaki tabloda, bir Azure Cosmos DB çıktı oluşturmak için özellikleri tanımlar.
+
 | Özellik adı | açıklama |
 | --- | --- |
 | Çıktı diğer adı | Bu çıktı, Stream Analytics sorgunuzda başvurmak için bir diğer ad. |
@@ -331,7 +332,7 @@ Aşağıdaki tabloda bazı toplu işleme çıktısı için dikkat edilecek nokta
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
-
+> 
 > [Hızlı Başlangıç: Azure portalını kullanarak Stream Analytics işi oluşturma](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

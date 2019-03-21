@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818566"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094982"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>DPM ve Azure Backup sunucusu için Çevrimdışı Yedekleme iş akışı
 Azure Backup, azure'a veri ilk tam yedekleme sırasında ağ ve depolama maliyetlerinden tasarruf birkaç yerleşik verimliliği sahiptir. Genellikle ilk tam yedeklemeler büyük miktarlarda veri aktarmanıza ve yalnızca deltaları/incrementals aktarmak sonraki yedeklemelerle karşılaştırıldığında daha fazla ağ bant genişliği gerektirecektir. Azure yedekleme, ilk yedekleme sıkıştırır. Çevrimdışı dengeli dağıtım işlemi boyunca, Azure Backup diskleri Azure'a sıkıştırılmış ilk yedek verileri çevrimdışı yükleme için kullanabilirsiniz.
@@ -55,7 +55,7 @@ Azure Backup ve Azure içeri/dışarı aktarma çevrimdışı dengeli dağıtım
 
 * Bir Azure depolama hesabıyla *Klasik* dağıtım modeli, indirdiğiniz yayımlama ayarları dosyası aşağıda gösterildiği gibi abonelik oluşturuldu: 
 
- ![Klasik depolama hesabı oluşturma](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+  ![Klasik depolama hesabı oluşturma](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
 
 * Bir ağ paylaşımına veya herhangi başka bir sürücü bilgisayarında, iç veya dış, ilk kopyanızı tutmak için yeterli disk alanına sahip olabilecek bir hazırlama konumu oluşturulur. Örneğin, 500 GB'lık dosya sunucusunu yedeklemek çalışıyorsanız, hazırlama alanına en az 500 GB olduğundan emin olun. (Daha küçük bir miktarı, sıkıştırma nedeniyle kullanılır.)
 * Azure'a gönderilen diskleri bakımından, yalnızca 2,5 inç SSD veya 2.5 inç veya 3,5 inçlik SATA II/iç sabit sürücüler kullanılan III emin olun. Sabit sürücüleri kullanabileceğiniz 10 TB'a kadar artırın. Denetleme [Azure içeri/dışarı aktarma hizmeti belgeleri](../storage/common/storage-import-export-requirements.md#supported-hardware) hizmetinin desteklediği sürücüleri son kümesi.
@@ -74,12 +74,12 @@ Bu bölümdeki bilgiler, böylece verilerinizi Azure veri merkezi için sunulan 
 
     Girişleri açıklaması aşağıdaki gibidir:
 
-    * **Hazırlama konumu**: İlk yedek kopyanın yazıldığı geçici depolama konumu. Hazırlama konumu, bir ağ paylaşımına veya yerel bilgisayar üzerinde olabilir. Kopya bilgisayar ve kaynak bilgisayara farklıysa, hazırlama konumunun tam ağ yolu belirtmeniz önerilir.
-    * **Azure içeri aktarma işinin adını**: Tarafından hangi Azure içeri aktarma hizmeti ve Azure Backup gönderilen veri aktarımını disklerde Azure'a izlemek benzersiz adı.
-    * **Azure yayımlama ayarları**: Yayımlama ayarları dosyasına yerel yolunu belirtin.
-    * **Azure abonelik kimliği**: Abonelik'ın Azure yayımlama ayarları dosyasını indirdiğiniz Azure abonelik kimliği. 
-    * **Azure depolama hesabı**: Azure yayımlama ayarları dosyası ile ilişkili Azure aboneliğinde depolama hesabı adı.
-    * **Azure depolama kapsayıcısı**: Hedef depolama blobunda yedekleme verileri burada alınır Azure depolama hesabı adı.
+   * **Hazırlama konumu**: İlk yedek kopyanın yazıldığı geçici depolama konumu. Hazırlama konumu, bir ağ paylaşımına veya yerel bilgisayar üzerinde olabilir. Kopya bilgisayar ve kaynak bilgisayara farklıysa, hazırlama konumunun tam ağ yolu belirtmeniz önerilir.
+   * **Azure içeri aktarma işinin adını**: Tarafından hangi Azure içeri aktarma hizmeti ve Azure Backup gönderilen veri aktarımını disklerde Azure'a izlemek benzersiz adı.
+   * **Azure yayımlama ayarları**: Yayımlama ayarları dosyasına yerel yolunu belirtin.
+   * **Azure abonelik kimliği**: Abonelik'ın Azure yayımlama ayarları dosyasını indirdiğiniz Azure abonelik kimliği. 
+   * **Azure depolama hesabı**: Azure yayımlama ayarları dosyası ile ilişkili Azure aboneliğinde depolama hesabı adı.
+   * **Azure depolama kapsayıcısı**: Hedef depolama blobunda yedekleme verileri burada alınır Azure depolama hesabı adı.
 
      Kaydet *hazırlama konumuna* ve *Azure içeri aktarma işinin adını* diskleri hazırlamak için gerekli olduğundan, sağlanan.  
      
@@ -102,14 +102,14 @@ Bu bölümdeki bilgiler, böylece verilerinizi Azure veri merkezi için sunulan 
 
 1. Dizin ve kopya Git **AzureOfflineBackupDiskPrep** hazırlanacak SATA sürücülerini bağlandığınızdan kopyalama bilgisayara dizin. Kopya bilgisayar bakımından aşağıdakilerden emin olun:
 
-    * Kopya bilgisayar hazırlama konumu çevrimdışı dengeli dağıtım iş akışı için sunulan aynı ağ yolunu kullanarak erişebilirsiniz **çevrimdışı yedekleme başlatmak** iş akışı.
-    * Kopyalama bilgisayarda BitLocker etkin.
-    * Kopya bilgisayar Azure portala erişebilirsiniz.
+   * Kopya bilgisayar hazırlama konumu çevrimdışı dengeli dağıtım iş akışı için sunulan aynı ağ yolunu kullanarak erişebilirsiniz **çevrimdışı yedekleme başlatmak** iş akışı.
+   * Kopyalama bilgisayarda BitLocker etkin.
+   * Kopya bilgisayar Azure portala erişebilirsiniz.
 
-    Gerekirse, kopya bilgisayar kaynak bilgisayarla aynı olabilir. 
+     Gerekirse, kopya bilgisayar kaynak bilgisayarla aynı olabilir. 
     
-    > [!IMPORTANT] 
-    > Kaynak bilgisayar bir sanal makine ise, ardından onu farklı bir fiziksel sunucu veya istemci makinenin kopya bilgisayarı olarak kullanılacak zorunludur.
+     > [!IMPORTANT] 
+     > Kaynak bilgisayar bir sanal makine ise, ardından onu farklı bir fiziksel sunucu veya istemci makinenin kopya bilgisayarı olarak kullanılacak zorunludur.
     
     
 2. Kopyalama bilgisayarda yükseltilmiş bir komut istemi açın *AzureOfflineBackupDiskPrep* yardımcı programı dizini olarak geçerli dizin ve şu komutu çalıştırın:

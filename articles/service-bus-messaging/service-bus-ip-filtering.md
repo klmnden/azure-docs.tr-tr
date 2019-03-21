@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a8d29e7cae20c37adfeccaef01e1625b6ab3e0d0
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 52475a3976ef8897ffed07c499eb06e7476c0156
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852690"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136302"
 ---
 # <a name="use-firewall-rules"></a>Güvenlik duvarı kurallarını kullanın
 
@@ -60,7 +60,7 @@ IP Filtresi kurallarının sırayla uygulanır ve IP adresi ile eşleşen ilk ku
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile bir sanal ağ ve güvenlik duvarı kuralı oluşturma
 
 > [!IMPORTANT]
-> Sanal ağlar yalnızca desteklenen **premium** katman hizmet veri yolu.
+> Güvenlik duvarları ve sanal ağlar desteklenir yalnızca **premium** katman hizmet veri yolu.
 
 Aşağıdaki Resource Manager şablonu var olan bir Service Bus ad alanı için bir sanal ağ kuralı ekleyerek sağlar.
 

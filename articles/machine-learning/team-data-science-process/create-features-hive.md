@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be95a75e7cdcaa11ef3e90093ef52c5615608eac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4d74b122f3b5567e8291ec5f3ff4e1dda7ff68f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458032"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835025"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Bir Hadoop kümesinde Hive sorgularını kullanarak verilerin özelliklerini oluşturma
 Bu belge, Hive sorgularını kullanarak bir Azure HDInsight Hadoop kümesinde depolanan verilerin özelliklerini oluşturma işlemi gösterilmektedir. Bu Hive sorguları katıştırılmış Hive User-Defined betikleri, sağlanan işlevler (UDF'ler) kullanın.
 
 Özellikler oluşturmak için gereken işlemleri, bellek kullanımı yoğun olabilir. Hive sorgu performansı bu gibi durumlarda daha önemli hale gelir ve belirli parametreleri ayarlayarak geliştirilebilir. Bu parametreleri ayarlama son bölümde ele alınmıştır.
 
-Sunulan sorgularının örnekleri için belirli [NYC taksi seyahat verilerini](http://chriswhong.com/open-data/foil_nyc_taxi/) senaryoları burada da sunulmaktadır [GitHub deposu](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Bu sorgular zaten belirtilen veri şemasına sahip ve çalıştırmak için gönderilmeye hazır. Son bölümde, kullanıcılar ayarlayabilirsiniz ve böylelikle Hive sorgu performansı artırılabilir parametreleri de ele alınmıştır.
+Sunulan sorgularının örnekleri için belirli [NYC taksi seyahat verilerini](https://chriswhong.com/open-data/foil_nyc_taxi/) senaryoları burada da sunulmaktadır [GitHub deposu](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Bu sorgular zaten belirtilen veri şemasına sahip ve çalıştırmak için gönderilmeye hazır. Son bölümde, kullanıcılar ayarlayabilirsiniz ve böylelikle Hive sorgu performansı artırılabilir parametreleri de ele alınmıştır.
 
 Bu görev bir adımdır [Team Data Science işlem (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
@@ -130,7 +130,7 @@ Bu sorguda kullanılan adlı, toplama ve dropoff konumları GPS koordinatların�
         and dropoff_latitude between 30 and 90
         limit 10;
 
-İki GPS koordinatlarını arasındaki uzaklık hesaplayın matematik denklemlerini bulunabilir <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">taşınabilir tür betikleri</a> site, Peter Lapisu tarafından yazıldı. Bu Javascript işlevi olarak `toRad()` tıpkı *lat_or_lon*pi/180 *, bu Dereceyi radyana dönüştürür. Burada, *lat_or_lon* enlem veya boylam. Hive işlevi sağlamadığından `atan2`, ancak işlev sağlar `atan`, `atan2` işlevi tarafından gerçekleştirilir `atan` sağlanan tanımı kullanarak yukarıdaki Hive sorgusu işlevinde <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+İki GPS koordinatlarını arasındaki uzaklık hesaplayın matematik denklemlerini bulunabilir <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">taşınabilir tür betikleri</a> site, Peter Lapisu tarafından yazıldı. Bu Javascript işlevi olarak `toRad()` tıpkı *lat_or_lon*Dereceyi radyana dönüştürür pi/180,. Burada, *lat_or_lon* enlem veya boylam. Hive işlevi sağlamadığından `atan2`, ancak işlev sağlar `atan`, `atan2` işlevi tarafından gerçekleştirilir `atan` sağlanan tanımı kullanarak yukarıdaki Hive sorgusu işlevinde <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Çalışma alanı oluşturma](./media/create-features-hive/atan2new.png)
 
@@ -161,11 +161,11 @@ Hive kümesinin varsayılan parametre ayarları Hive sorguları ve sorgular işl
    
     Genellikle, varsayılan değeri:
     
-    - *mapred.Min.split.size* 0 ' dır,
-    - *mapred.max.split.size* olduğu **Long.MAX** ve 
-    - *DFS.Block.size* 64 MB'tır.
+   - *mapred.Min.split.size* 0 ' dır,
+   - *mapred.max.split.size* olduğu **Long.MAX** ve 
+   - *DFS.Block.size* 64 MB'tır.
 
-    Biz, veri boyutu verilen görebileceğiniz gibi "ayarı" tarafından bu parametreleri ayarlama sağlar bize kullanılan azaltıcının sayısını ayarlamak.
+     Biz, veri boyutu verilen görebileceğiniz gibi "ayarı" tarafından bu parametreleri ayarlama sağlar bize kullanılan azaltıcının sayısını ayarlamak.
 
 4. İşte birkaç daha **Gelişmiş Seçenekler** Hive performansını iyileştirme için. Bu harita ve görevleri azaltmak için ayrılan bellek ayarlamanıza olanak sağlar ve performans ince ayar yapma yararlı olabilir. Aklınızda *mapreduce.reduce.memory.mb* Hadoop kümesindeki her çalışan düğümüne fiziksel bellek boyutu büyük olamaz.
    

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 1e55552e238e16f2221b138b6e12afa5635d2ab2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743366"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202682"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>HDInsight ile verilere erişimi kısıtlamak için Azure depolama paylaşılan erişim imzaları kullanma
 
@@ -163,7 +163,7 @@ SAS'ı kullanan bir HDInsight kümesi oluşturmanın bir örneği yer aldığı 
     Connect-AzureRmAccount
     ```
 
-    İstendiğinde, Azure aboneliğiniz için bir hesapla oturum açın.
+    İstendiğinde, Hesapla Azure aboneliğiniz için oturum açın.
 
     Hesabınız birden çok Azure aboneliği ile ilişkili ise, kullanmanız gerekebilir `Select-AzureRmSubscription` kullanmak istediğiniz aboneliği seçmek için.
 
@@ -219,13 +219,7 @@ Var olan bir Linux tabanlı küme varsa SAS'ye ekleyebilirsiniz **çekirdek site
 
 ## <a name="test-restricted-access"></a>Sınırlı erişimi test etme
 
-Sınırlı erişimi olduğunu doğrulamak için aşağıdaki yöntemleri kullanın:
-
-* İçin **Windows tabanlı** HDInsight kümeleri, kümeye bağlanmak için Uzak Masaüstü'nü kullanın. Daha fazla bilgi için [RDP kullanarak HDInsight Bağlan](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
-
-    Bağlantı kurulduktan sonra kullanın **Hadoop komut satırı** bir komut istemi açmak için masaüstünde simge.
-
-* İçin **Linux tabanlı** HDInsight kümeleri, kümeye bağlanmak için SSH kullanın. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+Sınırlı erişimi olduğunu doğrulamak için kümeye bağlanmak için SSH kullanın. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Kümeye bağlandıktan sonra SAS depolama hesabına yalnızca okuma ve liste öğeleri için doğrulamak için aşağıdaki adımları kullanın:
 

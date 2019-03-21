@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 06/26/2018
 ms.author: kumud
-ms.openlocfilehash: 02a00f2ad1c8f13df834d35e68b98e2a7751b9ae
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 3922eb76fa0954b9c02cc86f98acb142cc1d1fee
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895576"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225263"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>Uygulamaları yüksek kullanılabilirlik için trafiği yönlendirme
 
@@ -54,7 +54,7 @@ Bu betik bir kaynak grubu, web uygulaması, traffic manager profili ve tüm ilgi
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan) | App Service planı oluşturur. Azure web uygulamanız için bir sunucu grubu gibi budur. |
 | [az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | App Service planı içinde bir Azure web uygulaması oluşturur. |
 | [az ağ traffic manager profili oluşturma](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile) | Bir Azure Traffic Manager profili oluşturur. |
-| [az ağ traffic manager uç noktası oluşturma](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint) | Bir Azure Traffic Manager profiline bir uç nokta ekler. |
+| [az ağ traffic manager uç noktası oluşturma](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint) | Azure Traffic Manager profiline bir uç nokta ekler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

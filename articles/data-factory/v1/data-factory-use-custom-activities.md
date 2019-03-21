@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 6d7aeef415fcc53fda2f5d66d748dd38f6d644fb
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 1341a8fce95dff0499a698fcddf8d048f3628dba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576744"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108248"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -421,7 +421,7 @@ Bu bölümde gerçekleştireceğiniz adımlar şunlardır:
    2. Tıklayın **veri ve analiz** içinde **yeni** dikey penceresi.
    3. **Veri analizi** dikey penceresinde **Data Factory**’ye tıklayın.
 
-    ![Yeni Azure Data Factory menüsü](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
+      ![Yeni Azure Data Factory menüsü](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
 2. İçinde **yeni veri fabrikası** dikey penceresinde girin **CustomActivityFactory** adı. Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: **Veri Fabrikası adı "CustomActivityFactory" kullanılamıyor**, veri fabrikasının adını değiştirin (örneğin, **yournameCustomActivityFactory**) ve oluşturmayı yeniden deneyin.
 
     ![Yeni Azure Data Factory dikey penceresi](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)

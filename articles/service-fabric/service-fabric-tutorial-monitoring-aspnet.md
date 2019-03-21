@@ -1,6 +1,6 @@
 ---
 title: Azure'da Service Fabric üzerindeki ASP.NET Core hizmetlerini izleme ve tanılama | Microsoft Docs
-description: Bu öğreticide, Azure Service Fabric ASP.NET Core uygulaması için izleme ve tanılamanın nasıl ayarlanacağını öğrenirsiniz.
+description: Bu öğreticide, Azure Service Fabric ASP.NET Core uygulaması için izleme ve tanılamayı ayarlama konusunda bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 27a114378cf72e766e894dc0dd6886197f56a841
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 8657e9cabdf7dcd4900f65b6bef56f62a1caf472
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390266"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901756"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Öğretici: Bir Application Insights'ı kullanarak Service fabric'te ASP.NET Core uygulamasını izleme ve tanılama
 
@@ -103,50 +103,50 @@ NuGet'i ayarlama adımları şunlardır:
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. Açılan **Değişiklikleri Gözden Geçir** iletişim kutusunda *Tamam*'a tıklayın ve *Lisans Kabulü*'nü kabul edin. Bu noktada NuGet'i hizmetlere ekleme işlemi tamamlanır.
 6. Şimdi iki hizmette telemetri başlatıcısını ayarlamanız gerekir. Bunu yapmak için, *VotingWeb.cs* ve *VotingData.cs*'yi açın. Her ikisinde de aşağıdaki iki adımı izleyin:
-    1. Bu iki *using* deyimini her *\<HizmetAdı>.cs*'nin üstüne ekleyin:
+   1. Bu iki *using* deyimini her *\<HizmetAdı>.cs*'nin üstüne ekleyin:
 
-    ```csharp
-    using Microsoft.ApplicationInsights.Extensibility;
-    using Microsoft.ApplicationInsights.ServiceFabric;
-    ```
+      ```csharp
+      using Microsoft.ApplicationInsights.Extensibility;
+      using Microsoft.ApplicationInsights.ServiceFabric;
+      ```
 
-    2. *CreateServiceInstanceListeners()* ve *CreateServiceReplicaListeners()* öğelerinin iç içe *return* deyiminde, *ConfigureServices* > *services*'in altına ve bildirilen iki Singleton hizmetinin arasına şunu ekleyin: `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`
-    Bu, telemetrinize *Hizmet Bağlamı* ekleyerek Application Insights'da telemetrinizin kaynağını daha iyi anlamanızı sağlar. *VotingWeb.cs*'deki iç içe *return* deyiminiz şöyle görünmelidir:
+   2. *CreateServiceInstanceListeners()* ve *CreateServiceReplicaListeners()* öğelerinin iç içe *return* deyiminde, *ConfigureServices* > *services*'in altına ve bildirilen iki Singleton hizmetinin arasına şunu ekleyin: `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`
+      Bu, telemetrinize *Hizmet Bağlamı* ekleyerek Application Insights'da telemetrinizin kaynağını daha iyi anlamanızı sağlar. *VotingWeb.cs*'deki iç içe *return* deyiminiz şöyle görünmelidir:
 
-    ```csharp
-    return new WebHostBuilder()
-        .UseKestrel()
-        .ConfigureServices(
-            services => services
-                .AddSingleton<HttpClient>(new HttpClient())
-                .AddSingleton<FabricClient>(new FabricClient())
-                .AddSingleton<StatelessServiceContext>(serviceContext)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
-        .UseContentRoot(Directory.GetCurrentDirectory())
-        .UseStartup<Startup>()
-        .UseApplicationInsights()
-        .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
-        .UseUrls(url)
-        .Build();
-    ```
+      ```csharp
+      return new WebHostBuilder()
+       .UseKestrel()
+       .ConfigureServices(
+           services => services
+               .AddSingleton<HttpClient>(new HttpClient())
+               .AddSingleton<FabricClient>(new FabricClient())
+               .AddSingleton<StatelessServiceContext>(serviceContext)
+               .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
+       .UseContentRoot(Directory.GetCurrentDirectory())
+       .UseStartup<Startup>()
+       .UseApplicationInsights()
+       .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+       .UseUrls(url)
+       .Build();
+      ```
 
-    Benzer biçimde, *VotingData.cs*'de şu bölüm olmalıdır:
+      Benzer biçimde, *VotingData.cs*'de şu bölüm olmalıdır:
 
-    ```csharp
-    return new WebHostBuilder()
-        .UseKestrel()
-        .ConfigureServices(
-            services => services
-                .AddSingleton<StatefulServiceContext>(serviceContext)
-                .AddSingleton<IReliableStateManager>(this.StateManager)
-                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
-        .UseContentRoot(Directory.GetCurrentDirectory())
-        .UseStartup<Startup>()
-        .UseApplicationInsights()
-        .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
-        .UseUrls(url)
-        .Build();
-    ```
+      ```csharp
+      return new WebHostBuilder()
+       .UseKestrel()
+       .ConfigureServices(
+           services => services
+               .AddSingleton<StatefulServiceContext>(serviceContext)
+               .AddSingleton<IReliableStateManager>(this.StateManager)
+               .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
+       .UseContentRoot(Directory.GetCurrentDirectory())
+       .UseStartup<Startup>()
+       .UseApplicationInsights()
+       .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+       .UseUrls(url)
+       .Build();
+      ```
 
 Yukarıda gösterildiği gibi her iki dosyada `UseApplicationInsights()` yönteminin çağrıldığını iki kez denetleyin.
 

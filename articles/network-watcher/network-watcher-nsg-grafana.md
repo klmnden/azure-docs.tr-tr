@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
-ms.openlocfilehash: 9e408b45f47cb86191628916124611735f374d9e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 73173c144f979d4a10b90a16aec783fe51a3f90e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819043"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000391"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Network Watcher ve Grafana kullanarak ağ güvenlik grubu akış günlüklerini analiz etme ve yönetme
 
@@ -35,7 +35,7 @@ Ağınızda birçok Nsg akış günlüğe kaydetme etkin olabilir. Bu günlük v
 
 NSG akış günlükleri, Ağ İzleyicisi kullanılarak etkinleştirilir ve Azure blob depolama alanında depolanır. Logstash eklentisi bağlanmak ve bunları Elasticsearch'e gönderin. akış günlüklerini blob depolamadan işlemek için kullanılır.  Akış günlüklerini Elasticsearch'e içinde depolandıktan sonra edilebilmeleri analiz ve Grafana, özelleştirilmiş panolarla görselleştirilir.
 
-![NSG Ağ İzleyicisi Grafana](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig1.png)
+![NSG Network Watcher Grafana](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig1.png)
 
 ## <a name="installation-steps"></a>Yükleme adımları
 
@@ -182,7 +182,7 @@ sudo dpkg -i grafana_4.5.1_amd64.deb
 sudo service grafana-server start
 ```
 
-Ek yükleme için bilgi [Debian üzerinde yükleme / Ubuntu](http://docs.grafana.org/installation/debian/).
+Ek yükleme için bilgi [Debian üzerinde yükleme / Ubuntu](https://docs.grafana.org/installation/debian/).
 
 #### <a name="add-the-elasticsearch-server-as-a-data-source"></a>ElasticSearch sunucu veri kaynağı olarak ekleyin.
 

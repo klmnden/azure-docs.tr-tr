@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 884a13df23fd0cc1103b6a73fad26f2099e3bfd7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 54b440ee76fe36a83284b8ce769bb31012781a35
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074708"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295768"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Azure Data Factory'de Databricks kullanarak verileri dönüştürme
 
@@ -39,7 +39,7 @@ Bu şablon basit tutmak için zamanlanmış bir tetikleyici şablonu oluşturmaz
 
 2.  Olduğundan emin olun bir **Azure Databricks çalışma alanı** veya yeni bir tane oluşturun.
 
-1.  **ETL için Not defterini alma**. İçeri aktarma dönüştürme Not Databricks çalışma alanı altında. (Bunu aşağıda gösterildiği gibi aynı konumda olması, ancak için daha sonra seçtiğiniz yolu yok.) URL alanını bu URL'yi girerek aşağıdaki URL'den not alın: `https://Data Factorylabstaging1.blob.core.windows.net/share/Transformations.html`. Seçin **alma**.
+1.  **ETL için Not defterini alma**. İçeri aktarma dönüştürme Not Databricks çalışma alanı altında. (Bunu aşağıda gösterildiği gibi aynı konumda olması, ancak için daha sonra seçtiğiniz yolu yok.) URL alanını bu URL'yi girerek aşağıdaki URL'den not alın: `https://DataFactorylabstaging1.blob.core.windows.net/share/Transformations.html`. Seçin **alma**.
 
     ![2](media/solution-template-Databricks-notebook/Databricks-tutorial-image02.png)
 

@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a3b719f4b2a19f4ea399d6a0858719a1709adc93
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 26e4b921b4050efa5217e3b599b9dc942a003090
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109507"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173932"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>(Önizleme) Azure HDInsight üzerinde Apache Kafka için kendi anahtarını Getir
 
@@ -31,7 +31,7 @@ Anahtarları key vault'ta güvenli bir şekilde döndürmek için Azure portal v
 
 1. Azure kaynakları için yönetilen kimlikler oluşturun.
 
-   Anahtar Kasası'na kimliğini doğrulamak için bir kullanıcı tarafından atanan yönetilen kimlik kullanarak oluşturma [Azure portalı](../../active-directory/managed-service-identity/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-service-identity/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-service-identity/how-to-manage-ua-identity-arm.md), veya [ Azure CLI](../../active-directory/managed-service-identity/how-to-manage-ua-identity-cli.md). Azure Active directory yönetilen kimlikleri ve Kafka için BYOK için gerekli olsa da, Kurumsal güvenlik paketi (ESP) bir gereksinim değildir. Yönetilen kimlik kaynak kimliği için anahtar kasası erişim ilkesini eklediğinizde kaydettiğinizden emin olun.
+   Anahtar Kasası'na kimliğini doğrulamak için bir kullanıcı tarafından atanan yönetilen kimlik kullanarak oluşturma [Azure portalında](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md), veya [ Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). Azure HDInsight yönetilen kimlikleri çalışması hakkında daha fazla bilgi için bkz. [yönetilen Azure HDInsight kimliklerini](../hdinsight-managed-identities.md). Azure Active directory yönetilen kimlikleri ve Kafka için BYOK için gerekli olsa da, Kurumsal güvenlik paketi (ESP) bir gereksinim değildir. Yönetilen kimlik kaynak kimliği için anahtar kasası erişim ilkesini eklediğinizde kaydettiğinizden emin olun.
 
    ![Azure Portalı'nda kullanıcı tarafından atanan yönetilen kimlik oluşturma](./media/apache-kafka-byok/user-managed-identity-portal.png)
 

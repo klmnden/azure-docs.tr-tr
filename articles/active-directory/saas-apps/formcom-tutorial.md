@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 1f2c7a5ca84b3a96b570ca57da326ea6ebc2071b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1ed8dac90527de396e0b7ae59e5d19939a4a36be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767932"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904363"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Öğretici: Form.com ile Azure Active Directory Tümleştirme
 
@@ -109,6 +109,7 @@ Azure AD çoklu oturum açma ile Form.com yapılandırmak için aşağıdaki ad�
     b. İçinde **tanımlayıcı** kutusuna şu biçimi kullanarak bir URL yazın: `https://<subdomain>.form.com`
 
     c. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+    
     | |
     |--|
     | `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
@@ -153,7 +154,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

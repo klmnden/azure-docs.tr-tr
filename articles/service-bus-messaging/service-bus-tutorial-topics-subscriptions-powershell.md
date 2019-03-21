@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 135f5e2500ab86d418085a5061f517176b9a4dad
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 21dcf522f00f1991ecb2a92d6dc0925baadbdcc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081279"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Öğretici: PowerShell ve konular/abonelikler kullanan Envanter güncelleştirme
 
@@ -111,13 +111,13 @@ Kodu çalıştırmak için aşağıdakileri yapın:
    ```azurepowershell-interactive
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
-5.  PowerShell isteminde aşağıdaki komutu yazın:
+5. PowerShell isteminde aşağıdaki komutu yazın:
 
    ```shell
    dotnet build
    ```
-6.  `\bin\Debug\netcoreapp2.0` klasörüne gidin.
-7.  Programı çalıştırmak için aşağıdaki komutu yazın. `myConnectionString` yerine daha önce aldığınız değeri ve `myQueueName` yerine oluşturduğunuz kuyruğun adını koymayı unutmayın:
+6. `\bin\Debug\netcoreapp2.0` klasörüne gidin.
+7. Programı çalıştırmak için aşağıdaki komutu yazın. `myConnectionString` yerine daha önce aldığınız değeri ve `myQueueName` yerine oluşturduğunuz kuyruğun adını koymayı unutmayın:
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"

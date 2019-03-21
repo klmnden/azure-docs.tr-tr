@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8db11759ce501929e5cfd7b721c5e9dc80f9e01a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d3c3278a058162632a6ba7ea9731e5f233190700
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473196"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843717"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>HDInsight Hadoop Hive'ı kullanarak Azure üzerinde veri bilimi kılavuzları 
 
@@ -36,7 +36,7 @@ Senaryo ile Hive kullanılarak uygulanan bir [Azure HDInsight Hadoop kümesi](ht
 
 ## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>HDInsight Hadoop ile Hive'ı kullanarak reklam tıklama tahmin edin
 
-[Kullanımı Azure HDInsight Hadoop kümelerini 1 TB veri kümesi](hive-criteo-walkthrough.md) kılavuzda genel kullanıma kullanılır [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) veri kümesi bir ipucu olup ödenir ve beklenen tutarları aralığını tahmin etmek için tıklayın. Senaryo ile Hive kullanılarak uygulanan bir [Azure HDInsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfetmek, özellik mühendisi ve aşağı örnek veriler. Azure Machine Learning, oluşturmak, eğitmek ve bir kullanıcı bir Tanıtım amaçlı tıkladığında olup olmadığını tahmin etmeye yönelik bir ikili sınıflandırma modeli Puanlama için kullanır. İzlenecek yol sonucuna biri bu modeller, Web hizmeti olarak yayımlama gösteriliyor.
+[Kullanımı Azure HDInsight Hadoop kümelerini 1 TB veri kümesi](hive-criteo-walkthrough.md) kılavuzda genel kullanıma kullanılır [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) veri kümesi bir ipucu olup ödenir ve beklenen tutarları aralığını tahmin etmek için tıklayın. Senaryo ile Hive kullanılarak uygulanan bir [Azure HDInsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfetmek, özellik mühendisi ve aşağı örnek veriler. Azure Machine Learning, oluşturmak, eğitmek ve bir kullanıcı bir Tanıtım amaçlı tıkladığında olup olmadığını tahmin etmeye yönelik bir ikili sınıflandırma modeli Puanlama için kullanır. İzlenecek yol sonucuna biri bu modeller, Web hizmeti olarak yayımlama gösteriliyor.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

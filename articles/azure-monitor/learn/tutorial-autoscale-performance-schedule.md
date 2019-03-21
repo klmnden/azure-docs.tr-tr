@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 9c8803ff73b3e70c19a409ef6c1e072b5f7c8b53
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 44fecf47ccd1ce07c7e51f7bcf51ef7823f2cf97
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734277"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088358"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Azure kaynakları için performans verilerini veya bir zamanlamayı temel alan bir Otomatik Ölçeklendirme Ayarı oluşturma
 
@@ -60,7 +60,7 @@ Sonraki birkaç adım, otomatik ölçeklendirme ekranını aşağıdaki resimdek
 2. Varsayılan profilde **Ölçek modu**’nun 'Belirli bir örnek sayısına ölçeklendirin' olarak ayarlandığından emin olun.
 3. Örnek sayısını **1** olarak ayarlayın. Bu ayar, etkin veya geçerli olan başka bir profil yoksa varsayılan profilin örnek sayısını 1’e döndürdüğünden emin olur.
 
-  ![Otomatik ölçeklendirme ayarlarına gidin](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![Otomatik ölçeklendirme ayarlarına gidin](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>Yinelenme profili oluşturma

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: c50aece847119dd0d2421553e9e9827c2168e553
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4fd52510abd61c4d319a3fcbc8f722df5edbc476
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451655"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120610"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>Öğretici: Bağlanma, ayarlamak ve Azure veri kutusu Edge (Önizleme) etkinleştirme 
 
@@ -82,12 +82,12 @@ Panonuzu yapılandırmak ve fiziksel cihaz ile veri kutusu Edge hizmetine kaydet
    
     Ağ ayarlarını yapılandırın, göz önünde bulundurun:
 
-    - Ortamınızda DHCP etkinse, ağ arabirimleri otomatik olarak yapılandırılır. Bir IP adresi, alt ağ, ağ geçidi ve DNS otomatik olarak atanır.
-    - DHCP etkin değilse, gerekirse statik IP atayabilirsiniz.
-    - Ağ Arabiriminizin IPv4 yapılandırabilirsiniz.
+   - Ortamınızda DHCP etkinse, ağ arabirimleri otomatik olarak yapılandırılır. Bir IP adresi, alt ağ, ağ geçidi ve DNS otomatik olarak atanır.
+   - DHCP etkin değilse, gerekirse statik IP atayabilirsiniz.
+   - Ağ Arabiriminizin IPv4 yapılandırabilirsiniz.
 
-    >[!NOTE] 
-    > Cihaza bağlanmak için başka bir IP adresi yoksa yerel DCHP, ağ arabirimine gelen statik IP adresi geçme öneririz. Birini kullanıyorsanız, ağ arabirimi ve geçiş için DHCP, DHCP adresini belirlemek mümkün olacaktır. Bir DHCP adresi için değiştirmek istiyorsanız, cihazın hizmete kaydolduktan sonra kadar bekleyin ve sonra değiştirebilirsiniz. Bulunan tüm bağdaştırıcıları IP'ler daha sonra görüntüleyebileceğiniz **cihaz özelliklerini** hizmetiniz için Azure portalında.
+     >[!NOTE] 
+     > Cihaza bağlanmak için başka bir IP adresi yoksa yerel DCHP, ağ arabirimine gelen statik IP adresi geçme öneririz. Birini kullanıyorsanız, ağ arabirimi ve geçiş için DHCP, DHCP adresini belirlemek mümkün olacaktır. Bir DHCP adresi için değiştirmek istiyorsanız, cihazın hizmete kaydolduktan sonra kadar bekleyin ve sonra değiştirebilirsiniz. Bulunan tüm bağdaştırıcıları IP'ler daha sonra görüntüleyebileceğiniz **cihaz özelliklerini** hizmetiniz için Azure portalında.
 
 1. (İsteğe bağlı) Sol bölmede seçin **Web proxy ayarları**ve ardından, web Ara sunucusunu yapılandırın. Web proxy yapılandırması bir web proxy kullanıyorsanız, isteğe bağlı olsa, yalnızca bu sayfada yapılandırabilirsiniz.
    

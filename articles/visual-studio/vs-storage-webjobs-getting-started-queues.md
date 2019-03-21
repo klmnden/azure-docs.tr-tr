@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 74aea3ad4c3dda8abc69275ad4d683fbcf485ccc
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722915"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999542"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Bağlı hizmetler (WebJob Proje) Azure kuyruk depolama ve Visual Studio ile çalışmaya başlama
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -27,7 +27,7 @@ Bu makalede nasıl oluşturduğunuz veya Visual Studio kullanarak bir Azure depo
 
 Bu makalede, Azure Web işleri SDK'sı sürümünü kullanmayı gösteren C# kod örneği sağlanmıştır 1.x ile Azure kuyruk depolama hizmeti.
 
-Azure Kuyruk depolama, HTTP veya HTTPS kullanan kimlik doğrulaması yapılmış çağrılar aracılığıyla dünyanın her yerinden erişilebilen çok sayıda iletinin depolanması için bir hizmettir. Tek bir kuyruk iletisinin boyutu 64 KB’ye kadar olabilir ve bir kuyrukta, depolama hesabının toplam kapasite sınırına kadar milyonlarca ileti bulunabilir. Bkz: [.NET kullanarak Azure kuyruk depolama ile çalışmaya başlama](../storage/queues/storage-dotnet-how-to-use-queues.md) daha fazla bilgi için. ASP.NET hakkında daha fazla bilgi için bkz: [ASP.NET](http://www.asp.net).
+Azure Kuyruk depolama, HTTP veya HTTPS kullanan kimlik doğrulaması yapılmış çağrılar aracılığıyla dünyanın her yerinden erişilebilen çok sayıda iletinin depolanması için bir hizmettir. Tek bir kuyruk iletisinin boyutu 64 KB’ye kadar olabilir ve bir kuyrukta, depolama hesabının toplam kapasite sınırına kadar milyonlarca ileti bulunabilir. Bkz: [.NET kullanarak Azure kuyruk depolama ile çalışmaya başlama](../storage/queues/storage-dotnet-how-to-use-queues.md) daha fazla bilgi için. ASP.NET hakkında daha fazla bilgi için bkz: [ASP.NET](https://www.asp.net).
 
 ## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>Bir kuyruk iletisi alındığında bir işlev tetiklemek nasıl
 Bir kuyruk iletisi alındığında Web işleri SDK'sı çağıran bir işlev yazmak için kullanın **QueueTrigger** özniteliği. Öznitelik oluşturucusunda yoklamak için kuyruk adını belirten bir dize parametresi alır. Kuyruk adı dinamik olarak ayarlama görmek için kullanıma [yapılandırma seçeneklerini ayarlama](#how-to-set-configuration-options).
@@ -44,7 +44,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 Yanında **dize**, parametre bir bayt dizisi olabilir bir **CloudQueueMessage** nesne ya da tanımladığınız bir POCO.
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(düz eski CLR nesne](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) kuyruk iletileri
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(düz eski CLR nesne](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) kuyruk iletileri
 Aşağıdaki örnekte, kuyruk iletisi için JSON içeriyor. bir **BlobInformation** içeren bir nesne bir **BlobName** özelliği. SDK otomatik olarak nesne seri durumdan çıkarır.
 
 ```csharp
@@ -54,7 +54,7 @@ public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobI
 }
 ```
 
-SDK'sı kullanır [Newtonsoft.Json NuGet paketini](http://www.nuget.org/packages/Newtonsoft.Json) seri hale getirmek ve seri durumdan iletileri. WebJobs SDK kullanmayan bir programda kuyruk iletileri oluşturursanız, SDK'sı ayrıştırabilen POCO kuyruk iletisi oluşturmak için aşağıdaki örnekte olduğu gibi kod yazabilirsiniz.
+SDK'sı kullanır [Newtonsoft.Json NuGet paketini](https://www.nuget.org/packages/Newtonsoft.Json) seri hale getirmek ve seri durumdan iletileri. WebJobs SDK kullanmayan bir programda kuyruk iletileri oluşturursanız, SDK'sı ayrıştırabilen POCO kuyruk iletisi oluşturmak için aşağıdaki örnekte olduğu gibi kod yazabilirsiniz.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
@@ -72,7 +72,7 @@ public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] str
 }
 ```
 
-Zaman uyumsuz işlevleri uzun bir [iptal belirteci](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken)bir blobu kopyalar aşağıdaki örnekte gösterildiği gibi. (Bir açıklaması için **queueTrigger** yer tutucu bkz [Blobları](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) bölümüne.)
+Zaman uyumsuz işlevleri uzun bir [iptal belirteci](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken)bir blobu kopyalar aşağıdaki örnekte gösterildiği gibi. (Bir açıklaması için **queueTrigger** yer tutucu bkz [Blobları](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) bölümüne.)
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -201,7 +201,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(düz eski CLR nesne](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) kuyruk iletileri
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(düz eski CLR nesne](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) kuyruk iletileri
 Bir dize yerine bir POCO içeren bir kuyruk iletisi oluşturmak için bir çıktı parametresi olarak POCO türü geçirin **kuyruk** öznitelik Oluşturucusu.
 
 ```csharp
@@ -296,7 +296,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(düz eski CLR nesne](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) kuyruk iletileri
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(düz eski CLR nesne](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) kuyruk iletileri
 Kuyruk iletisinde JSON olarak depolanır ve bir POCO için özellikleri nesnesinin adı yer tutucuları kullanabilirsiniz **kuyruk** özniteliğin **blobPath** parametresi. Kuyruk meta veri özellik adlarının yer tutucu olarak kullanabilirsiniz. Bkz: [kuyruğu veya kuyruk iletisi meta verileri alma](#get-queue-or-queue-message-metadata).
 
 Aşağıdaki örnek, farklı bir uzantıya sahip yeni bir blob için bir blobu kopyalar. Kuyruk iletisi bir **BlobInformation** içeren nesne **BlobName** ve **BlobNameWithoutExtension** özellikleri. Blob yolu için yer tutucu olarak kullanılan özellik adları **Blob** öznitelikleri.
@@ -311,7 +311,7 @@ public static void CopyBlobPOCO(
 }
 ```
 
-SDK'sı kullanır [Newtonsoft.Json NuGet paketini](http://www.nuget.org/packages/Newtonsoft.Json) seri hale getirmek ve seri durumdan iletileri. WebJobs SDK kullanmayan bir programda kuyruk iletileri oluşturursanız, SDK'sı ayrıştırabilen POCO kuyruk iletisi oluşturmak için aşağıdaki örnekte olduğu gibi kod yazabilirsiniz.
+SDK'sı kullanır [Newtonsoft.Json NuGet paketini](https://www.nuget.org/packages/Newtonsoft.Json) seri hale getirmek ve seri durumdan iletileri. WebJobs SDK kullanmayan bir programda kuyruk iletileri oluşturursanız, SDK'sı ayrıştırabilen POCO kuyruk iletisi oluşturmak için aşağıdaki örnekte olduğu gibi kod yazabilirsiniz.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
@@ -442,7 +442,7 @@ static void Main(string[] args)
 ### <a name="set-values-for-webjobs-sdk-constructor-parameters-in-code"></a>Değerleri Oluşturucu parametresi için Web işleri SDK'sı, kod içinde ayarlayabilirsiniz.
 Bazı durumlarda bir kuyruk adı, bir blob adı veya kapsayıcı belirtmek istediğiniz veya bir tablo adı: sabit kodlamak yerine kod bu. Örneğin, kuyruk adı belirtmek isteyebilirsiniz **QueueTrigger** bir yapılandırma dosyası veya ortam değişkeni içinde.
 
-Geçirerek bunu yapabilirsiniz bir **NameResolver** nesnesini **JobHostConfiguration** türü. Öznitelik oluşturucu parametresi WebJobs SDK, yüzde (%) oturum açtığında çevrelenerek özel yer tutucu karakterleri içeren ve **NameResolver** kodu, bu yer tutucular yerine kullanılacak gerçek değerleri belirtir.
+Geçirerek bunu yapabilirsiniz bir **NameResolver** nesnesini **JobHostConfiguration** türü. Yüzde (%) tarafından çevrilmiş özel yer tutucu karakterleri içeren WebJobs SDK özniteliği Oluşturucu parametrelerinde imzalar ve **NameResolver** kodu, bu yer tutucular yerine kullanılacak gerçek değerleri belirtir.
 
 Örneğin, test ortamında logqueuetest ve üretimde bir adlandırılmış logqueueprod adlı bir sıra kullanmak istediğiniz varsayalım. Bir giriş adını belirtmek istediğiniz bir sabit kodlanmış kuyruk adı yerine **appSettings** gerçek kuyruk adı olması gereken bir koleksiyon. Varsa **appSettings** anahtar logqueue, işlevinizi aşağıdaki örnekteki gibi görünebilir.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 176e6804e6c98a1b9e9ffe4af04f02748c80928b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: aedd81af8b5821b1f8032faad1896790804df2a0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310922"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119301"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Uygulama ağ geçidi (genel Önizleme) ile yeniden yazma HTTP üstbilgileri
 
@@ -22,8 +22,8 @@ HTTP üstbilgileri, istemci ve sunucu istek veya yanıt ek bilgilerle geçmesine
 
 Application Gateway, gelen HTTP isteklerini, hem de giden HTTP yanıt üst bilgilerini yeniden yazabilme becerisine artık desteklemektedir. Ekleyin, kaldırın veya istek/yanıt paketleri istemci ve arka uç havuzları arasında taşırken HTTP istek ve yanıt üstbilgileri güncelleştirmeniz mümkün olacaktır. Hem standart hem de standart üstbilgi alanlarını yazabilirsiniz.
 
-> [!NOTE] 
->
+> [!NOTE]
+> 
 > HTTP üst bilgisi yeniden yazma desteği yalnızca kullanılabilir [yeni SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
 Uygulama ağ geçidi üstbilgi yeniden yazma desteği sunar:

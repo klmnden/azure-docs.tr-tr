@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 780820f260657c2ca02572a3449802cf53a5e939
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 6c182b4f8de96429f52e8c396503f7a89c5347ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446707"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871790"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Hızlı Başlangıç: .NET SDK’sını kullanarak veri fabrikası ve işlem hattı oluşturma
 
@@ -167,7 +167,7 @@ Aşağıdaki kodu bir **Azure blob veri kümesi** oluşturan **Main** yöntemine
 Bir kaynaktan havuza kopyalanacak verileri temsil eden bir veri kümesi tanımlayın. Bu örnekte, bu Blob veri kümesi önceki adımda oluşturduğunuz Azure Depolama bağlı hizmetine başvurur. Veri kümesi, değeri veri kümesini kullanan bir etkinlikte tanımlanmış bir parametre alır. Parametre, verilerin bulunduğu/depolandığı yeri işaret eden "folderPath" öğesini oluşturmak için kullanılır.
 
 ```csharp
-// Create a Azure Blob dataset
+// Create an Azure Blob dataset
 Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset

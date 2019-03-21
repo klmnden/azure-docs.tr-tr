@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7406758a5e5c345aee4165139242025b8ceb4d18
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bf0bb51470272099ed2824d0450082f93fe65f14
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534727"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076471"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Geçişli kimlik doğrulaması için Azure Active Directory Federasyon seçeneğinden geçiş
 
@@ -260,11 +260,11 @@ Başlangıçta Azure AD Connect kullanarak AD FS ortamınızı yapılandırılm�
    ![Ekran görüntüsü sayfasını yapılandırmak için hazır](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)<br />
 7. Azure AD portalında **Azure Active Directory**ve ardından **Azure AD Connect**.
 8. Bu ayarları doğrulayın:
-  * **Federasyon** ayarlanır **devre dışı bırakılmış**.
-  * **Sorunsuz çoklu oturum açma** ayarlanır **etkin**.
-  * **Geçişli kimlik doğrulaması** ayarlanır **etkin**.<br />
+   * **Federasyon** ayarlanır **devre dışı bırakılmış**.
+   * **Sorunsuz çoklu oturum açma** ayarlanır **etkin**.
+   * **Geçişli kimlik doğrulaması** ayarlanır **etkin**.<br />
 
-  ![Oturum açma kullanıcı bölümünde ayarları gösteren ekran görüntüsü](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
+   ![Oturum açma kullanıcı bölümünde ayarları gösteren ekran görüntüsü](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
 
 Sonraki. ek kimlik doğrulama yöntemleri dağıtın:
 
@@ -272,16 +272,16 @@ Sonraki. ek kimlik doğrulama yöntemleri dağıtın:
 2. Üzerinde **geçişli kimlik doğrulaması** sayfasında **indirme** düğmesi.
 3. Üzerinde **aracıyı indir'e** sayfasında **koşulları kabul et ve indir**.
 
-  İndirmek ek kimlik doğrulama aracılarının başlatın. İkincil kimlik doğrulaması Aracısı, etki alanına katılmış bir sunucuya yükleyin. 
+   İndirmek ek kimlik doğrulama aracılarının başlatın. İkincil kimlik doğrulaması Aracısı, etki alanına katılmış bir sunucuya yükleyin. 
 
-  > [!NOTE]
-  > İlk aracı her zaman Azure AD Connect sunucusu kendisini bir parçası olarak yapılan yapılandırma değişikliklerinin yüklü **kullanıcı oturum açma** Azure AD Connect aracının bölümü. Herhangi bir ek kimlik doğrulama Aracısı ayrı bir sunucuya yükleyin. İki veya üç ek kimlik doğrulama aracılarının kullanılabilir olmasını öneririz. 
+   > [!NOTE]
+   > İlk aracı her zaman Azure AD Connect sunucusu kendisini bir parçası olarak yapılan yapılandırma değişikliklerinin yüklü **kullanıcı oturum açma** Azure AD Connect aracının bölümü. Herhangi bir ek kimlik doğrulama Aracısı ayrı bir sunucuya yükleyin. İki veya üç ek kimlik doğrulama aracılarının kullanılabilir olmasını öneririz. 
 
 4. Kimlik Doğrulama Aracı yüklemesini çalıştırın. Yükleme sırasında bir genel yönetici hesabının kimlik bilgilerini girmeniz gerekir.
 
-  ![Microsoft Azure AD Connect kimlik doğrulaması Aracısı paketinin sayfada Yükle düğmesini gösteren ekran görüntüsü](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
+   ![Microsoft Azure AD Connect kimlik doğrulaması Aracısı paketinin sayfada Yükle düğmesini gösteren ekran görüntüsü](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-  ![Oturum açma sayfasını gösteren ekran görüntüsü](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
+   ![Oturum açma sayfasını gösteren ekran görüntüsü](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
 5. Kimlik Doğrulama Aracısı yüklendikten sonra ek aracıların durumunu denetlemek için doğrudan kimlik doğrulama Aracısı sistem durumu sayfasına geri dönebilirsiniz.
 

@@ -11,24 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 53716fa343df25026dcc668ed8483673d934d1ad
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: fff213c8d1a408bf96e385f2097a5ef30dcc05d2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339133"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992107"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Anlamak Azure kaynakları için atamaları Reddet
 
-Bir rol ataması için benzer bir *atamasını Reddet* kümesini ekler, bir kullanıcı, Grup veya hizmet sorumlusu erişimi engelleme amacıyla belirli bir kapsamda eylemleri reddet. Bir rol ataması bunları erişim verse bile belirli bir Azure kaynak Eylemler gerçekleştirmeyi atamaları blok kullanıcıların erişimini engelleyin. Artık azure'da sağlayıcıları dahil, bazı kaynak atamaları reddet. Şu anda atamaları Reddet **salt okunur** ve yalnızca Microsoft tarafından ayarlanabilir.
+Bir rol ataması için benzer bir *atamasını Reddet* kümesini ekler, bir kullanıcı, Grup veya hizmet sorumlusu erişimi engelleme amacıyla belirli bir kapsamda eylemleri reddet. Bir rol ataması bunları erişim verse bile belirli bir Azure kaynak Eylemler gerçekleştirmeyi atamaları blok kullanıcıların erişimini engelleyin. Artık azure'da sağlayıcıları dahil, bazı kaynak atamaları reddet.
 
 Bazı yönlerden, atamalar rol atamaları farklı reddet. Atamalar sorumluları hariç tutmak ve alt kapsamlar için devralma önlemek reddet. Atamalar da uygulamak için reddetme [Klasik Abonelik Yöneticisi](rbac-and-directory-admin-roles.md) atamaları.
 
 Bu makalede nasıl atamaları tanımlanmış reddet.
+
+> [!NOTE]
+> Şu anda kendi ekleyebilirsiniz tek yolu reddetme atamaları olan Azure şemaları kullanarak. Daha fazla bilgi için [yeni kaynaklar ile Azure Blueprint kaynak kilitleri korumak](../governance/blueprints/tutorials/protect-new-resources.md).
 
 ## <a name="deny-assignment-properties"></a>Atama özelliklerini Reddet
 

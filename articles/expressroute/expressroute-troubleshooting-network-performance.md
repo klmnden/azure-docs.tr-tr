@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: 17f239dc3ba9714c01f55a88419df2d3416908fa
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539709"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995784"
 ---
 # <a name="troubleshooting-network-performance"></a>Ağ performansı sorunlarını giderme
 ## <a name="overview"></a>Genel Bakış
@@ -180,20 +180,20 @@ Test Kurulumu:
 | | | | | | |
 |-|-|-|-|-|-|
 |ExpressRoute<br/>Konum|Azure<br/>Bölge|Tahmini<br/>Uzaklık (km)|Gecikme süresi|1 oturumu<br/>Bant Genişliği|Maksimum<br/>Bant Genişliği|
-| Seattle | Batı ABD 2        |    191 km |   5 ms | 262.0 Mbits/sn |  3.74 Gbits/sn | 21
-| Seattle | Batı ABD          |  1,094 km |  18 ms |  82.3 Mbits/sn |  3.70 Gbits/sn | 20
-| Seattle | Orta ABD       |  2,357 km |  40 ms |  38.8 Mbits/sn |  2.55 Gbits/sn | 17
-| Seattle | Orta Güney ABD |  2,877 km |  51 ms |  30.6 Mbits/sn |  2.49 Gbits/sn | 19
-| Seattle | Orta Kuzey ABD |  2,792 km |  55 ms |  27,7 Mbits/sn |  2.19 Gbits/sn | 18
-| Seattle | Doğu ABD 2        |  3,769 km |  73 ms |  21.3 Mbits/sn |  1.79 Gbits/sn | 16
-| Seattle | Doğu ABD          |  3,699 km |  74 ms |  21.1 Mbits/sn |  1.78 Gbits/sn | 15
-| Seattle | Japonya Doğu       |  7,705 km | 106 ms |  14,6 Mbits/sn |  1.22 Gbits/sn | 28
-| Seattle | Birleşik Krallık Güney         |  7,708 km | 146 ms |  10.6 Mbits/sn |   896 Mbits/sn | 24
-| Seattle | Batı Avrupa      |  7,834 km | 153 ms |  10.2 Mbits/sn |   761 Mbits/sn | 23
-| Seattle | Avustralya Doğu   | 12,484 km | 165 ms |   9.4 sürümünden Mbits/sn |   794 Mbits/sn | 26
-| Seattle | Güneydoğu Asya   | 12,989 km | 170 ms |   9.2 Mbits/sn |   756 Mbits/sn | 25
-| Seattle | Brezilya Güney *   | 10,930 km | 189 ms |   8.2 Mbits/sn |   699 Mbits/sn | 22
-| Seattle | Güney Hindistan      | 12,918 km | 202 ms |   7.7 Mbits/sn |   634 Mbits/sn | 27
+| Seattle | Batı ABD 2        |    191 km |   5 ms | 262.0 Mbits/sn |  3.74 Gbits/sn |
+| Seattle | Batı ABD          |  1,094 km |  18 ms |  82.3 Mbits/sn |  3.70 Gbits/sn |
+| Seattle | Orta ABD       |  2,357 km |  40 ms |  38.8 Mbits/sn |  2.55 Gbits/sn |
+| Seattle | Orta Güney ABD |  2,877 km |  51 ms |  30.6 Mbits/sn |  2.49 Gbits/sn |
+| Seattle | Orta Kuzey ABD |  2,792 km |  55 ms |  27,7 Mbits/sn |  2.19 Gbits/sn |
+| Seattle | Doğu ABD 2        |  3,769 km |  73 ms |  21.3 Mbits/sn |  1.79 Gbits/sn |
+| Seattle | Doğu ABD          |  3,699 km |  74 ms |  21.1 Mbits/sn |  1.78 Gbits/sn |
+| Seattle | Japonya Doğu       |  7,705 km | 106 ms |  14,6 Mbits/sn |  1.22 Gbits/sn |
+| Seattle | Birleşik Krallık Güney         |  7,708 km | 146 ms |  10.6 Mbits/sn |   896 Mbits/sn |
+| Seattle | Batı Avrupa      |  7,834 km | 153 ms |  10.2 Mbits/sn |   761 Mbits/sn |
+| Seattle | Avustralya Doğu   | 12,484 km | 165 ms |   9.4 sürümünden Mbits/sn |   794 Mbits/sn |
+| Seattle | Güneydoğu Asya   | 12,989 km | 170 ms |   9.2 Mbits/sn |   756 Mbits/sn |
+| Seattle | Brezilya Güney *   | 10,930 km | 189 ms |   8.2 Mbits/sn |   699 Mbits/sn |
+| Seattle | Güney Hindistan      | 12,918 km | 202 ms |   7.7 Mbits/sn |   634 Mbits/sn |
 
 \* Brezilya gecikme süresini burada doğrusal uzaklık uzaklık çalıştırma fiber önemli ölçüde farklı iyi bir örnektir. Gecikme süresini 160 MS Komşuları'olacaktır, ancak gerçekte 189 ms olduğunu beklediğiniz gibi. Bu fark karşı Bilgisayarım beklentisi yere bir ağ sorunu olduğunu gösteriyor olabilir, ancak büyük olasılıkla otomatik olarak fiber çalıştığını ve Brezilya için düz bir çizgi geçmez ek bir 1.000 km veya seyahat için Brezilya Seattle'dan almak için bunu.
 
@@ -213,14 +213,3 @@ Test Kurulumu:
 [Network Docs]: https://docs.microsoft.com/azure/index
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
 [ACT]: https://aka.ms/AzCT
-
-
-
-
-
-
-
-
-
-
-

@@ -1,6 +1,6 @@
 ---
-title: StorSimple 8000 serisi bir birimde kopyalama | Microsoft Docs
-description: Farklı kopya türleri ve kullanım tanımlar ve tek tek bir birim bir StorSimple 8000 serisi cihazda kopyalamak için bir yedek nasıl kullanabileceğinizi açıklar.
+title: StorSimple 8000 serisi üzerindeki bir birimi kopyalama | Microsoft Docs
+description: Kullanım ve farklı kopya türleri ve bir yedekleme kümesi bir StorSimple 8000 serisi Cihazınızı tek bir birimde kopyalamak için nasıl kullanabileceğiniz açıklanmaktadır.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,110 +14,110 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 12/05/2017
 ms.author: alkohli
-ms.openlocfilehash: d3965c74d51996b3e4144130fad01fae9e265897
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 84734aefb72a3330d99c5707b461de2cd5e30484
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26333211"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097244"
 ---
-# <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>StorSimple cihaz Yöneticisi hizmeti Azure portalında bir birim kopyalamak için kullanın.
+# <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Bir birimi kopyalama için Azure portalında StorSimple cihaz Yöneticisi hizmetini kullanın
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu öğretici bir yedekleme kümesi aracılığıyla tek bir birim kopyalamak için nasıl kullanabileceğinizi açıklar **yedekleme kataloğu** dikey. Ayrıca arasındaki farkı açıklar *geçici* ve *kalıcı* klonlar. Bu öğreticideki yönergeler güncelleştirme 3 veya sonraki sürümünü çalıştıran tüm StorSimple 8000 serisi aygıta uygular.
+Bu öğreticide, bir yedekleme kümesi aracılığıyla tek bir birimin kopyalamak için nasıl kullanabileceğiniz açıklanır **yedekleme kataloğu** dikey penceresi. Ayrıca arasındaki farkı açıklar *geçici* ve *kalıcı* kopyalar. Bu öğreticideki yönergeler Update 3 veya sonraki sürümü çalıştıran tüm StorSimple 8000 serisi cihaz için geçerlidir.
 
-StorSimple cihaz Yöneticisi hizmeti **yedekleme kataloğu** dikey penceresinde el ile veya otomatik yedeklemeler durumdayken, oluşturulan tüm yedekleme kümelerini görüntüler. Bu gibi durumlarda, bir birim sonra bir yedekleme kopyalama kümesi seçebilirsiniz.
+StorSimple cihaz Yöneticisi hizmeti **yedekleme kataloğu** dikey penceresinde el ile veya otomatik yedeklemeler alındığında, oluşturulan tüm yedekleme kümelerini görüntüler. Ardından, bir birim kopyalamak için bir yedekleme seçebilirsiniz.
 
  ![Yedekleme kümesi listesi](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
 
-## <a name="considerations-for-cloning-a-volume"></a>Bir birim kopyalama dikkat edilmesi gereken noktalar
+## <a name="considerations-for-cloning-a-volume"></a>Bir birim kopyalama için dikkat edilmesi gerekenler
 
-Aşağıdaki bilgiler bir birim kopyalarken göz önünde bulundurun.
+Birim kopyalama gerçekleştirilirken aşağıdaki bilgileri göz önünde bulundurun.
 
-- Bir kopya normal birimi olarak aynı şekilde davranır. Bir birimde mümkündür herhangi bir işlem kopya için kullanılabilir.
+- Bir kopya, normal bir birim olarak aynı şekilde davranır. Bir birimde mümkündür herhangi bir işlem, bir kopya için kullanılabilir.
 
-- İzleme ve varsayılan yedekleme otomatik olarak kopyalanan bir birimde devre dışı. Kopyalanan bir birimi tüm yedeklemeler için gerekir.
+- İzleme ve varsayılan yedekleme otomatik olarak klonlanmış bir birimde devre dışı. Kopyalanan bir birim tüm yedeklemeler için yapılandırmanız gerekir.
 
-- Yerel olarak sabitlenmiş bir birim katmanlı birim kopyalandı. Yerel olarak sabitlenmiş için kopyalanan birimi gerekiyorsa, kopyalama işlemi başarıyla tamamlandıktan sonra kopyanın yerel olarak sabitlenmiş bir birim dönüştürebilirsiniz. Yerel olarak sabitlenmiş bir birim için katmanlı birim dönüştürme hakkında daha fazla bilgi için Git [birim türünü değiştirme](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
+- Yerel olarak sabitlenmiş bir birim katmanlı birim kopyalanmış olan. Yerel olarak sabitlenmiş birimin kopyalanan gerekiyorsa, kopyalama işlemi başarıyla tamamlandıktan sonra kopya için yerel olarak sabitlenmiş bir birim dönüştürebilirsiniz. Yerel olarak sabitlenmiş bir birim için katmanlı birim dönüştürme hakkında daha fazla bilgi için Git [birim türünü değiştirmek](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
 
-- Kopyalanan bir birimden dönüştürmeyi deneyin (Bunu yine bir geçici kopya olduğunda) hemen kopyalandıktan sonra yerel olarak sabitlenmiş katmanlı dönüştürme şu hata iletisiyle başarısız olur:
+- Kopyalanan bir birimden dönüştürmeyi denemeden, (hala geçici bir kopya olduğunda) hemen kopyalandıktan sonra yerel olarak sabitlenmiş katmanlı dönüştürme şu hata iletisiyle başarısız olur:
 
     `Unable to modify the usage type for volume {0}. This can happen if the volume being modified is a transient clone and hasn’t been made permanent. Take a cloud snapshot of this volume and then retry the modify operation.`
 
-    Yalnızca farklı bir cihaz açın kopyalama, bu hata alınır. Yerel olarak sabitlenmiş geçici kopya kalıcı bir kopya ilk dönüştürürseniz birimi başarıyla dönüştürebilirsiniz. Kalıcı bir kopya dönüştürmek için geçici kopya bir bulut anlık görüntüsünü.
+    Yalnızca açın farklı bir cihaz kopyalama, bu hata alınır. İlk geçici kopya kalıcı kopyadan dönüştürürseniz, yerel olarak sabitlenmiş için birimi başarıyla dönüştürebilirsiniz. Geçici kopya kalıcı kopyadan dönüştürmek için bulut anlık görüntüsünü alın.
 
-## <a name="create-a-clone-of-a-volume"></a>Bir birimin bir kopyasını oluşturun
+## <a name="create-a-clone-of-a-volume"></a>Bir birimin bir kopyasını oluşturma
 
-Yerel kullanarak aynı aygıt, başka bir aygıt veya Bulut uygulaması bir kopya oluşturabilirsiniz veya Bulut anlık görüntüsü.
+Yerel bir kullanarak aynı cihaza, başka bir cihaz veya Bulut Gereci bir kopya oluşturabilirsiniz veya Bulut anlık görüntüsü.
 
-Aşağıdaki yordamda bir kopya yedekleme Kataloğu'ndan oluşturmayı açıklar.  Gitmek için kopya başlatmak için alternatif bir yöntemi olan **birimleri**, bir birim seçin, sağ tıklatarak bağlam menüsü çağırma ve seçmek için **kopya**.
+Aşağıdaki yordam bir kopya yedekleme Kataloğu'ndan oluşturmayı açıklar.  Kopya başlatmak için alternatif bir yöntem adresine gitmektir **birimleri**, bir birim seçin ve sonra seçin ve bağlam menüsünü açmak için sağ **kopya**.
 
-Yedekleme Kataloğu'ndan biriminiz bir kopyasını oluşturmak için aşağıdaki adımları gerçekleştirin.
+Yedekleme Kataloğu'ndan toplu bir kopyasını oluşturmak için aşağıdaki adımları gerçekleştirin.
 
-#### <a name="to-clone-a-volume"></a>Birim kopyalama
+#### <a name="to-clone-a-volume"></a>Bir birimi kopyalama
 
 1. StorSimple cihaz Yöneticisi hizmetinize gidin ve ardından **yedekleme kataloğu**.
 
-2. Bir yedekleme kümesi aşağıdaki gibi seçin:
+2. Bir yedekleme kümesi şu şekilde seçin:
    
-   1. Uygun cihazı seçin.
-   2. Aşağı açılan listesinde, seçmek istediğiniz yedekleme için birim veya yedekleme ilkesini seçin.
-   3. Zaman aralığı belirtin.
-   4. Tıklatın **Uygula** bu sorguyu yürütmek için.
+   1. Uygun bir cihaz seçin.
+   2. Aşağı açılan listeden, birim veya yedekleme ilkesi seçmek için istediğiniz yedekleme için seçin.
+   3. Zaman aralığını belirtin.
+   4. Tıklayın **Uygula** bu sorguyu yürütmek için.
 
-    Yedekleme seçili birimle ilişkilendirilen veya yedekleme İlkesi yedekleme kümelerini listesinde görüntülenmelidir.
+      Yedeklemeleri seçili birimle ilişkilendirilen veya yedekleme İlkesi yedekleme ayarları listesinde görüntülenmelidir.
    
-    ![Yedekleme kümesi listesi](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
+      ![Yedekleme kümesi listesi](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
-3. İlişkili birimin görüntülemek ve yedekleme kümesinde bir birim seçmek için yedekleme kümesini genişletin. Sağ tıklayın ve ardından bağlam menüsünden seçin **kopya**.
+3. İlişkili birim görüntülemek ve yedekleme kümesinde bir birim seçmek için yedekleme kümesini genişletin. Sağ tıklayın ve ardından bağlam menüsünden **kopya**.
 
    ![Yedekleme kümesi listesi](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 
-3. İçinde **kopya** dikey penceresinde, aşağıdaki adımları uygulayın:
+3. İçinde **kopya** dikey penceresinde aşağıdaki adımları uygulayın:
    
-    1. Bir hedef cihaz tanımlayın. Bu, kopyanın oluşturulacağı konumdur. Aynı aygıt seçin veya başka bir aygıt belirtin.
+   1. Bir hedef cihaz belirleyin. Bu, kopya oluşturulacağı konumdur. Aynı cihazı seçin veya başka bir cihaz belirtin.
 
       > [!NOTE]
-      > Kopya için gereken kapasiteyi hedef cihazda kullanılabilir kapasiteden daha düşük olduğundan emin olun.
+      > Bir kopya için gereken hedef cihazda kullanılabilir kapasiteden daha düşük olduğundan emin olun.
        
-    2. Kopya için benzersiz birim adı belirtin. Adı 3 ile 127 karakter içermelidir.
+   2. Kopya için benzersiz bir birim adı belirtin. Ad 3-127 karakter içermelidir.
       
-        > [!NOTE]
-        > **Kopya birim olarak** alan **katmanlı** yerel olarak sabitlenmiş bir birim kopyalama olsa bile. Bu ayarı değiştiremezsiniz; Ancak, yerel olarak da sabitlenmelidir kopyalanan birimi gerekiyorsa, kopya yerel olarak sabitlenmiş bir birim dönüştürebilir, kopya başarıyla oluşturduktan sonra. Yerel olarak sabitlenmiş bir birim için katmanlı birim dönüştürme hakkında daha fazla bilgi için Git [birim türünü değiştirme](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
+       > [!NOTE]
+       > **Toplu olarak kopyalama** alan **katmanlı** bile yerel olarak sabitlenmiş bir birim'nu kopyalama. Bu ayarı değiştiremezsiniz; Ancak, yerel olarak da sabitlenmelidir kopyalanan birim gerekiyorsa, kopya için yerel olarak sabitlenmiş bir birim dönüştürebilirsiniz, kopya başarıyla oluşturduktan sonra. Yerel olarak sabitlenmiş bir birim için katmanlı birim dönüştürme hakkında daha fazla bilgi için Git [birim türünü değiştirmek](storsimple-8000-manage-volumes-u2.md#change-the-volume-type).
           
-    3. Altında **bağlı Konaklar**, kopya için bir erişim denetimi kaydı (ACR) belirtin. Yeni bir ACR ekleyebilir veya var olan listeden seçin. ACR hangi ana bilgisayarların bu kopya erişebilirsiniz belirler.
+   3. Altında **bağlı Konaklar**, kopya için erişim denetimi kaydı (ACR) belirtin. Yeni ACR ekleyin veya mevcut bir listeden seçim yapabilirsiniz. ACR barındıran bu kopya erişip belirler.
       
-        ![Yedekleme kümesi listesi](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
+       ![Yedekleme kümesi listesi](./media/storsimple-8000-clone-volume-u2/clonevol3a.png) 
 
-    4. Tıklatın **kopya** işlem tamamlanamadı.
+   4. Tıklayın **kopya** işlem tamamlanamadı.
 
-4. Bir kopya iş başlatılır ve kopya başarıyla oluşturulduğunda size bildirilir. İş bildirimi tıklatın veya gitmek **işleri** kopya işi izlemek için dikey penceresini.
+4. Bir kopyalama işi başlatıldı ve kopya başarıyla oluşturulduğunda size bildirilir. İş bildirimi tıklayabilir veya **işleri** kopyalama işi izlemek için dikey pencere.
 
     ![Yedekleme kümesi listesi](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
 
-7. Kopya işi tamamlandıktan sonra aygıtınıza gidin ve ardından **birimleri**. Birimleri listesinde, yeni kaynak biriminin aynı birim kapsayıcısı oluşturuldu kopya görmeniz gerekir.
+7. Kopyalama işlemi tamamlandıktan sonra cihazınıza gidin ve ardından **birimleri**. Birimler listesinde, yeni kaynak biriminde aynı birim kapsayıcısı oluşturulan kopya görmeniz gerekir.
 
     ![Yedekleme kümesi listesi](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
 
-Bu yolla oluşturulan bir kopya geçici kopya ' dir. Kopya türleri hakkında daha fazla bilgi için bkz: [geçici ve kalıcı klonlar](#transient-vs-permanent-clones).
+Bu şekilde oluşturulan bir kopya geçici bir kopya olması. Kopya türleri hakkında daha fazla bilgi için bkz. [geçici ve kalıcı klonlar](#transient-vs-permanent-clones).
 
 
-## <a name="transient-vs-permanent-clones"></a>Geçici ve kalıcı klonlar karşılaştırması
-Yalnızca başka bir cihaza kopyaladığınızda geçici klonlar oluşturulur. Bir yedekleme kümesi için farklı bir cihaz StorSimple cihaz Yöneticisi tarafından yönetilen belirli bir birimden kopyalayabilirsiniz. Geçici kopya özgün birimin verilere başvuru vardır ve okuma ve yerel olarak hedef cihazda yazmak için bu verileri kullanır.
+## <a name="transient-vs-permanent-clones"></a>Geçici ve kalıcı kopyalar
+Geçici klonları yalnızca başka bir cihaza kopyaladığınızda oluşturulur. StorSimple cihaz Yöneticisi tarafından yönetilen başka bir cihaz için bir yedekleme belirli bir birimden kopyalayabilirsiniz. Geçici kopya, özgün birimin verilere başvuru var ve okumak ve hedef cihazda yerel olarak yazmak için bu verileri kullanır.
 
-Bir geçici kopya bir bulut anlık görüntüsünü sonra sonuçta elde edilen kopya olan bir *kalıcı* kopya. Bu işlem sırasında verilerin bir kopyasını Bulutu üzerinde oluşturulur ve bu verileri kopyalamak için saat veri ve (bir Azure Azure kopyalama budur) Azure gecikmeleri boyutu tarafından belirlenir. Bu işlem için hafta gün sürebilir. Geçici kopya kalıcı bir kopya olur ve tüm başvuruları gelen kopyalandı özgün birimin verilere sahip değil.
+Geçici bir kopya bulut anlık görüntüsünü alma sonra elde edilen kopya olduğu bir *kalıcı* kopya. Bu işlem sırasında verilerin bir kopyasını bulutta oluşturulur ve bu verileri kopyalama süresi (Bu, Azure'dan Azure'a kopyalama) Azure gecikme süreleri ve veri boyutu tarafından belirlenir. Bu işlem, gün için hafta sürebilir. Geçici kopya kalıcı kopyadan olur ve tüm başvuruları öğesinden kopyalandı özgün birimin verilere sahip değil.
 
-## <a name="scenarios-for-transient-and-permanent-clones"></a>Geçici ve kalıcı klonlar senaryoları
-Aşağıdaki bölümlerde geçici ve kalıcı klonlar kullanılabilir örnek durumlar açıklanmaktadır.
+## <a name="scenarios-for-transient-and-permanent-clones"></a>Geçici ve kalıcı klonları senaryoları
+Aşağıdaki bölümlerde, geçici ve kalıcı kopyaları kullanılabilir örnek durumları açıklanmaktadır.
 
 ### <a name="item-level-recovery-with-a-transient-clone"></a>Geçici bir kopya ile öğe düzeyinde kurtarma
-Bir yıl eski Microsoft PowerPoint sunusu dosyası kurtarmak gerekir. BT yöneticiniz bu süre belirli yedekten tanımlar ve birim filtreler. Yönetici daha sonra birim klonlar, aradığınız dosya bulur ve olanak sağlar. Bu senaryoda, bir geçici kopya kullanılır.
+Bir yıl eski Microsoft PowerPoint sunu dosyası kurtarmanız gerekecektir. BT yöneticiniz bu süre belirli yedekten tanımlar ve sonra birim filtreler. Yönetici ardından birimin klonlar, aradığınız dosya bulur ve olanak sağlar. Bu senaryoda, geçici bir kopya kullanılır.
 
 ### <a name="testing-in-the-production-environment-with-a-permanent-clone"></a>Kalıcı bir kopya ile üretim ortamında test etme
-Üretim ortamında test hata doğrulamanız gerekir. Üretim ortamında birimin bir kopyasını oluşturun ve sonra bu kopya bağımsız kopyalanan birim oluşturmak için bir bulut anlık görüntüsünü. Bu senaryoda, kalıcı bir kopya kullanılır.
+Üretim ortamında test bir hatayı doğrulamak gerekir. Üretim ortamında birimin bir kopyasını oluşturur ve sonra bu kopya bir bağımsız kopyalanan birim oluşturmak için bulut anlık görüntüsünü alın. Bu senaryoda, kalıcı bir kopya kullanılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bilgi edinmek için nasıl [bir yedeklemek kümesinden StorSimple birimini geri](storsimple-8000-restore-from-backup-set-u2.md).
+* Bilgi edinmek için nasıl [bir yedekleme kümesinden StorSimple birimini geri](storsimple-8000-restore-from-backup-set-u2.md).
 * Bilgi edinmek için nasıl [StorSimple Cihazınızı yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma](storsimple-8000-manager-service-administration.md).
 

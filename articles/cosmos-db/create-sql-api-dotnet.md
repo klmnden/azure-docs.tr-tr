@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
-ms.openlocfilehash: 530cd5adf942f32aaf883f668e3564ba5c12bbe2
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.date: 03/15/2019
+ms.openlocfilehash: 1ef414b2de2acbf5b92661c8b5f1e249549b14df
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588039"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259151"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-db-sql-api-account"></a>Hızlı Başlangıç: Azure Cosmos DB SQL API hesabı kullanarak bir .NET web uygulaması derleme
 
@@ -29,9 +29,7 @@ ms.locfileid: "56588039"
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu hızlı başlangıç belgesinde Azure portalını kullanarak bir Azure Cosmos DB [SQL API](sql-api-introduction.md) hesabını, belge veritabanını ve koleksiyonunu nasıl oluşturacağınız anlatılmıştır. Bu işlemlerin ardından aşağıdaki ekran görüntüsünde gösterilen şekilde [SQL .NET API'si](sql-api-sdk-dotnet.md) üzerinde bir yapılacaklar listesi web uygulaması derleyecek ve dağıtacaksınız. 
-
-![Yapılacaklar listesi uygulaması ve örnek veriler](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
+Bu hızlı başlangıçta bir Azure Cosmos DB oluşturma işlemini gösterir [SQL API](sql-api-introduction.md) hesabını, belge veritabanı, koleksiyonu ve örnek veriler Azure portalını kullanarak koleksiyona ekleyin. Daha sonra yapı ve kullanılarak oluşturulan bir Yapılacaklar listesi web uygulaması dağıtma [SQL .NET SDK'sı](sql-api-sdk-dotnet.md), daha fazla veri koleksiyonundaki yönetme eklemek için. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -41,19 +39,64 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
-## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
+## <a name="create-an-account"></a>Hesap oluşturma
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-<a id="create-collection"></a>
-## <a name="add-a-collection"></a>Koleksiyon ekleme
+<a id="create-collection-database"></a>
+## <a name="add-a-database-and-a-collection"></a>Bir veritabanı ve koleksiyon Ekle
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+Şimdi bir veritabanı ve koleksiyon oluşturmak için Azure portalında Veri Gezgini aracını kullanabilirsiniz. 
+
+1. **Veri Gezgini** > **Yeni Koleksiyon**’a tıklayın. 
+    
+    **Koleksiyon Ekle** alanı en sağda görüntülenir, görmek için sağa kaydırmanız gerekebilir.
+
+    ![Azure portalındaki Veri Gezgini, koleksiyon Ekle bölmesi](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
+
+2. **Koleksiyon Ekle** sayfasında, yeni koleksiyon için ayarları girin.
+
+    Ayar|Önerilen değer|Açıklama
+    ---|---|---
+    **Veritabanı kimliği**|ToDoList|Girin *ToDoList* yeni bir veritabanı adı olarak. Veritabanı adı 1 ila 255 karakter içermeli ve içeremezler `/, \\, #, ?`, veya bir boşluk.
+    **Koleksiyon kimliği**|Öğeler|Yeni koleksiyonunuzun adı olarak *Öğeler* girin. Koleksiyon kimlikleri aynı karakter gereksinimleri veritabanı adlarına sahip.
+    **Bölüm anahtarı**| `<your_partition_key>`| Bir bölüm anahtarı girin. Bu makalede açıklanan örnek kullanır */Category* bölüm anahtarı olarak.
+    **Aktarım hızı**|400 RU|Aktarım hızını saniyede 400 istek birimi (RU/s) olarak değiştirin. Daha sonra gecikme süresini azaltmak isterseniz aktarım hızının ölçeğini artırabilirsiniz. 
+    
+    Önceki ayarlara ek olarak, isterseniz koleksiyon için **Benzersiz anahtarlar** ekleyebilirsiniz. Bu örnekte bu alanı boş bırakalım. Benzersiz anahtarlar sayesinde geliştiriciler veritabanına bir veri bütünlüğü katmanı ekleyebilir. Koleksiyon oluştururken benzersiz anahtar ilkesi oluşturulduğunda, bölüm anahtarı başına bir veya birden çok değerin benzersiz olduğundan emin olursunuz. Daha fazla bilgi edinmek için [Azure Cosmos DB'de benzersiz anahtarlar](unique-keys.md) makalesine bakın.
+    
+    **Tamam** düğmesine tıklayın.
+
+    Veri Gezgini, yeni veritabanını ve koleksiyonu görüntüler.
+
+    ![Yeni veritabanını ve koleksiyonu gösteren Azure portalı Veri Gezgini](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
 <a id="add-sample-data"></a>
 ## <a name="add-sample-data"></a>Örnek verileri ekleme
 
-[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+Şimdi Veri Gezgini'ni kullanarak yeni koleksiyonunuza veri ekleyebilirsiniz.
+
+1. Yeni veritabanı, Veri Gezgini'nin Koleksiyonlar bölmesinde görüntülenir. **Görevler** veritabanını genişletin, **Öğeler** koleksiyonunu genişletin, **Belgeler**'e ve ardından **Yeni Belge**'ye tıklayın. 
+
+   ![Azure portalındaki Veri Gezgini'nde yeni belge oluşturma](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
+  
+2. Şimdi koleksiyona aşağıdaki yapıya sahip bir belge ekleyin.
+
+     ```json
+     {
+         "id": "1",
+         "category": "personal",
+         "name": "groceries",
+         "description": "Pick up apples and strawberries.",
+         "isComplete": false
+     }
+     ```
+
+3. JSON öğesini **Belgeler** sekmesine ekledikten sonra **Kaydet**'e tıklayın.
+
+    ![Azure portalında JSON verilerini kopyalayın ve Veri Gezgini'ne kaydedin](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
+
+4. `id` özelliği için benzersiz bir değer eklediğiniz yerde bir veya daha fazla belge oluşturun ve kaydedin ve diğer özellikleri uygun şekilde değiştirin. Azure Cosmos DB, verilerinizin bir şemaya uygun olmasını şart koşmadığı için yeni belgelerinizin yapısını istediğiniz şekilde oluşturabilirsiniz.
 
 ## <a name="query-your-data"></a>Verilerinizi sorgulayın
 
@@ -85,32 +128,49 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
 
 ## <a name="review-the-code"></a>Kodu gözden geçirin
 
-Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturulduğunu öğrenmekle ilgileniyorsanız aşağıdaki kod parçacıklarını gözden geçirebilirsiniz. Aksi durumda, [Bağlantı dizenizi güncelleştirme](#update-your-connection-string) bölümüne atlayabilirsiniz. 
+Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturulduğunu öğrenmekle ilgileniyorsanız aşağıdaki kod parçacıklarını gözden geçirebilirsiniz. Aksi durumda, [Bağlantı dizenizi güncelleştirme](#update-your-connection-string) bölümüne atlayabilirsiniz. Bu hızlı başlangıçta, Azure portalını kullanarak bir veritabanı ve koleksiyonu oluşturma ve bir .NET örneği kullanarak örnek veriler ekleyin. Ancak, ayrıca veritabanı ve koleksiyonu .NET örneği kullanarak oluşturabilirsiniz. 
 
 Aşağıdaki kod parçacıklarının tamamı, DocumentDBRepository.cs dosyasından alınır.
 
-* 76. satırda DocumentClient başlatılır.
+* Aşağıdaki kodda gösterildiği gibi DocumentClient başlatılır:
 
     ```csharp
     client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
-* 91. satırda yeni bir veritabanı oluşturulur.
+* Yeni bir veritabanı kullanılarak oluşturulan `CreateDatabaseAsync` aşağıdaki kodda gösterildiği gibi yöntemi:
 
     ```csharp
     await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
     ```
 
-* 110. satırda yeni bir koleksiyon oluşturulur.
+* Yeni bir koleksiyon kullanılarak oluşturulan `CreateDocumentCollectionAsync` aşağıdaki kodda gösterildiği gibi:
 
     ```csharp
-    await client.CreateDocumentCollectionAsync(
-        UriFactory.CreateDatabaseUri(DatabaseId),
-        new DocumentCollection
-            {
-               Id = CollectionId
-            },
-        new RequestOptions { OfferThroughput = 400 });
+    private static async Task CreateCollectionIfNotExistsAsync()
+    {
+        try
+        {
+           await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
+        }
+        catch (DocumentClientException e)
+        {
+           if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
+           {
+              await client.CreateDocumentCollectionAsync(
+              UriFactory.CreateDatabaseUri(DatabaseId),
+              new DocumentCollection
+              {
+                  Id = CollectionId
+              },
+              new RequestOptions { OfferThroughput = 400 });
+           }
+           else
+           {
+             throw;
+           }
+        }
+    }
     ```
 
 ## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
@@ -131,10 +191,13 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
     `<add key="authKey" value="FILLME" />`
     
-5. Ardından veritabanı değerini daha önce oluşturduğunuz veritabanı adıyla eşleşecek şekilde güncelleştirin. Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
+5. Ardından, veritabanı ve koleksiyon değerleri daha önce oluşturduğunuz veritabanının adını eşleşecek şekilde güncelleştirin. Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
 
-    `<add key="database" value="Tasks" />`    
-    
+   ```csharp
+   <add key="database" value="ToDoList"/>
+   <add key="collection" value="Items"/>
+   ```
+ 
 ## <a name="run-the-web-app"></a>Web uygulamasını çalıştırma
 1. Visual Studio'nun **Çözüm Gezgini** bölümünde projeye sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'i seçin. 
 

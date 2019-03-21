@@ -8,18 +8,19 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 620e9aa829c5894d5269dbee52809dcd004f07ff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 4341d06f09c60933bfc0512f54e024b35a19d8dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38726144"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57908197"
 ---
 Şimdi Veri Gezgini'ni kullanarak yeni tablonuza veri ekleyebilirsiniz.
 
 1. Veri Gezgini'nde **sample-table** seçeneğini genişletin, **Varlıklar**'a ve ardından **Varlık Ekle**'ye tıklayın.
 
    ![Azure portalındaki Veri Gezgini'nde yeni varlık oluşturma](./media/cosmos-db-create-table-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
+
 2. Şimdi PartitionKey değer kutusu ile RowKey değer kutusuna verileri ekleyin ve **Varlık Ekle**’ye tıklayın.
 
    ![Yeni bir varlık için Bölüm Anahtarını ve Satır Anahtarını ayarlama](./media/cosmos-db-create-table-add-sample-data/azure-cosmosdb-data-explorer-new-entity.png)

@@ -8,17 +8,18 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.author: mayg
-ms.openlocfilehash: a1b35d4c10246af7e4dab36585c2bb9b72fd0c01
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f86ded99ef5280a4e6929c39a9fd323d1b61f6f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216974"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992337"
 ---
 # <a name="exclude-disks-from-replication"></a>Diskleri çoğaltmanın dışında tutma
 Bu makalede, disklerin çoğaltmanın dışında nasıl tutulacağı açıklanmaktadır. Bu dışında tutma, kullanılan çoğaltma bant genişliğini iyileştirebilir veya bu gibi disklerin kullandığı hedef tarafı kaynakları iyileştirebilir.
 
 ## <a name="supported-scenarios"></a>Desteklenen senaryolar
+
 **Özellik** | **Vmware’den Azure’a** | **Hyper-V'den Azure'a** | **Azure'dan Azure'a**| **Hyper-V'den Hyper-V'ye** 
 --|--|--|--|--
 Diski hariç tutma | Evet | Evet | Hayır | Hayır
@@ -72,7 +73,7 @@ Kaynak sanal makinedeki diskler aşağıdaki gibidir:
 DB-Disk0-OS | DISK0 | C:\ | İşletim sistemi diski
 DB-Disk1| Disk1 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
 DB-Disk2 (Disk, korumanın dışında tutuldu) | Disk2 | E:\ | Geçici dosyalar
-DB-Disk3 (Disk, korumanın dışında tutuldu) | Disk3 | F:\ | SQL tempdb veritabanı (klasör yolu (F:\MSSQL\Data\) </br /> </br />Yük devretmeden önce klasör yolunu yazın.
+DB-Disk3 (Disk, korumanın dışında tutuldu) | Disk3 | F:\ | SQL tempdb veritabanı (klasör yolu (F:\MSSQL\Data\) <br /> <br />Yük devretmeden önce klasör yolunu yazın.
 DB-Disk4 | Disk4 |G:\ |Kullanıcı Veritabanı2
 
 Sanal makinenin iki diskindeki veri değişim sıklığı geçici olduğundan, SalesDB sanal makinesini korurken Disk2 ve Disk3’ü çoğaltmanın dışında tutun. Azure Site Recovery bu diskleri çoğaltmaz. Yük devretmede, bu diskler Azure’da yük devretme sanal makinesinde mevcut olmaz.
@@ -82,7 +83,7 @@ Yük devretme sonrasında Azure sanal makinesindeki diskler aşağıdaki gibidir
 **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | ---
 DISK0 | C:\ | İşletim sistemi diski
-Disk1 | E:\ | Geçici depolama</br /> </br />Azure bu diski ekler ve kullanılabilir ilk sürücü harfini buna atar.
+Disk1 | E:\ | Geçici depolama<br /> <br />Azure bu diski ekler ve kullanılabilir ilk sürücü harfini atar.
 Disk2 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
 Disk3 | G:\ | Kullanıcı Veritabanı2
 
@@ -146,7 +147,7 @@ Geçici depolama diski için aşağıdaki Azure kılavuzuna bakın:
 **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | ---
 DISK0 | C:\ | İşletim sistemi diski
-Disk1 | E:\ | Geçici depolama</br /> </br />Azure bu diski ekler ve kullanılabilir ilk sürücü harfini buna atar.
+Disk1 | E:\ | Geçici depolama<br /> <br />Azure bu diski ekler ve kullanılabilir ilk sürücü harfini atar.
 Disk2 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
 Disk3 | G:\ | Kullanıcı Veritabanı2
 
@@ -186,7 +187,7 @@ Sanal makinenin Hyper-V’den Azure’a yük devretmesi yapıldıktan sonra, Azu
 **Disk adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | İşletim sistemi diski
-DB-Disk1 | Disk1 | D:\ | Geçici depolama</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Geçici depolama<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Kullanıcı verileri 1
 DB-Disk3 | Disk3 | F:\ | Kullanıcı verileri 2
 
@@ -213,10 +214,10 @@ DB-Disk3 | Disk3 | F:\ | Kullanıcı verileri 2
 
 Sanal makinenin Hyper-V’den Azure’a yük devretmesi yapıldıktan sonra, Azure sanal makinesindeki diskler aşağıdaki gibi olur:
 
-**Disk adı**| **Konuk işletim sistemi disk no.**| **Sürücü harfi** | **Diskteki veri türü**
+**Disk adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ |İşletim sistemi diski
-DB-Disk1 | Disk1 | D:\ | Geçici depolama</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Geçici depolama<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Kullanıcı verileri 1
 DB-Disk3 | Disk3 | F:\ | Kullanıcı verileri 2
 

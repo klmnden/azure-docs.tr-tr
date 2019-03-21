@@ -15,12 +15,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d5463b495620e441ad5371b5859c9ab543e0e7c6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dc146c6e8877a99570aab25d198ba365abbe7c86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874673"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078185"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack kaydı
 Azure Market öğelerini indirme ve ticaret verileri Microsoft'a raporlamaya ayarlamak için Azure ile Azure Stack geliştirme Seti'ni (ASDK) yüklemenizi kaydedebilirsiniz. Kayıt, Pazar dağıtımı da dahil olmak üzere tam Azure Stack işlevleri desteklemek için gereklidir. Kayıt, Market dağıtım ve kullanım raporlama gibi önemli Azure Stack işlevselliğini test etmek etkinleştirmek için gereklidir. Azure Stack kaydettikten sonra kullanım için Azure ticaret bildirilir. Kayıt için kullanılan abonelik altında görebilirsiniz. Ancak ASDK kullanıcılar bunlar rapor tüm kullanımlar için ücretlendirilmezsiniz.
@@ -38,7 +38,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 Çıktıyı döndürür olun **FullLanguageMode**. Diğer bir dil modu döndürülen kayıt başka bir bilgisayarda çalıştırılması gerekir ya da dil modunu ayarlanması gerekir **FullLanguageMode** devam etmeden önce.
 
-Azure AD hesabını kayıt ihtiyaçları için kullanılan Azure aboneliğine erişiminiz olması ve bu abonelikle dizinde kimlik uygulama ve hizmet sorumluları oluşturma izniniz yok. Azure Stack Azure ile kaydedin en az ayrıcalıklı yönetim tarafından kullanılması önerilir [kayıt için kullanılacak bir hizmet hesabı oluşturmanızı](..\azure-stack-registration-role.md) genel yönetici kimlik bilgilerini kullanmak yerine.
+Azure AD hesabını kayıt ihtiyaçları için kullanılan Azure aboneliğine erişiminiz olması ve bu abonelikle dizinde kimlik uygulama ve hizmet sorumluları oluşturma izniniz yok. Azure Stack Azure ile kaydedin en az ayrıcalıklı yönetim tarafından kullanılması önerilir [kayıt için kullanılacak bir hizmet hesabı oluşturmanızı](../azure-stack-registration-role.md) genel yönetici kimlik bilgilerini kullanmak yerine.
 
 ## <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 Azure ile ASDK kaydetmek için aşağıdaki adımları izleyin.

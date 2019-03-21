@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe781802309ad0945eaee23c35dda1617e47ae06
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727358"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853180"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Azure AD galeri uygulaması eklenirken sorun oluştu
 
@@ -73,41 +73,41 @@ Aşağıdaki açıklamalar bildirimleri hakkında daha fazla ayrıntı için bkz
 
 ### <a name="essential-notification-items"></a>Önemli bildirim öğeleri
 
--   **Başlık** – bildirimin açıklayıcı bir başlık
+- **Başlık** – bildirimin açıklayıcı bir başlık
 
   * Örneğin, **uygulama proxy'si ayarları**
 
--   **Açıklama** – ne işlemi nedeniyle oluştu açıklaması
+- **Açıklama** – ne işlemi nedeniyle oluştu açıklaması
 
-    -   Örneğin, **girilen iç url başka bir uygulama tarafından zaten kullanılıyor**
+  -   Örneğin, **girilen iç url başka bir uygulama tarafından zaten kullanılıyor**
 
--   **Bildirim kimliği** – bildirim benzersiz kimliği
+- **Bildirim kimliği** – bildirim benzersiz kimliği
 
-    -   Örneğin, **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  -   Örneğin, **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **İstemci istek kimliği** – tarayıcınız tarafından yapılan belirli bir istek kimliği
+- **İstemci istek kimliği** – tarayıcınız tarafından yapılan belirli bir istek kimliği
 
-    -   Örneğin, **302fd775-3329-4670-a9f3-bea37004f0bc**
+  -   Örneğin, **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Zaman damgası UTC** – sırasında bildirim gerçekleştiği, UTC zaman damgası
+- **Zaman damgası UTC** – sırasında bildirim gerçekleştiği, UTC zaman damgası
 
-    -   Örneğin, **2017-03-23T19:50:43.7583681Z**
+  -   Örneğin, **2017-03-23T19:50:43.7583681Z**
 
--   **İç işlem kimliği** – iç kimliği kullanabiliriz sistemlerimizde hata aramak için
+- **İç işlem kimliği** – iç kimliği kullanabiliriz sistemlerimizde hata aramak için
 
-    -   Örneğin, **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  -   Örneğin, **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – işlemi gerçekleştiren kullanıcının
+- **UPN** – işlemi gerçekleştiren kullanıcının
 
-    -   Örnek: **tperkins@f128.info**
+  -   Örneğin, **tperkins\@f128.info**
 
--   **Kiracı kimliği** – işlemi gerçekleştiren kullanıcının üyesi olduğu kiracının benzersiz kimliği
+- **Kiracı kimliği** – işlemi gerçekleştiren kullanıcının üyesi olduğu kiracının benzersiz kimliği
 
-    -   Örneğin, **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  -   Örneğin, **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **Kullanıcı nesne kimliği** – işlemi gerçekleştiren kullanıcının benzersiz kimliği
+- **Kullanıcı nesne kimliği** – işlemi gerçekleştiren kullanıcının benzersiz kimliği
 
-    -   Örneğin, **17f84be4-51f8-483a-b533-383791227a99**
+  -   Örneğin, **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>Ayrıntılı bildirim öğeleri
 
@@ -125,7 +125,7 @@ Aşağıdaki açıklamalar bildirimleri hakkında daha fazla ayrıntı için bkz
 
 -   **Ayrıntılar** – ayrıntılı açıklaması ne işlemi nedeniyle oluştu
 
-    -   Örneğin, **iç url 'https://bing.com/' zaten kullanımda olduğundan geçerli değil.**
+    -   Örneğin, **iç url `https://bing.com/` zaten kullanımda olduğundan geçerli değil.**
 
 -   **Kopyalama hatası** – tıklayın **Kopyala simgesine** sağındaki **kopyalama hatası** desteği veya ürün grupla paylaşmak için tüm bildirim ayrıntılarını kopyalamak için metin kutusu 
 -   engineer (mühendis)

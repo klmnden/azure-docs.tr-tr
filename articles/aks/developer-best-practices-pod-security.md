@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: d48a1a1c9e220690649bbf60e9909a38d575c156
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: c2c8522e796fa43f08bf8ad2d61e70a8205d77b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651969"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183535"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Pod güvenlik Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -74,6 +74,8 @@ Aşağıdaki [ilişkili AKS açık kaynaklı projelerin] [ aks-associated-projec
 
 * Yönetilen Azure kaynakları için kimlikleri ve
 * Azure anahtar kasası FlexVol sürücüsü
+
+İlişkili AKS açık kaynak projeleri, Azure teknik destek birimi tarafından desteklenmez. Görüş ve hata topluluğumuza toplamak için sağlanır. Bu projeler üretim kullanımı için önerilmez.
 
 ### <a name="use-pod-managed-identities"></a>Kullanım pod kimlikler yönetilen
 

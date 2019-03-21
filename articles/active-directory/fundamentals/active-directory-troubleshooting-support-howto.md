@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb89d3eee87c0796bcd21914e719784756bc288e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 22bf80c13ef3b18ab3119b6b35e529c8ad32f504
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165748"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285103"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Yardım bulma ve Azure Active Directory için bir destek bileti açın
 Microsoft, genel teknik, satış öncesi, faturalandırma ve abonelik desteği için Azure Active Directory (Azure AD) sağlar. Hem çevrimiçi hem de Microsoft Azure Ücretli ve ücretsiz deneme abonelikleri için telefonla destek kullanılabilir. Telefon ve çevrimiçi faturalandırma desteği, ek dillerde mevcuttur. 
@@ -31,7 +31,7 @@ Bir destek bileti oluşturmadan önce yanıtlar ve bilgi için aşağıdaki kayn
 
 * Nasıl yapılır bilgileri veya BT uzmanları ve geliştiriciler için kod örnekleri gibi içeriğine bakın [docs.microsoft.com teknik belgelerine](https://docs.microsoft.com/azure/active-directory/).
 
-* [Microsoft Tech Community](https://techcommunity.microsoft.com/) BT pro iş ortaklarımız ve müşterilerin işbirliği yapın, paylaşma ve bilgi yerdir. [Microsoft Tech Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) duyuruları, blog gönderileri, sorun-bana-herhangi bir şey (AMA) etkileşimleri uzmanlarla ve daha fazla bilgi için kullanılır. Ayrıca [fikirlerinizi göndermek için topluluğa katılın](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
+* [Microsoft Teknik toplulukta](https://techcommunity.microsoft.com/) BT pro iş ortaklarımız ve müşterilerin işbirliği yapın, paylaşma ve bilgi yerdir. [Microsoft Technical Community Info Center](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) duyuruları, blog gönderileri, sorun-bana-herhangi bir şey (AMA) etkileşimleri uzmanlarla ve daha fazla bilgi için kullanılır. Ayrıca [fikirlerinizi göndermek için topluluğa katılın](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
 
 ## <a name="open-a-support-ticket"></a>Bir destek bileti açın
@@ -41,7 +41,7 @@ Kendi kendine yardım kaynaklarını kullanarak yanıt bulmak bulamadığınız 
 ### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-azure-portal"></a>Azure portalında Azure AD için bir destek bileti açmak nasıl
 
 > [!NOTE]
-> Faturalama veya abonelik sorunları kullanmalısınız [Office 365 Yönetim merkezini](https://portal.office.com).
+> Faturalama veya abonelik sorunları kullanmalısınız [Microsoft 365 Yönetim merkezini](https://admin.microsoft.com).
 > 
 
 1. Oturum [Azure portalında](https://portal.azure.com) açın **Azure Active Directory**.
@@ -61,22 +61,20 @@ Kendi kendine yardım kaynaklarını kullanarak yanıt bulmak bulamadığınız 
 8. İletişim bilgilerinizi girin ve seçin **Oluştur**.
   ![sorun kategorisi kendi kendine yardım ekran görüntüsü](./media/active-directory-troubleshooting-support-howto/open-support-ticket.png)
 
-### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-office-365-portal"></a>Office 365 portalında Azure AD için bir destek bileti açmak nasıl
+### <a name="how-to-open-a-support-ticket-for-azure-ad-in-the-microsoft-365-admin-center"></a>Microsoft 365 Yönetim merkezinde Azure AD için bir destek bileti açmak nasıl
 
 > [!NOTE]
-> Yalnızca Yöneticiler için Office 365 Yönetim merkezinde, Azure AD için destek sunulur.
-> 
+> Azure AD'de desteği [Microsoft 365 Yönetim merkezini](https://admin.microsoft.com) yalnızca Yöneticiler için sunulur. 
 
-1. Oturum [Office 365 Yönetim merkezini](https://portal.office.com) bir Enterprise Mobility + Security (EMS) lisansı olan bir hesapla.
+1. Oturum [Microsoft 365 Yönetim merkezini](https://admin.microsoft.com) bir Enterprise Mobility + Security (EMS) lisansı olan bir hesapla.
 
-2. Üzerinde **Destek** kutucuk seçin **yeni hizmet isteği**: ![Office 365 portalı ekran görüntüsü](./media/active-directory-troubleshooting-support-howto/office-portal.png)
+2. Üzerinde **Destek** kutucuk seçin **yeni hizmet isteği**:
 
-3. Üzerinde **desteğine genel bakış** sayfasında **Kimlik Yönetimi** veya **kullanıcısı ve etki alanı yönetim**: ![Azure AD desteğini kategorileri ekran görüntüsü](./media/active-directory-troubleshooting-support-howto/select-identity.png)
+3. Üzerinde **desteğine genel bakış** sayfasında **Kimlik Yönetimi** veya **kullanıcısı ve etki alanı yönetim**:
 
 4. İçin **özellik**, destek istediğiniz Azure AD özelliğini seçin.
 
 5. İçin **belirti**uygun bir belirti seçin, sorununuzu özetlemek ve ilgili ayrıntıları sağlayın ve ardından **sonraki**.
-  ![özellik ve belirti kendi kendine yardım ekran görüntüsü](./media/active-directory-troubleshooting-support-howto/open-service-request.png)
 
 6. Sunulan kendi kendine yardım kaynaklarını seçin ya da seçin **Evet, devam et** veya **Hayır, isteği iptal**.
 

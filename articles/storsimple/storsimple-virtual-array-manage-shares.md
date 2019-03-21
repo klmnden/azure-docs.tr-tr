@@ -1,6 +1,6 @@
 ---
-title: StorSimple sanal dizinin paylaşımlarını yönetmek | Microsoft Docs
-description: StorSimple cihaz Yöneticisi'ni açıklar ve bunu, StorSimple sanal dizisindeki paylaşımlarını yönetmek için nasıl kullanılacağını açıklar.
+title: StorSimple sanal dizisi paylaşımlarını yönetin | Microsoft Docs
+description: StorSimple cihaz Yöneticisi'ni ve StorSimple Virtual Array'iniz paylaşımlarında yönetmek için kullanma işlemini açıklar.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -14,134 +14,134 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: e5c62689de36baa175001f5f4f70d87568876ef0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82a6cdb6c9a39a0d196049a7ba662681ea06b36a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23876274"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092438"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>StorSimple sanal dizisindeki paylaşımlarını yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma
+# <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>StorSimple sanal dizisi paylaşımlarında yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu öğretici StorSimple cihaz Yöneticisi hizmeti oluşturmak ve StorSimple sanal dizinizi paylaşımlarında yönetmek için nasıl kullanılacağını açıklar.
+Bu öğretici, StorSimple Virtual Array'iniz üzerinde paylaşımlarını oluşturmak ve yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanmayı açıklar.
 
-StorSimple cihaz Yöneticisi hizmeti, StorSimple çözümünüzün bir tek web arabiriminden yönetmenizi sağlayan Azure portalında bir uzantısıdır. Paylaşımları ve birimler yönetmeye ek olarak, StorSimple cihaz Yöneticisi hizmeti görüntülemek ve cihazları yönetmek, uyarıları görüntülemek, yedekleme ilkelerini yönetmek ve yedekleme kataloğu yönetmek için kullanabilirsiniz.
+StorSimple cihaz Yöneticisi hizmeti, StorSimple çözümünüzü tek bir web arabiriminden yönetmenizi sağlayan Azure portalında bir uzantısıdır. Paylaşımları ve birimler yönetmenin yanı sıra görüntülemek ve cihazları yönetmek, uyarıları görüntülemek, yedekleme ilkelerini yönetme ve yedekleme kataloğunu yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanabilirsiniz.
 
-## <a name="share-types"></a>Paylaşım türleri
+## <a name="share-types"></a>Paylaşım türü
 
 StorSimple paylaşımları olabilir:
 
-* **Yerel olarak sabitlenmiş**: bu paylaşımlar verileri her zaman dizi kalmasını ve buluta dağıtılmamasını.
-* **Katmanlı**: bu paylaşımlar verileri buluta sığdırmaya. Katmanlı bir paylaşımı oluşturduğunuzda, alanın % 10'yaklaşık yerel katmanında sağlanır ve alan % 90'ını bulutta sağlanır. Örneğin, 1 TB paylaşımı sağlanan, 100 GB yerel alanında bulunması ve 900 GB bulutta kullanılabilir zaman veri katmanları. Bu, sırayla cihazda yerel alana çalıştırırsanız, (% 10 yerel katmanda gereken kullanılamaz çünkü), bir katmanlı paylaşımı sağlayamazsınız olduğunu gösterir.
+* **Yerel olarak sabitlenmiş**: Bu paylaşımlar verilerinde dizide her zaman kalır ve buluta dağıtılmamasını.
+* **Katmanlı**: Bu paylaşımlar verileri buluta sığdırmaya. Katmanlı bir paylaşım oluşturduğunuzda, yerel katmanında yaklaşık % 10 alanı sağlandığında ve bulutta % 90 ' alanı sağlanır. Örneğin, 1 TB paylaşımı sağladıysanız, 100 GB yerel alanı bulunması ve 900 GB bulutta kullanılabilir olduğunda veri katmanları. Bu sırayla cihazda yerel alanın tümünü dışında çalıştırırsanız, (% 10 yerel katmanına gerekli kullanılamaz çünkü), katmanlı bir paylaşım sağlayamayacağınızı anlamına gelir.
 
 ### <a name="provisioned-capacity"></a>Sağlanan kapasite
 
-Her bir paylaşım türü için maksimum sağlanan kapasite için aşağıdaki tabloya bakın.
+Her bir paylaşım türü için sağlanan kapasite üst sınırı için aşağıdaki tabloya bakın.
 
-| **Sınır tanımlayıcısı** | **Sınırı** |
+| **Sınır tanımlayıcı** | **Sınırı** |
 | --- | --- |
-| Katmanlı bir paylaşımı en küçük boyut |500 GB |
-| Katmanlı bir paylaşımı en büyük boyutu |20 TB |
-| Yerel olarak sabitlenmiş bir paylaşımı en küçük boyut |50 GB |
+| En düşük katmanlı bir paylaşım boyutu |500 GB |
+| En çok katmanlı bir paylaşım boyutu |20 TB |
+| Yerel olarak sabitlenmiş bir paylaşım boyutu için alt |50 GB |
 | Yerel olarak sabitlenmiş bir paylaşımı en büyük boyutu |2 TB |
 
-## <a name="the-shares-blade"></a>Paylaşımlar dikey penceresi
+## <a name="the-shares-blade"></a>Paylaşımları dikey penceresi
 
-**Paylaşımları** StorSimple hizmeti Özet dikey menüsünde belirli bir StorSimple dizi depolama paylaşımları listesini görüntüler ve bunları yönetmenize olanak sağlar.
+**Paylaşımları** StorSimple hizmeti Özet dikey menüsünde verilen bir StorSimple dizi üzerinde depolama paylaşımlarının listesini görüntüler ve bunları yönetmenize olanak sağlar.
 
-![Paylaşımlar dikey penceresi](./media/storsimple-virtual-array-manage-shares/shares-blade.png)
+![Paylaşımları dikey penceresi](./media/storsimple-virtual-array-manage-shares/shares-blade.png)
 
-Bir paylaşım öznitelikleri bir dizi oluşur:
+Bir paylaşımı öznitelikleri bir dizi oluşur:
 
-* **Paylaşım adı** – benzersiz olmalı ve Paylaşım tanımlamanıza yardımcı olan açıklayıcı bir ad.
-* **Durum** – çevrimiçi veya çevrimdışı olabilir. Bir paylaşım çevrimdışıysa, paylaşımın kullanıcılar buna erişebilir olmayacaktır.
+* **Paylaşım adı** – benzersiz olmalıdır ve Paylaşım belirlemeye yardımcı olur ve açıklayıcı bir ad.
+* **Durum** – çevrimiçi veya çevrimdışı olabilir. Bir paylaşımı çevrimdışı olduğunda, paylaşımın kullanıcılarına erişmek mümkün olmayacaktır.
 * **Tür** – paylaşım olup olmadığını belirten **katmanlı** (varsayılan) veya **yerel olarak sabitlenmiş**.
-* **Kapasite** – toplam paylaşımında depolanan veri miktarını karşılaştırıldığında kullanılan veri miktarını belirtir.
-* **Açıklama** – paylaşım açıklamak yardımcı olan isteğe bağlı bir ayar.
-* **İzinleri** -Windows Explorer ile yönetilebilir paylaşımı için NTFS izinleri.
-* **Yedekleme** – StorSimple sanal dizisi tüm paylaşımlar yedekleme için otomatik olarak etkinleştirilmiş durumda.
+* **Kapasite** – paylaşımında depolanan verilerin toplam miktarı karşılaştırıldığında kullanılan veri miktarını belirtir.
+* **Açıklama** – paylaşım açıklayan yardımcı olan isteğe bağlı ayar.
+* **İzinleri** -Windows Gezgini yönetilebilir paylaşımı için NTFS izinleri.
+* **Yedekleme** – StorSimple sanal dizisi, tüm paylaşımları için Yedekleme otomatik olarak etkin durumda.
 
-![Paylaşımlar ayrıntıları](./media/storsimple-virtual-array-manage-shares/share-details.png)
+![Paylaşımları ayrıntıları](./media/storsimple-virtual-array-manage-shares/share-details.png)
 
-Aşağıdaki görevleri gerçekleştirmek için Bu öğreticide yönergeleri kullanın:
+Yönergeleri Bu öğreticide aşağıdaki görevleri gerçekleştirmek için kullanın:
 
-* Paylaşım Ekle
+* Paylaşım ekleme
 * Bir paylaşımı değiştirme
-* Bir paylaşım çevrimdışı duruma getirin
-* Bir paylaşımı silme
+* Bir paylaşımı çevrimdışı duruma getirin
+* Paylaşımı silme
 
-## <a name="add-a-share"></a>Paylaşım Ekle
+## <a name="add-a-share"></a>Paylaşım ekleme
 
-1. StorSimple hizmeti Özet dikey penceresinden tıklayın **+ Ekle paylaşımı** komut çubuğundan. Bu açılır **Ekle paylaşımı** dikey.
+1. StorSimple hizmet özeti dikey penceresinden tıklayın **+ Ekle paylaşımı** komut çubuğundan. Bu açılır **Ekle paylaşımı** dikey penceresi.
 
-    ![Paylaşım Ekle](./media/storsimple-virtual-array-manage-shares/add-share.png)
+    ![Paylaşım ekleme](./media/storsimple-virtual-array-manage-shares/add-share.png)
 
 2. İçinde **Ekle paylaşımı** dikey penceresinde aşağıdakileri yapın:
    
-    1. İçinde **paylaşım adı** alanında, paylaşımınıza için benzersiz bir ad girin. Adı 3 ile 127 karakter içeren bir dize olmalıdır.
+   1. İçinde **paylaşım adı** paylaşımınız için benzersiz bir ad girin. Ad 3 ile 127 karakter içeren bir dize olmalıdır.
 
-    2. İsteğe bağlı bir **açıklama** paylaşımı için. Açıklama, paylaşım sahiplerini tanımlamaya yardımcı olur.
+   2. İsteğe bağlı **açıklama** paylaşım için. Açıklama, paylaşım sahiplerini belirlemeye yardımcı olur.
 
-    3. İçinde **türü** açılır listesinde, oluşturulup oluşturulmayacağını belirtin bir **katmanlı** veya **yerel olarak sabitlenmiş** paylaşın. Yerel GARANTİLERİN, düşük gecikme ve yüksek performansın gerektiği iş yükleri için seçin **Paylaşımı'yerel olarak sabitlenmiş**. Diğer tüm veriler için seçin **katmanlı** paylaşın.
+   3. İçinde **türü** açılan listesinde, oluşturulup oluşturulmayacağını belirtin bir **katmanlı** veya **yerel olarak sabitlenmiş** paylaşın. Yerel GARANTİLERİN, düşük gecikme süreleri ve daha yüksek performans gerektiren iş yükleri için seçin **Paylaşımı'yerel olarak sabitlenmiş**. Diğer tüm veriler için seçin **katmanlı** paylaşın.
 
-    4. İçinde **kapasite** alanında, paylaşımı boyutunu belirtin. Katmanlı bir paylaşımı, 500 GB ile 20 TB arasında olmalıdır ve yerel olarak sabitlenmiş bir paylaşımı, 50 GB ile 2 TB arasında olmalıdır.
+   4. İçinde **kapasite** alanında, paylaşım boyutu belirtin. Katmanlı bir paylaşım 500 GB ile 20 TB arasında olmalıdır ve yerel olarak sabitlenmiş bir paylaşımı, 50 GB ile 2 TB arasında olmalıdır.
 
-    5. İçinde **kümesine varsayılan tam izinleri** alanında, kullanıcı ya da bu paylaşıma erişim grubu için izinleri atayın. Kullanıcı veya kullanıcı grubunun adını belirtin  _john@contoso.com_  biçimi. Bu paylaşımlar erişmek yönetici ayrıcalıkları izin vermek için bir kullanıcı grubu (yerine tek bir kullanıcı) kullanmanızı öneririz. İzinlerini burada atadıktan sonra bu izinleri değiştirmek için dosya Gezgini'ni kullanabilirsiniz.
-3. Paylaşımınıza yapılandırma tamamladığınızda tıklatın **oluşturma**. Belirtilen ayarlarla bir paylaşımı oluşturulur ve bir bildirim görürsünüz. Varsayılan olarak, yedekleme paylaşım için etkin.
-4. Paylaşım başarıyla oluşturulduğunu doğrulamak için şu adrese gidin **paylaşımları** dikey. Listelenen paylaşımına görmeniz gerekir.
+   5. İçinde **ayarlanmış varsayılan tam izinleri** alanında, kullanıcının veya grubun bu paylaşıma erişim izinleri atayın. Kullanıcı veya kullanıcı grubunun adını _john@contoso.com_ biçimi. Bu paylaşımlara erişmek yönetici ayrıcalıkları izin vermek için bir kullanıcı grubuna (yerine tek bir kullanıcı) kullanmanızı öneririz. Burada izinleri atadıktan sonra, Dosya Gezgini'ni kullanarak bu izinlerde değişiklik yapabilirsiniz.
+3. Paylaşımınızın yapılandırma işlemini tamamladığınızda tıklayın **Oluştur**. Belirtilen ayarlarla bir paylaşımı oluşturulur ve bir bildirim görürsünüz. Varsayılan olarak, paylaşımı için yedekleme etkinleştirilecektir.
+4. Paylaşımı başarıyla oluşturulduğunu doğrulamak için şu adrese gidin **paylaşımları** dikey penceresi. Listelenen paylaşımı görmeniz gerekir.
    
     ![Paylaşımı oluşturma başarılı](./media/storsimple-virtual-array-manage-shares/share-success.png)
 
 ## <a name="modify-a-share"></a>Bir paylaşımı değiştirme
 
-Paylaşımın açıklaması değiştirmeniz gerektiğinde bir paylaşımı değiştirin. Paylaşımı oluşturulduktan sonra başka bir paylaşım özellikleri değiştirilebilir.
+Paylaşımın açıklaması değiştirmeniz gerektiğinde bir paylaşımı değiştirin. Paylaşım oluşturulduktan sonra başka bir paylaşım özellikleri değiştirilebilir.
 
-#### <a name="to-modify-a-share"></a>Bir paylaşım değiştirmek için
+#### <a name="to-modify-a-share"></a>Bir paylaşımı değiştirmek için
 
-1. Gelen **paylaşımları** değiştirmenizi istiyor paylaşımın bulunduğu sanal dizinin StorSimple hizmeti Özet dikey ayarı seçin.
+1. Gelen **paylaşımları** , değiştirmek istediğiniz paylaşımı bulunduğu sanal diziyi StorSimple hizmeti Özet dikey penceresinde ayarını seçin.
 2. **Seçin** geçerli açıklamasını görüntülemek ve değiştirmek için paylaşımı.
-3. Tıklayarak yaptığınız değişiklikleri kaydetmek **kaydetmek** komut çubuğu. Belirtilen ayarlarınızı uygulanır ve bir bildirim görürsünüz.
+3. Değişiklikleri Kaydet'e tıklayarak **Kaydet** komut çubuğu. Belirtilen ayarlar uygulanmaz ve bir bildirim görürsünüz.
    
     ![ Paylaşım Düzenle](./media/storsimple-virtual-array-manage-shares/share-edit.png)
 
-## <a name="take-a-share-offline"></a>Bir paylaşım çevrimdışı duruma getirin
+## <a name="take-a-share-offline"></a>Bir paylaşımı çevrimdışı duruma getirin
 
-Değiştirmek veya silmek planlama yaparken bir paylaşımı çevrimdışına gerekebilir. Bir paylaşım çevrimdışı olduğunda okuma-yazma erişimi için kullanılabilir değildir. Cihaz yanı sıra konak paylaşımı çevrimdışı olması gerekir.
+Değiştirmek veya silmek planlama yaparken bir paylaşımı çevrimdışı duruma gerekebilir. Bir paylaşımı çevrimdışı olduğunda, okuma-yazma erişimi için kullanılabilir değil. Cihaz yanı sıra konak paylaşımı çevrimdışı duruma gerekecektir.
 
-#### <a name="to-take-a-share-offline"></a>Bir paylaşım çevrimdışına almak için
+#### <a name="to-take-a-share-offline"></a>Bir paylaşımı çevrimdışı duruma getirmek için
 
 1. Söz konusu paylaşımı çevrimdışı duruma getirmeden önce kullanımda olmadığından emin olun.
-2. Paylaşım, aşağıdaki adımları gerçekleştirerek dizi çevrimdışı gerçekleştirin:
+2. Paylaşımı, aşağıdaki adımları uygulayarak dizide çevrimdışı duruma:
    
-    1. Gelen **paylaşımları** StorSimple hizmeti Özet dikey ayarı, çevrimdışı duruma getirmenizi istiyor paylaşımın bulunduğu sanal dizinin seçin.
+    1. Gelen **paylaşımları** çevrimdışına size istediğiniz paylaşımı bulunduğu sanal diziyi StorSimple hizmeti Özet dikey penceresinde ayarını seçin.
 
-    2. **Seçin** tıklatın ve Paylaşım **...**  (Alternatif olarak bu satırı sağ) ve bağlam menüsünden seçin **çevrimdışına**.
+    2. **Seçin** tıklatın ve Paylaşım **...**  (Alternatif olarak bu satıra sağ tıklayın) ve bağlam menüsünden **çevrimdışına**.
      
         ![Çevrimdışı paylaşımı](./media/storsimple-virtual-array-manage-shares/shares-offline.png)
 
-    3. Bilgileri gözden **çevrimdışına** dikey ve işlemin onaylamış olursunuz. Tıklatın **çevrimdışına** paylaşım çevrimdışı duruma getirmek için. İşlem devam ettiğinden, bir bildirim görürsünüz.
+    3. Bilgileri gözden **çevrimdışına** dikey penceresinde ve işlemin onaylamış olursunuz. Tıklayın **çevrimdışına** paylaşımı çevrimdışı duruma getirmek için. Devam eden işlemin bir bildirim görürsünüz.
 
-    4. Paylaşım başarıyla çevrimdışı duruma olduğunu doğrulamak için Git **paylaşımları** dikey. Paylaşım durumu çevrimdışı olarak görmeniz gerekir.
+    4. Paylaşımı başarıyla çevrimdışı bırakıldığını olduğunu onaylamak için Git **paylaşımları** dikey penceresi. Paylaşım durumu çevrimdışı olarak görmeniz gerekir.
 
-## <a name="delete-a-share"></a>Bir paylaşımı silme
+## <a name="delete-a-share"></a>Paylaşımı silme
 
 > [!IMPORTANT]
-> Yalnızca çevrimdışı ise, bir paylaşım silebilirsiniz.
+> Yalnızca çevrimdışı olduğunda, bir paylaşım silebilirsiniz.
 
 
 Bir paylaşımı silmek için aşağıdaki adımları tamamlayın.
 
 #### <a name="to-delete-a-share"></a>Bir paylaşımı silmek için
 
-1. Gelen **paylaşımları** StorSimple hizmeti Özet dikey ayarı, silmek istediğiniz paylaşımı bulunduğu sanal dizinin seçin.
-2. **Seçin** tıklatın ve Paylaşım **...**  (Alternatif olarak bu satırı sağ) ve bağlam menüsünden seçin **silmek**.
+1. Gelen **paylaşımları** silmek istediğiniz paylaşım bulunduğu sanal diziyi StorSimple hizmeti Özet dikey penceresinde ayarını seçin.
+2. **Seçin** tıklatın ve Paylaşım **...**  (Alternatif olarak bu satıra sağ tıklayın) ve bağlam menüsünden **Sil**.
    
-    ![Paylaşımı silin](./media/storsimple-virtual-array-manage-shares/share-delete.png)
-3. Silmek istediğiniz paylaşımı durumunu denetleyin. Silmek istediğiniz paylaşımı çevrimdışı durumda değilse, onu önce çevrimdışına. Adımları [bir paylaşımı çevrimdışına](#take-a-share-offline).
-4. İçinde onaylamanız istendiğinde **silmek** dikey penceresinde, onay kabul etmek ve tıklatın **silmek**. Paylaşım şimdi silinecek ve **paylaşımları** dikey paylaşımları Sanal dizi güncelleştirilmiş listesini gösterir.
+    ![Paylaşımı sil](./media/storsimple-virtual-array-manage-shares/share-delete.png)
+3. Silmek istediğiniz paylaşım durumunu denetleyin. Silmek istediğiniz paylaşım çevrimdışı durumda değilse, önce çevrimdışına. Bağlantısındaki [bir paylaşımı çevrimdışı duruma](#take-a-share-offline).
+4. İçinde onaylamanız istendiğinde **Sil** dikey penceresinde, onayı kabul edin ve tıklayın **Sil**. Paylaşım artık silinecek ve **paylaşımları** dikey penceresi sanal diziden paylaşımları güncelleştirilmiş listesini gösterir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bilgi edinmek için nasıl [bir StorSimple paylaşımı kopyalama](storsimple-virtual-array-clone.md).
+Bilgi edinmek için nasıl [StorSimple paylaşımı kopyalama](storsimple-virtual-array-clone.md).
 

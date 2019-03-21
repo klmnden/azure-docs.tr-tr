@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 7fc7f63539e65618f00d75d5392ad1e96b7aab3e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dfbf9a3a9b800fec5df4cf527ddd4ec8e3f55b37
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533467"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853248"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Apache Hadoop ile Apache Oozie kullanma
 
@@ -42,7 +42,7 @@ Oozie, Java programları veya kabuk betikleri gibi sisteme özel işleri planlam
 * **Depolama yapılandırması için olası bir değişiklik.**  Bkz: [depolama yapılandırması](#storage-configuration) depolama hesabı türü kullanılıyorsa `BlobStorage`.
 
 ## <a name="storage-configuration"></a>Depolama yapılandırması
-Kullanılan depolama hesabı türü ise Eylem gerekmiyor `Storage (general purpose v1)` veya `StorageV2 (general purpose v2)`.  Makaledeki işlemi çıkış için en az üretecektir `/mapreducestaging`.  Varsayılan hadoop yapılandırma içerecek `/mapreducestaging` içinde `fs.azure.page.blob.dir` yapılandırma değişkeni `core-site.xml` hizmeti `HDFS`.  Bu yapılandırma, depolama hesabı türü için desteklenmeyen sayfa blobları olarak dizine çıkış neden olacak `BlobStorage`.  Kullanılacak `BlobStorage` kaldırmak için bu makalede, `/mapreducestaging` gelen `fs.azure.page.blob.dir` yapılandırma değişkeni.  Yapılandırma erişilebilir [Ambari UI](/hdinsight-hadoop-manage-ambari.md).  Aksi takdirde hata iletisi alırsınız: `Page blob is not supported for this account type.`
+Kullanılan depolama hesabı türü ise Eylem gerekmiyor `Storage (general purpose v1)` veya `StorageV2 (general purpose v2)`.  Makaledeki işlemi çıkış için en az üretecektir `/mapreducestaging`.  Varsayılan hadoop yapılandırma içerecek `/mapreducestaging` içinde `fs.azure.page.blob.dir` yapılandırma değişkeni `core-site.xml` hizmeti `HDFS`.  Bu yapılandırma, depolama hesabı türü için desteklenmeyen sayfa blobları olarak dizine çıkış neden olacak `BlobStorage`.  Kullanılacak `BlobStorage` kaldırmak için bu makalede, `/mapreducestaging` gelen `fs.azure.page.blob.dir` yapılandırma değişkeni.  Yapılandırma erişilebilir [Ambari UI](hdinsight-hadoop-manage-ambari.md).  Aksi takdirde hata iletisi alırsınız: `Page blob is not supported for this account type.`
 
 > [!NOTE]  
 > Bu makalede kullanılan depolama hesabında [güvenli aktarım](../storage/common/storage-require-secure-transfer.md) etkin ve bu nedenle `wasbs` yerine `wasb` makale boyunca kullanılır.
@@ -130,11 +130,11 @@ Bir sorguyu tanımlayan bir Hive sorgu dili (HiveQL) betiği oluşturmak için a
 
     Betikte kullanılan iki değişken şunlardır:
 
-    * `${hiveTableName}`: Oluşturulacak tablonun adını içerir.
+   * `${hiveTableName}`: Oluşturulacak tablonun adını içerir.
 
-    * `${hiveDataFolder}`: Tablo için veri dosyalarının depolanacağı konumu içerir.
+   * `${hiveDataFolder}`: Tablo için veri dosyalarının depolanacağı konumu içerir.
 
-    İş akışı tanım dosyası, bu öğreticideki workflow.xml bu HiveQL betiğini çalışma zamanında bu değerleri geçirir.
+     İş akışı tanım dosyası, bu öğreticideki workflow.xml bu HiveQL betiğini çalışma zamanında bu değerleri geçirir.
 
 4. Dosyayı kaydetmek için Ctrl + X seçip girin `Y`ve ardından **Enter**.  
 
@@ -307,7 +307,7 @@ Oozie iş akışı tanımları Hadoop işlem tanımı bir XML işlem tanımı di
 
     |Yer tutucu değeri| Değiştirilen değer|
     |---|---|
-    |wasbs://mycontainer@mystorageaccount.blob.core.windows.net| Adım 1'den alınan değer.|
+    |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Adım 1'den alınan değer.|
     |Yönetici| Yönetici değilse HDInsight kümesi için oturum açma adınız|
     |SunucuAdı| Azure SQL veritabanı sunucu adı.|
     |Şirket içinde sqlLogin| Azure SQL veritabanı sunucusu oturum açma.|

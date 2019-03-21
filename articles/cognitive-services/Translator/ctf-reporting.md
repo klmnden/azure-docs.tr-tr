@@ -10,21 +10,21 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: e1af2ef3be2b6cf4b75357107caf9d74c7199e8d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a2f8a9c5ceaac6209391df17f4ec08027991382b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539791"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123428"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Collaborative Translation Framework (CTF) raporlamasını kullanma
 
 > [!NOTE]
 > Bu metot kullanımdan kaldırılmıştır. Translator metin çevirisi API'si, V3.0 içinde kullanılabilir değil.
-
+> 
 > İşbirliğine dayalı çevirileri Framework (CTF), daha önce Translator Text API, V2.0 için kullanılabilir, 1 Şubat 2018'den itibaren kullanım dışı bırakıldı. AddTranslation ve AddTranslationArray işlevleri izin düzeltmeleri işbirliğine dayalı çeviri çerçevesi aracılığıyla etkinleştirin. 31 Ocak 2018'den sonra bu iki işlevler yeni cümle gönderimler kabul etmedi ve kullanıcıların bir hata iletisi alırsınız. Bu işlevler, kullanımdan kaldırılmıştır ve değiştirilmeyecek.
-
->Benzer bir işlevsellik terminoloji ve stil özel çeviri sistemiyle oluşturmanıza olanak sağlayan Translator Hub API, kullanılabilir ve Translator metin çevirisi API'si kategori kimliği kullanarak çağırabilirsiniz. Translator Hub: [ https://hub.microsofttranslator.com ](https://hub.microsofttranslator.com). Translator API Hub: [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger).
+> 
+> Benzer bir işlevsellik terminoloji ve stil özel çeviri sistemiyle oluşturmanıza olanak sağlayan Translator Hub API, kullanılabilir ve Translator metin çevirisi API'si kategori kimliği kullanarak çağırabilirsiniz. Translator Hub: [ https://hub.microsofttranslator.com ](https://hub.microsofttranslator.com). Translator API Hub: [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger).
 
 Raporlama işbirliğine dayalı Translation Framework (CTF) API istatistikleri ve gerçek içerik CTF deposunda döndürür. Bu API GetTranslations() yönteminden farklıdır çünkü bu:
 * Çevrilen içeriğin ve alt toplam sayısı yalnızca hesabınızdan (AppID veya Azure Market hesabı) döndürür.
@@ -56,21 +56,21 @@ Bu yöntem, kullanıcı tarafından oluşturulan çevirileri sayısını alır. 
 **Söz dizimi**
 
 > [!div class="tabbedCodeSnippets"]
-```cs
-UserTranslationCount[]GetUserTranslationCounts(
-           string appId,
-           string uriPrefix,
-           string from,
-           string to,
-           int? minRating,
-           int? maxRating,
-           string user,
-           string category
-           DateTime? minDateUtc,
-           DateTime? maxDateUtc,
-           int? skip,
-           int? take);
-```
+> ```cs
+> UserTranslationCount[]GetUserTranslationCounts(
+>            string appId,
+>            string uriPrefix,
+>            string from,
+>            string to,
+>            int? minRating,
+>            int? maxRating,
+>            string user,
+>            string category
+>            DateTime? minDateUtc,
+>            DateTime? maxDateUtc,
+>            int? skip,
+>            int? take);
+> ```
 
 **Parametreler**
 
@@ -127,21 +127,21 @@ Bu yöntem, kullanıcı tarafından oluşturulan çevirileri alır. Çevirileri 
 **Söz dizimi**
 
 > [!div class="tabbedCodeSnippets"]
-```cs
-UserTranslation[] GetUserTranslations (
-            string appId,
-            string uriPrefix,
-            string from,
-            string to,
-            int? minRating,
-            int? maxRating,
-            string user,
-            string category
-            DateTime? minDateUtc,
-            DateTime? maxDateUtc,
-            int? skip,
-            int? take);
-```
+> ```cs
+> UserTranslation[] GetUserTranslations (
+>             string appId,
+>             string uriPrefix,
+>             string from,
+>             string to,
+>             int? minRating,
+>             int? maxRating,
+>             string user,
+>             string category
+>             DateTime? minDateUtc,
+>             DateTime? maxDateUtc,
+>             int? skip,
+>             int? take);
+> ```
 
 **Parametreler**
 

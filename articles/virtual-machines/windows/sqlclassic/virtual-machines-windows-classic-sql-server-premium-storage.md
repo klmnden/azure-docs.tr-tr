@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8686e2c518bb2dc778c120350657aa54c856aec6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: be96aaa69fc1d59bdfa8079eff99c13c1e92c736
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440327"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905129"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Sanal Makineler’de SQL Server ile Azure Premium Depolama kullanma
 
@@ -140,17 +140,17 @@ Her disk için aşağıdaki adımları kullanın:
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 ```
 
-2. LUN ve DiskName unutmayın.
+1. LUN ve DiskName unutmayın.
 
     ![DisknameAndLUN][2]
-3. Uzak Masaüstü VM'yi başlatın. Ardından **Bilgisayar Yönetimi** | **cihaz Yöneticisi** | **Disk sürücüleri**. Her 'Microsoft sanal disklerin' özelliklerine bakmak
+1. Uzak Masaüstü VM'yi başlatın. Ardından **Bilgisayar Yönetimi** | **cihaz Yöneticisi** | **Disk sürücüleri**. Her 'Microsoft sanal disklerin' özelliklerine bakmak
 
     ![VirtualDiskProperties][3]
-4. Burada LUN numarasını VHD'yi sanal Makineye eklerken belirttiğiniz LUN numarasını bir başvurudur.
-5. 'Microsoft sanal diski' için şu adrese gidin **ayrıntıları** sekmesini, sonra **özelliği** listesinde, Git **sürücü anahtarı**. İçinde **değer**, Not **uzaklığı**, aşağıdaki ekran görüntüsünde 0002 olduğu. Depolama havuzu başvuran PhysicalDisk2 0002 gösterir.
+1. Burada LUN numarasını VHD'yi sanal Makineye eklerken belirttiğiniz LUN numarasını bir başvurudur.
+1. 'Microsoft sanal diski' için şu adrese gidin **ayrıntıları** sekmesini, sonra **özelliği** listesinde, Git **sürücü anahtarı**. İçinde **değer**, Not **uzaklığı**, aşağıdaki ekran görüntüsünde 0002 olduğu. Depolama havuzu başvuran PhysicalDisk2 0002 gösterir.
 
     ![VirtualDiskPropertyDetails][4]
-6. Her depolama havuzu için ilişkili diskler výpisu:
+1. Her depolama havuzu için ilişkili diskler výpisu:
 
 ```powershell
 Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
@@ -750,7 +750,7 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 
 ##### <a name="client-application-settings"></a>İstemci uygulama ayarları
 
-.Net 4.5, SQL istemci uygulamanın desteklediği durumlarda SQLClient ve ardından kullanabilirsiniz ' MULTISUBNETFAILOVER = TRUE' anahtar sözcüğü. SQL Always On kullanılabilirlik grubu yük devretme sırasında daha hızlı bağlantı için izin verdiğinden, bu anahtar sözcük uygulanmalıdır. Paralel her zaman açık dinleyici'ile ilişkili tüm IP adresleri üzerinden numaralandırır ve yük devretme sırasında daha agresif bir TCP bağlantı deneme hızı gerçekleştirir.
+SQL istemci uygulamanızın desteklediği .NET 4.5 SQLClient sonra kullanabileceğiniz ' MULTISUBNETFAILOVER = TRUE' anahtar sözcüğü. SQL Always On kullanılabilirlik grubu yük devretme sırasında daha hızlı bağlantı için izin verdiğinden, bu anahtar sözcük uygulanmalıdır. Paralel her zaman açık dinleyici'ile ilişkili tüm IP adresleri üzerinden numaralandırır ve yük devretme sırasında daha agresif bir TCP bağlantı deneme hızı gerçekleştirir.
 
 Önceki ayarları hakkında daha fazla bilgi için bkz. [MultiSubnetFailover anahtar sözcüğü ve ilişkili özellikleri](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover). Ayrıca bkz: [yüksek kullanılabilirlik, olağanüstü durum kurtarma için SqlClient desteği](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx).
 
@@ -973,7 +973,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #SET Azure ACLs or Network Security Groups & Windows FWs
 
-#http://msdn.microsoft.com/library/azure/dn495192.aspx
+#https://msdn.microsoft.com/library/azure/dn495192.aspx
 
 ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 ```
@@ -1218,7 +1218,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #SET ACLs or Azure Network Security Groups & Windows FWs
 
-#http://msdn.microsoft.com/library/azure/dn495192.aspx
+#https://msdn.microsoft.com/library/azure/dn495192.aspx
 ```
 
 #### <a name="step-23-test-failover"></a>23. adım: Yük devretme testi

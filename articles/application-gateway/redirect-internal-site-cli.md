@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 574394000c45ca2c12c309c4536a6649bd3fcb76
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e44beed592e013a089011c2a774b7300f2b3f854
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104058"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102001"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Azure CLI kullanarak iç yeniden yönlendirmeyi ile bir uygulama ağ geçidi oluşturma
 
-Azure CLI'yı yapılandırmak için kullanabileceğiniz [web trafiğini yeniden yönlendirme](multiple-site-overview.md) oluşturduğunuzda bir [uygulama ağ geçidi](overview.md). Bu öğreticide, bir sanal makine ölçek kümesi kullanarak arka uç havuzu tanımlayın. Ardından dinleyicileri ve web trafiği uygun havuzu ulaşan emin olmak için kendi etki alanları temel alarak kurallar yapılandırın. Bu öğreticide, birden çok etki alanları ve kullandığı örnekleri olduğunuz varsayılır *www.contoso.com* ve *www.contoso.org*.
+Azure CLI'yı yapılandırmak için kullanabileceğiniz [web trafiğini yeniden yönlendirme](multiple-site-overview.md) oluşturduğunuzda bir [uygulama ağ geçidi](overview.md). Bu öğreticide, bir sanal makine ölçek kümesi kullanarak arka uç havuzu tanımlayın. Ardından dinleyicileri ve web trafiği uygun havuzu ulaşan emin olmak için kendi etki alanları temel alarak kurallar yapılandırın. Bu öğreticide, birden çok etki alanları ve kullandığı örnekleri olduğunuz varsayılır *www\.contoso.com* ve *www\.contoso.org*.
 
 Bu makalede şunları öğreneceksiniz:
 
@@ -101,7 +101,7 @@ Uygulama ağ geçidinin oluşturulması birkaç dakika sürebilir. Uygulama ağ 
 
 ## <a name="add-listeners-and-rules"></a>Dinleyiciler ve kurallar ekleme 
 
-Uygulama ağ geçidinin trafiği arka uç havuzuna uygun şekilde yönlendirmesini sağlamak için bir dinleyici gereklidir. Bu öğreticide iki etki alanınız için iki dinleyici oluşturacaksınız. Bu örnekte, dinleyici etki alanları için oluşturulan *www.contoso.com* ve *www.contoso.org*.
+Uygulama ağ geçidinin trafiği arka uç havuzuna uygun şekilde yönlendirmesini sağlamak için bir dinleyici gereklidir. Bu öğreticide iki etki alanınız için iki dinleyici oluşturacaksınız. Bu örnekte, dinleyici etki alanları için oluşturulan *www\.contoso.com* ve *www\.contoso.org*.
 
 [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) kullanarak gereken arka uç dinleyicilerini ekleyin.
 
@@ -124,7 +124,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Yeniden yönlendirme yapılandırması Ekle
 
-Gelen trafiği gönderir yeniden yönlendirme yapılandırması Ekle *www.consoto.org* dinleyicisi için *www.contoso.com* kullanarak uygulama ağ geçidi [az network application-gateway yeniden yönlendirme yapılandırması oluşturma](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
+Gelen trafiği gönderir yeniden yönlendirme yapılandırması Ekle *www\.consoto.org* dinleyicisi için *www\.contoso.com* kullanarakapplicationGateway'de[az ağ uygulama ağ geçidini yeniden yönlendirme yapılandırması oluşturma](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -217,7 +217,7 @@ Tarayıcınızın adres çubuğuna, etki alanı adınızı girin. Örneğin http
 
 ![Uygulama ağ geçidinde contoso test etme](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-Diğer etki alanınıza, adresi değiştirin; örneğin http://www.contoso.org ve trafiği www.contoso.com için dinleyici için yeniden yönlendirilen görmeniz gerekir.
+Diğer etki alanınıza, adresi değiştirin; örneğin http://www.contoso.org ve trafiği www için dinleyici için yeniden yönlendirilen görmelisiniz\.contoso.com.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

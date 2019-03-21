@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: c1c64945aaa0bc4cd83cc769dab1c2a755896c01
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e0271c9212b093bd803518ebeaa4b7d9682cc773
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442487"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997474"
 ---
 # <a name="example-2-build-a-perimeter-network-to-protect-applications-with-a-firewall-and-nsgs"></a>Örnek 2: Bir güvenlik duvarı ve Nsg'ler ile uygulamaları korumak için bir çevre ağı oluşturma
 [Microsoft bulut Hizmetleri ve ağ güvenlik Sayfası'na dönmek][HOME]
@@ -550,7 +550,7 @@ Bu PowerShell Betiği, bir İnternet'e bağlı bir bilgisayara veya sunucuya yer
 Güncelleştirilmiş konumlarla bu XML dosyasını kaydedin ve daha sonra bu dosyayı önceki komut $NetworkConfigFile değişkeninde bir bağlantı ekleyin.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

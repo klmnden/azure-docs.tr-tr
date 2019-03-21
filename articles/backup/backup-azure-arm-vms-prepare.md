@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 2cc5384fe039e757b33802075d0e550b369477f3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c6d6e380cded18a089f624f90d998477a89293be
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874975"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259050"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Azure Vm'lerini bir kurtarma Hizmetleri kasasına yedekleme
 
@@ -112,7 +112,7 @@ Bir sistem hesabı proxy sahip değilseniz, birini aşağıdaki ayarlamaları ya
 4. Proxy ayarlarını tanımlayın.
    - Linux makineleri üzerinde:
      - Bu satırı **/etc/ortam** dosyası:
-       - **http_proxy =<http://proxy> IP adresi: proxy bağlantı noktası**
+       - **http_proxy = http:\//proxy IP adresi: proxy bağlantı noktası**
      - Bu satırları ekleyin **/etc/waagent.conf** dosyası:
          - **HttpProxy.Host=proxy IP adresi**
          - **HttpProxy.Port=proxy bağlantı noktası**

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4185f4ad83d083ab1a15208361ee7b44e118c68e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 12819bdc20dea57a8a114bb4ff311f828be8b15a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168315"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286229"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Azure Active Directory mimarisini nedir?
 Azure Active Directory (Azure AD), kullanıcılarınız için Azure hizmet ve kaynaklarına erişimi güvenli bir şekilde yönetmenizi sağlar. Azure AD ile birlikte eksiksiz kimlik yönetimi olanakları sunulur. Azure AD özellikleri hakkında daha fazla bilgi için bkz. [Azure Active Directory nedir?](active-directory-whatis.md)
@@ -39,7 +39,7 @@ Erişilebilir bir oluşturmanın en yaygın yolu ve veri açısından zengin kul
 
 Veri katmanında, okuma-yazma özelliği sağlayan çok sayıda ön uç hizmeti bulunur. Aşağıdaki diyagramda, tek dizinli bir bölüme bileşenlerinin coğrafi olarak dağıtılmış veri merkezlerine nasıl teslim edildiğini gösterir. 
 
-  ![Tek Dizinli Bölümler](./media/active-directory-architecture/active-directory-architecture.png)
+  ![Tek dizinli bölümleme diyagramı](./media/active-directory-architecture/active-directory-architecture.png)
 
 Azure AD mimarisinin bileşenleri, birincil çoğaltma ve ikincil çoğaltma öğelerini içerir.
 

@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: d0d5ee18e37436562f1e9e15571dc39fb0e00129
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875047"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117753"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box nedir?
 
@@ -44,11 +44,11 @@ Data Box, büyük miktarlarda veriyi ağ bağlantısını çok az etkileyerek ve
 - **Hız**: Data Box, Azure'a 80 TB'a kadar veri taşımak için 1 Gb/sn veya 10 Gb/sn ağ arabirimlerini kullanır.
 
 - **Güvenli**: Data Box cihaz, veriler ve hizmet için yerleşik güvenlik önlemlerine sahiptir.
-    - Cihaz, üzerinde oynanmaya karşı korumalı vidalar ve üzerinde oynandığını belli eden çıkartmalarla korunan, sağlamlaştırılmış bir kasaya sahiptir. 
-    - Cihazdaki veriler her zaman AES 256 bit ile şifrelenir.
-    - Cihaz kilidi yalnızca Azure portalından alınan parolayla açılabilir.
-    - Hizmet, Azure güvenlik özelliklerinin koruması altındadır.
-    - Verileriniz Azure'a yüklendikten sonra cihazdaki diskler NIST 800-88r1 standartlarına göre silinir.
+  - Cihaz, üzerinde oynanmaya karşı korumalı vidalar ve üzerinde oynandığını belli eden çıkartmalarla korunan, sağlamlaştırılmış bir kasaya sahiptir. 
+  - Cihazdaki veriler her zaman AES 256 bit ile şifrelenir.
+  - Cihaz kilidi yalnızca Azure portalından alınan parolayla açılabilir.
+  - Hizmet, Azure güvenlik özelliklerinin koruması altındadır.
+  - Verileriniz Azure'a yüklendikten sonra cihazdaki diskler NIST 800-88r1 standartlarına göre silinir.
     
     Daha fazla bilgi için bkz. [Azure Data Box güvenliği ve veri koruması](data-box-security.md).
 

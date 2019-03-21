@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e92c812ffc8b72fe79248c602e48ff01ef9fefcb
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 21a10bcedc25ddce63ba468e400dcea1f77148a0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961023"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863126"
 ---
 # <a name="quickstart-create-an-android-unity-app-with-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal Çıpasıyla Android Unity uygulama oluşturma
 
@@ -35,7 +35,9 @@ Bu hızlı başlangıçta Android Unity kullanarak uygulama oluşturma konusunu 
 
 Bu hızlı başlangıcı tamamlamak için aşağıdakileri yaptığınızdan emin olun:
 
-- Bir Windows veya Mac OS x ile makine <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3 +</a> ve <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3 +</a> yüklü.
+- Bir Windows veya Mac OS x ile makine <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3 +</a> ve <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3 +</a>.
+  - Windows üzerinde çalışır, ayrıca gerekir <a href="https://git-scm.com/download/win" target="_blank">Git için Windows</a>.
+  - Macos'ta çalıştırılıyorsa, Git HomeBrew yüklü alın. Tek satırlık bir Terminal içinde aşağıdaki komutu girin: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Ardından çalıştırın `brew install git`.
 - A <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">etkin Geliştirici</a> ve <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore özellikli</a> Android cihaz.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
@@ -58,32 +60,12 @@ Sahne seçerek Kaydet **dosya** -> **Kaydet**.
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-Seçin **dışarı** bir iletişim kutusunu açın. Ardından, Android Studio projesi dışarı aktarmak için bir klasör seçin.
-
-Dışarı aktarma tamamlandığında, bir klasör adında bir alt klasör ile verilen bir Android Studio projesi içeren görüntülenecek **HelloAR U3D**.
-
-## <a name="deploy-the-android-application"></a>Android uygulaması dağıtma
-
-Android Studio açıp seçin **var olan bir Android Studio projesini Aç**. Ardından, **HelloAR U3D** alt klasöründen dışarı aktarılan Android Studio projesi seçeneğine tıklayıp **Tamam**.
-
-Açma sırasında Gradle sarmalayıcıyı kullanmak isteyen bir istem görüntülenir. Seçin **Tamam** Gradle sarmalayıcıyı kullanma ve projeyi açın.
-
-Android cihazında güç, oturum açın ve bir USB kablosu kullanarak Bilgisayara bağlanın.
-
-Seçin **çalıştırma** Android Studio araç çubuğundan.
-
-![Android Studio dağıtma ve çalıştırma](./media/get-started-unity-android/android-studio-deploy-run.png)
-
-Android cihazı seçin **dağıtım hedefini seçin** iletişim ve select **Tamam** Android cihazda uygulama çalıştırmak için.
+Olun **dışarı proje** onay kutusu bir onay işareti yok. Tıklayın **derleme ve çalıştırma**. Kaydetmeniz istenir, `.apk` dosyası için bir ad seçim yapabilirsiniz.
 
 Yerleştirin ve bir bağlantı geri çağırma uygulaması'ndaki yönergeleri izleyin.
 
 > [!NOTE]
 > Kamera arka planı olarak (veya diğer doku örneği yerine boş, mavi görürsünüz) görmüyorsanız, uygulama çalıştırırken daha sonra büyük olasılıkla Unity varlıkları yeniden almanız gerekir. Uygulamayı durdurun. Unity üstteki menüden seçin **varlıklar -> eşleşmediğinden yeniden içe aktarım tüm**. Ardından, uygulamayı yeniden çalıştırın.
-
-Seçerek uygulama Durdur **Durdur** Android Studio araç çubuğundan.
-
-![Android Studio Durdur](./media/get-started-unity-android/android-studio-stop.png)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

@@ -11,12 +11,12 @@ ms.date: 01/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d39305b4a8fafbd2fe2f1ac101f92597d6a3e4a0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6510105af8c019b1aca5333f516a10667edaadb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189060"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000875"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS bağlayıcı hesap izinlerini yapılandırma 
 
@@ -104,7 +104,7 @@ Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -Obje
 ```
  
 ### <a name="view-ad-ds-permissions-of-an-object"></a>Bir nesnenin AD DS izinlerini görüntüleme 
-Şu anda, DistinguishedName sağlayarak bir Active Directory nesnesinde ayarlanan izinlerin listesini görüntülemek için aşağıdaki cmdlet'i kullanabilirsiniz: 
+Kendi DistinguishedName sağlayarak, şu anda bir Active Directory nesne üzerinde izinlere listesini görüntülemek için aşağıdaki cmdlet'i kullanabilirsiniz: 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 
@@ -158,7 +158,7 @@ Bu cmdlet şu izinler ayarlanır:
 
 |Type |Ad |Access |Şunun İçin Geçerli|
 |-----|-----|-----|-----| 
-|İzin Ver|AD DS bağlayıcı hesabı|Okuma/yazma özelliği|MS-DS-tutarlılık-GUID|Alt kullanıcı nesneleri|
+|İzin Ver|AD DS bağlayıcı hesabı|Okuma/yazma özelliği|Alt kullanıcı nesneleri|
 
 ### <a name="permissions-for-password-hash-synchronization"></a>Parola Karması eşitleme için izinleri 
 Parola Karması eşitleme kullanırken AD DS bağlayıcı hesabının izinlerini ayarlamak için çalıştırın: 
@@ -271,7 +271,7 @@ Bu PowerShell Betiği, bir parametre olarak sağlanan AD Bağlayıcısı hesabı
 - Belirtilen nesnenin devralma devre dışı bırak 
 - Kendi KENDİNE söz konusu olduğunda, varsayılan izinleri korumak istediğimiz için kendi KENDİNE özgü ACE dışında belirli nesne üzerindeki tüm ACE kaldırın. 
  
- -ADConnectorAccountDN izinlerini sıkılaştırıldığını gereken AD hesabın parametredir. Bu genellikle, AD DS bağlayıcısında yapılandırılmış MSOL_nnnnnnnnnnnn etki alanı hesabı (AD DS bağlayıcı hesabınızın belirleme bakın). Credential parametresi, hedef AD nesne için Active Directory izinlerini kısıtlamak için gerekli ayrıcalıklara sahip bir yönetici hesabı belirtmeniz gerekir. Genellikle Kurumsal veya etki alanı yöneticisi budur.  
+  -ADConnectorAccountDN izinlerini sıkılaştırıldığını gereken AD hesabın parametredir. Bu genellikle, AD DS bağlayıcısında yapılandırılmış MSOL_nnnnnnnnnnnn etki alanı hesabı (AD DS bağlayıcı hesabınızın belirleme bakın). Credential parametresi, hedef AD nesne için Active Directory izinlerini kısıtlamak için gerekli ayrıcalıklara sahip bir yönetici hesabı belirtmeniz gerekir. Genellikle Kurumsal veya etki alanı yöneticisi budur.  
 
 ``` powershell
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 

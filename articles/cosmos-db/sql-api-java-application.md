@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: 3add2b6800463cf9320d2fcfdd87897d2e38d32d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4d6d26bd142a62d57b55caa290a2a94a3988737d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039818"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008679"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB ve SQL API’sini kullanarak bir Java web uygulaması oluşturma
 
@@ -42,7 +42,7 @@ Bu Java uygulaması öğreticisi görevleri oluşturmanızı, almanızı ve aşa
 ## <a id="Prerequisites"></a>Bu Java web uygulaması öğreticisi için önkoşullar
 Bu uygulama geliştirme öğreticisine başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
-*  Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
+* Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -722,7 +722,7 @@ Azure Web Siteleri Java uygulamalarını dağıtmayı, uygulamanızı bir WAR do
 3. Artık elinizde bir WAR dosyası olduğuna göre, bunu Azure Web Sitenizin **webapps** dizinine yüklemeniz yeterlidir. Dosyayı karşıya yükleme konusunda yönergeler için bkz. [Azure App Service Web Apps’e Java uygulaması ekleme](../app-service/web-sites-java-add-app.md).
    
     WAR dosyası webapps dizinine yüklendikten sonra, çalışma zamanı ortamı bunu eklemiş olduğunuzu algılar ve otomatik olarak yükler.
-4. Tamamlanmış ürününüzü görüntülemek için, http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/ adresine gidip görevlerinizi eklemeye başlayın!
+4. Tamamlanmış ürününüzü görüntülemek için, `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/` adresine gidip görevlerinizi eklemeye başlayın!
 
 ## <a id="GetProject"></a>Projeyi GitHub'dan alma
 Bu öğreticideki tüm örnekler GitHub'daki [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) projesinde bulunur. todo projesini Eclipse'e aktarmak için [Önkoşullar](#Prerequisites) bölümünde listelenen yazılım ve kaynaklara sahip olduğunuzdan emin olun ve ardından aşağıdakileri yapın:
@@ -747,6 +747,6 @@ Bu öğreticideki tüm örnekler GitHub'daki [todo](https://github.com/Azure-Sam
 18. Ekranın en altındaki **Sunucular** sekmesinde **Localhost'ta Tomcat v7.0 Sunucusu**'na sağ tıklayın ve ardından **Ekle ve Kaldır**'a tıklayın.
 19. **Ekle ve Kaldır** penceresinde **azure-documentdb-java-sample**'ı **Yapılandırılmış** kutusuna taşıyın ve ardından **Son**'a tıklayın.
 20. **Sunucular** sekmesinde **Localhost'ta Tomcat v7.0 Sunucusu**'na sağ tıklayın ve ardından **Yeniden Başlat**'a tıklayın.
-21. Bir tarayıcıda, http://localhost:8080/azure-documentdb-java-sample/ konumuna gidin ve görev listenizi eklemeye başlayın. Varsayılan bağlantı noktası değerlerinizi değiştirdiyseniz 8080'i seçtiğiniz değere değiştirmeyi unutmayın.
+21. Bir tarayıcıda, `http://localhost:8080/azure-documentdb-java-sample/` konumuna gidin ve görev listenizi eklemeye başlayın. Varsayılan bağlantı noktası değerlerinizi değiştirdiyseniz 8080'i seçtiğiniz değere değiştirmeyi unutmayın.
 22. Projenizi bir Azure web sitesine dağıtmak için bkz. [6. Adım. Uygulamanızı Azure Web Siteleri'ne dağıtın](#Deploy).
 

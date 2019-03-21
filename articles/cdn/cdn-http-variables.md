@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 70154a50086fabc84671e7e540d8496490ab5b2d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 42fd28f2a18ecf81c7846abdc7b3159a275a9cd7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436638"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013550"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Azure CDN kurallar altyapısı için HTTP değişkenleri
 HTTP değişkenleri üzerinden HTTP istek ve yanıt meta verilerini almak bir yöntem sağlar. Bu meta veriler, ardından bir istek veya yanıt dinamik olarak değiştirmek için kullanılabilir. Aşağıdaki kural altyapısı özellikleri için HTTP değişkenlerini sınırlıdır:
@@ -54,10 +54,10 @@ Aşağıdaki tabloda, desteklenen HTTP değişkenler açıklanmaktadır. Belirli
 | Sorgu dizesi parametresi bulunamadı | %{is_amp} | Bu değişken için değeri istek en az bir sorgu dizesi parametresi içeriyor göre değişir.<br /><br />-Parametresi bulunamadı: &<br />-Parametreler: NULL | & |
 | Sorgu dizesi parametresi değeri | % {arg_&lt;parametre&gt;} | Sorgu dizesi parametresi tarafından tanımlanan karşılık gelen bir değer döndürür &lt;parametre&gt; terim. | Örnek Kullanım: <br />%{arg_language}<br /><br />Örnek sorgu dizesi parametresi: <br />? Dil = tr<br /><br />Örnek değer: tr |
 | Sorgu dizesi değeri | %{query_string} | İstek URL'SİNDE tanımlanan tüm sorgu dizesi değerini gösterir. |key1=val1&key2=val2&key3=val3 |
-| Başvuran etki alanı | %{referring_domain} | Başvuran istek üstbilgisinde tanımlanan etki alanını gösterir. | www.google.com |
+| Başvuran etki alanı | %{referring_domain} | Başvuran istek üstbilgisinde tanımlanan etki alanını gösterir. | <www.google.com> |
 | Bölge (istek sahibi) | %{geo_region} | Alfasayısal eşlememiz aracılığıyla sahibinin bölge (örneğin, eyalet veya il) gösterir. | CA |
 | İstek üstbilgisi değeri | %{http_RequestHeader} | RequestHeader terimi tarafından tanımlanan istek üst bilgisi için karşılık gelen değeri döndürür. <br /><br />İstek üstbilgisi adı bir tire (örneğin, User-Agent) içeriyorsa, bir alt çizgiyle (örneğin, User_Agent) değiştirin.| Örnek Kullanım: % {http_Connection}<br /><br />Örnek değer: Tutma | 
-| İstek ana bilgisayarı | %{host} | İstek URL'SİNDE tanımlanan konak gösterir. | www.mydomain.com |
+| İstek ana bilgisayarı | %{host} | İstek URL'SİNDE tanımlanan konak gösterir. | < www.mydomain.com> |
 | İstek Protokolü | %{request_protocol} | İstek Protokolü belirtir. | HTTP/1.1 |
 | İstek düzeni | % {scheme} | İstek düzenini gösterir. |http |
 | İstek URI'si (göreli) | %{request_uri} | Tanımlanan istek URI'SİNDE sorgu dizesi dahil olmak üzere, göreli yol gösterir. | /Marketing/foo.js?loggedin=true |
@@ -187,8 +187,8 @@ Bu örnek senaryoda *request_urı* değişkeni ayarlanır:
 
 Aşağıdaki tabloda, bu sözdizimini nasıl çalıştığını gösterir.
 
-| Örnek söz dizimi | Sonuçlar |
-| ------------- | ------- |
+| Örnek söz dizimi | Sonuçlar | |
+| ------------- | ------- | --- |
 | %{request_uri#/800001}/customerorigin | /customerorigin/myorigin/Marketing/Product.HTML?Language=en-us | Değişken desen ile başladığından değiştirildi. |
 | %{request_uri%html}htm | /800001/myorigin/Marketing/Product.HTML?Language=en-us | Değişken desen ile sonlanmıyor olduğundan, hiçbir değişiklik yoktu.|
 

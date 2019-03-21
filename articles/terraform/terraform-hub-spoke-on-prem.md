@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
-ms.openlocfilehash: fedd83276a0182ecf2d39e43382bc264c6f88de5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 435ee13de28fb1591a5579761ecc7ad5bf9f9d76
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761694"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000828"
 ---
 # <a name="tutorial-create-on-premises-virtual-network-with-terraform-in-azure"></a>Öğretici: Azure'da Terraform ile şirket içi sanal ağ oluşturma
 
@@ -36,7 +36,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 Bir şirket içi ağı benzetmek için bir Azure sanal ağı oluşturun. VNet tanıtım gerçek özel şirket içi ağ yerini alır. Mevcut şirket içi ağınız ile aynı yapmak için uygun alt ağ IP adresleri eşleyin.
 
-1. [Azure portala](http://portal.azure.com) gidin.
+1. [Azure portala](https://portal.azure.com) gidin.
 
 1. [Azure Cloud Shell](/azure/cloud-shell/overview)'i açın. Önceden bir ortam seçmediyseniz **Bash** ortamını seçin.
 

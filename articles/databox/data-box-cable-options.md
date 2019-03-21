@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: ab6048ff54f9c593bb62fb3e9c40af930bf1edad
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: 4759676eff03606998759a586f758b7a26ead23d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091598"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077556"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Azure Data Box cihazınız için kablolama seçenekleri
 
@@ -39,7 +39,7 @@ Cihazınızın kablolarını bağlamak için aşağıdaki adımları gerçekleş
     - **IP adresi**: 192.168.100.5
     - **Alt ağ**: 255.255.255.0
 
-3. Cihazın yerel web kullanıcı arabirimine erişmek için şu adrese gidin: 192.168.100.10. Azure portaldan aldığınız kilit açma parolasını kullanarak Data Box'ta oturum açın ve cihazın kilidini açın.
+3. Yerel web kullanıcı Arabirimi cihazın erişim: 192.168.100.10. Azure portaldan aldığınız kilit açma parolasını kullanarak Data Box'ta oturum açın ve cihazın kilidini açın.
 
 
 ## <a name="transfer-via-data-port-with-static-ips"></a>Statik IP adresleriyle DATA bağlantı noktası aracılığıyla aktarım
@@ -62,12 +62,12 @@ Cihazınızın kablolarını bağlamak için aşağıdaki adımları gerçekleş
 2. DATA 3 için bir RJ45 veya DATA 1 ya da DATA 2 için SFP+ kabloları kullanarak veri kaynağı olarak kullanılan sunucuya bağlantı yapın. Yüksek performans için 10 GbE destekli DATA 1 veya DATA 2 bağlantı noktalarını kullanmanızı öneririz.
 3. Sunucuda şu ayarları yapın:
 
-    - **IP adresi**: 192.168.100.5
-    - **Alt ağ**: 255.255.255.0
+   - **IP adresi**: 192.168.100.5
+   - **Alt ağ**: 255.255.255.0
 
-    ![İki bağlantı noktası kurulumu](media/data-box-cable-options/cabling-2-port-setup.png)
+     ![İki bağlantı noktası kurulumu](media/data-box-cable-options/cabling-2-port-setup.png)
 
-3. Cihazın yerel web kullanıcı arabirimine erişmek için şu adrese gidin: 192.168.100.10. Azure portaldan aldığınız kilit açma parolasını kullanarak Data Box'ta oturum açın ve cihazın kilidini açın.
+3. Yerel web kullanıcı Arabirimi cihazın erişim: 192.168.100.10. Azure portaldan aldığınız kilit açma parolasını kullanarak Data Box'ta oturum açın ve cihazın kilidini açın.
 4. Yapılandırdığınız veri bağlantı noktalarına statik IP atayın.
 
 ### <a name="option-2---initial-setup-via-separate-computer"></a>2. Seçenek: Başlangıç kurulumunu ayrı bir bilgisayar üzerinden gerçekleştirme
@@ -78,12 +78,12 @@ Cihazınızın kablolarını bağlamak için aşağıdaki adımları gerçekleş
 2. DATA 3 için bir RJ45 veya DATA 1 ya da DATA 2 için SFP+ kabloları kullanarak sunucuya bağlantı yapın. Yüksek performans için 10 GbE destekli DATA 1 veya DATA 2 bağlantı noktalarını kullanmanızı öneririz. Veri bağlantı noktalarını verilerin bulunduğu sunucuya 10 GbE anahtar üzerinden bağlayın.
 3. Kullanmakta olduğunuz dizüstü bilgisayardaki Ethernet bağdaştırıcısını şu ayarlarla yapılandırın:
 
-    - **IP adresi**: 192.168.100.5
-    - **Alt ağ**: 255.255.255.0
+   - **IP adresi**: 192.168.100.5
+   - **Alt ağ**: 255.255.255.0
 
-    ![Anahtarla iki bağlantı noktası kurulumu](media/data-box-cable-options/cabling-with-static-ip.png)
+     ![Anahtarla iki bağlantı noktası kurulumu](media/data-box-cable-options/cabling-with-static-ip.png)
 
-3. Cihazın yerel web kullanıcı arabirimine erişmek için şu adrese gidin: 192.168.100.10. Azure portaldan aldığınız kilit açma parolasını kullanarak Data Box'ta oturum açın ve cihazın kilidini açın.
+3. Yerel web kullanıcı Arabirimi cihazın erişim: 192.168.100.10. Azure portaldan aldığınız kilit açma parolasını kullanarak Data Box'ta oturum açın ve cihazın kilidini açın.
 4. DHCP sunucusu tarafından atanan IP adreslerini belirleyin.
 
 ## <a name="transfer-via-data-port-with-static-ips-using-a-switch"></a>Anahtar kullanarak statik IP adresleriyle DATA bağlantı noktası aracılığıyla aktarım 
@@ -102,12 +102,12 @@ Cihazınızın kablolarını bağlamak için aşağıdaki adımları gerçekleş
 2. DATA 3 için bir RJ45 veya DATA 1 ya da DATA 2 için SFP+ kabloları kullanarak sunucuya bağlantı yapın. Yüksek performans için 10 GbE destekli DATA 1 veya DATA 2 bağlantı noktalarını kullanmanızı öneririz.
 3. Kullanmakta olduğunuz dizüstü bilgisayardaki Ethernet bağdaştırıcısını şu ayarlarla yapılandırın:
 
-    - **IP adresi**: 192.168.100.5
-    - **Alt ağ**: 255.255.255.0
+   - **IP adresi**: 192.168.100.5
+   - **Alt ağ**: 255.255.255.0
 
-    ![Anahtarla iki bağlantı noktası kurulumu](media/data-box-cable-options/cabling-with-switch-static-ip.png)
+     ![Anahtarla iki bağlantı noktası kurulumu](media/data-box-cable-options/cabling-with-switch-static-ip.png)
 
-3. Cihazın yerel web kullanıcı arabirimine erişmek için şu adrese gidin: 192.168.100.10. Azure portaldan aldığınız kilit açma parolasını kullanarak Data Box'ta oturum açın ve cihazın kilidini açın.
+3. Yerel web kullanıcı Arabirimi cihazın erişim: 192.168.100.10. Azure portaldan aldığınız kilit açma parolasını kullanarak Data Box'ta oturum açın ve cihazın kilidini açın.
 4. Yapılandırdığınız veri bağlantı noktalarına statik IP atayın.
 
 

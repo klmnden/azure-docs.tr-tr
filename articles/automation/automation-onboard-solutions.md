@@ -9,12 +9,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 5cf09753645d8238232e064af2ba1a301a2a7217
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
-ms.translationtype: HT
+ms.openlocfilehash: d247369647106cf1671a8770a6dce21f1a34a4b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41920126"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082203"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Güncelleştirme ve değişiklik izleme çözümlerini Azure Otomasyonu’na ekleme
 
@@ -27,7 +27,7 @@ Bu öğreticide VM’lere yönelik Güncelleştirme, Değişiklik İzleme ve Say
 > * Ekleme runbook’unu içeri aktarma
 > * Runbook’u başlatma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
@@ -81,7 +81,7 @@ Güncelleştirme yönetimi çözümü yüklenirken mavi renkli bir başlık gös
    ![VM için güncelleştirme çözümünü etkinleştirme](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> Bir sonraki çözümü etkinleştirmek için diğer çözümün tamamlanmasını beklemezseniz şu iletiyi alırsınız: *Diğer çözümün yüklenmesi bu ya da farklı bir sanal makinede devam ediyor. Yükleme tamamlandığında, Etkinleştir düğmesi etkinleştirilecektir, çözümün bu sanal makineye yüklenmesini isteyebilirsiniz.*
+> Bir sonraki çözümü etkinleştirmek diğer çözümün tamamlanmasını beklemez belirten bir ileti alırsınız: *Diğer çözümün yüklenmesi bu ya da farklı bir sanal makine sürüyor. Yükleme tamamlandığında, Etkinleştir düğmesi etkinleştirilecektir, çözümün bu sanal makineye yüklenmesini isteyebilirsiniz.*
 
 ## <a name="install-and-update-modules"></a>Modülleri yükleme ve güncelleştirme
 
@@ -105,7 +105,7 @@ Otomasyon Hesabınızdan **PAYLAŞILAN KAYNAKLAR** bölümündeki **Modüller** 
 1. **Galeriye gözat** seçeneğini belirleyin.
 1. **Güncelleştirme ve değişiklik izleme** araması yapın, runbook’a tıklayın ve **Kaynağı Görüntüle** sayfasındaki **İçeri Aktar** seçeneğini belirleyin. Runbook’u Otomasyon hesabına aktarmak için **Tamam** seçeneğini belirleyin.
 
-  ![Ekleme runbook’unu içeri aktarma](media/automation-onboard-solutions/import-from-gallery.png)
+   ![Ekleme runbook’unu içeri aktarma](media/automation-onboard-solutions/import-from-gallery.png)
 
 1. **Runbook** sayfasında **Düzenle** seçeneğini, sonra da **Yayımla** seçeneğini belirleyin. Runbook’u yayımlamak için **Runbook’u Yayımla** iletişim kutusunda **Evet**’i seçin.
 

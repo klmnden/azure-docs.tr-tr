@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46fc0a49ebae86a715685e1073b4eb7cc10e6032
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 65e803ca373fb9853fc23d17f1a27ecadc6a209c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533417"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295224"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure portalında Etkinlik raporlarını bulma
 
@@ -81,12 +81,12 @@ Hizmetlere şunlar dahildir:
 - B2C
 - Koşullu Erişim
 - Çekirdek Dizin
-- Hak Yönetimi
+- Yetkilendirme Yönetimi
 - Kimlik Koruması
 - Davetli Kullanıcılar
 - PIM
 - Self Servis Grup Yönetimi
-- Self Servis Passord Yönetimi
+- Self Servis Parola Yönetimi
 - Kullanım Koşulları
 
 ## <a name="sign-ins-report"></a>Oturum açma işlemleri raporu 
@@ -153,11 +153,11 @@ Etkinlik günlüklerini (denetim veya oturum açma) indirdim ve seçtiğim süre
  
 #### <a name="cause"></a>Nedeni
 
-Azure Portal'da etkinlik günlüklerini indirdiğinizde, en son gerçekleşen en başta tarafından sıralanan 5000 kayıt ölçek sınırlıyoruz. 
+Azure Portal'da etkinlik günlüklerini indirdiğinizde ölçek en son gerçekleşen en başta tarafından sıralanan 250000 kayıtlara sınırlıyoruz. 
 
 #### <a name="resolution"></a>Çözüm
 
-Belirli bir noktadaki bir milyon kaydı getirmek için [Azure AD Raporlama API’lerini](concept-reporting-api.md) kullanabilirsiniz. Bizim önerdiğimiz yaklaşım olmaktır [bir zamanlamaya göre Çalıştır](tutorial-signin-logs-download-script.md) bir sürede (örneğin, günlük veya haftalık) artımlı bir şekilde kayıt getirilecek raporlama API'lerini çağırır. 
+Belirli bir noktadaki bir milyon kaydı getirmek için [Azure AD Raporlama API’lerini](concept-reporting-api.md) kullanabilirsiniz.
 
 ### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Azure portalında son eylemleri için denetim veri eksik
 

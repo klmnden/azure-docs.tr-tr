@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2018
-ms.openlocfilehash: a42d2c75913b2c9fdfa0d2b7c3ec2742525a4c97
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.date: 03/13/2019
+ms.openlocfilehash: 354f6014e3230b65a0c4f1cd7507e58ca94474dd
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806105"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188110"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Azure Databricks kümeleri için bölgesel bir olağanüstü durum kurtarma
 
@@ -263,9 +263,14 @@ Kendi bölgesel bir olağanüstü durum kurtarma topolojisi oluşturmak için bu
 
 10. **El ile yeniden yapılandırın ve erişim denetimi uygulayın.**
 
-   Var olan, birincil çalışma alanı Premium Katmanı (SKU) kullanmak için yapılandırılmışsa, ayrıca kullandığınız olma olasılığı yüksektir [erişim denetimi özelliği](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
+    Var olan, birincil çalışma alanı Premium Katmanı (SKU) kullanmak için yapılandırılmışsa, ayrıca kullandığınız olma olasılığı yüksektir [erişim denetimi özelliği](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
 
-   El ile erişim denetimi özelliğini kullanırsanız, erişim denetimi (not defterleri, kümeler, işler, tabloları) kaynaklarına yeniden uygulayın.
+    El ile erişim denetimi özelliğini kullanırsanız, erişim denetimi (not defterleri, kümeler, işler, tabloları) kaynaklarına yeniden uygulayın.
+
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Olağanüstü durum kurtarma için Azure ekosistemi
+
+Diğer Azure Hizmetleri kullanılıyorsa, olağanüstü durum kurtarma için en iyi hizmetlerin çok uygulandığından emin olun. Örneğin, bir dış Hive meta veri deposu örneği kullanmayı seçerseniz, olağanüstü durum kurtarma için dikkate almanız gereken [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), ve/veya [MySQL için Azure veritabanı ](../mysql/concepts-business-continuity.md). Olağanüstü durum kurtarma hakkında genel bilgi için bkz: [Azure uygulamaları için olağanüstü durum kurtarma](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Daha fazla bilgi için [Azure Databricks belgeleri](https://docs.azuredatabricks.net/user-guide/index.html).

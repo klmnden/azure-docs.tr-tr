@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: e52cf99e3bdd1960ca361ccde50d85dfaa2209c0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1b18bd5aae398d2ec942120af5d96943636c346c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544929"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101120"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Azure depolama blobundan Azure Stream Analytics'i kullanarak Azure Data Lake depolama Gen1 Stream veri
 Bu makalede Azure Data Lake depolama Gen1 Azure Stream Analytics işi için çıkış olarak kullanmak öğreneceksiniz. Bu makalede, Azure Storage blobundan (giriş) verileri okur ve verileri için Data Lake depolama Gen1 yazan basit bir senaryo gösterilmektedir (çıktı).
@@ -54,17 +54,17 @@ Bir giriş kaynağı ve bir çıkış hedefini içeren bir Stream Analytics işi
 
     ![İşinize bir girdi Ekle](./media/data-lake-store-stream-analytics/create.input.2.png "işinize bir girdi Ekle")
 
-    * İçin **giriş diğer adı**, giriş işlemi için benzersiz bir ad girin.
-    * İçin **kaynak türünü**seçin **veri akışı**.
-    * İçin **kaynak**seçin **Blob Depolama**.
-    * İçin **abonelik**seçin **geçerli abonelik kullanım blob depolamadan**.
-    * İçin **depolama hesabı**, önkoşulların bir parçası oluşturduğunuz depolama hesabını seçin. 
-    * İçin **kapsayıcı**, seçilen depolama hesabında oluşturulan kapsayıcıyı seçin.
-    * İçin **olay serileştirme biçimi**seçin **CSV**.
-    * İçin **sınırlayıcı**seçin **sekmesini**.
-    * İçin **kodlama**seçin **UTF-8**.
+   * İçin **giriş diğer adı**, giriş işlemi için benzersiz bir ad girin.
+   * İçin **kaynak türünü**seçin **veri akışı**.
+   * İçin **kaynak**seçin **Blob Depolama**.
+   * İçin **abonelik**seçin **geçerli abonelik kullanım blob depolamadan**.
+   * İçin **depolama hesabı**, önkoşulların bir parçası oluşturduğunuz depolama hesabını seçin. 
+   * İçin **kapsayıcı**, seçilen depolama hesabında oluşturulan kapsayıcıyı seçin.
+   * İçin **olay serileştirme biçimi**seçin **CSV**.
+   * İçin **sınırlayıcı**seçin **sekmesini**.
+   * İçin **kodlama**seçin **UTF-8**.
 
-    **Oluştur**’a tıklayın. Portal şimdi giriş ekler ve onu bağlantısını test eder.
+     **Oluştur**’a tıklayın. Portal şimdi giriş ekler ve onu bağlantısını test eder.
 
 
 ## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>İş için bir Data Lake depolama Gen1 çıkışı oluşturma
@@ -84,15 +84,15 @@ Bir giriş kaynağı ve bir çıkış hedefini içeren bir Stream Analytics işi
 
     ![İşinize bir çıktı eklemek](./media/data-lake-store-stream-analytics/create.output.3.png "işinize bir çıktı ekleyin")
 
-    * İçin **hesap adı**, zaten oluşturduğunuz projenin çıkış gönderilmesi için istediğiniz Data Lake depolama Gen1 hesabını seçin.
-    * İçin **yol ön eki deseni**, belirtilen Data Lake depolama Gen1 hesap dosyalarınızı yazmak için kullanılan bir dosya yolu girin.
-    * İçin **tarih biçimi**, ön eki yolunda bir tarih belirteci kullandıysanız, dosyalarınızı düzenlenir tarih biçimi seçin.
-    * İçin **saat biçimi**, ön eki yolunda bir zaman belirteç kullandıysanız dosyalarınızı düzenlenir saat biçimini belirtin.
-    * İçin **olay serileştirme biçimi**seçin **CSV**.
-    * İçin **sınırlayıcı**seçin **sekmesini**.
-    * İçin **kodlama**seçin **UTF-8**.
+   * İçin **hesap adı**, zaten oluşturduğunuz projenin çıkış gönderilmesi için istediğiniz Data Lake depolama Gen1 hesabını seçin.
+   * İçin **yol ön eki deseni**, belirtilen Data Lake depolama Gen1 hesap dosyalarınızı yazmak için kullanılan bir dosya yolu girin.
+   * İçin **tarih biçimi**, ön eki yolunda bir tarih belirteci kullandıysanız, dosyalarınızı düzenlenir tarih biçimi seçin.
+   * İçin **saat biçimi**, ön eki yolunda bir zaman belirteç kullandıysanız dosyalarınızı düzenlenir saat biçimini belirtin.
+   * İçin **olay serileştirme biçimi**seçin **CSV**.
+   * İçin **sınırlayıcı**seçin **sekmesini**.
+   * İçin **kodlama**seçin **UTF-8**.
     
-    **Oluştur**’a tıklayın. Portal şimdi çıkış ekler ve onu bağlantısını test eder.
+     **Oluştur**’a tıklayın. Portal şimdi çıkış ekler ve onu bağlantısını test eder.
     
 ## <a name="run-the-stream-analytics-job"></a>Stream Analytics işini çalıştırma
 

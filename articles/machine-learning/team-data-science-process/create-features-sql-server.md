@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ce3fdef6429452eeee522896b47ed71de6a10201
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2d01b74e7db275f4b2e3933415bbae40911b114b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451742"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57854900"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>SQL ve Python kullanarak SQL Server’daki verilerin özelliklerini oluşturma
 Bu belge, daha verimli bir şekilde verilerden bilgi algoritmaları yardımcı olan bir SQL Server VM'si, azure'da depolanan verilerin özelliklerini oluşturma adımları anlatılmaktadır. Bu görevi gerçekleştirmek için SQL veya Python gibi bir programlama dili kullanabilirsiniz. Her iki yaklaşım burada gösterilmiştir.
@@ -24,7 +24,7 @@ Bu belge, daha verimli bir şekilde verilerden bilgi algoritmaları yardımcı o
 Bu görev bir adımdır [Team Data Science işlem (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 > [!NOTE]
-> Pratik bir örnek için başvurabilirsiniz [NYC taksi dataset](http://www.andresmh.com/nyctaxitrips/) ve başlıklı IPNB [Ipython Notebook ve SQL Server'ı kullanarak NYC veri denetimi](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) uçtan uca bir kılavuz için.
+> Pratik bir örnek için başvurabilirsiniz [NYC taksi dataset](https://www.andresmh.com/nyctaxitrips/) ve başlıklı IPNB [Ipython Notebook ve SQL Server'ı kullanarak NYC veri denetimi](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) uçtan uca bir kılavuz için.
 > 
 > 
 
@@ -63,7 +63,7 @@ Aşağıdaki örnek, bunun yerine bir özelliği olarak kullanılabilir bir say�
 ### <a name="sql-featurerollout"></a>Tek bir sütundan özellikleri alınıyor
 Bu bölümde ek özellikler oluşturmak için bir tablodaki tek bir sütun kullanıma sunma gösterilmektedir. Örnek özellikleri oluşturmak çalıştığınız tablosunda bir enlem veya boylam sütunu olduğunu varsayar.
 
-Enlem/boylam konumu veri kısa öncü İşte (stackoverflow kaynak var `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Özellikler alanı oluşturmadan önce ilgili konum verileri anlamak için yararlı işlemlerden bazıları aşağıda verilmiştir:
+Enlem/boylam konumu veri kısa öncü İşte (stackoverflow kaynak var `https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Özellikler alanı oluşturmadan önce ilgili konum verileri anlamak için yararlı işlemlerden bazıları aşağıda verilmiştir:
 
 * Oturum, biz Kuzey olup veya Güney, Doğu veya Batı dünya üzerindeki gösterir.
 * Sıfır olmayan bir yüz basamağı belirtir boylam, enlem değil kullanılıyor.
@@ -111,7 +111,7 @@ Aşağıdaki bağlantı dizesi biçimi python'dan pyodbc (Değiştir servername,
     import pyodbc
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-[Pandas Kitaplığı](http://pandas.pydata.org/) Python'da Python programlama için veri işleme için zengin bir veri yapıları ve verileri analiz araçları sağlar. Aşağıdaki kod, sonuçları bir SQL Server veritabanından bir Pandas veri çerçevesine döndürülen okur:
+[Pandas Kitaplığı](https://pandas.pydata.org/) Python'da Python programlama için veri işleme için zengin bir veri yapıları ve verileri analiz araçları sağlar. Aşağıdaki kod, sonuçları bir SQL Server veritabanından bir Pandas veri çerçevesine döndürülen okur:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)

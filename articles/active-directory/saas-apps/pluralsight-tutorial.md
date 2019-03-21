@@ -4,7 +4,7 @@ description: Pluralsight ile Azure Active Directory arasında çoklu oturum açm
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 4c3f07d2-4e1f-4ea3-9025-c663f1f2b7b4
 ms.service: active-directory
@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/26/2018
+ms.date: 03/05/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c78b634cb0295a2f5109433e6a93b8a5f4f67cea
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b2d8d98fb9c953ef8063bf2081201f7d9bdf3649
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761761"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874992"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Öğretici: Pluralsight ile Azure Active Directory Tümleştirme
 
@@ -46,6 +45,8 @@ Pluralsight ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki ö
 Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
 * Pluralsight'ı destekleyen **SP** tarafından başlatılan
+
+* Pluralsight'ı destekleyen **just-ın-time** kullanıcı sağlama 
 
 ## <a name="adding-pluralsight-from-the-gallery"></a>Pluralsight galeri ekleme
 
@@ -114,14 +115,13 @@ Pluralsight ile Azure AD çoklu oturum açmayı yapılandırmak için aşağıda
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve yanıt URL'si ile güncelleştirin. İlgili kişi [Pluralsight istemci Destek ekibine](mailto:support@pluralsight.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-5. Pluralsight uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
-
-    ![image](common/edit-attribute.png)
+5. Pluralsight uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Aşağıdaki ekran görüntüsünde, varsayılan öznitelikler listesinde gösterilmiştir. Tıklayın **Düzenle** açmak için simgeyi **kullanıcı öznitelikleri** iletişim.
+    ![Görüntü](common/edit-attribute.png)
 
     >[!NOTE]
     >Ayrıca ekleyebilirsiniz **"Benzersiz kimliği"** EmployeeID veya başka bir şey gibi kuruluşunuz için uygun uygun değere sahip bir öznitelik. Ayrıca bu gerekli öznitelik olmadığını unutmayın; Ancak, benzersiz bir kullanıcıyı tanımlamak için ekleyebilirsiniz.
 
-6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
+6. Yukarıdaki için ayrıca Pluralsight uygulama SAML yanıtta geçirilecek birkaç daha fazla öznitelik bekliyor. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda gösterildiği gibi SAML belirteci özniteliği eklemek için aşağıdaki adımları gerçekleştirin tablonun altındaki:
     
     | Ad | Kaynak özniteliği|
     | --------------- | --------- |
@@ -173,7 +173,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -208,7 +208,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Pluralsight erişim vere
 
 ### <a name="create-pluralsight-test-user"></a>Pluralsight test kullanıcısı oluşturma
 
-Bu bölümün amacı Pluralsight Britta Simon adlı bir kullanıcı oluşturmaktır. Lütfen birlikte çalışarak [Pluralsight istemci Destek ekibine](mailto:support@pluralsight.com) Pluralsight hesabı kullanıcıları eklemek için.  Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+Bu bölümde, Britta Simon adlı bir kullanıcı Pluralsight oluşturulur. Pluralsight just-ın-time kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Pluralsight bir kullanıcı zaten mevcut değilse yeni bir kimlik doğrulamasından sonra oluşturulur.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
@@ -218,7 +218,7 @@ Erişim panelinde Pluralsight kutucuğa tıkladığınızda, otomatik olarak SSO
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5390885ccb4bbc3e1552d3f5e80c1b451b7bee38
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 4b4527bfaacc592c13552e362de0cba620314cd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570173"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122055"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Azure hızlı başlangıç şablonları, Azure VM'deki SQL Server Always On kullanılabilirlik grubu yapılandırmak için kullanın
 Bu makalede, Azure hızlı başlangıç şablonları kısmen SQL Server sanal makineleri için azure'da bir Always On kullanılabilirlik grubu yapılandırmasının dağıtımını otomatikleştirmek için kullanmayı açıklar. Bu işlemde kullanılan iki Azure hızlı başlangıç şablonları vardır. 
@@ -76,8 +76,8 @@ SQL VM yeni kaynak sağlayıcısı ile SQL Server sanal makineleriniz üzere kay
 1. Hüküm ve koşulları kabul ediyorsanız, yanındaki onay kutusunu işaretleyin **hüküm ve koşulları yukarıda belirtilen kabul ediyorum** seçip **satın alma** hızlı başlangıç şablon dağıtımı sonlandırmak için. 
 1. Dağıtımınızı izlemek için dağıtımdan seçin **bildirimleri** çan simgesine, üst gezinti başlığı veya gidin, **kaynak grubu** Azure portalında  **Dağıtımları** içinde **ayarları** alanı ve 'Microsoft.Template' dağıtımı'nı seçin. 
 
-  >[!NOTE]
-  > Şablon dağıtımı sırasında sağlanan kimlik bilgileri yalnızca dağıtım uzunluğu için depolanır. Dağıtım tamamlandıktan sonra bu parolaları kaldırılır ve kümeye daha fazla SQL Server Vm'leri eklemelisiniz sağlayacağını yeniden istenir. 
+   >[!NOTE]
+   > Şablon dağıtımı sırasında sağlanan kimlik bilgileri yalnızca dağıtım uzunluğu için depolanır. Dağıtım tamamlandıktan sonra bu parolaları kaldırılır ve kümeye daha fazla SQL Server Vm'leri eklemelisiniz sağlayacağını yeniden istenir. 
 
 
 ## <a name="step-2---manually-create-the-availability-group"></a>2. adım: kullanılabilirlik grubunu el ile oluşturma 
@@ -150,8 +150,8 @@ ILB yapılandırmak ve /AG dinleyicisi oluşturmak için aşağıdakileri yapın
 1. Hüküm ve koşulları kabul ediyorsanız, yanındaki onay kutusunu işaretleyin **hüküm ve koşulları yukarıda belirtilen kabul ediyorum** seçip **satın alma** hızlı başlangıç şablon dağıtımı sonlandırmak için. 
 1. Dağıtımınızı izlemek için dağıtımdan seçin **bildirimleri** çan simgesine, üst gezinti başlığı veya gidin, **kaynak grubu** Azure portalında  **Dağıtımları** içinde **ayarları** alanı ve 'Microsoft.Template' dağıtımı'nı seçin. 
 
-  >[!NOTE]
-  >Yarı aşamalardaki, dağıtım başarısız olursa, el ile yapmanız gerekir [yeni oluşturulan dinleyiciyi kaldırmak](#remove-availability-group-listener) yeniden dağıtmadan önce PowerShell kullanarak **101-sql-vm-aglistener-setup** Hızlı Başlangıç şablonu. 
+   >[!NOTE]
+   >Yarı aşamalardaki, dağıtım başarısız olursa, el ile yapmanız gerekir [yeni oluşturulan dinleyiciyi kaldırmak](#remove-availability-group-listener) yeniden dağıtmadan önce PowerShell kullanarak **101-sql-vm-aglistener-setup** Hızlı Başlangıç şablonu. 
 
 ## <a name="remove-availability-group-listener"></a>Kullanılabilirlik grubu dinleyicisi Kaldır
 Daha sonra şablon tarafından yapılandırılan kullanılabilirlik grubu dinleyicisi kaldırmanız gerekirse, SQL VM kaynak sağlayıcısı aracılığıyla gitmeniz gerekir. Dinleyicisi SQL VM kaynak sağlayıcısı kayıtlı olduğundan, SQL Server Management Studio silmeden yeterli değildir. PowerShell kullanarak SQL VM kaynak sağlayıcısı gerçekten silinmesi gerekir. Bunun yapılması, AG dinleyici meta veriler SQL VM kaynak Sağlayıcısı'ndan kaldırır ve fiziksel kullanılabilirlik grubu dinleyicisi siler. 
@@ -183,17 +183,17 @@ Bu hata iki nedenden biri tarafından neden olabilir. Belirtilen etki alanı hes
 
  Hesap mevcut olduğunu doğrulayın. Aksi halde ikinci durum çalışıyor olabilir. Bu sorunu gidermek için aşağıdakileri yapın:
 
- 1. Etki alanı denetleyicisinde açın **Active Directory Kullanıcıları ve Bilgisayarları** penceresinden **Araçları** seçeneğini **Sunucu Yöneticisi**. 
- 2. Seçerek hesabına gidin **kullanıcılar** sol bölmede.
- 3. İstenen hesabını sağ tıklatın ve seçin **özellikleri**.
- 4. Seçin **hesabı** doğrulayın ve sekme **kullanıcı oturum açma adı** boştur. Eğer öyleyse, hatanın nedeni budur. 
+1. Etki alanı denetleyicisinde açın **Active Directory Kullanıcıları ve Bilgisayarları** penceresinden **Araçları** seçeneğini **Sunucu Yöneticisi**. 
+2. Seçerek hesabına gidin **kullanıcılar** sol bölmede.
+3. İstenen hesabını sağ tıklatın ve seçin **özellikleri**.
+4. Seçin **hesabı** doğrulayın ve sekme **kullanıcı oturum açma adı** boştur. Eğer öyleyse, hatanın nedeni budur. 
 
-     ![Boş bir kullanıcı hesabı eksik UPN gösterir](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
+    ![Boş bir kullanıcı hesabı eksik UPN gösterir](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
 
- 5. Doldurun **kullanıcı oturum açma adı** kullanıcı adını eşleştirmek ve aşağı açılan listeden uygun etki alanını seçin. 
- 6. Seçin **Uygula** değişikliklerinizi kaydedip seçerek iletişim kutusunu kapatmak için **Tamam**. 
+5. Doldurun **kullanıcı oturum açma adı** kullanıcı adını eşleştirmek ve aşağı açılan listeden uygun etki alanını seçin. 
+6. Seçin **Uygula** değişikliklerinizi kaydedip seçerek iletişim kutusunu kapatmak için **Tamam**. 
 
- Bu değişiklikler yapıldıktan sonra bir kez daha fazla Azure Hızlı Başlangıç şablonu dağıtmak çalışır. 
+   Bu değişiklikler yapıldıktan sonra bir kez daha fazla Azure Hızlı Başlangıç şablonu dağıtmak çalışır. 
 
 
 

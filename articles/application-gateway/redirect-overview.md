@@ -1,6 +1,6 @@
 ---
-title: Azure uygulama ağ geçidi için yeniden yönlendirmeye genel bakış
-description: Azure uygulama ağ geçidi yeniden yönlendirme özelliği hakkında bilgi edinin
+title: Azure Application Gateway için yeniden yönlendirmeye genel bakış
+description: Azure Application Gateway'de yeniden yönlendirme özelliği hakkında bilgi edinin
 services: application-gateway
 documentationcenter: na
 author: amsriva
@@ -13,33 +13,40 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/19/2018
 ms.author: amsriva
-ms.openlocfilehash: 65c631ca9beb5eab5d8fe2b7e71daa0cf3b768fa
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 8e88e0e11b3ccab7cc2c68b2617df2d588680780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204386"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170063"
 ---
-# <a name="application-gateway-redirect-overview"></a>Uygulama ağ geçidi yeniden yönlendirmeye genel bakış
+# <a name="application-gateway-redirect-overview"></a>Application Gateway yeniden yönlendirmeye genel bakış
 
-Birçok web uygulamaları için yaygın bir senaryo, şifrelenmiş bir yolu üzerinden uygulama ve onun kullanıcıları arasındaki tüm iletişimi sağlamak için otomatik HTTP HTTPS yeniden yönlendirmesi için desteklemektir. Geçmişte, müşteriler, HTTPS için http aldığı isteklerini yeniden yönlendirmek için tek amacı olan bir adanmış arka uç havuzu oluşturma gibi teknikler kullandınız.
+Uygulama ağ geçidi trafiği yönlendirmek için kullanabilirsiniz.  Veren başka bir dinleyici veya dış bir siteye bir dinleyici geliş trafiği yönlendirmek için genel yönlendirme mekanizması var. Bu uygulama yapılandırmasını basitleştiren, kaynak kullanımını en iyi duruma getirir ve genel ve yol tabanlı yeniden yönlendirme de dahil olmak üzere yeni yeniden yönlendirme senaryoları destekler.
 
-Uygulama ağ geçidi artık ağ geçidinde trafiği yönlendirmek için özelliğini destekler. Bu uygulama yapılandırmasını basitleştirir, kaynak kullanımını en iyi duruma getirir ve genel ve yol tabanlı yönlendirme dahil olmak üzere yeni yeniden yönlendirme senaryoları destekler. Uygulama ağ geçidi yeniden yönlendirme desteği için HTTP sınırlı değildir HTTPS yeniden yönlendirmesi tek başına ->. Uygulama ağ geçidi başka bir dinleyici için bir dinleyici geliş trafik yeniden yönlendirmesi izin veren bir genel yönlendirme mekanizması vardır. Dış site yeniden yönlendirme da desteklenir.
+HTTPS yeniden yönlendirmesi için otomatik HTTP şifrelenmiş bir yolu, kullanıcıların uygulama arasındaki tüm iletişimi sağlamak için birçok web uygulamaları için ortak bir yeniden yönlendirme senaryosu desteklemektir. Geçmişte, müşteriler, HTTP, HTTPS için aldığı isteklerini yeniden yönlendirmek için tek amacı olan bir adanmış arka uç havuzu oluşturma gibi teknikler kullandınız. Application Gateway'de yeniden yönlendirme desteği sayesinde, bunu powershell'inizi yazarak yeni bir yeniden yönlendirme yapılandırması için yönlendirme kuralı ekleme ve hedef dinleyici olarak HTTPS protokolüne sahip başka bir dinleyici belirterek gerçekleştirebilirsiniz.
 
-Uygulama ağ geçidi yeniden yönlendirme desteği aşağıdaki özellikleri sunar:
+Yeniden yönlendirme aşağıdaki türleri desteklenir:
+
+- 301 kalıcı bir yeniden yönlendirme
+- 302 Bulundu
+- 303 diğerini gör
+- 307 geçici yeniden yönlendirme
+
+Application Gateway yeniden yönlendirme desteği aşağıdaki özellikleri sunar:
 
 -  **Genel Yönlendirme**
 
-   Ağ geçidi başka bir dinleyici bir dinleyici gelen yönlendirir. Bu, bir sitede HTTPS yeniden yönlendirmesi için HTTP sağlar.
+   Tek bir dinleyici alanından başka bir ağ geçidi Dinleyicide yeniden yönlendirir. Bu özellik, bir sitede HTTP’den HTTPS’ye yeniden yönlendirmeyi sağlar.
 - **Yol tabanlı yeniden yönlendirme**
 
-   Bu tür bir yeniden yönlendirme HTTP HTTPS yeniden yönlendirme yalnızca belirli site alanında, örneğin bir alışveriş sepeti alanı/Sepeti/gösterilen sağlar *.
+   Bu tür bir yeniden yönlendirme HTTP yalnızca belirli bir site alanı üzerinde HTTPS yeniden yönlendirmesi/Sepeti/bir alışveriş sepeti alanı örneğin gösterilen sağlar *.
 - **Dış siteye yeniden yönlendirme**
 
 ![yeniden yönlendirme](./media/redirect-overview/redirect.png)
 
-Bu değişiklikle müşterileri hedef dinleyici belirten yeni yeniden yönlendirme yapılandırma nesnesi veya yeniden yönlendirme istenen dış site oluşturmanız gerekir. Yapılandırma öğesi de yeniden yönlendirilen URL URI yol ve sorgu dizesini ekleyerek etkinleştirmek için seçeneklerini destekler. Yeniden yönlendirme geçici (HTTP durum kodu 302) ya da kalıcı bir yeniden yönlendirme (HTTP durum kodu 301) olup olmadığını da seçebilirsiniz. Oluşturduktan sonra bu yeniden yönlendirme yapılandırma kaynağı dinleyicisi aracılığıyla yeni bir kural eklenmiş. Temel bir kural kullanırken, yeniden yönlendirme yapılandırma kaynağı dinleyicisi ile ilişkili ve genel bir yeniden yönlendirme. Yol tabanlı bir kural kullanıldığında, yeniden yönlendirme yapılandırması URL yolu haritada tanımlanır. Bu nedenle yalnızca bir sitenin belirli yol alanına uygular.
+Bu değişiklik, müşterilere bir hedef dinleyici belirten yeni yeniden yönlendirme yapılandırma nesnesi veya dış siteye yeniden yönlendirme istenildiği gibi oluşturmanız gerekir. Yapılandırma öğesi, URI yolu ve sorgu dizesini URL'ye yeniden yönlendirilen ekleyerek etkinleştirmek için seçeneklerini de destekler. Yeniden yönlendirme türünü de seçebilirsiniz. Oluşturulduktan sonra yeni bir kural aracılığıyla kaynak dinleyicisi bu yeniden yönlendirme yapılandırması eklenir. Temel kural kullanırken, yeniden yönlendirme yapılandırması kaynak dinleyici ile ilişkili ve genel bir yeniden yönlendirme. Yola dayalı kural kullanıldığında, yeniden yönlendirme yapılandırması URL yolu haritada tanımlanır. Bu nedenle yalnızca bir sitenin belirli bir yol alanı için geçerlidir.
 
 ### <a name="next-steps"></a>Sonraki adımlar
 
-[Bir uygulama ağ geçidinde URL yeniden yönlendirmeyi yapılandırma](tutorial-url-redirect-powershell.md)
+[Bir uygulama ağ geçidinde URL yeniden yönlendirmesini yapılandırma](tutorial-url-redirect-powershell.md)

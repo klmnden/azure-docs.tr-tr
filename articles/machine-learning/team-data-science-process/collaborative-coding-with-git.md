@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 045f2d12eb6836d14a09ea96c8eca3cad0e5246d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 551d0cd149c4d1555a40ccf0d7baeff97c6809c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458261"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863313"
 ---
 # <a name="collaborative-coding-with-git"></a>Git ile işbirliği içinde kodlama
 
@@ -36,7 +36,7 @@ Dal adı temel Git deposu ve dalı gibi bu yeni dal için bilgileri sağlayın. 
 
 Her hikayesi iş öğesi için bir Git dal oluşturmak iyi bir uygulamadır. Ardından, her görev çalışma öğesi için hikaye dala göre bir dal oluşturun. Aynı projeye farklı hikayelerdeki çalışan birden çok kişinin kullandığınız ya da aynı hikayeyi farklı görevler üzerinde çalışan birden çok kişinin sahip hikaye görev ilişkilerini karşılık gelen hiyerarşik bu şekilde dalları düzenlemek yararlıdır. Her ekip üyesi farklı bir dal ve her üye bir dal paylaşırken farklı kodlarını veya diğer yapıları üzerinde çalışsa çalışırken çakışmaları en aza indirilebilir. 
 
-Aşağıdaki resimde TDSP için önerilen dallanma stratejisi gösterilmektedir. Özellikle yalnızca biri varsa burada gösterilen şekilde veya aynı proje üzerinde çalışan iki kişinin çoğu dallar veya yalnızca bir kişinin bir hikaye tüm görevler üzerinde çalıştığı gerekmeyebilir. Ancak, ana daldan geliştirme dalına ayırarak her zaman iyi bir uygulamadır. Bu yayın dalı geliştirme etkinlikleri tarafından kesintiye önlemeye yardımcı olabilir. Git dal modeli daha ayrıntılı açıklama bulunabilir [bir başarılı Git dallanma modeli](http://nvie.com/posts/a-successful-git-branching-model/).
+Aşağıdaki resimde TDSP için önerilen dallanma stratejisi gösterilmektedir. Özellikle yalnızca biri varsa burada gösterilen şekilde veya aynı proje üzerinde çalışan iki kişinin çoğu dallar veya yalnızca bir kişinin bir hikaye tüm görevler üzerinde çalıştığı gerekmeyebilir. Ancak, ana daldan geliştirme dalına ayırarak her zaman iyi bir uygulamadır. Bu yayın dalı geliştirme etkinlikleri tarafından kesintiye önlemeye yardımcı olabilir. Git dal modeli daha ayrıntılı açıklama bulunabilir [bir başarılı Git dallanma modeli](https://nvie.com/posts/a-successful-git-branching-model/).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 

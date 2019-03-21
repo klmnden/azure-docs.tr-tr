@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: 7fae267b74677e93527b4e185c5b52d421ef149e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6cbf3d70bd835ce1b838b19c93507f7d9487a418
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244953"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074514"
 ---
 # <a name="azure-security-center-search"></a>Azure Güvenlik Merkezi arama
 Azure Güvenlik Merkezi kullanan [Azure İzleyici, arama günlüklerini](../log-analytics/log-analytics-log-searches.md) almak ve güvenlik verilerinizi analiz edin. Azure İzleyici günlüklerine hızlı bir şekilde verileri almak ve birleştirmek için bir sorgu dili içerir. Güvenlik Merkezi'nde Azure İzleyici günlüklerine arama sorguları oluşturma ve toplanan verileri çözümlemek için yararlanabilirsiniz.
@@ -35,19 +35,19 @@ Arama, ücretsiz katman ve Güvenlik Merkezi'nin standart katmanında kullanıla
 ## <a name="access-search"></a>Erişim arama
 1. Güvenlik Merkezi ana menüsünde seçin **arama**.
 
-  ![Günlük araması'nı seçin][1]
+   ![Günlük araması'nı seçin][1]
 
 2. Güvenlik Merkezi, Azure aboneliklerinizle altındaki tüm çalışma alanlarını listeler. Bir çalışma alanı seçin. (Yalnızca bir çalışma alanı varsa, bu çalışma alanı Seçici görüntülenmez.)
 
-  ![Çalışma alanı seçin][2]
+   ![Çalışma alanı seçin][2]
 
 3. **Günlük arama** açılır. Seçilen çalışma alanı altında daha fazla veri sorgulamak için bu örnek sorgu girin:
 
-  SecurityEvent | Burada EventID 4625 == | Count() by TargetAccount özetleme
+   SecurityEvent | Burada EventID 4625 == | Count() by TargetAccount özetleme
 
-  Sonucu (olay 4625) oturum açmak için başarısız olan tüm hesapları gösterir.
+   Sonucu (olay 4625) oturum açmak için başarısız olan tüm hesapları gösterir.
 
-  ![Arama sonuçları][3]
+   ![Arama sonuçları][3]
 
 Bkz: [Kusto sorgu dili](../log-analytics/log-analytics-search-reference.md) seçilen çalışma alanı altında verileri için sorgulama hakkında daha fazla bilgi için.
 

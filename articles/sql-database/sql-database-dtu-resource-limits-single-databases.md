@@ -11,24 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/06/2019
-ms.openlocfilehash: 25a76133bfecfb08c1e413efea93f1466926c533
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.date: 03/20/2019
+ms.openlocfilehash: 7c35c1f3568ab98bdd3c7fba8acd3aa958aa795b
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569221"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285150"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>DTU tabanlı satın alma modeli kullanarak tek veritabanı kaynak sınırları
 
 Bu makalede, Azure SQL veritabanı tek veritabanı DTU tabanlı satın alma modeli kullanarak için ayrıntılı kaynak sınırları sağlar.
 
-DTU tabanlı satın alma modeli kaynak sınırları için elastik havuzlar için bkz: [DTU tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md). Sanal çekirdek tabanlı kaynak sınırları için bkz: [sanal çekirdek tabanlı kaynak sınırları - tek veritabanları](sql-database-vcore-resource-limits-single-databases.md) ve [sanal çekirdek tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md). Farklı satın alma modeli hakkında daha fazla bilgi için bkz. [modelleri ve hizmet katmanlarını satın](sql-database-purchase-models.md).
-
-> [!IMPORTANT]
-> Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+DTU tabanlı satın alma modeli kaynak sınırları için elastik havuzlar için bkz: [DTU tabanlı kaynak sınırları - elastik havuzlar](sql-database-dtu-resource-limits-elastic-pools.md). Sanal çekirdek tabanlı kaynak sınırları için bkz: [sanal çekirdek tabanlı kaynak sınırları - tek veritabanları](sql-database-vcore-resource-limits-single-databases.md) ve [sanal çekirdek tabanlı kaynak sınırları - elastik havuzlar](sql-database-vcore-resource-limits-elastic-pools.md). Farklı satın alma modeli hakkında daha fazla bilgi için bkz. [modelleri ve hizmet katmanlarını satın](sql-database-purchase-models.md).
 
 ## <a name="single-database-storage-sizes-and-compute-sizes"></a>Tek veritabanı: Depolama boyutlarına ve işlem boyutları
 
@@ -78,15 +73,19 @@ Aşağıdaki tablolarda her hizmet katmanında tek bir veritabanı için kullan�
 | **İşlem boyutu** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | Maks. DTU | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Dahil edilen depolama alanı (GB) | 500 | 500 | 500 | 500 | 4096 | 4096 |
-| En fazla depolama seçenekleri (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
+| Dahil edilen depolama alanı (GB) | 500 | 500 | 500 | 500 | 4096* | 4096* |
+| En fazla depolama seçenekleri (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096* | 4096* |
 | Maks. bellek içi OLTP depolama alanı (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Maks. eş zamanlı çalışan (istek)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Maks. eş zamanlı oturum | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
+\* 1024 GB 4096 GB artışlarla 256 GB
+
 > [!IMPORTANT]
-> 1 TB'den fazla depolama Premium katmanında şu anda tüm bölgelerde kullanılabilir: Çin Doğu, Kuzey Çin, Almanya Orta, Almanya Kuzeydoğu, Batı Orta ABD, US DoD bölgeler ve ABD kamu orta. Bu bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır.  Daha fazla bilgi için [P11 P15 geçerli sınırlamalar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> 1 TB'den fazla depolama Premium katmanında şu anda tüm bölgelerde kullanılabilir: Çin Doğu, Kuzey Çin, Almanya Orta, Almanya Kuzeydoğu, Batı Orta ABD, US DoD bölgeler ve ABD kamu orta. Bu bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır.  P11 P15 geçerli sınırlamalar hakkında bilgi için bkz.  
+> [!NOTE]
+> İçin `tempdb` limitleri bkz [tempdb sınırları](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

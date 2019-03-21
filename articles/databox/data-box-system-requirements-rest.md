@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 4ad607ad7ef1ee91ea9c886a76faabb0f304969d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5770cd9a4955013100b7e58698eed77da10c0583
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012266"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Azure veri kutusu Blob Depolama alanı gereksinimleri
 
@@ -96,7 +96,7 @@ Aşağıdaki kodla proje kökündeki Composer.JSON adlı bir dosya oluşturun:
 
 ### <a name="endpoint-declaration"></a>Uç nokta bildirimini
 
-Bir Azure veri kutusu Blob Depolama uç noktasının iki bölümleri içerir: bir bölge ve Data Box etki alanı adı. Veri kutusu Blob Depolama SDK'da, varsayılan uç nokta, <serial no. of the device>. microsoftdatabox.com.  Blob Hizmeti uç noktası hakkında daha fazla bilgi için Git [veri kutusu Blob Depolama alanı üzerinden Bağlan](data-box-deploy-copy-data-via-rest.md).
+Bir Azure veri kutusu Blob Depolama uç noktasının iki bölümleri içerir: bir bölge ve Data Box etki alanı adı. Veri kutusu Blob Depolama SDK'da, varsayılan uç nokta, \<seri yok. cihazın >. microsoftdatabox.com.  Blob Hizmeti uç noktası hakkında daha fazla bilgi için Git [veri kutusu Blob Depolama alanı üzerinden Bağlan](data-box-deploy-copy-data-via-rest.md).
  
 ## <a name="examples"></a>Örnekler
 

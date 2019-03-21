@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: ae1828210345eb35f9d22664285a0d348ea50d48
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 05f20aec536ebdb702caea37051a65af9bbc659f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478340"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085652"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure sanal makineleri, bulut Hizmetleri ve Web uygulamalarını otomatik ölçeklendirmeye genel bakış
 Bu makalede, hangi Microsoft Azure otomatik ölçeklendirme, aboneliğin avantajları olduğu ve nasıl kullanmaya başlayacağınızı açıklar.  
@@ -36,7 +36,7 @@ Bir veya daha fazla otomatik ölçeklendirme eylemlerinin kural koşulları kar�
 
 Aşağıdaki açıklama, önceki diyagramda parçaları için geçerlidir.   
 
-## <a name="resource-metrics"></a>Kaynak ölçümleri
+## <a name="resource-metrics"></a>Kaynak Ölçümleri
 Kaynak ölçümleri yayma, bu ölçümleri daha sonra kuralları tarafından işlenir. Ölçümleri farklı yöntemleri sunulur.
 Doğrudan Azure altyapısını telemetri Web uygulamaları ve bulut Hizmetleri sunulur ancak sanal makine ölçek kümeleri Azure tanılama aracılardan telemetri verilerini kullanın. Yaygın olarak kullanılan bazı istatistikler, CPU kullanımı, bellek kullanımı, iş parçacığı sayıları, kuyruk uzunluğu ve disk kullanımını içerir. Hangi telemetri verilerini kullanabileceğiniz bir listesi için bkz. [otomatik ölçeklendirme ortak ölçümleri](../../azure-monitor/platform/autoscale-common-metrics.md).
 
@@ -66,15 +66,15 @@ Otomatik ölçeklendirme, aşağıdaki terimler ve yapısını kullanın.
 
 - Bir **otomatik ölçeklendirme ayarı** ölçeği artırın veya azaltın belirlemek için otomatik ölçeklendirme altyapısı tarafından okunur. Bir veya daha fazla profiller, hedef kaynak ve bildirim ayarları hakkında bilgi içerir.
 
-    - Bir **otomatik ölçeklendirme profilini** y: birleşimidir
+  - Bir **otomatik ölçeklendirme profilini** y: birleşimidir
 
-        - **Kapasite ayarı**, minimum, maksimum gösterir ve örnek sayısı için varsayılan değerler.
-        - **Kural kümesi**, her biri bir tetikleyici (zaman veya ölçüm) ve bir ölçeklendirme eylemi (yukarı veya aşağı) içerir.
-        - **Yinelenme**, otomatik ölçeklendirme yürürlüğe bu profili zaman koymalısınız gösterir.
+    - **Kapasite ayarı**, minimum, maksimum gösterir ve örnek sayısı için varsayılan değerler.
+    - **Kural kümesi**, her biri bir tetikleyici (zaman veya ölçüm) ve bir ölçeklendirme eylemi (yukarı veya aşağı) içerir.
+    - **Yinelenme**, otomatik ölçeklendirme yürürlüğe bu profili zaman koymalısınız gösterir.
 
-        Farklı çakışan gereksinimleri ölçeklendirilmesini sağlayan birden çok profil olabilir. Örneğin, gün veya Haftanın günlerinin ingilizceleridir farklı saatler için farklı otomatik ölçeklendirme profilleri olabilir.
+      Farklı çakışan gereksinimleri ölçeklendirilmesini sağlayan birden çok profil olabilir. Örneğin, gün veya Haftanın günlerinin ingilizceleridir farklı saatler için farklı otomatik ölçeklendirme profilleri olabilir.
 
-    - A **bildirim ayarı** otomatik ölçeklendirme ayarının profilleri birinin ölçütlerine göre otomatik ölçeklendirme olay gerçekleştiğinde hangi bildirimleri gerçekleşmesi gerektiğini tanımlar. Otomatik ölçeklendirme, bir veya daha fazla e-posta adreslerine bildirim ya da bir veya daha fazla Web kancaları çağrı yapmak.
+  - A **bildirim ayarı** otomatik ölçeklendirme ayarının profilleri birinin ölçütlerine göre otomatik ölçeklendirme olay gerçekleştiğinde hangi bildirimleri gerçekleşmesi gerektiğini tanımlar. Otomatik ölçeklendirme, bir veya daha fazla e-posta adreslerine bildirim ya da bir veya daha fazla Web kancaları çağrı yapmak.
 
 
 ![Azure otomatik ölçeklendirme ayarı, profil ve kural yapısı](./media/autoscale-overview/AzureResourceManagerRuleStructure3.png)
@@ -110,7 +110,7 @@ Otomatik ölçeklendirme ayarlayabilirsiniz.
 | Sanal Makineler: Windows ölçek kümeleri |[Sanal makine ölçeğini artırma veya azaltma Windows ayarlar](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Sanal Makineler: Linux ölçek kümeleri |[Linux sanal makine ölçeğini artırma veya azaltma ayarlar](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Sanal Makineler: Windows örneği |[VM ölçek kümeleri için Resource Manager şablonlarını kullanarak gelişmiş otomatik ölçeklendirme yapılandırması](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
-| API Management hizmeti|[Azure API Management örneği otomatik olarak ölçeklendirme](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
+| API Management hizmeti|[Bir Azure API Management örneğini otomatik olarak ölçeklendirme](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Otomatik ölçeklendirme hakkında daha fazla bilgi için otomatik ölçeklendirme izlenecek yollar kullanmak daha önce listelenen veya aşağıdaki kaynaklara bakın:

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e932fd59fb888d73fb2ad9aee3f440b4aca3e662
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 378aab82fac5298c3785f752478e3bfc3c6e325b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180582"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103154"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Öğretici: Azure Active Directory tarafından Merces HR2day ile tümleştirmesi
 
@@ -132,8 +132,8 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırma](./media/hr2day-tutorial/tutorial_hr2day_00.png)
     
-    > [!NOTE] 
-    SAML onaylaması yapılandırmadan önce başvurmanız gerekir [Merces istemci destek ekibi tarafından HR2day](mailto:servicedesk@merces.nl) ve kiracınız için benzersiz tanımlayıcı özniteliği değeri isteyin. Sonraki bölümde yer alan adımları tamamlamak için bu değere ihtiyacınız. 
+   > [!NOTE]
+   >  SAML onaylaması yapılandırmadan önce başvurmanız gerekir [Merces istemci destek ekibi tarafından HR2day](mailto:servicedesk@merces.nl) ve kiracınız için benzersiz tanımlayıcı özniteliği değeri isteyin. Sonraki bölümde yer alan adımları tamamlamak için bu değere ihtiyacınız. 
 
 1. İçinde **çoklu oturum açma** iletişim kutusundaki **kullanıcı öznitelikleri** bölümünde, aşağıdaki görüntüde gösterildiği gibi SAML belirteci özniteliği yapılandırabilirsiniz. Ardından aşağıdaki adımları uygulayın.
     
@@ -174,7 +174,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     > [!TIP]
     >İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory** > **kurumsal uygulamalar** bölümünden **çoklu oturum açma** sekmesi. Ekli belgelerin sonra erişim **yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği hakkında [katıştırılmış belgeleri Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+   > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 9242edb8ea08b858ae6ad092f4d855483e72d0bf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777473"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003441"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Öğretici: Yapılandırma Always On kullanılabilirlik grubu Azure VM'de el ile
 
@@ -415,6 +415,7 @@ Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir yoklama oluştur
 1. Load balancer'ı tıklatın, **Yük Dengeleme kuralları**, tıklatıp **+ Ekle**.
 
 1. Dinleyici Yük Dengeleme kuralları şu şekilde ayarlayın.
+
    | Ayar | Açıklama | Örnek
    | --- | --- |---
    | **Ad** | Metin | SQLAlwaysOnEndPointListener |
@@ -455,6 +456,7 @@ WSFC IP adresi aynı zamanda yük dengeleyicide olması gerekir.
 1. Yük Dengeleme kuralları ayarlayın. Tıklayın **Yük Dengeleme kuralları**, tıklatıp **+ Ekle**.
 
 1. Şu şekilde yük dengeleme kuralları küme çekirdek IP adresi ayarlayın.
+
    | Ayar | Açıklama | Örnek
    | --- | --- |---
    | **Ad** | Metin | WSFCEndPoint |
@@ -505,15 +507,15 @@ Bağlantıyı test etmek için:
 
 1. Kullanım **sqlcmd** yardımcı programını kullanarak bağlantıyı test edin. Örneğin, aşağıdaki komut dosyası oluşturur bir **sqlcmd** Windows kimlik doğrulaması ile dinleyicisi aracılığıyla birincil kopyanın bağlantısı:
 
-  ```cmd
-  sqlcmd -S <listenerName> -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName> -E
+   ```
 
-  Dinleyici varsayılan dışında bir bağlantı noktası kullanıyorsa (1433) bağlantı noktası, bağlantı dizesinde bağlantı noktasını belirtin. Örneğin, aşağıdaki sqlcmd komutunu bir dinleyici bağlantı noktası 1435 bağlanır:
+   Dinleyici varsayılan dışında bir bağlantı noktası kullanıyorsa (1433) bağlantı noktası, bağlantı dizesinde bağlantı noktasını belirtin. Örneğin, aşağıdaki sqlcmd komutunu bir dinleyici bağlantı noktası 1435 bağlanır:
 
-  ```cmd
-  sqlcmd -S <listenerName>,1435 -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName>,1435 -E
+   ```
 
 Hangi SQL Server örneğini birincil çoğaltmayı barındıran için SQLCMD bağlantı otomatik olarak bağlanır.
 

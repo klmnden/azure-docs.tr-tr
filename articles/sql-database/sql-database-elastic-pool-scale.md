@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 3/06/2019
-ms.openlocfilehash: b2ad701115a69520658c2aa9cea53dbda90cf868
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.date: 3/14/2019
+ms.openlocfilehash: d8aaf51c836a8e88c4e9b92798067167cd044e72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726763"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015375"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuz kaynakları ölçeklendirin
 
@@ -26,7 +26,6 @@ Bu makalede, Azure SQL veritabanı'nda elastik havuzlara ve havuza alınmış ve
 ## <a name="change-compute-resources-vcores-or-dtus"></a>Değişiklik işlem kaynakları (sanal çekirdekler veya Dtu)
 
 Başlangıçta çekirdek veya Edtu sayısını seçtikten sonra elastik havuz ölçeğini artırıp dinamik olarak gerçek deneyime kullanımına dayalı ölçeklendirebileceğiniz [Azure portalında](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI ](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), veya [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
-
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Hizmet katmanı veya ölçeklendirme işlem boyutu değiştirme etkisi
 
@@ -71,6 +70,9 @@ Hizmet katmanını değiştirebilir veya işlem boyutu tek bir veritabanı veya 
 Size en yüksek hizmet katmanı kullanarak bir veritabanının mevcut olduğu her saat için faturalandırılırsınız + işlem kullanıma veya veritabanının bir saatten az için etkin olup bağımsız olarak bu saat sırasında uygulanan boyutu. Örneğin, tek bir veritabanı oluşturup beş dakika sonra silerseniz faturanıza bir veritabanı saati ücreti yansıtır.
 
 ## <a name="change-elastic-pool-storage-size"></a>Esnek havuz depolama boyutunu değiştir
+
+> [!IMPORTANT]
+> Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
 
 ### <a name="vcore-based-purchasing-model"></a>Sanal çekirdek tabanlı satın alma modeli
 

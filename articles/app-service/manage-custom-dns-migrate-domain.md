@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e7449b5c36d9a1c3df3692f80aed8ccc05a98ade
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6215230a52bcb5c44f54747b447dc5f64e6af650
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731659"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999093"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Etkin DNS adını Azure App Service'e geçirme
 
@@ -56,9 +56,9 @@ Gereksinim duyduğunuz TXT kaydı, geçirmek istediğiniz DNS kaydını bağlıd
 
 | DNS kaydı örneği | TXT konak | TXT değeri |
 | - | - | - |
-| \@ (kök) | _awverify_ | _&lt;Appname >. azurewebsites.net_ |
-| www (sub) | _awverify.www_ | _&lt;Appname >. azurewebsites.net_ |
-| \* (joker karakter) | _awverify.\*_ | _&lt;Appname >. azurewebsites.net_ |
+| \@ (kök) | _awverify_ | _&lt;appname>.azurewebsites.net_ |
+| www (sub) | _awverify.www_ | _&lt;appname>.azurewebsites.net_ |
+| \* (joker karakter) | _awverify.\*_ | _&lt;appname>.azurewebsites.net_ |
 
 DNS kayıtları sayfası geçirmek istediğiniz DNS adı kayıt türü unutmayın. App Service eşlemeleri CNAME ve A kayıtları destekler.
 
@@ -124,8 +124,8 @@ Geri DNS kayıtları sayfasında etki alanı sağlayıcınızın yeniden eşleme
 | FQDN örneği | Kayıt türü | Host | Değer |
 | - | - | - | - |
 | contoso.com (kök) | A | `@` | [Uygulamanın IP adresini kopyalama](#info) bölümünden IP adresi |
-| www.contoso.com (sub) | CNAME | `www` | _&lt;Appname >. azurewebsites.net_ |
-| \*. contoso.com (joker karakter) | CNAME | _\*_ | _&lt;Appname >. azurewebsites.net_ |
+| www\.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
+| \*. contoso.com (joker karakter) | CNAME | _\*_ | _&lt;appname>.azurewebsites.net_ |
 
 Ayarlarınızı kaydedin.
 
@@ -136,4 +136,4 @@ DNS sorgularının DNS yayma hemen yapıldıktan sonra App Service uygulamanız�
 App Service için özel bir SSL sertifikası bağlama hakkında bilgi edinin.
 
 > [!div class="nextstepaction"]
-> [Azure App Service'e var olan özel bir SSL sertifikası bağlama](app-service-web-tutorial-custom-ssl.md)
+> [Azure App Service'e mevcut özel bir SSL sertifikasını bağlama](app-service-web-tutorial-custom-ssl.md)

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 20d5c4628d729b8dff8b1d72f80beac0ec2e8f67
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: c22acb1ae82e5c1e781598e8545c7f1625cc1c09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569757"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122799"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Sunucuları kaldırma ve korumayı devre dışı bırakma
 
@@ -158,11 +158,11 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
 
 1. İçinde **korunan öğeler** > **çoğaltılan öğeler**, makineye sağ tıklayın > **çoğaltma devre dışı bırakma**.
 2. İçinde **çoğaltma devre dışı bırakma**, aşağıdaki seçenekleri belirleyebilirsiniz:
-    - **Çoğaltma ve Kaldır (önerilir) devre dışı** - bu seçenek çoğaltılan öğeyi Azure Site Recovery'den kaldırın ve makine için çoğaltma durdurulur. Şirket içi sanal makine çoğaltma yapılandırması temizlenir ve bu korumalı sunucu için Site Recovery Faturalaması durdurulur.
-    - **Kaldırma** -bu seçeneği yalnızca kaynak ortamı (bağlı değil) silindi veya erişilebilir değil ise, kullanılması gereken. Bu işlem çoğaltılan öğeyi Azure Site Kurtarma (faturalandırma sona erdirilir) kaldırır. Şirket içi sanal makine çoğaltma yapılandırması **yapmamayı** temizlenir. 
+   - **Çoğaltma ve Kaldır (önerilir) devre dışı** - bu seçenek çoğaltılan öğeyi Azure Site Recovery'den kaldırın ve makine için çoğaltma durdurulur. Şirket içi sanal makine çoğaltma yapılandırması temizlenir ve bu korumalı sunucu için Site Recovery Faturalaması durdurulur.
+   - **Kaldırma** -bu seçeneği yalnızca kaynak ortamı (bağlı değil) silindi veya erişilebilir değil ise, kullanılması gereken. Bu işlem çoğaltılan öğeyi Azure Site Kurtarma (faturalandırma sona erdirilir) kaldırır. Şirket içi sanal makine çoğaltma yapılandırması **yapmamayı** temizlenir. 
 
-    > [!NOTE]
-    > Seçerseniz, **Kaldır** sonra aşağıdaki komut kümesini çalıştırmak seçeneği çoğaltma ayarları temizlemek için şirket içi Hyper-V sunucusu.
+     > [!NOTE]
+     > Seçerseniz, **Kaldır** sonra aşağıdaki komut kümesini çalıştırmak seçeneği çoğaltma ayarları temizlemek için şirket içi Hyper-V sunucusu.
 1. Sanal makine için çoğaltmayı kaldırmak için kaynak Hyper-V konak sunucusu üzerinde. SQLVM1 sanal makinenizin adıyla değiştirin ve bir yönetici bir PowerShell üzerinden betiği çalıştırın
 
 ```powershell
@@ -177,11 +177,11 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
 1. İçinde **korunan öğeler** > **çoğaltılan öğeler**, makineye sağ tıklayın > **çoğaltma devre dışı bırakma**.
 2. İçinde **çoğaltma devre dışı bırakma**, aşağıdaki seçeneklerden birini seçin:
 
-    - **Çoğaltma ve Kaldır (önerilir) devre dışı** - bu seçenek çoğaltılan öğeyi Azure Site Recovery'den kaldırın ve makine için çoğaltma durdurulur. Şirket içi sanal makine çoğaltma yapılandırması temizlenir ve bu korumalı sunucu için Site Recovery Faturalaması durdurulur.
-    - **Kaldırma** -bu seçeneği yalnızca kaynak ortamı (bağlı değil) silindi veya erişilebilir değil ise, kullanılması gereken. Bu işlem çoğaltılan öğeyi Azure Site Kurtarma (faturalandırma sona erdirilir) kaldırır. Şirket içi sanal makine çoğaltma yapılandırması **yapmamayı** temizlenir. 
+   - **Çoğaltma ve Kaldır (önerilir) devre dışı** - bu seçenek çoğaltılan öğeyi Azure Site Recovery'den kaldırın ve makine için çoğaltma durdurulur. Şirket içi sanal makine çoğaltma yapılandırması temizlenir ve bu korumalı sunucu için Site Recovery Faturalaması durdurulur.
+   - **Kaldırma** -bu seçeneği yalnızca kaynak ortamı (bağlı değil) silindi veya erişilebilir değil ise, kullanılması gereken. Bu işlem çoğaltılan öğeyi Azure Site Kurtarma (faturalandırma sona erdirilir) kaldırır. Şirket içi sanal makine çoğaltma yapılandırması **yapmamayı** temizlenir. 
 
-    > [!NOTE]
-    > Seçerseniz, **Kaldır** çoğaltma ayarları temizlemek için aşağıdaki komutlar tun şirket VMM sunucusu seçeneğini.
+     > [!NOTE]
+     > Seçerseniz, **Kaldır** çoğaltma ayarları temizlemek için aşağıdaki komutlar tun şirket VMM sunucusu seçeneğini.
 3. VMM konsolundan (yönetici ayrıcalıkları gereklidir) PowerShell kullanarak kaynak VMM sunucusunda bu betiği çalıştırın. Yer tutucusunu değiştirin **SQLVM1** sanal makinenizin adıyla.
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
@@ -201,10 +201,10 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
 1. İçinde **korunan öğeler** > **çoğaltılan öğeler**, makineye sağ tıklayın > **çoğaltma devre dışı bırakma**.
 2. İçinde **çoğaltma devre dışı bırakma**, aşağıdaki seçeneklerden birini seçin:
 
-    - **Çoğaltma ve Kaldır (önerilir) devre dışı** - bu seçenek çoğaltılan öğeyi Azure Site Recovery'den kaldırın ve makine için çoğaltma durdurulur. Şirket içi sanal makine çoğaltma yapılandırması temizlenir ve bu korumalı sunucu için Site Recovery Faturalaması durdurulur.
-    - **Kaldırma** -bu seçeneği yalnızca kaynak ortamı (bağlı değil) silindi veya erişilebilir değil ise, kullanılması gereken. Bu işlem çoğaltılan öğeyi Azure Site Kurtarma (faturalandırma sona erdirilir) kaldırır. Şirket içi sanal makine çoğaltma yapılandırması **yapmamayı** temizlenir. Çoğaltma ayarları şirket içi sanal makineleri temizleme betikleri aşağıdaki kümesini çalıştırın.
-> [!NOTE]
-> Seçerseniz, **Kaldır** çoğaltma ayarları temizlemek için aşağıdaki komutlar tun şirket VMM sunucusu seçeneğini.
+   - **Çoğaltma ve Kaldır (önerilir) devre dışı** - bu seçenek çoğaltılan öğeyi Azure Site Recovery'den kaldırın ve makine için çoğaltma durdurulur. Şirket içi sanal makine çoğaltma yapılandırması temizlenir ve bu korumalı sunucu için Site Recovery Faturalaması durdurulur.
+   - **Kaldırma** -bu seçeneği yalnızca kaynak ortamı (bağlı değil) silindi veya erişilebilir değil ise, kullanılması gereken. Bu işlem çoğaltılan öğeyi Azure Site Kurtarma (faturalandırma sona erdirilir) kaldırır. Şirket içi sanal makine çoğaltma yapılandırması **yapmamayı** temizlenir. Çoğaltma ayarları şirket içi sanal makineleri temizleme betikleri aşağıdaki kümesini çalıştırın.
+     > [!NOTE]
+     > Seçerseniz, **Kaldır** çoğaltma ayarları temizlemek için aşağıdaki komutlar tun şirket VMM sunucusu seçeneğini.
 
 3. VMM konsolundan (yönetici ayrıcalıkları gereklidir) PowerShell kullanarak kaynak VMM sunucusunda bu betiği çalıştırın. Yer tutucusunu değiştirin **SQLVM1** sanal makinenizin adıyla.
 

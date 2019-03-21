@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
-ms.openlocfilehash: 599372bccc7465bfea0387dedd8dfd63b8a61060
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4755eeda6a254389f0e0fbceec602fef718a9c45
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555216"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100181"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Bir iç yük dengeleyici (ILB) uç noktası ile uygulama ağ geçidi yapılandırma
 
@@ -42,14 +42,14 @@ Oluşturduğunuz kaynaklar arasında iletişim kurmak Azure için sanal ağ gere
    - 10.0.0.0/16* - sanal ağ adres alanı.
    - *myAGSubnet* - Alt ağın adı.
    - *10.0.0.0/24* - Alt ağın adres alanı.  
-   ![Özel frontendip 1](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-1.png)
+     ![Özel frontendip 1](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-1.png)
 6. Sanal ağı ve alt ağı oluşturmak için **Tamam**’a tıklayın.
 7. Ön uç IP yapılandırmasını özel olarak seçin ve isteğe bağlı olarak varsayılan olarak, dinamik bir IP adresi ataması olur. İlk kullanılabilir adresi seçilen alt ağ ön uç IP adresi olarak atanır.
 8. Özel bir IP alt ağ adres aralığı (statik ayırma) seçmek istiyorsanız kutuyu tıklatın **belirli bir özel IP adresi seçin** ve IP adresini belirtin.
    > [!NOTE]
    > IP adresi türü (statik veya dinamik), daha sonra atandıktan sonra değiştirilemez.
 9. Protokol ve bağlantı noktası, WAF yapılandırma (gerekirse) için dinleyici yapılandırmanızı seçin ve Tamam'a tıklayın.
-    ![Özel frontendip 2](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-2.png)
+    ![Özel frontendip 2](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-2.png)
 10. Özet sayfasında ayarları gözden geçirin ve ardından **Tamam** ağ kaynaklarının ve uygulama ağ geçidi oluşturmak için. Bu, uygulama ağ geçidinin oluşturulması, sonraki bölüme geçmeden önce dağıtımın başarıyla tamamlanana kadar bekleyin birkaç dakika sürebilir.
 
 ## <a name="add-backend-pool"></a>Arka uç havuzu ekle
@@ -78,7 +78,7 @@ Arka uç havuzu, isteği sunan arka uç sunucuları istekleri yönlendirmek içi
 ### <a name="install-iis"></a>IIS yükleme
 
 1. Etkileşimli kabuğu açın ve **PowerShell**’e ayarlandığından emin olun.
-    ![Özel frontendip 3](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-3.png)
+    ![Özel frontendip 3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Sanal makineye IIS yüklemek için aşağıdaki komutu çalıştırın:
 
    ```azurepowershell
@@ -107,13 +107,13 @@ Arka uç havuzu, isteği sunan arka uç sunucuları istekleri yönlendirmek içi
 1. Click **All resources**, and then click **myAppGateway**.
 2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
 3. Click **Add target** to add each virtual machine that you created to the backend pool.
-   ![private-frontendip-4](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-4.png)
+   ![private-frontendip-4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
 4. Click **Save.**
 
 ## Test the application gateway
 
 1. Check your frontend IP that got assigned by clicking the **Frontend IP Configurations** blade in the portal.
-    ![private-frontendip-5](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-5.png)
+    ![private-frontendip-5](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. Copy the private IP address, and then paste it into the address bar of your browser of a VM in the same VNet or on-premises which has connectivity to this VNet and try to access the Application Gateway.
 
 ## Next steps

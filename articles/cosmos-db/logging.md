@@ -4,15 +4,15 @@ description: Azure Cosmos DB'de depolanan verileri günlüğe kaydetme ve izleme
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2a08097b42f395bd0009353635cabbd264c3c421
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992099"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259780"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB'de tanılama günlüğüne kaydetme 
 
@@ -24,7 +24,7 @@ Bir veya daha fazla Azure Cosmos DB veritabanı kullanmaya başladıktan sonra i
 
 Şimdi Azure Cosmos DB hesabınız izlemek nasıl çözdüğünü önce günlüğe kaydetme ve izleme hakkında bazı noktalar açıklığa. Farklı türde Azure platformunda günlükleri vardır. Vardır [Azure etkinlik günlüklerini](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure ölçümleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), olaylar, sinyal izleme, işlem günlükleri ve benzeri. Günlükleri deseninizi oluşturmayı yoktur. Günlüklerde tam listesini görebilirsiniz [Azure İzleyici günlükleri](https://azure.microsoft.com/services/log-analytics/) Azure portalında. 
 
-Aşağıdaki görüntüde, farklı türlerde kullanılabilir Azure günlükleri gösterilmektedir:
+Aşağıdaki görüntüde, farklı türde bir kullanılabilir Azure günlükleri gösterilmektedir:
 
 ![Çeşitli Azure günlükleri](./media/logging/azurelogging.png)
 
@@ -67,7 +67,7 @@ Azure tanılama günlükleri, kaynak tarafından gönderilir ve bu kaynağın i�
 
 Tanılama günlük kaydını etkinleştirmek için aşağıdaki kaynaklara sahip olmalıdır:
 
-* Bir var olan Azure Cosmos DB hesabı, veritabanı ve kapsayıcı. Bu kaynakları oluşturma ile ilgili yönergeler için bkz: [Azure portalını kullanarak bir veritabanı hesabı oluşturma](create-sql-api-dotnet.md#create-a-database-account), [Azure CLI örnekleri](cli-samples.md), veya [PowerShell örnekleri](powershell-samples.md).
+* Bir var olan Azure Cosmos DB hesabı, veritabanı ve kapsayıcı. Bu kaynakları oluşturma ile ilgili yönergeler için bkz: [Azure portalını kullanarak bir veritabanı hesabı oluşturma](create-sql-api-dotnet.md#create-account), [Azure CLI örnekleri](cli-samples.md), veya [PowerShell örnekleri](powershell-samples.md).
 
 Azure portalında tanılama günlük kaydını etkinleştirmek için aşağıdaki adımları uygulayın:
 
@@ -99,27 +99,23 @@ Azure CLI kullanarak ölçümleri ve tanılama günlüğünü etkinleştirmek i�
 - Bir depolama hesabında depolama, tanılama günlüğü etkinleştirmek için bu komutu kullanın:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --storageId <storageAccountId> --enabled true
+   az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   `resourceId` Azure Cosmos DB hesabının adıdır. `storageId` Günlüklerini göndermek istediğiniz depolama hesabının adıdır.
+   `resource` Azure Cosmos DB hesabının adıdır. Kaynak şu biçimdedir "/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/ < Azure_Cosmos_account_name >" `storage-account` depolama hesabının adı, Günlükleri göndermek istersiniz. "MongoRequests" veya "DataPlaneRequests" kategorisi parametre değerlerini güncelleştirerek, diğer günlükler oturum açabilirsiniz. 
 
 - Tanılama günlüklerini, olay hub'ına akış etkinleştirmek için bu komutu kullanın:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --serviceBusRuleId <serviceBusRuleId> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   `resourceId` Azure Cosmos DB hesabının adıdır. `serviceBusRuleId` Şu biçime sahip bir dizedir:
-
-   ```azurecli-interactive
-   {service bus resource ID}/authorizationrules/{key name}
-   ```
+   `resource` Azure Cosmos DB hesabının adıdır. `event-hub-rule` Olay hub'ı kural kimliğidir. 
 
 - Log Analytics çalışma alanına gönderme tanılama günlüklerini etkinleştirmek için bu komutu kullanın:
 
    ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
+   az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --workspace <resource id of the log analytics workspace> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
 Birden çok çıkış seçeneği etkinleştirmek için şu parametreleri birleştirebilirsiniz.

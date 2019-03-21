@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 982a8b6ed67b955fcb68006072b67f7c59f29688
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 46f08aaa33563f620e7a011620730249e903f7b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010166"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086607"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Hücresel harita üzerinde özel verisi işleme
 
@@ -135,9 +135,9 @@ Kullanarak yolu ve PIN konum bilgileri edinebilirsiniz [verileri karşıya yükl
 
 4. Seçin **Gönder** ve yanıt üst bilgisi gözden geçirin. Erişim veya gelecekte kullanım için verileri indirmek için kullanılan URI location üst bilgisini içerir. Ayrıca bir benzersiz içerdiği `udId` karşıya yüklenen veriler için.  
 
-  ```HTTP
-  https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
 
 5. Kullanım `udId` eşleme özelliklerini işlemek için verileri karşıya yükleme API'sinden alınan değer. Bunu yapmak için önceki bölümde oluşturulan koleksiyona yeni bir sekme açın. Oluşturucu sekmesinde GET HTTP yöntemini seçin ve bir GET isteği oluşturmak için bu URL'yi girin:
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fb6108855cf3237af230f3356f0afb68e2b1ec4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: f2e05e5e430760d16d5d494a6f27ef985aafc487
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445551"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098000"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Öğretici: Zendesk otomatik kullanıcı hazırlama için yapılandırma
 
@@ -111,12 +111,12 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcılar devre dışı bır
 
 5. Altında **yönetici kimlik bilgileri** giriş bölümünde **yönetici kullanıcı adı**, **gizli belirteç**, ve **etki alanı** , Zendesk'in hesabının. Bu değerleri örnekleri şunlardır:
 
-    *   İçinde **yönetici kullanıcı adı** alan, Zendesk kiracınıza yönetici hesabının kullanıcı adını doldurun. Örnek: admin@contoso.com.
+   * İçinde **yönetici kullanıcı adı** alan, Zendesk kiracınıza yönetici hesabının kullanıcı adını doldurun. Örnek: admin@contoso.com.
 
-    *   İçinde **gizli belirteç** alanında, adım 6'da açıklandığı gibi gizli belirteç doldurun.
+   * İçinde **gizli belirteç** alanında, adım 6'da açıklandığı gibi gizli belirteç doldurun.
 
-    *   İçinde **etki alanı** alan, Zendesk kiracınızın alt etki alanı doldurun.
-    Örnek: Bir kiracı URL'si sahip bir hesap https://my-tenant.zendesk.com, kendi alt etki alanı olacaktır **Kiracı my**.
+   * İçinde **etki alanı** alan, Zendesk kiracınızın alt etki alanı doldurun.
+     Örnek: Bir kiracı URL'si sahip bir hesap https://my-tenant.zendesk.com, kendi alt etki alanı olacaktır **Kiracı my**.
 
 6. **Gizli belirteç** hesabının bulunduğu için Zendesk **yönetici > API > ayarları**.
    Emin **belirteç erişimi** ayarlanır **etkin**.

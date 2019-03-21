@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 16beaadae36dfc7445a88875d36786bd97889599
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 2a959c9d131c6aa0bdc99450cf2b6f09a5d8bfa7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445089"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102358"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Azure API Management’te bildirimleri ve e-posta şablonlarını yapılandırma
 API Management, belirli olaylar için bildirimleri yapılandırabilir ve yöneticiler ve geliştiriciler API Management örneği ile iletişim kurmak için kullanılan e-posta şablonlarını yapılandırma olanağı sağlar. Bu makalede, kullanılabilir olaylar için bildirimleri yapılandırmak nasıl gösterir ve bu olaylar için kullanılan e-posta şablonlarını yapılandırma genel bir bakış sağlar.
@@ -38,15 +38,15 @@ API Management hizmet örneği yoksa şu hızlı başlangıcı tamamlayın: [Azu
 
     Aşağıdaki listede yer alan olay bildirimleri için yapılandırılabilir.
 
-    * **Abonelik isteklerinin (onay alma zorunlu kılındığında)** -kullanıcılar ve belirtilen e-posta alıcılarını onay alma zorunlu kılındığında API ürünleri için abonelik isteklerini hakkında e-posta bildirimleri alırsınız.
-    * **Yeni abonelikler** -belirtilen e-posta alıcıları ve kullanıcıların yeni API ürün abonelikleri hakkında e-posta bildirimleri alırsınız.
-    * **Uygulama Galerisi istekleri** -yeni uygulamalar için uygulama Galerisi gönderildiğinde belirtilen e-posta alıcıları ve kullanıcıların e-posta bildirimleri alırsınız.
-    * **Gizli** -belirtilen e-posta alıcıları ve kullanıcıların e-posta gizli kopya geliştiricileri için gönderilen tüm e-posta alırsınız.
-    * **Yeni sorun veya açıklama** - belirtilen e-posta alıcıları ve kullanıcıların yeni bir sorun olduğunda e-posta bildirimleri alırsınız veya yorum Geliştirici portalında gönderildi.
-    * **Hesabı Kapat ileti** -hesabınız kapatıldıktan sonra belirtilen e-posta alıcıları ve kullanıcıların e-posta bildirimleri alırsınız.
-    * **Yaklaşan abonelik kota sınırını** -abonelik kullanımı, kullanım kotanız dolmak aldığında aşağıdaki e-posta alıcıları ve kullanıcıların e-posta bildirimleri alırsınız.
+   * **Abonelik isteklerinin (onay alma zorunlu kılındığında)** -kullanıcılar ve belirtilen e-posta alıcılarını onay alma zorunlu kılındığında API ürünleri için abonelik isteklerini hakkında e-posta bildirimleri alırsınız.
+   * **Yeni abonelikler** -belirtilen e-posta alıcıları ve kullanıcıların yeni API ürün abonelikleri hakkında e-posta bildirimleri alırsınız.
+   * **Uygulama Galerisi istekleri** -yeni uygulamalar için uygulama Galerisi gönderildiğinde belirtilen e-posta alıcıları ve kullanıcıların e-posta bildirimleri alırsınız.
+   * **Gizli** -belirtilen e-posta alıcıları ve kullanıcıların e-posta gizli kopya geliştiricileri için gönderilen tüm e-posta alırsınız.
+   * **Yeni sorun veya açıklama** - belirtilen e-posta alıcıları ve kullanıcıların yeni bir sorun olduğunda e-posta bildirimleri alırsınız veya yorum Geliştirici portalında gönderildi.
+   * **Hesabı Kapat ileti** -hesabınız kapatıldıktan sonra belirtilen e-posta alıcıları ve kullanıcıların e-posta bildirimleri alırsınız.
+   * **Yaklaşan abonelik kota sınırını** -abonelik kullanımı, kullanım kotanız dolmak aldığında aşağıdaki e-posta alıcıları ve kullanıcıların e-posta bildirimleri alırsınız.
 
-    Her olay için e-posta adresi metin kutusunu kullanarak e-posta alıcılarını belirtebilirsiniz veya kullanıcıların bir listeden seçebilirsiniz.
+     Her olay için e-posta adresi metin kutusunu kullanarak e-posta alıcılarını belirtebilirsiniz veya kullanıcıların bir listeden seçebilirsiniz.
 
 3. Gönderilecek e-posta adresleri belirtmek için e-posta adresi metin kutusuna girin. Birden çok e-posta adresi varsa, bunları birbirinden virgülle ayırın.
 
