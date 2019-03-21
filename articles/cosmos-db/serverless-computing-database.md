@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: ff202c85f20adce173a375987a5f2250fda565b2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4d259523d3f7fe7165d0ef4c8a5aac12bd7cd823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041195"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123785"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB ile Azure işlevleri'ni kullanarak sunucusuz veritabanı bilgi işlem
 
@@ -97,11 +97,11 @@ Bir kullanıcı bir öğeyi sepetine eklediğinde perakende uygulamalarında, ş
 
 1. Her - Azure Cosmos DB Tetikleyicileri tümü aynı dinleme değişiklik, alışveriş sepeti veri akışını ekleyerek, birden çok Azure işlevleri oluşturabilirsiniz. Birden çok işlevleri için dinlerken aynı değişiklik akışını, her işlev için yeni bir kira koleksiyonu gereklidir dikkat edin. Kira Koleksiyonlar hakkında daha fazla bilgi için bkz. [değişiklik akışı işlemci kitaplığı anlama](change-feed-processor.md).
 2. Alışveriş sepeti kullanıcılara yeni bir öğe eklendiğinde, her işlevin bağımsız olarak değişiklik alışveriş sepeti kapsayıcıdan akışı tarafından çağrılır.
-    * Bir işlev, geçerli sepet içeriğini kullanıcı ilgisini diğer öğelerin görünümünü değiştirmek için kullanabilirsiniz.
-    * Başka bir işleve stok toplamları güncelleştirebilir.
-    * Başka bir işleve müşteri bilgilerini belirli ürünleri bunları promosyon çocuğu gönderen pazarlama departmanı için gönderebilir. 
+   * Bir işlev, geçerli sepet içeriğini kullanıcı ilgisini diğer öğelerin görünümünü değiştirmek için kullanabilirsiniz.
+   * Başka bir işleve stok toplamları güncelleştirebilir.
+   * Başka bir işleve müşteri bilgilerini belirli ürünleri bunları promosyon çocuğu gönderen pazarlama departmanı için gönderebilir. 
 
-    Her departman için değişiklik akışını dinleyen tarafından bir Azure Cosmos DB tetikleyicisi oluşturma ve kritik sipariş işleme olayları sürecinde gecikme olmaz emin olun.
+     Her departman için değişiklik akışını dinleyen tarafından bir Azure Cosmos DB tetikleyicisi oluşturma ve kritik sipariş işleme olayları sürecinde gecikme olmaz emin olun.
 
 Tüm bunların kullanım örnekleri, işlev uygulaması ayrılmış olduğundan, yeni uygulama örnekleri her zaman döndürme gerekmez. Bunun yerine, Azure işlevleri, gerektiği şekilde parçalı işlemleri tamamlamaları için tekil işlevler döner.
 

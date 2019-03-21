@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/7/2018
 ms.author: victorh
-ms.openlocfilehash: 7aac6cfca3b5b6f36810d1fd88939929c14ac63b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 17eef2fc2608ca4ccbabff8179cd63798d275582
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308746"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119641"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Application gateway, Azure portalını kullanarak HTTPS yeniden yönlendirmesi için HTTP ile oluşturma
 
@@ -72,20 +72,20 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
 3. **Ağ** ve ardından Öne Çıkanlar listesinde **Application Gateway**’i seçin.
 4. Uygulama ağ geçidi için şu değerleri girin:
 
-    - *myAppGateway* - Uygulama ağ geçidinin adı.
-    - *myResourceGroupAG* - Yeni kaynak grubu.
+   - *myAppGateway* - Uygulama ağ geçidinin adı.
+   - *myResourceGroupAG* - Yeni kaynak grubu.
 
-    ![Yeni uygulama ağ geçidi oluşturma](./media/create-url-route-portal/application-gateway-create.png)
+     ![Yeni uygulama ağ geçidi oluşturma](./media/create-url-route-portal/application-gateway-create.png)
 
 5. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
 6. Tıklayın **bir sanal ağ seçin**, tıklayın **Yeni Oluştur**ve ardından sanal ağ için şu değerleri girin:
 
-    - *myVNet* - Sanal ağın adı.
-    - *10.0.0.0/16* - Sanal ağın adres alanı.
-    - *myAGSubnet* - Alt ağın adı.
-    - *10.0.1.0/24* - alt ağ adres alanı.
+   - *myVNet* - Sanal ağın adı.
+   - *10.0.0.0/16* - Sanal ağın adres alanı.
+   - *myAGSubnet* - Alt ağın adı.
+   - *10.0.1.0/24* - alt ağ adres alanı.
 
-    ![Sanal ağ oluşturma](./media/create-url-route-portal/application-gateway-vnet.png)
+     ![Sanal ağ oluşturma](./media/create-url-route-portal/application-gateway-vnet.png)
 
 7. Sanal ağı ve alt ağı oluşturmak için **Tamam**’a tıklayın.
 8. Altında **ön uç IP yapılandırması**, olun **IP adresi türü** olduğu **genel**, ve **Yeni Oluştur** seçilir. Girin *myAGPublicIPAddress* adı. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.

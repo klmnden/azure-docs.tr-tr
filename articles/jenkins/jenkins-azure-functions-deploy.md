@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 02/23/2019
-ms.openlocfilehash: 93504de6384be530ba037f662f7b043729aa3f99
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bd8fa10ca0a9809891efc67ff930ab01d502eda9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536930"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117090"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plugin"></a>Jenkins Azure işlevleri eklentiyi kullanarak, Azure işlevleri için dağıtma
 
@@ -24,8 +24,8 @@ ms.locfileid: "57536930"
 - **Azure aboneliği**: Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 - **Jenkins sunucusu**: Yüklü bir Jenkins sunucusu yoksa bu makaleye bakın [Azure'da bir Jenkins sunucusu oluşturma](./install-jenkins-solution-template.md).
 
- > [!TIP]
- > Bu öğreticide kullanılan kaynak kodu bulunan [Visual Studio Çin GitHub deposunu](https://github.com/VSChina/odd-or-even-function/blob/master/src/main/java/com/microsoft/azure/Function.java).
+  > [!TIP]
+  > Bu öğreticide kullanılan kaynak kodu bulunan [Visual Studio Çin GitHub deposunu](https://github.com/VSChina/odd-or-even-function/blob/master/src/main/java/com/microsoft/azure/Function.java).
 
 ## <a name="create-a-java-function"></a>Bir Java işlev oluşturma
 

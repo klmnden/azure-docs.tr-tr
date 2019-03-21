@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: e8028bc9a4a6f3245dca61d6dd30db22dc295a7f
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d66254cdad596e3b10482b2c937326162e2e075d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992456"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886839"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack'e bir App Service kaynak sağlayıcısı ekleme
 
@@ -44,13 +44,13 @@ Kullanıcılarınız, web ve API uygulamaları oluşturma olanağı verebilirsin
 
 App Service kaynak Sağlayıcısı'nı yükleme, en az bir saat sürer. Kaç rol örnekleri üzerinde gereken sürenin uzunluğunu bağlıdır dağıtın. Dağıtım sırasında aşağıdaki görevleri yükleyiciyi çalıştırır:
 
- - Belirtilen Azure Stack depolama hesabındaki bir blob kapsayıcısı oluşturun.
- - App Service için bir DNS bölgesi ve girişleri oluşturun.
- - App Service kaynak sağlayıcısını kaydedin.
- - App Service galeri öğelerini kaydedin.
+- Belirtilen Azure Stack depolama hesabındaki bir blob kapsayıcısı oluşturun.
+- App Service için bir DNS bölgesi ve girişleri oluşturun.
+- App Service kaynak sağlayıcısını kaydedin.
+- App Service galeri öğelerini kaydedin.
 
- > [!IMPORTANT]
- > Kaynak sağlayıcısını dağıtmadan önce yeni işlevler, düzeltmeler ve dağıtımınızı etkileyebilecek bilinen sorunlar hakkında bilgi edinmek için sürüm notlarını gözden geçirin.
+  > [!IMPORTANT]
+  > Kaynak sağlayıcısını dağıtmadan önce yeni işlevler, düzeltmeler ve dağıtımınızı etkileyebilecek bilinen sorunlar hakkında bilgi edinmek için sürüm notlarını gözden geçirin.
 
 App Service kaynak sağlayıcısı dağıtmak için aşağıdaki adımları izleyin:
 
@@ -74,8 +74,8 @@ App Service kaynak sağlayıcısı dağıtmak için aşağıdaki adımları izle
 
     a. Seçin **Connect** yanındaki **Azure Stack aboneliklerini**.
 
-     - Azure Active Directory (Azure AD) kullanıyorsanız, Azure AD yönetici hesabı ve Azure Stack dağıttığınızda sağladığınız parolayı girin. Seçin **oturum**.
-     - Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsanız, yönetici hesabı sağlayın. Örneğin, cloudadmin@azurestack.local. Parolanızı girin ve ardından **oturum**.
+   - Azure Active Directory (Azure AD) kullanıyorsanız, Azure AD yönetici hesabı ve Azure Stack dağıttığınızda sağladığınız parolayı girin. Seçin **oturum**.
+   - Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsanız, yönetici hesabı sağlayın. Örneğin, cloudadmin@azurestack.local. Parolanızı girin ve ardından **oturum**.
 
    b. İçinde **Azure Stack aboneliklerini**seçin **varsayılan sağlayıcı aboneliği**.
 
@@ -243,7 +243,7 @@ Web uygulaması oluşturmak için aşağıdaki adımları izleyin:
 
 1. Azure Stack Kiracı portalında **+**, Azure Marketi'nde gidin, Django Web sitesi dağıtma ve daha sonra dağıtımın tamamlanmasını bekleyin. Django web platformu, dosya sistemi tabanlı bir veritabanı kullanır. Bu, SQL veya MySQL gibi herhangi bir ek kaynak sağlayıcıları olmasını gerektirmez.
 
-2. Ayrıca bir MySQL kaynak sağlayıcısı dağıtılan marketten bir WordPress Web sitesi dağıtabilirsiniz. Veritabanı parametrelerini sorulduğunda, kullanıcı adı olarak girin *User1@Server1*, tercih ettiğiniz sunucu adı ve kullanıcı adı.
+2. Ayrıca bir MySQL kaynak sağlayıcısı dağıtılan marketten bir WordPress Web sitesi dağıtabilirsiniz. Veritabanı parametrelerini sorulduğunda, kullanıcı adı olarak girin *User1\@Sunucu1*, tercih ettiğiniz sunucu adı ve kullanıcı adı.
 
 3. Ayrıca bir SQL Server Kaynak sağlayıcısı dağıtılan marketten bir DNN Web sitesi dağıtabilirsiniz. Veritabanı parametrelerini istendiğinde, kaynak sağlayıcısı için bağlı SQL Server çalıştıran bilgisayardaki bir veritabanı seçin.
 

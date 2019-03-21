@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/27/2018
 ms.author: ryanwi
-ms.openlocfilehash: 42a6430162f3bafd3ec3ce2a3c523f6f5755914a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0e5cfa42eba5a2110ebf8879c771f2fef048ae03
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001387"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835722"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Günlüğe kaydetme, Service Fabric uygulamanıza ekleyin
 
@@ -132,7 +132,7 @@ Günlüğe kaydetme ASP.NET Core ([Microsoft.Extensions.Logging NuGet paketini](
 
 ### <a name="using-other-logging-providers"></a>Diğer günlük sağlayıcıları kullanma
 
-Bazı üçüncü taraf sağlayıcılar kullanımı yaklaşımı önceki bölümde açıklanan dahil olmak üzere [Serilog](https://serilog.net/), [NLog](http://nlog-project.org/), ve [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). Her birinde oturum ASP.NET Core uygulamasına takın veya ayrı olarak kullanabilirsiniz. Serilog bir günlükçüden gönderilen tüm iletilerin zenginleştirir bir özelliği vardır. Bu özellik, hizmet adı, türü ve bölüm bilgileri çıkarmak yararlı olabilir. ASP.NET Core altyapısında bu özelliğin kullanılabilmesi için bu adımları uygulayın:
+Bazı üçüncü taraf sağlayıcılar kullanımı yaklaşımı önceki bölümde açıklanan dahil olmak üzere [Serilog](https://serilog.net/), [NLog](https://nlog-project.org/), ve [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging). Her birinde oturum ASP.NET Core uygulamasına takın veya ayrı olarak kullanabilirsiniz. Serilog bir günlükçüden gönderilen tüm iletilerin zenginleştirir bir özelliği vardır. Bu özellik, hizmet adı, türü ve bölüm bilgileri çıkarmak yararlı olabilir. ASP.NET Core altyapısında bu özelliğin kullanılabilmesi için bu adımları uygulayın:
 
 1. Ekleme **Serilog**, **Serilog.Extensions.Logging**, **Serilog.Sinks.Literate**, ve **Serilog.Sinks.Observable** NuGet paketleri projeye. 
 2. Oluşturma bir `LoggerConfiguration` ve Günlükçü örneği.

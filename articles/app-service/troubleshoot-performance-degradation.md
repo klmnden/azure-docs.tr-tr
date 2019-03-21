@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9c66a937ffd9155569820c47c99946d186c55cce
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052164"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884231"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Azure App Service'te uygulama yavaş performans sorunlarını giderme
 Bu makale, uygulama yavaş performans sorunlarını gidermenize yardımcı olur. [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -162,7 +162,7 @@ Ayrıca, birden fazla örneğinde uygulamanızı çalıştırmak seçebilirsiniz
 El ile veya otomatik olarak ölçeklendirme ayarlayabilirsiniz.
 
 #### <a name="use-autoheal"></a>AutoHeal kullanın
-AutoHeal (yapılandırma değişiklikleri, istekler, bellek tabanlı sınırları veya bir isteğin yürütülmesi için gereken süre gibi) seçtiğiniz ayarlara bağlı uygulamanız için çalışan işlemi geri dönüştürür. Çoğu zaman, Geri Dönüşüm işlemi bir sorundan en hızlı yoludur. Uygulamayı doğrudan Azure portalının içinden her zaman yeniden başlatabilirsiniz, ancak AutoHeal bunu otomatik olarak sizin için halleder. Tek yapmak için ihtiyacınız olan kök Web.config dosyasında, uygulamanız için bazı tetikleyiciler ekleyin. Uygulamanızı .net uygulaması olsa bile, bu ayarları aynı şekilde çalışır.
+AutoHeal (yapılandırma değişiklikleri, istekler, bellek tabanlı sınırları veya bir isteğin yürütülmesi için gereken süre gibi) seçtiğiniz ayarlara bağlı uygulamanız için çalışan işlemi geri dönüştürür. Çoğu zaman, Geri Dönüşüm işlemi bir sorundan en hızlı yoludur. Uygulamayı doğrudan Azure portalının içinden her zaman yeniden başlatabilirsiniz, ancak AutoHeal bunu otomatik olarak sizin için halleder. Tek yapmak için ihtiyacınız olan kök Web.config dosyasında, uygulamanız için bazı tetikleyiciler ekleyin. Uygulamanızı .NET uygulaması olsa bile, bu ayarları aynı şekilde çalışır.
 
 Daha fazla bilgi için [Azure Web siteleri otomatik onarım](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 

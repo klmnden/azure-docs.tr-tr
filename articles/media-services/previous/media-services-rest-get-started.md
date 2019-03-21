@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: d27b508362193b79d7464ae49683479b2f8fc7ba
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: 0efbabf658210c733a7a7f201cb4a36f63456b28
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991252"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835359"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST kullanarak isteğe bağlı içerik göndermeye başlama  
 
@@ -41,7 +41,7 @@ REST API'leri ile Media Services ile geliştirmeye başlamak için aşağıdaki 
 * Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
 * Bir Media Services hesabı. Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
 * Media Services REST API'si ile geliştirme anlama. Daha fazla bilgi için [Media Services REST API'sine genel bakış](media-services-rest-how-to-use.md).
-* Bir uygulama ettiğiniz HTTP isteklerini ve yanıtlarını gönderebilirsiniz. Bu öğreticide [Fiddler](http://www.telerik.com/download/fiddler).
+* Bir uygulama ettiğiniz HTTP isteklerini ve yanıtlarını gönderebilirsiniz. Bu öğreticide [Fiddler](https://www.telerik.com/download/fiddler).
 
 Bu hızlı başlangıçta, aşağıdaki görevleri gösterilir.
 
@@ -331,7 +331,7 @@ Başarılı olursa, aşağıdaki yanıt döndürülür:
 Bulucu ayarlayın ve AccessPolicy aldıktan sonra gerçek dosyayı Azure depolama REST API'leri kullanarak bir Azure blob depolama kapsayıcısına karşıya yüklendi. Blok blobları olarak dosyaları yüklemeniz gerekir. Sayfa blobları, Azure Media Services tarafından desteklenmez.  
 
 > [!NOTE]
-> Bulucu için karşıya yüklemek istediğiniz dosyasının dosya adı eklemelisiniz **yolu** önceki bölümde alınan değer. Örneğin, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> Bulucu için karşıya yüklemek istediğiniz dosyasının dosya adı eklemelisiniz **yolu** önceki bölümde alınan değer. Örneğin, `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`.
 >
 >
 
@@ -459,7 +459,7 @@ Aşağıdaki kod Kodlayıcısı'nın kimliği ister.
     }
 
 ### <a name="create-a-job"></a>Bir iş oluşturma
-Bir veya daha fazla görevi gerçekleştirmek istediğiniz işleme türüne bağlı olarak her bir iş olabilir. REST API aracılığıyla, işlerini ve görevlerini ilgili iki yoldan biriyle oluşturabilirsiniz: OData toplu işlem veya iş varlıkları görevleri gezinti özelliği aracılığıyla tanımlı satır içi görevleri olabilir. Media Services SDK'sı, toplu işlem kullanır. Ancak, bu makaledeki kod örnekleri okunabilirlik açısından, satır içi olarak tanımlanan görevlerdir. Toplu işlem hakkında daha fazla bilgi için bkz: [açık veri Protokolü (OData) toplu işleme](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Bir veya daha fazla görevi gerçekleştirmek istediğiniz işleme türüne bağlı olarak her bir iş olabilir. REST API aracılığıyla, işlerini ve görevlerini ilgili iki yoldan biriyle oluşturabilirsiniz: OData toplu işlem veya iş varlıkları görevleri gezinti özelliği aracılığıyla tanımlı satır içi görevleri olabilir. Media Services SDK'sı, toplu işlem kullanır. Ancak, bu makaledeki kod örnekleri okunabilirlik açısından, satır içi olarak tanımlanan görevlerdir. Toplu işlem hakkında daha fazla bilgi için bkz: [açık veri Protokolü (OData) toplu işleme](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 Aşağıdaki örnek nasıl oluşturulacağı ve bir görev belirli bir çözümleme ve kaliteli video kodlamak için ayarlama işlemiyle sonrası gösterir. Aşağıdaki bir belge bölümü tüm listesini içeren [görev ön ayarları](https://msdn.microsoft.com/library/mt269960) Media Encoder Standard işlemcisi tarafından desteklenir.  
 
@@ -817,8 +817,6 @@ Bulucu ayarlayın ve AccessPolicy aldıktan sonra Azure depolama REST API'lerini
 
 > [!NOTE]
 > Bulucu için indirmek istediğiniz dosya için dosya adı eklemelisiniz **yolu** önceki bölümde alınan değer. Örneğin, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
->
->
 
 Azure depolama blobları ile çalışma hakkında daha fazla bilgi için bkz. [Blob hizmeti REST API'si](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
@@ -912,7 +910,7 @@ MPEG DASH akış için URL'ye (format mpd-time-CSF) sonra "/ MANIFEST".
 
 
 ## <a id="play"></a>İçeriğinizi oynatma
-Videonuzu akışla aktarmak için [Azure Media Services Oynatıcısı](http://amsplayer.azurewebsites.net/azuremediaplayer.html)’nı kullanın.
+Videonuzu akışla aktarmak için [Azure Media Services Oynatıcısı](https://amsplayer.azurewebsites.net/azuremediaplayer.html)’nı kullanın.
 
 Aşamalı indirmeyi test etmek için bir URL (örneğin, IE, Chrome, Safari) bir tarayıcıya yapıştırın.
 

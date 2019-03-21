@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 071837aac9fce405fcc5ef92e044a0265e0e5969
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: ca7bed26d91c28304638e85d6da93708bfcfcada
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431836"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170318"
 ---
 # <a name="update-an-existing-iot-edge-module-offer"></a>Mevcut bir IOT Edge modülü teklifi güncelleştirme
 
@@ -36,7 +36,7 @@ Bu değişiklikler yardımcı olmak için portal sunar **karşılaştırma** ve 
 
 ## <a name="unpermitted-changes-to-iot-edge-module-offer-or-sku"></a>IOT Edge modülü teklif veya SKU unpermitted değişiklikler
 
-IOT Edge modülü teklif ya da Azure Marketi'nde teklif Canlı olduktan sonra değiştirilemeyen SKU özniteliklerini vardır. Aşağıdaki ayarları değiştiremezsiniz:
+Bir IOT Edge modülü teklif ya da Azure Marketi'nde teklif Canlı olduktan sonra değiştirilemeyen SKU öznitelikleri vardır. Aşağıdaki ayarları değiştiremezsiniz:
 
 -  **Teklif kimliği** ve **yayımcı kimliği** teklifi
 -  **SKU kimliği** mevcut SKU'lar
@@ -73,7 +73,7 @@ Yeni bir SKU'ya teklifiniz için kullanılabilir hale getirmek için aşağıdak
 
 3.  Altında **SKU'ları** sekmesinde **yeni bir SKU ekleyin** ve sağlayan bir **SKU kimliği** açılır pencerede.
 
-4.  İçinde açıklanan adımları kullanarak IOT Edge modülü yeniden yayımlamanız [IOT Edge modülü, Azure Marketi'nde yayımlayabileceğiniz](./cpp-publish-offer.md).
+4.  İçinde açıklanan adımları kullanarak IOT Edge modülü yeniden yayımlamanız [bir IOT Edge modülü, Azure Marketi'nde yayımlayabileceğiniz](./cpp-publish-offer.md).
 
 5.  Seçin **Yayımla** yeni SKU'nuz yayımlamak için iş akışını başlatmak için.
 
@@ -86,7 +86,7 @@ Teklifinizle ilişkili Market meta verilerini güncelleştirmek için aşağıda
 
 2.  Altında **tüm teklifleri**, güncelleştirmek istediğiniz teklif bulun.
 
-3.  Git **Market** sekmesi. Yönergeleri kullanın [IOT Edge modülü, Azure Marketi'nde yayımlayabileceğiniz](./cpp-publish-offer.md) makale meta verileri değişiklik yapma.
+3.  Git **Market** sekmesi. Yönergeleri kullanın [bir IOT Edge modülü, Azure Marketi'nde yayımlayabileceğiniz](./cpp-publish-offer.md) makale meta verileri değişiklik yapma.
 
 4.  Seçin **Yayımla** yaptığınız değişiklikleri yayımlamak için iş akışını başlatmak için.
 

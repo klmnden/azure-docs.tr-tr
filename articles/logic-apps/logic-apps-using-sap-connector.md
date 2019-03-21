@@ -10,18 +10,18 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 27da87c11ca35be72690965a2359ff6ff6b9f999
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 468e73c64037a76da612cba8d6c2e9507dd3ac87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391273"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887094"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps'ten SAP sistemlerini bağlanma
 
-Bu makalede, SAP ERP merkezi bileşeni (ECC) Bağlayıcısı'nı kullanarak şirket içi SAP kaynaklarınızdan bir mantıksal uygulama içinde nasıl erişeceği gösterilmektedir. SAP ECC bağlayıcı SAP Netweaver tabanlı sistemlerde Ara belge (IDoc) veya iş uygulaması programlama arabirimi (BAPI) veya uzak işlev çağrısı (RFC) aracılığıyla gelen ve giden ileti veya veri tümleştirmeyi destekler.
+Bu makalede, SAP ERP merkezi bileşeni (ECC) Bağlayıcısı'nı kullanarak şirket içi SAP kaynaklarınızdan bir mantıksal uygulama içinde nasıl erişeceği gösterilmektedir. Bağlayıcıyı şirket içi ECC hem s/4 HANA sistemleri ile çalışır. SAP ECC bağlayıcı SAP Netweaver tabanlı sistemlerde Ara belge (IDoc) veya iş uygulaması programlama arabirimi (BAPI) veya uzak işlev çağrısı (RFC) aracılığıyla gelen ve giden ileti veya veri tümleştirmeyi destekler.
 
-SAP ECC bağlayıcıyı kullanan <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .net Bağlayıcısı (NCo) kitaplığı</a> ve bu işlemleri veya eylemleri sağlar:
+SAP ECC bağlayıcıyı kullanan <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .NET Bağlayıcısı (NCo) kitaplığı</a> ve bu işlemleri veya eylemleri sağlar:
 
 - **SAP için gönderme**: IDoc gönderebilir veya BAPI işlevleri tRFC üzerinde SAP sistemlerinde çağırın.
 - **SAP'den alma**: IDoc veya BAPI işlev çağrıları SAP sistemlerden tRFC alıyorsunuz.

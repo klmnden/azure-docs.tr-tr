@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 8abc6129e1179378ac90278fd2032737b2b828b2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 19d2dedc2ccf7015696504a94f5ef7c43a90d3be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888748"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125009"
 ---
 #### <a name="to-download-hotfixes"></a>Düzeltmeleri indirmek için
 
@@ -100,12 +100,12 @@ Normal mod düzeltmelerini yüklemek ve doğrulamak için aşağıdaki adımlar�
     Aşağıdaki sürümleri görmeniz gerekir:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 5.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17845`
+   * `HcsSoftwareVersion: 6.3.9600.17845`
    
-    Güncelleştirme uygulandıktan sonra sürüm numarası değişmezse, düzeltmenin uygulanamadığı anlamına gelir. Bunu görmeniz durumunda daha fazla yardım için lütfen [Microsoft Desteği](../articles/storsimple/storsimple-8000-contact-microsoft-support.md)’ne başvurun.
+     Güncelleştirme uygulandıktan sonra sürüm numarası değişmezse, düzeltmenin uygulanamadığı anlamına gelir. Bunu görmeniz durumunda daha fazla yardım için lütfen [Microsoft Desteği](../articles/storsimple/storsimple-8000-contact-microsoft-support.md)’ne başvurun.
      
-    > [!IMPORTANT]
-    > Etkin denetleyiciyi aracılığıyla yeniden başlatmalısınız `Restart-HcsController` İleri güncelleştirmeyi uygulamadan önce cmdlet'i.
+     > [!IMPORTANT]
+     > Etkin denetleyiciyi aracılığıyla yeniden başlatmalısınız `Restart-HcsController` İleri güncelleştirmeyi uygulamadan önce cmdlet'i.
      
 8. Yüklemek için 3 ile 6 arasındaki adımları yineleyin _CisMDSAgentupdate.exe_ aracıyı indirdiğiniz, _FirstOrderUpdate_ klasör.
 8. İkinci sipariş güncelleştirmelerini yüklemek için 3-6. adımları tekrarlayın. 

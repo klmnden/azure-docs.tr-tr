@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04ee892c85d2795f4ec11d47d861af3007c46e96
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8e901f0e5fb1dc2840196bd6a739ff763b54ce8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169335"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119233"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure multi-Factor authentication'da raporları
 
@@ -36,7 +36,9 @@ Azure multi-Factor Authentication, Azure portalı üzerinden erişilebilir, kuru
 2. Sol tarafta, seçin **Azure Active Directory** > **MFA sunucusu**.
 3. Görüntülemek istediğiniz raporu seçin.
 
-   <center>![Bulut](./media/howto-mfa-reporting/report.png)</center>
+   <center>
+   
+   ![Bulut](./media/howto-mfa-reporting/report.png)</center>
 
 ## <a name="azure-ad-sign-ins-report"></a>Azure AD oturum açma işlemleri raporu
 

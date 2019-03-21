@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e56dc54c2c296ee17b04070ac8ee68d2180b7046
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7b458632ddb6e23ab1ddf642752aa0cbfc11f1ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183454"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839077"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Öğretici: Picturepark ile Azure Active Directory Tümleştirme
 
@@ -224,7 +224,7 @@ Picturepark açarken Azure AD kullanıcılarının etkinleştirmek için bunlar�
    
     ![Kullanıcı oluşturma](./media/picturepark-tutorial/ic795069.png "kullanıcı oluşturma")
    
-    a. İçinde **e-posta adresi** metin kutusuna **e-posta adresi** kullanıcının **BrittaSimon@contoso.com**.  
+    a. İçinde **e-posta adresi** metin kutusuna **e-posta adresi** kullanıcının **BrittaSimon\@contoso.com**.  
    
     b. İçinde **parola** ve **parolayı onayla** metin kutuları, türü **parola** BrittaSimon biri. 
    

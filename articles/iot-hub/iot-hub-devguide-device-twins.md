@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 4cbb8e389f403aeb149998acc21956ebce40be78
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
-ms.translationtype: MT
+ms.openlocfilehash: 4ad75a7ba4e2f6060824f3cf1c87a42f8fa32843
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011509"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113155"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Anlama ve IOT Hub'ında cihaz ikizlerini kullanma
 
@@ -180,44 +180,44 @@ Kapsayıcı nesneleri için ve kök nesne cihaz kimlik özelliklerdir `tags` ve 
 
 * **İkiz bildirimlerin**. Bu işlem ikizi değiştirildiğinde bildirim almak çözüm arka ucu sağlar. Bunu yapmak için IOT çözümünüzün yönlendirme oluşturma ve veri kaynağı eşit ayarlamak için gereken *twinChangeEvents*. İkiz bildirim gönderilir varsayılan olarak, bu tür bir yol, önceden mevcut. Değişim oranı çok yüksek olup olmadığını veya iç hatalar gibi diğer nedenlerle, IOT hub'ı tüm değişiklikleri içeren tek bir bildirim gönderebilir. Bu nedenle, uygulamanızın güvenilir denetim ve tüm ara durumlarını günlük gerekiyorsa, CİHAZDAN buluta iletileri kullanmanız gerekir. İkiz bildirim iletisi, özellikleri ve gövdesini içerir.
 
-   - Özellikler
+  - Özellikler
 
-   | Ad | Değer |
-   | --- | --- |
-   $content-type | uygulama/json |
-   $iothub-enqueuedtime |  Bildirim zaman gönderildiği zaman |
-   $iothub-message-kaynak | twinChangeEvents |
-   $content-encoding | UTF-8 |
-   deviceId | Cihaz kimliği |
-   HubName | IOT hub'ı adı |
-   operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) işleminin zaman damgası |
-   ıothub ileti şeması | deviceLifecycleNotification |
-   opType | "replaceTwin" veya "updateTwin" |
+    | Ad | Değer |
+    | --- | --- |
+    $content-type | uygulama/json |
+    $iothub-enqueuedtime |  Bildirim zaman gönderildiği zaman |
+    $iothub-message-kaynak | twinChangeEvents |
+    $content-encoding | UTF-8 |
+    deviceId | Cihaz kimliği |
+    HubName | IOT hub'ı adı |
+    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) işleminin zaman damgası |
+    ıothub ileti şeması | deviceLifecycleNotification |
+    opType | "replaceTwin" veya "updateTwin" |
 
-   İleti sistemi özellikleri önekiyle `$` simgesi.
+    İleti sistemi özellikleri önekiyle `$` simgesi.
 
-   - Gövde
+  - Gövde
         
-   Bu bölüm, JSON biçiminde tüm ikizi değişiklikleri içerir. Bir düzeltme eki aynı biçimi kullanır, farkı olan tüm ikizi bölümleri içerebilir: etiketler, properties.reported, properties.desired ve "$metadata" öğeleri içerir. Örneğin,
+    Bu bölüm, JSON biçiminde tüm ikizi değişiklikleri içerir. Bir düzeltme eki aynı biçimi kullanır, farkı olan tüm ikizi bölümleri içerebilir: etiketler, properties.reported, properties.desired ve "$metadata" öğeleri içerir. Örneğin,
 
-   ```json
-   {
-       "properties": {
-           "desired": {
-               "$metadata": {
-                   "$lastUpdated": "2016-02-30T16:24:48.789Z"
-               },
-               "$version": 1
-           },
-           "reported": {
-               "$metadata": {
-                   "$lastUpdated": "2016-02-30T16:24:48.789Z"
-               },
-               "$version": 1
-           }
-       }
-   }
-   ```
+    ```json
+    {
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
+    }
+    ```
 
 Önceki tüm işlemleri destekleyen [iyimser eşzamanlılık](iot-hub-devguide-device-twins.md#optimistic-concurrency) ve gerekli **ServiceConnect** tanımlandığı gibi izni [IOT hub'a erişimi denetleme](iot-hub-devguide-security.md).
 

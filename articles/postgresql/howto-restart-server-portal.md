@@ -1,19 +1,19 @@
 ---
 title: Azure portalını kullanarak PostgreSQL sunucusu için Azure veritabanını yeniden başlatın
-description: Bu makalede Azure portalını kullanarak PostgreSQL için Azure veritabanı nasıl yeniden açıklanır.
+description: Bu makalede, Azure portalını kullanarak PostgreSQL için Azure veritabanı nasıl yeniden açıklanır.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 2/7/2019
-ms.openlocfilehash: cc5957da97d9a8801583564bdf51f0483ab8e004
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 3/18/2019
+ms.openlocfilehash: 83947571ed835c53c6cf8da6e73deb8dceabdd62
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865799"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168784"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-azure-portal"></a>Azure portalını kullanarak PostgreSQL sunucusu için Azure veritabanını yeniden başlatın
+# <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>Azure portalını kullanarak PostgreSQL sunucusu için Azure veritabanını yeniden başlatın
 Bu konuda, PostgreSQL sunucusu için Azure veritabanı nasıl yeniden açıklanmaktadır. Sunucu işlemi gerçekleştirirken, kısa bir kesintiye neden sunucunuzun bakım nedeniyle yeniden başlatmanız gerekebilir.
 
 Sunucunun yeniden başlatılması, Hizmet meşgul olduğunda engellenir. Örneğin, hizmet sanal çekirdekler ölçeklendirme gibi daha önce istenen bir işlemin işliyor olabilir.
@@ -28,7 +28,7 @@ Bu nasıl yapılır kılavuzunda tamamlanması gerekir:
 
 Aşağıdaki adımlar, PostgreSQL sunucuyu yeniden başlatın:
 
-1. Azure portalında PostgreSQL için Azure veritabanı sunucunuza seçin.
+1. İçinde [Azure portalında](https://portal.azure.com/), PostgreSQL için Azure veritabanı sunucunuza seçin.
 
 2. Sunucunun araç **genel bakış** sayfasında **yeniden**.
 
@@ -48,4 +48,4 @@ Aşağıdaki adımlar, PostgreSQL sunucuyu yeniden başlatın:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Hızlı Başlangıç: Azure portalını kullanarak PostgreSQL sunucusu için Azure veritabanı oluşturma](./quickstart-create-server-database-portal.md)
+Hakkında bilgi edinin [nasıl PostgreSQL için Azure veritabanı'nda parametrelerini ayarla](howto-configure-server-parameters-using-portal.md)

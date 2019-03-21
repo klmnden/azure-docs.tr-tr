@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: c71528ed8453bcde05e29eb609ca2cde64bad8de
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7d99f5a5d027c825fa1145328bb9576229ce39b4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309426"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122004"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD etki alanı Hizmetleri - sorun giderme uyarıları
 Bu makalede, yönetilen etki alanınızda karşılaşabileceğiniz herhangi bir uyarı için sorun giderme kılavuzları sağlar.
@@ -103,13 +103,13 @@ Sanal ağ içinde makineler aynı IP adresi aralığı alt ağ için yapılandı
 
 1. [Yönetilen etki alanınızı silmek](active-directory-ds-disable-aadds.md) dizininizden.
 2. Alt ağ için IP adresi aralığı Düzelt
-  1. Gidin [Azure portalında sanal ağlar sayfasında](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
-  2. Azure AD Domain Services için kullanmayı planladığınız sanal ağı seçin.
-  3. Tıklayarak **adres alanı** ayarları
-  4. Adres aralığı mevcut adres aralığına tıklayarak ve düzenlemeye veya ek bir adres aralığı ekleme güncelleştirin. Yeni bir adres aralığı bir özel IP aralığında olduğundan emin olun. Yaptığınız değişiklikleri kaydedin.
-  5. Tıklayarak **alt ağlar** sol taraftaki gezinti.
-  6. Tablodaki düzenlemek istediğiniz alt ağa tıklayın.
-  7. Adres aralığını güncelleştir ve değişikliklerinizi kaydedin.
+   1. Gidin [Azure portalında sanal ağlar sayfasında](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+   2. Azure AD Domain Services için kullanmayı planladığınız sanal ağı seçin.
+   3. Tıklayarak **adres alanı** ayarları
+   4. Adres aralığı mevcut adres aralığına tıklayarak ve düzenlemeye veya ek bir adres aralığı ekleme güncelleştirin. Yeni bir adres aralığı bir özel IP aralığında olduğundan emin olun. Yaptığınız değişiklikleri kaydedin.
+   5. Tıklayarak **alt ağlar** sol taraftaki gezinti.
+   6. Tablodaki düzenlemek istediğiniz alt ağa tıklayın.
+   7. Adres aralığını güncelleştir ve değişikliklerinizi kaydedin.
 3. İzleyin [alma başlatıldı kullanarak Azure AD Domain Services Kılavuzu](active-directory-ds-getting-started.md) yönetilen etki alanınıza yeniden oluşturmak için. Bir sanal ağ ile özel bir IP adresi aralığı çekme emin olun.
 4. Yeni etki alanınız için sanal makinelerinizi etki alanına katılma için izleyin [bu kılavuzda](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Uyarı çözümlendiğinde emin olmak için iki saat içinde etki alanınızın sistem durumunu denetleyin.
@@ -160,13 +160,13 @@ Azure AD Domain Services işlevi aboneliği gerektirir ve başka bir aboneliğe 
 
 Azure AD etki alanı Hizmetleri oluşturur belirli kaynaklar düzgün çalışabilmesi için dağıtırken genel IP adresleri, NIC ve bir yük dengeleyici gibi. Herhangi bir adlandırılmış silindiğinde, bu desteklenmeyen bir durumda olması için yönetilen etki alanınızı neden olur ve yönetilmekte olan etki alanınıza engeller. Bu uyarı ne zaman Azure AD Domain Services kaynaklarını bulabildiği birisi gerekli kaynak siler bulunur. Aşağıdaki adımlar, yönetilen etki alanınıza geri yükleme özetlemektedir.
 
-1.  Azure AD Domain Services durumu sayfasına gidin
-  1.    İçin seyahat [Azure AD Domain Services sayfası](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) Azure portalında.
-  2.    Sol gezinti bölmesinde tıklayın **sistem durumu**
-2.  Uyarı 4 saatten eski olup olmadığını denetleyin
-  1.    Kimlikli uyarı sistem durumu sayfasında, tıklayın **AADDS109**
-  2.    Uyarı olduğunda, ilk bulunan için bir zaman damgasına sahip olur. Zaman damgası 4 saatten kısa bir süre önce Azure AD Domain Services silinen kaynak yeniden oluşturabileceğinizi şansı yoktur.
-3.  Uyarı 4 saatten eski ise, yönetilen etki alanı kurtarılamaz bir durumda değil. Azure AD Domain Services silip yeniden açmanız gerekir.
+1. Azure AD Domain Services durumu sayfasına gidin
+   1.    İçin seyahat [Azure AD Domain Services sayfası](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) Azure portalında.
+   2.    Sol gezinti bölmesinde tıklayın **sistem durumu**
+2. Uyarı 4 saatten eski olup olmadığını denetleyin
+   1.    Kimlikli uyarı sistem durumu sayfasında, tıklayın **AADDS109**
+   2.    Uyarı olduğunda, ilk bulunan için bir zaman damgasına sahip olur. Zaman damgası 4 saatten kısa bir süre önce Azure AD Domain Services silinen kaynak yeniden oluşturabileceğinizi şansı yoktur.
+3. Uyarı 4 saatten eski ise, yönetilen etki alanı kurtarılamaz bir durumda değil. Azure AD Domain Services silip yeniden açmanız gerekir.
 
 
 ## <a name="aadds110-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS110: Yönetilen etki alanınızla ilişkili alt ağ dolu
@@ -203,13 +203,13 @@ Bizim hizmet sorumluları, yönetilen etki alanınızda kaynakları oluşturmak 
 
 1. Yönetilen etki alanınıza kiracınızdan silin.
 2. Alt ağ için IP adresi aralığı Düzelt
-  1. Gidin [Azure portalında sanal ağlar sayfasında](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
-  2. Azure AD Domain Services için kullanmayı planladığınız sanal ağı seçin.
-  3. Tıklayarak **adres alanı** ayarları
-  4. Adres aralığı mevcut adres aralığına tıklayarak ve düzenlemeye veya ek bir adres aralığı ekleme güncelleştirin. Yaptığınız değişiklikleri kaydedin.
-  5. Tıklayarak **alt ağlar** sol taraftaki gezinti.
-  6. Tablodaki düzenlemek istediğiniz alt ağa tıklayın.
-  7. Adres aralığını güncelleştir ve değişikliklerinizi kaydedin.
+   1. Gidin [Azure portalında sanal ağlar sayfasında](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+   2. Azure AD Domain Services için kullanmayı planladığınız sanal ağı seçin.
+   3. Tıklayarak **adres alanı** ayarları
+   4. Adres aralığı mevcut adres aralığına tıklayarak ve düzenlemeye veya ek bir adres aralığı ekleme güncelleştirin. Yaptığınız değişiklikleri kaydedin.
+   5. Tıklayarak **alt ağlar** sol taraftaki gezinti.
+   6. Tablodaki düzenlemek istediğiniz alt ağa tıklayın.
+   7. Adres aralığını güncelleştir ve değişikliklerinizi kaydedin.
 3. İzleyin [alma başlatıldı kullanarak Azure AD Domain Services Kılavuzu](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) yönetilen etki alanınıza yeniden oluşturmak için. Bir sanal ağ ile özel bir IP adresi aralığı çekme emin olun.
 4. Yeni etki alanınız için sanal makinelerinizi etki alanına katılma için izleyin [bu kılavuzda](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 5. Adımları doğru şekilde tamamladığınızdan emin olmak için iki saat içinde etki alanınızın sistem durumunu denetleyin.

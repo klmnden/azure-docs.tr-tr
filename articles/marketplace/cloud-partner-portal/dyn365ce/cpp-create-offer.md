@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6551eab45fdfb5070b29de4152cf2b3e3d008f69
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 0138ea8dcbd780ca8aa87178dad41bdca1a72267
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083246"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900667"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement-application-offer"></a>Dynamics 365 müşteri katılımı uygulama teklif için oluşturma
 
@@ -28,7 +28,7 @@ Bu bölümde, oluşturmak ve Dynamics 365 müşteri katılımı uygulama teklifi
 
 ## <a name="new-offer-form"></a>Yeni Teklif formu
 
-Oturum [bulut iş ortağı portalı](http://cloudpartner.azure.com/)ve ardından **+ yeni teklif** sol menü çubuğundan. Yeni menü sunar, seçin **Dynamics 365 müşteri katılımı için**:
+Oturum [bulut iş ortağı portalı](https://cloudpartner.azure.com/)ve ardından **+ yeni teklif** sol menü çubuğundan. Yeni menü sunar, seçin **Dynamics 365 müşteri katılımı için**:
 
 ![Yeni Teklif için menü öğesi için Dynamics 365 müşteri katılımı uygulama](./media/new-dyn365ce-menu-item.png)
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: aahi
-ms.openlocfilehash: b4778c87ca5da266858cd05c67e5f0a78af731bc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 11a8ef1974e8d930b0001ccfb445b0eee509356f
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330826"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188960"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: Metin analizi Bilişsel hizmetini çağırmak için Git kullanma 
 <a name="HOLTop"></a>
@@ -41,9 +41,9 @@ Dil Algılama API'si, [Dili Algıla metodunu](https://westus.dev.cognitive.micro
 1. `subscriptionKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 1. `uriBase` içindeki konumu (şu anda `westcentralus`) kaydolduğunuz bölge olacak şekilde değiştirin.
 1. Dosyayı '.go' uzantısıyla kaydedin.
-1. Go yüklü bir bilgisayarda bir komut istemi açın.
-1. Dosyayı oluşturun, örneğin: 'go build quickstart.go'.
-1. Dosyayı çalıştırın, örneğin: 'quickstart'.
+1. Açık olan bir bilgisayarda bir komut istemi Git yüklü uygulamanızın kök klasöründen.
+1. Dosyayı oluşturun, örneğin: `go build detect.go`.
+1. Dosyayı çalıştırın, örneğin: `go run detect.go`.
 
 ```golang
 package main
@@ -177,16 +177,16 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="analyze-sentiment-request"></a>Yaklaşımı analiz etme isteği
 
-Yaklaşım Analizi API'si, [Yaklaşım metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) kullanarak bir metin kaydı kümesinin yaklaşımını algılar. Aşağıdaki örnek, biri İngilizce diğeri İspanyolca olan iki belge puanlar.
+Yaklaşım Analizi API'si, [Yaklaşım metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) kullanarak bir metin kaydı kümesinin yaklaşımını algılar. Yaklaşım analizi, müşterilerin markanız veya konunun pozitif veya negatif yaklaşım hakkında ipuçları için ham metni çözümleyerek düşündüklerini bulmak için kullanılabilir. Aşağıdaki örnek puanları iki belge, bir İngilizce ve İspanyolca başka sağlar.
 
 1. Sık kullandığınız kod düzenleyicisinde yeni bir Go projesi oluşturun.
 1. Aşağıda sağlanan kodu ekleyin.
 1. `subscriptionKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 1. `uriBase` içindeki konumu (şu anda `westcentralus`) kaydolduğunuz bölge olacak şekilde değiştirin.
 1. Dosyayı '.go' uzantısıyla kaydedin.
-1. Go yüklü bir bilgisayarda bir komut istemi açın.
-1. Dosyayı oluşturun, örneğin: 'go build quickstart.go'.
-1. Dosyayı çalıştırın, örneğin: 'quickstart'.
+1. Açık olan bir bilgisayarda bir komut istemi Git yüklü uygulamanızın kök klasöründen.
+1. Dosyayı oluşturun, örneğin: `go build sentiment.go`.
+1. Dosyayı çalıştırın, örneğin: `go run sentiment.go`.
 
 ```golang
 package main
@@ -272,7 +272,8 @@ func main() {
 
 ## <a name="analyze-sentiment-response"></a>Yaklaşımı analiz etme yanıtı
 
-Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
+Sonuç 0.0 yakın puanlanır, 1.0 yakın ve negatif puanlanır ise pozitif ölçülür.
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
 
 ```json
 {
@@ -294,7 +295,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="extract-key-phrases-request"></a>Anahtar ifadeleri ayıklama isteği
 
-Anahtar İfade Ayıklama API'si [Anahtar İfadeler metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) kullanarak bir metin belgesindeki anahtar ifadeleri ayıklar. Aşağıdaki örnekte hem İngilizce hem de İspanyolca belgelerin anahtarı ifadeleri ayıklanır.
+Anahtar İfade Ayıklama API'si [Anahtar İfadeler metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) kullanarak bir metin belgesindeki anahtar ifadeleri ayıklar. Anahtar ifade ayıklama, bir belge ya da metin ana noktaları hızlıca belirlemek için kullanılır. Aşağıdaki örnekte hem İngilizce hem de İspanyolca belgelerin anahtarı ifadeleri ayıklanır.
 
 1. Sık kullandığınız kod düzenleyicisinde yeni bir Go projesi oluşturun.
 1. Aşağıda sağlanan kodu ekleyin.
@@ -302,8 +303,8 @@ Anahtar İfade Ayıklama API'si [Anahtar İfadeler metodunu](https://westus.dev.
 1. `uriBase` içindeki konumu (şu anda `westcentralus`) kaydolduğunuz bölge olacak şekilde değiştirin.
 1. Dosyayı '.go' uzantısıyla kaydedin.
 1. Go yüklü bir bilgisayarda bir komut istemi açın.
-1. Dosyayı oluşturun, örneğin: 'go build quickstart.go'.
-1. Dosyayı çalıştırın, örneğin: 'quickstart'.
+1. Dosyayı oluşturun, örneğin: `go build key-phrases.go`.
+1. Dosyayı çalıştırın, örneğin: `go run key-phrases.go`.
 
 ```golang
 package main
@@ -390,7 +391,7 @@ func main() {
 
 ## <a name="extract-key-phrases-response"></a>Anahtar ifadeleri ayıklama yanıtı
 
-Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
 
 ```json
 {
@@ -430,9 +431,9 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 <a name="Entities"></a>
 
-## <a name="identify-entities-request"></a>Varlıkları tanımlama isteği
+## <a name="identify-entities"></a>Varlıkları tanımlama
 
-Varlıklar API'si, [Varlıklar metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) kullanarak bir metin belgesindeki iyi bilinen varlıkları tanımlar. Aşağıdaki örnekte İngilizce belgelerin varlıkları tanımlanır.
+Varlıklar API'si, [Varlıklar metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) kullanarak bir metin belgesindeki iyi bilinen varlıkları tanımlar. [Varlıkları](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) metinden "ABD" gibi sözcükleri ayıklama sonra bu sözcükler türü ve/veya Wikipedia bağlantısını verin. "ABD" için türdür `location`Wikipedia bağlantısını bilgileriyse `https://en.wikipedia.org/wiki/United_States`.  Aşağıdaki örnekte İngilizce belgelerin varlıkları tanımlanır.
 
 1. Sık kullandığınız kod düzenleyicisinde yeni bir Go projesi oluşturun.
 1. Aşağıda sağlanan kodu ekleyin.
@@ -440,8 +441,8 @@ Varlıklar API'si, [Varlıklar metodunu](https://westus.dev.cognitive.microsoft.
 1. `uriBase` içindeki konumu (şu anda `westcentralus`) kaydolduğunuz bölge olacak şekilde değiştirin.
 1. Dosyayı '.go' uzantısıyla kaydedin.
 1. Go yüklü bir bilgisayarda bir komut istemi açın.
-1. Dosyayı oluşturun, örneğin: 'go build quickstart.go'.
-1. Dosyayı çalıştırın, örneğin: 'quickstart'.
+1. Dosyayı oluşturun, örneğin: `go build entities.go`.
+1. Dosyayı çalıştırın, örneğin: `go run entities.go`.
 
 ```golang
 package main

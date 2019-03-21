@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: c18678e211b8b1f8682215a7314309166ebb02cf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 48c5804df53c084715cac872aa431cf8694c6d35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885127"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Öğretici: Azure Active Directory tümleştirmesiyle düzleştiren dosyaları
 
@@ -140,8 +140,8 @@ Azure AD çoklu oturum açma düzleştiren dosyalarıyla yapılandırmak için a
    
     a. İçinde **etki alanı** metin kayıtlı etki alanınızı girin.
    
-    >[!NOTE]
-    >Bir kaydedilmiş bir etki alanı henüz kişi yoksa düzleştiren dosyalarınızı aracılığıyla destek [ support@flatterfiles.com ](mailto:support@flatterfiles.com). 
+   > [!NOTE]
+   > Bir kaydedilmiş bir etki alanı henüz kişi yoksa düzleştiren dosyalarınızı aracılığıyla destek [ support@flatterfiles.com ](mailto:support@flatterfiles.com). 
     
     b. İçinde **kimlik sağlayıcısı URL'si** metin değerini yapıştırın **oturum açma URL'si** kopyaladığınız Azure portal'ı oluşturur.
    
@@ -167,7 +167,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

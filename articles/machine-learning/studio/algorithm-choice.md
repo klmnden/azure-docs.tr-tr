@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
-ms.openlocfilehash: d75048cb53dd1a5ebaba6322228af6137d0f3b96
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3bb88f2f9546ec25433061a0704bd144730bd34c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456185"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894640"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için algoritma seçme
 
@@ -45,7 +45,7 @@ Grafik olarak yolu ve algoritma etiketleri okuyun "için  *&lt;yol etiketinin&gt
 Bazen bunların hiçbiri tam olarak uygun değil. Bunlar tam olan bu konuda endişelenmeyin için thumb kural önerileri olacak şekilde tasarlanmıştır.
 İle söz konusu konuştuk birkaç veri bilimcileri en iyi algoritmayı bulmak için yalnızca emin tümünü denemek için yoludur.
 
-İşte bir örnek [Azure AI Gallery](http://gallery.azure.ai/) aynı verilere karşı çeşitli algoritmalar çalışır ve sonuçları karşılaştıran bir deneme: [Çok sınıflı sınıflandırıcılar karşılaştırın: Harfli tanıma](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
+İşte bir örnek [Azure AI Gallery](https://gallery.azure.ai/) aynı verilere karşı çeşitli algoritmalar çalışır ve sonuçları karşılaştıran bir deneme: [Çok sınıflı sınıflandırıcılar karşılaştırın: Harfli tanıma](https://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Anlaşılması kolay bilgi grafiği machine learning temel bilgileri yaygın machine learning soruları yanıtlamak için kullanılan popüler algoritmaları hakkında bilgi edinmek için genel bakış indirmek için bkz [makine öğrenimi algoritma örnekleri ile Temelleri](basics-infographic-with-algorithm-examples.md).
@@ -180,7 +180,7 @@ Karar ormanları ([regresyon](/azure/machine-learning/studio-module-reference/de
 
 Özellik alanı rasgele olarak küçük bölgelere alt bölümlere ayrılabilir, çünkü yeterince iyi bölge başına bir veri noktası için bölme Imagine kolaydır. Bu aşırı overfitting örneğidir. Bunu önlemek için çok sayıda ağaçları uzamayan ağaçları değil bağıntılı sağlamak üzere özel matematik dikkatli. Bu "karar ormanı" overfitting engelleyen bir ağaç ortalamasıdır. Karar ormanları, çok miktarda bellek kullanabilirsiniz. Karar harikası biraz daha uzun bir eğitim süresini çoğaltamaz daha az bellek tüketen bir değişken var.
 
-Artırmalı karar ağaçları, kaç kez ayırabilir ve her bölgede nasıl birkaç veri noktası izin verilen sınırlayarak overfitting kaçının. Algoritma, her biri için önce ağacı tarafından sol hata dengelemek için öğrenir ağaçları, bir dizi oluşturur. Çok miktarda bellek kullanma eğilimindedir çok doğru bir learner sonucudur. Tam teknik açıklaması için kullanıma [Friedman'ın özgün belgede](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
+Artırmalı karar ağaçları, kaç kez ayırabilir ve her bölgede nasıl birkaç veri noktası izin verilen sınırlayarak overfitting kaçının. Algoritma, her biri için önce ağacı tarafından sol hata dengelemek için öğrenir ağaçları, bir dizi oluşturur. Çok miktarda bellek kullanma eğilimindedir çok doğru bir learner sonucudur. Tam teknik açıklaması için kullanıma [Friedman'ın özgün belgede](https://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
 
 [Hızlı orman quantile regresyon](/azure/machine-learning/studio-module-reference/fast-forest-quantile-regression) karar ağaçları verilerin bir bölge, aynı zamanda quantiles biçiminde, dağıtım içinde yalnızca Normal (ORTANCA) değerini bilmek istediğiniz özel bir durum için bir çeşididir.
 
@@ -215,7 +215,7 @@ Akıllı bir doğrusal SVMs uzantısı [bir sınıf SVM](/azure/machine-learning
 Yükseltebilirsiniz kalite Bayes yöntemi vardır: Bunlar overfitting kaçının. Bunlar önceden yanıt büyük olasılıkla dağıtımı hakkında bazı varsayımlarda bulunarak yapın. Bu yaklaşımın başka bir byproduct, çok az sayıda parametre sahip olduğunu belirtir. Azure Machine Learning Studio iki sınıflandırma Bayes algoritmaları sahiptir ([iki sınıflı Bayes noktası makinesi](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine)) ve gerileme ([Bayes doğrusal regresyon](/azure/machine-learning/studio-module-reference/bayesian-linear-regression)).
 Bu veri bölebilir veya düz bir çizgi uygun olduğunu varsayın unutmayın.
 
-Geçmiş bir not üzerinde Bayes noktası makineleri Microsoft Research'te geliştirilen. Bazı olağanüstü güzel teorik iş arkasına sahiptirler. İsteyen Öğrenci yönlendirildiği [JMLR özgün makalesinde](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) ve [Chris Güneş tarafından bilgilendirici blog](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
+Geçmiş bir not üzerinde Bayes noktası makineleri Microsoft Research'te geliştirilen. Bazı olağanüstü güzel teorik iş arkasına sahiptirler. İsteyen Öğrenci yönlendirildiği [JMLR özgün makalesinde](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) ve [Chris Güneş tarafından bilgilendirici blog](https://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
 ### <a name="specialized-algorithms"></a>Özel algoritmaların
 Belirli bir hedefe varsa günümüzdeyiz! tam da olabilir. Azure Machine Learning Studio koleksiyonda olarak uzmanlaşmış algoritmaları vardır:

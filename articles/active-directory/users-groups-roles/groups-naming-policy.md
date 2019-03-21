@@ -1,5 +1,5 @@
 ---
-title: Grup adı İlkesi (Önizleme) - Office 365 grupları - Azure Active Directory | Microsoft Docs
+title: Grup adlandırma ilkesi - Office 365 grupları - Azure Active Directory zorunlu | Microsoft Docs
 description: Azure Active Directory (Önizleme) içinde Office 365 grupları için adlandırma ilkesi ayarlama yapma
 services: active-directory
 documentationcenter: ''
@@ -10,24 +10,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 03/13/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9ca7f457f74202735d3abdf7faaed4ee66745f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bce8a9e4018f24022fcc45733d64ce47d07ba771
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191223"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898780"
 ---
-# <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Azure Active Directory (Önizleme) içinde Office 365 grupları için bir adlandırma ilkesini zorlama
+# <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory"></a>Azure Active Directory'de Office 365 grupları için bir adlandırma ilkesini zorlama
 
 Oluşturduğunuz veya düzenlediğiniz kullanıcılarınız tarafından Office 365 grupları için tutarlı adlandırma kuralları zorlamak için ilke Azure Active Directory (Azure AD) kiracılarınız için bir adlandırma ayarlayın. Örneğin, bir grup üyeliği, coğrafi bölgeyi işlevi iletişim kurmak için adlandırma ilkesi kullanabilir veya grup oluşturan. Kullanıcının adres defterinde grupları kategorilere ayırmaya yardımcı olacak adlandırma İlkesi'ni de kullanabilirsiniz. Belirli sözcükleri grubu adları ve diğer adları kullanılmasını engellemek için ilke kullanabilirsiniz.
 
 > [!IMPORTANT]
-> Office 365 grupları adlandırma ilkesi preview kullanarak bir veya daha fazla Office 365 gruplarının üyesi olan her benzersiz kullanıcının Azure AD temel EDU lisansları veya Azure Active Directory Premium P1 lisansı gerektirir.
+> Office 365 grupları adlandırma ilkesi kullanarak bir veya daha fazla Office 365 gruplarının üyesi olan her benzersiz kullanıcının Azure AD temel EDU lisansları veya Azure Active Directory Premium P1 lisansı gerektirir.
 
 Adlandırma ilkesi oluşturma ve düzenleme (örneğin, Outlook, Microsoft Teams, SharePoint, Exchange veya Planner) iş yüklerinde oluşturulan grupların uygulanır. Grup adı ve grup diğer adı için uygulanır. Azure AD'de, adlandırma ilkesi ayarlayın ve varolan bir Exchange Grup adlandırma ilkesi varsa, Azure AD adlandırma ilkesi uygulanır.
 
@@ -72,7 +72,7 @@ Seçili yöneticileri bu ilkeleri, tüm Grup iş yükleri ve uç noktaları, bö
 - Genel yönetici
 - İş ortağı Katman 1 destek
 - İş ortağı Katman 2 Destek
-- Kullanıcı hesabı yöneticisi
+- Kullanıcı yöneticisi
 - Dizin yazıcılar
 
 ## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>Bir adlandırma ilkesini yapılandırmak için PowerShell cmdlet'leri yükleme
@@ -82,15 +82,15 @@ PowerShell komutlarını çalıştırmadan önce Windows PowerShell Graph için 
 1. Windows PowerShell uygulamasını yönetici olarak açın.
 2. Eski AzureADPreview sürümlerini kaldırın.
   
-  ```
-  Uninstall-Module AzureADPreview
-  ```
+   ```
+   Uninstall-Module AzureADPreview
+   ```
 3. En son AzureADPreview sürümünü yükleyin.
   
-  ```
-  Install-Module AzureADPreview
-  ```
-Güvenilmeyen depoya erişmek isteyip istemediğiniz sorulursa **Y** tuşuna basın. Yeni modülün yüklenmesi birkaç dakika sürebilir.
+   ```
+   Install-Module AzureADPreview
+   ```
+   Güvenilmeyen depoya erişmek isteyip istemediğiniz sorulursa **Y** tuşuna basın. Yeni modülün yüklenmesi birkaç dakika sürebilir.
 
 ## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Azure AD PowerShell kullanarak bir kiracı için adlandırma ilkesinin grubu yapılandırma
 
@@ -98,11 +98,11 @@ Güvenilmeyen depoya erişmek isteyip istemediğiniz sorulursa **Y** tuşuna bas
 
 2. Ortamı cmdlet'leri çalıştırmaya hazır hale getirmek için aşağıdaki komutları çalıştırın.
   
-  ```
-  Import-Module AzureADPreview
-  Connect-AzureAD
-  ```
-  Açılan **Hesabınızda oturum açın** ekranında hizmetinizle bağlantı kurmak için yönetici hesabınızın adını ve parolasını girin **Oturum aç**'ı seçin.
+   ```
+   Import-Module AzureADPreview
+   Connect-AzureAD
+   ```
+   Açılan **Hesabınızda oturum açın** ekranında hizmetinizle bağlantı kurmak için yönetici hesabınızın adını ve parolasını girin **Oturum aç**'ı seçin.
 
 3. Bu kiracının grup ayarlarını oluşturmak için [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](groups-settings-cmdlets.md) adımlarını izleyin.
 
@@ -110,35 +110,35 @@ Güvenilmeyen depoya erişmek isteyip istemediğiniz sorulursa **Y** tuşuna bas
 
 1. Geçerli ayarları görüntülemek için geçerli adlandırma ilkesi getirin.
   
-  ```
-  $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
-  ```
+   ```
+   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
+   ```
   
 2. Geçerli grup ayarlarını görüntüleyin.
   
-  ```
-  $Setting.Values
-  ```
+   ```
+   $Setting.Values
+   ```
   
 ### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Özel engellenen sözcükler ve adlandırma ilkesi ayarlama
 
 1. Azure AD PowerShell'de grup adı ön ve son eklerini ayarlayın. Düzgün bir şekilde çalışması için özelliği için [GroupName] ayarı eklenmesi gerekir.
   
-  ```
-  $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
-  ```
+   ```
+   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
+   ```
   
 2. Sınırlamak istediğiniz özel engellenen sözcükleri belirleyin. Aşağıdaki örnekte kendi özel sözcüklerinizi ekleme adımları gösterilmektedir.
   
-  ```
-  $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
-  ```
+   ```
+   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
+   ```
   
 3. Yeni ilkenin etkili olması için aşağıdaki örnekte gösterilen şekilde ayarları kaydedin.
   
-  ```
-  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ```
+   ```
+   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+   ```
   
 İşte bu kadar. Adlandırma ilkenizi ve engellenen kelimeleriniz eklendi.
 
@@ -173,21 +173,21 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 1. Grup adı önek ve sonek Azure AD PowerShell'de boş.
   
-  ```
-  $Setting["PrefixSuffixNamingRequirement"] =""
-  ```
+   ```
+   $Setting["PrefixSuffixNamingRequirement"] =""
+   ```
   
 2. Özel engellenen sözcük boş. 
   
-  ```
-  $Setting["CustomBlockedWordsList"]=""
-  ```
+   ```
+   $Setting["CustomBlockedWordsList"]=""
+   ```
   
 3. Ayarları kaydedin.
   
-  ```
-  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ```
+   ```
+   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+   ```
 
 
 ## <a name="naming-policy-experiences-across-office-365-apps"></a>Office 365 uygulamalarında adlandırma ilkesi deneyimleri
@@ -218,7 +218,7 @@ StaffHub  | StaffHub takımlar adlandırma ilkesi izlemeyin, ancak temel alınan
 Exchange PowerShell | Exchange PowerShell cmdlet'leri adlandırma ilkesi ile uyumlu olması gerekir. Grup adı ve grup diğer adının (mailNickname) adlandırma ilkesi izlerseniz yoksa, kullanıcılar önerilen önek ve sonek ve özel engellenen sözcükler için uygun hata iletileri alır.
 Azure Active Directory PowerShell cmdlet'leri | Azure Active Directory PowerShell cmdlet'lerini adlandırma ilkesi ile uyumlu olması gerekir. Kullanıcılar grubu adları ve grup diğer adının adlandırma kuralını takip etmiyorsa önerilen önek ve sonek ve özel engellenen sözcükler için uygun hata iletilerini alır.
 Exchange yönetici merkezini | Exchange yönetici merkezini adlandırma ilkesi ile uyumludur. Grup adı ve grup diğer adının adlandırma kuralı izlerseniz yoksa, kullanıcılar önerilen önek ve sonek ve özel engellenen sözcükler için uygun hata iletileri alır.
-Office 365 Yönetim Merkezi | Office 365 Yönetim Merkezi ilke adlandırma ile uyumludur. Ne zaman bir kullanıcı oluşturur veya düzenlemeleri grup adlarını adlandırma ilkesi otomatik olarak uygulanır ve bunlar özel engellenen sözcük girdiğinizde kullanıcılar uygun hataları alırsınız. Office 365 Yönetim Merkezi önizlemesi adlandırma ilkesi henüz göstermez ve kullanıcı grubu adı girdiğinde özel engellenen sözcük hataları dönmez.
+Microsoft 365 Yönetim Merkezi | Microsoft 365 Yönetim merkezini adlandırma ilkesi ile uyumludur. Ne zaman bir kullanıcı oluşturur veya düzenlemeleri grup adlarını adlandırma ilkesi otomatik olarak uygulanır ve bunlar özel engellenen sözcük girdiğinizde kullanıcılar uygun hataları alırsınız. Microsoft 365 Yönetim Merkezi önizlemesi adlandırma ilkesi henüz göstermez ve kullanıcı grubu adı girdiğinde özel engellenen sözcük hataları dönmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makaleler, Azure AD grupları hakkında ek bilgi sağlar.

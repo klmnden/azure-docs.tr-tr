@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d222e398653487cb87525ac13ebe682e9c8a26ee
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: a51c2987781184539edfcc8be9b9f483a215a157
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195954"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122935"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Bir kullanıcı yolculuğunun özel ilkeler ile kullanıcı arabirimini özelleştirme
 
@@ -66,7 +66,7 @@ Her şeyin beklendiği gibi çalıştığından emin olmak için şunları yapma
 - İçeriğinizi HTML5 uyumlu ve erişilebilir olduğundan emin olun
 - İçerik sunucunuz için CORS etkin olduğundan emin olun.
 - HTTPS üzerinden içerik sunma.
-- Mutlak URL kullanın https://yourdomain/content tüm bağlantılar ve CSS içeriği.
+- Mutlak URL kullanın `https://yourdomain/content` tüm bağlantılar ve CSS içeriği.
 
 > [!TIP]
 > Site üzerinde içerik barındırdığını CORS etkin olduğunu doğrulayın ve CORS istekleri sınamak için site kullanabilirsiniz https://test-cors.org/. Bu site sayesinde, CORS istekleri (CORS destekleniyorsa test etmek için), uzak bir sunucuya göndermek veya CORS istekleri (CORS belirli özelliklerini keşfetmek için) test sunucusuna gönderin.
@@ -121,16 +121,16 @@ CORS (çıkış noktaları arası kaynak paylaşımı) uç noktanız içerik yü
 
 1. Bir tarayıcı oturumu açın ve sayfasına giderek *unified.html* , depolama hesabındaki konumunun tam URL'yi kullanarak `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Örneğin, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
 2. https://test-cors.org sayfasına gidin. Bu site, kullanmakta olduğunuz sayfayı CORS etkin olduğunu doğrulamak sağlar.  
-<!--
-![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
--->
+   <!--
+   ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
+   -->
 
 3. İçinde **uzak URL**unified.html içeriğiniz için tam URL'yi girin ve tıklatın **İsteği Gönder**.
 4. Doğrulayın çıktısında **sonuçları** bölüm içeren *XHR durumu: 200*, CORS etkin olduğunu gösterir.
-<!--
-![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
--->
-Depolama hesabı artık adlı bir blob kapsayıcısı içermelidir *b2c* aşağıdaki wingtiptoys şablonlardan içeren çizimdeki *başlangıç paketi*.
+   <!--
+   ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
+   -->
+   Depolama hesabı artık adlı bir blob kapsayıcısı içermelidir *b2c* aşağıdaki wingtiptoys şablonlardan içeren çizimdeki *başlangıç paketi*.
 
 <!--
 ![Correctly configured storage account](../../articles/active-directory-b2c/media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)

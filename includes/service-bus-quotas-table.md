@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bb5dc4e01a872178af1bc7d5d57fc189424e7e9d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7add8c10fd3224b9c287ea4cc672191157f56a09
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554102"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124427"
 ---
 Aşağıdaki tablo, Azure Service Bus mesajlaşması için belirli bir kota bilgileri listeler. Fiyatlandırma hakkında daha fazla bilgi ve diğer Service Bus kotaları için bkz. [Service Bus fiyatlandırma](https://azure.microsoft.com/pricing/details/service-bus/).
 
 | Kota adı | Kapsam | Notlar | Değer |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Azure aboneliği başına temel veya standart ad alanı sayısı |Ad alanı |Sonraki istekleri için ek temel veya standart ad alanları, Azure portal tarafından reddedilir. |100|
 | Azure aboneliği başına Premium ad alanı sayısı |Ad alanı |Sonraki istekler ek Premium ad alanları için portal tarafından reddedilir. |25 |
 | Kuyruk veya konu başlığı boyutu |Varlık |Kuyruk veya konu oluşturulduktan sonra tanımlanır. <br/><br/> Sonraki gelen iletileri reddedilir ve bir özel durum çağıran kod tarafından alınır. |1, 2, 3, 4 GB veya 5 GB.<br /><br />Premium SKU ve standart SKU ile [bölümleme](/azure/service-bus-messaging/service-bus-partitioning) etkinleştirildiğinde, kuyruk veya konu başlığı boyutu 80 GB olan. |

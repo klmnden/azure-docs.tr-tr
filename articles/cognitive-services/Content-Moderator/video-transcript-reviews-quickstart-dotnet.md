@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: feecafcae8095c11736d1a76a1b6774c8dde1fc8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2e33f94486fe295fffa1f0b4bbd298b15d9271f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864103"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113742"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Video deşifre metni incelemeleri .NET kullanarak oluşturun
 
@@ -246,10 +246,10 @@ Video İnceleme için bir döküm eklemenin yanı sıra, bu döküm yönetme son
 1. Content Moderator takım adı.
 1. Video gözden geçirme kimliği tarafından döndürülen **CreateVideoReviews**.
 1. Bir IList<TranscriptModerationBodyItem>. A **TranscriptModerationBodyItem** aşağıdaki özelliklere sahiptir:
-- **Koşulları**. Bir IList<TranscriptModerationBodyItemTermsItem>. A **TranscriptModerationBodyItemTermsItem** aşağıdaki özelliklere sahiptir:
-- **Dizin**. Terim sıfır tabanlı dizini.
-- **Terim**. Terimini içeren bir dize.
-- **Zaman damgası**. Saniye cinsinden zaman içinde bulunan ve koşulları kimse içeren bir dize.
+1. **Koşulları**. Bir IList<TranscriptModerationBodyItemTermsItem>. A **TranscriptModerationBodyItemTermsItem** aşağıdaki özelliklere sahiptir:
+1. **Dizin**. Terim sıfır tabanlı dizini.
+1. **Terim**. Terimini içeren bir dize.
+1. **Zaman damgası**. Saniye cinsinden zaman içinde bulunan ve koşulları kimse içeren bir dize.
 
 Transkripti WebVTT biçiminde olması gerekir. Daha fazla bilgi için [WebVTT: Web Video metin biçimi izler](https://www.w3.org/TR/webvtt1/).
 

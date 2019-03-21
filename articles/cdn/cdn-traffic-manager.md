@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2018
-ms.author: kumud
+ms.date: 03/18/2019
+ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 4c072ef63c0d4961fba695fc8d9be1d12b4b0e8b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: afadef8b29927f909af5be1e1204180724258b74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749223"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167074"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Birden fazla Azure CDN uç noktası ile Azure Traffic Manager arasında devretmeyi ayarlayın
 
@@ -77,7 +77,7 @@ CDN ve Traffic Manager profillerinizi ayarladıktan sonra DNS eşlemesi ekleyin 
     >
 
 
-2.  Azure CDN profilinizi, ilk CDN uç noktası (Akamai) seçin. Seçin **özel etki alanı Ekle** ve giriş *cdndemo101akamai.azureedge.net*. Özel etki alanını doğrulamak için onay işareti yeşil olduğundan emin olun. 
+2.  Azure CDN profilinizi, ilk CDN uç noktası (Akamai) seçin. Seçin **özel etki alanı Ekle** ve giriş *cdndemo101.dustydogpetcare.online*. Özel etki alanını doğrulamak için onay işareti yeşil olduğundan emin olun. 
 
     Azure CDN kullanan *cdnverify* kayıt işlemini tamamlamak için bir DNS eşlemesi doğrulamak için alt etki alanı. Daha fazla bilgi için [bir CNAME DNS kaydı oluşturma](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Bu adım, Azure CDN, böylece kendi isteklerini yanıtlayan özel etki alanı tanımak etkinleştirir.
 
@@ -87,7 +87,7 @@ CDN ve Traffic Manager profillerinizi ayarladıktan sonra DNS eşlemesi ekleyin 
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. Azure CDN profilinizi ikinci CDN uç noktası (Verizon) seçin ve 2. adımı yineleyin. Seçin **özel etki alanı Ekle**ve giriş *cdndemo101akamai.azureedge.net*.
+4. Azure CDN profilinizi ikinci CDN uç noktası (Verizon) seçin ve 2. adımı yineleyin. Seçin **özel etki alanı Ekle**ve giriş *cdndemo101.dustydogpetcare.online*.
  
 Bu adımları tamamladıktan sonra Yük devretme özellikleriyle çoklu CDN hizmetiniz Azure Traffic Manager ile ayarlanır. Test erişmek mümkün olacaktır özel etki alanınızı URL'lerden. İşlevselliğini test etmek için birincil CDN uç noktası devre dışı bırakın ve istek doğru şekilde ikincil CDN uç noktasına taşınır olduğunu doğrulayın. 
 

@@ -1,5 +1,5 @@
 ---
-title: Konuşma sentezi biçimlendirme dili - konuşma Hizmetleri
+title: Konuşma sentezi biçimlendirme dili (SSML'yi) - konuşma Hizmetleri
 titleSuffix: Azure Cognitive Services
 description: Söyleniş ve metin okuma, prosody denetlemek için konuşma sentezi biçimlendirme dili kullanma.
 services: cognitive-services
@@ -11,23 +11,20 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 77e94fd9fc08ad9f7b14e5cf226a6e616b69a37e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 57fc7e699d88dbe777750e3acdb7f96794b66fc0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837189"
 ---
-# <a name="speech-synthesis-markup-language"></a>Konuşma sentezi biçimlendirme dili
+# <a name="speech-synthesis-markup-language-ssml"></a>Konuşma Sentezi Biçimlendirme Dili (SSML)
 
 Konuşma sentezi işaretleme dili (SSML'yi) söylenişi denetlemek için bir yol sağlayan bir XML-tabanlı işaretleme dilidir ve *prosody* metin okuma. Konuşma aralığını ve Ritim prosody ifade eder —, müzik, gerçekleştirir. Sözcükleri fonetik olarak belirtin, sayıları yorumlanması için ipuçları sağlar, duraklatır, Denetim aralık, birim ve oranı ve daha ekleyin. Daha fazla bilgi için [konuşma sentezi işaretleme dili (SSML'yi) sürüm 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/).
 
 Desteklenen diller, yerel ayarlar ve sesler (sinir ve standart) tam listesi için bkz: [dil desteği](language-support.md#text-to-speech).
 
 Aşağıdaki bölümlerde, yaygın konuşma sentezi görevler örnekleri sağlar.
-
->[!IMPORTANT]
-> Şu anda prosody etiketleme yalnızca standart ses için kullanılabilir.
 
 ## <a name="add-a-break"></a>Bir Sonu Ekle
 ```xml
@@ -38,6 +35,9 @@ Aşağıdaki bölümlerde, yaygın konuşma sentezi görevler örnekleri sağlar
 ```
 
 ## <a name="change-speaking-rate"></a>Konuşma hızını değiştirme
+
+Word veya cümle düzeyinde standart sesleri oranı Konuşmayı uygulanabilir. Konuşma hızını yalnızca sinir sesleri cümle düzeyinde uygulanabilir ise.
+
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
@@ -55,6 +55,9 @@ Aşağıdaki bölümlerde, yaygın konuşma sentezi görevler örnekleri sağlar
 ```
 
 ## <a name="change-volume"></a>Birimi Değiştir
+
+Birim değişiklikleri standart sesleri word veya cümle düzeyinde uygulanabilir. Birim değişiklikleri yalnızca sinir sesleri cümle düzeyinde uygulanabilir ise.
+
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
@@ -64,6 +67,9 @@ Aşağıdaki bölümlerde, yaygın konuşma sentezi görevler örnekleri sağlar
 ```
 
 ## <a name="change-pitch"></a>Aralık değiştirme
+
+Aralık değişiklikleri standart sesleri word veya cümle düzeyinde uygulanabilir. Aralık değişiklikler yalnızca sinir sesleri cümle düzeyinde uygulanabilir ise.
+
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
     <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
@@ -72,6 +78,10 @@ Aşağıdaki bölümlerde, yaygın konuşma sentezi görevler örnekleri sağlar
 ```
 
 ## <a name="change-pitch-contour"></a>Değişiklik aralık dağılımı
+
+> [!IMPORTANT]
+> Aralık contour değişiklikleri sinir sesleri ile desteklenmez.
+
 ```xml
 <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>

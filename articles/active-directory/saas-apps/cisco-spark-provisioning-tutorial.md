@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c45a19c8f6bbce2ffdfff0758eb3e57203b7cf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8fd7145be5f82a90acced0f02e35f6c8880dbcad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211215"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120406"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Öğretici: Cisco Spark için otomatik kullanıcı hazırlama yapılandırın
 
@@ -113,28 +113,28 @@ Bu bölümde oluşturmak, güncelleştirmek ve kullanıcıların Azure AD'de kul
     *   İçinde **gizli belirteç** alan, 6. adımda açıklandığı gibi gizli belirteç doldurun.
 
 1. **Kiracı kimliği** ve **gizli belirteç** Cisco Spark için hesap açılarak bulunabilir [Cisco Spark Geliştirici sitesi](https://developer.webex.com/) Yönetici hesabınızla. -Bir kez günlüğe kaydedilir
-    * Git [Başlarken sayfası](https://developer.webex.com/getting-started.html)
-    * Ekranı aşağı kaydırarak [kimlik doğrulaması bölümü](https://developer.webex.com/getting-started.html#authentication)
-    ![Cisco Spark kimlik doğrulama belirteci](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
-    * Alfasayısal dize kutusunda, **gizli belirteç**. Bu belirteç Panoya Kopyala
-    * Git [alma My kendi Ayrıntıları sayfası](https://developer.webex.com/endpoint-people-me-get.html)
-        * Test modu açık olduğundan emin olun
-        * Ardından bir boşluk "Bearer" sözcüğünü yazın ve sonra gizli belirteç yetkilendirme alanına yapıştırabilirsiniz ![Cisco Spark kimlik doğrulama belirteci](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png)
-        * Çalıştır'a tıklayın
-    * Yanıt metni sağa içinde **Kiracı kimliği** "Orgıd" görünür:
+   * Git [Başlarken sayfası](https://developer.webex.com/getting-started.html)
+   * Ekranı aşağı kaydırarak [kimlik doğrulaması bölümü](https://developer.webex.com/getting-started.html#authentication)
+     ![Cisco Spark kimlik doğrulama belirteci](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
+   * Alfasayısal dize kutusunda, **gizli belirteç**. Bu belirteç Panoya Kopyala
+   * Git [alma My kendi Ayrıntıları sayfası](https://developer.webex.com/endpoint-people-me-get.html)
+       * Test modu açık olduğundan emin olun
+       * Ardından bir boşluk "Bearer" sözcüğünü yazın ve sonra gizli belirteç yetkilendirme alanına yapıştırabilirsiniz ![Cisco Spark kimlik doğrulama belirteci](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png)
+       * Çalıştır'a tıklayın
+   * Yanıt metni sağa içinde **Kiracı kimliği** "Orgıd" görünür:
 
-    ```json
-    {
-        "id": "(...)",
-        "emails": [
-            "admin.user@contoso.com"
-        ],
-        "displayName": "John Smith",
-        "nickName": "John",
-        "orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-        (...)
-    }
-    ```
+     ```json
+     {
+       "id": "(...)",
+       "emails": [
+           "admin.user@contoso.com"
+       ],
+       "displayName": "John Smith",
+       "nickName": "John",
+       "orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+       (...)
+     }
+     ```
 
 1. 5. adımda gösterilen alanlar doldurma üzerine tıklayın **Test Bağlantısı** Azure emin olmak için AD, Cisco Spark'a bağlanabilirsiniz. Bağlantı başarısız olursa, Cisco Spark hesabının yönetici izinlerine sahip olun ve yeniden deneyin.
 

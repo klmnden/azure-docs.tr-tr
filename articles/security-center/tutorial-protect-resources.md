@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: monhaber
-ms.openlocfilehash: 8662539257422289053e75beeadd07c63d8d3f4d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6e8c10ecb85addf2ef6a995e3c0b8ac611343cfa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106642"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110350"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Öğretici: Kaynaklarınızı Azure Güvenlik Merkezi ile koruma
 Güvenlik Merkezi, kötü amaçlı etkinliği engellemek için erişim ve uygulama denetimlerini kullanarak tehditlere maruz kalma riskinizi sınırlar. Just-ın-Time (JIT) sanal makine (VM) erişimi, Vm'lere kalıcı erişimi engellemenize olanak sağlayarak saldırılarına maruz kalma riskinizi azaltır. Bunun yerine, VM'ler için yalnızca gerektiğinde denetimli ve denetlenen erişim sağlamış olursunuz. Uyarlamalı uygulama denetimleri hangi uygulamaların VM'leriniz üzerinde çalışabileceğini denetleyerek kötü amaçlı yazılımlara karşı VM'lerin sağlamlaştırılmasına yardımcı olur. Güvenlik Merkezi, makine öğrenimi özelliklerini kullanarak VM'de çalışan işlemleri analiz eder ve bu bilgileri kullanarak beyaz listeye ekleme kuralları uygulamanıza yardımcı olur.
@@ -43,30 +43,30 @@ Yönetim bağlantı noktalarının her zaman açık olması gerekmez. Bunların 
 
 1. Güvenlik Merkezi ana menüsünde seçin **tam zamanında VM erişimi** altında **Gelişmiş bulut SAVUNMASI**.
 
-  ![Tam zamanında VM erişimi][1]
+   ![Tam zamanında VM erişimi][1]
 
-  **Tam zamanında VM erişimi** , Vm'lerinizin durumu hakkında bilgi sağlar:
+   **Tam zamanında VM erişimi** , Vm'lerinizin durumu hakkında bilgi sağlar:
 
-  - **Yapılandırılan** - Tam zamanında VM erişimini destekleyecek şekilde yapılandırılmış VM’lerdir.
-  - **Önerilen** - Tam zamanında VM erişimini destekleyebilen ancak bunun için yapılandırılmamış VM’lerdir.
-  - **Öneri olmayan** - Bir VM’nin önerilmemesinin olası nedenleri şunlardır:
+   - **Yapılandırılan** - Tam zamanında VM erişimini destekleyecek şekilde yapılandırılmış VM’lerdir.
+   - **Önerilen** - Tam zamanında VM erişimini destekleyebilen ancak bunun için yapılandırılmamış VM’lerdir.
+   - **Öneri olmayan** - Bir VM’nin önerilmemesinin olası nedenleri şunlardır:
 
-    - NSG yok - Tam zamanında erişim çözümü için NSG’nin mevcut olması gerekir.
-    - Klasik VM - Güvenlik Merkezi tam zamanında VM erişimi şu anda yalnızca Azure Resource Manager üzerinden dağıtılan VM’leri desteklemektedir.
-    - Diğer - Aboneliğin veya kaynak grubunun güvenlik ilkesinde tam zamanında erişim çözümü kapatılmışsa VM bu kategoridedir ya da bu kategorideki bir VM’de genel IP adresi eksik olabilir ve bir NSG mevcut olmayabilir.
+     - NSG yok - Tam zamanında erişim çözümü için NSG’nin mevcut olması gerekir.
+     - Klasik VM - Güvenlik Merkezi tam zamanında VM erişimi şu anda yalnızca Azure Resource Manager üzerinden dağıtılan VM’leri desteklemektedir.
+     - Diğer - Aboneliğin veya kaynak grubunun güvenlik ilkesinde tam zamanında erişim çözümü kapatılmışsa VM bu kategoridedir ya da bu kategorideki bir VM’de genel IP adresi eksik olabilir ve bir NSG mevcut olmayabilir.
 
 2. Önerilen bir VM’yi seçin ve bu VM için bir tam zamanında ilkesi yapılandırmak üzere **1 VM’de JIT’yi etkinleştir** seçeneğine tıklayın:
 
-  Güvenlik Merkezi’nin önerdiği varsayılan bağlantı noktalarını kaydedebilir veya tam zamanında erişim çözümünü etkinleştirmek için kullanmak istediğiniz yeni bir bağlantı noktası ekleyip yapılandırabilirsiniz. Bu öğreticide **Ekle** seçeneğini belirleyerek bir bağlantı noktası ekleyeceğiz.
+   Güvenlik Merkezi’nin önerdiği varsayılan bağlantı noktalarını kaydedebilir veya tam zamanında erişim çözümünü etkinleştirmek için kullanmak istediğiniz yeni bir bağlantı noktası ekleyip yapılandırabilirsiniz. Bu öğreticide **Ekle** seçeneğini belirleyerek bir bağlantı noktası ekleyeceğiz.
 
-  ![Bağlantı noktası yapılandırması ekleme][2]
+   ![Bağlantı noktası yapılandırması ekleme][2]
 
 3. **Bağlantı noktası yapılandırması ekle** seçeneğinde şunları belirlersiniz:
 
-  - Bağlantı noktası
-  - Protokol türü
-  - İzin verilen kaynak IP’leri (onaylanan bir isteğin ardından erişim elde etmesine izin verilen IP aralıkları)
-  - İstek süresi üst sınırı (belirli bir bağlantı noktasının açılabileceği süre için üst sınır)
+   - Bağlantı noktası
+   - Protokol türü
+   - İzin verilen kaynak IP’leri (onaylanan bir isteğin ardından erişim elde etmesine izin verilen IP aralıkları)
+   - İstek süresi üst sınırı (belirli bir bağlantı noktasının açılabileceği süre için üst sınır)
 
 4. Kaydetmek için **Tamam**’ı seçin.
 
@@ -79,22 +79,22 @@ Bu özellik yalnızca Windows makinelerde kullanılabilir.
 
    ![Uyarlamalı uygulama denetimleri][3]
 
-  **Kaynak grupları** bölümünde üç sekme bulunur:
+   **Kaynak grupları** bölümünde üç sekme bulunur:
 
-  - **Yapılandırılmış**: Uygulama denetimiyle yapılandırılan Vm'leri içeren kaynak gruplarının listesi.
-  - **Önerilen**: Uygulama denetimi önerilir kaynak gruplarının listesi.
-  - **Öneri olmayan**: Uygulama denetimi önerisi olmayan Vm'leri içeren kaynak gruplarının listesi. Örneğin, uygulamaların sürekli değiştiği ve kararlı bir duruma geçmediği VM'ler.
+   - **Yapılandırılmış**: Uygulama denetimiyle yapılandırılan Vm'leri içeren kaynak gruplarının listesi.
+   - **Önerilen**: Uygulama denetimi önerilir kaynak gruplarının listesi.
+   - **Öneri olmayan**: Uygulama denetimi önerisi olmayan Vm'leri içeren kaynak gruplarının listesi. Örneğin, uygulamaların sürekli değiştiği ve kararlı bir duruma geçmediği VM'ler.
 
 2. Uygulama denetimi önerilerinin bulunduğu kaynak gruplarının listesi için **Önerilen** sekmesini seçin.
 
-  ![Uygulama denetimi önerileri][4]
+   ![Uygulama denetimi önerileri][4]
 
 3. **Uygulama denetimi kuralları oluştur** seçeneğini açmak için bir kaynak grubunu seçin. **VM'leri Seç** bölümünde önerilen VM'lerin listesini gözden geçirin ve uygulama denetimi gerçekleştirmek istemediklerinizin yanındaki onay işaretini kaldırın. **Beyaz listeye ekleme kuralları için işlemleri seçin** bölümünde önerilen uygulamaların listesini gözden geçirin ve uygulamak istemediklerinizin yanındaki onay işaretini kaldırın. Liste aşağıdakileri içerir:
 
-  - **AD**: Tam uygulama yolu
-  - **İŞLEMLER**: Her yolun içinde bulunan nasıl uygulama sayısı
-  - **ORTAK**: "Evet seçeneği", bu işlemlerin bu kaynak grubundaki VM'lerin çoğunda yürütüldüğünü gösterir
-  - **AÇIKLARDAN**: Bir uyarı simgesi, uygulamaların bir saldırgan tarafından uygulama beyaz listesini atlamak için kullanılabilir olmadığını gösterir. Bu uygulamaları onaylamadan önce gözden geçirmeniz önerilir.
+   - **AD**: Tam uygulama yolu
+   - **İŞLEMLER**: Her yolun içinde bulunan nasıl uygulama sayısı
+   - **ORTAK**: "Evet seçeneği", bu işlemlerin bu kaynak grubundaki VM'lerin çoğunda yürütüldüğünü gösterir
+   - **AÇIKLARDAN**: Bir uyarı simgesi, uygulamaların bir saldırgan tarafından uygulama beyaz listesini atlamak için kullanılabilir olmadığını gösterir. Bu uygulamaları onaylamadan önce gözden geçirmeniz önerilir.
 
 4. Seçimlerinizi tamamladıktan sonra **Oluştur**’u seçin.
 

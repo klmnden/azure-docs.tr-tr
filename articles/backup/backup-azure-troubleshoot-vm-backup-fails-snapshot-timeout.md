@@ -9,18 +9,20 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 3be2ab8bd4be56de945303bec9969f531be77864
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 85dca677238070ded13b59faf9a13081c2409987
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535606"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890874"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: Aracı veya uzantı ile ilgili sorunlar
 
 Bu makale yardımcı olacak sorun giderme adımlarını uzantısı ve VM Aracısı ile iletişim için ilgili Azure Backup hataları gidermek sağlar.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+
 
 ## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM Aracısı Azure Backup ile iletişim kuramıyor
 
@@ -54,7 +56,7 @@ Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman i�
 Önerilen eylem:<br>
 Bu sorunu çözmek için VM kaynak grubu üzerindeki kilidi kaldırın ve temizleme tetiklemek için işlemi yeniden deneyin.
 > [!NOTE]
-    > Yedekleme hizmeti, geri yükleme noktası koleksiyonu depolamak için sanal makinenin kaynak grubundan ayrı bir kaynak grubu oluşturur. Müşterilerin, Backup hizmeti tarafından kullanım için oluşturduğunuz kaynak grubunda değil kilitlemek için önerilir. Backup hizmeti tarafından oluşturulan kaynak grubunun adlandırma biçimi şu şekildedir: AzureBackupRG_`<Geo>`_`<number>` örn: AzureBackupRG_northeurope_1
+> Yedekleme hizmeti, geri yükleme noktası koleksiyonu depolamak için sanal makinenin kaynak grubundan ayrı bir kaynak grubu oluşturur. Müşterilerin, Backup hizmeti tarafından kullanım için oluşturduğunuz kaynak grubunda değil kilitlemek için önerilir. Backup hizmeti tarafından oluşturulan kaynak grubunun adlandırma biçimi şu şekildedir: AzureBackupRG_`<Geo>`_`<number>` örn: AzureBackupRG_northeurope_1
 
 **1. adım: [Geri yükleme noktası kaynak grubundan kilidi kaldırın](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **2. adım: [Geri yükleme noktası koleksiyonunu Temizle](#clean_up_restore_point_collection)**<br>
@@ -64,7 +66,7 @@ Bu sorunu çözmek için VM kaynak grubu üzerindeki kilidi kaldırın ve temizl
 **Hata kodu**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Hata iletisi**: Yedekleme, şifrelenmiş VM'lerin anahtar kasasına yedekleme için yeterli izinlere sahip değil. <br>
 
-Yedekleme işleminin şifrelenmiş VM'ler üzerinde başarılı olması için bu anahtar kasasına erişmek için izinleri olmalıdır. Bu yapılabilir kullanarak [Azure portalında](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) aracılığıyla veya [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
+Yedekleme işleminin şifrelenmiş VM'ler üzerinde başarılı olması için bu anahtar kasasına erişmek için izinleri olmalıdır. Bu yapılabilir kullanarak [Azure portalında](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) aracılığıyla veya [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - anlık görüntü işlemi, sanal makinede ağ bağlantısı olmaması nedeniyle başarısız oldu
 
@@ -126,12 +128,12 @@ Devam eden var olan bir yedekleme işi olduğundan son yedekleme işi başarıs�
 3. Kasa Panosu menüsünde tıklatın **yedekleme işleri** tüm yedekleme işleri görüntüler.
 
     * Bir yedekleme işi devam ediyorsa, yedekleme işini iptal edin veya tamamlamak için bekleyin.
-        * Yedekleme işi sağ yedekleme işini iptal edin ve tıklayın **iptal** veya [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+        * Yedekleme işi sağ yedekleme işini iptal edin ve tıklayın **iptal** veya [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
     * Farklı bir kasadaki yedekleme yapılandırdıysanız, ardından eski kasaya çalışan hiçbir yedekleme işleri emin olun. Varsa, ardından yedekleme işini iptal edin.
-        * Yedekleme işi sağ yedekleme işini iptal edin ve tıklayın **iptal** veya [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
+        * Yedekleme işi sağ yedekleme işini iptal edin ve tıklayın **iptal** veya [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Yedekleme işlemini yeniden deneyin.
 
-Zamanlanmış yedekleme işlemi ile sonraki yedekleme yapılandırması çakışan uzun sürüyorsa incelediniz [en iyi](backup-azure-vms-introduction.md#best-practices), [yedekleme performansı](backup-azure-vms-introduction.md#backup-performance) ve [göz önünde bulundurarak geri yükleme ](backup-azure-vms-introduction.md#restore-considerations).
+Zamanlanmış yedekleme işlemi ile sonraki yedekleme yapılandırması çakışan uzun sürüyorsa incelediniz [en iyi](backup-azure-vms-introduction.md#best-practices), [yedekleme performansı](backup-azure-vms-introduction.md#backup-performance) ve [göz önünde bulundurarak geri yükleme ](backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
 
 ## <a name="causes-and-solutions"></a>Nedenler ve çözümler
@@ -166,15 +168,15 @@ Aracı veya uzantı ilgili hataları Linux Vm'leri için en güncel olmayan bir 
 
 1. Yönergelerini izleyin [Linux VM Aracısı güncelleştirilirken](../virtual-machines/linux/update-agent.md).
 
- > [!NOTE]
- > Biz *önemle tavsiye* yalnızca bir dağıtım deposu aracılığıyla aracıyı güncelleştirin. Aracı kodu doğrudan Github'dan indiriliyor ve güncelleştirirken önermiyoruz. Dağıtımınız için en son aracıyı yüklemek yönergeler mevcut, ilgili kişi dağıtım desteği değilse. En son aracı için denetlenecek Git [Windows Azure Linux Aracısı](https://github.com/Azure/WALinuxAgent/releases) GitHub deposunda sayfası.
+   > [!NOTE]
+   > Biz *önemle tavsiye* yalnızca bir dağıtım deposu aracılığıyla aracıyı güncelleştirin. Aracı kodu doğrudan Github'dan indiriliyor ve güncelleştirirken önermiyoruz. Dağıtımınız için en son aracıyı yüklemek yönergeler mevcut, ilgili kişi dağıtım desteği değilse. En son aracı için denetlenecek Git [Windows Azure Linux Aracısı](https://github.com/Azure/WALinuxAgent/releases) GitHub deposunda sayfası.
 
 2. Aşağıdaki komutu çalıştırarak Azure Aracısı VM üzerinde çalıştığından emin olun: `ps -e`
 
- İşlem çalışıyor durumda değilse, aşağıdaki komutları kullanarak yeniden başlatın:
+   İşlem çalışıyor durumda değilse, aşağıdaki komutları kullanarak yeniden başlatın:
 
- * Ubuntu için: `service walinuxagent start`
- * Diğer dağıtımlar için: `service waagent start`
+   * Ubuntu için: `service walinuxagent start`
+   * Diğer dağıtımlar için: `service waagent start`
 
 3. [Otomatik yeniden başlatma aracı yapılandırma](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Yeni bir test yedekleme çalıştırın. Hata devam ederse aşağıdaki günlüklerini sanal makineden toplayın:
@@ -198,7 +200,7 @@ Aşağıdaki koşullar anlık görüntü görevi başarısız olmasına neden:
 | Nedeni | Çözüm |
 | --- | --- |
 | Uzak Masaüstü Protokolü (RDP) VM'yi kapatın, çünkü VM durumu yanlış bildirilir. | VM ile RDP kapatırsanız, sanal Makinenin durumu doğru olup olmadığını belirlemek için portalı denetleyin. Doğru değilse, portaldaki VM kullanarak kapatma **kapatma** sanal makine Panosu'ndan seçeneği. |
-| Sanal makine DHCP'den konak ya da yapı adresi alınamıyor. | DHCP çalışmak için konuk içinde Iaas VM yedekleme için etkinleştirilmesi gerekir. VM konak ya da yapı adresi DHCP yanıttan 245 erişemiyorsanız, indirin veya tüm Uzantıları'nı çalıştırın. Statik özel IP gerekiyorsa, içinde yapılandırmalısınız **Azure portalı** veya **PowerShell** ve VM içindeki DHCP seçeneği etkin olduğundan emin olun. PowerShell aracılığıyla statik bir IP ayarlama hakkında daha fazla bilgi için bkz. [Klasik VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm) ve [Resource Manager VM](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface).
+| Sanal makine DHCP'den konak ya da yapı adresi alınamıyor. | DHCP çalışmak için konuk içinde Iaas VM yedekleme için etkinleştirilmesi gerekir. VM konak ya da yapı adresi DHCP yanıttan 245 erişemiyorsanız, indirin veya tüm Uzantıları'nı çalıştırın. Statik özel IP gerekiyorsa, içinde yapılandırmalısınız **Azure portalı** veya **PowerShell** ve VM içindeki DHCP seçeneği etkin olduğundan emin olun. [Daha fazla bilgi edinin](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) PowerShell ile statik bir IP adresi ayarlama hakkında.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>Backup uzantısı, güncelleştirmek veya yüklemek başarısız
 Uzantıları yüklenemiyor bir anlık görüntü alınamadığından backup başarısız olur.
@@ -236,7 +238,7 @@ Kilit kaldırdıktan sonra geri yükleme noktalarını temizlenmesi gerekir. Ger
 Kilit kaldırdıktan sonra bir ad geçici/el ile yedekleme tetikleyin. Bu, geri yükleme noktalarını otomatik olarak temizlenir garanti eder. Bu ad geçici/el ile işlem ilk kez başarısız beklediğiniz; Ancak, bunu el ile silinmesini geri yükleme noktaları yerine otomatik temizleme sağlayacaktır. Temizleme sonrasında, sonraki zamanlanmış yedekleme başarılı olması gerekir.
 
 > [!NOTE]
-    > Otomatik temizleme ad geçici/el ile yedeklemeyi tetikleme birkaç saat sonra gerçekleşir. Zamanlanmış yedeklemenizi yine başarısız sonra listelenen adımları kullanarak geri yükleme noktası koleksiyonu el ile silmeyi deneyin [burada](#clean-up-restore-point-collection-from-azure-portal).
+> Otomatik temizleme ad geçici/el ile yedeklemeyi tetikleme birkaç saat sonra gerçekleşir. Zamanlanmış yedeklemenizi yine başarısız sonra listelenen adımları kullanarak geri yükleme noktası koleksiyonu el ile silmeyi deneyin [burada](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Temiz geri yükleme noktası koleksiyonu Azure portalından <br>
 

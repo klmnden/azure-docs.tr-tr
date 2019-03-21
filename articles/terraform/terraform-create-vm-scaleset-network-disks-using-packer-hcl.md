@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/29/2017
-ms.openlocfilehash: b9c7c20b6b3bbad8731dc00e2c6e3d88f92936df
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765416"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001999"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Terraform kullanarak özel bir Packer görüntüsünden Azure sanal makine ölçek kümesi oluşturma
 
@@ -180,7 +180,7 @@ Bu adımda önceden dağıttığınız ağ üzerinde aşağıdaki kaynakları ol
 - Yük dengeleyiciye atanacak Azure arka uç adres havuzu 
 - Uygulama tarafından kullanılan ve yük dengeleyici üzerinde yapılandırılan sistem durumu yoklama bağlantı noktası 
 - Önceden dağıtılan sanal ağ üzerinde çalışan ve yük dengeleyicinin arkasında bulunan bir sanal makine ölçek kümesi
-- Özel görüntüden yüklenen ve sanal makine ölçek kümesi düğümlerinde bulunan [Nginx](http://nginx.org/)
+- Özel görüntüden yüklenen ve sanal makine ölçek kümesi düğümlerinde bulunan [Nginx](https://nginx.org/)
 
 
 `vmss.tf` dosyasının sonuna aşağıdaki kodu ekleyin.

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e2924a45ae8851095944131b6fb1598775247f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194011"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885326"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Tanılama ve yinelenen öznitelik eşitleme hatalarını Düzelt
 
@@ -33,7 +33,7 @@ Azure AD hakkında daha fazla bilgi için bkz. [kimlik eşitleme ve yinelenen ö
 
 ## <a name="problems"></a>Sorunları
 ### <a name="a-common-scenario"></a>Yaygın bir senaryo
-Zaman **QuarantinedAttributeValueMustBeUnique** ve **AttributeValueMustBeUnique** Eşitleme hataları meydana, bu yaygın bir **UserPrincipalName** veya **Ara sunucu adresleri** Azure AD'de çakışması. Eşitleme hataları, şirket içi tarafı çakışan kaynak nesneden güncelleştirerek çözebilir. Eşitleme hatası sonra bir sonraki eşitlemede çözülmüş olacaktır. Örneğin, bu görüntüyü iki kullanıcı çakışma olduğunu gösterir. bunların **UserPrincipalName**. Her ikisi de **Joe.J@contoso.com**. Çakışan nesneler, Azure AD'de karantinaya alınır.
+Zaman **QuarantinedAttributeValueMustBeUnique** ve **AttributeValueMustBeUnique** Eşitleme hataları meydana, bu yaygın bir **UserPrincipalName** veya **Ara sunucu adresleri** Azure AD'de çakışması. Eşitleme hataları, şirket içi tarafı çakışan kaynak nesneden güncelleştirerek çözebilir. Eşitleme hatası sonra bir sonraki eşitlemede çözülmüş olacaktır. Örneğin, bu görüntüyü iki kullanıcı çakışma olduğunu gösterir. bunların **UserPrincipalName**. Her ikisi de **Joe.J\@contoso.com**. Çakışan nesneler, Azure AD'de karantinaya alınır.
 
 ![Eşitleme hatası yaygın bir senaryo tanılayın](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
@@ -66,32 +66,34 @@ Eşitleme hata ayrıntılarını daraltmak ve daha özel çözümler için Azure
 
 Azure portalından düzeltilebilir olduğu belirli senaryolar tanımlamak için bazı adımları uygulayın:  
 1.  Denetleme **durumu Tanıla** sütun. Durumu, Azure Active Directory'den doğrudan bir eşitleme hatayı düzeltmek için olası bir biçimde olup olmadığını gösterir. Diğer bir deyişle, bir sorun giderme akış mevcut olan bir hata durumu daraltmak ve potansiyel olarak düzeltin.
+
 | Durum | Bu ne demektir? |
 | ------------------ | -----------------|
 | Başlatılmadı | Bu tanılama işlemi ziyaret etmediniz. Tanılama sonucu bağlı olarak doğrudan portaldan eşitleme hatayı düzeltmek için olası bir yolu yoktur. |
 | El ile Düzeltme Gerekli | Hata ölçütleri portalından kullanılabilir düzeltmelerin sığmıyor. Kullanıcılar, çakışan iki nesne türlerini değil veya zaten tanılama adımlara geçmeden ve herhangi bir düzeltme çözüm portalından kullanılabilir. İkinci durumda, şirket içi tarafındaki bir düzeltme hala çözümleri biridir. [Hakkında daha fazla bilgi şirket içi düzeltmeleri](https://support.microsoft.com/help/2647098). | 
 | Beklenen Eşitleme | Bir düzeltme uygulandı. Portal, hata temizlemek için bir sonraki eşitleme döngüsü bekliyor. |
+
   >[!IMPORTANT]
   > Tanı durumu sütun sonra her bir eşitleme döngüsü sıfırlar. 
   >
 
-2.  Seçin **Tanıla** düğmesi hata ayrıntılarını altında. Birkaç soruyu yanıtlayın ve eşitleme hata ayrıntılarını tanımlayın. Soruların yanıtlarını yalnız bırakılmış nesneye çalışması belirlemenize yardımcı olur.
+1. Seçin **Tanıla** düğmesi hata ayrıntılarını altında. Birkaç soruyu yanıtlayın ve eşitleme hata ayrıntılarını tanımlayın. Soruların yanıtlarını yalnız bırakılmış nesneye çalışması belirlemenize yardımcı olur.
 
-3.  Varsa bir **Kapat** tanılama sonunda düğmesinin yoktur hızlı düzeltme yanıtlarınıza göre portalında kullanılabilir. Son adımda gösterilen çözümde bakın. Şirket içi düzeltmeleri hala çözümdür. Seçin **Kapat** düğmesi. Geçerli eşitleme hatası durumunu geçer **el ile düzeltme gerekli**. Durum geçerli bir eşitleme döngüsü sırasında kalır.
+1. Varsa bir **Kapat** tanılama sonunda düğmesinin yoktur hızlı düzeltme yanıtlarınıza göre portalında kullanılabilir. Son adımda gösterilen çözümde bakın. Şirket içi düzeltmeleri hala çözümdür. Seçin **Kapat** düğmesi. Geçerli eşitleme hatası durumunu geçer **el ile düzeltme gerekli**. Durum geçerli bir eşitleme döngüsü sırasında kalır.
 
-4.  Yalnız bırakılmış nesneye çalışması tanımlandıktan sonra yinelenen öznitelikler Portalı'ndan doğrudan eşitleme hataları giderebilirsiniz. İşlemi tetiklemek için seçin **düzeltme** düğmesi. Geçerli eşitleme hatası güncelleştirmelerin durumunu **eşitleme bekleyen**.
+1. Yalnız bırakılmış nesneye çalışması tanımlandıktan sonra yinelenen öznitelikler Portalı'ndan doğrudan eşitleme hataları giderebilirsiniz. İşlemi tetiklemek için seçin **düzeltme** düğmesi. Geçerli eşitleme hatası güncelleştirmelerin durumunu **eşitleme bekleyen**.
 
-5.  Sonraki eşitleme döngüsü sonra hata listeden kaldırılması gerekir.
+1. Sonraki eşitleme döngüsü sonra hata listeden kaldırılması gerekir.
 
 ## <a name="how-to-answer-the-diagnosis-questions"></a>Tanılama soruları nasıl cevaplıyor 
 ### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>Kullanıcının şirket içi Active Directory'nizde var mı?
 
 Bu soru, mevcut bir kullanıcının şirket içi Active Directory'den kaynak nesnesi tanımlamayı dener.  
-1.  Azure Active Directory ile sağlanan bir nesne olup olmadığını kontrol **UserPrincipalName**. Aksi takdirde, yanıt **Hayır**.
-2.  Varsa, nesnenin hala eşitleme için kapsam içinde olup olmadığını denetleyin.  
-  - Azure AD bağlayıcı alanında DN kullanarak arama yapın.
-  - Nesne bulunursa **bekleyen ekleme** durum, yanıt **Hayır**. Azure AD Connect için doğru Azure AD nesnesi nesne bağlanamıyor.
-  - Nesne bulunamazsa, yanıt **Evet**.
+1. Azure Active Directory ile sağlanan bir nesne olup olmadığını kontrol **UserPrincipalName**. Aksi takdirde, yanıt **Hayır**.
+2. Varsa, nesnenin hala eşitleme için kapsam içinde olup olmadığını denetleyin.  
+   - Azure AD bağlayıcı alanında DN kullanarak arama yapın.
+   - Nesne bulunursa **bekleyen ekleme** durum, yanıt **Hayır**. Azure AD Connect için doğru Azure AD nesnesi nesne bağlanamıyor.
+   - Nesne bulunamazsa, yanıt **Evet**.
 
 Bu örneklerde, soru tanımlamayı dener olmadığını **ALi Jackson** yine de şirket içi Active Directory'de mevcut.
 İçin **sık karşılaşılan bir senaryodur**, her iki kullanıcı **ALi Johnson** ve **ALi Jackson** şirket içi Active Directory'de mevcut. İki farklı kullanıcılar karantinaya alınmış nesneleridir.
@@ -104,11 +106,11 @@ Bu örneklerde, soru tanımlamayı dener olmadığını **ALi Jackson** yine de 
 
 ### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>Bu hesapların her ikisi de aynı kullanıcıya mı ait?
 Bu soru, aynı kullanıcıya ait olup olmadığını görmek için Azure AD'de gelen çakışan bir kullanıcıyı ve mevcut kullanıcı nesnesi denetler.  
-1.  Çakışan nesne, Azure Active Directory'ye yeni eşitlendi. Nesnelerin öznitelik karşılaştırın:  
-  - Görünen Ad
-  - Kullanıcı Asıl Adı
-  - Nesne Kimliği
-2.  Azure AD karşılaştırma başarısız olursa, Active Directory ile sağlanan nesneler olup olmadığını denetlemek **belirtilen userprincipalnames adlı**. Yanıt **Hayır** her ikisini de bulursanız.
+1. Çakışan nesne, Azure Active Directory'ye yeni eşitlendi. Nesnelerin öznitelik karşılaştırın:  
+   - Görünen Ad
+   - Kullanıcı Asıl Adı
+   - Nesne Kimliği
+2. Azure AD karşılaştırma başarısız olursa, Active Directory ile sağlanan nesneler olup olmadığını denetlemek **belirtilen userprincipalnames adlı**. Yanıt **Hayır** her ikisini de bulursanız.
 
 Aşağıdaki örnekte, iki nesnenin aynı kullanıcıya ait **ALi Johnson**.
 
