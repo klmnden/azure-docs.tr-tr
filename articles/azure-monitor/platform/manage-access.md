@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 07e3552b58b702cb94c879dd34397010c07522db
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.openlocfilehash: 66cef8369a314a76cf619e436cd25d6bdf628c45
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791945"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076318"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Günlük verilerini ve Azure İzleyici'de çalışma alanlarını yönetme
 Azure İzleyici depoları, temelde verileri ve yapılandırma bilgilerini içeren bir kapsayıcı ve Log Analytics çalışma alanında verilerini günlüğe kaydedebilirsiniz. Verileri günlüğe kaydetmek için erişimi yönetmek için çalışma alanları ile ilgili çeşitli yönetim görevlerini gerçekleştirin. Siz veya kuruluşunuzun diğer üyeleri, IT altyapınızın tümünden veya bir bölümünden toplanan farklı veri kümelerini yönetmek için birden çok çalışma alanı kullanabilirsiniz.
@@ -104,7 +104,7 @@ _Erişim modu_ bir kullanıcı bir Log Analytics çalışma alanı nasıl erişt
 > - Kapsayıcılar
 > - HTTP veri toplayıcı API'si tarafından oluşturulan özel günlükler
 >
-> Bir sorguyu çalıştırarak günlükleri, kaynak ile düzgün bir şekilde ilişkili ve kayıtları inceleyerek ilgilendiğiniz test edebilirsiniz. Doğru kaynak kimliği ise [_ResourceId](log-standard-properties.md#resourceid) özelliği, ardından veri kaynağı merkezli sorgular için kullanılabilir.
+> Bir sorguyu çalıştırarak günlükleri, kaynak ile düzgün bir şekilde ilişkili ve kayıtları inceleyerek ilgilendiğiniz test edebilirsiniz. Doğru kaynak kimliği ise [_ResourceId](log-standard-properties.md#_resourceid) özelliği, ardından veri kaynağı merkezli sorgular için kullanılabilir.
 
 ### <a name="comparing-access-modes"></a>Erişim modu karşılaştırması
 

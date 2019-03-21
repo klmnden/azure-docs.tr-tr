@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c40a25cd2baebaaeedc012e8e9faff91b297f57
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082509"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201543"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory'de bir grup için lisans atama sorunlarını tanımlama ve çözme
 
@@ -35,19 +35,19 @@ Lisanslama, Grup tabanlı kullanırken aynı hatalar oluşabilir ancak Azure AD 
 
 1. Hata durumunda belirli bir gruptaki kullanıcıları bulmak için Grup için bölmesini açın. Altında **lisansları**, hata durumunda herhangi bir kullanıcı varsa bir bildirim görüntülenir.
 
-   ![Grup, hata bildirimi](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Grup ve hata bildirimi iletisi](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
 2. Etkilenen tüm kullanıcıların listesini açmak için bildirimi seçin. Daha fazla ayrıntı için ayrı ayrı her bir kullanıcı seçebilirsiniz.
 
-   ![Hata durumundaki kullanıcıların grubu listesi](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![hata durumu lisans grubundaki kullanıcıların listesi](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
 3. Üzerinde en az bir hata içeren tüm grupları bulmak için **Azure Active Directory** dikey penceresini seçin **lisansları**ve ardından **genel bakış**. Grupları dikkat etmeniz gereken bir bilgi kutusu görüntülenir.
 
-   ![Genel bakış, hata durumunda grupları hakkında bilgi](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![Genel bakış ve hata durumunda grupları hakkında bilgi](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
 4. Hata içeren tüm grupların bir listesini görmek için kutusunu seçin. Daha fazla ayrıntı için her bir grup seçebilirsiniz.
 
-   ![Genel bakış, hatalarla gruplarının listesi](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![Genel bakış ve hatalarla gruplarının listesi](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
 Aşağıdaki bölümlerde, her olası bir sorunu çözmek için yol ve bir açıklama girin.

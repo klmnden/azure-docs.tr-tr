@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 62d17670a068304e0764c85d49da0aa9a736c477
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7776e0005facb57d223a1ba1e73d1efa30edec49
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444448"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004888"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Azure’da Ubuntu sanal makinesi hazırlama
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="official-ubuntu-cloud-images"></a>Resmi Ubuntu bulut görüntüleri
-Ubuntu, artık yükleme için resmi Azure VHD'leri yayımlar [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/). Azure için kendi özel bir Ubuntu görüntüsünü oluşturmak ihtiyacınız varsa, yerine daha el ile aşağıdaki yordamı kullanın, bu VHD çalışma bilinen başlatıp gerektiği gibi özelleştirin önerilir. Son görüntü sürümleri her zaman aşağıdaki konumlarda bulunabilir:
+Ubuntu, artık yükleme için resmi Azure VHD'leri yayımlar [ https://cloud-images.ubuntu.com/ ](https://cloud-images.ubuntu.com/). Azure için kendi özel bir Ubuntu görüntüsünü oluşturmak ihtiyacınız varsa, yerine daha el ile aşağıdaki yordamı kullanın, bu VHD çalışma bilinen başlatıp gerektiği gibi özelleştirin önerilir. Son görüntü sürümleri her zaman aşağıdaki konumlarda bulunabilir:
 
 * Ubuntu 12.04/kesin: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vhd.zip)
-* Ubuntu 18.10/Cosmic: [Kozmik-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/cosmic/current/cosmic-server-cloudimg-amd64.vhd.zip)
+* Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
+* Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
+* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vhd.zip)
+* Ubuntu 18.10/Cosmic: [Kozmik-server-cloudimg-amd64.vhd.zip](https://cloud-images.ubuntu.com/cosmic/current/cosmic-server-cloudimg-amd64.vhd.zip)
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, bir sanal sabit diske bir Ubuntu Linux işletim sistemi zaten yüklediğinizi varsayar. Birden çok araç, .vhd dosyaları, örneğin bir Hyper-V gibi sanallaştırma çözümü oluşturmak için mevcut. Yönergeler için [Hyper-V rolünü yükleme ve sanal makine yapılandırma](https://technet.microsoft.com/library/hh846766.aspx).
@@ -47,7 +47,7 @@ Bu makalede, bir sanal sabit diske bir Ubuntu Linux işletim sistemi zaten yükl
 
 ## <a name="manual-steps"></a>El ile yapılacak adımlar
 > [!NOTE]
-> Azure için kendi özel bir Ubuntu görüntüsünü oluşturmak denemeden önce lütfen önceden oluşturulmuş ve test edilen görüntülerden kullanmayı [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/) yerine.
+> Azure için kendi özel bir Ubuntu görüntüsünü oluşturmak denemeden önce lütfen önceden oluşturulmuş ve test edilen görüntülerden kullanmayı [ https://cloud-images.ubuntu.com/ ](https://cloud-images.ubuntu.com/) yerine.
 > 
 > 
 
@@ -122,8 +122,8 @@ Bu makalede, bir sanal sabit diske bir Ubuntu Linux işletim sistemi zaten yükl
         # sudo apt-get update
         # sudo apt-get install walinuxagent
 
-    >[!Note]
-    `walinuxagent` Paketini kaldırmak `NetworkManager` ve `NetworkManager-gnome` yüklenmişlerse paketler.
+   > [!Note]
+   >  `walinuxagent` Paketini kaldırmak `NetworkManager` ve `NetworkManager-gnome` yüklenmişlerse paketler.
 
 Azure veri kaynağı için ubuntu 18.04/18.10, güncelleştirme, bu düzen: /etc/cloud/cloud.cfg.d/90-azure.cfg, bu kod dosyasının sonuna ekleyin:
 
@@ -135,13 +135,13 @@ datasource:
      agent_command: [service, walinuxagent, start]
 ```
 
-8. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
+1. Sanal makinenin sağlamasını kaldırma ve Azure'da sağlama için hazırlamak için aşağıdaki komutları çalıştırın:
    
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-9. Tıklayın **eylem -> kapatma aşağı** Hyper-V Yöneticisi'nde. Linux VHD'nizi artık Azure'a yüklenmek hazırdır.
+1. Tıklayın **eylem -> kapatma aşağı** Hyper-V Yöneticisi'nde. Linux VHD'nizi artık Azure'a yüklenmek hazırdır.
 
 ## <a name="references"></a>Başvurular
 [Ubuntu donanım etkinleştirme (HWE) çekirdek](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)

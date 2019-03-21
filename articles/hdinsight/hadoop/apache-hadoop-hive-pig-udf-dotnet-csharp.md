@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 139fe946b013b1c86404bdef6ed06314af349c89
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: df8196389ecb92229ff9495002c4bce394d7c048
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343145"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202716"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Kullanım C# Apache Hive ve Apache Pig, HDInsight, Apache Hadoop üzerinde akış ile kullanıcı tanımlı işlevler
 
@@ -172,13 +172,13 @@ HDInsight sürümleri dahil Mono ve .NET framework sürümü hakkında daha fazl
 
 6. .Exe dosyalarını karşıya yüklemek için aşağıdaki yöntemlerden birini kullanın:
 
-    * Kullanılıyorsa bir __Azure depolama hesabı__, karşıya yükleme simgesine tıklayın ve ardından gözatın **bin\debug** klasör **HiveCSharp** proje. Son olarak, seçin **HiveCSharp.exe** tıklayın ve dosya **Tamam**.
+   * Kullanılıyorsa bir __Azure depolama hesabı__, karşıya yükleme simgesine tıklayın ve ardından gözatın **bin\debug** klasör **HiveCSharp** proje. Son olarak, seçin **HiveCSharp.exe** tıklayın ve dosya **Tamam**.
 
-        ![simgeyi karşıya yükleyin](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![simgeyi karşıya yükleyin](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
     
-    * Kullanıyorsanız __Azure Data Lake Storage__dosya listesinde boş bir alana sağ tıklayın ve ardından __karşıya__. Son olarak, seçin **HiveCSharp.exe** tıklayın ve dosya **açık**.
+   * Kullanıyorsanız __Azure Data Lake Storage__dosya listesinde boş bir alana sağ tıklayın ve ardından __karşıya__. Son olarak, seçin **HiveCSharp.exe** tıklayın ve dosya **açık**.
 
-    Bir kez __HiveCSharp.exe__ karşıya yükleme tamamlandığında, karşıya yükleme işlemi için yineleyin __PigUDF.exe__ dosya.
+     Bir kez __HiveCSharp.exe__ karşıya yükleme tamamlandığında, karşıya yükleme işlemi için yineleyin __PigUDF.exe__ dosya.
 
 ## <a name="run-an-apache-hive-query"></a>Apache Hive sorgusu çalıştırma
 
@@ -216,11 +216,7 @@ HDInsight sürümleri dahil Mono ve .NET framework sürümü hakkında daha fazl
 
 ## <a name="run-an-apache-pig-job"></a>Apache Pig işi çalıştırma
 
-1. HDInsight kümenize bağlanmak için aşağıdaki yöntemlerden birini kullanın:
-
-    * Kullanıyorsanız bir __Linux tabanlı__ HDInsight kümesi için SSH kullanın. Örneğin, `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Daha fazla bilgi için [SSH kullanma withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
-    
-    * Kullanıyorsanız bir __Windows tabanlı__ HDInsight küme [Uzak Masaüstü kullanarak kümeye bağlanma](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
+1. HDInsight kümenize bağlanmak için SSH kullanın. Örneğin, `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Daha fazla bilgi için [SSH kullanma withHDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
 
 2. Pig komut satırında başlatmak için aşağıdaki komutu kullanın:
 

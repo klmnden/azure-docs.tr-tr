@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 912bc9fea7b721b9a74198572bbf916ee0ebe6cd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4494996ed54b25be71367dd3e3043023d0958074
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007113"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Öğretici: StatusPage ile Azure Active Directory Tümleştirme
 
@@ -158,15 +158,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
 1. SSO Kurulumu sayfasında, aşağıdaki adımları gerçekleştirin:
    
-     ![Çoklu oturum açmayı yapılandırın](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
+      ![Çoklu oturum açmayı yapılandırın](./media/statuspage-tutorial/tutorial_statuspage_08.png) 
 
-     ![Çoklu oturum açmayı yapılandırın](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
+      ![Çoklu oturum açmayı yapılandırın](./media/statuspage-tutorial/tutorial_statuspage_09.png) 
  
-     a. İçinde **SSO hedef URL** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
+      a. İçinde **SSO hedef URL** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
 
-     b. İndirilen sertifikanızı Not Defteri'nde açın, içeriği kopyalayın ve ardından yapıştırın **sertifika** metin. 
+      b. İndirilen sertifikanızı Not Defteri'nde açın, içeriği kopyalayın ve ardından yapıştırın **sertifika** metin. 
 
-     c. Tıklayın **YAPILANDIRMASINI Kaydet**.
+      c. Tıklayın **YAPILANDIRMASINI Kaydet**.
 
 > [!TIP]
 > İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)

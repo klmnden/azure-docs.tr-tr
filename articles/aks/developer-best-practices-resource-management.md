@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 50f55ca3b05a6902841f1b1268cfbde742a9d589
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b45c5abb66d927f247f62692f12bd9207958a3e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428287"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181291"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) kaynaklarını yönetmek uygulama geliştiricileri için en iyi uygulamalar
 
@@ -84,9 +84,9 @@ Bu geliştirme alanları ile tümleşik geliştirme ve test işlemi yerel test o
 
 ## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Düzenli olarak kube-Danışmanı ile uygulama sorunlarını denetleyin
 
-**En iyi uygulama kılavuzunu** -düzenli olarak en son sürümünü çalıştıran `kube-advisor` kümenizdeki sorunları algılamak için. Mevcut bir AKS kümesinde kaynak kotaları çalıştırırsanız `kube-advisor` ilk kaynak isteklerini ve sınırları tanımlanmış olmayan pod'ların bulunamıyor.
+**En iyi uygulama kılavuzunu** -düzenli olarak en son sürümünü çalıştıran `kube-advisor` kümenizdeki sorunları algılamak için açık kaynak aracı. Mevcut bir AKS kümesinde kaynak kotaları çalıştırırsanız `kube-advisor` ilk kaynak isteklerini ve sınırları tanımlanmış olmayan pod'ların bulunamıyor.
 
-[Kube-advisor] [ kube-advisor] aracı bir Kubernetes kümesi tarar ve bulduğu sorunları bildirir. Yararlı bir onay kaynak isteklerini ve sınırları limitiniz olmadığı pod'ların belirlemektir.
+[Kube-advisor] [ kube-advisor] , bir Kubernetes kümesi tarar ve bulduğu sorunları ilişkili AKS açık kaynaklı proje bir araçtır. Yararlı bir onay kaynak isteklerini ve sınırları limitiniz olmadığı pod'ların belirlemektir.
 
 Birçok geliştirme ekipleri ve uygulamaları barındıran bir AKS kümesinde bu kaynağın ister ve kümesi sınırlar olmadan pod'ların izlenmesi zor olabilir. En iyi uygulama, düzenli olarak çalıştırılan `kube-advisor` AKS kümelerinizdeki.
 

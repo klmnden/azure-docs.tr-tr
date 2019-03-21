@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 7cfcf68a7725ba6c8a7ad4e0a88c5eed814b38ba
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4b8d26868c3880852e0d2f9c43b06ca1b25d094f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729721"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176387"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak iki dilli sözlük ile sözcük arayın
 
@@ -32,7 +32,7 @@ Bu hızlı başlangıç şunları gerektirir:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Bir proje oluşturun ve gerekli modülleri içeri aktarın
 
-Favori IDE ortamınızda veya düzenleyicide yeni bir proje oluşturun. Ardından bu kod parçacığını projenizde `dictionary-lookup.js` adlı bir dosyaya kopyalayın.
+Sık kullandığınız IDE veya düzenleyiciyi kullanarak yeni bir proje oluşturun veya sizin masaüstünüzde yeni bir klasör oluşturun. Bu kod parçacığı proje/klasör adlı bir dosyaya kopyalayın `alt-translations.js`.
 
 ```javascript
 const request = require('request');
@@ -114,7 +114,7 @@ request(options, function(err, res, body){
 İşte bu kadar! Translator Metin Çevirisi API'sini çağıran ve bir JSON yanıtı döndüren basit bir program oluşturdunuz. Artık programınızı çalıştırmak zamanı geldi:
 
 ```console
-node dictionary-lookup.js
+node alt-translations.js
 ```
 
 Kodunuzu bizimkiyle karşılaştırmak isterseniz, tam örnek kodu [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)’da bulabilirsiniz.

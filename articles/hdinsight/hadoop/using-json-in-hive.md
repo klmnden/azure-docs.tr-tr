@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: b174b1279a2e93560932334c9ae1e926c1eeca3c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 31909d007727ca5b440343e3c5a035984399b77a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990773"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201747"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Azure HDInsight, Apache Hive'ı kullanarak işleyebilir ve JSON belgeleri
 
@@ -57,7 +57,7 @@ Azure HDInsight, Apache Hive'ı kullanarak JavaScript nesne gösterimi (JSON) do
 }
 ```
 
-Dosya şu yolda bulunabilir: **wasb://processjson@hditutorialdata.blob.core.windows.net/**. HDInsight ile Azure Blob Depolama kullanma hakkında daha fazla bilgi için bkz. [kullanım HDFS uyumlu Azure Blob Depolama, HDInsight, Apache Hadoop ile](../hdinsight-hadoop-use-blob-storage.md). Kümenizin varsayılan kapsayıcıya dosyayı kopyalayabilirsiniz.
+Dosya şu yolda bulunabilir: **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. HDInsight ile Azure Blob Depolama kullanma hakkında daha fazla bilgi için bkz. [kullanım HDFS uyumlu Azure Blob Depolama, HDInsight, Apache Hadoop ile](../hdinsight-hadoop-use-blob-storage.md). Kümenizin varsayılan kapsayıcıya dosyayı kopyalayabilirsiniz.
 
 Bu öğreticide, Apache Hive konsolunu kullanabilirsiniz. Hive konsolunu açmak yönergeler için bkz: [kullanım Apache Ambari Hive görünümünü HDInsight, Apache Hadoop ile](apache-hadoop-use-hive-ambari-view.md).
 
@@ -83,7 +83,7 @@ SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
 SELECT * FROM StudentsOneLine
 ```
 
-Ham JSON dosyası şu konumdadır **wasb://processjson@hditutorialdata.blob.core.windows.net/**. **StudentsRaw** Hive tablosu noktaları değil düzleştirilmiş ham JSON belgesi.
+Ham JSON dosyası şu konumdadır **wasb://processjson\@hditutorialdata.blob.core.windows.net/**. **StudentsRaw** Hive tablosu noktaları değil düzleştirilmiş ham JSON belgesi.
 
 **StudentsOneLine** Hive tablosu altında HDInsight varsayılan dosya sistemindeki verileri depolayan **/json/Öğrenciler/** yolu.
 
@@ -153,8 +153,8 @@ Conclusion, seçtiğiniz hive'da JSON işleç türü, senaryoya bağlıdır. Bas
 İlgili makaleler için bkz:
 
 * [Apache Hive ve HiveQL HDInsight, Apache Hadoop ile bir örnek Apache log4j dosyasını çözümlemek için kullanın](../hdinsight-use-hive.md)
-* [Apache Hive, HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme](../hdinsight-analyze-flight-delay-data.md)
-* [Apache Hive, HDInsight kullanarak twitter verilerini çözümleme](../hdinsight-analyze-twitter-data.md)
+* [Apache Hive, HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme](../hdinsight-analyze-flight-delay-data-linux.md)
+* [Apache Hive, HDInsight kullanarak twitter verilerini çözümleme](../hdinsight-analyze-twitter-data-linux.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

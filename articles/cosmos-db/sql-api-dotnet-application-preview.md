@@ -1,6 +1,6 @@
 ---
-title: .Net Önizleme SDK'sını kullanarak Azure Cosmos DB ile bir ASP.NET MVC web uygulaması geliştirme Öğreticisi.
-description: Bu öğreticide bir ASP oluşturmayı açıklar .net MVC web uygulamasını Azure Cosmos DB kullanarak. Depolayın ve Azure'da barındırılan bir Yapılacaklar uygulamasında JSON veri erişim.
+title: .NET kullanarak bir ASP.NET MVC web uygulamasını Azure Cosmos DB ile Önizleme SDK'sı geliştirme Öğreticisi.
+description: Bu öğreticide, Azure Cosmos DB kullanarak bir ASP .NET MVC web uygulaması oluşturma işlemini açıklar. Depolayın ve Azure'da barındırılan bir Yapılacaklar uygulamasında JSON veri erişim.
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: dech
-ms.openlocfilehash: fa2657fbc4e5fe734b8e026494351fef2aea1c2a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bf1da7e8a1041b15076ebda6eeac9b0a75c567c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454213"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857173"
 ---
-# <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Öğretici: .Net Önizleme SDK'sını kullanarak Azure Cosmos DB ile bir ASP.NET MVC web uygulaması geliştirme 
+# <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Öğretici: .NET Önizleme SDK'sını kullanarak Azure Cosmos DB ile bir ASP.NET MVC web uygulaması geliştirme 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -26,7 +26,7 @@ ms.locfileid: "57454213"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 
-Bu öğreticide Azure üzerinde barındırılan bir ASP.NET MVC uygulaması erişim verileri ve depolamak için Azure Cosmos DB kullanmayı gösterir. Bu öğreticide kullandığınız .net SDK'sı V3, şu anda Önizleme. Aşağıdaki resimde, bu makaledeki örnek kullanarak derler web sayfası gösterilmektedir:
+Bu öğreticide Azure üzerinde barındırılan bir ASP.NET MVC uygulaması erişim verileri ve depolamak için Azure Cosmos DB kullanmayı gösterir. Bu öğreticide, şu anda önizlemede olan .NET SDK'sı V3 kullanırsınız. Aşağıdaki resimde, bu makaledeki örnek kullanarak derler web sayfası gösterilmektedir:
  
 ![Yapılacaklar listesi MVC web uygulaması Bu öğretici - ASP NET MVC adım adım Öğreticisi tarafından oluşturulan ekran görüntüsü](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
 
@@ -77,7 +77,7 @@ Sonraki bölümde, yeni bir ASP.NET MVC uygulaması oluşturun.
 
 3. **Ad** kutusunda projenin adını yazın. Bu öğretici "todo" adını kullanır. Bunun dışında bir şey kullanmayı seçerseniz bu öğreticinin todo ad alanı hakkında konuşuyor ve her yerde daha sonra uygulamanızı adlı kullanmak için sağlanan kod örneklerini ayarlayın. 
 
-4. Seçin **Gözat** istediğiniz projeyi oluşturun ve ardından klasörüne gitmenizi **.Net framework 4.6.1** veya üzeri. **Tamam**’ı seçin. 
+4. Seçin **Gözat** istediğiniz projeyi oluşturun ve ardından klasörüne gitmenizi **.NET framework 4.6.1** veya üzeri. **Tamam**’ı seçin. 
 
 5. **Yeni ASP.NET Web Uygulaması** iletişim kutusu görüntülenir. Şablonlar bölmesinde **MVC**'yi seçin.
 
@@ -235,7 +235,7 @@ Burada yapılacak ilk şey, bağlanmasına ve Azure Cosmos DB için mantığı i
    defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
    ```
 
-  Bu kod, ASP.NET MVC artık olmadığını söyler. yerine yönlendirme davranışını denetlemek için URL'de bir değer belirtmediniz **giriş**, kullandığı **öğesi** denetleyicisi olarak ve **dizin**görünüm olarak.
+   Bu kod, ASP.NET MVC artık olmadığını söyler. yerine yönlendirme davranışını denetlemek için URL'de bir değer belirtmediniz **giriş**, kullandığı **öğesi** denetleyicisi olarak ve **dizin**görünüm olarak.
 
 Şimdi uygulamayı çalıştırırsanız, bunu içine yapılan çağrılar, **Itemcontroller** sonraki bölümde tanımladığınız TodoItemService sınıfından Getıtems yöntemleri çağırır. 
 

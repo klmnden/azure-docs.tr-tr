@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 92b7714e9f6635cf0b44a98a16ddb4616643ba81
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5f23435a43d139ecb9f20e5036124f175b1830c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544571"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225374"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure güvenlik ve uyumluluk planı - HIPAA/HITRUST sağlık verileri ve yapay ZEKA
 
@@ -359,9 +359,9 @@ Veri depolama alanı elde etmek için ortak bir API şema hızlı sağlık birli
 - [Application Insights](/azure/application-insights/app-insights-overview) birden çok platformlardaki web geliştiricilerine yönelik genişletilebilir bir uygulama performans yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Bu performans anomalileri algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir. Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır.
 
 ### <a name="azure-alerts"></a>Azure Uyarıları
-- [Uyarılar Azure hizmetlerini izleme, bir yöntem sunar ve veriler üzerinde koşullar yapılandırmanıza olanak sağlar. Bir uyarı durumu izleme verilerini eşleştiğinde uyarılar, bildirimler de sağlar.
+- [Uyarılar](/azure/azure-monitor/platform/alerts-metric) Azure hizmetlerini izleme, bir yöntem sunan ve veriler üzerinde koşullar yapılandırmanıza olanak sağlar. Bir uyarı durumu izleme verilerini eşleştiğinde uyarılar, bildirimler de sağlar.
 
-### <a name="azure-monitor-logs"></a>Azure izleme günlükleri
+### <a name="azure-monitor-logs"></a>Azure İzleyici günlükleri
 [Azure İzleyici günlüklerine](/azure/operations-management-suite/operations-management-suite-overview) Yönetim Hizmetleri koleksiyonudur.
 
 -   Güvenlik Merkezi için çalışma alanı etkindir

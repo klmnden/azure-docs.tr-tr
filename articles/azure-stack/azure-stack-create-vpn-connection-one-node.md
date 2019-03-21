@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1d66ca49db097eebd4c8fb5663f63e0db7460ad6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e038afe27718dcbd407e83b5c9190606e6b917c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782879"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004662"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Farklı Azure Stack geliştirme Seti'ni ortamlarındaki iki sanal ağ arasında siteden siteye VPN bağlantısı oluşturma
 ## <a name="overview"></a>Genel Bakış
@@ -52,6 +52,7 @@ Böylece kullanıcı teklife abone olma ve sanal makineleri dağıtmak hem POC1 
 Her iki Azure Stack geliştirme Seti'ni ortamları için ağ yapılandırması aşağıdaki tabloda özetlenmiştir. Ağınızdaki belirli dış BGPNAT adresi eklemek için tablodan sonra görüntülenen yordamı kullanın.
 
 **Ağ yapılandırma tablosu**
+
 |   |POC1|POC2|
 |---------|---------|---------|
 |Sanal ağ adı     |VNET-01|VNET-02 |

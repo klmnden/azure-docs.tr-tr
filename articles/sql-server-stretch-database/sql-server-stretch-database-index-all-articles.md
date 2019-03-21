@@ -1,6 +1,6 @@
 ---
 title: SQL Server Stretch Database hizmeti hakkındaki tüm konu | Microsoft Docs
-description: Tüm konuları Azure hizmeti için bir tablonun mevcut SQL Server Stretch Database adlı http://azure.microsoft.com/documentation/articles/, başlık ve açıklama.
+description: Tüm konuları Azure hizmeti için bir tablonun mevcut SQL Server Stretch Database adlı https://azure.microsoft.com/documentation/articles/, başlık ve açıklama.
 services: sql-server-stretch-database
 documentationcenter: ''
 author: DouglasL
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: DouglasL
-ms.openlocfilehash: 82a8e6e6660bd7ee31a78ccc458d105d393610f4
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 02089d69ec8e049b2d0d0daf1c76875a9ebab403
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742720"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992552"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Azure SQL Server Stretch Database hizmeti hakkındaki tüm konu
 Bu konuda doğrudan uygulanan her konu listeler **SQL Server Stretch Database** Azure hizmeti. Anahtar sözcükler için bu Web sayfasını kullanarak arayabilir **Ctrl + F**, geçerli ilginizi çeken konuları bulun.

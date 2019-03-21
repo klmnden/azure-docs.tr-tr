@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/25/2019
+ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: ad676070bb684e459c0dae648443318199f77b6d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e4a4572a53338dc0c7b5d7d11dca7130c8979be
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091537"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226904"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Güvenlik Merkezi - Sık sorulan sorular (SSS)
 Bu SSS, Azure Güvenlik Merkezi, artırılmış görünürlük ve Microsoft Azure kaynaklarınızın güvenliğini denetim ile tehditleri önleyin, algılayın ve yardımcı olan bir hizmet hakkında sorular yanıtlanmaktadır.
@@ -52,7 +52,7 @@ Güvenlik Merkezi, güvenlik sorunlarını ve güvenlik açıklarını tanımlam
 Bkz: [Azure Güvenlik Merkezi'nde izinler](security-center-permissions.md) rolleri ve izin verilen eylemleri Güvenlik Merkezi hakkında daha fazla bilgi edinmek için.
 
 ## <a name="data-collection-agents-and-workspaces"></a>Veri toplama aracıları ve çalışma alanları
-Güvenlik Merkezi, Azure sanal makineleri (VM'ler) ve Azure harici bilgisayarları güvenlik açıklarını ve tehditleri izlemek için veri toplar. Veriler, makineden güvenlikle ilgili çeşitli yapılandırmaları ve olay günlüklerini okuyup verileri analiz için çalışma alanınıza kopyalayan Microsoft Monitoring Agent kullanılarak toplanır.
+Güvenlik Merkezi, Azure sanal makineleri (VM'ler), sanal makine ölçek kümeleri (VMSS), Iaas kapsayıcılarınızdaki ve Azure olmayan (dahil, şirket içi) bilgisayarlar güvenlik açıklarını ve tehditleri izlemek için veri toplar. Veriler, makineden güvenlikle ilgili çeşitli yapılandırmaları ve olay günlüklerini okuyup verileri analiz için çalışma alanınıza kopyalayan Microsoft Monitoring Agent kullanılarak toplanır.
 
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Azure İzleyici açtığında, Güvenlik Merkezi tarafından oluşturulan çalışma alanları için Faturalandırılacak mıyım?
 Hayır. Güvenlik Merkezi tarafından oluşturulan çalışma alanları başına düğüm faturalandırma, Azure İzleyici günlük için yapılandırılmış olsa Azure İzleyici günlüklerine ücretleri uygulanmaz. Güvenlik Merkezi her zaman, Güvenlik Merkezi güvenlik ilkesi ve bir çalışma alanına yüklenmiş çözümlere göre faturalandırılır:
@@ -74,7 +74,7 @@ Windows veya Linux Iaas sanal makineleri, uygun:
 
 - Microsoft Monitoring Agent uzantısı VM'de yüklü değil.
 - VM'nin çalışır durumda olduğundan.
-- Windows veya Linux VM Aracısı yüklenir.
+- Windows veya Linux [Azure sanal makine Aracısı](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-windows) yüklenir.
 - VM, web uygulaması güvenlik duvarı veya yeni nesil güvenlik duvarı gibi bir gereç olarak kullanılmaz.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Ben, Güvenlik Merkezi tarafından oluşturulan varsayılan çalışma alanlarını silebilir miyim?
@@ -115,21 +115,23 @@ Mevcut bir Log Analytics çalışma alanı seçmek için:
 
    - Seçin **iptal** işlemi iptal etme.
 
-### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>Ne Microsoft Monitoring Agent, sanal makine uzantısı olarak zaten yüklendi?
-Güvenlik Merkezi, kullanıcı çalışma alanları için varolan bağlantılar kılmaz. Güvenlik Merkezi, güvenlik verileri VM'den zaten bağlı çalışma alanında depolar. Güvenlik Merkezi, Güvenlik Merkezi kullanım desteklemek için sanal makinenin Azure kaynak kimliği eklemek için uzantı sürümü güncelleştirir.
+### Ne Microsoft Monitoring Agent, sanal makine uzantısı olarak zaten yüklendi?<a name="mmaextensioninstalled"></a>
+İzleme Aracısı, uzantı olarak yüklendikten sonra uzantı yapılandırması yalnızca tek bir çalışma alanına raporlama sağlar. Güvenlik Merkezi, kullanıcı çalışma alanları için varolan bağlantılar kılmaz. Güvenlik Merkezi şartıyla "güvenlik" veya "securityFree" çözüm üzerinde yüklü bir VM Güvenlik verileri zaten bağlıysa, bir çalışma alanında depolar. Güvenlik Merkezi, uzantı sürümü, bu işlem en son sürüme yükseltebilirsiniz.
 
-### <a name="what-if-i-had-a-microsoft-monitoring-agent-installed-on-the-machine-but-not-as-an-extension"></a>Peki miyim makinede ancak uzantı olarak değil yüklü Microsoft Monitoring Agent oldu?
-Microsoft Monitoring Agent (olarak değil bir Azure uzantısı) doğrudan VM'de yüklü değilse, Güvenlik Merkezi Microsoft Monitoring Agent yüklemez ve güvenlik izleme sınırlıdır.
+Daha fazla bilgi için [önceden var olan bir aracı yüklemesi durumlarda otomatik sağlama](security-center-enable-data-collection.md#preexisting).
 
-Daha fazla bilgi için sonraki bölüme bakın [SCOM veya OMS Aracısı VM üzerinde zaten yüklü doğrudan ne olur?](#scomomsinstalled)
 
-### SCOM veya OMS Aracısı doğrudan ne olur VM'deki uygulamalarımdan birine zaten yüklü mü?<a name="scomomsinstalled"></a>
-Güvenlik Merkezi, önceden bir aracının yüklü olduğunu anlayamaz.  Güvenlik Merkezi, Microsoft Monitoring Agent uzantısını yüklemeye çalışır ve mevcut yüklü aracı nedeniyle başarısız olur.  Bu hata, aracının kendi çalışma alanı için bağlantı ayarları geçersiz kılmasını önler ve çoklu yönlendirmeyi oluşturulmasını engeller.
+### Ne miyim makinede ancak uzantı (doğrudan aracı) olarak değil doğrudan yüklü Microsoft Monitoring Agent oldu?<a name="directagentinstalled"></a>
+Microsoft Monitoring Agent (olarak değil bir Azure uzantısı) doğrudan VM'de yüklü değilse, Güvenlik Merkezi Microsoft Monitoring Agent uzantısını yükleyecek ve Microsoft Monitoring agent, en son sürüme yükseltebilirsiniz.
+Yüklü aracı için zaten yapılandırılmış kendi çalışma alanlarında bildirmeye devam eder ve ayrıca Güvenlik Merkezi'nde yapılandırılmış çalışma alanına rapor eder (birden çok giriş desteklenir).
+Bir kullanıcı çalışma (değil Güvenlik Merkezi'nin varsayılan çalışma alanına) yapılandırılmış çalışma alanı ise yüklemeniz gerekir "güvenlik /"securityFree"çözümü için Güvenlik Merkezi, Vm'leri ve Bilgisayarları'ndan olayları işlemeyi başlatmak bu çalışma alanına raporlama.
 
-> [!NOTE]
-> Aracı sürümü, OMS Aracısı'deki en son sürüme güncelleştirilir.  Bu SCOM kullanıcılar için de geçerlidir.
->
->
+Güvenlik Merkezi'ne abonelikleri eklenmedi 2019-03-mevcut bir aracının ne zaman algılanır, 17 önce mevcut makinelerde Microsoft Monitoring Agent uzantısını yüklenmez ve makine etkilenmez. Bu makineler üzerinde aracı yükleme sorunlarını gidermek için "Çözümle makinelerinizde aracı sistem durumu sorunlarını izleme" öneri bu makineler için bkz.
+
+ Daha fazla bilgi için sonraki bölüme bakın [SCOM veya OMS Aracısı VM üzerinde zaten yüklü doğrudan ne olur?](#scomomsinstalled)
+
+### SCOM Aracısı VM'deki uygulamalarımdan birine zaten yüklü değilse ne olur?<a name="scomomsinstalled"></a>
+Güvenlik Merkezi, var olan SCOM için Microsoft Monitoring Agent uzantısı yan yana yüklenir. Var olan SCOM aracısı için SCOM server normalde bildirmeye devam eder. SCOM aracısı ve Microsoft Monitoring Agent bu verisine sırasında en son sürüme güncelleştirilir ortak çalışma zamanı kitaplıkları paylaşmak unutmayın.
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>Bu Uzantılar'ı kaldırmanın etkisi nedir?
 Microsoft Monitoring uzantısı kaldırırsanız, Güvenlik Merkezi sanal makine ve bazı güvenlik önerilerini güvenlik verilerini toplamak mümkün değildir ve uyarılar kullanılamıyor. 24 saat içinde Güvenlik Merkezi, VM uzantısı eksik ve uzantıyı yükler belirler.
@@ -184,18 +186,18 @@ Microsoft Monitoring Agent el ile kaldırabilirsiniz. Güvenlik Merkezi önerile
 
 Aracıyı el ile kaldırmak için:
 
-1. Portalda açın **Log Analytics**.
-2. Log Analytics dikey penceresinde, bir çalışma alanı seçin:
-3. İzleme ve seçmek için istemediğiniz her bir VM seçin **Bağlantıyı Kes**.
+1.  Portalda açın **Log Analytics**.
+2.  Log Analytics dikey penceresinde, bir çalışma alanı seçin:
+3.  İzleme ve seçmek için istemediğiniz her bir VM seçin **Bağlantıyı Kes**.
 
    ![Aracıyı kaldır][3]
 
 > [!NOTE]
 > Bir Linux VM uzantısı olmayan bir OMS Aracısı zaten varsa, uzantıyı kaldırma da aracıyı kaldırır ve müşterinin yeniden yüklemeniz gerekir.
-> 
-> 
-> ### <a name="how-do-i-disable-data-collection"></a>Veri toplama nasıl devre dışı bırakabilirim?
-> Otomatik sağlama varsayılan olarak kapalıdır. Otomatik kaynaklardan herhangi bir zamanda bu güvenlik ilkesi ayarı devre dışı bırakarak sağlama devre dışı bırakabilirsiniz. Otomatik sağlama güvenlik uyarıları ve sistem güncelleştirmeleri, işletim sistemi güvenlik açıkları ve uç nokta koruma hakkında öneriler almak için kesinlikle önerilir.
+>
+>
+### <a name="how-do-i-disable-data-collection"></a>Veri toplama nasıl devre dışı bırakabilirim?
+Otomatik sağlama varsayılan olarak kapalıdır. Otomatik kaynaklardan herhangi bir zamanda bu güvenlik ilkesi ayarı devre dışı bırakarak sağlama devre dışı bırakabilirsiniz. Otomatik sağlama güvenlik uyarıları ve sistem güncelleştirmeleri, işletim sistemi güvenlik açıkları ve uç nokta koruma hakkında öneriler almak için kesinlikle önerilir.
 
 Veri toplamayı devre dışı bırakmak için [Azure portalında oturum açın](https://portal.azure.com)seçin **Gözat**seçin **Güvenlik Merkezi**seçip **seçin, ilke**. Otomatik sağlamayı hangi abonelik için devre dışı bırakmak istediğinizi belirtin. Bir aboneliği seçtiğinizde **güvenlik ilkesi - veri toplama** açılır. Altında **otomatik sağlama**seçin **kapalı**.
 

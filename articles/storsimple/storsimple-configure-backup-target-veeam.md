@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
-ms.openlocfilehash: f06b74493bad546997f82ed6eef0a89cffb7c75b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e7659cca9081834d41f64ef0fbd8ea3686044bfd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261987"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012001"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>Yedekleme hedefi olarak Veeam ile StorSimple
 
@@ -81,7 +81,7 @@ StorSimple, bu avantajlar sunar:
 
 StorSimple temelde iki ana dağıtım senaryoları (birincil yedekleme hedefi ve ikincil yedekleme hedefi) gösterir, ama düz, blok depolama cihazı vardır. StorSimple sıkıştırma yapar ve yinelenenleri kaldırma. Sorunsuz bir şekilde gönderir ve bulut uygulama ve dosya sistemi arasındaki verileri alır.
 
-StorSimple hakkında daha fazla bilgi için bkz: [StorSimple 8000 serisi: hibrit bulut depolaması çözümü](storsimple-overview.md). Ayrıca, gözden geçirebilirsiniz [teknik StorSimple 8000 serisi özellikleri](storsimple-technical-specifications-and-compliance.md).
+StorSimple hakkında daha fazla bilgi için bkz: [StorSimple 8000 serisi: Hibrit bulut depolaması çözümü](storsimple-overview.md). Ayrıca, gözden geçirebilirsiniz [teknik StorSimple 8000 serisi özellikleri](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > Bir StorSimple kullanarak cihaz yedekleme hedefi olarak yalnızca StorSimple 8000 güncelleştirme 3 ve sonraki sürümlerinde desteklenir.
@@ -186,7 +186,7 @@ Bu bölümde, bazı yapılandırma örneği gösterilmektedir. Aşağıdaki örn
 
 | StorSimple dağıtım görevleri  | Ek açıklamalar |
 |---|---|
-| Şirket içi StorSimple Cihazınızı dağıtın. | Desteklenen sürümler: güncelleştirme 3 ve sonraki sürümleri. |
+| Şirket içi StorSimple Cihazınızı dağıtın. | Desteklenen sürümler: Güncelleştirme 3 ve sonraki sürümler. |
 | Yedekleme hedefi üzerinde açın. | Yedekleme hedefi modunu devre dışı bırakmak veya etkinleştirmek ve durumu almak için şu komutları kullanın. Daha fazla bilgi için [bir StorSimple cihazı uzaktan bağlanma](storsimple-remote-connect.md).</br> Yedekleme modunu açmak için: `Set-HCSBackupApplianceMode -enable`. </br> Yedekleme modunu devre dışı bırakmak için: `Set-HCSBackupApplianceMode -disable`. </br> Yedekleme modu ayarları geçerli durumunu almak için: `Get-HCSBackupApplianceMode`. |
 | Yedekleme verilerini depolayan biriminiz için ortak bir birim kapsayıcısı oluşturun. Bir birim kapsayıcısındaki tüm veriler yinelenen verileri kaldırma işlemi. | StorSimple birim kapsayıcıları, yinelenenleri kaldırma etki alanlarını tanımlayın.  |
 | StorSimple birimler oluşturun. | Birim boyutu bulut anlık görüntü süresini etkilediğinden birimler öngörülen kullanımınıza yakın boyutlarıyla mümkün olduğunca oluşturun. Bir birimi boyutu hakkında daha fazla bilgi için okuyun [bekletme ilkeleri](#retention-policies).</br> </br> StorSimple kullanın, katmanlı birimleri ve seçin **bu birimi daha az sıklıkta erişilen arşiv verileri için kullanın** onay kutusu. </br> Yerel olarak sabitlenmiş birimler yalnızca kullanılması desteklenmiyor. |
@@ -209,16 +209,16 @@ Bu yönergelere göre konak yedek sunucu depolama ayarlayın:
 
 ### <a name="operating-system-best-practices"></a>İşletim sistemi en iyi uygulamalar
 
--   Windows Server şifreleme ve yinelenenleri kaldırma NTFS dosya sistemi devre dışı bırakın.
--   Windows Server birleştirme StorSimple birimlerde devre dışı bırakın.
--   Windows Server StorSimple birimlerde dizin oluşturmayı devre dışı bırakın.
--   Kaynak ana bilgisayar (değil karşı StorSimple birimlerini) bir virüsten koruma taraması çalıştırın.
--   Varsayılan devre dışı kapatma [Windows Server bakım](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) Görev Yöneticisi'nde. Bu aşağıdaki yollardan birini yapın:
-    - Windows Görev Zamanlayıcısı'nda bakım configurator devre dışı bırakın.
-    - İndirme [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) Windows SysInternals öğesinden. PsExec indirdikten sonra Windows PowerShell bir Yöneticiyseniz ve türü çalıştırın:
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Windows Server şifreleme ve yinelenenleri kaldırma NTFS dosya sistemi devre dışı bırakın.
+- Windows Server birleştirme StorSimple birimlerde devre dışı bırakın.
+- Windows Server StorSimple birimlerde dizin oluşturmayı devre dışı bırakın.
+- Kaynak ana bilgisayar (değil karşı StorSimple birimlerini) bir virüsten koruma taraması çalıştırın.
+- Varsayılan devre dışı kapatma [Windows Server bakım](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) Görev Yöneticisi'nde. Bu aşağıdaki yollardan birini yapın:
+  - Windows Görev Zamanlayıcısı'nda bakım configurator devre dışı bırakın.
+  - İndirme [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) Windows SysInternals öğesinden. PsExec indirdikten sonra Windows PowerShell bir Yöneticiyseniz ve türü çalıştırın:
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>StorSimple en iyi uygulamalar
 
@@ -265,6 +265,7 @@ Aşağıdaki örnekte, bir GFS döndürme kullanırız. Aşağıdaki örnekte va
 | Yıllık tam | 1  | 10 | 10 |
 | GFS gereksinimi |   | 38 |   |
 | Ek kota  | 4  |   | 42 toplam GFS gereksinimi  |
+
 \* GFS çarpan koruma ve yedekleme İlkesi gereksinimlerinizi karşılayacak şekilde korumak için ihtiyaç duyduğunuz kopya sayısıdır.
 
 ## <a name="set-up-veeam-storage"></a>Veeam depolamayı ayarlama
@@ -319,7 +320,7 @@ Dört hafta, aylık ve yıllık GFS döndürme tablosunun bir örnek aşağıda 
 |---|---|---|
 | Haftalık (hafta 1-4) | Cumartesi | Pazartesi-Cuma |
 | Aylık  | Cumartesi  |   |
-| Yıllık | Cumartesi  |   |   |
+| Yıllık | Cumartesi  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-backup-job"></a>Veeam yedekleme işi için StorSimple birimlerini atayın
@@ -379,11 +380,12 @@ Aşağıdaki tabloda, yedekler yerel ve StorSimple diskler üzerinde çalıştı
 
 | Yedekleme türü ve saklama | Yapılandırılmış depolama | Boyut (TiB) | GFS çarpanı | Toplam Kapasite\* (TiB) |
 |---|---|---|---|---|
-| Hafta 1 (tam ve artımlı) |Yerel disk (kısa vadeli)| 1 | 1 | 1 |
+| Hafta 1 (tam ve artımlı) |Yerel disk (kısa vadeli)| 1 | 1. | 1 |
 | StorSimple hafta 2-4 |StorSimple disk (uzun süreli) | 1 | 4 | 4 |
 | Aylık tam |StorSimple disk (uzun süreli) | 1 | 12 | 12 |
-| Yıllık tam |StorSimple disk (uzun süreli) | 1 | 1 | 1 |
+| Yıllık tam |StorSimple disk (uzun süreli) | 1 | 1. | 1 |
 |GFS birim boyutu gereksinimini |  |  |  | 18*|
+
 \* Toplam Kapasite 17 TiB StorSimple'nın, diskler ve yerel RAID birimi 1 TiB içerir.
 
 
@@ -398,7 +400,7 @@ GFS döndürme haftalık, aylık ve yıllık zamanlama
 | 3 hafta | StorSimple hafta 2-4 |   |   |   |   |   |
 | 4 hafta | StorSimple hafta 2-4 |   |   |   |   |   |
 | Aylık | StorSimple aylık |   |   |   |   |   |
-| Yıllık | Yıllık StorSimple  |   |   |   |   |   |   |
+| Yıllık | Yıllık StorSimple  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>StorSimple birim atamak için bir Veeam kopyalama işi
 
@@ -469,9 +471,9 @@ Aşağıdaki bölümde, başlatın ve yedekleme sonrası işleme sırasında Sto
 1. [Azure PowerShell'i yükleme](/powershell/azure/overview).
 2. Karşıdan yükleme ve Kurulum [Yönet CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) PowerShell Betiği.
 3. Betik çalıştıran sunucuda PowerShell'i yönetici olarak çalıştırın. Komut dosyasını çalıştırdığınızdan emin olun `-WhatIf $true` hangi kodun değiştiğini görmek için yapar. Doğrulama tamamlandıktan sonra geçmesi `-WhatIf $false`. Çalıştırma aşağıdaki komutu:
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
 4. Yedekleme işi için betik eklemek için Gelişmiş Seçenekleri Veeam işinizi düzenleyin.
 
     ![Veeam yedekleme Gelişmiş ayarları betikleri sekmesi](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)

@@ -1,68 +1,113 @@
 ---
-title: Konuşmayı metne dönüştürme - konuşma Hizmetleri
+title: Konuşma metin ile Azure konuşma Hizmetleri
 titleSuffix: Azure Cognitive Services
-description: Konuşma metin API'si ses akışları uygulamanızı görüntüleyebilir veya bir giriş olarak üzerinde işlem metne dönüştürür. Hizmet SDK'sı ve bir RESTful uç noktası kullanılabilir.
+description: Konuşma metin Azure konuşma Hizmetleri, olarak da bilinen Konuşmayı metne dönüştürme, etkinleştirir, uygulamalar, Araçlar veya cihazları kullanabilen bir metne ses akışları gerçek zamanlı döküm, görüntüleyin ve komut giriş olarak üzerinde işlem gerçekleştir. Bu hizmet Microsoft Cortana ve Office ürünleri için kullanan ve metin okuma ve çeviri ile sorunsuz çalışır aynı tanıma teknolojisini tarafından desteklenmektedir.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5012245a79295f1e05079f6c0a368ac832b8974a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: acf338afdf33408637bf7cca79d28f5e90888eba
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978587"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224449"
 ---
-# <a name="about-the-speech-to-text-api"></a>Konuşmayı metne dönüştürme API'si
+# <a name="what-is-speech-to-text"></a>Konuşmayı metne nedir?
 
-**Konuşmayı metne dönüştürme** API *dönüştürür* uygulamanızı görüntülemek için kullanıcı veya olarak alacak bir metne ses akışları giriş komutu. API'ler bir SDK'sı istemci kitaplığı (için desteklenen platformlar ve diller için) veya bir REST API ile kullanılabilir.
+Konuşma metin Azure konuşma Hizmetleri, olarak da bilinen Konuşmayı metne dönüştürme, etkinleştirir, uygulamalar, Araçlar veya cihazları kullanabilen bir metne ses akışları gerçek zamanlı döküm, görüntüleyin ve komut giriş olarak üzerinde işlem gerçekleştir. Bu hizmet Microsoft Cortana ve Office ürünleri için kullanan ve metin okuma ve çeviri ile sorunsuz çalışır aynı tanıma teknolojisini tarafından desteklenmektedir.  Konuşmayı metne diller tam bir listesi için bkz. [desteklenen diller](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
-**Konuşmayı metne dönüştürme** API'si aşağıdaki özellikleri sunar:
+Varsayılan olarak, konuşma metin hizmetini Evrensel dil modelini kullanır. Bu model, Microsoft'a ait verileri kullanarak eğitim ve olduğu buluta dağıtılabilir. İçin en iyi damıtarak konuşma bağlamında kullanılabilen ve dikte senaryoları. Konuşma metin tanıma ve benzersiz bir ortamda transkripsiyonu için kullanıyorsanız, oluşturabilir ve adresi ortam gürültü veya sektöre özel sözlük özel akustik ve dil telaffuz modellerini eğitin. 
 
-- Konuşma tanıma teknolojisini Microsoft Gelişmiş — Cortana, Office ve diğer Microsoft ürünleri tarafından kullanılan aynı.
+Kolayca mikrofondan gelen sesi yakalama, bir akıştan okumak veya REST API'leri ve Speech SDK'sı ile depolama biriminden ses dosyaları erişim. Speech SDK'sı, konuşma tanıma için WAV/PCM 16-bit, 16 kHz tek kanal ses destekler. Kullanarak ek ses biçimleri desteklenmektedir [konuşma metin REST uç noktasını](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-formats) veya [batch transkripsiyonu hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
-- Gerçek zamanlı sürekli tanıma. **Konuşmayı metne dönüştürme** kullanıcıların gerçek zamanlı olarak metne ses özelliği sağlar. Şu ana kadar tanınan bir kelimelerin Ara sonuçlar alma destekler. Hizmet, konuşma sonu otomatik olarak tanır. Kullanıcılar ayrıca büyük/küçük harf ve noktalama işaretleri, maskeleme küfür ve ters metin normalleştirme dahil olmak üzere ek biçimlendirme seçenekleri tercih edebilirsiniz.
+## <a name="core-features"></a>Temel özellikleri
 
-- Sonuç döndürmedi Lexical hem de görüntüleme formlarında (sözcük sonuçlar için DetailedSpeechRecognitionResult örnekler ya da API bakın).
+REST API'leri ve Speech SDK'sı kullanılabilen özellikleri şunlardır:
 
-- Pek çok konuşulan dil ve diyalektler desteği. Her tanıma modunda desteklenen dillerin tam listesi için bkz. [desteklenen diller](language-support.md#speech-to-text).
+| Kullanım örneği | SDK | REST |
+|----------|-----|------|
+| Kısa konuşma konuşmaların (< 15 saniye). Yalnızca son transkripsiyonu sonucu destekler. | Evet | Evet |
+| Uzun konuşma ve ses akışını sürekli transkripsiyonu (> 15 saniye). Geçici ve son tanıma sonuçları destekler. | Evet | Hayır |
+| Intents tanıma sonuçları ile türetilen [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Evet | Yok\* |
+| Ses dosyaları, döküm zaman uyumsuz olarak toplu olarak. | Hayır | Evet\** |
+| Oluşturun ve konuşma modelleri yönetin. | Hayır | Evet\** |
+| Oluşturun ve özel model dağıtımı yönetin. | Hayır | Evet\** |
+| Özel modelleri karşı temel model doğruluğunu ölçmek için doğruluk testi oluşturun. | Hayır | Evet\** |
+| Aboneliklerini yönetin. | Hayır | Evet\** |
 
-- Ortamı ve konuşma yolu gibi kullanıcılarınızın özel etki alanı sözlük, uygulamanıza uyarlayabilirsiniz. Bu nedenle dil ve akustik modeller, özelleştirilmiş.
+\* *LUIS amaç ve varlıkları kullanarak ayrı bir LUIS aboneliği türetilebilir. Bu abonelikle SDK LUIS çağırmanızı ve varlık ve hedefi sonuçlar sağlar. REST API ile LUIS çağırabilirsiniz kendiniz amaç ve varlıkları LUIS aboneliğinizle türetmek için.*
 
-- Doğal dil anlama. İle tümleştirme yoluyla [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS), türetilebilir amaç ve varlıkları konuşma içeriğinden. Kullanıcılar, uygulamanızın sözlük bilmeniz gerekmez, ancak kendi kelimelerinizle istediğini tanımlayabilirsiniz.
+\** *Bu hizmetler cris.ai uç noktayı kullanarak kullanılabilir. Bkz: [Swagger başvuru](https://westus.cris.ai/swagger/ui/index).*
 
-- Ayrıntılı bir çıkış konuşma yapılandırma nesnesi (SpeechConfig.OutputFormat özelliği) belirtirseniz hizmetinden güvenilirlik puanı döndürülür. Ardından sonuç ya da Best() yöntemini kullanın veya (aşağıdakine benzer bir sonuç. hizmetten döndürülen JSON doğrudan puan Al Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult)).
+## <a name="get-started-with-speech-to-text"></a>Konuşmayı metne dönüştürme ile çalışmaya başlama
 
-## <a name="api-capabilities"></a>API özellikleri
+Hızlı başlangıçlar, en popüler programlama dillerinden, her, kodu 10 dakikadan kısa bir süre içinde çalıştırmak için tasarlanmış sunuyoruz. Bu tablo, dil tarafından düzenlenir ve Speech SDK'sı hızlı başlangıç kılavuzları tam bir listesini içerir.
 
-Bazı özelliklerini **Konuşmayı metne dönüştürme** API, özellikle özelleştirmesi, REST kullanılabilir. Aşağıdaki tabloda, her API erişimi yöntemi yeteneklerini özetler. Özellikler ve API ayrıntıları tam listesi için bkz: [Swagger başvuru](https://westus.cris.ai/swagger/ui/index).
+| Hızlı Başlangıç | Platform | API başvurusu |
+|------------|----------|---------------|
+| [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) | Windows | [Göz atma](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET Framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) | Windows | [Göz atma](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) | Windows | [Göz atma](https://aka.ms/csspeech/csharpref) |
+| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) | Windows | [Göz atma](https://aka.ms/csspeech/cppref)|
+| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) | Linux | [Göz atma](https://aka.ms/csspeech/cppref) |
+| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Göz atma](https://aka.ms/csspeech/javaref) |
+| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux | [Göz atma](https://aka.ms/csspeech/javaref) |
+| [JavaScript tarayıcı](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | Tarayıcı, Windows, Linux, macOS | [Göz atma](https://aka.ms/AA434tv) |
+| [JavaScript, Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows, Linux, macOS | [Göz atma](https://aka.ms/AA434tv) |
+| [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [Göz atma](https://aka.ms/csspeech/objectivecref) |
+| [Python](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python) | Windows, Linux, macOS | [Göz atma](https://aka.ms/AA434tr)  |
 
-| Kullanım örneği | REST | SDK’lar |
-|-----|-----|-----|----|
-| Bir komut (uzunluğu < 15 s); gibi kısa bir utterance özelliği geçici bir sonuç yok | Evet | Evet |
-| Konuşmaların daha uzun bir utterance (> 15 sn) | Hayır | Evet |
-| İsteğe bağlı Ara sonuçlarla Akış ses özelliği | Hayır | Evet |
-| Konuşmacı ıntents aracılığıyla LUIS anlama | Yok\* | Evet |
-| Doğruluk testi oluşturma | Evet | Hayır |
-| Model uyarlama için veri kümelerini karşıya yükleme | Evet | Hayır |
-| Konuşma modelleri Yönet & Oluştur | Evet | Hayır |
-| Model dağıtımları yönetmek & Oluştur | Evet | Hayır |
-| Abonelikleri Yönetme | Evet | Hayır |
-| Model dağıtımları yönetmek & Oluştur | Evet | Hayır |
-| Model dağıtımları yönetmek & Oluştur | Evet | Hayır |
+Konuşmayı metne REST hizmeti kullanmayı tercih ederseniz bkz [REST API'leri](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
+
+## <a name="tutorials-and-sample-code"></a>Öğreticiler ve örnek kod
+
+Konuşma hizmetleri kullanmak üzere ettikten sonra amaçlardan tutun LUIS ve Speech SDK'sı kullanarak konuşma tanıma öğretir öğreticimizi deneyin.
+
+* [Öğretici: Amaçlardan tutun Speech SDK'sı ve LUIS ile Konuşma tanıma,C#](how-to-recognize-intents-from-speech-csharp.md)
+
+Speech SDK'sı için örnek kod, Github'da kullanılabilir. Bu örnekler bir dosya veya akıştan, sürekli ve tek tanıma, ses okuma ve özel modelleriyle çalışma gibi yaygın senaryoları kapsar.
+
+* [Konuşmayı metne örnekleri (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Batch transkripsiyonu örnekleri (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+
+## <a name="customization"></a>Özelleştirme
+
+Evrensel modeli konuşma Hizmetleri tarafından kullanılan ek olarak, özel akustik ve dil telaffuz modelleri belirli deneyiminizi oluşturabilirsiniz. Özelleştirme seçeneklerinin bir listesi aşağıda verilmiştir:
+
+| Model | Açıklama |
+|-------|-------------|
+| [Akustik model](how-to-customize-acoustic-models.md) | Özel akustik model oluşturma, uygulama, araçları veya cihazları belirli bir ortam gibi bir araba ya da belirli bir kaydı koşullarla Fabrika kullanılması durumunda yararlıdır. Örnek olarak aksanlı konuşma, belirli arka plan görüntüleri veya kayıt için belirli bir mikrofonun kullanılması verilebilir. |
+| [Dil modeli](how-to-customize-language-model.md) | Sektöre özel sözlük ve tıbbi terminolojisi ya da BT terminolojisinin gibi dil bilgisi dökümünün geliştirmek için bir özel dil modeli oluşturun. |
+| [Söyleniş modeli](how-to-customize-pronunciation.md) | Bir özel telaffuz modeliyle fonetik formu ve görüntüleme bir sözcük veya terimi tanımlayabilirsiniz. Ürün adları veya kısaltmalar gibi özelleştirilmiş koşullarını işlemek için kullanışlıdır. Başlamak için ihtiyacınız olan telaffuz dosya--basit .txt dosyası. |
 
 > [!NOTE]
-> REST API, API isteklerinin 5 saniye başına 25 sınırlayan azaltma uygular. İleti üst sınırları size bildirir
+> Özelleştirme seçenekleri farklı dil/bölge tarafından (bkz [desteklenen diller](supported-languages.md)).
 
-\* *LUIS amaç ve varlıkları kullanarak ayrı bir LUIS aboneliği türetilebilir. Bu abonelikle SDK LUIS çağırmanızı ve konuşma döküm yanı sıra, varlık ve amacını sonuçlar sağlar. REST API ile LUIS çağırabilirsiniz kendiniz amaç ve varlıkları LUIS aboneliğinizle türetmek için.*
+## <a name="migration-guides"></a>Geçiş kılavuzları
+
+> [!WARNING]
+> Bing konuşma 15 Ekim 2019 üzerinde kullanımdan.
+
+Uygulamalar, Araçlar ya da ürünler Bing konuşma API'leri veya özel konuşma tanıma kullanıyorsanız, konuşma Hizmetleri'ne geçirmenize yardımcı olacak Kılavuzlar oluşturduk.
+
+* [Bing konuşma içeriğinden konuşma Services'a geçme](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
+* [Özel konuşma içeriğinden konuşma Services'a geçme](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
+
+## <a name="reference-docs"></a>Başvuru belgeleri
+
+* [Konuşma SDK'sı](speech-sdk-reference.md)
+* [Konuşma cihaz SDK'sı](speech-devices-sdk.md)
+* [REST API: Konuşma metin](rest-speech-to-text.md)
+* [REST API: Metin okuma](rest-text-to-speech.md)
+* [REST API: Batch tanıma ve özelleştirme](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
-* [Hızlı Başlangıç: C# ' de Konuşma tanıma](quickstart-csharp-dotnet-windows.md)
-* [Amaçlardan tutun C# ' de Konuşma tanıma öğrenin](how-to-recognize-intents-from-speech-csharp.md)
+* [Bir konuşma Hizmetleri abonelik anahtarı ücretsiz olarak edinin](get-started.md)
+* [Konuşma SDK'sı Al](speech-sdk.md)

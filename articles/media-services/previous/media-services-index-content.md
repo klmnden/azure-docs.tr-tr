@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: adsolank;juliako;johndeu
-ms.openlocfilehash: 4bc11e4f622943cdb72253ecd758c27a026495fa
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a11ae0414d6737f1588515ec19524bcf499f0c74
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991167"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189113"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Azure Media Indexer ile medya dosyalarının dizinini oluşturarak
 Azure Media Indexer, medya dosyalarınızın içeriklerini aranabilir yapmanıza ve Kapalı Açıklamalı Altyazı veya anahtar sözcükler için bir tam metin dökümü oluşturmak için sağlar. Tek bir medya dosyasını işleyebileceğiniz gibi, birden çok medya dosyasını toplu olarak da işleyebilirsiniz.  
@@ -260,7 +260,7 @@ Bir hata olması durumunda, Azure Media Indexer'ın bildirmelisiniz aşağıdaki
 | --- | --- | --- |
 | 2000 |Geçersiz yapılandırma |Geçersiz yapılandırma |
 | 2001 |Geçersiz giriş varlıklar |Giriş varlıklar veya boş varlık eksik. |
-| 2002 |Geçersiz bildirim |Bildirimi boş veya geçersiz bir öğe bildirimi içeriyor. |
+| 2002 |Bildirim geçersiz |Bildirimi boş veya geçersiz bir öğe bildirimi içeriyor. |
 | 2003 |Medya dosyası indirilemedi. |Bildirim dosyasında geçersiz URL. |
 | 2004 |Desteklenmeyen Protokolü |Ortam URL'si protokolü desteklenmiyor. |
 | 2005 |Desteklenmeyen dosya türü |Girdi medya dosya türü desteklenmiyor. |

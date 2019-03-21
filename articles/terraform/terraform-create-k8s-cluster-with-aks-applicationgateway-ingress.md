@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 1/10/2019
-ms.openlocfilehash: 7eb88f0bd30c9f28f8980cdc0e16ba46a9da9551
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 477b2ec1af4c52f51c3ab20ac2ddf7ef043dfcc7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765603"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994360"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes hizmeti ve Terraform kullanan uygulama ağ geçidi giriş denetleyicisine ile bir Kubernetes kümesi oluşturma
 [Azure Kubernetes Service (AKS)](/azure/aks/) , barındırılan Kubernetes ortamınızı yönetir. AKS hızlı ve kolay kapsayıcı düzenleme uzmanlığı gerektirmeden kapsayıcıya alınmış uygulamaları dağıtmayı ve yönetmeyi kolaylaştırır. Ayrıca, kaynakları isteğe bağlı olarak sağlama, yükseltme ve ölçeklendirme işlemlerini uygulamalarınızı çevrimdışı duruma geçirmeden yaparak sürekliliği olan işlemlerin ve bakımların yükünü ortadan kaldırır.
@@ -36,16 +36,16 @@ Bu öğreticide, şunların oluştururken aşağıdaki görevleri gerçekleştir
 - **Terraform'u yapılandırın**: Makaledeki yönergeleri izleyerek [Terraform ve Azure erişimi yapılandırma](/azure/virtual-machines/linux/terraform-install-configure)
 
 - **Azure hizmet sorumlusu**: Bölümündeki yönergeleri izleyerek **hizmet sorumlusu oluşturma** makale bölümünde [Azure, Azure CLI ile hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Uygulama kimliği, displayName ve parola değerlerini not alın.
-    - Aşağıdaki komutu çalıştırarak, hizmet sorumlusu nesne kimliği unutmayın.
+  - Aşağıdaki komutu çalıştırarak, hizmet sorumlusu nesne kimliği unutmayın.
 
     ```bash
-     az ad sp list --display-name <displayName>
+    az ad sp list --display-name <displayName>
     ```
 
 ## <a name="create-the-directory-structure"></a>Dizin yapısını oluşturma
 İlk adım, bu alıştırmadaki Terraform yapılandırma dosyalarınızı barındıracak olan dizini oluşturmaktır.
 
-1. [Azure portala](http://portal.azure.com) gidin.
+1. [Azure portala](https://portal.azure.com) gidin.
 
 1. [Azure Cloud Shell](/azure/cloud-shell/overview)'i açın. Önceden bir ortam seçmediyseniz **Bash** ortamını seçin.
 
@@ -99,8 +99,8 @@ Azure sağlayıcısını tanımlayan Terraform yapılandırma dosyasını yapıl
     ```bash
     :wq
     ```
-## <a name="define-input-variables"></a>Girdi değişkenleri tanımlayın
-Bu dağıtım için gerekli tüm değişkenleri listeler Terraform yapılandırma dosyası oluşturma
+   ## <a name="define-input-variables"></a>Girdi değişkenleri tanımlayın
+   Bu dağıtım için gerekli tüm değişkenleri listeler Terraform yapılandırma dosyası oluşturma
 1. Cloud Shell'de adlı bir dosya oluşturun. `variables.tf`
     ```bash
     vi variables.tf

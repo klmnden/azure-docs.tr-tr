@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 3744e51ffb4e0836eba4b1641413d8c0ee240f87
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 20a3b790310153ac5bda23fb72baf2ae61e1da52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729387"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003725"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
 
@@ -21,7 +21,7 @@ Bu makale, Azure geçişi hakkında sık sorulan sorular içerir. Bu makaleyi ok
 
 ### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>Azure geçişi yalnızca VMware iş yüklerini değerlendirmesini destekliyor mu?
 
-Evet, Azure geçişi şu anda yalnızca VMware iş yüklerini değerlendirmesini destekler. Destek Önizleme'de, Hyper-V için lütfen kaydolun [burada](http://aka.ms/migratefuture) Önizleme erişim elde etmek için. Fiziksel sunucular için destek gelecek etkinleştirilecektir.
+Evet, Azure geçişi şu anda yalnızca VMware iş yüklerini değerlendirmesini destekler. Destek Önizleme'de, Hyper-V için lütfen kaydolun [burada](https://aka.ms/migratefuture) Önizleme erişim elde etmek için. Fiziksel sunucular için destek gelecek etkinleştirilecektir.
 
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Azure geçişi, vCenter sunucusunu bir VMware ortamını keşfetmeye gerekiyor mu?
 
@@ -42,7 +42,7 @@ Azure geçişi planlama aracı geçiş ve Azure Site Recovery dağıtım planlay
 
 **Vmware'den azure'a geçiş**: Şirket içi iş yüklerinizi Azure'a geçirmek istiyorsanız, Azure geçişi geçiş planlaması için kullanın. Azure geçişi, şirket içi iş yüklerini değerlendirir ve rehberlik, Öngörüler ve Azure'a geçirmenizde yardımcı mekanizmaları sağlar. Geçiş planınızla hazır olduktan sonra makineleri Azure'a geçirmek için Azure Site Recovery ve Azure veritabanı geçiş hizmeti gibi hizmetleri kullanabilirsiniz.
 
-**Hyper-v'den azure'a geçiş**: Azure geçişi genel kullanıma sunulan sürümü değerlendirme VMware sanal makinelerini Azure'a geçiş için şu anda destekler. Desteklemek için Hyper-V şu anda üretim desteği Önizleme aşamasındadır. Önizlemenin çalışırken düşünüyorsanız, lütfen kaydolun [burada](http://aka.ms/migratefuture).
+**Hyper-v'den azure'a geçiş**: Azure geçişi genel kullanıma sunulan sürümü değerlendirme VMware sanal makinelerini Azure'a geçiş için şu anda destekler. Desteklemek için Hyper-V şu anda üretim desteği Önizleme aşamasındadır. Önizlemenin çalışırken düşünüyorsanız, lütfen kaydolun [burada](https://aka.ms/migratefuture).
 
 **Vmware'den/Hyper-v'den azure'a olağanüstü durum kurtarma**: Azure Site Recovery (Site Recovery) kullanarak azure'da olağanüstü durum kurtarma (DR) yapmak istiyorsanız, Site Recovery dağıtım Planlayıcısı planlama DR için kullanın. Site Recovery dağıtım Planlayıcısı, bir şirket içi ortamınızı kapsamlı ve ASR özgü değerlendirmesinin yapar. Bu, çoğaltma, yük devretme sanal makinelerinizin gibi başarılı DR işlemler için Site Recovery tarafından gerekli önerileri sağlar.  
 

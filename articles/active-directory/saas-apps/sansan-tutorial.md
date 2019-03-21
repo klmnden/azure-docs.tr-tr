@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 84352789156e126630dd0a4dcbdb34848a2297ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 13986b3ca5515ea07ba5bba2355b1cc67c1c3ebe
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58133552"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223385"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Öğretici: Sansan ile Azure Active Directory Tümleştirme
 

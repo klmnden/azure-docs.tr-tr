@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 8cd50cab555755a137114bf871cad57ddf7a9db5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3e93e822c5764a23bba124152ef5dfabf2d3f94f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872989"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223878"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Apache Tomcat sunucusunu Linux'ta çalışan Service Fabric kapsayıcı oluşturma
 Apache Tomcat, Java Servlet ve Java sunucusu teknolojileri popüler, açık kaynaklı bir uygulamasıdır. Bu makalede, Apache Tomcat ve basit bir Web uygulaması ile bir kapsayıcı oluşturmak, Linux çalıştıran bir Service Fabric kümesine dağıtma ve Web uygulamasına bağlanma işlemini göstermektedir.  
@@ -153,12 +153,12 @@ Bir kapsayıcı kayıt defterine Tomcat görüntü gönderildi, derleme ve Tomca
 
    ```xml
    <Resources>
-     <Endpoints>
-       <!-- This endpoint is used by the communication listener to obtain the port on which to 
-        listen. Please note that if your service is partitioned, this port is shared with 
-        replicas of different partitions that are placed in your code. -->
-       <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
-     </Endpoints>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+       listen. Please note that if your service is partitioned, this port is shared with 
+       replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
+    </Endpoints>
    </Resources>
    ```
 
@@ -166,10 +166,10 @@ Bir kapsayıcı kayıt defterine Tomcat görüntü gönderildi, derleme ve Tomca
 
    ```xml
    <Policies>
-     <ContainerHostPolicies CodePackageRef="Code">
-       <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
-       <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-     </ContainerHostPolicies>
+    <ContainerHostPolicies CodePackageRef="Code">
+      <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
+      <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+    </ContainerHostPolicies>
    </Policies>
    ```
 
@@ -183,31 +183,31 @@ Bir kapsayıcı kayıt defterine Tomcat görüntü gönderildi, derleme ve Tomca
 
    * Yerel Service Fabric kümesine bağlanmak için şunu çalıştırın:
 
-      ```bash
-      sfctl cluster select --endpoint http://localhost:19080
-      ```
+     ```bash
+     sfctl cluster select --endpoint http://localhost:19080
+     ```
     
    * Azure güvenli bir kümeye bağlanmak için istemci sertifikası .pem dosyası olarak mevcut olduğundan emin olun *ServiceFabricTomcat* dizin ve çalıştırın: 
 
-      ```bash
-      sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
-      ```
-      Önceki komutta `your-certificate.pem` ile istemci sertifika dosyasının adı. Geliştirme ve test ortamlarında küme sertifikası genellikle istemci sertifikası olarak kullanılır. Sertifikanızı kendinden imzalı değilse atla `-no-verify` parametresi. 
+     ```bash
+     sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
+     ```
+     Önceki komutta `your-certificate.pem` ile istemci sertifika dosyasının adı. Geliştirme ve test ortamlarında küme sertifikası genellikle istemci sertifikası olarak kullanılır. Sertifikanızı kendinden imzalı değilse atla `-no-verify` parametresi. 
        
-      Küme sertifikası genellikle .pfx dosyaları yerel olarak indirilir. Sertifikanızı PEM biçiminde yoksa, bir .pfx dosyasından bir .pem dosyasını oluşturmak için aşağıdaki komutu çalıştırabilirsiniz:
+     Küme sertifikası genellikle .pfx dosyaları yerel olarak indirilir. Sertifikanızı PEM biçiminde yoksa, bir .pfx dosyasından bir .pem dosyasını oluşturmak için aşağıdaki komutu çalıştırabilirsiniz:
 
-      ```bash
-      openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
-      ```
+     ```bash
+     openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
+     ```
 
-      .Pfx dosyanızı parola korumalı değilse, `-passin pass:` son parametresi için.
+     .Pfx dosyanızı parola korumalı değilse, `-passin pass:` son parametresi için.
 
 
 13. Uygulamayı kümenize dağıtmak için şablonda verilen yükleme betiğini çalıştırın. Betik uygulama paketini kümenin görüntü deposuna kopyalayan, uygulama türünü kaydeder ve uygulamanın bir örneğini oluşturur.
 
-      ```bash
-      ./install.sh
-      ```
+     ```bash
+     ./install.sh
+     ```
 
    Yükleme betiği çalıştırdıktan sonra bir tarayıcı açın ve Service Fabric Explorer'a gidin:
     

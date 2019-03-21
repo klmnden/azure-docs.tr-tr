@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 3130616a4373f29765e47308c379320230641322
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 80c98170fc136c20d8489cec5d145f96e207bc9f
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57995670"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201917"
 ---
 # <a name="deploy-the-azure-blueprints-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Azure şemaları ISO 27001 App Service ortamı/SQL veritabanı iş yükü şema örneği dağıtma
 
@@ -105,7 +105,7 @@ Blueprint kopyasını başarıyla silindikten sonra **yayımlanan**, yönetim gr
 
      Bu bölümde tanımlanan parametrelerin altında tanımlandığı yapıtı için geçerlidir. Bu parametreler [dinamik parametreleri](../../concepts/parameters.md#dynamic-parameters) blueprint ataması sırasında tanımlanan olduğundan. Tam bir liste veya yapıt parametrelerin ve Tanımlamaların için bkz. [Yapıt parametreleri tablo](#artifact-parameters-table).
 
-1. Tüm parametreler girildikten sonra seçin **atama** sayfanın alt kısmındaki.
+1. Tüm parametreler girildikten sonra seçin **atama** sayfanın alt kısmındaki. Şema atamasını oluşturulur ve yapıt dağıtımı başlar. Dağıtım gereken yaklaşık bir saat. Dağıtım durumunu denetlemek için şema atamasını açın.
 
 > [!WARNING]
 > Azure şemaları hizmet ve yerleşik şema örnekleri **ücretsiz olarak sunulmaktadır**. Azure kaynaklarıdır [ürüne göre fiyatlandırılır](https://azure.microsoft.com/pricing/). Kullanım [fiyatlandırma hesaplayıcısını](https://azure.microsoft.com/pricing/calculator/) çalıştıran bu şema örnek tarafından dağıtılan kaynakların maliyetini tahmin etmek için.
@@ -157,10 +157,10 @@ ISO 27001 App Service ortamı/SQL veritabanı iş yükü şema örnek dağıtmak
 > [ISO 27001 App Service ortamı/SQL veritabanı iş yükü şema - genel bakış](./index.md)
 > [ISO 27001 App Service ortamı/SQL veritabanı iş yükü şema - denetim eşleme](./control-mapping.md)
 
-Planlar ve bunların nasıl kullanıldığı hakkında ek makaleleri:
+Şemalar ve bunların kullanımı hakkındaki diğer makaleler:
 
-- Hakkında bilgi edinin [blueprint yaşam döngüsü](../../concepts/lifecycle.md).
-- Nasıl kullanılacağını anlamak [statik ve dinamik parametreleri](../../concepts/parameters.md).
-- Özelleştirme öğrenin [blueprint sıralama sipariş](../../concepts/sequencing-order.md).
-- Öğrenin yapmak kullanım [blueprint kaynak kilitleme](../../concepts/resource-locking.md).
-- Bilgi edinmek için nasıl [mevcut Atamaları Güncelleştir](../../how-to/update-existing-assignments.md).
+- [Şema yaşam döngüsü](../../concepts/lifecycle.md) hakkında bilgi edinin.
+- [Statik ve dinamik parametrelerin](../../concepts/parameters.md) kullanımını anlayın.
+- [Şema sıralama düzenini](../../concepts/sequencing-order.md) özelleştirmeyi öğrenin.
+- [Şema kaynak kilitleme](../../concepts/resource-locking.md) özelliğini kullanmayı öğrenin.
+- [Mevcut atamaları güncelleştirmeyi](../../how-to/update-existing-assignments.md) öğrenin.

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 8449462f144590e4fe7048366a21090c95a303cb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 49686e407b2d733c04bad31706c6c4f315bf28bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455601"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008668"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Ölçeği genişletmek için mevcut veritabanlarını geçirme
 Azure SQL veritabanı, veritabanı araçları kullanarak mevcut, ölçeği genişletilen parçalı veritabanlarını kolayca yönetin (gibi [elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md)). Var olan bir veritabanı kullanmak için kümesi dönüştürmeniz [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md). 
@@ -30,7 +30,7 @@ Mevcut parçalı veritabanını geçirmek için:
 3. Tek parça hazırlayın.  
 4. Eşlemeleri parça eşlemesine ekleyin.
 
-Bu teknikler kullanarak uygulanabilir [.NET Framework istemci Kitaplığı](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), veya PowerShell betikleri bulunan [Azure SQL veritabanı - elastik veritabanı araçları betikleri](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Buradaki örnekler, PowerShell betikleri kullanın.
+Bu teknikler kullanarak uygulanabilir [.NET Framework istemci Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), veya PowerShell betikleri bulunan [Azure SQL veritabanı - elastik veritabanı araçları betikleri](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). Buradaki örnekler, PowerShell betikleri kullanın.
 
 ShardMapManager hakkında daha fazla bilgi için bkz: [parça eşleme Yönetimi](sql-database-elastic-scale-shard-map-management.md). Esnek veritabanı araçlarını genel bakış için bkz. [elastik veritabanı özelliklerine genel bakış](sql-database-elastic-scale-introduction.md).
 

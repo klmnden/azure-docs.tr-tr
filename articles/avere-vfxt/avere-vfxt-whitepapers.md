@@ -6,12 +6,12 @@ author: ekpgh
 ms.author: v-erkell
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.openlocfilehash: cf111f2ebe4233ea5d02cf5c7fbc0967655475d9
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: cc1d706ac1749c4655f15948f06b2ff1f360dde3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246355"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188143"
 ---
 # <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>Azure teknik incelemeler ve diğer kaynaklar için Azure vFTX 
 
@@ -25,7 +25,7 @@ Bu kılavuz, Avere vFXT depolama veya BeeGFS paralel dosya sistemi tarafından d
 
 ## <a name="datasheet-avere-vfxt-for-azure"></a>Veri: Azure için Avere vFXT
 
-**Bağlantı:** [Azure veri için Avere vFXT](https://azure.microsoft.com/resources/avere-vfxt-for-azure-data-sheet/)
+**Bağlantı:** [Azure veri için Avere vFXT](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NIlv)
 
 Azure için çeşitli Avere vFXT kullanılmasını diyagramları kullanım örneği senaryolarını ve bu iki sayfalık kısa temel bilgiye sahip.
 

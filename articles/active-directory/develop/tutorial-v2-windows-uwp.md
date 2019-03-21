@@ -4,7 +4,7 @@ description: Evrensel Windows platformu uygulamaları (UWP) Azure Active Directo
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/18/2019
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e130da9bf12d25cc5c77c825512717bdf2ba5a1
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: b00a4f9ee561e8e9356b36d4a14b4bcb4f9a3357
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408825"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202869"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph API'sini çağırmak bir evrensel Windows platformu uygulaması (XAML)
 
@@ -37,7 +37,7 @@ Bu kılavuzun sonunda, uygulama, kişisel hesapları kullanarak korumalı bir AP
 
 ## <a name="how-this-guide-works"></a>Bu kılavuz nasıl çalışır?
 
-![Bu kılavuz, grafik nasıl çalışır?](./media/tutorial-v2-windows-uwp/uwp-intro.png)
+![Bu öğretici tarafından oluşturulan örnek uygulamasını nasıl çalıştığını gösterir](./media/tutorial-v2-windows-uwp/uwp-intro-updated.png)
 
 Bu kılavuzda, Microsoft Graph API'si sorguları örnek UWP uygulaması veya Azure Active Directory v2.0 uç noktasından belirteçleri kabul eden bir Web API oluşturur. Bu senaryo için bir belirteç HTTP istekleri aracılığıyla yetkilendirme üst bilgisi eklenir. Microsoft Authentication Library (MSAL), belirteç edinme ve yenileme işlemini gerçekleştirir.
 

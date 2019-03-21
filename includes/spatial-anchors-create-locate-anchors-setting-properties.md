@@ -1,3 +1,11 @@
-## <a name="setting-anchor-properties"></a>Bağlantı özelliklerini ayarlama
+---
+ms.openlocfilehash: db88a166cd59e96b459f8d4dcaa6a6d2b8c4ff99
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57907786"
+---
+## <a name="set-properties"></a>Özellikleri ayarlama
 
 Bazı özellikler, bulut bağlayıcılarını kaydedilirken eklemek tercih edebilirsiniz. Nesne türü gibi olup etkileşimi için etkinleştirilmelidir gibi kaydedilmiş ya da temel özellikleri alınıyor. Bunun yapılması bulma sırasında yararlı olabilir: kullanıcının, örneğin bir resim çerçevesi boş içeriğe sahip nesneyi hemen işleyebilir. Ardından, farklı bir yükleme arka planda çerçevede görüntülenecek resim gibi ek durum ayrıntılarını alır.
