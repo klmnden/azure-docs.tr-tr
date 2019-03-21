@@ -9,14 +9,15 @@ ms.date: 06/25/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a4ed93bee091bf0a40718a47ffb7cd97a85147c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 94e5f4eaf32815dd0342ef73705efb2c575b71bc
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993500"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294001"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Öğretici: B2B Konuk kullanıcıları için multi-Factor authentication yürürlüğe
 
@@ -24,7 +25,7 @@ ms.locfileid: "57993500"
 
 Örnek:
 
-![MFA gerektiren B2B uygulaması](media/tutorial-mfa/aad-b2b-mfa-example.png)
+![Bir şirketin uygulamalarda imzalama Konuk kullanıcı gösteren diyagram](media/tutorial-mfa/aad-b2b-mfa-example.png)
 
 1.  A Şirketindeki bir yönetici veya çalışan, erişim için MFA gerekli kılınacak şekilde yapılandırılmış bir bulut veya şirket içi uygulamayı kullanması için bir konuk kullanıcıyı davet eder.
 2.  Konuk kullanıcı, kendi iş, okul veya sosyal kimliği ile oturum açar. 
@@ -56,11 +57,11 @@ Bu öğreticide senaryoyu tamamlamak için şunlar gereklidir:
 3.  **Yönet** bölümünde **Kullanıcılar**’ı seçin.
 4.  **Yeni konuk kullanıcı**’yı seçin.
 
-    ![Azure Active Directory'yi seçin](media/tutorial-mfa/tutorial-mfa-user-3.png)
+    ![Yeni Konuk kullanıcı Seç seçeneği nerede gösteren ekran görüntüsü](media/tutorial-mfa/tutorial-mfa-user-3.png)
 
 5.  **Kullanıcı adı** bölümüne, harici kullanıcının e-posta adresini girin. İsteğe bağlı olarak bir hoş geldiniz iletisi ekleyin. 
 
-    ![Azure Active Directory'yi seçin](media/tutorial-mfa/tutorial-mfa-user-4.png)
+    ![Nereye girileceğini Konuk davet iletiyi gösteren ekran görüntüsü](media/tutorial-mfa/tutorial-mfa-user-4.png)
 
 6.  Konuk kullanıcıya otomatik olarak daveti göndermek için **Davet Et**’i seçin. **Kullanıcı başarıyla davet edildi** iletisi görüntülenir. 
 7.  Daveti göndermenizin ardından kullanıcı hesabı otomatik olarak dizine konuk olarak eklenir.
@@ -79,26 +80,26 @@ Bu öğreticide senaryoyu tamamlamak için şunlar gereklidir:
 6.  **Atamalar** bölümünde **Kullanıcılar ve gruplar**’ı seçin.
 7.  **Kullanıcılar ve gruplar** sayfasında **Kullanıcı ve grupları seçin** ve sonra **Tüm konuk kullanıcılar (önizleme)** seçeneğini belirleyin.
 
-    ![Azure Active Directory'yi seçin](media/tutorial-mfa/tutorial-mfa-policy-6.png)
+    ![Tüm Konuk kullanıcılar seçerek gösteren ekran görüntüsü](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 9.  **Done** (Bitti) öğesini seçin.
 10. **Yeni** sayfasında **Atamalar** bölümünde **Bulut uygulamaları**’nı seçin.
 11. **Bulut uygulamaları** sayfasında **Uygulama seç**’i ve sonra **Seç** öğesini seçin.
 
-    ![Azure Active Directory'yi seçin](media/tutorial-mfa/tutorial-mfa-policy-10.png)
+    ![Bulut uygulama sayfası ve Seç seçeneğini gösteren ekran görüntüsü](media/tutorial-mfa/tutorial-mfa-policy-10.png)
 
 12. **Seç** sayfasında **Microsoft Azure Management**’ı ve sonra **Seç** öğesini seçin.
 
-    ![Azure Active Directory'yi seçin](media/tutorial-mfa/tutorial-mfa-policy-11.png)
+    ![Microsoft Azure Management uygulama seçildi gösteren ekran görüntüsü](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
 13. **Bulut uygulamaları** sayfasında **Bitti**’yi seçin.
 14. **Yeni** sayfasında **Erişim denetimleri** bölümünde **Erişim İzni Verme**’yi seçin.
 15. **Erişim İzni Verme** sayfasında **Erişim izni ver**’i seçin, **Çok faktörlü kimlik doğrulamasını gerekli kıl** onay kutusunu ve sonra **Seç** öğesini seçin.
 
-    ![Azure Active Directory'yi seçin](media/tutorial-mfa/tutorial-mfa-policy-13.png)
+    ![Gösteren ekran görüntüsü çok faktörlü kimlik doğrulaması seçeneği gerektirir](media/tutorial-mfa/tutorial-mfa-policy-13.png)
 
 16. **İlkeyi etkinleştir** bölümünde **Açık** seçeneğini belirleyin.
 
-    ![Azure Active Directory'yi seçin](media/tutorial-mfa/tutorial-mfa-policy-14.png)
+    ![Ayarlamak etkinleştirme İlkesi seçeneğini gösteren ekran görüntüsü](media/tutorial-mfa/tutorial-mfa-policy-14.png)
 
 17. **Oluştur**’u seçin.
 
@@ -106,27 +107,27 @@ Bu öğreticide senaryoyu tamamlamak için şunlar gereklidir:
 
 1.  **Koşullu erişim - İlkeler** sayfasında **What If** seçeneğini belirleyin. 
 
-    ![Azure Active Directory'yi seçin](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
+    ![Ne nereye gösteren ekran görüntüsü seçeneği](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
 2.  **Kullanıcı**’yı seçin, test konuk kullanıcınızı ve sonra **Seç** öğesini seçin.
 
-    ![Azure Active Directory'yi seçin](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
+    ![Konuk kullanıcı tarafından seçilen bir gösteren ekran görüntüsü](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
 
 3.  **Bulut uygulamaları**’nı seçin.
 4.  **Bulut uygulamaları** sayfasında **Uygulama seç**’i seçin ve sonra **Seç**’e tıklayın. Uygulamalar listesinde **Microsoft Azure Management**’ı seçin ve sonra **Seç**’e tıklayın. 
 
-    ![Azure Active Directory'yi seçin](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
+    ![Microsoft Azure Management uygulama seçildi gösteren ekran görüntüsü](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
 
 5.  **Bulut uygulamaları** sayfasında **Bitti**’yi seçin.
 6.  **What If** seçeneğini belirleyin ve yeni ilkenizin **Uygulanacak ilkeler** sekmesinde **Değerlendirme sonuçları** bölümünde görüntülendiğini doğrulayın.
 
-    ![Azure Active Directory'yi seçin](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
+    ![Ne nereye gösteren ekran görüntüsü seçeneği](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
 ## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test etme
 1.  [Azure portalınızda](https://portal.azure.com/) oturum açmak için test kullanıcı adınızı ve parolanızı kullanın.
 2.  Ek kimlik doğrulama yöntemlerine yönelik bir istek görmeniz gerekir. İlkenin geçerli olmasının biraz zaman alabileceğini unutmayın.
 
-    ![Azure Active Directory'yi seçin](media/tutorial-mfa/mfa-required.png)
+    ![Daha fazla bilgi gerekli iletiyi gösteren ekran görüntüsü](media/tutorial-mfa/mfa-required.png)
  
 3.  Oturumunuzu kapatın.
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d4a7d42fad50b58c7b4be182b69650dd3d117544
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e4c5942dfba62a2c869e4eeceb9018fc926d9de9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780652"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259559"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-new-ui-design"></a>Öğretici: Azure IOT Central, uygulamanızda (yeni kullanıcı Arabirimi tasarımı) yeni bir cihaz türünü tanımlayın
 
@@ -59,21 +59,21 @@ Bu öğreticiyi tamamlamak için bir Azure IoT Central uygulamanızın olması g
 
 4. Yeni bir Azure IoT Central uygulaması oluşturmak için:
     
-    * **Deneme**’yi seçin. Deneme uygulaması oluşturmak için Azure aboneliği gerekmez.
+   * **Deneme**’yi seçin. Deneme uygulaması oluşturmak için Azure aboneliği gerekmez.
     
-       Dizinler ve abonelikler hakkında daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md).
+      Dizinler ve abonelikler hakkında daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md).
     
-    * **Özel Uygulama**'yı seçin.
+   * **Özel Uygulama**'yı seçin.
     
-    * İsteğe bağlı olarak **Contoso Klimaları** gibi kolay bir uygulama adı seçebilirsiniz. Azure IoT Central sizin için benzersiz bir URL ön eki oluşturur. Bu URL ön ekini daha akılda kalır bir şeyle değiştirebilirsiniz.
+   * İsteğe bağlı olarak **Contoso Klimaları** gibi kolay bir uygulama adı seçebilirsiniz. Azure IoT Central sizin için benzersiz bir URL ön eki oluşturur. Bu URL ön ekini daha akılda kalır bir şeyle değiştirebilirsiniz.
     
-    * **Oluştur**’u seçin.
+   * **Oluştur**’u seçin.
 
-    ![Azure IoT Central Uygulama Oluştur sayfası](./media/tutorial-define-device-type/iotcentralcreate.png)
+     ![Azure IoT Central Uygulama Oluştur sayfası](./media/tutorial-define-device-type/iotcentralcreate.png)
 
-    Daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md).
+     Daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md).
 
-## <a name="create-a-new-custom-device-template"></a>Yeni özel cihaz şablonu oluşturma
+## <a name="create-a-device-template"></a>Bir cihaz şablonu oluşturma
 
 Bir oluşturucu olarak, uygulamanızda cihaz şablonları oluşturabilir ve bunları düzenleyebilirsiniz. Cihaz şablonunu oluşturduğunuzda, Azure IoT Central şablon için bir simülasyon cihazı oluşturur. Sanal cihaz uygulamanızın davranışını, gerçek bir cihaz bağlanmadan önce test olanak tanıyan telemetri oluşturur.
 
@@ -85,32 +85,36 @@ Yeni bir cihaz şablonu uygulamanıza eklemek için Git gerekir **cihaz şablonl
 
 Aşağıdaki adımlar, uygulamanıza sıcaklık telemetrisi gönderen cihazlar için yeni bir **Bağlı Klima** cihaz şablonunu nasıl oluşturacağınızı gösterir:
 
-1. Üzerinde **cihaz şablonları** sayfasında **+**:
+1. Üzerinde **cihaz şablonları** sayfasında **+ yeni**:
 
     ![Cihaz şablonlarını, cihaz şablonu oluştur](./media/tutorial-define-device-type/newtemplate.png)
 
-3. Üzerinde **özel cihaz şablonu** want **bağlı bir klima** seçin ve cihaz adı olarak **Oluştur**. Device Explorer'da cihazınızın operatörlerin görebileceği bir resmini de karşıya yükleyebilirsiniz:
+2. Sayfada, aralarından seçim yapabileceğiniz şablonları gösterilir.
+
+    ![Cihaz Şablon Kitaplığı](./media/tutorial-define-device-type/devicetemplatelibrary.png)
+
+3. Seçin **özel**, girin **bağlı bir klima** cihaz şablonu ve ardından adı olarak **Oluştur**. Device Explorer'da cihazınızın operatörlerin görebileceği bir resmini de karşıya yükleyebilirsiniz:
 
     ![Özel Cihaz](./media/tutorial-define-device-type/createcustomdevice.png)
 
 4. İçinde **bağlı bir klima** cihaz şablonu emin olduğunuz üzerinde **ölçümleri** sekmesini telemetri burada tanımlarsınız. Tanımladığınız her bir cihaz şablonu ayrı sekmeler için size sahiptir:
 
-    * Belirtin _ölçümleri_, telemetri ve olay durumu, cihaz tarafından gönderilen gibi.
+   * Belirtin _ölçümleri_, telemetri ve olay durumu, cihaz tarafından gönderilen gibi.
 
-    * Tanımlama _ayarları_ cihazı denetlemek için kullanılır.
+   * Tanımlama _ayarları_ cihazı denetlemek için kullanılır.
 
-    * Tanımlama _özellikleri_ cihaz meta verilerini olan.
+   * Tanımlama _özellikleri_ cihaz meta verilerini olan.
 
-    * Tanımlama _komutları_ doğrudan cihazda çalıştırılacak.
+   * Tanımlama _komutları_ doğrudan cihazda çalıştırılacak.
 
-    * Tanımlama _kuralları_ cihazla ilişkilendirilmiş.
+   * Tanımlama _kuralları_ cihazla ilişkilendirilmiş.
 
-    * Cihaz özelleştirme _Pano_ , işleçler için.
+   * Cihaz özelleştirme _Pano_ , işleçler için.
 
-    ![Klima ölçümleri](./media/tutorial-define-device-type/airconmeasurements.png)
+     ![Klima ölçümleri](./media/tutorial-define-device-type/airconmeasurements.png)
 
-    > [!NOTE]
-    > Cihaz şablonunun adını değiştirmek için sayfanın üst kısmındaki şablon adı seçin.
+     > [!NOTE]
+     > Cihaz şablonunun adını değiştirmek için sayfanın üst kısmındaki şablon adı seçin.
 
 5. Sıcaklık telemetri ölçüm eklemek için seçin **+ yeni ölçüm**. Ardından ölçüm türü olarak **Telemetri** seçin:
 
@@ -118,28 +122,31 @@ Aşağıdaki adımlar, uygulamanıza sıcaklık telemetrisi gönderen cihazlar i
 
 6. Cihaz şablonu için oluşturduğunuz her telemetri türü aşağıdakiler gibi [yapılandırma seçenekleri](howto-set-up-template.md) içerir:
 
-    * Görüntü seçenekleri.
+   * Görüntü seçenekleri.
 
-    * Telemetrinin ayrıntıları.
+   * Telemetrinin ayrıntıları.
 
-    * Simülasyon parametreleri.
+   * Simülasyon parametreleri.
 
-    **Sıcaklık** telemetrinizi yapılandırmak için aşağıdaki tabloda yer alan bilgileri kullanın:
+     **Sıcaklık** telemetrinizi yapılandırmak için aşağıdaki tabloda yer alan bilgileri kullanın:
 
-    | Ayar              | Değer         |
-    | -------------------- | -----------   |
-    | Görünen Ad         | Sıcaklık   |
-    | Alan Adı           | sıcaklık   |
-    | Birimler                | F             |
-    | Min                  | 60            |
-    | Maks                  | 110           |
-    | Ondalık basamak sayısı       | 0             |
+     | Ayar              | Değer         |
+     | -------------------- | -----------   |
+     | Görünen Ad         | Sıcaklık   |
+     | Alan Adı           | sıcaklık   |
+     | Birimler                | F             |
+     | Min                  | 60            |
+     | Maks                  | 110           |
+     | Ondalık basamak sayısı       | 0             |
 
-    Telemetri görüntüsü için renk de seçebilirsiniz. Telemetri tanımı kaydetmeyi seçin **Kaydet**:
+     Telemetri görüntüsü için renk de seçebilirsiniz. Telemetri tanımı kaydetmeyi seçin **Kaydet**:
 
-    ![Sıcaklık simülasyonunu yapılandırma](./media/tutorial-define-device-type/temperaturesimulation.png)
+     ![Sıcaklık simülasyonunu yapılandırma](./media/tutorial-define-device-type/temperaturesimulation.png)
 
 7. Kısa bir süre sonra **ölçümleri** sekmesi sıcaklık telemetri bağlı sanal klima cihazınızdan bir grafiğini gösterir. Görünürlüğü, toplamayı yönetmek veya telemetri tanımını düzenlemek için denetimleri kullanın:
+ 
+    > [!NOTE]
+    > Telemetri, **ortalama** varsayılan toplama ayarlanır. 
 
     ![Sıcaklık simülasyonunu görüntüleme](./media/tutorial-define-device-type/viewsimulation.png)
 
@@ -163,17 +170,17 @@ Olaylar, bir hata veya bileşeni arızası gibi bir olay olduğunda, cihazın g�
 
    * Önem Derecesi.
 
-    **Fan Motoru Hatası** olayınızı yapılandırmak için aşağıdaki tabloda yer alan bilgileri kullanın:
+     **Fan Motoru Hatası** olayınızı yapılandırmak için aşağıdaki tabloda yer alan bilgileri kullanın:
 
-    | Ayar              | Değer             |
-    | -------------------- | -----------       |
-    | Görünen Ad         | Fan Motoru Hatası   |
-    | Alan Adı           | fanmotorerr       |
-    | Severity             | Hata             |
+     | Ayar              | Değer             |
+     | -------------------- | -----------       |
+     | Görünen Ad         | Fan Motoru Hatası   |
+     | Alan Adı           | fanmotorerr       |
+     | Severity             | Hata             |
 
-    Olay tanımı kaydetmeyi seçin **Kaydet**:
+     Olay tanımı kaydetmeyi seçin **Kaydet**:
 
-    ![Olay ölçümünü yapılandırma](./media/tutorial-define-device-type/eventconfiguration.png)
+     ![Olay ölçümünü yapılandırma](./media/tutorial-define-device-type/eventconfiguration.png)
 
 3. Kısa bir süre sonra **ölçümleri** sekmesi bağlı sanal klima cihazınızın rastgele oluşturulan olaylar içeren bir grafik gösterir. Görünürlüğü yönetmek veya olay tanımını düzenlemek için denetimleri kullanın:
 
@@ -201,20 +208,20 @@ Durum tanımlayın ve bir süre cihazı veya alt bileşen durumunu görselleşti
 
    * Her değerin rengi.
 
-    **Fan Modu** durumunuzu yapılandırmak için, aşağıdaki tabloda yer alan bilgileri kullanın:
+     **Fan Modu** durumunuzu yapılandırmak için, aşağıdaki tabloda yer alan bilgileri kullanın:
 
-    | Ayar              | Değer             |
-    | -------------------- | -----------       |
-    | Görünen Ad         | Fan Modu          |
-    | Alan Adı           | fanmode           |
-    | Değer                | 1                 |
-    | Görünen etiket        | İşletim         |
-    | Değer                | 0                 |
-    | Görünen etiket        | Durduruldu           |
+     | Ayar              | Değer             |
+     | -------------------- | -----------       |
+     | Görünen Ad         | Fan Modu          |
+     | Alan Adı           | fanmode           |
+     | Değer                | 1                 |
+     | Görünen etiket        | İşletim         |
+     | Değer                | 0                 |
+     | Görünen etiket        | Durduruldu           |
 
-    Durum ölçüm tanımını kaydetmek için seçin **Kaydet**:
+     Durum ölçüm tanımını kaydetmek için seçin **Kaydet**:
 
-    ![Durum ölçümünü yapılandırma](./media/tutorial-define-device-type/stateconfiguration.png)
+     ![Durum ölçümünü yapılandırma](./media/tutorial-define-device-type/stateconfiguration.png)
 
 3. Kısa bir süre sonra **ölçümleri** sekmesi durumlardan bağlı sanal klima cihazınızın rastgele oluşturulmuş bir grafik gösterir. Görünürlüğü yönetmek veya durum tanımını düzenlemek için denetimleri kullanın:
 
@@ -230,9 +237,9 @@ Ayarlar, özellikler ve komutlar, cihaz şablonunda tanımlanan ve tek tek her c
 
 * Cihazınızla ilişkilendirilmiş meta verileri tanımlamak için _özellikleri_ kullanırsınız. İki özellik kategorisi vardır:
     
-    * Uygulamanızda cihazınız hakkındaki bilgileri kaydetmek için _uygulama özelliklerini_ kullanırsınız. Örneğin uygulama özelliklerini kullanarak bir cihazın konumunu ve son servis tarihini kaydedebilirsiniz. Bu özellikler, uygulama içinde depolanır ve cihazı ile eşitleme. Bir operatör özelliklere değerler atayabilir.
+  * Uygulamanızda cihazınız hakkındaki bilgileri kaydetmek için _uygulama özelliklerini_ kullanırsınız. Örneğin uygulama özelliklerini kullanarak bir cihazın konumunu ve son servis tarihini kaydedebilirsiniz. Bu özellikler, uygulama içinde depolanır ve cihazı ile eşitleme. Bir operatör özelliklere değerler atayabilir.
 
-    * Cihazın uygulamanıza özellik değerlerini göndermesini sağlamak için _cihaz özelliklerini_ kullanırsınız. Bu özellikler yalnızca cihaz tarafından değiştirilebilir. Operatör açısından cihaz özellikleri salt okunurdur. Bu bağlantılı klima senaryosunda üretici yazılımı sürümü ve cihaz seri numarası, cihaz tarafından bildirilen cihaz özellikleridir.
+  * Cihazın uygulamanıza özellik değerlerini göndermesini sağlamak için _cihaz özelliklerini_ kullanırsınız. Bu özellikler yalnızca cihaz tarafından değiştirilebilir. Operatör açısından cihaz özellikleri salt okunurdur. Bu bağlantılı klima senaryosunda üretici yazılımı sürümü ve cihaz seri numarası, cihaz tarafından bildirilen cihaz özellikleridir.
     
     Daha fazla bilgi için [özellikleri](howto-set-up-template.md#properties) cihaz şablon ayarlama ile ilgili nasıl yapılır Kılavuzu'nda.
 

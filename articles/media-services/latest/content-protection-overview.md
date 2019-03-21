@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3ce24100a0780f313a00b80129601f4e8f344bde
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 4d1a9ae622de103b459d256cb48c5823f5866a3b
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189776"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294085"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Dinamik şifreleme ile içerik koruma
 
@@ -199,6 +199,13 @@ Bekleyen veri varlıklarınızı korumanın varlıklar tarafından depolama tara
 |[Depolama istemci tarafı şifreleme](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure depolama, anahtar Kasası'nda müşteri tarafından yönetilen bir kiracı anahtarı tarafından sunulan istemci tarafı şifreleme|Desteklenmiyor|
 
 <sup>1</sup> , Media Services v3 (AES-256 şifreleme) depolama şifrelemesi, yalnızca varlıklarınızı Media Services v2 ile oluşturulduğunda için geriye dönük uyumluluk desteklenir. Var olan depolama ile v3 çalışır anlamı varlıklar şifreli ancak yenilerini oluşturulmasına izin vermez.
+
+## <a name="troubleshoot"></a>Sorun giderme
+
+Alırsanız `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` hata, akış uygun ilkeyi belirttiğinizden emin olun.
+
+İle biten hatalarıyla karşılaşırsanız `_NOT_SPECIFIED_IN_URL`, URL'de şifreleme biçimini belirttiğinizden emin olun. Örneğin, .../manifest (format = m3u8-cmaf şifreleme cbcs-aapl =). Bkz: [akış protokolleri ve şifreleme türlerini](#streaming-protocols-and-encryption types).
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
