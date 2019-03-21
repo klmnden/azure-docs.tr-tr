@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rimman
-ms.openlocfilehash: 3d05da5f62a076dc168bef029cd0babc3946ee6b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: d37f373e98835846c2d29130781706c400086c0e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243153"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077250"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB'de - güvenlik genel bakış
 
@@ -57,7 +57,7 @@ Ve bunu görünse de açık, son [büyük ölçekli veritabanı ihlallerini](htt
 Şimdi her birini ayrıntılı sayesinde çalışın.
 
 |Güvenlik gereksinimi|Azure Cosmos DB'nin güvenlik yaklaşımı|
-|---|---|---|
+|---|---|
 |Ağ güvenliği|İlk veritabanınızı güvenli hale getirmek için koruma katmanı bir IP Güvenlik Duvarı'nı kullanmaktır. Azure Cosmos DB, ilke temelli IP tabanlı erişim denetimlerini gelen güvenlik duvarı desteği için destekler. Geleneksel veritabanı sistemleri tarafından kullanılan güvenlik duvarı kuralları için IP tabanlı erişim denetimlerine benzerdir, ancak bir Azure Cosmos DB veritabanı hesabını yalnızca onaylanmış bir makine veya Bulut hizmetlerinizi kümesinden erişilebilir olması genişletilir. <br><br>Azure Cosmos DB, belirli bir IP adresi (168.61.48.0), bir IP aralığı (168.61.48.0/8) ve IP aralıkları ve birleşimleri etkinleştirmek sağlar. <br><br>Bu izin verilen liste dışındaki makinelerden gelen tüm istekler, Azure Cosmos DB tarafından engellenir. Onaylanan machines ve cloud services ardından gelen istekleri kaynaklara erişim denetimi verilecek kimlik doğrulama sürecini tamamlamanız gerekir.<br><br>Daha fazla bilgi [Azure Cosmos DB güvenlik duvarı desteği](firewall-support.md).|
 |Yetkilendirme|Azure Cosmos DB yetkilendirme için karma tabanlı ileti kimlik doğrulama kodu (HMAC) kullanır. <br><br>Her isteğin gizli hesap anahtarı kullanarak karma uygulanır ve sonraki base-64 kodlanmış karma her çağrı için Azure Cosmos DB ile gönderilir. İstek doğrulamak için Azure Cosmos DB hizmetini doğru gizli anahtarı ve özelliklerini bir karma değer oluşturmak için kullanır ve ardından istekteki bir değerle karşılaştırır. İki değer eşleşen, işlemi başarıyla yetkili ve isteği işleyen, aksi takdirde bir Yetkilendirme hatası yoktur ve istek reddedilir.<br><br>Kullanabilirsiniz bir [ana anahtarı](secure-access-to-data.md#master-keys), veya bir [kaynak belirtecini](secure-access-to-data.md#resource-tokens) ayrıntılı erişim gibi bir belge bir kaynağa izin verme.<br><br>Daha fazla bilgi [Azure Cosmos DB kaynaklarına erişimi güvenli hale getirme](secure-access-to-data.md).|
 |Kullanıcıları ve izinleri|Ana anahtarı için bir hesap kullanarak, kullanıcı kaynakları ve veritabanı başına izin kaynakları oluşturabilirsiniz. Kaynak belirtecini bir veritabanında bir izinle ilişkili ve kullanıcının olup olmadığını belirler. veritabanında uygulama kaynağı için erişim (okuma-yazma, salt okunur veya erişim yok). Kapsayıcı, belgeler, ekleri, saklı yordamlar, tetikleyiciler ve UDF'ler uygulama kaynaklarını içerir. Kaynak belirteci sağlayın ya da kaynağa erişimi reddetmek için kimlik doğrulaması sırasında sonra kullanılır.<br><br>Daha fazla bilgi [Azure Cosmos DB kaynaklarına erişimi güvenli hale getirme](secure-access-to-data.md).|

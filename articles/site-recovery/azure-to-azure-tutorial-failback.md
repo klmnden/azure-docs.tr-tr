@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: sideeksh
 ms.custom: mvc
-ms.openlocfilehash: 90ebea81c37c40dc5396d2e6378c7b9af52ad23d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: d8721f313907f0e0519dca52f5565853f1c44110
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57733117"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089718"
 ---
 # <a name="fail-back-azure-vms-between-azure-regions"></a>Azure bölgeleri arasında geri Azure Vm'leri başarısız
 
@@ -23,12 +23,12 @@ ms.locfileid: "57733117"
 Bu öğreticide, tek bir Azure VM geri dönecek şekilde açıklar. Yük devrettikten sonra, uygun olduğunda birincil bölgeye geri dönersiniz. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-
+> 
 > * İkincil VM’yi geri döndürme
 > * Birincil VM geri ikincil bölgeye yeniden koruma
-
+> 
 > [!NOTE]
->
+> 
 > Bu öğreticide, en az özelleştirme geri ile bir hedef bölgeye yük devretme için kullanıcının adım adım kılavuz için tasarlanmıştır; ağ konuları da dahil olmak üzere, yük devretme testiyle ilişkili çeşitli yönleri hakkında daha fazla bilgi istemeniz durumunda Otomasyon veya sorun giderme atın 'Nasıl yapılır' altında belgeleri Azure Vm'leri için.
 
 ## <a name="prerequisites"></a>Önkoşullar

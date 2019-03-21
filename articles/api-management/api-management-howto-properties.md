@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 829d6bc6cb3f8e78d065d7aaca4937634e7349c8
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437074"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082713"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Adlandırılmış değerler Azure API Management ilkelerini kullanma
 API Management ilkeleri güçlü bir API configuration aracılığıyla davranışını değiştirmek Azure portalın sistem özellikleridir. İlkeler, bir API isteği veya yanıtı üzerinde sırayla yürütülen deyimlerin bir koleksiyonudur. İlke ifadeleri, metin değerleri, ilke ifadeleri kullanarak ve adlandırılmış değerler oluşturulabilir. 
 
 Her API Management hizmet örneği adlı hizmet örneği için genel kabul edilen değerler, adlı bir anahtar/değer çiftleri özellikleri koleksiyonu vardır. Bu adlandırılmış değerler, dize sabit değerleri, tüm API yapılandırması ve ilkelerini yönetmek için kullanılabilir. Her bir özellik aşağıdaki özniteliklere sahip olabilir:
 
-| Öznitelik | Tür | Açıklama |
+| Öznitelik | Type | Açıklama |
 | --- | --- | --- |
-| Görünen ad |dize |İlkelerdeki özelliklere başvurmak için kullanılan alfasayısal dize. |
-| Değer |dize |Özelliğin değeri. Değil boş olamaz veya yalnızca boşluktan oluşamaz olabilir. |
+| Görünen ad |string |İlkelerdeki özelliklere başvurmak için kullanılan alfasayısal dize. |
+| Değer |string |Özelliğin değeri. Değil boş olamaz veya yalnızca boşluktan oluşamaz olabilir. |
 |Gizli dizi|boole|Değer bir gizli dizidir ve veya şifrelenmesi gerektiğini belirler.|
 | Etiketler |dize dizisi |İsteğe bağlı etiketleri sağlandığında özellik listesini filtrelemek için kullanılabilir. |
 
@@ -50,7 +50,7 @@ Her API Management hizmet örneği adlı hizmet örneği için genel kabul edile
 2. Seçin **değerleri adlı**.
 3. Tuşuna **+ Ekle**.
 
-  Ad ve değer gerekli değerler. Bu özellik değeri bir gizli dizi ise, bu, gizli bir onay kutusu denetleyin. Girin veya adlandırılmış değerlerinizi düzenleme ile yardımcı ve daha fazla isteğe bağlı etiket kaydedin.
+   Ad ve değer gerekli değerler. Bu özellik değeri bir gizli dizi ise, bu, gizli bir onay kutusu denetleyin. Girin veya adlandırılmış değerlerinizi düzenleme ile yardımcı ve daha fazla isteğe bağlı etiket kaydedin.
 4. **Oluştur**’a tıklayın.
 
 Özellik oluşturulduktan sonra özellikte tıklayarak düzenleyebilirsiniz. Özellik adını değiştirirseniz, bu özelliğe başvuran tüm ilkeler yeni adı kullanacak şekilde otomatik olarak güncelleştirilir.

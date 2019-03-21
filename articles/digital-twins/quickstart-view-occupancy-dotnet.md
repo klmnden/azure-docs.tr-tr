@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 12/17/2018
 ms.author: alinast
-ms.openlocfilehash: 9426fb1df38797ffbb9cc457ba4fe9eb62cfba40
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4c41fbaa00dc3460df3f94433428c448a7b41250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544282"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089715"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Hızlı Başlangıç: Azure dijital İkizlerini kullanarak kullanılabilir odaları Bul
 
@@ -115,8 +115,8 @@ Sensör örnek iki algılayıcılar için rastgele veri değerleri benzetimini y
 1. Bu komut istemi ve sensör verilerini komut istemi yan yana bakın.
 
     Bir komut istemi, beş saniyede dijital çiftleri için sanal hareket ve tasarruf edilen karbon dioksit verileri gönderir. Diğer komutu, grafiğin gerçek zamanlı olarak kullanıma kullanılabilir odaları rastgele simülasyon verileri temel alan yeni hava bulmak için okur. Bu koşullardan biri son gönderilen algılayıcı verileri temel alan neredeyse gerçek zamanlı gösterir:
-    - Temiz havaya sahip olan uygun odalar.
-    - Dolu veya hava kalitesi düzeyi düşük olan odalar.
+   - Temiz havaya sahip olan uygun odalar.
+   - Dolu veya hava kalitesi düzeyi düşük olan odalar.
 
      ![Temiz havaya sahip olan odaları alma][3]
 

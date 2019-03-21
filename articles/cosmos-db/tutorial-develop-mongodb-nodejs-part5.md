@@ -12,12 +12,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: 59ba69f8bf208ab4f38ae326cf4297947f0b844e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c8cab3c723b7e507b0f3b05b933cca9e2c24fb39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547121"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075484"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>MongoDB - kullanım Cosmos DB'ye bağlanmak için Mongoose için Azure Cosmos DB API'si ile Angular uygulama oluşturma
 
@@ -56,35 +56,35 @@ Mongoose MongoDB ve Node.js (ODM) kitaplığı modelleme nesnesi verilerdir. Azu
 
 1. Aşağıdaki kodu kopyalayın **mongo.js** dosya. Kod, aşağıdaki işlevleri sağlar:
 
-    * Mongoose gerektirir.
-    * Mongo'daki promise ES6/ES2015 ve üzeri sürümlere yerleşik olarak bulunan temel promise kullanılacak.
-    * Hazırlama, üretim veya geliştirme olmanıza üzerinde dayalı belirli şeyleri olanak sağlayan bir env dosyası çağrılarda ayarlayın. Sonraki bölümde bu dosyayı oluşturacaksınız.
-    * Env dosyasında ayarlanan MongoDB bağlantı dizesini içerir.
-    * Mongoose’u çağıran bir bağlanma işlevi oluşturur.
+   * Mongoose gerektirir.
+   * Mongo'daki promise ES6/ES2015 ve üzeri sürümlere yerleşik olarak bulunan temel promise kullanılacak.
+   * Hazırlama, üretim veya geliştirme olmanıza üzerinde dayalı belirli şeyleri olanak sağlayan bir env dosyası çağrılarda ayarlayın. Sonraki bölümde bu dosyayı oluşturacaksınız.
+   * Env dosyasında ayarlanan MongoDB bağlantı dizesini içerir.
+   * Mongoose’u çağıran bir bağlanma işlevi oluşturur.
 
-    ```javascript
-    const mongoose = require('mongoose');
-    /**
+     ```javascript
+     const mongoose = require('mongoose');
+     /**
      * Set to Node.js native promises
      * Per https://mongoosejs.com/docs/promises.html
      */
-    mongoose.Promise = global.Promise;
+     mongoose.Promise = global.Promise;
 
-    const env = require('./env/environment');
+     const env = require('./env/environment');
 
-    // eslint-disable-next-line max-len
-    const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
+     // eslint-disable-next-line max-len
+     const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
 
-    function connect() {
+     function connect() {
      mongoose.set('debug', true);
      return mongoose.connect(mongoUri, { useMongoClient: true });
-    }
+     }
 
-    module.exports = {
-      connect,
-      mongoose
-    };
-    ```
+     module.exports = {
+     connect,
+     mongoose
+     };
+     ```
     
 1. Explorer bölmesinde altında **sunucu**, adlı bir klasör oluşturun **ortam**. İçinde **ortam** klasöründe adlı bir dosya oluşturun **environment.js**.
 

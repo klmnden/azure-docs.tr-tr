@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 449c65d0ed746664b75bf8775dda695f569b3eb0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e6053ef9b5e1fc113e3bd3057d627347f285cd99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228394"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003127"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Cihazınızı yönetmek için StorSimple için Windows PowerShell kullanma
 
@@ -47,7 +47,7 @@ Aşağıdaki yöntemlerden birini kullanarak StorSimple için Windows PowerShell
 
 ## <a name="connect-to-windows-powershell-for-storsimple-via-the-device-serial-console"></a>Windows PowerShell için StorSimple cihaz seri Konsolu bağlanın.
 
-Yapabilecekleriniz [PuTTY indirme](http://www.putty.org/) veya benzer StorSimple için Windows PowerShell'e bağlanmak için bir terminal öykünme yazılımı. PuTTY özel Microsoft Azure StorSimple cihazınıza erişim hakkı yapılandırmanız gerekir. Aşağıdaki konular, PuTTy yapılandırma ve cihaza bağlanma hakkında ayrıntılı adımları içerir. Seri konsol içinde çeşitli menü seçeneklerini de açıklanmıştır.
+Yapabilecekleriniz [PuTTY indirme](https://www.putty.org/) veya benzer StorSimple için Windows PowerShell'e bağlanmak için bir terminal öykünme yazılımı. PuTTY özel Microsoft Azure StorSimple cihazınıza erişim hakkı yapılandırmanız gerekir. Aşağıdaki konular, PuTTy yapılandırma ve cihaza bağlanma hakkında ayrıntılı adımları içerir. Seri konsol içinde çeşitli menü seçeneklerini de açıklanmıştır.
 
 ### <a name="putty-settings"></a>PuTTY ayarları
 
@@ -110,8 +110,8 @@ Aşağıdaki ayarlardan birini seçebilirsiniz:
    * Güncelleştirme uygulama
    * Düzeltmeleri yüklemek
 
-    > [!NOTE]
-    > Cihaz Yöneticisi parolasını unutmuş ve 1 veya 2'seçeneği bağlanamıyorsanız tercih edilen seçenek budur.
+     > [!NOTE]
+     > Cihaz Yöneticisi parolasını unutmuş ve 1 veya 2'seçeneği bağlanamıyorsanız tercih edilen seçenek budur.
 
 4. **Dili Değiştir** Windows PowerShell arabiriminde görüntüleme dilini değiştirmek bu seçeneği sağlar. Desteklenen diller şunlardır: İngilizce, Japonca, Rusça, Fransızca, Kore Güney, İspanyolca, İtalyanca, Almanca, Çince ve Portekizce (Brezilya).
 

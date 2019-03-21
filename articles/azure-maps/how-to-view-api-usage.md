@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f8977a0a50103b3c2935ee27a69a53e636f5aecb
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d14088ed940ab83be29756a26f8612704bb9aebd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580404"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079887"
 ---
 # <a name="view-azure-maps-api-usage"></a>Azure haritalar API'si kullanımını görüntüleyin
 
@@ -37,10 +37,10 @@ Belirli çözümleme için bu grafikleri özelleştirmek istiyorsanız sonraki b
 
 4. Üzerinde **ölçümleri** bölmesinde aşağıdakilerden birini seçin:
 
-    1. **Kullanılabilirlik** -hangi gösterir *ortalama* bir süre boyunca API kullanılabilirlik.
-    2. **Kullanım** -hangi gösterir nasıl kullanım *sayısı* hesabınız için.
+   1. **Kullanılabilirlik** -hangi gösterir *ortalama* bir süre boyunca API kullanılabilirlik.
+   2. **Kullanım** -hangi gösterir nasıl kullanım *sayısı* hesabınız için.
 
-    ![Azure haritalar ölçümleri bölmesi](media/how-to-view-api-usage/portal-metrics.png)
+      ![Azure haritalar ölçümleri bölmesi](media/how-to-view-api-usage/portal-metrics.png)
 
 5. Ardından, seçtiğiniz *zaman aralığı* tıklayarak **son 24 saat (otomatik)**. Varsayılan olarak, zaman aralığı 24 saate ayarlanır. Tıklandıktan sonra tüm seçilebilir zaman aralıkları görürsünüz. Seçebileceğiniz *zaman ayrıntı düzeyi* ve zaman olarak görüntülemeyi *yerel* veya *GMT* aynı açılan. **Uygula**'ya tıklayın.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5431372abb9a1157b322a8af4a07ba5fa15d8e8e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b207d9e3123245e5cb7dddb625f7488886591ae5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720471"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089871"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Traffic Manager'ı kullanarak Azure App Service içinde bir web uygulaması için özel etki alanı adı yapılandırma
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -56,11 +56,9 @@ Bu makalede bir özel etki alanı adı ile kullanmak için genel yönergeler sa�
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
 Her etki alanı sağlayıcısının özellikleri göstermekle eşlemeniz *gelen* özel etki alanı adınızı (gibi **contoso.com**) *için* Traffic Manager etki alanı adı ( **contoso.trafficmanager.NET**) web uygulamanızı ile tümleşiktir.
-   
+
 > [!NOTE]
-> Bir kaydı zaten kullanımda ve uygulamalarınızı sıd'lerde bağlamak gerekiyorsa, ek bir CNAME kaydı oluşturabilirsiniz. Örneğin, sıd'lerde bağlamak için **www.contoso.com** web uygulamanız için bir CNAME kayıt oluşturma **awverify.www** için **contoso.trafficmanager.net**. Ardından "www.contoso.com", "www" CNAME kaydı değiştirmeden Web uygulamanıza ekleyebilirsiniz. Daha fazla bilgi için [özel bir etki alanı içinde bir web uygulaması için oluşturma DNS kayıtlarını][CREATEDNS].
-> 
-> 
+> Bir kaydı zaten kullanımda ve uygulamalarınızı sıd'lerde bağlamak gerekiyorsa, ek bir CNAME kaydı oluşturabilirsiniz. Örneğin, sıd'lerde bağlamak için **www\.contoso.com** web uygulamanız için bir CNAME kayıt oluşturma **awverify.www** için **contoso.trafficmanager.net**. Daha sonra ekleyebilirsiniz "www\.contoso.com" "www" CNAME kaydı değiştirmeden Web uygulamanıza. Daha fazla bilgi için [özel bir etki alanı içinde bir web uygulaması için oluşturma DNS kayıtlarını][CREATEDNS].
 
 Etki alanı sağlayıcınız, DNS kayıtlarını değiştirme veya ekleme işlemini tamamladıktan sonra değişiklikleri kaydedin.
 

@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: fab7ead59ce8d7e12d145095c64cedf4234e6233
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6e11df8bedb88d3e505b7fa3c55ade13282911a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656728"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106500"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Azure Stack PKI sertifikaları dağıtımı veya döndürme kullanım için hazırlama
 
@@ -32,23 +32,23 @@ Hazırlama ve yeni bir Azure Stack ortamınıza dağıtmak için veya mevcut Azu
 
 ### <a name="import-the-certificate"></a>Sertifika içeri aktarma
 
-1.  Orijinal sertifika sürümleri Kopyala [seçim, CA'dan alınan](azure-stack-get-pki-certs.md) dağıtım ana bilgisayardaki bir dizine. 
-  > [!WARNING]
-  > Doğrudan CA tarafından sağlanan dosyalarından herhangi bir şekilde, zaten içeri aktarıldı, dışarı, değiştirilmiş veya silinmiş dosyalar kopyalamayın.
+1. Orijinal sertifika sürümleri Kopyala [seçim, CA'dan alınan](azure-stack-get-pki-certs.md) dağıtım ana bilgisayardaki bir dizine. 
+   > [!WARNING]
+   > Doğrudan CA tarafından sağlanan dosyalarından herhangi bir şekilde, zaten içeri aktarıldı, dışarı, değiştirilmiş veya silinmiş dosyalar kopyalamayın.
 
-1.  Sağ tıklatın ve sertifika **sertifikayı yükle** veya **PFX'i** bağlı olarak sertifika Yetkilinizden nasıl teslim edildi.
+1. Sağ tıklatın ve sertifika **sertifikayı yükle** veya **PFX'i** bağlı olarak sertifika Yetkilinizden nasıl teslim edildi.
 
 1. İçinde **Sertifika Alma Sihirbazı'nı**seçin **yerel makine** içeri aktarma konumu olarak. **İleri**’yi seçin. Aşağıdaki ekranda, sonraki yeniden tıklayın.
 
     ![Yerel makine içeri aktarma konumu](./media/prepare-pki-certs/1.png)
 
-1.  Seçin **tüm sertifika aşağıdaki depolama alanına yerleştir** seçip **Kurumsal güven** konumu olarak. Tıklayın **Tamam** sertifika deposu seçimi iletişim kutusunu kapatın ve ardından **sonraki**.
+1. Seçin **tüm sertifika aşağıdaki depolama alanına yerleştir** seçip **Kurumsal güven** konumu olarak. Tıklayın **Tamam** sertifika deposu seçimi iletişim kutusunu kapatın ve ardından **sonraki**.
 
-    ![Sertifika deposu yapılandırma](./media/prepare-pki-certs/3.png)
+   ![Sertifika deposu yapılandırma](./media/prepare-pki-certs/3.png)
 
-    a. Bir PFX alıyorsanız, ek bir iletişim kutusu ile sunulur. Üzerinde **özel anahtar korumasını** sayfasında, sertifika dosyaları için parolayı girin ve sonra etkinleştirin **bu anahtarı verilebilir olarak işaretle. Bu sayede veya anahtarlarınızı sonradan** seçeneği. **İleri**’yi seçin.
+   a. Bir PFX alıyorsanız, ek bir iletişim kutusu ile sunulur. Üzerinde **özel anahtar korumasını** sayfasında, sertifika dosyaları için parolayı girin ve sonra etkinleştirin **bu anahtarı verilebilir olarak işaretle. Bu sayede veya anahtarlarınızı sonradan** seçeneği. **İleri**’yi seçin.
 
-    ![Anahtarı verilebilir olarak işaretle](./media/prepare-pki-certs/2.png)
+   ![Anahtarı verilebilir olarak işaretle](./media/prepare-pki-certs/2.png)
 
 1. İçeri aktarma işlemini tamamlamak için Son'u tıklatın.
 
@@ -70,19 +70,19 @@ Sertifika Yöneticisi MMC konsolu açın ve yerel makine sertifika deposuna bağ
 
 1. Görev çubuğu Sertifika Yöneticisi konsolundan seçin **eylemleri** > **tüm görevler** > **dışarı**. **İleri**’yi seçin.
 
-  > [!NOTE]
-  > Kaç tane Azure Stack bağlı olarak birden çok kez bu işlemi tamamlamak, sahip olduğunuz sertifikaları gerekebilir.
+   > [!NOTE]
+   > Kaç tane Azure Stack bağlı olarak birden çok kez bu işlemi tamamlamak, sahip olduğunuz sertifikaları gerekebilir.
 
 1. Seçin **Evet, özel anahtarı dışarı aktar**ve ardından **sonraki**.
 
 1. Dışarı aktarma dosyası biçimi bölümüne:
     
-    - Seçin **mümkünse sertifika tüm sertifikaları dahil et**.  
-    - Seçin **tüm genişletilmiş özellikleri dışarı**.  
-    - Seçin **etkinleştirme sertifika gizlilik**.  
-    - **İleri**’ye tıklayın.  
+   - Seçin **mümkünse sertifika tüm sertifikaları dahil et**.  
+   - Seçin **tüm genişletilmiş özellikleri dışarı**.  
+   - Seçin **etkinleştirme sertifika gizlilik**.  
+   - **İleri**’ye tıklayın.  
     
-    ![Sertifika Dışarı Aktarma Sihirbazı ile seçili Seçenekler](./media/prepare-pki-certs\azure-stack-save-cert.png)
+     ![Sertifika Dışarı Aktarma Sihirbazı ile seçili Seçenekler](./media/prepare-pki-certs/azure-stack-save-cert.png)
 
 1. Seçin **parola** ve sertifikalar için bir parola belirtin. Şu parola karmaşıklık gereksinimini karşılayan bir parola oluşturun. En az sekiz karakter uzunluğu. Parola en az üç birini içeriyor: büyük harf, küçük harf, sayı 0-9, özel karakterler büyük veya küçük harf alfabetik karakterle. Bu parolayı not edin. Dağıtım parametresi olarak kullanır.
 

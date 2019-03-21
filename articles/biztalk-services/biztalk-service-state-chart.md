@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: bbe1288a42db307001ac778394ac410206f1df21
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 71463b523f0afdf63a7c89ff2b3137ae8d091b3b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228207"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086709"
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Ve yapabileceklerinizi BizTalk hizmeti durumunu kullanarak yapamazsınız
 
@@ -35,7 +35,7 @@ BizTalk hizmeti geçerli durumuna bağlı olarak, BizTalk hizmeti üzerinde ger�
 
 Aşağıdaki tablolarda, işlemler veya BizTalk hizmeti belirli bir durumda olduğunda yapılabilir eylemleri listeleyin. Bir ✔ işlemi o durumda izin anlamına gelir. Boş bir girdiyi o durumda işlemi gerçekleştirilemiyor anlamına gelir.
 
-| Hizmet durumu | Başlatma | Durdur | Yeniden Başlatma | Erişimi askıya al | Sürdür | Sil | Ölçek | Güncelleştirme <br/> Yapılandırma | Backup |
+| Hizmet durumu | Başlatma | Durdur | Yeniden Başlatma | Askıya Al | Sürdür | Sil | Ölçek | Güncelleştirme <br/> Yapılandırma | Backup |
 | --- | --- | --- | --- | --- | --- | --- |--- | --- | --- |
 | Etkin |  | ✔ | ✔ | ✔ |  | ✔ |✔ |✔ |✔ |
 | Devre dışı |  |  |  |  |  | ✔ | |  |  | 
@@ -48,7 +48,7 @@ Aşağıdaki tablolarda, işlemler veya BizTalk hizmeti belirli bir durumda oldu
 | SuspendedFailed <br/> ResumeFailed|  |  |  | ✔ | ✔ | ✔ | |  |  | 
 | CreatedFailed <br/> RestoreFailed |  |  |  |  |  | ✔ | |  |  | 
 | ConfigUpdateFailed  |  |  | ✔ |  |  | ✔ | |✔ | |
-| ScaleFailed |  |  |  |  |  | ✔ |✔ | |  |  | 
+| ScaleFailed |  |  |  |  |  | ✔ |✔ | |  |
 
 
 

@@ -9,16 +9,19 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7eb841a0f4a34e708734cf433fac82ab35ef35b6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8898280e887392591873f1fc832bfd0c105689fe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451306"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097295"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Azure Otomasyonu durumu Azure İzleyici günlüklerine veri raporlama yapılandırma ilet
 
-Azure Otomasyonu durum yapılandırması, Log Analytics çalışma alanınıza Desired State Configuration ' nı (DSC) düğüm durumu veriler gönderebilir. Uyumluluk durumu Azure portalında veya PowerShell ile ve DSC düğüm yapılandırmaları kaynaklarında tek tek düğümleri için görülebilir. Azure İzleyici günlüklerine ile şunları yapabilirsiniz:
+Azure Otomasyonu durumu yapılandırma düğümü durumu verileri 30 gün boyunca tutar.
+İsterseniz bu verileri korumak için daha uzun bir süre Log Analytics çalışma alanınıza düğüm durumu veriler gönderebilir.
+Uyumluluk durumu Azure portalında veya PowerShell ile ve DSC düğüm yapılandırmaları kaynaklarında tek tek düğümleri için görülebilir.
+Azure İzleyici günlüklerine ile şunları yapabilirsiniz:
 
 - Yönetilen düğümler ve ayrı kaynakları için uyumluluk bilgilerini alma
 - Bir e-posta veya uyumluluk durumuna bağlı olarak uyarıyı Tetikle
@@ -44,23 +47,23 @@ Azure İzleyici günlüklerine Azure Automation DSC veri almaya başlamak için 
 1. PowerShell Azure hesabınızda oturum açın. Bkz: [oturum Azure PowerShell ile oturum açma](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
 1. Alma _ResourceId_ Otomasyon hesabınızı aşağıdaki PowerShell komutunu çalıştırarak: (birden fazla Otomasyon hesabınız varsa, seçin _ResourceId_ yapılandırmak istediğiniz hesap için).
 
-  ```powershell
-  # Find the ResourceId for the Automation Account
-  Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
-  ```
+   ```powershell
+   # Find the ResourceId for the Automation Account
+   Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
+   ```
 
 1. Alma _ResourceId_ aşağıdaki PowerShell komutunu çalıştırarak bir Log Analytics çalışma alanınızın: (birden fazla çalışma alanı varsa, seçin _ResourceId_ yapılandırmak istediğiniz çalışma alanı için).
 
-  ```powershell
-  # Find the ResourceId for the Log Analytics workspace
-  Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
-  ```
+   ```powershell
+   # Find the ResourceId for the Log Analytics workspace
+   Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
+   ```
 
 1. Aşağıdaki PowerShell komutunu çalıştırın değiştirerek `<AutomationResourceId>` ve `<WorkspaceResourceId>` ile _ResourceId_ değerleri önceki adımların her biri:
 
-  ```powershell
-  Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
-  ```
+   ```powershell
+   Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
+   ```
 
 Azure İzleyici günlüklerine Azure Otomasyonu durumu yapılandırmasından veri almayı durdurmak istiyorsanız, aşağıdaki PowerShell komutunu çalıştırın:
 

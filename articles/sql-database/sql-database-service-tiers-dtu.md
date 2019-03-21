@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 247198e9ba1cdc6cd43b3fe60a20cd81280113cd
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 7a8556edd793cbde47c14d2b79792dbe42f8e44b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569952"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894300"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU tabanlı satın alma modeli olarak hizmet katmanları
 
@@ -33,7 +33,7 @@ DTU tabanlı satın alma modeli hizmet katmanlarında işlem boyutları dahil ed
 Hizmet katmanı seçme, öncelikli olarak iş sürekliliği, depolama ve performans gereksinimlerine bağlıdır.
 
 ||Temel|Standart|Premium|
-| :-- | --: |--:| --:| --:|
+| :-- | --: |--:| --:|
 |Hedef iş yükü|Geliştirme ve üretim|Geliştirme ve üretim|Geliştirme ve üretim|
 |Çalışma Süresi SLA'sı|%99,99|%99,99|%99,99|
 |Yedekleri bekletme|7 gün|35 gün|35 gün|
@@ -52,10 +52,10 @@ Hizmet katmanı seçme, öncelikli olarak iş sürekliliği, depolama ve perform
 İşlem boyutları, tek veritabanları için veritabanı işlem birimleri (Dtu'lar) ve elastik havuzlar için esnek veritabanı işlem birimleri (Edtu) cinsinden ifade edilir. Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz. [DTU tabanlı satın alma modeli](sql-database-purchase-models.md#dtu-based-purchasing-model)?
 
 ||Temel|Standart|Premium|
-| :-- | --: | --: | --: | --: |
+| :-- | --: | --: | --: |
 | Maksimum depolama boyutu | 2 GB | 1 TB | 4 TB  |
 | En fazla dtu sayısı | 5 | 3000 | 4000 | 
-||||||
+|||||
 
 > [!IMPORTANT]
 > Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
@@ -63,13 +63,13 @@ Hizmet katmanı seçme, öncelikli olarak iş sürekliliği, depolama ve perform
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Elastik havuz eDTU ve depolama havuza veritabanı sınırları
 
 | | **Temel** | **Standart** | **Premium** |
-| :-- | --: | --: | --: | --: |
+| :-- | --: | --: | --: |
 | Veritabanı başına maksimum depolama boyutu  | 2 GB | 1 TB | 1 TB |
 | Havuz başına maksimum depolama boyutu | 156 GB | 4 TB | 4 TB |
 | Veritabanı başına maksimum Edtu | 5 | 3000 | 4000 |
 | Havuz başına maksimum Edtu | 1600 | 3000 | 4000 |
 | Havuz başına veritabanı sayısı | 500  | 500 | 100 |
-||||||
+|||||
 
 > [!IMPORTANT]
 > 1 TB'den fazla depolama Premium katmanında şu anda tüm bölgelerde kullanılabilir: Çin Doğu, Kuzey Çin, Almanya Orta, Almanya Kuzeydoğu, Batı Orta ABD, US DoD bölgeler ve ABD kamu orta. Bu bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır.  Daha fazla bilgi için [P11 P15 geçerli sınırlamalar](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  

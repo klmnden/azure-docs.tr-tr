@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 69aecf3d107000408f98f8ae53968355943c2881
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 55b7e45bb9e600267e1dad0e36e9a97eca9a7d40
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440820"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075007"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows komutları - CMD ve PowerShell
 
@@ -247,8 +247,8 @@ Bir komut istemi ulaştıktan sonra PowerShell SAC içinde çalıştırmak için
 
 `powershell <enter>`
 
->[!CAUTION]
-Diğer bir PowerShell komutları çalıştırmadan önce PowerShell oturumundan PSReadLine modülü kaldırın. Burada ek karakterler PSReadLine bir PowerShell oturumunda SAC içinde çalışıyorsa panodan yapıştırılan metin tanıtılmak bilinen bir sorun yoktur.
+> [!CAUTION]
+> Diğer bir PowerShell komutları çalıştırmadan önce PowerShell oturumundan PSReadLine modülü kaldırın. Burada ek karakterler PSReadLine bir PowerShell oturumunda SAC içinde çalışıyorsa panodan yapıştırılan metin tanıtılmak bilinen bir sorun yoktur.
 
 İlk PSReadLine yüklenip yüklenmediğini kontrol edin. Windows Server 2016, Windows 10 ve sonraki Windows sürümlerinde varsayılan olarak yüklenir. El ile yüklenmiş olan, yalnızca önceki Windows sürümlerinde mevcut olacaktır. 
 

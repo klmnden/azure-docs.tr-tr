@@ -19,12 +19,12 @@ ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bf7919a2dc69bc834a5834d10a5a297a2ad6949
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9e2b99871cc1da2b1e8e136fc4d689e90dfad77a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170312"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081245"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal durumda Dolaşım ayarları sorunlarını giderme
 
@@ -47,7 +47,7 @@ Aşağıdaki yönergeleri ile sorununuzu çözmek olamaz, destek mühendislerimi
 * **Etkilenen kullanıcılar** – eşitleme çalışma/bir kullanıcı veya birden çok kullanıcı için başarısız olan? Kullanıcı başına cihaz sayısını rol oynayan? Tüm bunları değil eşitleniyor veya bunlardan bazıları eşitlemeye ve bazı eşitleniyor değil misiniz?
 * **Kullanıcı hakkındaki bilgileri** – hangi aygıta bağlanmayı kullanarak kullanıcı kimliğidir? Nasıl kullanıcı cihaza oturum açmak için? Seçili güvenlik grubu eşitlemesine izin bir parçası olduklarından? 
 * **Cihaz hakkındaki bilgileri** – bu cihazı Azure AD'ye katılmış veya etki alanına katılmış mı? Hangi derleme cihaz üzerinde mu? En son güncelleştirmeler nelerdir?
-- **Tarih / saat / saat dilimi** – kesin tarih ve saat, gördüğünüz hata neydi (saat dilimi dahil)?
+* **Tarih / saat / saat dilimi** – kesin tarih ve saat, gördüğünüz hata neydi (saat dilimi dahil)?
 
 Bu bilgiler dahil olmak üzere mümkün olan en kısa sürede sorununuzu çözmenize yardımcı olur.
 
@@ -59,8 +59,8 @@ Bu bölüm, Kurumsal durumda Dolaşım için ilgili sorunları tanılayın ve so
 1. Windows 10 bilgisayarınıza Kurumsal durumda Dolaşım izin verecek şekilde yapılandırılmış bir etki alanına katıldıktan sonra iş hesabınızla oturum açın. Git **ayarları** > **hesapları** > **eşitleme ayarlarınızı** ve eşitleme ve ayrı ayrı ayarlar üzerinde olduğundan emin olun ve üst Ayarlar sayfasında, iş hesabınızla eşitleniyor gösterir. Oturum açma hesabınız olarak de aynı hesabı kullanılır onaylayın **ayarları** > **hesapları** > **bilgisayarınızı bilgisi**. 
 1. Ekranın sağ veya üst kenarına görev taşımak gibi özgün makine üzerinde bazı değişiklikler yaparak eşitleme birden çok makinede çalıştığını doğrulayın. Beş dakika içinde ikinci bir makinede yaymak değişiklik izleyin. 
 
-  * Kilitleme ve kilit ekranı (Win + L), bir eşitleme tetikleme yardımcı olabilir.
-  * Kurumsal durumda Dolaşım kullanıcı hesabı ve makine hesabı için bağlı gibi çalışmaya – her iki bilgisayar eşitleme için aynı hesapla oturum gerekir.
+   * Kilitleme ve kilit ekranı (Win + L), bir eşitleme tetikleme yardımcı olabilir.
+   * Kurumsal durumda Dolaşım kullanıcı hesabı ve makine hesabı için bağlı gibi çalışmaya – her iki bilgisayar eşitleme için aynı hesapla oturum gerekir.
 
 **Olası sorun**: Varsa denetimlerinde **ayarları** sayfa kullanılabilir değil ve "bazı Windows özellikleri yalnızca bir Microsoft hesabı veya iş hesabı kullanıyorsanız kullanılabilir." iletisini görürsünüz Şekilde ayarlamanız cihazlarda Bu sorun ortaya çıkabilir etki alanına katılmış ve Azure AD'ye kayıtlı ancak cihaz henüz başarılı bir şekilde Azure AD'ye kimlik doğrulaması. Olası bir nedeni, cihaz İlkesi uygulanmış olması gerekir, ancak bu uygulama, zaman uyumsuz olarak yapılır ve olarak birkaç saat Gecikmeli olmasıdır. 
 

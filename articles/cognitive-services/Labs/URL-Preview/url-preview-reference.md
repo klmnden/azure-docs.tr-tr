@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: da23d8037f37174826a2b9662c39bb507367a6ae
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537822"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104718"
 ---
 # <a name="project-url-preview-v7-reference"></a>Proje URL'si Önizleme v7 başvurusu
 
@@ -56,7 +56,7 @@ Maksimum sorgu URL'SİNİN uzunluğu 2.048 karakterdir. URL uzunluğu sınırı 
 > URL önizlemesi, diğer arama API'lerini için anlamlı olan bazı istek üst etkilemez
 > - Pragma – URL önizlemesi önbellek kullanıp kullanmadığını denetim çağırana sahip değil
 > - Kullanıcı Aracısı – şu an için Önizleme API URL'si farklı yanıtlar PC, dizüstü bilgisayar veya mobil yayılan çağrıları için sağlamaz.
-
+> 
 > Ayrıca, bazı parametreler için URL önizleme API'sı şu anda anlamlı değildir, ancak gelecekte geliştirilmiş Genelleştirme için kullanılabilir.
 
 ## <a name="headers"></a>Üst bilgiler

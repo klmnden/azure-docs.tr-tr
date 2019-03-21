@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: e2f0fb6333f3786b29c2a7516e46a4599d6e89ed
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961018"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851355"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Kaydet ve Git kullanarak API Management hizmet yapılandırmanızı yapılandırma
 
@@ -50,12 +50,12 @@ Bu makalede, etkinleştirmek ve hizmet yapılandırmanızı yönetmek için Git'
 
 Görüntüleme ve Git yapılandırma ayarlarınızı yapılandırmak için tıklayabilirsiniz **güvenlik** menü gidin **yapılandırma deposu** sekmesi.
 
-![GIT etkinleştir][api-management-enable-git]
+![GIT'i etkinleştir][api-management-enable-git]
 
 > [!IMPORTANT]
-> Özellikler depoda saklanan ve kendi geçmişinde dek devam eder, tanımlanmayan herhangi bir gizli anahtar, devre dışı bırakın ve Git erişimini yeniden etkinleştirin. Sabit dize değerleri, bunları doğrudan ilke deyimlerinde depolamak zorunda kalmamak için gizli dizileri, tüm API configuration ve ilkeleri gibi yönetmek için güvenli bir yerde özellikleri sağlar. Daha fazla bilgi için [özelliklerini Azure API Management ilkelerini kullanma](api-management-howto-properties.md).
-> 
-> 
+> Adlandırılmış değerler olarak tanımlanmamış herhangi bir gizli anahtar deposunda depolanır ve devre dışı bırakın ve Git erişimini yeniden etkinleştirmeniz kadar buna ait geçmişi kalır. Adlandırılmış değerler sabit dize değerleri, bunları doğrudan ilke deyimlerinde depolamak zorunda kalmamak için gizli dizileri, tüm API configuration ve ilkeleri gibi yönetmek için güvenli bir yerde sağlar. Daha fazla bilgi için [adlı değerlerini Azure API Management ilkelerini kullanmak nasıl](api-management-howto-properties.md).
+>
+>
 
 REST API kullanarak Git erişimini devre dışı bırakma veya etkinleştirme hakkında daha fazla bilgi için bkz: [etkinleştirmek veya devre dışı REST API kullanarak Git erişim](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
 
@@ -73,13 +73,13 @@ REST API kullanarak bu işlemi gerçekleştirme hakkında daha fazla bilgi için
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Depoyu yerel makinenize kopyalamak için
 
-Bir depoyu kopyalamak için URL'yi deponuzu, bir kullanıcı adı ve parola gerekir. Kullanıcı adı ve diğer kimlik bilgilerini almak için tıklayın **erişim kimlik bilgilerini** sayfanın üstüne yakın.  
- 
+Bir depoyu kopyalamak için URL'yi deponuzu, bir kullanıcı adı ve parola gerekir. Kullanıcı adı ve diğer kimlik bilgilerini almak için tıklayın **erişim kimlik bilgilerini** sayfanın üstüne yakın.
+
 Bir parola oluşturmak için öncelikle emin **bitiş** istenen sona erme tarihi ve saati ayarlayın ve ardından **Oluştur**.
 
 > [!IMPORTANT]
 > Bu parolayı not edin. Bu sayfadan çıktıktan sonra parolayı yeniden görüntülenmez.
-> 
+>
 
 Aşağıdaki örneklerde Git Bash aracından [Git için Windows](https://www.git-scm.com/downloads) ancak bilginiz herhangi bir Git aracı kullanabilirsiniz.
 
@@ -164,7 +164,7 @@ Her klasör, bir veya daha fazla dosya içerebilir ve bazı durumlarda bir veya 
 | Dosya türü | Amaç |
 | --- | --- |
 | json |İlgili varlık hakkında yapılandırma bilgileri |
-| HTML |Genellikle Geliştirici portalında gösterilen bir varlık ile ilgili açıklamalar |
+| html |Genellikle Geliştirici portalında gösterilen bir varlık ile ilgili açıklamalar |
 | xml |İlke deyimleri |
 | CSS |Geliştirici Portalı özelleştirme için stil sayfaları |
 
@@ -172,12 +172,12 @@ Bu dosyalar oluşturulabilir, silindi, düzenlenebilir ve yerel dosya sisteminiz
 
 > [!NOTE]
 > Aşağıdaki varlıkların Git deposunda yer almayan ve Git kullanılarak yapılandırılamaz.
-> 
-> * Kullanıcılar
-> * Abonelikler
-> * Özellikler
+>
+> * [Kullanıcılar](https://docs.microsoft.com/en-us/rest/api/apimanagement/user)
+> * [Abonelikler](https://docs.microsoft.com/en-us/rest/api/apimanagement/subscription)
+> * [Adlandırılmış değerler](https://docs.microsoft.com/en-us/rest/api/apimanagement/property)
 > * Geliştirici Portalı varlıkları dışında stilleri
-> 
+>
 
 ### <a name="root-api-management-folder"></a>kök API Yönetimi klasörü
 Kök `api-management` klasörünü içeren bir `configuration.json` hizmet örneği şu biçimde hakkında üst düzey bilgileri içeren dosya.
@@ -223,7 +223,7 @@ Son ayar `$ref-policy`, hizmet örneği için genel ilke deyimlerini dosyanın e
 ### <a name="apis-folder"></a>API'leri klasörü
 `apis` Klasörü her API'SİNDE aşağıdaki öğeleri içeren hizmet örneği için bir klasör içerir.
 
-* `apis\<api name>\configuration.json` -Bu API için yapılandırması ve arka uç hizmeti URL'sini ve işlemleri hakkındaki bilgileri içerir. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir API'yi alın](https://docs.microsoft.com/rest/api/apimanagement/api/get) ile `export=true` içinde `application/json` biçimi.
+* `apis\<api name>\configuration.json` -Bu API için yapılandırması ve arka uç hizmeti URL'sini ve işlemleri hakkındaki bilgileri içerir. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir API'yi alın](https://docs.microsoft.com/rest/api/apimanagement/apis/get) ile `export=true` içinde `application/json` biçimi.
 * `apis\<api name>\api.description.html` -Bu API açıklaması ve karşılık gelen `description` özelliği [API varlığı](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
 * `apis\<api name>\operations\` -Bu klasörde `<operation name>.description.html` API'sindeki işlemlerle eşlenir dosyaları. Her dosya tek bir işlemle eşlenir API açıklamasını içerir `description` özelliği [işlemi varlık](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) REST API'de.
 

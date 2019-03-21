@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: c378043a9e10a0aed5344ac3182af6163d217c7b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 4c948668e355b87026240588c6fac11d86e355b2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140477"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006574"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Performans trafiği yönlendirme yöntemini yapılandırma
 
@@ -24,7 +24,7 @@ Performans trafiği yönlendirme metodunu uç noktaya en düşük gecikme süres
 
 ##  <a name="to-configure-performance-routing-method"></a>Performans yönlendirme yöntemini yapılandırma
 
-1. Bir tarayıcıdan [Azure portalında](http://portal.azure.com) oturum açın. Henüz bir hesabınız yoksa, [bir aylık ücretsiz denemeye](https://azure.microsoft.com/free/) kaydolabilirsiniz. 
+1. Bir tarayıcıdan [Azure portalında](https://portal.azure.com) oturum açın. Henüz bir hesabınız yoksa, [bir aylık ücretsiz denemeye](https://azure.microsoft.com/free/) kaydolabilirsiniz. 
 2. Portalın arama çubuğunda arama **Traffic Manager profillerini** ve yönlendirme yöntemi için yapılandırmak istediğiniz profil adına tıklayın.
 3. İçinde **Traffic Manager profili** dikey penceresinde bulut Hizmetleri ve yapılandırmanızda dahil etmek istediğiniz Web siteleri mevcut olduğunu doğrulayın.
 4. İçinde **ayarları** bölümünde **yapılandırma**hem de **yapılandırma** dikey penceresinde, aşağıdaki gibi doldurun:

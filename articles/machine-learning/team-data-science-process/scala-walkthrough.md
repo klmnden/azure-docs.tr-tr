@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3109c4e6190cd8e485ae9b28117c4688836dfc26
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cdc37ace4687fe978030f528dcd5cbc87da596f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470323"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855946"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure üzerinde Scala ve Spark kullanan Veri Bilimi
 Bu makalede, Scala Spark ölçeklenebilir MLlib ve Spark ML paketleri ile bir Azure HDInsight Spark kümesi üzerinde denetimli makine öğrenimi görevlerini kullanmak nasıl gösterir. Oluşturan görevlerinde size yol gösterir [veri bilimi işlemi](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): veri alımı ve keşfi, görselleştirme, özellik Mühendisliği, modelleme ve model tüketim. Makaleyi modellerinde Lojistik ve doğrusal regresyon, rastgele ormanları ve gradyan boosted ağaçları (GBTs) ek olarak iki ortak denetimli makine öğrenimi görevlerini içerir:
@@ -26,9 +26,9 @@ Bu makalede, Scala Spark ölçeklenebilir MLlib ve Spark ML paketleri ile bir Az
 
 Modelleme işlemi, eğitim ve değerlendirme sınama veri kümesi ve ilgili doğruluğu ölçümleri gerektirir. Bu makalede, bu modeller Azure Blob Depolama alanında depolayın ve puan ve Tahmine dayalı performanslarını değerlendirmek bilgi edinebilirsiniz. Bu makalede, çapraz doğrulama ve hiper parametreli Süpürme'ı kullanarak modelleri iyileştirmek nasıl daha gelişmiş konular da kapsar. Kullanılan veri kümesinin 2013 NYC taksi seyahat ve taksi verileri Github'da bulunan bir örnektir.
 
-[Scala](http://www.scala-lang.org/), Java sanal makineye dayalı bir dili, nesne yönelimli ve işlevsel dil kavramları tümleştirir. Bu, bulutta dağıtılan işleme için uygundur ve Azure Spark kümelerinde çalıştırılır ölçeklenebilir bir dildir.
+[Scala](https://www.scala-lang.org/), Java sanal makineye dayalı bir dili, nesne yönelimli ve işlevsel dil kavramları tümleştirir. Bu, bulutta dağıtılan işleme için uygundur ve Azure Spark kümelerinde çalıştırılır ölçeklenebilir bir dildir.
 
-[Spark](http://spark.apache.org/) olduğundan büyük veri analizi uygulamalarının performansını artırmak üzere bellek içi işlemeyi destekleyen açık kaynaklı paralel işleme altyapısıdır. Spark işleme altyapısı hız, kullanım kolaylığı ve Gelişmiş analiz için oluşturulmuştur. Spark'ın dağıtılmış bellek içi hesaplama özellikleri makine öğrenimi ve grafik hesaplamalarında yinelemeli algoritmalar için iyi bir seçim yapın. [Spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) paket Tekdüzen bir yardımcı olabilecek bir çerçeve oluşturun ve pratik machine learning işlem hatlarını ayarlama veri üzerinde oluşturulan üst düzey API kümesi sağlar. [MLlib](http://spark.apache.org/mllib/) Spark'ın ölçeklenebilir makine öğrenimi kitaplığı dağıtılmış bu ortama modelleme özellikleri sunar.
+[Spark](https://spark.apache.org/) olduğundan büyük veri analizi uygulamalarının performansını artırmak üzere bellek içi işlemeyi destekleyen açık kaynaklı paralel işleme altyapısıdır. Spark işleme altyapısı hız, kullanım kolaylığı ve Gelişmiş analiz için oluşturulmuştur. Spark'ın dağıtılmış bellek içi hesaplama özellikleri makine öğrenimi ve grafik hesaplamalarında yinelemeli algoritmalar için iyi bir seçim yapın. [Spark.ml](https://spark.apache.org/docs/latest/ml-guide.html) paket Tekdüzen bir yardımcı olabilecek bir çerçeve oluşturun ve pratik machine learning işlem hatlarını ayarlama veri üzerinde oluşturulan üst düzey API kümesi sağlar. [MLlib](https://spark.apache.org/mllib/) Spark'ın ölçeklenebilir makine öğrenimi kitaplığı dağıtılmış bu ortama modelleme özellikleri sunar.
 
 [HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) açık kaynaklı Spark'ın Azure'da barındırılan teklifidir. Ayrıca Spark kümesinde Jupyter Scala not defterleri için destek içerir ve dönüştürme, filtreleme ve Azure Blob depolamada depolanan verileri görselleştirmek için Spark SQL etkileşimli sorguları çalıştırabilirsiniz. Jupyter not defterlerini Spark kümelerinde yüklü çözümler sağlayın ve verileri görselleştirmek için ilgili çizimleri Göster Scala kod parçacıkları bu makaledeki çalıştırın. Bu konu başlıklarındaki modelleme adımları, eğitme, değerlendirmek, kaydetme ve her bir türü modelin kullanma işlemi gösterilmektedir koda sahip.
 
@@ -368,7 +368,7 @@ Bu kod, yeni bir özellik olarak gruplama saat trafiği zaman demetlerin içine 
 ### <a name="indexing-and-one-hot-encoding-of-categorical-features"></a>Dizin oluşturma ve sık erişimli bir kategorik özelliklerinin kodlama
 Modelleme ve tahmin MLlib işlevlerini dizine veya kullanılmadan önce kodlanmış için kategorik girdi verilerini özelliklerle gerektirir. Bu bölümde dizin veya kodlama giriş modelleme işlevleri için kategorik özellikleri gösterilmektedir.
 
-Dizin veya modeline bağlı olarak, farklı şekillerde Modellerinizi kodlamanız gerekir. Örneğin, mantıksal ve doğrusal regresyon modellerini bir seyrek kodlama gerektirir. Örneğin, üç kategoriye sahip bir özellik, üç özellik sütunlara genişletilebilir. Her sütun, 0 veya 1 gözlemi kategorisine bağlı olarak içerecektir. MLlib sağlar [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) sık erişimli bir kodlama için işlevi. Bu Kodlayıcı etiket dizinleri içeren bir sütun ikili vektörleri en fazla bir değerle tek bir-bir sütunu eşlenir. Bu kodlama ile Lojistik regresyon gibi sayısal değerli özellikler beklediğiniz algoritmaları kategorik özelliklerine uygulanabilir.
+Dizin veya modeline bağlı olarak, farklı şekillerde Modellerinizi kodlamanız gerekir. Örneğin, mantıksal ve doğrusal regresyon modellerini bir seyrek kodlama gerektirir. Örneğin, üç kategoriye sahip bir özellik, üç özellik sütunlara genişletilebilir. Her sütun, 0 veya 1 gözlemi kategorisine bağlı olarak içerecektir. MLlib sağlar [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) sık erişimli bir kodlama için işlevi. Bu Kodlayıcı etiket dizinleri içeren bir sütun ikili vektörleri en fazla bir değerle tek bir-bir sütunu eşlenir. Bu kodlama ile Lojistik regresyon gibi sayısal değerli özellikler beklediğiniz algoritmaları kategorik özelliklerine uygulanabilir.
 
 Burada, karakter dizeleri olan örnekler göstermek için yalnızca dört değişken dönüştürün. Ayrıca, kategorik değişkenleri olarak sayısal değerler tarafından temsil edilen diğer gibi değişkenleri haftanın günü, dizine ekleyebilir.
 
@@ -853,7 +853,7 @@ Kod bir yerel veri çerçevesine sorgu çıkışı oluşturur ve verileri çizer
 ### <a name="create-a-gbt-regression-model"></a>GBT regresyon modeli oluşturun
 Spark ML kullanarak bir GBT regresyon modeli oluşturun `GBTRegressor()` çalışması ve test veri modelinde değerlendirebilirsiniz.
 
-[Gradyan boosted ağaçları](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) olan Kümelemeler karar ağaçları (GBTs). GBTs çalıştırmalarınızı kaybı işlevi en aza indirmek için karar ağaçları eğitin. Sınıflandırma ve regresyon GBTs kullanabilirsiniz. Bunlar kategorik özellikleri işleyebilir, özellik ölçeklendirme gerektirmez ve nonlinearities ve özellik etkileşimleri yakalayabilirsiniz. Ayrıca bunları bir sınıflandırma veya çoklu sınıflar ayarında kullanabilirsiniz.
+[Gradyan boosted ağaçları](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) olan Kümelemeler karar ağaçları (GBTs). GBTs çalıştırmalarınızı kaybı işlevi en aza indirmek için karar ağaçları eğitin. Sınıflandırma ve regresyon GBTs kullanabilirsiniz. Bunlar kategorik özellikleri işleyebilir, özellik ölçeklendirme gerektirmez ve nonlinearities ve özellik etkileşimleri yakalayabilirsiniz. Ayrıca bunları bir sınıflandırma veya çoklu sınıflar ayarında kullanabilirsiniz.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()

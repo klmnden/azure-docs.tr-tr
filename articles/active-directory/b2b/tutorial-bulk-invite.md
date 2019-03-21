@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 183a6ddf3fd47be552ba13ce42c1f6e29fca4410
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a30281012d28489a40e3366585164628d87c220
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193960"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009139"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Öğretici: Toplu Azure AD B2B işbirliği kullanıcıları davet edin
 
@@ -119,7 +119,7 @@ Davet edilen kullanıcıların Azure AD'ye eklendiğini doğrulamak için aşağ
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
-Kullanıcı asıl adı (UPN) *emailaddress*#EXT#@*etkialanı* biçiminde olacak şekilde, davet ettiğiniz kullanıcıların listelendiğini görmeniz gerekir. Örneğin, *lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com*; burada contoso.onmicrosoft.com, davetleri gönderdiğiniz kaynak kuruluştur.
+Listelenen davet ettiğiniz kullanıcılar biçimde bir kullanıcı asıl adına (UPN) sahip görmelisiniz *emailaddress*EXT #\@*etki alanı*. Örneğin, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, contoso.onmicrosoft.com içinden gönderdiğiniz davetiye kuruluş olduğu.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

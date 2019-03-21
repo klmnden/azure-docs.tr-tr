@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 6ace19339eb3f89c3b0cde6f5b9b0ecc783e2597
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a8566e41934b5d78d8be60b385ea4148e1cb60c3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341621"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087049"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management'ı kullanma
 Azure sanal ağları (Vnet) herhangi birini kullanarak Azure kaynaklarınızı erişimini denetleyen bir ağdaki internet olmayan routeable yerleştirmenize olanak sağlar. Bu ağlar ardından teknolojiler VPN kullanarak şirket içi ağa bağlanabilir. Buradaki bilgileri ile Azure sanal ağları başlangıç hakkında daha fazla bilgi için: [Azure sanal ağına genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -53,26 +53,26 @@ Bu makalede açıklanan adımları gerçekleştirmek için aşağıdakiler gerek
     ![API Management'ın sanal ağ menüsü][api-management-using-vnet-menu]
 4. İstenen erişim türünü seçin:
 
-    * **Dış**: API Management ağ geçidi ve Geliştirici Portalı bir dış yük dengeleyici aracılığıyla genel internet'ten erişilebilir. Ağ geçidi sanal ağ içindeki kaynaklara erişebilir.
+   * **Dış**: API Management ağ geçidi ve Geliştirici Portalı bir dış yük dengeleyici aracılığıyla genel internet'ten erişilebilir. Ağ geçidi sanal ağ içindeki kaynaklara erişebilir.
 
-    ![Ortak eşleme][api-management-vnet-public]
+     ![Ortak eşleme][api-management-vnet-public]
 
-    * **İç**: API Management ağ geçidi ve Geliştirici Portalı aracılığıyla bir iç yük dengeleyici sanal ağda yalnızca erişilebilir. Ağ geçidi sanal ağ içindeki kaynaklara erişebilir.
+   * **İç**: API Management ağ geçidi ve Geliştirici Portalı aracılığıyla bir iç yük dengeleyici sanal ağda yalnızca erişilebilir. Ağ geçidi sanal ağ içindeki kaynaklara erişebilir.
 
-    ![Özel eşleme][api-management-vnet-private]`
+     ![Özel eşleme][api-management-vnet-private]`
 
-    Şimdi burada API Yönetimi hizmetiniz sağlandıktan tüm bölgelerin bir listesini görürsünüz. Bir sanal ağ ve her bölge için alt ağ seçin. Hem Klasik hem de Resource Manager sanal ağları bulunan Kurulum yapılandırmakta olduğunuz bölgedeki Azure aboneliklerinizin listesi doldurulur.
+     Şimdi burada API Yönetimi hizmetiniz sağlandıktan tüm bölgelerin bir listesini görürsünüz. Bir sanal ağ ve her bölge için alt ağ seçin. Hem Klasik hem de Resource Manager sanal ağları bulunan Kurulum yapılandırmakta olduğunuz bölgedeki Azure aboneliklerinizin listesi doldurulur.
 
-    > [!NOTE]
-    > **Hizmet uç noktası** Yukarıdaki diyagramda Ağ Geçidi/Proxy, Azure portalı, Geliştirici Portalı, GIT ve doğrudan yönetim uç noktası içerir.
-    > **Yönetim uç noktası** Yukarıdaki diyagramda olup Azure portalı ve PowerShell'de aracılığıyla yapılandırmasını yönetmek için hizmet üzerinde barındırılan uç nokta.
-    > Ayrıca unutmayın, çeşitli uç için API Yönetimi hizmetinin IP adresleri diyagramda gösterilmektedir olsa da, **yalnızca** yapılandırılmış kendi ana bilgisayar adları üzerinde yanıt verir.
+     > [!NOTE]
+     > **Hizmet uç noktası** Yukarıdaki diyagramda Ağ Geçidi/Proxy, Azure portalı, Geliştirici Portalı, GIT ve doğrudan yönetim uç noktası içerir.
+     > **Yönetim uç noktası** Yukarıdaki diyagramda olup Azure portalı ve PowerShell'de aracılığıyla yapılandırmasını yönetmek için hizmet üzerinde barındırılan uç nokta.
+     > Ayrıca unutmayın, çeşitli uç için API Yönetimi hizmetinin IP adresleri diyagramda gösterilmektedir olsa da, **yalnızca** yapılandırılmış kendi ana bilgisayar adları üzerinde yanıt verir.
 
-    > [!IMPORTANT]
-    > Azure API Management örneği için Resource Manager VNET'i dağıtırken, hizmetin Azure API Management örneği dışında başka kaynaklar içeren ayrılmış alt ağında olmalıdır. Bir Resource Manager VNET'i alt ağ için Azure API Management örneği dağıtmak için bir girişimde diğer kaynakları içeren, dağıtım başarısız olur.
-    >
+     > [!IMPORTANT]
+     > Azure API Management örneği için Resource Manager VNET'i dağıtırken, hizmetin Azure API Management örneği dışında başka kaynaklar içeren ayrılmış alt ağında olmalıdır. Bir Resource Manager VNET'i alt ağ için Azure API Management örneği dağıtmak için bir girişimde diğer kaynakları içeren, dağıtım başarısız olur.
+     >
 
-    ![VPN seçin][api-management-setup-vpn-select]
+     ![VPN seçin][api-management-setup-vpn-select]
 
 5. Tıklayın **Kaydet** ekranın üstünde.
 
@@ -148,17 +148,17 @@ API Management hizmet örneği, sanal ağ içinde barındırıldığında, aşa�
 
 + **Zorlamalı tünel Express Route veya ağ sanal Gereci kullanarak şirket içi güvenlik duvarının trafiği**: Yaygın müşteri tüm trafiğin API Management'tan zorlar, kendi varsayılan yolun (0.0.0.0/0) tanımlamak için alt ağ bir ağ sanal gerecine veya bir şirket içi güvenlik duvarı üzerinden flow'a temsilci bir yapılandırmadır. Bu trafik akışını neredeyse şaşmaz biçimde ya da engellenen şirket içi giden trafiği olduğundan veya tanınmayan bir artık çeşitli Azure uç noktaları ile çalışma adresleri kümesi NAT istersiniz Azure API Management ile bağlantısını keser. Çözüm birkaç şey yapmanızı gerektirir:
 
-    * API Management hizmeti dağıtıldığı alt ağdaki hizmet uç noktalarını etkinleştirin. [Hizmet uç noktaları] [ ServiceEndpoints] Azure Sql, Azure depolama, Azure Event Hubs'a ve Azure Service Bus için etkinleştirilmesi gerekir. API Management hizmeti trafiği için en iyi yönlendirmeyi sağlayan Microsoft Azure omurga ağı kullanmak bu hizmetlere yönelik temsilci alt veren doğrudan uç noktaları etkinleştiriliyor. Hizmet uç noktaları ile zorlamalı tünel API Management kullanıyorsanız, yukarıdaki Azure hizmetlerine trafiğine zorlamalı tünel uygulanmaz. Hizmet bağımlılık trafiğine zorlamalı diğer API Management tünelli ve kaybedilemez veya API Management hizmeti düzgün çalışmaz.
+  * API Management hizmeti dağıtıldığı alt ağdaki hizmet uç noktalarını etkinleştirin. [Hizmet uç noktaları] [ ServiceEndpoints] Azure Sql, Azure depolama, Azure Event Hubs'a ve Azure Service Bus için etkinleştirilmesi gerekir. API Management hizmeti trafiği için en iyi yönlendirmeyi sağlayan Microsoft Azure omurga ağı kullanmak bu hizmetlere yönelik temsilci alt veren doğrudan uç noktaları etkinleştiriliyor. Hizmet uç noktaları ile zorlamalı tünel API Management kullanıyorsanız, yukarıdaki Azure hizmetlerine trafiğine zorlamalı tünel uygulanmaz. Hizmet bağımlılık trafiğine zorlamalı diğer API Management tünelli ve kaybedilemez veya API Management hizmeti düzgün çalışmaz.
     
-    * Tüm denetim düzlemi trafiği Internet'ten yönetim uç noktası, API Management hizmetiniz için API Management tarafından barındırılan IP'ler gelen belirli bir dizi aracılığıyla yönlendirilir. Yanıtları simetrik trafiğe zorlamalı olduğunda bu gelen kaynağına geri IP'ler eşleştirmez. Sınırlamanın üstesinden gelmek için aşağıdaki kullanıcı tanımlı yollar eklemeniz gerekir ([Udr'ler][UDRs]) trafiği azure'a geri bu konak yolları "Internet" hedefini ayarlayarak faaliyetidir için. Gelen IP'ler kümesini denetim düzlemi trafiği için aşağıdaki gibidir:
+  * Tüm denetim düzlemi trafiği Internet'ten yönetim uç noktası, API Management hizmetiniz için API Management tarafından barındırılan IP'ler gelen belirli bir dizi aracılığıyla yönlendirilir. Yanıtları simetrik trafiğe zorlamalı olduğunda bu gelen kaynağına geri IP'ler eşleştirmez. Sınırlamanın üstesinden gelmek için aşağıdaki kullanıcı tanımlı yollar eklemeniz gerekir ([Udr'ler][UDRs]) trafiği azure'a geri bu konak yolları "Internet" hedefini ayarlayarak faaliyetidir için. Gelen IP'ler kümesini denetim düzlemi trafiği için aşağıdaki gibidir:
     
     > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
 
-    * Diğer API Management hizmet zorlamalı, olan bağımlılıkları kendi ana bilgisayar adını çözümleyemiyor ve uç noktaya ulaşmak için bir yol olmalıdır. Bunlar
-        - Ölçümler ve sistem durumu izleme
-        - Azure portalı tanılama
-        - SMTP geçiş
-        - Geliştirici Portalı CAPTCHA
+  * Diğer API Management hizmet zorlamalı, olan bağımlılıkları kendi ana bilgisayar adını çözümleyemiyor ve uç noktaya ulaşmak için bir yol olmalıdır. Bunlar
+      - Ölçümler ve sistem durumu izleme
+      - Azure portalı tanılama
+      - SMTP geçiş
+      - Geliştirici Portalı CAPTCHA
 
 ## <a name="troubleshooting"> </a>Sorun giderme
 * **İlk kurulum**: API Management hizmeti bir alt ağa ilk dağıtımı başarısız olduğunda, aynı alt ağa bir sanal makine dağıtmanız önerilir. Sanal makineye sonraki Uzak Masaüstü ve azure aboneliğinizde her bir kaynaktan bir bağlantı olduğunu doğrulayın
@@ -166,8 +166,8 @@ API Management hizmet örneği, sanal ağ içinde barındırıldığında, aşa�
     * Azure SQL Database
     * Azure depolama tablosu
 
- > [!IMPORTANT]
- > Bağlantı doğrulandıktan sonra API Management alt ağa dağıtmadan önce alt ağda dağıtılan tüm kaynakları kaldırmak emin olun.
+  > [!IMPORTANT]
+  > Bağlantı doğrulandıktan sonra API Management alt ağa dağıtmadan önce alt ağda dağıtılan tüm kaynakları kaldırmak emin olun.
 
 * **Artımlı güncelleştirmeler**: Ağınızda değişiklikler yaparken, başvurmak [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), API Management hizmeti bağlıdır, kritik kaynaklara erişimi kesildi değil doğrulayın. Bağlantı durumu, her 15 dakikada güncelleştirilmelidir.
 

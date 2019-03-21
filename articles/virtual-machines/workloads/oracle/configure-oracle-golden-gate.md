@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: b21d9fe7c92edef13e717399c1f7a2b0e704e583
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1d0905900b81a0c7775011774b55565217d13b71
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433493"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011544"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Bir Azure Linux sanal makinesinde Oracle Golden kapısı uygulayın 
 
@@ -349,79 +349,79 @@ SQL> EXIT;
 ### <a name="download-golden-gate-software"></a>Golden kapısı yazılım indirme
 İndirip Golden kapısı Oracle yazılımlarını hazırlamak için aşağıdaki adımları tamamlayın:
 
-1. İndirme **fbo_ggs_Linux_x64_shiphome.zip** dosya [Oracle Golden ağ geçidi indirme sayfasına](http://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). İndirme başlığı altında **Oracle Linux x86-64 için'Oracle Goldengate'i 12.x.x.x**, .zip dosyalarını indirmek için bir dizi olmalıdır.
+1. İndirme **fbo_ggs_Linux_x64_shiphome.zip** dosya [Oracle Golden ağ geçidi indirme sayfasına](https://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). İndirme başlığı altında **Oracle Linux x86-64 için'Oracle Goldengate'i 12.x.x.x**, .zip dosyalarını indirmek için bir dizi olmalıdır.
 
 2. .Zip dosyalarını, istemci bilgisayara indirdikten sonra sanal makinenizde dosyaları kopyalamak için kopyalama Protokolü (SCP) kullanın:
 
-  ```bash
-  $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
-  ```
+   ```bash
+   $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
+   ```
 
 3. .Zip dosyasına taşımak **/ opt** klasör. Ardından, dosya sahibini gibi değiştirin:
 
-  ```bash
-  $ sudo su -
-  # mv <folder>/*.zip /opt
-  ```
+   ```bash
+   $ sudo su -
+   # mv <folder>/*.zip /opt
+   ```
 
 4. (Yükleme Linux sıkıştırmasını açın yardımcı programını zaten yüklü değilse) dosyaların sıkıştırmasını açın:
 
-  ```bash
-  # yum install unzip
-  # cd /opt
-  # unzip fbo_ggs_Linux_x64_shiphome.zip
-  ```
+   ```bash
+   # yum install unzip
+   # cd /opt
+   # unzip fbo_ggs_Linux_x64_shiphome.zip
+   ```
 
 5. İzni değiştir:
 
-  ```bash
-  # chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
-  ```
+   ```bash
+   # chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
+   ```
 
 ### <a name="prepare-the-client-and-vm-to-run-x11-for-windows-clients-only"></a>İstemci ve VM x11 (yalnızca Windows istemcileri için) çalıştırmak için hazırlama
 Bu isteğe bağlı bir adımdır. Bir Linux istemcisi kullanarak veya x11 zaten varsa bu adımı atlayabilirsiniz kurulumu.
 
 1. PuTTY ve Xming Windows bilgisayarınıza indirin:
 
-  * [Putty'yi indirin](http://www.putty.org/)
-  * [Xming indirin](https://xming.en.softonic.com/)
+   * [Putty'yi indirin](https://www.putty.org/)
+   * [Xming indirin](https://xming.en.softonic.com/)
 
-2.  PuTTY, PuTTY klasöre (örneğin, C:\Program Files\PuTTY) yükledikten sonra puttygen.exe (PuTTY anahtar Oluşturucu) çalıştırın.
+2. PuTTY, PuTTY klasöre (örneğin, C:\Program Files\PuTTY) yükledikten sonra puttygen.exe (PuTTY anahtar Oluşturucu) çalıştırın.
 
-3.  PuTTY anahtar oluşturucu içinde:
+3. PuTTY anahtar oluşturucu içinde:
 
-  - Bir anahtar oluşturmak üzere **Oluştur** düğmesi.
-  - Anahtar içeriğini kopyalayın (**Ctrl + C**).
-  - Seçin **özel anahtarı Kaydet** düğmesi.
-  - Görünür ve sonra uyarıyı Yoksay **Tamam**.
+   - Bir anahtar oluşturmak üzere **Oluştur** düğmesi.
+   - Anahtar içeriğini kopyalayın (**Ctrl + C**).
+   - Seçin **özel anahtarı Kaydet** düğmesi.
+   - Görünür ve sonra uyarıyı Yoksay **Tamam**.
 
-    ![PuTTY anahtar Oluşturucu sayfasının ekran görüntüsü](./media/oracle-golden-gate/puttykeygen.png)
+   ![PuTTY anahtar Oluşturucu sayfasının ekran görüntüsü](./media/oracle-golden-gate/puttykeygen.png)
 
-4.  Sanal makinenize şu komutları çalıştırın:
+4. Sanal makinenize şu komutları çalıştırın:
 
-  ```bash
-  # sudo su - oracle
-  $ mkdir .ssh (if not already created)
-  $ cd .ssh
-  ```
+   ```bash
+   # sudo su - oracle
+   $ mkdir .ssh (if not already created)
+   $ cd .ssh
+   ```
 
 5. Adlı bir dosya oluşturun **authorized_keys**. Anahtarın içeriğini bu dosyaya yapıştırın ve dosyayı kaydedin.
 
-  > [!NOTE]
-  > Anahtar dize içermelidir `ssh-rsa`. Ayrıca, anahtarın içeriğini tek satırlık bir metin olmalıdır.
-  >  
+   > [!NOTE]
+   > Anahtar dize içermelidir `ssh-rsa`. Ayrıca, anahtarın içeriğini tek satırlık bir metin olmalıdır.
+   >  
 
 6. PuTTY’yi başlatın. İçinde **kategori** bölmesinde **bağlantı** > **SSH** > **Auth**. İçinde **kimlik doğrulaması için özel anahtar dosyası** kutusunda, daha önce oluşturduğunuz anahtara göz atın.
 
-  ![Özel anahtarı ayarlama sayfasının ekran görüntüsü](./media/oracle-golden-gate/setprivatekey.png)
+   ![Özel anahtarı ayarlama sayfasının ekran görüntüsü](./media/oracle-golden-gate/setprivatekey.png)
 
 7. İçinde **kategori** bölmesinde **bağlantı** > **SSH** > **X11**. Ardından **etkinleştir X11 iletme** kutusu.
 
-  ![Etkinleştirme X11 sayfasının ekran görüntüsü](./media/oracle-golden-gate/enablex11.png)
+   ![Etkinleştirme X11 sayfasının ekran görüntüsü](./media/oracle-golden-gate/enablex11.png)
 
 8. İçinde **kategori** bölmesinde, Git **oturumu**. Konak bilgilerini girin ve ardından **açık**.
 
-  ![Oturum sayfasının ekran görüntüsü](./media/oracle-golden-gate/puttysession.png)
+   ![Oturum sayfasının ekran görüntüsü](./media/oracle-golden-gate/puttysession.png)
 
 ### <a name="install-golden-gate-software"></a>Golden kapısı yazılım yükleme
 
@@ -429,43 +429,43 @@ Oracle Golden ağ geçidi yüklemek için aşağıdaki adımları tamamlayın:
 
 1. Oracle oturum açın. (Sizin için bir parola istenmeden oturum açabilir olmalıdır.) Yüklemeye başlamadan önce Xming çalıştığından emin olun.
  
-  ```bash
-  $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
-  $ ./runInstaller
-  ```
+   ```bash
+   $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
+   $ ./runInstaller
+   ```
 2. 'İçin Oracle Database 12 c Oracle Goldengate'i' seçin. Ardından **sonraki** devam etmek için.
 
-  ![Yükleyici yükleme Seç sayfasının ekran görüntüsü](./media/oracle-golden-gate/golden_gate_install_01.png)
+   ![Yükleyici yükleme Seç sayfasının ekran görüntüsü](./media/oracle-golden-gate/golden_gate_install_01.png)
 
 3. Yazılım konumunu değiştirebilirsiniz. Ardından **Yöneticisi'ni başlatın** kutusunda ve veritabanı konumu girin. Devam etmek için **İleri**’yi seçin.
 
-  ![Yükleme Seç sayfasının ekran görüntüsü](./media/oracle-golden-gate/golden_gate_install_02.png)
+   ![Yükleme Seç sayfasının ekran görüntüsü](./media/oracle-golden-gate/golden_gate_install_02.png)
 
 4. Stok dizini değiştirin ve ardından **sonraki** devam etmek için.
 
-  ![Yükleme Seç sayfasının ekran görüntüsü](./media/oracle-golden-gate/golden_gate_install_03.png)
+   ![Yükleme Seç sayfasının ekran görüntüsü](./media/oracle-golden-gate/golden_gate_install_03.png)
 
 5. Üzerinde **özeti** ekranındayken **yükleme** devam etmek için.
 
-  ![Yükleyici yükleme Seç sayfasının ekran görüntüsü](./media/oracle-golden-gate/golden_gate_install_04.png)
+   ![Yükleyici yükleme Seç sayfasının ekran görüntüsü](./media/oracle-golden-gate/golden_gate_install_04.png)
 
 6. 'Root' olarak bir betik çalıştırmak için istenebilir. Bu durumda, ayrı bir oturum ssh VM, kök, sudo açın ve ardından betiği çalıştırın. Seçin **Tamam** devam edin.
 
-  ![Yükleme Seç sayfasının ekran görüntüsü](./media/oracle-golden-gate/golden_gate_install_05.png)
+   ![Yükleme Seç sayfasının ekran görüntüsü](./media/oracle-golden-gate/golden_gate_install_05.png)
 
 7. Yükleme tamamlandığında, seçin **Kapat** tıklayarak işlemi tamamlar.
 
-  ![Yükleme Seç sayfasının ekran görüntüsü](./media/oracle-golden-gate/golden_gate_install_06.png)
+   ![Yükleme Seç sayfasının ekran görüntüsü](./media/oracle-golden-gate/golden_gate_install_06.png)
 
 ### <a name="set-up-service-on-myvm1-primary"></a>MyVM1 hizmette (birincil) ayarlayın
 
 1. Oluşturma veya tnsnames.ora dosyası güncelleştirme:
 
-  ```bash
-  $ cd $ORACLE_HOME/network/admin
-  $ vi tnsnames.ora
+   ```bash
+   $ cd $ORACLE_HOME/network/admin
+   $ vi tnsnames.ora
 
-  cdb1=
+   cdb1=
     (DESCRIPTION=
       (ADDRESS=
         (PROTOCOL=TCP)
@@ -478,7 +478,7 @@ Oracle Golden ağ geçidi yüklemek için aşağıdaki adımları tamamlayın:
       )
     )
 
-  pdb1=
+   pdb1=
     (DESCRIPTION=
       (ADDRESS=
         (PROTOCOL=TCP)
@@ -490,13 +490,13 @@ Oracle Golden ağ geçidi yüklemek için aşağıdaki adımları tamamlayın:
         (SERVICE_NAME=pdb1)
       )
     )
-  ```
+   ```
 
 2. Golden kapısı sahip ve kullanıcı hesapları oluşturun.
 
-  > [!NOTE]
-  > C ## önek sahip hesabı olması gerekir.
-  >
+   > [!NOTE]
+   > Hesabın sahibi olmalıdır C## öneki.
+   >
 
     ```bash
     $ sqlplus / as sysdba
@@ -510,124 +510,124 @@ Oracle Golden ağ geçidi yüklemek için aşağıdaki adımları tamamlayın:
 
 3. Golden kapısı sınama kullanıcı hesabı oluşturun:
 
-  ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ sqlplus system/OraPasswd1@pdb1
-  SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
-  SQL> GRANT connect, resource, dba TO test;
-  SQL> ALTER USER test QUOTA 100M on USERS;
-  SQL> connect test/test@pdb1
-  SQL> @demo_ora_create
-  SQL> @demo_ora_insert
-  SQL> EXIT;
-  ```
+   ```bash
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ sqlplus system/OraPasswd1@pdb1
+   SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
+   SQL> GRANT connect, resource, dba TO test;
+   SQL> ALTER USER test QUOTA 100M on USERS;
+   SQL> connect test/test@pdb1
+   SQL> @demo_ora_create
+   SQL> @demo_ora_insert
+   SQL> EXIT;
+   ```
 
 4. Extract parametre dosyasını yapılandırın.
 
- Altın kapısı komut satırı arabirimi (ggsci) başlatın:
+   Altın kapısı komut satırı arabirimi (ggsci) başlatın:
 
-  ```bash
-  $ sudo su - oracle
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ ./ggsci
-  GGSCI> DBLOGIN USERID test@pdb1, PASSWORD test
-  Successfully logged into database  pdb1
-  GGSCI>  ADD SCHEMATRANDATA pdb1.test
-  2017-05-23 15:44:25  INFO    OGG-01788  SCHEMATRANDATA has been added on schema test.
-  2017-05-23 15:44:25  INFO    OGG-01976  SCHEMATRANDATA for scheduling columns has been added on schema test.
+   ```bash
+   $ sudo su - oracle
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ ./ggsci
+   GGSCI> DBLOGIN USERID test@pdb1, PASSWORD test
+   Successfully logged into database  pdb1
+   GGSCI>  ADD SCHEMATRANDATA pdb1.test
+   2017-05-23 15:44:25  INFO    OGG-01788  SCHEMATRANDATA has been added on schema test.
+   2017-05-23 15:44:25  INFO    OGG-01976  SCHEMATRANDATA for scheduling columns has been added on schema test.
 
-  GGSCI> EDIT PARAMS EXTORA
-  ```
+   GGSCI> EDIT PARAMS EXTORA
+   ```
 5. Aşağıdaki (vi komutları kullanarak) için ayıklama parametre dosyası ekleyin. Esc tuşuna basın, ': wq!' dosyayı kaydetmek için. 
 
-  ```bash
-  EXTRACT EXTORA
-  USERID C##GGADMIN, PASSWORD ggadmin
-  RMTHOST 10.0.0.5, MGRPORT 7809
-  RMTTRAIL ./dirdat/rt  
-  DDL INCLUDE MAPPED
-  DDLOPTIONS REPORT 
-  LOGALLSUPCOLS
-  UPDATERECORDFORMAT COMPACT
-  TABLE pdb1.test.TCUSTMER;
-  TABLE pdb1.test.TCUSTORD;
-  ```
+   ```bash
+   EXTRACT EXTORA
+   USERID C##GGADMIN, PASSWORD ggadmin
+   RMTHOST 10.0.0.5, MGRPORT 7809
+   RMTTRAIL ./dirdat/rt  
+   DDL INCLUDE MAPPED
+   DDLOPTIONS REPORT 
+   LOGALLSUPCOLS
+   UPDATERECORDFORMAT COMPACT
+   TABLE pdb1.test.TCUSTMER;
+   TABLE pdb1.test.TCUSTORD;
+   ```
 6. Kayıt Ayıkla--tümleşik Ayıkla:
 
-  ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ ./ggsci
+   ```bash
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ ./ggsci
 
-  GGSCI> dblogin userid C##GGADMIN, password ggadmin
-  Successfully logged into database CDB$ROOT.
+   GGSCI> dblogin userid C##GGADMIN, password ggadmin
+   Successfully logged into database CDB$ROOT.
 
-  GGSCI> REGISTER EXTRACT EXTORA DATABASE CONTAINER(pdb1)
+   GGSCI> REGISTER EXTRACT EXTORA DATABASE CONTAINER(pdb1)
 
-  2017-05-23 15:58:34  INFO    OGG-02003  Extract EXTORA successfully registered with database at SCN 1821260.
+   2017-05-23 15:58:34  INFO    OGG-02003  Extract EXTORA successfully registered with database at SCN 1821260.
 
-  GGSCI> exit
-  ```
+   GGSCI> exit
+   ```
 7. Extract denetim noktaları ayarlama ve gerçek zamanlı ayıklama başlayın:
 
-  ```bash
-  $ ./ggsci
-  GGSCI>  ADD EXTRACT EXTORA, INTEGRATED TRANLOG, BEGIN NOW
-  EXTRACT (Integrated) added.
+   ```bash
+   $ ./ggsci
+   GGSCI>  ADD EXTRACT EXTORA, INTEGRATED TRANLOG, BEGIN NOW
+   EXTRACT (Integrated) added.
 
-  GGSCI>  ADD RMTTRAIL ./dirdat/rt, EXTRACT EXTORA, MEGABYTES 10
-  RMTTRAIL added.
+   GGSCI>  ADD RMTTRAIL ./dirdat/rt, EXTRACT EXTORA, MEGABYTES 10
+   RMTTRAIL added.
 
-  GGSCI>  START EXTRACT EXTORA
+   GGSCI>  START EXTRACT EXTORA
 
-  Sending START request to MANAGER ...
-  EXTRACT EXTORA starting
+   Sending START request to MANAGER ...
+   EXTRACT EXTORA starting
 
-  GGSCI > info all
+   GGSCI > info all
 
-  Program     Status      Group       Lag at Chkpt  Time Since Chkpt
+   Program     Status      Group       Lag at Chkpt  Time Since Chkpt
 
-  MANAGER     RUNNING
-  EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
-  ```
-Bu adımda, daha sonra farklı bir bölümde kullanılacak başlangıç SCN bulun:
+   MANAGER     RUNNING
+   EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
+   ```
+   Bu adımda, daha sonra farklı bir bölümde kullanılacak başlangıç SCN bulun:
 
-  ```bash
-  $ sqlplus / as sysdba
-  SQL> alter session set container = pdb1;
-  SQL> SELECT current_scn from v$database;
-  CURRENT_SCN
-  -----------
+   ```bash
+   $ sqlplus / as sysdba
+   SQL> alter session set container = pdb1;
+   SQL> SELECT current_scn from v$database;
+   CURRENT_SCN
+   -----------
       1857887
-  SQL> EXIT;
-  ```
+   SQL> EXIT;
+   ```
 
-  ```bash
-  $ ./ggsci
-  GGSCI> EDIT PARAMS INITEXT
-  ```
+   ```bash
+   $ ./ggsci
+   GGSCI> EDIT PARAMS INITEXT
+   ```
 
-  ```bash
-  EXTRACT INITEXT
-  USERID C##GGADMIN, PASSWORD ggadmin
-  RMTHOST 10.0.0.5, MGRPORT 7809
-  RMTTASK REPLICAT, GROUP INITREP
-  TABLE pdb1.test.*, SQLPREDICATE 'AS OF SCN 1857887'; 
-  ```
+   ```bash
+   EXTRACT INITEXT
+   USERID C##GGADMIN, PASSWORD ggadmin
+   RMTHOST 10.0.0.5, MGRPORT 7809
+   RMTTASK REPLICAT, GROUP INITREP
+   TABLE pdb1.test.*, SQLPREDICATE 'AS OF SCN 1857887'; 
+   ```
 
-  ```bash
-  GGSCI> ADD EXTRACT INITEXT, SOURCEISTABLE
-  ```
+   ```bash
+   GGSCI> ADD EXTRACT INITEXT, SOURCEISTABLE
+   ```
 
 ### <a name="set-up-service-on-myvm2-replicate"></a>MyVM2 hizmette ayarlayın (Çoğaltma)
 
 
 1. Oluşturma veya tnsnames.ora dosyası güncelleştirme:
 
-  ```bash
-  $ cd $ORACLE_HOME/network/admin
-  $ vi tnsnames.ora
+   ```bash
+   $ cd $ORACLE_HOME/network/admin
+   $ vi tnsnames.ora
 
-  cdb1=
+   cdb1=
     (DESCRIPTION=
       (ADDRESS=
         (PROTOCOL=TCP)
@@ -640,7 +640,7 @@ Bu adımda, daha sonra farklı bir bölümde kullanılacak başlangıç SCN bulu
       )
     )
 
-  pdb1=
+   pdb1=
     (DESCRIPTION=
       (ADDRESS=
         (PROTOCOL=TCP)
@@ -652,72 +652,72 @@ Bu adımda, daha sonra farklı bir bölümde kullanılacak başlangıç SCN bulu
         (SERVICE_NAME=pdb1)
       )
     )
-  ```
+   ```
 
 2. Bir çoğaltma hesabı oluşturun:
 
-  ```bash
-  $ sqlplus / as sysdba
-  SQL> alter session set container = pdb1;
-  SQL> create user repuser identified by rep_pass container=current;
-  SQL> grant dba to repuser;
-  SQL> exec dbms_goldengate_auth.grant_admin_privilege('REPUSER',container=>'PDB1');
-  SQL> connect repuser/rep_pass@pdb1 
-  SQL> EXIT;
-  ```
+   ```bash
+   $ sqlplus / as sysdba
+   SQL> alter session set container = pdb1;
+   SQL> create user repuser identified by rep_pass container=current;
+   SQL> grant dba to repuser;
+   SQL> exec dbms_goldengate_auth.grant_admin_privilege('REPUSER',container=>'PDB1');
+   SQL> connect repuser/rep_pass@pdb1 
+   SQL> EXIT;
+   ```
 
 3. Golden kapısı sınama kullanıcı hesabı oluşturun:
 
-  ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ sqlplus system/OraPasswd1@pdb1
-  SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
-  SQL> GRANT connect, resource, dba TO test;
-  SQL> ALTER USER test QUOTA 100M on USERS;
-  SQL> connect test/test@pdb1
-  SQL> @demo_ora_create
-  SQL> EXIT;
-  ```
+   ```bash
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ sqlplus system/OraPasswd1@pdb1
+   SQL> CREATE USER test identified by test DEFAULT TABLESPACE USERS TEMPORARY TABLESPACE TEMP;
+   SQL> GRANT connect, resource, dba TO test;
+   SQL> ALTER USER test QUOTA 100M on USERS;
+   SQL> connect test/test@pdb1
+   SQL> @demo_ora_create
+   SQL> EXIT;
+   ```
 
 4. Değişiklikleri çoğaltmak için REPLICAT parametre dosyası: 
 
-  ```bash
-  $ cd /u01/app/oracle/product/12.1.0/oggcore_1
-  $ ./ggsci
-  GGSCI> EDIT PARAMS REPORA  
-  ```
-  REPORA parametre dosyasının içeriği:
+   ```bash
+   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
+   $ ./ggsci
+   GGSCI> EDIT PARAMS REPORA  
+   ```
+   REPORA parametre dosyasının içeriği:
 
-  ```bash
-  REPLICAT REPORA
-  ASSUMETARGETDEFS
-  DISCARDFILE ./dirrpt/repora.dsc, PURGE, MEGABYTES 100
-  DDL INCLUDE MAPPED
-  DDLOPTIONS REPORT
-  DBOPTIONS INTEGRATEDPARAMS(parallelism 6)
-  USERID repuser@pdb1, PASSWORD rep_pass
-  MAP pdb1.test.*, TARGET pdb1.test.*;
-  ```
+   ```bash
+   REPLICAT REPORA
+   ASSUMETARGETDEFS
+   DISCARDFILE ./dirrpt/repora.dsc, PURGE, MEGABYTES 100
+   DDL INCLUDE MAPPED
+   DDLOPTIONS REPORT
+   DBOPTIONS INTEGRATEDPARAMS(parallelism 6)
+   USERID repuser@pdb1, PASSWORD rep_pass
+   MAP pdb1.test.*, TARGET pdb1.test.*;
+   ```
 
 5. Çoğaltma bir denetim noktası ayarlayın:
 
-  ```bash
-  GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt
-  GGSCI> EDIT PARAMS INITREP
+   ```bash
+   GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt
+   GGSCI> EDIT PARAMS INITREP
 
-  ```
+   ```
 
-  ```bash
-  REPLICAT INITREP
-  ASSUMETARGETDEFS
-  DISCARDFILE ./dirrpt/tcustmer.dsc, APPEND
-  USERID repuser@pdb1, PASSWORD rep_pass
-  MAP pdb1.test.*, TARGET pdb1.test.*;   
-  ```
+   ```bash
+   REPLICAT INITREP
+   ASSUMETARGETDEFS
+   DISCARDFILE ./dirrpt/tcustmer.dsc, APPEND
+   USERID repuser@pdb1, PASSWORD rep_pass
+   MAP pdb1.test.*, TARGET pdb1.test.*;   
+   ```
 
-  ```bash
-  GGSCI> ADD REPLICAT INITREP, SPECIALRUN
-  ```
+   ```bash
+   GGSCI> ADD REPLICAT INITREP, SPECIALRUN
+   ```
 
 ### <a name="set-up-the-replication-myvm1-and-myvm2"></a>(MyVM1 ve myVM2) çoğaltmayı ayarlama
 

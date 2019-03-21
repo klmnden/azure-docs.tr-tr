@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: 23d30d3b881fbe5aab4e537073b2582eb01bfe7c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b5544be37015368173f3f8eb39288b7a97ae11c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183433"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085006"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services yönetilen etki alanı eşitleme
 Aşağıdaki diyagram, eşitleme Azure AD Domain Services yönetilen etki alanlarını nasıl çalıştığını gösterir.
@@ -70,8 +70,6 @@ Aşağıdaki tabloda, bazı ortak öznitelikleri listeler ve yönetilen Etki Ala
 
 > [!NOTE]
 > **UPN biçimini kullanarak yönetilen etki alanına oturum açın:** SAMAccountName özniteliğini, yönetilen etki alanınıza bazı kullanıcı hesapları için otomatik olarak oluşturulmuş olabilir. Birden çok kullanıcı aynı mailNickname özniteliğine sahip veya kullanıcıların aşırı uzun UPN ön ekleri varsa, bu kullanıcılar için SAMAccountName otomatik olarak oluşturulmuş olabilir. Bu nedenle, SAMAccountName biçimi (örneğin, ' CONTOSO100\joeuser') her zaman etki alanında oturum açmak için güvenilir bir yol değil. Kullanıcıların otomatik olarak oluşturulan SAMAccountName kendi UPN önekten farklı olabilir. UPN biçimini kullanın (örneğin, 'joeuser@contoso100.com') için yönetilen etki alanında güvenilir bir şekilde oturum açmak için.
->
->
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Kullanıcı hesapları için öznitelik eşlemesi
 Aşağıdaki tabloda, Azure AD kiracınızda nesneleri yönetilen etki alanınıza karşılık gelen özniteliklerle eşitlenen bir kullanıcı için nasıl özel öznitelikler gösterilmektedir.

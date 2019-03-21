@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 8a67b94c7f2355872b243a05a7908604e88cf778
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ae3b4787928b3a578df30dd7f8a2791ce487305d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433799"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100505"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -115,8 +115,8 @@ Nasıl yeni bir HDInsight mevcut bir Azure sanal ağına eklemek keşfetmek içi
     * [Klasik Azure CLI kullanarak HDInsight oluşturma](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Bir Azure Resource Manager şablonu kullanarak HDInsight oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-  > [!IMPORTANT]  
-  > HDInsight'ı bir sanal ağa ekleyerek bir isteğe bağlı yapılandırma adımdır. Küme yapılandırma sırasında sanal ağ'ı seçtiğinizden emin olun.
+   > [!IMPORTANT]  
+   > HDInsight'ı bir sanal ağa ekleyerek bir isteğe bağlı yapılandırma adımdır. Küme yapılandırma sırasında sanal ağ'ı seçtiğinizden emin olun.
 
 ## <a id="multinet"></a>Birden çok ağları bağlama
 
@@ -128,8 +128,8 @@ Azure sanal ağında yüklü olan Azure Hizmetleri için ad çözümleme sağlar
 
 * Aynı Azure sanal ağında, kullanarak herhangi bir kaynağa __iç DNS ad__ kaynak. Örneğin, varsayılan ad çözümlemesi kullanırken, örnek HDInsight çalışan düğümlerine atanan iç DNS adları şunlardır:
 
-    * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
-    * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
+  * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Hem bu düğümler doğrudan birbirine ve HDInsight, diğer düğümleri iç DNS adları kullanarak iletişim kurabilir.
 
@@ -148,29 +148,29 @@ Sanal ağ ve birleştirilmiş ağlardaki kaynaklar arasında ad çözümlemesine
 
 4. DNS sunucuları arasında iletim yapılandırın. Yapılandırma, uzak ağ türüne bağlıdır.
 
-    * Uzak ağ ile şirket içi ağ ise, DNS gibi yapılandırın:
+   * Uzak ağ ile şirket içi ağ ise, DNS gibi yapılandırın:
         
-        * __Özel DNS__ (sanal ağdaki):
+     * __Özel DNS__ (sanal ağdaki):
 
-            * Azure yinelemeli çözümleyici (168.63.129.16) sanal ağa ait DNS sonekini istekleri iletmek. Azure sanal ağdaki kaynaklar için istekleri işler
+         * Azure yinelemeli çözümleyici (168.63.129.16) sanal ağa ait DNS sonekini istekleri iletmek. Azure sanal ağdaki kaynaklar için istekleri işler
 
-            * Şirket içi DNS sunucusuna tüm istekleri iletin. Şirket içi DNS diğer ad çözümleme isteklerinin Microsoft.com gibi Internet kaynaklarına yönelik bile istekleri işler.
+         * Şirket içi DNS sunucusuna tüm istekleri iletin. Şirket içi DNS diğer ad çözümleme isteklerinin Microsoft.com gibi Internet kaynaklarına yönelik bile istekleri işler.
 
-        * __Şirket içi DNS__: Özel DNS sunucusu için sanal ağ DNS soneki için istekleri iletmek. Özel DNS sunucusu için Azure özyinelemeli çözümleyici ardından iletir.
+     * __Şirket içi DNS__: Özel DNS sunucusu için sanal ağ DNS soneki için istekleri iletmek. Özel DNS sunucusu için Azure özyinelemeli çözümleyici ardından iletir.
 
-        Bu yapılandırma yollar istekleri için sanal ağ özel DNS sunucusuna DNS sonekinde etki alanı adları tam. Diğer tüm istekler (hatta için genel internet adresleri), şirket içi DNS sunucusu tarafından işlenir.
+       Bu yapılandırma yollar istekleri için sanal ağ özel DNS sunucusuna DNS sonekinde etki alanı adları tam. Diğer tüm istekler (hatta için genel internet adresleri), şirket içi DNS sunucusu tarafından işlenir.
 
-    * Uzak ağ başka bir Azure sanal ağ değilse, DNS gibi yapılandırın:
+   * Uzak ağ başka bir Azure sanal ağ değilse, DNS gibi yapılandırın:
 
-        * __Özel DNS__ (içinde her sanal ağ için):
+     * __Özel DNS__ (içinde her sanal ağ için):
 
-            * DNS soneki sanal ağlar için istekleri, özel DNS sunucularını iletilir. Her bir sanal ağ DNS, alt ağ içindeki kaynakları çözümleme için sorumludur.
+         * DNS soneki sanal ağlar için istekleri, özel DNS sunucularını iletilir. Her bir sanal ağ DNS, alt ağ içindeki kaynakları çözümleme için sorumludur.
 
-            * Diğer tüm istekler için Azure özyinelemeli çözümleyici iletin. Özyinelemeli çözümleyici yerel çözme ve internet kaynakları sorumludur.
+         * Diğer tüm istekler için Azure özyinelemeli çözümleyici iletin. Özyinelemeli çözümleyici yerel çözme ve internet kaynakları sorumludur.
 
-        DNS sunucusu DNS son ekini temel alınarak her ağ diğer istekleri iletir. Azure yinelemeli çözümleyici kullanarak diğer istekleri çözümlenir.
+       DNS sunucusu DNS son ekini temel alınarak her ağ diğer istekleri iletir. Azure yinelemeli çözümleyici kullanarak diğer istekleri çözümlenir.
 
-    Her yapılandırma örneği için bkz: [örneği: Özel DNS](#example-dns) bölümü.
+     Her yapılandırma örneği için bkz: [örneği: Özel DNS](#example-dns) bölümü.
 
 Daha fazla bilgi için [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) belge.
 
@@ -647,9 +647,9 @@ Bu örnek aşağıdaki varsayımların yapar:
     };
     ```
     
-    * Değiştirin `10.0.0.0/16` ve `10.1.0.0/16` değerleri ile IP adresi aralıkları, sanal ağların. Bu giriş, DNS sunucularının isteğinde bulunmak için her bir ağ kaynakları sağlar.
+   * Değiştirin `10.0.0.0/16` ve `10.1.0.0/16` değerleri ile IP adresi aralıkları, sanal ağların. Bu giriş, DNS sunucularının isteğinde bulunmak için her bir ağ kaynakları sağlar.
 
-    Tüm istekler için DNS son eklerini sanal ağlar (örneğin, microsoft.com) olmayan Azure özyinelemeli çözümleyici tarafından gerçekleştirilir.
+     Tüm istekler için DNS son eklerini sanal ağlar (örneğin, microsoft.com) olmayan Azure özyinelemeli çözümleyici tarafından gerçekleştirilir.
 
 4. Yapılandırmayı kullanmak için bağlama yeniden başlatın. Örneğin, `sudo service bind9 restart` hem DNS sunucularında.
 

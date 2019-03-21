@@ -16,16 +16,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 6e2fa77273ef35fae6c3b232cb36fa913faf879d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9a0b12ec9d825fc665bd5beb89e911b80ed3889f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299058"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013882"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Microsoft Azure üzerinde Cloud Foundry için ilk uygulamanızı dağıtma
 
-[Cloud Foundry](http://cloudfoundry.org) popüler açık kaynak uygulama platformunu Microsoft Azure'da kullanıma sunuldu. Bu makalede, dağıtmak ve Cloud Foundry üzerinde bir uygulamayı Azure ortamınızda yönetmek nasıl göstereceğiz.
+[Cloud Foundry](https://cloudfoundry.org) popüler açık kaynak uygulama platformunu Microsoft Azure'da kullanıma sunuldu. Bu makalede, dağıtmak ve Cloud Foundry üzerinde bir uygulamayı Azure ortamınızda yönetmek nasıl göstereceğiz.
 
 ## <a name="create-a-cloud-foundry-environment"></a>Cloud Foundry ortamı oluşturma
 
@@ -33,7 +33,7 @@ Azure'da Cloud Foundry ortamı oluşturmak için birkaç seçenek vardır:
 
 - Kullanım [Pivotal Cloud Foundry teklif] [ pcf-azuremarketplace] PCF Ops Manager ve Azure hizmet Aracısı'nı içeren standart bir ortam oluşturmak için Azure Market'te. Bulabilirsiniz [tamamlamak yönergeleri] [ pcf-azuremarketplace-pivotaldocs] Market dağıtmak için Pivotal belgelerinde sunar.
 - Özelleştirilmiş bir ortamı tarafından oluşturma [el ile Pivotal Cloud Foundry dağıtma][pcf-custom].
-- [Açık kaynaklı Cloud Foundry paketlerini doğrudan dağıtma] [ oss-cf-bosh] oluşturarak bir [BOSH](http://bosh.io) Direktörü, Cloud Foundry ortamın dağıtımı koordine eden bir VM.
+- [Açık kaynaklı Cloud Foundry paketlerini doğrudan dağıtma] [ oss-cf-bosh] oluşturarak bir [BOSH](https://bosh.io) Direktörü, Cloud Foundry ortamın dağıtımı koordine eden bir VM.
 
 > [!IMPORTANT] 
 > Azure Market'ten PCF dağıtıyorsanız, SYSTEMDOMAINURL ve ikisi için de Market Dağıtım Kılavuzu'nda açıklanan Pivotal uygulamaları Yöneticisi'ne erişmek için gereken yönetici kimlik bilgilerini not edin. Bu öğreticiyi tamamlamak için gereklidir. Market dağıtımları için SYSTEMDOMAINURL biçimindedir https://system. *IP adresi*. cf.pcfazure.com.
@@ -77,7 +77,7 @@ Artık, bir uygulamayı dağıttığınızda, otomatik olarak yeni bir kuruluş 
 
 ## <a name="deploy-an-application"></a>Uygulama dağıtma
 
-Hello Spring Java dilinde yazılmış olan ve temel Cloud, adında örnek Cloud Foundry uygulama kullanalım [Spring Framework](http://spring.io) ve [Spring Boot](http://projects.spring.io/spring-boot/).
+Hello Spring Java dilinde yazılmış olan ve temel Cloud, adında örnek Cloud Foundry uygulama kullanalım [Spring Framework](https://spring.io) ve [Spring Boot](https://projects.spring.io/spring-boot/).
 
 ### <a name="clone-the-hello-spring-cloud-repository"></a>Hello Spring Cloud depoyu kopyalama
 
@@ -90,7 +90,7 @@ cd hello-spring-cloud
 
 ### <a name="build-the-application"></a>Uygulama oluşturma
 
-Uygulamasını kullanarak yapı [Apache Maven](http://maven.apache.org).
+Uygulamasını kullanarak yapı [Apache Maven](https://maven.apache.org).
 
 ```bash
 mvn clean package
@@ -158,7 +158,7 @@ cf scale -i 2 hello-spring-cloud
 [cloudshell-docs]: https://docs.microsoft.com/azure/cloud-shell/overview
 [cf-orgs-spaces-docs]: https://docs.cloudfoundry.org/concepts/roles.html
 [spring-boot]: https://projects.spring.io/spring-boot/
-[spring-framework]: http://spring.io
+[spring-framework]: https://spring.io
 [cf-push-docs]: https://docs.cloudfoundry.org/concepts/how-applications-are-staged.html
 [cloudfoundry-docs]: https://docs.cloudfoundry.org
 [vsts-plugin]: https://github.com/Microsoft/vsts-cloudfoundry

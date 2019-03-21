@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2858628874dc9955db5084ef5732d85acd6e7fc1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 985d41d3a00974e25c9abc4709c5bf5e662f7a50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729805"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086046"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Service fabric Hizmetleri için yerleştirme ilkeleri
 Yerleştirme ilkeleri, hizmet yerleşimi bazı belirli, daha az yaygın senaryolarda yönetmek için kullanılan ek kurallardır. Bu senaryolara bazı örnekler şunlardır:
@@ -44,6 +44,7 @@ Aşağıdaki denetimleri çoğu düğüm özellikleri ve yerleştirme kısıtlam
 **InvalidDomain** yerleştirme İlkesi belirli bir hata etki alanı için belirli bir hizmet geçersiz olduğunu belirtmenize olanak verir. Bu ilke, belirli bir hizmet asla jeopolitik ya da şirket ilkesi nedenlerle örneğin belirli bir alandaki çalıştığını sağlar. Birden çok geçersiz etki alanı ayrı ilkeler belirtilebilir.
 
 <center>
+
 ![Geçersiz etki alanı örneğinde][Image1]
 </center>
 
@@ -64,6 +65,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 Gerekli etki alanı yerleştirme İlkesi Hizmeti yalnızca belirtilen etki alanında olmasını gerektirir. Birden çok gerekli etki alanı ayrı ilkeler belirtilebilir.
 
 <center>
+
 ![Gerekli etki alanı örneğinde][Image2]
 </center>
 
@@ -85,6 +87,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 Tercih edilen birincil etki alanı birincil olarak yerleştirmek için hata etki alanını belirtir. Her şey iyi durumda olduğunda birincil bu etki alanında sona erer. Birincil etki alanı ya da birincil çoğaltma başarısız veya kapatıldığında, başka bir konuma, ideal olarak, aynı etki alanında taşır. Bu yeni konumu tercih edilen etki alanında değilse, Küme Kaynak Yöneticisi, geri tercih edilen etki olabildiğince çabuk taşır. Doğal olarak bu ayar yalnızca durum bilgisi olan hizmetler için anlamlıdır. Bu ilke Azure bölgeleri arasında dağıtılmış kümelerdeki en kullanışlı veya birden çok veri merkezinde, ancak belirli bir konuma yerleştirme tercih Hizmetleri sahip. Seçimlerine kullanıcıları veya diğer hizmetlere yakın tutulması yardımcı daha düşük gecikme süresi, özellikle okuma, varsayılan olarak seçimlerine göre işlenir sağlayın.
 
 <center>
+
 ![Tercih edilen birincil etki alanları ve yük devretme][Image3]
 </center>
 

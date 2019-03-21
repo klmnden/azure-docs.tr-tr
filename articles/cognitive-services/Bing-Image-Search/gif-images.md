@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/24/2018
 ms.author: rosh
 ms.custom: seodec2018
-ms.openlocfilehash: a18aaceb4840ffc7e3e3dca4eeb8f5fd8e88049c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e7b2c43e06c8fbc1f561defebf29fdd37bc8bfab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876411"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100913"
 ---
 # <a name="search-for-gif-images"></a>GIF görüntülerinin arayın 
 
@@ -47,6 +47,7 @@ Sorgu parametreleri ve seçenekleri hakkında daha fazla bilgi için bkz. [resim
 - *AnimatedGifHttps* yalnızca döndürür animasyonlu GIF görüntüler bir https adresi. Güvenlik için çoğu uygulama, dış web bağlantılarını bağlantı https üzerinden gerektirir. Örneğin, Apple App Store, aktarım sırasında güvenli kullanıcı verileri şifreler, HTTPS üzerinden web hizmetlerine bağlantı gerektirir.
 
 <a name="gifExample" />
+
 ## <a name="example-search-for-animated-gif-using-java"></a>Java kullanarak animasyonlu GIF örnek arayın
 
 Aşağıdaki URL'yi animasyonlu .gif görüntülerde arar: `q=interesting`

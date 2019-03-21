@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: d89e5d6fd21fdc37bffcc730fb20bae30ecc4f7c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 510a243b9133fe0ef0fe33b4dccce97f9d65e301
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315036"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074973"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Azure portalını kullanarak bir web uygulaması güvenlik duvarı ile bir uygulama ağ geçidi oluşturma
 
@@ -45,21 +45,21 @@ Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklid
 2. **Ağ** ve ardından Öne Çıkanlar listesinde **Application Gateway**’i seçin.
 3. Uygulama ağ geçidi için şu değerleri girin:
 
-    - *myAppGateway* - Uygulama ağ geçidinin adı.
-    - *myResourceGroupAG* - Yeni kaynak grubu.
-    - Seçin *WAF* uygulama ağ geçidinin katmanı için.
+   - *myAppGateway* - Uygulama ağ geçidinin adı.
+   - *myResourceGroupAG* - Yeni kaynak grubu.
+   - Seçin *WAF* uygulama ağ geçidinin katmanı için.
 
-    ![Yeni uygulama ağ geçidi oluşturma](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
+     ![Yeni uygulama ağ geçidi oluşturma](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
 4. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
 5. Tıklayın **bir sanal ağ seçin**, tıklayın **Yeni Oluştur**ve ardından sanal ağ için şu değerleri girin:
 
-    - *myVNet* - Sanal ağın adı.
-    - *10.0.0.0/16* - Sanal ağın adres alanı.
-    - *myAGSubnet* - Alt ağın adı.
-    - *10.0.0.0/24* - Alt ağın adres alanı.
+   - *myVNet* - Sanal ağın adı.
+   - *10.0.0.0/16* - Sanal ağın adres alanı.
+   - *myAGSubnet* - Alt ağın adı.
+   - *10.0.0.0/24* - Alt ağın adres alanı.
 
-    ![Sanal ağ oluşturma](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
+     ![Sanal ağ oluşturma](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
 6. Sanal ağı ve alt ağı oluşturmak için **Tamam**’a tıklayın.
 7. Tıklayın **genel bir IP adresi seçin**, tıklayın **Yeni Oluştur**ve ardından genel IP adresini adını girin. Bu örnekte genel IP adresinin adı *myAGPublicIPAddress* şeklindedir. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.

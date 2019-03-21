@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: ae123638e26c9fb6c82666efddabf06874c7b7a8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 65f9b392f3ae57c1eaad7454434b4870954f36f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539969"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085108"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather HUZZAH ESP8266 bulutta Azure IOT hub'a bağlanma
 
@@ -180,15 +180,15 @@ Bu bölümde, dağıtın ve Feather HUZZAH ESP8266 hakkında bir örnek uygulama
 
 12. Tıklayın **yükleme** esp8266 düğmesi.
 
-   Panoları Manager ESP8266 2.2.0 veya sonraki bir sürümü ile yüklü olduğunu gösterir.
+    Panoları Manager ESP8266 2.2.0 veya sonraki bir sürümü ile yüklü olduğunu gösterir.
 
-   ![Esp8266 paketin yüklü](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
+    ![Esp8266 paketin yüklü](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
 13. Girin `F1`, Anahtar'a **Arduino** seçip **Arduino: Pano Config**.
 
 14. İçin kutusu **Seçilen Pano:** ve türü **esp8266**, ardından **Adafruit HUZZAH ESP8266 (esp8266)**.
 
-   ![Esp8266 panosunu seçin](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
+    ![Esp8266 panosunu seçin](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
 
 ### <a name="install-necessary-libraries"></a>Gerekli kitaplıkları yükleme
 

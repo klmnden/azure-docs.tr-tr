@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 1db3fbbd39418504f98469c7b4999c5a91b5d6de
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e6e20db39be8a6e60833bf5c4f9b6a34a9ead461
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342199"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013045"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Öğretici: Oluşturma ve Azure bütçelerini yönetin
 
@@ -53,7 +53,9 @@ Maliyet Yönetimi verilerine izin atama hakkında daha fazla bilgi için bkz. [m
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Azure portalında bir bütçe oluşturun
 
-Aylık, üç aylık veya yıllık bir dönem için bir Azure aboneliği bütçe oluşturabilirsiniz. Azure portalında gezinme içerik için bir abonelik veya kaynak grubu için bütçe oluşturun belirler. Azure portalında, örneğin gidin **abonelikleri** &gt; bir abonelik seçin &gt; **bütçelerini**. Bu örnekte, seçili abonelik için oluşturduğunuz bütçe olacaktır. Bir kaynak grubu için bütçe oluşturmak istiyorsanız, gitmek **kaynak grupları** > bir kaynak grubu seçin > **bütçelerini**...
+Aylık, üç aylık veya yıllık bir dönem için bir Azure aboneliği bütçe oluşturabilirsiniz. Azure portalında gezinme içeriğinizi bir abonelik için veya bir yönetim grubu için bütçe oluşturduğunuz olup olmadığını belirler.
+
+İstenen kapsamı oluşturmak veya bir bütçe görüntülemek için Azure portal ve select açın **bütçelerini** menüsünde. Örneğin, gidin **abonelikleri**listeden aboneliği seçin ve ardından **bütçelerini** menüsünde. Kullanım **kapsam** bir yönetim grubunda bütçelerini gibi farklı bir kapsam geçmek zehirli. Kapsamlar hakkında daha fazla bilgi için bkz: [anlayın ve kapsamlı iş](understand-work-scopes.md).
 
 Bütçe oluşturduktan sonra bunlar geçerli bunlara karşı harcamalarınızı basit bir görünümü gösterir.
 

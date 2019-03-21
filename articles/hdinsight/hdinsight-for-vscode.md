@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight araçları - Visual Studio kodu Hive, LLAP veya PySpark kullanın | Microsoft Docs
 description: Oluşturmak ve sorgular ve betikleri göndermek amacıyla Visual Studio Code için Azure HDInsight Araçları'nı kullanmayı öğrenin.
-Keywords: Visual Studio Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
+Keywords: Visual Studio kodu, Azure HDInsight araçları, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Interactive Hive, Interactive Query
 services: HDInsight
 documentationcenter: ''
 author: hrasheed-msft
@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.openlocfilehash: 3301f3cdea1795db3b17bc2fa7da05bf362c744d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 71e12e661c704af028ac4dc48f255bdee980619c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895084"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100335"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Visual Studio Code için Azure HDInsight araçları kullanma
 
@@ -81,7 +81,7 @@ Visual Studio Code'dan betikleri HDInsight kümelerine gönderebilirsiniz önce 
 
         ![Diğer ortam için oturum açma yönergeleri](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
- Bağlandıktan sonra Azure hesabınızın adını Visual Studio kod penceresinin sol alt durum çubuğunda gösterilir.  
+   Bağlandıktan sonra Azure hesabınızın adını Visual Studio kod penceresinin sol alt durum çubuğunda gösterilir.  
   
 
 <h2 id="linkcluster">Bağlantı oluşturun: Azure HDInsight</h2>
@@ -310,20 +310,20 @@ Bir dosya göndermek, .vscode klasörü otomatik olarak iş klasöre eklenen dik
     | ad | açıklama | type | 
     | :- | :- | :- | 
     | dosya | Yürütülecek uygulamanın içeren dosya | yol (gerekli) | 
-    | Proxyuserpassword | İş çalışırken bürünülecek kullanıcı | dize | 
-    | className | Uygulamanın Java/Spark temel sınıfı | dize |
+    | Proxyuserpassword | İş çalışırken bürünülecek kullanıcı | string | 
+    | className | Uygulamanın Java/Spark temel sınıfı | string |
     | args | Uygulama için komut satırı bağımsız değişkenleri | dize listesi | 
     | jar dosyaları dışındaki | Bu oturumda kullanılmak üzere jar'lar | Dize listesi | 
     | pyFiles | Bu oturumda kullanılmak üzere Python dosyaları | Dize listesi |
     | dosya görüntüle | Bu oturumda kullanılmak üzere dosyaları | Dize listesi |
-    | driverMemory | Sürücü işlemi için kullanılacak bellek miktarını | dize |
+    | driverMemory | Sürücü işlemi için kullanılacak bellek miktarını | string |
     | driverCores | Sürücü işlemi için kullanılacak çekirdek sayısı | int |
-    | executorMemory | Yürütücü işlemi bellek miktarı | dize |
+    | executorMemory | Yürütücü işlemi bellek miktarı | string |
     | executorCores | Her Yürütücü için kullanılacak çekirdek sayısı | int |
     | numExecutors | Bu oturum için başlatmak için Yürütücü sayısı | int |
     | arşivleri | Bu oturumda kullanılmak üzere arşivleri | Dize listesi |
-    | kuyruk | YARN Kuyruğun adı gönderildi | dize |
-    | ad | Bu oturumun adı | dize |
+    | kuyruk | YARN Kuyruğun adı gönderildi | string |
+    | ad | Bu oturumun adı | string |
     | conf | Spark yapılandırma özellikleri | Harita anahtarı val = |
 
     Yanıt Gövdesi   
@@ -334,8 +334,8 @@ Bir dosya göndermek, .vscode klasörü otomatik olarak iş klasöre eklenen dik
     | id | Oturum kimliği | int | 
     | appId | Bu oturumun uygulama kimliği |  String |
     | appInfo | Ayrıntılı uygulama bilgileri | Harita anahtarı val = |
-    | Günlük | Günlük satırları | dize listesi |
-    | durum |   Toplu işlem durumu | dize |
+    | günlük | Günlük satırları | dize listesi |
+    | durum |   Toplu işlem durumu | string |
 
 >[!NOTE]
 >Atanan livy config çıkış Bölmesi'nde görüntüler zaman betiği gönderin.

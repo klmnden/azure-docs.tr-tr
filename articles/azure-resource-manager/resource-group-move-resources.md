@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 579c23fc3092acb785e89ddfa390e9495fc004d3
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194536"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081262"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
-Bu makalede, başka bir Azure aboneliğine veya başka bir kaynak grubuna aynı abonelik altında Azure kaynakları taşıma işlemini göstermektedir. Kaynakları taşıma için Azure portalı, Azure PowerShell, Azure CLI veya REST API'yi kullanabilirsiniz. Bir öğreticiyi incelemek için bkz: [Öğreticisi: Azure kaynakları başka bir kaynak grubuna veya aboneliğe taşıma](./resource-manager-tutorial-move-resources.md).
+Bu makalede, başka bir Azure aboneliğine veya başka bir kaynak grubuna aynı abonelik altında Azure kaynakları taşıma işlemini göstermektedir. Kaynakları taşıma için Azure portalı, Azure PowerShell, Azure CLI veya REST API'yi kullanabilirsiniz. Bir öğreticiyi incelemek için bkz: [Öğreticisi: Azure kaynaklarını başka bir kaynak grubuna veya aboneliğe taşıyın](./resource-manager-tutorial-move-resources.md).
 
 Kaynak grubu hem de hedef grubu taşıma işlemi sırasında kilitlenir. Yazma ve silme işlemleri taşıma işlemi tamamlanana kadar kaynak gruplarında engellenir. Bu kilit ekleyemez, güncelleştirme veya kaynak gruplarındaki kaynakları silin, ancak kaynakları dondurulmuş gelmez anlamına gelir. Örneğin, bir SQL Server ve veritabanı yeni bir kaynak grubuna taşırsanız, veritabanı kullanan bir uygulama kapalı kalma süresi olmadan karşılaşır. Bunu hala okuyabilir ve veritabanına yazma.
 
-Bir kaynak taşıma yalnızca bu yeni bir kaynak grubuna taşınır. Taşıma işlemi, kaynağın yerini değiştiremezsiniz. Yeni kaynak grubu farklı bir konuma sahip olabilir, ancak, kaynak konumunu değiştirmez.
+Bir kaynağı taşıdığınızda yalnızca onu yeni bir kaynak grubuna taşımış olursunuz. Taşıma işlemi, kaynağın konumunu değiştirmez. Yeni kaynak grubu farklı bir konuma sahip olabilir, ancak, kaynak konumunu değiştirmez.
 
 > [!NOTE]
 > Bu makalede, kaynakları var olan Azure abonelikler arasında taşıma açıklar. Gerçekte Azure aboneliğiniz (örneğin, boş, Kullandıkça Öde aboneliğine geçiş) yükseltmek istiyorsanız, aboneliğinizin dönüştürmeniz gerekir.
@@ -65,7 +65,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınabilir Azure hizm
 * PostgreSQL için Azure Veritabanı
 * Azure DevOps - Microsoft dışı uzantılı Azure DevOps kuruluşlarına satın gereken [aldıklarını iptal](https://go.microsoft.com/fwlink/?linkid=871160) abonelikler arasında hesap taşınabilmesi.
 * Azure Haritalar
-* Azure izleme günlükleri
+* Azure İzleyici günlükleri
 * Azure Geçişi
 * Azure Stack - kayıtları
 * Batch
@@ -255,58 +255,58 @@ Klasik kaynakları için yeni bir aboneliği taşımak, Klasik kaynakları için
 
 1. Kaynak abonelik bir çapraz abonelik taşıma katılabilir, kontrol edin. Aşağıdaki işlemi kullanın:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{sourceSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      İstek gövdesinde şunları içerir:
 
-  ```json
-  {
+   ```json
+   {
     "role": "source"
-  }
-  ```
+   }
+   ```
 
      Doğrulama işleminde yanıta aşağıdaki biçimdedir:
 
-  ```json
-  {
+   ```json
+   {
     "status": "{status}",
     "reasons": [
       "reason1",
       "reason2"
     ]
-  }
-  ```
+   }
+   ```
 
 2. Hedef abonelik bir çapraz abonelik taşıma katılabilir, kontrol edin. Aşağıdaki işlemi kullanın:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{destinationSubscriptionId}/providers/Microsoft.ClassicCompute/validateSubscriptionMoveAvailability?api-version=2016-04-01
+   ```
 
      İstek gövdesinde şunları içerir:
 
-  ```json
-  {
+   ```json
+   {
     "role": "target"
-  }
-  ```
+   }
+   ```
 
      Kaynak abonelik doğrulama ile aynı biçimde yanıttır.
 3. Her iki abonelik doğrulama testlerini geçerse, tüm Klasik kaynaklar bir abonelikten şu işlemi başka bir aboneliğe Taşı:
 
-  ```HTTP
-  POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
-  ```
+   ```HTTP
+   POST https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.ClassicCompute/moveSubscriptionResources?api-version=2016-04-01
+   ```
 
     İstek gövdesinde şunları içerir:
 
-  ```json
-  {
+   ```json
+   {
     "target": "/subscriptions/{target-subscription-id}"
-  }
-  ```
+   }
+   ```
 
 İşlemi birkaç dakika çalışabilir.
 
@@ -345,52 +345,52 @@ Bir kaynağı taşımadan önce yapmanız gereken bazı önemli adımlar vardır
 
 1. Kaynak ve hedef abonelikler aynı içinde bulunmalıdır [Azure Active Directory kiracısı](../active-directory/develop/quickstart-create-new-tenant.md). Her iki aboneliğin aynı Kiracı Kimliğine sahip denetlemek için Azure PowerShell veya Azure CLI'yı kullanın.
 
-  Azure PowerShell için şunu kullanın:
+   Azure PowerShell için şunu kullanın:
 
-  ```azurepowershell-interactive
-  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
-  ```
+   ```azurepowershell-interactive
+   (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+   (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
+   ```
 
-  Azure CLI için şunu kullanın:
+   Azure CLI için şunu kullanın:
 
-  ```azurecli-interactive
-  az account show --subscription <your-source-subscription> --query tenantId
-  az account show --subscription <your-destination-subscription> --query tenantId
-  ```
+   ```azurecli-interactive
+   az account show --subscription <your-source-subscription> --query tenantId
+   az account show --subscription <your-destination-subscription> --query tenantId
+   ```
 
-  Kaynak ve hedef abonelikler için Kiracı kimlikleri aynı değilse, Kiracı kimlikleri karşılaştırmak için aşağıdaki yöntemleri kullanın:
+   Kaynak ve hedef abonelikler için Kiracı kimlikleri aynı değilse, Kiracı kimlikleri karşılaştırmak için aşağıdaki yöntemleri kullanın:
 
-  * [Azure aboneliğinin sahipliğini başka bir hesaba devretme](../billing/billing-subscription-transfer.md)
-  * [Azure Active Directory'ye bir Azure aboneliğini ekleme veya ilişkilendirme](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+   * [Azure aboneliğinin sahipliğini başka bir hesaba devretme](../billing/billing-subscription-transfer.md)
+   * [Azure Active Directory'ye bir Azure aboneliğini ekleme veya ilişkilendirme](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. Hedef abonelik, taşınan kaynağın kaynak sağlayıcısına kayıtlı olmalıdır. Belirten bir hata alırsanız, **kaynak türü için abonelik kayıtlı değil**. Abonelik bu kaynak türü ile hiçbir zaman kullanılmış, ancak yeni bir abonelik için bir kaynak taşıma sırasında şu hatayla karşılaşabilirsiniz.
 
-  PowerShell için kayıt durumunu almak için aşağıdaki komutları kullanın:
+   PowerShell için kayıt durumunu almak için aşağıdaki komutları kullanın:
 
-  ```azurepowershell-interactive
-  Set-AzContext -Subscription <destination-subscription-name-or-id>
-  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
-  ```
+   ```azurepowershell-interactive
+   Set-AzContext -Subscription <destination-subscription-name-or-id>
+   Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+   ```
 
-  Bir kaynak sağlayıcısını kaydetmek için kullanın:
+   Bir kaynak sağlayıcısını kaydetmek için kullanın:
 
-  ```azurepowershell-interactive
-  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
-  ```
+   ```azurepowershell-interactive
+   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+   ```
 
-  Azure CLI için kayıt durumunu almak için aşağıdaki komutları kullanın:
+   Azure CLI için kayıt durumunu almak için aşağıdaki komutları kullanın:
 
-  ```azurecli-interactive
-  az account set -s <destination-subscription-name-or-id>
-  az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
-  ```
+   ```azurecli-interactive
+   az account set -s <destination-subscription-name-or-id>
+   az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
+   ```
 
-  Bir kaynak sağlayıcısını kaydetmek için kullanın:
+   Bir kaynak sağlayıcısını kaydetmek için kullanın:
 
-  ```azurecli-interactive
-  az provider register --namespace Microsoft.Batch
-  ```
+   ```azurecli-interactive
+   az provider register --namespace Microsoft.Batch
+   ```
 
 1. Kaynakları taşıma hesabı, en az aşağıdaki izinlere sahip olmanız gerekir:
 

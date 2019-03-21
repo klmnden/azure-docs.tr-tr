@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: d0b171f05bb2243da83509348b099bebcb44ebc7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 81407a298ccfe1b9884fc5d5b815ac8c18ffee6a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508717"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094686"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Veri kutusu Edge (Önizleme) dosyalarını taşımak için bir C# IOT Edge modülü geliştirme
 
@@ -71,14 +71,14 @@ Azure kapsayıcı kayıt defteri, Azure’da özel Docker kapsayıcısı görün
 2. Seçin **kaynak Oluştur > kapsayıcıları > kapsayıcı kayıt defteri**. **Oluştur**’a tıklayın.
 3. Sağlar:
 
-    1. Benzersiz bir **kayıt defteri adı** Azure'un içinde 5-50 alfasayısal karakterler içeriyor.
-    2. Seçin bir **abonelik**.
-    3. Yeni oluşturduğunuz veya mevcut bir **kaynak grubu**.
-    4. Bir **Konum** seçin. Veri kutusu Edge kaynakla ilişkilendirilmiş olduğundan bu konum aynı olmasını öneririz.
-    5. **Yönetici kullanıcı** ayarını **Etkinleştir**'e getirin.
-    6. SKU kümesine **temel**.
+   1. Benzersiz bir **kayıt defteri adı** Azure'un içinde 5-50 alfasayısal karakterler içeriyor.
+   2. Seçin bir **abonelik**.
+   3. Yeni oluşturduğunuz veya mevcut bir **kaynak grubu**.
+   4. Bir **Konum** seçin. Veri kutusu Edge kaynakla ilişkilendirilmiş olduğundan bu konum aynı olmasını öneririz.
+   5. **Yönetici kullanıcı** ayarını **Etkinleştir**'e getirin.
+   6. SKU kümesine **temel**.
 
-    ![Kapsayıcı kayıt defteri oluşturma](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
+      ![Kapsayıcı kayıt defteri oluşturma](./media/data-box-edge-create-iot-edge-module/create-container-registry-1.png)
  
 4. **Oluştur**’u seçin.
 5. Kapsayıcı kayıt defteriniz oluşturulduktan sonra, bu kayıt defterine gidin ve **Erişim anahtarları**'nı seçin.

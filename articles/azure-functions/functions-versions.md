@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: a3a259b9734a1cc313e046d9946a090232cd14a1
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727068"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088426"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure işlevleri çalışma zamanı sürümleri genel bakış
 
@@ -65,9 +65,9 @@ Sürüm 2.x, aşağıdaki değişiklikler yapıldı:
 
 * Ana bilgisayar yapılandırma dosyası (host.json) boş olabilir veya dize sahip `"version": "2.0"`.
 
-* İzleme, Web işleri Panosu'nu kullanılan portalında geliştirmek için [ `AzureWebJobsDashboard` ](functions-app-settings.md#azurewebjobsdashboard) ayarı, Azure kullanan uygulamanızla, değiştirilir [ `APPINSIGHTS_INSTRUMENTATIONKEY` ](functions-app-settings.md#appinsightsinstrumentationkey) ayarı. Daha fazla bilgi için [İzleyici Azure işlevleri](functions-monitoring.md).
+* İzleme, Web işleri Panosu'nu kullanılan portalında geliştirmek için [ `AzureWebJobsDashboard` ](functions-app-settings.md#azurewebjobsdashboard) ayarı, Azure kullanan uygulamanızla, değiştirilir [ `APPINSIGHTS_INSTRUMENTATIONKEY` ](functions-app-settings.md#appinsights_instrumentationkey) ayarı. Daha fazla bilgi için [İzleyici Azure işlevleri](functions-monitoring.md).
 
-* Bir işlev uygulamasında tüm işlevleri aynı dilde paylaşmanız gerekir. Bir işlev uygulaması oluşturduğunuzda, uygulama için çalışma zamanı yığını seçmeniz gerekir. Çalışma zamanı yığını tarafından belirtilen [ `FUNCTIONS_WORKER_RUNTIME` ](functions-app-settings.md#functionsworkerruntime) uygulama ayarlarındaki değer. Bu gereksinim, Ayak izi ve başlangıç süresini kısaltmak için eklendi. Yerel olarak geliştirirken, bu ayarda de dahil etmelisiniz [local.settings.json dosyasında](functions-run-local.md#local-settings-file).
+* Bir işlev uygulamasında tüm işlevleri aynı dilde paylaşmanız gerekir. Bir işlev uygulaması oluşturduğunuzda, uygulama için çalışma zamanı yığını seçmeniz gerekir. Çalışma zamanı yığını tarafından belirtilen [ `FUNCTIONS_WORKER_RUNTIME` ](functions-app-settings.md#functions_worker_runtime) uygulama ayarlarındaki değer. Bu gereksinim, Ayak izi ve başlangıç süresini kısaltmak için eklendi. Yerel olarak geliştirirken, bu ayarda de dahil etmelisiniz [local.settings.json dosyasında](functions-run-local.md#local-settings-file).
 
 * App Service planı işlevleri için varsayılan zaman aşımını 30 dakika ile değiştirilir. El ile zaman aşımı sınırsız kullanarak değiştirebileceğiniz [functionTimeout](functions-host-json.md#functiontimeout) host.json ayarlama.
 
@@ -109,7 +109,7 @@ Visual Studio Code geliştirme için Ayrıca kullanıcı ayarını güncelleşti
 
 ### <a name="changing-version-of-apps-in-azure"></a>Azure'da uygulama sürümünü değiştirme
 
-Azure'da yayımlanan uygulamalar tarafından kullanılan işlevler çalışma zamanı sürümü tarafından dikte [ `FUNCTIONS_EXTENSION_VERSION` ](functions-app-settings.md#functionsextensionversion) uygulama ayarı. Değerini `~2` sürüm 2.x çalışma zamanını hedefleyen ve `~1` sürüm 1.x çalışma zamanını hedefleyen. Rasgele diğer uygulama ayarı değişikliklerini ve kod değişikliklerini işlevlerinizi büyük olasılıkla gerekli olduğu için bu ayarı değiştirmeyin. İşlev uygulamanızın farklı çalışma zamanı sürümüne geçirmek için önerilen yöntem hakkında bilgi edinmek için bkz. [Azure işlevleri çalışma zamanı sürümlerini hedeflemek nasıl](set-runtime-version.md).
+Azure'da yayımlanan uygulamalar tarafından kullanılan işlevler çalışma zamanı sürümü tarafından dikte [ `FUNCTIONS_EXTENSION_VERSION` ](functions-app-settings.md#functions_extension_version) uygulama ayarı. Değerini `~2` sürüm 2.x çalışma zamanını hedefleyen ve `~1` sürüm 1.x çalışma zamanını hedefleyen. Rasgele diğer uygulama ayarı değişikliklerini ve kod değişikliklerini işlevlerinizi büyük olasılıkla gerekli olduğu için bu ayarı değiştirmeyin. İşlev uygulamanızın farklı çalışma zamanı sürümüne geçirmek için önerilen yöntem hakkında bilgi edinmek için bkz. [Azure işlevleri çalışma zamanı sürümlerini hedeflemek nasıl](set-runtime-version.md).
 
 ## <a name="bindings"></a>Bağlamalar
 

@@ -3,7 +3,7 @@ title: Hizmet günlüğü - Azure Machine Learning Studio web | Microsoft Docs
 description: Machine Learning Studio web hizmetleri için günlüğe kaydetmeyi etkinleştirme hakkında bilgi edinin. Günlük API'leri gidermenize yardımcı olacak ek bilgiler sağlar.
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 editor: cgronlun
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 23a160ee15547bea7d5ee832cd1032b2e899966b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821841"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857564"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio web hizmetleri için günlüğe kaydetmeyi etkinleştirme
 Bu belge, bilgi Machine Learning Studio web hizmetleri üzerinde günlüğe kaydetme olanağı sağlar. Günlük, yalnızca bir hata numarası ve Machine Learning Studio API'leri aramalarınız gidermenize yardımcı olabilecek bir ileti ötesinde ek bilgi sağlar.  
@@ -57,7 +57,7 @@ Günlük etkinleştirme [Azure Machine Learning Studio Web Hizmetleri](https://s
 
    3. Kapsayıcı **ml tanılama** mevcut olmayan'a tıklayın **+ kapsayıcı**, kapsayıcı "ml-diagnostics" adını verin ve seçin **erişim türü** "BLOB". **Tamam** düğmesine tıklayın.
 
-      ![Günlüğe kaydetme düzeyini seçin](./media/web-services-logging/create-ml-diagnostics-container.png)
+      ![Tanılama günlüklerinizi depolamak için yeni bir kapsayıcı oluşturma](./media/web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >

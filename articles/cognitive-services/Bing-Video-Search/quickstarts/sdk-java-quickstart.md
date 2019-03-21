@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: 34555ec3315c1fd7322c249e59744cb512ac2d37
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: d421abf0a3cc402cf8d040363dfe79b07b66bf95
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437489"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105718"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>Hızlı Başlangıç: Java için bir video arama Bing Video arama SDK ile gerçekleştirme
 
@@ -61,7 +61,7 @@ Sık kullandığınız IDE ortamında veya düzenleyicide yeni bir Java projesi 
 
 ## <a name="create-a-search-client"></a>Bir arama istemcisi oluşturma
 
-2. Uygulama `VideoSearchAPIImpl` API uç noktanız ve bir örneğini gerektirir ve istemci `ServiceClientCredentials` sınıfı.
+1. Uygulama `VideoSearchAPIImpl` API uç noktanız ve bir örneğini gerektirir ve istemci `ServiceClientCredentials` sınıfı.
 
     ```java
     public static VideoSearchAPIImpl getClient(final String subscriptionKey) {

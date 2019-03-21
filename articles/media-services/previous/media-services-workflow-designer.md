@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: 7358f259d4c38157a203369e9eadae28710f4290
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fb24c856138bb9e59d9cb3ea07c9182454e6463a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993716"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080210"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>İş Akışı Tasarımcısı ile Gelişmiş Kodlama İş Akışları Oluşturma  
 ## <a name="overview"></a>Genel Bakış
@@ -37,8 +37,6 @@ Bu araç herhangi birini değiştirmek için de kullanılabilir bizim [iş akı�
 
 > [!NOTE]
 > İş Akışı Tasarımcısı araç kopyasını almak için lütfen başvurun mepd@microsoft.com.
-> 
-> 
 
 Bir iş akışı dosyası oluşturulduktan sonra bir varlık yüklenebilir ve ardından medya dosyalarını kodlama için kullanılabilir. İle kodlama hakkında bilgi için **Media Encoder Premium iş akışı** kullanarak **.NET**, bkz: [Gelişmiş Media Encoder Premium iş akışı ile kodlama](media-services-encode-with-premium-workflow.md).
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: c247ef748628c14074c2b5ea37df251793840b16
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6f775ffaf53019cc50bc38c294b4d5f40c8eca90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876046"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076760"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Konuşma hizmeti Language Understanding uygulamanızla tümleştirin
 [Konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) tek bir istek kullanarak ses almanızı ve JSON nesneleriyle LUIS tahmini döndürmenizi sağlar. Bu makalede bir C# projesi indirip Visual Studio'da kullanarak mikrofona konuşacak ve LUIS tahmin bilgilerini alacaksınız. Bu projede Konuşma [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paketi kullanılmaktadır ve bu paket başvuru olarak projeye eklenmiştir. 
@@ -49,11 +49,11 @@ Uygulamayı içeri aktardıktan sonra **Entities** (Varlıklar) ve ardından **A
 
 3. **Keys and endpoints** (Anahtarlar ve uç noktalar) sayfasında [LUIS uç nokta anahtarı oluşturma](#create-luis-endpoint-key) bölümünde oluşturulan LUIS anahtarını atayın.
 
-  Bu sayfada [LUIS uç nokta anahtarı oluşturma](#create-luis-endpoint-key) bölümünde oluşturulan LUIS anahtarının uygulama kimliği, yayımlama bölgesi ve abonelik kimliğini alın. Makalenin ilerleyen bölümlerinde kodu değiştirerek bu değerleri kullanacaksınız. 
+   Bu sayfada [LUIS uç nokta anahtarı oluşturma](#create-luis-endpoint-key) bölümünde oluşturulan LUIS anahtarının uygulama kimliği, yayımlama bölgesi ve abonelik kimliğini alın. Makalenin ilerleyen bölümlerinde kodu değiştirerek bu değerleri kullanacaksınız. 
   
-  Bu alıştırma için ücretsiz başlangıç anahtarını **kullanmayın**. Bu alıştırmada yalnızca Azure portalda oluşturulan bir **Language Understanding** anahtarı kullanılabilir. 
+   Bu alıştırma için ücretsiz başlangıç anahtarını **kullanmayın**. Bu alıştırmada yalnızca Azure portalda oluşturulan bir **Language Understanding** anahtarı kullanılabilir. 
 
-  https://**BÖLGE**.api.cognitive.microsoft.com/luis/v2.0/apps/**UYGULAMAKİMLİĞİ**?subscription-key=**LUISANAHTARI**&q=
+   https://**BÖLGE**.api.cognitive.microsoft.com/luis/v2.0/apps/**UYGULAMAKİMLİĞİ**?subscription-key=**LUISANAHTARI**&q=
 
 
 4. Sağ üst bölümde bulunan **Publish** (Yayımla) düğmesini seçerek LUIS uygulamasını yayımlayın. 

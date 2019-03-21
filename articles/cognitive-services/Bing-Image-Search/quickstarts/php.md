@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 396c50e6697ed1f111d497f7adeb005e268b80bb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: eb4d04316de875e5eada0bd70383aff73382d8b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096070"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Hızlı Başlangıç: PHP ve Bing resim arama REST API'si kullanarak resimler için arama yapın
 
@@ -49,7 +49,7 @@ Bu uygulamayı çalıştırmak için şu adımları izleyin.
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## <a name="construct-and-perform-an-http-request"></a>Oluşturun ve bir HTTP isteği gerçekleştirin
+   ## <a name="construct-and-perform-an-http-request"></a>Oluşturun ve bir HTTP isteği gerçekleştirin
 
 1. Değişkenleri ve son adımda, resim arama API'si için bir HTTP isteği hazırlamak için kullanın.
 

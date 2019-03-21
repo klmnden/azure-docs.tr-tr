@@ -12,12 +12,12 @@ ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 033b853537ade927e4bb7e47c92efe1acff226d9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: e15cf93514f921223fea37aa480730bba46dd195
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247401"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864958"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Hızlı Başlangıç: Machine Learning Hizmetleri (R ile) Azure SQL veritabanı (Önizleme) kullanma
 
@@ -158,7 +158,7 @@ Saklı yordam, çıkış olarak tek bir R veri çerçevesi döndürür ancak de�
 
     ![Tablodan veri döndüren R betiğinin çıktısı](./media/sql-database-connect-query-r/r-output-rtestdata.png)
 
-3. Şimdi giriş veya çıkış değişkenlerinin adını değiştirelim. Yukarıdaki betikte varsayılan giriş ve çıkış değişkeni adları olan _InputDataSet_ ve _OutputDataSet_ kullanılmıştı. _InputDatSet_ ile ilişkilendirilmiş giriş verilerini tanımlamak için *@input_data_1* değişkenini kullanırsınız.
+3. Şimdi giriş veya çıkış değişkenlerinin adını değiştirelim. Yukarıdaki betikte varsayılan giriş ve çıkış değişkeni adları olan _InputDataSet_ ve _OutputDataSet_ kullanılmıştı. İle ilişkili giriş verileri tanımlamak için _InputDatSet_, kullandığınız  *\@input_data_1* değişkeni.
 
     Bu betikte saklı yordam çıkış ve giriş değişkenlerinin adları *SQL_out* ve *SQL_in* olarak değiştirilmiştir:
 
@@ -174,7 +174,7 @@ Saklı yordam, çıkış olarak tek bir R veri çerçevesi döndürür ancak de�
 
     R ortamının büyük/küçük harfe duyarlı olduğu unutmayın. Bu durumda `@input_data_1_name` ve `@output_data_1_name` içindeki giriş ve çıkış değişkenlerinin büyük/küçük harf durumunun `@script` içindeki R kodunda bulunanlarla aynı olması gerekir. 
 
-    Ayrıca parametre sırası da önemlidir. İsteğe bağlı *@input_data_1_name* ve *@output_data_1_name* parametrelerini kullanmak için önce gerekli olan *@input_data_1* ve *@output_data_1* parametrelerini belirtmeniz gerekir.
+    Ayrıca parametre sırası da önemlidir. Gerekli parametreleri belirtmeniz gerekir  *\@input_data_1* ve  *\@output_data_1* isteğe bağlı parametreler kullanabilmek için ilk olarak,  *\@ input_data_1_name* ve  *\@output_data_1_name*.
 
     Yalnızca bir giriş veri kümesi parametre olarak iletilebilir ve yalnızca bir veri kümesini döndürebilirsiniz. Ancak R kodunuzdan diğer tüm veri kümelerini çağırabilir ve veri kümesine ek olarak diğer türlerin çıkışlarını döndürebilirsiniz. Ayrıca OUTPUT anahtar sözcüğünü herhangi bir parametreye ekleyerek sonuçlarla birlikte döndürülmesini sağlayabilirsiniz. 
 
@@ -275,34 +275,34 @@ R kullanarak model eğitebilir ve bu modeli SQL veritabanınızda bir tablo olar
 
     Doğrusal modelin gereksinimleri oldukça basittir:
 
-    - `speed` bağımlı değişkeni ile `distance` bağımsız değişkeni arasındaki ilişkiyi anlatan bir formül tanımlayın.
+   - `speed` bağımlı değişkeni ile `distance` bağımsız değişkeni arasındaki ilişkiyi anlatan bir formül tanımlayın.
 
-    - Modelin eğitilmesi için kullanılacak giriş verilerini sağlayın.
+   - Modelin eğitilmesi için kullanılacak giriş verilerini sağlayın.
 
-    > [!TIP]
-    > Bir Doğrusal Model tazelemek gerekiyorsa, bu öğreticide rxLinMod kullanarak bir model sığdırma işlemi açıklanır öneririz: [Doğrusal modelleri sığdırma](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
+     > [!TIP]
+     > Bir Doğrusal Model tazelemek gerekiyorsa, bu öğreticide rxLinMod kullanarak bir model sığdırma işlemi açıklanır öneririz: [Doğrusal modelleri sığdırma](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
-    Modeli oluşturmak için formülü R kodunuzda tanımlar ve verileri giriş parametresi olarak geçirirsiniz.
+     Modeli oluşturmak için formülü R kodunuzda tanımlar ve verileri giriş parametresi olarak geçirirsiniz.
 
-    ```sql
-    DROP PROCEDURE IF EXISTS generate_linear_model;
-    GO
-    CREATE PROCEDURE generate_linear_model
-    AS
-    BEGIN
-        EXEC sp_execute_external_script
-        @language = N'R'
-        , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
-            trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
-        , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
-        , @input_data_1_name = N'CarsData'
-        , @output_data_1_name = N'trained_model'
-        WITH RESULT SETS ((model VARBINARY(max)));
-    END;
-    GO
-    ```
+     ```sql
+     DROP PROCEDURE IF EXISTS generate_linear_model;
+     GO
+     CREATE PROCEDURE generate_linear_model
+     AS
+     BEGIN
+       EXEC sp_execute_external_script
+       @language = N'R'
+       , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
+           trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
+       , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
+       , @input_data_1_name = N'CarsData'
+       , @output_data_1_name = N'trained_model'
+       WITH RESULT SETS ((model VARBINARY(max)));
+     END;
+     GO
+     ```
 
-    rxLinMod için ilk bağımsız değişken, mesafeyi hıza bağımlı olan bir değer olarak tanımlayan *formula* parametresidir. Giriş verileri SQL sorgusu tarafından doldurulan `CarsData` değişkeninde depolanır. Giriş verilerinize belirli bir ad atamazsanız varsayılan değişken adı _InputDataSet_ olur.
+     rxLinMod için ilk bağımsız değişken, mesafeyi hıza bağımlı olan bir değer olarak tanımlayan *formula* parametresidir. Giriş verileri SQL sorgusu tarafından doldurulan `CarsData` değişkeninde depolanır. Giriş verilerinize belirli bir ad atamazsanız varsayılan değişken adı _InputDataSet_ olur.
 
 2. Ardından yeniden eğitmek veya tahmin için kullanmak üzere modeli depolayacağınız bir tablo oluşturun. R paketinin model oluşturan çıkışı genellikle bir **ikili nesnedir**. Bu nedenle tabloda **VARBINARY(max)** türünde bir sütun bulunması gerekir.
 
@@ -401,23 +401,23 @@ R kullanarak model eğitebilir ve bu modeli SQL veritabanınızda bir tablo olar
 
     Yukarıdaki betik aşağıdaki adımları gerçekleştirir:
 
-    + SELECT deyimini kullanarak tablodan tek bir model alır ve giriş parametresi olarak geçirir.
+   + SELECT deyimini kullanarak tablodan tek bir model alır ve giriş parametresi olarak geçirir.
 
-    + Tablodan modeli aldıktan sonra modelde `unserialize` işlevini çağırır.
+   + Tablodan modeli aldıktan sonra modelde `unserialize` işlevini çağırır.
 
-        > [!TIP] 
-        > RevoScaleR tarafından sunulan ve gerçek zamanlı puanlama desteğine sahip yeni [serileştirme işlevlerini](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) de inceleyin.
-    + `rxPredict` işlevini uygun bağımsız değişkenlerle modele uygular ve yeni giriş verileri sağlar.
+       > [!TIP] 
+       > RevoScaleR tarafından sunulan ve gerçek zamanlı puanlama desteğine sahip yeni [serileştirme işlevlerini](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) de inceleyin.
+   + `rxPredict` işlevini uygun bağımsız değişkenlerle modele uygular ve yeni giriş verileri sağlar.
 
-    + Örnekte test aşamasında R tarafından döndürülen verilerin şemasını kontrol etmek için `str` işlevi eklenmiştir. Deyimi daha sonra kaldırabilirsiniz.
+   + Örnekte test aşamasında R tarafından döndürülen verilerin şemasını kontrol etmek için `str` işlevi eklenmiştir. Deyimi daha sonra kaldırabilirsiniz.
 
-    + R betiğinde kullanılan sütun adlarının, saklı yordam çıkışına geçirilenlerle aynı olması şart değildir. Burada yeni sütun adları tanımlamak için WITH RESULTS yan tümcesini kullandık.
+   + R betiğinde kullanılan sütun adlarının, saklı yordam çıkışına geçirilenlerle aynı olması şart değildir. Burada yeni sütun adları tanımlamak için WITH RESULTS yan tümcesini kullandık.
 
-    **Sonuçlar**
+     **Sonuçlar**
 
-    ![Durdurma mesafesini tahmin etmek için sonuç kümesi](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+     ![Durdurma mesafesini tahmin etmek için sonuç kümesi](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
 
-    Kayıtlı modeli temel alan bir tahmini değer veya puan oluşturmak için [Transact-SQL içinde PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) de kullanılabilir.
+     Kayıtlı modeli temel alan bir tahmini değer veya puan oluşturmak için [Transact-SQL içinde PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) de kullanılabilir.
 
 <a name="add-package"></a>
 

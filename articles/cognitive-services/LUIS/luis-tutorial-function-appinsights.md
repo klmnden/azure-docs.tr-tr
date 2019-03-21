@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 97e29ba166d652f053f754482b6da36a33ec5bb5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1c44d2e41d37a9236ee6d6936c349acf5ca5e44c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878192"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098781"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>LUIS sonuçlarını Application Insights ve Azure işlevleri ekleme
 Bu öğreticide LUIS istek ve yanıt bilgileri ekler [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri veri depolama. Bu verileri aldıktan sonra bunu Kusto dil veya çözümlemek, toplama, Power BI ile sorgulayabilirsiniz ve hedefleri ve gerçek zamanlı utterance varlıklarının rapor. Bu analiz, eklediğinizde veya amaç ve varlıkları LUIS uygulamanızı düzenlemek, belirlemenize yardımcı olur.
@@ -26,9 +26,9 @@ Bot, Bot Framework ile derlenir 3.x ve Azure Web app botu.
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-* Bir web app botu için Application Insights kitaplığı Ekle
-* Yakalama ve LUIS sorgu sonuçları Application Insights'a gönderme
-* Üst amacı, Puanlama ve utterance için Application Insights sorgu
+> * Bir web app botu için Application Insights kitaplığı Ekle
+> * Yakalama ve LUIS sorgu sonuçları Application Insights'a gönderme
+> * Üst amacı, Puanlama ve utterance için Application Insights sorgu
 
 ## <a name="prerequisites"></a>Önkoşullar
 

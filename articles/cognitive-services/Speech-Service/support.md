@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: b8e6c8b125e8eeaadac2e6864b06d55c42d3b173
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a4c256a6acd8e51986b40e28a6f658f1103ab337
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542011"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877709"
 ---
 # <a name="support-and-help-options"></a>Destek ve Yardım seçenekleri
 
-Konuşma hizmeti işlevselliğini keşfetmeye yeni başlayan? Uygulamanız için yeni bir özellik uyguluyor? Aşağıda, bir geliştirici olarak yardım alabileceğiniz hakkında öneriler yer almaktadır.
+Konuşma Hizmetleri işlevselliğinin keşfetmeye yeni başlayan? Uygulamanız için yeni bir özellik uyguluyor? Aşağıda, bir geliştirici olarak yardım alabileceğiniz hakkında öneriler yer almaktadır.
 
 > [!div class="checklist"]
 > * Yeni gelişmeler hakkında haberdar kalın *Azure Bilişsel Hizmetler*, veya ilgili son haberleri Bul *konuşma hizmeti*.
@@ -30,7 +30,7 @@ Konuşma hizmeti işlevselliğini keşfetmeye yeni başlayan? Uygulamanız için
 
 ## <a name="stay-informed"></a>Bildirim alın
 
-Bilişsel hizmetler ile ilgili Haberler toplanır [Bilişsel hizmetler blogu](https://azure.microsoft.com/blog/topics/cognitive-services/). Konuşma hizmeti hakkında en yeni bilgiler için izleme [konuşma hizmeti blog](https://azure.microsoft.com/blog/tag/speech-service/).
+Bilişsel hizmetler ile ilgili Haberler toplanır [Bilişsel hizmetler blogu](https://azure.microsoft.com/blog/topics/cognitive-services/). Konuşma hizmetleri hakkında en yeni bilgiler için izleme [konuşma Hizmetleri blog](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="search"></a>Arama
 

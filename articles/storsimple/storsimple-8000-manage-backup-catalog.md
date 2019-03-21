@@ -1,6 +1,6 @@
 ---
-title: StorSimple yedekleme kataloğu yönetme | Microsoft Docs
-description: StorSimple cihaz Yöneticisi hizmeti yedekleme kataloğu sayfası listesinde seçin ve yedekleme kümelerini silmek için nasıl kullanılacağını açıklar.
+title: StorSimple yedekleme kataloğunu yönetme | Microsoft Docs
+description: StorSimple cihaz Yöneticisi hizmeti yedekleme Kataloğu sayfasına listesinde seçin ve yedekleme kümelerini silmek için nasıl kullanılacağını açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,102 +14,102 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: ac2577c6cd350d6d437d55e61ec73d954cb24893
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 07d9e03f1631ebce88a7a7c2e33be62f21dda522
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23874930"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076794"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Yedekleme kataloğu yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma
+# <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>StorSimple cihaz Yöneticisi hizmeti, yedekleme kataloğunu yönetmek için kullanın
 ## <a name="overview"></a>Genel Bakış
-StorSimple cihaz Yöneticisi hizmeti **yedekleme kataloğu** dikey penceresinde el ile veya zamanlanmış yedeklemeler durumdayken, oluşturulan tüm yedekleme kümelerini görüntüler. Bir yedekleme İlkesi ya da bir birim seçin için tüm yedeklemeler listelemek veya yedekleri de silmek için bu sayfayı kullanın ya da bir yedeği geri yüklemek veya bir birim kopyalamak için kullanın.
+StorSimple cihaz Yöneticisi hizmeti **yedekleme kataloğunu** dikey penceresinde el ile veya zamanlanmış yedeklemeler alındığında, oluşturulan tüm yedekleme kümelerini görüntüler. Bir yedekleme İlkesi ya da bir birim seçin için tüm yedeklemeler listelemek veya yedekleri silmek için bu sayfayı kullanın veya bir yedeği geri yüklemek veya bir birimi kopyalama için kullanın.
 
-Bu öğretici, liste, seçin ve bir yedekleme kümesi silme açıklanmaktadır. Cihazınızı yedekten geri yükleme konusunda bilgi almak için şu adrese gidin [Cihazınızı yedekleme kümesinden geri](storsimple-8000-restore-from-backup-set-u2.md). Birim kopyalama öğrenmek için şu adrese gidin [bir StorSimple biriminin kopyalama](storsimple-8000-clone-volume-u2.md).
+Bu öğreticide, liste, seçin ve bir yedekleme kümesi silme açıklanmaktadır. Cihazınızı yedekten geri yükleme konusunda bilgi almak için Git [Cihazınızı bir yedekleme kümesinden geri](storsimple-8000-restore-from-backup-set-u2.md). Bir birimi kopyalama öğrenmek için Git [bir StorSimple biriminin kopyalama](storsimple-8000-clone-volume-u2.md).
 
 ![Yedekleme kataloğu](./media/storsimple-8000-manage-backup-catalog/bucatalog.png) 
 
-**Yedekleme kataloğu** dikey sağlar yedekleme daraltmak için bir sorgu seçimi ayarlayın. Aşağıdaki parametreleri temel alınarak alınır yedekleme kümelerini filtreleyebilirsiniz:
+**Yedekleme kataloğunu** dikey pencere, yedekleme daraltmak için bir sorgu kümesi seçimi sağlar. Aşağıdaki parametreleri temel alarak alınır yedek kümelerini filtreleyebilirsiniz:
 
-* **Aygıt** – yedekleme kümesi oluşturulduğu aygıt.
-* **Yedekleme İlkesi veya birim** – yedekleme İlkesi veya bu yedekleme kümesiyle ilişkili birim.
-* **Başlangıç ve bitiş** – yedekleme kümesi oluşturduğunuzda tarih ve saat aralığı.
+* **Cihaz** – cihaz yedekleme kümesi oluşturuldu.
+* **Yedekleme İlkesi veya birim** – Bu yedekleme kümesiyle ilişkili birim ve yedekleme ilkesi.
+* **Başlangıç ve bitiş** – yedekleme kümesi oluşturulduğunda tarih ve saat aralığı.
 
-Filtrelenmiş yedekleme kümelerini, ardından aşağıdaki özniteliklerini temel alarak tabloda verilmiştir:
+Filtrelenmiş yedek kümelerini, ardından aşağıdaki özniteliklere bağlı tabloda verilmiştir:
 
-* **Ad** – yedekleme İlkesi veya yedekleme kümesiyle ilişkili birim adı.
+* **Adı** – yedekleme kümesiyle ilişkili birim ve yedekleme ilkesi adı.
 * **Boyutu** – yedekleme kümesi gerçek boyutu.
-* **Oluşturma tarihi** – yedeklemelerin ne zaman oluşturulduğu tarih ve saat. 
-* **Tür** – yedekleme kümelerini yerel anlık görüntüleri olması veya Bulut anlık görüntüler. Bir bulut anlık görüntüsü bulutta bulunan birim verilerin yedeğini başvuruyor ancak yedekleme verilerinizin cihazda yerel olarak depolanan tüm birim yerel bir anlık görüntüdür. Bulut anlık görüntüleri veri dayanıklılığı için seçilen ancak yerel anlık görüntüleri daha hızlı erişim sağlar.
-* **Başlatan** – yedeklemeleri otomatik olarak bir zamanlamaya göre veya el ile bir kullanıcı tarafından başlatılabilir. Yedeklemeleri zamanlamak için bir yedekleme İlkesi kullanabilirsiniz. Alternatif olarak, kullanabileceğiniz **yedek alın** seçeneği el ile yedekleyin.
+* **Oluşturulma tarihi** – yedeklemelerin ne zaman oluşturulduğu tarih ve saat. 
+* **Tür** – kümeleri yedekleme yerel anlık görüntüler olması veya Bulut anlık görüntüleri. Birim verilerinin bulutta bulunan bir bulut anlık görüntüsünü başvuruyor ancak bir yedeğini cihaz üzerinde yerel olarak depolanan tüm birim verilerinizi yerel anlık görüntüsüdür. Veri dayanıklılığı için bulut anlık görüntüleri seçilir ancak yerel anlık görüntüleri daha hızlı erişim sağlar.
+* **Başlatan** – yedeklemeleri otomatik olarak bir zamanlamaya göre veya el ile bir kullanıcı tarafından başlatılabilir. Yedeklemeleri zamanlamak için bir yedekleme İlkesi'ni kullanabilirsiniz. Alternatif olarak, **yedek Al** seçeneği el ile yedekleyin.
 
-## <a name="list-backup-sets-for-a-backup-policy"></a>Liste yedekleme için bir yedekleme İlkesi ayarlar
+## <a name="list-backup-sets-for-a-backup-policy"></a>Liste yedekleme için bir yedekleme İlkesi ayarlar.
 Bir yedekleme ilkesi için tüm yedeklemeler listelemek için aşağıdaki adımları tamamlayın.
 
 #### <a name="to-list-backup-sets"></a>Yedekleme kümelerini listesi
-1. ' I tıklatın ve StorSimple cihaz yöneticinize hizmeti Git **yedekleme kataloğu**.
+1. ' A tıklayın ve StorSimple cihaz Yöneticisi hizmetinize gidin **yedekleme kataloğu**.
 
-2. Şu şekilde filtre seçimleri:
+2. Filtre seçimleri şu şekilde:
    
-   1. Zaman aralığı belirtin.
-   2. Uygun cihazı seçin.
+   1. Zaman aralığını belirtin.
+   2. Uygun bir cihaz seçin.
    3. Filtre ölçütü **yedekleme İlkesi** karşılık gelen yedeklemeler görüntülemek için.
-   3. Yedekleme İlkesi açılır listeden seçin **tüm** seçili cihazda tüm yedeklemeler görüntülemek için.
-   4. Tıklatın **Uygula** bu sorguyu yürütmek için.
+   3. Yedekleme İlkesi açılır listeden seçin **tüm** tüm yedeklemeler seçilen cihazda görüntülemek için.
+   4. Tıklayın **Uygula** bu sorguyu yürütmek için.
       
-      Seçili yedekleme ilkesiyle ilişkili yedeklemeler yedekleme kümelerini listesinde görünmesi gerekir.
+      Seçili yedekleme ilkesiyle ilişkili yedeklemelerin yedekleme ayarları listesinde görüntülenmelidir.
 
       ![Yedekleme Kataloğu'na gidin](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
-## <a name="select-a-backup-set"></a>Bir yedekleme kümesi seçin
+## <a name="select-a-backup-set"></a>Yedek kümesi seçin
 Bir birim veya yedekleme ilkesi için bir yedek seçmek için aşağıdaki adımları tamamlayın.
 
-#### <a name="to-select-a-backup-set"></a>Bir yedekleme kümesi seçmek için
-1. ' I tıklatın ve StorSimple cihaz yöneticinize hizmeti Git **yedekleme kataloğu**.
-2. Şu şekilde filtre seçimleri:
+#### <a name="to-select-a-backup-set"></a>Bir yedekleme kümesi seçin
+1. ' A tıklayın ve StorSimple cihaz Yöneticisi hizmetinize gidin **yedekleme kataloğu**.
+2. Filtre seçimleri şu şekilde:
    
-   1. Zaman aralığı belirtin. 
-   2. Uygun cihazı seçin. 
-   3. Seçmek istediğiniz yedekleme için birim veya yedekleme İlkesi tarafından filtre.
-   4. Tıklatın **Uygula** bu sorguyu yürütmek için.
+   1. Zaman aralığını belirtin. 
+   2. Uygun bir cihaz seçin. 
+   3. Birim veya yedekleme ilkesi seçmek için istediğiniz yedekleme için filtreleyin.
+   4. Tıklayın **Uygula** bu sorguyu yürütmek için.
       
-      Yedekleme seçili birimle ilişkilendirilen veya yedekleme İlkesi yedekleme kümelerini listesinde görüntülenmelidir.
+      Yedeklemeleri seçili birimle ilişkilendirilen veya yedekleme İlkesi yedekleme ayarları listesinde görüntülenmelidir.
 
       ![Yedekleme Kataloğu'na gidin](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
-3. Seçin ve bir yedekleme kümesi'ni genişletin. Şimdi onu içeren birimlerle ayrıntılarıyla yedekleme kümelerini görebilirsiniz. **Geri** ve **silmek** yedekleme kümesi bağlam menüsünü (sağ tıklatma) aracılığıyla seçenekleri mevcuttur. Seçtiğiniz yedekleme kümesinde aşağıdaki işlemlerden birini gerçekleştirebilirsiniz.
+3. Seçin ve bir yedek kümesi genişletin. Artık, içerdiği birimler tarafından ayrılmış yedek kümelerini görebilirsiniz. **Geri** ve **Sil** yedekleme kümesi için bağlam menüsünü (sağ tıklama) seçenekleri kullanılabilir. Seçtiğiniz yedekleme kümesinde aşağıdaki işlemlerden birini gerçekleştirebilirsiniz.
 
     ![Yedekleme Kataloğu'na gidin](./media/storsimple-8000-manage-backup-catalog/bucatalog2.png)
 
-## <a name="delete-a-backup-set"></a>Bir yedekleme kümesi Sil
-Kendisiyle ilişkili verileri tutmak istediğiniz zaman bir yedekleme silin. Bir yedekleme kümesi silmek için aşağıdaki adımları gerçekleştirin.
+## <a name="delete-a-backup-set"></a>Yedek kümesini silme
+Artık onunla ilişkili verileri korumak istediğinizde, bir yedekleme silin. Bir yedekleme kümesi silmek için aşağıdaki adımları gerçekleştirin.
 
-#### <a name="to-delete-a-backup-set"></a>Bir yedekleme kümesi silmek için
- ' I tıklatın ve StorSimple cihaz yöneticinize hizmeti Git **yedekleme kataloğu**.
-2. Şu şekilde filtre seçimleri:
+#### <a name="to-delete-a-backup-set"></a>Bir yedekleme kümesi silinemedi
+ ' A tıklayın ve StorSimple cihaz Yöneticisi hizmetinize gidin **yedekleme kataloğu**.
+1. Filtre seçimleri şu şekilde:
    
-   1. Zaman aralığı belirtin. 
-   2. Uygun cihazı seçin. 
-   3. Seçmek istediğiniz yedekleme için birim veya yedekleme İlkesi tarafından filtre.
-   4. Tıklatın **Uygula** bu sorguyu yürütmek için.
+   1. Zaman aralığını belirtin. 
+   2. Uygun bir cihaz seçin. 
+   3. Birim veya yedekleme ilkesi seçmek için istediğiniz yedekleme için filtreleyin.
+   4. Tıklayın **Uygula** bu sorguyu yürütmek için.
       
-      Yedekleme seçili birimle ilişkilendirilen veya yedekleme İlkesi yedekleme kümelerini listesinde görüntülenmelidir.
+      Yedeklemeleri seçili birimle ilişkilendirilen veya yedekleme İlkesi yedekleme ayarları listesinde görüntülenmelidir.
 
       ![Yedekleme Kataloğu'na gidin](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
-3. Seçin ve bir yedekleme kümesi'ni genişletin. Şimdi onu içeren birimlerle ayrıntılarıyla yedekleme kümelerini görebilirsiniz. **Geri** ve **silmek** yedekleme kümesi bağlam menüsünü (sağ tıklatma) aracılığıyla seçenekleri mevcuttur. Seçili yedekleme kümesine sağ tıklatın ve bağlam menüsünden seçin **silmek**.
+1. Seçin ve bir yedek kümesi genişletin. Artık, içerdiği birimler tarafından ayrılmış yedek kümelerini görebilirsiniz. **Geri** ve **Sil** yedekleme kümesi için bağlam menüsünü (sağ tıklama) seçenekleri kullanılabilir. Seçili yedekleme kümesini sağ tıklatın ve bağlam menüsünden seçin **Sil**.
 
     ![Yedekleme Kataloğu'na gidin](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
 
-4. Onaylamanız istendiğinde, görüntülenen bilgileri gözden geçirin ve tıklatın **silmek**. Seçili yedekleme kalıcı olarak silinir.
+1. Onayınız istendiğinde görüntülenen bilgileri gözden geçirin ve tıklayın **Sil**. Seçilen yedeğin kalıcı olarak silinir.
 
     ![Yedekleme Kataloğu'na gidin](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
 
-5. Silme işlemi devam ediyor ve ne zaman başarıyla tamamlandıktan olduğunda size bildirilecek. Silme işlemini gerçekleştirdikten sonra bu sayfada sorguyu yenileyin. Silinen yedekleme kümesi artık yedekleme kümelerini listesinde görünür.
+1. Silme işlemi ilerleme durumu ve ne zaman başarıyla tamamlandıktan olduğunda size bildirilir. Silme işlemi tamamlandıktan sonra bu sayfadaki sorguyu yenileyin. Silinmiş yedekleme kümesi artık yedekleme kümeleri listesinde görünür.
 
     ![Yedekleme Kataloğu'na gidin](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bilgi edinmek için nasıl [Cihazınızı yedekleme kümesinden geri yüklemek için yedekleme Kataloğu'nu kullanma](storsimple-8000-restore-from-backup-set-u2.md).
+* Bilgi edinmek için nasıl [Cihazınızı bir yedekleme kümesinden geri yüklemek için yedekleme kataloğunu kullanma](storsimple-8000-restore-from-backup-set-u2.md).
 * Bilgi edinmek için nasıl [StorSimple Cihazınızı yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma](storsimple-8000-manager-service-administration.md).
 

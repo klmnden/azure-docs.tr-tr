@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 20c1e2a4394c249b410a1253356d0ef96c30e970
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8098196abc415dedba392737fc17a4de5739339d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818906"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100249"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Contoso geçişi:  Azure DevOps Services’a bir Team Foundation Server dağıtımını yeniden düzenleme
 
@@ -225,11 +225,11 @@ Doğrulama tamamlandı Contoso yöneticileri TFS geçiş aracı geçiş dosyalar
 
 6. Bunlar, Azure DevOps hizmetlerine içeri aktarma sırasında kapsama dahil edilecektir hesaplarını gösterir kimlik günlük eşleme dosyasını inceleyin. 
 
-    - Azure DevOps Hizmetleri kullanıcıları içeri aktarma işleminden sonra olacak kimlikleri etkin kimlikleri bakın.
-    - Azure DevOps Hizmetleri bu kimlikleri lisanslanacağını ve geçişten sonra kuruluşunuzdaki bir kullanıcı olarak gösterilir.
-    - Bu kimlikleri olarak işaretlenmiş **etkin** içinde **beklenen içeri aktarma durumu** dosyasındaki sütun.
+   - Azure DevOps Hizmetleri kullanıcıları içeri aktarma işleminden sonra olacak kimlikleri etkin kimlikleri bakın.
+   - Azure DevOps Hizmetleri bu kimlikleri lisanslanacağını ve geçişten sonra kuruluşunuzdaki bir kullanıcı olarak gösterilir.
+   - Bu kimlikleri olarak işaretlenmiş **etkin** içinde **beklenen içeri aktarma durumu** dosyasındaki sütun.
 
-    ![Hazırlama](./media/contoso-migration-tfs-vsts/prep6.png)
+     ![Hazırlama](./media/contoso-migration-tfs-vsts/prep6.png)
 
 
 

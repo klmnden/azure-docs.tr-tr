@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4f6f6042eaacc809b9d413ef01883987bd558507
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 4dc50de7a97055e336627e34f747a17fcedc7e58
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651614"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091554"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak Apache HBase sorunlarını giderme
 
@@ -367,7 +367,7 @@ Arka planda neler olduğunu aşağıda verilmiştir:
            2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
            2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
    ```
-Bölge sunucusu işlem durdurulmuş olsa bile ani kapatma nedeniyle, işlemle ilişkili bağlantı noktası, serbest bırakılmayabilir. Bölge sunucusu başlatıldığında, bu durum aşağıdaki günlüklere gösterildiği bir AddressBindException için açabilir. Bu, burada başlatmak için bölge sunucusu başarısız çalışan düğümlerinin /var/log/hbase dizininde bölge server.log de doğrulayabilirsiniz. 
+   Bölge sunucusu işlem durdurulmuş olsa bile ani kapatma nedeniyle, işlemle ilişkili bağlantı noktası, serbest bırakılmayabilir. Bölge sunucusu başlatıldığında, bu durum aşağıdaki günlüklere gösterildiği bir AddressBindException için açabilir. Bu, burada başlatmak için bölge sunucusu başarısız çalışan düğümlerinin /var/log/hbase dizininde bölge server.log de doğrulayabilirsiniz. 
 
    ```apache
 

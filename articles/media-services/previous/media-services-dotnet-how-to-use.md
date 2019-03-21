@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: juliako
-ms.openlocfilehash: 36350f8f359c6ad5cc5637ce0ce38838698cd68b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7da57c01b6717b505ea09fa9e6197bab4d4976fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177453"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873834"
 ---
 # <a name="media-services-development-with-net"></a>.NET ile Media Services Geliştirme 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -45,7 +45,7 @@ Alternatif olarak, Github'dan son Media Services .NET SDK'sı bitleri alabilirsi
 2. Çözümü derleyin.
 3. Kullanım **NuGet** yüklemek ve eklemek için **Azure Media Services .NET SDK uzantıları** (**windowsazure.mediaservices.extensions**). Bu paketin yüklenmesiyle **Media Services .NET SDK** da yüklenir ve diğer tüm gerekli bağımlılıklar eklenir.
    
-    En yeni sürümünü NuGet yüklü olduğundan emin olun. Daha fazla bilgi ve yükleme yönergeleri için bkz. [NuGet](http://nuget.codeplex.com/).
+    En yeni sürümünü NuGet yüklü olduğundan emin olun. Daha fazla bilgi ve yükleme yönergeleri için bkz. [NuGet](https://nuget.codeplex.com/).
 
     1. Çözüm Gezgini'nde proje adına sağ tıklayın ve seçin **NuGet paketlerini Yönet**.
 
@@ -54,7 +54,7 @@ Alternatif olarak, Github'dan son Media Services .NET SDK'sı bitleri alabilirsi
     3. Çevrimiçi Galerisi, Azure MediaServices uzantıları, arama düğmesini **Azure Media Services .NET SDK uzantıları** (**windowsazure.mediaservices.extensions**) ve ardından  **Yükleme** düğmesi.
    
     4. Proje değiştirildi ve Media Services .NET SDK uzantıları, Media Services .NET SDK'sı ve diğer bağımlı derlemeler için başvurular eklenir.
-4. Temiz bir geliştirme ortamı yükseltmek için NuGet paketi geri yüklemeyi etkinleştirme göz önünde bulundurun. Daha fazla bilgi için [NuGet paketi geri yüklemeyi "](http://docs.nuget.org/consume/package-restore).
+4. Temiz bir geliştirme ortamı yükseltmek için NuGet paketi geri yüklemeyi etkinleştirme göz önünde bulundurun. Daha fazla bilgi için [NuGet paketi geri yüklemeyi "](https://docs.nuget.org/consume/package-restore).
 5. Bir başvuru ekleyin **System.Configuration** derleme. Bu derleme System.Configuration içerir. **ConfigurationManager** yapılandırma dosyaları (örneğin, App.config) erişmek için kullanılan sınıf.
    
     1. Başvuruları Yönet iletişim kutusunu kullanarak başvurular eklemek için Çözüm Gezgini'nde proje adına sağ tıklayın. ' A tıklayarak **Ekle**, ardından **başvurusu...** .

@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: b5e42585178505ee4c23ca4054e83f61ee1254b8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436145"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076284"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IOT Hub cihaz akışları (Önizleme)
 
@@ -123,7 +123,7 @@ IOT Hub'ınızın cihaz akış etkinlikleri için Azure İzleyici günlüklerine
 
 1. Gidin *tanılama ayarları* sekmesinde IOT hub'ına ve tıklayarak *tanılamayı Aç* bağlantı.
 
-  ![Alternatif metin](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "disgnostics günlüklerini etkinleştirme")
+   ![Alternatif metin](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "disgnostics günlüklerini etkinleştirme")
 
 
 2. Tanılama ayarlarınızı için bir ad girin ve seçin *Log Analytics'e gönderme* seçeneği. Mevcut bir Log Analytics çalışma alanı kaynağı seçin veya yeni bir tane oluşturmak için yönlendirilecektir. Ayrıca, kontrol *DeviceStreams* listeden.

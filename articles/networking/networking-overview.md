@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 56e203a212a4e0e81922336f72fd58ef3cb7dc64
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: c37e2357038e4f711b015fda80a0de8c4dbd9498
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983515"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880934"
 ---
 # <a name="azure-networking"></a>Azure ağı
 
@@ -149,7 +149,7 @@ Azure ağı yönetmek ve izlemek için aşağıdaki araçları sağlar:
 
 Dağıtma ve Azure ağ kaynakları aşağıdaki araçlardan birini yapılandırın:
 
-- **Azure portalı:** Bir tarayıcıda çalışan bir grafik kullanıcı arabirimi. [Azure portalı](http://portal.azure.com) açın.
+- **Azure portalı:** Bir tarayıcıda çalışan bir grafik kullanıcı arabirimi. [Azure portalı](https://portal.azure.com) açın.
 - **Azure PowerShell:** Azure Windows bilgisayarlardan yönetmek için komut satırı araçları. Azure PowerShell hakkında daha fazla bilgi edinmek [Azure PowerShell'e genel bakış](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
 - **Azure komut satırı arabirimi (CLI):** Azure Linux, macOS veya Windows bilgisayarlardan yönetmek için komut satırı araçları. Azure CLI hakkında daha fazla bilgi edinmek [Azure CLI'yı genel bakış](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
 - **Azure Resource Manager şablonları:** Altyapı ve bir Azure çözümü yapılandırmasını tanımlayan bir dosyası (JSON biçiminde). Bir şablon kullanarak çözümünü yaşam döngüsü boyunca defalarca dağıtabilir ve kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz. Yazma şablonları hakkında daha fazla bilgi edinmek için [şablonları oluşturmaya yönelik en iyi uygulamalar](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi. Şablonları Azure portalı, CLI veya PowerShell ile dağıtılabilir. Şablonlarla hemen çalışmaya başlamak için çok sayıda önceden yapılandırılmış şablonlar birini dağıtmak [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/?term=network) kitaplığı. 

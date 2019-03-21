@@ -16,12 +16,12 @@ ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: eff27e296800f78303d085f471e4fda188b487ce
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: b1b11dc27b279173ede4498ca353aea4018ea8f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301868"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102443"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK yükleme sonrası yapılandırma görevleri
 
@@ -172,7 +172,7 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 Azure AD kullanarak dağıtımları için şunları yapmanız [çok kiracılı modeli etkinleştirme](../azure-stack-enable-multitenancy.md#enable-multi-tenancy) ASDK yüklemenizin.
 
-> [!NOTE]  
+> [!NOTE]
 > Yönetici veya kullanıcı hesaplarından farklı Azure Stack kaydetmek için kullanılan etki alanları, bir Azure Stack Portal'da oturum açmak için kullanıldığında, Azure Stack kaydetmek için kullanılan etki alanı adı portala eklenmesi gereken url. Örneğin, Azure Stack ile Fabrikam.onmicrosoft.com adresli kayıtlı olup olmadığını ve oturum açma kullanıcı hesabı olan admin@contoso.com, kullanıcı portalında oturum açmak için kullanılacak url şu şekilde olacaktır: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## <a name="next-steps"></a>Sonraki adımlar

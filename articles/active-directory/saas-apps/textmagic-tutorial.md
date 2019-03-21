@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec8085d2d3ac4cc338ab9c0c36eec481a5d4fbc9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a91d6878f509f47f029a3b8aaf7bbbe4e6f35435
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200352"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57869804"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Öğretici: TextMagic ile Azure Active Directory Tümleştirme
 
@@ -202,7 +202,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

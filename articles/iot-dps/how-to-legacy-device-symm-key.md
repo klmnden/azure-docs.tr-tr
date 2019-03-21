@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: cf4ee8b1b9d96ad4d32a0ac8b1682968b90653f9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c43d3b236a305f1e6d2bd392527a5206b6a5c974
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541499"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074905"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Simetrik anahtarlar kullanarak eski cihazları sağlamasını yapma
 
@@ -120,17 +120,17 @@ SDK'sı sanal cihaz için örnek kod içerir. Simülasyon cihazı, cihazın öny
 
 3. Üzerinde **kayıt grubu Ekle**, aşağıdaki bilgileri girin ve tıklayın **Kaydet** düğmesi.
 
-    - **Grup adı**: Girin **mylegacydevices**.
+   - **Grup adı**: Girin **mylegacydevices**.
 
-    - **Kanıtlama türü**: Seçin **simetrik anahtar**.
+   - **Kanıtlama türü**: Seçin **simetrik anahtar**.
 
-    - **Anahtarları otomatik olarak oluştur**: Bu kutuyu işaretleyin.
+   - **Anahtarları otomatik olarak oluştur**: Bu kutuyu işaretleyin.
 
-    - **Hub'lara cihazları atamak istediğiniz seçin**: Seçin **statik yapılandırma** belirli bir hub'ına atayabilmenizi sağlayacak.
+   - **Hub'lara cihazları atamak istediğiniz seçin**: Seçin **statik yapılandırma** belirli bir hub'ına atayabilmenizi sağlayacak.
 
-    - **Bu grup atanabilen IOT hub'ları seçin**: Hubs'ınız birini seçin.
+   - **Bu grup atanabilen IOT hub'ları seçin**: Hubs'ınız birini seçin.
 
-    ![Simetrik anahtar kanıtı için kayıt grubu Ekle](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
+     ![Simetrik anahtar kanıtı için kayıt grubu Ekle](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
 4. Ortamınızı kaydettikten sonra, **Birincil Anahtar** ve **İkincil Anahtar** oluşturularak kayıt girişine eklenir. Simetrik anahtar kayıt grubunuz görünür **mylegacydevices** altında *grup adı* sütununda *kayıt grupları* sekmesi. 
 

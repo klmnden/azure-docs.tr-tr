@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c29cf0604e651902474d85dbd6edd3208e6b5944
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 55a829f2ed32152d14ef637c8079f7af8c487bea
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811308"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097653"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Azure Data Factory kullanarak bir SFTP sunucusundan veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ Farklı araçlar/API'lerini kullanarak bir SFTP kaynaktan veri taşıyan kopyala
 Aşağıdaki tabloda, bağlı hizmet FTP özgü JSON öğeleri için açıklama sağlar.
 
 | Özellik | Açıklama | Gerekli |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | type | Type özelliği ayarlanmalıdır `Sftp`. |Evet |
 | konak | SFTP sunucusunun adı veya IP adresi. |Evet |
 | port |SFTP sunucusunun dinlediği bağlantı noktası. Varsayılan değerdir: 21 |Hayır |
@@ -65,7 +65,7 @@ Aşağıdaki tabloda, bağlı hizmet FTP özgü JSON öğeleri için açıklama 
 Temel kimlik doğrulaması kullanmak için ayarlanmış `authenticationType` olarak `Basic`ve SFTP Bağlayıcısı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
 
 | Özellik | Açıklama | Gerekli |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | kullanıcı adı | SFTP sunucusuna erişimi olan kullanıcı. |Evet |
 | password | (Kullanıcı adı) kullanıcı parolası. | Evet |
 
@@ -115,7 +115,7 @@ Temel kimlik doğrulaması kullanmak için ayarlanmış `authenticationType` ola
 SSH ortak anahtar kimlik doğrulamasını kullanmak için ayarlanmış `authenticationType` olarak `SshPublicKey`ve SFTP Bağlayıcısı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
 
 | Özellik | Açıklama | Gerekli |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | kullanıcı adı |SFTP sunucusuna erişimi olan kullanıcı |Evet |
 | privateKeyPath | Belirtin özel anahtar dosyasının mutlak yolu, ağ geçidinin erişebilir. | Seçeneklerinden birini belirtin `privateKeyPath` veya `privateKeyContent`. <br><br> Yalnızca bir şirket içi SFTP sunucusundan veri kopyalama işlemi sırasında uygulanır. |
 | privateKeyContent | Özel anahtar içeriği seri hale getirilmiş bir dize. Kopyalama Sihirbazı'nı, özel anahtar dosyasını okuma ve özel anahtar içeriği otomatik olarak ayıklayın. Herhangi diğer araca/SDK'ya kullanıyorsanız privateKeyPath özelliğini kullanın. | Seçeneklerinden birini belirtin `privateKeyPath` veya `privateKeyContent`. |

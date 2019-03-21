@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 978667dcd3f7bd10192a396ec3e8d097bdb73509
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 0988902e0a2154f2935a01ddcfb6a460be693df3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57577152"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093812"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Bir Windows VHD veya VHDX yüklemek için hazırlama
 Bir Windows sanal makinelerine (VM) şirket içi Microsoft Azure'ı yüklemeden önce sanal sabit disk (VHD veya VHDX) hazırlamanız gerekir. Azure'un destekledikleri **yalnızca 1. kuşak Vm'leri** VHD dosyası biçiminde ve sabit boyutlu bir diske sahip. VHD için izin verilen boyut 1,023 GB'dir. Nesil 1 VM'den VHDX dosya sistemi VHD ve sabit boyutlu için dinamik olarak genişleyen bir diskten dönüştürebilirsiniz. Ancak, bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için [oluşturmalıyım 1 veya 2. nesil Hyper-v VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -320,14 +320,14 @@ Aşağıdaki ayarlar, Uzak Masaüstü bağlantısı için doğru şekilde yapıl
 
 9. Aşağıdakilerden herhangi birini kaldırmıyorsunuz emin olmak için aşağıdaki AD ilkeyi denetlemek gerekli erişim hesapları:
 
-    - Bilgisayar Yapılandırması\Windows Ayarları\Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Assignment\Access ağdan bu işlem
+   - Bilgisayar Yapılandırması\Windows Ayarları\Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Assignment\Access ağdan bu işlem
 
-    Aşağıdaki gruplar bu ilkeye bağlı olarak listelenmesi gerekir:
+     Aşağıdaki gruplar bu ilkeye bağlı olarak listelenmesi gerekir:
 
-    - Yöneticiler
-    - Yedekleme işleçleri
-    - Herkes
-    - Kullanıcılar
+   - Yöneticiler
+   - Yedekleme işleçleri
+   - Herkes
+   - Kullanıcılar
 
 10. Windows yine de sağlıklı olduğundan emin olmak için VM yeniden başlatma, RDP bağlantısını kullanarak erişilebilir. Bu noktada, yerel Hyper-VM tamamen başlangıç emin olun ve ardından RDP erişilebilir olup olmadığını test etmek için V'de bir sanal makine oluşturmak isteyebilirsiniz.
 
@@ -416,12 +416,12 @@ Bu Genelleştirme, her rol ya da Windows tabanlı bir bilgisayarda yüklü uygul
 Aşağıdaki ayarlar, VHD'yi karşıya etkilemez. Ancak, bunları yapılandırılmış önerilir.
 
 * Yükleme [Azure VM Aracısı](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Ardından, VM uzantılarını etkinleştirebilirsiniz. VM uzantıları, RDP yapılandırma, parola sıfırlama gibi Vm'leriniz ile kullanmak istediğiniz ve benzeri önemli işlevselliğinin büyük kısmını uygulayın. Daha fazla bilgi için [Azure sanal makine Aracısı genel bakış](../extensions/agent-windows.md).
-*  Azure'da VM oluşturulduktan sonra performansı artırmak için "Zamana bağlı sürücüsü" birim üzerinde disk belleği dosyası yerleştirme öneririz. Bu gibi ayarlayabilirsiniz:
+* Azure'da VM oluşturulduktan sonra performansı artırmak için "Zamana bağlı sürücüsü" birim üzerinde disk belleği dosyası yerleştirme öneririz. Bu gibi ayarlayabilirsiniz:
 
-    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
-    ```
-Zamana bağlı sürücü birimin sürücü harfini VM'ye bağlı herhangi bir veri disk ise, genellikle "D" olur. Bu gösterim kullanılabilir sürücü sayısını ve yaptığınız ayarlarına bağlı olarak farklı olabilir.
+   ```PowerShell
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
+   ```
+  Zamana bağlı sürücü birimin sürücü harfini VM'ye bağlı herhangi bir veri disk ise, genellikle "D" olur. Bu gösterim kullanılabilir sürücü sayısını ve yaptığınız ayarlarına bağlı olarak farklı olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Resource Manager dağıtımları için azure'a bir Windows VM görüntüsü](upload-generalized-managed.md)

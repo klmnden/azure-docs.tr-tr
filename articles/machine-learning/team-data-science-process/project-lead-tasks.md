@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d574f62a51b8aed7acbd1ba7f8b427395add854a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1ee409bc9e4ad60602ddffd3d1896baf09df52da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454139"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854798"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Team Data Science Process içinde proje için görevleri sağlama
 
@@ -126,11 +126,11 @@ Bu örnekte, sunuyoruz:
 
 Azure DevOps kod barındırma platformu olarak genellikle kullanıyorsanız *SSH proje şablonu depo URL'si* olan:
 
-***SSH: / /\<Azure DevOps Hizmetleri adı\>@\<Azure DevOps Hizmetleri adı\>.visualstudio.com:22/\<proje adınız > /_git/\<, proje şablonu Depo adı\>.*** 
+***SSH: / /\<Azure DevOps Hizmetleri adı\>\@\<Azure DevOps Hizmetleri adı\>.visualstudio.com:22/\<proje adınız > /_git/\<, proje şablonu Depo adı\>.*** 
 
 Bu örnekte, sunuyoruz:
 
-***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/MyTeamProjectTemplate***. 
+***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/MyTeamProjectTemplate***. 
 
 ### <a name="clone-dsproject1-repository-r5-to-a-directory-d5-on-your-local-machine"></a>Yerel makinenizde bir dizin (D5) (R5) DSProject1 deposunu kopyalayın
 
@@ -150,7 +150,7 @@ Azure DevOps kod barındırma platformu olarak genellikle kullanıyorsanız _pro
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-Azure DevOps kod barındırma platformu olarak genellikle kullanıyorsanız _SSH proje depo URL'si_ _ssh olduğu: / / < Azure DevOps Hizmetleri adı\>@< Azure DevOps Hizmetleri adı\>. VisualStudio.com:22/<Your Project Name>/\_git / < proje depo adınızı\>. Bu örnekte, sahip olduğumuz ***ssh://mysamplegroup@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
+Azure DevOps kod barındırma platformu olarak genellikle kullanıyorsanız _SSH proje depo URL'si_ _ssh olduğu: / / < Azure DevOps Hizmetleri adı\>@< Azure DevOps Hizmetleri adı\>. VisualStudio.com:22/<Your Project Name>/\_git / < proje depo adınızı\>. Bu örnekte, sahip olduğumuz ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
 
 ### <a name="copy-contents-of-d3-to-d5"></a>D5 için D3 içeriğini kopyalayın 
 
