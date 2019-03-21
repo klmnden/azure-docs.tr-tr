@@ -9,12 +9,12 @@ ms.date: 11/21/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: d8371bf355cb73a9e627dafe502100a6a639bc91
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8d17ece1426c2aedda2ef98cb465dad532d4dba6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779989"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902714"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Azure geliştirme alanları ile birden çok hizmet geliştirme
 
@@ -32,8 +32,8 @@ Bu kılavuz için `samples` adlı klasörün altında zaten `mywebapi` örnek ko
 ### <a name="run-mywebapi"></a>*mywebapi* hizmetini çalıştırın
 1. *Ayrı bir VS Code penceresinde* `mywebapi` klasörünü açın.
 1. **Komut Paleti**'ni açın (**Görünüm | Komut Paleti** menüsünü kullanarak) ve otomatik tamamlama özelliğini kullanarak komutu yazın ve seçin: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. Bu komut, projeyi dağıtım için yapılandıran `azds prep` komutuyla karıştırılmamalıdır.
-1. F5'e bastıktan sonra hizmetin oluşturulup dağıtılmasını bekleyin. VS Code hata ayıklama çubuğu görüntülendiğinde hazır olduğunu anlarsınız.
-1. Uç nokta URL'sini not alın; http://localhost:\<portnumber\> benzeri bir URL olacaktır. **İpucu: VS Code durum çubuğunda tıklanabilir bir URL görüntülenir.** Kapsayıcı yerel olarak çalışıyor gibi görünebilir, ancak gerçekte Azure’daki geliştirme ortamınızda çalışıyordur. Bunun localhost adresi olmasının nedeni `mywebapi` hizmetinin hiçbir genel uç nokta tanımlamamış olması ve buna yalnızca Kubernetes örneğinin içinden erişilebilmesidir. Size rahatlık sağlamak ve yerel makinenizden özel hizmetle etkileşimi kolaylaştırmak için, Azure Dev Spaces Azure'da çalıştırılan kapsayıcıya geçici bir SSH tüneli oluşturur.
+1. F5'e bastıktan sonra hizmetin oluşturulup dağıtılmasını bekleyin. Bunu hazır olduğunda anlarsınız *80 numaralı bağlantı noktasında dinleme* iletisi hata ayıklama konsolunda görüntülenir.
+1. Uç nokta URL'sini not alın; `http://localhost:<portnumber>` benzeri bir URL olacaktır. **İpucu: VS Code durum çubuğunda tıklanabilir bir URL görüntülenir.** Kapsayıcı yerel olarak çalışıyor gibi görünebilir, ancak gerçekte Azure’daki geliştirme ortamınızda çalışıyordur. Bunun localhost adresi olmasının nedeni `mywebapi` hizmetinin hiçbir genel uç nokta tanımlamamış olması ve buna yalnızca Kubernetes örneğinin içinden erişilebilmesidir. Size rahatlık sağlamak ve yerel makinenizden özel hizmetle etkileşimi kolaylaştırmak için, Azure Dev Spaces Azure'da çalıştırılan kapsayıcıya geçici bir SSH tüneli oluşturur.
 1. `mywebapi` hazır olduğunda, tarayıcınızda localhost adresini açın. `mywebapi` hizmetinden bir yanıt görmeniz gerekir ("Hello from mywebapi").
 
 
@@ -60,7 +60,7 @@ Bu kılavuz için `samples` adlı klasörün altında zaten `mywebapi` örnek ko
        });
     });
     ```
- 4. `server.js` sonundaki `server.close()` satırını *kaldırma*
+   1. `server.js` sonundaki `server.close()` satırını *kaldırma*
 
 Önceki kod örneğinde `azds-route-as` üst bilgisi gelen istekten giden isteğe iletilmektedir. Daha sonra bunun takımlara işbirliğine dayalı geliştirme açısından nasıl yardımcı olduğunu göreceksiniz.
 

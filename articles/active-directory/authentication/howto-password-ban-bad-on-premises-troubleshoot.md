@@ -1,6 +1,6 @@
 ---
-title: Azure AD parola koruması önizlemede sorunlarını giderme
-description: Azure AD parola koruması Önizleme genel sorun giderme anlama
+title: Azure AD parola koruması sorunlarını giderme
+description: Azure AD parola koruması genel sorun giderme anlama
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 760ad30daabee61300768b7c67824f39437ac87f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 7ac97d7bda56a871e0b8f6de6d5d7262f3f44667
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006961"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285709"
 ---
-# <a name="preview-azure-ad-password-protection-troubleshooting"></a>Önizleme: Azure AD parola koruması sorunlarını giderme
-
-|     |
-| --- |
-| Azure AD parola koruması, Azure Active Directory genel Önizleme özelliğidir. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD parola koruması sorunlarını giderme
 
 Azure AD parola koruması dağıtıldıktan sonra sorun giderme gerekebilir. Bu makalede bazı genel sorun giderme adımlarını anlamanıza yardımcı olması için ayrıntıya gider.
 
@@ -101,7 +96,7 @@ Hala DC Aracısı yazılımını çalıştıran bir etki alanı denetleyicisini 
 
 ## <a name="removal"></a>Çıkarma
 
-Etki alanı ve orman ilgili tüm durum temizleme ve genel Önizleme yazılımını kaldırmak için karar verilir, bu görevi, aşağıdaki adımları kullanarak gerçekleştirilebilir:
+Temizleme ve Azure AD parola koruması yazılımı etki alanı ve orman ilgili tüm durum kaldırmanız karar, bu görevi, aşağıdaki adımları kullanarak gerçekleştirilebilir:
 
 > [!IMPORTANT]
 > Sırayla bu adımları gerçekleştirmek önemlidir. Proxy Hizmeti herhangi bir örneğini çalıştıran bırakılırsa düzenli aralıklarla serviceConnectionPoint nesne yeniden oluşturur. DC Aracısı hizmeti herhangi bir örneğini çalıştıran bırakılırsa düzenli aralıklarla serviceConnectionPoint nesne ve sysvol durumu yeniden oluşturun.
@@ -120,7 +115,7 @@ Etki alanı ve orman ilgili tüm durum temizleme ve genel Önizleme yazılımın
 
    Aracılığıyla elde edilen nesne bulundu `Get-ADObject` komutu ardından ayrıştırılabileceği `Remove-ADObject`, veya el ile silindi.
 
-4. El ile tüm DC aracı bağlantı noktaları, her etki alanı adlandırma içeriği kaldırın. Olabilir bir genel Önizleme yazılımını yaygın olarak nasıl dağıtıldığına bağlı olarak ormandaki etki alanı denetleyicisi başına bu nesneler. Bu nesnenin konumu aşağıdaki Active Directory PowerShell komutuyla bulunan:
+4. El ile tüm DC aracı bağlantı noktaları, her etki alanı adlandırma içeriği kaldırın. Olabilir bir yazılım yaygın olarak nasıl dağıtıldığına bağlı olarak ormandaki etki alanı denetleyicisi başına bu nesneler. Bu nesnenin konumu aşağıdaki Active Directory PowerShell komutuyla bulunan:
 
    ```PowerShell
    $scp = "serviceConnectionPoint"

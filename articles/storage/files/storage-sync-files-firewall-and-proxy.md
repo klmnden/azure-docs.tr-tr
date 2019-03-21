@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 23bf70cd60639aec3ea7e8504dc3f6ebccd4923f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 937346bf6927efe11e43b64b7c9a2111f00c0e0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883598"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890840"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure Dosya Eşitleme proxy’si ve güvenli duvarı ayarları
 Azure dosya eşitleme, şirket içi sunucularınızı Azure çok siteli eşitleme ve bulut katmanlaması özellikleri etkinleştirme dosyaları'na bağlanır. Bu nedenle, bir şirket içi sunucu internet'e bağlanması gerekir. Bir BT yöneticisi Azure bulut hizmetlerine erişmek sunucu için en iyi yolu karar vermeniz gerekir.
@@ -59,28 +59,28 @@ Makine genelinde proxy ayarlarını yapılandırmak için aşağıdaki adımlar�
 
 1. .NET uygulamaları için proxy ayarlarını yapılandırma 
 
-  - Bu iki dosyayı düzenleyin:  
-    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
-    C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+   - Bu iki dosyayı düzenleyin:  
+     C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
+     C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-  - Machine.config dosyaları (aşağıda < system.serviceModel > bölümünde) < system.net > bölümüne ekleyin.  IP adresi ve bağlantı noktası proxy sunucusu için 127.0.01:8888 değiştirin. 
-  ```
+   - Machine.config dosyaları (aşağıda < system.serviceModel > bölümünde) < system.net > bölümüne ekleyin.  IP adresi ve bağlantı noktası proxy sunucusu için 127.0.01:8888 değiştirin. 
+     ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
           <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
         </defaultProxy>
       </system.net>
-  ```
+     ```
 
 2. WinHTTP proxy ayarları ayarlayın 
 
-  - Bir yükseltilmiş komut istemi veya var olan proxy ayarı görmek için PowerShell'de aşağıdaki komutu çalıştırın:   
+   - Bir yükseltilmiş komut istemi veya var olan proxy ayarı görmek için PowerShell'de aşağıdaki komutu çalıştırın:   
 
-    Netsh winhttp show proxy
+     Netsh winhttp show proxy
 
-  - Bir yükseltilmiş komut istemi veya PowerShell proxy ayarını ayarlamak için aşağıdaki komutu çalıştırın (127.0.01:8888 IP adresi ve bağlantı noktası proxy sunucusu için değiştirin):  
+   - Bir yükseltilmiş komut istemi veya PowerShell proxy ayarını ayarlamak için aşağıdaki komutu çalıştırın (127.0.01:8888 IP adresi ve bağlantı noktası proxy sunucusu için değiştirin):  
 
-    Netsh winhttp proxy 127.0.0.1:8888 ayarlayın
+     Netsh winhttp proxy 127.0.0.1:8888 ayarlayın
 
 3. Bir yükseltilmiş komut istemi veya PowerShell aşağıdaki komutu çalıştırarak depolama eşitleme Aracısı hizmetini yeniden başlatın: 
 
@@ -100,7 +100,7 @@ Aşağıdaki tabloda iletişim için gereken etki alanları açıklanmaktadır:
 | **Azure Active Directory** | https://graph.windows.net/ | https://graph.windows.net/ | Azure dosya eşitleme dağıtımı bir parçası olarak, aboneliğin Azure Active Directory'de Hizmet sorumlusu oluşturulur. Bu URL için kullanılır. Bu asıl hakları Azure dosya eşitleme hizmeti için en az bir dizi için temsilci seçme için kullanılır. Azure dosya eşitleme'nin ilk kurulum gerçekleştiren kullanıcı kimliği doğrulanmış bir kullanıcı abonelik sahibi ayrıcalıklara sahip olması gerekir. |
 | **Azure Depolama** | &ast;. core.windows.net | &ast;.core.usgovcloudapi.net | Sunucu bir dosya yüklediğinde, ardından sunucu, veri taşıma daha verimli bir şekilde doğrudan depolama hesabındaki Azure dosya paylaşımına konuşurken gerçekleştirir. Sunucuda yalnızca için hedeflenen dosya paylaşımına erişim veren bir SAS anahtarı var. |
 | **Azure dosya eşitleme** | &ast;.one.microsoft.com | &ast;.afs.azure.us | İlk sunucu kayıt sonrasında sunucu bu bölgede Azure dosya eşitleme hizmeti örneği için bölgesel bir URL alır. Sunucu URL'sini doğrudan ve verimli bir şekilde eşitlendiğini işleme örneğiyle iletişim kurmak için kullanabilirsiniz. |
-| **Microsoft PKI** | `https://www.microsoft.com/pki/mscorp`<br />http://ocsp.msocsp.com | `https://www.microsoft.com/pki/mscorp`<br />http://ocsp.msocsp.com | Azure dosya eşitleme Aracısı yüklendikten sonra PKI URL'si Azure dosya paylaşımı ve Azure dosya eşitleme hizmeti ile iletişim kurmak için gereken Ara sertifikaları yüklemek için kullanılır. OCSP URL'si bir sertifika durumunu denetlemek için kullanılır. |
+| **Microsoft PKI** | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | `https://www.microsoft.com/pki/mscorp`<br /><http://ocsp.msocsp.com> | Azure dosya eşitleme Aracısı yüklendikten sonra PKI URL'si Azure dosya paylaşımı ve Azure dosya eşitleme hizmeti ile iletişim kurmak için gereken Ara sertifikaları yüklemek için kullanılır. OCSP URL'si bir sertifika durumunu denetlemek için kullanılır. |
 
 > [!Important]
 > Trafiğe izin verirken &ast;. one.microsoft.com, daha fazlasını eşitleme hizmeti trafiğini sunucudan mümkün. Alt etki alanları altında kullanılabilen pek çok daha fazla Microsoft hizmetleri vardır.

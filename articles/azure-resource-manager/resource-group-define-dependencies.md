@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 03/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 39d0813eab49f526842eec171e3355326bd13c44
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 91325b7884eae4c6f4c85c142b1e81cf2121c039
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727811"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295343"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarında kaynak dağıtmaya sırasını tanımlayın
 Belirli bir kaynak için kaynak dağıtılmadan önce mevcut olmalıdır diğer kaynakları olabilir. Örneğin, bir SQL server, SQL veritabanı dağıtmaya çalışmadan önce mevcut olması gerekir. Bu ilişki, diğer kaynağına bağlı olarak bir kaynak olarak işaretleyerek tanımlayın. Bir bağımlılık ile tanımladığınız **dependsOn** öğesini kullanarak veya **başvuru** işlevi. 
@@ -65,7 +65,7 @@ Bağımlılıkları tanımlarken, kaynak sağlayıcısı ad alanı ve belirsizli
 DependsOn kaynaklarınız arasındaki ilişkileri eşleştirmek için kullanılacak yazmaya, ancak neden yaptığınızı anlamak önemlidir. Örneğin, kaynakları nasıl bağlandığına belgeye dependsOn aldığı doğru yaklaşım değildir. Dağıtımdan sonra hangi kaynakların dependsOn öğesinde tanımlanan sorgulayamaz. Bağımlılığı olan paralel iki kaynakları Resource Manager dağıtmaz çünkü dependsOn kullanarak, büyük olasılıkla dağıtım süresini etkiler. 
 
 ## <a name="child-resources"></a>Alt kaynakları
-Kaynaklar özellik tanımlanan kaynakla ilgili alt kaynakları belirtmenizi sağlar. Alt kaynakları yalnızca tanımlanmış beş düzey derinliğinde olabilir. Örtük bir bağımlılık üst kaynak alt kaynak arasında oluşturulan değil dikkat edin önemlidir. Alt kaynak sonra üst kaynak dağıtılması için gerekiyorsa, bu bağımlılık dependsOn özelliği ile açıkça belirtmelidir. 
+Kaynaklar özellik tanımlanan kaynakla ilgili alt kaynakları belirtmenizi sağlar. Alt kaynakları yalnızca tanımlanmış beş düzey derinliğinde olabilir. Örtük dağıtım bağımlılık üst kaynak alt kaynak arasında oluşturulan değil dikkat edin önemlidir. Alt kaynak sonra üst kaynak dağıtılması için gerekiyorsa, bu bağımlılık dependsOn özelliği ile açıkça belirtmelidir. 
 
 Her bir üst kaynak alt kaynakları yalnızca belirli kaynak türleri kabul eder. Kabul edilen kaynak türleri belirtilen [şablon şeması](https://github.com/Azure/azure-resource-manager-schemas) üst kaynak. Alt kaynak türünün adı gibi üst kaynak türü adı içerir **Microsoft.Web/sites/config** ve **Microsoft.Web/sites/extensions** herikialtkaynaklarıolan**Microsoft.Web/sites**.
 

@@ -5,25 +5,25 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/27/2018
-ms.openlocfilehash: 914933e4e0489d68640edb58ceb91dc73a963eb3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 03/18/2019
+ms.openlocfilehash: b43fe513b15d55ee595acaa6733d96cdb58f4e83
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034973"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294522"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB'deki tutarlılık düzeyleri
 
-Yüksek kullanılabilirlik, düşük gecikme süresi veya her ikisi de çoğaltma kullanan dağıtılmış veritabanları kullanılabilirlik, gecikme süresi ve aktarım hızı ve okuma tutarlılığı temel etmekten olun. Çoğu ticari olarak satışta dağıtılmış veritabanları iki aşırı tutarlılık modeller arasında seçim geliştiricilerin isteyin: güçlü tutarlılık ve nihai tutarlılık.  [Doğrusallaştırılabilirlik](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) veya güçlü tutarlılık modeli veri programlama, altın standardıdır. Ancak daha yüksek gecikme süresine (durağan) seyretmez fiyatı ekler ve kullanılabilirlik (hatalarda) azaltıldı. Öte yandan, nihai tutarlılık, daha yüksek kullanılabilirlik ve daha iyi performans sunar, ancak program uygulamaları zordur. 
+Yüksek kullanılabilirlik, düşük gecikme süresi veya her ikisi de çoğaltma kullanan dağıtılmış veritabanları kullanılabilirlik, gecikme süresi ve aktarım hızı ve okuma tutarlılığı temel etmekten olun. Çoğu ticari olarak satışta dağıtılmış veritabanları iki aşırı tutarlılık modeller arasında seçim geliştiricilerin isteyin: *güçlü* tutarlılık ve *nihai* tutarlılık.  [Doğrusallaştırılabilirlik](https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) veya güçlü tutarlılık modeli veri programlama, altın standardıdır. Ancak daha yüksek gecikme süresine (durağan) fiyatı ekler ve kullanılabilirlik (hatalarda) azaltıldı. Öte yandan, nihai tutarlılık, daha yüksek kullanılabilirlik ve daha iyi performans sunar, ancak program uygulamaları zorlaştırır. 
 
-Azure Cosmos DB olarak içeren iki uç nokta yerine seçimleri, veri tutarlılığını yaklaşıyor. Güçlü tutarlılık ve nihai tutarlılık sonunda, ancak spektrumun boyunca birçok tutarlılık seçeneği vardır. Geliştiriciler, kesin seçenekleri ve yüksek kullanılabilirlik veya performans ile ilgili ayrıntılı ödünler yapmak için bu seçenekleri kullanabilirsiniz. 
+Azure Cosmos DB olarak içeren iki uç nokta yerine seçimleri, veri tutarlılığını yaklaşıyor. Güçlü tutarlılık ve nihai tutarlılık spektrumun bir ucunda, ancak spektrumun boyunca birçok tutarlılık seçeneği vardır. Geliştiriciler, kesin seçenekleri ve yüksek kullanılabilirlik ve performans ile ilgili ayrıntılı ödünler yapmak için bu seçenekleri kullanabilirsiniz. 
 
-Azure Cosmos DB ile geliştiriciler beş iyi tanımlanmış tutarlılık modeli üzerinde tutarlılık spektrumu arasından seçim yapabilirsiniz. Güçlüden zayıfa doğru modelleri arasındadır güçlü, sınırlanmış eskime, oturum, tutarlı ön ek ve nihai. , İyi tanımlanmış ve sezgisel modelleridir. Belirli bir gerçek dünya senaryoları için kullanılabilir. Her model sağlayan [kullanılabilirliğini ve performansını ödünler](consistency-levels-tradeoffs.md) ve kapsamlı SLA'lar ile desteklenen. Aşağıdaki görüntüde bir yelpaze farklı tutarlılık düzeyi gösterilmektedir.
+Azure Cosmos DB ile geliştiriciler beş iyi tanımlanmış tutarlılık modeli üzerinde tutarlılık spektrumu arasından seçim yapabilirsiniz. Öğesinden daha rahat güçlüden modelleridir *güçlü*, *sınırlanmış eskime durumu*, *oturumu*, *tutarlı ön ek*ve *nihai* tutarlılık. Modelleri, iyi tanımlanmış ve sezgisel ve belirli gerçek dünya senaryoları için kullanılabilir. Her model sağlayan [kullanılabilirliğini ve performansını ödünler](consistency-levels-tradeoffs.md) ve SLA'lar ile desteklenen. Aşağıdaki görüntüde bir yelpaze farklı tutarlılık düzeyleri gösterilmektedir.
 
 ![Tutarlılık spektrumu olarak](./media/consistency-levels/five-consistency-levels.png)
 
-Tutarlılık düzeyleri bölge bağımsızdır. Azure Cosmos hesabınızın tutarlılık düzeyi tüm okuma işlemleri, okuma ve yazma işlemleri sunulan, Azure Cosmos hesabınızla ilişkili bölge sayısı uygulama bölgesine bakılmaksızın veya hesabınız ile yapılandırılmış olsa garantili bir tek veya birden çok yazma bölgeleri.
+Tutarlılık düzeyleri bölge bağımsızdır ve kendisinden okuma ve yazma işlemleri sunulan, Azure Cosmos hesabınızla ilişkili bölge sayısı uygulama bölgesine bakılmaksızın tüm işlemler için garanti veya tek bir hesabınız olup olmadığını yapılandırıldı veya birden çok yazma bölgeleri.
 
 ## <a name="scope-of-the-read-consistency"></a>Okuma tutarlılığı kapsamı
 
@@ -81,7 +81,7 @@ Tutarlılık kavramları hakkında daha fazla bilgi edinmek için bu makaleleri 
 - [Çoğaltılan verilerin tutarlılık açıklandığı aracılığıyla Beyzbol (video) Doug Terry tarafından](https://www.youtube.com/watch?v=gluIh8zd26I)
 - [Çoğaltılan verilerin tutarlılık açıklandığı aracılığıyla Beyzbol (Teknik İnceleme) Doug Terry tarafından](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf)
 - [Oturum, tutarlı zayıf çoğaltılan veriler için garanti eder](https://dl.acm.org/citation.cfm?id=383631)
-- [Veritabanı sistemleri tasarımı tutarlılık Ödünler Modern, dağıtılmış: CAP hikayeyi yalnızca bir parçası olan](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
+- [Veritabanı sistemleri tasarımı tutarlılık Ödünler Modern, dağıtılmış: CAP hikayeyi yalnızca bir parçası olan](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [Olasılığa dayalı sınırlanmış eskime durumu (PBS) için pratik kısmi çekirdekleri](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [Sonunda tutarlı - Revisited](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 

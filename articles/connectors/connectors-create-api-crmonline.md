@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 1247f603b759364edcee2bff12f75bb0a217ecd6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: MT
+ms.openlocfilehash: 9fe41cf2946525948897635a4e30213d161431ef
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231263"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295309"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Azure Logic Apps ile Dynamics 365 kayıtlarını yönetme
 
@@ -42,7 +42,7 @@ Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](..
 
 1. İçinde [Azure portalında](https://portal.azure.com), Logic Apps Tasarımcısı'nda boş mantıksal uygulamanızı açın, açık değilse.
 
-1. Arama kutusuna filtreniz olarak "Dynamics 365" girin. Bu örnekte, tetikleyici listesi altında şu tetikleyiciyi seçin: **bir kayıt oluşturulduğunda**
+1. Arama kutusuna filtreniz olarak "Dynamics 365" girin. Bu örnekte, tetikleyici listesi altında şu tetikleyiciyi seçin: **Bir kayıt oluşturulduğunda**
 
    ![Tetikleyici seçin](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
@@ -66,7 +66,7 @@ Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](..
 
 1. Tetikleyicinizin altında seçin **yeni adım**.
 
-1. Arama kutusuna filtreniz olarak "Dynamics 365" girin. Eylem listesinden şu eylemi seçin: **yeni kayıt oluşturma**
+1. Arama kutusuna filtreniz olarak "Dynamics 365" girin. Eylem listesinden şu eylemi seçin: **Yeni bir kayıt oluşturun**
 
    ![Eylem seçin](./media/connectors-create-api-crmonline/select-action.png)
 
@@ -122,9 +122,9 @@ Bu tablo, bazı alan türleri ve değerleri için gerekli veri türlerini açık
 
 | Alan türü | Gerekli veri türü | Açıklama | 
 |------------|--------------------|-------------|
-| Metin alanları | Tek metin satırı | Bu alanlar, tek satırlık bir metin veya metin türü olan dinamik içerik gerektirir. <p><p>*Örnek alanları*: **açıklama** ve **kategorisi** | 
-| Tamsayı alanları | Tam sayı | Bazı alanlar tamsayı veya tamsayı türünde dinamik içerik gerektirir. <p><p>*Örnek alanları*: **tamamlanma yüzdesi** ve **süresi** | 
-| Tarih alanları | Tarih ve saat | Bazı alanlar, bir tarihi gg/aa/yyyy biçiminde veya tarih türü olan dinamik içerik gerektirir. <p><p>*Örnek alanları*: **oluşturulma tarihi**, **başlangıç tarihi**, **gerçek başlangıç**, **gerçek bitiş**, ve **son tarih** | 
+| Metin alanları | Tek metin satırı | Bu alanlar, tek satırlık bir metin veya metin türü olan dinamik içerik gerektirir. <p><p>*Örnek alanları*: **Açıklama** ve **kategorisi** | 
+| Tamsayı alanları | Tam sayı | Bazı alanlar tamsayı veya tamsayı türünde dinamik içerik gerektirir. <p><p>*Örnek alanları*: **Tamamlanma** ve **süresi** | 
+| Tarih alanları | Tarih ve saat | Bazı alanlar, bir tarihi gg/aa/yyyy biçiminde veya tarih türü olan dinamik içerik gerektirir. <p><p>*Örnek alanları*: **Oluşturulma tarihi**, **başlangıç tarihi**, **gerçek başlangıç**, **gerçek bitiş**, ve **son tarih** | 
 | Bir kayıt kimliği ve arama gerektiren alanlar yazın | Birincil anahtar | Başka bir varlık kaydına başvuran bazı alanlar, hem bir kayıt kimliği ve arama türünü gerektirir. | 
 ||||
 
@@ -187,7 +187,7 @@ Logic apps sorunlarını giderme hakkında daha fazla bilgi için bkz. [mantıks
 
 ## <a name="connector-reference"></a>Bağlayıcı başvurusu
 
-Bağlayıcının Swagger dosyası tarafından açıklandığı gibi sınırları, tetikleyiciler ve Eylemler gibi teknik ayrıntılar için bkz [bağlayıcının başvuru sayfası](/connectors/crm/). 
+Bağlayıcının Swagger dosyası tarafından açıklandığı gibi sınırları, tetikleyiciler ve Eylemler gibi teknik ayrıntılar için bkz [bağlayıcının başvuru sayfası](/connectors/dynamicscrmonline/). 
 
 ## <a name="get-support"></a>Destek alın
 

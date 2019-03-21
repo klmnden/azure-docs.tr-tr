@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 990e6b4d869df030bfddfeb2d60f0ca0e23ea8ca
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 03/19/2019
+ms.openlocfilehash: b1467550ac84c57eaad9178d32fdcfaf14d84ae8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902272"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260239"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL veritabanı sanal çekirdek tabanlı model sınırları tek bir veritabanı için satın alma
 
@@ -149,7 +149,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |Maks. eş zamanlı oturum|200|400|600|800|1000|1200|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|4|4|4|4|4|4|
-|Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|
+|Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
@@ -173,7 +173,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |En fazla eşzamanlı oturum açma (istek)|1400|1600|1800|2000|3200|4800|
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|4|4|4|4|4|4|
-|Çok AZ|Yok|Yok|Yok|Yok|Yok|Yok|
+|Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
@@ -198,7 +198,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|4|4|4|4|4|4|4|
 |Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
-|Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
+|Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>İş kritik hizmet katmanı: 5. nesil işlem platformu (2. bölüm)
@@ -222,7 +222,7 @@ Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek verita
 |İzin verilen maks. oturumları|30000|30000|30000|30000|30000|30000|30000|
 |Çoğaltma sayısı|4|4|4|4|4|4|4|
 |Çok AZ|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
-|Ölçek genişletme okuyun|Yok|Yok|Yok|Yok|Yok|Yok|Yok|
+|Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|Evet|
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 
 ## <a name="hyperscale-service-tier-preview"></a>Hiper ölçekli hizmet Katmanı (Önizleme)

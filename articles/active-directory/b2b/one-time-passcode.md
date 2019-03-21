@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9493f7ee3278bb42dc21574cd008fbe2f4376a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8f5234674bc41e1f5bfa260dfc32042a3345d9f7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185154"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294834"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-posta bir kerelik geçiş kodu kimlik doğrulama (Önizleme)
 
@@ -35,11 +36,11 @@ Bu özellik şu anda Önizleme için kullanılabilir (bkz [Önizleme seçim](#op
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Bir kerelik geçiş kodu Konuk kullanıcılar için kullanıcı deneyimi
 Bir kerelik geçiş kodu ile kimlik doğrulaması, Konuk kullanıcı, doğrudan bağlantısını tıklatarak veya için davet e-posta davetini. Her iki durumda da, Konuk kullanıcının e-posta adresine bir kod gönderilecek tarayıcıda bir ileti gösterir. Konuk kullanıcının seçtiği **kod Gönder**:
  
-   ![Uygulama erişim panellerinde yönetme](media/one-time-passcode/otp-send-code.png)
+   ![Kod Gönder düğmesini gösteren ekran görüntüsü](media/one-time-passcode/otp-send-code.png)
  
 Bir geçiş kodu, kullanıcının e-posta adresine gönderilir. Kullanıcı e-postadan geçiş kodunu alır ve tarayıcı penceresinde girer:
  
-   ![Uygulama erişim panellerinde yönetme](media/one-time-passcode/otp-enter-code.png)
+   ![Enter kod sayfasını gösteren ekran görüntüsü](media/one-time-passcode/otp-enter-code.png)
  
 Konuk kullanıcı artık kimliği doğrulanmış ve paylaşılan kaynağı bakın veya oturum devam edin. 
 
@@ -57,7 +58,7 @@ Davet zaman davet ediyoruz kullanıcı bir kerelik geçiş kodu kimlik doğrulam
 
 Giderek Azure portalında bir kerelik geçiş kodlarını kimliğini Konuk kullanıcılar görüntüleyebilir **Azure Active Directory** > **kuruluş ilişkileri**  >   **Diğer kuruluşlardan**.
 
-![Burada kaynak OTP eşittir Azure portalında bir kerelik geçiş kodu kullanıcıları görüntüle](media/one-time-passcode/otp-users.png)
+![Bir kerelik geçiş kodu OTP kaynak değeriyle ekran görüntüsü](media/one-time-passcode/otp-users.png)
 
 > [!NOTE]
 > Bir kullanıcı bir kerelik geçiş kodu redeems ve daha sonra bir MSA, Azure AD hesabı veya diğer birleştirilmiş bir hesap edinir, bir kerelik geçiş kodu kullanarak kimlik doğrulaması devam edeceğiz. Kendi kimlik doğrulama yöntemini güncelleştirmek istiyorsanız, Konuk kullanıcı hesabı silin ve bunları yeniden davet edin.

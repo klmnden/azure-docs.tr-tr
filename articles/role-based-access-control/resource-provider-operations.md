@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b400af524d303fe4fbcbc8e34a394b286a048cc4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: db0bebb49007059cfe3b8b9b416c4a148c3756fc
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008800"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287341"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
@@ -2734,7 +2734,7 @@ Var olan bir kişi grubun adı ve userData güncelleştirin. İstek gövdesinde 
 > | Eylem | Microsoft.Kusto/Clusters/Databases/DataConnections/write | Bir veri bağlantıları kaynak yazar. |
 > | Eylem | Microsoft.Kusto/Clusters/Databases/DataConnectionValidation/action | Veritabanı veri bağlantısı doğrular. |
 > | Eylem | Microsoft.Kusto/Clusters/Databases/delete | Veritabanı kaynağı siler. |
-> | Eylem | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Bir olay hub'ı bağlantıları kaynak siler. |
+> | Eylem | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Bir olay hub'ı bağlantı kaynağı siler. |
 > | Eylem | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Bir olay hub'ı bağlantıları kaynak okur. |
 > | Eylem | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | Bir olay hub'ı bağlantıları kaynak yazar. |
 > | Eylem | Microsoft.Kusto/Clusters/Databases/EventHubConnectionValidation/action | Veritabanı olay hub'ı bağlantısı doğrular. |

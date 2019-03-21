@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 170f20ae65a8ba58291a630dc76496cbdcdb36de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138125"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286389"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performans ve ölçek dayanıklı işlevler (Azure işlevleri)
 
@@ -60,7 +60,7 @@ En yüksek yoklama gecikmesidir aracılığıyla yapılandırılabilir `maxQueue
 
 ## <a name="storage-account-selection"></a>Depolama hesabı seçme
 
-Kuyruklar, tablolar ve dayanıklı işlevler tarafından kullanılan BLOB'ları tarafından yapılandırılmış bir Azure depolama hesabı oluşturulur. Kullanılacak hesabı kullanılarak belirtilebilir. `durableTask/azureStorageConnectionStringName` ayarı **host.json** dosya.
+Kuyruklar, tablolar ve dayanıklı işlevler tarafından kullanılan BLOB'lar yapılandırılmış bir Azure depolama hesabı oluşturulur. Kullanılacak hesabı kullanılarak belirtilebilir. `durableTask/azureStorageConnectionStringName` ayarı **host.json** dosya.
 
 ### <a name="functions-1x"></a>İşlevler 1.x
 

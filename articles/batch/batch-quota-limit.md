@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 03/20/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f8941f84e85f330713cb4b263f2154acb80b520c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 51be74d0adbd5ce75234be2a5b7c99fcd36ca91c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532417"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295275"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch hizmet kotaları ve limitleri
 
@@ -65,6 +65,7 @@ Havuz ayırma modu ayarlamak bir Batch hesabı oluşturduysanız **kullanıcı a
 | [Eş zamanlı görevleri](batch-parallel-node-tasks.md) işlem düğüm başına | düğümüne çekirdek 4 x sayısı |
 | [Uygulamaları](batch-application-packages.md) Batch hesabı başına | 20 |
 | Uygulama başına uygulama paketleri | 40 |
+| Havuz başına uygulama paketleri | 10 |
 | En fazla görev ömrü | 180 gün<sup>1</sup> |
 
 <sup>1</sup> tamamlandığında, gelen ne zaman işe eklenir, bir görevin maksimum ömrü 180 gündür. Tamamlanan görevler 7 gün için kalıcı; en fazla bir yaşam süresi içinde tamamlanmamış görevlerin verileri erişilemez.

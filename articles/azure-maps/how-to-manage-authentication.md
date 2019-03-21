@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: fe0e325543d245e4415fea925fcdade32eb00614
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 414ca7156fd59ec1dc08e45c73e9eb30835078d4
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570513"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259933"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Azure haritalar kimlik doğrulamasını Yönet
 
@@ -32,7 +32,7 @@ Azure portalında, kimlik doğrulama ayrıntıları görüntüleyebilirsiniz. He
 
 Bir Azure haritalar hesabı oluşturduktan sonra Azure AD kiracınızı Azure haritalar kaynak arasında bir bağlantı kurmanız gerekir.
 
-1. Azure AD dikey penceresine gidin ve bir uygulama kaydı oluşturun. Kayıt için bir ad belirtin. İçinde **oturum açma URL'si** kutusunda, web uygulamasının giriş sayfası sağlayın / API (örneğin, https://localhost/). Kayıtlı bir uygulama zaten varsa 2. adıma gidin.
+1. Azure AD dikey penceresine gidin ve bir uygulama kaydı oluşturun. Kayıt için bir ad belirtin. İçinde **oturum açma URL'si** kutusunda, web uygulamasının giriş sayfası sağlayın / API (örneğin, https:\//localhost/). Kayıtlı bir uygulama zaten varsa 2. adıma gidin.
 
     ![Uygulama kaydı](./media/how-to-manage-authentication/app-registration.png)
 

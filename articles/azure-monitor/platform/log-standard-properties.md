@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 03/20/2019
 ms.author: bwren
-ms.openlocfilehash: 2309e7762ad36f59e0833e675e7012ee3c459e3e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c01cdb967fd7f9516b4403aa4f0c76f2577d5050
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997048"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294731"
 ---
 # <a name="standard-properties-in-azure-monitor-log-records"></a>Azure İzleyici günlük kayıtlarını standart özellikler
 Azure İzleyici'de günlük veri [bir kayıt kümesi depolanan](../log-query/log-query-overview.md), her bir özellik kümesi olan belirli veri türüne sahip. Birçok veri türleri, birden çok türlerinde ortak olan standart özellikleri olacaktır. Bu makalede, bu özellikleri açıklar ve nasıl bunları sorgularında kullanabileceğiniz örnekler sağlar.
@@ -84,6 +84,18 @@ AzureActivity
    | summarize LoggedOnAccounts = makeset(Account) by _ResourceId 
 ) on _ResourceId  
 ```
+
+Aşağıdaki sorguda ayrıştırıyor **_ResourceId** ve toplamalar veri hacimleri Azure aboneliği başına faturalandırılır.
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
+```
+
+Bu `union withsource = tt *` veri türlerinde taramaları çalıştırmak pahalı olduğundan tutumlu sorgular.
 
 ## <a name="isbillable"></a>\_IsBillable
  **\_IsBillable** özelliği, içe alınan veri Faturalanabilir olup olmadığını belirtir. Verilerle  **\_IsBillable** eşit _false_ ücretsiz toplanan ve Azure hesabınızda faturalandırılmaz.

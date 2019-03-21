@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: celested
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b82f32477efb2e45eb95651dd21ccd2ae3095e7c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5c7744ba4ca37a2a496c75a50f274be9bf431cc5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431318"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286593"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos kısıtlanmış temsil için çoklu oturum açma uygulamalarınıza uygulama ara sunucusu ile
 
@@ -37,7 +37,7 @@ Bir kullanıcı IWA kullanan şirket içi uygulamaya erişmeyi denediğinde Bu d
 1. Kullanıcı, uygulama proxy'si aracılığıyla şirket içi uygulama erişimi için URL'yi girer.
 2. Uygulama Ara sunucusu için Azure AD kimlik doğrulama hizmetleri preauthenticate için istek yönlendirir. Bu noktada, Azure AD, tüm geçerli kimlik doğrulama ve yetkilendirme ilkeleri, çok faktörlü kimlik doğrulaması gibi uygulanır. Kullanıcı doğrulanmış olması durumunda, Azure AD belirteç oluşturulur ve kullanıcıya gönderir.
 3. Kullanıcı belirteci uygulama ara sunucusuna iletir.
-4. Uygulama proxy'si belirteci doğrular ve kullanıcı asıl adı (UPN) alır ve ardından istek, UPN ve hizmet asıl adı (SPN) bağlayıcı dually kimliği doğrulanmış ve güvenli bir kanal üzerinden gönderir.
+4. Uygulama proxy'si belirteci doğrular ve kullanıcı asıl adı (UPN) alır ve ardından bağlayıcı UPN ve hizmet asıl adı (SPN) dually kimliği doğrulanmış ve güvenli bir kanal aracılığıyla çeker.
 5. Bağlayıcıyı şirket içi AD, uygulama için bir Kerberos belirteci almak için kullanıcının kimliğine bürünmek Kerberos Kısıtlı temsilci (KCD) anlaşmasını gerçekleştirir.
 6. Active Directory Uygulama bağlayıcısı için Kerberos belirteci gönderir.
 7. Bağlayıcı, özgün istek AD'den alınan Kerberos belirteci kullanarak uygulama sunucusuna gönderir.

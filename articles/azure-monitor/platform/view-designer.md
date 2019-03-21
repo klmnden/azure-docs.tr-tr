@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 1996befa78409e572798a9043f7e6ee3b6f647bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: f07fc2f03ad72e7ee0fd408782b8fe845c88e780
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887919"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286576"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Azure İzleyici'de Görünüm Tasarımcısı kullanarak özel görünümlerini oluşturma
 Azure İzleyici'de görünüm Tasarımcısını kullanarak, Azure portalında Log Analytics çalışma alanınızdaki veri görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede, Görünüm Tasarımcısı ve yordamlar oluşturmak ve özel görünümler düzenlemek için genel bir bakış sunar.
@@ -43,6 +43,9 @@ Görünüm Tasarımcısı ile oluşturduğunuz görünümleri, aşağıdaki tabl
 | Kutucuklar | , Azure İzleyici görüntülenen **genel bakış** sayfası. Her kutucuk, temsil ettiği özel görünüm görsel bir özetini görüntüler. Her kutucuk türüne kayıtlarınız için farklı bir görselleştirme sağlar. Özel bir görünüm için bir kutucuk seçin. |
 | Özel görünüm | Bir kutucuğu seçtiğinizde görüntülenir. Her görünümü bir veya daha fazla görselleştirme bölümü içerir. |
 | Görselleştirme bölümü | Bir veya daha fazla bağlı Log Analytics çalışma alanındaki veri görselleştirme sunmak [oturum sorguları](../log-query/log-query-overview.md). Çoğu bölümleri, üst düzey bir görselleştirme sağlar, bir üst bilgi ve en çok rastlanan sonuçlar görüntüler listesini içerir. Her bölüm türü kayıtlarının Log Analytics çalışma alanındaki farklı bir görselleştirme sağlar. Ayrıntılı kayıtlar sağlayan bir günlük sorgusu gerçekleştirmeye bölümünde öğeleri seçin. |
+
+## <a name="required-permissions"></a>Gerekli izinler
+En az ihtiyaç duyduğunuz [katkıda bulunan düzeyinde izinler](manage-access.md#manage-accounts-and-users) oluşturmak veya görünümleri değiştirmek için Log Analytics çalışma alanında. Bu izne sahip değilseniz, Görünüm Tasarımcısı seçeneği menüde görüntülenmez.
 
 
 ## <a name="work-with-an-existing-view"></a>Var olan bir görünümü ile çalışma

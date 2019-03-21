@@ -4,40 +4,40 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: 6768b1b8e0f5d7d3644779268025551c4e1aef9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e8daaaf5b6b15eb3095f11e94c707a33b4b18e28
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57964309"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305114"
 ---
-Seçin **derleme** bir iletişim kutusunu açın. Ardından, Xcode projesi dışarı aktarmak için bir klasör seçin.
+Seçin **yapı**. Açılan iletişim kutusunda, Xcode projesine dışarı aktarmak için bir klasör seçin.
 
-Dışarı aktarma tamamlandığında, dışarı aktarılan bir Xcode projesini içeren klasör görüntülenir.
+Dışarı aktarma tamamlandığında, dışarı aktarılan Xcode projesi içeren bir klasör görünür.
 
 > [!NOTE]
-> Ayarlamak isteyip istemediğinizi soran bir iletişim kutusu açılır, **değiştirin** veya **ekleme**, **ekleme** daha hızlı olduğundan, önerilir. Yalnızca gerçekleştirmek gerekir bir **değiştirin** (ekleme, kaldırma, değiştirme üst/alt ilişkilerini, özellik ekleme/kaldırma/değiştirme, vb.), sahnede değiştiriyorsunuz varlıklar. Kaynak kodu değişiklikleri yalnızca yapıyorsanız **ekleme** yeterli olmalıdır.
+> Değiştirmeyi veya eklemek isteyip istemediğinizi soran bir pencere görünürse, seçtiğiniz öneririz **ekleme** daha hızlı olduğundan. Yalnızca seçilecek gerekir **değiştirin** varlıklar, sahnede değiştiriyorsanız. (Örneğin, size, kaldırma, üst/alt ilişkilerini değiştirme veya ekliyorsanız, kaldırma veya özelliklerini değiştirme ekliyorsanız.) Kaynak kodu değişiklikleri yalnızca yapıyorsanız **ekleme** yeterli olmalıdır.
 
 ### <a name="open-the-xcode-project"></a>Xcode projesi açın
 
-Dışarı aktarılan Xcode proje klasörü içinde proje için gerekli Cocoapods'u yüklemek için terminalde aşağıdaki komutu çalıştırın:
+Dışarı aktarılan Xcode proje klasörü içinde proje için gerekli Cocoapods'u yüklemek üzere terminalde bu komutu çalıştırın:
 
 ```bash
 pod install --repo-update
 ```
 
-Şimdi kullanabilirsiniz açın `Unity-iPhone.xcworkspace` Xcode'da projeyi açmak için:
+Açabileceğiniz artık `Unity-iPhone.xcworkspace` Xcode'da projeyi açmak için:
 
 ```bash
 open ./Unity-iPhone.xcworkspace
 ```
 
 > [!NOTE]
-> Görürseniz bir `library not found for -lPods-Unity-iPhone` hata büyük olasılıkla açtığınız `.xcodeproj` yerine dosya `.xcworkspace`. Açık `.xcworkspace` ve yeniden deneyin.
+> Görürseniz bir `library not found for -lPods-Unity-iPhone` hata büyük olasılıkla açtığınız `.xcodeproj` yerine dosya `.xcworkspace` dosya. 
 
-Kök seçin **Unity iPhone** proje ayarlarını görüntülemek ve seçmek için düğüm **genel** sekmesi.
+Kök seçin **Unity iPhone** proje ayarlarını görüntüleyin ve ardından düğüme **genel** sekmesi.
 
-Altında **imzalama**, kontrol **otomatik olarak imzalanmasını yönetmek** etkinleştirilir. Yüklü değilse, etkinleştirmek ve seçin **etkinleştirmek otomatik** sıfırlamak için görüntülenen iletişim kutusunda derleme ayarları.
+Altında **imzalama**, emin **otomatik olarak imzalanmasını yönetmek** etkinleştirilir. Yüklü değilse, bunu etkinleştirin ve ardından **etkinleştirmek otomatik** iletişim kutusundaki derleme ayarlarını sıfırlamak için görünür.
 
 Altında **dağıtım bilgisi**, emin **dağıtım hedefi** ayarlanır `11.0`.
 

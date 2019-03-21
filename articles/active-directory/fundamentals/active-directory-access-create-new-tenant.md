@@ -12,14 +12,14 @@ ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39a5ef9d929899ac5e66c5a0e342040fc3c5074b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b294163a4486ab1db0590f39ca9235ae46ef1dfe
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194827"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287001"
 ---
-# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory'de yeni bir kiracı oluşturma
+# <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Hızlı Başlangıç: Azure Active Directory’de yeni bir kiracı oluşturma
 Kuruluşunuz için yeni bir kiracı oluşturulması da dahil olmak üzere, Azure Active Directory (Azure AD) portalı kullanarak tüm yönetim görevlerinizi gerçekleştirebilirsiniz. 
 
 Bu hızlı başlangıçta, Azure portala ve Azure Active Directory’ye nasıl erişeceğinizi ve kuruluşunuz için temel bir kiracının nasıl oluşturulacağını öğreneceksiniz.
@@ -29,7 +29,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 Genel yönetici hesabını kullanarak kuruluşunuzun [Azure portalda](https://portal.azure.com/) oturum açın.
 
-![Azure portalı ekranı](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+![Azure AD seçeneği ile Azure portal ekran](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
 ## <a name="create-a-new-tenant-for-your-organization"></a>Kuruluşunuz için yeni bir kiracı oluşturma
 Azure portalda oturum açtıktan sonra kuruluşunuz için yeni bir kiracı oluşturabilirsiniz. Yeni kiracınız kuruluşunuzu temsil eder ve şirket içindeki ve dışındaki kullanıcılarınız için belirli bir Microsoft bulut hizmetleri örneğini yönetmenize yardımcı olur.
@@ -60,7 +60,7 @@ Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanara
 
     Kiracı ve ilişkili bilgileri silinir.
 
-    ![Dizin oluştur sayfası](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![Örnek bilgileri dizin sayfası oluşturma](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Etki alanı adlarını değiştirme veya ekleme; bkz. [Azure Active Directory’ye özel etki alanı adı ekleme](add-custom-domain.md)

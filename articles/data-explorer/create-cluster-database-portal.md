@@ -8,14 +8,23 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 02/21/2019
-ms.openlocfilehash: e87f9b4905abec2c00ed238445b3e36e41cfa2f6
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1aaaba58b4af90891caf98708f7e280f7eea6e70
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674880"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285829"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Hızlı Başlangıç: Bir Azure Veri Gezgini kümesi ile veritabanı oluşturma
+
+> [!div class="op_single_selector"]
+> * [Portal](create-cluster-database-portal.md)
+> * [CLI](create-cluster-database-cli.md)
+> * [PowerShell](create-cluster-database-powershell.md)
+> * [C#](create-cluster-database-csharp.md)
+> * [Python](create-cluster-database-python.md)
+>  
+
 
 Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Azure veri gezginini kullanmak için ilk küme oluşturma ve bu kümede bir veya daha fazla veritabanı oluşturun. Ardından karşı sorgular çalıştırabileceği şekilde onlara bir veritabanına (yükle) veri alın. Bu hızlı başlangıçta bir küme ve bir veritabanı oluşturacaksınız.
 

@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/06/2018
+ms.date: 03/20/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9ae3a17c9756a38414ee25fd24f7d12d6179e95f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b1a9d93d9fccf02ba1517e429625150736e539e9
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285710"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305397"
 ---
-Bir sanal ağ geçidi oluşturduğunuzda, kullanmak istediğiniz ağ geçidi SKU’sunu belirtmeniz gerekir. İş yükü, aktarım hızı, özellik ve SLA türlerine bağlı olarak gereksinimlerinize uyan SKU’ları seçin.
+Bir sanal ağ geçidi oluşturduğunuzda, kullanmak istediğiniz ağ geçidi SKU’sunu belirtmeniz gerekir. İş yükü, aktarım hızı, özellik ve SLA türlerine bağlı olarak gereksinimlerinize uyan SKU’ları seçin. Sanal ağ geçidi SKU'ları Azure kullanılabilirlik alanları için bkz: [Azure kullanılabilirlik alanları ağ geçidi SKU'ları](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
 ###  <a name="benchmark"></a>Tünele, bağlantıya ve performansa göre Ağ Geçidi SKU’ları
 
@@ -29,7 +29,7 @@ Yeni VPN ağ geçidi SKU'ları ağ geçitlerinde sunulan özellik kümeleri aç�
 
 | **SKU**| **Özellikler**|
 | ---    | ---         |
-|**Temel** (\*\*)   | **Rota tabanlı VPN**: S2S/bağlantılar için 10 tünel; P2S için; RADIUS kimlik doğrulaması P2S için Ikev2 yok<br>**İlke tabanlı VPN**: (Ikev1): 1 S2S/bağlantı tünel; P2S yok|
+|**Temel** (\*\*)   | **Rota tabanlı VPN**: S2S/bağlantılar için 10 tünel; RADIUS kimlik doğrulaması olmaması için P2S; P2S için Ikev2 yok<br>**İlke tabanlı VPN**: (IKEv1): 1 S2S/bağlantı tünel; P2S yok|
 | **VpnGw1, VpnGw2 ve VpnGw3** | **Rota tabanlı VPN**: 30 tünele kadar (*), P2S, BGP, etkin-etkin, özel IPSec/IKE İlkesi, ExpressRoute/VPN birlikte kullanımı |
 |        |             |
 

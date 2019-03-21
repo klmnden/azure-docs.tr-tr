@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 3/19/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a2c4f68a35d5baa3d7933243737d02d720409289
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 665e6651db37cc04693d68bd2de2ede6e595eab4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671599"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293405"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Yükleme ve metni tanı kapsayıcıları çalıştırma
 
@@ -50,14 +50,14 @@ Metni Tanı kapsayıcıları kullanmadan önce aşağıdaki gereksinimleri karş
 
 Aşağıdaki tabloda, en düşük ve önerilen CPU Çekirdeği ve her bir metin tanıma kapsayıcısı için ayrılacak bellek açıklanmaktadır.
 
-| Kapsayıcı | Minimum | Önerilen |
-|-----------|---------|-------------|
-|Metin tanıma|1 çekirdek, 8 GB bellek, 0,5 TPS|2 Çekirdek, 8 GB bellek, 1 TPS|
+| Kapsayıcı | Minimum | Önerilen |TPS<br>(Minimum, maksimum)|
+|-----------|---------|-------------|--|
+|Metin tanıma|1 çekirdek, 8 GB bellek, 0,5 TPS|2 Çekirdek, 8 GB bellek, 1 TPS|0.5, 1|
 
-Her çekirdeğe en az 2.6 gigahertz (GHz) olması ya da daha hızlı.
+* Her çekirdeğe en az 2.6 gigahertz (GHz) olması ya da daha hızlı.
+* TPS - saniye başına işlem
 
 Çekirdek ve bellek karşılık `--cpus` ve `--memory` parçası olarak kullanılan ayarları `docker run` komutu.
-
 
 ## <a name="get-the-container-image-with-docker-pull"></a>İle kapsayıcı görüntüsünü Al `docker pull`
 
@@ -123,7 +123,7 @@ Daha fazla [örnekler](./computer-vision-resource-container-config.md#example-do
 
 Kapsayıcı, REST tabanlı sorgu tahmin uç nokta API'leri sağlar. 
 
-Ana bilgisayarını kullanmak https://localhost:5000, kapsayıcı API'leri için.
+Ana bilgisayarını kullanmak `https://localhost:5000`, kapsayıcı API'leri için.
 
 ### <a name="asynchronous-text-recognition"></a>Zaman uyumsuz metin tanıma
 

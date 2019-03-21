@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 0a658d47f850537f18c976ab0933105b57692673
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1c0a04a074cfbd96423502ac92dd5821bade78e1
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344949"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258539"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Azure depolama için bir şirket içi HDFS Mağazası'ndan veri taşımak için Azure Data Box'ı kullanın
 
@@ -59,7 +59,7 @@ Data Box'ınızı için REST API'leri, Blob/nesne depolama aracılığıyla veri
 
 2. Depolama hesabındaki erişim ve karşıya yükleme, kopyalama veri iletişim **Blob Hizmeti uç noktası** ve **depolama hesabı anahtarı**. Blob Hizmeti uç noktasından atlamak `https://` ve sonunda eğik çizgi.
 
-    Bu durumda, uç noktadır: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. Kullanacağınız URI ana bilgisayarı bölümüdür: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Bir örnek için bkz. nasıl [http üzerinden REST Bağlan](/azure/databox/data-box-deploy-copy-data-via-rest.md). 
+    Bu durumda, uç noktadır: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. Kullanacağınız URI ana bilgisayarı bölümüdür: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Bir örnek için bkz. nasıl [http üzerinden REST Bağlan](/azure/databox/data-box-deploy-copy-data-via-rest). 
 
      !["Depolama hesabına erişme ve verileri karşıya yükleme" iletişim kutusu](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 6f61f45d8484ddefb465a26f94b8ac448229a062
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 730854f572e1e2ab21140f53d59b7593ad26cb05
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000907"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259882"
 ---
 # <a name="h264-single-bitrate-16x9-sd-audio-51"></a>H264 Tekli bit hızı 16 x 9 SD ses 5.1
 `Media Encoder Standard` kodlama işi oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar. Kullanabilir bir `preset name` hangi biçimine medya dosyanızı kodlamak istediğiniz belirtmek için. Veya kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz Ardından kodlayıcıya hazır özel geçirmeniz gerekir. Bu tarafından desteklenen tüm hazır adlarının listesi için `Media Encoder Standard` Kodlayıcı bkz [Media Encoder Standard için görev ön ayarları](media-services-mes-presets-overview.md).  
@@ -32,7 +32,7 @@ ms.locfileid: "56000907"
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
-<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">  
+<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">  
   <Encoding>  
     <H264Video>  
       <KeyFrameInterval>00:00:02</KeyFrameInterval>  

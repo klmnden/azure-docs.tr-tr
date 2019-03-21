@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: dc9acae1e4d31e1456cd971fdab2745e7c58e910
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f63087d107b9db30e2af6273afde7f51f1c72404
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892685"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295122"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>REST kullanarak bir Media Services hesabına dosya yükleme  
 > [!div class="op_single_selector"]
@@ -68,7 +68,7 @@ Bu öğretici için Postman'ı ayarlama adımları için bkz: [Postman yapıland
 
     İlk beş değişkenleri değerleri almak için bkz: [Azure AD kimlik doğrulamasıyla Azure Media Services API'sine erişim](media-services-use-aad-auth-to-access-ams-api.md). 
 
-    ![Karşıya dosya yükle](./media/media-services-rest-upload-files/postman-import-env.png)
+    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-import-env.png)
 2. Değer için **MediaFileName** ortam değişkeni.
 
     Karşıya yüklemek için planlama medya dosyası adını belirtin. Bu örnekte, BigBuckBunny.mp4 karşıya yüklemek için kullanacağız. 
@@ -90,7 +90,7 @@ Bu öğretici için Postman'ı ayarlama adımları için bkz: [Postman yapıland
 
     URL bölümü ile doldurulan **AzureADSTSEndpoint** ortam değişkeni (öğreticide daha önce koleksiyonu destekleyen ortam değişkenlerinin değerlerini ayarladığınız).
 
-    ![Karşıya dosya yükle](./media/media-services-rest-upload-files/postment-get-token.png)
+    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postment-get-token.png)
 
 5. **Gönder**’e basın.
 
@@ -112,7 +112,7 @@ Tüm dosyaları blob depolama alanına karşıya yüklemeden önce erişim yazma
 1. Seçin **AccessPolicy** -> **AccessPolicy oluşturmak için karşıya yükleme**.
 2. **Gönder**’e basın.
 
-    ![Karşıya dosya yükle](./media/media-services-rest-upload-files/postman-access-policy.png)
+    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-access-policy.png)
 
     "Test" betik AccessPolicy kimliğini alır ve uygun bir ortam değişkenini ayarlar.
 
@@ -133,7 +133,7 @@ Bu örnekte, şifrelenmemiş bir varlık oluşturuyoruz.
 1. Seçin **varlıklar** -> **varlık oluşturma**.
 2. **Gönder**’e basın.
 
-    ![Karşıya dosya yükle](./media/media-services-rest-upload-files/postman-create-asset.png)
+    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-create-asset.png)
 
     "Test" betik varlık kimliği alır ve uygun bir ortam değişkenini ayarlar.
 
@@ -166,7 +166,7 @@ Bazı dikkate alınması gereken noktalar vardır:
 
     "Test" betik "Belirttiğiniz medya dosyasının adına dayalı URL karşıya yükle" ve SAS Bulucu bilgileri oluşturur ve uygun bir ortam değişkenini ayarlar.
 
-    ![Karşıya dosya yükle](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
+    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-create-sas-locator.png)
 
 ## <a name="upload-a-file-to-blob-storage-using-the-upload-url"></a>Bir dosya karşıya yükleme URL'yi kullanarak blob depolamaya yükleme
 
@@ -193,7 +193,7 @@ Oluşturun ve yeni bir isteği ayarlayın:
 4. Belirtilen ada sahip dosyayı seçin **MediaFileName** ortam değişkeni.
 5. **Gönder**’e basın.
 
-    ![Karşıya dosya yükle](./media/media-services-rest-upload-files/postman-upload-file.png)
+    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-upload-file.png)
 
 ##  <a name="create-a-metadata-in-the-asset"></a>Bir meta veri varlığı oluşturma
 
@@ -202,11 +202,11 @@ Dosya yüklendikten sonra varlık, varlıkla ilişkili blob depolamaya yükledi�
 1. Seçin **AssetFiles** -> **CreateFileInfos**.
 2. **Gönder**’e basın.
 
-    ![Karşıya dosya yükle](./media/media-services-rest-upload-files/postman-create-file-info.png)
+    ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-create-file-info.png)
 
 Dosya karşıya yüklenmelidir ve meta verileri ayarlayın.
 
-## <a name="validate"></a>Doğrula
+## <a name="validate"></a>Doğrulama
 
 Dosya başarıyla karşıya yüklendi, sorgu isteyebileceğiniz doğrulamak için [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) ve karşılaştırma **ContentFileSize** (veya diğer ayrıntıları) içinde yeni varlık görmeyi beklediğiniz için. 
 

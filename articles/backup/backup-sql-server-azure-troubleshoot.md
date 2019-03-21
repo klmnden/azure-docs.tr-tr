@@ -6,22 +6,22 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: 8bfa9f2fcdc3047ed5541db058f670a4bc464164
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449912"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286025"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Azure'da SQL Server Yedekleme sorunlarını giderme
 
 Bu makalede, SQL Server Vm'leri (Önizleme) azure'da korunması için sorun giderme bilgileri sağlar.
 
-## <a name="public-preview-limitations"></a>Genel Önizleme sınırlamaları
+## <a name="feature-consideration-and-limitations"></a>Özellik önemli noktalar ve sınırlamalar
 
-Genel Önizleme sınırlamaları görüntülemek için bkz [azure'da SQL Server veritabanını yedekleme](backup-azure-sql-database.md#preview-limitations).
+Özellik göz önünde bulundurarak görüntülemek için bkz [Azure vm'lerde SQL Server hakkında yedekleme](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>SQL Server izinleri
 
@@ -80,7 +80,7 @@ Aşağıdaki tablolarda, hata kodu tarafından düzenlenir.
 | Hata iletisi | Olası nedenler | Önerilen eylem |
 |---|---|---|
 | Veri kaynağı için işlem günlüğü dolu olduğundan yedek alınamıyor. | Veritabanı işlem günlüğü alanı dolu. | Bu sorunu gidermek için başvurmak [SQL belgeleri](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| Bu SQL veritabanı İstenen yedekleme türünü desteklemiyor. | Her zaman ağ üzerinde ikincil çoğaltmaları, tam ve farklı yedeklemelerini desteklemez. | <ul><li>Geçici bir yedekleme tetikleyen, birincil düğümdeki yedeklemeler tetikler.</li><li>Yedekleme İlkesi tarafından zamanladıysanız birincil düğüm kayıtlı olduğundan emin olun. Düğümünü kaydetmek için [bir SQL Server veritabanı bulmak için adımları](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
+| Bu SQL veritabanı İstenen yedekleme türünü desteklemiyor. | Her zaman ağ üzerinde ikincil çoğaltmaları, tam ve farklı yedeklemelerini desteklemez. | <ul><li>Geçici bir yedekleme tetikleyen, birincil düğümdeki yedeklemeler tetikler.</li><li>Yedekleme İlkesi tarafından zamanladıysanız birincil düğüm kayıtlı olduğundan emin olun. Düğümünü kaydetmek için [bir SQL Server veritabanı bulmak için adımları](backup-sql-server-database-azure-vms.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>Geri yükleme hatalarının
 
@@ -136,6 +136,35 @@ Aşağıdaki hata kodları için yapılandırmasını yedekleme hataları.
 | Hata iletisi | Olası nedenler | Önerilen eylem |
 |---|---|---|
 | Otomatik koruma hedefini ya da kaldırıldı veya artık geçerli değil. | Bir SQL örneğinde otomatik korumayı etkinleştirdiğinizde **yedeklemeyi Yapılandır** işlerini çalıştırmak için bu örneği içindeki tüm veritabanlarına. İşleri çalıştırırken otomatik korumayı devre dışı bırakırsanız sonra **sürüyor** bu hata kodu ile işleri iptal edilir. | Kalan tüm veritabanlarını yeniden korumak otomatik korumayı etkinleştirin. |
+
+## <a name="re-registration-failures"></a>Yeniden kayıt hataları
+
+Bir veya daha fazlası için onay [belirtileri](#symptoms) yeniden kayıt işlemini tetiklemeden önce.
+
+### <a name="symptoms"></a>Belirtiler
+
+* Yedekleme gibi tüm işlemleri geri yükleyin ve yedeklemeyi yapılandırma VM aşağıdaki hata kodlarından biriyle başarısız oluyor: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
+* **Yedekleme durumu** yedekleme öğesi gösterildiğini **ulaşılamıyor**. Aynı durumunda da sonuçlanabilir ve diğer tüm sebepler kullanıma kuralı olsa da:
+
+  * Sanal makinedeki yedekleme ilgili işlemleri gerçekleştirmek için izni olmaması  
+  * VM yer alamaz yedeklemeleri nedeniyle kapatıldı
+  * Ağ sorunları  
+
+    ![VM yeniden kaydedin](./media/backup-azure-sql-database/re-register-vm.png)
+
+* Yedekleme tercihi değiştikten sonra veya bir yük devretme değiştirildiği başarısız olması durumunda her zaman açık kullanılabilirlik grubu, yedeklemeleri başlatıldı
+
+### <a name="causes"></a>Nedenler
+Aşağıdaki belirtilerden birini veya daha fazlasını aşağıdaki nedenlerden dolayı ortaya çıkabilir:
+
+  * Uzantı silinmiş veya Portalı'ndan kaldırıldı 
+  * Uzantı kaldırıldığında **Denetim Masası** altında VM'nin **bir programı kaldırın veya değiştirin** kullanıcı Arabirimi
+  * VM yerinde diskleri geri yükleme kullanarak geçmişe geri yüklendi
+  * VM üzerindeki uzantı yapılandırması nedeniyle dolduğu uzun bir süre için kapatıldı
+  * VM silindikten sonra ve başka bir sanal Makineye aynı ada sahip ve Silinen sanal Makinenin aynı kaynak grubunda oluşturuldu
+  * AG düğümlerinden biri tam yedekleme yapılandırma almadınız, bu ya da kullanılabilirlik grubu kayıt kasaya zaman veya ne zaman yeni bir düğüm eklenir oluşabilir  <br>
+    Yukarıdaki senaryolarda, yeniden kayıt işlemi VM'de tetiklemek için önerilir. Bu seçenek yalnızca PowerShell üzerinden kullanılabilir ve yakında Azure portalında kullanıma sunulacak.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: b50dcfc21ce6b8d4fc1becd178bf8469870740b6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: a3fd89ee67b495d3ca1173faa9381ceba117ef63
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839687"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259321"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Yedekleme ve PowerShell ile Azure Vm'lerini geri yükleme
 
@@ -299,7 +299,7 @@ Aşağıdaki grafikte, BackupRecoveryPoint aşağı RecoveryServicesVault gelen 
 
 ![Kurtarma Hizmetleri nesne hiyerarşisi BackupContainer gösteriliyor](./media/backup-azure-vms-arm-automation/backuprecoverypoint-only.png)
 
-Yedekleme verilerini geri yüklemek için yedekleme öğesi ve zaman içinde nokta verileri tutan bir kurtarma noktası belirleyin. Kullanım [geri yükleme-AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) verileri kasadan hesabınıza geri yüklemek için.
+Yedekleme verilerini geri yüklemek için yedekleme öğesi ve zaman içinde nokta verileri tutan bir kurtarma noktası belirleyin. Kullanım [geri yükleme-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) verileri kasadan hesabınıza geri yüklemek için.
 
 Bir Azure VM'yi geri yüklemek için temel adımlar şunlardır:
 
@@ -348,7 +348,7 @@ BackupManagementType        : AzureVM
 
 ### <a name="restore-the-disks"></a>Diskleri geri yükle
 
-Kullanım **[geri yükleme-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) bir yedekleme öğesinin verileri ve yapılandırma, bir kurtarma noktasına geri yüklemek için cmdlet'i. Bir kurtarma noktası tanımladıktan sonra değeri olarak kullanın **- RecoveryPoint** parametresi. Yukarıdaki örnekte, **$rp [0]** kurtarma noktasını kullanmak üzere oluştu. Aşağıdaki örnek kodda **$rp [0]** disk geri yüklemek için kullanılacak kurtarma noktası.
+Kullanım [geri yükleme-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) bir yedekleme öğesinin verileri ve yapılandırma, bir kurtarma noktasına geri yüklemek için cmdlet'i. Bir kurtarma noktası tanımladıktan sonra değeri olarak kullanın **- RecoveryPoint** parametresi. Yukarıdaki örnekte, **$rp [0]** kurtarma noktasını kullanmak üzere oluştu. Aşağıdaki örnek kodda **$rp [0]** disk geri yüklemek için kullanılacak kurtarma noktası.
 
 Diskleri ve yapılandırma bilgilerini geri yüklemek için:
 

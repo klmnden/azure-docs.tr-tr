@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/27/2019
-ms.openlocfilehash: a243dbfa8b63d45f87fd16370fa8e120ff68711c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309154"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295258"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Oluşturma ve etkin coğrafi çoğaltma kullanma
 
@@ -69,7 +69,7 @@ Gerçek iş sürekliliği elde etmek için veri merkezleri arasında veritabanı
 
 - **Otomatik zaman uyumsuz çoğaltma**
 
- Mevcut bir veritabanına ekleyerek yalnızca ikincil bir veritabanı oluşturabilirsiniz. Herhangi bir Azure SQL veritabanı sunucusu, ikincil oluşturulabilir. Oluşturulduktan sonra ikincil veritabanı birincil veritabanından kopyalanan verileri doldurulur. Bu işlem, dengeli dağıtım olarak bilinir. İkincil veritabanı oluşturduktan ve çekirdek değeri oluşturulmuş sonra birincil veritabanına güncelleştirmeleri zaman uyumsuz olarak ikincil veritabanına otomatik olarak çoğaltılır. Zaman uyumsuz çoğaltma, birincil veritabanında işlemleri yapıldığından ikincil veritabanına çoğaltılırken anlamına gelir.
+  Mevcut bir veritabanına ekleyerek yalnızca ikincil bir veritabanı oluşturabilirsiniz. Herhangi bir Azure SQL veritabanı sunucusu, ikincil oluşturulabilir. Oluşturulduktan sonra ikincil veritabanı birincil veritabanından kopyalanan verileri doldurulur. Bu işlem, dengeli dağıtım olarak bilinir. İkincil veritabanı oluşturduktan ve çekirdek değeri oluşturulmuş sonra birincil veritabanına güncelleştirmeleri zaman uyumsuz olarak ikincil veritabanına otomatik olarak çoğaltılır. Zaman uyumsuz çoğaltma, birincil veritabanında işlemleri yapıldığından ikincil veritabanına çoğaltılırken anlamına gelir.
 
 - **Okunabilir ikincil veritabanı**
 
@@ -116,6 +116,12 @@ Yükseltme veya birincil farklı işlem boyuta (aynı hizmet katmanında, genel 
 > [!NOTE]
 > Yük devretme grubu yapılandırmasının bir parçası olarak ikincil bir veritabanı oluşturduysanız, bu ikincil veritabanını indirgemek için önerilmez. Bu veri katmanınızın yük devretme etkinleştirildikten sonra normal iş yükünü işlemek için yeterli kapasiteye sahip sağlamaktır.
 
+> [!IMPORTANT]
+> Bir yük devretme grubunda birincil veritabanı, ikincil veritabanı ilk olarak üst katmana ölçeklendirilir sürece daha yüksek bir katmana ölçeklendirilemez. İkincil veritabanı ölçeklendirilir önce birincil veritabanının ölçeğini çalışırsanız aşağıdaki hatayı alabilirsiniz:
+>
+> `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
+>
+
 ## <a name="preventing-the-loss-of-critical-data"></a>Önemli verilerin kaybını önleme
 
 Geniş alan ağları yüksek gecikme nedeniyle, sürekli kopyalama bir zaman uyumsuz çoğaltma mekanizması kullanır. Bir hata oluşması durumunda zaman uyumsuz çoğaltma bazı veri kaybı kaçınılmaz yapar. Ancak, bazı uygulamalar, veri kaybı olmadan gerektirebilir. Bu kritik güncelleştirmeler korumak için bir uygulama geliştiricisi çağırabilirsiniz [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) işlem Sistemi'ne hemen sonra sistem yordamı. Çağırma **sp_wait_for_database_copy_sync** son kabul edilen işlem ikincil veritabanına gönderilene kadar çağıran iş parçacığını engeller. Ancak, yeniden yürütülmesi ve ikincil kaydedilen iletilen işlemler için beklemez. **sp_wait_for_database_copy_sync** belirli sürekli kopyalama bağlantısı kapsamlıdır. Birincil veritabanına bağlantı haklarına sahip herhangi bir kullanıcı, bu yordam çağırabilir.
@@ -156,6 +162,8 @@ Daha önce açıklandığı gibi etkin coğrafi çoğaltma ayrıca Azure PowerSh
 ### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Yük devretme işlemlerini tek ve havuza alınmış veritabanlarını yönetme
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 | Cmdlet | Açıklama |
 | --- | --- |

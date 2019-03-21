@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/20/2019
 ms.author: mayg
-ms.openlocfilehash: 6065d83cf74b6bb7c3d80d4e452df8377dc9823e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732662"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286508"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery dağıtım Planlayıcısı raporunu analiz etme
 Bu makalede, Hyper-V’den Azure’a dağıtım senaryosu için Azure Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan Excel raporunda bulunan sayfalar ele alınmaktadır.
@@ -275,7 +275,7 @@ Aşağıdaki tablo, Site Recovery sınırlarını sağlar. Bu sınırlar, testle
 ---|---|---|---
 Standart depolama | 8 KB | VM başına 2 MB/sn | VM başına 168 GB
 Premium depolama | 8 KB  | VM başına 5 MB/sn | VM başına 421 GB
-Premium depolama | 16 KB veya daha yüksek| VM başına 10 MB/sn | VM başına 842 GB
+Premium depolama | 16 KB veya daha yüksek| VM başına 20 MB/sn | VM başına 1684 GB
 
 Bu sınırlar yüzde 30 G/Ç çakışmasını varsayan ortalama sayılardır. Site Recovery; çakışma oranı, büyük yazma boyutları ve gerçek iş yükü G/Ç davranışına göre daha yüksek aktarım hızını işleyebilir. Yukarıdaki sayılar yaklaşık beş dakikalık tipik bir kapsamı varsayar. Diğer bir deyişle, veriler karşıya yüklendikten sonra işlenir ve beş dakika içinde bir kurtarma noktası oluşturulur.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: fd1e7ccdc54b5c5111ecfa466e916a376f43521a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c5f8b6db77cabdf5e7af66063cbd9a058bd01800
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770726"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082781"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Azure not defteri projeleri veri dosyalarıyla çalışma
 
@@ -42,13 +42,13 @@ Proje panosunu kullanarak çalışan bir not defteri içinde veya bir projeye do
 
 1. Seçin **karşıya** komutu, sonra da **URL'den** veya **bilgisayardan** ve gerekli bilgileri içeri aktarmak istediğiniz verilerin proje:
 
-    - **URL'den**: Kaynak adresi girerek **dosya URL'si** alan ve projenizde not defterine atamak için dosya adı **dosya adı** alan. Ardından **+ Dosya Ekle** URL karşıya yükleme listesine eklenecek. Herhangi bir ek URL için işlemi tekrarlayın ve sonra seçin **Bitti**.
+   - **URL'den**: Kaynak adresi girerek **dosya URL'si** alan ve projenizde not defterine atamak için dosya adı **dosya adı** alan. Ardından **+ Dosya Ekle** URL karşıya yükleme listesine eklenecek. Herhangi bir ek URL için işlemi tekrarlayın ve sonra seçin **Bitti**.
 
-    ![URL açılır penceresinden karşıya yükleme](media/quickstarts/upload-from-url-popup.png)
+     ![URL açılır penceresinden karşıya yükleme](media/quickstarts/upload-from-url-popup.png)
 
-    - **Bilgisayardan**: Sürükleyin ve açılan dosyaları açılır ya da seçin **dosya seçin**, ardından gözatın ve içeri aktarmak istediğiniz veri dosyaları seçin. Bırakın veya kod dosyasını açın ve verileri ayrıştırmak için not defterinde olduğu için herhangi bir sayıda herhangi bir türü ve biçim dosyalarını seçin.
+   - **Bilgisayardan**: Sürükleyin ve açılan dosyaları açılır ya da seçin **dosya seçin**, ardından gözatın ve içeri aktarmak istediğiniz veri dosyaları seçin. Bırakın veya kod dosyasını açın ve verileri ayrıştırmak için not defterinde olduğu için herhangi bir sayıda herhangi bir türü ve biçim dosyalarını seçin.
 
-    ![Bilgisayar açılır penceresinden karşıya yükleme](media/quickstarts/upload-from-computer-popup.png)
+     ![Bilgisayar açılır penceresinden karşıya yükleme](media/quickstarts/upload-from-computer-popup.png)
 
 1. İçeri sonra dosyaları proje Panosu üzerinde görünür ve not defteri kodu içeren klasöre göreli yol adları kullanarak içinde erişilebilir.
 

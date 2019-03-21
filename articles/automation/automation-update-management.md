@@ -6,19 +6,19 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/04/2019
+ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c8b25c0caf71835ccb5a055956d73a713efa5da0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 85b920767cbdc5ba60c2046563c32e87f6ad7ef8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541222"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259406"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
-Azure, şirket içi ortamlarda veya diğer bulut sağlayıcılarında dağıtılmış Windows ve Linux bilgisayarlarınızın işletim sistemi güncelleştirmelerini yönetmek için Azure Otomasyonu'nda güncelleştirme yönetimi çözümü kullanabilirsiniz. Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızla değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini yönetebilirsiniz.
+Azure'da, şirket içi ortamlarda veya diğer bulut sağlayıcıları, Windows ve Linux bilgisayarlar için işletim sistemi güncelleştirmelerini yönetmek için Azure Otomasyonu'nda güncelleştirme yönetimi çözümü kullanabilirsiniz. Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızla değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini yönetebilirsiniz.
 
 Doğrudan Azure Otomasyonu hesabınızdan sanal makineler için güncelleştirme yönetimini etkinleştirebilirsiniz. Otomasyon hesabınızdan sanal makineler için güncelleştirme yönetimini etkinleştirme hakkında bilgi için bkz: [birden çok sanal makine için güncelleştirmeleri yönetme](manage-update-multi.md). Ayrıca, sanal makine sayfasından Azure portalında sanal makine için güncelleştirme yönetimini etkinleştirebilirsiniz. Bu senaryo için kullanılabilir [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) ve [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) sanal makineler.
 
@@ -35,7 +35,7 @@ Güncelleştirme yönetimi tarafından yönetilen bilgisayarlar değerlendirme g
 
 Aşağıdaki diyagramda davranışı kavramsal bir görünümü gösterir ve veri akışının nasıl çözüm değerlendirir ve tüm güvenlik güncelleştirmelerini uygular bağlı Windows Server ve Linux bilgisayarları bir çalışma alanında:
 
-![Güncelleştirme yönetimi işlem akışı](media/automation-update-management/update-mgmt-updateworkflow.png)
+![Güncelleştirme yönetimi işlem akışı](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
 Güncelleştirme yönetimi, yerel makine aynı kiracıda birden çok abonelik içinde kullanılabilir.
 
@@ -295,7 +295,7 @@ sudo yum -q --security check-update
 
 Şu anda yerel sınıflandırma veri kullanılabilirliğine CentOS etkinleştirmek için desteklenen yöntem yöntemi yok. Şu anda bu, kendi etkinleştirmiş olabilir müşteriler yalnızca en yüksek çaba destek sağlanır.
 
-## <a name="firstparty-predownload"></a>Düzeltme eki uygulama birinci taraf ve önceden indir
+## <a name="firstparty-predownload"></a>Gelişmiş ayarlar
 
 Güncelleştirme yönetimi, Windows Güncelleştirmeleri indirmek ve yüklemek için Windows Update'te kullanır. Sonuç olarak, Windows Update tarafından kullanılan ayarları birçoğu saygı gösteririz. Windows olmayan güncelleştirmeleri etkinleştirmek için Ayarlar'ı kullanıyorsanız, güncelleştirme yönetimi güncelleştirmeleri de yönetebilir. Güncelleştirme dağıtımı gerçekleşmeden önce güncelleştirme indiriliyor etkinleştirmek istiyorsanız, güncelleştirme dağıtımları hızlı gitmesi ve bakım penceresi aşan daha yüksektir.
 
@@ -311,9 +311,18 @@ $WUSettings.NotificationLevel = 3
 $WUSettings.Save()
 ```
 
+### <a name="disable-automatic-installation"></a>Otomatik Yükleme devre dışı bırak
+
+Azure VM'ler, varsayılan olarak etkin olan güncelleştirmeleri otomatik olarak yüklenmesini sahiptir. Bu, güncelleştirme yönetimi tarafından yüklenmesini zamanlama önce yüklenecek güncelleştirmelerin neden olabilir. Ayarlayarak bu davranışı devre dışı bırakabilirsiniz `NoAutoUpdate` kayıt defteri anahtarına `1`. Aşağıdaki PowerShell kod parçacığı, bunu yapmanın bir yolu gösterir.
+
+```powershell
+$AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
+Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
+```
+
 ### <a name="enable-updates-for-other-microsoft-products"></a>Diğer Microsoft ürünleri için güncelleştirmeleri etkinleştirecek
 
-Varsayılan olarak, Windows Update, güncelleştirmeleri yalnızca Windows için sağlar. Etkinleştirirseniz **sağla güncelleştirmeleri diğer Microsoft ürünleri için Windows güncelleştirebilirim olduğunda**, diğer ürünler için güncelleştirmelerin ile sağlanan şeyler güvenlik düzeltme ekleri gibi SQL Server veya diğer birinci taraf yazılımlar gibi. Bu seçenek, Grup İlkesi tarafından yapılandırılamaz. Aşağıdaki PowerShell, diğer birinci taraf düzeltme ekleri üzerinde etkinleştirmek istediğiniz sistemlerinde çalıştırın ve güncelleştirme yönetimi, bu ayar ne uygun olacaktır.
+Varsayılan olarak, Windows Update, güncelleştirmeleri yalnızca Windows için sağlar. Etkinleştirirseniz **sağla güncelleştirmeleri diğer Microsoft ürünleri için Windows güncelleştirebilirim olduğunda**, diğer ürünler için güncelleştirmelerin ile sağlanan güvenlik yamaları SQL Server veya diğer birinci taraf yazılımlar gibi. Bu seçenek, Grup İlkesi tarafından yapılandırılamaz. Aşağıdaki PowerShell, diğer birinci taraf düzeltme ekleri üzerinde etkinleştirmek istediğiniz sistemlerinde çalıştırın ve güncelleştirme yönetimi, bu ayar ne uygun olacaktır.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -558,7 +567,7 @@ Update
 
 ## <a name="using-dynamic-groups"></a>Dinamik gruplar (Önizleme) kullanma
 
-Güncelleştirme yönetimi, Azure Vm'leri dinamik bir grup güncelleştirme dağıtımları için hedef olanağı sağlar. Bu grupları tanımlanan bir sorgu tarafından bir güncelleştirme dağıtımı başladığında, bu grubun üyelerinin değerlendirilir. Sorgunuzu tanımlarken, aşağıdaki öğeler birlikte dinamik Grup doldurmak için kullanılabilir
+Güncelleştirme yönetimi, Azure Vm'leri dinamik bir grup güncelleştirme dağıtımları için hedef olanağı sağlar. Bu grupları tanımlanan bir sorgu tarafından bir güncelleştirme dağıtımı başladığında, bu grubun üyelerinin değerlendirilir. Dinamik gruplar, Klasik Vm'leri ile çalışmaz. Sorgunuzu tanımlarken, aşağıdaki öğeler birlikte dinamik Grup doldurmak için kullanılabilir
 
 * Abonelik
 * Kaynak grupları
@@ -601,7 +610,7 @@ Red Hat Enterprise Linux, redhat yayın server.x86_64 tutulacak paket adı.
 
 Bir Linux makineye güncelleştirmeleri dağıtırken, güncelleştirme sınıflandırmaları seçebilirsiniz. Bu, belirtilen ölçütleri karşılayan bir makineye uygulanan güncelleştirmeleri filtreler. Güncelleştirme dağıtıldığında bu filtre makine üzerinde yerel olarak uygulanır.
 
-Güncelleştirme yönetimi, güncelleştirme zenginleştirme, bulutta gerçekleştirdiğinden, rağmen bu bilgileri yerel makinede yok bazı güncelleştirmeler güncelleştirme yönetimi güvenlik, etkili olarak işaretlenmesini. Sonuç olarak, bir Linux makineye kritik güncelleştirmeler uygularsanız, olabilir güvenlik etkisi olması olarak makine ve güncelleştirmeleri uygulanmaz işaretlenmez güncelleştirmeleri.
+Güncelleştirme yönetimi, güncelleştirme zenginleştirme, bulutta gerçekleştirdiğinden, bu bilgileri yerel makinede yok olsa bile bazı güncelleştirmeler güncelleştirme Yönetimi'nde güvenlik, etkili olarak işaretlenebilir. Sonuç olarak, bir Linux makineye kritik güncelleştirmeler uygularsanız, olabilir güvenlik etkisi olması olarak makine ve güncelleştirmeleri uygulanmaz işaretlenmez güncelleştirmeleri.
 
 Ancak, güncelleştirme yönetimi, ilgili güncelleştirme hakkında ek bilgi içerdiğinden olarak uyumlu söz konusu makine hala bildirebilir.
 
@@ -614,10 +623,6 @@ VM güncelleştirme yönetiminden kaldırmak için:
 * Log Analytics çalışma alanınızda kayıtlı arama kapsamı yapılandırması için VM kaldırma `MicrosoftDefaultScopeConfig-Updates`. Kayıtlı aramalar, altında bulunabilir **genel** çalışma alanınızdaki.
 * Kaldırma [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) veya [Linux için Log Analytics aracısını](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
-## <a name="troubleshoot"></a>Sorun giderme
-
-Güncelleştirme yönetimi sorunlarını giderme konusunda bilgi almak için bkz: [güncelleştirme yönetiminde sorun giderme](troubleshoot/update-management.md)
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Windows sanal makineleriniz için güncelleştirmeleri yönetme konusunda bilgi almak için öğreticiye devam edin.
@@ -629,4 +634,4 @@ Windows sanal makineleriniz için güncelleştirmeleri yönetme konusunda bilgi 
 * [Uyarı oluşturma](automation-tutorial-update-management.md#configure-alerts) güncelleştirme dağıtım durumu için.
 
 * Güncelleştirme yönetimi REST API aracılığıyla etkileşim öğrenmek için bkz. [yazılım güncelleştirme yapılandırmaları](/rest/api/automation/softwareupdateconfigurations)
-
+* Güncelleştirme yönetimi sorunlarını giderme konusunda bilgi almak için bkz: [güncelleştirme yönetiminde sorun giderme](troubleshoot/update-management.md)

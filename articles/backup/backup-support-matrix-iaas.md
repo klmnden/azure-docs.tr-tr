@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 264f10be1ecb22b6261a14f7185f88b101242d36
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 512e07f2892f9c4adf47956d3a5b07debf870e46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440786"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849916"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM yedeklemesi için destek matrisi
 Kullanabileceğiniz [Azure Backup hizmeti](backup-overview.md) şirket içi makinelerin ve iş yükleri ve Azure sanal makineleri (VM) yedekleme. Bu makalede, Azure sanal makinelerini Azure Backup ile yedeklediğinizde destek ayarları ve sınırlamaları özetlenmektedir.
@@ -40,7 +40,7 @@ Yedekleme hakkında daha fazla bilgi [bir yedekleme sunucusu kullanma](backup-ar
 
 **Eylem** | **Destek**
 --- | ---
-Bir Windows Azure VM oluşturduğunuzda, yedeklemeyi etkinleştirme | Desteklenen:  Windows Server 2016 (Core veri merkezi/veri merkezi); Windows Server 2012 R2 veri merkezi; Windows Server 2008 R2 SP1
+Bir Windows Azure VM oluşturduğunuzda, yedeklemeyi etkinleştirme | Desteklenen:  Windows Server 2019 (veri merkezi/veri merkezi çekirdek), Windows Server 2016 (Core veri merkezi/veri merkezi); Windows Server 2012 R2 veri merkezi; Windows Server 2008 R2 (RTM ve SP1)
 Bir Linux VM oluşturduğunuzda, yedeklemeyi etkinleştirme | Desteklenen:<br/><br/> - Ubuntu Server: 1710, 1704, 1604 (LTS) 1404 (LTS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> -SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3<br/><br/> -Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Bu VM kapatma/çevrimdışı/arayan bir VM'yi yedekleme | Destekleniyor.<br/><br/> Kilitlenme ile tutarlı anlık görüntü yalnızca, uygulama-tutarlı değil.
 Yönetilen diskler geçiş sonra diskleri yedekleme | Destekleniyor.<br/><br/> Yedekleme çalışmaya devam eder. İşlem yapmanız gerekmez.
@@ -61,7 +61,7 @@ Aşağıdaki tabloda, Windows Azure Vm'lerini yedeklerken, desteklenen işletim 
 
 **Senaryo** | **İşletim sistemi desteği**
 --- | ---
-Azure VM Aracısı uzantısı ile yedekleme | Windows İstemcisi: Desteklenmiyor<br/><br/> Windows Server için: Windows Server 2008 R2 veya üzeri
+Azure VM Aracısı uzantısı ile yedekleme | Windows İstemcisi: Desteklenmiyor<br/><br/> Windows Server 2019 (veri merkezi/veri merkezi çekirdek), Windows Server 2016 (Core veri merkezi/veri merkezi); Windows Server 2012 R2 veri merkezi; Windows Server 2008 R2 (RTM ve SP1)
 MARS Aracısı ile yedekleme | [Desteklenen](backup-support-matrix-mars-agent.md#support-for-direct-backups) işletim sistemleri.
 DPM/MABS ile yedekleme | Desteklenen işletim sistemleri ile yedekleme için [MABS](backup-mabs-protection-matrix.md) ve [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 

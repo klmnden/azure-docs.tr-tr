@@ -4,13 +4,13 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: c877cff20a2329ae07a15e1b198c4d407721c4ed
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 3e0f2593f6a5cf0ddfe74b51523476f7db8ae4de
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752317"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305316"
 ---
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, bir uzamsal bağlayıcılarını hesabı oluşturdunuz. Daha sonra yapılandırılan ve dağıtılan bir uygulamayı kaydedin ve uzamsal bağlantıları geri çağırma. Diğer cihazlarla uzamsal bağlayıcılarını paylaşabileceği uygulama geliştirme hakkında daha fazla bilgi edinmek için sonraki öğreticiye devam edin.
+Bu hızlı başlangıçta, bir uzamsal bağlayıcılarını hesabı oluşturuldu. Daha sonra yapılandırılan ve dağıtılan bir uygulamayı kaydedin ve uzamsal bağlantıları geri çağırma. Uzamsal bağlayıcılarını diğer cihazlarla paylaşabilmek uygulama geliştirme hakkında daha fazla bilgi edinmek için sonraki öğreticiye devam edin.

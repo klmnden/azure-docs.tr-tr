@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 46cf3b01a3c5e653d5588e463f26540fef15f4e1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0755c01fe8e13e8e39c0b453198f2b67c51a2bc4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888995"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125154"
 ---
 #### <a name="to-download-hotfixes"></a>Düzeltmeleri indirmek için
 
@@ -99,12 +99,12 @@ Normal mod düzeltmelerini yüklemek ve doğrulamak için aşağıdaki adımlar�
     Aşağıdaki sürümleri görmeniz gerekir:
    
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
-   *  `HcsSoftwareVersion: 6.3.9600.17820`
+   * `HcsSoftwareVersion: 6.3.9600.17820`
    
-    Güncelleştirme uygulandıktan sonra sürüm numarası değişmezse, düzeltmenin uygulanamadığı anlamına gelir. Bunu görmeniz durumunda daha fazla yardım için lütfen [Microsoft Desteği](../articles/storsimple/storsimple-contact-microsoft-support.md)’ne başvurun.
+     Güncelleştirme uygulandıktan sonra sürüm numarası değişmezse, düzeltmenin uygulanamadığı anlamına gelir. Bunu görmeniz durumunda daha fazla yardım için lütfen [Microsoft Desteği](../articles/storsimple/storsimple-contact-microsoft-support.md)’ne başvurun.
      
-    > [!IMPORTANT]
-    > Etkin denetleyiciyi aracılığıyla yeniden başlatmalısınız `Restart-HcsController` İleri güncelleştirmeyi uygulamadan önce cmdlet'i.
+     > [!IMPORTANT]
+     > Etkin denetleyiciyi aracılığıyla yeniden başlatmalısınız `Restart-HcsController` İleri güncelleştirmeyi uygulamadan önce cmdlet'i.
      
 7. İndirilen için CI/AVH aracıyı yüklemek için 3-5 arasındaki adımları yineleyin, _FirstOrderUpdate_ klasör. 
 8. İkinci sipariş güncelleştirmelerini yüklemek için 3-5 aralığındaki adımları yineleyin. **İkinci sipariş güncelleştirmelerini yalnızca çalıştırarak birden fazla güncelleştirme yüklenebilir `Start-HcsHotfix cmdlet` ve ikinci sipariş güncelleştirmelerini yerleştirildiği klasör işaret. Cmdlet, klasörde tüm güncelleştirmeleri yürütülür.** Bir güncelleştirme zaten yüklüyse, güncelleştirme mantığı bunu saptar ve ilgili güncelleştirmeyi uygulamaz. 

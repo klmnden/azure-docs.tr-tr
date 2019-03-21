@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 9c82ad04b22a29f4a548b79b9b46a08d46de24ca
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: cd0a9a66f3014a39a73cf04badfc67cd2ff4c3de
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284327"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295751"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Anlama ve IOT Hub'ında modül ikizlerini kullanma
 
@@ -93,7 +93,7 @@ Aşağıdaki örnek, bir modül ikizi JSON belgesini gösterir:
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": 55,
             "$metadata" : {...},
             "$version": 4
@@ -174,14 +174,14 @@ Kapsayıcı nesneleri için ve kök nesne modülü kimlik özelliklerdir `tags` 
 
 * **İkiz bildirimlerin**. Bu işlem ikizi değiştirildiğinde bildirim almak çözüm arka ucu sağlar. Bunu yapmak için IOT çözümünüzün yönlendirme oluşturma ve veri kaynağı eşit ayarlamak için gereken *twinChangeEvents*. Varsayılan olarak, hiçbir ikizi bildirimler gönderilir, diğer bir deyişle, bu tür bir yol önceden mevcut. Değişim oranı çok yüksek olup olmadığını veya iç hatalar gibi diğer nedenlerle, IOT hub'ı tüm değişiklikleri içeren tek bir bildirim gönderebilir. Bu nedenle, uygulamanızın güvenilir denetim ve tüm ara durumlarını günlük gerekiyorsa, CİHAZDAN buluta iletileri kullanmanız gerekir. İkiz bildirim iletisi, özellikleri ve gövdesini içerir.
 
-    - Özellikler
+  - Özellikler
 
     | Ad | Değer |
     | --- | --- |
-    $content-türü | uygulama/json |
+    $content-type | uygulama/json |
     $iothub-enqueuedtime |  Bildirim zaman gönderildiği zaman |
     $iothub-message-kaynak | twinChangeEvents |
-    $content-kodlama | UTF-8 |
+    $content-encoding | UTF-8 |
     deviceId | Cihaz kimliği |
     Modül kimliği | Modül kimliği |
     HubName | IOT hub'ı adı |
@@ -191,26 +191,26 @@ Kapsayıcı nesneleri için ve kök nesne modülü kimlik özelliklerdir `tags` 
 
     İleti sistemi özellikleri önekiyle `$` simgesi.
 
-    - Gövde
+  - Gövde
         
     Bu bölüm, JSON biçiminde tüm ikizi değişiklikleri içerir. Bir düzeltme eki aynı biçimi kullanır, farkı olan tüm ikizi bölümleri içerebilir: etiketler, properties.reported, properties.desired ve "$metadata" öğeleri içerir. Örneğin,
 
     ```json
     {
-        "properties": {
-            "desired": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            },
-            "reported": {
-                "$metadata": {
-                    "$lastUpdated": "2016-02-30T16:24:48.789Z"
-                },
-                "$version": 1
-            }
-        }
+      "properties": {
+          "desired": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          },
+          "reported": {
+              "$metadata": {
+                  "$lastUpdated": "2016-02-30T16:24:48.789Z"
+              },
+              "$version": 1
+          }
+      }
     }
     ```
 
@@ -300,7 +300,7 @@ IOT Hub, zaman damgası son güncelleştirme her JSON nesnesi, modül ikizi içi
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": "55%",
             "$metadata": {
                 "telemetryConfig": {
@@ -309,7 +309,7 @@ IOT Hub, zaman damgası son güncelleştirme her JSON nesnesi, modül ikizi içi
                         "$lastUpdated": "2016-03-31T16:35:48.789Z"
                     },
                     "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                }
+                },
                 "batteryLevel": {
                     "$lastUpdated": "2016-04-01T16:35:48.789Z"
                 },

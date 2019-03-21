@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: geetha
-ms.openlocfilehash: c5a26de703c97878352ff5fbffdb44f6fca682a6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d138d8a8395fc3e9523c62dfd1636fcdcb10c8c4
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875966"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258862"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Azure Backup kullanarak şifreli VM'ler için Key Vault anahtarını ve gizli anahtarı geri yükleme
 Bu makalede, anahtar ve gizli anahtar kasasında mevcut değilse Azure VM yedeklemesi şifrelenmiş Azure Vm'lerini geri yükleme gerçekleştirmek için kullanma hakkında konuşuyor. Geri yüklenen VM için ayrı bir anahtar (anahtar şifreleme anahtarı) ve gizli dizi (BitLocker şifreleme anahtarı) kopyasını tutmak istiyorsanız şu adımları da kullanılabilir.
@@ -128,7 +128,7 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 > [!NOTE]
 > * $Secretname için değer $rp1 çıkışına başvurarak elde edilebilir. KeyAndSecretDetails.SecretUrl ve sonra gizli metin kullanarak / çıkış parolası URL'si örn, https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 ve gizli dizi adı B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > * Etiket DiskEncryptionKeyFileName gizli dizi adı aynı değeri.
-> * DiskEncryptionKeyEncryptionKeyURL değeri elde edilebilir anahtar kasasından anahtarlar geri geri yükleme ve kullanma sonra [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/get-azurekeyvaultkey) cmdlet'i
+> * DiskEncryptionKeyEncryptionKeyURL değeri elde edilebilir anahtar kasasından anahtarlar geri geri yükleme ve kullanma sonra [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) cmdlet'i
 >
 >
 

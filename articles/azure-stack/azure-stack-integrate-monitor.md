@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: ff28fbb52b33308967051a37fdaa3c6c273fc282
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 64a31e0c8a36b7ea8b60f65caefba9ba15b91777
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816112"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258743"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Dış izleme çözümü, Azure Stack ile tümleştirin
 
@@ -81,8 +81,8 @@ Eklenti Nagios Kurumsal ve Nagios Core ile çalışır. İndirebilirsiniz [burad
 
 | Parametre | Açıklama | Örnek |
 |---------|---------|---------|
-| *arm_endpoint* | Azure Resource Manager (Yönetici) uç noktası |https://adminmanagement.local.azurestack.external |
-| *api_endpoint* | Azure Resource Manager (Yönetici) uç noktası  | https://adminmanagement.local.azurestack.external |
+| *arm_endpoint* | Azure Resource Manager (Yönetici) uç noktası |https:\//adminmanagement.local.azurestack.external |
+| *api_endpoint* | Azure Resource Manager (Yönetici) uç noktası  | https:\//adminmanagement.local.azurestack.external |
 | *Kiracı* | Yönetim abonelik kimliği | Yönetici portalı veya PowerShell üzerinden alın |
 | *User_name* | İşleç abonelik kullanıcı adı | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | İşleç abonelik parolası | parolam |
@@ -96,12 +96,12 @@ Eklenti Nagios Kurumsal ve Nagios Core ile çalışır. İndirebilirsiniz [burad
 
 Operations Manager, Nagios ve Nagios tabanlı bir çözümü kullanmıyorsanız, Azure Stack ile tümleştirme çözümlerini izleme geniş etkinleştirmek için PowerShell kullanabilirsiniz.
 
-1. PowerShell kullanmak için bilgisayarınızda yüklü olduğundan emin olun [PowerShell yüklenmiş ve yapılandırılmış](azure-stack-powershell-configure-quickstart.md) Azure Stack operatörü ortam için. PowerShell'i Resource Manager (Yönetici) uç noktası ulaşan yerel bir bilgisayara yükleme (https://adminmanagement. [ Bölge]. [External_FQDN]).
+1. PowerShell kullanmak için bilgisayarınızda yüklü olduğundan emin olun [PowerShell yüklenmiş ve yapılandırılmış](azure-stack-powershell-configure-quickstart.md) Azure Stack operatörü ortam için. PowerShell'i Resource Manager (Yönetici) uç noktası ulaşan yerel bir bilgisayara yükleme (https:\//adminmanagement. [ Bölge]. [External_FQDN]).
 
 2. Azure Stack operatör olarak Azure Stack ortamınıza bağlanmak için aşağıdaki komutları çalıştırın:
 
    ```PowerShell  
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https:\//adminmanagement.[Region].[External_FQDN]
 
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```

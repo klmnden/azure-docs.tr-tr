@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b0d2c12a4e2088964e397b1bc499fa4adfdff3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 172bc96857c6aa0ab19fd4f1a13870dd493100bf
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244564"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295717"
 ---
 # <a name="what-is-authentication"></a>Kimlik doğrulaması nedir?
 
@@ -79,7 +79,7 @@ Azure AD uygulamaları iki ana işlevi gerçekleştirmek üzere tasarlanmış bi
 
 Azure AD'de **uygulama nesnesi**, bir uygulamayı soyut varlık olarak tanımlar. Geliştiriciler uygulamalarla çalışır. Dağıtım zamanında Azure AD belirli bir uygulama nesnesini şema olarak kullanarak dizin veya kiracı içindeki uygulama örneğini temsil eden bir **hizmet sorumlusu** oluşturur. Uygulamanın belirli bir hedef dizinde yapabileceklerini, onu kullanabilecek kişileri, erişim sağlayabileceği kaynakları ve diğer bilgileri tanımlayan hizmet sorumlusudur. Azure AD, uygulama nesnesinden hizmet sorumlusu oluşturmak için **onayları** kullanır.
 
-Aşağıdaki diyagramda onay temelli basitleştirilmiş bir Azure AD sağlama akışı gösterilmektedir.
+Aşağıdaki diyagramda onay temelli basitleştirilmiş bir Azure AD sağlama akışı gösterilmektedir.  İçinde iki Kiracı yok (A ve B), burada Kiracı A sahip uygulamayı ve B kiracısındaki bir hizmet sorumlusu aracılığıyla uygulamaya örnekleme.  
 
 ![Onay temelli basitleştirilmiş sağlama akışı](./media/authentication-scenarios/simplified-provisioning-flow-consent.png)
 
@@ -87,14 +87,14 @@ Bu sağlama akışında:
 
 |   |   |
 |---|---|
-| 1 | B kiracısındaki bir kullanıcı uygulamada oturum açmaya çalışır |
+| 1 | B kiracısındaki bir kullanıcı uygulamada oturum açması dener |
 | 2 | Kullanıcı kimlik bilgileri alınır ve doğrulanır |
 | 3 | Kullanıcıdan uygulamaya B kiracısına erişme onayı vermesi istenir |
-| 4 | Azure AD, A kiracısındaki uygulama nesnesini şema olarak kullanarak B kiracısında bir hizmet sorumlusu oluşturur |
+| 4 | Azure AD uygulama nesnesi içinde bir şema B kiracısında hizmet sorumlusu oluşturmak için kullanır |
 | 5 | Kullanıcı istenen belirteci alır |
 |   |   |
 
-Bu işlemi diğer kiracılar için (C, D vb.) istediğiniz kadar tekrarlayabilirsiniz. Uygulama şeması (uygulama nesnesi) A dizininde kalır. Uygulama için onay verilen diğer kiracıların kullanıcıları ve yöneticileri kiracıdaki hizmet sorumlusu nesnesini kullanarak uygulamanın gerçekleştirmesine izin verilen işlemleri belirler. Daha fazla bilgi için bkz. [Azure AD'de uygulama ve hizmet sorumlusu nesneleri](app-objects-and-service-principals.md).
+Bu işlemi diğer kiracılar için (C, D vb.) istediğiniz kadar tekrarlayabilirsiniz. Kiracı bir uygulama (uygulama nesnesi) için şema korur. Uygulama için onay verilen diğer kiracıların kullanıcıları ve yöneticileri kiracıdaki hizmet sorumlusu nesnesini kullanarak uygulamanın gerçekleştirmesine izin verilen işlemleri belirler. Daha fazla bilgi için bkz. [Azure AD'de uygulama ve hizmet sorumlusu nesneleri](app-objects-and-service-principals.md).
 
 ## <a name="claims-in-azure-ad-security-tokens"></a>Azure AD güvenlik belirteçlerindeki talepler
 

@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 830825c6ad54a6ff300fb7ee223b32ee0571a55a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: bb244cb03ed5419762541e93784bb72fcf252676
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58163543"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258063"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Azure portalını kullanarak cihazları yönetme
 
@@ -83,7 +83,7 @@ Cihaz ayarları sayfasına yapılandırmanızı sağlar:
 
 - **Kullanıcılar eşitleme ayarları ve uygulama verilerini cihazlarda** -varsayılan olarak, bu ayar **NONE**. Belirli kullanıcılar veya gruplar veya tüm seçilmesi, kullanıcının ayarları ve uygulama verilerini, Windows 10 cihazlarınız arasında eşitlemeye izin verir. Windows 10'da eşitleme birlikte nasıl çalıştığı hakkında daha fazla bilgi edinin.
 Bu seçenek, bir premium özelliği, Azure AD Premium veya Enterprise Mobility Suite (EMS) gibi ürünler aracılığıyla kullanılabilir.
- 
+
 
 
 
@@ -119,7 +119,7 @@ Bazı iOS cihazlarınız için kesme içeren cihaz adları, potansiyel olarak ke
 
 ## <a name="device-management-tasks"></a>Cihaz yönetim görevleri
 
-Genel yönetici olarak, kayıtlı veya alanına katılmış cihazları yönetebilirsiniz. Intune hizmet yöneticileri yapabilirsiniz:
+Bir genel yönetici veya Bulut cihaz Yöneticisi olarak kayıtlı veya alanına katılmış cihazları yönetebilirsiniz. Intune hizmet yöneticileri yapabilirsiniz:
  
 - Update - örnekler etkinleştirme/cihazları devre dışı bırakma gibi günlük işlemlerini cihazlardır
 
@@ -151,7 +151,7 @@ Bir cihazı devre dışı bırakmak / etkinleştirmek için iki seçeneğiniz va
 
 **Notlar:**
 
-- Bir cihazı devre dışı bırakmak / etkinleştirmek için Azure AD'de genel yönetici olmanız gerekir. 
+- Genel yöneticisi olmanız ya da cihaz Yöneticisi bir cihazın devre dışı bırakmak / etkinleştirmek için Azure AD'de bulut gerekir. 
 - Bir cihazı devre dışı bırakma başarıyla böylece cihaz CA tarafından korunan, Azure AD kaynaklarına erişmesini veya WH4B kimlik bilgilerinizi kullanarak cihaz önleme, Azure AD ile kimlik doğrulaması, bir cihaz engeller. 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD dizin rollerini PIM atama | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM), Azure AD Dizin rolleri atama hakkında bilgi edinin.
+title: Azure AD yönetici rollerini - Privileged Identity Management atama | Microsoft Docs
+description: Azure AD Privileged Identity Management (PIM) Azure Active Directory'de yönetici rolleri atama hakkında bilgi edinin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,22 +13,22 @@ ms.subservice: pim
 ms.date: 10/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4acabd4b583766ac730558fd07c424ce97a1299a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e3c8a7fb7a94dbca7b0e63ddaf756a536fbd0600
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192527"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000636"
 ---
-# <a name="assign-azure-ad-directory-roles-in-pim"></a>Azure AD dizin rollerini PIM atayın
+# <a name="assign-azure-ad-administrator-roles-in-pim"></a>Azure AD PIM yönetici rolleri atama
 
-Azure Active Directory'ye (Azure AD), genel yönetici yapabilirsiniz **kalıcı** dizini rol atamaları. Bu rol atamaları kullanılarak oluşturulabilir. [Azure portalında](../users-groups-roles/directory-assign-admin-roles.md) veya bu adı kullanıyor [PowerShell komutlarını](/powershell/module/azuread#directory_roles).
+Azure Active Directory'ye (Azure AD), genel yönetici yapabilirsiniz **kalıcı** Azure AD yönetici rol atamaları. Bu rol atamaları kullanılarak oluşturulabilir. [Azure portalında](../users-groups-roles/directory-assign-admin-roles.md) veya bu adı kullanıyor [PowerShell komutlarını](/powershell/module/azuread#directory_roles).
 
-Azure AD Privileged Identity Management (PIM) hizmeti kalıcı dizini rol atamaları yapmak ayrıcalıklı rol yöneticileri de sağlar. Ayrıca, ayrıcalıklı rol Yöneticileri kullanıcıların yapabileceğini **uygun** Dizin rolleri için. Uygun yönetici rolü, ihtiyaç duydukları ve bunlar bitirdiğinizde izinlerini süresi dolacak etkinleştirebilirsiniz.
+Azure AD Privileged Identity Management (PIM) hizmeti, rol atamalarını kalıcı yönetici yap ayrıcalıklı rol yöneticileri de sağlar. Ayrıca, ayrıcalıklı rol Yöneticileri kullanıcıların yapabileceğini **uygun** Azure AD yönetim rolleri için. Uygun yönetici rolü, ihtiyaç duydukları ve bunlar bitirdiğinizde izinlerini süresi dolacak etkinleştirebilirsiniz.
 
 ## <a name="make-a-user-eligible-for-a-role"></a>Bir kullanıcı rolü için uygun olarak ayarla
 
-Bir kullanıcı için Azure AD directory rolüne uygun hale getirmek için aşağıdaki adımları izleyin.
+Bir kullanıcı için Azure AD Yönetici rolüne uygun hale getirmek için aşağıdaki adımları izleyin.
 
 1. Oturum [Azure portalında](https://portal.azure.com/) üyesi olan bir kullanıcı ile [ayrıcalıklı Rol Yöneticisi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) rol.
 
@@ -68,7 +68,7 @@ Bir kullanıcı için Azure AD directory rolüne uygun hale getirmek için aşa�
 
 ## <a name="make-a-role-assignment-permanent"></a>Bir rol ataması kalıcı yap
 
-Varsayılan olarak, yeni kullanıcılar yalnızca bir dizin rolüne için uygundur. Bir rol ataması kalıcı hale getirmek isterseniz bu adımları izleyin.
+Varsayılan olarak, yeni kullanıcılar yalnızca Azure AD Yönetici rolüne için uygundur. Bir rol ataması kalıcı hale getirmek isterseniz bu adımları izleyin.
 
 1. Açık **Azure AD Privileged Identity Management**.
 
@@ -92,7 +92,7 @@ Varsayılan olarak, yeni kullanıcılar yalnızca bir dizin rolüne için uygund
 
 Rol ataması kullanıcıları kaldırmak, ancak her zaman kalıcı bir genel yönetici olan en az bir kullanıcı olduğundan emin olun. Hangi kullanıcıların rol atamalarının yine emin değilseniz yapabilecekleriniz [rol için erişim değerlendirmesi başlatma](pim-how-to-start-security-review.md).
 
-Belirli bir kullanıcı bir dizin rolünden kaldırmak için aşağıdaki adımları izleyin.
+Belirli bir kullanıcının bir Azure AD yönetici rolünden kaldırmak için aşağıdaki adımları izleyin.
 
 1. Açık **Azure AD Privileged Identity Management**.
 
@@ -116,7 +116,7 @@ Belirli bir kullanıcı bir dizin rolünden kaldırmak için aşağıdaki adıml
 
 ## <a name="authorization-error-when-assigning-roles"></a>Rol atamasını yaparken Yetkilendirme hatası
 
-MS-PIM hizmet ilkesi henüz uygun izinlere sahip olmadığından bir abonelik için en son PIM etkin ve bir kullanıcı için bir dizin rolüne uygun yapmayı denediğinizde bir Yetkilendirme hatası alırsanız olabilir. MS-PIM hizmet ilkesi olmalıdır [kullanıcı erişimi Yöneticisi](../../role-based-access-control/built-in-roles.md#user-access-administrator) başkalarına rolleri atamak için rol. PIM MS kullanıcı erişimi yöneticisi rolü atanmış kadar beklemek yerine uygulamayı el ile atayabilirsiniz.
+MS-PIM hizmet ilkesi henüz uygun izinlere sahip olmadığından bir abonelik için en son PIM etkin ve bir kullanıcı için Azure AD Yönetici rolüne uygun yapmayı denediğinizde bir Yetkilendirme hatası alırsanız olabilir. MS-PIM hizmet ilkesi olmalıdır [kullanıcı erişimi Yöneticisi](../../role-based-access-control/built-in-roles.md#user-access-administrator) başkalarına rolleri atamak için rol. PIM MS kullanıcı erişimi yöneticisi rolü atanmış kadar beklemek yerine uygulamayı el ile atayabilirsiniz.
 
 MS-PIM hizmet sorumlusu bir abonelik için kullanıcı erişimi yöneticisi rolü atamak için aşağıdaki adımları izleyin.
 
@@ -151,5 +151,5 @@ MS-PIM hizmet sorumlusu bir abonelik için kullanıcı erişimi yöneticisi rol�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [PIM'de Azure AD dizini rol ayarlarını yapılandırma](pim-how-to-change-default-settings.md)
+- [PIM'de Azure AD yönetici rol ayarlarını yapılandırma](pim-how-to-change-default-settings.md)
 - [PIM Azure kaynak Rolleri Ata](pim-resource-roles-assign-roles.md)

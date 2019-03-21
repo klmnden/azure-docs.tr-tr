@@ -1,20 +1,20 @@
 ---
 title: Portalda Azure IoT Hub Cihazı Sağlama Hizmeti için bulutu ayarlama | Microsoft Docs
 description: Azure Portal’da IoT Hub otomatik cihaz sağlama
-author: sethmanheim
-ms.author: sethm
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 971b00f54d59782d5aa7ca752fc06e490d372760
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8f06d3f033a2bf5907dc2ee324359bef0eb247d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514851"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170743"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti ile cihaz sağlama için bulut kaynaklarını yapılandırma
 
@@ -81,23 +81,23 @@ Sonraki adım, IoT Hub Cihazı Sağlama Hizmeti’nin cihazları söz konusu hub
 
 4. **IoT hub'ına bağlantı ekleme** sayfasına aşağıdaki bilgileri girin ve **Kaydet**'e tıklayın:
 
-    * **Abonelik:** IoT hub'ı içeren aboneliği seçtiğinizden emin olun. Farklı bir abonelikte bulunan IoT hub'a bağlantı verebilirsiniz.
+    * **Abonelik:** IOT hub'ı içeren aboneliği seçili olduğundan emin olun. Farklı bir abonelikte bulunan IoT hub'a bağlantı verebilirsiniz.
 
-    * **IoT hub:** Bu Cihaz Sağlama Hizmeti örneğine bağlamak istediğiniz IoT hub'ın adını seçin.
+    * **IOT hub:** Bu cihaz sağlama hizmeti örneğine bağlamak istediğiniz IOT hub'ı adını seçin.
 
-    * **Erişim İlkesi:** IoT hub'ı ile bağlantı oluşturmak için kullanılacak kimlik bilgileri olarak **iothubowner** öğesini seçin.
+    * **Erişim İlkesi:** Seçin **iothubowner** IOT hub'ına bağlantı kurmak için kullanılacak kimlik bilgilerini olarak.
 
    ![Portalda Cihaz Sağlama Hizmeti'ne bağlanmak için hub adını bağlayın](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Cihaz Sağlama Hizmeti’nde ayırma ilkesini ayarlama
 
-Ayırma ilkesi, bir IoT hub’a cihazların nasıl atandığını belirleyen bir IoT Hub Cihazı Sağlama Hizmeti ayarıdır. Desteklenen üç ayırma ilkesi vardır: 
+Ayırma ilkesini cihazların bir IOT hub'ına nasıl atandığını belirleyen bir IOT Hub cihazı sağlama hizmeti ayarıdır. Desteklenen üç ayırma ilkesi vardır: 
 
-1. **En düşük gecikme**: Cihaza yönelik en düşük gecikme ile hub’a dayalı bir IoT hub’a cihazlar sağlanabilir.
+1. **En düşük gecikme**: Cihazlar hub'ında cihaz için en düşük gecikme ile temel bir IOT hub sağlanır.
 
-2. **Eşit ağırlıklı dağılım** (varsayılan): Bağlı IoT hub’lara cihaz sağlanma olasılığı eşittir. Bu varsayılan ayardır. Yalnızca bir IoT hub'a aygıtları sağlıyorsanız bu ayarı değiştirmeyebilirsiniz. 
+2. **Eşit ağırlıklı dağılım** (varsayılan): Bağlı IOT hub'lara cihaz sağlanma olasılığı. Bu varsayılan ayardır. Yalnızca bir IoT hub'a aygıtları sağlıyorsanız bu ayarı değiştirmeyebilirsiniz. 
 
-3. **Kayıt listesi aracılığıyla statik yapılandırma**: Kayıt listesindeki istenen IoT hub’ın belirtimi, Cihaz Sağlama Hizmeti düzeyindeki ayırma ilkesinden önceliklidir.
+3. **Kayıt listesi aracılığıyla statik yapılandırma**: Kayıt listesindeki istenen IOT hub'ın belirtimi, cihaz sağlama hizmeti düzeyindeki ayırma ilkesinden önceliklidir önceliklidir.
 
 Ayırma ilkesini ayarlamak için Cihaz Sağlama Hizmeti sayfasında **Ayırma ilkesini yönetme** seçeneğine tıklayın. Ayırma ilkesinin **Eşit ağırlıklı dağılım** (varsayılan) olarak ayarlandığından emin olun. Herhangi bir değişiklik yaparsanız işiniz bittiğinde **Kaydet**’e tıklayın.
 

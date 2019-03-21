@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 66cef8369a314a76cf619e436cd25d6bdf628c45
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: be285b6a51ae5a0f4239b841ce64100f1875d785
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076318"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294357"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Günlük verilerini ve Azure İzleyici'de çalışma alanlarını yönetme
 Azure İzleyici depoları, temelde verileri ve yapılandırma bilgilerini içeren bir kapsayıcı ve Log Analytics çalışma alanında verilerini günlüğe kaydedebilirsiniz. Verileri günlüğe kaydetmek için erişimi yönetmek için çalışma alanları ile ilgili çeşitli yönetim görevlerini gerçekleştirin. Siz veya kuruluşunuzun diğer üyeleri, IT altyapınızın tümünden veya bir bölümünden toplanan farklı veri kümelerini yönetmek için birden çok çalışma alanı kullanabilirsiniz.
@@ -136,15 +136,6 @@ Mart 2019 sonra oluşturulan tüm çalışma alanları için varsayılan ayar bu
 > [!NOTE]
 > Bir kullanıcı çalışma alanına yalnızca kaynak izinleri varsa, bunlar yalnızca çalışma alanını kullanarak erişmeye erişebilir [kaynak odaklı modu](#access-modes).
 
-
-### <a name="define-access-control-mode-in-azure-portal"></a>Azure portalında erişim denetim modu tanımlayın
-Geçerli çalışma alanına erişim denetim modu görüntüleyebileceğiniz **genel bakış** çalışma sayfası **Log Analytics çalışma alanı** menüsü.
-
-![Görünüm çalışma alanına erişim denetim modu](media/manage-access/view-access-control-mode.png)
-
-Bu ayarı değiştirebilirsiniz **özellikleri** çalışma sayfası. Çalışma alanını yapılandırmak için izinleri yoksa, ayarı değiştirmeyi devre dışı bırakılır.
-
-![Çalışma alanı erişimi modunu Değiştir](media/manage-access/change-access-control-mode.png)
 
 ### <a name="define-access-control-mode-in-azure-portal"></a>Azure portalında erişim denetim modu tanımlayın
 Geçerli çalışma alanına erişim denetim modu görüntüleyebileceğiniz **genel bakış** çalışma sayfası **Log Analytics çalışma alanı** menüsü.

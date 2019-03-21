@@ -15,12 +15,12 @@ ms.date: 03/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: fca1865236adeb196b2260e6c6b27b3180fe3ef9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a0411e3aa8f4df1039a129fd73ebdad5a58c5a0c
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086097"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257593"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>PowerShell ile Azure Stack operatör bağlanma
 
@@ -80,6 +80,6 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
- - [Şablonları Azure Stack için geliştirme](user/azure-stack-develop-templates.md)
- - [Şablonları PowerShell ile dağıtma](user/azure-stack-deploy-template-powershell.md)
-- [Azure Stack modül başvurusu](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  
+- [Şablonları Azure Stack için geliştirme](user/azure-stack-develop-templates.md)
+- [Şablonları PowerShell ile dağıtma](user/azure-stack-deploy-template-powershell.md)
+  - [Azure Stack modül başvurusu](https://docs.microsoft.com/powershell/azure/azure-stack/overview)  

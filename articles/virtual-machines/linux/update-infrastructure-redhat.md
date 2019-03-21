@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: c5e67e581d3fc370710528609bf94b1110416c33
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 2fc881aac096ccbafa351fcac2d726cc51d8f178
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311384"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286899"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure'da isteğe bağlı Red Hat Enterprise Linux VM'ler için Red Hat güncelleştirme altyapısı
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) gibi Red Hat barındırılan depo içeriğini yansıtmak için özel depolar ile Azure özgü içerik oluşturmak ve son kullanıcı VM'ler için kullanılabilir hale getirmek amacıyla bulut sağlayıcıları sağlar.
@@ -43,7 +43,7 @@ RHEL tüm sürümleri için Red Hat destek ilkeleri hakkında daha fazla bilgi b
 
 * İçindeki VM'ler için Azure'da barındırılan RHUI erişim sınırlıdır [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Proxy kullanıyorsanız tüm VM trafiğe bir şirket içi ağ altyapısı aracılığıyla RHEL PAYG sanal makinelerin Azure RHUI erişmek kullanıcı tanımlı rotalar ayarlama gerekebilir.
 
-### <a name="rhel-eus-and-version-locking-rhel-vms"></a>RHEL EUS ve sürüm kilitleme RHEL VM'ler
+## <a name="rhel-eus-and-version-locking-rhel-vms"></a>RHEL EUS ve sürüm kilitleme RHEL VM'ler
 Bazı müşterilerin belirli RHEL alt yayın, RHEL Vm'lerine kilitleme isteyebilirsiniz. RHEL VM'nize belirli bir alt sürüm sürüm kilidi depoları için genişletilmiş güncelleştirme desteğini depoları işaret edecek şekilde güncelleştirerek kullanabilirsiniz. Belirli bir alt sürüme RHEL VM kilitlemek için aşağıdaki yönergeleri kullanın:
 
 >[!NOTE]
@@ -72,7 +72,7 @@ Bazı müşterilerin belirli RHEL alt yayın, RHEL Vm'lerine kilitleme isteyebil
     sudo yum update
     ```
 
-### <a name="the-ips-for-the-rhui-content-delivery-servers"></a>RHUI içerik teslim sunucular için IP'ler
+## <a name="the-ips-for-the-rhui-content-delivery-servers"></a>RHUI içerik teslim sunucular için IP'ler
 
 RHUI RHEL isteğe bağlı görüntüleri kullanılabilir olduğu tüm bölgelerde kullanılabilir. Şu anda listelenen tüm genel bölgelerde içerir [Azure durum Panosu](https://azure.microsoft.com/status/) sayfa, Azure ABD devlet kurumları ve Microsoft Azure Almanya bölgeleri.
 
@@ -95,11 +95,8 @@ Daha fazla RHEL PAYG Vm'lerden erişimi kısıtlamak için bir ağ yapılandırm
 51.4.228.145
 ```
 
-## <a name="rhui-azure-infrastructure-update"></a>RHUI Azure Altyapı Güncelleştirmesi
+## <a name="azure-rhui-infrastructure"></a>Azure RHUI altyapı
 
-Eylül 2016'da, biz güncelleştirilmiş bir Azure RHUI dağıtıldı. Nisan 2017'de biz eski Azure RHUI kapatın. Ayrıca, PAYG RHEL görüntüleri (veya bunların anlık görüntülerini) Eylül 2016'dan veya üzerini kullanıyorsanız, otomatik olarak yeni Azure RHUI bağlanırsınız. Ancak, eski anlık görüntüleri Vm'lerinizde varsa, aşağıdaki bölümde açıklandığı gibi Azure RHUI erişmek için kendi yapılandırmasını el ile güncelleştirmeniz gerekir.
-
-Yeni Azure RHUI sunuculara dağıtılan [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). Trafik Yöneticisi'nde, tek bir uç nokta (rhuı 1.microsoft.com) uygulama bölgesine bakılmaksızın herhangi bir VM tarafından kullanılabilir.
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Bir VM üzerinde süresi dolmuş RHUI istemci sertifikasını güncelleştir
 
@@ -124,6 +121,12 @@ Azure RHEL PAYG VM'den Azure RHUI bağlanma konusunda sorunlar karşılaşırsan
 1. İçindeki sanal makineler için Azure'da barındırılan RHUI erişim sınırlıdır [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
 
 1. Yeni yapılandırmayı kullanıyorsanız, VM Azure IP aralığından bağlanır ve Azure RHUI, dosya Microsoft ya da Red Hat destek servis talebi için bağlantı kurulamıyor doğrulanmıştır.
+
+### <a name="infrastructure-update"></a>Altyapı Güncelleştirmesi
+
+Eylül 2016'da, biz güncelleştirilmiş bir Azure RHUI dağıtıldı. Nisan 2017'de biz eski Azure RHUI kapatın. Ayrıca, PAYG RHEL görüntüleri (veya bunların anlık görüntülerini) Eylül 2016'dan veya üzerini kullanıyorsanız, otomatik olarak yeni Azure RHUI bağlanırsınız. Ancak, eski anlık görüntüleri Vm'lerinizde varsa, aşağıdaki bölümde açıklandığı gibi Azure RHUI erişmek için kendi yapılandırmasını el ile güncelleştirmeniz gerekir.
+
+Yeni Azure RHUI sunuculara dağıtılan [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). Trafik Yöneticisi'nde, tek bir uç nokta (rhuı 1.microsoft.com) uygulama bölgesine bakılmaksızın herhangi bir VM tarafından kullanılabilir.
 
 ### <a name="manual-update-procedure-to-use-the-azure-rhui-servers"></a>Azure RHUI sunucularını kullanmak için el ile güncelleştirme yordamı
 Bu yordam, yalnızca başvuru sağlanır. PAYG RHEL görüntüleri için Azure RHUI bağlanmak için doğru yapılandırma zaten var. Azure RHUI sunucularını kullanacak şekilde yapılandırmayı el ile güncelleştirmek için aşağıdaki adımları tamamlayın:

@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 03/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 2458dadb8a97deee67a6df9b00ca5390fccb2902
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: afe8d3971a51d57498e3e32b7e1cf5bf5a3263d6
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812285"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295207"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute önkoşulları ve denetim listesi
 ExpressRoute kullanarak Microsoft bulut hizmetlerine bağlanmak için, aşağıdaki bölümlerde listelenen gereksinimlerin karşılanmış olduğunu doğrulamanız gerekir.
@@ -30,7 +30,8 @@ ExpressRoute kullanarak Microsoft bulut hizmetlerine bağlanmak için, aşağıd
 * Sağlayıcınız ExpressRoute bağlantı ortağı değilse bile [bulut değişim sağlayıcısı](expressroute-locations.md#connectivity-through-exchange-providers) yoluyla Microsoft bulut’a bağlanabilirsiniz.
 
 ## <a name="network-requirements"></a>Ağ gereksinimleri
-* **Yedekli bağlantı**: Siz ve sağlayıcınız arasında fiziksel bağlantıda yedekleme gereksinimi yoktur. Microsoft, [bir bulut değişimine yalnızca bir fiziksel bağlantınız](expressroute-faqs.md#onep2plink) olsa bile, yedekli BGP oturumlarının Microsoft yönlendiricileri ve eşleme yönlendiricileri arasında kurulu olmasını gerektirir.
+* **Her eşleme konumunda yedeklilik**: Microsoft, yedekli BGP oturumlarının Microsoft yönlendiricileri ve her ExpressRoute bağlantı hattı üzerinde eşleme yönlendiricileri arasında kurulu olmasını gerektirir (hatta yalnızca olduğunda [bulut değişimine tek bir fiziksel bağlantı](expressroute-faqs.md#onep2plink)).
+* **Yedeklilik, olağanüstü durum kurtarma için**: Microsoft, bir tek hata noktasını önlemek için en az iki ExpressRoute bağlantı hatları eşleme farklı konumlarda ayarlayabilirsiniz kesinlikle önerir.
 * **Yönlendirme**: Microsoft Cloud için nasıl bağlandığınıza bağlı olarak, siz veya sağlayıcınız ayarlamak ve yönetmek için BGP oturumları gereken [Yönlendirme etki alanları](expressroute-circuit-peerings.md). Bazı Ethernet bağlantı sağlayıcıları veya Bulut exchange sağlayıcıları olarak BGP Yönetimi sunabilir bir değer ekleme hizmeti.
 * **NAT**: Microsoft, yalnızca genel IP adresleri Microsoft eşleme yoluyla kabul eder. Şirket içi ağınızda özel IP adresleri kullanıyorsanız, özel IP adreslerini genel IP adreslerine çevirmek siz veya sağlayıcınız gereken [NAT kullanarak](expressroute-nat.md).
 * **QoS**: İşletme için Skype kurumsal'da farklı QoS davranışları gerektiren çeşitli hizmetler (örneğin; ses, video, mesaj) vardır. [Qos gereksinimleri](expressroute-qos.md)ne siz ve sağlayıcınız tarafından uyulmalıdır.

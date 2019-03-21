@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 7daf76605d40495d6c9cb5076f0403a78819adfc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: aa97e60fe296190f3478d29bc80c70ea487e8955
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439172"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258590"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Uygun ölçekte Azure İzleyicisi'ni kullanarak izleme
 
@@ -29,7 +29,7 @@ ms.locfileid: "57439172"
 ## <a name="using-log-analytics-workspace"></a>Log Analytics çalışma alanı kullanma
 
 > [!NOTE]
-> Log Analytics çalışma alanına tanılama ayarları aracılığıyla Azure VM yedeklemeleri, MAB Aracısı, System Center DPM (SC-DPM) verilerini ekleniyor. Azure Vm'leri, Azure dosya paylaşımı yedeklemelerini, Microsoft Azure Backup sunucusu (MABS) SQL yedeklemeler için destek yakında sunulacaktır.
+> Log Analytics çalışma alanına tanılama ayarları aracılığıyla Azure VM yedeklemeleri, MAB Aracısı, System Center DPM (SC-DPM), Azure sanal makinelerinde SQL yedekleme verileri ekleniyor. Azure dosya paylaşımı yedeklemelerini, Microsoft Azure Backup sunucusu (MABS) için destek yakında sunulacaktır.
 
 Şu iki Azure Hizmetleri - yeteneklerini yararlanarak **tanılama ayarları** (verileri başka bir kaynağa birden çok Azure Resource Manager kaynakları göndermek için) ve **Log Analytics** (on - oluşturmak için Özel uyarılar) burada tanımlayabilirsiniz Eylem grupları kullanarak diğer bildirim kanallarına uygun ölçekte izleme. Uygun ölçekte Azure Backup izleme LA kullanma hakkında aşağıdaki bölümlerde ayrıntıları.
 

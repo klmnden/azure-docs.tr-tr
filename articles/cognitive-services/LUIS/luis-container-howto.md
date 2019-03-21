@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 19206278f838b77954c28e95e9171a857ba1338a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1cf5fb00e9f1a202fe7ad46253f916e3e6bee7a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670671"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295581"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Yükleme ve LUIS docker kapsayıcılarını çalıştırın
  
@@ -46,15 +46,14 @@ LUIS kapsayıcıyı çalıştırmak için aşağıdakilere sahip olmanız gereki
 
 Bu kapsayıcı için ayarları en düşük ve önerilen değerlerini destekler:
 
-|Ayar| Minimum | Önerilen |
-|-----------|---------|-------------|
-|Çekirdek<BR>`--cpus`|1 çekirdek|1 çekirdek|
-|Bellek<BR>`--memory`|2 GB|4 GB|
-|Saniye başına işlem<BR>(TPS)|20 TPS|40 TPS|
+|Kapsayıcı| Minimum | Önerilen | TPS<br>(Minimum, maksimum)|
+|-----------|---------|-------------|--|
+|LUIS|1 çekirdek, 2 GB bellek|1 çekirdek, 4 GB bellek|20,40|
 
-Her çekirdeğe en az 2.6 gigahertz (GHz) olması ya da daha hızlı.
+* Her çekirdeğe en az 2.6 gigahertz (GHz) olması ya da daha hızlı.
+* TPS - saniye başına işlem
 
-`--cpus` Ve `--memory` ayarları bir parçası olarak kullanılan `docker run` komutu.
+Çekirdek ve bellek karşılık `--cpus` ve `--memory` parçası olarak kullanılan ayarları `docker run` komutu.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>İle kapsayıcı görüntüsünü Al `docker pull`
 
@@ -102,8 +101,8 @@ Giriş bağlama directory içerebilir **üretim**, **hazırlama**, ve **Trained*
 
 |Paket türü|Sorgu uç API'si|Sorgu kullanılabilirlik|Paket dosya adı biçimi|
 |--|--|--|--|
-|Eğitilen|GET, Post|Kapsayıcı yalnızca|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
-|Hazırlanıyor|GET, Post|Azure ve kapsayıcı|`{APPLICATION_ID}_STAGING.gz`|
+|Eğitildi|GET, Post|Kapsayıcı yalnızca|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
+|Staging|GET, Post|Azure ve kapsayıcı|`{APPLICATION_ID}_STAGING.gz`|
 |Üretim|GET, Post|Azure ve kapsayıcı|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -259,13 +258,13 @@ Ana bilgisayarını kullanmak `https://localhost:5000`, kapsayıcı API'leri iç
 |Paket türü|Yöntem|Yol|Sorgu parametreleri|
 |--|--|--|--|
 |Yayımlanma|[Alma](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [sonrası](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>& hazırlama<br>[& timezoneOffset]<br>[& ayrıntılı]<br>[& günlük]<br>|
-|Eğitilen|GET, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[& timezoneOffset]<br>[& ayrıntılı]<br>[& günlük]|
+|Eğitildi|GET, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[& timezoneOffset]<br>[& ayrıntılı]<br>[& günlük]|
 
 Sorgu parametrelerini yapılandırma nasıl ve ne sorgu yanıtına döndürülür:
 
 |Sorgu parametresi|Type|Amaç|
 |--|--|--|
-|`q`|dize|Kullanıcının utterance.|
+|`q`|string|Kullanıcının utterance.|
 |`timezoneOffset`|number|TimezoneOffset sağlar [saat dilimini değiştirme](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) önceden oluşturulmuş varlık datetimeV2 tarafından kullanılır.|
 |`verbose`|boole|Tüm amaçlar ve ayarlandığında puanlarını döndürür true. Yalnızca üst hedefini döndüren varsayılan false değeridir.|
 |`staging`|boole|Ortam sonuçları, hazırlama alanından döndürür sorgu ayarlamak true. |

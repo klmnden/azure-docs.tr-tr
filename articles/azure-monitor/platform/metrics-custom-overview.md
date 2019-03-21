@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: cb1d08bb7b4c64d8dbcf39a667cb037ff30c38e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467915"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287273"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure İzleyici'de özel ölçümler
 
@@ -29,7 +29,7 @@ Bunlar **özel** ölçümleri uygulama telemetrinizi, Azure kaynaklarınızı ve
 
 Azure İzleyici, her veri noktasının veya değeri bildirilen özel ölçümler gönderdiğinizde, aşağıdaki bilgileri içermelidir.
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Authentication
 Azure İzleyici için özel ölçümleri göndermek için geçerli bir Azure Active Directory (Azure AD) belirtecinde ölçüm gönderen varlık gerekiyor **taşıyıcı** isteği üstbilgisi. Geçerli bir taşıyıcı belirteç almak için desteklenen birkaç yolu vardır:
 1. [Kimlikler Azure kaynakları için yönetilen](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Bir Azure kaynağının, bir VM gibi bir kimlik sağlar. Yönetilen hizmet kimliği (MSI), kaynakları belirli işlemleri gerçekleştirmek için izin vermek için tasarlanmıştır. Örneği, kendisi hakkında ölçümler yaymak bir kaynak izin verir. Bir kaynak veya kendi MSI verilebilir **izleme ölçümleri yayımcı** izinlerini başka bir kaynak. Bu izne sahip ölçümleri de diğer kaynaklar için MSI gönderebilir.
 2. [Azure AD hizmet sorumlusu](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). Bu senaryo, bir Azure AD uygulaması veya hizmeti, bir Azure kaynağı ile ilgili ölçümleri yaymak için izinler atanabilir.
@@ -55,7 +55,7 @@ Bu özellik, hangi Azure bölgesi için ölçümleri yayma kaynağın dağıtıl
 >
 
 ### <a name="timestamp"></a>Zaman damgası
-Azure İzleyici gönderilen her veri noktası, bir zaman damgası ile işaretlenmelidir. Bu zaman damgası, ölçüm değeri ölçülen veya toplanan DateTime yakalar. Azure İzleyici ölçüm verileri Geçmiş ve gelecekteki 5 dakikada 20 dakika sunulan ürünün kendinde zaman damgalı kabul eder.
+Azure İzleyici gönderilen her veri noktası, bir zaman damgası ile işaretlenmelidir. Bu zaman damgası, ölçüm değeri ölçülen veya toplanan DateTime yakalar. Azure İzleyici ölçüm verileri Geçmiş ve gelecekteki 5 dakikada 20 dakika sunulan ürünün kendinde zaman damgalı kabul eder. Zaman damgası ISO 8601 biçiminde olması gerekir.
 
 ### <a name="namespace"></a>Ad alanı
 Ad alanları, kategorilere veya benzer ölçümler gruplamak için bir yoludur. Ad alanlarını kullanarak farklı öngörüleri ya da performans göstergeleri toplayabilir ve ölçüm grupları arasında yalıtım elde edebilirsiniz. Örneğin, adlı bir ad alanına sahip olabileceğiniz **ContosoMemoryMetrics** bellek kullanım ölçümleri, bir uygulama profili izler. Adlı başka bir ad alanı **ContosoAppTransaction** uygulamanızdaki kullanıcı işlemleri ile ilgili tüm ölçümleri izleyebilir.
@@ -65,7 +65,7 @@ Ad alanları, kategorilere veya benzer ölçümler gruplamak için bir yoludur. 
 
 ### <a name="dimension-keys"></a>Boyut anahtarlarını
 Bir boyut, toplanmakta olan ölçüm hakkında ek özelliklerini açıklayan yardımcı olan bir anahtar veya değer çiftidir. Ek özelliklerini kullanarak daha fazla bilgi için daha kapsamlı içgörüler sağlayan ölçüm toplayabilirsiniz. Örneğin, **bellek bayt kullanımda** ölçüm adlı bir boyut anahtar olabilir **işlem** her işlem bir VM'de kaç bayt bellek tüketir yakalar. Bu anahtarı kullanarak belirli işlemlerin ne kadar bellek görmek veya bellek kullanımı üst beş işlemleri tanımlamak için ölçüm filtreleyebilirsiniz.
-Her özel ölçüm en fazla 10 boyuta sahip olabilir.
+Boyutlar isteğe bağlı olarak, tüm ölçüleri, boyutları olabilir. Özel ölçüm en fazla 10 boyuta sahip olabilir.
 
 ### <a name="dimension-values"></a>Boyut değerleri
 Her boyut anahtarı raporlanan, ölçüm için bir ölçüm veri noktası bildirirken karşılık gelen bir boyut değeri yoktur. Örneğin, vm'nizdeki ContosoApp tarafından kullanılan bellek rapor isteyebilirsiniz:
@@ -75,6 +75,7 @@ Her boyut anahtarı raporlanan, ölçüm için bir ölçüm veri noktası bildir
 * Boyut değer **ContosoApp.exe**.
 
 Ölçüm değeri yayımlama sırasında boyut anahtarı başına tek bir boyut değeri yalnızca belirtebilirsiniz. VM'de birden çok işlem için aynı bellek kullanımını toplamak, zaman damgası için birden çok ölçüm değerleri raporlayabilirsiniz. Her bir ölçüm değeri farklı boyut değeri belirtebilirdiniz **işlem** boyutu anahtarı.
+Boyutlar isteğe bağlı olarak, tüm ölçüleri, boyutları olabilir. Bir ölçüm gönderi boyut anahtarlarını tanımlıyorsa, ilgili boyut değerleri zorunludur.
 
 ### <a name="metric-values"></a>Ölçüm değerleri
 Azure İzleyici, bir dakikalık ayrıntı aralıklarla tüm ölçümler depolar. Belirli bir dakika birkaç kez örneğinin alınıp bir ölçüm gerekebileceğini biliyoruz. CPU kullanımı bir örnektir. Veya, birçok ayrı olayları ölçülmesi gerekebilir. Oturum açma işlemi gecikmeleri buna bir örnektir. Azure İzleyici'de buna göre ödeme yapmanız yayma sahip ham değerler sayısını sınırlamak için yerel olarak önceden toplama ve değerleri yayma:
@@ -169,13 +170,13 @@ Genel Önizleme sırasında özel ölçümler yayımlama olanağı yalnızca bir
 
 |Azure bölgesi|Bölgesel uç noktası ön eki|
 |---|---|
-|Doğu ABD|https://eastus.monitoring.azure.com/|
-|Orta Güney ABD|https://southcentralus.monitoring.azure.com/|
-|Batı Orta ABD|https://westcentralus.monitoring.azure.com/|
-|Batı ABD 2|https://westus2.monitoring.azure.com/|
-|Güneydoğu Asya|https://southeastasia.monitoring.azure.com/|
-|Kuzey Avrupa|https://northeurope.monitoring.azure.com/|
-|Batı Avrupa|https://westeurope.monitoring.azure.com/|
+|Doğu ABD| https:\//eastus.monitoring.azure.com/ |
+|Orta Güney ABD| https:\//southcentralus.monitoring.azure.com/ |
+|Batı Orta ABD| https:\//westcentralus.monitoring.azure.com/ |
+|Batı ABD 2| https:\//westus2.monitoring.azure.com/ |
+|Güneydoğu Asya| https:\//southeastasia.monitoring.azure.com/ |
+|Kuzey Avrupa| https:\//northeurope.monitoring.azure.com/ |
+|Batı Avrupa| https:\//westeurope.monitoring.azure.com/ |
 
 ## <a name="quotas-and-limits"></a>Kotalar ve sınırlar
 Azure İzleyici, özel ölçümler üzerinde aşağıdaki kullanım sınırlarını getirir:
@@ -185,6 +186,7 @@ Azure İzleyici, özel ölçümler üzerinde aşağıdaki kullanım sınırları
 |Etkin zaman serisi/abonelikler/bölge|50,000|
 |Boyut anahtarlarını ölçüm başına|10|
 |Ölçüm ad alanları, ölçüm adları, boyut anahtarlarını ve boyut değerlerinin dize uzunluğu|256 karakter|
+
 Etkin zaman serisi, ölçüm, boyut anahtar veya son 12 saat içinde yayımlanan ölçüm değerleri olan boyut değeri benzersiz herhangi bir birleşimini olarak tanımlanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar

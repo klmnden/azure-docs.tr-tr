@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 69cf0815a8418df4c8a36adf99770640df327d49
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: ffed12b9184c7b6a690c30db9826f031fe6c9f9b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568864"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259797"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Azure haritalar harita stil seçin
 
@@ -42,7 +42,7 @@ Yukarıdaki kod bloğu abonelik anahtarını ayarlar ve stili önceden ayarlamad
 
 Yukarıdaki kod ilk kod bloğunda abonelik anahtarını ayarlar ve bir harita nesnesi oluşturur, harita stili grayscale_dark için önceden ayarlanmış. Bkz: [bir harita oluşturmak](./map-create.md) bir harita oluşturmak yönergeler.
 
-İkinci kod bloğu atlas kullanarak bir stil seçicisini yapıları [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) Oluşturucusu.
+İkinci kod bloğu atlas kullanarak bir stil seçicisini yapıları [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) Oluşturucusu.
 
 Stil seçimi eşlemesi için stil seçiciyi sağlar. Üçüncü kod bloğu stil seçiciyi kullanarak haritanın harita ekler [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) yöntemi. Stil seçiciyi içinde haritasıdır **olay dinleyicisi** harita tamamen yüklendikten sonra yüklendikten emin olmak için.
 

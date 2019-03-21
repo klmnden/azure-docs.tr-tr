@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: 7abc15264a44c969f57071e84ffcedca30d326fb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 3b1e6f769d5c65065d95ac96c4ab4ed10702e5cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766325"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089905"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins kullanarak Linux uygulamaları geliştirmek ve dağıtmak için kullanın
 Jenkins, uygulamanızın sürekli tümleştirme ve dağıtımı için yaygın olarak kullanılan bir araçtır. Jenkins kullanarak Azure Service Fabric uygulamanızı derleme ve dağıtma işlemi aşağıda açıklanmaktadır.
@@ -253,24 +253,24 @@ Bu bölümdeki adımları GitHub deposunda değişikliklerine yanıt verme, değ
       ```
    
    * **Kümenizi dışında çalışan Jenkins için:** Küme sertifikası kapsayıcınıza kopyalamak için aşağıdaki adımları izleyin:
-      1. Sertifikanızı PEM biçiminde olması gerekir. PEM dosyası yoksa, bir sertifika PFX dosyasını oluşturabilirsiniz. PFX dosyanızı parola korumalı değilse, ana bilgisayarından aşağıdaki komutu çalıştırın:
+     1. Sertifikanızı PEM biçiminde olması gerekir. PEM dosyası yoksa, bir sertifika PFX dosyasını oluşturabilirsiniz. PFX dosyanızı parola korumalı değilse, ana bilgisayarından aşağıdaki komutu çalıştırın:
 
-         ```sh
-         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
-         ``` 
+        ```sh
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:
+        ``` 
 
-      PFX dosyasını parola korumalıysa parolayı dahil `-passin` parametresi. Örneğin:
+        PFX dosyasını parola korumalıysa parolayı dahil `-passin` parametresi. Örneğin:
 
-         ```sh
-         openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
-         ``` 
+        ```sh
+        openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
+        ``` 
 
-      1. Jenkins kapsayıcı için kapsayıcı Kimliği almak için çalıştırın `docker ps` , ana bilgisayarından.
-      1. PEM dosyasını aşağıdaki Docker komutu ile kapsayıcınız kopyalayın:
+     1. Jenkins kapsayıcı için kapsayıcı Kimliği almak için çalıştırın `docker ps` , ana bilgisayarından.
+     1. PEM dosyasını aşağıdaki Docker komutu ile kapsayıcınız kopyalayın:
     
-         ```sh
-         docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
-         ``` 
+        ```sh
+        docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
+        ``` 
 
 Neredeyse bitti! Jenkins işi açık tutun. Yalnızca kalan görev uygulamanızı Service Fabric kümenize dağıtmak için derleme sonrası adımları yapılandırmaktır:
 

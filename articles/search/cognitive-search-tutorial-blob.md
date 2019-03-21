@@ -1,5 +1,5 @@
 ---
-title: Bilişsel arama API - Azure Search arama Öğreticisi
+title: Öğretici - Azure Search gibi dizin oluşturma bir ardışık düzeninde Bilişsel hizmetler API'lerini çağırma
 description: Bu öğreticide, Azure Search veri ayıklama için dizin oluşturma ve dönüştürme işlemindeki veri ayıklama, doğal dil ve görüntü AI işleme örneği adımlarını izleyin.
 manager: pablocas
 author: luiscabrer
@@ -7,19 +7,19 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 03/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 410e5d618e1deb1887329bea41e2cd3c6d795e58
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c888c134054f50bc8ab17d17524a4f89d5081dfc
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075859"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259627"
 ---
-# <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Öğretici: Bilişsel arama öğrenin arama API'lerini (Önizleme)
+# <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Öğretici: Bilişsel hizmetler API'leri çağırmak bir Azure Search dizini oluşturma ardışık düzen (Önizleme)
 
-Bu öğreticide, *bilişsel becerileri* kullanarak Azure Search’te programlama veri zenginleştirmesi mekanizmasını öğrenirsiniz. Bilişsel beceriler, bir görüntünün metin gösterimlerini ve metni ayıklayan, dili, varlıkları, anahtar tümcecikleri ve daha fazlasını algılayan doğal dil işleme (NLP) ve görüntü analizi işlemleridir. Sonuçta, bilişsel arama dizin oluşturma işlem hattı tarafından oluşturulan, Azure Search dizinindeki zengin ek içerik elde edilir. 
+Bu öğreticide, *bilişsel becerileri* kullanarak Azure Search’te programlama veri zenginleştirmesi mekanizmasını öğrenirsiniz. Beceriler, doğal dil işlemeyi (NLP) ve Bilişsel hizmetler görüntü analizi özelliklerini tarafından desteklenir. Beceri kümesi oluşturma ve yapılandırma yoluyla, metin ve resim veya taranan dosyanın metin temsilleridir ayıklayabilirsiniz. Ayrıca, dil, varlıklar, anahtar ifadeleri ve daha da algılayabilir. Son ek zengin bir yapay ZEKA destekli dizini oluşturma ardışık düzeni tarafından oluşturulan bir Azure Search dizini içeriğinde sonucudur. 
 
 Bu öğreticide, aşağıdaki görevleri gerçekleştirmek için REST API çağrıları yaparsınız:
 
@@ -59,7 +59,7 @@ Azure Search’e REST çağrıları yapmak için PowerShell veya Telerik Fiddler
 
 1. Kaynak grubu için, bu öğreticide oluşturduğunuz tüm kaynakları içerecek bir kaynak grubu oluşturun. Böylece, öğreticiyi tamamladıktan sonra kaynakları temizlemeniz kolaylaşır.
 
-1. Konum için verilerinizi ve diğer bulut uygulamaları yakın bir bölge seçerek öneririz.
+1. Konum için verilerinizi ve diğer bulut uygulamaları yakın bir bölge seçin.
 
 1. Fiyatlandırma katmanı için, **Ücretsiz** bir hizmet oluşturarak öğreticileri ve hızlı başlangıçları tamamlayabilirsiniz. Kendi verilerinizi kullanarak daha ayrıntılı araştırma yapmak için **Temel** veya **Standart** gibi bir [ücretli hizmet](https://azure.microsoft.com/pricing/details/search/) oluşturun. 
 

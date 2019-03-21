@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0524bd224e3da3e6a9b18a4225c88e9c43d07606
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 87da5cdd31abb41a774a46d3891006eb58ac5e4d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223419"
+ms.locfileid: "58285146"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Hızlı Başlangıç: PowerShell ve REST API kullanarak Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
@@ -77,7 +77,7 @@ Hizmet boştur ve dizin varsa sonuçları aşağıdaki örneğe benzerdir. Aksi 
 }
 ```
 
-## <a name="1---create-an-index"></a>1 - dizin oluşturma
+## <a name="1---create-an-index"></a>1 - Dizin oluşturma
 
 Portal kullanmıyorsanız, verileri yüklemeden önce bir dizin hizmette mevcut olması gerekir. Bu adım, dizini tanımlayan ve hizmetine gönderir. [Dizin oluşturma (REST API'si)](https://docs.microsoft.com/rest/api/searchservice/create-index) Bu adım için kullanılır.
 
@@ -162,6 +162,8 @@ Sonuçlar (ilk iki alanı kısaltma kesilmiş) şuna benzer görünmelidir:
 
 > [!Tip]
 > Doğrulama için ayrıca Portalı'nda dizinleri listeyi kontrol edin, veya görmek için hizmet bağlantı doğrulamak için kullanılan komutu yeniden çalıştırın *hotels* dizin dizinler koleksiyonu içinde listelenen.
+
+<a name="load-documents"></a>
 
 ## <a name="2---load-documents"></a>2 - belge yükleme
 
@@ -253,7 +255,7 @@ Sonuçları şu örneğe benzemelidir. Durum kodu 201 görmeniz gerekir. Tüm du
 }
 ```
 
-## <a name="3---search-an-index"></a>3 - dizin arama
+## <a name="3---search-an-index"></a>3 - Dizin arama
 
 Bu adım bir dizin kullanarak nasıl sorgulanacağını gösterir [arama belgeleri API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 

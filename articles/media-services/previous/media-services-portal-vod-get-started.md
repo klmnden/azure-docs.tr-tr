@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 0cf0f196884cb39899c74cce396fa3a3930e8969
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5ad846a3d8a304e01425407cb2bf5297c36615e7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766521"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257969"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Azure Portal’ı kullanarak isteğe bağlı içerik göndermeye başlama
 
@@ -151,7 +151,7 @@ Bazı dikkate alınması gereken noktalar vardır:
 
 * Akışı başlatmak için varsayılan akış uç noktasını çalıştırmaya başlayın
 * Videonun yayımlandığından emin olun.
-* Azure portal medya oynatıcı varsayılan akış uç noktasından oynatılır. Varsayılan olmayan bir akış uç noktasından oynatmak istiyorsanız, URL'yi seçip kopyalayın ve başka bir oynatıcıya yapıştırın. Örneğin [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) üzerinde videonuzu test edebilirsiniz.
+* Azure portal medya oynatıcı varsayılan akış uç noktasından oynatılır. Varsayılan olmayan bir akış uç noktasından oynatmak istiyorsanız, URL'yi seçip kopyalayın ve başka bir oynatıcıya yapıştırın. Örneğin [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) üzerinde videonuzu test edebilirsiniz.
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

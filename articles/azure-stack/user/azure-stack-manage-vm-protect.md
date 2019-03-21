@@ -15,24 +15,19 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 50b3499a52ac646b6c896dd79b2191651c5b277e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 3/19/2018
+ms.openlocfilehash: de57ebbf0c0c4e8a18c955200d1692ea4ae9afae
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782947"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295020"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Azure Stack üzerinde dağıtılan sanal makinelerini koruma
 
 Bu makalede, kullanıcılarınız Azure Stack'te dağıtma, sanal makineler (VM) korumaya yönelik bir plan geliştirmek için bir kılavuz olarak kullanın.
 
-Veri kaybı ve planlanmamış kesinti süreleri karşı korumak için kullanıcı uygulamaları ve verileri için bir yedekleme kurtarma veya olağanüstü durum kurtarma planınızı uygulamak gerekir. Bu plan, her uygulama için benzersiz olabilir ancak kuruluşunuzun kapsamlı iş sürekliliği ve olağanüstü durum kurtarma (DR/BC) stratejisi tarafından kurulan bir çerçeve izler. İyi bir başlangıç noktasıdır [Azure için dayanıklı uygulamalar tasarlama](https://docs.microsoft.com/azure/architecture/resiliency), sağlayan genel desenler ve uygulamalar için uygulama kullanılabilirliğini ve esnekliğini.
-
->[!IMPORTANT]
-> Yedekleme kurtarma ve olağanüstü durum kurtarma planlarınızı düzenli olarak test edin. Bu emin olmak için gerekir:
-> * Planlar çalışır
-> * Planlar hala için tasarlanmış karşılar.
+Veri kaybı ve planlanmamış kesinti süreleri karşı korumak için kullanıcı uygulamaları ve verileri için bir yedekleme kurtarma veya olağanüstü durum kurtarma planınızı uygulamak gerekir. Bu plan, her uygulama için benzersiz olabilir ancak kuruluşunuzun kapsamlı iş sürekliliği ve olağanüstü durum kurtarma (DR/BC) stratejisi tarafından kurulan bir çerçeve izler. İyi bir başlangıç noktasıdır [Azure Stack: İş sürekliliği ve olağanüstü durum kurtarma değerlendirmeleri](https://aka.ms/azurestackbcdrconsiderationswp).
 
 ## <a name="azure-stack-infrastructure-recovery"></a>Azure Stack altyapısını kurtarma
 
@@ -47,6 +42,9 @@ Azure Stack Bulutu uzun bir süre çevrimdışı veya kalıcı olarak kurtarıla
 * Kullanıcı isteklerine hizmet tutmak uygulamaları etkinleştirir
 
 Azure Stack bulut operatörü, temel alınan Azure Stack altyapı ve Hizmetleri için bir kurtarma planı oluşturmak için sorumludur. Daha fazla bilgi için makaleyi okuyun [geri dönülemez veri kaybından kurtarma](https://docs.microsoft.com/azure/azure-stack/azure-stack-backup-recover-data).
+
+## <a name="considerations-for-iaas-vms"></a>Iaas Vm'leri için dikkat edilmesi gerekenler
+Iaas sanal Makineye yüklenen işletim sistemini içerdiği verileri korumak için kullanabileceğiniz ürünleri sınırlar. Windows tabanlı Iaas Vm'leri için verileri korumak için Microsoft ve iş ortağı ürünleri'ni kullanabilirsiniz. Linux tabanlı Iaas Vm'leri için tek seçenek iş ortağı ürünleri kullanmaktır. Başvurmak [tüm BC/DR iş ortakları için Azure Stack için doğrulanmış ürünleri ile bu veri](https://aka.ms/azurestackbcdrpartners).
 
 ## <a name="sourcetarget-combinations"></a>Kaynak/hedef birleşimleri
 

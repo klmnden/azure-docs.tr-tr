@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 85a0c05719ba374ed213212db6f094d75e433183
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: ace32968808dfa919e6ca5d5777818d2672249fe
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073450"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224882"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Azure anahtar Kasası'nın Azure Otomasyonu ile yönetme
 
@@ -34,7 +34,7 @@ Azure Otomasyonu ihtiyaçlarınızı karşılayacak şekilde ölçeklendirilen b
 
 ## <a name="how-can-azure-automation-help-manage-azure-key-vault"></a>Azure Otomasyonu Azure anahtar kasası yönetmenize nasıl yardımcı olabilir?
 
-Key Vault yönetilen Azure Automation'da kullanarak [AzureRM Key Vault cmdlet'leri](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) ve [Klasik Azure anahtar kasası cmdlet'leri](https://docs.microsoft.com/powershell/module/servicemanagement/azure). Klasik anahtar Kasası'nı yönetmek için Azure modülü, Azure Automation'da otomatik olarak kullanılabilir ve içeri aktarabilirsiniz [KeyVault AzureRM Modülü](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) içine Azure Otomasyonu, böylece, anahtar kasası yönetim görevlerin çoğunu gerçekleştirebilirsiniz içinde hizmet. Ayrıca, Azure automation'da bu cmdlet'ler Azure Hizmetleri ve 3. taraf sistemleri arasında karmaşık görevleri otomatikleştirmek için diğer Azure Hizmetleri için cmdlet'leri eşleşebileceğini denetleyebilmesi.
+Key Vault yönetilen Azure Automation'da kullanarak [AzureRM Key Vault cmdlet'leri](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) ve [Klasik Azure anahtar kasası cmdlet'leri](https://docs.microsoft.com/powershell/module/servicemanagement/azure). Klasik anahtar Kasası'nı yönetmek için Azure modülü, Azure Automation'da otomatik olarak kullanılabilir ve içeri aktarabilirsiniz [KeyVault AzureRM Modülü](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) içine Azure Otomasyonu, böylece, anahtar kasası yönetim görevlerin çoğunu gerçekleştirebilirsiniz içinde hizmet. Modülü Azure Automation'a içeri aktarma hakkında daha fazla bilgi için bkz. [modül Azure automation'da Yönetimi](../automation/shared-resources/modules.md) cmdlet'ler arasında karmaşık görevleri otomatikleştirmek için diğer Azure Hizmetleri ile Azure Otomasyonu'nda bu cmdlet'leri ayrıca eşleşebileceğini denetleyebilmesi Azure Hizmetleri ve 3. taraf sistemleri.
 
 Azure Key Vault cmdlet'leri ile diğerlerinin yanı sıra bu görevleri gerçekleştirebilirsiniz: 
 

@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: f54bec9c328893d1d579bff3313f126dbc1178de
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ea2d51487999be2e7412e102b3381d8994e1e4c4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728038"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295326"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure kuyruk depolama bağlamaları
 
@@ -160,7 +160,6 @@ module.exports = async function (context, message) {
     context.log('Node.js queue trigger function processed work item', message);
     // OR access using context.bindings.<name>
     // context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
-    context.log('queueTrigger =', context.bindingData.queueTrigger);
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
     context.log('nextVisibleTime =', context.bindingData.nextVisibleTime);
@@ -176,7 +175,7 @@ module.exports = async function (context, message) {
 ### <a name="trigger---java-example"></a>Tetikleyici - Java örnek
 
 Aşağıdaki Java örneğinde kuyruğuna yerleştirilir tetiklenen ileti günlüğe kaydeden işlevleri depolama kuyruğu tetikleyici gösterir `myqueuename`.
- 
+
  ```java
  @FunctionName("queueprocessor")
  public void run(
@@ -190,7 +189,7 @@ Aşağıdaki Java örneğinde kuyruğuna yerleştirilir tetiklenen ileti günlü
  ```
 
 ## <a name="trigger---attributes"></a>Tetikleyici - öznitelikleri
- 
+
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kuyruk tetikleyicisi yapılandırmak için aşağıdaki öznitelikleri kullanın:
 
 * [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs)
@@ -218,7 +217,7 @@ Aşağıdaki Java örneğinde kuyruğuna yerleştirilir tetiklenen ileti günlü
       ....
   }
   ```
- 
+
   Tam bir örnek için bkz. [tetikleyici - C# örneği](#trigger---c-example).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
@@ -253,14 +252,14 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 |**type** | yok| Ayarlanmalıdır `queueTrigger`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır.|
 |**direction**| yok | İçinde *function.json* yalnızca dosya. Ayarlanmalıdır `in`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır. |
-|**Adı** | yok |İşlev kodunu Kuyruk öğesi yükteki içeren değişkenin adı.  | 
-|**queueName** | **queueName**| Yoklama kurulacak Kuyruğun adı. | 
+|**Adı** | yok |İşlev kodunu Kuyruk öğesi yükteki içeren değişkenin adı.  |
+|**queueName** | **queueName**| Yoklama kurulacak Kuyruğun adı. |
 |**bağlantı** | **bağlantı** |Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Tetikleyici - kullanım
- 
+
 C# ve C# betik gibi bir yöntem parametresi kullanarak ileti veri erişim `string paramName`. C# komut dosyası `paramName` değeri belirtilen `name` özelliği *function.json*. Şu türlerden birine bağlayabilirsiniz:
 
 * Nesnesi - işlevler çalışma zamanı bir JSON yüküne kodunuzda tanımlanan rastgele bir sınıfın bir örneği seri durumdan çıkarır. 
@@ -306,9 +305,7 @@ Kuyruk tetikleyicisi otomatik olarak bir işleve bir kuyruk iletisi birden çok 
 
 ## <a name="trigger---hostjson-properties"></a>Tetikleyici - host.json özellikleri
 
-[Host.json](functions-host-json.md#queues) dosyası kuyruğu tetikleyici davranışını denetleyen ayarları içerir.
-
-[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
+[Host.json](functions-host-json.md#queues) dosyası kuyruğu tetikleyici davranışını denetleyen ayarları içerir. Bkz: [host.json ayarları](#hostjson-settings) kullanılabilir ayarlar ile ilgili ayrıntıları bölümü.
 
 ## <a name="output"></a>Çıktı
 
@@ -370,7 +367,7 @@ Aşağıdaki örnek, bağlama HTTP tetikleyicisi gösterir. bir *function.json* 
     }
   ]
 }
-``` 
+```
 
 [Yapılandırma](#output---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
@@ -431,7 +428,7 @@ Aşağıdaki örnek, bağlama HTTP tetikleyicisi gösterir. bir *function.json* 
     }
   ]
 }
-``` 
+```
 
 [Yapılandırma](#output---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
@@ -466,13 +463,13 @@ module.exports = function(context) {
        result.setValue(message + " has been added.");
        return message;
  }
- ```
+```
 
 İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@QueueOutput` ek açıklama parametreleri değeri kuyruk Depolama'ya yazılan.  Parametre türü olmalıdır `OutputBinding<T>`, burada T bir POJO'ya herhangi bir yerel Java türü.
 
 
 ## <a name="output---attributes"></a>Çıkış - öznitelikleri
- 
+
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs).
 
 Öznitelik bir `out` parametresi veya işlevin dönüş değeri. Özniteliğin Oluşturucusu Kuyruğun adı aşağıdaki örnekte gösterildiği gibi alır:
@@ -509,14 +506,14 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 |**type** | yok | Ayarlanmalıdır `queue`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır.|
 |**direction** | yok | Ayarlanmalıdır `out`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır. |
-|**Adı** | yok | İşlev kodunu kuyrukta temsil eden değişken adı. Kümesine `$return` işlev dönüş değeri başvurmak için.| 
-|**queueName** |**queueName** | Kuyruğun adı. | 
+|**Adı** | yok | İşlev kodunu kuyrukta temsil eden değişken adı. Kümesine `$return` işlev dönüş değeri başvurmak için.|
+|**queueName** |**queueName** | Kuyruğun adı. |
 |**bağlantı** | **bağlantı** |Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Çıkış - kullanım
- 
+
 Bir yöntem parametresi gibi kullanarak tek bir kuyruk iletisinin, C# ve C# betik yazma `out T paramName`. C# komut dosyası `paramName` değeri belirtilen `name` özelliği *function.json*. Yöntem dönüş türü yerine kullanabileceğiniz bir `out` parametresi ve `T` şu türlerden biri olabilir:
 
 * JSON olarak seri hale getirilebilir bir nesne
@@ -564,16 +561,16 @@ Bu bölümde sürümünde bu bağlama için kullanılabilen genel yapılandırma
         }
     }
 }
-```  
+```
 
 
 |Özellik  |Varsayılan | Açıklama |
-|---------|---------|---------| 
-|maxPollingInterval|00:00:02|Kuyruk arasındaki en büyük aralık yoklar. En az 00:00:00.100 (100 ms) olmalıdır. | 
-|visibilityTimeout|00:00:00|Bir ileti işlenirken yeniden denemeler arasındaki zaman aralığını başarısız olur. | 
-|batchSize|16|İşlevler çalışma zamanı aynı anda alır ve paralel olarak işler sıra iletilerinin sayısı. İşlenmekte olan sayı ne zaman alır aşağı `newBatchThreshold`, çalışma zamanı başka bir toplu iş alır ve bu iletileri işlemeye başlıyor. Eş zamanlı iletileri işlev işlenen sayısı, bu nedenle `batchSize` artı `newBatchThreshold`. Bu sınır, ayrı ayrı her kuyruk ile tetiklenen bir işlev için de geçerlidir. <br><br>Paralel yürütme bir kuyruğa alınan iletileri önlemek istiyorsanız, ayarlayabileceğiniz `batchSize` 1. Ancak, bu ayar yalnızca tek bir sanal makineye (VM) işlev uygulamanızın çalıştırdığı sürece eşzamanlılık ortadan kaldırır. İşlev uygulaması için birden çok VM Ölçeklendirmesi eşitlenene, her VM her kuyruk ile tetiklenen bir işlev bir örneğini çalıştırabilirsiniz.<br><br>En fazla `batchSize` 32'dir. | 
-|maxDequeueCount|5|Kaç defa zehirli kuyruğuna taşınmadan önce bir iletiyi işlemeyi deneyin.| 
-|newBatchThreshold|batchSize/2|Bu sayıya aynı anda işlenmekte olan ileti sayısını alır olduğunda, başka bir toplu iş çalışma zamanı alır.| 
+|---------|---------|---------|
+|maxPollingInterval|00:00:02|Kuyruk arasındaki en büyük aralık yoklar. En az 00:00:00.100 (100 ms) olmalıdır. |
+|visibilityTimeout|00:00:00|Bir ileti işlenirken yeniden denemeler arasındaki zaman aralığını başarısız olur. |
+|batchSize|16|İşlevler çalışma zamanı aynı anda alır ve paralel olarak işler sıra iletilerinin sayısı. İşlenmekte olan sayı ne zaman alır aşağı `newBatchThreshold`, çalışma zamanı başka bir toplu iş alır ve bu iletileri işlemeye başlıyor. Eş zamanlı iletileri işlev işlenen sayısı, bu nedenle `batchSize` artı `newBatchThreshold`. Bu sınır, ayrı ayrı her kuyruk ile tetiklenen bir işlev için de geçerlidir. <br><br>Paralel yürütme bir kuyruğa alınan iletileri önlemek istiyorsanız, ayarlayabileceğiniz `batchSize` 1. Ancak, bu ayar yalnızca tek bir sanal makineye (VM) işlev uygulamanızın çalıştırdığı sürece eşzamanlılık ortadan kaldırır. İşlev uygulaması için birden çok VM Ölçeklendirmesi eşitlenene, her VM her kuyruk ile tetiklenen bir işlev bir örneğini çalıştırabilirsiniz.<br><br>En fazla `batchSize` 32'dir. |
+|maxDequeueCount|5|Kaç defa zehirli kuyruğuna taşınmadan önce bir iletiyi işlemeyi deneyin.|
+|newBatchThreshold|batchSize/2|Bu sayıya aynı anda işlenmekte olan ileti sayısını alır olduğunda, başka bir toplu iş çalışma zamanı alır.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

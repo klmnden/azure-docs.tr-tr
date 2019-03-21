@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe259b6a0f45828e100de33f533e370323128eef
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0d61f233b2eb901bcf1e6b5b4ff147893f918e8f
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821705"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293320"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google B2B Konuk kullanıcılar için kimlik sağlayıcısı Ekle
 
@@ -31,45 +32,45 @@ Bir Google Gmail kullanıcıya bir davet gönderdiğinizde, Konuk kullanıcını
 
 Konuk kullanıcı bir "çok uzun üstbilgi" hatası görürse, kendi tanımlama bilgilerini temizleyip deneyin veya bir özel veya gizli penceresi açın ve yeniden oturum açmayı deneyin.
 
-![Google ile oturum aç](media/google-federation/google-sign-in.png)
+![Google oturum açma sayfasını gösteren ekran görüntüsü](media/google-federation/google-sign-in.png)
 
 ## <a name="step-1-configure-a-google-developer-project"></a>1. Adım: Bir Google developer proje yapılandırma
 İlk olarak bir istemci kimliği ve daha sonra Azure AD'ye ekleyebileceğiniz bir istemci gizli anahtarını almak amacıyla Google geliştiriciler konsolunda yeni bir proje oluşturun. 
 1. Google API'leri Git https://console.developers.google.comve Google hesabınızla oturum açın. Paylaşılan bir takım Google hesabı kullanmanızı öneririz.
 2. Yeni bir proje oluşturun: Panoda seçin **proje oluştur**ve ardından **Oluştur**. Yeni Proje sayfa üzerinde girin bir **proje adı**ve ardından **Oluştur**.
    
-   ![Yeni Google proje](media/google-federation/google-new-project.png)
+   ![Yeni Proje sayfa için Google gösteren ekran görüntüsü](media/google-federation/google-new-project.png)
 
 3. Yeni projeniz Proje menüsünde seçili olduğundan emin olun. Ardından, üst sol menüsünü açın ve seçin **API'leri ve Hizmetleri** > **kimlik bilgilerini**.
 
-   ![Google API kimlik bilgileri](media/google-federation/google-api.png)
+   ![Google API gösteren ekran görüntüsü seçeneği kimlik bilgileri](media/google-federation/google-api.png)
  
 4. Seçin **OAuth onay ekranı** girin ve sekme bir **uygulama adı**. (Diğer ayarları bırakın.)
 
-   ![Google OAuth onay ekranı](media/google-federation/google-oauth-consent-screen.png)
+   ![Google OAuth onay ekranı seçeneğini gösteren ekran görüntüsü](media/google-federation/google-oauth-consent-screen.png)
 
 5. Kaydırma **etki alanlarında yetkilendirilmiş** bölümünde ve microsoftonline.com girin.
 
-   ![Yetkili etki alanı bölümü](media/google-federation/google-oauth-authorized-domains.png)
+   ![Yetkili etki alanı bölümünü gösteren ekran görüntüsü](media/google-federation/google-oauth-authorized-domains.png)
 
 6. **Kaydet**’i seçin.
 
 7. Seçin **kimlik bilgilerini** sekmesi. İçinde **kimlik bilgilerini oluştur** menüsünde seçin **OAuth istemcisi kimliği**.
 
-   ![Google API kimlik bilgileri](media/google-federation/google-api-credentials.png)
+   ![Kimlik bilgileri seçeneği Google API'leri gösteren ekran görüntüsü oluşturma](media/google-federation/google-api-credentials.png)
 
 8. Altında **uygulama türü**, seçin **Web uygulaması**ve ardından altındaki **yetkili yeniden yönlendirme URI'leri**, aşağıdaki URI girin:
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(burada `<directory id>` , dizin kimliği)
    
-    > [!NOTE]
-    > Dizin Kimliğinizi bulmak için Git https://portal.azure.com, altında **Azure Active Directory**, seçin **özellikleri** ve kopyalama **dizin kimliği**.
+     > [!NOTE]
+     > Dizin Kimliğinizi bulmak için Git https://portal.azure.com, altında **Azure Active Directory**, seçin **özellikleri** ve kopyalama **dizin kimliği**.
 
-   ![OAuth istemcisi kimliği oluşturma](media/google-federation/google-create-oauth-client-id.png)
+   ![Yetkili gösteren ekran görüntüsü yeniden yönlendirme URI'leri bölümü](media/google-federation/google-create-oauth-client-id.png)
 
 9. **Oluştur**’u seçin. İstemci Kimliğini ve kimlik sağlayıcısı Azure AD portalında eklediğinizde kullanacağınız istemci gizli anahtarını kopyalayın.
 
-   ![OAuth istemci kimliği ve istemci gizli anahtarı](media/google-federation/google-auth-client-id-secret.png)
+   ![OAuth istemcisi Kimliğini ve istemci gizli anahtarı gösteren ekran görüntüsü](media/google-federation/google-auth-client-id-secret.png)
 
 ## <a name="step-2-configure-google-federation-in-azure-ad"></a>2. Adım: Azure AD'de Google Federasyonu yapılandırma 
 Artık Azure AD portalında girerek veya PowerShell kullanarak Kimliğini ve istemci gizli anahtarı, Google istemci ayarlarsınız. Kendiniz bir Gmail adresi kullanarak ve çalışırken davetini davet edilen Google hesabınızla davet ederek Google Federasyon yapılandırmanızı test etmeyi unutmayın. 
@@ -80,7 +81,7 @@ Artık Azure AD portalında girerek veya PowerShell kullanarak Kimliğini ve ist
 3. Seçin **kimlik sağlayıcıları**ve ardından **Google** düğmesi.
 4. Bir ad girin. Ardından, istemci Kimliğini ve istemci gizli anahtarı daha önce edindiğiniz girin. **Kaydet**’i seçin. 
 
-   ![Google kimlik sağlayıcısı ekle](media/google-federation/google-identity-provider.png)
+   ![Ekleme Google kimlik sağlayıcısı sayfasını gösteren ekran görüntüsü](media/google-federation/google-identity-provider.png)
 
 #### <a name="to-configure-google-federation-by-using-powershell"></a>PowerShell kullanarak Google Federasyon yapılandırmak için
 1. Azure AD PowerShell graf modülü için en son sürümünü yükleyin ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
@@ -102,7 +103,7 @@ Google Federasyon kurulumunuzu silebilirsiniz. Bunu yaparsanız, davetini zaten 
 3. Seçin **kimlik sağlayıcıları**.
 4. Üzerinde **Google** satır, bağlam menüsünü (**...** ) ve ardından **Sil**. 
    
-   ![Sosyal kimlik sağlayıcısı silindi](media/google-federation/google-social-identity-providers.png)
+   ![Sosyal kimlik sağlayıcısı silme seçeneğini gösteren ekran görüntüsü](media/google-federation/google-social-identity-providers.png)
 
 1. Seçin **Evet** silme işlemini onaylamak için. 
 

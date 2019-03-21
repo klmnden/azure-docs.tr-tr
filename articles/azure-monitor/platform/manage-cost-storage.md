@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 03/20/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 5c6cda735f946fc510129f688ebedf85dd054d0c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5a8bd836322ae005b426707e0994bfdc19701fd8
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734260"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295683"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Log Analytics için kullanımı ve maliyetleri yönetme
 
@@ -112,13 +112,13 @@ Log Analytics çalışma alanınızın eski fiyatlandırma katmanları arasında
 3. Altında **fiyatlandırma katmanı**, bir fiyatlandırma katmanı seçin ve ardından **seçin**.  
     ![Seçili fiyatlandırma planı](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-Çalışma alanınızdaki geçerli fiyatlandırma katmanına taşımak istiyorsanız, yapmanız [aboneliğinizin Azure İzleyicisi'nde fiyatlandırma modeli izleme değiştirme](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) bu Abonelikteki tüm çalışma alanlarını fiyatlandırma katmanını değiştirir.
+Çalışma alanınızdaki geçerli fiyatlandırma katmanına taşımak istiyorsanız, yapmanız [aboneliğinizin Azure İzleyicisi'nde fiyatlandırma modeli izleme değiştirme](usage-estimated-costs.md#moving-to-the-new-pricing-model) bu Abonelikteki tüm çalışma alanlarını fiyatlandırma katmanını değiştirir.
 
 > [!NOTE]
 > Çalışma alanınız bir Otomasyon hesabıyla bağlantılıysa, *Tek Başına (GB başına)* fiyatlandırma katmanını seçebilmeniz için tüm **Otomasyon ve Denetim** çözümlerini silmeniz ve Otomasyon hesabının bağlantısını kaldırmanız gerekir. Çalışma alanı dikey penceresindeki **Genel** altında **Çözümler**’e tıklayıp çözümleri silin. Bir Otomasyon hesabının bağlantısını kaldırmak için **Fiyatlandırma katmanı** dikey penceresinde Otomasyon hesabının adına tıklayın.
 
 > [!NOTE]
-> Daha fazla bilgi edinebilirsiniz [ARM aracılığıyla fiyatlandırma katmanını ayarladıktan](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace) ve nasıl emin olup abonelik eski veya yeni fiyatlandırma modeli olduğundan bağımsız olarak, ARM dağıtım başarılı olacağıdır. 
+> Daha fazla bilgi edinebilirsiniz [ARM aracılığıyla fiyatlandırma katmanını ayarladıktan](template-workspace-configuration.md#create-a-log-analytics-workspace) ve nasıl emin olup abonelik eski veya yeni fiyatlandırma modeli olduğundan bağımsız olarak, ARM dağıtım başarılı olacağıdır. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Log Analytics, artık veri topluyor neden sorunlarını giderme
@@ -138,24 +138,12 @@ Veri toplamayı durdurur bozulma olduğunda bilgilendirilmeniz için açıklanan
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Kullanımın neden beklenenden daha yüksek olduğuyla ilgili sorunları giderme
 Yüksek kullanımın nedeni aşağıdakilerden biri veya her ikisidir:
-- Log Analytics'da beklenenden daha fazla veri gönderiliyordur
 - Log Analytics'e beklenenden daha fazla düğüm veri gönderiyordur
+- Log Analytics'da beklenenden daha fazla veri gönderiliyordur
 
-### <a name="data-volume"></a>Veri hacmi 
-Üzerinde **kullanım ve Tahmini maliyetler** sayfasında *çözüm başına veri alımı* grafik, toplam gönderilen veri hacmini ve ne kadar her çözüm tarafından gönderilen verilerin gösterir. Bu sayede olup genel veri kullanımı (veya belirli bir çözüm tarafından kullanım) artıyor mu gibi eğilimleri belirlemek sabit kaldığını veya azaldığını. Bu oluşturmak için kullanılan sorgu
+Sonraki bölümlerde explor
 
-`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
-
-Unutmayın yan tümcesi "nerede IsBillable = true" veri türleri için ücretsizdir alımı belirli çözümlerinden filtreler. 
-
-Bkz: veri eğilimlerini IIS günlükler nedeniyle verileri incelemek isterseniz, örneğin belirli veri türleri için daha fazla sınırlandıramazsınız gidebilir:
-
-`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
-
-### <a name="nodes-sending-data"></a>Veri gönderen düğüm
+## <a name="understanding-nodes-sending-data"></a>Veri gönderen düğüm anlama
 
 Geçen ayın her günü raporlama verilerini bilgisayarların (düğümlerin) sayısını anlamak için kullanın
 
@@ -163,7 +151,7 @@ Geçen ayın her günü raporlama verilerini bilgisayarların (düğümlerin) sa
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Gönderme bilgisayarların listesini almak için **veri türleri faturalandırılır** (bazı veri türleri, ücretsiz), yararlanarak [_IsBillable](log-standard-properties.md#isbillable) özelliği:
+Gönderme bilgisayarların listesini almak için **veri türleri faturalandırılır** (bazı veri türleri, ücretsiz), yararlanarak [_IsBillable](log-standard-properties.md#_isbillable) özelliği:
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -171,9 +159,9 @@ Gönderme bilgisayarların listesini almak için **veri türleri faturalandırı
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-Bu `union withsource = tt *` veri türlerinde taramaları çalıştırmak pahalı olduğundan tutumlu sorgular. 
+Bu `union withsource = tt *` veri türlerinde taramaları çalıştırmak pahalı olduğundan tutumlu sorgular. Bu sorgu bilgisayar başına bilgi kullanım veri türü ile sorgulama eski biçimini değiştirir.  
 
-Veri türleri gönderen bilgisayarlar / saat sayısı faturalandırılır döndürmek için Genişletilebilir:
+Gönderen bilgisayar saat sayısını veri türleri (hangi Log Analytics Faturalanabilir düğümleri eski fiyatlandırma katmanında düğüm başına için nasıl hesaplar) faturalandırılır döndürmek için Genişletilebilir:
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -181,13 +169,30 @@ Veri türleri gönderen bilgisayarlar / saat sayısı faturalandırılır dönd�
 | where computerName != ""
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
 
-Görmek için **boyutu** Faturalanabilir olayların, bilgisayar başına alınan `_BilledSize` bayt cinsinden boyut sağlayan özelliği:
+## <a name="understanding-ingested-data-volume"></a>Anlama alınan veri hacmi 
+
+Üzerinde **kullanım ve Tahmini maliyetler** sayfasında *çözüm başına veri alımı* grafik, toplam gönderilen veri hacmini ve ne kadar her çözüm tarafından gönderilen verilerin gösterir. Bu sayede olup genel veri kullanımı (veya belirli bir çözüm tarafından kullanım) artıyor mu gibi eğilimleri belirlemek sabit kaldığını veya azaldığını. Bu oluşturmak için kullanılan sorgu
+
+`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+Unutmayın yan tümcesi "nerede IsBillable = true" veri türleri için ücretsizdir alımı belirli çözümlerinden filtreler. 
+
+Bkz: veri eğilimlerini IIS günlükler nedeniyle verileri incelemek isterseniz, örneğin belirli veri türleri için daha fazla sınırlandıramazsınız gidebilir:
+
+`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| where DataType == "W3CIISLog"
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+### <a name="data-volume-by-computer"></a>Bilgisayara göre veri hacmi
+
+Görmek için **boyutu** Faturalanabilir olayların, bilgisayar başına alınan `_BilledSize` özelliği ([günlüğü standart özellikleri #_billedsize.md](learn more)) bayt cinsinden boyut sağlar:
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
 
-Bu sorgu, bu kullanım veri türüyle sorgulama eski biçimini değiştirir. 
+`_IsBillable` Özelliği, içe alınan veri ücret uygulanabilir olup olmadığını belirtir ([günlük standart properties.md #_isbillable](Learn more).)
 
 Görmek için **sayısı** bilgisayar başına alınan olayların kullanın
 
@@ -207,8 +212,29 @@ Sayıları Faturalandırılabilir veri türleri için belirli bir bilgisayar iç
 | where _IsBillable == true 
 | summarize count() by tt | sort by count_ nulls last `
 
+### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Azure kaynak, kaynak grubuna veya aboneliğe göre veri hacmi
+
+Azure'da barındırılan düğümlerden veri alabileceğiniz **boyutu** alınan Faturalanabilir olayların __bilgisayar başına__, kullanın `_ResourceId` , kaynağın tam yolunu sağlayan özelliği ([ günlük standart properties.md #_resourceid](learn more)):
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last `
+
+Azure'da barındırılan düğümlerden veri alabileceğiniz **boyutu** alınan Faturalanabilir olayların __Azure aboneliği başına__, ayrıştırma `_ResourceId` özelliği olarak:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last `
+
+Değiştirme `subscriptionId` için `resourceGroup` Azure resouurce grubuna göre Faturalanabilir içe alınan veri hacmi gösterilir. 
+
+
 > [!NOTE]
 > Bazı kullanım veri türünde alanlar yine de şema sırada, kullanım dışı bırakıldı ve değerlerine artık doldurulur olur. Bunlar **bilgisayar** alımıyla ilgili alanları yanı sıra (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** ve **AverageProcessingTimeMs**.
+
+### <a name="querying-for-common-data-types"></a>Ortak veri türleri için sorgulama
 
 Belirli veri türü için veri kaynağına daha ayrıntılı incelemek için bazı yararlı örnek sorgular şunlardır:
 
@@ -241,7 +267,7 @@ Toplanan günlük hacmini azaltmak için bazı öneriler şunlardır:
 | AzureDiagnostics           | Aşağıdaki amaçlarla kaynak günlüğü koleksiyonunu değiştirin: <br> - Log Analytics’e günlük gönderen kaynak sayısını azaltma <br> - Yalnızca gerekli günlükleri toplama |
 | Çözüm ihtiyacı olmayan bilgisayarlardan toplanan çözüm verileri | Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../insights/solution-targeting.md) özelliğini kullanın. |
 
-### <a name="getting-node-counts"></a>Başlangıç düğüm sayısı 
+### <a name="getting-security-and-automation-node-counts"></a>Başlangıç güvenlik ve Otomasyon düğüm sayısı 
 
 "Fiyatlandırma katmanı düğümde (OMS)" olduğunuz sonra düğüm ve çözüm sayısına göre kullanacağınız Insights sayısı ve Analytics düğümleri için faturalandırılır gösterilecek tabloda ücretlendirilir **kullanım ve tahmini maliyet**sayfası.  
 
@@ -282,6 +308,7 @@ Farklı bir Otomasyon düğüm sayısını görmek için sorguyu kullanın:
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Toplanan veriler beklenenden fazlaysa uyarı oluşturma
+
 Bu bölümde, aşağıdaki durumlarda nasıl uyarı oluşturulacağı açıklanır:
 - Veri hacmi belirtilen bir miktarı aştığında.
 - Veri hacminin belirtilen bir miktarı aşacağı tahmin edildiğinde.

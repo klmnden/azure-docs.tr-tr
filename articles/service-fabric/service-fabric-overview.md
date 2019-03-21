@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: a48d14f20d885849a233c592db8d9cf587342755
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8f2a3536b7d1b02f124b3116c96ce442383a6b3b
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870082"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294442"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric'e genel bakış
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur. Service Fabric ayrıca bulut yerel uygulamalarını geliştirme ve yönetme sürecinde karşılaşılan başlıca sorunların giderilmesini de sağlar. Geliştiriciler ve yöneticiler, karmaşık altyapı sorunlarını çözmeye çalışmak yerine görev açısından kritik, zorlu iş yüklerini uygulamaya odaklanabilir. Service Fabric, bu iş yüklerinin ölçeklenebilir, güvenilir ve yönetilebilir olmasını sağlar. Service Fabric, kapsayıcılarda çalıştırılan 1. katman bulut ölçeğindeki bu kurumsal sınıf uygulamaları oluşturmak ve yönetmek için tasarlanan yeni nesil bir platformdur.
@@ -49,7 +49,7 @@ Service Fabric her yerde çalıştırılır. Service Fabric için birçok ortamd
 
 ![Service Fabric platformu][Image1]
 
-Windows geliştirmesi için, Service Fabric .NET SDK'sı Visual Studio ve Powershell ile tümleştirilmiştir. Bkz. [Windows üzerinde geliştirme ortamınızı hazırlama](service-fabric-get-started.md). Linux geliştirmesi için, Service Fabric Java SDK'sı Eclipse ile tümleştirilmiştir ve Java, .NET Core ve kapsayıcı uygulamaları için şablonların oluşturulmasında Yeoman kullanılır. Bkz. [Linux üzerinde geliştirme ortamınızı hazırlama](service-fabric-get-started.md)
+Windows geliştirmesi için, Service Fabric .NET SDK'sı Visual Studio ve Powershell ile tümleştirilmiştir. Bkz. [Windows üzerinde geliştirme ortamınızı hazırlama](service-fabric-get-started.md). Linux geliştirmesi için, Service Fabric Java SDK'sı Eclipse ile tümleştirilmiştir ve Java, .NET Core ve kapsayıcı uygulamaları için şablonların oluşturulmasında Yeoman kullanılır. Bkz. [Linux üzerinde geliştirme ortamınızı hazırlama](service-fabric-get-started-linux.md)
 
 Kümeleri oluşturma hakkında daha fazla bilgi için, [Windows Server veya Linux'ta küme oluşturma](service-fabric-deploy-anywhere.md) konusunu veya Azure için [Azure Portal üzerinden küme oluşturma](service-fabric-cluster-creation-via-portal.md) konusunu okuyun.
 

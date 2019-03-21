@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 969821c8b83b8ef554c67f99e3a16e827b53e647
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ba6a352d965f3f90a122f5277ad23ec5f92907eb
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845129"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258471"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Azure Cosmos DB'de toplu işlemleri gerçekleştirmek için toplu Yürütücü .NET kitaplığı kullanma
 
@@ -30,7 +30,7 @@ Bu öğreticide Azure Cosmos DB'nin toplu Yürütücü kullanmaya ilişkin yöne
 
 * [Azure Cosmos DB’yi ücretsiz olarak](https://azure.microsoft.com/try/cosmosdb/) bir Azure aboneliği olmadan, ücretsiz ve herhangi bir taahhütte bulunmadan deneyebilirsiniz. Veya, kullanabileceğiniz [Azure Cosmos DB öykünücüsü'nü](https://docs.microsoft.com/azure/cosmos-db/local-emulator) ile `https://localhost:8081` uç noktası. Birincil Anahtar, [Kimlik doğrulama istekleri](local-emulator.md#authenticating-requests) bölümünde sağlanır.
 
-* İçinde açıklanan adımları kullanarak bir Azure Cosmos DB SQL API hesabı oluşturma [veritabanı hesabı oluşturma](create-sql-api-dotnet.md#create-a-database-account) .NET hızlı başlangıç makalesi bölümü. 
+* İçinde açıklanan adımları kullanarak bir Azure Cosmos DB SQL API hesabı oluşturma [veritabanı hesabı oluşturma](create-sql-api-dotnet.md#create-account) .NET hızlı başlangıç makalesi bölümü. 
 
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
@@ -72,7 +72,7 @@ Kopyalanan deponun içeren iki örnek "BulkImportSample" ve "BulkUpdateSample." 
    connectionPolicy)
    ```
 
-4. Bulkexecutor'a nesne bekleme süresi ile bir yüksek yeniden deneme değerlerini başlatılır ve istek kısıtlanmış. Ve Tıkanıklık denetimi için yaşam süresi için Bulkexecutor'a geçirmek için 0 olarak ardından ayarlanırlar.  
+4. Bulkexecutor'a nesne bekleme süresi bir yüksek yeniden deneme değeri ile başlatılmış ve istek kısıtlanmış. Ve Tıkanıklık denetimi için yaşam süresi için Bulkexecutor'a geçirmek için 0 olarak ardından ayarlanırlar.  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -102,7 +102,7 @@ Kopyalanan deponun içeren iki örnek "BulkImportSample" ve "BulkUpdateSample." 
    
    |**Parametre**  |**Açıklama** |
    |---------|---------|
-   |enableUpsert    |   Upsert belgelerin etkinleştirmek için bir bayrak. Bir belge ile verilen kimliği zaten var, bunu güncelleştirilir. Varsayılan olarak false olarak ayarlanır.      |
+   |enableUpsert    |   Upsert eder belgelerin etkinleştirmek için bir bayrak. Bir belge ile verilen kimliği zaten var, bunu güncelleştirilir. Varsayılan olarak false olarak ayarlanır.      |
    |disableAutomaticIdGeneration    |    Kimliği otomatik olarak oluşturulmasını devre dışı bırakmak için bayrak Varsayılan olarak ayarlanmış true.     |
    |maxConcurrencyPerPartitionKeyRange    | En büyük bölüm anahtar aralığı başına eşzamanlılık derecesini, null ayarına bir varsayılan değer 20 kitaplığı neden olur. |
    |maxInMemorySortingBatchSize     |  En fazla belge sayısına çekilen API'ye geçirilen belge Numaralandırıcı gelen her aşamasında çağırın.  Toplu içeri aktarmadan önce bellek içi ön işleme sıralama aşaması için varsayılan değeri min (documents.count, 1000000) kitaplığı null ayarına neden olur.       |
@@ -173,7 +173,7 @@ Toplu Yürütücü Kitaplığı kullanıldığında daha iyi performans için a�
 
 * Belirli bir Cosmos DB kapsayıcısı için karşılık gelen tek bir sanal makine içindeki tüm uygulama için tek bir Bulkexecutor'a nesnesi örneklemek için önerilir.  
 
-* Bu yana tek bir toplu işlem API yürütme istemcinin CPU ve ağ GÇ büyük bir yığın kullanır. Birden çok görev tarafından dahili olarak UNICODE böyle, yürütülen her toplu işlem API çağrıları, uygulama işlemi içinde birden çok eş zamanlı görevleri UNICODE özen göstermektir. Tek bir sanal makine üzerinde çalışan tek bir toplu işlem API çağrısı tüketen tüm kapsayıcının aktarım hızını kaydedemediği (varsa, kapsayıcının aktarım hızını > 1 milyon RU/sn), eş zamanlı olarak toplu yürütmek için ayrı sanal makineler oluşturmak için tercih edilir API işlem çağrıları.  
+* Bu yana tek bir toplu işlem API yürütme istemcinin CPU ve ağ GÇ büyük bir yığın kullanır. Birden çok görev tarafından dahili olarak UNICODE böyle, yürütülen her toplu işlem API çağrıları, uygulama işlemi içinde birden çok eş zamanlı görevleri UNICODE özen göstermektir. Tek bir sanal makinede çalışan bir tek bir toplu işlem API çağrısı tüketen tüm kapsayıcının aktarım hızını kaydedemediği (varsa, kapsayıcının aktarım hızını > 1 milyon RU/sn), aynı anda yürütmek için ayrı sanal makineler oluşturmak için tercih edilir Toplu işlem API çağrıları.  
 
 * InitializeAsync() hedef Cosmos DB kapsayıcısı bölüm haritasında getirilecek Bulkexecutor'a nesne başlatıldıktan sonra çağrılan emin olun.  
 

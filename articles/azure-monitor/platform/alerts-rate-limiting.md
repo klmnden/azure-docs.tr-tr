@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 3/12/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: cb70dd30d2c3218ac0ad6ef4bd7b71108845f8cb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 11fd6a2c58671cc5d0bcf0593239eb9e62aca834
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476453"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109500"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Ses, SMS, e-postalar, Azure uygulaması anında iletme bildirimleri ve Web kancası gönderileri sınırlama oranı
 Hız sınırlaması, çok fazla belirli bir telefon numarası, e-posta adresi veya cihaz gönderildiğinde oluşan bir askıya alma bildirim olduğu. Hız sınırlaması uyarılar yönetilebilir ve işlem yapılabilir olmasını sağlar.
 
 Hızı sınırı eşikler şunlardır:
 
- - **SMS**: En fazla 1 SMS 5 dakikada bir.
- - **Ses**: Sesli çağrı her 5 dakikada en fazla 1.
- - **e-posta**: En fazla 100 e-postaları bir saat içinde.
+- **SMS**: En fazla 1 SMS 5 dakikada bir.
+- **Ses**: Sesli çağrı her 5 dakikada en fazla 1.
+- **e-posta**: En fazla 100 e-postaları bir saat içinde.
  
- Diğer Eylemler oranı sınırlı değildir.
+  Diğer Eylemler oranı sınırlı değildir.
 
 ## <a name="rate-limit-rules"></a>Hızı sınırı kuralları
 - Belirli bir telefon numarası veya e-posta eşiği izin verdiğinden daha fazla ileti aldığında sınırlı oranıdır.

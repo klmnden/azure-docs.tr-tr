@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 85dca677238070ded13b59faf9a13081c2409987
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 4d090740b75acbe2629ae4f1e13cde8947f190bb
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890874"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286440"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: Aracı veya uzantı ile ilgili sorunlar
 
@@ -102,19 +102,12 @@ Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman i�
 **5. neden: Yedekleme hizmeti, bir kaynak grubu kilidi nedeniyle eski geri yükleme noktalarını silmek için izne sahip değil** <br>
 **6. neden: [VM internet erişimi yok](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - şu anda Azure Backup 1023 GB'den büyük disk boyutlarını desteklemez
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize - şu anda Azure Backup, 4095 GB'den büyük disk boyutlarını desteklemez
 
 **Hata kodu**: UserErrorUnsupportedDiskSize <br>
-**Hata iletisi**: Şu anda Azure Backup 1023 GB’tan büyük disk boyutlarını desteklememektedir <br>
+**Hata iletisi**: Azure Backup şu anda 4095 GB'den büyük disk boyutlarını desteklememektedir <br>
 
-Kasanız için anında geri yükleme yükseltilmez olduğundan disk boyutu 1023 GB'tan büyük ile VM'yi yedeklerken, yedekleme işlemi başarısız olabilir. Anında geri yükleme için yükseltme sağlayacağı 4 TB'a kadar destek, bkz. Bu [makale](backup-instant-restore-capability.md#upgrading-to-instant-restore). Yükseltmeden sonra bu işlev yararlanabilmek abonelik için iki saate kadar sürer. İşlemi yeniden denemeden önce yeterli arabellek sağlar.  
-
-## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>Standart SSD disk şu anda Azure Backup UserErrorStandardSSDNotSupported - desteklemiyor
-
-**Hata kodu**: UserErrorStandardSSDNotSupported <br>
-**Hata iletisi**: Standart SSD disk şu anda Azure Backup desteklemiyor <br>
-
-Şu anda Azure Backup için yükseltilmiş kasaları için standart bir SSD diskleri destekler [anında geri yükleme](backup-instant-restore-capability.md).
+Disk boyutu 4095 GB'tan büyük ile VM'yi yedeklerken, yedekleme işlemi başarısız olabilir. Büyük diskler için destek yakında sunulacaktır.  
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - şu anda başka bir yedekleme işlemi devam ediyor gibi yedekleme başlatamıyor
 
@@ -200,7 +193,7 @@ Aşağıdaki koşullar anlık görüntü görevi başarısız olmasına neden:
 | Nedeni | Çözüm |
 | --- | --- |
 | Uzak Masaüstü Protokolü (RDP) VM'yi kapatın, çünkü VM durumu yanlış bildirilir. | VM ile RDP kapatırsanız, sanal Makinenin durumu doğru olup olmadığını belirlemek için portalı denetleyin. Doğru değilse, portaldaki VM kullanarak kapatma **kapatma** sanal makine Panosu'ndan seçeneği. |
-| Sanal makine DHCP'den konak ya da yapı adresi alınamıyor. | DHCP çalışmak için konuk içinde Iaas VM yedekleme için etkinleştirilmesi gerekir. VM konak ya da yapı adresi DHCP yanıttan 245 erişemiyorsanız, indirin veya tüm Uzantıları'nı çalıştırın. Statik özel IP gerekiyorsa, içinde yapılandırmalısınız **Azure portalı** veya **PowerShell** ve VM içindeki DHCP seçeneği etkin olduğundan emin olun. [Daha fazla bilgi edinin](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) PowerShell ile statik bir IP adresi ayarlama hakkında.
+| Sanal makine DHCP'den konak ya da yapı adresi alınamıyor. | DHCP çalışmak için konuk içinde Iaas VM yedekleme için etkinleştirilmesi gerekir. VM konak ya da yapı adresi DHCP yanıttan 245 erişemiyorsanız, indirin veya tüm Uzantıları'nı çalıştırın. Statik özel IP gerekiyorsa, içinde yapılandırmalısınız **Azure portalında** veya **PowerShell** ve VM içindeki DHCP seçeneği etkin olduğundan emin olun. [Daha fazla bilgi edinin](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) PowerShell ile statik bir IP adresi ayarlama hakkında.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>Backup uzantısı, güncelleştirmek veya yüklemek başarısız
 Uzantıları yüklenemiyor bir anlık görüntü alınamadığından backup başarısız olur.

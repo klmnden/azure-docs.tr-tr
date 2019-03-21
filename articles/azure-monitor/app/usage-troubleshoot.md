@@ -13,12 +13,12 @@ ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 7c903390af54d1771bce1b6aff96e9bb54397189
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: eabc47c2acb33d8c6ee03477b5e8c7783edebbb7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54046062"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258793"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Kullanıcı davranış analizi araçları Application ınsights sorunlarını giderme
 Hakkında sorularınız [kullanıcı davranış analizi araçları Application ınsights'ta](usage-overview.md): [Kullanıcılar, oturumlar, etkinlikler](usage-segmentation.md), [Huniler](usage-funnels.md), [kullanıcı akışları](usage-flows.md), [bekletme](usage-retention.md), veya Kohortlar? Bazı soruların yanıtları aşağıdadır.
@@ -39,7 +39,7 @@ Kullanıcı davranış analizi araçları sayım kullanıcılar veya anonim kull
 ## <a name="naming-events"></a>Adlandırma olayları
 **Binlerce farklı sayfa görünümü ve özel olay adlarının Uygulamam var. Bunlar arasında ayrım yapmak zordur ve kullanıcı davranış analizi araçları genellikle yanıt veremez duruma gelebilir. Bu adlandırma sorunları nasıl düzeltebilirim?**
 
-Sayfa görünümü ve özel olay adlarının kullanıcı davranış analizi araçları kullanılır. Olayları da adlandırma değeri bu Araçları'ndan almak için önemlidir. Hedef arasında bir denge ise çok az sayıda, aşırı genel adlar ("tıklanan Button") sahip ve çok fazla aşırı belirli adları olan ("Düzenle düğmesini tıkladığınız http://www.contoso.com/index").
+Sayfa görünümü ve özel olay adlarının kullanıcı davranış analizi araçları kullanılır. Olayları da adlandırma değeri bu Araçları'ndan almak için önemlidir. Hedef arasında bir denge ise çok az sayıda, aşırı genel adlar ("tıklanan Button") sahip ve çok fazla aşırı belirli adları olan ("Düzenle düğmesine tıkladı http:\//www.contoso.com/index").
 
 Sayfa görünümü ve özel olay adlarının uygulamanızı göndermek için değişiklik yapmak için uygulamanızın kaynak kodu ve yeniden dağıtma değiştirmeniz gerekir. **Application Insights'ta verileri 90 gün boyunca saklanır ve silinemez tüm telemetri**, olay adları yaptığınız değişikliklerin tam listesi için 90 gün sürer. 90 ad değişiklikleri yaptıktan sonra gün için eski ve yeni olay adları telemetrinizi gösterilir, böylece sorguları ayarlamak ve takımlarınızın içinde uygun şekilde iletişim.
 

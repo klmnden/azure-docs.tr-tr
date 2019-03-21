@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16caf8b6fd48b5dca676b1c8ee046ad01264ca03
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 561d7f5b28775e5f431d35d956cff6f800cc11b2
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211436"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294527"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Nasıl kuruluşunuzdaki kullanıcılar uygulama Konuk kullanıcılar davet edebilir
 
@@ -36,15 +37,15 @@ Bir uygulama için Self Servis yapılandırdıktan sonra uygulama sahibi kendi e
 1. Giderek, erişim paneli `https://myapps.microsoft.com`.
 2. Uygulamaya gelin, elipsleri seçin (**...** ) ve ardından **Yönet uygulama**.
  
-   ![Uygulama erişim panellerinde yönetme](media/add-users-iw/access-panel-manage-app.png)
+   ![Doğrudan Salesforce uygulamasının Yönet uygulama alt menüsünü gösteren ekran görüntüsü](media/add-users-iw/access-panel-manage-app.png)
  
 3. Kullanıcılar listenin en üstünde seçin **+**.
    
-   ![Erişim paneli, bir kullanıcı ekleyin](media/add-users-iw/access-panel-manage-app-add-user.png)
+   ![Uygulamaya üyeleri eklemek için artı simgesini gösteren ekran görüntüsü](media/add-users-iw/access-panel-manage-app-add-user.png)
    
 4. İçinde **üye ekleme** arama kutusuna, Konuk kullanıcı için e-posta adresini yazın. İsteğe bağlı olarak bir hoş geldiniz iletisi ekleyin.
    
-   ![Erişim paneli davet](media/add-users-iw/access-panel-invitation.png)
+   ![Ekleme gösteren ekran görüntüsü ekleme Konuk üyeleri penceresi](media/add-users-iw/access-panel-invitation.png)
    
 5. Seçin **Ekle** Konuk kullanıcı davet gönderilecek. Daveti göndermenizin ardından kullanıcı hesabı otomatik olarak dizine konuk olarak eklenir.
 
@@ -55,19 +56,19 @@ Bir uygulama için Self Servis yapılandırdıktan sonra uygulama sahipleri payl
 2. Giderek, erişim paneli `https://myapps.microsoft.com`.
 3. Seçin **grupları** uygulama.
    
-   ![Erişim paneli grupları uygulama](media/add-users-iw/access-panel-groups.png)
+   ![Gruplar uygulama erişim panelinde gösteren ekran görüntüsü](media/add-users-iw/access-panel-groups.png)
    
 4. Altında **olduğum gruplar**, paylaşmak istediğiniz uygulama erişimi olan grubu seçin.
    
-   ![Kendi erişim paneli-gruplar](media/add-users-iw/access-panel-groups-i-own.png)
+   ![Sahip olduğum gruplar altındaki bir grubu seçmek nereye gösteren ekran görüntüsü](media/add-users-iw/access-panel-groups-i-own.png)
    
 5. Grup üyeleri listenin en üstünde seçin **+**.
    
-   ![Üye erişim paneli-gruplar ekleyin](media/add-users-iw/access-panel-groups-add-member.png)
+   ![Gruba üye eklemek için artı simgesini gösteren ekran görüntüsü](media/add-users-iw/access-panel-groups-add-member.png)
    
 6. İçinde **üye ekleme** arama kutusuna, Konuk kullanıcı için e-posta adresini yazın. İsteğe bağlı olarak bir hoş geldiniz iletisi ekleyin.
    
-   ![Erişim paneli grubu davet](media/add-users-iw/access-panel-invitation.png)
+   ![Ekleme gösteren ekran görüntüsü ekleme Konuk üyeleri penceresi](media/add-users-iw/access-panel-invitation.png)
    
 7. Seçin **Ekle** otomatik olarak Konuk kullanıcı davet göndermek için. Daveti göndermenizin ardından kullanıcı hesabı otomatik olarak dizine konuk olarak eklenir.
 

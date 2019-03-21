@@ -9,14 +9,15 @@ ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03652329acaeb737cb7cb4010ef48938caa17acc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c7a652ab4283321c5934b32fdc5478bb5d79e4a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096920"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293139"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>SaaS uygulamalarını B2B işbirliği için yapılandırma
 
@@ -53,7 +54,7 @@ Kendi kuruluş hesabını kullanarak oturum açmasına etkinleştirmek için bir
 
 5. Oturum açmak için Dropbox oturum açma URL'si ile **çoklu oturum açma** sayfası.
 
-   ![Dropbox oturum açma sayfası](media/configure-saas-apps/sign-in-to-dropbox.png)
+   ![Dropbox oturum açma sayfasını gösteren ekran görüntüsü](media/configure-saas-apps/sign-in-to-dropbox.png)
 
 6. Menüsünde **Yönetici Konsolu**.
 
@@ -71,14 +72,14 @@ Kendi kuruluş hesabını kullanarak oturum açmasına etkinleştirmek için bir
 
 Dropbox uygulamada konuk veya üye kullanıcı ayarlanan sonra Dropbox'tan ayrı bir davet alırsınız. Dropbox çoklu oturum açmayı kullanmak için davetlilerin daveti bir bağlantıya tıklayarak kabul etmeniz gerekir.
 
-## <a name="box"></a>Kutu
+## <a name="box"></a>Box
 SAML Protokolü temelinde Federasyon kutusuna Konuk kullanıcıları Azure AD hesabıyla kimliğini açabileceğinizi bilirsiniz. Bu yordamda, meta verileri için Box.com yükleyin.
 
 1. Box uygulamasına Kurumsal uygulamaları ekleyin.
 
 2. Çoklu oturum açma şu sırayla yapılandırın:
 
-   ![Kutusu çoklu oturum açmayı yapılandırın](media/configure-saas-apps/configure-box-sso.png)
+   ![Çoklu oturum açma yapılandırması ayarları gösteren ekran görüntüsü](media/configure-saas-apps/configure-box-sso.png)
 
    a. İçinde **oturum açma URL'si** kutusuna, Azure portalında kutusunu, oturum açma URL'si uygun şekilde ayarlandığından emin olun. Bu URL'yi Box.com kiracınızın URL'dir. Bu adlandırma kuralını uygulamalıdır *https://.box.com*.  
    **Tanımlayıcı** bu uygulama için geçerli değildir ancak yine de zorunlu bir alan olarak görünür.

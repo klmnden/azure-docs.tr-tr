@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: dwgeo
-ms.openlocfilehash: b4bcc1bbed732e09f4c4d915342a422ce6c36901
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 71925a1ee67956df45901950b2a59fa4c1b458a7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002088"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260096"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>İstemciler için Azure Media Services anahtar dağıtımı hizmetiyle belirteçlerini nasıl geçirme öğrenin
 Müşteriler genellikle player anahtarı edinebilirsiniz için nasıl bir oynatıcı belirteçleri doğrulama için Azure Media Services anahtar dağıtımı hizmetiyle geçirebilirsiniz isteyin. Media Services basit web belirteci (SWT) destekleyen ve JSON Web Token (JWT) biçimlendirir. Belirteç kimlik doğrulama anahtarı, ortak şifreleme veya Gelişmiş Şifreleme Standardı (AES) Zarf şifreleme sistemde kullanmadığınıza bakılmaksızın herhangi bir türde uygulanır.
@@ -29,7 +29,7 @@ Müşteriler genellikle player anahtarı edinebilirsiniz için nasıl bir oynat�
 
 - HTTP yetkilendirme üst bilgisi ile.
     > [!NOTE]
-    > OAuth 2.0 özellikleri "Bearer" öneki bekleniyor. Bir örnek oynatıcı belirteç yapılandırma ile Azure Media Player barındırılan [tanıtım sayfasını](http://ampdemo.azureedge.net/). Video kaynağı koymak için **AES (JWT belirteci)** veya **AES (SWT belirteci)**. Belirteci yetkilendirme üst bilgisi geçirilir.
+    > OAuth 2.0 özellikleri "Bearer" öneki bekleniyor. Bir örnek oynatıcı belirteç yapılandırma ile Azure Media Player barındırılan [tanıtım sayfasını](https://ampdemo.azureedge.net/). Video kaynağı koymak için **AES (JWT belirteci)** veya **AES (SWT belirteci)**. Belirteci yetkilendirme üst bilgisi geçirilir.
 
 - Bir URL ek sorgu parametresi ile "belirteci tokenvalue =."  
     > [!NOTE]

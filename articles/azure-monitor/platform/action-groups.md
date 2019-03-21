@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 8e9208981dd54fef1f56ee552d34bab78210b96d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 29db8c8b51082016d413c66c6abfdb1c518c9329
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316566"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117974"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında Eylem grupları oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
@@ -72,9 +72,9 @@ Bir eylem grubu oluşturduktan sonra görünür **Eylem grupları** bölümünü
 **Azure uygulaması anında iletme** -sınırlı sayıda Azure uygulaması eylemleri bir eylem grubu içinde olabilir. Şu anda Azure uygulama eylemi yalnızca ServiceHealth uyarıları da destekler. Herhangi bir uyarı türünü göz ardı edilir. Bkz: [hizmet durumu bildirimi gönderilen her uyarıları yapılandırma](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 **E-posta** -aşağıdaki e-posta adreslerinden e-postalar gönderilecek. E-posta filtreleme uygun şekilde yapılandırıldığından emin olun
-   - azure-noreply@microsoft.com
-   - azureemail-noreply@microsoft.com
-   - alerts-noreply@mail.windowsazure.com
+- azure-noreply@microsoft.com
+- azureemail-noreply@microsoft.com
+- alerts-noreply@mail.windowsazure.com
 
 E-posta eylemleri sınırlı sayıda bir eylem grubu içinde olabilir. Bkz: [bilgileri sınırlama oranı](./../../azure-monitor/platform/alerts-rate-limiting.md) makale
 

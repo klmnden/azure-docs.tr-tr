@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: 01c3e8072db81620764ccdd3ea99258de4649807
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858949"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295785"
 ---
 # <a name="manage-azure-vm-backups"></a>Azure VM yedeklemelerini yönetme
 
@@ -85,7 +85,7 @@ Kendi korumasını ayarladıktan sonra sanal makinenin bir isteğe bağlı yedek
 
 İsteğe bağlı yedekleme tetiklemek için:
 
-1. Üzerinde [kasa öğesi panosunda](#view-vms-in-the-dashboard)altında **korumalı öğesi**seçin **yedekleme öğesi**.
+1. Üzerinde [kasa öğesi panosunda](#view-vms-on-the-dashboard)altında **korumalı öğesi**seçin **yedekleme öğesi**.
 
     ![Yedekleme şimdi seçeneği](./media/backup-azure-manage-vms/backup-now-button.png)
 
@@ -112,7 +112,7 @@ Bir sanal makine korumayı durdurmanın iki yolu vardır:
 
 Bir VM için korumayı durdurmak için:
 
-1. Üzerinde [öğenin Pano kasası](#view-vms-in-the-dashboard)seçin **yedeklemeyi Durdur**.
+1. Üzerinde [öğenin Pano kasası](#view-vms-on-the-dashboard)seçin **yedeklemeyi Durdur**.
 2. Korumak veya yedekleme verileri silmek ve gerektiğinde Seçiminizi onaylayın isteyip istemediğinizi seçin. İsterseniz bir açıklama ekleyin. Öğenin adından emin değilseniz, adını görüntülemek için ünlem işareti gelin.
 
     ![Korumayı Durdur](./media/backup-azure-manage-vms/retain-or-delete-option.png)
@@ -125,9 +125,9 @@ VM durdurulduğunda yedekleme verileri tutarsanız, daha sonra korumayı devam e
 
 Bir sanal makine için korumayı sürdürmek için:
 
-1. Üzerinde [öğenin Pano kasası](#view-vms-in-the-dashboard)seçin **yedeklemeyi Sürdür**.
+1. Üzerinde [öğenin Pano kasası](#view-vms-on-the-dashboard)seçin **yedeklemeyi Sürdür**.
 
-2. Bağlantısındaki [yedekleme ilkelerini yönetme](#manage-backup-policies) VM için ilkeyi atamak için. Sanal makinenin ilk koruma ilkesini seçin gerek yoktur.
+2. Bağlantısındaki [yedekleme ilkelerini yönetme](#manage-backup-policy-for-a-vm) VM için ilkeyi atamak için. Sanal makinenin ilk koruma ilkesini seçin gerek yoktur.
 3. VM yedekleme ilkesini uyguladıktan sonra aşağıdaki iletiyi görürsünüz:
 
     ![Başarıyla korunan bir sanal makine belirten ileti](./media/backup-azure-manage-vms/success-message.png)
@@ -142,7 +142,7 @@ Sırasında bir sanal makinenin yedekleme verilerini silmeniz **yedeklemeyi Durd
 Durdurmak veya sanal makinenin yedekleme işi devre dışı sonra yedekleme verileri silebilirsiniz:
 
 
-1. Üzerinde [kasa öğesi panosunda](#view-vms-in-the-dashboard)seçin **yedekleme verilerini Sil**.
+1. Üzerinde [kasa öğesi panosunda](#view-vms-on-the-dashboard)seçin **yedekleme verilerini Sil**.
 
     ![Delete yedeği seçin](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 

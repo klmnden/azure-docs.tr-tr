@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014906"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295632"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B işbirliği davet e-- Azure Active Directory öğeleri
 
 Davet e-postalarına, iş ortakları karttaki B2B işbirliği kullanıcıları Azure AD'de getirmek için önemli bir bileşendir. Alıcının güveni artırmak için bunları kullanabilirsiniz. yasallığı ekleyebilirsiniz ve alıcı emin olmak için e-posta, sosyal kanıt hissettirir seçme ile rahat **Başlarken** davetiyeyi kabul etmek için düğme. Bu güven, paylaşım uyuşmazlıkları azaltmak bir anahtar anlamına gelir. Ve ayrıca e-posta harika görünecek yapmak istediğiniz!
 
-![Azure AD B2b davet e-postası](media/invitation-email-elements/invitation-email.png)
+![B2B davet e-postası gösteren ekran görüntüsü](media/invitation-email-elements/invitation-email.png)
 
 ## <a name="explaining-the-email"></a>E-posta açıklayan
 En iyi şekilde nasıl yeteneklerini kullanılacak bilmesi e-postanın bazı öğeler bakalım.
@@ -51,12 +51,12 @@ Davet eden'ın görünen ad, e-postada dahil edilir. Ve ayrıca, Azure AD hesab�
 
 Profil resminizi henüz ayarlamadıysanız, davet eden'ın baş resmi yerine bir simgeyle gösterilir:
 
-  ![Davet eden'ın baş görüntüleme](media/invitation-email-elements/inviters-initials.png)
+  ![Davet eden davetle görüntülenen baş gösteren ekran görüntüsü](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>Gövde
 Davet eden ne zaman ölçeklemesini ileti gövdesinde [directory, Grup veya uygulama için Konuk kullanıcı davet](add-users-administrator.md) veya [davet API kullanarak](customize-invitation-api.md). Güvenlik nedenleriyle HTML etiketlerini işlemek için bir metin alanı var.
 
-  ![e-posta gövdesi resmi](media/invitation-email-elements/invitation-email-body.png)
+  ![Davet e-posta gövdesinin gösteren ekran görüntüsü](media/invitation-email-elements/invitation-email-body.png)
 
 ### <a name="footer-section"></a>Alt bilgi bölümü
 Alt bilgi, Microsoft şirket markası içerir ve e-posta izlenmeyen bir diğer addan gönderildiğini bilmeniz alıcı olanak tanır. 
@@ -65,12 +65,12 @@ Alt bilgi, Microsoft şirket markası içerir ve e-posta izlenmeyen bir diğer a
 
 - Davet eden, davet eden Kiracı içinde bir e-posta adresi yok
 
-  ![Resim davet eden, davet eden Kiracı bir e-posta adresi yok](media/invitation-email-elements/inviter-no-email.png)
+  ![Bir davet eden, davet eden Kiracı e-posta atanmamışsa, ekran görüntüsü](media/invitation-email-elements/inviter-no-email.png)
 
 
 - Alıcı davetini gerekmez
 
-  ![ne zaman alıcı davetini gerekmez](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
+  ![Alıcı davetini gerekmez, ekran görüntüsü](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
 ## <a name="how-the-language-is-determined"></a>Dil nasıl belirlenir
 Konuk kullanıcı davet e-posta olarak sunulan dili, aşağıdaki ayarları tarafından belirlenir. Bu ayarlar, öncelik sırasına göre listelenir. Bir ayar yapılandırılmamışsa, listedeki sonraki ayarı dili belirler. 

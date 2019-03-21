@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ba5f803f59263f9bfebfd4ec8635d5cdd6d90a0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cfb56ea81abeeba83bee73356c682b3e9fae866f
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171783"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292927"
 ---
 # <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Tüm verileri karşıdan Azure Active Directory etkinlik günlüğünde bulamıyorum
 
@@ -34,11 +34,11 @@ Etkinlik günlüklerini (denetim veya oturum açma) indirdim ve seçtiğim süre
  
 ## <a name="cause"></a>Nedeni
 
-Azure Portal'da etkinlik günlüklerini indirdiğinizde, en son gerçekleşen en başta tarafından sıralanan 5000 kayıt ölçek sınırlıyoruz. 
+Azure Portal'da etkinlik günlüklerini indirdiğinizde ölçek en son gerçekleşen en başta göre sıralanmış, 250.000 kayıtlara sınırlıyoruz. 
 
 ## <a name="resolution"></a>Çözüm
 
-Belirli bir noktadaki bir milyon kaydı getirmek için [Azure AD Raporlama API’lerini](concept-reporting-api.md) kullanabilirsiniz. Bizim önerdiğimiz yaklaşım olmaktır [bir zamanlamaya göre Çalıştır](tutorial-signin-logs-download-script.md) bir sürede (örneğin, günlük veya haftalık) artımlı bir şekilde kayıt getirilecek raporlama API'lerini çağırır. 
+Belirli bir noktadaki bir milyon kaydı getirmek için [Azure AD Raporlama API’lerini](concept-reporting-api.md) kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

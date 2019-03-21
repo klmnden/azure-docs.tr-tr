@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 02/08/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6b9e5f304eb578a5f63739d26047db328a3d5ac9
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 5cca0d866442583c87665b3a1db8c65c66d12f0a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216773"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285386"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Linux (Önizleme) üzerinde Azure App Service'te bir Python uygulaması oluşturma
 
@@ -109,12 +109,12 @@ Checking connectivity... done.
 
 Örnek kodu içeren dizine geçin ve `az webapp up` komutunu çalıştırın.
 
-Aşağıdaki komutta <app_name> kısmını benzersiz uygulama adıyla değiştirin.
+Aşağıdaki örnekte, < Uygulama adı > bir benzersiz uygulama adıyla değiştirin.
 
 ```bash
 cd python-docs-hello-world
 
-az webapp up -n <app_name>
+az webapp up -n <app-name>
 ```
 
 Bu komutun çalıştırılması birkaç dakika sürebilir. Çalıştırıldığında, aşağıdaki örneğe benzer bilgiler görüntüler:
@@ -125,15 +125,15 @@ Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
 Resource group creation complete
 Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
 App service plan creation complete
-Creating app '<app_name>' ....
+Creating app '<app-name>' ....
 Webapp creation complete
 Creating zip with contents of dir /home/username/quickstart/python-docs-hello-world ...
 Preparing to deploy contents to app.
 All done.
 {
-  "app_url": "https:/<app_name>.azurewebsites.net",
+  "app_url": "https:/<app-name>.azurewebsites.net",
   "location": "Central US",
-  "name": "<app_name>",
+  "name": "<app-name>",
   "os": "Linux",
   "resourcegroup": "appsvc_rg_Linux_CentralUS ",
   "serverfarm": "appsvc_asp_Linux_CentralUS",
@@ -151,7 +151,7 @@ All done.
 Web tarayıcınızı kullanarak, dağıtılan uygulamanın konumuna gidin.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 Python örnek kodu, bir yerleşik görüntü ile Linux üzerinde App Service'te çalışıyor.
@@ -174,10 +174,10 @@ return "Hello Azure!"
 
 Yaptığınız değişiklikleri kaydedin ve düzenleyiciden çıkın. Kaydetmek için `^S` ve çıkmak için `^Q` komutunu kullanın.
 
-Şimdi uygulamayı yeniden dağıtacaksınız. Yedek `<app_name>` uygulamanızla.
+Şimdi uygulamayı yeniden dağıtacaksınız. Yedek `<app-name>` uygulamanızla.
 
 ```bash
-az webapp up -n <app_name>
+az webapp up -n <app-name>
 ```
 
 Dağıtım tamamlandıktan sonra **Uygulamaya göz atma** adımında açılan tarayıcı penceresine dönüp sayfayı yenileyin.

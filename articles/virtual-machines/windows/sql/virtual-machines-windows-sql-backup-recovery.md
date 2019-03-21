@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: e291072f7eb075adeff9efb37f1f7dffc72d714c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab239d0546508d74874c6b6be03f6afc06b08fa7
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093533"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286304"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler’de SQL Server için Yedekleme ve Geri Yükleme
 
@@ -35,7 +35,7 @@ Aşağıdaki tabloda Azure Vm'lerinde çalışan SQL Server için çeşitli yede
 | Stratejisi | SQL sürümleri | Açıklama |
 |---|---|---|
 | [Otomatik Yedekleme](#automated) | 2014<br/> 2016<br/> 2017 | Otomatik yedekleme, SQL Server VM üzerindeki tüm veritabanları için normal yedeklemelerinin zamanlamasını olanak tanır. Yedeklemeler, 30 gün boyunca Azure depolama alanında depolanır. Otomatik yedekleme v2, SQL Server 2016 ile başlayarak, el ile zamanlama ve tam sıklığını ve günlük yedekleri yapılandırma gibi ek seçenekleri sunar. |
-| [SQL Vm'leri için Azure yedekleme](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup, Azure Vm'lerinde çalışan SQL Server için kurumsal sınıf yedekleme özelliği sağlar. Bu hizmet ile birden çok sunucu ve binlerce veritabanının yedeklerini merkezi olarak yönetebilir. Veritabanları, portalında zaman içinde belirli bir noktaya geri yüklenebilir. Yedeklemeleri yıllarca saklayabilirsiniz bir özelleştirilebilir bekletme ilkesi sunar. Bu özellik şu anda genel Önizleme aşamasındadır. |
+| [SQL VM'leri için Azure Backup](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup, Azure Vm'lerinde çalışan SQL Server için kurumsal sınıf yedekleme özelliği sağlar. Bu hizmet ile birden çok sunucu ve binlerce veritabanının yedeklerini merkezi olarak yönetebilir. Veritabanları, portalında zaman içinde belirli bir noktaya geri yüklenebilir. Yedeklemeleri yıllarca saklayabilirsiniz bir özelleştirilebilir bekletme ilkesi sunar. Bu özellik şu anda genel Önizleme aşamasındadır. |
 | [El ile yedekleme](#manual) | Tümü | SQL Server sürümüne bağlı olarak, el ile yedekleme ve bir Azure sanal makinesinde çalışan SQL Server'a geri yüklemek için çeşitli teknikler vardır. Bu senaryoda, veritabanlarınızı nasıl yedeklenir ve depolama konumu ve bu yedeklemeler yönetimini sorumludur. |
 
 Aşağıdaki bölümlerde her seçeneği daha ayrıntılı açıklanmaktadır. Bu makalenin son bölümü, bir özellik matrisi biçiminde bir özetini sağlar.
@@ -59,7 +59,7 @@ SQL VM'ler için otomatik yedekleme yapılandırma hakkında daha fazla bilgi i�
 - **SQL Server 2016/2017**: [Azure sanal makineleri için otomatik yedekleme v2](virtual-machines-windows-sql-automated-backup-v2.md)
 - **SQL Server 2014**: [SQL Server 2014 sanal makineleri için otomatik yedekleme](virtual-machines-windows-sql-automated-backup.md)
 
-## <a id="azbackup"></a> SQL Vm'leri (genel Önizleme) için Azure yedekleme
+## <a id="azbackup"></a> SQL Vm'leri için Azure yedekleme
 
 [Azure yedekleme](/azure/backup/) Azure Vm'lerinde çalışan SQL Server için kurumsal sınıf yedekleme özelliği sağlar. Tüm yedeklemeler depolanır ve bir kurtarma Hizmetleri Kasası'nda yönetilen. Bu çözüm, özellikle kuruluşlar için sağladığı çeşitli avantajları vardır:
 
@@ -76,9 +76,9 @@ SQL VM'ler için otomatik yedekleme yapılandırma hakkında daha fazla bilgi i�
 
 Bir tanıtım ile birlikte nasıl çalıştığını ilişkin hızlı genel bakış için aşağıdaki videoyu izleyin:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2dNbw]
+> [!VIDEO https://www.youtube.com/embed/wmbANpHos_E]
 
-Bu SQL VM'ler için Azure Backup çözümü şu anda genel Önizleme aşamasındadır. Daha fazla bilgi için [SQL Server veritabanını azure'a yedekleme](../../../backup/backup-azure-sql-database.md).
+Bu SQL VM'ler için Azure Backup çözümü, genel kullanıma sunulmuştur. Daha fazla bilgi için [SQL Server veritabanını azure'a yedekleme](../../../backup/backup-azure-sql-database.md).
 
 ## <a id="manual"></a> El ile yedekleme
 

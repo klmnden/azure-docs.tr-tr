@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b40a2bbfa7bbab7ffbdd4c47684eda7c954e7b77
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c5979fa7ff67c5acda9ab653bc4ee52d8b5129a5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996975"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293813"
 ---
 # <a name="streaming-endpoints-overview"></a>Akış uç noktalarına genel bakış  
 
@@ -50,8 +50,8 @@ Media Services'ın Ocak 2017 sürümünden başlayarak, iki akış tür vardır:
 
 Type|Açıklama
 ---|---
-**Standart**|Bu, senaryoların büyük bölümü için işe yarar varsayılan seçenektir.<br/>Bu seçenek, sabit sınırlı SLA'sını alın, akış uç noktasını ilk 15, başlattıktan sonra gün ücretsizdir.<br/>Yalnızca ilk ilk 15 gün boyunca ücretsiz olarak birden fazla akış uç noktaları, oluşturmak, bunları başlar başlamaz, diğerleri faturalandırılır. <br/>Ücretsiz deneme sürümü yalnızca yeni oluşturulan media services hesapları ve varsayılan akış uç noktası için geçerli olduğunu unutmayın. Mevcut akış uç noktaları ve ayrıca oluşturulan akış uç noktalarını ücretsiz deneme süresi içerir değil bile 2.0 sürümüne yükseltilir veya bunlar 2.0 sürümünde oluşturulur.
-**Premium**|Bu seçenek, daha yüksek ölçek veya denetim gerektiren profesyonel senaryolar için uygundur.<br/>Satın aldığınız premium akış birimi (SU) kapasite tabanlı değişken SLA, adanmış bir akış uç noktalarını yalıtılmış bir ortamda dinamik ve kaynaklar için rekabet değil.
+**Standart** |Bu, senaryoların büyük bölümü için işe yarar varsayılan seçenektir.<br/>Bu seçenek, sabit sınırlı SLA'sını alın, akış uç noktasını ilk 15, başlattıktan sonra gün ücretsizdir.<br/>Yalnızca ilk ilk 15 gün boyunca ücretsiz olarak birden fazla akış uç noktaları, oluşturmak, bunları başlar başlamaz, diğerleri faturalandırılır. <br/>Ücretsiz deneme sürümü yalnızca yeni oluşturulan media services hesapları ve varsayılan akış uç noktası için geçerli olduğunu unutmayın. Mevcut akış uç noktaları ve ayrıca oluşturulan akış uç noktalarını ücretsiz deneme süresi içerir değil bile 2.0 sürümüne yükseltilir veya bunlar 2.0 sürümünde oluşturulur.
+**Premium** |Bu seçenek, daha yüksek ölçek veya denetim gerektiren profesyonel senaryolar için uygundur.<br/>Satın aldığınız premium akış birimi (SU) kapasite tabanlı değişken SLA, adanmış bir akış uç noktalarını yalıtılmış bir ortamda dinamik ve kaynaklar için rekabet değil.
 
 Daha ayrıntılı bilgi için bkz. **karşılaştırma akış türleri** aşağıdaki bölümde.
 

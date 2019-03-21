@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 8137e59de7ad33ea806fcc2be36bb778448c9adc
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: ab235c67e3a0e60999a0348d03a6e938944f7030
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58077284"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260204"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure depolama analizi günlük kaydı
 
@@ -37,7 +37,7 @@ Depolama analizi, başarılı ve başarısız istekler hakkında ayrıntılı bi
 - Paylaşılan erişim imzası (SAS) veya başarılı ve başarısız istekleri dahil olmak üzere, OAuth kullanarak istekleri
 - Analiz veri istekleri
 
-  Depolama analizi kendisini günlük oluşturma veya silme gibi tarafından yapılan istekleri günlüğe kaydedilmez. Günlüğe kaydedilen verilerin tam bir listesi belgelenen [depolama analizi günlüğe yazılan işlemler ve durum iletileri](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) ve [depolama analizi günlük biçimi](/rest/api/storageservices/storage-analytics-log-format.md) konuları.
+  Depolama analizi kendisini günlük oluşturma veya silme gibi tarafından yapılan istekleri günlüğe kaydedilmez. Günlüğe kaydedilen verilerin tam bir listesi belgelenen [depolama analizi günlüğe yazılan işlemler ve durum iletileri](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) ve [depolama analizi günlük biçimi](/rest/api/storageservices/storage-analytics-log-format) konuları.
 
 ### <a name="logging-anonymous-requests"></a>Anonim istekler günlüğe kaydetme
 
@@ -48,7 +48,7 @@ Depolama analizi, başarılı ve başarısız istekler hakkında ayrıntılı bi
 - İstemci ve sunucu zaman aşımı hataları
 - 304 (değiştirilmedi) hata koduyla başarısız GET istekleri
 
-  Diğer tüm başarısız anonim istekler günlüğe kaydedilmez. Günlüğe kaydedilen verilerin tam bir listesi belgelenen [depolama analizi günlüğe yazılan işlemler ve durum iletileri](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) ve [depolama analizi günlük biçimi](/rest/api/storageservices/storage-analytics-log-format.md) konuları.
+  Diğer tüm başarısız anonim istekler günlüğe kaydedilmez. Günlüğe kaydedilen verilerin tam bir listesi belgelenen [depolama analizi günlüğe yazılan işlemler ve durum iletileri](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) ve [depolama analizi günlük biçimi](/rest/api/storageservices/storage-analytics-log-format) konuları.
 
 ## <a name="how-logs-are-stored"></a>Günlükler nasıl depolanır
 
@@ -200,9 +200,9 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
 
  Günlük verilerinizi programlama yoluyla indirmek nasıl bir örnek için blog gönderisine bakın [Windows Azure depolama günlüğü: İstekleri izlemek için depolama günlüklerini kullanarak](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) ve arama sayfasında "DumpLogs" sözcüğü için.  
 
- Günlük verilerinizi yüklendiğinde, günlük girişlerini dosyalarında görüntüleyebilirsiniz. Bu günlük dosyaları, Microsoft Message Analyzer dahil olmak üzere diğer birçok günlük araçları ayrıştırmak için okuma sınırlandırılmış metin biçimi kullanın (daha fazla bilgi için kılavuzuna bakın [izleme Diagnosing ve sorun giderme Microsoft Azure depolama](storage-monitoring-diagnosing-troubleshooting.md)). Biçimlendirme, filtreleme, sıralama, günlük dosyalarının içeriğini arama ad farklı özellikleri farklı araçları vardır. Depolama günlüğü, günlük dosyası biçimi ve içerik hakkında daha fazla bilgi için bkz. [depolama analizi günlük biçimi](storage-analytics-logging.md) ve [depolama analizi günlüğe yazılan işlemler ve durum iletileri](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md).
+ Günlük verilerinizi yüklendiğinde, günlük girişlerini dosyalarında görüntüleyebilirsiniz. Bu günlük dosyaları, Microsoft Message Analyzer dahil olmak üzere diğer birçok günlük araçları ayrıştırmak için okuma sınırlandırılmış metin biçimi kullanın (daha fazla bilgi için kılavuzuna bakın [izleme Diagnosing ve sorun giderme Microsoft Azure depolama](storage-monitoring-diagnosing-troubleshooting.md)). Biçimlendirme, filtreleme, sıralama, günlük dosyalarının içeriğini arama ad farklı özellikleri farklı araçları vardır. Depolama günlüğü, günlük dosyası biçimi ve içerik hakkında daha fazla bilgi için bkz. [depolama analizi günlük biçimi](/rest/api/storageservices/storage-analytics-log-format) ve [depolama analizi günlüğe yazılan işlemler ve durum iletileri](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Depolama analizi günlük biçimi](/rest/api/storageservices/storage-analytics-log-format.md)
-* [Depolama analizi işlemleri ve durum iletileri günlüğe kaydedilir.](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)
+* [Depolama analizi günlük biçimi](/rest/api/storageservices/storage-analytics-log-format)
+* [Depolama analizi işlemleri ve durum iletileri günlüğe kaydedilir.](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [Storage Analytics ölçümleri (Klasik)](storage-analytics-metrics.md)

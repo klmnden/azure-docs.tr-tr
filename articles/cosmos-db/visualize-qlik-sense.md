@@ -7,12 +7,12 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 4b37b6cd35526d6a76625dd03d1325f1688e698e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4532962b6fd9f40fad625ab000116e5a617682e5
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044476"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258796"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Verilerinizi görselleştirin ve Qlik Sense Azure Cosmos DB'ye bağlanma
 
@@ -42,9 +42,9 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdaki kaynakları hazır oldu�
 
 * İndirme [video oyun veri](https://www.kaggle.com/gregorut/videogamesales), bu örnek verileri CSV biçimindedir. Bu verileri bir Cosmos DB hesabını depolamak ve Qlik Sense içinde görselleştirin.
 
-* İçinde açıklanan adımları kullanarak bir Azure Cosmos DB SQL API hesabı oluşturma [hesap oluşturma](create-sql-api-dotnet.md#create-a-database-account) hızlı başlangıç makalesi bölümü.
+* İçinde açıklanan adımları kullanarak bir Azure Cosmos DB SQL API hesabı oluşturma [hesap oluşturma](create-sql-api-dotnet.md#create-account) hızlı başlangıç makalesi bölümü.
 
-* [Bir veritabanı ve koleksiyonu oluşturma](create-sql-api-dotnet.md#add-a-collection) –, kullanım 1000 RU/sn için toplama aktarım hızı değerinde ayarlayabilirsiniz. 
+* [Bir veritabanı ve koleksiyonu oluşturma](create-sql-api-dotnet.md#create-collection-database) –, kullanım 1000 RU/sn için toplama aktarım hızı değerinde ayarlayabilirsiniz. 
 
 * Örnek video oyun satış verileri Cosmos DB hesabınıza yükleyin. Azure Cosmos DB veri geçiş aracı kullanarak verileri içeri aktarabilirsiniz, yapabileceğiniz bir [sıralı](import-data.md#SQLSeqTarget) veya [toplu içeri aktarma](import-data.md#SQLBulkTarget) veri. Cosmos DB hesabına alınacak veri için yaklaşık 3-5 dakika sürer.
 

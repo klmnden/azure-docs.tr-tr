@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16f7dc81d8174e3d8da39d3af95b945f8034cecd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1ff37184cd8789c5408d02a427080db86de00b7d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452038"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295462"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Kimlik doğrulaması ve yetkilendirme hata kodları
 
@@ -30,6 +30,8 @@ Azure Active Directory (Azure AD) güvenlik belirteci Hizmeti'nden (STS) döndü
 
 > [!NOTE]
 > Bu bilgiler geçicidir ve değiştirilebilir. Bir sorunuz veya aradığınız ne bulamıyor? Bir GitHub sorunu oluşturun veya bakın [geliştiriciler için destek ve Yardım seçeneklerini](active-directory-develop-help-support.md) diğer yollar hakkında bilgi edinmek için Yardım alabilir ve destek.
+>
+> Bu belge, geliştirici ve Yönetim Kılavuzu için sağlanır, ancak istemci tarafından hiçbir zaman kullanılmamalıdır. Hata kodları herhangi bir zamanda geliştirici kendi uygulama oluştururken yardımcı olması amaçlanmıştır daha ayrıntılı hata iletileri sağlamak için değiştirilebilir. Bir bağımlılık metin ya da hata kodunu numaralarında yararlanan uygulamalar zamana kırılır.  
 
 ## <a name="aadsts-error-codes"></a>AADSTS hata kodları
 

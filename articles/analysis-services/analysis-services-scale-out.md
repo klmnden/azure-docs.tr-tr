@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eae1569cf6f7ada89f64b96fe81b154b84932a12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dd89d9645d2054f301ed999121fefc417ea5c6fa
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182855"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293915"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services ölçeğini genişletme
 
@@ -46,6 +46,8 @@ Sonraki bir ölçeklendirme işlemi gerçekleştirirken, örneğin, iki beş, so
 * Eşitleme bile sorgu havuzundaki hiçbir çoğaltması olduğunda izin verilir. Sıfırdan yeni verilerle bir veya daha fazla çoğaltma birincil sunucudaki bir işleme işlemi ölçeği genişletmeyi, sorgu havuzundaki hiçbir çoğaltması ile ilk eşitleme gerçekleştirin ve sonra ölçek genişletme. Ölçeği genişletme önce eşitleme, yeni eklenen çoğaltmaların yedek hidrasyonu önler.
 
 * Bir model veritabanı birincil sunucudan silinirken, otomatik olarak sorgu havuzundaki çoğaltmaların silinebilir değil. Bu veritabanı için dosya/sn yinelemenin paylaşılan blob depolama konumundan kaldırır ve ardından model veritabanında sorgu havuzundaki çoğaltmalar siler bir eşitleme işlemi gerçekleştirmeniz gerekir.
+
+* Birincil sunucuda bir veritabanını yeniden adlandırma, veritabanı için tüm çoğaltmaları doğru eşitlendiğinden emin olmak için gereken ek bir adım yoktur. Yeniden adlandırdıktan sonra belirten bir eşitleme gerçekleştirin `-Database` parametresi eski bir veritabanı adı. Bu eşitleme, eski adıyla dosya ve veritabanı tüm çoğaltmaları kaldırır. Ardından başka bir eşitleme belirtme gerçekleştirin `-Database` yeni veritabanı adı ile parametre. İkinci eşitleme, yeni adlandırılmış veritabanı dosyaları ikinci kümesine kopyalar ve tüm çoğaltmaları hydrates. Portalda Eşitle modeli komutunu kullanarak bu eşitleme gerçekleştirilemiyor.
 
 ### <a name="separate-processing-from-query-pool"></a>Sorgu havuzundan ayrı işleme
 

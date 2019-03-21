@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 4b2028b16c395b770e935fdba47dc0e965284fc2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: b1eb6e1458fab6de3472d68352ba7764b71007c8
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993684"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292590"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>REST ile Azure Media Services telemetri yapılandırma
 
@@ -125,8 +125,8 @@ Bu konuda açıklanan adımlar şunlardır:
         "EndPointType":2
     }
 
->[!NOTE]
->Değiştirmeyi unutmayın "https://telemetryvalidationstore.table.core.windows.net" depolama hesabınıza değeri.
+> [!NOTE]
+> Değiştirmeyi unutmayın "https://telemetryvalidationstore.table.core.windows.net" depolama hesabınıza değeri.
 
 ### <a name="response"></a>Yanıt
 

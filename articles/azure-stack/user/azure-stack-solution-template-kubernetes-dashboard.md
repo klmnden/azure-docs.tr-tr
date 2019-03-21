@@ -15,12 +15,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 243fb01a5c8112afaf310f616b93c2667ac6f19d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 76af6d6585d52eee99548f69c92bd414068fa28d
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729861"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259219"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Azure Stack'te Kubernetes panosuna erişme 
 
@@ -114,11 +114,11 @@ Kümenizde ana düğüm Panosu URL'sini alabilirsiniz.
 
 ## <a name="open-the-kubernetes-dashboard"></a>Kubernetes panosunu açma 
 
-1.  Web tarayıcınız açılır pencere engelleyicisini devre dışı bırakın.
+1. Web tarayıcınız açılır pencere engelleyicisini devre dışı bırakın.
 
-2.  URL'yi tarayıcınıza belirtildiği komutu çalıştırdığınızda noktası `kubectl cluster-info`. Örneğin, https://azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy 
-3.  İstemci sertifikası seçin.
-4.  Belirteci girin. 
+2. URL'yi tarayıcınıza belirtildiği komutu çalıştırdığınızda noktası `kubectl cluster-info`. Örneğin: https:\//azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard: / proxy 
+3. İstemci sertifikası seçin.
+4. Belirteci girin. 
 5. Ana düğüm üzerinde bash komut satırını yeniden ve izin vermek `kubernetes-dashboard`. Şu komutu çalıştırın:
 
     ```Bash  

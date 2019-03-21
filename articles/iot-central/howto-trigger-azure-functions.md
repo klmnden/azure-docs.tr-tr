@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 512956d2de0f9a838cc6378345a334e489d1d120
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c80b007c3c9c1a35540e690554603a5ae8f16d62
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306876"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284638"
 ---
 # <a name="trigger-azure-functions-using-webhooks-in-azure-iot-central"></a>Tetikleyici Azure işlevleri Azure IOT Central Web kancalarını kullanma
 
 *Bu konu, Oluşturucular ve Yöneticiler için geçerlidir.*
 
-Azure işlevleri, sunucusuz bir kod Web kancası çıktı IOT Central kurallarını çalıştırmak için kullanın. Bir VM sağlama veya Azure işlevleri'ni kullanmak için bir web uygulaması yayımlamak zorunda değildir ancak bunun yerine bu kod serverlessly çalıştırabilirsiniz. SQL veritabanı veya Event Grid gibi son hedefine göndermeden önce Web kancası yükü dönüştürmek için Azure işlevlerini kullanın.
+Azure işlevleri, sunucusuz bir kod Web kancası çıktı IOT Central kurallarını çalıştırmak için kullanın. Bir VM sağlama veya Azure işlevleri'ni kullanmak için bir web uygulaması yayımlamak zorunda değilsiniz ancak bunun yerine bu kod sunucusuz çalıştırabilirsiniz. SQL veritabanı veya Event Grid gibi son hedefine göndermeden önce Web kancası yükü dönüştürmek için Azure işlevlerini kullanın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -27,15 +27,15 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="how-to-connect-azure-functions"></a>Azure işlevleri bağlama
 
-1. [Azure Portalı'nda yeni bir işlev uygulaması oluşturma](https://ms.portal.azure.com/#create/Microsoft.FunctionApp).
+1. [Azure portalında yeni işlev uygulaması oluşturma](https://ms.portal.azure.com/#create/Microsoft.FunctionApp).
 
-    ![Azure Portalı'nda yeni bir işlev uygulaması oluşturma](media/howto-trigger-azure-functions/createfunction.png)
+    ![Azure portalında yeni işlev uygulaması oluşturma](media/howto-trigger-azure-functions/createfunction.png)
 
-2. İşlev uygulamanızı genişletin ve seçin **+ düğmesini** işlevleri yanında. Bu işlev, işlev uygulamanızdaki ilk işlevse **Özel işlev**'i seçin. Böylece işlev şablonlarının tamamı görüntülenir.
+2. İşlev uygulamanızı genişletin ve seçin **+ düğmesini** işlevleri yanında. Bu işlev, işlev uygulamanızdaki ilk öğe, seçin **portalında** geliştirme ortamı olarak **devam**.
 
     ![Özel işlev işlev uygulaması seçin](media/howto-trigger-azure-functions/customfunction.png)
 
-3. Arama alanına yazın **"Genel"** Genel Web kancası tetikleyici şablonunuz için istediğiniz dili seçin. Bu konuda bir C# işlevi kullanılmaktadır. 
+3. Seçin **Web kancası + API** şablonu seçip alt **Oluştur**. Bu konuda, .NET tabanlı Azure işlevini kullanır.
 
     ![Genel Web kancası tetikleyicisini seçin](media/howto-trigger-azure-functions/genericwebhooktrigger.png)
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
-ms.openlocfilehash: 9ab271943d33ad63be0fae705ac703d1d98524ef
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542514"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259558"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure sanal makine yedeklemesinden dosya kurtarma
 
@@ -67,16 +67,16 @@ Kurtarma noktasından dosyaları veya klasörleri geri yüklemek için sanal mak
 
     - download.microsoft.com
     - Kurtarma hizmeti URL'leri (Kurtarma Hizmetleri kasası bulunduğu bölgeye başvurduğu coğrafi adı)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.com> (Azure genel coğrafi için)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (Azure Çin)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.us> (Azure ABD kamu)
-        - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Azure Almanya için)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (Azure için ortak coğrafyalar)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (Azure Çin için)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (için Azure ABD kamu)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (Azure Almanya için)
     - Giden bağlantı noktası 3260
 
 > [!Note]
->
-* İndirilen Dosya adı olacaktır **coğrafi-name** URL'de doldurulacak. İçin örn: İndirdiğiniz betiğin adı ile başlayan \'VMname\'\_\'geoname\'_\'GUID\', ister ContosoVM_wcus_12345678...<br><br>
-* URL şu şekilde olacaktır "https://pod01-rec2.wcus.backup.windowsazure.com"
+> 
+> * İndirilen Dosya adı olacaktır **coğrafi-name** URL'de doldurulacak. İçin örn: İndirdiğiniz betiğin adı ile başlayan \'VMname\'\_\'geoname\'_\'GUID\', ister ContosoVM_wcus_12345678...<br><br>
+> * URL şu şekilde olacaktır "https:\//pod01-rec2.wcus.backup.windowsazure.com"
 
 
    Linux için komut dosyası kurtarma noktasına bağlanmak için 'open-iSCSI' ve 'lshw' bileşenleri gerektirir. Bileşenleri betiğin çalıştırıldığı bilgisayarda mevcut değilse, komut dosyası bileşenleri yüklemek için izin ister. Rıza sağlamanın gerekli bileşenleri yüklemek için.
