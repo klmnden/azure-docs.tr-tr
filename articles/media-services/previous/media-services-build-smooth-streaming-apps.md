@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 65625fcc12143a8ea53ff2ab7d1dfcb43a0def8d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 92fc63ed45b6f1ea377138744d19137645c916e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992152"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57882735"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Sorunsuz bir akış Windows Store uygulaması oluşturma  
 
-Kesintisiz akış istemci SDK'sı Windows 8 için isteğe bağlı ve canlı kesintisiz akış içeriği oynatabilirsiniz Windows Store uygulamalar oluşturmalarını sağlar. Kesintisiz akış içeriği temel çalınmasını ek olarak, SDK'sı Microsoft PlayReady koruması, kalite düzeyi kısıtlama, DVR, geçiş, durum güncelleştirmeleri (örneğin, kalite düzeyi değişiklikler) için dinleme ses akışı Live gibi zengin özellikler de sağlar ve hata olayları ve benzeri. Desteklenen özellikler daha fazla bilgi için bkz. [sürüm notları](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Daha fazla bilgi için [Windows 8 için Player Framework](http://playerframework.codeplex.com/). 
+Kesintisiz akış istemci SDK'sı Windows 8 için isteğe bağlı ve canlı kesintisiz akış içeriği oynatabilirsiniz Windows Store uygulamalar oluşturmalarını sağlar. Kesintisiz akış içeriği temel çalınmasını ek olarak, SDK'sı Microsoft PlayReady koruması, kalite düzeyi kısıtlama, DVR, geçiş, durum güncelleştirmeleri (örneğin, kalite düzeyi değişiklikler) için dinleme ses akışı Live gibi zengin özellikler de sağlar ve hata olayları ve benzeri. Desteklenen özellikler daha fazla bilgi için bkz. [sürüm notları](https://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Daha fazla bilgi için [Windows 8 için Player Framework](https://playerframework.codeplex.com/). 
 
 Bu öğreticide, dört ders içerir:
 
@@ -38,7 +38,7 @@ Bu öğreticide, dört ders içerir:
 
 * Windows 8, 32 bit veya 64-bit.
 * Visual Studio 2012 ile bir 2015 sürümleri.
-* [Microsoft kesintisiz akış istemci SDK'sı Windows 8 için tasarım](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
+* [Microsoft kesintisiz akış istemci SDK'sı Windows 8 için tasarım](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
 Tamamlanan çözümü her ders için MSDN geliştirici kodu örnekleri (kod Galerisi) ' indirilebilir: 
 
@@ -107,7 +107,7 @@ Başvuru ekledikten sonra hedef Platformu (x64 veya x86) seçmeniz gerekir, ekle
 
          <StackPanel Name="spMediaControl" Grid.Row="1" Orientation="Horizontal">
             <TextBlock x:Name="tbSource" Text="Source :  " FontSize="16" FontWeight="Bold" VerticalAlignment="Center" />
-            <TextBox x:Name="txtMediaSource" Text="http://ecn.channel9.msdn.com/o9/content/smf/smoothcontent/elephantsdream/Elephants_Dream_1024-h264-st-aac.ism/manifest" FontSize="10" Width="700" Margin="0,4,0,10" />
+            <TextBox x:Name="txtMediaSource" Text="https://ecn.channel9.msdn.com/o9/content/smf/smoothcontent/elephantsdream/Elephants_Dream_1024-h264-st-aac.ism/manifest" FontSize="10" Width="700" Margin="0,4,0,10" />
             <Button x:Name="btnSetSource" Content="Set Source" Width="111" Height="43" Click="btnSetSource_Click"/>
             <Button x:Name="btnPlay" Content="Play" Width="111" Height="43" Click="btnPlay_Click"/>
             <Button x:Name="btnPause" Content="Pause"  Width="111" Height="43" Click="btnPause_Click"/>
@@ -203,7 +203,7 @@ Bu XAML dosyasında bazı olay işleyicileri denetimleri ile ilişkilendirilir. 
          }
          # endregion
    ```
-SliderProgress_PointerPressed olay işleyicisi burada tanımlanır.  Bu öğreticinin bir sonraki derste ele bunu çalıştırmak, için daha fazla works vardır.
+   SliderProgress_PointerPressed olay işleyicisi burada tanımlanır.  Bu öğreticinin bir sonraki derste ele bunu çalıştırmak, için daha fazla works vardır.
 6. Tuşuna **CTRL + S** dosyayı kaydetmek için.
 
 Tamamlanmış arka plan kod dosyasında şöyle:
@@ -807,7 +807,7 @@ Kesintisiz akış, içerik akışı görüntüleyicileri tarafından seçilebili
             changeStreams(selectedStreams);
         }
    ```
-**Derleme ve uygulamayı test etme**
+   **Derleme ve uygulamayı test etme**
 
 1. Tuşuna **F6** Projeyi derlemek için. 
 2. Uygulamayı çalıştırmak için **F5**'e basın.
@@ -1009,7 +1009,7 @@ Birden fazla video dosyaları farklı kalite düzeylerine (bit hızlarında) ve 
             changeStreams(selectedStreams);
          }
    ```
-**Derleme ve uygulamayı test etme**
+   **Derleme ve uygulamayı test etme**
 
 1. Tuşuna **F6** Projeyi derlemek için. 
 2. Uygulamayı çalıştırmak için **F5**'e basın.
@@ -1026,8 +1026,8 @@ Ders 4 tamamladınız.  Bu derste, parçaları seçmek için işlevselliği ekle
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Diğer kaynaklar:
-* [Gelişmiş Özellikler ile bir kesintisiz akış Windows 8 JavaScript uygulaması oluşturmayı öğrenin](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
-* [Kesintisiz akış teknik genel bakış](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
+* [Gelişmiş Özellikler ile bir kesintisiz akış Windows 8 JavaScript uygulaması oluşturmayı öğrenin](https://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
+* [Kesintisiz akış teknik genel bakış](https://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png

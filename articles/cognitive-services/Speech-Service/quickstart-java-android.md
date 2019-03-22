@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 43ace5e56234ed01ca008050c0efdf17b9a5a081
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 9458f052258993ee598ddfbca262faf8f6cb4ab9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848873"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258556"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Speech SDK'sı kullanarak Android'de Java konuşma tanıma
 
@@ -61,11 +61,11 @@ Android Studio’nun yeni Android projenizi hazırlaması biraz zaman alır. Dah
 Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.3.1`.
 
 Android Speech SDK'sı olarak paketlenmiş bir [AAR (Android kitaplık)](https://developer.android.com/studio/projects/android-library), gerekli kitaplıkları ve Android gerekli izinleri içerir.
-https://csspeechstorage.blob.core.windows.net/maven/ adresindeki Maven deposunda barındırılır.
+Https Maven deponun barındırılan:\//csspeechstorage.blob.core.windows.net/maven/.
 
 Konuşma SDK’sını kullanmak için projenizi ayarlayın. Android Studio menü çubuğundan **Dosya** > **Proje Yapısı**’nı seçerek Proje Yapısı penceresini açın. Proje Yapısı penceresinde aşağıdaki değişiklikleri yapın:
 
-1. Pencerenin sol tarafındaki listede **Proje**’yi seçin. **Varsayılan Kitaplık Deposu** ayarlarını, bir virgül ve tek tırnak içine alınan Maven deposu URL'sini ekleyerek düzenleyin. 'https://csspeechstorage.blob.core.windows.net/maven/'
+1. Pencerenin sol tarafındaki listede **Proje**’yi seçin. **Varsayılan Kitaplık Deposu** ayarlarını, bir virgül ve tek tırnak içine alınan Maven deposu URL'sini ekleyerek düzenleyin. ' https:\//csspeechstorage.blob.core.windows.net/maven/'
 
    ![Proje Yapısı penceresinin ekran görüntüsü](media/sdk/qs-java-android-06-add-maven-repository.png)
 

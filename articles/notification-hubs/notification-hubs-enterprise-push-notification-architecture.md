@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 369f3ebca0ca2f5862d8300934dee57a73d8bada
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: c934a3b16f5cdd2b4f703b1be15ce16ddc6d8746
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903411"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338488"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Kurumsal gönderim mimari kılavuzu
 
@@ -265,7 +265,7 @@ Tam örnek kodu kullanılabilir [bildirim hub'ı örnekleri]. Bu üç bileşene 
 ### <a name="running-the-sample"></a>Örneği çalıştırma
 
 1. WebJob'ınıza başarıyla çalışıyor ve sürekli olarak çalıştırılması zamanlanan emin olun.
-2. Çalıştırma ** Windows Store app başlatan EnterprisePushMobileApp.
+2. Çalıştırma **EnterprisePushMobileApp**, Windows Store uygulaması başlatır.
 3. Çalıştırma **EnterprisePushBackendSystem** LoB arka uç benzetimini yapar ve göndermeye başlar ve konsol uygulaması iletileri ve aşağıdaki gibi görünen kutlama bildirimleri görmeniz gerekir:
 
     ![][5]

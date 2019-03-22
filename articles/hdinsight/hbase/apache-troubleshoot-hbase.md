@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4dc50de7a97055e336627e34f747a17fcedc7e58
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37a8882653ffede121d2e2cd3f3357741d8d641a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091554"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336440"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak Apache HBase sorunlarını giderme
 
@@ -344,7 +344,7 @@ Bu, HMaster hizmeti ile bilinen bir sorundur. Küme genel başlangıç görevler
 
 ### <a name="issue"></a>Sorun
 
-Bir bölge sunucusu üzerinde bir yeniden başlatma hatası aşağıdaki en iyi yöntemleri tarafından engellenebilir. HBase bölge sunucuları yeniden başlatmak planlama yaparken ağır iş yükü etkinlik duraklatma öneririz. Shutdown devam ederken bölge sunucuları ile bağlanmak bir uygulama devam ederse, bölge sunucusu yeniden başlatma işlemi birkaç dakika daha yavaş olur. Ayrıca, önce tüm tabloları Temizle iyi bir fikirdir. Tablolarını temizlemek nasıl bir başvuru için bkz: [HDInsight HBase: Apache HBase kümesi yeniden başlatma zamanı tabloları temizlenerek geliştirmek nasıl](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+Bir bölge sunucusu üzerinde bir yeniden başlatma hatası aşağıdaki en iyi yöntemleri tarafından engellenebilir. HBase bölge sunucuları yeniden başlatmak planlama yaparken ağır iş yükü etkinlik duraklatma öneririz. Shutdown devam ederken bölge sunucuları ile bağlanmak bir uygulama devam ederse, bölge sunucusu yeniden başlatma işlemi birkaç dakika daha yavaş olur. Ayrıca, önce tüm tabloları Temizle iyi bir fikirdir. Tablolarını temizlemek nasıl bir başvuru için bkz: [HDInsight HBase: Apache HBase kümesi yeniden başlatma zamanı tabloları temizlenerek geliştirmek nasıl](https://web.archive.org/web/20190112153155/ https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
 HBase bölge Apache Ambari UI sunuculardan üzerinde yeniden başlatma işlemi'ı başlattığınızda, bölge sunucuları kapanmış, ancak hemen yeniden başlatma anında görün. 
 

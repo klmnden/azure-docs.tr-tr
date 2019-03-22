@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: bfaa738b0f99594a3bd11541d519701ff5eb98f5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 51d8b9bad4bb4a3663b07a711f363b263f5d64db
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896169"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339695"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage izleme, tanılama ve sorun giderme
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -25,7 +25,7 @@ Bu tür uygulamalar başarılı bir şekilde yönetmek için proaktif izleme ve 
 
 > [!NOTE]
 > Azure dosyaları şu anda kaydını desteklemiyor.
-> 
+>
 
 Uçtan uca Azure depolama uygulamalarda sorun giderme uygulamalı kılavuzu için bkz. [için uçtan uca Azure depolama ölçümlerini ve günlüğe kaydetme, AzCopy ve ileti Çözümleyicisi'ni kullanarak sorun giderme](../storage-e2e-troubleshooting.md).
 
@@ -100,7 +100,7 @@ Bölüm "[sorun giderme rehberi]" bazı depolama ile ilgili yaygın sorunları i
 ## <a name="monitoring-your-storage-service"></a>Depolama Hizmeti izleme
 Windows performans izleme ile bilginiz varsa, Windows Performans İzleyicisi sayaçları Azure depolama eşdeğer olacak şekilde depolama ölçümlerini düşünebilirsiniz. ' De depolama ölçümleri, ölçümleri (terminolojisinde Windows Performans İzleyicisi sayaçları) hizmet kullanılabilirliği, hizmet isteklerinin toplam sayısı veya hizmetine başarılı isteklerin yüzdesi gibi kapsamlı bir dizi bulacaksınız. Kullanılabilir ölçümler tam bir listesi için bkz. [Storage Analytics Ölçüm tablosu şeması](https://msdn.microsoft.com/library/azure/hh343264.aspx). Depolama hizmetinin toplamak ve saatte veya dakikada ölçümleri toplamak isteyip istemediğinizi belirtebilirsiniz. Ölçümleri etkinleştirme ve depolama hesaplarınızı izlemek hakkında daha fazla bilgi için bkz. [depolama ölçümlerini etkinleştirme ve ölçüm verilerini görüntüleme](https://go.microsoft.com/fwlink/?LinkId=510865).
 
-Görüntülemek istediğiniz hangi saatlik ölçümlerini seçebilirsiniz [Azure portalında](https://portal.azure.com) ve saatlik bir ölçüm belirli bir eşiği aştığında, yöneticiler e-posta ile bildirim kurallarını yapılandırın. Daha fazla bilgi için [uyarı bildirimleri alma](/azure/monitoring-and-diagnostics/monitoring-overview-alerts). 
+Görüntülemek istediğiniz hangi saatlik ölçümlerini seçebilirsiniz [Azure portalında](https://portal.azure.com) ve saatlik bir ölçüm belirli bir eşiği aştığında, yöneticiler e-posta ile bildirim kurallarını yapılandırın. Daha fazla bilgi için [uyarı bildirimleri alma](/azure/monitoring-and-diagnostics/monitoring-overview-alerts).
 
 Depolama hizmeti kullanarak bir en iyi çaba ölçümleri toplar, ancak her depolama işlemi kayıt.
 
@@ -132,8 +132,8 @@ Depolama ölçümleri bloblar genellikle büyük bir oranı, depolanan verilerin
 
 > [!NOTE]
 > Bu değerler, depolama hesabının kapasite sınırları yaklaştığı erken bir uyarı için izlemeniz gerekir. Azure portalında, toplam depolama kullanımı aşıyor veya belirttiğiniz eşiğin altında düştüğünde size bildirmek için uyarı kuralları ekleyebilirsiniz.
-> 
-> 
+>
+>
 
 Yardım için blog gönderisine bakın blobları gibi çeşitli depolama nesnelerin boyutunu tahmin etme [anlama Azure depolama Faturalaması – bant genişliği, işlemler ve kapasite](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
@@ -191,8 +191,8 @@ Uygulamanızın kullanıcılarının, istemci uygulaması tarafından bildirilen
 
 > [!NOTE]
 > Aralıklı hatalar görmeyi beklemelisiniz unutmayın: Örneğin, geçici ağ koşulları nedeniyle veya uygulama hataları.
-> 
-> 
+>
+>
 
 Aşağıdaki kaynaklar, depolamayla ilgili durum ve hata kodlarının anlaşılması konusunda yararlıdır:
 
@@ -214,8 +214,8 @@ Depolama günlüğü, sunucu tarafı günlüğe kaydetme, Azure depolama hesabı
 
 > [!NOTE]
 > Bazı durumlarda (örneğin, SAS yetkilendirme hataları), bir kullanıcı için istek verisi sunucu tarafı depolama günlüklerinde bulabilirsiniz hata bildirebilir. Sorunun nedenini istemcide ise araştırmak için depolama istemci Kitaplığı'nın günlüğe kaydetme özellikleri kullanın ya da ağ araştırmak için ağ izleme araçları kullanın.
-> 
-> 
+>
+>
 
 ### <a name="using-network-logging-tools"></a>Ağ günlük araçları kullanma
 İstemci ve sunucu değişimi veri ve temel ağ koşulları hakkında ayrıntılı bilgi sağlamak için istemci ve sunucu arasındaki trafiği yakalayabilirsiniz. Yararlı ağ günlük araçları içerir:
@@ -242,8 +242,8 @@ Depolama istemcisi kitaplığı, benzersiz istemci istek kimliği her istek içi
 
 > [!NOTE]
 > (Depolama istemcisi kitaplığı yeni bir değer otomatik olarak atar rağmen), istemci bu değeri atayabilirsiniz çünkü aynı istemci istek kimliği paylaşmak birden çok istek mümkündür. İstemci yeniden denediğinde tüm girişimleri aynı istemci istek kimliği paylaşıyor. İstemciden gönderilen toplu söz konusu olduğunda, toplu işlem tek bir istemci istek kimliği vardır.
-> 
-> 
+>
+>
 
 ### <a name="server-request-id"></a>Sunucu istek kimliği
 Depolama hizmeti, sunucu istek kimliğini otomatik olarak oluşturur.
@@ -254,8 +254,8 @@ Depolama hizmeti, sunucu istek kimliğini otomatik olarak oluşturur.
 
 > [!NOTE]
 > İstemci her yeniden deneme girişimi ve bir toplu işe dahil her işlemin benzersiz bir sunucu istek kimliği sahiptir. depolama hizmeti her zaman benzersiz bir sunucu istek kimliği aldıktan sonra her istek için atar
-> 
-> 
+>
+>
 
 Depolama istemcisi kitaplığı oluşturursa bir **StorageException** istemci **RequestInformation** özelliği içeren bir **RequestResult** bir içerenbirnesne **ServiceRequestID** özelliği. Ayrıca erişebileceğiniz bir **RequestResult** nesnesinden bir **OperationContext** örneği.
 
@@ -351,8 +351,8 @@ Depolama hizmeti yalnızca ölçüm hesaplar **AverageE2ELatency** başarılı i
 
 > [!NOTE]
 > Ayrıca görüntüleyebilirsiniz **E2ELatency** ve **ServerLatency** günlük depolama ayrı depolama işlemleri için günlük verilerini.
-> 
-> 
+>
+>
 
 #### <a name="investigating-client-performance-issues"></a>İstemci performans sorunlarını araştırma
 Yavaş yanıt istemci için olası nedenler sınırlı sayıda kullanılabilir bağlantılar veya iş parçacığı ya da düşük CPU, bellek veya ağ bant genişliği gibi kaynakları içerir. (Örneğin depolama hizmeti için zaman uyumsuz çağrıları kullanarak) daha etkili olması için istemci kodu değiştirerek veya (daha fazla sayıda çekirdek ve daha fazla bellek ile) daha büyük bir sanal makine kullanarak bu sorunu çözmek mümkün olabilir.
@@ -402,8 +402,8 @@ Yüksek **AverageServerLatency** değerleri kötü tasarlanmış tablolar ve sor
 
 > [!NOTE]
 > Kapsamlı denetim listesi Performans Denetim burada bulabilirsiniz: [Microsoft Azure depolama performansı ve ölçeklenebilirlik denetim listesi](storage-performance-checklist.md).
-> 
-> 
+>
+>
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>Kuyrukta ileti tesliminde beklenmeyen gecikmeler yaşıyorsunuz demektir
 Ardından bir uygulama bir kuyruğa bir ileti ekler zaman kuyruktan okunmak üzere kullanılabilir saat arasında bir gecikme yaşıyorsanız, sorunu tanılamak için aşağıdaki adımları uygulamanız gereken:
@@ -429,8 +429,8 @@ Değerini artış görüyorsanız **Percentthrottlingerror'da** yüksek etkinlik
 
 > [!NOTE]
 > Ayrıca değerini bir artış görebilirsiniz **Percentthrottlingerror'da** , değil çakıştığı yüksek etkinlik dönemlerini uygulama ile: Burada en olası nedeni yük dengelemeyi iyileştirmek üzere bölümler taşıma depolama hizmetidir.
-> 
-> 
+>
+>
 
 #### <a name="permanent-increase-in-PercentThrottlingError"></a>Kalıcı hata Percentthrottlingerror'da artış
 İçin sürekli olarak yüksek bir değer görüyorsanız **Percentthrottlingerror'da** kalıcı artış, işlem birimleri veya ilk yükleme gerçekleştirirken aşağıdaki uygulama testleri ve değerlendirmek gereken nasıl Uygulamanızı depolama bölümleri ve bir depolama hesabı ölçeklenebilirlik hedeflerini olup yaklaştığını kullanıyor. Azaltma (Bu, tek bir bölüm sayılır) kuyrukta hataları görüyorsanız, örneğin, sonra ek kuyrukları işlemler arasında birden çok bölüm yaymak için kullanmayı düşünmeniz gerekir. Azaltma hataları bir tabloda görüyorsanız, geniş bir bölüm anahtarı değerlerine kullanarak birden çok bölümde işlemlerinizi yaymak için farklı bir bölümleme düzeni kullanmayı göz önünde gerekir. Bu sorunun yaygın nedenlerinden biri, burada bölüm anahtarı olarak tarihi seçin ve ardından tüm veriler belirli bir tarihte yazılır tek bir bölüm prepend ve ekleme koruma desen olmasıdır: yük altında bu yazma tıkanıklığa sonuçlanabilir. Farklı bir bölümleme tasarımı düşünün veya blob depolama kullanarak daha iyi bir çözüm olabilir olup olmadığını değerlendirmek. Ayrıca azaltma, trafiğindeki ani artışları sonucunda oluşup olmadığını kontrol edin ve desen isteklerinin düzgünleştirme yolları inceleyin.
@@ -441,16 +441,16 @@ Verimsiz sorgu tasarım tablo bölümleri için ölçeklenebilirlik sınırları
 
 > [!NOTE]
 > Performans testi, uygulamanızdaki tüm verimsiz sorgu tasarımları ortaya.
-> 
-> 
+>
+>
 
 ### <a name="metrics-show-an-increase-in-PercentTimeoutError"></a>Ölçümler Percenttimeouterror'da artış gösteriyor
 Ölçümlerinizin artış Göster **Percenttimeouterror'da** depolama hizmetlerinizi biri için. Aynı zamanda, istemci, depolama işlemlerinin yüksek hacimli "500 işlem zaman aşımı" HTTP durum iletileri alır.
 
 > [!NOTE]
 > Depolama hizmeti geçici olarak yeni bir sunucuya bir bölüme taşıyarak yük dengeleyen isteklerini zaman aşımı hataları görebilirsiniz.
-> 
-> 
+>
+>
 
 **Percenttimeouterror'da** bir ölçümdür şu ölçümlerden bir toplama: **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**,  **AnonymousServerTimeoutError**, ve **SASServerTimeoutError**.
 
@@ -586,8 +586,8 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 
 > [!NOTE]
 > İstemci tarafı JavaScript sorunlarını giderirken, tarayıcı ve depolama hizmeti arasında alınıp verilen iletileri izlemek için Internet Explorer'da F12 geliştirici araçlarını kullanabilirsiniz.
-> 
-> 
+>
+>
 
 Web tarayıcısı uyguladığından, bu hatalar ortaya [aynı çıkış noktası İlkesi](https://www.w3.org/Security/wiki/Same_Origin_Policy) bir web sayfası bir API farklı bir etki alanındaki etki alanından sayfa çağırma engelleyen bir güvenlik kısıtlaması gelir.
 
@@ -712,8 +712,8 @@ Ek tanılama ve Azure depolama (ve diğer hizmetleri) ile ilgili sorunları gide
 
 > [!NOTE]
 > Fiddler, HTTPS trafiği çözebilen; dikkatli bir şekilde, bunu nasıl yaptığını anlamak ve güvenlik etkilerini anlamak için fiddler'ı belgeleri okumanız gerekir.
-> 
-> 
+>
+>
 
 Bu ekte, Fiddler'ı yüklediğiniz yerel makine ile Azure depolama hizmetleri arasında trafiği yakalamak için fiddler'ı yapılandırmak hakkında kısa bir kılavuz sağlar.
 
@@ -735,7 +735,7 @@ Aşağıdaki yordam Wireshark için tablo hizmeti, Azure depolama hesabınızdak
 2. İçinde **Başlat** bölümünde, internet'e bağlı arabirimler ve yerel ağ arabirimi seçin.
 3. Tıklayın **kaydetme seçeneklerini**.
 4. Bir filtre ekleyerek **yakalama filtresi** metin. Örneğin, **contosoemaildist.table.core.windows.net konak** Wireshark veya tablo Hizmeti uç noktası gönderilen paketlerin yakalamak için yapılandırıp yapılandırmayacağınız **contosoemaildist** depolama hesabı. Kullanıma [yakalama filtreleri tam listesi](https://wiki.wireshark.org/CaptureFilters).
-   
+
    ![][6]
 5. **Başlat**'a tıklayın. Wireshark tüm istemci uygulamanızı yerel makinenizde kullanırken, paketleri tablo Hizmeti uç noktası almasına veya göndermesine yakalar.
 6. Tamamladığınızda, ana menüye tıklayarak **yakalama** ardından **Durdur**.
@@ -751,8 +751,8 @@ TCP veri sağ tıklatıp seçerek uygulama katmanı tarafından görülen şekil
 
 > [!NOTE]
 > Wireshark kullanma hakkında daha fazla bilgi için bkz. [Wireshark Kullanıcı Kılavuzu](https://www.wireshark.org/docs/wsug_html_chunked).
-> 
-> 
+>
+>
 
 ### <a name="appendix-3"></a>Ek 3: Ağ trafiğini yakalamak için Microsoft Message Analyzer'ı kullanma
 Fiddler'a benzer bir şekilde HTTP ve HTTPS trafiğini yakalayın ve Wireshark benzer bir şekilde ağ trafiğini yakalamak Microsoft ileti Çözümleyicisi'ni kullanabilirsiniz.
@@ -766,8 +766,8 @@ contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata
 
 > [!NOTE]
 > Bir boşluk karakteri, ana bilgisayar adlarını ayırır.
-> 
-> 
+>
+>
 
 İzleme verileri toplamaya başlamak hazır olduğunuzda **Start WITH** düğmesi.
 
@@ -806,6 +806,17 @@ Performans ve kullanılabilirlik izlemesi bir parçası olarak Azure DevOps içi
 * Herhangi bir web hizmetinizde özel durum veya performans sorunları hızla tanılayın. CPU veya diğer kaynaklara uzatılır, özel durumlardan yığın izlemelerini alın öğrenmek ve günlük izlemelerini kolayca arama yapın. Microsoft, uygulamanın performansı kabul edilebilir sınırları düşerse, bir e-posta gönderebilirsiniz. Hem .NET hem de Java web Hizmetleri'ni izleyebilirsiniz.
 
 Daha fazla bilgi bulabilirsiniz [Application Insights nedir](../../azure-monitor/app/app-insights-overview.md).
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Azure Storage analytics hakkında daha fazla bilgi için şu kaynaklara bakın:
+
+* [Azure portalında depolama hesabı izleme](storage-monitor-storage-account.md)
+* [Depolama analizi](storage-analytics.md)
+* [Storage analytics ölçümleri](storage-analytics-metrics.md)
+* [Storage analytics ölçüm tablosu şeması](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)
+* [Depolama analizi günlüklerinde](storage-analytics-logging.md)
+* [Depolama analizi günlük biçimi](/rest/api/storageservices/storage-analytics-log-format.md)
 
 <!--Anchors-->
 [Giriş]: #introduction

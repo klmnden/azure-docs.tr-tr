@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3f72480aaa05c0f50179d4d330525b12525282bc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5f937a86e4e063ad1e8346dc629a917ae7ce8b65
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161877"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077216"
 ---
 # <a name="localization-string-ids"></a>Yerelleştirme dize kimlikleri
 
@@ -33,7 +33,7 @@ ms.locfileid: "55161877"
 | **logonIdentifier_email** | E-posta adresi |
 | **requiredField_email** | Lütfen e-postanızı girin |
 | **invalid_email** | Lütfen geçerli bir e-posta adresi girin |
-| **email_pattern** | ^ [a-zA-Z0-9.! #$% &'' * +/ =? ^ _'{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
+| **email_pattern** | ^ [a-zA-Z0-9.! #$% &''*+/ =? ^ _\`{\|} ~-]+@[a-zA-Z0-9-]+ (?:\\. [ bir-zA-Z0 - 9-] +)*$ |
 | **local_intro_username** | Kullanıcı adınızla oturum açın |
 | **logonIdentifier_username** | Kullanıcı adı |
 | **requiredField_username** | Lütfen kullanıcı adınızı girin |

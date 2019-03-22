@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 69a07499b5d29fb3b8d8473c85ca345aa7ce60ac
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: fd2e253d88d6cddddd35dc75c8b746e906407cb5
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330373"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337273"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight üzerinde Apache Spark kümesi için bilinen sorunlar
 
@@ -68,7 +68,7 @@ HDInsight Spark kümeleri, Phoenix Spark Bağlayıcısı'nı desteklemez.
 
 **Azaltma:**
 
-Bunun yerine HBase Spark Bağlayıcısı'nı kullanmanız gerekir. Yönergeler için bkz. [Spark HBase bağlayıcı kullanma konusuna](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+Bunun yerine HBase Spark Bağlayıcısı'nı kullanmanız gerekir. Yönergeler için bkz. [Spark HBase bağlayıcı kullanma konusuna](https://web.archive.org/web/20190112153146/ https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Jupyter not defterleri için ilgili sorunlar
 Jupyter not defterleri için ilgili bazı bilinen sorunlar aşağıda verilmiştir.

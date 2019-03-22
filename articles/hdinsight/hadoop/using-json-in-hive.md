@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: 31909d007727ca5b440343e3c5a035984399b77a
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 89902da9668d32c28e5cc88b7e4468c0dbd0b861
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201747"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335921"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Azure HDInsight, Apache Hive'ı kullanarak işleyebilir ve JSON belgeleri
 
@@ -143,7 +143,7 @@ Hive konsolunda bu betiğin çıkışı:
 UDF kullanan json_tuple [yana görünümü](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) hive'da json sağlayan, söz dizimi\_özgün tablonun her satırı için UDT işlevi uygulayarak sanal bir tablo oluşturmak için demet. Yinelenen kullanımı nedeniyle çok zahmetli hale karmaşık Json'lerini **YATAY Görünüm**. Ayrıca, **JSON_TUPLE** iç içe geçmiş Json'lerini işleyemiyor.
 
 ### <a name="use-a-custom-serde"></a>Özel SerDe kullanın
-SerDe, iç içe geçmiş JSON belgelerini ayrıştırmak için en iyi bir seçimdir. JSON şemasını tanımlamanıza olanak sağlar ve ardından belgelerini ayrıştırmak için bir şema kullanabilirsiniz. Yönergeler için [Microsoft Azure HDInsight ile özel bir JSON SerDe kullanmayı](https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
+SerDe, iç içe geçmiş JSON belgelerini ayrıştırmak için en iyi bir seçimdir. JSON şemasını tanımlamanıza olanak sağlar ve ardından belgelerini ayrıştırmak için bir şema kullanabilirsiniz. Yönergeler için [Microsoft Azure HDInsight ile özel bir JSON SerDe kullanmayı](https://web.archive.org/web/20190217104719/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
 
 ## <a name="summary"></a>Özet
 Conclusion, seçtiğiniz hive'da JSON işleç türü, senaryoya bağlıdır. Basit bir JSON belge varsa ve yalnızca bir alan üzerinde arama yapmak için Hive UDF get_json_object kullanmayı da tercih edebilirsiniz. Ardından, üzerinde arama yapmak için birden fazla anahtar varsa, json_tuple kullanabilirsiniz. Bir iç içe geçmiş bir belgeniz varsa, JSON SerDe kullanmanız gerekir.

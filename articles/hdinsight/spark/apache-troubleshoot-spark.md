@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f6e9641d106c40c061752b57744eda09aac157a5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: aad35aa7a958e8bdaf1479d1ffbbad5bf213d46a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821975"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339253"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Apache Spark, Azure HDInsight'ı kullanarak sorun giderme
 
@@ -23,7 +23,7 @@ ms.locfileid: "55821975"
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
-Bu yordamı için yapılandırma değerlerini daha önce HDInsight ayarlandı. Hangi Spark belirlemek üzere ayarlanması ve hangi değerlerine ne neden olan bir Apache Spark uygulaması OutofMemoryError özel durumu görmek yapılandırmaları gerekir. 
+Spark yapılandırma değerlerini öne bir Apache Spark uygulaması OutofMemoryError özel durumu korunmanıza yardımcı olun. Aşağıdaki adımlar, Azure HDInsight Spark yapılandırma değerlerini varsayılan gösterir: 
 
 1. Kümeleri listesinde seçin **Spark2**.
 
@@ -85,8 +85,7 @@ Bu değişiklikler, küme çapında ancak Spark işi gönderdiğinizde geçersiz
 
 ### <a name="additional-reading"></a>Ek okuma
 
-[HDInsight kümeleri üzerinde Apache Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
-
+[HDInsight kümeleri üzerinde Apache Spark iş gönderme](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Bir Apache Spark uygulaması kümeleri Jupyter Not Defteri kullanarak nasıl yapılandırabilirim?
 
@@ -100,7 +99,7 @@ Bu değişiklikler, küme çapında ancak Spark işi gönderdiğinizde geçersiz
 
 ### <a name="additional-reading"></a>Ek okuma
 
-[HDInsight kümeleri üzerinde Apache Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[HDInsight kümeleri üzerinde Apache Spark iş gönderme](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>Bir Apache Spark uygulaması kümeleri üzerinde Apache Livy kullanarak nasıl yapılandırabilirim?
@@ -117,8 +116,7 @@ Bu değişiklikler, küme çapında ancak Spark işi gönderdiğinizde geçersiz
 
 ### <a name="additional-reading"></a>Ek okuma
 
-[HDInsight kümeleri üzerinde Apache Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
-
+[HDInsight kümeleri üzerinde Apache Spark iş gönderme](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters"></a>Kullanarak uygulama spark-submit bir Apache Spark kümelerinde nasıl yapılandırabilirim?
 
@@ -134,7 +132,7 @@ Bu değişiklikler, küme çapında ancak Spark işi gönderdiğinizde geçersiz
 
 ### <a name="additional-reading"></a>Ek okuma
 
-[HDInsight kümeleri üzerinde Apache Spark iş gönderme](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[HDInsight kümeleri üzerinde Apache Spark iş gönderme](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
 ## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>Bir Apache Spark uygulaması OutofMemoryError özel durum nedeni nedir?
@@ -205,12 +203,12 @@ Bu özel durumun en olası nedeni, Java sanal makineleri (JVMs) yeterli yığın
     spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
     ```
 
-    Hesaplama için tüm yürütücüleri tarafından kullanılan toplam bellek: 
+    Tüm yürütücüleri tarafından kullanılan toplam bellek hesaplamak için: 
     
     ```apache
     spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
     ```
-   Hesaplama için sürücü tarafından kullanılan toplam bellek:
+   Sürücü tarafından kullanılan toplam bellek hesaplamak için:
     
     ```apache
     spark.driver.memory + spark.yarn.driver.memoryOverhead
@@ -219,9 +217,8 @@ Bu özel durumun en olası nedeni, Java sanal makineleri (JVMs) yeterli yığın
 ### <a name="additional-reading"></a>Ek okuma
 
 - [Apache Spark bellek yönetimine genel bakış](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [Bir HDInsight kümesi üzerinde bir Apache Spark uygulamasının hatasını ayıklama](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
+- [Bir HDInsight kümesi üzerinde bir Apache Spark uygulamasının hatasını ayıklama](https://web.archive.org/web/20190112152909/ https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 
 ### <a name="see-also"></a>Ayrıca Bkz.
 [Azure HDInsight'ı kullanarak sorun giderme](../../hdinsight/hdinsight-troubleshoot-guide.md)
-
