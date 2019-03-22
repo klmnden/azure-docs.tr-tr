@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ea1b40b033a862bc4ed5db67a68e4fa7e97f3cad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 485a386210458d57b87aaa0537b1c58a6adab2c7
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124565"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58342657"
 ---
 1. **Tüm hizmetler**'e gidip Sanal WAN’lar arayarak Sanal WAN'lar bulabilirsiniz. Alternatif olarak Azure portalın en üstündeki arama kutusundan Sanal WAN’lar için arama yapabilirsiniz. Sayfayı açmak için **Sanal WAN’lar** seçeneğine tıklayın.
 2. **+Ekle**'ye tıklayarak **WAN Oluştur** sayfasını açın.
-3. WAN Oluştur sayfasında aşağıdaki alanları doldurun.
+3. Üzerinde **oluşturma WAN** sayfasında, aşağıdaki alanları doldurun:
 
    * **Ad**: WAN'ınıza vermek istediğiniz adı girin.
    * **Abonelik**: Kullanmak istediğiniz aboneliği seçin.

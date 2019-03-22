@@ -103,9 +103,10 @@ items:
     - name: Yazma döngüsü
       href: luis-concept-app-iteration.md
     - name: İş Birliği
-      displayName: shared, transfer, ownership, author, access
+      displayName: shared, transfer, ownership, author, access, import
       href: luis-concept-collaborator.md
     - name: Sürüm oluşturma
+      displayName: import
       href: luis-concept-version.md
   - name: Tasarım Modeli
     items:
@@ -149,17 +150,19 @@ items:
   - name: Enterprise
     items:
     - name: Tasarım stratejileri
+      displayName: import
       href: luis-concept-enterprise.md
   - name: Güvenlik
     items:
     - name: Uygulama erişimi
-      displayName: public, public app, AAD, compliance, ISO, certification, trust center
+      displayName: public, public app, AAD, compliance, ISO, certification, trust center, import
       href: luis-concept-security.md
     - name: Yazma ve uç nokta anahtarları
       href: luis-concept-keys.md
 - name: Nasıl yapılır kılavuzları
   items:
   - name: Yeni bir uygulama başlatma
+    displayName: import
     href: luis-how-to-start-new-app.md
   - name: Model Oluşturma
     items:
@@ -168,6 +171,7 @@ items:
     - name: İfadeye varlık ekleme
       href: luis-how-to-add-example-utterances.md
     - name: İfade olmadan varlık ekleme
+      displayName: import
       href: luis-how-to-add-entities.md
     - name: Önceden oluşturulmuş modelleri kullanma
       items:
@@ -225,6 +229,7 @@ items:
     - name: Etkileşimli test
       href: luis-interactive-test.md
     - name: Toplu işe testi
+      displayName: import
       href: luis-how-to-batch-test.md
   - name: Yayımlama
     href: luis-how-to-publish-app.md
@@ -238,8 +243,9 @@ items:
       href: luis-how-to-azure-subscription.md
     - name: Sürümleri yönetme
       href: luis-how-to-manage-versions.md
+      diplayName: import
     - name: Yazarları ve ortak çalışanları yönetme
-      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership
+      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
     - name: Yazma anahtarı yönetme
       href: luis-how-to-account-settings.md
@@ -250,7 +256,7 @@ items:
   - name: Kapsayıcıları kullanma
     items:
     - name: Kapsayıcıları yükleme ve çalıştırma
-      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
       href: luis-container-howto.md
     - name: Kapsayıcıları yapılandırma
       href: luis-container-configuration.md
@@ -390,6 +396,7 @@ items:
   - name: Sözlük
     href: luis-glossary.md
   - name: Sorun giderme
+    displayName: FAQ, import
     href: troubleshooting.md
   - name: Fiyatlandırma ve limitler
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
@@ -403,9 +410,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Bilgi Bankası
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 59950ced82f3b50ec5d0fe340157016954d2ff0b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8e684b58a3c7106f8ceca3e225b0b904d243984b
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779768"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337910"

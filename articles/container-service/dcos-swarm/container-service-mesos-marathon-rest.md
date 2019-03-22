@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 567890f3beec1eff30effeec0ce23284c5fee141
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fd109a72b092e963bc4fda7894bf67f998b7d0c5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109299"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309820"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(KULLANIM DIŞI) Marathon REST API aracılığıyla DC/OS kapsayıcısını yönetme
 
@@ -30,7 +30,7 @@ Bu örneklerin üzerinden geçmeden önce, Azure Kapsayıcı Hizmeti’nde yapı
 * [Azure Container Service kümesine bağlanma](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>DC/OS API'lere erişim
-Azure kapsayıcı hizmeti kümesine bağlandıktan sonra DC/OS ve ilgili REST API'leri aracılığıyla erişebilir http://localhost:local-port. Bu belgedeki örneklerde, bağlantı noktası 80 üzerinde tünel oluşturulmaktadır. Örneğin, Marathon uç noktaları bir URI'leri ulaşılabilir başlayarak `http://localhost/marathon/v2/`. 
+Azure kapsayıcı hizmeti kümesine bağlandıktan sonra DC/OS ve ilgili REST API'lerine http erişebilirsiniz:\//localhost:local-bağlantı noktası. Bu belgedeki örneklerde, bağlantı noktası 80 üzerinde tünel oluşturulmaktadır. Örneğin, Marathon uç noktaları bir URI'leri ulaşılabilir http ile başlayan: \/ /localhost/marathon/v2 /. 
 
 Çeşitli API'ler hakkında daha fazla bilgi için, [Marathon API’si](https://mesosphere.github.io/marathon/docs/rest-api.html) ve [Chronos API’si](https://mesos.github.io/chronos/docs/api.html) için Mesosphere belgelerine ve [Mesos Scheduler API’si](http://mesos.apache.org/documentation/latest/scheduler-http-api/) için Apache belgelerine bakın.
 
@@ -123,7 +123,7 @@ Marathon API'si artırabilir veya azaltabilirsiniz için kullanabileceğiniz uyg
 Tünel bağlantısından uygulamanın ölçeğini genişletmek için aşağıdaki komutu çalıştırın.
 
 > [!NOTE]
-> URI http://localhost/marathon/v2/apps/ ardından ölçeklendirilecek uygulamanın Kimliğini. URI burada olacaktır sağlanan Nginx örneğini kullanıyorsanız http://localhost/marathon/v2/apps/nginx.
+> Http URI değil: \/ /localhost/marathon/v2/apps/de ardından ölçeklendirilecek uygulamanın kimliği. URI http burada olacaktır sağlanan Nginx örneğini kullanıyorsanız:\//localhost/marathon/v2/apps/nginx.
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -180,7 +180,7 @@ Marathon API’sini uygulama dağıtımlarının ölçeğini genişletmek ve öl
 Uygulamanın ölçeğini genişletmek için aşağıdaki komutu çalıştırın:
 
 > [!NOTE]
-> URI http://localhost/marathon/v2/apps/ ardından ölçeklendirilecek uygulamanın Kimliğini. Burada sağlanan Nginx örneğini kullanıyorsanız, URI olacaktır http://localhost/marathon/v2/apps/nginx.
+> Http URI değil: \/ /localhost/marathon/v2/apps/de ardından ölçeklendirilecek uygulamanın kimliği. Burada sağlanan Nginx örneğini kullanıyorsanız, URI http olacaktır:\//localhost/marathon/v2/apps/nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'

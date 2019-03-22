@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311572"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336533"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances ile yönetilen kimliklerini kullanma
 
@@ -33,7 +33,7 @@ Etkinleştirin ve diğer Azure hizmetlerine erişmek için Azure Container Insta
 
 ## <a name="why-use-a-managed-identity"></a>Yönetilen bir kimlik neden kullanmalısınız?
 
-Herhangi bir kimlik doğrulaması için çalışan bir kapsayıcı içinde yönetilen bir kimlik kullanın [Azure AD kimlik doğrulamasını destekleyen hizmet](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) kapsayıcı kodunuzda kimlik bilgilerinin yönetimiyle olmadan. AD kimlik doğrulamayı desteklemeyen Hizmetleri için gizli dizileri Azure Key Vault'ta depolamak ve kimlik bilgilerini almak için anahtar kasasına erişmek için yönetilen bir kimlik kullanın. Bir yönetilen kimliği kullanma hakkında daha fazla bilgi için bkz. [Azure kaynakları için yönetilen kimlikleri nedir?](../active-directory/managed-identities-azure-resources/overview.md)
+Herhangi bir kimlik doğrulaması için çalışan bir kapsayıcı içinde yönetilen bir kimlik kullanın [Azure AD kimlik doğrulamasını destekleyen hizmet](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) kapsayıcı kodunuzda kimlik bilgilerinin yönetimiyle olmadan. AD kimlik doğrulamayı desteklemeyen Hizmetleri için gizli dizileri Azure Key Vault'ta depolamak ve kimlik bilgilerini almak için anahtar kasasına erişmek için yönetilen bir kimlik kullanın. Bir yönetilen kimliği kullanma hakkında daha fazla bilgi için bkz. [Azure kaynakları için yönetilen kimlikleri nedir?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
 > Bu özellik şu anda önizleme sürümündedir. Önizlemeler, [ek kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir. Şu anda yönetilen kimlikleri yalnızca Linux kapsayıcı örneklerinde desteklenir.
@@ -252,7 +252,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Anahtar Kasası'na kimliğini doğrulamak ve gizli dizi okumak için artık erişim belirtecini kullanın. Anahtar kasanıza URL adı ile değiştirdiğinizden emin olun (*https://mykeyvault.vault.azure.net/...*):
+Anahtar Kasası'na kimliğini doğrulamak ve gizli dizi okumak için artık erişim belirtecini kullanın. Anahtar kasanıza URL adı ile değiştirdiğinizden emin olun (*https:\//mykeyvault.vault.azure.net/...* ):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

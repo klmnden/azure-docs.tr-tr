@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 0ca3cee0c818bf9d5dda4a7ea8a1f356ed017973
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6e8883870cc0f035df5122e91449f04203836218
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891095"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319474"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>İle bir Linux veri bilimi sanal makinesi Azure üzerinde veri bilimi
 Bu izlenecek yol, Linux veri bilimi sanal makinesi ile çeşitli genel veri bilimi görevlerini gerçekleştirmek nasıl gösterir. Linux veri bilimi sanal makinesi (DSVM) veri analizi ve makine öğrenimi için yaygın olarak kullanılan araçları koleksiyonu ile önceden yüklenmiş olan Azure üzerinde kullanılabilir bir sanal makine görüntüsüdür. Anahtar yazılım bileşenleri içinde listelenen [Linux veri bilimi sanal makinesi sağlama](linux-dsvm-intro.md) konu. VM görüntüsü, yüklemek ve araçların her biri ayrı ayrı yapılandırmak zorunda kalmadan, dakikalar içinde veri bilimi yapmaya başlayın kolaylaştırır. Kolayca VM'yi, gerekirse ölçeği ve kullanımda olmadığında durdurun. Bu nedenle bu kaynak, esnek ve maliyet açısından verimli içindir.
@@ -423,7 +423,7 @@ Basit karar ağacı makine öğrenme modeli oluşturmak için:
 İşiniz bittiğinde modeller oluşturma seçeneğini belirleyin **günlük** Çıngırağı tarafından oturumunuz sırasında çalıştırmak R kodunu görüntülemek için sekmesinde. Seçebileceğiniz **dışarı** kaydetmek için düğme.
 
 > [!NOTE]
-> Çıngırağı geçerli sürümde hata yoktur. Komut dosyasını değiştirin veya sonraki adımlarınızı yinelenecek kullanmak için bir # karakteri önüne Ekle *... Bu günlüğünü dışarı aktarma * metin günlüğü.
+> Çıngırağı geçerli sürümde hata yoktur. Komut dosyasını değiştirin veya sonraki adımlarınızı yinelenecek kullanmak için bir # karakteri önüne Ekle *bu günlüğünü dışarı aktar...*  metin günlüğü.
 >
 >
 

@@ -1,5 +1,5 @@
 ---
-title: Azure MFA NPS uzantısı yapılandırma | Microsoft Docs
+title: -Azure Active Directory'de Azure MFA NPS uzantısı yapılandırma
 description: NPS uzantısını yükledikten sonra IP beyaz listesi ve UPN değiştirme gibi gelişmiş yapılandırma için aşağıdaki adımları kullanın.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2690cb4243597c942b6679b5864016bf14fcbad1
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 5bfae3b3be7812ff50ed90a61d495877141bbc7e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732425"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309717"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Multi-Factor Authentication için NPS uzantısı için Gelişmiş yapılandırma seçenekleri
 

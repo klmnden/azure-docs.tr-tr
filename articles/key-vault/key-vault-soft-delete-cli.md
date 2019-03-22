@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4311d71775ef877e0090abca9c6caabab503ef08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097619"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336089"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Key Vault geçici silmeyi CLI ile kullanma
 
@@ -222,6 +222,24 @@ Silinen anahtar kasasını nesnelerin listesini, ayrıca, bunlar Key Vault taraf
 
 >[!IMPORTANT]
 >Tarafından tetiklenen bir Temizlenen kasasını kendi *temizleme tarihine zamanlanmış* alan, kalıcı olarak silinir. Kurtarılabilir değil!
+
+## <a name="enabling-purge-protection"></a>Temizleme korumasını etkinleştirme
+
+Koruma yapılandırması bir kasa veya bir nesne silinmiş açık olduğunda 90 gün saklama süresi bitene kadar durumu temizlenemiyor. Böyle bir kasa veya nesne hala kurtarılabilir. Bu özellik bir kasa veya bir nesne hiçbir zaman kalıcı olarak olabilecek ek güvence verir bekletme süresi geçene kadar silindi.
+
+Yalnızca geçici silmeyi de etkinse koruma yapılandırması etkinleştirebilirsiniz. 
+
+Her iki geçici silme üzerinde açın ve kasa oluştururken koruma temizlemek için kullanın [az keyvault oluşturma](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) komutu:
+
+```
+az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+```
+
+(Bu, geçici silme etkinleştirilebilir zaten) var olan bir kasa için temizleme korumasını eklemek için kullanmak [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) komutu:
+
+```
+az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
+```
 
 ## <a name="other-resources"></a>Diğer kaynaklar
 

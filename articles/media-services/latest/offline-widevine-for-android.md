@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 18c83717e761f22363ccc69c827f5e383f8a9e85
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5d7dccfecc47b14be62a78600561a8ff0f7ca501
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122349"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312266"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Android için akış çevrimdışı Widevine
 
@@ -107,10 +107,10 @@ Aşağıdaki listede yer alan sınıfları ExoPlayer SDK'sı Android için çevr
 - library/Core/src/Main/Java/com/Google/Android/exoplayer2/DRM/DrmSession.Java
 - library/Core/src/Main/Java/com/Google/Android/exoplayer2/DRM/ErrorStateDrmSession.Java
 - library/Core/src/Main/Java/com/Google/Android/exoplayer2/DRM/ExoMediaDrm.Java
-- library/Core/src/Main/Java/com/Google/Android/exoplayer2/Offline/SegmentDownloader.Java
+- library/core/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java
 - library/Core/src/Main/Java/com/Google/Android/exoplayer2/Offline/DownloaderConstructorHelper.Java 
 - library/Core/src/Main/Java/com/Google/Android/exoplayer2/Offline/Downloader.Java
-- library/dash/src/Main/Java/com/Google/Android/exoplayer2/Source/dash/Offline/DashDownloader.Java 
+- library/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java 
 
 Geliştiriciler başvuruda bulunmalıdır [ExoPlayer Geliştirici Kılavuzu](https://google.github.io/ExoPlayer/guide.html) ve karşılık gelen [Geliştirici Blog](https://medium.com/google-exoplayer) bir uygulamanın geliştirilmesi sırasında. Google Geliştirici Kılavuzu ve blog sınırlı bilgiler, bu nedenle şu anda çevrimdışı Widevine destekleyen ExoPlayer uygulama tümüyle belgelenmiş bir başvuru uygulaması veya örnek kodunu yayımlamadı. 
 
@@ -144,7 +144,7 @@ Mobil Chrome tarayıcınızı v62 (veya üzeri) yükseltirseniz, bir Android tel
 
 Yukarıdaki açık kaynaklı PWA uygulama node.js'de yazılmıştır. Bir Ubuntu sunucusu kendi sürümünde barındırmak istiyorsanız, kayıttan yürütme engelleyebilir aşağıdaki yaygın karşılaşılan sorunları göz önünde bulundurun:
 
-1. CORS sorun: Örnek uygulamada video örnek barındırılan https://storage.googleapis.com/biograf-video-files/videos/. Google, Google bulut depolama kovada barındırılan kendi test örnekleri için CORS ayarladı. CORS giriş açıkça belirtilmesi CORS üst bilgileri ile hizmet verilen: https://biograf-155113.appspot.com (etki alanında hangi google barındırıyorsa bunların örnek) diğer siteler erişimini engelliyor. Denerseniz, şu HTTP hata görürsünüz: Yüklenemedi https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: 'Access-Control-Allow-Origin' üst bilgi, istenen kaynak üzerinde yok. Kaynak 'https://13.85.80.81:8080' erişim verilmez. Donuk bir yanıt ihtiyaçlarınıza hizmet veriyorsa, isteğin kaynak devre dışı CORS ile getirmek için 'Hayır-cors' moduna ayarlayın.
+1. CORS sorun: Örnek uygulamada video örnek barındırılan https://storage.googleapis.com/biograf-video-files/videos/. Google, Google bulut depolama kovada barındırılan kendi test örnekleri için CORS ayarladı. CORS giriş açıkça belirtilmesi CORS üst bilgileri ile hizmet verilen: https://biograf-155113.appspot.com (etki alanında hangi google barındırıyorsa bunların örnek) diğer siteler erişimini engelliyor. Denerseniz, şu HTTP hata görürsünüz: Yüklenemedi https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: 'Access-Control-Allow-Origin' üst bilgi, istenen kaynak üzerinde yok. Kaynak ' https:\//13.85.80.81:8080' erişim verilmez. Donuk bir yanıt ihtiyaçlarınıza hizmet veriyorsa, isteğin kaynak devre dışı CORS ile getirmek için 'Hayır-cors' moduna ayarlayın.
 2. Sertifika verme: Chrome v 58 ' başlayarak, HTTPS için Widevine EME gerektirir. Bu nedenle, x X509 ile HTTPS üzerinden örnek uygulamasını barındırmak gereken sertifika. Her zamanki test sertifikanın aşağıdaki gereksinimleri nedeniyle çalışmaz: Aşağıdaki minimum gereksinimleri karşılayan bir sertifika gerekir:
     - Chrome ve Firefox SAN konu alternatif adı ayarı sertifikada bulunmasını gerektirir.
     - Güvenilen CA sertifika gerekir ve otomatik olarak imzalanan geliştirme sertifikası çalışmıyor

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 60623ab4b41c343cab0f9be1abd8ab45051b3f9e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 78d6ac0a4ecde8d60a0ef3aa22515c7ce1ea4e07
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889367"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309547"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Hesap filtreleri ve varlık filtrelerini tanımlayın  
 
@@ -88,7 +88,11 @@ Filtre izleme özelliği koşulları parça türleri, değerleri (aşağıdaki t
 |**Ad**|Filtreleme için izleme adını kullanın.|
 |**Tür**|İzleme türü, filtreleme için kullanın.<br/><br/>Aşağıdaki değerlerine izin verilir: "Görüntü", "ses" veya "metin".|
 
-## <a name="example"></a>Örnek
+## <a name="associate-filters-with-streaming-locator"></a>Filtreler akış Bulucu ile ilişkilendirme
+
+Bir akış Bulucu için uygulamak varlık veya hesap filtrelerin listesini belirtebilirsiniz. [Dinamik Paketleyici](dynamic-packaging-overview.md) bu olanlar istemcinizin URL'SİNDE belirtir birlikte filtrelerinin listesi için geçerlidir. Bu birleşim oluşturur bir [dyanamic bildirimi](filters-dynamic-manifest-overview.md), URL'deki filtreleri + akış Bulucu üzerinde belirttiğiniz filtreleri temel. Filtre uygulamak istediğiniz, ancak URL filtresi adlarında kullanıma sunmak istiyorsanız değil, bu özelliği kullanmanızı öneririz.
+
+## <a name="definition-example"></a>Tanımı örneği
 
 ```json
 {

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: c65ae71350383896c81fd7057d425822069fc5aa
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 57bde67ac2259b3847f59f95eaefba9c6fddf13e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136968"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316211"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Proje akustik Unreal/Wwise tasarım Öğreticisi
 Bu öğreticide, Unreal ve Wwise proje akustik için tasarım Kurulum ve iş akışı açıklanır.
@@ -35,44 +35,44 @@ Proje akustik etkin olduğunda düşük geçişli filtre (LPF), kapatma toplu ya
 
 Bir kapatma-18 DB proje akustik benzetim hesaplar, bu ayar, bu giriş için eğri X = 18 oluşturacak ve karşılık gelen Y uygulanan zayıflama değerdir. Yarı kapatma yapmak için uç nokta-50 dB-100 dB yerine veya -200 kapatma exaggerate için dB ayarlayın. Uyumlu hale getirmenizi ve en iyi şekilde oyununuzu çalışır herhangi bir eğri ince ayar yapma.
  
-![Proje kapatma eğri](media/wwise-occlusion-curve.png)
+![Ekran görüntüsü, Wwise kapatma eğrisi Düzenleyicisi](media/wwise-occlusion-curve.png)
 
 ### <a name="disable-wwise-obstruction-curves"></a>Wwise anlamsızdır eğrileri devre dışı bırak
 Kuru yalıtım düzeyinde Wwise anlamsızdır eğrileri etkiler ancak proje akustik ıslak/kuru oranları zorlamak için tasarım denetimleri ve simülasyon kullanır. Engel birim eğri devre dışı bırakılması önerilir. Wetness tasarlamak için daha sonra açıklanan Wetness ayarlamak denetimi kullanın.
  
 Diğer amaçlar için anlamsızdır LPF/HPF eğrileri kullanıyorsanız, bunları Y = 0 X = 0 olarak ayarladığınızdan emin olun (diğer bir deyişle, LPF veya yoktur HPF hiçbir engel olduğunda).
 
-![Proje anlamsızdır eğri](media/wwise-obstruction-curve.png)
+![Ekran görüntüsü, Wwise anlamsızdır eğrisi Düzenleyicisi](media/wwise-obstruction-curve.png)
 
 ### <a name="design-project-acoustics-mixer-parameters"></a>Proje akustik mixer parametreleri tasarlama
 Proje akustik Bus mixer eklenti sekmesini ziyaret ederek genel yankı özelliklerini denetleyebilirsiniz. "Project akustik Mixer üzerinde (özel)" mixer eklenti ait ayarları panelini açmak için çift tıklayın.
 
 Ayrıca mixer eklentisi "Spatialization gerçekleştirmek" seçeneği olduğunu da görebilirsiniz. Bunun yerine Proje akustik'ın yerleşik spatialization kullanmayı tercih ediyorsanız, "Spatialization gerçekleştirmek" onay kutusunu işaretleyin ve HRTF veya kaydırma seçin. Ayarlamış olduğunuz tüm kuru yedek veri yolları devre dışı bıraktığınızdan emin olun, aksi takdirde doğrudan yolunu iki kez dinleyeceksiniz. Yankı karışımına genel denetim uygulamak amacıyla "Wetness ayarlama" ve "Yankı zaman ölçek faktörü" kullanın. Unreal'ı yeniden başlatın ardından soundbanks mixer eklentisi yapılandırma değişiklikleri gibi 'Gerçekleştirmek Spatialization' onay kutusunu seçmek için play ulaşmaktan önce yeniden unutmayın.
 
-![Akustik mixer eklentisi seçenekleri proje](media/mixer-plugin-global-settings.png)
+![Proje akustik Wwise ekran mixer eklentisi seçenekleri](media/mixer-plugin-global-settings.png)
 
 ## <a name="set-project-acoustics-design-controls-in-the-wwise-actor-mixer-hierarchy"></a>Wwise aktör mixer hiyerarşideki proje akustik tasarım denetimleri ayarlayın
 Tek bir aktör mixer parametre denetimi, üzerinde aktör Mixer çift tıklayın, sonra kendi Mixer eklenti sekmesine tıklayın. Burada herhangi bir parametre ses başına düzeyinde değiştirmek mümkün olacaktır. Bu değerleri (aşağıda açıklanmıştır) Unreal yan kümeden olanları birleştirin. Örneğin, proje akustik Unreal eklentisi 0,5 ve Wwise kümeleri -0.25, sonuçta elde edilen Outdoorness ayarlama için uygulanan bir nesne üzerinde Outdoorness ayarlama ayarlarsa 0,25 ses olacaktır.
 
-![Ses Mixer ayarları](media/per-sound-mixer-settings.png)
+![Ses karıştırıcı ayarları Wwise aktör mixer hiyerarşideki her ekran görüntüsü](media/per-sound-mixer-settings.png)
 
 ### <a name="ensure-the-aux-bus-has-dry-send-and-output-bus-has-wet-send"></a>Kuru gönderme yedek veri yolu vardır ve çıktı veri yolu, gönderme ıslak olun
 Gerekli aktör mixer Kurulumu normal kuru ve ıslak Wwise içinde yönlendirme değişimlerinin unutmayın. Bu, aktör-mixer'ın çıkış yolundaki (Proje akustik Bus kümesine) Yankı sinyal ve yedek kullanıcı tanımlı yol boyunca kuru sinyal üretir. Bu yönlendirme, proje akustik Wwise eklentisi Wwise mixer eklentisi API özelliklerini nedeniyle gereklidir.
 
-![Ses tasarım yönergeleri](media/voice-design-guidelines.png)
+![Ses tasarım yönergeleri için proje akustik gösteren ekran görüntüsü, Wwise Düzenleyicisi](media/voice-design-guidelines.png)
  
 ### <a name="set-up-distance-attenuation-curves"></a>Uzaklık zayıflama eğrileri ayarlayın
 Aktör-kullanarak Karıştırıcılar tarafından kullanılan tüm zayıflama eğrisi olmak proje akustik sahip kullanıcı tanımlı yedek kümesi "veri yolu birimi çıkarmak için." Gönder Wwise yeni oluşturulan zayıflama eğrileri için varsayılan olarak, bunu yapar. Mevcut bir projeyi geçiriyorsanız eğri ayarlarınızı kontrol edin. 
 
 Varsayılan olarak, proje akustik benzetimi player konum etrafındaki bir RADIUS 45 ölçütlerden vardır. Genellikle, zayıflama eğri-200 dB bu uzaklığı geçici olarak ayarlanması önerilir. Bu uzaklık, sabit bir kısıtlaması değil. Bazı Silah benzer için daha büyük bir RADIUS isteyebilirsiniz. Böyle durumlarda, uyarı yalnızca geometrisi 45 m player konumun içinde yer alacak olur. Oyuncu bir odada bulunur ve ses kaynak odası ve 100 milyon dışında ise, bu düzgün occluded. Bir odada kaynaktır ve oyuncu dışına ve 100 milyon ise, bu düzgün occluded gerekmez.
 
-![Zayıflama Eğriler](media/atten-curve.png)
+![Ekran görüntüsü, Wwise zayıflama Eğriler](media/atten-curve.png)
 
 ## <a name="set-up-scene-wide-project-acoustics-properties"></a>Sahne genelinde akustik proje özelliklerini ayarlama
 
 Akustik alanı aktör sistem davranışını değiştirmek ve hata ayıklamaya faydalı olan birçok denetim sunar.
 
-![Akustik alanı denetimleri](media/acoustics-space-controls.png)
+![Unreal akustik alanı denetimlerin ekran görüntüsü](media/acoustics-space-controls.png)
 
 * **Akustik verileri:** Bu alan gerektiğinden akustik varlık içeriği/akustik dizinden atanması gerekir. Proje akustik eklentisi, projenizin paketlenmiş dizinlere içeriği/akustik dizini otomatik olarak eklenir.
 * **Döşeme Boyutu:** RAM yüklenen akustik verilerini istediğiniz dinleyici etrafında bölgenin kapsam. Dinleyici etrafında hemen araştırmaları sürece player yüklenir, sonuçları tüm araştırmaları için akustik verilerini yükleme olarak aynı. Daha büyük kutucukları, daha fazla RAM kullanın, ancak disk g/ç
@@ -88,7 +88,7 @@ Akustik alanı aktör sistem davranışını değiştirmek ve hata ayıklamaya f
 ## <a name="actor-specific-acoustics-design-controls"></a>Aktör özel akustik tasarım denetimleri
 Bu tasarım denetimleri Unreal tek bir ses bileşenine kapsamına eklenir.
 
-![Ses Bileşeni denetimleri](media/audio-component-controls.png)
+![Unreal ses bileşeni denetimlerin ekran görüntüsü](media/audio-component-controls.png)
 
 * **Kapatma Çarpanı:** Kapatma etkisi denetler. Değer 1 > kapatma artırmasına. Değerleri < 1 bunu azaltmak.
 * **Wetness ayarlama:** Ek Yankı dB
@@ -104,7 +104,7 @@ Akustik alanı Aktör bir eşleme yükleniyor veya komut dosyası düzeyi aracı
 ### <a name="add-finer-grained-control-over-streaming-load"></a>Akış yük boyunca daha ayrıntılı denetim ekleme
 Otomatik olarak player konumuna bağlı Akış yerine kendiniz akış akustik verilerini yönetmek için zorla yük kutucuk blueprint işlevi kullanabilirsiniz:
 
-![Akış B P](media/blueprint-streaming.png)
+![Unreal seçeneklerinde Blueprint akışını ekran görüntüsü](media/blueprint-streaming.png)
 
 * **Hedef:** AcousticsSpace aktör
 * **Merkezi konum:** Yüklenen verilerin bölgenin Merkezi
@@ -113,12 +113,12 @@ Otomatik olarak player konumuna bağlı Akış yerine kendiniz akış akustik ve
 
 Döşeme boyutu zaten zorla yük kutucuk çağrılmadan önce ayarlanmalıdır. Örneğin, şunun gibi bir ACE dosya yüklemek, döşeme boyutunu ayarlama ve bir bölgede akışını yapabilirsiniz:
 
-![Akış Kurulumu](media/streaming-setup.png)
+![Unreal seçeneklerinde akış Kurulum ekran görüntüsü](media/streaming-setup.png)
 
 ### <a name="optionally-query-for-surface-proximity"></a>İsteğe bağlı olarak sorgu yüzeyi yakınlık için
 Ne kadar yakın görmek istiyorsanız yüzeyleri dinleyici etrafında belirli bir yönde, sorgu Distance işlevi kullanabilirsiniz. Bu işlev, tek yönlü Gecikmeli yansımalar kullanımını veya oyun yüzeyi yakınlık tarafından yönetilen başka bir mantık için yararlı olabilir. Akustik arama tablodan sonuçlar alınır için sorgu ray atama daha ucuzdur.
 
-![Uzaklık sorgu](media/distance-query.png)
+![Örnek şema uzaklık sorgusunun ekran görüntüsü](media/distance-query.png)
 
 * **Hedef:** AcousticsSpace aktör
 * **Görünüm Yönü:** Ortalanmış konumundaki dinleyici, sorgulama için yönü

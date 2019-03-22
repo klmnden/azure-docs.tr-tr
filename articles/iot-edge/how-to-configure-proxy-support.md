@@ -4,17 +4,17 @@ description: Azure IOT Edge çalışma zamanı ve bir proxy sunucu üzerinden il
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 33f5cd6e1d2989a9ca5c26bbcf947bd6eade3831
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4fa5402b87eea969a5a4093000dda06d3cb5675d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774209"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312997"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Bir proxy sunucu üzerinden iletişim kurmak için IOT Edge cihazı yapılandırma
 
@@ -35,7 +35,7 @@ Ara sunucu URL'leri şu biçimde olması: **Protokolü**://**proxy_host**:**prox
 
 * **Protokolü** HTTP veya HTTPS. Docker Daemon programını kapsayıcı kayıt defteri ayarlarınıza bağlı olarak her iki protokolü kullanabilirsiniz ancak arka plan programı ve çalışma zamanı IOT Edge kapsayıcıları her zaman HTTPS kullanmalıdır.
 
-* **Proxy_host** bir proxy sunucusunun adresidir. Ara sunucunuz kimlik doğrulaması gerektiriyorsa, proxy_host biçiminde bir parçası olarak kimlik bilgilerinizi sağlayabilir **kullanıcı**:**parola**\@**proxy_host**.
+* **Proxy_host** bir proxy sunucusunun adresidir. Ara sunucunuz kimlik doğrulaması gerektiriyorsa, kimlik bilgilerinizi proxy konağını bir parçası olarak aşağıdaki biçimde sağlayabilir: **kullanıcı**:**parola**\@**proxy_host** .
 
 * **Proxy_port** proxy ağ trafiğini yanıt ağ bağlantı noktası.
 
@@ -43,7 +43,7 @@ Ara sunucu URL'leri şu biçimde olması: **Protokolü**://**proxy_host**:**prox
 
 Bir Linux cihaza IOT Edge çalışma zamanı'nı yüklüyorsanız, yükleme paketi erişmek için Ara sunucu üzerinden gitmesi için Paket Yöneticisi'ni yapılandırın. Örneğin, [apt-get bir http Ara sunucusunu kullanacak şekilde](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Paket Yöneticisi'ni yapılandırıldıktan sonra yönergeleri izleyin [yükleme Azure IOT Edge çalışma zamanı (ARM32v7/armhf) Linux'ta](how-to-install-iot-edge-linux-arm.md) veya [(x64) Linux üzerinde Azure IOT Edge çalışma zamanı yükleme](how-to-install-iot-edge-linux.md) zamanki.
 
-Bir Windows cihaza IOT Edge çalışma zamanı'nı yüklüyorsanız, yükleyici betik dosyası gerekli bileşenleri yüklemek için yükleme sırasında daha sonra tekrar yüklemek için Ara sunucu üzerinden bir kez gitmeniz gerekiyor. Proxy bilgileri Windows ayarlarında yapılandırdığınız veya proxy bilgilerinizi doğrudan yükleme betiğini içerir. Aşağıdaki powershell betiğini kullanarak bir windows yükleme ilişkin bir örnektir `-proxy` bağımsız değişkeni:
+Bir Windows cihaza IOT Edge çalışma zamanı'nı yüklüyorsanız, proxy sunucusu üzerinden iki kez gitmeniz gerekiyor. İlk bağlantı Yükleyici komut dosyasını indirmek için ve ikinci bir bağlantı gerekli bileşenleri yüklemek için yükleme sırasında. Proxy bilgileri Windows ayarlarında yapılandırdığınız veya proxy bilgilerinizi doğrudan yükleme betiğini içerir. Aşağıdaki powershell betiğini kullanarak bir windows yükleme ilişkin bir örnektir `-proxy` bağımsız değişkeni:
 
 ```powershell
 . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -64,20 +64,22 @@ IOT Edge çalışma zamanı yüklendikten sonra Ara sunucu bilgileri ile yapıla
 
 ## <a name="configure-the-daemons"></a>Daemon'ları yapılandırma
 
-IOT Edge Cihazınızda çalışan Docker ve IOT Edge Daemon proxy sunucusu kullanacak şekilde yapılandırılması gerekir. Docker Daemon programını web istekleri, kapsayıcı kayıt defterleri için kapsayıcı görüntüleri çekmeniz hale getirir. IOT Edge arka plan programı, IOT Hub ile iletişim kurmak için web isteği yapar.
+IOT Edge Cihazınızda çalışan Moby ve IOT Edge Daemon proxy sunucusu kullanacak şekilde yapılandırılması gerekir. Moby arka plan programı, web istekleri kapsayıcı kayıt defterleri için kapsayıcı görüntüleri çekmeniz hale getirir. IOT Edge arka plan programı, IOT Hub ile iletişim kurmak için web isteği yapar.
 
-### <a name="docker-daemon"></a>Docker Daemon programını
+### <a name="moby-daemon"></a>Moby arka plan programı
 
-Docker Daemon programını ortam değişkenleriyle yapılandırmak için Docker belgelerine bakın. Çoğu kapsayıcı kayıt defterleri (DockerHub ve Azure kapsayıcı kayıt defterleri dahil) ayarlamalısınız parametredir HTTPS istekleri desteklediğimizden **erişmek**. Aktarım Katmanı Güvenliği (TLS) desteklemeyen bir kayıt defterinden görüntüleri çekmek sonra ayarlamalısınız **HTTP_PROXY** parametresi. 
+Docker üzerinde Moby kurulu olduğundan, ortam değişkenleriyle Moby daemon'ı yapılandırmak için Docker belgelerine bakın. Çoğu kapsayıcı kayıt defterleri (DockerHub ve Azure kapsayıcı kayıt defterleri dahil) ayarlamalısınız parametredir HTTPS istekleri desteklediğimizden **erişmek**. Aktarım Katmanı Güvenliği (TLS) desteklemeyen bir kayıt defterinden görüntüleri çekmek sonra ayarlamalısınız **HTTP_PROXY** parametresi. 
 
-Docker sürümünüzü makalenin seçin: 
+IOT Edge cihaz işletim sistemi için makaleyi seçin: 
 
-* [Linux için docker](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
-* [Windows için docker](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
+* [Linux'ta Docker daemon'ı yapılandırma](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
+    * Linux cihazlarda Moby daemon Docker adı tutar.
+* [Windows Docker daemon yapılandırma](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
+    * Windows cihazlarda Moby daemon iotedge moby çağrılır. Docker Masaüstü hem de Moby bir Windows cihazında paralel olarak çalıştırmak mümkün olduğundan farklı bir adlarıdır. 
 
 ### <a name="iot-edge-daemon"></a>IOT Edge arka plan programı
 
-IOT Edge arka plan programı, Docker Daemon programını benzer şekilde yapılandırılır. IOT Edge, IOT Hub'ına gönderir tüm istekler için HTTPS kullanır. İşletim sisteminize bağlı hizmeti için bir ortam değişkenini ayarlamak için aşağıdaki adımları kullanın. 
+IOT Edge arka plan programı Moby arka plan programı için benzer şekilde yapılandırılır. IOT Edge, IOT Hub'ına gönderir tüm istekler için HTTPS kullanır. İşletim sisteminize bağlı hizmeti için bir ortam değişkenini ayarlamak için aşağıdaki adımları kullanın. 
 
 #### <a name="linux"></a>Linux
 

@@ -2,17 +2,16 @@
 title: Azure DNS nedir?
 description: Microsoft Azure'deki DNS barındırma hizmetine genel bakış. Etki alanınızı Microsoft Azure'da barındırın.
 author: vhorne
-manager: jeconnoc
 ms.service: dns
 ms.topic: overview
-ms.date: 9/24/2018
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 62043128b6415a064e35adca6be4d60ccfcae308
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: cea19ad2ba03d3e71df32912a1d7ee9e6171689a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294323"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339474"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS nedir?
 
@@ -39,6 +38,7 @@ Azure DNS içindeki DNS etki alanları Azure'un global DNS ad sunucusu ağında 
 Daha fazla bilgi için bkz. [DNS bölgelerini ve kayıtlarını koruma](dns-protect-zones-recordsets.md). 
 
 ## <a name="dnssec"></a>DNSSEC
+
 Azure DNS, DNSSEC şu anda desteklemiyor. Çoğu durumda, tutarlı bir şekilde HTTPS/TLS size uygulamaları kullanarak DNSSEC gereksinimini azaltabilir. DNSSEC DNS bölgeleriniz için kritik bir gereksinimse üçüncü taraf DNS barındırma sağlayıcıları ile bu bölgelerde barındırabilir.
 
 ## <a name="ease-of-use"></a>Kullanım kolaylığı
@@ -57,12 +57,11 @@ Daha fazla bilgi için bkz. [Azure DNS'yi özel etki alanları için kullanma](p
 
 ## <a name="alias-records"></a>Diğer ad kayıtları
 
-Azure DNS, diğer adı kayıt kümelerini destekler. Azure genel IP adresi veya Azure Traffic Manager profili gibi bir Azure kaynağına başvurmak için diğer ad kayıt kümesini kullanabilirsiniz. Temel alınan kaynağın IP adresi değişirse, diğer ad kayıt kümesi DNS çözümlemesi sırasında kendisini sorunsuz bir şekilde güncelleştirir. Diğer ad kaydı kümesi, hizmet örneğini işaret eder ve hizmet örneği bir IP adresi ile ilişkilidir. 
+Azure DNS, diğer adı kayıt kümelerini destekler. Bir Azure genel IP adresi, bir Azure Traffic Manager profili veya bir Azure Content Delivery Network (CDN) uç noktası gibi bir Azure kaynağına başvurmak için bir diğer ad kayıt kümesi kullanabilirsiniz. Temel alınan kaynağın IP adresi değişirse, diğer ad kayıt kümesi DNS çözümlemesi sırasında kendisini sorunsuz bir şekilde güncelleştirir. Diğer ad kaydı kümesi, hizmet örneğini işaret eder ve hizmet örneği bir IP adresi ile ilişkilidir.
 
-Ayrıca, apex veya çıplak etki alanınızı diğer ad kaydı kullanarak bir Traffic Manager profiline yönlendirebilirsiniz. Örneğin: contoso.com.
+Ayrıca, artık apex veya çıplak etki için bir Traffic Manager profili veya bir diğer ad kaydı kullanılarak CDN uç noktası işaret edebilir. Örneğin: contoso.com.
 
 Daha fazla bilgi için bkz. [Azure DNS diğer ad kayıtlarına genel bakış](dns-alias.md).
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

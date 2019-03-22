@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 687f99fb6447eddb4ce10ce81bc349181ec5c48c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3772dbdc8582eea1b2eac368784878a8a36d34ad
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094761"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339500"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Azure kullanılabilirlik alanları ile SAP iş yükü yapılandırmaları
 [Azure kullanılabilirlik alanları](https://docs.microsoft.com/azure/availability-zones/az-overview) Azure sağlayan bir yüksek kullanılabilirlik özelliklerinden biridir. Kullanılabilirlik alanları kullanarak SAP iş yüklerinizi azure'da genel kullanılabilirliğini artırır. Bu özellik zaten bazı durumlarda kullanılabilir [Azure bölgeleri](https://azure.microsoft.com/global-infrastructure/regions/). Gelecekte daha fazla bölgede kullanılabilir olacaktır.
@@ -93,7 +93,7 @@ Bu kararları vermekte da hesap SAP'nin ağ gecikme süresi önerileri SAP Not a
 > Daha önce açıklanan ölçümleri destekleyen her bir Azure bölgesinde farklı sonuçlar sağladığını beklenmez [kullanılabilirlik](https://docs.microsoft.com/azure/availability-zones/az-overview). Ağ gecikme süresi gereksinimleriniz aynı olsa bile, bölgeler arasındaki ağ gecikmesini farklı olabileceği için farklı Azure bölgelerindeki farklı dağıtım stratejilerini benimseyen gerekebilir. Bazı Azure bölgelerinde üç farklı bölgeler arasında ağ gecikme süresi büyük ölçüde farklı olabilir. Diğer bölgelerde, üç farklı bölgeler arasında ağ gecikme süresi, daha tekdüzen olabilir. Her zaman talep 1 ve 2 milisaniye arasındaki bir ağ gecikmesini doğru değil. Azure bölgelerinde kullanılabilirlik alanları arası ağ gecikmesinin genelleştirilmiş olmalıdır.
 
 ## <a name="activeactive-deployment"></a>Etkin/etkin dağıtım
-İki veya üç dilimlerinde etkin SAP iletişim örneklerinizi dağıtmak için bu dağıtım mimarisi aktif/aktif olarak adlandırılır. Sıraya alma çoğaltma kullanan SAP Central Services'in örneği iki bölgeleri arasında dağıtılır. Aynı, SAP Central hizmet olarak aynı alanları genelinde dağıtılan DBMS katmanı için geçerlidir.
+İki veya üç dilimlerinde etkin, SAP uygulama sunucuları dağıtmak için bu dağıtım mimarisi aktif/aktif olarak adlandırılır. Sıraya alma çoğaltma kullanan SAP Central Services'in örneği iki bölgeleri arasında dağıtılır. Aynı, SAP Central hizmet olarak aynı alanları genelinde dağıtılan DBMS katmanı için geçerlidir.
 
 Bu yapılandırmayı dikkate alındığında, iş yükünüzü ve DBMS zaman uyumlu çoğaltma için kabul edilebilir Bu teklif bölgeler arası ağ gecikmesi bölgenizde iki kullanılabilirlik bulmanız gerekir. Ayrıca emin olmak için seçtiğiniz bölgeleri içinde ağ gecikme süresi arasında değişim istediğiniz ve bölgeler arası ağ gecikme süresi çok büyük değildir. Büyük Çeşitlemeler istemediğiniz için bu, bağlı olarak bir iş bölge DBMS sunucuyla çalıştığına veya boyunca, iş sürecinizdeki veya toplu işleri çalıştırma sürelerini bölgeleri. Bazı farklılıklar kabul edilebilir, ancak Etkenler farkının değil.
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: ac166161624840aae39e84aa4b149fe58a6c978e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 72cbf71077a8df2b81b366d9f29ae006100da471
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780873"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310549"
 ---
 # <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
@@ -42,6 +42,7 @@ Bu özellik aşağıdaki Azure hizmetleri ve bölgeleri için sağlanır:
 **Genel önizlemeye sunuldu**
 
 - **[MariaDB için Azure veritabanı](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: MariaDB için Azure veritabanı kullanılabilir olduğu tüm Azure bölgelerinde kullanılabilir Önizleme.
+- **[Azure kapsayıcı kayıt defteri](../container-registry/container-registry-vnet.md)**: Azure Container Registry kullanılabilir olduğu tüm Azure bölgelerinde kullanılabilir Önizleme.
 
 En güncel bildirimler için [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasını inceleyin.
 

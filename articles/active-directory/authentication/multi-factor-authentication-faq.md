@@ -1,5 +1,5 @@
 ---
-title: Azure çok faktörlü kimlik doğrulaması ile ilgili SSS | Microsoft Docs
+title: Azure çok faktörlü kimlik doğrulaması SSS - Azure Active Directory
 description: Sık sorulan sorular ve yanıtlar için Azure multi-Factor Authentication ilgili.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc7b935833a6b212bb008be86b26c613d8817133
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 707e0aecdaf2a579d086e012519182078c1a6303
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182617"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313235"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication hakkında sık sorulan sorular
 

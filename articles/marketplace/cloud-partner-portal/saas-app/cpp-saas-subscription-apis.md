@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 432120c324aa81107946fc30548e6e49acce6575
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6ab18d68d6508a18f0b36ab5a39e15fa7c0555a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002324"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311671"
 ---
 # <a name="saas-sell-through-azure---apis"></a>Azure - API'leri ile SaaS satış
 
@@ -65,8 +65,8 @@ Azure portalını kullanarak yeni bir uygulamayı kaydetmek için aşağıdaki a
      - Bir cihaza yerel olarak yüklenen [istemci uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) için **Yerel**'i seçin. Bu ayar OAuth ortak [yerel istemcileri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) için kullanılır.
      - Seçin **Web uygulaması / API** için [istemci uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) ve [kaynak/API uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) güvenli bir sunucuya yüklenir. Bu ayar, OAuth gizli kullanılır [web istemcileri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) ve genel [kullanıcı aracı tabanlı istemciler](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
      Aynı uygulama gerek bir istemciyi, gerekse kaynağı/API'yi sunabilir.
-   - **Oturum açma URL'si**: Web uygulaması/API uygulamaları için uygulamanızın temel URL'si sağlayın. Örneğin, **http://localhost:31544** yerel makinenizde çalışan bir web uygulaması URL'si olabilir. Kullanıcılar, bir web istemci uygulamasına oturum açmak için bu URL'yi daha sonra kullanmanız gerekir.
-   - **Yeniden yönlendirme URI'si**: Yerel uygulamaları için Azure AD'nin belirteç yanıtlarını döndürmek için kullanılan URI girin. Uygulamanıza özgü bir değer girin, örneğin **http://MyFirstAADApp**.
+   - **Oturum açma URL'si**: Web uygulaması/API uygulamaları için uygulamanızın temel URL'si sağlayın. Örneğin, **http:\//localhost:31544** yerel makinenizde çalışan bir web uygulaması URL'si olabilir. Kullanıcılar, bir web istemci uygulamasına oturum açmak için bu URL'yi daha sonra kullanmanız gerekir.
+   - **Yeniden yönlendirme URI'si**: Yerel uygulamaları için Azure AD'nin belirteç yanıtlarını döndürmek için kullanılan URI girin. Uygulamanıza özgü bir değer girin, örneğin **http:\//MyFirstAADApp**.
 
      ![SaaS AD uygulama kayıtları](./media/saas-offer-app-registration-2.png) web uygulamaları veya yerel uygulamalar için belirli örnekler için hızlı başlangıç kullanıma destekli bölmesinin Başlarken bölümünde kullanılabilir ayarlar [Azure AD Geliştirici Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 

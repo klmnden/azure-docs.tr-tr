@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: b5e7864eae56a6f066590191373d35cb57693f37
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744454"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311688"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Veri analizi işlem hattını kullanıma hazır hale getirme
 
@@ -150,7 +150,7 @@ Düzenleyici ve iş akışı örnekleri durumunu görüntülemek için Oozie Web
 
 2. Tünel göz atarak, baş düğümünde ambarı'na giderek çalışır durumda olduğunu doğrulayın:
 
-    http://headnodehost:8080
+    http:\//headnodehost:8080
 
 3. Erişim için **Oozie Web Konsolu** Ambari içinde arasından **Oozie**, **hızlı bağlantılar**ve ardından **Oozie Web Konsolu**.
 
@@ -176,7 +176,7 @@ SCP içinde kullanarak dosya kopyalamanız, `bash` kabuk oturumu.
 
 Örnek veriler artık kullanılabilir. Ancak, işlem hattı işlemek, bir gelen veriler için iki Hive tablolarını gerektirir (`rawFlights`) ve biri de özetlenmiş veri (`flights`). Bu tablo Ambari gibi oluşturun.
 
-1. Ambarı'na giderek oturum açma [ http://headnodehost:8080 ](http://headnodehost:8080).
+1. Ambari için http giderek oturum açın:\//headnodehost:8080.
 2. Hizmetler listesinden seçin **Hive**.
 
     ![Ambari Hive'ı seçme](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)

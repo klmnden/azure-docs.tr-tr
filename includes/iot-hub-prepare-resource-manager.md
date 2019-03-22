@@ -4,12 +4,12 @@ ms.author: robin.shahan
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 163b479fdf2d6a4885604c52f36f707e558dc3a0
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: b7d043b15cad23c9c9eca60c9a24096fee12e14a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011786"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319758"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Azure Resource Manager isteklerinin kimliğini doğrulamak hazırlama
 Kaynakları kullanarak gerçekleştirdiğiniz tüm işlemleri kimlik doğrulaması yapması gereken [Azure Resource Manager] [ lnk-authenticate-arm] ile Azure Active Directory (AD). Bunu yapılandırmak için en kolay yolu, PowerShell veya Azure CLI kullanmaktır.
@@ -41,8 +41,8 @@ Aşağıdaki adımlar PowerShell kullanarak bir AD uygulaması için parola kiml
 3. Yer tutucu değiştirerek aşağıdaki komutu kullanarak yeni bir Azure Active Directory uygulaması oluşturun:
    
    * **{Görünen adı}:** gibi uygulamanız için bir görünen ad **MySampleApp**
-   * **{Giriş sayfası URL'si}:** gibi uygulamanızın giriş sayfasının URL'sini **http://mysampleapp/home**. Bu URL için gerçek bir uygulamada noktası gerekmez.
-   * **{Uygulama} tanımlayıcısı:** Benzersiz bir tanımlayıcı gibi **http://mysampleapp**. Bu URL için gerçek bir uygulamada noktası gerekmez.
+   * **{Giriş sayfası URL'si}:** gibi uygulamanızın giriş sayfasının URL'sini **http:\/mysampleapp/giriş**. Bu URL için gerçek bir uygulamada noktası gerekmez.
+   * **{Uygulama} tanımlayıcısı:** Benzersiz bir tanımlayıcı gibi **http:\//mysampleapp**. Bu URL için gerçek bir uygulamada noktası gerekmez.
    * **{Password}:** Uygulamanız ile kimlik doğrulaması için kullandığınız parola.
      
      ```powershell

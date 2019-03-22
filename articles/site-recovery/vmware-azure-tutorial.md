@@ -6,22 +6,28 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 3/3/2019
+ms.date: 3/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ccd62c0b0832622bbc74542674c1d09f59ea301b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 06d18ccd6f14f0a2b31f579b0ed7250b2c4f0c92
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848839"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310600"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Şirket içi VMware VM’leri için Azure’da olağanüstü durum kurtarmayı ayarlama
 
 [Azure Site Recovery](site-recovery-overview.md), planlı ve plansız kesintiler sırasında iş uygulamalarınızı çalışır durumda tutarak, iş sürekliliğinize ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunur. Site Recovery, şirket içi makinelerin ve Azure sanal makinelerinin çoğaltma, yük devretme ve kurtarma gibi olağanüstü durum kurtarma işlemlerini yönetir ve düzenler.
 
 
-Bu öğreticide, size Azure Site Recovery kullanarak bir VMware VM’sinin Azure’a çoğaltılmasını ayarlamayı ve etkinleştirmeyi göstereceğiz. Öğreticiler size Site Recovery’i temel ayarlarla nasıl dağıtacağınızı göstermek için tasarlanmıştır. En basit yolu kullanır ve tüm seçenekleri göstermezler. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğretici, Site Recovery özelleştirmesi olmadan temel ayarlarla dağıtma işlemi gösterilmektedir. Daha karmaşık seçenekleri altında nasıl yapılır makaleleri inceleyin.
+
+    - [Yineleme kaynağı](vmware-azure-set-up-source.md) ve [yapılandırma sunucusunu](vmware-azure-deploy-configuration-server.md) ayarlayın.
+    - [Çoğaltma hedefini](vmware-azure-set-up-target.md) ayarlayın.
+    - Bir [çoğaltma ilkesi](vmware-azure-set-up-replication.md) yapılandırın ve [çoğaltmayı etkinleştirin](vmware-azure-enable-replication.md).
+
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Çoğaltma kaynağını ve hedefini girme.
@@ -37,14 +43,10 @@ Başlamadan önce şunların yapılması yararlıdır:
 - VMware VM’leri için olağanüstü durum kurtarmayı ayarlama hakkında daha ayrıntılı bilgiler için aşağıdaki kaynakları gözden geçirin ve kullanın:
     - VMware için olağanüstü durum kurtarma hakkında [sık sorulan soruları okuyun](vmware-azure-common-questions.md).
     - VMware için desteklenen ve zorunlu bileşenleri [öğrenin](vmware-physical-azure-support-matrix.md).
--  VMware için tüm dağıtım seçeneklerini kapsayan ayrıntılı yönergeler için **Nasıl Yapılır kılavuzlarımızı** okuyun:
-    - [Yineleme kaynağı](vmware-azure-set-up-source.md) ve [yapılandırma sunucusunu](vmware-azure-deploy-configuration-server.md) ayarlayın.
-    - [Çoğaltma hedefini](vmware-azure-set-up-target.md) ayarlayın.
-    - Bir [çoğaltma ilkesi](vmware-azure-set-up-replication.md) yapılandırın ve [çoğaltmayı etkinleştirin](vmware-azure-enable-replication.md).
 - Bu öğreticide size, tek bir VM'yi çoğaltma gösterilmektedir. Birden çok VM dağıtımı yapıyorsanız kullanmalısınız [dağıtım Planlayıcısı aracını](https://aka.ms/asr-deployment-planner) dağıtımınızı planlamanıza yardımcı olacak. Bu araç hakkında [daha fazla bilgi edinin](site-recovery-deployment-planner.md).
 
 Ve bu ipuçlarını gözden geçirin:
-- Bu öğreticide, yapılandırma sunucusu VMware sanal makinesi oluşturmak için bir OVA şablonu kullanılmaktadır. Bu, eğer [bu instructins](physical-manage-configuration-server.md) el ile yapılandırma sunucusu ayarlanamıyor.
+- Bu öğreticide, yapılandırma sunucusu VMware sanal makinesi oluşturmak için bir OVA şablonu kullanılmaktadır. Bu, eğer [bu yönergeleri](physical-manage-configuration-server.md) el ile yapılandırma sunucusu ayarlanamıyor.
 - Bu öğreticide, Site Recovery yapılandırma sunucusuna MySQL indirir ve yükler. İsterseniz, bunu el ile bunun yerine ayarlayabilirsiniz. [Daha fazla bilgi edinin](vmware-azure-deploy-configuration-server.md#configure-settings).
   >Yapılandırma sunucusu şablonunun en son sürümünü doğrudan [Microsoft Yükleme Merkezi](https://aka.ms/asrconfigurationserver)’nden indirebilirsiniz.
   OVF şablonu ile sağlanan lisans 180 gün boyunca geçerli bir değerlendirme lisanstır. Windows VM'de çalışan gerekli lisansa etkinleştirilmiş olması gerekir. 

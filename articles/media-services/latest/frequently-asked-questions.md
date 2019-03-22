@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 5b49db8d7e8360837dc209e98123eeccd5542769
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e543f6e69632da67900e3b49a9c77e125df5f852
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837754"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316924"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Azure Media Services v3 sık sorulan sorular
 
@@ -73,7 +73,7 @@ Daha fazla bilgi için bkz.
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>V3 kaynakları yönetmek için Azure portalını kullanabilir miyim?
 
-Henüz değil. Desteklenen Sdk'lardan birini kullanabilirsiniz. Öğreticiler ve bu belge kümesindeki örnekler bakın.
+Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), veya desteklenen biri [SDK'ları](developers-guide.md).
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>V3 sürümünde AssetFile kavramı vardır?
 

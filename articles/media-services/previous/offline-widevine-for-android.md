@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: bf2f2db57f33645389fd751c8c00f9f135416c50
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9570982e18f2698400c2798dd3e29b0ca6160b8c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864142"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309751"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Android için akış çevrimdışı Widevine  
 
@@ -153,7 +153,7 @@ Mobil Chrome tarayıcınızı v62 (veya üzeri) yükseltirseniz, bir Android tel
 
 Yukarıdaki açık kaynaklı PWA uygulama node.js'de yazılmıştır. Bir Ubuntu sunucusu kendi sürümünde barındırmak istiyorsanız, kayıttan yürütme engelleyebilir aşağıdaki yaygın karşılaşılan sorunları göz önünde bulundurun:
 
-1. CORS sorun: Örnek uygulamada video örnek barındırılan https://storage.googleapis.com/biograf-video-files/videos/. Google, Google bulut depolama kovada barındırılan kendi test örnekleri için CORS ayarladı. CORS giriş açıkça belirtilmesi CORS üst bilgileri ile hizmet verilen: https://biograf-155113.appspot.com (etki alanında hangi google barındırıyorsa bunların örnek) diğer siteler erişimini engelliyor. Denerseniz, şu HTTP hata görürsünüz: Yüklenemedi https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: 'Access-Control-Allow-Origin' üst bilgi, istenen kaynak üzerinde yok. Kaynak 'https://13.85.80.81:8080' erişim verilmez. Donuk bir yanıt ihtiyaçlarınıza hizmet veriyorsa, isteğin kaynak devre dışı CORS ile getirmek için 'Hayır-cors' moduna ayarlayın.
+1. CORS sorun: Örnek uygulamada video örnek barındırılan https://storage.googleapis.com/biograf-video-files/videos/. Google, Google bulut depolama kovada barındırılan kendi test örnekleri için CORS ayarladı. CORS giriş açıkça belirtilmesi CORS üst bilgileri ile hizmet verilen: https://biograf-155113.appspot.com (etki alanında hangi google barındırıyorsa bunların örnek) diğer siteler erişimini engelliyor. Denerseniz, şu HTTP hata görürsünüz: Yüklenemedi https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: 'Access-Control-Allow-Origin' üst bilgi, istenen kaynak üzerinde yok. Kaynak ' https:\//13.85.80.81:8080' erişim verilmez. Donuk bir yanıt ihtiyaçlarınıza hizmet veriyorsa, isteğin kaynak devre dışı CORS ile getirmek için 'Hayır-cors' moduna ayarlayın.
 2. Sertifika verme: Chrome v 58 ' başlayarak, HTTPS için Widevine EME gerektirir. Bu nedenle, x X509 ile HTTPS üzerinden örnek uygulamasını barındırmak gereken sertifika. Her zamanki test sertifikanın aşağıdaki gereksinimleri nedeniyle çalışmaz: Aşağıdaki minimum gereksinimleri karşılayan bir sertifika gerekir:
     - Chrome ve Firefox SAN konu alternatif adı ayarı sertifikada bulunmasını gerektirir.
     - Güvenilen CA sertifika gerekir ve otomatik olarak imzalanan geliştirme sertifikası çalışmıyor

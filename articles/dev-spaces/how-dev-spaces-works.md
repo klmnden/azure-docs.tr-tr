@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: İşlemler, güç Azure geliştirme alanları ve azds.yaml yapılandırma dosyasında nasıl yapılandırılacağı açıklanmaktadır.
 keywords: azds.yaml, Azure geliştirme alanları, geliştirme alanları, Docker, Kubernetes, Azure, AKS, kapsayıcılar, Azure Kubernetes hizmeti
-ms.openlocfilehash: 4d0b2d24335b03fb1afc729e4cb8f7fc07f8a77e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8d17be31acc6868399e8f785255d28fa2314d48c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456877"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316125"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure geliştirme alanları nasıl çalışır ve olan yapılandırılmış
 
@@ -59,7 +59,7 @@ Denetleyici AKS dışında yer alıyor. Bu davranış ve iletişim istemci taraf
 
 Uygulamanız, istemci tarafı araçları ayrıca çalışırken:
 * Alır ve stdout ve stderr AKS'de çalışan uygulamanızdan görüntüler.
-* Kullanan [bağlantı noktası iletme](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) kullanarak uygulamanızı web erişim sağlamak için http://locahost.
+* Kullanan [bağlantı noktası iletme](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) web http kullanarak uygulamanıza erişmesine izin vermek için:\//localhost.
 * AKS çalışan uygulamanızda bir hata ayıklayıcı ekler.
 * Artımlı derlemeleri, hızlı yineleme için izin vermek için bir değişiklik algıladığında eşitlemeler kaynak kodu geliştirme alanınıza.
 

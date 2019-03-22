@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: d0c5260fcc2e7ac2acbeec308c6a0cba7d6a81be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 1d0506179f9f0044f9f05edd3395d2677310c2d0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098102"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337127"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS hakkında SSS
 
@@ -103,9 +103,11 @@ Bu destek, Azure portalından oluşturulan TXT kayıtları için şu anda kullan
 ## <a name="alias-records"></a>Diğer ad kayıtları
 
 ### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>Diğer ad kayıtlarını yararlı olduğu bazı senaryolar nelerdir?
+
 Senaryoları kısmına bakın [Azure DNS diğer ad kayıtlarını genel bakış](dns-alias.md).
 
 ### <a name="what-record-types-are-supported-for-alias-record-sets"></a>Hangi kayıt türleri için diğer ad kaydı kümeleri desteklenir?
+
 Diğer kayıt kümeleri, aşağıdaki kayıt türlerinin bir Azure DNS bölgesindeki desteklenir:
  
 - A 
@@ -116,30 +118,36 @@ Diğer kayıt kümeleri, aşağıdaki kayıt türlerinin bir Azure DNS bölgesin
 
 - **Bir genel IP kaynağı için bir DNS A/AAAA kayıt kümesi gelin.** A/AAAA kayıt kümesi oluşturma ve bir genel IP kaynağına işaret edecek bir diğer ad kayıt kümesi kolaylaştırır.
 - **Traffic Manager profili için bir DNS A/AAAA/CNAME kayıt kümesi gelin.** Bir DNS CNAME kayıt kümesi için bir Traffic Manager profilinin CNAME işaret edebilir. Contoso.trafficmanager.net buna bir örnektir. Şimdi de dış uç noktalardan gelen bir A veya AAAA kaydı DNS bölgenizi kümesi olan bir Traffic Manager profiline işaret edebilir.
+- **Bir Azure Content Delivery Network (CDN) uç noktası**. Azure depolama ve Azure CDN kullanarak statik Web sitesi oluşturduğunuzda, bu yararlıdır.
 - **Aynı bölgede başka bir DNS kayıt kümesi gelin.** Diğer ad kayıtlarını aynı türdeki diğer kayıt kümelerine başvurabilir. Örneğin, bir DNS CNAME kayıt kümesinin aynı türdeki başka bir CNAME kayıt kümesine diğer ad olmasını sağlayabilirsiniz. Bu düzenleme, diğer adlar olmasını bazı kayıt kümelerini ve bazı diğer olmayan istiyorsanız kullanışlıdır.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Ben oluşturabilir ve diğer ad kayıtlarını Azure portalından güncelleştirme?
+
 Evet. Oluşturun veya diğer ad kayıtlarını Azure REST API'ler, PowerShell, CLI ve SDK'ları ile birlikte Azure portalında yönetme.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>Diğer ad kayıtlarını my DNS kayıt kümesi, temel alınan genel IP silindiğinde silinir emin olmak için yardımcı olur?
+
 Evet. Bu özellik, diğer ad kayıtlarını temel özellikleriyle biridir. Uygulamanızın kullanıcıları için olası kesintileri önlemek yardımcı olur.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>Diğer ad kayıtlarını temel genel IP adresini değiştiğinde my DNS kayıt kümesi için doğru IP adresi güncelleştirildiğinden emin olmak için Yardım?
+
 Evet. Bu özellik, diğer ad kayıtlarını temel özellikleriyle biridir. Olası kesintileri veya uygulamanız için güvenlik risklerini önlemek yardımcı olur.
 
 ### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-a-or-aaaa-records-to-point-to-traffic-manager"></a>Traffic Manager'a işaret edecek şekilde A veya AAAA kayıt için diğer ad kaydı kümeleri kullanırken herhangi bir kısıtlama var mıdır?
+
 Evet. Bir Traffic Manager profiline bir A veya AAAA kaydı kümesinden Traffic Manager diğer ad olarak işaret edecek şekilde profilini yalnızca harici son noktaları kullanması gerekir. Dış uç noktaları Traffic Manager'da oluşturduğunuzda, uç noktaları gerçek IP adreslerini sağlar.
 
 ### <a name="is-there-an-additional-charge-to-use-alias-records"></a>Diğer ad kayıtlarını kullanmak için ek bir ücreti var mıdır?
+
 Diğer ad, geçerli bir DNS kaydı kümesi üzerinde bir nitelik kayıtlardır. Hiçbir ek bir diğer ad kayıtlarını faturalandırması yoktur.
 
 ## <a name="use-azure-dns"></a>Azure DNS kullanma
 
-### <a name="can-i-cohost-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Bir etki alanının Azure DNS ve başka bir DNS Sağlayıcısı'nı kullanarak cohost?
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Kullanabilir miyim ortak sunuculuk bir etki alanını Azure DNS'ye ve başka bir DNS Sağlayıcısı'nı kullanarak?
 
-Evet. Azure DNS, diğer DNS hizmetleriyle cohosting etki alanlarını destekler.
+Evet. Azure DNS, diğer DNS hizmetleriyle ortak bir barındırma etki alanlarını destekler.
 
-Cohosting yukarı ayarlamak için her iki sağlayıcıları için ad sunucularını işaret edecek şekilde etki alanına ait NS kayıtlarını değiştirin. Ad sunucusu (NS) etki alanı için DNS sorgularını hangi sağlayıcıları Al denetimi kaydeder. Azure DNS, diğer sağlayıcı ve üst bölgedeki NS kayıtlarının değiştirebilirsiniz. Üst bölge, genellikle etki alanı adı kayıt şirketi aracılığıyla yapılandırılır. DNS temsilcisi hakkında daha fazla bilgi için bkz. [DNS etki alanı temsilcisi](dns-domain-delegation.md).
+Ortak barındırma yukarı ayarlamak için her iki sağlayıcıları için ad sunucularını işaret edecek şekilde etki alanına ait NS kayıtlarını değiştirin. Ad sunucusu (NS) etki alanı için DNS sorgularını hangi sağlayıcıları Al denetimi kaydeder. Azure DNS, diğer sağlayıcı ve üst bölgedeki NS kayıtlarının değiştirebilirsiniz. Üst bölge, genellikle etki alanı adı kayıt şirketi aracılığıyla yapılandırılır. DNS temsilcisi hakkında daha fazla bilgi için bkz. [DNS etki alanı temsilcisi](dns-domain-delegation.md).
 
 Ayrıca, etki alanı için DNS kayıtlarını hem DNS sağlayıcıları arasında eşitlenmiş olduğundan emin olun. Azure DNS, DNS bölge aktarımlarını şu anda desteklemiyor. Kullanarak DNS kayıtlarını eşitlenmelidir [Azure DNS Yönetim Portalı](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell cmdlet'leri](dns-operations-recordsets.md), veya [CLI aracı](dns-operations-recordsets-cli.md).
 
@@ -271,10 +279,9 @@ API, PowerShell, CLI ve SDK'lar önceden oluşturulmuş özel bölgeler Azure po
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure DNS hakkında daha fazla bilgi](dns-overview.md).
-<br>
-- [Azure DNS özel etki alanları için kullanma hakkında daha fazla bilgi edinin](private-dns-overview.md).
-<br>
-- [DNS bölgeleri ve kayıtları hakkında daha fazla bilgi edinin](dns-zones-records.md).
-<br>
-- [Azure DNS ile çalışmaya başlama](dns-getstarted-portal.md).
 
+- [Azure DNS özel etki alanları için kullanma hakkında daha fazla bilgi edinin](private-dns-overview.md).
+
+- [DNS bölgeleri ve kayıtları hakkında daha fazla bilgi edinin](dns-zones-records.md).
+
+- [Azure DNS ile çalışmaya başlama](dns-getstarted-portal.md).

@@ -1,5 +1,5 @@
 ---
-title: Azure MFA sunucusu ile Active Directory Tümleştirmesi
+title: Azure MFA sunucusu ile Active Directory - Azure Active Directory Tümleştirmesi
 description: Dizinleri eşitleyebilmek için Azure Multi-Factor Authentication Server ile Active Directory’yi tümleştirme.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88839598b3ae11f0041b3451ba5481547c019c9d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0422cc3376caa6c2f99a0838684d84047a5937ed
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449623"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313575"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA Sunucusu ile Active Directory arasında dizin tümleştirme
 

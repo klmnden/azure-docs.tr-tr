@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: d2e890110194b1fbe0528191fa645628cc3a1345
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9da735f10063649222a38498af17e0404137a706
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161371"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315377"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Geliştirme C# Visual Studio Code ile Service Fabric uygulamaları
 
@@ -70,11 +70,11 @@ Uygulamayı oluşturduktan sonra yerel kümeye dağıtabilirsiniz.
 
    ![VS code'da uygulama komutu dağıtma](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. Dağıtım tamamlandığında, tarayıcıyı başlatın ve Service Fabric Explorer'ı açın: http://localhost:19080/Explorer. Uygulamanın çalıştığını görmelisiniz. Bu biraz zaman alabilir. Bu nedenle sabırlı olun. 
+4. Dağıtım tamamlandığında, tarayıcıyı başlatın ve Service Fabric Explorer'ı açın: http:\//localhost:19080 / Gezgini. Uygulamanın çalıştığını görmelisiniz. Bu biraz zaman alabilir. Bu nedenle sabırlı olun. 
 
    ![Service Fabric Explorer hizmet uygulamasında sayaç](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. Uygulamanın çalıştığı doğruladıktan sonra tarayıcıyı başlatın ve şu sayfayı açın: http://localhost:31002. Bu, uygulamanın ön uç web API'sidir. Geçerli sayaç değerini artırır olarak görmek için sayfayı yenileyin.
+4. Uygulamanın çalıştığı doğruladıktan sonra tarayıcıyı başlatın ve şu sayfayı açın: http:\//localhost:31002. Bu, uygulamanın ön uç web API'sidir. Geçerli sayaç değerini artırır olarak görmek için sayfayı yenileyin.
 
    ![Tarayıcıda sayacı hizmet uygulaması](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
@@ -91,7 +91,7 @@ Bir kesme noktası ve hata ayıklama ayarlamak için aşağıdaki adımları tam
 
    ![VS Code çalışma simgesi hata ayıklama](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. Service Fabric Explorer bir tarayıcıda açın: http://localhost:19080/Explorer. Tıklayın **uygulamaları** ve detaya gitmesine CounterService çalıştıran birincil düğüm belirleyin. Birincil düğüm CounterService için aşağıdaki görüntüde 0 düğümüdür.
+3. Service Fabric Explorer bir tarayıcıda açın: http:\//localhost:19080 / Gezgini. Tıklayın **uygulamaları** ve detaya gitmesine CounterService çalıştıran birincil düğüm belirleyin. Birincil düğüm CounterService için aşağıdaki görüntüde 0 düğümüdür.
 
    ![Birincil düğüm CounterService için](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 

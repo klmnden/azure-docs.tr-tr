@@ -2,7 +2,6 @@
 title: Box - Azure Logic Apps'ı bağlama | Microsoft Docs
 description: Oluşturun ve dosyalarını kutusu REST API'leri ve Azure Logic Apps ile yönetme
 author: ecfan
-manager: jeconnoc
 ms.author: estfan
 ms.date: 11/07/2016
 ms.topic: article
@@ -11,22 +10,22 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: aef9423a7281f85029195156a1563d9cfed3029c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 971d38fa0fbd47f0deb815577033bbe684aac32f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229083"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310685"
 ---
 # <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>Azure Logic Apps ile kutusundaki dosyaları oluşturmak ve yönetmek
 
 Bu makalede nasıl oluşturabileceğinizi ve kutusu Bağlayıcısı ile bir mantıksal uygulama içinde kutusunda dosyalarınızı yönetin gösterilmektedir. Böylece, görevler ve dosyalarınızı ve diğer Eylemler, örneğin yönetmek için iş akışlarını otomatik hale getiren mantıksal uygulamaları oluşturabilirsiniz:
 
-* Box'tan alma verileri temel alan, iş akışınızı oluşturun. 
+* Box'tan alma verileri temel alan, iş akışınızı oluşturun.
 
 * Bir dosya oluşturulduğunda veya otomatik görevler ve iş akışı tetikler.
 
-* Bir dosyayı kopyalar ve bir dosya siler eylemleri çalıştırın. 
+* Bir dosyayı kopyalar ve bir dosya siler eylemleri çalıştırın.
 
   Bu eylemlerden yanıt aldığınızda bunlar çıkış diğer eylemler için kullanılabilir olun. 
   Örneğin, çubuğundaki bir dosya değiştirildiğinde, e-postayla Office 365'i kullanarak bu dosyayı gönderebilirsiniz.
@@ -37,14 +36,14 @@ Bu makalede nasıl oluşturabileceğinizi ve kutusu Bağlayıcısı ile bir mant
 
 * Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
 
-* Box hesabınıza erişmek için istediğiniz mantıksal uygulaması. Mantıksal uygulamanızı bir kutusu tetikleyici ile başlayın, gerek bir [boş mantıksal uygulama](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* Box hesabınıza erişmek için istediğiniz mantıksal uygulaması. Mantıksal uygulamanızı bir kutusu tetikleyici ile başlayın, gerek bir [boş mantıksal uygulama](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Hakkında temel bilgilere [mantıksal uygulamalar oluşturmak nasıl](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md).
 
 ## <a name="connector-reference"></a>Bağlayıcı başvurusu
 
-Bağlayıcının Swagger dosyası tarafından açıklandığı gibi sınırları, tetikleyiciler ve Eylemler gibi teknik ayrıntılar için bkz [bağlayıcının başvuru sayfası](/connectors/box/). 
+Tetikleyiciler ve Eylemler sınırları, bağlayıcının Openapı'nin açıklandığı gibi teknik ayrıntılar için (önceki adıyla Swagger) dosyası, bkz: [bağlayıcının başvuru sayfası](/connectors/box/).
 
 ## <a name="get-support"></a>Destek alın
 

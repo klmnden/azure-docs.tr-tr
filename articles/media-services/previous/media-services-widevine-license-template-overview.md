@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 4b5196a995576e5b00a988e14183eb720d5b2eae
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d0bb72361e1bff3615f6785ac4c91a10ea773498
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989886"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312980"
 ---
 # <a name="widevine-license-template-overview"></a>Widevine lisans şablonuna genel bakış 
 Azure Media Services'ı yapılandırmak ve Google Widevine lisans istemek için kullanabilirsiniz. Player, Widevine korumalı içeriğini oynatmak çalıştığında, bir lisans almak için bir istek için lisans teslimat hizmetinin gönderilir. Lisans hizmeti isteği onaylarsa, hizmet lisansı verir. Bu, istemciye gönderilen ve şifresini çözmek ve belirtilen içeriğin yürütmek için kullanılır.
@@ -63,8 +63,8 @@ Widevine lisans isteği bir JSON iletisi olarak biçimlendirilir.
 | --- | --- | --- |
 | yük |Base64 ile kodlanmış bir dize |Bir istemci tarafından gönderilen lisans isteği. |
 | content_id |Base64 ile kodlanmış bir dize |Anahtar kimliği ve içerik türetmek için kullanılan tanımlayıcı her content_key_specs.track_type için anahtar. |
-| Sağlayıcı |dize |İçerik anahtarları ve ilkeleri bakmak için kullanılır. Microsoft anahtar teslim Widevine lisans teslim için kullanılıyorsa, bu parametre yoksayılır. |
-| policy_name |dize |Önceden kaydedilmiş bir ilke adı. İsteğe bağlı. |
+| sağlayıcı |string |İçerik anahtarları ve ilkeleri bakmak için kullanılır. Microsoft anahtar teslim Widevine lisans teslim için kullanılıyorsa, bu parametre yoksayılır. |
+| policy_name |string |Önceden kaydedilmiş bir ilke adı. İsteğe bağlı. |
 | allowed_track_types |Sabit listesi |SD_ONLY veya SD_HD. Anahtarları içerik denetimleri bir lisans dahil edilir. |
 | content_key_specs |JSON dizisi yapıları "İçerik anahtarı özellikleri." bölümüne bakın  |Döndürülecek hangi içerik anahtarı üzerinde daha ayrıntılı denetim. Daha fazla bilgi için "İçerik anahtarı özellikleri." bölümüne bakın. Allowed_track_types ve content_key_specs değerleri yalnızca biri belirtilebilir. |
 | use_policy_overrides_exclusively |Boole true veya false |Tüm daha önce depolanan ilke çıkarın ve policy_overrides tarafından belirtilen ilke öznitelikler kullanın. |
@@ -79,7 +79,7 @@ Her bir content_key_specs değeri use_policy_overrides_exclusively seçeneği ba
 
 | Ad | Değer | Açıklama |
 | --- | --- | --- |
-| content_key_specs. track_type |dize |İzleme türü adı. Content_key_specs lisans istekte belirtilirse, tüm türleri açıkça izlemek belirttiğinizden emin olun. Bunun yapılmaması, 10 saniye kayıttan yürütme hatası sonuçlanır. |
+| content_key_specs. track_type |string |İzleme türü adı. Content_key_specs lisans istekte belirtilirse, tüm türleri açıkça izlemek belirttiğinizden emin olun. Bunun yapılmaması, 10 saniye kayıttan yürütme hatası sonuçlanır. |
 | content_key_specs  <br/> security_level |uint32 |Kayıttan yürütme için istemci sağlamlık gereksinimleri tanımlar. <br/> -Yazılım tabanlı beyaz-box şifrelemesi gereklidir. <br/> -Yazılım şifreleme ve karıştırılmış bir kod çözücü gereklidir. <br/> -Anahtar malzemesi ve şifreleme işlemleri, donanım destekli güvenilir yürütme ortamı içinde gerçekleştirilmelidir. <br/> -Şifreleme ve içeriğini kod çözme, donanım destekli güvenilir yürütme ortamı içinde gerçekleştirilmelidir.  <br/> -Şifreleme, kod çözme ve tüm işleme (sıkıştırılmış ve sıkıştırılmamış) ortam içinde bir donanım destekli güvenilir yürütme ortamı işlenmelidir. |
 | content_key_specs <br/> required_output_protection.hdc |dize, HDCP_NONE, HDCP_V1, HDCP_V2 biri |HDCP gerekli olup olmadığını belirtir. |
 | content_key_specs <br/>anahtar |Base64-<br/>Kodlanmış dize |Bu izleme için kullanılacak içerik anahtarı. Belirtilmişse track_type veya key_id gereklidir. İçerik sağlayıcısı oluşturmak veya bir anahtarı aramak Widevine lisans sunucusu izin vermek yerine bu izleme için içerik anahtarını eklenmek üzere bu seçeneği kullanabilirsiniz. |
@@ -94,7 +94,7 @@ Her bir content_key_specs değeri use_policy_overrides_exclusively seçeneği ba
 | policy_overrides. license_duration_seconds |Int64 |Bu belirli bir lisans için zaman penceresini gösterir. 0 değeri, süre sınırı olduğunu gösterir. Varsayılan 0'dır. |
 | policy_overrides. rental_duration_seconds |Int64 |Kayıttan yürütme izin sırada zaman penceresini gösterir. 0 değeri, süre sınırı olduğunu gösterir. Varsayılan 0'dır. |
 | policy_overrides. playback_duration_seconds |Int64 |Lisans süresi içinde kayıttan yürütme başladıktan sonra zaman görüntüleme penceresi. 0 değeri, süre sınırı olduğunu gösterir. Varsayılan 0'dır. |
-| policy_overrides. renewal_server_url |dize |Bu lisans tüm sinyal (yenileme) istekleri belirtilen URL'ye yeniden yönlendirilir. Bu alan yalnızca can_renew doğruysa kullanılır. |
+| policy_overrides. renewal_server_url |string |Bu lisans tüm sinyal (yenileme) istekleri belirtilen URL'ye yeniden yönlendirilir. Bu alan yalnızca can_renew doğruysa kullanılır. |
 | policy_overrides. renewal_delay_seconds |Int64 |Yenileme ilk denenmeden önce license_start_time kaç saniye. Bu alan yalnızca can_renew doğruysa kullanılır. Varsayılan 0'dır. |
 | policy_overrides. renewal_retry_interval_seconds |Int64 |Başarısız olması durumunda sonraki Lisans yenileme istekleri arasındaki saniye cinsinden gecikme süresini belirtir. Bu alan yalnızca can_renew doğruysa kullanılır. |
 | policy_overrides. renewal_recovery_duration_seconds |Int64 |Pencerenin zaman yenileme denemesi sırasında hangi kayıttan yürütme devam edebilirsiniz, ancak lisans sunucusu ile arka uç sorunları nedeniyle başarısız. 0 değeri, süre sınırı olduğunu gösterir. Bu alan yalnızca can_renew doğruysa kullanılır. |
