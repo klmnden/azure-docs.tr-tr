@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: mbullwin
-ms.openlocfilehash: a593e42ed87ab985d4f4584ed6b73109716120bf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 10b909fd5239546047aa4696a1f6a68a703778c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028994"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001221"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>İzleme önem derecesi oranı (Önizleme) içinde performans düşüşü
 
@@ -26,7 +26,7 @@ Bunlar perde arkasında neler hikayeyi anlatmalarına yardımcı olmak gibi izle
 Bu özellik, uygulamanız için izleme günlüğü yapılandırma dışında hiçbir özel kurulum gerektirir (görmek için bir izleme günlüğü dinleyici yapılandırma [.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) veya [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)). Uygulamanızın yeterli özel durum telemetrisi oluşturduğunda etkin değil.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Bu tür bir akıllı algılama bildirim ne zaman elde edersiniz?
-Bu tür bir bildirim geri alabilirsiniz "good" izlemeleri arasındaki oran (bir düzeyde günlüğe izlemeleri *bilgisi* veya *ayrıntılı*) ve "bozuk" izlemeleri (bir düzeyde günlüğe izlemeleri *uyarı*, *, Hata veya *önemli*) son yedi gün hesaplanan temel karşılaştırıldığında belirli bir gün içinde düşürmesini.
+Bu tür bir bildirim geri alabilirsiniz "good" izlemeleri arasındaki oran (bir düzeyde günlüğe izlemeleri *bilgisi* veya *ayrıntılı*) ve "bozuk" izlemeleri (bir düzeyde günlüğe izlemeleri *uyarı*, *Hata*, veya *önemli*) son yedi gün hesaplanan temel karşılaştırıldığında belirli bir gün içinde düşürmesini.
 
 ## <a name="does-my-app-definitely-have-a-problem"></a>Uygulamamı kesinlikle bir sorun var mı?
 Hayır, bir bildirim uygulamanızı kesinlikle bir sorun olduğu anlamına gelmez. "Good" ve "bozuk" izlemeleri arasındaki oran düşüş bir uygulama sorunu olduğunu belirtebilir olsa da, bu değişikliği oranı, zararsız olabilir. Örneğin, artış için mevcut akışları değerinden daha fazla "kötü" izlemeleri yayma uygulama yeni bir akışta olabilir).

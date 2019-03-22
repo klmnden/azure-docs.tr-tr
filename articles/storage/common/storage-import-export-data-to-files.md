@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 1cf2276ca1995df19cc7068764a31916e4981100
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e3cd9d0036a55a3e6de49988dddcd6a91b81b078
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452703"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088664"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure dosyaları'na veri almak için Azure içeri/dışarı aktarma hizmetini kullanma
 
@@ -50,60 +50,60 @@ Sürücüleri hazırlamak için aşağıdaki adımları gerçekleştirin.
 2. Her sürücüde tek bir NTFS birimi oluşturun. Birime bir sürücü harfi atayabilirsiniz. Bağlama kullanmayın.
 3. Değiştirme *dataset.csv* aracı bulunduğu kök klasöründeki dosya. Bir dosya veya klasör ya da her ikisini de almak isteyip istemediğinizi bağlı olarak, girişler ekleyin *dataset.csv* aşağıdaki örneklere benzer dosya.  
 
-    - **Bir dosyayı içe aktarmak için**: Aşağıdaki örnekte, kopyalanacak verileri C: sürücüsünde yer alıyor. Dosyanızı *MyFile1.txt* kök dizinine kopyalanır *MyAzureFileshare1*. Varsa *MyAzureFileshare1* yok, Azure depolama hesabı oluşturulur. Klasör yapısı korunur.
+   - **Bir dosyayı içe aktarmak için**: Aşağıdaki örnekte, kopyalanacak verileri C: sürücüsünde yer alıyor. Dosyanızı *MyFile1.txt* kök dizinine kopyalanır *MyAzureFileshare1*. Varsa *MyAzureFileshare1* yok, Azure depolama hesabı oluşturulur. Klasör yapısı korunur.
 
-        ```
-            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+       ```
+           BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
-        ```
-    - **Bir klasörü içeri aktarmak için**: Tüm dosya ve klasörlerin altındaki *MyFolder2* yinelemeli dosya paylaşımına kopyalanır. Klasör yapısı korunur.
+       ```
+   - **Bir klasörü içeri aktarmak için**: Tüm dosya ve klasörlerin altındaki *MyFolder2* yinelemeli dosya paylaşımına kopyalanır. Klasör yapısı korunur.
 
-        ```
-            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-            
-        ```
-    Aynı dosyada içe aktarılan dosyaları veya klasörleri karşılık gelen birden çok girişi yapılabilir. 
+       ```
+           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+            
+       ```
+     Aynı dosyada içe aktarılan dosyaları veya klasörleri karşılık gelen birden çok girişi yapılabilir. 
 
-        ```
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
-            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-                        
-        ```
-    Daha fazla bilgi edinin [veri kümesi CSV dosyası hazırlanıyor](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
+       ```
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+                        
+       ```
+     Daha fazla bilgi edinin [veri kümesi CSV dosyası hazırlanıyor](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
 
 4. Değiştirme *driveset.csv* aracı bulunduğu kök klasöründeki dosya. Girdileri ekleme *driveset.csv* aşağıdaki örneklere benzer dosya. Aracı düzgün listesi disklerin hazırlanması seçebilir böylece driveset dosya diskleri ve karşılık gelen sürücü harflerini listesine sahiptir.
 
     Bu örnekte, iki disk eklenir ve temel NTFS birimleri G:\ ve H:\ oluşturduğunuz varsayılır. H:\is G: zaten şifrelendiyse ancak şifrelenmez. Aracı biçimlendirir ve yalnızca H:\ barındıran disk şifreler (ve değil G:\).
 
-    - **Şifrelenmemiş bir disk için**: Belirtin *şifrele* diskte BitLocker şifrelemesini etkinleştirmek için.
+   - **Şifrelenmemiş bir disk için**: Belirtin *şifrele* diskte BitLocker şifrelemesini etkinleştirmek için.
 
-        ```
-        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-        H,Format,SilentMode,Encrypt,
-        ```
+       ```
+       DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+       H,Format,SilentMode,Encrypt,
+       ```
     
-    - **Zaten şifrelenmiş bir disk için**: Belirtin *AlreadyEncrypted* ve BitLocker anahtarı sağlayın.
+   - **Zaten şifrelenmiş bir disk için**: Belirtin *AlreadyEncrypted* ve BitLocker anahtarı sağlayın.
 
-        ```
-        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
-        ```
+       ```
+       DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+       G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
+       ```
 
-    Birden çok giriş için birden çok sürücü karşılık gelen aynı dosyada yapılabilir. Daha fazla bilgi edinin [driveset CSV dosyası hazırlanıyor](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file). 
+     Birden çok giriş için birden çok sürücü karşılık gelen aynı dosyada yapılabilir. Daha fazla bilgi edinin [driveset CSV dosyası hazırlanıyor](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file). 
 
-5.  Kullanım `PrepImport` kopyalayın ve disk sürücüsüne verileri hazırlamak için seçeneği. Dizinleri ve/veya yeni bir kopya oturumu dosyaları kopyalamak ilk kopyalama oturumu için aşağıdaki komutu çalıştırın:
+5. Kullanım `PrepImport` kopyalayın ve disk sürücüsüne verileri hazırlamak için seçeneği. Dizinleri ve/veya yeni bir kopya oturumu dosyaları kopyalamak ilk kopyalama oturumu için aşağıdaki komutu çalıştırın:
 
-        ```
-        .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
-        ```
+       ```
+       .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+       ```
 
-    İçeri aktarma örneği aşağıda gösterilmiştir.
+   İçeri aktarma örneği aşağıda gösterilmiştir.
   
-        ```
-        .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
-        ```
+       ```
+       .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
+       ```
  
 6. İle sağlanan ada sahip bir günlük dosyası `/j:` parametresi, her komut satırı çalıştırma için oluşturulur. Hazırlama, her bir sürücü içeri aktarma işi oluşturma zaman karşıya yüklenmelidir bir günlük dosyası vardır. Günlük dosyaları işlenmez beraberinde getirir.
 

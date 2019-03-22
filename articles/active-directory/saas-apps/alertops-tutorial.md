@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36da69b61ffd4df6d4093023e69887b27dbae243
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 7914bc3775631f3cc5d6ae68fed10c6d5fecb853
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405292"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838061"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alertops"></a>Öğretici: AlertOps ile Azure Active Directory Tümleştirme
 
@@ -176,7 +176,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -227,7 +227,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için AlertOps erişim vererek
 
     a. İçinde **oturum açma kullanıcı adı** metin gibi kullanıcının kullanıcı adını girin **Brittasimon**.
 
-    b. İçinde **resmi bir e-posta** metin gibi kullanıcı e-posta adresini girin **Brittasimon@contoso.com**.
+    b. İçinde **resmi bir e-posta** metin gibi kullanıcı e-posta adresini girin **Brittasimon\@contoso.com**.
 
     c. İçinde **ad** metin gibi kullanıcı adını girin **Britta**.
 

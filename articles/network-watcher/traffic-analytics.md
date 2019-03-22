@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: bc738dd93a43a1a3610323b9dd05abfd5b5c0091
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d4c3ab7e33d3d4bd8d5d5ee15c8264d1d41c858e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408811"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081075"
 ---
 # <a name="traffic-analytics"></a>Trafik Analizi
 
@@ -201,7 +201,7 @@ Trafik analizi tam olarak yapılandırdıktan sonra elde etmek isteyebileceğini
 - Engellenen trafik istatistikleri.
     - Neden bir konak zararsız trafik önemli bir sesini engelliyor? Bu davranışı, daha fazla araştırma ve büyük olasılıkla en iyi duruma getirme yapılandırması gerektirir
 - İzin verilen/engellenen kötü amaçlı trafik istatistikleri
-    - Neden bir ana bilgisayar kötü amaçlı trafik ve kaynak kötü amaçlı akışlar izin verilen neden alıyor? Bu davranış, daha fazla araştırma ve büyük olasılıkla en iyi duruma getirme yapılandırması gerektirir.
+  - Neden bir ana bilgisayar kötü amaçlı trafik ve kaynak kötü amaçlı akışlar izin verilen neden alıyor? Bu davranış, daha fazla araştırma ve büyük olasılıkla en iyi duruma getirme yapılandırması gerektirir.
 
     Seçin **tümünü gör**altında **konak**, aşağıdaki resimde gösterildiği gibi:
 
@@ -260,8 +260,8 @@ Trafik analizi tam olarak yapılandırdıktan sonra elde etmek isteyebileceğini
 **Aramak**
 
 - En çok kullanılan kaynaklar veri merkezi ve uygulama protokolleri konuşmaya üst konuşmaya üst sahte ağ trafiğinin bir veri merkezine gibi veri merkezi başına trafik dağılımı.
-    - Bir veri merkezi hakkında daha fazla yük gözlemlerseniz, verimli trafik dağıtımı için planlayabilirsiniz.
-    - Sahte ağ veri merkezinde konuşmaya, sonra bunları engellemek için NSG kuralları düzeltin.
+  - Bir veri merkezi hakkında daha fazla yük gözlemlerseniz, verimli trafik dağıtımı için planlayabilirsiniz.
+  - Sahte ağ veri merkezinde konuşmaya, sonra bunları engellemek için NSG kuralları düzeltin.
 
     Seçin **haritayı görüntüleme** altında **ortamınızı**, aşağıdaki resimde gösterildiği gibi:
 
@@ -282,8 +282,8 @@ Trafik analizi tam olarak yapılandırdıktan sonra elde etmek isteyebileceğini
 **Aramak**
 
 - Sanal ağ, topoloji, en çok kullanılan kaynaklar sanal ağ ve uygulama protokolleri konuşmaya üst konuşmaya üst sahte ağ trafiğinin sanal ağ başına trafik dağılımı.
-    - Hangi sanal ağa sanal ağı'nı bilerek konuşmaya. Konuşma görülmüyorsa düzeltilebilir.
-    - Sahte ağları, sanal ağ ile konuşmaya, dolandırıcı ağları engellemeye yönelik NSG kuralları düzeltebilirsiniz.
+  - Hangi sanal ağa sanal ağı'nı bilerek konuşmaya. Konuşma görülmüyorsa düzeltilebilir.
+  - Sahte ağları, sanal ağ ile konuşmaya, dolandırıcı ağları engellemeye yönelik NSG kuralları düzeltebilirsiniz.
  
     Seçin **görünümü Vnet'ler** altında **ortamınızı**, aşağıdaki resimde gösterildiği gibi:
 
@@ -323,7 +323,7 @@ Trafik dağılımı uygulama ağ geçidi ve yük dengeleyici, topoloji başına 
 **Aramak**
 
 - Hangi bağlantı noktalarını açma, internet üzerinden konuşmaya?
-    - Beklenmeyen bir bağlantı noktalarını açık bulunamazsa, yapılandırmanızı düzeltebilirsiniz:
+  - Beklenmeyen bir bağlantı noktalarını açık bulunamazsa, yapılandırmanızı düzeltebilirsiniz:
 
     ![Pano vitrini alma ve internet'e trafik gönderen bağlantı noktaları](./media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
 
@@ -347,9 +347,9 @@ Ortamınızda kötü amaçlı trafik var mı? Burada, kaynaklanan? Burada için 
 
 - Aşağıdaki resim NSG kuralları ve kaynak-hedef akışın bir ağ güvenlik grubu ayrıntılarını isabetleri için eğilimleri belirleme zamanı göster:
 
-    - Hızlı bir şekilde tespit hangi Nsg'leri ve NSG kuralları kötü amaçlı akışlar geçiş yapma ve olduğu üst kötü amaçlı IP adresleri bulut ortamınıza erişen
-    - Hangi NSG/NSG kuralları izin verme/önemli ölçüde ağ trafiği engelliyor tanımlayın
-    - Select üst kuralları NSG veya NSG ayrıntılı incelemesi için filtreler
+  - Hızlı bir şekilde tespit hangi Nsg'leri ve NSG kuralları kötü amaçlı akışlar geçiş yapma ve olduğu üst kötü amaçlı IP adresleri bulut ortamınıza erişen
+  - Hangi NSG/NSG kuralları izin verme/önemli ölçüde ağ trafiği engelliyor tanımlayın
+  - Select üst kuralları NSG veya NSG ayrıntılı incelemesi için filtreler
 
     ![NSG kural İsabetleri ve en iyi NSG kuralları için zaman popüler vitrini](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
 

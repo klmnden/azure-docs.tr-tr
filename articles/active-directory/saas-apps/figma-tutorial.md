@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8569cae1-87dd-4c40-9bbb-527ac80d6a96
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: f95eac0cdb0fa7d5f9a2882138affc09ff489956
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d58da4781a7c5c93d897e0efd7cf3d5aee612d78
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900328"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225697"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Öğretici: Figma ile Azure Active Directory Tümleştirme
 
@@ -130,6 +131,9 @@ Azure AD çoklu oturum açma ile Figma yapılandırmak için aşağıdaki adıml
     | Ad | Kaynak özniteliği|
     | ---------------| --------- |
     | `externalId` | `user.mailnickname` |
+    | `displayName` | `user.displayname` |
+    | `title` | `user.jobtitle` |
+    | `emailaddress` | `user.mail` |
     | `familyName` | `user.surname` |
     | `givenName` | `givenName` |
     | `userName` | `user.userprincipalname` |
@@ -158,23 +162,7 @@ Azure AD çoklu oturum açma ile Figma yapılandırmak için aşağıdaki adıml
   
 ### <a name="configure-figma-single-sign-on"></a>Figma tek oturum açmayı yapılandırın
 
-1. Farklı bir web tarayıcı penceresinde açın Figma'nın site [burada](https://goo.gl/forms/XkRB1z5ed4eVUzXn2) yönetici olarak.
-
-2. Üzerinde **Figma SAML SSO Yapılandırması** sayfasında, aşağıdaki adımları gerçekleştirin:
-
-    ![Çoklu oturum açmayı yapılandırın](./media/figma-tutorial/configure01.png)
-
-    a. İçinde **e-posta adresi** metin kutusuna, kullanıcının gibi e-posta girin **brittasimon\@contoso.com**.
-
-    b. İçinde **adınız** metin kutusunda, gibi kullanıcı adını girin **Brittasimon**.
-
-    c. Seçeneğinizi Figma kuruluş göre seçin.
-
-    d. İçinde **Figma kuruluşunuzun adına** metin kutusuna kuruluşunuzun adını yazın.
-
-    e. İçinde **kimlik sağlayıcısı (IDP) meta veri URL'si** metin kutusu, yapıştırma **uygulama Federasyon meta verileri URL'sini** hangi Azure portaldan kopyaladığınız.
-
-    f. Tıklayın **Gönder**.
+Çoklu oturum açma Figma tarafında yapılandırmak için Figma'nın makaleyi takip gereken [yapılandırma Azure Active Directory SAML SSO işlem](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 

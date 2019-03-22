@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: a5ad7005a2ab3d6ed5f9c8fe38db9552e3925a30
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871328"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004934"
 ---
 # <a name="evaluate-method"></a>yöntemi
 
@@ -27,7 +27,9 @@ ms.locfileid: "55871328"
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate? 
 ```   
 <br>
+
 ## <a name="request-parameters"></a>İstek Parametreleri  
+
 Ad     | Değer | Gerekli mi?  | Açıklama
 -----------|-----------|---------|--------
 **ifade**       | Metin dizesi | Evet | Sorgu ifadesinin hangi varlıkları döndürülmesi gerektiğini belirtir.
@@ -38,7 +40,9 @@ Ad     | Değer | Gerekli mi?  | Açıklama
 **OrderBy** |   Metin dizesi | Hayır<br>Varsayılan: olasılık azaltarak | Varlıkları sıralama için kullanılan bir öznitelik adı. İsteğe bağlı olarak, artan/azalan belirtilebilir. Biçim: *adı: asc* veya *adı: desc*.
   
  <br>
+
 ## <a name="response-json"></a>Yanıt (JSON)
+
 Ad | Açıklama
 -------|-----   
 **ifade** |  *Expr* istek parametresi.
@@ -46,6 +50,7 @@ Ad | Açıklama
 **İptal edildi** | İstek zaman aşımına uğrarsa true.
 
 <br>
+
 #### <a name="example"></a>Örnek:
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?expr=

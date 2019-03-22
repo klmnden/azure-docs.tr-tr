@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 8c66b603bd8c974bcaa63ee2aad58f7fd8fe04e6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57555245"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003691"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR hizmeti kimlik doğrulaması
 
@@ -61,9 +61,9 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşullara sahip olmanız gerek
     | Ayar Adı | Önerilen Değer | Açıklama |
     | ------------ | --------------- | ----------- |
     | Uygulama adı | *Azure SignalR Sohbeti* | GitHub kullanıcı tanıması ve uygulamanın ile kimlik doğrulama güven olmalıdır.   |
-    | Giriş sayfası URL'si | *http://localhost:5000/home* | |
+    | Giriş sayfası URL'si | `http://localhost:5000/home` | |
     | Uygulama açıklaması | *Azure SignalR hizmeti GitHub kimlik doğrulamasını kullanarak bir sohbet odası örneği* | Uygulama kullanıcılarınızın kullanılan kimlik doğrulamanın bağlamını anlayabilmesine yardımcı olacak, yararlı bir uygulama açıklaması. |
-    | Yetkilendirme geri çağırma URL'si | *http://localhost:5000/signin-github* | Bu ayar, OAuth uygulamanız için en önemli ayardır. Bu, başarılı bir kimlik doğrulamasının ardından GitHub'ın kullanıcıyı döndürdüğü geri çağırma URL'sidir. Bu öğreticide, *AspNet.Security.OAuth.GitHub* paketi için varsayılan geri çağırma URL'sini (*/signin-github*) kullanmalısınız.  |
+    | Yetkilendirme geri çağırma URL'si | `http://localhost:5000/signin-github` | Bu ayar, OAuth uygulamanız için en önemli ayardır. Bu, başarılı bir kimlik doğrulamasının ardından GitHub'ın kullanıcıyı döndürdüğü geri çağırma URL'sidir. Bu öğreticide, *AspNet.Security.OAuth.GitHub* paketi için varsayılan geri çağırma URL'sini (*/signin-github*) kullanmalısınız.  |
 
 4. Yeni OAuth uygulama kaydı tamamlandıktan sonra, aşağıdaki komutları kullanarak *İstemci Kimliği* ve *İstemci Parolası*'nı Parola Yöneticisi'ne ekleyin. *Your_GitHub_Client_Id* ve *Your_GitHub_Client_Secret* değerlerini OAuth uygulamanızın değerleriyle değiştirin.
 

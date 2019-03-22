@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 64e5e78f93488b2c375c617e8857c84ba2171f00
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 8f2a5fdaf2222de7a802e8ff2a1f6fdb37dae4c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822404"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880056"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Hızlı Başlangıç: Azure uzamsal Çıpasıyla Android uygulaması oluşturma
 
@@ -33,6 +33,8 @@ Bu hızlı başlangıçta kullanarak bir Android uygulaması oluşturmak nasıl 
 Bu hızlı başlangıcı tamamlamak için aşağıdakileri yaptığınızdan emin olun:
 
 - Bir Windows veya Mac OS x ile makine <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3 +</a>.
+  - Windows üzerinde çalışır, ayrıca gerekir <a href="https://git-scm.com/download/win" target="_blank">Git için Windows</a>.
+  - Macos'ta çalıştırılıyorsa, Git HomeBrew yüklü alın. Tek satırlık bir Terminal içinde aşağıdaki komutu girin: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Ardından çalıştırın `brew install git`.
   - NDK örneği oluşturmak için Android Studio'da CMake 3.6 SDK Tools ve NDK yüklemek gerekir.
 - A <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">etkin Geliştirici</a> ve <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore özellikli</a> Android cihaz.
 - Uygulamanızı ARCore (ARCore 1.6 + için destek yakında sunulacaktır) 1.5 hedeflemesi gerekir
@@ -59,7 +61,7 @@ Seçin **var olan bir Android Studio projesini Aç** konumundaki projeyi seçip 
 
 ## <a name="configure-account-identifier-and-key"></a>Hesap Kimliği ve anahtarını yapılandırma
 
-Sonraki adım hesap tanımlayıcısı ve hesap anahtarını uzamsal bağlayıcılarını kaynağı ayarlarken daha önce kaydedilen uygulamayı yapılandırmak için kullanmaktır.
+Sonraki adım uygulamayı hesap tanımlayıcısı ve hesap anahtarını kullanacak şekilde yapılandırmaktır. Bir metin düzenleyiciye kopyaladığınız zaman [uzamsal bağlayıcılarını kaynağı ayarı](#create-a-spatial-anchors-resource).
 
 # <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
 

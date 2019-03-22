@@ -16,16 +16,16 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5a422f619c4ef63da59516ff2748683eb0f7f70
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 2516e61b6b86c3d2cee164cfcb80a1f938922908
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726698"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839653"
 ---
 # <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Gruplar veya uygulamalar Azure AD erişim gözden geçirmeleri için erişim gözden geçirmesi sonuçlarını Al
 
-Yöneticiler, bir uygulamaya atanmış grup üyeleri veya kullanıcılar için [bir erişim gözden geçirmesi oluşturmak](create-access-review.md) üzere Azure Active Directory’yi (Azure AD) kullanabilir.  **Genel Yönetici**, **Kullanıcı Hesabı Yöneticisi**, **Güvenlik Yöneticisi** veya **Güvenlik Okuyucusu** rolündeki bir kullanıcı da erişim gözden geçirmesinin sonuçlarını okuyabilir.  Bu rollerden birine kullanıcı atamak için, Ayrıcalıklı Rol Yöneticisi Azure AD PIM’yi kullanarak bir kullanıcıyı rol etkinleştirmeye uygun hale getirebilir veya Genel Yönetici, [role kalıcı olarak kullanıcı atayabilir](../fundamentals/active-directory-users-assign-role-azure-portal.md).
+Yöneticiler, bir uygulamaya atanmış grup üyeleri veya kullanıcılar için [bir erişim gözden geçirmesi oluşturmak](create-access-review.md) üzere Azure Active Directory’yi (Azure AD) kullanabilir.  İçinde bir kullanıcı **genel yönetici**, **Kullanıcı Yöneticisi**, **Güvenlik Yöneticisi** veya **güvenlik okuyucusu** rolü aynı zamanda erişim gözden geçirmesi sonuçlarını okuyun.  Kullanıcılar bu rollerden birine atamak için ayrıcalıklı Rol Yöneticisi Azure AD PIM bir kullanıcı rolü etkinleştirmek uygun hale getirmek için kullanabilirsiniz veya kalıcı olarak genel yönetici olabilir [bir kullanıcı rolüne atamak](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 

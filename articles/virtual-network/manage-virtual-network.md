@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: b4877f7904523782f1555f53a7bcb440871cc698
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 6e393bf9c08eaa656a1c9b2302cde937a87ccc9a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888330"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088511"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Oluşturma, değiştirme veya bir sanal ağı silme
 
@@ -54,16 +54,16 @@ Bu makalenin bir bölümündeki adımları tamamlamadan önce aşağıdaki göre
      >
      >
 
-    - **Alt ağ adı**: Alt ağ adı sanal ağ içinde benzersiz olmalıdır. Alt ağ oluşturulduktan sonra alt ağ adı değiştiremezsiniz. Portal, bir sanal ağ tüm alt ağlara sahip olması gereken da bir sanal ağ oluşturduğunuzda, bir alt ağda tanımladığınız gerektiriyor. Portalda, sanal ağ oluştururken yalnızca bir alt ağ tanımlayabilirsiniz. Sanal ağ oluşturulduktan sonra daha fazla alt ağı sanal ağa daha sonra ekleyebilirsiniz. Bir sanal ağa bir alt ağı eklemek için bkz: [alt ağları yönetme](virtual-network-manage-subnet.md). Azure CLI veya PowerShell kullanarak birden çok alt ağa sahip bir sanal ağ oluşturabilirsiniz.
+     - **Alt ağ adı**: Alt ağ adı sanal ağ içinde benzersiz olmalıdır. Alt ağ oluşturulduktan sonra alt ağ adı değiştiremezsiniz. Portal, bir sanal ağ tüm alt ağlara sahip olması gereken da bir sanal ağ oluşturduğunuzda, bir alt ağda tanımladığınız gerektiriyor. Portalda, sanal ağ oluştururken yalnızca bir alt ağ tanımlayabilirsiniz. Sanal ağ oluşturulduktan sonra daha fazla alt ağı sanal ağa daha sonra ekleyebilirsiniz. Bir sanal ağa bir alt ağı eklemek için bkz: [alt ağları yönetme](virtual-network-manage-subnet.md). Azure CLI veya PowerShell kullanarak birden çok alt ağa sahip bir sanal ağ oluşturabilirsiniz.
 
-      >[!TIP]
-      >Bazı durumlarda, yöneticiler filtrelemek veya alt ağlar arasında trafiği yönlendirme denetlemek için farklı alt ağlar oluşturun. Alt ağlar tanımlamanız önce alt ağlar arasında trafiği yönlendirmek ve filtrelemek isteyebilirsiniz nasıl göz önünde bulundurun. Alt ağlar arası trafik filtreleme hakkında daha fazla bilgi için bkz. [ağ güvenlik grupları](security-overview.md). Azure otomatik olarak alt ağlar, ancak arasındaki trafiği yönlendirir Azure varsayılan yolları geçersiz kılabilirsiniz. Azures varsayılan alt ağ trafiğini yönlendirme hakkında daha fazla bilgi için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
-      >
+       >[!TIP]
+       >Bazı durumlarda, yöneticiler filtrelemek veya alt ağlar arasında trafiği yönlendirme denetlemek için farklı alt ağlar oluşturun. Alt ağlar tanımlamanız önce alt ağlar arasında trafiği yönlendirmek ve filtrelemek isteyebilirsiniz nasıl göz önünde bulundurun. Alt ağlar arası trafik filtreleme hakkında daha fazla bilgi için bkz. [ağ güvenlik grupları](security-overview.md). Azure otomatik olarak alt ağlar, ancak arasındaki trafiği yönlendirir Azure varsayılan yolları geçersiz kılabilirsiniz. Azures varsayılan alt ağ trafiğini yönlendirme hakkında daha fazla bilgi için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
+       >
 
-    - **Alt ağ adres aralığı**: Sanal ağ için girilen adres alanı içinde olmalıdır. Belirtebileceğiniz en küçük /29, alt ağ için sekiz IP adreslerini sağlayan aralığındadır. Azure her alt ağda protokol uyumluluğu için ilk ve son adresi ayırır. Üç ek adresleri, Azure hizmet kullanımı için ayrılmıştır. Sonuç olarak, bir sanal ağ bir / 29 alt ağ adres aralığı ile yalnızca üç kullanılabilir IP adresleri bulunur. Bir sanal ağ VPN ağ geçidi bağlamayı planlıyorsanız, ağ geçidi alt ağı oluşturmanız gerekir. Daha fazla bilgi edinin [ağ geçidi alt ağları için belirli bir adres aralığı konuları](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Belirli koşullar altında bir alt ağ oluşturulduktan sonra adres aralığını değiştirebilirsiniz. Bir alt ağ adres aralığı değiştirme konusunda bilgi edinmek için [alt ağları yönetme](virtual-network-manage-subnet.md).
-    - **Abonelik**: Seçin bir [abonelik](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Aynı sanal ağda birden fazla Azure aboneliğinde kullanamazsınız. Ancak, bir Abonelikteki bir sanal ağı ile diğer Aboneliklerdeki sanal ağlara bağlanabilirsiniz [sanal ağ eşlemesi](virtual-network-peering-overview.md). Sanal ağa bağlanan tüm Azure kaynakları, sanal ağ ile aynı abonelikte olmalıdır.
-    - **Kaynak grubu**: Mevcut bir seçin [kaynak grubu](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) veya yeni bir tane oluşturun. Sanal ağ ile aynı kaynak grubunda veya farklı bir kaynak grubu sanal ağa bağlanan bir Azure kaynağı olabilir.
-    - **Konum**: Azure'ı seçin [konumu](https://azure.microsoft.com/regions/), bölge olarak da bilinir. Bir sanal ağ, Azure yalnızca bir konumda olabilir. Ancak, bir sanal ağ tek bir konumda bir sanal ağ başka bir konuma bir VPN ağ geçidi'ni kullanarak bağlanabilirsiniz. Sanal ağa bağlanan tüm Azure kaynakları, sanal ağ ile aynı konumda olmalıdır.
+     - **Alt ağ adres aralığı**: Sanal ağ için girilen adres alanı içinde olmalıdır. Belirtebileceğiniz en küçük /29, alt ağ için sekiz IP adreslerini sağlayan aralığındadır. Azure her alt ağda protokol uyumluluğu için ilk ve son adresi ayırır. Üç ek adresleri, Azure hizmet kullanımı için ayrılmıştır. Sonuç olarak, bir sanal ağ bir / 29 alt ağ adres aralığı ile yalnızca üç kullanılabilir IP adresleri bulunur. Bir sanal ağ VPN ağ geçidi bağlamayı planlıyorsanız, ağ geçidi alt ağı oluşturmanız gerekir. Daha fazla bilgi edinin [ağ geçidi alt ağları için belirli bir adres aralığı konuları](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Belirli koşullar altında bir alt ağ oluşturulduktan sonra adres aralığını değiştirebilirsiniz. Bir alt ağ adres aralığı değiştirme konusunda bilgi edinmek için [alt ağları yönetme](virtual-network-manage-subnet.md).
+     - **Abonelik**: Seçin bir [abonelik](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Aynı sanal ağda birden fazla Azure aboneliğinde kullanamazsınız. Ancak, bir Abonelikteki bir sanal ağı ile diğer Aboneliklerdeki sanal ağlara bağlanabilirsiniz [sanal ağ eşlemesi](virtual-network-peering-overview.md). Sanal ağa bağlanan tüm Azure kaynakları, sanal ağ ile aynı abonelikte olmalıdır.
+     - **Kaynak grubu**: Mevcut bir seçin [kaynak grubu](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) veya yeni bir tane oluşturun. Sanal ağ ile aynı kaynak grubunda veya farklı bir kaynak grubu sanal ağa bağlanan bir Azure kaynağı olabilir.
+     - **Konum**: Azure'ı seçin [konumu](https://azure.microsoft.com/regions/), bölge olarak da bilinir. Bir sanal ağ, Azure yalnızca bir konumda olabilir. Ancak, bir sanal ağ tek bir konumda bir sanal ağ başka bir konuma bir VPN ağ geçidi'ni kullanarak bağlanabilirsiniz. Sanal ağa bağlanan tüm Azure kaynakları, sanal ağ ile aynı konumda olmalıdır.
 
 **Komutları**
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 810a4708974d18a4bba048e3e402a172868178f3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429698"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57905077"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Sık Sorulan Sorular
 
@@ -257,7 +257,7 @@ Hizmetlerini ve IP adreslerini tam listemizi gözden geçirin [burada](../../azu
 
 Web sunucunuza bizim uç noktalarına telemetri göndermesine izin verin. 
 
-### <a name="proxy-redirect"></a>Proxy yönlendirme
+### <a name="gateway-redirect"></a>Ağ geçidi yönlendirme
 
 Sunucunuza giden trafik bir ağ geçidi yapılandırma uç noktaları yazarak intranetinizde yol.
 Bu "Bitiş" özellikleri, yapılandırmada mevcut değilse, bu sınıflar Applicationınsights.config örnekte aşağıda gösterilen varsayılan değerleri kullanır. 
@@ -288,7 +288,19 @@ Ağ geçidi trafiği bizim uç noktasının temel adresine yönlendirmesi. Yapı
 
 _Not ApplicationIdProvider v2.6.0 içinde itibaren kullanılabilir_
 
+### <a name="proxy-passthrough"></a>Proxy geçiş
 
+Makine düzeyinde veya uygulama düzeyinde yapılandırarak proxy geçiş gerçekleştirilebilir proxy.
+Daha fazla bilgi için dotnet'ın makaleye bakın [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+ 
+ Örnek Web.config:
+ ```xml
+<system.net>
+    <defaultProxy>
+      <proxy proxyaddress="http://xx.xx.xx.xx:yyyy" bypassonlocal="true"/>
+    </defaultProxy>
+</system.net>
+```
  
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Bir intranet sunucusunda kullanılabilirlik web testleri çalıştırabilir miyim?

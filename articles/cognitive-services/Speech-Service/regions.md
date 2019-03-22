@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/14/2019
-ms.author: mahilleb
+ms.date: 03/12/2019
+ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: c9e72ea2762af0d9a4c47ca5b23fe4bdbe53b968
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 1be51c4f5aede58a975dc9441b3bec7a83f7becd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447557"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900922"
 ---
 # <a name="speech-service-supported-regions"></a>Konuşma hizmeti desteklenen bölgeler
 
@@ -38,11 +38,19 @@ Bu bölgeler için Speech SDK'sı kullanılabilir **konuşma tanıma** ve **çev
  Batı ABD 2 | `westus2` | https://westus2.cris.ai
  Doğu ABD | `eastus` | https://eastus.cris.ai
  Doğu ABD 2 | `eastus2` | https://eastus2.cris.ai
+ Orta ABD | 'centralus' | https://centralus.cris.ai
+ Orta Kuzey ABD | 'northcentralus' | https://northcentralus.cris.ai
+ Orta Güney ABD | 'southcentralus' | https://southcentralus.cris.ai
  Doğu Asya | `eastasia` | https://eastasia.cris.ai
  Güneydoğu Asya | `southeastasia` | https://southeastasia.cris.ai
+ Japonya Doğu | `japaneast` | https://japaneast.cris.ai
+ Kore Orta | `koreacentral` | https://koreacentral.cris.ai
+ Avustralya Doğu | `australiaeast` | https://australiaeast.cris.ai
+ Orta Kanada | `canadacentral` | https://canadacentral.cris.ai
  Kuzey Avrupa | `northeurope` | https://northeurope.cris.ai
  Batı Avrupa | `westeurope` | https://westeurope.cris.ai
-
+ Birleşik Krallık Güney | `uksouth` | https://uksouth.cris.ai
+ Fransa Orta | `francecentral` | https://francecentral.cris.ai
 
 ### <a name="intent-recognition"></a>Amaç tanıma
 

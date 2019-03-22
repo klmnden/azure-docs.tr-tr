@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 09f0416e5a03527613e7c353961d81de39c4fe0e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 3bc91b1c20bb4cf4ae755ca47c8d8e0581eb3a1f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566848"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995367"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>HBase Azure Data Factory kullanarak verileri kopyalama 
 
@@ -42,7 +42,7 @@ HBase bağlı hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **HBase** | Evet |
-| konak | HBase sunucusunun IP adresi veya ana bilgisayar adı. (örn.)  `[clustername].azurehdinsight.net`, ' 192.168.222.160·)  | Evet |
+| konak | HBase sunucusunun IP adresi veya ana bilgisayar adı. (örn.)  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Evet |
 | port | HBase örneği istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. Varsayılan değer 9090'dır. Azure Hdınsights bağlarsanız, bağlantı noktası 443 belirtin. | Hayır |
 | httpPath | HBase sunucuya, örneğin karşılık gelen kısmi URL `/hbaserest0` Hdınsights küme kullanılırken. | Hayır |
 | authenticationType | HBase sunucuya bağlanmak için kullanılacak kimlik doğrulama mekanizması. <br/>İzin verilen değerler şunlardır: **Anonim**, **temel** | Evet |

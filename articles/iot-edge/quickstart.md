@@ -4,21 +4,21 @@ description: Bu hızlı başlangıçta bir IOT Edge cihazı oluşturma ve ardın
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/31/2018
+ms.date: 03/19/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a48a2ebc64d156d2755a2bef32672bc58b57ad00
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: bc859dc1e33abfee765a8f5b0f2a65bc24b7c2dc
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911262"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226955"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Hızlı Başlangıç: İlk IOT Edge modülü Azure portalından bir Windows cihazına dağıtma - Önizleme
 
-Bu hızlı başlangıçta, önceden derlenmiş kodu uzaktan bir IoT Edge cihazına dağıtmak için Azure IoT Edge bulut arabirimini kullanın. Bu görevi gerçekleştirmek için ilk olarak bir IoT Edge cihazının benzetimi için Windows cihazınızı kullanın; daha sonra buna bir modül dağıtabilirsiniz.
+Bu hızlı başlangıçta, önceden derlenmiş kodu uzaktan bir IoT Edge cihazına dağıtmak için Azure IoT Edge bulut arabirimini kullanın. Bu görevi, ilk oluşturun ve IOT Edge cihazı çalışmak için bir Windows sanal makineyi yapılandırmak için daha sonra bir modül için dağıtabilirsiniz.
 
 Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 
@@ -31,8 +31,8 @@ Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 
 Bu hızlı başlangıçta oluşturduğunuz modül; sıcaklık, nem ve basınç verileri üreten bir sensör simülasyonudur. Diğer Azure IoT Edge öğreticileri, burada iş içgörüsü için simülasyon verilerini analiz eden modüller dağıtarak yaptığınız çalışmayı temel alır.
 
->[!NOTE]
->Windows üzerinde IoT Edge çalışma zamanı [genel önizleme](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) sürümündedir.
+> [!NOTE]
+> Windows üzerinde IoT Edge çalışma zamanı [genel önizleme](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) sürümündedir.
 
 Etkin bir Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturun.
 
@@ -53,17 +53,24 @@ Bulut kaynakları:
 * Bu hızlı başlangıçta kullandığınız tüm kaynakları yönetmek için kullanacağınız bir kaynak grubu.
 
    ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus
+   az group create --name IoTEdgeResources --location westus2
    ```
 
 IoT Edge cihazı:
 
-* IoT Edge cihazınız olacak bir Windows bilgisayar veya sanal makine. Desteklenen bir Windows sürümünü kullanın:
-  * Windows 10 veya IOT Core ile Ekim 2018 Güncelleştirmesi (derleme 17763)
-  * Windows Server 2019
-* Cihazınızı kapsayıcıları barındırabilmesi sanallaştırmasını etkinleştir
-   * Bir Windows bilgisayar etkinleştirilmişse, kapsayıcı özelliğini etkinleştirin. Başlat çubuğuna gidin **kapatma Windows özelliklerini aç veya Kapat** ve yanındaki kutuyu işaretleyin **kapsayıcıları**.
-   * Bir sanal makineyse etkinleştirme [iç içe sanallaştırma](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) ve en az 2 GB bellek ayrılamadı.
+* Bir Windows sanal IOT Edge cihazınız olarak görev yapacak makine. Aşağıdaki komutu kullanarak, değiştirerek bu sanal makine oluşturabilirsiniz *{password}* güvenli bir parola ile:
+
+  ```azurecli-interactive
+  az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
+  ```
+
+  Bu, oluşturmak ve yeni sanal makineyi başlatmak için birkaç dakika sürebilir. Ardından, sanal makinenize bağlanılırken kullanılacak bir RDP dosyası indirebilirsiniz:
+
+  1. Azure portalında yeni Windows sanal makinesine gidin.
+  1. **Bağlan**’ı seçin.
+  1. Üzerinde **RDP** sekmesinde **RDP dosyasını indir**.
+
+  Windows sanal Yönetici adını ve parolasını kullanarak belirttiğiniz ile makinenize bağlanmak için Uzak Masaüstü Bağlantısı ile bu dosyayı açmak `az vm create` komutu.
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
@@ -79,7 +86,7 @@ Aşağıdaki kod, **IoTEdgeResources** kaynak grubunda ücretsiz bir **F1** hub�
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1
    ```
 
-   Aboneliğinizde zaten bir ücretsiz hub olduğu için hata alırsanız, SKU değerini **S1** olarak değiştirin. IOT hub'ı adı kullanılamıyor, bir hata alırsanız, başka birisi zaten bu ada sahip bir hub'ı olduğu anlamına gelir. Yeni bir ad deneyin. 
+   Aboneliğinizde zaten bir ücretsiz hub olduğu için hata alırsanız, SKU değerini **S1** olarak değiştirin. IOT hub'ı adı kullanılamıyor, bir hata alırsanız, başka birisi zaten bu ada sahip bir hub'ı olduğu anlamına gelir. Yeni bir ad deneyin.
 
 ## <a name="register-an-iot-edge-device"></a>IoT Edge cihazı kaydetme
 
@@ -88,7 +95,7 @@ Yeni oluşturulan IoT Hub'ına bir IoT Edge cihazı kaydedin.
 
 IoT hub'ınızla iletişim kurabilmesi amacıyla simülasyon cihazınız için bir cihaz kimliği oluşturun. Cihaz kimliği bulutta kalır ve fiziksel cihazla cihaz kimliği arasında bağlantı kurmak için benzersiz bir bağlantı dizesi kullanılır.
 
-IOT Edge cihazları sınıflardır ve tipik bir IOT cihazlarında farklı yönetilebilir olduğundan, bu kimlik ile IOT Edge cihazı için bildirmek `--edge-enabled` bayrağı. 
+IOT Edge cihazları sınıflardır ve tipik bir IOT cihazlarında farklı yönetilebilir olduğundan, bu kimlik ile IOT Edge cihazı için bildirmek `--edge-enabled` bayrağı.
 
 1. Azure Cloud Shell'de aşağıdaki komutu girerek hub'ınızda **myEdgeDevice** adlı bir cihaz oluşturun.
 
@@ -96,7 +103,7 @@ IOT Edge cihazları sınıflardır ve tipik bir IOT cihazlarında farklı yönet
    az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
    ```
 
-   İlke anahtarları iothubowner hakkında bir hata alırsanız, cloud shell azure CLI IOT ext uzantısı'nın en son sürümünü çalıştırdığından emin olun. 
+   İlke anahtarları iothubowner hakkında bir hata alırsanız, cloud shell azure CLI IOT ext uzantısı'nın en son sürümünü çalıştırdığından emin olun.
 
 2. Fiziksel cihazınızla IoT Hub'daki kimliği arasında bağlantı oluşturan cihaz bağlantı dizesini alın.
 
@@ -104,7 +111,7 @@ IOT Edge cihazları sınıflardır ve tipik bir IOT cihazlarında farklı yönet
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Değerini kopyalayın `cs` JSON çıktısını anahtar ve kaydedin. Cihaz bağlantı dizesi değeridir. Sonraki bölümde IOT Edge çalışma zamanı yapılandırmak için bu bağlantı dizesi kullanırsınız.
+3. Değerini kopyalayın `connectionString` JSON çıktısını anahtar ve kaydedin. Cihaz bağlantı dizesi değeridir. Sonraki bölümde IOT Edge çalışma zamanı yapılandırmak için bu bağlantı dizesi kullanırsınız.
 
    ![CLI çıkışından bağlantı dizesi alma](./media/quickstart/retrieve-connection-string.png)
 
@@ -115,15 +122,23 @@ Azure IoT Edge çalışma zamanını IoT Edge cihazınıza yükleyin ve cihaz ba
 
 IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Üç bileşeni vardır. **IOT Edge güvenlik arka plan programı** her zaman bir IOT Edge cihazı önyüklenir ve cihazın IOT Edge Aracısı'nı başlatarak bootstraps başlatır. **IOT Edge Aracısı** dağıtım ve modülleri IOT Edge hub'ı dahil olmak üzere IOT Edge cihazı izlemeyi yönetir. **IOT Edge hub'ı** IOT Edge cihazı bulunan modüller arasındaki ve IOT Hub ve cihaz arasındaki iletişimleri işler.
 
-Yükleme betiği, IOT Edge Cihazınızda kapsayıcı görüntülerini yönetir Moby adlı bir kapsayıcı altyapısı da içerir. 
+Yükleme betiği, IOT Edge Cihazınızda kapsayıcı görüntülerini yönetir Moby adlı bir kapsayıcı altyapısı da içerir.
 
 Çalışma zamanı yüklemesi sırasında cihaz bağlantı dizesi istenir. Azure CLI'den aldığınız dizeyi kullanın. Bu dize, fiziksel cihazınızı Azure'daki IoT Edge cihaz kimliğiyle ilişkilendirir.
 
-Bu bölümdeki yönergeler, Windows kapsayıcıları ile IOT Edge çalışma zamanı yapılandırın. Linux kapsayıcıları kullanmak istiyorsanız, bkz. [Windows yükleme Azure IOT Edge çalışma zamanına](how-to-install-iot-edge-windows-with-linux.md) bu Önkoşullar ve yükleme adımları için.
-
 ### <a name="connect-to-your-iot-edge-device"></a>IOT Edge Cihazınızı bağlama
 
-Tüm bu bölümdeki adımlarda, IOT Edge Cihazınızda gerçekleşir. Bir sanal makine ya da ikincil donanım kullanıyorsanız, bu makineye artık SSH veya Uzak Masaüstü aracılığıyla bağlanmak istediğiniz. IOT Edge cihazı olarak kendi makine kullanıyorsanız, sonraki bölüme devam edebilirsiniz. 
+Bu sanal makine şimdi Uzak Masaüstü aracılığıyla bağlanmak istediğiniz şekilde bu bölümdeki adımlarda, tüm IOT Edge Cihazınızda gerçekleşir.
+
+### <a name="prepare-your-device-for-containers"></a>Kapsayıcılar için cihazı hazırlama
+
+Cihazınızda otomatik olarak yükler Moby altyapısı IOT Edge yüklemeden önce yükleme komut dosyası. Cihazınız kapsayıcıları özelliğini etkinleştirerek hazırlayın.
+
+1. Arama Başlat çubuğunda **kapatma Windows özelliklerini aç veya Kapat** ve Denetim Masası programını açın.
+1. Bulmak ve seçmek **kapsayıcıları**.
+1. **Tamam**’ı seçin.
+
+Tamamlandığında, etkili değişiklikler için Windows yeniden başlatmanız gerekir, ancak Azure portalında sanal makine yeniden başlatmak yerine, Uzak Masaüstü oturumundan bunu yapabilirsiniz.
 
 ### <a name="download-and-install-the-iot-edge-service"></a>IoT Edge hizmetini indirme ve yükleme
 
@@ -171,7 +186,7 @@ PowerShell'i kullanarak IoT Edge çalışma zamanını indirin ve yükleyin. Cih
 
    ![Cihazınızda bir modülü görüntüleme](./media/quickstart/iotedge-list-1.png)
 
-Özellikle sınırlı kapasite veya internet erişimi olan bir cihaz kullanıyorsanız, yüklemenin tamamlanması için ve başlatmak için IOT Edge Aracısı modülü birkaç dakika sürebilir. 
+Bu yüklemenin tamamlanması için birkaç dakika ve başlatmak için IOT Edge Aracısı modülü sürebilir.
 
 IoT Edge cihazınız yapılandırıldı. Bulutta dağıtılan modülleri çalıştırmak için hazır.
 
@@ -184,7 +199,7 @@ Azure IOT Edge Cihazınızı IOT Hub'ına telemetri verileri gönderen bir modü
 
 ## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 
-Bu hızlı başlangıçta, bir IOT Edge cihazı kayıtlı ve IOT Edge çalışma zamanı yüklü. Ardından, Azure portalı, cihazı için değişiklik yapmak zorunda kalmadan cihazda çalıştırılacak bir IOT Edge modülü dağıtmak için kullanılır. 
+Bu hızlı başlangıçta, bir IOT Edge cihazı kayıtlı ve IOT Edge çalışma zamanı yüklü. Ardından, Azure portalı, cihazı için değişiklik yapmak zorunda kalmadan cihazda çalıştırılacak bir IOT Edge modülü dağıtmak için kullanılır.
 
 Bu durumda, test etmek için kullanabileceğiniz örnek veriler gönderdiğiniz modülü oluşturur. Sanal sıcaklık algılayıcısı modülü, daha sonra test etmek için kullanabileceğiniz ortam verilerini oluşturur. Benzetimli algılayıcı hem bir makine hem de ortama makine geçici izler. Örneğin, bu algılayıcı sunucu odasına bir Fabrika katı veya bir Rüzgar türbini olabilir. Ortam sıcaklığı ve nem, makine sıcaklığı ve basıncı ve zaman damgasını ileti içerir. Test verileri analiz için olarak bu modülü tarafından oluşturulan verileri IOT Edge öğreticileri kullanın.
 
@@ -207,8 +222,7 @@ iotedge logs SimulatedTemperatureSensor -f
 
    ![Verileri modülünüzden görüntüleme](./media/quickstart/iotedge-logs.png)
 
-Kullanarak IOT hub'ınıza gelen iletileri izlemek isterseniz [Visual Studio Code için Azure IOT hub'ı Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (eski adıyla Azure IOT Toolkit uzantısını). 
-
+Kullanarak IOT hub'ınıza gelen iletileri izlemek isterseniz [Visual Studio Code için Azure IOT hub'ı Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (eski adıyla Azure IOT Toolkit uzantısını).
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

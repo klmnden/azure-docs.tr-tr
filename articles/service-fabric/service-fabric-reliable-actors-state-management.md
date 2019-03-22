@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 77fa369a3085a3d11d5bf03406b4ddb885a24009
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041177"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847408"
 ---
 # <a name="reliable-actors-state-management"></a>Reliable Actors durum yönetimi
 Reliable Actors hem mantıksal hem de durum kapsülleyebilir tek iş parçacıklı nesneleridir. Aktörler Reliable Services üzerinde çalıştığından, bunların durumu güvenilir bir şekilde aynı Kalıcılık ve çoğaltma mekanizması kullanarak koruyabilir. Bu şekilde, etkinleştirme veya Çöp toplamadan sonra kaynak Dengeleme veya yükseltme işlemleri nedeniyle, bir kümedeki düğümler arasında geçici olarak taşındıklarında bağlı bir hatadan sonra durumlarını aktörler kaybetmeyin.
@@ -29,9 +29,9 @@ Tüm Reliable Actors değerlendirilir *durum bilgisi olan* her aktör örneği i
 
 Durum bilgisi olan aktör değerlendirilir olsa da, bu durum güvenilir bir şekilde depolamalısınız anlamına gelmez. Aktör durumu kalıcılığını düzeyini seçebilir ve çoğaltma verilerine dayalı olarak depolama gereksinimlerini:
 
-* **Kalıcı durum**: durumu kalıcı hale disk ve en az üç kopyaya çoğaltılır. Kalıcı durum en sağlam durum depolama, durumu burada tam küme azaltsa kalıcı yapılabilir seçeneğidir.
-* **Geçici bir durum**: durumu üç veya daha fazla kopyaya çoğaltılır ve yalnızca bellekte tutulur. Geçici bir durum düğüm hatası ve aktör hatası karşı ve yükseltmeleri ve kaynak Dengeleme sırasında esneklik sağlar. Ancak, durumu kalıcı disk. Tüm çoğaltmalar aynı anda kaybolursa, bu nedenle durumu de kaybolur.
-* **Kalıcı durum**: durum çoğaltılan değil veya diske yazılan yalnızca güvenilir bir şekilde durumunu korumak üzere gerekmeyen aktörler için kullanın.
+* **Kalıcı durum**: Durumu kalıcı hale disk ve en az üç kopyaya çoğaltılır. Kalıcı durum en sağlam durum depolama, durumu burada tam küme azaltsa kalıcı yapılabilir seçeneğidir.
+* **Geçici bir durum**: Durum üç veya daha fazla kopyaya çoğaltılır ve yalnızca bellekte tutulur. Geçici bir durum düğüm hatası ve aktör hatası karşı ve yükseltmeleri ve kaynak Dengeleme sırasında esneklik sağlar. Ancak, durumu kalıcı disk. Tüm çoğaltmalar aynı anda kaybolursa, bu nedenle durumu de kaybolur.
+* **Kalıcı durum**: Durumu olmayan çoğaltılmış veya diske yazılan yalnızca güvenilir bir şekilde durumunu korumak üzere gerekmeyen aktörler için kullanın.
 
 Her düzeyde Kalıcılık yalnızca farklı olan *durumu sağlayıcısı* ve *çoğaltma* hizmetinizin yapılandırması. Durumu olup olmadığına yazılır disk durumu sağlayıcısı--durumunu depolayan bir güvenilir hizmet bileşeni bağlıdır. Çoğaltma hizmeti kaç yineleme ile dağıtıldığı bağlıdır. Reliable Services gibi ile hem durumu sağlayıcısı hem de yineleme sayısı kolayca el ile ayarlanabilir. Aktör çerçevesinde bir öznitelik, bir aktör üzerinde kullanılan, varsayılan durumu sağlayıcısı otomatik olarak seçer ve bu üç Kalıcılık ayarlarından birini elde etmek için yineleme sayısı için ayarları otomatik olarak oluşturduğu sağlar. StatePersistence öznitelik türetilmiş sınıf tarafından devralınan değil, her aktör türü StatePersistence düzeyiyle sağlamanız gerekir.
 
@@ -86,7 +86,7 @@ Kullanırken `StatePersistence` öznitelik, bir durum sağlayıcısı otomatik o
 Bu parametreleri el ile değiştirebilirsiniz. Ancak her zaman `StatePersistence` özniteliği değiştiğinde, seçilen varsayılan çoğaltma kümesi boyutu değerlerine parametrelerinin `StatePersistence` özniteliği, önceki tüm değerleri geçersiz kılma. Diğer bir deyişle, ServiceManifest.xml ayarlanan değerler *yalnızca* değiştirdiğinizde oluşturma zamanında geçersiz kılınan `StatePersistence` öznitelik değeri.
 
 ```xml
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Parameters>
       <Parameter Name="MyActorService_PartitionCount" DefaultValue="10" />
       <Parameter Name="MyActorService_MinReplicaSetSize" DefaultValue="3" />

@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
-ms.openlocfilehash: 52eb6615442618893741f507d9cae6bd31d5f558
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5f8d9119ea9caeb598946a384f321fa6f7e14def
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774583"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000223"
 ---
 # <a name="tutorial-create-a-hub-virtual-network-with-terraform-in-azure"></a>Öğretici: Azure'da Terraform ile merkez sanal ağ oluşturma
 
@@ -43,7 +43,7 @@ Hub'ı ağ aşağıdaki bileşenlerden oluşur:
 
 Aşağıdaki Terraform yapılandırma dosyası kaynakları tanımlar:
 
-1. [Azure portala](http://portal.azure.com) gidin.
+1. [Azure portala](https://portal.azure.com) gidin.
 
 1. [Azure Cloud Shell](/azure/cloud-shell/overview)'i açın. Önceden bir ortam seçmediyseniz **Bash** ortamını seçin.
 

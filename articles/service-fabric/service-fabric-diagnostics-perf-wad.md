@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 12ea25b9f1b9f13c153348c285ee6641a69909f0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0ab14d41c149ec6e0ce76d24afb0e88a6af53935
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823187"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884566"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure tanılama uzantısı ile performans izleme
 
@@ -192,15 +192,15 @@ WAD ile performans sayaçları toplamak için kümenin Resource Manager şablonu
  >[!NOTE]
  >Kullanabilirsiniz ancak `*` benzer adlandırılmış performans sayaçlarının grupları belirlemek için tüm sayaçları bir havuz (Application Insights) gönderme bunlar ayrı olarak bildirilen gerektirir. 
 
-4. Toplanması gereken uygun performans sayaçlarını ekledikten sonra böylece bu değişiklikler, çalışan kümenizin yansıtılır, küme kaynağı yükseltmeniz gerekir. Değiştirdiğiniz Kaydet `template.json` ve PowerShell açın. Küme kullanarak yükseltebilirsiniz `New-AzureRmResourceGroupDeployment`. Arama, kaynak grubunu, güncelleştirilmiş şablon dosyası ve parametreleri dosyası adı gerektirir ve Resource Manager'ın güncelleştirdiğiniz kaynaklara gerekli değişiklikleri yapmanızı ister. Hesabınızda oturum açmış ve doğru abonelikte sonra yükseltmeyi gerçekleştirmek için aşağıdaki komutu kullanın:
+1. Toplanması gereken uygun performans sayaçlarını ekledikten sonra böylece bu değişiklikler, çalışan kümenizin yansıtılır, küme kaynağı yükseltmeniz gerekir. Değiştirdiğiniz Kaydet `template.json` ve PowerShell açın. Küme kullanarak yükseltebilirsiniz `New-AzureRmResourceGroupDeployment`. Arama, kaynak grubunu, güncelleştirilmiş şablon dosyası ve parametreleri dosyası adı gerektirir ve Resource Manager'ın güncelleştirdiğiniz kaynaklara gerekli değişiklikleri yapmanızı ister. Hesabınızda oturum açmış ve doğru abonelikte sonra yükseltmeyi gerçekleştirmek için aşağıdaki komutu kullanın:
 
     ```sh
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Yükseltme tamamlandıktan sonra WAD (alır ilk dağıtım ve kaynak grubunuzun boyutunu olmasına bağlı olarak 15-45 dakika arasında), sıralı verilecek performans sayaçlarını toplamayı ve adlı tablonun göndererek Kümenizle ilişkili depolama hesabında WADPerformanceCountersTable. Application Insights ile performans Sayaçlarınızı bkz [Resource Manager şablonuna AI havuz ekleme](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
+1. Yükseltme tamamlandıktan sonra WAD (alır ilk dağıtım ve kaynak grubunuzun boyutunu olmasına bağlı olarak 15-45 dakika arasında), sıralı verilecek performans sayaçlarını toplamayı ve adlı tablonun göndererek Kümenizle ilişkili depolama hesabında WADPerformanceCountersTable. Application Insights ile performans Sayaçlarınızı bkz [Resource Manager şablonuna AI havuz ekleme](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Kümenizi daha fazla performans sayacını toplar. Bkz: [performans ölçümlerini](service-fabric-diagnostics-event-generation-perf.md) toplama sayaçları listesi.
 * [Kullanımı izleme ve Tanılama'yı bir Windows VM ve Azure Resource Manager şablonları ile](../virtual-machines/windows/extensions-diagnostics-template.md) başka değişiklikler yapmak için `WadCfg`, Tanılama verileri göndermesini ek depolama hesaplarını yapılandırma dahil olmak üzere.
-* Ziyaret [WadCfg Oluşturucu](http://azure.github.io/azure-diagnostics-tools/config-builder/) sıfırdan bir şablon oluşturup sözdiziminizin doğru olduğundan emin olun.
+* Ziyaret [WadCfg Oluşturucu](https://azure.github.io/azure-diagnostics-tools/config-builder/) sıfırdan bir şablon oluşturup sözdiziminizin doğru olduğundan emin olun.

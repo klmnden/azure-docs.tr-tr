@@ -1,21 +1,21 @@
 ---
 title: Öğretici - Azure Maliyet Yönetimi'nden dışarı aktarılan verileri oluşturma ve yönetme | Microsoft Docs
-description: Bu makalede, dış sistemlerde kullanabilmeniz için dışarı aktarılan Azure Maliyet Yönetimi verilerini nasıl oluşturup yönetebileceğiniz gösterilir.
+description: Bu makalede nasıl oluşturabileceğinizi ve dış sistemlerde kullanabilmeniz dışarı aktarılan Azure maliyet Yönetimi verilerine yönetme gösterilmektedir.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 5c33538513388a4093a205b44a1e049072402179
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337600"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014137"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Öğretici: Oluşturma ve dışarı aktarılan verileri yönetme
 
@@ -45,9 +45,9 @@ Azure Depolama hesapları için:
 
 ## <a name="create-a-daily-export"></a>Günlük bir dışarı aktarma oluşturma
 
-Maliyet Yönetimi + Faturalama &gt; Maliyet Yönetimi &gt; bir abonelik veya bir abonelikteki kaynak grubunu &gt; seçin &gt; Dışarı Aktar **Ekle**.
+Oluşturmak veya bir veri dışarı aktarma görüntülemek için veya verme zamanlamak için Azure portal ve select istenen kapsama açın **maliyet analizi** menüsünde. Örneğin, gitmek **abonelikleri**listeden aboneliği seçin ve ardından **maliyet analizi** menüsünde. Maliyet analizi sayfanın üst kısmında tıklayın **dışarı** dışa aktarma seçeneği seçin. Örneğin, **zamanlama dışarı aktarma**. Kapsamlar hakkında daha fazla bilgi için bkz: [anlayın ve kapsamlı iş](understand-work-scopes.md).
 
-Seçme ve dışarı aktarma için bir ad yazın **günlük ay başından bu yana maliyetleri verilmesini** seçeneği. **İleri**’ye tıklayın.
+Tıklayın **Ekle**dışarı aktarma için bir ad yazın ve ardından **günlük ay başından bu yana maliyetleri verilmesini** seçeneği. **İleri**’ye tıklayın.
 
 ![Yeni dışarı aktarma örnek dışarı aktarma türü gösteriliyor](./media/tutorial-export-acm-data/basics_exports.png)
 

@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB için SQL sorguları
-description: Azure Cosmos DB SQL söz dizimi, veritabanı kavramlarını ve SQL sorguları hakkında bilgi edinin. SQL Azure Cosmos DB'de JSON sorgu dili olarak kullanılabilir.
+description: Azure Cosmos DB SQL söz dizimi, veritabanı kavramlarını ve SQL sorguları hakkında bilgi edinin. SQL, Azure Cosmos DB'de JSON sorgu dili olarak kullanılabilir.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5833ee3964958437b7834ff25f1bce7837370fb1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 822c4631c08da27ef7b92af2df5e5e0d04f063b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550592"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013888"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB için SQL sorgu örnekleri
 
@@ -2113,9 +2113,9 @@ Aşağıdaki örnekler, biz şu ana kadar gözden geçirdiğimize göre iki örn
 
 Bir sorgunun sonuçlarını tek bir sonuç sayfasını içinde sığamıyorsa sonra REST API aracılığıyla bir devamlılık belirteci döndürür `x-ms-continuation-token` yanıtı üstbilgisi. İstemcileri, sonraki sonuçları üst bilgisi dahil olmak üzere sonuçlarını sayfalandırma. Sayfa başına sonuç sayısı üzerinden de denetlenebilir `x-ms-max-item-count` sayı başlığı. Belirtilen sorgu gibi bir toplama işlevi varsa `COUNT`, ardından sorgu sayfası sonuçları sayfanın kısmen toplanan bir değer döndürebilir. İstemciler, örneğin son sonuçlar, her bir sayfayı toplam sayısını döndürmek için döndürülen sayıları üzerinden toplamak için bu sonuçlar ikinci düzey toplama gerçekleştirmeniz gerekir.
 
-Sorgular için veri tutarlılık ilkesi yönetmek için kullandığınız `x-ms-consistency-level` gibi tüm REST API isteği üstbilgisi. Oturum tutarlılığı için de en son echo gerekli `x-ms-session-token` sorgu istekteki tanımlama bilgisi üstbilgisi. Sorgulanan kapsayıcının dizin oluşturma ilkesini tutarlılığını sorgu sonuçlarını da etkileyebilir. İle dizin oluşturma ilkesi ayarları, varsayılan kapsayıcılar için dizin her zaman geçerli öğe içeriğiyle ve sorgu sonuçları için veri seçilen tutarlılık eşleşmesi. Lazy için dizin oluşturma ilkesini yumuşatılmıştır, sorguları eski sonuçları geri dönebilirsiniz. Daha fazla bilgi için [Azure Cosmos DB tutarlılık düzeyleri][consistency-levels].
+Sorgular için veri tutarlılık ilkesi yönetmek için kullandığınız `x-ms-consistency-level` gibi tüm REST API isteği üstbilgisi. Oturum tutarlılığı için de en son echo gerekli `x-ms-session-token` sorgu istekteki tanımlama bilgisi üstbilgisi. Sorgulanan kapsayıcının dizin oluşturma ilkesini tutarlılığını sorgu sonuçlarını da etkileyebilir. İle dizin oluşturma ilkesi ayarları, varsayılan kapsayıcılar için dizin her zaman geçerli öğe içeriğiyle ve sorgu sonuçları için veri seçilen tutarlılık eşleşmesi. Daha fazla bilgi için [Azure Cosmos DB tutarlılık düzeyleri][consistency-levels].
 
-Belirtilen sorgu kapsayıcı üzerindeki yapılandırılmış dizin oluşturma ilkesini destekleyemiyorsa, Azure Cosmos DB sunucusu 400 "Bad Request" döndürür. Aralık sorguları açıkça dizine elmadan hariç yolları yanı sıra, karma (eşitlik) aramaları için yapılandırılan yollar için bu hata iletisini döndürdü. `x-ms-documentdb-query-enable-scan` Bir dizini olmadığında bir tarama gerçekleştirmek sorgu izin vermek için üst bilgi belirtilebilir.
+Belirtilen sorgu kapsayıcı üzerindeki yapılandırılmış dizin oluşturma ilkesini destekleyemiyorsa, Azure Cosmos DB sunucusu 400 "Bad Request" döndürür. Bu hata iletisi, sorgular için açıkça dizine elmadan hariç yolları ile döndürülür. `x-ms-documentdb-query-enable-scan` Bir dizini olmadığında bir tarama gerçekleştirmek sorgu izin vermek için üst bilgi belirtilebilir.
 
 Ayarlayarak, sorgu yürütme ayrıntılı ölçümleri alabilirsiniz `x-ms-documentdb-populatequerymetrics` başlığına `True`. Daha fazla bilgi için [Azure Cosmos DB için SQL sorgu ölçümleri](sql-api-query-metrics.md).
 

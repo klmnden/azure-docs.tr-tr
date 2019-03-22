@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2187d0e986a173e1b8dc37fd0abdfa3bfd9e9505
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 64aebaedd9221b2570b66bdb8550bff36b54492c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168997"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084768"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Öğretici: SpringCM ile Azure Active Directory Tümleştirme
 
@@ -212,9 +212,9 @@ Azure Active Directory Kullanıcıları için SpringCM oturum açmak etkinleşti
 
 1. **Kaydet**’e tıklayın.
 
-  >[!NOTE]
-  >Herhangi diğer SpringCM kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri için AAD kullanıcı hesapları sağlamak SpringCM tarafından sağlanan.  
-  > 
+   >[!NOTE]
+   >Herhangi diğer SpringCM kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri için AAD kullanıcı hesapları sağlamak SpringCM tarafından sağlanan.  
+   > 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
@@ -249,7 +249,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için SpringCM erişim vererek
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
- 
+ 
 Erişim panelinde SpringCM kutucuğa tıkladığınızda, otomatik olarak SpringCM uygulamanıza açan.
 
 Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 

@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: hning86
-ms.author: haining
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7397546d4dc576a8488f605e20a0bfe15a01d7c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: cc0631052fa915ae946e791c907e405d70713ad2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311180"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860576"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Öğretici: Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme
 
@@ -29,13 +28,12 @@ Aşağıdaki eylemleri gerçekleştirmeniz öğrenin:
 > [!div class="checklist"]
 > * Geliştirme ortamınızı ayarlayın.
 > * Erişim ve verileri inceleyin.
-> * Popüler scikit kullanarak yerel olarak basit bir Lojistik regresyon eğitme-makine öğrenimi kitaplığı öğrenin. 
-> * Bir uzak kümesi üzerinde birden çok modeli eğitin.
+> * Bir uzak kümesi üzerinde bir basit Lojistik regresyon modeli eğitin.
 > * Eğitim sonuçlarını gözden geçirin ve en iyi modeli kaydedin.
 
 Bir model seçin ve bunu dağıtma hakkında bilgi edinin [Bu öğreticinin İkinci bölüm](tutorial-deploy-models-with-aml.md). 
 
-Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
+Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 
 >[!NOTE]
 > Bu makalede kod, Azure Machine Learning SDK sürüm zamanlarını 1.0.8 ile test edilmiştir.

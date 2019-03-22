@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 18fceca51ed67f5beca344160a73ae3f3d1a4b62
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 774f5a73a5fc30352698c0af0c279fbbe488c480
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491663"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008385"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>StorSimple cihaz Yöneticisi hizmeti, StorSimple cihaz yapılandırmasını değiştirmek için kullanın
 
@@ -71,7 +71,7 @@ Bulut depolama hizmeti sağlayıcısı ile kimlik doğrulaması için Cihazını
 
 NTP sunucusunu yapılandırırken, ağınızın, NTP trafiğini veri merkezinizden İnternete geçirilmesine izin verdiğini emin olun. Genel bir NTP sunucusu belirtirken, ağ güvenlik duvarları ve diğer güvenlik cihazları Ağ dışından gelen ve giden her fırsatta seyahat etmeye NTP trafiğine izin verecek şekilde yapılandırıldığından emin emin olmanız gerekir. Çift yönlü NTP trafiğini izin verilmiyor (Bu işlev bir Windows etki alanı denetleyicisi sağlar), dahili bir NTP sunucusu kullanmanız gerekir. Cihazınızı saati eşitlemesi olamaz, bulut depolama sağlayıcısı ile iletişim kurmak mümkün olmayabilir.
 
-Genel NTP sunucuları listesini görmek için Git [NTP sunucuları Web](http://support.ntp.org/bin/view/Servers/WebHome).
+Genel NTP sunucuları listesini görmek için Git [NTP sunucuları Web](https://support.ntp.org/bin/view/Servers/WebHome).
 
 ### <a name="what-happens-if-the-device-is-deployed-in-a-different-time-zone"></a>Farklı bir saat diliminde cihaza dağıtılırsa ne olur?
 

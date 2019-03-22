@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6702bfabd27b56ce473fe8eb14aadc9dc6e8e7c9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 4bef785a08d7482468630bc690d6c19b05bdf770
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338878"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202971"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight ile betik eylemi geliştirme
 
@@ -332,7 +332,6 @@ Her yöntemi kullanma hakkında daha fazla bilgi için bkz. [betik eylemi kullan
 Microsoft, bir HDInsight kümesinde bileşenleri yüklemek için örnek betikler sağlar. Daha fazla örnek betik eylemleri için aşağıdaki bağlantılara bakın.
 
 * [Yükleme ve HDInsight kümelerinde Hue kullanma](hdinsight-hadoop-hue-linux.md)
-* [Yükleme ve HDInsight kümeleri üzerinde Apache Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
 * [Yükleme ve HDInsight kümeleri üzerinde Apache giraph'ı kullanma](hdinsight-hadoop-giraph-install-linux.md)
 * [Yüklediğinizde veya HDInsight kümelerinde Mono yükseltme](hdinsight-hadoop-install-mono.md)
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 243b19d19fbce11d77f60bc2eccc4d1c58c85b80
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: cb984bcbe79b69c0614579d66a3b853cd38a7e12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892193"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099095"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Contoso geçişi: Bir Azure kapsayıcı ve Azure SQL veritabanı için bir şirket içi uygulamayı yeniden oluşturma
 
@@ -402,10 +402,10 @@ Contoso yöneticileri uygulamayı Visual Studio ve SDK Tools kullanarak, aşağ�
 4. Bunlar, SmartHotel.Registration.WCF uygulama için işlemi tekrarlayın.
 5. Şimdi, bunların çözümü nasıl değiştiğini kontrol edin.
 
-    - Yeni uygulama **SmartHotel.RegistrationApplication/**
-    - Bu iki hizmet de içerir: **SmartHotel.Registration.WCF** ve **SmartHotel.Registration.Web**.
+   - Yeni uygulama **SmartHotel.RegistrationApplication/**
+   - Bu iki hizmet de içerir: **SmartHotel.Registration.WCF** ve **SmartHotel.Registration.Web**.
 
-    ![Kapsayıcı](./media/contoso-migration-rearchitect-container-sql/container4.png)
+     ![Kapsayıcı](./media/contoso-migration-rearchitect-container-sql/container4.png)
 
 6. Visual Studio Docker dosyası oluşturulur ve gerekli görüntüleri yerel olarak Geliştirici makinesinde çekilir.
 
@@ -488,7 +488,7 @@ Contoso yöneticileri artık yapı gerçekleştirin ve eylem işlemine DevOps uy
 
 16. Ayrıca, sürekli dağıtım tetikleyicisi etkin olduğunu unutmayın.
 
-   ![Sürekli dağıtım etkin](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
+    ![Sürekli dağıtım etkin](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
 
 17. Simgeye **Kaydet** > **yayınlamaya**.
 

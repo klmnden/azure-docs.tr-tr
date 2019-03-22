@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: shlo
-ms.openlocfilehash: 68cdabd8d6e5921eabaa200169c0523352461733
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856953"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092013"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach etkinliği, Azure Data Factory
 ForEach etkinliği, işlem hattınızda yinelenen bir denetim akışını tanımlar. Bu etkinlik bir koleksiyon üzerinde yinelemek için kullanılır ve bir döngüde belirtilen etkinlikleri yürütür. Bu etkinliğin döngü uygulaması, programlama dillerindeki Foreach döngü yapısına benzer.
@@ -69,10 +69,10 @@ ForEach etkinliği, işlem hattınızda yinelenen bir denetim akışını tanım
 
 ## <a name="type-properties"></a>Tür özellikleri
 
-Özellik | Açıklama | İzin verilen değerler | Gereklidir
+Özellik | Açıklama | İzin verilen değerler | Gerekli
 -------- | ----------- | -------------- | --------
-ad | İçin-her etkinliğin adı. | Dize | Evet
-type | Ayarlanmalıdır **ForEach** | Dize | Evet
+ad | İçin-her etkinliğin adı. | String | Evet
+type | Ayarlanmalıdır **ForEach** | String | Evet
 isSequential | Sıralı veya paralel döngü gerçekleştirilip gerçekleştirilmeyeceğini belirtir.  En fazla 20 döngü yinelemesi aynı anda paralel olarak gerçekleştirilebilir). Örneğin, bir ForEach etkinliği bir kopyalama etkinliği ile 10 farklı kaynak ve havuz veri kümeleri üzerinde yineleme varsa **isSequential** False olarak ayarlanırsa, tüm kopyaları aynı anda çalıştırılır. False varsayılan değerdir. <br/><br/> "İsSequential" False olarak ayarlarsanız, birden fazla yürütülebilir dosyaları çalıştırmasına doğru bir yapılandırma olduğundan emin olun. Aksi takdirde, bu özellik yazma çakışmalarını ücretlendirmeden kaçınmak için dikkatli kullanılmalıdır. Daha fazla bilgi için [Paralel yürütme](#parallel-execution) bölümü. | Boole | Hayır. False varsayılan değerdir.
 batchCount | (İsSequential false olarak ayarlandığında) paralel yürütme sayısını kontrol etmek için kullanılacak toplu iş sayısı. | Tamsayı (maksimum 50) | Hayır. Varsayılan 20'dir.
 Öğeler | Bir JSON dizisi üzerinde yinelenir döndüren bir ifade. | (Bir JSON dizisi döndüren) ifadesi | Evet
@@ -474,7 +474,7 @@ Birden çok etkinlik yinelemek mümkündür (örneğin: kopyalama ve web etkinli
 
 ## <a name="aggregating-outputs"></a>Çıkışlar toplama
 
-Toplama çıktılarına __foreach__ etkinlik, lütfen _Variable_s yazılımınız ve _ekleme değişken_ etkinlik.
+Toplama çıktılarına __foreach__ etkinlik, lütfen yazılımınız _değişkenleri_ ve _ekleme değişken_ etkinlik.
 
 İlk olarak bildirmek bir `array` _değişkeni_ işlem hattındaki. Ardından, çağırma _ekleme değişken_ içinde her etkinlik __foreach__ döngü. Sonuç olarak, toplama, diziden alabilirsiniz.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: adigan
-ms.openlocfilehash: 00bdc5ff63e78b0f96b794ca907bc28158e62c62
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dd4dad2cc3e541d3b6866c02341161dc1d9e1e6c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883649"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075279"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Verileri Azure Backup için log Analytics veri modeli
 
@@ -172,36 +172,36 @@ Bu tablo, projeyle ilgili alanlar hakkında ayrıntılar sağlar.
 
 Bu tablo, ilke ile ilgili alanlar hakkında ayrıntılar sağlar.
 
-| Alan | Veri Türü | Açıklama |
-| --- | --- | --- |
-| EventName_s |Metin |Bu alan, bu olayın adını temsil eder, her zaman AzureBackupCentralReport olur |
-| SchemaVersion_s |Metin |Bu alan geçerli şema sürümünü gösterir, **V2** |
-| State_s |Metin |Örneğin, etkin, silinen ilke nesnenin geçerli durumu |
-| BackupManagementType_s |Metin |Sunucu yedekleme işi, örneğin, IaaSVM, Dosyaklasörü yapmak için sağlayıcı türü |
-| OperationName |Metin |Bu alan geçerli işlem - ilke adını temsil eder. |
-| Kategori |Metin |Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
-| Kaynak |Metin |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
-| PolicyUniqueId_g |Metin |İlke tanımlamak için benzersiz kimlik |
-| PolicyName_s |Metin |Tanımlanan ilke adı |
-| BackupFrequency_s |Metin |Sıklık ile yedeklemeler çalıştırılır, örneğin, günlük, haftalık |
-| BackupTimes_s |Metin |Yedeklemeler, zamanlanan tarih ve saat |
-| BackupDaysOfTheWeek_s |Metin |Ne zaman yedeklemeler zamanlandı haftanın günleri |
-| RetentionDuration_s |Tam sayı |Yapılandırılan yedekleme bekletme süresi |
-| DailyRetentionDuration_s |Tam sayı |Toplam elde tutma süresi yapılandırılan yedekleme için gün |
-| DailyRetentionTimes_s |Metin |Tarih ve saat günlük bekletme zaman yapılandırıldı |
-| WeeklyRetentionDuration_s |Ondalık sayı |Yapılandırılmış yedeklemeler için hafta cinsinden toplam haftalık tutma süresi |
-| WeeklyRetentionTimes_s |Metin |Tarih ve saat haftalık bekletme zaman yapılandırılır |
-| WeeklyRetentionDaysOfTheWeek_s |Metin |Haftalık bekletme için haftanın günü seçilmedi |
-| MonthlyRetentionDuration_s |Ondalık sayı |Toplam elde tutma süresi yapılandırılan yedeklemeler için bir ay içinde |
-| MonthlyRetentionTimes_s |Metin |Tarih ve saat aylık bekletme zaman yapılandırılır |
-| MonthlyRetentionFormat_s |Metin |Haftalık hafta için aylık bekletme, örneğin, bağlı olarak, gün için günlük yapılandırmasını türüne göre |
-| MonthlyRetentionDaysOfTheWeek_s |Metin |Aylık bekletme için haftanın günü seçilmedi |
-| MonthlyRetentionWeeksOfTheMonth_s |Metin |Hafta, aylık bekletme yapılandırıldığında, ayın ilk, son vs. |
-| YearlyRetentionDuration_s |Ondalık sayı |Toplam elde tutma süresi yapılandırılan yedeklemeler için yıl içinde |
-| YearlyRetentionTimes_s |Metin |Tarih ve saat, yıllık bekletme yapılandırılır |
-| YearlyRetentionMonthsOfTheYear_s |Metin |Yıl ay yıllık bekletme için seçili |
-| YearlyRetentionFormat_s |Metin |Haftalık hafta yapılandırmasını yıllık bekletme, örneğin, bağlı olarak, gün için günlük türüne göre |
-| YearlyRetentionDaysOfTheMonth_s |Metin |Yıllık bekletme için seçili ayın tarihleri |
+| Alan | Veri Türü | Geçerli sürümler | Açıklama |
+| --- | --- | --- | --- |
+| EventName_s |Metin ||Bu alan, bu olayın adını temsil eder, her zaman AzureBackupCentralReport olur |
+| SchemaVersion_s |Metin ||Bu alan geçerli şema sürümünü gösterir, **V2** |
+| State_s |Metin ||Örneğin, etkin, silinen ilke nesnenin geçerli durumu |
+| BackupManagementType_s |Metin ||Sunucu yedekleme işi, örneğin, IaaSVM, Dosyaklasörü yapmak için sağlayıcı türü |
+| OperationName |Metin ||Bu alan geçerli işlem - ilke adını temsil eder. |
+| Kategori |Metin ||Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
+| Kaynak |Metin ||Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
+| PolicyUniqueId_g |Metin ||İlke tanımlamak için benzersiz kimlik |
+| PolicyName_s |Metin ||Tanımlanan ilke adı |
+| BackupFrequency_s |Metin ||Sıklık ile yedeklemeler çalıştırılır, örneğin, günlük, haftalık |
+| BackupTimes_s |Metin ||Yedeklemeler, zamanlanan tarih ve saat |
+| BackupDaysOfTheWeek_s |Metin ||Ne zaman yedeklemeler zamanlandı haftanın günleri |
+| RetentionDuration_s |Tam sayı ||Yapılandırılan yedekleme bekletme süresi |
+| DailyRetentionDuration_s |Tam sayı ||Toplam elde tutma süresi yapılandırılan yedekleme için gün |
+| DailyRetentionTimes_s |Metin ||Tarih ve saat günlük bekletme zaman yapılandırıldı |
+| WeeklyRetentionDuration_s |Ondalık sayı ||Yapılandırılmış yedeklemeler için hafta cinsinden toplam haftalık tutma süresi |
+| WeeklyRetentionTimes_s |Metin ||Tarih ve saat haftalık bekletme zaman yapılandırılır |
+| WeeklyRetentionDaysOfTheWeek_s |Metin ||Haftalık bekletme için haftanın günü seçilmedi |
+| MonthlyRetentionDuration_s |Ondalık sayı ||Toplam elde tutma süresi yapılandırılan yedeklemeler için bir ay içinde |
+| MonthlyRetentionTimes_s |Metin ||Tarih ve saat aylık bekletme zaman yapılandırılır |
+| MonthlyRetentionFormat_s |Metin ||Haftalık hafta için aylık bekletme, örneğin, bağlı olarak, gün için günlük yapılandırmasını türüne göre |
+| MonthlyRetentionDaysOfTheWeek_s |Metin ||Aylık bekletme için haftanın günü seçilmedi |
+| MonthlyRetentionWeeksOfTheMonth_s |Metin ||Hafta, aylık bekletme yapılandırıldığında, ayın ilk, son vs. |
+| YearlyRetentionDuration_s |Ondalık sayı ||Toplam elde tutma süresi yapılandırılan yedeklemeler için yıl içinde |
+| YearlyRetentionTimes_s |Metin ||Tarih ve saat, yıllık bekletme yapılandırılır |
+| YearlyRetentionMonthsOfTheYear_s |Metin ||Yıl ay yıllık bekletme için seçili |
+| YearlyRetentionFormat_s |Metin ||Haftalık hafta yapılandırmasını yıllık bekletme, örneğin, bağlı olarak, gün için günlük türüne göre | |
+| YearlyRetentionDaysOfTheMonth_s |Metin ||Yıllık bekletme için seçili ayın tarihleri |
 | SynchronisationFrequencyPerDay_s |Tam sayı |v2|SC DPM ve MABS için bir dosya yedeklemesi eşitlenen bir gün sayısı |
 | DiffBackupFormat_s |Metin |v2|Biçiminde değişiklik yedekleri için SQL Azure VM yedeklemesi |
 | DiffBackupTime_s |Zaman |v2|Yedekleri için SQL'de Azure VM yedekleme için saat|
@@ -209,35 +209,35 @@ Bu tablo, ilke ile ilgili alanlar hakkında ayrıntılar sağlar.
 | LogBackupFrequency_s |Ondalık sayı |v2|İçin SQL günlük yedekleme sıklığı|
 | LogBackupRetentionDuration_s |Ondalık sayı |v2|SQL Azure VM yedeklemesi için günlük yedeklemeler için elde tutma süresi|
 | DiffBackupDaysofTheWeek_s |Metin |v2|SQL Azure VM yedeklemesi için farklı yedeklemeler için haftanın günleri|
-| SourceSystem |Metin |Geçerli verileri - Azure'nın kaynak sistem |
-| ResourceId |Metin |Toplanmakta olan veriler için kaynak tanımlayıcısı. Örneğin, Kurtarma Hizmetleri kasasının kaynak kimliği |
-| SubscriptionId |Metin |(Ör kaynak abonelik tanımlayıcısı. Toplanan veriler için kurtarma Hizmetleri kasası) |
-| ResourceGroup |Metin |Kaynak (ör kaynak grubu. Toplanan veriler için kurtarma Hizmetleri kasası) |
-| ResourceProvider |Metin |Toplanan veriler için kaynak sağlayıcısı. Örneğin, Microsoft.RecoveryServices |
-| ResourceType |Metin |Kaynak türü için verileri toplanır. Örneğin, kasaları |
+| SourceSystem |Metin ||Geçerli verileri - Azure'nın kaynak sistem |
+| ResourceId |Metin ||Toplanmakta olan veriler için kaynak tanımlayıcısı. Örneğin, Kurtarma Hizmetleri kasasının kaynak kimliği |
+| SubscriptionId |Metin ||(Ör kaynak abonelik tanımlayıcısı. Toplanan veriler için kurtarma Hizmetleri kasası) |
+| ResourceGroup |Metin ||Kaynak (ör kaynak grubu. Toplanan veriler için kurtarma Hizmetleri kasası) |
+| ResourceProvider |Metin ||Toplanan veriler için kaynak sağlayıcısı. Örneğin, Microsoft.RecoveryServices |
+| ResourceType |Metin ||Kaynak türü için verileri toplanır. Örneğin, kasaları |
 
 ### <a name="policyassociation"></a>PolicyAssociation
 
 Bu tabloda, çeşitli varlıklar ile ilke ilişkilendirmesi hakkında ayrıntılar sağlar.
 
-| Alan | Veri Türü | Açıklama |
-| --- | --- | --- |
-| EventName_s |Metin |Bu alan, bu olayın adını temsil eder, her zaman AzureBackupCentralReport olur |
-| SchemaVersion_s |Metin |Bu alan geçerli şema sürümünü gösterir, **V2** |
-| State_s |Metin |Örneğin, etkin, silinen ilke nesnenin geçerli durumu |
-| BackupManagementType_s |Metin |Sunucu yedekleme işi, örneğin, IaaSVM, Dosyaklasörü yapmak için sağlayıcı türü |
-| OperationName |Metin |Bu alan geçerli işlem - PolicyAssociation adını temsil eder. |
-| Kategori |Metin |Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
-| Kaynak |Metin |Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
-| PolicyUniqueId_g |Metin |İlke tanımlamak için benzersiz kimlik |
-| VaultUniqueId_s |Metin |Bu ilkenin ait olduğu kasanın benzersiz kimliği |
+| Alan | Veri Türü | Geçerli sürümler | Açıklama |
+| --- | --- | --- | --- |
+| EventName_s |Metin ||Bu alan, bu olayın adını temsil eder, her zaman AzureBackupCentralReport olur |
+| SchemaVersion_s |Metin ||Bu alan geçerli şema sürümünü gösterir, **V2** |
+| State_s |Metin ||Örneğin, etkin, silinen ilke nesnenin geçerli durumu |
+| BackupManagementType_s |Metin ||Sunucu yedekleme işi, örneğin, IaaSVM, Dosyaklasörü yapmak için sağlayıcı türü |
+| OperationName |Metin ||Bu alan geçerli işlem - PolicyAssociation adını temsil eder. |
+| Kategori |Metin ||Bu alan, Azure İzleyici günlüklerine gönderilen tanılama veri kategorisini temsil eder, AzureBackupReport |
+| Kaynak |Metin ||Bu veri toplanmakta kaynak, Kurtarma Hizmetleri kasası adını gösterir |
+| PolicyUniqueId_g |Metin ||İlke tanımlamak için benzersiz kimlik |
+| VaultUniqueId_s |Metin ||Bu ilkenin ait olduğu kasanın benzersiz kimliği |
 | BackupManagementServerUniqueId_s |Metin |v2 |Yedekleme Yönetimi Sunucusu yedekleme öğesi benzersiz olarak tanımlanabilmesi için alan, varsa korunuyor        |
-| SourceSystem |Metin |Geçerli verileri - Azure'nın kaynak sistem |
-| ResourceId |Metin |Toplanmakta olan veriler için kaynak tanımlayıcısı. Örneğin, Kurtarma Hizmetleri kasasının kaynak kimliği |
-| SubscriptionId |Metin |(Ör kaynak abonelik tanımlayıcısı. Toplanan veriler için kurtarma Hizmetleri kasası) |
-| ResourceGroup |Metin |Kaynak (ör kaynak grubu. Toplanan veriler için kurtarma Hizmetleri kasası) |
-| ResourceProvider |Metin |Toplanan veriler için kaynak sağlayıcısı. Örneğin, Microsoft.RecoveryServices |
-| ResourceType |Metin |Kaynak türü için verileri toplanır. Örneğin, kasaları |
+| SourceSystem |Metin ||Geçerli verileri - Azure'nın kaynak sistem |
+| ResourceId |Metin ||Toplanmakta olan veriler için kaynak tanımlayıcısı. Örneğin, Kurtarma Hizmetleri kasasının kaynak kimliği |
+| SubscriptionId |Metin ||(Ör kaynak abonelik tanımlayıcısı. Toplanan veriler için kurtarma Hizmetleri kasası) |
+| ResourceGroup |Metin ||Kaynak (ör kaynak grubu. Toplanan veriler için kurtarma Hizmetleri kasası) |
+| ResourceProvider |Metin ||Toplanan veriler için kaynak sağlayıcısı. Örneğin, Microsoft.RecoveryServices |
+| ResourceType |Metin ||Kaynak türü için verileri toplanır. Örneğin, kasaları |
 
 ### <a name="protected-container"></a>Korumalı kapsayıcı
 
@@ -355,7 +355,7 @@ Bu tablo, ilgili alanları temel korumalı örnekler sağlar.
 Bu tabloda temel kurtarma sağlar. ilgili alanları gelin.
 
 | Alan | Veri Türü | Açıklama |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | BackupItemUniqueId_s |Metin |DPM, MABS kullanan VM'ler için yedekleme öğesi tanımlamak için kullanılan benzersiz kimliği yedeklendi|
 | OldestRecoveryPointTime_s |Metin |Yedekleme öğesi için en eski kurtarma noktası tarih saat|
 | OldestRecoveryPointLocation_s |Metin |Yedekleme öğesi için en eski kurtarma noktası konumu|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: a6607fa91d9c8556881a5532527a63b6f21ad4d1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: f6f4858740288facb1e206eed3a8cd4ee1854daa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977465"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111455"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Parmak izi yerine sertifika ortak adını kullanan bir Service Fabric kümesi dağıtma
 İki sertifika küme sertifika geçişi veya yönetim zorlaştırır aynı parmak olabilir. Ancak, aynı ortak adı veya konu birden çok sertifika sahip olabilir.  Sertifika ortak adları kullanarak bir küme, sertifika yönetimi çok daha kolay hale getirir. Bu makalede, sertifika ortak adına sertifika parmak izi yerine kullanılacak bir Service Fabric kümesi dağıtmayı açıklar.
@@ -158,36 +158,36 @@ Ardından, açık *azuredeploy.json* dosyasını bir metin düzenleyicisinde ve 
           },
     ```
 
-4.  İçinde **Microsoft.ServiceFabric/clusters** kaynak, "2018-02-01" için güncelleştirme API sürümü.  Ayrıca bir **certificateCommonNames** ayarı bir **commonNames** özelliği ekleme ve kaldırma **sertifika** (parmak izi özelliğiyle) şu şekilde ayarlama Örnek:
-    ```json
-    {
-        "apiVersion": "2018-02-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
-        ],
-        "properties": {
-        "addonFeatures": [
-            "DnsService",
-            "RepairManager"
-        ],        
-        "certificateCommonNames": {
-            "commonNames": [
-            {
-                "certificateCommonName": "[parameters('certificateCommonName')]",
-                "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
-            }
-            ],
-            "x509StoreName": "[parameters('certificateStoreValue')]"
-        },
-        ...
-    ```
-> [!NOTE]
-> 'CertificateIssuerThumbprint' alanı, özel olarak beklenen verenler sertifikalarının bir belirtilen konu ortak adı ile belirtmeye izin verir. Bu alan, SHA1 parmak izleri virgülle ayrılmış bir numaralandırmasını kabul eder. Bu sertifika doğrulama - veren belirtilmemiş veya boş, sertifika, zincir oluşturulabilir, kimlik doğrulaması ve doğrulayıcı tarafından güvenilen bir kök yukarı biter kabul edilecek söz konusu güçlendirme olduğuna dikkat edin. Veren belirtilirse, sertifika parmak izini doğrudan verenini kök güvenilir olup olmamasına bakılmaksızın bu alana - belirtilen değerlerden herhangi birini eşleşiyorsa kabul edilecektir. Lütfen bir PKI sertifikaları için aynı konu için farklı sertifika yetkilileri kullanabilir ve bu nedenle tüm beklenen verenin parmak izleri belirtmek için belirli bir konu önemli olduğunu unutmayın.
->
-> Verici belirtme, en iyi uygulama olarak kabul edilir; atlama sırasında çalışmaya devam edecektir - sertifikaları Güvenilen bir köke - zincirleme ayarlamak için bu davranış sınırlamalara sahiptir ve yakın gelecekte aşamalı olacak. Ayrıca kümeleri Azure'da dağıtılır ve X509 ile güvenliği sağlanan Not konu tarafından bildirilen ve özel bir PKI tarafından verilen sertifikaları açamayabilir (için Küme hizmeti iletişimi için), Azure Service Fabric hizmeti tarafından doğrulanmış olarak, PKI'ın sertifika ilkesi bulunabilir, kullanılabilir ve erişilebilir değil. 
+4. İçinde **Microsoft.ServiceFabric/clusters** kaynak, "2018-02-01" için güncelleştirme API sürümü.  Ayrıca bir **certificateCommonNames** ayarı bir **commonNames** özelliği ekleme ve kaldırma **sertifika** (parmak izi özelliğiyle) şu şekilde ayarlama Örnek:
+   ```json
+   {
+       "apiVersion": "2018-02-01",
+       "type": "Microsoft.ServiceFabric/clusters",
+       "name": "[parameters('clusterName')]",
+       "location": "[parameters('clusterLocation')]",
+       "dependsOn": [
+       "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
+       ],
+       "properties": {
+       "addonFeatures": [
+           "DnsService",
+           "RepairManager"
+       ],        
+       "certificateCommonNames": {
+           "commonNames": [
+           {
+               "certificateCommonName": "[parameters('certificateCommonName')]",
+               "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
+           }
+           ],
+           "x509StoreName": "[parameters('certificateStoreValue')]"
+       },
+       ...
+   ```
+   > [!NOTE]
+   > 'CertificateIssuerThumbprint' alanı, özel olarak beklenen verenler sertifikalarının bir belirtilen konu ortak adı ile belirtmeye izin verir. Bu alan, SHA1 parmak izleri virgülle ayrılmış bir numaralandırmasını kabul eder. Bu sertifika doğrulama - veren belirtilmemiş veya boş, sertifika, zincir oluşturulabilir, kimlik doğrulaması ve doğrulayıcı tarafından güvenilen bir kök yukarı biter kabul edilecek söz konusu güçlendirme olduğuna dikkat edin. Veren belirtilirse, sertifika parmak izini doğrudan verenini kök güvenilir olup olmamasına bakılmaksızın bu alana - belirtilen değerlerden herhangi birini eşleşiyorsa kabul edilecektir. Lütfen bir PKI sertifikaları için aynı konu için farklı sertifika yetkilileri kullanabilir ve bu nedenle tüm beklenen verenin parmak izleri belirtmek için belirli bir konu önemli olduğunu unutmayın.
+   >
+   > Verici belirtme, en iyi uygulama olarak kabul edilir; atlama sırasında çalışmaya devam edecektir - sertifikaları Güvenilen bir köke - zincirleme ayarlamak için bu davranış sınırlamalara sahiptir ve yakın gelecekte aşamalı olacak. Ayrıca kümeleri Azure'da dağıtılır ve X509 ile güvenliği sağlanan Not konu tarafından bildirilen ve özel bir PKI tarafından verilen sertifikaları açamayabilir (için Küme hizmeti iletişimi için), Azure Service Fabric hizmeti tarafından doğrulanmış olarak, PKI'ın sertifika ilkesi bulunabilir, kullanılabilir ve erişilebilir değil. 
 
 ## <a name="deploy-the-updated-template"></a>Güncelleştirilmiş şablonu dağıtma
 Güncelleştirilmiş şablonu, değişiklikleri yaptıktan sonra yeniden dağıtın.

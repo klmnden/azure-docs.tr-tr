@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b12328c8283c9a626a3dcfc45dfd682a5e628d07
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9c4af55a5ddb05335f8acfdd23711df2290e217b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728854"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085703"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Yapılandırma ve Service Fabric hizmet benzeşimi kullanma
 Benzeşim Bulut ve mikro hizmetler dünyaya tek parçalı büyük uygulamaların geçişi kolaylaştırmak amacıyla, esas olarak sağlanan bir denetimdir. Bunun yapılması rağmen Hizmetleri performansını iyileştirme için bir iyileştirme yan etkileri olabilir olarak da kullanılır.
@@ -59,6 +59,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 Benzeşim birkaç bağıntı düzenlerden birini ifade edilir ve iki farklı mod vardır. En yaygın benzeşim NonAlignedAffinity dediğimiz modudur. NonAlignedAffinity çoğaltmalar veya farklı hizmet örneklerinin aynı düğümlere yerleştirilir. Diğer AlignedAffinity modudur. Hizalanmış benzeşimi, yalnızca durum bilgisi olan hizmetlerle yararlıdır. İki durum bilgisi olan hizmet benzeşimi hizalı için yapılandırma seçimlerine hizmetlerin birbiriyle aynı düğümlere yerleştirilir sağlar. Her çift ikinciller için söz konusu hizmetler aynı düğümlere yerleştirilmesine neden olur. Ayrıca durum bilgisi olan hizmetler için NonAlignedAffinity yapılandırmak için (daha az ortak karşın) mümkündür. NonAlignedAffinity, iki durum bilgisi olan hizmetler farklı kopyaya aynı düğümler üzerinde çalışır, ancak bunların seçimlerine farklı düğümlere bulunabileceğini.
 
 <center>
+
 ![Benzeşim modlarını ve bunların etkileri][Image1]
 </center>
 
@@ -69,6 +70,7 @@ En iyi çaba bir benzeşim ilişkidir. Düzenleme ya da aynı şekilde çalışa
 Bugün küme kaynak yöneticisi için benzeşim ilişkilerin modelini zincirleri mümkün değildir. Bu alt öğe bir benzeşim ilişkisi olan bir hizmeti olan anlamı, başka bir benzeşim ilişkisi içinde üst olamaz. Bu ilişki türünde, model istiyorsanız, verimli bir zincir yerine bir yıldız olarak model gerekir. İçin bir yıldız bir zincirinden taşımak için alttaki alt ilk alt öğenin üst için bunun yerine üst öğe. Hizmetlerinizi düzenleme bağlı olarak, birden çok kez yapmanız gerekebilir. Doğal üst hizmet yok ise, bir yer tutucu olarak hizmet veren bir tane oluşturmak zorunda kalabilirsiniz. Gereksinimlerinize bağlı olarak, ayrıca içine öğrenmek isteyebilirsiniz [uygulama grupları](service-fabric-cluster-resource-manager-application-groups.md).
 
 <center>
+
 ![Zincirleri vs. Yıldız bağlamında benzeşimi ilişkileri][Image2]
 </center>
 

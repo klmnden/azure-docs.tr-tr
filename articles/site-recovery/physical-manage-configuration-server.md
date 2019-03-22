@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 80fbc84c2284b7078b07040a74566cf1e8d57fb4
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: 11b1b46e29ac9a4147c4dc319753edd0fadce8bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341094"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088919"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Fiziksel sunucu olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 
@@ -50,7 +50,7 @@ Site Recovery portalında yapılandırma sunucusu yükleme dosyasının en son s
 4. Üzerinde **Sunucusu Ekle** sayfasında, kayıt anahtarını indirmek için indir düğmesine tıklayın. Azure Site Recovery hizmetiyle kaydetmek için yapılandırma sunucusu yüklemesi sırasında bu anahtar gerekir.
 5. Tıklayın **Microsoft Azure Site Recovery birleşik Kurulumu indirme** yapılandırma sunucusunu en son sürümünü indirmek için bağlantı.
 
-  ![İndirme sayfası](./media/physical-manage-configuration-server/downloadcs.png)
+   ![İndirme sayfası](./media/physical-manage-configuration-server/downloadcs.png)
 
 
 ## <a name="install-and-register-the-server"></a>Yükleme ve sunucuyu kaydetme
@@ -153,40 +153,40 @@ Makinede yapılandırma sunucusu için proxy ayarlarını aşağıdaki gibi değ
 3. Tıklayın **kasa kaydı** sekmesi.
 4. Portaldan yeni bir kasa kayıt dosyası indirin ve aracı için giriş olarak sağlayın.
 
-  ![kayıt yapılandırma sunucusu](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+   ![kayıt yapılandırma sunucusu](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Yeni proxy ayrıntılarını sağlayın ve tıklayın **kaydetme** düğmesi.
 6. Bir yönetici PowerShell komut penceresi açın.
 7. Şu komutu çalıştırın:
 
-  ```PowerShell
-  $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
-  net stop obengine
-  net start obengine
-  ```
+   ```PowerShell
+   $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+   net stop obengine
+   net start obengine
+   ```
 
-  >[!WARNING]
-  Yapılandırma sunucusuna bağlı ek işlem sunucularının varsa yapmanız [proxy ayarları tüm genişleme işlem sunucularındaki düzeltme](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) dağıtımınızdaki.
+   > [!WARNING]
+   > Yapılandırma sunucusuna bağlı ek işlem sunucularının varsa yapmanız [proxy ayarları tüm genişleme işlem sunucularındaki düzeltme](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) dağıtımınızdaki.
 
 ## <a name="reregister-a-configuration-server-with-the-same-vault"></a>Bir yapılandırma sunucusu ile aynı kasaya yeniden kaydettirin
-  1. Yapılandırma sunucunuzda oturum açın.
-  2. Masaüstü kısayolunu kullanarak cspsconfigtool.exe'yi başlatın.
-  3. Tıklayın **kasa kaydı** sekmesi.
-  4. Portaldan yeni bir kayıt dosyası indirin ve aracı için giriş olarak sağlayın.
-        ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-  5. Proxy sunucusu ayrıntıları sağlayın ve tıklayın **kaydetme** düğmesi.  
-  6. Bir yönetici PowerShell komut penceresi açın.
-  7. Aşağıdaki komutu çalıştırın
+1. Yapılandırma sunucunuzda oturum açın.
+2. Masaüstü kısayolunu kullanarak cspsconfigtool.exe'yi başlatın.
+3. Tıklayın **kasa kaydı** sekmesi.
+4. Portaldan yeni bir kayıt dosyası indirin ve aracı için giriş olarak sağlayın.
+      ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+5. Proxy sunucusu ayrıntıları sağlayın ve tıklayın **kaydetme** düğmesi.  
+6. Bir yönetici PowerShell komut penceresi açın.
+7. Aşağıdaki komutu çalıştırın
 
-      ```PowerShell
-      $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
-      net stop obengine
-      net start obengine
-      ```
+    ```PowerShell
+    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+    net stop obengine
+    net start obengine
+    ```
 
-  >[!WARNING]
-  Birden çok işlem sunucusu varsa, yapmanız [bunları yeniden kaydettirin](vmware-azure-manage-process-server.md#reregister-a-process-server).
+   > [!WARNING]
+   > Birden çok işlem sunucusu varsa, yapmanız [bunları yeniden kaydettirin](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Yapılandırma sunucusunu farklı bir kasaya kaydetme
 
@@ -246,22 +246,22 @@ Sunucuyu aşağıdaki gibi yükseltin:
 4. Tıklayın **Evet** sunucu silme işlemini onaylamak için.
 
 ### <a name="uninstall-the-configuration-server-and-its-dependencies"></a>Yapılandırma sunucusunu ve bağımlılıklarını Kaldır
-  > [!TIP]
-  Azure Site Recovery ile Configuration Server'ı yeniden kullanmayı planlıyorsanız, daha sonra adım 4 doğrudan atlayabilirsiniz
+> [!TIP]
+>   Azure Site Recovery ile Configuration Server'ı yeniden kullanmayı planlıyorsanız, daha sonra adım 4 doğrudan atlayabilirsiniz
 
 1. Yapılandırma sunucusunda yönetici olarak oturum açın.
 2. Denetim Masası'nı açın > Program > programları Kaldır
 3. Aşağıdaki sırayla Program Kaldır:
-  * Microsoft Azure Kurtarma Hizmetleri Aracısı
-  * Microsoft Azure Site Recovery Mobility hizmeti/ana hedef sunucusu
-  * Microsoft Azure Site Recovery sağlayıcısı
-  * Microsoft Azure Site Recovery yapılandırma sunucusu/işlem sunucusu
-  * Microsoft Azure Site Recovery yapılandırma sunucusu bağımlılıkları
-  * MySQL Server 5.5
+   * Microsoft Azure Kurtarma Hizmetleri Aracısı
+   * Microsoft Azure Site Recovery Mobility hizmeti/ana hedef sunucusu
+   * Microsoft Azure Site Recovery sağlayıcısı
+   * Microsoft Azure Site Recovery yapılandırma sunucusu/işlem sunucusu
+   * Microsoft Azure Site Recovery yapılandırma sunucusu bağımlılıkları
+   * MySQL Server 5.5
 4. Yönetici komut istemi ve aşağıdaki komutu çalıştırın.
-  ```
-  reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-  ```
+   ```
+   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+   ```
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Silme veya kaydını iptal yapılandırma sunucusunu (PowerShell)
 

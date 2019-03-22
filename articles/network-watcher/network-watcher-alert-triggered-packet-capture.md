@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fd7e7151d8ec676239ed810fb700149aab0fe0fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 71e71b417f12b58fc03c581826c0e5c2412e684b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427411"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876655"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Uyarılar ve Azure işlevleri ile öngörülü ağ izleme için paket yakalamayı kullanma
 
@@ -98,7 +98,7 @@ Bu senaryo, şunları yapar:
 
 Özelleştirmeleri, bu örnek için gerekli olan ve aşağıdaki adımlarda açıklanmıştır.
 
-### <a name="add-modules"></a>Modül Ekle
+### <a name="add-modules"></a>Modül ekle
 
 Ağ İzleyicisi PowerShell cmdlet'lerini kullanmak için işlev uygulaması için en son PowerShell modülünü yükleyin.
 
@@ -110,13 +110,13 @@ Ağ İzleyicisi PowerShell cmdlet'lerini kullanmak için işlev uygulaması içi
 
     Bu örnek, Azure PowerShell modüllerini yerel yolunu sağlar. Bu klasör, bir sonraki adımda kullanılır. Bu senaryoda kullanılan modülleri şunlardır:
 
-    * AzureRM.Network
+   * AzureRM.Network
 
-    * AzureRM.Profile
+   * AzureRM.Profile
 
-    * AzureRM.Resources
+   * AzureRM.Resources
 
-    ![PowerShell klasörleri][functions5]
+     ![PowerShell klasörleri][functions5]
 
 1. Seçin **işlev uygulaması ayarları** > **App Service Düzenleyicisi'ne gitmek**.
 
@@ -146,7 +146,7 @@ Ağ İzleyicisi PowerShell cmdlet'lerini kullanmak için işlev uygulaması içi
 
     ![PowerShell dosyaları][functions7]
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Authentication
 
 PowerShell cmdlet'lerini kullanmak için kimlik doğrulaması gerekir. İşlev uygulamasında kimlik doğrulamasını yapılandırın. Kimlik doğrulamasını yapılandırmak için ortam değişkenlerini yapılandırma ve şifreli bir anahtar dosyası işlev uygulamasına yükleyin.
 
@@ -344,7 +344,7 @@ Varolan bir sanal makineye gidin ve ardından bir uyarı kuralı ekleyin. Uyarı
   |**Ayar** | **Değer** | **Ayrıntılar** |
   |---|---|---|
   |**Ad**|TCP_Segments_Sent_Exceeded|Uyarı kuralı adı.|
-  |**Açıklama**|TCP kesimini eşiğini gönderilen|Uyarı kuralı açıklaması.||
+  |**Açıklama**|TCP kesimini eşiğini gönderilen|Uyarı kuralı açıklaması.|
   |**Ölçüm**|TCP kesimini gönderilen| Uyarı tetiklemek için kullanılacak ölçü. |
   |**Koşul**|Büyüktür| Ölçüm değerlendirilirken kullanılacak koşul.|
   |**Eşik**|100| Uyarıyı tetikleyen ölçüm değeri. Bu değer, ortamınız için geçerli bir değere ayarlanmalıdır.|
@@ -362,7 +362,7 @@ Uyarı tetiklenmeden ölçütlerini sonra bir paket yakalama oluşturulur. Ağ �
 
 Yakalama dosyasını yerel olarak depolanıyorsa, sanal makineye oturum açarak alabilir.
 
-Azure depolama hesaplarından dosyaları indirme hakkındaki yönergeler için bkz: [.NET kullanarak Azure Blob depolamayı kullanmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Kullanabileceğiniz başka bir araçtır [Depolama Gezgini](http://storageexplorer.com/).
+Azure depolama hesaplarından dosyaları indirme hakkındaki yönergeler için bkz: [.NET kullanarak Azure Blob depolamayı kullanmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Kullanabileceğiniz başka bir araçtır [Depolama Gezgini](https://storageexplorer.com/).
 
 Yakalama İndirildikten sonra okuyabilirsiniz herhangi bir aracı kullanarak görüntüleyebilirsiniz bir **.cap** dosya. Bu araçların iki bağlantılar aşağıda verilmiştir:
 

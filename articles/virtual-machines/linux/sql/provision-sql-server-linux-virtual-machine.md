@@ -12,12 +12,12 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7d33fb24e08ea0a726f9f8e51eacf17fd22efaf9
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 468db9d62a98e079fbe6954843e23a518eaabd0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791146"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011712"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Azure portalında bir Linux SQL Server sanal makinesi sağlama
 
@@ -76,23 +76,23 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 1. İçinde **sanal makine adı**, yeni Linux VM'NİZDE için bir ad girin.
 1. Ardından, yazın veya aşağıdaki değerleri seçin:
-    * **Bölge**: Sizin için en uygun Azure bölgesi seçin.
-    * **Kullanılabilirlik seçeneklerini**: Uygulama ve verileriniz için en iyi kullanılabilirlik ve yedekliliği seçeneği seçin.
-    * **Değiştirme boyutu**: İşiniz bittiğinde, bir makine boyutu seçin ve bu seçeneği **seçin**. VM boyutları hakkında daha fazla bilgi için bkz. [Linux VM boyutları](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+   * **Bölge**: Sizin için en uygun Azure bölgesi seçin.
+   * **Kullanılabilirlik seçeneklerini**: Uygulama ve verileriniz için en iyi kullanılabilirlik ve yedekliliği seçeneği seçin.
+   * **Değiştirme boyutu**: İşiniz bittiğinde, bir makine boyutu seçin ve bu seçeneği **seçin**. VM boyutları hakkında daha fazla bilgi için bkz. [Linux VM boyutları](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
 
-    ![VM boyutu seçme](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
+     ![VM boyutu seçme](./media/provision-sql-server-linux-virtual-machine/vmsizes.png)
 
    > [!TIP]
    > Geliştirme ve işlevsel test için bir VM boyutu kullanın **DS2** veya üzeri. Performans testi için **DS13** veya üzeri kullanın.
 
-    * **Kimlik doğrulama türü**: Seçin **SSH ortak anahtarı**.
+   * **Kimlik doğrulama türü**: Seçin **SSH ortak anahtarı**.
 
-    > [!Note]
-    > Kimlik doğrulaması için SSH ortak anahtarı veya Parola kullanabilirsiniz. SSH daha güvenlidir. SSH anahtarı oluşturma talimatları için bkz. [Azure'daki Linux VM için Linux ve Mac üzerinde SSH anahtarı oluşturma](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+     > [!Note]
+     > Kimlik doğrulaması için SSH ortak anahtarı veya Parola kullanabilirsiniz. SSH daha güvenlidir. SSH anahtarı oluşturma talimatları için bkz. [Azure'daki Linux VM için Linux ve Mac üzerinde SSH anahtarı oluşturma](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
 
-    * **Kullanıcı adı**: VM için yönetici adı girin.
-    * **SSH ortak anahtarı**: RSA ortak anahtarınızı girin.
-    * **Ortak gelen bağlantı noktası**: Seçin **Seçili bağlantı noktalarına izin** ve çekme **SSH (22)** içinde bağlantı noktası **seçin ortak gelen bağlantı noktası** listesi. Bu hızlı başlangıçta, bağlanmak ve SQL Server yapılandırmasını tamamlamak Bu adım gereklidir. SQL Server’a uzaktan bağlanmak istiyorsanız, İnternet üzerinden bağlantılar için **MS SQL (1433)** seçeneğini de belirleyerek 1433 numaralı bağlantı noktasını açın.
+   * **Kullanıcı adı**: VM için yönetici adı girin.
+   * **SSH ortak anahtarı**: RSA ortak anahtarınızı girin.
+   * **Ortak gelen bağlantı noktası**: Seçin **Seçili bağlantı noktalarına izin** ve çekme **SSH (22)** içinde bağlantı noktası **seçin ortak gelen bağlantı noktası** listesi. Bu hızlı başlangıçta, bağlanmak ve SQL Server yapılandırmasını tamamlamak Bu adım gereklidir. SQL Server’a uzaktan bağlanmak istiyorsanız, İnternet üzerinden bağlantılar için **MS SQL (1433)** seçeneğini de belirleyerek 1433 numaralı bağlantı noktasını açın.
 
    ![Gelen bağlantı noktaları](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
@@ -120,7 +120,7 @@ VM'nizin IP adresini Azure portalında bulabilirsiniz.
 
 Windows üzerinde çalıştırıyorsanız ve bir BASH kabuğunda yoksa PuTTY gibi bir SSH İstemcisi'ni yükleyin.
 
-1. [PuTTY'yi indirin ve yükleyin](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+1. [PuTTY'yi indirin ve yükleyin](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 1. PuTTY'yi çalıştırın.
 

@@ -1,21 +1,21 @@
 ---
-title: R programlama dili ile çalışmaya başlama
+title: R kullanmaya başlama
 titleSuffix: Azure Machine Learning Studio
 description: Tahmin çözümünü oluşturmak için Azure Machine Learning Studio ile R dili ile çalışmaya başlamak için R programlama Bu öğreticiyi kullanın.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: c18de2efff0f867213cad56b6012bb8ee6ed52bb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 307636b019b53c8457c65261824adbf8e52ca0a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344994"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875524"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>R programlama dili Azure Machine Learning Studio'da kullanmaya başlama
 
@@ -131,7 +131,7 @@ maml.mapOutputPort("data.set")
 
 RStudio r için yaygın olarak kullanılan bir ıde'dir RStudio düzenleme, test ve bu kılavuzda kullanılan R kodunu bazı hata ayıklama için kullanır. R kodu, test edilmiş ve hazır olduğunda, yalnızca Kes ve bir Machine Learning Studio'ya RStudio düzenleyiciye yapıştırın [R betiği yürütme] [ execute-r-script] modülü.  
 
-Masaüstü makinenizde yüklü olan R programlama dili yoksa, artık bunu ben önerilir. Açık kaynak R diliyle ücretsiz olarak karşıdan en kapsamlı R arşiv ağ (CRAN) konumunda kullanılabilir [ http://www.r-project.org/ ](http://www.r-project.org/). Windows, Macos ve Linux/UNIX için kullanılabilen yüklemeleri vardır. Yakındaki bir yansıtma'ı seçip indirme yönergeleri izleyin. Ayrıca, çok sayıda kullanışlı analiz ve veri işleme paketleri CRAN içerir.
+Masaüstü makinenizde yüklü olan R programlama dili yoksa, artık bunu ben önerilir. Açık kaynak R diliyle ücretsiz olarak karşıdan en kapsamlı R arşiv ağ (CRAN) konumunda kullanılabilir [ https://www.r-project.org/ ](https://www.r-project.org/). Windows, Macos ve Linux/UNIX için kullanılabilen yüklemeleri vardır. Yakındaki bir yansıtma'ı seçip indirme yönergeleri izleyin. Ayrıca, çok sayıda kullanışlı analiz ve veri işleme paketleri CRAN içerir.
 
 RStudio için yeni başladıysanız, indirme ve Masaüstü sürümünü yüklemeniz gerekir. RStudio yüklemeler için Windows, Mac OS ve Linux/UNIX bulabilirsiniz http://www.rstudio.com/products/RStudio/. Masaüstü makinenizde Rstudio'yu yükleme için sağlanan yönergeleri izleyin.  
 
@@ -1312,18 +1312,18 @@ RStudio oldukça iyi belgelenmiştir. Bazı önemli bölümleri başlamanıza ya
 
 R programlama Bu öğretici, Azure Machine Learning Studio ile R dili kullanmak ihtiyacınız olan temel kavramları kapsar. R ile ilgili bilgi sahibi değilseniz, iki tanıtımları CRAN'de kullanılabilir:
 
-* [Yeni başlayanlar için R](http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) Emmanuel Paradis tarafından başlatmak için iyi bir yerdir.  
-* [R giriş](http://cran.r-project.org/doc/manuals/R-intro.html) W. n tarafından Venables et. Al. biraz daha derinlik geçer.
+* [Yeni başlayanlar için R](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) Emmanuel Paradis tarafından başlatmak için iyi bir yerdir.  
+* [R giriş](https://cran.r-project.org/doc/manuals/R-intro.html) W. n tarafından Venables et. Al. biraz daha derinlik geçer.
 
 Başlamanıza yardımcı olabilecek R bir çok kitap mevcuttur. Birkaç faydalı bulabilirim şunlardır:
 
 * **R programlama resim: Bir tur, istatistiksel yazılım tasarımı** Norman Matloff tarafından r programlama mükemmel bir giriş niteliğindedir  
 * **R Kılavuzu** Paul Teetor tarafından r kullanarak bir sorun ve çözümü yaklaşım sağlar.  
-* **R uygulamada** Robert Kabacoff tarafından başka bir kullanışlı tanıtım defteridir. Yardımcısı [hızlı R Web sitesi](http://www.statmethods.net/) faydalı bir kaynaktır.
+* **R uygulamada** Robert Kabacoff tarafından başka bir kullanışlı tanıtım defteridir. Yardımcısı [hızlı R Web sitesi](https://www.statmethods.net/) faydalı bir kaynaktır.
 * **R Inferno** Patrick Burns ile r'de programlamada karşılaşılan zor ve zor konular sayısı ile ilgilenen yayımladım yanıtlamaya yönelik esprili defteridir Ücretsiz kitap kullanılabilir [R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/).
 * R ile Gelişmiş konular hakkında ayrıntılı bir inceleme istediğiniz kitabın göz varsa **Gelişmiş R** Hadley Wickham tarafından. Bu kitap'ın çevrimiçi sürümünü ücretsiz kullanılabilir [ http://adv-r.had.co.nz/ ](http://adv-r.had.co.nz/).
 
-R zaman serisi paketleri kataloğunu bulunabilir [CRAN görev görünümü: Zaman serisi analiz](http://cran.r-project.org/web/views/TimeSeries.html). Paketleri serisi nesnesi hakkında bilgi için belirli bir zaman, paketin belgelerine başvurmanız gerekir.
+R zaman serisi paketleri kataloğunu bulunabilir [CRAN görev görünümü: Zaman serisi analiz](https://cran.r-project.org/web/views/TimeSeries.html). Paketleri serisi nesnesi hakkında bilgi için belirli bir zaman, paketin belgelerine başvurmanız gerekir.
 
 Kitap **tanıtım zaman serisi** Paul Cowpertwait ve Andrew Metcalfe R R kullanarak zaman serisi analiz için giriş bilgileri sağlar. Çok fazla teorik metinleri R örnekleri sağlar.
 
@@ -1331,8 +1331,8 @@ Bazı harika internet kaynaklar aşağıda verilmiştir:
 
 * DataCamp tarayıcınız video dersler ve kodlama alıştırmalar alışık olduğunuz, R öğretir. Etkileşimli öğreticileri son R teknikleri ve paketleri vardır. Ücretsiz katılın [R için etkileşimli öğretici](https://www.datacamp.com/courses/introduction-to-r).
 * [Eksiksiz bir kılavuz olan R programlama öğrenin](https://www.programiz.com/r-programming) Programiz öğesinden.
-* Hızlı [R öğretici](http://www.cyclismo.org/tutorial/R/) Clarkson University'den Kelly siyah olarak.
-* Vardır adresinde listelenmiş 60 R kaynakları üzerinden [veri becerilerinizi geliştirmek için üst R dil kaynakları](http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
+* Hızlı [R öğretici](https://www.cyclismo.org/tutorial/R/) Clarkson University'den Kelly siyah olarak.
+* Vardır adresinde listelenmiş 60 R kaynakları üzerinden [veri becerilerinizi geliştirmek için üst R dil kaynakları](https://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
 
 <!-- Module References -->
 [execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script

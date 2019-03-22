@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c23f16f5d3c665cb74e9e0460d2e5658fa716d72
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e0ada3055a3347cb42179fddbba671f2f03f502d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452870"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885076"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Öğretici: Sonsuz kampüs ile Azure Active Directory Tümleştirme
 
@@ -90,7 +90,7 @@ Yapılandırma ve Azure AD çoklu oturum açma sonsuz kampüs ile test etmek iç
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Sonsuz kampüs test kullanıcısı oluşturma](#creating-a-infinite-campus-test-user)**  - sonsuz kullanıcı Azure AD gösterimini bağlı olduğu kampüs Britta simon'un bir karşılığı vardır.
+3. **[Bir sonsuz kampüs test kullanıcısı oluşturma](#creating-a-infinite-campus-test-user)**  - sonsuz kullanıcı Azure AD gösterimini bağlı olduğu kampüs Britta simon'un bir karşılığı vardır.
 4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
@@ -196,14 +196,14 @@ Oluşturmak için bu bölümün amacı olan bir _tek_ Britta Simon adlı Azure p
 
     a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’u seçin.
 
-### <a name="creating-a-infinite-campus-test-user"></a>Sonsuz kampüs test kullanıcısı oluşturma
+### <a name="creating-an-infinite-campus-test-user"></a>Bir sonsuz kampüs test kullanıcısı oluşturma
 
 Sonsuz kampüs, demografik bilgileri ortalanmış bir mimariye sahiptir. Lütfen başvurun [sonsuz kampüs Destek ekibine](mailto:sales@infinitecampus.com) sonsuz kampüs platform kullanıcıları eklemek için.
 

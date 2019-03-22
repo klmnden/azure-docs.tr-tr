@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: dd7351d2948526905c91f2eac52e48b25cf063ac
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 85296b4549d7c9499b8d0b815ddf1cd2e85e2b1b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191437"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259593"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Yapılandırma ve yönetim sorunları Azure bulut Hizmetleri için: Sık sorulan sorular (SSS)
 
@@ -109,7 +109,7 @@ Bu görev bir başlangıç betiği (toplu iş/cmd/PowerShell) kullanarak otomati
 
 ### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>"Microsoft Azure hizmet yönetimi için MachineKey" Sertifika amacı nedir?
 
-Bu sertifika, Azure Web rolleri üzerinde makine anahtarlarını şifrelemek için kullanılır. Daha fazla bilgi için bu öneri denetleme [https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
+Bu sertifika, Azure Web rolleri üzerinde makine anahtarlarını şifrelemek için kullanılır. Daha fazla bilgi için kullanıma [bu danışma](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 - [Yapılandırma ve bulut hizmeti için başlangıç görevleri çalıştırma](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
@@ -190,7 +190,7 @@ Microsoft, sunucuları, ağları ve uygulamaları, tehditleri algılamak için s
 HTTP/2 desteği ile Windows 10 ve Windows Server 2016 istemci ve sunucu tarafında gelir. İstemci (tarayıcı) bağlanılıyorsa TLS üzerinden IIS sunucusuna, HTTP/2 TLS uzantıları aracılığıyla belirleyici, ardından sunucu tarafında herhangi bir değişiklik yapmanız gerekmez. Varsayılan olarak TLS üzerinden HTTP/2 kullanımını belirtme h2-14 üst bilgisinin gönderdiğini, olmasıdır. Öte yandan, istemci HTTP/2'ye yükseltmek için yükseltme bir üst bilgi gönderiyorsa, yükseltme çalışır ve zaman ile bir HTTP/2 bağlantı düştüğünden emin olmak için sunucu tarafında aşağıdaki değişikliği yapmanız gerekir. 
 
 1. Regedit.exe'yi çalıştırmak.
-2. Kayıt defteri anahtarına gidin: Kullanıp hkey_local_machıne\system\currentcontrolset\services\http\parameters.
+2. Kayıt defteri anahtarına gidin: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HTTP\Parameters.
 3. Adlı yeni bir DWORD değeri oluşturun **DuoEnabled**.
 4. Değeri 1 olarak ayarlayın.
 5. Sunucunuzu yeniden başlatın.
@@ -226,7 +226,7 @@ Microsoft Uzak Masaüstü iç mühendisler, bulut hizmetine (e-posta veya yazıl
 
 ### <a name="i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005"></a>RDP dosyasını kullanarak bulut hizmeti VM'ye Uzak Masaüstü bağlanamıyorum. Hata takip alın: Bir kimlik doğrulama hatası oluştu (kod: 0x80004005)
 
-Azure Active Directory'ye katılmış bir makineden RDP dosyası kullanıyorsanız bu hata oluşabilir. Bu sorunu çözmek için aşağıdaki adımları izleyin:
+Azure Active Directory'ye katılmış bir makineden RDP dosyası kullanıyorsanız bu hata oluşabilir. Bu sorunu çözmek için şu adımları izleyin:
 
 1. İndirilen RDP dosyasını sağ tıklayın ve ardından **Düzenle**.
 2. Ekleme "&#92;" önce kullanıcı adı öneki. Örneğin, **. \username** yerine **username**.
@@ -313,7 +313,7 @@ Açıklandığı [burada](https://technet.microsoft.com/library/ee790567.aspx), 
 
 |Değer|Anlamı|
 ------|------
-|0|Hiçbir SNI|
+|0|No SNI|
 |1|SNI etkin |
 |2 |Merkezi sertifika Store kullanan bağlama olmayan SNI|
 |3|Merkezi sertifika kullanan SNI bağlama depolayın |

@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45e9553a3af8a09a6630efa771294661702feef5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 791dcfadf1db6cae48bee5c926f75e454c88fc55
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670722"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294663"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Bir Azure Active Directory B2B işbirliği kullanıcısı özellikleri
 
@@ -32,7 +33,7 @@ Davet eden bir kuruluşun gereksinimlerine bağlı olarak, bir Azure AD B2B işb
 
 - Durum 4: Konak kuruluşun Azure'da bağlantılı AD ile UserType = Konuk ve konak kuruluş tarafından yönetilen kimlik bilgileri.
 
-  ![Davet eden'ın baş görüntüleme](media/user-properties/redemption-diagram.png)
+  ![Dört kullanıcı durumlarını gösteren diyagram](media/user-properties/redemption-diagram.png)
 
 
 Artık, bir Azure AD B2B işbirliği kullanıcısı Azure AD'de nasıl göründüğüne bakalım.
@@ -41,7 +42,7 @@ Artık, bir Azure AD B2B işbirliği kullanıcısı Azure AD'de nasıl göründ�
 
 Durum 1 ve 2 durumu hesapları konuk kullanıcıların kendi kimlik bilgilerini kullanarak işbirliği yapmak üzere konuk kullanıcıları davet sonucu var. Davet başlangıçta Konuk kullanıcıya gönderildiğinde, dizininizde bir hesap oluşturulur. Bu hesap, Konuk kullanıcının kimlik sağlayıcısı tarafından gerçekleştirilen kimlik doğrulama için kendisiyle ilişkili herhangi bir kimlik bilgisi yok. **Kaynak** özelliği, dizinde Konuk kullanıcı hesabı için **Invited kullanıcı**. 
 
-![Teklif kullanım önce](media/user-properties/before-redemption.png)
+![Teklif kullanım önce kullanıcı özelliklerini gösteren ekran görüntüsü](media/user-properties/before-redemption.png)
 
 ### <a name="after-invitation-redemption"></a>Sonra Davetiyesi kullanımı
 
@@ -87,7 +88,7 @@ Genellikle, bir Azure AD B2B kullanıcısı ve Konuk kullanıcı eşanlamlıdır
 
 ## <a name="filter-for-guest-users-in-the-directory"></a>Dizinde Konuk kullanıcılar için filtre
 
-![Konuk kullanıcıları Filtrele](media/user-properties/filter-guest-users.png)
+![Konuk kullanıcılar için filtre gösteren ekran görüntüsü](media/user-properties/filter-guest-users.png)
 
 ## <a name="convert-usertype"></a>UserType Dönüştür
 UserType üyeden Konuk tersi PowerShell kullanarak dönüştürmek mümkündür. Ancak, UserType özelliği, kuruluş kullanıcının ilişkiyi temsil eder. Bu nedenle, bu özellik yalnızca, kullanıcı arasındaki ilişkiyi kuruluş değişiklikler değiştirmelisiniz. Kullanıcı asıl adı (UPN), kullanıcı arasındaki ilişki değişirse değişsin? Kullanıcı aynı kaynaklara erişmeye devam etmelidir? Bir posta kutusu atansın? Atomik bir etkinlik PowerShell kullanarak UserType değiştirme önerilmemektedir. PowerShell kullanarak bu özellik sabit olur durumunda, ayrıca, bu değer üzerinde bir bağımlılık alma önerilmemektedir.
@@ -97,7 +98,7 @@ Daha yüksek ayrıcalıklar Konuk kullanıcılarınıza sunmak için istediğini
 
 Şirket dizinde Konuk kullanıcı üyesi kullanıcı olarak aynı izinlere sahip olacak şekilde varsayılan kısıtlamaları devre dışı açmak mümkündür.
 
-![Konuk kullanıcı kısıtlamaları Kaldır](media/user-properties/remove-guest-limitations.png)
+![Dış kullanıcılar, kullanıcı ayarları seçeneğini gösteren ekran görüntüsü](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Konuk kullanıcılar Exchange Genel adres listesinde görünür yapmak?
 Evet. Varsayılan olarak, Konuk nesneleri kuruluşunuzun genel adres listesinde görünmez, ancak onları görünür yapmak için Azure Active Directory PowerShell kullanabilirsiniz. Ayrıntılar için bkz **Konuk nesneler genel adres listesinde görünür yapabilirsiniz?** içinde [Office 365 gruplarında konuk erişimini yönetme](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#faq). 

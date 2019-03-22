@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 693f28c04be5cd0acf1d5face2630a3f6d62328c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 032bc1b9c4b1b0e3bf8040ed52bf4db65ba7b6c7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381218"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085601"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Azure VM'de Windows başlatma döngüsünde
 Bu makalede, Microsoft azure'da Windows sanal makine (VM) üzerinde karşılaşabileceğiniz başlatma döngüsünde açıklanır.
@@ -83,9 +83,9 @@ Bu sorunu çözmek için [işletim sistemi diskini yedekleme](../windows/snapsho
 
 12. Aşağıdaki anahtarlardan herhangi birine var ve bunlar değeri varsa **2** veya **3**ve ardından bu değerleri değiştirmek **1** buna göre:
 
-  - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupCoordinatorSvc\ErrorControl`
-  - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
-  - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
+    - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupCoordinatorSvc\ErrorControl`
+    - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
+    - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
 13. Seçin **BROKENSYSTEM** anahtar ve ardından **dosya** > **yığını** menüsünde.
 

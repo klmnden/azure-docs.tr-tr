@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/06/2019
-ms.openlocfilehash: d94bc570f47d71a7e2b626041acd4bb6e84d0dc1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 36b2f3817c7e96a35c1e8f3aba22db201224ceba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075944"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Azure SQL hiper ölçekli veritabanları hakkında SSS
 
@@ -45,7 +45,7 @@ Kullanılabilirlik, depolama türü ve IOPS temel sanal çekirdek tabanlı hizme
 - İş açısından kritik Hizmet katmanını GÇ gecikmesine öncelikli olduğu iş yükü için uygundur.
 
 | | Kaynak türü | Genel Amaçlı |  Hiper ölçeklendirme | İş Açısından Kritik |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---|:---:|:---:|:---:|:---:|
 | **En iyi** |Tümü|  Çoğu iş yükü. Teklifler yönlendirilmiş dengeli işlem ve depolama seçenekleri bütçe. | Otomatik ölçeklendirme depolama ve ölçeklendirme ile büyük veri kapasitesi gereksinimlerini özelliği veri uygulamalarınızı sorunsuzca işlem. | Yüksek işlem oranına ve düşük gecikme süresi GÇ uygulamalarla OLTP. En yüksek düzeyde dayanıklılık sunar birkaç kullanarak hataları için yalıtılmış çoğaltmaları.|
 |  **Kaynak türü** ||Tek veritabanı / elastik havuz / yönetilen örnek | Tek veritabanı | Tek veritabanı / elastik havuz / yönetilen örnek |
 | **İşlem boyutu**|Tek veritabanı / elastik havuzu * | 1 ila 80 sanal çekirdekler | 1 ila 80 sanal çekirdekler * | 1 ila 80 sanal çekirdekler |

@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 5ea510d8335437cb43f3e8824ec73175c35dcd03
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 7db50e8bd1de609256bad58b293af8b7b1ea5dbb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452377"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086726"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlama
 Bir veya daha fazla sabit sürücüleri içeri aktarma işine hazırlamak için aşağıdaki adımları izleyin:
 
--   Blob hizmetinde içeri aktarmak için veri belirle
+- Blob hizmetinde içeri aktarmak için veri belirle
 
--   Hedef sanal dizinleri ve blobları Blob hizmetinde belirleyin
+- Hedef sanal dizinleri ve blobları Blob hizmetinde belirleyin
 
--   Kaç tane sürücüleri ihtiyacınız olacak belirleme
+- Kaç tane sürücüleri ihtiyacınız olacak belirleme
 
--   Her sabit sürücülerinizi veri kopyalama
+- Her sabit sürücülerinizi veri kopyalama
 
- Örnek iş akışı için bkz: [içeri aktarma işi için sabit sürücüler hazırlamak için örnek iş akışı](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
+  Örnek iş akışı için bkz: [içeri aktarma işi için sabit sürücüler hazırlamak için örnek iş akışı](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).
 
 ## <a name="identify-the-data-to-be-imported"></a>İçeri aktarılacak veri tanımlama
  İçeri aktarma işine oluşturmanın ilk adımı, hangi dizinlerin ve dosyaların içeri aktarmak için oluşturacağınız belirlemektir. Bu, bir dizin listesi, benzersiz dosyaların listesini veya bu iki bir birleşimi olabilir. Bir dizin eklendiğinde, dizinde ve alt dizinlerinde tüm dosyaları içeri aktarma işinin bir parçası olur.
@@ -51,11 +51,11 @@ Bir veya daha fazla sabit sürücüleri içeri aktarma işine hazırlamak için 
 ## <a name="determine-how-many-drives-are-needed"></a>Kaç tane sürücüleri belirlemek
  Ardından, belirlemeniz gerekir:
 
--   Verileri depolamak için gereken sabit sürücü sayısı.
+- Verileri depolamak için gereken sabit sürücü sayısı.
 
--   Dizinleri ve/veya her sabit kopyalanacak tek başına dosyalar.
+- Dizinleri ve/veya her sabit kopyalanacak tek başına dosyalar.
 
- Sabit sürücüler, aktardığınız verileri depolamak için gereken sayıda olduğundan emin olun.
+  Sabit sürücüler, aktardığınız verileri depolamak için gereken sayıda olduğundan emin olun.
 
 ## <a name="copy-data-to-your-hard-drive"></a>Sabit veri kopyalayın
  Bu bölümde, bir veya daha fazla sabit sürücüler için verilerinizi kopyalamak için Azure içeri/dışarı aktarma Aracı'nı çağırmak açıklar. Azure içeri/dışarı aktarma Aracı'nı arayın, her bir yeni oluşturduğunuz *kopyalama oturumu*. Veri kopyalama her sürücü için en az bir kopya oturumu oluşturduğunuz; Bazı durumlarda, birden fazla kopya oturumu tüm verilerinizi tek bir diske kopyalamak gerekebilir. Birden çok kopyasını oturumu gerekebilir bazı nedenler şunlardır:

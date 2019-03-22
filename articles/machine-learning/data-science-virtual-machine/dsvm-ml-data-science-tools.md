@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: f84341d6d8ac3b5c7febaa4f659da84efcebb780
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473355"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847374"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Makine öğrenimi ve veri bilimi araçları
 Azure veri bilimi sanal makineleri zengin bir araç olan ve kitaplıklar için machine learning (ML), Python, R ve Julia'nın gibi popüler dilde kullanılabilir. 
@@ -71,7 +71,7 @@ ML araçları ve kitaplıkları üzerinde veri bilimi sanal makineleri bazılar�
 | Desteklenen sürümler     | Windows, Linux     |
 | Tipik kullanımları      | Genel ML aracı     |
 | Kullanma veya çalıştırın      | Windows üzerinde Başlat menüsünde Weka arayın. Linux üzerinde X2Go bilgilerinizle oturum açın ve ardından Git **uygulamaları** > **geliştirme** > **Weka**. |
-| Örnekler için bağlantı      | [Weka örnekleri](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Örnekler için bağlantı      | [Weka örnekleri](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | İlgili araçları      |LightGBM, Çıngırağı, XGBoost   |
 
 ## <a name="rattle"></a>Çıngırağı

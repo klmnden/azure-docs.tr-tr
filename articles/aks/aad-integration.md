@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 0dced367f62ab97d62cd4b11758e13a05278442e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 0cf83180647c142c9db2a1229674de96fec6a6bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099267"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087542"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes hizmeti ile Azure Active Directory Tümleştirme
 
@@ -40,47 +40,47 @@ Gelen bir Kubernetes kümesi içinde Web kancası belirteci kimlik doğrulaması
 
 1. **Azure Active Directory** > **Uygulama kayıtları** > **Yeni uygulama kaydı**’nı seçin.
 
-  Uygulama seçme gibi bir ad vermek **Web uygulaması / API** uygulama türü için biçimlendirilmiş URI değeri girin **oturum açma URL'si**. Seçin **Oluştur** işiniz bittiğinde.
+   Uygulama seçme gibi bir ad vermek **Web uygulaması / API** uygulama türü için biçimlendirilmiş URI değeri girin **oturum açma URL'si**. Seçin **Oluştur** işiniz bittiğinde.
 
-  ![Azure AD kaydı oluşturma](media/aad-integration/app-registration.png)
+   ![Azure AD kaydı oluşturma](media/aad-integration/app-registration.png)
 
 2. Seçin **bildirim** ve düzenleme `groupMembershipClaims` değerini `"All"`.
 
-  Güncelleştirme tamamlandıktan sonra kaydedin.
+   Güncelleştirme tamamlandıktan sonra kaydedin.
 
-  ![Tüm grup üyeliği güncelleştir](media/aad-integration/edit-manifest.png)
+   ![Tüm grup üyeliği güncelleştir](media/aad-integration/edit-manifest.png)
 
 3. Azure AD uygulaması geri üzerinde seçin **ayarları** > **anahtarları**.
 
-  Anahtar bir açıklama ekleyin, bir sona erme tarihi seçip **Kaydet**. Anahtar değerini not alın. AKS kümesini Azure AD'yi dağıtma etkin olduğunda, bu değer olarak adlandırılır `Server application secret`.
+   Anahtar bir açıklama ekleyin, bir sona erme tarihi seçip **Kaydet**. Anahtar değerini not alın. AKS kümesini Azure AD'yi dağıtma etkin olduğunda, bu değer olarak adlandırılır `Server application secret`.
 
-  ![Uygulama özel anahtarı alma](media/aad-integration/application-key.png)
+   ![Uygulama özel anahtarı alma](media/aad-integration/application-key.png)
 
 4. Azure AD uygulamaya dönmek **ayarları** > **gerekli izinler** > **Ekle**  >   **Bir API seçin** > **Microsoft Graph** > **seçin**.
 
-  ![Graph API seçin](media/aad-integration/graph-api.png)
+   ![Graph API seçin](media/aad-integration/graph-api.png)
 
 5. Altında **uygulama izinleri** yanında bir onay işareti koyun **dizin verilerini okuma**.
 
-  ![Uygulama graph izinleri ayarlayın](media/aad-integration/read-directory.png)
+   ![Uygulama graph izinleri ayarlayın](media/aad-integration/read-directory.png)
 
 6. Altında **TEMSİLCİLİ izinler**, bir onay yanına **oturum açın ve kullanıcı profilini okuma** ve **dizin verilerini okuma**. Bir kez yapılan güncelleştirmeler kaydedin.
 
-  ![Uygulama graph izinleri ayarlayın](media/aad-integration/delegated-permissions.png)
+   ![Uygulama graph izinleri ayarlayın](media/aad-integration/delegated-permissions.png)
 
-  **Done** (Bitti) öğesini seçin.
+   **Done** (Bitti) öğesini seçin.
 
 7. Seçin *Microsoft Graph* API'leri listesinden seçip **izinler**. Geçerli hesabın, bir kiracı Yöneticisi değilse, bu adımı başarısız olur
 
-  ![Uygulama graph izinleri ayarlayın](media/aad-integration/grant-permissions.png)
+   ![Uygulama graph izinleri ayarlayın](media/aad-integration/grant-permissions.png)
 
-  İzinler başarıyla verildi, aşağıdaki bildirim portalda görüntülenir:
+   İzinler başarıyla verildi, aşağıdaki bildirim portalda görüntülenir:
 
-  ![Bildirim başarıyla izin verildi](media/aad-integration/permissions-granted.png)
+   ![Bildirim başarıyla izin verildi](media/aad-integration/permissions-granted.png)
 
 8. Uygulamaya dönmek ve Not **uygulama kimliği**. Azure AD etkin AKS kümesi dağıtırken, bu değer olarak adlandırılır `Server application ID`.
 
-  ![Uygulama Kimliği alma](media/aad-integration/application-id.png)
+   ![Uygulama Kimliği alma](media/aad-integration/application-id.png)
 
 ## <a name="create-client-application"></a>İstemci uygulaması oluşturma
 
@@ -88,27 +88,27 @@ Gelen bir Kubernetes kümesi içinde Web kancası belirteci kimlik doğrulaması
 
 1. **Azure Active Directory** > **Uygulama kayıtları** > **Yeni uygulama kaydı**’nı seçin.
 
-  Uygulama seçme gibi bir ad vermek **yerel** uygulama türü için biçimlendirilmiş URI değeri girin **yeniden yönlendirme URI'si**. Seçin **Oluştur** işiniz bittiğinde.
+   Uygulama seçme gibi bir ad vermek **yerel** uygulama türü için biçimlendirilmiş URI değeri girin **yeniden yönlendirme URI'si**. Seçin **Oluştur** işiniz bittiğinde.
 
-  ![AAD kaydı oluşturma](media/aad-integration/app-registration-client.png)
+   ![AAD kaydı oluşturma](media/aad-integration/app-registration-client.png)
 
 2. Azure AD uygulamasından seçin **ayarları** > **gerekli izinler** > **Ekle** > **seçin bir API** ve bu belgenin son adımda oluşturduğunuz sunucu uygulamasının adını arayın.
 
-  ![Uygulama izinlerini yapılandırma](media/aad-integration/select-api.png)
+   ![Uygulama izinlerini yapılandırma](media/aad-integration/select-api.png)
 
 3. ' A tıklayın ve uygulamanın yanında bir onay işareti koyun **seçin**.
 
-  ![AKS AAD sunucu uygulaması uç noktası seçin](media/aad-integration/select-server-app.png)
+   ![AKS AAD sunucu uygulaması uç noktası seçin](media/aad-integration/select-server-app.png)
 
-  Seçin **bitti**
+   Seçin **bitti**
 
 4. API sunucunuz listeden seçin ve sonra **izinler**:
 
-  ![İzinleri verme](media/aad-integration/grant-permissions-client.png)
+   ![İzinleri verme](media/aad-integration/grant-permissions-client.png)
 
 5. Geri AD uygulaması üzerinde Not **uygulama kimliği**. Azure AD etkin AKS kümesi dağıtırken, bu değer olarak adlandırılır `Client application ID`.
 
-  ![Uygulama Kimliğini Al](media/aad-integration/application-id-client.png)
+   ![Uygulama Kimliğini Al](media/aad-integration/application-id-client.png)
 
 ## <a name="get-tenant-id"></a>Kiracı kimliğini alma
 

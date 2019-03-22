@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 4356ea57e73e063d18155611b8c11090aa11edb3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d478307ff4393d84a854fcd3b2ea0efd77de7135
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471224"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087848"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında ilk Batch işinizi çalıştırma
 
@@ -34,7 +34,7 @@ Test amacıyla örnek bir Batch hesabı oluşturmak için bu adımları izleyin.
 
 1. **Kaynak oluştur** > **İşlem** > **Batch Hizmeti**'ni seçin. 
 
-  ![Market’te Batch][marketplace_portal]
+   ![Market’te Batch][marketplace_portal]
 
 2. **Hesap adı** ve **Kaynak grubu** değerlerini girin. Hesap adı, seçili Azure **Konumu** içinde benzersiz olmalı, yalnızca küçük harf veya rakam içermeli ve 3-24 karakterden oluşmalıdır. 
 
@@ -42,7 +42,7 @@ Test amacıyla örnek bir Batch hesabı oluşturmak için bu adımları izleyin.
 
 4. Diğer ayarlar için varsayılan ayarları tutun ve **Oluştur**'u seçerek hesabı oluşturun.
 
-  ![Batch hesabı oluşturma][account_portal]  
+   ![Batch hesabı oluşturma][account_portal]  
 
 **Dağıtım başarılı** iletisi görüntülendiğinde portalda Batch hesabına gidin.
 
@@ -57,23 +57,23 @@ Bir Batch hesabı edindikten sonra, test amacıyla örnek bir Windows işlem dü
 
 3. **İşletim Sistemi** menüsünde aşağıdaki ayarları seçin (diğer seçenekleri araştırabilirsiniz).
   
-  |Ayar  |Değer  |
-  |---------|---------|
-  |**Görüntü Türü**|Market (Linux/Windows)|
-  |**Yayımcı**     |MicrosoftWindowsServer|
-  |**Teklif**     |WindowsServer|
-  |**Sku**     |2012-R2-Datacenter-smalldisk|
+   |Ayar  |Değer  |
+   |---------|---------|
+   |**Görüntü Türü**|Market (Linux/Windows)|
+   |**Yayımcı**     |MicrosoftWindowsServer|
+   |**Teklif**     |WindowsServer|
+   |**Sku**     |2012-R2-Datacenter-smalldisk|
 
-  ![Bir havuz işletim sistemi seçin][pool_os] 
+   ![Bir havuz işletim sistemi seçin][pool_os] 
 
 4. Aşağıya kaydırarak **Düğüm Boyutu** ve **Ölçek** ayarlarına girin. Önerilen düğüm boyutu, bu hızlı örnek için performans ile maliyetin iyi bir dengesini sunar.
   
-  |Ayar  |Değer  |
-  |---------|---------|
-  |**Düğüm fiyatlandırma katmanı**     |Standard_A1|
-  |**Hedef adanmış düğümler**     |2|
+   |Ayar  |Değer  |
+   |---------|---------|
+   |**Düğüm fiyatlandırma katmanı**     |Standard_A1|
+   |**Hedef adanmış düğümler**     |2|
 
-  ![Bir havuz boyutu seçin][pool_size] 
+   ![Bir havuz boyutu seçin][pool_size] 
 
 5. Diğer ayarlar için varsayılan ayarları tutun ve **Tamam**'ı seçerek havuzu oluşturun.
 
@@ -91,7 +91,7 @@ Bir havuza sahip olduktan sonra üzerinde çalıştıracak bir iş oluşturun. B
 
 2. *myjob* adlı bir **İş Kimliği** girin. **Havuz** menüsünde *mypool*’u seçin. Diğer ayarlar için varsayılan değerleri kabul edin ve **Tamam**'ı seçin.
 
-  ![Bir iş oluşturma][job_create]
+   ![Bir iş oluşturma][job_create]
 
 İş oluşturulduktan sonra **Görevler** sayfası açılır.
 
@@ -109,7 +109,7 @@ Batch kullandığınızda komut satırı, uygulamanızı veya betiğinizi belirt
 
 3. **Komut satırı**’na `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"` girin. Diğer ayarlar için varsayılan değerleri kabul edin ve **Tamam**'ı seçin.
 
-  ![Görev oluşturma][task_create]
+   ![Görev oluşturma][task_create]
 
 Bir görev oluşturduktan sonra Batch, görevi havuzda çalışmak üzere kuyruğa alır. Görevi çalıştıracak bir düğüm kullanılabilir olduğunda, görev çalışır.
 

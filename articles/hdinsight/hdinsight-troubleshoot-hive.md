@@ -8,12 +8,12 @@ author: dharmeshkakadia
 ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 150f920fb1371eb64181ff69fdad054f989c0845
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6d75bf86dab8775e77efb21ecc3b0d60063a9823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407029"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088970"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Apache Hive Azure HDInsight'ı kullanarak sorun giderme
 
@@ -33,13 +33,13 @@ Apache Ambari, Apache Hive yükü ile çalışırken en çok sorulan sorular ve 
     for d in `hive -e "show databases"`; do echo "create database $d; use $d;" >> alltables.sql ; for t in `hive --database $d -e "show tables"` ; do ddl=`hive --database $d -e "show create table $t"`; echo "$ddl ;" >> alltables.sql ; echo "$ddl" | grep -q "PARTITIONED\s*BY" && echo "MSCK REPAIR TABLE $t ;" >> alltables.sql ; done; done
     ```
 
-  Bu komut, allatables.sql adlı bir dosya oluşturur.
+   Bu komut, allatables.sql adlı bir dosya oluşturur.
 
 3. Yeni HDInsight kümesi için dosya alltables.sql kopyalayın ve ardından aşağıdaki komutu çalıştırın:
 
-  ```apache
-  hive -f alltables.sql
-  ```
+   ```apache
+   hive -f alltables.sql
+   ```
 
 Çözüm adımları kodda veri yolu yeni kümedeki veri yolları eski kümedeki ile aynı olduğunu varsayar. Veri yolu farklı ise, oluşturulan alltables.sql dosya değişiklikleri yansıtacak şekilde el ile düzenleyebilirsiniz.
 
@@ -56,21 +56,21 @@ Apache Ambari, Apache Hive yükü ile çalışırken en çok sorulan sorular ve 
 
 2. Hive istemci günlükleri görüntülemek için aşağıdaki komutu kullanın:
 
-  ```apache
-  /tmp/<username>/hive.log 
-  ```
+   ```apache
+   /tmp/<username>/hive.log 
+   ```
 
 3. Hive meta veri deposu günlükleri görüntülemek için aşağıdaki komutu kullanın:
 
-  ```apache
-  /var/log/hive/hivemetastore.log 
-  ```
+   ```apache
+   /var/log/hive/hivemetastore.log 
+   ```
 
 4. Hiveserver günlükleri görüntülemek için aşağıdaki komutu kullanın:
 
-  ```apache
-  /var/log/hive/hiveserver2.log 
-  ```
+   ```apache
+   /var/log/hive/hiveserver2.log 
+   ```
 
 ### <a name="additional-reading"></a>Ek okuma
 
@@ -83,21 +83,21 @@ Apache Ambari, Apache Hive yükü ile çalışırken en çok sorulan sorular ve 
 
 1. Hive kabuğunu başlattığınızda bir yapılandırma anahtar-değer çifti belirtin. Daha fazla bilgi için [ek okuma](#additional-reading-end).
 
-  ```apache
-  hive -hiveconf a=b 
-  ```
+   ```apache
+   hive -hiveconf a=b 
+   ```
 
 2. Tüm etkin yapılandırmaları üzerinde Hive kabuğunu listelemek için aşağıdaki komutu kullanın:
 
-  ```apache
-  hive> set;
-  ```
+   ```apache
+   hive> set;
+   ```
 
-  Örneğin, Hive kabuğunu konsolda etkin hata ayıklama günlüğü başlatmak için aşağıdaki komutu kullanın:
+   Örneğin, Hive kabuğunu konsolda etkin hata ayıklama günlüğü başlatmak için aşağıdaki komutu kullanın:
 
-  ```apache
-  hive -hiveconf hive.root.logger=ALL,console 
-  ```
+   ```apache
+   hive -hiveconf hive.root.logger=ALL,console 
+   ```
 
 ### <a name="additional-reading"></a>Ek okuma
 
@@ -113,19 +113,19 @@ Apache Ambari, Apache Hive yükü ile çalışırken en çok sorulan sorular ve 
 
 2. Bir komut isteminde aşağıdaki komutu çalıştırın:
    
-  ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
-  ```
+   ```apache
+   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
+   ```
 
 3. Tez DAG çözümlemek için kullanılan diğer Çözümleyicileri listelemek için aşağıdaki komutu kullanın:
 
-  ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
-  ```
+   ```apache
+   hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar
+   ```
 
-  İlk bağımsız değişken olarak bir örnek program sağlamanız gerekir.
+   İlk bağımsız değişken olarak bir örnek program sağlamanız gerekir.
 
-  Geçerli program adları şunlardır:
+   Geçerli program adları şunlardır:
     - **ContainerReuseAnalyzer**: Bir DAG kapsayıcı yeniden ayrıntılarında yazdırma
     - **CriticalPath**: Bir DAG'ye ait kritik yolu bulunamadı
     - **LocalityAnalyzer**: Bir DAG ayrıntılarında yazdırma yerleşim yeri

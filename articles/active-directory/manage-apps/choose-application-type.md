@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8009f50643121f1def184485aa383fe3ce8033dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 13b0c03f03012058616dba21536cfc3f292fff4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184950"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091520"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Azure Active Directory'de uygulama eklerken uygulama türünü seçme
 Uygulamaları Azure Active Directory (Azure AD) ekleyebilirsiniz dört türleri hakkında daha fazla bilgi edinin. Azure Active Directory'de uygulama eklerken dört uygulama türünü birini seçmeniz istenir. 
@@ -67,32 +67,32 @@ Aşağıdaki tabloda her önceki uygulama türleri tarafından desteklenen farkl
 
 Aşağıda desteklenen **çoklu oturum açma** modları Azure AD uygulamaları için.
 
--   **Azure AD çoklu oturum devre dışı açma** – Azure AD çoklu oturum açma devre dışı seçin **çoklu oturum açma modunu** , henüz bu uygulama, çoklu oturum açma ile Azure AD ile tümleştirmek hazır olmayan veya teslim yalnızca sınama
+- **Azure AD çoklu oturum devre dışı açma** – Azure AD çoklu oturum açma devre dışı seçin **çoklu oturum açma modunu** , henüz bu uygulama, çoklu oturum açma ile Azure AD ile tümleştirmek hazır olmayan veya teslim yalnızca sınama
 
--   **Bağlantılı oturum açma** – seçin [bağlantılı oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) **çoklu oturum açma modunu** zaten varolan çoklu oturum açma çözümü ile bağlı bir uygulamanız varsa ya da yalnızca istiyorsanız Basit bir bağlantı, kullanıcılarınızın yayımlamak kendi [uygulama erişim panelinde](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) veya [Office 365 uygulama Başlatıcısı](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
+- **Bağlantılı oturum açma** – seçin [bağlantılı oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) **çoklu oturum açma modunu** zaten varolan çoklu oturum açma çözümü ile bağlı bir uygulamanız varsa ya da yalnızca istiyorsanız Basit bir bağlantı, kullanıcılarınızın yayımlamak kendi [uygulama erişim panelinde](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) veya [Office 365 uygulama Başlatıcısı](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
 
--   **Parola tabanlı oturum açma** – seçin [parola tabanlı oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) **çoklu oturum açma modunu** uygulamanız kullanıcı adı ve parola bir HTML alanı oluşturur ve bu kullanıcı adı depolamak istediğiniz ve güvenli bir şekilde uygulamayı daha sonra yeniden yürütülmesi gereken parola
+- **Parola tabanlı oturum açma** – seçin [parola tabanlı oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) **çoklu oturum açma modunu** uygulamanız kullanıcı adı ve parola bir HTML alanı oluşturur ve bu kullanıcı adı depolamak istediğiniz ve güvenli bir şekilde uygulamayı daha sonra yeniden yürütülmesi gereken parola
 
--   **SAML tabanlı oturum açma** – seçin [SAML tabanlı oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) çoklu oturum açma uygulamanız SAML veya Openıd Connect protokolleri destekler veya kurallara göre belirli uygulama rollerine kullanıcıları eşleştirmek istiyorsanız modu SAML, talepleri tanımladığınız *
+- **SAML tabanlı oturum açma** – seçin [SAML tabanlı oturum açma](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) çoklu oturum açma uygulamanız SAML veya Openıd Connect protokolleri destekler veya kurallara göre belirli uygulama rollerine kullanıcıları eşleştirmek istiyorsanız modu SAML, talepleri tanımladığınız *
 
-   >[!NOTE]
-   >Bu seçenek, uygulama proxy'si bir uygulama için yapılandırıldığında kullanılabilir değildir.
-   >
-   >
+  >[!NOTE]
+  >Bu seçenek, uygulama proxy'si bir uygulama için yapılandırıldığında kullanılabilir değildir.
+  >
+  >
 
--   **Üst bilgi tabanlı oturum açma** – bu [üst bilgi tabanlı oturum açma](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) çoklu oturum açma gerçekleştirmek istediğiniz HTTP üst bilgi tabanlı kimlik doğrulamasını destekleyen PingAccess kullanarak bir uygulama varsa tek oturum açma modu 
+- **Üst bilgi tabanlı oturum açma** – bu [üst bilgi tabanlı oturum açma](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#what-is-pingaccess-for-azure-ad) çoklu oturum açma gerçekleştirmek istediğiniz HTTP üst bilgi tabanlı kimlik doğrulamasını destekleyen PingAccess kullanarak bir uygulama varsa tek oturum açma modu 
 
-   >[!NOTE]
-   >Bu seçenek yalnızca, uygulama proxy'si ile PingAccess yapılandırıldığında bir uygulama için kullanılabilir.
-   >
-   >
+  >[!NOTE]
+  >Bu seçenek yalnızca, uygulama proxy'si ile PingAccess yapılandırıldığında bir uygulama için kullanılabilir.
+  >
+  >
 
--   **Tümleşik Windows kimlik doğrulaması** – seçin [tümleşik Windows kimlik doğrulaması](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) çoklu oturum açma modu, çoklu oturum açma gerçekleştirmek istediğiniz şirket içi WIA uygulamanın gösterme 
+- **Tümleşik Windows kimlik doğrulaması** – seçin [tümleşik Windows kimlik doğrulaması](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) çoklu oturum açma modu, çoklu oturum açma gerçekleştirmek istediğiniz şirket içi WIA uygulamanın gösterme 
 
-   >[!NOTE]
-   >Bu seçenek yalnızca, uygulama proxy'si bir uygulama için yapılandırıldığında kullanılabilir.
-   >
-   >
+  >[!NOTE]
+  >Bu seçenek yalnızca, uygulama proxy'si bir uygulama için yapılandırıldığında kullanılabilir.
+  >
+  >
 
 ## <a name="single-sign-on-modes-for-custom-developed-applications"></a>Özel olarak geliştirilmiş uygulamaları için çoklu oturum açma modları
 
@@ -112,39 +112,39 @@ Okuma [Azure Active Directory Geliştirici Kılavuzu](https://docs.microsoft.com
 
 Bir uygulamanın ayarlanacak **çoklu oturum açma** modu, aşağıdaki yönergeleri izleyin:
 
-1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
+1. Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+2. Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4. tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5. tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
+   * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
-6.  Çoklu oturum açmayı yapılandırmak istediğiniz uygulamayı seçin.
+6. Çoklu oturum açmayı yapılandırmak istediğiniz uygulamayı seçin.
 
-7.  Uygulama yüklendikten sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
+7. Uygulama yüklendikten sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
 
 ## <a name="how-to-choose-a-provisioning-mode"></a>Hazırlama modunu seçme
 
--   **El ile sağlama** – seçin [el ile](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) mevcut hesapları varsa, veya hesapları Azure AD dışında bu uygulama için yönetmek istediğiniz hazırlama modu.
+- **El ile sağlama** – seçin [el ile](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes) mevcut hesapları varsa, veya hesapları Azure AD dışında bu uygulama için yönetmek istediğiniz hazırlama modu.
 
--   **Otomatik sağlama** – seçin [otomatik](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) **sağlama modunu** API tabanlı otomatik sağlama ve/veya bu uygulamaya yönelik kullanıcı hesapları, sağlamayı etkinleştirmek istiyorsanız 
+- **Otomatik sağlama** – seçin [otomatik](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#configuring-automatic-user-account-provisioning) **sağlama modunu** API tabanlı otomatik sağlama ve/veya bu uygulamaya yönelik kullanıcı hesapları, sağlamayı etkinleştirmek istiyorsanız 
 
-   >[!NOTE]
-   >Bu seçenek, yalnızca içinde uygulamalar için kullanılabilir **öne çıkan** kategorisi [Azure AD uygulama Galerisi](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal).
-   >
-   >
+  >[!NOTE]
+  >Bu seçenek, yalnızca içinde uygulamalar için kullanılabilir **öne çıkan** kategorisi [Azure AD uygulama Galerisi](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-whats-new-azure-portal).
+  >
+  >
 
--   **SCIM tabanlı otomatik sağlama** – kullanın [SCIM tabanlı otomatik sağlama](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) uygulamanızı SCIM Protokolü destekleyip desteklemediğini kullanıcıları ve grupları, değişiklikleri otomatik olarak gösterilen değişiklikler algılamak için Azure AD ile tümleştirilmiş herhangi bir uygulama 
+- **SCIM tabanlı otomatik sağlama** – kullanın [SCIM tabanlı otomatik sağlama](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) uygulamanızı SCIM Protokolü destekleyip desteklemediğini kullanıcıları ve grupları, değişiklikleri otomatik olarak gösterilen değişiklikler algılamak için Azure AD ile tümleştirilmiş herhangi bir uygulama 
 
-   >[!NOTE]
-   >Bu seçenek, belirli bir sağlama modu olarak listelenmez, ancak Azure AD ile tümleştirilmiş tüm uygulamalar için varsayılan olarak etkindir.
-   >
-   >
+  >[!NOTE]
+  >Bu seçenek, belirli bir sağlama modu olarak listelenmez, ancak Azure AD ile tümleştirilmiş tüm uygulamalar için varsayılan olarak etkindir.
+  >
+  >
 
 ## <a name="how-to-set-an-applications-provisioning-mode"></a>Hazırlama modu uygulama ayarlama
 
@@ -152,21 +152,21 @@ Bir uygulamanın ayarlanacak **sağlama** modu, aşağıdaki yönergeleri izleyi
 
 Bir uygulamanın ayarlanacak **çoklu oturum açma** modu, aşağıdaki yönergeleri izleyin:
 
-1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
+1. Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+2. Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
 
-3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
+3. Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
 
-4.  tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4. tıklayın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5. tıklayın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
+   * Burada show istediğiniz uygulamayı göremiyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ayarlayıp **Göster** seçeneğini **tüm Uygulamalar.**
 
-6.  Sağlama yapılandırmak istediğiniz uygulamayı seçin.
+6. Sağlama yapılandırmak istediğiniz uygulamayı seçin.
 
-7.  Uygulama yüklendikten sonra tıklayın **sağlama** uygulamanın sol taraftaki gezinti menüsünde.
+7. Uygulama yüklendikten sonra tıklayın **sağlama** uygulamanın sol taraftaki gezinti menüsünde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Uygulamaları Azure Active Directory ile yönetme](what-is-application-management.md)

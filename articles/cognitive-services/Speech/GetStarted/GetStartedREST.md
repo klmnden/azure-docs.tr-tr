@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e29d4c0a4279ae44a45b082c5a36b471af3cb12a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110197"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259950"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Hızlı Başlangıç: Bing konuşma tanıma REST API'si kullanma
 
@@ -66,9 +66,9 @@ Hizmetin URI bazı örnekler aşağıdaki tabloda listelenmiştir.
 
 | Tanıma modu  | Dil | Çıkış biçimi | Hizmet URI'si |
 |---|---|---|---|
-| `interactive` | pt-BR | Varsayılan | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | Ayrıntılı | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
-| `dictation` | fr-FR | Basit | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
+| `interactive` | pt-BR | Varsayılan | https:\//speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| `conversation` | en-US | Ayrıntılı | https:\//speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US & biçimi = ayrıntılı |
+| `dictation` | fr-FR | Basit | https:\//speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR & biçimi basit = |
 
 > [!NOTE]
 > Yalnızca uygulamanızın konuşma tanıma hizmeti çağırmak için REST API'leri kullanıyorsa, hizmet URI'si gereklidir. Aşağıdakilerden birini kullanırsanız [istemci kitaplıkları](GetStartedClientLibraries.md), genellikle bilmek hangi URI kullanılır gerekmez. İstemci kitaplıkları, yalnızca belirli bir istemci kitaplığı için geçerli olan farklı bir URI'leri, hizmet kullanıyor olabilir. Daha fazla bilgi için seçtiğiniz istemci kitaplığı bakın.

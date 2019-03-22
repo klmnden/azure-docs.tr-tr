@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f53742de3242fb3b60a15d436ec6cd842aa429
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c8c86ad6e4b11f21c648083fac35e15eec7658c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995509"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Öğretici: KnowledgeOwl ile Azure Active Directory Tümleştirme
 
@@ -110,6 +110,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve K
     ![KnowledgeOwl etki alanı ve URL'ler tek oturum açma bilgileri](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url.png)
 
     a. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna bir URL şu biçimi kullanarak:
+
     |||
     |-|-|
     | `https://app.knowledgeowl.com/sp`|
@@ -117,6 +118,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve K
     |||
 
     b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak:
+
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -132,6 +134,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve K
     ![KnowledgeOwl etki alanı ve URL'ler tek oturum açma bilgileri](./media/knowledgeowl-tutorial/tutorial_knowledgeowl_url1.png)
 
     İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak:
+    
     |||
     |-|-|
     | `https://subdomain.knowledgeowl.com/help/saml-login`|
@@ -185,29 +188,29 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve K
 
 1. Tıklayarak **ayarları** seçip **güvenlik**.
 
-    ![KnowledgeOwl yapılandırma](./media/knowledgeowl-tutorial/configure1.png)
+     ![KnowledgeOwl yapılandırma](./media/knowledgeowl-tutorial/configure1.png)
 
 1. Kaydırma **SAML SSO tümleştirme** ve aşağıdaki adımları gerçekleştirin:
     
-    ![KnowledgeOwl yapılandırma](./media/knowledgeowl-tutorial/configure2.png)
+     ![KnowledgeOwl yapılandırma](./media/knowledgeowl-tutorial/configure2.png)
 
-    a. Seçin **SAML SSO etkinleştirme**.
+     a. Seçin **SAML SSO etkinleştirme**.
 
-    b. Kopyalama **SP varlık kimliği** yapıştırın ve değer **tanımlayıcı (varlık kimliği)** içinde **KnowledgeOwl etki alanı ve URL'ler** bölümünde Azure portalında.
+     b. Kopyalama **SP varlık kimliği** yapıştırın ve değer **tanımlayıcı (varlık kimliği)** içinde **KnowledgeOwl etki alanı ve URL'ler** bölümünde Azure portalında.
 
-    c. Kopyalama **SP oturum açma URL'si** yapıştırın ve değer **oturum açma URL'si ve yanıt URL'si** metin kutuları içinde **KnowledgeOwl etki alanı ve URL'ler** bölümünde Azure portalında.
+     c. Kopyalama **SP oturum açma URL'si** yapıştırın ve değer **oturum açma URL'si ve yanıt URL'si** metin kutuları içinde **KnowledgeOwl etki alanı ve URL'ler** bölümünde Azure portalında.
 
-    d. İçinde **IDP Entityıd** metin kutusu, yapıştırma **SAML varlık kimliği** Azure portaldan kopyaladığınız değeri.
+     d. İçinde **IDP Entityıd** metin kutusu, yapıştırma **SAML varlık kimliği** Azure portaldan kopyaladığınız değeri.
 
-    e. İçinde **Idp'nin oturum açma URL'si** metin kutusu, yapıştırma **SAML çoklu oturum açma hizmeti URL'si** Azure portaldan kopyaladığınız değeri.
+     e. İçinde **Idp'nin oturum açma URL'si** metin kutusu, yapıştırma **SAML çoklu oturum açma hizmeti URL'si** Azure portaldan kopyaladığınız değeri.
 
-    f. İçinde **IDP oturum kapatma URL'si** metin kutusu, yapıştırma **oturum kapatma URL'si** Azure portaldan kopyaladığınız değeri
+     f. İçinde **IDP oturum kapatma URL'si** metin kutusu, yapıştırma **oturum kapatma URL'si** Azure portaldan kopyaladığınız değeri
 
-    g. Azure portalından indirilen sertifika form tıklayarak karşıya **IDP sertifikasını karşıya yükle**.
+     g. Azure portalından indirilen sertifika form tıklayarak karşıya **IDP sertifikasını karşıya yükle**.
 
-    h. Tıklayarak **eşleme SAML öznitelikleri** harita öznitelikleri ve aşağıdaki adımları gerçekleştirin:
+     h. Tıklayarak **eşleme SAML öznitelikleri** harita öznitelikleri ve aşağıdaki adımları gerçekleştirin:
     
-    ![KnowledgeOwl yapılandırma](./media/knowledgeowl-tutorial/configure3.png)
+     ![KnowledgeOwl yapılandırma](./media/knowledgeowl-tutorial/configure3.png)
 
     * Girin `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` içine **SSO kimliği** metin kutusu
     * Girin `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` içine **kullanıcı adı/e-posta** metin.
@@ -215,9 +218,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve K
     * Girin `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` içine **Soyadı** metin.
     * **Kaydet**’e tıklayın
 
-    i. Sayfanın alt kısmındaki **Kaydet**’e tıklayın.
+      i. Sayfanın alt kısmındaki **Kaydet**’e tıklayın.
 
-    ![KnowledgeOwl yapılandırma](./media/knowledgeowl-tutorial/configure4.png)
+      ![KnowledgeOwl yapılandırma](./media/knowledgeowl-tutorial/configure4.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

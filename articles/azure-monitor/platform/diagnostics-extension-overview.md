@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 6c59b97a8deec78149775a147d6476e67f405d3f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310466"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078548"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Azure tanılama uzantısı nedir
 Azure tanılama uzantısı, azure'da dağıtılan bir uygulamada tanılama verilerinin toplanmasını etkinleştiren aracısıdır. Bir dizi farklı kaynaktan tanılama uzantısını kullanabilirsiniz. Azure bulut hizmeti (Klasik) Web ve çalışan rolleri, desteklenmekte olan sanal makineler, sanal makine ölçek kümeleri ve Service Fabric. Diğer Azure Hizmetleri tanılama farklı yöntemleri vardır. Bkz: [Azure'da izlemeye genel bakış](../../azure-monitor/overview.md).
@@ -50,6 +50,9 @@ Ayrıca, verilerinizi Azure İzleyici ölçümleri zaman serisi veritabanına g�
 * Joker karakter işleci, performans sayaçları "Örnek" boyutu, ölçüm olarak ele alınıyor.  Örneğin, toplanan "LogicalDisk (\*) / DiskWrites/sn" filtre olması ve her Mantıksal Disk (örneğin, C:) sanal makine için bölme çizim veya Disk Yazma/sn uyarısında "Örnek" boyutta sayacı
 
 Bu havuz yapılandırma hakkında daha fazla bilgi edinmek için bkz [Azure tanılama şeması belgeleri.](diagnostics-extension-schema-1dot3.md)
+
+## <a name="costs"></a>Maliyetler
+Yukarıdaki seçeneklerin her birinin ücrete neden olabilir. Beklenmeyen faturaları önlemek için araştırma emin olun.  Application Insights, olay hub'ı ve Azure depolama ile alımı ilişkili ayrı maliyetleri ve depolanan zaman. Özellikle, belirli bir zaman dönemi, maliyetleri düşük tutmak amacıyla sonra eski verileri temizlemeye isteyebilirsiniz Azure depolama tüm veri sonsuza kadar tutar.    
 
 ## <a name="versioning-and-configuration-schema"></a>Sürüm oluşturma ve yapılandırma şeması
 Bkz: [Azure tanılama sürüm geçmişi ve şema](diagnostics-extension-schema.md).

@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 03/19/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 846fc5de6470326fbd51d19397503e4eee2ee15b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7287dc2fccf461cf23c45202336e3d92bc5a40aa
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436094"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259712"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>SSIS paketi yürütme etkinliği Azure Data Factory ile SSIS paketi çalıştırın
 Bu makalede, Azure Data Factory (ADF) işlem hattı, SSIS paketi yürütme etkinliği kullanarak SSIS paketi çalıştırılacak açıklar. 
@@ -51,19 +51,19 @@ Bu adımda, bir işlem hattı oluşturmak için ADF UI/uygulaması kullanın. SS
 
    ![Genel sekmesinde özelliklerini ayarlama](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. Üzerinde **ayarları** SSIS paketi yürütme etkinliği için sekmesinde, paketin dağıtıldığı SSISDB veritabanı ile ilişkili olan Azure-SSIS IR seçin. Paketiniz çalıştırmak için 32 bit çalışma zamanı gerekiyorsa işaretleyin **32 Bit çalışma zamanı** onay kutusu. İçin **günlük düzeyi**, günlük, paket yürütme için önceden tanımlanmış bir kapsam seçin. Denetleme **özelleştirilmiş** özelleştirilmiş günlük adınızı yerine girmek istiyorsanız onay kutusunu. Azure-SSIS IR çalışırken ve **el ile yapılan girişler** onay kutusu işaretli, göz atabilir ve mevcut klasörleri/projelerini/paketlerini/ortamlarınızı SSISDB seçin. Tıklayın **Yenile** gezinme ve seçim için kullanılabilir olduklarından SSISDB yeni eklenen klasörler/projelerini/paketlerini/ortamlarınızda getirilecek düğmesi. 
+4. Üzerinde **ayarları** SSIS paketi yürütme etkinliği için sekmesinde, paketin dağıtıldığı SSISDB veritabanı ile ilişkili olan Azure-SSIS IR seçin. Paketiniz, veri depoları erişmek için Windows kimlik doğrulaması kullanıyorsa, örneğin SQL sunucuları/dosya paylaşımları, şirket içi Azure dosyaları, vs. denetleyin **Windows kimlik doğrulaması** onay kutusunu ve paketiniz için etki alanı/kullanıcı adı/parola girin yürütme. Paketiniz çalıştırmak için 32 bit çalışma zamanı gerekiyorsa işaretleyin **32 Bit çalışma zamanı** onay kutusu. İçin **günlük düzeyi**, günlük, paket yürütme için önceden tanımlanmış bir kapsam seçin. Denetleme **özelleştirilmiş** özelleştirilmiş günlük adınızı yerine girmek istiyorsanız onay kutusunu. Azure-SSIS IR çalışırken ve **el ile yapılan girişler** onay kutusu işaretli, göz atabilir ve mevcut klasörleri/projelerini/paketlerini/ortamlarınızı SSISDB seçin. Tıklayın **Yenile** gezinme ve seçim için kullanılabilir olduklarından SSISDB yeni eklenen klasörler/projelerini/paketlerini/ortamlarınızda getirilecek düğmesi. 
 
    ![Ayarlar sekmesinde - Otomatik özelliklerini ayarlama](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   Azure-SSIS IR değil çalışırken veya **el ile yapılan girişler** onay kutusu seçiliyse, aşağıdaki biçimlerde SSISDB, paket ve ortam yolları girebilirsiniz: `<folder name>/<project name>/<package name>.dtsx` ve `<folder name>/<environment name>`.
+   Azure-SSIS IR değil çalışırken veya **el ile yapılan girişler** onay kutusu seçiliyse, doğrudan aşağıdaki biçimlerde SSISDB, paket ve ortam yolları girebilirsiniz: `<folder name>/<project name>/<package name>.dtsx` ve `<folder name>/<environment name>`.
 
    ![Ayarlar sekmesinde - el ile özelliklerini ayarlama](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-5. Üzerinde **SSIS parametreleri** Azure-SSIS IR çalışırken SSIS paketi yürütme etkinliği için sekmesinde ve **el ile yapılan girişler** onay kutusuna **ayarları** sekmedir işaretli Seçilen proje/paketinizi SSISDB var olan SSIS parametrelerinde, bunlara değer atayamazsınız görüntülenir. Aksi takdirde, bunları tek tek el ile bunlara değer atayamazsınız: Lütfen mevcut ve başarılı olması paket yürütme için doğru girildiğinden emin olun için girebilirsiniz. Dinamik içerik ifadeleri, İşlevler, ADF sistem değişkenleri ve ADF işlem hattı parametre/değişkenleri değerleri için de ekleyebilirsiniz.
+5. Üzerinde **SSIS parametreleri** Azure-SSIS IR çalışırken SSIS paketi yürütme etkinliği için sekmesinde ve **el ile yapılan girişler** onay kutusuna **ayarları** sekmedir işaretli Seçilen proje/paketinizi SSISDB var olan SSIS parametrelerinde, bunlara değer atayamazsınız görüntülenir. Aksi takdirde, bunları tek tek el ile bunlara değer atayamazsınız: Lütfen mevcut ve başarılı olması paket yürütme için doğru girildiğinden emin olun için girebilirsiniz. İfadeler, İşlevler, ADF sistem değişkenleri ve ADF işlem hattı parametre/değişkenleri değerleri için dinamik içerik ekleyebilirsiniz. Alternatif olarak, Azure Key Vault (AKV) değerlerine depolanan gizli dizileri kullanabilirsiniz. Bunu yapmak için tıklayın **AZURE anahtar KASASI** ilgili parametreyi yanındaki onay kutusunu seçin/mevcut bağlantılı AKV hizmetiniz düzenleme veya yeni bir tane oluşturun ve ardından Pro hodnotu parametru gizli dizi adı/sürümü seçin.  Oluştur/AKV bağlı hizmetinizin düzenlediğinizde, size, mevcut AKV seçin/Düzenle veya yeni bir tane oluşturun ancak, bunu zaten yapmadıysanız, AKV Lütfen ADF yönetilen kimlik erişim verin. Gizli anahtarlarınız doğrudan şu biçimde girebilirsiniz: `<AKV linked service name>/<secret name>/<secret version>`.
 
    ![SSIS parametreleri sekmesinde özelliklerini ayarlama](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-6. Üzerinde **bağlantı yöneticileri** Azure-SSIS IR çalışırken SSIS paketi yürütme etkinliği için sekmesinde ve **el ile yapılan girişler** onay kutusuna **ayarları** sekmedir işaretli Seçilen proje/paketinizi SSISDB mevcut bağlantı yöneticileri, bunlara değer atayamazsınız görüntülenir. Aksi takdirde, bunları tek tek el ile bunlara değer atayamazsınız: Lütfen mevcut ve başarılı olması paket yürütme için doğru girildiğinden emin olun için girebilirsiniz. Dinamik içerik ifadeleri, İşlevler, ADF sistem değişkenleri ve ADF işlem hattı parametre/değişkenleri değerleri için de ekleyebilirsiniz.
+6. Üzerinde **bağlantı yöneticileri** Azure-SSIS IR çalışırken SSIS paketi yürütme etkinliği için sekmesinde ve **el ile yapılan girişler** onay kutusuna **ayarları** sekmedir işaretli Seçilen proje/paketinizi SSISDB mevcut bağlantı yöneticileri, kendi özelliklerine değerler atamanıza olanak görüntülenir. Aksi takdirde, bunları tek tek Lütfen mevcut ve başarılı olması paket yürütme için doğru girildiğinden emin olun – değerleri için özellikleri el ile atama için girebilirsiniz. İfadeler, İşlevler, ADF sistem değişkenleri ve ADF işlem hattı parametre/değişkenleri kullanarak özellik değerlerine dinamik içerik ekleyebilirsiniz. Alternatif olarak, Azure Key Vault (AKV) özellik değerlerine depolanan gizli dizileri kullanabilirsiniz. Bunu yapmak için tıklayın **AZURE anahtar KASASI** ilgili özellik yanındaki onay kutusunu seçin/mevcut bağlantılı AKV hizmetiniz düzenleme veya yeni bir tane oluşturun ve ardından, özellik değeri için gizli dizi adı/sürümü seçin.  Oluştur/AKV bağlı hizmetinizin düzenlediğinizde, size, mevcut AKV seçin/Düzenle veya yeni bir tane oluşturun ancak, bunu zaten yapmadıysanız, AKV Lütfen ADF yönetilen kimlik erişim verin. Gizli anahtarlarınız doğrudan şu biçimde girebilirsiniz: `<AKV linked service name>/<secret name>/<secret version>`.
 
    ![Bağlantı yöneticileri sekmesinde özelliklerini ayarlama](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
@@ -139,6 +139,14 @@ Bu adımda, bir SSIS paketi yürütme etkinliği ile işlem hattı oluşturma. E
                        "referenceName": "myAzureSSISIR",
                        "type": "IntegrationRuntimeReference"
                    },
+                   "executionCredential": {
+                       "domain": "MyDomain",
+                       "userName": "MyUsername",
+                       "password": {
+                           "type": "SecureString",
+                           "value": "**********"
+                       }
+                   },
                    "runtime": "x64",
                    "loggingLevel": "Basic",
                    "packageLocation": {
@@ -148,11 +156,27 @@ Bu adımda, bir SSIS paketi yürütme etkinliği ile işlem hattı oluşturma. E
                    "projectParameters": {
                        "project_param_1": {
                            "value": "123"
+                       },
+                       "project_param_2": {
+                           "value": {
+                               "value": "@pipeline().parameters.MyPipelineParameter",
+                               "type": "Expression"
+                           }
                        }
                    },
                    "packageParameters": {
                        "package_param_1": {
                            "value": "345"
+                       },
+                       "package_param_2": {
+                           "value": {
+                               "type": "AzureKeyVaultSecret",
+                               "store": {
+                                   "referenceName": "myAKV",
+                                   "type": "LinkedServiceReference"
+                               },
+                               "secretName": "MySecret"
+                           }
                        }
                    },
                    "projectConnectionManagers": {
@@ -171,12 +195,20 @@ Bu adımda, bir SSIS paketi yürütme etkinliği ile işlem hattı oluşturma. E
                    "packageConnectionManagers": {
                        "MyOledbCM": {
                            "userName": {
-                               "value": "sa"
+                               "value": {
+                                   "value": "@pipeline().parameters.MyUsername",
+                                   "type": "Expression"
+                               }
                            },
                            "passWord": {
                                "value": {
-                                   "type": "SecureString",
-                                   "value": "def"
+                                   "type": "AzureKeyVaultSecret",
+                                   "store": {
+                                       "referenceName": "myAKV",
+                                       "type": "LinkedServiceReference"
+                                   },
+                                   "secretName": "MyPassword",
+                                   "secretVersion": "3a1b74e361bf4ef4a00e47053b872149"
                                }
                            }
                        }

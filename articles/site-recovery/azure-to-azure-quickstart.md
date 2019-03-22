@@ -6,30 +6,30 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 12/27/2018
+ms.date: 03/12/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8fea062e2c72410b13fa70cc5cad22b7e677086b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f7adcb7d4516e9013bf87306fff77b566885e018
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211857"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855291"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Bir Azure VM’si için ikincil Azure bölgesine olağanüstü durum kurtarma ayarlama        
 
 [Azure Site Recovery](site-recovery-overview.md) hizmeti, planlı ve plansız kesintiler sırasında iş uygulamalarınızı çalışır durumda tutarak, iş sürekliliğinize ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunur. Site Recovery, şirket içi makinelerin ve Azure sanal makinelerinin çoğaltma, yük devretme ve kurtarma gibi olağanüstü durum kurtarma işlemlerini yönetir ve düzenler.
 
-Bu hızlı başlangıç, bir Azure VM’nin farklı bir Azure bölgesine nasıl çoğaltılacağını açıklar.
+Bu hızlı başlangıçta, farklı bir Azure bölgesine çoğaltmak tarafından bir Azure VM için olağanüstü durum kurtarma ayarlama işlemi açıklanmaktadır.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 > [!NOTE]
-> Bu makale, yeni kullanıcıları Azure Site Recovery deneyimleri boyunca varsayılan seçenekler ve minimum özelleştirme ile yönlendirmeyi amaçlamaktadır. Özelleştirilebilen çeşitli ayarlar hakkında daha fazla bilgi almak istiyorsanız [Azure VM’leri için çoğaltmayı etkinleştirme öğreticisi](azure-to-azure-tutorial-enable-replication.md)’ne danışın
+> Bu makale, yeni kullanıcılar için hızlı bir kılavuz olarak yazılmıştır. En basit yolu varsayılan seçenekleri ve en az özelleştirme ile kullanır.  Bileşen izlenecek incelemesi için [öğreticimize](azure-to-azure-tutorial-enable-replication.md).
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-http://portal.azure.com adresinden Azure portalında oturum açın.
+https://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="enable-replication-for-the-azure-vm"></a>Azure VM için çoğaltmayı etkinleştirme
 
@@ -54,8 +54,8 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 
 Çoğaltma işlemini devre dışı bıraktığınızda, birincil bölgedeki VM çoğaltmayı durdurur:
 
-- Kaynak çoğaltma ayarları otomatik olarak temizlenir. Çoğaltma bir parçası yüklenen Site Recovery uzantısı kaldırılmaz ve el ile kaldırılması gerekiyor lütfen unutmayın. 
-- VM’nin Site Recovery faturalaması da ayrıca durur.
+- Kaynak çoğaltma ayarları otomatik olarak temizlenir. Sanal makinede çoğaltma bir parçası olarak yüklenen Site Recovery uzantısı, kaldırılmaz ve el ile kaldırılması gerekir. 
+- VM'nin Site Recovery Faturalaması durdurulur.
 
 Şu şekilde Çoğaltmayı Durdur
 
@@ -66,7 +66,7 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, tek bir VM’yi ikincil bir bölgeye çoğalttınız. Şimdi daha fazla seçeneği keşfedebilir ve bir keşif planı kullanarak bir dizi Azure VM’sini çoğaltmayı deneyebilirsiniz.
+Bu hızlı başlangıçta, tek bir VM’yi ikincil bir bölgeye çoğalttınız. Artık, bir birden çok Azure Vm'leri bir kurtarma planı kullanarak çoğaltmayı deneyin.
 
 > [!div class="nextstepaction"]
 > [Azure VM’leri için olağanüstü durum kurtarmayı yapılandır](azure-to-azure-tutorial-enable-replication.md)

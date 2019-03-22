@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: fa0ba7aabcd03297b076ccbc1fcc3d2453676cc1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782675"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57869821"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak bir temel yük dengeleyici oluşturma
 
@@ -28,7 +28,7 @@ Yük Dengeleme, sanal makineye (VM) gelen istekleri yayarak daha yüksek düzeyd
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
-Bu hızlı başlangıç görevleri yapmak için oturum açın [Azure portalında](http://portal.azure.com).
+Bu hızlı başlangıç görevleri yapmak için oturum açın [Azure portalında](https://portal.azure.com).
 
 ## <a name="create-a-basic-load-balancer"></a>Temel Yük Dengeleyici oluşturma
 
@@ -207,7 +207,7 @@ Adlı yük dengeleyici kuralı **MyLoadBalancerRule** ön 80 numaralı bağlant�
    
 1. **Tamam**’ı seçin.
    
-  ![Yük Dengeleyici Kuralı Ekle](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+   ![Yük Dengeleyici Kuralı Ekle](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>Yük dengeleyiciyi test etme
 
@@ -259,6 +259,7 @@ Bir tarayıcı açın ve yük dengeleyicinin genel IP adresi tarayıcının adre
 
 ![IIS web sunucusu](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
+Yük dengeleyicinin trafiği, uygulamanızı çalıştıran üç VM’ye dağıtmasını görmek için web tarayıcınızı yenilemeye zorlayabilirsiniz.
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 Artık ihtiyacınız kalmadığında Yük Dengeleyiciyi ve tüm ilgili kaynakları silmek için açık **MyResourceGroupLB** kaynak grubu ve select **kaynak grubunu Sil**.

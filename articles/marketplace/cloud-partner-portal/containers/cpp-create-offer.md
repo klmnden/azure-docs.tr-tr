@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 71a69a8c299d4469c151102b0dbd5cdb70c296ec
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 3b2a34a5ed2c6b57bfce0b9a4cf35cdf14cff9c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979831"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900089"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Bulut iş ortağı portalı ile yeni bir kapsayıcı teklif oluşturma
 
@@ -34,7 +34,7 @@ Bu makalede, oluşturma ve kapsayıcı Teklif girişi için Azure Marketi'nde ya
 
 ## <a name="new-offer-form"></a>Yeni Teklif formu 
 
-Oturum [bulut iş ortağı portalı](http://cloudpartner.azure.com/)ve ardından **+ yeni teklif** sol menü çubuğundan. Menü yeni sunar, seçin **kapsayıcıları** görüntülemek için **yeni teklif** oluşturmak ve yeni bir kapsayıcı teklifi için varlıklar tanımlayan işlemini başlatın.
+Oturum [bulut iş ortağı portalı](https://cloudpartner.azure.com/)ve ardından **+ yeni teklif** sol menü çubuğundan. Menü yeni sunar, seçin **kapsayıcıları** görüntülemek için **yeni teklif** oluşturmak ve yeni bir kapsayıcı teklifi için varlıklar tanımlayan işlemini başlatın.
 
 ![Yeni Teklif kapsayıcıları seçeneğini belirleyin](./media/azure-container-offer.png)
 

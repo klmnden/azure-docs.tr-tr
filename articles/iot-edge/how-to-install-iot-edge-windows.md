@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 3981ae197515803821891402e525852901963f63
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5f421c8949efae5a2488d5bf156a5d3571401bcc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871629"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996437"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows üzerinde Azure IOT Edge çalışma zamanı yükleme
 
@@ -25,8 +25,8 @@ IOT Edge çalışma zamanı hakkında daha fazla bilgi için bkz: [Azure IOT Edg
 
 Bu makalede Azure IOT Edge çalışma zamanı, Windows x64 (AMD/Intel) yüklemek için adımları listelenmektedir sistem. Windows Destek şu anda Önizleme aşamasındadır.
 
->[!NOTE]
-Windows sistemlerinde Linux kapsayıcıları kullanarak Azure IOT Edge için önerilen veya desteklenen üretim yapılandırma değildir. Ancak, geliştirme ve test amacıyla kullanılabilir.
+> [!NOTE]
+> Windows sistemlerinde Linux kapsayıcıları kullanarak Azure IOT Edge için önerilen veya desteklenen üretim yapılandırma değildir. Ancak, geliştirme ve test amacıyla kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -52,6 +52,8 @@ IOT Edge en son sürümüne nelerin dahil olduğunu hakkında daha fazla bilgi i
 
 Azure IOT Edge dayanır bir [OCI uyumlu](https://www.opencontainers.org/) container altyapısı. Üretim senaryoları için Windows Cihazınızda Windows kapsayıcılarını çalıştırmaya yönelik yükleme betiğini dahil Moby altyapısını kullanır. Geliştirme ve test etme, Windows Cihazınızda Linux kapsayıcıları çalıştırabilirsiniz ancak yüklemek ve IOT Edge yüklemeden önce bir kapsayıcı altyapısını yapılandırmak gerekmez. Her iki senaryo için önkoşulları Cihazınızı hazırlamak aşağıdaki bölümlere bakın. 
 
+IOT Edge bir sanal makineye yüklemek isterseniz, iç içe sanallaştırmayı etkinleştirmek ve en az 2 GB bellek ayrılamadı. İç içe sanallaştırma nasıl etkinleştirmeniz hiper yöneticide kullanımınıza bağlı olarak farklılık gösterir. Hyper-V için 2. nesil sanal makineler varsayılan olarak etkin iç içe sanallaştırmayı. VMWare için sanal makinenizde özelliği etkinleştirmek için bir geçiş yoktur. 
+
 #### <a name="moby-engine-for-windows-containers"></a>Windows kapsayıcıları için Moby altyapısı
 
 Üretim senaryolarında IOT Edge çalıştıran Windows cihazlar için Moby yalnızca resmi olarak desteklenen kapsayıcı altyapısıdır. Cihazınızda otomatik olarak yükler Moby altyapısı IOT Edge yüklemeden önce yükleme komut dosyası. Cihazınız kapsayıcıları özelliğini etkinleştirerek hazırlayın. 
@@ -64,7 +66,7 @@ Azure IOT Edge dayanır bir [OCI uyumlu](https://www.opencontainers.org/) contai
 
 Geliştirme ve test kapsayıcıları Linux cihazları için Windows kullanıyorsanız, kullanabileceğiniz [için Docker Windows](https://www.docker.com/docker-windows) kapsayıcı altyapınız olarak. Docker için yapılandırılabilir [Linux kapsayıcılarını](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). Docker'ı yüklemeniz ve IOT Edge yüklemeden önce yapılandırmanız gerekir. Linux kapsayıcılarını üretim ortamında, Windows cihazlarında desteklenmez. 
 
-IOT Edge Cihazınızı bir Windows bilgisayar olduğunda bu karşıladığından emin olun [sistem gereksinimleri](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) Hyper-V için. Bir sanal makineyse etkinleştirme [iç içe sanallaştırma](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) ve en az 2 GB bellek ayrılamadı.
+IOT Edge Cihazınızı bir Windows bilgisayar olduğunda bu karşıladığından emin olun [sistem gereksinimleri](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) Hyper-V için.
 
 ## <a name="install-iot-edge-on-a-new-device"></a>IOT Edge yeni bir cihaza yükleme
 

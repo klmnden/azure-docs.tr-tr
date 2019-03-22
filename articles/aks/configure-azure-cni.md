@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 7d91366ee0fec2930484f7aaa7468e6d1d62f233
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4bd934c710d6300e95c60742d5873f5b71bdae59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701826"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002195"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) Azure CNI ağı yapılandırma
 
@@ -143,7 +143,7 @@ Aşağıdaki sorular ve yanıtlar uygulamak **Azure CNI** ağ yapılandırması.
 
 * *Pod başına ağ ilkeleri yapılandırabilirim?*
 
-  Hayır. Pod başına ağ ilkeleri şu anda desteklenmiyor.
+  Kubernetes Ağ İlkesi şu anda aks'deki bir önizleme özelliği olarak kullanılabilir. Başlamak için bkz: [güvenli ağ ilkeleri kullanarak AKS pod'ları arasındaki trafiği][network-policy].
 
 * *Pod'ların sayısı yapılandırılabilir bir düğüme dağıtılabilir mi?*
 
@@ -201,3 +201,4 @@ AKS altyapıyla oluşturulmuş Kubernetes kümeleri destekleyen hem de [kubernet
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
+[network-policy]: use-network-policies.md

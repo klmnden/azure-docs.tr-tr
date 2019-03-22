@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 07fee8e5d051f0d2c04d3b5e34b66299734ca29c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dc49b33fd3e6d582b31af5fe0507884e60205757
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549162"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078015"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Azure VM’lerini başka bir bölgeye taşıma
 
@@ -24,7 +24,7 @@ Bu öğreticide, sanal makinelerinizin taşımak istediğiniz farklı senaryolar
 Bu öğreticide, hakkında bilgi edineceksiniz:
 
 > [!div class="checklist"]
-
+> 
 > * Sanal makineleri taşımak için nedenler
 > * Tipik mimariler
 > * Bir hedef bölgeye olduğu gibi sanal makinelerin taşınmasında
@@ -99,8 +99,8 @@ Temel [mimarileri](#typical-architectures-for-a-multi-tier-deployment) daha önc
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-
+> 
 > * [Azure Vm'lerini başka bir bölgeye Taşı](azure-to-azure-tutorial-migrate.md)
-
+> 
 > * [Kullanılabilirlik alanına Azure sanal makineleri taşıma](move-azure-vms-avset-azone.md)
 

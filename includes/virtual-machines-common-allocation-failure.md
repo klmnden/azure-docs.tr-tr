@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 2eb7fb82b358d4ec8628bfa546b572ee3cbe47fa
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 136c7e497b24db99b230884514d4a286bbeb64be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51208296"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084564"
 ---
 Sanal makine (VM) oluşturma, durduruldu (serbest bırakıldı) Vm'leri yeniden başlatma veya VM'yi yeniden boyutlandırma, Microsoft Azure aboneliğinize işlem kaynakları ayırır. Biz sürekli olarak ek altyapı ve her zaman müşteri talebini desteklemek mevcut tüm VM türleri sahibiz emin olmak için Özellikler'de yatırım yapıyor. Ancak, belirli bölgelerde Azure Hizmetleri için talepte eşi görülmemiş büyüme nedeniyle bazen kaynak ayırma hatalarıyla karşılaşabilirsiniz. Bu sorun, oluşturma veya aşağıdaki hata kodu ve şu iletiyle Vm'leri görüntüleme sırada bir bölgede VM'lerin başlatma çalıştığınızda oluşabilir:
 
 **Hata kodu**: AllocationFailed veya ZonalAllocationFailed
 
-**Hata iletisi**: "ayırma başarısız oldu. Bu bölgede biz istenen VM boyutu için yeterli kapasite yoktur. Başarılı ayırma olasılığını artırma hakkında daha fazla okuma http://aka.ms/allocation-guidance"
+**Hata iletisi**: "Ayırma başarısız oldu. Bu bölgede biz istenen VM boyutu için yeterli kapasite yoktur. Başarılı ayırma olasılığını artırma hakkında daha fazla okuma http://aka.ms/allocation-guidance"
 
 Bu makalede, ortak bir ayırma hatalarının bazı nedenleri açıklanır ve olası çözümler önerir.
 
@@ -30,7 +30,7 @@ Dağıtım sorunlarla aşağıdaki tabloda kılavuz geçici bir çözüm olarak 
 Talebinize en iyi şekilde eşleşen bir senaryo belirleme ve sonra başarılı ayırma olasılığını artırmak için karşılık gelen önerilen geçici çözüm kullanılarak ayırma isteği yeniden deneyin. Alternatif olarak, her zaman daha sonra yeniden deneyebilir. Yeterli kaynaklar, küme, bölge veya isteğiniz uyum sağlamak için bölge boşaltılmış olmasıdır. 
 
 
-## <a name="resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>VM'yi yeniden boyutlandırma veya var olan bir kullanılabilirlik kümesine VM ekleme
+## <a name="resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>Bir veya birden çok VM'yi mevcut kullanılabilirlik kümesine yeniden boyutlandırma
 
 ### <a name="cause"></a>Nedeni
 
@@ -41,11 +41,11 @@ VM'yi yeniden boyutlandırma veya mevcut bir kullanılabilirlik kümesi için bi
 VM'yi farklı bir kullanılabilirlik kümesinin parçası olabilir (aynı bölgede) kümesi farklı bir kullanılabilirlik bir VM oluşturun. Bu yeni VM, sonra aynı sanal ağa eklenebilir.
 
 Durdurun (serbest bırakın) tüm VM'lerin aynı kullanılabilirlik kümesi ve ardından her biri yeniden başlatın.
-Durdurmak için: tıklayın kaynak grupları > [kaynak grubunuzun] > kaynak > [kullanılabilirlik kümesi] > sanal makineler > [sanal makinenizi] > Durdur.
+Durdurmak için: Kaynak Gruplar > [kaynak grubunuzun] > kaynak > [kullanılabilirlik kümesi] > sanal makineler > [sanal makinenizi] > Durdur.
 Tüm VM'lerin durdurduktan sonra ilk VM seçin ve ardından Başlat'a tıklayın.
 Bu adım, yeni bir ayırma girişimi çalıştırılır ve yeni bir küme, yeterli kapasiteye sahip seçilebileceğini emin olur.
 
-## <a name="restart-partially-stopped-deallocated-vms"></a>Kısmen durduruldu (serbest bırakıldı) Vm'leri yeniden başlatma
+## <a name="restart-partially-stopped-deallocated-vms"></a>Kısmen durdurulmuş (serbest bırakılmış) VM'leri yeniden başlatma
 
 ### <a name="cause"></a>Nedeni
 
@@ -54,11 +54,11 @@ Kısmi ayırmayı kaldırma (serbest bırakıldı) bir veya daha fazla durduruld
 ### <a name="workaround"></a>Geçici çözüm
 
 Durdurun (serbest bırakın) tüm VM'lerin aynı kullanılabilirlik kümesi ve ardından her biri yeniden başlatın.
-Durdurmak için: tıklayın kaynak grupları > [kaynak grubunuzun] > kaynak > [kullanılabilirlik kümesi] > sanal makineler > [sanal makinenizi] > Durdur.
+Durdurmak için: Kaynak Gruplar > [kaynak grubunuzun] > kaynak > [kullanılabilirlik kümesi] > sanal makineler > [sanal makinenizi] > Durdur.
 Tüm VM'lerin durdurduktan sonra ilk VM seçin ve ardından Başlat'a tıklayın.
 Bu yeni bir ayırma girişimi çalıştırılır ve yeni bir küme, yeterli kapasiteye sahip seçilebileceğini emin olmanızı sağlar.
 
-## <a name="restart-fully-stopped-deallocated-vms"></a>Tam olarak durduruldu (serbest bırakıldı) Vm'leri yeniden başlatma
+## <a name="restart-fully-stopped-deallocated-vms"></a>Tamamen durdurulmuş (serbest bırakılmış) VM'leri yeniden başlatma
 
 ### <a name="cause"></a>Nedeni
 
@@ -75,12 +75,12 @@ Ayırma isteğiniz büyükse (500'den fazla çekirdek), kılavuz aşağıdaki b�
 
 ## <a name="allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc"></a>Eski sanal makine boyutları (Av1, Dv1, DSv1, D15v2, DS15v2, vb.) için ayırma hataları
 
-Biz, size Azure altyapı genişlettiğinizde, en son sanal makine türlerini desteklemek için tasarlanan yeni nesil donanımdan dağıtın. Bazı eski serisi VM'ler son nesil altyapımız üzerinde çalıştırmayın. Bu nedenle, müşterilerin bazen bu eski Sku'larda ayırma hatalarıyla karşılaşabilirsiniz. Bu sorunu önlemek için aşağıdaki önerileri başına eşdeğer yeni vm'lere taşıma dikkate alınması gereken eski serisi sanal makineler kullanan müşteriler şu önerilir: Bu VM'ler, en son donanım için en iyi duruma getirilir ve daha iyi yararlanmanıza olanak tanır Fiyatlandırma ve performans. 
+Biz, size Azure altyapı genişlettiğinizde, en son sanal makine türlerini desteklemek için tasarlanan yeni nesil donanımdan dağıtın. Bazı eski serisi VM'ler son nesil altyapımız üzerinde çalıştırmayın. Bu nedenle, müşterilerin bazen bu eski Sku'larda ayırma hatalarıyla karşılaşabilirsiniz. Bu sorunu önlemek için aşağıdaki önerileri başına eşdeğer yeni vm'lere taşıma dikkate alınması gereken eski serisi sanal makineler kullanan müşteriler öneririz: Bu VM'ler, daha iyi fiyat ve performans avantajlarından yararlanmanıza olanak tanıyacak ve en son donanım için iyileştirilmiştir. 
 
 |Eski VM serisi/boyutu|Önerilen yeni VM serisi/boyut|Daha fazla bilgi|
 |----------------------|----------------------------|--------------------|
 |Av1 serisi|[Av2 serisi](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Dv1 veya DSv1 serisi (D1 D5 için)|[Dv3 veya Dsv3 serisi](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Dv1 veya DSv1 serisi (D1 D5 için)|[Dv3 veya Dsv3 serisi](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
 |Dv1 veya DSv1 serisi (D11-D14)|[Ev3 veya Esv3 serisi](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)|
 |D15v2 veya DS15v2|Büyük VM boyutları yararlanabilmek theResource Manager dağıtım modelini kullanıyorsanız E16v3/E16sv3 veya E32v3/E32sv3 taşımayı düşünün. Bu, en yeni nesil donanımlarda çalıştırmak için tasarlanmıştır. Sanal makine Örneğinize tek bir müşteriye özel donanımla yalıtılmıştır emin olmak için Resource Manager dağıtım modelini kullanıyorsanız, en yeni nesil donanımlarda çalıştırmak için tasarlanmış yeni yalıtılmış VM boyutları, E64i_v3 veya E64is_v3, geçmeyi göz önünde bulundurabilirsiniz. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 

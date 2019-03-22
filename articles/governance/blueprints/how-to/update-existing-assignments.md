@@ -1,6 +1,6 @@
 ---
-title: Mevcut bir atamanın güncelleştirme
-description: Azure şemaları, mevcut bir atamanın güncelleştirilmesi mekanizması hakkında bilgi edinin.
+title: Mevcut bir atamanın portalından güncelleştirme
+description: Mevcut bir Azure şemaları portalda atamadan güncelleştirme mekanizması hakkında bilgi edinin.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: edfc14e837c92cac5bab589e33069bb771a53cb7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818264"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999856"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Var olan bir şema atamasını güncelleştirme
 
@@ -69,8 +69,8 @@ Atama bir kaç kez güncelleştirilebilir bir sınır yoktur. Bir hata oluşursa
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Şema yaşam döngüsü](../concepts/lifecycle.md) hakkında bilgi edinin
-- [Statik ve dinamik parametreleri](../concepts/parameters.md) kullanmayı anlayın
-- [Şema sıralamasını](../concepts/sequencing-order.md) özelleştirmeyi öğrenin
-- [Şema kaynak kilitleme](../concepts/resource-locking.md) özelliğini kullanmayı öğrenin
-- [Genel sorun giderme](../troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin
+- [Şema yaşam döngüsü](../concepts/lifecycle.md) hakkında bilgi edinin.
+- [Statik ve dinamik parametrelerin](../concepts/parameters.md) kullanımını anlayın.
+- [Şema sıralama düzenini](../concepts/sequencing-order.md) özelleştirmeyi öğrenin.
+- [Şema kaynak kilitleme](../concepts/resource-locking.md) özelliğini kullanmayı öğrenin.
+- [Genel sorun giderme](../troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin.

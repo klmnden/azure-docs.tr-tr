@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: 7dee92ffd183b852d48bcb150ba3c1ba8d5d0380
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 48deeec7a2c8767ab5dbb81b622e6d40483ed455
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569055"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093557"
 ---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Kubernetes, DC/OS veya Docker Swarm kümesine uzak bağlantı kurma
 Azure Container Service kümesi oluşturduktan sonra, iş yüklerini dağıtmak ve yönetmek için kümeye bağlanmanız gerekir. Bu makalede uzak bir bilgisayardan kümenin ana VM’ine nasıl bağlanacağınız açıklanır. 
@@ -113,11 +113,11 @@ Linux veya macOS’ta bir SSH tüneli oluşturduğunuzda yapacağınız ilk şey
     ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com
     ```
   
-  > [!NOTE]
-  > SSH bağlantı noktası 2200’dür ve standart bağlantı noktası 22 değildir. Birden fazla ana VM bulunan kümede bu, ilk ana VM’e bağlantı noktasıdır.
-  > 
+   > [!NOTE]
+   > SSH bağlantı noktası 2200’dür ve standart bağlantı noktası 22 değildir. Birden fazla ana VM bulunan kümede bu, ilk ana VM’e bağlantı noktasıdır.
+   > 
 
-  Komut çıktı olmadan döndürülür.
+   Komut çıktı olmadan döndürülür.
 
 Aşağıdaki bölümlerde DC/OS ve Swarm ile ilgili örneklere bakın.    
 
@@ -181,16 +181,16 @@ Windows’da SSH tünelleri oluşturmak için birden çok seçenek vardır. Wind
 
 5. **SSH > Tüneller** öğesini seçin ve aşağıdaki iletilen bağlantı noktalarını yapılandırın:
 
-    * **Kaynak Bağlantı Noktası:** DC/OS için 80 veya Swarm için 2375 kullanın.
-    * **Hedef:** DC/OS için localhost:80 veya Swarm için 2375 kullanın.
+   * **Kaynak bağlantı noktası:** 80, Swarm için 2375 veya DC/OS kullanın.
+   * **Hedef:** Localhost: 80, Swarm için 2375 veya DC/OS kullanın.
 
-    Aşağıdaki örnek DC/OS için yapılandırılmıştır, ancak Docker Swarm için olan benzer olacaktır.
+     Aşağıdaki örnek DC/OS için yapılandırılmıştır, ancak Docker Swarm için olan benzer olacaktır.
 
-    > [!NOTE]
-    > Bu tüneli oluştururken bağlantı noktası 80 kullanımda olmamalıdır.
-    > 
+     > [!NOTE]
+     > Bu tüneli oluştururken bağlantı noktası 80 kullanımda olmamalıdır.
+     > 
 
-    ![PuTTY yapılandırması 3](./media/container-service-connect/putty3.png)
+     ![PuTTY yapılandırması 3](./media/container-service-connect/putty3.png)
 
 6. İşiniz bittiğinde, bağlantı yapılandırmasını kaydetmek için **Oturum > Kaydet**’e tıklayın.
 

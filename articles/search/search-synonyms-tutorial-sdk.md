@@ -1,26 +1,26 @@
 ---
-title: Eş Anlamlılar C# Öğreticisi - Azure Search
-description: Bu C# Öğreticisi, Azure Search'te bir dizine eş anlamlılar özelliğini ekleme hakkında bilgi edinin. Eş Anlamlılar eşdeğer terimleri listesini haritasıdır. Eş anlamlı sözcük desteği alanlarla sorguları kullanıcı tarafından sağlanan terimi içerecek şekilde genişletin ve tüm eş anlamlılar ilgili.
+title: Eş Anlamlılar C# örneği - Azure Search
+description: Bu C# örnek, eş anlamlılar özelliğini Azure Search'teki bir dizine eklemeyi öğrenin. Eş Anlamlılar eşdeğer terimleri listesini haritasıdır. Eş anlamlı sözcük desteği alanlarla sorguları kullanıcı tarafından sağlanan terimi içerecek şekilde genişletin ve tüm eş anlamlılar ilgili.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
-ms.topic: tutorial
-ms.date: 07/10/2018
+ms.topic: conceptual
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b239fdc176951066699c557eaae5f7fe08a6c26f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: cb0d04e46834530c8fea29ef79a2156caabeeeff
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309238"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202376"
 ---
-# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Öğretici: Azure Search için eş anlamlı sözcükler eklemeC#
+# <a name="example-add-synonyms-for-azure-search-in-c"></a>Örnek: Azure Search için eş anlamlı sözcükler eklemeC#
 
 Eş anlamlılar, giriş terimine anlam bakımından eşdeğer olan terimlerle eşleşerek bir sorguyu genişletir. Örneğin, "araba" aramasının "otomobil" veya "araç" terimlerini içeren belgelerle eşleşmesini isteyebilirsiniz. 
 
-Azure Search’te, eş anlamlılar eşdeğer terimleri ilişkilendiren *eşleme kuralları* aracılığıyla bir *eş anlamlı eşleminde* tanımlanır. Bu öğretici varolan bir dizine eş anlamlılar ekleme ve kullanma işleminin temel adımlarını kapsar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Azure Search’te, eş anlamlılar eşdeğer terimleri ilişkilendiren *eşleme kuralları* aracılığıyla bir *eş anlamlı eşleminde* tanımlanır. Bu örnekte, ekleme ve mevcut dizin ile eş anlamlılar kullanmak için temel adımları kapsar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Eşleme kuralları oluşturup göndererek eş anlamlıları etkinleştirme 
@@ -42,7 +42,7 @@ Birden çok eş anlamlı eşlemi oluşturabilir, bunları bir dizin için kullan
 
 ## <a name="overview"></a>Genel Bakış
 
-Öncesi ve sonrası sorguları, eş anlamlıların değerini gösterir. Bu öğreticide, sorguları yürüten ve sonuçları bir örnek dizinde döndüren örnek bir uygulama kullanın. Örnek uygulama, iki belgeyle doldurulmuş "oteller" adlı küçük bir dizin oluşturur. Uygulama, dizinde görünmeyen terim ve ifadeleri kullanarak arama sorguları yürütür, eş anlamlılar özelliğini etkinleştirir, ardından aynı aramaları tekrar gerçekleştirir. Aşağıdaki kod genel akışı gösterir.
+Öncesi ve sonrası sorguları, eş anlamlıların değerini gösterir. Bu örnekte, sorguları yürüten ve sonuçları bir örnek dizinde döndüren örnek bir uygulama kullanın. Örnek uygulama, iki belgeyle doldurulmuş "oteller" adlı küçük bir dizin oluşturur. Uygulama, dizinde görünmeyen terim ve ifadeleri kullanarak arama sorguları yürütür, eş anlamlılar özelliğini etkinleştirir, ardından aynı aramaları tekrar gerçekleştirir. Aşağıdaki kod genel akışı gösterir.
 
 ```csharp
   static void Main(string[] args)
@@ -114,7 +114,7 @@ no document matched
 Eş anlamlıların etkinleştirilmesi iki adımlı bir işlemdir. İlk olarak eş anlamlı kuralları tanımlanıp karşıya yüklenir, ardından bunları kullanacak alanlar yapılandırılır. İşlem, `UploadSynonyms` ve `EnableSynonymsInHotelsIndex` içinde ana hatlarıyla açıklanmıştır.
 
 1. Arama hizmetinize bir eş anlamlı eşlemi ekleyin. `UploadSynonyms` içinde, 'desc-synonymmap' adlı eş anlamlı eşleminde dört kural tanımlanır ve hizmete yüklenir.
-```csharp
+   ```csharp
     var synonymMap = new SynonymMap()
     {
         Name = "desc-synonymmap",
@@ -126,21 +126,21 @@ Eş anlamlıların etkinleştirilmesi iki adımlı bir işlemdir. İlk olarak e�
     };
 
     serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
-```
-Bir eş anlamlı eşlemi, açık kaynak standart `solr` biçimine uygun olmalıdır. Biçim, `Apache Solr synonym format` bölümündeki [Azure Search’te Eş Anlamlılar](search-synonyms.md) içinde açıklanmıştır.
+   ```
+   Bir eş anlamlı eşlemi, açık kaynak standart `solr` biçimine uygun olmalıdır. Biçim, `Apache Solr synonym format` bölümündeki [Azure Search’te Eş Anlamlılar](search-synonyms.md) içinde açıklanmıştır.
 
 2. Dizin tanımında eş anlamlı eşlemini kullanacak aranabilir alanları yapılandırın. `EnableSynonymsInHotelsIndex` içinde, `synonymMaps` özelliği yeni yüklenen eş anlamlı eşleminin adına ayarlanarak `category` ve `tags` alanlarında eş anlamlılar etkinleştirilir.
-```csharp
-  Index index = serviceClient.Indexes.Get("hotels");
-  index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
-  index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
+   ```csharp
+   Index index = serviceClient.Indexes.Get("hotels");
+   index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
+   index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
 
-  serviceClient.Indexes.CreateOrUpdate(index);
-```
-Bir eş anlamlı eşlemi eklediğinizde, dizinin yeniden oluşturulması gerekmez. Hizmetinize bir eş anlamlı eşlemi ekleyebilir ve sonra herhangi bir dizindeki mevcut alan tanımlarını yeni eş anlamlı eşlemini kullanacak şekilde değiştirebilirsiniz. Yeni özniteliklerin eklenmesi, dizin kullanılabilirliğini etkilemez. Aynı durum, bir alan için eş anlamlıları devre dışı bırakırken de geçerlidir. `synonymMaps` özelliğini boş bir listeye ayarlayabilirsiniz.
-```csharp
-  index.Fields.First(f => f.Name == "category").SynonymMaps = new List<string>();
-```
+   serviceClient.Indexes.CreateOrUpdate(index);
+   ```
+   Bir eş anlamlı eşlemi eklediğinizde, dizinin yeniden oluşturulması gerekmez. Hizmetinize bir eş anlamlı eşlemi ekleyebilir ve sonra herhangi bir dizindeki mevcut alan tanımlarını yeni eş anlamlı eşlemini kullanacak şekilde değiştirebilirsiniz. Yeni özniteliklerin eklenmesi, dizin kullanılabilirliğini etkilemez. Aynı durum, bir alan için eş anlamlıları devre dışı bırakırken de geçerlidir. `synonymMaps` özelliğini boş bir listeye ayarlayabilirsiniz.
+   ```csharp
+   index.Fields.First(f => f.Name == "category").SynonymMaps = new List<string>();
+   ```
 
 ## <a name="after-queries"></a>"Sonrası" sorguları
 
@@ -161,18 +161,18 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 ~~~
 İlk sorgu, `five star=>luxury` kuralından belgeyi bulur. İkinci sorgu, `internet,wifi` kullanarak aramayı genişletir, üçüncü sorgu ise eşleştikleri belgeleri bulmak için `hotel, motel` ve `economy,inexpensive=>budget` kullanır.
 
-Eş anlamlıların eklenmesi, arama deneyimini tamamen değiştirir. Bu öğreticide, dizinimizdeki belgelerin alakalı olmasına rağmen ilk sorgular anlamlı sonuçlar döndürememiştir. Eş anlamlıları etkinleştirerek, dizinde temel alınan verileri değiştirmeden dizini yaygın olarak kullanılan terimleri içerecek şekilde genişletebiliriz.
+Eş anlamlıların eklenmesi, arama deneyimini tamamen değiştirir. Bu örnekte, ilk sorgular anlamlı sonuçlar belgelerin ilgili olsa da döndürmek başarısız oldu. Eş anlamlıları etkinleştirerek, dizinde temel alınan verileri değiştirmeden dizini yaygın olarak kullanılan terimleri içerecek şekilde genişletebiliriz.
 
 ## <a name="sample-application-source-code"></a>Örnek uygulama kaynak kodu
 Bu kılavuzda kullanılan örnek uygulamanın tam kaynak kodunu [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms) üzerinde bulabilirsiniz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bir öğretici tamamlandıktan sonra temizlemenin en hızlı yolu, Azure Search hizmetini içeren kaynak grubunu silmektir. Kaynak grubunu silerek içindeki her şeyi kalıcı olarak silebilirsiniz. Portalda kaynak grubu adı, Azure Search hizmetinin Genel Bakış sayfasında bulunur.
+Azure Search Hizmeti içeren kaynak grubunu silerek bir örnektir sonra temizlemek için en hızlı yolu. Kaynak grubunu silerek içindeki her şeyi kalıcı olarak silebilirsiniz. Portalda kaynak grubu adı, Azure Search hizmetinin Genel Bakış sayfasında bulunur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, eşleme kuralları oluşturmak ve göndermek için C# kodunda [Eş anlamlılar REST API'si](https://aka.ms/rgm6rq) ve ardından eş anlamlılar eşlemini dizine çağırma işlemi gösterildi. [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) ve [REST API](https://docs.microsoft.com/rest/api/searchservice/) başvuru belgelerinde daha fazla bilgi bulabilirsiniz.
+Bu örnekte gösterilen [eş anlamlılar REST API](https://aka.ms/rgm6rq) içinde C# kod eşleme kurallarını gönderin ve bir sorgu üzerindeki eş anlamlı eşlemi'ı çağırın. [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) ve [REST API](https://docs.microsoft.com/rest/api/searchservice/) başvuru belgelerinde daha fazla bilgi bulabilirsiniz.
 
 > [!div class="nextstepaction"]
 > [Azure Search’te eş anlamlıları kullanma](search-synonyms.md)

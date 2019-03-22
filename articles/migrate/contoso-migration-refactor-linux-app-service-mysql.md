@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 60bd3aef20e39a9f451f54164ef3fb8ef682bc3e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 4ff3f129838a43bd7684dc10e1653dab969e9c1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809699"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087015"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Contoso geçişi: Contoso Linux hizmet Masası uygulamayı Azure App Service, Traffic Manager ve Azure MySQL ile birden çok bölgeye yeniden düzenleme
 
@@ -109,7 +109,7 @@ Contoso geçiş işlemi aşağıdaki gibi tamamlayın:
 **Hizmet** | **Açıklama** | **Maliyet**
 --- | --- | ---
 [Azure App Service](https://azure.microsoft.com/services/app-service/) | Hizmeti çalışır ve Web siteleri için Azure PaaS hizmeti kullanan uygulamalar ölçeklendirir.  | Fiyatlandırma örnekleri ve gerekli özellikleri boyutuna bağlıdır. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/app-service/windows/).
-[Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | DNS, Azure veya dış Web siteleri ve Hizmetleri için doğrudan kullanıcılara kullanan bir yük dengeleyici. | Fiyatlandırma, alınan DNS sorgusu sayısı ve izlenen uç noktaların sayısını temel alır. | [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/traffic-manager/).
+[Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) | DNS, Azure veya dış Web siteleri ve Hizmetleri için doğrudan kullanıcılara kullanan bir yük dengeleyici. | Fiyatlandırma, alınan DNS sorgusu sayısı ve izlenen uç noktaların sayısını temel alır. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/traffic-manager/).
 [MySQL için Azure Veritabanı](https://docs.microsoft.com/azure/mysql/) | Veritabanı açık kaynak MySQL Server altyapısını temel alır. Bir tam olarak yönetilen, Kurumsal kullanıma hazır, topluluk tabanlı, uygulama geliştirmeye ve dağıtıma yönelik bir hizmet olarak MySQL veritabanı sağlar. | Fiyatlandırma, işlem, depolama ve yedekleme gereksinimlerine göre. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/mysql/).
 
  

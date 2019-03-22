@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 300f0ddc8b738b5fd8578ed0b33cc15000c1098a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 70a11867dded3b7156f6b212ceb4756ee7c287f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101794"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079171"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>İzleme ve uyarılar Azure Application Insights ile uygulama durumu
 
@@ -69,18 +69,18 @@ Application ınsights kullanılabilirlik testleri, otomatik olarak uygulamanız�
 ## <a name="create-an-alert-from-metrics"></a>Ölçümleri bir uyarı oluştur
 Bir kullanılabilirlik testi uyarı göndermeye ek olarak uygulamanız için bir uyarı toplanmakta olan herhangi bir performans ölçümlerinden oluşturabilirsiniz.
 
-2. Seçin **uyarılar** gelen **yapılandırma** menüsü.  Bu, Azure Uyarıları'paneli açılır.  Burada diğer hizmetler için yapılandırılan diğer uyarı kuralları olabilir.
-3. Tıklayın **ölçüm uyarısı Ekle**.  Bu, yeni bir uyarı kuralı oluşturmak için paneli açılır.
+1. Seçin **uyarılar** gelen **yapılandırma** menüsü.  Bu, Azure Uyarıları'paneli açılır.  Burada diğer hizmetler için yapılandırılan diğer uyarı kuralları olabilir.
+1. Tıklayın **ölçüm uyarısı Ekle**.  Bu, yeni bir uyarı kuralı oluşturmak için paneli açılır.
 
     ![Ölçüm uyarısı Ekle](media/tutorial-alert/add-metric-alert.png)
 
-4. Yazın bir **adı** uyarı kuralı ve uygulamanız için açılan listeyi seçin **kaynak**.
-5. Seçin bir **ölçüm** örneği.  Son 24 saat içinde bu istek değeri belirtmek için bir grafik görüntülenir.  Bu ölçüm için koşul ayarını destekler.
+1. Yazın bir **adı** uyarı kuralı ve uygulamanız için açılan listeyi seçin **kaynak**.
+1. Seçin bir **ölçüm** örneği.  Son 24 saat içinde bu istek değeri belirtmek için bir grafik görüntülenir.  Bu ölçüm için koşul ayarını destekler.
 
     ![Uyarı kuralı ekle](media/tutorial-alert/add-alert-01.png)
 
-6. Belirtin bir **koşul** ve **eşiği** uyarı. Bu ölçüm, bir uyarı oluşturulmasını aşan gerekir sayısıdır. 
-6. Altında **şu şekilde bildir** denetleyin **e-posta sahipleri, Katkıda Bulunanlar ve okuyucular** kutusunu Uyarı koşulu karşılandığında ve herhangi ek alıcılar e-posta adresini eklediğinizde bu kullanıcılara bir e-posta gönderin.  Ayrıca, bir Web kancası veya koşul karşılandığında çalıştıran bir mantıksal uygulama burada da belirtebilirsiniz.  Bu, algılanan sorunu hafifletmeye denemek için kullanılabilir veya 
+1. Belirtin bir **koşul** ve **eşiği** uyarı. Bu ölçüm, bir uyarı oluşturulmasını aşan gerekir sayısıdır. 
+1. Altında **şu şekilde bildir** denetleyin **e-posta sahipleri, Katkıda Bulunanlar ve okuyucular** kutusunu Uyarı koşulu karşılandığında ve herhangi ek alıcılar e-posta adresini eklediğinizde bu kullanıcılara bir e-posta gönderin.  Ayrıca, bir Web kancası veya koşul karşılandığında çalıştıran bir mantıksal uygulama burada da belirtebilirsiniz.  Bu, algılanan sorunu hafifletmeye denemek için kullanılabilir veya 
 
     ![Uyarı kuralı ekle](media/tutorial-alert/add-alert-02.png)
 

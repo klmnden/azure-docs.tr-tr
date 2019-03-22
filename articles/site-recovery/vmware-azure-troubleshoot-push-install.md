@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
-ms.openlocfilehash: 3b46ffe49aeb31aaf9040be038e8a9e83641ae51
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 65b8253a307693d00f5eaefe7660d500dce49be4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984398"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078661"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility hizmeti anında yükleme sorunlarını giderme
 
@@ -171,11 +171,11 @@ GRUB yapılandırma dosyaları ("/ boot/grub/menu.lst", "/ boot/grub/grub.cfg", 
 
 
 - GRUB dosyasıdır aşağıdaki satırı **/boot/grub2/grub.cfg**. <br>
-*Linux /boot/vmlinuz-3.12.49-11-default **kök = / dev/sda2** ${extra_cmdline} **= / dev/sda1 sürdürme** splash sessiz sessiz showopts =*
+  *Linux /boot/vmlinuz-3.12.49-11-default **kök = / dev/sda2** ${extra_cmdline} **= / dev/sda1 sürdürme** splash sessiz sessiz showopts =*
 
 
 - GRUB dosyasıdır aşağıdaki satırı **/boot/grub/menu.lst**
-*çekirdek /boot/vmlinuz-3.0.101-63-default **kök = / dev/sda2** **= / dev/sda1 Sürdür ** splash sessiz crashkernel = 256M-:128M showopts vga = 0x314 =*
+  *çekirdek /boot/vmlinuz-3.0.101-63-default **kök = / dev/sda2** **= / dev/sda1 Sürdür ** splash sessiz crashkernel = 256M-:128M showopts vga = 0x314 =*
 
 Yukarıdaki kalın dize gözlemlerseniz, GRUB parametreleri "root" ve "Devam" UUID yerine gerçek cihaz adları vardır.
  
@@ -184,15 +184,15 @@ Cihaz adları, karşılık gelen UUID ile değiştirilmelidir.<br>
 
 
 1. Komutunu yürüterek cihazı UUID'si Bul "blkid <device name>". Örneğin:<br>
-```
-blkid /dev/sda1
-/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
-blkid /dev/sda2 
-/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
-```
+   ```
+   blkid /dev/sda1
+   /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+   blkid /dev/sda2 
+   /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+   ```
 
 2. Biçimde, UUID artık cihaz adı yerine "kök UUID = =<UUID>". Örneğin cihaz adları için kök UUID ile değiştirin ve parametre dosyaları yukarıdaki sürdürmek için "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" veya "/ varsayılan/etc/grub: dosyalarda satır ardından aramak gibi. <br>
-*Çekirdek /boot/vmlinuz-3.0.101-63-default **kök UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4 =** **sürdürme UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b =** splash sessiz crashkernel = 256M-:128M = showopts vga 0x314 =*
+   *Çekirdek /boot/vmlinuz-3.0.101-63-default **kök UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4 =** **sürdürme UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b =** splash sessiz crashkernel = 256M-:128M = showopts vga 0x314 =*
 3. Korumayı yeniden yeniden başlatın
 
 ## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>Mobility hizmetini yeniden başlatmak için uyarı ile tamamlandı yükleme (errorID: 95265 & 95266)
@@ -284,20 +284,20 @@ Uygulama tutarlılığı, olağanüstü durum kurtarma gereksinimlerinizi kritik
 Azure Site Recovery VSS sağlayıcısı yüklemesi atlayabilir ve Azure Site Recovery VSS sağlayıcısı yüklemeden el ile yüklemek için:
 
 1. Mobility hizmetini yükleyin. 
-> [!Note]
-> 
-> 'Posta yükleme yapılandırma' adım yükleme başarısız olur. 
+   > [!Note]
+   > 
+   > 'Posta yükleme yapılandırma' adım yükleme başarısız olur. 
 2. VSS yüklemeyi atlamak için:
    1. Konumunda bulunan Azure Site Recovery Mobility hizmeti yükleme dizinini açın:
    
-    C:\Program dosyaları (x86) \Microsoft Azure Site Recovery\agent
-   2.  Azure Site Recovery VSS sağlayıcısı yükleme komut dosyasını değiştirmek **nMageVSSProvider_Install** ve **InMageVSSProvider_Uninstall.cmd** her zaman aşağıdaki satırı ekleyerek başarılı olması için:
+      C:\Program dosyaları (x86) \Microsoft Azure Site Recovery\agent
+   2. Azure Site Recovery VSS sağlayıcısı yükleme komut dosyasını değiştirmek **nMageVSSProvider_Install** ve **InMageVSSProvider_Uninstall.cmd** her zaman aşağıdaki satırı ekleyerek başarılı olması için:
     
-    ```     
-    rem @echo off
-    setlocal
-    exit /B 0
-    ```
+      ```     
+      rem @echo off
+      setlocal
+      exit /B 0
+      ```
 
 3. Mobility Aracısı yükleme el ile yeniden çalıştırın. 
 4. Yükleme başarılı olur ve sonraki adıma taşır **yapılandırma**, eklediğiniz satırları kaldırın.
@@ -305,7 +305,7 @@ Azure Site Recovery VSS sağlayıcısı yüklemesi atlayabilir ve Azure Site Rec
    
     **C:\Program dosyaları (x86) \Microsoft Azure Site Recovery\agent >.\InMageVSSProvider_Install.cmd**
 
-9.  Bir hizmet olarak Windows Hizmetleri ASR VSS sağlayıcısı yüklü olduğunu doğrulayın ve ASR VSS sağlayıcısı listelendiğini doğrulamak için bileşen hizmeti MMC'yi açın.
+9. Bir hizmet olarak Windows Hizmetleri ASR VSS sağlayıcısı yüklü olduğunu doğrulayın ve ASR VSS sağlayıcısı listelendiğini doğrulamak için bileşen hizmeti MMC'yi açın.
 10. VSS sağlayıcısını yüklerseniz başarısız, CX CAPI2 izinleri hataları çözmeye çalışmak devam eder.
 
 ## <a name="vss-provider-installation-fails-due-to-the-cluster-service-being-enabled-on-non-cluster-machine"></a>Küme olmayan makine üzerinde etkinleştiriliyor Küme hizmetinin nedeniyle VSS sağlayıcısı yüklemesi başarısız olur

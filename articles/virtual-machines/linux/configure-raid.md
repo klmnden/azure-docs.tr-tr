@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 2bced71a7211907e0e517e47c4f5d301d4a56f56
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e773fdcb031f0f8f896ea40d76231fd54a603dc4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457420"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089038"
 ---
 # <a name="configure-software-raid-on-linux"></a>Linux’ta Yazılım RAID yapılandırma
 Birden fazla bağlı veri diskleri tek bir RAID cihaz sunmak için Azure'da Linux sanal makinelerinde RAID yazılım kullanmak yaygın bir senaryodur. Genellikle bu performansı artırmak ve yalnızca tek bir diske kullanmaya kıyasla iyi aktarım hızı için izin vermek için kullanılabilir.
@@ -31,20 +31,20 @@ Birden fazla bağlı veri diskleri tek bir RAID cihaz sunmak için Azure'da Linu
 
 ## <a name="install-the-mdadm-utility"></a>Mdadm yardımcı programını yükleyin
 * **Ubuntu**
-```bash
-sudo apt-get update
-sudo apt-get install mdadm
-```
+  ```bash
+  sudo apt-get update
+  sudo apt-get install mdadm
+  ```
 
 * **CentOS & Oracle Linux**
-```bash
-sudo yum install mdadm
-```
+  ```bash
+  sudo yum install mdadm
+  ```
 
 * **SLES ve openSUSE**
-```bash  
-zypper install mdadm
-```
+  ```bash  
+  zypper install mdadm
+  ```
 
 ## <a name="create-the-disk-partitions"></a>Disk bölümleri oluşturma
 Bu örnekte, /dev/sdc üzerinde tek bir diskin oluştururuz. Yeni disk bölümü /dev/sdc1 çağrılmaz.

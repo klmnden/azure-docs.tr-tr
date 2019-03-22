@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3500463cc57fb236de2a591181a5dc7054780404
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 410955936e07b79128e1892d72644eaeb18ee036
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240703"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863772"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Öğretici: Media Services v3 ile canlı Stream .NET kullanma
 
@@ -33,7 +33,7 @@ Azure Media Services, [Canlı olayları](https://docs.microsoft.com/rest/api/med
 > [!div class="checklist"]
 > * Bu konu başlığı altında açıklanan örnek uygulamasını indirin
 > * Canlı akışı gerçekleştiren kodu inceleme
-> * Olayı [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) ile http://ampdemo.azureedge.net üzerinde izleme
+> * Olayı [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) ile https://ampdemo.azureedge.net üzerinde izleme
 > * Kaynakları temizleme
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -166,7 +166,7 @@ Aşağıdaki kod, tüm Canlı olaylar hesabınızı temizlemek gösterilmektedir
 
 ## <a name="watch-the-event"></a>Olayı izleme
 
-Olay izlemek için kod çalıştırdığınızda aldığınız akış URL'sini kopyalama bir akış Bulucu açıklandığı ve tercih ettiğiniz bir oynatıcı kullanın. Akışınızı http://ampdemo.azureedge.net üzerinde test etmek için [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html)'ı kullanabilirsiniz. 
+Olay izlemek için kod çalıştırdığınızda aldığınız akış URL'sini kopyalama bir akış Bulucu açıklandığı ve tercih ettiğiniz bir oynatıcı kullanın. Akışınızı https://ampdemo.azureedge.net üzerinde test etmek için [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html)'ı kullanabilirsiniz. 
 
 Canlı etkinlik, olayları otomatik olarak durduğunda isteğe bağlı içeriğe dönüşür. Olayı durdurduktan ve sildikten sonra dahi, varlığı silmeniz sürece, kullanıcılar arşivlenen içeriğinizin isteğe bağlı içerik olarak akışını gerçekleştirebilir. Bir olay tarafından kullanılıyorsa varlık silinemez; önce olayın silinmesi gerekir. 
 

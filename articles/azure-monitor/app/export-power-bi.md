@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 13156b3419d961850c8e4e408a9cf565a5f957ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086403"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260069"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights'tan Power BI akışı
 [Power BI](https://www.powerbi.com/) verileri analiz etmek ve öngörüleri paylaşmak yardımcı olan bir iş araçları paketidir. Her cihazda kullanılabilen zengin panolar. Analytics sorguları da dahil olmak üzere pek çok kaynaktan veri birleştirebilir [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -105,8 +105,8 @@ Veri kümesini analiz sorgusundan gelen azaltma gereksinimlerinizi karşılamıy
 
 1. Oluşturma bir [API anahtarı](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Azure Resource Manager URL'si ile Application Insights API değiştirerek Analytics'ten dışarı Power BI M betik güncelleştirin.
-   * Değiştirin  **https://management.azure.com/subscriptions/...**
-   * ile  **https://api.applicationinsights.io/beta/apps/...**
+   * Değiştirin **https:\//management.azure.com/subscriptions/...**
+   * ile **https:\//api.applicationinsights.io/beta/apps/...**
 3. Son olarak, kimlik bilgilerini temel güncelleştirin ve API anahtarınızı kullanın.
 
 **Var olan bir komut dosyası**

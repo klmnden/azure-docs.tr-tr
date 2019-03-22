@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: f3138a9d0fe201a9486c34c08b8cdb3cca47e1d7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0da6b6b0fef0f998e20789253b2a65c54121532c
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207556"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260018"
 ---
 # <a name="manage-content-moderator-service-credentials"></a>Content Moderator hizmet kimlik bilgilerini yönetme
 
@@ -61,7 +61,7 @@ Aşağıdaki bölümde, önceki resimde daha ayrıntılı bir şekilde inceler:
 
 İlk bölümü listeler, **API uç noktası gözden**, **kimliği takım**ve **Ocp-Apim-Subscription-Key (Content Moderator deneme anahtarı)** gözden geçirme takımınızın kapsamında oluşturulan oluşturma. Tüm Content Moderator gözden geçirme API dahil olmak üzere API'leri, çağırmak için bunları kullanın.
 
-Ayrıca, bölge tanımlayıcısı API uç noktanız için unutmayın. Örneğin, **westus** bölgede "https://westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0"
+Ayrıca, bölge tanımlayıcısı API uç noktanız için unutmayın. Örneğin, **westus** bölgede "https:\//westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0"
 
 ![Content Moderator İnceleme aracı anahtarı](images/credentials-trialkey.PNG)
 

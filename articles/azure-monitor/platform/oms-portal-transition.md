@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: fe1f08b7b597a2e521f2b13af1d0a4a4d7d4b7a2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 7e14b5f2c5f84c4f1f21454f733987df6933f0c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214010"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886635"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS portalında Azure'a taşıma
 
@@ -26,7 +26,7 @@ ms.locfileid: "54214010"
 
 Azure portalı, tüm Azure Hizmetleri için hub'ı ve panolar için kaynaklar, akıllı arama bulma kaynakların ve kaynak yönetimi için etiketleme sabitleme gibi özellikler sayesinde zengin yönetim deneyimi sunar. İzleme ve yönetim iş akışını kolaylaştırın ve birleştirmek için Azure portalında OMS portalı yetenekleri ekleme başlatıldı. OMS Portalı'nın özelliklerin tümü, artık Azure portalında bir parçasıdır. Aslında, bazı trafik analizi gibi yeni özellikleri yalnızca Azure portalında kullanılabilir. Her şeyi ve daha fazlasını Azure portalı ile OMS portalında yaptığınız işe gerçekleştirmek mümkün olacaktır. Zaten yapmadıysanız, Azure Portalı'nı hemen kullanmaya başlayın!
 
-**OMS portalında resmi olarak 15 Ocak 2019 üzerinde kullanımdan kaldırılacak** Azure ABD kamu Bulutu, OMS portalı ve Azure ticari bulutundaki için **resmi olarak 30 Mart 2019 üzerinde kullanımdan kaldırılacaktır.** Azure portalına taşıma ve bir kolayca geçiş beklediğiniz heyecan duyuyoruz. Ancak anlıyoruz değişiklikleri zordur ve karışıklığa neden olabilir. Sorularınız, geri bildirim veya endişeleriniz için gönderme **LAUpgradeFeedback@microsoft.com**. Bu makalenin geri kalanında, senaryoları ve bu geçiş için yol haritası üzerinden gider.
+**OMS portalında resmi olarak 15 Ocak 2019 üzerinde kullanımdan kaldırılacak** Azure ABD kamu Bulutu, OMS portalı ve Azure ticari bulutundaki için **resmi olarak 30 Mart 2019 üzerinde kullanımdan kaldırılacaktır.** Azure portalına taşıma ve bir kolayca geçiş beklediğiniz heyecan duyuyoruz. Ancak anlıyoruz değişiklikleri zordur ve karışıklığa neden olabilir. Sorularınız, geri bildirim veya endişeleriniz için gönderme **LAUpgradeFeedback\@microsoft.com**. Bu makalenin geri kalanında, senaryoları ve bu geçiş için yol haritası üzerinden gider.
 
 ## <a name="what-is-changing"></a>Değişen nedir? 
 Aşağıdaki değişiklikler OMS portalına kullanımdan kaldırma ile bildirilir. Her biri bu değişiklikler aşağıdaki bölümlerde daha ayrıntılı olarak açıklanmıştır.
@@ -47,7 +47,7 @@ Aşağıdaki değişiklikler OMS portalına kullanımdan kaldırma ile bildirili
 - Şunları yapmanız [kullanıcı izinlerinizi geçirme](#user-access-and-role-migration) Azure portalında.
 - Bkz: [, OMS güncelleştirme dağıtımlarını Azure'a geçirmek](../../automation/migrate-oms-update-deployments.md) güncelleştirme yönetimi çözümünü geçiş ile ilgili ayrıntılar.
 
-Başvurmak [OMS portalından Log Analytics kullanıcılar için Azure portalına geçiş hakkında sık sorulan](oms-portal-faq.md) Azure portalına geçiş hakkında bilgi için. Geri bildirim, sorularınız veya endişeleriniz için gönderme **LAUpgradeFeedback@microsoft.com**.
+Başvurmak [OMS portalından Log Analytics kullanıcılar için Azure portalına geçiş hakkında sık sorulan](oms-portal-faq.md) Azure portalına geçiş hakkında bilgi için. Geri bildirim, sorularınız veya endişeleriniz için gönderme **LAUpgradeFeedback\@microsoft.com**.
 
 ## <a name="user-access-and-role-migration"></a>Kullanıcı erişimi ve rol geçişi
 Azure portalında erişim yönetimi daha zengin ve OMS portalında erişim yönetimi daha güçlü. Bkz: [çalışma alanlarını yönetme](manage-access.md#manage-accounts-and-users) Log analytics'te erişim yönetimi hakkında ayrıntılar için.
@@ -64,7 +64,7 @@ Her iki durumda, yöneticinize el ile aşağıdaki tablodan uygun rol ataması g
 
 | OMS portalı izni | Azure rol |
 |:---|:---|
-| SaltOkunur | Log Analytics Okuyucusu |
+| ReadOnly | Log Analytics Okuyucusu |
 | Katılımcı | Log Analytics Katkıda Bulunan |
 | Yönetici | Sahip | 
  

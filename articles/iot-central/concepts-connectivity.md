@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: eb16778e0e7050dfda92fcc1b92afffe5860268d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0790b7d5280b3fdf26c34c3903a6257d21bc877c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767592"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835841"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IOT Central, cihaz bağlantısı
 
@@ -33,9 +33,9 @@ DPS kullanarak sağlar:
 Bu nasıl yapılır makalesi aşağıdaki dört kullanım örneklerini açıklar:
 
 1. [SAS kullanarak tek bir cihazı hızlı bir şekilde bağlanın](#connect-a-single-device)
-1. [Cihazları uygun ölçekte SAS kullanarak bağlanma](#connect-devices-at-scale-using-shared-access-signatures)
+1. Cihazları uygun ölçekte SAS kullanarak bağlanma
 1. [Cihazları uygun ölçekte X.509 sertifikaları kullanarak bağlanma](#connect-devices-using-x509-certificates) bu üretim ortamları için önerilen yaklaşımdır.
-1. [İlk kayıt cihazları bağlayın](#connect-without-first-registering-devices) 
+1. İlk kayıt cihazları bağlayın 
 
 ## <a name="connect-a-single-device"></a>Tek bir cihazı bağlayın
 
@@ -69,7 +69,7 @@ SAS kullanarak uygun ölçekte IOT Central aygıtlarını bağlamak için kaydet
 İçeri aktarılan cihazlar için bağlantı bilgilerini almak için [IOT Central uygulamanızdan bir CSV dosyasını dışarı](howto-manage-devices.md#export-devices).
 
 > [!NOTE]
-> İlk bunları IOT Central kayıt olmadan cihazları nasıl bağlayabileceğini bilgi edinmek için [ilk kayıt cihazları olmadan Bağlan](#connect-without-first-registering-devices).
+> İlk bunları IOT Central kayıt olmadan cihazları nasıl bağlayabileceğini bilgi edinmek için ilk kayıt cihazları Connect bakın.
 
 ### <a name="set-up-your-devices"></a>Cihazları ayarlama
 

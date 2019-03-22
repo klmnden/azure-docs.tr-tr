@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2aa5522b8200f87df633759ee136f744cd1b8099
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6588690629d2e266469a4b8ea533c5650f3fc0ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471241"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890891"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Coğrafi yapay zeka veri bilimi sanal Makinesi'ne giriş
 
@@ -44,7 +44,7 @@ Coğrafi konum ve konum bilgileri ile verilerinizi tümleştirme, güçlü ve ye
 
 [Veri bilimi sanal makinesi (DSVM)](overview.md) Microsoft'tan popüler deneme ve yapay ZEKA, makine öğrenimi ve veri bilimi araçlarıyla sağlar modelleme ortamı azure'da,. Bu platformları ve araçlarıyla hemen üretken olmanıza yardımcı olmak için tüm bir kolayca önceden yapılandırılmış. 
 
-Azure Bulutu ve Jeo-uzamsal analiz yazılımlarını ölçeklenebilirliğini Tahmine dayalı bir veri bilimi sanal makinesi yeteneklerini birleştirerek [ESRI](http://www.esri.com), veri uzmanları ve analistleri Jeo-uzamsal artık üretken bir platformdan diğerine sahip Bu verilerden yeni bilgiler edinmek ve yeni fırsatlarını belirlemek. 
+Azure Bulutu ve Jeo-uzamsal analiz yazılımlarını ölçeklenebilirliğini Tahmine dayalı bir veri bilimi sanal makinesi yeteneklerini birleştirerek [ESRI](https://www.esri.com), veri uzmanları ve analistleri Jeo-uzamsal artık üretken bir platformdan diğerine sahip Bu verilerden yeni bilgiler edinmek ve yeni fırsatlarını belirlemek. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

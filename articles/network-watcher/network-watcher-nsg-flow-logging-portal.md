@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 124ac79971ca2ee1e7b5ad085a73aceb8f5d8841
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: bfe4abe4a83a6b22d05942f91f4152d5c0e62be9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191399"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124108"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak bir sanal makine gelen ve giden ağ trafiğini günlüğe kaydetme
 
@@ -211,7 +211,7 @@ Aşağıdaki json, verileri günlüğe kaydedilen her akış için PT1H.json dos
 | 30 | Gönderilen - paketleri kaynaktan hedefe **yalnızca sürüm 2** | Kaynaktan hedefe son güncelleştirmeden bu yana gönderilen TCP veya UDP paketlerinin toplam sayısı. |
 | 16978 | Bayt gönderilen - kaynaktan hedefe **yalnızca sürüm 2** | Kaynaktan hedefe son güncelleştirmeden bu yana TCP veya UDP paket baytlarının toplam sayısı. Paket üst bilgisi ve yük paket bayt içerir. | 
 | 24 | Gönderilen - paket kaynağı hedefe **yalnızca sürüm 2** | TCP veya UDP paketlerini hedeften kaynağa son güncelleştirmeden bu yana gönderilen toplam sayısı. |
-| 14008| Bayt gönderilen - kaynak hedefe **yalnızca sürüm 2** | TCP ve UDP paket bayt hedeften kaynağa son güncelleştirmeden bu yana gönderilen toplam sayısı. Paket üst bilgisi ve yük paket bayt içerir.| |
+| 14008| Bayt gönderilen - kaynak hedefe **yalnızca sürüm 2** | TCP ve UDP paket bayt hedeften kaynağa son güncelleştirmeden bu yana gönderilen toplam sayısı. Paket üst bilgisi ve yük paket bayt içerir.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

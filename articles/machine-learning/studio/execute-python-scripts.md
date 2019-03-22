@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.date: 03/05/2019
-ms.openlocfilehash: f508d16330bad7044a69ccff2ddf84ece74e78a2
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.date: 03/12/2019
+ms.openlocfilehash: 4b4f3877b56752756050de0af226571ac2a93293
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729436"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888170"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio’da Python machine learning betikleri yürütme
 
@@ -62,13 +62,14 @@ Studio veri kümeleri Panda DataFrames aynı değildir. Sonuç olarak, giriş ve
 | Dizin vektörleri | Desteklenmeyen * |
 | Dize olmayan sütun adları | Çağrı `str` sütun adları |
 | Yinelenen sütun adları | Sayısal bir sonek olarak ekleyin: (1), (2), (3) ve benzeri.
+
 **Python işlevindeki tüm giriş veri çerçevelerini her zaman bir 64-bit sayısal dizin 0'dan eksi 1 satır numarasına sahip*
 
 ## <a id="import-modules"></a>Mevcut Python betik modüllerini içeri aktarma
 
-Python yürütmek için kullanılan arka uç dayanır [Anaconda](https://store.continuum.io/cshop/anaconda/), bilimsel Python dağıtım yaygın olarak kullanılan. Bu, veri merkezli iş yükleri içinde kullanılan en yaygın Python paketlerini 200 yakın birlikte gelir. Ancak, ek kitaplıklar eklemenize gerek bulabilirsiniz.
+Python yürütmek için kullanılan arka uç dayanır [Anaconda](https://store.continuum.io/cshop/anaconda/), bilimsel Python dağıtım yaygın olarak kullanılan. Bu, veri merkezli iş yükleri içinde kullanılan en yaygın Python paketlerini 200 yakın birlikte gelir. Studio yüklemek ve dış kitaplıkları yönetmek için Pip ya da Conda gibi paket Yönetimi sistemlerine kullanımı şu anda desteklemiyor.  Ek kitaplıklar eklemenize gerek fark ederseniz, aşağıdaki senaryoyu bir kılavuz olarak kullanın.
 
-Studio denemeleri mevcut Python betiklerini birleştirmek için yaygın bir kullanım örneği var. [Python betiği yürütme] [ execute-python-script] modülü Python modüllerini üçüncü Giriş noktasındaki içeren zip dosyasını kabul eder. Dosyanın çalışma zamanında yürütme framework tarafından sıkıştırması açılan ve içeriği Python yorumlayıcısı kitaplık yolunu eklenir. `azureml_main` İşlevi daha sonra içeri aktarabilir bu modülleri doğrudan giriş noktası.
+Studio denemeleri mevcut Python betiklerini birleştirmek için yaygın bir kullanım örneği var. [Python betiği yürütme] [ execute-python-script] modülü Python modüllerini üçüncü Giriş noktasındaki içeren zip dosyasını kabul eder. Dosyanın çalışma zamanında yürütme framework tarafından sıkıştırması açılan ve içeriği Python yorumlayıcısı kitaplık yolunu eklenir. `azureml_main` İşlevi daha sonra içeri aktarabilir bu modülleri doğrudan giriş noktası. 
 
 Örneğin, dosyayı içeren basit bir "Hello, World" işlevi Hello.py göz önünde bulundurun.
 
@@ -87,6 +88,25 @@ Zip dosyası Studio uygulamasına bir veri kümesi olarak karşıya yükleyin. A
 Modül çıktı zip dosyası paketlenmemiş olduğunu gösterir ve işlev `print_hello` çalıştırıldıktan.
 
 ![Kullanıcı tanımlı işlev gösteren modülü çıkışı](./media/execute-python-scripts/figure7.png)
+
+## <a name="accessing-azure-storage-blobs"></a>Azure depolama Blobları erişme
+
+Aşağıdaki adımları kullanarak bir Azure Blob Depolama hesabında depolanan verilere erişebilirsiniz:
+
+1. İndirme [Python için Azure Blob Depolama paketi](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) yerel olarak.
+1. Zip dosyası Studio çalışma alanınıza bir veri kümesi olarak karşıya yükleyin.
+1. BlobService nesnenizle oluşturma `protocol='http'`
+
+```
+from azure.storage.blob import BlockBlobService
+
+# Create the BlockBlockService that is used to call the Blob service for the storage account
+block_blob_service = BlockBlobService(account_name='account_name', account_key='account_key', protocol='http')
+```
+
+1. Devre dışı **güvenli aktarım gerekli** depolama alanınızda **yapılandırma** ayarı sekmesi
+
+![Güvenli aktarım gerekli Azure portalında devre dışı bırak](./media/execute-python-scripts/disable-secure-transfer-required.png)
 
 ## <a name="operationalizing-python-scripts"></a>Python betiklerini faaliyete geçirmeye yönelik
 

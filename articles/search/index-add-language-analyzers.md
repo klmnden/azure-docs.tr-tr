@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 20a8d9f5b575fca5471916af0183257f2a43d5cb
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 9584f0ee4264724787c5913c0d6baa4c2769fa82
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328308"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085686"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Dil Çözümleyicileri için bir Azure Search dizini Ekle
 
@@ -46,8 +46,8 @@ Varsayılan çözümleyici için İngilizce, ancak belki de değil yanı sıra L
 
 + Microsoft'un İngilizce Çözümleyicisi dallanma yerine başsözcüğe gerçekleştirir. Bu çok daha iyi ne daha ilgili arama sonuçlarında sonuçları bükümlü ve düzensiz sözcük biçimlerini işleyebileceği anlamına gelir. 
 
- > [!Tip]
- > [Arama Çözümleyicisi Tanıtımı](https://alice.unearth.ai/) standart olarak Lucene Çözümleyici, Lucene'nın İngilizce dil Çözümleyicisi ve Microsoft'un doğal dil İngilizce işlemci tarafından üretilen sonuçlar yan yana karşılaştırmasını sağlar. Her bir arama giriş sağlamanız, her çözümleyici sonuçları bitişik bölmelerinde görüntülenir.
+  > [!Tip]
+  > [Arama Çözümleyicisi Tanıtımı](https://alice.unearth.ai/) standart olarak Lucene Çözümleyici, Lucene'nın İngilizce dil Çözümleyicisi ve Microsoft'un doğal dil İngilizce işlemci tarafından üretilen sonuçlar yan yana karşılaştırmasını sağlar. Her bir arama giriş sağlamanız, her çözümleyici sonuçları bitişik bölmelerinde görüntülenir.
 
 ## <a name="configuring-analyzers"></a>Çözümleyicilerini yapılandırma
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 6fd25bbf6910140a338267c51955a817d0195939
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 2aabe3d1fa8a6034c2dab38c8d6fa6da4b00ac1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080348"
 ---
 # <a name="azure-network-security-overview"></a>Azure ağ güvenliğine genel bakış
 
@@ -61,8 +61,8 @@ Azure, çeşitli ağ erişim denetimi gibi destekler:
 
 Herhangi bir güvenli dağıtıma bazı ölçü ağ erişim denetimi gerektirir. Ağ erişim denetimi gerekli sistemleri için sanal makine iletişimi sınırlandırmak için hedefidir. Diğer iletişim girişimleri engellenir.
 
->[!NOTE]
-Depolama güvenlik duvarlarını kapsamdaki [Azure depolama güvenliğine genel bakış](security-storage-overview.md) makale
+> [!NOTE]
+> Depolama güvenlik duvarlarını kapsamdaki [Azure depolama güvenliğine genel bakış](security-storage-overview.md) makale
 
 #### <a name="network-security-rules-nsgs"></a>Ağ güvenlik kuralları (Nsg'ler)
 
@@ -365,8 +365,8 @@ Azure Ağ İzleyicisi gidermenize, yardımcı olabilir ve tüm yeni bir güvenli
 
 Ağ İzleyicisi ve bazı işlevlerini test etme, Labs'de başlatma hakkında daha fazla bilgi için bkz. [izlemeye genel bakış Azure Ağ İzleyicisi](../network-watcher/network-watcher-monitoring-overview.md).
 
->[!NOTE]
-Kullanılabilirlik ve bu hizmetin durumunu ilgili en güncel bildirimler için denetleme [Azure güncelleştirmeleri sayfası](https://azure.microsoft.com/updates/?product=network-watcher).
+> [!NOTE]
+> Kullanılabilirlik ve bu hizmetin durumunu ilgili en güncel bildirimler için denetleme [Azure güncelleştirmeleri sayfası](https://azure.microsoft.com/updates/?product=network-watcher).
 
 ### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
 

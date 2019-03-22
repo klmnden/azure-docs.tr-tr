@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2018
 ms.author: cherylmc
-ms.openlocfilehash: f2327d5a2d10653f73c17fbbd1bc9f61487bb21b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 94b32595cf2c884ccfd1362f6c8d03f542aabfc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778051"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090109"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Azure portalını kullanarak bir VNet-VNet VPN ağ geçidi bağlantısı yapılandırma
 
@@ -172,10 +172,10 @@ TestVNet1 ve TestVNet4 için sanal ağ geçidi oluşturma işlemleri tamamlandı
 
 1. Azure portalında **tüm kaynakları**, girin *sanal ağ geçidi* arama kutusuna ve ardından sanal ağınıza ait sanal ağ geçidine gidin. Örnek: **TestVNet1GW**. Açmak için seçin **sanal ağ geçidi** sayfası.
 
-  ![Bağlantılar sayfası](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "Connections page")
+   ![Bağlantılar sayfası](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/1to4connect2.png "Connections page")
 2. Altında **ayarları**seçin **bağlantıları**ve ardından **Ekle** açmak için **Bağlantı Ekle** sayfası.
 
-  ![Bağlantı ekleme](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Add a connection")
+   ![Bağlantı ekleme](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Add a connection")
 3. Üzerinde **Bağlantı Ekle** sayfasında, bağlantınız için değerleri girin:
 
    - **Ad**: Bağlantınız için bir ad girin. Örnek: *TestVNet1toTestVNet4*.
@@ -186,11 +186,11 @@ TestVNet1 ve TestVNet4 için sanal ağ geçidi oluşturma işlemleri tamamlandı
 
    - **İkinci sanal ağ geçidi**: Bu alan için bir bağlantı oluşturmak istediğiniz sanal ağın sanal ağ geçidi olur. Seçin **başka bir sanal ağ geçidi seçin** açmak için **sanal ağ geçidi Seç** sayfası.
 
-    - Bu sayfada listelenen sanal ağ geçitlerini görüntüleyin. Yalnızca aboneliğinizdeki sanal ağ geçitleri listelenir. Aboneliğinizde kullanmak olmayan bir sanal ağ geçidine bağlanmak istiyorsanız [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
+     - Bu sayfada listelenen sanal ağ geçitlerini görüntüleyin. Yalnızca aboneliğinizdeki sanal ağ geçitleri listelenir. Aboneliğinizde kullanmak olmayan bir sanal ağ geçidine bağlanmak istiyorsanız [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
-    - Bağlanmak istediğiniz sanal ağ geçidi seçin.
+     - Bağlanmak istediğiniz sanal ağ geçidi seçin.
 
-    - **Paylaşılan anahtar (PSK)**: Bu alanda bağlantınız için bir paylaşılan anahtar girin. Bu anahtarı kendiniz üretebilir veya oluşturabilirsiniz. Siteden siteye bağlantı, kullanacağınız anahtarın şirket içi Cihazınızı ve sanal ağ geçidi bağlantınızı aynıdır. Başka bir sanal ağ geçidi için bağlantı kurduğunuz, kavram, yerine bir VPN cihazına bağlanmak dışında burada benzer.
+     - **Paylaşılan anahtar (PSK)**: Bu alanda bağlantınız için bir paylaşılan anahtar girin. Bu anahtarı kendiniz üretebilir veya oluşturabilirsiniz. Siteden siteye bağlantı, kullanacağınız anahtarın şirket içi Cihazınızı ve sanal ağ geçidi bağlantınızı aynıdır. Başka bir sanal ağ geçidi için bağlantı kurduğunuz, kavram, yerine bir VPN cihazına bağlanmak dışında burada benzer.
     
 4. Seçin **Tamam** yaptığınız değişiklikleri kaydedin.
 

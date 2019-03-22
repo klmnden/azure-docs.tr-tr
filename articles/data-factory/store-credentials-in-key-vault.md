@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: fcd3af6c000debb8da6200205a9aa2ae61feac58
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a7d440509e2b823400cde83c1ac2ec054c37eb74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896220"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure anahtar Kasası'nda kimlik bilgisi Store
 
@@ -84,6 +84,9 @@ Bir alan bir anahtar kasası gizli dizi başvuran bağlı hizmette yapılandırd
 **Kullanıcı Arabirimi geliştirme kullanarak:**
 
 Seçin **Azure anahtar kasası** veri deposu/işlem bağlantısı oluşturulurken gizli alanlar için. Sağlanan Azure Key Vault bağlı hizmeti seçin ve sağlayan **gizli dizi adı**. İsteğe bağlı olarak bir gizli dizi sürümü de sağlayabilirsiniz. 
+
+>[!TIP]
+>SQL Server, Blob Depolama, vb. gibi bağlantılı hizmetindeki bağlantı dizesini kullanarak bağlayıcılar için yalnızca gizli alan Örneğin parola AKV içinde depolamak veya AKV tüm bağlantı dizesini depolama seçebilirsiniz. İki seçenek de kullanıcı arabiriminde bulabilirsiniz.
 
 ![AKV gizli yapılandırma](media/store-credentials-in-key-vault/configure-akv-secret.png)
 

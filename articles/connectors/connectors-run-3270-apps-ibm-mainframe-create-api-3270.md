@@ -10,12 +10,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: fb61935c7e7b45699d4142293f31bbfe39e4cb78
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: ebf858ba86758b11ee896d745d70bdf2f0d0cde6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457073"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878389"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>IBM ana bilgisayarları üzerinde 3270 ekran temelli uygulamalar, Azure Logic Apps ve IBM 3270 bağlayıcısını kullanarak Azure ile tümleştirin
 
@@ -410,7 +410,7 @@ Tüm adımları tamamladığınızda, uygulamanız için sürücü ekranlar, IBM
 
 ## <a name="connector-reference"></a>Bağlayıcı başvurusu
 
-Tetikleyiciler ve Eylemler sınırı hakkında teknik ayrıntılar için bağlayıcının Openapı'nin açıklanmıştır (önceki adıyla Swagger) açıklama, bağlayıcının gözden [başvuru sayfası](/connectors/<*replace-with-api-topic-file-name*>).
+Tetikleyiciler ve Eylemler sınırı hakkında teknik ayrıntılar için bağlayıcının Openapı'nin açıklanmıştır (önceki adıyla Swagger) açıklama, bağlayıcının başvuru sayfası gözden geçirin: [ https://docs.microsoft.com/connectors/<replace-with-api-topic-file-name> ](/connectors/).
 
 ## <a name="get-support"></a>Destek alın
 

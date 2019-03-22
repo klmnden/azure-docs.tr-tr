@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: ea7b5b087a5cfb2a3eefaef7336de4a6acf7f116
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0832010707fc9b5d5f435aac29940db6905d18d7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777541"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009294"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Uç noktaları ekleme, devre dışı bırakma, etkinleştirme veya silme
 
@@ -29,7 +29,7 @@ Aynı zamanda bir Traffic Manager profilinin parçası olan tekil uç noktaları
 
 ## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>Bir Traffic Manager profiline bulut hizmeti veya App Service uç noktası ekleme
 
-1. Bir tarayıcıdan [Azure portalında](http://portal.azure.com) oturum açın.
+1. Bir tarayıcıdan [Azure portalında](https://portal.azure.com) oturum açın.
 2. Portalın arama çubuğunda, değiştirmek istediğiniz **Traffic Manager profili** adını arayın ve ardından gösterilen sonuçlardaki Traffic Manager profiline tıklayın.
 3. **Ayarlar** bölümündeki **Traffic Manager profili** dikey penceresinde **Uç noktalar** öğesine tıklayın.
 4. Gösterilen **Uç noktalar** dikey penceresinde **Ekle**’ye tıklayın.
@@ -49,7 +49,7 @@ Aynı zamanda bir Traffic Manager profilinin parçası olan tekil uç noktaları
 
 ## <a name="to-disable-an-endpoint"></a>Bir uç noktayı devre dışı bırakma
 
-1. Bir tarayıcıdan [Azure portalında](http://portal.azure.com) oturum açın.
+1. Bir tarayıcıdan [Azure portalında](https://portal.azure.com) oturum açın.
 2. Portalın arama çubuğunda, değiştirmek istediğiniz **Traffic Manager profili** adını arayın ve ardından gösterilen sonuçlardaki Traffic Manager profiline tıklayın.
 3. **Ayarlar** bölümündeki **Traffic Manager profili** dikey penceresinde **Uç noktalar** öğesine tıklayın. 
 4. Devre dışı bırakmak istediğiniz uç noktaya tıklayın ve sonra gösterilen **Uç Nokta** dikey penceresinde **Düzenle**’ye tıklayın.
@@ -58,7 +58,7 @@ Aynı zamanda bir Traffic Manager profilinin parçası olan tekil uç noktaları
 
 ## <a name="to-enable-an-endpoint"></a>Bir uç noktayı etkinleştirme
 
-1. Bir tarayıcıdan [Azure portalında](http://portal.azure.com) oturum açın.
+1. Bir tarayıcıdan [Azure portalında](https://portal.azure.com) oturum açın.
 2. Portalın arama çubuğunda, değiştirmek istediğiniz **Traffic Manager profili** adını arayın ve ardından gösterilen sonuçlardaki Traffic Manager profiline tıklayın.
 3. **Ayarlar** bölümündeki **Traffic Manager profili** dikey penceresinde **Uç noktalar** öğesine tıklayın. 
 4. Devre dışı bırakmak istediğiniz uç noktaya tıklayın ve sonra gösterilen **Uç Nokta** dikey penceresinde **Düzenle**’ye tıklayın.
@@ -67,7 +67,7 @@ Aynı zamanda bir Traffic Manager profilinin parçası olan tekil uç noktaları
 
 ## <a name="to-delete-an-endpoint"></a>Uç noktayı silmek için
 
-1. Bir tarayıcıdan [Azure portalında](http://portal.azure.com) oturum açın.
+1. Bir tarayıcıdan [Azure portalında](https://portal.azure.com) oturum açın.
 2. Portalın arama çubuğunda, değiştirmek istediğiniz **Traffic Manager profili** adını arayın ve ardından gösterilen sonuçlardaki Traffic Manager profiline tıklayın.
 3. **Ayarlar** bölümündeki **Traffic Manager profili** dikey penceresinde **Uç noktalar** öğesine tıklayın. 
 4. Devre dışı bırakmak istediğiniz uç noktaya tıklayın ve sonra gösterilen **Uç Nokta** dikey penceresinde **Düzenle**’ye tıklayın.
