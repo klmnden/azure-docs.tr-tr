@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 1a07661d97561319b847323981dd2aa8522b0e84
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537601"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337876"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Azure Search'te bir temel dizin oluşturma
 
@@ -46,7 +46,7 @@ En doğru dizin tasarımı ulaşan, genellikle birden fazla yineleme ile elde ed
 
 6. Kod üzerinde tasarımınızı yinelemek için kullanmaya devam edin.  
 
-Fiziksel yapılar, hizmette oluşturulduğundan [bırakarak ve dizinleri yeniden](search-howto-reindex.md) ab mevcut alan tanımı kullanacağıyla ilgili önemli değişiklikler yaptığınızda gereklidir. Başka bir deyişle, geliştirme sırasında üzerinde sık sık yeniden planlamalısınız. Git, daha hızlı hale getirmek için verilerinizin bir alt kümesi ile çalışma oluşturur göz önünde bulundurabilirsiniz. 
+Fiziksel yapılar, hizmette oluşturulduğundan [bırakarak ve dizinleri yeniden](search-howto-reindex.md) varolan alan tanımına kullanacağıyla ilgili önemli değişiklikler yaptığınızda gereklidir. Başka bir deyişle, geliştirme sırasında üzerinde sık sık yeniden planlamalısınız. Git, daha hızlı hale getirmek için verilerinizin bir alt kümesi ile çalışma oluşturur göz önünde bulundurabilirsiniz. 
 
 Portal bir yaklaşım yerine kod yinelemeli tasarım için önerilir. Dizin tanımı için portalda güveniyorsanız, her yeniden dizin tanımını doldurmanız gerekir. Alternatif olarak, gibi araçları [Postman ve REST API'si](search-fiddler.md) geliştirme projelerini hala erken bir aşamada olduğunda, kavram kanıtı test etmek için yararlıdır. Bir dizin tanımını istek gövdesine artımlı değişiklikler yapmak ve sonra güncelleştirilmiş bir şemayı kullanarak bir dizini yeniden oluşturmak için hizmetinize istek gönderin.
 

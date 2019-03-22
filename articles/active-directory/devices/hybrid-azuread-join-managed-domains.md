@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2019
+ms.date: 03/20/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce91fc5418de2e93027a8cb3abf1dcc670be64a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 53be1d5728d681d2214677c00681c104a00e3946
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58166989"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337338"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Öğretici: Yönetilen etki alanları için hibrit Azure Active Directory katılımını Yapılandır
 
@@ -40,7 +40,7 @@ Bu öğreticide, yönetilen etki alanlarındaki cihazlar için hibrit Azure AD'y
 > * Hibrit Azure AD'ye katılımı yapılandırma
 > * Windows alt düzey cihazlarını etkinleştirme
 > * Katılmış cihazları doğrulama 
-> * Sorunları giderin 
+> * Sorun giderme 
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -148,7 +148,7 @@ Bazı etki alanına katılmış cihazlar Windows alt düzey cihazlarıysa şunla
 - Windows alt düzey cihazlarını denetleme 
 
 
-### <a name="update-device-settings"></a>Cihaz ayarlarını güncelleştir 
+### <a name="update-device-settings"></a>Cihaz ayarlarını güncelleştirme 
 
 Windows alt düzey cihazlarını kaydetmek için, cihaz ayarlarının kullanıcıların Azure AD'de cihazları kaydedebilmesini sağlayacak şekilde ayarlandığından emin olmanız gerekir. Azure portal'da bu ayarı şu bölümde bulabilirsiniz:
 
@@ -200,7 +200,7 @@ Hizmet ayrıntılarını kontrol etmek için **Get-MSolDevice** cmdlet kullanır
 
 2. Azure kiracınıza bağlanmak için `Connect-MsolService` yazın.  
 
-3. Türü `get-msoldevice -deviceId <deviceId>`
+3. `get-msoldevice -deviceId <deviceId>` yazın.
 
 6. **Enabled** değerinin **True** olarak ayarlandığını doğrulayın.
 
@@ -220,5 +220,5 @@ Etki alanına katılmış Windows cihazları için hibrit Azure AD'ye katılım�
 
 > [!div class="nextstepaction"]
 > [Federasyon etki alanları için hibrit Azure Active Directory'ye katılımı yapılandırma](hybrid-azuread-join-federated-domains.md)
-> [Elle hibrit Azure Active Directory'ye katılımı yapılandırma](hybrid-azuread-join-manual-steps.md)
+> [Elle hibrit Azure Active Directory'ye katılımı yapılandırma](hybrid-azuread-join-manual.md)
 

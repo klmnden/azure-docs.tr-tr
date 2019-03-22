@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 270708496fbe13b9061abe5d64d5577193db4027
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 600b18997ced80a63b7e86f66bc447ddd7932687
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450660"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310753"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hive ve Apache Hadoop kullanarak Twitter verilerini çözümleme
 
@@ -41,7 +41,7 @@ Twitter bir REST API aracılığıyla JavaScript nesne gösterimi (JSON) belgesi
    |:--- |:--- |
    | Ad |MyHDInsightApp |
    | Açıklama |MyHDInsightApp |
-   | Web sitesi |https://www.myhdinsightapp.com |
+   | Web sitesi |https:\//www.myhdinsightapp.com |
 
 4. Denetleme **Evet, kabul ediyorum**ve ardından **kendi Twitter uygulamanızı oluşturun**.
 

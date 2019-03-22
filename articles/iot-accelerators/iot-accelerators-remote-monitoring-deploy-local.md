@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4a48312dc516010b7a7fe1471ba7e555a2f92f2
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: fdb9b6c09e81ce29d2587fb0faca1aa80d28ea38
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382248"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309988"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Visual Studio dağıtma
 
@@ -96,7 +96,7 @@ npm install
 npm start
 ```
 
-Başlangıç tamamlandıktan sonra tarayıcınızı sayfası görüntüler **http://localhost:3000/dashboard**. Bu sayfadaki hataları beklenmektedir. Uygulama hatasız görüntülemek için aşağıdaki adımı tamamlayın.
+Başlangıç tamamlandıktan sonra tarayıcınızı sayfası görüntüler **http:\//localhost:3000 / Pano**. Bu sayfadaki hataları beklenmektedir. Uygulama hatasız görüntülemek için aşağıdaki adımı tamamlayın.
 
 ### <a name="configure-and-run-nginx"></a>Yapılandırma ve NGINX çalıştırma
 
@@ -109,7 +109,7 @@ Yerel makinenizde çalışan mikro hizmetler ve web uygulaması bağlamak için 
 
 ### <a name="connect-to-the-dashboard"></a>Panoya bağlanma
 
-Uzaktan izleme çözümü panosuna erişmek için gidin [ http://localhost:9000 ](http://localhost:9000) tarayıcınızda.
+Uzaktan izleme çözümü panosuna erişmek için http gidin:\/tarayıcınızda /localhost:9000.
 
 ## <a name="clean-up"></a>Temizleme
 

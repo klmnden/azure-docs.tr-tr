@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 36d0a976b73fe5b6f89755ce790b919468744179
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e27dee213baf8365c3ad4efc69602f66e2081abe
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091656"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311161"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery hizmeti güncelleştirmeleri
 Bir kuruluş olarak plansız kesintiler ve verilerinizin güvenliğini korumak için nasıl gideceğinizi ve Planlı çalışan uygulamaları/iş yüklerini out şekil yapmanız gerekir. Azure Site Recovery, Vm'leri ve fiziksel sunucuları bir site dışı kalırsa kullanılabilir çalışan uygulamalarınızı tutarak, BCDR stratejinize katkıda bulunur. Site Recovery, VM ve fiziksel sunucularda çalışan iş yüklerini çoğaltarak birincil sitenin kullanılamaz hale gelmesi durumunda bunların ikincil bir konumda kullanılabilir kalmasını sağlar. Birincil site yeniden çalışmaya başladığında birincil sitede iş yüklerini kurtarır.
@@ -118,17 +118,18 @@ Yeniden başlatma, Mobility Aracısı her bir yükseltmeden sonra tüm son deği
 
 |Güncelleştirme paketi  |Sağlayıcı  |Birleşik Kurulum| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|[Güncelleştirme paketi 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[Güncelleştirme paketi 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) -düzeltme     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[Güncelleştirme paketi 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[Güncelleştirme paketi 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[Güncelleştirme Paketi 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[Güncelleştirme paketi 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
-|[Güncelleştirme paketi 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0
-|[Güncelleştirme paketi 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)     |  5.1.3600 .0      |    9.19.4973.1     |  5.1.3600.0       |2.0.9131.0
-| [Güncelleştirme Paketi 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)       |   5.1.3550.0      |    9.18.4946.1     | 5.1.3550.0         |2.0.9125.0
-
 
 ## <a name="previous-update-rollups"></a>Önceki güncelleştirme paketleri
+
+- [Güncelleştirme paketi 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
+- [Güncelleştirme paketi 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)
+- [Güncelleştirme Paketi 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)
 - [Güncelleştirme paketi 26](https://support.microsoft.com/help/4344054/update-rollup-26-for-azure-site-recovery)  
 - [Güncelleştirme paketi 25](https://support.microsoft.com/help/4278275/update-rollup-25-for-azure-site-recovery) 
 - [Güncelleştirme paketi 23](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) 

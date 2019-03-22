@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: cb5ad8e4ff3d5a28fa38c7e8972e7e3e69d2762d
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: f44b6f9ed42770fe830346de08058e33ed68a249
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136962"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309651"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Proje akustik Unity hazırlama Öğreticisi
 Bu öğreticide, Unity projesi akustik ile saklanacağı akustik açıklanmaktadır.
@@ -28,7 +28,7 @@ Yazılım gereksinimleri:
 ## <a name="open-the-project-acoustics-bake-window"></a>Açık proje akustik penceresi hazırlama
 Seçin **penceresi > akustik** Unity menüsünde:
 
-![Açık akustik penceresi](media/window-acoustics.png)
+![Akustik penceresinde menü seçeneğinin vurgulandığı ekran görüntüsü, Unity Düzenleyicisi](media/window-acoustics.png)
 
 ## <a name="create-a-navigation-mesh"></a>Bir gezinti ağı oluşturun
 Proje akustik Gezinti kafes simülasyonu için dinleyici araştırma noktaları yerleştirmek için kullanır. Unity'nın kullanabilirsiniz [Gezinti kafes iş akışı](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html), veya başka bir 3B modelleme paketi kendi kafes tasarlamak için kullanabilirsiniz. 
@@ -68,15 +68,15 @@ Sekme sayfasındaki bölümleri şunlardır:
 
 Hiçbir şey, sahnede seçili varsa, nesneler sekmesini aşağıdaki resim gibi görünecektir:
 
-![Seçim nesneleri sekmesi](media/objects-tab-no-selection-detail.png)
+![Seçim sekmesiyle akustik nesnelerin ekran görüntüsü](media/objects-tab-no-selection-detail.png)
 
 Sahne veya hiyerarşi penceresinde seçilen bir şey varsa, aşağıdaki resim gibi görünecektir:
 
-![Seçim nesneleri sekmesi](media/objects-tab-selection-detail.png)
+![Ekran görüntüsü, akustik nesnelerin sekmesiyle gösterilen seçimi](media/objects-tab-selection-detail.png)
 
 Bazı nesneler işaretlenir ve bazı değil, uygun onay kutusunu "karma" bir değer gösterir:
 
-![Karma değer onay kutusu](media/mixed-object-selection-detail.png)
+![Vurgulanan karma seçim simgesi sekmesiyle akustik nesnelerin ekran görüntüsü](media/mixed-object-selection-detail.png)
 
 Onay kutusuna tıklayarak işaretlenmesi için tüm nesneleri zorlar ve tıklayarak tekrar tüm nesneleri işaretini.
 
@@ -89,10 +89,10 @@ Akustik malzemeleri her yüzeyinden yansımasını ses enerji miktarını denetl
 
 Verilen bir malzeme odasında reverberation süresini 0,01 için 0,20 aralığında içe alma değerlerine sahip çoğu malzemelerle, içe alma katsayısı için inversely ilişkilidir. Bu aralığın dışında kalan içe alma katsayıları malzemelerle çok absorbent.
 
-![Yankı Süresi grafiği](media/reverb-time-graph.png)
+![İçe alma katsayısı ile reverberation zaman negatif bir bağıntı gösteren grafik](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>Başvuru için: Malzemeleri sekmesinin bölümleri
-![Malzemeleri sekmesi ayrıntısı](media/materials-tab-detail.png)
+![Unity sekmede akustik malzemeleri ekran görüntüsü](media/materials-tab-detail.png)
 
 1. **Malzemeleri** sekmesini düğmesi, bu sayfasını getirmek için kullanılır.
 2. Bu sayfayı kullanarak yapmanız gerekenler kısa bir açıklaması.
@@ -117,23 +117,23 @@ Sahneniz boyutunu ve makinenizin hızına bağlı olarak, bu hesaplamalar birka�
 ### <a name="review-voxel-and-probe-placement"></a>Gözden geçirme voxel ve araştırma yerleştirme
 Hem voxel verileri hem de sahneniz hazırlama hazır olmak için araştırma noktası konumu önizlemesini görüntüleyin. Tamamlanmamış Gezinti kafes ya da eksik veya ek akustik geometri genellikle önizlemede hızlı bir şekilde görünür. Voxel ve araştırma yerleştirme etkinleştirilebilir veya şeyler menüsünü kullanarak devre dışı:
 
-![Şeyler menüsü](media/gizmos-menu.png)
+![Unity menüde, ekran şeyler](media/gizmos-menu.png)
 
 Akustik geometri içeren Voxels yeşil küpleri olarak gösterilir. Sahneniz keşfedin ve geometri olması gereken her şeyi voxels sahip olduğunu doğrulayın. Kamerayı sahnenin yaklaşık 5 ölçümleri gösterilecek voxels için nesnenin içinde olması gerekir.
 
 Kaba çözümleme vs iyi çözüm ile oluşturulan voxels karşılaştırırsanız kaba voxels iki kez büyük olduğunu görürsünüz.
 
-![Voxel Önizleme](media/voxel-cubes-preview.png)
+![Unity Düzenleyicisi'nde kaba voxels önizleme görüntüsü](media/voxel-cubes-preview.png)
 
 Simülasyon sonuçlarını, çalışma zamanında dinleyicisi yoklama noktası konumu arasında ilişkilendirilmiş. Oyuncu sahnede seyahat beklenen araştırma noktası herhangi bir yerde yakın denetleyin.
 
-![Araştırmalar Önizleme](media/probes-preview.png)
+![Unity Düzenleyicisi önizleme görüntüsü araştırmaları](media/probes-preview.png)
 
 ### <a name="take-care-with-scene-renames"></a>Sahne yeniden adlandırma ile ilgileniriz
 Görünüm adı, Sahne voxelization ve araştırma noktası yerleştirme depolama dosyalara bağlanmak için kullanılır. Araştırma noktaları hesaplandıktan sonra Sahne adlandırılırsa malzeme atama ve yerleştirme veriler kaybedilir ve yeniden çalıştırılmalıdır.
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>Başvuru için: Araştırmalar sekmesinin bölümleri
-![Araştırmalar sekmesi ayrıntısı](media/probes-tab-detail.png)
+![Unity sekmesinde akustik araştırmaları, ekran görüntüsü](media/probes-tab-detail.png)
 
 1. **Araştırmaları** bu sayfasını getirmek için kullanılan sekmesini düğmesi
 2. Bu sayfayı kullanarak yapmanız gerekenler kısa bir açıklaması
@@ -157,15 +157,15 @@ Bu basit görünebilir, ancak birçok etkilerinin akustik benzetim vardır:
 * Ses kaynakları geometri içeren voxels olan "dolu" voxels içinde bulunamıyor - bu ses yok sonuçlanır. Kaba ince ayar kullandığından, daha büyük voxels içinde olmadıkları için ses kaynakları bulmak daha zordur.
 * Daha büyük voxels daha aşağıda gösterildiği gibi portallarda oturum intrude. İyi bir çözüm kullanarak aynı ortaklıklarına ortam hazırlayan ikinci olmakla birlikte ilk görüntü kaba, kullanılarak oluşturuldu. Kırmızı işaretler tarafından belirtildiği gibi ince ayarını kullanarak ortaklıklarına ortam hazırlayan çok daha az giriş yok. Kırmızı çizgi voxel boyutu tarafından tanımlanan etkili akustik portalı olsa da, geometri tarafından tanımlanan aynıdır, mavi bir çizgi ortaklıklarına ortam hazırlayan kullanır. Bu yetkisiz erişim verilen bir durumda nasıl oynatılacağını tamamen geometri nesnelerinizi sahnedeki konumlarını ve boyutu tarafından belirlenir Portal ile nasıl voxels hizaya bağlıdır.
 
-![Kaba kapısı](media/coarse-voxel-doorway.png)
+![Kaba voxels kapısı, ekran görüntüsü](media/coarse-voxel-doorway.png)
 
-![İnce kapısı](media/fine-voxel-doorway.png)
+![İnce voxels kapısı, ekran görüntüsü](media/fine-voxel-doorway.png)
 
 ## <a name="bake-your-scene-using-azure-batch"></a>Azure Batch kullanırken görünümünüze hazırlama
 Azure Batch hizmetini kullanarak bulutta bilgi işlem kümesi ile sahneniz hazırlama. Proje akustik Unity eklenti oluşturmak, yönetmek ve bir Azure Batch kümesi için her hazırlama kaldırmak için Azure Batch doğrudan bağlanır. Üzerinde **hazırlama** sekmesinde, Azure kimlik bilgilerinizi girin, bir küme makine türü ve boyut seçin ve tıklayın **hazırlama**.
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>Başvuru için: Hazırlama sekmesinin bölümleri
-![Hazırlama sekmesi ayrıntısı](media/bake-tab-details.png)
+![Unity sekmesinde akustik, ekran görüntüsü hazırlama](media/bake-tab-details.png)
 
 1. Bu sayfasını getirmek için kullanılan hazırlama için sekmesinde düğme.
 2. Kısa bir açıklamasını bu sayfada yapmanız gerekenler.
@@ -209,8 +209,8 @@ Kendi bilgisayarınıza sahneniz hazırlama. Bu, bir Azure Batch hesabı oluştu
 ### <a name="setup-docker"></a>Docker Kurulumu
 Yükleme ve Docker benzetim işleyen bilgisayarda yapılandırma-
 1. Yükleme [Docker araç takımı](https://www.docker.com/products/docker-desktop).
-2. Docker ayarları başlatın, "Gelişmiş" seçeneğine gidin ve en az 8 GB RAM'e sahip için kaynakları yapılandırma. Daha fazla CPU'ları için Docker ayırabilirsiniz, hazırlama daha hızlı tamamlanır. ![Örnek Docker ayarları](media/docker-settings.png)
-3. "Paylaşılan sürücüler için" gidin ve işleme için kullanılan sürücü için paylaşımı etkinleştirin.![DockerDriveSharing](media/docker-shared-drives.png)
+2. Docker ayarları başlatın, "Gelişmiş" seçeneğine gidin ve en az 8 GB RAM'e sahip için kaynakları yapılandırma. Daha fazla CPU'ları için Docker ayırabilirsiniz, hazırlama daha hızlı tamamlanır. ![Örnek Docker ayarları görüntüsü](media/docker-settings.png)
+3. "Paylaşılan sürücüler için" gidin ve işleme için kullanılan sürücü için paylaşımı etkinleştirin.![Paylaşılan Docker Screnshot sürücü seçenekleri](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>Yerel çalışma hazırlama
 1. "Hazırlama yerel Hazırlama" düğmesine tıklayın **hazırlama** sekme ve burada yürütme komut dosyaları ve giriş dosyalarının kaydedileceği klasörü seçin. Ardından hazırlama en düşük donanım gereksinimlerini karşıladığından ve bu makineye klasörüne kopyalayarak Docker yüklü olduğu sürece herhangi bir makinede çalıştırabilirsiniz.
@@ -234,11 +234,11 @@ Düzenleyici veri dosyaları:
 ## <a name="set-up-the-acoustics-lookup-table"></a>Akustik arama tablosu ayarlama
 Sürükle ve bırak **proje akustik** sahneniz içine Proje panelinden prefab:
 
-![Akustik Prefab](media/acoustics-prefab.png)
+![Ekran görüntüsü, akustik prefab Unity](media/acoustics-prefab.png)
 
 Tıklayarak **ProjectAcoustics** Game nesne ve denetçisi panelini Git. Hazırlama sonuç (. konumunu belirtin ACE dosyası **varlıklar/AcousticsData**) sürükleme ve bırakma tarafından akustik Manager betiğe veya metin kutusunun yanındaki daireye düğmesine tıklayarak.
 
-![Akustik Yöneticisi](media/acoustics-manager.png)  
+![Unity prefab akustik Yöneticisi ekran görüntüsü](media/acoustics-manager.png)  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Keşfedin [Unity için denetimleri tasarım](unity-workflow.md)

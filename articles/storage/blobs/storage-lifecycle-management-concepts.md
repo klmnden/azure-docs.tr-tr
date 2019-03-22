@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 93c19bc39f64df21dfa9db2490ab2103aba8191d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1428c2925ab57642899732bd4504b2d5b38781a8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086114"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315156"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Depolama (Önizleme) yaşam döngüsünü yönetme
 
@@ -190,7 +190,7 @@ Filtreler, BLOB Depolama hesabında bir alt kural eylemi sınırlayın. Birden f
 | Filtre adı | Filtre türü | Notlar | Gerekli |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Önceden tanımlanmış bir sabit listesi değerleri dizisi. | Önizleme sürümü yalnızca destekler `blockBlob`. | Evet |
-| prefixMatch | Olması eşleşecek şekilde ön ekleri için dize dizisi. Bir önek dizesi, bir kapsayıcı adı ile başlamalıdır. Örneğin, tüm BLOB'ları altındaki eşleştirmek istiyorsanız "<https://myaccount.blob.core.windows.net/container1/foo/>..." bir kural için prefixMatch olan `container1/foo`. | PrefixMatch tanımlamazsanız, hesabındaki tüm bloblar için kurallar uygulanır. | Hayır |
+| prefixMatch | Olması eşleşecek şekilde ön ekleri için dize dizisi. Bir önek dizesi, bir kapsayıcı adı ile başlamalıdır. Örneğin, tüm BLOB'ları altındaki eşleştirmek istiyorsanız "https:\//myaccount.blob.core.windows.net/container1/foo/..." bir kural için prefixMatch olan `container1/foo`. | PrefixMatch tanımlamazsanız, hesabındaki tüm bloblar için kurallar uygulanır. | Hayır |
 
 ### <a name="rule-actions"></a>Kural eylemi
 

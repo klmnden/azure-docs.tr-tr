@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871003"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316975"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Azure Logic Apps ile şirket içi dosya sistemlerine bağlanın
 
@@ -48,7 +48,7 @@ Bu makalede bu örnek senaryo tarafından açıklandığı gibi bir şirket içi
 
 1. Oturum [Azure portalında](https://portal.azure.com)ve Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın, açık değilse.
 
-1. Arama kutusuna filtreniz olarak "dropbox" girin. Tetikleyiciler listesinden şu tetikleyiciyi seçin: **Bir dosya oluşturulduğunda** 
+1. Arama kutusuna filtreniz olarak "dropbox" girin. Tetikleyiciler listesinden şu tetikleyiciyi seçin: **Bir dosya oluşturulduğunda**
 
    ![Dropbox tetikleyicisini seçin](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -78,7 +78,7 @@ Bu makalede bu örnek senaryo tarafından açıklandığı gibi bir şirket içi
    | **Ağ geçidi** | Evet | <*yüklü-gateway-name*> | Daha önce yüklü ağ geçidi adı | 
    ||| 
 
-1. İşiniz bittiğinde **Oluştur**’u seçin. 
+1. İşiniz bittiğinde **Oluştur**’u seçin.
 
    Logic Apps, yapılandırır ve bağlantının düzgün çalıştığından emin olun, bağlantınızı test eder. 
    Bağlantı doğru şekilde ayarlanıp ayarlanmadığını daha önce seçtiğiniz eylemi için seçenekler görüntülenir. 

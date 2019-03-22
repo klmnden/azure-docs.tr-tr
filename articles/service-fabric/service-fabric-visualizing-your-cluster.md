@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: ba6a9a09945f0e822dfe02a74f2cdb8e21a1691c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 47b5e89164173869d6964e2c5e392bb99e0c8555
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674676"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317400"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Service Fabric Explorer ile kümenizi görselleştirme
 
@@ -46,7 +46,7 @@ Bir masaüstü uygulaması olarak Service Fabric Explorer'ı indirmek için aşa
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>Kümedeki çalışan Service Fabric Explorer
 
-Service Fabric Explorer, bir Service Fabric küme HTTP yönetim uç noktası da barındırılır. Bir web tarayıcısında SFX başlatmak için kümenin HTTP yönetim uç noktası için herhangi bir tarayıcıdan - örneğin göz https://clusterFQDN:19080.
+Service Fabric Explorer, bir Service Fabric küme HTTP yönetim uç noktası da barındırılır. Bir web tarayıcısında SFX başlatmak için kümenin HTTP yönetim uç noktası için herhangi bir tarayıcıdan - örneğin https Gözat:\//clusterFQDN:19080.
 
 Geliştirici iş istasyonu kurulumu için Service Fabric Explorer kullanarak yerel kümenizde giderek başlatabilirsiniz https://localhost:19080/Explorer. Bu makaleye bakın [geliştirme ortamınızı hazırlama](service-fabric-get-started.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Sorun giderme - Azure Active Directory Self Servis parola sıfırlama
+title: Self Servis parola sıfırlama sorun giderme - Azure Active Directory
 description: Sorun giderme Azure AD Self Servis parola sıfırlama
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3621bbce0128fbd173120ae2a327065ee2e84e33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 297d32311b6b697b0141488878d170b3f2f4c359
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57878457"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315496"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Self Servis parola sıfırlama sorunlarını giderme
 

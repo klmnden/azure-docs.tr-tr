@@ -1,5 +1,5 @@
 ---
-title: Azure MFA sunucusu, yüksek kullanılabilirlik için yapılandırma | Microsoft Docs
+title: Yüksek kullanılabilirlik için - Azure Active Directory'de Azure MFA sunucusu yapılandırma
 description: Azure multi-Factor Authentication sunucusu yapılandırmaları yüksek kullanılabilirlik sağlayan birden çok örneğini dağıtın.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26216131b461a395d3c87895a055d3ae30abf87c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba8a1976fa9fc2a02f7f3e8419de10ebba7df950
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198822"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316312"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Azure multi-Factor Authentication sunucusu için yüksek kullanılabilirliği yapılandırma
 

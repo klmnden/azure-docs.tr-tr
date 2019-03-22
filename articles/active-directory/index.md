@@ -277,7 +277,7 @@ ms.collection: M365-identity-device-management
                                                         <p>
                                                             <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">Azure SQL'e erişmek için Windows VM kullanma</a><br>
                                                             <a href="managed-identities-azure-resources/how-to-use-vm-token.md">Belirteç almak için Azure VM'yi kullanma</a><br>
-                                                            <a href="managed-identities-azure-resources/services-support-msi.md">Yönetilen kimliği destekleyen hizmetler</a><br>
+                                                            <a href="managed-identities-azure-resources/services-support-managed-identities.md">Yönetilen kimliği destekleyen hizmetler</a><br>
                                                             <a href="managed-identities-azure-resources/index.yml"><i>Diğerlerine bakın &gt;</i></a>
                                                         </p>
                                                         <br><br>

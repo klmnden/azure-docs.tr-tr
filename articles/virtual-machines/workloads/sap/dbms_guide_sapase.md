@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/1/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c37c5339dedb3db68ed9bd23cd28e16a195bbde
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7cc908695a2d7263339003e5419f82da9cc313ab
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005790"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317774"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP iş yükü için SAP ASE Azure sanal makineleri DBMS dağıtım
 
@@ -380,9 +380,9 @@ Olarak şirket içi sistemler ile birkaç adım DBACockpit Webdynpro uygulaması
 
 ve işlem DBACockpit benzer oluşturulan bağlantıları:
 
-> https://`<fullyqualifiedhostname`>:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//\<fullyqualifiedhostname>:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http://`<fullyqualifiedhostname`>: sap/8000/bc/sap/webdynpro/dba_cockpit
+> http:\//\<fullyqualifiedhostname >: sap/8000/bc/sap/webdynpro/dba_cockpit
 > 
 > 
 
@@ -398,9 +398,9 @@ DNS adına ilgili daha fazla ayrıntı bulunabilir [burada][virtual-machines-azu
 
 Azure VM bağlantısı için DNS adı SAP profili parametresi ICM/host_name_full ayarlama şuna benzeyebilir:
 
-> https://mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http://mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
 
 Bu durumda için emin olmanız gerekir:
 
@@ -533,9 +533,9 @@ Olarak şirket içi sistemler ile birkaç adım DBACockpit Webdynpro uygulaması
 
 ve işlem sırasında oluşturulan bağlantılar DBACockpit şuna benzer görünecektir:
 
-> https://`<fullyqualifiedhostname`>:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//\<fullyqualifiedhostname>:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http://`<fullyqualifiedhostname`>: sap/8000/bc/sap/webdynpro/dba_cockpit
+> http:\//\<fullyqualifiedhostname >: sap/8000/bc/sap/webdynpro/dba_cockpit
 > 
 > 
 
@@ -551,9 +551,9 @@ DNS adına ilgili daha fazla ayrıntı bulunabilir [burada][virtual-machines-azu
 
 Azure VM bağlantısı için DNS adı SAP profili parametresi ICM/host_name_full ayarlama şuna benzeyebilir:
 
-> https://mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
+> https:\//mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
-> http://mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
+> http:\//mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
 
 Bu durumda için emin olmanız gerekir:
 

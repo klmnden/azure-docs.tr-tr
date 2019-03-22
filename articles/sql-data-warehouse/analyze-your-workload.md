@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7b5ca738ef71e25dfe5e71a1983d701bb8868fe5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 434cbb18a109308844dbc7ff219d40948678e86e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896815"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310736"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı iş yükünüzü çözümleme
 
@@ -67,7 +67,7 @@ SQL veri ambarı, aşağıdaki türleri bekleyin sahiptir:
 * **LocalQueriesConcurrencyResourceType**: Eşzamanlılık yuvası çerçevenin dışında sit sorgular. DMV sorgular ve sistem işlevleri gibi `SELECT @@VERSION` yerel sorgular örnekleridir.
 * **UserConcurrencyResourceType**: İçinde eşzamanlılık yuvası framework sit sorgular. Son kullanıcı tablolarda yürütülen sorgular, bu kaynak türü kullanacağınız örnekleri temsil eder.
 * **DmsConcurrencyResourceType**: Veri taşıma işlemlerini kaynaklanan bekler.
-* **BackupConcurrencyResourceType**: Bu bekleme, bir veritabanı yedekleniyor olduğunu gösterir. Bu kaynak türü için maksimum değeri 1'dir. Aynı zamanda, diğer birden çok yedekleme istenen, kuyruk.
+* **BackupConcurrencyResourceType**: Bu bekleme, bir veritabanı yedekleniyor olduğunu gösterir. Bu kaynak türü için maksimum değeri 1'dir. Aynı zamanda, diğer birden çok yedekleme istenen, kuyruk. Genel olarak, 10 dakikalık ardışık anlık görüntü arasındaki en az bir süre öneririz. 
 
 `sys.dm_pdw_waits` DMV, hangi kaynakların bir isteği bekliyor görmek için kullanılabilir.
 

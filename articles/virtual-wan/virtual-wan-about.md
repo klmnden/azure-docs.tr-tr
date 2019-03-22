@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 6f2f002c5ff08e21741927d07a0facfd09ec0914
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: 6dae42dcc8b74b682c7226916482228058db6154
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295700"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336261"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Azure Sanal WAN nedir?
 
@@ -21,7 +21,7 @@ Azure sanal WAN en iyi duruma getirilmiş ve otomatik Dal bağlantısı için ve
 
 Azure sanal WAN siteden siteye VPN (genel kullanıma sunuldu) ExpressRoute (Önizleme), tek bir işletimsel arabirim uygulamasına noktadan siteye kullanıcı (Önizleme) VPN gibi birçok Azure bulut Bağlantı Hizmetleri getirmektedir. Sanal ağ bağlantıları kullanarak Azure Sanal Ağları için bağlantı kurulur.
 
-![Sanal WAN diyagramı](./media/virtual-wan-about/vwangraphic.png)
+![Sanal WAN diyagramı](./media/virtual-wan-about/virtualwan1.png)
 
 Bu makalede, Azure sanal WAN ağ bağlantısı hızlı bir görünüm sağlar. Sanal WAN şu avantajları sunar:
 
@@ -49,7 +49,7 @@ Bir uçtan uca sanal WAN yapılandırmak için aşağıdaki kaynakları oluştur
 
 ## <a name="connectivity"></a>Bağlantı
 
-Sanal WAN üç tür bağlantı sağlar:-siteye, noktadan siteye (Önizleme) ve ExpressRoute (Önizleme).
+Sanal WAN üç tür bağlantı sağlar: siteden siteye, noktadan siteye (Önizleme) ve ExpressRoute (Önizleme).
 
 ### <a name="s2s"></a>Siteden siteye VPN bağlantıları
 
@@ -71,7 +71,7 @@ Kullanılabilir iş ortakları ve konumları listesi için bkz. [sanal WAN iş o
 
 ### <a name="p2s"></a>Noktadan siteye VPN bağlantıları (Önizleme)
 
-Noktadan Siteye (P2S) bağlantı, ayrı bir istemci bilgisayardan sanal hub'ınıza güvenli bir bağlantı oluşturmanıza olanak tanır. P2S bağlantısı, istemci bilgisayardan başlatılarak oluşturulur. Bu çözüm, uzak bir konumdan (örneğin, evden veya bir konferanstan) bağlanmak isteyen uzaktan çalışan kişiler için kullanışlıdır. P2S VPN, ayrıca, bağlanması gereken yalnızca birkaç istemciniz olduğunda, S2S VPN yerine kullanabileceğiniz yararlı bir çözümüdür.
+Noktadan siteye (P2S) bağlantısı bir tek tek istemci bilgisayardan sanal hub'ınıza güvenli bir bağlantı oluşturmanıza olanak sağlar. P2S bağlantısı, istemci bilgisayardan başlatılarak oluşturulur. Bu çözüm, uzak bir konumdan (örneğin, evden veya bir konferanstan) bağlanmak isteyen uzaktan çalışan kişiler için kullanışlıdır. P2S VPN, ayrıca, bağlanması gereken yalnızca birkaç istemciniz olduğunda, S2S VPN yerine kullanabileceğiniz yararlı bir çözümüdür.
 
 Bağlantı oluşturmak için bkz: [sanal WAN kullanarak noktadan siteye bağlantı oluşturma](virtual-wan-point-to-site-portal.md).
 

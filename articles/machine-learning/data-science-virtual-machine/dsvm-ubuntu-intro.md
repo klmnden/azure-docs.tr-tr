@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: 92f9fcc8a10f90c0886667f33f3c7d4dec09bc8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d48f47f66bea0bb8c5e3c982f983f3673bcb157
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884685"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317043"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Linux (Ubuntu) için veri bilimi sanal makinesi sağlama
 
@@ -144,9 +144,9 @@ VM'ye SSH istemcisi veya XFCE grafik Masaüstü X2Go istemcisi aracılığıyla 
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub ve JupyterLab
 
-Ubuntu DSVM çalıştıran [JupyterHub](https://github.com/jupyterhub/jupyterhub), çok kullanıcılı Jupyter sunucusu. Bağlanmak için Gözat https://your-vm-ip:8000 , dizüstü bilgisayarınız veya masaüstü, kullanıcı adını ve VM oluşturma ve oturum açmak için kullandığınız parolayı girin. Birçok örnek not defterleri göz atın ve denemek için kullanılabilir.
+Ubuntu DSVM çalıştıran [JupyterHub](https://github.com/jupyterhub/jupyterhub), çok kullanıcılı Jupyter sunucusu. Bağlanmak için https için göz atın:\//,-vm-ip:8000 Masaüstü veya dizüstü bilgisayar, kullanıcı adını ve VM oluşturma ve oturum açmak için kullandığınız parolayı girin. Birçok örnek not defterleri göz atın ve denemek için kullanılabilir.
 
-JupyterLab, Jupyter Not defterlerinden ve JupyterHub, yeni nesil de kullanılabilir. Erişmek için JupyterHub için oturum açın ve ardından URL'ye Gözat https://your-vm-ip:8000/user/your-username/lab. Bu satır için /etc/jupyterhub/jupyterhub_config.py ekleyerek JupyterLab varsayılan not defteri sunucusu olarak ayarlayabilirsiniz:
+JupyterLab, Jupyter Not defterlerinden ve JupyterHub, yeni nesil de kullanılabilir. Erişmek için JupyterHub için oturum açın ve ardından URL HTTPS'ye göz atın:\//,-vm-ip:8000/kullanıcı/your-kullanıcı adı/Laboratuvar. Bu satır için /etc/jupyterhub/jupyterhub_config.py ekleyerek JupyterLab varsayılan not defteri sunucusu olarak ayarlayabilirsiniz:
 
     c.Spawner.default_url = '/lab'
 

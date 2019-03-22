@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery ile Azure bölgeleri arasında Azure Iaas sanal makinelerinin olağanüstü durum kurtarma için Azure Site Recovery destek matrisi | Microsoft Docs
+title: Azure Site Recovery ile Azure bölgeleri arasında Azure Vm'leri olağanüstü durum kurtarma için destek matrisi | Microsoft Docs
 description: Desteklenen işletim sistemleri ve yapılandırmalar Azure sanal makineleri (VM'ler), Azure Site Recovery çoğaltması için bir bölgeden diğerine için olağanüstü durum kurtarma (DR) gereksinimlerini özetler.
 services: site-recovery
 author: rayne-wiselman
@@ -8,32 +8,32 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 0dac046c359bb8affd69145c73a66cf4ac079012
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: b0fb84131f33d216e099978a7c9ba5481c1691d1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287205"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312827"
 ---
-# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
+# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Azure Vm'leri bir bölgeden diğerine çoğaltma için destek matrisi
 
 Bu makalede, çoğaltma, yük devretme ve kurtarma Azure vm'leri bir Azure bölgesinden diğerine ile olağanüstü durum kurtarma kullanarak dağıttığınızda desteklenen yapılandırmalar ve bileşenleri özetlenir [Azure Site Recovery](site-recovery-overview.md) hizmeti.
 
 
 ## <a name="deployment-method-support"></a>Dağıtım yöntemi desteği
 
-**Dağıtım yöntemi** |  **Desteklenen / desteklenmeyen**
+**Dağıtım** |  **Destek**
 --- | ---
-**Azure portal** | Desteklenen
-**PowerShell** | [PowerShell ile azure'dan Azure'a çoğaltma](azure-to-azure-powershell.md)
-**REST API** | Desteklenen
+**Azure portal** | Destekleniyor.
+**PowerShell** | Destekleniyor. [Daha fazla bilgi](azure-to-azure-powershell.md)
+**REST API** | Destekleniyor.
 **CLI** | Şu anda desteklenmiyor
 
 
 ## <a name="resource-support"></a>Kaynak desteği
 
 **Kaynak eylem** | **Ayrıntılar**
---- | --- 
+--- | --- | ---
 **Kasa kaynak grupları arasında taşıma** | Desteklenmiyor
 **İşlem/depolama/ağ kaynakları kaynak grupları arasında taşıma** | Desteklenmiyor.<br/><br/> Bir VM veya depolama/ağ gibi ilişkili bileşenleri taşırsanız, sanal Makinenin çoğaltma sonra devre dışı bırakın ve ardından sanal makine için çoğaltmayı yeniden etkinleştirmeniz gerekir.
 **İçin olağanüstü durum kurtarma için başka bir aboneliği Azure Vm'lerini çoğaltma** | Aynı Azure Active Directory kiracısı içinde desteklenir.
@@ -57,12 +57,12 @@ Almanya | Almanya Orta, Almanya Kuzeydoğu
 
 >[!NOTE]
 >
-> - İçin **Brezilya Güney** bölgeye çoğaltmak ve aşağıdakilerden birini yük devretme: Orta Güney ABD, Batı Orta ABD, Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2 ve orta Kuzey ABD bölgeleri. Site Recovery, Brezilya Güney, burada Vm'leri korunabilir gelen bir kaynak bölgesi olarak kullanılmak üzere yalnızca etkinleştirilmiş olduğu unutulmamalıdır. Bunu **bir hedef DR bölgesindeki kullanılamaz** Orta Güney ABD gibi Azure bölgelerinden birini için. Bunun nedeni gecikme süresi, Brezilya Güney dışındaki tüm diğer Amerika'nın bölgeyi seçmek için önerilen nedeniyle coğrafi uzaklıktan gözlemledik.
->
-> - Eğer **bir bölge görmek karşılaştırılamıyor** istediğiniz **bir kasa oluşturmak için** sonra aboneliğiniz, bu bölgede kaynakları oluşturmak için erişimi olduğundan emin olun. Örneğin: Fransa Güney bölgesinde kasası oluşturmak mümkün değilse, aboneliğinizin Fransa Güney bölgesine erişimi yok. Lütfen "diğer genel sorular" konu sorun türü "abonelik yönetimi" altında dosya destek bileti ve sorun türü "XXX beyaz liste aboneliğinde Azure bölgesi"
->
-> - Kullanıyorsanız **bir bölge görmek karşılaştırılamıyor** coğrafi bir küme içindeki **çoğaltmayı etkinleştirme sırasında** sonra aboneliğiniz, bu bölgede sanal makine oluşturmak için erişimi olduğundan emin olun. Örneğin: Sanal makineler Fransa Orta için Fransa Güney korumaya çalışıyorsanız ve görmüyorsanız Fransa Güney bölgesi altındaki aşağı açılır liste sonra aboneliğiniz bu bölgedeki VM dağıtmak için erişime sahip değil. Lütfen "diğer genel sorular" konu sorun türü "abonelik yönetimi" altında dosya destek bileti ve sorun türü "XXX beyaz liste aboneliğinde Azure bölgesi"
-> - Yukarıda belirtilen coğrafi kümeleri arasında bölgeleri seçemezsiniz.
+> - İçin **Brezilya Güney**, çoğaltma ve bu bölgelere yük devretme: Güney Orta ABD, Batı Orta ABD, Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2 ve orta Kuzey ABD.
+> - Brezilya Güney, yalnızca Site RECOVERY'yi kullanarak, sanal makinelerini çoğaltabilirsiniz bir kaynak bölgede kullanılabilir. Bu, bir hedef bölge davranamaz. Coğrafi uzaklıkları nedeniyle gecikme sorunları nedeniyle budur. 
+> - Uygun erişime sahip olduğunuz bölge içinde çalışabilir.
+> - Bir kasa oluşturmak istediğiniz bölgeyi görünmüyorsa, aboneliğinizi bu bölgede kaynakları oluşturmak için erişimi olduğundan emin olun. 
+> - Çoğaltmayı etkinleştirdiğinizde bir bölgede coğrafi küme göremiyorsanız, aboneliğinizi bu bölgede VM'ler oluşturma izni olduğundan emin olun. 
+
 
 
 ## <a name="cache-storage"></a>Önbellek depolama
@@ -195,7 +195,7 @@ Depolama alanları | Desteklenen |
 Windows işletim sistemi için Azure Disk şifrelemesi (ADE) | VM'ler için etkin [şifrelemesi ile Azure AD uygulaması](https://aka.ms/ade-aad-app) desteklenir |
 Linux işletim sistemi için Azure Disk şifrelemesi (ADE) | Desteklenmiyor |
 Sık erişimli Ekle/Kaldır disk | Desteklenmiyor | VM veri diski ekleyip, çoğaltmayı devre dışı bırakın ve yeniden sanal Makineye yönelik çoğaltmayı etkinleştirmek gerekir.
-Diski hariç tutma | [PowerShell aracılığıyla desteklenir](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) |   Geçici disk, varsayılan olarak çıkarılır.
+Diski hariç tutma | destekler. Kullanmalısınız [Powershell](azure-to-azure-exclude-disks.md) yapılandırmak için. |  Geçici diskler, varsayılan olarak dışlanır.
 Doğrudan Erişimli Depolama Alanları  | Kilitlenme tutarlı kurtarma noktaları için desteklenmiyor. Uygulama tutarlı kurtarma noktalarına desteklenmez. |
 Genişleme dosya sunucusu  | Kilitlenme tutarlı kurtarma noktaları için desteklenmiyor. Uygulama tutarlı kurtarma noktalarına desteklenmez. |
 LRS | Desteklenen |
@@ -203,17 +203,22 @@ GRS | Desteklenen |
 RA-GRS | Desteklenen |
 ZRS | Desteklenmiyor |
 Seyrek erişimli ve sık erişimli depolama | Desteklenmiyor | Seyrek erişimli ve sık erişimli depolama alanı sanal makine diskleri desteklenmez
-Sanal ağlar için Azure depolama güvenlik duvarları  | Desteklenen | Depolama hesapları için sanal ağ erişimini kısıtlama, emin olmanız ['İzin güvenilen Microsoft Hizmetleri'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+Sanal ağlar için Azure depolama güvenlik duvarları  | Desteklenen | Depolama hesapları için sanal ağ erişimini kısıtlama, etkinleştirme [izin güvenilen Microsoft Hizmetleri](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Genel amaçlı V2 depolama hesaplarının (hem sık erişimli ve seyrek erişimli Katmanlar) | Hayır | İşlem maliyetleri artırmak için genel amaçlı V1 depolama hesaplarında önemli ölçüde karşılaştırılır.
 
 >[!IMPORTANT]
-> VM disk ölçeklenebilirlik ve performans hedefleri için dikkate aldığınızdan emin olun [Linux](../virtual-machines/linux/disk-scalability-targets.md) veya [Windows](../virtual-machines/windows/disk-scalability-targets.md) herhangi bir performans sorunlarından kaçınmak için sanal makineler. Varsayılan ayarları izlerseniz, Site Recovery gerekli diskler ve depolama hesapları kaynak yapılandırmaya göre oluşturun. Özelleştirme ve kendi ayarlarınızı seçin, kaynak için VM'lerin disk ölçeklenebilirlik ve performans hedefleri izleyin emin olun.
+> Performans sorunlarını önlemek için VM disk ölçeklenebilirlik ve performans hedefleri için izlediğinizden emin olun [Linux](../virtual-machines/linux/disk-scalability-targets.md) veya [Windows](../virtual-machines/windows/disk-scalability-targets.md) VM'ler. Site Recovery, varsayılan ayarları kullanırsanız, gerekli diskler ve depolama hesapları, kaynak yapılandırmasına bağlı olarak oluşturur. Özelleştirme ve kendi ayarlarınızı seçin, kaynak VM'lerin disk ölçeklenebilirlik ve performans hedefleri izleyin.
 
-## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>Verileri çoğaltmak için azure Site Recovery limitleri değişim oranları
-Aşağıdaki tablo, Azure Site Recovery sınırlarını sağlar. Bu limitler yaptığımız testleri temel alsa da mümkün olan tüm uygulama G/Ç birleşimlerini kapsamamaktadır. Gerçek sonuçlar, uygulamanızın G/Ç karışımına göre değişebilir. Biz de, veri değişim sıklığı ve sanal makinenin veri değişim sıklığı disk başına dikkate alınması gereken iki sınır olmadığını unutmamalısınız.
-Örneğin, P20 Premium disk baktığımızda aşağıdaki tabloda, Site Recovery ile en fazla beş tür disk VM başına 25 MB/sn toplam değişim sıklığı, VM sınırı nedeniyle disk başına 5 MB/sn karmaşası başa çıkabilir.
+## <a name="limits-and-data-change-rates"></a>Limitler ve veri değişim oranları
 
-**Çoğaltma depolama hedefi** | **Ortalama kaynak disk G/Ç boyutu** |**Ortalama kaynak disk veri değişim sıklığı** | **Günlük toplam kaynak disk veri değişim sıklığı**
+Site Recovery sınırlarını aşağıdaki tabloda özetlenmiştir.
+
+- Bu limitler yaptığımız testleri temel alarak, ancak tüm olası uygulama g/ç birleşimlerini açıkça kapsamaz.
+- Gerçek sonuçlar, uygulama g/ç karışımına göre değişebilir.
+- Veri Değişim sıklığı ve sanal makinenin veri değişim sıklığı disk başına dikkate alınması gereken iki sınırı yoktur.
+- Aşağıdaki tabloda açıklandığı gibi P20 Premium disk kullanıyorsanız, örnek olarak, Site Recovery değişim sıklığı, disk başına 5 MB ile en fazla beş tür diskler, VM başına 25 MB/sn toplam değişim sıklığı, VM sınırı nedeniyle en başa çıkabilir.
+
+**Depolama hedefi** | **Ortalama kaynak disk g/ç** |**Ortalama kaynak disk veri değişim sıklığı** | **Günlük toplam kaynak disk veri değişim sıklığı**
 ---|---|---|---
 Standart depolama | 8 KB | 2 MB/sn | Disk başına 168 GB
 Premium P10 veya P15 disk | 8 KB  | 2 MB/sn | Disk başına 168 GB
@@ -222,7 +227,7 @@ Premium P10 veya P15 disk | 32 KB veya daha büyük | 8 MB/sn | Disk başına 67
 Premium P20 veya P30 veya P40 veya P50 disk | 8 KB    | 5 MB/sn | Disk başına 421 GB
 Premium P20 veya P30 veya P40 veya P50 disk | 16 KB veya daha büyük |20 MB/sn | Disk başına 1684 GB
 ## <a name="replicated-machines---networking"></a>Çoğaltılan makineler - ağ
-**Yapılandırma** | **Destek** | **Ayrıntılar**
+**Ayar** | **Destek** | **Ayrıntılar**
 --- | --- | ---
 NIC | Belirli bir Azure VM boyutu için desteklenen en büyük sayı | VM yük devretme sırasında oluşturulduğunda NIC oluşturulur.<br/><br/> Çoğaltma etkinleştirildiğinde kaynak VM üzerindeki NIC sayısı VM yük devretmesi NIC sayısına bağlıdır. Çoğaltmayı etkinleştirdikten sonra bir NIC ekleyip, yük devretme sonrasında çoğaltılmış sanal makine üzerindeki NIC sayısı etkisi yoktur.
 İnternet Yük Dengeleyici | Desteklenen | Bir kurtarma planında bir Azure Otomasyonu betik kullanarak önceden yapılandırılmış bir yük dengeleyici ile ilişkilendirin.
@@ -235,15 +240,15 @@ Dinamik IP adresi | Desteklenen | Kaynak NIC dinamik IP adresi varsa, yük devre
 Traffic Manager     | Desteklenen | Traffic Manager, trafiğin uç noktasına düzenli olarak kaynak bölgede ve uç noktaya yük devretme durumunda hedef bölgede yönlendirilmesi önceden yapılandırabilirsiniz.
 Azure DNS | Desteklenen |
 Özel DNS  | Desteklenen |
-Kimliği doğrulanmamış Proxy | Desteklenen | Başvurmak [ağ rehberi belgesi.](site-recovery-azure-to-azure-networking-guidance.md)    
+Kimliği doğrulanmamış proxy | Desteklenen | [Daha fazla bilgi]. (site-recovery-azure-to-azure-networking-guidance.md)   
 Kimliği doğrulanmış Proxy | Desteklenmiyor | VM için giden bağlantı kimliği doğrulanmış bir ara sunucu kullanıyorsa, Azure Site Recovery kullanarak yinelenemez.    
-Siteden siteye VPN ile şirket içi (ile veya olmadan ExpressRoute)| Desteklenen | Udr ve Nsg'ler Site kurtarma trafiği şirket içi yönlendirilmemesidir şekilde yapılandırıldığından emin olun. Başvurmak [ağ rehberi belgesi.](site-recovery-azure-to-azure-networking-guidance.md)  
-VNET'ten VNET'e bağlantı | Desteklenen | Başvurmak [ağ rehberi belgesi.](site-recovery-azure-to-azure-networking-guidance.md)  
+Şirket içi VPN siteden siteye bağlantı<br/><br/>(ile veya olmadan ExpressRoute)| Desteklenen | Udr ve Nsg'ler Site kurtarma trafiği şirket içi yönlendirilmemesidir şekilde yapılandırıldığından emin olun. [Daha fazla bilgi](site-recovery-azure-to-azure-networking-guidance.md)    
+VNET'ten VNET'e bağlantı | Desteklenen | [Daha fazla bilgi](site-recovery-azure-to-azure-networking-guidance.md)  
 Sanal Ağ Hizmeti Uç Noktaları | Desteklenen | Depolama hesapları için sanal ağ erişimini kısıtlama, güvenilen Microsoft hizmetlerinin depolama hesabına erişim izni verildiğini emin olun.
-Hızlandırılmış Ağ | Desteklenen | Kaynak VM üzerinde hızlandırılmış ağ etkin olması gerekir. [Daha fazla bilgi edinin](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Hızlandırılmış ağ iletişimi | Desteklenen | Kaynak VM üzerinde hızlandırılmış ağ etkin olması gerekir. [Daha fazla bilgi edinin](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Okuma [Kılavuzu, Azure Vm'lerini çoğaltma için ağı](site-recovery-azure-to-azure-networking-guidance.md).
+- Okuma [kılavuz ağ](site-recovery-azure-to-azure-networking-guidance.md) Azure sanal makinelerini çoğaltma.
 - Olağanüstü durum kurtarma dağıtma [Azure Vm'lerini çoğaltma](site-recovery-azure-to-azure.md).

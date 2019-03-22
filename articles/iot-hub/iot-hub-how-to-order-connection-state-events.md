@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 5580d67f796efc809ef536818419ab91e8ee54a2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: edaa0cdcd98ce529ccbf9bf6aafaacf57a3ea383
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540020"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337536"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Bağlantı olayları Azure Cosmos DB kullanarak Azure IOT hub'a cihaz sipariş
 
@@ -24,9 +24,9 @@ Sıra numarası onaltılık düzendeki bir sayıyı bir dize gösterimidir. Dize
 
 * Etkin bir Azure hesabı. Hesabınız yoksa [ücretsiz bir hesap oluşturabilirsiniz](https://azure.microsoft.com/pricing/free-trial/).
 
-* Etkin bir Azure Cosmos DB SQL API hesabı. Bir henüz oluşturmadıysanız bkz [bir veritabanı hesabı oluşturma](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-a-database-account) kılavuz.
+* Etkin bir Azure Cosmos DB SQL API hesabı. Bir henüz oluşturmadıysanız bkz [bir veritabanı hesabı oluşturma](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-an-account) kılavuz.
 
-* Veritabanı koleksiyonu. Bkz: [bir koleksiyon Ekle](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-collection) kılavuz.
+* Veritabanı koleksiyonu. Bkz: [bir koleksiyon Ekle](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-database-and-a-collection) kılavuz.
 
 * Azure'da bir IoT Hub'ı. Henüz oluşturmadıysanız, yönergeler için bkz. [IoT Hub'ı kullanmaya başlama](../iot-hub/iot-hub-csharp-csharp-getstarted.md). 
 
@@ -350,5 +350,3 @@ Bir Azure Cosmos DB hesabını Azure Portalından kaldırmak için hesap adına 
 * [IOT Hub olaylarını öğreticisini deneyin](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 
 * Başka ne hakkında ile yapabileceklerinizi öğrenin [Event Grid](../event-grid/overview.md)
-
-

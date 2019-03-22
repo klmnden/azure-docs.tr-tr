@@ -10,12 +10,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: ebf858ba86758b11ee896d745d70bdf2f0d0cde6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 7388dc0c61dad9c31da0c178febcee4c8481bc50
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878389"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313201"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>IBM ana bilgisayarları üzerinde 3270 ekran temelli uygulamalar, Azure Logic Apps ve IBM 3270 bağlayıcısını kullanarak Azure ile tümleştirin
 
@@ -402,7 +402,7 @@ Tüm adımları tamamladığınızda, uygulamanız için sürücü ekranlar, IBM
 1. İşiniz bittiğinde, kaydedin ve mantıksal uygulamanızı çalıştırın.
 
    Sonra mantıksal uygulama çalışıyorsa, çalışma görünmesi yer alan adımları tamamlanır. 
-   Başarısız adımları "X" harfinin gösterirken başarılı adımlar, işaretlerini gösterir.
+   Başarısız adımları "X" harfinin gösterirken başarılı adımlar onay işaretlerini gösterir.
 
 1. Giriş ve çıkışları her adımı gözden geçirmek için bu adımı genişletin.
 
@@ -410,7 +410,7 @@ Tüm adımları tamamladığınızda, uygulamanız için sürücü ekranlar, IBM
 
 ## <a name="connector-reference"></a>Bağlayıcı başvurusu
 
-Tetikleyiciler ve Eylemler sınırı hakkında teknik ayrıntılar için bağlayıcının Openapı'nin açıklanmıştır (önceki adıyla Swagger) açıklama, bağlayıcının başvuru sayfası gözden geçirin: [ https://docs.microsoft.com/connectors/<replace-with-api-topic-file-name> ](/connectors/).
+Tetikleyiciler ve Eylemler sınırı hakkında teknik ayrıntılar için bağlayıcının Openapı'nin açıklanmıştır (önceki adıyla Swagger) açıklama, gözden geçirme [bağlayıcının başvuru sayfası](/connectors/si3270/).
 
 ## <a name="get-support"></a>Destek alın
 

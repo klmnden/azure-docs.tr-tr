@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 0b578bfdb75b0ad4d4065d8793a74e7c4284eb74
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: dec5ce37aa3b4e9d4d6fcab964c1e48b606a4cd0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781597"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338063"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Belge biçimleri ve adlandırma kuralı Kılavuzu
 
@@ -31,7 +31,7 @@ Bu tablo, çeviri sisteminizi oluşturmak için kullanabileceğiniz tüm destekl
 | Microsoft Word    | . DOCX        | Microsoft Word belgesi                                                                                                                                                                                                                                                        |
 | Adobe Acrobat     | . PDF         | Adobe Acrobat Taşınabilir Belge                                                                                                                                                                                                                                                |
 | HTML              | .HTML, .HTM  | HTML belgesi                                                                                                                                                                                                                                                                  |
-| Metin dosyası         | .TXT         | UTF-16 veya UTF-8 olarak kodlanmış metin dosyaları                                                                                                                                                                                                                                             |
+| Metin dosyası         | .TXT         | UTF-16 veya UTF-8 olarak kodlanmış metin dosyaları. Dosya adı, Japonca karakterler içermemelidir.                                                                                                                                                                                        |
 | Hizalanmış bir metin dosyası | . HİZALA       | Uzantı `.ALIGN` belge çifti cümleleri mükemmel bir şekilde hizalı olup biliyorsanız kullanabileceğiniz özel bir uzantısıdır. Sağlarsanız bir `.ALIGN` dosya, özel Translator değil hizalanacağı cümleleri sizin için. |
 | Excel dosyası        | . XLSX        | Excel dosyası (2013 veya üzeri). İlk satır / satır elektronik dil kodu olmalıdır.                                                                                                                                                                                                                                                      |
 

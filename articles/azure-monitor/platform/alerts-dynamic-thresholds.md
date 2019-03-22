@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: c28bf3ac85709fb996cfb067b83530645fdccba1
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 30f853bd65c83b922faf008fbb5279c28f197f68
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008914"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339015"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Azure İzleyici (genel Önizleme) içinde dinamik eşikler ile ölçüm uyarıları
 
@@ -83,7 +83,7 @@ Grafikte, bir uyarı kuralı bir ölçüme göre oluşturulmadan önce görünt�
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Uyarı tetiklemek için ne kadar veri gerekiyor?
 
-Dinamik eşikler veri uyarıları tetiklemeden önce doğru eşikleri emin olmak için en az üç gün gerektirir.
+Yeni bir kaynak veya eksik ölçüm verileri varsa, dinamik eşikler üç günlük veri doğru eşikleri emin olmak kullanılabilir olmadan önce uyarı tetiklemez.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Dinamik eşikler en iyi uygulamalar
 

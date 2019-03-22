@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 4128ad53f30e74fb72f6256b78587cc222f4c282
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 38d403be1dc35b8ab4cd1b15fa259b5e6917197c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838723"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314459"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>StorSimple uyarıları görüntülemek ve yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanın
 
@@ -202,7 +202,7 @@ StorSimple üretim Cihazınızda bulut bağlantısı başarısız olursa, cihaz 
 | StorSimple hizmetleri başlayamadı. |DataPath hata |Sorun devam ederse, Microsoft Destek'e başvurun. |
 | Yinelenen IP adresi 'Data0 için' algılandı. | |Sistem, '10.0.0.1' IP adresi için bir çakışma algıladı. Cihazdaki ağ kaynağı 'Data0' *<device1>* çevrimdışı. Bu IP adresinin bu ağdaki başka bir varlık tarafından kullanılmaz emin olun. Ağ sorunları gidermek için Git [Get-NetAdapter cmdlet'iyle sorun giderme](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Bu sorunu çözmenize yardımcı olması için ağ yöneticinize başvurun. Sorun devam ederse, Microsoft Destek'e başvurun. |
 | IPv4 (veya IPv6) adresi için 'Data0' çevrimdışı. | |IP adresi '10.0.0.1' olan ağ kaynağı 'Data0' önek uzunluğu '22' cihazda *<device1>* çevrimdışı. Bu arabirimin bağlı olduğu anahtar bağlantı noktalarını çalışır durumda olduğundan emin olun. Ağ sorunları gidermek için Git [Get-NetAdapter cmdlet'iyle sorun giderme](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Kimlik doğrulama hizmetine bağlanamadı. |DataPath hata |URLthat kimliğini doğrulamak için kullanılan erişilebilir değil. Güvenlik Duvarı kurallarınız StorSimple cihazı için belirtilen URL desenleri eklediğinizden emin olun. Azure portalındaki URL desenleri hakkında daha fazla bilgi için Git https://aka.ms/ss-8000-network-reqs. Azure kamu Bulutu kullanıyorsanız URL desenleri için Git https://aka.ms/ss8000-gov-network-reqs.|
+| Kimlik doğrulama hizmetine bağlanamadı. |DataPath hata |URLthat kimliğini doğrulamak için kullanılan erişilebilir değil. Güvenlik Duvarı kurallarınız StorSimple cihazı için belirtilen URL desenleri eklediğinizden emin olun. Azure portalındaki URL desenleri hakkında daha fazla bilgi için https için Git:\//aka.ms/ss-8000-network-reqs. Azure kamu Bulutu kullanıyorsanız URL desenleri için https gidin:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Performans uyarıları
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9fe644b7cc7d1a13cb9ed2f7016f25b3e346dfb
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 690f41e941f2d1db8fc92d225a54d07570299222
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233183"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313144"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>SUSE Linux için SMT sunucusu ayarlama
 Büyük örnekler, SAP HANA doğrudan internet bağlantısı yok. Böyle bir birim işletim sistemi sağlayıcısı ile kaydolmak için indirme ve güncelleştirmeleri uygulamak için basit bir işlem değil. Bir SUSE Linux için bir Azure sanal makine'de SMT sunucusunu ayarlamak için çözümüdür. HANA büyük örneği için bağlı olan bir Azure sanal ağında sanal makine konağının. Böyle bir SMT sunucusu ile HANA büyük örneği birim kaydedin ve güncelleştirmeleri karşıdan. 
@@ -84,7 +84,7 @@ Smt paketleri yüklemek için YAST Aracı'nı da kullanabilirsiniz. YAST içinde
 ![SMT YAST içinde ekran görüntüsü](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-Smtserver yüklemesinde seçimini kabul edin. Yükleme tamamlandıktan sonra SMT sunucu yapılandırmasına geçin. Daha önce aldığınız SUSE müşteri Merkezi'nden Kurumsal kimlik bilgilerinizi girin. Ayrıca, Azure sanal makine ana bilgisayar adı SMT sunucu URL'sini girin. Bu gösteride sahip https://smtserver.
+Smtserver yüklemesinde seçimini kabul edin. Yükleme tamamlandıktan sonra SMT sunucu yapılandırmasına geçin. Daha önce aldığınız SUSE müşteri Merkezi'nden Kurumsal kimlik bilgilerinizi girin. Ayrıca, Azure sanal makine ana bilgisayar adı SMT sunucu URL'sini girin. Bu örnekte, bu uygulamanın https:\//smtserver.
 
 ![Ekran görüntüsü, SMT sunucu yapılandırması](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

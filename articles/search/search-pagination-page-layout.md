@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ef29dafe32c3c5988cd33f59c8436eeef4b45886
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7a4423449931b74afa15ca238c611f54b071402f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849287"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339304"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Azure Search'te sonuçlarını arama ile çalışma
 Bu makalede, standart arama sonuçları sayfası, toplam sayısı, belge alma, sıralama düzenleri ve gezinti gibi öğeleri ekleme hakkında yönergeler sağlanır. Veri veya arama sonuçlarındaki bilgileri katkıda sayfasıyla ilgili seçenekleri aracılığıyla belirtilen [belgede arama](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) Azure arama hizmetinize gönderilen istekler. 
@@ -25,8 +25,8 @@ REST API istekleri GET komutu, yol ve hangi istenen hizmet bildirmek sorgu param
 Birkaç kod örneği, burada bulduğunuz bir web ön uç arabirimi şunlardır: [New York City işleri demo app](https://azjobsdemo.azurewebsites.net/) ve [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> Geçerli bir isteği bir hizmet URL'sini ve yolu, HTTP fiili gibi öğeleri içerir `api-version`ve benzeri. Konuyu uzatmamak amacıyla, biz yalnızca için sayfalandırma ilgili söz dizimi vurgulama için örnekleri kırpılır. İstek sözdizimi hakkında daha fazla bilgi için bkz. [Azure arama hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice). > 
-> 
+> Geçerli bir isteği bir hizmet URL'sini ve yolu, HTTP fiili gibi öğeleri içerir `api-version`ve benzeri. Konuyu uzatmamak amacıyla, biz yalnızca için sayfalandırma ilgili söz dizimi vurgulama için örnekleri kırpılır. İstek sözdizimi hakkında daha fazla bilgi için bkz. [Azure arama hizmeti REST](https://docs.microsoft.com/rest/api/searchservice).
+>
 
 ## <a name="total-hits-and-page-counts"></a>Toplam İsabet sayısı ve sayfa sayıları
 Bir sorgudan döndürülen sonuçların toplam sayısını gösteren ve ardından daha küçük öbekler halinde sonuçları getireceğinden neredeyse tüm arama sayfalar için temel.

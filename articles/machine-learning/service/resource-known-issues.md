@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5814e05aa65bf005a3156aa75e65747bbd46733c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fdc718429991a7bba30739d09882c51f8baf5dc9
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58171066"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336278"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Bilinen sorunlar ve sorun giderme Azure Machine Learning hizmeti
 
@@ -57,7 +57,7 @@ Databricks ve Azure Machine Learning sorunları.
 Daha fazla paketleri yüklendiğinde azure Machine Learning SDK yüklemesi Azure Databricks üzerinde başarısız olur. Gibi bazı paketler `psutil`, çakışmaları neden olabilir. Yükleme hataları önlemek için kitaplığı sürüm dondurma tarafından paketleri yükleyin. Bu sorun, Databricks ve Azure Machine Learning hizmeti SDK'sını ilişkilidir. Çok diğer kitaplıkları, bu sorunla karşılaşabilirsiniz. Örnek:
 
 ```python
-pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
 ```
 
 Alternatif olarak, yükleme sorunlarını Python kitaplıkları karşılıklı tutmak, init komut dosyalarını kullanabilirsiniz. Bu yaklaşım resmi olarak desteklenmez. Daha fazla bilgi için [küme kapsamlı init betikleri](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).

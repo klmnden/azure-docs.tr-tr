@@ -12,12 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: 1298e7d7ed9c3760ff5022b5b97e8444eb1bcad1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 72fbdbcfcd94dd41a67bb81314802dd7314ae463
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007055"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316635"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Oluşturma, yeniden başlatma veya azure'da Vm'leri yeniden boyutlandırma karşılaşılan ayırma hatalarını giderme
 
@@ -25,7 +25,7 @@ Sanal makine (VM) oluşturma, durduruldu (serbest bırakıldı) Vm'leri yeniden 
 
 **Hata kodu**: AllocationFailed veya ZonalAllocationFailed
 
-**Hata iletisi**: "Ayırma başarısız oldu. Bu bölgede biz istenen VM boyutu için yeterli kapasite yoktur. Başarılı ayırma olasılığını artırma hakkında daha fazla okuma `https://aka.ms/allocation-guidance`"
+**Hata iletisi**: "Ayırma başarısız oldu. Bu bölgede biz istenen VM boyutu için yeterli kapasite yoktur. Https en başarılı ayırma olasılığını artırma hakkında daha fazla okuma:\//aka.ms/allocation-guidance "
 
 Bu makalede, ortak bir ayırma hatalarının bazı nedenleri açıklanır ve olası çözümler önerir.
 

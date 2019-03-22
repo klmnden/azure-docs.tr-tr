@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: a22512a960426cc21f4f012e06b9df4fa86e637e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 046aed64d3551d5c0b6ddae44b925452c01c297a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807278"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337604"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Kimlik doğrulaması ve Azure Logic apps'te yönetilen kimliklerle kaynaklara erişin
 
@@ -152,7 +152,7 @@ Mantıksal uygulamanız ile ayarladıktan sonra sistem tarafından atanan kimli�
 
 1. Bu eylem, isteği gibi gerekli bilgileri sağlayın **yöntemi** ve **URI** çağırmak istediğiniz kaynak konumu.
 
-   Örneğin, Azure Active Directory (Azure AD) kimlik doğrulaması ile kullandığınız varsayalım [Azure AD'ye destekleyen Azure Bu hizmetlerden biri](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   Örneğin, Azure Active Directory (Azure AD) kimlik doğrulaması ile kullandığınız varsayalım [Azure AD'ye destekleyen Azure Bu hizmetlerden biri](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    İçinde **URI** kutusunda, ilgili Azure hizmeti için uç nokta URL'sini girin. 
    Azure Resource Manager kullanıyorsanız, bu nedenle, bu değer girin **URI** özelliği:
 
@@ -167,7 +167,7 @@ Mantıksal uygulamanız ile ayarladıktan sonra sistem tarafından atanan kimli�
    > [!IMPORTANT]
    > 
    > İçinde **İzleyici** özelliği, hangi Azure AD bekliyor kaynağı kimliği değeri tam olarak eşleşmelidir, gerekli sondaki eğik çizgi dahil. 
-   > Bu kaynak kimliği değerleri bu bulabilirsiniz [Azure açıklayan tablo destekleyen Azure AD Hizmetleri](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   > Bu kaynak kimliği değerleri bu bulabilirsiniz [Azure açıklayan tablo destekleyen Azure AD Hizmetleri](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). 
    > Örneğin, Azure kaynak yöneticisi kaynak Kimliğini kullanıyorsanız, URI sonunda eğik çizgi olduğundan emin olun.
 
 1. İstediğiniz gibi mantıksal uygulama oluşturmaya devam edin.

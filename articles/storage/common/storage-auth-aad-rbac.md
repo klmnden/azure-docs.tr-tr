@@ -1,19 +1,19 @@
 ---
-title: Kapsayıcılar ve kuyrukları RBAC (Önizleme) - Azure depolama ile Azure AD erişim haklarını yönetmek için Azure portalını kullanma | Microsoft Docs
+title: Kapsayıcılar ve kuyrukları RBAC (Önizleme) - Azure depolama ile Azure AD erişim haklarını yönetmek için Azure portalını kullanma
 description: Kapsayıcılar ve güvenlik sorumluları kuyruklara erişim atamak için Azure portalında rol tabanlı erişim denetimi (RBAC) kullanın. Azure depolama, Azure AD ile kimlik doğrulaması için yerleşik ve özel RBAC rollerini destekler.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8050027bac3d2f13ac457edcdad9275c040305da
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a38cce7d15b4796bb66803d06f3589569985cb37
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431865"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319508"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Azure kapsayıcılar ve RBAC ile kuyrukları (Önizleme) Azure portalında erişim izni ver
 
@@ -101,14 +101,6 @@ Atamak için şu adımları izleyin **okuyucu** rolüne bir kullanıcı bloblar�
 
 > [!NOTE]
 > Okuyucu rolü atama blobları veya Azure portalını kullanarak kuyruk erişmesi gereken kullanıcılar için gereklidir. 
-
-## <a name="use-azure-ad-credentials-with-the-portal"></a>Portal ile Azure AD kimlik bilgilerini kullanın
-
-Blobları veya Azure portalında Azure AD kimlik bilgilerinizi kullanarak sıralara erişmek için aşağıdaki görüntüde gösterilen Önizleme bağlantıları kullanın:
-
-![Erişim bloblarını veya Portalı'nda Azure AD kimlik bilgileriyle kuyrukları](media/storage-auth-aad-rbac/access-data-azure-ad.png)
-
-Önizleme bağlantıları yerine üretime bağlantıları kullanarak blob veya sıra veri erişimi engelliyorsa, Azure portalında Azure AD kullanmak yerine erişim yetkisi vermek için hesap anahtarını kullanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

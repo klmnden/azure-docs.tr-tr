@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 1f6edd871d6815dab93bf9e8d582b0cb1ba6c78f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: ab5679f374753d6620b6a0eccca12ac9f162f199
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109248"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337934"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 
@@ -62,6 +62,9 @@ Kayıt sonrasında Azure Active Directory genel yönetici izni gerekli değildir
 Azure Stack kaydeden kullanıcı hizmet sorumlusu Azure Active Directory'de sahibidir. Azure Stack kaydolan kullanıcı, Azure Stack kayıt değiştirebilirsiniz. Kayıt hizmet sorumlusu sahibi değil ve yönetici olmayan bir kullanıcı kaydetmek veya Azure Stack yeniden kaydolmak çalışırsa, bunlar bir 403 yanıt karşılaşabilirsiniz. Kullanıcı işlemi tamamlamak için yeterli izne sahip bir 403 yanıt gösterir.
 
 Bu gereksinimleri karşıladığını Azure aboneliğiniz yoksa, şunları yapabilirsiniz [buradan ücretsiz bir Azure hesabı oluşturun](https://azure.microsoft.com/free/?b=17.06). Azure aboneliğinize ücret ödemeden Azure Stack kaydetme artmasına neden olur.
+
+> [!NOTE]
+> Birden fazla Azure Stack varsa, en iyi uygulama, her Azure Stack, kendi aboneliğine kaydolun sağlamaktır. Bu, kullanımı izlemenizi kolaylaştırır.
 
 ### <a name="powershell-language-mode"></a>PowerShell dil modu
 
@@ -240,7 +243,7 @@ Azure Stack bağlantısı kesilmiş bir ortamda (internet bağlantısı olmayan)
 2. Kayıt belirtecinizi almak için aşağıdaki PowerShell cmdlet'lerini çalıştırın:  
 
    ```Powershell
-   $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
+   $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -UsageReportingEnabled:$False -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    Get-AzsRegistrationToken cmdlet'i hakkında daha fazla bilgi için bkz. [kayıt başvuru](#registration-reference).

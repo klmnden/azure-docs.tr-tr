@@ -1,5 +1,5 @@
 ---
-title: Azure MFA sürümleri ve tüketim planları | Microsoft Docs
+title: Azure MFA sürümleri ve tüketim planları - Azure Active Directory
 description: Çok faktörlü kimlik doğrulaması istemci farklı yöntemler ve kullanılabilir sürümler hakkında bilgi.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e68175471b24c48f23cc48cff9d0b47c937f588a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 765b9aff898cbea763d66a20db91b3390cc48bb4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217198"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310009"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication'ı edinme
 

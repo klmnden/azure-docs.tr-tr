@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: dc0e326cf3b188a51708115e5496cfbb52a95611
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 46da7c7931eaf163c24f057bac5de35f3c727519
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836973"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311875"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric küme ayarlarını özelleştirme
 Bu makalede, Service Fabric kümenizin özelleştirebileceğiniz çeşitli yapı ayarları açıklanır. Azure'da barındırılan kümeler için ayarları aracılığıyla özelleştirebilirsiniz [Azure portalında](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak. Daha fazla bilgi için [Azure kümesine yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-azure.md). Tek başına kümeler için ayarlarını güncelleştirerek özelleştirdiğiniz *ClusterConfig.json* dosyası ve bir yapılandırmasını gerçekleştirmek kümenizde yükseltin. Daha fazla bilgi için [tek başına küme yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -614,13 +614,13 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 ## <a name="security"></a>Güvenlik
 | **Parametre** | **İzin verilen değerler** |**Yükseltme İlkesi**| **Kılavuz veya kısa açıklama** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|Varsayılan bir dize ise ""|Statik|AAD sertifikası uç nokta Azure kamu gibi varsayılan olmayan ortamda belirtilen biçimi, varsayılan Azure ticari "https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
+|AADCertEndpointFormat|Varsayılan bir dize ise ""|Statik|AAD sertifikası uç nokta Azure kamu gibi varsayılan olmayan ortamda belirtilen biçimi, varsayılan Azure ticari "https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
 |AADClientApplication|Varsayılan bir dize ise ""|Statik|Yerel istemci uygulama adı veya kimliği Fabric istemcileri temsil eden |
 |AADClusterApplication|Varsayılan bir dize ise ""|Statik|Web API uygulaması adı veya küme temsil eden kimliği |
-|AADLoginEndpoint|Varsayılan bir dize ise ""|Statik|AAD oturum açma için Azure kamu gibi ortam varsayılan olmayan belirtilen uç noktası, varsayılan Azure ticari "https://login.microsoftonline.us" |
+|AADLoginEndpoint|Varsayılan bir dize ise ""|Statik|AAD oturum açma için Azure kamu gibi ortam varsayılan olmayan belirtilen uç noktası, varsayılan Azure ticari "https:\//login.microsoftonline.us" |
 |AADTenantId|Varsayılan bir dize ise ""|Statik|Kiracı kimliği (GUID) |
 |AdminClientCertThumbprints|Varsayılan bir dize ise ""|Dinamik|Yönetici rolünde istemcileri tarafından kullanılan sertifika parmak izleri. Bu ad virgülle ayrılmış listesidir. |
-|AADTokenEndpointFormat|Varsayılan bir dize ise ""|Statik|AAD belirteci Azure kamu gibi varsayılan olmayan ortamı için belirtilen uç noktası, varsayılan Azure ticari "https://login.microsoftonline.us/{0}" |
+|AADTokenEndpointFormat|Varsayılan bir dize ise ""|Statik|AAD belirteci Azure kamu gibi varsayılan olmayan ortamı için belirtilen uç noktası, varsayılan Azure ticari "https:\//login.microsoftonline.us/{0}" |
 |AdminClientClaims|Varsayılan bir dize ise ""|Dinamik|Tüm olası talepler; yönetici istemcilerden bekleniyor ClientClaims aynı biçimi; Bu liste ClientClaims için dahili olarak eklenen; Ayrıca aynı girişleri için ClientClaims ekleme gerek yoktur. |
 |AdminClientIdentities|Varsayılan bir dize ise ""|Dinamik|Windows fabric istemciler, yönetici rolünde kimliklerini; Ayrıcalıklı fabric işlemleri yetkilendirmek için kullanılır. Bir virgülle ayrılmış listesi olduğu; Her bir etki alanı hesap adı veya grup adı girdidir. Kolaylık olması için; fabric.exe çalıştıran hesap yöneticisi rolüne otomatik olarak atanır; Bu nedenle olan ServiceFabricAdministrators gruplandırın. |
 |AppRunAsAccountGroupX509Folder|/home/sfuser/sfusercerts varsayılan bir dize ise |Statik|AppRunAsAccountGroup X509 sertifikaları ve özel anahtarları bulunduğu klasörü |
@@ -804,7 +804,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |FabricLogRoot |String | İzin Verilmiyor |Service fabric günlük kök dizini. SF günlüklerinden ve izlemelerinden yerleştirildiği budur. |
 |NodesToBeRemoved|Varsayılan bir dize ise ""| Dinamik |Yapılandırma yükseltmesinin bir parçası kaldırılması gerektiğini düğümleri. (Yalnızca için tek başına dağıtımlarında)|
 |ServiceRunAsAccountName |String | İzin Verilmiyor |Hesap adı altında çalıştırılacağı fabric konak hizmeti. |
-|SkipContainerNetworkResetOnReboot|bool, varsayılan FALSE olur.|Noktayla|Mı sıfırlama kapsayıcı ağ yeniden başlatıldığında atlanacak.|
+|SkipContainerNetworkResetOnReboot|bool, varsayılan FALSE olur.|NotAllowed|Mı sıfırlama kapsayıcı ağ yeniden başlatıldığında atlanacak.|
 |SkipFirewallConfiguration |Bool, varsayılan değer false'tur | İzin Verilmiyor |Güvenlik Duvarı ayarlarını veya sistem tarafından ayarlanmış olması gerekip gerekmediğini belirtir. Bu, yalnızca windows güvenlik duvarı kullanıyorsanız geçerlidir. Daha sonra üçüncü taraf güvenlik duvarları kullanıyorsanız, sistem ve uygulamalara için bağlantı noktalarını açmanız gerekir |
 
 ## <a name="tokenvalidationservice"></a>TokenValidationService

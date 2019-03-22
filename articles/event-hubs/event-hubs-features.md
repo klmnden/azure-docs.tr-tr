@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 242c2f63735be33fe933ae3229f7aa28356ea697
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e7f292db06d4da9206aabd14a68e6acde867f92d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548396"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337009"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Özellikler ve Azure Event Hubs terminolojisinde
 
@@ -79,7 +79,7 @@ Olay hub'ları, tüm bölümler, olay hub'ı uygulayan bir yapılandırılmış 
 
 Bölüm sayısı, oluşturma sırasında belirtilir ve 2 ile 32 arasında olmalıdır. Bölüm sayısı değiştirilemez; bu nedenle, bölüm sayısını ayarlarken uzun vadeli ölçeği dikkate almanız gerekir. Bölümler, tüketen uygulamalarda gerekli aşağı akış paralelliğiyle ilişkili bir veri düzenleme mekanizmasıdır. Bir olay hub'ındaki bölüm sayısı, sahip olmayı beklediğiniz eşzamanlı okuyucu sayısıyla doğrudan ilgilidir. Event Hubs ekibine başvurarak bölüm sayısını 32’nin üzerine çıkarabilirsiniz.
 
-Bölümler tanımlanabilir ve doğrudan gönderilebilir olsa da doğrudan bir bölüme göndermek önerilmez. Bunun yerine, [Olay yayımcısı](#event-publishers) ve [Kapasite](#capacity) bölümlerinde sunulan daha yüksek düzeyli yapıları kullanabilirsiniz. 
+Bölümler tanımlanabilir ve doğrudan gönderilebilir olsa da doğrudan bir bölüme göndermek önerilmez. Bunun yerine, sunulan daha yüksek düzeyli yapıları kullanabilirsiniz [olay yayımcısı](#event-publishers) ve kapasite bölümler. 
 
 Bölümler, olayı, kullanıcı tanımlı bir özellik paketini ve bölümdeki uzaklığı ve akış dizisindeki sayısı gibi meta verileri gövdesi içerir olay verileri dizisi ile doldurulur.
 
@@ -152,13 +152,15 @@ Olay verileri:
 
 Uzaklığın yönetilmesi sizin sorumluluğunuzdadır.
 
-## <a name="capacity"></a>Kapasite
+## <a name="scaling-with-event-hubs"></a>Event Hubs ile ölçeklendirme
 
-Event Hubs yüksek oranda ölçeklenebilir bir mimaridir ve boyutlandırma ile ölçeklendirme sırasında göz önünde bulundurulması gereken birkaç temel faktör vardır.
+Event Hubs ile ölçeklendirme etkileyen iki faktörleri vardır.
+*   İşleme birimleri
+*   Bölümler
 
 ### <a name="throughput-units"></a>İşleme birimleri
 
-Event Hubs işleme kapasitesi, *işleme birimleri* tarafından denetlenir. İşleme birimleri önceden satın alınan kapasite birimleridir. Tek bir işleme birimi aşağıdaki kapasiteyi içerir:
+Event Hubs işleme kapasitesi, *işleme birimleri* tarafından denetlenir. İşleme birimleri önceden satın alınan kapasite birimleridir. Tek bir aktarım hızı sağlar:
 
 * Giriş: İkinci veya 1000 olaya (hangisi önce gerçekleşirse) saniye başına başına 1 MB'a kadar.
 * Çıkış: İkinci veya 4096 olay / saniye başına 2 MB'a kadar.
@@ -167,9 +169,13 @@ Satın alınan işleme birimlerinin kapasitesi aşıldığında giriş azaltıl�
 
 İşleme birimleri önceden satın alınır ve saat başına faturalandırılır. Satın alındıktan sonra işleme birimleri en az bir saat için faturalandırılır. En fazla 20 işleme birimi bir Event Hubs ad alanı için satın alınabilir ve bu ad alanındaki tüm event hubs arasında paylaşılır.
 
-Azure desteğine başvurularak 100 işleme birimine kadar 20'li bloklar daha fazla işleme birimi satın alabilirsiniz. Bu sınırı aşan 100 işleme biriminden oluşan bloklar satın alabilirsiniz.
+### <a name="partitions"></a>Bölümler
 
-En iyi ölçeği elde etmek için işleme birimleri ve bölümlerini dengelemeniz önerilir. Tek bir bölüm bir işleme biriminden oluşan en az bir ölçeğe sahiptir. İşleme birimlerinin sayısı bir olay hub’ındaki bölüm sayısına eşit veya daha az olmalıdır.
+Bölümler izin verin, Ölçek, aşağı akış işleme için. Event Hubs bölümlerle sunan bölümlenmiş tüketici modelinin nedeniyle, olaylarınızı aynı anda işlenirken ölçeklendirme. Bir olay hub'ı 32 adede kadar bölümlere sahip olabilir.
+
+En iyi ölçeği elde etmek için 1:1 işleme birimleri ve bölümlerini dengelemeniz önerilir. Garantili bir giriş ve çıkış en fazla bir işleme biriminden oluşan tek bir bölüm vardır. Bir bölüme daha yüksek performans sağlamak olabilir, ancak performans garanti edilmez. Bir olay hub'ındaki bölüm sayısı en az üretilen iş birimlerinin sayısı için önerilir nedeni budur.
+
+Toplam aktarım hızı gerektiren üzerinde planlama göz önünde bulundurulduğunda, ihtiyaç duyduğunuz üretilen iş birimlerinin sayısı ve en düşük bölüm sayısı, ancak kaç bölümler gerekir biliyor musunuz? Gelecekteki bir üretilen iş hacmi gereksinimlerinizi yanı sıra ulaşmak istediğiniz aşağı akış paralelliğiyle üzerinde göre bölüm seçin. Sahip olduğunuz bir olay hub'ı bölüm sayısı için ücret alınmaz.
 
 Event Hubs ayrıntılı fiyatlandırma bilgileri için bkz. [Event Hubs fiyatlandırması](https://azure.microsoft.com/pricing/details/event-hubs/).
 

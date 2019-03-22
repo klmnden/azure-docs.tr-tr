@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 534473ccde52af69b6dad1e84ef77da326d29d5c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 087440b60e1d5fecc668849bc1350d66988b16b9
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872593"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339100"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Hızlı Başlangıç: Dönüştürme metin okuma Python kullanma
 
@@ -93,7 +93,7 @@ def get_token(self):
 
 Burada, derleme isteği ve konuşma yanıt kaydetmek için yedekleyeceksiniz. İlk olarak, ayarlanacak ihtiyacınız `base_url` ve `path`. Bu örnek, Batı ABD uç nokta kullanmakta olduğunuz varsayılır. Kaynağınız için farklı bir bölgede kayıtlı değilse, güncelleştirdiğinizden emin olun `base_url`. Daha fazla bilgi için [konuşma Hizmetleri bölgeleri](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Ardından, istek için gerekli üst bilgileri eklemeniz gerekir. Güncelleştirdiğinizden emin olun `User-Agent` kaynak (Azure Portalı'nda bulunur) ve küme adıyla `X-Microsoft-OutputFormat` tercih edilen ses çıkış için. Çıkış biçimleri tam bir listesi için bkz. [ses çıkarır](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-outputs).
+Ardından, istek için gerekli üst bilgileri eklemeniz gerekir. Güncelleştirdiğinizden emin olun `User-Agent` kaynak (Azure Portalı'nda bulunur) ve küme adıyla `X-Microsoft-OutputFormat` tercih edilen ses çıkış için. Çıkış biçimleri tam bir listesi için bkz. [ses çıkarır](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 Ardından, istek gövdesi konuşma sentezi işaretleme dili (SSML'yi) kullanarak oluşturun. Bu örnek, yapısını tanımlar ve kullandığı `tts` daha önce oluşturduğunuz giriş.
 
@@ -166,6 +166,6 @@ Abonelik anahtarları gibi örnek uygulamanızın kaynak kodundan olan gizli bil
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Metin Okuma API başvurusu](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+* [Metin Okuma API başvurusu](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Özel ses tipi olarak oluşturma](how-to-customize-voice-font.md)
 * [Özel ses oluşturma kayıt ses örnekleri](record-custom-voice-samples.md)

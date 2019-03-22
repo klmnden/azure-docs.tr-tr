@@ -5,14 +5,14 @@ author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/19/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3da4662885b2b09c6474a1a6ceafd627e71cf236
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d34ef1bb5bea6f5f099f7fa2a24ddec2362b44ea
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081041"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336193"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Key Vault geçici silmeyi PowerShell ile kullanma
 
@@ -101,7 +101,7 @@ Geçici silme ile etkin:
 Aşağıdaki komutu kullanarak, aboneliğinizle ilişkili silindi durumu anahtar kasalarını görüntüleyebilirsiniz:
 
 ```powershell
-PS C:\> Get-AzKeyVault -InRemovedState 
+Get-AzKeyVault -InRemovedState 
 ```
 
 - *Kimliği* kurtarma veya temizleme kaynağı tanımlamak için kullanılabilir. 
@@ -233,8 +233,27 @@ Silinen anahtar kasasını nesnelerin listesini, ayrıca, bunlar Key Vault taraf
 >[!IMPORTANT]
 >Tarafından tetiklenen bir Temizlenen kasasını kendi *temizleme tarihine zamanlanmış* alan, kalıcı olarak silinir. Kurtarılabilir değil!
 
+## <a name="enabling-purge-protection"></a>Temizleme korumasını etkinleştirme
+
+Koruma yapılandırması bir kasa veya bir nesne silinmiş açık olduğunda 90 gün saklama süresi bitene kadar durumu temizlenemiyor. Böyle bir kasa veya nesne hala kurtarılabilir. Bu özellik bir kasa veya bir nesne hiçbir zaman kalıcı olarak olabilecek ek güvence verir bekletme süresi geçene kadar silindi.
+
+Yalnızca geçici silmeyi de etkinse koruma yapılandırması etkinleştirebilirsiniz. 
+
+Her iki geçici silme üzerinde açın ve kasa oluştururken koruma temizlemek için kullanın [yeni AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet:
+
+```powershell
+New-AzKeyVault -Name ContosoVault -ResourceGroupName ContosoRG -Location westus -EnableSoftDelete -EnablePurgeProtection
+```
+
+(Bu, geçici silme etkinleştirilebilir zaten) var olan bir kasa için temizleme korumasını eklemek için kullanmak [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault?view=azps-1.5.0), [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-1.5.0), ve [kümesi AzResource](/powershell/module/az.resources/set-azresource?view=azps-1.5.0) cmdlet'leri:
+
+```
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true"
+
+Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
+```
+
 ## <a name="other-resources"></a>Diğer kaynaklar
 
 - Key Vault geçici silme özelliği genel bakış için bkz. [Azure Key Vault geçici silmeyi genel bakış](key-vault-ovw-soft-delete.md).
-- Azure Key Vault kullanımı genel bir bakış için bkz: [Azure anahtar kasası nedir?](key-vault-overview.md).
-
+- Azure Key Vault kullanımı genel bir bakış için bkz: [Azure anahtar kasası nedir?](key-vault-overview.md). Tarih = başarılı}

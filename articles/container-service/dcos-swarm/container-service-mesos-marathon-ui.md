@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 41b6ce24e7c2e8565d7c2f17c32b8b6e1f38ea4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 16c16c0217a796ffbb57e10430f90cb4a7660ac6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992474"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317621"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(KULLANIM DIŞI) Marathon web UI aracılığıyla bir Azure Container Service DC/OS kümesini yönetme
 
@@ -36,12 +36,12 @@ Bu örneklerin üzerinden geçmeden önce, Azure Kapsayıcı Hizmeti’nde yapı
 >
 
 ## <a name="explore-the-dcos-ui"></a>DC/OS kullanıcı arabirimini keşfetme
-Secure Shell (SSH) tüneli ile [kurulan](../container-service-connect.md), Gözat http://localhost/. Bu, DC/OS web kullanıcı arabirimini yükler ve kullanılan kaynaklar, etkin aracılar ve çalışan hizmetler gibi, küme hakkında bilgileri gösterir.
+Secure Shell (SSH) tüneli ile [kurulan](../container-service-connect.md), http için göz atın: \/ /localhost /. Bu, DC/OS web kullanıcı arabirimini yükler ve kullanılan kaynaklar, etkin aracılar ve çalışan hizmetler gibi, küme hakkında bilgileri gösterir.
 
 ![DC/OS Kullanıcı Arabirimi](./media/container-service-mesos-marathon-ui/dcos2.png)
 
 ## <a name="explore-the-marathon-ui"></a>Marathon kullanıcı arabirimini keşfetme
-Marathon kullanıcı arabirimini görmek için Gözat http://localhost/marathon. Bu ekranda, Azure Kapsayıcı Hizmeti DC/OS kümesinde yeni kapsayıcı veya başka bir uygulama başlatabilirsiniz. Kapsayıcıları ve uygulamaları çalıştırma hakkında bilgileri de görebilirsiniz.  
+Marathon kullanıcı arabirimini görmek için http için göz atın: \/ /localhost/marathon. Bu ekranda, Azure Kapsayıcı Hizmeti DC/OS kümesinde yeni kapsayıcı veya başka bir uygulama başlatabilirsiniz. Kapsayıcıları ve uygulamaları çalıştırma hakkında bilgileri de görebilirsiniz.  
 
 ![Marathon kullanıcı arabirimi](./media/container-service-mesos-marathon-ui/dcos3.png)
 
@@ -85,7 +85,7 @@ Marathon ana sayfasına geri döndüğünüzde, kapsayıcının dağıtımın du
 
 ![Marathon ana sayfası kullanıcı arabirimi--kapsayıcı dağıtım durumu](./media/container-service-mesos-marathon-ui/dcos7.png)
 
-Geri DC/OS için geçiş yaptığınızda web kullanıcı Arabirimi (http://localhost/), bir görev (Bu durumda, bir Docker biçimli kapsayıcının) DC/OS kümesinde çalıştığını görürsünüz.
+Geri DC/OS için geçiş yaptığınızda web kullanıcı Arabirimi (http:\//localhost/), bir görev (Bu durumda, bir Docker biçimli kapsayıcının) DC/OS kümesinde çalıştığını görürsünüz.
 
 ![DC/OS web kullanıcı arabirimi--kümede çalışan görev](./media/container-service-mesos-marathon-ui/dcos8.png)
 

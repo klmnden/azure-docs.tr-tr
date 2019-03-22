@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 74329624b6e0f1b105349d87a6d166efad520076
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 17acd4eebe53704699d3ec9a3f4f121eed79794d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010912"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310396"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Amazon Web Services (AWS) sanal makinelerini Azure’a geçirme
 
@@ -236,7 +236,7 @@ Portalda yük devretme testini çalıştırın:
 
 Bazı senaryolarda, yük devretme için ek işlemler gerekir. İşlemin tamamlanması 8-10 dakika sürer.
 
-## <a name="migrate-to-azure"></a>Azure'a geçirme
+## <a name="migrate-to-azure"></a>Azure’a geçiş
 
 EC2 örneklerinin Azure sanal makinelerine geçişi için gerçek bir yük devretme çalıştırın:
 
@@ -248,7 +248,7 @@ EC2 örneklerinin Azure sanal makinelerine geçişi için gerçek bir yük devre
    - Böylece geçiş işlemi tamamlanır, AWS VM için çoğaltma durdurulur ve sanal makine için Site Recovery faturalaması durdurulur.
    - Bu adım, çoğaltma verilerini temizler. Bu, geçirilen sanal makinelerin silmez. 
 
-     ![Tam geçiş](./media/migrate-tutorial-aws-azure/complete-migration.png)
+     ![Geçişi tamamlama](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
 > [!WARNING]
 > *Devam eden yük devretme işlemini iptal etmeyin*. Yük devretme başlatılmadan önce VM çoğaltması durdurulur. Devam eden bir yük devretme işlemini iptal ederseniz yük devretme durdurulur, ancak VM yeniden çoğaltılmaz.  

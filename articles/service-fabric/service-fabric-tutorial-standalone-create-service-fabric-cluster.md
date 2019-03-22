@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: b740aa205982bc0c1104b59e3ea89e2d5980d461
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e4995890a1f2ceec8ddf5d4dafafdd13382864db
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240350"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311467"
 ---
-# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Öğretici: Service Fabric kümesi yükleme ve oluşturma
+# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Öğretici: Yükleme ve Service Fabric kümesi oluşturma
 
 Service Fabric tek başına kümeleri, kendi ortamınızı seçme ve Service Fabric’in benimsediği "her işletim sistemi, her bulut" yaklaşımının bir parçası olarak bir küme oluşturma seçeneği sunar. Bu öğretici serisinde, AWS üzerinde barındırılan bir tek başına küme oluşturacak ve içine bir uygulama yükleyeceksiniz.
 
@@ -129,7 +129,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### <a name="bring-up-service-fabric-explorer"></a>Service Fabric Explorer’ı getirme
 
-Şimdi Service Fabric Explorer ile doğrudan http://localhost:19080/Explorer/index.html içeren makinelerden birinden veya http://<*IPAddressofaMachine*>:19080/Explorer/index.html ile uzaktan kümeye bağlanabilirsiniz.
+Service Fabric Explorer ile küme bağlanabilirsiniz artık http makinelerle birinden doğrudan ya da:\//localhost:19080/Explorer/index.html veya http ile uzaktan:\/ /<  *IPAddressofaMachine*>: 19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Düğüm ekleme ve kaldırma
 

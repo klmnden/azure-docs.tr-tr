@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: celested
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 225676b144d042c51a97fe14a20a5a78f0a77244
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 623d684f701df8b1a7c4b84a2bd3840f039ad174
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013084"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312708"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Federasyon çoklu oturum açma için yapılandırılmış bir galeri uygulamasında oturum açma sorunları
 
@@ -33,7 +33,7 @@ Oturum açma sorunları aşağıdaki sorun giderme için daha iyi tanılama alma
 
 ## <a name="application-not-found-in-directory"></a>Uygulama dizininde bulunamadı
 
-*Hata AADSTS70001: Uygulama tanımlayıcısı ile 'https://contoso.com' dizininde bulunamadı*.
+*Hata AADSTS70001: Uygulama tanımlayıcısı ile ' https:\//contoso.com' dizininde bulunamadı*.
 
 **Olası nedeni**
 
@@ -63,7 +63,7 @@ Emin `Issuer` Azure AD'de yapılandırılan tanımlayıcı değerini SAML isteğ
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Yanıt adresi, uygulama için yapılandırılan yanıt adresleriyle eşleşmiyor
 
-*Hata AADSTS50011: Yanıt adresi https://contoso.com' uygulaması için yapılandırılan yanıt adresleriyle eşleşmiyor*
+*Hata AADSTS50011: Yanıt adresi ' https:\//contoso.com' uygulaması için yapılandırılan yanıt adresleriyle eşleşmiyor*
 
 **Olası nedeni**
 

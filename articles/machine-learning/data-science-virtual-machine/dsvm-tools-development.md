@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: dd60c5d0210ffba373839fd0f194496c5dbcc20d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7983169c2b1123c57a48471e3f4d9ad6f19c84dc
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999411"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314731"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Veri bilimi sanal makinesi üzerinde geliştirme araçları
 
@@ -65,7 +65,7 @@ Veri bilimi sanal makinesi (DSVM), çeşitli popüler Araçlar ve IDE paketleme 
 | Nedir?   | R için Web tabanlı IDE    |
 | Desteklenen DSVM sürümleri      | Linux      |
 | Tipik kullanımları      |  R geliştirme     |
-| Kullanma / çalıştırın nasıl?      | Etkinleştirme hizmete _systemctl etkinleştirme rstudio server_, hizmeti ile başlatın _systemctl Başlat rstudio server_. Ardından RStudio Server oturum açabildiğinizden http://your-vm-ip:8787.       |
+| Kullanma / çalıştırın nasıl?      | Etkinleştirme hizmete _systemctl etkinleştirme rstudio server_, hizmeti ile başlatın _systemctl Başlat rstudio server_. Ardından RStudio Server için http oturum:\//,-vm-ip:8787.       |
 | DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodu, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 432dcf4608d23f269c5005b86d2c58b7f70b3068
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007586"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313609"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure için SAP LaMa Bağlayıcısı
 
@@ -77,7 +77,7 @@ Azure bağlayıcısı SAP LaMa 3.0 SP05 itibarıyla sevk edilir. Her zaman SAP L
 1. Azure Active Directory dikey penceresini açın
 1. Uygulama kayıtları tıklayın
 1. Ekle'ye tıklayın
-1. Bir ad girin, "Web uygulaması/API'si" uygulama türünü seçin, bir oturum açma URL'sini girin (örneğin `http://localhost`) ve üzerinde oluştur
+1. Bir ad girin, "Web uygulaması/API'si" uygulama türünü seçin, bir oturum açma URL'sini girin (örneğin http:\//localhost) ve üzerinde oluştur
 1. Oturum açma URL'si kullanılmaz ve geçerli bir URL olabilir
 1. Yeni uygulamayı seçin ve ayarları sekmesini anahtarları
 1. Yeni bir anahtar için bir açıklama girin, "Her zaman geçerli olsun"'i seçin ve tıklayın kaydederken

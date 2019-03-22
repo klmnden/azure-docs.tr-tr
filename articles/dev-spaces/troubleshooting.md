@@ -9,16 +9,18 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s '
-ms.openlocfilehash: 1ccb96bc8682ad505bc4b21e90951ea25c4c9954
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eff7f88ec6cbf8064df42fa3b22d61bb44baa451
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898091"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339593"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
 Bu kılavuz, Azure geliştirme alanları kullanılırken olabilir sık karşılaşılan sorunlar hakkında bilgi içerir.
+
+Azure geliştirme alanları kullanılırken bir sorun varsa, oluşturun bir [sorunu Azure geliştirme alanları GitHub deposunda](https://github.com/Azure/dev-spaces/issues).
 
 ## <a name="enabling-detailed-logging"></a>Ayrıntılı günlük kaydını etkinleştirme
 
@@ -262,11 +264,13 @@ az provider register --namespace Microsoft.DevSpaces
 ## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Geliştirme alanları zaman aşımına *kapsayıcı görüntü derlemesi için bekleniyor...*  AKS sanal düğümü adımla
 
 ### <a name="reason"></a>Neden
-Üzerinde çalışmak üzere yapılandırılan bir hizmeti çalıştırmak için geliştirme alanları kullanmayı denediğinizde, böyle bir [AKS sanal düğümü](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Geliştirme alanları, oluşturma veya hata ayıklama Hizmetleri sanal düğümlere şu anda desteklemiyor.
+Bu zaman aşımı oluşur çalıştırmak için yapılandırılmış bir hizmeti çalıştırmak için geliştirme alanları kullanma girişimi bir [AKS sanal düğümü](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Geliştirme alanları, oluşturma veya hata ayıklama Hizmetleri sanal düğümlere şu anda desteklemiyor.
 
 Çalıştırırsanız `azds up` ile `--verbose` anahtar veya Visual Studio'da etkinleştir ayrıntılı günlük kaydı, ek ayrıntı görürsünüz:
 
 ```cmd
+$ azds up --verbose
+
 Installed chart in 2s
 Waiting for container image build...
 pods/mywebapi-76cf5f69bb-lgprv: Scheduled: Successfully assigned default/mywebapi-76cf5f69bb-lgprv to virtual-node-aci-linux
@@ -274,7 +278,7 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-Bu hizmetin pod atandığı gösterir *sanal düğümü-aci-linux*, sanal bir düğüm.
+Yukarıdaki komut, hizmetin pod atandığı gösterir *sanal düğümü-aci-linux*, sanal bir düğüm.
 
 ### <a name="try"></a>Deneyin:
 Güncelleştirme hizmeti kaldırmak Helm grafiği *nodeSelector* ve/veya *tolerations* sanal düğüm üzerinde çalışan izin değerleri. Bu değerler, genellikle grafik içinde tanımlanan `values.yaml` dosya.

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4685c4213ad992e8d0fcffdf91a039cd04b426ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 813a81e3812f9bb95ab11deec35adc6c05f1b58e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844216"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312232"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Azure'da Service Fabric ile API Management'ı tümleştirme
 
@@ -142,7 +142,7 @@ Service Fabric arka uçları için, belirli bir Service Fabric hizmeti yerine Se
 
 * **displayName**, API'niz için herhangi bir ad olabilir. Bu makale için "Service Fabric uygulaması" kullanın.
 * **name**, API için "service-fabric-app" gibi benzersiz ve açıklayıcı bir ad sağlar. Geliştirici ve yayımcı portallarında görüntülenir.
-* **serviceUrl**, API'yi gerçekleştiren HTTP hizmetine başvurur. API Management istekleri bu adrese iletir. Service Fabric arka uçları için bu URL değeri kullanılmaz. Buraya herhangi bir değer koyabilirsiniz. Örneğin bu makalede "<http://servicefabric>".
+* **serviceUrl**, API'yi gerçekleştiren HTTP hizmetine başvurur. API Management istekleri bu adrese iletir. Service Fabric arka uçları için bu URL değeri kullanılmaz. Buraya herhangi bir değer koyabilirsiniz. Bu makalede, örneğin "http:\//servicefabric".
 * **path**, API Management hizmeti için temel URL'nin sonuna eklenir. Temel URL, bir API Management hizmet örneği tarafından barındırılan tüm API'lerde ortaktır. API Management API'leri soneklerine bakarak ayırt eder; dolayısıyla belirli bir yayımcıdaki her API için sonekin benzersiz olması gerekir.
 * **protocols**, API'ye erişmek için hangi protokollerin kullanılacağını belirler. Bu makale için liste **http** ve **https**.
 * **path**, API için bir sonektir. Bu makalede "myapp" kullanın.

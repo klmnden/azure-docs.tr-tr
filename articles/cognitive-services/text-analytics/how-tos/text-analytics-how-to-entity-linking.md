@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 78cc200a7bbaa2673cf6fea71d9be123fc96a75f
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d1f4c72ec0a67baa6f523c1ab632903b0580f3a7
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258080"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339389"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Adlandırılmış varlık tanıma, metin analizi (Önizleme) kullanma
 
@@ -107,7 +107,7 @@ Belge boyutuna, belge başına altında 5.120 karakter uzunluğunda olmalıdır 
 
 ## <a name="step-2-post-the-request"></a>2. Adım: POST isteği
 
-İstek alındığında analiz gerçekleştirilir. Hizmet dakikada en fazla 100 istek kabul eder. Her istek maksimum 1 MB olabilir.
+İstek alındığında analiz gerçekleştirilir. Hizmet, dakika başına ikinci ve 1000 istek başına en fazla 100 istek kabul eder. Her istek maksimum 1 MB olabilir.
 
 Hizmetin durum bilgisi olmadığını unutmayın. Hesabınızda bir veri depolanmaz. Sonuçlar hemen yanıtta döndürülür.
 

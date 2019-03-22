@@ -6,21 +6,21 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5b8ec726c81dfab710d30c37d6fb1aac97c12265
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: c689a8fe35133456c476106e96336420640ebf66
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293984"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335989"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Otomasyonu’nda kaynak denetimi tümleştirmesi
 
 Kaynak denetimi, runbook'larınızı tutmanızı sağlar, Otomasyon hesabı ile GitHub veya Azure depoları kaynak denetim deposu betiğinizde güncel. Kaynak denetimi kolayca takımınızla işbirliği yapmanıza, değişiklikleri izlemek ve runbook'larınızı önceki sürümleri geri alma sağlar. Örneğin, kaynak denetimi, geliştirme, test veya üretim Otomasyon hesaplarınız için kaynak denetiminde farklı dallara eşitleme sağlar. Bu Otomasyon hesabı üretim geliştirme ortamınızda test kod yükseltmek kolaylaştırır. Otomasyon ile kaynak denetimi tümleştirmesi, tek yönlü kaynak denetimi deponuzun eşitlemeyi destekler.
 
-Azure Otomasyonu, kaynak denetimi 3 türlerini destekler:
+Azure Otomasyonu, üç kaynak denetim türlerini destekler:
 
 * GitHub
 * Azure depoları (Git)
@@ -30,6 +30,7 @@ Azure Otomasyonu, kaynak denetimi 3 türlerini destekler:
 
 * Bir kaynak denetim deposu (GitHub veya Azure depoları)
 * A [Çalıştır hesabı](manage-runas-account.md)
+* Olduğundan emin olun [en son Azure modüllerine](automation-update-azure-modules.md) Otomasyon hesabınızdaki
 
 > [!NOTE]
 > Kaynak denetimi eşitleme işi, Otomasyon hesabı kapsamındaki kullanıcıların çalıştırabilir ve diğer Otomasyon işleri aynı fiyat üzerinden ücretlendirilir.
@@ -49,10 +50,10 @@ Seçin **kaynak denetimi türü**, tıklayın **doğrulaması**. Bir tarayıcı 
 |Kaynak denetimi adı     | Kaynak denetimi için bir kolay ad        |
 |Kaynak Denetim türü     | Kaynak denetimi türü. Kullanılabilen seçenekler:</br> GitHub</br>Azure depoları (Git)</br> Azure depoları (TFVC)        |
 |Depo     | Depo veya projenin adı. İlk 200 depoları döndürülür. Bir depo için arama yapmak için ad alanını yazın ve **arama github'da**.|
-|Şube     | Kaynak dosyalarını çekmek için dal. Dal hedefleyen TFVC kaynak denetimi türü için kullanılamıyor.          |
-|Klasör yolu     | Eşitleme için runbook'ları içeren klasör. Örnek: /Runbooks </br>*Belirtilen klasör yalnızca runbook'lar eşitlenir. Özyineleme desteklenmiyor.*        |
+|Şube     | Kaynak dosyalarını çekmek için dal. Dal hedefleyen TFVC kaynak denetimi türü için kullanılamaz.          |
+|Klasör yolu     | Eşitleme için runbook'ları içeren klasör. Örnek: /Runbooks </br>*Belirtilen klasör yalnızca runbook'lar eşitlenir. Özyineleme desteklenmez.*        |
 |Auto Sync     | Açar veya kaynak denetim deposunda bir işleme yapıldığında otomatik eşitleme devre dışı         |
-|Publish Runbook     | Varsa kümesine **üzerinde**, runbook'ları, bunlar otomatik olarak yayımlanacak kaynak denetiminden eşitlendiğinde.         |
+|Publish Runbook     | Varsa kümesine **üzerinde**sonra bunlar otomatik olarak yayımlanacağı kaynak denetiminden runbook'lar eşitlenir.         |
 |Açıklama     | Ek ayrıntılar sağlamak için bir metin alanı        |
 
 ![Kaynak denetimi özeti](./media/source-control-integration/source-control-summary.png)
@@ -62,7 +63,7 @@ Seçin **kaynak denetimi türü**, tıklayın **doğrulaması**. Bir tarayıcı 
 
 ## <a name="configure-source-control---powershell"></a>Kaynak denetimi - PowerShell yapılandırma
 
-Azure Otomasyonu'nda kaynak denetimi yapılandırmak için PowerShell de kullanabilirsiniz. PowerShell cmdlet'leriyle, kaynak denetimini yapılandırmak için bir [kişisel erişim belirteci (PAT)](#personal-access-token) gereklidir. Kullandığınız [yeni AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) kaynak denetimi bağlantısı oluşturmak için. Cmdlet, kişisel erişim güvenli bir dize oluşturma hakkında bilgi edinmek için belirteci, güvenli bir dize gerektirir [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+Azure Otomasyonu'nda kaynak denetimi yapılandırmak için PowerShell de kullanabilirsiniz. PowerShell cmdlet'leri ile kaynak denetimi yapılandırmak için bir kişisel erişim belirteci (PAT) gereklidir. Kullandığınız [yeni AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) kaynak denetimi bağlantısı oluşturmak için. Cmdlet, kişisel erişim güvenli bir dize oluşturma hakkında bilgi edinmek için belirteci, güvenli bir dize gerektirir [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
 ### <a name="azure-repos-git"></a>Azure depoları (Git)
 
@@ -113,7 +114,7 @@ Azure depolarda kişisel erişim belirteci oluşturma hakkında daha fazla bilgi
 |İş öğeleri (okuma)    |
 |Hizmet (okuma, sorgulama ve yönetme) bağlantıları<sup>1</sup>    |
 
-<sup>1</sup>hizmet bağlantıları izindir yalnızca autosync etkinleştirdiyseniz gerekli.
+<sup>1</sup> hizmet bağlantıları izindir yalnızca autosync etkinleştirdiyseniz gerekli.
 
 ## <a name="syncing"></a>Eşitleniyor
 
@@ -168,7 +169,7 @@ Kaldırmak istediğiniz kaynak denetimi seçin. Üzerinde **kaynak denetimi öze
 
 ## <a name="encoding"></a>Encoding
 
-Birden çok kişinin farklı bir düzenleyici ile runbook'ları kaynak denetimi deponuzda düzenliyorsanız kodlama sorunlarına çalıştırma olanağı yoktur. Bu, hatalı karakterler runbook'unuza ekleyebilirsiniz. Bunun hakkında daha fazla bilgi edinmek için [yaygın nedenleri kodlama sorunlarına](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+Birden çok kişinin farklı bir düzenleyici ile runbook'ları kaynak denetimi deponuzda düzenliyorsanız, kodlama sorunlarına çalıştırma olanağı yoktur. Bu durum hatalı karakterler runbook'unuzda neden olabilir. Bunun hakkında daha fazla bilgi edinmek için [yaygın nedenleri kodlama sorunlarına](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b1eb6e1458fab6de3472d68352ba7764b71007c8
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: 9c654c65577c44b1773ff98cb1206beeb5206ba4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58292590"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317655"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>REST ile Azure Media Services telemetri yapılandırma
 
@@ -34,7 +34,7 @@ Bu konuda açıklanan adımlar şunlardır:
 - Bildirim uç noktalarını alma
 - Bildirim uç noktası izleme için oluşturuluyor. 
 
-    Bildirim uç noktası oluşturmak için AzureTable (2) ve depolama tablosuna ayarlamak endPontAddress EndPointType ayarlayın (örneğin, https://telemetryvalidationstore.table.core.windows.net/).
+    Bildirim uç noktası oluşturmak için AzureTable (2) ve depolama tablosuna ayarlamak endPontAddress EndPointType ayarlayın (örneğin, https:\//telemetryvalidationstore.table.core.windows.net/).
   
 - İzleme yapılandırmalarını alma
 
@@ -121,12 +121,12 @@ Bu konuda açıklanan adımlar şunlardır:
     
     {  
         "Name":"monitoring",
-        "EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/",
+        "EndPointAddress":"https:\//telemetryvalidationstore.table.core.windows.net/",
         "EndPointType":2
     }
 
 > [!NOTE]
-> Değiştirmeyi unutmayın "https://telemetryvalidationstore.table.core.windows.net" depolama hesabınıza değeri.
+> Değiştirmeyi unutmayın "https:\//telemetryvalidationstore.table.core.windows.net" depolama hesabınıza değeri.
 
 ### <a name="response"></a>Yanıt
 

@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 9d18b1382bdb421afcc8aee92fd99b7ef0d09e32
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a9baf36221c99ece0703e2caa3f3e6c3b9364480
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540155"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312215"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Öğretici: Azure Time Series Insights tek sayfalı web uygulaması oluşturma
 
@@ -54,7 +54,7 @@ Uygulamayı derlemeden önce Azure AD’ye kaydetmeniz gerekir. Kayıt işlemi s
    ---|---
    **Ad** | Anlamlı bir kayıt adı girin.  
    **Uygulama türü** | SPA web uygulaması oluşturduğunuz için "Web uygulaması/API" olarak bırakın.
-   **Oturum Açma URL'si** | Uygulamanın giriş/oturum açma sayfasının URL’sini girin. Uygulama Azure App Service üzerinde barındırılacağından (daha sonra) "https://azurewebsites.net" etki alanındaki bir URL’yi kullanmanız gerekir. Bu örnekte ad, kayıt adına dayalıdır.
+   **Oturum Açma URL'si** | Uygulamanın giriş/oturum açma sayfasının URL’sini girin. Uygulamayı (daha sonra) Azure App Service'te barındırılacak olduğundan, içinde bir URL kullanmanız gerekir "https:\//azurewebsites.net" etki alanı. Bu örnekte ad, kayıt adına dayalıdır.
 
    Girişleri tamamladığınızda yeni uygulama kaydını oluşturmak için **Oluştur**’a tıklayın.
 

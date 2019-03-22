@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 791c63b7b7fed55f95905ba7131d6a1d4bb414ff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1a8e5fd82b44577aa1915d59fc7c29900a1f14ea
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010499"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319525"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>SLES azure'da Red Hat Enterprise Linux üzerinde Pacemaker ayarlama
 
@@ -85,6 +85,8 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
+   Bir Azure Market PAYG RHEL görüntüsü için bir havuz ekleyerek, RHEL kullanımınız için etkili bir şekilde çift faturalandırılır olacağını unutmayın: PAYG görüntü için bir kez ve bir kez eklediğiniz havuzundaki RHEL yetkilendirme için. Bunu azaltmak için Azure artık görüntüleri BYOS RHEL sağlar. Daha fazla bilgi edinilebilir [burada](https://aka.ms/rhel-byos).
+
 1. **[A]**  SAP depoları için RHEL etkinleştir
 
    Gerekli paketleri yüklemek için aşağıdaki depolardan etkinleştirin.
@@ -144,10 +146,10 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
    sudo pcs cluster start --all
-   
+
    # Run the following command until the status of both nodes is online
    sudo pcs status
-   
+
    # Cluster name: nw1-azr
    # WARNING: no stonith devices and stonith-enabled is not false
    # Stack: corosync
@@ -179,11 +181,10 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
 STONITH cihaz, Microsoft Azure karşı korunmasına yetki vermek için bir hizmet sorumlusu kullanır. Bir hizmet sorumlusu oluşturmak için aşağıdaki adımları izleyin.
 
 1. Şuraya gidin: <https://portal.azure.com>
-1. Azure Active Directory dikey penceresini açın  
-   Özellikler bölümüne gidin ve dizin kimliği yazma Bu **Kiracı kimliği**.
+1. Özellikler ve dizin kimliği azaltma Git Azure Active Directory dikey penceresini açın Bu **Kiracı kimliği**.
 1. Uygulama kayıtları tıklayın
 1. Ekle'ye tıklayın.
-1. Bir ad girin, "Web uygulaması/API'si" uygulama türünü seçin, bir oturum açma URL'sini girin (örneğin `http://localhost`) ve Oluştur'a tıklayın
+1. Bir ad girin, "Web uygulaması/API'si" uygulama türünü seçin, bir oturum açma URL'sini girin (örneğin http:\//localhost) ve Oluştur'a tıklayın
 1. Oturum açma URL'si kullanılmaz ve geçerli bir URL olabilir
 1. Yeni uygulamayı seçin ve ayarları sekmesini anahtarları
 1. Yeni bir anahtar için bir açıklama girin, "Her zaman geçerli olsun"'i seçin ve Kaydet'e tıklayın

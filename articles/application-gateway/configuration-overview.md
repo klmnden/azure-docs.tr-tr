@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285847"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319457"
 ---
 # <a name="application-gateway-configuration-overview"></a>Uygulama ağ geçidi yapılandırmasına genel bakış
 
@@ -33,9 +33,9 @@ Uygulama ağ geçidi, sanal ağınızda ayrılmış bir dağıtımıdır. Sanal 
 
 #### <a name="size-of-the-subnet"></a>Alt ağ boyutu
 
-Özel ön uç IP yapılandırması yapılandırılmışsa, uygulama ağ geçidi örneği başına bir özel IP adresi yanı sıra, başka bir özel IP adresini kullanır. Ayrıca, Azure ilk dört ayırır ve son her alt ağda iç kullanım için IP adresi. Bir uygulama ağ geçidi üç örnekleri ve hiçbir özel ön uç IP olarak ayarlanırsa, örneğin, ardından en az sekiz IP adresleri - iç kullanım için beş IP adresleri ve üç uygulama ağ geçidi örneği için üç IP adresini alt gerekli olacaktır. Bu nedenle, bu bir/29 durumda alt ağ boyutu veya üzeri gereklidir. Üç örneği varsa ve bir IP adresi için özel ön uç IP yapılandırması, dokuz IP adresleri - gerekir sonra üç uygulama ağ geçidi örneği için üç IP adresini özel ön uç IP ve beş IP için bir IP adresi için yöneliktir. iç kullanım için. Bu nedenle, / 28 durumda alt ağ boyutu veya üzeri gereklidir.
+Özel ön uç IP yapılandırması yapılandırılmışsa, uygulama ağ geçidi örneği başına bir özel IP adresi yanı sıra, başka bir özel IP adresini kullanır. Ayrıca, Azure beş IP adresleri - ayırır ilk dört ve son IP adresi - iç kullanım için her alt ağ. Bir uygulama ağ geçidi 15 örnekleri ve hiçbir özel ön uç IP olarak ayarlanırsa, örneğin, ardından en az 20 IP adresi alt - iç kullanım için beş IP adresleri ve uygulama ağ geçidinin 15 örnekleri için 15 IP adresleri gerekli olacaktır. Bu nedenle, / 27 durumda alt ağ boyutu veya üzeri gereklidir. 27 örnekleri varsa ve bir IP adresi için özel ön uç IP yapılandırmasının, 33 IP adresleri gerekli - sonra uygulama ağ geçidi 27 örnekleri için 27 IP adresleri iç kullanım için özel ön uç IP ve beş IP için bir IP adresi yöneliktir. Bu nedenle, bu bir /26 durumda alt ağ boyutu veya üzeri gereklidir.
 
-En iyi uygulama, en az/28'i kullanın. alt ağ boyutu. Bu, 11 kullanılabilir adresleri tükeniyor sağlar. Uygulama yükünüz 10'dan fazla örnekleri gerektiriyorsa, / 27 veya /26 dikkate almanız gereken alt ağ boyutu.
+En az/28'i kullanmak için önerilen alt ağ boyutu. Bu, 11 kullanılabilir adresleri tükeniyor sağlar. Uygulama yükünüz 10'dan fazla örnekleri gerektiriyorsa, / 27 veya /26 dikkate almanız gereken alt ağ boyutu.
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Desteklenen uygulama ağ geçidi alt ağı üzerinde ağ güvenlik grupları
 

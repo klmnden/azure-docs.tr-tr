@@ -4,17 +4,17 @@ description: Bilgi nasıl modülleri, güvenlik, iletişim ve cihazlarınızda r
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/13/2018
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a2412a286015cb403fe9a2af7754c7e5346fe98c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: bb2df9c32d5adc8160da82148e4a66a4ab68d182
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230433"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311608"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IOT Edge çalışma zamanı ve mimarisini anlama
 
@@ -22,17 +22,17 @@ IOT Edge çalışma zamanı, IOT Edge cihazı kabul edilebilmesi için bir cihaz
 
 IOT Edge çalışma zamanı, IOT Edge cihazlarında aşağıdaki işlevleri gerçekleştirir:
 
-* Cihazda iş yüklerini yükler ve güncelleştirir.
-* Cihazda Azure IoT Edge güvenlik standartlarını korur.
-* Sağlar [IOT Edge modülleri](iot-edge-modules.md) her zaman çalışıyor.
-* Uzaktan izleme için modül durumunu buluta bildirir.
+* Yükleme ve cihazda iş yüklerini güncelleştirin.
+* Cihazda Azure IOT Edge güvenlik standartlarını korur.
+* Emin [IOT Edge modülleri](iot-edge-modules.md) her zaman çalışıyor.
+* Bulutta Uzaktan izleme için modül durumunu rapor.
 * Aşağı Akış yaprak cihazlarıyla IOT Edge cihazları arasındaki iletişimi kolaylaştırır.
-* IoT Edge cihazında bulunan modüller arasındaki iletişimi kolaylaştırır.
-* IoT Edge cihazıyla bulut arasındaki iletişimi kolaylaştırır.
+* IOT Edge cihazı bulunan modüller arasındaki iletişimi kolaylaştırır.
+* IOT Edge cihazı ve bulut arasındaki iletişimi kolaylaştırır.
 
 ![Çalışma zamanı öngörüleri ve IOT hub'ına modül durumunu iletişim kurar.](./media/iot-edge-runtime/Pipeline.png)
 
-IOT Edge çalışma zamanı sorumluluklarını iki kategoriye ayrılır: iletişim ve modül yönetimi. Bu iki rolden IOT Edge çalışma zamanını oluşturan iki bileşen tarafından gerçekleştirilir. IOT Edge hub'ı, IOT Edge Aracısı'nı dağıtma ve izleme modüllerini yönetirken siz iletişimi için sorumludur. 
+IOT Edge çalışma zamanı sorumluluklarını iki kategoriye ayrılır: iletişim ve modül yönetimi. Bu iki rolden IOT Edge çalışma zamanını oluşturan iki bileşen tarafından gerçekleştirilir. *IOT Edge hub'ı* iletişimi için sorumlu olduğu sırada *IOT Edge Aracısı* dağıtır ve modülleri izler. 
 
 IOT Edge hub'ı hem de IOT Edge Aracısı, bir IOT Edge cihaz üzerinde çalışan yalnızca diğer modüllerin gibi modüllerdir. 
 
@@ -52,11 +52,11 @@ IOT Edge hub'ı buluta kaç gerçek bağlantı yapılan iyileştirir, IOT Edge �
 
 ![IOT Edge hub'ı olan IOT Hub ile fiziksel cihazlar arasında ağ geçidi](./media/iot-edge-runtime/Gateway.png)
 
- IOT Edge hub'ı, IOT Hub'ına bağlı olup olmadığını belirleyebilirsiniz. Bağlantı kaybedilirse IOT Edge hub'a iletileri veya ikizi güncelleştirmeleri yerel olarak kaydeder. Bağlantı yeniden sonra tüm verileri eşitler. Bu geçici önbelleği için kullanılan konum, bir IOT Edge hub'ın modül ikizi özelliği tarafından belirlenir. Önbelleğin boyutunu değil tavan ve cihaz depolama kapasitesine sahip sürece büyüyecektir. 
+IOT Edge hub'ı, IOT Hub'ına bağlı olup olmadığını belirleyebilirsiniz. Bağlantı kaybedilirse IOT Edge hub'a iletileri veya ikizi güncelleştirmeleri yerel olarak kaydeder. Bağlantı yeniden sonra tüm verileri eşitler. Bu geçici önbelleği için kullanılan konum, bir IOT Edge hub'ın modül ikizi özelliği tarafından belirlenir. Önbelleğin boyutunu değil tavan ve cihaz depolama kapasitesine sahip sürece büyüyecektir. 
 
 ### <a name="module-communication"></a>Modül iletişimi
 
- IOT Edge hub'ı modül için modülü iletişimi kolaylaştırır. IOT Edge kullanarak hub'a bir ileti aracısı olarak modülleri birbirinden bağımsız tutar. Modüller yalnızca üzerinde iletileri ve bunlar iletileri yazma çıkışları kabul girişleri belirtmeniz gerekir. Bir çözüm geliştirici bu girişlerin bitiştirir ve böylece modüller sırayla bu çözüme özel veri işleme birlikte çıkarır. 
+IOT Edge hub'ı modül için modülü iletişimi kolaylaştırır. IOT Edge kullanarak hub'a bir ileti aracısı olarak modülleri birbirinden bağımsız tutar. Modüller yalnızca üzerinde iletileri ve bunlar iletileri yazma çıkışları kabul girişleri belirtmeniz gerekir. Bir çözüm geliştirici bu girişlerin bitiştirir ve böylece modüller sırayla bu çözüme özel veri işleme birlikte çıkarır. 
 
 ![IOT Edge hub'ı modülü modülü iletişimi kolaylaştırır.](./media/iot-edge-runtime/module-endpoints.png)
 

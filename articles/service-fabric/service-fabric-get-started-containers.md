@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: 4133379ff7c1c0a64bd2d9aefdafdd5cdb530491
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 91b694070147cb0591bcc1763905f471161bf07b
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875077"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336771"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 
@@ -153,7 +153,7 @@ Bu komut herhangi bir şey döndürmezse aşağıdaki komutu çalıştırın ve 
 docker inspect my-web-site
 ```
 
-Çalışan kapsayıcıya bağlanın. Döndürülen IP adresine işaret eden bir web tarayıcısı açın (örneğin, "<http://172.31.194.61>"). "Hello World!" başlığının tarayıcıda gösterildiğini görürsünüz.
+Çalışan kapsayıcıya bağlanın. IP adresine işaret eden bir web tarayıcısı döndürülen açın, örneğin "http:\//172.31.194.61". "Hello World!" başlığının tarayıcıda gösterildiğini görürsünüz.
 
 Kapsayıcınızı durdurmak için şu komutu çalıştırın:
 
@@ -360,10 +360,12 @@ Service Fabric, ardından altında değeri ClusterManifest içinde belirtebilece
 * IsDefaultContainerRepositoryPasswordEncrypted (Boole)
 * DefaultContainerRepositoryPasswordType (dize)---desteklenen 6.4 çalışma zamanı ile başlatılıyor
 
-Aşağıda, bir örnek içinde ekleyebilirsiniz `Hosting` ClusterManifestTemplate.json dosyasındaki bölümü. Daha fazla bilgi için [değişiklik Azure Service Fabric küme ayarlarını](service-fabric-cluster-fabric-settings.md) ve [yönetme Azure Service Fabric uygulama gizli dizilerini](service-fabric-application-secret-management.md)
+Aşağıda, bir örnek içinde ekleyebilirsiniz `Hosting` ClusterManifestTemplate.json dosyasındaki bölümü. `Hosting` Küme oluşturma sırasında veya sonraki bir yapılandırma yükseltme bölümünde eklenebilir. Daha fazla bilgi için [değişiklik Azure Service Fabric küme ayarlarını](service-fabric-cluster-fabric-settings.md) ve [yönetme Azure Service Fabric uygulama gizli dizilerini](service-fabric-application-secret-management.md)
 
 ```json
-      {
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -388,6 +390,7 @@ Aşağıda, bir örnek içinde ekleyebilirsiniz `Hosting` ClusterManifestTemplat
           }
         ]
       },
+]
 ```
 
 ## <a name="configure-isolation-mode"></a>Yalıtım modunu yapılandırma
@@ -618,10 +621,12 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Kapsayıcı zorla sonlandırılmadan önceki zaman aralığını yapılandırın
 
-Hizmet silme (veya başka bir düğüme taşıma) başladıktan sonra, çalışma zamanının kapsayıcı kaldırılmadan önce ne kadar bekleyeceğine ilişkin bir zaman aralığı yapılandırabilirsiniz. Zaman aralığını yapılandırma, kapsayıcıya `docker stop <time in seconds>` komutunu gönderir.  Daha ayrıntılı bilgi için bkz. [docker durdurma](https://docs.docker.com/engine/reference/commandline/stop/). Beklenecek zaman aralığı, `Hosting` bölümünde belirtilir. Aşağıdaki küme bildirimi kod parçacığı, bekleme aralığının nasıl ayarlandığını gösterir:
+Hizmet silme (veya başka bir düğüme taşıma) başladıktan sonra, çalışma zamanının kapsayıcı kaldırılmadan önce ne kadar bekleyeceğine ilişkin bir zaman aralığı yapılandırabilirsiniz. Zaman aralığını yapılandırma, kapsayıcıya `docker stop <time in seconds>` komutunu gönderir.  Daha ayrıntılı bilgi için bkz. [docker durdurma](https://docs.docker.com/engine/reference/commandline/stop/). Beklenecek zaman aralığı, `Hosting` bölümünde belirtilir. `Hosting` Küme oluşturma sırasında veya sonraki bir yapılandırma yükseltme bölümünde eklenebilir. Aşağıdaki küme bildirimi kod parçacığı, bekleme aralığının nasıl ayarlandığını gösterir:
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -630,7 +635,8 @@ Hizmet silme (veya başka bir düğüme taşıma) başladıktan sonra, çalışm
           },
           ...
         ]
-}
+    }
+]
 ```
 Varsayılan zaman aralığı 10 saniye olarak ayarlanır. Bu yapılandırma dinamik olduğundan, kümedeki yalnızca yapılandırmaya yönelik bir güncelleştirme zaman aşımını güncelleştirir. 
 
@@ -641,7 +647,9 @@ Service Fabric kümesini kullanılmayan kapsayıcı görüntülerini düğümden
 
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -655,7 +663,8 @@ Service Fabric kümesini kullanılmayan kapsayıcı görüntülerini düğümden
           ...
           }
         ]
-} 
+    } 
+]
 ```
 
 Silinmemesi gereken görüntüleri `ContainerImagesToSkip` parametresi altında belirtebilirsiniz.  
@@ -666,7 +675,9 @@ Silinmemesi gereken görüntüleri `ContainerImagesToSkip` parametresi altında 
 Service Fabric çalışma zaman, kapsayıcı görüntülerinin indirilip ayıklanması için 20 dakika ayırır ve bu süre çoğu kapsayıcı görüntüsü için yeterlidir. Görüntüler büyükse veya ağ bağlantısı yavaşsa görüntü indirme ve ayıklama işlemi iptal edilmeden önce beklenecek sürenin artırılması gerekebilir. Zaman aşımı, aşağıdaki kod parçacığında gösterildiği gibi küme bildiriminin **Barındırma** bölümündeki **ContainerImageDownloadTimeout** özniteliği kullanılarak ayarlanabilir:
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -674,7 +685,8 @@ Service Fabric çalışma zaman, kapsayıcı görüntülerinin indirilip ayıkla
               "value": "1200"
           }
         ]
-}
+    }
+]
 ```
 
 
@@ -694,7 +706,9 @@ Service Fabric çalışma zamanı 6.2 sürümü ve üzeriyle, Docker cinini öze
  
 
 ```json
-{ 
+"fabricSettings": [
+    ...,
+    { 
         "name": "Hosting", 
         "parameters": [ 
           { 
@@ -702,8 +716,8 @@ Service Fabric çalışma zamanı 6.2 sürümü ve üzeriyle, Docker cinini öze
             "value": "-H localhost:1234 -H unix:///var/run/docker.sock" 
           } 
         ] 
-} 
-
+    } 
+]
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

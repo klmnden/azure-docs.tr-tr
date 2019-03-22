@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7432cbf8fae098c0753641f2002b72eaab3ddbb4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ff6475637b07f50aaea93caac85e65356bc9b96b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57851372"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317213"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Öğretici: ASP.NET Core Web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmetiyle uygulama oluşturma ve dağıtma
 
@@ -466,7 +466,7 @@ Bu öğreticide, VotingWeb ön uç web hizmetinin arka uç VotingData hizmetiyle
         ],
 ```
 Yerel geliştirme kümenizde kullanılan ters proxy bağlantı noktası bulmak için görüntüleme **HttpApplicationGatewayEndpoint** yerel Service Fabric küme bildiriminde öğesi:
-1. Bir tarayıcı penceresi açın ve gidin http://localhost:19080 Service Fabric Explorer aracını açın.
+1. Bir tarayıcı penceresi açın ve http gidin:\//localhost:19080 Service Fabric Explorer aracını açın.
 2. Seçin **küme bildirimi ->**.
 3. HttpApplicationGatewayEndpoint öğesinin bağlantı noktasını not edin. Varsayılan olarak 19081 olmalıdır. 19081 değilse VotesController.cs dosyasındaki kodun aşağıdaki bölümünde GetProxyAddress metodunun bağlantı noktasını değiştirmeniz gerekir.
 

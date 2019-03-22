@@ -1,29 +1,29 @@
 ---
 title: Bilgi Bankası - soru-cevap Oluşturucu geliştirin
 titleSuffix: Azure Cognitive Services
-description: ''
+description: Etkin öğrenme bilgi bankanızı alternatif sorular, soru ve yanıt çiftinizi için kullanıcı-gönderimler göre önererek kalitesini sağlar. Bu öneriler, ya da sorularınız var ya da bunları reddetmeniz ekleme inceleyin. Bilgi bankanızı otomatik olarak değişmez. Herhangi bir değişikliğin etkili olması için önerileri kabul etmeniz gerekir. Bu öneriler sorular ekleyebilir ancak yoksa değiştirebilir veya de soru kaldırabilirsiniz.
 author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: 76005b153d7a7feabdc1b335a23c6aa1f1fa99f3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 739ae64c6b32958271260bcbd01b339c1b108f11
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537907"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337434"
 ---
-# <a name="use-active-learning-to-improve-knowledge-base"></a>Bilgi bankasını geliştirmek için etkin öğrenmeyi kullanma
+# <a name="use-active-learning-to-improve-your-knowledge-base"></a>Etkin öğrenme bilgi bankanızı geliştirmek için kullanın
 
 Etkin öğrenme bilgi bankanızı alternatif sorular, soru ve yanıt çiftinizi için kullanıcı-gönderimler göre önererek kalitesini sağlar. Bu öneriler, ya da sorularınız var ya da bunları reddetmeniz ekleme inceleyin. 
 
 Bilgi bankanızı otomatik olarak değişmez. Herhangi bir değişikliğin etkili olması için sırayla önerileri kabul etmeniz gerekir. Bu öneriler sorular ekleyebilir ancak yoksa değiştirebilir veya de soru kaldırabilirsiniz.
 
-## <a name="active-learning"></a>Etkin öğrenme
+## <a name="what-is-active-learning"></a>Etkin öğrenme nedir?
 
 Soru-cevap Oluşturucu örtük ve açık bir geri bildirim ile soru çeşitlemesini öğrenir.
  
@@ -42,7 +42,7 @@ Tüm öneriler birlikte benzerliğe göre kümelenir ve diğer sorular için en 
 
 Sorular soru-cevap Oluşturucu Portalı'nda önerilen sonra gözden geçirip kabul edin ya da bu önerileri Reddet gerekir. 
 
-## <a name="upgrade-version-to-use-active-learning"></a>Etkin öğrenmeyi kullanma sürüme yükseltme
+## <a name="upgrade-your-version-to-use-active-learning"></a>Etkin öğrenmeyi kullanma sürüme yükseltme
 
 Etkin öğrenme, çalışma zamanı sürümü 4.4.0 ve sonraki sürümlerde desteklenir. Bilgi bankanızı bir önceki sürümünde oluşturulduysa [, çalışma zamanını yükseltme](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) bu özelliği kullanmak için. 
 
@@ -64,12 +64,12 @@ Varsayılan olarak etkin olarak öğrenmeye kapalıdır. Bu önerilen bu sorular
 
 1. Üzerinde öğrenme etkin açmak için tıklayın, **adı**Git [ **hizmet ayarları** ](https://www.qnamaker.ai/UserSettings) sağ üst köşedeki soru-cevap Oluşturucu Portalı'nda.  
 
-    ![Hizmet Ayarları sayfasında, etkin öğrenim'de geçiş](../media/improve-knowledge-base/Endpoint-Keys.png)
+    ![Etkin öğrenme'nin önerilen soru alternatifleri hizmet ayarları sayfasından etkinleştirin. Sağ üst köşedeki menüden kullanıcı adınızı seçin, sonra hizmet ayarlarını seçin.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
 
 1. Soru-cevap Oluşturucu hizmetini bulun, sonra geçiş **etkin olarak öğrenmeye**. 
 
-    [![Hizmet Ayarları sayfasında, etkin öğrenim'de geçiş](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+    [![Hizmet Ayarları sayfasında, etkin öğrenim özelliğini Değiştir. Özellik geçiş yapmak mümkün değilse, hizmetinizi yükseltmeniz gerekebilir.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
     Bir kez **etkin olarak öğrenmeye** olan etkin, Bilgi Bankası yeni sorular kullanıcı tarafından gönderilen sorular temel alınarak düzenli aralıklarla önerir. Devre dışı bırakabilirsiniz **etkin olarak öğrenmeye** ayarın açılıp tarafından yeniden.
 
@@ -77,15 +77,15 @@ Varsayılan olarak etkin olarak öğrenmeye kapalıdır. Bu önerilen bu sorular
 
 1. Önerilen sorular görmek için **Düzenle** Bilgi Bankası sayfasında **önerileri göster**. 
 
-    [![Hizmet Ayarları sayfasında, iki durumlu önerileri göster düğme](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+    [![Portal Düzenle bölümüne etkin olarak öğrenmeye ait yeni soru seçenekleri görmek için öneriler Göster'i seçin.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
 1. Bilgi Bankası ile soru ve yanıt çiftleri seçerek yalnızca önerileri göstermek için filtre **önerileri filtreyle**.
 
-    [![Görmek için öneriler tarafından hizmet ayarları sayfasında, filtre yalnızca soru/yanıt çifti](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
+    [![Filtreyi önerileri geçiş tarafından etkin olarak öğrenmeye ait önerilen soru seçenekleri görüntülemek için kullanın.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
 1.  Her soru bölüm önerileri içeren bir onay işareti ile yeni sorular gösterir `✔` , soru kabul etmek için veya bir `x` öneriler reddetmek için. Soru eklemek için onay işaretini seçin. 
 
-    [![Hizmet Ayarları sayfasında, etkin öğrenim'de geçiş](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![Etkin öğrenme'nin önerilen soru alternatifleri yeşil onay işareti veya kırmızı Sil işareti'ı seçerek reddetmemize veya seçin.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     Ekleme veya silme _tüm öneriler_ seçerek **tüm eklemek** veya **tümünü Reddet**.
 
@@ -154,7 +154,13 @@ Soru-cevap Oluşturucu bir soruya yanıt gönderirken birden fazla üst yanıt d
 
 İstemci uygulama, tüm soruları görüntüler çoğu kullanıcının soruyu seçin bir seçenek ile kendi amacınıza temsil eder. 
 
-Kullanıcı mevcut sorulardan birini seçtikten sonra. Kullanıcı geri bildirim, soru-cevap Oluşturucu için 's gönderilen [eğitme](https://www.aka.ms/activelearningsamplebot) geri bildirim etkin olarak öğrenmeye devam etmek için API döngü. 
+Kullanıcı mevcut sorulardan birini seçtikten sonra istemci uygulama, kullanıcının seçimini soru-cevap Oluşturucu'nın Train API'sini kullanarak geri bildirim gönderir. Bu geri bildirim tamamlandıktan etkin geri bildirim döngüsü öğrenme. 
+
+Kullanım [Azure Bot C# örnek](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot) uçtan uca bir senaryoda etkin olarak öğrenmeye görmek için.
+
+## <a name="train-api"></a>Train API
+
+Etkin öğrenme geri bildirim için soru-cevap Oluşturucu ile eğitme API POST isteği gönderilir. API imzası verilmiştir:
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
@@ -163,9 +169,42 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-Etkin öğrenme ile kullanma hakkında daha fazla bilgi edinin bir [Azure Bot C# örneği](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+|HTTP isteği özelliği|Ad|Type|Amaç|
+|--|--|--|--|
+|URL rota parametresi|Bilgi Bankası kimliği|string|Bilgi bankanızı GUİD'i.|
+|Ana bilgisayar alt etki alanı|QnAMaker kaynak adı|string|Azure aboneliğinizdeki, soru-cevap Oluşturucu için konak adı. Bilgi Bankası yayımladıktan sonra bu ayarlar sayfasında kullanılabilir. |
+|Üst bilgi|Content-Type|string|API'ye gönderilen gövdenin medya türü. Varsayılan değerdir: `application/json`|
+|Üst bilgi|Yetkilendirme|string|Uç nokta anahtarınızı (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|POST gövdesini|JSON nesnesi|JSON|Eğitim geri bildirim|
 
-## <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>Etkin öğrenme dışarı aktarılan uygulamanın tsv dosyasına kaydedilir.
+JSON gövdesi birkaç ayar vardır:
+
+|JSON gövdesi özelliği|Type|Amaç|
+|--|--|--|--|
+|`feedbackRecords`|array|Geri bildirim listesi.|
+|`userId`|string|Önerilen sorular kabul eden kişinin kullanıcı kimliği. Kullanıcı Kimliği biçimi size bağlıdır. Örneğin, bir e-posta adresi geçerli bir kullanıcı kimliği mimarinizdeki olabilir. İsteğe bağlı.|
+|`userQuestion`|string|Tam metin soru. Gereklidir.|
+|`qnaID`|number|Bulunan bir soru kimliği [GenerateAnswer yanıt](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+
+Örnek JSON gövdesi aşağıdaki gibi görünür:
+
+```json
+{
+    "feedbackRecords": [
+        {
+            "userId": "1",
+            "userQuestion": "<question-text>",
+            "qnaId": 1
+        }
+    ]
+}
+```
+
+Başarılı bir yanıt 204 ve JSON yanıt gövdesine durumunu döndürür. 
+
+<a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
+
+## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>Etkin öğrenme dışarı aktarılan Bilgi Bankası'ndaki kaydedilir
 
 Uygulamanız etkin olarak öğrenmeye etkin olan ve uygulamayı dışarı aktarma `SuggestedQuestions` tsv dosyası sütununda etkin olarak öğrenmeye verilerini korur. 
 
@@ -193,4 +232,4 @@ Bu uygulamayı yeniden içeri aktarın, bilgi toplamak ve öneriler, Bilgi Banka
 ## <a name="next-steps"></a>Sonraki adımlar
  
 > [!div class="nextstepaction"]
-> [Soru-cevap Oluşturucu API'si kullanma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Meta veri GenerateAnswer API ile kullanma](metadata-generateanswer-usage.md)

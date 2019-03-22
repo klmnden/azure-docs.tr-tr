@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 03/21/2018
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: 2845bb09fa44c3bd9cee914e2446403b4182b0d5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 29e4bb23b4b80f6e472d2dcb27fe5e5279a35890
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871052"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337723"
 ---
 # <a name="region-management-in-azure-stack"></a>Azure stack'teki bölge Yönetimi
 
@@ -29,7 +29,7 @@ ms.locfileid: "56871052"
 
 Azure Stack kavramını kullanır *bölgeleri*, Azure Stack altyapısını oluşturan donanım kaynakları oluşan mantıksal varlıkların olduğu. Bölge Yönetimi'nde, Azure Stack altyapısının başarılı biçimde çalışması için gerekli tüm kaynakları bulabilirsiniz.
 
-Bir tümleşik sistemi dağıtımı (olarak adlandırılan bir *Azure Stack bulut*) tek bir bölgede yapar. Her Azure Stack geliştirme Seti'ni adlı tek bir bölge sahip **yerel**. İkinci bir Azure Stack tümleşik sistemi dağıtmak ya da başka bir örneğinin ayrı donanım geliştirme setinde ayarlamak, bu Azure Stack Bulutu farklı bir bölgedir.
+Bir tümleşik sistemi dağıtımı (olarak adlandırılan bir *Azure Stack bulut*) tek bir bölgede yapar. Her Azure Stack geliştirme Seti'ni (ASDK) adlı bir bölge sahip **yerel**. İkinci bir Azure Stack tümleşik sistemi dağıtmak ya da başka bir örneğinin ayrı donanım geliştirme setinde ayarlamak, bu Azure Stack Bulutu farklı bir bölgedir.
 
 ## <a name="information-available-through-the-region-management-tile"></a>Bölge Yönetimi kutucuğu aracılığıyla kullanılabilir bilgileri
 
@@ -43,7 +43,7 @@ Bir bölgede tıklarsanız **bölge Yönetimi** kutucuğu, aşağıdaki bilgiler
 
 1. **Kaynak menüsünde**. Belirli bir altyapı Yönetimi alanlara erişmek ve görüntüleyin ve depolama hesapları ve sanal ağlar gibi kullanıcı kaynaklarını yönetin.
 
-2. **Uyarılar**. Sistem genelinde uyarılarını listeler ve her uyarıların ayrıntılarını sağlar.
+2. **Uyarılar**. Sistem genelinde uyarıları listeleme ve her uyarıların ayrıntılarını sağlayın.
 
 3. **Güncelleştirmeleri**. Geçerli sürümü, Azure Stack altyapısını, kullanılabilir güncelleştirmeleri ve güncelleştirme geçmişini görüntüleyin. Ayrıca, tümleşik sistem güncelleştirebilirsiniz.
 
