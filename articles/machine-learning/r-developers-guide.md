@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: 0e5db2c08749a59a03e384c6048e67f7570f6750
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 70fc78fb515c56f0b3102bb006eb6491a664babd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211449"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886697"
 ---
 # <a name="r-developers-guide-to-azure"></a>Azure için R Geliştirici Kılavuzu
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -125,7 +125,7 @@ Machine Learning Services 2016'dan sonra şirket içi SQL Server'ın bir parças
 
 
 ### <a name="next-steps"></a>Sonraki adımlar
-* [R kodunuzu mrsdeploy ile Azure üzerinde çalışan](http://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
+* [R kodunuzu mrsdeploy ile Azure üzerinde çalışan](https://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
 * [Machine Learning Server bulutta](https://docs.microsoft.com/machine-learning-server/install/machine-learning-server-in-the-cloud)
 * [Machine Learning sunucusu ve Microsoft R için ek kaynaklar](https://docs.microsoft.com/machine-learning-server/resources-more)
 * [Azure üzerinde R](https://github.com/yueguoguo/r-on-azure) - sadece paketler, Araçlar ve Azure ile R kullanmak için örnek olay incelemeleri

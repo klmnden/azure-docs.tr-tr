@@ -14,25 +14,25 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 60f02f0ae92f471718c0c35f8ac833b9ca6c1da4
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e5db2f340917705ec29f7b6db4de40914c66efcd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355918"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863942"
 ---
 # <a name="offer-listing-best-practices"></a>En iyi uygulamalar listesi sunma
 
 Bu bölümdeki tablolarda, oluşturma ve Marketi tekliflerini ilgi çekici önerileri sağlar. Yazma ve kendi pazarlama malzemelerinize yapılandırmak için Git [bulut iş ortağı portalı](https://cloudpartner.azure.com/#insights). 
 
 ## <a name="storefront-offer-details"></a>StoreFront teklifi ayrıntıları
-| StoreFront ayarı | En iyi uygulama |
+| StoreFront ayarı | En iyi yöntem |
 |:--- |:--- |  
 | Teklif Adı | Güçlü bir başlık girin:<br> <ul> <li> Uygulama adınız, müşterileriniz için çekirdek değer iletişim kurmanız gerekir. </li> <li> Arama motoru sonuçlarında yüksek derecelendirme almak için uygulama başlık arama anahtar sözcükleri içerir. </li> </ul> Danışmanlık hizmeti listeleme için kümesi başlık biçimi izleyin:<br>[Teklif adı]: [süresi] [Teklif türü] (örneğin, *Contoso: 2 hafta uygulama*) <br><br> Marka yönergelerine uyun:<br>İzleyin [Microsoft Trademark ve marka yönergelerine](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) ve Microsoft ticari markaları ve Microsoft yazılım ürünleri ve Hizmetleri adlarını başvurduğunuzda ilgili, ürüne özgü diğer yönergeleri. |
 | Teklif açıklaması | NET teklif açıklaması sağlayın:<br> <ul> <li> Açıklamanızı ilk birkaç cümle içinde ürününüzün değer önerisi NET bir şekilde açıklayın. </li> <li> İlk birkaç cümle arama motoru sonuçlarında görüntülenebilir aklınızda bulundurun. </li> <li> Özellikler ve İşlevler, ürün satış üzerinde güvenmeyin. Bunun yerine, teslim değere odaklanmak. </li> <li> Sektöre özel sözlük veya avantajı tabanlı ifadesi mümkün olduğunca kullanın.</li> <li> Ayrıca, danışmanlık hizmeti listeleme açıkça sağladığınız profesyonel hizmet belirtmelidir. </li></ul> Temel bileşenleri, değer önerisi, aşağıdaki bilgileri içermelidir:<ul><li>Ürün açıklaması.</li><li>Ürün avantajlar kullanıcının türü.</li><li>Müşteri gereksinimi veya ürün adresleri kolaylaştırın.</li></ul> |
 
 ## <a name="storefront-listing-details"></a>StoreFront dökümü ayrıntıları
-| StoreFront ayarı | En iyi uygulama |
+| StoreFront ayarı | En iyi yöntem |
 |:--- |:--- |  
 | Sektörler: AppSource uygulamaları ve danışmanlık hizmetleri yalnızca | Sektöre özgü ihtiyaçları teklifinizi adresleri değişirse sektörler seçin: <ul><li> Teklif açıklamanızı sektöre özgü özellikleri kullanıma çağırın.</li> </ul> **Not**: Seçenekleri sayısı teklif türüne göre değişir ve belirtilen [bulut iş ortağı portalı](https://cloudpartner.azure.com/#insights). |
 | Kategoriler | Teklifinizle en iyi hizalamak kategorileri seçin:<br> <ul> <li> Müşteriler bunları ilgili uygulamalar için aranacak kullandığından kategorileri dikkatlice seçin. </li> <li> Nasıl teklifinizi kategoriye özgü ihtiyaçları teklif açıklamasında destekleyip çağırdığınızdan emin olun. </li> </ul> **Not**: Seçenekleri sayısı teklif türüne göre değişir ve belirtilen [bulut iş ortağı portalı](https://cloudpartner.azure.com/#insights). |
@@ -40,7 +40,7 @@ Bu bölümdeki tablolarda, oluşturma ve Marketi tekliflerini ilgi çekici öner
 | Arama anahtar sözcükleri (en fazla 3) | Arama anahtar sözcükleri ararken teklifinizi iş bulmalarına yardımcı olabilir <ul> <li> Azure Market'te </li> <li> Appsource'ta </li> <li> arama motorları kullanma </li> </ul> Listenizi bu aramalarda görünür şunları yapmanız gerekir: <ul> <li> Teklifiniz için en çok üç arama anahtar sözcükleri belirleyin; </li> <li> Arama anahtar sözcükleri teklif Özet ve açıklama ekleyebilirsiniz; </li> <li> Burada arama anahtar sözcükleri listeler. </li> </ul> |
 
 ## <a name="storefront-marketing-details"></a>StoreFront pazarlama ayrıntıları
-| StoreFront ayarı | En iyi uygulama |
+| StoreFront ayarı | En iyi yöntem |
 |:--- |:--- |  
 | Logo sunar (PNG biçiminde 48&nbsp;&times;&nbsp;48): arama sayfası | Tasarım ve logonuz dijital bir ortam için en iyi duruma getir:<br>PNG biçiminde logonuzu teklifiniz için arama sayfası. |
 | Logo sunar (PNG biçiminde 216&nbsp;&times;&nbsp;216): Uygulama Ayrıntıları sayfası | Tasarım ve logonuz dijital bir ortam için en iyi duruma getir:<br>PNG biçiminde logonuzu teklifinizi sayfasının listeleme uygulama ayrıntıları. |
@@ -56,7 +56,7 @@ AppSource veya Azure Market'ten rozet sitenizde listenizi Market'te bağladığ�
 
 Aşağıdaki örnek URL Yukarıdaki sorgu parametrelerinin her ikisini de içerir: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
-AppSource URL'nizi parametreleri ekleyerek kampanyanızı analiz panosunda bulunan etkisini gözden geçirebilirsiniz [bulut iş ortağı portalı](http://cloudpartner.azure.com/#insights).
+AppSource URL'nizi parametreleri ekleyerek kampanyanızı analiz panosunda bulunan etkisini gözden geçirebilirsiniz [bulut iş ortağı portalı](https://cloudpartner.azure.com/#insights).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
