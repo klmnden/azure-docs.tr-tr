@@ -1,46 +1,29 @@
 ---
-title: Azure Site Recovery - yedekleme birlikte çalışabilirlik | Microsoft Docs
+title: Azure Site Recovery, Azure Backup ile kullanma desteği | Microsoft Docs
 description: Nasıl Azure Site Recovery ve Azure Backup birlikte kullanılabileceğini genel bir bakış sağlar.
 services: site-recovery
 author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/18/2019
 ms.author: sideeksh
-ms.openlocfilehash: 6658ab8c967c70ac1deaeba3d1dfeac602515591
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: e902f70225ec0eb0caa98f7e19a16c87220cb6f9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731876"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312895"
 ---
-# <a name="about-site-recovery-and-backup-interoperability"></a>Site Recovery ve Backup birlikte çalışabilirlik hakkında
+# <a name="support-for-using-site-recovery-with-azure-backup"></a>Site Recovery, Azure Backup ile kullanma desteği
 
-Bu makalede, Azure Iaas VM yedekleme ve Azure VM olağanüstü durum kurtarma başarılı bir şekilde kullanma yönergeleri sağlanır.
+Bu makalede kullanma desteği özetler [Site Recovery hizmeti](site-recovery-overview.md) ile birlikte [Azure Backup hizmeti](https://docs.microsoft.com/azure/backup/backup-overview).
 
-## <a name="azure-backup"></a>Azure Backup
-
-Azure yedekleme, şirket içi sunucular, sanal makineler, sanallaştırılmış iş yükleri, SQL Server, SharePoint sunucuları ve daha fazlasını verilerini korumaya yardımcı olur. Azure Site Recovery, düzenler ve Azure Vm'leri, şirket içi Vm'leri ve fiziksel sunucular için olağanüstü durum kurtarma yönetir.
-
-## <a name="azure-site-recovery"></a>Azure Site Recovery
-
-Azure Backup ve Azure Site Recovery hem bir VM veya bir grup VM'yi yapılandırmak mümkündür. Her iki ürün birlikte çalışabilir. Backup ve Azure Site Recovery arasında birlikte çalışabilirliği burada önemli hale gelir birkaç senaryolar aşağıdaki gibidir:
-
-### <a name="file-backuprestore"></a>Dosya yedekleme/geri yükleme
-
-Yedekleme ve çoğaltma etkin ve bir yedek varsa, kaynak tarafı VM veya VM grubunun dosyalar geri hiçbir sorun yoktur. Çoğaltma zamanki çoğaltma durumu değişiklik ile devam eder.
-
-### <a name="disk-backuprestore"></a>Disk yedekleme/geri yükleme
-
-Disk yedekten geri yüklerseniz sanal makinenin korumasını yeniden etkinleştirilmesi gerekir.
-
-### <a name="vm-backuprestore"></a>VM yedekleme/geri yükleme
-
-Yedekleme ve geri yükleme bir VM veya VM desteklenmiyor. Çalışması için koruma yeniden etkinleştirilmesi gerekir.
-
-**Senaryo** | **Azure Site Recovery tarafından destekleniyor mu?** | **Geçici çözüm, varsa**  
+**Eylem** | **Site kurtarma desteği** | **Ayrıntılar**
 --- | --- | ---
-Dosya/Klasör Yedekleme | Evet | Uygulanamaz
-Disk yedekleme | Şu anda | Devre dışı bırakın ve korumayı etkinleştirme
-VM yedeklemesi | Hayır | Devre dışı bırakın ve korumayı etkinleştirme
+**Hizmetlerini birlikte dağıtın** | Desteklenen | Hizmet, birlikte çalışabilir ve birlikte yapılandırılabilir.
+**Dosya yedekleme/geri yükleme** | Desteklenen | Yedeklemeleri alınır ve bir VM için yedekleme ve çoğaltma etkin olduğunda hiçbir sorun kaynak tarafı VM'ler veya VM dosyaları geri yüklenmesi. Çoğaltma, zamanki çoğaltma durumu değişiklik ile devam eder.
+**Disk yedekleme/geri yükleme** | Geçerli desteği yok | Yedeklenen bir diski geri yükleme, devre dışı bırakın ve sanal makine için çoğaltmayı yeniden etkinleştirmeniz gerekir.
+**VM yedekleme/geri yükleme** | Geçerli desteği yok | Yedeklemek veya bir VM veya VM geri yükleme, devre dışı bırakın ve sanal makine için çoğaltmayı etkinleştirmeniz gerekir.  
+
+

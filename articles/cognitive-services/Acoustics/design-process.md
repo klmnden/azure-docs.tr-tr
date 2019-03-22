@@ -1,5 +1,5 @@
 ---
-title: Akustik benzetimi tasarım kavramları
+title: Akustik Simülasyon ile Tasarım Kavramları
 titlesuffix: Azure Cognitive Services
 description: Bu kavramsal genel bakış, proje akustik ses tasarım süreci akustik benzetimi nasıl içerir açıklanmaktadır.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: dd27b660dfdd1f4bcec89291b10fd87750ad4c49
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4a1a0b15da091a1c020eb132f6b14b9ee14d334c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136165"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316091"
 ---
 # <a name="project-acoustics-design-process-concepts"></a>Proje akustik tasarım işlemi kavramları
 
@@ -29,7 +29,7 @@ Dinleyici ve sesler 3B alanda taşımak gibi etkileşimli bir başlık nasıl bu
 
 3B başlıklar fizik motive ancak bir karışımını ımmersion ve oyun hedefleri başarmanın Tasarımcısı olarak ayarlanmış olan aydınlatma ve kinematik fizik sistemleri kullanın. Bir görsel tasarımcı bağımsız piksel değerleri ayarlayıp ayarlamadığını, ancak bunun yerine, 3B modelleri, malzemeler ve tüm fiziksel olarak tabanlı görsel estetik ve CPU maliyetleri dengenin açık aktarım sistemleri ayarlar. Ne eşdeğer işlem ses için geçerli olacak? Proje akustik bu sorunun incelenmesi bir ilk adımdır. İlk biz acoustical enerji boşluk üzerinden aktarım ne demek üzerinde touch.
 
-![Yankı bölgeleri](media/reverb-zones-altspace.png)
+![Yankı bölgelerle yayılan, ekran AltSpace Sahne](media/reverb-zones-altspace.png)
 
 ## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>İmpulse yanıtlar: İki nokta alanında acoustically bağlanma
 
@@ -45,7 +45,7 @@ Her ilgi çekici bir impulse yanıtını içeren (ve her sizi ilgilendirmeyen) a
 
 Ancak, benzetim doğrudan ses DSP parametrelerine bağlıysa, Tasarımcı ayarlama nerede? Ne biz elde? De size önemli miktarda bellek geri impulse yanıtları atılıyor ve birkaç DSP parametreleri koruma elde edin. Tasarımcı nihai sonucu üzerinde bazı güç vermek için biz yalnızca Tasarımcı benzetim ses DSP arasındaki eklemenin bir yolu bulmak ve.
 
-![impulse yanıt parametreleri](media/acoustic-parameters.png)
+![Yayılan parametrelerle stilize impulse yanıtıyla grafiği](media/acoustic-parameters.png)
 
 ## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>Benzetim ilgili ses DSP parametrelerinden dönüştürme ses tasarım
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: e8a85401c0c7282d64ebcbe2f9180f25f36f7289
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: cae0c97cb3084b0578f277852d646c199d1e2313
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108163"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316261"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight kümeleri ölçeklendirme
 
@@ -120,7 +120,7 @@ Güvenli mod bırakarak sonra el ile geçici dosyaları kaldırabilir, veya Hive
 
 * Veritabanları alınamıyor bildirimi göndermek için H100 göster: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: Hn0-clustername.servername.internal.cloudapp.net:10001 için [clustername.servername hn0. bağlanma internal.cloudapp.NET/1.1.1.1] başarısız oldu: **Bağlantı reddedildi**
 
-* H020 kuramadı hn0 hdisrv.servername.bx.internal.cloudapp .net bağlantısı: 10001: org.apache.thrift.transport.TTransportException: HTTP bağlantısı oluşturulamadı http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Hn0-başarısız hdisrv.servername.bx.internal.cloudapp.net:10001 için [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] bağlanın: Bağlantı reddedildi: org.apache.thrift.transport.TTransportException: HTTP bağlantısı oluşturulamadı http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Hn0-başarısız hdisrv.servername.bx.internal.cloudapp.net:10001 için [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] bağlanın: **Bağlantı reddedildi**
+* H020 kuramadı hn0 hdisrv.servername.bx.internal.cloudapp .net bağlantısı: 10001: org.apache.thrift.transport.TTransportException: Http http bağlantısı oluşturulamadı:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Hn0-başarısız hdisrv.servername.bx.internal.cloudapp.net:10001 için [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] bağlanın: Bağlantı reddedildi: org.apache.thrift.transport.TTransportException: Http http bağlantısı oluşturulamadı:\//hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Hn0-başarısız hdisrv.servername.bx.internal.cloudapp.net:10001 için [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] bağlanın: **Bağlantı reddedildi**
 
 * Hive günlükleri: [Ana] UYAR: sunucu. HiveServer2 (60 saniye java.lang.RuntimeException içinde yeniden HiveServer2.java:startHiveServer2(442)) – 21, denemede HiveServer2 başlatılırken hata oluştu: Yetkilendirme İlkesi hive Yapılandırması uygulanırken hata oluştu: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Dizini oluşturulamıyor** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Adı düğümüdür güvenli modda**.
     Bildirilen blokları 0 toplam bloğu 9 0.9900 eşiği ulaşmak için ek 9 blokları gerekir.

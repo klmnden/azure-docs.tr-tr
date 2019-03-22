@@ -4,30 +4,19 @@ description: Azure Site Recovery kullanarak başka bir Azure bölgesine olağan�
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 12/12/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: bf7a8ea00fe94e6896c097b8e27c22c0831f71da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008659"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312062"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Sık sorulan sorular: Azure'dan Azure'a çoğaltma
 
 Bu makalede, Azure Vm'leri olağanüstü durum kurtarma (DR), Azure Site Recovery kullanarak başka bir Azure bölgesine dağıtma hakkında sık sorulan soruların yanıtlarını sağlar. Bu makaleyi okuduktan sonra sorularınız varsa gönderin [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
-
-
-## <a name="in-this-article"></a>Bu makalede 
-1.  **[Azure için Azure üzerinde genel sorular](#general)** 
-1.  **[Çoğaltma](#replication)** 
-1.  **[Çoğaltma İlkesi](#replication-policy)** 
-1.  **[Çoklu VM tutarlılığı](#multi-vm-consistency)** 
-1.  **[Kurtarma planı](#recovery-plan)** 
-1.  **[Yeniden koruma ve yeniden çalışma](#reprotection-and-failback)** 
-2.  **[Kapasite](#capacity)**
-1.  **[Güvenlik](#security)** 
 
 
 ## <a name="general"></a>Genel
@@ -79,7 +68,7 @@ Hayır, Site Recovery, Internet bağlantısı gerektirmez. Ancak, Site Recovery 
 Evet, uygulama çoğaltma ve olağanüstü durum kurtarma yapılandırması ayrı bir kaynak grubunda çok tutun.
 Örneğin, bir uygulama ile varsa her uygulama, db ve ayrı bir kaynak grubundaki web katmanlarını ardından tıklayarak [çoğaltma sihirbazını](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) thrice tüm katmanlarda korumak için. ASR, üç farklı bir kaynak grubunda bu üç katmanda çoğaltır.
 
-## <a name="replication-policy"></a>Çoğaltma İlkesi
+## <a name="replication-policy"></a>Çoğaltma ilkesi
 
 ### <a name="what-is-a-replication-policy"></a>Bir çoğaltma ilkesi nedir?
 Kurtarma noktası bekletme geçmişine ve uygulamayla tutarlı anlık görüntü sıklığı ayarlarını tanımlar. Varsayılan olarak, Azure Site Recovery varsayılan ayarlarla yeni bir çoğaltma ilkesi oluşturur:
@@ -186,7 +175,7 @@ Kesinti bir yük devretme tetikleyebilirsiniz. Site Recovery, yük devretme ger�
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Sanal makine yük devretme bir RTO nedir?
 Site Recovery sahip bir [2 saat RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Ancak, çoğu zaman, Site Recovery başarısız yükü Devredilmiş sanal makineleri dakikalar içinde. RTO hesaplayabilirsiniz saati gösteren yük devretme için işleri giderek VM'yi getirmek için işlem. RTO için kurtarma planında, bölüme bakın. 
 
-## <a name="recovery-plan"></a>Kurtarma planı
+## <a name="recovery-plans"></a>Kurtarma planları
 
 ### <a name="what-is-a-recovery-plan"></a>Kurtarma planı nedir?
 Site Recovery kurtarma planında yük devretme VM'lerin kurtarılmasını sağlar. Bu, tutarlı bir şekilde doğru yinelenebilir ve Otomatik Kurtarma olmasına yardımcı olur. Bir kurtarma planı kullanıcı için aşağıdaki gereksinimleri ele alır:

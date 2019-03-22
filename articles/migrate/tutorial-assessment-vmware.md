@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dc2fb3faddc8af30edd66b926259c05580d9872a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: cdd852e56cf966371cda62f89cee62956551f5c0
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104531"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313169"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure’a geçiş için şirket içi VMware VM’lerini bulma ve değerlendirme
 
@@ -185,7 +185,7 @@ Bu model kullanım dışı bırakıldı, var olan cihazları sağlanan için des
    - VM, proxy üzerinden İnternet erişimine sahipse **Proxy ayarları**’na tıklayın ve proxy adresini ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) internet bağlantı gereksinimleri hakkında ve [URL'lerin listesini](https://docs.microsoft.com/azure/migrate/concepts-collector) Toplayıcı erişen.
 
      > [!NOTE]
-     > Proxy adresinin, <http://ProxyIPAddress> veya <http://ProxyFQDN> biçiminde girilmesi gerekir. Yalnızca HTTP proxy’si desteklenir. Araya giren bir proxy varsa, proxy sertifikası aktardıysanız değil, internet bağlantısı başlangıçta başarısız olabilir; [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector) üzerinde nasıl, bu toplayıcı VM üzerinde güvenilen bir sertifika olarak proxy sertifikasını alarak düzeltebilirsiniz.
+     > Proxy adresi form http girilmesi gerekir:\//ProxyIPAddress veya http:\//ProxyFQDN. Yalnızca HTTP proxy’si desteklenir. Araya giren bir proxy varsa, proxy sertifikası aktardıysanız değil, internet bağlantısı başlangıçta başarısız olabilir; [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector) üzerinde nasıl, bu toplayıcı VM üzerinde güvenilen bir sertifika olarak proxy sertifikasını alarak düzeltebilirsiniz.
 
    - Toplayıcı, toplayıcı hizmetinin çalışıp çalışmadığını denetler. Hizmet, toplayıcı VM’ye varsayılan olarak yüklenir.
    - VMware PowerCLI’yı indirin ve yükleyin.

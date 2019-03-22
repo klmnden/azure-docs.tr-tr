@@ -1,5 +1,5 @@
 ---
-title: Azure AD'de dinamik olarak yasaklanmış parolalar
+title: Dinamik olarak yasaklanmış parolalar - Azure Active Directory
 description: Azure AD dinamik olarak yasaklanmış parolalar ortamınızdan Zayıf parolalar yasakla
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7dcac665dadef7f3f192e7f0e359b6b7c244bde
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: 645dd7fe35ba3e7d83a3ee374d7ab566ad193cc2
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287035"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314136"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Hatalı parola kuruluşunuzdaki ortadan kaldırın
 

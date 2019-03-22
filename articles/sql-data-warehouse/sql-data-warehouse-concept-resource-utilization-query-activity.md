@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 11/27/2018
+ms.date: 03/21/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dda3725be7549d90223b33608939c392bdf66852
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 69b33b9629863702d576eac39fb4097a2bff2e57
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217980"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337596"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda kaynak kullanımı ve sorgu etkinliğini izleme
 Azure SQL veri ambarı, Azure Portal, veri ambarı iş yükü için içgörüleri için zengin bir izleme deneyimi sağlar. Azure portalı, ölçüm ve günlükleri için yapılandırılabilir saklama süreleri, uyarıları, öneriler ve özelleştirilebilir grafikler ve panolar sağladığı gibi veri Ambarınızı izlerken önerilen araç winres.exe'dir. Portal Ayrıca, yalnızca veri ambarınızın aynı zamanda tüm Azure analiz için bütünsel bir izleme deneyimi sağlamak için Operations Management Suite (OMS) ve Azure İzleyici (günlükleri) gibi diğer Azure izleme hizmetleriyle tümleştirmenize olanak sağlar tümleşik bir izleme deneyimi için Platform. Bu belgede, izleme hangi özellikleri en iyi duruma getirmek ve SQL veri ambarı ile analiz platformunuz yönetmek kullanılabilen açıklanmaktadır. 
@@ -46,7 +46,7 @@ SQL veri ambarı T-SQL aracılığıyla izlerken bir programlama deneyimi için 
 SQL veri ambarı sağlayan Dmv'leri listesini görüntülemek için şuna başvurun [belgeleri](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs). 
 
 ## <a name="metrics-and-diagnostics-logging"></a>Ölçümleri ve tanılama günlükleri
-Hem ölçüm ve günlükleri dışarı aktarılabilir için Azure İzleyici, özellikle [Azure İzleyici günlükleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) bileşeni ve programlı olarak erişilebilir [günlük araması](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata).
+Hem ölçüm ve günlükleri dışarı aktarılabilir için Azure İzleyici, özellikle [Azure İzleyici günlükleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) bileşeni ve programlı olarak erişilebilir [oturum sorguları](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata). SQL veri ambarı için günlük gecikme süresi yaklaşık 10-15 dakika ' dir. Gecikme süresini etkileyen faktörleri hakkında daha fazla bilgi için aşağıdaki belgeleri ziyaret edin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

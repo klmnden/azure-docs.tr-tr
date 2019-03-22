@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847136"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310026"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Yayımlama Portalı'nda uygulamanızı kurma
 
@@ -53,7 +53,7 @@ Teklif ayarları formu teklif ayarlarını belirtmek için temel bir biçimidir.
 
 Bu teklif içinde bir yayımcı profili için benzersiz bir tanımlayıcıdır. Bu kimliği, ürün URL'lerinde görünür olur. Yalnızca küçük harfli alfasayısal karakterler veya tirelerden (-) oluşabilir. Kimliği tire bitemez ve en çok 50 karakter olabilir. Bu alan, teklif etkin hale gelir sonra kilitli.
 
-Örneğin, bir yayımcı varsa **"contoso"** yayımcılar, Teklif kimliği ile bir teklif oluşturur **"örnek-WebApp"**, appsource'ta görünür "https://appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
+Örneğin, bir yayımcı varsa **"contoso"** yayımcılar, Teklif kimliği ile bir teklif oluşturur **"örnek-WebApp"**, appsource'ta görünür "https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
 
 ### <a name="publisher-id"></a>Yayımcı kimliği
 

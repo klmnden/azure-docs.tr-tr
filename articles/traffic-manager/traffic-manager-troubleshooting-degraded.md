@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 2cb70c67bc4719eb43c4fcb70edf574c57362f26
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6f539cb905c0ed401816c7f223918a1416f95d6c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013278"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312283"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Sorun giderme durumu Azure Traffic Manager'da düşürülmüş
 
@@ -47,7 +47,7 @@ Bir araştırma hatası sorunlarını gidermek için HTTP durum kodu araştırma
 
 Ayrıca, HTTP yanıtlarını görüntülemek için Internet Explorer'da F12 hata ayıklama araçları ağı sekmesini kullanabilirsiniz.
 
-İstediğimiz bizim araştırma URL'si yanıtı görmek Bu, örneğin: http://watestsdp2008r2.cloudapp.net:80/Probe. Aşağıdaki PowerShell örneği, bir sorunu gösterir.
+İstediğimiz bizim araştırma URL'si yanıtı görmek Bu, örneğin: http:\//watestsdp2008r2.cloudapp.net:80/Probe. Aşağıdaki PowerShell örneği, bir sorunu gösterir.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription

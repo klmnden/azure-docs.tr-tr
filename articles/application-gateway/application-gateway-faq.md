@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/20/2019
 ms.author: victorh
-ms.openlocfilehash: ae55f2abf9815174e7258c2ace949078794c380d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: f549f9c612797c1c956d6921fe4898a5f8bee9e6
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286202"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319423"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway için sık sorulan sorular
 
@@ -59,7 +59,7 @@ Yeniden yönlendirme desteklenir. Bkz: [Application Gateway yeniden yönlendirme
 
 ### <a name="in-what-order-are-listeners-processed"></a>Hangi sırayla dinleyicileri işlenir?
 
-Dinleyiciler, gösterilen sırada işlenir. Temel dinleyici gelen bir istekle eşleşiyorsa, bu nedenle ilk önce işler.  Çok siteli dinleyicileri, trafiğin doğru arka uca yönlendirilmesini sağlamak için temel bir dinleyici önce yapılandırılmalıdır.
+Bkz: [dinleyicileri işleme sırası](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners).
 
 ### <a name="where-do-i-find-application-gateways-ip-and-dns"></a>Uygulama ağ geçidinin IP ve DNS nerede bulabilirim?
 
@@ -83,16 +83,13 @@ Yalnızca bir genel IP adresi, bir uygulama ağ geçidinde desteklenmiyor.
 
 ### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>Ne kadar büyük alt Application Gateway için uygulamalıyım?
 
-Özel ön uç IP yapılandırması yapılandırılmışsa, uygulama ağ geçidi örneği başına bir özel IP adresi yanı sıra, başka bir özel IP adresini kullanır. Ayrıca, Azure ilk dört ayırır ve son her alt ağda iç kullanım için IP adresi.
-Örneğin, bir uygulama ağ geçidi üç örnekleri ve ardından bir/29 hiçbir özel ön uç IP ayarlanmışsa, alt ağ boyutu veya üzeri gereklidir. Bu durumda, uygulama ağ geçidi üç IP adresini kullanır. Üç örnekleri ve ardından/28 özel ön uç IP yapılandırması için bir IP adresi varsa dört IP adresleri gerekli olduğu gibi alt ağı veya büyük boyut gereklidir.
-
-En iyi uygulama, en az/28'i kullanın. alt ağ boyutu. Bu, 11 kullanılabilir adresleri tükeniyor sağlar. Uygulama yükünüz 10'dan fazla örnekleri gerektiriyorsa, / 27 veya /26 dikkate almanız gereken alt ağ boyutu.
+Bkz: [uygulama ağ geçidi alt ağı boyutunu konuları](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet) dağıtımınız için gereken alt ağ boyutu anlamak için.
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>S. Tek bir alt ağa birden fazla Application Gateway kaynağında dağıtabilir miyim?
 
 Evet, belirli bir uygulama ağ geçidi dağıtım birden çok örneğini sahip olmaya ek olarak, farklı bir uygulama ağ geçidi kaynağı içeren mevcut bir alt ağ için benzersiz bir uygulama ağ geçidi kaynak sağlayabilirsiniz.
 
-Standard_v2 ve standart Application Gateway, aynı alt ağda karıştırma desteklenmiyor. Ayrıca, otomatik ölçeklendirme etkin olduğunda, bir alt ağ yalnızca bir uygulama ağ geçidi olabilir.
+Standard_v2 ve standart Application Gateway, aynı alt ağda karıştırma desteklenmiyor.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway, x-iletilen-için üstbilgiler destekliyor mu?
 
@@ -152,13 +149,7 @@ Hayır, ancak alt ağdaki diğer uygulama ağ geçitleri dağıtabilir.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Uygulama ağ geçidi alt ağı üzerinde ağ güvenlik grupları desteklenir?
 
-Ağ güvenlik grupları (Nsg'ler), uygulama ağ geçidi alt ağının aşağıdaki kısıtlamalarla aşağıdakilerde desteklenmektedir:
-
-* Özel durumlar için gelen trafiği 65503 65534 noktalarına v1 SKU ve bağlantı noktaları 65200-65535 Application Gateway için v2 SKU için yerleştirilmesi gereken. Bu bağlantı noktası aralığı, Azure altyapı iletişimi için gereklidir. Bunlar Azure sertifikaları tarafından korunur (kilitlenir). Uygun sertifikaları olmadan, bu ağ geçitlerinin müşterileri dahil dış varlıklar, bu uç noktalarında herhangi bir değişiklik başlatmak mümkün değildir.
-
-* Giden internet bağlantısı engellenemez. Giden kuralları NSG varsayılan internet bağlantısı zaten izin verin. Giden varsayılan kuralları kaldırmayın ve giden internet bağlantısı Reddet diğer giden kuralları oluşturmayın öneririz.
-
-* AzureLoadBalancer etiketini gelen trafiğe izin verilmesi gerekir.
+Bkz: [uygulama ağ geçidi alt ağı üzerinde ağ güvenlik grupları kısıtlamaları](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-supported-on-the-application-gateway-subnet) desteklenen uygulama ağ geçidi alt ağı üzerinde ağ güvenlik grupları hakkında bilgi edinin.
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>Kullanıcı tanımlı yollara uygulama ağ geçidi alt ağı üzerinde destekleniyor mu?
 
@@ -190,7 +181,7 @@ Mikro hizmet mimarisi desteklenir. Farklı bağlantı noktalarını araştırma 
 
 ### <a name="how-are-rules-processed"></a>Kuralları nasıl işlenir?
 
-Kurallar, bunların sırayla işlenir. Temel kural bağlantı noktası çok siteli kuralı, değerlendirilen göre trafiği BC gibi bu trafiğin olasılığını azaltmak için uygun arka uca yönlendirilir temel kuralları önce çok siteli kuralları yapılandırıldığını önerilir.
+Bkz: [kuralları işleme sırası](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules) nasıl yönlendirme kuralları aşağıdaki noktaları kavramaktır Application Gateway'de işlemleri.
 
 ### <a name="what-does-the-host-field-for-custom-probes-signify"></a>Hangi özel araştırmalar için ana bilgisayar adı alanı geldiğiniz?
 
@@ -356,7 +347,7 @@ Ayrıca, yükler ve popüler çalışan Resource Manager şablonu yayımladık [
 
 ### <a name="backend-health-returns-unknown-status-what-could-be-causing-this-status"></a>Arka uç sistem durumu bilinmeyen durum, bu durum çözebilmek amacıyla sorunun döndürür?
 
-Bir NSG ya da özel DNS tarafından arka uç erişimi engellenir en yaygın nedenidir. Bkz: [arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway](application-gateway-diagnostics.md) daha fazla bilgi için.
+Erişim için en yaygın nedenidir arka uç, özel DNS, bir NSG tarafından engellenir veya uygulama ağ geçidi alt ağı üzerinde bir UDR sahip. Bkz: [arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway](application-gateway-diagnostics.md) daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

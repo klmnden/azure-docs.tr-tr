@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: b4eedabbc47738eb2f5797ffd67a3e3ebc9529ca
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
-ms.translationtype: HT
+ms.openlocfilehash: 468c5584d21c226d6ffce55ff3981e629d872c56
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136230"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317196"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Proje akustik Unity hızlı başlangıç
 Kullanım proje akustik içeriğin benzetim destekli tasarım denetimleriyle denemek Unity için örnek.
 
 Yazılım gereksinimleri:
 * [Unity 2018.2 +](http://unity3d.com) Windows için
-* [Proje akustik örnek içerik paketi](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Proje akustik örnek içerik paketi](https://www.microsoft.com/download/details.aspx?id=57346)
 
 Ne örnek paketine dahildir?
 * Unity Sahne geometri, ses kaynakları ve oyun denetimleri
@@ -33,7 +33,7 @@ Ne örnek paketine dahildir?
 Örnek paketi için yeni bir Unity proje içeri aktarın. 
 * Unity içinde Git **varlıklar > paketi İçeri Aktar > özel paket...**
 
-    ![Paketi İçeri Aktar](media/import-package.png)  
+    ![Ekran görüntüsü, Unity paketini İçeri Aktar seçenekleri](media/import-package.png)  
 
 * Seçin **ProjectAcoustics.unitypackage**
 
@@ -44,23 +44,23 @@ Akustik Araç Seti hazırlama kısmı .NET 4.x komut dosyası çalışma zamanı
 
 Bu ayar etkin açarak sürdü doğrulayabilirsiniz **Player ayarları**:
 
-![Player ayarları](media/player-settings.png)
+![Unity Player ayarları ekran paneli](media/player-settings.png)
 
-![.NET 4.5](media/net45.png)
+![.NET 4. 5'in seçili paneliyle Unity Player ayarları ekran görüntüsü](media/net45.png)
 
 ## <a name="experiment-with-design-controls"></a>Tasarım denetimleri ile denemeler yapın
 Örnek sahnede açın **ProjectAcousticsSample** klasörü ve Unity Düzenleyicisi'nde Oynat düğmesini tıklatın. Kullanım W, A, S, D ve fareyi hareket etmek için. Sahne ve akustik olmadan nasıl sesleri Karşılaştırılacak basın **R** katmana metin kırmızıya döner ve diyor kadar düğmesi "Akustik: Devre dışı bırakıldı." Diğer denetimlerin klavye kısayollarını görmek için **F1** tuşuna basın. Ayrıca gerçekleştirmek için bir eylem seçmek için sağ tıklayarak sonra eylemi gerçekleştirmek için sol tıklayarak kalmayacak denetimlerdir.
 
 Betik **AcousticsAdjust** kaynak başına tasarım parametrelerini sağlayan örnek görünümde ses kaynaklarına bağlı. 
 
-![AcousticsAdjust](media/acoustics-adjust.png)
+![Unity AcousticsAdjust ekran komut dosyası](media/acoustics-adjust.png)
 
 Aşağıda bazı sağlanan denetimleriyle üretilen efektleri keşfediyor. Her denetimi ile ilgili ayrıntılı bilgi için bkz. [proje akustik Unity tasarım öğretici](unreal-workflow.md).
 
 ### <a name="modify-distance-based-attenuation"></a>Uzaklık tabanlı zayıflama değiştirme
 Ses DSP sağladığı **proje akustik** Unity spatializer eklentisinin Unity düzenleyicide yerleşik olarak bulunan kaynak başına uzaklık tabanlı zayıflama dikkate alır. Denetimler için uzaklık tabanlı zayıflama bulunduğunuz **ses kaynak** bileşeni bulunan **denetçisi** altında ses panelinden kaynakları **3B ses ayarları**:
 
-![Uzaklık Zayıflama](media/distance-attenuation.png)
+![Ekran görüntüsü, Unity uzaklık zayıflama Seçenekleri paneli](media/distance-attenuation.png)
 
 Proje akustik player konum etrafındaki ortalanmış bir "benzetimi bölge" kutusu hesaplama gerçekleştirir. Örnek paketinin akustik varlıkları 45 player çevreleyen milyon simülasyonu bölge boyutuna sahip desteklenmiş olduğundan, ses zayıflama 0 olarak yaklaşık 45 m kalan şekilde tasarlanmalıdır.
 

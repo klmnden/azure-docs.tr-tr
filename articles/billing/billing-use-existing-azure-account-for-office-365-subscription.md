@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: 5ac05991bc79dcfd24a527a13084b3a9383b4839
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b67f3c590be290515329af390b4d3d79a9746112
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904006"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339236"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Azure hesabınızı kullanarak Office 365 aboneliği için kaydolun
 Azure abonesi iseniz, bir Office 365 aboneliğine kaydolmak için Azure hesabınızı kullanabilirsiniz. Bir Azure aboneliğine sahip bir kuruluş bir parçası kullanıyorsanız, var olan Azure Active Directory'de (Azure AD) kullanıcıları için Office 365 abonelikleri oluşturabilirsiniz. Azure Active Directory kiracınızda genel yönetici veya faturalama yöneticisi izinlerine sahip bir hesap kullanarak Office 365 için kaydolun. Daha fazla bilgi için [hesabı İzinlerim Azure AD'de denetleyin](#RoleInAzureAD) ve [Azure Active Directory'de yönetici rolleri atama](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
@@ -43,12 +43,13 @@ Office 365 hesabı hem de Azure aboneliğiniz zaten varsa, [bir Azure aboneliği
 
     ![Office 365 sipariş alındı belgesinde ekran görüntüsü](./media/billing-use-existing-azure-account-office-365-subscription/15-office-365-order-receipt.png)
 
-Artık hazırsınız. Kuruluşunuz için Office 365 aboneliğiniz varsa Azure AD kullanıcılarınızın artık Office 365'te olduğunu denetlemek için aşağıdaki adımları kullanın.
+Artık hazırsınız.
+Kuruluşunuz için Office 365 aboneliğiniz varsa Azure AD kullanıcılarınızın artık Office 365'te olduğunu denetlemek için aşağıdaki adımları kullanın.
 
-1. Office 365 Yönetici merkezini açın.
+1. Microsoft 365 Yönetici merkezini açın.
 2. Genişletin **kullanıcılar**ve ardından **etkin kullanıcılar**.
 
-    ![Office 365 Yönetici Merkezi kullanıcıların ekran görüntüsü](./media/billing-use-existing-azure-account-office-365-subscription/16-office-365-admin-center-users.png)
+    ![Microsoft 365 Yönetici Merkezi kullanıcıların ekran görüntüsü](./media/billing-use-existing-azure-account-office-365-subscription/16-microsoft-365-admin-center-users.png)
 
 Kaydolduktan sonra Office 365 aboneliğine Azure aboneliğinize ait aynı Azure Active Directory örneğine eklenir. Daha fazla bilgi için [Azure ve Office 365 abonelikleri hakkında daha fazla](billing-use-existing-office-365-account-azure-subscription.md#more-about-subs) ve [Azure aboneliklerinin Azure Active Directory ile ilişkisi](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -58,12 +59,12 @@ Kaydolduktan sonra Office 365 aboneliğine Azure aboneliğinize ait aynı Azure 
 
     ![Ekran görüntüsü, Active Directory'de Azure portalı](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. Tıklayın **kullanıcılar ve gruplar** > **tüm kullanıcılar**.
-4. Kullanıcı adı seçin. 
+4. Kullanıcı adı seçin.
 
     ![Azure Active Directory Kullanıcıları gösteren ekran görüntüsü](./media/billing-use-existing-azure-account-office-365-subscription/billing-users-groups.png)
 
 5. Tıklayın **dizin rolü**.
-  
+
     ![Azure portal dizin rolü gösteren ekran görüntüsü](./media/billing-use-existing-azure-account-office-365-subscription/billing-user-directory-role.png)
 6.  Rol **genel yönetici** veya **sınırlı yönetici** > **Faturalama Yöneticisi** kullanıcılar için bir Office 365 aboneliği oluşturmak için gereklidir var olan Azure Active Directory.
 
@@ -71,4 +72,4 @@ Kaydolduktan sonra Office 365 aboneliğine Azure aboneliğinize ait aynı Azure 
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458). 
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

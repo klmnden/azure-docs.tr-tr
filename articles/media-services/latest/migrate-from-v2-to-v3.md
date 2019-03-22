@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/12/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2d7dc6eb5ee77804f0c8c87ee2e5a5dd1d0dc30a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 61ebebaf61d1cbbc72f3e12b5ff516924cc9b8c7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841132"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317757"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2'den v3 taşımak için Geçiş Kılavuzu
 
@@ -29,7 +29,7 @@ Bu makalede, Azure Media Services v3 sürümünde yapılan değişiklikleri aç�
 Bugün üzerine geliştirilen bir video hizmeti varsa [eski Media Services v2 API'leri](../previous/media-services-overview.md), aşağıdaki yönergeleri ve v3 API'ler için geçirmeden önce konuları gözden geçirmeniz gerekir. Çok sayıda avantaj ve geliştirici deneyimi ve Media Services'ın özellikleri geliştiren yeni özellikler v3 API vardır. Ancak, olarak adlandırılan aşımı [bilinen sorunlar](#known-issues) bölümünde bu makalede, korunmasından da API sürümleri arasındaki değişiklikleri nedeniyle. Bu sayfa, medya Hizmetleri ekibi v3 API'ler için devam eden bir iyileşme ve sürümler arasındaki boşlukları adresleri korunacaktır. 
 
 > [!NOTE]
-> Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, desteklenen Sdk'lardan birini veya.
+> Şu anda Azure portalında v3 kaynakları yönetmek için kullanamazsınız. Kullanım [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), veya desteklenen biri [SDK'ları](developers-guide.md).
 
 ## <a name="benefits-of-media-services-v3"></a>Avantajları medya Hizmetleri v3
 

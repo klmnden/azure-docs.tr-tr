@@ -1,8 +1,6 @@
 ---
 title: Azure HDInsight'ta HBase nedir?
 description: Hadoop’ta oluşturulan bir NoSQL veritabanı olan HDInsight’ta Apache HBase’e giriş. Kullanım örnekleri hakkında bilgi edinin ve HBase’i diğer Hadoop kümeleriyle karşılaştırın.
-keywords: bigtable,nosql,hbase nedir,apache hbase,hbase,habase genel bakış,
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +8,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 46b201b2b5d8a3ee774f759326afae885ad6cb30
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: d109a1a233aaaf1f3922561106caa15781e31e01
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651853"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337355"
 ---
 # <a name="what-is-apache-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-apache-hadoop"></a>HDInsight, Apache HBase nedir: Apache Hadoop için BigTable benzeri özellikler sağlayan bir NoSQL veritabanı
 [Apache HBase](https://hbase.apache.org/) üzerinde oluşturulan bir açık kaynak, NoSQL veritabanıdır [Apache Hadoop](https://hadoop.apache.org/) ve sonra Modellenen [Google BigTable](https://cloud.google.com/bigtable/). HBase, sütun aileleri tarafından veritabanında büyük miktarlardaki yapılandırılmamış ve yarı yapılandırılmış veriler için rasgele erişim ve güçlü tutarlılık sağlar.
@@ -62,8 +60,3 @@ Web araması olan kurallı kullanım örneği bigtable (ve uzantılarının, HBa
 * [Apache HBase](https://hbase.apache.org/)
 * [Apache HBase Başvuru Kılavuzu](https://hbase.apache.org/book.html)
 * [Bigtable: Yapılandırılmış veriler için Dağıtılmış depolama sistemi](https://research.google.com/archive/bigtable.html)
-* [Apache HBase/Phoenix – ipuçları, püf noktaları ve Azure HDInsight'ndaki en iyi yöntemler](https://blogs.msdn.microsoft.com/ashish/2016/08/28/hdinsight-hbase-faq/)
-
-
-
-

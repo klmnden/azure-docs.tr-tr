@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: b9304e151bbce691b752f12aeec8a5376e517a8d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f1bc19833e0e0cc2026ae22977d9a3b371924fe2
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120780"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337139"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding'i sık sorulan sorular (SSS)
 
@@ -63,6 +63,9 @@ Cortana önceden oluşturulmuş uygulamalar, 2017'de kullanım dışı bırakıl
 
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Bir LUIS uygulaması sahipliğini nasıl aktarabilir?
 Bir LUIS uygulaması için farklı bir Azure aboneliği aktarmayı LUIS uygulaması dışarı aktarma ve yeni bir hesap kullanarak içe aktarın. Çağıran istemci uygulamasındaki LUIS uygulama kodunu güncelleştirin. Yeni uygulamayı biraz daha farklı LUIS özgün uygulamadan puanları döndürebilir.
+
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Bir uygulama veya sürüm dosyasını içeri aktarma çalıştı, ancak ne olduğunu, bir hata aldım? 
+Daha fazla bilgi edinin [sürümü alma hataları](luis-how-to-manage-versions.md#import-errors) ve [uygulama alma hataları](luis-how-to-start-new-app.md#import-errors).
 
 <a name="luis-collaborating"></a>
 

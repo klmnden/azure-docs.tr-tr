@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d784941c43da13a2c1bd120599aa02fe14e5a5b4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456828"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338607"
 ---
 <a name="logic-app-test-drive"></a>Mantıksal uygulamayı Test Sürüşü
 ====================
@@ -95,7 +95,7 @@ Doldurmak için son bölümü, Test sürücüleri otomatik olarak Azure aboneli�
 **Azure abonelik kimliği** *[Field gerekli]* bu Azure hizmetlerini ve Azure portalına erişim verir. Burada kullanım raporlama ve Hizmetleri faturalandırılır aboneliktir. Zaten yoksa bir **ayrı** Azure aboneliği için Test Sürüşleri yalnızca, Lütfen bir tane biri olun. Azure abonelik kimlikleri, Azure portalında oturum açıyorsanız ve sol taraftaki menüyü Aboneliklerde giderek bulabilirsiniz.
 (Örnek: "a83645ac-1234-5ab6-6789-1h234g764ghty")
 
-![Azure abonelikleri](./media/azure-resource-manager-test-drive/subdetails2.png)
+![Azure Abonelikleri](./media/azure-resource-manager-test-drive/subdetails2.png)
 
 **Azure AD Kiracı kimliği** *[Field gerekli]* bir kiracı bulabilirsiniz altındaki özellikler - kimliği zaten mevcut varsa\> dizin kimliği
 
@@ -137,6 +137,10 @@ Verilen kullanıyoruz uygulamayı aboneliğinize dağıtmak için biz uygulaman�
 **Azure AD uygulama anahtarı -** *[gerekli alan]* bir kimlik doğrulama anahtarını oluşturmak için son alandır. Anahtarı altında anahtarı bir açıklama ekleyin, ardından süresiz olarak süresini Kaydet'i belirleyin. Bu **önemli** süresi dolmuş zorunda kalmamak için anahtar, hangi test sürüşünüz üretimde çalışmamasına neden olur. Bu değeri kopyalayın ve gerekli Test Sürüşü alanına yapıştırın.
 
 ![Azure Active Directory anahtarları bölümüne](./media/azure-resource-manager-test-drive/subdetails8.png)
+
+> [!CAUTION]
+> Bir base64 kodlu anahtarı şu anda oluşturmaz, çünkü Azure uygulama kayıt önizlemesi kullanamazsınız.
+
 
 <a name="next-steps"></a>Sonraki adımlar
 ----------

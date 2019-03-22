@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: ea41f09269e3ad46db1f254965fd7d7df25232be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d66db88dd1e962acc63c960270bb5685218aa391
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095611"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316084"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid güvenliğini ve kimlik doğrulaması 
 
@@ -88,7 +88,7 @@ Abonelik doğrulama anlaşma işleme ilişkin bir örnek için bkz. bir [ C# ör
 
 ### <a name="checklist"></a>Denetim listesi
 
-Olay aboneliği oluşturma gibi bir hata iletisini görüyorsanız sırasında "sağlanan uç nokta doğrulama girişimi https://your-endpoint-here başarısız oldu. Daha fazla bilgi için ziyaret https://aka.ms/esvalidation", içinde doğrulama el sıkışması başarısız olduğunu gösterir. Bu hatayı gidermek için aşağıdaki durumlara doğrulayın:
+Olay aboneliği oluşturma gibi bir hata iletisini görüyorsanız sırasında "belirtilen uç nokta https doğrulama girişimi:\//your-endpoint-here başarısız oldu. Daha fazla bilgi için https ziyaret edin:\//aka.ms/esvalidation ", içinde doğrulama el sıkışması başarısız olduğunu gösterir. Bu hatayı gidermek için aşağıdaki durumlara doğrulayın:
 
 * Hedef uç noktasında denetim uygulama kodu var mı? Örneğin, Azure işlevi bir HTTP tetikleyici tabanlı yazıyorsanız, değişiklik yapmak için uygulama koduna erişmeniz gerekiyor?
 * Uygulama koduna erişiminiz varsa, yukarıdaki örnekte gösterildiği gibi temel ValidationCode el sıkışması mekanizması uygulayın.

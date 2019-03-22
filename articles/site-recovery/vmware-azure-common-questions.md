@@ -1,19 +1,19 @@
 ---
 title: Sık sorulan soruları - VMware-Azure Site Recovery ile Azure'a olağanüstü durum kurtarma | Microsoft Docs
 description: Azure Site Recovery kullanılarak Azure'da şirket içi VMware vm'lerinin olağanüstü durum kurtarma oluşturduğunuzda bu makalede, sık sorulan sorular özetler.
-author: mayurigupta13
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/14/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: 24682156cf0c50ccf69c39f83f59e9b867bbcf0f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: raynew
+ms.openlocfilehash: 82ae36eaaf4616dbd85760a0962f301a2b1a20f5
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901857"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319389"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -165,6 +165,10 @@ Hayır, geçiş için yönetilmeyen yönetilen desteklenmiyor.
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN üzerinden neden çoğaltma yapamaz?
 
 Azure'a çoğalttığınızda, çoğaltma trafiği ortak uç noktalar Azure Depolama'nın ulaştığında, bu nedenle, yalnızca ExpressRoute (genel eşdüzey hizmet sağlama) ile genel internet üzerinden çoğaltma yapabilirsiniz ve VPN çalışmaz.
+
+### <a name="can-i-use-riverbed-steelheads-for-replication"></a>Riverbed SteelHeads çoğaltma için kullanabilir miyim?
+
+İş, Riverbed, Azure Site Recovery ile çalışma hakkında ayrıntılı bir kılavuz sağlar. Lütfen kendi [çözüm Kılavuzu](https://community.riverbed.com/s/article/DOC-4627).
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Çoğaltılmış sanal makine gereksinimleri nelerdir?
 

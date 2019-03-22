@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a85fb65ad971bfc70bdab0689e99921e616b56ac
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 07fdaa22532f48cc39b6c524d85fdfe625f8b80c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308868"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337148"
 ---
 # <a name="categorize-images"></a>Görüntüleri kategorilere ayırma
 
@@ -24,7 +24,7 @@ Etiketler ve bir açıklama ek olarak, görüntü işleme görüntüdeki algıla
 
 ## <a name="the-86-category-concept"></a>86 kategori kavramı
 
-Görüntü işleme görüntü problem veya özellikle, aşağıdaki diyagramda 86 categroies listesini kullanarak kategorilere ayırabilirsiniz. Metin biçiminde tam taksonomi için bkz. [Kategori Taksonomisi](category-taxonomy.md).
+Görüntü işleme görüntü problem veya özellikle, aşağıdaki diyagramda 86 kategori listesi kullanarak kategorilere ayırabilirsiniz. Metin biçiminde tam taksonomi için bkz. [Kategori Taksonomisi](category-taxonomy.md).
 
 ![Kategori sınıflandırma tüm kategorilerde gruplanmış listesi](./Images/analyze_categories-v2.png)
 

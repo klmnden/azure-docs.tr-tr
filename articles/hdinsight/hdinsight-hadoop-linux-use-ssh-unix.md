@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: a7ba66fae3f2a8426cc333cca109a4c6793d1da2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 56eb7e7372d2041b52af6bbae2b9186b99f97bbb
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724340"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337825"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>SSH kullanarak HDInsight için (Apache Hadoop) bağlanma
 
@@ -57,7 +57,7 @@ Microsoft Windows, hiçbir SSH istemcisini varsayılan olarak yüklemez. `ssh` v
 
 * [Windows 10 üzerinde ubuntu'da bash](https://msdn.microsoft.com/commandline/wsl/about): `ssh` Ve `scp` komutları, Windows komut satırında Bash aracılığıyla kullanılabilir.
 
-* [OpenSSH istemcisi (beta)](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/): Bu, Windows 10 Fall Creators Update içinde sunulan isteğe bağlı bir özelliktir.
+* [OpenSSH istemcisi (beta)](https://devblogs.microsoft.com/powershell/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/): Bu, Windows 10 Fall Creators Update içinde sunulan isteğe bağlı bir özelliktir.
 
 * [Azure Cloud Shell'i](../cloud-shell/quickstart.md): Cloud Shell, tarayıcınızda bir Bash ortamı sunar ve sağlar `ssh`, `scp`ve diğer sık kullanılan Linux komutlarını.
 

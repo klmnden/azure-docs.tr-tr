@@ -1,5 +1,5 @@
 ---
-title: Azure multi-Factor Authentication - nasıl çalışır?
+title: Azure multi-Factor Authentication - nasıl çalışır? - Azure Active Directory
 description: Azure Multi-Factor Authentication, kullanıcıların basit bir oturum açma işlemi taleplerini karşılarken, verilere ve uygulamalara erişimi korumaya da yardımcı olur.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7c05c9a7db7f8e8c6e84232009780988d77aa14
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7328fb958774b5e17511d046e914cc5612e8a96d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088341"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310940"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Nasıl çalışır? Azure Multi-Factor Authentication
 

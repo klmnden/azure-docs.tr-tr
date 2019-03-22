@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d67d8462c177d19dfa3cebbd0b4b000fbe3f41b8
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
-ms.translationtype: HT
+ms.openlocfilehash: d687665a7f9b18d42dcd45953c15d2fbc6d71d2f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57894984"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335836"
 ---
 # <a name="text-to-speech-rest-api"></a>Metin okuma REST API
 
@@ -33,6 +33,12 @@ Bu API kullanmadan önce anlayın:
 * Metin okuma REST API, bir yetkilendirme üst bilgisi gerektirir. Bu, hizmete erişmek için bir belirteç değişimi tamamlanması gerektiği anlamına gelir. Daha fazla bilgi için bkz. [Kimlik doğrulaması](#authentication).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
+
+## <a name="regions-and-endpoints"></a>Bölgeler ve uç noktaları
+
+Bu bölgeler, REST API kullanarak konuşma metin döküm için desteklenir. Eşleşen abonelik bölgenizi uç nokta seçtiğinizden emin olun.
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ## <a name="request-headers"></a>İstek üst bilgileri
 

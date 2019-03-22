@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 94a0d3f19e595ac040d908ea47d6332ceae0943c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8793f6f4d135d6099541d24aa5f5cfc0b6c21b30
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314814"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339440"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Azure Search'te bir cephe filtresi oluşturma 
 
@@ -25,7 +25,7 @@ ms.locfileid: "53314814"
 > * Alandaki öznitelikler kümesi
 > * Dizin ve yük verileri oluşturma
 > * Model filtreleri bir sorguya ekleyin
-> * Sonuçlarını işleme
+> * Sonuçları işleme
 
 Dinamik ve sorguda döndürülen modeller. Araması yanıtlarında, kendileriyle sonuçları gezinmek için kullanılan model kategorileri getirin. Modelleri ile ilgili bilgi sahibi değilseniz, aşağıdaki örnek model gezinti yapısında temsilidir.
 
@@ -84,7 +84,7 @@ Bir alanın nasıl kullanıldığını kontrol dizin öznitelikleri dizindeki te
 
 ## <a name="build-and-load-an-index"></a>Derleme ve dizin yükleme
 
-Ara (ve belki de belirgin) bir adım için sahip olduğu [oluşturun ve dizini doldurma](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) sorgu formulating önce. Biz bu adımı burada bütünlük bahsedebilirsiniz. Dizin kullanılabilir olup olmadığını belirlemenin bir yolu olan dizinler listesi işaretleyerek [portalı](https://portal.azure.com).
+Ara (ve belki de belirgin) bir adım için sahip olduğu [oluşturun ve dizini doldurma](https://docs.microsoft.com/azure/search/search-create-index-dotnet#3---construct-index) sorgu formulating önce. Biz bu adımı burada bütünlük bahsedebilirsiniz. Dizin kullanılabilir olup olmadığını belirlemenin bir yolu olan dizinler listesi işaretleyerek [portalı](https://portal.azure.com).
 
 ## <a name="add-facet-filters-to-a-query"></a>Model filtreleri bir sorguya ekleyin
 
@@ -128,4 +128,3 @@ Bu yaygın bir kullanım örneği olsa da, bunu bir şey değil model gezinti ya
 + [Azure Search'te filtreler](search-filters.md)
 + [Dizin REST API'si oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [Search belgeleri REST API'si](https://docs.microsoft.com/rest/api/searchservice/search-documents)
-

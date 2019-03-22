@@ -2,21 +2,21 @@
 title: 'Azure Site Kurtarma: Sık sorulan sorular | Microsoft Docs'
 description: Bu makalede, Azure Site Recovery hakkında sık kullanılan sorular açıklanmaktadır.
 services: site-recovery
-author: mayurigupta13
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/3/2019
-ms.author: mayg
-ms.openlocfilehash: 1abd18e294ef73e989191d189ea599bca2b4d903
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 3/18/2019
+ms.author: raynew
+ms.openlocfilehash: 018368d28dd34787046ae655a98527aede28603f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881087"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313377"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: sık sorulan sorular (SSS)
-Bu makale, Azure Site Recovery hakkında sık sorulan sorular içerir. Bu makaleyi okuduktan sonra sorularınız varsa gönderin [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+Bu makalede, Azure Site Recovery hakkında sık sorulan sorular özetlenmektedir. 
 
 ## <a name="general"></a>Genel
 ### <a name="what-does-site-recovery-do"></a>Site Recovery ne işe yarar?
@@ -141,9 +141,9 @@ Evet. Daha fazla dağıtım makalelerinde bant genişliği azaltma hakkında:
 * [Kapasite VMware Vm'lerini ve fiziksel sunucuları çoğaltmak için planlama](site-recovery-plan-capacity-vmware.md)
 * [Kapasite Hyper-V Vm'lerini Azure'a çoğaltma için planlama](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
-## <a name="failover"></a>Yük devret
+## <a name="failover"></a>Yük devretme
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Nasıl miyim üzerinden Azure'a geçemiyorum, yük devretme sonrasında Azure sanal makinelerini erişim sağlanır?
-Azure VM'lerine güvenli bir İnternet bağlantısı, siteden siteye VPN veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için etmenizi hazırlamanız gerekir. [Daha fazla bilgi edinin](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+Azure VM'lerine güvenli bir İnternet bağlantısı, siteden siteye VPN veya Azure ExpressRoute üzerinden erişebilirsiniz. Bağlanmak için etmenizi hazırlamanız gerekir. [Daha fazla bilgi](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 
 ### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>Verilerim dayanıklı ise miyim nasıl Azure emin Azure'a yük?

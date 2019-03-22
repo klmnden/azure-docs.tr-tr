@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: tamram
-ms.openlocfilehash: d57023063fe23db9f57d52ab9cdf99e0687c1fdf
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: df9bc1680f20fe6264da0109cd52db1072fd9fc5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217300"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311144"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Genel amaçlı v2 depolama hesabı için yükseltme
 
@@ -29,14 +29,14 @@ Genel amaçlı v2 depolama hesabı, genel amaçlı v1'den veya Blob Depolama hes
 2. Depolama hesabınıza gidin.
 3. İçinde **ayarları** bölümünde **yapılandırma**.
 4. **Hesap Türü** altında **Yükselt**’e tıklayın.
-5. **Yükseltmeyi Onayla** altında, hesabınızın adını yazın. 
+5. **Yükseltmeyi Onayla** altında, hesabınızın adını yazın.
 6. Tıklayın **yükseltme** dikey pencerenin alt kısmındaki.
 
 ## <a name="upgrade-with-powershell"></a>Powershell ile yükseltme
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Genel amaçlı v1 hesabı PowerShell kullanarak bir genel amaçlı v2 hesabına yükseltmek için önce en son sürümünü kullanacak şekilde güncelleştirin **Az.Storage** modülü. PowerShell’i yükleme hakkında bilgi edinmek için bkz. [Azure PowerShell’i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
+Genel amaçlı v1 hesabı PowerShell kullanarak bir genel amaçlı v2 hesabına yükseltmek için önce en son sürümünü kullanacak şekilde güncelleştirin **Az.Storage** modülü. PowerShell’i yükleme hakkında bilgi edinmek için bkz. [Azure PowerShell’i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 Ardından, depolama hesabı ve kaynak grubunuzun adını değiştirerek, hesabı yükseltmek için şu komuta çağrı yapın:
 
@@ -46,17 +46,17 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 ## <a name="upgrade-with-azure-cli"></a>Azure CLI ile yükseltme
 
-Genel amaçlı v1 hesabı, Azure CLI kullanarak bir genel amaçlı v2 hesabına yükseltmek için önce Azure CLI'nin en son sürümünü yükleyin. CLI yüklemesi hakkında bilgi için bkz. [Azure CLI 2.0’ı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
+Genel amaçlı v1 hesabı, Azure CLI kullanarak bir genel amaçlı v2 hesabına yükseltmek için önce Azure CLI'nin en son sürümünü yükleyin. CLI yüklemesi hakkında bilgi için bkz. [Azure CLI 2.0’ı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Ardından, depolama hesabı ve kaynak grubunuzun adını değiştirerek, hesabı yükseltmek için şu komuta çağrı yapın:
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
-``` 
+```
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Blob veri erişim katmanı belirlemesine
 
-Genel amaçlı v2 hesapları, tüm Azure depolama hizmetleri ve veri nesneleri destekler, ancak yalnızca blok blobları olarak Blob Depolama için erişim katmanları mevcuttur. Genel amaçlı v2 depolama hesabı için yükselttiğinizde, erişim katmanı için blob verilerinizi belirtebilirsiniz. 
+Genel amaçlı v2 hesapları, tüm Azure depolama hizmetleri ve veri nesneleri destekler, ancak yalnızca blok blobları olarak Blob Depolama için erişim katmanları mevcuttur. Genel amaçlı v2 depolama hesabı için yükselttiğinizde, erişim katmanı için blob verilerinizi belirtebilirsiniz.
 
 Erişim katmanı, beklenen kullanım düzenlerini esas alarak en uygun maliyetli depolama seçmenize olanak sağlar. Blok blobları, sık erişimli, seyrek erişimli veya arşiv katmanında depolanabilir. Erişim katmanları hakkında daha fazla bilgi için bkz. [Azure Blob Depolama: Seyrek erişimli, seyrek ve Arşiv depolama katmanları](../blobs/storage-blob-storage-tiers.md).
 
@@ -96,7 +96,7 @@ Depolama ve blob verilerini belirli bir katman genel amaçlı v2 depolama hesab�
     - Depolama hesabınızda ne kadar veri depolanıyor?
     - Aylık temelde veri hacmi nasıl değişiyor; yeni veriler sürekli eski verilerin yerini alıyor mu?
 * Birincil erişim düzeni dahil olmak üzere Blob Depolama veri:
-    - Ne kadar veri okuma ve depolama hesabına yazılır? 
+    - Ne kadar veri okuma ve depolama hesabına yazılır?
     - Depolama hesabındaki veriler üzerinde işlemler gerçekleşir ve kaç okuma işlemleri yazma?
 
 Gereksinimleriniz için en iyi erişim katmanına karar vermek için blob veri kapasitenizi ve bu verileri nasıl kullanıldığını belirlemek yararlı olabilir. Bu, hesabınız için izleme ölçümlere bakarak en iyi yapılabilir.
@@ -108,7 +108,7 @@ Var olan depolama hesaplarınızı izlemek ve bu verileri toplamak için, bir de
 Daha fazla bilgi için bkz. [Storage Analytics Ölçümleri hakkında](https://msdn.microsoft.com/library/azure/hh343258.aspx) ve [Storage Analytics Ölçüm Tablosu Şeması](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Blob depolama hesapları, Tablo hizmeti uç noktasını yalnızca ilgili hesabın ölçüm verilerini depolamak ve bunlara erişmek için kullanıma sunar. 
+> Blob depolama hesapları, Tablo hizmeti uç noktasını yalnızca ilgili hesabın ölçüm verilerini depolamak ve bunlara erişmek için kullanıma sunar.
 
 Blob depolamada depolama tüketimini izlemek için kapasite ölçümlerini etkinleştirmeniz gerekir.
 Bu özellik etkinleştirildiğinde bir depolama hesabının Blob hizmeti için kapasite verileri günlük olarak kaydedilir ve aynı depolama hesabı içindeki *$MetricsCapacityBlob* tablosuna yazılan bir tablo girişi olarak kaydedilir.
@@ -120,7 +120,7 @@ Blob depolama hizmetinin veri erişim desenlerini izlemek için API’den saatli
 
 Veri tüketim ve erişim modelinizi yaklaşık olarak tahmin etmek için, ölçümler için düzenli kullanımınızı temsil eden bir elde tutma süresi seçmeniz ve tahmin etmeniz önerilir. Seçeneklerden biri son yedi güne ait ölçüm verilerinin tutulması ve verilerin ay sonunda analiz için haftada bir toplanmasıdır. Diğer bir seçenek ise son 30 güne ait ölçüm verilerinin tutulması ve verilerin 30 günlük süre sonunda toplanıp çözümlenmesidir.
 
-Ölçüm verilerini etkinleştirme, toplama ve görüntüleme hakkında bilgi için bkz. [Azure Depolama ölçümlerini etkinleştirme ve ölçüm verilerini görüntüleme](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Toplama ve ölçüm verilerini etkinleştirme hakkında daha fazla bilgi için bkz [Storage analytics ölçümleri](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Analiz verilerinin depolanması, erişimi ve indirilmesi de normal kullanıcı verileri gibi ücretlendirilir.

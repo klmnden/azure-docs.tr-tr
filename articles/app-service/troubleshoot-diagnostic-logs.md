@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7d877f467f06768c31679752d9deff1ca19d0003
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 023d12764e3dcfcf2f5471cb431528a14fbc1fed
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882884"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339644"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service'teki uygulamalar için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
@@ -115,7 +115,7 @@ Azure komut satırı arabirimini kullanarak günlük dosyalarını indirmek içi
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-Bu komut adlı bir dosyaya ' appname' adlı uygulama için günlüklere kaydeder **diagnostics.zip** geçerli dizin.
+Bu komut adlı bir dosyaya ' appname' adlı uygulama için günlüklere kaydeder **webapp_logs.zip** geçerli dizin.
 
 > [!NOTE]
 > Azure CLI'yi yüklemediyseniz veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [Azure CLI kullanmak için nasıl](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).

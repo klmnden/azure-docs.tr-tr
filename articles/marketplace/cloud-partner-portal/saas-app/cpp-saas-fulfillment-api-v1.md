@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 299c06fc043391fc9b765c95ec6d29da3d440719
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d9443349ea7ce91a3b8ab01510917bc82ae9b8ad
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318876"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316154"
 ---
 # <a name="saas-fulfillment-apis-version-1"></a>SaaS yerine getirme API sürümü 1
 
@@ -59,26 +59,26 @@ Azure AD'nin özelliklerini kullanmak isteyen her uygulama önce bir Azure AD ki
 
 Azure portalını kullanarak yeni bir uygulamayı kaydetmek için aşağıdaki adımları gerçekleştirin:
 
-1.  [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2.  Hesabınız birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınıza tıklayın ve portal oturumunuzda kullanmak istediğiniz kiracıyı belirleyin.
-3.  Sol gezinti bölmesinden **Azure Active Directory** hizmeti ye **uygulama kayıtları**, tıklatıp **yeni uygulama kaydı**.
+1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
+2. Hesabınız birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınıza tıklayın ve portal oturumunuzda kullanmak istediğiniz kiracıyı belirleyin.
+3. Sol gezinti bölmesinden **Azure Active Directory** hizmeti ye **uygulama kayıtları**, tıklatıp **yeni uygulama kaydı**.
 
-    ![SaaS AD uygulama kayıtları](./media/saas-offer-app-registration-v1.png)
+   ![SaaS AD uygulama kayıtları](./media/saas-offer-app-registration-v1.png)
 
-4.  Uygulama Oluştur sayfasında girin\'s kayıt bilgileri:
-    -   **Ad**: Anlamlı uygulama adı girin
-    -   **Uygulama türü**: 
-        - Bir cihaza yerel olarak yüklenen [istemci uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) için **Yerel**'i seçin. Bu ayar OAuth ortak [yerel istemcileri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) için kullanılır.
-        - Seçin **Web uygulaması / API** için [istemci uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) ve [kaynak/API uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) güvenli bir sunucuya yüklenir. Bu ayar, OAuth gizli kullanılır [web istemcileri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) ve genel [kullanıcı aracı tabanlı istemciler](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
-        Aynı uygulama gerek bir istemciyi, gerekse kaynağı/API'yi sunabilir.
-    -   **Oturum açma URL'si**: Web uygulaması/API uygulamaları için uygulamanızın temel URL'si sağlayın. Örneğin, **http://localhost:31544** yerel makinenizde çalışan bir web uygulaması URL'si olabilir. Kullanıcılar, bir web istemci uygulamasına oturum açmak için bu URL'yi daha sonra kullanmanız gerekir.
-    -   **Yeniden yönlendirme URI'si**: Yerel uygulamaları için Azure AD'nin belirteç yanıtlarını döndürmek için kullanılan URI girin. Uygulamanıza özgü bir değer girin, örneğin **http://MyFirstAADApp**.
+4. Uygulama Oluştur sayfasında girin\'s kayıt bilgileri:
+   - **Ad**: Anlamlı uygulama adı girin
+   - **Uygulama türü**: 
+     - Bir cihaza yerel olarak yüklenen [istemci uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) için **Yerel**'i seçin. Bu ayar OAuth ortak [yerel istemcileri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) için kullanılır.
+     - Seçin **Web uygulaması / API** için [istemci uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) ve [kaynak/API uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) güvenli bir sunucuya yüklenir. Bu ayar, OAuth gizli kullanılır [web istemcileri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) ve genel [kullanıcı aracı tabanlı istemciler](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
+     Aynı uygulama gerek bir istemciyi, gerekse kaynağı/API'yi sunabilir.
+   - **Oturum açma URL'si**: Web uygulaması/API uygulamaları için uygulamanızın temel URL'si sağlayın. Örneğin, **http:\//localhost:31544** yerel makinenizde çalışan bir web uygulaması URL'si olabilir. Kullanıcılar, bir web istemci uygulamasına oturum açmak için bu URL'yi daha sonra kullanmanız gerekir.
+   - **Yeniden yönlendirme URI'si**: Yerel uygulamaları için Azure AD'nin belirteç yanıtlarını döndürmek için kullanılan URI girin. Uygulamanıza özgü bir değer girin, örneğin **http:\//MyFirstAADApp**.
 
-        ![SaaS AD uygulama kayıtları](./media/saas-offer-app-registration-v1-2.png)
+     ![SaaS AD uygulama kayıtları](./media/saas-offer-app-registration-v1-2.png)
 
-        Web uygulamaları veya yerel uygulamalar için belirli örnekler için hızlı başlangıç kullanıma destekli bölmesinin Başlarken bölümünde kullanılabilir ayarlar [Azure AD Geliştirici Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+     Web uygulamaları veya yerel uygulamalar için belirli örnekler için hızlı başlangıç kullanıma destekli bölmesinin Başlarken bölümünde kullanılabilir ayarlar [Azure AD Geliştirici Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
-5.  Tamamladığınızda **Oluştur**’a tıklayın. Azure AD uygulamanız ve sizin için benzersiz bir uygulama kimliği atar\'re uygulamanıza geçen\'s ana kayıt sayfası. Web uygulaması ya da yerel uygulama olmasına bağlı olarak uygulamanıza ek özellikler eklemek için değişik seçenekler sunulur.
+5. Tamamladığınızda **Oluştur**’a tıklayın. Azure AD uygulamanız ve sizin için benzersiz bir uygulama kimliği atar\'re uygulamanıza geçen\'s ana kayıt sayfası. Web uygulaması ya da yerel uygulama olmasına bağlı olarak uygulamanıza ek özellikler eklemek için değişik seçenekler sunulur.
 
 >[!Note]
 >Varsayılan olarak, yeni kaydettiğiniz uygulamayı, uygulamanız için oturum açmak için aynı kiracıda yalnızca kullanıcılar izin verecek şekilde yapılandırılır.
@@ -511,6 +511,7 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
     "lastModified": ""
 }
 ```
+
 | **Parametre adı**     | **Veri türü** | **Açıklama**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id                     | String        | Azure abonelik kaynak kimliği, SaaS.    |

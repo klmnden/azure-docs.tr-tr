@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 647923ce87e66314d7a95beb88cc842230f28774
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f1b3c08cce2cb33feab899ea082fc6fb40225182
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077080"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311226"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(KULLANIM DIŞI) Azure Container Service DC/OS kümesinde vamp mikro hizmetler ile canary sürümü
 
@@ -44,7 +44,7 @@ Bu kılavuzda, biz canary sürümü Azure Container Service'te DC/OS kümesi ile
 
 ## <a name="set-up-vamp"></a>Canary sürümü ayarlayın
 
-Bir çalışan DC/OS kümeniz olduğuna göre DC/OS kullanıcı Arabiriminden canary sürümü yükleyebilirsiniz (http://localhost:80). 
+Bir çalışan DC/OS kümeniz olduğuna göre DC/OS kullanıcı Arabiriminden canary sürümü yükleyebilirsiniz (http:\//localhost:80). 
 
 ![DC/OS Kullanıcı Arabirimi](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
@@ -135,7 +135,7 @@ Bu senaryo olarak adlandırılan bir örnek tek parça bir uygulamayı kullanan 
 
 1. Git **dağıtımları**.
 
-2. **Ekle**'yi tıklatın.
+2. **Ekle**'ye tıklayın.
 
 3. Aşağıdaki şema YAML içinde yapıştırın. Bu şema daha sonraki bir adımda değiştirmemizi yalnızca bir hizmet değişken, bir küme içerir:
 

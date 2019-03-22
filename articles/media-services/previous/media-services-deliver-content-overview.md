@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 51d0c7ade46143ecbf6fe46bc54e5d383d50b382
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3314ad4558fdd55429a5a68326dd46b5920d7daa
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173085"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316244"
 ---
 # <a name="deliver-content-to-customers"></a>Müşterilere içerik teslim edin
 Müşterilere, akış ve isteğe bağlı video içerik teslim, amacınız farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli video teslim andır.
@@ -92,22 +92,22 @@ Akış URL'lerini kullanıcılara sağlamak için önce bir OnDemandOrigin Buluc
 ### <a name="mpeg-dash-format"></a>MPEG-DASH biçimi
 {Akış uç noktası adı-media services hesabı name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
 ### <a name="apple-http-live-streaming-hls-v4-format"></a>Apple HTTP canlı akış (HLS) V4 biçimi
 {Akış uç noktası adı-media services hesabı name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
 ### <a name="apple-http-live-streaming-hls-v3-format"></a>Apple HTTP canlı akış (HLS) V3 biçimi
 {Akış uç noktası adı-media services hesabı name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
 ### <a name="apple-http-live-streaming-hls-format-with-audio-only-filter"></a>Apple HTTP canlı akış (HLS) biçimi yalnızca ses filtresi
 Varsayılan olarak, HLS yalnızca ses parçaları dahil bildirimi. Bu, cep telefonu şebekeleri için Apple Store sertifika için gereklidir. Bu durumda, bir istemci yeterli bant genişliğine sahip değil ya da 2 G bağlantısı üzerinden bağlandığından, kayıttan yürütme yalnızca ses olarak geçer. Bu içerik akışı arabelleğe alma olmadan tutmaya yardımcı olur, ancak video yoktur. Bazı senaryolarda, arabelleğe alma player yalnızca ses üzerinden tercih edilen olabilir. Yalnızca ses izleme kaldırmak istiyorsanız, ekleme **yalnızca ses = false** URL'si.
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3Yalnızca ses = false)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
 Daha fazla bilgi için [dinamik bildirim oluşturma desteği ve HLS çıktı ek özellikler](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
@@ -116,14 +116,14 @@ Daha fazla bilgi için [dinamik bildirim oluşturma desteği ve HLS çıktı ek 
 
 Örnek:
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
 ### <a id="fmp4_v20"></a>Kesintisiz akış 2.0 bildirimi (eski bildirimi)
 Varsayılan olarak, kesintisiz akış bildirim biçimi yineleme etiketi (r-etiketi) içerir. Ancak, bazı oyuncuların r-tag desteklemez. İstemciler bu yürütücüler ile r etiketi devre dışı bırakan bir biçim kullanabilirsiniz:
 
 {Akış uç noktası adı-media services hesabı name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=fmp4-v20)
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
+    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
 ## <a name="progressive-download"></a>Aşamalı indirme
 Aşamalı indirme ile tüm dosya indirilmeden önce ortam yürütmeyi başlatabilirsiniz. Aşamalı olarak (.ism * ismv, ISMA, ismt veya ismc) dosyalarını karşıdan yükleyemiyor.

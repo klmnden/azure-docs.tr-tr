@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: f9cf5e723484196125548b9e6d3956e909e9c9b0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0acb844b8b10ff210985dfcd8c96f15da6669356
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874965"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337485"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>LUIS portalda yeni bir LUIS uygulaması oluşturma
 Çeşitli şekillerde LUIS uygulaması oluşturmak için vardır. Bir LUIS uygulaması oluşturabileceğiniz [LUIS](https://www.luis.ai) portal ya da yazma LUIS aracılığıyla [API'leri](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -56,6 +56,16 @@ ms.locfileid: "55874965"
     > [!NOTE]
     > Uygulama oluşturduktan sonra kültür değiştirilemez. 
 
+## <a name="import-an-app-from-file"></a>Uygulama, dosyadan içeri aktar
+
+1. Üzerinde **uygulamalarım** sayfasında **alma yeni uygulama**.
+1. Açılan iletişim kutusunda, geçerli uygulama JSON dosyasını seçin ve ardından **Bitti**.
+
+### <a name="import-errors"></a>İçeri Aktarma hataları
+
+Olası hatalar şunlardır: 
+
+* Bu ada sahip bir uygulama zaten var. Uygulamayı yeniden içeri aktarın ve ayarlama **isteğe bağlı adı** yeni bir ad. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

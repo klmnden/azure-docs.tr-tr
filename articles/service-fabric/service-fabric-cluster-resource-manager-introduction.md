@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f41027b5455aa3b1835a0d4fd0c1be11cddccd0d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 75aa960ff060d74d0a579b475e4334402992b3c3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872004"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903377"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Service Fabric Küme Kaynak Yöneticisi ile tanışın
 Geleneksel BT sistemleri veya çevrimiçi hizmetleri yönetmek için kullanılan belirli bir fiziksel veya sanal makineler bu belirli hizmetler veya sistemleri ayrılması geliyordu. Hizmet katmanları desteklemesi için. Bir "web" katmanı ve bir "veri" veya "alanı" katmanı olacaktır. Uygulamaları nerede istekleri giriş ve çıkış önbelleğe alma için adanmış makineler kümesi yanı sıra aktarılan bir Mesajlaşma katmanına sahip olması gerekir. Her bir katmanı veya iş yükü türü için ayrılmış belirli makinelere vardı: veritabanı, birkaç web sunucuları dedicated birkaç makineler alındı. Belirli türde bir iş yükü için olan makineleri neden olursa söz konusu katman için daha fazla makine, aynı yapılandırmaya sahip eklemek çok sık erişimli çalıştırın. Ancak, tüm iş yükleri şekilde kolayca ölçeği - özellikle veri katmanı ile genellikle daha büyük makinelere makinelerle değiştirirsiniz. Kolay. Bir makine başarısız olursa, genel uygulama bu bölümü makinesi geri yüklenemedi kadar alt kapasitede çalıştı. Yine de oldukça kolay (değil gerekmeyen eğlenceli varsa).
 
 Artık ancak hizmet ve yazılım mimarisi dünyasına değişti. Uygulamaları bir ölçek genişletme tasarım benimseyen daha yaygındır. Kapsayıcıları ve mikro hizmet uygulamaları (veya her ikisi de) derleme yaygındır. Yalnızca birkaç makineler hala olabilir, ancak artık, ister bir iş yükü yalnızca tek bir örneği çalışıyor değil. Bunlar bile birden çok farklı iş yüklerini aynı anda çalışıyor olabilir. Artık düzinelerce farklı türlerdeki Hizmetleri (hiçbiri tam bir makinenin gereken kaynakları kullanan), belki de farklı örnekleri hizmetlerin yüzlerce sahipsiniz. Her adlandırılmış örnek bir veya daha fazla örneği veya çoğaltmalar yüksek kullanılabilirlik (HA için) sahiptir. Bu iş yüklerini ve ne kadar meşgul olduklarını boyutunu bağlı olarak, kendinizi yüzlerce veya binlerce bulabilirsiniz. 
 
-Ortamınızı aniden yönetme birkaç makine iş yükleri tek tür için adanmış yönetme olarak bu kadar basit değil. Sunucularınızın sanal ve artık adlara sahip (gelen mindsets geçtiniz [Evcil Hayvanlar cattle için](http://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20) tüm). Yapılandırma hakkında makineleri ve Hizmetleri hakkında daha fazla küçük. Bir iş yükünün tek örnekli bir adanmış donanım büyük ölçüde şey of geçmiş olur. Hizmetleri kendilerini ticari donanım, birden çok daha küçük parçalara span küçük bir dağıtılmış sistemler haline geldi.
+Ortamınızı aniden yönetme birkaç makine iş yükleri tek tür için adanmış yönetme olarak bu kadar basit değil. Sunucularınızın sanal ve artık adlara sahip (gelen mindsets geçtiniz [Evcil Hayvanlar cattle için](https://www.slideshare.net/randybias/architectures-for-open-and-scalable-clouds/20) tüm). Yapılandırma hakkında makineleri ve Hizmetleri hakkında daha fazla küçük. Bir iş yükünün tek örnekli bir adanmış donanım büyük ölçüde şey of geçmiş olur. Hizmetleri kendilerini ticari donanım, birden çok daha küçük parçalara span küçük bir dağıtılmış sistemler haline geldi.
 
 Uygulamanız artık hamleye olanak çeşitli katmanlarda yayılmış bir dizi olduğundan, artık çok daha fazla birleşimleri uğraşmanız sahipsiniz. Kimin karar ne tür iş yüklerinin hangi donanımda çalıştırabilirsiniz veya kaç? Hangi iş yüklerini de aynı donanımda çalışır ve hangi çakışan? Bir makine aşağı bunu nasıl geçtiğinde ne var. Bu makinede çalışan biliyor musunuz? Bu iş yükü sağlamaktan sorumlu kim yeniden çalışmaya başlar? (Sanal?) makine döndürülmesini bekleyin ya da iş yüklerinizi otomatik olarak diğer makineler ve canlı çalıştırma için yük devretme? Kullanıcı müdahalesi gerekli mi? Bu ortamda yükseltmeleri hakkında neler diyeceksiniz?
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d97ac99cae963ddb9df4de06736c64d5d8ceafb5
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 045339ec0a725359593797bda172a2e93f7c2890
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58187668"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339032"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure İlkesi'nin Konuk yapılandırma anlama
 
@@ -125,9 +125,11 @@ Tüm yerleşik ilkeleri Konuk yapılandırması için girişim atamaları tanım
 
 Konuk yapılandırma uzantısı günlük dosyaları aşağıdaki konumlara Yazar:
 
-Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\1.10.0.0\dsc\logs\dsc.log`
+Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\<version>\dsc\logs\dsc.log`
 
-Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log`
+Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
+
+Burada `<version>` geçerli sürüm numarasını ifade eder.
 
 ## <a name="guest-configuration-samples"></a>Konuk yapılandırma örnekleri
 

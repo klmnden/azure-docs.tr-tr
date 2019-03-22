@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: aa46fbce9d11a8fd380a5ee1990c0e7924079a9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8dc0a003a12eb0aca28c6a3238e2119dc449d661
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078695"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309427"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Bir Azure sanal makine görüntüsünü doğrulamak için bir kendi kendine test istemcisi oluşturma
 
@@ -54,7 +54,7 @@ Aşağıdaki diyagramda yetkilendirme hizmet çağrıları için istemci kimlik 
 Kendi kendine test API'si yalnızca POST yöntemini destekleyen tek bir uç nokta içerir.  Bunu, aşağıdaki yapıya sahiptir.
 
 ```
-Uri:             https://isvapp.azurewebsites.net/selftest-vm
+Uri:             https:\//isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -260,7 +260,7 @@ Uygulamanızı oluşturmak istediğiniz Azure AD kiracısını seçmek için aş
 
    - **Adı** – uygulama için kolay bir ad girin. Örneğin, "SelfTestClient".
    - **Uygulama türü** – Select **Web uygulaması/API'si**
-   - **Oturum açma URL'si** – türü "https://isvapp.azurewebsites.net/selftest-vm"
+   - **Oturum açma URL'si** – türü "https:\//isvapp.azurewebsites.net/selftest-vm"
 
 4. **Oluştur**’u seçin.
 5. Altında **uygulama kayıtları** veya **kayıtlı uygulama**, kopyalama **uygulama kimliği**.

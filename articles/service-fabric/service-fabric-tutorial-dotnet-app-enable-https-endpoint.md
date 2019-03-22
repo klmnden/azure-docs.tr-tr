@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5308fc024a53fdbbef12b409622cc35adaea1e2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ba28014dfb2be4550407c20b4885feda3921f98
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857717"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316904"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Öğretici: Kestrel'i kullanarak bir ASP.NET Core Web API'si ön uç hizmetine HTTPS uç noktası ekleme
 
@@ -341,9 +341,9 @@ Sonra, VotingWebPkg **ServiceManifestImport** bölümünde bir **RunAsPolicy** y
 
 ## <a name="run-the-application-locally"></a>Uygulamayı yerel olarak çalıştırma
 
-Çözüm Gezgini'nde, **Voting** uygulamasını seçin ve **Uygulama URL'si** özelliğini “ <https://localhost:443> ” olarak ayarlayın.
+Çözüm Gezgini'nde seçin **oylama** uygulama ve ayarlanmış **uygulama URL'si** özelliğini "https:\//localhost:443".
 
-Tüm dosyaları kaydedin ve F5’e basarak uygulamayı yerel olarak çalıştırın.  Uygulama dağıtıldıktan sonra bir web tarayıcısında [https://localhost:443](https://localhost:443) sayfası açılır. Otomatik olarak imzalanan bir sertifika kullanıyorsanız, bilgisayarınızın bu web sitesinin güvenliğine güvenmediğini bildiren bir uyarı görürsünüz.  Web sayfasına devam edin.
+Tüm dosyaları kaydedin ve F5’e basarak uygulamayı yerel olarak çalıştırın.  Uygulama dağıtıldıktan sonra https için bir web tarayıcısı açılır:\//localhost:443. Otomatik olarak imzalanan bir sertifika kullanıyorsanız, bilgisayarınızın bu web sitesinin güvenliğine güvenmediğini bildiren bir uyarı görürsünüz.  Web sayfasına devam edin.
 
 ![Oylama uygulaması][image2]
 

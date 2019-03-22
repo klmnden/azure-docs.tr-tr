@@ -1,5 +1,5 @@
 ---
-title: Windows 7 ve 8. 1 Azure AD Self Servis parola sıfırlama
+title: Windows 7 ve 8. 1 - Azure Active Directory, Azure AD Self Servis parola sıfırlama
 description: Kullanarak Self Servis parola sıfırlama olanağı tanıma Windows 7 veya 8.1 oturum açma ekranında Parolayı unuttum
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 933ac9b8f7d381db0111ee50385f11e8a22d92f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7a7752fac54f9dfb2f8fb0aecd3b6249c52c3bcf
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217828"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316363"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Nasıl yapılır: Parola sıfırlama Windows 7, 8 ve 8.1 etkinleştir
 

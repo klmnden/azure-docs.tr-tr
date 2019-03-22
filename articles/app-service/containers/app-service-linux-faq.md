@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 4c2ed5fa65528a690d618e45c118d2433820ddc6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 223486ec2dc184e6bbe02e1f6862b9d79d773a2c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871502"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339568"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service Linux SSS hakkında
 
@@ -42,10 +42,10 @@ Tüm Docker dosyaları bulabilirsiniz [GitHub](https://github.com/azure-app-serv
 | Yığın     | Beklenen değer                                                                |
 |-----------|-------------------------------------------------------------------------------|
 | Java SE   | başlatmak için bir komut, `.jar` uygulama                                    |
-| Tomcat    | Uygulamanız için gerekli tüm configruations gerçekleştirmek için bir komut dosyası konumu |
-| Node.js   | PM2 yapılandırma dosyasının veya komut dosyanızı                                |          
+| Tomcat    | Uygulamanız için tüm yapılandırmaları yürütülecek bir betik konumu          |
+| Node.js   | PM2 yapılandırma dosyasının veya komut dosyanızı                                |
 | .Net Core | olarak derlenen DLL'nin adıdır `dotnet <myapp>.dll`                                 |
-| Ruby      | uygulamanızı başlatmak istediğiniz Ruby betiğini                     
+| Ruby      | uygulamanızı başlatmak istediğiniz Ruby betiğini                     |
 
 ## <a name="management"></a>Yönetim
 

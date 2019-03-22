@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 5f2052576d0c6a1e663e3b84534fa0784a26e175
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fd72e2a75c00c30fdc5497e0d88e9c83dc5fcad8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006518"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317366"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>(Yönetilmeyen diskler) Azure Premium depolamaya geçiş
 
@@ -158,7 +158,7 @@ Vhd'lerinizi sürdürmek için bir depolama hesabı oluşturun. Vhd'lerinizi dep
 Veri diskleri için standart depolama hesabı (örneğin, harika bir depolama alanına sahip diskleri) bazı veri disklerini korumak seçebilirsiniz, ancak, premium depolama kullanmak, üretim iş yükü için tüm veri taşıma öneririz.
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>3. adım. AzCopy veya PowerShell ile VHD'yi kopyalayın
-Bu iki seçeneği işlemek için kapsayıcı yolu ve depolama hesabı anahtarınızı bulmanız gerekir. Kapsayıcı yolu ve depolama hesabı anahtarını bulunabilir **Azure portalı** > **depolama**. URL gibi olacaktır kapsayıcı "https://myaccount.blob.core.windows.net/mycontainer/".
+Bu iki seçeneği işlemek için kapsayıcı yolu ve depolama hesabı anahtarınızı bulmanız gerekir. Kapsayıcı yolu ve depolama hesabı anahtarını bulunabilir **Azure portalı** > **depolama**. URL gibi olacaktır kapsayıcı "https:\//myaccount.blob.core.windows.net/mycontainer/".
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>1. seçenek: AzCopy (zaman uyumsuz kopya) ile bir VHD'yi kopyalayın
 AzCopy kullanarak, Internet üzerinden VHD kolayca karşıya yükleyebilir. VHD'ler boyutuna bağlı olarak, bu zaman alabilir. Bu seçenek kullanıldığında depolama hesabı giriş/çıkış sınırları iade etmeyi unutmayın. Bkz: [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md) Ayrıntılar için.

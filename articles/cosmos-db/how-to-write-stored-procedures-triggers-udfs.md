@@ -6,18 +6,21 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: b0c09c5b425beef6badff7fb6ec298f96591abc5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f890a8468eaa22fbfce326fc16afe545fd515d6
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990530"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339321"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB'de saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler yazma
 
 Azure Cosmos DB sağlar yazmanızı sağlayan bir JavaScript dil ile tümleşik, işlem yürütme **saklı yordamlar**, **Tetikleyicileri**, ve **kullanıcı tanımlı işlevler (UDF'ler)**. Azure Cosmos DB SQL API'sini kullanarak, saklı yordamlar, tetikleyiciler ve UDF'ler JavaScript dilinde tanımlayabilirsiniz. JavaScript'te, mantığınızı yazmanıza ve veritabanı altyapısının içinden yürütün. Oluşturabilir ve tetikleyicileri, saklı yordamlar ve UDF'ler kullanarak yürütme [Azure portalında](https://portal.azure.com/), [JavaScript dil tümleşik Azure Cosmos DB'de sorgu API'si](javascript-query-api.md) ve [Cosmos DB SQL API istemcisi SDK'ları](sql-api-dotnet-samples.md). 
 
 Bir saklı yordam, tetikleyici ve kullanıcı tanımlı işlevi çağırmak için onu kaydetmeniz gerekir. Daha fazla bilgi için [saklı yordamlar, Tetikleyiciler, Azure Cosmos DB'de kullanıcı tanımlı işlevleri ile çalışmaya nasıl](how-to-use-stored-procedures-triggers-udfs.md).
+
+> [!NOTE]
+> Bir saklı yordamı yürütülürken bölümlenmiş kapsayıcılar için bir bölüm anahtarı değeri istek seçenekleri sağlanmalıdır. Saklı yordamlar, her zaman bir bölüm anahtarı için kapsama eklenir. Farklı bir bölüm anahtarı değerine sahip öğeleri saklı yordam için görünür olmaz. Bu da Tetikleyiciler için de geçerli.
 
 ## <a id="stored-procedures"></a>Saklı yordamlar yazma
 

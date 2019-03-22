@@ -1,21 +1,21 @@
 ---
-title: Dynamics 365 - Azure Logic Apps için bağlayın | Microsoft Docs
+title: Dynamics 365 - Azure Logic Apps için Bağlan
 description: Oluşturma ve Dynamics 365 (çevrimiçi) REST API ve Azure Logic Apps ile kayıtlarını yönetme
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: Mattp123
 ms.author: matp
-ms.service: logic-apps
-services: logic-apps
 ms.reviewer: estfan, LADocs
-ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 9fe41cf2946525948897635a4e30213d161431ef
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295309"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310583"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Azure Logic Apps ile Dynamics 365 kayıtlarını yönetme
 
@@ -26,13 +26,13 @@ Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](..
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
+* Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>.
 
 * A [Dynamics 365 hesabı](https://dynamics.microsoft.com)
 
 * Hakkında temel bilgilere [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Dynamics 365 hesabınıza erişmek için istediğiniz mantıksal uygulaması. Bir Dynamics 365 tetikleyicisi ile birlikte mantıksal uygulamanızı başlatmak için gereken bir [boş mantıksal uygulama](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* Dynamics 365 hesabınıza erişmek için istediğiniz mantıksal uygulaması. Bir Dynamics 365 tetikleyicisi ile birlikte mantıksal uygulamanızı başlatmak için gereken bir [boş mantıksal uygulama](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="add-dynamics-365-trigger"></a>Dynamics 365 tetikleyicisi ekleyin
 
@@ -50,8 +50,8 @@ Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](..
 
 1. Bu tetikleyici ayrıntıları sağlayın:
 
-   | Özellik | Gerekli | Açıklama | 
-   |----------|----------|-------------| 
+   | Özellik | Gerekli | Açıklama |
+   |----------|----------|-------------|
    | **Kuruluş adı** | Evet | Dynamics 365 örneğine izleme, örneğin "Contoso" kuruluşunuzun adı |
    | **Varlık adı** | Evet | İzlemek, varlığın adı Örneğin, "Müşteri adayı" | 
    | **Sıklık** | Evet | Tetikleyici için ilgili güncelleştirmeler denetlenirken aralıklarıyla kullanılacak zaman birimi |
@@ -72,21 +72,21 @@ Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](..
 
 1. Bu eylem ayrıntıları sağlayın:
 
-   | Özellik | Gerekli | Açıklama | 
-   |----------|----------|-------------| 
+   | Özellik | Gerekli | Açıklama |
+   |----------|----------|-------------|
    | **Kuruluş adı** | Evet | Tetikleyicinize aynı örneğinde olması gerekmez, kaydı oluşturmasını istediğiniz Dynamics 365 örneği, "Contoso" ancak bu örnekte'tür. |
-   | **Varlık adı** | Evet | Bu gibi bir durumda kaydı oluşturmak istediğiniz varlığı "Görevleri" | 
+   | **Varlık adı** | Evet | Bu gibi bir durumda kaydı oluşturmak istediğiniz varlığı "Görevleri" |
    | | |
 
    ![Eylem ayrıntıları](./media/connectors-create-api-crmonline/action-details.png)
 
 1. Zaman **konu** kutusu, eylem görünür içine tıklayın **konu** dinamik içerik listesinde görünecek şekilde kutusu. Bu listeden yeni müşteri adayı kaydıyla ilişkili görev kayıt dahil edilecek alan değerleri seçin:
 
-   | Alan | Açıklama | 
-   |-------|-------------| 
+   | Alan | Açıklama |
+   |-------|-------------|
    | **Soyadı** | Soyadı birincil ilgili kişi kaydı olarak sağlama |
-   | **Konu** | Kayıt müşteri adayı için açıklayıcı bir ad | 
-   | | | 
+   | **Konu** | Kayıt müşteri adayı için açıklayıcı bir ad |
+   | | |
 
    ![Görev kayıt ayrıntıları](./media/connectors-create-api-crmonline/create-record-details.png)
 
@@ -109,7 +109,7 @@ Dynamics 365 eylem verileri nasıl filtreleme yapılacağını belirtmek için *
 
    ![Filtre ve sıralama belirtin](./media/connectors-create-api-crmonline/advanced-options.png)
 
-Bu Dynamics 365 müşteri katılımı Web API'sini sistem sorgu seçenekleri daha fazla bilgi için bkz: 
+Bu Dynamics 365 müşteri katılımı Web API'sini sistem sorgu seçenekleri daha fazla bilgi için bkz:
 
 * [$filter](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#filter-results)
 * [$orderby](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#order-results)
@@ -128,19 +128,19 @@ Bu tablo, bazı alan türleri ve değerleri için gerekli veri türlerini açık
 | Bir kayıt kimliği ve arama gerektiren alanlar yazın | Birincil anahtar | Başka bir varlık kaydına başvuran bazı alanlar, hem bir kayıt kimliği ve arama türünü gerektirir. | 
 ||||
 
-Bu alan türlerine ek olarak, Dynamics 365 tetikleyiciler ve Eylemler hem bir kayıt kimliği ve arama türü gerektiren alanlara örnek aşağıda verilmiştir. Bu gereksinim, dinamik listeden seçtiğiniz değerler çalışmaz anlamına gelir. 
+Bu alan türlerine ek olarak, Dynamics 365 tetikleyiciler ve Eylemler hem bir kayıt kimliği ve arama türü gerektiren alanlara örnek aşağıda verilmiştir. Bu gereksinim, dinamik listeden seçtiğiniz değerler çalışmaz anlamına gelir.
 
-| Alan | Açıklama | 
+| Alan | Açıklama |
 |-------|-------------|
-| **Sahip** | Bir geçerli kullanıcı kimliği olması gerekir veya takım kaydı kimliği | 
-| **Sahip türü** | Aşağıdakilerden biri olması gereken **sistem kullanıcıları** veya **takımlar**. | 
-| **İlgili** | Hesap kimliği gibi bir geçerli kayıt kimliği olması gerekir veya ilgili kişi kaydı kimliği | 
-| **İlgili türü** | Bir arama türü gibi olmalıdır **hesapları** veya **kişiler**. | 
-| **Müşteri** | Hesap kimliği gibi bir geçerli kayıt kimliği olması gerekir veya ilgili kişi kaydı kimliği | 
-| **Müşteri türü** | Arama türü gibi olmalıdır **hesapları** veya **kişiler**. | 
+| **Sahip** | Bir geçerli kullanıcı kimliği olması gerekir veya takım kaydı kimliği |
+| **Sahip türü** | Aşağıdakilerden biri olması gereken **sistem kullanıcıları** veya **takımlar**. |
+| **İlgili** | Hesap kimliği gibi bir geçerli kayıt kimliği olması gerekir veya ilgili kişi kaydı kimliği |
+| **İlgili türü** | Bir arama türü gibi olmalıdır **hesapları** veya **kişiler**. |
+| **Müşteri** | Hesap kimliği gibi bir geçerli kayıt kimliği olması gerekir veya ilgili kişi kaydı kimliği |
+| **Müşteri türü** | Arama türü gibi olmalıdır **hesapları** veya **kişiler**. |
 |||
 
-Bu örnekte, eylem adlı **yeni kayıt oluşturma** yeni bir görev kayıt oluşturur: 
+Bu örnekte, eylem adlı **yeni kayıt oluşturma** yeni bir görev kayıt oluşturur:
 
 ![Görev kayıt kayıt kimliği ve arama türleri oluşturma](./media/connectors-create-api-crmonline/create-record-advanced.png)
 
@@ -148,13 +148,13 @@ Bu eylem görev kaydın belirli bir kullanıcı kimliği veya takım kaydı kiml
 
 ![Sahip kayıt kimliği ve arama türü](./media/connectors-create-api-crmonline/owner-record-id-and-lookup-type.png)
 
-Bu eylem ayrıca kaydı kimliği eklenir, ile ilişkili hesap kaydı ekler **ilgili** alan ve arama yazın **ilgili türü** alan: 
+Bu eylem ayrıca kaydı kimliği eklenir, ile ilişkili hesap kaydı ekler **ilgili** alan ve arama yazın **ilgili türü** alan:
 
 ![İlgili kayıt kimliği ve arama türü](./media/connectors-create-api-crmonline/regarding-record-id-lookup-type-account.png)
 
 ## <a name="find-record-id"></a>Kayıt Kimliğini bulma
 
-Bir kaydın Kimliğini bulmak için aşağıdaki adımları izleyin: 
+Bir kaydın Kimliğini bulmak için aşağıdaki adımları izleyin:
 
 1. Dynamics 365 içinde bir hesap kaydı gibi bir kayıt açın.
 
@@ -175,7 +175,7 @@ Bulmak ve mantıksal uygulamanızda başarısız adımları gözden geçirmek i�
 
    ![Logic app çalıştırma durumu](./media/connectors-create-api-crmonline/run-history.png)
 
-1. Daha fazla ayrıntı görüntülemek için başarısız olan bir adım genişletin. 
+1. Daha fazla ayrıntı görüntülemek için başarısız olan bir adım genişletin.
 
    ![Başarısız adımı genişletin](./media/connectors-create-api-crmonline/expand-failed-step.png)
 
@@ -187,7 +187,7 @@ Logic apps sorunlarını giderme hakkında daha fazla bilgi için bkz. [mantıks
 
 ## <a name="connector-reference"></a>Bağlayıcı başvurusu
 
-Bağlayıcının Swagger dosyası tarafından açıklandığı gibi sınırları, tetikleyiciler ve Eylemler gibi teknik ayrıntılar için bkz [bağlayıcının başvuru sayfası](/connectors/dynamicscrmonline/). 
+Tetikleyiciler ve Eylemler sınırları, bağlayıcının Openapı'nin açıklandığı gibi teknik ayrıntılar için (önceki adıyla Swagger) dosyası, bkz: [bağlayıcının başvuru sayfası](/connectors/dynamicscrmonline/).
 
 ## <a name="get-support"></a>Destek alın
 

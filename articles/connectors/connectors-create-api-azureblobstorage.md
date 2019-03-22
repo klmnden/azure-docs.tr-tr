@@ -1,5 +1,5 @@
 ---
-title: Azure blob depolamaya - Azure Logic Apps bağlanma | Microsoft Docs
+title: Azure blob depolamaya - Azure Logic Apps bağlanma
 description: Oluşturma ve Azure Logic Apps ile Azure Depolama'daki blobları yönetme
 services: logic-apps
 ms.service: logic-apps
@@ -10,36 +10,36 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 7d6845624c838ac0cf49e5963cae1ca0ea15ec15
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ea3e97db9ec560306788943d92a7670025f38bdc
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230616"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310379"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Oluşturma ve Azure Logic Apps ile Azure blob Depolama'daki blobları yönetme
 
 Bu makalede nasıl erişebilir ve Azure Blob Depolama Bağlayıcısı ile bir mantıksal uygulama içinde Azure depolama hesabınızdaki BLOB olarak depolanan dosyalar yönetme gösterilmektedir. Böylece, görevler ve dosyalarınızı yönetmek için iş akışlarını otomatik hale getiren mantıksal uygulamalar oluşturabilirsiniz. Örneğin, oluşturma, alma, güncelleştirme ve depolama hesabınızda dosyaları silme mantıksal uygulamalar oluşturabilirsiniz.
 
-Bir Azure Web sitesinde güncelleştirilir bir araç olduğunu varsayalım. mantıksal uygulamanızın tetikleyici olarak davranır. Bu olay meydana geldiğinde mantıksal uygulamanızda bir eylem, blob depolama kapsayıcısında bazı dosyasını güncelleştirin, mantıksal uygulama olabilir. 
+Bir Azure Web sitesinde güncelleştirilir bir araç olduğunu varsayalım. mantıksal uygulamanızın tetikleyici olarak davranır. Bu olay meydana geldiğinde mantıksal uygulamanızda bir eylem, blob depolama kapsayıcısında bazı dosyasını güncelleştirin, mantıksal uygulama olabilir.
 
 > [!NOTE]
-> Logic Apps, doğrudan güvenlik duvarları üzerinden Azure depolama hesaplarınızı bağlama desteklemiyor. Bu depolama hesaplarından erişmeye, burada iki seçenekten birini kullanın: 
+> Logic Apps, doğrudan güvenlik duvarları üzerinden Azure depolama hesaplarınızı bağlama desteklemiyor. Bu depolama hesaplarından erişmeye, burada iki seçenekten birini kullanın:
 >
-> * Oluşturma bir [tümleştirme hizmeti ortamı](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), hangi Azure sanal ağdaki kaynaklara bağlanabilir. 
-> 
+> * Oluşturma bir [tümleştirme hizmeti ortamı](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), hangi Azure sanal ağdaki kaynaklara bağlanabilir.
+>
 > * API Management'ı zaten kullanıyorsanız, bu senaryo için bu hizmeti kullanabilirsiniz. Daha fazla bilgi için bkz. [basit Kurumsal tümleştirme mimarisi](https://aka.ms/aisarch).
 
-Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: ilk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: İlk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Bağlayıcısı özel teknik bilgiler için bkz. <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">Azure Blob Depolama Bağlayıcısı başvurusu</a>.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
+* Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>.
 
 * Bir [Azure depolama hesabı ve depolama kapsayıcısı](../storage/blobs/storage-quickstart-blobs-portal.md)
 
-* Mantıksal uygulama Burada, Azure blob depolama hesabınıza erişmeniz gerekir. Mantıksal uygulamanızı bir Azure Blob Depolama tetikleyici ile başlayın, gerek bir [boş mantıksal uygulama](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* Mantıksal uygulama Burada, Azure blob depolama hesabınıza erişmeniz gerekir. Mantıksal uygulamanızı bir Azure Blob Depolama tetikleyici ile başlayın, gerek bir [boş mantıksal uygulama](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="add-trigger"></a>
 
@@ -53,7 +53,7 @@ Bu örnek, bir mantıksal uygulama iş akışı ile nasıl başlatılacağı gö
 
 2. Arama kutusuna filtreniz olarak "azure blob" girin. Tetikleyiciler listesinden istediğiniz tetikleyicisini seçin.
 
-   Bu örnekte bu tetikleyici: **Azure Blob Depolama'da bir blob eklendiğinde veya değiştirildiğinde (yalnızca Özellikler) -**
+   Bu örnek, bu tetikleyici kullanır: **Bir blob eklendiğinde veya değiştirildiğinde (yalnızca Özellikler), azure Blob Depolama-**
 
    ![Tetikleyici seçin](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
@@ -63,7 +63,7 @@ Bu örnek, bir mantıksal uygulama iş akışı ile nasıl başlatılacağı gö
 
    1. İçinde **kapsayıcı** kutusunda, klasör simgesini seçin.
 
-   2. Sağ açılı ayraç klasörü listeden seçin ( **>** ) ve ardından bulmak istediğiniz klasörü seçin kadar göz atın. 
+   2. Sağ açılı ayraç klasörü listeden seçin ( **>** ) ve ardından bulmak istediğiniz klasörü seçin kadar göz atın.
 
       ![Klasör seçin](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
@@ -90,11 +90,11 @@ Azure Logic apps'te bir [eylem](../logic-apps/logic-apps-overview.md#logic-app-c
 
 3. Arama kutusuna filtreniz olarak "azure blob" girin. Eylem listesinden istediğiniz eylemi seçin.
 
-   Bu örnekte bu eylem: **Azure Blob Storage - blob içeriğini Al**
+   Bu örnek, bu eylem kullanır: **Azure Blob Depolama - blob içeriğini Al**
 
    ![Eylem seçin](./media/connectors-create-api-azureblobstorage/azure-blob-action.png) 
 
-4. Bağlantı ayrıntıları için istenirse [artık Azure Blob Depolama bağlantınızı oluşturmak](#create-connection). Veya, bağlantınız zaten varsa, eylem için gerekli bilgileri sağlayın. 
+4. Bağlantı ayrıntıları için istenirse [artık Azure Blob Depolama bağlantınızı oluşturmak](#create-connection). Veya, bağlantınız zaten varsa, eylem için gerekli bilgileri sağlayın.
 
    Bu örnekte, istediğiniz dosyayı seçin.
 
@@ -119,7 +119,7 @@ Bu örnekte, yalnızca bir blob içeriğini alır. İçeriği görüntülemek i�
 
 ## <a name="connector-reference"></a>Bağlayıcı başvurusu
 
-Bağlayıcının Swagger dosyası tarafından açıklandığı gibi sınırları, tetikleyiciler ve Eylemler gibi teknik ayrıntılar için bkz [bağlayıcının başvuru sayfası](/connectors/azureblobconnector/). 
+Tetikleyiciler ve Eylemler sınırları, bağlayıcının açık API tarafından açıklandığı gibi teknik ayrıntılar için (önceki adıyla Swagger) dosyası, bkz: [bağlayıcının başvuru sayfası](/connectors/azureblobconnector/).
 
 ## <a name="get-support"></a>Destek alın
 

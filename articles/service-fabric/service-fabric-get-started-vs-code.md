@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 197010271518347025157968012be31c71b3b667
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: c31f3ec503f22ab0d272ff96b85cf0f76a837d11
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121035"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316083"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Visual Studio Code için Service Fabric
 
@@ -107,7 +107,7 @@ VS Code için Service Fabric güvenilir hizmetler uzantısı oluşturun ve Servi
 **Service Fabric: Uygulamayı dağıtma** komutu, Service Fabric uygulamanızı yerel kümenize dağıtır. Yerel kümenize komutu kullanmadan önce çalışır durumda olduğundan emin olun. 
 
 1. Seçin **Service Fabric: Uygulamayı dağıtma** komutu
-2. Service Fabric Explorer ile yerel küme görüntüleyebilirsiniz (http://localhost:19080/Explorer) uygulamanın yüklendiğini doğrulamak için. Bu biraz zaman alabilir. Bu nedenle sabırlı olun.
+2. Service Fabric Explorer ile yerel küme görüntüleyebilirsiniz (http:\//localhost:19080 / Explorer) uygulamanın yüklendiğini doğrulamak için. Bu biraz zaman alabilir. Bu nedenle sabırlı olun.
 3. Ayrıca **Service Fabric: Uygulama yayımlama** komutunu parametresiz Cloud.json dosyanın yerel bir kümeye dağıtmak için ayarlayın.
 
 > [!NOTE]

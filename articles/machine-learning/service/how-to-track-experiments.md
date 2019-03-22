@@ -1,7 +1,7 @@
 ---
-title: İzleme denemeleri & eğitim ölçümleri
+title: Eğitim çalıştırmaları sırasında ölçümleri günlüğe kaydedin
 titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning hizmeti ile denemelerinizi izleyebilir ve modeli oluşturma işlemi geliştirmek için ölçümleri izleyin. Eğitim betiğinizi günlük ekleme, denemeyi göndermek nasıl, çalışan işin ilerleme durumunu denetlemek nasıl ve çalıştırmanın sonuçlarını görüntüleme öğrenin.
+description: Denemelerinizi izleyebilir ve modeli oluşturma işlemi geliştirmek için ölçümleri izleyin. Eğitim betiğinizi günlük ekleme, denemeyi göndermek nasıl, çalışan işin ilerleme durumunu denetlemek nasıl ve çalıştırmanın sonuçlarını görüntüleme öğrenin.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 79247c4c1f26fadcd5f0291b55c9dd8d4d9aa2af
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 835d1f41ffe940422554a8ca59d0a91ac8e98607
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008825"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336605"
 ---
-# <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Denemeler ve Azure Machine learning'de eğitim metriklerini izleme
+# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Azure Machine Learning'de eğitim sırasında günlük ölçümleri çalıştırır
 
 Azure Machine Learning hizmetinde denemelerinizi izleyebilir ve modeli oluşturma işlemi geliştirmek için ölçümleri izleyin. Bu makalede, günlük eğitim komut dosyanıza ekleyin, bir deneme çalıştırma gönderin, çalıştırmasını izlemek ve çalıştırmanın sonuçlarını görüntülemek öğrenin.
 
@@ -218,7 +218,7 @@ Bu örnek, yukarıda temel sklearn Ridge modeli genişletir. Alfa değerleri öl
    ```
 
 ## <a name="cancel-a-run"></a>Bir çalıştırmayı iptal et
-Bir farklı çalıştır onra gönderildi, deneme adını biliyorsanız ve çalıştırma kimliği sürece nesne başvurusu kaybetmiş olsanız bile iptal edebilirsiniz. 
+Bir farklı çalıştır gönderildikten sonra deneme adını biliyorsanız ve çalıştırma kimliği sürece nesne başvurusu kaybetmiş olsanız bile iptal edebilirsiniz. 
 
 ```python
 from azureml.core import Experiment

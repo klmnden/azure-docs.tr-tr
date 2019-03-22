@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: 292b25987f183df2091667312d4e6730b7f40dda
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 57126c87879da9f99d224457433bbbd5f95ef021
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990909"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336737"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Bir paket dosyasından, Azure işlevleri'ni çalıştırma
 
@@ -44,7 +44,7 @@ Bir paketinden çalıştırılacak işlev uygulamanızı etkinleştirmek için a
 
 | Değer  | Açıklama  |
 |---------|---------|
-| **`1`**  | Windows üzerinde çalıştırılan işlev uygulamaları için önerilir. Paket dosyasından çalıştırın `d:\home\data\SitePackages` işlev uygulamanızın klasör. Aksi takdirde [zip ile dağıtmak] (#integration-ile-zip-dağıtım], bu seçenek adlı bir dosya de klasöre gerektirir `packagename.txt`. Bu dosya, yalnızca tüm boşluk olmadan klasöründeki paket dosya adını içerir. |
+| **`1`**  | Windows üzerinde çalıştırılan işlev uygulamaları için önerilir. Paket dosyasından çalıştırın `d:\home\data\SitePackages` işlev uygulamanızın klasör. Aksi takdirde [zip ile dağıtmak](#integration-with-zip-deployment), bu seçenek adlı bir dosya de klasöre gerektirir `packagename.txt`. Bu dosya, yalnızca tüm boşluk olmadan klasöründeki paket dosya adını içerir. |
 |**`<url>`**  | Çalıştırmak istediğiniz belirli paket dosyasının konumu. BLOB Depolama kullanırken, özel bir kapsayıcı ile kullanması gereken bir [paylaşılan erişim imzası (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) işlevler çalışma zamanı paketi erişmek etkinleştirmek için. Kullanabileceğiniz [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) paket dosyaları Blob Depolama hesabınıza yüklemek için.         |
 
 > [!CAUTION]

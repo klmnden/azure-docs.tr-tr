@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 03/18/2018
 ms.author: raynew
-ms.openlocfilehash: 2b801df6036566840dd96bde0801ab018d0614b5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 419974138d6f556a2f774e8c1a355729c824fddc
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103103"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310617"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V Vm'lerini ikincil bir siteye olağanüstü durum kurtarması için destek matrisi
 
@@ -66,13 +66,13 @@ Konuk VM Windows/Linux - statik IP adresi | Evet
 Konuk VM - Multi-NIC | Evet
 
 
-## <a name="storage"></a>Depolama alanı
+## <a name="storage"></a>Depolama
 
 ### <a name="host-storage"></a>Konak depolama alanı
 
 **Depolama (ana bilgisayarı)** | **Destekleniyor**
 --- | --- 
-NFS | YOK
+NFS | Yok
 SMB 3.0 |  Evet
 SAN (İSCSI) | Evet
 Çok yollu (MPIO) | Evet
@@ -81,15 +81,15 @@ SAN (İSCSI) | Evet
 
 **Yapılandırma** | **Destekleniyor**
 --- | --- | 
-VMDK |  YOK
+VMDK |  Yok
 VHD/VHDX | Evet (en fazla 16 disk)
 Gen 2 VM | Evet
 Küme diski paylaşılan | Hayır
 Şifrelenmiş diski | Hayır
-UEFI| YOK
+UEFI| Yok
 NFS | Hayır
 SMB 3.0 | Hayır
-RDM | YOK
+RDM | Yok
 Disk > 1 TB | Evet
 Bölüştürülmüş bir disk > 1 TB birim<br/><br/> LVM | Evet
 Depolama alanları | Evet

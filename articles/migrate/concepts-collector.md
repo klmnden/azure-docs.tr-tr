@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080074"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315309"
 ---
 # <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
@@ -82,7 +82,7 @@ Toplayıcı sağlamak için Azure geçişi hizmetini internet üzerinden bağlan
 ### <a name="connect-to-the-internet-via-a-proxy"></a>Bir ara sunucu üzerinden İnternet'e bağlanın
 
 - Proxy sunucusu kimlik doğrulaması gerektiriyorsa, Toplayıcı ayarladığınızda, kullanıcı adı ve parola belirtebilirsiniz.
-- Proxy sunucusunun IP adresini/FQDN'yi olarak belirtilen *http://IPaddress* veya *http://FQDN*.
+- Proxy sunucusunun IP adresini/FQDN'yi olarak belirtilen *http:\//IPaddress* veya *http:\//FQDN*.
 - Yalnızca HTTP proxy’si desteklenir. HTTPS tabanlı Ara sunucuları toplayıcı tarafından desteklenmiyor.
 - Araya giren bir proxy Web sunucusunda ise Toplayıcı VM proxy sertifikasını içeri aktarmanız gerekir.
   1. Toplayıcı sanal makinesi, Git **Başlat menüsü** > **bilgisayar sertifikalarını yönetme**.
@@ -155,7 +155,7 @@ Toplayıcı gerecini her VM için aşağıdaki yapılandırma meta verileri bulu
 
 - VM görünen adı (temel, vCenter sunucusu)
 - Sanal makinenin envanteri yolu (konak/klasörü vCenter Server)
-- IP Adresi
+- IP adresi
 - MAC adresi
 - İşletim sistemi
 - Çekirdek, disk, NIC sayısı

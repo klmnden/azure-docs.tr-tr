@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 7f079c511a32cfcf0fa018d40abb737ad08f3821
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 01783aa12f586f61583b1503c796f9b523770104
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137965"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310634"
 ---
 # <a name="project-acoustics-unity-design-tutorial"></a>Proje akustik Unity tasarım Öğreticisi
 Bu öğreticide, Unity projesi akustik için Tasarım araçları ve iş akışı açıklanır.
@@ -37,16 +37,16 @@ Proje akustik birkaç kaynak özel akustik tasarım denetimleri sağlar. Bu gör
 ### <a name="adjust-distance-based-attenuation"></a>Uzaklık tabanlı zayıflama Ayarla
 Ses DSP sağladığı **proje akustik** Unity spatializer eklentisinin Unity düzenleyicide yerleşik olarak bulunan kaynak başına uzaklık tabanlı zayıflama dikkate alır. Denetimler için uzaklık tabanlı zayıflama bulunduğunuz **ses kaynak** bileşeni bulunan **denetçisi** altında ses panelinden kaynakları **3B ses ayarları**:
 
-![Uzaklık Zayıflama](media/distance-attenuation.png)
+![Ekran görüntüsü, Unity uzaklık zayıflama Seçenekleri paneli](media/distance-attenuation.png)
 
 Akustik player konum etrafındaki ortalanmış bir "benzetimi bölge" kutusu hesaplama gerçekleştirir. Bir ses kaynak Player'dan bu simülasyon bölge dışında bulunan uzak ise yalnızca geometri kutusundaki occluders kapsamına player olduğunda epey iyi çalışan (örneğin, kapatma neden) ses yayılmasını etkiler. Ancak, durumlarda player boş bir alanı ancak occluders uzak ses kaynak sesi unrealistically disoccluded haline. Bizim önerilen çözüm Böyle durumlarda ses zayıflama 0 yaklaşık 45 m, kutusunun Player'a yatay uzaklığını varsayılan olarak olduğundan emin olun olabilir.
 
-![SpeakerMode](media/speaker-mode.png)
+![Unity SpeakerMode ekran seçenek bölmesi](media/speaker-mode.png)
 
 ### <a name="adjust-occlusion-and-transmission"></a>Kapatma ve iletim ayarlama
 İliştirme **AcousticsAdjust** betik bir kaynak için bu kaynak için ayar parametreleri sağlar. Komut dosyası eklemek için tıklatın **Bileşen Ekle** alt kısmındaki **denetçisi** gidin ve panel **betikleri > akustik ayarlamak**. Betik altı denetimlerine sahiptir:
 
-![AcousticsAdjust](media/acoustics-adjust.png)
+![Unity AcousticsAdjust ekran komut dosyası](media/acoustics-adjust.png)
 
 * **Akustik etkinleştirme** -bu kaynak için akustik uygulanıp uygulanmayacağını denetler. İşaretlenmediğinde, kaynak HRTFs veya kaydırma spatialized ancak hiçbir akustik olacaktır. Bu, hiçbir engel, kapatma veya dinamik reverberation parametreleri düzeyi ve decay zamanı gibi anlamına gelir. Reverberation yine de bir sabit düzeyi ve decay saat ile uygulanır.
 * **Kapatma** -çarpanı akustik sistem tarafından hesaplanan kapatma dB düzeyinde uygulanır. Bu çarpan 1'den büyükse, kapatma exaggerated değerleri 1'den küçük kapatma etkisini daha hafif olun ve kapatma 0 değerini devre dışı bırakır.
@@ -59,14 +59,14 @@ Akustik player konum etrafındaki ortalanmış bir "benzetimi bölge" kutusu hes
 
 İliştirme **AcousticsAdjustExperimental** betik bir kaynak için bu kaynak için ek Deneysel ayarlama parametrelerini sağlar. Komut dosyası eklemek için tıklatın **Bileşen Ekle** alt kısmındaki **denetçisi** gidin ve panel **betikleri > akustik ayarlamak Deneysel**. Şu anda Deneysel bir denetimdir:
 
-![AcousticsAdjustExperimental](media/acoustics-adjust-experimental.png)
+![Unity AcousticsAdjustExperimental ekran komut dosyası](media/acoustics-adjust-experimental.png)
 
 * **Algısal uzaklık Warp** -üstel kuru ıslak oranını hesaplamak için kullanılan uzaklık çarpıtma uygulayın. Akustik sistem alanı boyunca düzgün uzaklığı ile değişir ve Algısal uzaklık ipuçlarını sağlama ıslak düzeylerine hesaplar. Çarpıtma değerleri 1'den büyük "uzak" ses yapmadan uzaklık ilgili reverberation düzeyleri, artırarak Bu etkiyi exaggerate. Değer 1'den az yapma çarpıtma uzaklık tabanlı reverberation daha hafif, yapmayı ses daha fazla "var" değiştirin.
 
 ## <a name="design-acoustics-for-all-sources"></a>Tüm kaynakları için tasarım akustik
 Kanal Şerit Unity'nın tüm kaynakları için parametrelerini ayarlamak için tıklayın **ses Mixer**ve parametreleri ayarlamasına **proje akustik Mixer** efekt.
 
-![Mixer özelleştirme](media/mixer-parameters.png)
+![Ekran proje akustik Unity Mixer özelleştirme paneli](media/mixer-parameters.png)
 
 * **Wetness Ayarla** -üzerinde kaynak dinleyici uzaklığı sahnedeki tüm kaynaklarını Yankı güç, dB, ayarlar. Negatif değerler ses daha kuru yaparken pozitif değerlere ses daha reverberant olun.
 * **RT60 ölçek** - çarpma skaler Yankı kez.
@@ -75,7 +75,7 @@ Kanal Şerit Unity'nın tüm kaynakları için parametrelerini ayarlamak için t
 ## <a name="check-proper-sound-source-placement"></a>Onay uygun ses kaynak yerleştirme
 Ses kaynakları dolu voxels yerleştirilen akustik işleme almazsınız. Görünür Sahne geometri voxels genişletmek için bir voxel içinde bir kaynak tarafından visual geometri unoccluded görünürken yerleştirmek olasıdır. Proje akustik voxels voxel kılavuz onay kutusunu kapatarak görüntüleyebileceğiniz **şeyler** sağ üst kısmındaki menüde **Sahne** görünümü.
 
-![Şeyler menüsü](media/gizmos-menu.png)  
+![Unity şeyler ekran menü](media/gizmos-menu.png)  
 
 Voxel görünen, görsel bileşenleri oyununda bir dönüştürme uygulanmış olup olmadığını belirlemek de yardımcı olabilir. Bu durumda, aynı dönüşüm GameObject barındırmak üzere uygulama **akustik Manager**.
 
@@ -84,11 +84,11 @@ Düzenleyici penceresinde oyun tasarım zamanında ve oyun penceresinde çalış
 
 Tasarım zamanı voxels:
 
-![VoxelsDesignTime](media/voxels-design-time.png)
+![Tasarım zamanında voxels proje akustik ekran görüntüsü](media/voxels-design-time.png)
 
 Çalışma zamanı voxels:
 
-![VoxelsRuntime](media/voxels-runtime.png)
+![Çalışma zamanı sırasında voxels proje akustik ekran görüntüsü](media/voxels-runtime.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Kavramları vurgulama incelemelerini keşfedin [tasarım işlemi](design-process.md)

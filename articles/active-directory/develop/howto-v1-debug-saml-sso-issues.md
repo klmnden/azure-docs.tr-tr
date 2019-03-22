@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f854c8b27065c2d2bf0c9964fe9dfce66aba423a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9fcc6cb40d83c06a1c9f0a97c72565464e74e655
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104514"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336091"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory'de uygulamalar için SAML tabanlı çoklu oturum açma hata ayıklama
 
@@ -29,7 +29,7 @@ Bulma ve düzeltme hakkında bilgi edinin [çoklu oturum açma](../manage-apps/w
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Yüklemenizi öneririz [My Apps güvenli oturum açma uzantısı](../user-help/active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension). Bu tarayıcı uzantısı ile çoklu oturum açma sorunları çözmek için gereken SAML yanıtını bilgileri ve SAML isteğini toplamak kolay hale getirir. Uzantı yükleyemezsiniz durumunda, bu makalede hem ile hem de yüklü uzantısı olmadan sorunların nasıl giderileceğini gösterir.
+Yüklemenizi öneririz [My Apps güvenli oturum açma uzantısı](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). Bu tarayıcı uzantısı ile çoklu oturum açma sorunları çözmek için gereken SAML yanıtını bilgileri ve SAML isteğini toplamak kolay hale getirir. Uzantı yükleyemezsiniz durumunda, bu makalede hem ile hem de yüklü uzantısı olmadan sorunların nasıl giderileceğini gösterir.
 
 My Apps güvenli oturum açma uzantısı yükleyip için aşağıdaki bağlantılardan birini kullanın.
 
@@ -64,7 +64,7 @@ Oturum açmaya çalıştığında, aşağıdaki örneğe benzer, şirket oturum 
 
 Bu hata ayıklama için hata iletisini ve SAML isteğini gerekir. My Apps güvenli oturum açma uzantısı otomatik olarak bu bilgileri toplar ve Azure AD çözümlemesi rehberlik görüntüler. 
 
-### <a name="to-resolve-the-sign-in-error-with-the-myapps-secure-sign-in-extension-installed"></a>Güvenli MyApps ile oturum açma hatayı gidermek için oturum açma uzantısı yüklü
+### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>My Apps güvenli oturum açma uzantısı ile oturum açma hatayı gidermek için yüklü
 
 1. Uzantı bir hata oluştuğunda, Azure AD'ye yönlendiren **Test çoklu oturum açma** dikey penceresi. 
 1. Üzerinde **Test çoklu oturum açma** dikey penceresinde **SAML isteğini indir**. 
@@ -73,14 +73,14 @@ Bu hata ayıklama için hata iletisini ve SAML isteğini gerekir. My Apps güven
 
 Herhangi bir çözüm için oturum açma hatası sağlanırsa, bize bildirmek için geri bildirim textbox kullanmak öneririz.
 
-### <a name="to-resolve-the-error-without-installing-the-myapps-secure-sign-in-extension"></a>MyApps güvenli oturum açma uzantısı yüklemeden hatayı gidermek için
+### <a name="to-resolve-the-error-without-installing-the-my-apps-secure-sign-in-extension"></a>My Apps güvenli oturum açma uzantısı yüklemeden hatayı gidermek için
 
 1. Hata iletisi, sayfanın sağ alt köşesindeki kopyalayın. Hata iletisi içerir:
     - Bağıntı kimliği ve zaman damgası. Bu değerler, çünkü bunlar, sorunu tanımlamak ve sorununuz için doğru bir çözüm sağlamak için mühendislerin yardımcı Microsoft ile bir destek olayı oluştururken önemlidir.
     - Sorunun kök nedenini tanımlayan bir ifade.
 1. Azure AD'ye geri dönün ve bulma **Test çoklu oturum açma** dikey penceresi.
 1. Yukarıdaki metin kutusuna **çözümleme Hadoop'u**, hata iletisi yapıştırın.
-1. Tıklayın **çözümleme Hadoop'u** adımlar bu sorunu çözmek için görüntülenecek. Kılavuz, SAML isteğini veya SAML yanıtını bilgileri gerektirebilir. MyApps güvenli oturum açma uzantı kullanmıyorsanız, bir aracı aşağıdaki gibi ihtiyacınız olabilecek [Fiddler](https://www.telerik.com/fiddler) SAML isteği ve yanıt almanızı sağlar.
+1. Tıklayın **çözümleme Hadoop'u** adımlar bu sorunu çözmek için görüntülenecek. Kılavuz, SAML isteğini veya SAML yanıtını bilgileri gerektirebilir. My Apps güvenli oturum açma uzantı kullanmıyorsanız, bir aracı aşağıdaki gibi ihtiyacınız olabilecek [Fiddler](https://www.telerik.com/fiddler) SAML isteği ve yanıt almanızı sağlar.
 1. SAML isteğindeki hedef SAML çoklu oturum açma hizmeti Azure AD'den elde edilen URL'si karşılık geldiğini doğrulayın.
 1. Azure AD'de uygulama için yapılandırdığınız aynı tanımlayıcıyı SAML isteğindeki veren olduğunu doğrulayın. Azure AD veren dizininizde uygulamayı bulmak için kullanır.
 1. Burada Azure AD'den SAML belirteci almak uygulamanın beklediği AssertionConsumerServiceURL olduğunu doğrulayın. Bu değeri Azure AD'de yapılandırabilirsiniz, ancak SAML isteğinde bir parçasıysa, zorunlu değildir.

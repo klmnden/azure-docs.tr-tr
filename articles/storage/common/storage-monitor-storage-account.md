@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 64cfac0d689df88c4d432e772bcd0a0cc7ab4ade
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817284"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317689"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure portalında depolama hesabı izleme
 
-[Azure depolama analizi](../storage-analytics.md) tabloları ve depolama hizmetleri ve tüm bloblar, kuyruklar için günlükleri ölçümleri sağlar. Kullanabileceğiniz [Azure portalında](https://portal.azure.com) hangi ölçümlerini ve günlüklerini hesabınız için kaydedilen yapılandırma ve ölçüler verilerinizi görsel temsilini sağlamak grafikleri yapılandırın.
+[Azure depolama analizi](storage-analytics.md) tabloları ve depolama hizmetleri ve tüm bloblar, kuyruklar için günlükleri ölçümleri sağlar. Kullanabileceğiniz [Azure portalında](https://portal.azure.com) hangi ölçümlerini ve günlüklerini hesabınız için kaydedilen yapılandırma ve ölçüler verilerinizi görsel temsilini sağlamak grafikleri yapılandırın.
 
 > [!NOTE]
-> Azure portalında izleme verilerini İnceleme ile ilişkili maliyetler yoktur. Daha fazla bilgi için [depolama analizi ve faturalandırma](/rest/api/storageservices/Storage-Analytics-and-Billing).
+> Azure portalında izleme verilerini İnceleme ile ilişkili maliyetler yoktur. Daha fazla bilgi için [depolama analizi](storage-analytics.md).
 >
 > Azure dosyaları şu anda Storage Analytics ölçümleri destekliyor, ancak henüz günlük desteklemiyor.
-> 
-> Kapsamlı bir kılavuz tanımlamak, tanılamak ve Azure depolama ile ilgili sorunları gidermek için depolama analizi ve diğer araçları kullanma hakkında bilgi için bkz: [izleme, tanılama ve sorun giderme Microsoft Azure depolama](../storage-monitoring-diagnosing-troubleshooting.md).
+>
+> Kapsamlı bir kılavuz tanımlamak, tanılamak ve Azure depolama ile ilgili sorunları gidermek için depolama analizi ve diğer araçları kullanma hakkında bilgi için bkz: [izleme, tanılama ve sorun giderme Microsoft Azure depolama](storage-monitoring-diagnosing-troubleshooting.md).
 >
 
 ## <a name="configure-monitoring-for-a-storage-account"></a>Bir depolama hesabı için izlemeyi yapılandırma
@@ -41,7 +41,7 @@ ms.locfileid: "55817284"
    Veri Bekletme İlkesi ayarlamak için taşıma **bekletme (gün)** kaydırıcı veya 1 ile 365 arasında korumak için veri gün sayısını girin. Yeni depolama hesapları için varsayılan yedi gündür. Bir bekletme ilkesi ayarlamak istemiyorsanız sıfır girin. Bir bekletme ilkesi varsa, izleme verilerini silmek için size bağlıdır.
 
    > [!WARNING]
-   > Ölçüm verilerini el ile sildiğinizde ücretlendirilir. Eski analiz verilerini (bekletme ilkesini eski veriler), hiçbir ücret ödemeden sistem tarafından silinir. Ne kadar süre, depolama hesabınız için analiz verilerini korumak istediğinize bağlı olarak bir saklama ilkesini belirlemeden öneririz. Bkz: [ne yapmak ücretler depolama ölçümleri etkinleştirdiğinizde ücretleri?](../common/storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics) daha fazla bilgi için.
+   > Ölçüm verilerini el ile sildiğinizde ücretlendirilir. Eski analiz verilerini (bekletme ilkesini eski veriler), hiçbir ücret ödemeden sistem tarafından silinir. Ne kadar süre, depolama hesabınız için analiz verilerini korumak istediğinize bağlı olarak bir saklama ilkesini belirlemeden öneririz. Bkz: [depolama ölçümleri faturalama](storage-analytics-metrics.md#billing-on-storage-metrics) daha fazla bilgi için.
    >
 
 1. İzleme yapılandırmasını bitirdikten sonra seçin **Kaydet**.
@@ -51,12 +51,12 @@ ms.locfileid: "55817284"
 Ölçümleri toplama ve günlüğe kaydetme ayarı devre dışı bırakabilirsiniz **durumu** için **kapalı**.
 
 > [!NOTE]
-> Azure depolama kullanan [tablo depolama](../common/storage-introduction.md#table-storage) hesabınızdaki tablolarda depolama hesabı ve depolar ölçümler için ölçümleri depolamak için. Daha fazla bilgi için bkz. [Ölçümleri nasıl depolandığını](../common/storage-analytics.md#how-metrics-are-stored).
+> Azure depolama kullanan [tablo depolama](storage-introduction.md#table-storage) hesabınızdaki tablolarda depolama hesabı ve depolar ölçümler için ölçümleri depolamak için. Daha fazla bilgi için bkz. [Ölçümleri nasıl depolandığını](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>Ölçüm grafikleri özelleştirme
 
-İçinde bir ölçüm grafiği görüntülemek için hangi depolama ölçümleri seçmek için aşağıdaki yordamı kullanın. 
+İçinde bir ölçüm grafiği görüntülemek için hangi depolama ölçümleri seçmek için aşağıdaki yordamı kullanın.
 
 1. Azure portalında depolama ölçüm grafiğini görüntüleyerek başlatın. Grafikler bulabilirsiniz **depolama hesabı dikey** ve **ölçümleri** dikey bir bireysel hizmet (blob, kuyruk, tablo, dosya).
 
@@ -130,17 +130,16 @@ Kaydetme tanılama günlükleri, okuma, yazma ve silme istekleri blob, tablo ve 
 1. Seçin **tanılama** içinde **izleme** menü dikey bölümü.
 
     ![Azure portalında tanılama menü öğesini izleme altında.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
-    
+
 1. Olun **durumu** ayarlanır **üzerinde**seçip **Hizmetleri** için hangi günlük kaydını etkinleştirmek istiyorsanız.
 
     ![Azure portalında oturum açmayı yapılandırın.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. **Kaydet**’e tıklayın.
 
-Tanılama günlükleri adlı bir blob kapsayıcısını kaydedilir *$logs* depolama hesabınızda. Gibi bir Depolama Gezgini'ni kullanarak günlük verilerini görüntüleyebilirsiniz [Microsoft Storage Gezgini](http://storageexplorer.com), veya depolama istemci kitaplığı veya PowerShell kullanarak program aracılığıyla.
+Tanılama günlükleri adlı bir blob kapsayıcısını kaydedilir *$logs* depolama hesabınızda. Gibi bir Depolama Gezgini'ni kullanarak günlük verilerini görüntüleyebilirsiniz [Microsoft Storage Gezgini](https://storageexplorer.com), veya depolama istemci kitaplığı veya PowerShell kullanarak program aracılığıyla.
 
-$Logs kapsayıcı erişme hakkında daha fazla bilgi için bkz: [depolama günlüğünü etkinleştirme ve erişim günlüğü verilerini](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data).
+$Logs kapsayıcı erişme hakkında daha fazla bilgi için bkz: [depolama analizi günlük](storage-analytics-logging.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Hakkında daha fazla ayrıntı bulmak [günlüğe kaydetme ve faturalandırma ölçümleri,](../storage-analytics.md) depolama analizi için.
-* [Azure depolama ölçümleri ve görünüm ölçüm verilerini etkinleştirme](../storage-enable-and-view-metrics.md) PowerShell kullanarak ve C# ile programlı olarak.
+* Hakkında daha fazla ayrıntı bulmak [günlüğe kaydetme ve faturalandırma ölçümleri,](storage-analytics.md) depolama analizi için.

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/18/2019
 ms.author: juliako
-ms.openlocfilehash: a33001216fb805b700d077aa8c9d42fae9bd6bae
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 704c26670f9fe2a3d7d0011fee4621a8e8c33028
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416811"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314969"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Öğretici: URL'sini temel alarak bir uzak dosya kodlama ve akışını video - REST
 
@@ -189,7 +189,7 @@ Yerleşik bir EncoderNamedPreset ön ayarını veya özel ön ayarları kullanab
 
 Burada [İş](https://docs.microsoft.com/rest/api/media/jobs), oluşturulan **Dönüşümü** belirli bir video girdisine veya ses içeriğine uygulamak için Media Services'e gönderilen istektir. **İş** giriş videosunun konumu ve çıktının konumu gibi bilgileri belirtir.
 
-Bu örnekte, işin girdisi bir HTTPS URL'sini ("https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/") temel alır.
+Bu örnekte, işin girdisini üzerinde bir HTTPS URL'si alır ("https: \/ /nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
 1. Postman'in sol penceresinde "Kodlama ve Analiz"'i seçin.
 2. Ardından "İş Oluşturma veya Güncelleştirme"'yi seçin.

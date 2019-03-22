@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: how-to
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: d3b761630124ef7f72269fe0712bf22647968d59
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7a7f5f6738b4bc96b6248deb062c7b3f63048148
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137037"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309682"
 ---
 # <a name="project-acoustics-azure-batch-account-setup"></a>Proje akustik Azure Batch hesabı kurulumu
 Bu nasıl yapılır proje akustik Unity ve Unreal engine tümleştirmeleri ile kullanmak için Azure Batch hesabı ayarlama açıklanır.
@@ -28,39 +28,39 @@ Ardından, izleyin [bu yönergeleri](https://docs.microsoft.com/azure/batch/batc
 
 Batch ve depolama hesapları için varsayılan seçenekleri seçin:
   
-  ![Yeni Batch hesabı](media/new-batch-account-create.png)
+  ![Seçenekleri varsayılan ayarları gösteren ekran görüntüsü, Azure Batch yeni hesapları](media/new-batch-account-create.png)
 
-  ![Yeni depolama hesabı](media/batch-storage-account-create.png)
+  ![Seçenekleri varsayılan ayarları gösteren ekran görüntüsü, Azure depolama yeni hesapları](media/batch-storage-account-create.png)
 
 Azure hesapları dağıtmak birkaç dakika sürer. Tamamlama bildirim portalında sağ üst köşedeki arayın.
   
-  ![Dağıtılan bir hesapları](media/batch-accounts-deploy-notification.png)
+  ![Bildirim, ekran Azure hesapları dağıtılan](media/batch-accounts-deploy-notification.png)
 
 Artık hesaplarınızı Panonuzda görünür olmalıdır.
   
-  ![Portalı Panosu](media/azure-portal-dashboard.png)
+  ![Batch ve depolama hesabını gösteren ekran görüntüsü, Azure portalı Panosu](media/azure-portal-dashboard.png)
 
 ## <a name="set-up-acoustics-bake-ui-with-azure-credentials"></a>Azure kimlik bilgileriyle akustik hazırlama kullanıcı Arabirimi ayarlama
 Panoda Batch hesabı bağlantısına tıklayın ve ardından tıklayarak **anahtarları** bağlantısı kimlik bilgilerinizi erişmek için Batch hesabı sayfası.
   
-  ![Batch anahtarları bağlantı](media/batch-access-keys.png)
+  ![Anahtarları sayfasına vurgulanmış ekran görüntüsü, Azure Batch hesabıyla](media/batch-access-keys.png)
 
-  ![Batch hesabı kimlik bilgileri](media/batch-keys-info.png)
+  ![Ekran görüntüsü, Azure Batch hesabı anahtarları erişim anahtarlarını sayfayla](media/batch-keys-info.png)
 
 Tıklayarak **depolama hesabı** sayfasında Azure depolama hesabı kimlik bilgilerinizi erişmek için bağlantı.
   
-  ![Depolama Hesabı Kimlik Bilgileri](media/storage-keys-info.png)
+  ![Ekran görüntüsü, Azure depolama hesabı anahtarları erişim anahtarlarını sayfayla](media/storage-keys-info.png)
 
 Bu kimlik bilgilerini girin [Unity hazırlama eklentisi](unity-baking.md) veya [Unreal hazırlama eklentisi](unreal-baking.md).
 
 ## <a name="node-types-and-region-support"></a>Düğüm türleri ve bölge desteği
 Proje akustik Fsv2 ve H serisi, tüm Azure bölgelerinde desteklenmeyebilir Azure VM düğümleri için iyileştirilmiş işlem gerektirir. Lütfen denetleyin [bu tabloda](https://azure.microsoft.com/global-infrastructure/services) Batch hesabınız için doğru konuma çekme emin olmak için.
-![Bölgeye göre Azure sanal makineleri](media/azure-regions.png) 
+![Bölgeye göre Azure sanal makineler gösteren ekran görüntüsü](media/azure-regions.png) 
 
 ## <a name="upgrading-your-quota"></a>Kota yükseltme
 Azure Batch hesapları oluşturma 20 sınırına sahip işlem çekirdek hesabında sağlanır. Akustik iş yükünüz, sahnedeki araştırma noktası sayısı kadar çok sayıda düğüm arasında getirebilen çünkü biz daha hızlı hazırlama süreleri için bu sınırı artırmak isteyebilirsiniz. Tıklayarak bir kota artışı isteyebilir **kota** bağlantı, Azure Batch portalı sayfasında ve ardından tıklayarak **istek kotasını artırmak**:
 
-![Azure kota artışı](media/azure-quotas.png)
+![Azure kotası ekran sayfası](media/azure-quotas.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Proje akustik eklentisi ile tümleştirmek, [Unity](unity-integration.md) veya [Unreal](unreal-integration.md) proje

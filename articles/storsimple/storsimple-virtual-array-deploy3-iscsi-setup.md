@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: c0a86b76622862b477d539c25dd98c925f09192c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812047"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317519"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>StorSimple sanal dizisi – kümesini oluşturan Azure Portalı aracılığıyla iSCSI sunucusu olarak dağıtma
 
@@ -98,7 +98,7 @@ Ayarlanmış ve StorSimple Virtual Array'iniz yapılandırmak için aşağıdaki
    
     Üzerinde **Web proxy** sayfası:
    
-   1. Tedarik **Web proxy URL'si** şu biçimde:  *http://host-IP adresi* veya *FQDN: port numarası*. HTTPS URL'leri desteklenmediğine dikkat edin.
+   1. Tedarik **Web proxy URL'si** şu biçimde: *http:\//host-IP adresi* veya *FQDN: port numarası*. HTTPS URL'leri desteklenmediğine dikkat edin.
    2. Belirtin **kimlik doğrulaması** olarak **temel** veya **hiçbiri**.
    3. Kimlik doğrulaması kullanıyorsanız, aynı zamanda sağlamanız gerekir bir **kullanıcıadı** ve **parola**.
    4. **Uygula**'ya tıklayın. Doğrulama ve yapılandırılmış web proxy ayarlarını uygulayın.

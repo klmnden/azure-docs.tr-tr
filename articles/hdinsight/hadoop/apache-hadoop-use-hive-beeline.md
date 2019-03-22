@@ -4,18 +4,16 @@ description: Beeline istemci HDInsight Hadoop ile Hive sorguları çalıştırma
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
-keywords: beeline hive, hive beeline
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: ba9746566f0f69ea2131b8f77a14939ea561638a
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 00cf441247b9adf8547f373891bba4db29029d3f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200490"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336006"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive ile Apache Beeline istemcisini kullanma
 
@@ -24,8 +22,11 @@ Nasıl kullanacağınızı öğrenin [Apache Beeline](https://cwiki.apache.org/c
 Beeline HDInsight kümenizin baş düğümlerine dahil edilmiş bir Hive istemcisidir. Beeline JDBC HiveServer2, HDInsight kümeniz üzerinde barındırılan bir hizmete bağlanmak için kullanır. Beeline HDInsight üzerindeki Hive'a internet üzerinden uzaktan erişmek için de kullanabilirsiniz. Aşağıdaki örneklerde, HDInsight için Beeline bağlanmak için kullanılan en yaygın bağlantı dizelerini sağlanır:
 
 * __Beeline bir baş veya kenar düğümüne SSH bağlantısından kullanarak__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
+
 * __HDInsight için bir Azure sanal ağ üzerinden bağlanan bir istemci, Beeline kullanma__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
-* __Beeline bir Azure sanal ağ üzerinden bir HDInsight Kurumsal güvenlik paketi (ESP) kümesine bağlanma, bir istemci kullanarak__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>`
+
+* __Beeline bir Azure sanal ağ üzerinden bir HDInsight Kurumsal güvenlik paketi (ESP) kümesine bağlanma, bir istemci kullanarak__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-DOMAIN>;auth-kerberos;transportMode=http' -n <username>` 
+
 * __HDInsight için genel internet üzerinden bağlanan bir istemci, Beeline kullanma__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]  
@@ -37,7 +38,7 @@ Beeline HDInsight kümenizin baş düğümlerine dahil edilmiş bir Hive istemci
 >
 > Bir sanal ağ üzerinden kümeye bağlanırken değiştirin `<headnode-FQDN>` ile küme baş düğümüne tam etki alanı adı.
 >
-> Bir kurumsal güvenlik paketi (ESP) kümeye bağlanırken değiştirin `<AAD-Domain>` adla, Azure Active Directory (küme katılmış olduğu AAD). Değiştirin `<username>` kümeye erişmek için gerekli izinlere sahip bir etki alanı hesabı adı ile.
+> Bir kurumsal güvenlik paketi (ESP) kümeye bağlanırken değiştirin `<AAD-DOMAIN>` adla, Azure Active Directory (küme katılmış olduğu AAD). Kullanmak için bir büyük harf dizesi `<AAD-DOMAIN>` değerini, aksi takdirde kimlik bilgisi bulunamıyor. Denetleme `/etc/krb5.conf` gerekirse bölge adları için. Değiştirin `<username>` kümeye erişmek için gerekli izinlere sahip bir etki alanı hesabı adı ile. 
 
 ## <a id="prereq"></a>Önkoşullar
 

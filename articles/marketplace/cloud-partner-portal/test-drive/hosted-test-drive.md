@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1ab9fcd50ad7081f8047d62e545287fa75db75e4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5057c0c781cb9ec60ecde7dd3f4bf96089b902df
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457052"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312691"
 ---
 # <a name="hosted-test-drive"></a>Barındırılan Test Sürüşü
 
@@ -48,12 +48,12 @@ Aşağıdaki alanları sağlar \'teknik yapılandırma\' bölümü:
 - **Test Sürüşü türünü**: Seçin \'Microsoft Hosted (örneğin Dynamics 365 müşteri katılımı)' seçeneği. Bu, Microsoft barındırma ve Test Sürüşü kullanıcı sağlama ve sağlamayı kaldırma gerçekleştiren hizmetin bakımını gösterir.
 - **Maksimum eşzamanlı Test Sürüşleri**: Bu alan zaman belirli bir anda etkin olan bir Test Sürüşü olan eş zamanlı kullanıcı sayısıyla ayarlayın. Test Sürüşü kullanıcılar için kullanılabilir olan en az bu kadar çok Dynamics lisans olduğundan emin olmak ihtiyacınız olacak şekilde, Test Sürüşü etkin olduğu sürece her kullanıcı bir Dynamics lisansı kullanacaktır. Önerilen değeri 3-5.
 - **Test sürücü süresi (saat)**: Bu alan, Test Sürüşü için etkin kullanıcılar saat sayısını ayarlayın. Bu kadar çok saat sonra kiracınızdan kullanıcı sağlaması. Uygulamanızı karmaşıklığına bağlı olarak 2-24 saat değerini önerilir. Süre bitti çalıştırıp Test Sürüşü yeniden erişmek istediğiniz kullanıcı her zaman başka bir Test Sürüşü isteyebilir.
-- **Örnek URL**: Kullanıcıdan Test Sürüşü başlatırken Test Sürüşü kullanıcı için başlangıçta gidilecek bir URL sağlayın. Uygulamanızın vardır, Dynamics 365 örneğinizin URL'si genellikle budur ve örnek veriler üzerinde yüklü. Örnek değer:https://testdrive.crm.dynamics.com
+- **Örnek URL**: Kullanıcıdan Test Sürüşü başlatırken Test Sürüşü kullanıcı için başlangıçta gidilecek bir URL sağlayın. Uygulamanızın vardır, Dynamics 365 örneğinizin URL'si genellikle budur ve örnek veriler üzerinde yüklü. Örnek değer: https:\//testdrive.crm.dynamics.com
 - **Azure AD Kiracı kimliği**: Dynamics 365 örneğinizin Azure Kiracı kimliği sağlayın. Bu değer, Azure portalında oturum açın alıp gidin \'Azure Active Directory\'  - \> seçin menü dikey penceresi - özelliklerinden\> dizin kimliği kopyalayın Örnek değer: 72f988bf-86f1-41af-91ab-2d7cd0111234
 - **Azure AD uygulama kimliği**: 7. adımda oluşturduğunuz Azure AD uygulama kimliği. \ örnek değeri: 53852862-a2ae-4e43-9461-faa49650a096
 - **Azure AD uygulama anahtarı**: Oluşturulan Azure AD uygulaması için gizli 7. adımda. \ örnek değeri: IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=
 - **Azure AD Kiracı adı**: Dynamics 365 Örneğiniz için Azure Kiracı adını sağlayın. Biçimini kullanın \<kiracıadı.\> onmicrosoft.com. Örnek değer: testdrive.onmicrosoft.com
-- **Örnek Web API'si URL**: Web API URL'si için Dynamics 365 örneğinizi sağlayın. Bu değer, Microsoft Dynamics 365 örneğine günlüğe kaydetme ve gezinme alabilirsiniz ayarı -\> özelleştirme -\> Geliştirici Kaynakları -\> örnek Web API'si (kopya bu URL). Örnek değer:  https://testdrive.crm.dynamics.com/api/data/v9.0 
+- **Örnek Web API'si URL**: Web API URL'si için Dynamics 365 örneğinizi sağlayın. Bu değer, Microsoft Dynamics 365 örneğine günlüğe kaydetme ve gezinme alabilirsiniz ayarı -\> özelleştirme -\> Geliştirici Kaynakları -\> örnek Web API'si (kopya bu URL). Örnek değer: https:\//testdrive.crm.dynamics.com/api/data/v9.0 
 - **Rol adı**: Özel Dynamics 365 güvenlik Test Sürüşü için oluşturduğunuz rolü adını sağlayın. Bu, Test Sürüşü sırasında kullanıcılara atanan rolüdür. Örnek değer: testdriverole
 
 ## <a name="next-steps"></a>Sonraki adımlar

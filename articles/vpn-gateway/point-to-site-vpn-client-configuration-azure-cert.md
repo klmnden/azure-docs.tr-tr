@@ -1,5 +1,5 @@
 ---
-title: 'Oluşturma ve Azure sertifika doğrulaması P2S VPN istemci yapılandırma dosyalarını yükleyin: Azure | Microsoft Docs'
+title: 'Oluşturma ve Azure sertifika doğrulaması P2S VPN istemci yapılandırma dosyalarını yükleyin: Azure'
 description: Oluşturun ve P2S sertifika kimlik doğrulaması için Windows, Linux, (strongSwan) Linux ve Mac OS X VPN istemcisi yapılandırma dosyalarını yükleyin.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: c8bc0ad7c5113f8ffdcda0ae9e6b1df43975bbcb
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: fdf5f07f9b27a17eb4c15495c4ac9776d77f525c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294952"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313949"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Oluşturma ve yerel Azure sertifika doğrulaması P2S yapılandırmaları için VPN istemcisi yapılandırma dosyalarını yükleme
 

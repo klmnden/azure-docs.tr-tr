@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: cc55466dac7344053e0cce3cad5f8161cef5226a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c7d895cd87122374a79a520643580a179961fba3
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438134"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317332"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Önerilen canlı akış kodlayıcılar
 
@@ -34,8 +34,7 @@ Media Services ile gerçek zamanlı kodlama hakkında ayrıntılı bilgi için b
 Media Services RTMP çıktısı olarak sahip şu gerçek zamanlı kodlayıcılar kullanarak önerir. Desteklenen URL düzenler `rtmp://` veya `rtmps://`.
 
 > [!NOTE]
- > RTMP akış, 1935 ve 1936 giden TCP bağlantı noktalarının açık olduğunu doğrulamak için güvenlik duvarı ve/veya proxy ayarlarını kontrol edin.<br/>
- RTMPS akış, 2935 ve 2936 giden TCP bağlantı noktalarının açık olduğunu doğrulamak için güvenlik duvarı ve/veya proxy ayarlarını kontrol edin.
+> RTMP akış, 1935 ve 1936 giden TCP bağlantı noktalarının açık olduğunu doğrulamak için güvenlik duvarı ve/veya proxy ayarlarını kontrol edin.
 
 - Adobe Flash Media Live Encoder 3.2
 - Haivision KB

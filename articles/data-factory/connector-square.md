@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 68ac03a8aba4042a842b5e740d67ab4198236275
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f22311af277f860c1501287b5be0f5dc149880b9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013171"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317740"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak kareden veri kopyalama
 
@@ -48,7 +48,7 @@ Kare bağlı hizmeti için aşağıdaki özellikleri destekler:
 | konak | Kare örneğinin URL'si. (yani mystore.mysquare.com)  | Evet |
 | ClientID | Kare uygulamanızla ilişkili istemci kimliği.  | Evet |
 | ClientSecret | Kare uygulamanızla ilişkili istemci gizli anahtarı. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
-| RedirectUri | Kare uygulama panosunda atanan yeniden yönlendirme URL'si. (örn.) http://localhost:2500)  | Evet |
+| RedirectUri | Kare uygulama panosunda atanan yeniden yönlendirme URL'si. (yani http:\//localhost:2500)  | Evet |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |
 | useHostVerification | Ana bilgisayar adı sunucunun sertifikasında SSL üzerinden bağlanırken sunucu ana bilgisayar adıyla eşleşmesi gerekip gerekmediğini belirtir. Varsayılan değer true olur.  | Hayır |
 | usePeerVerification | SSL üzerinden bağlanırken sunucu kimliğinin doğrulanıp doğrulanmayacağını belirtir. Varsayılan değer true olur.  | Hayır |

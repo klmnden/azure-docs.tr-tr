@@ -1,5 +1,5 @@
 ---
-title: Azure MFA için erişim ve kullanım raporlarını | Microsoft Docs
+title: Azure mfa'yı - Azure Active Directory erişim ve kullanım raporları
 description: Bu, Azure multi-Factor Authentication özelliğinin - raporların nasıl kullanılacağı açıklanır.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e901f0e5fb1dc2840196bd6a739ff763b54ce8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7dd26bbb06310439aae065349c14c6df1c1c12e6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119233"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316941"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure multi-Factor authentication'da raporları
 

@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 371685ba8a65fe3ca9d8835f4afcacc8ff2e07ed
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 20d13f3df730ff4a81c7304ae1ad7e4158403521
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383262"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337791"
 ---
 # <a name="index-of-apache-hadoop-in-hdinsight-troubleshooting-articles"></a>Sorun giderme makaleleri HDInsight, Apache Hadoop dizini
 Makalelerde hataları türleri tarafından düzenlenir.
@@ -25,7 +25,7 @@ Makalelerde hataları türleri tarafından düzenlenir.
 
 ## <a name="apache-hive-query-performance"></a>Apache Hive sorgu performansı
 * [HDInsight, Apache Hadoop için Apache Hive sorguları iyileştirmek](hdinsight-hadoop-optimize-hive-query.md): Bu makale, Hive sorguları için uygulayabileceğiniz en sık karşılaşılan bazı Hive performans iyileştirme yöntemleri kapsar.
-* [HDInsight Hadoop kümesinde Apache Hive sorgu performansı sorunlarını giderme](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/).
+* [Apache Hive Azure HDInsight'ı kullanarak sorun giderme](hdinsight-troubleshoot-hive.md).
 
 ## <a name="more-troubleshooting-articles"></a>Daha fazla sorun giderme makaleleri
 * [Linux üzerinde HDInsight’ı kullanma hakkında bilgiler](hdinsight-hadoop-linux-information.md)

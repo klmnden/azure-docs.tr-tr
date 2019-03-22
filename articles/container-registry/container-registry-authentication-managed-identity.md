@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: fdba8969ad326565834625fe1ca7ece5e089a904
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b09348e98a0dee85338cc9f20289d83b658eb719
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984214"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338471"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Azure yönetilen bir Azure container registry'ye kimliğini doğrulamak için kimliği kullan 
 
@@ -31,7 +31,7 @@ Bir kapsayıcı kayıt defterini ayarlamak ve kapsayıcı resmini gönderirsiniz
 
 ## <a name="why-use-a-managed-identity"></a>Yönetilen bir kimlik neden kullanmalısınız?
 
-Azure kaynakları için yönetilen bir kimlik Azure Active Directory'de (Azure AD) otomatik olarak yönetilen bir kimlikle Azure hizmetleri sağlar. Yapılandırabileceğiniz [belirli Azure kaynaklarına](../active-directory/managed-identities-azure-resources/services-support-msi.md), yönetilen bir kimliğe sahip sanal makineler de dahil olmak üzere. Ardından, kod veya betiklerde kimlik bilgilerini geçmeden diğer Azure kaynaklarına erişmek için kimliğini kullanın.
+Azure kaynakları için yönetilen bir kimlik Azure Active Directory'de (Azure AD) otomatik olarak yönetilen bir kimlikle Azure hizmetleri sağlar. Yapılandırabileceğiniz [belirli Azure kaynaklarına](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md), yönetilen bir kimliğe sahip sanal makineler de dahil olmak üzere. Ardından, kod veya betiklerde kimlik bilgilerini geçmeden diğer Azure kaynaklarına erişmek için kimliğini kullanın.
 
 Yönetilen kimlik iki türleri şunlardır:
 
@@ -41,7 +41,7 @@ Yönetilen kimlik iki türleri şunlardır:
 
 Yönetilen bir kimlik ile bir Azure kaynağı ayarladıktan sonra kimlik herhangi bir güvenlik sorumlusu gibi başka bir kaynak için istediğiniz erişimi sağlar. Örneğin, bir yönetilen kimlik azure'da özel bir kayıt defteri çekme, gönderme ve çekme veya diğer izinler sahip bir rol atayın. (Kayıt defteri rolleri tam bir listesi için bkz. [Azure Container Registry rolleri ve izinleri](container-registry-roles.md).) Bir veya daha fazla kaynak için bir kimlik erişimi verebilirsiniz.
 
-Ardından, herhangi bir kimlik doğrulaması için kimlik kullanmak [Azure AD kimlik doğrulamasını destekleyen hizmet](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication), kodunuzdaki herhangi bir kimlik bilgisi olmadan. Bir sanal makineden bir Azure container registry erişmek için kimlik kullanmak için Azure Resource Manager ile kimlik doğrulaması. Senaryonuza bağlı olarak yönetilen kimlik kullanarak kimlik doğrulaması yapmayı seçin:
+Ardından, herhangi bir kimlik doğrulaması için kimlik kullanmak [Azure AD kimlik doğrulamasını destekleyen hizmet](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), kodunuzdaki herhangi bir kimlik bilgisi olmadan. Bir sanal makineden bir Azure container registry erişmek için kimlik kullanmak için Azure Resource Manager ile kimlik doğrulaması. Senaryonuza bağlı olarak yönetilen kimlik kullanarak kimlik doğrulaması yapmayı seçin:
 
 * [Azure AD erişim belirteci alma](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) programlı olarak HTTP ya da REST çağrılarını kullanma
 
@@ -164,13 +164,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 SSH, kimlikle yapılandırılmış Docker sanal makineye uygulayın. Azure VM'de yüklü CLI'yı kullanarak aşağıdaki Azure CLI komutları çalıştırın.
 
-İlk olarak, Azure CLI ile oturum [az login][az-login], VM üzerinde yapılandırılan kimliği kullanarak. İçin <userID>, önceki adımda aldığınız kimlik Kimliğini değiştirin. 
+İlk olarak, Azure CLI ile kimlik doğrulaması [az login][az-login], VM üzerinde yapılandırılan kimliği kullanarak. İçin <userID>, önceki adımda aldığınız kimlik Kimliğini değiştirin. 
 
 ```azurecli
 az login --identity --username <userID>
 ```
 
-Daha sonra oturum kayıt defterine [az acr oturum açma][az-acr-login]. Bu komutu kullandığınızda, CLI'yı çalıştırdığınızda oluşturulan Active Directory belirteci kullanan `az login` sorunsuz bir şekilde oturumunuz kapsayıcı kayıt defteri ile kimlik doğrulaması için. (Sanal makinenizin Kurulum bağlı olarak, bu komut ve docker komutları ile çalıştırmanız gerekebilir `sudo`.)
+Ardından, kayıt defteri ile kimlik doğrulaması [az acr oturum açma][az-acr-login]. Bu komutu kullandığınızda, CLI'yı çalıştırdığınızda oluşturulan Active Directory belirteci kullanan `az login` sorunsuz bir şekilde oturumunuz kapsayıcı kayıt defteri ile kimlik doğrulaması için. (Sanal makinenizin Kurulum bağlı olarak, bu komut ve docker komutları ile çalıştırmanız gerekebilir `sudo`.)
 
 ```azurecli
 az acr login --name myContainerRegistry
@@ -216,13 +216,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 SSH, kimlikle yapılandırılmış Docker sanal makineye uygulayın. Azure VM'de yüklü CLI'yı kullanarak aşağıdaki Azure CLI komutları çalıştırın.
 
-İlk olarak, Azure CLI ile oturum [az login][az-login], sanal makinede sistem tarafından atanan kimlik kullanarak.
+İlk olarak, Azure CLI ile kimlik doğrulaması [az login][az-login], sanal makinede sistem tarafından atanan kimlik kullanarak.
 
 ```azurecli
 az login --identity
 ```
 
-Daha sonra oturum kayıt defterine [az acr oturum açma][az-acr-login]. Bu komutu kullandığınızda, CLI'yı çalıştırdığınızda oluşturulan Active Directory belirteci kullanan `az login` sorunsuz bir şekilde oturumunuz kapsayıcı kayıt defteri ile kimlik doğrulaması için. (Sanal makinenizin Kurulum bağlı olarak, bu komut ve docker komutları ile çalıştırmanız gerekebilir `sudo`.)
+Ardından, kayıt defteri ile kimlik doğrulaması [az acr oturum açma][az-acr-login]. Bu komutu kullandığınızda, CLI'yı çalıştırdığınızda oluşturulan Active Directory belirteci kullanan `az login` sorunsuz bir şekilde oturumunuz kapsayıcı kayıt defteri ile kimlik doğrulaması için. (Sanal makinenizin Kurulum bağlı olarak, bu komut ve docker komutları ile çalıştırmanız gerekebilir `sudo`.)
 
 ```azurecli
 az acr login --name myContainerRegistry

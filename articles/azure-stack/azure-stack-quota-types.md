@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 7872ed2c9d6f094907ae4d11adef6bc7a99be8e4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: aff9dade7fe0238c0ea8ccc3ae5bba57437c6f89
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782896"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339576"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure stack'teki kota türleri
 
@@ -29,7 +29,7 @@ ms.locfileid: "57782896"
 
 [Kotalar](azure-stack-plan-offer-quota-overview.md#plans) kaynaklara kullanıcı aboneliği sağlama veya tüketen sınırlarını tanımlayın. Örneğin, bir kota en fazla beş VM oluşturmak bir kullanıcı izin verebilir. Her kaynak kendi tip kotalar olabilir.
 
-## <a name="compute-quota-types"></a>Kota türleri işlem 
+## <a name="compute-quota-types"></a>Kota türleri işlem
 
 | **Tür** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
@@ -40,16 +40,15 @@ ms.locfileid: "57782896"
 | Standart yönetilen disk maksimum kapasite (GB cinsinden) | 2048 | Bu konumda oluşturulabilen standart yönetilen diskler hizmetin maksimum kapasitesi. |
 | Premium yönetilen disk maksimum kapasite (GB cinsinden) | 2048 | Premium kapasite üst sınırı bu konumda oluşturulan disklerini yönetilen. |
 
-## <a name="storage-quota-types"></a>Depolama kota türleri 
+## <a name="storage-quota-types"></a>Depolama kota türleri
 
 | **Öğesi** | **Varsayılan değer** | **Açıklama** |
 | --- | --- | --- |
-| Maksimum Kapasite (GB) |2048 |Bu konumda bulunan bir abonelik tarafından tüketilebilecek (BLOB'lar ve tüm assiociated anlık görüntüleri, tablolar, kuyruklar dahil) toplam depolama kapasitesi. |
+| Maksimum Kapasite (GB) |2048 |Bu konumda bulunan bir abonelik tarafından tüketilebilecek (BLOB'lar ve ilişkili tüm anlık görüntüleri, tablolar, kuyruklar dahil) toplam depolama kapasitesi. |
 | Toplam depolama hesabı sayısı |20 |Bu konumda bir abonelik oluşturduğunuz depolama hesabı sayısı. |
 
 > [!NOTE]  
 > Uygulamanın, iki depolama kotası uygulanmadan önce saate kadar sürebilir.
-
 
 ## <a name="network-quota-types"></a>Ağ kota türleri
 
@@ -69,10 +68,10 @@ Var olan bir kota görüntülemek için iki farklı yolu vardır:
 
 ### <a name="plans"></a>Planlar
 
-1.  Yönetici portalı'nın sol gezinti bölmesinde seçin **planları**.
-2.  Adına tıklayarak, ayrıntılarını görüntülemek istediğiniz planı seçin.
-3.  Açılan dikey pencerede seçin **hizmetler ve kotalar**.
-4.  İçine tıklayarak görmek istediğiniz kota seçin **adı** sütun.
+1. Yönetici portalı'nın sol gezinti bölmesinde seçin **planları**.
+2. Adına tıklayarak, ayrıntılarını görüntülemek istediğiniz planı seçin.
+3. Açılan dikey pencerede seçin **hizmetler ve kotalar**.
+4. İçine tıklayarak görmek istediğiniz kota seçin **adı** sütun.
 
     [![Kotalar](media/azure-stack-quota-types/quotas1sm.png "kotaları görüntüle")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
@@ -88,14 +87,14 @@ Kota düzenlemek için iki farklı yolu vardır:
 
 ### <a name="edit-a-plan"></a>Bir planı düzenleme
 
-1.  Yönetici portalı'nın sol gezinti bölmesinde seçin **planları**.
-2.  Bir kota adına tıklayarak düzenlemek istediğiniz planı seçin.
-3.  Açılan dikey pencerede seçin **hizmetler ve kotalar**.
-4.  İçine tıklayarak düzenlemek istediğiniz kota seçin **adı** sütun.
+1. Yönetici portalı'nın sol gezinti bölmesinde seçin **planları**.
+2. Bir kota adına tıklayarak düzenlemek istediğiniz planı seçin.
+3. Açılan dikey pencerede seçin **hizmetler ve kotalar**.
+4. İçine tıklayarak düzenlemek istediğiniz kota seçin **adı** sütun.
     [![Kotalar](media/azure-stack-quota-types/quotas1sm.png "kotaları görüntüle")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
-5.  Açılan dikey pencerede seçin **işlem düzenleme**, **ağında Düzenle**, veya **depolamada Düzenle**.
-    ![Kotalar](media/azure-stack-quota-types/quotas3.png "kotaları görüntüle")    
+5. Açılan dikey pencerede seçin **işlem düzenleme**, **ağında Düzenle**, veya **depolamada Düzenle**.
+    ![Kotalar](media/azure-stack-quota-types/quotas3.png "kotaları görüntüle")
 
 Alternatif olarak, bir kota düzenlemek için bu yordamı izleyin:
 
@@ -106,9 +105,9 @@ Alternatif olarak, bir kota düzenlemek için bu yordamı izleyin:
 
 ### <a name="edit-original-configuration"></a>Özgün yapılandırmayı Düzenle
   
-Bir kota yerine yapılandırmasını düzenlemek seçebileceğiniz [eklenti planı'nı kullanarak](create-add-on-plan.md). Kota düzenlediğinizde, yeni yapılandırmayı otomatik olarak genel olarak, kota kullanan tüm planlar ve bu planları kullanın ve var olan tüm abonelikler için geçerlidir. Kotayı düzenleme, bir eklenti planı abone olmak için bir kullanıcının seçtiği değiştirilmiş bir kota sağlamak için kullandığınızda farklıdır. 
+Bir kota yerine yapılandırmasını düzenlemek seçebileceğiniz [eklenti planı'nı kullanarak](create-add-on-plan.md). Kota düzenlediğinizde, yeni yapılandırmayı otomatik olarak genel olarak, kota kullanan tüm planlar ve bu planları kullanın ve var olan tüm abonelikler için geçerlidir. Kotayı düzenleme, bir eklenti planı abone olmak için bir kullanıcının seçtiği değiştirilmiş bir kota sağlamak için kullandığınızda farklıdır.
 
-Kota için yeni değerler genel olarak değiştirilen kota kullanan tüm planlar ve bu planları kullanın ve var olan tüm abonelikler için geçerlidir. 
+Kota için yeni değerler genel olarak değiştirilen kota kullanan tüm planlar ve bu planları kullanın ve var olan tüm abonelikler için geçerlidir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

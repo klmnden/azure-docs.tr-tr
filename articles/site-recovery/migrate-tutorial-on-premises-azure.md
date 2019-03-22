@@ -2,17 +2,18 @@
 title: Azure Site Recovery ile şirket içi makineleri Azure’a geçirme | Microsoft Docs
 description: Bu makalede, Azure Site Recovery kullanarak şirket içi makineleri Azure’a geçirme işlemi açıklanmaktadır.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d5b229d96c0f63e27e36fb95122b36d3d8c128ac
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 0daa25cce434b2e97995963918e52df974e2ef9c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110316"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336557"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Şirket içi makineleri Azure’a geçirme
 
@@ -113,7 +114,7 @@ Geçirmek istediğiniz makineler için yük devretmeyi çalıştırın.
 5. Azure VM’nin Azure’da beklendiği gibi görüntülenip görüntülenmediğini kontrol edin.
 6. **Çoğaltılan öğeler** bölümünde VM’ye sağ tıklayıp **Geçişi Tamamla**’ya tıklayın. Bu, şunları yapar:
 
-   - Geçiş işlemi tamamlanır, AWS VM için çoğaltma durdurulur ve sanal makine için Site Recovery Faturalaması durdurulur.
+   - Geçiş işlemi tamamlanır, şirket içi VM için çoğaltma durdurulur ve sanal makine için Site Recovery Faturalaması durdurulur.
    - Bu adım, çoğaltma verilerini temizler. Bu, geçirilen sanal makinelerin silmez.
 
      ![Geçişi tamamlama](./media/migrate-tutorial-on-premises-azure/complete-migration.png)

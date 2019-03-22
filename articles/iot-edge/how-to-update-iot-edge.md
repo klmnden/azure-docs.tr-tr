@@ -5,33 +5,33 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 03/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b11f11aa3966bc57caa5b8dd0379f4d5c59c8375
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a3dd7f78362b5f5c99dc4a74fe0a32c4d26be5b7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672908"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311926"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>IOT Edge güvenlik arka plan programı ve çalışma zamanını güncelleştirme
 
-IOT Edge hizmetinin sürümleri yeni sürümleri gibi güvenlik geliştirmeleri ve en son özellikleri sağlamak için IOT Edge cihazlarınıza güncelleştirmek isteyebilirsiniz. Bu makalede yeni bir sürümü kullanılabilir olduğunda, IOT Edge cihazlarınıza güncelleştirme hakkında bilgi sağlar. 
+IOT Edge hizmetinin sürümleri yeni sürümleri gibi güvenlik geliştirmeleri ve en son özellikler için IOT Edge cihazlarınıza güncelleştirmek isteyebilirsiniz. Bu makalede yeni bir sürümü kullanılabilir olduğunda, IOT Edge cihazlarınıza güncelleştirme hakkında bilgi sağlar. 
 
 IOT Edge cihazı iki bileşenden yeni bir sürüme taşımak istiyorsanız güncelleştirilmesi gerekir. Cihaz üzerinde çalışan ve cihaz çalışma zamanı modülleri başlatıldığında güvenlik arka plan programı, davranıştır. Şu anda güvenlik arka plan programı CİHAZDAN yalnızca güncelleştirilebilir. IOT Edge hub'ı ve IOT Edge Aracısı modülleri çalışma zamanı, ikinci bileşendir. Dağıtımınızı nasıl yapısına bağlı olarak, çalışma zamanı CİHAZDAN veya uzaktan güncelleştirilebilir. 
+
+Azure IOT Edge en son sürümünü bulmak için bkz: [Azure IOT Edge serbest](https://github.com/Azure/azure-iotedge/releases).
 
 >[!IMPORTANT]
 >Bir Windows cihazda Azure IOT Edge çalıştırıyorsanız, aşağıdakilerden birini cihazınıza geçerliyse 1.0.5 sürümüne güncelleştirme: 
 >* Windows için derleme 17763 Cihazınızı yükseltilmemiş. IOT Edge sürüm 1.0.5 Windows desteklemiyor 17763 şundan oluşturur.
 >* Windows Cihazınızda Java veya Node.js modüllerini çalıştırın. Windows cihazınız için en son sürüme güncelleştirdikten bile sürüm 1.0.5 atlayın. 
 >
->IOT Edge 1.0.5 sürümü hakkında daha fazla bilgi için bkz. [1.0.5 sürüm notları](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Geliştirme araçlarınızı en son sürüme güncelleştirilmesini tutmak hakkında daha fazla bilgi için bkz. [IOT Geliştirici blogu](https://devblogs.microsoft.com/iotdev/).
+>IOT Edge 1.0.5 sürümü hakkında daha fazla bilgi için bkz. [1.0.5 sürüm notları](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Geliştirme araçlarınızı en son sürüme güncelleştirilmesini engelleme hakkında daha fazla bilgi için bkz. [IOT Geliştirici blogu](https://devblogs.microsoft.com/iotdev/).
 
-
-Azure IOT Edge en son sürümünü bulmak için bkz: [Azure IOT Edge serbest](https://github.com/Azure/azure-iotedge/releases).
 
 ## <a name="update-the-security-daemon"></a>Güvenlik daemon'ı güncelleştirme
 
@@ -59,9 +59,9 @@ Bir yönetici PowerShell oturumunda güvenlik arka plan programı kaldırın.
 Uninstall-SecurityDaemon
 ```
 
-Çalışan `Uninstall-SecurityDaemon` hiçbir parametre olmadan komut iki çalışma zamanı kapsayıcı görüntülerinin yanı sıra, cihazınızdaki güvenlik arka plan programı kaldırır. Config.yaml dosya Moby container altyapısı verileri yanı sıra cihaz tutulur. Koruma yapılandırması, bağlantı dizesi veya yeniden yükleme işlemi sırasında cihazınız için cihaz sağlama hizmeti bilgilerini sağlamaları gerekmez anlamına gelir. 
+Çalışan `Uninstall-SecurityDaemon` komut hiçbir parametre olmadan yalnızca kaldırır güvenlik arka plan programı cihazınızdan iki çalışma zamanı kapsayıcı görüntülerinin yanı sıra. Config.yaml dosya Moby container altyapısı verileri yanı sıra cihaz tutulur. Bağlantı dizesi veya yeniden yükleme işlemi sırasında cihazınız için cihaz sağlama hizmeti bilgilerini sağlamaları gerekmez yapılandırma bilgileri anlamına gelir kalmasını sağlar. 
 
-IOT Edge Cihazınızı Windows kapsayıcıları ya da Linux kapsayıcıları kullanıp bağlı olarak güvenlik daemon'ı yeniden yükleyin. Tümcecik değiştirin **\<Windows veya Linux\>** kapsayıcı işletim sistemlerinden biri ile. Kullanım **- ExistingConfig** Cihazınızda mevcut config.yaml dosyasına işaret etmek için bayrak. 
+IOT Edge Cihazınızı Windows kapsayıcıları ya da Linux kapsayıcıları kullanıp bağlı olarak güvenlik daemon'ı yeniden yükleyin. Tümcecik değiştirin **\<Windows veya Linux\>** uygun bir kapsayıcı işletim sistemlerine sahip. Kullanım **- ExistingConfig** Cihazınızda mevcut config.yaml dosyasına işaret etmek için bayrak. 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -91,7 +91,7 @@ Dağıtımınızda çalışırken etiketleri kullanıyorsanız (örneğin, mcr.m
 
 IOT Edge cihazınızın yerel görüntü sürümü silin. Tekrar bu adımı gerçekleştirmeniz gerekmez Windows makinelerde güvenlik arka plan kaldırma da çalışma zamanı görüntüleri kaldırır. 
 
-```cmd/sh
+```bash
 docker rmi mcr.microsoft.com/azureiotedge-hub:1.0
 docker rmi mcr.microsoft.com/azureiotedge-agent:1.0
 ```
@@ -106,7 +106,7 @@ Dağıtımınızdaki belirli etiketlere kullanıyorsanız (örneğin, mcr.micros
 
 Azure portalında çalışma zamanı dağıtımı görüntüleri içinde bildirilen **Gelişmiş Edge çalışma zamanı ayarları Yapılandır** bölümü. 
 
-[Gelişmiş edge çalışma zamanı ayarlarını yapılandırma](./media/how-to-update-iot-edge/configure-runtime.png)
+![Gelişmiş edge çalışma zamanı ayarlarını yapılandırma](./media/how-to-update-iot-edge/configure-runtime.png)
 
 Bir JSON dağıtım bildirimi içinde modül görüntüleri güncelleştirme **systemModules** bölümü. 
 

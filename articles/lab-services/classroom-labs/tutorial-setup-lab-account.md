@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4c63cb69cd5ce824648d2bf0a6735e316791c44e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec1b75e7bd2defe96948e9830c25488ecd8289da
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079938"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336363"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Öğretici: Azure Lab Services ile bir laboratuvar hesabı ayarlama
 Azure Lab Services’te, bir laboratuvar hesabı, kuruluşunuzdaki laboratuvarların yönetildiği merkezi hesap olarak görev yapar. Laboratuvar hesabınızda, laboratuvar oluşturmak üzere başkalarına izin verin ve laboratuvar hesabı altındaki tüm laboratuvarlara uygulanan ilkeler ayarlayın. Bu öğreticide, laboratuvar yöneticisi olarak bir laboratuvar hesabı oluşturmayı öğrenin. 
@@ -37,10 +37,10 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 Aşağıdaki adımlar, Azure portalını kullanarak Azure Lab Services ile nasıl bir laboratuvar hesabı oluşturulacağını göstermektedir. 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Seçin **tüm hizmetleri** sol menüsünde. Seçin **Laboratuvar hesaplarını** içinde **DEVOPS** bölümü. Yıldız seçerseniz (`*`) yanındaki **Laboratuvar hesaplarını**, eklenir **Sık Kullanılanlar** sol menüde bölümü. Bir sonraki zamandan ve sonraki sürümlerde, seçtiğiniz **Laboratuvar hesaplarını** altında **Sık Kullanılanlar**.
+2. Seçin **tüm hizmetleri** sol menüsünde. Seçin **Lab Services** içinde **DEVOPS** bölümü. Yıldız seçerseniz (`*`) yanındaki **Lab Services**, eklenir **Sık Kullanılanlar** sol menüde bölümü. Bir sonraki zamandan ve sonraki sürümlerde, seçtiğiniz **Lab Services** altında **Sık Kullanılanlar**.
 
-    ![Laboratuvar hesaplarını tüm hizmetleri ->](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
-3. Üzerinde **Laboratuvar hesaplarını** sayfasında **Ekle** araç. 
+    ![Lab Services'i tüm hizmetleri ->](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. Üzerinde **Lab Services** sayfasında **Ekle** araç. 
 
     ![Laboratuvar hesaplarını sayfada Ekle'yi seçin](../media/tutorial-setup-lab-account/add-lab-account-button.png)
 4. Üzerinde **Laboratuvar hesabı** sayfasında, aşağıdaki eylemleri gerçekleştirin: 

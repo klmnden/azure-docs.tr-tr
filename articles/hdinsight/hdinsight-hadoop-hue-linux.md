@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: be6b50b5cb4ea7d32f47d6eb0e19ba43a3217cb6
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
+ms.openlocfilehash: 9a5a3e7354d3d89a53e94553ed504df7c8117922
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202699"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315003"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Yükleme ve HDInsight Hadoop kümeler üzerinde Hue kullanma
 
@@ -95,7 +95,7 @@ SSH tünel çalışmaya başladıktan sonra küme üzerinde Hue erişmek için t
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     Hue Web sitesi bulunduğu ana bilgisayar adını, birincil baş budur.
-4. Adresindeki Hue portalını açmak için tarayıcıyı kullanmaya http://HOSTNAME:8888. Ana bilgisayar adı, önceki adımda elde ettiğiniz adıyla değiştirin.
+4. Http adresindeki Hue portalını açmak için tarayıcıyı kullanın:\//HOSTNAME:8888. Ana bilgisayar adı, önceki adımda elde ettiğiniz adıyla değiştirin.
 
    > [!NOTE]  
    > İlk kez oturum açtığınızda Hue portalda oturum açmak için bir hesap oluşturmak için istenir. Burada belirttiğiniz kimlik bilgilerini Portalı'na sınırlı olacaktır ve yönetici veya küme sağlama sırasında belirtilen SSH kullanıcısı kimlik bilgilerini ilişkili değildir.

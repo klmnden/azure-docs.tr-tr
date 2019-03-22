@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 5ad3d7c27b003fb3963333471bceb3226655a5eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 559c02e74e97093a15b1d768eb5a3b32502db64e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57874890"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314595"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Öğretici: Service Fabric üzerinde uygulama ile bir Java web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmeti oluşturun
 
@@ -912,7 +912,7 @@ Bu noktada uygulama, yerel Service Fabric kümesinde dağıtılmaya hazırdır.
 
 4. Eclipse için Paket Gezgini’nde **Oylama** projesine sağ tıklayın ve **Service Fabric -> Uygulama Yayımla ...** seçeneklerine tıklayın. 
 5. **Uygulama Yayımla** penceresinde açılan listeden **Local.json** seçeneğini belirleyin ve **Yayımla**’ya tıklayın.
-6. Web tarayıcısı ve erişim Git `http://localhost:8080` yerel Service Fabric kümesinde çalıştırılan uygulamanızı görüntülemek için. 
+6. Web tarayıcısı ve erişim http gidin:\//localhost:8080 yerel Service Fabric kümesinde çalıştırılan uygulamanızı görüntülemek için. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

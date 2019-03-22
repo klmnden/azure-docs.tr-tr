@@ -1,65 +1,79 @@
 ---
-title: Dropbox - Azure Logic Apps'ı bağlama | Microsoft Docs
+title: Dropbox - Azure Logic Apps'ı bağlama
 description: Karşıya yükleme ve Dropbox REST API'lerini ve Azure Logic Apps ile dosyaları yönetme
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 07/15/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: 256a0b34d5050e17abe5bb98ca0c13ab0b61787e
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094447"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314425"
 ---
-# <a name="get-started-with-the-dropbox-connector"></a>Dropbox Bağlayıcısı ile çalışmaya başlama
-Dosyalarınızı yönetmek için Dropbox'a bağlanın. Karşıya yükleme gibi çeşitli eylemler gerçekleştirebilirsiniz, güncelleştirme, alma ve dropbox'ta dosyaları silin.
+# <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Karşıya yükleme ve Azure Logic Apps kullanarak dropbox dosyalarını yönetme
 
-Kullanılacak [bağlayıcıyı](apis-list.md), ilk mantıksal uygulamanızı oluşturmak gerekir. Tarafından oluşturabileceğinize dair [artık bir mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Dropbox Bağlayıcısı ve Azure Logic Apps ile karşıya yüklemek ve yönetmek, Dropbox hesabınızdaki dosyaları otomatik iş akışları oluşturabilirsiniz. 
 
-## <a name="connect-to-dropbox"></a>Dropbox'a bağlanın
-Mantıksal uygulamanızı herhangi bir hizmete erişebilmeniz için önce ilk oluşturmak için ihtiyacınız bir *bağlantı* hizmeti. Bir bağlantı, bir mantıksal uygulama ile başka bir hizmet arasında bağlantı sağlar. Örneğin, Dropbox'a bağlanın, öncelikle bir Dropbox isteyen *bağlantı*. Bir bağlantı oluşturmak için normalde bağlanmak istediğiniz hizmete erişmek için kullandığınız kimlik bilgilerini sağlamanız gerekir. Bu nedenle, Dropbox örnekte, kimlik bilgilerini Dropbox hesabınıza Dropbox bağlantısı oluşturmak için ihtiyacınız olacaktı. 
+Bu makalede, mantıksal uygulamanızdan Dropbox'a bağlanın ve Dropbox eklemek gösterilmektedir **bir dosya oluşturulduğunda** tetikleyici ve Dropbox **yolunu kullanarak dosya içeriğini Al** eylem.
 
-### <a name="create-a-connection-to-dropbox"></a>Dropbox bağlantı oluşturun
-> [!INCLUDE [Steps to create a connection to Dropbox](../../includes/connectors-create-api-dropbox.md)]
-> 
-> 
+## <a name="prerequisites"></a>Önkoşullar
 
-## <a name="use-a-dropbox-trigger"></a>Bir Dropbox tetikleyicisini kullanma
-Bir tetikleyici bir mantıksal uygulamada tanımlanan iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+* Azure aboneliği. Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>.
 
-Bu örnekte, kullanacağız **bir dosya oluşturulduğunda** tetikleyici. Bu tetikleyiciyi ortaya çıktığında, biz göndereceği **yolunu kullanarak dosya içeriğini Al** Dropbox eylemini. 
+* A [Dropbox hesabı](https://www.dropbox.com/), hangi ücretsiz kaydolabilirsiniz. Hesap kimlik bilgilerinizi, mantıksal uygulamanız ve Dropbox hesabınız arasında bir bağlantı oluşturmak için gereklidir.
 
-1. Girin *dropbox* Logic Apps Tasarımcısı'nda arama kutusuna seçip **Dropbox - bir dosya oluşturulduğunda** tetikleyici.      
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)  
-2. Dosya oluşturma izlemek istediğiniz klasörü seçin. Seçin... (kırmızı kutu içinde tanımlanan) ve tetikleyici giriş için seçmek istediğiniz klasöre göz atın.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
+* Hakkında temel bilgilere [mantıksal uygulamalar oluşturmak nasıl](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bu örnekte, boş bir mantıksal uygulama gerekir.
 
-## <a name="use-a-dropbox-action"></a>Bir Dropbox eylemini kullanma
-Bir eylem, bir mantıksal uygulamada tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+## <a name="add-trigger"></a>Tetikleyici ekle
 
-Tetikleyici eklendi artık, yeni dosyanın içeriği alacak bir eylem eklemek için bu adımları izleyin.
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Seçin **+ yeni adım** yeni bir dosya oluşturulduğunda almak istediğiniz eylem ekleme.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
-2. Seçin **Eylem Ekle**. Bu açılır, herhangi bir işlem arayabileceğiniz arama kutusuna yapmak istiyorsunuz.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
-3. Girin *dropbox* Dropbox'a ilgili eylemler için aranacak.  
-4. Seçin **Dropbox - dosya alma içeriği yolu kullanarak** ne zaman gerçekleştirilecek eylemi, seçili Dropbox klasörüne yeni bir dosya oluşturulur. Eylem denetim bloğu açılır. Mantıksal uygulamanızı, bunu daha önce yapmadıysanız, Dropbox hesabına erişmesi için yetki istenecektir.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)  
-5. Seçin... (sağ tarafında bulunan **dosya yolu** denetimi) ve kullanmak istediğiniz dosya yoluna göz atın. Ya da kullanmak **dosya yolu** logic app oluşturma işleminiz hızlandırmak için belirteç.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
-6. Çalışmanızı kaydedin ve iş akışınızı etkinleştirin Dropbox'ta yeni bir dosya oluşturun.  
+1. Arama kutusunun altındaki seçin **tüm**. Arama kutusuna filtreniz olarak "dropbox" girin.
+Tetikleyiciler listesinden şu tetikleyiciyi seçin: **Bir dosya oluşturulduğunda**
 
-## <a name="connector-specific-details"></a>Özel bağlayıcı ayrıntıları
+   ![Dropbox tetikleyicisini seçin](media/connectors-create-api-dropbox/select-dropbox-trigger.png)
 
-Tetikleyiciler ve eylemlerin swagger'da tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınırlama Bkz [bağlayıcı ayrıntıları](/connectors/dropbox/).
+1. Dropbox hesabı kimlik bilgilerinizle oturum açın ve Azure Logic Apps için Dropbox verilerinize erişimi yetkilendirin.
 
-## <a name="more-connectors"></a>Daha fazla bağlayıcı
-Geri Git [API listesi](apis-list.md).
+1. Tetikleyicinize ait gerekli bilgileri sağlayın. 
+
+   Bu örnekte, dosya oluşturma izlemek istediğiniz klasörü seçin. Klasörlere gözatmak için klasör simgesine yanındaki seçin **klasör** kutusu.
+
+## <a name="add-action"></a>Eylem ekle
+
+Şimdi her yeni dosya içeriği alır bir eylem ekleyin.
+
+1. Tetikleyici altında seçin **sonraki adım**. 
+
+1. Arama kutusunun altındaki seçin **tüm**. Arama kutusuna filtreniz olarak "dropbox" girin.
+Eylem listesinden şu eylemi seçin: **Yolu kullanarak dosya içeriğini Al**
+
+1. Dropbox'a erişmek için Azure Logic Apps yetkilendirdiğiniz zaten yapmadıysanız, artık erişimi yetkisi verme.
+
+1. Yanında, kullanmak istediğiniz dosya yoluna göz atmak için **dosya yolu** kutusunda, elipsleri seçin (**...** ) düğmesi. 
+
+   İçinde de tıklayabilirsiniz **dosya yolu** kutusuna ve dinamik içerik listesinden **dosya yolu**, çıktı değeri olarak kullanılabilir tetikleyiciden önceki bölümde eklediğiniz.
+
+1. İşiniz bittiğinde mantıksal uygulamanızı kaydedin.
+
+1. Mantıksal uygulamanızı tetikleyecek şekilde Dropbox'ta yeni bir dosya oluşturun.
+
+## <a name="connector-reference"></a>Bağlayıcı başvurusu
+
+Tetikleyiciler ve Eylemler sınırları, bağlayıcının Openapı'nin açıklandığı gibi teknik ayrıntılar için (önceki adıyla Swagger) dosyası, bkz: [bağlayıcının başvuru sayfası](/connectors/dropbox/).
+
+## <a name="get-support"></a>Destek alın
+
+* Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](https://aka.ms/logicapps-wish) ziyaret edin.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* Diğer hakkında bilgi edinin [Logic Apps bağlayıcıları](../connectors/apis-list.md)

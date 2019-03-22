@@ -17,14 +17,14 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 8b1290c2030835af1435e9a21602d3d2334a6737
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
-ms.translationtype: HT
+ms.openlocfilehash: e66747cd350d10a5a66ec54b9aae9e9b485b0ba2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918704"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014481"
 ---
-# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak sanal ağ eşlemesi ile sanal ağları bağlama
+# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak sanal ağ eşlemesi ile sanal ağları birbirine bağlama
 
 Sanal ağ eşlemesi ile sanal ağları birbirine bağlayabilirsiniz. Bu sanal ağlar aynı bölgede veya farklı bölgelerde (Genel Sanal Ağ Eşleme olarak da bilinir) olabilir. Sanal ağlar eşlendikten sonra, kaynaklar aynı sanal ağ üzerindeymiş gibi, aynı gecikme süresi ve bant genişliği ile her iki sanal ağdaki kaynaklar birbiriyle iletişim kurabilir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -50,7 +50,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 
     |Ayar|Değer|
     |---|---|
-    |Adı|myVirtualNetwork1|
+    |Ad|myVirtualNetwork1|
     |Adres alanı|10.0.0.0/16|
     |Abonelik| Aboneliğinizi seçin.|
     |Kaynak grubu| **Yeni oluştur**’u seçin ve *myResourceGroup* değerini girin.|
@@ -64,7 +64,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 
     |Ayar|Değer|
     |---|---|
-    |Adı|myVirtualNetwork2|
+    |Ad|myVirtualNetwork2|
     |Adres alanı|10.1.0.0/16|
     |Kaynak grubu| **Mevcut olanı kullan**’ı seçin ve **myResourceGroup** seçeneğini belirleyin.|
     |Alt Ağ Adresi aralığı|10.1.0.0/24|
@@ -80,7 +80,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 
     |Ayar|Değer|
     |---|---|
-    |Adı|myVirtualNetwork1-myVirtualNetwork2|
+    |Ad|myVirtualNetwork1-myVirtualNetwork2|
     |Abonelik| Aboneliğinizi seçin.|
     |Sanal ağ|myVirtualNetwork2 - *myVirtualNetwork2* sanal ağını seçmek için **Sanal ağ**’ı seçin ve sonra **myVirtualNetwork2** seçeneğini belirleyin. Aynı bölgede veya farklı bir bölgede bulunan bir sanal ağı seçebilirsiniz.|
 
@@ -97,7 +97,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 
     |Ayar|Değer|
     |---|---|
-    |Adı|myVirtualNetwork2-myVirtualNetwork1|
+    |Ad|myVirtualNetwork2-myVirtualNetwork1|
     |Sanal ağ|myVirtualNetwork1|
 
     **EŞLEME DURUMU**, *Bağlanıldı* durumundadır. Azure, *myVirtualNetwork2-myVirtualNetwork1* eşlemesi için eşleme durumunu *Başlatıldı* durumundan *Bağlanıldı* durumuna da geçirmiştir. Her iki sanal ağın da eşleme durumu *Bağlanıldı* olana kadar sanal ağ eşlemesi tam olarak oluşturulmuş olmaz. 
@@ -114,13 +114,14 @@ Sonraki bir adımda aralarında iletişim kurabilmeniz için her sanal ağ üzer
 
     |Ayar|Değer|
     |---|---|
-    |Adı|myVm1|
+    |Ad|myVm1|
     |Kullanıcı adı| Seçtiğiniz bir kullanıcı adını girin.|
     |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
     |Kaynak grubu| **Mevcut olanı kullan**’ı seçin ve **myResourceGroup** seçeneğini belirleyin.|
     |Konum| **Doğu ABD**’yi seçin.|
 4. **Boyut seçin** bölümünden bir sanal makine boyutu seçin.
 5. **Ayarlar** için aşağıdaki değerleri seçin ve **Tamam**’a tıklayın:
+
     |Ayar|Değer|
     |---|---|
     |Sanal ağ| myVirtualNetwork1 - Önceden seçili değilse **Sanal ağ**’ı seçin ve sonra **Sanal ağ seç** bölümünden **myVirtualNetwork1** seçeneğini belirleyin.|
@@ -136,7 +137,7 @@ Aşağıdaki değişikliklerle birlikte 1.-6. adımları tekrar tamamlayın:
 
 |Ayar|Değer|
 |---|---|
-|Adı | myVm2|
+|Ad | myVm2|
 |Sanal ağ | myVirtualNetwork2|
 
 Sanal makinelerin oluşturulması birkaç dakika sürebilir. Her iki sanal makine de oluşturulmadan kalan adımlara devam etmeyin.

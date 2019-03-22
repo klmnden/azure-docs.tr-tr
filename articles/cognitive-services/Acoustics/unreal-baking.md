@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: afe4421bea27ff029bd4a1a7808241a54027a6ac
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136398"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311580"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Proje akustik Unreal hazırlama Öğreticisi
 Bu belgede, Unreal Düzenleyici uzantısı kullanarak bir akustik hazırlama gönderme işlemi açıklanmaktadır.
@@ -32,7 +32,7 @@ Bir hazırlama yapmaya beş adım vardır:
 
 Proje akustik eklenti paketi projenize içeri aktarın. Bununla ilgili Yardım için bkz. [Unreal tümleştirme](unreal-integration.md) konu. Eklenti tümleştirildiğinde yeni akustik modu simgesini tıklatarak akustik kullanıcı arabirimini açın.
 
-![Açık akustik modu](media/acoustics-mode.png)
+![Unreal Düzenleyicisi akustik modu ekran seçeneği](media/acoustics-mode.png)
 
 ## <a name="tag-actors-for-acoustics"></a>Etiket aktörler için akustik
 
@@ -42,7 +42,7 @@ Dünya anahat Düzenleyicisi içinde bir veya daha fazla nesne seçin veya kulla
 
 ### <a name="for-reference-the-objects-tab-parts"></a>Başvuru için: Nesneleri sekmesini bölümleri
 
-![Unreal nesneleri sekmesi ayrıntıları](media/unreal-objects-tab-details.png)
+![Unreal sekmede akustik nesnelerin ekran görüntüsü](media/unreal-objects-tab-details.png)
 
 1. Sekme Seçimi düğmelerinin (**nesneleri** sekmesi seçili). Yukarıdan bir akustik hazırlama yapmanın çeşitli adımlarında yol için bu düğmeleri kullanın.
 2. Bu sayfayı kullanarak yapmanız gerekenler kısa bir açıklaması.
@@ -75,11 +75,11 @@ Akustik malzemeleri her yüzeyinden yansımasını ses enerji miktarını denetl
 
 Verilen bir malzeme odasında reverberation süresini 0,01 için 0,20 aralığında içe alma değerlerine sahip çoğu malzemelerle, içe alma katsayısı için inversely ilişkilidir. Bu aralık yukarıda içe alma katsayıları malzemelerle çok absorbent. Örneğin, bir oda sesleri çok reverberant duvarlarının, kat veya tavan akustik malzeme sorun daha yüksek absorptivity tıklarsanız. Akustik malzeme atama, Sahne malzemeyi kullanan tüm aktörler için geçerlidir.
 
-![Yankı Süresi grafiği](media/reverb-time-graph.png)
+![İçe alma katsayısı ile reverberation zaman negatif bir bağıntı gösteren grafik](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>Başvuru için: Malzemeleri sekmesinin bölümleri
 
-![Unreal nesneleri sekmesi ayrıntıları](media/unreal-materials-tab-details.png)
+![Unreal sekmede akustik nesnelerin ekran görüntüsü](media/unreal-materials-tab-details.png)
 
 1. **Malzemeleri** sekmesini düğmesi, bu sayfasını getirmek için kullanılır.
 2. Bu sayfayı kullanarak yapmanız gerekenler kısa bir açıklaması.
@@ -94,7 +94,7 @@ Malzemeleri atadıktan sonra geçiş **araştırmaları** sekmesi.
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>Başvuru için: Araştırmalar sekmesinin bölümleri
 
-![Araştırmalar sekmesi ayrıntısı](media/unreal-probes-tab-details.png)
+![Unreal sekmesinde akustik araştırmaları, ekran görüntüsü](media/unreal-probes-tab-details.png)
 
 1. **Araştırmaları** bu sayfasını getirmek için kullanılan sekmesini düğmesi
 2. Bu sayfayı kullanarak yapmanız gerekenler kısa bir açıklaması
@@ -124,11 +124,11 @@ Bu hesaplamalar tamamlandıktan sonra hem voxel verileri hem de hazırlama iyi s
 
 Araştırma hesaplama tamamlandıktan sonra yeni bir aktör dünya adlı anahat Düzenleyicisi içinde görünür **AcousticsDebugRenderer**. Denetimi **işleme araştırmaları** ve **işleme Voxels** Düzenleyicisi görünüm hata ayıklama görünen onay kutularını etkinleştirir.
 
-![Akustik Oluşturucu hata ayıklama](media/acoustics-debug-renderer.png)
+![Gösteren ekran görüntüsü akustik hata ayıklama Oluşturucu aktör Unreal Düzenleyicisi'nde](media/acoustics-debug-renderer.png)
 
 Herhangi bir voxels veya üzerinde sizin düzeyinizde yayılan bir araştırmalarla görmüyorsanız, görünüm penceresinin içinde gerçek zamanlı işleme etkin olduğundan emin olun.
 
-![Gerçek zamanlı işleme etkinleştir](media/unreal-real-time-rendering.png)
+![Unreal gerçek zamanlı işleme seçeneğinin ekran görüntüsü](media/unreal-real-time-rendering.png)
 
 ### <a name="voxels"></a>Voxels
 
@@ -137,7 +137,7 @@ Sahneniz taşıyın ve acoustically occluding geometri voxels sahip olduğunu do
 
 Kaba çözümleme vs iyi çözüm ile oluşturulan voxels karşılaştırırsanız kaba voxels iki kez büyük olduğunu görürsünüz.
 
-![Voxel Önizleme](media/unreal-voxel-preview.png)
+![Unreal Düzenleyicisi'nde, ekran akustik voxels Önizleme](media/unreal-voxel-preview.png)
 
 ### <a name="probe-points"></a>Araştırma noktaları
 
@@ -145,7 +145,7 @@ Araştırma noktaları olası oynatıcı (dinleyici) konumları ile eşanlamlıd
 
 Araştırma noktaları player sahnede seyahat beklenen her yerde mevcut olduğunu denetlemek önemlidir. Araştırma noktaları üzerinde Gezinti kafes proje akustik altyapısı tarafından yerleştirilir ve taşınamaz veya düzenlendi, bu nedenle Gezinti kafes kapsar tüm olası player konumları araştırma noktaları inceleyerek emin olun.
 
-![Araştırmalar Önizleme](media/unreal-probes-preview.png)
+![Ekran görüntüsü, akustik Unreal önizlemede araştırmaları](media/unreal-probes-preview.png)
 
 ### <a name="Coarse-vs-Fine-Resolution"></a>Kaba vs ayrıntılı çözümleme
 
@@ -159,9 +159,9 @@ Bu basit görünebilir, ancak birçok etkilerinin akustik benzetim vardır:
 * Ses kaynakları geometri içeren voxels olan "dolu" voxels içinde bulunamıyor - bu ses yok sonuçlanır. Bunlar, kaba ince ayar kullanırken olduğundan daha büyük voxels içinde olmadıklarından ses kaynakları yerleştirmek daha zordur.
 * Daha büyük voxels daha aşağıda gösterildiği gibi portallarda oturum intrude. İyi bir çözüm kullanarak aynı ortaklıklarına ortam hazırlayan ikinci olmakla birlikte ilk görüntü kaba, kullanılarak oluşturuldu. Kırmızı işaretler tarafından belirtildiği gibi ince ayarını kullanarak ortaklıklarına ortam hazırlayan çok daha az giriş yok. Kırmızı çizgi voxel boyutu tarafından tanımlanan etkili akustik portalı olsa da, geometri tarafından tanımlanan aynıdır, mavi bir çizgi ortaklıklarına ortam hazırlayan kullanır. Bu yetkisiz erişim verilen bir durumda nasıl oynatılacağını tamamen geometri nesnelerinizi sahnedeki konumlarını ve boyutu tarafından belirlenir Portal ile nasıl voxels hizaya bağlıdır.
 
-![Kaba kapısı](media/unreal-coarse-bake.png)
+![Kaba voxels Unreal içinde bir kapısı doldurma ekran görüntüsü](media/unreal-coarse-bake.png)
 
-![İnce kapısı](media/unreal-fine-bake.png)
+![Unreal içinde bir kapısı de ince voxels ekran görüntüsü](media/unreal-fine-bake.png)
 
 ## <a name="bake-your-level-using-azure-batch"></a>Azure Batch kullanarak düzeyinizi hazırlama
 
@@ -169,7 +169,7 @@ Azure Batch hizmetini kullanarak bulutta bilgi işlem kümesi ile sahneniz hazı
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>Başvuru için: Hazırlama sekmesinin bölümleri
 
-![Hazırlama sekmesi ayrıntısı](media/unreal-bake-tab-details.png)
+![Unreal sekmesinde akustik, ekran görüntüsü hazırlama](media/unreal-bake-tab-details.png)
 
 1. Bu sayfasını getirmek için kullanılan hazırlama için sekmesinde düğme.
 2. Kısa bir açıklamasını bu sayfada yapmanız gerekenler.

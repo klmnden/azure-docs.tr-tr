@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 98df1d9612d18e4ab5044bd92822b2df76286b12
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 735835d16eb14c3847f36ecb6f46c08c0a8928ef
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340873"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339525"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS dil ve bölge desteği
 
@@ -94,3 +94,116 @@ Makine öğrenimi için LUIS bir utterance keser [belirteçleri](luis-glossary.m
 |Portekizce (Brezilya)|✔||||
 |İspanyolca (es-ES)|✔||||
 |İspanyolca (es-MX)|✔||||
+
+### <a name="custom-tokenizer-versions"></a>Özel belirteç Oluşturucu sürümleri
+
+Aşağıdaki kültürler özel simgeleştirici sürümleri vardır:
+
+|Kültür|Sürüm|Amaç|
+|--|--|--|
+|Almanca <br>`de-de`|1.0.0|Sözcüklerin tek bileşenleri bileşik sözcüklere bölmek için çalışan bir makine öğrenme tabanlı simgeleştirici kullanarak bunları bölerek tokenizes.<br>Bir kullanıcı girerse `Ich fahre einen krankenwagen` bir utterance açık olduğundan `Ich fahre einen kranken wagen`. İşaretleme için izin verme `kranken` ve `wagen` farklı varlıklar olarak birbirinden bağımsız olarak.|
+|Almanca <br>`de-de`|1.0.1|Sözcükleri alanlarının bölerek tokenizes.<br> bir kullanıcı girerse `Ich fahre einen krankenwagen` isteğe bağlı olarak bir utterance tek bir belirteç kalır. Bu nedenle `krankenwagen` tek bir varlık olarak işaretlenir. |
+
+### <a name="migrating-between-tokenizer-versions"></a>Simgeleştirici sürümler arasında geçiş yapma
+
+Uygulama dosyasında belirteç Oluşturucu sürümü değiştirmek için ilk seçenek olup ardından sürüm alın. Bu eylem, konuşma nasıl simgeleştirilmiş değiştirir ancak, aynı uygulama kimliği tutmanızı sağlar 
+
+Simgeleştiricinin JSON 1.0.0. Özellik değeri için fark `tokenizerVersion`. 
+
+```JSON
+{
+    "luis_schema_version": "3.2.0",
+    "versionId": "0.1",
+    "name": "german_app_1.0.0",
+    "desc": "",
+    "culture": "de-de",
+    "tokenizerVersion": "1.0.0",
+    "intents": [
+        {
+            "name": "i1"
+        },
+        {
+            "name": "None"
+        }
+    ],
+    "entities": [
+        {
+            "name": "Fahrzeug",
+            "roles": []
+        }
+    ],
+    "composites": [],
+    "closedLists": [],
+    "patternAnyEntities": [],
+    "regex_entities": [],
+    "prebuiltEntities": [],
+    "model_features": [],
+    "regex_features": [],
+    "patterns": [],
+    "utterances": [
+        {
+            "text": "ich fahre einen krankenwagen",
+            "intent": "i1",
+            "entities": [
+                {
+                    "entity": "Fahrzeug",
+                    "startPos": 23,
+                    "endPos": 27
+                }
+            ]
+        }
+    ],
+    "settings": []
+}
+```
+
+Simgeleştiricinin JSON 1.0.1 sürümü. Özellik değeri için fark `tokenizerVersion`. 
+
+```JSON
+{
+    "luis_schema_version": "3.2.0",
+    "versionId": "0.1",
+    "name": "german_app_1.0.1",
+    "desc": "",
+    "culture": "de-de",
+    "tokenizerVersion": "1.0.1",
+    "intents": [
+        {
+            "name": "i1"
+        },
+        {
+            "name": "None"
+        }
+    ],
+    "entities": [
+        {
+            "name": "Fahrzeug",
+            "roles": []
+        }
+    ],
+    "composites": [],
+    "closedLists": [],
+    "patternAnyEntities": [],
+    "regex_entities": [],
+    "prebuiltEntities": [],
+    "model_features": [],
+    "regex_features": [],
+    "patterns": [],
+    "utterances": [
+        {
+            "text": "ich fahre einen krankenwagen",
+            "intent": "i1",
+            "entities": [
+                {
+                    "entity": "Fahrzeug",
+                    "startPos": 16,
+                    "endPos": 27
+                }
+            ]
+        }
+    ],
+    "settings": []
+}
+```
+
+İkinci seçenek sağlamaktır [yeni bir uygulama olarak dosyayı içeri](luis-how-to-start-new-app.md#import-an-app-from-file), bir sürüm yerine. Bu eylem, yeni uygulama farklı uygulama Kimliğine sahip, ancak dosyasında belirtilen belirteç Oluşturucu sürümü kullandığı anlamına gelir. 

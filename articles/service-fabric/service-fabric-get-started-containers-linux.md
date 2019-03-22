@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
-ms.openlocfilehash: 78bf30c01bc240d4fc7439ab14868bf7be90b17e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c27938ad28abc62f42024faae7931196704b9b1b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895840"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314578"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name*, çalışan kapsayıcıya bir ad verir (kapsayıcı kimliği yerine).
 
-Çalışan kapsayıcıya bağlanın. 4000 numaralı bağlantı noktasında döndürülen IP adresini işaret eden bir web tarayıcısı açın (örneğin, "http://localhost:4000"). "Hello World!" başlığının tarayıcıda gösterildiğini görürsünüz.
+Çalışan kapsayıcıya bağlanın. Açık IP adresine işaret eden bir web tarayıcısı döndürülen 4000 numaralı bağlantı noktasında örneğin "http:\//localhost:4000". "Hello World!" başlığının tarayıcıda gösterildiğini görürsünüz.
 
 ![Merhaba Dünya!][hello-world]
 
@@ -271,9 +271,9 @@ sfctl cluster select --endpoint http://localhost:19080
 ./install.sh
 ```
 
-Bir tarayıcı açın ve http://localhost:19080/Explorer adresindeki Service Fabric Explorer’a gidin (Mac OS X üzerinde Vagrant’ı kullanıyorsanız localhost ifadesini sanal makinenin özel IP’si ile değiştirin). Uygulamalar düğümünü genişletin ve şu anda uygulamanızın türü için bir giriş ve bu türün ilk örneği için başka bir giriş olduğuna dikkat edin.
+Bir tarayıcı açın ve http Service Fabric Explorer'a gidin:\//localhost:19080 / Explorer (Mac OS X üzerinde Vagrant'ı kullanıyorsanız, sanal makinenin özel IP'si ile değiştirin localhost). Uygulamalar düğümünü genişletin ve şu anda uygulamanızın türü için bir giriş ve bu türün ilk örneği için başka bir giriş olduğuna dikkat edin.
 
-Çalışan kapsayıcıya bağlanın. 4000 numaralı bağlantı noktasında döndürülen IP adresini işaret eden bir web tarayıcısı açın (örneğin, "http://localhost:4000"). "Hello World!" başlığının tarayıcıda gösterildiğini görürsünüz.
+Çalışan kapsayıcıya bağlanın. Açık IP adresine işaret eden bir web tarayıcısı döndürülen 4000 numaralı bağlantı noktasında örneğin "http:\//localhost:4000". "Hello World!" başlığının tarayıcıda gösterildiğini görürsünüz.
 
 ![Merhaba Dünya!][hello-world]
 

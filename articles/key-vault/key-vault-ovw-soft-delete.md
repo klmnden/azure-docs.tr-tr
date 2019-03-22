@@ -6,13 +6,13 @@ ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
-ms.date: 09/25/2017
-ms.openlocfilehash: 526b0b135c8d5c1741ddf5f3fe6fb32f259a3e2c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.date: 03/19/2019
+ms.openlocfilehash: f222b37e8ca6efcfe28146ee948511d887f547a4
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092999"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339151"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault geçici silmeyi genel bakış
 
@@ -23,9 +23,7 @@ Key Vault'un geçici silme özelliği silinen kasa ve geçici silme bilinen kasa
 
 ## <a name="supporting-interfaces"></a>Arabirimleri destekleme
 
-Geçici silme özelliği .NET REST üzerinden başlangıçta kullanılabilir / C# ' ta, PowerShell ve CLI arabirimleri.
-
-Daha fazla ayrıntı için bu başvuruları genel bilgi için bkz [anahtar kasası başvurusu](https://docs.microsoft.com/azure/key-vault/).
+Geçici silme özelliği aracılığıyla kullanılabilir başlangıçta [REST](/rest/api/keyvault/), [CLI](key-vault-soft-delete-cli.md), [PowerShell](key-vault-soft-delete-powershell.md) ve [.NET /C# ](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) arabirimleri.
 
 ## <a name="scenarios"></a>Senaryolar
 
@@ -39,26 +37,21 @@ Azure Key Vault, Azure Resource Manager tarafından yönetilen, izlenen kaynakla
 
 Bu özellik ile nesne silindikten görünümünü sağlarken, geçici etkili bir şekilde belirtilen saklama dönemi (90 gün) için kaynakları barındıran silme, bir anahtar kasası veya anahtar kasası nesne silme işlemi kullanılabilir. Daha fazla hizmet aslında silme işlemini geri alma silinen nesnesini kurtarmak için bir mekanizma sağlar. 
 
-Geçici silme isteğe bağlı bir Key Vault davranışı ve **varsayılan olarak etkin değildir** bu sürümde. 
+Geçici silme isteğe bağlı bir Key Vault davranışı ve **varsayılan olarak etkin değildir** bu sürümde. Bunu aracılığıyla açılabilir [CLI](key-vault-soft-delete-cli.md) veya [Powershell](key-vault-soft-delete-powershell.md).
 
-### <a name="purge-protection--flag"></a>Koruma bayrağını Temizle
-Koruma Temizle (**--temizleme koruma etkinleştirme** Azure clı'daki) bayrak varsayılan olarak kapalıdır. Bu bayrak, kasa etkin veya bir nesne silinmiş durumda kadar temizlenemiyor 90 gün saklama süresi geçti. Böyle bir kasa veya nesne hala kurtarılabilir. Bu bayrak, saklama süresi bitene kadar bir kasa veya bir nesne hiçbir zaman kalıcı olarak silinmez, müşterilere ek güvence sunar. Yalnızca geçici silmeyi bayrağı açıktır veya kasa oluşturma sırasında üzerinde hem geçici silmeyi açın ve koruma temizleme temizleme koruma bayrağı kapatabilirsiniz.
+### <a name="purge-protection"></a>Koruma Temizle 
 
-> [!NOTE]
->    Temizleme korumayı etkinleştirme için geçici silme açık olmalıdır önkoşuldur.
-> Azure CLI 2. Bunu yapmak için komut
+Ne zaman temizleme korumadır, kasa veya 90 gün saklama süresi bitene kadar bir nesne silinmiş durumda temizlenemiyor. Bu kasalar ve nesneler hala, bekletme ilkesi izlenir müşteriler işlemlerini kurtarılabilir. 
 
-```
-az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
-```
+Koruma temizleme isteğe bağlı bir Key Vault davranışı ve **varsayılan olarak etkin değildir**. Bunu aracılığıyla açılabilir [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) veya [Powershell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
 
 ### <a name="permitted-purge"></a>İzin verilen temizleme
 
 Kalıcı olarak siliniyor, temizleme, anahtar kasası proxy kaynak üzerinde bir POST işlemi aracılığıyla mümkündür ve özel ayrıcalıklar gerektirir. Genellikle, yalnızca abonelik sahibi, bir anahtar kasasını Temizle mümkün olacaktır. GÖNDERME işlemi, kasa anında ve kurtarılamaz silme işlemi tetikler. 
 
-Bunun bir istisnası
-- Azure aboneliği olarak işaretlenmiş olduğundan söz konusu *silinemez*. Bu durumda, yalnızca hizmet ardından gerçek silme işlemini gerçekleştirebilir ve zamanlanmış bir işlem olarak bunu yapar. 
-- --Temizleme koruma etkinleştirme bayrağını kasa üzerinde etkinleştirilir. Bu durumda, özgün gizli nesne silme nesne kalıcı olarak silmek için işaretlendiğinde 90 gün içinde Key Vault bekler.
+Özel durumlar şunlardır:
+- Ne zaman Azure aboneliğini olarak işaretlendi *silinemez*. Bu durumda, yalnızca hizmet ardından gerçek silme işlemini gerçekleştirebilir ve zamanlanmış bir işlem olarak bunu yapar. 
+- Zaman enable-temizleme-koruma bayrağı, kasa üzerinde etkindir. Bu durumda, özgün gizli nesne silme nesne kalıcı olarak silmek için işaretlendiğinde 90 gün içinde Key Vault bekler.
 
 ### <a name="key-vault-recovery"></a>Anahtar kasası kurtarma
 
@@ -66,7 +59,7 @@ Bir anahtar kasası siliniyor bağlı hizmet kurtarma için yeterli meta veriler
 
 ### <a name="key-vault-object-recovery"></a>Anahtar kasası nesne kurtarma
 
-Bir anahtar gibi bir anahtar kasası nesne silme bağlı hizmet nesne silinmiş bir durumda, bu nedenle herhangi bir alma işlemi için erişilemez hale yerleştirmeniz gerekir. Bu durumdayken, anahtar kasası nesne yalnızca, kurtarılan veya zorla/kalıcı olarak silinmiş listelenebilir. 
+Bir anahtar gibi bir anahtar kasası nesne silme bağlı hizmet nesne silinmiş bir durumda herhangi bir alma işlemi için erişilemez hale getirme yerleştirmeniz gerekir. Bu durumdayken, anahtar kasası nesne yalnızca, kurtarılan veya zorla/kalıcı olarak silinmiş listelenebilir. 
 
 Aynı anda Key Vault silinen anahtar kasasını veya önceden belirlenmiş bekletme aralığından sonra yürütme için anahtar kasası nesne karşılık gelen temel alınan verileri silme zamanlar. Kasaya karşılık gelen DNS kaydını da saklama aralığı süresince korunur.
 

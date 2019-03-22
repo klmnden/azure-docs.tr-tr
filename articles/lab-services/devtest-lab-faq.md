@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 8b5c5f316ff2c3ada035736755c7898270c49dee
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3752e9c227e4db0f583b2f6b21d6c0aa3106d248
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551832"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337706"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs SSS
 Azure DevTest Labs hakkında en yaygın soruların yanıtlarını alın.
@@ -27,8 +27,27 @@ Azure DevTest Labs hakkında en yaygın soruların yanıtlarını alın.
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 **Genel**
+
+## <a name="blog-post"></a>Blog gönderisi
+DevTest Labs takım blogumuzda 20 Mart 2019'ten itibaren kullanımdan kaldırılmıştır. 
+
+### <a name="where-can-i-track-feature-updates-going-forward"></a>Bundan sonra özellik güncelleştirmeleri nerede izleyebilir miyim?
+Bundan sonra biz özellik güncelleştirmeleri ve/veya bilgilendirici blog gönderilerini Azure blogunda gönderme ve Azure güncelleştirir. Bu blog gönderileri, ayrıca gerekli yerlerde belgelerimize bağlayacaksınız.
+
+Abone [DevTest Labs Azure blogunu](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) ve [DevTest Labs Azure güncelleştirmeleri](https://azure.microsoft.com/updates/?product=devtest-lab) DevTest Labs'de yeni özellikler hakkında bilgi sahibi olmak için.
+
+### <a name="what-happens-to-the-existing-blog-posts"></a>Mevcut blog gönderilerine yapılan ne olacak?
+Şu anda (kesinti güncelleştirmeler hariç) geçirme mevcut blog gönderilerine yönelik çalışmalarımız bizim [DevTest Labs belgeleri](devtest-lab-overview.md). MSDN blog'u kullanım dışı olduğunda için DevTest Labs belgeleri genel bakış yönlendirilirsiniz. Yeniden yönlendirilen sonra 'Filtresi tarafından' başlığında aradığınız makalesi için arama yapabilirsiniz. Biz tüm gönderileri, henüz geçirilmeyen henüz ancak bu ay sonuna kadar yapılması gerektiğini unutmayın. 
+
+
+### <a name="where-do-i-see-outage-updates"></a>Kesinti güncelleştirmeleri nerede görebilirim?
+Biz ileriye dönük bizim Twitter tanıtıcısı kullanarak kesinti güncelleştirmeler yayınlayarak. Bizi kesintiler ve bilinen hatalar en son güncelleştirmeleri almak için Twitter'da takip edin.
+
+### <a name="twitter"></a>Twitter 
+Bizim Twitter tanıtıcısı: azlabservices
+
 ## <a name="what-if-my-question-isnt-answered-here"></a>Peki sorumun cevabı burada bulamadığınız?
-Sorunuzu burada listelenmemişse yanıt bulmanıza yardımcı olabiliriz. Bu nedenle, bize bildirin.
+Sorunuzu burada listelenmiyorsa, bize bildirin ve yanıt bulmanıza yardımcı olabiliriz.
 
 * Bu SSS, sonunda bir soru gönderin. Azure Cache takım ve diğer topluluk üyelerinin bu makaleyle ilgili etkileşim kurun.
 * Geniş bir kitleye ulaşmak için bir soru gönderin [Azure DevTest Labs MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Azure DevTest Labs takım ve diğer topluluk üyelerinin ile etkileşim kurun.
@@ -41,7 +60,7 @@ Azure DevTest Labs, takımınızın zamandan ve paradan tasarruf edebilirsiniz. 
 Sorunsuz Self Servis, geliştiricilere ve test edicilere kendi ortamlarını gerektiğinde oluşturmak anlamına gelir. Yöneticiler, DevTest Labs harcamaların azaltılmasına ve maliyetlerin en aza yardımcı olduğunu bilmesinin güvenliğe sahip. Yöneticiler, en fazla VM sayısı, hangi VM boyutlarının izin verilir ve VM'ler çalışmaya ve kapatma zaman belirtebilirsiniz. DevTest Labs ayrıca nasıl Laboratuvar kaynaklarını kullanıldığını haberdar olmanıza yardımcı olmak için uyarılar ayarlayın ve maliyetleri izleme kolaylaştırır.
 
 ## <a name="how-can-i-use-devtest-labs"></a>DevTest Labs nasıl kullanabilirim?
-DevTest Labs, istediğiniz zaman, geliştirme gerektirir veya test ortamları ve hızla yeniden oluşturmak veya maliyet tasarrufu ilkeleri kullanarak yönetmek istiyorsanız kullanışlıdır.
+DevTest Labs, geliştirme gerektirir veya test ortamları ve hızla yeniden oluşturmak veya maliyet tasarrufu ilkeleri kullanarak yönetmek istediğiniz zaman yararlıdır.
 
 Müşterilerimiz için DevTest Labs kullanan bazı senaryolar aşağıda verilmiştir:
 
@@ -106,8 +125,8 @@ Diğer sürekli tümleştirme (CI) için / sürekli teslim (CD) araç zincirleri
 
 
 **Sanal makineler**
-## <a name="why-cant-i-see-vms-on-the-virtual-machines-blade-that-i-see-in-devtest-labs"></a>Vm'leri görüyorum DevTest Labs'de sanal makineler dikey penceresinde neden göremiyorum?
-DevTest Labs'de bir VM oluşturduğunuzda, bu VM'ye erişmesine izin verilir. Laboratuvar dikey penceresinde hem üzerinde VM görüntüleyebilirsiniz **sanal makineler** dikey penceresi. DevTest Labs Laboratuvar kullanıcı rolüne atanan kullanıcılar, Laboratuvar Laboratuvar içinde oluşturulmuş tüm Vm'leri görebilirsiniz **tüm sanal makineler** dikey penceresi. Ancak, DevTest Labs Laboratuvar kullanıcı rolüne sahip kullanıcılar diğer kullanıcıların oluşturduğu VM kaynaklarına okuma erişimi otomatik olarak verilmez. Bu nedenle, bu sanal makineler üzerinde görüntülenmez **sanal makineler** dikey penceresi.
+## <a name="why-cant-i-see-vms-on-the-virtual-machines-page-that-i-see-in-devtest-labs"></a>DevTest Labs'de bkz. sanal makineler sayfasındaki sanal makineleri neden göremiyorum?
+DevTest Labs'de bir VM oluşturduğunuzda, bu VM'ye erişmesine izin verilir. Labs sayfasında hem üzerinde VM görüntüleyebileceğiniz **sanal makineler** sayfası. DevTest Labs Laboratuvar kullanıcı rolüne atanan kullanıcılar, Laboratuvar Laboratuvar içinde oluşturulmuş tüm Vm'leri görebilirsiniz **tüm sanal makineler** sayfası. Ancak, DevTest Labs Laboratuvar kullanıcı rolüne sahip kullanıcılar diğer kullanıcıların oluşturduğu VM kaynaklarına okuma erişimi otomatik olarak verilmez. Bu nedenle, bu sanal makineler üzerinde görüntülenmez **sanal makineler** sayfası.
 
 ## <a name="what-is-the-difference-between-a-custom-image-and-a-formula"></a>Özel bir görüntü ile bir formül arasındaki fark nedir?
 Bir özel görüntü sanal sabit disk (VHD) hizmetidir. Formül, ek ayarlarla yapılandırın ve ardından kaydedebilir ve yeniden bir görüntüsüdür. Özel bir görüntü, aynı temel, sabit görüntüsünü kullanarak çeşitli ortamları hızlıca oluşturmak istiyorsanız tercih edilebilir. Formül, bir sanal ağın veya alt ağın bir parçası olarak veya belirli bir boyutta bir VM ile en son parçaları, sanal Makinenizin yapılandırmasını yeniden oluşturmak istiyorsanız daha iyi olabilir. Daha ayrıntılı bir açıklama için bkz. [özel görüntüleri ve formülleri DevTest labs'deki karşılaştırma](devtest-lab-comparing-vm-base-image-types.md).
@@ -184,7 +203,7 @@ Vm'leri Azure portalında Laboratuvarınızı silebilirsiniz. Ayrıca, tüm VM'l
 
 **Yapıtlar**
 ## <a name="what-are-artifacts"></a>Yapıtları nelerdir?
-Yapıtlar, en yeni güncelleştirmeleri dağıtmak veya bir VM'ye geliştirme araçlarınızı dağıtmak için kullanabileceğiniz özelleştirilebilir öğeleridir. Sanal Makineyi oluştururken sanal makinenizde yapıtları ekleyin. VM sağlandıktan sonra yapıtları dağıtın ve sanal makinenize yapılandırın. Önceden var olan çeşitli yapıtları kullanılabilir bizim [ortak GitHub deposu](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). Ayrıca [kendi yapıtları Yazar](devtest-lab-artifact-author.md).
+Yapıtlar, en yeni güncelleştirmeleri dağıtmak veya bir VM'ye geliştirme araçlarınızı dağıtmak için kullanabileceğiniz özelleştirilebilir öğeleridir. Sanal Makineyi oluştururken sanal makinenizde yapıtları ekleyin. VM sağlandıktan sonra yapıtları dağıtın ve sanal makinenize yapılandırın. Önceden mevcut olan çeşitli yapıtları kullanılabilir bizim [ortak GitHub deposu](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). Ayrıca [kendi yapıtları Yazar](devtest-lab-artifact-author.md).
 
 
 **Laboratuvar yapılandırma**
@@ -232,7 +251,7 @@ Bir kaynak başka bir kaynak için bir üst, alt kaynak oluşturmadan önce üst
 Sanal makineleri bir laboratuar ortamında bir kaynak grubu altında alt kaynaklardır. PowerShell kullanarak Vm'leri dağıtmak için Resource Manager şablonları kullandığınızda, PowerShell Betiği belirtilen kaynak grubu adı Laboratuvar tamamlandığında, kaynak grubu adı olmalıdır. Daha fazla bilgi için [yaygın Azure dağıtım hatalarını giderme](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Bir VM dağıtımı başarısız olursa daha fazla hata bilgilerini nerede bulabilirim?
-Sanal makine dağıtım hataları, etkinlik günlüklerinde yakalanır. Laboratuvar VM etkinlik günlükleri altında bulabilirsiniz **denetim günlükleri** veya **sanal makine tanılama** Laboratuvar VM dikey penceresinde kaynak menüsündeki (VM'den seçtikten sonra dikey penceresi görünür **My sanal makineleri** listesi).
+Sanal makine dağıtım hataları, etkinlik günlüklerinde yakalanır. Laboratuvar VM etkinlik günlükleri altında bulabilirsiniz **denetim günlükleri** veya **sanal makine tanılama** Laboratuvar VM sayfasında kaynak menüsündeki (VM'den seçtikten sonra sayfanın görünür **My sanal makineleri** listesi).
 
 Bazı durumlarda, VM dağıtımı başlamadan önce dağıtım hatası oluşur. Sanal makine ile oluşturulan bir kaynak için abonelik sınırı aşıldığında bir örnektir. Bu durumda, hata ayrıntılarını Laboratuvar düzeyinde etkinlik günlüğünde yakalanır. Etkinlik günlükleri alt kısmında bulunan **yapılandırması ve ilkelerini** ayarları. Azure'da günlüklerini etkinlik kullanma hakkında daha fazla bilgi için bkz: [kaynaklara uygulanan eylemleri denetlemek için etkinlik günlüklerini görüntüleme](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 

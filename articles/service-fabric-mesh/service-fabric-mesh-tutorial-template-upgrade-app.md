@@ -3,7 +3,7 @@ title: Öğretici - Azure Service Fabric Mesh’te çalışan bir uygulamayı y�
 description: Bu öğreticide, Service Fabric Mesh’te çalışan Service Fabric uygulamasını yükseltmeyi öğreneceksiniz.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d27cc555a8cf96a07818e83b342cf145d9e98a96
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 3567ede82f2eebf602e95dcd012f5c88a40af796
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265916"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337638"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Öğretici: Service Fabric Mesh içinde çalışan bir Service Fabric uygulaması yükseltme
 

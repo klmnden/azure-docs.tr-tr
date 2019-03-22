@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4e8649096d4f7de49c9cf0d569422919f865bb3b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 45b34d12fbcecbf5f6bf1225c5bb82c5385224ed
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094101"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338403"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure Data Lake depolama Gen2 Azure HDInsight kümeleri ile kullanma
 
@@ -26,48 +26,54 @@ Data Lake depolama Gen2, neredeyse tüm Azure HDInsight küme türleri için hem
 > [!Note] 
 > Data Lake depolama 2. nesil olarak seçtikten sonra **birincil depolama türü**, ek depolama alanı olarak Data Lake depolama Gen1 hesabı seçemezsiniz.
 
-## <a name="create-an-hdinsight-cluster-with-data-lake-storage-gen2"></a>Data Lake depolama Gen2'ile bir HDInsight kümesi oluşturma
-
-## <a name="use-the-azure-portal"></a>Azure portalı kullanma
+## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-portal"></a>Azure portalı üzerinden Data Lake depolama 2. nesil ile küme oluşturma
 
 Depolama için Data Lake depolama Gen2 kullanan bir HDInsight kümesi oluşturmak için Data Lake depolama Gen2 hesabı yapılandırmak için aşağıdaki adımları izleyin.
 
-1. Bir kullanıcı tarafından atanan yönetilen kimlik, zaten yoksa, oluşturun. Bkz: [oluşturun, liste, delete veya Azure portalını kullanarak bir kullanıcı tarafından atanan yönetilen kimlik rol atama](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+### <a name="create-a-user-managed-identity"></a>Bir yönetilen kullanıcı kimliği oluşturma
 
-    ![Kullanıcı tarafından atanan yönetilen kimlik oluşturma](./media/hdinsight-hadoop-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
+Bir kullanıcı tarafından atanan yönetilen kimlik, zaten yoksa, oluşturun. Bkz: [oluşturun, liste, delete veya Azure portalını kullanarak bir kullanıcı tarafından atanan yönetilen kimlik rol atama](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity). Azure HDInsight yönetilen kimlikleri çalışması hakkında daha fazla bilgi için bkz. [yönetilen Azure HDInsight kimliklerini](hdinsight-managed-identities.md).
 
-1. Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturun. Emin olun **hiyerarşik ad alanı** seçeneği etkinleştirilir. Daha fazla bilgi için [hızlı başlangıç: Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+![Kullanıcı tarafından atanan yönetilen kimlik oluşturma](./media/hdinsight-hadoop-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
-    ![Azure portalında depolama hesabı oluşturmayı gösteren ekran görüntüsü](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
- 
-1. Yönetilen kimlik için Ata **depolama Blob verileri sahibi (Önizleme)** depolama hesabındaki rol. Daha fazla bilgi için [RBAC (Önizleme) ile Azure Blob ve kuyruk verilere erişim haklarını yönetme](../storage/common/storage-auth-aad-rbac.md).
+### <a name="create-a-data-lake-storage-gen2-account"></a>Bir Data Lake depolama Gen2 hesabı oluşturun
 
-    1. İçinde [Azure portalında](https://portal.azure.com)depolama hesabınıza gidin.
-    1. Depolama hesabınızı seçin ve ardından **erişim denetimi (IAM)** hesabı için erişim denetimi ayarlarını görüntülemek için. Seçin **rol atamaları** rol atamaları listesini görmek için sekmesinde.
+Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturun. Emin olun **hiyerarşik ad alanı** seçeneği etkinleştirilir. Daha fazla bilgi için [hızlı başlangıç: Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+
+![Azure portalında depolama hesabı oluşturmayı gösteren ekran görüntüsü](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
+
+### <a name="setup-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>Data Lake depolama Gen2 hesabındaki yönetilen kimlik için izinleri ayarlayın
+
+Yönetilen kimlik için Ata **depolama Blob verileri sahibi (Önizleme)** depolama hesabındaki rol. Daha fazla bilgi için [RBAC (Önizleme) ile Azure Blob ve kuyruk verilere erişim haklarını yönetme](../storage/common/storage-auth-aad-rbac.md).
+
+1. İçinde [Azure portalında](https://portal.azure.com)depolama hesabınıza gidin.
+1. Depolama hesabınızı seçin ve ardından **erişim denetimi (IAM)** hesabı için erişim denetimi ayarlarını görüntülemek için. Seçin **rol atamaları** rol atamaları listesini görmek için sekmesinde.
     
-        ![Depolama erişim denetimi ayarları gösteren ekran görüntüsü](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
+    ![Depolama erişim denetimi ayarları gösteren ekran görüntüsü](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
-    1. Seçin **+ rol ataması Ekle** düğmesini yeni bir rolü ekleyin.
-    1. İçinde **rol ataması Ekle** penceresinde **depolama Blob verileri sahibi (Önizleme)** rol. Daha sonra yönetilen bir kimlik ve depolama hesabını içeren aboneliği seçin. Ardından, kullanıcı tarafından atanan ve daha önce oluşturduğunuz yönetilen kimlik bulmak için arama yapın. Son olarak, yönetilen kimlik'i seçin ve altında listelenir **seçili üyeleri**.
+1. Seçin **+ rol ataması Ekle** düğmesini yeni bir rolü ekleyin.
+1. İçinde **rol ataması Ekle** penceresinde **depolama Blob verileri sahibi (Önizleme)** rol. Daha sonra yönetilen bir kimlik ve depolama hesabını içeren aboneliği seçin. Ardından, kullanıcı tarafından atanan ve daha önce oluşturduğunuz yönetilen kimlik bulmak için arama yapın. Son olarak, yönetilen kimlik'i seçin ve altında listelenir **seçili üyeleri**.
     
-        ![Bir RBAC rolü atayın gösteren ekran görüntüsü](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
+    ![Bir RBAC rolü atayın gösteren ekran görüntüsü](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
-    1. **Kaydet**’i seçin. Seçtiğiniz kullanıcı tarafından atanan kimliği artık altında listelenen **katkıda bulunan** rol.
+1. **Kaydet**’i seçin. Seçtiğiniz kullanıcı tarafından atanan kimliği artık seçili rolü altında listelenir.
+1. Bu ilk Kurulum tamamlandıktan sonra portal üzerinden bir küme oluşturabilirsiniz. Küme, depolama hesabı aynı Azure bölgesinde olmalıdır. İçinde **depolama** bölümüne küme oluşturma menüsünden, aşağıdaki seçenekleri belirleyin:
+        
+    * İçin **birincil depolama türü**seçin **Azure Data Lake depolama Gen2**.
+    * Altında **bir depolama hesabı seçin**, arayın ve yeni oluşturduğunuz Data Lake depolama Gen2'ye depolama hesabını seçin.
+        
+        ![Data Lake depolama Gen2 Azure HDInsight ile kullanmak için depolama ayarları](./media/hdinsight-hadoop-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
+    
+    * Altında **kimlik**, doğru aboneliği seçin ve yeni oluşturulan kullanıcı tarafından atanan yönetilen kimliği.
+        
+        ![Kimlik ayarları, Azure HDInsight ile Data Lake depolama Gen2 kullanma](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
+        
+> [!Note]
+> İkincil depolama aynı küme üzerindeki bir veya daha fazla Data Lake depolama Gen2 hesapları ekleyebilirsiniz. Yalnızca aynı yönetilen kimlik kullanarak eklemek istediğiniz her bir Data Lake depolama Gen2 hesabındaki yukarıdaki adımları yineleyin.
 
-    1. Bu ilk Kurulum tamamlandıktan sonra portal üzerinden bir küme oluşturabilirsiniz. Küme, depolama hesabı aynı Azure bölgesinde olmalıdır. İçinde **depolama** bölümüne küme oluşturma menüsünden, aşağıdaki seçenekleri belirleyin:
-        
-        * İçin **birincil depolama türü**seçin **Azure Data Lake depolama Gen2**.
-        * Altında **bir depolama hesabı seçin**, arayın ve yeni oluşturduğunuz Data Lake depolama Gen2'ye depolama hesabını seçin.
-        
-            ![Data Lake depolama Gen2 Azure HDInsight ile kullanmak için depolama ayarları](./media/hdinsight-hadoop-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
-        
-        * Altında **kimlik**, doğru aboneliği seçin ve yeni oluşturulan kullanıcı tarafından atanan yönetilen kimliği.
-        
-            ![Kimlik ayarları, Azure HDInsight ile Data Lake depolama Gen2 kullanma](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
+## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Data Lake depolama Gen2 aracılığıyla Azure CLI ile küme oluşturma
 
-### <a name="use-an-azure-resource-manager-template-deployed-with-the-azure-cli"></a>Azure CLI ile dağıtılan bir Azure Resource Manager şablonu kullanma
-
-Yapabilecekleriniz [örnek şablon dosya indirme](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) ve [örnek parametre dosyasını indirin](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Şablon kullanmadan önce dize değiştirin `<SUBSCRIPTION_ID>` gerçek Azure abonelik kimliğinizi Ayrıca, dize değiştirin `<PASSWORD>` hem kümenize oturum için kullanacağınız parola ve SSH parolasını ayarlamak için seçtiğiniz parolayla.
+Yapabilecekleriniz [örnek şablon dosya indirme](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) ve [örnek parametre dosyasını indirin](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Şablon kullanmadan önce dize değiştirin `<SUBSCRIPTION_ID>` gerçek Azure abonelik kimliğinizi Ayrıca, dize değiştirin `<PASSWORD>` hem kümenize oturum açma için kullanacağınız parola ve SSH parolasını ayarlamak için seçtiğiniz parolayla.
 
 Aşağıdaki kod parçacığı ilk aşağıdakileri yapar:
 

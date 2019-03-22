@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 2/20/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 1f6d6b2ae5fd3a0c08d37b93c73656ac6bb71d67
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 87ca7cae8e9170c8c437d0961cb1acb2e0dd0eb1
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295649"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337655"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS diğer ad kayıtlarını genel bakış
 
@@ -20,9 +20,9 @@ Azure DNS diğer ad kayıtlarını DNS kayıt kümesi üzerinde nitelikleri ' di
 
 Bir diğer ad kayıt kümesi, aşağıdaki kayıt türlerinin bir Azure DNS bölgesindeki desteklenir: 
 
-- A 
-- AAAA 
-- CNAME 
+- A
+- AAAA
+- CNAME
 
 > [!NOTE]
 > İşaret etmek için bir diğer ad kaydı A veya AAAA kayıt türleri için kullanmak istiyorsanız bir [Azure Traffic Manager profilini](../traffic-manager/quickstart-create-traffic-manager-profile.md) , Traffic Manager profilini yalnızca olduğundan emin olun [dış uç noktalar](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Dış Traffic Manager'da uç noktaları için IPv4 veya IPv6 adresi sağlamanız gerekir. İdeal olarak, statik IP adresleri kullanın.
@@ -32,7 +32,7 @@ Bir diğer ad kayıt kümesi, aşağıdaki kayıt türlerinin bir Azure DNS böl
 - **Bir genel IP kaynağı için bir DNS A/AAAA kayıt kümesi gelin.** A/AAAA kayıt kümesi oluşturma ve bir genel IP kaynağına işaret edecek bir diğer ad kayıt kümesi kolaylaştırır. Genel IP adresini değiştirir veya olan DNS kayıt kümesi olan silindi. DNS sarkan yanlış IP adreslerine işaret kayıtları engellendi.
 
 - **Traffic Manager profili için bir DNS A/AAAA/CNAME kayıt kümesi gelin.** A/AAAA oluşturabilir veya CNAME kaydı kümesi ve bir Traffic Manager profiline işaret etmek için diğer ad kayıtlarını kullanın. Geleneksel CNAME kayıtları bir bölge tepesinde için desteklenmediğinden, bölgenin tepesindeki trafiği yönlendirmek gerektiğinde özellikle yararlıdır. Örneğin, Traffic Manager profilinizin myprofile.trafficmanager.net ve iş DNS bölgenizi contoso.com varsayalım. Tür A/AAAA contoso.com (bölge tepesinde) için bir diğer ad kaydı kümesi oluşturma ve myprofile.trafficmanager.net için gelin.
-
+- **Bir Azure Content Delivery Network (CDN) uç noktası**. Azure depolama ve Azure CDN kullanarak statik Web sitesi oluşturduğunuzda, bu yararlıdır.
 - **Aynı bölgede başka bir DNS kayıt kümesi gelin.** Diğer ad kayıtları aynı türdeki diğer kayıt kümelerine başvurabilir. Örneğin, bir DNS CNAME kayıt kümesi bir diğer ad başka bir CNAME kaydı kümesi olabilir. Bu düzenleme, diğer adlar olmasını bazı kayıt kümelerini ve bazı diğer olmayan istiyorsanız kullanışlıdır.
 
 ## <a name="scenarios"></a>Senaryolar
@@ -61,6 +61,7 @@ Diğer ad kayıtlarını kullanan bu sorun çözülebilir. CNAME kayıtları aks
 Örneğin, contoso.com ve www\.contoso.com aynı Traffic Manager profiline işaret edebilir. Diğer ad kayıtlarını ile Azure Traffic Manager profillerini kullanma hakkında daha fazla bilgi edinmek için sonraki adımlar bölümüne bakın.
 
 ### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Bölge tepesinde Azure CDN uç noktası
+
 Yalnızca bir Traffic Manager profili gibi diğer ad kayıtlarını, DNS bölge tepesinde Azure CDN uç noktası için de kullanabilirsiniz. Azure depolama ve Azure CDN kullanarak statik Web sitesi oluşturduğunuzda, bu yararlıdır. Web sitesi daha sonra DNS adı "www" eklenmesini olmadan da erişebilirsiniz.
 
 Örneğin, www.contoso.com, statik Web sitesi ise, kullanıcılarınızın sitenizi gerek kalmadan contoso.com DNS adına www önüne eklediğinizden kullanarak erişebilirsiniz.

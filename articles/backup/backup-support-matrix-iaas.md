@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 512e07f2892f9c4adf47956d3a5b07debf870e46
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 637ec63d1c3e5a3eb1ce26765b1ab22e9823e9a1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849916"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317434"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM yedeklemesi için destek matrisi
 Kullanabileceğiniz [Azure Backup hizmeti](backup-overview.md) şirket içi makinelerin ve iş yükleri ve Azure sanal makineleri (VM) yedekleme. Bu makalede, Azure sanal makinelerini Azure Backup ile yedeklediğinizde destek ayarları ve sınırlamaları özetlenmektedir.
@@ -82,6 +82,7 @@ Azure VM Linux yedeklemeleri için Azure Backup, Linux listesini destekler [Azur
 - Azure Backup, Core OS Linux desteklememektedir.
 - Azure yedekleme, 32-bit işletim sistemlerini desteklemez.
 - Diğer Getir kendi Linux dağıtımları da çalışabilir sürece [Linux için Azure VM Aracısı](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) VM üzerinde kullanılabilir ve Python desteklenmediğinden uzun.
+- Azure yedekleme, VM çalıştıran desteklemiyor  **Python sürüm 2.6* yalnızca** yapılandırılmış proxy ile.
 
 
 

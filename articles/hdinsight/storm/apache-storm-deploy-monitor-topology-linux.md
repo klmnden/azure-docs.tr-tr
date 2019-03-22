@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: d194a5929e648c09eb204860c528e48bc55259ee
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5f6708a9c22939395f992c2ac58a7e510b35f763
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635417"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317281"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight üzerinde Apache Storm topolojilerini dağıtma ve yönetme 
 
@@ -215,15 +215,15 @@ Daha fazla bilgi için [Apache Storm kullanıcı Arabirimi REST API](https://sto
 
 ### <a name="base-uri"></a>Taban URI
 
-Baş düğümde üzerinde Linux tabanlı HDInsight kümelerinde REST API için ana URI kullanılabilir **https://HEADNODEFQDN:8744/api/v1/**. Baş düğümün etki alanı adı, küme oluşturma sırasında oluşturulan ve statik değildir.
+Baş düğümde üzerinde Linux tabanlı HDInsight kümelerinde REST API için ana URI kullanılabilir **https:\//HEADNODEFQDN:8744/api/v1/**. Baş düğümün etki alanı adı, küme oluşturma sırasında oluşturulan ve statik değildir.
 
 Küme baş düğümü için tam etki alanı adı (FQDN) birkaç farklı yolla bulabilirsiniz:
 
 * **Bir SSH oturumundan**: Komutunu `headnode -f` küme için bir SSH oturumundan.
 * **Ambari Web**: Seçin **Hizmetleri** sayfanın üst kısmından seçip **Storm**. Gelen **özeti** sekmesinde **Storm kullanıcı arabirimini sunucu**. REST API ve Storm kullanıcı arabirimini barındıran düğümü FQDN'si, sayfanın en üstünde görüntülenir.
-* **Ambari REST API'sinden**: Komutunu `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` REST API ve Storm kullanıcı arabirimini çalıştığı düğüm hakkında bilgi almak için. Değiştirin **CLUSTERNAME** küme adı ile. İstendiğinde oturum açma (Yönetici) hesabı için parolayı girin. Yanıtta düğümü FQDN'si "host_name" giriş içerir.
+* **Ambari REST API'sinden**: Komutunu `curl -u admin -G "https:\//CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` REST API ve Storm kullanıcı arabirimini çalıştığı düğüm hakkında bilgi almak için. Değiştirin **CLUSTERNAME** küme adı ile. İstendiğinde oturum açma (Yönetici) hesabı için parolayı girin. Yanıtta düğümü FQDN'si "host_name" giriş içerir.
 
-### <a name="authentication"></a>Kimlik Doğrulaması
+### <a name="authentication"></a>Authentication
 
 REST API istekleri kullanmalıdır **temel kimlik doğrulaması**, HDInsight küme yöneticisinin adı ve parola kullanın.
 

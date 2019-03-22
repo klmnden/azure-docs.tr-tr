@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bb1f4861f3867c592ecab86e85d3a4dfbab6738e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5e65965678ed042081e4a406d3a207fb7ede299f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002960"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313660"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Çıkış noktaları arası kaynak paylaşımı (CORS) desteğiyle Azure depolama hizmetleri
 2013-08-15 sürümünden başlayarak, Azure depolama hizmeti Blob, tablo, kuyruk ve Dosya Hizmetleri için çıkış noktaları arası kaynak paylaşımı (CORS) destekler. CORS, başka bir etki alanındaki kaynaklara erişmek bir etki alanı altında çalışan bir web uygulamasını etkinleştiren bir HTTP özelliğidir. Web tarayıcısı olarak bilinen bir güvenlik kısıtlaması uygulamak [aynı çıkış noktası İlkesi](https://www.w3.org/Security/wiki/Same_Origin_Policy) engelleyen bir web sayfasından; farklı bir etki alanında arama API'leri CORS, başka bir etki alanındaki API'leri çağırmak bir etki alanı (kaynak etki alanı) izin vermek için güvenli bir yol sağlar. Bkz: [CORS belirtimi](https://www.w3.org/TR/cors/) CORS hakkında ayrıntılı bilgi için.
@@ -67,7 +67,7 @@ Belirtilen bir hizmeti özelliklerini ayarla işlemine tek bir CORS kuralı örn
 
 CORS kuralı bulunan her öğe, aşağıda açıklanmıştır:
 
-* **AllowedOrigins**: CORS aracılığıyla Depolama hizmetinden bir istekte bulunmak için izin verilen kaynak etki alanları. Kaynak etki alanı, İsteğin kaynaklandığı etki alanıdır. Kaynak kullanıcı yaş hizmetine gönderir kaynağına sahip büyük küçük harfe duyarlı bir tam eşleşme olması gerektiğini unutmayın. Joker karakter kullanabilirsiniz ' *' CORS aracılığıyla isteğinde bulunmak tüm kaynak etki alanlarının izin vermek için. Etki alanları yukarıdaki örnekte [ http://www.contoso.com ](http://www.contoso.com) ve [ http://www.fabrikam.com ](http://www.fabrikam.com) istekleri CORS kullanarak hizmete göre yapabilirsiniz.
+* **AllowedOrigins**: CORS aracılığıyla Depolama hizmetinden bir istekte bulunmak için izin verilen kaynak etki alanları. Kaynak etki alanı, İsteğin kaynaklandığı etki alanıdır. Kaynak kullanıcı yaş hizmetine gönderir kaynağına sahip büyük küçük harfe duyarlı bir tam eşleşme olması gerektiğini unutmayın. Joker karakter kullanabilirsiniz ' *' CORS aracılığıyla isteğinde bulunmak tüm kaynak etki alanlarının izin vermek için. Etki alanları http yukarıdaki örnekte:\//www.contoso.com ve http: \/ /www.fabrikam.com istekleri CORS kullanarak hizmete göre yapabilirsiniz.
 * **AllowedMethods**: Kaynak etki alanının CORS istekleri için kullanabileceği yöntemleri (HTTP istek fiilleri). Yukarıdaki örnekte, yalnızca PUT ve GET isteklerine izin verilir.
 * **AllowedHeaders**: Kaynak etki alanının CORS isteğinde belirtebilir istek üstbilgileri. Yukarıdaki örnekte, x-ms-meta verileri ile x-ms-meta-hedef ve x-ms-meta-abc başlayan tüm meta veri üst bilgileri izin verilir. Unutmayın joker karakter ' *' Belirtilen önek herhangi üstbilgi başlayarak izin verildiğini gösterir.
 * **ExposedHeaders**: CORS isteğine yanıt olarak gönderilen ve isteği gönderene tarayıcı tarafından gösterilen yanıt üstbilgileri. Yukarıdaki örnekte, herhangi bir üst bilgisi x-ms-meta başlayarak kullanıma sunmak için tarayıcı talimat verilmiştir.
@@ -130,9 +130,9 @@ Ardından, aşağıdaki CORS isteklerini göz önünde bulundurun:
 | İstek |  |  | Yanıt |  |
 | --- | --- | --- | --- | --- |
 | **Yöntem** |**Kaynak** |**İstek Üst Bilgileri** |**Kuralın eşleşmesi** |**Sonuç** |
-| **PUT** |http://www.contoso.com |x-ms-blob-content-type |İlk kuralı |Başarılı |
-| **GET** |http://www.contoso.com |x-ms-blob-content-type |İkinci kuralı |Başarılı |
-| **GET** |http://www.contoso.com |x-ms-istemci-isteği-ID |İkinci kuralı |Hata |
+| **PUT** |http:\//www.contoso.com |x-ms-blob-content-type |İlk kuralı |Başarılı |
+| **GET** |http:\//www.contoso.com |x-ms-blob-content-type |İkinci kuralı |Başarılı |
+| **GET** |http:\//www.contoso.com |x-ms-istemci-isteği-ID |İkinci kuralı |Hata |
 
 İlk istek eşleşen ilk kural – kaynak etki alanı izin verilen çıkış noktaları eşleşir, izin verilen yöntemleri yöntemi eşleştirir ve üst bilgi izin verilen üstbilgileri – eşleşir ve bu nedenle başarılı.
 

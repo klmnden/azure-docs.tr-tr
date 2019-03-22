@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 6068f054a2ce695a889351b1f959319c64eb73fd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6e4a83eb8b3488c4ce2816151ca31b4a594dd742
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235607"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338641"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure konuk işletim sistemi desteklenebilirliği ve kullanımdan kaldırma İlkesi
 Azure konuk işletim sistemi için bu sayfadaki bilgileri ilgili ([konuk işletim sistemi](cloud-services-guestos-update-matrix.md)) bulut Hizmetleri worker ve web rolleri (PaaS). Sanal makineler (Iaas) için geçerli değildir.
@@ -55,7 +55,9 @@ Konuk işletim sistemi sürümleri, her ay kullanıma sunulur. Normal yayın ora
 
 Kullanım ömrü içinde 60 günde bir sürümüdür "*devre dışı*". "Devre dışı" sürüm Portalı'ndan kaldırılır anlamına gelir. Sürüm artık CSCFG yapılandırma dosyasında ayarlanabilir. Var olan dağıtımları, çalışan bırakılır. Ancak, yeni dağıtımlar ve varolan dağıtımları için kod ve yapılandırma güncelleştirmeleri değil izin verilir.
 
-Bir süre sonra "devre dışı olma", konuk işletim sistemi sürümü "*süresi*" ve yine de bu sürümü çalıştıran tüm yüklemeleri yükseltme ve konuk işletim sistemi gelecekte otomatik olarak güncelleştirmek için force. Sona erme disablement süre sonu dönemi değişebilir şekilde toplu olarak yapılır.
+"Devre dışı olma", süre sonra konuk işletim sistemi sürümü "expires" ve yine de bu süresi dolmuş sürümü çalıştıran tüm yüklemeleri için güvenlik ve güvenlik açığı sorunları sunulur. Genellikle, sona erme disablement dönemden sonu değişebilir şekilde toplu olarak gerçekleştirilir.
+
+Konuk işletim sistemi el ile güncelleştirmek için kendi hizmetlerini yapılandıran müşteriler, olun dağıtımlarını desteklenen konuk işletim sistemi üzerinde çalıştığından emin. Bir hizmet, konuk işletim Sisteminin otomatik olarak güncelleştirmek için yapılandırılmışsa, temel platform uyumluluğu sağlayacak ve en son konuk işletim sistemi için yükseltir.
 
 Bu nokta müşteri geçişi kolaylaştırmak için Microsoft'un kararımıza uzun yapılabilir. Üzerinde herhangi bir değişiklik duyurulacaktır [Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](cloud-services-guestos-update-matrix.md).
 

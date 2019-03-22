@@ -1,5 +1,5 @@
 ---
-title: Azure MFA Sunucusu'nu yükseltme
+title: Azure Active Directory'yi Azure MFA sunucusu - yükseltme
 description: Adımlar ve daha yeni bir sürüme Azure multi-Factor Authentication Sunucusu'nu Yükseltme Kılavuzu.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faf04c870ec72f7ff62234b5bcaadde0b8a0a144
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6c01c7a22800d633696382687feb7090a4ed8b60
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190084"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315670"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>En son Azure multi-Factor Authentication Sunucusu'na yükseltme
 

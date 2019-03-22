@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8218da62eb8c3d8c454ca1dca1bd1071e0de67b0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 3c74d3a6c5b66053fb968ad52f72eca181799a3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308763"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003586"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -156,12 +156,12 @@ Kod:
 
 - Yapılandırma dosyasından ServerTelemetryChannel Kaldır
 - Bu kod parçacığı yapılandırmanıza ekleyin:
-```csharp
-ServerTelemetryChannel channel = new ServerTelemetryChannel();
-channel.StorageFolder = @"D:\NewTestFolder";
-channel.Initialize(TelemetryConfiguration.Active);
-TelemetryConfiguration.Active.TelemetryChannel = channel;
-```
+  ```csharp
+  ServerTelemetryChannel channel = new ServerTelemetryChannel();
+  channel.StorageFolder = @"D:\NewTestFolder";
+  channel.Initialize(TelemetryConfiguration.Active);
+  TelemetryConfiguration.Active.TelemetryChannel = channel;
+  ```
 
 ### <a name="netcore"></a>NetCore
 
@@ -237,6 +237,7 @@ Bununla birlikte, uygulamanızda bu tür bir özelliği uygulayabilirsiniz. Tüm
 SDK'ları platformları arasında farklılık gösterir ve yüklemek için kullanabileceğiniz çeşitli bileşenler vardır. (Bakın [Application Insights - genel bakış][start].) Her bir bileşen farklı veri gönderir.
 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Farklı senaryolarda gönderilen veri sınıfları
+
 | Eylem | (Sonraki tabloya bakın) toplanan veri sınıfları |
 | --- | --- |
 | [.NET web projeye Application Insights SDK'sı ekleme][greenbrown] |ServerContext<br/>Olayla<br/>Performans sayaçları<br/>İstekler<br/>**Özel durumlar**<br/>Oturum<br/>kullanıcılar |
@@ -252,6 +253,7 @@ SDK'ları platformları arasında farklılık gösterir ve yüklemek için kulla
 İçin [diğer platformlar için SDK'lar][platforms], kendi belgelere bakın.
 
 #### <a name="the-classes-of-collected-data"></a>Toplanan verileri sınıfları
+
 | Toplanan verileri sınıfı | İçerir (kapsamlı bir liste değil) |
 | --- | --- |
 | **Özellikleri** |**Kodunuz tarafından belirlenen tüm veriler-** |

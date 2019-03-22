@@ -3,33 +3,33 @@ title: Key Vault desteği, Azure Key Vault Visual Studio kullanarak ASP.NET proj
 description: Bir ASP.NET veya ASP.NET Core web uygulaması için Key Vault desteği eklemek öğrenmenize yardımcı olmak için bu öğreticiyi kullanın.
 services: key-vault
 author: ghogen
-manager: douge
-ms.prod: visual-studio-dev15
+manager: jillfra
+ms.prod: visual-studio
 ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/21/2019
 ms.author: ghogen
-ms.openlocfilehash: de849ae290228826ee500ae1c7e623210e585d34
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d95bd114be712953b79ef5afbb0915173f6de26c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113257"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339287"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Key Vault, Visual Studio bağlı Hizmetler'i kullanarak web uygulamanıza ekleyin
 
-Bu öğreticide, ASP.NET Core veya ASP.NET projesi herhangi bir türde kullanıp kullanmadığınızı Visual Studio'da, web projeleri, gizli verileri yönetmek için Azure anahtar kasası kullanmaya başlamak için ihtiyacınız olan her şeyi kolayca eklemek öğreneceksiniz. Visual Studio 2017'de bağlı hizmetler özelliğini kullanarak, Visual Studio otomatik olarak tüm Azure Key Vault'ta bağlanmanız gereken yapılandırma ayarlarını ve NuGet paketleri Ekle olabilir. 
+Bu öğreticide, ASP.NET Core veya ASP.NET projesi herhangi bir türde kullanıp kullanmadığınızı Visual Studio'da, web projeleri, gizli verileri yönetmek için Azure anahtar kasası kullanmaya başlamak için ihtiyacınız olan her şeyi kolayca eklemek öğreneceksiniz. Visual Studio'da bağlı hizmetler kullanarak Visual Studio otomatik olarak tüm Azure Key Vault'ta bağlanmanız gereken yapılandırma ayarlarını ve NuGet paketleri Ekle olabilir. 
 
-Bağlı hizmetler anahtar Kasası'nı etkinleştirmek için projenizde yaptığı değişiklikleri hakkında daha fazla bilgi için bkz: [Key Vault bağlı my ASP.NET 4.7.1 ne hizmetine - proje](vs-key-vault-aspnet-what-happened.md) veya [Key Vault bağlı ne hizmetine - ASP.NET Core projeme](vs-key-vault-aspnet-core-what-happened.md).
+Bağlı hizmetler anahtar Kasası'nı etkinleştirmek için projenizde yaptığı değişiklikleri hakkında daha fazla bilgi için bkz: [Key Vault bağlı my ASP.NET 4.7.1 ne hizmetine - proje](#how-your-aspnet-framework-project-is-modified) veya [Key Vault bağlı ne hizmetine - ASP.NET Core projeme](#how-your-aspnet-core-project-is-modified).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - **Bir Azure aboneliği**. Bir aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
-- **Web Geliştirme** iş yükünün yüklendiği **Visual Studio 2017 sürüm 15.7**. [Şimdi indir](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
-- ASP.NET (çekirdek değil), varsayılan olarak yüklü olmayan .NET Framework 4.7.1 geliştirme araçları gerekir. Bunları yüklemek için Visual Studio Yükleyicisi'ni başlatın, **Değiştir**ve ardından **tek tek bileşenler**, sonra sağ tarafında genişletmek **ASP.NET ve web geliştirme**ve **.NET Framework 4.7.1 geliştirme araçları**.
-- 4.7.1 ASP.NET veya ASP.NET Core 2.0 web projesi açın.
+- **Visual Studio 2019** veya **Visual Studio 2017 sürüm 15.7** ile **Web geliştirme** iş yükü yüklenmiş. [Şimdi indir](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2017 ile ASP.NET (çekirdek değil), varsayılan olarak yüklü olmayan sonraki geliştirme araçları ve .NET Framework 4.7.1 gerekir. Bunları yüklemek için Visual Studio Yükleyicisi'ni başlatın, **Değiştir**ve ardından **tek tek bileşenler**, sonra sağ tarafında genişletmek **ASP.NET ve web geliştirme**ve **.NET Framework 4.7.1 geliştirme araçları**.
+- Bir ASP.NET 4.7.1 veya sonrası, veya ASP.NET Core 2.0 web projesi açın.
 
 ## <a name="add-key-vault-support-to-your-project"></a>Key Vault desteği projenize ekleyin.
 
@@ -107,20 +107,26 @@ Artık, kod, gizli dizileri erişebilirsiniz. Sonraki adımlar 4.7.1 ASP.NET vey
         private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     }
    ```
-3. Sonraki About.cshtml.cs dosyasını açın ve aşağıdaki kodu yazın
-   1. Using deyimi tarafından bu Microsoft.Extensions.Configuration başvuru dahil    
-       ```
+
+3. Sonraki About.cshtml.cs dosyasını açın ve aşağıdaki kodu yazın:
+   1. Using deyimi tarafından bu Microsoft.Extensions.Configuration başvuru şunlardır:
+
+       ```csharp
        using Microsoft.Extensions.Configuration
        ```
-   2. Bu oluşturucu Ekle
-       ```
+
+   1. Bu oluşturucu ekleyin:
+
+       ```csharp
        public AboutModel(IConfiguration configuration)
        {
            _configuration = configuration;
        }
        ```
-   3. OnGet yöntemi güncelleştirin. Yukarıdaki komutlar oluşturduğunuz gizli dizi adı ile burada gösterilen yer tutucu değerini güncelleştirin
-       ```
+
+   1. OnGet yöntemi güncelleştirin. Yukarıdaki komutlar oluşturduğunuz gizli dizi adı ile burada gösterilen yer tutucu değerini güncelleştirin.
+
+       ```csharp
        public void OnGet()
        {
            //Message = "Your application description page.";
@@ -128,7 +134,7 @@ Artık, kod, gizli dizileri erişebilirsiniz. Sonraki adımlar 4.7.1 ASP.NET vey
        }
        ```
 
-Sayfa hakkında göz atarak, uygulamayı yerel olarak çalıştırın. Alınan, gizli değer gerekir
+Hakkında sayfasına göz atarak, uygulamayı yerel olarak çalıştırın. Alınan, gizli değer görmeniz gerekir.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -137,6 +143,94 @@ Artık gerekli değilse kaynak grubunu silin. Bu, Key Vault ve ilgili kaynaklar�
 1. Portalın üst kısmındaki Arama kutusuna kaynak grubunuzun adını girin. Bu Hızlı Başlangıçta kullanılan kaynak grubunu arama sonuçlarında gördüğünüzde seçin.
 2. **Kaynak grubunu sil**'i seçin.
 3. **KAYNAK GRUBU ADINI YAZIN:** kutusuna kaynak grubunun adını yazın ve **Sil**’i seçin.
+
+## <a name="how-your-aspnet-core-project-is-modified"></a>ASP.NET Core projenizi nasıl değiştirilir
+
+Bu bölümde ekleme Key Vault bağlı hizmeti Visual Studio kullanarak bir ASP.NET projesi için yapılan değişiklikleri tam tanımlar.
+
+### <a name="added-references"></a>Ek başvurular
+
+NuGet paket başvuruları ve proje dosya .NET başvuruları etkiler.
+
+| Type | Başvuru |
+| --- | --- |
+| NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
+
+### <a name="added-files"></a>Eklenen dosyalar
+
+- Bağlı hizmet sağlayıcısı, sürümü ve belgeleri bağlantısı hakkında bazı bilgiler kaydeder ConnectedService.json eklenir.
+
+### <a name="project-file-changes"></a>Proje dosya değişiklikleri
+
+- Bağlı Hizmetleri ItemGroup ve ConnectedServices.json dosya eklendi.
+
+### <a name="launchsettingsjson-changes"></a>launchsettings.json changes
+
+- IIS Express profili ve web projenizin adına eşleşen profili için aşağıdaki ortam değişkeni girdileri eklendi:
+
+    ```json
+      "environmentVariables": {
+        "ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED": "true",
+        "ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT": "<your keyvault URL>"
+      }
+    ```
+
+### <a name="changes-on-azure"></a>Azure üzerindeki değişiklikler
+
+- Bir kaynak grubu oluşturulur (veya var olan bir kullanılır).
+- Belirtilen kaynak grubunda bir Key Vault oluşturdunuz.
+
+## <a name="how-your-aspnet-framework-project-is-modified"></a>ASP.NET Framework projenizin nasıl değiştirilir
+
+Bu bölümde ekleme Key Vault bağlı hizmeti Visual Studio kullanarak bir ASP.NET projesi için yapılan değişiklikleri tam tanımlar.
+
+### <a name="added-references"></a>Ek başvurular
+
+Proje .NET başvurulara etkiler ve `packages.config` (NuGet başvurularını).
+
+| Type | Başvuru |
+| --- | --- |
+| .NET; NuGet | Microsoft.Azure.KeyVault |
+| .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |
+| .NET; NuGet | Microsoft.Rest.ClientRuntime |
+| .NET; NuGet | Microsoft.Rest.ClientRuntime.Azure |
+
+### <a name="added-files"></a>Eklenen dosyalar
+
+- Bağlı hizmet sağlayıcısı, sürümü ve belgeleri bağlantısı hakkında bazı bilgiler kaydeder ConnectedService.json eklenir.
+
+### <a name="project-file-changes"></a>Proje dosya değişiklikleri
+
+- Bağlı Hizmetleri ItemGroup ve ConnectedServices.json dosya eklendi.
+- Açıklanan .NET derlemesine ilişkin başvurular [eklenen başvuruları](#added-references) bölümü.
+
+### <a name="webconfig-or-appconfig-changes"></a>Web.config veya app.config değişiklikleri
+
+- Aşağıdaki yapılandırma girdileri eklendi:
+
+    ```xml
+    <configSections>
+      <section
+           name="configBuilders"
+           type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 
+           restartOnExternalChanges="false"
+           requirePermission="false" />
+    </configSections>
+    <configBuilders>
+      <builders>
+        <add 
+             name="AzureKeyVault"
+             vaultName="vaultname"
+             type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=1.0.0.0, Culture=neutral" 
+             vaultUri="https://vaultname.vault.azure.net" />
+      </builders>
+    </configBuilders>
+    ```
+
+### <a name="changes-on-azure"></a>Azure üzerindeki değişiklikler
+
+- Bir kaynak grubu oluşturulur (veya var olan bir kullanılır).
+- Belirtilen kaynak grubunda bir Key Vault oluşturdunuz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

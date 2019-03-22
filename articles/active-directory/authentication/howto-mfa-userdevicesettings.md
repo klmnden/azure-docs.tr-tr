@@ -1,5 +1,5 @@
 ---
-title: Yöneticileri Yönet kullanıcılara ve cihazlara - Azure MFA | Microsoft Docs
+title: Yöneticileri Yönet kullanıcılara ve cihazlara - Azure MFA - Azure Active Directory
 description: Bu kavram işlemimiz yeniden yapmak için kullanıcıların zorlama gibi kullanıcı ayarlarını nasıl değiştireceğinizi açıklar.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 941d11e9768d60c106c576e3f93bc7ad2067b73c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 19ae32f5b11d9da5b5e03fc68f1120caa54b4890
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174869"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314340"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Bulutta Azure multi Factor Authentication ile kullanıcı ayarlarını yönetme
 

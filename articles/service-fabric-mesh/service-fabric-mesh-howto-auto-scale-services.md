@@ -3,7 +3,7 @@ title: Azure Service Fabric Mesh içinde çalışan uygulama bir otomatik ölçe
 description: Bir Service Fabric Mesh uygulamasının Hizmetleri için otomatik ölçeklendirme ilkeleri yapılandırmayı öğrenin.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2018
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f34c27addb61ce3dc24406598663d6bfbddf448b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2233dffabd7c76ca55cf215f8bc04e66134f5799
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969446"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338811"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Bir Service Fabric Mesh uygulaması için otomatik ölçeklendirme ilkeleri oluşturma
 Service Fabric Mesh’e uygulamaları dağıtmanın ana avantajlarından biri, hizmetlerinizin ölçeğini kolayca artırabilmeniz veya azaltabilmenizdir. Hizmetlerinizdeki değişen yük miktarlarını işlemek ve kullanılabilirliği artırmak için bu kullanılmalıdır. El ile veya hizmetlerinizi ölçeklendirmek veya otomatik ölçeklendirme ilkeleri ayarlayın.

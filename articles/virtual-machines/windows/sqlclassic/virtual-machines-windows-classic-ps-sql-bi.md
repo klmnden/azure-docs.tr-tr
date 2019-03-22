@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: 2b2f5a441209b76f4c90c1a4682215d388b2d53a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242900"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317791"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure Sanal Makinelerde SQL Server İş Zekası
 > [!IMPORTANT] 
@@ -107,13 +107,13 @@ Aşağıdaki tabloda yaygın Microsoft Azure sanal makine galeri görüntüleri 
   > [!NOTE]
   > SQL Server veritabanı altyapısı desteklenen bir BI senaryolarda gereklidir. Tek bir sunucu VM topoloji, veritabanı altyapısı, aynı sanal makinede çalıştırılması için gereklidir.
   
-    Daha fazla bilgi için aşağıdakilere bakın: [Reporting Services kaldırma](https://msdn.microsoft.com/library/hh479745.aspx) ve [bir örneği, Analysis Services'ı kaldırma](https://msdn.microsoft.com/library/ms143687.aspx).
+    Daha fazla bilgi için, aşağıdakilere bakın: [Reporting Services'ı kaldırmanız](https://msdn.microsoft.com/library/hh479745.aspx) ve [Analysis Services örneğini kaldırma](https://msdn.microsoft.com/library/ms143687.aspx).
 * Denetleme **Windows Update** yeni 'önemli güncelleştirmeleri'. Microsoft Azure sanal makine görüntüleri sıklıkla yenilendiğinden; Bununla birlikte önemli güncelleştirmeler kullanılabilir hale gelebilir **Windows Update** VM görüntüsünün son yenilenme sonra.
 
 ## <a name="example-deployment-topologies"></a>Örnek dağıtım topolojileri
 Microsoft Azure sanal makineleri'nin örnek dağıtımlar aşağıda verilmiştir. Bu diyagramları Topolojilerde yalnızca SQL Server BI özellikleri ve Microsoft Azure sanal makineler ile kullanabileceğiniz olası topolojiler bazılarıdır.
 
-### <a name="single-virtual-machine"></a>Tek sanal makine
+### <a name="single-virtual-machine"></a>Tek Sanal Makine
 Analiz Hizmetleri, Reporting Services, SQL Server veritabanı altyapısı ve veri kaynakları tek bir sanal makine üzerinde.
 
 ![1 sanal makine ile bi iass senaryosu](./media/virtual-machines-windows-classic-ps-sql-bi/IC650108.gif)
@@ -174,7 +174,7 @@ Bir Azure sanal makinesine bağlanmak için iki ortak iş akışı vardır:
 
 veya:
 
-1. Tıklayın **Başlat**.
+1. **Başlat**'a tıklayın.
 2. İçinde **programları ve dosyaları ara** iletişim kutusuna **reporting services**. Sanal makine Windows Server 2012 çalıştırıyorsa, yazın **reporting services** Windows Server 2012 Başlat ekranında.
 3. Sağ **Reporting Services Yapılandırma Yöneticisi** tıklatıp **yönetici olarak çalıştır**.
    
@@ -209,7 +209,7 @@ veya:
 1. Tıklayın **Web portalı URL'niz**, veya **Rapor Yöneticisi URL'si** 2014 ve sol bölmede 2012.
 2. **Uygula**'ya tıklayın.
 3. İçinde **sonuçları** bölmesinde başarıyla tamamlanan Eylemler doğrulayın.
-4. Tıklayın **çıkış**.
+4. **Çıkış**'a tıklayın.
 
 Rapor sunucusu izinleri hakkında daha fazla bilgi için bkz: [yerel mod rapor sunucusu izinleri verme](https://msdn.microsoft.com/library/ms156014.aspx).
 
@@ -217,7 +217,7 @@ Rapor sunucusu izinleri hakkında daha fazla bilgi için bkz: [yerel mod rapor s
 Yapılandırmayı doğrulamak için VM üzerinde Rapor Yöneticisi göz atın.
 
 1. VM üzerinde yönetici ayrıcalıklarına sahip Internet Explorer'ı başlatın.
-2. Gözat http://localhost/reports VM üzerinde.
+2. HTTP için göz atın: \/ /localhost/VM'de bildirir.
 
 ### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>Uzak web portalı veya 2014 ve 2012 için Rapor Yöneticisi için Bağlan
 2014'e ve uzak bir bilgisayardan sanal makinede 2012 için web portalı veya Rapor Yöneticisi için bağlanmak isterseniz yeni bir sanal makine TCP uç noktası oluşturun. Varsayılan olarak, rapor sunucusu HTTP isteklerini dinler. **bağlantı noktası 80**. Rapor sunucusu URL'leri, farklı bir bağlantı noktasını kullanacak şekilde yapılandırırsanız aşağıdaki yönergelerde yer bağlantı noktası numarasını belirtmeniz gerekir.
@@ -226,22 +226,22 @@ Yapılandırmayı doğrulamak için VM üzerinde Rapor Yöneticisi göz atın.
 2. Sanal makinenin Güvenlik Duvarı'nda 80 numaralı bağlantı noktasını açın.
 3. Web Portalı'na göz atın veya Rapor Yöneticisi kullanarak Azure sanal makine, **DNS adı** URL'deki sunucu adı olarak. Örneğin:
    
-    **Rapor sunucusu**: http://uebi.cloudapp.net/reportserver **Web portalı**:   http://uebi.cloudapp.net/reports
+    **Rapor sunucusu**: http://uebi.cloudapp.net/reportserver  **Web portalı**: http://uebi.cloudapp.net/reports
    
     [Rapor sunucusu erişimi için bir güvenlik duvarı yapılandırma](https://msdn.microsoft.com/library/bb934283.aspx)
 
 ### <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>Oluşturma ve raporları Azure sanal makine yayımlama
 Aşağıdaki tabloda bazı Microsoft Azure sanal makinede barındırılan bir rapor sunucusu için bir şirket içi bilgisayardan varolan raporları yayımlamak kullanılabilir seçenekler özetlenmektedir:
 
-* **Rapor Oluşturucu**: tıklayarak sanal makineyi içeren-SQL 2014 ve 2012 için Microsoft SQL Server Rapor Oluşturucusu sürümünü bir kez. Sanal makinedeki SQL 2016 Rapor Oluşturucusu'nu ilk zaman başlatmak için:
+* **Rapor Oluşturucu**: Tıklayarak sanal makineyi içeren-SQL 2014 ve 2012 için Microsoft SQL Server Rapor Oluşturucusu sürümünü bir kez. Sanal makinedeki SQL 2016 Rapor Oluşturucusu'nu ilk zaman başlatmak için:
   
   1. Tarayıcınız, yönetici ayrıcalıklarıyla başlatın.
   2. Sanal makinedeki web portalında göz atın ve seçim **indirin** sağ üst köşedeki bir simge.
   3. Seçin **Rapor Oluşturucu**.
      
      Daha fazla bilgi için [Rapor Oluşturucusu'nu başlatın](https://msdn.microsoft.com/library/ms159221.aspx).
-* **SQL Server veri Araçları**: VM: SQL Server veri araçları sanal makineye yüklenir ve oluşturmak için kullanılan **rapor sunucusu projeleri** ve sanal makine üzerindeki raporlar. SQL Server veri araçları, sanal makinede rapor sunucusu raporları yayımlayabilirsiniz.
-* **SQL Server veri araçları: Uzaktan**: yerel bilgisayarınızda SQL Server veri araçları Raporlama Hizmetleri raporlarını içeren bir Reporting Services projesi oluşturun. Projenin web hizmetinin URL'SİYLE bağlanmak için yapılandırın.
+* **SQL Server veri Araçları**: VM:  SQL Server veri araçları sanal makineye yüklenir ve oluşturmak için kullanılan **rapor sunucusu projeleri** ve sanal makine üzerindeki raporlar. SQL Server veri araçları, sanal makinede rapor sunucusu raporları yayımlayabilirsiniz.
+* **SQL Server veri araçları: Uzak**:  Yerel bilgisayarınızda SQL Server veri araçları Raporlama Hizmetleri raporlarını içeren bir Reporting Services projesi oluşturun. Projenin web hizmetinin URL'SİYLE bağlanmak için yapılandırın.
   
     ![SSRS projesi için SSDT proje özellikleri](./media/virtual-machines-windows-classic-ps-sql-bi/IC650114.gif)
 * Oluşturma bir. Raporlarını içerir ve karşıya yükleyin ve sürücüsü ekleme VHD'yi sabit sürücü.
@@ -268,7 +268,7 @@ Veya C:\SQLServer_13.0_full\setup.exe, C:\SQLServer_12.0_full\setup.exe veya C:\
 > 
 
 ### <a name="to-install-analysis-services-tabular-mode"></a>Analysis Services Tabular modunda yüklemek için
-Bu bölümdeki adımları **özetlemek** Analysis Services tabular modunda yükleme. Daha fazla bilgi için aşağıdakilere bakın:
+Bu bölümdeki adımları **özetlemek** Analysis Services tabular modunda yükleme. Daha fazla bilgi için, aşağıdakilere bakın:
 
 * [Analysis Services Tabular modunda yükleme](https://msdn.microsoft.com/library/hh231722.aspx)
 * [Tablosal modelleme (Adventure Works Öğreticisi)](https://msdn.microsoft.com/library/140d0b43-9455-4907-9827-16564a904268)
@@ -317,7 +317,7 @@ Bu bölümde, Microsoft Azure sanal makine oluşturmak için uç ve sanal makine
   * Sanal makine uç noktalarına belirtilenler bağlantı noktaları (*) oluşturun.
 * Sanal makine Azure sanal ağ gibi bir VPN tüneli ile bir etki alanına katılmışsa, uç noktaları gerekli değildir. Ancak, sanal makinedeki güvenlik duvarı bağlantı noktalarını açın.
   
-  | Bağlantı noktası | Tür | Açıklama |
+  | Bağlantı noktası | Type | Açıklama |
   | --- | --- | --- |
   | **80** |TCP |Rapor sunucusu uzaktan erişim (*). |
   | **1433** |TCP |SQL Server Management Studio'yu (*). |
@@ -329,7 +329,7 @@ Bu bölümde, Microsoft Azure sanal makine oluşturmak için uç ve sanal makine
 Uç noktaları oluşturma hakkında daha fazla bilgi için aşağıdakilere bakın:
 
 * Uç noktaları oluşturun:[bir sanal makineye uç noktaları ayarlama](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-* SQL Server: "Kullanarak SQL Server Management Studio sanal makineye bağlanmak için tam yapılandırma adımları" bölümüne bakın. [azure'da bir SQL Server sanal makinesi sağlama](../sql/virtual-machines-windows-portal-sql-server-provision.md).
+* SQL sunucusu: "Kullanarak SQL Server Management Studio sanal makineye bağlanmak için tam yapılandırma adımları" bölümüne bakın [azure'da bir SQL Server sanal makinesi sağlama](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 Aşağıdaki diyagram, VM özelliklerinin ve bileşenlerinin uzaktan erişime izin vermek için VM Güvenlik Duvarı'nda açmak için bağlantı noktalarını gösterir.
 

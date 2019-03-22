@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 1eab0be59de90ad68cbf9601b7e2200e640875f4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58178076"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317502"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Event Grid ile CloudEvents şeması kullanma
 
@@ -70,7 +70,7 @@ CloudEvents v0.1, aşağıdaki özelliklere sahiptir:
 | source             | URI      | "/ mycontext"                     | Olay üretici açıklar                                       | Konu #subject
 | EventID            | String   | "1234-1234-1234"                 | Etkinliğin kimliği                                                    | id
 | eventTime          | Zaman damgası| "2018-04-05T17:31:00Z"           | Olay (isteğe bağlı) ne zaman oluştuğunu, zaman damgası                    | eventTime
-| schemaURL          | URI      | "https://myschema.com"           | Veri özniteliği uyar (isteğe bağlı) şemayı Bağla | *kullanılmıyor*
+| schemaURL          | URI      | "https:\//myschema.com"           | Veri özniteliği uyar (isteğe bağlı) şemayı Bağla | *kullanılmıyor*
 | contentType        | String   | "application/json"               | Veri kodlama biçimi (isteğe bağlı) açıklayın                       | *kullanılmıyor*
 | Uzantıları         | Eşleme      | {"yapıştırmadan": "vA", "extB", "vB"}  | Ek meta verileri (isteğe bağlı)                                 | *kullanılmıyor*
 | veriler               | Nesne   | {"objA": "vA", "objB", "vB"}  | Olay Yükü (isteğe bağlı)                                       | veriler
