@@ -14,24 +14,24 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 5f28e213a5f824562df62a05b98f0f92f71bc591
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 22ec05660682f000d8bc3b9780732d5adf9b5c24
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957445"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226717"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Hızlı Başlangıç: Uygulama yapılandırması ile Azure işlevi oluşturma
 
-Azure uygulama yapılandırması, azure'da yönetilen yapılandırma hizmetidir. Kolayca depolayıp kodunuzdan tüm uygulama ayarlarınızı ayrılmış tek bir yerden yönetmenize olanak tanır. Bu hızlı başlangıçta bir Azure işlevine hizmeti eklemesine gösterilmektedir. 
+Azure uygulama yapılandırması, azure'da yönetilen yapılandırma hizmetidir. Kolayca depolayın ve kodunuzdan tüm uygulama ayarlarınızı ayrılmış tek bir yerden yönetmek için kullanabilirsiniz. Bu hızlı başlangıçta hizmeti bir Azure işlev eklemesine gösterilmektedir. 
 
-Bu hızlı başlangıçtaki adımları tamamlamak için herhangi bir kod düzenleyicisini kullanabilirsiniz. Ancak, Windows, macOS ve Linux platformlarında sağlanan [Visual Studio Code](https://code.visualstudio.com/) mükemmel bir seçenektir.
+Bu hızlı başlangıçtaki adımları uygulamak için herhangi bir kod Düzenleyicisi'ni kullanabilirsiniz. [Visual Studio Code](https://code.visualstudio.com/) Windows, macOS ve Linux platformlarını mükemmel bir seçenek kullanılabilir.
 
-![Hızlı Başlangıç Yerel tamamlama](./media/quickstarts/dotnet-core-function-launch-local.png)
+![Hızlı tam yerel](./media/quickstarts/dotnet-core-function-launch-local.png)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için yükleme [Visual Studio 2017](https://visualstudio.microsoft.com/vs) (olduğundan emin olun **Azure geliştirme** iş yükü yüklenmiş) ve [en son Azure işlevleri Araçları](../azure-functions/functions-develop-vs.md#check-your-tools-version).
+Bu hızlı başlangıç yapmak için yükleme [Visual Studio 2017](https://visualstudio.microsoft.com/vs). Emin olun **Azure geliştirme** iş yükü de yüklenir. Ayrıca yükleme [en son Azure işlevleri Araçları](../azure-functions/functions-develop-vs.md#check-your-tools-version).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,9 +43,9 @@ Bu hızlı başlangıcı tamamlamak için yükleme [Visual Studio 2017](https://
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-## <a name="connect-to-app-configuration-store"></a>Uygulama yapılandırma deposuna bağlanın
+## <a name="connect-to-an-app-configuration-store"></a>Bir uygulama yapılandırma deposuna bağlanın
 
-1. Açık *Function1.cs* ve uygulama yapılandırma .NET Core yapılandırma sağlayıcısı bir başvuru ekleyin.
+1. Açık *Function1.cs*, bir uygulama yapılandırma .NET Core yapılandırma sağlayıcısı bir başvuru ekleyin.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -77,25 +77,25 @@ Bu hızlı başlangıcı tamamlamak için yükleme [Visual Studio 2017](https://
 
 ## <a name="test-the-function-locally"></a>İşlevi yerel olarak test etme
 
-1. Adlı bir ortam değişkenini ayarlamak **ConnectionString** ve uygulama yapılandırma deponuz için erişim anahtarı ayarlayın. Windows Komut İstemi'ni kullanıyorsanız, aşağıdaki komutu yürütün ve değişikliğin etkili olması için izin vermek için komut istemine yeniden başlatın:
+1. Adlı bir ortam değişkenini ayarlamak **ConnectionString**ve uygulama yapılandırma deponuz için erişim anahtarı ayarlayın. Windows Komut İstemi'ni kullanırsanız, aşağıdaki komutu çalıştırın ve değişikliğin etkili olması için izin vermek için komut istemine yeniden başlatın:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
-    Windows PowerShell kullanıyorsanız, aşağıdaki komutu yürütün:
+    Windows PowerShell kullanıyorsanız, aşağıdaki komutu çalıştırın:
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-    MacOS veya Linux'ı kullanıyorsanız, aşağıdaki komutu yürütün:
+    MacOS veya Linux kullanıyorsanız, aşağıdaki komutu çalıştırın:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. İşlevinizi test etmek için basın **F5**. İstenirse, indirmek ve yüklemek için Visual Studio'dan isteği kabul et **Azure işlevleri temel (CLI)** araçları. Aracın HTTP isteklerini işleyebilmesi için bir güvenlik duvarı özel durumu etkinleştirmeniz de gerekebilir.
+2. İşlevinizi test etmek için F5’e basın. İstenirse, indirmek ve yüklemek için Visual Studio'dan isteği kabul et **Azure işlevleri temel (CLI)** araçları. Araçlar HTTP isteklerini işleyebilmesi bir güvenlik duvarı özel durumu etkinleştirmeniz de gerekebilir.
 
 3. Azure İşlevleri çalışma zamanı çıktısından işlevinizin URL'sini kopyalayın.
 
     ![Hızlı Başlangıç VS'de hata ayıklama işlevi](./media/quickstarts/function-visual-studio-debugging.png)
 
-4. HTTP isteğinin URL’sini tarayıcınızın adres çubuğuna yapıştırın. İşlevin döndürdüğü yerel GET isteğine tarayıcıda verilen yanıt aşağıda gösterilmiştir:
+4. HTTP isteğinin URL’sini tarayıcınızın adres çubuğuna yapıştırın. Aşağıdaki resimde, işlevin döndürdüğü yerel GET isteğine tarayıcıda yanıt gösterilmektedir.
 
     ![Yerel işlev hızlı başlatma](./media/quickstarts/dotnet-core-function-launch-local.png)
 
@@ -105,7 +105,7 @@ Bu hızlı başlangıcı tamamlamak için yükleme [Visual Studio 2017](https://
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, yeni bir uygulama yapılandırma deposu oluşturulur ve bir Azure işlevi ile kullanılan. Uygulama yapılandırmasını kullanma hakkında daha fazla bilgi edinmek için kimlik doğrulaması gösteren bir sonraki öğreticiye devam edin.
+Bu hızlı başlangıçta, yeni bir uygulama yapılandırma deposu oluşturuldu ve bir Azure işlevi ile kullanılır. Uygulama yapılandırmasını kullanma hakkında daha fazla bilgi için kimlik doğrulaması gösteren bir sonraki öğreticiye devam edin.
 
 > [!div class="nextstepaction"]
 > [Azure kaynaklarını tümleştirme için yönetilen kimlik](./integrate-azure-managed-service-identity.md)

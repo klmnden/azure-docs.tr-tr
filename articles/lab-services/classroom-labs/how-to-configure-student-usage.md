@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: eadbaacd4bb860cd09997775b8d77cbcf0ff17f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964823"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181631"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Kullanım ayarları ve ilkeleri yapılandırma
 Bu makalede kullanıcıların laboratuvara ekleme, bunları laboratuvarla kayıtlı almak için VM ve daha fazlasını kullanabilirsiniz saat sayısını denetlemek nasıl açıklar. 
@@ -38,9 +38,22 @@ Varsa **erişimi kısıtlama** etkin kullanıcılar (e-posta adresleri) listeye 
 
     ![Kullanıcı listesi](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="send-registration-link-to-students"></a>Öğrencilere kayıt bağlantısı gönderme
-Aşağıdaki yordam bir kayıt bağlantı kullanıcılara göndermek için adımları yok. Varsa **erişimi kısıtlama** yalnızca kullanıcılar listesindeki kullanıcıları için laboratuvar kaydetmek için kayıt bağlantısını kullanabilir Laboratuvar için etkinleştirilir. 
+## <a name="share-registration-link-with-students"></a>Öğrenciler ile kayıt bağlantıyı Paylaş
+Öğrenciler için kayıt bağlantıyı göndermek için aşağıdaki yöntemlerden birini kullanın. İlk yöntem, e-postaları öğrencilere kayıt bağlantı ve isteğe bağlı bir ileti göndermek nasıl gösterir. İkinci yöntem, dilediğiniz gibi diğer kullanıcılarla paylaşabileceğiniz kayıt bağlantısını alma işlemini göstermektedir. 
 
+Varsa **erişimi kısıtlama** yalnızca kullanıcılar listesindeki kullanıcıları için laboratuvar kaydetmek için kayıt bağlantısını kullanabilir Laboratuvar için etkinleştirilir. Bu seçenek varsayılan olarak etkindir. 
+
+### <a name="send-email-to-users"></a>Kullanıcılara e-posta Gönder
+1. Geçiş **kullanıcılar** sayfada zaten kök kullanıcı değilseniz görüntüleyin. 
+2. Belirli veya tüm kullanıcılar listeden seçin. Belirli kullanıcıları seçmek için listedeki ilk sütunda onay kutularını seçin. Tüm kullanıcıları seçmek için ilk sütun başlığının önüne onay kutusunu seçin (**adı**) veya listeden tüm kullanıcılar için tüm onay kutularını seçin.
+3. Seçin **Davet Gönder** araç. Ayrıca, listedeki bir öğrenci adı fareyi üzerine ve e-posta simgesine gönderin. 
+
+    ![Kayıt bağlantıyı e-posta ile gönderin](../media/tutorial-setup-classroom-lab/send-email.png)
+4. Üzerinde **e-posta ile gönderme kayıt bağlantı** sayfasında, aşağıdaki adımları izleyin: 
+    1. Türü bir **isteğe bağlı iletisini** Öğrenciler göndermek istediğiniz. E-posta kayıt bağlantıyı otomatik olarak içerir. 
+    2. Üzerinde **e-posta ile gönderme kayıt bağlantı** sayfasında **Gönder**. 
+
+## <a name="get-registration-link"></a>Kayıt bağlantı alma
 1. Geçiş **kullanıcılar** görünümü seçerek **kullanıcılar** sol menüsünde. 
 2. Seçin **kayıt bağlantı alma** Döşe.
 
@@ -49,11 +62,7 @@ Aşağıdaki yordam bir kayıt bağlantı kullanıcılara göndermek için adım
 
     ![Öğrenci kaydı bağlantısı](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. **Kullanıcı kaydı** iletişim kutusunda **Kapat**'ı seçin. 
-4. Kayıt bağlantısını sınıfa kaydolmasını istediğiniz öğrencilerle paylaşın. Varsa **seçeneği kısıtlama** ayarı etkin ve kullanıcıların listesini listesinde olması, aşağıdaki eylemleri gerçekleştirin:
-    1. Seçin **e-posta adresi** listesinde kullanıcının. 
-    2. Bir pencere varsayılan e-posta programınızı görmek **Kime** adresi doldurulur. 
-    3. Yapıştırma **kayıt URL'si** daha önce kopyaladığınız. 
-    4. Gönderme **e-posta**. 
+4. Paylaşım **kayıt bağlantı** bir öğrenci ile sınıf için Öğrenci kaydedebilmesi. 
 
 ## <a name="view-users-registered-with-the-lab"></a>Laboratuvara kayıtlı kullanıcıları görüntüleme
 

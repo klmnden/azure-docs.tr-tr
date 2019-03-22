@@ -7,27 +7,33 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: jodebrui
-ms.author: jodebrui
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: fcfe8ed0bc132377fbaefaccb03e1d6a9374b8d6
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/19/2019
+ms.openlocfilehash: d2c852b48c219283bba2304a993dd26e802b3252
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312491"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226989"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL veritabanında bellek içi teknolojileri kullanarak performansını iyileştirin
 
-Azure SQL veritabanında bellek içi teknolojileri, uygulamanızın performansını sağlar ve potansiyel olarak veritabanı maliyetini azaltın. Azure SQL veritabanı'nda Bellek içi teknolojileri kullanarak, çeşitli iş yükleriyle performans iyileştirmeleri elde edebilirsiniz:
+Azure SQL veritabanında bellek içi teknolojileri, uygulamanızın performansını sağlar ve potansiyel olarak veritabanı maliyetini azaltın. 
+
+## <a name="when-to-use-in-memory-technologies"></a>Bellek içi teknolojileri kullanmayı ne zaman
+
+Azure SQL veritabanı'nda Bellek içi teknolojileri kullanarak, çeşitli iş yükleriyle performans iyileştirmeleri elde edebilirsiniz:
 
 - **İşlem** (çevrimiçi işlem gerçekleştirme (OLTP)) burada isteklerin çoğunu okuma veya güncelleştirme daha küçük veri (örneğin, CRUD işlemleri) kümesi.
 - **Analitik** (çevrimiçi analitik işlem (OLAP)) çoğu sorgu ve raporlama için karmaşık hesaplamalar sahip olduğu amacıyla, belirli sayıda yüklemek ve verileri (Bu nedenle toplu yükleme olarak adlandırılır) mevcut tablolar eklemek ya da silme sorguları ile tablolardaki verileri. 
 - **Karma** (hibrit işlem/analitik işlem (HTAP)) OLTP ve OLAP sorguları aynı veri kümesi üzerinde yürütülen burada.
 
-Bellek içi teknolojileri sorguları native derlemesi kullanarak belleğe işlenen verileri tutarak bu iş yüklerinin performansını geliştirebilir veya gelişmiş işleme tür olarak toplu işleme ve mevcut SIMD yönergeleri temel alınan donanım.
+Bellek içi teknolojileri sorguları native derlemesi kullanarak belleğe işlenen verileri tutarak bu iş yüklerinin performansını geliştirebilir veya gelişmiş işleme tür olarak toplu işleme ve mevcut SIMD yönergeleri temel alınan donanım. 
+
+## <a name="overview"></a>Genel Bakış
 
 Azure SQL veritabanı, bellek içi teknolojilerin sahiptir:
 - *[Bellek içi OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)*  saniye başına işlem sayısını artırır ve işlem için gecikme süresini azaltır. Bellek içi OLTP ' yararlanan senaryolar şunlardır: olayları veya önbelleğe alma, veri yükleme ve geçici tablo ve tablo değişkeni senaryoları IOT cihazları, ticaret ve oyun, veri alma gibi yüksek performanslı işlem.
@@ -77,7 +83,7 @@ Bellek içi OLTP teknolojisi, tüm verileri bellek içinde tutarak son derece h�
 
 - **Bellek için iyileştirilmiş rowstore** her satır ayrı bir bellek nesne olduğu biçimi. Yüksek performanslı OLTP iş yükleri için iyileştirilmiş klasik bir bellek içi OLTP biçimi budur. Bellek için iyileştirilmiş tablolar, bellek için iyileştirilmiş rowstore biçiminde kullanılabilir iki tür vardır:
   - *Dayanıklı tabloları* (schema_and_data dayanıklılığına) burada bellekte yer satırları korunur sunucuyu yeniden başlattıktan sonra. Bu tür bir tablo, bellek içi iyileştirmeler ek avantajları ile geleneksel rowstore tablo gibi davranır.
-  - *Dayanıklı olmayan tablolar* (SCEMA_ONLY) satırları nerede değil korunur yeniden başlatıldıktan sonra. Bu tür bir tabloya geçici verileri (örneğin, geçici tabloları değiştirme) için tasarlanmıştır ya da (Bu nedenle hazırlama tabloları da denir) bazı kalıcı tabloya taşımadan önce tablolar, hızlı bir şekilde gereken veri yükleyin.
+  - *Dayanıklı olmayan tablolar* (SCHEMA_ONLY) satırları nerede değil korunur yeniden başlatıldıktan sonra. Bu tür bir tabloya geçici verileri (örneğin, geçici tabloları değiştirme) için tasarlanmıştır ya da (Bu nedenle hazırlama tabloları da denir) bazı kalıcı tabloya taşımadan önce tablolar, hızlı bir şekilde gereken veri yükleyin.
 - **Bellek için iyileştirilmiş columnstore** burada veri düzenlenir sütunlu bir biçimde biçimi. Bu yapı, OLTP iş yükünüz nerede çalışıyor aynı veri yapısına analitik sorguları çalıştırmak için gereken HTAP senaryoları için tasarlanmıştır.
 
 > [!Note]

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 39c4884fcca2b041603305d73526e3310ab99a21
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441891"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081228"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Bir SaaS uygulamasında Kiracı başına veritabanı düzenini Azure SQL veritabanı ile kullanarak şemayı yönetme
  
@@ -28,7 +28,7 @@ Bu öğreticide, tüm kiracılar için başvuru verisi güncelleştirmelerini da
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-
+> 
 > * İş Aracısı oluşturma
 > * T-SQL işleri, tüm Kiracı veritabanlarında çalışmasına neden
 > * Başvuru tüm Kiracı veritabanlarında verileri güncelleştirme
@@ -122,7 +122,7 @@ Aşağıdaki öğeleri inceleyin _OnlineReindex.sql_ betiği:
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-
+> 
 > * Birden çok veritabanı T-SQL işleri çalıştırmak için bir İş Aracısı oluşturma
 > * Başvuru tüm Kiracı veritabanlarında verileri güncelleştirme
 > * Tüm kiracı veritabanlarında bir tabloda dizin oluşturma

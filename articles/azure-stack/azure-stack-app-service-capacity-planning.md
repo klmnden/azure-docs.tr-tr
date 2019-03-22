@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
-ms.author: jeffgilb
+ms.date: 03/13/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2c726675d799a8bb5f9ed1d1dd595aa7f4700036
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 03/13/2019
+ms.openlocfilehash: 06bafbcf3e668ba17b1245b9352e942e02569997
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774609"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852381"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Kapasite Azure Stack'te Azure App Service sunucu rolleri için planlama
 
@@ -93,9 +93,17 @@ Paylaşılan web çalışanı rolü sayısına kullanmaya karar verdiğinizde, b
 
    Daha fazla çalışan örneğinden ekleme hakkında daha fazla bilgi için bkz: [daha fazla çalışanı rolü ekleme](azure-stack-app-service-add-worker-roles.md).
 
+### <a name="additional-considerations-for-dedicated-workers-during-upgrade-and-maintenance"></a>Yükseltme ve bakım sırasında adanmış çalışanları için ek hususlar
+
+Yükseltme ve çalışan bakımı sırasında Azure Stack'te Azure App Service üzerinde her çalışan katmanı %20 herhangi bir anda Bakımı gerçekleştirin.  Bu nedenle bulut yöneticileri her zaman % 20 havuzu başına çalışan katmanı ayrılmamış çalışan kiracıları hizmetinin herhangi bir kayıp yükseltme ve bakım sırasında yaşamamasını sağlamaya sürdürmeniz gerekir.  Örneğin, bir çalışan katmanı 10 çalışanları varsa 2 yükseltmeye izin ayrılmamış ve Bakım tam 10 çalışanları ayrılan olur, çalışan katmanı ayrılmamış çalışan havuzu sağlamak için ölçeği emin olmalısınız. Yükseltme ve bakım sırasında Azure App Service Kiracı İş yükü olası iş yükleri vardır ancak sırasında kullanılabilir ayrılmamış çalışanlar ardından var. yükseltme çalışmaya devam eder emin olmak için ayrılmamış çalışan iş yüklerini olacaktır taşınır kesinti süresi.  Paylaşılan çalışan bakımından service Kiracı uygulamaları kullanılabilir çalışanlar içinde otomatik olarak yoktur ancak yüksek kullanılabilirlik için en düşük gereksinimdir iki çalışanları için bu ayırır gibi ek çalışanları sağlamak müşterilerin gerekmez katmanı.
+
+Bulut yöneticileri kendi çalışan katmanı ayırma Azure Stack yönetim portalındaki App Service Yönetim alanında izleyebilirsiniz.  App Service'e gidin ve ardından sol bölmedeki çalışan katmanları seçin.  Çalışan katmanları tablo çalışan katmanı adı, boyutu, kullanılan görüntüyü, (ayrılmamış), kullanılabilir çalışanlar çalışan her katmanında toplam sayısı ve çalışan katmanı genel durumu sayısını gösterir.
+
+![Uygulama hizmet yönetimi - çalışan katmanları][1]
+
 ## <a name="file-server-role"></a>Dosya sunucusu rolü
 
-Dosya sunucusu rolü için bir tek başına dosya sunucusu, geliştirme ve test için kullanabilirsiniz; Örneğin, Azure App Service Azure Stack geliştirme Seti'ni (ASDK) üzerinde dağıtım yaparken bu şablonu kullanabilirsiniz: https://aka.ms/appsvconmasdkfstemplate. Üretim için önceden yapılandırılmış bir Windows dosya sunucusu veya önceden yapılandırılmış Windows olmayan dosya sunucusu kullanmanız gerekir.
+Dosya sunucusu rolü için bir tek başına dosya sunucusu, geliştirme ve test için kullanabilirsiniz; Örneğin, Azure App Service Azure Stack geliştirme Seti'ni (ASDK) üzerinde dağıtırken bu kullanabileceğiniz [şablon](https://aka.ms/appsvconmasdkfstemplate).  Üretim için önceden yapılandırılmış bir Windows dosya sunucusu veya önceden yapılandırılmış Windows olmayan dosya sunucusu kullanmanız gerekir.
 
 Üretim ortamlarında dosya sunucusu rolü yoğun disk g/ç ile karşılaşır. Tüm kullanıcı web siteleri için içerik ve uygulama dosyalarını barındırdığından bu rol için aşağıdaki kaynaklardan birini önceden yapılandırmanız gerekir:
 
@@ -105,10 +113,13 @@ Dosya sunucusu rolü için bir tek başına dosya sunucusu, geliştirme ve test 
 - Windows olmayan dosya sunucusu kümesi
 - NAS (ağa bağlı depolama) cihaz
 
-Daha fazla bilgi için [bir dosya sunucusu sağlama](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
+Daha fazla bilgi edinmek için şu makaleye bakın [bir dosya sunucusu sağlama](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Daha fazla bilgi için şu makaleye bakın:
 
 [Azure Stack üzerinde App Service ile çalışmaya başlamadan önce](azure-stack-app-service-before-you-get-started.md)
+
+<!--Image references-->
+[1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png

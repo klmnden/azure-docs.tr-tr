@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 729287cfcc557e167a70d6f69a5b2b34909df836
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d7f047d784796b9e7c59d95863aa74b3f72da324
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180989"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995631"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Öğretici: SilkRoad yaşam Suite ile Azure Active Directory Tümleştirmesi
 
@@ -114,12 +114,14 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<subdomain>.silkroad-eng.com/Authentication/`
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: 
+
     | |
     |--|
     | `https://<subdomain>.silkroad-eng.com/Authentication/SP` |
     | `https://<subdomain>.silkroad.com/Authentication/SP` |
 
     c. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: 
+    
     | |
     |--|
     | `https://<subdomain>.silkroad-eng.com/Authentication/` |

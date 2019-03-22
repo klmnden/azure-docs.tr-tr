@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: b1fc52ac46a6cdb73b9210833e437765398781ef
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0fec9173eb94aa60c3689089e4eacd2d9d47724a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819136"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200030"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Kurumsal güvenlik paketi ile HDInsight kümelerini yönetme
 Kullanıcılar ve roller HDInsight Kurumsal güvenlik paketi (ESP) ve ESP kümelerini nasıl yöneteceğinizi öğrenin.
@@ -143,7 +143,7 @@ Bir baş düğüm tam etki alanı adını bulmak için yönetme belgenin Ambari 
 ## <a name="users-of-hdinsight-clusters-with-esp"></a>ESP HDInsight kümeleriyle kullanıcıları
 ESP HDInsight küme, küme oluşturma sırasında oluşturulan iki kullanıcı hesapları vardır:
 
-* **Ambari Yöneticisi**: Bu hesap olarak da bilinir, *Hadoop kullanıcısıyla* veya *HTTP kullanıcısı*. Bu hesap için Ambari https:// oturum açmak için kullanılan&lt;clustername >. azurehdinsight.net. Ayrıca, Hive ODBC sürücüsünü ve BI Araçları (örneğin, Excel, Powerbı veya Tableau) kimlik doğrulama Ambari görünümleri sorguları çalıştırmak ve dış Araçlar (örneğin, PowerShell, templeton da, Visual Studio) aracılığıyla işleri yürütmek için de kullanılabilir.
+* **Ambari Yöneticisi**: Bu hesap olarak da bilinir, *Hadoop kullanıcısıyla* veya *HTTP kullanıcısı*. Bu hesap için Ambari https:// oturum açmak için kullanılan&lt;clustername >. azurehdinsight.net. Ayrıca, Hive ODBC sürücüsünü ve BI Araçları (örneğin, Excel, Power BI veya Tableau) kimlik doğrulama Ambari görünümleri sorguları çalıştırmak ve dış Araçlar (örneğin, PowerShell, templeton da, Visual Studio) aracılığıyla işleri yürütmek için de kullanılabilir.
 
 Bir HDInsight kümesi ile ESP Ambari Yöneticisi ek olarak üç yeni kullanıcıları içeren
 
@@ -179,7 +179,7 @@ Kurumsal güvenlik paketi HDInsight aşağıdaki roller vardır:
 ## <a name="open-the-ambari-management-ui"></a>Ambari Yönetimi kullanıcı arabirimini açın
 
 1. [Azure portalı](https://portal.azure.com) üzerinde oturum açın.
-2. HDInsight kümenizi açın. Bkz: [kümeleri Listele ve Göster](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
+2. HDInsight kümenizi açın.
 3. Tıklayın **Pano** Ambari'yi açmak için üstteki menüden.
 4. İçin Ambari Küme Yöneticisi etki alanı kullanıcı adı ve parola kullanarak oturum açın.
 5. Tıklayın **yönetici** açılan menüsünde, üst, sağ üst köşedeki ve ardından **yönetme Ambari**.

@@ -3,8 +3,8 @@ title: include dosyası
 description: include dosyası
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,14 +12,14 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/19/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d3f2efc0ae3dcf9bdcae3f82258b28b761944487
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 4c4870dc0f5a423288e6cb561b985501414e8525
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988553"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203664"
 ---
 ## <a name="test-your-code"></a>Kodunuzu test etme
 
@@ -80,20 +80,20 @@ Varsayılan olarak bu kılavuzu tarafından oluşturulan uygulama oluşturduğun
 
 Uygulamanızın oturum açma kullanıcı erişimini kısıtlamak için birden çok seçenek kullanılabilir:
 
-#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>1. seçenek: uygulamanıza (tek kiracılı) oturum açmak için yalnızca bir kuruluşun Active Directory örneğinden kullanıcıları kısıtlama
+#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>1. seçenek: Uygulamanızı yalnızca bir kuruluşun Active Directory örneğindeki kullanıcıların oturum açabileceği şekilde kısıtlama (tek kiracılı)
 
-Bu seçenek için sık karşılaşılan bir senaryodur *LOB uygulamaları*: oturum açma işlemleri yalnızca belirli bir Azure Active Directory örneğine ait hesapları kabul etmek için uygulamanızı isterseniz (dahil olmak üzere *konuk hesaplarını*bu örneğinin) aşağıdakileri yapın:
+Bu seçenek için sık karşılaşılan bir senaryodur *LOB uygulamaları*: Oturum açma işlemleri yalnızca belirli bir Azure Active Directory örneğine ait hesapları kabul etmek için uygulamanızı isterseniz (dahil olmak üzere *konuk hesaplarını* bu örneğinin) aşağıdakileri yapın:
 
 1. İçinde **web.config** dosya, değerini `Tenant` parametresinden `Common` kuruluşun Kiracı adı gibi `contoso.onmicrosoft.com`.
 2. İçinde [OWIN başlangıç sınıfı](#configure-the-authentication-pipeline)ayarlayın `ValidateIssuer` bağımsız değişkeni `true`.
 
-#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>2. seçenek: kuruluşların belirli bir listedeki kullanıcılar, uygulama erişimi kısıtlama
+#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>2. seçenek: Kuruluşların belirli bir listedeki kullanıcılar, uygulama erişimi kısıtlama
 
 İzin verilen kuruluşların listede bir Azure AD kuruluş yalnızca kullanıcı hesapları için oturum açma erişimi kısıtlayabilirsiniz:
 1. İçinde [OWIN başlangıç sınıfı](#configure-the-authentication-pipeline)ayarlayın `ValidateIssuer` bağımsız değişkeni `true`.
 2. Değerini `ValidIssuers` parametresi izin verilen kuruluşların listesi.
 
-#### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Seçenek 3: özel bir yönteme verenler doğrulamak için kullanın.
+#### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Seçenek 3: Verenler doğrulamak için özel bir yöntem kullanın.
 
 Verenler kullanarak doğrulamak için özel bir yöntem uygulayabilirsiniz **IssuerValidator** parametresi. Bu parametre kullanımı hakkında daha fazla bilgi için okuyun [tokenvalidationparameters değerini sınıfı](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) MSDN'de.
 

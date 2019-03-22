@@ -8,26 +8,26 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: 8683a2cc0aece99d3a30bfa978bff2f8c31e96eb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a02144914e73ca1788976d8b01ccd95d1b9e9a1b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884729"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227159"
 ---
-Sonraki öğretici ile devam edecekseniz, bu hızlı başlangıçta oluşturulan kaynakları tutabilir ve sonraki öğreticide yeniden kullanabilirsiniz.
+Sonraki öğreticiye devam etmeyi planlıyorsanız bu hızlı başlangıçta oluşturulan kaynakları tutun. Sonraki öğreticide bunları yeniden kullanabilirsiniz.
 
-Aksi takdirde, hızlı başlangıç örnek uygulamasını tamamladıysanız ücret yansıtılmaması için bu hızlı başlangıçta oluşturulan Azure kaynaklarını silebilirsiniz.
+İşiniz bittiğinde hızlı başlangıç örnek uygulaması ile Azure kaynaklarını silmeniz ücretlerden kaçınmak için bu hızlı başlangıçta oluşturduğunuz.
 
 > [!IMPORTANT]
-> Bir kaynak grubunu silme işlemi geri alınamaz ve kaynak grubunun ve içindeki tüm kaynaklar kalıcı olarak silinir. Yanlış kaynak grubunu veya kaynakları yanlışlıkla silmediğinizden emin olun. Bu örneği, tutmak istediğiniz kaynakları içeren mevcut bir kaynak grubunda barındırmak için kaynaklar oluşturduysanız, kaynak grubunu silmek yerine her kaynağı kendi ilgili dikey penceresinden tek tek silebilirsiniz.
+> Silinen kaynak grupları geri alınamaz. Kaynak grubunu ve tüm kaynakları kalıcı olarak silinir. Yanlış kaynak grubunu veya kaynakları yanlışlıkla silmediğinizden emin olun. Belki de bu örnek, korumak istediğiniz kaynakları içeren kaynak grubu içinde barındırmak için kaynaklar oluşturdunuz. Kaynak grubunun silinmesi yerine kendi ilgili dikey gelen her kaynak ayrı olarak silebilirsiniz.
 >
 >
 
-[Azure portalında](https://aka.ms/azconfig/portal) oturum açın ve **Kaynak grupları**’na tıklayın.
+Oturum [Azure portalında](https://aka.ms/azconfig/portal)seçip **kaynak grupları**.
 
-**Ada göre filtrele...** metin kutusuna kaynak grubunuzun adını girin. Adlı bir kaynak grubu yönergeleri için bu hızlı başlangıçta kullanılan *AppConfigTestResources*. Sonuç listesindeki kaynak grubunuzda **...** ve sonra **Kaynak grubunu sil**’e tıklayın.
+İçinde **ada göre filtrele** kutusunda, kaynak grubunuzun adını girin. Adlı bir kaynak grubu yönergeleri için bu hızlı başlangıçta kullanılan *AppConfigTestResources*. Sonuç listesinde, kaynak grubu üzerinde seçin **...**  seçip **kaynak grubunu Sil**.
 
-Kaynak grubunun silinmesini onaylamanız istenir. Onaylamak için kaynak grubunuzun adını yazın ve **Sil**’e tıklayın.
+Kaynak grubunun silinmesini onaylamanız istenir. Onayla ve kaynak grubunuzun adını girin **Sil**.
 
 Birkaç dakika sonra kaynak grubu ve içerdiği kaynakların tümü silinir.

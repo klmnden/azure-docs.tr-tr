@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 04653dcdf0fb64e8b935cda18c01198ec91c548d
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ed91425ca56278eccf21c10db6360b4f770b0660
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807482"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226547"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 
@@ -554,6 +554,16 @@ module.exports = myObj;
 ```
 
 Bu örnekte, bir nesne dışarı olsa da, bulunduğuna yürütmeleri arasında durum koruma için hiçbir garanti dikkat edin önemlidir.
+
+## <a name="local-debugging"></a>Yerel hata ayıklama
+
+İle başlatıldığında `--inspect` parametresi, bir Node.js işlemi belirtilen bağlantı noktasında hata ayıklama bir istemci için dinler. Azure işlevleri'nde 2.x, ortam değişkenine ya da uygulama ayarı ekleyerek, kodunuz çalışır Node.js işlemine geçirilecek bağımsız değişkenler belirtebilirsiniz `languageWorkers:node:arguments = <args>`. 
+
+Yerel olarak hata ayıklamak için ekleme `"languageWorkers:node:arguments": "--inspect=5858"` altında `Values` içinde [local.settings.json](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file) dosyası ve bir hata ayıklayıcı bağlantı noktası 5858 ekleyin.
+
+VS Code kullanarak hata ayıklama yapılırken `--inspect` parametresi, kullanarak otomatik olarak eklenir `port` projenin launch.json dosyasındaki değeri.
+
+Sürüm ayarı 1.x, `languageWorkers:node:arguments` çalışmaz. Hata ayıklama bağlantı ile seçilebilir [ `--nodeDebugPort` ](https://docs.microsoft.com/azure/azure-functions/functions-run-local#start) Azure işlevleri çekirdek araçları parametresi.
 
 ## <a name="typescript"></a>TypeScript
 

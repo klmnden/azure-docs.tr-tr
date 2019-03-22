@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
-ms.openlocfilehash: 7fa76a2c5b01e623e490edd0091f7fb372b7085f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 7ce845fb272cea1d621e8ccc18203e3a071e8c29
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093247"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992015"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN kurallar altyapısı Verizon'a özgü HTTP üstbilgileri
 
@@ -27,7 +27,7 @@ ms.locfileid: "49093247"
 
 Bu ayrılmış üstbilgileri biri Azure CDN (Content Delivery Network) POP isteğinde kaynak sunucuya eklenmesini önlemek istiyorsanız, bir kural oluşturmanız gerekir [Proxy özel üst bilgileri özelliği](cdn-rules-engine-reference-features.md#proxy-special-headers) kurallar altyapısı. Bu kuralda üstbilgileri üstbilgi alanında varsayılan listesinden kaldırmak istediğiniz üstbilgi hariç tutun. Etkinleştirdiyseniz [önbellek yanıt üst bilgileri hata ayıklama özelliği](cdn-rules-engine-reference-features.md#debug-cache-response-headers), gerekli eklediğinizden emin olun `X-EC-Debug` üstbilgileri. 
 
-Örneğin, kaldırmak için `Via` üst bilgi, kuralın üstbilgi alanı, aşağıdaki listede yer alan üst bilgileri içermelidir: *X-iletilen-için X-iletilen-Proto, X-ana bilgisayar, X-Midgress, X-Gateway-List X-EC-adı, konak*. 
+Örneğin, kaldırmak için `Via` üst bilgi, kuralın üstbilgi alanı, aşağıdaki listede yer alan üst bilgileri içermelidir: *X-iletilen-için X-iletilen-Proto, X-ana bilgisayar, X-Midgress X ağ geçidi listesini, X-EC-Name, ana bilgisayar*. 
 
 ![Proxy özel üst bilgileri kuralı](./media/cdn-http-headers/cdn-proxy-special-header-rule.png)
 
@@ -41,7 +41,7 @@ X iletilen Proto | İsteğin protokol gösterir. | http
 X-Host | İsteğin ana bilgisayar adını belirtir. | CDN.mydomain.com
 X-Midgress | İstek proxy ek bir CDN sunucu olup olmadığını gösterir. Örneğin, POP Sunucusu kaynağı kalkan sunucu veya POP server ADN ağ geçidi sunucusu. <br />Yalnızca midgress trafiği gerçekleştiğinde bu üst bilgi isteği eklendi. Bu durumda, üst bilgi isteği ek bir CDN sunucu proxy olduğunu belirtmek için 1 olarak ayarlanır.| 1
 [Ana Bilgisayar](#host-request-header) | Konak ve istenen içeriğin bulunduğu bağlantı noktasını tanımlar. | Marketing.mydomain.com:80
-[X-Gateway-List](#x-gateway-list-request-header) | ADN: bir müşteri kaynağa atanmış ADN ağ geçidi sunucusu yük devretme listesini tanımlar. <br />Kaynak kalkan: bir müşteri kaynağa atanmış kaynak kalkan sunucuları kümesini gösterir. | `icn1,hhp1,hnd1`
+[X-Gateway-List](#x-gateway-list-request-header) | ADN: Bir müşteri kaynağa atanmış ADN ağ geçidi sunucusu yük devretme listesini tanımlar. <br />Kaynak koruma: Bir müşteri kaynağa atanmış kaynak kalkan sunucuları kümesini gösterir. | `icn1,hhp1,hnd1`
 X-EC -_&lt;adı&gt;_ | İle başlar ve istek üstbilgileri *X-EC* (örneğin, X-EC-etiketi, [X-EC-Debug](cdn-http-debug-headers.md)) CDN tarafından kullanım için ayrılmıştır.| waf üretim
 
 ## <a name="via-request-header"></a>İstek üstbilgisi
@@ -50,9 +50,10 @@ Bir biçime `Via` üstbilgisi tanımlar POP sunucu isteği aşağıdaki sözdizi
 `Via: Protocol from Platform (POP/ID)` 
 
 Sözdiziminde kullanılan terimler şu şekilde tanımlanır:
-- Protokol: istek için proxy kullanılan protokol (örneğin, HTTP/1.1) sürümü gösterir. 
+- Protokol: İstek için proxy kullanılan protokol (örneğin, HTTP/1.1) sürümü gösterir. 
 
-- Platform: içeriği istendi platform gösterir. Aşağıdaki kodu, bu alan için geçerlidir: 
+- Platform: İçerik istendi platform gösterir. Aşağıdaki kodu, bu alan için geçerlidir: 
+
     Kod | Platform
     -----|---------
     ECAcc | HTTP büyük
@@ -61,7 +62,7 @@ Sözdiziminde kullanılan terimler şu şekilde tanımlanır:
 
 - POP: Gösterir [POP](cdn-pop-abbreviations.md) , işlenen istek. 
 
-- ID: yalnızca iç kullanım için.
+- Kimlik: Yalnızca iç kullanım içindir.
 
 ### <a name="example-via-request-header"></a>Örnek aracılığıyla istek üstbilgisi
 

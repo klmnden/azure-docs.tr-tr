@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5e749f68aba48ac258363a0a03e3474e1e28b064
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 03bafcdbf6890573d1d2855e2b47520d0111fe13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876781"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996781"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio kullanarak Azure App Service'te uygulama sorunlarını giderme
 ## <a name="overview"></a>Genel Bakış
@@ -134,41 +134,41 @@ public ActionResult About()
 }
 ```
 
-4. [Bir kesme noktası ayarlamak](https://docs.microsoft.com/visualstudio/debugger/) üzerinde `ViewBag.Message` satır.
+1. [Bir kesme noktası ayarlamak](https://docs.microsoft.com/visualstudio/debugger/) üzerinde `ViewBag.Message` satır.
 
-5. İçinde **Çözüm Gezgini**, projeye sağ tıklayın ve **Yayımla**.
+1. İçinde **Çözüm Gezgini**, projeye sağ tıklayın ve **Yayımla**.
 
-6. İçinde **profili** aynı profili, kullanılan aşağı açılan listesinden [Azure App Service'te bir ASP.NET uygulaması oluşturma](app-service-web-get-started-dotnet-framework.md). Ardından, Ayarlar'ı tıklatın.
+1. İçinde **profili** aynı profili, kullanılan aşağı açılan listesinden [Azure App Service'te bir ASP.NET uygulaması oluşturma](app-service-web-get-started-dotnet-framework.md). Ardından, Ayarlar'ı tıklatın.
 
-7. İçinde **Yayımla** iletişim kutusunda, tıklayın **ayarları** sekmesine ve ardından değiştirmek **yapılandırma** için **hata ayıklama**ve ardından  **Kaydet**.
+1. İçinde **Yayımla** iletişim kutusunda, tıklayın **ayarları** sekmesine ve ardından değiştirmek **yapılandırma** için **hata ayıklama**ve ardından  **Kaydet**.
 
     ![Hata ayıklama modunda yayımlama](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
-8. **Yayımla**’ta tıklayın. Dağıtım tamamlandıktan sonra tarayıcı açılır uygulamanızın Azure URL'sine Tarayıcıyı kapatın.
+1. **Yayımla**’ta tıklayın. Dağıtım tamamlandıktan sonra tarayıcı açılır uygulamanızın Azure URL'sine Tarayıcıyı kapatın.
 
-9. İçinde **Sunucu Gezgini**uygulamanıza sağ tıklayın ve ardından **hata ayıklayıcı iliştirmek**.
+1. İçinde **Sunucu Gezgini**uygulamanıza sağ tıklayın ve ardından **hata ayıklayıcı iliştirmek**.
 
     ![Hata ayıklayıcının](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
-    Tarayıcı, Azure'da çalışan ana sayfanıza otomatik olarak açılır. Azure hata ayıklama sunucusu ayarlar 20 saniye bekleyin gerekebilir. Bu gecikme, yalnızca bir 48 saatlik süre içinde bir uygulamada hata ayıklama modunda çalıştırmak ilk kez gerçekleşir. Yeniden aynı dönemi içinde hata ayıklamaya başladığınızda, gecikme yoktur.
+    Tarayıcı, Azure'da çalışan ana sayfanıza otomatik olarak açılır. Azure hata ayıklama sunucusu ayarlar 20 saniye bekleyin gerekebilir. Bu gecikme, yalnızca ilk kez bir 48 saatlik süre içinde bir uygulama üzerinde hata ayıklama modunda çalıştırdığınızda gerçekleşir. Yeniden aynı dönemi içinde hata ayıklamaya başladığınızda, gecikme yoktur.
 
     > [!NOTE] 
     > Hata ayıklayıcı başlatılıyor herhangi bir sorun varsa, bunu kullanarak yapmaya **Cloud Explorer** yerine **Sunucu Gezgini**.
     >
 
-10. Tıklayın **hakkında** menüsünde.
+1. Tıklayın **hakkında** menüsünde.
 
-     Visual Studio kesme noktasına durdurur ve kodu değil, yerel bilgisayarınızda Azure üzerinde çalışıyor.
+    Visual Studio kesme noktasına durdurur ve kodu değil, yerel bilgisayarınızda Azure üzerinde çalışıyor.
 
-11. Üzerine `currentTime` zaman değeri görmek için değişkeni.
+1. Üzerine `currentTime` zaman değeri görmek için değişkeni.
 
-     ![Azure'da çalışan hata ayıklama modunda görünümü değişkeni](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
+    ![Azure'da çalışan hata ayıklama modunda görünümü değişkeni](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
-     Gördüğünüzde, yerel bilgisayardan farklı bir saat dilimindeki olabilir Azure sunucusu zamandır.
+    Gördüğünüzde, yerel bilgisayardan farklı bir saat dilimindeki olabilir Azure sunucusu zamandır.
 
-12. İçin yeni bir değer girin `currentTime` "Artık Azure'da çalışıyor" gibi değişken.
+1. İçin yeni bir değer girin `currentTime` "Artık Azure'da çalışıyor" gibi değişken.
 
-13. Çalışmaya devam edebilmesi için F5 tuşuna basın.
+1. Çalışmaya devam edebilmesi için F5 tuşuna basın.
 
      Azure'da çalışan hakkında sayfası currentTime değişkene girdiğiniz yeni değeri görüntüler.
 
@@ -311,7 +311,7 @@ public ActionResult Contact()
 }        
 ```
 
-2. Ekleme bir `using System.Diagnostics;` deyimini dosyanın en üstüne.
+1. Ekleme bir `using System.Diagnostics;` deyimini dosyanın en üstüne.
 
 ### <a name="view-the-tracing-output-locally"></a>Yerel olarak izleme çıkışını görüntüleyin
 1. Uygulamayı hata ayıklama modunda çalıştırmak için F5 tuşuna basın.
@@ -339,15 +339,15 @@ public ActionResult Contact()
 ```
 
 `WebPageTraceListener` Görüntülemenizi sağlar izleme çıkış göz atarak `/trace.axd`.
-3. Ekleme bir <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace ögesi</a> altında `<system.web>` Web.config dosyasında, aşağıdaki örnek gibi:
+1. Ekleme bir <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace ögesi</a> altında `<system.web>` Web.config dosyasında, aşağıdaki örnek gibi:
 
 ``` xml
 <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 ```       
 
-4. Uygulamayı çalıştırmak için CTRL+F5'e basın.
-5. Tarayıcının adres çubuğuna ekleyin *trace.axd* URL'si ve Enter tuşuna basın (URL benzer http://localhost:53370/trace.axd).
-6. Üzerinde **uygulama izleme** sayfasında **ayrıntıları** ilk satırdaki (BrowserLink satır değil).
+1. Uygulamayı çalıştırmak için CTRL+F5'e basın.
+1. Tarayıcının adres çubuğuna ekleyin *trace.axd* URL'si ve Enter tuşuna basın (URL benzer `http://localhost:53370/trace.axd`).
+1. Üzerinde **uygulama izleme** sayfasında **ayrıntıları** ilk satırdaki (BrowserLink satır değil).
 
     ![Trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
@@ -477,7 +477,7 @@ Ayrıntılı hata günlükleri hata yanıt kodları (400 veya üzeri) neden HTTP
    * Web sunucusu günlüklerini bulunduğunuz *.log* dosyalar *LogFiles\http\RawLogs* klasör. Gibi bir araç kullanın [günlük ayrıştırıcısı](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) görüntülemek ve bu dosyaları işlemek için.
    * Ayrıntılı hata iletisi günlüklerin içinde *.html* dosyalar *LogFiles\DetailedErrors* klasör.
 
-    ( *Dağıtımları* klasördür yayımlama; kaynak denetimi tarafından oluşturulan dosyaları için Visual Studio yayımlama ile ilgili herhangi bir şey yok. *Git* klasördür kaynak denetimine ilgili izlemeleri için yayımlama ve günlük dosyası akış hizmeti.)  
+     ( *Dağıtımları* klasördür yayımlama; kaynak denetimi tarafından oluşturulan dosyaları için Visual Studio yayımlama ile ilgili herhangi bir şey yok. *Git* klasördür kaynak denetimine ilgili izlemeleri için yayımlama ve günlük dosyası akış hizmeti.)  
 
 <!-- ## <a name="storagelogs"></a>View storage logs
 Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the Azure portal, and view them in the **Logs** tab of the **Azure Web App** window.

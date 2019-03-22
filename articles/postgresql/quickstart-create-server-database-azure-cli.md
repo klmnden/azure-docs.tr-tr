@@ -6,17 +6,21 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 3/12/2019
 ms.custom: mvc
-ms.openlocfilehash: 091babea272a609a668ebfb676a55e0fa02b8c27
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 07e3f1f2dd672fcfd0b7a3a4d102c429ac123c08
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548755"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902027"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Hızlı Başlangıç: Azure CLI aracını kullanarak PostgreSQL için Azure Veritabanı oluşturma
-PostgreSQL için Azure Veritabanı, bulutta yüksek düzeyde kullanılabilir olan PostgreSQL veritabanları çalıştırmanızı, yönetmenizi ve ölçeklendirmenizi sağlayan, yönetilen bir hizmettir. Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu hızlı başlangıçta, Azure CLI aracını kullanarak bir [Azure kaynak grubunda](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) nasıl PostgreSQL için Azure Veritabanı sunucusu oluşturabileceğiniz gösterilir.
+
+> [!TIP]
+> Basit kullanmayı [az postgres'kurmak](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) (şu anda önizlemede) Azure CLI komutu. Denemenin [hızlı](./quickstart-create-server-up-azure-cli.md).
+
+PostgreSQL için Azure Veritabanı, bulutta son derece kullanılabilir olan PostgreSQL veritabanları çalıştırmanızı, yönetmenizi ve ölçeklendirmenizi sağlayan ve yönetilen bir hizmettir. Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Bu hızlı başlangıçta, Azure CLI aracını kullanarak bir [Azure kaynak grubunda](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) nasıl PostgreSQL için Azure Veritabanı sunucusu oluşturabileceğiniz gösterilir.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
@@ -50,7 +54,7 @@ az group create --name myresourcegroup --location westus
 ---|---|---
 ad | mydemoserver | Azure veritabanınızı PostgreSQL sunucusuna tanıtan benzersiz bir ad seçin. Sunucu adı yalnızca küçük harf, sayı ve kısa çizgi (-) karakterini içerebilir. 3 ila 63 karakter arası içermelidir.
 resource-group | myresourcegroup | Azure kaynak grubunun adını girin.
-sku-name | GP_Gen5_2 | Sku'nun adı. Kısaca {fiyatlandırma katmanı}_{işlem nesli}_{sanal çekirdek sayısı} kuralına uyar. sku-name parametresi hakkında daha fazla bilgi için aşağıdaki tabloya bakın.
+sku-name | GP_Gen5_2 | Sku'nun adı. Kısaca {fiyatlandırma katmanı}\_{işlem nesli}\_{sanal çekirdek sayısı} kuralına uyar. sku-name parametresi hakkında daha fazla bilgi için aşağıdaki tabloya bakın.
 backup-retention | 7 | Yedeklemenin ne kadar süreyle tutulacağı. Birim olarak gün kullanılır. 7-35 aralığındadır. 
 geo-redundant-backup | Devre dışı | Coğrafi olarak yedekli yedeklemelerin bu sunucu için etkinleştirilip etkinleştirilmeyeceği. İzin verilen değerler: Etkin, devre dışı bırakıldı.
 location | westus | Sunucu için Azure konumu.
@@ -131,25 +135,25 @@ Sonuç JSON biçimindedir. **administratorLogin** ve **fullyQualifiedDomainName*
 İstemci bilgisayarınızda PostgreSQL yüklüyse, [psql](https://www.postgresql.org/docs/current/static/app-psql.html)’nin yerel bir örneğini kullanarak Azure PostgreSQL sunucusuna bağlanabilirsiniz. Şimdi psql komut satırı yardımcı programını kullanarak Azure PostgreSQL sunucusuna bağlanalım.
 
 1. PostgreSQL için Azure Veritabanı sunucusuna bağlanmak üzere aşağıdaki psql komutunu çalıştırın
-```bash
-psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
-```
+   ```bash
+   psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
+   ```
 
-  Örneğin aşağıdaki komut, erişim kimlik bilgilerini kullanarak **mydemoserver.postgres.database.azure.com** PostgreSQL sunucunuzda **postgres** adlı varsayılan veritabanına bağlanır. Parola istendiğinde seçtiğiniz `<server_admin_password>` değerini girin.
+   Örneğin aşağıdaki komut, erişim kimlik bilgilerini kullanarak **mydemoserver.postgres.database.azure.com** PostgreSQL sunucunuzda **postgres** adlı varsayılan veritabanına bağlanır. Parola istendiğinde seçtiğiniz `<server_admin_password>` değerini girin.
   
-  ```bash
-psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
-```
+   ```bash
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
+   ```
 
-2.  Sunucuya bağlandıktan sonra, istemde boş bir veritabanı oluşturun.
-```sql
-CREATE DATABASE mypgsqldb;
-```
+2. Sunucuya bağlandıktan sonra, istemde boş bir veritabanı oluşturun.
+   ```sql
+   CREATE DATABASE mypgsqldb;
+   ```
 
-3.  İstemde, bağlantıyı yeni oluşturulan **mypgsqldb** veritabanına geçirmek için aşağıdaki komutu yürütün:
-```sql
-\c mypgsqldb
-```
+3. İstemde, bağlantıyı yeni oluşturulan **mypgsqldb** veritabanına geçirmek için aşağıdaki komutu yürütün:
+   ```sql
+   \c mypgsqldb
+   ```
 
 ## <a name="connect-to-the-postgresql-server-using-pgadmin"></a>pgAdmin kullanarak PostgreSQL Sunucusu’na bağlanma
 
@@ -172,7 +176,7 @@ pgAdmin, PostgreSQL ile kullanılan açık kaynak bir araçtır. pgAdmin'i [pgAd
     Konak adı/adresi | Sunucu adı | PostgreSQL için Azure Veritabanı sunucusunu oluştururken kullandığınız sunucu adı değeri. Örnek sunucumuz: **mydemoserver.postgres.database.azure.com.** Örnekte gösterildiği gibi tam etki alanı adını kullanın (**\*. postgres.database.azure.com**). Sunucu adınızı anımsamıyorsanız bağlantı bilgilerini almak için bir önceki bölümdeki adımları izleyin. 
     Bağlantı noktası | 5432 | PostgreSQL için Azure Veritabanı sunucusuna bağlanırken kullanılacak bağlantı noktası. 
     Bakım veritabanı | *postgres* | Sistem tarafından oluşturulan varsayılan veritabanı adı.
-    Kullanıcı adı | Sunucu yöneticisi oturum açma adı | PostgreSQL için Azure Veritabanı sunucusunu oluştururken girdiğiniz sunucu yöneticisi oturum açma kullanıcı adı. Kullanıcı adını anımsamıyorsanız bağlantı bilgilerini almak için bir önceki bölümdeki adımları izleyin. Biçim şöyledir: *username@servername*.
+    Kullanıcı adı | Sunucu yöneticisi oturum açma adı | PostgreSQL için Azure Veritabanı sunucusunu oluştururken girdiğiniz sunucu yöneticisi oturum açma kullanıcı adı. Kullanıcı adını anımsamıyorsanız bağlantı bilgilerini almak için bir önceki bölümdeki adımları izleyin. Biçim *kullanıcıadı\@servername*.
     Parola | Yönetici parolanız | Bu Hızlı Başlangıçta daha önce sunucuyu oluştururken seçtiğiniz parola.
     Rol | Boş bırakın | Bu noktada bir rol adı sağlamanız gerekmez. Alanı boş bırakın.
     SSL modu | *Gerektirme* | pgAdmin’in SSL sekmesinde SSL modunu ayarlayabilirsiniz. Tüm PostgreSQL için Azure Veritabanı sunucuları, varsayılan olarak SSL’yi zorunlu tutma seçeneği açık şekilde oluşturulur. SSL'yi zorunlu tutma seçeneğini kapatmak için bkz. [SSL'yi zorunlu tutma](./concepts-ssl-connection-security.md).
@@ -189,7 +193,7 @@ pgAdmin, PostgreSQL ile kullanılan açık kaynak bir araçtır. pgAdmin'i [pgAd
 
 10. Liste kutusundan veritabanı için **Sahip**’i seçin. Sunucu yöneticinizin oturum açma adını (örnekteki **my admin** gibi) seçin.
 
-   ![pgadmin’de veritabanı oluşturma](./media/quickstart-create-server-database-azure-cli/11-pgadmin-database.png)
+    ![pgadmin’de veritabanı oluşturma](./media/quickstart-create-server-database-azure-cli/11-pgadmin-database.png)
 
 11. Yeni ve boş bir veritabanı oluşturmak için **Kaydet**’i seçin.
 

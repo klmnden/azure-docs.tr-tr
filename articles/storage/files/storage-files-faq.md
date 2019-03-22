@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 7305fbf21557061250a80e095998ad7ea2f35510
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 561c8c9d942210a9bbdc70feff9bc468fa69967e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792523"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995859"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilen bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlarda eşzamanlı olarak bağlayabilir. Ayrıca verilerin kullanıldığı yakın, hızlı erişim için Azure dosya eşitleme'ı kullanarak Azure dosya paylaşımları Windows Server makinelerinde önbelleğe alabilir.
@@ -27,19 +27,19 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 
 ## <a name="general"></a>Genel
 * <a id="why-files-useful"></a>
-**Azure dosyaları faydalı oldu?**  
+  **Azure dosyaları faydalı oldu?**  
    Fiziksel sunucu, cihaz veya Gereci yükü yönetmekten sorumlu olmadan bulutta dosya paylaşımları oluşturmak için Azure dosyaları'nı kullanabilirsiniz. Ve sıkıcı iş işletim sistemi güncelleştirmelerini uygulama ve hatalı diskleri değiştirme dahil desteklemiyoruz. Azure dosyaları size yardımcı olabilecek senaryoları hakkında daha fazla bilgi için bkz: [Azure dosyaları neden yararlıdır](storage-files-introduction.md#why-azure-files-is-useful).
 
 * <a id="file-access-options"></a>
-**Azure dosyaları'nda dosyalara erişmenin farklı yolları nelerdir?**  
-    SMB 3.0 protokolünü kullanarak dosya paylaşımını yerel makinenize bağlayabilir veya Araçlar gibi kullanabileceğiniz [Depolama Gezgini](http://storageexplorer.com/) dosya paylaşımınızdaki dosyalara erişebilirsiniz. Uygulamanızdan Azure Dosya paylaşımındaki dosyalarınıza erişmek için depolama istemci kitaplıkları, REST API'ler, PowerShell veya Azure CLI'yı kullanabilirsiniz.
+  **Azure dosyaları'nda dosyalara erişmenin farklı yolları nelerdir?**  
+    SMB 3.0 protokolünü kullanarak dosya paylaşımını yerel makinenize bağlayabilir veya Araçlar gibi kullanabileceğiniz [Depolama Gezgini](https://storageexplorer.com/) dosya paylaşımınızdaki dosyalara erişebilirsiniz. Uygulamanızdan Azure Dosya paylaşımındaki dosyalarınıza erişmek için depolama istemci kitaplıkları, REST API'ler, PowerShell veya Azure CLI'yı kullanabilirsiniz.
 
 * <a id="what-is-afs"></a>
-**Azure dosya eşitleme nedir?**  
+  **Azure dosya eşitleme nedir?**  
     Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanabilirsiniz. Azure dosya eşitleme, Windows Server makineleri Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, ağ dosya sistemi (NFS) ve Dosya Aktarımı Protokolü hizmet (FTPS) dahil olmak üzere verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
 
 * <a id="files-versus-blobs"></a>
-**Verilerim için neden Azure Blob Depolama ve Azure dosya paylaşımını kullanmam gerekir?**  
+  **Verilerim için neden Azure Blob Depolama ve Azure dosya paylaşımını kullanmam gerekir?**  
     Azure dosyaları ve Azure Blob Depolama, her ikisi de sunar yolları büyük miktarda veriyi bulutta depolayabilir, ancak bunlar biraz farklı amaçlar için kullanışlıdır. 
     
     Azure Blob Depolama, yapılandırılmamış verileri depolamak için gereken çok büyük ölçekli, bulutta yerel uygulamalar için yararlıdır. Performans ve ölçek en üst düzeye çıkarmak için Azure Blob Depolama bir basit depolama daha doğru dosya sistemi soyutlamadır. Azure Blob Depolama REST tabanlı istemci kitaplıkları aracılığıyla yalnızca (veya doğrudan REST tabanlı protokolü aracılığıyla) erişebilir.
@@ -58,42 +58,42 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
     Azure'da yüksek performanslı ve yüksek oranda kullanılabilir bir dosya sunucusu kurmak için bir seçenek hakkında daha fazla bilgi için bkz. [dağıtma Iaas VM Konuk kümeleri Microsoft Azure'da](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). Azure dosyaları ile Azure disklerini arasındaki farklar hakkında daha ayrıntılı açıklaması için bkz: [Azure Blob Depolama, Azure dosyaları veya Azure diskleri ne zaman kullanılacağını belirleme](../common/storage-decide-blobs-files-disks.md). Azure diskleri hakkında daha fazla bilgi için bkz: [Azure yönetilen disklere genel bakış](../../virtual-machines/windows/managed-disks-overview.md).
 
 * <a id="get-started"></a>
-**Nasıl Azure dosyaları'nı kullanarak başlayabilirim?**  
+  **Nasıl Azure dosyaları'nı kullanarak başlayabilirim?**  
    Azure dosyaları ile çalışmaya başlamak kolaydır. İlk olarak, [dosya paylaşımı oluşturma](storage-how-to-create-file-share.md)ve ardından tercih edilen işletim sisteminizi bağlayın: 
 
-    * [Windows bağlama](storage-how-to-use-files-windows.md)
-    * [Linux'ta bağlama](storage-how-to-use-files-linux.md)
-    * [MacOS bağlama](storage-how-to-use-files-mac.md)
+  * [Windows bağlama](storage-how-to-use-files-windows.md)
+  * [Linux'ta bağlama](storage-how-to-use-files-linux.md)
+  * [MacOS bağlama](storage-how-to-use-files-mac.md)
 
-   Üretim dosya paylaşımlarını kuruluşunuzdaki değiştirmek bir Azure dosya paylaşımı dağıtma hakkında daha ayrıntılı kılavuzu için bkz: [bir Azure dosyaları dağıtımını planlama](storage-files-planning.md).
+    Üretim dosya paylaşımlarını kuruluşunuzdaki değiştirmek bir Azure dosya paylaşımı dağıtma hakkında daha ayrıntılı kılavuzu için bkz: [bir Azure dosyaları dağıtımını planlama](storage-files-planning.md).
 
 * <a id="redundancy-options"></a>
-**Hangi depolama yedekliliği seçenekleri, Azure dosyaları tarafından destekleniyor mu?**  
+  **Hangi depolama yedekliliği seçenekleri, Azure dosyaları tarafından destekleniyor mu?**  
     Şu anda Azure dosyaları, yerel olarak yedekli depolama (LRS), bölgesel olarak yedekli depolama (ZRS) ve coğrafi olarak yedekli depolama (GRS) destekler. Okuma erişimli coğrafi olarak yedekli (RA-GRS) depolama gelecekte desteklemeyi planlıyoruz, ancak biz şu anda paylaşmak için zaman çizelgesi yok.
 
 * <a id="tier-options"></a>
-**Hangi depolama katmanları Azure dosyalarında destekleniyor mu?**  
+  **Hangi depolama katmanları Azure dosyalarında destekleniyor mu?**  
     Şu anda Azure dosyaları, yalnızca standart depolama katmanını destekler. Biz, premium depolama ve seyrek erişimli depolama şu anda desteği için paylaşmak için zaman çizelgesi yok. 
     
     > [!NOTE]
     > Yalnızca blob depolama hesapları veya premium depolama hesaplarında Azure dosya paylaşımlarını oluşturulamıyor.
 
 * <a id="give-us-feedback"></a>
-**Gerçekten Azure dosyaları'na eklenen belirli bir özellik öğrenmek istiyorum. Ekleyebilir miyim?**  
+  **Gerçekten Azure dosyaları'na eklenen belirli bir özellik öğrenmek istiyorum. Ekleyebilir miyim?**  
     Azure dosyaları takım hizmetimiz hakkında sahip olduğunuz tüm geri bildirim duymak ilgileniyor. Özellik istekleri Lütfen oylamak [Azure dosyaları UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! İleri için birçok yeni özellik ile birbirinden bekliyoruz.
 
 ## <a name="azure-file-sync"></a>Azure Dosya Eşitleme
 
 * <a id="afs-region-availability"></a>
-**Azure dosya eşitleme için hangi bölgeler desteklenir?**  
+  **Azure dosya eşitleme için hangi bölgeler desteklenir?**  
     Kullanılabilir bölgelerin listesi bulunabilir [bölge kullanılabilirliği](storage-sync-files-planning.md#region-availability) bölümü Azure dosya eşitleme Planlama Kılavuzu. Sürekli olarak genel olmayan bölge dahil ek bölgeler için destek ekleyeceğiz.
 
 * <a id="cross-domain-sync"></a>
-**Etki alanına katılmış ve etki alanı ile birleşik olmayan sunucuları aynı eşitleme grubunda olabilir mi?**  
+  **Etki alanına katılmış ve etki alanı ile birleşik olmayan sunucuları aynı eşitleme grubunda olabilir mi?**  
     Evet. Bunlar etki alanına katılmış olmasa bile bir eşitleme grubu farklı Active Directory üyeliği olan sunucu uç noktası içerebilir. Bu yapılandırma teknik olarak çalışır, ancak bir sunucu üzerindeki dosya ve klasörleri için tanımlanan erişim denetim listeleri (ACL'ler) eşitleme grubundaki diğer sunucular tarafından uygulanmasını mümkün olmayabilir çünkü bu tipik bir yapılandırma olarak önermiyoruz. En iyi sonuçlar için aynı Active Directory ormanında olan sunucular arasında farklı Active Directory ormanında olan ancak bu güven ilişkisi oluşturan sunucular arasında veya bir etki alanında olmayan sunucular arasında eşitlemeyi öneririz. Bu yapılandırmalar bir karışımını kullanarak kaçınmanızı öneririz.
 
 * <a id="afs-change-detection"></a>
-**Bir dosya my Azure dosya paylaşımı doğrudan SMB kullanarak veya Portalı'nda oluşturdum. Dosya eşitleme grubundaki sunucuların eşitlenecek ne kadar sürüyor?**  
+  **Bir dosya my Azure dosya paylaşımı doğrudan SMB kullanarak veya Portalı'nda oluşturdum. Dosya eşitleme grubundaki sunucuların eşitlenecek ne kadar sürüyor?**  
     [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 * <a id="afs-conflict-resolution"></a>**Yaklaşık aynı anda aynı dosya iki sunucuya değiştirilirse, ne olur?**  
@@ -104,66 +104,66 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
     Örneğin, eski yazma oluştuğu CentralServer ise CompanyReport.docx ilk ihtilaf CompanyReport CentralServer.docx olur. İkinci çakışma CompanyReport CentralServer 1.docx adlandırılması.
 
 * <a id="afs-storage-redundancy"></a>
-**Coğrafi olarak yedekli depolama için Azure dosya eşitleme destekleniyor mu?**  
+  **Coğrafi olarak yedekli depolama için Azure dosya eşitleme destekleniyor mu?**  
     Evet, Azure dosyaları, hem yerel olarak yedekli depolama (LRS) hem de coğrafi olarak yedekli depolama (GRS) destekler. GRS için yapılandırılmış bir hesaptan eşleştirilmiş bölgelerin arasında bir depolama hesabı yük devretme'ı başlattığınızda, Microsoft, yeni bölge yalnızca verilerin yedek olarak davran önerir. Azure dosya eşitleme, yeni birincil bölge ile eşitlemeyi otomatik olarak başlamaz. 
 
 * <a id="sizeondisk-versus-size"></a>
-**Neden olmayan *disk boyutu* özelliği için bir dosya eşleşmesi *boyutu* Azure dosya eşitleme kullandıktan sonra özellik?**  
- Bkz: [anlama bulut Katmanlaması](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
+  **Neden olmayan *disk boyutu* özelliği için bir dosya eşleşmesi *boyutu* Azure dosya eşitleme kullandıktan sonra özellik?**  
+  Bkz: [anlama bulut Katmanlaması](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
 
 * <a id="is-my-file-tiered"></a>
-**Bir dosya katmanlanmış olup olmadığını nasıl anlayabilirim?**  
- Bkz: [anlama bulut Katmanlaması](storage-sync-cloud-tiering.md#is-my-file-tiered).
+  **Bir dosya katmanlanmış olup olmadığını nasıl anlayabilirim?**  
+  Bkz: [anlama bulut Katmanlaması](storage-sync-cloud-tiering.md#is-my-file-tiered).
 
 * <a id="afs-recall-file"></a>**Kullanmak istediğiniz bir dosya katmanlı. Yerel olarak kullanabilmek için diskten dosyasına nasıl geri çağırma?**  
- Bkz: [anlama bulut Katmanlaması](storage-sync-cloud-tiering.md#afs-recall-file).
+  Bkz: [anlama bulut Katmanlaması](storage-sync-cloud-tiering.md#afs-recall-file).
 
 * <a id="afs-force-tiering"></a>
-**Bir dosya veya dizin katmanlanmış nasıl zorlarım?**  
- Bkz: [anlama bulut Katmanlaması](storage-sync-cloud-tiering.md#afs-force-tiering).
+  **Bir dosya veya dizin katmanlanmış nasıl zorlarım?**  
+  Bkz: [anlama bulut Katmanlaması](storage-sync-cloud-tiering.md#afs-force-tiering).
 
 * <a id="afs-effective-vfs"></a>
-**Nasıl olduğunu *birim boş alanı* birden çok sunucu uç noktaları bir birimde olduğunda yorumlanan?**  
- Bkz: [anlama bulut Katmanlaması](storage-sync-cloud-tiering.md#afs-effective-vfs).
+  **Nasıl olduğunu *birim boş alanı* birden çok sunucu uç noktaları bir birimde olduğunda yorumlanan?**  
+  Bkz: [anlama bulut Katmanlaması](storage-sync-cloud-tiering.md#afs-effective-vfs).
 
 * <a id="afs-files-excluded"></a>
-**Hangi dosya ve klasörleri Azure dosya eşitleme tarafından otomatik olarak dışlanır?**  
+  **Hangi dosya ve klasörleri Azure dosya eşitleme tarafından otomatik olarak dışlanır?**  
     Varsayılan olarak, Azure dosya eşitleme aşağıdaki dosyaları hariç tutar:
-    * Desktop.ini
-    * Thumbs.DB
-    * ehthumbs.db
-    * ~$\*.\*
-    * \*.laccdb
-    * \*.tmp
-    * 635D02A9D91C401B97884B82B3BCDAEA.\*
+  * Desktop.ini
+  * Thumbs.DB
+  * ehthumbs.db
+  * ~$\*.\*
+  * \*.laccdb
+  * \*.tmp
+  * 635D02A9D91C401B97884B82B3BCDAEA.\*
 
     Aşağıdaki klasörleri de varsayılan olarak tutulur:
 
-    * \System volume Information
-    * \$GERİ DÖNÜŞÜM. DEPO
-    * \SyncShareState
+  * \System volume Information
+  * \$GERİ DÖNÜŞÜM. DEPO
+  * \SyncShareState
 
 * <a id="afs-os-support"></a>
-**Azure dosya eşitleme Windows Server 2008 R2, Linux veya ağa bağlı depolama (NAS) cihazımı ile kullanabilir miyim?**  
+  **Azure dosya eşitleme Windows Server 2008 R2, Linux veya ağa bağlı depolama (NAS) cihazımı ile kullanabilir miyim?**  
     Azure dosya eşitleme, şu anda yalnızca Windows Server 2016 ve Windows Server 2012 R2 destekler. Şu anda, biz size paylaşabilirsiniz herhangi bir plan yok, ancak müşteri talebine göre ek platformları destek açık duyuyoruz. Bize bildirin [Azure dosyaları UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) hangi platformları destekleyecek şekilde göndermemizi istediğinizi.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
-**Neden katmanlı dosyaları dışında sunucu uç noktası ad var mı?**  
+  **Neden katmanlı dosyaları dışında sunucu uç noktası ad var mı?**  
     Azure dosya eşitleme Aracısı sürüm 3 önce Azure dosya eşitleme taşıma katmanlı dosyaların sunucu uç noktasını dışında fakat sunucu uç noktası ile aynı birimde engellendi. Kopyalama işlemlerini olmayan katmanlı dosya taşır ve için katmanlı taşır diğer birimleri etkilenmez. Dosya Gezgini ve diğer Windows API'leri aynı birimde taşıma işlemlerini (yaklaşık) anlıktır sahip örtük varsayımına yeniden adlandırma işlemleri davranışı için neden oldu. Bu hamle dosya Gezgini yapar veya diğer taşıma yöntemleri ile (örneğin, komut satırından veya PowerShell) Azure dosya eşitleme bulut verileri geri çekme sırasında yanıt vermeyen görünür anlamına gelir. İle başlayarak [Azure dosya eşitleme Aracısı sürüm 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure dosya eşitleme katmanlı bir dosya sunucu uç noktasını dışında taşımanıza olanak sağlayacaktır. Biz, katmanlı sunucu uç noktasını dışında bir katmanlı dosya olarak mevcut dosyaya izin verme ve ardından dosya arka planda geri çağırma tarafından daha önce bahsedilen olumsuz etkileri kaçının. Başka bir deyişle, aynı birim anlık ve dosyayı diske taşıma tamamlandıktan sonra geri çağırma iş yaptığımız taşır. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
-**My server (eşitleme, bulut katmanlama, vb.) Azure dosya eşitleme ile ilgili bir sorun yaşıyorum. Kaldırın ve paylaşabilirim my server uç noktası yeniden?**  
+  **My server (eşitleme, bulut katmanlama, vb.) Azure dosya eşitleme ile ilgili bir sorun yaşıyorum. Kaldırın ve paylaşabilirim my server uç noktası yeniden?**  
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
-**Depolama eşitleme hizmeti ve/veya depolama hesabını bir farklı kaynak grubuna veya aboneliğe taşıyabilirim?**  
+  **Depolama eşitleme hizmeti ve/veya depolama hesabını bir farklı kaynak grubuna veya aboneliğe taşıyabilirim?**  
    Evet, depolama eşitleme hizmeti ve/veya depolama hesabı farklı bir kaynak grubu veya abonelik içinde mevcut Azure AD kiracısı için taşınabilir. Depolama hesabı taşınırsa, depolama hesabına karma dosya eşitleme hizmeti erişmesini gerekir (bkz [olun Azure dosya eşitleme depolama hesabına erişebilir](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > Azure dosya eşitleme desteklemez aboneliği taşımak için farklı bir Azure AD kiracısı.
     
 * <a id="afs-ntfs-acls"></a>
-**Azure dosya eşitleme için Azure dosyalarında depolanan verilerle birlikte dizin/dosya düzeyinde NTFS ACL'leri koruyor mu?**
+  **Azure dosya eşitleme için Azure dosyalarında depolanan verilerle birlikte dizin/dosya düzeyinde NTFS ACL'leri koruyor mu?**
 
     Şirket içi dosya sunucularını meta veri olarak Azure dosya eşitleme tarafından kalıcı NTFS ACL'ler taşınan. Azure dosyaları desteklemez Azure AD kimlik bilgileriyle kimlik doğrulaması için Azure dosya eşitleme hizmeti tarafından yönetilen dosya paylaşımları.
     

@@ -1,18 +1,18 @@
 ---
 title: SSS - Iaas Vm'leri için Azure Disk şifrelemesi | Microsoft Docs
 description: Bu makale için Microsoft Azure Disk şifrelemesi Windows ve Linux Iaas sanal makineleri hakkında sık sorulan soruların yanıtlarını sağlar.
-author: mestew
+author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.author: mstewart
-ms.date: 03/01/2019
+ms.author: mbaldwin
+ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: c082de09cbe17bd31e50d14329cfb8f58b01d8fe
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: b98b9653aee395ebdf797c50c313c322727480c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781332"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892770"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk şifrelemesi için Iaas Vm'leri SSS
 
@@ -150,6 +150,9 @@ Windows üzerinde ADE BitLocker AES256 şifreleme yöntemini kullanır. (Windows
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>EncryptFormatAll kullanın ve tüm birim türlerini belirtmek, bu verileri zaten şifrelenmiş veri sürücülerinde silecek?
 Hayır, veri zaten Azure Disk şifrelemesi kullanılarak şifrelenmiş veri sürücülerden silinmesi gerekmez. Benzer şekilde nasıl EncryptFormatAll işletim sistemi sürücüsünü yeniden şifrele siz, bunu zaten şifrelenmiş veri sürücüsü yeniden şifrele olmaz. Daha fazla bilgi için [EncryptFormatAll ölçütleri](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
+
+## <a name="is-xfs-filesystem-supported"></a>XFS dosya sistemi destekleniyor mu?
+XFS birimleri, veri disk şifrelemesi için desteklenir. Bir birimin XFS kullanarak biçiminin şifrelemek için EncryptFormatAll seçeneğini belirtin. Bu birimi biçimlendirilmektedir. Daha fazla bilgi için [EncryptFormatAll ölçütleri](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Yedekleme ve miyim şifrelenmiş bir sanal Makineyi geri yükleme mi? 
 

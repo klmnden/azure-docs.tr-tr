@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: a9ca626ecf026736617ba495422ed957d03b2b37
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: f062dcfb22dda015d0dab9727672ca90df5ddb4d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414609"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000880"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Öğretici: PowerShell kullanarak S2S VPN bağlantıları oluşturma ve yönetme
 
@@ -120,7 +120,7 @@ Get-AzVirtualNetworkGatewayConnectionSharedKey `
   -Name $Connection1 -ResourceGroupName $RG1
 ```
 
-Yukarıdaki örnek temel alındığında çıktı "**Azure@!b2C3**" olur. Aşağıdaki komutu kullanarak önceden paylaşılan anahtar değerini "**Azure@!_b2=C3**" olarak değiştirin:
+Çıktı "**Azure\@! b2C3**" Yukarıdaki örneği izleyerek. Önceden paylaşılan anahtar değerine değiştirmek için aşağıdaki komutu kullanın. "**Azure\@! _b2 C3 =**":
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkGatewayConnectionSharedKey `

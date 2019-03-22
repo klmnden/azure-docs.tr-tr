@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 1585eb460cc5f8ae437ee59a596dc7a854a108e7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 98f793b7d94cd554d426a0eec30d8bb4553d3d81
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995739"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105412"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Yönetim Portalı'ndan Azure Stack için yedeklemeyi etkinleştirme
 Azure Stack altyapısını yedekleme oluşturabilmesi altyapı Backup Hizmeti Yönetim Portalı aracılığıyla etkinleştirin. Donanım iş ortağı bulut kurtarma durumunda kullanarak ortamınızda geri yüklemek için bu yedeklemeler kullanabilirsiniz [geri dönülemez bir arıza](./azure-stack-backup-recover-data.md). Bulut kurtarma amacı, Kurtarma tamamlandıktan sonra operatörler ve kullanıcılar portalına geri dönüp oturum açabildiğinizden emin sağlamaktır. Kullanıcılar, rol tabanlı erişim izinleri ve rolleri, özgün planları, teklifleri ve önceden tanımlı bilgi işlem, depolama, ağ kotalarının ve Key Vault gizli dizileri de dahil olmak üzere geri aboneliklerini sahip olacaktır.
@@ -67,12 +67,15 @@ Yöneticiler ve kullanıcılar için yedekleme ve Iaas ve PaaS kaynakları ayrı
             -FilePath c:\certs\AzSIBCCert.cer 
     ```
 
-    > [!Note]  
-    > **1901 ve yukarıdaki**: Azure Stack altyapısını yedekleme verilerini şifrelemek için bir sertifika kabul eder. Sertifika ortak ve özel anahtarı güvenli bir yerde depoladığınızdan emin olun. Güvenlik nedenleriyle, Yedekleme ayarlarını yapılandırmak için genel ve özel anahtarları sertifika kullanmanız önerilmez. Bu sertifika yaşam döngüsü yönetme hakkında daha fazla bilgi için bkz. [altyapı Backup hizmeti en iyi](azure-stack-backup-best-practices.md).
+   > [!Note]
+   > **1901 ve yukarıdaki**: Azure Stack altyapısını yedekleme verilerini şifrelemek için bir sertifika kabul eder. Sertifika ortak ve özel anahtarı güvenli bir yerde depoladığınızdan emin olun. Güvenlik nedenleriyle, Yedekleme ayarlarını yapılandırmak için genel ve özel anahtarları sertifika kullanmanız önerilmez. Bu sertifika yaşam döngüsü yönetme hakkında daha fazla bilgi için bkz. [altyapı Backup hizmeti en iyi](azure-stack-backup-best-practices.md).
+   > 
+   > **1811 veya önceki**: Azure Stack altyapısını yedekleme verilerini şifrelemek için simetrik anahtar kabul eder. Kullanım [bir anahtar oluşturmak için New-AzsEncryptionKey64 cmdlet'ini](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). 1901 için 1811 yükselttikten sonra şifreleme anahtarını yedekleme ayarlarını korur. Bir sertifika kullanmak için Yedekleme ayarlarını güncelleştirmek için önerilir. Şifreleme anahtarı desteği artık kullanım dışı bırakılmıştır. Bir sertifika kullanmak için ayarları güncelleştirmek için en az 3 sürümleri gerekir. 
 
 10. Seçin **Tamam** yedekleme denetleyicisi ayarlarınızı kaydetmek için.
 
 ![Azure Stack - yedekleme denetleyicisi ayarları](media/azure-stack-backup/backup-controller-settings-certificate.png)
+
 
 ## <a name="start-backup"></a>Yedeklemeyi Başlat
 Bir yedekleme başlatmak için tıklayın **Şimdi Yedekle** isteğe bağlı yedekleme başlatmak için. İsteğe bağlı yedekleme sonraki zamanlanmış yedekleme için saat değiştirmez. Görev tamamlandıktan sonra ayarları onaylayın **Essentials**:
@@ -115,7 +118,7 @@ Yeni yedeklemeleri yeni sertifikanın ortak anahtarı kullanmaya başlar. Öncek
 ![Azure Stack - görünüm sertifika parmak izi](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>Geriye dönük uyumluluk modu
-Yedekleme için 1901 güncelleştirmeden önce yapılandırdıysanız, ayarları davranışında değişiklik birlikte taşınır. Bu durumda, şifreleme anahtarını geri desteklenen uyumluluk. Bir sertifika kullanmak için şifreleme anahtarını güncelleştirmek veya değiştirme seçeneğiniz vardır. Şifreleme anahtarını güncelleştirmeye devam etmek için üç sürümleri gerekir. Bu zaman geçiş için bir sertifika kullanın. 
+Yedekleme için 1901 güncelleştirmeden önce yapılandırdıysanız, ayarları davranışında değişiklik birlikte taşınır. Bu durumda, şifreleme anahtarını geri desteklenen uyumluluk. Bir sertifika kullanmak için şifreleme anahtarını güncelleştirmek veya değiştirme seçeneğiniz vardır. Şifreleme anahtarını güncelleştirmeye devam etmek için en az üç sürümleri gerekir. Bu zaman geçiş için bir sertifika kullanın. Yeni bir şifreleme anahtarı kullanım oluşturmak için [AzsEncryptionKeyBase64 yeni cmdlet](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
 
 ![Azure Stack - geriye dönük uyumluluk modunda şifreleme anahtarı kullanma](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 

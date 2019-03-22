@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: f54e715f555f01a265ed89ac633f207546a73904
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: ff3f1e405dc7a1e69c3b1d1d20936ca78b97fcda
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576370"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855104"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
 
@@ -114,9 +114,6 @@ Sırasında Azure portalını kullanarak silinen bir veritabanını kurtarmak i�
 
 Bir SQL veritabanı herhangi bir sunucuda herhangi bir Azure bölgesinde en son coğrafi çoğaltmalı yedeklerden geri yükleyebilirsiniz. Coğrafi geri yükleme, coğrafi olarak yedekli bir yedeklemesini, kaynağı olarak kullanır ve veritabanı veya veri merkezinde bir kesinti nedeniyle erişilemez durumda olsa bile bir veritabanını kurtarmak için kullanılabilir.
 
-> [!Note]
-> Coğrafi geri yükleme, yönetilen örneği'nde kullanılamaz.
-
 Coğrafi geri yükleme veritabanı barındırıldığı bölgedeki bir olay nedeniyle veritabanınız kullanılamıyor varsayılan kurtarma seçeneğini andır. Büyük ölçekli olay kullanılamazlık veritabanı uygulamanızın bir bölge sonucu, veritabanını coğrafi çoğaltmalı yedeklerden başka bir bölgede bir sunucuya geri yükleyebilirsiniz. Yedekleme zaman alınır ve Azure için coğrafi olarak çoğaltılmış olduğunda arasında bir gecikme blob farklı bir bölgede. Bu gecikme, bir saat, bu nedenle, bir olağanüstü durum oluşursa, olabilir yukarı bir saatlik veri kaybı için en fazla olabilir. Aşağıdaki çizimde, başka bir bölgede kullanılabilir son yedekleme veritabanından veritabanı geri yükleme gösterilmektedir.
 
 ![Coğrafi geri yükleme](./media/sql-database-geo-restore/geo-restore-2.png)
@@ -133,6 +130,9 @@ Belirli bir noktaya geri yükleme bir coğrafi-ikincil üzerinde şu anda destek
 
 Coğrafi geri yükleme sırasında veritabanını bir için kendi [DTU tabanlı model saklama süresi](sql-database-service-tiers-dtu.md) veya [sanal çekirdek tabanlı model saklama süresi](sql-database-service-tiers-vcore.md) Azure portalını kullanarak, SQL veritabanları sayfasını açın ve ardından **Ekle** . İçinde **Kaynak Seç** seçin, metin kutusuna **yedekleme**. Bölgede ve sunucunun seçtiğiniz kurtarma gerçekleştirmek yedekleme belirtin.
 
+> [!Note]
+> Azure portalını kullanarak coğrafi geri yönetilen örneği'nde kullanılamaz. Bunun yerine PowerShell kullanın.
+
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>Program aracılığıyla otomatik yedekleri kullanarak kurtarma gerçekleştirme
 
 Daha önce bahsedildiği gibi Azure portalına ek olarak, veritabanı kurtarma Azure PowerShell veya REST API'sini kullanarak program aracılığıyla gerçekleştirilebilir. Aşağıdaki tabloda kullanılabilir komut kümesi açıklanmaktadır.
@@ -140,6 +140,8 @@ Daha önce bahsedildiği gibi Azure portalına ek olarak, veritabanı kurtarma A
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 - Tek başına veya havuza alınmış veritabanını geri yüklemek için bkz: [geri yükleme-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
@@ -158,7 +160,7 @@ Daha önce bahsedildiği gibi Azure portalına ek olarak, veritabanı kurtarma A
   | Cmdlet | Açıklama |
   | --- | --- |
   | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |Bir veya daha fazla yönetilen örneğini alır. |
-  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Bir örnek veritabanlarını alır. |
+  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Veritabanlarını bir örneğini alır. |
   | [Geri yükleme-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase) |Bir örnek veritabanını geri yükler. |
 
 ### <a name="rest-api"></a>REST API
@@ -173,7 +175,7 @@ REST API kullanarak bir tek veya havuza alınmış veritabanını geri yüklemek
 ### <a name="azure-cli"></a>Azure CLI
 
 - Azure CLI kullanarak tek veya havuza alınmış veritabanını geri yüklemek için bkz: [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
-- Azure CLI kullanarak bir yönetilen örneğine geri yüklemek için bkz: [az sql ORTAB geri yükleme](/cli/azure/sql/db#az-sql-midb-restore)
+- Azure CLI kullanarak bir yönetilen örneğine geri yüklemek için bkz: [az sql ORTAB geri yükleme](/cli/azure/sql/db)
 
 ## <a name="summary"></a>Özet
 

@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: ded681b8776343a778f3e9704fe05d43e8d74774
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994947"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Bilgi Keşfetme Hizmeti'ni kullanmaya başlama
 
@@ -207,7 +207,7 @@ Bir XML söz dizimi belirtiminiz olduktan sonra, [`kes.exe build_grammar`](Comma
 
 ## <a name="host-the-grammar-and-index-in-a-web-service"></a>Dil bilgisini ve dizini web hizmetinde barındırma
 
-Hızlı bir prototip için, [`kes.exe host_service`](CommandLine.md#host_service-command) kullanarak dil bilgisini ve dizini yerel makinedeki bir web hizmetinde barındırabilirsiniz. Ardından veri doğruluğunu ve dil bilgisi tasarımını doğrulamak için [web API'leri](WebAPI.md) yoluyla hizmete erişebilirsiniz. Bu örnekte, *Academic.grammar* dil bilgisi dosyasını ve *Academic.index* dizin dosyasını http://localhost:8000/ konumunda barındırıyorsunuz. Aşağıdaki komutu kullanın:
+Hızlı bir prototip için, [`kes.exe host_service`](CommandLine.md#host_service-command) kullanarak dil bilgisini ve dizini yerel makinedeki bir web hizmetinde barındırabilirsiniz. Ardından veri doğruluğunu ve dil bilgisi tasarımını doğrulamak için [web API'leri](WebAPI.md) yoluyla hizmete erişebilirsiniz. Bu örnekte, *Academic.grammar* dil bilgisi dosyasını ve *Academic.index* dizin dosyasını `http://localhost:8000/` konumunda barındırıyorsunuz. Aşağıdaki komutu kullanın:
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 

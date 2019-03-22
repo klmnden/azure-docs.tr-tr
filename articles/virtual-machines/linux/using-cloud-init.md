@@ -15,18 +15,18 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: c0a5e8695b712ca95952ea839fa829dab2c48824
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 6dd1dd0ce2395e2b06d80385ffd299835a280526
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700103"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002022"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure'da sanal makineler için cloud-init desteği
 Bu makale için mevcut destek açıklar [cloud-init](https://cloudinit.readthedocs.io) bir sanal makine (VM) ya da sanal makineyi yapılandırmak için ölçek kümeleri (VMSS zaman azure'da sağlama sırasında). Kaynakları Azure tarafından sağlanan sonra ilk önyüklemede bu cloud-init betikleri çalıştırın.  
 
 ## <a name="cloud-init-overview"></a>Cloud-init genel bakış
-[Cloud-init](https://cloudinit.readthedocs.io), Linux VM’sini ilk kez önyüklendiğinde özelleştirmeyi sağlayan, sık kullanılan bir yaklaşımdır. cloud-init’i paket yükleme, dosyalara yazma ve kullanıcılar ile güvenliği yapılandırma işlemleri için kullanabilirsiniz. Cloud-init önyükleme işlemi sırasında çağrıldığı için ek adımlar veya yapılandırmanıza uygulayabileceğiniz gerekli aracı yoktur.  Düzgün bir şekilde biçimlendirme hakkında daha fazla bilgi için `#cloud-config` dosyaları görmek [cloud-init belgeler sitesinde](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` dosyaları, base64 ile kodlanmış metin dosyalarıdır.
+[Cloud-init](https://cloudinit.readthedocs.io), Linux VM’sini ilk kez önyüklendiğinde özelleştirmeyi sağlayan, sık kullanılan bir yaklaşımdır. cloud-init’i paket yükleme, dosyalara yazma ve kullanıcılar ile güvenliği yapılandırma işlemleri için kullanabilirsiniz. Cloud-init önyükleme işlemi sırasında çağrıldığı için ek adımlar veya yapılandırmanıza uygulayabileceğiniz gerekli aracı yoktur.  Düzgün bir şekilde biçimlendirme hakkında daha fazla bilgi için `#cloud-config` dosyaları görmek [cloud-init belgeler sitesinde](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` dosyaları, base64 ile kodlanmış metin dosyalarıdır.
 
 Cloud-init, dağıtımlar arasında da çalışır. Örneğin, bir paket yüklemek için **apt-get install** veya **yum install** kullanmazsınız. Bunun yerine, yüklenecek paketlerin listesini tanımlayabilirsiniz. Cloud-init, seçtiğiniz dağıtım için yerel paket yönetim aracını otomatik olarak kullanır.
 
@@ -34,7 +34,7 @@ Cloud-init, dağıtımlar arasında da çalışır. Örneğin, bir paket yüklem
 
 | Yayımcı | Sunduğu | SKU | Sürüm | cloud-init hazır |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04 LTS |en son |evet | 
+|Canonical |UbuntuServer |18.04-LTS |en son |evet | 
 |Canonical |UbuntuServer |17.10 |en son |evet | 
 |Canonical |UbuntuServer |16.04-LTS |en son |evet | 
 |Canonical |UbuntuServer |14.04.5-LTS |en son |evet |
@@ -92,7 +92,7 @@ VM sağlandıktan, cloud-init ile tüm modüllerin çalışır ve betik tanımla
 > [!NOTE]
 > Her modülü hatası sonuçları içinde önemli bir cloud-init genel yapılandırma hatası. Örneğin, kullanarak `runcmd` modülü, komut başarısız olursa, cloud-init yine de rapor sağlama başarılı runcmd modülü yürütülen olduğundan.
 
-Cloud-init günlüğü daha fazla ayrıntı için başvurmak [cloud-init belgeleri](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
+Cloud-init günlüğü daha fazla ayrıntı için başvurmak [cloud-init belgeleri](https://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Yapılandırma değişiklikleri cloud-init örnekleri için aşağıdaki belgelere bakın:

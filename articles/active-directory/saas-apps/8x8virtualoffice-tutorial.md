@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70a8704fc27aad114d9a1d251cca773d9d0b767a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9385ec6a86c24e619ffafdae67bc66f66e099f3b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454890"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842745"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Öğretici: 8x8lik sanal Office ile Azure Active Directory Tümleştirme
 
@@ -128,41 +128,41 @@ Azure AD çoklu oturum açma 8x8lik sanal Office ile yapılandırmak için aşa�
 
 ### <a name="configure-8x8-virtual-office-single-sign-on"></a>8x8lik sanal Office çoklu oturum açmayı yapılandırın
 
-7. 8x8lik sanal Office kiracınıza yönetici olarak oturum.
+1. 8x8lik sanal Office kiracınıza yönetici olarak oturum.
 
-8. Seçin **sanal Office hesabı Mgr** uygulama panosunda.
+1. Seçin **sanal Office hesabı Mgr** uygulama panosunda.
 
     ![Uygulama tarafında yapılandırma](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
 
-9. Seçin **iş** yönetmek ve hesap **oturum** düğmesi.
+1. Seçin **iş** yönetmek ve hesap **oturum** düğmesi.
 
     ![Uygulama tarafında yapılandırma](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
-10. Tıklayın **HESAPLARI** menü listesi sekmesindedir.
+1. Tıklayın **HESAPLARI** menü listesi sekmesindedir.
 
-    ![Uygulama tarafında yapılandırma](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+   ![Uygulama tarafında yapılandırma](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
 
-11. Tıklayın **çoklu oturum açma** hesapları listesinde.
+1. Tıklayın **çoklu oturum açma** hesapları listesinde.
   
-    ![Uygulama tarafında yapılandırma](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
+   ![Uygulama tarafında yapılandırma](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
-12. Seçin **çoklu oturum açma** kimlik doğrulama yöntemleri ve tıklatın altında **SAML**.
+1. Seçin **çoklu oturum açma** kimlik doğrulama yöntemleri ve tıklatın altında **SAML**.
 
-    ![Uygulama tarafında yapılandırma](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+   ![Uygulama tarafında yapılandırma](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
-13. İçinde **SAML çoklu oturum açma** bölümünde, aşağıdaki adımları gerçekleştirin:
+1. İçinde **SAML çoklu oturum açma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Uygulama tarafında yapılandırma](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
+   ![Uygulama tarafında yapılandırma](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusu, yapıştırma **oturum açma URL'si** Azure portaldan kopyaladığınız değeri.
+   a. İçinde **oturum açma URL'si** metin kutusu, yapıştırma **oturum açma URL'si** Azure portaldan kopyaladığınız değeri.
 
-    b. İçinde **oturum kapatma URL'si** metin kutusu, yapıştırma **oturum kapatma URL'si** Azure portaldan kopyaladığınız değeri.
+   b. İçinde **oturum kapatma URL'si** metin kutusu, yapıştırma **oturum kapatma URL'si** Azure portaldan kopyaladığınız değeri.
 
-    c. İçinde **veren URL'si** metin kutusu, yapıştırma **Azure AD tanımlayıcısı** Azure portaldan kopyaladığınız değeri.
+   c. İçinde **veren URL'si** metin kutusu, yapıştırma **Azure AD tanımlayıcısı** Azure portaldan kopyaladığınız değeri.
 
-    d. Tıklayın **Gözat** Azure portalından indirilen sertifikayı karşıya yüklemek için düğme.
+   d. Tıklayın **Gözat** Azure portalından indirilen sertifikayı karşıya yüklemek için düğme.
 
-    e. **Kaydet** düğmesine tıklayın.
+   e. **Kaydet** düğmesine tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -182,7 +182,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

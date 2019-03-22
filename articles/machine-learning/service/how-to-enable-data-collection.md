@@ -11,12 +11,12 @@ ms.author: marthalc
 author: marthalc
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: fa1076fb523c3634cf8e4f4832d36aa7ee715797
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a127a211157edb0b26d0495bc2ed05dd79323111
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816360"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842643"
 ---
 # <a name="collect-data-for-models-in-production"></a>Üretimde modelleri için veri toplama
 
@@ -50,7 +50,7 @@ Aşağıdaki veriler toplanabilir:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
+- Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](https://aka.ms/AMLFree) bugün.
 
 - Bir Azure Machine Learning hizmeti çalışma alanında, yüklü Python için betikleri ve Azure Machine Learning SDK'sını içeren yerel bir dizin. Kullanarak şu önkoşul olarak gerekenleri edinin öğrenin [bir geliştirme ortamı yapılandırma](how-to-configure-environment.md) belge.
 
@@ -136,15 +136,15 @@ Dilediğiniz zaman veri toplamayı durdurabilirsiniz. Veri toplamayı devre dı�
 
   1. Git **dağıtımları** -> **hizmet Seç** -> **Düzenle**.
 
-    [![Düzenle seçeneği](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+     [![Düzenle seçeneği](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. İçinde **Gelişmiş ayarlar**, seçimini **etkinleştirme Model veri koleksiyonu**. 
 
-    [![Veri Toplama'seçeneğinin işaretini kaldırın](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+     [![Veri Toplama'seçeneğinin işaretini kaldırın](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
   1. Seçin **güncelleştirme** değişikliği uygulamak için.
 
-* Seçenek 2 - veri toplama devre dışı bırakmak için Python kullanın:
++ Seçenek 2 - veri toplama devre dışı bırakmak için Python kullanın:
 
   ```python 
   ## replace <service_name> with the name of the web service

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b5c43215ce1800ac162c8b5d19ba4d4c987a3bac
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b00082ec567d51c320f55210cb38dcab9547e0d9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445815"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258760"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Anahtar Kasası'nda Azure Stack PowerShell kullanarak yönetme
 
@@ -92,7 +92,7 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 ![Yeni anahtar kasası](media/azure-stack-key-vault-manage-powershell/image4.png)
 
-Bu komutun çıktısı, oluşturduğunuz anahtar kasasının özelliklerini gösterir. Bir uygulama bu kasa eriştiğinde kullanmalısınız **Vault URI'si** özelliğinin "https://vault01.vault.local.azurestack.external" Bu örnekte.
+Bu komutun çıktısı, oluşturduğunuz anahtar kasasının özelliklerini gösterir. Bir uygulama bu kasa eriştiğinde kullanmalısınız **Vault URI'si** özelliğinin "https:\//vault01.vault.local.azurestack.external" Bu örnekte.
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Active Directory Federasyon Hizmetleri (AD FS) dağıtımı
 
@@ -127,8 +127,8 @@ Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination So
 
 Artık, oluşturulan anahtar URI'sini kullanarak başvurabilirsiniz. Oluşturun veya var olan bir anahtar aynı ada sahip bir anahtarı içeri aktarma, özgün anahtar yeni anahtarında belirtilen değerleri ile güncelleştirilir. Önceki sürümü anahtarının sürüme özgü URI'sini kullanarak erişebilirsiniz. Örneğin:
 
-* Kullanım "https://vault10.vault.local.azurestack.external:443/keys/key01" her zaman geçerli sürümü almak için.
-* Kullanım "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" Bu belirli sürümü almak için.
+* Kullanım "https:\//vault10.vault.local.azurestack.external:443/keys/key01" her zaman geçerli sürümü almak için.
+* Kullanım "https:\//vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" Bu belirli sürümü almak için.
 
 ### <a name="get-a-key"></a>Bir anahtarı alma
 

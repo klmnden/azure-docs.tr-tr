@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2019
+ms.date: 03/19/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 1f172035acceb75e4dc37d2f6e7e80d439f7e837
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 3d4b0b143b41daca376aecc64cf734fadcc94faa
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240567"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226581"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Azure kullanılabilirlik alanları nedir?
 Kullanılabilirlik alanları, veri merkezi arızasına karşı uygulamalarınızı ve verilerinizi koruyan sunan bir yüksek kullanılabilirlik olur. Kullanılabilirlik, bir Azure bölgesi içinde benzersiz fiziksel konumlara bölgeleridir. Her bölge, soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezlerinden oluşur. Dayanıklılık sağlamak için üç ayrı bölge etkinleştirilmiş tüm bölgelerde en az yoktur. Bir bölge içinde kullanılabilirlik alanlarının fiziksel olarak ayrılması, uygulamaları ve verileri veri merkezi arızasına karşı korur. Bölgesel olarak yedekli Hizmetleri, uygulamaları ve verileri tek-noktaları-ın-arızasına karşı korumak için kullanılabilirlik alanları genelinde çoğaltın. Kullanılabilirlik alanları ile Azure, sektördeki en iyi % 99,99 VM çalışma SLA'sı sunar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
@@ -68,13 +68,15 @@ Kullanılabilirlik alanlarını destekleyen Azure Hizmetleri'nin şunlardır:
 - ExpressRoute
 - Uygulama ağ geçidi (Önizleme)
 
+## <a name="services-resiliency"></a>Hizmetleri dayanıklılık
+Tüm Azure Yönetim Hizmetleri bölge düzeyinde hatalardan dayanıklı olacak şekilde tasarlanmış. Bir bölgenin tamamını hatasına karşılaştırıldığında daha küçük bir hata RADIUS hataları spektrumu içinde bir bölgede bir veya daha fazla kullanılabilirlik alanı hataları var. Azure Yönetim Hizmetleri bölge içinde bölge düzeyinde bir hata veya başka bir Azure bölgesine geri alabilirsiniz. Azure kullanılabilirlik alanları genelinde bir bölgede dağıtılan müşteri kaynakların etkileyen hataları önlemek için bir bölge içinde bir anda alanlardan birini kritik bakım gerçekleştirir.
 
 ## <a name="pricing"></a>Fiyatlandırma
 Bir kullanılabilirlik alanında dağıtılan sanal makineler için hiçbir ek ücret yoktur. Bir Azure bölgesi içinde iki veya daha fazla kullanılabilirlik bölgelerindeki iki veya daha fazla sanal makine dağıtılırken, % 99,99 VM çalışma süresi SLA sunulur. Ek arası kullanılabilirlik bölgesi VM-VM veri aktarım ücretleri olacaktır. Daha fazla bilgi için gözden [bant genişliği fiyatlandırma](https://azure.microsoft.com/pricing/details/bandwidth/) sayfası.
 
 
 ## <a name="get-started-with-availability-zones"></a>Kullanılabilirlik alanları ile çalışmaya başlama
-- [Sanal makine oluşturma](../virtual-machines/windows/create-portal-availability-zone.md)
+- [Sanal makine oluşturun](../virtual-machines/windows/create-portal-availability-zone.md)
 - [PowerShell kullanarak yönetilen Disk ekleme](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Bölge yedekli sanal makine ölçek kümesi oluşturma](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 - [Sanal makineleri ile bölgesel olarak yedekli bir ön uç bir Standard Load Balancer'ı kullanarak bölgeler arasında Yük Dengelemesi](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)

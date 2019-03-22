@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3e9d7191af3a870f60b40311be03e0ef9d9bf7ad
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750217"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108112"
 ---
 # <a name="add-an-email-action"></a>Bir e-posta eylemi ekleme
 
@@ -128,7 +128,7 @@ Aşağıdaki adımlar oturum açmak ve e-posta eylemleri ayarlamak için yardım
 
 1. Outlook ile oturum açmak için tıklayın. Azure portalına yönlendirilirsiniz:
 
-  ![Outlook için oturum açın](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
+   ![Outlook için oturum açın](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
 
 1. Tıklayın **yetkilendirmek**. Oturum açmanız istenir. Oturum açmak için kullandığınız hesap, e-posta bildirimleri göndermek için e-posta adresi uygulamanın kullandığı olmalıdır:
 
@@ -136,7 +136,7 @@ Aşağıdaki adımlar oturum açmak ve e-posta eylemleri ayarlamak için yardım
 
 1. E-posta bildirimi başarıyla yapılandırdıysanız, bu iletiyi görürsünüz:
 
-  ![Outlook oturum açma başarılı](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
+   ![Outlook oturum açma başarılı](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
 ## HTML e-postayı özelleştirin <a name="htmledit"></a>
 

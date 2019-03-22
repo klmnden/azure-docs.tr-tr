@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 01af5052d8b092d10609769f211d6ffcde03cf8e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: bd4c024e14e70b5937d85e9917340d25f552096d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190383"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110877"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Yükleme ve bir şirket içi veri ağ geçidi yapılandırma
 
@@ -23,7 +23,7 @@ Aynı bölgede bir veya daha fazla Azure Analysis Services sunucusu şirket içi
 
 **En düşük gereksinimler:**
 
-* .NET 4.5 framework
+* .NET 4.5 Framework
 * Windows 7 64-bit sürümünü / Windows Server 2008 R2 (veya üzeri)
 
 **Önerilen:**
@@ -90,19 +90,19 @@ Yüklü ve kayıtlı ağ geçidi sonra Azure aboneliğinizde bir ağ geçidi kay
 
 2. İçinde **bağlantı ağ geçidi Oluştur**, bu ayarları girin:
 
-    * **Ad**: Ağ geçidi kaynağı için bir ad girin. 
+   * **Ad**: Ağ geçidi kaynağı için bir ad girin. 
 
-    * **Abonelik**: Ağ geçidi kaynağınız ile ilişkilendirmek için Azure aboneliği seçin. 
+   * **Abonelik**: Ağ geçidi kaynağınız ile ilişkilendirmek için Azure aboneliği seçin. 
    
-      Varsayılan abonelik Azure hesabında oturum açmak için kullanılan temel alır.
+     Varsayılan abonelik Azure hesabında oturum açmak için kullanılan temel alır.
 
-    * **Kaynak grubu**: Bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu seçin.
+   * **Kaynak grubu**: Bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu seçin.
 
-    * **Konum**: Ağ geçidiniz olarak kayıtlı bölgeyi seçin.
+   * **Konum**: Ağ geçidiniz olarak kayıtlı bölgeyi seçin.
 
-    * **Yükleme adı**: Ağ geçidi yüklemenizi zaten seçili değilse, kayıtlı ağ geçidi'ni seçin. 
+   * **Yükleme adı**: Ağ geçidi yüklemenizi zaten seçili değilse, kayıtlı ağ geçidi'ni seçin. 
 
-    İşiniz bittiğinde tıklayın **Oluştur**.
+     İşiniz bittiğinde tıklayın **Oluştur**.
 
 ## <a name="connect-servers"></a>Ağ geçidi kaynağına sunucuları bağlama
 

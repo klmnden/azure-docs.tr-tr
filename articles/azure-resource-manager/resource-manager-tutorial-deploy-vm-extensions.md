@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a1df94c7157823a4d7dcdcf652b1c7c926f4dbba
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: a40619000998d7222781094db2829aabcc6a7fb2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406516"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100777"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Öğretici: Sanal makine uzantıları Azure Resource Manager şablonları ile dağıtma
 
@@ -68,13 +68,13 @@ Azure hızlı başlangıç şablonları, Resource Manager şablonları için bir
 1. Dosyayı açmak için seçmeniz **açın**.  
     Şablon beş kaynakları tanımlar:
 
-    * **Microsoft.Storage/storageAccounts**. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-    * **Microsoft.Network/publicIPAddresses**. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-    * **Microsoft.Network/virtualNetworks**. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-    * **Microsoft.Network/networkInterfaces**. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-    * **Microsoft.Compute/virtualMachines**. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * **Microsoft.Storage/storageAccounts**. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+   * **Microsoft.Network/publicIPAddresses**. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+   * **Microsoft.Network/virtualNetworks**. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+   * **Microsoft.Network/networkInterfaces**. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+   * **Microsoft.Compute/virtualMachines**. Bkz. [şablon başvurusu](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-    Bunu özelleştirmeden önce bazı temel şablon anlamak faydalıdır.
+     Bunu özelleştirmeden önce bazı temel şablon anlamak faydalıdır.
 
 1. Yerel bilgisayarınıza adlı dosyanın bir kopyasını Kaydet *azuredeploy.json* seçerek **dosya** > **Kaydet**.
 

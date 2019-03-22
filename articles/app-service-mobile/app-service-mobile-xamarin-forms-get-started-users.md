@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: f7e500fb5856c7eec48a371042244b44dd944779
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1bbd481218128c482769cd6a28910e135c1ce16d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063802"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001039"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Xamarin Forms kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -132,7 +132,7 @@ Bu bölümde nasıl uygulayacağınızı gösteren **IAuthenticate** arabirimind
         public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
 5. Güncelleştirme **MainActivity** ekleyerek sınıfı bir **MobileServiceUser** alan ve bir **doğrulaması** gereken yöntemini **IAuthenticate** arabirimi, şu şekilde:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
@@ -192,7 +192,7 @@ Bu bölümde nasıl uygulayacağınızı gösteren **IAuthenticate** arabirimind
 
 **Uygulama ile kilitlendi `Java.Lang.NoSuchMethodError: No static method startActivity`**
 
-Bazı durumlarda, Visual studio, ancak çalışma zamanında özel durum uygulama kilitlenmesi yalnızca bir uyarı olarak görüntülenen Destek paketlerinde çakışıyor. Bu durumda, projenizde başvurulan tüm destek paketleri aynı sürümü kullandığınızdan emin olmanız gerekir. [Azure Mobile Apps NuGet paketini](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) sahip `Xamarin.Android.Support.CustomTabs` projenize yeni kullanıyorsa, destek, paketler için Android platformu için bağımlılık doğrudan çakışmalarını önlemek için gerekli sürümü bu paketi yüklemeniz gerekir.
+Bazı durumlarda, Visual studio, ancak çalışma zamanında özel durum uygulama kilitlenmesi yalnızca bir uyarı olarak görüntülenen Destek paketlerinde çakışıyor. Bu durumda, projenizde başvurulan tüm destek paketleri aynı sürümü kullandığınızdan emin olmanız gerekir. [Azure Mobile Apps NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/), Android platformu için `Xamarin.Android.Support.CustomTabs` bağımlılığına sahiptir, yani projeniz daha yeni destek paketleri kullanıyorsa, çakışmaları önlemek için doğrudan gerekli sürüme sahip bu paketi yüklemeniz gerekir.
 
 ## <a name="add-authentication-to-the-ios-app"></a>İOS uygulaması için kimlik doğrulaması ekleme
 Bu bölümde nasıl uygulayacağınızı gösteren **IAuthenticate** iOS uygulama projesinde arabirimi. İOS cihazları destekleyen değil, bu bölümü atlayabilirsiniz.
@@ -208,7 +208,7 @@ Bu bölümde nasıl uygulayacağınızı gösteren **IAuthenticate** iOS uygulam
         public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
 5. Güncelleştirme **AppDelegate** ekleyerek sınıfı bir **MobileServiceUser** alan ve bir **doğrulaması** gereken yöntemini **IAuthenticate** arabirimi, şu şekilde:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()
@@ -279,7 +279,7 @@ Bu bölümde nasıl uygulayacağınızı gösteren **IAuthenticate** arabirimind
         public sealed partial class MainPage : IAuthenticate
 5. Güncelleştirme **MainPage** ekleyerek sınıfı bir **MobileServiceUser** alan ve bir **doğrulaması** gereken yöntemini **IAuthenticate**arabirimi, şu şekilde:
 
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
 
         public async Task<bool> Authenticate()

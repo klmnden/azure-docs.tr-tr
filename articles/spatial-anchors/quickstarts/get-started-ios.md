@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 59cbc14070d62d1a63b9b64817154242b98202f7
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: a5d34b2964d805cdbeced0d4fad3dd889da9f3e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576489"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900633"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Hızlı Başlangıç: Azure uzamsal bağlantıları, Swift veya Objective-C ile bir iOS uygulaması oluşturma
 
@@ -33,6 +33,7 @@ Bu hızlı başlangıçta kullanarak bir iOS uygulaması oluşturmak nasıl etki
 Bu hızlı başlangıcı tamamlamak için aşağıdakileri yaptığınızdan emin olun:
 
 - Bir geliştirici etkin macOS makineyle <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10 +</a> ve <a href="https://cocoapods.org" target="_blank">CocoaPods</a> yüklü.
+- HomeBrew yüklü Git. Tek satırlık bir Terminal içinde aşağıdaki komutu girin: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Ardından çalıştırın `brew install git`.
 - Etkin bir geliştirici <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit uyumlu</a> iOS cihaz.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
@@ -83,7 +84,7 @@ open ./SampleObjC.xcworkspace
 
 ## <a name="configure-account-identifier-and-key"></a>Hesap Kimliği ve anahtarını yapılandırma
 
-Sonraki adım hesap tanımlayıcısı ve hesap anahtarını uzamsal bağlayıcılarını kaynağı ayarlarken daha önce kaydedilen uygulamayı yapılandırmak için kullanmaktır.
+Sonraki adım uygulamayı hesap tanımlayıcısı ve hesap anahtarını kullanacak şekilde yapılandırmaktır. Bir metin düzenleyiciye kopyaladığınız zaman [uzamsal bağlayıcılarını kaynağı ayarı](#create-a-spatial-anchors-resource).
 
 # <a name="swifttabopenproject-swift"></a>[Swift](#tab/openproject-swift)
 

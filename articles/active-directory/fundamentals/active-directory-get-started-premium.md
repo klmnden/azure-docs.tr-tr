@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97c70c6187672c47a9f6dc09e1ccb8e6eadeff6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed01b2b122724ba1428fb685bb3f1f52b7099a7b
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187704"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287069"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Azure Active Directory Premium sürümleri için kaydolun
 Satın alma ve Azure Active Directory (Azure AD) Premium sürümleri, Azure aboneliğinizle ilişkilendirin. Yeni bir Azure aboneliği oluşturmanız gerekiyorsa, lisans planınızı ve Azure AD hizmeti erişimini etkinleştirmeniz gerekir.
@@ -65,17 +65,17 @@ Yeni bir Azure AD lisans planı kullanarak kaydolduysanız, satın alımdan sonr
 ### <a name="to-activate-your-license-plan"></a>Lisans planınızı etkinleştirmek için
 - Kaydolduktan sonra Microsoft’tan aldığınız onay e-postasını açın ve sonra **Oturum Aç** veya **Kaydol** seçeneğine tıklayın.
    
-    ![Oturum aç](media/active-directory-get-started-premium/MOLSEmail.png)
+    ![Onay e-posta ile oturum açma ve kaydolma bağlantıları](media/active-directory-get-started-premium/MOLSEmail.png)
 
     - **Oturum açın.** Mevcut bir kiracınız varsa bu bağlantıyı seçin ve sonra mevcut yönetici hesabınızı kullanarak oturum açın. Lisansların nerede etkinleştirilmesi, Kiracı genel yönetici olmanız gerekir.
 
     - **Kaydolun.** **Hesap Profili Oluştur** sayfasını açmak ve lisanslama planınız için yeni bir Azure AD kiracısı oluşturmak istiyorsanız bu bağlantıyı seçin.
 
-        ![Hesap profili oluşturma](media/active-directory-get-started-premium/MOLSAccountProfile.png)
+        ![Örnek bilgilerle hesabı profil sayfası oluşturun](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 
 İşiniz bittiğinde, kiracınız için lisans planını etkileştirdiğiniz için teşekkür eden bir onay kutusu görürsünüz.
 
-![Onay](media/active-directory-get-started-premium/MOLSThankYou.png)
+![Onay kutusu teşekkür ederiz](media/active-directory-get-started-premium/MOLSThankYou.png)
 
 ## <a name="activate-your-azure-ad-access"></a>Azure AD erişiminizi etkinleştirme
 Mevcut bir aboneliğe yeni Azure AD Premium lisansları ekliyorsanız Azure AD erişiminiz zaten etkinleştirilmiş olmalıdır. Aksi halde **Hoş Geldiniz e-postasını** aldıktan sonra Azure AD erişiminizi etkinleştirmeniz gerekir.  
@@ -89,11 +89,11 @@ Satın aldığınız lisanslar dizininizde sağlandıktan sonra bir **Hoş geldi
 
 1. **Hoş geldiniz e-postasını** açın ve **Oturum Aç**’a tıklayın.
    
-    ![Hoş geldiniz e-postası](media/active-directory-get-started-premium/AADEmail.png)
+    ![Vurgulanan oturum bağlantısını içeren e-posta Hoş Geldiniz](media/active-directory-get-started-premium/AADEmail.png)
 
 2. Başarıyla oturum açtıktan sonra bir mobil cihaz kullanarak iki aşamalı doğrulama yapacaksınız.
    
-    ![Mobil doğrulama](media/active-directory-get-started-premium/SignUppage.png)
+    ![İki aşamalı doğrulama sayfası mobil doğrulama](media/active-directory-get-started-premium/SignUppage.png)
 
 Etkinleştirme işlemi genellikle yalnızca birkaç dakika sürer ve daha sonra Azure AD kiracınızı kullanabilirsiniz. 
 

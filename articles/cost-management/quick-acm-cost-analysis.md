@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a36f20011429ea45fb951e331c5cf3c2bb7209e2
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 55407ec1846a0fe2eb037756dc2e97d8b05e7330
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342539"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997310"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Hızlı Başlangıç: Maliyet Analizi ile maliyetleri analiz
 
@@ -51,9 +51,9 @@ Maliyet Yönetimi verilerine erişim atama hakkında daha fazla bilgi için bkz.
 
 ## <a name="review-costs-in-cost-analysis"></a>Maliyet analizinde maliyetleri gözden geçirme
 
-Azure portalında, maliyet analizi ile maliyetlerinizi gözden geçirmek için gidin **maliyet Yönetimi + faturalandırma** &gt; **maliyet analizi**. Seçin **kapsamı: _ScopeName_** bir kapsam seçin ve ardından **seçin**.
+Maliyetlerinizi maliyet analizi gözden geçirmek için Azure portal ve select istenen kapsama açın **maliyet analizi** menüsünde. Örneğin, gitmek **abonelikleri**listeden aboneliği seçin ve ardından **maliyet analizi** menüsünde. Kullanım **kapsam** zehirli maliyet analizi farklı bir kapsam penceresine geçin. Kapsamlar hakkında daha fazla bilgi için bkz: [anlayın ve kapsamlı iş](understand-work-scopes.md).
 
-Veri birleştirmesi sağlamak ve maliyet bilgilerine erişimi denetlemek için seçtiğiniz kapsam Maliyet Yönetimi’nin tamamında kullanılır. Kapsamları kullandığınızda, birden çok kapsam seçemezsiniz. Bunun yerine, başkalarının kadar geri alma ve daha sonra filtre istediğinize aşağı daha büyük bir kapsam seçin. Bu, bazı kişiler, alt kapsamlar aktarma hedefi bir üst kapsama erişimi olmaması nedeniyle anlamak önemlidir. Kapsamlar hakkında daha fazla bilgi için bkz: [anlayın ve kapsamlı iş](understand-work-scopes.md).
+Veri birleştirmesi sağlamak ve maliyet bilgilerine erişimi denetlemek için seçtiğiniz kapsam Maliyet Yönetimi’nin tamamında kullanılır. Kapsamları kullandığınızda, birden çok kapsam seçemezsiniz. Bunun yerine, başkalarının kadar geri alma ve daha sonra filtre istediğinize aşağı daha büyük bir kapsam seçin. Bu, bazı kişiler, alt kapsamlar aktarma hedefi bir üst kapsama erişimi olmaması nedeniyle anlamak önemlidir.
 
 **Maliyet analizini aç**’a tıklayın.
 

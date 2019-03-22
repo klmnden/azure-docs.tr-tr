@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 1ee8b11b131a40150431daa22011e868ab290e3a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6cddb513249b424ef0df2ed2d1b5609de17c0744
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250583"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894045"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure Stack genel bakış güncelleştirmelerini yönetme
 
@@ -46,18 +46,17 @@ Güncelleştirmeleri yüklemek gibi çeşitli alt sistemlerde (örneğin, fiziks
 
 Herhangi bir bakım işlemi kullanıcılara bildirmek ve, normal bakım pencereleri çalışma saatleri sırasında mümkünse zamanlamanızı öneririz. Bakım işlemleri hem Kiracı iş yüklerini ve portal işlemlerini etkileyebilir.
 
-
 - Bu güncelleştirme yüklemesi başlamadan önce çalıştırması [Test AzureStack](azure-stack-diagnostic-test.md) bulunan tüm çalışma sorunlarını çözün ve Azure Stack durumunu doğrulamak için aşağıdaki parametreleri, tüm uyarılar ve hatalar dahil olmak üzere. Ayrıca etkin Uyarıları gözden geçirin ve eylemi gerektiren tüm çözümleyin.  
 
   ```PowerShell
-  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  Test-AzureStack -Group UpdateReadiness
   ``` 
 
 ## <a name="using-the-update-tile-to-manage-updates"></a>Güncelleştirmeleri yönetmek için kutucuğu Güncelleştir'ı kullanma
 Yönetici portalı'ndan güncelleştirmeleri yönettiğiniz. Azure Stack operatörü panoya, kutucuğu güncelleştir kullanabilirsiniz:
 
 - geçerli sürümü gibi önemli bilgileri görüntüleyin.
-- güncelleştirmeleri yükleyin ve ilerleme durumunu izleyin.
+- güncelleştirmeleri yüklemek ve ilerleme durumunu izleyebilirsiniz.
 - Güncelleştirme geçmişini daha önce yüklenen güncelleştirmeleri gözden geçirin.
  
 ## <a name="determine-the-current-version"></a>Geçerli sürümünü belirleme

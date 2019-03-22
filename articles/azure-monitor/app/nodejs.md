@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/01/2017
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 075f08f89e0bbdefa76623a284971f46a1b3966a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 13379111706eaa816a8fa16cfe72711b7bf4d739
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119807"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013300"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights ile Node.js hizmetlerinizi ve uygulamalarınızı izleme
 
@@ -28,8 +28,6 @@ ms.locfileid: "54119807"
 Node.js SDK'sı gelen ve giden HTTP isteklerini, özel durumları ve bazı sistem ölçümlerini otomatik olarak izleyebilir. SDK, sürüm 0.20'dan itibaren MongoDB, MySQL ve Redis gibi bazı sık kullanılan üçüncü taraf paketlerini izlemek için de kullanılabilir. Gelen bir HTTP isteği ile ilgili tüm olaylar, daha hızlı sorun giderme için birbiriyle ilişkilendirilir.
 
 TelemetryClient API'sini kullanarak uygulamanızın ve sisteminizin ek özelliklerini el ile işaretleyebilir ve izleyebilirsiniz. TelemetryClient API'si bu makalenin ilerleyen bölümlerinde ayrıntılı bir şekilde anlatılmıştır.
-
-![Örnek performans izleme grafikleri](./media/nodejs/10-perf.png)
 
 ## <a name="get-started"></a>başlarken
 
@@ -49,11 +47,7 @@ Başlamadan önce, bir Azure aboneliğine sahip olduğunuzdan emin olun veya [ü
 1. [Azure portalında][portal] oturum açın.
 2. **Kaynak oluştur** > **Geliştirici araçları** > **Application Insights** seçeneğini belirleyin. Kaynak; telemetri verilerini, bu veriler için depolamayı, kayıtlı rapor ve panoları, kural ve uyarı yapılandırmasını almak ve diğer işlemlere yönelik bir uç nokta içerir.
 
-  ![Application Insights kaynağı oluşturma](./media/nodejs/03-new_appinsights_resource.png)
-
 3. Kaynak oluşturma sayfasındaki **Uygulama Türü** kutusundan **Node.js Uygulaması**'nı seçin. Uygulama türü oluşturulan varsayılan pano ve raporları belirler. (Herhangi bir Application Insights kaynağı herhangi bir dil ve platformdan veri toplayabilir.)
-
-  ![Yeni Application Insights kaynağı formu](./media/nodejs/04-create_appinsights_resource.png)
 
 ### <a name="sdk"></a> Node.js SDK'sını ayarlama
 
@@ -61,29 +55,29 @@ Veri toplayabilmesi için SDK'yı uygulamanıza ekleyin.
 
 1. Kaynağınızın İzleme Anahtarını (*ikey* olarak da adlandırılır) Azure portalından kopyalayın. Application Insights, verileri Azure kaynağınızla eşlemek için ikey değerini kullanır. SDK'nın ikey değerini kullanabilmesi için ikey değerini bir ortam değişkeninde veya kodunuzda belirtmeniz gerekir.  
 
-  ![İzleme anahtarını kopyalama](./media/nodejs/05-appinsights_ikey_portal.png)
+   ![İzleme anahtarını kopyalama](./media/nodejs/instrumentation-key-001.png)
 
 2. Node.js SDK kitaplığını package.json aracılığıyla uygulamanızın bağımlılıklarına ekleyin. Uygulamanızın kök klasöründen şunu çalıştırın:
 
-  ```bash
-  npm install applicationinsights --save
-  ```
+   ```bash
+   npm install applicationinsights --save
+   ```
 
 3. Kitaplığı kodunuza açıkça yükleyin. SDK diğer birçok kitaplığa izleme eklediği için kitaplığı diğer `require` deyimlerinden de önce olmak üzere mümkün olduğunca erken yükleyin. 
 
-  İlk .js dosyanızın üstüne aşağıdaki kodu ekleyin. `setup` yöntemi, ikey değerini (ve bu nedenle Azure kaynağını) izlenen tüm öğeler için varsayılan olarak kullanılacak şekilde yapılandırır.
+   İlk .js dosyanızın üstüne aşağıdaki kodu ekleyin. `setup` yöntemi, ikey değerini (ve bu nedenle Azure kaynağını) izlenen tüm öğeler için varsayılan olarak kullanılacak şekilde yapılandırır.
 
-  ```javascript
-  const appInsights = require("applicationinsights");
-  appInsights.setup("<instrumentation_key>");
-  appInsights.start();
-  ```
+   ```javascript
+   const appInsights = require("applicationinsights");
+   appInsights.setup("<instrumentation_key>");
+   appInsights.start();
+   ```
    
-  Ayrıca `setup()` veya `new appInsights.TelemetryClient()` konumuna el ile geçirmek yerine APPINSIGHTS\_INSTRUMENTATIONKEY ortam değişkeni aracılığıyla bir ikey sağlayabilirsiniz. Bu uygulama, ikey değerlerini yürütülen kaynak kodunun dışında tutmanıza ve farklı ortamlar için farklı ikey değerleri belirtmenize olanak tanır.
+   Ayrıca `setup()` veya `new appInsights.TelemetryClient()` konumuna el ile geçirmek yerine APPINSIGHTS\_INSTRUMENTATIONKEY ortam değişkeni aracılığıyla bir ikey sağlayabilirsiniz. Bu uygulama, ikey değerlerini yürütülen kaynak kodunun dışında tutmanıza ve farklı ortamlar için farklı ikey değerleri belirtmenize olanak tanır.
 
-  Ek yapılandırma seçenekleri için aşağıdaki bölümlere bakın.
+   Ek yapılandırma seçenekleri için aşağıdaki bölümlere bakın.
 
-  SDK'yı telemetri verileri göndermeden denemek için `appInsights.defaultClient.config.disableAppInsights = true` ayarını yapın.
+   SDK'yı telemetri verileri göndermeden denemek için `appInsights.defaultClient.config.disableAppInsights = true` ayarını yapın.
 
 ### <a name="monitor"></a> Uygulamanızı izleme
 
@@ -91,15 +85,13 @@ SDK, Node.js çalışma zamanı ve bazı yaygın üçüncü taraf modülleriyle 
 
 Ardından [Azure portalında][portal] önceden oluşturduğunuz Application Insights kaynağına gidin. **Genel bakış zaman çizelgesinde** ilk birkaç veri noktasını bulun. Ayrıntılı verileri görmek için grafikteki farklı bileşenleri seçin.
 
-![İlk veri noktaları](./media/nodejs/12-first-perf.png)
-
 Uygulamanız için bulunan topolojiyi görüntülemek için **Uygulama eşlemesi** düğmesini seçin. Ayrıntılı bilgi için eşlemedeki bileşenleri seçin.
 
-![Basit uygulama eşlemesi](./media/nodejs/06-appinsights_appmap.png)
+![Basit uygulama eşlemesi](./media/nodejs/application-map-002.png)
 
 Uygulamanız hakkında daha fazla bilgi almak ve sorunları gidermek için **ARAŞTIR** bölümündeki diğer görünümleri seçin.
 
-![Araştır bölümü](./media/nodejs/07-appinsights_investigate_blades.png)
+![Araştır bölümü](./media/nodejs/007-investigate-pane.png)
 
 #### <a name="no-data"></a>Veri yok mu?
 

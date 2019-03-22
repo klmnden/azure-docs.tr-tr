@@ -1,0 +1,116 @@
+---
+title: Metin okuma API Başvurusu (REST) - konuşma Hizmetleri
+titleSuffix: Azure Cognitive Services
+description: Metin okuma REST API'sini kullanmayı öğrenin. Bu makalede, sorgu seçenekleri, yetkilendirme seçenekleri hakkında bilgi edineceksiniz yapısı bir istek ve yanıt.
+services: cognitive-services
+author: erhopf
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: conceptual
+ms.date: 03/13/2019
+ms.author: erhopf
+ms.custom: seodec18
+ms.openlocfilehash: d67d8462c177d19dfa3cebbd0b4b000fbe3f41b8
+ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57894984"
+---
+# <a name="text-to-speech-rest-api"></a>Metin okuma REST API
+
+Konuşma Hizmetleri REST API kullanarak metin okuma dönüştürmenize olanak sağlar. Her erişilebilen bir uç noktaya bir bölge ile ilişkilidir. Uygulamanızı kullanmayı planladığınız uç nokta için bir abonelik anahtarı gerektirir. Her biri belirli bir dil ve yerel ayar tarafından tanımlanan diyalekti, destekleyen sinir ve standart metinden konuşmaya seslerle metin okuma REST API'sini destekler.
+
+* Sesler tam bir listesi için bkz. [dil desteği](language-support.md#text-to-speech).
+* Bölgesel kullanılabilirlik hakkında daha fazla bilgi için bkz. [bölgeleri](regions.md#text-to-speech).
+
+> [!IMPORTANT]
+> Maliyetleri için standart, özel ve sinir sesleri farklılık gösterir. Daha fazla bilgi için [fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
+Bu API kullanmadan önce anlayın:
+
+* Metin okuma REST API, bir yetkilendirme üst bilgisi gerektirir. Bu, hizmete erişmek için bir belirteç değişimi tamamlanması gerektiği anlamına gelir. Daha fazla bilgi için bkz. [Kimlik doğrulaması](#authentication).
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
+
+## <a name="request-headers"></a>İstek üst bilgileri
+
+Bu tablo, Konuşmayı metne istekler için gerekli ve isteğe bağlı üst bilgileri listeler.
+
+| Üst bilgi | Açıklama | Gerekli / isteğe bağlı |
+|--------|-------------|---------------------|
+| `Authorization` | Bir yetkilendirme belirteci word tarafından öncesinde `Bearer`. Daha fazla bilgi için bkz. [Kimlik doğrulaması](#authentication). | Gerekli |
+| `Content-Type` | Sağlanan metin için içerik türünü belirtir. Kabul değeri: `application/ssml+xml`. | Gerekli |
+| `X-Microsoft-OutputFormat` | Ses çıkış biçimini belirtir. Kabul edilen değerlerin tam listesi için bkz. [ses çıkış](#audio-outputs). | Gerekli |
+| `User-Agent` | Uygulama adı. Sağlanan değer 255 karakterden kısa olmalıdır. | Gerekli |
+
+## <a name="audio-outputs"></a>Ses çıkarır
+
+Bu, her isteği olarak gönderilir ve ses desteklenen biçimler listesini `X-Microsoft-OutputFormat` başlığı. Her bir bit hızı ve kodlama türünü içerir. 24 KHz, 16 KHz konuşma Hizmetleri destekler ve 8 KHz ses çıkarır.
+
+|||
+|-|-|
+| `raw-16khz-16bit-mono-pcm` | `raw-8khz-8bit-mono-mulaw` |
+| `riff-8khz-8bit-mono-alaw` | `riff-8khz-8bit-mono-mulaw` |
+| `riff-16khz-16bit-mono-pcm` | `audio-16khz-128kbitrate-mono-mp3` |
+| `audio-16khz-64kbitrate-mono-mp3` | `audio-16khz-32kbitrate-mono-mp3` |
+| `raw-24khz-16bit-mono-pcm` | `riff-24khz-16bit-mono-pcm` |
+| `audio-24khz-160kbitrate-mono-mp3` | `audio-24khz-96kbitrate-mono-mp3` |
+| `audio-24khz-48kbitrate-mono-mp3` | |
+
+> [!NOTE]
+> Seçilen ses ve çıkış biçimi farklı bit hızlarında varsa, ses, gerektiği şekilde örneklenmiş. Ancak, 24khz sesleri desteklemeyen `audio-16khz-16kbps-mono-siren` ve `riff-16khz-16kbps-mono-siren` Çıkış biçimleri.
+
+## <a name="request-body"></a>İstek gövdesi
+
+Her gövdesi `POST` isteği olarak gönderilecek [konuşma sentezi işaretleme dili (SSML'yi)](speech-synthesis-markup.md). SSML'yi sesi ve Sentezlenen konuşma metin okuma hizmet tarafından döndürülen dili seçmenize olanak sağlar. Desteklenen sesleri tam bir listesi için bkz. [dil desteği](language-support.md#text-to-speech).
+
+> [!NOTE]
+> Özel ses kullanıyorsanız, bir istek gövdesi (ASCII veya UTF-8) düz metin olarak gönderilebilir.
+
+## <a name="sample-request"></a>Örnek istek
+
+Bu HTTP isteğinin SSML ses ve dil belirtmek için kullanır. Gövde 1.000 karakterden uzun olamaz.
+
+```http
+POST /cognitiveservices/v1 HTTP/1.1
+
+X-Microsoft-OutputFormat: raw-16khz-16bit-mono-pcm
+Content-Type: application/ssml+xml
+Host: westus.tts.speech.microsoft.com
+Content-Length: 225
+Authorization: Bearer [Base64 access_token]
+
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
+    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
+        Microsoft Speech Service Text-to-Speech API
+</voice></speak>
+```
+
+Hızlı başlangıçtan dile özel örnekler için bkz:
+
+* [.NET Core, C#](quickstart-dotnet-text-to-speech.md)
+* [Python](quickstart-python-text-to-speech.md)
+* [Node.js](quickstart-nodejs-text-to-speech.md)
+
+## <a name="http-status-codes"></a>HTTP durum kodları
+
+Her yanıt için HTTP durum kodu, başarı veya sık karşılaşılan hataları gösterir.
+
+| HTTP durum kodu | Açıklama | Olası neden |
+|------------------|-------------|-----------------|
+| 200 | Tamam | İstek başarılı oldu; ses dosyası yanıt gövdesidir. |
+| 400 | Bozuk İstek | Gerekli parametre eksik, boş veya null. Veya, gerekli veya isteğe bağlı parametresi için geçirilen değer geçersiz. Çok uzun üstbilgi buna yaygın bir sorundur. |
+| 401 | Yetkilendirilmemiş | İstek yetkili değil. Abonelik anahtarı veya belirteç geçerli ve doğru bölgesinde olduğundan emin olmak için kontrol edin. |
+| 413 | İstek varlığı çok büyük | SSML'yi giriş metni, 1024 karakterden uzun. |
+| 429 | Çok Fazla İstek | Kota veya aboneliğiniz için izin isteği sayısını aştınız. |
+| 502 | Hatalı Ağ Geçidi | Ağ veya sunucu tarafı sorun. Geçersiz üst bilgileri de gösterebilir. |
+
+HTTP durum ise `200 OK`, yanıt gövdesi istenen biçiminde bir ses dosyası içerir. Bu dosya, aktarılan, arabellek için kaydedildi veya bir dosyaya kaydedilebilir olarak yürütülebilir.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+- [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
+- [Akustik modelleri özelleştirme](how-to-customize-acoustic-models.md)
+- [Dil modellerini özelleştirme](how-to-customize-language-model.md)

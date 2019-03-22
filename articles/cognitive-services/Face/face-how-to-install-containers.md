@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: a52c5bf1a52a4d598986664c41e80273e0b26788
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f3534f3001de1c3e58f0be3fb7bc9639b7dfcd03
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014095"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295438"
 ---
 # <a name="install-and-run-face-containers"></a>Yükleme ve yüz kapsayıcıları çalıştırma
 
@@ -48,11 +48,12 @@ Yüz tanıma API'si kapsayıcıları kullanmadan önce aşağıdaki gereksinimle
 
 Aşağıdaki tabloda, en düşük ve önerilen CPU Çekirdeği ve her bir yüz tanıma API'si kapsayıcısı için ayrılacak bellek açıklanmaktadır.
 
-| Kapsayıcı | Minimum | Önerilen |
-|-----------|---------|-------------|
-|Yüz | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |
+| Kapsayıcı | Minimum | Önerilen | TPS<br>(Minimum, maksimum)|
+|-----------|---------|-------------|--|
+|Yüz | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |10, 20|
 
-Her çekirdeğe en az 2.6 gigahertz (GHz) olması ya da daha hızlı.
+* Her çekirdeğe en az 2.6 gigahertz (GHz) olması ya da daha hızlı.
+* TPS - saniye başına işlem
 
 Çekirdek ve bellek karşılık `--cpus` ve `--memory` parçası olarak kullanılan ayarları `docker run` komutu.
 

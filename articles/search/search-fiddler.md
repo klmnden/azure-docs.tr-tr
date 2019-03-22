@@ -1,5 +1,5 @@
 ---
-title: Postman veya fiddler'ı web HTTP test araçları - Azure Search REST API'lerini keşfetme
+title: Postman veya fiddler'ı - Azure Search REST API'lerini keşfetme
 description: Azure Search için HTTP istekleri ve REST API için Postman veya fiddler'ı kullanma çağırır.
 author: HeidiSteen
 manager: cgronlun
@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ffa47a2e14ba49630aa8b7017a3b0c557421da57
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 946d8196fbe49e452dab8fa36e4c746a1bcaf490
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792081"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58137632"
 ---
-# <a name="explore-azure-search-rest-apis-using-postman-or-fiddler"></a>Postman veya fiddler'ı kullanarak Azure Search REST API'lerini keşfetme
+# <a name="quickstart-explore-azure-search-rest-apis-using-postman-or-fiddler"></a>Hızlı Başlangıç: Postman veya fiddler'ı kullanarak Azure Search REST API'lerini keşfetme
 
 Keşfetmek için en kolay yollarından biri [Azure Search REST API'sine](https://docs.microsoft.com/rest/api/searchservice) HTTP isteklerini oluşturmak ve yanıtları için Postman veya fiddler'ı kullanıyor. Doğru araçlar ve bu yönergelerden yararlanarak herhangi bir kod yazmadan önce istek gönderebilir ve yanıtları görüntüleyebilirsiniz.
 
@@ -42,11 +42,13 @@ Aşağıdaki araçlar web içeriği geliştirmek için yaygın bir şekilde kull
 
 REST çağrıları için her istekte hizmet URL'sinin ve bir erişim anahtarının iletilmesi gerekir. İkisini de içeren bir arama hizmeti oluşturulur. Bu nedenle aboneliğinize Azure Search hizmetini eklediyseniz gerekli bilgileri almak için aşağıdaki adımları izleyin:
 
-1. Azure portalında panodan arama hizmeti sayfasını açın veya hizmet listesinden [hizmetinizi bulun](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
-2. URL uç noktasını alma **genel bakış**. Örnek uç nokta `https://my-service-name.search.windows.net` şeklinde görünebilir.
-3. API anahtarını **Ayarlar** > **Anahtarlar** yolundan alın. Birlikte kullanabilmeniz için iki yönetici anahtarı mevcuttur. Yönetici anahtarları hizmetinize dizin oluşturma ve yükleme için gerekli olan yazma izinlerini verir. Yazma işlemleri için birincil veya ikincil anahtarı kullanabilirsiniz.
+1. Azure portalında arama hizmetinizin **genel bakış** sayfa olduğunda URL'yi alın. Örnek uç nokta `https://my-service-name.search.windows.net` şeklinde görünebilir.
+
+2. İçinde **ayarları** > **anahtarları**, hizmette tam haklarına yönelik bir yönetici anahtarını alın. Bir gece yarısında gerektiği durumlarda iş sürekliliği için sağlanan iki birbirinin yerine yönetici anahtarı mevcuttur. Ekleme, değiştirme ve silme nesneler için istekleri birincil veya ikincil anahtar kullanabilirsiniz.
 
 ![Bir HTTP uç noktası ve erişim anahtarını alma](media/search-fiddler/get-url-key.png "bir HTTP uç noktası ve erişim anahtarını alma")
+
+Tüm istekleri hizmete gönderilen her istekte bir API anahtarı gerektirir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
 
 ## <a name="configure-headers"></a>Üstbilgilerini yapılandırın
@@ -83,7 +85,7 @@ Aşağıdaki ekran görüntüsü gibi görünen bir istek düzenleyin. **PUT** f
 > [!Tip]
 > Fazlalık, ilgisiz HTTP etkinliğini gizlemek için web trafiği devre dışı bırakın. Fiddler'ın içinde **dosya** menüsünden devre dışı **trafik yakalama**. 
 
-## <a name="1---create-the-index"></a>1 - dizin oluşturma
+## <a name="1---create-an-index"></a>1 - Dizin oluşturma
 
 İstek gövdesi dizin tanımını içerir. İstek gövdesini eklediğinizde dizininizi oluşturan istek tamamlanır.
 
@@ -217,7 +219,7 @@ Fiili **POST** olarak değiştirin. URL'yi `/docs/index` içerecek şekilde değ
 
 ![Fiddler isteği yükü][9]
 
-## <a name="3---query-the-index"></a>3 - dizini sorgulama
+## <a name="3---search-an-index"></a>3 - Dizin arama
 Dizin ve belgeler yüklenir, bunlara karşı sorgu iletebilirsiniz kullanarak [arama belgeleri](https://docs.microsoft.com/rest/api/searchservice/search-documents) REST API.
 
 + Bu adım için fiili **GET** olarak değiştirin.
@@ -260,9 +262,8 @@ Fiddler'da **Inspectors** (Denetçiler) sekmesine tıklayın, **Headers** (Üst 
 
 REST istemcileri plansız keşifler için çok önemlidir. REST API'lerinin nasıl çalıştığını öğrendiğinizde göre kod kullanarak ilerleyebilirsiniz. Sonraki adımları için aşağıdaki bağlantılara bakın:
 
-+ [Dizin oluşturma (REST)](search-create-index-rest-api.md)
-+ [Veri içeri aktarma (REST)](search-import-data-rest-api.md)
-+ [Dizin arama (REST)](search-query-rest-api.md)
++ [Hızlı Başlangıç: .NET SDK'sını kullanarak bir dizin oluşturun](search-create-index-dotnet.md)
++ [Hızlı Başlangıç: PowerShell kullanarak bir dizini (REST) oluşturma](search-create-index-rest-api.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/fiddler-url.png

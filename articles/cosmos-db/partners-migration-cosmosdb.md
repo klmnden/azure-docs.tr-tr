@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: 748f4562e1efd613b87dd5ab44a83d3d50171f67
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3126be88e272ab3891caa94ee15b622b0dfbdbdf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539930"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860508"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL geçiş ve uygulama geliştirme iş ortakları
 
@@ -32,10 +32,10 @@ Uygulama geliştirme için NoSQL geçiş, Azure Cosmos DB çözümlerinizi deste
 |![Altoros geliştirme LLC][3]    |  NoSQL geçiş <br/> Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme |   ABD, Norveç, Finlandiya, Belarus, Arjantin |  [Web sitesi](https://www.altoros.com/)     |
 |![Attunix Redapt][4]     |   NoSQL geçiş <br/> Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme      |    ABD     |  [Web sitesi](https://www.attunix.com/)       |
 | ![Avanade][26] | Yeni uygulama geliştirme <br/> Uygulama yeniliği (var olan uygulamaları) | Avusturya, Almanya, İsviçre, İtalya, Norveç, İspanya, Birleşik Krallık | [Web sitesi](https://www.avanade.com/)
-|![Bluemetal Architects][5]     |  NoSQL geçiş <br/> Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme       |    Kuzey Amerika, Asya Pasifik     |  [Web sitesi](http://www.bluemetal.com/)       |
+|![Bluemetal Architects][5]     |  NoSQL geçiş <br/> Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme       |    Kuzey Amerika, Asya Pasifik     |  [Web sitesi](https://www.bluemetal.com/)       |
 |![Capax genel LLC][6]     |  NoSQL geçiş <br/> Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme       |    ABD     |  [Web sitesi](https://www.capaxglobal.com/)       |
 | ![Capgemini][14] | NoSQL geçiş; Uygulama yeniliği (var olan uygulamaları); Yeni uygulama geliştirme | ABD, Fransa, Birleşik Krallık, Hollanda, Finlandiya  | [Web sitesi](https://www.capgemini.com/) | 
-|![Coeo][7]     |   Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme |    UK     |  [Web sitesi](http://www.coeo.com/)       |
+|![Coeo][7]     |   Uygulama yeniliği (var olan uygulamaları) <br/> Yeni uygulama geliştirme |    UK     |  [Web sitesi](https://www.coeo.com/)       |
 | ![Cognizant][15] | NoSQL geçiş |ABD, Kanada, Birleşik Krallık, Danimarka, Hollanda, İsviçre, Avustralya, Japonya | [Web sitesi](https://www.cognizant.com/)|
 |![Infosys][8]     |  NoSQL geçiş       |    Genel     |  [Web sitesi](https://www.infosys.com/)       |
 | ![Lagash][16] | NoSQL geçiş <br/> Yeni uygulama geliştirme | Arjantin, Şili, Kolombiya, Meksika| [Web sitesi](https://www.lagash.com/)|

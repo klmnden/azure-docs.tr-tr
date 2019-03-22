@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27456f672e2fa67928b43e80bef384a14e9c1d62
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9f062596e2be93065b3c076787c2f5b3dfcedf9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166972"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110129"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Hızlı Başlangıç: Azure Active Directory kiracınız için uygulama ekleme
 
@@ -113,35 +113,35 @@ Uygulama özelliklerini düzenlemek için
 
 4. Aşağıdaki tablolar ihtiyaçlarınıza en uygun seçenekleri belirlemenize yardımcı olur.
 
-    - **Atanan** kullanıcılar için davranış:
+   - **Atanan** kullanıcılar için davranış:
 
-        | Uygulama özelliği ayarları | | | Atanan kullanıcı deneyimi | |
-        |---|---|---|---|---|
-        | Kullanıcıların oturum açması için etkinleştirildi mi? | Kullanıcı ataması gerekli mi? | Kullanıcılara görünür mü? | Atanan kullanıcılar oturum açabilir mi? | Atanan kullanıcılar uygulamayı görebilir mi?* |
-        | evet | evet | evet | evet | evet  |
-        | evet | evet | hayır  | evet | hayır   |
-        | evet | hayır  | evet | evet | evet  |
-        | evet | hayır  | hayır  | evet | hayır   |
-        | hayır  | evet | evet | hayır  | hayır   |
-        | hayır  | evet | hayır  | hayır  | hayır   |
-        | hayır  | hayır  | evet | hayır  | hayır   |
-        | hayır  | hayır  | hayır  | hayır  | hayır   |
+       | Uygulama özelliği ayarları | | | Atanan kullanıcı deneyimi | |
+       |---|---|---|---|---|
+       | Kullanıcıların oturum açması için etkinleştirildi mi? | Kullanıcı ataması gerekli mi? | Kullanıcılara görünür mü? | Atanan kullanıcılar oturum açabilir mi? | Atanan kullanıcılar uygulamayı görebilir mi?* |
+       | evet | evet | evet | evet | evet  |
+       | evet | evet | hayır  | evet | hayır   |
+       | evet | hayır  | evet | evet | evet  |
+       | evet | hayır  | hayır  | evet | hayır   |
+       | hayır  | evet | evet | hayır  | hayır   |
+       | hayır  | evet | hayır  | hayır  | hayır   |
+       | hayır  | hayır  | evet | hayır  | hayır   |
+       | hayır  | hayır  | hayır  | hayır  | hayır   |
 
-    - **Atanmayan** kullanıcılar için davranış:
+   - **Atanmayan** kullanıcılar için davranış:
 
-        | Uygulama özelliği ayarları | | | Atanmayan kullanıcı deneyimi | |
-        |---|---|---|---|---|
-        | Kullanıcıların oturum açması için etkinleştirildi mi? | Kullanıcı ataması gerekli mi? | Kullanıcılara görünür mü? | Atanmayan kullanıcılar oturum açabilir mi? | Atanmayan kullanıcılar uygulamayı görebilir mi?* |
-        | evet | evet | evet | hayır  | hayır   |
-        | evet | evet | hayır  | hayır  | hayır   |
-        | evet | hayır  | evet | evet | hayır   |
-        | evet | hayır  | hayır  | evet | hayır   |
-        | hayır  | evet | evet | hayır  | hayır   |
-        | hayır  | evet | hayır  | hayır  | hayır   |
-        | hayır  | hayır  | evet | hayır  | hayır   |
-        | hayır  | hayır  | hayır  | hayır  | hayır   |
+       | Uygulama özelliği ayarları | | | Atanmayan kullanıcı deneyimi | |
+       |---|---|---|---|---|
+       | Kullanıcıların oturum açması için etkinleştirildi mi? | Kullanıcı ataması gerekli mi? | Kullanıcılara görünür mü? | Atanmayan kullanıcılar oturum açabilir mi? | Atanmayan kullanıcılar uygulamayı görebilir mi?* |
+       | evet | evet | evet | hayır  | hayır   |
+       | evet | evet | hayır  | hayır  | hayır   |
+       | evet | hayır  | evet | evet | hayır   |
+       | evet | hayır  | hayır  | evet | hayır   |
+       | hayır  | evet | evet | hayır  | hayır   |
+       | hayır  | evet | hayır  | hayır  | hayır   |
+       | hayır  | hayır  | evet | hayır  | hayır   |
+       | hayır  | hayır  | hayır  | hayır  | hayır   |
 
-    *Kullanıcı uygulamayı erişim panelinde ve Office 365 uygulama başlatıcıda görebilir mi?
+     *Kullanıcı uygulamayı erişim panelinde ve Office 365 uygulama başlatıcıda görebilir mi?
 
 ## <a name="use-a-custom-logo"></a>Özel logo kullanma
 

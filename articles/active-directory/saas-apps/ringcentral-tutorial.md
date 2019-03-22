@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d86dc27822c91bd6b2b1cb3ec53b07978061cc7d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e9cd97bc226ec69441b933a9f7bf3caec17f1478
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437369"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877131"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Öğretici: RingCentral ile Azure Active Directory Tümleştirme
 
@@ -127,6 +127,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve R
     ![image](./media/ringcentral-tutorial/b21-domains_and_urls.png)
 
     d. İçinde **oturum açma URL'si** metin kutusuna bir URL:
+
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -140,6 +141,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve R
 6. Öğeniz yoksa **hizmet sağlayıcısı meta veri dosyası**, aşağıdaki adımları gerçekleştirin:
 
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL:
+
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -148,12 +150,14 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve R
     | `https://service.ringcentral.eu` |
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL:
+
     | |
     |--|
     |  `https://sso.ringcentral.com` |
     | `https://ssoeuro.ringcentral.com` |
 
     c. İçinde **yanıt URL'si** metin kutusuna bir URL:
+    
     | |
     |--|
     | `https://sso.ringcentral.com/sp/ACS.saml2` |
@@ -223,7 +227,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

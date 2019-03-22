@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7af211710d6b1cce2b06999f9d15882b163dbf60
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c64fb2dc4c494252f0078b8d23e05b15f07ebe00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766386"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894572"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Öğretici: SAP Business nesne bulut ile Azure Active Directory Tümleştirme
 
@@ -106,12 +106,14 @@ Azure AD çoklu oturum açma SAP iş nesnesi Bulutla yapılandırmak için aşa�
     ![SAP Business nesne bulut etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+
     | |
     |-|-|
     | `https://<sub-domain>.sapanalytics.cloud/` |
     | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
     b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın:
+    
     | |
     |-|-|
     | `<sub-domain>.sapbusinessobjects.cloud` |
@@ -178,7 +180,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -237,7 +239,7 @@ Bir kullanıcı hesabı sağlamak için:
 
     d. İçinde **GÖRÜNEN ad** kutusuna, kullanıcının tam adı gibi girin **Britta Simon**.
 
-    e. İçinde **e-posta** kutusuna, kullanıcının e-posta adresi gibi girin **brittasimon@contoso.com**.
+    e. İçinde **e-posta** kutusuna, kullanıcının e-posta adresi gibi girin **brittasimon\@contoso.com**.
 
     f. Üzerinde **Rollerini Seç** sayfasında kullanıcı için uygun rolü seçin ve ardından **Tamam**.
 

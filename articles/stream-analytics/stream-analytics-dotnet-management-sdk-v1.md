@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: bf4f7e8f5837aaa56745e60df5a4960a93097a92
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9c4ddb1375154fef3290008a7b981a4e9069ae94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729636"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075211"
 ---
 # <a name="set-up-and-run-analytics-jobs-using-azure-stream-analytics-api-for-net"></a>Ayarlama ve .NET için Azure Stream Analytics API'si kullanarak analytics işlerini çalıştırın
 Ayarlama ve Stream Analytics API'si için .NET Yönetim SDK'sını kullanarak .NET kullanarak analytics işlerini çalıştırma hakkında bilgi edinin. Projesini ayarlarsınız, giriş ve çıkış kaynakları, dönüştürme ve başlangıç oluşturma ve işleri durdur. Analytics işleriniz için Blob depolama alanından veya bir olay hub'ından veri akışını yapabilirsiniz.
@@ -57,7 +57,7 @@ Install-Package Microsoft.Azure.Management.StreamAnalytics -Version 1.8.3
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.4
 ```
 
-3. Aşağıdaki **appSettings** App.config dosyasına bölümü:
+1. Aşağıdaki **appSettings** App.config dosyasına bölümü:
 
    ```csharp
    <appSettings>
@@ -76,7 +76,7 @@ Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.4
 
         Get-AzureAccount
 
-4. .Csproj dosyanızda şu başvuruyu ekleyin:
+1. .Csproj dosyanızda şu başvuruyu ekleyin:
 
    ```csharp
    <Reference Include="System.Configuration" />
@@ -95,7 +95,7 @@ using Microsoft.Azure.Management.StreamAnalytics.Models;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-2. Bir kimlik doğrulama Yardımcısını yöntemi ekleyin:
+1. Bir kimlik doğrulama Yardımcısını yöntemi ekleyin:
 
    ```csharp
    private static async Task<string> GetAuthorizationHeader()

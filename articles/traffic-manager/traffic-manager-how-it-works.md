@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 35abc43b60f31d94e8c4221137ad5437366b3489
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 52469cb2735b2270815191ec0815daee350882a4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547870"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108874"
 ---
 # <a name="how-traffic-manager-works"></a>Traffic Manager nasıl çalışır?
 
@@ -39,8 +39,8 @@ Contoso Corp yeni bir iş ortağı portalı geliştirilmiştir. Bu portalı URL'
 Bu yapılandırma elde etmek için aşağıdaki adımları tamamlayın:
 
 1. Üç hizmet örneği dağıtın. Bu dağıtımları DNS adları 'contoso-us.cloudapp .net', 'contoso-eu.cloudapp .net' ve 'contoso-asia.cloudapp .net' dir.
-2. 'Contoso.trafficmanager.net' adlı Traffic Manager profili oluşturun ve üç uç noktalar genelinde 'Performans' trafik yönlendirme yöntemini kullanacak şekilde yapılandırın.
-* Kullanıcıların gösterim etki alanı adı, '' bir DNS CNAME kaydı kullanılarak ', contoso.trafficmanager.NET'e yönlendirmek için partners.contoso.com','nı yapılandırın.
+1. 'Contoso.trafficmanager.net' adlı Traffic Manager profili oluşturun ve üç uç noktalar genelinde 'Performans' trafik yönlendirme yöntemini kullanacak şekilde yapılandırın.
+1. Kullanıcıların gösterim etki alanı adı, '' bir DNS CNAME kaydı kullanılarak ', contoso.trafficmanager.NET'e yönlendirmek için partners.contoso.com','nı yapılandırın.
 
 ![Traffic Manager DNS yapılandırması][1]
 

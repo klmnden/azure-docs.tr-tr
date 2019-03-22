@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a82d871ea232b31b31cfc24585af672141617d88
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5293c44a3e4494593e069ab45fbc38806c6999ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353026"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57976785"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - işlevler ve sistem değişkenleri
 > [!NOTE]
@@ -27,6 +27,7 @@ ms.locfileid: "54353026"
 Bu makalede, işlevleri ve Azure Data Factory tarafından desteklenen değişkenler hakkında bilgi sağlar.
 
 ## <a name="data-factory-system-variables"></a>Data Factory sistem değişkenleri
+
 | Değişken adı | Açıklama | Nesne kapsamı | JSON kapsamı ve kullanım örnekleri |
 | --- | --- | --- | --- |
 | WindowStart |Zaman aralığı için geçerli etkinlik penceresini çalıştırma başlangıcı |etkinlik |<ol><li>Veri seçimi sorgularında belirtin. Başvuru Bağlayıcısı makalelerine bakın [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalesi.</li> |
@@ -94,7 +95,7 @@ Aşağıdaki tablolarda Azure Data Factory içindeki tüm işlevlere listeleyin:
 | Tarih |EndOfDay(X) |X: DateTime |Tarih-saat x (gün bileşenini) gün sonunu temsil eden alır.<br/><br/>Örnek: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
 | Tarih |EndOfMonth(X) |X: DateTime |Ay bileşeninin X parametresi tarafından temsil edilen ayın sonunu alır. <br/><br/>Örnek: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (tarihi Eylül ayın sonunu temsil eden saat) |
 | Tarih |StartOfDay(X) |X: DateTime |Parametre X gün bileşenini tarafından temsil edilen günün başlangıcını alır.<br/><br/>Örnek: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| DateTime |FROM(X) |X: Dize |Bir tarih saat dizesi X ayrıştırılamıyor. |
+| DateTime |FROM(X) |X: String |Bir tarih saat dizesi X ayrıştırılamıyor. |
 | DateTime |Ticks(X) |X: DateTime |İşaretleri X parametresinin özelliğini alır. Bir değer çizgisi 100 nanosaniyelik eşittir. Bu özelliğin değeri, 12:00:00 gece yarısından itibaren 1 Ocak 0001 geçen tıklarının sayısını temsil eder. |
 | Metin |Format(X) |X: String değişkeni |Metin biçimleri (kullanın `\\'` kaçış birleşimi `'` karakter).|
 

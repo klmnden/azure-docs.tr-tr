@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: b4ba59ef24ec106c5a5f21f395445ca39b2bd1ea
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: faaba873f20fc0ac04abdd7bd78dd85429d341e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739797"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996521"
 ---
 # <a name="mainframe-workloads-supported-on-azure"></a>Ana bilgisayar iş yüklerini Azure üzerinde desteklenir
 
@@ -26,7 +26,7 @@ Ana bilgisayar öykünme ve Hizmetleri hakkında daha fazla yardım için başvu
 - [Micro odak Visual COBOL](https://www.microfocus.com/products/visual-cobol/) geliştirme ve tümleştirme araçları.
 - [Micro odak PL / miyim](https://www.microfocus.com/campaign/download/pli-modernization/) anabilgisayar PL destekleyen .NET platformu için eski derleyici / ı sözdizimi, veri türleri ve davranışı.
 - [Micro odak Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) anabilgisayar tümleştirme platformu.
-- [Fujitsu NetCOBOL](http://www.fujitsu.com/global/products/software/developer-tool/netcobol/) geliştirme ve tümleştirme araçları.
+- [Fujitsu NetCOBOL](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/) geliştirme ve tümleştirme araçları.
 - [NTT veri Kurumsal COBOL](https://www.nttdataservices.com/en-ie/services/application-modernization-services) geliştirme ve tümleştirme araçları.
 - [NTT açık PL / miyim](https://www.nttdataservices.com/en-ie/services/application-modernization-services) anabilgisayar PL destekleyen .NET platformu için eski derleyici / ı sözdizimi, veri türleri ve davranışı.
 - [Raincode COBOL derleyici](https://www.raincode.com/products/cobol/) geliştirme ve tümleştirme araçları.

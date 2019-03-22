@@ -6,15 +6,15 @@ keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 02/10/2019
+ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: a67315287f90143701ca38b9f42e243b2d4913a3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 51848b9ba4d18b3ac7d652cfbd97cab6b85f2ee8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437709"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842371"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Küçük resimleri ile Azure Media Clipper'ı oluşturma
 Bu bölümde, Azure Media Clipper'ı kullanmaya başlama hakkında temel adımları gösterir. İzleyen bölümlerde Azure Media Clipper'ı yapılandırma konusunda ayrıntıları sağlayın.
@@ -100,7 +100,7 @@ Başlatma yöntemi çağrısı için Parametreler şunlardır:
 - `height` {İsteğe bağlı, number} Pencere öğesinin toplam yüksekliği (minimum yükseklik olan 600 piksel varlıklar bölmesinde ve 850 olmadan varlıklar bölmesinde piksel).
 - `subclippingMode` (İsteğe bağlı {'all', 'işleme', 'filtre'}): Klip modları izin verilir. Varsayılan değer tümüdür.
 - `filterAssetsTypes` (İsteğe bağlı, Boole): filterAssetsTypes varlıklar bölmesinde filtreler açılan Göster/Gizle olanak sağlar. Varsayılan değer true olur.
-- `speedLevels` (İsteğe bağlı, dizi): speedLevels, farklı hızı düzeyi için video oynatıcı ayarlamaya olanak tanır, bkz: [Azure Media Player belgeleri](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) daha fazla bilgi için.
+- `speedLevels` (İsteğe bağlı, dizi): speedLevels, farklı hızı düzeyi için video oynatıcı ayarlamaya olanak tanır, bkz: [Azure Media Player belgeleri](https://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) daha fazla bilgi için.
 - `resetOnJobDone` (İsteğe bağlı, Boole): resetOnJobDone Clipper'ı, bir işi başarıyla gönderildiğinde, alt klip oluşturucu bir ilk durumuna sıfırlayın sağlar.
 - `autoplayVideo` (İsteğe bağlı, Boole): autoplayVideo yük video için otomatik Clipper sağlar. Varsayılan değer true olur.
 - `language` {İsteğe bağlı, dize}: dil pencere öğesinin dili ayarlar. Belirtilmezse, pencere öğesi tarayıcı diline dayalı iletilerini yerelleştirmeniz dener. Pencere öğesi hiçbir dil tarayıcıda algılanırsa, İngilizce için varsayılan olarak. Daha fazla bilgi için [yerelleştirmeyi yapılandırma](media-services-azure-media-clipper-localization.md) bölümü.
@@ -108,7 +108,7 @@ Başlatma yöntemi çağrısı için Parametreler şunlardır:
 - `extraLanguages` (İsteğe bağlı, JSON): extraLanguages parametre yeni diller varsayılan sözlüğe ekler. Daha fazla bilgi için [yerelleştirmeyi yapılandırma](media-services-azure-media-clipper-localization.md) bölümü.
 
 ## <a name="typescript-definition"></a>TypeScript tanımı
-A [TypeScript](https://www.typescriptlang.org/) Clipper'ı için tanım dosyasını bulunabilir [burada](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
+A [TypeScript](https://www.typescriptlang.org/) Clipper'ı için tanım dosyasını bulunabilir [burada](https://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
 
 ## <a name="azure-media-clipper-api"></a>Azure Media Clipper'ı API
 Bu bölümde Clipper tarafından sağlanan bir API yüzeyi belgeler.

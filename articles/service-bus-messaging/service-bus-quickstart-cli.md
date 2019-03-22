@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 02/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 338907585ade0a33f74ca3e6337f1dd5cf8cc211
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b40cd130039f7d55b69198b4be4af908dedbe8b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820374"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076896"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Hızlı Başlangıç: Service Bus kuyruğuna oluşturmak için Azure CLI'yi kullanma
 
@@ -61,31 +61,31 @@ Son komut çalıştıktan sonra, bağlantı dizesini ve seçtiğiniz kuyruk adı
 
 Ad alanı ve kuyruğun oluşturulmasının ve gerekli kimlik bilgilerine sahip olmanızın ardından ileti gönderip almaya hazırsınız demektir. [Bu GitHub örnek klasöründeki](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters) kodu inceleyebilirsiniz.
 
-2. Kopya [Service Bus GitHub deposu](https://github.com/Azure/azure-service-bus/) bilgisayarınızda aşağıdaki komutu gönderdikten tarafından:
+1. Kopya [Service Bus GitHub deposu](https://github.com/Azure/azure-service-bus/) bilgisayarınızda aşağıdaki komutu gönderdikten tarafından:
 
    ```bash
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Yol ayırıcı olarak eğik çizgi kullanarak geçerli dizininizi örnek klasöre değiştirin:
+1. Yol ayırıcı olarak eğik çizgi kullanarak geçerli dizininizi örnek klasöre değiştirin:
 
    ```bash
    cd azure-service-bus/samples/Java/azure-servicebus/QueuesGettingStarted
    ```
 
-3. Uygulamayı derlemek için aşağıdaki komutu çalıştırın:
+1. Uygulamayı derlemek için aşağıdaki komutu çalıştırın:
    
    ```bash
    mvn clean package -DskipTests
    ```
 
-4. Programı çalıştırmak için bağlantı dizesini, daha önce kopyaladığınız değeri ile değiştirdikten sonra aşağıdaki komutu yürütün:
+1. Programı çalıştırmak için bağlantı dizesini, daha önce kopyaladığınız değeri ile değiştirdikten sonra aşağıdaki komutu yürütün:
 
    ```bash
    java -jar ./target/queuesgettingstarted-1.0.0-jar-with-dependencies.jar -c "<SERVICE BUS NAMESPACE CONNECTION STRING>" 
    ```
 
-6. Kuyruğa gönderilen 10 iletiyi inceleyin. İletilerin sıralama garanti edilmez, ancak gönderilen, ardından onaylanır ve, birlikte yük verisi alınan iletileri görebilirsiniz:
+1. Kuyruğa gönderilen 10 iletiyi inceleyin. İletilerin sıralama garanti edilmez, ancak gönderilen, ardından onaylanır ve, birlikte yük verisi alınan iletileri görebilirsiniz:
 
     ```
     Message sending: Id = 0

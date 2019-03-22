@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30627994a8fe8cfe73e7945dadf2153ea60860b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: ef8f66cda7e80ffdafefbbac5de24d45f01401af
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175141"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286939"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Özel yasaklı parola listesi yapılandırma
-
-|     |
-| --- |
-| Azure AD parola koruması, Azure Active Directory genel Önizleme özelliğidir. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 Çoğu kuruluş, kullanıcılarına okul, takımınızın veya bunları kolayca tahmin bırakarak ünlü kişi gibi sık kullanılan yerel sözcükleri kullanarak parolaları oluşturmak bulun. Microsoft'un özel yasaklı parola listesi, kurumlar değerlendirmek ve engellemek için dizeleri ekleyin, değiştirin veya parola sıfırlama kullanıcıların ve yöneticilerin denediğinizde parola listesine ek olarak genel yasaklandı.
 
@@ -31,7 +26,7 @@ ms.locfileid: "56175141"
 
 Özel yasaklı parola listesi yapılandırma, bir Azure Active Directory Premium P1 veya P2 lisansı gerektirir. Azure Active Directory Lisansı hakkında daha ayrıntılı bilgi için bkz: [Azure Active Directory fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/active-directory/). |
 
-1. Oturum [Azure portalında](https://portal.azure.com) ve **Azure Active Directory**, **kimlik doğrulama yöntemleri**, ardından **parola koruması (Önizleme)**.
+1. Oturum [Azure portalında](https://portal.azure.com) ve **Azure Active Directory**, **kimlik doğrulama yöntemleri**, ardından **parola koruması**.
 1. Seçenek kümesi **zorla özel liste**, **Evet**.
 1. Dizelere ekleme **özel parola listesine Yasaklanmış**, her satırda bir dize
    * Özel yasaklı parola listesi en fazla 1000 sözcükler içerebilir.

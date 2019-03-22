@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6d86d4c03a41834322c98438958c0b9e87e6025c
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 9faa38a23b2039902366e5b885ab73c68a2a3d80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213534"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076029"
 ---
 # <a name="azure-application-offer"></a>Azure uygulama teklifi
 
@@ -58,15 +58,15 @@ Aşağıdaki diyagramda bir Azure uygulaması teklif yayımlamak için üst düz
 
 Bir Azure uygulaması teklif yayımlamak için üst düzey adımlar şunlardır:
 
-0. Karşılamak [önkoşulları](./cpp-prerequisites.md) - (gösterilmez) iş ve bir Azure uygulamasına Azure Market'te yayımlama için teknik gereksinimlerini karşıladığınızdan emin olun. 
+1. Karşılamak [önkoşulları](./cpp-prerequisites.md) - (gösterilmez) iş ve bir Azure uygulamasına Azure Market'te yayımlama için teknik gereksinimlerini karşıladığınızdan emin olun. 
 
 1. [Teklif oluşturma](./cpp-create-offer.md) -teklifi hakkında ayrıntılı bilgi sağlar. Bu bilgiler içerir: pazarlama malzemeleri, destek bilgileri ve varlık belirtimleri teklif açıklaması.
 
-2. [Oluşturun veya var olan iş ve teknik varlıkları toplamak](./cpp-create-technical-assets.md) -iş varlıkları (yasal belgeler ve pazarlama malzemeleri) ve ilişkili çözümü için teknik varlıkları oluşturun.
+1. [Oluşturun veya var olan iş ve teknik varlıkları toplamak](./cpp-create-technical-assets.md) -iş varlıkları (yasal belgeler ve pazarlama malzemeleri) ve ilişkili çözümü için teknik varlıkları oluşturun.
 
-3. [SKU oluşturma](./cpp-skus-tab.md) -teklifle ilgili fiyatlarını oluşturun. Yayımlama planlıyorsanız her görüntü için benzersiz bir SKU gereklidir.
+1. [SKU oluşturma](./cpp-skus-tab.md) -teklifle ilgili fiyatlarını oluşturun. Yayımlama planlıyorsanız her görüntü için benzersiz bir SKU gereklidir.
 
-4. Onayla ve [teklifi yayımlama](./cpp-publish-offer.md) -teklif ve teknik varlıkları tamamlandıktan sonra teklifi gönderebilirsiniz. Bu gönderi, yayımlama işlemi başlar. Bu işlem sırasında çözümü, doğrulanmış sertifikalı, ardından "Azure Marketi'nde etkin hale gelir" test edilir.
+1. Onayla ve [teklifi yayımlama](./cpp-publish-offer.md) -teklif ve teknik varlıkları tamamlandıktan sonra teklifi gönderebilirsiniz. Bu gönderi, yayımlama işlemi başlar. Bu işlem sırasında çözümü, doğrulanmış sertifikalı, ardından "Azure Marketi'nde etkin hale gelir" test edilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

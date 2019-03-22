@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a3ed13cfe764c4f94dfa50fd096cfc7a8ac7656d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673760"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900837"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Öğretici: Translator konuşma uygulamaC#
 
@@ -40,7 +40,7 @@ Visual Studio çözümü, uygulama için bir yükleyici de derler. Bu işlevi ku
 
 Ayrıca Microsoft Azure panosundan alabileceğiniz Translator Konuşma Çevirisi hizmeti abonelik anahtarı da gereklidir. Ayda 10 saat konuşmaya kadar ücretsiz olarak çeviri yapmanıza olanak sağlayan ücretsiz bir fiyatlandırma katmanı bulunur. Bu katman bu öğretici için yeterli olacaktır.
 
-Üçüncü taraf [JSON.Net kitaplığı](https://www.newtonsoft.com/json) (Newtonsoft tarafından yayımlanan) da gereklidir. Bu bütünleştirilmiş kod, Visual Studio seçeneklerinde Paket Geri Yükleme onay kutularının her ikisi de işaretli olduğunda NuGet tarafından otomatik olarak yüklenir.
+Üçüncü taraf [JSON.NET kitaplığı](https://www.newtonsoft.com/json) (Newtonsoft) de gereklidir. Bu bütünleştirilmiş kod, Visual Studio seçeneklerinde Paket Geri Yükleme onay kutularının her ikisi de işaretli olduğunda NuGet tarafından otomatik olarak yüklenir.
 
 ## <a name="trying-the-translation-app"></a>Çeviri uygulamasını deneme
 

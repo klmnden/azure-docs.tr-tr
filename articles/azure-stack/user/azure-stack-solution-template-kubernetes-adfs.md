@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: f054cf101f24d7cc571e9f90943122e42beb9dc6
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 7e11da971e86b605e3e17b07ebcdab97eef5b957
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983498"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122952"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Kubernetes kullanarak Active Directory Federasyon Hizmetleri Azure Stack'e dağıtma
 
@@ -55,105 +55,105 @@ AD FS kimlik çözümünüz olarak kullanırken hizmet sorumlunuzu ayarlamak iç
 
 1. Azure Stack yöneticinize bir sertifika ve hizmet sorumlusu bilgilerini sağlar.
 
-    - Hizmet sorumlusu bilgileri gibi görünmelidir:
+   - Hizmet sorumlusu bilgileri gibi görünmelidir:
 
-    ```Text  
-        ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
-        ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
-        Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
-        ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
-        PSComputerName        : azs-ercs01
-        RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
-    ```
+     ```Text  
+       ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+       ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
+       Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
+       ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+       PSComputerName        : azs-ercs01
+       RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
+     ```
 
-    - Sertifikanızı uzantılı bir dosya olacaktır `.pfx`. Sertifikanızı bir keyvault'ta gizli olarak depolar.
+   - Sertifikanızı uzantılı bir dosya olacaktır `.pfx`. Sertifikanızı bir keyvault'ta gizli olarak depolar.
 
 2. Yeni hizmet sorumlunuzu Aboneliğinize bir katkıda bulunan olarak bir rol atayın. Yönergeler için [rol atama](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
 3. Dağıtım için sertifikanızın depolanacağı key vault oluşturma. Portal yerine aşağıdaki PowerShell betikleri kullanın.
 
-    - Şu bilgilere ihtiyacınız vardır:
+   - Şu bilgilere ihtiyacınız vardır:
 
-        | Değer | Açıklama |
-        | ---   | ---         |
-        | Azure Resource Manager uç noktası | Microsoft Azure Resource Manager dağıtma, yönetme ve Azure kaynaklarını izleme olanağı tanıyan bir yönetim çerçevesidir. Azure Resource Manager, bir grup olarak yerine tek tek bir işlemde bu görevleri işleyebilir.<br>Azure Stack geliştirme Seti'ni (ASDK) uç noktası şöyledir: `https://management.local.azurestack.external/`<br>Tümleşik sistemlerde uç noktadır: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
-        | Abonelik Kimliğiniz | [Abonelik kimliği](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) nasıl, teklifler eriştiği Azure Stack'te. |
-        | Kullanıcı adınız | Yalnızca kullanıcı adı yerine etki alanı adı ve kullanıcı adı gibi kullanın `username` yerine `azurestack\username`. |
-        | Kaynak grubu adı  | Mevcut bir kaynak grubu seçin ya da yeni kaynak grubu adı. Kaynak adı alfasayısal ve küçük harf olması gerekir. |
-        | Keyvault adı | Kasa adı.<br> Regex deseni: `^[a-zA-Z0-9-]{3,24}$` |
-        | Kaynak grubu Konumu | Kaynak grubu konumu. Bu, Azure Stack yüklemeniz için seçtiğiniz bölgedir. |
+       | Değer | Açıklama |
+       | ---   | ---         |
+       | Azure Resource Manager uç noktası | Microsoft Azure Resource Manager dağıtma, yönetme ve Azure kaynaklarını izleme olanağı tanıyan bir yönetim çerçevesidir. Azure Resource Manager, bir grup olarak yerine tek tek bir işlemde bu görevleri işleyebilir.<br>Azure Stack geliştirme Seti'ni (ASDK) uç noktası şöyledir: `https://management.local.azurestack.external/`<br>Tümleşik sistemlerde uç noktadır: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
+       | Abonelik Kimliğiniz | [Abonelik kimliği](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) nasıl, teklifler eriştiği Azure Stack'te. |
+       | Kullanıcı adınız | Yalnızca kullanıcı adı yerine etki alanı adı ve kullanıcı adı gibi kullanın `username` yerine `azurestack\username`. |
+       | Kaynak grubu adı  | Mevcut bir kaynak grubu seçin ya da yeni kaynak grubu adı. Kaynak adı alfasayısal ve küçük harf olması gerekir. |
+       | Keyvault adı | Kasa adı.<br> Regex deseni: `^[a-zA-Z0-9-]{3,24}$` |
+       | Kaynak grubu Konumu | Kaynak grubu konumu. Bu, Azure Stack yüklemeniz için seçtiğiniz bölgedir. |
 
-    - Yükseltilmiş bir İstemi ile PowerShell'i açın ve [Azure Stack'e bağlanma](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Değerlerinizi güncelleştirilmiş parametrelerle birlikte aşağıdaki betiği çalıştırın:
+   - Yükseltilmiş bir İstemi ile PowerShell'i açın ve [Azure Stack'e bağlanma](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Değerlerinizi güncelleştirilmiş parametrelerle birlikte aşağıdaki betiği çalıştırın:
 
-    ```PowerShell  
-        $armEndpoint="<Azure Resource Manager Endpoint>"
-        $subscriptionId="<Your Subscription ID>"
-        $username="<your user name >"
-        $resource_group_name = "<the resource group name >"
-        $key_vault_name = "<keyvault name>"
-        $resource_group_location="<resource group location>"
+     ```PowerShell  
+       $armEndpoint="<Azure Resource Manager Endpoint>"
+       $subscriptionId="<Your Subscription ID>"
+       $username="<your user name >"
+       $resource_group_name = "<the resource group name >"
+       $key_vault_name = "<keyvault name>"
+       $resource_group_location="<resource group location>"
         
-        # Login Azure Stack Environment
-        Add-AzureRmEnvironment -ARMEndpoint $armEndpoint -Name t
-        $mycreds = Get-Credential
-        Login-AzureRmAccount -Credential $mycreds -Environment t -Subscription $subscriptionId
+       # Login Azure Stack Environment
+       Add-AzureRmEnvironment -ARMEndpoint $armEndpoint -Name t
+       $mycreds = Get-Credential
+       Login-AzureRmAccount -Credential $mycreds -Environment t -Subscription $subscriptionId
         
-        # Create new Resource group and key vault
-        New-AzureRmResourceGroup -Name $resource_group_name -Location $resource_group_location -Force
+       # Create new Resource group and key vault
+       New-AzureRmResourceGroup -Name $resource_group_name -Location $resource_group_location -Force
         
-        # Note, Do not omit -EnabledForTemplateDeployment flag
-        New-AzureRmKeyVault -VaultName $key_vault_name -ResourceGroupName $resource_group_name -Location $resource_group_location -EnabledForTemplateDeployment
+       # Note, Do not omit -EnabledForTemplateDeployment flag
+       New-AzureRmKeyVault -VaultName $key_vault_name -ResourceGroupName $resource_group_name -Location $resource_group_location -EnabledForTemplateDeployment
         
-        # Obtain the security identifier(SID) of the active directory user
-        $adUser = Get-ADUser -Filter "Name -eq '$username'" -Credential $mycreds
-        $objectSID = $adUser.SID.Value
-        # Set the key vault access policy
-        Set-AzureRmKeyVaultAccessPolicy -VaultName $key_vault_name -ResourceGroupName $resource_group_name -ObjectId $objectSID -BypassObjectIdValidation -PermissionsToKeys all -PermissionsToSecrets all
-    ```
+       # Obtain the security identifier(SID) of the active directory user
+       $adUser = Get-ADUser -Filter "Name -eq '$username'" -Credential $mycreds
+       $objectSID = $adUser.SID.Value
+       # Set the key vault access policy
+       Set-AzureRmKeyVaultAccessPolicy -VaultName $key_vault_name -ResourceGroupName $resource_group_name -ObjectId $objectSID -BypassObjectIdValidation -PermissionsToKeys all -PermissionsToSecrets all
+     ```
 
 4. Sertifikanızın anahtar Kasası'na yükleyin.
 
-    - Şu bilgilere ihtiyacınız vardır:
+   - Şu bilgilere ihtiyacınız vardır:
 
-        | Değer | Açıklama |
-        | ---   | ---         |
-        | Sertifika yolu | Sertifika FQDN veya dosya yolu. |
-        | Sertifika parolası | Sertifika parolası. |
-        | Gizli dizi adı | Kasada depolanan sertifika başvurmak için kullanılan gizli dizi adı. |
-        | Anahtar kasası adı | Önceki adımda oluşturduğunuz anahtar kasasının adı. |
-        | Azure Resource Manager uç noktası | Azure Stack geliştirme Seti'ni (ASDK) uç noktası şöyledir: `https://management.local.azurestack.external/`<br>Tümleşik sistemlerde uç noktadır: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
-        | Abonelik Kimliğiniz | [Abonelik kimliği](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) nasıl, teklifler eriştiği Azure Stack'te. |
+       | Değer | Açıklama |
+       | ---   | ---         |
+       | Sertifika yolu | Sertifika FQDN veya dosya yolu. |
+       | Sertifika parolası | Sertifika parolası. |
+       | Gizli dizi adı | Kasada depolanan sertifika başvurmak için kullanılan gizli dizi adı. |
+       | Anahtar kasası adı | Önceki adımda oluşturduğunuz anahtar kasasının adı. |
+       | Azure Resource Manager uç noktası | Azure Stack geliştirme Seti'ni (ASDK) uç noktası şöyledir: `https://management.local.azurestack.external/`<br>Tümleşik sistemlerde uç noktadır: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
+       | Abonelik Kimliğiniz | [Abonelik kimliği](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) nasıl, teklifler eriştiği Azure Stack'te. |
 
-    - Yükseltilmiş bir İstemi ile PowerShell'i açın ve [Azure Stack'e bağlanma](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Değerlerinizi güncelleştirilmiş parametrelerle birlikte aşağıdaki betiği çalıştırın:
+   - Yükseltilmiş bir İstemi ile PowerShell'i açın ve [Azure Stack'e bağlanma](azure-stack-powershell-configure-user.md#connect-with-ad-fs). Değerlerinizi güncelleştirilmiş parametrelerle birlikte aşağıdaki betiği çalıştırın:
 
-    ```PowerShell  
+     ```PowerShell  
         
-    # upload the pfx to key vault
-    $tempPFXFilePath = "<certificate path>"
-    $password = "<certificate password>"
-    $keyVaultSecretName = "<secret name>"
-    $keyVaultName = "<key vault name>"
-    $armEndpoint="<Azure Resource Manager Endpoint>"
-    $subscriptionId="<Your Subscription ID>"
-    # Login Azure Stack Environment
-    Add-AzureRmEnvironment -ARMEndpoint $armEndpoint -Name t
-    $mycreds = Get-Credential
-    Login-AzureRmAccount -Credential $mycreds -Environment t -Subscription $subscriptionId
+     # upload the pfx to key vault
+     $tempPFXFilePath = "<certificate path>"
+     $password = "<certificate password>"
+     $keyVaultSecretName = "<secret name>"
+     $keyVaultName = "<key vault name>"
+     $armEndpoint="<Azure Resource Manager Endpoint>"
+     $subscriptionId="<Your Subscription ID>"
+     # Login Azure Stack Environment
+     Add-AzureRmEnvironment -ARMEndpoint $armEndpoint -Name t
+     $mycreds = Get-Credential
+     Login-AzureRmAccount -Credential $mycreds -Environment t -Subscription $subscriptionId
     
-    $certContentInBytes = [io.file]::ReadAllBytes($tempPFXFilePath)
-    $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
-    $jsonObject = @"
-    {
-    "data": "$pfxAsBase64EncodedString",
-    "dataType" :"pfx",
-    "password": "$password"
-    }
-    "@
-    $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
-    $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
-    $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
-    $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name $keyVaultSecretName -SecretValue $secret 
-    ```
+     $certContentInBytes = [io.file]::ReadAllBytes($tempPFXFilePath)
+     $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
+     $jsonObject = @"
+     {
+     "data": "$pfxAsBase64EncodedString",
+     "dataType" :"pfx",
+     "password": "$password"
+     }
+     "@
+     $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+     $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+     $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
+     $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name $keyVaultSecretName -SecretValue $secret 
+     ```
 
 ## <a name="deploy-kubernetes"></a>Kubernetes dağıtma
 

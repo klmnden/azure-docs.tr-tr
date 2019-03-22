@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 3ebc4d94e0bbf24895be0aeba9fef1cc7aacd6b9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 1e17ec48c35a7e01ca87016406fb416a05544b41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736721"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087202"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN, kural altyapısı eşleşen koşulları 
 Bu makalede ayrıntılı açıklamaları için Azure Content Delivery Network (CDN) kullanılabilir eşleştirme koşulları listeler [kurallar altyapısı](cdn-rules-engine.md).
@@ -420,7 +420,7 @@ Anahtar bilgileri:
 Anahtar bilgileri:
 - Üst bilgi adı: 
   - Üst bilgi adı karşılaştırmalar büyük/küçük harfe duyarsızdır.
-  - Replace spaces in the header name with "%20." 
+  - Üst bilgi adı boşluk "yerine % 20." 
 - Üst bilgi değeri: 
   - Normal ifadeler bir üstbilgi değerini yararlanabilirsiniz.
   - Kullanım **yoksay çalışması** üst bilgi değeri karşılaştırma büyük küçük harf duyarlılığı denetleme seçeneği.
@@ -532,16 +532,16 @@ Anahtar bilgileri:
 - Bir edge CNAME URL URL karşılaştırma önce bir CDN URL'sine yeniden.
 
     Örneğin, aşağıdaki URL'ler her ikisi de aynı varlığa işaret ve bu nedenle URL yolunun aynısını sahiptir.
-    - CDN URL'si: http:\//wpc.0001.&lt; etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
+  - CDN URL'si: http:\//wpc.0001.&lt; etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
     
-    - Edge CNAME URL'si: http:\//&lt;uç nokta&gt;.azureedge.net/path/asset.htm
+  - Edge CNAME URL'si: http:\//&lt;uç nokta&gt;.azureedge.net/path/asset.htm
     
     Ek bilgi:
-    - Özel etki alanı: https:\//my.domain.com/path/asset.htm
+  - Özel etki alanı: https:\//my.domain.com/path/asset.htm
     
-    - URL yolu (köküne): / 800001/CustomerOrigin/path /
+  - URL yolu (köküne): / 800001/CustomerOrigin/path /
     
-    - (Kaynak) göreli URL yolu: /path/
+  - (Kaynak) göreli URL yolu: /path/
 
 - URL karşılaştırma sona erer hemen önce istenen varlık dosya adı için kullanılan URL kısmı. Sondaki eğik çizgi, bu tür bir yol son karakterdir.
     
@@ -639,27 +639,27 @@ Anahtar bilgileri:
 - Kullanım **bağıntı** URL karşılaştırma noktası öncesinde veya sonrasında içerik erişim noktası başlayıp başlamayacağını belirtmek için seçeneği. 
 
     Aşağıdaki değerler kullanılabilir **bağıntı** seçeneği:
-     - **Kök**: URL karşılaştırma noktası doğrudan CDN ana bilgisayar sonra başlayacağını belirtir.
+  - **Kök**: URL karşılaştırma noktası doğrudan CDN ana bilgisayar sonra başlayacağını belirtir.
 
-       Örneğin: http:\//wpc.0001.&lt; etki alanı&gt;/**800001/myorigin/myfolder/index.htm**
+    Örneğin: http:\//wpc.0001.&lt; etki alanı&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Kaynak**: URL karşılaştırma noktası içerik erişim noktası (örneğin, /000001 veya/800001/myorigin) sonra başlayacağını belirtir. Çünkü \*. azureedge.net CNAME oluşturulur Verizon CDN ana bilgisayar üzerinde kaynak dizine göreli varsayılan olarak, Azure CDN kullanıcıların kullanması gereken **kaynak** değeri. 
+  - **Kaynak**: URL karşılaştırma noktası içerik erişim noktası (örneğin, /000001 veya/800001/myorigin) sonra başlayacağını belirtir. Çünkü \*. azureedge.net CNAME oluşturulur Verizon CDN ana bilgisayar üzerinde kaynak dizine göreli varsayılan olarak, Azure CDN kullanıcıların kullanması gereken **kaynak** değeri. 
 
-       Örneğin: https:\//&lt;uç nokta&gt;.azureedge.net/**myfolder/index.htm**
+    Örneğin: https:\//&lt;uç nokta&gt;.azureedge.net/**myfolder/index.htm**
 
-     Bu URL aşağıdaki Verizon CDN ana bilgisayar adına işaret eder: http:\//wpc.0001.&lt; etki alanı&gt;/800001/myorigin/**myfolder/index.htm**
+    Bu URL aşağıdaki Verizon CDN ana bilgisayar adına işaret eder: http:\//wpc.0001.&lt; etki alanı&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Bir edge CNAME URL bir URL karşılaştırma önce bir CDN URL'sine yeniden.
 
     Örneğin, aşağıdaki URL'ler her ikisi de aynı varlığa işaret ve bu nedenle URL yolunun aynısını sahiptir:
-    - CDN URL'si: http:\//wpc.0001.&lt; etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
-    - Edge CNAME URL'si: http:\//&lt;uç nokta&gt;.azureedge.net/path/asset.htm
+  - CDN URL'si: http:\//wpc.0001.&lt; etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
+  - Edge CNAME URL'si: http:\//&lt;uç nokta&gt;.azureedge.net/path/asset.htm
     
     Ek bilgi:
     
-    - URL yolu (köküne): /800001/CustomerOrigin/path/asset.htm
+  - URL yolu (köküne): /800001/CustomerOrigin/path/asset.htm
    
-    - (Kaynak) göreli URL yolu: /path/asset.htm
+  - (Kaynak) göreli URL yolu: /path/asset.htm
 
 - URL'de bulunan sorgu dizelerini göz ardı edilir.
 - Kullanım **yoksay çalışması** büyük küçük harfe duyarlı bir karşılaştırma gerçekleştirilir olup olmadığını denetlemek için seçenek.
@@ -684,13 +684,13 @@ Anahtar bilgileri:
  
     Örneğin, her iki URL'leri aynı varlığa işaret ve bu nedenle URL yolunun aynısını sahiptir.
 
-     - CDN URL'si: http:\//wpc.0001.&lt; etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
+  - CDN URL'si: http:\//wpc.0001.&lt; etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
 
-     - Edge CNAME URL'si: http:\//my.domain.com/path/asset.htm
+  - Edge CNAME URL'si: http:\//my.domain.com/path/asset.htm
     
     Ek bilgi:
     
-     - URL yolu: /800001/CustomerOrigin/path/asset.htm
+  - URL yolu: /800001/CustomerOrigin/path/asset.htm
 
 - URL'de bulunan sorgu dizelerini göz ardı edilir.
     
@@ -714,27 +714,27 @@ Anahtar bilgileri:
 - **Göreli yolu** seçeneği: Bu seçenek, URL karşılaştırma noktası öncesinde veya sonrasında içerik erişim noktası başlayıp başlamayacağını belirler.
 
    Bu seçenek, aşağıdaki değerlere sahip olabilir:
-     - **Kök**: URL karşılaştırma noktası doğrudan CDN ana bilgisayar sonra başlayacağını belirtir.
+  - **Kök**: URL karşılaştırma noktası doğrudan CDN ana bilgisayar sonra başlayacağını belirtir.
 
-       Örneğin: http:\//wpc.0001.&lt; etki alanı&gt;/**800001/myorigin/myfolder/index.htm**
+    Örneğin: http:\//wpc.0001.&lt; etki alanı&gt;/**800001/myorigin/myfolder/index.htm**
 
-     - **Kaynak**: URL karşılaştırma noktası içerik erişim noktası (örneğin, /000001 veya/800001/myorigin) sonra başlayacağını belirtir. Çünkü \*. azureedge.net CNAME oluşturulur Verizon CDN ana bilgisayar üzerinde kaynak dizine göreli varsayılan olarak, Azure CDN kullanıcıların kullanması gereken **kaynak** değeri. 
+  - **Kaynak**: URL karşılaştırma noktası içerik erişim noktası (örneğin, /000001 veya/800001/myorigin) sonra başlayacağını belirtir. Çünkü \*. azureedge.net CNAME oluşturulur Verizon CDN ana bilgisayar üzerinde kaynak dizine göreli varsayılan olarak, Azure CDN kullanıcıların kullanması gereken **kaynak** değeri. 
 
-       Örneğin: https:\//&lt;uç nokta&gt;.azureedge.net/**myfolder/index.htm**
+    Örneğin: https:\//&lt;uç nokta&gt;.azureedge.net/**myfolder/index.htm**
 
-     Bu URL aşağıdaki Verizon CDN ana bilgisayar adına işaret eder: http:\//wpc.0001.&lt; etki alanı&gt;/800001/myorigin/**myfolder/index.htm**
+    Bu URL aşağıdaki Verizon CDN ana bilgisayar adına işaret eder: http:\//wpc.0001.&lt; etki alanı&gt;/800001/myorigin/**myfolder/index.htm**
 
 - Bir edge CNAME URL URL karşılaştırma önce bir CDN URL'sine yeniden.
 
     Örneğin, aşağıdaki URL'ler her ikisi de aynı varlığa işaret ve bu nedenle URL yolunun aynısını sahiptir:
-     - CDN URL'si: http://wpc.0001.&lt; etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
-     - Edge CNAME URL'si: http:\//&lt;uç nokta&gt;.azureedge.net/path/asset.htm
+  - CDN URL'si: http://wpc.0001.&lt; etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
+  - Edge CNAME URL'si: http:\//&lt;uç nokta&gt;.azureedge.net/path/asset.htm
     
     Ek bilgi:
     
-     - URL yolu (köküne): /800001/CustomerOrigin/path/asset.htm
+  - URL yolu (köküne): /800001/CustomerOrigin/path/asset.htm
     
-     - (Kaynak) göreli URL yolu: /path/asset.htm
+  - (Kaynak) göreli URL yolu: /path/asset.htm
     
 - Her biri tek bir boşluk ile sınırlayan tarafından birden çok URL yolu belirtin.
 

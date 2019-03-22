@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 010a9f4e5be34986c1098f403e4df0ccf569838c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821691"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012319"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure Depolama Performansı ve Ölçeklenebilirlik Onay Listesi
 ## <a name="overview"></a>Genel Bakış
@@ -122,7 +122,7 @@ Bu işlemler sıklığını azaltmak için bazı en iyi uygulamaları takip edeb
 
 * Hesapları, kapsayıcıları, blobları, tablolar ve Kuyruklar, yakından kullandığınız adlandırma kuralını inceleyin. Hesap adlarını ihtiyaçlarınıza uygun bir karma işlevi kullanarak 3 haneli karma ile önek göz önünde bulundurun.  
 * Zaman damgaları veya sayısal tanımlayıcıları kullanarak verilerinizi düzenlemek, bir yalnızca ekleme (veya yalnızca önüne ekleyin) trafiği desenlerini kullanmıyorsanız emin olmak zorunda. Bu desenleri için bir aralık uygun değil-Sistem bölümleme tabanlı ve müşteri adayı sistemden etkili bir şekilde sınırlama ve tek bir bölüme giden tüm trafik için Yük Dengeleme. Yyyymmdd gibi bir zaman damgasına sahip bir blob nesnesi kullanma günlük işlemler varsa, örneğin, ardından günlük bu işlem için tüm trafik tek bölüm sunucusu tarafından sunulan tek bir nesneye yönlendirilir. Konum olup başına blob limitler ve bölüm başına limitler gereksinimlerinizi karşılayacak ve bu işlemi gerekiyorsa birden çok BLOB olarak bozucu göz önünde bulundurun. Tabloları zaman serisi verilerini depolamak, benzer şekilde, tüm trafik olabilir son anahtar ad parçası gösterilmiştir. Zaman damgaları veya sayısal kimlikleri kullanmanız gerekirse, önek kimliği 3 haneli karma veya zaman damgası söz konusu olduğunda ssyyyymmdd gibi zamanın saniye parçası önek. Listeleme ve sorgulama işlemleri düzenli olarak gerçekleştirilir, sorgular, sayısını sınırlar bir karma işlevi seçin. Diğer durumlarda, rastgele bir önek yeterli olabilir.  
-* Azure Depolama'da kullanılan bölümleme düzeni hakkında daha fazla bilgi okumak için SOSP kağıt [burada](http://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
+* Azure Depolama'da kullanılan bölümleme düzeni hakkında daha fazla bilgi okumak için SOSP kağıt [burada](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ### <a name="networking"></a>Ağ
 Genellikle uygulamanın fiziksel ağ kısıtlamaları yalnızca birkaç API çağrısı sırasında performansı büyük bir etkiye sahip. Aşağıdaki sınırlamalar kullanıcının karşılaşabileceği bazılarını açıklar.  

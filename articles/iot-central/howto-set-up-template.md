@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: f8c99bd6bc9edb78a7af241f1eee2669c955a040
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1306b97ce7fcf2cd429be31bc99d022de53805d6
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767320"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259871"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>Bir cihaz şablonu (yeni kullanıcı Arabirimi tasarımı) ayarlama
 
@@ -44,11 +44,13 @@ Bu cihaz şablondan operatörün oluşturabilir ve gerçek fanı adlarla gibi ba
 
 1. Gidin **cihaz şablonları** sayfası.
 
-2. Boş bir şablon oluşturmak için Seç **+** ve ardından gibi bir ad girin **buzdolabı** cihaz şablonunuza. Ardından **Oluştur**:
+2. Bir şablon oluşturmak için seçerek başlayın **+ yeni**.
 
-   ![Şablon adı olarak "buzdolabı" cihaz Ayrıntıları sayfası](./media/howto-set-up-template/devicedetailspage.png)
+3. Hızlıca kullanmaya başlamak için var olan önceden oluşturulmuş şablonlardan birini seçin. Aksi takdirde seçin **özel**, bir ad girin ve tıklayın **Oluştur** kendi şablonunuzu sıfırdan oluşturmak için.
 
-4. Bulunduğunuz artık **cihaz ayrıntıları** yeni bir cihaz şablon sayfası. Bir cihaz şablonu oluşturduğunuzda, IOT Central bir simülasyon cihazı otomatik olarak oluşturur. Bir sanal cihaz uygulamanızın davranışını, gerçek bir cihaz bağlanmadan önce sınamanızı sağlar.
+   ![Cihaz Şablon Kitaplığı](./media/howto-set-up-template/newtemplate.png)
+
+4. Özel bir şablon oluştururken gördüğünüz **cihaz ayrıntıları** cihaz şablonunuza sayfası. Bir cihaz şablonu oluşturduğunuzda, IOT Central bir simülasyon cihazı otomatik olarak oluşturur. Bir sanal cihaz uygulamanızın davranışını, gerçek bir cihaz bağlanmadan önce sınamanızı sağlar.
 
 Aşağıdaki bölümlerde sekmelerin her birinde üzerinde açıklanmıştır **cihaz şablonu** sayfası.
 
@@ -76,6 +78,8 @@ Yeni bir telemetri ölçüm eklemek için seçin **+ yeni ölçüm**, seçin **T
 !["Telemetri oluşturma" form sıcaklık ölçüm için Ayrıntılar](./media/howto-set-up-template/measurementsform.png)
 
 Seçtikten sonra **Kaydet**, **sıcaklık** ölçüm ölçümleri listesinde görünür. Kısa bir süre içinde bir sanal CİHAZDAN sıcaklık verilerini görselleştirme bakın.
+
+Telemetri görüntülerken, toplama aşağıdaki seçeneklerden birini seçebilirsiniz: Ortalama, Minimum, maksimum, Sum ve sayısı. **Ortalama** grafikteki varsayılan toplama olarak seçilir. 
 
 > [!NOTE]
 > Veri telemetri ölçü bir kayan türüdür nokta sayısı.

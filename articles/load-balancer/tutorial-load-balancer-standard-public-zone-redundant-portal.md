@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 2b37d77e00595be125490431694f4549f61fced6
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 912307e6509ea66be887838e875076b7a895ca94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56982804"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888169"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak bir Standard Load Balancer ile kullanılabilirlik bölgelerindeki Yük Dengeleme sanal makineleri
 
@@ -43,7 +43,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[http://portal.azure.com](http://portal.azure.com) adresinden Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-standard-load-balancer"></a>Standart Yük Dengeleyici oluşturma
 
@@ -108,7 +108,7 @@ Bu bölümde, Azure portalı ile HTTP ve RDP kullanarak gelen bağlantılara izi
     - *HTTP’ye izin ver* - Yük dengeleyici kuralının açıklaması.
 4. **Tamam** düğmesine tıklayın.
  
- ![Sanal ağ oluşturma](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Sanal ağ oluşturma](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. 2 - 4 arası adımları yineleyerek, aşağıdaki değerlerle 3389 numaralı bağlantı noktasını kullanarak gelen RDP bağlantısına izin vermek için *myRDPRule* adlı başka bir kural oluşturun:
     - **Kaynak** için *Hizmet Etiketi*.
     - **Kaynak hizmet etiketi** için *İnternet*
@@ -137,7 +137,7 @@ Yük dengeleyicinin arka uç sunucuları olarak hareket edebilen bölge için fa
 5. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
 6. **Tamam**’a tıklayın, özet sayfasındaki ayarları gözden geçirin ve sonra **Oluştur**’a tıklayın.
   
- ![Sanal makine oluşturma](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
+   ![Sanal makine oluşturma](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
 
 7. Adım 1-6’yı kullanarak, sanal ağ *myVnet*, alt ağ *myBackendSubnet* ve **myNetworkSecurityGroup* ağ güvenlik grubu olacak şekilde Bölge 2’de *VM2* adlı ikinci bir VM, Bölge 3’te üçüncü bir VM oluşturun.
 

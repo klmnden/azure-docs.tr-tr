@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/07/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: fce7beeda352b9add3603fb74c558ad1b64fac2a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 22b070e6d70208057c85ad6a2322cc440d12a0fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895525"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008216"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Azure Data Lake depolama Gen2 Güvenlik Kılavuzu
 
@@ -88,7 +88,7 @@ Bir Azure depolama hesabı yönetim işlemlerini erişmek için RBAC kullanma ha
 
 Depolama hesabı anahtarları, depolama hesabı adı ile birlikte BLOB, tablo ve kuyruk iletileri bir Azure Dosya paylaşımındaki dosyaları içindeki varlıklar, örneğin depolama hesabında depolanan verileri nesnelere erişmek için kullanılan Azure tarafından oluşturulan 512 bit dizelerdir. Depolama hesabı anahtarları denetimleri veri düzlemine erişim bu depolama hesabı için erişimi denetleme.
 
-Her Depolama hesabında "Anahtar 1" ve "2. anahtara" anılacaktır iki anahtar olduğundan [Azure portalında](http://portal.azure.com/) ve PowerShell cmdlet'leri. Bunlar dahil ancak bunlarla sınırlı olmamak kullanarak birkaç yöntemden birini kullanarak el ile yeniden üretilebilir [Azure portalında](https://portal.azure.com/), PowerShell, Azure CLI veya .NET depolama istemci kitaplığı veya Azure Storage Hizmetleri programlı olarak kullanma REST API.
+Her Depolama hesabında "Anahtar 1" ve "2. anahtara" anılacaktır iki anahtar olduğundan [Azure portalında](https://portal.azure.com/) ve PowerShell cmdlet'leri. Bunlar dahil ancak bunlarla sınırlı olmamak kullanarak birkaç yöntemden birini kullanarak el ile yeniden üretilebilir [Azure portalında](https://portal.azure.com/), PowerShell, Azure CLI veya .NET depolama istemci kitaplığı veya Azure Storage Hizmetleri programlı olarak kullanma REST API.
 
 Herhangi bir sayı, depolama hesabı anahtarlarını yeniden nedenleri vardır.
 
@@ -167,7 +167,7 @@ Ayrıca, SAS kullanılarak yapılan istekleri belirli bir IP adresi veya IP adre
 
 Paylaşılan erişim imzası bir kaynağa işaret eden URL eklenecek sorgu parametreleri kümesidir.
 
-izin verilen erişim ve kendisi için erişimine izin verilen süreyi hakkında bilgi sağlar. Bir örnek aşağıda verilmiştir; Bu URI, beş dakikalığına blob okuma erişimi sağlar. SAS sorgu parametreleri, iki nokta üst üste (:) veya bir alan için % %20 3A gibi URL kodlanmış olmalıdır.
+izin verilen erişim ve kendisi için erişimine izin verilen süreyi hakkında bilgi sağlar. Bir örnek aşağıda verilmiştir; Bu URI, beş dakikalığına blob okuma erişimi sağlar. SAS sorgu parametreleri URL kodlu, iki nokta üst üste (:) için % 3A gibi olmalıdır veya bir alan için % 20.
 
 ```
 http://mystorage.dfs.core.windows.net/myfilesystem/myfile.txt (URL to the file)

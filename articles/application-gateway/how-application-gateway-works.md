@@ -7,18 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 41f69d2017d9fc04acda47d09c718d3585f6335c
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: ef07def377b74fb74d57372f471efcf48fcf7aa2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726286"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881104"
 ---
 # <a name="how-application-gateway-works"></a>Uygulama ağ geçidi nasıl çalışır?
 
 Bu makalede, gelen istekleri ve bunları arka ucuna yönlendiren uygulama ağ geçidinin nasıl kabul açıklanmaktadır.
 
-![nasıl uygulama ağ geçidi çalışır](.\media\how-application-gateway-works\how-application-gateway-works.png)
+![nasıl uygulama ağ geçidi çalışır](./media/how-application-gateway-works/how-application-gateway-works.png)
 
 ## <a name="how-a-request-is-accepted"></a>Nasıl bir istek kabul edilir
 
@@ -36,7 +36,7 @@ Bir arka uç sunucusuna belirlendikten sonra uygulama ağ geçidi yapılandırma
 
 İç uygulama ağ geçidi, yalnızca özel IP adresine sahiptir. İç uygulama ağ geçidi DNS adını, özel IP adresini dahili olarak çözülebilir. Bu nedenle, iç yük Dengeleyiciler uygulama ağ geçidi için yalnızca sanal ağdan sanal ağa erişimi olan istemcilerden gelen istekleri yönlendirebilirsiniz.
 
-Hem Internet'e yönelik hem de iç uygulama ağ geçitleri, arka uç sunucularına özel IP adresleri kullanarak istekleri yönlendirmeyi unutmayın. Arka uç havuzu kaynağınızı özel bir IP adresi, VM'nin NIC yapılandırması veya dahili olarak çözümlenebilir bir adres içeriyorsa ve arka uç havuzu genel bir uç nokta ise, uygulama ağ geçidi ön uç genel IP tarafından sunucuya ulaşmak için kullanır. Ön uç genel IP adresi hazırlamadıysanız biri için giden dış bağlantı atanır.
+Yol, hem Internet'e yönelik hem de iç uygulama ağ geçidine Not istekleri arka uç havuzu kaynağınızı özel bir IP adresi, VM'nin NIC yapılandırması veya dahili olarak çözümlenebilir bir adres içeriyorsa ve özel IP adresleri kullanarak, arka uç sunucuları için arka uç havuzu genel bir uç nokta, uygulama ağ geçidi tarafından sunucuya ulaşmak için ön uç genel IP kullanır. Ön uç genel IP adresi hazırlamadıysanız biri için giden dış bağlantı atanır.
 
 ### <a name="modifications-to-the-request"></a>İstek yapılan değişiklikler
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bfebab81e1c0105bb42cf2853a2f042f128c1fd
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 203c082275dc75a7dcf948eb42a383300955f355
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731130"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comm100-live-chat"></a>Öğretici: Azure Active Directory tümleştirmesiyle Comm100 canlı sohbet
 
@@ -154,29 +154,29 @@ Azure AD çoklu oturum açma Comm100 canlı sohbet ile yapılandırmak için aş
 
 ### <a name="configure-comm100-live-chat-single-sign-on"></a>Comm100 canlı sohbet çoklu oturum açmayı yapılandırın
 
-9. Bir başka web tarayıcı penceresinde Comm100 canlı sohbet bir güvenlik yöneticisi olarak oturum açın.
+1. Bir başka web tarayıcı penceresinde Comm100 canlı sohbet bir güvenlik yöneticisi olarak oturum açın.
 
-10. Sayfanın üst sağ tarafında tıklayın **hesabım**.
+1. Sayfanın üst sağ tarafında tıklayın **hesabım**.
 
-    ![Myaccount Comm100 canlı sohbet](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
+   ![Myaccount Comm100 canlı sohbet](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
 
-11. Menü Sol taraftan tıklayın **güvenlik** ve ardından **aracı çoklu oturum açma**.
+1. Menü Sol taraftan tıklayın **güvenlik** ve ardından **aracı çoklu oturum açma**.
 
-    ![Güvenlik Comm100 canlı sohbet](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+   ![Güvenlik Comm100 canlı sohbet](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
-12. Üzerinde **aracı çoklu oturum açma** sayfasında, aşağıdaki adımları gerçekleştirin:
+1. Üzerinde **aracı çoklu oturum açma** sayfasında, aşağıdaki adımları gerçekleştirin:
 
-    ![Güvenlik Comm100 canlı sohbet](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
+   ![Güvenlik Comm100 canlı sohbet](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
 
-    a. İlk vurgulanan bağlantıyı kopyalayın ve yapıştırın **oturum açma URL'si** metin kutusunda **Comm100 canlı sohbet etki alanı ve URL'ler** bölümü Azure portalı.
+   a. İlk vurgulanan bağlantıyı kopyalayın ve yapıştırın **oturum açma URL'si** metin kutusunda **Comm100 canlı sohbet etki alanı ve URL'ler** bölümü Azure portalı.
 
-    b. İçinde **SAML SSO URL** metin değerini yapıştırın **oturum açma URL'si**, hangi Azure portaldan kopyaladığınız.
+   b. İçinde **SAML SSO URL** metin değerini yapıştırın **oturum açma URL'si**, hangi Azure portaldan kopyaladığınız.
 
-    c. İçinde **uzak oturum kapatma URL'si** metin değerini yapıştırın **oturum kapatma URL'si**, hangi Azure portaldan kopyaladığınız.
+   c. İçinde **uzak oturum kapatma URL'si** metin değerini yapıştırın **oturum kapatma URL'si**, hangi Azure portaldan kopyaladığınız.
 
-    d. Tıklayın **bir dosya seçin** base-64 karşıya yüklemek için Azure portalından içine yüklediğiniz sertifika kodlanmış **sertifika**.
+   d. Tıklayın **bir dosya seçin** base-64 karşıya yüklemek için Azure portalından içine yüklediğiniz sertifika kodlanmış **sertifika**.
 
-    e. Tıklayın **Değişiklikleri Kaydet**
+   e. Tıklayın **Değişiklikleri Kaydet**
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -196,7 +196,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -249,7 +249,7 @@ Comm100 canlı sohbet oturum açmak Azure AD kullanıcılarının etkinleştirme
 
     ![Yeni aracı Comm100 canlı sohbet](./media/comm100livechat-tutorial/tutorial_comm100livechat_newagent.png)
 
-    a. a. İçinde **e-posta** metin kutusuna, kullanıcının gibi e-posta girin **Brittasimon@contoso.com**.
+    a. a. İçinde **e-posta** metin kutusuna, kullanıcının gibi e-posta girin **Brittasimon\@contoso.com**.
 
     b. İçinde **ad** metin kutusunda, gibi kullanıcı adını girin **Britta**.
 

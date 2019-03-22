@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 689f9ccc12769ac93f30d112b3f6066d509d93e1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: ca18042985669899247c3a0a16b41a98c5c6d1ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544503"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075177"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Öğretici: Azure sanal WAN kullanarak siteden siteye bağlantı oluşturma
 
@@ -64,12 +64,12 @@ Fiziksel konumlarınıza karşılık gelecek sayıda site oluşturabilirsiniz. �
 2. **VPN siteleri** sayfasında **+Site oluştur**’a tıklayın.
 3. **Site oluştur** sayfasında aşağıdaki alanları doldurun:
 
-  * **Ad**: Şirket içi sitenize vermek istediğiniz addır.
-  * **Genel IP adresi**: Şirket içi sitenizde yer alan VPN cihazının genel IP adresidir.
-  * **Özel adres alanı**: Şirket içi sitenizde yer alan IP adres alanıdır. Bu adres alanını hedefleyen trafik yerel sitenize yönlendirilir.
-  * **Abonelik**: Aboneliği doğrulayın.
-  * **Kaynak Grubu**: Kullanmak istediğiniz kaynak grubudur.
-  * **Konum**.
+   * **Ad**: Şirket içi sitenize vermek istediğiniz addır.
+   * **Genel IP adresi**: Şirket içi sitenizde yer alan VPN cihazının genel IP adresidir.
+   * **Özel adres alanı**: Şirket içi sitenizde yer alan IP adres alanıdır. Bu adres alanını hedefleyen trafik yerel sitenize yönlendirilir.
+   * **Abonelik**: Aboneliği doğrulayın.
+   * **Kaynak Grubu**: Kullanmak istediğiniz kaynak grubudur.
+   * **Konum**.
 4. Ek ayarları görüntülemek için **Gelişmiş içeriği göster**'e tıklayın. Etkinleştirmek için **BGP**’yi seçtiğinizde bu işlev Azure'da bu site için oluşturulan tüm bağlantılarda etkinleştirilir. İsterseniz **Cihaz bilgileri** (isteğe bağlı alanlar) alanını da doldurabilirsiniz. Bu alan Azure Ekibinin ortamınızı daha iyi anlamasına ve gelecekte ek iyileştirme olanakları eklemesine veya sorun giderme aşamasında size destek olmasına yardımcı olabilir.
 5. **Onayla**'ya tıklayın.
 6. **Onayla**’ya tıkladıktan sonra durumu VPN siteleri sayfasında görüntüleyin. Site **Hazırlanıyor**’dan **Hazırlandı** durumuna geçecektir.

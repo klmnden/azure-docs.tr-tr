@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/05/2019
-ms.openlocfilehash: 09ee74ef661a3c60ecb617e14b4b05365298a93c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.date: 03/12/2019
+ms.openlocfilehash: 3eaa12b5ba735d1e2aa0e074054328942a3041eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407485"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900108"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Hızlı Başlangıç: BACPAC dosyasını Azure SQL veritabanında bir veritabanı için içeri aktarma
 
@@ -83,6 +83,8 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 Kullanım [yeni AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet'i bir Azure SQL veritabanı hizmetini alma veritabanı isteğini göndermek için. Veritabanı boyutuna bağlı olarak içeri aktarma tamamlanması biraz zaman alabilir.
 
@@ -118,7 +120,7 @@ $importStatus
 ```
 
 > [!TIP]
-Başka bir komut dosyası örneği için bkz. [veritabanını BACPAC dosyasından içeri aktarma](scripts/sql-database-import-from-bacpac-powershell.md).
+> Başka bir komut dosyası örneği için bkz. [veritabanını BACPAC dosyasından içeri aktarma](scripts/sql-database-import-from-bacpac-powershell.md).
 
 ## <a name="limitations"></a>Sınırlamalar
 

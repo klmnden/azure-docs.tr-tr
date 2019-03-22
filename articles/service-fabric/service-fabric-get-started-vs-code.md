@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: dc9c11e2c0d5642e31eace2a4dcb6065d990e25d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: MT
+ms.openlocfilehash: 197010271518347025157968012be31c71b3b667
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413664"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121035"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Visual Studio Code için Service Fabric
 
@@ -68,15 +68,15 @@ Java geliştirme için aşağıdaki önkoşulların yüklü olması gerekir:
 VS Code için Service Fabric güvenilir hizmetler uzantısı oluşturun ve Service Fabric projelerini dağıtma geliştiricilerin yardımcı olmak için birçok komutlar sağlar. Komutları çağırabilirsiniz **komut paleti** tuşuna basarak `(Ctrl + Shift + p)`, komut adı giriş çubuğuna yazarak ve istenen komut istemi listeden seçerek. 
 
 * Service Fabric: Uygulama oluşturma 
-* Service Fabric: Uygulaması yayımlama 
+* Service Fabric: Uygulama yayımlama 
 * Service Fabric: Uygulamayı dağıtma 
-* Service Fabric: Uygulamayı kaldırma  
-* Service Fabric: Uygulaması oluşturma 
-* Service Fabric: Temiz uygulaması 
+* Service Fabric: Uygulamayı Kaldır  
+* Service Fabric: Uygulama oluşturma 
+* Service Fabric: Uygulamayı Temizle 
 
 ### <a name="service-fabric-create-application"></a>Service Fabric: Uygulama oluşturma
 
-**Service Fabric: uygulama oluşturma** komut, geçerli çalışma alanınızda yeni bir Service Fabric uygulaması oluşturur. Hangi yeoman oluşturucularını geliştirme makinenizde yüklü bağlı olarak, Service Fabric uygulaması, Java, dahil olmak üzere çeşitli türleri oluşturabilirsiniz C#, kapsayıcı ve Konuk projeleri. 
+**Service Fabric: Uygulama oluşturma** komut, geçerli çalışma alanınızda yeni bir Service Fabric uygulaması oluşturur. Hangi yeoman oluşturucularını geliştirme makinenizde yüklü bağlı olarak, Service Fabric uygulaması, Java, dahil olmak üzere çeşitli türleri oluşturabilirsiniz C#, kapsayıcı ve Konuk projeleri. 
 
 1.  Seçin **Service Fabric: Hizmet Ekle** komutu
 2.  Yeni Service Fabric uygulamanızı türünü seçin. 
@@ -95,42 +95,42 @@ VS Code için Service Fabric güvenilir hizmetler uzantısı oluşturun ve Servi
 4.  Hizmet adı için istemleri izleyin. 
 5.  Proje dizininizde yeni görünür. 
 
-### <a name="service-fabric-publish-application"></a>Service Fabric: Uygulaması yayımlama
-**Service Fabric: uygulama Yayımla** komutu, Service Fabric uygulamanızı uzak bir küme dağıtır. Hedef küme güvenli veya güvenli olmayan bir kümeye olabilir. Parametreleri Cloud.json ayarlanmamışsa, uygulamayı yerel kümeye dağıtılır.
+### <a name="service-fabric-publish-application"></a>Service Fabric: Uygulama yayımlama
+**Service Fabric: Uygulama yayımlama** komutu, Service Fabric uygulamanızı uzak bir küme dağıtır. Hedef küme güvenli veya güvenli olmayan bir kümeye olabilir. Parametreleri Cloud.json ayarlanmamışsa, uygulamayı yerel kümeye dağıtılır.
 
 1.  Uygulama yerleşik olarak bulunan ilk kez Cloud.json dosya proje dizininde oluşturulur.
 2.  Publishprofiles dosyasında bağlamak istediğiniz küme için değerleri girin.
-3.  Seçin **Service Fabric: uygulama Yayımla** komutu.
+3.  Seçin **Service Fabric: Uygulama yayımlama** komutu.
 4.  Service Fabric Explorer'ı, uygulamanın yüklendiğini doğrulamak için hedef kümeyle görüntüleyin. 
 
 ### <a name="service-fabric-deploy-application-localhost"></a>Service Fabric: Uygulama (Localhost) dağıtma
-**Service Fabric: uygulamayı dağıtma** komutu, Service Fabric uygulamanızı yerel kümenize dağıtır. Yerel kümenize komutu kullanmadan önce çalışır durumda olduğundan emin olun. 
+**Service Fabric: Uygulamayı dağıtma** komutu, Service Fabric uygulamanızı yerel kümenize dağıtır. Yerel kümenize komutu kullanmadan önce çalışır durumda olduğundan emin olun. 
 
-1.  Seçin **Service Fabric: uygulamayı dağıtma** komutu
-2.  Service Fabric Explorer ile yerel küme görüntüleyebilirsiniz (http://localhost:19080/Explorer) uygulamanın yüklendiğini doğrulamak için. Bu biraz zaman alabilir. Bu nedenle sabırlı olun.
-3.  Ayrıca **Service Fabric: uygulama Yayımla** komutunu parametresiz Cloud.json dosyanın yerel bir kümeye dağıtmak için ayarlayın.
+1. Seçin **Service Fabric: Uygulamayı dağıtma** komutu
+2. Service Fabric Explorer ile yerel küme görüntüleyebilirsiniz (http://localhost:19080/Explorer) uygulamanın yüklendiğini doğrulamak için. Bu biraz zaman alabilir. Bu nedenle sabırlı olun.
+3. Ayrıca **Service Fabric: Uygulama yayımlama** komutunu parametresiz Cloud.json dosyanın yerel bir kümeye dağıtmak için ayarlayın.
 
 > [!NOTE]
 > Java uygulamalarını yerel kümeye dağıtma Windows makinelerde desteklenmiyor.
 
-### <a name="service-fabric-remove-application"></a>Service Fabric: Uygulamayı kaldırma
-**Service Fabric: uygulama kaldırma** komut bir Service Fabric uygulaması, daha önce VS Code uzantısı kullanarak dağıtıldığı kümeden kaldırır. 
+### <a name="service-fabric-remove-application"></a>Service Fabric: Uygulamayı Kaldır
+**Service Fabric: Uygulamayı kaldırma** komut bir Service Fabric uygulaması, daha önce VS Code uzantısı kullanarak dağıtıldığı kümeden kaldırır. 
 
-1.  Seçin **Service Fabric: uygulama kaldırma** komutu.
+1.  Seçin **Service Fabric: Uygulamayı kaldırma** komutu.
 2.  Uygulama kaldırıldığını doğrulamak için Service Fabric Explorer ile küme görüntüleyebilirsiniz. Bu biraz zaman alabilir. Bu nedenle sabırlı olun.
 
-### <a name="service-fabric-build-application"></a>Service Fabric: Uygulaması oluşturma
-**Service Fabric: uygulama kaldırma** komut ya da Java oluşturabilirsiniz veya C# Service Fabric uygulamaları. 
+### <a name="service-fabric-build-application"></a>Service Fabric: Uygulama oluşturma
+**Service Fabric: Uygulamayı kaldırma** komut ya da Java oluşturabilirsiniz veya C# Service Fabric uygulamaları. 
 
 1.  Bu komutu çalıştırmadan önce uygulama kök klasöründe olduğundan emin olun. Komut uygulama türlerini tanımlar (C# veya Java) ve uygun şekilde uygulamanızı oluşturur.
-2.  Seçin **Service Fabric: derleme uygulama** komutu.
+2.  Seçin **Service Fabric: Uygulama derleme** komutu.
 3.  Yapı işleminin çıkış için tümleşik Terminalini yazılır.
 
-### <a name="service-fabric-clean-application"></a>Service Fabric: Temiz uygulaması
-**Service Fabric: temiz uygulama** komut tüm jar dosyalarını ve derleme tarafından oluşturulan yerel kitaplıkları siler. Yalnızca Java uygulamaları için geçerlidir. 
+### <a name="service-fabric-clean-application"></a>Service Fabric: Uygulamayı Temizle
+**Service Fabric: Uygulamayı Temizle** komut tüm jar dosyalarını ve derleme tarafından oluşturulan yerel kitaplıkları siler. Yalnızca Java uygulamaları için geçerlidir. 
 
 1.  Bu komutu çalıştırmadan önce uygulama kök klasöründe olduğundan emin olun. 
-2.  Seçin **Service Fabric: temiz uygulama** komutu.
+2.  Seçin **Service Fabric: Uygulamayı Temizle** komutu.
 3.  Temizleme işleminin çıktısı için tümleşik Terminalini yazılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -9,12 +9,12 @@ ms.author: moderakh
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 86e5a0a0cf4c820efdcc65505d11e2fb0c198f0b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 0a2bbb33182fcdef3cc6ed7ff213557f90be4544
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039852"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880084"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Async Java SDK'sı ile Azure Cosmos DB SQL API hesabı kullandığınızda sorunlarını giderme
 Bu makalede kullanırken yaygın sorunlar, geçici çözümler, tanılama adımları ve araçları kapsayan [Async Java SDK'sı](sql-api-sdk-async-java.md) Azure Cosmos DB SQL API hesabı olan.
@@ -150,6 +150,40 @@ Bu hata, bir sunucu tarafı hatasıdır. Bu, sağlanan aktarım hızınızı har
 ### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Azure Cosmos DB öykünücüsü'nü bağlanma başarısız
 
 Azure Cosmos DB öykünücüsü'nü HTTPS sertifikası otomatik olarak imzalanır. Öykünücü ile çalışmak için SDK, bir Java TrustStore için öykünücü sertifikayı içeri aktarın. Daha fazla bilgi için [dışarı Azure Cosmos DB öykünücüsü'nü sertifikaları](local-emulator-export-ssl-certificates.md).
+
+### <a name="dependency-conflict-issues"></a>Bağımlılık çakışma sorunları
+
+```console
+Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
+```
+
+Yukarıdaki özel durum RxJava lib (örneğin, 1.2.2) daha eski bir sürümü üzerinde bağımlılığa sahip önerir. SDK'mız API'leri RxJava önceki sürümünde kullanılamaz olduğu RxJava 1.3.8 kullanır. 
+
+Bu tür issuses, bir bağımlılık tanımlamak için geçici çözüm RxJava-1.2.2 getirir ve RxJava 1.2.2 Karşılıklı bağımlılığı hariç tutun ve CosmosDB SDK izin sürüme getirin.
+
+RxJava 1.2.2 proje pom.xml dosyanıza yanında aşağıdaki komutu çalıştırın, hangi kitaplığı getirir tanımlamak için:
+```bash
+mvn dependency:tree
+```
+Daha fazla bilgi için [maven bağımlılığı ağacı Kılavuzu](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
+
+RxJava 1.2.2 tanımladıktan sonra pom dosyası ve dışlama RxJava geçişli bağımlılık, lib hangi diğer bağımlılığı projenizin, üzerinde bağımlılığı değiştirebilirsiniz geçişli bağımlılık şöyledir:
+
+```xml
+<dependency>
+  <groupId>${groupid-of-lib-which-brings-in-rxjava1.2.2}</groupId>
+  <artifactId>${artifactId-of-lib-which-brings-in-rxjava1.2.2}</artifactId>
+  <version>${version-of-lib-which-brings-in-rxjava1.2.2}</version>
+  <exclusions>
+    <exclusion>
+      <groupId>io.reactivex</groupId>
+      <artifactId>rxjava</artifactId>
+    </exclusion>
+  </exclusions>
+</dependency>
+```
+
+Daha fazla bilgi için [geçişli bağımlılık Kılavuzu hariç](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
 
 
 ## <a name="enable-client-sice-logging"></a>İstemci SDK'sı günlüğe yazmayı etkinleştir

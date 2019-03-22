@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2d15b134502ec7d13f6cbebc99fdfa17bcd61474
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 60e2f584dcb0a958bca707317ae3fba5a40df4fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878740"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889400"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-php-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme PHP ve REST API kullanarak yazdırılan metin (OCR) ayıklayın
 
@@ -232,7 +232,7 @@ Artık gerekli değilse dosyayı silin ve sonra PHP5 `HTTP_Request2` paketini ka
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Görüntü analiz etmek, ünlüleri ve yer işaretlerini algılamak, küçük resim oluşturmak ve yazdırılan ve el yazısı metinleri ayıklamak için kullanılan Görüntü İşleme API’sini keşfedin. Görüntü İşleme API'sini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna bakın.
+Bir resmi çözümleme, ünlüleri ve önemli yerleri belirleme, küçük resim oluşturma ve basılı ve el yazısı metinleri ayıklamak için görüntü işleme API'sini keşfedin. Görüntü İşleme API'sini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna bakın.
 
 > [!div class="nextstepaction"]
 > [Görüntü İşleme API’sini keşfetme](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

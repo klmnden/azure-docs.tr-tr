@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 57a8a89c73e2be51e54130d9c37194a7513a47d8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 28deb9b7ba15744b9bd3d273d02db4398d2b2ef3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562524"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896951"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Uygulama başına Kiracı SaaS düzeni kullanarak sağlama ve kataloğa yeni Kiracı
 
@@ -99,7 +99,7 @@ Betik tamamlandıktan sonra katalog bulunur ve tüm örnek Kiracı kaydedilir.
 Artık oluşturduğunuz kaynakları arayın.
 
 1. Açık [Azure portalında](https://portal.azure.com/) ve kaynak gruplarını bulun.  Açık **wingtip-sa-catalog -\<kullanıcı\>**  kaynak grubunda ve katalog sunucusu ve veritabanı not edin.
-1. Veritabanını seçin ve portal içinde açın *Veri Gezgini* sol taraftaki menüden.  Oturum açma komutunu tıklatın ve parolayı girin = **P@ssword1**.
+1. Veritabanını seçin ve portal içinde açın *Veri Gezgini* sol taraftaki menüden.  Oturum açma komutunu tıklatın ve parolayı girin = **P\@ssword1**.
 
 
 1. Şemasını keşfetme *tenantcatalog* veritabanı.  

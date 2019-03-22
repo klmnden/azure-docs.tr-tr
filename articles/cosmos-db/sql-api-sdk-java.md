@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/29/2018
+ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: ebb6fe9f583c2658f187d3cca1185f1525fb1bf5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c2b0c52ca78f2b9c4273280aa9da16a5ef1bbc00
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811044"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003250"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -43,12 +43,23 @@ SQL API Java SDK'sı, zaman uyumlu işlemler destekler. Zaman uyumsuz desteği k
 
 ## <a name="release-notes"></a>Sürüm notları
 
+### <a name="a-name210213"></a><a name="2.1.0"/>2.1.3
+* PartitionKey karma V2 için hata düzeltildi.
+
+### <a name="a-name210212"></a><a name="2.1.0"/>2.1.2'yi
+* Bileşik dizinler için destek eklendi.
+* Daha önce yenilemeye zorlamak için genel bir uç nokta Yöneticisi'nde hata düzeltildi.
+* Upsert eder ön koşullar doğrudan modunda olan hata düzeltildi.
+
+### <a name="a-name210211"></a><a name="2.1.0"/>2.1.1
+* Ağ geçidi adresi önbelleğinde hata düzeltildi.
+
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Çok bölgeli yazma desteği için doğrudan modu eklendi.
 * Bir proxy sunucudan ServiceUnavailable özel durumlar olarak durum IOExceptions işlemek için destek eklendi.
 * Uç nokta bulma yeniden deneme ilkesi bir hata düzeltildi.
 * Null işaretçi BaseDatabaseAccountConfigurationProvider içinde özel durumlar değil emin olmak için bir hata düzeltildi.
-* Sorgu yineleyici null değerlere döndürmeyen emin olmak için bir hata düzeltildi.
+* Null değerlere QueryIterator döndürmeyen emin olmak için bir hata düzeltildi.
 * Büyük PartitionKey izin emin olmak için bir hata düzeltildi
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
@@ -212,7 +223,10 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
-| 2.1.1 |21 Kasım 2018 |--- |
+| [2.1.3](#2.1.3) |13 Mart 2018 |--- |
+| [2.1.2'yi](#2.1.2) |09 Mar 2018 |--- |
+| [2.1.1](#2.1.1) |13 Aralık 2018 |--- |
+| [2.1.0](#2.1.0) |20 Kasım 2018 |--- |
 | [2.0.0](#2.0.0) |21 Eylül 2018 |--- |
 | [1.16.4](#1.16.4) |10 Eylül 2018 |--- |
 | [1.16.3](#1.16.3) |09 Eylül 2018 |--- |

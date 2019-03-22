@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/10/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: d9374a7815451c2ae3d9f6a84f4bfdadf1ad676d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: efe24f5203c0479c71b565b8cf2c272dc107a96b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777626"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088120"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Öğretici: Bir Azure Cosmos DB SQL API hesabı yönetmek için JavaScript SDK'sını kullanarak bir Node.js web uygulaması derleme 
 
@@ -87,7 +87,7 @@ Artık Express framework kullanarak basit bir Hello World Node.js projesi oluşt
    
    ![Node.js öğrenin - Bir tarayıcı penceresinde Hello World uygulamasının ekran görüntüsü](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
- Terminal penceresinde CTRL + C tuşlarını kullanarak uygulamayı durdurun ve seçin **y** toplu işlemi sonlandırmak için.
+   Terminal penceresinde CTRL + C tuşlarını kullanarak uygulamayı durdurun ve seçin **y** toplu işlemi sonlandırmak için.
 
 ## <a name="_Toc395783179"></a>Gerekli modülleri yükleme
 
@@ -183,7 +183,7 @@ Artık Express framework kullanarak basit bir Hello World Node.js projesi oluşt
       const { body } = await this.container.item(itemId).read();
       return body;
     }
-  }
+   }
 
    module.exports = TaskDao;
    ```
@@ -243,9 +243,9 @@ Artık Express framework kullanarak basit bir Hello World Node.js projesi oluşt
 
       res.redirect("/");
     }
-  }
+   }
 
-  module.exports = TaskList;
+   module.exports = TaskList;
    ```
 
 3. **tasklist.js** dosyasını kaydedin ve kapatın.

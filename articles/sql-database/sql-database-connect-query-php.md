@@ -11,16 +11,16 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: af2e711cef6e97935c2e4dc90557ef4f127d1caa
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 710ba8b3e8b581da1db0bf7a3aeb2ee254887b7f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237443"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007028"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: PHP kullanarak Azure SQL veritabanı sorgulama
 
-Bu makalede nasıl yapılacağı açıklanır [PHP](http://php.net/manual/en/intro-whatis.php) bir Azure SQL veritabanına bağlanmak için. Ardından, T-SQL deyimleriyle veri kullanabilirsiniz.
+Bu makalede nasıl yapılacağı açıklanır [PHP](https://php.net/manual/en/intro-whatis.php) bir Azure SQL veritabanına bağlanmak için. Ardından, T-SQL deyimleriyle veri kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

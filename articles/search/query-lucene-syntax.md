@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5bb5993ea47bfcaca96662fbb3d34341e137b929
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a2576a0489ad62aba0a85a45f110acb8ac220847
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544843"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107194"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure Search'te Lucene sorgu sözdizimi
 Azure arama sorguları dayalı zengin üzerinde yazma [Lucene sorgu ayrıştırıcısına](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) özel sorgu formları için söz dizimi: joker karakter, belirsiz arama, yakınlık araması, normal ifadeler birkaç örnek verilmiştir. Lucene sorgu ayrıştırıcısına sözdizimi çok [bozulmadan Azure Search'te uygulanan](search-lucene-query-architecture.md), dışında *aralığı aramaları* Azure Search ile oluşturulmuş `$filter` ifadeler. 
@@ -65,13 +65,13 @@ Diğer örnekler için [Lucene sorgu söz dizimi örnekleri, Azure Search'te sor
 ##  <a name="bkmk_fields"></a> Alan kapsamlı sorgular  
  Belirtebileceğiniz bir `fieldname:searchterm` burada tek bir sözcük alanıdır ve arama terimini de tek bir sözcük veya tümcecik, Boole işleçleri ile isteğe bağlı olarak bir fielded sorgu işlemi tanımlamak için yapı. Bazı örnekler şunlardır:  
 
--   genre:jazz NOT history  
+- genre:jazz NOT history  
 
--   sanatçıların: ("mil Davis" "John Coltrane")
+- sanatçıların: ("mil Davis" "John Coltrane")
 
- Bu durumda iki ayrı Sanatçılar arama tek bir varlık olarak değerlendirilebilmesi için her iki dize istiyorsanız birden çok dizeyi tırnak işaretleri içinde yerleştirdiğinizden emin olun `artists` alan.  
+  Bu durumda iki ayrı Sanatçılar arama tek bir varlık olarak değerlendirilebilmesi için her iki dize istiyorsanız birden çok dizeyi tırnak işaretleri içinde yerleştirdiğinizden emin olun `artists` alan.  
 
- Belirtilen alan `fieldname:searchterm` olmalıdır bir `searchable` alan.  Bkz: [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) dizin özniteliklerini alan tanımlarını nasıl kullanıldığı hakkında ayrıntılar için.  
+  Belirtilen alan `fieldname:searchterm` olmalıdır bir `searchable` alan.  Bkz: [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) dizin özniteliklerini alan tanımlarını nasıl kullanıldığı hakkında ayrıntılar için.  
 
 ##  <a name="bkmk_fuzzy"></a> Belirsiz arama  
  Belirsiz arama eşleşme bulur benzer bir yapı olması koşuluyla. Başına [Lucene belgeleri](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), belirsiz arama temel [Damerau Levenshtein uzaklık](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance).  

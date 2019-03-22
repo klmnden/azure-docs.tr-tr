@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5622c179b6eb767f4c608e8c36c2ba154aac0906
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 4cda09a6b407621e595b0cb8ed9103b1fbbd5cc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594704"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097966"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Nasıl yapılır: Azure Active Directory uygulama galerisinde uygulamanızı listeleme
 
@@ -83,12 +83,12 @@ Uygulamanın Azure AD uygulama galerisinde listelemek için öncelikle bir Azure
     * Openıd Connect, select kullanarak Galeriden uygulamanızı listesine eklemek istiyorsanız **Openıd Connect ve OAuth 2.0** yukarıdaki gibi.
     * Erişim ile ilgili herhangi bir sorun varsa, kişi [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** veya **WS-Federasyon**: Uygulamanız SAML 2.0 destekliyorsa, doğrudan Azure AD kiracısı ile kullanarak tümleştirebilirsiniz [özel bir uygulama eklemek için yönergeleri](../active-directory-saas-custom-apps.md).
+- **SAML 2.0** veya **WS-Federasyon**: Uygulamanız SAML 2.0 destekliyorsa, doğrudan Azure AD kiracısı ile kullanarak tümleştirebilirsiniz [özel bir uygulama eklemek için yönergeleri](../active-directory-saas-custom-apps.md).
 
-    ![Galeri SAML 2.0 veya WS-Federasyon uygulamasına listeleme, zaman çizelgesi](./media/howto-app-gallery-listing/saml.png)
+  ![Galeri SAML 2.0 veya WS-Federasyon uygulamasına listeleme, zaman çizelgesi](./media/howto-app-gallery-listing/saml.png)
 
-    * Galerisini kullanarak uygulamanızı listesine eklemek isteyip istemediğimi **SAML 2.0** veya **WS-Federasyon**seçin **SAMl 2.0/WS-Federasyon** yukarıdaki gibi.
-    * Erişim ile ilgili herhangi bir sorun varsa, kişi [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+  * Galerisini kullanarak uygulamanızı listesine eklemek isteyip istemediğimi **SAML 2.0** veya **WS-Federasyon**seçin **SAMl 2.0/WS-Federasyon** yukarıdaki gibi.
+  * Erişim ile ilgili herhangi bir sorun varsa, kişi [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="implementing-sso-using-password-sso"></a>Parola SSO kullanarak SSO uygulama
 

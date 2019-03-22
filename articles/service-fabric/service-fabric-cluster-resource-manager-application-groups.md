@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e4f446ff67408ef390ba817de935c286c5b2a47e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 94ae233f8591c43afa1bb73c3e17964922967d36
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727613"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123037"
 ---
 # <a name="introduction-to-application-groups"></a>Uygulama gruplarına giriş
 Service Fabric'in Küme Kaynak Yöneticisi genellikle yük yayarak küme kaynaklarını yöneten (aracılığıyla temsil [ölçümleri](service-fabric-cluster-resource-manager-metrics.md)) kümesi boyunca eşit. Service Fabric kümesi ve kümedeki düğümlerin kapasitesini bir bütün olarak yöneten [kapasite](service-fabric-cluster-resource-manager-cluster-description.md). Ölçümler ve kapasite çok sayıda iş yükü, ancak bazen ek gereksinimleri Getir ağır kullanan farklı Service Fabric uygulama örneklerine desenleri için çok iyi çalışır. Örneğin, isteyebilirsiniz:
@@ -36,6 +36,7 @@ Uygulama kapasitesi için basit kullanım örneği, bir uygulama örneği, belir
 Aşağıdaki görüntüde, bir uygulama örneği olan ve olmayan en fazla bir tanımlanan düğüm sayısını gösterir:
 
 <center>
+
 ![En fazla düğüm sayısını tanımlayan bir uygulama örneği][Image1]
 </center>
 
@@ -117,6 +118,7 @@ Birleştirme **MinimumNodes** ve **NodeReservationCapacity** küme içindeki uyg
 Kapasite ayırma, bir örneğe göz atalım:
 
 <center>
+
 ![Uygulama örnekleri ayrılmış Kapasite tanımlama][Image2]
 </center>
 

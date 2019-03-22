@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 256d709ac976736715f441ecde5eee22a6d86fa6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: be1c46c5bc2c8edcfeca81c82095687c4ddfd894
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009077"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225833"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS'yi kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama
 
@@ -123,7 +123,7 @@ Temel olarak ne zaman nasıl yeniden denenebilir bir hata için yanıt verirken 
 
     Bu senaryoda var. bir performans cezası çünkü tüm okuma isteklerinin birincil uç noktadan önce deneyin, zaman aşımı sona bekleyin ve ardından ikincil uç noktaya geçiş
 
-Bu senaryolar için olmadığını birincil uç nokta ile devam eden bir sorundur ve tüm okuma doğrudan ikincil uç noktaya yönelik istekler ayarlayarak gönderme tanımlamalıdır **LocationMode** özelliğini **SecondaryOnly** . Şu anda salt okunur modda çalıştırmak için uygulamayı değiştirmeniz gerekir. Bu yaklaşım olarak da bilinen [devre kesici düzeni](https://msdn.microsoft.com/library/dn589784.aspx).
+Bu senaryolar için olmadığını birincil uç nokta ile devam eden bir sorundur ve tüm okuma doğrudan ikincil uç noktaya yönelik istekler ayarlayarak gönderme tanımlamalıdır **LocationMode** özelliğini **SecondaryOnly** . Şu anda salt okunur modda çalıştırmak için uygulamayı değiştirmeniz gerekir. Bu yaklaşım olarak da bilinen [devre kesici düzeni](/azure/architecture/patterns/circuit-breaker).
 
 ### <a name="update-requests"></a>Güncelleştirme istekleri
 

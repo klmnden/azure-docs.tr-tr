@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 9b54c35a5dcd495e7ed460f1fdbbe96ba3dee4fe
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 782027f19d4e82f26fc1265f25b86223386d7182
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663572"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903394"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veritabanı yönetilen örneği gelen ve giden veri kopyalama
 
@@ -487,7 +487,7 @@ BEGIN
       UPDATE SET State = source.State
   WHEN NOT MATCHED THEN
       INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category)
+      VALUES (source.ProfileID, source.State, source.Category);
 END
 ```
 
@@ -497,14 +497,11 @@ Veritabanınızda, aynı ada sahip bir tablo türü sqlWriterTableType tanımlay
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
     [ProfileID] [varchar](256) NOT NULL,
     [State] [varchar](256) NOT NULL，
-    [Category] [varchar](256) NOT NULL，
+    [Category] [varchar](256) NOT NULL
 )
 ```
 
 Saklı yordam özellik yararlanır [tablo değerli parametre](https://msdn.microsoft.com/library/bb675163.aspx).
-
->[!NOTE]
->İçin yazarsanız **para/küçük para** veri türü bir saklı yordam çağırarak, değerleri yuvarlanır. Tablo değerli parametrelere karşılık gelen veri türünü belirtmeniz **ondalık** yerine **para/küçük para** bu sorunu gidermek için. 
 
 ## <a name="data-type-mapping-for-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği için veri türü eşlemesi
 

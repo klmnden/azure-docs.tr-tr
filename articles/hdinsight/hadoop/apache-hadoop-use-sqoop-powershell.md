@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: c3b7695b7a67a33df93b0216cfd02f762e412158
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7ddf37a2973196f458efb8ecc8e20761006996ef
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635723"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199520"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Apache Sqoop işleri, HDInsight, Apache Hadoop için Azure PowerShell kullanarak çalıştırma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -166,7 +166,6 @@ Linux tabanlı HDInsight aşağıdaki sınırlamalar sunar:
 Artık Sqoop kullanmayı öğrendiniz. Daha fazla bilgi için bkz:
 
 * [HDInsight ile Apache Oozie kullanma](../hdinsight-use-oozie.md): İçinde bir Oozie iş akışının Sqoop eylemini kullanın.
-* [HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme](../hdinsight-analyze-flight-delay-data.md): Uçuş gecikme verilerini çözümleme için Apache Hive'ı kullanın ve ardından bir Azure SQL veritabanına veri dışarı aktarmak için Sqoop kullanma.
 * [HDInsight için verileri karşıya](../hdinsight-upload-data.md): HDInsight veya Azure Blob depolamaya veri yüklemek için diğer yöntemler bulun.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

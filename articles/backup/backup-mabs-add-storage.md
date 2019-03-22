@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: ee62138a56851747e75d75b7a806b2b73ba4fbbb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 621d071f98701ff3a949f4172fef1d13819d7192
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544662"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852874"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Azure Backup Sunucusu’na depolama alanı ekleme
 
@@ -100,13 +100,13 @@ Modern yedekleme depolama alanı kullanmak için koruma gruplarını güncelleş
 
 1. Yönetici Konsolu'nda seçin **koruma** özelliği. İçinde **koruma grubu üyesi** listesinde üyeye sağ tıklayın ve ardından **üyenin korumasını Durdur**.
 
-  ![Üyenin korumasını Durdur](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+   ![Üyenin korumasını Durdur](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. İçinde **grubundan** iletişim kutusunda, kullanılan disk alanı ve depolama havuzu için kullanılabilir boş alanı gözden geçirin. Diskte kurtarma noktalarını bırakmak ve kendi ilişkilendirildikleri bekletme ilkesine göre sürelerinin dolmasına izin vermek için varsayılandır. **Tamam** düğmesine tıklayın.
 
-  Kullanılan disk alanını hemen boş depolama havuzuna döndürülecek istiyorsanız belirleyin **diskteki çoğaltmayı Sil** yedekleme verileri (ve kurtarma noktalarını) silmek için onay kutusunu, bu üye ile ilişkili.
+   Kullanılan disk alanını hemen boş depolama havuzuna döndürülecek istiyorsanız belirleyin **diskteki çoğaltmayı Sil** yedekleme verileri (ve kurtarma noktalarını) silmek için onay kutusunu, bu üye ile ilişkili.
 
-  ![Grup iletişim kutusundan kaldırma](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+   ![Grup iletişim kutusundan kaldırma](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Modern yedekleme depolama alanı kullanan bir koruma grubu oluşturun. Korumasız veri kaynaklarını içerir.
 

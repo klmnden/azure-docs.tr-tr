@@ -4,16 +4,16 @@ description: Azure Otomasyonu paylaşılan kaynakları ile ilgili sorunları gid
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/22/2019
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: abce40958f8d775e0a579a18cf8d1351740031ff
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 35e39a070a4c976655296d2ea141478d13e43bbc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671072"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902833"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Paylaşılan kaynaklar hatalarla ilgili sorunları giderme
 
@@ -137,6 +137,30 @@ Bir kaynak grubu düzeyinde kaynak kilitli veya oluşturmak veya farklı çalı�
 Oluşturun veya bir farklı çalıştır hesabını güncelleştirmek için farklı çalıştır hesabı kullanılan çeşitli kaynakları için uygun izinleri olmalıdır. Oluşturmak veya bir farklı çalıştır hesabını güncelleştirmek için gereken izinleri hakkında bilgi edinmek için [farklı çalıştır hesabı izinleri](../manage-runas-account.md#permissions).
 
 Bir kilit nedeniyle sorunu yaşıyorsanız, kilidi kaldırmak için Tamam olduğunu doğrulayın. Ardından, kilitli kaynağa gidin, kilit sağ tıklatın ve seçin **Sil** kilidini kaldırmak için.
+
+### <a name="iphelper"></a>Senaryo: "Bir giriş noktası 'iplpapi.dll' DLL ' GetPerAdapterInfo' adlı Bul oluşturulamıyor" hata aldığınızda bir runbook'u yürütmeye.
+
+#### <a name="issue"></a>Sorun
+
+Bir runbook çalıştırılırken şu özel durum alırsınız:
+
+```error
+Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
+```
+
+#### <a name="cause"></a>Nedeni
+
+Bu hata büyük olasılıkla bir yanlış yapılandırılmış tarafından neden [farklı çalıştır hesabı](../manage-runas-account.md).
+
+#### <a name="resolution"></a>Çözüm
+
+Emin olun, [farklı çalıştır hesabı](../manage-runas-account.md) düzgün bir şekilde yapılandırılır. Doğru şekilde yapılandırıldıktan sonra Azure ile kimlik doğrulaması için runbook'unuzda uygun koda sahip olun. Aşağıdaki örnek, bir Azure farklı çalıştır hesabı kullanarak bir runbook'ta kimlik doğrulaması için kod parçacığı gösterir.
+
+```powershell
+$connection = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
+-ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 4a9ffdd9f81a7d46d3476f3395a4456dea6c0341
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: ef874e5d773e87963b6de8371986ac2196fc38f3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156740"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901398"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Yeni bir Azure API Management hizmeti örneği oluşturma
 
@@ -52,7 +52,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 | **Kaynak Grubu**      | *apimResourceGroup*                           | Yeni veya var olan bir kaynak seçebilirsiniz. Kaynak grubu; yaşam döngüsünü, izinleri ve ilkeleri paylaşan kaynakların bir koleksiyonudur. [Burada](../azure-resource-manager/resource-group-overview.md#resource-groups) daha fazla bilgi edinin.                                                                                                  |
 | **Konum**            | *Batı ABD*                                    | Yakınınızdaki coğrafi bölgeyi seçin. Açılır listede yalnızca kullanılabilir API Management hizmet bölgeleri görünür.                                                                                                                                                                                                          |
 | **Kuruluş adı**   | Kuruluşunuzun adı                 | Bu ad, geliştirici portalının başlığı ve bildirim e-postalarının göndereni gibi birkaç yerde kullanılır.                                                                                                                                                                                                             |
-| **Yönetici e-postası** | *admin@org.com*                               | **API Management**’tan tüm bildirimlerin gönderileceği e-posta adresini ayarlayın.                                                                                                                                                                                                                                              |
+| **Yönetici e-postası** | *Yönetici\@org.com*                               | **API Management**’tan tüm bildirimlerin gönderileceği e-posta adresini ayarlayın.                                                                                                                                                                                                                                              |
 | **Fiyatlandırma katmanı**        | *Geliştirici*                                   | Hizmeti değerlendirmek için **Geliştirici** katmanını ayarlayın. Bu katman, üretim kullanımı için değildir. API Management katmanlarını ölçeklendirme hakkında daha fazla bilgi için bkz. [yükseltme ve ölçeklendirme](upgrade-and-scale.md).                                                                                                                                    |
 
 3. **Oluştur**’u seçin.

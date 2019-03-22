@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: rogarana
-ms.openlocfilehash: 3bf82f37752009a488512d720093bc9c595dff8e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: c9aaa22a656d1164ad4e9f9c1ed7539a93dd0457
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753223"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999937"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Karşıya yükleme, indirme ve Java v7 için istemci kitaplığını kullanarak blobları Listele
 
@@ -34,7 +34,7 @@ Aşağıdaki önkoşulların karşılandığından emin olun:
 
 * Alernatif olarak, Maven’ı yükleyip komut satırından çalışacak şekilde de yapılandırabilirsiniz.
 
-Bu kılavuzda kullanan [Eclipse](http://www.eclipse.org/downloads/) "Eclipse IDE Java geliştiriciler için" yapılandırmaya sahip.
+Bu kılavuzda kullanan [Eclipse](https://www.eclipse.org/downloads/) "Eclipse IDE Java geliştiriciler için" yapılandırmaya sahip.
 
 ## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin:
 
@@ -87,7 +87,7 @@ Deleting the source, and downloaded files
 Devam etmeden önce, varsayılan dizininizi (Windows kullanıcıları için *C:\Users\<kullanıcı>\AppData\Local\Temp*) örnek dosya için kontrol edin. Blob depolamadaki dosyanın içeriğini görüntülemek için, blobun URL'sini konsol penceresinden kopyalayın ve tarayıcıya yapıştırın. Dizininizdeki örnek dosyayı Blob depolamada saklanan içerikle karşılaştırırsanız, bunların aynı olduğunu görürsünüz. 
 
   >[!NOTE]
-  >Ayrıca, Blob depolamadaki dosyaları görüntülemek için, [Azure Depolama Gezgini](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) gibi bir araç da kullanabilirsiniz. Azure Depolama Gezgini, depolama hesabı bilgilerinize erişmenize olanak tanıyan ücretsiz ve platformlar arası bir araçtır.
+  >Ayrıca, Blob depolamadaki dosyaları görüntülemek için, [Azure Depolama Gezgini](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) gibi bir araç da kullanabilirsiniz. Azure Depolama Gezgini, depolama hesabı bilgilerinize erişmenize olanak tanıyan ücretsiz ve platformlar arası bir araçtır.
 
 Dosyaları doğruladıktan sonra, tanıtımı tamamlamak ve test dosyalarını silmek için **Enter** tuşuna basın. Artık örnek dosyanın ne yaptığını gördüğünüze göre, koda göz atmak için **AzureApp.java** dosyasını açabilirsiniz. 
 

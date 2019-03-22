@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: 39ae76da197db0c2b4f494bd74b3c76e6ff27f8e
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
-ms.translationtype: MT
+ms.openlocfilehash: b6717bc76caffb9c4b6f7743cc5356a80a8f742b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576812"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111863"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Öğretici: Apache Storm'u HDInsight üzerinde Apache Kafka ile kullanma
 
@@ -400,26 +400,26 @@ Bir Azure Sanal Ağı oluşturmak ve sonra bunun içinde Kafka ve Storm kümeler
     * HDInsight sürüm 3.6 üzerinde Kafka (üç çalışan düğümü)
     * HDInsight sürüm 3.6 üzerinde Storm (üç çalışan düğümü)
 
-  > [!WARNING]  
-  > HDInsight üzerinde Kafka'yı kullanabilmeniz için kümenizin en az üç çalışan düğümü içermesi gerekir. Bu şablon, üç çalışan düğümü içeren bir Kafka kümesi oluşturur.
+   > [!WARNING]  
+   > HDInsight üzerinde Kafka'yı kullanabilmeniz için kümenizin en az üç çalışan düğümü içermesi gerekir. Bu şablon, üç çalışan düğümü içeren bir Kafka kümesi oluşturur.
 
 2. **Özel dağıtım** bölümündeki girdileri doldurmak için aşağıdaki yönergeleri kullanın:
 
-    2. **Özelleştirilmiş şablon** bölümündeki girişleri doldurmak için aşağıdaki bilgileri kullanın:
+   1. **Özelleştirilmiş şablon** bölümündeki girişleri doldurmak için aşağıdaki bilgileri kullanın:
 
-    | Ayar | Değer |
-    | --- | --- |
-    | Abonelik | Azure aboneliğiniz |
-    | Kaynak grubu | Kaynakları içeren kaynak grubu. |
-    | Konum | İçinde kaynakların oluşturulduğu Azure bölgesi. |
-    | Kafka Kümesi Adı | Kafka kümesinin adı. |
-    | Storm Kümesi Adı | Storm kümesinin adı. |
-    | Küme Oturum Açma Kullanıcı Adı | Kümeler için yönetici kullanıcı adı. |
-    | Küme Oturum Açma Parolası | Kümeler için yönetici kullanıcı parolası. |
-    | SSH Kullanıcı Adı | Kümeler için oluşturulacak SSH kullanıcısı. |
-    | SSH Parolası | SSH kullanıcısı için parola. |
+      | Ayar | Değer |
+      | --- | --- |
+      | Abonelik | Azure aboneliğiniz |
+      | Kaynak grubu | Kaynakları içeren kaynak grubu. |
+      | Konum | İçinde kaynakların oluşturulduğu Azure bölgesi. |
+      | Kafka Kümesi Adı | Kafka kümesinin adı. |
+      | Storm Kümesi Adı | Storm kümesinin adı. |
+      | Küme Oturum Açma Kullanıcı Adı | Kümeler için yönetici kullanıcı adı. |
+      | Küme Oturum Açma Parolası | Kümeler için yönetici kullanıcı parolası. |
+      | SSH Kullanıcı Adı | Kümeler için oluşturulacak SSH kullanıcısı. |
+      | SSH Parolası | SSH kullanıcısı için parola. |
    
-    ![Şablon parametrelerinin resmi](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      ![Şablon parametrelerinin resmi](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
 
 3. **Hüküm ve Koşullar**’ı okuyun ve ardından **Yukarıda belirtilen hüküm ve koşulları kabul ediyorum**’u seçin.
 
@@ -434,17 +434,17 @@ Bir Azure Sanal Ağı oluşturmak ve sonra bunun içinde Kafka ve Storm kümeler
 
 2. **hdinsight-storm-java-kafka** dizininde, aşağıdaki komutu kullanarak projeyi derleyin ve dağıtım için paket oluşturun:
 
-  ```bash
-  mvn clean package
-  ```
+   ```bash
+   mvn clean package
+   ```
 
     Paket işlemi, `target` dizininde `KafkaTopology-1.0-SNAPSHOT.jar` adlı bir dosya oluşturur.
 
 3. Paketi HDInsight kümesindeki Storm'a kopyalamak için aşağıdaki komutları kullanın. `sshuser` değerini kümenin SSH kullanıcı adıyla değiştirin. `stormclustername` değerini __Storm__ kümesinin adıyla değiştirin.
 
-  ```bash
-  scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
-  ```
+   ```bash
+   scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+   ```
 
     İstendiğinde, kümeleri oluştururken kullandığınız parolayı girin.
 
@@ -577,9 +577,9 @@ Kafka, verileri bir _konu_ içinde depolar. Storm topolojilerini başlatmadan ö
 
 1. SSH oturumundan Storm kümesine, okuyucu topolojisini başlatmak için aşağıdaki komutu kullanın:
 
-  ```bash
-  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
-  ```
+   ```bash
+   storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
+   ```
 
 2. Bir dakika bekleyin ve ardından okuyucu topolojisi tarafından oluşturulan dosyaları görüntülemek için aşağıdaki komutu kullanın:
 

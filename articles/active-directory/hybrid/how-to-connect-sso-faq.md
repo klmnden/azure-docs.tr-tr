@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11ebb8bbeb2a58cad41294b6bba805585127844a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 8de47aab231c66f3539c2d2f0f0e4c535a04038a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442402"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085380"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sorunsuz çoklu oturum açma: Sık sorulan sorular
 
@@ -47,7 +47,7 @@ Aşağıda listelenen, bu parametreleri Azure AD'ye gönderebilir ve bu nedenle 
 | -- | -- |
 | Erişim paneli | https://myapps.microsoft.com/contoso.com |
 | Web üzerinde Outlook'u | https://outlook.office365.com/contoso.com |
-| Office 365 portalı | https://portal.office.com?domain_hint=contoso.com, https://www.office.com?domain_hint=contoso.com |
+| Office 365 portalı | <https://portal.office.com?domain_hint=contoso.com>, <https://www.office.com?domain_hint=contoso.com> |
 
 Ayrıca, uygulamanın kiracıları olarak - diğer bir deyişle, ayarlama, Azure AD'nin uç noktaları için oturum açma isteği gönderirse sessiz bir oturum açma deneyimi kullanıcıların Al https://login.microsoftonline.com/contoso.com/<..> veya https://login.microsoftonline.com/<tenant_ID>/<..> - Azure AD'nin ortak uç nokta - diğer bir deyişle, yerine https://login.microsoftonline.com/common/<...>. Aşağıda listelenen, oturum açma istekleri bu tür uygulamalar, kapsamlı olmayan bir listesidir.
 
@@ -95,8 +95,8 @@ Azure AD Connect çalıştırdığınız şirket içi sunucusunda bu adımları 
 
 1. Çağrı `$creds = Get-Credential`. İstendiğinde, hedeflenen AD ormanı için etki alanı yöneticisi kimlik bilgilerini girin.
 
-    >[!NOTE]
-    >Etki alanı yöneticisinin kullanıcı adı, kullanıcı asıl adı (UPN) içinde sağlanan kullanırız (johndoe@contoso.com) biçimi veya hedeflenen AD ormanı bulmak için etki alanı tam sam hesabı adı (contoso\johndoe veya contoso.com\johndoe) biçimi. Etki alanı tam sam hesabı adı kullanırsanız, etki alanı bölümü için kullanıcı adını kullanıyoruz [, DNS kullanarak olan etki alanı yöneticisi etki alanı denetleyicisinin yerini](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Bunun yerine, UPN kullanırsanız, biz [bir etki alanı tam sam hesabı adı için çevir](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) uygun etki alanı denetleyicisi bulunurken önce.
+   > [!NOTE]
+   > Etki alanı yöneticisinin kullanıcı adı, kullanıcı asıl adı (UPN) içinde sağlanan kullanırız (johndoe@contoso.com) biçimi veya hedeflenen AD ormanı bulmak için etki alanı tam sam hesabı adı (contoso\johndoe veya contoso.com\johndoe) biçimi. Etki alanı tam sam hesabı adı kullanırsanız, etki alanı bölümü için kullanıcı adını kullanıyoruz [, DNS kullanarak olan etki alanı yöneticisi etki alanı denetleyicisinin yerini](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Bunun yerine, UPN kullanırsanız, biz [bir etki alanı tam sam hesabı adı için çevir](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) uygun etki alanı denetleyicisi bulunurken önce.
 
 2. Çağrı `Update-AzureADSSOForest -OnPremCredentials $creds`. Bu komut için Kerberos şifre çözme anahtarı güncelleştirir `AZUREADSSOACC` bu belirli AD ormanında bilgisayar hesabı ve Azure AD'de güncelleştirir.
 3. Özelliği ayarladığınız her AD ormanı için önceki adımları yineleyin.

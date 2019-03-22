@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 97508c05ea26df1aaae7f41738835380767c81d2
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c032961bf89ba470a38ebccfd846659b080f9fab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312724"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013230"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -132,6 +132,7 @@ CSV sonuçları görüntülemek için:
 - Yerel olarak bağlı bir birim NTFS dosya sistemiyle biçimlendirilmiş.
 
 ### <a name="file-system-features"></a>Dosya sistemi özellikleri
+
 | Özellik | Destek durumu | Notlar |
 |---------|----------------|-------|
 | Erişim denetim listeleri (ACL'ler) | Tam olarak desteklenir | Windows ACL Azure dosya eşitleme tarafından korunur ve sunucu uç noktaları üzerinde Windows Server tarafından zorunlu tutulmaz. Windows ACL değil (henüz) dosyaları doğrudan bulutta eriştiyseniz Azure dosyaları tarafından desteklenmiyor. |
@@ -148,6 +149,7 @@ CSV sonuçları görüntülemek için:
 > Yalnızca NTFS birimleri desteklenir. ReFS, FAT, FAT32 ve diğer dosya sistemleri desteklenmez.
 
 ### <a name="files-skipped"></a>Atlanan Dosyaları
+
 | Dosya/klasör | Not |
 |-|-|
 | Desktop.ini | Dosya sistemine özgü |

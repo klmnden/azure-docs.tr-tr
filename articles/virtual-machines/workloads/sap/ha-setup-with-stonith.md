@@ -14,17 +14,17 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c6d4ec767b4c566e6a390f37b97266916819a40c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 66973ce78004d0f29d08264869f166202aaaf109
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015169"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011855"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>STONITH kullanarak yüksek kullanılabilirlik SUSE ayarlama
 Bu belge, yüksek kullanılabilirlik STONITH cihaz kullanarak SUSE işletim sisteminde ayarlamak için ayrıntılı adım adım yönergeler sağlar.
 
-**Sorumluluk reddi:** *bu kılavuz, Kurulum başarıyla çalıştığını Microsoft HANA büyük örnekleri ortamında test ederek türetilir. Microsoft Hizmet Yönetimi ekibinin HANA büyük örnekler için işletim sistemini desteklemediğinden, ek sorun giderme veya işletim sistemi katmanda daha fazla açıklama için SUSE ile iletişim kurmanız gerekebilir. Microsoft hizmet yönetim ekibi STONITH cihazı ayarlama ve tam olarak destekler ve STONITH cihaz sorunları için sorun giderme için ilgili olabilir.*
+**Sorumluluk reddi:** *Bu kılavuz, Kurulum başarıyla çalıştığını Microsoft HANA büyük örnekleri ortamında test ederek elde edilir. Microsoft Hizmet Yönetimi ekibinin HANA büyük örnekler için işletim sistemini desteklemediğinden, ek sorun giderme veya işletim sistemi katmanda daha fazla açıklama için SUSE ile iletişim kurmanız gerekebilir. Microsoft hizmet yönetim ekibi STONITH cihazı ayarlama ve tam olarak destekler ve STONITH cihaz sorunları için sorun giderme için ilgili olabilir.*
 ## <a name="overview"></a>Genel Bakış
 SUSE Kümelemesi kullanarak yüksek kullanılabilirliği ayarlamadan için aşağıdaki önkoşulları karşılamalıdır.
 ### <a name="pre-requisites"></a>Ön koşullar
@@ -37,7 +37,7 @@ SUSE Kümelemesi kullanarak yüksek kullanılabilirliği ayarlamadan için aşa�
 
 ### <a name="setup-details"></a>Kurulum Ayrıntıları
 Bu kılavuz, aşağıdaki Kurulum kullanır:
-- İşletim sistemi: SLES 12 SAP için SP1
+- İşletim Sistemi: SAP için SLES 12 SP1
 - HANA büyük örnekleri: 2xS192 (dört yuvaları, 2 TB)
 - HANA sürümü: HANA 2.0 SP1
 - Sunucu adları: sapprdhdb95 (Düğüm1) ve sapprdhdb96 (Düğüm2)
@@ -76,7 +76,7 @@ Microsoft Hizmet Yönetimi bu dizesi sağlayın. Dosyayı değiştirmek **hem** 
 
 ![initiatorname.PNG](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-1.2 değiştirme */etc/iscsi/iscsid.conf*: ayarlayın *node.session.timeo.replacement_timeout=5* ve *node.startup otomatik =*. Dosyayı değiştirmek **hem** düğümleri.
+1.2 değiştirme */etc/iscsi/iscsid.conf*: Ayarlama *node.session.timeo.replacement_timeout=5* ve *node.startup otomatik =*. Dosyayı değiştirmek **hem** düğümleri.
 
 1.3 bulma komutu yürütün, dört oturumları gösterir. Düğümler üzerinde çalıştırın.
 
@@ -98,7 +98,7 @@ iscsiadm -m node -l
 ```
 rescan-scsi-bus.sh
 ```
-![rescanscsibus.PNG](media/HowToHLI/HASetupWithStonith/rescanscsibus.png)
+![rescanscsibus.png](media/HowToHLI/HASetupWithStonith/rescanscsibus.png)
 
 1.6 için komutu çalıştırmak cihaz adını almak *fdisk – l*. Düğümler üzerinde çalıştırın. Cihazı boyutu ile çekme **178 MiB**.
 
@@ -106,7 +106,7 @@ rescan-scsi-bus.sh
   fdisk –l
 ```
 
-![Fdisk l.png](media/HowToHLI/HASetupWithStonith/fdisk-l.png)
+![fdisk-l.png](media/HowToHLI/HASetupWithStonith/fdisk-l.png)
 
 ## <a name="2---initialize-the-sbd-device"></a>2.   SBD cihaz Başlat
 
@@ -115,7 +115,7 @@ rescan-scsi-bus.sh
 ```
 sbd -d <SBD Device Name> create
 ```
-![sbdcreate.PNG](media/HowToHLI/HASetupWithStonith/sbdcreate.png)
+![sbdcreate.png](media/HowToHLI/HASetupWithStonith/sbdcreate.png)
 
 2.2 cihaza yazılan denetleyin. Bunu şirket **hem** düğümleri
 
@@ -131,8 +131,8 @@ Bu bölümde SUSE HA kümesini ayarlamak için adımları açıklanmaktadır.
 zypper in -t pattern ha_sles
 zypper in SAPHanaSR SAPHanaSR-doc
 ```
-![zypperpatternha_sles.PNG](media/HowToHLI/HASetupWithStonith/zypperpatternha_sles.png)
-![zypperpatternSAPHANASR doc.png](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
+![zypperpatternha_sles.png](media/HowToHLI/HASetupWithStonith/zypperpatternha_sles.png)
+![zypperpatternSAPHANASR-doc.png](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
 
 ### <a name="32-setting-up-the-cluster"></a>3.2 kümesi ayarlama
 3.2.1 kullanabilir *ha-kümesi-init* komutunu veya kümeyi oluşturmak için yast2 Sihirbazı'nı kullanın. Bu durumda, yast2 Sihirbazı kullanılır. Bu adımı gerçekleştirmeniz **yalnızca birincil düğümdeki**.
@@ -174,25 +174,25 @@ Bu bölümde (softdog) İzleme yapılandırmasını açıklar.
 ```
 modprobe softdog
 ```
-![modprobe softdog.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog.png)
+![modprobe-softdog.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog.png)
 
 4.2 dosyasını güncelleştirme */etc/sysconfig/sbd* üzerinde **hem** şu şekilde düğümleri:
 ```
 SBD_DEVICE="<SBD Device Name>"
 ```
-![sbd device.png](media/HowToHLI/HASetupWithStonith/sbd-device.png)
+![sbd-device.png](media/HowToHLI/HASetupWithStonith/sbd-device.png)
 
 4.3 Çekirdek modülü yüklemek **hem** aşağıdaki komutu çalıştırarak düğümleri
 ```
 modprobe softdog
 ```
-![modprobe softdog command.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog-command.png)
+![modprobe-softdog-command.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog-command.png)
 
 4.4 denetleyin ve bu softdog çalıştığından emin olun üzerinde şu şekilde **hem** düğümleri:
 ```
 lsmod | grep dog
 ```
-![lsmod grep dog.png](media/HowToHLI/HASetupWithStonith/lsmod-grep-dog.png)
+![lsmod-grep-dog.png](media/HowToHLI/HASetupWithStonith/lsmod-grep-dog.png)
 
 4.5 SBD cihaz başlatmak **hem** düğümleri
 ```
@@ -204,13 +204,13 @@ lsmod | grep dog
 ```
 sbd -d <SBD Device Name> list
 ```
-![sbd list.png](media/HowToHLI/HASetupWithStonith/sbd-list.png)
+![sbd-list.png](media/HowToHLI/HASetupWithStonith/sbd-list.png)
 
 4.7 için test iletisi göndermek **bir** düğümlerinizin
 ```
 sbd  -d <SBD Device Name> message <node2> <message>
 ```
-![sbd list.png](media/HowToHLI/HASetupWithStonith/sbd-list.png)
+![sbd-list.png](media/HowToHLI/HASetupWithStonith/sbd-list.png)
 
 4.8 üzerinde **ikinci** düğümü (Düğüm2 ileti durumu kontrol edebilirsiniz)
 ```
@@ -242,7 +242,7 @@ Aşağıdaki komutu şurada çalıştırın **Düğüm2** Kümeye katılma Düğ
 ```
 ha-cluster-join
 ```
-Alırsanız bir *hata* Kümeye katılan sırasında başvuran *Senaryo 6: 2 düğüm kümeye katılamadı*.
+Alırsanız bir *hata* Kümeye katılan sırasında başvuran *Senaryo 6: Düğümü kümeye katılamadı 2*.
 
 ## <a name="6---validating-the-cluster"></a>6.   Küme doğrulama
 
@@ -252,7 +252,7 @@ Denetleyin ve isteğe bağlı olarak küme üzerinde ilk kez başlatmak için **
 systemctl status pacemaker
 systemctl start pacemaker
 ```
-![systemctl durumu pacemaker.png](media/HowToHLI/HASetupWithStonith/systemctl-status-pacemaker.png)
+![systemctl-status-pacemaker.png](media/HowToHLI/HASetupWithStonith/systemctl-status-pacemaker.png)
 ### <a name="62-monitor-the-status"></a>6.2 durumunu izleme
 Komutunu çalıştırın *crm_mon* emin olmak için **hem** düğümlerde çevrimiçidir. Çalıştırabilirsiniz **düğümlere** küme
 ```
@@ -321,11 +321,11 @@ crm configure load update crm-vip.txt
 ### <a name="74-validate-the-resources"></a>7.4 Kaynakları Doğrula
 
 Komutu çalıştırdığınızda *crm_mon*, iki kaynak görebilirsiniz.
-![crm_mon_command.PNG](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
+![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
 Ayrıca, durum gördüğünüz *https://<node IP address>: 7630/cib/Canlı/durumu*
 
-![hawlk durumu page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
+![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 
 ## <a name="8-testing-the-failover-process"></a>8. Yük devretme işlemini test etme
 Yük devretme işlemini test etmek için Düğüm1 üzerinde pacemaker hizmet ve kaynakları yük Düğüm2 durdurun.
@@ -371,9 +371,9 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Senaryo 2: grafik görünümü yast2 göstermez
 Yast2 grafik ekran, bu belgedeki yüksek kullanılabilirlik kümesini ayarlamak için kullanılır. Yast2 almayan gösterildiği gibi grafik penceresi açın ve throw Qt hata olarak aşağıdaki adımları gerçekleştirin. Grafik penceresiyle açılır adımları atlayabilirsiniz.
 
-**Hata**
+**Hata:**
 
-![qt GUI error.png yast2](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
+![yast2-qt-gui-error.png](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
 
 **Beklenen çıktı**
 
@@ -387,7 +387,7 @@ Paketleri yüklemek için yast kullanmak > yazılım > Yazılım Yönetimi > ba�
 >[!NOTE]
 >Her iki düğümü yast2 grafik görünümü erişebilmesi için her iki düğümde adımları gerekir.
 
-![yast sofwaremanagement.png](media/HowToHLI/HASetupWithStonith/yast-sofwaremanagement.png)
+![yast-sofwaremanagement.png](media/HowToHLI/HASetupWithStonith/yast-sofwaremanagement.png)
 
 Bağımlılıkları altında "Önerilen paketlerini yükleyin" seçin ![yast dependencies.png](media/HowToHLI/HASetupWithStonith/yast-dependencies.png)
 
@@ -407,7 +407,7 @@ Ayrıca libqt4 ve libyui qt paketleri yüklemeniz gerekir.
 ```
 zypper -n install libqt4
 ```
-![zypper yükleme libqt4.png](media/HowToHLI/HASetupWithStonith/zypper-install-libqt4.png)
+![zypper-install-libqt4.png](media/HowToHLI/HASetupWithStonith/zypper-install-libqt4.png)
 ```
 zypper -n install libyui-qt
 ```
@@ -448,10 +448,10 @@ Tıklayın **sonraki** yüklemesi tamamlandığında
 
 ![yast2 yükleme report.png](media/HowToHLI/HASetupWithStonith/yast2-installation-report.png)
 
-### <a name="scenario-4-hana-installation-fails-with-gcc-assemblies-error"></a>Senaryo 4: HANA yüklemesi gcc derlemeleri hatasıyla başarısız oluyor.
+### <a name="scenario-4-hana-installation-fails-with-gcc-assemblies-error"></a>Senaryo 4: HANA yüklemesi gcc derlemeleri hatasıyla başarısız oluyor
 HANA yüklemesi şu hata ile başarısız olur.
 
-![Hana yükleme error.png](media/HowToHLI/HASetupWithStonith/Hana-installation-error.png)
+![Hana-installation-error.png](media/HowToHLI/HASetupWithStonith/Hana-installation-error.png)
 
 Bu sorunu düzeltmek için kitaplıklarını yüklemeniz gerekir (libgcc_sl ve libstdc ++ 6) şu şekilde.
 
@@ -480,7 +480,7 @@ Sep 28 21:48:27 sapprdhdb95 corosync[68812]: [MAIN  ] Corosync Cluster Engine ex
 Sep 28 21:48:27 sapprdhdb95 systemd[1]: Dependency failed for Pacemaker High Availability Cluster Manager
 -- Subject: Unit pacemaker.service has failed
 -- Defined-By: systemd
--- Support: http://lists.freedesktop.org/mailman/listinfo/systemd-devel
+-- Support: https://lists.freedesktop.org/mailman/listinfo/systemd-devel
 --
 -- Unit pacemaker.service has failed.
 --
@@ -506,7 +506,7 @@ Bunu düzeltmek için aşağıdaki satırı dosyadan silin */usr/lib/systemd/sys
 Persistent=true
 ```
 
-![Persistent.PNG](media/HowToHLI/HASetupWithStonith/Persistent.png)
+![Persistent.png](media/HowToHLI/HASetupWithStonith/Persistent.png)
 
 ### <a name="scenario-6-node-2-unable-to-join-the-cluster"></a>6. Senaryo: Düğümü kümeye katılamadı 2
 

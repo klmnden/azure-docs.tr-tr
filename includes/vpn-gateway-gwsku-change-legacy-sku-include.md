@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 03/15/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2c1a4a1931bc2e38b0bee5f90518b01fdf4767a1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4c232e1ce183c6935d625b5bc9987a4981865ae4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "30196825"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57908697"
 ---
-Resource Manager dağıtım modeliyle çalışıyorsanız, yeni ağ geçidi SKU'ları değiştirebilirsiniz. Yeni bir SKU bir eski ağ geçidinden SKU değiştirdiğinizde, var olan VPN ağ geçidini silin ve yeni bir VPN ağ geçidi oluşturun.
+Resource Manager dağıtım modeliyle çalışıyorsanız, yeni ağ geçidi SKU'ları değiştirebilirsiniz. Eski ağ geçidi SKU'sunu yeni bir SKU'ya değiştirdiğinizde, mevcut VPN ağ geçidini silin ve yeni bir VPN ağ geçidi oluşturun.
 
 İş akışı:
 
@@ -27,9 +27,9 @@ Resource Manager dağıtım modeliyle çalışıyorsanız, yeni ağ geçidi SKU'
 6. Bu VPN ağ geçidi yoluyla sanal ağa bağlanan P2S istemcileri için yeni istemci VPN yapılandırma paketlerini indirin.
 7. Sanal ağ geçidine ilişkin tüm bağlantıları yeniden oluşturun.
 
-Dikkate alınacak noktalar:
+Dikkat edilmesi gerekenler:
 
-* Yeni SKU'ları taşımak için VPN ağ geçidinizi Resource Manager dağıtım modelinde olması gerekir.
-* Klasik bir VPN ağ geçidi varsa, bu ağ geçidi için eski eski SKU'ları kullanmaya devam gerekir, ancak, eski SKU'ları arasında yeniden boyutlandırabilirsiniz. Yeni SKU'ları değiştiremezsiniz.
-* Yeni bir SKU eski bir SKU değiştirdiğinizde bağlantı kapalı kalma süresi gerekir.
-* Yeni bir ağ geçidi için SKU değiştirirken, VPN ağ geçidinizin genel IP adresini değiştirir. Daha önce kullandığınız aynı ortak IP adresi nesnesinin belirttiğiniz olsa bile bu gerçekleşir.
+* Yeni SKU'lara taşımak için VPN gateway'inizi Resource Manager dağıtım modelinde olmalıdır.
+* Klasik VPN ağ geçidi varsa, bu ağ geçidi için eski eski SKU'ları kullanarak devam etmeniz gerekir, ancak, eski SKU'ları arasında yeniden boyutlandırabilirsiniz. Yeni SKU'lara geçiş yapamazsınız.
+* Eski bir SKU'dan yeni bir SKU'ya değiştirdiğinizde, bağlantı kapalı kalma süresi gerekir.
+* Yeni bir ağ geçidi için SKU değiştirirken, VPN ağ geçidiniz için genel IP adresi değişir. Bu, daha önce kullandığınız aynı genel IP adresi nesnesi belirtseniz dahi gerçekleşir.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68748175336e8efc5f6642cff58f0bebf70befa7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 77d2312c5a20aa6b90586d47ee120593e807295e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762323"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893586"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Öğretici: UltiPro ile Azure Active Directory Tümleştirme
 
@@ -106,6 +106,7 @@ Azure AD çoklu oturum açma ile UltiPro yapılandırmak için aşağıdaki adı
     ![UltiPro etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier-reply.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak:
+
     | |
     |--|
     | `https://<companyname>.ultipro.com/`|
@@ -113,6 +114,7 @@ Azure AD çoklu oturum açma ile UltiPro yapılandırmak için aşağıdaki adı
     | ` https://<companyname>.ultipro.ca`|
     
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
+
     | |
     |--|
     | `https://<companyname>.ultipro.com/adfs/services/trust`|
@@ -120,6 +122,7 @@ Azure AD çoklu oturum açma ile UltiPro yapılandırmak için aşağıdaki adı
     | `https://<companyname>.ultipro.ca/adfs/services/trust`|
     
     c. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak:
+    
     | |
     |--|
     | `https://<companyname>.ultipro.com/<instancename>`|
@@ -165,7 +168,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.openlocfilehash: 019232308ec5fa6d735e4499c3fb5f3ac2727e2d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 18660b41f4413d3ae1cd820cd645ddb540397906
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766403"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58095917"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight üzerinde Apache Spark kümesi ile Apache Zeppelin not defterlerini kullanma
 
@@ -106,12 +106,12 @@ HDInsight Spark kümeleri içerir [Apache Zeppelin](https://zeppelin.apache.org/
 
 8. Seçin **çubuk grafik** ekranı değiştirmek için simge.  Ardından **ayarları** ve aşağıdaki değişiklikleri yapın:
 
-    * **Grupları:**  Ekleme **targettemp**.  
-    * **Değerler:** 1. Kaldırma **tarih**.  2. Ekleme **temp_diff**.  3.  Toplayıcısı'ndan değiştirme **toplam** için **ortalama**.  
+   * **Grupları:**  Ekleme **targettemp**.  
+   * **Değerler:** 1. Kaldırma **tarih**.  2. Ekleme **temp_diff**.  3.  Toplayıcısı'ndan değiştirme **toplam** için **ortalama**.  
 
-    Çıktı aşağıdaki ekran görüntüsünde gösterilmiştir.
+     Çıktı aşağıdaki ekran görüntüsünde gösterilmiştir.
 
-    ![Not Defteri kullanarak Spark SQL deyimi çalıştırma](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Not Defteri kullanarak Spark SQL deyimi çalıştırma")
+     ![Not Defteri kullanarak Spark SQL deyimi çalıştırma](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Not Defteri kullanarak Spark SQL deyimi çalıştırma")
 
 9. Uygulamadan çıkmak için Livy yorumlayıcısını yeniden başlatın. Bunu yapmak için oturum açmış kullanıcı adına sağ üst köşedeki seçerek yorumlayıcı Ayarları'nı açın ve ardından **yorumlayıcı**.  
 

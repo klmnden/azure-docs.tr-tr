@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bda6aff61b3060f23a3ac8ccf9a7933ad2a56a2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f8def13360bba2f82d5adf315503dc7d655f490d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781825"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899836"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Öğretici: SAP HANA ile Azure Active Directory Tümleştirme
 
@@ -195,7 +195,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -248,8 +248,8 @@ Bir kullanıcı el ile oluşturmanız gerekiyorsa, aşağıdaki adımları uygul
 
 4. Ekleme **Dış kimlik** (Bu durumda, BrittaSimon) ya da seçin **herhangi**. Sonra **Tamam**’ı seçin.
 
-    >[!Note]
-    >Varsa **herhangi** onay kutusu seçilmez ve HANA kullanıcı adı UPN etki alanı soneki önce kullanıcı adı tam olarak eşleşmesi gerekir. (Örneğin, BrittaSimon@contoso.com hana BrittaSimon olur.)
+   > [!Note]
+   > Varsa **herhangi** onay kutusu seçilmez ve HANA kullanıcı adı UPN etki alanı soneki önce kullanıcı adı tam olarak eşleşmesi gerekir. (Örneğin, BrittaSimon@contoso.com hana BrittaSimon olur.)
 
 5. Test amacıyla, tüm Ata **XS** kullanıcı rolleri.
 

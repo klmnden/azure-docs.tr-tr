@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kapsayıcılar, Helm, hizmet kafes, ağ hizmeti Yönlendirme, kubectl, k8s
-ms.openlocfilehash: fc2a74ff11e31991c72574b44a9e4874a956f78e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a72e02cf7cc85113fe4fb660fdc5e5f0b5f22019
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773019"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903156"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Azure geliştirme alanları .NET Core ile çalışmaya başlama
 
@@ -62,7 +62,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Azure Dev Spaces için bir Kubernetes kümesi oluşturma
 
-Komut isteminde kaynak grubunu oluşturun. Şu an için desteklenen bölgelerden birini (EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral veya CanadaEast) kullanın.
+Komut isteminde, kaynak grubunu oluşturma bir [Azure geliştirme alanları destekleyen bir bölge](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -71,7 +71,7 @@ az group create --name MyResourceGroup --location <region>
 Şu komutu kullanarak bir Kubernetes kümesi oluşturun:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.13 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
 Kümenin oluşturulması birkaç dakika sürer.
@@ -95,7 +95,7 @@ Kubernetes hata ayıklaması gibi zengin özellikler VS Code kullanarak .NET Cor
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Kapsayıcıda çalışan bir web uygulaması oluşturma
 
-Bu bölümde bir ASP.NET Core web uygulaması oluşturacak ve Kubernetes’teki bir kapsayıcı içinde çalıştıracaksınız.
+Bu bölümde, bir ASP.NET Core web uygulaması oluşturma ve Kubernetes kapsayıcısında çalışan alın.
 
 ### <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core web uygulaması oluşturma
 Kopyala veya indir [Azure geliştirme alanları örnek uygulama](https://github.com/Azure/dev-spaces). Bu makalede kodda kullanan *samples/dotnetcore/alma-çalışmaya/webfrontend* dizin.
@@ -141,13 +141,13 @@ Komutun çıkışını gözden geçirin; ilerledikçe bazı şeyler göreceksini
 
 ```
 (pending registration) Service 'webfrontend' port 'http' will be available at <url>
-Service 'webfrontend' port 80 (TCP) is available at http://localhost:<port>
+Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
 Tarayıcı penceresinde bu URL'yi açın; web uygulaması yükünü görmelisiniz. Kapsayıcı yürütülürken, terminal penceresine `stdout` ve `stderr` çıkışının akışı yapılır.
 
 > [!Note]
-> İlk çalıştırmada genel DNS hizmetinin hazır duruma gelmesi birkaç dakika sürebilir. Genel URL çözümlenmezse konsol çıktısında görüntülenen alternatif http://localhost:<portnumber> URL'sini kullanabilirsiniz. Localhost URL'sini kullanırsanız kapsayıcı yerel olarak çalışıyor gibi görünebilir, ancak gerçekte AKS'de çalışıyordur. Size rahatlık sağlamak ve yerel makinenizden hizmetle etkileşimi kolaylaştırmak için, Azure Dev Spaces Azure'da çalıştırılan kapsayıcıya geçici bir SSH tüneli oluşturur. DNS kaydı hazır olduğunda geri gelip genel URL'yi deneyebilirsiniz.
+> İlk çalıştırmada genel DNS hizmetinin hazır duruma gelmesi birkaç dakika sürebilir. Genel URL çözmezse alternatif kullanabileceğiniz `http://localhost:<portnumber>` konsol çıkışında görüntülenen URL. Localhost URL'sini kullanırsanız kapsayıcı yerel olarak çalışıyor gibi görünebilir, ancak gerçekte AKS'de çalışıyordur. Size rahatlık sağlamak ve yerel makinenizden hizmetle etkileşimi kolaylaştırmak için, Azure Dev Spaces Azure'da çalıştırılan kapsayıcıya geçici bir SSH tüneli oluşturur. DNS kaydı hazır olduğunda geri gelip genel URL'yi deneyebilirsiniz.
 
 ### <a name="update-a-content-file"></a>İçerik dosyası güncelleştirme
 Azure Dev Spaces yalnızca kodu Kubernetes’te çalıştırmaya yönelik değildir; aynı zamanda kod değişikliklerinizin buluttaki bir Kubernetes ortamında uygulandığını hızlıca ve yinelenerek görmenizi sağlar.

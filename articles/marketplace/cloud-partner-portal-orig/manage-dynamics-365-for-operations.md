@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 41f3fd55be02364b4028642db9db1d3f47043afa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 93c70e038589667ae97acb86663a6179dcc81637
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245095"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877339"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>Dynamics 365 bulut iş ortağı portalı Operations teklifi için oluşturma
 
@@ -31,7 +31,7 @@ Teklif, yayımcı adına yayımlanmadan önce hesabı, bir kişi ile \"sahibi\" 
 
 Tüm önkoşulların karşılandığını sonra yazma işlemleri teklif için Dynamics 365 başlamaya hazır olursunuz.
 
-1. Oturum [bulut iş ortağı portalı](http://cloudpartner.azure.com/).
+1. Oturum [bulut iş ortağı portalı](https://cloudpartner.azure.com/).
 2. Sol gezinti çubuğundan tıklayarak \"+ yeni teklif\" seçip \"operasyonlar için Dynamics 365\".
 3. Yeni bir teklif \"Düzenleyicisi\" görünümü artık açılır, için ve biz yazma başlamaya hazırsınız.
 4. \"Forms\" doldurulması gereken içinde soldaki görünür \"Düzenleyicisi\" görünümü. Her \"form\" doldurulması için alan kümesi oluşur. Gerekli alanlar, kırmızı bir yıldızla işaretlenir (\*).
@@ -51,7 +51,7 @@ Teklif ayarları formu teklif ayarlarını belirtmek için temel bir biçimidir.
 
 Bu teklif içinde bir yayımcı profili için benzersiz bir tanımlayıcıdır. Bu kimliği, ürün URL'lerinde görünür olur. Yalnızca küçük harfli alfasayısal karakterler veya tirelerden (-) oluşabilir. Kimliği tire bitemez ve en çok 50 karakter olabilir. Bu alan, teklif etkin hale gelir sonra kilitli.
 
-bir teklifle bir yayımcı contoso yayımcı oluşturursa, örneğin, Teklif kimliği *örnek dynamics365 işlemleri için*, appsource'ta görünür \"https://appsource.microsoft.com/marketplace/apps/**contoso**.*operasyonlar için örnek-dynamics 365* ? sekmesini = genel bakış\"
+bir teklifle bir yayımcı contoso yayımcı oluşturursa, örneğin, Teklif kimliği *örnek dynamics365 işlemleri için*, appsource'ta görünür `https://appsource.microsoft.com/marketplace/apps/**contoso**.*sample-dynamics365 for operations*?tab=Overview\`.
 
 ### <a name="publisher-id"></a>Yayımcı kimliği
 

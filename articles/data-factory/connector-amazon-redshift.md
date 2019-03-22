@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7fcf08c36d8babd0a318ed5b912823c344f4ce64
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9e1dde57dc1903e87704bd55fb0b942b7cc349e5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549961"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010581"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Azure Data Factory kullanarak Amazon Redshift'ten verileri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -126,7 +126,7 @@ Verileri Amazon Redshift'ten kopyalamak için kopyalama etkinliği kaynak türü
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **AmazonRedshiftSource** | Evet |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: seçin * MyTable öğesinden. |Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| sorgu |Verileri okumak için özel sorgu kullanın. Örneğin: seçin * MyTable öğesinden. |Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 | redshiftUnloadSettings | Amazon Redshift kaldırma kullanırken özellik grubu. | Hayır |
 | s3LinkedServiceName | Bir Amazon S3 How-to-edilecek bir geçiş deposu olarak kullanılan "AmazonS3" türündeki bağlı hizmetin adı belirterek başvuruyor. | UNLOAD kullanıyorsanız Evet |
 | bucketName | Geçici verileri depolamak için S3 demetini gösterir. Sağlanmazsa, Data Factory hizmeti, otomatik olarak oluşturur.  | UNLOAD kullanıyorsanız Evet |

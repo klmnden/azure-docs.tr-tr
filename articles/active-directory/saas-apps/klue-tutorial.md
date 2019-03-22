@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee9b8f3cf0e1b83b59cc21800c41e0092a3c5e16
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: be794c6d24218eccdc960219dd61a2075b5ab7ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776929"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858869"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Öğretici: Klue ile Azure Active Directory Tümleştirme
 
@@ -185,7 +185,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

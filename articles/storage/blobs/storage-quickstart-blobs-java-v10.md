@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 136f9912e5a296629f76998e5843d6cccd81d3e3
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: f44a6b825f9e8871bb7d7877ebd1821038b45f65
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570581"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004886"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Hızlı Başlangıç: Karşıya yükleme, indirme ve Java için depolama SDK'sı V10 kullanarak blobları Listele
 
@@ -25,7 +25,7 @@ Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok blobla
 
 Aşağıdaki ek önkoşulların yüklü olduğundan emin olun:
 
-* [Maven](http://maven.apache.org/download.cgi) komut satırı veya tercih ettiğiniz herhangi bir Java tümleşik geliştirme ortamında çalışmaya.
+* [Maven](https://maven.apache.org/download.cgi) komut satırı veya tercih ettiğiniz herhangi bir Java tümleşik geliştirme ortamında çalışmaya.
 * [JDK](https://aka.ms/azure-jdks)
 
 ## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin:
@@ -100,7 +100,7 @@ Cleaning up the sample and exiting!
 
 Örneğin denetimi sizdedir; bu nedenle, kodu çalıştırmasını sağlamak için komutları girin. Girişler büyük/küçük harfe duyarlıdır.
 
-Ayrıca, Blob depolamadaki dosyaları görüntülemek için, [Azure Depolama Gezgini](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) gibi bir araç da kullanabilirsiniz. Azure Depolama Gezgini, depolama hesabı bilgilerinize erişmenizi sağlayan ücretsiz ve platformlar arası bir araçtır. 
+Ayrıca, Blob depolamadaki dosyaları görüntülemek için, [Azure Depolama Gezgini](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) gibi bir araç da kullanabilirsiniz. Azure Depolama Gezgini, depolama hesabı bilgilerinize erişmenizi sağlayan ücretsiz ve platformlar arası bir araçtır. 
 
 Dosyaları doğrulayın. Ardından **E**'yi seçip **Enter**'a basarak tanıtımı tamamlayın ve test dosyalarını silin. Artık örnek dosyanın ne yaptığını gördüğünüze göre, koda göz atmak için **Quickstart.java** dosyasını açabilirsiniz. 
 
@@ -166,11 +166,11 @@ Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekle
 1. Dosyayı bloba yüklemek için, hedef kapsayıcıda bloba bir başvuru alın. 
 2. Blob başvurusunu aldıktan sonra aşağıdaki API'lerden birini kullanarak dosya yükleyebilirsiniz:
 
-    * Düşük düzey API'ler. **BlockBlobURL** örneğindeki PutBlob olarak da adlandırılan [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-stable#com_microsoft_azure_storage_blob__block_blob_u_r_l_upload_Flowable_ByteBuffer__long_BlobHTTPHeaders_Metadata_BlobAccessConditions_Context_) ve PutBLock olarak da adlandırılan [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-stable) örnekleri verilebilir. 
+   * Düşük düzey API'ler. **BlockBlobURL** örneğindeki PutBlob olarak da adlandırılan [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-stable#com_microsoft_azure_storage_blob__block_blob_u_r_l_upload_Flowable_ByteBuffer__long_BlobHTTPHeaders_Metadata_BlobAccessConditions_Context_) ve PutBLock olarak da adlandırılan [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-stable) örnekleri verilebilir. 
 
-    * [TransferManager sınıfında](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-stable) sağlanan yüksek düzey API'ler. [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-stable) metodu örnek olarak verilebilir. 
+   * [TransferManager sınıfında](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-stable) sağlanan yüksek düzey API'ler. [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-stable) metodu örnek olarak verilebilir. 
 
-    Bu işlemle, daha önce oluşturulmadıysa bir blob oluşturulur. Varsa blobun üzerine yazılır.
+     Bu işlemle, daha önce oluşturulmadıysa bir blob oluşturulur. Varsa blobun üzerine yazılır.
 
 Örnek kod, karşıya yükleme ve indirme işlemleri için kullanılacak bir yerel dosya oluşturur. Yüklenecek dosyayı **sourceFile** olarak, blob URL'sini de **blob** içinde depolar. Aşağıdaki örnek, dosyayı **quickstart** adlı kapsayıcınıza yükler.
 

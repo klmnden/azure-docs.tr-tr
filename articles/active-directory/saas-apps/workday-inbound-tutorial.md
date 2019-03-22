@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73c921df493eeda25c50047e861d3d30e6dc52a8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456491"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897631"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: Workday için otomatik kullanıcı sağlamayı yapılandırma
 
@@ -257,13 +257,13 @@ Bu adımda, Workday'de bir kendilerine, sınırlandırılmamış veya kısıtlı
     ![Güvenlik grubu](./media/workday-inbound-tutorial/wd_isu_03.png "güvenlik grubu oluştur")
 2. Tamamlamak **güvenlik grubu oluşturma** görev. 
 
-  * Workday'de güvenlik gruplarının iki tür vardır:
-    * **Sınırlandırılmamış:** Güvenlik grubunun tüm üyeleri güvenlik grubu tarafından korunan tüm veri örnekleri erişebilirsiniz.
-    * **Kısıtlı:** Tüm güvenlik grubu üyelerini bir alt güvenlik grubunun erişimi olan veri örnekleri (satırlar) bağlamsal erişebilir.
-  * Tümleştirme için uygun güvenlik grubu türünü seçin, Workday tümleştirmesi ortağınıza başvurun.
-  * Grup türü öğrendikten sonra Seç **tümleştirme sistemi güvenlik grubunu (sınırlandırılmamış)** veya **tümleştirme sistemi güvenlik grubunu (Constrained)** gelen **kiralanan güvenlik grubu türü**  açılır.
+   * Workday'de güvenlik gruplarının iki tür vardır:
+     * **Sınırlandırılmamış:** Güvenlik grubunun tüm üyeleri güvenlik grubu tarafından korunan tüm veri örnekleri erişebilirsiniz.
+     * **Kısıtlı:** Tüm güvenlik grubu üyelerini bir alt güvenlik grubunun erişimi olan veri örnekleri (satırlar) bağlamsal erişebilir.
+   * Tümleştirme için uygun güvenlik grubu türünü seçin, Workday tümleştirmesi ortağınıza başvurun.
+   * Grup türü öğrendikten sonra Seç **tümleştirme sistemi güvenlik grubunu (sınırlandırılmamış)** veya **tümleştirme sistemi güvenlik grubunu (Constrained)** gelen **kiralanan güvenlik grubu türü**  açılır.
 
-    ![Güvenlik grubu](./media/workday-inbound-tutorial/wd_isu_04.png "güvenlik grubu oluştur")
+     ![Güvenlik grubu](./media/workday-inbound-tutorial/wd_isu_04.png "güvenlik grubu oluştur")
 
 3. Güvenlik grubu oluşturma işlemi başarılı olduktan sonra burada üyeleri güvenlik grubuna atayabilirsiniz bir sayfa görürsünüz. Bu güvenlik grubu için önceki adımda oluşturulan yeni tümleştirme sistemi kullanıcısı ekleyin. Kullanıyorsanız *kısıtlı* güvenlik grubu, aynı zamanda uygun kuruluş kapsamı seçmeniz gerekir.
 
@@ -286,11 +286,11 @@ Bu adımda, "etki alanı güvenliği" çalışan verileri güvenlik grubuna ilke
    * *Çalışan verileri: Geçerli portalınıza bilgileri*
    * *Çalışan verileri: Çalışan profilindeki iş başlığı*
 
-    ![Etki alanı güvenlik ilkeleri](./media/workday-inbound-tutorial/wd_isu_07.png "etki alanı güvenlik ilkeleri")  
+     ![Etki alanı güvenlik ilkeleri](./media/workday-inbound-tutorial/wd_isu_07.png "etki alanı güvenlik ilkeleri")  
 
-    ![Etki alanı güvenlik ilkeleri](./media/workday-inbound-tutorial/wd_isu_08.png "etki alanı güvenlik ilkeleri") 
+     ![Etki alanı güvenlik ilkeleri](./media/workday-inbound-tutorial/wd_isu_08.png "etki alanı güvenlik ilkeleri") 
 
-    **Tamam** düğmesine tıklayın.
+     **Tamam** düğmesine tıklayın.
 
 3. Gösterilir rapora yanında üç nokta (...) seçin **Harici hesap sağlama** ve menü seçeneğine tıklayın **etki alanı güvenlik ilkesi izinleri Düzenle ->**
 
@@ -428,7 +428,7 @@ Bu bölümde kullanıcı hesabı Workday'den tümleştirmenizi kapsamındaki her
 
 8. Tamamlamak **yönetici kimlik bilgileri** gibi bölümünde:
 
-   * **Yönetici kullanıcı adı** – Kiracı etki alanı adı eklenir Workday tümleştirmesi sistem hesabının kullanıcı adını girin. Şunun gibi görünmelidir: **username@tenant_name**
+   * **Yönetici kullanıcı adı** – Kiracı etki alanı adı eklenir Workday tümleştirmesi sistem hesabının kullanıcı adını girin. Aşağıdakine benzer olmalıdır: **kullanıcıadı\@tenant_name**
 
    * **Yönetici parolası –** Workday tümleştirmesi sistem hesabının parolasını girin
 
@@ -438,8 +438,8 @@ Bu bölümde kullanıcı hesabı Workday'den tümleştirmenizi kapsamındaki her
 
    * **Active Directory kapsayıcısı -** DN kapsayıcı Aracısı varsayılan olarak kullanıcı hesaplarını burada oluşturmalısınız girin.
         Örnek: *OU standart kullanıcılar, OU = Kullanıcılar, DC = contoso, DC = test =*
-> [!NOTE]
-> Bu ayar yalnızca yürütme için kullanıcı hesabı oluşturma, salesforce'taki *parentDistinguishedName* öznitelik öznitelik eşlemelerini yapılandırılmadı. Bu ayar kullanılmaz kullanıcı arama veya güncelleştirme işlemleri. Tüm etki alanı alt ağacı, arama işlemi kapsamında döner.
+     > [!NOTE]
+     > Bu ayar yalnızca yürütme için kullanıcı hesabı oluşturma, salesforce'taki *parentDistinguishedName* öznitelik öznitelik eşlemelerini yapılandırılmadı. Bu ayar kullanılmaz kullanıcı arama veya güncelleştirme işlemleri. Tüm etki alanı alt ağacı, arama işlemi kapsamında döner.
 
    * **Bildirim e-posta –** e-posta adresinizi girin ve "hatası oluşursa, e-posta Gönder" onay kutusunu işaretleyin.
 
@@ -477,11 +477,11 @@ Bu bölümde, Active Directory'ye Workday'den kullanıcı verilerin nasıl aktı
 > [!TIP]
 > Sağlama uygulamayı ilk kez yapılandırırken, test edin ve bu, istenen sonucu veriyor emin olmak için ifadeleri ve öznitelik eşlemelerini doğrulayın gerekecektir. Microsoft öneriyor kapsam belirleme filtrelerini altında **kaynak nesne kapsamı** eşlemelerinizi birkaç test workday'deki kullanıcıları ayıklayıp sorgulayabilecek ile test etmek için. Bir kez eşlemeleri çalışır ve ardından filtreyi kaldırın veya aşamalı olarak daha fazla kullanıcı içerecek şekilde genişletin doğrulanmıştır.
 
-3. İçinde **hedef nesne eylemleri** alan, küresel olarak filtreleyebilirsiniz hangi eylemleri Active Directory üzerinde gerçekleştirilir. **Oluşturma** ve **güncelleştirme** en yaygın olarak.
+1. İçinde **hedef nesne eylemleri** alan, küresel olarak filtreleyebilirsiniz hangi eylemleri Active Directory üzerinde gerçekleştirilir. **Oluşturma** ve **güncelleştirme** en yaygın olarak.
 
-4. İçinde **öznitelik eşlemelerini** bölümünde, tek tek nasıl Workday tanımlayabilirsiniz öznitelikleri eşlemek için Active Directory öznitelikleri.
+1. İçinde **öznitelik eşlemelerini** bölümünde, tek tek nasıl Workday tanımlayabilirsiniz öznitelikleri eşlemek için Active Directory öznitelikleri.
 
-5. Güncelleştirmek için varolan bir özniteliği eşlemesini üzerinde veya tıklatın **yeni eklemesi** yeni eşlemeler eklemek için ekranın alt kısmındaki. Tek tek özellik eşlemesi, bu özellikleri destekler:
+1. Güncelleştirmek için varolan bir özniteliği eşlemesini üzerinde veya tıklatın **yeni eklemesi** yeni eşlemeler eklemek için ekranın alt kısmındaki. Tek tek özellik eşlemesi, bu özellikleri destekler:
 
       * **Eşleme türü**
 
@@ -508,7 +508,7 @@ Bu bölümde, Active Directory'ye Workday'den kullanıcı verilerin nasıl aktı
 
          * **Yalnızca oluşturma sırasında** -yalnızca kullanıcı oluşturma eylemleri bu eşlemeyi Uygula
 
-6. Eşlemelerinizi kaydetmek için tıklatın **Kaydet** öznitelik eşlemesi bölümün üst kısmındaki.
+1. Eşlemelerinizi kaydetmek için tıklatın **Kaydet** öznitelik eşlemesi bölümün üst kısmındaki.
 
    ![Azure portal](./media/workday-inbound-tutorial/wd_2.png)
 
@@ -524,8 +524,8 @@ Bu bölümde, Active Directory'ye Workday'den kullanıcı verilerin nasıl aktı
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **Evet** | Yazılan yalnızca oluşturma sırasında |
 | **PreferredNameData**    |  CN =    |   |   Yazılan yalnızca oluşturma sırasında |
-| **SelectUniqueValue (katılın ("@", katılın (".", \[FirstName\], \[LastName\]), "contoso.com"), katılın ("@", katılın (".", Orta (\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), katılın ("@", katılın (".", Orta (\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Yazılan yalnızca oluşturma sırasında 
-| **Değiştir(Orta(değiştirin(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    SAMAccountName            |     |         Yazılan yalnızca oluşturma sırasında |
+| **SelectUniqueValue (katılın ("\@", katılın (".", \[FirstName\], \[LastName\]), "contoso.com"), katılın ("\@", katılın (".", Orta (\[FirstName\], 1, 1 () \[LastName\]), "contoso.com"), katılın ("\@", katılın (".", Orta (\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Yazılan yalnızca oluşturma sırasında 
+| **Değiştir(Orta(değiştirin(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    SAMAccountName            |     |         Yazılan yalnızca oluşturma sırasında |
 | **Anahtar (\[etkin\],, "0" "True,"1","False"")** |  accountDisabled      |     | Oluşturun ve güncelleştirme |
 | **FirstName**   | givenName       |     |    Oluşturun ve güncelleştirme |
 | **Soyadı**   |   sn   |     |  Oluşturun ve güncelleştirme |
@@ -677,7 +677,7 @@ Azure Active Directory'den kullanıcı e-posta adreslerini Workday geri yazma ya
 
 8. Tamamlamak **yönetici kimlik bilgileri** gibi bölümünde:
 
-   * **Yönetici kullanıcı adı** – Kiracı etki alanı adı eklenir Workday tümleştirmesi sistem hesabının kullanıcı adını girin. Aşağıdaki gibi görünmelidir: *username@contoso4*
+   * **Yönetici kullanıcı adı** – Kiracı etki alanı adı eklenir Workday tümleştirmesi sistem hesabının kullanıcı adını girin. Aşağıdakine benzer olmalıdır: *kullanıcıadı\@contoso4*
 
    * **Yönetici parolası –** Workday tümleştirmesi sistem hesabının parolasını girin
 
@@ -1226,7 +1226,7 @@ Bu değişikliği yapmak için kullanmanız gerekir [Workday Studio](https://com
 
 7. Ayarlama **işlemi** için **Get_Workers**
 
-8.  Küçük tıklatın **yapılandırma** istek/yanıt bölmeleri Workday kimlik bilgileriniz ayarlamak için aşağıdaki bağlantıya. Denetleme **kimlik doğrulaması**ve ardından, Workday tümleştirmesi sistem hesabı için kullanıcı adını ve parolasını girin. Kullanıcı adı olarak biçimlendirdiğinizden emin olun name@tenant, bırakıp **WS-güvenlik UsernameToken** seçeneği belirlenmiş.
+8.  Küçük tıklatın **yapılandırma** istek/yanıt bölmeleri Workday kimlik bilgileriniz ayarlamak için aşağıdaki bağlantıya. Denetleme **kimlik doğrulaması**ve ardından, Workday tümleştirmesi sistem hesabı için kullanıcı adını ve parolasını girin. Kullanıcı adı adı olarak biçimlendirdiğinizden emin olun\@Kiracı ve bırakın **WS-güvenlik UsernameToken** seçeneği belirlenmiş.
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: jdial
-ms.openlocfilehash: 5240d6d4cd510eb4ea87392421fc00ae01b5e600
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9185bfea8bddff52f6183ac3e5395cdbc0b73bb1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771972"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860780"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure’da IP adresi türleri ve ayırma yöntemleri
 
@@ -121,7 +121,7 @@ Herhangi bir [SKU](#SKU) ile oluşturulmuş genel bir IP adresini bir [Azure Loa
 
 ### <a name="application-gateways"></a>Uygulama ağ geçitleri
 
-Genel bir IP adresini bir Azure **Application Gateway**’in [ön uç](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) yapılandırmasına atayarak ağ geçidiyle ilişkilendirebilirsiniz. Bu genel IP adresi yükü dengelenmiş bir VIP olarak işlev görür. Yalnızca atayabilirsiniz bir *dinamik* temel genel IP adresi bir uygulama ağ geçidi V1 ön uç yapılandırmasına ve yalnızca statik, temel veya standart SKU adresi V2 ön uç yapılandırması.
+Genel bir IP adresini bir Azure **Application Gateway**’in [ön uç](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) yapılandırmasına atayarak ağ geçidiyle ilişkilendirebilirsiniz. Bu genel IP adresi yükü dengelenmiş bir VIP olarak işlev görür. Yalnızca atayabilirsiniz bir *dinamik* temel genel IP adresi bir uygulama ağ geçidi V1 ön uç yapılandırmasına ve yalnızca bir *statik* V2 ön uç yapılandırmasına standart SKU adresi.
 
 ### <a name="at-a-glance"></a>Bir bakışta
 Aşağıdaki tabloda, genel bir IP adresinin en üst düzey bir kaynakla tam olarak hangi özellik üzerinden ilişkilendirilebileceği ve kullanılabilecek olası ayırma yöntemleri (dinamik veya statik) gösterilmiştir.

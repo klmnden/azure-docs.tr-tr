@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 65940aa07c532ae3bc708d475b2d6ac60cf8d636
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308933"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901925"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Bulut veritabanlarında dağıtılmış işlemler
 
@@ -127,6 +127,8 @@ Yükleyici'den Azure bulut Hizmetleri .NET 4.6 için önyükleme işlemi sıras�
 ## <a name="transactions-across-multiple-servers"></a>Birden fazla sunucuya işlemleri
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 Elastik veritabanı işlemleri, Azure SQL veritabanı'nda farklı bir SQL veritabanı sunucuları arasında desteklenir. İşlemleri SQL veritabanı sunucusu sınırları geçtiğinde katılan sunucular ilk bir karşılıklı iletişim ilişkisi girilmesi gerekir. İletişim ilişki kurulduktan sonra iki sunucuların herhangi bir veritabanında başka bir sunucudan veritabanları ile elastik işlemler katılabilir. İkiden fazla SQL veritabanı sunucuları kapsayan işlemler ile bir iletişim ilişkisi çiftinde SQL veritabanı sunucuları için yerinde olması gerekir.
 

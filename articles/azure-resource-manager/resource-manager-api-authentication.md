@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: a81c1d20e0f7b58c132a5ece04f05d6740c2308f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 138367eb7eb0d4be2e0a7bec57d1bce551a5e829
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267002"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107061"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Aboneliklere erişmek için Kaynak Yöneticisi'ni kullanın kimlik doğrulama API'si
 
@@ -234,7 +234,8 @@ Azure Resource Manager için bir erişim belirteci yalnızca sahip - Azure AD Gr
 <a id="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Azure AD Graph API'si için salt uygulama erişim belirteci alma
-Uygulamanız kimlik doğrulaması ve Azure AD Graph API için bir belirteç almak için Azure AD belirteç uç noktası için bir istemci kimlik bilgileri verme OAuth2.0 akış belirteci isteği sorun (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
+
+Uygulamanız kimlik doğrulaması ve Azure AD Graph API için bir belirteç almak için Azure AD belirteç uç noktası için bir istemci kimlik bilgileri verme OAuth2.0 akış belirteci isteği sorun (**https:\//login.microsoftonline.com/{directory_domain_name}/OAuth2/Token** ).
 
 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) yöntemi ASP.net MVC örnek uygulamanın alır bir salt uygulama erişim belirteci Graph API'si için .NET için Active Directory Authentication Library kullanarak.
 

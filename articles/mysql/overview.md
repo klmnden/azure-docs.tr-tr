@@ -6,16 +6,17 @@ author: ajlam
 ms.author: andrela
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.openlocfilehash: 99039c4d6abb8a839886e9d623e92c9fb2c41787
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.date: 03/20/2019
+ms.openlocfilehash: 2852cab05fab8e15b7e60a22f54cc866d2f0f178
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353337"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295411"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>MySQL için Azure veritabanı nedir?
-MySQL için Azure veritabanı, bir ilişkisel veritabanı hizmetidir Microsoft bulutunda temel [MySQL Community Edition](https://www.mysql.com/products/community/) veritabanı altyapısı, sürüm 5.6 ve 5.7. MySQL için Azure veritabanı şunları getirir:
+
+MySQL için Azure veritabanı, bir ilişkisel veritabanı hizmetidir Microsoft bulutunda temel [MySQL Community Edition](https://www.mysql.com/products/community/) (GPLv2 lisansı altında kullanılabilir) veritabanı altyapısı, sürüm 5.6 ve 5.7. MySQL için Azure veritabanı şunları getirir:
 
 - Ek ücret ödemeden yerleşik yüksek kullanılabilirlik.
 - Kapsamlı kullandıkça öde fiyatlandırması kullanılarak öngörülebilir performans.
@@ -29,10 +30,12 @@ Bu özellikler neredeyse hiç yönetim gerektirmez ve tümüyle ek ücret ödeme
 ![Kavramsal diyagram MySQL için Azure veritabanı](media/overview/1-azure-db-for-mysql-conceptual-diagram.png)
 
 Bu makalede, MySQL temel kavramları ve performans, ölçeklenebilirlik ve yönetilebilirlik ayrıntılarını incelemek için bağlantılar ile ilgili özellikler için Azure veritabanı giriş niteliğindedir. Başlamanıza yardımcı olacak şu hızlı başlangıçlara bakın:
+
 - [Azure portalını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma](quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Azure CLI kullanarak MySQL için Azure Veritabanı sunucusu oluşturma](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 Azure CLI örnekleri için bkz:
+
 - [MySQL için Azure veritabanı Azure CLI örnekleri](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Saniyeler içinde performansı ve ölçeği ayarlama
@@ -55,12 +58,14 @@ Varsayılan olarak, MySQL hizmeti için Azure veritabanı gerektirecek şekilde 
 Azure veritabanı'na için MySQL ekibine bir e-posta herhangi bir sorunuz veya MySQL için Azure veritabanı ile çalışma hakkında olabilir öneriler göndermek için ([ @Ask MySQL için Azure DB](mailto:AskAzureDBforMySQL@service.microsoft.com)). Bunun bir teknik destek diğer adı olmadığını unutmayın.
 
 Buna ek olarak, aşağıdaki iletişim noktalarını uygun şekilde göz önünde bulundurun:
+
 - Azure Desteği ile iletişim kurmak için [Azure portaldan bir bilet oluşturun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Hesabınızla ilgili bir sorun gidermek için Azure portalda bir [destek isteği](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) oluşturun.
 - Görüş bildirmek veya yeni özellikler istemek için [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql) aracılığıyla bir giriş oluşturun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 MySQL için Azure veritabanı tanıtımını okuyun ve "Ne olduğu Azure veritabanı için MySQL?" sorusunu yanıtladığınıza göre şunları yapmaya hazırsınız:
+
 - Maliyet karşılaştırmaları ve hesaplayıcıları için fiyatlandırma sayfasına bakın. [Fiyatlandırma](https://azure.microsoft.com/pricing/details/mysql/)
 - İlk sunucunuzu oluşturarak başlayın. [Azure portalını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma](quickstart-create-mysql-server-database-using-azure-portal.md)
 - Tercih ettiğiniz dili kullanarak ilk uygulamanızı oluşturun: [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)

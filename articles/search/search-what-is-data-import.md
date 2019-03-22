@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85a2810e8ab8de5ad2967aaf17f421d871368063
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 7d95ae1f750c59c121e998c6f51f9439b1b0339a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958465"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287103"
 ---
-# <a name="indexing-external-data-for-queries-in-azure-search"></a>Azure Search'te sorgular için dış veri dizini oluşturma
+# <a name="data-import-overview---azure-search"></a>Genel Bakış - Azure Search'te verileri aktarma
 
 Azure Search'te yüklenmiş ve kaydedilmiş içeriğinize sorguları yürütme bir [arama dizini](search-what-is-an-index.md). Bu makalede dizini doldurmak için iki temel yaklaşım inceler: *anında iletme* verileriniz dizine programlı olarak veya bir [Azure Search dizin oluşturucu](search-indexer-overview.md) için bir desteklenen veri kaynağında  *çekme* veri.
 
@@ -36,7 +36,38 @@ Dizin bir tek veya birden çok belge yüklemek için şu API'leri kullanabilirsi
 
 Şu an portal aracılığıyla veri gönderme için hiçbir araç desteği yoktur.
 
-Her yönteme giriş bilgileri için bkz. [REST kullanarak verileri içeri aktarma](search-import-data-rest-api.md) veya [.NET kullanarak verileri içeri aktarma](search-import-data-dotnet.md).
+Her yönteme giriş için bkz [hızlı başlangıç: PowerShell ve REST API kullanarak Azure Search dizini oluşturma](search-create-index-rest-api.md) veya [hızlı başlangıç: Azure Search dizini oluşturma C# ](search-import-data-dotnet.md).
+
+<a name="indexing-actions"></a>
+
+### <a name="indexing-actions-upload-merge-mergeorupload-delete"></a>Eylemler dizinleme: karşıya yükleme, birleştirme, mergeOrUpload, Sil
+
+Belgenin tam, mevcut belge içeriği ile birleştirilmiş veya silinen yüklenmelidir olup olmadığını belirten bir belge başına temelinde dizin oluşturma eyleminin türü denetleyebilirsiniz.
+
+REST API'SİNDE HTTP POST istekleri Azure Search dizininizin uç nokta URL'sine JSON istek gövdeleri ile sorun. "Value" dizisindeki her bir JSON nesnesi, belgenin anahtarını içerir ve bir dizin oluşturma eyleminin ekler, güncelleştirmeleri veya belge içeriğini siler belirtir. Kod örneği için bkz: [yük belgeleri](search-create-index-rest-api.md#load-documents).
+
+Yedekleme verilerinizi .NET SDK paketini bir `IndexBatch` nesne. Bir `IndexBatch` koleksiyonunu yalıtır `IndexAction` nesneleri, her biri içeren belge ve Azure Search, ilgili belge üzerinde gerçekleştirilecek eylem söyleyen bir özellik. Kod örneği için bkz: [oluşturmak IndexBatch](search-import-data-dotnet.md#construct-indexbatch).
+
+
+| @search.action | Açıklama | Her bir belge için gerekli alanlar | Notlar |
+| -------------- | ----------- | ---------------------------------- | ----- |
+| `upload` |Bir `upload` eylemi, belgenin yeni olması durumunda ekleneceği ve var olması durumunda güncelleştirileceği/değiştirileceği bir "upsert" ile benzerlik gösterir. |anahtar ve tanımlamak istediğiniz diğer alanlar |Var olan bir belgeyi güncelleştirirken/değiştirirken istekte belirtilmeyen herhangi bir alan `null` olarak ayarlanır. Bu durum, alan daha önce değersiz olmayan bir değere ayarlanmış olsa dahi gerçekleşir. |
+| `merge` |Var olan belgeyi belirtilen alanlarla güncelleştirir. Belge dizinde mevcut değilse birleştirme işlemi başarısız olur. |anahtar ve tanımlamak istediğiniz diğer alanlar |Birleştirmede belirttiğiniz herhangi bir alan belgede var olan alanın yerini alır. .NET SDK'da bu türünde alanlar dahildir `DataType.Collection(DataType.String)`. Bu REST API'SİNDE türünde alanlar dahildir `Collection(Edm.String)`. Örneğin, belge `["budget"]` değerine sahip bir `tags` alanını içeriyorsa ve `tags` için `["economy", "pool"]` değeriyle bir birleştirme yürütürseniz `tags` alanının son değeri `["economy", "pool"]` olur. `["budget", "economy", "pool"]` olmayacaktır. |
+| `mergeOrUpload` |Belirtilen anahtara sahip bir belge dizinde zaten mevcutsa bu eylem `merge` gibi davranır. Belge mevcut değilse yeni bir belgeyle `upload` gibi davranır. |anahtar ve tanımlamak istediğiniz diğer alanlar |- |
+| `delete` |Belirtilen belgeyi dizinden kaldırır. |yalnızca anahtar |Anahtar alanı dışında belirttiğiniz tüm alanlar yoksayılır. Bir belgeden tek bir alanı kaldırmak istiyorsanız bunun yerine `merge` kullanıp alanı açık bir şekilde null olarak ayarlamanız yeterlidir. |
+
+## <a name="decide-which-indexing-action-to-use"></a>Hangi dizin oluşturma eyleminin kullanılacağına karar verme
+.NET SDK'sı (karşıya yükleme, birleştirme, silme ve mergeOrUpload) kullanarak verileri içeri aktarmak için. Yukarıdaki eylemlerden hangisini seçtiğinize bağlı olarak, her bir belgeye yalnızca belirli alanlar dahil edilmelidir:
+
+
+### <a name="formulate-your-query"></a>Sorgunuzu düzenleme
+[REST API kullanarak dizininizi aramanın](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) iki yolu bulunur. Bu yollardan biri, sorgu parametrelerinizin istek gövdesindeki bir JSON nesnesinde tanımlanacağı bir HTTP POST isteği göndermektir. Diğer yol ise sorgu parametrelerinizin istek URL'si içinde tanımlanacağı bir HTTP GET isteği göndermektir. POST, sorgu parametrelerinin boyutu açısından GET'ten daha [esnek sınırlara](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) sahiptir. Bu nedenle, GET'i kullanmanın daha kullanışlı olduğu özel durumlar olmadığı sürece POST kullanmanızı öneririz.
+
+POST ve GET için *hizmet adınızı*, *dizin adını* ve uygun *API sürümünü* (bu belgenin yayımlandığı sırada geçerli API sürümü `2017-11-11`) istek URL'sinde sağlamanız gerekir. GET için sorgu parametrelerini URL'nin sonundaki *sorgu dizesine* sağlarsınız. URL biçimi için aşağıya bakın:
+
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2017-11-11
+
+POST için biçim aynıdır ancak sorgu dizesi parametrelerinde yalnızca api sürümü olur.
 
 
 ## <a name="pulling-data-into-an-index"></a>Verileri dizine çekme

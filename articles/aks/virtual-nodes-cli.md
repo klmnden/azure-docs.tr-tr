@@ -7,19 +7,21 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: e47817f70a727fe815e5d7e61ad7820121f26d97
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: a04dbd42e09ad8ec352af74950b6d71425a84a9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791418"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177679"
 ---
-# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Oluşturma ve Azure CLI kullanarak sanal düğümü kullanmak için Azure Kubernetes Hizmetleri (AKS) kümesi yapılandırma
+# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Önizleme - oluşturma ve Azure CLI kullanarak sanal düğümü kullanmak için Azure Kubernetes Hizmetleri (AKS) kümesini yapılandırın
 
 Uygulama iş yüklerini bir Azure Kubernetes Service (AKS) kümesi içinde hızlı bir şekilde ölçeklendirmek için sanal düğümü kullanabilirsiniz. Sanal düğüm ile pod'ların hızlı sağlama sahip ve yalnızca yürütme zamanları için saniye başına ödeme yaparsınız. Ek pod'lar çalıştırmak için VM hesaplama düğümlerini dağıtmak için Kubernetes küme ölçeklendiriciyi için beklemenize gerek yoktur. Bu makalede oluşturmak ve AKS kümesi ve sanal ağ kaynaklarını yapılandırmak ve ardından sanal düğümü etkinleştirme gösterilmektedir.
 
 > [!IMPORTANT]
-> AKS için sanal düğümü şu anda **Önizleme**. Önizlemeler, [ek kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
+> AKS Önizleme özellikleri, Self Servis ve kabul etme. Görüş ve hata topluluğumuza toplamak üzere önizlemeleri sağlanır. Ancak, Azure teknik destek birimi tarafından desteklenmez. Bir küme oluşturun veya var olan kümeleri için bu özellikleri ekleyin, bu özellik artık Önizleme aşamasındadır ve genel kullanılabilirlik (GA) mezunu kadar bu küme desteklenmiyor.
+>
+> Önizleme özellikleri sorunlarla karşılaşırsanız [AKS GitHub deposunda bir sorun açın] [ aks-github] hata başlığı önizleme özelliğini adı.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -335,6 +337,7 @@ Sanal düğümler genellikle bir AKS ölçeklendirme bir çözümde bileşenidir
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

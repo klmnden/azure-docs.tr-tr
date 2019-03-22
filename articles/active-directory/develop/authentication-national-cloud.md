@@ -17,12 +17,12 @@ ms.author: negoe
 ms.reviewer: negoe,andret,saeeda,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a487c233e7bb71f05c6f2181d9c822ca508a583c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4feaf97de7b833514113af6c91b3745be0503eff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192957"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113691"
 ---
 # <a name="national-clouds"></a>Ulusal Bulutlar
 
@@ -44,10 +44,10 @@ Aşağıdaki tabloda temel bir uygulama her Ulusal bulut kaydetmek için kullan�
 
 | Ulusal bulut | Azure AD portalı uç noktası
 | --- | --- |
-| ABD kamu için Azure AD |https://portal.azure.us
-|Azure AD Almanya |https://portal.microsoftazure.de
-|21Vianet tarafından işletilen Azure AD Çin |https://portal.azure.cn
-|Azure AD (küresel hizmet)|https://portal.azure.com 
+| ABD kamu için Azure AD |`https://portal.azure.us`
+|Azure AD Almanya |`https://portal.microsoftazure.de`
+|21Vianet tarafından işletilen Azure AD Çin |`https://portal.azure.cn`
+|Azure AD (küresel hizmet)|`https://portal.azure.com` 
 
 ## <a name="azure-ad-authentication-endpoints"></a>Azure AD kimlik doğrulama uç noktaları
 
@@ -78,8 +78,8 @@ Arama hakkında bilgi edinmek için Microsoft Graph API'lerini Ulusal bulut orta
 
 
 
->[!IMPORTANT]
-Bazı hizmetler ve küresel hizmet belirli bölgelerde özellikler tüm Ulusal bulutlarda kullanılabilir olmayabilir. Hangi hizmetlerin kullanılabilir olduğunu öğrenmek için Git [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
+> [!IMPORTANT]
+> Bazı hizmetler ve küresel hizmet belirli bölgelerde özellikler tüm Ulusal bulutlarda kullanılabilir olmayabilir. Hangi hizmetlerin kullanılabilir olduğunu öğrenmek için Git [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

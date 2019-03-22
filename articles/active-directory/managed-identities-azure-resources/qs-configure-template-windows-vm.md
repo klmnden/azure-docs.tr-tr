@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1abdfc377c40e37f01fbbbbd695e949671d40a51
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1c93716d5c8d0c9a74e2cb14a35637faa029c156
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820136"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226190"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Şablonları kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik Yapılandır
 
@@ -64,35 +64,10 @@ Yönetilen kimlik sistem tarafından atanan bir VM'de etkinleştirmek için hesa
    },
    ```
 
-3. (İsteğe bağlı) Bir uzantısı olarak Azure kaynakları için yönetilen VM kimlikleri ekleme bir `resources` öğesi. Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.  Aşağıdaki sözdizimini kullanın:
+> [!NOTE]
+> VM uzantısını Azure kaynakları için yönetilen kimlik olarak belirterek isteğe bağlı olarak sağlama bir `resources` şablondaki öğesi. Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.  Daha fazla bilgi için [Azure IMDS kimlik doğrulaması için VM uzantısı'ten geçiş](howto-migrate-vm-extension.md).
 
-   >[!NOTE] 
-   > Aşağıdaki örnekler, bir Windows VM uzantısı varsayılır (`ManagedIdentityExtensionForWindows`) dağıtılıyor. Kullanarak Linux için yapılandırabilirsiniz `ManagedIdentityExtensionForLinux` için bunun yerine, `"name"` ve `"type"` öğeleri. VM uzantısı için Ocak 2019'da kullanımdan kaldırma planlanmaktadır.
-   >
-
-   ```JSON
-   { 
-       "type": "Microsoft.Compute/virtualMachines/extensions",
-       "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-       "apiVersion": "2018-06-01",
-       "location": "[resourceGroup().location]",
-       "dependsOn": [
-           "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-       ],
-       "properties": {
-           "publisher": "Microsoft.ManagedIdentity",
-           "type": "ManagedIdentityExtensionForWindows",
-           "typeHandlerVersion": "1.0",
-           "autoUpgradeMinorVersion": true,
-           "settings": {
-               "port": 50342
-           },
-           "protectedSettings": {}
-       }
-   }
-   ```
-
-4. İşiniz bittiğinde, aşağıdaki bölümlerde eklenen `resource` şablonunuzu ve bölümünü aşağıdaki benzemesi gerekir:
+3. İşiniz bittiğinde, aşağıdaki bölümlerde eklenen `resource` şablonunuzu ve bölümünü aşağıdaki benzemesi gerekir:
 
    ```JSON
    "resources": [
@@ -106,6 +81,8 @@ Yönetilen kimlik sistem tarafından atanan bir VM'de etkinleştirmek için hesa
                 "type": "SystemAssigned",
                 },
             },
+        
+            //The following appears only if you provisioned the optional VM extension (to be deprecated)
             {
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
@@ -253,29 +230,6 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
    }
    ```
        
-
-2. (İsteğe bağlı) Sonraki altında `resources` öğesi, yönetilen kimlik uzantısı (Ocak 2019'da kullanımdan kaldırma planlanan), sanal Makinenizin atamak için şu girişi ekleyin. Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır. Aşağıdaki sözdizimini kullanın:
-    ```json
-    {
-        "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-        "apiVersion": "2018-06-01",
-        "location": "[resourceGroup().location]",
-        "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-        ],
-        "properties": {
-            "publisher": "Microsoft.ManagedIdentity",
-            "type": "ManagedIdentityExtensionForWindows",
-            "typeHandlerVersion": "1.0",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-                "port": 50342
-            }
-        }
-    }
-    ```
-    
 3. İşiniz bittiğinde, aşağıdaki bölümlerde eklenen `resource` şablonunuzu ve bölümünü aşağıdaki benzemesi gerekir:
    
    **Microsoft.Compute/virtualMachines API sürümü 2018-06-01**    
@@ -295,6 +249,7 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
                 }
             }
         },
+        //The following appears only if you provisioned the optional VM extension (to be deprecated)                  
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
@@ -332,6 +287,8 @@ Bir VM için bir kullanıcı tarafından atanan kimliği atamak için hesabını
                 ]
             }
         },
+                 
+        //The following appears only if you provisioned the optional VM extension (to be deprecated)                   
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
             "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",

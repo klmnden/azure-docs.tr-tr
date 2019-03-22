@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.openlocfilehash: 53eed3148483285bbcbc1e66edea5f2b189624c8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bfb111b07db105190fc59f21b3255c2ea2b1471c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530561"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081024"
 ---
 # <a name="get-started-with-device-twins-java"></a>Cihaz ikizlerini (Java) kullanmaya başlama
 
@@ -294,18 +294,18 @@ Bu bölümde, IOT Hub'ına gönderilen bildirilen özellik değerini ayarlayan b
     * IOT Hub ile iletişim kurmak için bir cihaz istemcisi oluşturun.
     * Oluşturma bir **cihaz** cihaz ikizi özelliklerini depolamak için nesne.
 
-    ```java
-    DeviceClient client = new DeviceClient(connString, protocol);
+      ```java
+      DeviceClient client = new DeviceClient(connString, protocol);
 
-    // Create a Device object to store the device twin properties
-    Device dataCollector = new Device() {
+      // Create a Device object to store the device twin properties
+      Device dataCollector = new Device() {
       // Print details when a property value changes
       @Override
       public void PropertyCall(String propertyKey, Object propertyValue, Object context) {
         System.out.println(propertyKey + " changed to " + propertyValue);
       }
-    };
-    ```
+      };
+      ```
 
 10. Aşağıdaki kodu ekleyin **ana** yöntemi oluşturmak için bir **connectivityType** bildirilen özellik ve IOT Hub'ına gönderebilirsiniz:
 
@@ -341,9 +341,9 @@ Bu bölümde, IOT Hub'ına gönderilen bildirilen özellik değerini ayarlayan b
 
 1. **main** yönteminin imzasını, aşağıda gösterilen özel durumları içerecek şekilde değiştirin:
 
-    ```java
-    public static void main(String[] args) throws URISyntaxException, IOException
-    ```
+     ```java
+     public static void main(String[] args) throws URISyntaxException, IOException
+     ```
 
 1. Kaydet ve Kapat `simulated-device\src\main\java\com\mycompany\app\App.java` dosya.
 

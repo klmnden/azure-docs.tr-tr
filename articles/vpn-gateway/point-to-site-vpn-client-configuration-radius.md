@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: cherylmc
-ms.openlocfilehash: f59a871297189cfd5082b55a3dbdfd3156a4e501
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 34d8eb976a2a1e173f234be214799832dae7e9ca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985713"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079614"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>P2S RADIUS kimlik doğrulaması için VPN istemcisi yapılandırma dosyalarını yükleme ve oluşturma
 
@@ -50,7 +50,7 @@ Kullanıcı adı/parola kimlik doğrulamasını yapılandırdığınızda, yaln�
 
 VPN istemcisi yapılandırma dosyalarını, Azure portalını kullanarak ya da Azure PowerShell kullanarak oluşturabilirsiniz.
 
-#### <a name="azure-portal"></a>Azure portalı
+#### <a name="azure-portal"></a>Azure portal
 
 1. Sanal ağ geçidine gidin.
 2. Tıklayın **noktadan siteye yapılandırma**.
@@ -66,9 +66,9 @@ Kullanıcı adı/parola kimlik doğrulaması ile kullanılacak VPN istemcisi yap
 ```azurepowershell-interactive
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
- 
+ 
 Komut çalıştıran bir bağlantıyı döndürür. İndirmek için bir web tarayıcısı bağlantısını kopyalayıp **VpnClientConfiguration.zip**. Aşağıdaki klasörlerin görüntülemek için dosyanın sıkıştırmasını açın: 
- 
+ 
 * **WindowsAmd64** ve **WindowsX86**: Bu klasörler sırasıyla Windows 64-bit ve 32-bit yükleyici paketleri içerir. 
 * **Genel**: Bu klasör, kendi VPN istemci yapılandırması oluşturmak için kullandığınız genel bilgiler içerir. Bu klasör için kullanıcı adı/parola kimlik doğrulaması yapılandırmalarıyla gerekmez.
 * **Mac**: Sanal ağ geçidi oluşturduğunuzda, Ikev2 yapılandırdıysanız, adlı bir klasör gördüğünüz **Mac** içeren bir **mobileconfig** dosya. Bu dosya, Mac istemcileri yapılandırmak için kullanın.
@@ -88,7 +88,7 @@ Aşağıdaki VPN istemcileri yapılandırabilirsiniz:
 * [Windows](#adwincli)
 * [Mac (OS X)](#admaccli)
 * [StrongSwan kullanarak Linux](#adlinuxcli)
- 
+ 
 #### <a name="adwincli"></a>Windows VPN istemcisi Kurulumu
 
 İçin istemci sürümünün eşleşmesi sürece her Windows istemci bilgisayarda aynı VPN istemcisi yapılandırma paketini kullanabilirsiniz. Desteklenen istemci işletim sistemlerinin listesi için bkz: [SSS](vpn-gateway-vpn-faq.md#P2S).
@@ -109,7 +109,7 @@ Sertifika kimlik doğrulaması için yerel Windows VPN istemcisini yapılandırm
 
 3. İsteğe bağlı adım - özel bir DNS belirtmek istiyorsanız aşağıdaki satırları ekleyin **mobileconfig** dosyası:
 
-  ```xml
+   ```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -121,7 +121,7 @@ Sertifika kimlik doğrulaması için yerel Windows VPN istemcisini yapılandırm
             <string>TestDomain.com</string>
         </array>
     </dict> 
-  ```
+   ```
 4. Profil yükleyin ve seçmek için çift **devam**. Profil adı, sanal ağ adı ile aynıdır.
 
    ![Yükleme iletisi](./media/point-to-site-vpn-client-configuration-radius/adinstall.png)
@@ -142,10 +142,10 @@ Sertifika kimlik doğrulaması için yerel Windows VPN istemcisini yapılandırm
    ![Sistem Tercihleri'nde simgeleri](./media/point-to-site-vpn-client-configuration-radius/adnetwork.png)
 10. VPN bağlantı olarak görünür **Ikev2 VPN**. Güncelleştirerek adını değiştirebilirsiniz **mobileconfig** dosya.
 
-   ![VPN bağlantısı için Ayrıntılar](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
+    ![VPN bağlantısı için Ayrıntılar](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
 11. Seçin **kimlik doğrulama ayarları**. Seçin **kullanıcıadı** listesinde ve kimlik bilgilerinizi girin. Kimlik bilgileri daha önce ardından girerseniz **kullanıcıadı** otomatik olarak seçilen liste ve kullanıcı adı ve parola önceden doldurulmuş. Seçin **Tamam** ayarları kaydetmek için.
 
-   ![Kimlik doğrulama ayarları](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
+    ![Kimlik doğrulama ayarları](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 12. Geri **ağ** iletişim kutusunda **Uygula** değişiklikleri kaydedin. Bağlantıyı başlatmak için seçin **Connect**.
 
 #### <a name="adlinuxcli"></a>Linux VPN aracılığıyla strongSwan istemcisi Kurulumu
@@ -178,7 +178,7 @@ Aşağıdaki yönergeler, ubuntu'da 17.0.4 strongSwan 5.5.1 aracılığıyla olu
    ![Ağ Yöneticisi'nde "VPN Radius" bağlantısı](./media/point-to-site-vpn-client-configuration-radius/ConnectRADIUS.png)
 
 ## <a name="certeap"></a>Sertifika kimlik doğrulaması
- 
+ 
 VPN istemcisi yapılandırma dosyalarını EAP-TLS protokolünü kullanan RADIUS sertifika kimlik doğrulaması için oluşturabilirsiniz. Genellikle, VPN için bir kullanıcının kimliğini doğrulamak için bir kuruluş tarafından verilen bir sertifika kullanılır. Tüm bağlanan kullanıcıların cihazlarında yüklü bir sertifika olduğundan ve RADIUS sunucunuzun sertifika doğrulayabilirsiniz emin olun.
 
 >[!NOTE]
@@ -194,7 +194,7 @@ Her VPN istemci cihaz, yüklü istemci sertifikasını gerektirir. Bazen bir Win
 ### <a name="certfiles"></a>1. VPN istemcisi yapılandırma dosyalarını oluştur
 
 Sertifika kimlik doğrulaması ile kullanılacak VPN istemcisi yapılandırma dosyalarını oluşturur. VPN istemcisi yapılandırma dosyalarını, aşağıdaki komutu kullanarak oluşturabilirsiniz:
- 
+ 
 ```azurepowershell-interactive
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
@@ -211,7 +211,7 @@ Daha önce oluşturulan istemci yapılandırma dosyalarını almak için aşağ�
 ```azurepowershell-interactive
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
- 
+ 
 ### <a name="setupusername"></a> 2. VPN istemcisi yapılandırma
 
 Aşağıdaki VPN istemcileri yapılandırabilirsiniz:
@@ -271,7 +271,7 @@ Farklı kimlik doğrulama türü (örneğin, OTP) kullanın veya farklı kimlik 
 1. Kullanım `Get-AzVpnClientConfiguration` EapMSChapv2 VPN istemci yapılandırması oluşturmak için cmdlet'i.
 
 2. VpnClientConfiguration.zip dosyanın sıkıştırmasını açın ve Ara **GenericDevice** klasör. 64-bit ve 32 bit mimarileri için Windows Yükleyici içeren klasörlere göz ardı edin.
- 
+ 
 3. **GenericDevice** klasörde adlı bir XML dosyası **VpnSettings**. Bu dosya, gerekli tüm bilgileri içerir:
 
    * **VpnServer**: Azure VPN ağ geçidi FQDN'si. Bu, istemcinin bağlandığı adresidir.

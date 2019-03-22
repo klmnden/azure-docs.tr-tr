@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: df1fe833a5b0cb65372f8df73fb17231463d4d64
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b2377466ba830eed9fed0e9a4033b3eca3d351c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466277"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834634"
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI ile verileri görselleştirme
 Bu öğreticide SQL Data Warehouse'a bağlanmak ve birkaç temel görselleştirme oluşturmak üzere Power BI'ı nasıl kullanacağınız gösterilmiştir.
@@ -93,4 +93,4 @@ Doğrudan bağlantı kullanırken:
 Bu kısıtlamalar ve notlar deneyimleri iyileştirmeye olarak değişebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Size örnek verilerle alıştırma yapmanız için biraz zaman tanıdığımıza göre, [geliştirme](sql-data-warehouse-overview-develop.md), [yükleme](design-elt-data-loading.md) veya [aktarma](sql-data-warehouse-overview-migrate.md) işlemlerini nasıl gerçekleştireceğinize göz atın. Veya [Power BI web sitesi](http://www.powerbi.com/)'ni ziyaret edin.
+Size örnek verilerle alıştırma yapmanız için biraz zaman tanıdığımıza göre, [geliştirme](sql-data-warehouse-overview-develop.md), [yükleme](design-elt-data-loading.md) veya [aktarma](sql-data-warehouse-overview-migrate.md) işlemlerini nasıl gerçekleştireceğinize göz atın. Veya [Power BI web sitesi](https://www.powerbi.com/)'ni ziyaret edin.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
 ms.subservice: files
-ms.openlocfilehash: 92c77ce8124727d658cc596864f88037f6c34ac0
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: a0937de97d858084433f969f1f6d4bdb2ae9e3fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569289"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893569"
 ---
 # <a name="develop-for-azure-files-with-c"></a>C++ ile Azure dosyaları için geliştirme
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -39,7 +39,7 @@ Bu öğreticide, Azure dosyaları üzerinde temel işlemlerini nasıl gerçekle�
 C++ için Azure depolama istemci 2.4.0 yüklemek için aşağıdaki yöntemlerden birini kullanabilirsiniz:
 
 * **Linux:** Verilen yönergeleri izleyerek [C++ Benioku için Azure depolama istemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sayfası.
-* **Windows:** Visual Studio'da **Araçları &gt; NuGet Paket Yöneticisi &gt; Paket Yöneticisi Konsolu**. Aşağıdaki komutu yazın [NuGet Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) basın **ENTER**.
+* **Windows:** Visual Studio'da **Araçları &gt; NuGet Paket Yöneticisi &gt; Paket Yöneticisi Konsolu**. Aşağıdaki komutu yazın [NuGet Paket Yöneticisi Konsolu](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) basın **ENTER**.
   
 ```
 Install-Package wastorage

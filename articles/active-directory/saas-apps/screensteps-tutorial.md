@@ -4,129 +4,127 @@ description: Azure Active Directory ve ScreenSteps arasında çoklu oturum açma
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 4563fe94-a88f-4895-a07f-79df44889cf9
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/14/2017
+ms.topic: tutorial
+ms.date: 03/07/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07abc79979bcb557b6513ff16472ff5c95d0e12f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a67bb2b258d5376c997d4858bea4d094e850127
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184525"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997135"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Öğretici: ScreenSteps ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile ScreenSteps tümleştirme konusunda bilgi edinin.
-
 Azure AD ile ScreenSteps tümleştirme ile aşağıdaki avantajları sağlar:
 
-- ScreenSteps erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak imzalanan için ScreenSteps (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* ScreenSteps erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) ScreenSteps için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile ScreenSteps yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Abonelik ScreenSteps çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* ScreenSteps tek oturum açma etkin abonelik
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden ScreenSteps ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* ScreenSteps destekler **SP** tarafından başlatılan
 
 ## <a name="adding-screensteps-from-the-gallery"></a>Galeriden ScreenSteps ekleme
+
 Azure AD'de ScreenSteps tümleştirmesini yapılandırmak için ScreenSteps Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden ScreenSteps eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Yeni Uygulama düğmesi][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **ScreenSteps**seçin **ScreenSteps** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Sonuç listesinde ScreenSteps](./media/screensteps-tutorial/tutorial_screensteps_addfromgallery.png)
+4. Arama kutusuna **ScreenSteps**seçin **ScreenSteps** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+
+     ![Sonuç listesinde ScreenSteps](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı ScreenSteps sınayın.
-
-Tek iş için oturum açma için Azure AD ne ScreenSteps karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının ScreenSteps ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
-
-ScreenSteps içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma ScreenSteps adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının ScreenSteps ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma ScreenSteps ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[ScreenSteps test kullanıcısı oluşturma](#create-a-screensteps-test-user)**  - kullanıcı Azure AD gösterimini bağlı ScreenSteps Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[ScreenSteps çoklu oturum açmayı yapılandırma](#configure-screensteps-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[ScreenSteps test kullanıcısı oluşturma](#create-screensteps-test-user)**  - kullanıcı Azure AD gösterimini bağlı ScreenSteps Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve ScreenSteps uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile ScreenSteps yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile ScreenSteps yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **ScreenSteps** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **ScreenSteps** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açma iletişim kutusu](./media/screensteps-tutorial/tutorial_screensteps_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **ScreenSteps etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![ScreenSteps etki alanı ve URL'ler tek oturum açma bilgileri](./media/screensteps-tutorial/tutorial_screensteps_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<tenantname>.ScreenSteps.com`
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    > [!NOTE] 
-    > Bu değer, gerçek değil. Bu değer, gerçek oturum açma, bu öğreticinin ilerleyen bölümlerinde açıklanan URL ile güncelleştirin. 
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+    ![ScreenSteps etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-signonurl.png)
 
-    ![Sertifika indirme bağlantısı](./media/screensteps-tutorial/tutorial_screensteps_certificate.png) 
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://<tenantname>.ScreenSteps.com`
 
-1. Tıklayın **Kaydet** düğmesi.
+    > [!NOTE]
+    > Bu değer, gerçek değil. Bu değer, gerçek oturum açma, bu öğreticinin ilerleyen bölümlerinde açıklanan URL ile güncelleştirin.
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/screensteps-tutorial/tutorial_general_400.png)
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-1. Üzerinde **ScreenSteps yapılandırma** bölümünde **yapılandırma ScreenSteps** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-    ![ScreenSteps yapılandırma](./media/screensteps-tutorial/tutorial_screensteps_configure.png) 
+6. Üzerinde **ScreenSteps kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
+
+    a. Oturum Açma URL'si:
+
+    b. Azure AD Tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-screensteps-single-sign-on"></a>ScreenSteps tek oturum açmayı yapılandırın
 
 1. Farklı bir web tarayıcı penceresinde ScreenSteps şirket sitenize yönetici olarak oturum.
 
@@ -145,11 +143,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 1. İçinde **oluşturma tek oturum açma uç noktası** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Bir kimlik doğrulama uç noktası oluşturma](./media/screensteps-tutorial/ic778526.png "bir kimlik doğrulama uç noktası oluşturma")
-    
+
     a. İçinde **başlık** metin kutusu, bir başlık yazın.
-    
+
     b. Gelen **modu** listesinden **SAML**.
-    
+
     c. **Oluştur**’a tıklayın.
 
 1. **Düzen** yeni uç nokta.
@@ -161,114 +159,86 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     ![Uzaktan kimlik doğrulama uç noktası](./media/screensteps-tutorial/ic778527.png "uzaktan kimlik doğrulama uç noktası")
 
     a. Tıklayın **yeni SAML sertifika dosyası karşıya yükleme**ve sonra Azure portalından indirdiğiniz sertifika karşıya yükleyin.
-    
-    b. Yapıştırma **SAML çoklu oturum açma hizmeti URL'si** Azure portaldan kopyaladığınız değeri **uzaktan oturum açma URL'si** metin.
-    
+
+    b. Yapıştırma **oturum açma URL'si** Azure portaldan kopyaladığınız değeri **uzaktan oturum açma URL'si** metin.
+
     c. Yapıştırma **oturum kapatma URL'si** Azure portaldan kopyaladığınız değeri **oturum kapatma URL'si** metin.
-    
+
     d. Seçin bir **grubu** olduğunda bunlar sağlanan için kullanıcılara atamak için.
-    
+
     e. Tıklayın **güncelleştirme**.
 
-    f. Kopyalama **SAML tüketici URL** Pano ve Yapıştır ' **oturum açma URL'si** metin kutusunda **ScreenSteps etki alanı ve URL'ler** bölümü.
-    
-    g. Geri dönüp **Düzenle tek oturum açma uç noktası**.
-    
-    h. Tıklayın **hesabı için varsayılan yap** düğmesine ScreenSteps açan tüm kullanıcılar için bu uç noktayı kullanın. Alternatif olarak tıklayabilirsiniz **ekleme siteye** belirli siteler için bu endpoint kullanmak için düğme **ScreenSteps**.
+    f. Kopyalama **SAML tüketici URL** Pano ve Yapıştır ' **oturum açma URL'si** metin kutusunda **temel SAML yapılandırma** bölümünde Azure portalında.
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    g. Geri dönüp **Düzenle tek oturum açma uç noktası**.
+
+    h. Tıklayın **hesabı için varsayılan yap** düğmesine ScreenSteps açan tüm kullanıcılar için bu uç noktayı kullanın. Alternatif olarak tıklayabilirsiniz **ekleme siteye** belirli siteler için bu endpoint kullanmak için düğme **ScreenSteps**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/screensteps-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/screensteps-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/screensteps-tutorial/create_aaduser_03.png)
-
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/screensteps-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="create-a-screensteps-test-user"></a>ScreenSteps test kullanıcısı oluşturma
-
-Bu bölümde, Britta Simon ScreenSteps içinde adlı bir kullanıcı oluşturun. Çalışmak [ScreenSteps istemci Destek ekibine](https://www.screensteps.com/contact) ScreenSteps platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Azure çoklu oturum açma kullanmak için ScreenSteps erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **ScreenSteps**.
 
-**Britta Simon ScreenSteps için atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **ScreenSteps**.
 
-    ![Kullanıcı Ata][201] 
+    ![Uygulamalar listesinde ScreenSteps bağlantı](common/all-applications.png)
 
-1. Uygulamalar listesinde **ScreenSteps**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Uygulamalar listesinde ScreenSteps bağlantı](./media/screensteps-tutorial/tutorial_screensteps_app.png)  
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Atama Ekle bölmesi][203]
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+### <a name="create-screensteps-test-user"></a>ScreenSteps test kullanıcısı oluşturma
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
+Bu bölümde, Britta Simon ScreenSteps içinde adlı bir kullanıcı oluşturun. Çalışmak [ScreenSteps istemci Destek ekibine](https://www.screensteps.com/contact) ScreenSteps platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde ScreenSteps kutucuğa tıkladığınızda, otomatik olarak ScreenSteps uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli ScreenSteps kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama ScreenSteps için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/screensteps-tutorial/tutorial_general_01.png
-[2]: ./media/screensteps-tutorial/tutorial_general_02.png
-[3]: ./media/screensteps-tutorial/tutorial_general_03.png
-[4]: ./media/screensteps-tutorial/tutorial_general_04.png
-
-[100]: ./media/screensteps-tutorial/tutorial_general_100.png
-
-[200]: ./media/screensteps-tutorial/tutorial_general_200.png
-[201]: ./media/screensteps-tutorial/tutorial_general_201.png
-[202]: ./media/screensteps-tutorial/tutorial_general_202.png
-[203]: ./media/screensteps-tutorial/tutorial_general_203.png
-
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

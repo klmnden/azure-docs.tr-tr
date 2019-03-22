@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: c994190ed4ccbd8e5b90f17b70ec6b65477fb0d8
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: d6b669f5baae13f9fb57c5c58060e70a8f871e17
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232014"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117277"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Web pages kullanılarak Azure Traffic Manager gerçek kullanıcı ölçümleri gönderme
 
@@ -34,7 +34,7 @@ Azure portalını kullanarak RUM anahtarı almak için:
 3. Traffic Manager profili dikey penceresinde **gerçek kullanıcı ölçümleri** altında **ayarları**.
 4. Tıklayın **anahtar oluştur** RUM yeni bir anahtar oluşturmak için.
  
-  ![Gerçek kullanıcı ölçümleri anahtarı oluşturma](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+   ![Gerçek kullanıcı ölçümleri anahtarı oluşturma](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **Şekil 1: Gerçek kullanıcı ölçümleri anahtarı oluşturma**
 
@@ -44,7 +44,7 @@ Azure portalını kullanarak RUM anahtarı almak için:
 
     **Şekil 2: Gerçek kullanıcı ölçümleri anahtarı ve ölçüm JavaScript'i**
  
-6.  Tıklayın **kopyalama** düğmesine tıklayarak JavaScript kodu kopyalayın. 
+6. Tıklayın **kopyalama** düğmesine tıklayarak JavaScript kodu kopyalayın. 
 
 >[!IMPORTANT]
 > Oluşturulan JavaScript için gerçek kullanıcı ölçümleri özelliği düzgün şekilde çalışabilmesi için kullanın. Bu betik veya gerçek kullanıcı ölçümleri tarafından kullanılan betikler değişiklikleri beklenmeyen davranışa neden olabilir.

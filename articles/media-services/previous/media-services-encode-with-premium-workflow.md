@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7b91f63057fa8b781fdfab17e0837a9f5547c1eb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d20fc0cee6bce1389649e6287170b1963e799ccf
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988043"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187736"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Gelişmiş Media Encoder Premium iş akışı ile kodlama
 > [!NOTE]
@@ -62,12 +62,12 @@ Aşağıdaki adımları gerçekleştirilir:
     Çoğu durumda, yapılandırma görevi için boş dizedir (aşağıdaki örnekte ister). (Çalışma zamanı özellikleri dinamik olarak ayarlamak ihtiyacınız olan) bazı Gelişmiş senaryolar vardır, bu durumda kodlama görevi bir XML dizesini sağlar. Bu tür senaryoların örnekleri şunlardır: bir katman, birleştirme, subtitling paralel veya sıralı ortam oluşturma.
 5. İki giriş varlıklar göreve ekleyin.
 
-    1. 1 – iş akışı varlık.
-    2. 2-video varlık.
+   1. 1 – iş akışı varlık.
+   2. 2-video varlık.
 
-    >[!NOTE]
-    >İş akışı varlık görev medya varlığını önce eklenmesi gerekir.
-   Bu görev için yapılandırma dizesi boş olmalıdır.
+      >[!NOTE]
+      >İş akışı varlık görev medya varlığını önce eklenmesi gerekir.
+      Bu görev için yapılandırma dizesi boş olmalıdır.
    
 6. Kodlama işinin gönderin.
 

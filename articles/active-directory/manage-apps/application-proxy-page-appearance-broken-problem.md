@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c7a6edab1bc63d8cb1ae6f7de43372304e21ed1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 950a349506f32405261d90c05312d24aa3deadc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170644"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089956"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Uygulama sayfası için bir uygulama proxy'si uygulaması düzgün görüntülenmiyor
 
@@ -31,7 +31,7 @@ Bir uygulama proxy'si uygulama yayımladığınızda, uygulamaya erişirken yaln
 
 Eksik sorunun Ağ İzleyicisi'ni açarak olup olmadığını doğrulayabilirsiniz (Fiddler veya F12 gibi araçları Internet Explorer/Microsoft edge'de), sayfa yükleme ve 404 hatalarını aranıyor. Bu sayfa şu anda bulunamıyor ve bunları yayımlamak gereken gösterir.
 
-Bu durumda bir örnek olarak, dahili URL'yi kullanarak masrafları uygulama yayımladığınız varsayılmaktadır http://myapps/expenses, ancak stil uygulamanın kullandığı http://myapps/style.css. Bu durumda, stil sayfası, masrafları uygulama yükleme durum için bir 404 hatası style.css yüklenmeye çalışılırken, uygulamanızda yayımlanmaz. Bu örnekte, bir iç URL uygulamayla yayımlayarak Sorun çözülene http://myapp/.
+Bu durumda bir örnek olarak, dahili URL'yi kullanarak masrafları uygulama yayımladığınız varsayılmaktadır `http://myapps/expenses`, ancak stil uygulamanın kullandığı `http://myapps/style.css`. Bu durumda, stil sayfası, masrafları uygulama yükleme durum için bir 404 hatası style.css yüklenmeye çalışılırken, uygulamanızda yayımlanmaz. Bu örnekte, bir iç URL uygulamayla yayımlayarak Sorun çözülene `http://myapp/`.
 
 ## <a name="problems-with-publishing-as-one-application"></a>Bir uygulama yayımlama ile ilgili sorunlar
 

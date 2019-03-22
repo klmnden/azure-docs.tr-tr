@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 73b13dcea84ba322072217c3feacebdefb3bf1e6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6650eed6bf2559e9fb76b573189179a7f5df81ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052048"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896713"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>Power BI Çalışma Alanı Koleksiyonları nedir?
 
@@ -87,4 +87,4 @@ Artık, mevcut raporları düzenlemek veya Power BI Desktop kullanmaya gerek kal
 [Power BI-CSharp Git deposu](https://github.com/Microsoft/PowerBI-CSharp)  
 [Power BI düğümlü Git deposu](https://github.com/Microsoft/PowerBI-Node)  
 
-Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](http://community.powerbi.com/)
+Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](https://community.powerbi.com/)

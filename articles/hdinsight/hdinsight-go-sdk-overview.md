@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: ac3296937c02c3021c49dafc9a6ed7c249fe37af
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b430c69f4ed9206b34f8ca66534aa82e85c0b240
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769327"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224796"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>HDInsight Git Yönetimi SDK önizlemesi
 

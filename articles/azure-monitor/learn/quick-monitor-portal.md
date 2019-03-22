@@ -1,6 +1,6 @@
 ---
 title: ASP.NET Web Uygulamanızı Azure Application Insights ile izleme | Microsoft Docs
-description: Application Insights ile izleme için ASP.NET Web Uygulamasını hızlıca ayarlamaya ilişkin yönergeler sağlar
+description: Application Insights ile izleme için bir ASP.NET Web uygulamasını hızlıca ayarlamaya yönergeler sağlar
 services: application-insights
 keywords: ''
 author: mrbullwinkle
@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 8d4b5bb987e04e30953c7a2bb3a3d2387e51fdeb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 9a4c6b8046934159533755f048e1aa158e7e591e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081363"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011762"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET Web Uygulamanızı izlemeye başlama
 
 Azure Application Insights ile web uygulamanızı kullanılabilirlik, performans ve kullanım bakımından kolayca izleyebilirsiniz.  Ayrıca, bir kullanıcının bildirmesini beklemeden uygulamanızdaki hataları hızlıca tanımlayıp tespit edebilirsiniz.  Application Insights’tan uygulamanızın verimi ve performansı hakkında topladığınız bilgileri kullanarak, uygulamanızı korumak ve geliştirmek için bilinçli seçimler yapabilirsiniz.
 
-Bu hızlı başlangıç, var olan bir ASP.NET web uygulamasına Application Insights ekleme ve uygulamanızı çözümlemek için kullanabileceğiniz çeşitli yöntemlerden yalnızca biri olan canlı istatistikleri çözümlemeye başlama işlemini gösterir. Bir ASP.NET web uygulamanız yoksa [ASP.NET Web Uygulaması oluşturma hızlı başlangıcı](../../app-service/app-service-web-get-started-dotnet-framework.md)’nı izleyerek bir tane oluşturabilirsiniz.
+Bu hızlı başlangıç, var olan bir ASP.NET web uygulamasına Application Insights ekleme ve uygulamanızı çözümlemek için kullanabileceğiniz çeşitli yöntemlerden yalnızca biri olan canlı istatistikleri çözümlemeye başlama işlemini gösterir. Bir ASP.NET web uygulaması yoksa izleyerek bir tane oluşturabilirsiniz [bir ASP.NET Web uygulaması oluşturma Hızlı başlangıcı](../../app-service/app-service-web-get-started-dotnet-framework.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu hızlı başlangıcı tamamlamak için:

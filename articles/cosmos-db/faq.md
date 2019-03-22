@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 7e1c6d771e2452e99b47c256c99e25e281b9a3aa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c344e8c2d0ad62b394792201ab52bb37413012f8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849236"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259916"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB'de farklı API'ler ile ilgili sık sorulan sorular
 
@@ -159,7 +159,7 @@ Ayrıca Azure Cosmos DB için fatura varlıkları kapsayıcılardır. Her kapsay
 
 ### <a name="how-do-i-create-a-database"></a>Veritabanı nasıl oluşturulur?
 
-Kullanarak veritabanları oluşturabilirsiniz [Azure portalında](https://portal.azure.com)anlatılan şekilde [koleksiyon ekleyin](create-sql-api-dotnet.md#create-collection), bir'ın [Azure Cosmos DB SDK'ları](sql-api-sdk-dotnet.md), veya [REST API'leri](/rest/api/cosmos-db/).
+Kullanarak veritabanları oluşturabilirsiniz [Azure portalında](https://portal.azure.com)anlatılan şekilde [koleksiyon ekleyin](create-sql-api-dotnet.md#create-collection-database), bir'ın [Azure Cosmos DB SDK'ları](sql-api-sdk-dotnet.md), veya [REST API'leri](/rest/api/cosmos-db/).
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Kullanıcıları ve izinleri nasıl ayarlarım?
 
@@ -257,7 +257,7 @@ Azure Cosmos DB tablo API'si ile tablolar oluşturmak istediğiniz Azure tablo D
 * CORS şu anda desteklenmiyor
 * Azure tablo depolama tablo adlarını büyük küçük harfe duyarlı değildir, ancak bunlar Azure Cosmos DB tablo API'si
 * Azure Cosmos DB'nin iç biçimleri gibi ikili alanlar kodlama bilgi için bazıları şu anda bir dilediğiniz kadar verimli değildir. Bu nedenle bu beklenmeyen sınırlamaları veri boyutuna göre neden olabilir. Örneğin, şu anda bir tablo varlığı, tam bir Meg kodlama veri boyutu artar çünkü ikili verileri depolamak için kullanamadık.
-* Varlık özellik adı 'Id' şu anda desteklenmiyor
+* Varlık özellik adı 'ID' şu anda desteklenmiyor
 * TableQuery TakeCount 1000 sınırlı değildir
 
 REST API açısından birçok Azure Cosmos DB tablo API'si tarafından desteklenmeyen uç noktalar/sorgu seçenek vardır:

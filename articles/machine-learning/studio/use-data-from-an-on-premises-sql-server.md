@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 77e8a951d806d93eb2a0a59152ec8388e2a6397b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 9590728cec663b36c889dc26a6216c3d474244e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818621"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888357"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>Azure Machine Learning kullanarak bir şirket içi SQL Server veritabanı Studio ile analizler gerçekleştirin
 
@@ -54,7 +54,7 @@ Ayarlama ve Data Factory şirket içinde barındırılan Integration Runtime'ı 
 * Bir kerede yalnızca bir çalışma alanı için bir IRS yapılandırırsınız. Şu anda IRS çalışma alanları arasında paylaşılamaz.
 * Tek bir çalışma alanı için birden çok IRS yapılandırabilirsiniz. Örneğin, kullanıma hazır hale getirmeye hazır olduğunuzda, geliştirme ve IR üretim sırasında test veri kaynaklarınıza bağlı bir IR kullanmak isteyebilirsiniz.
 * IR veri kaynağı ile aynı makinede olması gerekmez. Ancak, veri kaynağına daha yakından kaldığını ağ geçidinin veri kaynağına bağlanmak süreyi azaltır. Kaynaklar için ağ geçidi ve veri kaynağı yoksa rekabet. böylece şirket içi veri kaynağı barındıran olandan farklı bir makineye IR yüklemenizi öneririz.
-* Power BI veya Azure Data Factory senaryoları hizmet yüklü bir IR zaten varsa, ayrı bir IR, Azure Machine Learning Studio için başka bir bilgisayara yükleyin.
+* Power BI veya Azure Data Factory senaryoları hizmet yüklü IR'yi zaten varsa, ayrı bir IR, Azure Machine Learning Studio için başka bir bilgisayara yükleyin.
 
   > [!NOTE]
   > Data Factory şirket içinde barındırılan Integration Runtime ve Power BI Gateway aynı bilgisayarda çalıştıramazsınız.
@@ -65,7 +65,7 @@ Ayarlama ve Data Factory şirket içinde barındırılan Integration Runtime'ı 
 Yükleme önkoşulları yükleme adımlarını ve sorun giderme ipuçları hakkında ayrıntılı bilgi makalesinde bulabilirsiniz [Data factory'de tümleştirme çalışma zamanı](../../data-factory/concepts-integration-runtime.md).
 
 ## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-idtoc450838866-classanchorspanspaningress-data-from-your-on-premises-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Şirket içi SQL Server veritabanınızı Azure Machine Learning giriş verileri
-Bu kılavuzda, bir Azure Machine Learning çalışma alanında bir Azure Data Factory Integration Runtime ' ayarlama, yapılandırın ve ardından bir şirket içi SQL Server veritabanından verileri okuyamadı.
+Bu kılavuzda, Azure Data Factory Integration Runtime bir Azure Machine Learning çalışma alanında ayarlama, yapılandırın ve ardından bir şirket içi SQL Server veritabanından verileri okuyamadı.
 
 > [!TIP]
 > Başlamadan önce tarayıcınızın açılır pencere engelleyicisi için devre dışı `studio.azureml.net`. Google Chrome tarayıcı kullanıyorsanız, karşıdan yüklenip birkaç eklentileri Google Chrome WebStore kullanılabilir birini [kez tıklayın uygulaması uzantısı](https://chrome.google.com/webstore/search/clickonce?_category=extensions).

@@ -1,6 +1,6 @@
 ---
-title: Azure AD parola koruması Önizleme dağıtma
-description: Dağıtın yasaklamak yanlış parolalar şirket içi Azure AD parola koruması önizlemesi
+title: Azure AD parola korumasını dağıtma
+description: Dağıtın yasaklamak yanlış parolalar şirket içi Azure AD parola koruması
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,185 +11,180 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f0a009d4bea8a0f0075337d6fcfb9de31b7c7a6
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 54d2d600771316b0a88ea0a2486c0dedd0f84594
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409661"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286542"
 ---
-# <a name="preview-deploy-azure-ad-password-protection"></a>Önizleme: Azure AD parola koruması dağıtma
+# <a name="deploy-azure-ad-password-protection"></a>Azure AD parola korumasını dağıtma
 
-|     |
-| --- |
-| Azure AD parola koruması, Azure Active Directory genel Önizleme özelliğidir. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
-
-Biz bir anlayışa sahip olduğunuza göre [Azure AD parola koruması için Windows Server Active Directory zorlama yapma](concept-password-ban-bad-on-premises.md), planlama ve dağıtım yürütmek için sonraki adımdır.
+Artık anladığınıza göre [Windows Server Active Directory için Azure AD parola koruması zorlama yapma](concept-password-ban-bad-on-premises.md), planlama ve dağıtım yürütmek için sonraki adımdır.
 
 ## <a name="deployment-strategy"></a>Dağıtım stratejisi
 
-Microsoft, herhangi bir dağıtıma denetim modunda başlatmak önerir. Denetleme modunda, burada parolalar ayarlamak devam edebilirsiniz engelleneceğini tüm girişleri oluşturup olay günlüğünde varsayılan ilk ayardır. Proxy sunucusu ve DC aracıları tam denetim modunda dağıtılan sonra normal izleme yapılmalıdır ilke zorlandı hangi etkisi parola ilkesi belirlemek için zorlama kullanıcılar ve ortam üzerinde gerekir.
+Denetleme modunda, dağıtımları başlamanızı öneririz. Denetim modu varsayılan ilk ayarlamak burada parolaları devam ayarıdır. Engelleneceğini parolalar, olay günlüğüne kaydedilir. Denetleme modunda proxy sunucuları ve aracıların DC dağıttıktan sonra İlkesi zorunlu tutulduysa kullanıcılar ve ortam üzerinde parola ilkesine sahip olacak etki izlemeniz gerekir.
 
-Denetim aşamasında pek çok kuruluş bulun:
+Denetim aşamasında pek çok kuruluş bulmak:
 
 * Daha güvenli parolalar kullanmak için mevcut işlem süreçlerini iyileştirmek gerekir.
-* Kullanıcılar, güvenli parolaları düzenli olarak seçme alışmanızı sağlamak
-* Kullanıcılar güvenlik zorlama, etkisi olan ve daha iyi yardımcı yaklaşan değişikliği hakkında nasıl daha güvenli parolalar seçebilirsiniz anlamak bildirmeniz gerekir.
+* Kullanıcılar, genellikle güvenli parolalar kullanın.
+* Bunlar, yaklaşan değişikliği güvenlik zorlama, bunları etkileyebilir ve daha güvenli parolalar seçme hakkında kullanıcılara bildirmeniz gerekir.
 
-Gelen özellik için makul bir süre denetim modunda çalıştırıldıktan sonra uygulama yapılandırma çevrilebilir **denetim** için **zorla** böylece daha güvenli bir parola gerektirme. Odaklanmış bu süre boyunca izleme iyi bir fikirdir.
+Özellik makul bir süre için Denetim modunda çalıştırıldıktan sonra yapılandırmayı üst verilerden geçebilirsiniz *denetim* için *zorla* daha güvenli bir parola gerektirme. Odaklanmış bu süre boyunca izleme iyi bir fikirdir.
 
 ## <a name="deployment-requirements"></a>Dağıtım gereksinimleri
 
-* Azure AD parola koruması DC aracısı hizmetinin yüklü olduğu tüm etki alanı denetleyicileri Windows Server 2012 veya sonraki sürümünü çalıştırmalıdır.
-* Azure AD parola koruması Proxy Hizmeti yükleneceği tüm makineler, Windows Server 2012 R2 çalıştırmalıdır veya üzeri.
-* Etki alanı denetleyicileri de dahil olmak üzere Azure AD parola koruması bileşenlerinin yüklendiği tüm makinelerde yüklü olan evrensel C çalışma zamanı olması gerekir.
-Bu tercihen Windows Update aracılığıyla makine tam olarak düzeltme eki uygulama tarafından gerçekleştirilir. Aksi takdirde uygun işletim sistemine özgü güncelleştirme paketi olabilir yüklü - [Windows Evrensel C çalışma zamanı güncelleştirmesi](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
-* En az bir sunucu Azure AD parola koruması Proxy hizmetini barındıran her etki alanında en az bir etki alanı denetleyicisi arasında ağ bağlantısı olmalıdır. Bu RPC uç nokta Eşleyici bağlantı noktası (135) ve RPC sunucusu bağlantı noktası proxy hizmetine erişmek etki alanı denetleyicisi bağlanmaya izin vermelidir. RPC sunucusu bağlantı noktası varsayılan olarak dinamik bir RPC bağlantı noktasıdır, ancak yapılandırılabilir (aşağıya bir statik bağlantı noktasını kullanacak şekilde bakın).
-* Azure AD parola koruması Proxy hizmetini barındıran tüm makinelerde aşağıdaki uç noktalarına ağ erişimi olması gerekir:
+* DC Aracı hizmeti Azure AD parola koruması yüklü Windows Server 2012 çalıştırmanız gerekir veya sonraki bir sürümü Al tüm etki alanı denetleyicileri.
+* Proxy hizmet için Azure AD parola koruması yüklü Windows Server 2012 R2 çalıştırmalıdır veya sonraki bir sürümü alın, tüm makineler.
+* Azure AD parola koruması Proxy hizmeti yüklü olduğu tüm makineler .NET 4.7 yüklü olması gerekir.
+  .NET 4.7 zaten tamamen güncelleştirilmiş bir Windows sunucusuna yüklenmesi gerekir. Durum bu değilse, indirmek ve bulunan yükleyiciyi çalıştırın [Windows için .NET Framework 4.7 çevrimdışı yükleyici](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+* Tüm makineler, Azure AD parola koruması bileşenleri yüklü etki alanı denetleyicileri, dahil olmak üzere, Evrensel C çalışma zamanı yüklü olması gerekir. Tüm güncelleştirmeleri Windows Update'ten olmasını sağlayarak çalışma zamanı elde edebilirsiniz. Veya bir işletim sistemine özgü güncelleştirme paketinde alabilirsiniz. Daha fazla bilgi için [Windows Evrensel C çalışma zamanı güncelleştirmesi](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
+* Ağ bağlantısı her etki alanında en az bir etki alanı denetleyicisi ile en az bir sunucu arasında parola koruması için proxy hizmeti barındıran mevcut olması gerekir. Bu RPC uç nokta Eşleyici bağlantı noktası 135 ve RPC sunucusu bağlantı noktası proxy hizmetine erişmek etki alanı denetleyicisi bağlanmaya izin vermelidir. Varsayılan olarak, dinamik bir RPC bağlantı noktası RPC sunucusu bağlantı noktası olduğu halde şekilde yapılandırılabilir [statik bağlantı noktasını](#static).
+* Proxy hizmeti barındıran tüm makinelerin aşağıdaki uç noktalarına ağ erişimi olması gerekir:
 
-    |Uç Nokta |Amaç|
+    |**Uç noktası**|**Amacı**|
     | --- | --- |
     |`https://login.microsoftonline.com`|Kimlik doğrulama istekleri|
     |`https://enterpriseregistration.windows.net`|Azure AD parola koruması işlevi|
 
-* Azure AD parola koruması Proxy hizmetini barındıran tüm makinelerde giden TLS 1.2 HTTP trafiğine izin verecek şekilde yapılandırılması gerekir.
-* Azure AD parola koruması Proxy Hizmeti ve orman Azure AD'ye kaydetmeniz için bir genel yönetici hesabı.
+* Parola koruması için proxy hizmeti barındıran tüm makinelerin giden TLS 1.2 HTTP trafiğine izin verecek şekilde yapılandırılması gerekir.
+* Azure AD ile parola koruması ve orman için proxy hizmeti kaydetmek için bir genel yönetici hesabı.
 * Azure AD ile Windows Server Active Directory orman kaydetmek için orman kök etki alanındaki Active Directory etki alanı yönetici ayrıcalıklarına sahip bir hesap.
-* DC çalıştıran herhangi bir Active Directory etki alanı Aracı hizmeti yazılımı DFSR sysvol çoğaltma için kullanmanız gerekir.
-* Tüm Windows Server 2012 ve sonraki etki alanı denetleyicileri etki alanındaki Microsoft anahtar dağıtım hizmeti etkinleştirilmelidir (el ile tetikleyici başlangıç bu hizmeti varsayılan durumu etkindir).
+* DC Aracı hizmeti yazılımı çalıştıran herhangi bir Active Directory etki alanı için sysvol çoğaltma dağıtılmış dosya sistemi çoğaltma (DFSR) kullanmanız gerekir.
+* Anahtar Dağıtım Hizmeti, Windows Server 2012 çalıştıran tüm etki alanı denetleyicilerinde etki alanındaki etkinleştirilmesi gerekir. Varsayılan olarak, bu hizmeti el ile tetikleyici başlangıç etkinleştirilir.
 
-## <a name="single-forest-deployment"></a>Tek ormanlı dağıtımı
+## <a name="single-forest-deployment"></a>Tek ormanlı dağıtım
 
 Aşağıdaki diyagramda, Azure AD parola koruması temel bileşenleri şirket içi Active Directory ortamında birlikte nasıl çalıştığı gösterilmektedir.
 
-![Azure AD parola koruması bileşenleri birlikte nasıl çalışır](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+![Azure AD parola koruması bileşenleri birlikte nasıl çalıştığını](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
-Dağıtımdan önce yazılımın nasıl çalıştığını gözden iyi bir fikirdir; Lütfen [Azure AD parola koruması kavramsal genel bakış](concept-password-ban-bad-on-premises.md).
+Dağıtmadan önce yazılımın nasıl çalıştığını gözden geçirmek iyi bir fikirdir. Bkz: [Azure AD parola koruması kavramsal genel bakış](concept-password-ban-bad-on-premises.md).
 
 ### <a name="download-the-software"></a>Yazılımı indirin
 
-Adresinden indirilip Azure AD parola koruması için gerekli iki yükleyiciler vardır [Microsoft İndirme Merkezi](https://www.microsoft.com/download/details.aspx?id=57071)
+Azure AD parola koruması için gerekli iki yükleyiciler vardır. Kullanılabilir oldukları [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
-### <a name="install-and-configure-the-azure-ad-password-protection-proxy-service"></a>Azure AD parola koruması proxy hizmetini yükleme ve yapılandırma
+### <a name="install-and-configure-the-proxy-service-for-password-protection"></a>Parola koruması için proxy hizmetini yükleme ve yapılandırma
 
-1. Azure AD parola koruması Proxy Hizmeti barındırmak için bir veya daha fazla sunucu seçin.
-   * Her bir hizmet bir tek orman için yalnızca parola ilkeleri sağlayabilir ve ana makine etki alanına bir etki alanına katılmış olmalıdır (kök ve alt etki alanları desteklenir) o ormandaki. Kendi görevi yerine getirmek Azure AD parola koruması Proxy Hizmeti için sırayla ormanda her etki alanında en az bir DC ve Azure AD parola koruması Proxy makine arasında ağ bağlantısı bulunmalıdır.
-   * Yükleme ve test amacıyla, bir etki alanı denetleyicisinde Azure AD parola koruması Proxy hizmeti çalıştırmak için desteklenir. olumsuz tarafı, etki alanı denetleyicisidir sonra bir güvenlik sorunu olabilecek Internet bağlantısı olmasını gerektirir. Microsoft, test amacıyla, bu yapılandırma yalnızca kullanılmasını önerir.
-   * En az iki proxy sunucu yedeklilik amaçlar için önerilir. [Yüksek kullanılabilirlik bakın](howto-password-ban-bad-on-premises-deploy.md#high-availability)
+1. Parola koruması için proxy hizmeti barındırmak için bir veya daha fazla sunucu seçin.
+   * Her bir hizmet, tek bir orman için yalnızca parola ilkeleri sağlayabilir. Konak makine o ormandaki etki alanına katılması gerekir. Kök ve alt etki alanları, her ikisi de desteklenir. Ormandaki her etki alanında en az bir DC ve parola koruması makine arasında ağ bağlantısı gerekir.
+   * Proxy hizmeti test etmek için bir etki alanı denetleyicisi üzerinde çalıştırabilirsiniz. Ancak, bu etki alanı denetleyicisi daha sonra bir güvenlik sorunu olabilecek internet bağlantısı gerektirir. Yalnızca test için bu yapılandırmayı öneririz.
+   * Artıklık için en az iki proxy sunucu öneririz. Bkz: [yüksek kullanılabilirlik](howto-password-ban-bad-on-premises-deploy.md#high-availability).
 
-2. AzureADPasswordProtectionProxySetup.msi MSI paketini kullanarak Azure AD parola koruması Proxy hizmetini yükleyin.
-   * Yazılım yüklemesi yeniden başlatma gerektirmez. Yazılım yükleme, örneğin standart MSI yordamları kullanarak otomatik: `msiexec.exe /i AzureADPasswordProtectionProxySetup.msi /quiet /qn`
+1. Azure AD parola koruması Proxy Hizmeti kullanılarak `AzureADPasswordProtectionProxySetup.exe` yazılım yükleyicisi.
+   * Yazılım yüklemesi yeniden başlatma gerektirmez. Yazılım yükleme, örneğin standart MSI yordamları kullanarak otomatik:
+
+      `AzureADPasswordProtectionProxySetup.exe /quiet`
 
       > [!NOTE]
-      > AzureADPasswordProtectionProxySetup.msi MSI paketini yüklemeden önce Windows Güvenlik Duvarı hizmeti çalışıyor olmalıdır; aksi takdirde yükleme hatası meydana gelir. Çalıştırma için Windows Güvenlik Duvarı yapılandırılmışsa, geçici olarak etkinleştirin ve Windows Güvenlik Duvarı hizmeti yükleme işlemi sırasında başlatmak için çözüm olabilir. Ara yazılım, yüklemeden sonra Windows Güvenlik duvarı yazılımı belirli hiçbir bağımlılığı vardır. Bir üçüncü taraf güvenlik duvarı kullanıyorsanız, yine de dağıtım gereksinimlerini karşılamak için yapılandırılması gerekir (bağlantı noktası 135 gelen erişimi ve RPC proxy sunucusu bağlantı noktası dinamik veya statik izin ver). [Bkz: dağıtım gereksinimleri](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements)
+      > Bir yükleme hatasını önlemek için AzureADPasswordProtectionProxySetup.msi paketini yüklemeden önce Windows Güvenlik Duvarı hizmetini çalıştırması gerekir. Çalıştırma için Windows Güvenlik Duvarı yapılandırılmışsa, yükleme sırasında Güvenlik Duvarı hizmeti çalıştırma ve geçici olarak etkinleştirmek için çözüm olabilir. Ara yazılım, Windows Güvenlik Duvarı'nı yükleme sonrasında belirli bir bağımlılığı yoktur. Bir üçüncü taraf güvenlik duvarı kullanıyorsanız, dağıtım gereksinimlerini karşılamak için yine de yapılandırılması gerekir. Bunlar, 135 ve RPC sunucusu bağlantı noktası proxy bağlantı noktasına gelen erişime izin vermeyi içerir. Bkz: [dağıtım gereksinimleri](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements).
 
-3. Yönetici olarak bir PowerShell penceresi açın.
-   * Azure AD parola koruması ara yazılımı AzureADPasswordProtection adlı yeni bir PowerShell modülü içerir. Aşağıdaki adımlar, bu PowerShell modülünden çeşitli cmdlet'ler çalıştıran temel alır ve yeni bir PowerShell penceresi açar ve yeni modül aşağıdaki gibi içe varsayalım:
+1. Yönetici olarak bir PowerShell penceresi açın.
+   * Parola koruması ara yazılım içeren yeni bir PowerShell Modülü *AzureADPasswordProtection*. Aşağıdaki adımlar, bu PowerShell modülünden çeşitli cmdlet'lerini çalıştırın. Yeni modül gibi içeri aktarın:
 
       ```PowerShell
       Import-Module AzureADPasswordProtection
       ```
 
-   * Aşağıdaki PowerShell komutunu kullanarak hizmetinin çalıştığını kontrol edin: `Get-Service AzureADPasswordProtectionProxy | fl`.
-     Sonucu bir sonuç ile üretmelidir **durumu** "Çalışıyor" sonucu döndürerek.
+   * Hizmetinin çalışıp çalışmadığını denetlemek için aşağıdaki PowerShell komutunu kullanın:
 
-4. Proxy kaydedin.
-   * 3. adım tamamlandıktan sonra Azure AD parola koruması Proxy Hizmeti makinede çalışıyor, ancak henüz Azure AD ile iletişim kurmak için gerekli kimlik bilgilerine sahip değil. Azure AD ile kayıt kullanarak bu özelliği etkinleştirmek için gerekli `Register-AzureADPasswordProtectionProxy` PowerShell cmdlet'i. Cmdlet, genel yönetici olmak üzere Azure kiracısı için kimlik bilgileri hem de şirket içinde orman kök etki alanındaki Active Directory etki alanı yöneticisi ayrıcalıkları gerektirir. Belirli bir proxy hizmeti için ek çağrıları başarılı oldu sonra `Register-AzureADPasswordProtectionProxy` başarılı olması devam eder ancak gereksizdir.
+      `Get-Service AzureADPasswordProtectionProxy | fl`.
 
-      Register-AzureADPasswordProtectionProxy cmdlet, üç farklı kimlik doğrulama modu şu şekilde destekler.
+     Sonuç göstermelidir bir **durumu** "Çalışır."
 
-      * Etkileşimli kimlik doğrulaması modu:
+1. Proxy kaydedin.
+   * Adım 3 tamamlandıktan sonra proxy hizmeti makinede çalışıyor. Ancak, hizmeti henüz Azure AD ile iletişim kurmak için gerekli kimlik bilgilerine sahip değil. Azure AD ile kayıt gereklidir:
 
-         ```PowerShell
-         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
-         ```
-         > [!NOTE]
-         > Bu mod, Sunucu Çekirdeği işletim sistemlerinde çalışmaz. Bunun yerine alternatif bir kimlik doğrulama modlarından birini aşağıda özetlendiği gibi kullanın.
+     `Register-AzureADPasswordProtectionProxy`
 
-         > [!NOTE]
-         > Bu mod, Internet Explorer Artırılmış Güvenlik Yapılandırması etkinse, başarısız olabilir. Geçici çözüm olan IESC devre dışı bırakmak, kayıt proxy IESC daha sonra yeniden etkinleştirin.
+     Bu cmdlet, Azure kiracınızın genel yönetici kimlik bilgileri gerektirir. Orman kök etki alanında şirket içi Active Directory etki alanı yöneticisi ayrıcalıkları da gerekir. Bu komut, bir proxy hizmeti için bir kez başarılı olduktan sonra ek çağrıları başarılı olur ancak gereksizdir.
 
-      * Cihaz kodu kimlik doğrulama modu:
+      `Register-AzureADPasswordProtectionProxy` Cmdlet aşağıdaki üç kimlik doğrulama modlarını destekler.
 
-         ```PowerShell
-         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
-         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
-         ```
+     * Etkileşimli kimlik doğrulaması modu:
 
-         Ardından, farklı bir cihazda görüntülenen yönergeleri izleyerek kimlik doğrulaması tamamlayabilirsiniz.
+        ```PowerShell
+        Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
+        ```
+        > [!NOTE]
+        > Bu mod, Sunucu Çekirdeği işletim sistemlerinde çalışmaz. Bunun yerine, aşağıdaki kimlik doğrulama modlarından birini kullanın. Internet Explorer Artırılmış Güvenlik Yapılandırması etkinse, bu mod ayrıca başarısız olabilir. Bu yapılandırmayı devre dışı bırakmak, proxy kaydedin ve yeniden etkinleştirmek için çözüm olabilir.
 
-      * Sessiz (parola tabanlı) kimlik doğrulama modu:
+     * Cihaz kodu kimlik doğrulama modu:
 
-         ```PowerShell
-         $globalAdminCredentials = Get-Credential
-         Register-AzureADPasswordProtectionProxy -AzureCredential $globalAdminCredentials
-         ```
+        ```PowerShell
+        Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
+        To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
+        ```
 
-         > [!NOTE]
-         > MFA için herhangi bir nedenle kimlik doğrulaması gerektiriyorsa, bu mod başarısız olur. Bu durumda, Lütfen önceki iki moddan birini MFA tabanlı kimlik doğrulaması gerçekleştirmek için kullanın.
+        Ardından farklı bir cihazda görüntülenen yönergeleri izleyerek kimlik doğrulaması tamamlayın.
 
-      Bunu şu anda gelecekteki işlevselliği için ayrılmış olan - ForestCredential parametresini belirtmeniz gerekli değildir.
+     * Sessiz (parola tabanlı) kimlik doğrulama modu:
 
-   > [!NOTE]
-   > Azure AD parola koruması proxy hizmet kaydının, tek seferlik bir adım hizmetinin yaşam süresi olması beklenir. Proxy hizmeti, gerekli herhangi bir bakım ve sonraki sürümlerde bu noktadan itibaren otomatik olarak gerçekleştirir. Belirli bir ara sunucu için başarılı oldu sonra ek çağrıları 'Register-AzureADPasswordProtectionProxy' başarılı olmaya devam ancak gereksizdir.
+        ```PowerShell
+        $globalAdminCredentials = Get-Credential
+        Register-AzureADPasswordProtectionProxy -AzureCredential $globalAdminCredentials
+        ```
 
-   > [!TIP]
-   > İlk kez cmdlet'ini yürütme tamamlanmadan önce bu cmdlet için belirli bir Azure kiracısı çalıştırdığınızda önemli bir gecikme (birçok saniye) olabilir. Bir hata bildirdi sürece bu gecikme açılan kutuyla düşünülmemelidir.
+        > [!NOTE]
+        > Azure çok faktörlü kimlik doğrulaması gerekiyorsa, bu mod başarısız olur. Bu durumda, önceki iki kimlik doğrulama modlarından birini kullanın.
 
-5. Orman kaydedin.
-   * Şirket içi Active Directory ormanında, Azure'ı kullanarak iletişim kurmak için gerekli kimlik bilgileriyle başlatılmalıdır `Register-AzureADPasswordProtectionForest` PowerShell cmdlet'i. Cmdlet, genel yönetici olmak üzere Azure kiracısı için kimlik bilgileri hem de şirket içinde orman kök etki alanındaki Active Directory etki alanı yöneticisi ayrıcalıkları gerektirir. Bu adım, orman bir kez çalıştırın.
+       Şu anda belirtmeniz gerekmez *- ForestCredential* gelecekteki işlevselliği için ayrılmış olan parametre.
 
-      Register-AzureADPasswordProtectionForest cmdlet, üç farklı kimlik doğrulama modu şu şekilde destekler.
-
-      * Etkileşimli kimlik doğrulaması modu:
-
-         ```PowerShell
-         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
-         ```
-         > [!NOTE]
-         > Bu mod, Sunucu Çekirdeği işletim sistemlerinde çalışmaz. Bunun yerine alternatif bir kimlik doğrulama modlarından birini aşağıda özetlendiği gibi kullanın.
-
-         > [!NOTE]
-         > Bu mod, Internet Explorer Artırılmış Güvenlik Yapılandırması etkinse, başarısız olabilir. Geçici çözüm olan IESC devre dışı bırakmak, kayıt proxy IESC daha sonra yeniden etkinleştirin.  
-
-      * Cihaz kodu kimlik doğrulama modu:
-
-         ```PowerShell
-         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
-         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
-         ```
-
-         Ardından, farklı bir cihazda görüntülenen yönergeleri izleyerek kimlik doğrulaması tamamlayabilirsiniz.
-
-      * Sessiz (parola tabanlı) kimlik doğrulama modu:
-         ```PowerShell
-         $globalAdminCredentials = Get-Credential
-         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
-         ```
-
-         > [!NOTE]
-         > MFA kimlik doğrulaması gerektiriyorsa, bu mod başarısız olur. Bu durumda, Lütfen önceki iki moddan birini MFA tabanlı kimlik doğrulaması gerçekleştirmek için kullanın.
-
-      Yukarıdaki örneklerde, şu anda oturum açmış kullanıcı aynı zamanda kök etki alanı için Active Directory etki alanı yönetici ise yalnızca başarılı olur. Durum bu değilse, diğer etki alanı kimlik bilgileri - ForestCredential parametresi aracılığıyla sağlayabilir.
-
-   > [!NOTE]
-   > Birden fazla ara sunucuyu ortamınızda yüklü değilse, hangi Ara sunucu ormanı kaydetmek için kullanılan bir önemi yoktur.
+   
+   Parola koruması için proxy hizmet kaydının hizmeti kullanım ömrü içinde yalnızca bir kere gereklidir. Bundan sonra proxy hizmeti otomatik olarak gerekli herhangi bir bakım gerçekleştirir.
 
    > [!TIP]
-   > İlk kez cmdlet'ini yürütme tamamlanmadan önce bu cmdlet için belirli bir Azure kiracısı çalıştırdığınızda önemli bir gecikme (birçok saniye) olabilir. Bir hata bildirdi sürece bu gecikme açılan kutuyla düşünülmemelidir.
+   > Bu cmdlet, belirli bir Azure kiracısı için çalıştırılan ilk kez tamamlanmadan önce fark edilebilir bir gecikme olabilir. Bir hata bildirdi sürece bu gecikmenin endişelenmeyin.
+
+1. Orman kaydedin.
+   * Şirket içi Active Directory ormanını kullanarak Azure ile iletişim kurmak için gerekli kimlik bilgileriyle başlatmalıdır `Register-AzureADPasswordProtectionForest` PowerShell cmdlet'i. Cmdlet, Azure kiracınızın genel yönetici kimlik bilgileri gerektirir. Ayrıca, orman kök etki alanında şirket içi Active Directory etki alanı yöneticisi ayrıcalıkları gerektirir. Bu adım, orman bir kez çalıştırın.
+
+      `Register-AzureADPasswordProtectionForest` Cmdlet aşağıdaki üç kimlik doğrulama modlarını destekler.
+
+     * Etkileşimli kimlik doğrulaması modu:
+
+        ```PowerShell
+        Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
+        ```
+        > [!NOTE]
+        > Bu mod, Sunucu Çekirdeği işletim sistemlerinde çalışmaz. Bunun yerine aşağıdaki iki kimlik doğrulama modlarından birini kullanın. Internet Explorer Artırılmış Güvenlik Yapılandırması etkinse, bu mod ayrıca başarısız olabilir. Bu yapılandırmayı devre dışı bırakmak, proxy kaydedin ve yeniden etkinleştirmek için çözüm olabilir.  
+
+     * Cihaz kodu kimlik doğrulama modu:
+
+        ```PowerShell
+        Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
+        To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
+        ```
+
+        Ardından farklı bir cihazda görüntülenen yönergeleri izleyerek kimlik doğrulaması tamamlayın.
+
+     * Sessiz (parola tabanlı) kimlik doğrulama modu:
+        ```PowerShell
+        $globalAdminCredentials = Get-Credential
+        Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
+        ```
+
+        > [!NOTE]
+        > Azure çok faktörlü kimlik doğrulaması gerekiyorsa, bu mod başarısız olur. Bu durumda, önceki iki kimlik doğrulama modlarından birini kullanın.
+
+       Bu örneklerde, şu anda oturum açmış kullanıcı aynı zamanda kök etki alanı için Active Directory etki alanı yönetici ise yalnızca başarılı. Bu durumda değilse, diğer etki alanı kimlik bilgileri aracılığıyla sağlayabilirsiniz *- ForestCredential* parametresi.
 
    > [!NOTE]
-   > Active Directory ormanı kayıt, tek seferlik bir adım ormanın yaşam süresi olması beklenir. Ormanda çalıştıran etki alanı denetleyicisi aracıları, gerekli herhangi bir maintainenance ve sonraki sürümlerde bu noktadan itibaren otomatik olarak gerçekleştirir. Bu işlem, ek çağrıları gibi belirli bir orman için başarılı `Register-AzureADPasswordProtectionForest` başarılı olması devam eder ancak gereksizdir.
+   > Birden fazla ara sunucuyu ortamınızda yüklü değilse, ormanı kaydetmek için kullandığınız proxy sunucusunu önemi yoktur.
 
-   > [!NOTE]
-   > Sırayla `Register-AzureADPasswordProtectionForest` en az bir Windows Server 2012 veya üzeri etki alanı başarılı olması için denetleyici proxy sunucunun etki alanında bulunmalıdır. Ancak bu adımı öncesinde herhangi bir etki alanı denetleyicilerinde DC Aracısı yazılımının yüklenmesi gereksinimi yoktur.
+   > [!TIP]
+   > Bu cmdlet, belirli bir Azure kiracısı için çalıştırılan ilk kez tamamlanmadan önce fark edilebilir bir gecikme olabilir. Bir hata bildirdi sürece bu gecikmenin endişelenmeyin.
 
-6. Bir HTTP proxy üzerinden iletişim kurmak için Azure AD parola koruması Proxy hizmetini yapılandırma
+   Active Directory orman kaydı, yalnızca bir kez ormanın yaşam süresi gereklidir. Bundan sonra ormandaki etki alanı denetleyicisi aracıları otomatik olarak gerekli herhangi bir bakım gerçekleştirir. Sonra `Register-AzureADPasswordProtectionForest` başarıyla bir orman için çalışır, ek çağrıları cmdlet'inin başarılı ancak gereksizdir.
 
-   Ortamınızı Azure ile iletişim kurmak için belirli bir HTTP proxy'sinin kullanılmasını gerektiriyorsa, bu şekilde gerçekleştirilebilir.
+   İçin `Register-AzureADPasswordProtectionForest` başarılı olmak için Windows Server 2012 veya sonraki sürümünü çalıştıran en az bir etki alanı denetleyicisi proxy sunucunun etki alanında bulunmalıdır. Ancak, DC Aracısı yazılımını bu adımdan önce herhangi bir etki alanı denetleyicilerinde yüklü gerekmez.
 
-   Adlı bir dosya oluşturun `proxyservice.exe.config` dosyası `%ProgramFiles%\Azure AD Password Protection Proxy\Service` klasöründe aşağıdaki içeriğe sahip:
+1. Bir HTTP proxy üzerinden iletişim kurmak parola koruması için proxy hizmeti yapılandırın.
+
+   Ortamınızı Azure ile iletişim kurmak için belirli bir HTTP proxy'sinin kullanılmasını gerektiriyorsa, bu yöntemi kullanın: Oluşturma bir *AzureADPasswordProtectionProxy.exe.config* %ProgramFiles%\Azure AD parola koruması Proxy\Service klasöründeki dosya. Aşağıdaki içeriği içerir:
 
       ```xml
       <configuration>
@@ -202,7 +197,7 @@ Adresinden indirilip Azure AD parola koruması için gerekli iki yükleyiciler v
       </configuration>
       ```
 
-   HTTP Ara sunucunuz kimlik doğrulaması gerektiriyorsa, useDefaultCredentials etiketi aşağıdaki gibi ekleyin:
+   HTTP Ara sunucunuz kimlik doğrulaması gerektiriyorsa, ekleme *useDefaultCredentials* etiketi:
 
       ```xml
       <configuration>
@@ -215,17 +210,17 @@ Adresinden indirilip Azure AD parola koruması için gerekli iki yükleyiciler v
       </configuration>
       ```
 
-   Her iki durumda da, değiştirirler `http://yourhttpproxy.com:8080` belirli HTTP proxy sunucunuzun bağlantı noktası ve adresi.
+   Her iki durumda da değiştirin `http://yourhttpproxy.com:8080` belirli HTTP proxy sunucunuzun bağlantı noktası ve adresi.
 
-   HTTP Ara sunucunuz ile bir yetkilendirme ilkesi yapılandırdıysanız Azure AD parola koruması Proxy hizmetini barındıran bilgisayarın Active Directory bilgisayar hesabına erişim verilmesi gerekir.
+   HTTP proxy yapılandırılmışsa, bize bir yetkilendirme ilkesi parola koruması için proxy hizmeti barındıran makinenin Active Directory bilgisayar hesabına erişim sağlamanız gerekir.
 
-   Durdur ve Azure AD parola koruması Proxy hizmeti oluşturma veya güncelleştirme sonrasında yeniden `proxyservice.exe.config` dosya.
+   Durdur ve oluşturma veya güncelleştirme sonra proxy hizmetini yeniden başlatmanız önerilir *AzureADPasswordProtectionProxy.exe.config* dosya.
 
-   Azure AD parola koruması Proxy Hizmeti, bir HTTP proxy sunucuya bağlanmak için belirli kimlik bilgilerinin kullanımını desteklemiyor.
+   Proxy hizmeti bir HTTP proxy sunucuya bağlanmak için belirli kimlik bilgilerinin kullanımını desteklemez.
 
-7. İsteğe bağlı: Azure AD parola koruması Proxy hizmetini, belirli bir bağlantı noktasında dinleyecek şekilde yapılandırın.
-   * TCP üzerinden RPC, Azure AD parola koruması proxy'si hizmeti ile iletişim kurmak için Azure AD parola koruması DC Aracısı yazılımı etki alanı denetleyicileri tarafından kullanılır. Varsayılan olarak, Azure AD parola koruması Proxy Hizmeti tüm kullanılabilir dinamik RPC uç nokta üzerinde dinler. Gerekirse ağ topolojisi veya güvenlik duvarı gereksinimleri nedeniyle, hizmet yerine belirli bir TCP bağlantı noktasında dinleyecek şekilde yapılandırılabilir.
-      * Hizmetini, statik bir bağlantı noktası altında çalışacak şekilde yapılandırmak için kullanın `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet'i.
+1. İsteğe bağlı: Belirli bir bağlantı noktasında dinleyecek biçimde parola koruması için proxy hizmeti yapılandırın.
+   * Etki alanı denetleyicilerinde parola koruması DC Aracısı yazılımı proxy'si hizmeti ile iletişim kurmak için TCP üzerinden RPC kullanır. Varsayılan olarak, tüm kullanılabilir dinamik RPC uç nokta üzerinde proxy hizmeti dinler. Ancak, ağ topolojisi veya ortamınızda güvenlik duvarı gereksinimleri nedeniyle gerekli olması durumunda belirli bir TCP bağlantı noktasında dinleyecek şekilde hizmeti yapılandırabilirsiniz.
+      * <a id="static" /></a>Hizmetini, statik bir bağlantı noktası altında çalışacak şekilde yapılandırmak için kullanın `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet'i.
          ```PowerShell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
@@ -233,7 +228,7 @@ Adresinden indirilip Azure AD parola koruması için gerekli iki yükleyiciler v
          > [!WARNING]
          > Durdur ve bu değişikliklerin devreye girmesi hizmeti yeniden başlatmanız gerekir.
 
-      * Hizmetini, dinamik bir bağlantı noktası altında çalışacak şekilde yapılandırmak için aynı yordamı ancak StaticPort geri sıfır olarak ayarlanmış kullanım şu şekilde:
+      * Hizmetini, dinamik bir bağlantı noktası altında çalışacak şekilde yapılandırmak için aynı yordamı kullanın ancak ayarlanmış *StaticPort* sıfır geri dön:
          ```PowerShell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```
@@ -242,9 +237,9 @@ Adresinden indirilip Azure AD parola koruması için gerekli iki yükleyiciler v
          > Durdur ve bu değişikliklerin devreye girmesi hizmeti yeniden başlatmanız gerekir.
 
    > [!NOTE]
-   > Herhangi bir bağlantı noktası yapılandırmasını değiştirdikten sonra Azure AD parola koruması Proxy hizmetini el ile yeniden başlatma gerektirir. Bu niteliği yapılandırma değişikliklerini yaptıktan sonra etki alanı denetleyicilerinde çalışan DC Aracı hizmeti yazılımı yeniden başlatmak gerekli değildir.
+   > Herhangi bir bağlantı noktası yapılandırmasını değiştirdikten sonra parola koruması için proxy hizmeti el ile yeniden başlatma gerektirir. Ancak, bu yapılandırma değişikliklerini yaptıktan sonra etki alanı denetleyicilerinde DC Aracı hizmeti yazılımı yeniden başlatmanız gerekmez.
 
-   * Hizmet geçerli yapılandırmasını kullanarak sorgulanan `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet'i aşağıdaki örnekte gösterildiği gibi:
+   * Hizmetin geçerli yapılandırmasını sorgulamak için aşağıdaki komutu kullanın `Get-AzureADPasswordProtectionProxyConfiguration` cmdlet:
 
       ```PowerShell
       Get-AzureADPasswordProtectionProxyConfiguration | fl
@@ -254,39 +249,39 @@ Adresinden indirilip Azure AD parola koruması için gerekli iki yükleyiciler v
       StaticPort  : 0
       ```
 
-### <a name="install-the-azure-ad-password-protection-dc-agent-service"></a>Azure AD parola koruması DC Aracısı Hizmeti'ni yükleme
+### <a name="install-the-dc-agent-service"></a>DC Aracısı Hizmeti'ni yükleme
 
-   Azure AD parola koruması DC Yükleme Aracısı yazılımını hizmet kullanarak `AzureADPasswordProtectionDCAgent.msi` MSI paketi
+   Parola koruması için DC aracı hizmetini kullanarak yükleme `AzureADPasswordProtectionDCAgentSetup.msi` paket.
 
-   Yazılım yüklemesi üzerinde yükleme yeniden başlatmayı gerektirdiği ve parola filtresi DLL'leri yalnızca yüklenen veya bir yeniden başlatmanın kaldırıldığında, işletim sistemi gereksinimi nedeniyle kaldırın.
+   Yazılım yükleme veya yüklemeyi, yeniden başlatma gerektirir. Parola filtresi DLL'leri yalnızca yüklenen veya yeniden başlatma tarafından yüklenmemiş olmasıdır.
 
-   DC Aracısı henüz bir etki alanı denetleyicisi olmayan bir makineye yüklemek için desteklenir. Bu durumda, hizmet başlar ve çalışma ancak aksi makine bir etki alanı denetleyicisi olarak yükseltildikten sonra kadar etkin değil.
+   DC Aracı hizmeti henüz bir etki alanı denetleyicisi olmayan bir makineye yükleyebilirsiniz. Bu durumda, hizmet Başlat ve Çalıştır ancak makine bir etki alanı denetleyicisi olarak yükseltilir kadar etkin kalır.
 
-   Yazılım yükleme, örneğin standart MSI yordamları kullanarak otomatik:
+   Standart MSI yordamları kullanarak yazılım yüklemeyi otomatik hale getirebilirsiniz. Örneğin:
 
-   `msiexec.exe /i AzureADPasswordProtectionDCAgent.msi /quiet /qn`
+   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
 
    > [!WARNING]
-   > Yukarıdaki örnek MSIEXEC komutu bir hemen yeniden başlatılmasına neden olur; Bu belirterek önlenebilir `/norestart` bayrağı.
+   > Örnek msiexec komut hemen yeniden neden olur. Bunu önlemek için kullanın `/norestart` bayrağı.
 
-Azure AD parola koruması DC aracı yazılım yüklemesini, bir etki alanı denetleyicisinde yüklü ve yeniden sonra tamamlanmıştır. Başka bir yapılandırma gerekli veya olanaklı.
+Bir etki alanı denetleyicisinde DC Aracısı yazılım yüklendikten sonra bilgisayar yeniden yükleme tamamlanır. Başka bir yapılandırma gerekli veya olanaklı.
 
 ## <a name="multiple-forest-deployments"></a>Birden çok ormanlı dağıtımlarda
 
-Azure AD parola koruması birden çok orman içinde dağıtmak için ek gereksinim yoktur. Her bir orman, Çoklu orman dağıtımı bölümünde açıklandığı gibi bağımsız olarak yapılandırılır. Her Azure AD parola koruması Proxy yalnızca katılmış olduğu ormandan etki alanı denetleyicilerini destekler. Azure AD parola koruması yazılımı belirli bir ormanda, başka bir ormandaki Active Directory güven yapılandırmalar ne olursa olsun dağıtılan Azure AD parola koruması yazılım farkında değil.
+Azure AD parola koruması birden çok orman içinde dağıtmak için ek gereksinim yoktur. Her bir orman, "tek ormanlı dağıtımı" bölümünde açıklandığı gibi bağımsız olarak yapılandırılır. Her parola koruması proxy yalnızca katılmış olduğu ormandan etki alanı denetleyicilerini destekler. Parola koruması yazılımı herhangi bir ormandaki Active Directory güven yapılandırmalar ne olursa olsun diğer ormanlardaki dağıtılan parola koruması yazılımı habersizdir.
 
 ## <a name="read-only-domain-controllers"></a>Salt okunur etki alanı denetleyicileri
 
-Parola changes\sets hiçbir zaman işlenir ve salt okunur etki alanı denetleyicileri (RODC);'üzerinde kalıcı Bunun yerine, bu yazılabilir etki alanı denetleyicilerine iletilir. Bu nedenle RODC üzerinde DC Aracısı yazılımı yüklemek için gerek yoktur.
+Parola değişiklikleri/ayarlar değil işlenir ve salt okunur etki alanı denetleyicileri (RODC) kalıcı. Bunlar, yazılabilir etki alanı denetleyicilerine iletilir. Bu nedenle, RODC üzerinde DC Aracısı yazılımını yüklemeniz gerekmez.
 
 ## <a name="high-availability"></a>Yüksek kullanılabilirlik
 
-Bir ormandaki etki alanı denetleyicilerinin yeni ilkeler veya diğer verileri Azure'dan yüklemeye çalışırken ile Azure AD parola koruması yüksek kullanılabilirliğini sağlama kaygısı proxy sunucuların bir kullanılabilirlik kümesidir. Her bir DC aracı proxy sunucusunu çağrısı ve atlar, yanıt vermeyen proxy sunucuları verirken basit hepsini bir kez deneme stil algoritması kullanır. İki (2) proxy sunucuları tam olarak bağlı Active Directory dağıtımların çoğunluğu için sağlıklı çoğaltması (durumunun hem directory ve sysvol'de), kullanılabilirlik ve bu nedenle zamanında yüklemeleri yeni ilkeleri ve diğer verileri emin olmak yeterli olur. İstenen. ek proxy sunucuları olarak dağıtılabilir.
+Bir ormandaki etki alanı denetleyicilerinin yeni ilkeler veya diğer verileri Azure'dan indirilmeye çalışılırken ana kullanılabilirlik parola koruması için proxy sunucuları kullanılabilirliğini konusudur. Her bir DC aracı çağırmak için proxy sunucusunu verirken basit bir hepsini bir kez deneme stili algoritması kullanır. Aracı yanıt olmayan proxy sunucuları atlar. Dizin hem sysvol klasörü durumunun sağlıklı çoğaltmanın en tam olarak bağlı Active Directory dağıtımları için iki proxy sunucu olduğu yeterli kullanılabilir olmasını sağlamak için. Bu yeni ilkeleri zamanında indirilmesini ve diğer verileri sonuçlanır. Ancak, ek bir proxy sunucuları dağıtabilirsiniz.
 
-Yüksek kullanılabilirlik ile ilişkili her zamanki sorunlar DC Aracısı yazılımının tasarım gereği azalır. DC aracının en son indirilen parola ilkesini yerel önbelleğini korur. Proxy sunucuları için herhangi bir nedenle kullanılamaz duruma tüm kayıtlı olsa bile, DC aracılar önbelleğe alınmış parola ilkelerini zorlamak devam edin. Bir parola ilkelerini büyük bir dağıtımın makul güncelleştirme sıklığını gün, saat değil ya da daha az sırasını genellikle açıktır. Bu nedenle kısa kesintiler proxy sunucuları, Azure AD parola koruması özelliği ya da güvenlik avantajlarından işlemi için önemli bir etkisi neden olmaz.
+DC Aracısı yazılım tasarımı, yüksek kullanılabilirlik ile ilişkili her zamanki sorunlar azaltır. DC aracının en son indirilen parola ilkesini yerel önbelleğini korur. Tüm kullanılabilir duruma proxy sunucuları kayıtlı olsa bile, önbelleğe alınmış parola ilkelerini zorlamak DC aracıları devam eder. Genellikle büyük bir dağıtımın parola ilkelerini makul güncelleştirme sıklığı olan *gün*, olmayan bir saat veya daha az. Bu nedenle, proxy sunucuları kısa kesintiler önemli ölçüde Azure AD parola koruması etkisini.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Şirket içi sunucularınızı Azure AD parola koruması için gerekli hizmetleri yüklediğinize tamamlamak [sonrası yapılandırma ve raporlama bilgileri toplama yükleyin](howto-password-ban-bad-on-premises-operations.md) dağıtımınızı tamamlamak için.
+Şirket içi sunucularınız üzerinde Azure AD parola koruması için gereksinim duyduğunuz Hizmetleri yüklediğinize göre [yükleme sonrası yapılandırma ve raporlama bilgileri toplama işlemleri](howto-password-ban-bad-on-premises-operations.md) dağıtımınızı tamamlamak için.
 
 [Azure AD parola koruması kavramsal genel bakış](concept-password-ban-bad-on-premises.md)

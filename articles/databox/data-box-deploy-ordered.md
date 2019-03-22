@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 16a3fab1fe2338611823a9ab559826302bd06d13
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 07ccd2aaec6b2325d6eef09a466a5d0707836b4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403847"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834277"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Öğretici: Azure Data Box'ı sırası
 
@@ -61,6 +61,7 @@ Cihaz sipariş etmek için Azure portalında aşağıdaki adımları izleyin.
 3. **Oluştur**’a tıklayın.
 
 4. Data Box'ın bölgenizde kullanılabilir olup olmadığını kontrol edin. Aşağıdaki bilgileri girin veya seçin ve sonra **Uygula**'ya tıklayın. 
+
     |Ayar  |Değer  |
     |---------|---------|
     |Abonelik     | Data Box hizmeti için bir kurumsal Anlaşma, CSP veya Azure sponsorluğu aboneliği seçin. <br> Abonelik fatura hesabınıza bağlıdır.       |

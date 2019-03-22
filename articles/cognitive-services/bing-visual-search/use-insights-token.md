@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: d2bf5194a3fd4398927d0ee95d89e44db1c1ca15
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b01b68964600f6162512d4405fddbaf125e7e76d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542650"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082740"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Bir görüntü ile ilgili öngörüleri almak için bir ınsights belirteci kullanma
 
@@ -373,19 +373,19 @@ Bu uygulamayı çalıştırmak için şu adımları izleyin:
 1. Projeniz için bir klasör oluşturun (veya sık kullandığınız IDE'yi veya düzenleyiciyi kullanın).
 2. Bir komut isteminden veya terminalden az önce oluşturduğunuz klasöre gidin.
 3. İstek modüllerini yükleyin:  
-  ```  
-  npm install request  
-  ```  
+   ```  
+   npm install request  
+   ```  
 3. Form verisi modüllerini yükleyin:  
-  ```  
-  npm install form-data  
-  ```  
+   ```  
+   npm install form-data  
+   ```  
 4. GetVisualInsights.js adlı bir dosya oluşturun ve içine aşağıdaki kodu ekleyin.
 5. `subscriptionKey` değerini, abonelik anahtarınızla değiştirin.
 7. Programı çalıştırın.  
-  ```
-  node GetVisualInsights.js
-  ```
+   ```
+   node GetVisualInsights.js
+   ```
 
 ```javascript
 var request = require('request');

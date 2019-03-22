@@ -7,12 +7,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 95bec451c556ff9f3c5bcccee68f900543639733
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978094"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004113"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Bir mikro hizmeti özelleştirme ve yeniden dağıtma
 
@@ -44,7 +44,7 @@ Bu bölümünde varsayılan IOT hub Yöneticisi mikro hizmet API çağrısı. AP
 
 1. Uzaktan izleme çözümü makinenizde yerel olarak çalışır durumda olduğundan emin olun.
 2. Postman indirdiğiniz bulun ve açın.
-3. Postman içinde GET aşağıdakileri girin: http://localhost:8080/iothubmanager/v1/status.
+3. Postman içinde GET aşağıdakileri girin: `http://localhost:8080/iothubmanager/v1/status`.
 4. Görünümü "Durum" dönüş ve görmeniz gerekir: "Tamam: etkin ve iyi".
 
     ![Canlı ve iyi Postman iletisi](./media/iot-accelerators-microservices-example/postman-alive-well.png)
@@ -144,7 +144,7 @@ Uzaktan izleme çözümünü yerel bir örneğini dağıtarak ve Postman içinde
     ```
 
 3. Postman indirdiğiniz bulun ve açın.
-4. Postman içinde aşağıdaki isteği Get girin: http://localhost:8080/iothubmanager/v1/status. Artık görmelisiniz, "Durum": "TAMAM: Burada yapılan yeni düzenlemeler! ".
+4. Postman içinde aşağıdaki isteği Get girin: `http://localhost:8080/iothubmanager/v1/status`. Artık görmelisiniz, "Durum": "TAMAM: Burada yapılan yeni düzenlemeler! ".
 
 ![Yeni burada yaptığınız düzenlemeleri postman iletisi](./media/iot-accelerators-microservices-example/new-postman-message.png)
 
