@@ -8,16 +8,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: b219e9475151ecd14d8b45db9501a06cde05875b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470605"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182413"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Azure Event Grid için özel konuya gönderme
 
 Bu makalede, bir özel konuya bir olay göndermek nasıl açıklar. Bu biçim post ve olay verilerini gösterir. [Hizmet düzeyi sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) yalnızca, beklenen biçim ile eşleşmesi için geçerlidir.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="endpoint"></a>Uç Nokta
 
@@ -34,7 +36,7 @@ az eventgrid topic show --name <topic-name> -g <topic-resource-group> --query "e
 Azure PowerShell ile özel bir konu uç noktası almak için kullanın:
 
 ```powershell
-(Get-AzureRmEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
+(Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
 ## <a name="header"></a>Üst bilgi
@@ -52,7 +54,7 @@ az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --quer
 PowerShell ile özel bir konu anahtarı almak için kullanın:
 
 ```powershell
-(Get-AzureRmEventGridTopicKey -ResourceGroupName <topic-resource-group> -Name <topic-name>).Key1
+(Get-AzEventGridTopicKey -ResourceGroupName <topic-resource-group> -Name <topic-name>).Key1
 ```
 
 ## <a name="event-data"></a>Olay verileri

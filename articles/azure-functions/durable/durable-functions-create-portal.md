@@ -10,21 +10,21 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 3ad657fb695d88ffc75a37ee566ce59126906748
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038441"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108078"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Dayanıklı işlevler Azure portalını kullanarak oluşturma
 
 [Dayanıklı işlevler](durable-functions-overview.md) uzantısı Azure işlevleri için NuGet paketi sağlanan [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). İşlev uygulamanızda bu uzantı yüklü olmalıdır. Bu makalede, Azure portalında dayanıklı işlevler geliştirilebilmesi için bu paketi yüklemek gösterilmektedir.
 
->[!NOTE]
->
->* Dayanıklı işlevler geliştiriyorsanız C#, bunun yerine dikkate almanız gereken [Visual Studio 2017 geliştirme](durable-functions-create-first-csharp.md).
-* Dayanıklı işlevler javascript'teki geliştiriyorsanız bunun yerine dikkate almanız gereken [Visual Studio Code geliştirme](./quickstart-js-vscode.md).
+> [!NOTE]
+> 
+> * Dayanıklı işlevler geliştiriyorsanız C#, bunun yerine dikkate almanız gereken [Visual Studio 2017 geliştirme](durable-functions-create-first-csharp.md).
+> * Dayanıklı işlevler javascript'teki geliştiriyorsanız bunun yerine dikkate almanız gereken [Visual Studio Code geliştirme](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 

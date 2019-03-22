@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 74274d6f901a2c02fb526a9bdce85771a9764f53
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6b82c0d2d4a5e22094bf0a408d6a42f17bb3bea4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249355"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839823"
 ---
-# <a name="view-and-download-your-microsoft-azure-invoice"></a>Görüntüleyin ve Microsoft Azure faturanızı indirin
+# <a name="view-and-download-your-microsoft-azure-invoice"></a>Microsoft Azure faturanızı görüntüleme ve indirme
 
 Çoğu abonelikler için fatura indirebilirsiniz [Azure portalında](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) veya e-posta ile gönderilen sahip. Bir Kurumsal Anlaşma (EA müşterisinin) ile bir Azure müşterisi iseniz, kuruluşunuzun fatura karşıdan yükleyemiyor. Kayıt için fatura almaya ayarlanmış yapabilmek için fatura gönderilir.
 
@@ -32,7 +32,7 @@ Varsa bir [Microsoft Müşteri sözleşmesi](#Check-your-access-to-a-Microsoft-C
 
 ## <a name="download-your-azure-invoices-pdf"></a>Azure faturalarınızda (.pdf) indirin
 
-Çoğu abonelikler için Azure portalından faturanızı indirebilirsiniz. Bir Microsoft Müşteri Sözleşmemiz var olmadığını [faturalar için fatura profil indirme](#download-invoices-for-a-billing-profile).
+Çoğu abonelikler için Azure portalından faturanızı indirebilirsiniz. Microsoft Müşteri sözleşmesi varsa, bkz faturalar için fatura profili.
 
 ### <a name="download-invoices-for-an-individual-subscription"></a>Tek bir abonelik için fatura indir
 
@@ -69,7 +69,7 @@ Son fatura dönemi için fatura görmüyorsanız bkz [neden olmayan görüyorum 
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Faturanızı (.pdf) e-posta ile alın
 
-Kabul et ve Azure'ı almak için ek alıcılar yapılandırma faturayı e. Bu özellik Destek teklifleri, Kurumsal Anlaşma ya da Open ile Azure gibi bazı abonelikler için kullanılamıyor olabilir. Bir Microsoft Customer sözleşmeniz varsa bkz [faturalandırma profili faturalarınızda e-posta ile alın](#get-your-billing-profile-invoices-in-email).
+Kabul et ve Azure'ı almak için ek alıcılar yapılandırma faturayı e. Bu özellik Destek teklifleri, Kurumsal Anlaşma ya da Open ile Azure gibi bazı abonelikler için kullanılamıyor olabilir. Bir Microsoft Customer sözleşme yaptıysanız, e-posta ile faturalandırma profilinizi faturalar Get bakın.
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>Aboneliğinizin faturaların e-posta ile alın
 
@@ -89,7 +89,7 @@ Adımları tamamladıktan sonra bir e-posta almazsanız, e-posta adresinizi doğ
 
 ### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>E-posta aboneliğinizin faturalar alma dışında iyileştirilmiş
 
-Yukarıdaki ve tıklayarak adımları izleyerek e-posta ile faturanızı alma dışında iyileştirilmiş **iyileştirilmiş e-postayla faturaların**. Bu seçenek, faturalar içinde e-posta almak için herhangi bir e-posta adresi kaldırır. Geri katılırsanız alıcıların yeniden yapılandırabilirsiniz.
+Yukarıdaki ve tıklayarak adımları izleyerek e-posta ile faturanızı alma dışında iyileştirilmiş **iyileştirilmiş e-postayla faturaların**. Bu seçenek, faturaların e-posta ile gönderilmesi için girilmiş olan e-posta adreslerini kaldırır. Geri katılırsanız alıcıların yeniden yapılandırabilirsiniz.
 
  ![Vazgeçme akışını gösteren ekran görüntüsü](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
@@ -129,7 +129,7 @@ Bir faturayı görmemenizin birden fazla nedeni olabilir:
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun
 
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

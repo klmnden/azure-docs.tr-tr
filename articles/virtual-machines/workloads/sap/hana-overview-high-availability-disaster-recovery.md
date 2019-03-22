@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61f536ee5eb27982bd63daf0b278e6c7a836fe08
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 4d60f6752bf369e875c350823f76854408fcb806
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390748"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000596"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA büyük örnekleri azure'da yüksek kullanılabilirlik ve olağanüstü durum kurtarma 
 
@@ -33,9 +33,9 @@ Yüksek kullanılabilirlik ve olağanüstü durum kurtarma (DR), görev açısı
 
 Microsoft, bazı HANA büyük örnekleri ile SAP HANA yüksek kullanılabilirlik özellikleri destekler. Bu özellikler şunları içerir:
 
-- **Depolama çoğaltma**: depolama sisteminin başka bir Azure bölgesindeki başka bir HANA büyük örneği damgasında tüm veri çoğaltma olanağı. SAP HANA, bu yöntem bağımsız olarak çalışır. Bu işlev, HANA büyük örnekler için sunulan varsayılan olağanüstü durum kurtarma mekanizmadır.
-- **HANA sistem çoğaltması**: [tüm SAP HANA veri çoğaltmanın](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) ayrı bir SAP HANA sistem. Kurtarma süresi hedefi düzenli aralıklarla veri çoğaltma ile en aza indirilir. SAP HANA, zaman uyumsuz ve zaman uyumlu, bellek ve zaman uyumlu modda destekler. Zaman uyumlu modda aynı veri merkezinde veya küçüktür 100 km uzaklıkta içinde olan SAP HANA sistemleri için kullanılır. Geçerli tasarım HANA büyük örneği damga ile yalnızca tek bir bölgede yüksek kullanılabilirlik için HANA sistem çoğaltması kullanılabilir. HANA sistem çoğaltması, başka bir Azure bölgesine olağanüstü durum kurtarma yapılandırmaları için üçüncü taraf ters proxy ya da yönlendirme bileşeni gerektirir. 
-- **Ana bilgisayar otomatik yük devretme**: bir HANA sistem çoğaltması alternatif bir SAP HANA için yerel hata kurtarma çözümü. Ana düğüm kullanılamaz duruma gelirse, Ölçek Genişletme modunda bir veya daha fazla bekleme SAP HANA düğümleri yapılandırmak ve SAP HANA otomatik olarak bir bekleme düğüme devreder.
+- **Depolama çoğaltma**: Depolama sisteminin özelliği tüm verileri başka bir Azure bölgesindeki başka bir HANA büyük örneği damgasında çoğaltın. SAP HANA, bu yöntem bağımsız olarak çalışır. Bu işlev, HANA büyük örnekler için sunulan varsayılan olağanüstü durum kurtarma mekanizmadır.
+- **HANA sistem çoğaltması**: [Tüm SAP HANA veri çoğaltmanın](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) ayrı bir SAP HANA sistem. Kurtarma süresi hedefi düzenli aralıklarla veri çoğaltma ile en aza indirilir. SAP HANA, zaman uyumsuz ve zaman uyumlu, bellek ve zaman uyumlu modda destekler. Zaman uyumlu modda aynı veri merkezinde veya küçüktür 100 km uzaklıkta içinde olan SAP HANA sistemleri için kullanılır. Geçerli tasarım HANA büyük örneği damga ile yalnızca tek bir bölgede yüksek kullanılabilirlik için HANA sistem çoğaltması kullanılabilir. HANA sistem çoğaltması, başka bir Azure bölgesine olağanüstü durum kurtarma yapılandırmaları için üçüncü taraf ters proxy ya da yönlendirme bileşeni gerektirir. 
+- **Ana bilgisayar otomatik yük devretme**: Yerel Hata kurtarma çözümü için SAP HANA, HANA sistem çoğaltması için bir alternatiftir. Ana düğüm kullanılamaz duruma gelirse, Ölçek Genişletme modunda bir veya daha fazla bekleme SAP HANA düğümleri yapılandırmak ve SAP HANA otomatik olarak bir bekleme düğüme devreder.
 
 SAP HANA (büyük örnekler) azure'da iki Azure bölgesinde dört coğrafi alanları (ABD, Avustralya, Avrupa ve Japonya) olarak sunulur. HANA büyük örneği Damgalar barındıran iki bölgeleri coğrafi alanda ayrı Adanmış ağ bağlantı hatlarına bağlı. Bunlar depolama anlık görüntüleri çoğaltmak için olağanüstü durum kurtarma yöntemler sağlamak için kullanılır. Çoğaltma, varsayılan olarak oluşturulmuş olmaz ancak olağanüstü durum kurtarma işlevi sipariş müşteriler için ayarlanmış. Depolama çoğaltma HANA büyük örnekler için depolama anlık görüntüleri kullanımını bağlıdır. Farklı bir coğrafi alanda bir DR bölgesinde olarak bir Azure bölgesi seçin mümkün değildir. 
 
@@ -44,7 +44,7 @@ Aşağıdaki tabloda, birleşimler ve şu anda desteklenen yüksek kullanılabil
 | HANA büyük örnekleri desteklenen bir senaryo | Yüksek kullanılabilirlik seçeneği | Olağanüstü durum kurtarma seçeneği | Yorumlar |
 | --- | --- | --- | --- |
 | Tek düğüm | Kullanılamıyor. | Ayrılmış DR kurulumu.<br /> Çok amaçlı DR kurulumu. | |
-| Ana bilgisayar otomatik yük devretme: ölçeği genişletme (ile veya olmadan bekleme)<br /> 1 + 1 dahil olmak üzere | Etkin rolü alma bekleme ile mümkün.<br /> HANA rol anahtar denetler. | Ayrılmış DR kurulumu.<br /> Çok amaçlı DR kurulumu.<br /> Depolama çoğaltması kullanarak DR eşitleme. | HANA birim kümeleri tüm düğümleri eklenir.<br /> DR sitesi düğümleri sayıları aynı olmalıdır. |
+| Ana bilgisayar otomatik yük devretme: Ölçeği genişletme (ile veya olmadan bekleme)<br /> 1 + 1 dahil olmak üzere | Etkin rolü alma bekleme ile mümkün.<br /> HANA rol anahtar denetler. | Ayrılmış DR kurulumu.<br /> Çok amaçlı DR kurulumu.<br /> Depolama çoğaltması kullanarak DR eşitleme. | HANA birim kümeleri tüm düğümleri eklenir.<br /> DR sitesi düğümleri sayıları aynı olmalıdır. |
 | HANA sistem çoğaltması | Birincil veya ikincil kurulum ile mümkün.<br /> İkincil bir yük devretme durumunda, birincil rol taşır.<br /> Yük devretme, HANA sistem çoğaltması ve işletim sistemi denetler. | Ayrılmış DR kurulumu.<br /> Çok amaçlı DR kurulumu.<br /> Depolama çoğaltması kullanarak DR eşitleme.<br /> HANA sistem çoğaltması kullanarak DR henüz üçüncü taraflara ait bileşenleri mümkün değildir. | Disk birimleri ayrı kümesi her düğüme eklenmiş.<br /> Üretim sitesinin ikincil çoğaltma yalnızca disk birimlerini DR konuma çoğaltılır.<br /> Birimlerin bir kümesini DR sitede gereklidir. | 
 
 Adanmış bir DR Kurulum, burada DR sitesi HANA büyük örneği biriminde herhangi bir iş yükü veya üretim dışı sistem çalıştırmak için kullanılmayan ' dir. Birim pasif ve yalnızca bir olağanüstü durum yük devretme yürütülürse dağıtılır. Ancak, bu kurulum birçok müşteri için tercih edilen bir seçim değil.
@@ -59,9 +59,9 @@ Başvuru [HLI desteklenen senaryoları](hana-supported-scenario.md) Mimarinizi i
 
 Aşağıdaki makalelerde SAP, SAP HANA yüksek kullanılabilirliği hakkında daha fazla bilgi bulabilirsiniz: 
 
-- [SAP HANA yüksek kullanılabilirlik teknik incelemesi](http://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
-- [SAP HANA Yönetim Kılavuzu](http://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
-- [SAP HANA sistem çoğaltması üzerinde SAP HANA Academy videosunda](http://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
+- [SAP HANA yüksek kullanılabilirlik teknik incelemesi](https://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
+- [SAP HANA Yönetim Kılavuzu](https://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
+- [SAP HANA sistem çoğaltması üzerinde SAP HANA Academy videosunda](https://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
 - [SAP destek Not #1999880 – SAP HANA sistem çoğaltması hakkında SSS](https://apps.support.sap.com/sap/support/knowledge/preview/en/1999880)
 - [Yedekleme desteği Not #2165547 – geri SAP HANA SAP ve SAP HANA sistem çoğaltma ortamı içinde geri yükleme](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726)
 - [Donanım değişimi en az/sıfır kapalı kalma süresi için destek Not #1984882 – SAP HANA sistem çoğaltması kullanarak SAP](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
@@ -86,7 +86,7 @@ HANA büyük örnekleri ile bir olağanüstü durum kurtarma kurulumu için yuka
 - DR sitesinde ek depolama alanı, her biri olağanüstü durum kurtarma sitesini kurtarmak istediğiniz (büyük örnekler) Azure SKU'ları SAP HANA için sipariş. Ek depolama alanı satın alma depolama birimleri ayırmanıza olanak tanır. Depolama çoğaltma Azure bölgesine olağanüstü durum kurtarma, üretim ortamında Azure bölgesini hedef birimler ayırabilirsiniz.
 - Durumda, burada birincil HSR ayarladıktan ve DR sitesine göre depolama çoğaltma kurulumu, bu nedenle hem birincil hem de Kurtarma sitesinde ek depolama alanı satın almanız gerekir ve ikincil düğüm veri DR sitesine çoğaltılan.
 
- **Sonraki adımlar**
+  **Sonraki adımlar**
 - Başvuru [yedekleme ve geri yükleme](hana-backup-restore.md).
 
 

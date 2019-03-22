@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 41e7f0ea8616b25eac43ecff7802e0f9e1c08050
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f18d3409d53123733d7f423c77864cd0739765eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180713"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900599"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Windows Server sanal makinesini yönetilen bir etki alanına ekleme
 Bu makalede, Azure portalını kullanarak bir Windows Server sanal makine dağıtma gösterilmektedir. Ardından, sanal makine bir Azure Active Directory etki alanı Hizmetleri (Azure AD DS) yönetilen etki alanına ekleme işlemini gösterir.
@@ -107,7 +107,7 @@ Windows Server sanal makinesini Azure AD DS tarafından yönetilen bir etki alan
 
 7. Kimlik bilgileri aşağıdaki yollardan birini belirtebilirsiniz:
 
-   * **UPN biçimini**: (Önerilen) Azure AD'de yapılandırılmış kullanıcı hesabının kullanıcı asıl adı (UPN) sonekini belirtin. Bu örnekte, kullanıcının UPN soneki *bob* olduğu *bob@domainservicespreview.onmicrosoft.com*.
+   * **UPN biçimini**: (Önerilen) Azure AD'de yapılandırılmış kullanıcı hesabının kullanıcı asıl adı (UPN) sonekini belirtin. Bu örnekte, kullanıcının UPN soneki *bob* olduğu *bob\@domainservicespreview.onmicrosoft.com*.
 
    * **SAMAccountName biçimi**: Hesap adı SAMAccountName biçiminde belirtebilirsiniz. Bu örnekte, kullanıcı *bob* girmesi *CONTOSO100\bob*.
 
@@ -146,7 +146,7 @@ Kimlik bilgileri ile ilgili sorun yaşadığınız ve etki alanına katılamıyo
 
 * Sahip olduğunuz denetimi [parola eşitlemesini etkinleştirdiğinizden](active-directory-ds-getting-started-password-sync.md) yönetilen etki alanınıza.
 
-* Azure AD içinde yapılandırılan kullanıcı UPN'si kullandınız denetleyin (örneğin, *bob@domainservicespreview.onmicrosoft.com*) oturum açmak için.
+* Azure AD içinde yapılandırılan kullanıcı UPN'si kullandınız denetleyin (örneğin, *bob\@domainservicespreview.onmicrosoft.com*) oturum açmak için.
 
 * Tamamlanmak üzere yeteri kadar parola eşitleme için bekleyin başlangıç kılavuzunda belirtilmiş.
 

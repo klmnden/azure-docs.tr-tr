@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: cf566811f1e5fe7fde20d148e68417acf6d42f54
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0955d95ebfd9e1f72ed1da577bf3520a70b71624
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073831"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008338"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Klasik dağıtım modelini kullanarak zorlamalı tünel yapılandırma
 
@@ -28,7 +28,7 @@ Zorlamalı tünel yeniden yönlendirme veya tüm İnternet'e bağlı trafiği, i
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-Bu makalede, zorlamalı tünel Klasik dağıtım modeli kullanılarak oluşturulmuş sanal ağlar için nasıl yapılandıracağınız anlatılmaktadır. Zorlamalı tünel, portal üzerinden değil, PowerShell kullanarak yapılandırılabilir. Klasik makale, Resource Manager dağıtım modeli için zorlamalı tünel yapılandırmak istiyorsanız, aşağıdaki açılır listeden seçin:
+Bu makalede, zorlamalı tünel Klasik dağıtım modeli kullanılarak oluşturulmuş sanal ağlar için nasıl yapılandıracağınız anlatılmaktadır. Zorlamalı tünel, portal üzerinden değil, PowerShell kullanarak yapılandırılabilir. Resource Manager dağıtım modeli için zorlamalı tünel yapılandırmak istiyorsanız, Resource Manager makale aşağıdaki açılır listeden seçin:
 
 > [!div class="op_single_selector"]
 > * [PowerShell - Klasik](vpn-gateway-about-forced-tunneling.md)
@@ -41,9 +41,9 @@ Zorlamalı tünel Azure'da sanal ağ kullanıcı tanımlı yollar (UDR) yapılan
 
 * Her sanal ağ alt ağı, yerleşik bir sistem yönlendirme tablosu vardır. Sistem yönlendirme tablosu yolların aşağıdaki üç grup vardır:
 
-  * **Yerel sanal ağ yolları:** aynı sanal ağdaki VM'ler hedef için doğrudan.
-  * **Şirket içi yolları:** için Azure VPN ağ geçidi.
-  * **Varsayılan yol:** doğrudan Internet'e. Önceki iki yol tarafından kapsandığından değil özel IP adreslerini hedefleyen paketler bırakılır.
+  * **Yerel sanal ağ yolları:** Doğrudan hedefe Vm'leri aynı sanal ağda.
+  * **Şirket içi yolları:** Azure VPN ağ geçidi için.
+  * **Varsayılan yol:** Doğrudan Internet'e. Önceki iki yol tarafından kapsandığından değil özel IP adreslerini hedefleyen paketler bırakılır.
 * Kullanıcı tanımlı yollar'ın yayınlanmasıyla birlikte, varsayılan bir yol eklemek için bir yönlendirme tablosu oluşturun ve ardından bu alt ağlarda zorlamalı tüneli etkinleştirmek için sanal ağ alt ağı, başarılı için yönlendirme tablosu ilişkilendirebilirsiniz.
 * "Sanal ağa bağlı bir varsayılan site" şirket içi yerel siteleri arasında ayarlamanız gerekir.
 * Zorlamalı tünel dinamik yönlendirme VPN ağ geçidi (bir statik ağ geçidi sorunsuz değil) sahip bir sanal ağ ile ilişkilendirilmiş olması gerekir.
@@ -104,7 +104,7 @@ Aşağıdaki yordam bir sanal ağ için zorlamalı tünel belirtmenize yardımc�
     </VirtualNetworkSite>
 ```
 
-Bu örnekte, üç alt sanal ağ 'MultiTier-VNet' sahip: 'Ön uç', 'Midtier' ve 'Backend' alt ağlar, dört şirket içi ve dışı bağlantılar: 'DefaultSiteHQ' ve üç dalları. 
+Bu örnekte, üç alt sanal ağ 'MultiTier-VNet' sahiptir: 'Ön uç', 'Midtier' ve 'Backend' alt ağlar, dört şirket içi ve dışı bağlantılar: 'DefaultSiteHQ' ve üç dalları. 
 
 Adımları 'DefaultSiteHQ' varsayılan site bağlantısı olarak zorlamalı tünel ve Midtier yapılandırma ve zorlamalı tünel kullanmak için arka uç alt ağları.
 

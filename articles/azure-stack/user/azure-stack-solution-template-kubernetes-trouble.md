@@ -5,21 +5,21 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabvrigg
+ms.date: 03/20/2019
 ms.reviewer: waltero
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 5436b562b4f9054e0e00e3cc6abb1724797437db
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: 01a9405c98160149782ab2cf248f64818d631dde
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729638"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293796"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Azure Stack, Kubernetes dağıtımı sorunlarını giderme
 
@@ -66,8 +66,8 @@ Küme dağıtımı için genel süreç Aşağıdaki diyagramda gösterilmektedir
 
     Betik aşağıdaki görevleri gerçekleştirir:
     - Etcd, Docker ve Kubernetes yükler kubelet gibi kaynakları. etcd makine kümesi arasında verileri depolamak için bir yol sağlayan bir dağıtılmış anahtar değer deposudur. Docker kapsayıcıları olarak bilinen tam kemikler işletim sistemi düzeyinde virtualizations destekler. Kubelet her Kubernetes düğümü üzerinde çalışan düğümü aracısıdır.
-    - Etcd hizmet ayarlar.
-    - Kubelet hizmet ayarlar.
+    - Ayarlar **etcd** hizmeti.
+    - Ayarlar **kubelet** hizmeti.
     - Kubelet başlatır. Bu görev, aşağıdaki adımları içerir:
         1. API hizmetini başlatır.
         2. Denetleyici Hizmeti başlatır.
@@ -77,9 +77,9 @@ Küme dağıtımı için genel süreç Aşağıdaki diyagramda gösterilmektedir
 7. İndirin ve özel betik uzantısı'nı çalıştırın.
 
 7. Aracı betiği çalıştırın. Aracısı özel betik aşağıdaki görevleri gerçekleştirir:
-    - Etcd yükler
-    - Kubelet hizmet ayarlar
-    - Kubernetes kümesini birleştirir
+    - Yükler **etcd**.
+    - Ayarlar **kubelet** hizmeti.
+    - Kubernetes kümesini birleştirir.
 
 ## <a name="steps-for-troubleshooting"></a>Sorun giderme adımları
 
@@ -119,65 +119,52 @@ Kubernetes kümesini dağıtırken, herhangi bir sorun için kontrol etmek için
 
     Her öğenin bir durum simgesi yeşil veya kırmızı vardır.
 
-## <a name="get-logs-from-a-vm"></a>Bir sanal makineden günlükleri alın
+## <a name="review-deployment-logs"></a>Dağıtım günlüklerini gözden geçirin
 
-Günlükler oluşturmak için kümeniz için ana VM bağlanmak bir bash istemi açın ve ardından bir komut çalıştırın gerekir. Sanal makine küme kaynak grubunuzda bulunabilir ve adlı asıl `k8s-master-<sequence-of-numbers>`. 
+Azure Stack portal sorunlarını giderme veya dağıtım hatalarını gidermek için yeterli bilgi sağlamazsa, sonraki adım kümesi günlüklerine dig sağlamaktır. El ile dağıtım günlüklerini almak için genellikle bir kümenin ana sanal makinelerin bağlanmanız gerekir. Basit bir alternatif yaklaşım indirin ve aşağıdaki olacaktır [Bash betiği](https://aka.ms/AzsK8sLogCollectorScript) Azure Stack ekibi tarafından sağlanan. Bu betik DVM ve kümenin sanal makinelere bağlar, ilgili sistem ve küme günlükleri toplar ve bunları geri istasyonunuza indirir.
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-İhtiyacınız bir bash istemi makinedeki Azure Stack yönetmek için kullanabilirsiniz. Bash günlüklere erişmek komut dosyalarını çalıştırmak için kullanın. Bir Windows makinede Git ile yüklü bash isteminde kullanabilirsiniz. En son git sürümünü almak için bkz: [Git indirmeleri](https://git-scm.com/downloads).
+Azure Stack yönetmek için kullandığınız makine bir Bash isteminde gerekir. Bir Windows makinede bir Bash yükleyerek komut istemi alabilirsiniz [Git için Windows](https://git-scm.com/downloads). Yüklendikten sonra Ara _Git Bash_ , Başlat menüsünde.
 
-### <a name="get-logs"></a>Günlükleri alın
+### <a name="retrieving-the-logs"></a>Günlükleri alma
 
-Günlükleri almak için aşağıdaki adımları uygulayın:
+Toplamak ve küme günlükleri indirmek için aşağıdaki adımları izleyin:
 
-1. Bir bash istemi açın. Bir Windows makinede Git kullanıyorsanız, bir bash istemi aşağıdaki yoldan açabilirsiniz: `c:\programfiles\git\bin\bash.exe`.
-2. Şu bash komutlarını çalıştırın:
+1. Bir Bash istemi açın. Bir Windows makineden açın _Git Bash_ veya çalıştırın: `C:\Program Files\Git\git-bash.exe`.
+
+2. Günlük Toplayıcı komut, Bash isteminde aşağıdaki komutları çalıştırarak yükleyin:
 
     ```Bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
     curl -O https://raw.githubusercontent.com/msazurestackworkloads/azurestack-gallery/master/diagnosis/getkuberneteslogs.sh
-    sudo chmod 744 getkuberneteslogs.sh
+    chmod 744 getkuberneteslogs.sh
     ```
 
-    > [!Note]  
-    > Windows üzerinde çalıştırmanız gerekmez `sudo`. Bunun yerine, hemen kullanabileceğiniz `chmod 744 getkuberneteslogs.sh`.
+3. Komut dosyası için gereken bilgileri arayın ve çalıştırın:
 
-3. Aynı oturumda ortamınızla eşleşecek şekilde güncelleştirildi parametrelerle aşağıdaki komutu çalıştırın:
-
-    ```Bash  
-    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmd-host 192.168.102.37
-    ```
-
-4. Parametreleri gözden geçirin ve ortamınıza bağlı değerlerini ayarlayın.
     | Parametre           | Açıklama                                                                                                      | Örnek                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d, --vmd-host       | Genel IP veya DVM FQDN'si. VM adı ile başlayan `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
-    | f-,--force | Özel anahtarı karşıya yüklemeden önce istemde bulunmayın. | |
-    | -i,--dosya kimliği | Kubernetes ana VM bağlanmak için RSA özel anahtar dosyası. Anahtar ile başlaması gerekir: <br>`-----BEGIN RSA PRIVATE KEY-----` | C:\data\id_rsa.pem                                                        |
-    | -h, --help  | Komut kullanımı için yazdırma `getkuberneteslogs.sh` betiği. | |
-    | m-,--ana konak          | Genel IP veya Kubernetes kümesi ana VM tam etki alanı adını (FQDN). VM adı ile başlayan `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
-    | u-,--kullanıcı          | Kubernetes küme ana VM kullanıcı adı. Market öğesi yapılandırdığınızda bu adını ayarlayın.                                                                    | azureuser                                                                     |
+    | -d, --vmd-host      | Genel IP veya DVM tam etki alanı adını (FQDN). Sanal makine adı ile başlayan `vmd-`. | IP: 192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
+    | -h, --help  | Komut kullanımını yazdırın. | |
+    | -i,--dosya kimliği | RSA özel anahtar dosyası, Kubernetes kümesini oluştururken Market öğesine geçirildi. Kubernetes düğümleri uzaktan içinde gerekli. | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
+    | m-,--ana konak   | Genel IP veya Kubernetes ana düğümünün tam etki alanı adını (FQDN). Sanal makine adı ile başlayan `k8s-master-`. | IP: 192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | u-,--kullanıcı          | Kullanıcı adı, Kubernetes kümesini oluştururken Market öğesine geçirildi. Uzak öğesini Kubernetes düğümleri için gerekli | azureuser (varsayılan değer) |
 
 
-
-
-   Parametre değerleriniz eklediğinizde, aşağıdaki kodu şöyle görünebilir:
+   Parametre değerleriniz eklediğinizde, komutunuz şuna benzeyebilir:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-    Başarılı çalıştırma günlükleri oluşturur.
+4. Birkaç dakika sonra komut dosyasını toplanan günlükler adlı bir dizine çıkarır `KubernetesLogs_{{time-stamp}}`. Burada kümeye ait her bir sanal makine için bir dizin bulacaksınız.
 
-    ![Oluşturulan günlükleri](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
+    Günlük Toplayıcı betiği ayrıca günlük dosyalarındaki hataları aramak ve bilinen bir sorunu bulmak için olursa sorun giderme adımlarını içerir. Bilinen sorunlar bulma olasılığını artırmak için komut dosyasının en son sürümü çalıştırdığınızdan emin olun.
 
-
-4. Klasörlerdeki komutu tarafından oluşturulan günlükleri alın. Komut, yeni bir klasör oluşturur ve bunları zaman damgaları.
-    - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
-        - Dvmlogs
-        - Acsengine kubernetes dvm.log
+> [!Note]  
+> Bu GitHub denetleyin [depo](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) günlük Toplayıcı betik hakkında daha fazla ayrıntı öğrenin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

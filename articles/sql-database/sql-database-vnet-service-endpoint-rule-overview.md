@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: 15ca464e8e44183b445bfdabe9abf5dd560a4f70
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 4af27ad4fb5096f3ccac5de901c76e8d7464e1f4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312273"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887128"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Veritabanı sunucuları için sanal ağ hizmet uç noktaları ve kuralları kullanma
 
@@ -175,58 +175,60 @@ PolyBase, verileri Azure depolama hesaplarını Azure SQL Data Warehouse'a yükl
 #### <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 1.  Bunu kullanarak Azure PowerShell'i yükleyin [Kılavuzu](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Genel amaçlı v1 veya blob depolama hesabı varsa, genel amaçlı v2'ye yükseltmeniz gerekir bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Olmalıdır **güvenilen Microsoft hizmetlerinin bu depolama hesabına erişmesine izin ver** Azure depolama hesabı altında açık **güvenlik duvarları ve sanal ağları** ayarlar menüsü. Bu [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) daha fazla bilgi için.
  
 #### <a name="steps"></a>Adımlar
-1.  PowerShell'de, **SQL veritabanı sunucunuza kaydetmek** ile Azure Active Directory (AAD):
+1. PowerShell'de, **SQL veritabanı sunucunuza kaydetmek** ile Azure Active Directory (AAD):
 
-    ```powershell
-    Connect-AzAccount
-    Select-AzSubscription -SubscriptionId your-subscriptionId
-    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
-    ```
+   ```powershell
+   Connect-AzAccount
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
     
- 1. Oluşturma bir **genel amaçlı v2 depolama hesabı** bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+   1. Oluşturma bir **genel amaçlı v2 depolama hesabı** bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
-    > [!NOTE]
-    > - Genel amaçlı v1 veya blob depolama hesabı varsa, şunları yapmalısınız **v2'ye yükseltmeniz** bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-    > - Azure Data Lake depolama Gen2 ile'ilgili bilinen sorunlar için lütfen şuna bakın [Kılavuzu](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+   > [!NOTE]
+   > - Genel amaçlı v1 veya blob depolama hesabı varsa, şunları yapmalısınız **v2'ye yükseltmeniz** bu kullanarak [Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+   > - Azure Data Lake depolama Gen2 ile'ilgili bilinen sorunlar için lütfen şuna bakın [Kılavuzu](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1.  Depolama hesabınız kapsamında gidin **erişim denetimi (IAM)**, tıklatıp **rol ataması Ekle**. Ata **depolama Blob verileri katkıda bulunan (Önizleme)** SQL veritabanı sunucunuza RBAC rolü.
+1. Depolama hesabınız kapsamında gidin **erişim denetimi (IAM)**, tıklatıp **rol ataması Ekle**. Ata **depolama Blob verileri katkıda bulunan (Önizleme)** SQL veritabanı sunucunuza RBAC rolü.
 
-    > [!NOTE] 
-    > Bu adım yalnızca sahibi ayrıcalığa sahip üyeleri gerçekleştirebilir. Azure kaynakları için çeşitli yerleşik roller için şuna başvurun [Kılavuzu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > [!NOTE] 
+   > Bu adım yalnızca sahibi ayrıcalığa sahip üyeleri gerçekleştirebilir. Azure kaynakları için çeşitli yerleşik roller için şuna başvurun [Kılavuzu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
-1.  **Azure depolama hesabı bağlantı Polybase:**
+1. **Azure depolama hesabı bağlantı Polybase:**
 
-    1. Veritabanı oluşturma **[ana anahtarı](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql?view=sql-server-2017)** , biri daha önce oluşturmadıysanız:
-        ```SQL
-        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
-        ```
+   1. Veritabanı oluşturma **[ana anahtarı](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** , biri daha önce oluşturmadıysanız:
+       ```SQL
+       CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
+       ```
     
-    1. Veritabanı kapsamlı kimlik bilgileri ile oluşturun **Kimliği = 'Yönetilen hizmet Kimliği'**:
+   1. Veritabanı kapsamlı kimlik bilgileri ile oluşturun **Kimliği = 'Yönetilen hizmet Kimliği'**:
 
-        ```SQL
-        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
-        ```
-        > [!NOTE] 
-        > - Bu mekanizma kullandığından gizlilik ile Azure depolama erişim anahtarı belirtin. gerek [yönetilen kimliği](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) altında kapsar.
-        > - Kimlik adı olmalıdır **'Yönetilen hizmet Kimliği'** sanal ağa güvenli Azure depolama hesabı ile çalışmak PolyBase bağlantı.    
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - Bu mekanizma kullandığından gizlilik ile Azure depolama erişim anahtarı belirtin. gerek [yönetilen kimliği](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) altında kapsar.
+       > - Kimlik adı olmalıdır **'Yönetilen hizmet Kimliği'** sanal ağa güvenli Azure depolama hesabı ile çalışmak PolyBase bağlantı.    
     
-    1. Dış veri kaynağı ile abfss oluşturun: / / şeması PolyBase kullanarak, genel amaçlı v2 depolama hesabınıza bağlanmak için:
+   1. Dış veri kaynağı ile abfss oluşturun: / / şeması PolyBase kullanarak, genel amaçlı v2 depolama hesabınıza bağlanmak için:
 
-        ```SQL
-        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
-        ```
-        > [!NOTE] 
-        > - Genel amaçlı v1 veya blob depolama hesabı ile ilişkili dış tablolar zaten varsa önce bu dış tabloları kaldırın ve ardından ilgili dış veri kaynağını bırakın gerekir. Dış veri kaynağı ile abfss oluşturup: / / yukarıdaki gibi genel amaçlı v2 depolama hesabına bağlanma şeması ve bu yeni bir dış veri kaynağını kullanan tüm dış tabloları yeniden oluşturun. Kullanabileceğinizi [oluşturma ve yayımlama betiklerini Sihirbazı](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard?view=sql-server-2017) kolaylaştırmak için tüm dış tablolar oluşturma-betikleri oluşturmak için.
-        > - Abfss hakkında daha fazla bilgi: / / şeması, bu [Kılavuzu](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
-        > - CREATE EXTERNAL DATA SOURCE hakkında daha fazla bilgi için bu başvuru [Kılavuzu](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+       ```SQL
+       CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
+       ```
+       > [!NOTE] 
+       > - Genel amaçlı v1 veya blob depolama hesabı ile ilişkili dış tablolar zaten varsa önce bu dış tabloları kaldırın ve ardından ilgili dış veri kaynağını bırakın gerekir. Dış veri kaynağı ile abfss oluşturup: / / yukarıdaki gibi genel amaçlı v2 depolama hesabına bağlanma şeması ve bu yeni bir dış veri kaynağını kullanan tüm dış tabloları yeniden oluşturun. Kullanabileceğinizi [oluşturma ve yayımlama betiklerini Sihirbazı](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) kolaylaştırmak için tüm dış tablolar oluşturma-betikleri oluşturmak için.
+       > - Abfss hakkında daha fazla bilgi: / / şeması, bu [Kılavuzu](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+       > - CREATE EXTERNAL DATA SOURCE hakkında daha fazla bilgi için bu başvuru [Kılavuzu](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
         
-    1. Sorgu kullanarak normal olarak [dış tablolar](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+   1. Sorgu kullanarak normal olarak [dış tablolar](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### <a name="azure-sql-database-blob-auditing"></a>Azure SQL veritabanı Blob denetimi
 
@@ -256,7 +258,7 @@ Bağlantı hatası 40914 ilişkili *sanal ağ kuralları*, Azure Portalı'nda g�
 
 *İleti metni:* Sunucu açamıyor '{0}' oturum açma tarafından istenen. İstemci IP adresi ile{1}' sunucuya erişmesine izin verilmiyor.
 
-*Hata açıklaması:* İstemci, Azure SQL veritabanı sunucusuna bağlanmak için yetkili değil bir IP adresinden bağlanmaya çalışıyor. Sunucu güvenlik duvarını belirli IP adresinden SQL veritabanıyla iletişim kurmak bir istemci veren IP adresi kuralı yok.
+*Hata açıklaması:* İstemci, Azure SQL veritabanı sunucusuna bağlanmak için yetkili değil bir IP adresinden bağlanmaya çalışıyor. Sunucu güvenlik duvarında, istemcinin belirtilen IP adresinden SQL Veritabanı ile iletişim kurmasına izin veren bir IP adresi kuralı yok.
 
 *Hata çözünürlüğü:* İstemcinin IP adresini bir IP kuralı olarak girin. Azure Portalı'nda güvenlik duvarı bölmesini kullanarak bunu.
 

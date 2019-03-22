@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: e407aee98bef9917a99e3305e2c99dbdd0c182e0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e5f428062155ea732dce785955ac76011f3e4678
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469830"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899358"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning Anomali algılama API'si
 ## <a name="overview"></a>Genel Bakış
@@ -32,7 +32,7 @@ Bu makine öğrenimi algılayıcıları değerlerindeki bu tür değişiklikler 
 
 Anomali algılama teklifi, başlamanıza yardımcı olmak için kullanışlı Araçlar ile birlikte gelir.
 
-* [Web uygulaması](http://anomalydetection-aml.azurewebsites.net/) değerlendirmek ve verileriniz üzerinde anomali algılama API'leri sonuçlarını görselleştirmenize yardımcı olur.
+* [Web uygulaması](https://anomalydetection-aml.azurewebsites.net/) değerlendirmek ve verileriniz üzerinde anomali algılama API'leri sonuçlarını görselleştirmenize yardımcı olur.
 
 > [!NOTE]
 > Deneyin **BT Anomali öngörüleri çözüm** tarafından desteklenen [bu API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
@@ -110,9 +110,9 @@ Anomali algılama API'si algılayıcıları 3 kategoriden destekler. Özel giri�
 | Algılayıcı kategorisi | Algılayıcısı | Açıklama | Giriş parametreleri | Çıkışlar |
 | --- | --- | --- | --- | --- |
 | Depo algılayıcıları |TSpike algılayıcısı |Ani artışlar ve düşüşler kadar değerlerine göre ilk ve üçüncü Dörtte birlikler olan algılama |*tspikedetector.sensitivity:* aralıktaki bir tamsayı değeri 1-10 varsayılan alır: 3; Yüksek değerler, böylece daha az duyarlı hale birden fazla aşırı değeri yakalar |TSpike: ikili değerleri – '1' bir depo/DIP algılanırsa, '0' Aksi |
-| Depo algılayıcıları | ZSpike algılayıcısı |Ani artışlar ve düşüşler ne kadar datapoints'ler ortalamasını olmasına göre algılayın |*zspikedetector.sensitivity:* aralıktaki bir tamsayı değeri 1-10 varsayılan alın: 3; Yüksek değerler daha az duyarlı hale birden fazla aşırı değeri yakalar. |ZSpike: ikili değerleri – '1' bir depo/DIP algılanırsa, '0' Aksi | |
+| Depo algılayıcıları | ZSpike algılayıcısı |Ani artışlar ve düşüşler ne kadar datapoints'ler ortalamasını olmasına göre algılayın |*zspikedetector.sensitivity:* aralıktaki bir tamsayı değeri 1-10 varsayılan alın: 3; Yüksek değerler daha az duyarlı hale birden fazla aşırı değeri yakalar. |ZSpike: ikili değerleri – '1' bir depo/DIP algılanırsa, '0' Aksi |
 | Yavaş eğilim algılayıcısı |Yavaş eğilim algılayıcısı |Yavaş pozitif eğilim kümesi duyarlılığına göre algılayın |*trenddetector.sensitivity:* algılayıcısı puanı eşiğine (varsayılan: 3,25, 3,25 – 5 bunu seçmek için makul bir aralığı olan; Daha yüksek daha az duyarlı) |tscore: eğilim üzerindeki anomali puanı temsil eden kayan sayısı |
-| Düzeyi değiştirme algılayıcıları | Çift yönlü düzeyi değişiklik algılayıcısı |Yukarı ve aşağı düzeyi değişiklik kümesi duyarlılığına göre algılayın |*bileveldetector.sensitivity:* algılayıcısı puanı eşiğine (varsayılan: 3,25, 3,25 – 5 bunu seçmek için makul bir aralığı olan; Daha yüksek daha az duyarlı) |rpscore: anomali puanı yukarı ve aşağı düzeyi değişiklik gösteren kayan sayı | |
+| Düzeyi değiştirme algılayıcıları | Çift yönlü düzeyi değişiklik algılayıcısı |Yukarı ve aşağı düzeyi değişiklik kümesi duyarlılığına göre algılayın |*bileveldetector.sensitivity:* algılayıcısı puanı eşiğine (varsayılan: 3,25, 3,25 – 5 bunu seçmek için makul bir aralığı olan; Daha yüksek daha az duyarlı) |rpscore: anomali puanı yukarı ve aşağı düzeyi değişiklik gösteren kayan sayı |
 
 ### <a name="parameters"></a>Parametreler
 Aşağıdaki tabloda daha ayrıntılı bilgiler bu giriş parametreleri listelenir:

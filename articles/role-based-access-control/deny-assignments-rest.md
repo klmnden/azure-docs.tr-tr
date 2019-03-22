@@ -12,19 +12,28 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ba1c60d45fb53be158d9e302748366ddf417f23e
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 59bcf2b33d203ae216b4965b963a727a6b34ae72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805486"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998416"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>REST API kullanarak Azure kaynakları için atamaları izin verilmeyenler listesi
 
-Şu anda atamaları Reddet **salt okunur** ve yalnızca Microsoft tarafından ayarlanabilir. Kendi reddetme atamalarınızı oluşturamıyor olsanız bile, reddetme atamalarını listeleyebilirsiniz çünkü bunlar sizin geçerli izinlerinizi etkileyebilir. Bu makalede, listelemek için atamaları RBAC ve REST API'sini kullanarak nasıl Reddet açıklanır.
+[Atamalar Reddet](deny-assignments.md) bir rol ataması bunları erişim verse bile kullanıcıların belirli bir Azure kaynak eylemler gerçekleştirme. Bu makalede listesine REST API'SİNİN nasıl kullanılacağı atamaları reddet.
+
+> [!NOTE]
+> Şu anda kendi ekleyebilirsiniz tek yolu reddetme atamaları olan Azure şemaları kullanarak. Daha fazla bilgi için [yeni kaynaklar ile Azure Blueprint kaynak kilitleri korumak](../governance/blueprints/tutorials/protect-new-resources.md).
+
+## <a name="prerequisites"></a>Önkoşullar
+
+Bir reddetme atama hakkında bilgi edinmek için şunlara sahip olmalısınız:
+
+- `Microsoft.Authorization/denyAssignments/read` çoğu dahil izni [Azure kaynakları için yerleşik roller](built-in-roles.md).
 
 ## <a name="list-a-single-deny-assignment"></a>İzin verilmeyenler listesi tek bir atama
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3cc6cdb84b2c77b15b79c7d6a04cc7c6ae0721e5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bee4618ff08c89bbdab7413ca7f7f74a266d96dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115870"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077913"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Hızlı Başlangıç: Windows bilgisayarları Azure Güvenlik Merkezi'ne ekleme
 Azure aboneliklerinizi ekledikten sonra Microsoft Monitoring Agent’ı sağlayarak Azure’ın dışında (örneğin, şirket içi ortamda veya diğer bulutlarda) çalışan kaynaklar için Güvenlik Merkezi’ni etkinleştirebilirsiniz.
@@ -37,7 +37,7 @@ Bu hızlı başlangıca başlamadan önce Güvenlik Merkezi’nin Standart fiyat
 1. [Azure portal](https://azure.microsoft.com/features/azure-portal/) oturum açın.
 2. **Microsoft Azure** menüsünde **Güvenlik Merkezi**’ni seçin. **Güvenlik Merkezi - Genel Bakış** açılır.
 
- ![Güvenlik Merkezine genel bakış][2]
+   ![Güvenlik Merkezine genel bakış][2]
 
 3. Güvenlik Merkezi ana menüsü altında, **Başlarken**’i seçin.
 4. **Başlangıç** sekmesini seçin.
@@ -48,13 +48,13 @@ Bu hızlı başlangıca başlamadan önce Güvenlik Merkezi’nin Standart fiyat
 
     ![Azure olmayan bilgisayar ekleme](./media/quick-onboard-windows-computer/non-azure.png)
 
-  Çalışma alanı kimliğiniz için, aracının yapılandırılmasında kullanılacak Windows aracısını ve anahtarlarını indirmeye yönelik bağlantının bulunduğu bir **Doğrudan Aracı** dikey penceresi açılır.
+   Çalışma alanı kimliğiniz için, aracının yapılandırılmasında kullanılacak Windows aracısını ve anahtarlarını indirmeye yönelik bağlantının bulunduğu bir **Doğrudan Aracı** dikey penceresi açılır.
 
-6.  Kurulum dosyasını indirmek için bilgisayar işlemci türünüz için geçerli olan **Windows Aracısını İndir** bağlantısını seçin.
+6. Kurulum dosyasını indirmek için bilgisayar işlemci türünüz için geçerli olan **Windows Aracısını İndir** bağlantısını seçin.
 
-7.  **Çalışma Alanı Kimliği**’nin sağ tarafında, kopyala simgesini seçin ve kimliği Not Defteri’ne yapıştırın.
+7. **Çalışma Alanı Kimliği**’nin sağ tarafında, kopyala simgesini seçin ve kimliği Not Defteri’ne yapıştırın.
 
-8.  **Birincil Anahtar**’ın sağ tarafında, kopyala simgesini seçin ve anahtarı Not Defteri’ne yapıştırın.
+8. **Birincil Anahtar**’ın sağ tarafında, kopyala simgesini seçin ve anahtarı Not Defteri’ne yapıştırın.
 
 ## <a name="install-the-agent"></a>Aracıyı yükleme
 Şimdi indirilen dosyayı hedef bilgisayara yüklemeniz gerekir.
@@ -68,7 +68,7 @@ Bu hızlı başlangıca başlamadan önce Güvenlik Merkezi’nin Standart fiyat
 7. Bilgisayarın Azure Kamu’daki bir Log Analytics çalışma alanına raporlama yapması gerekiyorsa **Azure Cloud** açılan listesinden **Azure US Government**’ı seçin.  Bilgisayarın, Log Analytics hizmetiyle bir ara sunucu üzerinden iletişim kurması gerekiyorsa **Gelişmiş** seçeneğini belirleyip ara sunucunun URL’sini ve bağlantı noktası numarasını sağlayın.
 8. Gerekli yapılandırma ayarlarını sağlamayı tamamladıktan sonra **İleri**’yi seçin.
 
-  ![Aracıyı yükleme][5]
+   ![Aracıyı yükleme][5]
 
 9. **Yüklemeye Hazır** sayfasında, tercihlerinizi gözden geçirip **Yükle**’yi seçin.
 10. **Yapılandırma başarıyla tamamlandı** sayfasında, **Son**’u seçin

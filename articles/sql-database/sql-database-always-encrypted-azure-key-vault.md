@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 27d25c0b7007489dbb3db3b44497268ad33e9b37
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: bcda6ac723101d6a907a10c5163ae1baf0ad2214
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309851"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884180"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Her zaman şifreli: Hassas verilerin korunmasına ve şifreleme anahtarları Azure Key Vault'ta depolama
 
@@ -39,6 +39,8 @@ Bu makaledeki adımları izleyin ve her zaman şifreli için bir Azure SQL verit
 ## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 Bu öğreticide, şunları yapmanız gerekir:
 
@@ -609,7 +611,7 @@ Herhangi bir düz metin veri içermemesi şifrelenmiş sütunları görebilirsin
 
    ![Yeni konsol uygulaması](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-SSMS düz metin verilerine erişmek için kullanmak için önce kullanıcı Azure anahtar kasası için uygun izinlere sahip olduğundan emin olmak gerekir: *alma*, *unwrapKey*, ve *doğrulayın*. Ayrıntılı bilgi için bkz. [oluştur ve Store sütun ana anahtarları (her zaman şifreli)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017).
+SSMS düz metin verilerine erişmek için kullanmak için önce kullanıcı Azure anahtar kasası için uygun izinlere sahip olduğundan emin olmak gerekir: *alma*, *unwrapKey*, ve *doğrulayın*. Ayrıntılı bilgi için bkz. [oluştur ve Store sütun ana anahtarları (her zaman şifreli)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
 Ardından Ekle *sütun şifreleme ayarı = etkin* bağlantınızı sırasında parametre.
 

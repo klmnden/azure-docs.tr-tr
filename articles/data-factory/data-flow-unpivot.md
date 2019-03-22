@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: f1eca7f76f45966ba43c15b3d8b92203c8199bfe
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 160ff8bbcb8ce5a4f1f32245cc366281640c5919
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732084"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854271"
 ---
-# <a name="azure-data-factory-mapping-data-flow-unpivot-transformation"></a>Azure veri fabrikası eşleme veri akışını dönüştürme Çöz
+# <a name="azure-data-factory-unpivot-transformation"></a>Azure veri fabrikası Çöz dönüştürme
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -51,3 +51,7 @@ Sütun düzenini "Normal" ayarını Grup birlikte tüm toplanan değerleriyle ö
 ![Dönüştürme Çöz](media/data-flow//unpivot7.png "seçenekleri 5 Çöz")
 
 Ayrı bir satır değerlerine Çözüldü artık sütun toplamları son Çözüldü veri sonuç kümesi gösterir.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Kullanım [Özet dönüştürme](data-flow-pivot.md) pivot satırları sütunlara.

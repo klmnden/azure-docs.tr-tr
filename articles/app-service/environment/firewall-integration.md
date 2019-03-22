@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 03/12/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: af6a32d7e32f23561b207c729402eaea7925f520
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 6ae7037ad4cd532b6661a56e6e37a88df3eb54a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453860"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121715"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service ortamı kilitleme
 
@@ -91,7 +91,6 @@ Aşağıdaki bilgiler yalnızca olan Azure güvenlik duvarı dışında bir güv
 - Joker karakter HTTP/HTTPS uç noktaları ile ASE'nizi niteleyicileri sayısına göre değişebilir bağımlılıklardır. 
 - ASE'niz Linux uygulamaları dağıtıyorsanız Linux bağımlılıkları yalnızca bir sorun var. Linux uygulamaları ASE'nizi değil dağıtıyorsanız, ardından bu adresleri güvenlik duvarını eklenmesi gerekmez. 
 
-
 #### <a name="service-endpoint-capable-dependencies"></a>Hizmet uç noktası özellikli bağımlılıkları 
 
 | Uç Nokta |
@@ -106,6 +105,14 @@ Aşağıdaki bilgiler yalnızca olan Azure güvenlik duvarı dışında bir güv
 |----------| ----- |
 | \*:123 | NTP saat denetimi. Trafiği birden fazla uç nokta bağlantı noktası 123 iade edildiğinde |
 | \*:12000 | Bu bağlantı noktası, bazı sistem izleme için kullanılır. Bazı sorunlar için değerlendirme daha zor olacaktır ancak ASE'nizi çalışmaya devam edecek engellenirse |
+| 40.77.24.27:80 | İzleme ve uyarılar ASE sorunları için gerekli |
+| 40.77.24.27:443 | İzleme ve uyarılar ASE sorunları için gerekli |
+| 13.90.249.229:80 | İzleme ve uyarılar ASE sorunları için gerekli |
+| 13.90.249.229:443 | İzleme ve uyarılar ASE sorunları için gerekli |
+| 104.45.230.69:80 | İzleme ve uyarılar ASE sorunları için gerekli |
+| 104.45.230.69:443 | İzleme ve uyarılar ASE sorunları için gerekli |
+| 13.82.184.151:80 | İzleme ve uyarılar ASE sorunları için gerekli |
+| 13.82.184.151:443 | İzleme ve uyarılar ASE sorunları için gerekli |
 
 Azure güvenlik duvarı ile otomatik olarak her şeyi aşağıdaki FQDN etiketlerle sahip olursunuz. 
 
@@ -140,7 +147,8 @@ Azure güvenlik duvarı ile otomatik olarak her şeyi aşağıdaki FQDN etiketle
 |cacerts.digicert.com:80 |
 |azperfcounters1.BLOB.Core.Windows .net: 443 |
 |azurewatsonanalysis prod.core.windows.net:443 |
-|Global.Metrics.nsatc.NET:80   |
+|Global.Metrics.nsatc.NET:80 |
+|Global.Metrics.nsatc.NET:443 |
 |az prod.metrics.nsatc.net:443 |
 |antares.Metrics.nsatc.NET:443 |
 |azglobal black.azglobal.metrics.nsatc.net:443 |
@@ -175,12 +183,6 @@ Azure güvenlik duvarı ile otomatik olarak her şeyi aşağıdaki FQDN etiketle
 | \*.management.azure.com:443 |
 | \*. update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
-|grmdsprod\*mini\*. servicebus.windows.net:443 |
-|grmdsprod\*lini\*. servicebus.windows.net:443 |
-|grsecprod\*mini\*. servicebus.windows.net:443 |
-|grsecprod\*lini\*. servicebus.windows.net:443 |
-|graudprod\*mini\*. servicebus.windows.net:443 |
-|graudprod\*lini\*. servicebus.windows.net:443 |
 
 #### <a name="linux-dependencies"></a>Linux bağımlılıkları 
 

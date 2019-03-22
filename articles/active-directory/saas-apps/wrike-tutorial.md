@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96ceeec3acd77af7174f1394677f6a52b18dec67
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9067f8521d9794dccc0b745d54eff474d94eedc8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207203"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835232"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wrike"></a>Öğretici: Wrike ile Azure Active Directory Tümleştirme
 
@@ -145,7 +145,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

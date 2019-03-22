@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd05913a982d88a1e4fe4ff72bca0387e280e230
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fc27e5cd6af19f06a5eab73e30d3034fada0ccc2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211640"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838400"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Kimlik eşitleme ve yinelenen öznitelik dayanıklılığı
 Yinelenen öznitelik dayanıklılığı kaynaklanan uyuşmazlıkları ortadan kaldıracak Azure Active Directory özelliğidir **UserPrincipalName** ve **ProxyAddress** Microsoft'un birini çalıştırırken çakışıyor Eşitleme araçları.
@@ -40,7 +40,7 @@ Bu benzersizlik kısıtlamasını ihlal ediyor UPN veya ProxyAddress değeri ile
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Yinelenen öznitelik dayanıklılığı ile davranışı
 Tamamen sağlama veya bir nesne ile yinelenen bir öznitelik güncelleştir başarısız yerine, Azure Active Directory "benzersizlik kısıtlamasını ihlal ediyor yinelenen özniteliği karantinaya". Bu öznitelik gerekliyse, UserPrincipalName gibi sağlamak için hizmeti bir yer tutucu değeri atar. Bu geçici değerleri biçimi  
-"***<OriginalPrefix>+ < 4DigitNumber > @<InitialTenantDomain>. onmicrosoft.com***".  
+"***<OriginalPrefix>+ < 4DigitNumber >\@<InitialTenantDomain>. onmicrosoft.com***".  
 Öznitelik gerekli değilse, ister bir **ProxyAddress**, Azure Active Directory yalnızca çakışma öznitelik karantinaya alır ve nesne oluşturma veya güncelleştirme ile devam eder.
 
 Öznitelik karantinaya üzerine çakışması hakkında bilgi eski davranışa kullanılan aynı hata raporu e-posta gönderilir. Karantina gerçekleştiğinde, ancak bu bilgileri, hata raporunda yalnızca bir kez görüntülenir. Bu gelecekteki e-postalarda günlüğe kaydedilecek devam etmez. Ayrıca, bu nesne için dışarı aktarma başarılı oldu eşitleme istemcisi bir hata günlüğe kaydetmez ve oluşturma yeniden denemez / güncelleştirme işlemi sırasında sonraki eşitleme döngüsü.
@@ -144,9 +144,9 @@ Bu bilinen sorunlar hiçbiri, veri kaybı veya hizmet düşmesine neden olur. Bi
 1. Nesneleri belirli bir öznitelik yapılandırmaları ile karantinaya alınmış yinelenen öznitelikleri aksine dışarı aktarma hataları almaya devam eder.  
    Örneğin:
    
-    a. Yeni kullanıcı bir UPN ile AD'de oluşturulur **Joe@contoso.com** ve ProxyAddress **smtp:Joe@contoso.com**
+    a. Yeni kullanıcı bir UPN ile AD'de oluşturulur **ALi\@contoso.com** ve ProxyAddress **smtp:Joe\@contoso.com**
    
-    b. Bu nesnenin özelliklerini ProxyAddress olduğu mevcut bir grubu ile çakışan **SMTP:Joe@contoso.com**.
+    b. Bu nesnenin özelliklerini ProxyAddress olduğu mevcut bir grubu ile çakışan **SMTP:Joe\@contoso.com**.
    
     c. Dışarı aktarma, bağlı bir **ProxyAddress çakışma** karantinaya çakışma özniteliklere sahip yerine hata oluşur. Dayanıklılık özellik etkinleştirilmeden önce olabilirdi gibi işlemi her bir sonraki eşitleme döngüsü sırasında yeniden denenir.
 2. İki grup aynı SMTP adresi ile şirket içi oluşturulursa standart yinelenen ile yapılan ilk girişim üzerinde sağlama başarısız **ProxyAddress** hata. Ancak, yinelenen değer sonraki eşitleme döngüsü sırasında düzgün karantinaya alındı.
@@ -156,13 +156,13 @@ Bu bilinen sorunlar hiçbiri, veri kaybı veya hizmet düşmesine neden olur. Bi
 1. Ayrıntılı hata iletisini UPN çakışma küme içindeki iki nesne için aynıdır. Bu, bunların her ikisi de değiştirilen / karantinaya aslında yalnızca bir tanesi değiştirilen herhangi bir veri varken UPN çalıştırılmış gösterir.
 2. Yanlış displayName değiştirildi ve karantinaya UPN oluşmuş bir kullanıcının UPN çakışma için ayrıntılı hata iletisi gösterir. Örneğin:
    
-    a. **Kullanıcı A** öncelikle ile eşitlenen **UPN = User@contoso.com** .
+    a. **Kullanıcı A** öncelikle ile eşitlemeler **UPN = kullanıcı\@contoso.com**.
    
-    b. **B kullanıcısı** yukarı sonraki ile eşitlenmesi çalışıldı **UPN = User@contoso.com** .
+    b. **B kullanıcısı** yukarı sonraki ile eşitlenmesi çalışıldı **UPN = kullanıcı\@contoso.com**.
    
-    c. **B kullanıcısının** UPN değiştiğinde **User1234@contoso.onmicrosoft.com** ve **User@contoso.com** eklenir **DirSyncProvisioningErrors**.
+    c. **B kullanıcısının** UPN değiştiğinde **User1234\@contoso.onmicrosoft.com** ve **kullanıcı\@contoso.com** eklenir **DirSyncProvisioningErrors** .
    
-    d. İçin hata iletisini **B kullanıcısı** gösterilmelidir **kullanıcısı** zaten **User@contoso.com** UPN, ancak gösterildiği gibi **kullanıcı B'nin** kendi displayName.
+    d. İçin hata iletisini **B kullanıcısı** gösterilmelidir **kullanıcısı** zaten **kullanıcı\@contoso.com** UPN, ancak gösterildiği gibi **kullanıcı B'nin** kendi displayName.
 
 **Kimlik eşitleme hata raporu**:
 

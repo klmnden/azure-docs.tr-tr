@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5a4b8b2fd3e232d7b42b2f510075c3964ca50531
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 5edd3e51e83b5ab324d1e110a1882b20d935a9b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652583"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899137"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>"502 hatalı ağ geçidi" ve "503 Hizmet kullanılamıyor" Azure App Service'te HTTP hatalarını giderme
 "502 hatalı ağ geçidi" ve "503 Hizmet kullanılamıyor" olan barındırılan uygulamanızda sık karşılaşılan [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Bu makalede bu hataları gidermeye yardımcı olur.
@@ -109,7 +109,7 @@ Ayrıca, birden fazla örneğinde uygulamanızı çalıştırmak seçebilirsiniz
 El ile veya otomatik olarak ölçeklendirme ayarlayabilirsiniz.
 
 #### <a name="use-autoheal"></a>AutoHeal kullanın
-AutoHeal (yapılandırma değişiklikleri, istekler, bellek tabanlı sınırları veya bir isteğin yürütülmesi için gereken süre gibi) seçtiğiniz ayarlara bağlı uygulamanız için çalışan işlemi geri dönüştürür. Çoğu zaman, Geri Dönüşüm işlemi bir sorundan en hızlı yoludur. Uygulamayı doğrudan Azure portalı içinden her zaman yeniden başlatabilirsiniz, ancak AutoHeal bunu otomatik olarak sizin için yapar. Tek yapmak için ihtiyacınız olan kök Web.config dosyasında, uygulamanız için bazı tetikleyiciler ekleyin. Bu ayarlar, uygulamanızın bir .net olmasa bile aynı şekilde çalışır unutmayın.
+AutoHeal (yapılandırma değişiklikleri, istekler, bellek tabanlı sınırları veya bir isteğin yürütülmesi için gereken süre gibi) seçtiğiniz ayarlara bağlı uygulamanız için çalışan işlemi geri dönüştürür. Çoğu zaman, Geri Dönüşüm işlemi bir sorundan en hızlı yoludur. Uygulamayı doğrudan Azure portalı içinden her zaman yeniden başlatabilirsiniz, ancak AutoHeal bunu otomatik olarak sizin için yapar. Tek yapmak için ihtiyacınız olan kök Web.config dosyasında, uygulamanız için bazı tetikleyiciler ekleyin. Bu ayarlar, uygulamanızın bir .NET olmasa bile aynı şekilde çalışır unutmayın.
 
 Daha fazla bilgi için [Azure Web siteleri otomatik onarım](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 

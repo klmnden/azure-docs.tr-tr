@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a07ca553aee2a6267af5a33836e85b2a12d8ae3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c53675c27276fdcf403ca5a6add5d86fc38e410a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182298"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842477"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Galeri dışı uygulama eklenirken sorun oluştu
 
@@ -46,20 +46,20 @@ Tıklandığında bir hatayla karşılaşırsanız **Ekle** düğmesi, gördüğ
 
 Aşağıdaki adımları izleyerek, herhangi bir portal bildirim ayrıntılarını görebilirsiniz:
 
-1.  tıklayın **bildirimleri** Azure portalının sağ üst kısımdaki simgesine (zil)
+1. tıklayın **bildirimleri** Azure portalının sağ üst kısımdaki simgesine (zil)
 
-2.  Herhangi bir bildirim seçin bir **hata** durumu (yanında bir kırmızı (!) sahip olanlar).
+2. Herhangi bir bildirim seçin bir **hata** durumu (yanında bir kırmızı (!) sahip olanlar).
 
    >[!NOTE]
    >Bildirimlerde tıklayamazsınız bir **başarılı** veya **sürüyor** durumu.
    >
    >
 
-4.  Sağlanan bilgileri kullanmak **bildirim ayrıntılarını** sorun hakkında daha fazla ayrıntı anlamak için.
+4. Sağlanan bilgileri kullanmak **bildirim ayrıntılarını** sorun hakkında daha fazla ayrıntı anlamak için.
 
-5.  Hala yardıma ihtiyacınız varsa, bu bilgiler sorununuzu Yardım almak için bir destek mühendisi veya ürün grubu ile paylaşabilirsiniz.
+5. Hala yardıma ihtiyacınız varsa, bu bilgiler sorununuzu Yardım almak için bir destek mühendisi veya ürün grubu ile paylaşabilirsiniz.
 
-6.  Tıklayın **Kopyala simgesine** sağındaki **kopyalama hatası** desteği veya ürün grubu mühendisiyle paylaşın için tüm bildirim ayrıntılarını kopyalamak için metin kutusu.
+6. Tıklayın **Kopyala simgesine** sağındaki **kopyalama hatası** desteği veya ürün grubu mühendisiyle paylaşın için tüm bildirim ayrıntılarını kopyalamak için metin kutusu.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Bir destek mühendisiyle bildirim ayrıntılarını göndererek Yardım alma
 
@@ -71,63 +71,63 @@ Aşağıdaki açıklamalar bildirimleri hakkında daha fazla ayrıntı için bkz
 
 ### <a name="essential-notification-items"></a>Önemli bildirim öğeleri
 
--   **Başlık** – bildirimin açıklayıcı bir başlık
-   *  Örneğin, **uygulama proxy'si ayarları**
+- **Başlık** – bildirimin açıklayıcı bir başlık
+  *  Örneğin, **uygulama proxy'si ayarları**
 
--   **Açıklama** – ne işlemi nedeniyle oluştu açıklaması
+- **Açıklama** – ne işlemi nedeniyle oluştu açıklaması
 
-   *  Örneğin, **girilen iç url başka bir uygulama tarafından zaten kullanılıyor**
+  *  Örneğin, **girilen iç url başka bir uygulama tarafından zaten kullanılıyor**
 
--   **Bildirim kimliği** – bildirim benzersiz kimliği
+- **Bildirim kimliği** – bildirim benzersiz kimliği
 
-   *  Örneğin, **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  *  Örneğin, **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **İstemci istek kimliği** – tarayıcınız tarafından yapılan belirli bir istek kimliği
+- **İstemci istek kimliği** – tarayıcınız tarafından yapılan belirli bir istek kimliği
 
-   *  Örneğin, **302fd775-3329-4670-a9f3-bea37004f0bc**
+  *  Örneğin, **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Zaman damgası UTC** – sırasında bildirim gerçekleştiği, UTC zaman damgası
+- **Zaman damgası UTC** – sırasında bildirim gerçekleştiği, UTC zaman damgası
 
-   *  Örneğin, **2017-03-23T19:50:43.7583681Z**
+  *  Örneğin, **2017-03-23T19:50:43.7583681Z**
 
--   **İç işlem kimliği** – iç kimliği kullanabiliriz sistemlerimizde hata aramak için
+- **İç işlem kimliği** – iç kimliği kullanabiliriz sistemlerimizde hata aramak için
 
-   *  Örneğin, **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  *  Örneğin, **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – işlemi gerçekleştiren kullanıcının
+- **UPN** – işlemi gerçekleştiren kullanıcının
 
-   *  Örnek: **tperkins@f128.info**
+  *  Örneğin, **tperkins\@f128.info**
 
--   **Kiracı kimliği** – işlemi gerçekleştiren kullanıcının üyesi olduğu kiracının benzersiz kimliği
+- **Kiracı kimliği** – işlemi gerçekleştiren kullanıcının üyesi olduğu kiracının benzersiz kimliği
 
-   *  Örneğin, **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  *  Örneğin, **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **Kullanıcı nesne kimliği** – işlemi gerçekleştiren kullanıcının benzersiz kimliği
+- **Kullanıcı nesne kimliği** – işlemi gerçekleştiren kullanıcının benzersiz kimliği
 
- *  Örneğin, **17f84be4-51f8-483a-b533-383791227a99**
+  *  Örneğin, **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>Ayrıntılı bildirim öğeleri
 
--   **Görünen ad** – **(boş olabilir)** hatanın ayrıntılı bir görünen ad
+- **Görünen ad** – **(boş olabilir)** hatanın ayrıntılı bir görünen ad
 
   *  Örneğin, **uygulama proxy'si ayarları**
 
--   **Durum** – bildirim özel durumu
+- **Durum** – bildirim özel durumu
 
-   *  Örneğin, **başarısız oldu**
+  *  Örneğin, **başarısız oldu**
 
--   **Nesne Kimliği** – **(boş olabilir)** karşı işlemi gerçekleştirildi nesne kimliği
+- **Nesne Kimliği** – **(boş olabilir)** karşı işlemi gerçekleştirildi nesne kimliği
 
-   *  Örneğin, **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
+  *  Örneğin, **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
--   **Ayrıntılar** – ayrıntılı açıklaması ne işlemi nedeniyle oluştu
+- **Ayrıntılar** – ayrıntılı açıklaması ne işlemi nedeniyle oluştu
 
-   *  Örneğin, **iç url 'https://bing.com/' zaten kullanımda olduğundan geçerli değil.**
+  *  Örneğin, **iç url `https://bing.com/` zaten kullanımda olduğundan geçerli değil.**
 
--   **Kopyalama hatası** – tıklayın **Kopyala simgesine** sağındaki **kopyalama hatası** desteği veya ürün grupla paylaşmak için tüm bildirim ayrıntılarını kopyalamak için metin kutusu 
--   engineer (mühendis)
+- **Kopyalama hatası** – tıklayın **Kopyala simgesine** sağındaki **kopyalama hatası** desteği veya ürün grupla paylaşmak için tüm bildirim ayrıntılarını kopyalamak için metin kutusu 
+- engineer (mühendis)
 
-   *  Örnek ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+  *  Örnek ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 
 

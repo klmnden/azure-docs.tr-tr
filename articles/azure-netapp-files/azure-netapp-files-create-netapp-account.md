@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: ae42d8c0bec8c812d18e927dd450e5b5fc419ba3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: bb43a75b6a221c15c8724302797d04c22e04c8d2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774086"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113648"
 ---
 # <a name="create-a-netapp-account"></a>NetApp hesabı oluşturma
 NetApp hesabı oluşturmak, kapasite havuzu ayarlamanıza ve ardından birim oluşturmanıza olanak tanır. Yeni NetApp hesabını oluşturmak için Azure NetApp Files dikey penceresini kullanırsınız.
@@ -33,29 +33,29 @@ NetApp kaynak sağlayıcısı ve genel önizleme özelliğini kullanmak için ab
 
 1. Azure Portal’da oturum açın. 
 2. Aşağıdaki yöntemlerden birini kullanarak Azure NetApp Files dikey penceresine ulaşın:  
-  * Azure portalı arama kutusunda **Azure NetApp Files** için arama yapın.  
-  * Gezintide **Tüm hizmetler**'e tıklayın ve ardından Azure NetApp Files için filtreleyin.  
+   * Azure portalı arama kutusunda **Azure NetApp Files** için arama yapın.  
+   * Gezintide **Tüm hizmetler**'e tıklayın ve ardından Azure NetApp Files için filtreleyin.  
 
-  Azure NetApp Files dikey penceresinin yanındaki yıldız simgesine tıklayarak bunu "sık kullanılanlara" ekleyebilirsiniz. 
+   Azure NetApp Files dikey penceresinin yanındaki yıldız simgesine tıklayarak bunu "sık kullanılanlara" ekleyebilirsiniz. 
 
 3. Yeni bir NetApp hesabı oluşturmak için **+ Ekle**'ye tıklayın.  
-  Yeni NetApp hesabı penceresi görüntülenir.  
+   Yeni NetApp hesabı penceresi görüntülenir.  
 
 4. NetApp hesabınızla ilgili şu bilgileri sağlayın: 
-  * **Hesap adı**  
-    Abonelik için benzersiz bir ad belirtin.
-  *  **Abonelik**  
-    Mevcut abonelikleriniz arasından bir abonelik seçin.
-  * **Kaynak grubu**   
-    Mevcut Kaynak Grubunu kullanın ya da yeni bir tane oluşturun.
-  * **Konum**  
-    Hesabın ve alt kaynaklarının içinde yer almasını istediğiniz bölgeyi seçin.  
+   * **Hesap adı**  
+     Abonelik için benzersiz bir ad belirtin.
+   * **Abonelik**  
+     Mevcut abonelikleriniz arasından bir abonelik seçin.
+   * **Kaynak grubu**   
+     Mevcut Kaynak Grubunu kullanın ya da yeni bir tane oluşturun.
+   * **Konum**  
+     Hesabın ve alt kaynaklarının içinde yer almasını istediğiniz bölgeyi seçin.  
 
-    ![Yeni NetApp hesabı](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
+     ![Yeni NetApp hesabı](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 
 
 5. **Oluştur**’a tıklayın.     
-  Oluşturduğunuz NetApp hesabı artık Azure NetApp Files dikey penceresinde gösterilir. 
+   Oluşturduğunuz NetApp hesabı artık Azure NetApp Files dikey penceresinde gösterilir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar  
 

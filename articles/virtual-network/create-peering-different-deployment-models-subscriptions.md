@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: cd0493d4fd126175acafce050394e65a47e9bda9
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: c9247b37e1e475892a1561c5667dc25275f67327
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650028"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104123"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Oluşturma bir sanal ağ eşlemesi - farklı dağıtım modelleri ve abonelikler
 
@@ -60,7 +60,7 @@ Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonel
 10. Portalından UserA olarak oturum açın ve ardından UserB oturum açın.
 11. Tıklayın **+ yeni**, türü *sanal ağ* içinde **markette Ara** kutusunu işaretleyip tıklayın **sanal ağ** arama sonuçlarında.
 12. İçinde **sanal ağ** görüntülenirse, seçin dikey **Klasik** içinde **dağıtım modeli seçin** kutusunu işaretleyip tıklayın **Oluştur**.
-13.   Görüntülenen Oluştur sanal ağ (Klasik) kutusunda, aşağıdaki değerleri girin:
+13. Görüntülenen Oluştur sanal ağ (Klasik) kutusunda, aşağıdaki değerleri girin:
 
     - **Adı**: *myVnetB*
     - **Adres alanı**: *10.1.0.0/16*

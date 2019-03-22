@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: aa6c6a35a66569d5db182e1871012b9697c2802c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1c8cbcd2e5f137b1e8381dcce164ae9a4b87e804
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023354"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852865"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Azure Data Factory kullanarak bir Azure Search dizinine veri kopyalama
 
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-azure-search-connector.md)
 > * [Geçerli sürüm](connector-azure-search.md)
 
@@ -43,7 +43,7 @@ Bağlı Azure Search hizmeti için aşağıdaki özellikleri destekler:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Type özelliği ayarlanmalıdır: **Azure Search** | Evet |
+| type | Type özelliği ayarlanmalıdır: **AzureSearch** | Evet |
 | url | Azure Search hizmeti için URL. | Evet |
 | anahtar | Azure Search hizmeti için yönetici anahtarı. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel ağında bulunuyorsa), Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
@@ -169,10 +169,10 @@ Aşağıdaki tabloda, bir Azure Search veri türü veya desteklenip desteklenmed
 
 | Azure Search veri türü | Azure Search'ü havuz desteklenen |
 | ---------------------- | ------------------------------ |
-| Dize | E |
+| String | E |
 | Int32 | E |
 | Int64 | E |
-| çift | E |
+| Double | E |
 | Boole | E |
 | DataTimeOffset | E |
 | Dize dizisi | N |

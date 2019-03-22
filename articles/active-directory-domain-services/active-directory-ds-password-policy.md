@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5fc50aeeb2764f90a111c2466ff5a9deefe1e65c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 513cccb8b83eb4a69df1bc6172f1f02485215e35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167997"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086012"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Yönetilen etki alanlarında parola ve hesap kilitleme ilkeleri
 Bu makalede, yönetilen etki alanında varsayılan parola ilkeleri açıklanır. Ayrıca, bu ilkelerin nasıl yapılandırabileceğinizi kapsar.
@@ -89,28 +89,28 @@ Yönetilen etki alanınızda özel bir FGPP oluşturmak için:
 7. Üzerinde **görevleri** sağ tıklayarak panelinde **yeni** tıklatıp **parola ayarları**.
 8. İçinde **parola ayarları oluştur** iletişim kutusunda, özel FGPP bir parçası olarak uygulamak için özel parola ayarlarını belirtin. Öncelik, FGPP Varsayılanı geçersiz kılmak için uygun şekilde ayarlamayı unutmayın.
 
-  ![Özel bir FGPP oluşturmak](./media/how-to/custom-fgpp.png)
+   ![Özel bir FGPP oluşturmak](./media/how-to/custom-fgpp.png)
 
-  > [!TIP]
-  > **Yanlışlıkla silme seçeneği Koru işaretini unutmayın.** Bu seçenek belirlenirse, FGPP kaydedilemiyor.
-  >
-  >
+   > [!TIP]
+   > **Yanlışlıkla silme seçeneği Koru işaretini unutmayın.** Bu seçenek belirlenirse, FGPP kaydedilemiyor.
+   >
+   >
 
 9. İçinde **doğrudan aşağıdakilere**, tıklayın **Ekle** düğmesi. İçinde **kullanıcıları veya Grupları Seç** iletişim kutusunda, tıklayın **konumları** düğmesi.
 
-  ![Kullanıcı ve grupları seçin](./media/how-to/fgpp-applies-to.png)
+   ![Kullanıcı ve grupları seçin](./media/how-to/fgpp-applies-to.png)
 
 10. İçinde **konumları** iletişim kutusunda, etki alanı adı'nı genişletin ve **AADDC Users**. Artık, FGPP uygulanacağı kuruluş Birimini yerleşik kullanıcıların bir grup da seçebilirsiniz.
 
-  ![Select OU'yu o grubun ait olduğu](./media/how-to/fgpp-container.png)
+    ![Select OU'yu o grubun ait olduğu](./media/how-to/fgpp-container.png)
 
 11. Grubun adını yazın ve tıklayın **Adları Denetle** grubu doğrulamak için düğmeyi bulunmaktadır.
 
-  ![FGPP uygulamak için grup seçin](./media/how-to/fgpp-apply-group.png)
+    ![FGPP uygulamak için grup seçin](./media/how-to/fgpp-apply-group.png)
 
 12. Grubun adı görüntülenen **doğrudan aşağıdakilere** bölümü. Tıklayın **Tamam** düğmesini kullanarak bu değişiklikleri kaydedin.
 
-  ![Uygulanan FGPP](./media/how-to/fgpp-applied.png)
+    ![Uygulanan FGPP](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
 > **Özel bir kuruluş içindeki kullanıcı hesapları özel parola ilkeleri uygulamak için:** Yalnızca gruplar için ince ayrıntılı parola ilkeleri uygulanabilir. Kullanıcıların özel bir kuruluş için yalnızca bir özel parola ilkesini yapılandırmak için OU kullanıcılarını içeren bir grup oluşturun.

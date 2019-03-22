@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 02/07/2019
 ms.author: lahugh
-ms.openlocfilehash: 734c16111ab859b55d87525cdc8a644c8114f6d2
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429053"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874770"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch işlem düğümü ortam değişkenleri
 
@@ -62,7 +62,6 @@ Görevleri tarafından yürütülen komut satırları bilgi işlem düğümleri 
 | AZ_BATCH_TASK_DIR               | Tam yolunu [görev dizininde] [ files_dirs] düğümde. Bu dizin içeren `stdout.txt` ve `stderr.txt` görev ve AZ_BATCH_TASK_WORKING_DIR. | Tüm görevler. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | Geçerli görevin kimliği. | Başlangıç görevi dışında tüm görevler. | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | Birincil görev ve her alt görevi için aynı olan bir dizin yolu bir [çok örnekli görev][multi_instance]. Yolun var olduğundan, çok örnekli görev çalıştırır ve okuma/yazma ile ilgili düğümde çalışan görev komutları için erişilebilir olduğundan her düğüme (hem [koordinasyon komut] [ coord_cmd] ve [ Uygulama komutu][app_cmd]). Alt görevler veya diğer düğümlerde çalıştırılacak birincil görevi, uzaktan erişim ("paylaşılan" ağ dizinine değildir) bu dizine yoktur. | Çok örnekli birincil ve alt görevler otomatiktir. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
-| AZ_BATCH_TASK_SHARED_DIR        | Veri depolamak için ortak bir dizin, düğümde görevler arasında paylaşılan yöneliktir. | Tüm görevler. | C:\user\tasks\shared |
 | AZ_BATCH_TASK_WORKING_DIR       | Tam yolunu [görev çalışma dizini] [ files_dirs] düğümde. Şu anda çalışan görev bu dizinde okuma/yazma erişimi vardır. | Tüm görevler. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | Düğümler için ayrılmış düğüm başına çekirdek sayısı ve listesi bir [çok örnekli görev][multi_instance]. Düğümler ve çekirdek biçiminde listelenir `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, burada düğüm sayısını ardından bir veya daha fazla düğüm IP adresleri ve çekirdek sayısı tarafından her biri için. |  Çok örnekli birincil ve alt görevler otomatiktir. |`2 10.0.0.4 1 10.0.0.5 1` |
 

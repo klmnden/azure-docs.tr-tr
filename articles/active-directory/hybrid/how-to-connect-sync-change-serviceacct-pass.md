@@ -17,12 +17,12 @@ ms.date: 10/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecc7eb45b439140cf9d1de048a6d4a7db48c34c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 15d0d537a23e21eeda3b284e7ec706cde2b443e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204431"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014083"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Azure AD Connect eşitleme hizmeti hesabı parolasını değiştirme
 Azure AD Connect eşitleme hizmeti hesabı parolasını değiştirirseniz, şifreleme anahtarını terk ve Azure AD Connect eşitleme hizmeti hesabı parolasını yeniden kadar eşitleme hizmeti mümkün başlangıç doğru olmayacak. 
@@ -46,7 +46,7 @@ Parola güncelleştirdiyseniz, ikinci olarak, belirli koşullar altında eşitle
 Hataları gibi görürsünüz:
 
 - Windows Hizmet Denetimi Yöneticisi altında eşitleme hizmeti başlatmayı deneyin ve şifreleme anahtarı alınamıyor bu hatayla başarısız oluyor "<strong>Windows yerel bilgisayarda Microsoft Azure AD eşitleme başlatılamadı. Daha fazla bilgi için sistem olay günlüğünü inceleyin. Microsoft olmayan bir hizmette varsa hizmet satıcısını ve-21451857952 hizmete özgü hata koduna bakın</strong>. "
-- Altındaki Windows Olay Görüntüleyicisi, uygulama olay günlüğüne bir hata içeriyor. **olay kimliği 6028** ve hata iletisi *"**sunucu şifreleme anahtarı erişilemez durumda.**"*
+- Altındaki Windows Olay Görüntüleyicisi, uygulama olay günlüğüne bir hata içeriyor. **olay kimliği 6028** ve hata iletisi *"sunucu şifreleme anahtarı erişilemez."*
 
 Bu hata almazsınız emin olmak için konusundaki yordamları izleyin [Azure AD Connect Sync şifreleme anahtarını bırakıp](#abandoning-the-azure-ad-connect-sync-encryption-key) parola değiştirme.
  

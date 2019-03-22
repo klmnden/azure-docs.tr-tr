@@ -1,6 +1,6 @@
 ---
-title: Azure AD parola koruması Önizleme işlemleri ve Raporlama
-description: Azure AD parola koruması Önizleme dağıtım sonrası işlemleri ve Raporlama
+title: Azure AD parola koruması işlemler ve Raporlama
+description: Azure AD parola koruması dağıtım sonrası işlemleri ve Raporlama
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fda79f16560a5c96e1283f4d9d9f14dbe503d61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: ac91a70465d79b235ae43681a1375d47e7691efe
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175259"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285811"
 ---
-# <a name="preview-azure-ad-password-protection-operational-procedures"></a>Önizleme: Azure AD parola koruması işletimsel yordamları
-
-|     |
-| --- |
-| Azure AD parola koruması, Azure Active Directory genel Önizleme özelliğidir. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-operational-procedures"></a>Azure AD parola koruması işletimsel yordamları
 
 Tamamladıktan sonra [Azure AD parola koruması yüklenmesini](howto-password-ban-bad-on-premises-deploy.md) şirket içi, Azure portalında yapılandırılması gereken birkaç nokta vardır.
 
@@ -33,7 +28,7 @@ Bu makaledeki yönergeleri [özel yasaklı parola listesi yapılandırma](howto-
 
 ## <a name="enable-password-protection"></a>Parola korumasını etkinleştir
 
-1. Oturum [Azure portalında](https://portal.azure.com) ve **Azure Active Directory**, **kimlik doğrulama yöntemleri**, ardından **parola koruması (Önizleme)**.
+1. Oturum [Azure portalında](https://portal.azure.com) ve **Azure Active Directory**, **kimlik doğrulama yöntemleri**, ardından **parola koruması**.
 1. Ayarlama **etkinleştirme Windows Server Active Directory parola koruması** için **Evet**
 1. Belirtildiği gibi [Dağıtım Kılavuzu](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), başlangıçta ayarlamak için önerilen **modu** için **denetim**
    * Özelliğiyle memnun kaldıktan sonra geçebilirsiniz **modu** için **zorlanan**

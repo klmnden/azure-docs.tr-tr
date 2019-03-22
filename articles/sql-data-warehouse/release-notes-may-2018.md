@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 45a391f45d11d968818bafc97a705411a133b273
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c17cb13bff0ea9eb3b0bb2caf5bb527fa3958428
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57430858"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852619"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Mayıs 2018 
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Mayıs 2018'de sunulan değişiklikler ve yeni özellikleri açıklar. 
@@ -44,7 +44,7 @@ Bir en iyi yöntem ve kılavuz olarak ayarı öneririz `AUTO_CREATE_STATISTICS` 
 Bkz: [ALTER DATABASE SET seçenekleri](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options) makalesine bakın.
 
 ## <a name="rejected-row-support"></a>Satır destek reddetti
-Müşterilerin kullandığı [PolyBase veri yükleme için (Dış tablolar)](design-elt-data-loading.md) nedeniyle yüksek performanslı SQL veri ambarı'na veri yükleme doğasını paralel. PolyBase olan varsayılan yükleme modeli aracılığıyla veri yüklenirken [Azure Data Factory](http://azure.com/adf) de. 
+Müşterilerin kullandığı [PolyBase veri yükleme için (Dış tablolar)](design-elt-data-loading.md) nedeniyle yüksek performanslı SQL veri ambarı'na veri yükleme doğasını paralel. PolyBase olan varsayılan yükleme modeli aracılığıyla veri yüklenirken [Azure Data Factory](https://azure.com/adf) de. 
 
 SQL veri ambarı ekler özelliği aracılığıyla bir reddedilen satır konumunu tanımlayın `REJECTED_ROW_LOCATION` parametresiyle [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) deyimi. Yürütme sonrasında bir [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) yüklenemedi herhangi bir satır dış tablodaki varlıkları daha fazla araştırma için kaynak yakın bir dosyada depolanır. 
 
@@ -144,7 +144,7 @@ SQL veri ambarı hakkında biraz bilmek, bilgi nasıl hızlı bir şekilde [SQL 
 [Müşteri Danışma Ekibi blogları]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Müşteri başarı hikayeleri]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Özellik istekleri]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow forumu]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow forumu]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videolar]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

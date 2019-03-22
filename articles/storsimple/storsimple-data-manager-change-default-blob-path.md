@@ -1,6 +1,6 @@
 ---
 title: Varsayılan blob yolu Değiştir | Microsoft Docs
-description: Bir blob dosya yolu yeniden adlandırmak için bir Azure işlevini ayarlamak öğrenin
+description: Bir Azure işlevi, bir blob dosya yolu yeniden adlandırmak için ayarlama hakkında bilgi edinin
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: f73d9dcedee5165af752b9e10fb70de860e8e98b
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: cdaf991c25c23dee4f87b44142c1482bf892bcf2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
-ms.locfileid: "27862409"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011639"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Varsayılan yolu bir blob yolunu değiştirme
 
-StorSimple veri Yöneticisi hizmeti veri dönüşümleri, varsayılan olarak, dönüştürülmüş BLOB'ları bir depolama kapsayıcısı belirtildiği gibi hedef depo oluşturma sırasında yerleştirir. BLOB'ları bu konumda geldikçe bu BLOB'ları farklı bir konuma taşımak isteyebilirsiniz. Bu makalede, bir varsayılan blob dosya yolu yeniden adlandırın ve bu nedenle BLOB'ları farklı bir konuma taşımak için bir Azure işlevi ayarlama açıklar.
+StorSimple veri Yöneticisi hizmeti verileri dönüştürür, varsayılan olarak, dönüştürülen bloblar bir kapsayıcıda depolama belirtilen hedef depo oluşturma sırasında yerleştirir. Blobları bu konumda geldikçe bu bloblarda alternatif bir konuma taşımak isteyebilirsiniz. Bu makalede, bir varsayılan blob dosya yolu yeniden adlandırın ve bu nedenle blobları için farklı bir konuma taşımak için bir Azure işlevini ayarlama açıklar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-StorSimple veri Yöneticisi hizmetinize doğru yapılandırılmış iş tanımı olduğundan emin olun.
+StorSimple veri Yöneticisi hizmetinizde doğru yapılandırılmış iş tanımı olduğundan emin olun.
 
-## <a name="create-an-azure-function"></a>Bir Azure işlevi oluşturma
+## <a name="create-an-azure-function"></a>Azure işlevi oluşturma
 
 Bir Azure işlevi oluşturmak için aşağıdaki adımları gerçekleştirin:
 
-1. [Azure Portal](http://portal.azure.com/) gidin.
+1. [Azure Portal](https://portal.azure.com/) gidin.
 
-2. Tıklatın **+ kaynak oluşturma**. İçinde **arama** kutusuna **işlev uygulaması** ve basın **Enter**. Tıklatıp **işlev uygulaması** görüntülenen uygulamalar listesinde.
+2. Tıklayın **+ kaynak Oluştur**. İçinde **arama** kutusuna **işlev uygulaması** basın **Enter**. Seçin ve tıklayın **işlev uygulaması** görüntülenen uygulama listesinde.
 
-    ![Arama kutusuna "İşlev uygulaması" yazın](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
+    ![Arama kutusuna "İşlev uygulaması"](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
 
 3. **Oluştur**’a tıklayın.
 
-    ![İşlev uygulaması penceresini "Oluştur" düğmesine](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
+    ![İşlev uygulaması penceresi "Oluştur" düğmesine](./media/storsimple-data-manager-change-default-blob-path/create-function-app.png)
 
-4. Üzerinde **işlev uygulaması** yapılandırma dikey penceresinde, aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **işlev uygulaması** yapılandırma dikey penceresinde aşağıdaki adımları gerçekleştirin:
 
     1. Benzersiz bir sağlamak **uygulama adı**.
-    2. Açılır listeden seçin **abonelik**. Bu abonelik StorSimple veri Yöneticisi hizmetiniz ile ilişkili bir ile aynı olmalıdır.
+    2. Açılır listeden seçin **abonelik**. Bu abonelik, StorSimple veri Yöneticisi hizmeti ile ilişkilendirilmiş olanla aynı olması gerekir.
     3. Seçin **Yeni Oluştur** kaynak grubu.
-    4. İçin **barındırma planına** açılır listesinden, **tüketim planlama**.
-    5. İşlevinizi çalıştığı bir konum belirtin. StorSimple veri Yöneticisi hizmeti ve iş tanımı ile ilişkilendirilmiş depolama hesabının bulunduğu aynı bölgede istiyor.
-    6. Mevcut bir depolama hesabını seçin veya yeni bir depolama hesabı oluşturun. Bir depolama hesabı işlevi için dahili olarak kullanılır.
+    4. İçin **barındırma planı** açılan listesinden **tüketim planı**.
+    5. İşlevinizin çalıştırıldığı bir konum belirtin. StorSimple veri Yöneticisi hizmeti ve iş tanımıyla ilişkili depolama hesabına yerleştirildiği aynı bölgede kullanmanız gerekir.
+    6. Mevcut bir depolama hesabını seçin veya yeni bir depolama hesabı oluşturun. Bir depolama hesabı, işlev için dahili olarak kullanılır.
 
         ![Yeni işlev uygulaması yapılandırma verilerini girin](./media/storsimple-data-manager-change-default-blob-path/function-app-parameters.png)
 
@@ -60,26 +60,26 @@ Bir Azure işlevi oluşturmak için aşağıdaki adımları gerçekleştirin:
 
 5. Seçin **işlevleri**, tıklatıp **+ yeni işlev**.
 
-    ![Tıklatın + yeni işlevi](./media/storsimple-data-manager-change-default-blob-path/create-new-function.png)
+    ![Tıklama + yeni işlev](./media/storsimple-data-manager-change-default-blob-path/create-new-function.png)
 
-6. Seçin **C#** dil için. Şablon döşeme dizisinde seçin **C#** içinde **QueueTrigger CSharp** döşeme.
+6. Seçin **C#** dil için. İçinde bir dizi şablon kutucuk seçin **C#** içinde **QueueTrigger-CSharp** Döşe.
 
-7. İçinde **sıra tetikleyici**:
+7. İçinde **kuyruk tetikleyicisi**:
 
-    1. Girin bir **adı** işlevinizi için.
-    2. İçinde **sıra adı** , veri dönüştürme iş tanımı adını yazın.
-    3. Altında **depolama hesabı bağlantısı**, tıklatın **yeni**. Depolama hesapları listesinden iş tanımıyla ilişkili hesabı seçin. Bağlantı adı (vurgulanan) not edin. Daha sonra Azure işlevinde adı gerekiyor.
+    1. Girin bir **adı** işleviniz için.
+    2. İçinde **kuyruk adı** veri dönüştürme iş tanımı adı yazın.
+    3. Altında **depolama hesabı bağlantısı**, tıklayın **yeni**. Depolama hesapları listesinden, iş tanımıyla ilişkili hesabı seçin. Bağlantı adı (vurgulu) not edin. Daha sonra Azure işlev adı gereklidir.
 
-        ![Yeni bir C# işlevi oluşturma](./media/storsimple-data-manager-change-default-blob-path/new-function-parameters.png)
+        ![Yeni bir C# işlevi](./media/storsimple-data-manager-change-default-blob-path/new-function-parameters.png)
 
     4. **Oluştur**’a tıklayın. **İşlevi** oluşturulur.
 
      
 10. İşlev penceresinde çalıştırın _.csx_ dosya.
 
-    ![Yeni bir C# işlevi oluşturma](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
+    ![Yeni bir C# işlevi](./media/storsimple-data-manager-change-default-blob-path/new-function-run-csx.png)
     
-    Aşağıdaki adımları gerçekleştirin.
+    Aşağıdaki adımları uygulayın.
 
     1. Aşağıdaki kodu yapıştırın:
 
@@ -183,25 +183,25 @@ Bir Azure işlevi oluşturmak için aşağıdaki adımları gerçekleştirin:
 
         ```
 
-    2. Değiştir **STORAGE_CONNECTIONNAME** üzerinde 11, depolama hesabı bağlantınızdaki satır (adım 7 c bakın).
+    2. Değiştirin **STORAGE_CONNECTIONNAME** 11, depolama hesabı bağlantısı ile'on satır (adım 7 c bakın).
 
-        ![Depolama bağlantı adı kopyalayın](./media/storsimple-data-manager-change-default-blob-path/new-function-storage-connection-name.png)
+        ![Depolama bağlantı adı Kopyala](./media/storsimple-data-manager-change-default-blob-path/new-function-storage-connection-name.png)
 
     3. **Kaydet** işlevi.
 
         ![İşlev Kaydet](./media/storsimple-data-manager-change-default-blob-path/save-function.png)
 
-12. İşlevi tamamlamak için aşağıdaki adımları uygulayarak bir daha fazla dosya ekleyin:
+12. İşlev tamamlamak için aşağıdaki adımları uygulayarak bir daha fazla dosya ekleyin:
 
-    1. Tıklatın **dosyaları görüntüleyebilir**.
+    1. Tıklayın **dosyaları görüntüleyin**.
 
-       !["Dosyaları Görüntüle" bağlantısını](./media/storsimple-data-manager-change-default-blob-path/view-files.png)
+       !["Dosyaları görüntüleme" bağlantısı](./media/storsimple-data-manager-change-default-blob-path/view-files.png)
 
-    2. Tıklatın **+ Ekle**.
+    2. **+ Ekle**'ye tıklayın.
         
-        !["Dosyaları Görüntüle" bağlantısını](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
+        !["Dosyaları görüntüleme" bağlantısı](./media/storsimple-data-manager-change-default-blob-path/new-function-add-file.png)
     
-    3. Tür **project.json**ve tuşuna basarak **Enter**. İçinde **project.json** dosya, aşağıdaki kodu yapıştırın:
+    3. Tür **project.json**ve tuşuna **Enter**. İçinde **project.json** dosyasında, aşağıdaki kodu yapıştırın:
 
         ```
         {
@@ -219,9 +219,9 @@ Bir Azure işlevi oluşturmak için aşağıdaki adımları gerçekleştirin:
     
     4. **Kaydet**’e tıklayın.
 
-        !["Dosyaları Görüntüle" bağlantısını](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
+        !["Dosyaları görüntüleme" bağlantısı](./media/storsimple-data-manager-change-default-blob-path/new-function-project-json.png)
 
-Bir Azure işlevi oluşturdunuz. Bu işlev, yeni blob veri dönüştürme işlemi tarafından oluşturulan her zaman tetiklenir.
+Bir Azure işlevi oluşturdunuz. Bu işlev, yeni bir blob veri dönüşüm işi tarafından üretildiği her seferinde tetiklenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

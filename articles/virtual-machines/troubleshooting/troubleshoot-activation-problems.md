@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 16876a7831ab374637e28165c44d47e0ab059712
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 0f700b9e24399768977a1fa221322fa4c1c6708d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976381"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095152"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Azure Windows sanal makine etkinleştirme sorunlarını giderme
 
@@ -61,7 +61,7 @@ Bu adım Windows 2012 veya Windows 2008 R2 için geçerli değildir. Yalnızca W
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
 
-2. Varsa **slmgr.vbs/dlv komutunu** ayarlamak için aşağıdaki komutları çalıştırın, perakende kanalı gösterir [KMS istemci kurulum anahtarı](https://technet.microsoft.com/library/jj612867%28v=ws.11%29.aspx?f=255&MSPPError=-2147217396) Windows Server sürümü için kullanılıyorsa ve etkinleştirmeyi yeniden deneyin zorla: 
+2. **slmgr.vbs /dlv** alanında RETAIL kanalı gösteriliyorsa, [KMS istemci ayarı anahtarını](https://technet.microsoft.com/library/jj612867%28v=ws.11%29.aspx?f=255&MSPPError=-2147217396) kullanılmakta olan Windows Server sürümüne göre ayarlamak için aşağıdaki komutları çalıştırın ve etkinleştirmeyi yeniden denemeye zorlayın: 
 
     ```
     cscript c:\windows\system32\slmgr.vbs /ipk <KMS client setup key>
@@ -81,34 +81,34 @@ Bu adım Windows 2012 veya Windows 2008 R2 için geçerli değildir. Yalnızca W
 
 2. Başlat'a gidin, Windows PowerShell'i temel arama, Windows PowerShell sağ tıklayın ve ardından yönetici olarak çalıştır'ı seçin.
 
-3. VM doğru Azure KMS sunucusunu kullanacak şekilde yapılandırıldığından emin olun. Bunu yapmak için aşağıdaki komutu çalıştırın:
-  
+3. VM’nin doğru Azure KMS sunucusunu kullanacak şekilde yapılandırıldığından emin olun. Bunu yapmak için aşağıdaki komutu çalıştırın:
+  
     ```
     iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
-    Komutun döndürülmesi gerekir: Anahtar Yönetimi Hizmeti makine adı için kms.core.windows.net:1688 başarıyla ayarlandı.
+    Komut şu değeri döndürmelidir: Anahtar Yönetimi Hizmeti makine adı için kms.core.windows.net:1688 başarıyla ayarlandı.
 
-4. KMS sunucusunda bağlantınız Psping kullanarak doğrulayın. Pstools.zip indirme ayıkladığınız klasöre geçin ve sonra aşağıdaki komutu çalıştırın:
-  
+4. KMS sunucusunda bağlantınız Psping kullanarak doğrulayın. Pstools.zip dosyasını ayıkladığınız klasöre geçin ve sonra aşağıdaki komutu çalıştırın:
+  
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-  
-  Çıkış saniye son satırında gördüğünüz emin olun: Gönderilen = 4, alınan = 4, kayıp = 0 (% 0 kaybı olan).
+  
+   Çıktının sondan ikinci satırında şunu gördüğünüzden emin olun: Gönderilen = 4, alınan = 4, kayıp = 0 (% 0 kaybı olan).
 
-  Kayıp 0 (sıfır)'dan büyükse, VM KMS sunucusu bağlantısı yok. Bu durumda, bir sanal ağda VM ise ve özel bir DNS sunucusu belirttiği, DNS sunucusunun emin olmanız gerekir kms.core.windows.net çözebilirsiniz. Veya kms.core.windows.net gideren bir DNS sunucusunu değiştirin.
+   Kayıp 0 (sıfır)'dan büyükse, VM KMS sunucusu bağlantısı yok. Bu durumda, bir sanal ağda VM ise ve özel bir DNS sunucusu belirttiği, DNS sunucusunun emin olmanız gerekir kms.core.windows.net çözebilirsiniz. Veya kms.core.windows.net gideren bir DNS sunucusunu değiştirin.
 
-  Sanal ağdan tüm DNS sunucularına kaldırırsanız, VM'lerin Azure'nın iç DNS hizmeti kullandığına dikkat edin. Bu hizmet kms.core.windows.net çözümleyebilir.
+   Sanal ağdan tüm DNS sunucularına kaldırırsanız, VM'lerin Azure'nın iç DNS hizmeti kullandığına dikkat edin. Bu hizmet kms.core.windows.net çözümleyebilir.
   
 Ayrıca Konuk Güvenlik Duvarı'nı etkinleştirme girişimlerini engelleyen bir şekilde yapılandırılmamış doğrulayın.
 
-5. Başarılı bağlantıyı kms.core.windows.net doğruladıktan sonra yükseltilmiş bir Windows PowerShell isteminde aşağıdaki komutu çalıştırın. Bu komut, etkinleştirme birden çok kez çalışır.
+1. Başarılı bağlantıyı kms.core.windows.net doğruladıktan sonra yükseltilmiş bir Windows PowerShell isteminde aşağıdaki komutu çalıştırın. Bu komut, etkinleştirmeyi birden çok kez dener.
 
     ```
     1..12 | % { iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
     ```
 
-Başarılı bir etkinleştirme, aşağıdakine benzer bilgileri döndürür:
+Başarılı bir etkinleştirme aşağıdakine benzer bilgileri döndürür:
 
 **Windows(R), Serverdatacentercore edition (12345678-1234-1234-1234-12345678) etkinleştiriliyor... Ürün başarıyla etkinleştirildi.**
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: babanisa
-ms.openlocfilehash: 80f3574fb19d1829ebeac124788c240263c66812
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548430"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863177"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Kendi olağanüstü durum kurtarma için Event Grid özel konulardaki oluşturun
 
@@ -54,10 +54,10 @@ Daha sonra ihtiyacınız olacak şekilde bu URL'yi Not aldığınızdan emin olu
 
 1. Olay Kılavuzu konuları menüde **+ Ekle** birincil konuyu oluşturmak için.
 
-    * Konu mantıksal bir ad verin ve Ekle "-birincil" olarak izlemek kolay hale getirmek için bir son eki.
-    * Bu konunun bölgede, birincil bölge olacaktır.
+   * Konu mantıksal bir ad verin ve Ekle "-birincil" olarak izlemek kolay hale getirmek için bir son eki.
+   * Bu konunun bölgede, birincil bölge olacaktır.
 
-    ![Olay Kılavuzu konusu birincil iletişim kutusu oluşturma](./media/custom-disaster-recovery/create-primary-topic.png)
+     ![Olay Kılavuzu konusu birincil iletişim kutusu oluşturma](./media/custom-disaster-recovery/create-primary-topic.png)
 
 1. Konu oluşturulduktan sonra buna gitmek ve kopyalama **konu başlığı uç noktası**. URI daha sonra ihtiyacınız olacak.
 
@@ -69,11 +69,11 @@ Daha sonra ihtiyacınız olacak şekilde bu URL'yi Not aldığınızdan emin olu
 
 1. Konu dikey penceresinde **+ olay aboneliği** bağlanma öğreticisi için Önkoşullar içinde yaptığınız olay alıcısı Web sitesi abone olan bir abonelik oluşturmak için.
 
-    * Olay aboneliği mantıksal bir ad verin ve Ekle "-birincil" olarak izlemek kolay hale getirmek için bir son eki.
-    * Uç nokta türü Web kancasını seçin.
-    * Görünmelidir olay alıcı olay URL'si için uç nokta ayarlamak ister: `https://<your-event-reciever>.azurewebsites.net/api/updates`
+   * Olay aboneliği mantıksal bir ad verin ve Ekle "-birincil" olarak izlemek kolay hale getirmek için bir son eki.
+   * Uç nokta türü Web kancasını seçin.
+   * Görünmelidir olay alıcı olay URL'si için uç nokta ayarlamak ister: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-    ![Event Grid birincil olay aboneliği](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Event Grid birincil olay aboneliği](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. İkincil bir konu ve abonelik oluşturmak için aynı akışı yineleyin. Bu kez, Değiştir "-birincil" soneki ile "-ikincil" daha kolay izlemek için. Son olarak, farklı bir Azure bölgesinde koyduğunuzdan emin olun. Onu istediğiniz yere koyabilirsiniz ancak kullanmanız önerilir [Azure eşleştirilmiş bölgeleri](../best-practices-availability-paired-regions.md). İkincil konu ve abonelik farklı bir bölgede koyarak birincil bölgeye devre dışı kalsa bile yeni olaylarınızı akışı sağlar.
 
@@ -91,7 +91,7 @@ Konuları ve abonelikleri Kurulum bölgesel olarak yedekli bir çift olduğuna g
 
 ### <a name="basic-client-side-implementation"></a>Temel istemci-tarafı uygulaması
 
-Aşağıdaki örnek kod, her zaman öncelikle birincil Konunuza yayımlama girişiminde basit bir .net yayımcısıdır. Başarısız olursa, sonra yük devretmesi yapar ikincil konu. Her iki durumda da, da sistem denetler API üzerinde bir alma yaparak diğer konu `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Sağlıklı bir konu her zaman ile yanıt vermelidir **200 Tamam** ne zaman bir GET yapılan üzerinde **/api/sistem durumu** uç noktası.
+Aşağıdaki örnek kod, her zaman öncelikle birincil Konunuza yayımlama girişiminde basit bir .NET yayımcısıdır. Başarısız olursa, sonra yük devretmesi yapar ikincil konu. Her iki durumda da, da sistem denetler API üzerinde bir alma yaparak diğer konu `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Sağlıklı bir konu her zaman ile yanıt vermelidir **200 Tamam** ne zaman bir GET yapılan üzerinde **/api/sistem durumu** uç noktası.
 
 ```csharp
 using System;

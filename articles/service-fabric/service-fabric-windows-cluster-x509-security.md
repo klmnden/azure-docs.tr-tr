@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b23b2c46098fb53a3a08ff86c46cc6b6c9b936bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 17dd2a8cf58066fda7f82ba53b048df8e9b89da8
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228581"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285256"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>X.509 sertifikaları kullanarak Windows üzerinde tek başına küme güvenliğini sağlama
 Bu makalede, çeşitli, tek başına Windows küme düğümleri arasındaki iletişimin güvenliğini sağlamak açıklar. Ayrıca, bu kümeye X.509 sertifikaları kullanarak bağlanan istemcilerin kimliğini doğrulamak nasıl açıklar. Kimlik doğrulaması, yalnızca yetkili kullanıcıların küme ve dağıtılan uygulamalar erişim ve yönetim görevlerini gerçekleştirme sağlar. Küme oluşturulduğunda, sertifika güvenliği kümede etkinleştirilmelidir.  
@@ -175,7 +175,7 @@ Burada küme, sunucu ve istemci sertifikalarını sağlanmış olan örnek bir k
         "storeType": "FileShare",
         "IsEncrypted": "false",
         "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
-        }
+        },
         "security": {
             "metadata": "The Credential type X509 indicates this cluster is secured by using X509 certificates. The thumbprint format is d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
             "ClusterCredentialType": "X509",
@@ -261,7 +261,7 @@ Küme içindeki iletişimin güvenliğini sağlamak için önce küme düğümle
 
 Test amaçları için kullandığınız kümeler için otomatik olarak imzalanan bir sertifika kullanmayı seçebilirsiniz.
 
-## <a name="optional-create-a-self-signed-certificate"></a>İsteğe bağlı: otomatik olarak imzalanan bir sertifika oluşturun
+## <a name="optional-create-a-self-signed-certificate"></a>İsteğe bağlı: Otomatik olarak imzalanan sertifika oluşturma
 Doğru şekilde güvenli hale getirilebilir otomatik olarak imzalanan bir sertifika oluşturma yöntemlerinden biri, dizin C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure Service Fabric SDK'sı klasöründe CertSetup.ps1 betik kullanmaktır. Varsayılan Sertifika adını değiştirmek için bu dosyayı düzenleyin. (CN değeri Ara ServiceFabricDevClusterCert =.) Bu betik olarak çalıştırmak `.\CertSetup.ps1 -Install`.
 
 Artık sertifika korumalı bir parola ile bir .pfx dosyasına dışarı aktarın. İlk olarak, sertifikanın parmak izini alın. 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: e3d13082e3c076061b8d343827266ec04ae80646
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ac11244b87c87285722b4922da69530fab98c299
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180696"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117617"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Yönetilen etki alanınızı Azure AD'den kapsamlı eşitlemeyi yapılandırma
 Bu makalede, yalnızca belirli kullanıcı hesaplarını Azure AD dizininizi Azure AD Domain Services yönetilen Etki Alanınızla eşitlenmek üzere yapılandırma işlemini göstermektedir.
@@ -39,12 +39,10 @@ Aşağıdaki tabloda nasıl kapsamlı eşitleme kullanılacağını belirlemeniz
 
 > [!WARNING]
 > **Eşitleme kapsamı değiştirmek, yeniden eşitleme gitmek yönetilen etki alanınızı neden olur.**
->
- * Yönetilen bir etki alanı için eşitleme kapsamı değiştirdiğinizde, bir tam eşitleme gerçekleşir.
- * Yönetilen etki alanında artık gerekli olan nesneler silinir. Yeni nesneler yönetilen etki alanında oluşturulur.
- * Yeniden eşitleme, yönetilen etki alanınızı ve Azure AD dizininizi nesne (kullanıcılar, gruplar ve grup üyelikleri) sayısına bağlı olarak tamamlanması uzun sürebilir. Yüz binlerce nesne içeren büyük dizinler için yeniden eşitleme birkaç gün sürebilir.
->
->
+> 
+>  * Yönetilen bir etki alanı için eşitleme kapsamı değiştirdiğinizde, bir tam eşitleme gerçekleşir.
+>  * Yönetilen etki alanında artık gerekli olan nesneler silinir. Yeni nesneler yönetilen etki alanında oluşturulur.
+>  * Yeniden eşitleme, yönetilen etki alanınızı ve Azure AD dizininizi nesne (kullanıcılar, gruplar ve grup üyelikleri) sayısına bağlı olarak tamamlanması uzun sürebilir. Yüz binlerce nesne içeren büyük dizinler için yeniden eşitleme birkaç gün sürebilir.
 
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Yeni bir yönetilen etki alanı oluşturma ve Azure portalını kullanarak grup tabanlı kapsamlı eşitlemeyi etkinleştirme
@@ -58,46 +56,46 @@ Bu adım kümesini tamamlamak için PowerShell kullanın. Yönergelere bakın [A
 Grup tabanlı kapsamlı eşitleme yönetilen etki alanınıza yapılandırmak için aşağıdaki adımları tamamlayın:
 
 1. Aşağıdaki görevleri tamamlayın:
-  * [1. Görev: Gerekli PowerShell modüllerini yükleyin](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
-  * [2. Görev: Azure AD dizininizde gerekli hizmet sorumlusu oluşturma](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
-  * [3. Görev: Oluşturma ve yapılandırma 'AAD DC Administrators' grubunun](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
-  * [Görev 4: Azure AD Domain Services kaynak sağlayıcısını kaydetme](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
-  * [Görev 5: Bir kaynak grubu oluşturma](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
-  * [6. Görev: Oluşturma ve sanal ağ yapılandırma](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
+   * [1. Görev: Gerekli PowerShell modüllerini yükleyin](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
+   * [2. Görev: Azure AD dizininizde gerekli hizmet sorumlusu oluşturma](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
+   * [3. Görev: Oluşturma ve yapılandırma 'AAD DC Administrators' grubunun](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
+   * [Görev 4: Azure AD Domain Services kaynak sağlayıcısını kaydetme](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
+   * [Görev 5: Bir kaynak grubu oluşturma](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
+   * [6. Görev: Oluşturma ve sanal ağ yapılandırma](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
 
 2. Yönetilen etki alanınızla eşitlenmesini istediğiniz grupların görünen adını belirtin ve istediğiniz grupları seçin.
 
 3. Kaydet [betik aşağıdaki bölümdeki](active-directory-ds-scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) adlı bir dosyaya ```Select-GroupsToSync.ps1```. Betik yürütme aşağıdaki gibi:
 
-  ```powershell
-  .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
-  ```
+   ```powershell
+   .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
+   ```
 
-  > [!WARNING]
-  > **'AAD DC Administrators' grubuna eklemeyi unutmayın.**
-  >
-  > Kapsamlı eşitleme için yapılandırılan Grup listesinde 'AAD DC Administrators' grubuna eklemeniz gerekir. Bu grup eklemezseniz, yönetilen etki alanında kullanılamaz.
-  >
+   > [!WARNING]
+   > **'AAD DC Administrators' grubuna eklemeyi unutmayın.**
+   >
+   > Kapsamlı eşitleme için yapılandırılan Grup listesinde 'AAD DC Administrators' grubuna eklemeniz gerekir. Bu grup eklemezseniz, yönetilen etki alanında kullanılamaz.
+   >
 
 4. Şimdi, yönetilen etki alanı oluşturun ve grup tabanlı kapsamlı eşitleme yönetilen etki alanı için etkinleştirin. Özelliği ```"filteredSync" = "Enabled"``` içinde ```Properties``` parametresi. Kopyalama kaynağı aşağıdaki kod parçası, örneği için bkz: [görev 7: Azure AD Domain Services yönetilen etki alanı sağlama](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
 
-  ```powershell
-  $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-  $ManagedDomainName = "contoso100.com"
-  $ResourceGroupName = "ContosoAaddsRg"
-  $VnetName = "DomainServicesVNet_WUS"
-  $AzureLocation = "westus"
+   ```powershell
+   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
+   $ManagedDomainName = "contoso100.com"
+   $ResourceGroupName = "ContosoAaddsRg"
+   $VnetName = "DomainServicesVNet_WUS"
+   $AzureLocation = "westus"
 
-  # Enable Azure AD Domain Services for the directory.
-  New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
+   # Enable Azure AD Domain Services for the directory.
+   New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+   -Location $AzureLocation `
+   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -ApiVersion 2017-06-01 -Force -Verbose
-  ```
+   -ApiVersion 2017-06-01 -Force -Verbose
+   ```
 
-  > [!TIP]
-  > Eklenecek unutmadığınızdan ```"filteredSync" = "Enabled"``` içinde ```-Properties``` parametresi, yönetilen etki alanı için kapsamlı eşitleme etkin.
+   > [!TIP]
+   > Eklenecek unutmadığınızdan ```"filteredSync" = "Enabled"``` içinde ```-Properties``` parametresi, yönetilen etki alanı için kapsamlı eşitleme etkin.
 
 
 ## <a name="script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1"></a>Komut (Select-GroupsToSync.ps1) yönetilen etki alanı Eşitleme gruplarını seçmek için

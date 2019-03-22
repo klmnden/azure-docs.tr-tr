@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/25/2019
-ms.openlocfilehash: dde54894867811a34340f6dd4d0236b6b54e8144
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: cfa9f6bcb81182f4e76e995d626b207f8e130a80
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307726"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840928"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL bağlantı mimarisi
 
@@ -127,6 +127,8 @@ Azure SQL veritabanı sunucusu için Azure SQL veritabanı bağlantı İlkesi de
 ## <a name="script-to-change-connection-settings-via-powershell"></a>PowerShell aracılığıyla bağlantı ayarlarını değiştirmek için komut dosyası
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure Resource Manager PowerShell modülü, Azure SQL veritabanı tarafından hala desteklenmektedir, ancak tüm gelecekteki geliştirme için Az.Sql modüldür. Bu cmdlet'ler için bkz. [Azurerm.SQL'e](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Az modül ve AzureRm modülleri komutları için bağımsız değişkenler büyük ölçüde aynıdır.
 
 > [!IMPORTANT]
 > Bu betik [Azure PowerShell Modülü](/powershell/azure/install-az-ps).
@@ -150,7 +152,7 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ## <a name="script-to-change-connection-settings-via-azure-cli"></a>Azure CLI aracılığıyla bağlantı ayarlarını değiştirmek için komut dosyası
 
 > [!IMPORTANT]
-> Bu betik [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Bu betik [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 Aşağıdaki CLI betiği, bağlantı İlkesi değiştirme gösterir.
 

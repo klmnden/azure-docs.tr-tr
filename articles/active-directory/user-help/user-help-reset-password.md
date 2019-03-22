@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 170b96810130d33935e54c85529129e7e0267fe9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957785"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106492"
 ---
 # <a name="reset-your-work-or-school-password"></a>İş veya Okul parolanızı sıfırlama
 
@@ -93,15 +93,15 @@ Azure Active Directory (Azure AD) hesabınızı erişemiyorsanız, nedeni olabil
 
 - **Kimlik Doğrulayıcı uygulamanızdan bir kod kullanarak parolanızı sıfırlayın.** Kimlik doğrulama uygulamanız tarafından sağlanan bir rastgele kod kabul eder. Yöneticiniz güvenlik bilgisi deneyimi kapattıysa, bir kod sağlamak için bir kimlik doğrulayıcı uygulaması ayarlama hakkında daha fazla bilgi bulabilirsiniz [güvenlik bilgileri bir kimlik doğrulama uygulaması (Önizleme) kullanacak şekilde](security-info-setup-auth-app.md) makalesi. Güvenlik bilgilerinizi henüz kullanıyorsanız, bir kod sağlamak için bir kimlik doğrulayıcı uygulaması ayarlama hakkında daha fazla bilgi bulabilirsiniz [hesabım için iki aşamalı doğrulamayı ayarlama](multi-factor-authentication-end-user-first-time.md) makalesi.
 
-    1. Seçin **authenticator uygulamasından bir kod girmenizi**ve ardından **bildirim gönder**.
+  1. Seçin **authenticator uygulamasından bir kod girmenizi**ve ardından **bildirim gönder**.
 
-    2. Cihazınızdaki kimlik doğrulayıcı uygulamasında açın, hesabınızı doğrulama kodunu kutuya yazın ve ardından **sonraki**.
+  2. Cihazınızdaki kimlik doğrulayıcı uygulamasında açın, hesabınızı doğrulama kodunu kutuya yazın ve ardından **sonraki**.
 
-    3. Yazın ve yeni parolanızı onaylayın ve ardından **son**.
+  3. Yazın ve yeni parolanızı onaylayın ve ardından **son**.
 
-    4. Parolanız sıfırlandı belirten iletiyi aldıktan sonra yeni parolanızı kullanarak hesabınızda oturum açın.
+  4. Parolanız sıfırlandı belirten iletiyi aldıktan sonra yeni parolanızı kullanarak hesabınızda oturum açın.
         
-    Hesabınız hala erişemiyorsanız, daha fazla yardım için kuruluşunuzun yöneticisine başvurmanız gerekir.
+     Hesabınız hala erişemiyorsanız, daha fazla yardım için kuruluşunuzun yöneticisine başvurmanız gerekir.
 
 Parolanızı sıfırlarken sonra gibi bir hesaptan gelen bir onay e-postası alabilirsiniz "adına Microsoft \< *Kuruluşunuz*>." Benzer bir e-posta alırsınız, ancak kısa bir süre önce parolanızı sıfırlama alamadık, kuruluşunuzun Yöneticisi hemen başvurmanız gerekir.
 
@@ -113,7 +113,7 @@ Parolanızı değiştirmek istiyorsanız Office 365 portalı, Azure erişim pane
 
 Uygulamalarınızı genellikle Office Portalı aracılığıyla erişiyorsanız bu yöntemi kullanın:
 
-1. Oturum açın, [Office 365 hesabı](https://www.office.com), mevcut parolanızı kullanarak.
+1. Oturum açın, [Office 365 hesabı](https://portal.office.com), mevcut parolanızı kullanarak.
 
 2. Sağ üst taraftaki profilinize seçin ve ardından **hesabı görüntüle**.
 

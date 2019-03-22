@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: ryanwi
-ms.openlocfilehash: a030860bcef41d7276e1356553b984f55e27ae1e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 65fccada665743cf293b4ee4bb8f786a4c01c58a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164172"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093914"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Durum bilgisi olan hizmetler için birim testleri oluşturma
 Birim testi Service Fabric durum bilgisi olan hizmetler mutlaka geleneksel uygulama veya etki alanına özgü birim testi tarafından yakalanabilen değil yaygın hataları açıklığa kavuşturur. Durum bilgisi olan hizmetler için birim testleri geliştirirken akılda tutulması gereken bazı noktalar vardır.
@@ -42,13 +42,13 @@ Bu makalede varsayar [birim Service Fabric durum bilgisi olan hizmetler testi](s
 Bir test Yerleştir kısmı bir parçası olarak sahte bir çoğaltma kümesi ve durum Yöneticisi oluşturulur. Çoğaltma kümesi, ardından her yineleme için test edilmiş hizmet örneği oluşturma hakimi olursunuz. Yürütülen yaşam döngüsü olayları gibi de ait `OnChangeRole` ve `RunAsync`. Sahte bir durum Yöneticisi durum Yöneticisi karşı gerçekleştirilen tüm işlemler çalıştırın ve gerçek durum Yöneticisi olduğu gibi kalmasını sağlayacaktır.
 
 1. Test edilen hizmet örneği bir hizmet Fabrika temsilcisi oluşturun. Hizmet üreteci geri genellikle içinde bulunan bu benzer veya aynı olmalıdır `Program.cs` bir Service Fabric hizmet ya da aktör için. Bu, aşağıdaki imzası izlemelidir:
-```csharp
-MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
-```
+   ```csharp
+   MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
+   ```
 2. Bir örneğini oluşturmak `MockReliableStateManager` sınıfı. Bu durum Yöneticisi ile tüm etkileşimler sahte.
 3. Bir örneğini oluşturmak `MockStatefulServiceReplicaSet<TStatefulService>` burada `TStatefulService` test edilen hizmet türüdür. Bu temsilci #1. adımda oluşturduğunuz ve #2'de örneği durum Yöneticisi'ni gerektirir
 4. Çoğaltmalar, çoğaltma kümesine ekleyin. (Örneğin, birincil, ActiveSecondary, IdleSecondary) rolü ve çoğaltma kimliği belirtin
-> Çoğaltma kimlikleri tutun! Bu, büyük olasılıkla işlemi sırasında kullanılacak ve birim testi bölümlerini onay.
+   > Çoğaltma kimlikleri tutun! Bu, büyük olasılıkla işlemi sırasında kullanılacak ve birim testi bölümlerini onay.
 
 ```csharp
 //service factory to instruct how to create the service instance

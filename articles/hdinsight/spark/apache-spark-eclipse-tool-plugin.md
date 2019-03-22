@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: 4370cc5e39b7d1b9a50e8fc8af9f7bfc58f6356a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 05df154db27dcf1b07506c6bf9c2a681408de61e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602758"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091826"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Bir HDInsight kümesi için Apache Spark uygulamaları oluşturmak için Eclipse için Azure Araç Seti'ni kullanma
 
@@ -141,12 +141,12 @@ Ambari yönetilen kullanıcı adı kullanarak, normal bir küme bağlayabilirsin
    a. Paket Gezgini'nde proje adına sağ tıklayın ve ardından **gönderin, HDInsight için Spark uygulaması**.        
    b. İçinde **Spark gönderimi** iletişim kutusunda aşağıdaki değerleri sağlayın ve ardından **Gönder**:
       
-      * İçin **küme adı**, uygulamanızı çalıştırmak istediğiniz HDInsight Spark kümesini seçin.
-      * Eclipse projeden bir yapı seçin veya bir sabit sürücüye seçin. Varsayılan değer, paketi Gezgini'nden sağ öğesi bağlıdır.
-      * İçinde **ana sınıf adı** aşağı açılan listesinde, Gönderme Sihirbazı'nı projenizden tüm nesne adlarını görüntüler. Çalıştırmak istediğiniz girin veya seçin. Bir sabit diskten bir yapıt seçtiyseniz, ana sınıf adını el ile girmeniz gerekir. 
-      * Bu örnek uygulama kodunda herhangi bir komut satırı bağımsız değişkenleri gerektirmez veya jar dosyaları dışındaki veya dosyalara başvurmak için diğer metin kutuları boş bırakabilirsiniz.
+   * İçin **küme adı**, uygulamanızı çalıştırmak istediğiniz HDInsight Spark kümesini seçin.
+   * Eclipse projeden bir yapı seçin veya bir sabit sürücüye seçin. Varsayılan değer, paketi Gezgini'nden sağ öğesi bağlıdır.
+   * İçinde **ana sınıf adı** aşağı açılan listesinde, Gönderme Sihirbazı'nı projenizden tüm nesne adlarını görüntüler. Çalıştırmak istediğiniz girin veya seçin. Bir sabit diskten bir yapıt seçtiyseniz, ana sınıf adını el ile girmeniz gerekir. 
+   * Bu örnek uygulama kodunda herhangi bir komut satırı bağımsız değişkenleri gerektirmez veya jar dosyaları dışındaki veya dosyalara başvurmak için diğer metin kutuları boş bırakabilirsiniz.
         
-      ![Spark gönderim iletişim kutusu](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
+     ![Spark gönderim iletişim kutusu](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
 1. **Spark gönderimi** sekmesinde ilerleme durumunu görüntüleme başlamalıdır. Kırmızı düğmeye seçerek uygulama durdurabilirsiniz **Spark gönderimi** penceresi. Ayrıca, bu belirli uygulama (mavi kutu görüntü olarak gösterilir) dünyanın dört bir yanındaki simgeyi seçerek çalıştırmak için günlükleri görüntüleyebilirsiniz.
       
    ![Spark gönderimi penceresi](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)

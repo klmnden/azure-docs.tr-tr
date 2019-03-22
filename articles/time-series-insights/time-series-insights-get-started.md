@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: 74cd56f5a8bfe8717927c13e6bf30eb27b43fbc9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: b18ae44a140d77c24d8b5741bc09740767d1344f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558541"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075961"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Azure Portal’da yeni Zaman Serisi Görüşleri ortamı oluşturma
 Bu makalede, Azure portalını kullanarak yeni bir zaman serisi görüşleri ortamı oluşturmayı açıklar.
@@ -26,15 +26,15 @@ Time Series Insights, Azure IOT hub ve Event hubs'ı dakikalar içinde akan veri
 ## <a name="steps-to-create-the-environment"></a>Ortam oluşturma adımları
 Bir ortam oluşturmak için aşağıdaki adımları izleyin:
 
-1.  [Azure Portal](https://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2.  Seçin **+ yeni** düğmesi.
+2. Seçin **+ yeni** düğmesi.
 
-3.  Seçin **nesnelerin interneti** kategorisi ve select **Time Series Insights**.
+3. Seçin **nesnelerin interneti** kategorisi ve select **Time Series Insights**.
 
    ![Zaman Serisi Görüşleri oluşturma ortam](media/time-series-insights-get-started/1-new-tsi.png)
 
-4.  Üzerinde **Time Series Insights** sayfasında **Oluştur**.
+4. Üzerinde **Time Series Insights** sayfasında **Oluştur**.
 
 5. Gerekli parametreleri doldurun. Aşağıdaki tabloda her bir parametre açıklanmıştır:
    

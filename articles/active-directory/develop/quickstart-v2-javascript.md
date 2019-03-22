@@ -4,7 +4,7 @@ description: JavaScript uygulamaları Azure Active Directory v2.0 uç noktası t
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 694eb49244afb6761ce274572f15273ccef6cbb5
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: fe8c2287da7a7eabc26ff134d8bb44c5e45085f1
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195039"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203056"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir JavaScript uygulamasında erişim belirteci alma
 
@@ -29,7 +29,7 @@ ms.locfileid: "57195039"
 
 Bu hızlı başlangıçta, tek sayfalı uygulama (SPA) kişisel hesaplarında oturum, iş ve Okul hesapları, Microsoft Graph API'sini veya herhangi bir web API'sini çağırmak için erişim belirteci almak bir JavaScript nasıl erişileceğini gösteren bir kod örneğini nasıl kullanacağınızı öğreneceksiniz.
 
-![Bu Hızlı Başlangıcın oluşturduğu örnek uygulama nasıl çalışır?](media/quickstart-v2-javascript/javascriptspa-intro.png)
+![Bu Hızlı Başlangıç ile oluşturulan örnek uygulamasını nasıl çalıştığını gösterir](media/quickstart-v2-javascript/javascriptspa-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Kaydolun ve hızlı başlangıç uygulamanızı indirin

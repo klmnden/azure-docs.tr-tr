@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 7cc6153681a05944ea83b756a0439ff0c8922f91
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 2b63eea7b8562a6972aecef02395d734d1c2655f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959536"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883874"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Speech SDK'sı kullanarak Linux üzerinde c++ konuşma tanıma
 
@@ -25,7 +25,7 @@ Bu makalede, Ubuntu Linux 16.04 veya 18.04 için C++ konsol uygulaması oluştur
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz alabilirsiniz. Ayrıntılar için bkz: [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
+Bu hızlı başlangıcı tamamlamak için bir konuşma Hizmetleri abonelik anahtarı ihtiyacınız vardır. Anahtarı ücretsiz alabilirsiniz. Bkz: [konuşma Hizmetleri ücretsiz olarak deneyin](get-started.md) Ayrıntılar için.
 
 ## <a name="install-speech-sdk"></a>Konuşma SDK'sını yükleme
 
@@ -79,7 +79,7 @@ SDK'yı aşağıda gösterildiği gibi indirin ve yükleyin:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
 
-1. Bu yeni dosyada `YourSubscriptionKey` dizesini Konuşma hizmeti abonelik anahtarınız ile değiştirin.
+1. Bu yeni dosya, dize değiştirin `YourSubscriptionKey` konuşma Hizmetleri abonelik anahtarınız ile.
 
 1. `YourServiceRegion` dizesini, aboneliğinizle ilişkili [bölge](regions.md) ile (örneğin, ücretsiz deneme aboneliği için `westus`) değiştirin.
 
@@ -122,7 +122,7 @@ SDK'yı aşağıda gösterildiği gibi indirin ve yükleyin:
    ./helloworld
    ```
 
-1.  Konsol penceresinde bir istem görünerek bir şey söylemenizi ister. İngilizce bir deyim ya da cümle söyleyin. Söyledikleriniz Konuşma hizmetine aktarılır ve metne dönüştürülür; metin aynı pencerede görünür.
+1. Konsol penceresinde bir istem görünerek bir şey söylemenizi ister. İngilizce bir deyim ya da cümle söyleyin. Konuşma konuşma hizmetlere iletilen ve transcribed aynı pencerede görünen metin.
 
    ```text
    Say something...

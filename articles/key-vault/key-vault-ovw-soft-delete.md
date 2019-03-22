@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 09/25/2017
-ms.openlocfilehash: 3ca08f12e3f389265fd3a77b3aa82c086085a10a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 526b0b135c8d5c1741ddf5f3fe6fb32f259a3e2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403711"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092999"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault geçici silmeyi genel bakış
 
@@ -44,9 +44,9 @@ Geçici silme isteğe bağlı bir Key Vault davranışı ve **varsayılan olarak
 ### <a name="purge-protection--flag"></a>Koruma bayrağını Temizle
 Koruma Temizle (**--temizleme koruma etkinleştirme** Azure clı'daki) bayrak varsayılan olarak kapalıdır. Bu bayrak, kasa etkin veya bir nesne silinmiş durumda kadar temizlenemiyor 90 gün saklama süresi geçti. Böyle bir kasa veya nesne hala kurtarılabilir. Bu bayrak, saklama süresi bitene kadar bir kasa veya bir nesne hiçbir zaman kalıcı olarak silinmez, müşterilere ek güvence sunar. Yalnızca geçici silmeyi bayrağı açıktır veya kasa oluşturma sırasında üzerinde hem geçici silmeyi açın ve koruma temizleme temizleme koruma bayrağı kapatabilirsiniz.
 
-> [!NOTE] 
-   Temizleme korumayı etkinleştirme için geçici silme açık olmalıdır önkoşuldur.
-Azure CLI 2. Bunu yapmak için komut
+> [!NOTE]
+>    Temizleme korumayı etkinleştirme için geçici silme açık olmalıdır önkoşuldur.
+> Azure CLI 2. Bunu yapmak için komut
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 937f6ffb9865419611c35b95ac84832bb2f1f3fe
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 92ffa02959f020789d14b3bea71763f3f5b9bb47
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791828"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084107"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight, Apache Spark kümeleri Jupyter not defteri için çekirdekler 
 
@@ -59,15 +59,15 @@ HDInsight Spark kümeleri Jupyter not defteri ile yeni çekirdekler kullanmanın
 
 - **Önceden ayarlanmış Bağlamlar**. İle **PySpark**, **PySpark3**, veya **Spark** çekirdekleri gerektirmeyen, uygulamalarla çalışmaya başlamadan önce Spark veya Hive bağlamları açıkça ayarlamak. Bunlar, varsayılan olarak kullanılabilir. Şu bağlamlarda şunlardır:
    
-   * **sc** - Spark bağlamı için
-   * **sqlContext** - Hive bağlamı için
+  * **sc** - Spark bağlamı için
+  * **sqlContext** - Hive bağlamı için
    
-   Bu nedenle, gibi içerikler için aşağıdaki deyimleri çalıştırın gerekmez:
+    Bu nedenle, gibi içerikler için aşağıdaki deyimleri çalıştırın gerekmez:
    
-          sc = SparkContext('yarn-client')
-          sqlContext = HiveContext(sc)
+         sc = SparkContext('yarn-client')
+         sqlContext = HiveContext(sc)
    
-   Bunun yerine, önceden ayarlanmış Bağlamlar doğrudan uygulamanızda kullanabilirsiniz.
+    Bunun yerine, önceden ayarlanmış Bağlamlar doğrudan uygulamanızda kullanabilirsiniz.
 
 - **Hücre işlevlerini**. PySpark çekirdeği bazı önceden tanımlanmış "işlevlerini" ile çağırabileceğiniz özel komutlar olduğu sağlar `%%` (örneğin, `%%MAGIC` <args>). Sihirli komutu bir kod hücresi içinde ilk sözcük ve içeriği birden fazla satır için izin gerekir. Sihirli word hücredeki ilk sözcük olmalıdır. Magic bile açıklamalar önce herhangi bir şey ekleme, bir hataya neden olur.     İşlevlerini hakkında daha fazla bilgi için bkz. [burada](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
    
@@ -77,7 +77,7 @@ HDInsight Spark kümeleri Jupyter not defteri ile yeni çekirdekler kullanmanın
    | --- | --- | --- |
    | Yardım |`%%help` |Örnek ve açıklaması ile kullanılabilir tüm işlevlerini bir tablo oluşturur |
    | bilgi |`%%info` |Çıkışlar oturum bilgilerini geçerli Livy uç noktası |
-   | yapılandırma |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Oturum oluşturmak için parametreler yapılandırır. Force bayrağını (-f) bir oturum zaten, oturum bırakılan ve yeniden sağlayan oluşturulduysa zorunludur. Bakmak [Livy'nın POST /sessions istek gövdesi](https://github.com/cloudera/livy#request-body) için geçerli parametrelerin bir listesi. Parametreler, içinde bir JSON dizesi geçirilmelidir ve sonraki satırda Sihirli sonra örnek sütununda gösterildiği gibi olması gerekir. |
+   | yapılandırılmak |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Oturum oluşturmak için parametreler yapılandırır. Force bayrağını (-f) bir oturum zaten, oturum bırakılan ve yeniden sağlayan oluşturulduysa zorunludur. Bakmak [Livy'nın POST /sessions istek gövdesi](https://github.com/cloudera/livy#request-body) için geçerli parametrelerin bir listesi. Parametreler, içinde bir JSON dizesi geçirilmelidir ve sonraki satırda Sihirli sonra örnek sütununda gösterildiği gibi olması gerekir. |
    | SQL |`%%sql -o <variable name>`<br> `SHOW TABLES` |Bir Hive sorgusu sqlContext karşı yürütür. Varsa `-o` parametresi geçirilir, sorgu sonucu kalıcı hale getirilir %% yerel Python bağlamı olarak bir [Pandas](https://pandas.pydata.org/) veri çerçevesi. |
    | yerel |`%%local`<br>`a=1` |Sonraki satırların tüm kodu yerel olarak yürütülür. Kod bile kullandığınız çekirdek bağımsız olarak geçerli Python2 kodu olmalıdır. Bu nedenle, seçtiyseniz, **PySpark3** veya **Spark** kullanırsanız, Not defterini oluşturulurken çekirdekler `%%local` Sihirli bir hücre, söz konusu hücrenin yalnızca geçerli Python2 kodunuz olmalıdır... |
    | günlükler |`%%logs` |Geçerli oturumda Livy günlükleri çıkarır. |
@@ -87,7 +87,7 @@ HDInsight Spark kümeleri Jupyter not defteri ile yeni çekirdekler kullanmanın
    > [!NOTE]  
    > De kullanabilirsiniz işlevlerini yanı sıra PySpark çekirdeği tarafından eklenen [yerleşik Ipython işlevlerini](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics)de dahil olmak üzere `%%sh`. Kullanabileceğiniz `%%sh` kümesi baş düğümünde betikleri ve kod bloğunu çalıştırmak için magic.
 
-2. **Otomatik görselleştirme**. **Pyspark** çekirdek, Hive ve SQL sorgusu çıkışını otomatik olarak görselleştirir. Birkaç farklı türde görselleştirmeler içeren tablo, pasta, çizgi, alan, çubuğu arasında seçim yapabilirsiniz.
+1. **Otomatik görselleştirme**. **Pyspark** çekirdek, Hive ve SQL sorgusu çıkışını otomatik olarak görselleştirir. Birkaç farklı türde görselleştirmeler içeren tablo, pasta, çizgi, alan, çubuğu arasında seçim yapabilirsiniz.
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>Parametreler ile desteklenen %% sql Sihri
 `%%sql` Sihirli sorguları çalıştırdığınızda, aldığınız çıktı türünü denetlemek için kullanabileceğiniz farklı parametreleri destekler. Aşağıdaki tabloda çıkış listeler.

@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d1d515786fde06f4622402f2c1d0c3add7cd8843
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: f3d9a2447bdbc2a1a5ce930ffa161d5a9e30069b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913166"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225068"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Kurumsal güvenlik paketi ile Apache Hadoop güvenliğine giriş
 
 Geçmişte, Azure HDInsight yalnızca tek bir kullanıcı desteklenen: yerel yönetici Bu durum küçük çaplı uygulama ekipleri veya departmanları için idealdi. Active Directory tabanlı kimlik doğrulaması, çok kullanıcılı gibi Kurumsal düzeydeki özellikleri desteği ve rol tabanlı erişim denetimi gittikçe daha önemli hale geldi gereken Kurumsal sektörde daha popüler Apache Hadoop tabanlı iş yüklerini kazanılan gibi. 
 
-Kurumsal güvenlik paketi'ile (ESP), bir Active Directory etki alanına katılmış bir HDInsight kümesi oluşturabilirsiniz. Ardından HDInsight kümesinde oturum açmak için Azure Active Directory aracılığıyla doğrulayabilir çalışanların kurumsal bir listesini yapılandırabilirsiniz. Hiç bir kuruluş dışına oturum açın veya HDInsight küme erişim. 
+Kurumsal güvenlik paketi'ile (ESP), bir Active Directory etki alanına katılmış bir HDInsight kümesi oluşturabilirsiniz. Daha sonra oturum açmak için HDInsight kümesi için Azure Active Directory aracılığıyla doğrulayabilir çalışanların kurumsal bir listesini yapılandırabilirsiniz. Hiç bir kuruluş dışına oturum açın veya HDInsight küme erişim. 
 
 Kuruluş yöneticisi rol tabanlı erişim denetimi (RBAC) için güvenlik Apache Hive kullanarak yapılandırabilirsiniz [Apache Ranger](https://hortonworks.com/apache/ranger/). RBAC yapılandırma, yalnızca gerekli olanla veri erişimi kısıtlar. Son olarak yönetici çalışanlara ve erişim denetim ilkelerinde yapılan değişiklikler göre veri erişimi denetleyebilirsiniz. Yönetici daha sonra bir yüksek düzeyde kurumsal kaynakların elde edebilirsiniz.
 
@@ -36,10 +36,10 @@ HDInsight çevre güvenliği sanal ağlar ve Azure VPN ağ geçidi hizmeti sağl
 
 Çevre bir güvenlik katmanı VPN ağ geçidi hizmeti aracılığıyla sağlanır. Ağ geçidi, ilk savunma hattınızdır HDInsight kümesine gelen tüm istekler görür. İsteği kabul eder, doğrular ve yalnızca ardından isteğin kümedeki diğer düğümlere geçirilecek sağlar. Bu şekilde, ağ geçidi, kümedeki diğer ad ve veri düğümleri için çevre güvenliğini sağlar.
 
-## <a name="authentication"></a>Kimlik Doğrulaması
+## <a name="authentication"></a>Authentication
 Kuruluş Yöneticileri ESP içeren bir HDInsight kümesi oluşturma bir [sanal ağ](https://azure.microsoft.com/services/virtual-network/). HDInsight kümesinin tüm düğümlerine kuruluş tarafından yönetilen etki alanına katılır. Bu kullanımının sağlanır [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
-Bu kurulum sayesinde kuruluş çalışanları küme düğümlerinde etki alanı kimlik bilgilerini kullanarak oturum açabilir. Bunlar ayrıca Apache Ambari Views, ODBC, JDBC, PowerShell ve REST API'leri kümeyle etkileşimde gibi diğer onaylanmış uç noktaların kimlik doğrulaması yapmak için etki alanı kimlik bilgilerini kullanabilirsiniz. Yönetici Bu uç noktalar üzerinden kümeyle etkileşime geçen kullanıcının sayısını sınırlama üzerinde tam denetime sahiptir.
+Bu kurulum sayesinde kuruluş çalışanları küme düğümlerinde etki alanı kimlik bilgilerini kullanarak oturum açabilirsiniz. Bunlar ayrıca Apache Ambari Views, ODBC, JDBC, PowerShell ve REST API'leri kümeyle etkileşimde gibi diğer onaylanmış uç noktaların kimlik doğrulaması yapmak için etki alanı kimlik bilgilerini kullanabilirsiniz. Yönetici Bu uç noktalar üzerinden kümeyle etkileşime geçen kullanıcının sayısını sınırlama üzerinde tam denetime sahiptir.
 
 ## <a name="authorization"></a>Yetkilendirme
 Çoğu kuruluş izleyen en iyi uygulama her çalışana kuruluş kaynakları erişimi olduğundan emin olmak. Benzer şekilde, yönetici küme kaynakları için rol tabanlı erişim denetimi ilkeleri tanımlayabilirsiniz. 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 428934a6e93ced56274bd27123bea9d92cd45240
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 69099fe1369223871142f74d8f6d1c6a8bd66dab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997949"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57851782"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Media Services ile Azure işlevleri geliştirme
 
@@ -34,7 +34,7 @@ Keşfedin ve Azure Media Services kullanan mevcut Azure işlevleri'ni dağıtmak
     
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 
-1. [Azure portalına](http://portal.azure.com) gidip Azure hesabınızla oturum açın.
+1. [Azure portalına](https://portal.azure.com) gidip Azure hesabınızla oturum açın.
 2. Açıklandığı bir işlev uygulaması oluşturma [burada](../../azure-functions/functions-create-function-app-portal.md).
 
 >[!NOTE]

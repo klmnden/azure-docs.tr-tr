@@ -17,12 +17,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 0a9975b6f44a97d198dc308e263879c3358aab82
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a2081bab2aebf0d49f3bde2467dac1fa683452ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672704"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008723"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında sanal makine ölçek kümesi oluşturma
 Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Ölçek kümesi içindeki sanal makine sayısını el ile ölçeklendirebilir veya CPU, bellek talebi ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Azure Load Balancer daha sonra ölçek kümesindeki sanal makine örneklerine trafiği dağıtır. Bu hızlı başlangıçta, Azure portalında sanal makine ölçek kümesi oluşturacaksınız.
@@ -31,7 +31,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
-http://portal.azure.com adresinden Azure portalında oturum açın.
+https://portal.azure.com adresinden Azure portalında oturum açın.
 
 
 ## <a name="create-virtual-machine-scale-set"></a>Sanal makine ölçek kümesi oluşturma
@@ -43,10 +43,10 @@ RHEL, CentOS, Ubuntu veya SLES gibi bir Linux görüntüsü ya da Windows Server
 4. İstediğiniz işletim sistemi türünü seçin (örn. *Windows Server 2016 Datacenter*).
 5. İstediğiniz kaynak grubu adını (örn. *myResourceGroup*) ve konumu (örn. *Doğu ABD*) girin.
 6. İstediğiniz kullanıcı adını girin ve tercih ettiğiniz kimlik doğrulaması türünü seçin.
-    - **Parola** en az 12 karakter uzunluğunda olmalı ve şu dört karmaşıklık gereksiniminden üçünü karşılamalıdır: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. Daha fazla bilgi için [kullanıcı adı ve parola gereksinimlerine](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) bakın.
-    - Bir Linux OS disk görüntüsü seçerseniz bunun yerine **SSH genel anahtarını** seçebilirsiniz. Yalnızca genel anahtarınızı sağlayın (örn. *~/.ssh/id_rsa.pub*). [SSH anahtarları oluşturmak ve kullanmak](../virtual-machines/linux/mac-create-ssh-keys.md) için portaldan Azure Cloud Shell’i kullanabilirsiniz.
+   - **Parola** en az 12 karakter uzunluğunda olmalı ve şu dört karmaşıklık gereksiniminden üçünü karşılamalıdır: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. Daha fazla bilgi için [kullanıcı adı ve parola gereksinimlerine](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) bakın.
+   - Bir Linux OS disk görüntüsü seçerseniz bunun yerine **SSH genel anahtarını** seçebilirsiniz. Yalnızca genel anahtarınızı sağlayın (örn. *~/.ssh/id_rsa.pub*). [SSH anahtarları oluşturmak ve kullanmak](../virtual-machines/linux/mac-create-ssh-keys.md) için portaldan Azure Cloud Shell’i kullanabilirsiniz.
 
-    ![Azure portalında sanal makine ölçek oluşturmak için temel ayrıntılarını ayarlayın](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
+     ![Azure portalında sanal makine ölçek oluşturmak için temel ayrıntılarını ayarlayın](./media/virtual-machine-scale-sets-create-portal/create-scale-set-basic-details.png)
 1. Seçeneğini aşağıdaki gibi bir yük dengelemeyi seçin *yük dengeleyici*altında **seçin Yük Dengeleme seçeneklerini**. Yük Dengeleme seçenek için kalan ayrıntıları girin. Örneğin, *yük dengeleyici* girmeniz gerekir. bir **genel IP adresi adı** ve **etki alanı adı etiketi**.
 1. Altında sanal ağ ayrıntılarını girin **sanal ağları yapılandırma**. Örneğin, yeni bir sanal ağ oluşturabilirsiniz *myVirtualNetwork*ve yeni bir alt ağ *varsayılan*.
 1. Ölçek kümesi seçeneklerini onaylamak için **Oluştur**’u seçin.

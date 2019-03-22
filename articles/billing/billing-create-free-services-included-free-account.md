@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: banders
-ms.openlocfilehash: ee8ccef1635fdc542759818a0d2a5264bbf71012
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: a8db4675e01cfb1e48c034eb39b183d72d083508
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837210"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Azure ücretsiz hesaba dahil hizmetler oluşturma
 
@@ -36,4 +36,4 @@ Kullanım sınırı içinde kullanım toplamı olduğu sürece ücretsiz Hizmetl
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

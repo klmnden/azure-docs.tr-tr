@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5db4387c2fd610313aaac032c122366aa45dc7f9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 93313557781c6b3788d8b4d43d6676fc17625709
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720195"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201322"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Betik eylemi betikleri HDInsight Windows tabanlı kümeler için geliştirme
-HDInsight için betik eylemi betikleri yazmayı öğrenin. Betik eylemi betikleri kullanma hakkında daha fazla bilgi için bkz. [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md). Linux tabanlı HDInsight kümeleri için yazılmış aynı makalesi için bkz [HDInsight için betik eylemi geliştirme betikleri](hdinsight-hadoop-script-actions-linux.md).
+HDInsight için betik eylemi betikleri yazmayı öğrenin. Betik eylemi betikleri kullanma hakkında daha fazla bilgi için bkz. [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md). Linux tabanlı HDInsight kümeleri için yazılmış aynı makalesi için bkz [HDInsight için betik eylemi geliştirme betikleri](hdinsight-hadoop-script-actions-linux.md).
 
 
 > [!IMPORTANT]  
@@ -95,12 +95,11 @@ HDInsight, HDInsight kümelerinde ek bileşenleri yüklemek için birkaç komut 
 | --- | --- |
 | **Spark'ı yükleme** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Bkz: [yükleme ve kullanma, HDInsight üzerinde Apache Spark kümeleri][hdinsight-install-spark]. |
 | **R yükleme** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. Bkz: [yükleme ve HDInsight kümelerinde R kullanma](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
-| **Solr yükleme** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Bkz: [HDInsight üzerinde Apache Solr yükleme ve kullanma kümeleri](hdinsight-hadoop-solr-install.md). |
 | **Giraph yükleme** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Bkz: [HDInsight üzerinde Apache giraph'ı yükleme ve kullanma kümeleri](hdinsight-hadoop-giraph-install.md). |
 | **Hive kitaplıklarını önceden yükleme** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Bkz: [HDInsight kümelerinde kitaplıkları Apache Hive Ekle](hdinsight-hadoop-add-hive-libraries.md) |
 
 
-Betik eylemi, Azure portalı, Azure PowerShell veya HDInsight .NET SDK'sı kullanılarak dağıtılabilir.  Daha fazla bilgi için [özelleştirme HDInsight kümelerini betik eylemi kullanarak][hdinsight-cluster-customize].
+Betik eylemi, Azure portalı, Azure PowerShell veya HDInsight .NET SDK'sı kullanılarak dağıtılabilir.  Daha fazla bilgi için bkz. [betik eylemi kullanarak özelleştirme HDInsight kümeleri] [hdınsight-kümesi-özelleştirme].
 
 > [!NOTE]  
 > Örnek betikler yalnızca HDInsight kümesi sürüm 3.1 veya üstünde çalışır. HDInsight küme sürümleri hakkında daha fazla bilgi için bkz. [HDInsight küme sürümleri](hdinsight-component-versioning.md).
@@ -291,13 +290,11 @@ Bu oturum, HEADNODE0 adlı VM üzerinde Spark betik eylemi yürütüldü ve hiç
 Bir yürütme hatası oluştuğunda, olay, onu tanımlayan çıkış Ayrıca bu günlük dosyasında yer alır. Bu günlükler sağlanan bilgileri kaynaklanabilecek sorunları betik hata ayıklamaya yardımcı olması gerekir.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [HDInsight kümelerini betik eylemi kullanarak özelleştirme][hdinsight-cluster-customize]
+* [Betik eylemi kullanarak HDInsight kümelerini özelleştirin] [hdınsight-kümesi-özelleştirme]
 * [Yükleme ve Apache Spark HDInsight kümeleri kullanma][hdinsight-install-spark]
-* [Yükleme ve HDInsight kümeleri üzerinde Apache Solr kullanma](hdinsight-hadoop-solr-install.md).
 * [Yükleme ve HDInsight kümeleri üzerinde Apache giraph'ı kullanma](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [powershell-install-configure]: install-configure-powershell.md
 

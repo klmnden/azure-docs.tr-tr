@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/04/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 4f67158c0de8cdd161bce269059af6d421bb68b5
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: MT
+ms.openlocfilehash: 2d7dc6eb5ee77804f0c8c87ee2e5a5dd1d0dc30a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340357"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841132"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2'den v3 taşımak için Geçiş Kılavuzu
 
@@ -72,6 +72,7 @@ Bugün üzerine geliştirilen bir video hizmeti varsa [eski Media Services v2 AP
     * Canlı olay kanal değiştirir.<br/>Canlı etkinlikler üzerinde Canlı kanal oranları üzerinden faturalandırılır. Daha fazla bilgi için [fatura](live-event-states-billing.md) ve [fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/).
     * Canlı çıktı Program değiştirir.
 * Canlı çıkışları açıkça başlatılması gerekmez, üzerinde oluşturma işlemini başlatmak ve silindiğinde durdurun. V2 API'leri farklı şekilde çalışan programlar, bunlar oluşturulduktan sonra başlatılmış olması gerekiyordu.
+*  Bir iş hakkında bilgi almak için işin oluşturulduğu dönüştürme adını bilmeniz gerekir. 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Özellik boşluklarına v2 API'leri göre
 
@@ -98,6 +99,7 @@ Aşağıdaki tabloda, v2 ve v3 sık karşılaşılan senaryolara yönelik kod fa
 |Bir varlık oluşturun ve bir dosyayı karşıya yükleyin |[v2 .NET örneği](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[V3 .NET örneği](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Bir iş gönderdiniz|[v2 .NET örneği](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[V3 .NET örneği](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>İlk dönüşüm işi oluşturma ve ardından bir gönderme işlemi gösterilmektedir.|
 |Bir varlık AES şifreleme ile yayımlama |1. ContentKeyAuthorizationPolicyOption oluşturma<br/>2. ContentKeyAuthorizationPolicy oluşturma<br/>3. Create AssetDeliveryPolicy<br/>4. Varlık oluşturma ve içerik işi veya Gönder yüklemek ve çıktı varlığına kullanın<br/>5. AssetDeliveryPolicy varlıkla ilişkilendirme<br/>6. Create ContentKey<br/>7. Varlık için ContentKey ekleme<br/>8. AccessPolicy oluşturma<br/>9. Bulucu<br/><br/>[v2 .NET örneği](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. İçerik anahtarı ilkesi oluşturma<br/>2. Varlık oluşturma<br/>3. İçerik yüklemek veya varlık JobOutput kullanın<br/>4. Akış Bulucusu oluşturma<br/><br/>[V3 .NET örneği](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|İş ayrıntılarını almak ve işleri Yönet |[V2 ile işleri Yönet](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[V3 ile işleri Yönet](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 

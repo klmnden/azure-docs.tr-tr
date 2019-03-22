@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 9d1229084410b6fe7c500a22f8e1e1aed1b8107d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88b903d68e4398b4e30b0b7435279c29bee6cd6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227357"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005215"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>StorSimple sanal dizisi üzerinde güncelleştirme 1.1 yükleyin
 
@@ -66,7 +66,7 @@ Microsoft Update Kataloğu'ndan güncelleştirme 1.1 indirmek için aşağıdaki
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Güncelleştirmeyi veya düzeltmeyi indirmek için
 
-1. Internet Explorer'ı başlatın ve gidin [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
+1. Internet Explorer'ı başlatın ve gidin [ https://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Microsoft Update Kataloğu'nu bu bilgisayarda ilk kez kullanıyorsanız, **yükleme** Microsoft Update Kataloğu eklentisini yüklemek isteyip istemediğiniz sorulduğunda.
 

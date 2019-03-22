@@ -14,16 +14,16 @@ ms.workload: infrastructure
 ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5c5f1d8d7a9c84d807db53933f0cbb176f9fb7f2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 02272ee16cf3303890a8ba6d35d38676e98c788c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551977"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006098"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>SAP HANA (büyük örnekler) depolama mimarisi
 
-Depolama alanı düzenini (büyük örnekler) Azure üzerinde SAP HANA için SAP HANA tarafından önerilen yönergeleri SAP başına Klasik dağıtım modelinde yapılandırılır. Yönergeleri bölümünde belgelendirilen [SAP HANA depolama gereksinimlerini](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) teknik incelemesi.
+Depolama alanı düzenini (büyük örnekler) Azure üzerinde SAP HANA için SAP HANA tarafından önerilen yönergeleri SAP başına Klasik dağıtım modelinde yapılandırılır. Yönergeleri bölümünde belgelendirilen [SAP HANA depolama gereksinimlerini](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) teknik incelemesi.
 
 Ben sınıf türünün HANA büyük örneği dört kez bellek toplu depolama birimi olarak gelir. HANA büyük örneği birimleri Type II sınıfı için depolama dört kat daha fazla değildir. Birimleri tasarlanmıştır HANA işlem günlüğü yedeklemeleri depolamak için bir birim gelir. Daha fazla bilgi için [yüklemek ve Azure üzerinde SAP HANA (büyük örnekler) yapılandırma](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -100,10 +100,10 @@ HANA büyük örnekleri kullanılan depolama alanı dosya boyutu sınırlaması 
 > [!IMPORTANT]
 > Veri büyür ve HANA büyük Örnek Depolama 16 TB dosya boyutu sınırını aşan çalışılırken HANA önlemek için aşağıdaki parametreleri HANA global.ini yapılandırma dosyasında ayarlamanız gerekir
 > 
-- datavolume_striping = true
-- datavolume_striping_size_gb 15000 =
-- Ayrıca SAP bkz Not [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
-- SAP Not unutmayın [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+> - datavolume_striping = true
+> - datavolume_striping_size_gb 15000 =
+> - Ayrıca SAP bkz Not [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - SAP Not unutmayın [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 
