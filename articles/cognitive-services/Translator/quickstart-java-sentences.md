@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: d7679f41b5e1c1fe6705ef3ed4be28a521f0d0d2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 46507562ab5a31f377b8c3a11902abf9aeccd846
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728497"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176455"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-java"></a>Hızlı Başlangıç: Translator metin çevirisi API'si, Java kullanarak cümle belirlemek için kullanın
 
@@ -34,8 +34,8 @@ Bu hızlı başlangıç, Translator Metin Çevirisi kaynağına sahip bir [Azure
 Bu proje için çalışan bir dizine oluşturarak başlayalım. Komut satırını (veya terminal), şu komutu çalıştırın:
 
 ```console
-mkdir break-sentence-sample
-cd break-sentence-sample
+mkdir length-sentence-sample
+cd length-sentence-sample
 ```
 
 Ardından, Gradle proje başlatmak için dağıtacağız. Bu komut temel yapı dosyalarını Gradle için en önemlisi de oluşturacak `build.gradle.kts`, oluşturma ve uygulamanızı yapılandırmak için çalışma zamanında kullanılır. Çalışma dizininizdeki şu komutu çalıştırın:
@@ -56,7 +56,7 @@ plugins {
     application
 }
 application {
-    mainClassName = "BreakSentence"
+    mainClassName = "LengthSentence"
 }
 repositories {
     mavenCentral()
@@ -77,11 +77,11 @@ Bu örnek OkHttp HTTP isteklerini ve Gson işlemek ve JSON ayrıştırmak bağı
 mkdir -p src/main/java
 ```
 
-Ardından, bu klasörde, adlı bir dosya oluşturun `BreakSentence.java`.
+Ardından, bu klasörde, adlı bir dosya oluşturun `LengthSentence.java`.
 
 ## <a name="import-required-libraries"></a>Gerekli kitaplıkları içeri aktarma
 
-Açık `BreakSentence.java` ve bu içeri aktarma deyimleri:
+Açık `LengthSentence.java` ve bu içeri aktarma deyimleri:
 
 ```java
 import java.io.*;
@@ -97,12 +97,12 @@ import com.squareup.okhttp.*;
 İlk olarak, projeniz için genel bir sınıf oluşturmanız gerekir:
 
 ```java
-public class BreakSentence {
+public class LengthSentence {
   // All project code goes here...
 }
 ```
 
-Bu satırları ekleyin `BreakSentence` sınıfı. İle birlikte olduğunu fark edeceksiniz `api-version`, giriş dili tanımlayabilirsiniz. Bu örnekte, İngilizce olarak.
+Bu satırları ekleyin `LengthSentence` sınıfı. İle birlikte olduğunu fark edeceksiniz `api-version`, giriş dili tanımlayabilirsiniz. Bu örnekte, İngilizce olarak.
 
 ```java
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
@@ -111,7 +111,7 @@ String url = "https://api.cognitive.microsofttranslator.com/breaksentence?api-ve
 
 ## <a name="create-a-client-and-build-a-request"></a>Bir istemci oluşturup bir istek oluşturun
 
-Bu satırı `BreakSentence` sınıfı örneğini oluşturmak için `OkHttpClient`:
+Bu satırı `LengthSentence` sınıfı örneğini oluşturmak için `OkHttpClient`:
 
 ```java
 // Instantiates the OkHttpClient.
@@ -156,8 +156,8 @@ Bir istekte bulunmak ve yanıt almak için son adımdır bakın. Bu satırlar, p
 ```java
 public static void main(String[] args) {
     try {
-        BreakSentence breakSentenceRequest = new BreakSentence();
-        String response = breakSentenceRequest.Post();
+        LengthSentence lengthSentenceRequest = new LengthSentence();
+        String response = lengthSentenceRequest.Post();
         System.out.println(prettify(response));
     } catch (Exception e) {
         System.out.println(e);

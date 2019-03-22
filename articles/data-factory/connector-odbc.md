@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: c51804748e4313d79cc3a369b659974d2d32e2e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f14c8f8ef9f0e59ac35dd7346bf37cc07f2cfb19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014276"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58163863"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Gelen ve ODBC veri depoları Azure Data Factory kullanarak veri kopyalama
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-odbc-connector.md)
 > * [Geçerli sürüm](connector-odbc.md)
 
@@ -240,7 +240,7 @@ Data store erişimi olan bir makinede bir şirket içinde barındırılan tümle
 
 Data Factory çözümünde Informix kaynak kullanmadan önce tümleştirme çalışma zamanı'ndaki yönergeleri kullanarak veri deposu bağlanıp bağlanamadığını doğrulayın [bağlantı sorunlarını giderme](#troubleshoot-connectivity-issues) bölümü.
 
-Aşağıdaki örnekte gösterildiği gibi bir Azure veri fabrikası için bir IBM Informix veri deposuna bağlamak için bir ODBC bağlı hizmet oluşturun:
+Aşağıdaki örnekte gösterildiği gibi bir IBM Informix data store bir Azure veri fabrikanıza bağlamak üzere bir ODBC bağlı hizmet oluşturun:
 
 ```json
 {

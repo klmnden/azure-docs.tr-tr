@@ -8,28 +8,28 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 42246a5d2c8515c26ed399f041476c8ad70decfe
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fa76f4fb5d4da5fd00bb9fa4ed862c6977a47e90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442146"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102188"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti için bir içeri aktarma işi oluşturma
 
 Microsoft Azure içeri/dışarı aktarma hizmeti REST API kullanarak içeri aktarma işi oluşturma, aşağıdaki adımları içerir:
 
--   Azure içeri/dışarı aktarma aracı ile sürücüleri hazırlanıyor.
+- Azure içeri/dışarı aktarma aracı ile sürücüleri hazırlanıyor.
 
--   Sürücü göndermeye konum edinme.
+- Sürücü göndermeye konum edinme.
 
--   İçeri aktarma işi oluşturma.
+- İçeri aktarma işi oluşturma.
 
--   İçin Microsoft sürücüleri desteklenen taşıyıcı hizmeti aracılığıyla aktarma.
+- İçin Microsoft sürücüleri desteklenen taşıyıcı hizmeti aracılığıyla aktarma.
 
--   İçeri aktarma işi ile Sevkiyat ayrıntıları güncelleştiriliyor.
+- İçeri aktarma işi ile Sevkiyat ayrıntıları güncelleştiriliyor.
 
- Bkz: [Blob depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmetini kullanarak](storage-import-export-service.md) içeri/dışarı aktarma hizmeti ile nasıl kullanılacağını gösteren bir öğreticiye genel bakış [Azure portalında](https://portal.azure.com/) oluşturmak için içeri aktarma yönetme ve dışarı aktarma işleri.
+  Bkz: [Blob depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmetini kullanarak](storage-import-export-service.md) içeri/dışarı aktarma hizmeti ile nasıl kullanılacağını gösteren bir öğreticiye genel bakış [Azure portalında](https://portal.azure.com/) oluşturmak için içeri aktarma yönetme ve dışarı aktarma işleri.
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Azure içeri/dışarı aktarma aracı ile sürücüleri hazırlama
 
@@ -39,21 +39,21 @@ Sürücü hazırlık kısa bir genel bakış aşağıda verilmiştir. Başvurmak
 
 Sürücünüz hazırlanıyor içerir:
 
--   İçeri aktarılacak veri tanımlama.
+- İçeri aktarılacak veri tanımlama.
 
--   Windows Azure depolama alanındaki hedef BLOB'ları tanımlama.
+- Windows Azure depolama alanındaki hedef BLOB'ları tanımlama.
 
--   Bir veya daha fazla sabit sürücüler için verilerinizi kopyalamak için Azure içeri/dışarı aktarma Aracı'nı kullanarak.
+- Bir veya daha fazla sabit sürücüler için verilerinizi kopyalamak için Azure içeri/dışarı aktarma Aracı'nı kullanarak.
 
- Hazırlandığı sırada Azure içeri/dışarı aktarma aracı ayrıca her sürücü için bir bildirim dosyası oluşturur. Bir bildirim dosyası içerir:
+  Hazırlandığı sırada Azure içeri/dışarı aktarma aracı ayrıca her sürücü için bir bildirim dosyası oluşturur. Bir bildirim dosyası içerir:
 
--   Karşıya yükleme ve bu dosyaların eşlemeleri bloblarına yönelik tüm dosyaları numaralandırması.
+- Karşıya yükleme ve bu dosyaların eşlemeleri bloblarına yönelik tüm dosyaları numaralandırması.
 
--   Her dosyanın parçalarını sağlama.
+- Her dosyanın parçalarını sağlama.
 
--   Her blob ile ilişkilendirmek için özellikleri ve meta verileri hakkında bilgiler.
+- Her blob ile ilişkilendirmek için özellikleri ve meta verileri hakkında bilgiler.
 
--   Karşıya yüklenen bir blob kapsayıcısında mevcut bir bloba aynı ada sahipse gerçekleştirilecek eylemi bir listesi. Olası seçenekler: a) blob dosyanızın üzerine, (b) dosyayı karşıya yüklemeyi atlayın ve mevcut blob tutmak, c) bir sonek adına diğer dosyaları ile çakışmadığından emin Ekle.
+- Karşıya yüklenen bir blob kapsayıcısında mevcut bir bloba aynı ada sahipse gerçekleştirilecek eylemi bir listesi. Olası seçenekler: a) blob dosyanızın üzerine, (b) dosyayı karşıya yüklemeyi atlayın ve mevcut blob tutmak, c) bir sonek adına diğer dosyaları ile çakışmadığından emin Ekle.
 
 ## <a name="obtaining-your-shipping-location"></a>Sevkiyat konumunuz edinme
 

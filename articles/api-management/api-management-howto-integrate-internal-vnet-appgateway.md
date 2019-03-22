@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 9e36ac41fb42d7c0e00dca6dc82f2f5daee1278b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 00cdc8de45d2f0177cd1f097fb874cbe67f7e442
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435550"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120134"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>API yönetimi bir iç sanal ağ'ı Application Gateway ile tümleştirme
 
@@ -356,7 +356,7 @@ Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ## <a name="summary"> </a> Özeti
 Şirket içinde veya bulutta barındırılan olup olmadığını bir sanal ağda yapılandırılmış azure API yönetimi için yapılandırılan tüm API'leri, tek bir ağ geçidi arabirimi sağlar. Application Gateway API Management ile tümleştirme, bir ön uç API Management Örneğinize olarak bir Web uygulaması güvenlik duvarı sağlayan yanı sıra belirli API'lerini kullanarak İnternet'ten erişilmesine seçmeli olarak etkinleştirme esnekliği sağlar.
 
-##<a name="next-steps"> </a> Sonraki adımlar
+## <a name="next-steps"> </a> Sonraki adımlar
 * Azure Application Gateway hakkında daha fazla bilgi edinin
   * [Application Gateway'e genel bakış](../application-gateway/application-gateway-introduction.md)
   * [Application Gateway Web uygulaması güvenlik duvarı](../application-gateway/application-gateway-webapplicationfirewall-overview.md)

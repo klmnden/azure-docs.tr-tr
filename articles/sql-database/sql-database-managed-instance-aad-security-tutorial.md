@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 39877e01eb8b9690dc1ac7b1dbb79bab450814c4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7511b85384c2c64c823d93df4369b0fea3e64b51
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456937"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226224"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Öğretici: Azure AD sunucu sorumlusu (oturum açma) kullanarak Azure SQL veritabanı yönetilen örnek güvenlik
 
@@ -148,13 +148,13 @@ Asıl sunucu Azure AD (oturum açma) oluşturuldu ve sağlanan sonra `sysadmin` 
 
 1. Azure AD sunucu asıl (oturum açma) ile SQL Server Management Studio kullanarak yönetilen örneğe bağlanın. Yönetilen örnek ana bilgisayar adınızı girin. Ssms'de kimlik doğrulaması için bir Azure AD hesabıyla oturum açarken seçmek için üç seçenek vardır:
 
-    - Active Directory - MFA desteğiyle Evrensel
-    - Active Directory - Parola
-    - Active Directory - Tümleşik </br>
+   - Active Directory - MFA desteğiyle Evrensel
+   - Active Directory - Parola
+   - Active Directory - Tümleşik </br>
 
-    ![SSMS oturum açma prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
+     ![SSMS oturum açma prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-    Daha fazla bilgi için şu makaleye bakın: [SQL Veritabanı ve SQL Veri Ambarı ile Evrensel Kimlik Doğrulaması (MFA için SSMS desteği)](sql-database-ssms-mfa-authentication.md)
+     Daha fazla bilgi için şu makaleye bakın: [SQL Veritabanı ve SQL Veri Ambarı ile Evrensel Kimlik Doğrulaması (MFA için SSMS desteği)](sql-database-ssms-mfa-authentication.md)
 
 1. Seçin **Active Directory - MFA desteğiyle Evrensel**. Bu, bir multi-Factor Authentication (MFA) oturum açma penceresi açar. Azure AD parolanızla oturum açın.
 
@@ -207,10 +207,10 @@ Asıl sunucu Azure AD (oturum açma) oluşturuldu ve sağlanan sonra `sysadmin` 
 1. İçinde **Nesne Gezgini**, sunucuya sağ tıklayın ve seçin **yeni sorgu** yeni bağlantı için.
 1. Yeni oluşturulan sunucu izinlerini denetlemek aşağıdaki komutu yürüterek Azure AD sunucu sorumlusu (oturum açma):
 
-    ```sql
-    SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
-    GO
-    ```
+      ```sql
+      SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
+      GO
+      ```
 
 > [!NOTE]
 > Azure AD Konuk kullanıcılar için yönetilen örnek oturum açma bilgileri, yalnızca bir Azure AD grubunun bir parçası eklendiğinde desteklenir. Bir Azure AD Konuk kullanıcı yönetilen örnek için başka bir Azure AD'den ait Azure AD'ye davet hesaptır. Örneğin, joe@contoso.com (Azure AD hesabı) veya steve@outlook.com (MSA hesabı), Azure AD aadsqlmi bir gruba eklenebilir. Bir oturum açma kullanıcıları grubuna eklendikten sonra yönetilen örneğinde oluşturulabilir **ana** grubu kullanmak için veritabanı **CREATE LOGIN** söz dizimi. Bu grubun üyeleri olan konuk kullanıcılar, kendi geçerli oturumları kullanarak yönetilen örneğe bağlanabilir (örneğin, joe@contoso.com veya steve@outlook.com).
@@ -360,7 +360,7 @@ Yönetilen örnek, Azure AD sunucu düzeyi asıl hesaplar (oturum açma bilgiler
     GO
     ```
 
-1. Saklı yordam yürütme olduğunda kullanıcı kimliğine bürünüyorsunuz olduğunu görmek için aşağıdaki komutu kullanın **bob@aadsqlmi.net**.
+1. Kimliğine bürünüyorsunuz saklı yordamı yürütülürken kullanıcı olduğunu görmek için aşağıdaki komutu kullanın **bob\@aadsqlmi.net**.
 
     ```sql
     Exec dbo.usp_Demo

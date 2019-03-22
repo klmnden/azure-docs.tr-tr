@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4873c834a33ff5f401f38fdb810c65ca7ef20f5e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 6330e941f3308920ff4d5404663824633484146a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191196"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108367"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Raspberry Pi'yi bağlanmak için Azure IOT Central, uygulama (C#)
 
@@ -68,13 +68,13 @@ Aşağıdaki adımları tamamlamak için Visual Studio Code kullanabilirsiniz. D
 
 1. .NET projenizi başlatın ve gerekli NuGet paketlerini eklemek için aşağıdaki komutları çalıştırın:
 
-  ```cmd/sh
-  mkdir pisample
-  cd pisample
-  dotnet new console
-  dotnet add package Microsoft.Azure.Devices.Client
-  dotnet restore
-  ```
+   ```cmd/sh
+   mkdir pisample
+   cd pisample
+   dotnet new console
+   dotnet add package Microsoft.Azure.Devices.Client
+   dotnet restore
+   ```
 
 1. Açık `pisample` Visual Studio code'da klasörü. Açılacağını **pisample.csproj** proje dosyası. Ekleme `<RuntimeIdentifiers>` aşağıdaki kod parçacığında gösterilen etiketi:
 
@@ -281,10 +281,10 @@ Cihaza özgü bağlantı dizenizi Azure IOT Central ile kimlik doğrulaması bir
 
 1. Komut satırı ortamınızda aşağıdaki komutu çalıştırın:
 
-  ```cmd/sh
-  dotnet restore
-  dotnet publish -r linux-arm
-  ```
+   ```cmd/sh
+   dotnet restore
+   dotnet publish -r linux-arm
+   ```
 
 1. Kopyalama `pisample\bin\Debug\netcoreapp2.0\linux-arm\publish` Raspberry Pi cihazınıza klasör. Kullanabileceğiniz **scp** komut dosyaları, örneğin kopyalamak için:
 
@@ -313,13 +313,13 @@ Cihaza özgü bağlantı dizenizi Azure IOT Central ile kimlik doğrulaması bir
 
 1. Azure IOT Central uygulamanızda Raspberry Pi üzerinde çalışan kodu uygulaması ile nasıl etkileşim kurduğunu görebilirsiniz:
 
-    * Üzerinde **ölçümleri** sayfa gerçek cihazınız için telemetriyi görebilirsiniz.
-    * Üzerinde **özellikleri** sayfasında değeri bildirilen gördüğünüz **öldürmüş numarası** özelliği.
-    * Üzerinde **ayarları** sayfasında, Raspberry Pi voltaj ve giriş hızı gibi çeşitli ayarları değiştirebilirsiniz.
+   * Üzerinde **ölçümleri** sayfa gerçek cihazınız için telemetriyi görebilirsiniz.
+   * Üzerinde **özellikleri** sayfasında değeri bildirilen gördüğünüz **öldürmüş numarası** özelliği.
+   * Üzerinde **ayarları** sayfasında, Raspberry Pi voltaj ve giriş hızı gibi çeşitli ayarları değiştirebilirsiniz.
 
-    Aşağıdaki ekran görüntüsünde, ayar değişikliğini alma Raspberry Pi gösterir:
+     Aşağıdaki ekran görüntüsünde, ayar değişikliğini alma Raspberry Pi gösterir:
 
-    ![Raspberry Pi ayar değişikliği alır](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+     ![Raspberry Pi ayar değişikliği alır](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
 
 
 ## <a name="raspberry-pi-device-template-details"></a>Raspberry PI cihaz şablonu ayrıntıları

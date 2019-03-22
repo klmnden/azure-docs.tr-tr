@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a315933dcd438c68a1326d2b656c2353e4185f12
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 92cb4f1093d8450bb2c32d99f4ccedd0a5688253
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866802"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58165926"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Öğretici: InsideView ile Azure Active Directory Tümleştirme
 
@@ -39,7 +39,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 Azure AD Tümleştirmesi ile InsideView yapılandırmak için aşağıdaki öğeler gerekir:
 
 - Azure AD aboneliği
-- Abonelik InsideView çoklu oturum açma etkin
+- Abonelik bir InsideView çoklu oturum açma etkin
 
 > [!NOTE]
 > Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
@@ -91,7 +91,7 @@ Yapılandırma ve Azure AD çoklu oturum açma InsideView ile test etmek için a
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[InsideView test kullanıcısı oluşturma](#creating-a-insideview-test-user)**  - kullanıcı Azure AD gösterimini bağlı InsideView Britta simon'un bir karşılığı vardır.
+1. **[Bir InsideView test kullanıcısı oluşturma](#creating-a-insideview-test-user)**  - kullanıcı Azure AD gösterimini bağlı InsideView Britta simon'un bir karşılığı vardır.
 1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
@@ -191,7 +191,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     d. **Oluştur**’a tıklayın.
  
-### <a name="creating-a-insideview-test-user"></a>InsideView test kullanıcısı oluşturma
+### <a name="creating-an-insideview-test-user"></a>Bir InsideView test kullanıcısı oluşturma
 
 Azure AD kullanıcıları için InsideView oturum açmak etkinleştirmek için bunlar içinde InsideView için sağlanması gerekir. InsideView söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevdir.
 

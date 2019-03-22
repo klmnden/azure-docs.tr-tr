@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: afa927009e684fa7f8c6217c91dcb589b331b5f5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f5b3234c45a9ee80bc5a2c2afe67046896270802
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224182"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58163795"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Pre-trained varlıklar ekleme
 Bu öğreticide, konuşma Öğrenici modelinizi Pre-Trained varlık eklemek gösterilir.
@@ -25,7 +25,7 @@ Bu öğreticide, konuşma Öğrenici modelinizi Pre-Trained varlık eklemek gös
 [![Önceden eğitilmiş varlıkları öğretici Önizleme](https://aka.ms/cl_Tutorial_v3_PreTrainedEntities_Preview)](https://aka.ms/cl_Tutorial_v3_PreTrainedEntities)
 
 ## <a name="requirements"></a>Gereksinimler
-Bu öğreticide, genel öğretici bot çalışıyor olması gerekir
+Bu öğreticide, genel öğretici Bot çalışıyor olması gerekir
 
     npm run tutorial-general
 
@@ -35,50 +35,49 @@ Bu öğreticide, genel öğretici bot çalışıyor olması gerekir
 
 ## <a name="steps"></a>Adımlar
 
+Giriş sayfasında Web kullanıcı arabiriminde başlatın.
+
 ### <a name="create-the-model"></a>Model oluşturma
 
-1. Web kullanıcı Arabiriminde "Yeni modeli."'a tıklayın.
-2. "PretrainedEntities" "Name" alanına yazın ve ENTER tuşuna basın.
-3. "Oluştur" düğmesine tıklayın.
+1. Seçin **yeni modeli**.
+2. Girin **PretrainedEntities** için **adı**.
+3. **Oluştur**’u seçin.
 
 ### <a name="entity-creation"></a>Varlık oluşturma
 
-1. Sol panelde, "Varlık" sonra "Yeni varlık" düğmesine tıklayın.
-2. "Öncesi-Trained/datetimeV2" seçin "Varlık türü."
-3. "Birden çok değerli" onay kutusunu işaretleyin.
-    - Birden çok değerli varlıklar varlıktaki bir veya daha fazla değerleri toplar.
-    - Değişkeni yoksayılamaz özellikleri Pre-Trained varlıklar için devre dışı bırakıldı.
-4. "Oluştur" düğmesine tıklayın.
+1. Seçin **varlıkları** sol bölmesinde, ardından **yeni varlık**.
+2. Seçin **öncesi Trained/datetimeV2** için **varlık türü**.
+3. Denetleme **birden çok değerli** varlık etkinleştirmek için bir veya daha fazla değer accumulate. Not, Pre-Trained varlıkları değişkeni yoksayılamaz olamaz.
+4. **Oluştur**’u seçin.
 
-![](../media/tutorial7_entities_a.PNG)
+![](../media/T08_entity_create.png)
 
-### <a name="create-the-first-action"></a>İlk Eylem oluştur
+1. Seçin **eylemleri** sol bölmesinde, ardından **yeni eylem**.
+2. Girin **$builtin tarihtir-datetimev2** için **Botun yanıt...** .
+3. **Oluştur**’u seçin.
 
-1. Sol panelde, "Eylemler" sonra "Yeni Eylem" düğmesine tıklayın.
-2. "Botun yanıtta..." alanına "$builtin tarihtir-datetimev2"
-3. "Oluştur" düğmesine tıklayın.
-
-![](../media/tutorial7_actions_a.PNG)
+![](../media/T08_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>İkinci Eylem oluştur
 
-1. Sol panelde, "Eylemler" sonra "Yeni Eylem" düğmesine tıklayın.
-2. "Botun yanıt..." alanı, "tarih nedir?" yazın
-    - Varsayılan olarak tüm kullanıcı konuşma için algılandıkça önceden eğitilmiş varlıkları gerekli varlıkları olamaz.
-3. "Yerleşik-datetimev2." "Eleyerek sağlar" alanına yazın
-4. "Oluştur" düğmesine tıklayın.
+1. Seçin **eylemleri** sol bölmesinde, ardından **yeni eylem**.
+2. Girin **tarih nedir?** için **Botun yanıt...** . Önceden eğitilmiş varlıkları olamaz **gerekli varlıkları** gibi tüm konuşma için varsayılan olarak tanınır.
+3. Girin **yerleşik datetimev2** için **eleyerek sağlar**.
+4. **Oluştur**’u seçin.
 
-![](../media/tutorial7_actions2_a.PNG)
+![](../media/T08_action_create_2.png)
 
 ### <a name="train-the-model"></a>Modeli eğitme
 
-1. Sol panelde, "İletişim kutuları eğitme" ve ardından "Yeni Train iletişim kutusu" düğmesine tıklayın.
-2. Sohbet panelinde nerede yazacaktır "Yazın, iletinizi...", "hello" yazın
-3. "Puan Eylemler" düğmesine tıklayın.
-4. "Tarih nedir?" yanıt seçin
-5. Burada, "Tür iletinizi..." türünde "Bugün" diyor sohbet panelinde
-    - Bugün utterance LUIS önceden eğitilmiş modeller tarafından otomatik olarak kabul edilir.
+1. Seçin **eğitme iletişim kutuları** sol bölmesinde, ardından **yeni Train iletişim**.
+2. Girin **hello** kullanıcının utterance sol sohbet panelinde için.
+3. Seçin **puan Eylemler**.
+4. Seçin **tarih nedir?** eylemler listesinden
+5. Girin **Bugün** kullanıcının utterance sol sohbet panelinde için.
+    - **Bugün** utterance LUIS önceden eğitilmiş modeller tarafından tanınan otomatik olarak.
     - Değer Pre-Trained varlıkların üzerinde bekleyerek LUIS tarafından sağlanan ek verileri gösterir.
+
+![](../media/T08_training.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

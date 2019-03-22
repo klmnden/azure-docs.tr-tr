@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 91cabd6601ca8d0c0eabfdb5726d4bd6b37492a6
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: dc84d5850656a0898fba328b652d86f3d8995bef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216146"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118383"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Uygun Azure depolama blob katmanı veri göndermek için Azure Data Box'ı kullanma
 
@@ -109,8 +109,8 @@ Aşağıdaki adımlarda, arşiv için Azure PowerShell Betiği kullanarak blob k
     >> }
     PS C:\WINDOWS\system32>
     ```
-> [!TIP]
-> Veri çubuğunda arşivlemek için isterseniz, içe alma, varsayılan hesap katmanını sık erişimliden ayarlayın. Varsayılan katmanını seyrek erişimli ise, ardından olup olmadığını 30 günlük erken silme cezası veriler hemen arşive taşınır.
+   > [!TIP]
+   > Veri çubuğunda arşivlemek için isterseniz, içe alma, varsayılan hesap katmanını sık erişimliden ayarlayın. Varsayılan katmanını seyrek erişimli ise, ardından olup olmadığını 30 günlük erken silme cezası veriler hemen arşive taşınır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

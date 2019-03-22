@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 6fedc1b9a6b88419dbcae41b5bb6f89bd8c5cbf7
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 9d0a803f8a397d3c24f083188b6186acf4dde809
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886888"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122884"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Metin analizi REST API'nin nasıl çağrılacağını
 
@@ -58,7 +58,7 @@ Hizmet kabul boyutu 1 MB'a kadar istek. Postman'ı (veya başka bir Web API'si t
    + Portal sayfasında kopyalar endpoint yapıştırın.
    + Bir kaynak ekleyin.
 
-  Kaynak uç noktası (bölgenizi değişebilir) aşağıdaki gibi şunlardır:
+   Kaynak uç noktası (bölgenizi değişebilir) aşağıdaki gibi şunlardır:
 
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
@@ -71,7 +71,7 @@ Hizmet kabul boyutu 1 MB'a kadar istek. Postman'ı (veya başka bir Web API'si t
    + `Content-Type`: uygulama/json.
    + `Accept`: uygulama/json.
 
-  İsteğiniz aşağıdaki ekran görüntüsüne benzer görünmelidir varsayılarak bir **/keyPhrases** kaynak.
+   İsteğiniz aşağıdaki ekran görüntüsüne benzer görünmelidir varsayılarak bir **/keyPhrases** kaynak.
 
    ![Uç nokta ve üst bilgileri ile istek ekran görüntüsü](../media/postman-request-keyphrase-1.png)
 
@@ -81,15 +81,15 @@ Hizmet kabul boyutu 1 MB'a kadar istek. Postman'ı (veya başka bir Web API'si t
 
 5. İstenen analiz için geçerli bir biçimde bazı JSON belgeleri olarak yapıştırın. Belirli bir çözümleme hakkında daha fazla bilgi için aşağıdaki konulara bakın:
 
-  + [Dil algılama](text-analytics-how-to-language-detection.md)  
-  + [Anahtar ifade ayıklama](text-analytics-how-to-keyword-extraction.md)  
-  + [Yaklaşım analizi](text-analytics-how-to-sentiment-analysis.md)  
-  + [Varlık tanıma (Önizleme)](text-analytics-how-to-entity-linking.md)  
+   + [Dil algılama](text-analytics-how-to-language-detection.md)  
+   + [Anahtar ifade ayıklama](text-analytics-how-to-keyword-extraction.md)  
+   + [Yaklaşım analizi](text-analytics-how-to-sentiment-analysis.md)  
+   + [Varlık tanıma (Önizleme)](text-analytics-how-to-entity-linking.md)  
 
 
 6. Tıklayın **Gönder** isteği göndermek için. Dakika başına en fazla 100 istek gönderebilirsiniz. 
 
-  Postman içinde bir öğe için istekte sağlanan her bir belge kimliği ile tek bir JSON belgesi olarak yanıt aşağı, sonraki penceresi görüntülenir.
+   Postman içinde bir öğe için istekte sağlanan her bir belge kimliği ile tek bir JSON belgesi olarak yanıt aşağı, sonraki penceresi görüntülenir.
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 993a8ca48df40b400c21852d3d28941d9d62affb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 32720669ae9d8941abce4429471c13608a18cbc5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549026"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294901"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki oturum açma etkinlik raporları
 
@@ -149,7 +149,7 @@ Oturum açma görünümüne başka alanlar eklerseniz bu alanlar filtre listesin
 
 ## <a name="download-sign-in-activities"></a>Oturum açma etkinliklerini indirme
 
-Yapabilecekleriniz [oturum açma verilerini indirmek](quickstart-download-sign-in-report.md) dışında Azure portal ile çalışmak istiyorsanız. Tıklayarak **indirme** , en son 250.000 kayıtları bir CSV ya da JSCON dosyası oluşturmak için bir seçenek sağlar.  
+Yapabilecekleriniz [oturum açma verilerini indirmek](quickstart-download-sign-in-report.md) dışında Azure portal ile çalışmak istiyorsanız. Tıklayarak **indirme** , en son 250.000 kayıtları bir CSV veya JSON dosyası oluşturmak için bir seçenek sağlar.  
 
 ![İndir](./media/concept-sign-ins/71.png "İndir")
 
@@ -168,7 +168,7 @@ Azure AD ek olarak, Azure portalında oturum açma verilerini için ek giriş no
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Kimlik güvenliği koruması kullanıcıların oturum açma verileri
 
-Kullanıcı oturum açma grafiğinde **kimlik güvenliği koruması** genel bakış sayfasında oturum haftalık olarak toplanmış halini gösterir belirli bir süre içinde tüm kullanıcılar için işlemleri. Zaman dönemi için varsayılan süre 30 gündür.
+Kullanıcı oturum açma grafiğinde **kimlik güvenliği koruması** genel bakış sayfası, belirli bir süre içinde tüm kullanıcılar için oturum açma işlemlerinin haftalık olarak toplanmış halini gösterir. Zaman dönemi için varsayılan süre 30 gündür.
 
 ![Oturum açma etkinliği](./media/concept-sign-ins/06.png "oturum açma etkinliği")
 
@@ -214,7 +214,7 @@ Bu verilere giriş noktanız, **Kurumsal uygulamalar** altındaki **Genel Bakı�
 
 ![Oturum açma etkinliği](./media/concept-sign-ins/10.png "oturum açma etkinliği")
 
-Belirli bir zaman döneminde en çok kullanılan ilk 3 uygulamanızda oturum açma işlemlerine ilişkin haftalık toplanan uygulama kullanımı grafiği. Zaman dönemi için varsayılan süre 30 gündür.
+Uygulama kullanımı grafiği ilişkin haftalık toplanan belirli bir süre içinde ilk 3 uygulamalarınız için oturum açma işlemleri. Zaman dönemi için varsayılan süre 30 gündür.
 
 ![Oturum açma etkinliği](./media/concept-sign-ins/47.png "oturum açma etkinliği")
 
@@ -230,7 +230,7 @@ Uygulama kullanımı grafiğinde bir güne tıkladığınızda, oturum açma etk
 
 ## <a name="office-365-activity-logs"></a>Office 365 etkinlik günlükleri
 
-Office 365 etkinlik günlüklerini görüntüleyebilirsiniz [Office 365 Yönetim Merkezi](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Olsa bile yalnızca Office 365 Yönetim Merkezi Office 365 ve Azure AD etkinlik günlükleri dizin kaynaklarının çoğunu paylaşır, Office 365 etkinlik günlüklerinin tam bir görünümünü sağlar. 
+Office 365 etkinlik günlüklerini görüntüleyebilirsiniz [Microsoft 365 Yönetim merkezini](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Olsa da Microsoft 365 Yönetim Merkezi yalnızca Office 365 ve Azure AD etkinlik günlükleri dizin kaynaklarının çoğunu paylaşır, Office 365 etkinlik günlüklerinin tam bir görünümünü sağlar. 
 
 Office 365 etkinlik günlüklerini programlı olarak kullanarak da erişebilirsiniz [Office 365 Yönetim API'leri](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 

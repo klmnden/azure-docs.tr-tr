@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 857672e8dee4dbe8d586db0cd80b206ec6ecb7df
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244579"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121596"
 ---
 # <a name="azure-network-security"></a>Azure ağ güvenliği
 
@@ -90,7 +90,7 @@ Sanal ağlar birbiriyle sanal ağlarda birbirleri ile iletişim kurmak için her
 
 - **Eşleme:** Farklı Azure birbirleri ile iletişim kurmak için sanal ağlar aynı Azure konumunda içinde bağlı kaynakları sağlar. Sanal ağ arasında gecikme süresi ve bant genişliği var. aynı kaynakları aynı sanal ağa bağlı olmasıyla Eşlemesi hakkında daha fazla bilgi edinmek için [sanal ağ eşlemesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
- ![Eşleme](media/azure-network-security/azure-network-security-fig-3.png)
+  ![Eşleme](media/azure-network-security/azure-network-security-fig-3.png)
 
 - **VNet-VNet bağlantısı:** Aynı veya farklı Azure konumları içinde farklı Azure sanal ağa bağlı kaynaklar sağlar. Bir Azure VPN ağ geçidi üzerinden trafik akışı gerekir çünkü eşleme aksine, bant genişliği sanal ağlar arasında sınırlıdır.
 
@@ -318,19 +318,19 @@ Zorlamalı tünel Azure'da sanal ağ kullanıcı tanımlı yollar (UDR) yapılan
 
 Aşağıdaki bölümde, Azure sanal ağı için yönlendirme tablosu ve yol geçerli sınırlama listelenmektedir:
 
--   Her sanal ağ alt ağı, yerleşik bir sistem yönlendirme tablosu vardır. Sistem yönlendirme tablosu yolların aşağıdaki üç grup vardır:
+- Her sanal ağ alt ağı, yerleşik bir sistem yönlendirme tablosu vardır. Sistem yönlendirme tablosu yolların aşağıdaki üç grup vardır:
 
- -  **Yerel sanal ağ yolları:** Doğrudan hedefe Vm'leri aynı sanal ağda
+  -  **Yerel sanal ağ yolları:** Doğrudan hedefe Vm'leri aynı sanal ağda
 
- - **Şirket içi yollara:** Azure VPN ağ geçidi
+  - **Şirket içi yollara:** Azure VPN ağ geçidi
 
- -  **Varsayılan yol:** Doğrudan Internet'e. Önceki iki yol tarafından kapsandığından değil özel IP adreslerini hedefleyen paketler bırakılır.
+  -  **Varsayılan yol:** Doğrudan Internet'e. Önceki iki yol tarafından kapsandığından değil özel IP adreslerini hedefleyen paketler bırakılır.
 
--   Kullanıcı tanımlı yollar'ın yayınlanmasıyla birlikte, varsayılan bir yol eklemek için bir yönlendirme tablosu oluşturun ve ardından bu alt ağlarda zorlamalı tüneli etkinleştirmek için sanal ağ alt ağına yönlendirme tablosunu ilişkilendirme.
+- Kullanıcı tanımlı yollar'ın yayınlanmasıyla birlikte, varsayılan bir yol eklemek için bir yönlendirme tablosu oluşturun ve ardından bu alt ağlarda zorlamalı tüneli etkinleştirmek için sanal ağ alt ağına yönlendirme tablosunu ilişkilendirme.
 
--   "Sanal ağa bağlı bir varsayılan site" şirket içi yerel siteleri arasında ayarlamanız gerekir.
+- "Sanal ağa bağlı bir varsayılan site" şirket içi yerel siteleri arasında ayarlamanız gerekir.
 
--   Zorlamalı tünel dinamik yönlendirme VPN ağ geçidi (bir statik ağ geçidi sorunsuz değil) sahip bir sanal ağ ile ilişkilendirilmiş olması gerekir.
+- Zorlamalı tünel dinamik yönlendirme VPN ağ geçidi (bir statik ağ geçidi sorunsuz değil) sahip bir sanal ağ ile ilişkilendirilmiş olması gerekir.
 
 - Zorlamalı tünel ExpressRoute Bu mekanizma yapılandırılmamış, ancak bunun yerine, bir varsayılan rota üzerinden ExpressRoute BGP eşliği oturumlarını reklam tarafından etkinleştirilir.
 
@@ -507,7 +507,7 @@ Azure izleme, önleyin, algılayın ve ağ güvenlik olaylarına yanıt vermek i
 
 -   Ağ kaynak düzeyi izleme
 
--   Azure izleme günlükleri
+-   Azure İzleyici günlükleri
 
 ### <a name="network-watcher"></a>Ağ izleyicisi
 
@@ -603,7 +603,7 @@ Tanılama günlükleri için kullanılabilir [yük dengeleyici](https://docs.mic
 
 Ağ İzleyicisi, bir tanılama günlüklerine yönelik görünüm sağlar. Bu görünüm, tanılama günlük kaydını destekleyen tüm ağ kaynakları içerir. Bu görünümde, etkinleştirin ve ağ kaynakları kolayca ve hızlı bir şekilde devre dışı bırakın.
 
-### <a name="azure-monitor-logs"></a>Azure izleme günlükleri
+### <a name="azure-monitor-logs"></a>Azure İzleyici günlükleri
 
 [Azure İzleyici günlüklerine](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) bir bulut izler ve şirket içi Ortamlarınızdaki kullanılabilirliği ve performansı korumak için bir Azure hizmetidir. Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar.
 

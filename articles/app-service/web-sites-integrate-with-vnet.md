@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 951f8f887a7b29aac67b50ff8f92ddfd4a66e26b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766887"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112628"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Uygulamanızı bir Azure sanal ağı ile tümleştirme
 Bu belge, Azure App Service sanal ağ tümleştirme özelliğini açıklar ve uygulamalar ile ayarlama işlemi gösterilmektedir [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure sanal ağları] [ VNETOverview] (Vnet'ler) birçok Azure kaynaklarınızın bir internet olmayan routeable ağında yerleştirin izin verir. Bu ağlar VPN'si teknolojileri kullanarak, şirket içi ağlara bağlanabilirsiniz. 
@@ -259,7 +259,7 @@ Olduğunda, sanal VNet Tümleştirmesi'ı kullanarak şirket içi ağınıza zat
 
 İşlevsel farklılıklar dışında burada da fiyatlandırma farklarını göz. Bir Premium App Service ortamı özelliği olan hizmet teklifi ancak en iyi ağ diğer harika özelliklerin yanı sıra yapılandırma olanakları sunar. VNet tümleştirmesi standart veya Premium ASP'ler ile kullanılabilir ve güvenli bir şekilde ağınızdan çok kiracılı App Service kaynakları kullanan için idealdir. Karma bağlantılar şu anda bağlı olarak gereksinim duyduğunuz fiyatlandırması, ücretsiz olarak başlayın ve ardından aşamalı olarak daha pahalı düzeylerine olan hesap temel BizTalk. Ancak birçok ağlarda çalışmaya söz konusu olduğunda, 100'den de ayrı ağlar kaynaklara erişmek etkinleştirebilirsiniz karma bağlantılar gibi diğer özellik yoktur. 
 
-## <a name="new-vnet-integration"></a>Yeni VNet tümleştirmesi ##
+## <a name="new-vnet-integration"></a>Yeni Sanal Ağ Tümleştirmesi ##
 
 VNet tümleştirmesi yeteneğinin noktadan siteye VPN teknolojisine bağlı olmayan yeni bir sürümü var. Önceden var olan özellik, yeni bir önizleme özelliği, ExpressRoute ve hizmet uç noktaları ile çalışır. 
 
@@ -284,13 +284,13 @@ Yeni özelliği kullanmak için:
 
 1. Portal ağ Arabirimine gidin. Ardından uygulamanızın yeni özelliğini kullanabilmek için yeni önizleme özelliğini kullanmak için bir özellik görürsünüz.  
 
- ![Yeni sanal ağ tümleştirmesi Önizleme seçin][6]
+   ![Yeni sanal ağ tümleştirmesi Önizleme seçin][6]
 
 1. Seçin **VNet Ekle (Önizleme)**.  
 
 1. Resource Manager ile tümleştirin ve daha sonra yeni bir alt ağ oluşturmak veya önceden var olan boş bir alt ağ seçin için istediğiniz sanal ağı seçin. Tümleştirme tamamlanması bir dakikadan kısa sürer. Tümleştirme sırasında uygulamanızı yeniden başlatılır.  Tümleştirme tamamlandığında, sanal ağ ile tümleştirilir ve özellik Önizleme aşamasındadır bildiren bir başlık ayrıntıları görürsünüz.
 
- ![VNet ve alt ağ seçin][7]
+   ![VNet ve alt ağ seçin][7]
 
 Uygulamanızı sanal ağınıza yapılandırılmış DNS sunucusu kullanacak şekilde etkinleştirmek için uygulamanız nerede WEBSITE_DNS_SERVER adıdır ve değer sunucusunun IP adresi için bir uygulama ayarı oluşturun.  İkincil DNS sunucusu varsa, ardından adı WEBSITE_DNS_ALT_SERVER olduğu başka bir uygulama ayarı oluşturun ve değeri sunucunun IP adresidir. 
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 584d59592158ccf542dbb05486b159a5e34ffbc3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3f03202d0f4416b3bf08a33e5d997d7149eda9f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759111"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104412"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Hızlı Başlangıç: Not defteri oluşturma ve paylaşma
 
@@ -34,12 +34,12 @@ ms.locfileid: "57759111"
 
 1. İçinde **yeni proje oluştur** görünen açılan girin veya aşağıdaki bilgileri ayarlayın ve ardından **Oluştur**:
 
-    - **Proje adı**: Python dilinde Merhaba Dünya
-    - **Proje kimliği**: hello-world-python
-    - **Genel proje**: (Seçili)
-    - **Bir Benioku.MD oluşturma**: (Seçili)
+   - **Proje adı**: Python dilinde Merhaba Dünya
+   - **Proje kimliği**: hello-world-python
+   - **Genel proje**: (Seçili)
+   - **Bir Benioku.MD oluşturma**: (Seçili)
 
-    ![Yeni Proje açılır penceresi ile doldurulmuş ayrıntıları](media/quickstarts/new-project-popup.png)
+     ![Yeni Proje açılır penceresi ile doldurulmuş ayrıntıları](media/quickstarts/new-project-popup.png)
 
 1. Birkaç dakika sonra Azure not defterleri yeni projeye gider. Bir not defteri seçerek projeye ekleyin. **+ yeni** açılan (yalnızca görünen **+**), sonra seçerek **not defteri**:
 

@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b8ca5fc5348818a7d0f1075557d4fe5c7e3bef44
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cacc7c0b269e8006903961049caf3cd7e3bee449
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811536"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834345"
 ---
 <a name="azure-marketplace-seo-publisher-guide"></a>Azure Market SEO yayımcı Kılavuzu
 =======================================
 
 ### <a name="general-explanation-of-algorithm"></a>Genel bir algoritma açıklaması
 
-Market için sitenin arama özellikleri destekleyen Azure Search kullanır. Algoritma terimi sıklığı – ters belge sıklığına bağlıdır ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). Standart [Lucene çözümleyici](http://lucene.apache.org/core/) kullanılır.
+Market için sitenin arama özellikleri destekleyen Azure Search kullanır. Algoritma terimi sıklığı – ters belge sıklığına bağlıdır ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). Standart [Lucene çözümleyici](https://lucene.apache.org/core/) kullanılır.
 
 Genel olarak, tüm metin alanları, kategoriler ve sektörler ve ilgi weightage dahil. Uygulamalar tarafından ancak uygulamanızda sık sık kullanılan özelleştirilmiş koşulları arama daha yüksek bir eşleşme puanıyla oluşturur. Bu nedenle "VM" gibi terimler dahil olmak üzere, "Azure arama" çok daha özel ancak küçük avantajı sunar.
 Dikkate alınması gereken en uygun alanları aşağıda verilmiştir.
@@ -37,7 +37,7 @@ Dikkate alınması gereken en uygun alanları aşağıda verilmiştir.
 | Teklif Adı               |  Yüksek      | Tam veya arama ile tam bir eşleştirme yakın sorgu yüksek derecelendirme ortaya çıkarır.                       |
 | Yayımcı Adı           |  Yüksek      | Tam veya arama ile tam bir eşleştirme yakın sorgu yüksek derecelendirme ortaya çıkarır.                       |
 | Kısa açıklama        |  Orta    | Uygulamalar ve yayımcı adlandırma verilen adları neredeyse yüksek derecelendirme garanti, en uygun olmayabilir. Bu durumda, kısa bir açıklama kritik öneme sahiptir. Metin noktasına ve kısa tutun. En iyi sonuç için anahtar sözcükleri ve beklenen arama terimlerini eklenmelidir.  Örneğin "Bu bir Dynamics 365 üzerinde tam olarak oluşturulmuş en iyi perakende POS" daha az etkili "için Dynamics 365" perakende POS (satış noktası).  | 
-| Uzun açıklama         |  Düşük       | Açıklama daha ayrıntılı gitmek için bir yol sunar. En etkili açıklamaları makul ve anahtar sözcükleri kullanılır.  Anahtar sözcükler kullanılarak bir için öz açıklamaları birden fazla uzun uzun metin yararlı olacaktır. "IoT" gibi yapma emin anahtar koşulları açıklama yok.  |
+| Uzun Açıklama         |  Düşük       | Açıklama daha ayrıntılı gitmek için bir yol sunar. En etkili açıklamaları makul ve anahtar sözcükleri kullanılır.  Anahtar sözcükler kullanılarak bir için öz açıklamaları birden fazla uzun uzun metin yararlı olacaktır. "IoT" gibi yapma emin anahtar koşulları açıklama yok.  |
 | Ürün Kategorileri       | Orta     |  Ürün kategorileri birleşimi yayımcı seçenekleri ve Microsoft tarafından belirlenir. Bu kategorilerin uygun şekilde seçin, böylece kullanıcılar doğru kategorisinde uygulamalarını kolayca bulabilirsiniz. |
 |  |  |  |
 

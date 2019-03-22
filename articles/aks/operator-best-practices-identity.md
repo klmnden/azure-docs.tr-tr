@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 7d846f28e78959b6962add51070f04857f6463d7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 201fef6b3e773daa18ae252d1d5734d8d87419b5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852825"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287137"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Kimlik doğrulama ve yetkilendirme Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -67,7 +67,7 @@ rules:
 Bir RoleBinding sonra Azure AD kullanıcı bağlayan oluşturulur *developer1\@contoso.com* aşağıdaki YAML bildirimde gösterildiği RoleBinding için:
 
 ```yaml
-ind: RoleBinding
+kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: finance-app-full-access-role-binding
@@ -90,7 +90,7 @@ Zaman *developer1\@contoso.com* kimlik doğrulaması kaynakları için tam izinl
 
 Pod'ların Cosmos DB, anahtar kasası veya Blob Depolama gibi diğer Azure hizmetlerine erişim için gerektiğinde pod erişim kimlik bilgileri gerekir. Bu erişim kimlik bilgileri ile kapsayıcı görüntüsü tanımlanabilir veya Kubernetes gizli eklenmiş ancak el ile oluşturulan ve atanmış gerekir. Genellikle, kimlik bilgilerini pod'ları arasında yeniden ve düzenli olarak Döndürülmüş değildir.
 
-Azure kaynakları için yönetilen kimlik Hizmetleri aracılığıyla Azure AD için erişim isteği otomatik olarak sağlar. Kimlik bilgilerini el ile tanımlamak yoksa, pod'ları için bunun yerine gerçek zamanlı bir erişim belirteci isteği ve bunların atanmış hizmetlere erişmek için kullanabilirsiniz. AKS, küme işleci tarafından yönetilen kimlikleri kullanmak pod'ların izin vermek için iki bileşenden dağıtılır:
+(Şu anda ilişkili AKS açık kaynaklı proje uygulanan) Azure kaynakları için yönetilen kimlik Hizmetleri aracılığıyla Azure AD için erişim isteği otomatik olarak sağlar. Kimlik bilgilerini el ile tanımlamak yoksa, pod'ları için bunun yerine gerçek zamanlı bir erişim belirteci isteği ve bunların atanmış hizmetlere erişmek için kullanabilirsiniz. AKS, küme işleci tarafından yönetilen kimlikleri kullanmak pod'ların izin vermek için iki bileşenden dağıtılır:
 
 * **Düğüm yönetim kimlik (NMI) sunucu** AKS kümesindeki her düğümde bir DaemonSet çalışan bir pod olduğu. NMI sunucunun Azure hizmetlerine pod isteklerini dinler.
 * **Yönetilen kimlik denetleyici (MIC)** merkezi bir pod Kubernetes API sunucusu sorgulamak için gerekli izinlere sahip olduğundan ve bir Azure kimlik eşlemesini karşılık gelen bir pod için denetler.
@@ -105,6 +105,8 @@ Aşağıdaki örnekte, bir geliştirici, Azure SQL Server örneğine erişim ist
 1. MIC ve NMI sunucudaki tüm Azure ad erişim belirteçlerini pod isteklerinde aktarma dağıtılır.
 1. Bir geliştirici, bir pod NMI sunucu üzerinden bir erişim belirteci isteklerini yönetilen bir kimlikle dağıtır.
 1. Belirteç pod'u döndürdü ve bir Azure SQL Server örneğine erişmek için kullanılır.
+
+Yönetilen pod kimlikler AKS açık kaynak bir projedir ve Azure teknik destek birimi tarafından desteklenmiyor. Görüş ve hata topluluğumuza toplamak için sağlanır. Proje, üretim kullanımı için önerilmez.
 
 Pod kimlikleri kullanmak için bkz: [Kubernetes uygulamaları için Azure Active Directory kimlikleri][aad-pod-identity].
 

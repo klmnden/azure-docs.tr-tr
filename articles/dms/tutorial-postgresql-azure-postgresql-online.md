@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 54df5069970a628962f20761441a8f9947356da9
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 9633b6c083b6e7286435c8c3867339868ae53458
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791673"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105429"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Öğretici: DMS kullanarak PostgreSQL’i çevrimiçi ortamda PostgreSQL için Azure Veritabanına geçirme
 Şirket içi bir PostgreSQL örneğindeki veritabanlarını minimum çalışmama süresi ile [PostgreSQL için Azure Veritabanı](https://docs.microsoft.com/azure/postgresql/)'na geçirmek için Azure Veritabanı Geçiş Hizmeti'ni kullanabilirsiniz. Diğer bir deyişle, geçiş işlemi, uygulamada minimum çalışmama süresi ile gerçekleştirilebilir. Bu öğreticide, Azure Veritabanı Geçiş Hizmeti'nde çevrimiçi bir geçiş etkinliğini kullanarak şirket içi bir PostgreSQL 9.6 örneğindeki **DVD Rental** örnek veritabanını PostgreSQL için Azure Veritabanı'na geçireceksiniz.
@@ -148,64 +148,64 @@ Tablo şemaları, dizinler ve saklı yordamlar gibi tüm veritabanı nesnelerini
 
 ## <a name="provisioning-an-instance-of-dms-using-the-cli"></a>CLI kullanarak DMS örneği sağlama
 
-1.  Dms eşitleme uzantısını yükleyin:
-    - Aşağıdaki komutu çalıştırarak Azure'da oturum açın:        
-        ```
-        az login
-        ```
+1. Dms eşitleme uzantısını yükleyin:
+   - Aşağıdaki komutu çalıştırarak Azure'da oturum açın:        
+       ```
+       az login
+       ```
 
-    - Sorulduğunda bir web tarayıcısı açın ve cihazınızın kimliğini doğrulamak için bir kod girin. Listelenen yönergeleri uygulayın.
-    - Dms uzantısını ekleyin:
-        - Kullanılabilir uzantıları listelemek için aşağıdaki komutu çalıştırın:
+   - Sorulduğunda bir web tarayıcısı açın ve cihazınızın kimliğini doğrulamak için bir kod girin. Listelenen yönergeleri uygulayın.
+   - Dms uzantısını ekleyin:
+       - Kullanılabilir uzantıları listelemek için aşağıdaki komutu çalıştırın:
 
-            ```
-            az extension list-available –otable
-            ```
-        - Uzantıyı yüklemek için aşağıdaki komutu çalıştırın:
+           ```
+           az extension list-available –otable
+           ```
+       - Uzantıyı yüklemek için aşağıdaki komutu çalıştırın:
 
-            ```
-            az extension add –n dms-preview
-            ```
+           ```
+           az extension add –n dms-preview
+           ```
 
-    - Dms uzantısının doğru yüklendiğini onaylamak için aşağıdaki komutu çalıştırın:
+   - Dms uzantısının doğru yüklendiğini onaylamak için aşağıdaki komutu çalıştırın:
  
-        ```
-        az extension list -otable
-        ```
-        Aşağıdaki çıktıyı görmeniz gerekir:     
+       ```
+       az extension list -otable
+       ```
+       Aşağıdaki çıktıyı görmeniz gerekir:     
+
+       ```
+       ExtensionType    Name
+       ---------------  ------
+       whl              dms
+       ```
+
+   - Dilediğiniz zaman aşağıdaki komutu çalıştırarak desteklenen tüm komutları görüntüleyin:
+       ```
+       az dms -h
+       ```
+   - Birden çok Azure aboneliğiniz varsa, DMS hizmetinin bir örneğini sağlamak için kullanmak istediğiniz aboneliği ayarlamak üzere aşağıdaki komutu çalıştırın.
 
         ```
-        ExtensionType    Name
-        ---------------  ------
-        whl              dms
+       az account set -s 97181df2-909d-420b-ab93-1bff15acb6b7
         ```
 
-    - Dilediğiniz zaman aşağıdaki komutu çalıştırarak desteklenen tüm komutları görüntüleyin:
-        ```
-        az dms -h
-        ```
-    - Birden çok Azure aboneliğiniz varsa, DMS hizmetinin bir örneğini sağlamak için kullanmak istediğiniz aboneliği ayarlamak üzere aşağıdaki komutu çalıştırın.
+2. Aşağıdaki komutu çalıştırarak bir DMS örneğini sağlayın:
 
-         ```
-        az account set -s 97181df2-909d-420b-ab93-1bff15acb6b7
-         ```
+   ```
+   az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name BusinessCritical_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
+   ```
 
-2.  Aşağıdaki komutu çalıştırarak bir DMS örneğini sağlayın:
+   Örneğin, aşağıdaki komut şurada bir hizmet oluşturur:
+   - Konum: Doğu ABD 2
+   - Abonelik: 97181df2-909d-420b-ab93-1bff15acb6b7
+   - Kaynak Grubu Adı: PostgresDemo
+   - DMS hizmeti adı: PostgresCLI
 
-    ```
-    az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name BusinessCritical_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
-    ```
-
-    Örneğin, aşağıdaki komut şurada bir hizmet oluşturur:
-    - Konum: Doğu ABD 2
-    - Abonelik: 97181df2-909d-420b-ab93-1bff15acb6b7
-    - Kaynak Grubu Adı: PostgresDemo
-    - DMS hizmeti adı: PostgresCLI
-
-    ```
-    az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
-    ```
-    DMS hizmeti örneğini oluşturmak yaklaşık 10-12 dakika sürer.
+   ```
+   az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
+   ```
+   DMS hizmeti örneğini oluşturmak yaklaşık 10-12 dakika sürer.
 
 3. Postgres pg_hba.conf dosyasına eklemek üzere DMS aracısının IP adresini tanımlamak için aşağıdaki komutu çalıştırın:
 
@@ -242,103 +242,103 @@ Tablo şemaları, dizinler ve saklı yordamlar gibi tüm veritabanı nesnelerini
     ```
     Örneğin, aşağıdaki komut bu parametreleri kullanarak bir proje oluşturur:
 
-      - Konum: Batı Orta ABD
-      - Kaynak Grubu Adı: PostgresDemo
-      - Hizmet Adı: PostgresCLI
-      - Proje adı: PGMigration
-      - Kaynak platform: PostgreSQL
-      - Hedef platform: AzureDbForPostgreSql
+   - Konum: Batı Orta ABD
+   - Kaynak Grubu Adı: PostgresDemo
+   - Hizmet Adı: PostgresCLI
+   - Proje adı: PGMigration
+   - Kaynak platform: PostgreSQL
+   - Hedef platform: AzureDbForPostgreSql
  
-    ```
-    az dms project create -l eastus2 -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
-    ```
+     ```
+     az dms project create -l eastus2 -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
+     ```
                 
 6. Aşağıdaki adımları kullanarak bir PostgreSQL geçiş görevi oluşturun.
 
     Bu adım, bağlantı kurmak için kaynak IP, UserID ve parola, hedef IP, UserID, parola ve görev türünü kullanmayı içerir.
 
-    - Seçeneklerin tam listesini görmek için komutu çalıştırın:
-        ```
-        az dms project task create -h
-        ```
+   - Seçeneklerin tam listesini görmek için komutu çalıştırın:
+       ```
+       az dms project task create -h
+       ```
 
-        Hem kaynak hem de hedef bağlantı için giriş parametresi, nesne listesini içeren bir json dosyasına başvurur.
+       Hem kaynak hem de hedef bağlantı için giriş parametresi, nesne listesini içeren bir json dosyasına başvurur.
  
-        PostgreSQL bağlantıları için bağlantı JSON nesnesinin biçimi.
+       PostgreSQL bağlantıları için bağlantı JSON nesnesinin biçimi.
         
-        ```
-        {
-                    "userName": "user name",    // if this is missing or null, you will be prompted
-                    "password": null,           // if this is missing or null (highly recommended) you will
-                be prompted
-                    "serverName": "server name",
-                    "databaseName": "database name", // if this is missing, it will default to the 'postgres'
-                server
-                    "port": 5432                // if this is missing, it will default to 5432
-                }
-        ```
+       ```
+       {
+                   "userName": "user name",    // if this is missing or null, you will be prompted
+                   "password": null,           // if this is missing or null (highly recommended) you will
+               be prompted
+                   "serverName": "server name",
+                   "databaseName": "database name", // if this is missing, it will default to the 'postgres'
+               server
+                   "port": 5432                // if this is missing, it will default to 5432
+               }
+       ```
 
-    - Json nesneleri listeler bir veritabanı seçeneği json dosyası yoktur. PostgreSQL için veri tabanı seçeneği JSON nesnesinin biçimi aşağıda gösterilmiştir:
+   - Json nesneleri listeler bir veritabanı seçeneği json dosyası yoktur. PostgreSQL için veri tabanı seçeneği JSON nesnesinin biçimi aşağıda gösterilmiştir:
 
-        ```
-        [
-            {
-                "name": "source database",
-                "target_database_name": "target database",
-            },
-            ...n
-        ]
-        ```
+       ```
+       [
+           {
+               "name": "source database",
+               "target_database_name": "target database",
+           },
+           ...n
+       ]
+       ```
 
-    - Not Defteri ile bir json dosyası oluşturun, aşağıdaki komutları kopyalayın ve dosyanın içine yapıştırın, ardından dosyayı C:\DMS\source.json yoluna kaydedin.
-         ```
-        {
-                    "userName": "postgres",    
-                    "password": null,           
-                be prompted
-                    "serverName": "13.51.14.222",
-                    "databaseName": "dvdrental", 
-                    "port": 5432                
-                }
-         ```
-    - Target.json adlı başka bir dosya oluşturun ve C:\DMS\target.json olarak kaydedin. Aşağıdaki komutları ekleyin:
+   - Not Defteri ile bir json dosyası oluşturun, aşağıdaki komutları kopyalayın ve dosyanın içine yapıştırın, ardından dosyayı C:\DMS\source.json yoluna kaydedin.
         ```
-        {
-                "userName": " dms@builddemotarget",    
-                "password": null,           
-                "serverName": " builddemotarget.postgres.database.azure.com",
-                "databaseName": "inventory", 
-                "port": 5432                
-            }
+       {
+                   "userName": "postgres",    
+                   "password": null,           
+               be prompted
+                   "serverName": "13.51.14.222",
+                   "databaseName": "dvdrental", 
+                   "port": 5432                
+               }
         ```
-    - Geçirilecek veritabanı olarak stok listeleyen bir veritabanı seçeneği json dosyası oluşturun:
-        ``` 
-        [
-            {
-                "name": "dvdrental",
-                "target_database_name": "dvdrental",
-            }
-        ]
-        ```
-    - Kaynak, hedef ve DB seçeneği json dosyalarını alan aşağıdaki komutu çalıştırın.
+   - Target.json adlı başka bir dosya oluşturun ve C:\DMS\target.json olarak kaydedin. Aşağıdaki komutları ekleyin:
+       ```
+       {
+               "userName": " dms@builddemotarget",    
+               "password": null,           
+               "serverName": " builddemotarget.postgres.database.azure.com",
+               "databaseName": "inventory", 
+               "port": 5432                
+           }
+       ```
+   - Geçirilecek veritabanı olarak stok listeleyen bir veritabanı seçeneği json dosyası oluşturun:
+       ``` 
+       [
+           {
+               "name": "dvdrental",
+               "target_database_name": "dvdrental",
+           }
+       ]
+       ```
+   - Kaynak, hedef ve DB seçeneği json dosyalarını alan aşağıdaki komutu çalıştırın.
 
-        ``` 
-        az dms project task create -g PostgresDemo --project-name PGMigration --source-platform postgresql --target-platform azuredbforpostgresql --source-connection-json c:\DMS\source.json --database-options-json C:\DMS\option.json --service-name PostgresCLI --target-connection-json c:\DMS\target.json –task-type OnlineMigration -n runnowtask    
-        ``` 
+       ``` 
+       az dms project task create -g PostgresDemo --project-name PGMigration --source-platform postgresql --target-platform azuredbforpostgresql --source-connection-json c:\DMS\source.json --database-options-json C:\DMS\option.json --service-name PostgresCLI --target-connection-json c:\DMS\target.json –task-type OnlineMigration -n runnowtask    
+       ``` 
 
-    Bu noktada, bir geçiş görevini başarıyla gönderdiniz.
+     Bu noktada, bir geçiş görevini başarıyla gönderdiniz.
 
-7.  Görevin ilerleme durumunu göstermek için aşağıdaki komutu çalıştırın:
+7. Görevin ilerleme durumunu göstermek için aşağıdaki komutu çalıştırın:
+
+   ```
+   az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
+   ```
+
+   OR
 
     ```
-    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
+   az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output
     ```
-
-    OR
-
-     ```
-    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output
-     ```
 
 8. Genişletme çıktısından migrationState sorgusu da yapabilirsiniz:
 

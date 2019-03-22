@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8c8f3cd67186450fdcf65c177ea0353d297a3b01
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2fc4f26f187301ea7a7a1e3051038f75da728547
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264242"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125001"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Sertifika imzalama isteği dosyası oluşturma
 
@@ -47,17 +47,17 @@ iOS uygulamasına anında iletme bildirimleri gönderebilmek için uygulamanız�
 
 2. Yeni uygulamanız için aşağıdaki üç alanı güncelleştirin ve ardından **Devam**’a tıklayın:
 
-    * **Ad**: Uygulamanızı için **Uygulama Kimliği Açıklaması** bölümündeki **Ad** alanına açıklayıcı bir ad yazın.
-    * **Paket Tanımlayıcı** : **Açık Uygulama Kimliği** bölümünün altında, **Paket Tanımlayıcı** öğesini `<Organization Identifier>.<Product Name>` biçiminde, [Uygulama Dağıtım Kılavuzu](https://help.apple.com/xcode/mac/current/#/dev91fe7130a)’nda söz edildiği gibi girin. *Kuruluş Tanımlayıcı* ve kullandığınız *Ürün Adı*, XCode projenizi oluşturduğunuzda kullandığınız kuruluş tanımlayıcısı ve ürün adıyla eşleşmelidir. Aşağıdaki ekran görüntüsünde *NotificationHubs* kuruluş tanımlayıcısı, *GetStarted* ise ürün adı olarak kullanılmıştır. Bu değerin, XCode projenizde kullandığınız değerle eşleştiğinden emin olunması XCode ile doğru yayımlama profili kullanmanızı sağlar.
-    * **Anında İletme Bildirimleri**: **Anında İletme Bildirimleri**’ni **App Services** bölümünde denetleyin.
+   * **Ad**: Uygulamanız için açıklayıcı bir ad yazın **adı** alanındaki **uygulama kimliği açıklaması** bölümü.
+   * **Paket grubu tanımlayıcısı**: Altında **açık uygulama kimliği** bölümünde, girin bir **paket grubu tanımlayıcısı** biçiminde `<Organization Identifier>.<Product Name>` belirtildiği gibi [uygulama Dağıtım Kılavuzu'na](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). *Kuruluş Tanımlayıcı* ve kullandığınız *Ürün Adı*, XCode projenizi oluşturduğunuzda kullandığınız kuruluş tanımlayıcısı ve ürün adıyla eşleşmelidir. Aşağıdaki ekran görüntüsünde *NotificationHubs* kuruluş tanımlayıcısı, *GetStarted* ise ürün adı olarak kullanılmıştır. Bu değerin, XCode projenizde kullandığınız değerle eşleştiğinden emin olunması XCode ile doğru yayımlama profili kullanmanızı sağlar.
+   * **Anında iletme bildirimleri**: Denetleme **anında iletme bildirimleri** seçeneğini **uygulama hizmetleri** bölümü.
 
-    ![Yeni Uygulama Kimliği kaydetme formu](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
+     ![Yeni Uygulama Kimliği kaydetme formu](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-    Bu eylem, Uygulama Kimliğinizi oluşturur ve bilgiyi onaylamanız ister. Yeni Uygulama Kimliğini onaylamak için **Kaydet**’e tıklayın.
+     Bu eylem, Uygulama Kimliğinizi oluşturur ve bilgiyi onaylamanız ister. Yeni Uygulama Kimliğini onaylamak için **Kaydet**’e tıklayın.
 
-    **Kaydet**’e tıkladıktan sonra **Kayıt tamamlandı** ekranını aşağıdaki resimde gösterildiği gibi göreceksiniz. **Bitti**’ye tıklayın.
+     **Kaydet**’e tıkladıktan sonra **Kayıt tamamlandı** ekranını aşağıdaki resimde gösterildiği gibi göreceksiniz. **Bitti**’ye tıklayın.
 
-    ![Yetkilendirmeleri gösteren tamamlanmış Uygulama Kimliği kaydı](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
+     ![Yetkilendirmeleri gösteren tamamlanmış Uygulama Kimliği kaydı](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 3. Geliştirici Merkezi’nde, Uygulama Kimlikleri altında oluşturduğunuz uygulama kimliğini bulup satırına tıklayın.
 

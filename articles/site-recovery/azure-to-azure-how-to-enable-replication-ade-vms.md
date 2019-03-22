@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: f9abc6d79bd821ef612e9e7648b1b5af98bb5cf6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456240"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117464"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Azure disk şifrelemesi (ADE) etkinleştirilmiş sanal makineleri başka bir Azure bölgesine çoğaltma
 
@@ -123,8 +123,8 @@ Site Recovery tarafından kullanılan varsayılan hedef ayarlarını değiştire
 
 
 2. Tıklayın **Özelleştir:** "Şifreleme ayarları" yanındaki değiştirmek için varsayılan ayarları aşağıda:
-    - İçinde **hedef disk şifreleme anahtar kasası**, hedef konum abonelik içindeki tüm anahtar kasalarına listesinden hedef disk şifreleme anahtar Kasası'nı seçin.
-  - İçinde **hedef anahtar şifreleme anahtar kasası**, hedef konum abonelik içindeki tüm anahtar kasalarına listesinden hedef anahtar şifreleme anahtar Kasası'nı seçin.
+   - İçinde **hedef disk şifreleme anahtar kasası**, hedef konum abonelik içindeki tüm anahtar kasalarına listesinden hedef disk şifreleme anahtar Kasası'nı seçin.
+     - İçinde **hedef anahtar şifreleme anahtar kasası**, hedef konum abonelik içindeki tüm anahtar kasalarına listesinden hedef anahtar şifreleme anahtar Kasası'nı seçin.
 
 3. Tıklayın **hedef kaynak oluşturma** > **çoğaltmayı etkinleştirme**.
 4. VM'ler için çoğaltma etkinleştirildikten sonra durumu VM sistem durumu ' kontrol edebilirsiniz **çoğaltılan öğeler**

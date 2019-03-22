@@ -9,12 +9,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: a73568fd1dd7ed6b6cd3a7938768db4982725658
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 99f5b09d0b5dfc144dca7f19efff3f0656a82b35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497896"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093254"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Birden çok sanal makineyi yedeklemek için Azure portalını kullanma
 
@@ -77,16 +77,16 @@ Kurtarma Hizmetleri kasasını oluşturduktan sonraki adım, veri türü için k
     ![İş yükünü seçme](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
 5. **Yedekleme ilkesi** menüsünde, **İlke Adı** türü için *Finans* yazın. Yedekleme ilkesi için aşağıdaki değişiklikleri girin:
-    - **Yedekleme sıklığı** için saat dilimini *Orta Amerika Saati* olarak ayarlayın. Spor tesisi Teksas’ta olduğundan, tesisin sahibi zamanlamanın yerel olarak ayarlanmasını istemektedir. Yedekleme sıklığını Günlük olarak saat 03:30'a ayarlanmış halde bırakın.
-    - **Günlük yedekleme noktası bekletmesi** için süreyi 90 gün olarak ayarlayın.
-    - **Haftalık yedekleme noktası bekletmesi** için *Pazartesi* geri yükleme noktasını kullanın ve 52 hafta boyunca tutun.
-    - **Aylık yedekleme noktası bekletmesi** için her ayın İlk Pazar günündeki geri yükleme noktasını kullanın ve 36 ay boyunca tutun.
-    - **Yıllık yedekleme noktası bekletmesi** seçeneğinin işaretini kaldırın. Finans lideri, verileri 36 aydan uzun süre tutmak istememektedir.
-    - Yedekleme ilkesini oluşturmak için **Tamam**’a tıklayın.
+   - **Yedekleme sıklığı** için saat dilimini *Orta Amerika Saati* olarak ayarlayın. Spor tesisi Teksas’ta olduğundan, tesisin sahibi zamanlamanın yerel olarak ayarlanmasını istemektedir. Yedekleme sıklığını Günlük olarak saat 03:30'a ayarlanmış halde bırakın.
+   - **Günlük yedekleme noktası bekletmesi** için süreyi 90 gün olarak ayarlayın.
+   - **Haftalık yedekleme noktası bekletmesi** için *Pazartesi* geri yükleme noktasını kullanın ve 52 hafta boyunca tutun.
+   - **Aylık yedekleme noktası bekletmesi** için her ayın İlk Pazar günündeki geri yükleme noktasını kullanın ve 36 ay boyunca tutun.
+   - **Yıllık yedekleme noktası bekletmesi** seçeneğinin işaretini kaldırın. Finans lideri, verileri 36 aydan uzun süre tutmak istememektedir.
+   - Yedekleme ilkesini oluşturmak için **Tamam**’a tıklayın.
 
-    ![İş yükünü seçme](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
+     ![İş yükünü seçme](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
-    Yedekleme ilkesini oluşturduktan sonra ilkeyi sanal makineler ile ilişkilendirin.
+     Yedekleme ilkesini oluşturduktan sonra ilkeyi sanal makineler ile ilişkilendirin.
 
 6. **Sanal makine seç** iletişim kutusunda *myVM*’yi seçip **Tamam**’a tıklayarak yedekleme ilkesini sanal makinelere dağıtın.
 

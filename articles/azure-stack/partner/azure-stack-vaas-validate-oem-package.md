@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c2b0343ff472fe380750152712ca88d9ebb404e2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: aae3ec8ff713959c5cc2485951aba025a6f89a1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782794"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113291"
 ---
 # <a name="validate-oem-packages"></a>OEM paketleri doğrula
 
@@ -185,30 +185,30 @@ Aşağıdaki testler OEM paket doğrulaması için gereklidir:
 
     OEM uzantı paketi doğrulama, iki el ile adımlar bölünür: Azure yığını güncelleştirmesi ve OEM güncelleştirme.
 
-    1. **Seçin** "Precheck betiği yürütmek için kullanıcı Arabiriminde Çalıştır". Tamamlanması yaklaşık 5 dakika sürer ve hiçbir eylem gerektirmez otomatikleştirilmiş bir testi budur.
+   1. **Seçin** "Precheck betiği yürütmek için kullanıcı Arabiriminde Çalıştır". Tamamlanması yaklaşık 5 dakika sürer ve hiçbir eylem gerektirmez otomatikleştirilmiş bir testi budur.
 
-    1. Precheck betik tamamlandıktan sonra el ile adımıysa: **yükleme** Azure Stack portalını kullanarak en son kullanılabilir Azure Stack güncelleştirme.
+   1. Precheck betik tamamlandıktan sonra el ile adımıysa: **yükleme** Azure Stack portalını kullanarak en son kullanılabilir Azure Stack güncelleştirme.
 
-    1. **Çalıştırma** Test AzureStack damgası üzerinde. Herhangi bir hata oluşursa, kişi ve test ile devam etmeyin [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
+   1. **Çalıştırma** Test AzureStack damgası üzerinde. Herhangi bir hata oluşursa, kişi ve test ile devam etmeyin [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
 
-        Test-AzureStack komut çalıştırma hakkında daha fazla bilgi için bkz: [Azure Stack doğrulama sistem durumu](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+       Test-AzureStack komut çalıştırma hakkında daha fazla bilgi için bkz: [Azure Stack doğrulama sistem durumu](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
 
-    1. **Seçin** "İleri" postcheck betiği yürütülemedi. Bu otomatik test ve Azure Stack'te güncelleştirme işleminin sonunu işaretler.
+   1. **Seçin** "İleri" postcheck betiği yürütülemedi. Bu otomatik test ve Azure Stack'te güncelleştirme işleminin sonunu işaretler.
 
-    1. **Seçin** OEM güncelleştirmesi precheck betiği yürütmek için "Run".
+   1. **Seçin** OEM güncelleştirmesi precheck betiği yürütmek için "Run".
 
-    1. Ön denetim tamamlandıktan sonra el ile adımıysa: **yükleme** portal üzerinden OEM uzantı paketi.
+   1. Ön denetim tamamlandıktan sonra el ile adımıysa: **yükleme** portal üzerinden OEM uzantı paketi.
 
-    1. **Çalıştırma** Test AzureStack damgası üzerinde.
+   1. **Çalıştırma** Test AzureStack damgası üzerinde.
 
-        > [!NOTE]
-        > Önceki örneklerde olduğu gibi test ve kişi ile devam etmeyin [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) başarısız olması durumunda. Bu adım, bir yeniden dağıtım kaydedecek şekilde önemlidir.
+      > [!NOTE]
+      > Önceki örneklerde olduğu gibi test ve kişi ile devam etmeyin [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) başarısız olması durumunda. Bu adım, bir yeniden dağıtım kaydedecek şekilde önemlidir.
 
-    1. **Seçin** "İleri" postcheck betiği yürütülemedi. Bu, OEM güncelleştirme adım sonunu işaretler.
+   1. **Seçin** "İleri" postcheck betiği yürütülemedi. Bu, OEM güncelleştirme adım sonunu işaretler.
 
-    1. Testin sonunda kalan tüm sorularınızı ve **seçin** "Gönder".
+   1. Testin sonunda kalan tüm sorularınızı ve **seçin** "Gönder".
 
-    1. Bu etkileşimli test sonunu işaretler.
+   1. Bu etkileşimli test sonunu işaretler.
 
 5. Sonuç, OEM uzantı paketini doğrulama için gözden geçirin. Test başarılı oldu sonra bulut benzetimi altyapısı yürütme için zamanlayın.
 

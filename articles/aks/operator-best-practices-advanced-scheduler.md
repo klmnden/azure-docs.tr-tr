@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 1534a3f010183cd91c444b577d26e3f21e296d27
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57434328"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175990"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Gelişmiş Zamanlayıcı Özellikleri Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -39,10 +39,10 @@ Kubernetes Zamanlayıcı taints ve tolerations düğümler üzerinde hangi iş y
 Bir AKS kümesi için bir pod dağıttığınızda, Kubernetes düğümlerinde burada bir toleration taint ile hizalanır pod yalnızca zamanlar. Örneğin, destekleyen bir nodepool AKS kümenizde düğümleri GPU ile sahip olduğunuz varsayılır. Adı gibi tanımladığınız *gpu*, zamanlama için bir değer daha sonra. Bu değeri ayarlamanız *NoSchedule*, pod uygun toleration tanımlamıyorsa, Kubernetes Zamanlayıcı pod'ların düğümde zamanlayamazsınız.
 
 ```console
-kubectl taint node aks-nodepool1 gpu:NoSchedule
+kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
 ```
 
-Düğümlere uygulanması bir taint ile ardından bir toleration düğümlerde zamanlama izin veren pod belirtiminde tanımlarsınız. Aşağıdaki örnek tanımlar `key: gpu` ve `effect: NoSchedule` önceki adımda düğüme uygulanan taint tolerans:
+Düğümlere uygulanması bir taint ile ardından bir toleration düğümlerde zamanlama izin veren pod belirtiminde tanımlarsınız. Aşağıdaki örnek tanımlar `sku: gpu` ve `effect: NoSchedule` önceki adımda düğüme uygulanan taint tolerans:
 
 ```yaml
 kind: Pod
@@ -61,9 +61,9 @@ spec:
       cpu: 4.0
       memory: 16Gi
   tolerations:
-  - key: "gpu"
+  - key: "sku"
     operator: "Equal"
-    value: "value"
+    value: "gpu"
     effect: "NoSchedule"
 ```
 

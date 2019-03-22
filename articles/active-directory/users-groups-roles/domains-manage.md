@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8792c568622931bfae517b96cdec7d4cc0683ac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 908ae768ae471ab6f49452c99323c31d34772d45
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997233"
+ms.locfileid: "58201864"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory'de özel etki alanı adlarını yönetme
 
@@ -33,11 +33,11 @@ Dizininiz oluşturulurken 'contoso.onmicrosoft.com' gibi bir ilk etki alanı ad�
 2. **Azure Active Directory**'yi seçin.
 3. **Özel etki alanı adları**'nı seçin.
   
-   ![Kullanıcı yönetimini açma](./media/domains-manage/add-custom-domain.png)
+   ![Kullanıcı yönetimi sayfasına açma](./media/domains-manage/add-custom-domain.png)
 4. Birincil etki alanı olmasını istediğiniz etki alanının adını seçin.
 5. Seçin **birincil yap** komutu. Sorulduğunda Seçiminizi onaylayın.
   
-   ![Bir etki alanı adı birincil yap](./media/domains-manage/make-primary-domain.png)
+   ![Bir etki alanını birincil ad](./media/domains-manage/make-primary-domain.png)
 
 Federasyon olmayan tüm doğrulanmış özel etki alanında olmasını dizininiz için birincil etki alanı adını değiştirebilirsiniz. Dizininiz için birincil etki alanı değiştirme, var olan tüm kullanıcılar için kullanıcı adı değişmez.
 

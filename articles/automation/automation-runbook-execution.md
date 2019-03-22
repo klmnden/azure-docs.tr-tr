@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/05/2019
+ms.date: 03/18/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84cf7d485295ae1a102957ee1f94ab3e9b2ea954
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a2efc90e14180cd2b26223ef968a7f192b440ebd
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548260"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287052"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure automation'da Runbook yürütme
 
@@ -22,24 +22,20 @@ Azure Automation'da bir runbook başlattığınızda bir iş oluşturulur. Bir i
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
-Bir runbook işi için yaşam döngüsü Aşağıdaki diyagramda gösterilmiştir [grafik runbook'ları](automation-runbook-types.md#graphical-runbooks) ve [PowerShell iş akışı runbook'ları](automation-runbook-types.md#powershell-workflow-runbooks).
+Bir runbook işi için yaşam döngüsü Aşağıdaki diyagramda gösterilmiştir [PowerShell runbook'ları](automation-runbook-types.md#powershell-runbooks), [grafik runbook'ları](automation-runbook-types.md#graphical-runbooks) ve [PowerShell iş akışı runbook'ları](automation-runbook-types.md#powershell-workflow-runbooks).
 
 ![İş durumları - PowerShell iş akışı](./media/automation-runbook-execution/job-statuses.png)
-
-Bir runbook işi için yaşam döngüsü Aşağıdaki diyagramda gösterilmiştir [PowerShell runbook'ları](automation-runbook-types.md#powershell-runbooks).
-
-![İş durumları - PowerShell Betiği](./media/automation-runbook-execution/job-statuses-script.png)
 
 Azure aboneliğinizde bir bağlantı yaparak Azure kaynaklarınıza erişimi işlerinizi var. Bu kaynaklara genel buluttan erişilemeyen ise yalnızca kaynaklarına erişimi veri Merkezinize sahiptirler.
 
 ## <a name="where-to-run-your-runbooks"></a>Runbook'larınızı çalıştırılacak konum:
 
-Azure automation'daki Runbook'lar çalışma zamanı üzerinde bir korumalı alan Azure'da veya bir [karma Runbook çalışanı](automation-hybrid-runbook-worker.md). Bir korumalı alan, azure'da birden fazla iş tarafından kullanılan paylaşılan bir ortamdır. Aynı sanal kullanarak işleri tarafından korumalı kaynak sınırlamaları bağlıdır. Karma Runbook çalışanları, kaynak ortamda bu yerel kaynaklara karşı doğrudan rolünü barındıran bilgisayarda runbook'ları çalıştırmak için kullanılabilir. Runbook'ları tutulur ve yönetilen Azure Otomasyonu'nda ve sonra bir veya daha fazla atanmış bilgisayarlara teslim. Çoğu runbook'ları kolayca olması çalıştı Azure sanal. Burada bir karma Runbook, runbook yürütmek için bir Azure sanal seçme önerilen senaryoları da bulunur. Aşağıdaki tabloda bazı örnek senaryolar bir listesi için bkz:
+Azure automation'daki Runbook'lar çalışma zamanı üzerinde bir korumalı alan Azure'da veya bir [karma Runbook çalışanı](automation-hybrid-runbook-worker.md). Bir korumalı alan, azure'da birden fazla iş tarafından kullanılan paylaşılan bir ortamdır. Aynı sanal kullanarak işleri tarafından korumalı kaynak sınırlamaları bağlıdır. Karma Runbook çalışanları, runbook'ları doğrudan rolünü barındıran bilgisayarda ve ortamınızda bu yerel kaynakları yönetmek için kaynakların karşı çalıştırabilirsiniz. Runbook'ları tutulur ve yönetilen Azure Otomasyonu'nda ve sonra bir veya daha fazla atanmış bilgisayarlara teslim. Çoğu runbook'ları kolayca Azure sanal içinde çalıştırabilirsiniz. Burada bir karma Runbook, runbook yürütmek için bir Azure sanal seçme önerilen senaryoları da bulunur. Aşağıdaki tabloda bazı örnek senaryolar bir listesi için bkz:
 
 |Görev|En iyi seçimi|Notlar|
 |---|---|---|
 |Azure kaynakları ile tümleştirme|Azure sanal|Azure'da barındırılan, kimlik doğrulaması basittir. Bir Azure sanal makinesinde bir karma Runbook çalışanı'nı kullanıyorsanız, kullanabileceğiniz [kimliklerini Azure kaynakları için yönetilen](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
-|Azure kaynaklarını yönetmek için en iyi performans|Azure sanal|Betik daha az gecikme süresi sırayla sahip aynı ortamda çalıştı|
+|Azure kaynaklarını yönetmek için en iyi performans|Azure sanal|Betik daha az gecikme süresi sırayla sahip aynı ortamda çalıştırılır.|
 |İşletim maliyetlerinin en aza|Azure sanal|Hiçbir işlem ek yükü, bir VM için gerek yoktur|
 |Uzun süre çalışan betik|Karma Runbook Çalışanı|Azure sanal sahip [kaynaklarını bir sınırlama](../azure-subscription-service-limits.md#automation-limits)|
 |Yerel Hizmetleri ile etkileşim kurma|Karma Runbook Çalışanı|Doğrudan konak makine erişebilir|
@@ -49,7 +45,8 @@ Azure automation'daki Runbook'lar çalışma zamanı üzerinde bir korumalı ala
 |Belirli gereksinimlerine modüllerini kullanma| Karma Runbook Çalışanı|Bazı örnekler şunlardır:</br> **WinSCP** -winscp.exe bağımlılığı </br> **Iısadministration** -IIS etkinleştirilmesi gerekiyor|
 |Yükleyici gerektiren bir modülünü yükleme|Karma Runbook Çalışanı|Modüller için korumalı alan xcopyable olmalıdır|
 |Runbook'ları veya 4.7.2 farklı .NET Framework gerektiren modülleri kullanma|Karma Runbook Çalışanı|Otomasyon korumalı alanları, .NET Framework 4.7.2 sahip ve yükseltme yolu yoktur|
-|Yetki yükseltmesi gerektiren betikleri|Karma Runbook Çalışanı|Sanal yükseltme izin vermez. Karma Runbook çalışanı ve kullanım UAC açıp kapatabilir bu kullanım çözmeye `Invoke-Command` komutu çalıştıran gerektirdiğinde yükseltme|
+|Yetki yükseltmesi gerektiren betikleri|Karma Runbook Çalışanı|Sanal yükseltme izin vermez. Bunu çözmek için bir karma Runbook çalışanı kullanmak ve UAC ve kullanım Kapat `Invoke-Command` komutu çalıştıran gerektirdiğinde yükseltme|
+|WMI erişmesi betikleriniz|Karma Runbook Çalışanı|Bulut sanal çalışan işleri [WMI erişim izniniz yok](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Runbook davranışı
 
@@ -78,11 +75,11 @@ else
 
 ### <a name="time-dependant-scripts"></a>Zaman bağımlı betikler
 
-Runbook'ları yazarken dikkatli yapılması gerekir. Daha önce bahsedildiği gibi runbook'ları, sağlam bir şekilde yazılması gerekir ve runbook yeniden başlatın veya başarısız olmasına neden olabilecek geçici hatalar işleyebilir. Bir runbook başarısız olursa yeniden denenir. Bir runbook normalde bir zaman kısıtlaması içinde çalışıyorsa, yürütme zamanı, başlangıç gibi işlemleri sağlamak için runbook'ta uygulanması gereken Kapat bakın veya ölçeği mantığı olan çalıştı yalnızca belirli saatlerde.
+Runbook'ları yazarken dikkatli yapılması gerekir. Daha önce bahsedildiği gibi runbook'ları, sağlam bir şekilde yazılması gerekir ve runbook yeniden başlatın veya başarısız olmasına neden olabilecek geçici hatalar işleyebilir. Bir runbook başarısız olursa, yeniden denenir. Bir runbook normalde bir zaman kısıtlaması içinde çalışıyorsa, yürütme zamanı, başlangıç gibi işlemleri sağlamak için runbook'ta uygulanması gereken Kapat bakın veya ölçeği genişletme için mantık yalnızca belirli saatlerde çalıştırılır.
 
 ### <a name="tracking-progress"></a>İlerlemeyi izleme
 
-Doğası gereği modüler olmak runbook'ları yazmak için iyi bir uygulamadır. Bu mantık, runbook sağlayacak şekilde yeniden ve kolayca yeniden yapılandırılması anlamına gelir. Bir runbook devam eden izleme ilgili sorunlar varsa runbook'ta mantık doğru yürütüldüğünden emin olmak için iyi bir yoludur. Runbook ilerlemesini izlemek için bazı olası yolları, depolama hesabı, bir veritabanı veya paylaşılan dosyalar gibi dış kaynak kullanmaktır. Durumu harici olarak izleyerek runbook'unuzda runbook sürdü ve devre dışı sonuçlarına son eylem durumu atlayın veya belirli görevleri runbook'ta devam ilk denetlemek için mantık oluşturabilirsiniz.
+Doğası gereği modüler olmak runbook'ları yazmak için iyi bir uygulamadır. Bu mantık, runbook sağlayacak şekilde yeniden ve kolayca yeniden yapılandırılması anlamına gelir. Bir runbook devam eden izleme ilgili sorunlar varsa bir runbook mantığının doğru şekilde çalıştığından emin olmak için iyi bir yoludur. Runbook ilerlemesini izlemek için bazı olası yolları, depolama hesabı, bir veritabanı veya paylaşılan dosyalar gibi dış kaynak kullanmaktır. Durumu harici olarak izleyerek, mantıksal runbook'unuzda ilk denetlenecek runbook geçen son eylemi durumunu oluşturabilirsiniz. Ardından atlamanız sonuçlarına veya belirli görevleri runbook'ta devam.
 
 ### <a name="prevent-concurrent-jobs"></a>Eşzamanlı iş engelle
 
@@ -114,9 +111,86 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 }
 ```
 
+### <a name="working-with-multiple-subscriptions"></a>Birden fazla abonelik ile çalışma
+
+Runbook'ları birden çok aboneliği ile uğraşmak yazarken, kullanım runbook'unuzu gerekiyor [Disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) , kimlik doğrulaması bağlamı olabilecek başka bir runbook'tan alınmamış emin olmak için cmdlet aynı sanal alanda çalışır. Daha sonra kullanmanız gerekir `-AzureRmContext` parametresi, `AzureRM` cmdlet'leri ve uygun Bağlamınızı geçirin.
+
+```powershell
+# Ensures you do not inherit an AzureRMContext in your runbook
+Disable-AzureRmContextAutosave –Scope Process
+
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzureRmAccount -ServicePrincipal `
+-Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID `
+-CertificateThumbprint $Conn.CertificateThumbprint
+
+$context = Get-AzureRmContext
+
+$ChildRunbookName = 'ChildRunbookDemo'
+$AutomationAccountName = 'myAutomationAccount'
+$ResourceGroupName = 'myResourceGroup'
+
+Start-AzureRmAutomationRunbook `
+    -ResourceGroupName $ResourceGroupName `
+    -AutomationAccountName $AutomationAccountName `
+    -Name $ChildRunbookName `
+    -DefaultProfile $context
+```
+
+### <a name="handling-exceptions"></a>Özel durum işleme
+
+Betik yazarken, özel durumlar ve olası aralıklı hatalar işleyebilmesi önemlidir. Özel durumlar veya runbook'larınızı aralıklı sorunlar işlemek için farklı bazı yollar şunlardır:
+
+#### <a name="erroractionpreference"></a>$ErrorActionPreference
+
+[$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) tercih değişkeni, PowerShell, bir sonlandırıcı olmayan hata nasıl yanıt vereceğini belirler. Sonlandıran hata etkilenmez `$ErrorActionPreference`, her zaman sonlandırın. Kullanarak `$ErrorActionPreference`, normalde Sonlandırıcı olmayan bir hata ister `PathNotFound` gelen `Get-ChildItem` cmdlet'i tamamlanmasını runbook'u durdurur. Aşağıdaki örnek, gösterir kullanarak `$ErrorActionPreference`. En son `Write-Output` satırı hiçbir zaman yürütülecek betiği durduracak şekilde.
+
+```powershell-interactive
+$ErrorActionPreference = 'Stop'
+Get-Childitem -path nofile.txt
+Write-Output "This message will not show"
+```
+
+#### <a name="try-catch-finally"></a>Son olarak, try catch
+
+[Try catch](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) PowerShell betiklerini Sonlandırıcı hataları işlemek amacıyla kullanılır. Try Catch kullanarak özel durum ya da genel özel durumları yakalayabilir. Catch deyimi hataları izlemek için kullanılan veya hatayı işlemek kullanılan. Aşağıdaki örnek, var olmayan bir dosya indirmeyi dener. Zaman yakalar `System.Net.WebException` son değeri döndürülür başka bir özel durum oluştuysa, özel durum.
+
+```powershell-interactive
+try
+{
+   $wc = new-object System.Net.WebClient
+   $wc.DownloadFile("http://www.contoso.com/MyDoc.doc")
+}
+catch [System.Net.WebException]
+{
+    "Unable to download MyDoc.doc from http://www.contoso.com."
+}
+catch
+{
+    "An error occurred that could not be resolved."
+}
+```
+
+#### <a name="throw"></a>throw
+
+[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) sonlandırmalı bir hata oluşturmak için kullanılabilir. Bir runbook'ta kendi mantığınızı tanımlarken bu yararlı olabilir. Belirli bir ölçütü karşılanırsa komut durdurma, kullanabileceğiniz `throw` betik durdurmak için. Aşağıdaki örnekte gösterildiği bir işlev parametresi kullanarak gerekli makine `throw`.
+
+```powershell-interactive
+function Get-ContosoFiles
+{
+  param ($path = $(throw "The Path parameter is required."))
+  Get-ChildItem -Path $path\*.txt -recurse
+}
+```
+
 ### <a name="using-executables-or-calling-processes"></a>Yürütülebilir dosyaları'nı kullanarak veya işlemleri çağırma
 
-Runbook'ları, Azure'da çalıştırdığınız sanal çağırma işlemleri (örneğin, bir .exe veya subprocess.call) desteklemez. Azure sanal paylaşılıyor olmasıdır işlemleri çalıştırılan tüm temel alınan API'lerine erişimi olmayabilir kapsayıcılara. Burada ihtiyaç duyduğunuz 3. taraf yazılım veya arama alt işlemlerin senaryoları için üzerinde runbook yürüttüğünüz önerilir bir [karma Runbook çalışanı](automation-hybrid-runbook-worker.md).
+Runbook'ları Azure sanal çalıştırın (örneğin, bir .exe veya subprocess.call) arama işlemleri desteklemez. Azure sanal, temel alınan tüm API'lerine erişimi olmayabilir, kapsayıcılarda çalıştırılan paylaşılan işlemlerin olduğundan budur. Burada ihtiyaç duyduğunuz 3. taraf yazılım veya arama alt işlemlerin senaryoları için üzerinde runbook yürüttüğünüz önerilir bir [karma Runbook çalışanı](automation-hybrid-runbook-worker.md).
+
+### <a name="device-and-application-characteristics"></a>Cihaz ve uygulama özellikleri
+
+Runbook işleri çalıştırmak Azure sanal bir cihaz veya uygulama özelliklerine erişimi. Windows üzerinde sorgu performans ölçümleri için kullanılan en yaygın WMI API'dir. Bu ortak ölçümleri bazıları şunlardır: bellek ve CPU kullanımı. Ancak, ne bir önemi yoktur API'si kullanılır. Bulutta çalışan işleri erişiminiz yok, genel bilgi modeli (CIM) üzerinde oluşturulmuş, Web tabanlı kuruluş yönetimi (WBEM) Microsoft uygulaması olan cihaz ve uygulama özelliklerini tanımlamak için endüstri standartları.
 
 ## <a name="job-statuses"></a>İş durumları
 
@@ -223,9 +297,9 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 Buluttaki tüm runbook'lar arasında kaynaklarını paylaşmak için Azure Otomasyonu geçici olarak kaldırır veya üç saatten uzun süre çalışan tüm işleri durdurur. İşler [PowerShell tabanlı runbook'ları](automation-runbook-types.md#powershell-runbooks) ve [Python runbook'ları](automation-runbook-types.md#python-runbooks) durdurulur ve yeniden değil ve durdurulmuş iş durumunu gösterir.
 
-Uzun çalıştırmak için görevler önerilir kullanmak için bir [karma Runbook çalışanı](automation-hrw-run-runbooks.md#job-behavior). Karma Runbook çalışanları tarafından adil paylaşımı sınırlı değildir ve bir sınırlama yoktur üzerinde ne kadar bir runbook çalıştırabilirsiniz. Başka bir iş [sınırları](../azure-subscription-service-limits.md#automation-limits) hem Azure sanal hem de karma Runbook çalışanları için geçerlidir. Karma Runbook çalışanları 3 saat adil paylaşım sınırı sınırlı değildir, ancak runbook'ları üzerinde çalışan yine beklenmeyen yerel altyapı sorunlardan yeniden davranışları desteklemek için geliştirilmiş olmalı.
+Uzun çalıştırmak için görevler önerilir kullanmak için bir [karma Runbook çalışanı](automation-hrw-run-runbooks.md#job-behavior). Karma Runbook çalışanları tarafından adil paylaşımı sınırlı değildir ve bir sınırlama yoktur üzerinde ne kadar bir runbook çalıştırabilirsiniz. Başka bir iş [sınırları](../azure-subscription-service-limits.md#automation-limits) hem Azure sanal hem de karma Runbook çalışanları için geçerlidir. Karma Runbook çalışanları 3 saat adil paylaşım sınırı sınırlı değildir, ancak bunlar üzerinde çalışan runbook'ları beklenmeyen yerel altyapı sorunlardan yeniden davranışları desteklemek için geliştirilen.
 
-Runbook alt runbook'ları kullanarak en iyi duruma başka bir seçenektir. Runbook'unuzdaki bir veritabanı işlemi birkaç veritabanlarında gibi çeşitli kaynaklar aynı işlev aracılığıyla döngü varsa, bu işleve taşıyabilirsiniz bir [alt runbook](automation-child-runbooks.md) ve beraber [ Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet'i. Bu alt runbook'ların her biri ayrı işlemler halinde yürütülerek üst runbook'un tamamlanması için gereken toplam süreyi kısaltır. Kullanabileceğiniz [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) alt runbook'un tamamlandıktan sonra gerçekleştiren işlemleri varsa her alt için iş durumunu denetlemek için runbook'unuzda cmdlet'i.
+Runbook alt runbook'ları kullanarak en iyi duruma başka bir seçenektir. Runbook'unuzdaki bir veritabanı işlemi birkaç veritabanlarında gibi çeşitli kaynaklar aynı işlev aracılığıyla döngü varsa, bu işleve taşıyabilirsiniz bir [alt runbook](automation-child-runbooks.md) ve beraber [ Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet'i. Her biri bu alt runbook'ları paralel ayrı işlemlerde yürütür. Bu davranış, üst runbook tamamlanması için toplam süreyi azaltır. Kullanabileceğiniz [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) alt runbook'un tamamlandıktan sonra gerçekleştiren işlemleri varsa her alt için iş durumunu denetlemek için runbook'unuzda cmdlet'i.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

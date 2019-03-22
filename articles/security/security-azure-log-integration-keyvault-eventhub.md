@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 22d4a18ad1c6e80baa6e798be399ab2cd4836fbc
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c199adb9ee1d9e5fbc879441da7395efa16f0d40
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733416"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094669"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure günlük tümleştirme Öğreticisi: Event Hubs kullanarak Azure Key Vault olayları işleyin
 
@@ -30,8 +30,8 @@ SIEM satıcınızın Azure İzleyici Bağlayıcısı'nı kullanarak ve bunlar a�
  
 Bu öğreticide, nasıl Azure günlük tümleştirmesi ve Event Hubs örnek adımları izleyerek ve her adım çözümü nasıl desteklediğini anlamak çalışılmasını ile tanışın için kullanırsınız. Daha sonra buraya oluşturmak şirketinizin benzersiz gereksinimlerini desteklemek için kendi adımları öğrendiklerinizi alabilir.
 
->[!WARNING]
-Bu öğreticideki komutları ve adımları kopyalanır ve yapıştırılan kullanılmaya yönelik değildir. Bunlar yalnızca örnek hedeflenmiştir. "Olduğu gibi" PowerShell komutlarını Canlı ortamınızda kullanmayın. Bunları benzersiz ortamınıza bağlı özelleştirmeniz gerekir.
+> [!WARNING]
+> Bu öğreticideki komutları ve adımları kopyalanır ve yapıştırılan kullanılmaya yönelik değildir. Bunlar yalnızca örnek hedeflenmiştir. "Olduğu gibi" PowerShell komutlarını Canlı ortamınızda kullanmayın. Bunları benzersiz ortamınıza bağlı özelleştirmeniz gerekir.
 
 
 Bu öğretici Azure Key Vault etkinlik bir olay hub'ına günlüğe alma ve kullanılabilir JSON dosyaları, SIEM sisteminize hale işlemi size kılavuzluk eder. SIEM sisteminizi JSON dosyalarını işlemek için daha sonra yapılandırabilirsiniz.

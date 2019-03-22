@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: 56d392a7df2a659cf457631ec5693766fd674f91
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: d215e2ba5d650b532b9d7554ccca9ad5537cf4de
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727204"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842524"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen ücretlerden
 
@@ -183,7 +183,7 @@ Hesap Yöneticisi olup olmadığınızı görmek için Git [Azure portalında ab
 
 Hesap Yöneticisi değilseniz sonra birisi büyük olasılıkla kısmi erişim kullanarak verdiğiniz [Azure Active Directory rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md) (RBAC). Abonelik ve faturalandırma bilgileri, değişiklik yönetmek için [Hesap Yöneticisi Bul](billing-subscription-transfer.md#whoisaa). Hesap Yöneticisi görevleri gerçekleştirmek için isteyin veya [abonelik için aktarım](billing-subscription-transfer.md).
 
-Hesap yöneticiniz, kuruluşunuz artık ise ve faturalandırma, yönetmeniz gereken [bizimle](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Hesap yöneticiniz, kuruluşunuz artık ise ve faturalandırma, yönetmeniz gereken [bizimle](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 
 ### <a name="how-to-request-a-service-level-agreement-credit-for-a-service-incident"></a>Nasıl bir hizmet olayı için bir hizmet düzeyi sözleşmesi kredi isteği
@@ -207,4 +207,4 @@ Daha fazla bilgi için [hizmet düzeyi sözleşmeleri](https://azure.microsoft.c
 
 ## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
-Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://go.microsoft.com/fwlink/?linkid=2083458).

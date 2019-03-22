@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: f96ac14d68d98937cf230b04b45503e21c5e0187
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3a295a5c8a202b2f3186e696bb281002090fcad4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024578"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112611"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP adresi türleri ve ayırma yöntemleri (Azure'da Klasik)
 Diğer Azure kaynaklarıyla, şirket içi ağınızla ve İnternet’le iletişim kurmak için Azure kaynaklarına IP adresleri atayabilirsiniz. Azure'da kullanabileceğiniz IP adreslerinin iki tür vardır: Genel ve özel.
@@ -165,13 +165,13 @@ Resource Manager ve klasik dağıtım modeli IP adresleme özelliklerin karşıl
 |  | Kaynak | Klasik | Resource Manager |
 | --- | --- | --- | --- |
 | **Genel IP adresi** |***VM*** |Başvurulan bir ILPIP (yalnızca dinamik) |İçin genel IP (dinamik veya statik) adlandırılır. |
-|  ||Bir Iaas VM'si veya PaaS rolü örneğini atanan |VM'nin NIC ile ilişkilendirilir | |
-|  |***Internet'e yönelik Yük Dengeleyici*** |VIP (dinamik) veya ayrılmış IP (statik) olarak adlandırılır |İçin genel IP (dinamik veya statik) adlandırılır. | |
-|  ||Bir bulut hizmetine atanan |Load balancer'ın ön uç yapılandırma için ilişkili | |
+|  ||Bir Iaas VM'si veya PaaS rolü örneğini atanan |VM'nin NIC ile ilişkilendirilir |
+|  |***Internet'e yönelik Yük Dengeleyici*** |VIP (dinamik) veya ayrılmış IP (statik) olarak adlandırılır |İçin genel IP (dinamik veya statik) adlandırılır. |
+|  ||Bir bulut hizmetine atanan |Load balancer'ın ön uç yapılandırma için ilişkili |
 |  | | | |
 | **Özel IP adresi** |***VM*** |İçin bir DIP adlandırılır. |İçin özel bir IP adresi adlandırılır. |
-|  ||Bir Iaas VM'si veya PaaS rolü örneğini atanan |VM'nin NIC'ye atanmış | |
-|  |***İç yük dengeleyici (ILB)*** |ILB (dinamik veya statik) atanmış |Atanan ILB'nin ön uç yapılandırmasına (dinamik veya statik) | |
+|  ||Bir Iaas VM'si veya PaaS rolü örneğini atanan |VM'nin NIC'ye atanmış |
+|  |***İç yük dengeleyici (ILB)*** |ILB (dinamik veya statik) atanmış |Atanan ILB'nin ön uç yapılandırmasına (dinamik veya statik) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Statik özel IP adresi ile VM dağıtma](virtual-networks-static-private-ip-classic-pportal.md) Azure portalını kullanarak.

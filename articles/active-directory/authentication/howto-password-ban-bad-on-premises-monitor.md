@@ -1,5 +1,5 @@
 ---
-title: İzleme ve Azure AD parola koruması önizlemede günlüğe kaydetme
+title: İzleme ve günlüğe kaydetme Azure AD parola koruması
 description: İzleme ve günlüğe kaydetme Azure AD parola koruması anlama
 services: active-directory
 ms.service: active-directory
@@ -11,23 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1f946eceab68b0fe49ea67dc33a7094458cd14c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: b1e12addc15afe0c0745e0e8d5a9b6718483d477
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451495"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293728"
 ---
-# <a name="preview-azure-ad-password-protection-monitoring-and-logging"></a>Önizleme: Azure AD parola izleme ve günlüğe kaydetme koruması
-
-|     |
-| --- |
-| Azure AD parola koruması, Azure Active Directory genel Önizleme özelliğidir. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD parola izleme ve günlüğe kaydetme koruması
 
 Azure AD parola koruması dağıtıldıktan sonra izleme ve raporlama temel görevleridir. Bu makalede olduğu her hizmet bilgilerini kaydeder ve Azure AD parola koruması kullanımını bildirme dahil olmak üzere çeşitli izleme teknikleri anlamanıza yardımcı olmak üzere ayrıntıya gider.
 
-# <a name="dc-agent-event-logging"></a>DC agent olay günlüğü
+## <a name="dc-agent-event-logging"></a>DC agent olay günlüğü
 
 Her etki alanı denetleyicisinde DC aracısı hizmet yazılımının her bireysel parola doğrulama işlemi (ve diğer durum) sonuçlarının bir yerel olay günlüğüne yazar:
 

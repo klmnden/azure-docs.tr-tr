@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 8d6d2d83e24b5e42af5f4322021eebfe9bf09494
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2eb395b4f3d922aa116e01c5de080a54d81e10ff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551307"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118655"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Yaygın senaryolar ile Service Fabric'i tanılama
 
@@ -111,15 +111,15 @@ Tüm grafikler ile aynı görünümde kapsayıcılarınızı performansı için 
 
 3. Veri tıklayın > Windows performans sayaçları (veri > Linux makineler için Linux performans sayaçlarıyla) belirli sayaçları Log Analytics aracısını, düğümlerden toplamaya başlamak için. Sayaçlar eklemek için biçim örnekleri aşağıda verilmiştir
 
-    * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
-    * `Processor(_Total)\\% Processor Time`
+   * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
+   * `Processor(_Total)\\% Processor Time`
 
-    Bu sayaçlardan izleme şöyle görünmelidir hızlı başlangıçta, VotingData ve VotingWeb kullanıldığında, işlem adları olduğundan
+     Bu sayaçlardan izleme şöyle görünmelidir hızlı başlangıçta, VotingData ve VotingWeb kullanıldığında, işlem adları olduğundan
 
-    * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
-    * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
+   * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
+   * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
 
-    ![Log Analytics performans sayaçları](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
+     ![Log Analytics performans sayaçları](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
 
 4. Bu iş yüklerinizi altyapınızı nasıl işlediğinin görmenize olanak veren ve kaynak kullanımı temelinde ilgili uyarılar ayarlayın. Örneğin: toplam işlemci kullanımı % 90 üzerinde veya %5 altında olursa uyarı ayarlamak isteyebilirsiniz. "% İşlemci süresi", bunun için kullanacağınız sayaç adı olan Aşağıdaki sorgu için bir uyarı kuralı oluşturarak bunu yapabilirsiniz:
 

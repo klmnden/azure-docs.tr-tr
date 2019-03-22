@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: ada8fa1702e93b98fa3c167cb0fd75810bfe294b
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: a8a2f82eb5b020d198f1ff8f2a9057b547bbe868
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792268"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106041"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>Öğretici: Tek veritabanı veya havuza alınmış veritabanını Azure SQL veritabanı'nda SQL Server'ı geçirme DMS kullanarak çevrimdışı
 
@@ -76,10 +76,10 @@ Tek veritabanı veya havuza alınmış veritabanını Azure SQL veritabanı'nda 
 
     Kaynak SQL Server veritabanını tek bir veritabanına geçirme veya havuza alınmış veritabanını Azure SQL veritabanı'nda değerlendirdiğiniz, rapor türleri birini veya ikisini de aşağıdaki değerlendirmesi seçebilirsiniz:
 
-    - Veritabanı uyumluluğunu denetle
-    - Özellik eşliğini denetle
+   - Veritabanı uyumluluğunu denetle
+   - Özellik eşliğini denetle
 
-    İki rapor türü de varsayılan olarak seçilidir.
+     İki rapor türü de varsayılan olarak seçilidir.
 
 3. Data Migration Yardımcısı'nın **Seçenekler** ekranında **İleri**'yi seçin.
 4. **Kaynak seçin** ekranının **Sunucuya bağlan** iletişim kutusunda SQL Server bağlantı bilgilerini girin ve **Bağlan**'ı seçin.

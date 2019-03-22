@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6037d6a1b418a4241f1133b8ca7d89764da22f61
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: a975c95af75e9f3e09e5d0142716795ab4b90e28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571380"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136487"
 ---
 # <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Azure Search'te sorgular oluşturmaya yönelik basit sözdizimi sorgu örnekleri
 
@@ -273,7 +273,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 Kodunuzda sorguları belirtmeyi deneyin. Aşağıdaki bağlantıları arama sorguları hem .NET hem de varsayılan basit söz dizimi kullanarak REST API için nasıl yapılacağını açıklar.
 
 * [Azure Search .NET SDK kullanarak dizininizi sorgulama](search-query-dotnet.md)
-* [Azure Search REST API kullanarak dizininizi sorgulama](search-query-rest-api.md)
+* [Azure Search REST API kullanarak dizininizi sorgulama](search-create-index-rest-api.md)
 
 Ek söz dizimi başvurusu, sorgu mimarisi ve örnekleri aşağıdaki bağlantılarda bulunabilir:
 

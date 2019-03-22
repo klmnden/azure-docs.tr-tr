@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: 747f58ba5062bd8bcc3995bbfa73cea49e8ddc4b
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a3f194150d1ce452f79db273266d3c9d77e560fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892907"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094744"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Azure Cosmos DB ve Java için performans ipuçları
 
@@ -36,25 +36,25 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
    1. [Ağ Geçidi (varsayılan)](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
    2. [DirectHttps](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionmode)
 
-    Ağ geçidi modu, tüm SDK platformlarında desteklenir ve yapılandırılmış varsayılandır.  Uygulamanız, kurumsal ağ içinden katı güvenlik duvarı kısıtlamalarıyla çalışıyorsa, standart HTTPS bağlantı noktası ve tek bir uç nokta kullandığından ağ geçidi en iyi seçenektir. Performansta düşüş, ancak veri okuma veya Azure Cosmos DB için yazılan her zaman ağ geçidi modu ek ağ atlama içermesidir. Bu nedenle, DirectHttps modu daha az ağ atlamaları nedeniyle daha iyi performans sunar. 
+      Ağ geçidi modu, tüm SDK platformlarında desteklenir ve yapılandırılmış varsayılandır.  Uygulamanız, kurumsal ağ içinden katı güvenlik duvarı kısıtlamalarıyla çalışıyorsa, standart HTTPS bağlantı noktası ve tek bir uç nokta kullandığından ağ geçidi en iyi seçenektir. Performansta düşüş, ancak veri okuma veya Azure Cosmos DB için yazılan her zaman ağ geçidi modu ek ağ atlama içermesidir. Bu nedenle, DirectHttps modu daha az ağ atlamaları nedeniyle daha iyi performans sunar. 
 
-    Java SDK'sı bir Aktarım Protokolü HTTPS kullanır. HTTPS, ilk kimlik doğrulaması ve trafiği şifrelemek için SSL kullanır. Java SDK'sı kullanırken, yalnızca HTTPS 443 numaralı bağlantı noktası açık olması gerekir. 
+      Java SDK'sı bir Aktarım Protokolü HTTPS kullanır. HTTPS, ilk kimlik doğrulaması ve trafiği şifrelemek için SSL kullanır. Java SDK'sı kullanırken, yalnızca HTTPS 443 numaralı bağlantı noktası açık olması gerekir. 
 
-    ConnectionMode ConnectionPolicy parametresi ile DocumentClient örneği oluşturma sırasında yapılandırılır. 
+      ConnectionMode ConnectionPolicy parametresi ile DocumentClient örneği oluşturma sırasında yapılandırılır. 
 
-    ```Java
-    public ConnectionPolicy getConnectionPolicy() {
+      ```Java
+      public ConnectionPolicy getConnectionPolicy() {
         ConnectionPolicy policy = new ConnectionPolicy();
         policy.setConnectionMode(ConnectionMode.DirectHttps);
         policy.setMaxPoolSize(1000);
         return policy;
-    }
+      }
         
-    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-    DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
-    ```
+      ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+      DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
+      ```
 
-    ![Azure Cosmos DB bağlantı İlkesi gösterimi](./media/performance-tips-java/connection-policy.png)
+      ![Azure Cosmos DB bağlantı İlkesi gösterimi](./media/performance-tips-java/connection-policy.png)
 
    <a id="same-region"></a>
 2. **İstemci performansı için aynı Azure bölgesinde ISS'de**
@@ -147,7 +147,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
     ```             
 
     Bu üst bilgisinde döndürülen istek hızınız sağladığınız aktarım avantajlarının ücrettir. Örneğin, 2000 varsa sağlanan RU/s ve işlem maliyeti önceki sorgunun 1000 1 KB-belgeler döndürürse, 1000'dir. Bu nedenle, bir saniye içinde sonraki istekleri hız sınırı önce yalnızca iki tür isteklere sunucunun geliştirir. Daha fazla bilgi için [istek birimi](request-units.md) ve [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner).
-<a id="429"></a>
+   <a id="429"></a>
 1. **Tanıtıcı oran sınırlama/istek oranı çok büyük**
 
     Bir istemci bir hesap için ayrılmış aktarım hızını aşmayı dener, sunucuda performans düşüşü olmadan ve aktarım hızı kapasitesine ayrılmış düzeyi dışında hiçbir kullanımı yoktur. Sunucu sıd'lerde istek RequestRateTooLarge (HTTP durum kodu 429) ile bitemez ve dönüş [x-ms-yeniden-sonra-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) kullanıcı çakıştığını önce beklemesi gereken milisaniye cinsinden süre miktarını belirten üstbilgisi İstek.

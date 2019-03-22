@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/2/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 137429fc21bc71f0273029ca6578596b64001823
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: feb34ab8d811d813e751b25c2a6b6d4bf0397f9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731592"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884061"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coralogix"></a>Öğretici: Coralogix ile Azure Active Directory Tümleştirme
 
@@ -108,6 +108,7 @@ Azure AD çoklu oturum açma ile Coralogix yapılandırmak için aşağıdaki ad
     a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<SUBDOMAIN>.coralogix.com`
 
     b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna bir URL yazın:
+
     | |
     |--|
     | `https://api.coralogix.com/saml/metadata.xml` |
@@ -170,7 +171,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alana **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.

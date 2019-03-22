@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: b9403855949e87a287f543c2ac41738e92238303
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: eb49d0fe610a78b8d1a407644a206fddaba0a67a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217215"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116224"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Sanal makine teklifi yayımlama Kılavuzu
 
@@ -56,12 +56,12 @@ Etkileşimli bir Demo kullanarak müşterilerinize çözümünüzün Kılavuzlu 
 
 Müşteriniz ile ilişkili bir abonelik için bir sanal gereç dağıttığınızda sanal makine teklif türünü kullanın. Tam olarak Kullandıkça Öde veya-kendi-lisansını getir (KLG) lisanslama modelleri kullanarak etkin ticaret vm'leridir. Microsoft commerce işlemi'ni barındırır ve müşterinizin sizin adınıza düzenler. Müşteri ile Microsoft, tüm kurumsal sözleşmeler de dahil olmak üzere, tercih edilen ödeme ilişkisi kullanmanın avantajı sahip olursunuz.
 
->[!NOTE]
->Şu anda bir kurumsal anlaşma ile ilişkili parasal taahhütler VM'niz Azure kullanımınızın karşı ancak lisans ücretleri, yazılımlara karşı olanağına sahip olursunuz.  
-
->[!NOTE]
->Bulma ve dağıtım vm'nizin görüntüsü yayımlama ve özel bir teklif olarak fiyatlandırma belirli bir müşteri kümesine kısıtlayabilirsiniz. Özel teklifler kilidini açma özelliği için size en yakın müşterileriniz için özel teklifler oluşturun ve özelleştirilmiş yazılım ve koşulları sunar. Özelleştirilmiş koşulları senaryolarında, özel fiyatlandırma ve koşullar hem de sınırlı sürüm yazılımı erken erişim alanı öncülüğünde fırsatlarla dahil olmak üzere çeşitli vurgulamak etkinleştirin. Özel teklifler ile ayrıntılarını yeni bir SKU'ya oluşturarak, özel fiyatlandırma vermek veya ürünler için sınırlı sayıda müşteri etkinleştirin.  
-*   Özel teklifler hakkında daha fazla bilgi için özel teklifleri Azure Marketi sayfasında bulunan ziyaret [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
+> [!NOTE]
+> Şu anda bir kurumsal anlaşma ile ilişkili parasal taahhütler VM'niz Azure kullanımınızın karşı ancak lisans ücretleri, yazılımlara karşı olanağına sahip olursunuz.  
+> 
+> [!NOTE]
+> Bulma ve dağıtım vm'nizin görüntüsü yayımlama ve özel bir teklif olarak fiyatlandırma belirli bir müşteri kümesine kısıtlayabilirsiniz. Özel teklifler kilidini açma özelliği için size en yakın müşterileriniz için özel teklifler oluşturun ve özelleştirilmiş yazılım ve koşulları sunar. Özelleştirilmiş koşulları senaryolarında, özel fiyatlandırma ve koşullar hem de sınırlı sürüm yazılımı erken erişim alanı öncülüğünde fırsatlarla dahil olmak üzere çeşitli vurgulamak etkinleştirin. Özel teklifler ile ayrıntılarını yeni bir SKU'ya oluşturarak, özel fiyatlandırma vermek veya ürünler için sınırlı sayıda müşteri etkinleştirin.  
+> *   Özel teklifler hakkında daha fazla bilgi için özel teklifleri Azure Marketi sayfasında bulunan ziyaret [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
 
 | Gereksinim | Ayrıntılar |  
 |:--- |:--- | 

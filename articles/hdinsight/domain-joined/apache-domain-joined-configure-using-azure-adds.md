@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 722a40dca0a64407a407ecad6d990d1651b0e998
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 96766a12d7e78dacd93432e30d12f313d52ad4c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415740"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176183"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'i kullanarak bir HDInsight kümesi ile Kurumsal Güvenlik Paketi yapılandırma
 
@@ -56,7 +56,7 @@ Azure Active Directory etki alanı Hizmetleri'niz sistem durumunu görüntüleme
 
 ## <a name="create-and-authorize-a-managed-identity"></a>Oluşturma ve yönetilen bir kimlik yetkilendirme
 
-A **yönetilen kullanıcı tarafından atanan kimliği** basitleştirmek ve güvenli etki alanı Hizmetleri işlemler için kullanılır. HDInsight etki alanı Hizmetleri katkıda bulunan rolü için yönetilen kimlik olarak atadığınızda, okuma, oluşturma, değiştirme ve silme etki alanı Hizmetleri. OU'lar ve hizmet ilkeleri oluşturma gibi belirli etki alanı hizmetleri işlemlerini HDInsight Kurumsal güvenlik paketi için gereklidir. Yönetilen kimlik herhangi bir abonelikte oluşturulabilir. Daha fazla bilgi için [kimliklerini Azure kaynakları için yönetilen](../../active-directory/managed-identities-azure-resources/overview.md).
+A **yönetilen kullanıcı tarafından atanan kimliği** basitleştirmek ve güvenli etki alanı Hizmetleri işlemler için kullanılır. HDInsight etki alanı Hizmetleri katkıda bulunan rolü için yönetilen kimlik olarak atadığınızda, okuma, oluşturma, değiştirme ve silme etki alanı Hizmetleri. OU'lar ve hizmet ilkeleri oluşturma gibi belirli etki alanı hizmetleri işlemlerini HDInsight Kurumsal güvenlik paketi için gereklidir. Yönetilen kimlik herhangi bir abonelikte oluşturulabilir. Kimlikleri genel olarak yönetilen hakkında daha fazla bilgi için bkz: [kimliklerini Azure kaynakları için yönetilen](../../active-directory/managed-identities-azure-resources/overview.md). Azure HDInsight yönetilen kimlikleri çalışması hakkında daha fazla bilgi için bkz. [yönetilen Azure HDInsight kimliklerini](../hdinsight-managed-identities.md).
 
 ESP kümeleri için zaten yoksa, kullanıcı tarafından atanan bir yönetilen kimlik oluşturun. Bkz: [Create, liste, delete veya Azure portalını kullanarak bir kullanıcı tarafından atanan yönetilen kimlik rol atama](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) yönergeler için. Ardından, Ata **HDInsight etki alanı Hizmetleri katkıda bulunan** yönetilen kimliğe (DS AAD yönetici ayrıcalıkları bu rol ataması yapmak için gerekli) Azure AD DS erişim denetimine rol.
 

@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 927781c61a9ca2a1ef23db47294468dad7140dff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3188b5acc00f7f0463ae1154346447bee463e09c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885360"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225442"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Konuşma Hizmetleri dil ve bölge desteği
 
 Farklı diller için farklı bir konuşma hizmetleri işlevleri desteklenir. Aşağıdaki tablolarda, dil desteği özetler.
 
-## <a name="speech-to-text"></a>Konuşmayı Metne Dönüştürme
+## <a name="speech-to-text"></a>Konuşmayı metne dönüştürme
 
 Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir. Farklı düzeyde özelleştirme, her dil için kullanılabilir.
 
@@ -76,13 +76,18 @@ Sinir sesleri etkileşimleri sohbet robotları ve sanal Yardımcıları ile daha
 Sinir seslerle ve bölgesel kullanılabilirlik tam listesi için bkz: [bölgeleri](regions.md#neural-voices).
 
 | Yerel Ayar | Dil | Cinsiyet | Hizmet adı eşleme|
-|--------|----------|---------|--------------------|
+|--------|----------|--------|---------------------|
+| de-DE | Almanca (Almanya) | Kadın | "Microsoft Server Konuşma metin konuşma ses (de-DE, KatjaNeural)" |
 | en-US | English (US) | Erkek | "Microsoft Server Konuşma metin konuşma ses (en-US, GuyNeural)" |
 | en-US | English (US) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, JessaNeural)" |
+| İt-IT | İtalyanca (İtalya) | Kadın | "Microsoft Server Konuşma metin konuşma ses (it-IT, ElsaNeural)" |
 | zh-CN | Çince | Kadın | "Microsoft Server Konuşma metin konuşma ses (zh-CN, XiaoxiaoNeural)" |
 
 > [!IMPORTANT]
 > Microsoft Server Konuşma metin okuma okuma (zh-CN, XiaoxiaoNeural), yalnızca Güneydoğu Asya uç noktası aracılığıyla kullanılabilir: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
+
+> [!IMPORTANT]
+> Konuşma tanıma, sesli (de-DE, KatjaNeural) için Microsoft sunucu konuşma metin ve konuşma ses (it-IT, ElsaNeural) için Microsoft sunucu konuşma metin yalnızca Batı Avrupa uç noktası aracılığıyla kullanılabilir: https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1.
 
 ### <a name="standard-voices"></a>Standart sesler
 

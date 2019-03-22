@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 02/05/2019
 ms.author: v-doglov
-ms.openlocfilehash: 3a3e9da66cf9ca6e08bb25b4f4b9d09aa0c5b6e7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fc50be2a960784895947f3f154a0251f41716fc7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431946"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117311"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Microsoft Azure Site Recovery Sağlayıcısını yükseltme hatalarını giderme
 
@@ -48,21 +48,21 @@ Yükseltmenin başarılı olması için 3. taraf klasörü kaydedilmelidir deği
 
 Bu sorunu çözmek için.
 
-2. Kayıt Defteri Düzenleyicisi'ni (regedit.exe) başlatın ve HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10 dalı açın.
-3. İnceleme `Build_Version` anahtar değeri. En son sürüme olarak ayarlanırsa sürüm numarası azaltın. Örneğin, en son sürümü 9.22 ise. \* ve `Build_Version` anahtar değeri kümesine, sonra için 9.21 azaltın.\*.
-4. En son Microsoft Azure Site Recovery birleşik Kurulumu indirme:
+1. Kayıt Defteri Düzenleyicisi'ni (regedit.exe) başlatın ve HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10 dalı açın.
+1. İnceleme `Build_Version` anahtar değeri. En son sürüme olarak ayarlanırsa sürüm numarası azaltın. Örneğin, en son sürümü 9.22 ise. \* ve `Build_Version` anahtar değeri kümesine, sonra için 9.21 azaltın.\*.
+1. En son Microsoft Azure Site Recovery birleşik Kurulumu indirme:
    1. "Şu anda desteklenen güncelleştirme paketlerini bağlantılar" bölümünde [hizmet güncelleştirmeleri Azure Site recovery'de](service-updates-how-to.md##links-to-currently-supported-update-rollups) makalesi, kendisine yükselttiğiniz bir sağlayıcıyı seçin.
    2. Toplama sayfasında bulun **güncelleştirme bilgileri** bölümü ve Microsoft Azure Site Recovery birleşik kurulumu için güncelleştirme paketi yükleyin.
-5. Bir komut istemi açın ve için indirdiğiniz birleşik kurulum dosyası ve ayıklama klasöre kurulum dosyalarını kullanarak aşağıdaki komut, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q x: indirilerek gidin&lt;için klasör yolu Ayıklanan dosyaları&gt;.
+1. Bir komut istemi açın ve için indirdiğiniz birleşik kurulum dosyası ve ayıklama klasöre kurulum dosyalarını kullanarak aşağıdaki komut, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q x: indirilerek gidin&lt;için klasör yolu Ayıklanan dosyaları&gt;.
 
     Örnek komut:
 
     MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
 
-4. Komut isteminde, dosyaları ayıkladığınız klasöre gidin ve aşağıdaki yükleme komutları çalıştırın:
+1. Komut isteminde, dosyaları ayıkladığınız klasöre gidin ve aşağıdaki yükleme komutları çalıştırın:
    
     CX_THIRDPARTY_SETUP. EXE /VERYSILENT /SUPPRESSMSGBOXES/NORESTART
 
-5. Yüklemenin ilerleme durumunu izlemek için Görev Yöneticisi'ni kullanın. Zaman CX_THIRDPARTY_SETUP işlemi. EXE artık Görev Yöneticisi'nde göründüğünden, sonraki adıma geçin.
-6. C:\thirdparty var olduğundan ve klasörün RRD kitaplıkları içerdiğini doğrulayın.
+1. Yüklemenin ilerleme durumunu izlemek için Görev Yöneticisi'ni kullanın. Zaman CX_THIRDPARTY_SETUP işlemi. EXE artık Görev Yöneticisi'nde göründüğünden, sonraki adıma geçin.
+1. C:\thirdparty var olduğundan ve klasörün RRD kitaplıkları içerdiğini doğrulayın.
 1. Birleşik Kurulum yüklediğiniz klasöre geri dönmek ve MicrosoftAzureSiteRecoveryUnifiedSetup.exe yükseltmeyi tamamlamak için çalıştırın. 

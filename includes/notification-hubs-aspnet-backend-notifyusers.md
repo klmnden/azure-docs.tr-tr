@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 9a94f76e2d1fe930d2d6d43e81a756f0cb15d23d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 8413044beff68390dbccdf16c4477e113a85f81b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453078"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125234"
 ---
 ## <a name="create-the-webapi-project"></a>WebAPI projesi oluşturma
 
@@ -55,7 +55,7 @@ Aşağıdaki eylemleri yaparak yeni bir ASP.NET WebAPI arka ucu oluşturun:
     * Önceden oluşturduğunuz bir App Service planı seçin.
     * **Yeni bir App Service planı oluştur**’u seçin ve yeni bir plan oluşturun.
 
-  Bu öğretici için bir veritabanı gerekmez. App Service planınızı seçtikten sonra projeyi oluşturmak için **Tamam**’ı seçin.
+   Bu öğretici için bir veritabanı gerekmez. App Service planınızı seçtikten sonra projeyi oluşturmak için **Tamam**’ı seçin.
 
     ![Microsoft Azure Web App’i Yapılandırma penceresi][B5]
 
@@ -84,9 +84,9 @@ Bu bölümde, yeni arka uç için **AuthenticationTestHandler** adlı yeni bir i
    * İstek *temel* kimlik doğrulaması kullanır.
    * Kullanıcı adı dizesi ve parola dizesi aynı dizelerdir.
 
-  Aksi takdirde istek reddedilir. Bu kimlik doğrulama işlemi, geçerli bir kimlik doğrulama ve yetkilendirme yaklaşımı değildir. Yalnızca bu öğreticiye yönelik basit bir örnektir.
+   Aksi takdirde istek reddedilir. Bu kimlik doğrulama işlemi, geçerli bir kimlik doğrulama ve yetkilendirme yaklaşımı değildir. Yalnızca bu öğreticiye yönelik basit bir örnektir.
 
-  İstek iletisi `AuthenticationTestHandler` tarafından kimlik doğrulaması yapılır ve yetkilendirilirse, temel kimlik doğrulaması kullanıcısı [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx) üzerindeki geçerli isteğe eklenir. HttpContext içindeki kullanıcı bilgileri, bildirim kaydı isteğine bir [etiket](https://msdn.microsoft.com/library/azure/dn530749.aspx) eklemek amacıyla daha sonra başka bir denetleyici (RegisterController) tarafından kullanılır.
+   İstek iletisi `AuthenticationTestHandler` tarafından kimlik doğrulaması yapılır ve yetkilendirilirse, temel kimlik doğrulaması kullanıcısı [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx) üzerindeki geçerli isteğe eklenir. HttpContext içindeki kullanıcı bilgileri, bildirim kaydı isteğine bir [etiket](https://msdn.microsoft.com/library/azure/dn530749.aspx) eklemek amacıyla daha sonra başka bir denetleyici (RegisterController) tarafından kullanılır.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler

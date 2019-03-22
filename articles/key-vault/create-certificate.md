@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 50306ab4dee13f772c2c34b3c3a8f13d07861fc0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 53b4d03ac8f5d22595d3a4e840a04583f7ec963d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410273"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995531"
 ---
 # <a name="certificate-creation-methods"></a>Sertifika oluşturma yöntemleri
 
@@ -35,7 +35,7 @@ Aşağıdaki açıklamalar önceki şemada yeşil yitirmiş adımları karşıl�
 1. Yukarıdaki diyagramda, uygulamanız dahili olarak, anahtar kasasına bir anahtar oluşturarak başlatan bir sertifika oluşturur.
 2. Key Vault, uygulamanız için bir sertifika imzalama isteği (CSR) döndürür.
 3. Uygulamanızı seçtiğiniz CA CSR'yi geçirir.
-4. Seçtiğiniz CA ile yanıt veren bir x X509 sertifika.
+4. Seçtiğiniz CA x X509 ile yanıt veren sertifika.
 5. Uygulamanızı yeni sertifika oluşturulmasını birleşmesi ile X509 tamamlandıktan Sertifika yetkilinizden sertifikası.
 
 -   **Bir bilinen veren sağlayıcısı ile bir sertifika oluşturun:** Bu yöntem, bir veren nesne oluşturma tek seferlik bir görev gerektirir. Veren nesne oluşturulduktan sonra size key vault, adını KV sertifika ilkesinde başvurulabilir. Böyle bir KV sertifikası oluşturma isteği kasaya bir anahtar çifti oluşturur ve x x509 almak için başvurulan veren nesnesinde bilgileri kullanarak veren sağlayıcısı hizmeti ile iletişim sertifika. Sertifika veren hizmetinden alınır ve KV tamamlamak için anahtar çifti ile birleştirilmiş x509 oluşturma sertifika.  

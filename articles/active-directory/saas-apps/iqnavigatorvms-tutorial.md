@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee936d174aa3e221bbeb0823ba1503c7cb64a9d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f5a0700a63d21d089573f757716e08fb03665b28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185171"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58165003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Öğretici: IQNavigator VM'ler ile Azure Active Directory Tümleştirme
 
@@ -39,7 +39,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 Azure AD Tümleştirmesi ile IQNavigator VM'leri yapılandırmak için aşağıdaki öğeler gerekir:
 
 - Azure AD aboneliği
-- Abonelik IQNavigator VM'leri çoklu oturum açma etkin
+- Abonelik bir IQNavigator VM'leri çoklu oturum açma etkin
 
 > [!NOTE]
 > Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
@@ -91,7 +91,7 @@ Yapılandırma ve Azure AD çoklu oturum açma IQNavigator vm'lerle sınamak iç
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[IQNavigator VM'leri test kullanıcısı oluşturma](#creating-a-iqnavigator-vms-test-user)**  - kullanıcı Azure AD gösterimini bağlı IQNavigator vm'lerde Britta simon'un bir karşılığı vardır.
+1. **[Bir IQNavigator VM'leri test kullanıcısı oluşturma](#creating-a-iqnavigator-vms-test-user)**  - kullanıcı Azure AD gösterimini bağlı IQNavigator vm'lerde Britta simon'un bir karşılığı vardır.
 1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
@@ -175,7 +175,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     d. **Oluştur**’a tıklayın.
 
-### <a name="creating-a-iqnavigator-vms-test-user"></a>IQNavigator VM'leri test kullanıcısı oluşturma
+### <a name="creating-an-iqnavigator-vms-test-user"></a>Bir IQNavigator VM'leri test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon IQNavigator VM'LERDE adlı bir kullanıcı oluşturmaktır. Çalışmak [IQNavigator VM'leri Destek ekibine](https://www.beeline.com/iqn-product-support/) IQNavigator VM'leri hesabında kullanıcıları eklemek için.
 

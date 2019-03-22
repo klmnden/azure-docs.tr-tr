@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 5f6cb29d8fb3fd1c3b75e18330e3ad2711a61aab
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d7f3c8d8efbdc658e4f7621a0606cb7fd92c88d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444931"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103494"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Contoso geçişi: Azure sanal makineler için bir şirket içi Linux uygulaması barındırma
 
@@ -314,17 +314,17 @@ Contoso yöneticileri çoğaltmaya başlamak şimdi **OSTICKETWEB** VM.
 
 3. Seçmeleri **OSTICKETWEB** VM çoğaltma için. 
 
-    - Bu aşamada seçmeleri **OSTICKETWEB** yalnızca VNet ve alt ağ hem de seçilmelidir ve Vm'leri aynı alt ağda değil.
-    - VM için çoğaltma etkinleştirildiğinde site Recovery Mobility hizmetinin otomatik olarak yükler.
+   - Bu aşamada seçmeleri **OSTICKETWEB** yalnızca VNet ve alt ağ hem de seçilmelidir ve Vm'leri aynı alt ağda değil.
+   - VM için çoğaltma etkinleştirildiğinde site Recovery Mobility hizmetinin otomatik olarak yükler.
 
-    ![Çoğaltmayı etkinleştirme](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
+     ![Çoğaltmayı etkinleştirme](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
 
 4. VM Özellikleri'nde, işlem sunucusu tarafından otomatik olarak Mobility hizmetini makineye yüklemek için kullandığınız hesabı seçin.
 
      ![Mobility hizmeti](./media/contoso-migration-rehost-linux-vm/linux-mobility.png)
 
 5. içinde **çoğaltma ayarları** > **çoğaltma ayarlarını yapılandırma**, bunların doğru çoğaltma ilkesinin uygulanan ve seçim olup olmadığını denetleyin **çoğaltmayı etkinleştirme**.
-6.  Bunlar çoğaltma ilerlemeyi **işleri**. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
+6. Bunlar çoğaltma ilerlemeyi **işleri**. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
 
 
 

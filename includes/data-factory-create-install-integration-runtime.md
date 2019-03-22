@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 4189d3a09625f211c6f9eddc7c1c5fe43ad31732
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1b0289f5771663f3800ff4e58ba5c0528eb89cb0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572845"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124448"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Şirket içinde barındırılan tümleştirme çalışma zamanı oluşturma
 
@@ -36,7 +36,7 @@ Bu bölümde, şirket içinde barındırılan bir tümleştirme çalışma zaman
     Name              : myonpremirsp0914
     Description       :
     ```
- 
+  
 3. Oluşturulan tümleştirme çalışma zamanının durumunu almak için aşağıdaki komutu çalıştırın. **Durum** özelliği değerinin **NeedRegistration** olarak ayarlı olduğunu onaylayın. 
 
    ```powershell

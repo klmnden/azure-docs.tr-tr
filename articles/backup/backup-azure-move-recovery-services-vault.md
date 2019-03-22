@@ -6,18 +6,21 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/4/2019
+ms.date: 03/19/2019
 ms.author: sogup
-ms.openlocfilehash: 0eb19ba8278df2d77466e5be13731723557e85a8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0bc1ab0586d1a591464711fb0652f81fb082e6c3
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082084"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199253"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Azure abonelik ve kaynak gruplarında (sınırlı genel Önizleme) bir kurtarma Hizmetleri kasası Taşı
 
 Bu makalede, Azure abonelikleri genelinde veya başka bir kaynak grubuna aynı abonelikte bulunan Azure Backup için yapılandırıldığı bir kurtarma Hizmetleri kasasına taşımak açıklanmaktadır. Bir kurtarma Hizmetleri kasasına taşımak için Azure portalını veya PowerShell'i kullanabilirsiniz.
+
+> [!NOTE]
+> Bir kurtarma Hizmetleri kasasını ve ilişkili kaynakları farklı bir kaynak grubuna taşımak için gerekir [kaynak abonelik kaydetme](#register-the-source-subscription-to-move-your-recovery-services-vault).
 
 ## <a name="prerequisites-for-moving-a-vault"></a>Bir kasa taşımak için Önkoşullar
 
@@ -37,7 +40,7 @@ Bu makalede, Azure abonelikleri genelinde veya başka bir kaynak grubuna aynı a
 -   Abonelikler arasında VM yedekleme verilerini içeren bir kasayı taşırsanız, Vm'lerinizin aynı aboneliğe taşıyın ve yedeklemeler devam etmek için aynı hedef kaynak grubu kullanın.<br>
 
 > [!NOTE]
-> 
+>
 > Kurtarma Hizmetleri kasaları ile kullanmak üzere yapılandırılmış **Azure Site Recovery** , henüz taşınamıyor. Herhangi bir VM yapılandırdıysanız (Azure Iaas, Hyper-V, VMware) veya fiziksel makineler için olağanüstü durum kurtarma'yı kullanarak **Azure Site Recovery**, taşıma işlemi engellenir. Site Recovery hizmeti için kaynak taşıma özelliğini henüz kullanılamıyor.
 
 ## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>Kurtarma Hizmetleri kasasına taşımak için kaynak aboneliği Kaydet

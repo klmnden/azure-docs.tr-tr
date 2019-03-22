@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 357cf832f8878364965c8d8a85d7af8c5a2bc21c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: 9b8ae86a5c13573fbe80c8f06d5ce97c72d8e341
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992101"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257679"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>AES-128 dinamik şifreleme ve anahtar teslim hizmetini kullanma
 > [!div class="op_single_selector"]
@@ -140,7 +140,7 @@ Anahtar yetkilendirme ilkesi için kullanılan belirteç kısıtlamasına dayal�
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-Akışınızı test etmek için [Azure Media Services Oynatıcısı](http://amsplayer.azurewebsites.net/azuremediaplayer.html)’nı kullanabilirsiniz.
+Akışınızı test etmek için [Azure Media Services Oynatıcısı](https://amsplayer.azurewebsites.net/azuremediaplayer.html)’nı kullanabilirsiniz.
 
 ## <a id="client_request"></a>Nasıl istemcinizi bir anahtarı anahtar teslim hizmetinden isteyebilir miyim?
 Önceki adımda, bir bildirim dosyasına işaret eden URL oluşturulur. Anahtar teslim hizmetine bir istekte bulunmak için akış bildirim dosyaları için gerekli bilgileri ayıklamak istemcinizi gerekir.

@@ -1,26 +1,26 @@
 ---
 title: Bilgi bankası oluşturma
-titleSuffix: QnA Maker - Azure Cognitive Services
-description: Kullanım eklemek için soru-cevap Oluşturucu portalı chit Sohbeti ile Bilgi Bankası oluşturun. Bu, uygulamanızı kolaylaştırır ilgi çekici. Üst chit sohbet önceden doldurulmuş bir dizi, botun chit-sohbet için bir başlangıç noktası olarak, KB ekleyin ve zaman ve bunları sıfırdan yazma maliyet tasarrufu.
+titleSuffix: QnA Maker API - Azure Cognitive Services
+description: Kullanım eklemek için soru-cevap Oluşturucu API'si hizmeti portalı chit Sohbeti ile Bilgi Bankası oluşturun. Bu, uygulamanızı kolaylaştırır ilgi çekici. Üst chit sohbet önceden doldurulmuş bir dizi, botun chit-sohbet için bir başlangıç noktası olarak, KB ekleyin ve zaman ve bunları sıfırdan yazma maliyet tasarrufu.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 03/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 1691bf9334d15ed7af211a929cf87ce433af895c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b4553a392795bb8578f24848ccacc870b654bce9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866411"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116241"
 ---
-# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-portal"></a>Hızlı Başlangıç: Soru-cevap Oluşturucu portalı kullanarak Bilgi Bankası oluşturma
+# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Hızlı Başlangıç: Soru-cevap Oluşturucu API'si hizmeti portalını kullanarak Bilgi Bankası oluşturma
 
-Soru-cevap Oluşturucu Bilgi Bankası oluştururken, mevcut veri kaynaklarınızı eklemek basit hale getirir. Yeni bir soru-cevap Oluşturucu Bilgi Bankası aşağıdaki belge türlerinden oluşturabilirsiniz:
+Soru-cevap Oluşturucu API'si hizmeti Portalı Bilgi Bankası oluştururken, mevcut veri kaynaklarınızı eklemek basit hale getirir. Yeni bir soru-cevap Oluşturucu Bilgi Bankası aşağıdaki belge türlerinden oluşturabilirsiniz:
 
 <!-- added for scanability -->
 * SSS sayfaları

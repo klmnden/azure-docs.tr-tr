@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cb8e5074d0cd99f5c7cb2130e6f9181eb5382015
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5aa118815146287d00a3bb8ee7d5fce57a6ad9ca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811435"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120304"
 ---
 <a name="how-to-fill-out-the-technical-info-form"></a>Nasıl teknik bilgi formu doldurun
 ===========================================
@@ -36,9 +36,9 @@ ms.locfileid: "48811435"
 
 -   **Uygulamayı Test Otomasyonu** --gerekli - otomatik uzantılarını test için oluşturmanız gereken VS kodlanmış test paketi.
 
-2.  İçinde **uzantısı için ek bilgiler** bölümünde, daha fazla bilgi için uzantıyı yükleyin. Bu bilgiler, doğrulama sırasında kullanılır.
+1. İçinde **uzantısı için ek bilgiler** bölümünde, daha fazla bilgi için uzantıyı yükleyin. Bu bilgiler, doğrulama sırasında kullanılır.
 
-    ![Daha fazla bilgi için uygulama uzantısı formu](./media/d365-financials/image016.png)
+   ![Daha fazla bilgi için uygulama uzantısı formu](./media/d365-financials/image016.png)
 
 
 -   **Ürün belgelerinin URL'si** uzantı belgelerine--gerekli - URL.

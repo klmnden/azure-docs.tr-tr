@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: b-juche
-ms.openlocfilehash: dc24165d3a5ee4d72c259753edd4028752828dce
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 86c016a5dbcc0d78378e59bc6b3606ddf2c54f64
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772300"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122344"
 ---
 # <a name="register-for-azure-netapp-files"></a>Azure NetApp Files için kaydolma
 Azure NetApp dosyaları kullanmadan önce Azure NetApp dosyaları hizmetine kaydetmek için birer istek göndermeniz gerekmektedir.  Kayıttan sonra daha sonra hizmeti kullandığınız kaydedin.
@@ -61,7 +61,7 @@ Hizmeti kullanmak için Azure için NetApp dosyaları Azure kaynak sağlayıcıs
     
         az provider show --namespace Microsoft.NetApp
 
-  Komut çıktısı aşağıdaki gibidir:
+   Komut çıktısı aşağıdaki gibidir:
    
         {
         "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 4aff7c486762d9ea7bd38ae152d169968432307e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7a1bd6da68b49481429709c7e4fd37dd5c07ae2c
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898967"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200795"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>Azure Backup MARS Aracısı ile Windows makinelerini yedekleme
 
@@ -51,13 +51,21 @@ Neleri yedekleyebilir, aracının yüklü olduğu bağlıdır.
 
 ### <a name="verify-internet-access"></a>İnternet erişimi doğrulayın
 
-Makinenize sınırlı internet erişimi, güvenlik duvarı ayarlarını makinede veya proxy bu URL'ler izin verdiğinden emin olun:
+Makinenize sınırlı internet erişimi, güvenlik duvarı ayarlarını makinede veya proxy bu URL'ler izin verdiğinden emin olun ve IP adresi:
+
+**URL'leri**
 
 - www\.msftncsi.com
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
 - *.windows.net
+
+**IP adresi**
+
+- 20.190.128.0/18
+- 40.126.0.0/18
+
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 

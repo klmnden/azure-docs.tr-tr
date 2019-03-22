@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: b8240f69649e9bcb9a705f2c9fcbb819cf119356
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: d0c5260fcc2e7ac2acbeec308c6a0cba7d6a81be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761421"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098102"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS hakkında SSS
 
@@ -42,7 +42,7 @@ Daha fazla bilgi için [Azure DNS SLA sayfamızda](https://azure.microsoft.com/s
 
 Bir etki alanında benzersiz bir ad etki alanı adı sistemi ' dir. Örneğin: contoso.com.
 
-DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Örneğin, contoso.com etki alanı birden fazla DNS kaydını içerebilir. Kayıtları mail.contoso.com bir posta sunucusu ve bir Web sitesi www.contoso.com içerebilir. Bu kayıtlar, contoso.com bölgesindeki DNS barındırılır.
+DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Örneğin, contoso.com etki alanı birden fazla DNS kaydını içerebilir. Bir posta sunucusu ve www mail.contoso.com kayıtları içerebilir\.bir Web sitesi contoso.com. Bu kayıtlar, contoso.com bölgesindeki DNS barındırılır.
 
 Bir etki alanı adı *yalnızca bir ad*. Bir DNS bölgesi bir etki alanı adı için DNS kayıtlarını içeren bir veri kaynaktır. Azure DNS’yi kullanarak bir DNS bölgesi barındırabilir ve Azure'da bir etki alanının DNS kayıtlarını yönetebilirsiniz. Ayrıca, Internet'ten DNS sorgularını yanıtlamak için DNS ad sunucularını sağlar.
 

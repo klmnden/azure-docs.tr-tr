@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 845227ea5e32d10eaed555cee80c8fc520a1771a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6f8fadc42d1c725002f2552a3fc1fc98e8564437
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105561"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098789"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Kimlik ve erişim (Önizleme) Azure Güvenlik Merkezi'nde izleme
 Bu makale kullanıcılarınızın kimliğini ve erişim etkinliğini izleme amacıyla Azure Güvenlik Merkezi'ni kullanmanıza yardımcı olur.
@@ -68,11 +68,11 @@ Altında **genel bakış**, önerilerin bir listesi bulunur. İlk sütunda öner
 
 1. Bir öneri seçin. Öneri 's penceresi açılır ve görüntüler:
 
-  - Öneri açıklaması
-  - İyi durumda olmayan ve iyi durumda aboneliklerin listesi
-  - Başarısız bir değerlendirmesi nedeniyle Taranmayan kaynaklar veya kaynak listesi ücretsiz katmanda çalışan bir abonelik altındadır ve değil olarak değerlendirilir
+   - Öneri açıklaması
+   - İyi durumda olmayan ve iyi durumda aboneliklerin listesi
+   - Başarısız bir değerlendirmesi nedeniyle Taranmayan kaynaklar veya kaynak listesi ücretsiz katmanda çalışan bir abonelik altındadır ve değil olarak değerlendirilir
 
-  ![Öneri'nın penceresi][3]
+   ![Öneri'nın penceresi][3]
 
 1. Ek ayrıntılı bilgi için listedeki bir abonelik seçin.
 
@@ -81,27 +81,27 @@ Altında **abonelikleri**, aboneliklerin listesi yoktur. İlk sütun abonelikler
 
 ![Aboneliğin sekmesi][4]
 
-1.  Bir abonelik seçin. Özet görünümü ile üç sekme açar:
+1. Bir abonelik seçin. Özet görünümü ile üç sekme açar:
 
-  - **Öneriler**: Değerlendirme başarısız oldu Güvenlik Merkezi tarafından gerçekleştirilen göre.
-  - **Değerlendirmeler geçirilen**: Güvenlik Merkezi tarafından geçirilen gerçekleştirdiği değerlendirmeler listesi.
-  - **Kullanılamayan iç değerlendirmeler**: bir hata nedeniyle çalıştırılamadı değerlendirmelerinin listesini veya 600'den fazla hesap abonelik yok.
+   - **Öneriler**: Değerlendirme başarısız oldu Güvenlik Merkezi tarafından gerçekleştirilen göre.
+   - **Değerlendirmeler geçirilen**: Güvenlik Merkezi tarafından geçirilen gerçekleştirdiği değerlendirmeler listesi.
+   - **Kullanılamayan iç değerlendirmeler**: bir hata nedeniyle çalıştırılamadı değerlendirmelerinin listesini veya 600'den fazla hesap abonelik yok.
 
-  Altında **önerileri** seçili abonelik için önerilerin bir listesi ve önerilerin önem derecesi.
+   Altında **önerileri** seçili abonelik için önerilerin bir listesi ve önerilerin önem derecesi.
 
-  ![Abonelik seçme önerileri][5]
+   ![Abonelik seçme önerileri][5]
 
 1. Öneri, iyi durumda olmayan ve iyi durumda Aboneliklerin listesini ve Taranmayan kaynaklar listesi açıklaması için bir öneri seçin.
 
-  ![Öneri açıklaması][6]
+   ![Öneri açıklaması][6]
 
-  Altında **değerlendirmeleri geçirilen** geçilen iç değerlendirmeler listesidir.  Bu değerlendirmeler önemini her zaman büyük/küçük harf yeşildir.
+   Altında **değerlendirmeleri geçirilen** geçilen iç değerlendirmeler listesidir.  Bu değerlendirmeler önemini her zaman büyük/küçük harf yeşildir.
 
-  ![Geçilen iç değerlendirmeler][7]
+   ![Geçilen iç değerlendirmeler][7]
 
 1. Geçirilen bir değerlendirme değerlendirme açıklamasını listesini ve Sağlıklı Aboneliklerin listesini seçin. İyi durumda olmayan abonelik için başarısız olan ilgili tüm abonelikleri listeler bir sekme yoktur.
 
-  ![Geçilen iç değerlendirmeler][8]
+   ![Geçilen iç değerlendirmeler][8]
 
 ## <a name="recommendations"></a>Öneriler
 Aşağıdaki tabloda kullanılabilir kimlik ve erişim öneriler ve uygulamanız durumunda her birinin yaptığı anlamanıza yardımcı olması için bir başvuru olarak kullanın.

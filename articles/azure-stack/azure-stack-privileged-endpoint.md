@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: ff7513f197b3035b88748e2e73c38789d9010d9c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9eb2e8ddde13783eabf3d82173e6a2fa75ec2b06
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251325"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082679"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure Stack'te ayrıcalıklı uç noktası kullanma
 
@@ -60,52 +60,52 @@ Tümleşik bir sistem için bu yordama başlamadan önce IP adresi veya DNS arac
 
 2. Sağlamlaştırılmış donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonu üzerinde çalışan sanal makinenin üzerinde bir Windows PowerShell oturumu açın. CESARETLENDİRİCİ sanal makinede uzaktan oturum oluşturmak için aşağıdaki komutları çalıştırın:
  
-    - Tümleşik bir sistem üzerinde:
-      ```PowerShell
-        $cred = Get-Credential
+   - Tümleşik bir sistem üzerinde:
+     ```PowerShell
+       $cred = Get-Credential
 
-        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```
-      `ComputerName` Parametresi, IP adresi veya DNS adını CESARETLENDİRİCİ barındıran sanal makinelerden birinde olabilir. 
-    - ASDK çalıştırıyorsanız:
+       Enter-PSSession -ComputerName <IP_address_of_ERCS> `
+         -ConfigurationName PrivilegedEndpoint -Credential $cred
+     ```
+     `ComputerName` Parametresi, IP adresi veya DNS adını CESARETLENDİRİCİ barındıran sanal makinelerden birinde olabilir. 
+   - ASDK çalıştırıyorsanız:
      
-      ```PowerShell
-        $cred = Get-Credential
+     ```PowerShell
+       $cred = Get-Credential
 
-        Enter-PSSession -ComputerName azs-ercs01 `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ``` 
-   İstendiğinde aşağıdaki kimlik bilgilerini kullanın:
+       Enter-PSSession -ComputerName azs-ercs01 `
+         -ConfigurationName PrivilegedEndpoint -Credential $cred
+     ``` 
+     İstendiğinde aşağıdaki kimlik bilgilerini kullanın:
 
-      - **Kullanıcı adı**: CloudAdmin hesabı, belirttiğiniz biçimde  **&lt; *Azure Stack etki*&gt;\cloudadmin**. (ASDK için kullanıcı adı. **azurestack\cloudadmin**.)
-      - **Parola**: AzureStackAdmin etki alanı yönetici hesabı için yükleme sırasında sağlanan parolanın aynısını girin.
+     - **Kullanıcı adı**: CloudAdmin hesabı, belirttiğiniz biçimde  **&lt; *Azure Stack etki*&gt;\cloudadmin**. (ASDK için kullanıcı adı. **azurestack\cloudadmin**.)
+     - **Parola**: AzureStackAdmin etki alanı yönetici hesabı için yükleme sırasında sağlanan parolanın aynısını girin.
 
-    > [!NOTE]
-    > ERCS uç noktasına bağlantı kuramazsa, bir ve ikinci adımlar için zaten bağlanmak denemediniz ERCS VM'deki IP adresini kullanarak yeniden deneyin.
+     > [!NOTE]
+     > ERCS uç noktasına bağlantı kuramazsa, bir ve ikinci adımlar için zaten bağlanmak denemediniz ERCS VM'deki IP adresini kullanarak yeniden deneyin.
 
-3.  Bağlandıktan sonra istemde değişir **[*IP adresi veya ERCS VM adı*]: PS >** veya **[azs-ercs01]: PS >** ortamı bağlı olarak. Buradan, çalıştırma `Get-Command` kullanılabilir cmdlet'lerin listesini görüntülemek için.
+3. Bağlandıktan sonra istemde değişir **[*IP adresi veya ERCS VM adı*]: PS >** veya **[azs-ercs01]: PS >** ortamı bağlı olarak. Buradan, çalıştırma `Get-Command` kullanılabilir cmdlet'lerin listesini görüntülemek için.
 
-    Bu cmdlet'lerin çoğu yalnızca tümleşik sistem ortamları (örneğin, veri merkezi tümleştirmesiyle ilgili cmdlet'ler) için tasarlanmıştır. Aşağıdaki cmdlet ASDK içinde doğrulandı:
+   Bu cmdlet'lerin çoğu yalnızca tümleşik sistem ortamları (örneğin, veri merkezi tümleştirmesiyle ilgili cmdlet'ler) için tasarlanmıştır. Aşağıdaki cmdlet ASDK içinde doğrulandı:
 
-    - Konak Temizle
-    - PrivilegedEndpoint Kapat
-    - Çıkış-PSSession
-    - Get-AzureStackLog
-    - Get-AzureStackStampInformation
-    - Get-Command
-    - Get-FormatData
-    - Get-Help
-    - Get-ThirdPartyNotices
-    - Ölçü nesnesi
-    - Yeni CloudAdminUser
-    - Varsayılan dışarı
-    - Remove-CloudAdminUser
-    - Select-Object
-    - Set-CloudAdminUserPassword
-    - Test-AzureStack
-    - Stop-AzureStack
-    - Get-ClusterLog
+   - Konak Temizle
+   - PrivilegedEndpoint Kapat
+   - Çıkış-PSSession
+   - Get-AzureStackLog
+   - Get-AzureStackStampInformation
+   - Get-Command
+   - Get-FormatData
+   - Get-Help
+   - Get-ThirdPartyNotices
+   - Ölçü nesnesi
+   - Yeni CloudAdminUser
+   - Varsayılan dışarı
+   - Remove-CloudAdminUser
+   - Select-Object
+   - Set-CloudAdminUserPassword
+   - Test-AzureStack
+   - Stop-AzureStack
+   - Get-ClusterLog
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>Ayrıcalıklı uç noktası kullanımıyla ilgili ipuçları 
 
@@ -132,26 +132,26 @@ Yerel makinenizde CESARETLENDİRİCİ oturumun içeri aktarmak için aşağıdak
 
 2. Sağlamlaştırılmış donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonu üzerinde çalışan sanal makinenin üzerinde bir Windows PowerShell oturumu açın. CESARETLENDİRİCİ sanal makinede uzaktan oturum oluşturmak için aşağıdaki komutları çalıştırın:
  
-    - Tümleşik bir sistem üzerinde:
-      ```PowerShell
-        $cred = Get-Credential
-
-        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```
-      `ComputerName` Parametresi, IP adresi veya DNS adını CESARETLENDİRİCİ barındıran sanal makinelerden birinde olabilir. 
-    - ASDK çalıştırıyorsanız:
-     
-      ```PowerShell
+   - Tümleşik bir sistem üzerinde:
+     ```PowerShell
        $cred = Get-Credential
 
-       $session = New-PSSession -ComputerName azs-ercs01 `
-          -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ``` 
-   İstendiğinde aşağıdaki kimlik bilgilerini kullanın:
+       $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
+         -ConfigurationName PrivilegedEndpoint -Credential $cred
+     ```
+     `ComputerName` Parametresi, IP adresi veya DNS adını CESARETLENDİRİCİ barındıran sanal makinelerden birinde olabilir. 
+   - ASDK çalıştırıyorsanız:
+     
+     ```PowerShell
+      $cred = Get-Credential
 
-      - **Kullanıcı adı**: CloudAdmin hesabı, belirttiğiniz biçimde  **&lt; *Azure Stack etki*&gt;\cloudadmin**. (ASDK için kullanıcı adı. **azurestack\cloudadmin**.)
-      - **Parola**: AzureStackAdmin etki alanı yönetici hesabı için yükleme sırasında sağlanan parolanın aynısını girin.
+      $session = New-PSSession -ComputerName azs-ercs01 `
+         -ConfigurationName PrivilegedEndpoint -Credential $cred
+     ``` 
+     İstendiğinde aşağıdaki kimlik bilgilerini kullanın:
+
+     - **Kullanıcı adı**: CloudAdmin hesabı, belirttiğiniz biçimde  **&lt; *Azure Stack etki*&gt;\cloudadmin**. (ASDK için kullanıcı adı. **azurestack\cloudadmin**.)
+     - **Parola**: AzureStackAdmin etki alanı yönetici hesabı için yükleme sırasında sağlanan parolanın aynısını girin.
 
 3. Yerel makinenize CESARETLENDİRİCİ oturumun içeri aktarma
     ```PowerShell 

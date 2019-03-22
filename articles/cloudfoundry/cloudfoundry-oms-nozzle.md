@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 2038ce62e252260dda73813df97a68ee4b3fff61
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6220aebdef6970f3d5f7017e4ae48f6f409ae0ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548907"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111472"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry sistemin izlenmesi için Azure Log Analytics Nozzle dağıtma
 
@@ -73,10 +73,10 @@ Daha fazla bilgi için [Azure İzleyici günlüklerine ile çalışmaya başlama
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Azure market yerden izleme şablonu ile Log Analytics çalışma alanı oluşturmak için:
 
 1. Azure Portalı'nı açın.
-2. "+" İşaretine tıklayın veya "kaynak sol üst köşedeki oluştur".
-3. Arama penceresine "Cloud Foundry" yazın, "Cloud Foundry izleme çözümü" seçin.
-4. İzleme çözümü şablonu ön sayfa yüklendiğinde, Cloud Foundry şablonu dikey penceresini başlatmak için "Oluştur"'a tıklayın.
-5. Gerekli parametreleri girin:
+1. "+" İşaretine tıklayın veya "kaynak sol üst köşedeki oluştur".
+1. Arama penceresine "Cloud Foundry" yazın, "Cloud Foundry izleme çözümü" seçin.
+1. İzleme çözümü şablonu ön sayfa yüklendiğinde, Cloud Foundry şablonu dikey penceresini başlatmak için "Oluştur"'a tıklayın.
+1. Gerekli parametreleri girin:
     * **Abonelik**: Log Analytics çalışma alanı için genellikle aynı Cloud Foundry dağıtım ile bir Azure aboneliği seçin.
     * **Kaynak grubu**: Mevcut bir kaynak grubunu seçin veya yeni bir Log Analytics çalışma alanı oluşturun.
     * **Kaynak grubu konumu**: Kaynak grubunun konumunu seçin.
@@ -84,7 +84,7 @@ Daha fazla bilgi için [Azure İzleyici günlüklerine ile çalışmaya başlama
     * **OMS_Workspace_Region**: Çalışma alanı konumunu seçin.
     * **OMS_Workspace_Pricing_Tier**: SKU Log Analytics çalışma alanı seçin. Bkz: [fiyatlandırma Kılavuzu](https://azure.microsoft.com/pricing/details/log-analytics/) başvuru.
     * **Yasal koşullar**: Yasal Koşulları'nı tıklatın ve yasal terimi kabul etmek için "Oluştur" a tıklayın.
-- Tüm parametreler belirttikten sonra şablonu dağıtmak için "Oluştur" a tıklayın. Dağıtım tamamlandığında durum bildirim sekme görünür.
+1. Tüm parametreler belirttikten sonra şablonu dağıtmak için "Oluştur" a tıklayın. Dağıtım tamamlandığında durum bildirim sekme görünür.
 
 
 ## <a name="deploy-the-nozzle"></a>Nozzle dağıtma

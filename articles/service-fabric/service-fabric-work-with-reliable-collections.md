@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/22/2019
 ms.author: aljo
-ms.openlocfilehash: 38aef6e5ba65f67a1dd30ba2c18e180cd92624c6
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805324"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872696"
 ---
 # <a name="working-with-reliable-collections"></a>Güvenilir Koleksiyonlar ile çalışma
 Service Fabric, güvenilir koleksiyonlar aracılığıyla .NET geliştiricileri için kullanılabilen bir durum bilgisi olan programlama modeli sunar. Özellikle, Service Fabric, güvenilir bir sözlük ve güvenilir bir kuyruk sınıfları sağlar. Bu sınıfların kullandığınızda, durumunuzu (ölçeklenebilirlik) bölümlenmiş çoğaltılan (kullanılabilirlik için) ve bir bölüm (için ACID semantiği) içinde hareket gerçekleşti. Şimdi bir güvenilir bir sözlük nesnesi tipik bir kullanım sırasında bakın ve hangi gerçekten başardığını görün.
@@ -143,7 +143,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Programcı hatayı önlemek için sabit veri türlerini tanımlayın
-Yanlışlıkla sabit göz önünde bulundurmanız gereken olduğunuz bir nesnenin durumu değiştirdiği kod üretir, ideal olarak, derleyici hataları bildirmek istiyoruz. Ancak, C# Derleyici bunu özelliği yok. Bu nedenle, programcı olası hataları önlemek için tanımladığınız türler öneririz sabit türleri için güvenilir koleksiyonlar ile kullanın. Bu özellikle, çekirdek değer türleri (örneğin, sayıları [Int32, UInt64, vb.], DateTime, Guid, TimeSpan ve benzeri) için takılıyor anlamına gelir. Ayrıca, dize de kullanabilirsiniz. Koleksiyon Özellikleri serileştirmek olarak önlemek idealdir ve bunları seri durumdan çıkarılırken sık performansı olumsuz etkileyebilir. Koleksiyon özellikleri kullanmak istiyorsanız, ancak yüksek oranda kullanılmasını öneririz. NET sabit koleksiyonlar kitaplığı ([gt;System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Bu kitaplığı indirilerek kullanılabilir http://nuget.org. Ayrıca, sınıflar mühürleme ve mümkün olduğunda alanları salt okunur yapma öneririz.
+Yanlışlıkla sabit göz önünde bulundurmanız gereken olduğunuz bir nesnenin durumu değiştirdiği kod üretir, ideal olarak, derleyici hataları bildirmek istiyoruz. Ancak, C# Derleyici bunu özelliği yok. Bu nedenle, programcı olası hataları önlemek için tanımladığınız türler öneririz sabit türleri için güvenilir koleksiyonlar ile kullanın. Bu özellikle, çekirdek değer türleri (örneğin, sayıları [Int32, UInt64, vb.], DateTime, Guid, TimeSpan ve benzeri) için takılıyor anlamına gelir. Ayrıca, dize de kullanabilirsiniz. Koleksiyon Özellikleri serileştirmek olarak önlemek idealdir ve bunları seri durumdan çıkarılırken sık performansı olumsuz etkileyebilir. Koleksiyon özellikleri kullanmak istiyorsanız, ancak yüksek oranda kullanılmasını öneririz. NET sabit koleksiyonlar kitaplığı ([gt;System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Bu kitaplığı indirilerek kullanılabilir https://nuget.org. Ayrıca, sınıflar mühürleme ve mümkün olduğunda alanları salt okunur yapma öneririz.
 
 Aşağıdaki UserInfo türünü tanımlayan yukarıda sözü edilen önerileri yararlanarak sabit bir tür gösterilmektedir.
 

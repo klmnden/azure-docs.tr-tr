@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 7fa2dad124b5ef9e93402d6d4c03d956b00184af
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442385"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188365"
 ---
-# <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış
+# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Şirket içi kodlayıcılardan Çoklu bit hızlı canlı akış alan kanallar ile çalışma
 
 > [!NOTE]
 > Canlı kanallar 12 Mayıs 2018 tarihinden itibaren artık RTP/MPEG-2 aktarım akışı destek alma protokolü. Lütfen RTP/MPEG-2'den RTMP veya parçalanmış MP4'e geçiş (kesintisiz akış) alma protokolleri.
@@ -146,7 +146,7 @@ Kanalları daha fazla işleme edip teslime geçmeden önce akışınızı onayla
 
 Kanıl oluşturduğunuzda Önizleme URL'sini alabilirsiniz. URL almak için kanal olması gerekmez **çalıştıran** durumu. Veri alma kanal başladıktan sonra akışınızın önizlemesini.
 
-Şu anda Önizleme akışı yalnızca parçalanmış MP4 içinde teslim edilebilir belirtilen giriş türü ne olursa olsun (kesintisiz akış) biçimi. Kullanabileceğiniz [kesintisiz akış sistem durumu İzleyicisi](http://playready.directtaps.net/smoothstreaming/) kesintisiz akışı test etmek için player. Akışınız görüntülemek için Azure Portalı'nda barındırılan bir oynatıcı de kullanabilirsiniz.
+Şu anda Önizleme akışı yalnızca parçalanmış MP4 içinde teslim edilebilir belirtilen giriş türü ne olursa olsun (kesintisiz akış) biçimi. Kullanabileceğiniz [kesintisiz akış sistem durumu İzleyicisi](https://playready.directtaps.net/smoothstreaming/) kesintisiz akışı test etmek için player. Akışınız görüntülemek için Azure Portalı'nda barındırılan bir oynatıcı de kullanabilirsiniz.
 
 #### <a name="allowed-ip-addresses"></a>İzin verilen IP adresleri
 Önizleme uç noktasına bağlanmasına izin verilen IP adreslerini tanımlayabilirsiniz. IP adresi belirtilmezse, herhangi bir IP adresine izin verilir. İzin verilen IP adresi aşağıdakilerden biri belirtilebilir:
@@ -185,7 +185,7 @@ Kanalın geçerli durumu için olası değerler şunlardır:
 Aşağıdaki tabloda, kanal durumlarının faturalandırma modu ile nasıl eşleştiği gösterilir.
 
 | Kanal durumu | Portal kullanıcı arabirimi göstergeleri | Faturalandırılmış mı? |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **Başlatma** |**Başlatma** |Hayır (geçici durum) |
 | **Çalıştıran** |**Hazır** (çalışan program yok)<p><p>or<p>**Akış** (en az bir program çalışıyor) |Evet |
 | **Durduruluyor** |**Durduruluyor** |Hayır (geçici durum) |

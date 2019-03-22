@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b39f7bc31ed286ef4a894e9d49166cd305d9e905
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 82183cefc11a1f3c39fadd639c988d8bf83fc109
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736762"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116613"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Küme Kaynak Yöneticisi mimarisine genel bakış
 Service Fabric Küme Kaynak Yöneticisi kümede çalışan merkezi bir hizmettir. Bu, özellikle kaynak tüketimine ve herhangi bir yerleştirme kuralları göre kümedeki hizmetlerin istenen durum yönetir. 
@@ -51,6 +51,7 @@ Küme Kaynak Yöneticisi, bu hizmetlerin içindeki her bir hizmet nesnesi taraf�
 Aşağıdaki diyagramda göz atalım:
 
 <center>
+
 ![Kaynak dengeleyici mimarisi][Image1]
 </center>
 
@@ -59,6 +60,7 @@ Aşağıdaki diyagramda göz atalım:
 Şimdi Aşağıdaki diyagramda arayın ve sonra ne olacağına bakalım. Küme Kaynak Yöneticisi değişikliklerin gerekli olduğunu belirler varsayalım. Bunu diğer sistem hizmetlerini (içinde belirli Yük Devretme Yöneticisi) ile gerekli değişiklikleri yapmak için düzenler. Ardından gerekli komutları uygun düğümlere (4) gönderilir. Örneğin, Resource Manager Düğüm5 fazlaydı ve bu nedenle hizmet B Düğüm5 ' Düğüm4 için taşıma kararı fark varsayalım. ' % S'yapılandırması (5) sonunda küme şöyle görünür:
 
 <center>
+
 ![Kaynak dengeleyici mimarisi][Image2]
 </center>
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 5a36a1e955bf79654ae9e5cc01564a47e1a13a05
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ae8dc263e08528c6e3b3bae8c779162c96d51f43
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545050"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100794"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>MXChip IOT DevKit Azure IOT Uzaktan izleme çözüm hızlandırıcısına bağlamayı
 
@@ -76,8 +76,8 @@ Etkin bir Azure aboneliği. Biri yoksa, bu iki yöntemden biri kaydedebilirsiniz
 
 3. DevKit bilgisayarınıza bağlayın. VS Code, otomatik olarak, DevKit algılar ve aşağıdaki sayfa açılır:
 
-  * DevKit giriş sayfası.
-  * Arduino örnekler: İle DevKit kullanmaya başlamak için uygulamalı örnekler sağlar.
+   * DevKit giriş sayfası.
+   * Arduino örnekler: İle DevKit kullanmaya başlamak için uygulamalı örnekler sağlar.
 
 4. Sol tarafındaki genişletme **ARDUINO ÖRNEKLER** bölümünde **MXCHIP AZ3166 için örnek > AzureIoT**seçip **RemoteMonitoring**. Bu proje klasöründe ile yeni bir VS Code penceresinin açılır.
 

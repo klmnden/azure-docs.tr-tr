@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce82775b65316fc646b45b4749a6b1719ed6e59f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c24cbf8ad21c7dd5875a71532a5278e313774e66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443156"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883976"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Öğretici: Dmarcian ile Azure Active Directory Tümleştirme
 
@@ -106,6 +106,7 @@ Azure AD çoklu oturum açma ile dmarcian yapılandırmak için aşağıdaki ad�
     ![dmarcian etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
 
     a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın:
+
     | |
     | -- |
     | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
@@ -113,6 +114,7 @@ Azure AD çoklu oturum açma ile dmarcian yapılandırmak için aşağıdaki ad�
     | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
     b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
@@ -124,6 +126,7 @@ Azure AD çoklu oturum açma ile dmarcian yapılandırmak için aşağıdaki ad�
     ![dmarcian etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata-upload-additional-signon.png)
 
     İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
+    
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
@@ -186,7 +189,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
     a. İçinde **adı** alanına **BrittaSimon**.
   
-    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    b. İçinde **kullanıcı adı** alanına **brittasimon\@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
     c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
@@ -239,7 +242,7 @@ Dmarcian için oturum açmak Azure AD kullanıcılarının etkinleştirmek için
 
     ![Yeni kullanıcı](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
-    a. İçinde **yeni kullanıcı e-posta** metin gibi kullanıcının e-posta girin **brittasimon@contoso.com**.
+    a. İçinde **yeni kullanıcı e-posta** metin gibi kullanıcının e-posta girin **brittasimon\@contoso.com**.
 
     b. Kullanıcısına yönetim hakları vermek isteyip istemediğinizi seçin **olun kullanıcı yönetici**.
 

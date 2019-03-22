@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9504a710711ba10d72c3f87045f498b652cfea44
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 32acee78b1aadbe5a461de6ea4475cf28503c325
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193446"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113036"
 ---
 # <a name="string-claims-transformations"></a>Dize talep dönüşümleri
 
@@ -29,9 +29,9 @@ Bu makalede, Azure Active Directory (Azure AD) B2C'de kimlik deneyimi çerçeves
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | inputClaim1 | dize | Karşılaştırılacak olan ilk talebin türü. |
-| Inputclaim | inputClaim2 | dize | Karşılaştırılacak talebin türü, ikinci. |
-| InputParameter | stringComparison | dize | dize karşılaştırması, değerlerden biri: Sıra, Ordinalıgnorecase. |
+| Inputclaim | inputClaim1 | string | Karşılaştırılacak olan ilk talebin türü. |
+| Inputclaim | inputClaim2 | string | Karşılaştırılacak talebin türü, ikinci. |
+| InputParameter | stringComparison | string | dize karşılaştırması, değerlerden biri: Sıra, Ordinalıgnorecase. |
 
 **AssertStringClaimsAreEqual** talep dönüştürme gelen her zaman yürütülür bir [doğrulama teknik profili](validation-technical-profile.md) çağrılan bir [teknik profilSelfonaylanan](self-asserted-technical-profile.md). **UserMessageIfClaimsTransformationStringsAreNotEqual** otomatik olarak onaylanan teknik profil meta verileri kullanıcıya sunulan hata iletisi denetler.
 
@@ -78,10 +78,10 @@ Doğrulama otomatik olarak onaylanan teknik profil çağırır **etkileşimli ol
 ### <a name="example"></a>Örnek
 
 - Giriş talepleri:
-    - **inputClaim1**: someone@contoso.com
-    - **inputClaim2**: someone@outlook.com
- - Giriş parametreleri:
-    - **stringComparison**: Ordinalıgnorecase
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
+    - Giriş parametreleri:
+  - **stringComparison**: Ordinalıgnorecase
 - Sonuç: Durum hatası
 
 ## <a name="changecase"></a>ChangeCase 
@@ -90,9 +90,9 @@ Düşürmek için sağlanan talebin küçük veya büyük harf ' işleci bağlı
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | inputClaim1 | dize | Olması ClaimType değiştirildi. |
-| InputParameter | toCase | dize | Aşağıdaki değerlerden biri: `LOWER` veya `UPPER`. |
-| outputClaim | outputClaim | dize | Bu dönüşüm talep sonra üreten ClaimType çağrılmış. |
+| Inputclaim | inputClaim1 | string | Olması ClaimType değiştirildi. |
+| InputParameter | toCase | string | Aşağıdaki değerlerden biri: `LOWER` veya `UPPER`. |
+| outputClaim | outputClaim | string | Bu dönüşüm talep sonra üreten ClaimType çağrılmış. |
 
 Bu talep dönüştürmeyi herhangi bir dize düşürmek için ClaimType veya büyük harf değiştirmek için kullanın.  
 
@@ -113,11 +113,11 @@ Bu talep dönüştürmeyi herhangi bir dize düşürmek için ClaimType veya bü
 ### <a name="example"></a>Örnek
 
 - Giriş talepleri:
-    - **e-posta**: SomeOne@contoso.com
+  - **e-posta**: SomeOne@contoso.com
 - Giriş parametreleri:
     - **toCase**: LOWER
 - Çıkış talep:
-    - **e-posta**: someone@contoso.com
+  - **e-posta**: someone@contoso.com
 
 ## <a name="createstringclaim"></a>CreateStringClaim 
 
@@ -125,8 +125,8 @@ Bu talep dönüştürmeyi herhangi bir dize düşürmek için ClaimType veya bü
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | değer | dize | Ayarlanacak dize |
-| outputClaim | createdClaim | dize | Giriş parametresinde belirtilen değerle sonra bu dönüşüm talep üreten ClaimType çağrılmış. |
+| InputParameter | değer | string | Ayarlanacak dize |
+| outputClaim | createdClaim | string | Giriş parametresinde belirtilen değerle sonra bu dönüşüm talep üreten ClaimType çağrılmış. |
 
 Bu dönüşüm talep kullanımı bir dize ClaimType değeri ayarlayın.
 
@@ -154,9 +154,9 @@ Tek bir dize talep diğerine eşit olup olmadığını belirler. Değerine sahip
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | inputClaim1 | dize | İlk talep karşılaştırılacak olan türü. |
-| Inputclaim | inputClaim2 | dize | İkinci talep karşılaştırılacak olan türü. |
-| InputParameter | İşleci | dize | Olası değerler: `EQUAL` veya `NOT EQUAL`. |
+| Inputclaim | inputClaim1 | string | İlk talep karşılaştırılacak olan türü. |
+| Inputclaim | inputClaim2 | string | İkinci talep karşılaştırılacak olan türü. |
+| InputParameter | İşleci | string | Olası değerler: `EQUAL` veya `NOT EQUAL`. |
 | InputParameter | IgnoreCase | boole | Bu karşılaştırma karşılaştırılan dizelerin durumunu yoksay olup olmadığını belirtir. |
 | outputClaim | outputClaim | boole | Bu dönüşüm talep sonra üreten ClaimType çağrılmış. |
 
@@ -181,8 +181,8 @@ Bu talep dönüştürme talep için başka bir talep eşit olup olmadığını d
 ### <a name="example"></a>Örnek
 
 - Giriş talepleri:
-    - **inputClaim1**: someone@contoso.com
-    - **inputClaim2**: someone@outlook.com
+  - **inputClaim1**: someone@contoso.com
+  - **inputClaim2**: someone@outlook.com
 - Giriş parametreleri:
     - **İşleç**:  EŞİT DEĞİLDİR
     - **ignoreCase**: true
@@ -195,9 +195,9 @@ Bir talep değerinin giriş parametresi değerine eşit olup olmadığını beli
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | inputClaim1 | dize | Karşılaştırılacak olduğu talebin türü. |
-| InputParameter | İşleci | dize | Olası değerler: `EQUAL` veya `NOT EQUAL`. |
-| InputParameter | compareTo | dize | dize karşılaştırması, değerlerden biri: Sıra, Ordinalıgnorecase. |
+| Inputclaim | inputClaim1 | string | Karşılaştırılacak olduğu talebin türü. |
+| InputParameter | İşleci | string | Olası değerler: `EQUAL` veya `NOT EQUAL`. |
+| InputParameter | compareTo | string | dize karşılaştırması, değerlerden biri: Sıra, Ordinalıgnorecase. |
 | InputParameter | IgnoreCase | boole | Bu karşılaştırma karşılaştırılan dizelerin durumunu yoksay olup olmadığını belirtir. |
 | outputClaim | outputClaim | boole | Bu dönüşüm talep sonra üreten ClaimType çağrılmış. |
 
@@ -235,12 +235,12 @@ Rastgele sayı oluşturucusunu kullanarak rastgele bir dize oluşturur. Rasgele 
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| InputParameter | randomGeneratorType | dize | Oluşturulacak, rastgele bir değer belirtir `GUID` (genel benzersiz Tanımlayıcı) veya `INTEGER` (sayı). |
-| InputParameter | stringFormat | dize | [İsteğe bağlı] Rastgele bir değeri biçimi. |
+| InputParameter | randomGeneratorType | string | Oluşturulacak, rastgele bir değer belirtir `GUID` (genel benzersiz Tanımlayıcı) veya `INTEGER` (sayı). |
+| InputParameter | stringFormat | string | [İsteğe bağlı] Rastgele bir değeri biçimi. |
 | InputParameter | Base64 | boole | [İsteğe bağlı] Rastgele bir değeri, base64 dönüştürün. Dize biçimi uygulanırsa, değerin dize biçimi sonra base64 kodlanmış. |
 | InputParameter | maximumNumber | int | [İsteğe bağlı] İçin `INTEGER` yalnızca randomGeneratorType. Maksimum sayısını belirtin. |
 | InputParameter | Çekirdek  | int | [İsteğe bağlı] İçin `INTEGER` yalnızca randomGeneratorType. Çekirdek için rastgele bir değer belirtin. Not: aynı çekirdek aynı rastgele sayı dizisi üretir. |
-| outputClaim | outputClaim | dize | Bu dönüşüm talep sonra üretilecek ClaimTypes çağrılmış. Rastgele bir değer. |
+| outputClaim | outputClaim | string | Bu dönüşüm talep sonra üretilecek ClaimTypes çağrılmış. Rastgele bir değer. |
 
 Aşağıdaki örnek, genel olarak benzersiz bir kimliği oluşturur. Başka bir talep dönüştürme rastgele UPN (kullanıcı asıl adı) oluşturmak için kullanılır.
 
@@ -294,9 +294,9 @@ Bir talep göre sağlanan biçim dizesi biçimi. Bu dönüşüm C# kullanan `Str
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | Inputclaim |dize |Dize biçimi davranan ClaimType {0} parametresi. |
-| InputParameter | stringFormat | dize | Dize biçimi de dahil olmak üzere {0} parametresi. |
-| outputClaim | outputClaim | dize | Bu dönüşüm talep sonra üreten ClaimType çağrılmış. |
+| Inputclaim | Inputclaim |string |Dize biçimi davranan ClaimType {0} parametresi. |
+| InputParameter | stringFormat | string | Dize biçimi de dahil olmak üzere {0} parametresi. |
+| outputClaim | outputClaim | string | Bu dönüşüm talep sonra üreten ClaimType çağrılmış. |
 
 Bu talep herhangi bir parametre ile dize biçimine dönüştürme kullanım {0}. Aşağıdaki örnek, oluşturur bir **userPrincipalName**. Tüm sosyal kimlik sağlayıcısı teknik profiller, gibi `Facebook-OAUTH` çağrıları **CreateUserPrincipalName** oluşturmak için bir **userPrincipalName**.   
 
@@ -321,7 +321,7 @@ Bu talep herhangi bir parametre ile dize biçimine dönüştürme kullanım {0}.
 - Giriş parametreleri:
     - **stringFormat**: cpim_{0}@{RelyingPartyTenantId}
 - Çıkış talep:
-    - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
@@ -329,10 +329,10 @@ Sağlanan biçim dizesi göre iki talep biçiminde. Bu dönüşüm C# kullanan *
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | Inputclaim |dize | Dize biçimi davranan ClaimType {0} parametresi. |
-| Inputclaim | Inputclaim | dize | Dize biçimi davranan ClaimType {1} parametresi. |
-| InputParameter | stringFormat | dize | Dize biçimi de dahil olmak üzere {0} ve {1} parametreleri. |
-| outputClaim | outputClaim | dize | Bu dönüşüm talep sonra üreten ClaimType çağrılmış. |
+| Inputclaim | Inputclaim |string | Dize biçimi davranan ClaimType {0} parametresi. |
+| Inputclaim | Inputclaim | string | Dize biçimi davranan ClaimType {1} parametresi. |
+| InputParameter | stringFormat | string | Dize biçimi de dahil olmak üzere {0} ve {1} parametreleri. |
+| outputClaim | outputClaim | string | Bu dönüşüm talep sonra üreten ClaimType çağrılmış. |
 
 Bu talep herhangi iki parametre ile dize biçimine dönüştürme kullanım {0} ve {1}. Aşağıdaki örnek, oluşturur bir **displayName** ile belirtilen biçim:
 
@@ -367,8 +367,8 @@ Bu talep herhangi iki parametre ile dize biçimine dönüştürme kullanım {0} 
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | mapFromClaim | dize | İçinde denetlenmesi metni içeren talep **restrictionValueClaim** ile talep **kısıtlama** koleksiyonu.  |
-| outputClaim | restrictionValueClaim | dize | İçeren talep **kısıtlama** koleksiyonu. Talep dönüştürme çağrıldıktan sonra bu talep değerini seçilen öğenin değerini içerir. |
+| Inputclaim | mapFromClaim | string | İçinde denetlenmesi metni içeren talep **restrictionValueClaim** ile talep **kısıtlama** koleksiyonu.  |
+| outputClaim | restrictionValueClaim | string | İçeren talep **kısıtlama** koleksiyonu. Talep dönüştürme çağrıldıktan sonra bu talep değerini seçilen öğenin değerini içerir. |
 
 Aşağıdaki örnekte hata anahtara göre hata iletisi açıklaması arar. **ResponseMsg** talep hata iletileri son kullanıcıya sunmak veya bağlı olan tarafa gönderilecek koleksiyonunu içerir.
 
@@ -410,10 +410,10 @@ Başka bir talep değerine göre değerler listesinden bir talep değeri aramak.
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | inputParameterId | dize | Arama değerini içeren talep |
-| InputParameter | |dize | InputParameters koleksiyonu. |
+| Inputclaim | inputParameterId | string | Arama değerini içeren talep |
+| InputParameter | |string | InputParameters koleksiyonu. |
 | InputParameter | errorOnFailedLookup | boole | Eşleşen hiçbir arama çalışılırken bir hata döndürülür olup olmadığını denetliyor. |
-| outputClaim | inputParameterId | dize | Bu dönüşüm talep sonra üretilecek ClaimTypes çağrılmış. Eşleşen kimlik değeri |
+| outputClaim | inputParameterId | string | Bu dönüşüm talep sonra üretilecek ClaimTypes çağrılmış. Eşleşen kimlik değeri |
 
 Aşağıdaki örnek InputParameters koleksiyonlardan biri etki alanı adını arar. Talep dönüştürme tanımlayıcı etki alanı adıyla arar ve (uygulama kimliği) değerini döndürür.
 
@@ -452,7 +452,7 @@ Belirli bir talep değerini temizleyin.
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| outputClaim | claim_to_null | dize | Talep değeri NULL olmalıdır. |
+| outputClaim | claim_to_null | string | Talep değeri NULL olmalıdır. |
 
 Bu talep dönüştürme talep özellik paketi gereksiz verileri kaldırmak için kullanın. Bu nedenle, oturum tanımlama bilgisinin daha küçük olur. Aşağıdaki örnek, değeri kaldırır `TermsOfService` talep türü.
 
@@ -475,8 +475,8 @@ Bir e-posta adresi etki alanı kısmını alır.
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | EmailAddress | dize | E-posta adresini içeren ClaimType. |
-| outputClaim | etki alanı | dize | Bu dönüşüm talep sonra üreten ClaimType çağrıldıktan - etki alanı. |
+| Inputclaim | EmailAddress | string | E-posta adresini içeren ClaimType. |
+| outputClaim | etki alanı | string | Bu dönüşüm talep sonra üreten ClaimType çağrıldıktan - etki alanı. |
 
 Kullanım bu etki alanı adından sonra ayrıştırılacak dönüştürme talep @ sembolünü kullanıcının. Bu, kişisel bilgileri (PII) gelen denetim verilerini kaldırılmasında yararlı olabilir. Aşağıdaki talep dönüştürmenin nasıl ayrıştıracağını etki alanı adından gösterir bir **e-posta** talep.
 
@@ -494,7 +494,7 @@ Kullanım bu etki alanı adından sonra ayrıştırılacak dönüştürme talep 
 ### <a name="example"></a>Örnek
 
 - Giriş talepleri:
-    - **emailAddress**: joe@outlook.com
+  - **emailAddress**: joe@outlook.com
 - Çıkış talep:
     - **etki alanı**: outlook.com
 
@@ -504,13 +504,13 @@ Bir dize talep denetler ve `matchTo` giriş parametresi eşit ve kümeleri çık
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | Inputclaim | dize | Karşılaştırılacak olan talep türü. |
-| InputParameter | matchTo | dize | Dizenin karşılaştırılacağı `inputClaim`. |
-| InputParameter | stringComparison | dize | Olası değerler: `Ordinal` veya `OrdinalIgnoreCase`. |
-| InputParameter | stringMatchMsg | dize | Dizeler eşitse ayarlamak için ilk değer. |
-| InputParameter | stringMatchMsgCode | dize | Dizeler eşitse ayarlamak için ikinci değer. |
-| outputClaim | outputClaim1 | dize | Dizeler eşittir varsa, bu çıkış talep değerini içeren `stringMatchMsg` giriş parametresi. |
-| outputClaim | outputClaim2 | dize | Dizeler eşittir varsa, bu çıkış talep değerini içeren `stringMatchMsgCode` giriş parametresi. |
+| Inputclaim | Inputclaim | string | Karşılaştırılacak olan talep türü. |
+| InputParameter | matchTo | string | Dizenin karşılaştırılacağı `inputClaim`. |
+| InputParameter | stringComparison | string | Olası değerler: `Ordinal` veya `OrdinalIgnoreCase`. |
+| InputParameter | stringMatchMsg | string | Dizeler eşitse ayarlamak için ilk değer. |
+| InputParameter | stringMatchMsgCode | string | Dizeler eşitse ayarlamak için ikinci değer. |
+| outputClaim | outputClaim1 | string | Dizeler eşittir varsa, bu çıkış talep değerini içeren `stringMatchMsg` giriş parametresi. |
+| outputClaim | outputClaim2 | string | Dizeler eşittir varsa, bu çıkış talep değerini içeren `stringMatchMsgCode` giriş parametresi. |
 | outputClaim | stringCompareResultClaim | boole | Karşılaştırma sonucu çıkış talep türü olarak ayarlanacak `true` veya `false` karşılaştırma sonucuna göre. |
 
 Kullanabileceğiniz bu talep, belirtilen değere eşit olup olmadığını denetlemek için dönüştürme talep. Örneğin, aşağıdaki, dönüştürme denetimleri talep değerini **termsOfUseConsentVersion** talep eşittir `v1`. Yanıt Evet ise, değere değiştirin `v2`. 
@@ -553,11 +553,11 @@ Bir dize talep denetler ve `matchTo` giriş parametresi eşit ve kümeleri çık
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | claimToMatch | dize | Karşılaştırılacak olan talep türü. |
-| InputParameter | matchTo | dize | Inputclaim ile Karşılaştırılacak dize. |
-| InputParameter | stringComparison | dize | Olası değerler: `Ordinal` veya `OrdinalIgnoreCase`. |
-| InputParameter | outputClaimIfMatched | dize | Dizeler eşitse ayarlanacak değer. |
-| outputClaim | outputClaim | dize | Dizeler eşittir varsa, bu çıkış talep değerini içeren `outputClaimIfMatched` giriş parametresi. Veya dizeler eşleşme yoksa null. |
+| Inputclaim | claimToMatch | string | Karşılaştırılacak olan talep türü. |
+| InputParameter | matchTo | string | Inputclaim ile Karşılaştırılacak dize. |
+| InputParameter | stringComparison | string | Olası değerler: `Ordinal` veya `OrdinalIgnoreCase`. |
+| InputParameter | outputClaimIfMatched | string | Dizeler eşitse ayarlanacak değer. |
+| outputClaim | outputClaim | string | Dizeler eşittir varsa, bu çıkış talep değerini içeren `outputClaimIfMatched` giriş parametresi. Veya dizeler eşleşme yoksa null. |
 | outputClaim | stringCompareResultClaim | boole | Karşılaştırma sonucu çıkış talep türü olarak ayarlanacak `true` veya `false` karşılaştırma sonucuna göre. |
 
 Örneğin, aşağıdaki, dönüştürme denetimleri talep değerini **yaş** talep eşittir `Minor`. Değeri Evet ise, dönüş `B2C_V1_90001`. 

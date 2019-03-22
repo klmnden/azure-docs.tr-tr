@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: fd1c130e9228f334889668f66927dece2425b39f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 43b672569b398f636b2e02172428cf072febb156
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090687"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202461"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux’ta HDInsight kullanma ile ilgili bilgiler
 
@@ -249,7 +249,7 @@ HDInsight kümenizi ölçeklendirme ile ilgili ayrıntılı bilgi için bkz:
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Hue (veya diğer Hadoop bileşenleri) nasıl yüklerim?
 
-HDInsight yönetilen bir hizmettir. Azure küme ile ilgili bir sorun algılarsa, başarısız olan düğümü sil ve değiştirmek için bir düğüm oluşturmak. Kümede şeyler el ile yüklerseniz, bu işlemi meydana geldiğinde, kalıcı değildir. Bunun yerine, [HDInsight betik eylemleri](hdinsight-hadoop-customize-cluster.md). Betik eylemi, aşağıdaki değişiklikleri yapmak için kullanılabilir:
+HDInsight yönetilen bir hizmettir. Azure küme ile ilgili bir sorun algılarsa, başarısız olan düğümü sil ve değiştirmek için bir düğüm oluşturmak. Kümede şeyler el ile yüklerseniz, bu işlemi meydana geldiğinde, kalıcı değildir. Bunun yerine, [HDInsight betik eylemleri](hdinsight-hadoop-customize-cluster-linux.md). Betik eylemi, aşağıdaki değişiklikleri yapmak için kullanılabilir:
 
 * Yükleyin ve bir hizmeti veya web sitesini yapılandırın.
 * Yükleme ve yapılandırma değişiklikleri kümedeki birden çok düğümde gerektiren bir bileşen yapılandırın.
@@ -257,7 +257,6 @@ HDInsight yönetilen bir hizmettir. Azure küme ile ilgili bir sorun algılarsa,
 Betik eylemleri, Bash betikleridir. Komut dosyaları, küme oluşturma sırasında çalıştırmak ve ek bileşenlerini yükleme ve yapılandırma için kullanılır. Örnek betikler aşağıdaki bileşenleri yüklemek için sağlanmıştır:
 
 * [Apache giraph'ı](hdinsight-hadoop-giraph-install-linux.md)
-* [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 Kendi Betik Eylemlerinizi geliştirme hakkında daha fazla bilgi için bkz. [HDInsight ile Betik Eylemi geliştirme](hdinsight-hadoop-script-actions-linux.md).
 

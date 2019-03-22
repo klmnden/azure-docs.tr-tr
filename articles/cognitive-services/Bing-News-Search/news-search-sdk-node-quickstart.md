@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 71d42f1f7627b7f223f92c264cfb23b829a229dd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1930ef761b4be9d8085fd6e1785e78146c6b5547
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444761"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109179"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Hızlı Başlangıç: Node.js için Bing haber arama SDK'sı ile haber araması
 
@@ -52,7 +52,7 @@ Bing haber arama SDK'sını kullanarak bir konsol uygulaması ayarlamak için:
 
 ## <a name="send-a-search-query"></a>Bir arama sorgusu gönderin
 
-3. İstemci, bu durumda "Kış Olimpiyatları" bir sorgu terimine bulmak için kullanın:
+1. İstemci, bu durumda "Kış Olimpiyatları" bir sorgu terimine bulmak için kullanın:
     
     ```javascript
     client.newsOperations.search(search_term).then((result) => {
@@ -72,4 +72,4 @@ Kod konsola `result.value` öğelerini yazdırır ve metin ayrıştırması ger�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-[Tek sayfalı web uygulaması oluşturma](tutorial-bing-news-search-single-page-app.md)
+> [Tek sayfalı web uygulaması oluşturma](tutorial-bing-news-search-single-page-app.md)

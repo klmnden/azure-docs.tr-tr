@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 722712d1e38efa3e1accc41abca5c9d88b3c1229
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 21294f61c77f0267601c5d0fc1fc9dcf213008e7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095934"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258845"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager'ı Log Analytics'e bağlama
 Mevcut yatırımınızı korumak için [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) ve Log Analytics ile genişletilmiş özellikleri kullanmak için Operations Manager ile Log Analytics çalışma alanınızın tümleştirebilirsiniz. Bu sayede Operations Manager'ı kullanmaya devam ederken Log Analytics'in avantajlarından yararlanabilir ve:
@@ -132,7 +132,7 @@ Bir iç proxy sunucu yönetim grubu ve Log Analytics hizmeti arasında ise aşa�
 1. Operations Manager konsolunu açın ve **Yönetim** çalışma alanını seçin.
 1. Operations Management Suite'i genişletin ve **Bağlantılar**'a tıklayın.
 1. OMS Bağlantısı görünümünde, **Ara Sunucuyu Yapılandır**'a tıklayın.
-1. Üzerinde **Operations Management Suite Sihirbazı: Proxy sunucusu** sayfasında **Operations Management Suite erişimi için bir proxy sunucusunu kullanmak**, ve ardından URL'si bağlantı noktası numarası ile örneğin <http://corpproxy:80> ve ardından **son** .
+1. Üzerinde **Operations Management Suite Sihirbazı: Proxy sunucusu** sayfasında **Operations Management Suite erişimi için bir proxy sunucusunu kullanmak**, ve sonra bağlantı noktası numarasını içeren URL'yi yazın örneğin, http:\//corpproxy:80 ve ardından  **Son**.
 
 Ara sunucunuz kimlik doğrulaması gerektiriyorsa, kimlik bilgilerini ve Log Analytics için yönetim grubuna raporlayan yönetilen bilgisayarlara yayılmalıdır ayarlarını yapılandırmak için aşağıdaki adımları gerçekleştirin.
 

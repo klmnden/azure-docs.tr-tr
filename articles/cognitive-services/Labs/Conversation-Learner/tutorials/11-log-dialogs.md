@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9a819f94ae0cc90d86fdbdf4c9201f1d5a2df6ee
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: e3a84bfa643ebe74983bcef0d0ea72c701ffa589
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213353"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170505"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>İletişim kutuları bir konuşma Öğrenici modelde günlüğe kaydetme hakkında
 
@@ -55,6 +55,8 @@ Eylemler vazgeçilmez hava durumu, şehirde hakkında yanıt vermek için tasarl
 9. Yanıtı seçin, "Austin, hava durumu, büyük olasılıkla güneşli sağlıyor."
 10. "Kaydet olarak Train iletişim" düğmesine tıklayın.
     - Eğitim hemen başlatılır
+
+![](../media/T11_logdialog.png)
 
 Son unutmayın. İş gereksinimlerinize bağlı olarak konuşma günlüğe kaydetme özelliğinin ayarlarını ve seçimini kaldırarak "günlük konuşmaları." giderek kapatılabilir
 

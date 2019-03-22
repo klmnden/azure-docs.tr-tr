@@ -16,12 +16,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bf55cef00c0600963f8363e617c24fdc9113eae
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543874"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122986"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect eşitleme: Bir varsayılan yapılandırmaya bir değişiklik yapın
 Bu makalenin amacı, Azure Active Directory (Azure AD) Connect eşitleme Varsayılan yapılandırmada değişiklik yapmak nasıl rehberlik etmektir. Bu, bazı yaygın senaryolar için adımları sağlar. Bu bilgiyle, kendi iş kurallarına göre kendi yapılandırmasına basit değişiklikler yapabilir olmalıdır.
@@ -349,8 +349,8 @@ El ile yaptığınız bir tam eşitleme döngüsü adımları çalıştırırken
    3. Açılan iletişim kutusunda **tam içeri aktarma** ve ardından **Tamam**.
    4. İşlemin tamamlanmasını bekleyin.
 
-    > [!NOTE]
-    > Tam içeri aktarma atlayabilirsiniz şirket içi AD zaten kaynak öznitelik listesinde yer alıyorsa Bağlayıcısı öznitelikleri içeri aktarıldı. Diğer bir deyişle, sırasında herhangi bir değişiklik yapmak zorunda kalmadığımıza [2. adım: Şirket içi kaynak özniteliği eklemek AD Bağlayıcısı şema](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
+      > [!NOTE]
+      > Tam içeri aktarma atlayabilirsiniz şirket içi AD zaten kaynak öznitelik listesinde yer alıyorsa Bağlayıcısı öznitelikleri içeri aktarıldı. Diğer bir deyişle, sırasında herhangi bir değişiklik yapmak zorunda kalmadığımıza [2. adım: Şirket içi kaynak özniteliği eklemek AD Bağlayıcısı şema](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
 
 2. Çalıştıran bir **tam içeri aktarma** üzerinde **Azure AD Bağlayıcısı**:
 

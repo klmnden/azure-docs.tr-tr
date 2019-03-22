@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 14c43fbc138d6d70b65f6afd1ef174488e066796
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567749"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116784"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Coğrafi geri yükleme, çok kiracılı bir SaaS uygulaması, veritabanı yedeklerinden kurtarma için kullanın
 
@@ -32,13 +32,13 @@ Coğrafi geri yükleme, Azure SQL veritabanı için düşük maliyetli olağanü
 
 Bu öğretici, geri yükleme hem repatriation iş akışları açıklar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 > [!div class="checklist"]
-
->* Veritabanı ve elastik havuzu yapılandırma bilgilerini Kiracı kataloğa eşitleyin.
->* Uygulama, sunucuları ve havuzları içeren bir kurtarma bölgesinde bir Ayna görüntüsünü ortamı ayarlayın.   
->* Coğrafi geri yükleme ile katalog ve Kiracı veritabanlarını kurtarın.
->* Coğrafi çoğaltma, kesinti giderildikten sonra değiştirilen Kiracı veritabanları ve Kiracı Kataloğu repatriate için kullanın.
->* Her bir veritabanına geri (repatriated ya da gibi) güncelleştirme Kataloğu da Etkin kopyanın her bir kiracının veritabanının geçerli konumunu izlemek için.
->* Uygulama ve Kiracı veritabanı her zaman gecikmesini azaltmak için aynı Azure bölgesinde birlikte bulunduğundan emin olun. 
+> 
+> * Veritabanı ve elastik havuzu yapılandırma bilgilerini Kiracı kataloğa eşitleyin.
+> * Uygulama, sunucuları ve havuzları içeren bir kurtarma bölgesinde bir Ayna görüntüsünü ortamı ayarlayın.   
+> * Coğrafi geri yükleme ile katalog ve Kiracı veritabanlarını kurtarın.
+> * Coğrafi çoğaltma, kesinti giderildikten sonra değiştirilen Kiracı veritabanları ve Kiracı Kataloğu repatriate için kullanın.
+> * Her bir veritabanına geri (repatriated ya da gibi) güncelleştirme Kataloğu da Etkin kopyanın her bir kiracının veritabanının geçerli konumunu izlemek için.
+> * Uygulama ve Kiracı veritabanı her zaman gecikmesini azaltmak için aynı Azure bölgesinde birlikte bulunduğundan emin olun. 
  
 
 Bu öğreticiye başlamadan önce aşağıdaki önkoşulları tamamlayın:
@@ -194,13 +194,13 @@ Uygulama, uygulama uç noktasını Traffic Manager'da devre dışı bırakıldı
 
 * Katalog veritabanı kurtarıldıktan sonra ancak kiracılar tekrar çevrimiçi hale gelebilmesi web tarayıcınızda Wingtip bilet olay hub'ı yenileyin.
 
-    * Alt bilgisinde katalog sunucusu adı artık olduğuna dikkat edin - kurtarma sonek ve kurtarma bölgede bulunuyor.
+  * Alt bilgisinde katalog sunucusu adı artık olduğuna dikkat edin - kurtarma sonek ve kurtarma bölgede bulunuyor.
 
-    * Henüz geri yüklenmemiş kiracılar çevrimdışı olarak işaretlenir ve seçilemeyen dikkat edin.   
+  * Henüz geri yüklenmemiş kiracılar çevrimdışı olarak işaretlenir ve seçilemeyen dikkat edin.   
  
     ![Kurtarma işlemi](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-    * Bir kiracının olayları sayfası doğrudan Kiracı çevrimdışı durumdayken açarsanız, sayfanın Kiracı çevrimdışı bir bildirim görüntüler. Contoso Konser Salonu çevrimdışı olduğunda, örneğin, açmaya http://events.wingtip-dpt.&lt; kullanıcı&gt;.trafficmanager.net/contosoconcerthall.
+  * Bir kiracının olayları sayfası doğrudan Kiracı çevrimdışı durumdayken açarsanız, sayfanın Kiracı çevrimdışı bir bildirim görüntüler. Contoso Konser Salonu çevrimdışı olduğunda, örneğin, açmaya http://events.wingtip-dpt.&lt; kullanıcı&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Kurtarma işlemi](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -245,13 +245,13 @@ Kurtarma işlemi tamamlandığında, uygulama ve tüm kiracılar kurtarma bölge
 
 4. Kurtarma kaynak grubunu açın ve aşağıdaki öğeleri dikkat edin:
 
-    * Katalog ve tenants1 sunucularının kurtarma sürümler kurtarma sonekine sahip. Tüm bu sunucularda geri yüklenen katalog ve Kiracı veritabanlarını orijinal bölgede kullanılan adları vardır.
+   * Katalog ve tenants1 sunucularının kurtarma sürümler kurtarma sonekine sahip. Tüm bu sunucularda geri yüklenen katalog ve Kiracı veritabanlarını orijinal bölgede kullanılan adları vardır.
 
-    * Tenants2-dpt -&lt;kullanıcı&gt;-kurtarma SQL server. Bu sunucu, kesinti sırasında yeni kiracılar sağlama için kullanılır.
+   * Tenants2-dpt -&lt;kullanıcı&gt;-kurtarma SQL server. Bu sunucu, kesinti sırasında yeni kiracılar sağlama için kullanılır.
 
-    * App service adlı olayları-wingtip-dpt -&lt;recoveryregion&gt;-&lt;kullanıcı&gt;, etkinlikler uygulaması kurtarma örneği olduğu.
+   * App service adlı olayları-wingtip-dpt -&lt;recoveryregion&gt;-&lt;kullanıcı&gt;, etkinlikler uygulaması kurtarma örneği olduğu.
 
-    ![Kurtarma bölgesindeki contoso kaynakları](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
+     ![Kurtarma bölgesindeki contoso kaynakları](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
     
 5. Tenants2 açın-dpt -&lt;kullanıcı&gt;-kurtarma SQL server. Veritabanı hawthornhall ve elastik havuz Pool1 içerdiğine dikkat edin. Hawthornhall veritabanı Pool1 elastik havuzdaki esnek bir veritabanı olarak yapılandırılır.
 
@@ -367,12 +367,12 @@ Kiracı veritabanlarını kurtarma ve özgün bölgeler arasında bir süre boyu
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > [!div class="checklist"]
-
->* Başka bir bölgede oluşturulacak bir Ayna görüntüsünü kurtarma ortamı sağlayan düzenli aralıklarla yenilenen yapılandırma bilgilerini saklamak için Kiracı Kataloğu kullanın.
->* Azure SQL veritabanı coğrafi geri yükleme ile kurtarma bölgeye kurtarın.
->* Kiracı kataloğa geri yüklenen Kiracı veritabanı konumları yansıtacak şekilde güncelleştirin. 
->* Yeniden yapılandırma olmadan Kiracı Kataloğu'na bağlanmak bir uygulama için bir DNS diğer adı kullanın.
->* Coğrafi çoğaltma, kesinti giderildikten sonra kurtarılan veritabanları kendi özgün bölgeye repatriate için kullanın.
+> 
+> * Başka bir bölgede oluşturulacak bir Ayna görüntüsünü kurtarma ortamı sağlayan düzenli aralıklarla yenilenen yapılandırma bilgilerini saklamak için Kiracı Kataloğu kullanın.
+> * Azure SQL veritabanı coğrafi geri yükleme ile kurtarma bölgeye kurtarın.
+> * Kiracı kataloğa geri yüklenen Kiracı veritabanı konumları yansıtacak şekilde güncelleştirin. 
+> * Yeniden yapılandırma olmadan Kiracı Kataloğu'na bağlanmak bir uygulama için bir DNS diğer adı kullanın.
+> * Coğrafi çoğaltma, kesinti giderildikten sonra kurtarılan veritabanları kendi özgün bölgeye repatriate için kullanın.
 
 Deneyin [coğrafi veri tabanı çoğaltmayı kullanarak çok kiracılı bir SaaS uygulaması için olağanüstü durum kurtarma](saas-dbpertenant-dr-geo-replication.md) coğrafi çoğaltma büyük ölçekli, çok kiracılı bir uygulama kurtarmak için gereken zamanı önemli ölçüde azaltmak için nasıl kullanılacağını öğrenmek için öğreticiye.
 

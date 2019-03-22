@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: b7ac8c0f5c45382dd3beb943699efb198a94e0eb
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 5542d61c5e615361ca96f911cfe11540fcd09037
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57402351"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103834"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Bir ExpressRoute bağlantı hattı için (Klasik) eşlemesi oluşturma ve değiştirme
 > [!div class="op_single_selector"]
@@ -58,25 +58,25 @@ Azure hesabınızda oturum açmak için aşağıdaki örnekleri kullanın:
 
 1. PowerShell konsolunuzu yükseltilmiş haklarla açın ve hesabınıza bağlanın.
 
-  ```powershell
-  Connect-AzureRmAccount
-  ```
+   ```powershell
+   Connect-AzureRmAccount
+   ```
 2. Hesapla ilişkili abonelikleri kontrol edin.
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+   ```powershell
+   Get-AzureRmSubscription
+   ```
 3. Birden fazla aboneliğiniz varsa, kullanmak istediğiniz aboneliği seçin.
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
-  ```
+   ```powershell
+   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   ```
 
 4. Ardından, Azure aboneliğiniz için PowerShell Klasik dağıtım modeli için eklemek için aşağıdaki cmdlet'i kullanın.
 
-  ```powershell
-  Add-AzureAccount
-  ```
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## <a name="azure-private-peering"></a>Azure özel eşlemesi
 
@@ -86,59 +86,59 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Azure özel eşleme yapıl
 
 1. **Bir ExpressRoute bağlantı hattı oluşturun.**
 
-  Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-classic.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için Azure özel eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra aşağıdaki yönergeleri izleyin.
+   Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-classic.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için Azure özel eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra aşağıdaki yönergeleri izleyin.
 2. **ExpressRoute bağlantı hattının sağlandığından emin olmak için kontrol edin.**
    
-  ExpressRoute bağlantı hattı sağlanan ve ayrıca etkin olmadığını denetleyin.
+   ExpressRoute bağlantı hattı sağlanan ve ayrıca etkin olmadığını denetleyin.
 
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  Döndür:
+   Döndür:
 
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  Bağlantı hattı sağlanıyor ve etkin gösterildiğinden emin olun. Aksi takdirde devreniz gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
+   Bağlantı hattı sağlanıyor ve etkin gösterildiğinden emin olun. Aksi takdirde devreniz gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 3. **Bağlantı hattı için Azure özel eşlemesini yapılandırın.**
 
-  Sonraki adımlara devam etmeden önce aşağıdaki öğelerin bulunduğundan emin olun:
+   Sonraki adımlara devam etmeden önce aşağıdaki öğelerin bulunduğundan emin olun:
    
-  * Birincil bağlantı için bir /30 alt ağı. Bu, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır.
-  * İkincil bağlantı için bir /30 alt ağı. Bu, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır.
-  * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Hiçbir bağlantı diğer eşlemesi aynı VLAN kimliğini kullanmadığından emin olun
-  * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz. Bu eşleme için özel bir AS numarası kullanabilirsiniz. 65515 kullanmıyorsanız doğrulayın.
-  * Kullanmayı seçerseniz bir MD5 karma değeri. **İsteğe bağlı**.
+   * Birincil bağlantı için bir /30 alt ağı. Bu, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır.
+   * İkincil bağlantı için bir /30 alt ağı. Bu, sanal ağlar için ayrılmış herhangi bir adres alanının parçası olmamalıdır.
+   * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Hiçbir bağlantı diğer eşlemesi aynı VLAN kimliğini kullanmadığından emin olun
+   * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz. Bu eşleme için özel bir AS numarası kullanabilirsiniz. 65515 kullanmıyorsanız doğrulayın.
+   * Kullanmayı seçerseniz bir MD5 karma değeri. **İsteğe bağlı**.
      
-  Bağlantı hattınız için Azure özel eşlemesini yapılandırmak üzere aşağıdaki örneği kullanabilirsiniz:
+   Bağlantı hattınız için Azure özel eşlemesini yapılandırmak üzere aşağıdaki örneği kullanabilirsiniz:
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
-  ```    
+   ```powershell
+   New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100
+   ```    
 
-  Bir MD5 karma değeri kullanmak istiyorsanız, bağlantı hattınız için özel eşlemesini yapılandırmak üzere aşağıdaki örneği kullanın:
+   Bir MD5 karma değeri kullanmak istiyorsanız, bağlantı hattınız için özel eşlemesini yapılandırmak üzere aşağıdaki örneği kullanın:
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 100 -SharedKey "A1B2C3D4"
+   ```
      
-  > [!IMPORTANT]
-  > AS numaranızı eşleme ASN'si olarak müşteri ASN'si olarak belirttiğinizden emin olun.
-  > 
+   > [!IMPORTANT]
+   > AS numaranızı eşleme ASN'si olarak müşteri ASN'si olarak belirttiğinizden emin olun.
+   > 
 
 ### <a name="to-view-azure-private-peering-details"></a>Azure özel eşleme ayrıntılarını görüntülemek için
 
@@ -189,59 +189,59 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Azure ortak eşleme yapıl
 
 1. **ExpressRoute bağlantı hattı oluşturma**
 
-  Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-classic.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için Azure ortak eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra aşağıdaki yönergeleri izleyin.
+   Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-classic.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için Azure ortak eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra aşağıdaki yönergeleri izleyin.
 2. **Onay ExpressRoute bağlantı hattının sağlandığından emin olun**
 
-  Önce ExpressRoute ağ geçidinin Sağlandığından ve Etkin durumda olduğundan emin olmanız gerekir.
+   Önce ExpressRoute ağ geçidinin Sağlandığından ve Etkin durumda olduğundan emin olmanız gerekir.
 
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  Döndür:
+   Döndür:
 
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  Bağlantı hattı sağlanıyor ve etkin gösterdiğini doğrulayın. Aksi takdirde devreniz gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
+   Bağlantı hattı sağlanıyor ve etkin gösterdiğini doğrulayın. Aksi takdirde devreniz gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 4. **Bağlantı hattı için Azure ortak eşlemesini yapılandırın**
    
-  Devam etmeden önce aşağıdaki bilgilere sahip olduğundan emin olun:
+   Devam etmeden önce aşağıdaki bilgilere sahip olduğundan emin olun:
    
-  * Birincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır.
-  * İkincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır.
-  * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Hiçbir bağlantı diğer eşlemesi aynı VLAN kimliğini kullanmadığından emin olun
-  * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
-  * Kullanmayı seçerseniz bir MD5 karma değeri. **İsteğe bağlı**.
+   * Birincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır.
+   * İkincil bağlantı için bir /30 alt ağı. Bu geçerli bir ortak IPv4 öneki olmalıdır.
+   * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Hiçbir bağlantı diğer eşlemesi aynı VLAN kimliğini kullanmadığından emin olun
+   * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
+   * Kullanmayı seçerseniz bir MD5 karma değeri. **İsteğe bağlı**.
 
-  > [!IMPORTANT]
-  > AS numaranızı müşteri ASN'si değil eşleme ASN'si de belirttiğinizden emin olun.
-  >  
+   > [!IMPORTANT]
+   > AS numaranızı müşteri ASN'si değil eşleme ASN'si de belirttiğinizden emin olun.
+   >  
      
-  Bağlantı hattınız için Azure ortak eşlemesini yapılandırmak üzere aşağıdaki örneği kullanabilirsiniz:
+   Bağlantı hattınız için Azure ortak eşlemesini yapılandırmak üzere aşağıdaki örneği kullanabilirsiniz:
 
-  ```powershell
-  New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200
+   ```
      
-  Bir MD5 karma değeri kullanmak istiyorsanız, bağlantı hattınızı yapılandırmak için aşağıdaki örneği kullanın:
+   Bir MD5 karma değeri kullanmak istiyorsanız, bağlantı hattınızı yapılandırmak için aşağıdaki örneği kullanın:
      
-  ```powershell
-  New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 200 -SharedKey "A1B2C3D4"
+   ```
      
 ### <a name="to-view-azure-public-peering-details"></a>Azure ortak eşleme ayrıntılarını görüntülemek için
 
@@ -293,34 +293,34 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Microsoft eşleme yapılan
 
 1. **ExpressRoute bağlantı hattı oluşturma**
   
-  Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-classic.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için Azure özel eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra aşağıdaki yönergeleri izleyin.
+   Bir [ExpressRoute bağlantı hattı](expressroute-howto-circuit-classic.md) oluşturmak için yönergeleri izleyin ve bağlantı sağlayıcısından bağlantı hattını sağlamasını isteyin. Bağlantı sağlayıcınız yönetilen Katman 3 hizmetleri sunuyorsa, bağlantı sağlayıcınızdan sizin için Azure özel eşlemeyi etkinleştirmesini isteyebilirsiniz. Bu durumda, sonraki bölümlerde listelenen yönergeleri izlemeniz gerekmez. Ancak, bağlantı sağlayıcınız yönlendirmeyi sizin için yönetmiyorsa, bağlantı hattınızı oluşturduktan sonra aşağıdaki yönergeleri izleyin.
 2. **Onay ExpressRoute bağlantı hattının sağlandığından emin olun**
 
-  Bağlantı hattı sağlanıyor ve etkin gösterdiğini doğrulayın. 
+   Bağlantı hattı sağlanıyor ve etkin gösterdiğini doğrulayın. 
    
-  ```powershell
-  Get-AzureDedicatedCircuit -ServiceKey "*********************************"
-  ```
+   ```powershell
+   Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+   ```
 
-  Döndür:
+   Döndür:
    
-  ```powershell
-  Bandwidth                        : 200
-  CircuitName                      : MyTestCircuit
-  Location                         : Silicon Valley
-  ServiceKey                       : *********************************
-  ServiceProviderName              : equinix
-  ServiceProviderProvisioningState : Provisioned
-  Sku                              : Standard
-  Status                           : Enabled
-  ```
+   ```powershell
+   Bandwidth                        : 200
+   CircuitName                      : MyTestCircuit
+   Location                         : Silicon Valley
+   ServiceKey                       : *********************************
+   ServiceProviderName              : equinix
+   ServiceProviderProvisioningState : Provisioned
+   Sku                              : Standard
+   Status                           : Enabled
+   ```
    
-  Bağlantı hattı sağlanıyor ve etkin gösterdiğini doğrulayın. Aksi takdirde devreniz gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
+   Bağlantı hattı sağlanıyor ve etkin gösterdiğini doğrulayın. Aksi takdirde devreniz gerekli durumu ve durumunu almak için bağlantı sağlayıcınız ile çalışır.
 
-  ```powershell
-  ServiceProviderProvisioningState : Provisioned
-  Status                           : Enabled
-  ```
+   ```powershell
+   ServiceProviderProvisioningState : Provisioned
+   Status                           : Enabled
+   ```
 3. **Microsoft bağlantı hattı için eşleme yapılandırma**
    
     Devam etmeden önce aşağıdaki bilgilere sahip olduğunuzdan emin olun.
@@ -334,11 +334,11 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Microsoft eşleme yapılan
    * Yönlendirme kayıt defteri adı: Belirtebileceğiniz RIR / IRR'yi AS numarası ve öneklerinin kaydedildiği rır.
    * Kullanmayı seçerseniz bir MD5 karma değeri. **İsteğe bağlı.**
      
-  Microsoft, bağlantı hattı için eşleme yapılandırmak üzere aşağıdaki cmdlet'i çalıştırın:
+   Microsoft, bağlantı hattı için eşleme yapılandırmak üzere aşağıdaki cmdlet'i çalıştırın:
  
-  ```powershell
-  New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
-  ```
+   ```powershell
+   New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
+   ```
 
 ### <a name="to-view-microsoft-peering-details"></a>Microsoft eşleme ayrıntılarını görüntülemek için
 

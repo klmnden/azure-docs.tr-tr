@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 3b23ea83a0fc710a5b664f31ad997b843d18f6fe
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7cd7b8f7b49915db9fcf17602429e47c1b9da95d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765196"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901432"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Öğretici: Jenkins ve Azure DevOps hizmetlerini kullanarak uygulamanızı azure'da Linux sanal makineleri dağıtma
 
@@ -35,7 +35,7 @@ bir [dağıtım grubuna](https://docs.microsoft.com/azure/devops/pipelines/relea
 > * Azure DevOps Services tümleştirmesi için Jenkins’i yapılandırın.
 > * Jenkins hizmet uç noktası oluşturma.
 > * Azure sanal makineleri için dağıtım grubu oluşturma.
-> * Azure Pipelines yayın işlem hattı oluşturun.
+> * Bir Azure işlem hatları yayın işlem hattı oluşturursunuz.
 > * El ile ve CI ile tetiklenen dağıtımlar yürütme.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
@@ -60,7 +60,7 @@ Bu öğretici için, [GitHub’dan erişebileceğiniz bu örnek uygulamayı](htt
 Bu uygulamanın çatalını oluşturun ve bu öğreticinin daha sonraki adımlarında kullanmak üzere konumu (URL) not edin. Daha fazla bilgi için bkz. [Depo çatalı oluşturma](https://help.github.com/articles/fork-a-repo/).    
 
 > [!NOTE]
-> Uygulama, [Yeoman](http://yeoman.io/learning/index.html) aracılığıyla oluşturulmuştur. Express, bower ve grunt kullanır. Ayrıca bağımlılıklar olarak bazı npm paketlerini içerir.
+> Uygulama, [Yeoman](https://yeoman.io/learning/index.html) aracılığıyla oluşturulmuştur. Express, bower ve grunt kullanır. Ayrıca bağımlılıklar olarak bazı npm paketlerini içerir.
 > Örnek, Nginx’i ayarlayan ve uygulamayı dağıtan bir betik de içerir. Sanal makinelerde yürütülür. Betik özellikle:
 > 1. Node, Nginx ve PM2'yi yükler.
 > 2. Nginx ve PM2’yi yapılandırır.
@@ -141,7 +141,7 @@ Yayın işlem hattının sanal makinenize dağıtılabilmesi için Azure DevOps 
 8. Yüklemeden sonra sizden dağıtım grubu etiketleri istenir. Varsayılanları kabul edin.
 9. Azure DevOps Services’ta, **Dağıtım Grupları** bölümündeki **Hedefler** kısmında yeni kaydettiğiniz sanal makinenizin olup olmadığını denetleyin.
 
-## <a name="create-a-azure-pipelines-release-pipeline"></a>Azure Pipelines yayın işlem hattı oluşturma
+## <a name="create-an-azure-pipelines-release-pipeline"></a>Bir Azure işlem hatları yayın işlem hattı oluşturma
 
 Yayın işlem hattı, Azure Pipelines’ın uygulamayı dağıtmak için kullandığı işlemi belirtir. Bu örnekte, bir kabuk betiği yürütürsünüz.
 

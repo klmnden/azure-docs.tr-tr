@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/25/2019
 ms.author: v-krghan
 ms.custom: include file
-ms.openlocfilehash: 5909533c2153fe7c6697f516ce7568787b82bdab
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 81590a4d686d85482bee38c4391b8ac24b25658e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55106056"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125079"
 ---
 ## <a name="download-the-source-code"></a>Kaynak kodunu indirebilir
 
@@ -54,16 +54,16 @@ Gerekli Azure kaynakları henüz oluşturduysanız, şu adımları izleyin:
     ```
 
 1. Çalıştırma **start.cmd** betiği. Betik için aşağıdaki bilgileri ister:
-    * Bir çözüm adı.
-    * Kullanılacak Azure aboneliği.
-    * Kullanmak için Azure veri merkezi konumu.
+   * Bir çözüm adı.
+   * Kullanılacak Azure aboneliği.
+   * Kullanmak için Azure veri merkezi konumu.
 
-    Betik, çözümünüzün adına ile Azure'da kaynak grubu oluşturur. Bu kaynak grubu, çözüm Hızlandırıcısını Azure kaynaklarını içerir. İlgili kaynaklara artık ihtiyacınız sonra bu kaynak grubunu silebilirsiniz.
+     Betik, çözümünüzün adına ile Azure'da kaynak grubu oluşturur. Bu kaynak grubu, çözüm Hızlandırıcısını Azure kaynaklarını içerir. İlgili kaynaklara artık ihtiyacınız sonra bu kaynak grubunu silebilirsiniz.
 
-    Betik ayrıca bir ön ek ortam değişkenlerini kümesi ekler **bilgisayarları** yerel makinenize. Docker kapsayıcıları ve mikro hizmet projeleri yerel olarak başlatıldığında, bu ortam değişkenlerinden yapılandırma değerlerine okuyun.
+     Betik ayrıca bir ön ek ortam değişkenlerini kümesi ekler **bilgisayarları** yerel makinenize. Docker kapsayıcıları ve mikro hizmet projeleri yerel olarak başlatıldığında, bu ortam değişkenlerinden yapılandırma değerlerine okuyun.
 
-    > [!TIP]
-    > Betik tamamlandığında, bu da adlı bir dosyaya ortam değişkenlerini kaydeder  **\<, giriş klasörü\>\\.pcs\\\<çözüm adı\>.env** . Gelecekteki çözüm Hızlandırıcı dağıtımları için bunları kullanabilirsiniz. Yerel makinenizde, herhangi bir ortam değişkenini değerleri geçersiz kıldığını unutmayın **Hizmetleri\\betikleri\\yerel\\.env** dosyasını çalıştırdığınızda **docker-compose**.
+     > [!TIP]
+     > Betik tamamlandığında, bu da adlı bir dosyaya ortam değişkenlerini kaydeder  **\<, giriş klasörü\>\\.pcs\\\<çözüm adı\>.env** . Gelecekteki çözüm Hızlandırıcı dağıtımları için bunları kullanabilirsiniz. Yerel makinenizde, herhangi bir ortam değişkenini değerleri geçersiz kıldığını unutmayın **Hizmetleri\\betikleri\\yerel\\.env** dosyasını çalıştırdığınızda **docker-compose**.
 
 1. Komut satırı ortamınızdan çıkın.
 

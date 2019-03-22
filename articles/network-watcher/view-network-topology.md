@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 842c0d5e3dff0c21545405624f0f536c80359b19
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: eb98fc2da95f1aa2b7294d09ec2a3145bdb5c789
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809904"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112747"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Bir Azure sanal ağ topolojisini görüntüleme
 
@@ -42,7 +42,7 @@ Kullanabileceğiniz [Azure portalında](#azure-portal), [Azure CLI](#azure-cli),
     - Aynı kaynak grubunda ve bölgede içinde *myVnet* sanal ağ. Örneğin, bir kaynak grubunda dışındaki mevcut bir ağ güvenlik grubu *MyResourceGroup*, bir alt ağda ilişkili ağ güvenlik grubu olsa bile, gösterilmiyor *MyVnet* sanal ağ .
     - İçinde ya da kaynaklara, içine ilişkili *myVnet* sanal ağ. Örneğin, bir alt ağ veya ağ arabirimi ile ilişkili olmayan bir ağ güvenlik grubu *myVnet* sanal ağ göremiyorsanız, ağ güvenlik grubu olmasa dahi *MyResourceGroup* kaynak grubu.
 
-  Resimde gösterilen dağıttıktan sonra oluşturduğunuz sanal ağı için topolojidir **yönlendirme trafiği ağ sanal Gereci betik örneği-**, kullanarak dağıtabileceğiniz [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), veya [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+   Resimde gösterilen dağıttıktan sonra oluşturduğunuz sanal ağı için topolojidir **yönlendirme trafiği ağ sanal Gereci betik örneği-**, kullanarak dağıtabileceğiniz [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), veya [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 6. Seçin **indirme topolojisi** svg biçiminde düzenlenebilir bir dosya olarak kullanmak üzere görüntüyü indirmek için.
 
@@ -79,7 +79,7 @@ Kullandığınız hesabın gerekli olmalıdır [izinleri](required-rbac-permissi
 
     Aynı kaynak grubu içindeki kaynaklar için yalnızca topoloji bilgilerini döndürülen *MyResourceGroup* kaynak grubunu ve aynı bölgede Ağ İzleyicisi. Örneğin, bir kaynak grubunda dışındaki mevcut bir ağ güvenlik grubu *MyResourceGroup*, bir alt ağda ilişkili ağ güvenlik grubu olsa bile, gösterilmiyor *MyVnet* sanal ağ .
 
-  İlişkiler hakkında daha fazla bilgi edinin ve [özellikleri](#properties) döndürülen çıktı. İçin bir topolojiyi görüntülemek için mevcut bir sanal ağınız yoksa, kullanarak bir tane oluşturabilirsiniz [ağ sanal Gereci trafiği yönlendirme](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) betik örneği. İçinde düzenlenebilir bir dosya indirin ve topoloji diyagramı görüntülemek için kullanın [portalı](#azure-portal).
+   İlişkiler hakkında daha fazla bilgi edinin ve [özellikleri](#properties) döndürülen çıktı. İçin bir topolojiyi görüntülemek için mevcut bir sanal ağınız yoksa, kullanarak bir tane oluşturabilirsiniz [ağ sanal Gereci trafiği yönlendirme](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) betik örneği. İçinde düzenlenebilir bir dosya indirin ve topoloji diyagramı görüntülemek için kullanın [portalı](#azure-portal).
 
 ## <a name = "powershell"></a>Topolojisini görüntüleme - PowerShell
 
@@ -123,7 +123,7 @@ Kullandığınız hesabın gerekli olmalıdır [izinleri](required-rbac-permissi
 
    Aynı kaynak grubu içindeki kaynaklar için yalnızca topoloji bilgilerini döndürülen *MyResourceGroup* kaynak grubunu ve aynı bölgede Ağ İzleyicisi. Örneğin, bir kaynak grubunda dışındaki mevcut bir ağ güvenlik grubu *MyResourceGroup*, bir alt ağda ilişkili ağ güvenlik grubu olsa bile, gösterilmiyor *MyVnet* sanal ağ .
 
-  İlişkiler hakkında daha fazla bilgi edinin ve [özellikleri](#properties) döndürülen çıktı. İçin bir topolojiyi görüntülemek için mevcut bir sanal ağınız yoksa, kullanarak bir tane oluşturabilirsiniz [ağ sanal Gereci trafiği yönlendirme](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) betik örneği. İçinde düzenlenebilir bir dosya indirin ve topoloji diyagramı görüntülemek için kullanın [portalı](#azure-portal).
+   İlişkiler hakkında daha fazla bilgi edinin ve [özellikleri](#properties) döndürülen çıktı. İçin bir topolojiyi görüntülemek için mevcut bir sanal ağınız yoksa, kullanarak bir tane oluşturabilirsiniz [ağ sanal Gereci trafiği yönlendirme](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) betik örneği. İçinde düzenlenebilir bir dosya indirin ve topoloji diyagramı görüntülemek için kullanın [portalı](#azure-portal).
 
 ## <a name="relationships"></a>İlişkiler
 

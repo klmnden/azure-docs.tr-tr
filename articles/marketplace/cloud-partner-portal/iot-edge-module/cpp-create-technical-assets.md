@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 877e42dc8d6e69834cf989122f855ada560b813c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2ed4826eb47ab2fb13d312860475f9ec9b323bf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201253"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884163"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Teknik varlıkları, IOT Edge modülü hazırlama
 
@@ -45,7 +45,7 @@ IOT Edge Modülü aşağıdaki platformu seçeneklerden birini desteklemesi gere
 IOT Edge tarafından desteklenen tüm katman 1 platformlarını destekleyen (kaydedildiği şekilde [Azure IOT Edge desteği](https://docs.microsoft.com/azure/iot-edge/support)). Daha iyi bir müşteri deneyimi sağladığından bu seçenek önerilir. Bu ölçütleri karşılayan modülleri büyütmüş. Bu platform seçeneği kullanarak bir modülü gerekir:
 
 - Sağlayan bir `latest` etiketi ve sürüm etiketi (örneğin, `1.0.1`) bildirim etiketleri GitHub ile oluşturulmuş olan [bildirim aracı](https://github.com/estesp/manifest-tool).
-- Kullanım [Marketi sekmesinden](./cpp-marketplace-tab.md) bağlantısı eklemek için [sertifikalı cihazları uyumlu IOT Edge](https://aka.ms/iot-edge-certified). Bu bağlantıyı çözümler `http://aka.ms/iot-edge-certified`, burada müşteriler göz atın veya arayın bir Web sitesi sertifikalı cihazlar. Bu Web sitesi de denir [Azure IOT Edge sertifikası](https://catalog.azureiotsolutions.com/) cihaz Kataloğu.
+- Kullanım [Marketi sekmesinden](./cpp-marketplace-tab.md) bağlantısı eklemek için [sertifikalı cihazları uyumlu IOT Edge](https://aka.ms/iot-edge-certified). Bu bağlantıyı çözümler `https://aka.ms/iot-edge-certified`, burada müşteriler göz atın veya arayın bir Web sitesi sertifikalı cihazlar. Bu Web sitesi de denir [Azure IOT Edge sertifikası](https://catalog.azureiotsolutions.com/) cihaz Kataloğu.
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>Bir alt kümesini bir IOT Edge tarafından desteklenen Katman 1 platformlar
   
@@ -61,9 +61,9 @@ IOT Edge modülü boyutları (CPU/RAM/depolama/GPU/vb.) hedeflenen IOT Edge ciha
 - Modül gerekir **en az bir IOT Edge sertifikalı iş** aygıtı [Azure IOT Edge sertifikası](https://catalog.azureiotsolutions.com/) cihaz Kataloğu.
 - **En düşük donanım gereksinimleri** teklif açıklaması son paragraf olarak belgelenmelidir (altında [Marketi sekmesinden](./cpp-marketplace-tab.md)). İsteğe bağlı olarak önemli ölçüde farklıysa önerilen donanım gereksinimleri de listeleyebilirsiniz. Örneğin, aşağıdaki bölümde, teklif açıklaması sonuna ekleyin:
 
- ```html
+  ```html
     <p><u>Minimum hardware requirements:</u> Linux x64 and arm32  OS, 1GB of RAM, 500 Mb of storage</p>
- ```
+  ```
 
 ### <a name="configuration"></a>Yapılandırma
 
@@ -128,7 +128,8 @@ Modülü IOT SDK'sı, çalışan modülü örneklerinin sayısı ile ilgili tele
 
 ## <a name="recertification-process"></a>Yeniden sertifikalandırılmasını işlemi
 
-<!-- Add legal time windows--> İş ortakları kendi modüllerinin gibi etkileyen bir değişiklik olduğunda bildirimi alırsınız:
+<!-- Add legal time windows-->
+İş ortakları kendi modüllerinin gibi etkileyen bir değişiklik olduğunda bildirimi alırsınız:
 
 - IOT Edge tarafından desteklenen Katman 1 işletim sistemi/arch destek matrisi
 - IOT modülü SDK'sı

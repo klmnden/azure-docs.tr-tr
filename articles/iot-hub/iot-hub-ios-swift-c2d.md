@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 882c2f7d9abfa40ddafbba4f98292c3f8f44c459
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e7e8d12af92a566753d8f3d7baf5019bae44de2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548720"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58163526"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>IOT hub'ı (iOS) ile bulut buluttan cihaza iletileri gönderme
 
@@ -128,7 +128,7 @@ Yükleme komutu, projeniz için gereken podları yüklemeye ek olarak bağımlı
 1. IOT hub'ınız için hizmeti bağlantı dizesini alın. Bu dizeden kopyalayabilirsiniz [Azure portalında](https://portal.azure.com) gelen **iothubowner** ilkesinde **paylaşılan erişim ilkeleri** dikey penceresinde aşağıdaki CLI komutunu ile alabilir:  
 
     ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
+    az iot hub show-connection-string --name {YourIoTHubName} --output table
     ```
 
 2. Örnek çalışma alanını XCode'da açın.

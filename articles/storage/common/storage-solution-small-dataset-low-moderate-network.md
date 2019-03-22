@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 7cdaebe62c7071b26c29e599bb0614dbe7631085
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3e6f4f3eb312f0d4d96a008c0944a9608d0bf4a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778034"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124312"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Orta ağ bant genişliği düşük ile küçük veri kümeleri için veri aktarımı
  
@@ -49,16 +49,16 @@ Bu senaryoda, önerilen seçenek vardır:
 
 Aşağıdaki tabloda temel işlevleri farklılıkları özetlemektedir.
 
-| Özellik                                                            | Azure Depolama Gezgini                    | Azure portal  | AzCopy<br>Azure PowerShell<br>Azure CLI            | Azure depolama REST API veya SDK'ları |
-|----------------------------------------------|-------------------------------------------|--------------------------------------|-------------------|---------------------------------------|
-| Kullanılabilirlik                                                       | İndir ve yükle <br>Tek başına aracı | Azure portalında Web tabanlı araştırma araçları           | Komut satırı aracı |.NET, Java, Python, JavaScript, C++, Go, Ruby ve PHP'ye programlanabilir arabirimleri                                                         |
-| Grafik arabirimi                                              | Evet                                       | Evet                                                     | Hayır                | Hayır                                                      |
-| Desteklenen platformlar                                              | Windows, Mac, Linux                       | Web tabanlı     |Windows, Mac, Linux     |Tüm platformlar                                                         |
-| BLOB Depolama işlemlerine izin<br>BLOB'ları ve klasörleri            | Karşıya Yükle<br>İndirme<br>Yönetme    | Karşıya Yükle<br>İndirme<br>Yönetme  |Karşıya Yükle<br>İndirme<br>Yönetme             | Evet, özelleştirilebilir                                                        |
-| İzin verilen Data Lake Gen1 depolama<br>dosyalar ve klasörler için işlemler  | Karşıya Yükle<br>İndirme<br>Yönetme                | Hayır |Karşıya Yükle<br>İndirme<br>Yönetme                   |      Hayır                                                   |
-| Dosya depolama işlemlerine izin<br>dosyalar ve dizinler için        | Karşıya Yükle<br>İndirme<br>Yönetme       | Karşıya Yükle<br>İndirme<br>Yönetme   |Karşıya Yükle<br>İndirme<br>Yönetme |                                                         |Evet, özelleştirilebilir
-| Tablo depolama işlemlerine izin<br>tablolar için                      |Yönetme                            | Hayır            |AzCopy v7 tablo desteği |Evet, özelleştirilebilir|
-| İzin verilen kuyruk depolama                                              | Yönetme                                    | Hayır  |Hayır | Evet, özelleştirilebilir.|
+| Özellik | Azure Depolama Gezgini | Azure portal | AzCopy<br>Azure PowerShell<br>Azure CLI | Azure depolama REST API veya SDK'ları |
+|---------|------------------------|--------------|-----------------------------------------|---------------------------------|
+| Kullanılabilirlik | İndir ve yükle <br>Tek başına aracı | Azure portalında Web tabanlı araştırma araçları | Komut satırı aracı |.NET, Java, Python, JavaScript, C++, Go, Ruby ve PHP'ye programlanabilir arabirimleri |
+| Grafik arabirimi | Evet | Evet | Hayır | Hayır |
+| Desteklenen platformlar | Windows, Mac, Linux | Web tabanlı |Windows, Mac, Linux |Tüm platformlar |
+| BLOB Depolama işlemlerine izin<br>BLOB'ları ve klasörleri | Karşıya Yükle<br>İndirme<br>Yönetme | Karşıya Yükle<br>İndirme<br>Yönetme |Karşıya Yükle<br>İndirme<br>Yönetme | Evet, özelleştirilebilir |
+| İzin verilen Data Lake Gen1 depolama<br>dosyalar ve klasörler için işlemler | Karşıya Yükle<br>İndirme<br>Yönetme | Hayır |Karşıya Yükle<br>İndirme<br>Yönetme                   | Hayır |
+| Dosya depolama işlemlerine izin<br>dosyalar ve dizinler için | Karşıya Yükle<br>İndirme<br>Yönetme | Karşıya Yükle<br>İndirme<br>Yönetme   |Karşıya Yükle<br>İndirme<br>Yönetme | Evet, özelleştirilebilir |
+| Tablo depolama işlemlerine izin<br>tablolar için |Yönetme | Hayır |AzCopy v7 tablo desteği |Evet, özelleştirilebilir|
+| İzin verilen kuyruk depolama | Yönetme | Hayır  |Hayır | Evet, özelleştirilebilir.|
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

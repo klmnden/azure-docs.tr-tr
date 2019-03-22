@@ -3,18 +3,18 @@ title: Akış Azure HDInsight Spark
 description: HDInsight Spark kümelerinde Spark akış uygulamaları kullanma
 services: hdinsight
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.openlocfilehash: d44dc7e7a7b3c63012518c3e854270555f469247
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 03/11/2019
+ms.openlocfilehash: 3ecabd683ed4303a7ff54780299ed0e83aa14c26
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873721"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892088"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Akış Apache Spark'a genel bakış
 
@@ -55,86 +55,103 @@ Bu tanımı statiktir ve uygulamayı çalıştırana kadar hiçbir veriler işle
 
 #### <a name="create-a-streamingcontext"></a>Bir StreamingContext oluşturma
 
-Bir StreamingContext kümenize işaret zamanda sparkcontext öğesini oluşturun. Bir StreamingContext oluştururken, toplu işin boyutunu saniye cinsinden, örneğin belirtin:
+Bir StreamingContext kümenize işaret zamanda sparkcontext öğesini oluşturun. Bir StreamingContext oluştururken, toplu işin boyutunu saniye cinsinden, örneğin belirtin:  
 
-    val ssc = new StreamingContext(spark, Seconds(1))
+```
+import org.apache.spark._
+import org.apache.spark.streaming._
+
+val ssc = new StreamingContext(sc, Seconds(1))
+```
 
 #### <a name="create-a-dstream"></a>Bir DStream oluşturma
 
 Giriş kaynağınız için bir giriş DStream StreamingContext örneği ile oluşturun. Bu durumda, uygulama için bağlı bir HDInsight kümesi için varsayılan depolama alanı yeni dosyaları görünümünü izliyor.
 
-    val lines = ssc.textFileStream("/uploads/2017/01/")
+```
+val lines = ssc.textFileStream("/uploads/Test/")
+```
 
 #### <a name="apply-transformations"></a>Dönüşüm Uygulama
 
 İşleme, dönüşümler üzerinde DStream uygulayarak uygulayın. Bu uygulama, tek satırlık bir metin dosyasından bir zaman alır, her satırı içinde sözcükleri böler ve sonra her bir sözcüğün kaç kez sayısını map-reduce deseni kullanır.
 
-    val words = lines.flatMap(_.split(" "))
-    val pairs = words.map(word => (word, 1))
-    val wordCounts = pairs.reduceByKey(_ + _)
+```
+val words = lines.flatMap(_.split(" "))
+val pairs = words.map(word => (word, 1))
+val wordCounts = pairs.reduceByKey(_ + _)
+```
 
 #### <a name="output-results"></a>Çıktı sonuçları
 
 Dönüşüm sonuçları çıkış işlemleri uygulayarak hedef sistemleri için anında. Bu durumda, hesaplama ile her çalıştırma sonucunu konsol çıkışında yazdırılır.
 
-    wordCounts.print()
+```
+wordCounts.print()
+```
 
 ### <a name="run-the-application"></a>Uygulamayı çalıştırma
 
 Akış uygulama başlatma ve sonlandırma sinyal alınana kadar çalıştırın.
 
-    ssc.start()            
-    ssc.awaitTermination()
+```
+ssc.start()
+ssc.awaitTermination()
+```
 
 Spark Stream API ile olay kaynakları, dönüşümler ve çıkış işlemleri desteklediği hakkında ayrıntılı bilgi için bkz. [Apache Spark akış Programlama Kılavuzu](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html).
 
 Aşağıdaki örnek uygulama içinde çalıştırabilmeniz için kendi içinde bir [Jupyter not defteri](apache-spark-jupyter-notebook-kernels.md). Bu örnekte beş saniyede bir sayaç ve milisaniye olarak geçerli süre değerini çıkarır DummySource sınıfında sahte veri kaynağı oluşturur. Yeni bir StreamingContext nesnesi, bir toplu iş aralığı 30 saniye sahiptir. Her bir toplu işi oluşturulduğunda akış uygulaması üretilen RDD inceler, bir Spark DataFrame için RDD dönüştürür ve DataFrame üzerinde geçici bir tablo oluşturur.
 
-    class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
+```
+class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
 
-        /** Start the thread that simulates receiving data */
-        def onStart() {
-            new Thread("Dummy Source") { override def run() { receive() } }.start()
-        }
-
-        def onStop() {  }
-
-        /** Periodically generate a random number from 0 to 9, and the timestamp */
-        private def receive() {
-            var counter = 0  
-            while(!isStopped()) {
-                store(Iterator((counter, System.currentTimeMillis)))
-                counter += 1
-                Thread.sleep(5000)
-            }
-        }
+    /** Start the thread that simulates receiving data */
+    def onStart() {
+        new Thread("Dummy Source") { override def run() { receive() } }.start()
     }
 
-    // A batch is created every 30 seconds
-    val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
+    def onStop() {  }
 
-    // Set the active SQLContext so that we can access it statically within the foreachRDD
-    org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
+    /** Periodically generate a random number from 0 to 9, and the timestamp */
+    private def receive() {
+        var counter = 0  
+        while(!isStopped()) {
+            store(Iterator((counter, System.currentTimeMillis)))
+            counter += 1
+            Thread.sleep(5000)
+        }
+    }
+}
 
-    // Create the stream
-    val stream = ssc.receiverStream(new DummySource())
+// A batch is created every 30 seconds
+val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
 
-    // Process RDDs in the batch
-    stream.foreachRDD { rdd =>
+// Set the active SQLContext so that we can access it statically within the foreachRDD
+org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
 
-        // Access the SQLContext and create a table called demo_numbers we can query
-        val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
-        _sqlContext.createDataFrame(rdd).toDF("value", "time")
-            .registerTempTable("demo_numbers")
-    } 
+// Create the stream
+val stream = ssc.receiverStream(new DummySource())
 
-    // Start the stream processing
-    ssc.start()
+// Process RDDs in the batch
+stream.foreachRDD { rdd =>
 
-Ardından, düzenli aralıklarla toplu işinde var olan değerleri geçerli kümesini görmek için veri çerçevesi Örneğin bu SQL sorgusunu kullanarak da sorgulama yapabilirsiniz:
+    // Access the SQLContext and create a table called demo_numbers we can query
+    val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
+    _sqlContext.createDataFrame(rdd).toDF("value", "time")
+        .registerTempTable("demo_numbers")
+} 
 
-    %%sql
-    SELECT * FROM demo_numbers
+// Start the stream processing
+ssc.start()
+```
+
+Yukarıdaki uygulamayı başlatmadan sonra yaklaşık 30 saniye bekleyin.  Ardından, örneğin bu SQL sorgusunu kullanarak düzenli aralıklarla toplu işinde var olan değerleri geçerli kümesini görmek için veri çerçevesi sorgulayabilirsiniz:
+
+```sql
+%%sql
+SELECT * FROM demo_numbers
+```
 
 Sonuçta çıktı aşağıdaki gibi görünür:
 
@@ -161,26 +178,48 @@ Windows kaydırma binebilir, örneğin, saniyede bir slayt iki saniye olarak uzu
 
 Aşağıdaki örnek, bir dakikalık süre ve bir dakikada slayt içeren bir pencere toplu işlerin toplanması için DummySource kullanan kodu güncelleştirir.
 
-    // A batch is created every 30 seconds
-    val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
+```
+class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
 
-    // Set the active SQLContext so that we can access it statically within the foreachRDD
-    org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
+    /** Start the thread that simulates receiving data */
+    def onStart() {
+        new Thread("Dummy Source") { override def run() { receive() } }.start()
+    }
 
-    // Create the stream
-    val stream = ssc.receiverStream(new DummySource())
+    def onStop() {  }
 
-    // Process batches in 1 minute windows
-    stream.window(org.apache.spark.streaming.Minutes(1)).foreachRDD { rdd =>
+    /** Periodically generate a random number from 0 to 9, and the timestamp */
+    private def receive() {
+        var counter = 0  
+        while(!isStopped()) {
+            store(Iterator((counter, System.currentTimeMillis)))
+            counter += 1
+            Thread.sleep(5000)
+        }
+    }
+}
 
-        // Access the SQLContext and create a table called demo_numbers we can query
-        val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
-        _sqlContext.createDataFrame(rdd).toDF("value", "time")
-        .registerTempTable("demo_numbers")
-    } 
+// A batch is created every 30 seconds
+val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
 
-    // Start the stream processing
-    ssc.start()
+// Set the active SQLContext so that we can access it statically within the foreachRDD
+org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
+
+// Create the stream
+val stream = ssc.receiverStream(new DummySource())
+
+// Process batches in 1 minute windows
+stream.window(org.apache.spark.streaming.Minutes(1)).foreachRDD { rdd =>
+
+    // Access the SQLContext and create a table called demo_numbers we can query
+    val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
+    _sqlContext.createDataFrame(rdd).toDF("value", "time")
+    .registerTempTable("demo_numbers")
+} 
+
+// Start the stream processing
+ssc.start()
+```
 
 İlk dakikanın, 12 giriş - her iki toplu işlerin penceresinde toplanan altı girişler vardır.
 

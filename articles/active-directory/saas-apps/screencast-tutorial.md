@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51daf3b9553babb5fc627c02d79914c68c318145
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 941a02ef9ab3d623d34c8dc6996040f6d9e44859
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096852"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Öğretici: Yayını-O-Matic ile Azure Active Directory Tümleştirme
 
@@ -133,17 +133,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve y
 
 9. Üzerinde **Kurulum erişim sayfası**, aşağıdaki adımları gerçekleştirin:
 
-    * Altında **erişim URL'si** bölümünde, belirtilen metin kutusunda, InstanceName yazın.
+   * Altında **erişim URL'si** bölümünde, belirtilen metin kutusunda, InstanceName yazın.
 
-    ![Erişim](./media/screencast-tutorial/tutorial_screencast_access.png)
+     ![Erişim](./media/screencast-tutorial/tutorial_screencast_access.png)
 
-    * Seçin **gerekli etki alanı kullanıcısı** altında **SAML kullanıcı kısıtlama (isteğe bağlı)** bölümü.
+   * Seçin **gerekli etki alanı kullanıcısı** altında **SAML kullanıcı kısıtlama (isteğe bağlı)** bölümü.
 
-    * Altında **IDP meta veri XML dosyasını karşıya yükle**, tıklayın **Dosya Seç** Azure portalından indirdiğiniz metaveri yüklenecek.
+   * Altında **IDP meta veri XML dosyasını karşıya yükle**, tıklayın **Dosya Seç** Azure portalından indirdiğiniz metaveri yüklenecek.
 
-    * **Tamam** düğmesine tıklayın. 
+   * **Tamam** düğmesine tıklayın. 
 
-    ![Erişim](./media/screencast-tutorial/tutorial_screencast_save.png)
+     ![Erişim](./media/screencast-tutorial/tutorial_screencast_save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

@@ -14,12 +14,12 @@ ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 645d7c2dca166bf95b4bd6bd7677100644a1f948
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 68199083369018cab1c9f83dd6781653a8cae37c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306706"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849304"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Öğretici: Azure Resource Manager şablon başvurusu kullanma
 
@@ -78,9 +78,9 @@ Bu makaleyi tamamlamak için gerekenler:
 
 ## <a name="find-the-template-reference"></a>Şablon başvurusunu bulma
 
-1. [Azure Şablonları](https://docs.microsoft.com/azure/templates/)'na gidin.
-2. **Başlığa göre filtrele**’ye, **depolama hesapları** girin.
-3. Seçin **başvuru/şablon başvurusu/depolama/<Version>/Storage hesapları** aşağıdaki ekran görüntüsünde gösterildiği gibi:
+1. Gözat [Azure şablon başvurusu](https://docs.microsoft.com/azure/templates/).
+2. İçinde **başlığa göre filtreleme** kutusuna **depolama hesapları**.
+3. Seçin **başvuru/şablon başvurusu/depolama/&lt;sürüm > / depolama hesapları** aşağıdaki ekran görüntüsünde gösterildiği gibi:
 
     ![Resource Manager şablon başvurusu depolama hesabı](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 

@@ -6,14 +6,14 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 08/06/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820231"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180764"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Uzaktan izleme çözüm hızlandırıcısının rol tabanlı erişim denetimlerini yapılandırın
 
@@ -21,7 +21,7 @@ Bu makalede Uzaktan izleme çözüm hızlandırıcısının rol tabanlı erişim
 
 ## <a name="default-settings"></a>Varsayılan ayarlar
 
-Uzaktan izleme çözümü ilk kez dağıttığınızda, iki rol vardır: **yönetici** ve **salt okunur**.
+Uzaktan izleme çözümü ilk kez dağıttığınızda, iki rol vardır: **Yönetici** ve **salt okunur**.
 
 Herhangi bir kullanıcının **yönetici** rolü aşağıdaki aşağıdaki izinleri de dahil olmak üzere, çözüm tam erişime sahiptir. Bir kullanıcı **salt okunur** rolü yalnızca çözüm görüntüleme erişimi olacaktır.
 

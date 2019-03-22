@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7e196a912db723d5d118b0aadc98f73f1c7271e0
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: c769ae8e684a94e60f6a2e31ba404a0593f7aa78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243763"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096716"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Saydam bir ağ geçidi olarak görev yapacak bir IOT Edge cihazı yapılandırma
 
@@ -181,7 +181,7 @@ Adımları Bu bölümde, bir Linux cihazda test sertifikalarınızı oluşturmak
 
 Bu bölümde, üç sertifikaları oluşturma ve bunları bir zincirinde bağlayın. IOT Edge ağ geçidi cihazınıza ve herhangi bir aşağı akış cihazlarda kolayca yüklemek için sertifika zinciri dosyasında yerleştirme sağlar.  
 
-1.  Sahibi CA sertifikası ve bir ara sertifika oluşturun. Bu sertifikalar yerleştirilir  *\<WRKDIR >*.
+1. Sahibi CA sertifikası ve bir ara sertifika oluşturun. Bu sertifikalar yerleştirilir  *\<WRKDIR >*.
 
    ```bash
    ./certGen.sh create_root_and_intermediate
@@ -193,7 +193,7 @@ Bu bölümde, üç sertifikaları oluşturma ve bunları bir zincirinde bağlay�
    * `<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem`
    * `<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem`
 
-2.  Aşağıdaki komutla, Edge cihaz CA sertifikasını ve özel anahtar oluşturun. Sertifika oluşturma sırasında ve dosya adı için kullanılan ağ geçidi cihazı için bir ad sağlayın. 
+2. Aşağıdaki komutla, Edge cihaz CA sertifikasını ve özel anahtar oluşturun. Sertifika oluşturma sırasında ve dosya adı için kullanılan ağ geçidi cihazı için bir ad sağlayın. 
 
    ```bash
    ./certGen.sh create_edge_device_certificate "<gateway name>"

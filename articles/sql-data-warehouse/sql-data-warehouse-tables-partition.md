@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 03/18/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 60f475afd8e9d599d3771b875f15a29e8a082fb7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d3557be2fd8fdb459571d2c792302963e17e4471
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245897"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189402"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>SQL Data warehouse'da tablo bölümleme
 Öneriler ve Azure SQL Data Warehouse'da tablo bölümleri kullanımına ilişkin örnekler.
@@ -109,27 +109,6 @@ GROUP BY    s.[name]
 ;
 ```
 
-## <a name="workload-management"></a>İş yükü yönetimi
-Etmeni hesaba tablo bölüm kararınız için bir son dikkat etmeniz gereken [iş yükü yönetimi](resource-classes-for-workload-management.md). SQL veri ambarı iş yükü yönetimi öncelikle bellek ve eşzamanlılık yönetimidir. SQL veri ambarı'nda, sorgu yürütme sırasında her bir dağıtım için ayrılan maksimum belleğin kaynak sınıfları tarafından yönetilir. İdeal olarak, bölümler, kümelenmiş columnstore dizinleri oluşturma bellek gereksinimleri gibi diğer etkenler söz konusu boyutlandırılır. Columnstore dizinleri avantajı, önemli ölçüde daha fazla bellek ayırırken kümelenmiş. Bu nedenle, bir bölüm dizini yeniden oluşturma bellek starved değil sağlamak istiyorsunuz. Sorgunuz için kullanılabilir bellek miktarını artırmayı smallrc, varsayılan rolünden largerc gibi diğer rolleri birine geçerek elde edilebilir.
-
-Dağıtım başına bellek ayrılması hakkında bilgi, kaynak İdarecisi dinamik yönetim görünümlerini sorgulama tarafından kullanılabilir. Gerçekte, bellek ataması aşağıdaki sorgunun sonuçlarını küçüktür. Ancak, bu sorgu, veri yönetimi işlemleri için bir bölüm için boyutlandırma yaparken kullanabileceğiniz kılavuzunun düzeyi sağlar. Çok büyük kaynak sınıfı tarafından sağlanan bellek ataması, bölüm boyutlandırma kaçınmaya çalışın. Bölüm bu şekilde geçerseniz, hangi sırayla daha az en iyi sıkıştırma müşteri adayları bellek baskısı riskini çalıştırın.
-
-```sql
-SELECT  rp.[name]                                AS [pool_name]
-,       rp.[max_memory_kb]                        AS [max_memory_kb]
-,       rp.[max_memory_kb]/1024                    AS [max_memory_mb]
-,       rp.[max_memory_kb]/1048576                AS [mex_memory_gb]
-,       rp.[max_memory_percent]                    AS [max_memory_percent]
-,       wg.[name]                                AS [group_name]
-,       wg.[importance]                            AS [group_importance]
-,       wg.[request_max_memory_grant_percent]    AS [request_max_memory_grant_percent]
-FROM    sys.dm_pdw_nodes_resource_governor_workload_groups    wg
-JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools    rp ON wg.[pool_id] = rp.[pool_id]
-WHERE   wg.[name] like 'SloDWGroup%'
-AND     rp.[name]    = 'SloDWPool'
-;
-```
-
 ## <a name="partition-switching"></a>Bölüm değiştirme
 SQL veri ambarı geçiş bölme ve birleştirme bölüm destekler. Bu işlevlerin her biri kullanılarak yürütülür [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) deyimi.
 
@@ -166,15 +145,7 @@ INSERT INTO dbo.FactInternetSales
 VALUES (1,19990101,1,1,1,1,1,1);
 INSERT INTO dbo.FactInternetSales
 VALUES (1,20000101,1,1,1,1,1,1);
-
-
-CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
-
-> [!NOTE]
-> İstatistik nesne oluşturarak, tablo meta verileri daha doğru olur. Ardından SQL veri ambarı istatistikleri atlarsanız, varsayılan değerleri kullanır. İstatistikler hakkında ayrıntılı bilgi için lütfen inceleyin [istatistikleri](sql-data-warehouse-tables-statistics.md).
-> 
-> 
 
 Aşağıdaki sorguyu kullanarak satır sayısını bulur. `sys.partitions` Katalog görünümü:
 
@@ -252,6 +223,31 @@ Veri taşıma işlemlerini tamamladıktan sonra hedef tablodaki istatistikleri y
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
+```
+
+### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Yeni verileri tek bir adımda verileri içeren bölümleri yüklemek
+Bölümler bölüm değiştirme ile veri yükleme olan kullanışlı bir yol aşama kullanıcılarına görünür değil bir tabloda yeni veriler yeni veri anahtarı.  Bölüm değiştirme ile ilişkili kilitleme Çekişme uğraşmanız meşgul sistemlerinde zor olabilir.  Mevcut verileri bir bölüme göz temizlemek için bir `ALTER TABLE` verileri geçiş yapmak için gerekli olarak kullanılır.  Başka bir `ALTER TABLE` yeni verileri geçiş yapmak için gereklidir.  SQL veri ambarı ' nda `TRUNCATE_TARGET` seçeneği desteklenir `ALTER TABLE` komutu.  İle `TRUNCATE_TARGET` `ALTER TABLE` komut bölümünde mevcut verileri yeni verilerle üzerine yazar.  Kullanan bir örnek aşağıdadır `CTAS` mevcut verileri yeni bir tablo oluşturmak için tüm veriler var olan verilerin üzerine yazılacak hedef tabloya yapar sonra yeni verileri ekler.
+
+```sql
+CREATE TABLE [dbo].[FactInternetSales_NewSales]
+    WITH    (   DISTRIBUTION = HASH([ProductKey])
+            ,   CLUSTERED COLUMNSTORE INDEX
+            ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
+                                (20000101,20010101
+                                )
+                            )
+            )
+AS
+SELECT  *
+FROM    [dbo].[FactInternetSales]
+WHERE   [OrderDateKey] >= 20000101
+AND     [OrderDateKey] <  20010101
+;
+
+INSERT INTO dbo.FactInternetSales_NewSales
+VALUES (1,20000101,2,2,2,2,2,2);
+
+ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2 WITH (TRUNCATE_TARGET = ON);  
 ```
 
 ### <a name="table-partitioning-source-control"></a>Tablo bölümleme kaynak denetimi

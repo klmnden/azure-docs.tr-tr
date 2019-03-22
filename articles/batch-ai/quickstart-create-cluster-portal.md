@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78c743448a7f7439875d3598d6ba5d4eb6dc12fc
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 49e78f1774a2998de7070453f7c098aef1761242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408945"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093237"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Batch yapay ZEKA eğitim işleri için küme oluşturma
 
@@ -59,7 +59,7 @@ Batch AI kaynaklarınızı düzenlemek için bir Batch AI çalışma alanı olu�
 
 3. **Çalışma alanı adı** ve **Kaynak grubu** değerlerini girin. İsterseniz, çalışma alanı için farklı **Abonelik** ve **Konum** seçenekleri belirleyin. **Çalışma Alanı Oluştur**’u seçin.
 
-  ![Batch AI çalışma alanı oluşturma](./media/quickstart-create-cluster-portal/create-workspace.png)
+   ![Batch AI çalışma alanı oluşturma](./media/quickstart-create-cluster-portal/create-workspace.png)
 
 **Dağıtım başarılı** iletisi görüntülendiğinde, oluşturduğunuz kaynağa gidip çalışma alanını seçin.
 
@@ -73,7 +73,7 @@ Bir Batch AI dosya sunucusu, küme düğümlerine otomatik olarak eklenebilen te
 
 3. Bir **Yönetici kullanıcı adı** girin ve SSH ortak anahtar dosyanızın içeriğini **SSH anahtarına** kopyalayın. Kalan değerler için varsayılanları kabul edin ve **Dosya sunucusu oluştur**’u seçin.
 
-  ![Batch AI dosya sunucusu oluşturma](./media/quickstart-create-cluster-portal/create-file-server.png)
+   ![Batch AI dosya sunucusu oluşturma](./media/quickstart-create-cluster-portal/create-file-server.png)
 
 Dosya sunucusunun dağıtılması birkaç dakika sürer.
 

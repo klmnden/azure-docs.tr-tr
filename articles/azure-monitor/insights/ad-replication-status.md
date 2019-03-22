@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 3b7aa932d24b7879ee3f46419afa2327ee48b403
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 100d33bbd888d00ed33a38680df5a777e12fd63e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120814"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Azure İzleyici ile Active Directory çoğaltma durumunu izleme
 
@@ -45,8 +45,8 @@ Herhangi bir etki alanı denetleyicilerinizin doğrudan Azure İzleyici bağlanm
 
    > [!NOTE]
    > Bu değişiklikler, yeniden başlatmaya kadar Microsoft Monitoring Agent hizmeti (HealthService.exe) etkili olmaz.
-### <a name="install-solution"></a>Çözüm yükleme
-Açıklanan işlemi izleyin [bir izleme çözümü yükleme](solutions.md#install-a-monitoring-solution) eklemek için **Active Directory çoğaltma durumu** Log Analytics çalışma alanınıza çözüm. Başka bir yapılandırma işlemi gerekmez.
+   > ### <a name="install-solution"></a>Çözüm yükleme
+   > Açıklanan işlemi izleyin [bir izleme çözümü yükleme](solutions.md#install-a-monitoring-solution) eklemek için **Active Directory çoğaltma durumu** Log Analytics çalışma alanınıza çözüm. Başka bir yapılandırma işlemi gerekmez.
 
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD çoğaltma durumu verileri toplama ayrıntıları

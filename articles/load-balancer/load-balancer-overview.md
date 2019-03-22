@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 9ca8e6876b67167429dbc0b5e6c3f5b454878c2a
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: c2f6a614524f0dfb242db11618fda94ce57e6e6a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382674"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111540"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer nedir?
 
@@ -94,8 +94,8 @@ Load Balancer, TCP ve UDP uygulamaları için aşağıdaki temel özellikleri su
 
     Sanal ağınızın içindeki özel IP adreslerinden internet üzerindeki genel bir IP adresine giden tüm akışlar, Load Balancer'ın ön uç IP adresine çevrilebilir. Genel bir ön uç yük dengeleme kuralı ile bir arka uç VM'ye bağlandığında Azure, giden bağlantıları otomatik olarak genel ön uç IP adresine çevrilecek şekilde programlar.
 
-    * Ön uç dinamik olarak hizmetin başka bir örneğiyle eşlenebileceği için hizmetlerin yükseltme ve olağanüstü durum kurtarma süreçleri kolaylaştırılmış olur.
-    * Erişim denetim listesi (ACL) yönetimi daha kolay hale gelir. Hizmetin ölçeği artıp azaldığında veya yeniden dağıtım yapıldığında ön uç IP adresi olarak belirtilen ACL'ler değişmez.  Giden bağlantıları makinelerden daha az sayıda IP adresine çevirmek, izin verilenler listesine ekleme yükünü azaltabilir.
+  * Ön uç dinamik olarak hizmetin başka bir örneğiyle eşlenebileceği için hizmetlerin yükseltme ve olağanüstü durum kurtarma süreçleri kolaylaştırılmış olur.
+  * Erişim denetim listesi (ACL) yönetimi daha kolay hale gelir. Hizmetin ölçeği artıp azaldığında veya yeniden dağıtım yapıldığında ön uç IP adresi olarak belirtilen ACL'ler değişmez.  Giden bağlantıları makinelerden daha az sayıda IP adresine çevirmek, izin verilenler listesine ekleme yükünü azaltabilir.
 
     Daha fazla bilgi için bkz. [giden bağlantılar](load-balancer-outbound-connections.md).
 

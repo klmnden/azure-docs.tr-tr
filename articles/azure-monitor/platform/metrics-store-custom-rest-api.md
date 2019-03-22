@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: c9e08cd1daef919fa4bd919c06e402da1c48d5db
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c7ec3ba960929250f2d23d09b9a5ab06e3f6cd38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769932"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095424"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>REST API'sini kullanarak bir Azure kaynağı için özel ölçümler Azure İzleyici ölçüm depoya gönder
 
@@ -78,13 +78,13 @@ Erişim belirteci yanıttan kaydedin.
     ``` 
 
 1. Komut İstemi penceresinde, ölçüm verilerini gönder: 
-    - **azureRegion**. Kaynak ölçümleri için yayma Dağıtım bölgesi eşleşmesi gerekir. 
-    - **ResourceId**.  Kaynak ölçümüne karşı takip ettiğiniz bir Azure kaynak kimliği.  
-    - **AccessToken**. Önceden edindiğiniz belirteci yapıştırın.
+   - **azureRegion**. Kaynak ölçümleri için yayma Dağıtım bölgesi eşleşmesi gerekir. 
+   - **ResourceId**.  Kaynak ölçümüne karşı takip ettiğiniz bir Azure kaynak kimliği.  
+   - **AccessToken**. Önceden edindiğiniz belirteci yapıştırın.
 
-    ```Shell 
-    curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
-    ```
+     ```Shell 
+     curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+     ```
 1. Zaman damgası ve JSON dosyasında değerlerini değiştirin. 
 1. Birkaç dakika verileriniz için önceki iki adımı birkaç kez yineleyin.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 50d766eed5800c58d0b0258b2be6637f139c542a
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 8d3e3257f16fe4e0f846c2268bfefc2771387de6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730976"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112509"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup iş yüklerini izleme
 
@@ -92,9 +92,9 @@ Bildirim yapılandırıldığında, Hoş Geldiniz veya tanıtım e-posta alırs�
 Bir uyarı oluşturulur ve bir saat içinde çözülen sıklığı için bir saatlik Özet ayarlandı ve yaklaşan saatlik Özet bir parçası olmayacaktır.
 
 > [!NOTE]
->
-* Zararlı gibi **silinecek verileri korumasını Durdur** olduğu gerçekleştirilirse, bir uyarı tetiklenir ve bildirimleri için kurtarma hizmeti yapılandırılmamış olsa bile abonelik sahipleri, yöneticileri ve ortak Yöneticiler bir e-posta gönderilir Kasa.
-* Bildirim başarılı işler kullanmak için yapılandırmak üzere [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+> 
+> * Zararlı gibi **silinecek verileri korumasını Durdur** olduğu gerçekleştirilirse, bir uyarı tetiklenir ve bildirimleri için kurtarma hizmeti yapılandırılmamış olsa bile abonelik sahipleri, yöneticileri ve ortak Yöneticiler bir e-posta gönderilir Kasa.
+> * Bildirim başarılı işler kullanmak için yapılandırmak üzere [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

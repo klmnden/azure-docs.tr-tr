@@ -2,19 +2,19 @@
 title: Bir HDInsight kümesi - Azure HDInsight için günlükleri yönetme
 description: Türler, boyutları ve HDInsight faaliyet günlük dosyaları için bekletme ilkeleri belirleyin.
 services: hdinsight
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.author: ashishth
-ms.openlocfilehash: 7b6f9ca914e9fed48463d2134eeba1cd4c103690
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.date: 03/19/2019
+ms.author: hrasheed
+ms.openlocfilehash: 0f0a22ea4a24a82cb4acf7a3b20a743ee7425c72
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225333"
+ms.locfileid: "58294918"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight kümesi için günlükleri yönetme
 
@@ -43,13 +43,12 @@ Aşağıdaki küme ayrıntıları, günlük yönetimi stratejinizin bilgileri to
 * Son durum değişikliği ayrıntılar dahil olmak üzere, küme durumu
 * Tür ve ana, çekirdek ve görev düğümleri belirtilen HDInsight örnek sayısı
 
-Azure portalını kullanarak bu üst düzey bilgilerin çoğunu elde edebilirsiniz.  Alternatif olarak, Azure Klasik CLI, HDInsight kümesi hakkında bilgi almak için kullanabilirsiniz:
+Azure portalını kullanarak bu üst düzey bilgilerin çoğunu elde edebilirsiniz.  Alternatif olarak, [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) , HDInsight kümesi hakkında bilgi almak için:
 
+```azurecli
+    az hdinsight list --resource-group <ResourceGroup>
+    az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
-    azure hdinsight cluster list
-    azure hdinsight cluster show <ClusterName>
-```
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Bu bilgileri görüntülemek için PowerShell de kullanabilirsiniz.  Daha fazla bilgi için [yönetme Apache Hadoop, Azure PowerShell kullanarak HDInsight kümeleri](hdinsight-administer-use-powershell.md).
 
@@ -77,7 +76,7 @@ Tipik bir HDInsight kümesi, çeşitli hizmetler ve açık kaynak yazılım pake
 
 ### <a name="view-cluster-configuration-settings-with-the-ambari-ui"></a>Görüntülemek Ambari UI ile küme yapılandırma ayarları
 
-Apache Ambari basitleştirir, yönetim, yapılandırma ve bir web sağlayarak bir HDInsight kümesini izleme kullanıcı Arabirimi ve REST API. Linux tabanlı HDInsight kümelerinde Ambari dahildir. Seçin **küme Panosu** bölmesini açmak için Azure portal HDInsight sayfasında**küme panoları** bağlantı sayfası.  Ardından, **HDInsight küme Panosu** bölmesinde Ambari UI'ı açın.  Küme oturum açma kimlik bilgileriniz istenir.
+Apache Ambari basitleştirir, yönetim, yapılandırma ve bir web sağlayarak bir HDInsight kümesini izleme kullanıcı Arabirimi ve REST API. Linux tabanlı HDInsight kümelerinde Ambari dahildir. Seçin **küme Panosu** bölmesini açmak için Azure portal HDInsight sayfasında **küme panoları** bağlantı sayfası.  Ardından, **HDInsight küme Panosu** bölmesinde Ambari UI'ı açın.  Küme oturum açma kimlik bilgileriniz istenir.
 
 Hizmet görünümlerini listesini açmak için seçmeniz **Ambari görünümleri** HDInsight için Azure portal sayfasındaki bölmesi.  Bu liste, yüklediğiniz hangi kitaplıkların bağlı olarak değişir.  Örneğin, kuyruk Yöneticisi YARN, Hive görünümü ve Tez görünümü görebilirsiniz.  Yapılandırma ve hizmet bilgileri görmek için herhangi bir hizmeti bağlantıyı seçin.  Ambari UI **yığını ve sürüm** sayfa küme hizmetlerini yapılandırma ve hizmet sürüm geçmişi hakkında bilgi sağlar. Ambari UI kısmına gitmek için **yönetici** menüsünü ve ardından **yığınları ve sürümleri**.  Seçin **sürümleri** hizmeti sürüm bilgisini görmek için sekmesinde.
 
@@ -99,7 +98,7 @@ Sonraki adım, çeşitli hizmetler için iş yürütme günlük dosyalarını'g�
 
 ### <a name="access-the-hadoop-log-files"></a>Hadoop günlük dosyalarına erişmek
 
-HDInsight, küme dosya sistemi hem de Azure depolama, günlük dosyalarını depolar. Küme için bir SSH bağlantısı açarak ve dosya sistemini tarama veya uzak bir baş düğüm sunucu üzerinde Hadoop YARN durumu portalını kullanarak küme günlük dosyalarında inceleyebilirsiniz. Günlük dosyaları erişebilir ve Azure Depolama'dan veri indirme araçlardan herhangi birini kullanarak Azure Depolama'daki inceleyebilirsiniz. AZCopy, CloudXplorer ve Visual Studio sunucu Gezgini'nde verilebilir. PowerShell ve Azure depolama istemcisi kitaplıklarını veya Azure .NET SDK'ları, Azure blob depolama alanındaki verilere erişmek için kullanabilirsiniz.
+HDInsight, küme dosya sistemi hem de Azure depolama, günlük dosyalarını depolar. Günlük dosyaları küme içindeki açarak inceleyebilirsiniz bir [SSH](/hdinsight-hadoop-linux-use-ssh-unix.md) bağlantı kümesi ve dosya sistemini tarama veya uzak bir baş düğüm sunucu üzerinde Hadoop YARN durumu portalını kullanarak. Günlük dosyaları erişebilir ve Azure Depolama'dan veri indirme araçlardan herhangi birini kullanarak Azure Depolama'daki inceleyebilirsiniz. Örnekler [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)ve Visual Studio Sunucu Gezgini. PowerShell ve Azure depolama istemcisi kitaplıklarını veya Azure .NET SDK'ları, Azure blob depolama alanındaki verilere erişmek için kullanabilirsiniz.
 
 Hadoop işlerinin iş çalıştıran *görev denemesi* kümesinde çeşitli düğümler üzerinde. HDInsight, ilk tamamlamayın herhangi bir görev denemesi sonlandırma kurgusal görev denemesi başlatabilirsiniz. Bu denetleyici, stderr ve syslog günlük dosya çubuğunda halindeyken günlüğe önemli bir etkinlik oluşturur. Ayrıca, birden çok görev denemesi aynı anda çalışıyor, ancak bir günlük dosyası yalnızca sonuçlarını doğrusal olarak görüntüleyebilirsiniz.
 
@@ -168,9 +167,9 @@ Tutulan günlük dosyası sayısı ve boyutu denetlemek için aşağıdaki özel
 
 ### <a name="other-log-management-techniques"></a>Diğer günlük yönetim teknikleri
 
-Disk alanı yetersiz çalışmasını önlemek için bazı işletim sistemi araçları gibi kullanabilirsiniz `logrotate` işleme günlük dosyalarının yönetmek için. Yapılandırabileceğiniz `logrotate` günlük olarak çalıştırılacak sıkıştırma günlük dosyaları ve eskilerle kaldırılıyor. Yaklaşımınızı gereksinimlerinize göre gibi ne kadar süreyle yerel düğümlerinde logfiles tutmak bağlıdır. 
+Disk alanı yetersiz çalışmasını önlemek için bazı işletim sistemi araçları gibi kullanabilirsiniz [logrotate](https://linux.die.net/man/8/logrotate) işleme günlük dosyalarının yönetmek için. Yapılandırabileceğiniz `logrotate` günlük olarak çalıştırılacak sıkıştırma günlük dosyaları ve eskilerle kaldırılıyor. Yaklaşımınızı gereksinimlerinize göre gibi ne kadar süreyle yerel düğümlerinde logfiles tutmak bağlıdır.  
 
-Ayrıca, çıkış günlük boyutunu önemli ölçüde artırır hata ayıklama günlüğü bir veya daha fazla hizmetler için etkin olup olmadığını kontrol edebilirsiniz. 
+Ayrıca, çıkış günlük boyutunu önemli ölçüde artırır hata ayıklama günlüğü bir veya daha fazla hizmetler için etkin olup olmadığını kontrol edebilirsiniz.  
 
 Günlükler için tek bir merkezi konumda tüm düğümleri toplamak için tüm günlük girişlerini Solr içine almak gibi bir veri akışı oluşturabilirsiniz.
 

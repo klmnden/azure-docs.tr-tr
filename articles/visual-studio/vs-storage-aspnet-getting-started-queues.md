@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: ac36502a67f9deddf14b5eeae64df6f799d25e97
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3f3a649308449a8ba4e1dbaebd4db4afbf731c5b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446087"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105769"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama
 
@@ -62,7 +62,7 @@ Bu öğretici, Azure kuyruk depolama varlıkları kullanarak bazı genel senaryo
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Queue;
     ```
-## <a name="create-a-queue"></a>Bir kuyruk oluşturma
+   ## <a name="create-a-queue"></a>Bir kuyruk oluşturma
 
 Aşağıdaki adımlar, bir kuyruk oluşturulacağını göstermektedir:
 

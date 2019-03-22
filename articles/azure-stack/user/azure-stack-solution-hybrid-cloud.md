@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 5f142192571bdd15a33575a425d75baf3e5caea2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 336a2a3fd98f7829694eb095ff2646d9d361afd3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243496"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097329"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile karma bulut çözümü dağıtma
 
@@ -65,7 +65,7 @@ Bu öğreticiye başlamadan önce aşağıdaki gereksinimleri karşılayabilecek
   - Bir Windows Server 2016 görüntüsü
   - Microsoft SQL Server görüntüsü ile bir Windows Server 2016
   - Uygun planlar ve teklifler
- - Web uygulamanız için bir etki alanı adı. Bir etki alanı adı yoksa, bir GoDaddy Bluehost ve InMotion gibi bir etki alanı sağlayıcısından satın alabilirsiniz.
+  - Web uygulamanız için bir etki alanı adı. Bir etki alanı adı yoksa, bir GoDaddy Bluehost ve InMotion gibi bir etki alanı sağlayıcısından satın alabilirsiniz.
 - Etki alanınızın LetsEncrypt gibi güvenilen bir sertifika yetkilisinden SSL sertifikası.
 - Bir SQL Server veritabanı ile iletişim kurar ve Application Insights'ı destekleyen bir web uygulaması. İndirebileceğiniz [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) github'dan örnek uygulaması.
 - Bir Azure sanal ağ ve Azure Stack sanal ağ arasında bir hibrit ağ. Ayrıntılı yönergeler için bkz. [Azure Stack ve Azure ile karma bulut bağlantısı yapılandırma](azure-stack-solution-hybrid-connectivity.md).
@@ -94,19 +94,19 @@ Bu öğreticiye başlamadan önce aşağıdaki gereksinimleri karşılayabilecek
 
 7. Altında **Ayarları > isteğe bağlı Özellikleri Yapılandır**, aşağıdaki ayarları yapılandırın:
 
-    - **Depolama hesabı**. Bir gereksinim duyarsanız, yeni bir hesap oluşturun.
-    - **Sanal ağ**
+   - **Depolama hesabı**. Bir gereksinim duyarsanız, yeni bir hesap oluşturun.
+   - **Sanal ağ**
 
-      > [!Important]  
-      > SQL Server sanal Makinenizi aynı sanal ağ VPN ağ geçitleri üzerinde dağıtıldığından emin olun.
+     > [!Important]  
+     > SQL Server sanal Makinenizi aynı sanal ağ VPN ağ geçitleri üzerinde dağıtıldığından emin olun.
 
-    - **Genel IP adresi**. Varsayılan ayarları kullanabilirsiniz.
-    - **Ağ güvenlik grubu** (NSG). Yeni bir NSG oluşturun.
-    - **Uzantıları ve izleme**. Varsayılan ayarları koruyun.
-    - **Tanılama depolama hesabı**. Bir gereksinim duyarsanız, yeni bir hesap oluşturun.
-    - Seçin **Tamam** yapılandırmanızı kaydetmek için.
+   - **Genel IP adresi**. Varsayılan ayarları kullanabilirsiniz.
+   - **Ağ güvenlik grubu** (NSG). Yeni bir NSG oluşturun.
+   - **Uzantıları ve izleme**. Varsayılan ayarları koruyun.
+   - **Tanılama depolama hesabı**. Bir gereksinim duyarsanız, yeni bir hesap oluşturun.
+   - Seçin **Tamam** yapılandırmanızı kaydetmek için.
 
-    ![İsteğe bağlı özellikleri yapılandırma](media/azure-stack-solution-hybrid-cloud/image4.png)
+     ![İsteğe bağlı özellikleri yapılandırma](media/azure-stack-solution-hybrid-cloud/image4.png)
 
 1. Altında **SQL Server ayarları**, aşağıdaki ayarları yapılandırın:
    - İçin **SQL Bağlantısı**seçin için **genel (Internet)**.
@@ -118,7 +118,7 @@ Bu öğreticiye başlamadan önce aşağıdaki gereksinimleri karşılayabilecek
 
    - Ayarların geri kalanı için varsayılan değerleri koruyun. **Tamam**’ı seçin.
 
-    ![SQL Server ayarlarını yapılandırma](media/azure-stack-solution-hybrid-cloud/image5.png)
+     ![SQL Server ayarlarını yapılandırma](media/azure-stack-solution-hybrid-cloud/image5.png)
 
 9. Üzerinde **özeti**, sanal makine yapılandırmasını gözden geçirin ve ardından **Tamam** dağıtımı başlatmak için.
 
@@ -375,7 +375,7 @@ Trafiğini azaltır, Azure web uygulamasına otomatik olarak maliyetlerini azalt
 
 Azure Traffic Manager profili oluşturacak ve sonra uç noktaları, Bulutlar arası ölçeklendirmeyi etkinleştirmek için yapılandırın.
 
-### <a name="create-traffic-manager-profile"></a>Traffic Manager profili oluşturma
+### <a name="create-traffic-manager-profile"></a>Traffic Manager profili oluştur
 
 1. Seçin **kaynak oluştur**
 2. Seçin **ağ**
@@ -389,9 +389,9 @@ Azure Traffic Manager profili oluşturacak ve sonra uç noktaları, Bulutlar ara
 
 4. **Oluştur**’u seçin.
 
-    ![Traffic Manager profili oluşturma](media/azure-stack-solution-hybrid-cloud/image19.png)
+    ![Traffic Manager profili oluştur](media/azure-stack-solution-hybrid-cloud/image19.png)
 
- Traffic Manager profilinizin genel dağıtımı tamamlandığında, kaynaklar altında oluşturduğunuz kaynak grubunda listesinde gösterilir.
+   Traffic Manager profilinizin genel dağıtımı tamamlandığında, kaynaklar altında oluşturduğunuz kaynak grubunda listesinde gösterilir.
 
 ### <a name="add-traffic-manager-endpoints"></a>Traffic Manager uç noktalarını ekleme
 

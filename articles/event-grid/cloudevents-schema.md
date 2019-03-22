@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: c9c0fd8bf7dc893ce07a6e3ce9cb392fc652a560
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 1eab0be59de90ad68cbf9601b7e2200e640875f4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535861"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58178076"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Event Grid ile CloudEvents şeması kullanma
 
@@ -24,6 +24,8 @@ Yayımlama için ortak bir olay şema sağlayarak birlikte çalışabilirlik Clo
 CloudEvents oluşturulan birkaç tarafından [ortak çalışanlar](https://github.com/cloudevents/spec/blob/master/community/contributors.md), Microsoft, dahil olmak üzere [bulut yerel bilgisayar Foundation](https://www.cncf.io/). 0.1 sürüm olarak şu anda kullanılabilir.
 
 Bu makalede, Event Grid ile CloudEvents şeması kullanmayı açıklar.
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## <a name="install-preview-feature"></a>Önizleme özelliğini yükle
 

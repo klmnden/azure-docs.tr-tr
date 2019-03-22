@@ -9,12 +9,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: c5a8869b0619b7be506ead1b9d37053e9fa57bba
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8c0b40f0e6204d6cff59d3de3f20604d6913b9cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880300"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111642"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio Code için PySpark etkileşimli ortamını ayarlama
 
@@ -30,8 +30,8 @@ Kullandığımız **python/pip** giriş yolda sanal ortam oluşturmak için komu
  
         ![Python pip sürümünü](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-    > [!NOTE]
-    > Python'ın MacOS varsayılan sürümü kullanmak yerine el ile yüklemeniz önerilir.
+     > [!NOTE]
+     > Python'ın MacOS varsayılan sürümü kullanmak yerine el ile yüklemeniz önerilir.
 
 
 2. Yükleme **virtualenv** aşağıdaki komutu çalıştırarak.

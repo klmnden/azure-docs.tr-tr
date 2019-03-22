@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 733aae0fe7bd11dfb5c41b7c3d15838a76ab5834
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 28029fe92a207dba85e2ab5a22c08879b7172925
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870208"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105786"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>API konsolunda özel terim listeleri ile orta
 
@@ -44,78 +44,78 @@ Listeyi yönetim API'si, aşağıdaki görevleri gerçekleştirmek için kullana
 
 Bir terimi listesine değişiklikler yaptıktan sonra gelecekteki taramalarında dahil edilecek değişiklikler dizinini yenilemeniz gerekir. Bu adım, nasıl bir arama motoru (etkinse) masaüstü veya bir web arama motoru sürekli olarak yeni dosyalar veya sayfalar eklemek için dizinini yeniler için benzerdir.
 
-1.  İçinde [terim listesi yönetim API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), soldaki menüde **terim listeleri**ve ardından **Yenile arama dizini**. 
+1. İçinde [terim listesi yönetim API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), soldaki menüde **terim listeleri**ve ardından **Yenile arama dizini**. 
 
-  **Terim listeleri - yenileme arama dizini** sayfası açılır.
+   **Terim listeleri - yenileme arama dizini** sayfası açılır.
 
 2. İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin. 
 
-  ![Terim listeleri - yenileme arama dizin sayfası kayıt seçimi](images/test-drive-region.png)
+   ![Terim listeleri - yenileme arama dizin sayfası kayıt seçimi](images/test-drive-region.png)
 
-  **Terim listeleri - yenileme arama dizini** API konsolu açılır.
+   **Terim listeleri - yenileme arama dizini** API konsolu açılır.
 
-3.  İçinde **ListId** kutusunda, liste kimliğini girin. Abonelik anahtarınızı girin ve ardından **Gönder**.
+3. İçinde **ListId** kutusunda, liste kimliğini girin. Abonelik anahtarınızı girin ve ardından **Gönder**.
 
-  ![Terim listesi API'si - yenileme arama dizin Konsolu yanıt içerik kutusu](images/try-terms-list-refresh-1.png)
+   ![Terim listesi API'si - yenileme arama dizin Konsolu yanıt içerik kutusu](images/try-terms-list-refresh-1.png)
 
 ## <a name="create-a-term-list"></a>Terim listesi oluşturma
-1.  Git [terim listesi yönetim API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). 
+1. Git [terim listesi yönetim API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). 
 
-  **Terim listeleri - oluşturma** sayfası açılır.
+   **Terim listeleri - oluşturma** sayfası açılır.
 
-2.  İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin. 
+2. İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin. 
 
-  ![Terim listeleri - kayıt seçimi sayfası oluşturma](images/test-drive-region.png)
+   ![Terim listeleri - kayıt seçimi sayfası oluşturma](images/test-drive-region.png)
 
-  **Terim listeleri - oluşturma** API konsolu açılır.
+   **Terim listeleri - oluşturma** API konsolu açılır.
  
-3.  İçinde **Ocp-Apim-Subscription-Key** kutusuna, abonelik anahtarınızı girin.
+3. İçinde **Ocp-Apim-Subscription-Key** kutusuna, abonelik anahtarınızı girin.
 
-4.  İçinde **istek gövdesi** için değerleri girin, kutusunda **adı** (örneğin, MyList) ve **açıklama**.
+4. İçinde **istek gövdesi** için değerleri girin, kutusunda **adı** (örneğin, MyList) ve **açıklama**.
 
-  ![Terim listeleri - konsol istek gövdesi ad ve açıklama oluşturma](images/try-terms-list-create-1.png)
+   ![Terim listeleri - konsol istek gövdesi ad ve açıklama oluşturma](images/try-terms-list-create-1.png)
 
-5.  Anahtar-değer çifti yer tutucuları daha açıklayıcı meta verileri listenize atamak için kullanın.
+5. Anahtar-değer çifti yer tutucuları daha açıklayıcı meta verileri listenize atamak için kullanın.
 
-        {
-           "Name": "MyExclusionList",
-           "Description": "MyListDescription",
-           "Metadata": 
-           {
-              "Category": "Competitors",
-              "Type": "Exclude"
-           }
-        }
+       {
+          "Name": "MyExclusionList",
+          "Description": "MyListDescription",
+          "Metadata": 
+          {
+             "Category": "Competitors",
+             "Type": "Exclude"
+          }
+       }
 
-  Liste meta verilerini, anahtar-değer çiftleri ve gerçek koşulları ekleyin.
+   Liste meta verilerini, anahtar-değer çiftleri ve gerçek koşulları ekleyin.
  
-6.  **Gönder**’i seçin. Listenize oluşturulur. Not **kimliği** yeni listesiyle ilişkili değer. Diğer Terime listesi Yönetimi işlevleri için bu kodu ihtiyacınız var.
+6. **Gönder**’i seçin. Listenize oluşturulur. Not **kimliği** yeni listesiyle ilişkili değer. Diğer Terime listesi Yönetimi işlevleri için bu kodu ihtiyacınız var.
 
-  ![Terim listeleri - konsol yanıt kutusu liste kimliği gösterir içerik oluşturma](images/try-terms-list-create-2.png)
+   ![Terim listeleri - konsol yanıt kutusu liste kimliği gösterir içerik oluşturma](images/try-terms-list-create-2.png)
  
-7.  Koşulları için MyList ekleyin. Soldaki menüde altında **terimi**seçin **terim ekleme**. 
+7. Koşulları için MyList ekleyin. Soldaki menüde altında **terimi**seçin **terim ekleme**. 
 
-  **Terim - terim ekleme** sayfası açılır. 
+   **Terim - terim ekleme** sayfası açılır. 
 
-8.  İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin. 
+8. İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin. 
 
-  ![Terim - terimi sayfa bölge seçimi ekleme](images/test-drive-region.png)
+   ![Terim - terimi sayfa bölge seçimi ekleme](images/test-drive-region.png)
 
-  **Terim - terim ekleme** API konsolu açılır.
+   **Terim - terim ekleme** API konsolu açılır.
  
-9.  İçinde **ListId** kutusuna oluşturduğunuz liste kimliği girin ve seçmek için bir değer **dil**. Abonelik anahtarınızı girin ve ardından **Gönder**.
+9. İçinde **ListId** kutusuna oluşturduğunuz liste kimliği girin ve seçmek için bir değer **dil**. Abonelik anahtarınızı girin ve ardından **Gönder**.
 
-  ![Terim - terimi konsol sorgu parametreleri ekleme](images/try-terms-list-create-3.png)
+   ![Terim - terimi konsol sorgu parametreleri ekleme](images/try-terms-list-create-3.png)
  
 10. Terim soldaki menüde listesine eklendiğini doğrulamak için **terimi**ve ardından **alma olan tüm koşulları**. 
 
-  **Terimi - tüm koşulları alma** API konsolu açılır.
+    **Terimi - tüm koşulları alma** API konsolu açılır.
 
 11. İçinde **ListId** kutusunda, liste Kimliğini girin ve sonra abonelik anahtarınızı girin. **Gönder**’i seçin.
 
 12. İçinde **yanıt içeriği** kutusunda, girdiğiniz koşulları doğrulayın.
 
-  ![Terim - Get tüm koşulları Konsolu yanıt içerik kutusu listeleri girdiğiniz koşulları](images/try-terms-list-create-4.png)
+    ![Terim - Get tüm koşulları Konsolu yanıt içerik kutusu listeleri girdiğiniz koşulları](images/try-terms-list-create-4.png)
  
 13. Birkaç daha fazla koşulları ekleyin. Özel terimleri listesini oluşturduğunuza göre deneyin [metin tarama](try-text-api.md) kullanarak özel terim listesi. 
 
@@ -129,45 +129,45 @@ Terim veya listeyi silmek basit bir işlemdir. Aşağıdaki görevleri gerçekle
 
 Bu örnek, tek bir terim siler.
 
-1.  İçinde [terim listesi yönetim API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), soldaki menüde **terimi**ve ardından **Sil**. 
+1. İçinde [terim listesi yönetim API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), soldaki menüde **terimi**ve ardından **Sil**. 
 
-  **Terim - Sil** açılır.
+   **Terim - Sil** açılır.
 
 2. İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin. 
 
-  ![Terim - silme sayfası kayıt seçimi](images/test-drive-region.png)
+   ![Terim - silme sayfası kayıt seçimi](images/test-drive-region.png)
 
-  **Terim - Sil** API konsolu açılır.
+   **Terim - Sil** API konsolu açılır.
   
-3.  İçinde **ListId** kutusunda, bir terimden silmek istediğiniz listenin kimliği girin. Bu kimliği sayıdır (Bizim örneğimizde **122**) döndürülen **terim listeleri - Al ayrıntıları** MyList Konsolu. Terimini girin ve bir dil seçin.
+3. İçinde **ListId** kutusunda, bir terimden silmek istediğiniz listenin kimliği girin. Bu kimliği sayıdır (Bizim örneğimizde **122**) döndürülen **terim listeleri - Al ayrıntıları** MyList Konsolu. Terimini girin ve bir dil seçin.
  
-  ![Terim - Delete konsol sorgu parametreleri](images/try-terms-list-delete-1.png)
+   ![Terim - Delete konsol sorgu parametreleri](images/try-terms-list-delete-1.png)
 
-4.  Abonelik anahtarınızı girin ve ardından **Gönder**.
+4. Abonelik anahtarınızı girin ve ardından **Gönder**.
 
-5.  Terim silinip silinmediğini doğrulamak için **terim listeleri -, alma tüm** Konsolu.
+5. Terim silinip silinmediğini doğrulamak için **terim listeleri -, alma tüm** Konsolu.
 
-  ![Terim listeleri: tüm konsol yanıt kutusu terimi silindiğini gösterir içerik alma](images/try-terms-list-delete-2.png)
+   ![Terim listeleri: tüm konsol yanıt kutusu terimi silindiğini gösterir içerik alma](images/try-terms-list-delete-2.png)
  
 ## <a name="change-list-information"></a>Liste bilgilerini değiştirme
 
 Bir listenin adını ve açıklamasını düzenlemek ve meta veri öğeleri ekleyin.
 
-1.  İçinde [terim listesi yönetim API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), soldaki menüde **terim listeleri**ve ardından **Update Details**. 
+1. İçinde [terim listesi yönetim API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f), soldaki menüde **terim listeleri**ve ardından **Update Details**. 
 
-  **Terim listeleri - Update Details** sayfası açılır.
+   **Terim listeleri - Update Details** sayfası açılır.
 
 2. İçin **açık API sınama Konsolu**, en yakın konumunuzu açıklayan bölgeyi seçin. 
 
-  ![Terim listeleri - güncelleştirme Ayrıntıları sayfası kayıt seçimi](images/test-drive-region.png)
+   ![Terim listeleri - güncelleştirme Ayrıntıları sayfası kayıt seçimi](images/test-drive-region.png)
 
-  **Terim listeleri - Update Details** API konsolu açılır.
+   **Terim listeleri - Update Details** API konsolu açılır.
 
-3.  İçinde **ListId** kutusunda, liste Kimliğini girin ve sonra abonelik anahtarınızı girin.
+3. İçinde **ListId** kutusunda, liste Kimliğini girin ve sonra abonelik anahtarınızı girin.
 
-4.  İçinde **istek gövdesi** kutusuna düzenlemelerinizi yapın ve ardından **Gönder**.
+4. İçinde **istek gövdesi** kutusuna düzenlemelerinizi yapın ve ardından **Gönder**.
 
-  ![Terim listeleri - Update Details konsol istek gövdesi düzenlemeleri](images/try-terms-list-change-1.png)
+   ![Terim listeleri - Update Details konsol istek gövdesi düzenlemeleri](images/try-terms-list-change-1.png)
  
 
 ## <a name="next-steps"></a>Sonraki adımlar

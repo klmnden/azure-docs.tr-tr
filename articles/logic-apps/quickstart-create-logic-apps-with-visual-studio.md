@@ -12,14 +12,14 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: 9d2fe2c18452537f734a8bf176130e1ad68d40e1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: e1d845d1d90a3a70590778013504fea7c0aec85c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231041"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097670"
 ---
-# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Hızlı başlangıç: Azure Logic Apps ile görevleri, işlemleri ve iş akışlarını oluşturma ve otomatik hale getirme - Visual Studio
+# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Hızlı Başlangıç: Oluşturma ve görevleri ve işlemleri Azure Logic Apps - Visual Studio ile iş akışlarını otomatikleştirin
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ve Visual Studio ile uygulama, veri, sistem ve hizmetleri kurum ve kuruluşlar arasında otomatik hale getiren iş akışları oluşturabilirsiniz. Bu hızlı başlangıçta, Visual Studio’da mantıksal uygulamalar oluşturup bu uygulamaları bulutta <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a>’a dağıtarak söz konusu iş akışlarını nasıl tasarlayıp derleyebileceğiniz gösterilmektedir. Ayrıca, bu görevleri <a href="https://portal.azure.com" target="_blank">Azure portalında</a> gerçekleştirebilmenize rağmen, Visual Studio’yu kullanarak kaynak denetimine mantıksal uygulamalar ekleyebilir, farklı sürümler yayımlayabilir ve farklı dağıtım ortamları için Azure Resource Manager şablonları oluşturabilirsiniz. 
 
@@ -83,11 +83,13 @@ Başlamak için bir [Azure Kaynak Grubu projesi](../azure-resource-manager/vs-az
 
 Azure Kaynak Grubu projenizi oluşturduktan sonra **Boş Mantıksal Uygulama** şablonundan başlayarak mantıksal uygulamanızı oluşturup derleyin.
 
-1. Çözüm Gezgini'nde **LogicApp.json** dosyasının kısayol menüsünü açın. **Mantıksal Uygulama Tasarımcısı ile Aç**’ı seçin. (Klavye: Ctrl+L)
+1. Çözüm Gezgini'nde **LogicApp.json** dosyasının kısayol menüsünü açın. 
+   **Mantıksal Uygulama Tasarımcısı ile Aç**’ı seçin. (Klavye: Ctrl+L)
 
    ![Mantıksal Uygulama Tasarımcısı ile mantıksal uygulama .json dosyasını açma](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
-2. **Abonelik** için kullanmak istediğiniz Azure aboneliğini seçin. **Kaynak Grubu** için **Yeni Oluştur...**  öğesini seçerek yeni bir Azure kaynak grubu oluşturun. 
+2. **Abonelik** için kullanmak istediğiniz Azure aboneliğini seçin. 
+   **Kaynak Grubu** için **Yeni Oluştur...**  öğesini seçerek yeni bir Azure kaynak grubu oluşturun. 
 
    ![Azur aboneliği, kaynak grubu ve kaynak konumu seçme](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
@@ -101,7 +103,8 @@ Azure Kaynak Grubu projenizi oluşturduktan sonra **Boş Mantıksal Uygulama** �
    | **Konum** | MyLogicApp-RG2 <br> (Batı ABD) | Kaynak grubu konumunu kullanmak istemiyorsanız farklı bir konum |
    ||||
 
-3. Logic Apps Tasarımcısı açılır ve bir tanıtım videosu ile sık kullanılan tetikleyicilerin bulunduğu bir sayfa görüntülenir. Video ve tetikleyicileri kaydırın. **Şablonlar** altında **Boş Mantıksal Uygulama**'yı seçin.
+3. Logic Apps Tasarımcısı açılır ve bir tanıtım videosu ile sık kullanılan tetikleyicilerin bulunduğu bir sayfa görüntülenir. 
+   Video ve tetikleyicileri kaydırın. **Şablonlar** altında **Boş Mantıksal Uygulama**'yı seçin.
 
    !["Boş Mantıksal Uygulama" seçme](./media/quickstart-create-logic-apps-with-visual-studio/choose-blank-logic-app-template.png)
 

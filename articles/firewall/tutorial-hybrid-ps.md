@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 1/30/2019
+ms.date: 3/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 3a1edde2f51abbe60370eefee1b0c141f772c547
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 973d5c5c3822eaddce2bc77d06d01930606994c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405472"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182583"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak hibrit bir ağda Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -51,13 +51,16 @@ Bu senaryonun doğru çalışması için üç önemli gereksinimi vardır:
 
 - Bir kullanıcı tanımlı yol (UDR) varsayılan ağ geçidi Azure güvenlik duvarı IP adresine işaret eden uç alt ağında. Bu yol tablosunda BGP yol yaymanın **Devre Dışı** olması gerekir.
 - Hub ağ geçidi alt ağı üzerinde bir UDR bileşen ağlarını için sonraki atlama olarak güvenlik duvarı IP adresine işaret etmelidir.
-- BGP yolları öğrenir gibi hiçbir UDR Azure güvenlik duvarı alt ağda gereklidir.
+
+   BGP yolları öğrenir gibi hiçbir UDR Azure güvenlik duvarı alt ağda gereklidir.
 - VNet-Hub'ı VNet-Spoke'a eşlerken **AllowGatewayTransit** ayarladığınızdan ve VNet-Spoke'u VNet-Hub'a eşlerken de **UseRemoteGateways** ayarladığınızdan emin olun.
 
-Bu yolları nasıl oluşturulduğunu görmek için Bu öğreticide yollar oluşturma bölümüne bakın.
+Bu yolların nasıl oluşturulduğunu görmek için [Yolları Oluşturma](#create-the-routes) bölümüne bakın.
 
 >[!NOTE]
->Azure güvenlik duvarı, doğrudan internet bağlantısı olması gerekir. Şirket içi ExpressRoute veya uygulama ağ geçidi aracılığıyla zorlamalı tünel etkinleştirdiyseniz, UDR 0.0.0.0/0 ile yapılandırmanız gerekiyor **NextHopType** değer kümesini olarak **Internet**, için atayın **AzureFirewallSubnet**.
+>Azure güvenlik duvarı, doğrudan internet bağlantısı olması gerekir. Varsayılan olarak, bir UDR 0.0.0.0/0 ile yalnızca AzureFirewallSubnet sağlamalıdır **NextHopType** değer kümesini olarak **Internet**.
+>
+>Şirket içi ExpressRoute veya uygulama ağ geçidi aracılığıyla zorlamalı tünel etkinleştirirseniz, açıkça NextHopType değeri olarak ayarlanmış bir UDR 0.0.0.0/0 yapılandırmanız gerekebilir **Internet** , AzureFirewallSubnet ile ilişkilendirin. Kuruluşunuz için Azure güvenlik duvarı trafiğine zorlamalı tünel gerektiriyorsa, beyaz liste aboneliğiniz olabilir ve gerekli güvenlik duvarı Internet bağlantısı korunduğundan emin olmak için lütfen desteğe başvurun.
 
 >[!NOTE]
 >Azure Güvenlik Duvarı varsayılan ağ geçidi için bir UDR işaret ediyor olsa bile doğrudan eşlenmiş sanal ağlar arasındaki trafiği doğrudan yönlendirilir. Bu senaryoda bir güvenlik duvarı alt ağ için alt ağ trafiği göndermek için bir UDR her iki alt ağ üzerinde açıkça hedef alt ağ ön eki içermesi gerekir.

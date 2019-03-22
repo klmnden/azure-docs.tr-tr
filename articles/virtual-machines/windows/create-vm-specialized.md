@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 662713a5ef350bd34f25558de69e3cbfd5fc80a3
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 364dca8d7cab3698e501e74d0c2817aac1a36f88
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982871"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137986"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>PowerShell kullanarak özel bir diskten Windows VM oluşturma
 
@@ -205,7 +205,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Yüksek performanslı olmasını gerektiren bir VM oluşturmak için bu anlık görüntüyü kullanmak için parametreyi eklemek `-AccountType Premium_LRS` yeni AzSnapshot komutu. Premium yönetilen Disk olarak depolanır, böylece bu parametre, anlık görüntü oluşturur. Premium yönetilen diskler standart daha pahalıdır, bu nedenle bu parametre kullanmadan önce Premium gerekir emin olun.
+Yüksek performanslı olmasını gerektiren bir VM oluşturmak için bu anlık görüntüyü kullanmak için parametreyi eklemek `-AccountType Premium_LRS` yeni AzSnapshotConfig komutu. Premium yönetilen Disk olarak depolanır, böylece bu parametre, anlık görüntü oluşturur. Premium yönetilen diskler standart daha pahalıdır, bu nedenle bu parametre kullanmadan önce Premium gerekir emin olun.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Anlık görüntüden yeni bir disk oluşturma
 

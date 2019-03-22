@@ -1,18 +1,18 @@
 ---
 title: Sorun giderme - Iaas Vm'leri için Azure Disk şifrelemesi | Microsoft Docs
 description: Bu makale için Microsoft Azure Disk şifrelemesi Windows ve Linux Iaas Vm'leri için sorun giderme ipuçları sağlar.
-author: mestew
+author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.author: mstewart
-ms.date: 03/04/2019
+ms.author: mbaldwin
+ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7e2fa8c526a1016e5b8157f5f8b3ecb38bf8ef15
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 48cf0f2e219d141a039f508f0ea948aa5c78b882
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779972"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838281"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure Disk şifrelemesi sorun giderme kılavuzu
 
@@ -112,15 +112,15 @@ Bu sorunu çözmek için sunucu çekirdeği üzerinde aynı konuma bir Windows S
    \windows\system32\en-US\bdehdcfg.exe.mui
    ```
 
-   2. Aşağıdaki komutu girin:
+1. Aşağıdaki komutu girin:
 
    ```
    bdehdcfg.exe -target default
    ```
 
-   3. Bu komut, 550 MB sistem bölümü oluşturur. Sistemi yeniden başlatın.
+1. Bu komut, 550 MB sistem bölümü oluşturur. Sistemi yeniden başlatın.
 
-   4. Birimleri denetleyin ve ardından devam etmek için DiskPart kullanın.  
+1. Birimleri denetleyin ve ardından devam etmek için DiskPart kullanın.  
 
 Örneğin:
 

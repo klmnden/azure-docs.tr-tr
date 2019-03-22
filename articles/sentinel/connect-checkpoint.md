@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: f4886a8c66c464d3fd474da5946e53558a32ad13
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d6048ee90eb6e39e70550aa52a96b4466faa3efa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532482"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119896"
 ---
 # <a name="connect-your-check-point-appliance"></a>Denetim noktası gerecinize bağlanma
 
@@ -46,18 +46,18 @@ Alternatif olarak, aracı vm'sinde başka bir bulut, mevcut bir Azure sanal maki
 
 1. Altında **Linux Syslog aracı Yapılandırması**:
    - Seçin **otomatik dağıtım** yukarıda açıklandığı gibi Azure Gözcü aracıyla birlikte önceden yüklenir ve tüm yapılandırma gerekli içeren yeni bir makine oluşturmak istiyorsanız. Seçin **otomatik dağıtım** tıklatıp **otomatik aracı dağıtımı**. Bu, satın alma sayfasına otomatik olarak çalışma alanınıza bağlı olduğu adanmış bir VM için götürür. VM bir **standart D2s v3 (2 vcpu, 8 GB bellek)** ve genel bir IP adresi vardır.
-      1. İçinde **özel dağıtım** sayfasında ayrıntılarınızı sağlamak ve bir kullanıcı adı ve parola seçin ve hüküm ve koşulları kabul ediyorsanız, VM satın alın.
+     1. İçinde **özel dağıtım** sayfasında ayrıntılarınızı sağlamak ve bir kullanıcı adı ve parola seçin ve hüküm ve koşulları kabul ediyorsanız, VM satın alın.
       
-       2. Syslog aracı makinedeki tüm denetim noktası günlüklerini Azure Gözcü aracıya eşleştirilecek emin olmak için şu komutları çalıştırın:
+        1. Syslog aracı makinedeki tüm denetim noktası günlüklerini Azure Gözcü aracıya eşleştirilecek emin olmak için şu komutları çalıştırın:
            - Syslog-ng kullanıyorsanız (Syslog aracıyı yeniden başlatır. Not) şu komutları çalıştırın:
             
-                 sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Check Point\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"
+                sudo bash - c "printf ' filtre f_local4_oms {facility(local4);}; \ n hedef security_oms {tcp (\"127.0.0.1\" port(25226));}; \n günlük {source(src) filter(f_local4_oms); destination(security_oms);}; \n\nfilter f_msg_oms {eşleşen (\"denetim noktası\" değeri (\" İleti\")); }; \n hedef security_msg_oms {tcp (\"127.0.0.1\" port(25226));}; \n günlük {source(src) filter(f_msg_oms); destination(security_msg_oms);};' > /etc/syslog-ng/security-config-omsagent.conf "
 
              Syslog daemon'unu yeniden başlatın: `sudo service syslog-ng restart`
-            - Rsyslog kullanıyorsanız (Syslog aracıyı yeniden başlatır. Not) şu komutları çalıştırın:
+           - Rsyslog kullanıyorsanız (Syslog aracıyı yeniden başlatır. Not) şu komutları çalıştırın:
                     
-                  sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Check Point\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"
-              Syslog daemon'unu yeniden başlatın: `sudo service rsyslog restart`
+                 sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Check Point\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"
+             Syslog daemon'unu yeniden başlatın: `sudo service rsyslog restart`
 
    - Seçin **el ile dağıtım** ileride Azure Gözcü aracısının yüklenmesi gerekir özel Linux makine varolan bir VM'yi kullanmak istiyorsanız. 
       1. Altında **Syslog aracısını indirme ve yükleme**seçin **Azure Linux sanal makinesi**. 
@@ -88,19 +88,19 @@ Azure kullanmıyorsanız, adanmış bir Linux sunucusu üzerinde çalıştırmak
 1. Altında adanmış bir Linux VM oluşturmak için **Linux Syslog aracı Yapılandırması** seçin **el ile dağıtım**.
    1. Altında **Syslog aracısını indirme ve yükleme**seçin **Azure olmayan Linux makine**. 
    1. İçinde **doğrudan aracı** seçtiğiniz açılır, ekran **Linux için aracıyı** aracıyı indirin veya Linux makinenizde indirmek için şu komutu çalıştırın:   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`
-    3. Bağlayıcı ekranda altında **yapılandırma ve iletme Syslog**ayarlayın, Syslog daemon olup **rsyslog.d** veya **syslog-ng**. 
-    4. Bu komutlar kopyalayın ve bunları gerecinizde çalıştırın:
-       - Seçtiyseniz **rsyslog**:
-          1. Tesis local_4 ve "Check Point" dinlemek ve bağlantı noktası 25226'daki kullanarak Azure Gözcü Aracısı Syslog iletilerini göndermek için Syslog daemon'u söyleyin. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Check Point\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
+      1. Bağlayıcı ekranda altında **yapılandırma ve iletme Syslog**ayarlayın, Syslog daemon olup **rsyslog.d** veya **syslog-ng**. 
+      1. Bu komutlar kopyalayın ve bunları gerecinizde çalıştırın:
+         - Seçtiyseniz **rsyslog**:
+           1. Tesis local_4 ve "Check Point" dinlemek ve bağlantı noktası 25226'daki kullanarak Azure Gözcü Aracısı Syslog iletilerini göndermek için Syslog daemon'u söyleyin. `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Check Point\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
             
-          2. İndirme ve yükleme [security_events yapılandırma dosyası](https://aka.ms/asi-syslog-config-file-linux) Syslog aracı 25226'daki bağlantı noktasında dinleyecek şekilde yapılandırır. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Burada {0} çalışma GUID ile değiştirilmelidir.
-          3. Syslog daemon'u başlatmak `sudo service rsyslog restart`
-       - Seçtiyseniz **syslog-ng**:
+           2. İndirme ve yükleme [security_events yapılandırma dosyası](https://aka.ms/asi-syslog-config-file-linux) Syslog aracı 25226'daki bağlantı noktasında dinleyecek şekilde yapılandırır. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Burada {0} çalışma GUID ile değiştirilmelidir.
+           3. Syslog daemon'u başlatmak `sudo service rsyslog restart`
+         - Seçtiyseniz **syslog-ng**:
             1. Tesis local_4 ve "Check Point" dinlemek ve bağlantı noktası 25226'daki kullanarak Azure Gözcü Aracısı Syslog iletilerini göndermek için Syslog daemon'u söyleyin. `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Check Point\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
             2. İndirme ve yükleme [security_events yapılandırma dosyası](https://aka.ms/asi-syslog-config-file-linux) Syslog aracı 25226'daki bağlantı noktasında dinleyecek şekilde yapılandırır. `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` Burada {0} çalışma GUID ile değiştirilmelidir.
             3. Syslog daemon'u başlatmak `sudo service syslog-ng restart`
-    5. Bu komutu kullanarak Syslog aracıyı yeniden başlatın: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
-    6. Hiçbir hata aracı günlüğünde şu komutu çalıştırarak onaylayın: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
+      1. Bu komutu kullanarak Syslog aracıyı yeniden başlatın: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
+      1. Hiçbir hata aracı günlüğünde şu komutu çalıştırarak onaylayın: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
 ## <a name="step-2-forward-check-point-logs-to-the-syslog-agent"></a>2. Adım: İleri kontrol noktası Syslog aracıya günlük
 
@@ -108,9 +108,9 @@ Denetim noktası gerecinize Syslog aracı üzerinden Azure çalışma alanınız
 
 1. Git [kontrol noktası günlüğünü dışarı aktarma](https://aka.ms/asi-syslog-checkpoint-forwarding).
 2. Ekranı aşağı kaydırarak **temel dağıtımı** ve aşağıdaki yönergeleri kullanarak bağlantıyı ayarlamak için yönergeleri izleyin:
-     - Ayarlama **Syslog bağlantı noktası** için **514** veya aracı üzerinde ayarladığınız bağlantı noktası.
-    - Değiştirin **adı** ve **hedef sunucu IP adresi** CLI Syslog aracı adı ve IP adresi.
-    - Biçim kümesine **CEF**.
+   - Ayarlama **Syslog bağlantı noktası** için **514** veya aracı üzerinde ayarladığınız bağlantı noktası.
+     - Değiştirin **adı** ve **hedef sunucu IP adresi** CLI Syslog aracı adı ve IP adresi.
+     - Biçim kümesine **CEF**.
 3. Sürüm R77.30 veya R80.10 kullanıyorsanız kadar kaydırın **yüklemeleri** ve günlük verici sürümünüzün yüklemek için yönergeleri izleyin.
  
 ## <a name="step-3-validate-connectivity"></a>3. Adım: Bağlantıyı doğrula

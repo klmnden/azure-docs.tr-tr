@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 19/02/2019
 ms.author: monhaber
-ms.openlocfilehash: ab99116cabc14c70698a962c803adb87394e1796
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: d9c9a079198a8ff263c729b8e90c1fc8d0e64cd0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651113"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100079"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Gelişmiş güvenlikten yararlanmaya başlamak için Azure Güvenlik Merkezi standart ekleme
 Gelişmiş güvenlik yönetimi ve tehdit koruması için hibrit bulut iş yüklerinizi yararlanmak için Güvenlik Merkezi standart yükseltin.  Standart ücretsiz deneyebilirsiniz. Güvenlik Merkezi'ni [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/) daha fazla bilgi için.
@@ -65,11 +65,11 @@ Güvenlik Merkezi, Azure dışı bilgisayarların güvenlik durumunu izleyebilir
 1. Geri dönüp **Başlarken**.   
 2. **Başlangıç** sekmesini seçin.
 
-  ![Azure Dışı](./media/security-center-onboarding/non-azure.png)
+   ![Azure Dışı](./media/security-center-onboarding/non-azure.png)
 
 3. **Yeni Azure dışı bilgisayarlar ekle** altında, **Yapılandır**’a tıklayın. Log Analytics çalışma alanlarınızın bir listesi gösterilir. Listede, varsa, otomatik sağlama etkinleştirildiğinde Güvenlik Merkezi tarafından sizin için oluşturulan varsayılan çalışma alanı bulunur. Bu çalışma alanını veya kullanmak istediğiniz başka bir çalışma alanını seçin.
 
-  ![Azure olmayan bilgisayar ekleme][7]
+   ![Azure olmayan bilgisayar ekleme][7]
 
 Mevcut çalışma alanınız varsa bunlar altında listelenen **yeni Azure olmayan bilgisayar ekleme**. Mevcut bir çalışma alanına bilgisayar eklemek veya yeni bir çalışma alanı oluşturun. Yeni bir çalışma alanı oluşturmak için bağlantıyı seçin **yeni bir çalışma alanı Ekle**.
 
@@ -82,8 +82,8 @@ Mevcut çalışma alanınız varsa bunlar altında listelenen **yeni Azure olmay
    ![Yeni bir çalışma alanı Ekle][4]
 
 2. Altında **güvenlik ve Denetim**seçin **OMS çalışma alanı** yeni bir çalışma alanı oluşturmak için.
-> [!NOTE]
-> OMS çalışma alanları artık Log Analytics çalışma alanları olarak adlandırılır.
+   > [!NOTE]
+   > OMS çalışma alanları artık Log Analytics çalışma alanları olarak adlandırılır.
 3. Altında **OMS çalışma alanı**, çalışma alanınız için bilgi girin.
 4. Altında **OMS çalışma alanı**seçin **Tamam**.  Tamam'ı seçin, sonra bir Windows veya Linux aracısını ve anahtarlarını yüklemek için bir bağlantı alırsınız aracının yapılandırılmasında kullanılacak çalışma alanı Kimliğiniz için.
 5. Altında **güvenlik ve Denetim**seçin **Tamam**.
@@ -105,7 +105,7 @@ Mevcut çalışma alanınız varsa bunlar altında listelenen **yeni Azure olmay
 
    ![Bilgisayar ekleme][7]
 
- **Doğrudan aracı** dikey penceresinde çalışma alanı kimliği yanı sıra, Windows veya Linux aracı yükleme için bir bağlantı sağlar ve anahtarları aracının yapılandırılmasında kullanılacak.   
+   **Doğrudan aracı** dikey penceresinde çalışma alanı kimliği yanı sıra, Windows veya Linux aracı yükleme için bir bağlantı sağlar ve anahtarları aracının yapılandırılmasında kullanılacak.   
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede öğrendiğiniz yerleşik Azure Güvenlik Merkezi'nin Gelişmiş güvenlik için Azure dışı kaynakları nasıl.  Daha fazlasını yapmak için eklenen kaynaklarınızı bakın.

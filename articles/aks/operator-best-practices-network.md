@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: aaa16245fada7fbccdd0865d973de2fa19970989
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175464"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176591"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Ağ bağlantısını ve güvenlik Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -116,7 +116,7 @@ Hizmetler ve uygulamalar için trafiği dağıtan bir giriş denetleyicisine gen
 
 ![Azure uygulama ağ geçidi gibi web uygulaması Güvenlik Duvarı (WAF) koruyabilir ve AKS kümenizin trafiği dağıtma](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-Bir web uygulaması Güvenlik Duvarı (WAF), gelen trafiği filtreleyerek, ek bir güvenlik katmanı sağlar. Açık Web uygulaması güvenlik Project (OWASP) saldırıları gibi platformlar arası komut dosyası çalıştırma veya tanımlama bilgisinin zehirleme izlemek üzere kurallar kümesi sağlar. [Azure Application Gateway] [ app-gateway] AKS ile tümleştirebileceğiniz bir WAF kümeleri trafiği, AKS kümesi ve uygulamalarınızı ulaşmadan önce bu güvenlik özellikleri sağlamak için olan. Mevcut yatırımlardan veya uzmanlığı, belirli bir üründe kullanmaya devam edebilirsiniz şekilde diğer üçüncü taraf çözümleri de bu işlevler gerçekleştirin.
+Bir web uygulaması Güvenlik Duvarı (WAF), gelen trafiği filtreleyerek, ek bir güvenlik katmanı sağlar. Açık Web uygulaması güvenlik Project (OWASP) saldırıları gibi platformlar arası komut dosyası çalıştırma veya tanımlama bilgisinin zehirleme izlemek üzere kurallar kümesi sağlar. [Azure Application Gateway] [ app-gateway] olan trafik, AKS kümesi ve uygulamalarınızı ulaşmadan önce bu güvenlik özellikleri sağlamak için AKS kümeleri ile tümleştirebileceğiniz bir WAF (AKS şu anda önizlemede). Mevcut yatırımlardan veya uzmanlığı, belirli bir üründe kullanmaya devam edebilirsiniz şekilde diğer üçüncü taraf çözümleri de bu işlevler gerçekleştirin.
 
 Yük Dengeleyici veya giriş kaynakları, daha fazla trafik dağılımı iyileştirmek için AKS kümenizin çalışmaya devam eder. Uygulama ağ geçidi olarak bir giriş denetleyicisine kaynak tanımıyla merkezi olarak yönetilebilir. Başlamak için [bir uygulama ağ geçidi giriş denetleyicisine oluşturma][app-gateway-ingress].
 
@@ -124,7 +124,7 @@ Yük Dengeleyici veya giriş kaynakları, daha fazla trafik dağılımı iyileş
 
 **En iyi uygulama kılavuzunu** -izin ver veya Reddet pod'ların trafiği için ağ ilkelerini kullanın. Varsayılan olarak, bir küme içindeki pod'ları arasındaki tüm trafik izin. Gelişmiş güvenlik için pod iletişimi sınırlayan kuralları tanımlayın.
 
-Ağ İlkesi pod'ları arasındaki trafik akışını denetlemenize olanak sağlayan bir Kubernetes özelliğidir. İzin verme veya reddetme ayarları gibi atanan etiketleri, ad alanı veya trafiği, bağlantı noktası trafiğini seçebilirsiniz. Ağ ilkeleri kullanımını trafik akışını denetlemek için bulutta yerel bir yol sağlar. Pod'ların bir AKS kümesinde dinamik olarak oluşturulmuş gibi gerekli ağ ilkeleri otomatik olarak uygulanabilir. Azure ağ güvenlik grupları kullanmayın pod pod trafiği denetlemek için ağ ilkeleri kullanın.
+(Şu anda önizlemede aks'deki) ağ ilkesi pod'ları arasındaki trafik akışını denetlemenize olanak sağlayan bir Kubernetes özelliğidir. İzin verme veya reddetme ayarları gibi atanan etiketleri, ad alanı veya trafiği, bağlantı noktası trafiğini seçebilirsiniz. Ağ ilkeleri kullanımını trafik akışını denetlemek için bulutta yerel bir yol sağlar. Pod'ların bir AKS kümesinde dinamik olarak oluşturulmuş gibi gerekli ağ ilkeleri otomatik olarak uygulanabilir. Azure ağ güvenlik grupları kullanmayın pod pod trafiği denetlemek için ağ ilkeleri kullanın.
 
 Bir AKS kümesi oluşturduğunuzda, Ağ İlkesi'ni kullanmak için özelliğin etkinleştirilmesi gerekir. Ağ İlkesi var olan bir AKS kümesi üzerinde etkinleştirilemiyor. Ağ ilkesini kümelerde etkinleştirmek ve bunları gerektiği şekilde kullanabileceğiniz emin olmak önceden planlayın.
 
