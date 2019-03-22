@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 7bd533e9319a265e935e32be15768ab3487db6da
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 054edaf321d90015840fd84e1697fca742fd7e1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561357"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838604"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Php'den Notification hubs'ı kullanma
 
@@ -289,4 +289,4 @@ Bu konu başlığında, biz basit bir Java REST istemci bildirim hub'ları için
 Daha fazla bilgi için Ayrıca bkz: [PHP Geliştirici Merkezi](https://azure.microsoft.com/develop/php/).
 
 [PHP REST sarmalayıcı örneği]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[Başlangıç eğitmeni]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Başlangıç eğitmeni]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/

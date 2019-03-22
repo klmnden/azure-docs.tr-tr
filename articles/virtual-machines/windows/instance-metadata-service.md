@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 8cdf8022f87c8fa3e81e2544a6678751726b2b3b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 777b3a8d414f0b785d908c37da98e987445ed96d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889837"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317468"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti
 
@@ -352,7 +352,7 @@ resourceGroupName | [Kaynak grubu](../../azure-resource-manager/resource-group-o
 placementGroupId | [Yerleştirme grubu](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) , sanal makine ölçek kümesi | 2017-08-01
 planı | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) bir VM için bir Azure Market görüntüsü adı, ürün ve yayımcı içerir | 2018-04-02
 sağlayıcı | Sanal makinenin sağlayıcısı | 2018-10-01
-publicKeys | Ortak anahtarlar koleksiyonunu [<https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey>] VM ve yolları atanan | 2018-04-02
+publicKeys | [Ortak anahtarlar koleksiyonunu](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) VM ve yolları atanan | 2018-04-02
 vmScaleSetName | [Sanal makine ölçek kümesi adı](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) , sanal makine ölçek kümesi | 2017-12-01
 bölge | [Kullanılabilirlik alanı](../../availability-zones/az-overview.md) sanal makinenizin | 2017-12-01
 ipv4/privateIpAddress | Sanal makinenin yerel IPv4 adresi | 2017-04-02
@@ -431,7 +431,7 @@ Nonce sağlanan bir isteğe bağlı 10 basamaklı dizedir. Nonce isteğin izlenm
 
 ## <a name="example-scenarios-for-usage"></a>Kullanım için örnek senaryolar  
 
-### <a name="tracking-vm-running-on-azure"></a>Azure üzerinde çalışan VM izleme
+### <a name="tracking-vm-running-on-azure"></a>Azure üzerinde çalıştırılan VM'yi izleme
 
 Bir hizmet sağlayıcısı olarak, yazılım çalışan VM'lerin sayısını izlemek veya VM benzersizliğini izlemek için gereken aracıları gerektirebilir. Bir VM için benzersiz bir kimliği getirebilmesi için kullanın `vmId` alanını örnek meta veri hizmeti.
 
@@ -447,7 +447,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 5c08b38e-4d57-4c23-ac45-aca61037f084
 ```
 
-### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Kapsayıcıları yerleştirilmesi, veri bölümlerine hata/güncelleştirme etki alanı tabanlı 
+### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Hata/güncelleştirme etki alanı temelinde kapsayıcıların, veri bölümlerinin yerleşimi 
 
 Belirli senaryolar farklı veri çoğaltmalarını yerleşimini prime çok önemlidir. Örneğin, [HDFS çoğaltma yerleştirme](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) veya kapsayıcı yerleştirme aracılığıyla bir [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) bilmek gerektirebilir `platformFaultDomain` ve `platformUpdateDomain` VM'nin çalışır durumda.
 Ayrıca [kullanılabilirlik](../../availability-zones/az-overview.md) bu kararları vermek örnekleri için.
@@ -465,7 +465,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 0
 ```
 
-### <a name="getting-more-information-about-the-vm-during-support-case"></a>Destek olayı sırasında VM hakkında daha fazla bilgi edinme
+### <a name="getting-more-information-about-the-vm-during-support-case"></a>Destek olayı sırasında VM hakkında daha fazla bilgi alma
 
 Bir hizmet sağlayıcısı olarak, VM hakkında daha fazla bilgi bilmek istediğiniz bir destek çağrısı alabilirsiniz. İşlem meta veri paylaşmak için müşteri isteyen azure'da VM türü hakkında bilgi edinmek için profesyonel destek için temel bilgiler sağlayabilir. 
 
@@ -498,7 +498,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 }
 ```
 
-### <a name="getting-azure-environment-where-the-vm-is-running"></a>Azure VM çalıştığı ortamı alma
+### <a name="getting-azure-environment-where-the-vm-is-running"></a>VM'nin çalıştırıldığı Azure Ortamını alma
 
 Azure, çeşitli bağımsız bulutlarda gibi sahiptir [Azure kamu](https://azure.microsoft.com/overview/clouds/government/). Bazı durumlarda, bazı çalışma zamanı kararlar almak için Azure ortamı gerekir. Aşağıdaki örnek, bu davranışı nasıl elde edebileceğiniz gösterir.
 
@@ -512,7 +512,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 AZUREPUBLICCLOUD
 ```
 
-### <a name="validating-that-the-vm-is-running-in-azure"></a>VM Azure'da çalışıyor doğrulanıyor
+### <a name="validating-that-the-vm-is-running-in-azure"></a>VM'nin Azure'da çalıştırıldığını doğrulama
 
  Market satıcı, yazılım'ın yalnızca Azure'da çalıştırılmak üzere lisanslanır sağlamak istiyorsunuz. Birisi VHD'yi kopyalayan, şirket içi, ardından bunların olan algılama özelliğine sahip olmalıdır. Örnek meta veri hizmeti Market çağırarak satıcılar yalnızca azure'dan yanıt garanti eden imzalı veri alabilirsiniz.
 **İstek**

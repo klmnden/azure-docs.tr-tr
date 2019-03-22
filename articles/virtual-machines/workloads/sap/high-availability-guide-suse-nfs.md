@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 799a40d759dc5614bd43234638982d5275d9d325
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: da465fb9fe51b2be5ec90df1ac75c50271db87a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429205"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992058"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server üzerindeki Azure vm'lerinde NFS için yüksek kullanılabilirlik
 
@@ -426,9 +426,9 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
 
    Bir konaktan diğerine verileri eşitlemek için drbd kullanırken, böylece çağrılan bir bölme beyin ortaya çıkabilir. Bölme beyin burada her iki küme düğümünün drbd cihazın birincil olmasını yükseltilmiş ve eşitlenmemiş gittiği bir senaryodur. Nadir bir durum olabilir, ancak yine de işlemek ve mümkün olduğunca hızlı bir bölme beyin çözmek istiyor. Bu nedenle, bir bölme beyin gerçekleştiğinde bildirim almak önemlidir.
 
-   Okuma [resmi drbd belgeleri](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) bölme beyin bildirimini ayarlama konusunda.
+   Okuma [resmi drbd belgeleri](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) bölme beyin bildirimini ayarlama konusunda.
 
-   Bölme beyin senaryodan otomatik olarak kurtarmaya mümkündür. Daha fazla bilgi için okuma [otomatik bölme beyin kurtarma ilkeleri](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)
+   Bölme beyin senaryodan otomatik olarak kurtarmaya mümkündür. Daha fazla bilgi için okuma [otomatik bölme beyin kurtarma ilkeleri](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)
    
 ### <a name="configure-cluster-framework"></a>Küme çerçeve Yapılandır
 

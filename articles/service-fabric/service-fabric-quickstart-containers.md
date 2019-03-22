@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 05f8c1898e565e145aedbfdc13e0a88ad09486dc
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 4c7de6738e30cd883257f3b2ea873c933364c003
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804665"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311892"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Hızlı Başlangıç: Windows kapsayıcıları Service Fabric'e dağıtma
 
@@ -149,7 +149,7 @@ Aşağıdaki içeriği kopyalayın **CN =** çalıştırdığınızda PowerShell
 
 Kümedeki her uygulamanın benzersiz bir adı olmalıdır. Ad çakışması varsa, Visual Studio projesini yeniden adlandırın ve bir kez daha dağıtın.
 
-Bir tarayıcı açın ve içine yerleştirdiğiniz adresine gidin **bağlantı uç noktası** önceki adımda alan. İsteğe bağlı olarak, URL’nin başına düzen tanımlayıcısını (`http://`) ve sonuna bağlantı noktasını (`:80`) ekleyebilirsiniz. Örneğin, http://mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
+Bir tarayıcı açın ve içine yerleştirdiğiniz adresine gidin **bağlantı uç noktası** önceki adımda alan. İsteğe bağlı olarak, URL’nin başına düzen tanımlayıcısını (`http://`) ve sonuna bağlantı noktasını (`:80`) ekleyebilirsiniz. Örneğin, http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 
  IIS varsayılan web sayfasını görmeniz gerekir: ![IIS varsayılan web sayfası][iis-default]
 

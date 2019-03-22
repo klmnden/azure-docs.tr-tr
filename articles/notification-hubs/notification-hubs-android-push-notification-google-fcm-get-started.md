@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/05/2019
 ms.author: jowargo
-ms.openlocfilehash: c4932bcb890770ac3914198e511c3890e29b26cb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2fe448f3ed91f2c6dd242c24aa378c3541eceecc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449929"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857955"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Öğretici: Azure Notification Hubs ve Google Firebase Cloud Messaging kullanarak Android cihazlarına anında iletme bildirimleri
 
@@ -29,7 +29,7 @@ ms.locfileid: "57449929"
 
 Bu öğreticide Azure Notification Hubs ve Firebase Cloud Messaging (FCM) için bir Android uygulamasına anında iletme bildirimleri nasıl kullanılacağını gösterir. Bu öğreticide Firebase Cloud Messaging (FCM) kullanarak anında iletme bildirimleri alan bir Android uygulaması oluşturacaksınız.
 
-Bu öğreticinin tamamlanan kodu GitHub'da [buradan](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase) indirilebilir.
+Bu öğreticinin tamamlanan kodu GitHub'da [buradan](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples/FCMTutorialApp) indirilebilir.
 
 Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 
@@ -92,7 +92,7 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
 1. **Uygulamanın** `Build.Gradle` dosyasında **bağımlılıklar** bölümüne aşağıdaki satırları ekleyin.
 
     ```gradle
-    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
     implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 
@@ -101,7 +101,7 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
     ```gradle
     repositories {
         maven {
-            url "http://dl.bintray.com/microsoftazuremobile/SDK"
+            url "https://dl.bintray.com/microsoftazuremobile/SDK"
         }
     }
     ```
@@ -111,7 +111,7 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
 1. İçinde `Build.Gradle` dosya **uygulama**, aşağıdaki satırları ekleyin **bağımlılıkları** zaten mevcut değilse bölüm. 
 
     ```gradle
-    implementation 'com.google.firebase:firebase-core:16.0.0'
+    implementation 'com.google.firebase:firebase-core:16.0.7'
     ```
 
 2. Zaten mevcut değilse şu eklenti dosyanın sonuna ekleyin. 
@@ -186,8 +186,8 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
         }
         ```
 
-    > [!IMPORTANT]
-    > Girin **adı** ve **DefaultListenSharedAccessSignature** proceding önce bildirim hub'ınızın daha fazla. 
+     > [!IMPORTANT]
+     > Girin **adı** ve **DefaultListenSharedAccessSignature** proceding önce bildirim hub'ınızın daha fazla. 
 2. Adlı başka bir sınıf ekleyin `MyInstanceIDService`. Bu sınıf, Örnek Kimliği dinleyici hizmeti uygulamanız olacaktır.
 
     Bu sınıfın kodu, arka planda `IntentService`FCM belirtecini yenileme[ amacıyla ](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) hizmetinizi çağırır.
@@ -554,7 +554,7 @@ Bu öğreticide, Android cihazlara anında iletme bildirimleri göndermek için 
 <!-- URLs. -->
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
+[Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md

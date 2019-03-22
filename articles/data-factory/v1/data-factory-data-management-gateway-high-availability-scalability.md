@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bc8cacd6d52de0367a0ea14748e548b9d32f47ef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016776"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092200"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Veri Yönetimi ağ geçidi - yüksek kullanılabilirlik ve ölçeklenebilirlik (Önizleme)
 > [!NOTE]
@@ -29,8 +29,8 @@ Bu makale, veri yönetimi ağ geçidi ile yüksek kullanılabilirlik ve ölçekl
 
 > [!NOTE]
 > Bu makalede, zaten Integration Runtime (önceki veri yönetimi ağ geçidi) ilişkin temel bilgileri ile ilgili bilgi sahibi olduğunuz varsayılır. Emin değilseniz, bkz. [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md).
-
->**Bu önizleme özelliğini veri yönetimi ağ geçidi sürümü 2.12.xxxx.x ve yukarıdaki resmi olarak desteklenen**. Sürüm 2.12.xxxx.x kullandığınızdan emin olun veya üzeri. Veri Yönetimi ağ geçidi'nin son sürümünü indirin [burada](https://www.microsoft.com/download/details.aspx?id=39717).
+> 
+> **Bu önizleme özelliğini veri yönetimi ağ geçidi sürümü 2.12.xxxx.x ve yukarıdaki resmi olarak desteklenen**. Sürüm 2.12.xxxx.x kullandığınızdan emin olun veya üzeri. Veri Yönetimi ağ geçidi'nin son sürümünü indirin [burada](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="overview"></a>Genel Bakış
 Tek bir mantıksal ağ geçidi portalından ile birden çok şirket içi makinede yüklü veri yönetimi ağ geçidi ilişkilendirebilirsiniz. Bu makineler adlı **düğümleri**. En fazla olabilir **dört düğüm** mantıksal bir ağ geçidi ile ilişkili. Mantıksal bir ağ geçidi için birden çok düğüm (yüklü ağ geçidi ile şirket içi makineler) sahip avantajları şunlardır:  
@@ -163,8 +163,8 @@ Yüksek kullanılabilirlik ve ölçeklenebilirlik özelliğini kullanmak için m
 
 - Sertifika genel olarak güvenilir X509 olmalıdır v3 sertifikası. Ortak (üçüncü taraf) sertifika yetkilisi (CA) tarafından verilen sertifikaların kullanmanızı öneririz.
 - Her Integration runtime düğümü, kimlik bilgileri Yöneticisi uygulaması çalıştıran istemci makine yanı sıra, bu sertifikaya güvenmesi gerekir. 
-> [!NOTE]
-> Kimlik bilgileri Yöneticisi uygulamasını güvenli bir şekilde Kopyalama Sihirbazı'ndan kimlik bilgisi ayarlanırken kullanılır / Azure portalı. Ve bu, şirket içi aynı ağ içinde herhangi bir makineden tetiklenme / özel veri deposu.
+  > [!NOTE]
+  > Kimlik bilgileri Yöneticisi uygulamasını güvenli bir şekilde Kopyalama Sihirbazı'ndan kimlik bilgisi ayarlanırken kullanılır / Azure portalı. Ve bu, şirket içi aynı ağ içinde herhangi bir makineden tetiklenme / özel veri deposu.
 - Joker karakterli sertifikalar desteklenir. FQDN adınız ise **node1.domain.contoso.com**, kullanabileceğiniz ***. domain.contoso.com** sertifikanın konu adı olarak.
 - SAN sertifika konu diğer adları yalnızca son maddenin kullanılacak ve diğer tüm mevcut sınırlama nedeniyle yoksayılacak önerilmez. Örneğin bir SAN sertifikası, SAN olan sahip **node1.domain.contoso.com** ve **node2.domain.contoso.com**, yalnızca bu sertifika, FQDN: makinede kullanabilirsiniz **node2.domain.contoso.com**.
 - SSL sertifikaları için Windows Server 2012 R2 tarafından desteklenen herhangi bir anahtar boyutu destekler.
@@ -207,7 +207,7 @@ Durum  | Yorumlar/senaryoları
 Çevrimdışı | Düğümü çevrimdışı durumda.
 Yükseltiliyor | Düğüm, otomatik olarak güncelleştirilir.
 Sınırlı | Bağlantı sorunundan kaynaklanıyor. HTTP bağlantı noktası 8050 sorunu, service bus bağlantı sorunu veya kimlik bilgileri eşitleme sorunu nedeniyle olabilir. 
-Devre dışı | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümüdür.<br/><br/> Diğer düğümlere bağlanamadığında bir düğüm etkin olabilir. 
+Etkin Değil | Diğer Çoğunluk düğüm yapılandırmasından farklı bir yapılandırmada düğümüdür.<br/><br/> Diğer düğümlere bağlanamadığında bir düğüm etkin olabilir. 
 
 
 Aşağıdaki tabloda, olası durumlar sağlayan bir **mantıksal ağ geçidi**. Ağ geçidi durumu, ağ geçidi düğümleri durumlar üzerinde bağlıdır. 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: f0050a91ca8ed380c838c96cf1e485a80a0c9297
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: c15dc83929aeaf6811f4d19bfca462abfacf4014
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445404"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892464"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Nasıl kullanıcı kaydı ve ürün aboneliği temsilcisi seçin
 Temsilci Geliştirici oturum-içinde açma/kaydolma ve abonelik sınıfını yerleşik işlevleri kullanarak Geliştirici portalında ürünlere işleme için mevcut Web sitenizi kullanmanıza olanak tanır. Bu kullanıcı verileri ve doğrulama adımları, özel bir şekilde gerçekleştirmek, Web sitesi sağlar.
@@ -47,7 +47,7 @@ Oluşturmak için ihtiyacınız artık **temsilci seçme uç nokta**. Bir dizi e
 
 1. Bir isteği şu biçimde alırsınız:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL Kaynak sayfası} & karmalaştırılır {dize} = & sig = {string}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn & returnUrl = {kaynak sayfasının URL'sini} & salt {dize} = & sig = {string}*
    > 
    > 
    
@@ -104,7 +104,7 @@ Temsilci seçme uç nokta aşağıdaki eylemleri gerçekleştirir emin olun:
 
 1. Bir isteği şu biçimde alırsınız:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product Abone olunacak} & UserID {isteği yapan kullanıcı} = & salt {dize} = & sig = {string}*
+   > *http:\/{operation} /www.yourwebsite.com/apimdelegation?operation= & ProductID {abone olmak için product} = & UserID {isteği yapan kullanıcı} = & karmalaştırılır {dize} = & sig = {string}*
    > 
    > 
    
@@ -120,7 +120,7 @@ Temsilci seçme uç nokta aşağıdaki eylemleri gerçekleştirir emin olun:
    * **Sig**: karma kendi karşılaştırma için kullanılacak bir hesaplanan güvenlik karma hesaplanır
 2. İstek Azure API Management'ı (isteğe bağlı, ancak yüksek düzeyde güvenlik için önerilen) geldiğini doğrulayın
    
-   * Temel bir dizenin bir HMAC SHA512 işlem **ProductID**, ** USERID, ve **salt** sorgu parametreleri:
+   * Temel bir dizenin bir HMAC SHA512 işlem **ProductID**, **UserID**, ve **salt** sorgu parametreleri:
      
      > HMAC (**salt** + '\n' + **ProductID** + '\n' + **UserID**)
      > 

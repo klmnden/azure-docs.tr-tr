@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 863b380d4f36e24119e64fbd4a59e8cd66c911e1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: da24c437a1dbe8744579cd26ee1348f50c4815ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779428"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884753"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs ile anında iletme bildirimleri: Sık sorulan sorular
 
@@ -217,22 +217,22 @@ Azure Notification hubs'ı etkinleştirir telemetri verileri görüntüleme [Azu
 > Başarılı bildirimler yalnızca dış PNS (örneğin, APNS için Apple) veya Google için FCM için anında iletme bildirimleri teslim edilmediği anlamına gelir. Bildirimleri hedef cihazlara teslim PNS sorumluluğundadır. Genellikle PNS teslim ölçümleri üçüncü taraflara kullanıma sunmuyor.  
 
 [Azure portal]: https://portal.azure.com
-[Notification Hubs fiyatlandırması]: http://azure.microsoft.com/pricing/details/notification-hubs/
-[Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
+[Notification Hubs fiyatlandırması]: https://azure.microsoft.com/pricing/details/notification-hubs/
+[Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Örnek olay incelemesi: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [Örnek olay incelemesi: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [Örnek olay incelemesi: Seattle saatleri]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
 [Örnek olay incelemesi: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [Örnek olay incelemesi: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [Notification hubs'ı REST API'leri]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Notification hubs'ı kullanmaya başlama öğreticileri]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Chrome uygulama Öğreticisi]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
-[Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
+[Notification hubs'ı kullanmaya başlama öğreticileri]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Chrome uygulama Öğreticisi]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
+[Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Arka uç kayıt Kılavuzu]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Arka uç kaydı Kılavuzu 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [Bildirim hub'ları güvenlik modeli]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Bildirim hub'ları güvenli bildirim Öğreticisi]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Bildirim hub'ları sorunlarını giderme]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Bildirim hub'ları güvenli bildirim Öğreticisi]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[Bildirim hub'ları sorunlarını giderme]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Bildirim hub'ları ölçümleri]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Kayıtları dışarı/içeri aktarma]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure portal]: https://portal.azure.com

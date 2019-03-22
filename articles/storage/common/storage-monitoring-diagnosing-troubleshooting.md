@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 25ec52b44f8d5a36868cc609c42b6db5ab939fa4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: MT
+ms.openlocfilehash: bfaa738b0f99594a3bd11541d519701ff5eb98f5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490279"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896169"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage izleme, tanılama ve sorun giderme
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -123,9 +123,9 @@ Bu bölümün geri kalanında izlemeniz hangi ölçümleri açıklar ve neden.
 Kullanabileceğiniz [Azure portalında](https://portal.azure.com) dünyanın dört bir yanındaki tüm Azure bölgelerinde depolama hizmeti (ve diğer Azure Hizmetleri) durumunu görüntülemek için. İzleme etkinleştirir, bir sorun varsa denetiminiz dışında hemen görmek için uygulamanız için kullandığınız bölgede depolama hizmeti etkiliyor.
 
 [Azure portalında](https://portal.azure.com) çeşitli Azure hizmetlerini etkileyen olayların bildirimleri de sağlayabilirsiniz.
-Not: Bu bilgiler bunların birlikte çalışarak geçmiş verileri, üzerinde önceden kullanılabilen [Azure hizmet Panosu](http://status.azure.com).
+Not: Bu bilgiler bunların birlikte çalışarak geçmiş verileri, üzerinde önceden kullanılabilen [Azure hizmet Panosu](https://status.azure.com).
 
-Sırada [Azure portalında](https://portal.azure.com) sistem bilgilerini toplar gelen (Inside out izleme), Azure veri merkezleri içinde ayrıca erişim düzenli aralıklarla yapay işlemler oluşturmak için bir dışarıdan içeriye yaklaşımı benimsemeyi göz önünde Azure'da barındırılan web uygulamanız birden fazla konumdan. Tarafından sunulan hizmetler [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) ve Azure DevOps için Application Insights bu yaklaşım bir örnektir. Ek Azure DevOps için Application Insights hakkında daha fazla bilgi için bkz. "[ek 5: Azure DevOps için Application Insights ile izleme](#appendix-5). "
+Sırada [Azure portalında](https://portal.azure.com) sistem bilgilerini toplar gelen (Inside out izleme), Azure veri merkezleri içinde ayrıca erişim düzenli aralıklarla yapay işlemler oluşturmak için bir dışarıdan içeriye yaklaşımı benimsemeyi göz önünde Azure'da barındırılan web uygulamanız birden fazla konumdan. Tarafından sunulan hizmetler [Dynatrace](https://www.dynatrace.com/en/synthetic-monitoring) ve Azure DevOps için Application Insights bu yaklaşım bir örnektir. Ek Azure DevOps için Application Insights hakkında daha fazla bilgi için bkz. "[ek 5: Azure DevOps için Application Insights ile izleme](#appendix-5). "
 
 ### <a name="monitoring-capacity"></a>İzleme kapasitesi
 Depolama ölçümleri bloblar genellikle büyük bir oranı, depolanan verilerin hesabı için blob hizmeti için kapasite ölçümlerini yalnızca depolar (makalenin yazıldığı sırada, tablolar ve Kuyruklar kapasitesini izlemek için depolama ölçümlerini kullanmak mümkün değildir). Bu verileri bulabilirsiniz **$MetricsCapacityBlob** Blob hizmeti için izleme etkinleştirilirse tablo. Depolama ölçümlerini, bu verileri günde bir kez kaydeder ve değerini kullanabilir **RowKey** satırının kullanıcı verileri için ilişkili varlık içerip içermediğini belirlemek için (değer **veri**) veya Analiz verilerini (değer **analytics**). Depolanan her varlık, kullanılan depolama miktarı hakkında bilgi içerir (**kapasite** bayt cinsinden ölçülür) ve kapsayıcılar geçerli sayısı (**ContainerCount**) ve bloblar (**ObjectCount** ) depolama hesabının kullanımda. Depolanan kapasite ölçümleri hakkında daha fazla bilgi için **$MetricsCapacityBlob** tablo bkz [Storage Analytics Ölçüm tablosu şeması](https://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -194,7 +194,7 @@ Uygulamanızın kullanıcılarının, istemci uygulaması tarafından bildirilen
 > 
 > 
 
-Aşağıdaki kaynaklar, depolama ile ilgili durum ve hata kodları anlamak için kullanışlıdır:
+Aşağıdaki kaynaklar, depolamayla ilgili durum ve hata kodlarının anlaşılması konusunda yararlıdır:
 
 * [Genel REST API hata kodları](https://msdn.microsoft.com/library/azure/dd179357.aspx)
 * [Blob Hizmeti Hata Kodları](https://msdn.microsoft.com/library/azure/dd179439.aspx)
@@ -220,10 +220,10 @@ Depolama günlüğü, sunucu tarafı günlüğe kaydetme, Azure depolama hesabı
 ### <a name="using-network-logging-tools"></a>Ağ günlük araçları kullanma
 İstemci ve sunucu değişimi veri ve temel ağ koşulları hakkında ayrıntılı bilgi sağlamak için istemci ve sunucu arasındaki trafiği yakalayabilirsiniz. Yararlı ağ günlük araçları içerir:
 
-* [Fiddler](http://www.telerik.com/fiddler) hata ayıklama proxy'sine, üst bilgiler ve HTTP ve HTTPS istek ve yanıt iletilerinin yük verisi incelemenize olanak sağlayan ücretsiz bir Web. Daha fazla bilgi için [pur'un ek 1: HTTP ve HTTPS trafiğini yakalamak için Fiddler kullanarak](#appendix-1).
-* [Microsoft Ağ İzleyicisi'nin (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) ve [Wireshark](http://www.wireshark.org/) ücretsiz ağ olan çok çeşitli ağ protokolleri için ayrıntılı paket bilgilerini görüntülemenize olanak tanıyan protokol çözümleyici. Wireshark hakkında daha fazla bilgi için bkz. "[ek 2: Ağ trafiğini yakalamak için Wireshark kullanarak](#appendix-2)".
+* [Fiddler](https://www.telerik.com/fiddler) hata ayıklama proxy'sine, üst bilgiler ve HTTP ve HTTPS istek ve yanıt iletilerinin yük verisi incelemenize olanak sağlayan ücretsiz bir Web. Daha fazla bilgi için [pur'un ek 1: HTTP ve HTTPS trafiğini yakalamak için Fiddler kullanarak](#appendix-1).
+* [Microsoft Ağ İzleyicisi'nin (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) ve [Wireshark](https://www.wireshark.org/) ücretsiz ağ olan çok çeşitli ağ protokolleri için ayrıntılı paket bilgilerini görüntülemenize olanak tanıyan protokol çözümleyici. Wireshark hakkında daha fazla bilgi için bkz. "[ek 2: Ağ trafiğini yakalamak için Wireshark kullanarak](#appendix-2)".
 * Microsoft Message Analyzer, Microsoft'tan Netmon ve bu ağ paket verilerini yakalama yanı sıra yerini alır, görüntüleyin ve diğer araçlardan yakalanan günlük verilerini analiz etmenize yardımcı olur, bir araçtır. Daha fazla bilgi için "[ek 3: Ağ trafiğini yakalamak için Microsoft ileti Çözümleyicisi'ni kullanarak](#appendix-3)".
-* İstemci makinenizde ağ üzerinden Azure depolama hizmetine bağlanabildiğinden emin denetlemek için bir temel bağlantısı sınaması gerçekleştirmesini istiyorsanız, bu standart kullanarak bunu yapamazsınız **ping** istemcide aracı. Ancak, kullanabileceğiniz [ **Telnet** aracı](http://www.elifulkerson.com/projects/tcping.php) bağlantıyı denetlemek için.
+* İstemci makinenizde ağ üzerinden Azure depolama hizmetine bağlanabildiğinden emin denetlemek için bir temel bağlantısı sınaması gerçekleştirmesini istiyorsanız, bu standart kullanarak bunu yapamazsınız **ping** istemcide aracı. Ancak, kullanabileceğiniz [ **Telnet** aracı](https://www.elifulkerson.com/projects/tcping.php) bağlantıyı denetlemek için.
 
 Çoğu durumda, depolama günlüğe kaydetme ve depolama istemci kitaplığı günlük verilerini bir sorunu tanılamak yeterli olacaktır, ancak bazı senaryolarda bu ağ günlük araçları sağlayan daha ayrıntılı bilgi gerekebilir. Örneğin, HTTP ve HTTPS iletilerini görüntülemek için Fiddler'ı kullanarak, gönderilen ve depolama hizmetleri, bir istemci uygulaması, depolama işlemleri nasıl yeniden deneme incelemek etkinleştirmeyi tercih üst bilgisi ve yük verileri görüntülemenize olanak tanır. Böylece, kayıp paketlerin ve bağlantı sorunlarını gidermek etkinleştirmeyi tercih TCP verileri görüntüleyebilirsiniz paket düzeyinde protokol çözümleyici Wireshark gibi çalışır. İleti Çözümleyicisi'ni, hem HTTP hem de TCP katmanına çalışabilir.
 
@@ -464,12 +464,12 @@ Sunucu zaman aşımı daha fazla araştırma gerektiren depolama hizmeti bir sor
 Bu hatanın en yaygın nedeni, bir istemcidir depolama hizmeti zaman aşımı süresi dolmadan önce bağlantısı kesiliyor. Neden ve ne zaman istemci bağlantısını keser ve storage hizmetinden anlamak için istemci kodu inceleyin. İstemciden gelen ağ bağlantısı sorunları araştırmak için Wireshark, Microsoft ileti Çözümleyicisi'ni veya Telnet kullanabilirsiniz. Bu araçlar, şurada açıklanan [Ekler].
 
 ### <a name="the-client-is-receiving-403-messages"></a>İstemci, HTTP 403 (Yasak) iletilerini alma
-İstemci uygulamanızın HTTP 403 (Yasak) hataları yanlamasına ivme kazanmaz, olası bir nedeni (diğer olası nedenler arasında saat eğriltme, geçersiz anahtarlar ve boş başlıkları içerir ancak bir depolama istek gönderdiğinde istemcinin süresi dolmuş bir paylaşılan erişim imzası (SAS) kullanarak olur ). Süresi dolmuş bir SAS anahtarı neden varsa, sunucu tarafı depolama günlüğü günlük verilerinin tüm girdileri görmeyeceğiniz. Aşağıdaki tabloda, bu sorunun oluşmasını gösterir depolama istemcisi kitaplığı tarafından oluşturulan istemci tarafı günlük bir örnek gösterilmektedir:
+İstemci uygulamanızda HTTP 403 (Yasak) hataları oluşuyorsa büyük ihtimalle istemci depolama isteği gönderirken süresi dolmuş bir Paylaşılan Erişim İmzası kullandığı içindir (saat sapması, geçersiz anahtarlar ve boş üst bilgiler gibi başka olası nedenler de vardır). Sorun süresi dolmuş bir SAS anahtarından kaynaklanıyorsa sunucu tarafı Depolama Günlük Kaydı günlük verilerinde herhangi bir giriş görmezsiniz. Aşağıdaki tabloda, bu sorunun oluşmasını gösterir depolama istemcisi kitaplığı tarafından oluşturulan istemci tarafı günlük bir örnek gösterilmektedir:
 
 | Kaynak | Ayrıntı düzeyi | Ayrıntı düzeyi | İstemci istek kimliği | İşlem metin |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-… |Konum modunu PrimaryOnly başına, birincil konumla işlemi başlatılıyor. |
-| Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Eşzamanlı isteği başlatma https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp; sr = c&amp;sı mypolicy =&amp;sig OFnd4Rd7z01fIvh 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % = 3B&amp;api sürümü 2014-02-14 =. |
+| Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Eşzamanlı isteği başlatılıyor <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
 | Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Yanıt bekleniyor. |
 | Microsoft.WindowsAzure.Storage |Uyarı |2 |85d077ab-... |Yanıtı beklenirken özel durum: Uzak sunucu hata döndürdü: (403) Yasak. |
 | Microsoft.WindowsAzure.Storage |Bilgi |3 |85d077ab-... |Yanıt alındı. Durum kodu 403, istek kimliği = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, içerik MD5 = =, ETag =. |
@@ -480,17 +480,17 @@ Bu hatanın en yaygın nedeni, bir istemcidir depolama hizmeti zaman aşımı s�
 
 Bu senaryoda, istemcinin sunucuya belirteç göndermeden önce SAS belirteci neden doluyor araştırmanız gerekir:
 
-* Genellikle, hemen kullanmak bir istemci için bir SAS oluşturduğunuzda, bir başlangıç saati ayarlanmamalıdır. Henüz geçerli olmayan bir SAS almak depolama hizmeti için mümkündür geçerli saati ve depolama hizmeti kullanarak SAS oluşturma konak arasında küçük saat farklılıklar varsa.
-* Bir çok kısa bir süre sonu zamanı SAS ayarlamayın. Yeniden SAS ve depolama hizmeti oluşturma konak küçük saat farklılıkları görünüşe göre beklenenden önce sona erecek SAS için yol açabilir.
+* Genellikle bir istemcinin hemen kullanması için SAS oluştururken başlangıç zamanı ayarlamamalısınız. Geçerli zamanı kullanarak SAS belirtecini oluşturan konak ile depolama hizmeti arasında küçük saat farklılıkları varsa depolama hizmeti henüz geçerli olmayan bir SAS alabilir.
+* Bir SAS belirtecinin sona erme süresini çık kısa ayarlamayın. Ayrıca, SAS belirtecini oluşturan konakla depolama hizmeti arasındaki küçük saat farklılıkları, bir SAS belirtecinin süresinin beklenenden erken dolmuş gibi görünmesine de neden olabilir.
 * Sürüm parametresi SAS anahtarının mu (örneğin **sv = 2015-04-05**) kullandığınız depolama istemci kitaplığı sürümüyle eşleşen? Her zaman en son sürümünü kullanmanızı öneririz [depolama istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/).
-* Depolama erişim anahtarlarınızı yeniden, mevcut tüm SAS belirteçleriniz geçersiz. SAS belirteçleri önbellek istemci uygulamalar için uzun geçerlilik süresine sahip oluşturursanız, bu sorun ortaya çıkabilir.
+* Depolama erişim anahtarlarınızı yeniden oluşturursanız mevcut SAS belirteçleri geçerliliğini kaybedebilir. İstemci uygulamalarının önbelleğe alması için sona erme süresi uzun olan SAS belirteçleri oluşturursanız bu sorunla karşılaşabilirsiniz.
 
-Ardından SAS belirteçleri oluşturmak için depolama istemci kitaplığı kullanıyorsanız, geçerli bir belirteç oluşturmak kolaydır. Depolama REST API kullanarak ve el ile SAS belirteçleri oluşturmak, ancak bkz [bir paylaşılan erişim imzası ile erişim için temsilci seçme](https://msdn.microsoft.com/library/azure/ee395415.aspx).
+SAS belirteçleri oluşturmak için Depolama İstemcisi Kitaplığı’nı kullanıyorsanız geçerli bir belirteç oluşturmak kolaydır. Depolama REST API kullanarak ve el ile SAS belirteçleri oluşturmak, ancak bkz [bir paylaşılan erişim imzası ile erişim için temsilci seçme](https://msdn.microsoft.com/library/azure/ee395415.aspx).
 
 ### <a name="the-client-is-receiving-404-messages"></a>İstemci, HTTP 404 (bulunamadı) iletilerini alma
-İstemci uygulaması, bir HTTP 404 (bulunamadı) hatası iletisi sunucudan alırsa, bu istemci (bir varlık, tablo, blob, kapsayıcı veya kuyruk gibi) kullanma girişiminde nesne depolama hizmeti yok anlamına gelir. Gibi bir dizi, bunun olası nedenleri vardır:
+İstemci uygulaması sunucudan HTTP 404 (Bulunamadı) iletisi alırsa istemcinin kullanmaya çalıştığı nesne (bir varlık, tablo, blob, kapsayıcı veya kuyruk gibi) depolama hizmetinde mevcut değil demektir. Bunun aşağıdaki gibi çeşitli olası nedenleri vardır:
 
-* [Daha önce istemci veya başka bir işlem nesnesi silindi.]
+* [İstemci veya başka bir işlem daha önce nesneyi silmiş]
 * [Bir paylaşılan erişim imzası (SAS) yetkilendirme sorunu]
 * [İstemci tarafı JavaScript kodu nesneye erişim izni yok]
 * [Ağ hatası]
@@ -589,7 +589,7 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 > 
 > 
 
-Web tarayıcısı uyguladığından, bu hatalar ortaya [aynı çıkış noktası İlkesi](http://www.w3.org/Security/wiki/Same_Origin_Policy) bir web sayfası bir API farklı bir etki alanındaki etki alanından sayfa çağırma engelleyen bir güvenlik kısıtlaması gelir.
+Web tarayıcısı uyguladığından, bu hatalar ortaya [aynı çıkış noktası İlkesi](https://www.w3.org/Security/wiki/Same_Origin_Policy) bir web sayfası bir API farklı bir etki alanındaki etki alanından sayfa çağırma engelleyen bir güvenlik kısıtlaması gelir.
 
 JavaScript sorunu geçici olarak çözmek için depolama hizmeti için istemci erişim Cross Origin kaynak paylaşımı (CORS) yapılandırabilirsiniz. Daha fazla bilgi için [Azure depolama hizmetleri için çıkış noktaları arası kaynak paylaşımı (CORS) desteği](https://msdn.microsoft.com/library/azure/dn535601.aspx).
 
@@ -632,9 +632,9 @@ Aşağıdaki tabloda, iki istemci işlemleri için sunucu tarafı günlüğünde
 | 05:10:13.8987407 |GetContainerProperties |404 |mmcont |bc881924-… |
 | 05:10:14.2147723 |CreateContainer |409 |mmcont |bc881924-… |
 
-İstemci uygulaması kodu siler ve ardından hemen aynı adı kullanarak bir blob kapsayıcısı oluşturur: **Createıfnotexists** yöntemi (istemci istek kimliği bc881924-...) sonunda HTTP 409 (Çakışma) hatasıyla başarısız olur. Ne zaman bir istemci blob kapsayıcıları, tabloları veya Kuyrukları adından önce kısa bir süre yoktur siler tekrar kullanılabilir hale gelir.
+İstemci uygulaması kodu siler ve ardından hemen aynı adı kullanarak bir blob kapsayıcısı oluşturur: **Createıfnotexists** yöntemi (istemci istek kimliği bc881924-...) sonunda HTTP 409 (Çakışma) hatasıyla başarısız olur. Bir istemci blob kapsayıcılarını, tabloları veya kuyrukları sildiğinde adın yeniden kullanılabilir hale gelmesi biraz zaman alır.
 
-İstemci uygulama, silme/yeniden oluşturun desenine sık olarak, yeni kapsayıcılar oluşturduğunda benzersiz kapsayıcı adları kullanmanız gerekir.
+Silme/yeniden oluşturma düzeni genelse istemci uygulaması yeni kapsayıcı oluştururken benzersiz kapsayıcı adları kullanmalıdır.
 
 ### <a name="metrics-show-low-percent-success"></a>Düşük PercentSuccess ölçümleri göster veya Analiz günlük girişlerini ClientOtherErrors işlem durumundaki işlemlerini sahip
 **PercentSuccess** ölçüm başarılı oldu, HTTP durum koduna göre işlemleri yüzdesini yakalar. Durum kodları ile 2XX işlemleri sayısı aralıklarında 3XX, 4XX ve 5XX durum kodları ile işlemleri, başarısız ve daha düşük olarak değerlendirilir ancak olarak başarılı **PercentSuccess** ölçüm değeri. Sunucu tarafı depolama günlük dosyalarında bir işlem durumuyla bu işlemleri kaydedilir **ClientOtherErrors**.
@@ -708,7 +708,7 @@ Microsoft ileti Çözümleyicisi'ni kullanma hakkında daha fazla bilgi için bk
 Ek tanılama ve Azure depolama (ve diğer hizmetleri) ile ilgili sorunları giderme yararlanabileceğiniz birçok araç açıklanmaktadır. Bu araçlar, Azure Depolama'nın bir parçası değildir ve bazı üçüncü taraf ürünleri. Bu nedenle, bu eklerin içinde açıklanan araçları, Microsoft Azure veya Azure depolama ile herhangi bir destek sözleşmesi tarafından kapsanmaz ve lisanslama ve Destek seçeneklerini kullanılabilir değerlendirme sürecinizin bir parçası olarak bu nedenle inceleyin Bu araçlar sağlayıcıları.
 
 ### <a name="appendix-1"></a>Ek 1: HTTP ve HTTPS trafiğini yakalamak için Fiddler'ı kullanma
-[Fiddler](http://www.telerik.com/fiddler) istemci uygulamanızla kullandığınız Azure depolama hizmeti arasında HTTP ve HTTPS trafiğini analiz etmek için kullanışlı bir araçtır.
+[Fiddler](https://www.telerik.com/fiddler) istemci uygulamanızla kullandığınız Azure depolama hizmeti arasında HTTP ve HTTPS trafiğini analiz etmek için kullanışlı bir araçtır.
 
 > [!NOTE]
 > Fiddler, HTTPS trafiği çözebilen; dikkatli bir şekilde, bunu nasıl yaptığını anlamak ve güvenlik etkilerini anlamak için fiddler'ı belgeleri okumanız gerekir.
@@ -727,14 +727,14 @@ Fiddler yakalayan trafik miktarını sınırlamak için yapılandırdığınız 
 ![][5]
 
 ### <a name="appendix-2"></a>Ek 2: Ağ trafiğini yakalamak için Wireshark kullanma
-[Wireshark](http://www.wireshark.org/) çok çeşitli ağ protokolleri için ayrıntılı paket bilgilerini görüntülemenize olanak sağlayan bir ağ protokol çözümleyici.
+[Wireshark](https://www.wireshark.org/) çok çeşitli ağ protokolleri için ayrıntılı paket bilgilerini görüntülemenize olanak sağlayan bir ağ protokol çözümleyici.
 
 Aşağıdaki yordam Wireshark için tablo hizmeti, Azure depolama hesabınızdaki yüklediğiniz yerel makine giden trafik için ayrıntılı paket bilgilerini yakalama gösterir.
 
 1. Yerel makinenizde Wireshark başlatın.
 2. İçinde **Başlat** bölümünde, internet'e bağlı arabirimler ve yerel ağ arabirimi seçin.
 3. Tıklayın **kaydetme seçeneklerini**.
-4. Bir filtre ekleyerek **yakalama filtresi** metin. Örneğin, **contosoemaildist.table.core.windows.net konak** Wireshark veya tablo Hizmeti uç noktası gönderilen paketlerin yakalamak için yapılandırıp yapılandırmayacağınız **contosoemaildist** depolama hesabı. Kullanıma [yakalama filtreleri tam listesi](http://wiki.wireshark.org/CaptureFilters).
+4. Bir filtre ekleyerek **yakalama filtresi** metin. Örneğin, **contosoemaildist.table.core.windows.net konak** Wireshark veya tablo Hizmeti uç noktası gönderilen paketlerin yakalamak için yapılandırıp yapılandırmayacağınız **contosoemaildist** depolama hesabı. Kullanıma [yakalama filtreleri tam listesi](https://wiki.wireshark.org/CaptureFilters).
    
    ![][6]
 5. **Başlat**'a tıklayın. Wireshark tüm istemci uygulamanızı yerel makinenizde kullanırken, paketleri tablo Hizmeti uç noktası almasına veya göndermesine yakalar.
@@ -745,12 +745,12 @@ WireShark mevcut hataları vurgular **packetlist** penceresi. De kullanabilirsin
 
 ![][7]
 
-TCP veri sağ tıklatıp seçerek uygulama katmanı tarafından görülen şekilde TCP verileri görüntülemek de seçebilirsiniz **izleyin TCP Stream**. Bu, döküm yakalama filtresi olmadan, yakalanan yararlıdır. Daha fazla bilgi için [TCP akışları aşağıdaki](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
+TCP veri sağ tıklatıp seçerek uygulama katmanı tarafından görülen şekilde TCP verileri görüntülemek de seçebilirsiniz **izleyin TCP Stream**. Bu, döküm yakalama filtresi olmadan, yakalanan yararlıdır. Daha fazla bilgi için [TCP akışları aşağıdaki](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html).
 
 ![][8]
 
 > [!NOTE]
-> Wireshark kullanma hakkında daha fazla bilgi için bkz. [Wireshark Kullanıcı Kılavuzu](http://www.wireshark.org/docs/wsug_html_chunked).
+> Wireshark kullanma hakkında daha fazla bilgi için bkz. [Wireshark Kullanıcı Kılavuzu](https://www.wireshark.org/docs/wsug_html_chunked).
 > 
 > 
 
@@ -845,7 +845,7 @@ Daha fazla bilgi bulabilirsiniz [Application Insights nedir](../../azure-monitor
 
 [İstemci HTTP 403 (Yasak) iletilerini alıyor]: #the-client-is-receiving-403-messages
 [İstemci HTTP 404 (Bulunamadı) iletilerini alıyor]: #the-client-is-receiving-404-messages
-[Daha önce istemci veya başka bir işlem nesnesi silindi.]: #client-previously-deleted-the-object
+[İstemci veya başka bir işlem daha önce nesneyi silmiş]: #client-previously-deleted-the-object
 [Bir paylaşılan erişim imzası (SAS) yetkilendirme sorunu]: #SAS-authorization-issue
 [İstemci tarafı JavaScript kodu nesneye erişim izni yok]: #JavaScript-code-does-not-have-permission
 [Ağ hatası]: #network-failure

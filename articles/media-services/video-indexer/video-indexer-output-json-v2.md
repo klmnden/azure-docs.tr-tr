@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: feb74b923a1f15105a2d80f8fefb09184162cb9b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c0eedc32ee96c94b8b3621afc0ee211ed2ff19f5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990471"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314884"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>V2 API'si tarafından üretilen Video dizinleyici çıktısını İnceleme
 
@@ -245,34 +245,26 @@ id|Blok kimliği.|
 |güven|Tanıma güvenilirlik.|
 |language|OCR dili.|
 |örnekler|Bu OCR nerede göründüğü zaman aralıkları listesi (aynı OCR birden çok kez görünebilir).|
+|Yükseklik|OCR dikdörtgenin yüksekliğini|
+|Sayfanın Üstü|Piksel üst konumu|
+|Sol| Piksel sol konumunda|
+|Genişlik|OCR dikdörtgenin genişliğini|
 
 ```json
 "ocr": [
     {
       "id": 0,
       "text": "LIVE FROM NEW YORK",
-      "confidence": 0.91,
+      "confidence": 675.971,
+      "height": 35,
       "language": "en-US",
+      "left": 31,
+      "top": 97,
+      "width": 400,      
       "instances": [
         {
           "start": "00:00:26",
           "end": "00:00:52"
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "text": "NOTICIAS EN VIVO",
-      "confidence": 0.9,
-      "language": "es-ES",
-      "instances": [
-        {
-          "start": "00:00:26",
-          "end": "00:00:28"
-        },
-        {
-          "start": "00:00:32",
-          "end": "00:00:38"
         }
       ]
     }

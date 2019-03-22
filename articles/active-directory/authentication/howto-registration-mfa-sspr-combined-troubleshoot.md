@@ -1,5 +1,5 @@
 ---
-title: Azure AD SSPR ve mfa'yı (Önizleme) için birleşik kayıt sorunlarını giderme
+title: Azure AD SSPR ve mfa'yı (Önizleme) - Azure Active Directory için birleşik kayıt sorunlarını giderme
 description: Azure AD multi-Factor Authentication için sorun giderme ve Self Servis parola sıfırlama birleşik kaydı (Önizleme)
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b247a733c6874b023d3dc8114b0538e422baccfd
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 8f799b671e6216b402aa988aa66da4c2cfc44693
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589132"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317536"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Sorun giderme birleştirilmiş güvenlik bilgileri kayıt (Önizleme)
 

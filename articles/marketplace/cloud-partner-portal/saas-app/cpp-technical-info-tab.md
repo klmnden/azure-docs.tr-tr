@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 383f65ea925a3575afd988e07784be643201c6b8
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 891d9b7b34e3d30efb46b69ef1aa75566fe634c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214512"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120763"
 ---
 # <a name="saas-application-technical-info-tab"></a>SaaS uygulaması teknik bilgileri sekmesi
 
@@ -44,7 +44,7 @@ Bu deneyim oluşturmak için şu bilgilere yapılandırmanız gerekir:
 - SaaS hizmeti siteniz ile Microsoft'un SaaS API'lerine bağlanın. [Azure – API'leri ile SaaS satış](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis) makalede bu bağlantının nasıl oluşturulacağını açıklar.
 - Azure üzerinde bulut iş ortağı Portalı aracılığıyla satış teknik yapılandırma formunda etkinleştirin ve gerekli bilgileri sağlayın. Bu faturalama modeli ve nasıl uygulandığı hakkında daha fazla bilgi için bkz. [SaaS – Azure üzerinden satın](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions).
 
- ![Microsoft formu satış yapın](./media/saas-techinfo-sellthrough-ms.png)
+  ![Microsoft formu satış yapın](./media/saas-techinfo-sellthrough-ms.png)
 
 Aşağıdaki tabloda, Microsoft aracılığıyla satış için gerekli alanları açıklar.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 1313616818686c7a03269fc1cc837958665732d8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725244"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337553"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure uygulama Hizmeti'ne sürekli dağıtım
 Bu makale için sürekli dağıtım yapılandırma işlemi gösterilmektedir [Azure App Service](overview.md). App Service; BitBucket, GitHub, sürekli dağıtımı sağlar ve [Azure DevOps Hizmetleri](https://www.visualstudio.com/team-services/) Bu hizmetlerden biri olarak mevcut deponuzdaki en son güncelleştirmeleri çekerek.
@@ -47,6 +47,16 @@ GitHub ile bir kez yetkilendirmek yeterlidir. Zaten sahip olduğunuz, tıklaman�
 ### <a name="option-1-use-app-service-kudu-build-server"></a>1. seçenek: App Service Kudu derleme sunucusu kullanma
 
 İçinde **yapılandırma** sayfasında, sürekli olarak dağıtmak istediğiniz kuruluş, depoyu ve dalı seçin. İşiniz bittiğinde tıklayın **devam**.
+
+GitHub kuruluşuna bir depodan dağıtmak için Github'da göz atın ve Git **ayarları** > **uygulamaları** > **OAuth yetkili uygulamalar**. "Azure App Service"'ye tıklayın.
+
+![Ayarlar > Uygulamalar > OAuth uygulamalar yetkili > Azure uygulama hizmeti](media/app-service-continuous-deployment/github-settings-navigation.png)
+
+Sonraki sayfada, sağ taraftaki "Verme" düğmesine tıklayarak kuruluşunuzun depolarına App Service erişimi verin.
+
+!["App Service kuruluşun depoları erişim vermek için Grant" tıklayın](media/app-service-continuous-deployment/grant-access.png)
+
+Kuruluşunuz artık "Kuruluş" listesinde göstermelidir **yapılandırma** Dağıtım Merkezi sayfasında.
 
 ### <a name="option-2-use-azure-pipelines-preview"></a>2. seçenek: Azure işlem hatları (Önizleme) kullanma
 

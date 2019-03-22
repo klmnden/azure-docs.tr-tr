@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: bc5c4648a5efe53e3aa645bf1d6b121008eb86dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0942d5ba7b31ddb2c0dec5fe979f1331d1bf3bfd
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854934"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336040"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service ve Azure işlevleri için yönetilen kimliklerini kullanma
 
@@ -252,7 +252,7 @@ Burada `<PRINCIPALID>` ve `<CLIENTID>` GUID'lerini aşağıdaki ile değiştiril
 Uygulama kimliğini, Azure Key Vault gibi bir AAD tarafından korunan diğer kaynaklara belirteçlerini almak için kullanabilirsiniz. Bu belirteçler kaynağı ve belirli hiçbir kullanıcı uygulamanın erişen uygulamada temsil eder. 
 
 > [!IMPORTANT]
-> Hedef kaynak, uygulamanızdan erişime izin verecek şekilde yapılandırmanız gerekebilir. Örneğin, anahtar kasası için bir belirteç isteği, uygulamanızın kimliğini içeren bir erişim ilkesi eklediğinizden emin olun gerekir. Belirteç içeriyorsa bile Aksi takdirde, aramalarınız için Key Vault, reddedilir. Azure Active Directory belirteçleri daha destek hangi kaynakları hakkında bilgi edinmek için [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
+> Hedef kaynak, uygulamanızdan erişime izin verecek şekilde yapılandırmanız gerekebilir. Örneğin, anahtar kasası için bir belirteç isteği, uygulamanızın kimliğini içeren bir erişim ilkesi eklediğinizden emin olun gerekir. Belirteç içeriyorsa bile Aksi takdirde, aramalarınız için Key Vault, reddedilir. Azure Active Directory belirteçleri daha destek hangi kaynakları hakkında bilgi edinmek için [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 App Service ve Azure işlevleri, bir belirteç almak için basit bir REST protokolü yoktur. .NET uygulamaları için Microsoft.Azure.Services.AppAuthentication kitaplığını, bu protokolü üzerinden bir Özet sağlar ve bir yerel geliştirme deneyimini destekler.
 
@@ -287,7 +287,7 @@ Yönetilen bir kimlik ile bir uygulama tanımlı iki ortam değişkenleri vardı
 
 > |Parametre adı|İçinde|Açıklama|
 > |-----|-----|-----|
-> |kaynak|Sorgu|AAD kaynak kaynağın URI'sini için bir belirteç elde edilmelidir. Bu, aşağıdakilerden biri olabilir [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) veya başka bir kaynağa bir URI.|
+> |kaynak|Sorgu|AAD kaynak kaynağın URI'sini için bir belirteç elde edilmelidir. Bu, aşağıdakilerden biri olabilir [Azure Hizmetleri söz konusu destek Azure AD kimlik doğrulamasını](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) veya başka bir kaynağa bir URI.|
 > |API sürümü|Sorgu|Kullanılacak belirteç API sürümü. "2017-09-01", şu anda desteklenen tek sürüm aşamasındadır.|
 > |gizli dizi|Üst bilgi|MSI_SECRET ortam değişkeninin değeri. Bu üst bilgi, sunucu tarafı istek sahteciliği (SSRF) saldırılarını önlemeye yardımcı olmak için kullanılır.|
 > |ClientID|Sorgu|(İsteğe bağlı) Kullanılacak kullanıcı tarafından atanan kimlik kimliği. Atlanırsa, sistem tarafından atanan kimlik kullanılır.|

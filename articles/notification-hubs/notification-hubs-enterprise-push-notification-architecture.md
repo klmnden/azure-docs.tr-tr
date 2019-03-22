@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: c8e204aef8bea26394c7180a72eb8ed8f62bbdc4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: MT
+ms.openlocfilehash: 369f3ebca0ca2f5862d8300934dee57a73d8bada
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447267"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903411"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Kurumsal gönderim mimari kılavuzu
 
@@ -284,9 +284,9 @@ Tam örnek kodu kullanılabilir [bildirim hub'ı örnekleri]. Bu üç bileşene 
 
 <!-- Links -->
 [Bildirim hub'ı örnekleri]: https://github.com/Azure/azure-notificationhubs-samples
-[Azure mobil hizmeti]: http://azure.microsoft.com/documentation/services/mobile-services/
-[Azure Service Bus]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Service Bus Pub/Sub programlama]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Azure mobil hizmeti]: https://azure.microsoft.com/documentation/services/mobile-services/
+[Azure Service Bus]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+[Service Bus Pub/Sub programlama]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Azure WebJob]: ../app-service/webjobs-create.md
-[Notification Hubs - Windows Evrensel Öğreticisi]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Notification Hubs - Windows Evrensel Öğreticisi]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Azure portal]: https://portal.azure.com/
